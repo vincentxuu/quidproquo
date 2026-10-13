@@ -222,7 +222,14 @@
 - 為什麼現在不能做：Groundlane 工具在 connector 層級顯示的狀態（連線＋啟用）與 session 實際可呼叫的工具清單不一致，屬於這個 chat／session 或其底層 MCP 掛載機制的環境問題，不是 repo 內能修的東西；需要人確認是暫時性的 session 快照問題（比照 Q-019 最後幾條記錄裡「同一天不同 session 環境差異很大」的先例，很可能下次執行就自行恢復），或是需要另外處理的掛載故障。
 - 接手第一步：(1) 下次執行任一依賴 Groundlane 的 daily-digest routine 時，先用 `ListConnectors(["groundlane"])` 和 `ToolSearch("select:mcp__groundlane__web_search,...")` 各查一次，確認這次的 session 是否恢復（若恢復，直接比照 Q-020 8/30 的解除模式標記本條解決，不用重複記錄）；(2) 若連續多次都是「connector 顯示啟用但工具查無」，需要使用者或平台端檢查這個 workspace 的 Groundlane MCP 掛載設定是否有 session-level 快取或掛載時序問題；(3) 在此之前，所有明文要求「僅限 Groundlane」的 daily-digest-* routine 遇到同樣狀況時，比照本條處置——不要改用 Exa/Tavily/Firecrawl 頂替，寧可不產出。
 
-## Done
+### Q-034 其他課程系列的標題仍有堂次撞號、重複「導讀」與誤標「主題單元」（138 個既有問題）
+- 登錄：2026-10-13（來源：使用者在林軒田系列頁問「為什麼不是每一堂一篇文章，標題沒有按照格式」）
+- 做什麼：林軒田系列已修；`check-course-titles.mjs` 新增三條規則後，全站其他系列還有 138 個既有問題：主題以「⋯⋯導讀：」或 `Reading ...:` 開頭 45 個（ntu-ml2026 21、ntu-adl2025 12、nthu-nlp 6 等）、該標堂次或作業卻標「主題單元」63 個（CS230、CS234、CMU 10-423、MIT 6.7960 與多門課的作業文）、同課名堂次或作業重疊 30 個（Harvard CS181 作業 16、CME295 8、MIT 6.5940、MIT 6.S184 03a/03b、Berkeley CS189）。
+- 為什麼現在不能做：超過 20 檔、跨二十多個系列，部分要判斷是改標題還是併篇（MIT 6.S184 的 03a/03b 與一堂一篇規則衝突），屬 Tier 2；這次只授權林軒田系列。
+- 目前狀態：三條規則在指定檔案時阻擋、全站 gate 只計數不阻擋，`pnpm verify` 會印出 pending 數字。
+- 接手第一步：`node .agents/skills/post/scripts/check-course-titles.mjs --audit` 列出清單，依系列分批給使用者確認；全部清完後把 `main()` 裡的 `migration` 過濾拿掉，改成全站阻擋。
+
+# Done
 
 （完成的條目標記日期移到這裡）
 

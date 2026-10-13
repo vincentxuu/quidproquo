@@ -1,292 +1,696 @@
 ---
-title: "決策樹、隨機森林與梯度提升樹｜台大林軒田 機器學習基石與技法 第 9–11 堂"
+title: "決策樹：C&RT 怎麼切、怎麼剪｜台大林軒田 機器學習技法 第 9 堂"
 date: 2026-09-30
 category: ai
 type: guide
-tags: [ntu-htlin-ml, ntu, ai-course, machine-learning, ensemble, decision-trees]
+tags: [ntu-htlin-ml, ntu, ai-course, machine-learning, decision-trees, ensemble]
 lang: zh-TW
+math: true
 series:
   name: "台大林軒田 機器學習基石與技法 導讀"
-  order: 13
-tldr: "技法第 9–11 講用「樹＋aggregation」一條線串起三種模型。T9 把決策樹看成 conditional aggregation，講 C&RT 的二元分支、Gini 與迴歸誤差、剪枝、類別特徵與 surrogate branch。T10 把 bagging 套在完全長大的樹上，加上隨機子空間與隨機投影就是隨機森林，順帶得到免費的 OOB 驗證與 permutation 特徵重要度。T11 先把 AdaBoost 重新推導成對指數誤差做函數空間的最速下降，再把誤差換成平方誤差，得到「對殘差做迴歸」的 GBDT。練習用 Fall 2024 HW7 的 impurity、gradient boosting 證明題；沒有官方解答。"
-description: "台大林軒田《機器學習技法》第 9 講 Decision Tree、第 10 講 Random Forest、第 11 講 Gradient Boosted Decision Tree 導讀：C&RT 演算法與 heuristics、隨機森林與 random-combination 分支、OOB 估計與模型選擇、permutation test 特徵選擇、AdaBoost-DTree、AdaBoost 的最佳化觀點、gradient boosting 推導與 aggregation 模型總整理，附 Fall 2024 HW7 對應題與課程頁列的 Loh、Breiman、Friedman 延伸閱讀。"
+  order: 26
+tldr: "決策樹是邊學邊做 conditional aggregation 的模型：每條從根到葉的路徑是一個條件，葉子是一個常數。C&RT 每次用一個 decision stump 把資料切成兩份，挑加權不純度最小的切法，切到不能再切為止；這樣長出來的樹 E_in 幾乎都是 0，所以要用「E_in 加 λ 乘葉子數」剪枝，λ 用 validation 選。同一套遞迴還能處理多類別、類別特徵與缺值。"
+description: "台大林軒田機器學習技法第 9 堂 Decision Tree 導讀：路徑觀點與遞迴觀點、C&RT 的四個選擇、Gini index 與其他不純度、完全長大的樹與剪枝、decision subset、surrogate branch，並用 14 筆資料把一棵樹手算長完再剪。"
 draft: false
 glossary:
   - term: "C&RT"
     aliases: ["CART", "Classification and Regression Tree"]
     definition: "每個節點用 decision stump 二元分支、挑讓兩邊最「純」的切法，葉子放 E_in 最佳的常數（分類取多數、迴歸取平均），長到不能再切為止。"
-    context: "林軒田 T9 特別聲明，課堂上的 C&RT 只取 CART 的部分元件。"
-  - term: "OOB"
-    aliases: ["out-of-bag", "袋外估計"]
-    definition: "bootstrap 抽樣時沒被抽中的樣本。每個樣本大約有 1/e 的機率不在某一份 bootstrap 資料裡，可以拿來驗證沒看過它的那些樹。"
-    context: "T10 稱 E_oob 為 bagging／隨機森林的 self-validation，不需要另外切 validation、也不需重新訓練。"
-  - term: "gradient boosting"
-    aliases: ["GradientBoost", "GBDT"]
-    definition: "把 boosting 看成在函數空間做最速下降：每一輪找一個近似負梯度方向的 g_t，再用一維搜尋決定步長 α_t。平方誤差時等於對殘差 y_n − s_n 做迴歸。"
-    context: "T11 由 AdaBoost 的指數誤差推廣到任意誤差；基礎模型用剪過枝的樹就是 GBDT。"
+    context: "技法第 9 堂的講義聲明，課堂上的 C&RT 只取 CART 的部分元件。"
+  - term: "不純度"
+    aliases: ["impurity", "impurity function"]
+    definition: "衡量一份資料的 y 有多不一致的數字，全部一樣時是 0。C&RT 用它替每一種切法打分數：兩份資料各自的不純度乘上筆數再相加，愈小愈好。"
+    context: "技法第 9 堂列了迴歸誤差、分類錯誤率與 Gini index 三種。"
+  - term: "Gini index"
+    aliases: ["Gini 不純度", "Gini impurity"]
+    definition: "1 減掉各類別比例的平方和。只有一個類別時是 0，K 個類別各占 1/K 時最大，是 1 − 1/K。"
+    context: "講義說分類問題常用它當 C&RT 的不純度，因為所有類別的比例都算進去。"
+  - term: "剪枝"
+    aliases: ["pruning", "pruned decision tree"]
+    definition: "對完全長大的樹做正則化：最小化 E_in 加上 λ 乘葉子數。實際上只比較「一次少一片葉子」得到的那一串樹，λ 用 validation 選。"
+    context: "技法第 9 堂用它處理完全長大的樹過擬合的問題。"
+  - term: "surrogate branch"
+    aliases: ["替代分支", "代理分支"]
+    definition: "訓練時替每個分支另外存下來的幾個替代切法，切出來的結果接近最佳分支。預測時最佳分支要用的特徵缺值，就改用替代切法。"
+    context: "技法第 9 堂用「缺體重就改看身高」說明 C&RT 怎麼處理缺值。"
 ---
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt-en)
 
-**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** 這篇依官方 MOOC 講義 [209_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/209_handout.pdf) 與四支官方影片的機器轉錄逐字稿寫成，公式以講義為準；逐字稿未經人工校對。每一節開頭附該節的官方影片與大致的時間區段。文中的頁碼指投影片右下角的編號（0/22 到 22/22），寫「課堂上」的地方是轉述影片裡的說法。
 
-> **版本說明**：本文以 [MOOC 版](https://www.csie.ntu.edu.tw/~htlin/mooc/)《機器學習技法》為核心教材：[209_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/209_handout.pdf)（Decision Tree）、[210_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/210_handout.pdf)（Random Forest）、[211_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/211_handout.pdf)（Gradient Boosted Decision Tree）與[技法 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)第 34–45 支。作業對照 [Fall 2024 HW7](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf)。事實皆於 2026-09-30 打開核對。存取等級：MOOC 本身 **A2**，加上 Fall 2024 作業 PDF 是 **A3（評分鏈除外）**——沒有官方解答，Gradescope 與 NTU COOL 限修課生。
+這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)裡的技法第 9 堂。講義第 1 頁的 Roadmap 把技法分成三種處理特徵的技巧，這堂屬於第二種 Combining Predictive Features: Aggregation Models。上一堂[技法第 8 堂：AdaBoost](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting)在同一頁上的摘要是：替每筆資料重新加權來得到不一樣的假說，再用線性的方式把它們合起來，讓弱的演算法變強。這堂要補的是 aggregation 還沒講到的最後一種：在不同的條件下用不同的假說，而且條件和假說都要從資料學出來。
 
-**系列位置**：上一篇 [Blending、Bagging 與 AdaBoost](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost)｜下一篇 [神經網路與深度學習](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+先備是[技法第 7 堂：Blending 與 Bagging](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost)對 aggregation 的分類、上一堂的 decision stump 與 AdaBoost-Stump，以及基石的兩個工具：[基石第 14 堂：正則化](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-14-regularization)（$E_{\text{in}}$ 加上 $\lambda$ 乘一個複雜度）與[基石第 15 堂：驗證](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)的 validation。讀完之後，你應該能把一棵樹寫成路徑與遞迴兩種式子，對一份小資料手算 C&RT 的每一次分支，把長好的樹一片葉子一片葉子剪回來並選出 $\lambda$，也講得出類別特徵與缺值各自改了演算法的哪一步。
 
-[上一篇](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost)結束時，aggregation 的地圖上還空著一格。T9 開頭把它畫成一張表：
+這堂課公式不多，內容集中在一個遞迴演算法和它的四個設計選擇：
 
-| | uniform | non-uniform | conditional |
-|---|---|---|---|
-| blending（先有 g_t 再組合） | voting／averaging | linear | stacking |
-| learning（邊學 g_t 邊組合） | Bagging | AdaBoost | **Decision Tree** |
+1. **一次分幾支**：C&RT 選 2。
+2. **葉子回傳什麼**：讓 $E_{\text{in}}$ 最小的常數。
+3. **怎麼分支**：用 decision stump，挑切完最純的。
+4. **什麼時候停**：切到不能再切，之後再剪枝。
 
-決策樹就是「邊學邊做 conditional aggregation」的那一格。本系列把三講合成一篇的理由也在這裡：T9 先講樹，T10 把樹放進 bagging，T11 把樹放進 boosting，三者共用同一條主線。
-
-## 在課表上的位置
-
-| 版本 | 週次 | 投影片 | 延伸閱讀（課程頁原列） |
-|---|---|---|---|
-| MOOC | 技法 T9–T11 | 209、210、211 | — |
-| [Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) | W12（11/18），和 T8 同一週 | [209u](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/209u_handout.pdf)、[210u](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/210u_handout.pdf)、[211u](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/211u_handout.pdf) | Loh、Breiman et al.（CART 書）、Breiman（RF）、Friedman |
-| [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) | W12（11/25） | 209u–211u 目前 404，尚未公開 | 同上 |
-
-課程頁沒有替這三講標 LFD 章節。
-
-## T9 Decision Tree
-
-影片：[Decision Tree Hypothesis](https://www.youtube.com/watch?v=dAqPpAXnMJ4)、[Decision Tree Algorithm](https://www.youtube.com/watch?v=s9Um2O7N7YM)、[Decision Tree Heuristics in C&RT](https://www.youtube.com/watch?v=uvGC_Y0EYiA)、[Decision Tree in Action](https://www.youtube.com/watch?v=ryWTrPPbqcg)
-
-### 決策樹是哪一種 aggregation
-
-投影片的例子是「今天要不要看 MOOC」：先看下班時間，早於 18:30 再看有沒有約會，晚於 21:30 再看作業截止日還剩幾天。
-
-寫成 aggregation 的形式，G(x) = Σ q_t(x)·g_t(x)：g_t 是第 t 條路徑末端的葉子（這裡是常數），q_t(x) 是「x 是否走在第 t 條路徑上」。也可以用遞迴的觀點看：G(x) = Σ_c [b(x) = c]·G_c(x)，b 是分支條件，G_c 是第 c 棵子樹。投影片的說法是「就像你的資料結構老師會講的」。
-
-投影片也老實列了決策樹的兩面。好處：人看得懂、在商業與醫療資料分析裡很常用、簡單到大一生就能寫、訓練和預測都快。壞處：理論解釋很少、heuristics 多到讓初學者困惑、也沒有單一個代表性的演算法。
-
-### C&RT 的四個選擇
-
-基本的決策樹演算法是遞迴：沒達到終止條件就學一個分支條件 b(x)、把資料切成 C 份、各自遞迴建子樹。要決定的有四件事：分支數、分支條件、終止條件、葉子的基礎假說。
-
-課堂上的 C&RT（投影片聲明它只取 CART 的部分元件）這樣選：
-
-- **C = 2**，二元樹。
-- **葉子**是 E_in 最佳的常數：分類取多數、迴歸取平均。
-- **分支**用 decision stump，挑讓切出來的兩邊最純的：b(x) = argmin Σ_c |D_c|·impurity(D_c)。
-- **impurity** 就是用最佳常數時的 E_in。迴歸用平方誤差；分類有 Gini index（1 − Σ_k (N_k/N)²，所有類別一起考慮）與分類錯誤率（只看多數類別）。投影片說常見選擇是分類用 Gini、迴歸用迴歸誤差。
-- **終止**：所有 y_n 一樣（impurity = 0），或所有 x_n 一樣（找不到 stump 可切），被迫停下。
-
-所以 C&RT 預設會長成一棵完全長大、葉子是常數的樹。
-
-### 剪枝、類別特徵、缺值
-
-完全長大的樹在所有 x_n 都不同時 E_in = 0，但深處的節點只用很少的資料建出來，容易 overfitting。投影片的處理：
-
-- **剪枝**：正則化項取葉子數，Ω(G) = NumberOfLeaves(G)。所有可能的樹列舉不完，所以只考慮一串：G^(0) 是完全長大的樹，G^(i) 是從 G^(i−1) 拿掉一片葉子後 E_in 最小的那棵。λ 用 validation 選。
-- **類別特徵**：數值特徵用門檻切，類別特徵改用子集合，b(x) = [x_i ∈ S] + 1。
-- **缺值**：訓練時同時記下幾個「替代分支」（surrogate branch），它們的切法接近最佳分支。例如最佳分支是體重 ≤ 50 kg，預測時若缺體重，就改用身高的門檻。
-
-投影片把 C&RT 的特長整理成五點：人看得懂、容易做多類別、容易處理類別特徵、容易處理缺值、非線性而且訓練與測試都有效率。並提到另一個常見的決策樹演算法 C4.5，選了不同的 heuristics。在示範資料集上，C&RT 比上一講的 AdaBoost-Stump 還更有效率。
-
-## T10 Random Forest
-
-影片：[Random Forest Algorithm](https://www.youtube.com/watch?v=ATM3sH0D45s)、[Out-of-bag Estimate](https://www.youtube.com/watch?v=7oz5aO-FkR0)、[Feature Selection](https://www.youtube.com/watch?v=ChqNC94JXtM)、[Random Forest in Action](https://www.youtube.com/watch?v=Ipfpf7AW_yM)
-
-### bagging ＋ 完全長大的樹
-
-bagging 會降低 variance，完全長大的樹 variance 很大。把兩者放在一起，投影片叫它「aggregation of aggregation」：
-
-**隨機森林（RF）= bagging + 完全長大的 C&RT**
-
-好處有三：高度平行、繼承 C&RT 的優點、用投票抵銷完全長大的樹的缺點。
-
-多樣性還能再加。bagging 抽的是樣本，RF 還可以抽特徵：隨機挑 d′ 個維度，Φ(x) = (x_{i1}, …, x_{id′})，也就是隨機子空間。原始 RF 在 C&RT 的**每一次分支**都重新抽一個子空間。
-
-再進一步，投影矩陣 P 的每一列不一定要是單位向量，可以是隨機的低維組合 φ_i(x) = p_iᵀx（只有 d″ 個非零分量）。原始 RF 在每次分支時考慮 d′ 個這樣的隨機投影。這時每個分支 b(x) 其實就是一個 perceptron。投影片的標語是「randomness everywhere!」。
-
-### OOB：免費的驗證
-
-bootstrap 抽 N′ 個時，每一份 D̃_t 都有一些樣本沒被抽到，它們是 g_t 的 out-of-bag（OOB）樣本。N′ = N 而且 N 很大時，某個樣本不在 D̃_t 裡的機率是 (1 − 1/N)^N ≈ 1/e，所以每棵樹大約有 N/e 個 OOB 樣本。
-
-OOB 樣本對 g_t 就像 validation 資料。拿它驗證單棵樹很容易，但很少需要；真正有用的是驗證整個 G：
-
-E_oob(G) = (1/N) Σ_n err(y_n, G_n⁻(x_n))，其中 G_n⁻ 只由「沒看過 x_n 的那些樹」組成。
-
-投影片稱這是 bagging／RF 的 self-validation，可以直接拿來做模型選擇，例如選 d″ 這類 RF 參數，而且不需要重新訓練。投影片說 E_oob 在實務上通常很準。
-
-### 用 permutation test 算特徵重要度
-
-特徵選擇想去掉兩種特徵：重複的（像同時有「年齡」和「完整生日」）與無關的（像用保險類型預測癌症）。好處是效率、泛化、可解釋性；壞處是組合最佳化很貴、可能 overfit、也可能被誤讀。投影片說決策樹是少數內建特徵選擇的模型。
-
-如果能算出每個特徵的重要度，就能挑前 d′ 名。線性模型可以直接看 |w_i|，非線性模型就難了。RF 的做法是 **permutation test**：如果特徵 i 重要，把它的值換成隨機值，表現應該變差。為了不改變 x_i 的分布，把 {x_{n,i}} 在樣本之間打亂順序，而不是換成均勻或高斯亂數。
-
-importance(i) = performance(D) − performance(D^(p))
-
-一般來說 D^(p) 要重新訓練再驗證，原始 RF 用 OOB 繞過：importance(i) = E_oob(G) − E_oob^(p)(G)，其中 E_oob^(p) 是在算 OOB 誤差時，把 x_{n,i} 換成打亂後的 OOB 值。投影片的評語是「通常有效率，而且實務上有希望」。
-
-### 要幾棵樹
-
-示範資料上，樹越多，邊界越平滑，看起來也越像大 margin。投影片的經驗例子是 KDD Cup 2013 Track 1（台大再次奪冠，任務是預測作者與論文的關係）：幾千棵樹的 E_val 隨亂數種子落在 0.015 到 0.019，前 20 名隊伍的 E_out 也落在 0.014 到 0.019，最後決定用 12000 棵、種子 1。RF 的缺點因此是：隨機過程不穩定時可能需要非常多棵樹，要回頭檢查 G 的穩定性。
-
-## T11 Gradient Boosted Decision Tree
-
-影片：[AdaBoost Decision Tree](https://www.youtube.com/watch?v=aX6ZiIWLjdk)、[Optimization of AdaBoost](https://www.youtube.com/watch?v=lKkXrFVcZjs)、[Gradient Boosting](https://www.youtube.com/watch?v=F_EuNXhS9js)、[Summary of Aggregation](https://www.youtube.com/watch?v=JqSLmlSpqNo)
-
-### AdaBoost-DTree：樹要夠弱
-
-把 RF 的 bagging 換成 AdaBoost，需要一棵吃樣本權重的樹。不想改 DTree 的程式時，可以依 u^(t) 的比例抽樣出 D̃_t，再拿一般的 DTree 去學。
-
-另一個問題是 AdaBoost 需要**弱**的基礎演算法。完全長大的樹在所有 x_n 不同時 E_in^u = 0，於是 ε_t = 0、α_t = ∞，投影片叫這個「獨裁」。所以要剪枝（或直接限制高度），而且只在抽樣出來的部分資料上訓練。
-
-極端情況是高度 ≤ 1 的樹：如果 impurity 用二元分類錯誤率，它就是 decision stump。所以 AdaBoost-Stump 是 AdaBoost-DTree 的特例。
-
-### AdaBoost 的最佳化觀點
-
-這一節是 T11 的核心，把上一講看起來很「魔法」的 α_t 重新推一次。
-
-先看權重：答錯乘 ♦_t、答對除 ♦_t，可以統一寫成 u_n^(t+1) = u_n^(t)·exp(−y_n α_t g_t(x_n))。一路乘下來，u_n^(T+1) 正比於 exp(−y_n·Σ_t α_t g_t(x_n))。
-
-Σ_t α_t g_t(x_n) 是 G 的投票分數。回想 T7 的 linear blending 和硬邊界 SVM，y_n 乘上投票分數就是一個有正負號、沒正規化的 margin。我們希望它是正的而且越大越好，也就是 exp(−y_n·分數) 越小越好。
-
-投影片的主張是：**AdaBoost 會讓 Σ_n u_n^(t) 下降**，等於在某種程度上最小化 Σ_n exp(−y_n s_n)。其中 err_ADA(s, y) = exp(−ys) 是 0/1 誤差的凸上界，叫指數誤差。
-
-<details>
-<summary>推導：g_t 是近似的函數梯度方向，α_t 是最速下降的步長</summary>
-
-**找方向**。第 t 輪想找一個函數 h 與步長 η，讓 Ê_ADA 下降：
-
-Ê_ADA = (1/N) Σ_n exp(−y_n(Σ_{τ<t} α_τ g_τ(x_n) + η h(x_n)))
-= Σ_n u_n^(t) exp(−y_n η h(x_n))
-≈ Σ_n u_n^(t)(1 − y_n η h(x_n))（在 η = 0 附近做 Taylor 展開）
-= Σ_n u_n^(t) − η Σ_n u_n^(t) y_n h(x_n)
-
-所以好的 h 要最小化 Σ_n u_n^(t)(−y_n h(x_n))。二元分類時 y_n、h(x_n) ∈ {−1, +1}，這個量等於 −Σ_n u_n^(t) + 2·E_in^u(h)·N。最小化它，就是最小化加權的 E_in^u(h)，而這正是 AdaBoost 裡基礎演算法 A 在做的事。
-
-**找步長**。找到 g_t 後，不用固定的小 η，而是直接找讓 Ê_ADA 最小的 η（最速下降）：
-
-Ê_ADA = (Σ_n u_n^(t))·((1 − ε_t) exp(−η) + ε_t exp(+η))
-
-對 η 微分設為 0，得到 η_t = ln √((1 − ε_t)/ε_t) = α_t。
-
-</details>
-
-結論：**AdaBoost 就是用近似的函數梯度做最速下降**。上一講的 α_t 其實就是最佳步長。HW7 Q6 要你證明的 U_{t+1}/U_t = 2√(ε_t(1 − ε_t))，就是這個下降量的精確版本。
-
-### Gradient boosting：換掉誤差函數
-
-既然 AdaBoost 是對指數誤差做最速下降，把誤差換成任意的 err、把 h 換成實數輸出的假說，就得到 GradientBoost。它可以用在迴歸、軟分類等其他問題。
-
-迴歸用平方誤差時，推導出來的結論很乾淨：
-
-<details>
-<summary>推導：平方誤差下，g_t 是對殘差的迴歸，α_t 是一維線性迴歸</summary>
-
-令 s_n = Σ_{τ<t} α_τ g_τ(x_n)，err(s, y) = (s − y)²。在 s_n 附近 Taylor 展開：
-
-min_h (1/N) Σ_n err(s_n + η h(x_n), y_n) ≈ 常數 + (η/N) Σ_n h(x_n)·2(s_n − y_n)
-
-如果 h 沒有限制，最佳解是 h(x_n) = −∞·(s_n − y_n)，沒有意義。h 的大小不重要（η 之後會再最佳化），所以加上懲罰項 (h(x_n))²：
-
-常數 + (η/N) Σ_n (2h(x_n)(s_n − y_n) + (h(x_n))²) = 常數 + (η/N) Σ_n (常數 + (h(x_n) − (y_n − s_n))²)
-
-也就是在 {(x_n, y_n − s_n)} 上做平方誤差迴歸，y_n − s_n 就是**殘差**。
-
-找到 g_t 後，α_t 是讓 Σ_n((y_n − s_n) − η g_t(x_n))² 最小的 η，也就是以 g_t(x_n) 為輸入、殘差為輸出的一維線性迴歸。
-
-</details>
-
-組起來就是 GBDT：
-
-1. s_1 = … = s_N = 0。
-2. 每一輪用（平方誤差的）迴歸演算法在 {(x_n, y_n − s_n)} 上學 g_t，投影片建議用抽樣加剪枝的 C&RT。
-3. α_t = OneVarLinearRegression({(g_t(x_n), y_n − s_n)})。
-4. 更新 s_n ← s_n + α_t g_t(x_n)。
-5. 回傳 G(x) = Σ_t α_t g_t(x)。
-
-投影片稱 GBDT 是 AdaBoost-DTree 的「迴歸手足」，實務上很受歡迎。
-
-### Aggregation 模型總整理
-
-T11 最後把整個第二段收成三張圖：
-
-- **Blending**（先有 g_t）：uniform 是投票／平均，non-uniform 是在 g_t 轉換後的輸入上學線性模型，conditional 是學非線性模型。uniform 為了穩定；non-uniform 與 conditional 要小心複雜度。
-- **Aggregation learning**（邊學邊組）：Bagging 靠 bootstrap 造多樣性、uniform 投票；AdaBoost 靠重新加權、以最速搜尋決定線性權重；決策樹靠切資料、以分支做 conditional 投票；GradientBoost 靠擬合殘差、以最速搜尋決定線性權重。投影片說 boosting 類的最受歡迎。
-- **Aggregation of aggregation**：RF = 隨機化的 bagging + 「強」的樹；AdaBoost-DTree = AdaBoost + 「弱」的樹；GBDT = GradientBoost + 「弱」的樹。三者實務上都很常用。
-
-最後一張回到 T7 開頭的兩個直覺：aggregation 可以讓 G 變強，像特徵轉換，治 underfitting；也可以讓 G 變穩，像正則化，治 overfitting。適當的 aggregation（又稱 ensemble）帶來更好的表現。
-
-## 用 Fall 2024 作業練習
-
-[HW7](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf)（2024-12-02 發布、12-16 截止）裡跟這三講相關的題目：
-
-| 題 | 類型 | 練什麼 |
-|---|---|---|
-| Q2 | 自動批改 | 把幾種 impurity 函數（分類錯誤率、平方誤差、entropy、closeness）除以最大值正規化後，哪一個和 Gini index 等價 |
-| Q6 | 人工批改 | 證明 U_{t+1}/U_t = 2√(ε_t(1 − ε_t))；題目明寫對應 Lecture 208 與 211 的 AdaBoost |
-| Q7 | 人工批改 | gradient boosting 的基礎模型換成不帶正則化的線性迴歸時，證明或反駁最佳的 α_1 = 1 |
-| Q8 | 人工批改 | GBDT 用最速的 η 當 α_t 更新完 s_n 後，證明 Σ_n (y_n − s_n) g_t(x_n) = 0，並思考殘差向量與 g_t 輸出向量的關係 |
-
-這三講沒有程式題。想動手的話，可以把[上一篇](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost)的 AdaBoost-Stump（HW7 Q10–12）改成 AdaBoost-DTree，或在同一份 madelon 資料上跑 scikit-learn 的 `RandomForestClassifier`，比較 `oob_score_` 與測試集誤差，親手驗證「E_oob 通常很準」這句話。沒有官方解答，證明題只能靠自己或同學互相檢查。完整的作業導讀見[技法作業與期末專題](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project)。
-
-## 自學怎麼用這三講
-
-1. T9、T10 可以當作「讀懂 scikit-learn 參數」的課：`max_depth`、`max_features`、`oob_score`、`feature_importances_` 背後分別是投影片的哪一段，看完應該都對得上。
-2. T11 的 [Optimization of AdaBoost](https://www.youtube.com/watch?v=lKkXrFVcZjs) 最值得反覆看。把兩個折疊推導各自推一次，之後讀 gradient boosting 的任何變體都會輕鬆很多。
-3. 今晚可以做的一件事：用 numpy 寫 30 行的 GBDT（基礎模型用深度 2 的 `DecisionTreeRegressor`），在一維 sin 曲線加雜訊的資料上畫出第 1、5、20 輪的 G。你會看到每一輪都在補上一輪留下的殘差。
-
-## 延伸閱讀
-
-課程頁列的延伸閱讀：
-
-- [Loh, Classification and Regression Trees（WIREs 綜述）](https://pages.stat.wisc.edu/~loh/treeprogs/guide/wires11.pdf)：決策樹演算法的全景。
-- Breiman et al., *Classification and Regression Trees*：CART 原書，課程頁連到 [Amazon 書頁](http://www.amazon.com/Classification-Regression-Wadsworth-Statistics-Probability/dp/0412048418)。
-- [Breiman, Random Forests（Machine Learning, 2001）](https://doi.org/10.1023/A:1010933404324)：隨機森林原始論文。
-- [Friedman, Greedy Function Approximation: A Gradient Boosting Machine（Annals of Statistics, 2001）](https://doi.org/10.1214/aos/1013203451)：gradient boosting 原始論文。課程頁的舊連結（www-stat.stanford.edu）在 2026-09-30 已經打不開，這裡改用 DOI。
-
-站內其他課程對同一主題的講法（本篇內容不因此省略）：
-
-- [Harvard CS181 HW4：決策樹、隨機森林與 MoE](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe)
-- [CMU 10-301 HW2：決策樹](/posts/learning/2026-08-22-cmu-10301-hw2-decision-trees)
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+## 決策樹是哪一種假說：照條件分工的 aggregation
 
 ```youtube
 url: https://www.youtube.com/watch?v=dAqPpAXnMJ4
-title: Decision Tree Hypothesis
+title: Decision Tree :: Decision Tree Hypothesis @ Machine Learning Techniques (機器學習技法)
 ```
+
+（影片 00:00–01:11 複習上一堂，01:11–04:01 是 aggregation 的表格，04:01–09:18 用看 MOOC 的例子講路徑觀點，09:18–12:22 遞迴觀點，12:22–16:45 決策樹的優缺點，之後是 Fun Time。）
+
+### 表格的最後一格
+
+講義第 2 頁把技法第 7、8 堂的內容收成一張表。Aggregation 有兩個面向：blending 是手上已經有一些 $g_t$，只學怎麼合；learning 是一邊學 $g_t$、一邊合。合的方式有三種：
+
+| aggregation 的方式 | blending（先有 $g_t$ 再合） | learning（邊學 $g_t$ 邊合） |
+|---|---|---|
+| uniform（每個 $g_t$ 一票） | 投票／平均 | Bagging |
+| non-uniform（票數不同） | 線性組合 | AdaBoost |
+| conditional（看情況用不同的 $g_t$） | stacking | **Decision Tree** |
+
+右下角那一格就是這堂課。課堂上對這一格的描述是：要在不同的情形下用不同的 $g_t$，而且這些 $g_t$ 和「什麼情形」的條件都要學出來。講義給決策樹的定位是 a traditional learning model that realizes conditional aggregation。課堂上補充了歷史背景：決策樹出現得很早，甚至可能比「機器學習」這個名詞還早，因為它模仿的是人做決策的過程，在醫藥和商業上一直有人用。
+
+### 看不看 MOOC 的那棵樹：路徑觀點
+
+講義第 3 頁的例子是下班回家後要不要看線上課程。投影片上的樹用文字寫出來是這樣：
+
+1. **根節點**問下班時間（quitting time）。
+2. 早於 18:30：再問有沒有約會。有約會就不看（N），沒有就看（Y）。
+3. 18:30 到 21:30 之間：看（Y）。
+4. 晚於 21:30：再問作業的期限（deadline）。離期限還超過 2 天，不看（N）；已經過期超過 2 天，不看（N）；介於兩者之間，看（Y）。
+
+課堂上把每一條分支的理由都講了一遍：早下班又沒約會，配晚餐看課程剛好；加班到很晚時，期限還遠就先睡，過期兩天以上分數已經被扣掉一大截、再看也趕不上，只有期限快到或剛過一點點才會勉強自己看。
+
+這棵樹有 6 片葉子（約會底下 2 片、根節點中間那條分支直接接 1 片、期限底下 3 片），也就有 6 條從根走到葉子的路徑。講義把它寫成 aggregation 的形式：
+
+$$
+G(\mathbf{x}) = \sum_{t=1}^{T} q_t(\mathbf{x}) \cdot g_t(\mathbf{x})
+$$
+
+- $g_t(\mathbf{x})$ 是 base hypothesis，也就是第 $t$ 條路徑末端的葉子。這裡每片葉子都是一個常數（Y 或 N）。
+- $q_t(\mathbf{x}) = \llbracket \mathbf{x} \text{ 在第 } t \text{ 條路徑上} \rrbracket$ 是條件，成立時是 1，不成立時是 0。
+
+把 6 條路徑列出來（編號是本文加的，照投影片由左到右）：
+
+| $t$ | 條件 $q_t(\mathbf{x})$ | 葉子 $g_t(\mathbf{x})$ |
+|---|---|---|
+| 1 | 下班早於 18:30，而且有約會 | N |
+| 2 | 下班早於 18:30，而且沒約會 | Y |
+| 3 | 下班在 18:30 到 21:30 之間 | Y |
+| 4 | 下班晚於 21:30，而且離期限還超過 2 天 | N |
+| 5 | 下班晚於 21:30，而且期限在前後 2 天內 | Y |
+| 6 | 下班晚於 21:30，而且過期超過 2 天 | N |
+
+投影片最下面一排只畫了 5 片葉子，第 3 條路徑的 Y 畫在高一層的地方，直接接在根節點下面，數的時候容易漏掉。把每一條路徑寫成一列就不會漏。
+
+任何一個 $\mathbf{x}$ 只會走到一片葉子，所以六個 $q_t(\mathbf{x})$ 剛好只有一個是 1，加總的結果就是那片葉子的值。例如今天 22:00 下班、作業明天截止：$q_5 = 1$，其他都是 0，$G(\mathbf{x}) = g_5(\mathbf{x}) = $ Y。
+
+和前兩堂比一下。Bagging 與 AdaBoost 的每個 $g_t$ 對所有的 $\mathbf{x}$ 都投票，權重是固定的數字。決策樹的「權重」$q_t(\mathbf{x})$ 會隨 $\mathbf{x}$ 改變，而且每次只有一個 $g_t$ 說話。
+
+講義在這一頁還指出內部節點通常很簡單（usually with simple internal nodes）。課堂上的說法是，在決策樹的世界裡一切崇尚簡單：內部節點的判斷愈簡單愈好，葉子上的決定也愈簡單愈好，複雜的部分都埋在節點之間的連結與路徑裡。課堂上也提到葉子不一定要是常數，實際上有人在葉子上放線性迴歸這類簡單的模型；這堂課只用常數。
+
+### 遞迴觀點：樹是根加上幾棵子樹
+
+第 4 頁換一個寫法。從根節點把樹拆開：根節點有一個分支條件 $b(\mathbf{x})$，它的值是 1 到 $C$ 之間的整數，告訴你要走第幾條分支；每條分支底下接著一棵比較小的樹 $G_c$。
+
+$$
+G(\mathbf{x}) = \sum_{c=1}^{C} \llbracket b(\mathbf{x}) = c \rrbracket \cdot G_c(\mathbf{x})
+$$
+
+- $G(\mathbf{x})$：整棵樹（full-tree hypothesis）。
+- $b(\mathbf{x})$：分支條件（branching criteria）。
+- $G_c(\mathbf{x})$：第 $c$ 條分支上的子樹（sub-tree hypothesis）。
+
+在看 MOOC 的例子裡，$C = 3$，$b(\mathbf{x})$ 依下班時間回傳 1、2、3；$G_1$ 是「有沒有約會」那棵兩片葉子的小樹，$G_2$ 只有一片葉子 Y，$G_3$ 是「期限」那棵三片葉子的小樹。$G_1$ 與 $G_3$ 自己又可以用同一個式子再拆一次。
+
+講義的註解是 tree = (root, sub-trees)，就像資料結構老師會講的那樣。課堂上說這叫遞迴的定義：用幾棵比較小的樹來定義一棵樹。兩種觀點描述的是同一個函數，路徑觀點方便看出它是 conditional aggregation，遞迴觀點方便寫演算法，C&RT 的演算法就是照著遞迴的式子寫的。
+
+### 先講清楚的優缺點
+
+第 5 頁的標題是 Disclaimers about Decision Tree，把決策樹的實際狀況攤開來講。
+
+**好處：**
+
+- **人看得懂（human-explainable）**，商業與醫療的資料分析很常用。課堂上舉看醫生的例子：醫生如果說他把你的病歷映射到無限多維的空間、找一個胖胖的邊界再映射回來，那是 SVM，病人聽不懂；如果說的是你這個指數高於多少、那個指數低於多少，所以判斷沒有癌症，就聽得懂。
+- **簡單**，講義寫 even freshmen can implement one。課堂上說這是實際經驗：他在台大教大一的資料結構，教到樹的那次作業就讓學生寫決策樹。
+- **預測和訓練都有效率**。課堂上的理由是，不管內部節點的分支還是葉子，計算都很簡單，走幾步就得到答案。
+
+**壞處：**
+
+- **heuristic**：大多沒有什麼理論解釋。課堂上講得更直白，演算法裡的道理很多只是想當然耳，為什麼做得好，大家有很多不同的討論。
+- **heuristics（複數）**：一個決策樹演算法裡可能放了五、六、七個前人的巧思，每一個要不要用、改掉會怎樣都不太清楚，初學者光是選這些設定就很頭痛。
+- **沒有單一的代表性演算法**。課堂上的說法是，和 SVM、AdaBoost 這些演算法不一樣，決策樹通常沒有哪一個真的具代表性；有比較流行和比較不流行的，但流行的原因有時只是歷史因素，不代表設計比較好。
+
+講義的結論是 mostly heuristic but useful on its own。課堂上因此先交代：決策樹的模型多到教不完，這門課挑一個比較簡單、和課程其他部分連得起來的版本來教；實務上你很可能會去試別的決策樹演算法。
+
+### Fun Time：把程式碼當成一棵樹
+
+**題目（第 6 頁）：** 下面這段類似 C 的程式碼可以看成一棵有三片葉子的決策樹。
+
+```c
+if (income > 100000) return true;
+else {
+  if (debt > 50000) return false;
+  else return true;
+}
+```
+
+輸入 (income, debt) = (98765, 56789) 時，這棵樹輸出什麼？
+
+1. true
+2. false
+3. 98765
+4. 56789
+
+**答案：2。** 照程式碼走一遍：98765 沒有大於 100000，進 else；56789 大於 50000，回傳 false。課堂上把 false 解讀成不發卡給你：收入沒過門檻，負債又超過門檻。選項 3、4 是輸入的數字，這棵樹的葉子只會回傳 true 或 false。選項 1 要走到另外兩片葉子之一才會出現。
+
+講義的解答多寫了一句：這棵樹表達的是一個複合的布林條件 $\llbracket \text{income} > 100000 \text{ or } \text{debt} \le 50000 \rrbracket$。
+
+本文補充：用兩種觀點各寫一次。路徑觀點有三條路徑：
+
+| $t$ | 條件 $q_t$ | 葉子 $g_t$ |
+|---|---|---|
+| 1 | income > 100000 | true |
+| 2 | income ≤ 100000 而且 debt > 50000 | false |
+| 3 | income ≤ 100000 而且 debt ≤ 50000 | true |
+
+題目的輸入讓 $(q_1, q_2, q_3) = (0, 1, 0)$，輸出是 $g_2$ = false。輸出 true 的是第 1 與第 3 條路徑，合起來就是講義寫的那個「或」條件。遞迴觀點則是 $C = 2$：根節點的 $b$ 看 income，一邊的子樹是單一葉子 true，另一邊的子樹是看 debt 的兩片葉子的樹。這棵樹在後面的數值例子裡還會出現。
+
+## 怎麼從資料長出一棵樹：C&RT 的四個選擇
 
 ```youtube
 url: https://www.youtube.com/watch?v=s9Um2O7N7YM
-title: Decision Tree Algorithm
+title: Decision Tree :: Decision Tree Algorithm @ Machine Learning Techniques (機器學習技法)
 ```
 
-原始影片：[Decision Tree Hypothesis](https://www.youtube.com/watch?v=dAqPpAXnMJ4)、[Decision Tree Algorithm](https://www.youtube.com/watch?v=s9Um2O7N7YM)、[Decision Tree Heuristics in C&RT](https://www.youtube.com/watch?v=uvGC_Y0EYiA)、[Decision Tree in Action](https://www.youtube.com/watch?v=ryWTrPPbqcg)、[Random Forest Algorithm](https://www.youtube.com/watch?v=ATM3sH0D45s)、[Out-of-bag Estimate](https://www.youtube.com/watch?v=7oz5aO-FkR0)、[Feature Selection](https://www.youtube.com/watch?v=ChqNC94JXtM)、[Random Forest in Action](https://www.youtube.com/watch?v=Ipfpf7AW_yM)
+（影片 00:00–02:50 是基本的遞迴演算法，02:50–05:21 是 C&RT 的兩個簡單選擇，05:21–09:08 用 purifying 做分支，09:08–12:57 不純度函數，12:57–14:46 終止條件，之後是 Fun Time。）
 
-課程與錄影入口：
+### 遞迴演算法的骨架
 
+遞迴觀點的式子可以直接變成演算法（第 7 頁）。輸入是資料 $\mathcal{D} = \{(\mathbf{x}_n, y_n)\}_{n=1}^{N}$，輸出是一棵樹：
+
+**DecisionTree($\mathcal{D}$)：**
+
+- 如果符合終止條件：回傳 base hypothesis $g_t(\mathbf{x})$。
+- 否則：
+  1. 學出分支條件 $b(\mathbf{x})$。
+  2. 把 $\mathcal{D}$ 切成 $C$ 份：$\mathcal{D}_c = \{(\mathbf{x}_n, y_n) : b(\mathbf{x}_n) = c\}$。
+  3. 對每一份遞迴地建子樹：$G_c \leftarrow$ DecisionTree($\mathcal{D}_c$)。
+  4. 回傳 $G(\mathbf{x}) = \sum_{c=1}^{C} \llbracket b(\mathbf{x}) = c \rrbracket \, G_c(\mathbf{x})$。
+
+課堂上稱這是典型的 divide and conquer：把資料分開，各自學一棵小樹，再接回去。也提醒如果只寫 1 到 4 這四步，資料結構老師會說該打屁股，因為遞迴沒有停止條件，電腦會一直做下去。
+
+這個骨架留了四個空格，講義稱為 four choices：分支的數量 $C$（number of branches）、分支條件 $b(\mathbf{x})$ 怎麼學（branching criteria）、什麼時候停（termination criteria）、葉子回傳什麼（base hypothesis）。每一種決策樹演算法就是這四格的一組填法。這堂課介紹的是 Classification and Regression Tree，講義寫成 C&RT；課堂上口頭念的是 CART，指的是同一個演算法。
+
+### 兩個簡單的選擇：二元樹、葉子放最佳常數
+
+第 8 頁先填比較簡單的兩格。
+
+**$C = 2$。** 每次只切成兩份，長出來的是二元樹。
+
+**$g_t(\mathbf{x})$ 是讓 $E_{\text{in}}$ 最小的常數**（$E_{\text{in}}$-optimal constant），$E_{\text{in}}$ 只算走到這片葉子的那些資料：
+
+- 二元或多類別分類（0/1 誤差）：$\{y_n\}$ 裡的多數（majority）。
+- 迴歸（平方誤差）：$\{y_n\}$ 的平均（average）。
+
+講義只給結論，課堂上只提到平均那一條不難證明，沒有寫出過程。下面兩條都推一次（推導是本文補的）。
+
+**分類。** 葉子上有 $N$ 筆資料，其中第 $k$ 類有 $N_k$ 筆。如果葉子回傳常數 $k$，答錯的就是其他類別的 $N - N_k$ 筆，$E_{\text{in}} = (N - N_k)/N$。要讓它最小，就選 $N_k$ 最大的那一類，記成 $y^*$。這時的錯誤率是
+
+$$
+\frac{1}{N}\sum_{n=1}^{N} \llbracket y_n \ne y^* \rrbracket = 1 - \max_{1 \le k \le K} \frac{N_k}{N}
+$$
+
+**迴歸。** 葉子回傳常數 $c$ 時，$E_{\text{in}}(c) = \frac{1}{N}\sum_{n=1}^{N}(y_n - c)^2$。它是 $c$ 的二次函數，開口向上，對 $c$ 微分設為 0：
+
+$$
+\frac{dE_{\text{in}}}{dc} = -\frac{2}{N}\sum_{n=1}^{N}(y_n - c) = 0 \quad\Longrightarrow\quad \sum_{n=1}^{N} y_n = Nc \quad\Longrightarrow\quad c = \frac{1}{N}\sum_{n=1}^{N} y_n = \bar{y}
+$$
+
+例如葉子上的 $y$ 是 1、2、2：平均是 $\frac{5}{3}$，平方誤差的總和是 $\frac{4}{9} + \frac{1}{9} + \frac{1}{9} = \frac{2}{3}$。改回傳 2 的話總和是 $1 + 0 + 0 = 1$，回傳 1 的話是 $0 + 1 + 1 = 2$，都比較大。
+
+同一頁有一則聲明：這裡的 C&RT 只取了 California Statistical Software 的 CART™ 的部分元件。課堂上的說明是，CART 是那家公司註冊的商標，他們實際用的演算法複雜很多，課堂上只介紹其中比較精華的部分。
+
+### 分支：用 decision stump 把資料切純
+
+第 9 頁填第三格。既然只切兩份，內部節點就用上一堂的 decision stump：只看一個特徵，在某個門檻切一刀。和上一堂不同的是，這裡的 stump 輸出的是 1 或 2（走哪一條分支），講義稱為 $\{1, 2\}$-output decision stump。
+
+候選的 stump 很多，要挑哪一個？課堂上的推理是這樣的：樹切到最後，葉子回傳的是一個常數。常數什麼時候是好的預測？剩下來的那份資料很「純」的時候，也就是 $y$ 都一樣（分類）或都很接近（迴歸）。所以每次分支都應該讓切出來的兩份資料盡量純，講義稱為 purifying：
+
+$$
+b(\mathbf{x}) = \operatorname*{argmin}_{\text{decision stumps } h(\mathbf{x})} \ \sum_{c=1}^{2} \lvert \mathcal{D}_c \text{ with } h \rvert \cdot \text{impurity}(\mathcal{D}_c \text{ with } h)
+$$
+
+$\mathcal{D}_c \text{ with } h$ 是用 stump $h$ 切出來的第 $c$ 份資料，$\lvert\cdot\rvert$ 是筆數，impurity 是不純度，愈小愈純。每一份的不純度乘上自己的筆數再相加。課堂上解釋這個加權：切出來比較大的那一塊，純不純比較重要；比較小的那一塊沒那麼重要。講義把這一頁總結成 bi-branching by purifying。
+
+### 不純度怎麼量
+
+第 10 頁給了四個式子，分成兩欄。
+
+**左欄：用最佳常數的 $E_{\text{in}}$ 當不純度。** 課堂上的想法很直接：樹最後要回傳一個常數，那個常數做得好不好，本身就代表這份資料純不純。
+
+迴歸誤差（regression error）：
+
+$$
+\text{impurity}(\mathcal{D}) = \frac{1}{N}\sum_{n=1}^{N}(y_n - \bar{y})^2, \qquad \bar{y} = \{y_n\} \text{ 的平均}
+$$
+
+分類錯誤率（classification error）：
+
+$$
+\text{impurity}(\mathcal{D}) = \frac{1}{N}\sum_{n=1}^{N} \llbracket y_n \ne y^* \rrbracket, \qquad y^* = \{y_n\} \text{ 的多數}
+$$
+
+**右欄：專門給分類用的。** 先把分類錯誤率換一個寫法，它就是前面推過的
+
+$$
+1 - \max_{1 \le k \le K} \frac{\sum_{n=1}^{N} \llbracket y_n = k \rrbracket}{N}
+$$
+
+講義在旁邊註明 optimal $k = y^*$ only。課堂上的解釋是，這個式子只看比例最大的那一類；如果有十個類別，其他九類怎麼分布完全不影響結果。把 max 換成對所有類別加總，並且把比例平方，就是 Gini index：
+
+$$
+1 - \sum_{k=1}^{K} \left( \frac{\sum_{n=1}^{N} \llbracket y_n = k \rrbracket}{N} \right)^2
+$$
+
+講義的註解是 all $k$ considered together。課堂上的讀法：每一類的比例平方再加起來，這個和愈大代表愈純，用 1 減掉就成了不純度。
+
+講義說常見的選擇（popular choices）是分類用 Gini、迴歸用迴歸誤差。課堂上強調這些都是可以自己選的 heuristic。
+
+本文補充三件講義沒寫、但算一下就看得出來的事。把第 $k$ 類的比例記成 $p_k$。
+
+1. **Gini 的範圍。** 只有一類時 $p_k = 1$，Gini 是 $1 - 1 = 0$。$K$ 類各占 $\frac{1}{K}$ 時，Gini 是 $1 - K \cdot \frac{1}{K^2} = 1 - \frac{1}{K}$，這是它的最大值；兩類時最大是 $\frac{1}{2}$。
+2. **Gini 的另一個寫法。** 因為 $\sum_k p_k = 1$，所以 $1 - \sum_k p_k^2 = \sum_k p_k - \sum_k p_k^2 = \sum_k p_k(1 - p_k)$。每一類貢獻「是這一類的比例」乘上「不是這一類的比例」。
+3. **加權和的意義。** 左欄的兩種不純度都是 $E_{\text{in}}$，也就是「誤差總和除以筆數」。乘回筆數 $\lvert\mathcal{D}_c\rvert$ 就是誤差總和：分類時是這一份資料用多數決會答錯幾筆，迴歸時是平方誤差的總和。所以用這兩種不純度時，分支的準則等於「切一刀、兩邊各放一個最佳常數」之後，整體答錯的筆數（或平方誤差總和）最小。Gini 沒有這種直接的對應，它是另外設計的量。後面的數值例子會看到兩者挑出來的切法可以不一樣。
+
+### 終止條件：被迫停下來的兩種情況
+
+第 11 頁填最後一格。C&RT 不設額外的停止規則，只在做不下去的時候停。講義稱為 'forced' to terminate：
+
+- **所有的 $y_n$ 都一樣。** 不純度已經是 0，再切也不會更純。直接回傳 $g_t(\mathbf{x}) = y_n$，這片葉子不會犯任何錯。
+- **所有的 $\mathbf{x}_n$ 都一樣。** 找不到任何 stump 能把它們分開，課堂上說是根本沒有下刀的地方。
+
+長到被迫停下來的樹叫 fully-grown tree（完全長大的樹）。到這裡四格都填完了，講義把 C&RT 寫成一句話：fully-grown tree with constant leaves that come from bi-branching by purifying。
+
+本文補充：這個遞迴一定會停。每一次分支都把資料切成兩份，兩份都不是空的（門檻取在兩個不同的特徵值之間），所以每一份的筆數都比原來少，最慢也會少到只剩一筆，一筆資料的 $y$ 當然「都一樣」。葉子最多 $N$ 片，內部節點最多 $N - 1$ 個。
+
+### 數值例子：14 筆資料，把樹長完
+
+以下是本文自擬的例子，不在講義上。情境沿用 Fun Time 的發卡判斷，把單位改成萬元：$x_1$ 是年收入，$x_2$ 是負債，$y = +1$ 是核卡、$y = -1$ 是不核卡。
+
+| $n$ | $x_1$（收入） | $x_2$（負債） | $y$ |  | $n$ | $x_1$（收入） | $x_2$（負債） | $y$ |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 2 | 3 | $+1$ |  | 8 | 4 | 7 | $-1$ |
+| 2 | 4 | 1 | $+1$ |  | 9 | 2 | 9 | $-1$ |
+| 3 | 6 | 3 | $+1$ |  | 10 | 6 | 9 | $-1$ |
+| 4 | 8 | 1 | $+1$ |  | 11 | 8 | 7 | $-1$ |
+| 5 | 12 | 1 | $+1$ |  | 12 | 12 | 7 | $+1$ |
+| 6 | 12 | 3 | $+1$ |  | 13 | 14 | 7 | $+1$ |
+| 7 | 14 | 1 | $-1$ |  | 14 | 14 | 9 | $+1$ |
+
+共 9 筆 $+1$、5 筆 $-1$。不純度用 Gini。兩類時，一份有 $a$ 筆 $+1$、$b$ 筆 $-1$ 的資料，Gini 是 $1 - \big(\frac{a}{a+b}\big)^2 - \big(\frac{b}{a+b}\big)^2 = \frac{2ab}{(a+b)^2}$，乘上筆數 $a + b$ 之後是 $\frac{2ab}{a+b}$。下面的表都用這個式子算。
+
+**根節點的候選切法。** 收入出現過的值是 2、4、6、8、12、14，相鄰兩個值之間各放一個門檻（取中點），共 5 個；負債出現過的值是 1、3、7、9，共 3 個門檻。門檻放在兩個相鄰的值之間的哪裡，切出來的兩份資料都一樣，所以只需要考慮這 8 種切法：
+
+| 切法 | 「≤」那一份（$+1$／$-1$） | 「>」那一份（$+1$／$-1$） | 加權不純度 |
+|---|---|---|---|
+| $x_1 \le 3$ | 1／1 | 8／4 | $1 + \frac{16}{3} = 6.333$ |
+| $x_1 \le 5$ | 2／2 | 7／3 | $2 + \frac{21}{5} = 6.200$ |
+| $x_1 \le 7$ | 3／3 | 6／2 | $3 + 3 = 6.000$ |
+| $x_1 \le 10$ | 4／4 | 5／1 | $4 + \frac{5}{3} = 5.667$ |
+| $x_1 \le 13$ | 7／4 | 2／1 | $\frac{56}{11} + \frac{4}{3} = 6.424$ |
+| $x_2 \le 2$ | 3／1 | 6／4 | $\frac{3}{2} + \frac{24}{5} = 6.300$ |
+| $x_2 \le 5$ | 6／1 | 3／4 | $\frac{12}{7} + \frac{24}{7} = 5.143$ |
+| $x_2 \le 8$ | 8／3 | 1／2 | $\frac{48}{11} + \frac{4}{3} = 5.697$ |
+
+以 $x_2 \le 5$ 那一列為例：負債是 1 或 3 的有第 1 到 7 筆，6 筆 $+1$、1 筆 $-1$，$\frac{2 \times 6 \times 1}{7} = \frac{12}{7}$；負債是 7 或 9 的有第 8 到 14 筆，3 筆 $+1$、4 筆 $-1$，$\frac{2 \times 3 \times 4}{7} = \frac{24}{7}$。相加是 $\frac{36}{7} \approx 5.143$，是 8 種切法裡最小的。不切的話，整份資料的值是 $\frac{2 \times 9 \times 5}{14} = \frac{45}{7} \approx 6.429$。根節點選 $x_2 \le 5$。
+
+**負債 ≤ 5 的那一份（第 1 到 7 筆）。** 6 筆 $+1$、1 筆 $-1$，$y$ 不全相同，繼續切。唯一的 $-1$ 是第 7 筆 $(14, 1)$，收入是這一份裡最高的。切 $x_1 \le 13$：一邊是 6 筆 $+1$，另一邊只有第 7 筆，兩邊的不純度都是 0，加權和是 0。其他切法都至少把一筆 $+1$ 和第 7 筆留在同一邊，加權和大於 0（例如 $x_1 \le 10$ 是 $0 + \frac{2 \times 2 \times 1}{3} = \frac{4}{3}$，$x_2 \le 2$ 是 $\frac{2 \times 3 \times 1}{4} + 0 = \frac{3}{2}$）。選 $x_1 \le 13$。切完兩邊的 $y$ 都各自相同，停。
+
+**負債 > 5 的那一份（第 8 到 14 筆）。** 4 筆 $-1$ 的收入是 2、4、6、8，3 筆 $+1$ 的收入是 12、14、14。切 $x_1 \le 10$：一邊 4 筆 $-1$，另一邊 3 筆 $+1$，加權和是 0。選它，兩邊都停。
+
+**完全長大的樹** 有 3 個內部節點、4 片葉子：
+
+1. 負債 ≤ 5？
+   - 是：收入 ≤ 13？
+     - 是 → 核卡（6 筆，全是 $+1$）
+     - 否 → 不核卡（1 筆，第 7 筆）
+   - 否：收入 ≤ 10？
+     - 是 → 不核卡（4 筆，全是 $-1$）
+     - 否 → 核卡（3 筆，全是 $+1$）
+
+**這個結果代表什麼。** 14 筆資料全部分對，$E_{\text{in}} = 0$。把 Fun Time 的輸入換算成萬元是 $(9.8765, 5.6789)$：負債大於 5，收入不超過 10，走到「不核卡」，和 Fun Time 的答案 false 一樣。但這棵樹有一片只靠一筆資料撐起來的葉子：「負債不高，收入卻超過 13 萬的人不核卡」。這條規則不合常理，比較像是第 7 筆資料本身有問題（雜訊），樹卻為了把它分對多切了一刀。這是剪枝要處理的事。
+
+**換成分類錯誤率會怎樣。** 同樣 8 種切法，改用分類錯誤率當不純度，加權和就是「兩邊各用多數決，總共答錯幾筆」。$x_2 \le 5$ 答錯 $1 + 3 = 4$ 筆，$x_2 \le 8$ 也是 $3 + 1 = 4$ 筆，其他 6 種都是 5 筆，和完全不切（14 筆裡有 5 筆 $-1$，全猜 $+1$ 錯 5 筆）一樣。分類錯誤率分不出 $x_2 \le 5$ 和 $x_2 \le 8$ 的差別，也看不出 $x_1 \le 10$ 切出了一份 5 比 1 的資料。Gini 把每一類的比例都算進去，這三種切法的分數分別是 5.143、5.697、5.667，排得出順序。這是講義「all $k$ considered together」那句註解在實際數字上的樣子。
+
+### Fun Time：兩個類別的 Gini index
+
+**題目（第 12 頁）：** Gini index 是 $1 - \sum_{k=1}^{K} \Big( \frac{\sum_{n=1}^{N} \llbracket y_n = k \rrbracket}{N} \Big)^2$。考慮 $K = 2$，令 $\mu = \frac{N_1}{N}$，$N_1$ 是 $y_n = 1$ 的資料筆數。下面哪一個 $\mu$ 的式子等於這時的 Gini index？
+
+1. $2\mu(1 - \mu)$
+2. $2\mu^2(1 - \mu)$
+3. $2\mu(1 - \mu)^2$
+4. $2\mu^2(1 - \mu)^2$
+
+**答案：1。** 兩類的比例是 $\mu$ 與 $1 - \mu$，代進去：
+
+$$
+1 - \mu^2 - (1 - \mu)^2 = 1 - \mu^2 - 1 + 2\mu - \mu^2 = 2\mu - 2\mu^2 = 2\mu(1 - \mu)
+$$
+
+講義的解答只寫「化簡 $1 - (\mu^2 + (1 - \mu)^2)$，答案就會出來」。其他三個選項可以代一個數字排除：$\mu = \frac{1}{2}$ 時 Gini 是 $1 - \frac{1}{4} - \frac{1}{4} = \frac{1}{2}$，四個選項分別是 $\frac{1}{2}$、$\frac{1}{4}$、$\frac{1}{4}$、$\frac{1}{8}$，只有選項 1 對。選項 2 和 3 還有一個看得出來的問題：把兩類的名字對調（$\mu$ 換成 $1 - \mu$），不純度不應該改變，這兩個式子卻會變。
+
+數值例子裡用的 $\frac{2ab}{(a+b)^2}$ 就是這一題的結果，$\mu = \frac{a}{a+b}$。
+
+## 完全長大的樹要剪，類別特徵與缺值也接得住
+
+```youtube
+url: https://www.youtube.com/watch?v=uvGC_Y0EYiA
+title: Decision Tree :: Decision Tree Heuristics in C&RT @ Machine Learning Techniques (機器學習技法)
+```
+
+（影片 00:00–01:26 回顧 C&RT 並談多類別，01:26–07:10 是剪枝，07:10–09:51 類別特徵，09:51–12:44 缺值與 surrogate branch，之後是 Fun Time。）
+
+### 同一個演算法，三種問題
+
+第 13 頁把四個選擇填回骨架，得到完整的 C&RT：不能再分支時回傳 $E_{\text{in}}$ 最佳的常數；否則用 purifying 學一個 stump、把資料切成 2 份、兩邊各自遞迴、再接起來。
+
+講義在這一頁強調它 easily handle binary classification, regression, & multi-class classification。課堂上說明原因：從二元分類換成多類別，演算法裡會受影響的只有兩個地方，葉子的常數（改成多類別裡的多數）和不純度的算法（Gini 本來就是對 $K$ 類寫的）。課堂上說，多類別對它來說幾乎和二元分類一樣簡單，這讓決策樹成為很特別的演算法。本文補充：對照第 8 頁與第 10 頁，換成迴歸要改的也是同樣兩個地方，常數改成平均，不純度改成迴歸誤差；分支、切資料、遞迴這三步完全不動。
+
+### 剪枝：對葉子數做正則化
+
+第 14 頁先指出完全長大的樹的問題：
+
+- 只要所有的 $\mathbf{x}_n$ 都不同，$E_{\text{in}}(G) = 0$。
+- 但是會過擬合（$E_{\text{out}}$ 大），因為低層的子樹是用很少的資料 $\mathcal{D}_c$ 建出來的。
+
+第一點的理由本文補上：一個節點只要還有兩筆 $y$ 不同的資料，它們的 $\mathbf{x}$ 既然不同，就至少有一個特徵的值不同，在那個特徵上取兩個值中間當門檻，就是一個可以用的 stump，演算法不會停。所以停下來的每片葉子裡 $y$ 都相同，每筆資料都分對。
+
+課堂上從學生的角度提這個問題：照這樣切，一定可以把資料通通切開，$E_{\text{in}}$ 一定是 0；回想[基石第 7 堂：VC 維度](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error)的理論，每次都能做到 $E_{\text{in}} = 0$ 並不妙，那表示 VC dimension 是無限大，模型複雜度沒有受到控制。而且愈往下切，每個節點上的資料愈少，在那麼少的資料上做的決定很可能是過擬合。數值例子裡那片只有一筆資料的葉子就是這種情況。
+
+解法是[基石第 14 堂：正則化](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-14-regularization)教的做法，需要一個衡量樹有多複雜的量。課堂上的推理是：樹太複雜是因為切了太多刀，切太多刀就有太多片葉子，所以就用葉子數：
+
+$$
+\Omega(G) = \text{NumberOfLeaves}(G)
+$$
+
+想要的是有正則化的決策樹：
+
+$$
+\operatorname*{argmin}_{\text{all possible } G} \ E_{\text{in}}(G) + \lambda\,\Omega(G)
+$$
+
+講義說這樣得到的樹叫 pruned decision tree（剪過枝的樹）。課堂上解釋 prune 是砍、修剪的意思：不讓樹整個長高，把它修矮一點、葉子少一點，希望這樣的樹比較不會過擬合。
+
+問題在「all possible $G$」。C&RT 跑一次只產生一棵樹，要把所有可能的切法、所有可能的樹的結構都列出來，計算上做不到。講義的做法是只考慮一串樹：
+
+- $G^{(0)}$ = 完全長大的樹。
+- $G^{(i)} = \operatorname*{argmin}_{G} E_{\text{in}}(G)$，其中 $G$ 是從 $G^{(i-1)}$ 拿掉一片葉子（one-leaf removed）得到的樹。
+
+課堂上講得比較具體：假設完全長大的樹有 10 片葉子，把每一片葉子都試著摘掉，看哪一棵 9 片葉子的樹 $E_{\text{in}}$ 最小，那就是 $G^{(1)}$；再從 $G^{(1)}$ 出發摘第二片，得到 $G^{(2)}$，一路摘下去。「摘掉一片葉子」的意思是把它和隔壁的葉子合起來，合起來之後那片新葉子要重新算一個常數。這樣一來，10 片葉子的樹只會產生大約 10 棵候選的樹，再用 $E_{\text{in}} + \lambda\Omega$ 從這幾棵裡面挑。課堂上的說法是，這幾棵大概是夠好的樹，在它們之中選就可以了。
+
+剩下 $\lambda$ 怎麼定。講義只寫一行：systematic choice of $\lambda$? validation。也就是[基石第 15 堂：驗證](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)的做法，把 $\lambda$ 當成一個參數，用 validation set 選。
+
+### 數值例子（續）：把那棵樹剪回來
+
+這一段同樣是本文自擬的。從前面 14 筆資料長出來的那棵 4 片葉子的樹出發，它是 $G^{(0)}$。
+
+講義沒有規定「隔壁不是葉子」時怎麼摘，本文採用的讀法是：找一個兩個子節點都是葉子的內部節點，把這兩片葉子合成一片，葉子數少 1。
+
+**$G^{(0)} \to G^{(1)}$。** 有兩個內部節點符合條件：
+
+- 合併「收入 ≤ 13？」底下的兩片：合起來有 6 筆 $+1$、1 筆 $-1$，新葉子回傳 $+1$，多錯 1 筆。$E_{\text{in}} = \frac{1}{14}$。
+- 合併「收入 ≤ 10？」底下的兩片：合起來有 3 筆 $+1$、4 筆 $-1$，新葉子回傳 $-1$，多錯 3 筆。$E_{\text{in}} = \frac{3}{14}$。
+
+$E_{\text{in}}$ 比較小的是第一種，所以 $G^{(1)}$ 是：負債 ≤ 5 就核卡；否則看收入，≤ 10 不核卡，> 10 核卡。
+
+**$G^{(1)} \to G^{(2)}$。** 只剩「收入 ≤ 10？」可以合併，合併後 $E_{\text{in}} = \frac{1 + 3}{14} = \frac{4}{14}$。$G^{(2)}$ 只剩根節點：負債 ≤ 5 核卡，否則不核卡。
+
+**$G^{(2)} \to G^{(3)}$。** 把根節點的兩片合起來，9 筆 $+1$、5 筆 $-1$，回傳 $+1$，$E_{\text{in}} = \frac{5}{14}$。$G^{(3)}$ 是一片葉子：一律核卡。
+
+接著對不同的 $\lambda$ 算 $E_{\text{in}} + \lambda\Omega$，每一欄最小的用粗體標出：
+
+| 樹 | 葉子數 $\Omega$ | $E_{\text{in}}$ | $\lambda = 0.03$ | $\lambda = 0.1$ | $\lambda = 0.2$ |
+|---|---|---|---|---|---|
+| $G^{(0)}$ | 4 | $0$ | **0.120** | 0.400 | 0.800 |
+| $G^{(1)}$ | 3 | $\frac{1}{14} \approx 0.071$ | 0.161 | **0.371** | 0.671 |
+| $G^{(2)}$ | 2 | $\frac{4}{14} \approx 0.286$ | 0.346 | 0.486 | 0.686 |
+| $G^{(3)}$ | 1 | $\frac{5}{14} \approx 0.357$ | 0.387 | 0.457 | **0.557** |
+
+$\lambda$ 很小時留下完全長大的樹，$\lambda$ 很大時剪到只剩一片葉子，中間的 $\lambda$ 選 $G^{(1)}$。分界可以直接解：$G^{(1)}$ 贏過 $G^{(0)}$ 需要 $\frac{1}{14} + 3\lambda < 4\lambda$，也就是 $\lambda > \frac{1}{14}$；$G^{(1)}$ 贏過 $G^{(3)}$ 需要 $\frac{1}{14} + 3\lambda < \frac{5}{14} + \lambda$，也就是 $\lambda < \frac{1}{7}$。$G^{(2)}$ 在任何 $\lambda$ 下都不是最小的：它比 $G^{(1)}$ 少一片葉子，$E_{\text{in}}$ 卻多了 $\frac{3}{14}$，要 $\lambda > \frac{3}{14}$ 才划算；可是 $\lambda$ 那麼大的時候，再少一片葉子、$E_{\text{in}}$ 只多 $\frac{1}{14}$ 的 $G^{(3)}$ 更划算。
+
+**用 validation 選 $\lambda$。** 假設另外留了 10 筆沒有參與訓練的資料（同樣是自擬的）：
+
+| $(x_1, x_2)$ | $y$ |  | $(x_1, x_2)$ | $y$ |
+|---|---|---|---|---|
+| $(3, 2)$ | $+1$ |  | $(9, 6)$ | $-1$ |
+| $(7, 4)$ | $+1$ |  | $(11, 8)$ | $+1$ |
+| $(15, 2)$ | $+1$ |  | $(15, 6)$ | $+1$ |
+| $(13, 4)$ | $+1$ |  | $(3, 6)$ | $-1$ |
+| $(5, 8)$ | $-1$ |  | $(10, 2)$ | $+1$ |
+
+四棵樹在這 10 筆上的錯誤：
+
+| 樹 | 答錯的資料 | $E_{\text{val}}$ |
+|---|---|---|
+| $G^{(0)}$ | $(15, 2)$：負債 ≤ 5、收入 > 13，被那片單筆資料的葉子判成不核卡 | $\frac{1}{10}$ |
+| $G^{(1)}$ | 無 | $0$ |
+| $G^{(2)}$ | $(11, 8)$、$(15, 6)$：負債 > 5 一律不核卡 | $\frac{2}{10}$ |
+| $G^{(3)}$ | $(5, 8)$、$(9, 6)$、$(3, 6)$：一律核卡 | $\frac{3}{10}$ |
+
+$E_{\text{val}}$ 最小的是 $G^{(1)}$，對應到 $\frac{1}{14} < \lambda < \frac{1}{7}$ 之間的任何一個值，例如 $\lambda = 0.1$。
+
+**這個結果代表什麼。** $E_{\text{in}} = 0$ 的 $G^{(0)}$ 在新資料上反而比 $E_{\text{in}} = \frac{1}{14}$ 的 $G^{(1)}$ 差，差在那片為了第 7 筆資料長出來的葉子。剪枝的第一步拿掉的正好是它：摘掉它只多錯 1 筆，摘掉另一邊要多錯 3 筆，講義那個 argmin 會先放棄代價最小的葉子。$G^{(1)}$ 核卡的條件是「負債 ≤ 5，或收入 > 10」，和 Fun Time 那棵樹表達的布林條件（單位換成萬元）是同一個，只是先問負債、再問收入。兩棵結構不同的樹可以是同一個函數。
+
+這個例子的資料是為了讓每一步都能手算而設計的，只有 10 筆的 validation set 在實際問題裡遠遠不夠；它示範的是流程，不能拿來當 C&RT 表現好壞的證據。
+
+### 類別特徵：把門檻換成子集合
+
+第 15 頁處理另一種輸入。到目前為止特徵都是數字（numerical features），例如血壓 130、98、115、147、120，用 decision stump 在某個門檻切開很自然：
+
+$$
+b(\mathbf{x}) = \llbracket x_i \le \theta \rrbracket + 1, \qquad \theta \in \mathbb{R}
+$$
+
+括號成立時 $b(\mathbf{x}) = 2$，不成立時 $b(\mathbf{x}) = 1$。
+
+但特徵也可能是類別（categorical features），例如主要症狀是 fever、pain、tired、sweaty 其中一種。課堂上指出這種特徵對線性模型很麻煩：線性模型最後要算一個加權的分數，輸入最好本來就是數字，類別沒有大小可言。決策樹受影響的只有「怎麼切」這一步，把門檻換成子集合就好，講義稱為 decision subset：
+
+$$
+b(\mathbf{x}) = \llbracket x_i \in S \rrbracket + 1, \qquad S \subset \{1, 2, \dots, K\}
+$$
+
+課堂上舉的是天氣：晴天或陰天走一邊，雨天走另一邊。做法是把所有的子集合窮舉出來，看哪一種切法最好；演算法其他部分都不變。講義的結論是 C&RT（以及一般的決策樹）handles categorical features easily。
+
+本文補充：要試幾個子集合？$K$ 個類別有 $2^K$ 個子集合，扣掉空集合與全部（它們沒有把資料分開）剩 $2^K - 2$ 個；$S$ 和它的補集切出來是同樣的兩份資料，只是編號對調，所以不同的切法有 $\frac{2^K - 2}{2} = 2^{K-1} - 1$ 種。$K = 4$ 時是 7 種，$K = 10$ 時是 511 種，類別一多，窮舉的成本會漲得很快。
+
+**一個小例子（本文自擬）。** 12 位病人，特徵只有主要症狀，$y = +1$ 表示確診某種病：
+
+| 症狀 | $+1$ 的人數 | $-1$ 的人數 |
+|---|---|---|
+| fever | 3 | 0 |
+| pain | 1 | 2 |
+| tired | 0 | 3 |
+| sweaty | 2 | 1 |
+
+7 種切法的加權 Gini（一樣用 $\frac{2ab}{a+b}$）：
+
+| $S$ | $S$ 那一份（$+1$／$-1$） | 另一份（$+1$／$-1$） | 加權不純度 |
+|---|---|---|---|
+| {fever, sweaty} | 5／1 | 1／5 | $\frac{5}{3} + \frac{5}{3} = 3.333$ |
+| {fever} | 3／0 | 3／6 | $0 + 4 = 4.000$ |
+| {tired} | 0／3 | 6／3 | $0 + 4 = 4.000$ |
+| {fever, pain} | 4／2 | 2／4 | $\frac{8}{3} + \frac{8}{3} = 5.333$ |
+| {pain} | 1／2 | 5／4 | $\frac{4}{3} + \frac{40}{9} = 5.778$ |
+| {sweaty} | 2／1 | 4／5 | $\frac{4}{3} + \frac{40}{9} = 5.778$ |
+| {fever, tired} | 3／3 | 3／3 | $3 + 3 = 6.000$ |
+
+最好的是 $S = \{\text{fever}, \text{sweaty}\}$。單獨切出 fever 可以得到一份完全純的資料，但剩下的 9 人是 3 比 6，整體不如把 sweaty 也放過去。最差的 {fever, tired} 把最偏 $+1$ 和最偏 $-1$ 的兩種症狀放在同一邊，切完和沒切一樣（12 人 6 比 6 的值也是 6）。
+
+### 缺值：訓練時先存好替代的切法
+
+第 16 頁的情境：某個節點的最佳分支是 $b(\mathbf{x}) = \llbracket \text{weight} \le 50\text{kg} \rrbracket$，預測時這位病人卻沒有體重的資料。
+
+講義先問人會怎麼做：去量體重；或者改用身高的門檻，因為身高的門檻切出來的結果和體重的門檻差不多（threshold on height ≈ threshold on weight）。課堂上把它講成急診的場景：病人送進來忘了量體重，但還是要決定怎麼處理、藥量給多少。有時間就去量；沒時間的話先目測身高，體重 50 公斤以下的人身高大概在 155 公分以下，原本要切在體重上的那一刀就改切在身高上。155 這個數字是課堂上口頭舉的，講義上沒有。
+
+C&RT 把這個想法做進演算法，叫 surrogate branch：
+
+- **訓練時**，除了最佳分支 $b(\mathbf{x})$，另外維護幾個替代分支 $b_1(\mathbf{x}), b_2(\mathbf{x}), \dots$，它們用別的特徵，切出來的結果接近 $b(\mathbf{x})$。
+- **預測時**，$b(\mathbf{x})$ 需要的特徵缺值，就改用替代分支。
+
+課堂上解釋 surrogate 是代理的意思，簡單說就是替代品；替代品怎麼找，大體上是看用它來切的時候，跟原來的切法切出來的結果像不像。講義的結論是 C&RT handles missing features easily。課堂上順帶點出這和決策樹的性格有關：它本來就是 heuristic 的演算法，要再加一個 heuristic 來處理資料不完整這類實務問題很容易。
+
+**一個小例子（本文自擬）。** 「像不像」講義沒有給公式，這裡用最直接的量法：訓練資料裡有幾筆被替代分支和最佳分支分到同一邊。8 位病人的體重（公斤）與身高（公分）：
+
+| 病人 | 體重 | 身高 | 體重 ≤ 50？ |
+|---|---|---|---|
+| A | 42 | 148 | 是 |
+| B | 45 | 151 | 是 |
+| C | 47 | 153 | 是 |
+| D | 50 | 163 | 是 |
+| E | 53 | 157 | 否 |
+| F | 60 | 162 | 否 |
+| G | 66 | 165 | 否 |
+| H | 72 | 170 | 否 |
+
+候選的替代分支是「身高 ≤ θ」，θ 取相鄰身高的中點：
+
+| θ | 和「體重 ≤ 50」分到同一邊的人數 | 分錯邊的人 |
+|---|---|---|
+| 149.5 | 5 | B、C、D |
+| 152 | 6 | C、D |
+| 155 | 7 | D |
+| 159.5 | 6 | D、E |
+| 162.5 | 5 | D、E、F |
+| 164 | 6 | E、F |
+| 167.5 | 5 | E、F、G |
+
+最像的是「身高 ≤ 155」，8 人裡有 7 人一致，只有比較高瘦的 D 被分到另一邊。訓練時把它存成這個節點的 $b_1(\mathbf{x})$。預測時來了一位沒有體重、身高 150 公分的病人，就用 $b_1$：150 ≤ 155，走「體重 ≤ 50」的那一邊。
+
+### Fun Time：decision subset 怎麼讀
+
+**題目（第 17 頁）：** 類別特徵的分支條件是 $b(\mathbf{x}) = \llbracket x_i \in S \rrbracket + 1$，$S = \{1, 6\}$。下面哪一個是這個條件的解釋？
+
+1. 第 $i$ 個特徵是第 1 類**或**第 6 類時，走第一棵子樹；否則走第二棵子樹。
+2. 第 $i$ 個特徵是第 1 類**或**第 6 類時，走第二棵子樹；否則走第一棵子樹。
+3. 第 $i$ 個特徵是第 1 類**而且**是第 6 類時，走第二棵子樹；否則走第一棵子樹。
+4. 第 $i$ 個特徵是第 1 類**而且**是第 6 類時，走第一棵子樹；否則走第二棵子樹。
+
+**答案：2。** 要看兩件事。第一，$x_i \in S$ 的意思是 $x_i$ 等於 $S$ 裡的某一個元素，講義的解答說「$\in S$」在人話裡是「或」的條件；一個特徵一次只有一個值，不可能既是第 1 類又是第 6 類，所以選項 3、4 的條件永遠不成立。第二，括號成立時值是 1，再加 1 得到 $b(\mathbf{x}) = 2$，走第二棵子樹；不成立時 $b(\mathbf{x}) = 0 + 1 = 1$，走第一棵。選項 1 把這兩個編號弄反了。
+
+課堂上講解這題時，說的是條件成立走右邊、不成立走左邊，也就是把第二棵子樹當成右邊那棵。但同一支影片前面講缺值的例子時，口頭上說的是體重 50 公斤以下走左邊。左右只是口頭上畫樹的習慣，前後並不一致；講義的式子裡沒有左右，只有編號：括號成立是 2，不成立是 1。做題與寫程式時以式子為準。這篇的數值例子都直接寫出條件成立與不成立各接什麼，避免搞混。
+
+## 跑起來是什麼樣子：和 AdaBoost-Stump 並排看
+
+```youtube
+url: https://www.youtube.com/watch?v=ryWTrPPbqcg
+title: Decision Tree :: Decision Tree in Action @ Machine Learning Techniques (機器學習技法)
+```
+
+（影片 00:00–03:24 是簡單資料上的逐步示範，03:24–05:10 複雜資料，05:10–06:39 C&RT 的特長與 C4.5，06:39–07:07 Fun Time，之後是總結。）
+
+### 簡單的資料：一刀一刀切
+
+第 18 頁用一份二維的二元分類資料示範，圖上數得到 5 個圈圈、5 個叉叉。講義把過程拆成一連串的圖，用文字寫出來是：
+
+1. **第一刀**是靠左的一條垂直線。左邊只有 2 個圈圈，已經純了；右邊還混著，繼續切。
+2. **第二刀**是右邊區域裡的一條垂直線，把 3 個叉叉留在兩刀之間。
+3. **第三刀**還是垂直線，緊接在第二刀的右邊，中間夾出一條窄窄的區域，裡面是 2 個圈圈。
+4. **第四刀**換成水平線，只切最右邊的區域：上面 1 個圈圈，下面 2 個叉叉。
+
+課堂上一邊切一邊說明遞迴的結構：每切一刀，兩邊各自要再長一棵小樹，之後才接回來。切到第四刀時他提到，前三刀都是垂直的，這時演算法看一看，發現切水平的比較容易。四刀切完，5 個區域都是純的，沒有地方可以再切，每個區域回傳自己的常數（講義的圖把圈圈的區域塗成藍色、叉叉的區域塗成紅色），再一層一層接回去，成為整棵樹。
+
+最後一張圖把 C&RT 和上一堂的 AdaBoost-Stump 並排。兩者用的都是水平線和垂直線，差別在這些線的範圍。課堂上的說明是：AdaBoost-Stump 的每個 stump 都對整個平面投票，所以它切的每一刀都橫跨或直貫整個平面；C&RT 的刀是在條件之下切的，例如第四刀只存在於「已經走到最右邊區域」的條件下，不會延伸到別的區域。講義在這張圖下面寫的是 C&RT: 'divide-and-conquer'。
+
+### 複雜的資料：條件式的切法比較省
+
+第 19 頁換成一份點很多、邊界彎曲的資料。課堂上用動畫比較兩者，每次各多切 10 刀：
+
+- **AdaBoost-Stump** 切了 10 輪之後，彎曲邊界的雛形就出來了，之後每多 10 輪是在微調邊界。
+- **C&RT** 是遞迴往下切，前 10 刀只決定了某幾塊區域是圈圈還是叉叉，其他區域還沒決定；之後每多 10 刀，決定好的區域愈來愈多。到第四次推進時，整棵樹已經切完，邊界也是那個彎曲的形狀。課堂上說圖上有些地方看起來不太完美，只是畫圖解析度的關係。
+
+講義這一頁放的是兩邊最後的結果，AdaBoost-Stump 的圖上標著 t = 90，結論是 C&RT: even more efficient than AdaBoost-Stump。課堂上解釋原因：C&RT 在各種不同的條件下切刀，可以切得比較細緻，不像 AdaBoost-Stump 每一刀都得是完整的水平線或垂直線。
+
+本文補充一個看法：這和路徑觀點的式子對得起來。AdaBoost 的 $G$ 是所有 $g_t$ 的加權和，每個 $g_t$ 在每個 $\mathbf{x}$ 上都有作用；決策樹的 $q_t(\mathbf{x})$ 讓每片葉子只管自己的區域。要在平面的某個角落修一下邊界，樹只需要在那個角落多切一刀。
+
+### C&RT 的五個特長
+
+第 20 頁把實務上的特長列成五點：
+
+- 人看得懂（human-explainable）。
+- 容易做多類別（multiclass easily）。
+- 容易處理類別特徵（categorical features easily）。
+- 容易處理缺值（missing features easily）。
+- 非線性，而且訓練與測試都有效率（efficient non-linear training and testing）。
+
+講義接著寫：幾乎沒有其他的學習模型同時具備這些特長，除了其他的決策樹。課堂上拿 SVM 來對照：SVM 可以做非線性，但相對沒那麼有效率，要處理類別資料也不容易。
+
+同一頁提到另一個常見的決策樹演算法 C4.5，with different choices of heuristics。課堂上的說法是，C&RT 在幾個關鍵點上做了自己的設計，C4.5 在那些點上做了不同的決定，於是成為另一個演算法。這正是講優缺點時說的「沒有單一的代表性演算法」。
+
+### Fun Time：沒剪枝的 C&RT 少了什麼
+
+**題目（第 21 頁）：** 下面哪一個**不是**沒有剪枝的 C&RT 的特長？
+
+1. 容易處理缺值
+2. 產生可以解釋的假說
+3. 達到低的 $E_{\text{in}}$
+4. 達到低的 $E_{\text{out}}$
+
+**答案：4。** 講義的解答是：前兩個很明顯；第三個是因為完全長大的 C&RT 會貪心地把 $E_{\text{in}}$ 壓低，幾乎都壓到 0；但可以想見會過擬合，$E_{\text{out}}$ 不一定低。課堂上的講法相同：沒有剪枝，樹就一路長下去，$E_{\text{in}}$ 很低，$E_{\text{out}}$ 卻不見得。
+
+數值例子把這四個選項都走過一遍。選項 3：$G^{(0)}$ 的 $E_{\text{in}} = 0$。選項 4：它在 validation 資料上錯了 1 筆，比剪過的 $G^{(1)}$ 差。選項 1 靠的是 surrogate branch，選項 2 靠的是樹本身的結構，兩者都和有沒有剪枝無關。
+
+第 22 頁的總結把四節各收成一句：決策樹的假說表達的是依路徑分條件的 aggregation；演算法是遞迴地分支，直到終止時回傳 base hypothesis；C&RT 的 heuristics 包括剪枝、類別分支與 surrogate；實際跑起來可解釋而且有效率。課堂上在這裡說，aggregation 的基本模型到這堂都講完了。下一堂的預告是 aggregation of aggregation：把這幾堂學到的 aggregation 模型再合起來用。
+
+## 自我檢查
+
+**1. 一個節點上有 10 筆資料，三個類別各有 5、3、2 筆。算出 Gini index 與分類錯誤率。如果這個節點是葉子，它回傳什麼？**
+
+答案：比例是 0.5、0.3、0.2。Gini 是 $1 - (0.25 + 0.09 + 0.04) = 0.62$。分類錯誤率是 $1 - 0.5 = 0.5$。葉子回傳第一類（多數）。可以順便檢查上限：三類的 Gini 最大是 $1 - \frac{1}{3} \approx 0.667$，0.62 已經很接近，表示這份資料相當不純。
+
+**2. 迴歸問題，一個特徵，5 筆資料 $(x, y)$：$(1, 1)$、$(2, 2)$、$(3, 2)$、$(4, 8)$、$(5, 9)$。用迴歸誤差當不純度，C&RT 的根節點會切在哪裡？兩片葉子各回傳多少？**
+
+答案：四種切法的加權不純度就是兩邊平方誤差的總和。
+
+| 切法 | 「≤」那一份的平均與平方誤差和 | 「>」那一份的平均與平方誤差和 | 合計 |
+|---|---|---|---|
+| $x \le 1.5$ | $1$，$0$ | $\frac{21}{4}$，$\frac{171}{4}$ | $42.75$ |
+| $x \le 2.5$ | $\frac{3}{2}$，$\frac{1}{2}$ | $\frac{19}{3}$，$\frac{86}{3}$ | $29.17$ |
+| $x \le 3.5$ | $\frac{5}{3}$，$\frac{2}{3}$ | $\frac{17}{2}$，$\frac{1}{2}$ | $1.17$ |
+| $x \le 4.5$ | $\frac{13}{4}$，$\frac{123}{4}$ | $9$，$0$ | $30.75$ |
+
+切在 $x \le 3.5$，兩片葉子回傳 $\frac{5}{3}$ 與 $\frac{17}{2}$。不切的話平均是 $\frac{22}{5}$，平方誤差和是 $57.2$。完全長大的樹還會繼續切（$y$ 還不全相同），這題只問根節點。
+
+**3. 二元分類，把標籤記成 $y \in \{0, 1\}$，$y = 1$ 的比例是 $\mu$。這時「迴歸誤差」那個不純度是多少？它和 Gini index 是什麼關係？**
+
+答案：平均是 $\bar{y} = \mu$。$y = 1$ 的資料每筆貢獻 $(1 - \mu)^2$，比例是 $\mu$；$y = 0$ 的每筆貢獻 $\mu^2$，比例是 $1 - \mu$。所以不純度是 $\mu(1 - \mu)^2 + (1 - \mu)\mu^2 = \mu(1 - \mu)\big[(1 - \mu) + \mu\big] = \mu(1 - \mu)$，剛好是 Gini index $2\mu(1 - \mu)$ 的一半。兩者只差一個常數倍，拿來比較切法會排出一樣的順序。例如 $\mu = \frac{1}{4}$：$\frac{3}{16}$ 與 $\frac{3}{8}$。
+
+**4. 一棵完全長大的樹有 6 片葉子。剪枝得到的一串樹，葉子數與 $E_{\text{in}}$ 依序是 (6, 0)、(5, 0.02)、(4, 0.05)、(3, 0.15)、(2, 0.20)、(1, 0.40)。$\lambda = 0.04$ 時選哪一棵？$\lambda = 0.01$ 呢？**
+
+答案：$\lambda = 0.04$ 時 $E_{\text{in}} + \lambda\Omega$ 依序是 0.24、0.22、0.21、0.27、0.28、0.44，選 4 片葉子的那棵。$\lambda = 0.01$ 時是 0.06、0.07、0.09、0.18、0.22、0.41，選完全長大的樹：每少一片葉子只省 0.01，$E_{\text{in}}$ 卻至少多 0.02。
+
+**5. 講義說「所有 $\mathbf{x}_n$ 都不同時，完全長大的樹 $E_{\text{in}} = 0$」。如果資料裡有兩筆的 $\mathbf{x}$ 完全相同、$y$ 卻不同，會發生什麼事？這棵樹的 $E_{\text{in}}$ 還能是 0 嗎？**
+
+判準：答案要說出這兩筆資料不管怎麼切都會被分到同一邊（沒有 stump 能分開它們），最後落在同一片葉子；那片葉子因為「所有 $\mathbf{x}_n$ 都一樣」被迫停止，回傳多數，兩筆裡至少錯一筆，所以 $E_{\text{in}} > 0$。能指出這對應到第 11 頁的第二個終止條件就算完整。
+
+## 練習與對應閱讀
+
+**兩個學期的對應週次。** [Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)把這堂排在 W12（11/18），和 AdaBoost、Random Forest、GBDT 同一週，投影片代號是 [209u](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/209u_handout.pdf)。[Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)同樣排在 W12（11/25）；這一週的投影片在 2026-09-30 查的時候還沒上線，所以本文只用 MOOC 版講義。
+
+**教科書。** 兩份課程頁都沒有替這堂標 Learning from Data 的章節。課程頁列的延伸閱讀是 [Loh 的 Classification and Regression Trees 綜述](https://pages.stat.wisc.edu/~loh/treeprogs/guide/wires11.pdf)，把各種決策樹演算法放在一起比較；以及 Breiman 等人的 *Classification and Regression Trees*，也就是 CART 的原書，課程頁連到的是 [Amazon 書頁](http://www.amazon.com/Classification-Regression-Wadsworth-Statistics-Probability/dp/0412048418)。這堂課只取了 CART 的部分元件，想知道 C4.5 這些演算法在四個選擇上各自怎麼填，Loh 的綜述是比較快的入口。
+
+**作業。** [Fall 2024 HW7](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf)（2024-12-02 發布、12-16 截止）裡和這堂直接相關的是 **Q2**：把幾種不純度函數（分類錯誤率、平方誤差、entropy、closeness）各自除以最大值正規化之後，問哪一個和 Gini index 等價。沒有官方解答。自我檢查第 3 題可以當暖身：先把不純度寫成類別比例的式子，再拿來和 Gini index 比較。這堂在 Fall 2024 沒有程式題。整份作業的導讀在[技法作業與期末專題](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project)。
+
+**想動手的話。** 把數值例子的 14 筆資料自己寫一個遞迴的 C&RT 跑一次，核對根節點那 8 個分數；程式不長，課堂上說大一學生就寫得出來。之後可以拿 scikit-learn 的 `DecisionTreeClassifier` 對照（以下在 scikit-learn 1.9.1 實際跑過）：`criterion="gini"` 時，這 14 筆資料長出來的樹和本文手算的一樣，根節點切在負債 5，底下分別切在收入 13 與收入 10，共 4 片葉子。`max_depth` 直接限制樹的高度。`ccp_alpha` 預設是 0，也就是不剪枝；設成正數時，它用「葉子的不純度加上 α 乘葉子數」來剪，和這堂的 $\lambda$ 是同一個想法，但細節不同：它算的是不純度而不是 $E_{\text{in}}$，而且一次可以剪掉整棵子樹。所以同樣這 14 筆資料，它剪出來的那一串樹是 4 片、3 片、1 片葉子，和本文的 $G^{(0)}$ 到 $G^{(3)}$ 不會逐棵對上。
+
+**站內其他課程對同一主題的講法。** [Harvard CS181 HW4：決策樹、隨機森林與 MoE](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe)、[CMU 10-301 HW2：決策樹](/posts/learning/2026-08-22-cmu-10301-hw2-decision-trees)。
+
+**下一堂。** [技法第 10 堂：隨機森林](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-10-random-forest)把這堂完全長大的樹放進 Bagging：單棵樹容易過擬合的毛病，改用很多棵樹投票來處理。
+
+## 課程影片來源
+
+原始影片：[Decision Tree Hypothesis](https://www.youtube.com/watch?v=dAqPpAXnMJ4)、[Decision Tree Algorithm](https://www.youtube.com/watch?v=s9Um2O7N7YM)、[Decision Tree Heuristics in C&RT](https://www.youtube.com/watch?v=uvGC_Y0EYiA)、[Decision Tree in Action](https://www.youtube.com/watch?v=ryWTrPPbqcg)
+
+- [機器學習技法 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
 
-查核日期：2026-10-10。
+查核日期：2026-10-13。影片 ID、標題與長度於當天從官方播放清單取得；YouTube 上沒有字幕軌，本文的課堂說法來自自行轉錄的逐字稿。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入影片與官方播放清單的講次相符。
+- 2026-10-13：原本與第 10、11 堂合為一篇，改為一堂一篇，這篇只寫技法第 9 堂，依講義與影片逐字稿重寫。
 
 ## 參考資料
 
-- [Hsuan-Tien Lin > MOOCs](https://www.csie.ntu.edu.tw/~htlin/mooc/) — 技法 T9–T11 的小節標題與投影片
-- [Lecture 9: Decision Tree（209_handout.pdf）](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/209_handout.pdf) — conditional aggregation、C&RT、impurity、剪枝、類別特徵、surrogate branch
-- [Lecture 10: Random Forest（210_handout.pdf）](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/210_handout.pdf) — RF、隨機子空間與隨機投影、OOB、permutation 特徵重要度、KDD Cup 2013 經驗
-- [Lecture 11: Gradient Boosted Decision Tree（211_handout.pdf）](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/211_handout.pdf) — AdaBoost-DTree、最佳化觀點、gradient boosting、aggregation 總整理
-- [機器學習技法 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2) — 第 34–45 支
-- [Machine Learning, Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) — 週次、209u–211u 投影片與延伸閱讀清單
-- [Fall 2024 Homework 7（hw7.pdf）](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf)
-- [Machine Learning, Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) — W12 排程
-- [Loh, Classification and Regression Trees](https://pages.stat.wisc.edu/~loh/treeprogs/guide/wires11.pdf)
-- [Breiman, Random Forests](https://doi.org/10.1023/A:1010933404324)
-- [Friedman, Greedy Function Approximation: A Gradient Boosting Machine](https://doi.org/10.1214/aos/1013203451)
-- 站內：[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+- [技法第 9 堂講義 209_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/209_handout.pdf)：本文的主要底本，四節的內容、四題 Fun Time、第 3 頁的樹與第 18、19 頁的示範圖都出自這份講義。
+- [機器學習技法 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)：四支影片的 ID 與標題；文中「課堂上」的說法轉述自這四支影片的機器轉錄逐字稿。
+- [Hsuan-Tien Lin > MOOCs](https://www.csie.ntu.edu.tw/~htlin/mooc/)：官方講義與錄影入口。
+- [Machine Learning, Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)：對應週次、209u 投影片與延伸閱讀清單。
+- [Machine Learning, Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)：對應週次。
+- [Fall 2024 Homework 7（hw7.pdf）](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf)：Q2 的題目內容。
+- [Loh, Classification and Regression Trees](https://pages.stat.wisc.edu/~loh/treeprogs/guide/wires11.pdf)：課程頁列的延伸閱讀，決策樹演算法的綜述。
+- [Breiman et al., Classification and Regression Trees（Amazon 書頁）](http://www.amazon.com/Classification-Regression-Wadsworth-Statistics-Probability/dp/0412048418)：課程頁列的延伸閱讀，CART 原書。
+- [台大林軒田 機器學習基石與技法 導讀：課程總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)：整門課的位置與閱讀路線。

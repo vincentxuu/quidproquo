@@ -1,5 +1,5 @@
 ---
-title: "Hsuan-Tien Lin's ML Techniques Homework and Final Project: Fall 2024 HW6–HW7 and the HTMLB Win Prediction | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Topic Guide"
+title: "Techniques Homework and Final Project: Fall 2024 HW6–HW7 and the HTMLB Win Prediction | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Assignments 6–7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -7,7 +7,7 @@ tags: [ntu-htlin-ml, ntu, ai-course, machine-learning, homework, svm, ensemble]
 lang: en
 series:
   name: "Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques"
-  order: 18
+  order: 34
 tldr: "The Techniques half of Fall 2024 has two homework sets and a final project, and all three PDFs are public. HW6 covers kernels, soft-margin SVM, and aggregation; its programming part uses LIBSVM on the 3-vs-7 subproblem of mnist.scale to count support vectors, compute margins, and run 128 validation rounds. HW7 covers bootstrap, impurity, AdaBoost, gradient boosting, and neural networks; its programming part is a 500-round AdaBoost-Stump on madelon. The final project is a fictional baseball league, HTMLB: predict home-team wins across two Kaggle stages and write an English report of at most seven pages that compares at least four methods. There are no official solutions. On 2026-09-30 both Kaggle pages returned 404 without login, so outside readers probably cannot get the HTMLB data and should reproduce the same splits on a public dataset instead."
 description: "Guide to the Techniques-half assignments of Hsuan-Tien Lin's NTU Machine Learning, Fall 2024: HW6 (kernel perceptron, soft-margin SVM duals, one-class SVM, Gaussian kernel, decision-stump kernel, LIBSVM experiments on mnist.scale 3 vs 7), HW7 (bootstrap, impurity, AdaBoost weights, gradient boosting, tanh networks, AdaBoost-Stump on madelon), and the HTMLB final project's two stages, grading rules, and report requirements, plus a self-evaluation plan for when Kaggle is unavailable and a Fall 2026 comparison."
 draft: false
@@ -19,22 +19,22 @@ glossary:
   - term: "AdaBoost-Stump"
     aliases: ["AdaBoost with decision stumps"]
     definition: "AdaBoost with a decision stump (one feature, one threshold) as the base learner. Each round picks the stump with the lowest weighted error, then updates the example weights."
-    context: "The implementation task in Fall 2024 HW7 Q10–12, tied to Techniques Lecture 208."
+    context: "The implementation task in Fall 2024 HW7 Q10–12, tied to Techniques Lecture 8 (the problem calls it Lecture 208)."
 ---
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
-This is part 18, the final post, of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en). The previous post, the [Foundations homework guide](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en), covered HW0–HW5. This one covers the Techniques half: HW6, HW7, and the final project.
+This is the final post of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en). The 32 posts before it walk through the Foundations and Techniques MOOCs one lecture per post. The [Foundations homework guide](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en) sits after Foundations Lecture 16 and covers HW0–HW5; this one sits after [Techniques Lecture 16: Finale](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en) and covers the Techniques half: HW6, HW7, and the final project.
 
 **Sources**: the [Machine Learning, Fall 2024 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) (footer: last updated 2025-01-17), the [HW6 problems](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf), the [HW7 problems](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf), the [final project handout](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/final/final.pdf), and the schedule on the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/). I downloaded or opened all of them on 2026-09-30. Problem statements come from the PDFs. The "which lecture does this practice" labels are mine, based on each problem's content and any lecture number the problem cites.
 
-This post gives no solutions. For each problem it says what the problem practices, which post to read first, and how to check your own answer.
+This post gives no solutions. For each problem it says what the problem practices, which lecture to read first, and how to check your own answer.
 
-## Access level and gaps
+## What you can get and what is missing
 
-Under the grading in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), the MOOC plus the Fall 2024 homework PDFs reach **A3, minus the grading chain**:
+The [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) compares how open different courses are. For this one, the MOOC slides and videos are free and public, and the Fall 2024 homework PDFs and data can be downloaded too; what is missing is official solutions and grading:
 
 | Item | Available outside NTU? | Notes |
 |---|---|---|
@@ -58,22 +58,22 @@ The Fall 2024 course page lists grading as 70% homework and 30% project (tentati
 
 ## HW6: kernels, soft-margin SVM, and aggregation
 
-HW6 was released 2024-11-18 and due 12-02. A red-ink correction followed on 11-22 (hence the filename `hw6_red.pdf`). The lectures that week covered AdaBoost, decision trees, random forests, and GBDT, but the problems mostly practice the earlier [kernel and soft-margin SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) material, plus some [blending](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en).
+HW6 was released 2024-11-18 and due 12-02. A red-ink correction followed on 11-22 (hence the filename `hw6_red.pdf`). The lectures that week covered AdaBoost, decision trees, random forests, and GBDT, but the problems mostly practice the earlier [Techniques Lecture 3: Kernel SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) and [Techniques Lecture 4: Soft-Margin SVM](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm-en) material, plus some blending from [Techniques Lecture 7: Blending and Bagging](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en).
 
 ### Multiple-choice and proof problems
 
 | Problem | What it practices | Read first |
 |---|---|---|
-| Q1 | Write the PLA weight as Σ αₙΦ(xₙ) and find the α update (kernel perceptron) | [Part 9](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en), [Part 10](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) |
-| Q2 | Every example is a bounded SV (αₙ = C), so b has many solutions; find the smallest | Part 10 |
-| Q3 | Soft-margin SVM with squared hinge loss: recover ξ from the dual solution α | Part 10 |
-| Q4 | Uniform blending of 5 classifiers with independent errors and E_out = 0.25 each; find E_out of G (cites page 7 of Lecture 207) | [Part 12](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en) |
-| Q5 | "Dr. Threshold" forgot to separate b and fed [1, xₙ] into soft-margin SVM; prove or disprove the solution is unchanged | Parts 9, 10 |
-| Q6 | Turn soft-margin SVM into one-class outlier detection by anchoring the origin as a hard negative; derive the dual in QP form | Parts 9, 10 |
-| Q7 | With a large enough Gaussian γ, the classifier with α = 1 and b = 0 already reaches E_in = 0 | Part 10 |
-| Q8 | Prove exp(2cos(x − x′) − 2) is a valid kernel | Part 10 |
-| Q9 | Use decision stumps as the feature transform, derive the matching kernel, and prove it | Parts 10, 12 |
-| Q13 (bonus) | Derive the dual of the soft-margin SVM dual and compare it with the primal; the problem includes a chatGPT answer for reference | Part 9 |
+| Q1 | Write the PLA weight as Σ αₙΦ(xₙ) and find the α update (kernel perceptron) | [Techniques Lecture 2](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-02-dual-svm-en), [Techniques Lecture 3](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) |
+| Q2 | Every example is a bounded SV (αₙ = C), so b has many solutions; find the smallest | [Techniques Lecture 4](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm-en) |
+| Q3 | Soft-margin SVM with squared hinge loss: recover ξ from the dual solution α | [Techniques Lecture 4](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm-en) |
+| Q4 | Uniform blending of 5 classifiers with independent errors and E_out = 0.25 each; find E_out of G (cites page 7 of Lecture 207) | [Techniques Lecture 7](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en) |
+| Q5 | "Dr. Threshold" forgot to separate b and fed [1, xₙ] into soft-margin SVM; prove or disprove the solution is unchanged | [Techniques Lecture 1](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en), [Techniques Lecture 4](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm-en) |
+| Q6 | Turn soft-margin SVM into one-class outlier detection by anchoring the origin as a hard negative; derive the dual in QP form | [Techniques Lecture 2](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-02-dual-svm-en), [Techniques Lecture 4](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm-en) |
+| Q7 | With a large enough Gaussian γ, the classifier with α = 1 and b = 0 already reaches E_in = 0 | [Techniques Lecture 3](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) |
+| Q8 | Prove exp(2cos(x − x′) − 2) is a valid kernel | [Techniques Lecture 3](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) |
+| Q9 | Use decision stumps as the feature transform, derive the matching kernel, and prove it | [Techniques Lecture 3](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en), [Techniques Lecture 8](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting-en) |
+| Q13 (bonus) | Derive the dual of the soft-margin SVM dual and compare it with the primal; the problem includes a chatGPT answer for reference | [Techniques Lecture 2](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-02-dual-svm-en), [Techniques Lecture 4](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm-en) |
 
 The hint in Q9 links to Lin's early paper [infkernel.pdf](https://www.csie.ntu.edu.tw/~htlin/paper/doc/infkernel.pdf), which builds kernels from perceptrons and decision trees. Read it if you want to know whether aggregation and SVMs can be combined.
 
@@ -98,28 +98,28 @@ Q10–12 use [mnist.scale](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datase
 
 All three require a screenshot of the first page of your code or commands.
 
-In Q11 you cannot compute the margin from w directly, because the Gaussian kernel's Φ is infinite-dimensional. Recover it from the dual solution: ‖w‖² = ΣₙΣₘ αₙαₘyₙyₘK(xₙ, xₘ), which is the kernel trick from [Part 10](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en). Validation for Q12 is covered in [Part 8](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en).
+In Q11 you cannot compute the margin from w directly, because the Gaussian kernel's Φ is infinite-dimensional. Recover it from the dual solution: ‖w‖² = ΣₙΣₘ αₙαₘyₙyₘK(xₙ, xₘ), which is the kernel trick from [Techniques Lecture 3: Kernel SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en). Validation for Q12 is covered in [Foundations Lecture 15: Validation](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en).
 
 **How to check yourself**: run each setting once in LIBSVM and once in scikit-learn's `SVC` (which also wraps LIBSVM), then compare support-vector counts and dual coefficients. When they disagree, the usual suspects are the definition of γ, data scaling, or the stopping tolerance.
 
 ## HW7: bootstrap, trees, boosting, and neural networks
 
-HW7 was released 2024-12-02 and due 12-16. It covers [blending and bagging](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en), [decision trees, random forests, and GBDT](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt-en), and [neural networks](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en).
+HW7 was released 2024-12-02 and due 12-16. It covers [Techniques Lecture 7: Blending and Bagging](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en), [Techniques Lecture 8: AdaBoost](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting-en), [Techniques Lecture 9: Decision Trees](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt-en), [Techniques Lecture 10: Random Forests](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-10-random-forest-en), [Techniques Lecture 11: Gradient Boosted Decision Trees](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-11-gradient-boosted-decision-tree-en), and [Techniques Lecture 12: Neural Networks](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en).
 
 ### Multiple-choice and proof problems
 
 | Problem | What it practices | Read first |
 |---|---|---|
-| Q1 | Bootstrap from N = 1126: how many draws until the chance of at least one duplicate exceeds 70% | Part 12 |
-| Q2 | After normalizing several impurity functions, which one matches the Gini index | Part 13 |
-| Q3 | With 87% negatives and a constant g₁ = −1 in round one, the ratio of positive to negative weights in round two (the AdaBoost on page 17 of Lecture 208) | Part 12 |
-| Q4 | 20 input units (including the constant x₀), 3 outputs, 50 hidden units in any number of layers: the maximum number of weights | Part 14 |
-| Q5 | Uniform voting over 2M+1 classifiers: the tightest upper bound on E_out of G in terms of each E_out | Part 12 |
-| Q6 | Prove AdaBoost's total weight satisfies U_{t+1}/U_t = 2√(εₜ(1 − εₜ)); the hint calls this the backbone of AdaBoost converging in O(log N) rounds | Parts 12, 13 (Lectures 208, 211) |
-| Q7 | Gradient boosting paired with linear regression instead of trees: is the optimal α₁ equal to 1? | Part 13 |
-| Q8 | After a steepest-step GBDT update, Σ(yₙ − sₙ)gₜ(xₙ) = 0 | Part 13 |
-| Q9 | A one-hidden-layer tanh network with every initial weight at 0.5 keeps its first-layer weights symmetric | Part 14 |
-| Q13 (bonus) | A quoted chatGPT answer claims a d-(d−1)-1 sign network can implement d-dimensional XOR; find where it diverges from the 2023 fall bonus problem and prove impossibility | Part 14 |
+| Q1 | Bootstrap from N = 1126: how many draws until the chance of at least one duplicate exceeds 70% | [Techniques Lecture 7](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en) |
+| Q2 | After normalizing several impurity functions, which one matches the Gini index | [Techniques Lecture 9](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt-en) |
+| Q3 | With 87% negatives and a constant g₁ = −1 in round one, the ratio of positive to negative weights in round two (the AdaBoost on page 17 of Lecture 208) | [Techniques Lecture 8](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting-en) |
+| Q4 | 20 input units (including the constant x₀), 3 outputs, 50 hidden units in any number of layers: the maximum number of weights | [Techniques Lecture 12](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en) |
+| Q5 | Uniform voting over 2M+1 classifiers: the tightest upper bound on E_out of G in terms of each E_out | [Techniques Lecture 7](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en) |
+| Q6 | Prove AdaBoost's total weight satisfies U_{t+1}/U_t = 2√(εₜ(1 − εₜ)); the hint calls this the backbone of AdaBoost converging in O(log N) rounds | [Techniques Lecture 8](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting-en), [Techniques Lecture 11](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-11-gradient-boosted-decision-tree-en) (Lectures 208, 211) |
+| Q7 | Gradient boosting paired with linear regression instead of trees: is the optimal α₁ equal to 1? | [Techniques Lecture 11](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-11-gradient-boosted-decision-tree-en) |
+| Q8 | After a steepest-step GBDT update, Σ(yₙ − sₙ)gₜ(xₙ) = 0 | [Techniques Lecture 11](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-11-gradient-boosted-decision-tree-en) |
+| Q9 | A one-hidden-layer tanh network with every initial weight at 0.5 keeps its first-layer weights symmetric | [Techniques Lecture 12](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en) |
+| Q13 (bonus) | A quoted chatGPT answer claims a d-(d−1)-1 sign network can implement d-dimensional XOR; find where it diverges from the 2023 fall bonus problem and prove impossibility | [Techniques Lecture 12](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en) |
 
 **How to check yourself**:
 
@@ -130,7 +130,7 @@ HW7 was released 2024-12-02 and due 12-16. It covers [blending and bagging](/pos
 
 ### Programming: AdaBoost-Stump on madelon
 
-Q10–12 ask you to implement the AdaBoost-Stump from Lecture 208. Train on [madelon](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/madelon) and test on [madelon.t](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/madelon.t). Run exactly T = 500 rounds with no early stopping.
+Q10–12 ask you to implement the AdaBoost-Stump from [Techniques Lecture 8: AdaBoost](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting-en) (the problem calls it Lecture 208). Train on [madelon](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/madelon) and test on [madelon.t](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/madelon.t). Run exactly T = 500 rounds with no early stopping.
 
 The decision stump must reuse your own HW2 implementation, extended to multiple dimensions and example weights (the problem points to HW2 Problem 13). The simplest approach it suggests: find the best weighted stump in each dimension, then take the "best of the best" across dimensions. HW2 is covered in the [Foundations homework guide](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en).
 
@@ -211,7 +211,7 @@ Fall 2026 grading is 30% homework, 30% exam, 40% project (tentative), and the co
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse): Abu-Mostafa's English course on the same textbook, with its own homework sets.
 - [Reading Stanford CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en) on this site: another angle on SVMs, kernels, and boosting.
 
-Series navigation: previous, [Foundations homework guide: Fall 2024 HW0–HW5](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en) | this is the last post; back to the [series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
+Series navigation: previous, [Techniques Lecture 16: Finale](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en) | this is the last post; back to the [series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
 
 ## Course video sources
 
@@ -229,6 +229,7 @@ Checked: 2026-10-10.
 
 ## Update Log
 
+- 2026-10-13: The series now has one post per lecture; updated the links to each lecture and the lecture naming.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official playlists hold lecture videos only, no homework walkthrough; status unchanged.
 

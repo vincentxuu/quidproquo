@@ -1,5 +1,5 @@
 ---
-title: "Reading Hsuan-Tien Lin's Machine Learning Foundations & Techniques: Overview and Self-Study Routes | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Course Overview"
+title: "Foundations and Techniques in 32 Lectures: Course Map and Self-Study Routes | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,14 +31,14 @@ Page 2 of [01_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/01_handou
 
 | Segment | Question (as on the slides) | Lectures | This series |
 |---|---|---|---|
-| Foundations 1 | When Can Machines Learn? | L1–L4 | [Post 1](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en), [Post 2](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en) |
-| Foundations 2 | Why Can Machines Learn? | L5–L8 | [Post 3](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function-en), [Post 4](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en) |
-| Foundations 3 | How Can Machines Learn? | L9–L12 | [Post 5](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression-en), [Post 6](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform-en) |
-| Foundations 4 | How Can Machines Learn Better? | L13–L16 | [Post 7](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization-en), [Post 8](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en) |
-| Techniques 1 | embedding numerous features (kernel models) | T1–T6 | [Post 9](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en), [Post 10](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en), [Post 11](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression-en) |
-| Techniques 2 | combining predictive features (aggregation models) | T7–T11 | [Post 12](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en), [Post 13](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt-en) |
-| Techniques 3 | distilling hidden features (extraction models) | T12–T15 | [Post 14](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en), [Post 15](/posts/ai/2026-09-30-ntu-htlin-ml-rbf-network-matrix-factorization-en) |
-| Wrap-up | finale ("happy learning!") | T16 | [Post 16](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en) |
+| Foundations 1 | When Can Machines Learn? | Foundations Lectures 1–4 | [Lecture 1](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en), [Lecture 2](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-02-perceptron-learning-algorithm-en), [Lecture 3](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-03-types-of-learning-en), [Lecture 4](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en) |
+| Foundations 2 | Why Can Machines Learn? | Foundations Lectures 5–8 | [Lecture 5](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function-en), [Lecture 6](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-06-theory-of-generalization-en), [Lecture 7](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en), [Lecture 8](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-08-noise-and-error-en) |
+| Foundations 3 | How Can Machines Learn? | Foundations Lectures 9–12 | [Lecture 9](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression-en), [Lecture 10](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-10-logistic-regression-en), [Lecture 11](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform-en), [Lecture 12](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-12-nonlinear-transformation-en) |
+| Foundations 4 | How Can Machines Learn Better? | Foundations Lectures 13–16 | [Lecture 13](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization-en), [Lecture 14](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-14-regularization-en), [Lecture 15](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en), [Lecture 16](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-16-three-learning-principles-en) |
+| Techniques 1 | embedding numerous features (kernel models) | Techniques Lectures 1–6 | [Lecture 1](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en), [Lecture 2](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-02-dual-svm-en), [Lecture 3](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en), [Lecture 4](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm-en), [Lecture 5](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression-en), [Lecture 6](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-06-support-vector-regression-en) |
+| Techniques 2 | combining predictive features (aggregation models) | Techniques Lectures 7–11 | [Lecture 7](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en), [Lecture 8](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting-en), [Lecture 9](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt-en), [Lecture 10](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-10-random-forest-en), [Lecture 11](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-11-gradient-boosted-decision-tree-en) |
+| Techniques 3 | distilling hidden features (extraction models) | Techniques Lectures 12–15 | [Lecture 12](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en), [Lecture 13](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-13-deep-learning-en), [Lecture 14](/posts/ai/2026-09-30-ntu-htlin-ml-rbf-network-matrix-factorization-en), [Lecture 15](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-15-matrix-factorization-en) |
+| Wrap-up | finale ("happy learning!") | Techniques Lecture 16 | [Lecture 16](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en) |
 
 The MOOC page lists four section titles for each lecture, one video per section. Foundations L1 and Techniques T1 each add a "Course Introduction" video, so each playlist has 65 videos, 130 in total. The first Foundations video went up on 2015-12-09; the first Techniques video on 2016-02-14.
 
@@ -123,32 +123,48 @@ As for prerequisites, the course needs first-year calculus, linear algebra, and 
 
 ## Posts in this series
 
-| Order | Post | Lectures |
+| Order | Post | Lecture |
 |---|---|---|
-| 1 | [The Learning Problem, PLA, and Types of Learning](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en) | Foundations L1–L3 |
-| 2 | [Is Learning Feasible? Hoeffding and "Outside the Data"](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en) | Foundations L4 |
-| 3 | [Training vs. Testing: Effective Hypotheses, Growth Function, and Break Point](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function-en) | Foundations L5–L6 |
-| 4 | [VC Dimension, Noise, and Error Measures](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en) | Foundations L7–L8 |
-| 5 | [Linear Regression and Logistic Regression](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression-en) | Foundations L9–L10 |
-| 6 | [Linear Classification, SGD, Multiclass, and Nonlinear Transforms](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform-en) | Foundations L11–L12 |
-| 7 | [Overfitting and Regularization](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization-en) | Foundations L13–L14 |
-| 8 | [Validation and Three Learning Principles](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en) | Foundations L15–L16 |
-| 9 | [Linear SVM and Dual SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en) | Techniques T1–T2 |
-| 10 | [Kernel Trick and Soft-Margin SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) | Techniques T3–T4 |
-| 11 | [Kernel Logistic Regression and Support Vector Regression](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression-en) | Techniques T5–T6 |
-| 12 | [Blending, Bagging, and AdaBoost](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en) | Techniques T7–T8 |
-| 13 | [Decision Trees, Random Forests, and Gradient Boosted Trees](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt-en) | Techniques T9–T11 |
-| 14 | [Neural Networks and Deep Learning](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en) | Techniques T12–T13 |
-| 15 | [RBF Networks, k-Means, and Matrix Factorization](/posts/ai/2026-09-30-ntu-htlin-ml-rbf-network-matrix-factorization-en) | Techniques T14–T15 |
-| 16 | [Finale: Three Techniques, Plus Modern Deep Learning](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en) | Techniques T16 + Fall 2024 supplementary slides |
-| 17 | [Foundations Homework Guide: Fall 2024 HW0–HW5](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en) | Maps to L1–L16 |
-| 18 | [Techniques Homework and Final Project: HW6–HW7 and HTMLB](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project-en) | Maps to T1–T12 |
+| 1 | [The Learning Problem: When Machine Learning Is the Right Tool](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en) | Foundations Lecture 1 |
+| 2 | [Perceptrons and PLA: How a Line Corrects Itself from Mistakes](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-02-perceptron-learning-algorithm-en) | Foundations Lecture 2 |
+| 3 | [Types of Learning: Output Space, Labels, Protocol, and Input Space](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-03-types-of-learning-en) | Foundations Lecture 3 |
+| 4 | [Feasibility of Learning: Hoeffding's Inequality and Guarantees Outside the Data](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en) | Foundations Lecture 4 |
+| 5 | [Training versus Testing: Infinitely Many Lines, Only a Few Kinds](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function-en) | Foundations Lecture 5 |
+| 6 | [Theory of Generalization: How One Break Point Makes the Growth Function Polynomial](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-06-theory-of-generalization-en) | Foundations Lecture 6 |
+| 7 | [The VC Dimension: Measuring Model Complexity](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en) | Foundations Lecture 7 |
+| 8 | [Noise and Error Measures: Learning with Noisy Targets and Unequal Mistakes](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-08-noise-and-error-en) | Foundations Lecture 8 |
+| 9 | [Linear Regression: The Pseudo-Inverse Solution in One Step](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression-en) | Foundations Lecture 9 |
+| 10 | [Logistic Regression: Learning Probabilities with Gradient Descent](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-10-logistic-regression-en) | Foundations Lecture 10 |
+| 11 | [Linear Models for Classification: Three Error Functions, SGD, and Multiclass](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform-en) | Foundations Lecture 11 |
+| 12 | [Nonlinear Transformation: The Price of Curved Boundaries](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-12-nonlinear-transformation-en) | Foundations Lecture 12 |
+| 13 | [Hazard of Overfitting: How Noise, Data Size, and Model Complexity Combine](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization-en) | Foundations Lecture 13 |
+| 14 | [Regularization: How Weight Decay Constrains a Model](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-14-regularization-en) | Foundations Lecture 14 |
+| 15 | [Validation: Holding Out Data to Select a Model](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en) | Foundations Lecture 15 |
+| 16 | [Three Learning Principles: Occam's Razor, Sampling Bias, and Data Snooping](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-16-three-learning-principles-en) | Foundations Lecture 16 |
+| 17 | [Foundations Homework: Fall 2024 HW0–HW5](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en) | Assignments 0–5, for Foundations Lectures 1–16 |
+| 18 | [Linear SVM: Writing the Fattest Separating Line as a Quadratic Program](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en) | Techniques Lecture 1 |
+| 19 | [Dual SVM: Escaping Feature Dimension with Lagrange Duality](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-02-dual-svm-en) | Techniques Lecture 2 |
+| 20 | [Kernel SVM: Inner Products Without Computing High-Dimensional Features](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) | Techniques Lecture 3 |
+| 21 | [Soft-Margin SVM: Allowing Mistakes and Choosing C](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm-en) | Techniques Lecture 4 |
+| 22 | [Kernel Logistic Regression: The SVM Is a Regularized Model](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression-en) | Techniques Lecture 5 |
+| 23 | [Support Vector Regression: Kernels and Sparse Solutions for Regression](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-06-support-vector-regression-en) | Techniques Lecture 6 |
+| 24 | [Blending and Bagging: Why Combining Hypotheses Works Better](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en) | Techniques Lecture 7 |
+| 25 | [AdaBoost: Re-weighting Data to Stack Weak Classifiers into a Strong One](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting-en) | Techniques Lecture 8 |
+| 26 | [Decision Trees: How C&RT Splits and Prunes](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt-en) | Techniques Lecture 9 |
+| 27 | [Random Forests: Bagging plus Decision Trees and the Out-of-Bag Estimate](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-10-random-forest-en) | Techniques Lecture 10 |
+| 28 | [Gradient Boosted Decision Trees: AdaBoost as Gradient Descent on an Error Function](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-11-gradient-boosted-decision-tree-en) | Techniques Lecture 11 |
+| 29 | [Neural Networks: How Backpropagation Computes Gradients](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en) | Techniques Lecture 12 |
+| 30 | [Deep Learning: Pre-training, Autoencoders, and PCA](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-13-deep-learning-en) | Techniques Lecture 13 |
+| 31 | [RBF Networks: Predicting by Similarity to Centers Found with k-Means](/posts/ai/2026-09-30-ntu-htlin-ml-rbf-network-matrix-factorization-en) | Techniques Lecture 14 |
+| 32 | [Matrix Factorization: Learning User and Movie Features from a Rating Matrix](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-15-matrix-factorization-en) | Techniques Lecture 15 |
+| 33 | [Finale: Three Families of Techniques Across the Whole Course](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en) | Techniques Lecture 16 + Fall 2024 supplementary slides |
+| 34 | [Techniques Homework and Final Project: HW6–HW7 and HTMLB](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project-en) | Assignments 6–7, for Techniques Lectures 1–12 |
 
 ## What to do tonight
 
 1. Open [Fall 2024 HW0](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/hw0.pdf) and give yourself one hour for the combinatorics and probability section. If you get stuck on two or more, brush up on probability before starting the videos.
 2. Download the [Foundations handout zip](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/mlfound_handout.zip) and watch the [Course Introduction](https://www.youtube.com/watch?v=nQvpFSMPhr0) video.
-3. Pick a route, then read [Post 1](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en).
+3. Pick a route, then read [Foundations Lecture 1](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en).
 
 ## Further reading
 
@@ -160,7 +176,7 @@ These courses overlap with this series, but every post here stands on its own; t
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse): Abu-Mostafa's English course on the same textbook. The Fall 2024 course page puts his English Lecture 6 right next to Lin's Mandarin version.
 - [CMU 10-301 guide](/posts/learning/2026-08-22-cmu-10301-overview-en), [Berkeley CS189 guide](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en): intro ML at other schools.
 
-Next: [The Learning Problem, PLA, and Types of Learning](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en)
+Next: [Foundations Lecture 1: The Learning Problem](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en)
 
 ## Course video sources
 
@@ -178,6 +194,7 @@ Checked: 2026-10-10.
 
 ## Update Log
 
+- 2026-10-13: The series now has one post per lecture (16 for Foundations, 16 for Techniques); the tables and links here were updated to match.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Added the two official playlist links; this overview embeds no single video.
 

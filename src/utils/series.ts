@@ -772,8 +772,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'courses',
     names: { 'zh-TW': '台大林軒田 機器學習基石與技法 導讀', en: 'Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques' },
     descriptions: {
-      'zh-TW': '依林軒田「機器學習基石」與「機器學習技法」兩門 MOOC（32 講、130 支 YouTube 影片、全套 handout 投影片）逐主題導讀，從 PLA、VC 維度、線性模型、正則化與驗證，一路讀到 SVM、kernel、aggregation、樹模型與神經網路，並用公開的 Fall 2024 HW0–HW7 與期末專題當練習；Fall 2026 的課另外對照。',
-      en: 'A topic-by-topic guide to Hsuan-Tien Lin\'s Machine Learning Foundations and Techniques MOOCs (32 lectures, 130 YouTube videos, all handout slides). It runs from PLA, VC dimension, linear models, regularization, and validation to SVMs, kernels, aggregation, tree models, and neural networks. The public Fall 2024 HW0–HW7 and final project serve as exercises, and the in-progress Fall 2026 offering is cross-referenced.',
+      'zh-TW': '依林軒田「機器學習基石」與「機器學習技法」兩門 MOOC 一堂一篇導讀：基石 16 堂、技法 16 堂，每篇依該堂的官方講義與影片寫成，每一節附上對應的影片，把推導走完、把課堂小測驗解完。從 PLA、VC 維度、線性模型、正則化與驗證，一路讀到 SVM、kernel、aggregation、樹模型與神經網路，並用公開的 Fall 2024 HW0–HW7 與期末專題當練習；Fall 2026 的課另外對照。',
+      en: 'A lecture-by-lecture guide to Hsuan-Tien Lin\'s Machine Learning Foundations and Techniques MOOCs: one post per lecture, 16 for Foundations and 16 for Techniques. Each post follows that lecture\'s official handout and videos, embeds the video for every section, works through the derivations, and solves the in-class quizzes. The series runs from PLA, VC dimension, linear models, regularization, and validation to SVMs, kernels, aggregation, tree models, and neural networks. The public Fall 2024 HW0–HW7 and final project serve as exercises, and the in-progress Fall 2026 offering is cross-referenced.',
     },
   },
   {

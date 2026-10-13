@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習技法作業與期末專題：Fall 2024 HW6–HW7 與 HTMLB 勝負預測｜台大林軒田 機器學習基石與技法 主題單元"
+title: "技法作業與期末專題：Fall 2024 HW6–HW7 與 HTMLB 勝負預測｜台大林軒田 機器學習基石與技法 作業 6–7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -7,7 +7,7 @@ tags: [ntu-htlin-ml, ntu, ai-course, machine-learning, homework, svm, ensemble]
 lang: zh-TW
 series:
   name: "台大林軒田 機器學習基石與技法 導讀"
-  order: 18
+  order: 34
 tldr: "Fall 2024 技法段有兩份作業和一個期末專題，題目 PDF 都公開。HW6 練 kernel、soft-margin SVM 與 aggregation，程式題用 LIBSVM 在 mnist.scale 的 3 對 7 子問題上數支援向量、算 margin、跑 128 次 validation。HW7 練 bootstrap、impurity、AdaBoost、gradient boosting 與神經網路，程式題是在 madelon 上實作 500 輪 AdaBoost-Stump。期末專題是虛構的 HTMLB 棒球勝負預測，分兩個 Kaggle stage，交一份最多 7 頁的英文報告，至少比較四種方法。沒有官方解答；Kaggle 競賽頁在 2026-09-30 未登入時回 404，校外讀者大概拿不到 HTMLB 資料，只能照同樣的切分方式換一份公開資料自評。"
 description: "台大林軒田 Machine Learning Fall 2024 技法段作業導讀：HW6（kernel perceptron、soft-margin SVM 對偶、one-class SVM、Gaussian kernel、decision stump kernel、mnist.scale 3 vs 7 的 LIBSVM 實驗）、HW7（bootstrap、impurity、AdaBoost 權重、gradient boosting、tanh 神經網路、madelon 上的 AdaBoost-Stump），以及 HTMLB 期末專題的兩個 stage、評分規則、報告要求，附 Kaggle 無法確認時的自評替代做法與 Fall 2026 對照。"
 draft: false
@@ -19,22 +19,22 @@ glossary:
   - term: "AdaBoost-Stump"
     aliases: ["AdaBoost with decision stumps"]
     definition: "以 decision stump（單一維度、單一門檻的分類器）當基礎演算法的 AdaBoost。每輪依樣本權重挑出加權錯誤最小的 stump，再更新權重。"
-    context: "Fall 2024 HW7 Q10–12 的實作題，對應技法 Lecture 208。"
+    context: "Fall 2024 HW7 Q10–12 的實作題，對應技法第 8 堂（題目寫作 Lecture 208）。"
 ---
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
-這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列第 18 篇，也是最後一篇。上一篇[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)處理 HW0–HW5；這篇接著講技法段的 HW6、HW7 和期末專題。
+這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列的最後一篇。前面 32 篇一堂一篇走完基石與技法兩門 MOOC；[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)排在基石第 16 堂之後，處理 HW0–HW5；這篇排在[技法第 16 堂：Finale](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning)之後，講技法段的 HW6、HW7 和期末專題。
 
-**本文依據**：[Machine Learning, Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)（頁尾最後更新 2025-01-17）、[HW6 題目](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf)、[HW7 題目](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf)、[期末專題說明](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/final/final.pdf)，以及 [Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)的排程，全部在 2026-09-30 下載或打開核對。題目敘述都從 PDF 讀出；「這題練哪一講」是依題目內容與題目明寫的 Lecture 編號歸類。
+**本文依據**：[Machine Learning, Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)（頁尾最後更新 2025-01-17）、[HW6 題目](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf)、[HW7 題目](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf)、[期末專題說明](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/final/final.pdf)，以及 [Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)的排程，全部在 2026-09-30 下載或打開核對。題目敘述都從 PDF 讀出；「這題練哪一堂」是依題目內容與題目明寫的 Lecture 編號歸類。
 
-這篇不給解答。每題只說它在練什麼、需要哪一篇的內容，以及怎麼自己驗證答案。
+這篇不給解答。每題只說它在練什麼、需要哪一堂的內容，以及怎麼自己驗證答案。
 
-## 存取等級與缺口
+## 拿得到什麼、缺什麼
 
-依[全球 AI/CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，MOOC 加上 Fall 2024 作業 PDF 是 **A3，但評分鏈除外**。拿得到的東西和拿不到的東西如下：
+對照[全球 AI/CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)，可以比較各校課程公開到什麼程度。這門課的 MOOC 講義與影片免費公開，Fall 2024 的作業題目 PDF 與資料也能下載，缺的是官方解答與批改。拿得到的東西和拿不到的東西如下：
 
 | 項目 | 校外能拿到嗎 | 說明 |
 |---|---|---|
@@ -58,22 +58,22 @@ Fall 2024 課程頁的評分是 70% 作業、30% 專題（tentative），授課�
 
 ## HW6：kernel、soft-margin SVM 與 aggregation
 
-HW6 在 2024-11-18 發布，12-02 截止，11-22 另外發了紅字修正版（檔名 `hw6_red.pdf`）。發布那週上課進度是 AdaBoost、決策樹、隨機森林與 GBDT，但題目主要練的是前幾週的 [kernel 與軟邊界 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)，外加一點 [blending](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost)。
+HW6 在 2024-11-18 發布，12-02 截止，11-22 另外發了紅字修正版（檔名 `hw6_red.pdf`）。發布那週上課進度是 AdaBoost、決策樹、隨機森林與 GBDT，但題目主要練的是前幾週的 [技法第 3 堂：Kernel SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)與[技法第 4 堂：軟邊界 SVM](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm)，外加一點[技法第 7 堂：Blending 與 Bagging](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost)的 blending。
 
 ### 選擇題與證明題
 
 | 題 | 在練什麼 | 先讀 |
 |---|---|---|
-| Q1 | 把 PLA 的 w 寫成 Σ αₙΦ(xₙ)，問 α 怎麼更新（kernel perceptron） | [第 9 篇](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)、[第 10 篇](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm) |
-| Q2 | 所有點都是 bounded SV（αₙ = C）時，b 有多個解，求最小的 b | 第 10 篇 |
-| Q3 | squared hinge loss 版 soft-margin SVM 的對偶解，怎麼從 α 算回 ξ | 第 10 篇 |
-| Q4 | 5 個錯誤互相獨立、E_out 都是 0.25 的分類器做 uniform blending，G 的 E_out（題目指向 Lecture 207 第 7 頁） | [第 12 篇](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost) |
-| Q5 | 「Dr. Threshold」忘了把 b 分開，把常數 1 塞進 x 去解 soft-margin SVM，證明或否證解還是一樣 | 第 9、10 篇 |
-| Q6 | 用原點當一個硬性負例，把 soft-margin SVM 改成 one-class 異常偵測，推出 QP 形式的對偶 | 第 9、10 篇 |
-| Q7 | Gaussian kernel 的 γ 夠大時，α 全 1、b = 0 的分類器就能讓 E_in = 0 | 第 10 篇 |
-| Q8 | 證明 exp(2cos(x − x′) − 2) 是合法 kernel | 第 10 篇 |
-| Q9 | 用 decision stump 當特徵轉換，算出對應的 kernel 並證明 | 第 10、12 篇 |
-| Q13（bonus） | 推 soft-margin SVM 對偶問題的對偶，和原始問題比較；題目附上 chatGPT 的回答供參考 | 第 9 篇 |
+| Q1 | 把 PLA 的 w 寫成 Σ αₙΦ(xₙ)，問 α 怎麼更新（kernel perceptron） | [技法第 2 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-02-dual-svm)、[技法第 3 堂](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm) |
+| Q2 | 所有點都是 bounded SV（αₙ = C）時，b 有多個解，求最小的 b | [技法第 4 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm) |
+| Q3 | squared hinge loss 版 soft-margin SVM 的對偶解，怎麼從 α 算回 ξ | [技法第 4 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm) |
+| Q4 | 5 個錯誤互相獨立、E_out 都是 0.25 的分類器做 uniform blending，G 的 E_out（題目指向 Lecture 207 第 7 頁） | [技法第 7 堂](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost) |
+| Q5 | 「Dr. Threshold」忘了把 b 分開，把常數 1 塞進 x 去解 soft-margin SVM，證明或否證解還是一樣 | [技法第 1 堂](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)、[技法第 4 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm) |
+| Q6 | 用原點當一個硬性負例，把 soft-margin SVM 改成 one-class 異常偵測，推出 QP 形式的對偶 | [技法第 2 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-02-dual-svm)、[技法第 4 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm) |
+| Q7 | Gaussian kernel 的 γ 夠大時，α 全 1、b = 0 的分類器就能讓 E_in = 0 | [技法第 3 堂](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm) |
+| Q8 | 證明 exp(2cos(x − x′) − 2) 是合法 kernel | [技法第 3 堂](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm) |
+| Q9 | 用 decision stump 當特徵轉換，算出對應的 kernel 並證明 | [技法第 3 堂](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)、[技法第 8 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting) |
+| Q13（bonus） | 推 soft-margin SVM 對偶問題的對偶，和原始問題比較；題目附上 chatGPT 的回答供參考 | [技法第 2 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-02-dual-svm)、[技法第 4 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm) |
 
 Q9 的提示連到林軒田早年的論文 [infkernel.pdf](https://www.csie.ntu.edu.tw/~htlin/paper/doc/infkernel.pdf)，裡面談怎麼用 perceptron 和決策樹構造 kernel。想知道「aggregation 和 SVM 能不能合在一起」的讀者可以接著讀。
 
@@ -98,28 +98,28 @@ Q10–12 用 [mnist.scale](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datase
 
 三題都要附程式或指令第一頁的截圖。
 
-Q11 的 margin 沒辦法直接從 w 算，因為 Gaussian kernel 的 Φ 是無限維。要從對偶解回推：‖w‖² = ΣₙΣₘ αₙαₘyₙyₘK(xₙ, xₘ)，這正是[第 10 篇](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)的 kernel trick。Q12 的 validation 概念在[第 8 篇](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)。
+Q11 的 margin 沒辦法直接從 w 算，因為 Gaussian kernel 的 Φ 是無限維。要從對偶解回推：‖w‖² = ΣₙΣₘ αₙαₘyₙyₘK(xₙ, xₘ)，這正是[技法第 3 堂：Kernel SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)的 kernel trick。Q12 的 validation 概念在[基石第 15 堂：驗證](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)。
 
 **自己驗證的方法**：同一組參數用 LIBSVM 和 scikit-learn 的 `SVC` 各跑一次（`SVC` 底層也是 LIBSVM），比對支援向量數與對偶係數。兩邊對不上，通常是 γ 的定義、資料縮放或停止條件不同。
 
 ## HW7：bootstrap、樹、boosting 與神經網路
 
-HW7 在 2024-12-02 發布，12-16 截止，涵蓋 [blending 與 bagging](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost)、[決策樹、隨機森林與 GBDT](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt)，以及[神經網路](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning)。
+HW7 在 2024-12-02 發布，12-16 截止，涵蓋[技法第 7 堂：Blending 與 Bagging](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost)、[技法第 8 堂：AdaBoost](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting)、[技法第 9 堂：決策樹](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt)、[技法第 10 堂：隨機森林](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-10-random-forest)、[技法第 11 堂：梯度提升決策樹](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-11-gradient-boosted-decision-tree)，以及[技法第 12 堂：神經網路](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning)。
 
 ### 選擇題與證明題
 
 | 題 | 在練什麼 | 先讀 |
 |---|---|---|
-| Q1 | N = 1126 做 bootstrap，抽多少筆時「至少有一筆重複」的機率超過 70% | 第 12 篇 |
-| Q2 | 把幾種 impurity 函數正規化後，哪一個和 Gini index 相同 | 第 13 篇 |
-| Q3 | 87% 是負例、第一輪 g₁ 是常數 −1 時，第二輪正負例權重的比值（Lecture 208 第 17 頁的 AdaBoost） | 第 12 篇 |
-| Q4 | 20 個輸入單元（含常數項 x₀）、3 個輸出、50 個隱藏單元任意分層，權重數最多是多少 | 第 14 篇 |
-| Q5 | 2M+1 個分類器做 uniform voting，用各自的 E_out 推 G 的 E_out 最緊上界 | 第 12 篇 |
-| Q6 | 證明 AdaBoost 權重總和 U_{t+1}/U_t = 2√(εₜ(1 − εₜ))；提示說這是證明 AdaBoost 在 O(log N) 輪內收斂的骨幹 | 第 12、13 篇（Lecture 208、211） |
-| Q7 | gradient boosting 換成搭配線性迴歸時，最佳 α₁ 是否等於 1 | 第 13 篇 |
-| Q8 | GBDT 用最陡步長更新後，Σ(yₙ − sₙ)gₜ(xₙ) = 0 | 第 13 篇 |
-| Q9 | 一層隱藏層、全用 tanh 的網路，初始權重全設 0.5 時，第一層權重會一直對稱 | 第 14 篇 |
-| Q13（bonus） | 題目附上一段 chatGPT 回答，聲稱 d-(d−1)-1 的 sign 網路能實作 d 維 XOR；要找出它和 2023 年秋季 bonus 題的分歧點，並證明不可能 | 第 14 篇 |
+| Q1 | N = 1126 做 bootstrap，抽多少筆時「至少有一筆重複」的機率超過 70% | [技法第 7 堂](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost) |
+| Q2 | 把幾種 impurity 函數正規化後，哪一個和 Gini index 相同 | [技法第 9 堂](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt) |
+| Q3 | 87% 是負例、第一輪 g₁ 是常數 −1 時，第二輪正負例權重的比值（Lecture 208 第 17 頁的 AdaBoost） | [技法第 8 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting) |
+| Q4 | 20 個輸入單元（含常數項 x₀）、3 個輸出、50 個隱藏單元任意分層，權重數最多是多少 | [技法第 12 堂](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning) |
+| Q5 | 2M+1 個分類器做 uniform voting，用各自的 E_out 推 G 的 E_out 最緊上界 | [技法第 7 堂](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost) |
+| Q6 | 證明 AdaBoost 權重總和 U_{t+1}/U_t = 2√(εₜ(1 − εₜ))；提示說這是證明 AdaBoost 在 O(log N) 輪內收斂的骨幹 | [技法第 8 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting)、[技法第 11 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-11-gradient-boosted-decision-tree)（Lecture 208、211） |
+| Q7 | gradient boosting 換成搭配線性迴歸時，最佳 α₁ 是否等於 1 | [技法第 11 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-11-gradient-boosted-decision-tree) |
+| Q8 | GBDT 用最陡步長更新後，Σ(yₙ − sₙ)gₜ(xₙ) = 0 | [技法第 11 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-11-gradient-boosted-decision-tree) |
+| Q9 | 一層隱藏層、全用 tanh 的網路，初始權重全設 0.5 時，第一層權重會一直對稱 | [技法第 12 堂](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning) |
+| Q13（bonus） | 題目附上一段 chatGPT 回答，聲稱 d-(d−1)-1 的 sign 網路能實作 d 維 XOR；要找出它和 2023 年秋季 bonus 題的分歧點，並證明不可能 | [技法第 12 堂](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning) |
 
 **自己驗證的方法**：
 
@@ -130,7 +130,7 @@ HW7 在 2024-12-02 發布，12-16 截止，涵蓋 [blending 與 bagging](/posts/
 
 ### 程式題：madelon 上的 AdaBoost-Stump
 
-Q10–12 要自己實作 Lecture 208 的 AdaBoost-Stump，訓練集是 [madelon](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/madelon)，測試集是 [madelon.t](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/madelon.t)。固定跑 T = 500 輪，不能提早停。
+Q10–12 要自己實作[技法第 8 堂：AdaBoost](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting)（題目寫作 Lecture 208）的 AdaBoost-Stump，訓練集是 [madelon](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/madelon)，測試集是 [madelon.t](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/madelon.t)。固定跑 T = 500 輪，不能提早停。
 
 decision stump 要沿用 HW2 自己寫的版本，擴充成多維、能吃樣本權重的形式（題目指向 HW2 Problem 13）。題目建議的最簡單做法：每一維用加權 E_in 找最好的 stump，再從所有維度裡挑「best of the best」。HW2 的內容在[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)。
 
@@ -211,7 +211,7 @@ Fall 2026 的評分改成 30% 作業、30% 考試、40% 專題（tentative），
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse)：Abu-Mostafa 用同一本教科書開的英文課，有自己的作業集。
 - 站內 [Stanford CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)：SVM、kernel 與 boosting 的另一種講法。
 
-系列導覽：上一篇 [基石作業導讀：Fall 2024 HW0–HW5](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)｜本篇是系列最後一篇，回到 [系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+系列導覽：上一篇 [技法第 16 堂：Finale](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning)｜本篇是系列最後一篇，回到 [系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
 
 ## 課程影片來源
 
@@ -229,6 +229,7 @@ Fall 2026 的評分改成 30% 作業、30% 考試、40% 專題（tentative），
 
 ## 更新紀錄
 
+- 2026-10-13：系列改為一堂一篇，更新連到各堂的連結與堂次稱呼。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方播放清單只有講課影片，沒有作業說明影片，狀態不變。
 
@@ -239,7 +240,7 @@ Fall 2026 的評分改成 30% 作業、30% 考試、40% 專題（tentative），
 - [Fall 2024 Homework 7（hw7.pdf）](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf)
 - [Fall 2024 Final Project（final.pdf）](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/final/final.pdf)
 - [Machine Learning, Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)
-- [Hsuan-Tien Lin > MOOCs](https://www.csie.ntu.edu.tw/~htlin/mooc/) — 技法 16 講的投影片與影片
+- [Hsuan-Tien Lin > MOOCs](https://www.csie.ntu.edu.tw/~htlin/mooc/) — 技法 16 堂的投影片與影片
 - [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)
 - [LIBSVM datasets：mnist.scale](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass/mnist.scale.bz2)
 - [LIBSVM datasets：madelon](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/madelon) 與 [madelon.t](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/madelon.t)

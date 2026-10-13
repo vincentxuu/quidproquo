@@ -1,237 +1,616 @@
 ---
-title: "過擬合與正則化｜台大林軒田 機器學習基石與技法 第 13–14 堂"
+title: "過擬合：雜訊、資料量與模型複雜度怎麼聯手｜台大林軒田 機器學習基石 第 13 堂"
 date: 2026-09-30
 category: ai
 type: guide
-tags: [ntu-htlin-ml, ntu, ai-course, machine-learning, regularization, learning-theory]
+tags: [ntu-htlin-ml, ntu, ai-course, machine-learning, overfitting, learning-theory]
 lang: zh-TW
+math: true
 series:
   name: "台大林軒田 機器學習基石與技法 導讀"
-  order: 7
-tldr: "基石 L13 把過擬合定義成「E_in 更低、E_out 卻更高」，並用實驗找出四個成因：資料太少、隨機雜訊、目標函數太複雜（deterministic noise），以及模型太強。L14 的對策是正則化：把「退回 H₂」改寫成 ‖w‖² ≤ C 的限制，再用拉格朗日乘數變成最小化 E_in + (λ/N)wᵀw，這就是 weight decay。接回 VC 理論時，正則化讓有效 VC 維度 d_EFF 變小；L1 則換來稀疏解。練習題在 Fall 2024 HW4 Q8–9 與 HW5 Q1、Q5–6、Q10。"
-description: "台大林軒田《機器學習基石》第 13–14 講導讀：過擬合與欠擬合的定義、2 次與 10 次多項式學習者的對比實驗、stochastic noise 與 deterministic noise、資料清理與 virtual examples；正則化假說集合、weight decay 與 augmented error、Legendre 多項式、正則化與有效 VC 維度、L1 與 L2 的差異與 λ 的選擇，對照 LFD 4.0–4.2 與 Fall 2024 HW4、HW5。"
+  order: 13
+tldr: "過擬合指的是換到更強的模型時 E_in 下降、E_out 卻上升的過程。這堂課用只會 2 次與會 10 次多項式的兩位學習者做實驗，得到四個成因：資料太少、隨機雜訊太大、確定性雜訊太大（目標太複雜）、模型能力過剩，並解釋為什麼完全沒有雜訊的資料也會過擬合。對策先講資料清理、修剪與 virtual examples，正則化與驗證留給後兩堂。"
+description: "台大林軒田機器學習基石第 13 堂 Hazard of Overfitting 導讀：壞的泛化與過擬合的差別、2 次與 10 次多項式學習者的實驗、學習曲線、隨機雜訊與確定性雜訊、四個成因、資料清理與 virtual examples，附三個手算例子與四題 Fun Time 解析。"
 draft: false
 glossary:
+  - term: "過擬合"
+    aliases: ["overfitting", "overfit"]
+    definition: "把模型換得更強（VC 維度更大）時，E_in 變低、E_out 反而變高的過程。它描述的是「換模型」這個動作的後果，不是單一假說的狀態。"
+    context: "基石第 13 堂把它和「壞的泛化」（E_in 低、E_out 高的狀態）分開定義。"
   - term: "deterministic noise"
     aliases: ["確定性雜訊"]
     definition: "目標函數 f 不在假說集合 H 裡時，H 中最好的假說 h* 與 f 之間的差距。它對學習的影響像隨機雜訊，但取決於 H，而且在同一個 x 上是固定的。"
-    context: "林軒田基石 L13 用它解釋「沒有雜訊也會過擬合」。"
-  - term: "augmented error"
-    aliases: ["E_aug", "增廣誤差"]
-    definition: "E_aug(w) = E_in(w) + (λ/N)Ω(w)。最小化這個無限制的目標，等效於在某個 C 的限制下最小化 E_in。"
-    context: "林軒田基石 L14 把 weight decay 寫成最小化 augmented error。"
+    context: "基石第 13 堂用它解釋「沒有雜訊也會過擬合」。"
+  - term: "stochastic noise"
+    aliases: ["隨機雜訊"]
+    definition: "加在標籤上的隨機擾動，這堂課的實驗用變異數 σ² 的高斯雜訊。同一個 x 重複量測會得到不同的值。"
+    context: "基石第 13 堂拿它和 deterministic noise 對照。"
+  - term: "virtual example"
+    aliases: ["虛擬資料", "data hinting"]
+    definition: "依照對問題的了解，從手上的資料變造出來的新資料，例如把手寫數字稍微平移或旋轉。它不是從原本的分布獨立抽出來的。"
+    context: "基石第 13 堂把加入 virtual examples 的做法稱為 data hinting。"
 ---
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization-en)
 
-**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** 這篇依官方 MOOC 講義 [13_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/13_handout.pdf) 與這堂四支官方影片的機器轉錄逐字稿寫成，公式與數字以講義為準；逐字稿未經人工校對。每一節開頭附該節的官方影片與大致的時間區段。文中的頁碼指投影片右下角的編號（0/22 到 22/22），寫「課堂上」的地方是轉述影片裡的說法。
 
-> **版本說明**：本文以[機器學習基石 MOOC](https://www.csie.ntu.edu.tw/~htlin/mooc/) 的 Lecture 13 與 Lecture 14 投影片（[13_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/13_handout.pdf)、[14_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/14_handout.pdf)）與 [YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)第 50–57 支為準；練習題取自 [Machine Learning, Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) 的 [HW4](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw4/) 與 [HW5](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw5/)。全部在 2026-09-30 打開核對。存取等級：MOOC 本身 **A2**，加上 Fall 2024 作業 **A3（評分鏈除外）**，沒有官方解答。
+這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)裡的基石第 13 堂。講義第 1 頁的 Roadmap 把基石分成四個問題，前三個（機器什麼時候能學、為什麼能學、怎麼學）到上一堂結束，這堂開始回答第四個：How Can Machines Learn **Better**? 上一堂[基石第 12 堂：非線性轉換](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-12-nonlinear-transformation)在同一頁上的摘要是：非線性的特徵轉換加上線性模型就能做出非線性的模型，代價是模型複雜度。這堂從那個代價出發，看它會造成什麼麻煩。
 
-**系列位置**：上一篇 [線性分類模型、SGD、多類別與非線性轉換](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform)｜下一篇 [驗證與三個學習原則](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+先備有三樣：[基石第 7 堂：VC 維度](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error)那張「$E_{\text{in}}$ 隨 VC 維度下降、$E_{\text{out}}$ 先降後升」的圖，[基石第 9 堂：線性迴歸](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression)的最小平方解與學習曲線，以及上一堂的多項式轉換與巢狀假說集合 $\mathcal{H}_0 \subset \mathcal{H}_1 \subset \mathcal{H}_2 \subset \cdots$。期望值與變異數的基本運算也會用到。
 
-[上一篇](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform)的非線性轉換給了線性模型很大的力量，L12 的摘要把下一講預告成「the dark side of the force」。從 L13 開始，基石進入最後一段「How Can Machines Learn Better?」，先問力量用過頭會怎樣，再給第一個對策。
+讀完之後，你應該能分清楚「壞的泛化」與「過擬合」，說出過擬合的四個成因各自在講義的哪張圖上看得到，對一個簡單的目標函數算出確定性雜訊（deterministic noise）有多大，並且判斷一筆 virtual example 加得對不對。這堂課公式少、實驗多，所以本文另外擬了三個手算得動的小例子，把講義用圖呈現的現象各算一遍。
 
-讀完這篇，你應該能說出過擬合的四個成因、deterministic noise 跟一般雜訊差在哪裡、weight decay 的目標函數是怎麼從一個限制式推出來的，以及正則化在 VC 理論裡對應到什麼。
-
-## 課程與教材對照
-
-| 講次 | YouTube 小節（播放清單序號） | 投影片 | LFD 章節 |
-|---|---|---|---|
-| L13 Hazard of Overfitting | [What is Overfitting?](https://www.youtube.com/watch?v=BA76U3JBDdE)（50）、[The Role of Noise and Data Size](https://www.youtube.com/watch?v=6bfcLhHhgs0)（51）、[Deterministic Noise](https://www.youtube.com/watch?v=c_208kUQEis)（52）、[Dealing with Overfitting](https://www.youtube.com/watch?v=r3bX1k7tcjc)（53） | [13_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/13_handout.pdf) | 4.0、4.1 |
-| L14 Regularization | [Regularized Hypothesis Set](https://www.youtube.com/watch?v=Sno7I5slFUA)（54）、[Weight Decay Regularization](https://www.youtube.com/watch?v=idWnPdW9znM)（55）、[Regularization and VC Theory](https://www.youtube.com/watch?v=15JB2o4VUeY)（56）、[General Regularizers](https://www.youtube.com/watch?v=PeQeKeeGu3A)（57） | [14_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/14_handout.pdf) | 4.2 |
-
-LFD 章節照 Fall 2024 與 Fall 2026 課程頁的標註。Fall 2024 在 W7（10/14）上這兩講，課程頁連到 [13u_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/13u_handout.pdf) 與 [14u_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/14u_handout.pdf)。[Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) 排在 W7（10/21），今天這兩份投影片的連結還是 404。
-
-## L13：過擬合從哪裡來
-
-### 壞的泛化與過擬合不是同一件事
-
-投影片開頭的例子很小：目標是 2 次多項式，取 N = 5 筆、加上很小的雜訊，用 4 次多項式轉換後跑線性迴歸。唯一解會穿過全部 5 個點，E_in = 0，E_out 卻很大。
-
-投影片把兩個詞分開定義：
-
-- **壞的泛化（bad generalization）**：E_in 低、E_out 高，指的是某一個 g 的狀態。
-- **過擬合（overfitting）**：把 d_vc 從最佳點 d*_vc 往上推時，E_in 下降、E_out 反而上升，指的是換模型的過程。
-- **欠擬合（underfitting）**：往下推到 d_vc = 1 時，E_in 和 E_out 一起上升。
-
-投影片用開車比喻成因：用太大的 d_vc 是開太快，雜訊是路面顛簸，資料量少是對路況的觀察有限，結果就是車禍。
-
-### 兩個學習者的反諷
-
-第二節做了兩組實驗。一組的目標是 10 次多項式加雜訊，另一組是 50 次多項式、完全沒有雜訊。兩位學習者各自選：O 選 H₁₀ 中最好的 g₁₀，R 選 H₂ 中最好的 g₂。
-
-| 目標 | g₂ 的 E_in／E_out | g₁₀ 的 E_in／E_out |
-|---|---|---|
-| 10 次＋雜訊 | 0.050／0.127 | 0.034／9.00 |
-| 50 次、無雜訊 | 0.029／0.120 | 0.00001／7680 |
-
-兩組都過擬合了。第一組的反諷是：就算兩人都知道目標是 10 次，R 放棄了擬合能力，E_out 反而大勝。投影片用學習曲線解釋：N → ∞ 時 H₁₀ 的 E_out 比較低，但 N 小的時候泛化誤差大得多，R 一定贏。
-
-第二組更有意思：明明沒有雜訊，R 還是贏。投影片的回答是：目標函數的複雜度本身就像雜訊。
-
-### Deterministic noise
-
-第三節把這個觀察做成實驗。資料是 y = f(x) + ε，f 是 Q_f 次多項式，ε 是變異數 σ² 的高斯雜訊。過擬合程度定義成 E_out(g₁₀) − E_out(g₂)。兩張熱圖分別固定 Q_f = 20 看 σ² 對 N 的影響、固定 σ² = 0.1 看 Q_f 對 N 的影響，形狀幾乎一樣。
-
-投影片據此列出四個嚴重過擬合的成因：
-
-1. 資料量 N 減少
-2. 隨機雜訊（stochastic noise）增加
-3. 確定性雜訊（deterministic noise）增加，也就是目標太複雜
-4. 模型能力過剩
-
-deterministic noise 的定義是：f 不在 H 裡時，H 中最好的 h* 和 f 之間的差距。它的作用像隨機雜訊，投影片拿電腦科學裡的虛擬亂數產生器類比。差別有兩點：它取決於 H，而且在同一個 x 上是固定的。投影片附了一句教育哲學：教小孩的時候，也許別拿太複雜的例子。
-
-### 對付過擬合的幾種辦法
-
-最後一節回到開車比喻，把對策一一對上：
-
-| 開車 | 學習 |
-|---|---|
-| 開慢一點 | 從簡單模型開始 |
-| 用更準確的路況 | 資料清理／修剪 |
-| 利用更多路況資訊 | data hinting |
-| 踩煞車 | 正則化（L14） |
-| 看儀表板 | 驗證（L15） |
-
-資料清理是把疑似標錯的點改標，修剪是直接刪掉，投影片說「可能有幫助，但效果不一」。data hinting 是用平移、旋轉手寫數字等方式產生 virtual examples，投影片提醒這些例子並不是從 P(x, y) 獨立同分布抽出來的。
-
-## L14：正則化，把「退回去」寫成數學
-
-### 從硬限制到軟限制
-
-L14 從一個問題開始：怎麼從 H₁₀「退回」H₂？對 Q 次多項式轉換加線性迴歸來說，H₂ 就是 H₁₀ 加上 w₃ = … = w₁₀ = 0 的限制。
-
-接下來把限制一步步放鬆：
-
-1. **H₂**：w₃ 到 w₁₀ 全為 0。
-2. **H₂′**：至少 8 個 w_q 為 0，即 Σ⟦w_q ≠ 0⟧ ≤ 3。比 H₂ 有彈性、比 H₁₀ 安全，但這是稀疏假說集合，解它是 NP-hard。
-3. **H(C)**：Σ w_q² ≤ C。和 H₂′ 有重疊但不完全相同，而且隨 C 形成平滑的巢狀結構：H(0) ⊂ H(1.126) ⊂ … ⊂ H(∞) = H₁₀。
-
-在 H(C) 裡找到的最佳解叫 w_REG。
-
-### Weight decay 與 augmented error
-
-限制式 wᵀw ≤ C 的幾何意義是：w 必須落在半徑 √C 的球裡。投影片用梯度的方向論證：在最佳解 w_REG 上，如果 −∇E_in 跟球面法向量 w 不平行，就還能沿著球面讓 E_in 再降。所以最佳解必須滿足 −∇E_in(w_REG) ∝ w_REG，也就是存在 λ > 0，使得
-
-∇E_in(w_REG) + (2λ/N)·w_REG = 0
-
-解這個式子，等價於最小化一個沒有限制的目標：
-
-E_aug(w) = E_in(w) + (λ/N)·wᵀw
-
-這就是 augmented error。給定 λ 最小化 E_aug，效果等同於在某個 C 下做有限制的最小化。投影片把 + (λ/N)wᵀw 稱為 weight-decay regularization：λ 越大，越偏好短的 w，等效的 C 也越小。
-
-第 11 頁的四張圖是這一講最好記的畫面：λ = 0 過擬合，λ = 0.0001 已經好很多，λ = 0.01 接近目標，λ = 1 反而欠擬合。投影片的註解是「a little regularization goes a long way」。
-
-一個實作細節：x ∈ [−1, 1] 時，x^q 在 q 大的時候非常小，需要很大的 w_q 才撐得起來，weight decay 會不公平地壓它。投影片的建議是改用正交的 Legendre 多項式當轉換。
-
-### 正則化與 VC 理論
-
-第三節把正則化接回基石第二段。兩件事並排：
-
-- 有限制地最小化 E_in，有 VC 保證：E_out(w) ≤ E_in(w) + Ω(H(C))。
-- 最小化 E_aug 等效於某個 C 的限制最小化，所以間接得到這個保證，又不必真的被關在 H(C) 裡。
-
-另一個角度是把 E_aug 和 VC bound 放在一起看。E_aug = E_in + (λ/N)Ω(w)，其中 Ω(w) 是「單一假說」的複雜度；VC bound 裡的 Ω(H) 是「整個假說集合」的複雜度。如果前者能好好代表後者，E_aug 就是比 E_in 更好的 E_out 代理。
-
-投影片由此定義**有效 VC 維度** d_EFF(H, A)。d_vc(H) = d̃ + 1 很大，因為最小化時所有 w 都「被考慮過」；但真正用得到的只有某個 H(C)。演算法 A 有做正則化時，d_EFF 就小。這一節的 Fun Time 直接問：λ 變大時 d_EFF 怎麼變？答案是變小。
-
-### 一般的正則化項
-
-最後一節把 Ω(w) 的選法整理成三類，並指出它跟 [L8](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error) 選誤差衡量時的三類是同一套邏輯：
-
-- **target-dependent**：如果知道目標的性質就用上，例如偏好偶函數時用只懲罰奇數次項的 symmetry regularizer。
-- **plausible**：往更平滑、更簡單的方向，因為兩種雜訊都不平滑。L1（sparsity）屬於這類。
-- **friendly**：好最佳化。L2（weight decay）屬於這類。
-
-選錯了也不必太擔心，λ 可以把它壓住。
-
-L1 與 L2 的對比在第 19 頁：
-
-| | L2：Σ w_q² | L1：Σ \|w_q\| |
-|---|---|---|
-| 凸性 | 凸 | 凸 |
-| 可微 | 處處可微 | 不是處處可微 |
-| 好處 | 好最佳化 | 解是稀疏的 |
-
-投影片的結論是「需要稀疏解時 L1 有用」。
-
-至於 λ 怎麼選，第 20 頁兩張圖顯示：雜訊越多，需要的正則化越強，隨機雜訊和確定性雜訊都一樣。但雜訊的大小事先不知道，所以要靠下一講的驗證來選。
-
-## Fall 2024 作業裡練得到的題目
-
-[HW4](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw4/hw4_red.pdf)（2024-10-21 發布、11/04 截止）與 [HW5](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw5/hw5.pdf)（11/04 發布、11/18 截止）都是 12 題加 1 題 bonus，Q1–4 自動批改、Q5–12 由助教批改。跟本篇相關的題目：
-
-| 作業 | 題號 | 內容 | 對應 |
-|---|---|---|---|
-| HW4 | Q8 | 目標 f(x) = 1 − 2x²、用直線 h(x) = w₀ + w₁x 去近似，只取兩筆資料做線性迴歸，求 E_D(\|E_in(g) − E_out(g)\|) | L13：f 不在 H 裡的情形 |
-| HW4 | Q9 | 題目明寫「In Lecture 13」：對輸入加高斯雜訊產生 virtual examples，推導 E(X_hᵀX_h) 的形式；題目附註點出這和正則化線性迴歸要反轉的矩陣有關 | L13 data hinting → L14 |
-| HW5 | Q1 | 把 additive smoothing 寫成帶 regularizer 的估計問題，找出 Ω(w₀) | L14 一般正則化項 |
-| HW5 | Q5 | 證明加入特定 virtual examples 的線性迴歸，和加權 L2 正則化有相同解 | L13–L14 |
-| HW5 | Q6 | 在 E_in 的二階泰勒近似下，求 L2 正則化解與 λ、N、Hessian、w* 的關係 | L14 weight decay |
-| HW5 | Q10 | 用 LIBLINEAR（`-s 6`）在 mnist.scale 的 2 對 6 子問題上跑 L1 正則化邏輯迴歸，λ 依 E_in 選，重複 1126 次，畫 E_out 與非零權重數的直方圖 | L14 L1 與稀疏性；也回扣 L11 的 OVO |
-| HW5 | Q13（bonus） | elastic net 的 coordinate descent 閉式更新 | L14 L1＋L2 |
-
-資料集 [mnist.scale](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass/mnist.scale.bz2) 與工具 [LIBLINEAR](https://www.csie.ntu.edu.tw/~cjlin/liblinear/) 都是公開的。HW5 Q10 要你自己讀 README，找出 LIBLINEAR 的參數 C 跟課堂上的 λ 怎麼換算，這一步本身就是練習。
-
-HW5 Q10 刻意用 E_in 選 λ，接下來的 Q11、Q12 改用驗證集和 3-fold CV 選，要你比較三者的 E_out 分布。這兩題放在[下一篇](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)。
-
-沒有官方解答時可以這樣自我驗收：Q10 裡，λ 依 E_in 選時，通常會落在候選中偏小的 λ，因為正則化越弱、E_in 越容易做低；如果你的結果一面倒地選最大的 λ，先檢查 C 與 λ 的換算方向。
-
-## 自學怎麼做
-
-1. 看第 51 支影片前，先自己猜兩組實驗誰贏，再對照上面那張表。
-2. 看第 52 支時，把四個過擬合成因抄下來，每個成因配一個你工作上見過的例子。
-3. 看第 55 支時，自己從 wᵀw ≤ C 推一次到 E_aug，重點是「梯度與法向量平行」那一步。
-4. 做 HW5 Q10，親手看到 L1 讓權重變稀疏。
-
-今晚可以做的一件事：拿你手上任何一個線性模型，把 L2 係數從 0 開始每次乘 100 往上掃，把訓練誤差與驗證誤差畫在同一張圖，看看投影片第 11 頁的四張圖會不會在你的資料上重現。
-
-## 延伸閱讀
-
-- 同一主題的其他講法：[Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)、[Ridge、Lasso、weight decay 為什麼能讓模型穩一點？](/posts/learning/2026-08-29-im-stat-regularization)
-- 深度學習裡的正則化：[MIT 6.7960：Regularization](/posts/tech/2026-09-17-mit-67960-regularization)
-- 技法篇會從正則化的角度重新看 SVM：[Kernel 邏輯迴歸與支援向量迴歸](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)
-- 作業總覽：[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+## 過擬合是什麼：E_in 降了、E_out 卻升了
 
 ```youtube
 url: https://www.youtube.com/watch?v=BA76U3JBDdE
-title: What is Overfitting?
+title: Hazard of Overfitting :: What is Overfitting? @ Machine Learning Foundations (機器學習基石)
 ```
+
+（影片 00:19–01:10 複習上一堂，01:10–03:18 是五個點的例子，03:18–06:38 區分壞的泛化、過擬合與欠擬合，06:38–10:01 是開車的比喻，之後是 Fun Time。）
+
+### 五個點配四次多項式
+
+講義第 2 頁的例子很小。一維的迴歸問題，$x \in \mathbb{R}$，只有 $N = 5$ 筆資料。目標函數 $f$ 是一個 2 次多項式，標籤是 $y_n = f(x_n)$ 加上很小的雜訊。學習的一方不知道目標是 2 次的，選了 4 次多項式：用上一堂的做法，先做 4 次的特徵轉換 $\boldsymbol{\Phi}(x) = (1, x, x^2, x^3, x^4)$，再在 $\mathcal{Z}$ 空間跑線性迴歸。
+
+講義說這樣會得到唯一解，而且它穿過全部 5 個點，所以 $E_{\text{in}}(g) = 0$。本文把理由補上。4 次多項式有 5 個係數 $w_0, \dots, w_4$，「穿過 5 個點」是 5 條方程式：
+
+$$
+w_0 + w_1 x_n + w_2 x_n^2 + w_3 x_n^3 + w_4 x_n^4 = y_n, \qquad n = 1, \dots, 5
+$$
+
+5 個未知數、5 條線性方程式。只要 5 個 $x_n$ 兩兩不同，這組方程式的係數矩陣（每一列是 $\boldsymbol{\Phi}(x_n)^\top$，就是線性迴歸裡的資料矩陣）可逆，解剛好一組。這一組解讓每個殘差都是 0，平方誤差不可能比 0 更低，線性迴歸找到的就是它。
+
+問題在圖上：投影片右邊畫了藍色的目標曲線與紅色的 $g$。5 個點是左邊 1 個、其餘 4 個在右半邊，紅線為了穿過每個點，在中間沒有資料的地方高高拱起，在右端又急速往下掉，和藍線差得很遠。$E_{\text{in}} = 0$，$E_{\text{out}}$ 卻非常大。課堂上的說法是，紅線跟我們最想要的藍線一點都不像。
+
+講義把這種狀況叫壞的泛化（bad generalization）：$E_{\text{in}}$ 低、$E_{\text{out}}$ 高。課堂上說這是沒有辦法舉一反三：看過的 5 個點做得很好，推到這 5 個點以外就不行了。這跟 VC bound 的說法一致，VC 維度太大時，$E_{\text{in}}$ 與 $E_{\text{out}}$ 可以差很遠。
+
+### 壞的泛化是狀態，過擬合是過程
+
+第 3 頁把基石第 7 堂的圖搬回來。橫軸是 VC 維度 $d_{\text{VC}}$，三條線分別是：一路下降的 in-sample error、一路上升的 model complexity，以及先降後升的 out-of-sample error。$E_{\text{out}}$ 最低的那一點記成 $d_{\text{VC}}^*$。講義在這張圖上定義了三件事：
+
+| 名稱 | 講義的定義 | 描述的對象 |
+|---|---|---|
+| 壞的泛化 | 取 $d_{\text{VC}} = 1126$ 來學，$E_{\text{out}} - E_{\text{in}}$ 很大 | 某一個點的狀態 |
+| 過擬合（overfitting） | 從 $d_{\text{VC}}^*$ 換到 $d_{\text{VC}} = 1126$：$E_{\text{in}}$ ↓、$E_{\text{out}}$ ↑ | 往右移的過程 |
+| 欠擬合（underfitting） | 從 $d_{\text{VC}}^*$ 換到 $d_{\text{VC}} = 1$：$E_{\text{in}}$ ↑、$E_{\text{out}}$ ↑ | 往左移的過程 |
+
+1126 只是課堂上慣用的「一個很大的數字」。頁尾的一句話把差別收起來：bad generalization 是 low $E_{\text{in}}$、high $E_{\text{out}}$；overfitting 是 low**er** $E_{\text{in}}$、high**er** $E_{\text{out}}$。多出來的 er 表示它在比較兩個模型。
+
+課堂上對名稱的解釋是：fitting 指的就是把 $E_{\text{in}}$ 做好。overfitting 是 fitting 做好了，但做過頭，$E_{\text{out}}$ 反而變差；投影片把這個字的 over 和 fitting 標成兩種顏色，就是這個意思。underfitting 是 fit 得不夠好。課堂上還補了一句評價：欠擬合比較好處理，通常把 VC 維度加大就行，上一堂的非線性轉換就是工具；過擬合很常見，而且不容易解決，所以這堂專門講它。
+
+### 開車的比喻：三個原因
+
+第 4 頁把兩張圖並排：左邊是 good fit（紅線和藍線幾乎重合），右邊是 overfit（第 2 頁那條亂跳的紅線）。課堂上說，過擬合是從左邊走到右邊的過程，結果是右邊那個壞的泛化的狀態。接著講義用開車出車禍來比喻過擬合的原因：
+
+| 學習 | 開車 |
+|---|---|
+| overfit | 出車禍 |
+| 用了過大的 $d_{\text{VC}}$ | 開太快 |
+| 雜訊（noise） | 路面顛簸 |
+| 資料量 $N$ 有限 | 對路況的觀察有限 |
+
+課堂上先聲明這只是幫助理解的比喻，不是每個細節都對得上，然後逐列解釋：
+
+- **開太快。** 油門踩太重，等於用了太多模型複雜度的 power。例子裡目標明明是 2 次，卻用了 4 次。
+- **路不平。** 資料裡加了一點雜訊。路不平又開得快，就容易出事。
+- **路況不熟。** 如果資料點密密麻麻，紅線想在某個地方拱起來，那裡的資料會告訴它不可以，就不會有第 2 頁那種亂跳的線。課堂上舉的例子是：路很熟的人知道哪裡有坑洞，繞過去就好，車還是可以開很快。
+
+三件事湊在一起才危險：路況知道得有限、路又不平、還堅持開快車。頁尾預告下一節要細看其中兩項，雜訊與資料量。
+
+### 數值例子：三個點，三種模型
+
+以下是本文自擬的例子，不在講義上。它把第 2 頁的設定縮小到手算得動的大小：目標是 1 次函數，資料 3 筆，候選模型是 $\mathcal{H}_0$（常數）、$\mathcal{H}_1$（直線）、$\mathcal{H}_2$（拋物線）。
+
+**設定。** 目標 $f(x) = x$。$x$ 在 $[-1, 1]$ 上均勻分布，但抽到的 3 筆剛好都落在右半邊：
+
+| $n$ | $x_n$ | $f(x_n)$ | 雜訊 | $y_n$ |
+|---|---|---|---|---|
+| 1 | $0$ | $0$ | $+0.1$ | $0.1$ |
+| 2 | $0.5$ | $0.5$ | $-0.1$ | $0.4$ |
+| 3 | $1$ | $1$ | $+0.1$ | $1.1$ |
+
+$E_{\text{in}}$ 是 3 筆資料上的平均平方誤差。為了能手算，$E_{\text{out}}$ 定成 $g$ 與目標 $f$ 的平方差在 $[-1,1]$ 上的平均，$E_{\text{out}}(g) = \mathbb{E}_x\big[(g(x) - f(x))^2\big]$；如果改成對含雜訊的 $y$ 算，三個模型都會多同一個常數，比較的結果不變。均勻分布在 $[-1,1]$ 上的幾個動差後面一直會用到：$\mathbb{E}[x] = \mathbb{E}[x^3] = 0$，$\mathbb{E}[x^2] = \frac{1}{3}$，$\mathbb{E}[x^4] = \frac{1}{5}$。
+
+**$\mathcal{H}_0$：常數。** 最小平方的常數是 $y$ 的平均，$g_0(x) = \frac{0.1 + 0.4 + 1.1}{3} = \frac{8}{15} \approx 0.533$。
+
+$$
+E_{\text{in}}(g_0) = \frac{(0.1 - 0.533)^2 + (0.4 - 0.533)^2 + (1.1 - 0.533)^2}{3} = \frac{79}{450} \approx 0.176
+$$
+
+$$
+E_{\text{out}}(g_0) = \mathbb{E}\Big[\Big(\frac{8}{15} - x\Big)^2\Big] = \frac{64}{225} + \frac{1}{3} = \frac{139}{225} \approx 0.618
+$$
+
+**$\mathcal{H}_1$：直線。** $\bar{x} = 0.5$、$\bar{y} = \frac{8}{15}$。斜率是 $\sum (x_n - \bar{x})(y_n - \bar{y}) \big/ \sum (x_n - \bar{x})^2$。分母是 $0.25 + 0 + 0.25 = 0.5$；分子裡中間那筆的 $x_n - \bar{x} = 0$，剩下 $(-0.5)(0.1 - \bar{y}) + (0.5)(1.1 - \bar{y}) = 0.5 \times (1.1 - 0.1) = 0.5$。斜率是 1，截距是 $\bar{y} - 1 \times \bar{x} = \frac{1}{30}$：
+
+$$
+g_1(x) = \frac{1}{30} + x
+$$
+
+三個殘差是 $0.1 - \frac{1}{30} = \frac{1}{15}$、$0.4 - \frac{8}{15} = -\frac{2}{15}$、$1.1 - \frac{31}{30} = \frac{1}{15}$，所以
+
+$$
+E_{\text{in}}(g_1) = \frac{1}{3} \cdot \frac{1 + 4 + 1}{225} = \frac{2}{225} \approx 0.0089, \qquad E_{\text{out}}(g_1) = \mathbb{E}\Big[\Big(\frac{1}{30}\Big)^2\Big] = \frac{1}{900} \approx 0.0011
+$$
+
+**$\mathcal{H}_2$：拋物線。** 3 個係數、3 個點，和講義的例子一樣只有唯一解，而且穿過每個點。設 $g_2(x) = a + bx + cx^2$。代 $x = 0$ 得 $a = 0.1$；代 $x = 0.5$ 得 $\frac{b}{2} + \frac{c}{4} = 0.3$；代 $x = 1$ 得 $b + c = 1$。後兩式解出 $b = 0.2$、$c = 0.8$：
+
+$$
+g_2(x) = 0.1 + 0.2x + 0.8x^2, \qquad E_{\text{in}}(g_2) = 0
+$$
+
+它和目標的差是 $g_2(x) - f(x) = 0.1 - 0.8x + 0.8x^2$。平方後展開，奇數次項的期望值是 0，只留下偶數次項：
+
+$$
+E_{\text{out}}(g_2) = 0.01 + (0.64 + 0.16)\,\mathbb{E}[x^2] + 0.64\,\mathbb{E}[x^4] = 0.01 + \frac{0.8}{3} + \frac{0.64}{5} = \frac{607}{1500} \approx 0.405
+$$
+
+其中 $0.64x^2$ 來自 $(-0.8x)^2$，$0.16x^2$ 來自 $2 \times 0.1 \times 0.8x^2$。
+
+**結果。**
+
+| 模型 | $g$ | $E_{\text{in}}$ | $E_{\text{out}}$ |
+|---|---|---|---|
+| $\mathcal{H}_0$ | $0.533$ | $0.176$ | $0.618$ |
+| $\mathcal{H}_1$ | $0.033 + x$ | $0.0089$ | $0.0011$ |
+| $\mathcal{H}_2$ | $0.1 + 0.2x + 0.8x^2$ | $0$ | $0.405$ |
+
+**這代表什麼。** 三個名詞在這張表上各有位置。$E_{\text{out}}$ 最低的是 $\mathcal{H}_1$，它的位置相當於第 3 頁圖上的 $d_{\text{VC}}^*$。從 $\mathcal{H}_1$ 換到 $\mathcal{H}_2$，$E_{\text{in}}$ 從 0.0089 降到 0，$E_{\text{out}}$ 從 0.0011 升到 0.405，大了三百多倍，這是過擬合。從 $\mathcal{H}_1$ 換到 $\mathcal{H}_0$，兩個誤差一起上升，這是欠擬合。只看 $g_2$ 這一個假說，$E_{\text{in}} = 0$、$E_{\text{out}} = 0.405$，這是壞的泛化。
+
+三個成因也都在。雜訊只有 $\pm 0.1$，但拋物線為了穿過每個點把它當真，學到一個其實不存在的彎度 $0.8x^2$。資料只有 3 筆而且都在右半邊，沒有任何一筆能告訴拋物線左半邊不可以翹起來：在 $x = -1$，$g_2(-1) = 0.1 - 0.2 + 0.8 = 0.7$，目標是 $-1$，差了 1.7。直線也沒看過左半邊，但它只有兩個係數，$\pm 0.1$ 的雜訊只讓它整條平移了 $\frac{1}{30}$。
+
+### Fun Time：哪一種情況最不容易過擬合
+
+**題目（第 5 頁）：** 根據前面的討論，資料量固定時，下面哪一種情況過擬合的風險相對最低？
+
+1. 雜訊小，從小的 $d_{\text{VC}}$ 換到中等的 $d_{\text{VC}}$
+2. 雜訊小，從小的 $d_{\text{VC}}$ 換到大的 $d_{\text{VC}}$
+3. 雜訊大，從小的 $d_{\text{VC}}$ 換到中等的 $d_{\text{VC}}$
+4. 雜訊大，從小的 $d_{\text{VC}}$ 換到大的 $d_{\text{VC}}$
+
+**答案：1。** 講義的解答是：過擬合的兩個原因是雜訊與過大的 $d_{\text{VC}}$，兩者都相對受控時，風險就比較小。題目先固定了資料量，三個原因剩下兩個可以比。選項 1 和 2 雜訊一樣，2 的 $d_{\text{VC}}$ 加得更多；選項 1 和 3 的 $d_{\text{VC}}$ 一樣，3 的雜訊更大；選項 4 兩樣都比 1 差。用開車來講，1 是路比較平、車速只加一點。
+
+題目問的是「相對」風險。選項 1 也可能過擬合，上面三個點的例子雜訊就很小、也只從 1 次加到 2 次。
+
+## 雜訊與資料量：會十次多項式的人為什麼輸給只會二次的
 
 ```youtube
 url: https://www.youtube.com/watch?v=6bfcLhHhgs0
-title: The Role of Noise and Data Size
+title: Hazard of Overfitting :: The Role of Noise and Data Size @ Machine Learning Foundations (機器學習基石)
 ```
 
-原始影片：[What is Overfitting?](https://www.youtube.com/watch?v=BA76U3JBDdE)、[The Role of Noise and Data Size](https://www.youtube.com/watch?v=6bfcLhHhgs0)、[Deterministic Noise](https://www.youtube.com/watch?v=c_208kUQEis)、[Dealing with Overfitting](https://www.youtube.com/watch?v=r3bX1k7tcjc)、[Regularized Hypothesis Set](https://www.youtube.com/watch?v=Sno7I5slFUA)、[Weight Decay Regularization](https://www.youtube.com/watch?v=idWnPdW9znM)、[Regularization and VC Theory](https://www.youtube.com/watch?v=15JB2o4VUeY)、[General Regularizers](https://www.youtube.com/watch?v=PeQeKeeGu3A)
+（影片 00:00–02:22 是兩組實驗的設定，02:22–05:29 看結果，05:29–07:50 談兩個學習者的反諷，07:50–11:02 用學習曲線解釋，11:02–12:47 是沒有雜訊的那一組，之後是 Fun Time。）
 
-課程與錄影入口：
+### 兩組資料，兩位學習者
 
+第 6 頁做了兩組人工資料，都是一維的迴歸問題：
+
+- **左邊：** 目標是 10 次多項式，資料加了雜訊。圖上的黑點和藍色的目標曲線有一點距離。
+- **右邊：** 目標是 50 次多項式，完全不加雜訊。藍線比左邊彎得多，黑點都剛好落在線上。
+
+兩張圖上的資料都只有十幾筆。
+
+再找兩位學習者。課堂上把他們講成兩個學生：一個只會 2 次以下的多項式，看到資料後從 $\mathcal{H}_2$ 裡挑一個最好的 $g_2$（圖上的綠線）；另一個會 10 次以下的所有多項式，從 $\mathcal{H}_{10}$ 裡挑最好的 $g_{10}$（紅線）。頁尾的問題是：從 $g_2$ 換到 $g_{10}$，會不會過擬合？
+
+### 結果：兩組都過擬合
+
+第 7 頁的數字：
+
+| 目標 | | $g_2 \in \mathcal{H}_2$ | $g_{10} \in \mathcal{H}_{10}$ |
+|---|---|---|---|
+| 10 次＋雜訊 | $E_{\text{in}}$ | $0.050$ | $0.034$ |
+| | $E_{\text{out}}$ | $0.127$ | $9.00$ |
+| 50 次、無雜訊 | $E_{\text{in}}$ | $0.029$ | $0.00001$ |
+| | $E_{\text{out}}$ | $0.120$ | $7680$ |
+
+兩組的 $E_{\text{in}}$ 都是 $g_{10}$ 比較低。這一定會發生，因為 $\mathcal{H}_2 \subset \mathcal{H}_{10}$，$\mathcal{H}_{10}$ 裡包含 $g_2$，在更大的集合裡挑最好的，不會比 $g_2$ 差。課堂上的講法是紅色的學生會的多項式比較多，選擇多，$E_{\text{in}}$ 自然能做得比較低。
+
+$E_{\text{out}}$ 完全倒過來。左邊 $g_2$ 是 0.127，$g_{10}$ 是 9.00，差了約 71 倍；右邊 $g_2$ 是 0.120，$g_{10}$ 是 7680，差了 64,000 倍。圖上的紅線在資料點之間大幅擺盪；右邊那張，課堂上形容目標高的地方紅線低、目標低的地方紅線高，和 50 次的目標一點都不像。$E_{\text{in}}$ 降、$E_{\text{out}}$ 升，照定義兩組都是過擬合，頁尾寫的是 both yes!
+
+### 第一組的反諷：以退為進
+
+第 8 頁給兩位學習者取了名字：O（Overfit）選 $g_{10}$，R（Restrict）選 $g_2$。然後假設兩人都**知道**目標是 10 次多項式。
+
+直覺上 O 應該占優勢：目標是 10 次，他會 10 次。R 連 10 次都不會，講義說他等於放棄了擬合的能力。課堂上講得更直接：去問一個只會 2 次的學生，等於一開始就放棄做到完美，因為用 2 次多項式不可能把 10 次的目標做到完美。結果 R 在 $E_{\text{out}}$ 上大贏。
+
+講義在頁尾寫 philosophy: concession for advantage?，課堂上說這就是「以退為進」。他還舉了老闆的例子：如果老闆告訴你這個問題大概用 10 次多項式能解決，你多半會直接拿 10 次的模型去做，根本不會想到用 2 次的反而可能比較好。知道目標是 10 次，真的用 10 次去學，不見得做得比較好。
+
+### 用學習曲線解釋
+
+第 9 頁把基石第 9 堂的學習曲線拿回來。橫軸是資料量 $N$，縱軸是期望的誤差，$\mathcal{H}_2$ 和 $\mathcal{H}_{10}$ 各一張。講義在這裡用 $\overline{E_{\text{in}}}$、$\overline{E_{\text{out}}}$ 表示對很多組資料取的平均。
+
+兩張圖的共同點，課堂上重講了一次：
+
+- $N \to \infty$ 時，$E_{\text{in}}$ 與 $E_{\text{out}}$ 收斂到同一個值。
+- $N$ 有限時，$E_{\text{in}}$ 比那個值低一點。因為看得到資料，最佳化會讓線往資料點靠過去。
+- $E_{\text{out}}$ 比那個值高一點。線往看過的點靠，在沒看過的點上就偏離了；課堂上說如果那邊有雜訊，等於差了兩倍的距離。
+
+基石第 9 堂對線性迴歸算過這個「一點」有多大：有雜訊、雜訊強度 $\sigma^2$ 時，平均的 $E_{\text{in}} = \sigma^2\big(1 - \frac{d+1}{N}\big)$，平均的 $E_{\text{out}} = \sigma^2\big(1 + \frac{d+1}{N}\big)$，兩者相差 $\frac{2(d+1)}{N}\sigma^2$。$d + 1$ 是參數個數，$\mathcal{H}_2$ 是 3，$\mathcal{H}_{10}$ 是 11。
+
+兩張圖的差別有兩個。第一，收斂到的值不同：$\mathcal{H}_{10}$ 包含 10 次的目標，極限只剩雜訊；$\mathcal{H}_2$ 表示不了目標，極限比較高。講義的第一點就是這個：$N \to \infty$ 時 $\mathcal{H}_{10}$ 的 $\overline{E_{\text{out}}}$ 比較低。第二，$E_{\text{in}}$ 與 $E_{\text{out}}$ 的距離不同：$\mathcal{H}_{10}$ 的模型複雜度大，距離拉得很開。投影片上 $\mathcal{H}_{10}$ 那張圖的 $E_{\text{out}}$ 在 $N$ 小的地方直接衝出圖的上緣。
+
+兩張圖左邊都有一塊灰色區域，是 $N$ 小的範圍。在這個範圍裡比較兩張圖：$\mathcal{H}_{10}$ 的 $\overline{E_{\text{in}}}$ 比較低，$\overline{E_{\text{out}}}$ 比較高。講義寫 gray area: O overfits!，結論是 R always wins in $\overline{E_{\text{out}}}$ if $N$ small。
+
+課堂上的評語是「聰明反被聰明誤」：會的假說太多，$E_{\text{in}}$ 做得很好，考試（$E_{\text{out}}$）卻考不好。他的建議是資料量不夠多的時候不要鑽牛角尖，用簡單的假說來解釋資料，雖然不完美，反而可能做得比較好。
+
+### 數值例子：把灰色區域算出來
+
+以下是本文自擬的例子，不在講義上。它是第一組實驗的縮小版：目標就在 O 的假說集合裡，資料有雜訊，R 連目標都表示不了。
+
+**設定。** 目標 $f(x) = x$，$y_n = x_n + \epsilon_n$，$\epsilon_n$ 是互相獨立、平均 0、變異數 $\sigma^2$ 的雜訊。R 用 $\mathcal{H}_0$（常數），O 用 $\mathcal{H}_1$（直線），都用最小平方法。為了讓期望值手算得出來，$x_n$ 固定取 $[-1, 1]$ 上等距的 $N$ 個點（講義的實驗裡 $x$ 是隨機抽的），所以 $\sum_n x_n = 0$；記 $S = \sum_n x_n^2$。測試時 $x$ 在 $[-1, 1]$ 上均勻分布，$y = x + \epsilon$。這個例子的 $E_{\text{out}}$ 對含雜訊的 $y$ 算，和基石第 9 堂的學習曲線一致。期望值是對訓練資料的雜訊取的。
+
+**R 的 $E_{\text{out}}$。** $g_R(x) = \bar{y}$。因為 $\sum_n x_n = 0$，$\bar{y} = \bar{\epsilon}$，就是訓練雜訊的平均，它的變異數是 $\frac{\sigma^2}{N}$。測試點上的誤差是 $y - g_R = x + \epsilon - \bar{\epsilon}$，三項互相獨立、平均都是 0，平方的期望值就是三個變異數相加：
+
+$$
+\overline{E_{\text{out}}}(R) = \frac{1}{3} + \sigma^2 + \frac{\sigma^2}{N}
+$$
+
+$\frac{1}{3}$ 是 $\mathbb{E}[x^2]$，是 R 表示不了斜率的代價，資料再多也不會消失。
+
+**O 的 $E_{\text{out}}$。** $\sum_n x_n = 0$ 時，最小平方直線的截距是 $\bar{y} = \bar{\epsilon}$，斜率是
+
+$$
+\frac{\sum_n x_n y_n}{S} = \frac{\sum_n x_n (x_n + \epsilon_n)}{S} = 1 + \frac{\sum_n x_n \epsilon_n}{S}
+$$
+
+記 $u = \sum_n x_n \epsilon_n / S$，它的平均是 0，變異數是 $\sum_n x_n^2 \sigma^2 / S^2 = \sigma^2 / S$。測試點上的誤差是 $y - g_O = \epsilon - \bar{\epsilon} - ux$。$\bar{\epsilon}$ 與 $u$ 的共變異數正比於 $\sum_n x_n = 0$，交叉項消失：
+
+$$
+\overline{E_{\text{out}}}(O) = \sigma^2 + \frac{\sigma^2}{N} + \frac{\sigma^2}{S}\,\mathbb{E}[x^2] = \sigma^2\Big(1 + \frac{1}{N} + \frac{1}{3S}\Big)
+$$
+
+等距的點 $x_n = -1 + \frac{2(n-1)}{N-1}$ 有 $S = \frac{N(N+1)}{3(N-1)}$（$N = 2$ 時兩點是 $\pm 1$，$S = 2$；$N = 3$ 時是 $-1, 0, 1$，$S = 2$，都符合）。代進去，$\frac{1}{N} + \frac{N-1}{N(N+1)} = \frac{2}{N+1}$：
+
+$$
+\overline{E_{\text{out}}}(O) = \sigma^2\Big(1 + \frac{2}{N+1}\Big)
+$$
+
+長相和基石第 9 堂的 $\sigma^2\big(1 + \frac{d+1}{N}\big)$（這裡 $d + 1 = 2$）幾乎一樣。
+
+**$E_{\text{in}}$。** O 的平均 $E_{\text{in}}$ 是 $\sigma^2\big(1 - \frac{2}{N}\big)$，就是第 9 堂的公式。R 的殘差是 $x_n + \epsilon_n - \bar{\epsilon}$，平均 $E_{\text{in}}$ 是 $\frac{S}{N} + \sigma^2\big(1 - \frac{1}{N}\big)$。
+
+**代數字。** 取 $\sigma^2 = 4$，雜訊比訊號大很多：
+
+| $N$ | R 的 $\overline{E_{\text{in}}}$ | R 的 $\overline{E_{\text{out}}}$ | O 的 $\overline{E_{\text{in}}}$ | O 的 $\overline{E_{\text{out}}}$ | $E_{\text{out}}$ 誰低 |
+|---|---|---|---|---|---|
+| 2 | 3.000 | 6.333 | 0.000 | 6.667 | R |
+| 3 | 3.333 | 5.667 | 1.333 | 6.000 | R |
+| 5 | 3.700 | 5.133 | 2.400 | 5.333 | R |
+| 9 | 3.972 | 4.778 | 3.111 | 4.800 | R |
+| 10 | 4.007 | 4.733 | 3.200 | 4.727 | O |
+| 20 | 4.168 | 4.533 | 3.600 | 4.381 | O |
+| 100 | 4.300 | 4.373 | 3.920 | 4.079 | O |
+| $\infty$ | 4.333 | 4.333 | 4 | 4 | O |
+
+**這代表什麼。** 每一列 O 的 $E_{\text{in}}$ 都比 R 低。$N \le 9$ 時 O 的 $E_{\text{out}}$ 比較高，這幾列就是講義圖上的灰色區域：從 R 換到 O，$E_{\text{in}}$ 降、$E_{\text{out}}$ 升。$N \ge 10$ 之後 O 才贏，而且愈贏愈多，極限是 4 對 4.333，對應講義說的「$N \to \infty$ 時 $\mathcal{H}_{10}$ 的 $E_{\text{out}}$ 比較低」。
+
+兩條 $E_{\text{out}}$ 相減是 $\sigma^2\big(\frac{2}{N+1} - \frac{1}{N}\big) - \frac{1}{3} = \sigma^2 \frac{N-1}{N(N+1)} - \frac{1}{3}$。前一項是 O 多學一個斜率、多吃進來的雜訊，後一項是 R 表示不了目標的固定代價。雜訊愈大或資料愈少，前一項愈大，R 贏的範圍就愈寬；自我檢查第 3 題會算雜訊小的情況。
+
+### 第二組：沒有雜訊，R 還是贏
+
+第 10 頁回到 50 次目標、沒有雜訊的那一組。這次假設兩人都知道沒有雜訊，R 仍然贏。
+
+課堂上先把疑問講出來：有雜訊的時候，可以說 $g_{10}$ 是去靠近那些雜訊所以做壞了；現在沒有雜訊，$g_{10}$ 為什麼還是做不好？然後反問一句，也是講義上的問句：is there really no noise? 他的回答是，其實有，只是另一種。要學的東西很複雜，那條彎彎曲曲的 50 次曲線，10 次的做不到，2 次的也做不到，做不到的那些差距，作用起來就像雜訊。講義的寫法是 'target complexity' acts like noise。「確定性雜訊」那一節會把這件事做成實驗。
+
+### Fun Time：R 什麼時候贏
+
+**題目（第 11 頁）：** 資料量有限時，下列哪種情況學習者 R 會表現得比學習者 O 好？
+
+1. 資料來自 10 次的目標函數，有一些雜訊
+2. 資料來自 1126 次的目標函數，沒有雜訊
+3. 資料來自 1126 次的目標函數，有一些雜訊
+4. 以上皆是
+
+**答案：4。** 講義的解答說，1 和 2 是剛才討論過的兩組實驗，3 更困難，你應該能「generalize」出 R 也會贏。選項 1 就是第一組。選項 2 把 50 次換成 1126 次，目標更複雜，10 次多項式做不到的部分更多，那種「像雜訊的東西」只會更大。選項 3 是兩種一起來：目標複雜，又加了隨機的雜訊；1 和 2 單獨一種 O 都輸了，兩種疊在一起更不會翻盤。
+
+題目開頭的「資料量有限」不能漏掉。上面的數值例子裡，$N \ge 10$ 之後就是 O 贏。
+
+## 確定性雜訊：目標太複雜時，沒有雜訊也會過擬合
+
+```youtube
+url: https://www.youtube.com/watch?v=c_208kUQEis
+title: Hazard of Overfitting :: Deterministic Noise @ Machine Learning Foundations (機器學習基石)
+```
+
+（影片 00:00–03:41 是實驗設計與過擬合的量法，03:41–06:18 看兩張結果圖，06:18–09:43 是兩種雜訊與四個成因，09:43–12:56 定義確定性雜訊，之後是 Fun Time。）
+
+### 一個更細的實驗
+
+第 12 頁把資料的產生方式寫成式子，有三個可以調的量：
+
+$$
+y = f(x) + \epsilon, \qquad f(x) = \sum_{q=0}^{Q_f} \alpha_q x^q, \qquad \epsilon \sim \text{Gaussian}(0, \sigma^2)
+$$
+
+- **雜訊強度 $\sigma^2$：** $\epsilon$ 是獨立同分布的高斯雜訊。
+- **目標複雜度 $Q_f$：** 目標是 $Q_f$ 次多項式。先前那兩組實驗分別是 $Q_f = 10$ 和 $Q_f = 50$。
+- **資料量 $N$。**
+
+講義說 $f$ 是從 $Q_f$ 次多項式裡用某種「均勻」的方式抽的，uniform 加了引號。課堂上解釋了為什麼不容易：如果直接隨機產生 $Q_f + 1$ 個係數，最高次項的係數常常很小，產生出來的多項式實際上彎曲的程度沒有那麼高，只是偽裝成 50 次的、次數比較低的多項式。所以產生的過程要先做一些正規化，確保抽到的大多是「真正的」$Q_f$ 次多項式。細節課堂上沒有講，本文也不展開。
+
+第 13 頁定義過擬合的量法。一樣是兩位學習者，$g_2 \in \mathcal{H}_2$ 與 $g_{10} \in \mathcal{H}_{10}$。$E_{\text{in}}(g_{10}) \le E_{\text{in}}(g_2)$ 一定成立，所以只需要看 $E_{\text{out}}$：
+
+$$
+\text{overfit measure} = E_{\text{out}}(g_{10}) - E_{\text{out}}(g_2)
+$$
+
+正的而且很大，表示過擬合得很嚴重；負的表示 10 次的那位真的做得比較好。
+
+### 兩張結果圖
+
+第 14 頁是兩張用顏色表示 overfit measure 的圖，色階從 $-0.2$（深藍）到 $0.2$（深紅），中間的 0 是綠色。兩張的橫軸都是資料量 $N$，刻度標了 80、100、120。
+
+| | 左圖 | 右圖 |
+|---|---|---|
+| 縱軸 | 雜訊強度 $\sigma^2$（刻度標 0、1、2） | 目標複雜度 $Q_f$（刻度標 0 到 100） |
+| 固定的量 | $Q_f = 20$ | $\sigma^2 = 0.1$ |
+| 紅色（嚴重過擬合） | 左上：雜訊大、資料少 | 左上：目標複雜、資料少 |
+| 藍色（$g_{10}$ 比較好） | 右下：雜訊小、資料多 | 右下：目標不太複雜、資料多 |
+
+左圖的紅藍交界是一條從左下往右上的斜帶：資料愈多，要愈大的雜訊才會過擬合。課堂上說這不意外，前面已經講過雜訊多、資料少會過擬合。
+
+右圖比較有意思。它的大趨勢和左圖很像，課堂上的解讀是：目標愈複雜而資料不夠，這跟雜訊沒什麼兩樣。細看圖，兩張的交界形狀不同：右圖在 $Q_f$ 大約 25 以上，紅藍交界幾乎是直的，整個左半邊都是深紅，右上角是淺藍，最深的藍在右下 $Q_f$ 十幾到二十幾的地方。右圖還多了一個左圖沒有的特徵：$Q_f$ 大約 10 的地方有一道水平的分界，分界以下，左端資料少的地方是紅色，往右很快轉成深藍；最貼近橫軸的那條細帶則整條是黃綠色（overfit measure 在 0 附近到略大於 0）。也就是目標很簡單時，圖上還是有過擬合的區域。這條帶子在說明四個成因時會解釋。
+
+兩張圖底下，講義寫 ring a bell? 並放上課程的 logo。這兩張圖就是每堂講義封面上那個 logo 裡最大的兩塊（左上與右下，在中間相接）。課堂上順便講完另外兩小格：左下代表非線性轉換，右上代表線性的學習。
+
+### 兩種雜訊，四個成因
+
+第 15 頁給兩張圖各一個名字。左圖是 $\sigma^2$ 的影響，叫隨機雜訊（stochastic noise）。右圖是 $Q_f$ 的影響，叫確定性雜訊（deterministic noise）。課堂上解釋命名：兩者都有雜訊的效果，一個是隨機產生的，另一個是固定的、算得出來的。
+
+接著講義列出嚴重過擬合的四個原因：
+
+| 原因 | 方向 | 在圖上的位置 |
+|---|---|---|
+| 資料量 $N$ | ↓ | 兩張圖的左側 |
+| 隨機雜訊 | ↑ | 左圖的上方 |
+| 確定性雜訊 | ↑ | 右圖的上方 |
+| 能力過剩（excessive power） | ↑ | 右圖最底下那條帶子 |
+
+第四個原因解釋了右圖底部。這個實驗比的是 2 次與 10 次。目標在 10 次以下時，會 10 次的那位就太強了；課堂上說拿他去解簡單題，資料裡又有雜訊（右圖固定 $\sigma^2 = 0.1$），他會去擬合那些雜訊。這就是開車的比喻裡「開太快」那一列，用了過大的 $d_{\text{VC}}$，是原本就知道的原因。
+
+課堂上強調的是另外三個：只要有雜訊，或者目標比你以為的複雜，換成更複雜的模型就可能過擬合，資料不夠多時尤其如此。講義的結論是 overfitting 'easily' happens。課堂上補了一個比喻：不熟機器學習就拿來用，像小孩開大車，很容易出車禍。
+
+### 確定性雜訊的定義
+
+第 16 頁給出定義。如果 $f \notin \mathcal{H}$，$f$ 就有某些部分是 $\mathcal{H}$ 裡任何假說都抓不到的。設 $h^*$ 是 $\mathcal{H}$ 裡最好的假說，確定性雜訊就是 $h^*$ 與 $f$ 之間的差。投影片的圖上，藍線是 $f$，紅線是 $h^*$，兩條線之間的灰色區域就是確定性雜訊。
+
+講義說它 acts like 'stochastic noise'，並說這件事對學電腦科學的人不新：pseudo-random generator。課堂上的說明是，電腦裡的亂數不是真的亂數，是一個很複雜的函數算出來的，我們一直在用一個確定的函數做出隨機的效果。
+
+它和隨機雜訊有兩點不同：
+
+- **取決於 $\mathcal{H}$。** 課堂上說，假說集合更複雜時，理論上確定性雜訊會變小；只是 power 也變大了，所以還是變危險。
+- **對同一個 $x$ 是固定的。** 課堂上的說法是：對同一個 $x$ 取很多次 $y$，每次的確定性雜訊都一樣，隨機雜訊則每次不同。
+
+頁尾是一句教育哲學：教小孩的時候，也許不要用來自複雜目標函數的例子比較好。課堂上拿教女兒數數字來講：小朋友的假說集合很簡單，教她數一二三四的時候，不會去講數論或實數的完備性，也不會講有理數以外還有無理數；整數都還沒學會，不必學那麼複雜的東西。教一個簡單的假說集合時不舉太複雜的例子，確定性雜訊會小一些。
+
+### 數值例子：零雜訊的資料，算出過擬合
+
+以下是本文自擬的例子，不在講義上。它對應第二組實驗：資料完全沒有雜訊，目標不在兩位學習者的假說集合裡。
+
+**設定。** 目標 $f(x) = x^2$，$x$ 在 $[-1, 1]$ 上均勻分布，$y = x^2$，沒有雜訊。資料只有 $N = 2$ 筆，$x_1$、$x_2$ 獨立抽出。R 用 $\mathcal{H}_0$（常數），O 用 $\mathcal{H}_1$（直線）。$E_{\text{out}}(g) = \mathbb{E}_x[(g(x) - x^2)^2]$。除了先前的動差，還會用到 $\text{Var}(x^2) = \mathbb{E}[x^4] - (\mathbb{E}[x^2])^2 = \frac{1}{5} - \frac{1}{9} = \frac{4}{45}$。
+
+**第一步：確定性雜訊。** 在 $\mathcal{H}_1$ 裡找最好的 $h(x) = w_0 + w_1 x$，也就是最小化 $\mathbb{E}[(x^2 - w_0 - w_1 x)^2]$。對 $w_1$ 微分得 $-2\,\mathbb{E}[x(x^2 - w_0 - w_1 x)] = 0$，即 $\mathbb{E}[x^3] - w_0\mathbb{E}[x] - w_1\mathbb{E}[x^2] = 0$；奇數次動差都是 0，所以 $w_1 = 0$。對 $w_0$ 微分得 $w_0 = \mathbb{E}[x^2] - w_1\mathbb{E}[x] = \frac{1}{3}$。最好的直線是一條水平線：
+
+$$
+h^*(x) = \frac{1}{3}, \qquad \text{deterministic noise} = f(x) - h^*(x) = x^2 - \frac{1}{3}
+$$
+
+它的平均平方是 $\text{Var}(x^2) = \frac{4}{45} \approx 0.089$。$\mathcal{H}_0$ 裡最好的常數也是 $\frac{1}{3}$，所以兩個假說集合的確定性雜訊在這個例子裡一樣大。它在每個 $x$ 上是固定的值：在 $x = 0$ 是 $-\frac{1}{3}$，在 $x = \pm 1$ 是 $\frac{2}{3}$。
+
+**第二步：R 的表現。** $g_R = b = \frac{x_1^2 + x_2^2}{2}$。$b$ 是兩個獨立的 $x^2$ 的平均，$\mathbb{E}[b] = \frac{1}{3}$，$\text{Var}(b) = \frac{1}{2} \cdot \frac{4}{45} = \frac{2}{45}$。把 $x^2 - b$ 拆成 $(x^2 - \frac{1}{3}) - (b - \frac{1}{3})$，兩部分獨立、平均都是 0：
+
+$$
+\overline{E_{\text{out}}}(R) = \frac{4}{45} + \frac{2}{45} = \frac{2}{15} \approx 0.133
+$$
+
+$E_{\text{in}}$ 是 $\frac{(x_1^2 - b)^2 + (x_2^2 - b)^2}{2} = \frac{(x_1^2 - x_2^2)^2}{4}$，期望值是 $\frac{2\,\text{Var}(x^2)}{4} = \frac{2}{45} \approx 0.044$。
+
+**第三步：O 的表現。** 穿過 $(x_1, x_1^2)$ 與 $(x_2, x_2^2)$ 的直線，斜率是 $\frac{x_1^2 - x_2^2}{x_1 - x_2} = x_1 + x_2$，所以
+
+$$
+g_O(x) = (x_1 + x_2)\,x - x_1 x_2, \qquad E_{\text{in}}(g_O) = 0
+$$
+
+記 $s = x_1 + x_2$、$p = x_1 x_2$。$E_{\text{out}}(g_O) = \mathbb{E}_x[(x^2 - sx + p)^2]$，展開後奇數次項消失：
+
+$$
+E_{\text{out}}(g_O) = \mathbb{E}[x^4] + s^2\,\mathbb{E}[x^2] + p^2 + 2p\,\mathbb{E}[x^2] = \frac{1}{5} + \frac{s^2}{3} + p^2 + \frac{2p}{3}
+$$
+
+再對資料取期望值：$\mathbb{E}[s^2] = \mathbb{E}[x_1^2] + \mathbb{E}[x_2^2] = \frac{2}{3}$（交叉項 $2\,\mathbb{E}[x_1]\mathbb{E}[x_2] = 0$），$\mathbb{E}[p^2] = \mathbb{E}[x_1^2]\,\mathbb{E}[x_2^2] = \frac{1}{9}$，$\mathbb{E}[p] = 0$：
+
+$$
+\overline{E_{\text{out}}}(O) = \frac{1}{5} + \frac{2}{9} + \frac{1}{9} = \frac{8}{15} \approx 0.533
+$$
+
+**結果。**
+
+| 學習者 | 平均 $E_{\text{in}}$ | 平均 $E_{\text{out}}$ | 其中確定性雜訊 | 其餘 |
+|---|---|---|---|---|
+| R（$\mathcal{H}_0$） | $0.044$ | $\frac{2}{15} \approx 0.133$ | $\frac{4}{45}$ | $\frac{2}{45} \approx 0.044$ |
+| O（$\mathcal{H}_1$） | $0$ | $\frac{8}{15} \approx 0.533$ | $\frac{4}{45}$ | $\frac{4}{9} \approx 0.444$ |
+
+overfit measure 是 $\frac{8}{15} - \frac{2}{15} = 0.4$，是正的。用 200 萬組隨機資料模擬，O 的平均 $E_{\text{out}}$ 是 0.5332、R 是 0.1333，和手算一致；其中約 97% 的資料組是 O 比較差。
+
+**這代表什麼。** 資料裡一點隨機雜訊都沒有，從 R 換到 O 仍然是 $E_{\text{in}}$ 降（0.044 → 0）、$E_{\text{out}}$ 升（0.133 → 0.533）。O 的直線每次都完美穿過兩個點，那兩個點的 $y$ 值裡含有直線表示不了的成分 $x^2 - \frac{1}{3}$，O 把它當成斜率與截距學了進去，換一組資料就學到另一條線。「其餘」那一欄就是這種跟著資料晃動造成的誤差，O 是 R 的十倍。確定性雜訊在這裡的作用，和「三個點，三種模型」那個例子裡的 $\pm 0.1$ 一樣，都是模型不該照單全收的東西。
+
+這個設定和 Fall 2024 HW4 Q8 很接近（那一題的目標是 $1 - 2x^2$，同樣用兩筆資料配一條直線）。本文換了目標函數，算的量也不同，不是那一題的解答。
+
+### Fun Time：sin(1126x) 的確定性雜訊
+
+**題目（第 17 頁）：** 目標函數是 $\sin(1126x)$，$x \in [0, 2\pi]$，$x$ 在這個範圍內均勻抽樣。用所有的線性假說 $h(x) = w \cdot x$，以平方誤差去逼近目標。每個 $x$ 上的確定性雜訊大小是多少？
+
+1. $\lvert \sin(1126x) \rvert$
+2. $\lvert \sin(1126x) - x \rvert$
+3. $\lvert \sin(1126x) + x \rvert$
+4. $\lvert \sin(1126x) - 1126x \rvert$
+
+**答案：1。** 講義的解答說，試幾個不同的 $w$ 就能說服自己最好的假說是 $h^*(x) = 0$，確定性雜訊是 $f$ 與 $h^*$ 的差。課堂上的理由是：最好的是平平的那條線，往上翹或往下翹都沒辦法配合 sin 函數；平的線是 0，所以確定性雜訊就是目標函數本身，取大小就加絕對值。
+
+本文把 $w$ 算出來。最小化 $\mathbb{E}[(\sin(1126x) - wx)^2]$，對 $w$ 微分得 $w^* = \mathbb{E}[x\sin(1126x)] \big/ \mathbb{E}[x^2]$。分母是 $\frac{1}{2\pi}\int_0^{2\pi} x^2\,dx = \frac{4\pi^2}{3}$。分子用分部積分，對整數 $k$：
+
+$$
+\int_0^{2\pi} x \sin(kx)\,dx = \Big[-\frac{x\cos(kx)}{k} + \frac{\sin(kx)}{k^2}\Big]_0^{2\pi} = -\frac{2\pi}{k}
+$$
+
+除以 $2\pi$ 得 $\mathbb{E}[x\sin(1126x)] = -\frac{1}{1126}$。所以
+
+$$
+w^* = -\frac{3}{4\pi^2 \times 1126} \approx -6.7 \times 10^{-5}
+$$
+
+這個數字和 0 的差別只在計算上看得出來：在整個 $[0, 2\pi]$ 上，$\lvert w^* x \rvert$ 最大也只有 $4.2 \times 10^{-4}$，$h^*$ 的平均平方誤差是 $0.49999994$，$w = 0$ 是 $0.5$。講義說 $h^*(x) = 0$、確定性雜訊是 $\lvert \sin(1126x) \rvert$，就是這個意思；四個選項裡也只有選項 1 對應到這條幾乎平的線，答案是 1 沒有疑問。直觀上，$\sin(1126x)$ 在 $[0, 2\pi]$ 裡來回 1126 個週期，正的半邊和負的半邊幾乎完全抵銷，任何斜率都對不上它。
+
+其他選項各對應一個特定的 $w$：選項 2 是 $w = 1$，選項 3 是 $w = -1$，選項 4 是 $w = 1126$。數值積分算出的平均平方誤差是：$w = 0$ 時 0.5，$w = \pm 1$ 時約 13.66，$w = 1126$ 時約 $1.67 \times 10^7$。它們都離最好的假說很遠，和 $f$ 的差就不是確定性雜訊。
+
+這題和上面的例子一樣，最好的線性假說是（幾乎）什麼都不做，目標的全部變化都成了確定性雜訊。
+
+## 怎麼對付過擬合：先從資料下手
+
+```youtube
+url: https://www.youtube.com/watch?v=r3bX1k7tcjc
+title: Hazard of Overfitting :: Dealing with Overfitting @ Machine Learning Foundations (機器學習基石)
+```
+
+（影片 00:00–03:18 回到開車的比喻並列出五種對策，03:18–06:28 是資料清理與修剪，06:28–08:37 是 data hinting，08:37–09:40 是 Fun Time，之後是整堂的總結。）
+
+### 五種對策
+
+第 18 頁把第 4 頁那張開車的比喻表往下加了五列：
+
+| 學習 | 開車 | 課堂上的說明 |
+|---|---|---|
+| 從簡單的模型開始 | 開慢一點 | 開快車會撞，就開慢一點 |
+| 資料清理／修剪（data cleaning/pruning） | 用更準確的路況資訊 | 路況資料可能有雜訊，把它弄準一點 |
+| data hinting | 利用更多路況資訊 | 收集不到更多資料時，從現有資料或對問題的了解產生新的 |
+| 正則化（regularization） | 踩煞車 | 可以開快車，但適時踩煞車 |
+| 驗證（validation） | 看儀表板 | 隨時看自己開得好不好 |
+
+第一列上一堂已經講過，上一堂的建議是先試 $\mathcal{H}_1$。正則化留給[基石第 14 堂：正則化](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-14-regularization)，驗證留給[基石第 15 堂：驗證](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)。這堂只簡單講中間兩列。
+
+講義的評語是 all very practical techniques to combat overfitting。課堂上講得更重：這些是把機器學習做好的實務工具，有時要綜合使用，一個不行就換另一個；這些人類幫助機器學得更好的方式，有時候比演算法本身還重要。
+
+把這張表和四個成因對起來看（本文整理）：資料清理與修剪處理的是隨機雜訊，data hinting 處理的是資料量，從簡單的模型開始與正則化處理的是能力過剩。確定性雜訊取決於目標和假說集合的差距，沒有直接對應的一列。
+
+### 資料清理與修剪
+
+第 19 頁用[基石第 3 堂：學習的種類](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-03-types-of-learning)出現過的手寫數字例子：分辨 1 和 5，每張圖轉成兩個具體的特徵，畫在平面上。藍色圓圈是 1，聚在上方；紅色叉叉是 5，分布在下方。有一個被標成 5 的點落在左上角，緊貼著那群圓圈。投影片把它的原圖拉出來，看起來只是一筆橫線。課堂上說怎麼看都看不出它為什麼是 5，說它比較像 1 還比較有可能。
+
+怎麼「偵測」出這種點，講義列了幾個線索，最後加了刪節號表示還有別的：
+
+- 它離其他的 ○ 太近，或離其他的 × 太遠。
+- 先學出一個分類器，它被這個分類器分錯，而且錯得很離譜。
+
+偵測到之後有兩種處理：
+
+- **資料清理（data cleaning）：** 把標籤改正。課堂上說也可以找人重新標一次。
+- **資料修剪（data pruning）：** 把這筆資料拿掉，用少一點但乾淨的資料訓練。
+
+講義的評語是 possibly helps, but effect varies。課堂上解釋了兩個原因。第一，難的是偵測：哪一筆是壞的點沒有保證有效的辦法，各種做法各有取捨。第二，就算找到了，影響也可能很小：這個例子裡藍點、紅點都非常多，那一個標錯的叉叉改不改、丟不丟，對整體的學習結果可能差不了多少。有些問題上則會看到明顯的好處。
+
+### Data hinting：用 virtual examples 補資料
+
+第 20 頁還是手寫數字。投影片上排了幾十個數字的圖，它們都有一點歪斜或位移。講義的觀察是：稍微平移或旋轉過的數字，意思不變。課堂上的例子是寫一個 3，稍微轉一下還是 3。
+
+所以手上沒有更多資料、又想把這個知識告訴電腦時，可以拿現有的數字去平移、旋轉，產生新的資料加進去重新訓練。這些新資料叫 virtual examples，這個做法叫 data hinting：給演算法多一點提示。
+
+講義的評語是 possibly helps, but watch out，並給了具體的理由：virtual examples 不是從 $P(\mathbf{x}, y)$ 獨立同分布抽出來的。課堂上的解釋是，前面的理論都假設 $(\mathbf{x}_n, y_n)$ 獨立同分布地來自某個分布，新造的這些絕對不是從那裡來的。他說這種做法在特定的應用上、把對問題領域的知識放進去時可能有用，但加進去的資料要有道理，也不要和原本的差太遠；偏離原本的分布太多，可能學到把轉來轉去的都分對了，原本的反而沒分對。他順口舉了一個轉過頭的例子：6 轉 180 度會變成 9。
+
+### Fun Time：對稱的目標該加哪種 virtual examples
+
+**題目（第 21 頁）：** 某個一維迴歸問題，已知 $f(x)$ 是對稱的，也就是 $f(x) = f(-x)$。運用這個知識的一種方式是只考慮對稱的假說。另一種方式是從原始資料 $\{(x_n, y_n)\}$ 產生 virtual examples 當提示。哪一種 virtual examples 最合適？
+
+1. $\{(x_n, -y_n)\}$
+2. $\{(-x_n, -y_n)\}$
+3. $\{(-x_n, y_n)\}$
+4. $\{(2x_n, 2y_n)\}$
+
+**答案：3。** 講義的解答是：我們希望 virtual examples 能表達 $x \to -x$ 時的不變性。$y_n \approx f(x_n)$，而 $f(-x_n) = f(x_n)$，所以在 $-x_n$ 這個位置，合理的標籤就是 $y_n$。
+
+其他選項各表達了另一種性質，都不是題目給的。選項 1 在同一個 $x_n$ 上放兩個相反的標籤，等於告訴演算法 $f(x_n)$ 大約是 0。選項 2 表達的是 $f(-x) = -f(x)$，奇函數。選項 4 表達的是 $f(2x) = 2f(x)$，像通過原點的直線那種性質。
+
+本文補充，看這些提示實際上做了什麼。把 $(x_n, y_n)$ 和 $(-x_n, y_n)$ 一起拿去配最小平方直線 $w_0 + w_1 x$。合併後的資料 $x$ 的平均是 0，而
+
+$$
+\sum x\,y = \sum_n x_n y_n + \sum_n (-x_n)\,y_n = 0
+$$
+
+斜率的分子是 0，所以 $w_1 = 0$。加了提示之後，直線自動變成對稱的水平線，和「只考慮對稱的假說」得到一樣的結果。
+
+套回確定性雜訊那個例子：目標 $x^2$ 正好是對稱的。O 拿到兩筆資料後補上 $(-x_1, x_1^2)$ 與 $(-x_2, x_2^2)$，四個點配出來的直線是 $g(x) = \frac{x_1^2 + x_2^2}{2}$，和 R 的答案一模一樣，平均 $E_{\text{out}}$ 從 $\frac{8}{15}$ 降到 $\frac{2}{15}$。這個例子裡鏡射出來的點沒有偏離原本的分布（雖然它和原來那一筆不獨立），因為 $x$ 的分布本身對稱、目標也真的對稱；題目若換成不對稱的分布，鏡射過去的點就會落在原本很少出現資料的地方，那就是講義要你小心的情況。
+
+### 這堂課的總結
+
+第 22 頁把四節各收成一句：過擬合是 lower $E_{\text{in}}$ but higher $E_{\text{out}}$；它很容易發生；$\mathcal{H}$ 抓不到的部分作用起來像雜訊；對策有資料清理、修剪、hinting 與其他。課堂上的收尾是：原因是雜訊、資料不夠、power 太多，而目標太複雜也可以看成一種雜訊；今天講的是從資料下手的簡單做法，可能有用，也可能沒用。下一堂的預告是 putting the brakes with regularization，學怎麼踩煞車。
+
+## 自我檢查
+
+**1. 三個模型在同一份資料上的結果是：A（$E_{\text{in}} = 0.20$、$E_{\text{out}} = 0.25$），B（$0.10$、$0.15$），C（$0.01$、$0.90$），複雜度 A < B < C。哪些說法可以用「壞的泛化」「過擬合」「欠擬合」來描述？**
+
+答案：C 本身是壞的泛化（$E_{\text{in}}$ 低、$E_{\text{out}}$ 高，差了 0.89）。從 B 換到 C 是過擬合（$E_{\text{in}}$ 0.10 → 0.01，$E_{\text{out}}$ 0.15 → 0.90）。從 B 換到 A 是欠擬合（兩者都上升）。判準：過擬合與欠擬合一定要講出「從哪個模型換到哪個模型」；只說「C 過擬合了」是把狀態和過程混在一起。
+
+**2. 目標 $f(x) = x^3$，$x$ 在 $[-1, 1]$ 上均勻分布，假說集合是 $h(x) = wx$，用平方誤差。最好的 $w$ 是多少？確定性雜訊的平均平方是多少？**
+
+答案：$w^* = \mathbb{E}[x \cdot x^3] / \mathbb{E}[x^2] = \frac{1/5}{1/3} = \frac{3}{5}$。確定性雜訊是 $x^3 - \frac{3}{5}x$，平均平方是 $\mathbb{E}[x^6] - 2 \cdot \frac{3}{5}\mathbb{E}[x^4] + \frac{9}{25}\mathbb{E}[x^2] = \frac{1}{7} - \frac{6}{25} + \frac{3}{25} = \frac{4}{175} \approx 0.023$。這題的 $h^*$ 不是 0，和 Fun Time 的 $\sin(1126x)$ 不同：$x^3$ 有一部分是直線抓得到的，抓不到的才是確定性雜訊。
+
+**3. 在「把灰色區域算出來」那個例子裡，把雜訊改成 $\sigma^2 = 1$。R 在哪些 $N$ 會贏？一般來說 $\sigma^2$ 要多大，R 才有機會贏？**
+
+答案：兩條 $E_{\text{out}}$ 的差是 $\sigma^2\frac{N-1}{N(N+1)} - \frac{1}{3}$。$\frac{N-1}{N(N+1)}$ 在 $N = 2$ 與 $N = 3$ 時都是 $\frac{1}{6}$，$N = 4$ 時是 $\frac{3}{20}$，之後繼續變小，所以最大值是 $\frac{1}{6}$。$\sigma^2 = 1$ 時差最多是 $\frac{1}{6} - \frac{1}{3} < 0$，O 在每個 $N \ge 2$ 都贏，沒有灰色區域。要讓 R 在某個 $N$ 贏，需要 $\frac{\sigma^2}{6} > \frac{1}{3}$，也就是 $\sigma^2 > 2$。雜訊小的時候，資料再少也不會過擬合，這是四個成因裡「隨機雜訊 ↑」那一列。
+
+**4. 講義說確定性雜訊取決於 $\mathcal{H}$：$\mathcal{H}$ 愈大，確定性雜訊愈小。那為什麼從 $\mathcal{H}_2$ 換到 $\mathcal{H}_{10}$ 反而過擬合？**
+
+判準：答案要把兩件事分開。確定性雜訊是 $h^*$ 與 $f$ 的差，$\mathcal{H}$ 變大時最好的 $h^*$ 更接近 $f$，這個差確實變小。但資料有限時學到的不是 $h^*$，更大的 $\mathcal{H}$ 有更多自由度去配合手上那幾筆資料裡的雜訊（兩種雜訊都算），這是「能力過剩」那個成因。50 次目標的實驗裡，10 次多項式的確定性雜訊比 2 次的小，$E_{\text{out}}$ 卻是 7680 對 0.120。能舉出學習曲線或上面零雜訊例子的「其餘」那一欄更好。
+
+**5. 做手寫數字辨識時，有人把每張圖旋轉 180 度、標籤不變，當成 virtual examples 加進訓練資料。哪裡有問題？**
+
+答案：標籤不變的前提是「這個變換不改變意思」。小角度的旋轉成立，180 度不成立：6 會變成 9。這批 virtual examples 等於塞進一批標錯的資料，也就是自己製造隨機雜訊。就算挑不受影響的數字（例如 0、8），正常的資料裡幾乎不會出現倒過來寫的數字，這些點離 $P(\mathbf{x}, y)$ 很遠，是講義 watch out 那一句說的情況。
+
+## 練習與對應閱讀
+
+**兩個學期的對應週次。** [Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)把這堂和下一堂排在同一週（W7，10/14），這堂的投影片是 [13u_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/13u_handout.pdf)。[Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)排在 W7（10/21），2026-09-30 查核時那一週的投影片連結還是 404，所以本文只用 MOOC 版講義。
+
+**教科書。** 兩份課程頁都把這堂標在 [Learning from Data](http://amlbook.com)（LFD）的 4.0 與 4.1 節。
+
+**作業。** 相關的題目在 Fall 2024 的 [HW4](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw4/hw4_red.pdf)（2024-10-21 發布、11-04 截止）與 [HW5](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw5/hw5.pdf)（11-04 發布、11-18 截止），都沒有官方解答：
+
+- **HW4 Q8**：目標 $f(x) = 1 - 2x^2$，用直線 $h(x) = w_0 + w_1 x$ 去近似，只取兩筆資料做線性迴歸，求 $\mathbb{E}_{\mathcal{D}}(\lvert E_{\text{in}}(g) - E_{\text{out}}(g) \rvert)$。這是 $f$ 不在 $\mathcal{H}$ 裡的情形，可以先照本文零雜訊例子的做法，把 $g$ 用 $x_1$、$x_2$ 寫出來再取期望值。
+- **HW4 Q9**：題目明寫「In Lecture 13」。對輸入加高斯雜訊來產生 virtual examples，推導 $\mathbb{E}(X_h^\top X_h)$ 的形式；題目的附註指出它和正則化線性迴歸要反轉的矩陣有關。
+- **HW5 Q5**：證明加入特定 virtual examples 的線性迴歸，和加權的 L2 正則化有相同的解。這題把這堂的 data hinting 接到下一堂的正則化，讀完下一堂再做。
+
+整份作業的導讀在[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)。
+
+**動手做。** 看第二支影片之前，先自己猜兩組實驗誰贏，再對照第 7 頁的表。看第三支影片時，把四個成因抄下來，每個配一個你工作上見過的例子。想自己重現第 7 頁的話，用 numpy 產生一個 10 次多項式加雜訊的資料集，取十幾筆，分別用 `numpy.polyfit` 配 2 次與 10 次，再用另外抽的幾千筆算 $E_{\text{out}}$；數字不會和講義一樣（講義沒有公開那組資料），但 $g_{10}$ 的 $E_{\text{out}}$ 大幅高於 $g_2$ 的現象應該看得到。
+
+**延伸閱讀。** 同一個主題的另一種講法是偏差與變異的分解，見 [Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)。
+
+**下一堂。** [基石第 14 堂：正則化](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-14-regularization)處理比喻表裡的「踩煞車」：怎麼在 $\mathcal{H}_{10}$ 裡學，又不讓它用盡全部的能力。
+
+## 課程影片來源
+
+原始影片：[What is Overfitting?](https://www.youtube.com/watch?v=BA76U3JBDdE)、[The Role of Noise and Data Size](https://www.youtube.com/watch?v=6bfcLhHhgs0)、[Deterministic Noise](https://www.youtube.com/watch?v=c_208kUQEis)、[Dealing with Overfitting](https://www.youtube.com/watch?v=r3bX1k7tcjc)
+
+- [機器學習基石 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
 
-查核日期：2026-10-10。
+查核日期：2026-10-13。影片 ID、標題與長度於當天從官方播放清單取得；YouTube 上沒有字幕軌，本文的課堂說法來自自行轉錄的逐字稿。
 
 ## 更新紀錄
 
+- 2026-10-13：原本與第 14 堂合為一篇，改為一堂一篇，依講義與影片逐字稿重寫。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入影片與官方播放清單的講次相符。
 
 ## 參考資料
 
-- [機器學習基石／技法 MOOC 頁](https://www.csie.ntu.edu.tw/~htlin/mooc/) — 各講小節標題與投影片下載
-- [Lecture 13: Hazard of Overfitting（handout）](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/13_handout.pdf) — 定義、兩個學習者的實驗數字、四個成因、deterministic noise、資料清理與 hinting
-- [Lecture 14: Regularization（handout）](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/14_handout.pdf) — H(C)、拉格朗日推導、augmented error、Legendre 多項式、d_EFF、L1／L2、λ 與雜訊
-- [機器學習基石 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf) — 第 50–57 支
-- [Machine Learning, Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) — W7 排程與 LFD 章節
-- [Fall 2024 Homework 4](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw4/hw4_red.pdf) — Q8–9
-- [Fall 2024 Homework 5](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw5/hw5.pdf) — Q1、Q5–6、Q10、Q13
-- [Machine Learning, Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) — W7（10/21）排程
-- [LIBLINEAR](https://www.csie.ntu.edu.tw/~cjlin/liblinear/) 與 [LIBSVM datasets：mnist.scale](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass/mnist.scale.bz2) — HW5 程式題工具與資料
-- [Learning from Data（AMLbook）](http://amlbook.com) — 教科書 4.0–4.2 節
+- [基石第 13 堂講義 13_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/13_handout.pdf)：本文的主要底本，四節的定義、第 7 頁的實驗數字、兩張結果圖、四個成因與四題 Fun Time 都出自這份講義。
+- [基石第 9 堂講義 09_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/09_handout.pdf)：線性迴歸學習曲線的公式（第 16、17 頁），用來說明第 9 頁的兩張學習曲線。
+- [機器學習基石 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)：這堂是清單的第 50 到 53 支；文中「課堂上」的說法轉述自這四支影片的機器轉錄逐字稿。
+- [Hsuan-Tien Lin > MOOCs](https://www.csie.ntu.edu.tw/~htlin/mooc/)：官方講義與錄影入口。
+- [Machine Learning, Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)：對應週次、13u 投影片與 LFD 章節。
+- [Machine Learning, Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)：對應週次與 LFD 章節。
+- [Fall 2024 Homework 4（hw4_red.pdf）](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw4/hw4_red.pdf)：Q8、Q9 的題目內容。
+- [Fall 2024 Homework 5（hw5.pdf）](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw5/hw5.pdf)：Q5 的題目內容。
+- [Learning from Data 教科書網站](http://amlbook.com)：4.0、4.1 節的出處。
+- [台大林軒田 機器學習基石與技法 導讀：課程總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)：整門課的位置與閱讀路線。

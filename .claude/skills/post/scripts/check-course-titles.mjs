@@ -155,7 +155,40 @@ export function checkRecords(records, names, baseline = {}, strict = false) {
       issues.push({ file, issue: `Bilingual course/scope mismatch: ${pairFile}` });
     }
   }
+  // Scope must be unique inside one course: two posts sharing 第 5 堂 read as duplicates on the series page.
+  const claimed = new Map();
+  for (const [file, parsed] of parsedByFile) {
+    const record = records.find(r => r.file === file);
+    const membership = [record.data.series, ...(record.data.additionalSeries ?? [])].find(s => s && names.has(s.name));
+    for (const scope of parsed.scopes) {
+      if (!scope.numbers.length) continue;
+      const [from, to = from] = scope.numbers;
+      const key = JSON.stringify([record.data.lang === 'en' ? 'en' : 'zh', names.get(membership.name), parsed.course, scope.role]);
+      const taken = claimed.get(key) ?? [];
+      const clash = taken.find(t => from <= t.to && t.from <= to);
+      if (clash) issues.push({ file, title: record.data.title, migration: true, issue: `Scope overlaps ${clash.file} under "${parsed.course}"; one lecture one post, and sub-courses that restart numbering need their own course name` });
+      taken.push({ from, to, file });
+      claimed.set(key, taken);
+    }
+  }
+  for (const [file, parsed] of parsedByFile) {
+    const issue = topicIssue(records.find(r => r.file === file).data, parsed);
+    if (issue) issues.push({ file, migration: true, issue });
+  }
   return issues;
+}
+
+// Topic half of the title: no repeated course identity, and no 主題單元 label hiding a real lecture or assignment.
+export function topicIssue(data, parsed) {
+  const en = data.lang === 'en';
+  const topic = data.title.split(en ? /\s+[|｜]\s+/ : /｜/)[0];
+  if (!en && /導讀[：:]/.test(topic)) return 'Topic repeats the series label 導讀; start with the topic itself';
+  if (en && /^Reading .+:/.test(topic)) return 'Topic repeats the series label "Reading ..."; start with the topic itself';
+  if (parsed.role !== 'topic') return null;
+  if (/作業|Homework|Assignment|\bHW\d/i.test(topic)) return 'Homework guide must use 作業 N / Assignment N scope, not 主題單元 / Topic Guide';
+  const lecture = String(data.description ?? '').match(/\bLectures? \d+(?:[–-]\d+)?|第 \d+(?:[–-]\d+)? [堂講]/);
+  if (lecture) return `Description says this post covers ${lecture[0]}; use that lecture scope instead of 主題單元 / Topic Guide`;
+  return null;
 }
 
 export function main(args = process.argv.slice(2)) {
@@ -170,12 +203,18 @@ export function main(args = process.argv.slice(2)) {
   // Migration completed: historical snapshot is immutable evidence, never an active exemption.
   readBaseline(fs.readFileSync(baselinePath, 'utf8'));
   const baseline = {};
-  const issues = checkRecords(all, names, baseline, audit || files.length).filter(r => !selected || selected.has(r.file)
+  const found = checkRecords(all, names, baseline, audit || files.length).filter(r => !selected || selected.has(r.file)
     || selected.has(r.file.replace(/\.md$/, '-en.md')));
-  if (json) console.log(JSON.stringify({ mode: audit ? 'audit' : 'gate', issues }, null, 2));
+  // Scope-overlap and topic rules (2026-10-13) block every title passed explicitly, i.e. each new or edited post.
+  // The site-wide gate only counts them until the older series are migrated; see course-guide-contract.md.
+  const blocking = audit || files.length ? found : found.filter(r => !r.migration);
+  const pending = found.length - blocking.length;
+  const issues = audit || files.length ? found : blocking;
+  if (json) console.log(JSON.stringify({ mode: audit ? 'audit' : 'gate', issues, pendingMigration: pending }, null, 2));
   else {
     for (const issue of issues) console.log(`${issue.file}: ${issue.issue}`);
     console.log(`${audit ? 'AUDIT (legacy included)' : 'Course title gate'}: ${issues.length} issue(s)`);
+    if (pending) console.log(`Pending migration (not blocking site-wide; blocking when a file is passed): ${pending} overlap/topic issue(s). Run --audit to list.`);
   }
   // Audit reports all titles; the strict default gate blocks all invalid titles.
   return audit ? 0 : issues.length ? 1 : 0;
@@ -265,6 +304,29 @@ test('rejects bilingual lesson/role mismatch with individually valid titles', ()
   for (const suffix of ['Lecture 13', 'Assignment 12', 'Lectures 12–13']) {
     assert.equal(checkRecords([zh, record('x-en.md', `Systems | CMU 11-768 ${suffix}`, 'en')], names).length, 1);
   }
+});
+
+test('rejects two posts claiming the same lecture under one course name', () => {
+  const a = record('a.md', '成長函數｜CMU 11-768 第 5–6 堂');
+  assert.equal(checkRecords([a, record('b.md', 'Kernel 邏輯迴歸｜CMU 11-768 第 5–6 堂')], names).length, 1);
+  assert.equal(checkRecords([a, record('b.md', 'VC 維度｜CMU 11-768 第 6 堂')], names).length, 1);
+  assert.equal(checkRecords([a, record('b.md', 'VC 維度｜CMU 11-768 第 7 堂')], names).length, 0);
+  assert.equal(checkRecords([a, record('b.md', '作業｜CMU 11-768 作業 5')], names).length, 0);
+  // Sub-courses that restart numbering are told apart by their own course name.
+  assert.equal(checkRecords([record('a.md', '成長函數｜CMU 11-768 基石 第 5 堂'), record('b.md', 'Kernel｜CMU 11-768 技法 第 5 堂')], names).length, 0);
+});
+
+test('rejects repeated series label and topic-guide labels that hide a lecture or homework', () => {
+  const bad = (title, extra = {}, lang = 'zh-TW') => {
+    const r = record(lang === 'en' ? 'x-en.md' : 'x.md', title, lang); Object.assign(r.data, extra);
+    return checkRecords([r], names).length;
+  };
+  assert.equal(bad('林軒田機器學習基石導讀：學習問題｜CMU 11-768 主題單元'), 1);
+  assert.equal(bad("Reading Lin's ML Foundations: The Learning Problem | CMU 11-768 Topic Guide", {}, 'en'), 1);
+  assert.equal(bad('作業怎麼寫：HW0–HW5｜CMU 11-768 主題單元'), 1);
+  assert.equal(bad('學習可行嗎｜CMU 11-768 主題單元', { description: '基石 Lecture 4 導讀' }), 1);
+  assert.equal(bad('學習可行嗎｜CMU 11-768 第 4 堂', { description: '基石 Lecture 4 導讀' }), 0);
+  assert.equal(bad('跨課比較｜CMU 11-768 主題單元', { description: '比較三門課的評量方式' }), 0);
 });
 
 test('rejects editing the migration baseline to add new exceptions', () => {
