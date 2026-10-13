@@ -1,0 +1,20 @@
+{
+  "episodeId": "S6l3aRsecuE",
+  "sourceUrl": "https://www.youtube.com/watch?v=S6l3aRsecuE",
+  "title": "Creating Muse: The Fastest-Growing AI Product Since ChatGPT | Alexandr Wang, Meta",
+  "publisher": "David Senra (Founders podcast)",
+  "speakers": ["David Senra (host)", "Alexandr Wang (guest, Chief AI Officer at Meta)"],
+  "publishedAt": null,
+  "language": "en",
+  "durationSeconds": null,
+  "durationEvidence": "Podscripts 逐字稿末段時間 01:12:08；YouTube 實際時長未取得（環境無法連 YouTube）",
+  "retrievedAt": "2026-10-13",
+  "retrievalTool": "Groundlane web_fetch (podscripts.co); 官方頁 davidsenra.com/episode/alexandr-wang 僅摘要",
+  "transcriptUrl": "https://podscripts.co/podcasts/david-senra/creating-muse-the-fastest-growing-ai-product-since-chatgpt-alexandr-wang-meta",
+  "transcriptType": "third-party-auto-asr",
+  "retrievedRanges": ["00:00:02-01:12:08"],
+  "truncated": false,
+  "paginationComplete": true,
+  "rightsBasis": "unknown；僅連回，不在站內重新散布全文",
+  "requestedDelivery": "article-guide"
+}
