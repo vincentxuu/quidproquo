@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ADL 2025 Fall: HW1 Chinese Extractive QA — Finding the Answer Span Among Four Paragraphs | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Topic Guide"
+title: "Reading NTU ADL 2025 Fall: HW1 Chinese Extractive QA — Finding the Answer Span Among Four Paragraphs | NTU Yun-Nung Chen Applied Deep Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, homework, bert, question-answering, huggingface]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 7
 tldr: "HW1 in ADL Fall 2025 gives a question and four Chinese paragraphs. The model first picks the relevant paragraph (paragraph selection, framed as four-way multiple choice), then marks the answer's start and end inside it (span selection), scored by Exact Match. The spec slides point you straight at Hugging Face's run_swag_no_trainer.py and run_qa_no_trainer.py. The simple baseline uses bert-base-chinese, length 512, effective batch size 2, and learning rate 3e-5, and both stages together take under three hours on an 8GB RTX 3070. The Kaggle leaderboard closed 9/29, and code plus report were due 10/1 on NTU COOL. Outside readers cannot get the Kaggle data or grading, but the task design, baseline settings, and five report questions are all usable for practice."
 description: "Guide 7 in the NTU Yun-Nung Chen Applied Deep Learning Fall 2025 series, based on the HW1 spec slides (NTU ADL 2025 Fall HW1) and the assignment video: task definition, Exact Match, adapting two Hugging Face examples, simple-baseline settings, allowed packages, submission format and execution environment, grading and the five report questions, the change log, and what outside readers can do."

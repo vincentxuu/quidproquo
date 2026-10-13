@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 1 講：deep learning 為什麼在 20
 tldr: "本講是 6.7960 的導論：deep learning 之所以爆發是『資料 + 算力 + 演算法』三股力量同時到位；本課從架構（CNN/GNN/Transformer）到訓練、表示、生成、遷移、規模、LLM 一路串起來；最後用一個 ~30 行的 PyTorch training loop 確認你的環境能跑。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 2
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

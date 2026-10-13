@@ -14,7 +14,7 @@ description: "MIT 6.7960 Fall 2024 OCW Lecture 9 (Phillip Isola): turning deep-l
 tldr: "Training neural nets is closer to engineering than magic: look at the data, overfit a mini-batch to prove capacity exists, then regularize back the generalization; learning rate is always the highest-leverage knob."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 11
 additionalSeries:
   - name: "Global AI/CS Course Map"

@@ -1,5 +1,5 @@
 ---
-title: "From Variational Inference and LLM RL to Offline RL | Berkeley CS285 Spring 2026 Lectures 11–18"
+title: "From Variational Inference and LLM RL to Offline RL | Berkeley CS285 Lectures 11–18"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, variational-inference, llm-rl, offline-rl]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "L11–18 connect control as inference, LLM RL, model-based RL, and offline RL, with HW4 and HW5 providing two compute-intensive implementations."
 description: "A guide to CS285 Spring 2026 Lectures 11–18 and Sections 6–9, covering inference, LLM RL, model-based RL, and offline RL."
 series:
-  name: "Reading Berkeley CS285 Spring 2026"
+  name: "Reading Berkeley CS285"
   order: 4
 ---
 

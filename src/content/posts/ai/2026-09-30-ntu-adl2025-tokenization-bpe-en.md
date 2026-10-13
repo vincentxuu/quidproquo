@@ -1,12 +1,12 @@
 ---
-title: "Tokenization and BPE, or Where the Vocabulary Comes From | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 5"
+title: "Tokenization and BPE, or Where the Vocabulary Comes From | NTU Yun-Nung Chen Applied Deep Learning Lecture 5"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, nlp, tokenization, bpe]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 5
 tldr: "With whole words as units, any unseen word becomes UNK. With single characters, meaning is hard to reassemble. This 22-page ADL deck explains the mainstream compromise, subwords, and the most common way to build them, BPE. The core is a tiny corpus of 4 words and 16 occurrences: start from characters, merge the most frequent adjacent pair each round, and after 9 merges you have units like newest</w> and low</w>, which then segment the unseen words lowest and powest. It ends with a GPT-3 tokenizer screenshot where the Chinese version of a sentence takes more than twice as many tokens as the English."
 description: "A guide to the Tokenization lecture of NTU Yun-Nung Chen's Applied Deep Learning (ADL), Fall 2025: the out-of-vocabulary (UNK) problem, rich morphology in Swahili verbs, character versus subword tokens, the three steps of BPE with a merge-by-merge demonstration, how merge rules handle unseen words, BPE units and morphemes, and the token cost multilingual BPE imposes on Chinese."

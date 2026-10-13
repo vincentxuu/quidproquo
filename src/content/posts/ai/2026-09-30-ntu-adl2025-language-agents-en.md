@@ -1,12 +1,12 @@
 ---
-title: "Reasoning, Memory, Planning, and Multi-Agent Systems in Language Agents | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 11"
+title: "Reasoning, Memory, Planning, and Multi-Agent Systems in Language Agents | NTU Yun-Nung Chen Applied Deep Learning Lecture 11"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, ai-agent, multi-agent, agent-memory]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 14
 tldr: "Lecture 11 of ADL Fall 2025 builds on the EMNLP 2024 Language Agents tutorial. It defines an agent as an entity that perceives and acts, then names what is new about language agents: reasoning itself counts as an internal action. The lecture is organized around three concepts. Reasoning covers CoT and ReAct; memory covers Generative Agents and its recency / importance / relevance retrieval; planning goes from greedy reactive planning to tree search and world models. It closes with multi-agent systems in three steps: initialization, orchestration, and team optimization."
 description: "A guide to the 11/10 Language Agents slides and videos 11.1–11.5 of NTU Yun-Nung Chen's ADL Fall 2025 (114-1): the general definition of an agent and what language agents add, the logical / neural / language agent progression, CoT and ReAct, how reasoning enlarges the action space, short- and long-term memory, Generative Agents, social simulation, planning paradigms and world models (Deep Dyna-Q, D3Q, LLMs as user simulators), and the initialization, orchestration, and team optimization of multi-agent systems."

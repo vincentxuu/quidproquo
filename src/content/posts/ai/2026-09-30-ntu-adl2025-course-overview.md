@@ -1,12 +1,12 @@
 ---
-title: "深度學習之應用：概念、作業與實作的學習路線｜台大陳縕儂 深度學習之應用 2025 Fall 課程總覽"
+title: "深度學習之應用：概念、作業與實作的學習路線｜台大陳縕儂 深度學習之應用 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, deep-learning, nlp]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 0
 tldr: "台大資工陳縕儂的《深度學習之應用》（ADL）Fall 2025 是一門以 NLP 為主軸的深度學習課：從神經網路基礎一路講到 Transformer、BERT、預訓練與 prompt、後訓練、LoRA、RAG、生成評估、對齊議題與 Language Agents。L0–L11 有講義 PDF 與分段影片，播放清單另外多出 L12–L14 三講影片；作業端只有 HW1 規格公開，HW2、HW3 與期末專題只有說明影片，所以存取分級是 A2。"
 description: "台大陳縕儂《深度學習之應用》ADL Fall 2025（114-1）系列入口：課程目標、先修、評分、週課表、講課與助教課兩條線、A2 存取分級與缺口、Fall 2025 與進行中的 Fall 2026 課程頁差別、播放清單多出的 L12–L14，以及全系列 19 篇目錄。"

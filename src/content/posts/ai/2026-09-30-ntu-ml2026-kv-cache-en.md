@@ -1,12 +1,12 @@
 ---
-title: "NTU Hung-yi Lee ML 2026 Guide: Faster Generation, Part 2: KV Cache Saves Time, Fills the Warehouse, and How to Slim It Down | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "NTU Hung-yi Lee ML 2026 Guide: Faster Generation, Part 2: KV Cache Saves Time, Fills the Warehouse, and How to Slim It Down | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, llm-inference, kv-cache, attention, prompt-caching]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 7
 tldr: "KV Cache stores the keys and values already computed so decode does not recompute them, but every token costs memory. For Gemma 2 27B that is about 0.72MB per token, so an 80GB A100 holds only about 114k tokens. Hung-yi Lee then walks through ways to shrink it: let queries share keys and values (MQA, GQA), compress keys and values into one vector without ever decompressing (MLA), limit the attention span (Sliding Window, StreamingLLM), and drop keys and values nobody attends to (Scissorhands, H2O). He ends with cross-conversation prompt caching: it only hits when the prefix is identical, so a system prompt should put stable content first."
 description: "A guide to the second half of the 3/20 inference lecture in NTU Hung-yi Lee's Machine Learning 2026 Spring, based on inference.pdf pages 29–55 and the video 'Speeding up LM generation (2/2): KV Cache': prefill/decode and KV Cache, the Gemma 2 memory estimate, multi-query and grouped-query attention, why Multi-head Latent Attention never decompresses, Sliding Window, StreamingLLM, Scissorhands and H2O pruning, when cross-conversation prompt caching hits, and the lecture's comparison table."

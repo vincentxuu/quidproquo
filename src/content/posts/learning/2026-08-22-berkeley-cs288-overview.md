@@ -1,5 +1,5 @@
 ---
-title: "語言模型與 NLP：從基礎表示到檢索與 Agent｜Berkeley CS288 Spring 2026 課程總覽"
+title: "語言模型與 NLP：從基礎表示到檢索與 Agent｜Berkeley CS288 課程總覽"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, nlp, llm, self-study, open-course]
@@ -10,7 +10,7 @@ tldr: "CS288 用 18 組公開投影片與三份作業，從 n-gram 走到 RAG、
 description: "整理 Berkeley CS288 Spring 2026 的先修、18 組教材、三份作業、研究專案、算力需求與校外自學限制。"
 draft: false
 series:
-  name: "Berkeley CS288 Spring 2026"
+  name: "Berkeley CS288 導讀"
   order: 0
 ---
 

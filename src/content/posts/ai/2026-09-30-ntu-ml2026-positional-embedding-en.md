@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ML 2026: Positional Embedding — How Models Know Token Order and Handle Very Long Inputs | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "Reading NTU ML 2026: Positional Embedding — How Models Know Token Order and Handle Very Long Inputs | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, course-guide, transformer, attention, long-context]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 9
 tldr: "Self-attention on its own cannot tell \"you hit me\" from \"I hit you\", so the model needs position information from somewhere else. Hung-yi Lee's lecture goes from sinusoidal absolute positions to ALiBi and T5's relative biases, then to RoPE, which Llama, Qwen and Gemma all use. The second half covers train-short-test-long: RoPE breaks when it rotates to angles it never saw in training, which led to Position Interpolation, NTK-Aware scaling, YaRN, Dynamic Scaling and LongRoPE. The final twist is NoPE: causal attention in a decoder-only model already carries position information, and you can even drop the positional embedding after training."
 description: "A guide to the 3/27 lecture of NTU Machine Learning 2026 Spring (Hung-yi Lee), \"inside the model: how models handle very long inputs\", based on the 64-page pos.pdf and the lecture video: absolute/sinusoidal embeddings, ALiBi, T5 relative bias, RoPE and whether it decays with distance, train short test long, Position Interpolation, NTK-Aware, YaRN, Dynamic Scaling, LongRoPE, NoPE and DroPE."

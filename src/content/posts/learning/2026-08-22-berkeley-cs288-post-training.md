@@ -1,5 +1,5 @@
 ---
-title: "Pre-training、Post-training、Generation 與 Evaluation｜Berkeley CS288 Spring 2026 主題單元"
+title: "Pre-training、Post-training、Generation 與 Evaluation｜Berkeley CS288 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, llm, post-training, evaluation, prompting]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "08–12 組教材把 base model 變成可互動系統：預訓練決定基礎能力，post-training 改變行為，generation 與 evaluation 決定輸出如何被使用與判讀。"
 description: "導讀 CS288 的 pre-training、fine-tuning、prompting、post-training、generation、evaluation 與 benchmarking。"
 draft: false
-series: { name: "Berkeley CS288 Spring 2026", order: 3 }
+series: { name: "Berkeley CS288 導讀", order: 3 }
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs288-post-training-en)

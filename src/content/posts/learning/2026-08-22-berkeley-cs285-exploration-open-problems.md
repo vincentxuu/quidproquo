@@ -1,5 +1,5 @@
 ---
-title: "探索、RL 理論、多任務學習與開放問題｜Berkeley CS285 Spring 2026 第 19–25 堂"
+title: "探索、RL 理論、多任務學習與開放問題｜Berkeley CS285 第 19–25 堂"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, exploration, reinforcement-learning, multi-task-learning]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "最後七講從 exploration 與理論界線，經兩講期中複習，走到 advanced exploration、multi-task RL 與仍未解決的研究問題。"
 description: "導讀 CS285 Spring 2026 第 19–25 講，整理探索、理論、複習、多任務學習與開放問題。"
 series:
-  name: "Berkeley CS285 Spring 2026 導讀"
+  name: "Berkeley CS285 導讀"
   order: 5
 ---
 

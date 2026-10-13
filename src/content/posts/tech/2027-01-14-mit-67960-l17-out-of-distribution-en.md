@@ -17,7 +17,7 @@ description: "MIT 6.7960 Fall 2024 OCW, Lecture 17: why do models break when tra
 tldr: "OOD failure is not a bug, it's the i.i.d. assumption breaking: covariate shift (image style changes), label shift (class proportions change), concept shift (a word's meaning changes) each need different responses; the most common cause is the model latching onto spurious correlations (using grass as a cue for cows); IRM and domain randomization try to fix this in training data structure, test-time adaptation fixes it at inference."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 20
 additionalSeries:
   - name: "Global AI/CS Course Map"

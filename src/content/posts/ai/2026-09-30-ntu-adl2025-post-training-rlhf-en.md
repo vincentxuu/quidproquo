@@ -1,12 +1,12 @@
 ---
-title: "Post-Training — Instruction Tuning, RLHF, and InstructGPT | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 7"
+title: "Post-Training — Instruction Tuning, RLHF, and InstructGPT | NTU Yun-Nung Chen Applied Deep Learning Lecture 7"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, nlp, llm, post-training, instruction-tuning, rlhf, dpo]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 9
 tldr: "A pre-trained model can continue text, but that does not mean it follows instructions. The Post-Training slides of NTU ADL Fall 2025 fix this in two steps. Instruction tuning (FLAN, T0) teaches the model to read task descriptions. RLHF then pulls its outputs toward human preference. Three limits of instruction tuning connect the two steps, a reward model and pairwise comparisons solve two practical RL problems, and InstructGPT's SFT → reward model → PPO pipeline ties it all together. ChatGPT runs the same pipeline on multi-turn dialogue."
 description: "A guide to the Post-Training slides and videos 7.1–7.4 of Yun-Nung Chen's NTU Applied Deep Learning, Fall 2025: specialists vs. generalists, FLAN and T0, Super-NaturalInstructions, three limits of instruction tuning, a quick policy-gradient refresher, reward models and pairwise data, Stiennon et al. 2020, DPO and KTO, InstructGPT's three steps and PPO-ptx, and the multi-turn ChatGPT version."

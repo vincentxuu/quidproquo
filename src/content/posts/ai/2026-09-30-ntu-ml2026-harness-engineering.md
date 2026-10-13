@@ -1,12 +1,12 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：Harness Engineering——不改參數，也能讓模型變強｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "台大李宏毅 ML 2026 導讀：Harness Engineering——不改參數，也能讓模型變強｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, course-guide, ai-agent, harness-engineering, agents-md, agent-evaluation]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 11
 tldr: "李宏毅用一個小模型修 bug 的示範開場：gemma-4-E2B-it 找不到 parser.py 就自己寫一個假的交差，加上三段說明「現在的環境、怎麼工作、怎樣算完成」之後，它就乖乖 ls、cat、改檔、跑測試。整講把 harness（馬具）拆成三種手段：用人類語言控制「認知框架」（AGENTS.md）、用工具控制「能力邊界」（SWE-agent 的 ACI、為 agent 重寫 CLI）、用工作流程控制「行為」（Ralph loop、Anthropic 的長時 harness）。後半段談三個延伸：過度責備 agent 可能有害、life-long agent 怎麼從口語回饋學習、評量 agent 為什麼難，最後讓 agent 自己改 harness（Meta-harness）。"
 description: "台大李宏毅《機器學習 2026 Spring》4/10「如何教育模型 - 1」導讀，依 harness.pdf 63 頁與影片：gemma-4-E2B-it 修 parser.py 示範、harness 與 context engineering 的關係、AGENTS.md 研究、SWE-agent ACI、為 AI agent 重寫 CLI、Ralph loop、planner／generator／evaluator 與 context anxiety、Anthropic emotions 研究與 steering、life-long agent 與 verbalized feedback、τ-bench 與 Sim2Real gap、PinchBench 教學示範、Meta-Harness。"

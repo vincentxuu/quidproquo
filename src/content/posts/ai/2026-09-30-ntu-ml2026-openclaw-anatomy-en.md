@@ -1,12 +1,12 @@
 ---
-title: "Dissecting the Lobster: Hung-yi Lee Takes OpenClaw Apart Until Only Next-Token Prediction and a Few .md Files Remain | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "Dissecting the Lobster: Hung-yi Lee Takes OpenClaw Apart Until Only Next-Token Prediction and a Few .md Files Remain | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, ai-agent, openclaw, agent-memory, agent-skills]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 1
 tldr: "The first lecture of Hung-yi Lee's ML 2026 breaks OpenClaw into five questions: how an agent knows who it is, how it uses tools and SKILLs, how it remembers, how it runs on a schedule, and how it keeps working on its own for a long time. Every answer comes back to one fact: the language model only predicts the next token and starts fresh every turn. Identity, memory, and SOPs are all text files that OpenClaw puts into the prompt, or files the model reads and writes through tools. This post walks through the 60-slide intro.pdf and the lecture recording, including the defenses the slides recommend."
 description: "A guide to 'Dissecting the Lobster,' the first lecture of NTU Hung-yi Lee's Machine Learning 2026 Spring: SOUL.md, IDENTITY.md, USER.md, and MEMORY.md in the system prompt, why every multi-turn conversation starts over, the Read/Write/exec tools and two layers of defense, agents writing their own tools, sessions_spawn sub-agents, on-demand SKILL.md, ClawHub and malicious skills, Memory Recall, HEARTBEAT, and context compaction and pruning."

@@ -1,12 +1,12 @@
 ---
-title: "什麼是機器學習與深度學習｜台大陳縕儂 深度學習之應用 2025 Fall 第 1 堂"
+title: "什麼是機器學習與深度學習｜台大陳縕儂 深度學習之應用 第 1 堂"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, deep-learning, machine-learning, nlp]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 1
 tldr: "ADL Fall 2025 的第一份自學講義把機器學習講成「從資料裡找一個函數」，把深度學習講成「一條由很多簡單函數串起來、每一站都由機器自己學的生產線」。它用語音與影像說明 deep 和 shallow 的差別，用大數據與 GPU 解釋 2010 年後的突破，再用 universality theorem 追問為什麼要深而不是胖。最後一段最實用：學習任務由輸出領域決定，網路架構要配合輸入領域的性質。"
 description: "導讀台大陳縕儂 ADL Fall 2025 的 Introduction 講義與影片 1.1–1.3：學習就是找函數、機器學習框架、深度學習的生產線比喻、deep vs shallow、大數據與 GPU、universality theorem、fat+shallow vs thin+deep，以及怎麼把 NLP 任務框成分類或序列預測。"

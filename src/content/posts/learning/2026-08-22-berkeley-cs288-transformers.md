@@ -1,5 +1,5 @@
 ---
-title: "Sequence Models、Seq2Seq 與 Transformer｜Berkeley CS288 Spring 2026 主題單元"
+title: "Sequence Models、Seq2Seq 與 Transformer｜Berkeley CS288 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, nlp, transformer, sequence-model]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "05–07 組教材把固定向量的分類器推進序列狀態、encoder-decoder，再用 attention 與 Transformer 改寫資訊路徑。"
 description: "導讀 CS288 的 Sequence Models、Sequence-to-Sequence 與 Transformers，並連到 A2 的從零實作。"
 draft: false
-series: { name: "Berkeley CS288 Spring 2026", order: 2 }
+series: { name: "Berkeley CS288 導讀", order: 2 }
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs288-transformers-en)

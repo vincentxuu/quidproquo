@@ -1,12 +1,12 @@
 ---
-title: "NTU Hung-yi Lee ML 2026 Guide: HW3 LLM Fast Inference: Seven Speed-up Papers, Then Measuring Speculative Decoding, FlashAttention, and vLLM on a GPU | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "NTU Hung-yi Lee ML 2026 Guide: HW3 LLM Fast Inference: Seven Speed-up Papers, Then Measuring Speculative Decoding, FlashAttention, and vLLM on a GPU | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, homework, llm-inference, speculative-decoding, flashattention, kv-cache, vllm]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 8
 tldr: "HW3 is 20 multiple-choice questions at 0.5 points each. No code is submitted; students answer a quiz on NTU COOL. The first 10 questions come from reading papers: four on speculative decoding (Leviathan et al., DeepMind's Speculative Sampling, Inference with Reference, SpecInfer) plus FlashAttention 1–3. The last 10 require filling TODOs in the Colab and analyzing the results: acceptance rate of a hand-written speculative decoder, speed-up curves for an assistant model vs n-gram under two prompt regimes, HBM reads and theoretical FlashAttention speed-up from T4 specs, vLLM prefix caching across turns and a cache invalidation test, and the effect of CPU offload on throughput. All questions are printed in both Mandarin and English in the homework PDF, so outsiders can do the whole thing; they just cannot get the official answers."
 description: "A guide to HW3 of NTU Hung-yi Lee's Machine Learning 2026 Spring, based on hw3.pdf, the homework Colab, and the TA walkthrough video: format and prerequisites, what each of the seven assigned papers is tested on, the Manual Speculative Decoding TODO, Benchmark with Two Prompt Regimes, FlashAttention read/write formulas and T4 run-time estimates, vLLM KV Cache multi-turn and invalidation tests, CPU offload, and the limits for self-learners."

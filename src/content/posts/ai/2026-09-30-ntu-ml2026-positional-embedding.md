@@ -1,12 +1,12 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：Positional Embedding——模型怎麼知道順序、怎麼吃超長輸入｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "台大李宏毅 ML 2026 導讀：Positional Embedding——模型怎麼知道順序、怎麼吃超長輸入｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, course-guide, transformer, attention, long-context]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 9
 tldr: "Self-attention 本身看不出「你打我」和「我打你」的差別，所以要另外告訴它位置。李宏毅這一講從 Sinusoidal 絕對位置講到 ALiBi、T5 的相對位置，再到今天 Llama、Qwen、Gemma 都在用的 RoPE。後半段處理「訓練短、測試長」：RoPE 轉到沒看過的角度就會壞，於是有 Position Interpolation、NTK-Aware、YaRN、Dynamic Scaling、LongRoPE 這一串修法。最後一個轉折是 NoPE：decoder-only 的因果注意力本來就帶有位置資訊，甚至可以在訓練後把位置編碼拿掉。"
 description: "台大李宏毅《機器學習 2026 Spring》3/27「深入模型內部架構：模型如何處理超長輸入」導讀，依 pos.pdf 64 頁與影片：Absolute／Sinusoidal、ALiBi、T5 relative bias、RoPE 與「越遠越小？」、Train Short Test Long、Position Interpolation、NTK-Aware、YaRN、Dynamic Scaling、LongRoPE、NoPE 與 DroPE。"

@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ADL 2025 Fall: Three Pre-training Families and Prompt Learning — From BERT, GPT, and T5 to Prompts Only Machines Understand | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Topic Guide"
+title: "Reading NTU ADL 2025 Fall: Three Pre-training Families and Prompt Learning — From BERT, GPT, and T5 to Prompts Only Machines Understand | NTU Yun-Nung Chen Applied Deep Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, pretraining, prompt-engineering, scaling-laws, nlp]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 8
 tldr: "Lecture 6 of ADL Fall 2025 sorts pre-trained models into three families: encoders (the BERT family, bidirectional context), decoders (the GPT series, good at generation), and encoder-decoders (BART and T5, pre-trained with denoising). It then names two practical obstacles of the pre-trained-model era: downstream labeled data is scarce, and models keep growing until one copy per task no longer fits. The slides' answer is prompt learning. GPT-3's in-context learning shows a model can do a task without updating parameters; hand-written hard prompts (template plus verbalizer, LM-BFF) then give way to soft prompts optimized as vectors (P-Tuning, Prefix-Tuning, Prompt Tuning); and Liu et al.'s prompting typology closes the lecture."
 description: "Guide 8 in the NTU Yun-Nung Chen Applied Deep Learning Fall 2025 series, based on 250915_Pretraining.pdf (67 pages) and videos 6.1–6.6: what pre-training is and its data, the three pre-training architectures, GPT, GPT-2, and GPT-3, BART and T5 denoising, fine-tuning vs. in-context learning, scaling laws (Kaplan, Hoffmann), training cost, hard prompts and LM-BFF, P-Tuning, Prefix-Tuning, Prompt Tuning, and the prompting paradigm."

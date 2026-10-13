@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 11 講（Phillip Isola）：什麼是
 tldr: "表示學習的目標是把原始資料壓成「好用」的向量：自編碼器用重建逼出有意義的潛空間，VQ 把連續表示離散化成碼本，自監督則用『遮住一部分再重建』來免費產生監督訊號。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 13
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

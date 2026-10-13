@@ -1,5 +1,5 @@
 ---
-title: "Minimax、Alpha-Beta、Expectimax 怎麼選｜Berkeley CS188 Spring 2026 主題單元"
+title: "Minimax、Alpha-Beta、Expectimax 怎麼選｜Berkeley CS188 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, multi-agent, minimax, constraint-satisfaction]
@@ -7,7 +7,7 @@ lang: zh-TW
 type: guide
 difficulty: 進階
 series:
-  name: "Berkeley CS188 Spring 2026"
+  name: "Berkeley CS188 導讀"
   order: 3
 tldr: "Lecture 5–8 先用 CSP 練變數、限制與搜尋順序，再由 Project 2 實作 minimax、alpha-beta 與 expectimax；三者差別在對其他 agent 行為的假設。"
 description: "Berkeley CS188 Spring 2026 的 CSP、game trees 與 Project 2 多代理 Pacman 自學導讀。"

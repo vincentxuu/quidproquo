@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW Lecture 7 (Jeremy Bernstein): a spectral/
 tldr: "Optimization is not an isolated numerical problem: view SGD spectrally, the magnitude of weight updates determines feature learning; Maximal Update Parameterization transfers LR/init across width, and the critical batch size sets the marginal return of trading compute for convergence."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 9
 additionalSeries:
   - name: "Global AI/CS Course Map"

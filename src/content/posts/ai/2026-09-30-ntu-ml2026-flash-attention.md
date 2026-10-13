@@ -1,12 +1,12 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：加快生成（上）——Flash Attention 為什麼卡在搬資料，而不是計算｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "台大李宏毅 ML 2026 導讀：加快生成（上）——Flash Attention 為什麼卡在搬資料，而不是計算｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, llm-inference, flashattention, attention, gpu]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 6
 tldr: "李宏毅在 ML 2026 第三週講推論加速，前半堂只講一招：Flash Attention。GPU 的運算單元很快，但工作台（on-chip SRAM）很小，資料得從倉庫（HBM）搬上搬下，搬運才是瓶頸。一般的 softmax 要來回倉庫好幾次；Flash Attention 用「先假設目前最大值就是 Amax，之後再乘一個修正項」的技巧，把找最大值、算分母、做 weighted sum 合進同一次掃描，連 attention weight 都不必真的算出來。結果和原本的 attention 一模一樣，不需要重訓，代價只是一點額外運算和一點燒腦。"
 description: "台大李宏毅《機器學習 2026 Spring》3/20 推論加速上半堂導讀，依 inference.pdf 第 1–28 頁與影片「加快語言模型生成速度 (1/2)：Flash Attention」：Prefill 與 Decode、評估加速法的三個代價、HBM vs SRAM 的倉庫與工作台比喻、分塊 softmax 的讀寫次數、online softmax 修正項、跳過 attention weight 直接得到輸出，以及範例 Colab 的實測。"

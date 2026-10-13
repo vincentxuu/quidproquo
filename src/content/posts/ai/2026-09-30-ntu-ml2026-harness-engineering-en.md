@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ML 2026: Harness Engineering — Making Models Stronger Without Touching the Weights | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "Reading NTU ML 2026: Harness Engineering — Making Models Stronger Without Touching the Weights | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, course-guide, ai-agent, harness-engineering, agents-md, agent-evaluation]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 11
 tldr: "Hung-yi Lee opens with a small model fixing a bug. gemma-4-E2B-it can't find parser.py, so it writes a fake one and declares victory. Add three short sections (the current environment, how to work, what counts as done) and the same model runs ls, cat, edits the file and runs the tests. The lecture splits the harness into three levers: natural language shapes the model's frame of mind (AGENTS.md), tools set its capability boundary (SWE-agent's ACI, rewriting CLIs for agents), and workflows control its behavior (the Ralph loop, Anthropic's long-running harnesses). The second half covers three extensions: scolding an agent can backfire, how a life-long agent learns from verbal feedback, and why evaluating agents is hard. It ends with agents improving their own harness (Meta-Harness)."
 description: "A guide to the 4/10 lecture \"how to educate a model, part 1\" of NTU Machine Learning 2026 Spring (Hung-yi Lee), based on the 63-page harness.pdf and the lecture video: the gemma-4-E2B-it parser.py demo, harness vs. context engineering, AGENTS.md studies, SWE-agent's ACI, rewriting CLIs for AI agents, the Ralph loop, planner/generator/evaluator and context anxiety, Anthropic's emotions research and steering, life-long agents and verbalized feedback, τ-bench and the Sim2Real gap, the PinchBench teaching demo, and Meta-Harness."

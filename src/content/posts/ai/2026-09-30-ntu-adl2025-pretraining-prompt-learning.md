@@ -1,12 +1,12 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：預訓練三大類與 Prompt Learning——從 BERT、GPT、T5 到「人不懂沒關係機器懂就好」｜台大陳縕儂 深度學習之應用 2025 Fall 主題單元"
+title: "台大陳縕儂 ADL 2025 Fall 導讀：預訓練三大類與 Prompt Learning——從 BERT、GPT、T5 到「人不懂沒關係機器懂就好」｜台大陳縕儂 深度學習之應用 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, pretraining, prompt-engineering, scaling-laws, nlp]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 8
 tldr: "ADL Fall 2025 第 6 講把預訓練模型分成三類：encoder（BERT 家族，雙向上下文）、decoder（GPT 系列，擅長生成）、encoder-decoder（BART、T5，用去噪目標預訓練）。接著點出預訓練模型時代的兩個實際難關：下游標註資料少，以及模型越來越大、每個任務各存一份放不下。講義的解法是 prompt learning：先用 GPT-3 的 in-context learning 說明「不更新參數也能做任務」，再從人寫的 hard prompt（prompt template＋verbalizer、LM-BFF）走到直接優化向量的 soft prompt（P-Tuning、Prefix-Tuning、Prompt Tuning），最後用 Liu 等人的 prompting 分類法收尾。"
 description: "台大陳縕儂《深度學習之應用》Fall 2025 第 8 篇導讀，依 250915_Pretraining.pdf（67 頁）與影片 6.1–6.6：預訓練的定義與資料、三種預訓練架構、GPT／GPT-2／GPT-3、BART 與 T5 的去噪目標、fine-tuning vs in-context learning、scaling laws（Kaplan、Hoffmann）、訓練成本、hard prompt 與 LM-BFF、P-Tuning、Prefix-Tuning、Prompt Tuning、prompting paradigm。"

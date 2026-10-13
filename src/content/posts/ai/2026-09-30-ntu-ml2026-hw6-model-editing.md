@@ -1,12 +1,12 @@
 ---
-title: "Model Editing，只改一條知識、不動其他的｜台大李宏毅 機器學習 2026 Spring 作業 6"
+title: "Model Editing，只改一條知識、不動其他的｜台大李宏毅 機器學習 作業 6"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, model-editing, fine-tuning]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 14
 tldr: "HW6 不用訓練模型，全部在 NTU COOL 上作答：6 分是讀 ROME、MEND、MEMIT、WISE 四篇論文後答 16 題選擇題，4 分是把 Colab 裡的 fine-tuning 換成 ROME，在 GPT2-XL 上做 single editing（自己編一條知識、寫 5 種測試提示）與 multiple editing（CounterFact 子集 10 筆、80 筆，再換 MEMIT），回報 efficacy、paraphrase、neighborhood、portability 四個分數。作業投影片與 47 個 cell 的 Colab 都公開，但測驗題本身與解答只在 COOL 上。"
 description: "台大李宏毅《機器學習 2026 Spring》HW6「Model Editing」導讀：投影片怎麼把 IKE、MEND、ROME／MEMIT 放進「不動參數／人類決定怎麼改／AI 學怎麼改」的分類，四篇指定論文，Colab 實驗的 single editing 五種提示與 multiple editing 四個分數，ROME 更新式的提示，繳交規則，以及校外讀者拿不到的部分。"

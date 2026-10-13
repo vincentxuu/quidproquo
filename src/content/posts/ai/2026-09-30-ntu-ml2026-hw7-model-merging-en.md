@@ -1,12 +1,12 @@
 ---
-title: "Merging a Japanese Model and a Math Model, With No Training, Into One That Solves Japanese Math Problems | NTU Hung-yi Lee Machine Learning 2026 Spring Assignment 7"
+title: "Merging a Japanese Model and a Math Model, With No Training, Into One That Solves Japanese Math Problems | NTU Hung-yi Lee Machine Learning Assignment 7"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ntu, ai-course, course-guide, model-merging, llm, fine-tuning]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 16
 tldr: "HW7 hands you two models fine-tuned from Mistral-7B-v0.1: shisa-gamma-7b-v1, strong in Japanese, and WizardMath-7B-V1.1, strong in math. You may only merge them at the parameter level (no further training, no MoE or ensembles), and the merged model has to answer 20 Japanese math questions written by a TA. Part 1 (60%) is tuning the method, weights, and density in mergekit, with simple and strong baselines at 50% and 75% accuracy. Part 2 (40%) is 8 multiple-choice paper questions. The spec, Colab, and Kaggle notebook are public, but JudgeBoi returned 502 on 2026-09-30 and the paper questions live on NTU COOL, so outside readers can only check accuracy inside the notebook."
 description: "Guide to HW7 \"Model Merging\" in NTU Hung-yi Lee's Machine Learning 2026 Spring, based on hw7.pdf, the assignment Colab, and the course page: the two 7B source models, 20 Japanese math questions that need cultural knowledge and the answer-extraction rule, task vectors, mergekit weights and density, linear / slerp / magnitude prune / DARE / TIES / SCE compared, the Colab default config and prohibitions, grading and submission, and how outside readers can check their own work."

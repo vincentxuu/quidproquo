@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW Lecture 11 (Phillip Isola): what represen
 tldr: "Representation learning compresses raw data into a 'useful' vector: autoencoders force a meaningful latent space via reconstruction, VQ discretizes it into a codebook, and self-supervision turns 'mask-and-reconstruct' into free supervision."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 13
 additionalSeries:
   - name: "Global AI/CS Course Map"

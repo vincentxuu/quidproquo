@@ -1,12 +1,12 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：超越監督學習與多模態——Auto-Encoder、VAE、Dual Learning、對比學習到 CLIP｜台大陳縕儂 深度學習之應用 2025 Fall 主題單元"
+title: "台大陳縕儂 ADL 2025 Fall 導讀：超越監督學習與多模態——Auto-Encoder、VAE、Dual Learning、對比學習到 CLIP｜台大陳縕儂 深度學習之應用 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, self-supervised-learning, representation-learning, vae, clip]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 17
 tldr: "資料很多不代表標註很多。ADL 最後一講問：沒有標註時，怎麼學到好的表示？答案是找出背後控制資料的潛在因子。Auto-encoder 把輸入壓成一段短碼再還原；denoising 版本先加雜訊或遮掉 15% 的 token，BERT 的 masked LM 就是這個想法。VAE 規定短碼要服從一個分布，於是能從分布抽樣來生成。Dual learning 讓翻譯與反向翻譯、理解與生成這類對稱任務互相當對方的回饋。自監督學習分兩派：自我預測（遮一部分猜回來）與對比學習（相似的拉近、不相似的推遠）。CLIP 用 4 億組圖文對做對比學習，讓影像分類可以 zero-shot；DALL·E 2 再把 CLIP 的表示拿來生成圖。Fall 2025 只有影片，投影片用 Fall 2024 版補位。"
 description: "台大陳縕儂《深度學習之應用》Fall 2025 第 17 篇導讀，依影片 14.1–14.7 與 Fall 2024 講義 241127_BeyondSL.pdf（82 頁）：潛在因子、auto-encoder 與 denoising／masked AE、VAE 與 posterior collapse、dual learning（無監督與監督）、自監督學習的自我預測與對比學習、SimCSE、CLIP、DALL·E 2；14.7 Multimodality 在 2024 講義找不到對應頁，只列名稱。"

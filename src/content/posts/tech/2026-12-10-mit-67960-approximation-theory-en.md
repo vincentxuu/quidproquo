@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW, Lecture 3 (Jeremy Bernstein): how well c
 tldr: "A single hidden layer can in principle approximate any continuous function (universal approximation), but width can blow up exponentially with dimension; Barron's theorem lets error decay as 1/sqrt(n) independent of dimension for a specific function class; and depth yields exponential width savings on compositional functions — that is the real reason deep beats shallow."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 3
 additionalSeries:
   - name: "Global AI/CS Course Map"

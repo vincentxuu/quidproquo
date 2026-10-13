@@ -1,12 +1,12 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：HW3 LLM Fast Inference——讀七篇加速論文，再在 GPU 上量 speculative decoding、FlashAttention 與 vLLM｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "台大李宏毅 ML 2026 導讀：HW3 LLM Fast Inference——讀七篇加速論文，再在 GPU 上量 speculative decoding、FlashAttention 與 vLLM｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, homework, llm-inference, speculative-decoding, flashattention, kv-cache, vllm]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 8
 tldr: "HW3 是 20 題選擇題（每題 0.5 分），不交程式，只在 NTU COOL 上作答。前 10 題讀論文：四篇 speculative decoding（Leviathan、DeepMind 的 Speculative Sampling、Inference with Reference、SpecInfer）加上 FlashAttention 1–3；後 10 題照 Colab 填 TODO 後分析結果：手寫 speculative decoding 的接受率、兩種 prompt regime 下 assistant 模型與 n-gram 的加速曲線、用 T4 規格估 FlashAttention 的 HBM 讀取量與理論加速、vLLM 的 prefix caching 多輪測試與失效實驗，以及 CPU offload 對 throughput 的影響。題目中英雙語全部印在作業 PDF 裡，校外可以完整自學，只是拿不到官方解答。"
 description: "台大李宏毅《機器學習 2026 Spring》HW3 導讀，依 hw3.pdf、作業 Colab 與助教說明影片：作業格式、先備影片、七篇指定論文各考什麼、Manual Speculative Decoding 的 TODO、Benchmark with Two Prompt Regimes、FlashAttention 的讀寫量公式與 T4 run time 估算、vLLM KV Cache Multi-turn 與 Invalidation、CPU offload，以及校外自學的限制。"

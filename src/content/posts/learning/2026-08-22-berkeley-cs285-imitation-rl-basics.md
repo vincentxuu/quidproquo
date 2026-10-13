@@ -1,5 +1,5 @@
 ---
-title: "模仿學習、分布偏移與 RL 基礎｜Berkeley CS285 Spring 2026 第 1–4 堂"
+title: "模仿學習、分布偏移與 RL 基礎｜Berkeley CS285 第 1–4 堂"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, imitation-learning, reinforcement-learning, self-study]
@@ -9,7 +9,7 @@ difficulty: 進階
 tldr: "前四講從 behavioral cloning 走到 MDP；HW1 再用 MSE policy、DAgger 與 flow matching，讓分布偏移從概念變成可觀察的失敗。"
 description: "導讀 CS285 Spring 2026 第 1–4 講、Sections 1–2 與 HW1，建立模仿學習到強化學習的第一段主線。"
 series:
-  name: "Berkeley CS285 Spring 2026 導讀"
+  name: "Berkeley CS285 導讀"
   order: 2
 ---
 

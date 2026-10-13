@@ -1,12 +1,12 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：AI Agent 之間的互動與對工作的衝擊——協作拓撲、狼人殺、Moltbook，以及 AI 寫論文與審論文｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "台大李宏毅 ML 2026 導讀：AI Agent 之間的互動與對工作的衝擊——協作拓撲、狼人殺、Moltbook，以及 AI 寫論文與審論文｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, ai-agent, multi-agent, ai-research]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 4
 tldr: "agent_era.pdf 的後半問了三個問題：多個 agent 怎麼協作比較有效（MacNet：不規則的拓撲勝過規則的）、agent 能不能爾虞我詐（狼人殺、劇本殺，以及從社交互動學推理的 MARO）、agent 能不能社交（Moltbook 與「甲殼教」，但三篇研究都發現熱鬧背後多半是人在推、對話很淺）。最後以學術研究為例，AI 已經能從頭複製並延伸一篇論文、進入 AAAI 2026 的審查流程，Agents4Science 2025 收到 247 篇 AI 主筆論文。李宏毅的結論是：在 agent 萌芽的時代，「想做」什麼比「會做」什麼更重要。"
 description: "台大李宏毅《機器學習 2026 Spring》AI Agent 單元第二、三段導讀，依 agent_era.pdf 第 34–61 頁：MacNet 協作拓撲、AI 狼人殺與 MIRAGE 劇本殺、MARO、Moltbook 與三篇 Moltbook 研究、AI 角色從工具到代理、Andrew Hall 的 Claude Code 論文複製、autoresearch、研究點子的 ideation-execution gap、AAAI 2026 AI 審查、Agents4Science 2025。"

@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW Lecture 12 (Sara Beery): from metric lear
 tldr: "Similarity-based representation learning does not reconstruct input; it directly shapes latent geometry: pull same-class representations together, push different ones apart. InfoNCE turns this into 'spot the positive among negatives', and alignment / uniformity give it interpretable metrics."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 14
 additionalSeries:
   - name: "Global AI/CS Course Map"

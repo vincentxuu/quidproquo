@@ -1,12 +1,12 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：HW10 Spoken Language Model——三種架構、Mimi 的 32 層 token，以及為什麼 Moshi 能邊聽邊說｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "台大李宏毅 ML 2026 導讀：HW10 Spoken Language Model——三種架構、Mimi 的 32 層 token，以及為什麼 Moshi 能邊聽邊說｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, homework, speech-processing, tokenization, multimodal, voice-ai]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 20
 tldr: "HW10 是 12 題選擇題，只在 NTU COOL 作答。Section 1 比較語音語言模型的三種架構：Cascade（ASR → LLM → TTS，中間是文字）、End-to-End（直接在離散語音 token 上做 LM）、Thinker-Talker（LLM 負責想，另一個 decoder 負責說），Colab 讓兩個模型聽三段錄音判斷說話者性別，要你看出哪個是 cascade。Section 2 拆 Mimi：把情緒語料切成 32 層 RVQ token，取第 0、6、16、31 層畫 UMAP；再把語音、笑聲、音樂 encode 再 decode 聽看看壞在哪。剩下的題目讀 TWIST、AudioLM、LLaMA-Omni 2、Moshi、GLM-4-Voice，考 initialization、pretrain、interleaving 與 realtime／full-duplex。Colab 要先申請 Llama-3.2-3B-Instruct 授權並填 HF token。題目與 Colab 全公開，校外拿不到的是 COOL 評分與解答。"
 description: "台大李宏毅《機器學習 2026 Spring》HW10「Spoken Language Model」導讀，依 hw10.pdf、作業 Colab 與助教說明影片：Cascade／End-to-End／Thinker-Talker 三型、Model A 與 Model B 的性別辨識實驗、Mimi tokenizer 的 semantic 與 acoustic RVQ 層、EmoV-DB 情緒語料的 UMAP 分析、detokenizer 重建與 PESQ、TWIST 的文字模型初始化、AudioLM 的兩種 token、Moshi 與 GLM-4-Voice 的 interleaving、realtime 與 full-duplex，以及 PDF 與 Colab 題號對不上的地方。"

@@ -1,5 +1,5 @@
 ---
-title: "Inference-time Compute, Reasoning, and Embodied Agents | Berkeley CS288 Spring 2026 Topic Guide"
+title: "Inference-time Compute, Reasoning, and Embodied Agents | Berkeley CS288 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, ai-agent, reasoning, multimodal-ai, llm]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "Units 15–18 place NLP models inside perception, reasoning, tool, and environment loops; the question shifts from next-token prediction to allocating inference compute and validating multi-step action."
 description: "A guide to CS288 Embodied Perception, Inference-time Compute, Agent Reasoning, and Embodied Agents, with explicit public-material boundaries."
 draft: false
-series: { name: "Berkeley CS288 Spring 2026", order: 5 }
+series: { name: "Reading Berkeley CS288", order: 5 }
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs288-agents)

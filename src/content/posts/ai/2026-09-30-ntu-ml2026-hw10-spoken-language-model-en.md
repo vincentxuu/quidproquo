@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ML 2026: HW10 Spoken Language Model — Three Architectures, Mimi's 32 Token Layers, and How Moshi Listens While It Talks | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "Reading NTU ML 2026: HW10 Spoken Language Model — Three Architectures, Mimi's 32 Token Layers, and How Moshi Listens While It Talks | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, homework, speech-processing, tokenization, multimodal, voice-ai]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 20
 tldr: "HW10 is 12 multiple-choice questions answered only on NTU COOL. Section 1 compares three spoken language model architectures: Cascade (ASR → LLM → TTS, with text in the middle), End-to-End (a language model over discrete speech tokens), and Thinker-Talker (an LLM thinks, a separate decoder speaks). In the Colab, two models listen to three clips and guess the speaker's gender, and you work out which one is the cascade. Section 2 takes Mimi apart: tokenize an emotion corpus into 32 RVQ layers, plot UMAP for layers 0, 6, 16, and 31, then encode and decode speech, laughter, and music to hear what breaks. The rest are paper questions on TWIST, AudioLM, LLaMA-Omni 2, Moshi, and GLM-4-Voice, covering initialization, pretraining, interleaving, and realtime/full-duplex behavior. The Colab needs Llama-3.2-3B-Instruct access and an HF token. Questions and Colab are public; outside readers miss only the COOL grading and answers."
 description: "A guide to HW10 \"Spoken Language Model\" in NTU Hung-yi Lee's Machine Learning 2026 Spring, based on hw10.pdf, the homework Colab, and the TA video: Cascade, End-to-End, and Thinker-Talker architectures; the Model A vs Model B gender experiment; Mimi's semantic and acoustic RVQ layers; UMAP analysis on the EmoV-DB emotion corpus; detokenizer reconstruction and PESQ; TWIST's text-model initialization; AudioLM's two token types; interleaving in Moshi and GLM-4-Voice; realtime and full-duplex; and where the PDF and Colab question numbers disagree."

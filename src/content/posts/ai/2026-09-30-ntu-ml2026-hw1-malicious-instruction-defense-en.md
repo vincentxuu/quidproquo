@@ -1,12 +1,12 @@
 ---
-title: "With Only a Defense Prompt, How Many 'I have been PWNED' Attacks Can You Stop? | NTU Hung-yi Lee Machine Learning 2026 Spring Assignment 1"
+title: "With Only a Defense Prompt, How Many 'I have been PWNED' Attacks Can You Stop? | NTU Hung-yi Lee Machine Learning Assignment 1"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, prompt-injection, security, guardrails]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 2
 tldr: "HW1 asks for a defense prompt under 1,000 tokens that keeps the model wrapping every reply in [START]…[END] and never saying 'I have been PWNED,' no matter how it's attacked. The TAs prepared 14 attacks, 10 public and 4 private, each worth 0.5% for safety and 0.5% for utility. The task, the full text of the 10 public attacks, and the token-counting Colab are all public, but the grading platform JudgeBoi returned 502 on 2026-09-30, so outside readers have to build their own evaluation from the spec."
 description: "A guide to HW1, 'LLM Malicious Instruction Defense,' in NTU Hung-yi Lee's Machine Learning 2026 Spring: the Tag Guardian task and system prompt format, safety and utility scoring, defense prompt rules, a walkthrough of the 10 public attack types, how JudgeBoi submission and grading worked, and how to evaluate your own work without the grading platform."

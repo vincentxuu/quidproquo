@@ -1,12 +1,12 @@
 ---
-title: "Attention and the Transformer | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 4"
+title: "Attention and the Transformer | NTU Yun-Nung Chen Applied Deep Learning Lecture 4"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, nlp, attention, transformer]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 4
 tldr: "An RNN translator has to squeeze the whole source sentence into one vector, and long sentences don't fit. Attention lets the decoder look back at every input position each time it produces a word, score each one, and take a weighted sum. Call the scorer the query, the thing being scored the key, and the thing being averaged the value, and you have dot-product attention. The Transformer goes one step further: the input attends to itself, recurrence disappears, and in return you get parallelism and a constant path length. The price is that position information has to be added back by hand."
 description: "A guide to the Attention Mechanism and Transformer lectures of NTU Yun-Nung Chen's Applied Deep Learning (ADL), Fall 2025: attention in seq2seq translation, query/key/value, the matrix form of dot-product attention, applications from speech recognition to image captioning, multi-hop memory networks; the Q/K/V computation of self-attention, the who/did what/to whom multi-head example, scaled dot-product, encoder and decoder blocks, masked self-attention, the four criteria for positional encoding and the sinusoidal solution, and training tips."

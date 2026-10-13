@@ -1,5 +1,5 @@
 ---
-title: "From N-grams and Word Representations to Text Classification | Berkeley CS288 Spring 2026 Topic Guide"
+title: "From N-grams and Word Representations to Text Classification | Berkeley CS288 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, nlp, language-model, text-classification]
@@ -9,7 +9,7 @@ difficulty: 進階
 tldr: "The first four units make text countable, representable, and classifiable; A1 then moves from n-grams and perceptrons to an NBOW MLP."
 description: "A guide to CS288 Spring 2026 Introduction, n-gram LM, Word Representation, Text Classification, and Assignment 1."
 draft: false
-series: { name: "Berkeley CS288 Spring 2026", order: 1 }
+series: { name: "Reading Berkeley CS288", order: 1 }
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs288-foundations)

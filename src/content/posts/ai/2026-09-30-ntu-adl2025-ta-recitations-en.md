@@ -1,12 +1,12 @@
 ---
-title: "NTU ADL 2025 TA Recitations: From PyTorch and Hugging Face to LoRA, Quantization, and vLLM Deployment | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Tutorial"
+title: "NTU ADL 2025 TA Recitations: From PyTorch and Hugging Face to LoRA, Quantization, and vLLM Deployment | NTU Yun-Nung Chen Applied Deep Learning Tutorial"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, pytorch, hugging-face, lora, moe, quantization, vllm]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 18
 tldr: "The ADL Fall 2025 course page schedules seven TA recitations: Dev Infra (PyTorch, debugging) → NLP project lifecycle → the underlying logic of NLP projects → LLM LoRA training → LLM basics, architecture, and MoE → LLM inference and evaluation → LLM deployment. All ten videos are older recordings by Yen-Ting Lin from 2023 and 2024, reused in Fall 2025. The course page's five slide links all return 404; files with the same names still open under the Fall 2024 path, and Deployment has a video only. The first three sessions walk through the Hugging Face data → model → demo loop that HW1 needs; the last four cover training, inference, and serving LLMs."
 description: "A guide to the seven TA recitations of NTU Yun-Nung Chen's ADL Fall 2025 (114-1): ten recitation videos, five slide decks (same-name files on the f113 path), and two Colab notebooks. Covers Colab and PyTorch tensors, ipdb debugging, the NLP project lifecycle and train/validation/test splits, Hugging Face Trainer and Gradio, data formats for four NLP task types, LoRA and QLoRA, scaling laws and MoE routing, AWQ/GPTQ quantization, MMLU/MT-Bench/Chatbot Arena evaluation, and vLLM offline inference, tensor parallelism, and the OpenAI-compatible API."

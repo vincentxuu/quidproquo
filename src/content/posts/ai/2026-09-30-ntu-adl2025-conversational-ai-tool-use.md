@@ -1,12 +1,12 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：對話系統與工具使用——從 LU／DST／Policy／NLG 到 LaMDA、WebGPT、Toolformer｜台大陳縕儂 深度學習之應用 2025 Fall 主題單元"
+title: "台大陳縕儂 ADL 2025 Fall 導讀：對話系統與工具使用——從 LU／DST／Policy／NLG 到 LaMDA、WebGPT、Toolformer｜台大陳縕儂 深度學習之應用 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, conversational-ai, task-oriented-dialogue, tool-use]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 16
 tldr: "對話系統分成閒聊與任務型兩支。任務型系統傳統上拆成四個模組：語言理解（LU）把句子變成 domain／intent／slot，對話狀態追蹤（DST）累積使用者目標，對話策略決定下一步系統動作，NLG 把動作寫回句子。LLM 能自己把四步演完，卻沒辦法真的去訂位，所以要接外部工具：LaMDA 學會呼叫搜尋、計算機與翻譯器，BlenderBot 2.0 加上網路搜尋與長期記憶，WebGPT 用人類示範、reward model 與 PPO 學會操作瀏覽器，Toolformer 則讓模型自己產生並篩選工具使用的訓練資料。最後是對話怎麼評：自動指標、四種人工評估，以及 LLM-Eval。ADL Fall 2025 只有影片，投影片用 Fall 2024 版補位。"
 description: "台大陳縕儂《深度學習之應用》Fall 2025 第 16 篇導讀，依影片 13.1–13.9 與 Fall 2024 講義 241030_ConvAI.pdf（108 頁）：任務型對話四模組與各自的評估、LaMDA、BlenderBot 1／2／3、WebGPT、Toolformer、對話評估與 LLM-Eval；Plan-and-Execute、User Interaction、Theory-of-Mind 三支影片在 2024 講義找不到對應頁，只列名稱。"

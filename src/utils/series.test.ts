@@ -243,7 +243,7 @@ describe('Stanford course series registry', () => {
   });
 
   it('tags course series with a school and leaves other series untagged', () => {
-    const names = ['Stanford CS230 導讀', 'MIT 6.S191 導讀', '台大李宏毅 機器學習 2026 Spring 導讀', '世界名校 AI／CS 課程地圖', 'AI 證照備考'];
+    const names = ['Stanford CS230 導讀', 'MIT 6.S191 導讀', '台大李宏毅 機器學習 導讀', '世界名校 AI／CS 課程地圖', 'AI 證照備考'];
     const summaries = getSeriesSummaries(
       names.map((name, index) => post(`ai/school-${index}`, 'zh-TW', { name, order: 1 })),
       'zh-TW',

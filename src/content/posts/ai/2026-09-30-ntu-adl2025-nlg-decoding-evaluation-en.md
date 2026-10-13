@@ -1,12 +1,12 @@
 ---
-title: "Decoding, Generation Control, and Evaluation for NLG | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 9"
+title: "Decoding, Generation Control, and Evaluation for NLG | NTU Yun-Nung Chen Applied Deep Learning Lecture 9"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, nlp, decoding, llm-evaluation]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 12
 tldr: "Lecture 9 of ADL Fall 2025 answers two questions. The model gives you a probability distribution at every step, so how do you pick a word from it? And once you have a sentence, how do you judge it? The slides start with teacher forcing and exposure bias to show the gap between training and generation, then compare greedy, beam search, sampling, top-k, and nucleus sampling, and file temperature and the penalties under 'control' rather than decoding algorithms. The evaluation half covers BLEU, ROUGE, perplexity, and LLM-Eval, then explains why you would use RL to optimize whole-sentence quality directly."
 description: "A guide to the 10/27 NLG Decoding and NLG Evaluation slides and videos 9.1–9.5 of NTU Yun-Nung Chen's ADL Fall 2025 (114-1): conditional LMs, teacher forcing, exposure bias, scheduled sampling, greedy / beam / sampling / top-k / nucleus, temperature, repetition / frequency / presence penalties, BLEU, ROUGE, perplexity, LLM-Eval, and RL for NLG and RLHF."

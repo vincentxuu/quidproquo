@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ML 2026: Context Engineering — Compression, Filtering, On-Demand Loading, and Whether to Hand the Context to the LLM | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "Reading NTU ML 2026: Context Engineering — Compression, Filtering, On-Demand Loading, and Whether to Hand the Context to the LLM | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, ai-agent, context-engineering]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 3
 tldr: "A language model's input is finite, but an agent keeps piling up tool outputs. In week two of ML 2026, Hung-yi Lee splits Context Engineering into three moves: compression (summaries, hard clearing, offloading to files, plus ACON, SUPO, and AgentFold, which make compression smarter), filtering (read only the lines you need, load tools on demand as in MCP-Zero), and finally Agentic Context Engineering, where the LLM decides the next context itself — from Dynamic Cheatsheet and ACE to Recursive Language Models. The most useful idea to take away: a subagent is a form of self-directed compression."
 description: "A guide to the first part of the AI Agent unit in NTU Hung-yi Lee's Machine Learning 2026 Spring, based on pages 1–33 of agent_era.pdf: the formal view of Context Engineering, LLM summary vs. Hard Clear, memory offloading, ACON, SUPO, AgentFold, Context-Folding and subagents, SWE-Pruner, Memory Recall, MCP-Zero, Dynamic Cheatsheet, ACE, and Recursive Language Models."

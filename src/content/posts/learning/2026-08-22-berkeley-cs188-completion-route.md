@@ -1,5 +1,5 @@
 ---
-title: "把 28 講與 P0–P5 變成作品集｜Berkeley CS188 Spring 2026 課程總覽"
+title: "把 28 講與 P0–P5 變成作品集｜Berkeley CS188 課程總覽"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, artificial-intelligence, portfolio, learning-path]
@@ -7,7 +7,7 @@ lang: zh-TW
 type: guide
 difficulty: 進階
 series:
-  name: "Berkeley CS188 Spring 2026"
+  name: "Berkeley CS188 導讀"
   order: 7
 tldr: "Lecture 26–28 用核監測、AI safety 與課程回顧收尾；校外結業不該只算 autograder 分數，而要為 P1–P5 各留下模型假設、測試證據與失敗分析。"
 description: "Berkeley CS188 Spring 2026 的結業與作品集路線：整合 P0–P5 六個 projects、應用講題、AI safety 與自學驗收。"

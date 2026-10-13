@@ -1,12 +1,12 @@
 ---
-title: "Bias, Safety, Hallucination, and Alignment, Plus the Jailbreaking Olympics Final Project | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 10"
+title: "Bias, Safety, Hallucination, and Alignment, Plus the Jailbreaking Olympics Final Project | NTU Yun-Nung Chen Applied Deep Learning Lecture 10"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, ai-safety, hallucination, alignment]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 13
 tldr: "Lecture 10 of ADL Fall 2025 sorts the problems of pretrained models into four groups, each paired with a goal: bias with fairness, toxicity with safety, hallucination with factuality, and finally alignment. The slides argue that bias can enter at any stage of the ML pipeline, that safeguards belong at four layers (data, input, training, output), that hallucination can be checked atomic fact by atomic fact, and that over-optimizing a reward model produces familiar symptoms: verbosity, excessive apologies, over-refusal. The final project announced that week is called Jailbreaking Olympics, but all that is public is the titles and one-line descriptions of two videos."
 description: "A guide to the 11/03 Issues and Development in PLMs slides and videos 10.1–10.3 of NTU Yun-Nung Chen's ADL Fall 2025 (114-1): the definition and sources of bias, system-level mitigation, StereoSet, toxicity and four layers of safeguards, jailbreaking (AutoDAN, GCG), long-form factuality evaluation and FactAlign, reward models and DogeRM, over-optimization, unintended effects of alignment, and how much of the Jailbreaking Olympics final project is public."

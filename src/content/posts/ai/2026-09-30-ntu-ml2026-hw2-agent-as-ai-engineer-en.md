@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ML 2026: HW2, AI Agent as an AI Engineer — an AIDE-Style Tree Search That Lets an Open LLM Build a MyGO & Ave Mujica Face Classifier | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "Reading NTU ML 2026: HW2, AI Agent as an AI Engineer — an AIDE-Style Tree Search That Lets an Open LLM Build a MyGO & Ave Mujica Face Classifier | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, coding-agent, computer-vision, image-classification]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 5
 tldr: "HW2 doesn't ask you to write a classifier. You write prompts and a pipeline so that an open LLM running on a Colab T4 (by default a 4-bit GGUF of gemma-3-12b-it) plans, codes, runs, and debugs a 10-class MyGO & Ave Mujica character face classifier on its own. The starter code is adapted from AIDE: an Interpreter runs code, a Node records each version, a Journal forms the solution tree, and the Agent decides whether to draft, debug, or improve next. The first thing worth noticing: the starter's evaluation is empty. Every version is marked metric 1.0 and not buggy, so the tree search picks blindly until you fill it in. The rules are strict: \"the LLM agent is your representative\", and you may not hand-edit code or prediction files."
 description: "A guide to HW2 (AI Agent as an AI Engineer) of NTU Hung-yi Lee's Machine Learning 2026 Spring, based on hw2.pdf, the Colab starter code, and the homework video: Context is Everything and Intentional Compaction, the dataset and accuracy metric, the ResNet18 recommendation, AIDE's Interpreter/Node/Journal/Agent structure and search policy, the three baselines, the rules, and what outside readers can do."

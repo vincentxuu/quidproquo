@@ -1,5 +1,5 @@
 ---
-title: "The CPU, GPU, and H100 Boundary | Berkeley CS285 Spring 2026 Topic Guide"
+title: "The CPU, GPU, and H100 Boundary | Berkeley CS285 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, deep-reinforcement-learning, gpu, self-study]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "Five assignments move from CPU-friendly imitation learning to H100-based LLM RL and six-hour offline-RL runs; self-learners should use three compute tiers instead of copying the entire enrolled workflow."
 description: "A per-assignment map of Berkeley CS285 Spring 2026 starter code, compute requirements, unavailable assets, and two final-project routes."
 series:
-  name: "Reading Berkeley CS285 Spring 2026"
+  name: "Reading Berkeley CS285"
   order: 6
 ---
 

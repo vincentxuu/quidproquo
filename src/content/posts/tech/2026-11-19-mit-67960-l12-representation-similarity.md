@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 12 講（Sara Beery）：從度量學
 tldr: "相似性式表示學習不重建輸入，而是直接塑造潛空間的幾何：讓同類表示靠近、異類推遠。InfoNCE 把這件事寫成『在一堆負樣本裡認出正樣本』的分類問題，而 alignment / uniformity 給了它可解釋的評價指標。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 14
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

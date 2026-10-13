@@ -1,12 +1,12 @@
 ---
-title: "Teach Llama Math Without Making It Forget How to Refuse | NTU Hung-yi Lee Machine Learning 2026 Spring Assignment 5"
+title: "Teach Llama Math Without Making It Forget How to Refuse | NTU Hung-yi Lee Machine Learning Assignment 5"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, fine-tuning, lora, ai-safety]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 12
 tldr: "HW5 fine-tunes Llama-3.2-1B-Instruct on GSM8K with LoRA, then uses harmful AILuminate prompts to check whether it still refuses. Math accuracy and safety rate must clear the bar together, so the real question is how to fine-tune without washing out safe behavior. The PDF, a 34-cell Colab, and a Kaggle version are public, and the strong baseline is estimated at 14 hours on a T4. The JudgeBoi grader returned 502 on 2026-09-30, so outside readers have to build their own safeguard evaluation."
 description: "A guide to HW5 \"Finetuning without Forgetting\" from NTU Hung-yi Lee's Machine Learning 2026 Spring: the GSM8K and AILuminate datasets, the Colab's LoRA settings and every TODO, the dual accuracy-plus-safety baselines, the hints on evaluating across checkpoints and using the Self-Instruct dataset, T4 time estimates, submission rules, and what outside readers can't get."

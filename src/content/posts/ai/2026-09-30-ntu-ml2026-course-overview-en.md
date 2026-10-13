@@ -1,12 +1,12 @@
 ---
-title: "A Learning Path into Machine Learning through AI Agents | NTU Hung-yi Lee Machine Learning 2026 Spring Course Overview"
+title: "A Learning Path into Machine Learning through AI Agents | NTU Hung-yi Lee Machine Learning Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ntu, ai-course, machine-learning, ai-agent]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 0
 tldr: "Hung-yi Lee's Spring 2026 Machine Learning course at National Taiwan University opens with OpenClaw. The first half takes apart AI agents, context engineering, inference speed-ups, and positional embeddings. The second half covers harness engineering, self-correction, and self-improving AI. Slides and recordings for all 8 lectures, plus PDFs and Colab notebooks for all 10 assignments, are public, so it rates A3. What's missing is grading: JudgeBoi returned 502 on 2026-09-30, NTU COOL is campus-only, and the three guest talks have no materials at all."
 description: "Entry point to the series on NTU Hung-yi Lee's Machine Learning 2026 Spring: course structure and arc, A0–A3 access rating and gaps, the ten-assignment schedule from policy.pdf and how work splits across NTU COOL, JudgeBoi, and model training, grading and auditing rules, the Colab/Kaggle/PyTorch/JudgeBoi tutorials, and the Teaching Monster Arena bonus."

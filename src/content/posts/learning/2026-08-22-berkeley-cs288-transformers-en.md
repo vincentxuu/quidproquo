@@ -1,5 +1,5 @@
 ---
-title: "Sequence Models, Seq2Seq, and Transformers | Berkeley CS288 Spring 2026 Topic Guide"
+title: "Sequence Models, Seq2Seq, and Transformers | Berkeley CS288 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, nlp, transformer, sequence-model]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "Units 05–07 move from recurrent state to encoder-decoder models, then rewrite the information path with attention and Transformer blocks."
 description: "A guide to CS288 Sequence Models, Sequence-to-Sequence, and Transformers, connected to the from-scratch A2 implementation."
 draft: false
-series: { name: "Berkeley CS288 Spring 2026", order: 2 }
+series: { name: "Reading Berkeley CS288", order: 2 }
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs288-transformers)

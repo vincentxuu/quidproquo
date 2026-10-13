@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW Lecture 10 (Sara Beery): why sequence dat
 tldr: "RNNs propagate hidden states through time; gradient products can shrink or grow. LSTM gates control cell-state retention and updates, improving long-range signal flow without guaranteeing stability. Self-attention shortens paths between positions, while dense attention still has quadratic sequence-length cost."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 12
 additionalSeries:
   - name: "Global AI/CS Course Map"

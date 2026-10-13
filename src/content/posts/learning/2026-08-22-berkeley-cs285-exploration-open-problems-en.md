@@ -1,5 +1,5 @@
 ---
-title: "Exploration, RL Theory, Multitask Learning, and Open Problems | Berkeley CS285 Spring 2026 Lectures 19–25"
+title: "Exploration, RL Theory, Multitask Learning, and Open Problems | Berkeley CS285 Lectures 19–25"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, exploration, reinforcement-learning, multi-task-learning]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "The final seven lectures move from exploration and theoretical limits through two review lectures to advanced exploration, multitask RL, and unresolved research problems."
 description: "A guide to CS285 Spring 2026 Lectures 19–25: exploration, theory, review, multitask learning, and open problems."
 series:
-  name: "Reading Berkeley CS285 Spring 2026"
+  name: "Reading Berkeley CS285"
   order: 5
 ---
 

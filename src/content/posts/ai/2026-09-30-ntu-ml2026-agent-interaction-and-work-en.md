@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ML 2026: How AI Agents Interact and What They Do to Work — Collaboration Topologies, Werewolf, Moltbook, and AI Writing and Reviewing Papers | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "Reading NTU ML 2026: How AI Agents Interact and What They Do to Work — Collaboration Topologies, Werewolf, Moltbook, and AI Writing and Reviewing Papers | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, ai-agent, multi-agent, ai-research]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 4
 tldr: "The second half of agent_era.pdf asks three questions. How should multiple agents collaborate? (MacNet: irregular topologies beat regular ones.) Can agents deceive each other? (Werewolf, murder-mystery games, and MARO, which learns reasoning from social play.) Can agents socialize? (Moltbook and its \"Church of Molt\" — though three studies find the buzz mostly human-driven and the conversations shallow.) Then, using academic research as the case: AI can already replicate and extend a paper end to end, it entered AAAI 2026's review process, and Agents4Science 2025 received 247 AI-authored papers. Hung-yi Lee's conclusion: in the early age of agents, knowing what you want to do matters more than knowing how to do it."
 description: "A guide to the second and third parts of the AI Agent unit in NTU Hung-yi Lee's Machine Learning 2026 Spring, based on pages 34–61 of agent_era.pdf: MacNet collaboration topologies, AI werewolf and the MIRAGE murder-mystery benchmark, MARO, Moltbook and three Moltbook studies, AI's shift from tool to agent, Andrew Hall's Claude Code replication, autoresearch, the ideation-execution gap, AI reviewing at AAAI 2026, and Agents4Science 2025."

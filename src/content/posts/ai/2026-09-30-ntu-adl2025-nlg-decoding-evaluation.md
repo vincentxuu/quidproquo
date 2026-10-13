@@ -1,12 +1,12 @@
 ---
-title: "NLG 的解碼、生成控制與評估｜台大陳縕儂 深度學習之應用 2025 Fall 第 9 堂"
+title: "NLG 的解碼、生成控制與評估｜台大陳縕儂 深度學習之應用 第 9 堂"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, nlp, decoding, llm-evaluation]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 12
 tldr: "ADL Fall 2025 第 9 講回答兩個問題：模型每一步給出一個機率分布，要怎麼從裡面挑字？挑出來的句子又要怎麼評？講義先用 teacher forcing 與 exposure bias 說明訓練和生成的落差，再依序比較 greedy、beam search、sampling、top-k 與 nucleus sampling，把 temperature 與各種 penalty 歸類為「控制」而不是解碼演算法；評估一半講 BLEU、ROUGE、perplexity 與 LLM-Eval，另一半講為什麼要用 RL 直接優化整句的品質。"
 description: "導讀台大陳縕儂 ADL Fall 2025（114-1）10/27 的 NLG Decoding 與 NLG Evaluation 兩份講義與影片 9.1–9.5：conditional LM、teacher forcing、exposure bias、scheduled sampling、greedy／beam／sampling／top-k／nucleus、temperature、repetition／frequency／presence penalty、BLEU、ROUGE、perplexity、LLM-Eval，以及 RL for NLG 與 RLHF。"

@@ -1,5 +1,5 @@
 ---
-title: "Learn AI Through Projects P0–P5 | Berkeley CS188 Spring 2026 Course Overview"
+title: "Learn AI Through Projects P0–P5 | Berkeley CS188 Course Overview"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, artificial-intelligence, pacman, open-course]
@@ -7,7 +7,7 @@ lang: en
 type: guide
 difficulty: 進階
 series:
-  name: "Berkeley CS188 Spring 2026"
+  name: "Reading Berkeley CS188"
   order: 1
 tldr: "CS188 Spring 2026 publishes 28 recordings, 27 lecture slide sets, 11 discussions, and Projects P0–P5. P0 is a Python/autograder tutorial, P1–P4 use Pacman settings, and P5 contains general machine-learning tasks."
 description: "A complete self-study overview of Berkeley CS188 Spring 2026: public resources, prerequisites, Projects P0–P5, study order, and access limits for independent learners."

@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ADL 2025 Fall: Beyond Supervised Learning and Multimodality — Auto-Encoders, VAE, Dual Learning, Contrastive Learning, and CLIP | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Topic Guide"
+title: "Reading NTU ADL 2025 Fall: Beyond Supervised Learning and Multimodality — Auto-Encoders, VAE, Dual Learning, Contrastive Learning, and CLIP | NTU Yun-Nung Chen Applied Deep Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, self-supervised-learning, representation-learning, vae, clip]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 17
 tldr: "Big data is not big annotated data. The last ADL lecture asks how to learn good representations without labels, and answers: find the latent factors that control the data. An auto-encoder squeezes the input into a short code and reconstructs it. The denoising version adds noise or masks 15% of tokens first, which is exactly the idea behind BERT's masked LM. A VAE forces the code to follow a distribution, so you can sample from it to generate. Dual learning lets paired tasks, such as translation and back-translation or understanding and generation, act as feedback for each other. Self-supervised learning has two camps: self-prediction (hide part, guess it back) and contrastive learning (pull similar pairs together, push dissimilar ones apart). CLIP runs contrastive learning on 400 million image-text pairs, making zero-shot image classification possible, and DALL·E 2 uses CLIP's representations to generate images. Fall 2025 has only videos for this lecture, so the Fall 2024 slides fill in."
 description: "Post 17 of the NTU Yun-Nung Chen Applied Deep Learning Fall 2025 series, based on videos 14.1–14.7 and the Fall 2024 deck 241127_BeyondSL.pdf (82 pages): latent factors, auto-encoders and denoising/masked AEs, VAEs and posterior collapse, dual learning (unsupervised and supervised), self-prediction and contrastive learning, SimCSE, CLIP, and DALL·E 2. Video 14.7 Multimodality has no matching pages in the 2024 deck and is listed by name only."

@@ -1,12 +1,12 @@
 ---
-title: "Model Editing, Changing One Fact and Nothing Else | NTU Hung-yi Lee Machine Learning 2026 Spring Assignment 6"
+title: "Model Editing, Changing One Fact and Nothing Else | NTU Hung-yi Lee Machine Learning Assignment 6"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, model-editing, fine-tuning]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 14
 tldr: "HW6 involves no model training and is answered entirely on NTU COOL. Six points come from 16 multiple-choice questions on four papers (ROME, MEND, MEMIT, WISE). Four points come from swapping the Colab's fine-tuning for ROME on GPT2-XL: single editing (pick your own fact, write five kinds of test prompts) and multiple editing (10 and then 80 CounterFact examples, then MEMIT), reporting efficacy, paraphrase, neighborhood, and portability scores. The slides and the 47-cell Colab are public, but the quiz questions and answers live only on COOL."
 description: "A guide to HW6 \"Model Editing\" from NTU Hung-yi Lee's Machine Learning 2026 Spring: how the slides sort IKE, MEND, and ROME/MEMIT into \"no parameter change / humans decide the edit / AI learns to edit,\" the four assigned papers, the Colab experiment's five single-editing prompt types and four multiple-editing scores, the hint about ROME's update, submission rules, and what outside readers can't get."

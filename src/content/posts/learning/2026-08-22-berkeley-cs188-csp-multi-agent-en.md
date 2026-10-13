@@ -1,5 +1,5 @@
 ---
-title: "Choosing Minimax, Alpha-Beta, and Expectimax | Berkeley CS188 Spring 2026 Topic Guide"
+title: "Choosing Minimax, Alpha-Beta, and Expectimax | Berkeley CS188 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, multi-agent, minimax, constraint-satisfaction]
@@ -7,7 +7,7 @@ lang: en
 type: guide
 difficulty: 進階
 series:
-  name: "Berkeley CS188 Spring 2026"
+  name: "Reading Berkeley CS188"
   order: 3
 tldr: "Lectures 5–8 use CSPs to practice variables, constraints, and search order before Project 2 implements minimax, alpha-beta, and expectimax. Their key difference is the assumption made about other agents."
 description: "A self-study guide to CSPs, game trees, and the multi-agent Pacman Project 2 in Berkeley CS188 Spring 2026."

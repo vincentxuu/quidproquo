@@ -1,12 +1,12 @@
 ---
-title: "李宏毅 ML 2026 Self-Correction：模型能改自己的錯嗎？改 decoding、改 workflow、改參數各換到什麼｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "李宏毅 ML 2026 Self-Correction：模型能改自己的錯嗎？改 decoding、改 workflow、改參數各換到什麼｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, self-correction, reasoning, rlvr]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 13
 tldr: "這一講問：沒有人介入時，模型能不能自己發現錯誤並改正？李老師把做法分成三條路。改 inference：contrastive decoding 一家族都在「製造一個會答錯的版本，再把它減掉」，差別只在錯誤版本怎麼來。改 workflow：插一句「再檢查一下」有時有用但不穩定，外部回饋比自我反思可靠，而且在算力有限時，拿同樣算力多抽幾個答案投票往往更划算。改參數：直接教自我修正會遇到「訓練後犯的錯不一樣了」，所以業界改用 RL；RL 到底是教會新能力還是只把本來就有的路徑變常見，目前仍在爭論。"
 description: "台大李宏毅《機器學習 2026 Spring》4/24 Self-Correction 講次導讀：Contrastive Decoding、DoLa、LayerCD、ICD、CAD、影像與音訊版本、MTI；自我修正 benchmark、RefineBench、confidence level 與 critique score、反思指令的用詞、verification 在固定算力下划不划算；ReVISE、直接教自我修正的極限、RLVR、為什麼 reasoning 要先錯再對、RL 到底學到了什麼。"

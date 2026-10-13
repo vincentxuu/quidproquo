@@ -487,7 +487,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     slug: 'mit-6-7960-fall-2024-ocw',
     category: 'courses',
-    names: { 'zh-TW': 'MIT 6.7960 導讀 (Fall 2024 OCW)', en: 'MIT 6.7960 導讀 (Fall 2024 OCW)' },
+    names: { 'zh-TW': 'MIT 6.7960 導讀', en: 'Reading MIT 6.7960' },
     descriptions: {
       'zh-TW': '逐講讀 MIT 6.7960（Fall 2024 OCW）：深度學習的優化、正則化、CNN、Transformer、生成模型與表示學習。',
       en: 'A lecture-by-lecture reading of MIT 6.7960 (Fall 2024 OCW): optimization, regularization, CNNs, Transformers, generative models, and representation learning in deep learning.',
@@ -496,7 +496,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     slug: 'berkeley-cs188-spring-2026',
     category: 'courses',
-    names: { 'zh-TW': 'Berkeley CS188 Spring 2026', en: 'Berkeley CS188 Spring 2026' },
+    names: { 'zh-TW': 'Berkeley CS188 導讀', en: 'Reading Berkeley CS188' },
     descriptions: {
       'zh-TW': '以 P0–P5 六個 projects 為主線，讀 Berkeley CS188 Spring 2026 的搜尋、決策、機率推論、強化學習與機器學習。',
       en: 'Reading Berkeley CS188 Spring 2026 through Projects P0–P5, from search and decision making to probabilistic inference, reinforcement learning, and machine learning.',
@@ -505,7 +505,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     slug: 'berkeley-cs288-spring-2026',
     category: 'courses',
-    names: { 'zh-TW': 'Berkeley CS288 Spring 2026', en: 'Berkeley CS288 Spring 2026' },
+    names: { 'zh-TW': 'Berkeley CS288 導讀', en: 'Reading Berkeley CS288' },
     descriptions: {
       'zh-TW': '依 18 組公開教材與三份作業，讀 Berkeley CS288 Spring 2026 從 n-gram 到 RAG、reasoning 與 agents 的進階 NLP 路線。',
       en: 'Reading Berkeley CS288 Spring 2026 from n-grams through RAG, reasoning, and agents using its 18 public slide units and three assignments.',
@@ -514,7 +514,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     slug: 'berkeley-cs285-spring-2026',
     category: 'courses',
-    names: { 'zh-TW': 'Berkeley CS285 Spring 2026 導讀', en: 'Reading Berkeley CS285 Spring 2026' },
+    names: { 'zh-TW': 'Berkeley CS285 導讀', en: 'Reading Berkeley CS285' },
     descriptions: {
       'zh-TW': '依 25 講投影片、九組討論與五份作業，讀 Berkeley CS285 Spring 2026 的深度強化學習路線與算力邊界。',
       en: 'Reading Berkeley CS285 Spring 2026 in deep reinforcement learning through 25 lectures, nine discussions, five assignments, and their compute constraints.',
@@ -725,7 +725,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     slug: 'ntu-ml-2026-spring',
     category: 'courses',
-    names: { 'zh-TW': '台大李宏毅 機器學習 2026 Spring 導讀', en: 'Reading NTU Hung-yi Lee Machine Learning 2026 Spring' },
+    names: { 'zh-TW': '台大李宏毅 機器學習 導讀', en: 'Reading NTU Hung-yi Lee Machine Learning' },
     descriptions: {
       'zh-TW': '依官方 8 講投影片與錄影、10 份作業與 Colab，讀台大李宏毅機器學習 2026 Spring：從解剖 OpenClaw、Context Engineering，到 Flash Attention、KV Cache、位置編碼、Harness Engineering、自我修正與 AI 自我成長。',
       en: 'Reading NTU Hung-yi Lee\'s Machine Learning 2026 Spring through its 8 lecture decks and recordings plus 10 homework Colabs: an OpenClaw teardown, context engineering, Flash Attention, KV cache, positional embedding, harness engineering, self-correction, and self-improving AI.',
@@ -761,7 +761,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     slug: 'ntu-adl-2025-fall',
     category: 'courses',
-    names: { 'zh-TW': '台大陳縕儂 深度學習之應用 2025 Fall 導讀', en: 'Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall' },
+    names: { 'zh-TW': '台大陳縕儂 深度學習之應用 導讀', en: 'Reading NTU Yun-Nung Chen Applied Deep Learning' },
     descriptions: {
       'zh-TW': '依官方 17 份講義、77 支錄影、助教課與 HW1 規格，讀台大陳縕儂深度學習之應用（ADL）Fall 2025：從神經網路、RNN、Transformer、BERT，到預訓練、RLHF、LoRA、RAG、生成解碼、安全對齊、Language Agents 與 Reasoning。',
       en: 'Reading NTU Yun-Nung (Vivian) Chen\'s Applied Deep Learning (ADL) Fall 2025 through its 17 lecture decks, 77-video playlist, TA recitations and the HW1 spec: neural nets, RNNs, Transformers, BERT, pretraining, RLHF, LoRA, RAG, decoding, safety and alignment, language agents, and reasoning.',

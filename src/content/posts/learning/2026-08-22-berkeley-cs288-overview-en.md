@@ -1,5 +1,5 @@
 ---
-title: "Language Models and NLP: From Foundational Representations to Retrieval and Agents | Berkeley CS288 Spring 2026 Course Overview"
+title: "Language Models and NLP: From Foundational Representations to Retrieval and Agents | Berkeley CS288 Course Overview"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, nlp, llm, self-study, open-course]
@@ -10,7 +10,7 @@ tldr: "CS288 moves from n-grams to RAG, reasoning, and agents through 18 public 
 description: "A guide to Berkeley CS288 Spring 2026: prerequisites, 18 slide units, three assignments, the research project, compute needs, and off-campus access limits."
 draft: false
 series:
-  name: "Berkeley CS288 Spring 2026"
+  name: "Reading Berkeley CS288"
   order: 0
 ---
 

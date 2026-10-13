@@ -16,7 +16,7 @@ description: "MIT 6.7960 Fall 2024 OCW Lecture 14 (Phillip Isola): the generativ
 tldr: "Generative models learn the data distribution p(x). Density models model probability directly, energy models use an unnormalized potential + sampler, GANs let a discriminator force realistic samples, autoregressive predicts the next token step by step, and diffusion dodges tricky maximum-likelihood via 'add noise then learn to denoise'."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 16
 additionalSeries:
   - name: "Global AI/CS Course Map"

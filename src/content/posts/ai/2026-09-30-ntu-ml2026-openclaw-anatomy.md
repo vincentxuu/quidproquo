@@ -1,12 +1,12 @@
 ---
-title: "解剖小龍蝦：李宏毅用 OpenClaw 拆 AI Agent，拆到最後只剩文字接龍和幾個 .md 檔｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "解剖小龍蝦：李宏毅用 OpenClaw 拆 AI Agent，拆到最後只剩文字接龍和幾個 .md 檔｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, ai-agent, openclaw, agent-memory, agent-skills]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 1
 tldr: "李宏毅 ML 2026 第一講把 OpenClaw 拆成五個問題：agent 怎麼知道自己是誰、怎麼用工具與 SKILL、怎麼記憶、怎麼定時工作、怎麼長時間自主運作。答案都回到同一件事：語言模型只會文字接龍，每一輪都重新開始，身分、記憶、SOP 全是 OpenClaw 塞進 prompt 的文字檔，或模型透過工具讀寫的檔案。本篇照 intro.pdf 60 頁與課堂錄影走一遍，也整理投影片裡的防禦建議。"
 description: "台大李宏毅《機器學習 2026 Spring》第一講「解剖小龍蝦」導讀：system prompt 裡的 SOUL.md、IDENTITY.md、USER.md、MEMORY.md，多輪對話每次重新開始，Read／Write／exec 工具與兩層防禦，agent 自己寫工具，sessions_spawn sub-agent，SKILL.md 按需讀取、ClawHub 與惡意 skill，Memory Recall、HEARTBEAT 與 Context Compression／Pruning。"

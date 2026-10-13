@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 10 講（Sara Beery）：為什麼序
 tldr: "RNN 沿時間傳遞隱狀態，梯度連乘可能衰減或放大；LSTM 以門控制 cell state 的保留與更新，改善長程訊號傳遞但不保證穩定。Self-attention 縮短位置間的資訊路徑，單層 dense attention 的總計算仍隨序列長度平方成長。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 12
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

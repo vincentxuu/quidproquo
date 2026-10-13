@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ADL 2025 Fall: BERT and Its Family — From the Polysemy Problem to XLNet, RoBERTa, and mBERT | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Topic Guide"
+title: "Reading NTU ADL 2025 Fall: BERT and Its Family — From the Polysemy Problem to XLNet, RoBERTa, and mBERT | NTU Yun-Nung Chen Applied Deep Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, bert, pretraining, nlp]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 6
 tldr: "A static word vector gives \"apple\" one embedding, whether it means the fruit or the company. The BERT lecture in ADL Fall 2025 starts from that polysemy problem. TagLM feeds language-model features into a tagger, ELMo builds contextual embeddings from a deep bidirectional LSTM, and BERT swaps the LSTM for a Transformer, pre-trained with Masked LM and Next Sentence Prediction; downstream, you add a classifier or tagger on the top layer and fine-tune. The optional BERT Variants slides go one ring further out: Transformer-XL for longer context, XLNet's permutation LM to get both AR and AE benefits, RoBERTa's better data and training recipe, SpanBERT's span masking, and mBERT and XLM for many languages. This is the direct prerequisite for HW1, which uses bert-base-chinese for extractive QA."
 description: "Guide 6 in the NTU Yun-Nung Chen Applied Deep Learning Fall 2025 series, based on 250908_BERT.pdf (22 pages), the BERT Variants slides (f113 path, 32 pages), and videos 5.2–5.6: polysemy, TagLM, ELMo, BERT's MLM, NSP, input representation, and fine-tuning, ERNIE, Transformer-XL, XLNet, RoBERTa, SpanBERT, Multilingual BERT, and XLM."

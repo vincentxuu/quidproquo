@@ -1,5 +1,5 @@
 ---
-title: "Pre-training, Post-training, Generation, and Evaluation | Berkeley CS288 Spring 2026 Topic Guide"
+title: "Pre-training, Post-training, Generation, and Evaluation | Berkeley CS288 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, llm, post-training, evaluation, prompting]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "Units 08–12 turn a base model into an interactive system: pre-training establishes capability, post-training shapes behavior, and generation plus evaluation determine how outputs are used."
 description: "A guide to CS288 pre-training, fine-tuning, prompting, post-training, generation, evaluation, and benchmarking."
 draft: false
-series: { name: "Berkeley CS288 Spring 2026", order: 3 }
+series: { name: "Reading Berkeley CS288", order: 3 }
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs288-post-training)

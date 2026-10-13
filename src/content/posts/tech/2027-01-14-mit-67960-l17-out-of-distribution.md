@@ -17,7 +17,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 17 講：模型在訓練與測試分�
 tldr: "OOD 失敗不是 bug，是 i.i.d. 假設破掉：covariate shift（影像風格變了）、label shift（類別比例變了）、concept shift（同一個詞意思變了）各有對應的應對方式；最常見的原因是模型抓了『虛假相關』（用草原當牛的存在訊號），IRM 與 domain randomization 想從訓練資料結構本身把這件事修掉，test-time adaptation 在推論時即時修正。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 20
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

@@ -1,12 +1,12 @@
 ---
-title: "神經網路與反向傳播｜台大陳縕儂 深度學習之應用 2025 Fall 第 2 堂"
+title: "神經網路與反向傳播｜台大陳縕儂 深度學習之應用 第 2 堂"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, deep-learning, neural-networks, backpropagation]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 2
 tldr: "ADL Fall 2025 的 NN Basics 與 Backpropagation 兩份講義，把「訓練一個模型」拆成三個問題：模型是什麼（一層層的神經元，每層是 z = Wa + b 再過非線性）、什麼叫好的函數（loss 越小越好）、怎麼挑出最好的（gradient descent，實務上用 mini-batch SGD）。上百萬個參數的梯度靠 backpropagation 有效率地算：forward pass 存下每層輸出，backward pass 從輸出層往回傳誤差訊號 δ，兩者相乘就是每個權重的梯度。"
 description: "導讀台大陳縕儂 ADL Fall 2025 的 NN Basics（93 頁）與 Backpropagation（33 頁）講義及影片 2.1–2.5：訓練的三個問題、單一神經元與 bias、perceptron 與 XOR、多層感知器、activation 為什麼要非線性、loss function、gradient descent、SGD 與 mini-batch、訓練技巧、learning recipe，以及用 chain rule 推出的反向傳播。"

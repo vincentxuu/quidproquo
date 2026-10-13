@@ -1,12 +1,12 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：BERT 與它的家族——從多義詞問題到 XLNet、RoBERTa、mBERT｜台大陳縕儂 深度學習之應用 2025 Fall 主題單元"
+title: "台大陳縕儂 ADL 2025 Fall 導讀：BERT 與它的家族——從多義詞問題到 XLNet、RoBERTa、mBERT｜台大陳縕儂 深度學習之應用 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, bert, pretraining, nlp]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 6
 tldr: "靜態詞向量給 apple 只有一個向量，不管它是水果還是公司。ADL Fall 2025 的 BERT 講從這個多義詞問題出發：TagLM 先用語言模型補上下文，ELMo 用深層雙向 LSTM 產生 contextual embedding，BERT 把 LSTM 換成 Transformer，並用 Masked LM 與 Next Sentence Prediction 兩個目標預訓練，下游只要在最上層加分類器或標註器微調。彈性補充的 BERT Variants 講義再往外走一圈：Transformer-XL 拉長 context、XLNet 用 permutation LM 兼顧 AR 與 AE、RoBERTa 靠更多資料與更好的訓練設定、SpanBERT 改成遮整段 span、mBERT 與 XLM 處理多語。這篇是下一篇 HW1 用 bert-base-chinese 做抽取式 QA 的直接前置。"
 description: "台大陳縕儂《深度學習之應用》Fall 2025 第 6 篇導讀，依 250908_BERT.pdf（22 頁）與 BERT Variants 講義（f113 路徑，32 頁）、影片 5.2–5.6：多義詞問題、TagLM、ELMo、BERT 的 MLM／NSP／輸入表示／微調、ERNIE，以及 Transformer-XL、XLNet、RoBERTa、SpanBERT、Multilingual BERT、XLM。"

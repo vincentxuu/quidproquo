@@ -1,5 +1,5 @@
 ---
-title: "從 DFS、BFS 到 A* 的 Pacman 實作｜Berkeley CS188 Spring 2026 主題單元"
+title: "從 DFS、BFS 到 A* 的 Pacman 實作｜Berkeley CS188 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, search, heuristic, pacman]
@@ -7,7 +7,7 @@ lang: zh-TW
 type: guide
 difficulty: 進階
 series:
-  name: "Berkeley CS188 Spring 2026"
+  name: "Berkeley CS188 導讀"
   order: 2
 tldr: "Lecture 1–4 與 Project 1 把 DFS、BFS、UCS、A*、state representation 和 heuristic 串成同一套搜尋工具；關鍵不是背演算法，而是看清楚 frontier、cost 與 state 各自改變什麼。"
 description: "以 Berkeley CS188 Spring 2026 Project 1 為主線，整理搜尋演算法、狀態表示、heuristic 設計與本機 autograder 的自學順序。"

@@ -1,12 +1,12 @@
 ---
-title: "Attention 與 Transformer｜台大陳縕儂 深度學習之應用 2025 Fall 第 4 堂"
+title: "Attention 與 Transformer｜台大陳縕儂 深度學習之應用 第 4 堂"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, nlp, attention, transformer]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 4
 tldr: "RNN 做翻譯時，要把整句壓進一個向量，句子一長就記不住。Attention 讓解碼器每產生一個字，都回頭對輸入的每個位置打分數、取加權和；把打分數的一方叫 query、被比對的叫 key、被加權的叫 value，就是 dot-product attention。Transformer 再往前一步：讓輸入自己對自己做 attention，完全拿掉 recurrence，換來平行化與固定的路徑長度，代價是要另外補上位置資訊。"
 description: "台大陳縕儂《深度學習之應用》ADL Fall 2025 Attention Mechanism 與 Transformer 兩份講義導讀：seq2seq 翻譯中的 attention、query／key／value、dot-product attention 的矩陣形式、語音辨識與 image captioning 等應用、memory network 的多次 hop；self-attention 的 Q/K/V 計算、multi-head 的 who／did what／to whom 例子、scaled dot-product、encoder／decoder block、masked self-attention、positional encoding 的四個條件與 sinusoidal 解法、訓練技巧。"

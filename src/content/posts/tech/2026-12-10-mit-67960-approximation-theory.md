@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 3 講（Jeremy Bernstein）：一個�
 tldr: "單層網路理論上能逼近任何連續函數（萬能近似），但寬度會隨維度指數爆炸；Barron 定理在特定的『Barron 函數類』下讓誤差只隨樣本數 √n 收斂、與維度脫鉤；而深度能對組合/階層函數帶來指數級的寬度節省——這正是深網比淺網強的根本原因。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 3
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

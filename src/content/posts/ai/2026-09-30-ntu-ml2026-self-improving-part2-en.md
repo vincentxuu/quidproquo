@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ML 2026: Can AI Improve Itself? (Part 2) — Improving the Harness, Improving the Improver, and Whether Growth Can Run Away | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "Reading NTU ML 2026: Can AI Improve Itself? (Part 2) — Improving the Harness, Improving the Improver, and Whether Growth Can Run Away | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, self-improvement, harness-engineering, prompt-optimization, dspy, ai-alignment]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 18
 tldr: "Part 1 was about an AI setting its own loss and updating its own parameters. Part 2 fills in the other half: AI Agent = Harness + LLM, and the harness can grow too. You can't take a gradient through a harness, so the usual move is to hand it to a language model as a rewriter and keep a pool of candidates, much like a genetic algorithm (OPRO, GEPA, Darwin Gödel Machine; DSPy if you want a ready-made tool). Three extensions follow: updating harness and parameters together beats updating either alone; when the goal changes you have to choose between discarding everything and carrying everything, and editing a harness can cause forgetting too; and the update rule itself can be updated (HyperAgent, Gödel Agent, SEAL), which is meta learning. Hung-yi Lee closes with a new analogy — parameters are genes, context is the neurons — then argues that today's agents lack intrinsic motivation, and that the likeliest source of runaway growth is a gap between the goal humans meant and the goal the AI inferred."
 description: "A guide to the 5/22 lecture \"Model self-improvement, part 2\" of NTU Hung-yi Lee's Machine Learning 2026 Spring, based on self-evolving-agent.pdf and the lecture video: Agent = Harness + LLM, using an LLM to update the harness, pool-based evolution in OPRO and GEPA, Darwin Gödel Machine, DSPy, joint harness and parameter updates, goal shift in Test-Time Training, forgetting caused by harness edits, HyperAgent, Gödel Agent, Learning to Self-Evolve, PostTrainBench, autoresearch, AlphaEvolve, SEAL, meta learning, TTT layers and Titans, intrinsic motivation, and misalignment explained through the peacock's tail and I, Robot."

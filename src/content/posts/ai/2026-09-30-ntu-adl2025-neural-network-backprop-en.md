@@ -1,12 +1,12 @@
 ---
-title: "Neural Networks and Backpropagation | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 2"
+title: "Neural Networks and Backpropagation | NTU Yun-Nung Chen Applied Deep Learning Lecture 2"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, deep-learning, neural-networks, backpropagation]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 2
 tldr: "ADL Fall 2025's NN Basics and Backpropagation decks break model training into three questions. What is the model? Layers of neurons, each computing z = Wa + b and then a nonlinearity. What makes a function good? A smaller loss. How do we pick the best one? Gradient descent, in practice mini-batch SGD. Backpropagation computes gradients for millions of parameters efficiently: the forward pass stores each layer's output, the backward pass sends an error signal δ back from the output layer, and multiplying the two gives each weight's gradient."
 description: "A guide to the NN Basics (93 pages) and Backpropagation (33 pages) decks and videos 2.1–2.5 of NTU Yun-Nung Chen's ADL Fall 2025: the three training questions, single neurons and bias, the perceptron and XOR, multi-layer perceptrons, why activations must be nonlinear, loss functions, gradient descent, SGD and mini-batches, training tips, the learning recipe, and backpropagation derived from the chain rule."

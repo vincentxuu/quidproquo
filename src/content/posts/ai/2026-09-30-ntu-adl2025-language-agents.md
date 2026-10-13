@@ -1,12 +1,12 @@
 ---
-title: "Language Agents 的推理、記憶、規劃與多代理｜台大陳縕儂 深度學習之應用 2025 Fall 第 11 堂"
+title: "Language Agents 的推理、記憶、規劃與多代理｜台大陳縕儂 深度學習之應用 第 11 堂"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, ai-agent, multi-agent, agent-memory]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 14
 tldr: "ADL Fall 2025 第 11 講以 EMNLP 2024 的 Language Agents tutorial 為底，把 agent 定義成「感知環境並採取行動的實體」，再指出 language agent 的新東西：推理本身也是一種內部行動。講義用推理、記憶、規劃三個概念組織整講，推理這段講 CoT 與 ReAct，記憶這段講 Generative Agents 的 recency／importance／relevance 檢索，規劃這段從貪婪的反應式規劃講到 tree search 與 world model，最後用初始化、協作、團隊優化三步驟講多代理系統。"
 description: "導讀台大陳縕儂 ADL Fall 2025（114-1）11/10 的 Language Agents 講義與影片 11.1–11.5：agent 的一般定義與 language agent 的差別、logical／neural／language agent 的演進、CoT 與 ReAct、推理擴大行動空間、短期與長期記憶、Generative Agents、社會模擬、規劃範式與 world model（Deep Dyna-Q、D3Q、LLM 當使用者模擬器）、多代理系統的初始化、協作與團隊優化。"

@@ -1,12 +1,12 @@
 ---
-title: "NTU Hung-yi Lee ML 2026 Guide: Faster Generation, Part 1: Flash Attention and Why Moving Data Is the Bottleneck | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "NTU Hung-yi Lee ML 2026 Guide: Faster Generation, Part 1: Flash Attention and Why Moving Data Is the Bottleneck | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, llm-inference, flashattention, attention, gpu]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 6
 tldr: "In week 3 of ML 2026, Hung-yi Lee spends the first half of the inference lecture on one technique: Flash Attention. A GPU's execution units are fast, but their workbench (on-chip SRAM) is tiny, so data has to be carried to and from the warehouse (HBM). The carrying is the bottleneck. A naive softmax makes several round trips to the warehouse. Flash Attention assumes the current maximum is Amax, then multiplies by a correction factor when a larger value shows up. That lets it find the maximum, build the denominator, and compute the weighted sum in one pass, without ever materializing the attention weights. The output is identical to standard attention, no retraining is needed, and the cost is a little extra compute and a little brain strain."
 description: "A guide to the first half of the 3/20 inference lecture in NTU Hung-yi Lee's Machine Learning 2026 Spring, based on inference.pdf pages 1–28 and the video 'Speeding up LM generation (1/2): Flash Attention': prefill vs decode, the three costs to check for any speed-up, the HBM warehouse vs SRAM workbench analogy, read counts for chunked softmax, the online-softmax correction, skipping the attention weights entirely, and results from the demo Colab."

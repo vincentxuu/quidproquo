@@ -1,5 +1,5 @@
 ---
-title: "Deep Reinforcement Learning: From Decision Concepts to Policy Learning and Experiments | Berkeley CS285 Spring 2026 Course Overview"
+title: "Deep Reinforcement Learning: From Decision Concepts to Policy Learning and Experiments | Berkeley CS285 Course Overview"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, deep-reinforcement-learning, self-study, ai-course]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "Spring 2026 CS185/285 publishes slides for 25 lectures, nine discussion units, five assignments, and starter code; lecture recordings are public on the RAIL YouTube channel, but Ed, Gradescope, and office hours remain enrolled-only, while HW4 defaults to an H100, so this is not a zero-cost open course."
 description: "A map of Berkeley CS185/285 Spring 2026: public materials, a six-part reading route, prerequisites, recording sources, and assignment compute costs."
 series:
-  name: "Reading Berkeley CS285 Spring 2026"
+  name: "Reading Berkeley CS285"
   order: 1
 ---
 

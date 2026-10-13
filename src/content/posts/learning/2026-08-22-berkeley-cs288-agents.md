@@ -1,5 +1,5 @@
 ---
-title: "Inference-time Compute、Reasoning 與 Embodied Agents｜Berkeley CS288 Spring 2026 主題單元"
+title: "Inference-time Compute、Reasoning 與 Embodied Agents｜Berkeley CS288 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, ai-agent, reasoning, multimodal-ai, llm]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "15–18 組教材把 NLP 模型放進感知、推理、工具與環境迴圈；核心問題從下一個 token，轉成如何分配推論計算並驗證多步行動。"
 description: "導讀 CS288 的 Embodied Perception、Inference-time Compute、Agent Reasoning 與 Embodied Agents，並說明公開教材邊界。"
 draft: false
-series: { name: "Berkeley CS288 Spring 2026", order: 5 }
+series: { name: "Berkeley CS288 導讀", order: 5 }
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs288-agents-en)

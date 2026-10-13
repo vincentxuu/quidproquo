@@ -18,7 +18,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 16 講（Phillip Isola）：怎麼讓
 tldr: "條件生成的關鍵是「把 y 餵進模型」：cGAN 在 G/D 拼接 y，cVAE 把 y 當額外輸入進 encoder/decoder；擴散模型時代，Classifier Guidance 用外部分類器梯度把生成推向指定類別，Classifier-Free Guidance 則同訓練 conditional + unconditional 並在推論時線性組合兩者——後者是 Stable Diffusion / Imagen 的標準武器。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 19
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

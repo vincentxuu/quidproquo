@@ -1,5 +1,5 @@
 ---
-title: "Inference When Ghosts Are Invisible | Berkeley CS188 Spring 2026 Topic Guide"
+title: "Inference When Ghosts Are Invisible | Berkeley CS188 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, bayesian-network, probabilistic-inference, particle-filter]
@@ -7,7 +7,7 @@ lang: en
 type: guide
 difficulty: 進階
 series:
-  name: "Berkeley CS188 Spring 2026"
+  name: "Reading Berkeley CS188"
   order: 5
 tldr: "Lectures 13–18 and Project 4 move from factor operations and variable elimination to exact inference and particle filtering, letting Pacman track invisible ghosts through noisy distance sensors."
 description: "A guide to Bayes nets, HMMs, exact inference, particle filtering, and the Ghostbusters project in Berkeley CS188 Spring 2026."

@@ -18,7 +18,7 @@ description: "MIT 6.7960 Fall 2024 OCW, Lecture 16 (Phillip Isola): how do we ma
 tldr: "The key to conditional generation is 'feed y into the model': cGAN concatenates y into G/D; cVAE passes y to both encoder and decoder; in diffusion, Classifier Guidance uses gradients from an external classifier to push samples toward a class, while Classifier-Free Guidance trains conditional + unconditional together and linearly combines them at inference — the latter is the standard weapon behind Stable Diffusion and Imagen."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 19
 additionalSeries:
   - name: "Global AI/CS Course Map"

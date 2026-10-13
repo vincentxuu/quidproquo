@@ -1,12 +1,12 @@
 ---
-title: "What Machine Learning and Deep Learning Are | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 1"
+title: "What Machine Learning and Deep Learning Are | NTU Yun-Nung Chen Applied Deep Learning Lecture 1"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, deep-learning, machine-learning, nlp]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 1
 tldr: "The first self-study deck of ADL Fall 2025 describes machine learning as finding a function from data, and deep learning as a production line of simple functions where the machine learns what every station does. It uses speech and vision to contrast deep and shallow models, credits big data and GPUs for the post-2010 breakthroughs, and uses the universality theorem to ask why networks should be deep rather than fat. The most practical part comes last: the output domain decides the learning task, and the architecture should fit the properties of the input domain."
 description: "A guide to the Introduction deck and videos 1.1–1.3 of NTU Yun-Nung Chen's ADL Fall 2025: learning as finding a function, the machine learning framework, deep learning as a production line, deep vs. shallow, big data and GPUs, the universality theorem, fat+shallow vs. thin+deep, and how to frame an NLP task as classification or sequence prediction."

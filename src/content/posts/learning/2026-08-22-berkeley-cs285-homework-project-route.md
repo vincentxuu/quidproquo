@@ -1,5 +1,5 @@
 ---
-title: "CPU、GPU、H100 成本分界｜Berkeley CS285 Spring 2026 主題單元"
+title: "CPU、GPU、H100 成本分界｜Berkeley CS285 主題單元"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, deep-reinforcement-learning, gpu, self-study]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "五份作業從 CPU 友善的 imitation learning 走到 H100 LLM RL 與六小時 offline RL runs；自學者應按成本分三階段，而非整套照搬。"
 description: "逐項整理 Berkeley CS285 Spring 2026 五份作業、starter code、GPU 成本、缺少資產與兩條期末專案路線。"
 series:
-  name: "Berkeley CS285 Spring 2026 導讀"
+  name: "Berkeley CS285 導讀"
   order: 6
 ---
 

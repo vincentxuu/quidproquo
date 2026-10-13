@@ -1,12 +1,12 @@
 ---
-title: "不再訓練，把日文模型和數學模型合成一個會解日文數學題的模型｜台大李宏毅 機器學習 2026 Spring 作業 7"
+title: "不再訓練，把日文模型和數學模型合成一個會解日文數學題的模型｜台大李宏毅 機器學習 作業 7"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ntu, ai-course, course-guide, model-merging, llm, fine-tuning]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 16
 tldr: "HW7 給你兩個從 Mistral-7B-v0.1 微調出來的模型：擅長日文的 shisa-gamma-7b-v1 與擅長數學的 WizardMath-7B-V1.1，要你只做參數層級的合併（不准再訓練、不准 MoE 或 ensemble），讓合併後的模型答對助教自出的 20 題日文數學題。Part 1（60%）用 mergekit 調方法、weights 與 density，simple／strong baseline 是正確率 50% 與 75%；Part 2（40%）是 8 題論文選擇題。題目、Colab 與 Kaggle 都公開，但 JudgeBoi 在 2026-09-30 回傳 502、論文題在 NTU COOL 上，校外只能在 notebook 裡自己看正確率。"
 description: "台大李宏毅《機器學習 2026 Spring》HW7「Model Merging」導讀，依 hw7.pdf、作業 Colab 與課程頁：兩個 7B 來源模型、20 題需要日本文化知識的日文數學題與答案擷取規則、task vector 觀念、mergekit 的 weights／density、linear／slerp／magnitude prune／DARE／TIES／SCE 逐一比較、Colab 預設設定與禁止事項、評分與繳交，以及校外讀者怎麼自己驗收。"

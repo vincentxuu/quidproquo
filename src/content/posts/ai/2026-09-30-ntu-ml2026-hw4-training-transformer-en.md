@@ -1,12 +1,12 @@
 ---
-title: "Drawing Pokémon with Next-Token Prediction on a Decoder-Only Transformer | NTU Hung-yi Lee Machine Learning 2026 Spring Assignment 4"
+title: "Drawing Pokémon with Next-Token Prediction on a Decoder-Only Transformer | NTU Hung-yi Lee Machine Learning Assignment 4"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, course-guide, homework, transformer, image-generation, pytorch]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 10
 tldr: "HW4 moves next-token prediction from text to images unchanged: 792 Pokémon sprites at 20×20, each pixel one of 167 color tokens, so one image is a 400-token sequence. Training is next-token prediction; at test time you get the first 60% of an image and the model draws the rest. Grading checks FID and a Pokémon Detection Rate (PDR) together, and the three baseline hints go from \"run the sample code\" to \"tune hyperparameters\" to \"switch to Llama or Mistral\". The spec, Colab, Kaggle notebook and dataset are public, but JudgeBoi returned 502 on 2026-09-30, so outside readers cannot get official FID or PDR scores."
 description: "A guide to HW4 \"Training Transformers\" of NTU Machine Learning 2026 Spring (Hung-yi Lee): task design, 792 Pokémon images and a 167-color colormap, the 632/80/80 split, completing an image from its first 60%, the FID and PDR metrics, simple/medium/strong baseline hints and hyperparameter ranges, the Colab's GPT-2 config and checkpoint strategy, submission rules, and how to self-check without the grader."

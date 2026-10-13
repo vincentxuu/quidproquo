@@ -1,12 +1,12 @@
 ---
-title: "偏見、安全、幻覺與對齊，加上期末專題 Jailbreaking Olympics｜台大陳縕儂 深度學習之應用 2025 Fall 第 10 堂"
+title: "偏見、安全、幻覺與對齊，加上期末專題 Jailbreaking Olympics｜台大陳縕儂 深度學習之應用 第 10 堂"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, ai-safety, hallucination, alignment]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 13
 tldr: "ADL Fall 2025 第 10 講把預訓練模型的問題分成四組，每組配一個目標：bias 對 fairness、toxicity 對 safety、hallucination 對 factuality，最後是 alignment。講義的主張是偏見可能從 ML 管線任何一個環節進來，安全防護要在資料、輸入、訓練、輸出四層都做，幻覺可以拆成原子事實逐條查，而 reward model 被過度優化時，會出現囉嗦、過度道歉、過度拒答這些熟悉的症狀。同一週公布的期末專題叫 Jailbreaking Olympics，但公開的只有兩支說明影片的標題與一行說明。"
 description: "導讀台大陳縕儂 ADL Fall 2025（114-1）11/03 的 Issues and Development in PLMs 講義與影片 10.1–10.3：bias 的定義與來源、系統層的緩解、StereoSet、toxicity 與四層 safeguard、jailbreaking（AutoDAN、GCG）、長文事實性評估與 FactAlign、reward model 與 DogeRM、over-optimization、對齊的非預期影響；以及期末專題 Jailbreaking Olympics 公開到哪裡。"

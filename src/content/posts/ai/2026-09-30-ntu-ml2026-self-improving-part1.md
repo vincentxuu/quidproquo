@@ -1,12 +1,12 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：AI 自我成長（上）——由 AI 產生答案、reward 與 loss，人類能放手到哪一步｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "台大李宏毅 ML 2026 導讀：AI 自我成長（上）——由 AI 產生答案、reward 與 loss，人類能放手到哪一步｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ntu, ai-course, course-guide, self-improvement, reinforcement-learning, test-time-compute]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 15
 tldr: "李宏毅 5/8 這堂先說清楚：「AI 自我成長」沒有明確定義，它是人類漸漸放手的過程。他把機器學習拆成三步，逐一檢查「我」能不能換成 AI：答案可以由 AI 自我修正後當標準答案，reward shaping 可以交給 LLM 寫，loss 可以讓模型自己訂（打分、多數決、entropy），連題目都能讓 proposer 自己出。但實驗一再顯示，完全不靠人會卡在天花板甚至把自己訓練壞；強 AI 訓練比自己弱的 AI 已經做得到，只是還沒超過人類。結論：2026 年 5 月，AI「還在盧比孔河邊」。"
 description: "台大李宏毅《機器學習 2026 Spring》5/8「模型的自我成長 (1)」導讀，依 Self-Improving.pdf 與影片 s06mSAGN4gM：I. J. Good 的「人類最後的發明」、機器學習三步驟、由 AI 產生答案、sparse reward 與 LLM 做 reward shaping、讓 AI 自己訂 loss（verbalized／ensemble／certainty）、TENT 與 Unsupervised RLVR、Test-Time Training、entropy minimization 少算的一項（推導放折疊）、Absolute Zero／R-Zero、PostTrainBench 與 weak-to-strong。"

@@ -1,12 +1,12 @@
 ---
-title: "後訓練——Instruction Tuning、RLHF 與 InstructGPT｜台大陳縕儂 深度學習之應用 2025 Fall 第 7 堂"
+title: "後訓練——Instruction Tuning、RLHF 與 InstructGPT｜台大陳縕儂 深度學習之應用 第 7 堂"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, nlp, llm, post-training, instruction-tuning, rlhf, dpo]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 9
 tldr: "預訓練讓模型會接話，不代表它會照指令做事。ADL Fall 2025 的 Post-Training 講義分兩步補上：先用 instruction tuning（FLAN、T0）教模型讀懂任務描述，再用 RLHF 讓它朝人類偏好靠攏。講義用 instruction tuning 的三個限制把兩步接起來，用 reward model 與成對比較解決 RL 的兩個實務問題，最後以 InstructGPT 的 SFT → reward model → PPO 三步驟當總結，並說明 ChatGPT 把同一套流程搬到多輪對話。"
 description: "導讀台大陳縕儂 ADL Fall 2025（114-1）Post-Training 講義與影片 7.1–7.4：專才與通才、FLAN 與 T0、Super-NaturalInstructions、instruction tuning 的三個限制、policy gradient 速覽、reward model 與成對比較、Stiennon 2020 的 RLHF、DPO 與 KTO、InstructGPT 三步驟與 PPO-ptx、ChatGPT 的多輪版本。"

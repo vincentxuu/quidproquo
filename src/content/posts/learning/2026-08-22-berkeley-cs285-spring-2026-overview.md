@@ -1,5 +1,5 @@
 ---
-title: "深度強化學習：從決策概念到策略學習與實驗｜Berkeley CS285 Spring 2026 課程總覽"
+title: "深度強化學習：從決策概念到策略學習與實驗｜Berkeley CS285 課程總覽"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, deep-reinforcement-learning, self-study, ai-course]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "Spring 2026 CS185/285 公開 25 講投影片、9 組討論課資料、5 份作業與 starter code；講課錄影已公開在 RAIL YouTube 頻道，但 Ed、Gradescope 與助教時間仍限修課生，HW4 預設 H100，不能把它包裝成零成本公開課。"
 description: "整理 Berkeley CS185/285 Spring 2026 的公開教材、六篇導讀路線、先修條件、錄影來源與作業運算成本。"
 series:
-  name: "Berkeley CS285 Spring 2026 導讀"
+  name: "Berkeley CS285 導讀"
   order: 1
 ---
 

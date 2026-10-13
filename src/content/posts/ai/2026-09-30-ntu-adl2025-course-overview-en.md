@@ -1,12 +1,12 @@
 ---
-title: "Applied Deep Learning: A Learning Path through Concepts, Assignments, and Implementation | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Course Overview"
+title: "Applied Deep Learning: A Learning Path through Concepts, Assignments, and Implementation | NTU Yun-Nung Chen Applied Deep Learning Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, deep-learning, nlp]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 0
 tldr: "Applied Deep Learning (ADL) Fall 2025, taught by Yun-Nung (Vivian) Chen in NTU's CSIE department, is a deep learning course built around NLP. It runs from neural network basics through Transformers, BERT, pretraining and prompting, post-training, LoRA, RAG, generation and evaluation, alignment issues, and language agents. Lectures L0–L11 come with slide PDFs and segmented videos, and the playlist adds videos for L12–L14. On the assignment side only the HW1 spec is public; HW2, HW3, and the final project have explainer videos only. That makes it A2."
 description: "Entry point to the series on NTU Yun-Nung Chen's Applied Deep Learning Fall 2025 (114-1): course goals, prerequisites, grading, weekly schedule, the lecture and TA-recitation tracks, the A2 access rating and its gaps, how the Fall 2025 page differs from the in-progress Fall 2026 page, the extra L12–L14 videos on the playlist, and the full 19-post index."

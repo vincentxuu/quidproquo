@@ -1,5 +1,5 @@
 ---
-title: "Turning Retrieval, RAG, and Advanced Architectures into a System | Berkeley CS288 Spring 2026 Topic Guide"
+title: "Turning Retrieval, RAG, and Advanced Architectures into a System | Berkeley CS288 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, rag, retrieval, llm, evaluation]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "Units 13–14 connect models to external knowledge; A3 requires data collection, QA annotation, indexing, and ablations under CPU and latency constraints."
 description: "A guide to CS288 Retrieval and RAG, Advanced Architectures, and the end-to-end design of Assignment 3."
 draft: false
-series: { name: "Berkeley CS288 Spring 2026", order: 4 }
+series: { name: "Reading Berkeley CS288", order: 4 }
 ---
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs288-rag)

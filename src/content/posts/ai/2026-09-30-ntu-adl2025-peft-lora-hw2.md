@@ -1,12 +1,12 @@
 ---
-title: "PEFT——Adapter、LoRA、Prompt Tuning 與 HW2｜台大陳縕儂 深度學習之應用 2025 Fall 第 7.5 堂"
+title: "PEFT——Adapter、LoRA、Prompt Tuning 與 HW2｜台大陳縕儂 深度學習之應用 第 7.5 堂"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, nlp, llm, peft, lora, prompt-tuning, fine-tuning]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 10
 tldr: "LLM 大到整個微調不划算時，ADL Fall 2025 的 LLM Adaptation 講義給出三種只改一小部分的做法：在 Transformer 裡插入小型 Adapter、用低秩矩陣表示權重更新的 LoRA，以及只學前綴或軟提示的 prompt tuning。講義的結論是沒有一種方法適合所有任務。HW2 的公開資訊只有一句題目「LLM Tuning and Prompt Tuning for Classical Chinese Translation」，資料、baseline 與評分都沒有文字版。"
 description: "導讀台大陳縕儂 ADL Fall 2025（114-1）LLM Adaptation 講義與影片 7.5：為什麼需要高效調整、Adapter、LoRA 與 GPT-3 175B 的例子、prefix tuning 與 soft prompt tuning、Mao 等 2022 的比較，以及 HW2「文言文翻譯的 LLM Tuning 與 Prompt Tuning」目前能確認與不能確認的部分。"

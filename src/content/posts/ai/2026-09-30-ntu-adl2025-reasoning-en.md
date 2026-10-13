@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ADL 2025 Fall: Reasoning — A Video-Only Lecture, Five Steps from CoT to RL | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Topic Guide"
+title: "Reading NTU ADL 2025 Fall: Reasoning — A Video-Only Lecture, Five Steps from CoT to RL | NTU Yun-Nung Chen Applied Deep Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, reasoning, chain-of-thought, test-time-scaling]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 15
 tldr: "The Reasoning lecture of NTU ADL Fall 2025 has no public slides. It exists only as five videos in the course playlist: 12.1 What is Reasoning?, 12.2 Short CoT, 12.3 Test-Time Scaling, 12.4 Learning to Reason (imitating others), and 12.5 RL for Reasoning (evolving reasoning through exploration). This post lays out that route from the video titles alone, then pairs it with the CoT, ReAct, and 'reasoning enlarges the action space' pages of the previous Language Agents deck. Technical detail is left to the site's CS224N and CME295 reasoning posts."
 description: "Post 15 of the NTU Yun-Nung Chen Applied Deep Learning Fall 2025 series: L12 Reasoning has videos 12.1–12.5 but no slides. The post orders the five subtopics from the video titles, adds pages 8–20 of 251110_LangAgent.pdf on CoT, ReAct, and reasoning as an action space, and states what can and cannot be verified."

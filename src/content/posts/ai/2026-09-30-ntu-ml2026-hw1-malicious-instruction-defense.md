@@ -1,12 +1,12 @@
 ---
-title: "只准改 defense prompt，擋得住幾種「I have been PWNED」？｜台大李宏毅 機器學習 2026 Spring 作業 1"
+title: "只准改 defense prompt，擋得住幾種「I have been PWNED」？｜台大李宏毅 機器學習 作業 1"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, prompt-injection, security, guardrails]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 2
 tldr: "HW1 要你寫一段不超過 1000 token 的 defense prompt，讓模型不管被怎麼攻擊，都把回應包在 [START]…[END] 裡，而且不說出「I have been PWNED」。助教準備了 14 個攻擊：10 個公開、4 個私下，每個 safety 與 utility 各 0.5%。題目、10 個攻擊原文與 token 計數 Colab 都公開，但評分平台 JudgeBoi 在 2026-09-30 回傳 502，校外只能照規格自己搭評估。"
 description: "台大李宏毅《機器學習 2026 Spring》HW1「LLM Malicious Instruction Defense」導讀：Tag Guardian 任務與 system prompt 格式、safety／utility 兩項評分、defense prompt 規則、10 個公開攻擊類型逐一拆解、JudgeBoi 繳交與評分方式，以及校外讀者怎麼在沒有評分平台的情況下自己驗收。"

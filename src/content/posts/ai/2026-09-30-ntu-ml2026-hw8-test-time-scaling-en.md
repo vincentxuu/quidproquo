@@ -1,12 +1,12 @@
 ---
-title: "Spending More Inference Compute — What Voting, Self-Certainty, and DeepConf Each Buy in Accuracy | NTU Hung-yi Lee Machine Learning 2026 Spring Assignment 8"
+title: "Spending More Inference Compute — What Voting, Self-Certainty, and DeepConf Each Buy in Accuracy | NTU Hung-yi Lee Machine Learning Assignment 8"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ntu, ai-course, course-guide, test-time-scaling, reasoning, llm-inference]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 17
 tldr: "HW8 involves no coding and no code submission. The TAs provide a finished Colab that runs Llama-3.2-1B-Instruct on the first 100 GSM8K questions and compares direct inference, Self-Consistency, Self-Certainty, and DeepConf (Confidence), sampling 16 reasoning traces per method. You read three papers, run the notebook, and answer 20 questions on NTU COOL: 18 about the papers and 2 about the Colab results. The prerequisite is Lecture 7 (Reasoning) of Lee's 2025 course. All questions are printed in hw8.pdf in Chinese and English, and the Colab is publicly downloadable. Only the COOL quiz and grades need an NTU account."
 description: "Guide to HW8 \"Test-Time Scaling\" in NTU Hung-yi Lee's Machine Learning 2026 Spring, based on hw8.pdf, the assignment Colab, and the course page: the prerequisite video, five concepts (Chain-of-Thought, beam search, Self-Consistency, Self-Certainty, DeepConf), the Colab's model and sampling settings, how the three methods are defined and implemented (Borda weighting, top-k logprob approximation, confidence-weighted voting), what the 20 quiz questions cover, grading, and how to self-study it."

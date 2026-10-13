@@ -1,5 +1,5 @@
 ---
-title: "Policy Gradient、Actor-Critic、DQN 與 SAC｜Berkeley CS285 Spring 2026 第 5–10 堂"
+title: "Policy Gradient、Actor-Critic、DQN 與 SAC｜Berkeley CS285 第 5–10 堂"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, policy-gradient, q-learning, actor-critic]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "L5–10 用 policy-based 與 value-based 兩條路建立深度 RL 核心；HW2 可用 CPU，HW3 的 Atari 與 HalfCheetah 則約需數小時 GPU。"
 description: "導讀 CS285 Spring 2026 第 5–10 講、Sections 3–5，以及 policy gradient、DQN、SAC 作業。"
 series:
-  name: "Berkeley CS285 Spring 2026 導讀"
+  name: "Berkeley CS285 導讀"
   order: 3
 ---
 

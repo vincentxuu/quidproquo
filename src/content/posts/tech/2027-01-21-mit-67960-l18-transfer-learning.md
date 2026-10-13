@@ -18,7 +18,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 18 講：為什麼 ImageNet / 大規�
 tldr: "遷移學習的核心是『在大資料上學到的特徵是好的通用表示』：下游任務資料少時，把 backbone 凍住只訓練線性 head；資料夠就全模型微調；想省算力就上 LoRA / adapter。SimCLR、MAE 這類自督導預訓練讓『上游不需要標籤』，下游表現又上一層樓。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 21
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

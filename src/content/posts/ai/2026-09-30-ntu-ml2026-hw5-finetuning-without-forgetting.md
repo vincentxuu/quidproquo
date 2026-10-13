@@ -1,12 +1,12 @@
 ---
-title: "把 Llama 教會算數學，又不讓它忘了怎麼拒絕｜台大李宏毅 機器學習 2026 Spring 作業 5"
+title: "把 Llama 教會算數學，又不讓它忘了怎麼拒絕｜台大李宏毅 機器學習 作業 5"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, fine-tuning, lora, ai-safety]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 12
 tldr: "HW5 用 LoRA 在 GSM8K 上微調 Llama-3.2-1B-Instruct，同時拿 AILuminate 的危險提示檢查它還會不會拒絕。數學正確率和安全率要同時過線才拿得到 baseline 分數，所以重點是「怎麼微調才不會把安全行為洗掉」。題目 PDF、34 個 cell 的 Colab 與 Kaggle 版都公開，strong baseline 在 T4 上預估要跑 14 小時；評分平台 JudgeBoi 在 2026-09-30 回傳 502，校外只能自己搭 safeguard 評估。"
 description: "台大李宏毅《機器學習 2026 Spring》HW5「Finetuning without Forgetting」導讀：GSM8K 與 AILuminate 兩個資料集、Colab 裡的 LoRA 設定與每個 TODO、正確率與安全率雙門檻的 baseline、跨 checkpoint 評估與 Self-Instruct 資料集的提示、T4 預估時間、繳交規則，以及校外讀者拿不到的部分。"

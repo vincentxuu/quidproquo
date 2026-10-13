@@ -1,12 +1,12 @@
 ---
-title: "從 AI Agent 切入機器學習的學習路線｜台大李宏毅 機器學習 2026 Spring 課程總覽"
+title: "從 AI Agent 切入機器學習的學習路線｜台大李宏毅 機器學習 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ntu, ai-course, machine-learning, ai-agent]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 0
 tldr: "李宏毅 2026 春季的《機器學習》從 OpenClaw 講起，前半學期拆 AI Agent、Context Engineering、推論加速與位置編碼，後半學期講 Harness Engineering、Self-Correction 與 AI 自我成長。8 講投影片、錄影、10 份作業 PDF 與 Colab 全部公開，存取分級是 A3；缺的是評分鏈：JudgeBoi 在 2026-09-30 回傳 502，NTU COOL 限校內，三場演講沒有任何材料。"
 description: "台大李宏毅《機器學習 2026 Spring》系列入口：課程結構與弧線、A0–A3 存取分級與缺口、policy.pdf 的十份作業時間表與 NTU COOL／JudgeBoi／訓練模型分工、評分與旁聽規則、Colab／Kaggle／PyTorch／JudgeBoi 教學，以及 Bonus 作業 Teaching Monster Arena。"

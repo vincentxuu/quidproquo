@@ -1,12 +1,12 @@
 ---
-title: "PEFT — Adapter, LoRA, Prompt Tuning, and HW2 | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 7.5"
+title: "PEFT — Adapter, LoRA, Prompt Tuning, and HW2 | NTU Yun-Nung Chen Applied Deep Learning Lecture 7.5"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, nlp, llm, peft, lora, prompt-tuning, fine-tuning]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 10
 tldr: "When an LLM is too big to fine-tune in full, the LLM Adaptation slides of NTU ADL Fall 2025 offer three ways to change only a small part of it: insert small Adapter modules into the Transformer, represent the weight update with low-rank matrices (LoRA), or learn only a prefix or soft prompt (prompt tuning). The slides conclude that no single method fits every task. For HW2, the only public information is its title, \"LLM Tuning and Prompt Tuning for Classical Chinese Translation\"; the data, baseline, and grading have no written spec."
 description: "A guide to the LLM Adaptation slides and video 7.5 of Yun-Nung Chen's NTU Applied Deep Learning, Fall 2025: why efficient adaptation matters, Adapter, LoRA and its GPT-3 175B example, prefix and soft prompt tuning, the Mao et al. 2022 comparison, and what can and cannot be confirmed about HW2, LLM and prompt tuning for Classical Chinese translation."

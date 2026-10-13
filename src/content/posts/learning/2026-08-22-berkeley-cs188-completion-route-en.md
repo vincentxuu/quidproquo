@@ -1,5 +1,5 @@
 ---
-title: "Completing CS188: Turn 28 Lectures and Projects P0–P5 into a Portfolio | Berkeley CS188 Spring 2026 Course Overview"
+title: "Completing CS188: Turn 28 Lectures and Projects P0–P5 into a Portfolio | Berkeley CS188 Course Overview"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, artificial-intelligence, portfolio, learning-path]
@@ -7,7 +7,7 @@ lang: en
 type: guide
 difficulty: 進階
 series:
-  name: "Berkeley CS188 Spring 2026"
+  name: "Reading Berkeley CS188"
   order: 7
 tldr: "Lectures 26–28 close with nuclear monitoring, AI safety, and reflection. Independent completion should preserve assumptions, test evidence, and failure analysis for Projects 1–5 instead of reporting only autograder scores."
 description: "A completion and portfolio route for Berkeley CS188 Spring 2026, integrating Projects P0–P5, application lectures, AI safety, and self-study assessment."

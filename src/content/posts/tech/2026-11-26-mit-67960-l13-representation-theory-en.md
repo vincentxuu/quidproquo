@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW Lecture 13 (Jeremy Bernstein): how archit
 tldr: "Take a net to infinite width and its random-init output becomes a Gaussian process (NN–GP); its training dynamics freeze into the Neural Tangent Kernel (NTK). This theory analyzes nets and, in reverse, guides us to design the 'right inductive bias'."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 15
 additionalSeries:
   - name: "Global AI/CS Course Map"

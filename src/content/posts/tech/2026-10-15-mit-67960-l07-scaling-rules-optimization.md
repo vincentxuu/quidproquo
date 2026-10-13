@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 7 講（Jeremy Bernstein）：用譜/
 tldr: "優化不是孤立的數值問題：用譜視角看 SGD，權重更新的『量』決定特徵學習；Maximal Update Parameterization 讓學習率與初始化跨寬度遷移，critical batch size 決定算力換取收斂的邊際。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 9
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

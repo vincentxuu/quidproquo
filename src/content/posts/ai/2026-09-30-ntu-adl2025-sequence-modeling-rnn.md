@@ -1,12 +1,12 @@
 ---
-title: "詞怎麼變成向量、語言模型與 RNN｜台大陳縕儂 深度學習之應用 2025 Fall 第 3 堂"
+title: "詞怎麼變成向量、語言模型與 RNN｜台大陳縕儂 深度學習之應用 第 3 堂"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, nlp, language-model, rnn]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 3
 tldr: "ADL Fall 2025 第一堂正課的主線只有一條：語言模型就是預測下一個詞。從 one-hot 與共現矩陣出發，走過 n-gram 的零機率問題、neural LM 自動做到的平滑，再到把所有前文壓進 hidden state 的 RNN LM。BPTT 與梯度消失／爆炸是訓練上的代價，LSTM、GRU 用 gating 補救；最後用「輸入是序列」與「輸出是序列」兩類應用，把 tagging 與 encoder-decoder 分開。"
 description: "台大陳縕儂《深度學習之應用》ADL Fall 2025 Sequence Modeling 講次導讀：knowledge-based 與 corpus-based 詞表示、共現矩陣與 SVD、n-gram LM 與 smoothing、Bengio 2003 neural LM、RNN LM 與權重共享、BPTT、梯度消失與爆炸、clipping、LSTM／GRU、雙向 RNN，以及情感分析、詞性標註、slot tagging、機器翻譯等應用。"

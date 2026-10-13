@@ -1,12 +1,12 @@
 ---
-title: "Word Representations, Language Models, and RNNs | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 3"
+title: "Word Representations, Language Models, and RNNs | NTU Yun-Nung Chen Applied Deep Learning Lecture 3"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, nlp, language-model, rnn]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 3
 tldr: "The first real lecture of ADL Fall 2025 has one through-line: a language model predicts the next word. It starts from one-hot vectors and co-occurrence matrices, moves through the zero-probability problem of n-grams and the smoothing that a neural LM gets for free, and ends at the RNN LM, which folds all previous words into a hidden state. BPTT and vanishing/exploding gradients are the training cost, and LSTM and GRU patch it with gating. The lecture closes by splitting applications into sequence input versus sequence output, which separates tagging from encoder-decoder models."
 description: "A guide to the Sequence Modeling lecture of NTU Yun-Nung Chen's Applied Deep Learning (ADL), Fall 2025: knowledge-based versus corpus-based word representations, co-occurrence matrices and SVD, n-gram LMs and smoothing, the Bengio 2003 neural LM, RNN LMs and weight sharing, BPTT, vanishing and exploding gradients, clipping, LSTM/GRU, bidirectional RNNs, and applications such as sentiment analysis, POS tagging, slot tagging, and machine translation."

@@ -1,5 +1,5 @@
 ---
-title: "從 VPI、Naive Bayes 到 Attention｜Berkeley CS188 Spring 2026 主題單元"
+title: "從 VPI、Naive Bayes 到 Attention｜Berkeley CS188 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, machine-learning, deep-learning, attention]
@@ -7,7 +7,7 @@ lang: zh-TW
 type: guide
 difficulty: 進階
 series:
-  name: "Berkeley CS188 Spring 2026"
+  name: "Berkeley CS188 導讀"
   order: 6
 tldr: "Lecture 19–25 把 rational decisions、VPI 與 ML 接起來，Project 5 再用 PyTorch 實作 regression、分類、CNN、attention 與 optional character-GPT。"
 description: "Berkeley CS188 Spring 2026 後段的理性決策、機器學習、深度學習、LLM 與 Project 5 實作導讀。"

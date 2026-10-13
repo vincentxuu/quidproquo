@@ -1,5 +1,5 @@
 ---
-title: "用 P0–P5 六個 Projects 學人工智慧｜Berkeley CS188 Spring 2026 課程總覽"
+title: "用 P0–P5 六個 Projects 學人工智慧｜Berkeley CS188 課程總覽"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, artificial-intelligence, pacman, open-course]
@@ -7,7 +7,7 @@ lang: zh-TW
 type: guide
 difficulty: 進階
 series:
-  name: "Berkeley CS188 Spring 2026"
+  name: "Berkeley CS188 導讀"
   order: 1
 tldr: "CS188 Spring 2026 公開 28 組錄影、27 組講義、11 組討論與 P0–P5 六個 projects；P0 是 Python／autograder tutorial，P1–P4 採 Pacman 情境，P5 是一般機器學習任務。"
 description: "Berkeley CS188 Spring 2026 完整自學總覽：公開資源、先修需求、P0–P5 六個 projects、學習順序與校外讀者的權限邊界。"

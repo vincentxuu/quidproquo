@@ -1,12 +1,12 @@
 ---
-title: "Hung-yi Lee ML 2026 Self-Correction: Can a Model Fix Its Own Mistakes? What Changing Decoding, Workflow, or Weights Buys You | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "Hung-yi Lee ML 2026 Self-Correction: Can a Model Fix Its Own Mistakes? What Changing Decoding, Workflow, or Weights Buys You | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, self-correction, reasoning, rlvr]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 13
 tldr: "This lecture asks whether a model can catch and fix its own errors with no human in the loop. Hung-yi Lee splits the approaches into three routes. Change inference: the whole contrastive decoding family builds a version of the model likely to be wrong and subtracts it, and the methods differ only in how that wrong version is made. Change the workflow: appending \"check again\" sometimes helps but is unstable, external feedback beats self-reflection, and under a fixed compute budget, sampling more answers and voting often wins. Change the weights: teaching self-correction directly runs into \"after training, the model makes different mistakes,\" which is why the field moved to RL. Whether RL teaches new abilities or just makes existing paths more likely is still being debated."
 description: "A guide to the 4/24 Self-Correction lecture of NTU Hung-yi Lee's Machine Learning 2026 Spring: Contrastive Decoding, DoLa, LayerCD, ICD, CAD, image and audio variants, and MTI; self-correction benchmarks, RefineBench, confidence level vs. critique score, how the reflection prompt's wording matters, and whether verification pays off at fixed compute; ReVISE, the limits of teaching self-correction directly, RLVR, why reasoning goes wrong before it goes right, and what RL actually learns."

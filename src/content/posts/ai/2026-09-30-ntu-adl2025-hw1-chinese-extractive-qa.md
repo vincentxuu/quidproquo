@@ -1,12 +1,12 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：HW1 中文抽取式問答——從四段文字裡找出答案 span｜台大陳縕儂 深度學習之應用 2025 Fall 主題單元"
+title: "台大陳縕儂 ADL 2025 Fall 導讀：HW1 中文抽取式問答——從四段文字裡找出答案 span｜台大陳縕儂 深度學習之應用 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, homework, bert, question-answering, huggingface]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 7
 tldr: "ADL Fall 2025 的 HW1 給一個問題和四段中文文字，要模型先挑出相關的那一段（paragraph selection，當成四選一的 multiple choice），再在那段裡標出答案的起點和終點（span selection），用 Exact Match 評分。規格投影片直接指定改 HuggingFace 的 run_swag_no_trainer.py 與 run_qa_no_trainer.py，simple baseline 用 bert-base-chinese、長度 512、有效 batch size 2、learning rate 3e-5，在 8GB 的 RTX 3070 上兩段加起來不到三小時。Kaggle 排行榜 9/29 截止、程式與報告 10/1 交到 NTU COOL。校外讀者拿不到 Kaggle 資料與評分，但任務設計、baseline 設定和報告五題都能照著練。"
 description: "台大陳縕儂《深度學習之應用》Fall 2025 第 7 篇導讀，依 HW1 規格投影片（NTU ADL 2025 Fall HW1）與作業說明影片：任務定義、Exact Match、兩個 HuggingFace 範例的改法、simple baseline 設定、允許的套件、繳交格式與執行環境、評分與報告五題、change log，以及校外讀者能做到哪。"

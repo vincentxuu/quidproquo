@@ -1,5 +1,5 @@
 ---
-title: "Imitation Learning, Distribution Shift, and RL Basics | Berkeley CS285 Spring 2026 Lectures 1–4"
+title: "Imitation Learning, Distribution Shift, and RL Basics | Berkeley CS285 Lectures 1–4"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, imitation-learning, reinforcement-learning, self-study]
@@ -9,7 +9,7 @@ difficulty: 進階
 tldr: "The first four lectures move from behavioral cloning to MDPs; HW1 turns distribution shift into an observable failure through MSE policies, DAgger, and flow matching."
 description: "A guide to CS285 Spring 2026 Lectures 1–4, Sections 1–2, and HW1, building the first bridge from imitation learning to reinforcement learning."
 series:
-  name: "Reading Berkeley CS285 Spring 2026"
+  name: "Reading Berkeley CS285"
   order: 2
 ---
 

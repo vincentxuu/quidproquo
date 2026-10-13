@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW, Lecture 1: why deep learning exploded af
 tldr: "Lecture 1 is the 6.7960 opener: deep learning took off because data + compute + algorithms matured together; the course threads from architectures (CNN/GNN/Transformer) through training, representation, generation, transfer, scaling, and LLMs; ends with a ~30-line PyTorch training loop to confirm your environment works."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 2
 additionalSeries:
   - name: "Global AI/CS Course Map"

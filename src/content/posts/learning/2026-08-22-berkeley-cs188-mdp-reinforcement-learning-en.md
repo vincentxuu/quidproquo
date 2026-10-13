@@ -1,5 +1,5 @@
 ---
-title: "From Value Iteration to Q-Learning | Berkeley CS188 Spring 2026 Topic Guide"
+title: "From Value Iteration to Q-Learning | Berkeley CS188 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, reinforcement-learning, mdp, q-learning]
@@ -7,7 +7,7 @@ lang: en
 type: guide
 difficulty: 進階
 series:
-  name: "Berkeley CS188 Spring 2026"
+  name: "Reading Berkeley CS188"
   order: 4
 tldr: "Lectures 9–12 and Project 3 use the same Gridworld to contrast value iteration with a known model, Q-learning from unknown dynamics, and approximate Q-learning that generalizes through features."
 description: "A project-centered guide to MDPs, value iteration, Q-learning, and Project 3 in Berkeley CS188 Spring 2026."

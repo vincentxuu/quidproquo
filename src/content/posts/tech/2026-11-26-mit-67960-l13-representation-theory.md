@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 13 講（Jeremy Bernstein）：架構
 tldr: "把網路變寬到極限，它的隨機初始化輸出會變成一個高斯過程（NN–GP），而訓練動態則由神經切線核（NTK）固定下來。這套理論不只能用來分析，還反過來指導我們設計『對的歸納偏置』。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 15
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

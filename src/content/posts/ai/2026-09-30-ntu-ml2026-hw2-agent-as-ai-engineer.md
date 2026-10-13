@@ -1,12 +1,12 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：HW2 讓 AI Agent 當 AI 工程師——用 AIDE 式樹搜尋，讓開源 LLM 自己寫出 MyGO & Ave Mujica 臉部辨識｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "台大李宏毅 ML 2026 導讀：HW2 讓 AI Agent 當 AI 工程師——用 AIDE 式樹搜尋，讓開源 LLM 自己寫出 MyGO & Ave Mujica 臉部辨識｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, coding-agent, computer-vision, image-classification]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 5
 tldr: "HW2 不讓你直接寫分類器，而是寫 prompt 與流程，讓一個跑在 Colab T4 上的開源 LLM（預設 gemma-3-12b-it 的 4-bit GGUF）自己規劃、寫 code、執行、除錯，做出 10 類 MyGO & Ave Mujica 角色臉部辨識。起始碼改自 AIDE：Interpreter 執行程式、Node 記錄每一版、Journal 組成解答樹、Agent 決定下一步要 draft、debug 還是 improve。最值得先發現的一件事：起始碼的評估函式是空的，每一版都被標成 metric 1.0、不是 bug，所以樹搜尋在你補上評估之前其實是瞎選。規定寫得很重：「LLM agent 是你的代理人」，不准手改程式與預測檔。"
 description: "台大李宏毅《機器學習 2026 Spring》HW2（AI Agent as an AI Engineer）導讀，依 hw2.pdf、Colab 起始碼與作業說明影片：Context is Everything 與 Intentional Compaction、資料集與 Accuracy 指標、ResNet18 建議、AIDE 的 Interpreter／Node／Journal／Agent 結構與搜尋策略、三個 baseline、規定與校外讀者能做到哪裡。"

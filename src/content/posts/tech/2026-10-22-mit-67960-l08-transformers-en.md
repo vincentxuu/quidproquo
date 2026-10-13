@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW Lecture 8 (Phillip Isola): the three core
 tldr: "A Transformer is not an architecture from nowhere: tokens discretize data, attention does soft aggregation, positional codes restore order. Seen next to MLPs/CNNs/GNNs, all of them are special cases of 'weighted aggregation over neighbors'."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 10
 additionalSeries:
   - name: "Global AI/CS Course Map"

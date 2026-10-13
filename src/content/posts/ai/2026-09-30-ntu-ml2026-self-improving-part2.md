@@ -1,12 +1,12 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：AI 自我成長（下）——改進 harness、改進「改進的方法」，以及會不會失控｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "台大李宏毅 ML 2026 導讀：AI 自我成長（下）——改進 harness、改進「改進的方法」，以及會不會失控｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, self-improvement, harness-engineering, prompt-optimization, dspy, ai-alignment]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 18
 tldr: "上集講的是 AI 自己訂 loss、自己更新參數；下集把另一半補上：AI Agent = Harness + LLM，harness 也能自己長。harness 沒辦法算 gradient，所以常見做法是拿一個語言模型當改寫器，再用類似基因演算法的 pool 保留多個候選（OPRO、GEPA、Darwin Gödel Machine，現成工具是 DSPy）。接著談三個延伸：harness 與參數一起更新效果更好；目標會變時要在「全部丟掉」和「全部背著」之間取捨，而且改 harness 也會遺忘；更新規則本身也能被更新（HyperAgent、Gödel Agent、SEAL），這就是 meta learning。最後李宏毅換了一個類比：參數是基因、context 才是神經元，然後指出現在的 agent 缺的是內在動機，而最可能讓成長失控的，是人給的目標和 AI 自己解讀出來的目標不一致。"
 description: "台大李宏毅《機器學習 2026 Spring》5/22「模型的自我成長 - 2」導讀，依 self-evolving-agent.pdf 與影片「AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)」：Agent = Harness + LLM、用 LLM 更新 harness、OPRO 與 GEPA 的 pool 式演化、Darwin Gödel Machine、DSPy、harness 與參數聯合更新、Test-Time Training 的目標轉移、改 harness 造成的遺忘、HyperAgent／Gödel Agent／Learning to Self-Evolve、PostTrainBench、autoresearch、AlphaEvolve、SEAL、Meta Learning、TTT 層與 Titans、intrinsic motivation，以及用孔雀尾巴與《機械公敵》說明的 misalignment。"

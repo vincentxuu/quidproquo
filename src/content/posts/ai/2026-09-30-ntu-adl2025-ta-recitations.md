@@ -1,12 +1,12 @@
 ---
-title: "從 PyTorch、Hugging Face 到 LoRA、量化與 vLLM 部署｜台大陳縕儂 深度學習之應用 2025 Fall 助教課"
+title: "從 PyTorch、Hugging Face 到 LoRA、量化與 vLLM 部署｜台大陳縕儂 深度學習之應用 助教課"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, pytorch, hugging-face, lora, moe, quantization, vllm]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 18
 tldr: "ADL Fall 2025 課程頁排了 7 堂助教課：Dev Infra（PyTorch、Debugging）→ NLP 專案的一生 → NLP 專案的底層邏輯 → LLM LoRA Training → LLM Basics／Architecture／MoE → LLM Inference & Evaluation → LLM Deployment。10 支影片全部是林彥廷在 2023 與 2024 年錄的舊片，Fall 2025 沿用；課程頁上的 5 份講義連結都 404，同名檔在 Fall 2024 路徑可以打開，Deployment 只有影片。前三堂把 Hugging Face 的「資料→模型→Demo」流程走一遍，正好是 HW1 需要的工具；後四堂補 LLM 的訓練、推論與上線。"
 description: "導讀台大陳縕儂 ADL Fall 2025（114-1）的 7 堂助教課：10 支助教影片、5 份助教講義（f113 路徑同名檔）與 2 份 Colab。內容涵蓋 Colab 與 PyTorch tensor、ipdb 除錯、NLP 專案生命週期與 train／validation／test 切分、Hugging Face Trainer 與 Gradio、四種 NLP 任務的資料格式、LoRA 與 QLoRA、scaling law 與 MoE 路由、AWQ／GPTQ 量化、MMLU／MT-Bench／Chatbot Arena 評估，以及用 vLLM 做 offline 推論、tensor parallel 與 OpenAI 相容 API。"

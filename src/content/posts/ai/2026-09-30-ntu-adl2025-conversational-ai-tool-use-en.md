@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ADL 2025 Fall: Conversational AI and Tool Use — From LU/DST/Policy/NLG to LaMDA, WebGPT, and Toolformer | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Topic Guide"
+title: "Reading NTU ADL 2025 Fall: Conversational AI and Tool Use — From LU/DST/Policy/NLG to LaMDA, WebGPT, and Toolformer | NTU Yun-Nung Chen Applied Deep Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, conversational-ai, task-oriented-dialogue, tool-use]
 lang: en
 series:
-  name: "Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall"
+  name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 16
 tldr: "Dialogue systems split into chit-chat and task-oriented. Task-oriented systems were traditionally built from four modules: language understanding (LU) turns a sentence into domain, intent, and slots; dialogue state tracking (DST) accumulates the user's goal; the dialogue policy picks the next system action; and NLG turns that action back into a sentence. An LLM can act out all four steps by itself, but it cannot actually make the booking, so it needs external tools. LaMDA learns to call a search engine, calculator, and translator. BlenderBot 2.0 adds internet search and long-term memory. WebGPT learns to drive a browser from human demonstrations, a reward model, and PPO. Toolformer has the model generate and filter its own tool-use training data. The lecture ends with evaluation: automatic metrics, four kinds of human evaluation, and LLM-Eval. ADL Fall 2025 has only videos for this lecture, so the Fall 2024 slides fill in."
 description: "Post 16 of the NTU Yun-Nung Chen Applied Deep Learning Fall 2025 series, based on videos 13.1–13.9 and the Fall 2024 deck 241030_ConvAI.pdf (108 pages): the four modules of task-oriented dialogue and how each is evaluated, LaMDA, BlenderBot 1/2/3, WebGPT, Toolformer, dialogue evaluation, and LLM-Eval. Plan-and-Execute, User Interaction, and Theory-of-Mind have no matching pages in the 2024 deck and are listed by name only."

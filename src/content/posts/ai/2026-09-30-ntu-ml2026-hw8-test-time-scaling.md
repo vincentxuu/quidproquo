@@ -1,12 +1,12 @@
 ---
-title: "多花推論算力，投票、Self-Certainty、DeepConf 各換到多少準確率｜台大李宏毅 機器學習 2026 Spring 作業 8"
+title: "多花推論算力，投票、Self-Certainty、DeepConf 各換到多少準確率｜台大李宏毅 機器學習 作業 8"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ntu, ai-course, course-guide, test-time-scaling, reasoning, llm-inference]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 17
 tldr: "HW8 不用寫程式也不用交程式：助教給一份已經寫好的 Colab，用 Llama-3.2-1B-Instruct 在 GSM8K 前 100 題上比較直接推論、Self-Consistency、Self-Certainty 與 DeepConf（Confidence），每種方法各 sample 16 條推理。你讀三篇論文、跑完 notebook，到 NTU COOL 答 20 題：18 題論文題、2 題看 Colab 結果。先備是李宏毅 2025 年第七講 Reasoning。題目中英兩版都印在 hw8.pdf，Colab 可公開下載；只有 COOL 測驗與成績需要台大帳號。"
 description: "台大李宏毅《機器學習 2026 Spring》HW8「Test-Time Scaling」導讀，依 hw8.pdf、作業 Colab 與課程頁：先備影片、Chain-of-Thought／Beam Search／Self-Consistency／Self-Certainty／DeepConf 五個概念、Colab 的模型與取樣設定、三種方法的公式與實作差異（Borda 加權、top-k logprob 近似、confidence-weighted voting）、20 題測驗的出題範圍、評分與校外自學方式。"

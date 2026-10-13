@@ -1,5 +1,5 @@
 ---
-title: "從變分推論、LLM RL 到 Offline RL｜Berkeley CS285 Spring 2026 第 11–18 堂"
+title: "從變分推論、LLM RL 到 Offline RL｜Berkeley CS285 第 11–18 堂"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, variational-inference, llm-rl, offline-rl]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "L11–18 把 control as inference、LLM RL、model-based RL 與 offline RL 接成一條主線，並用 HW4、HW5 呈現兩種高運算成本實作。"
 description: "導讀 CS285 Spring 2026 第 11–18 講與 Sections 6–9，說明推論觀點、LLM RL、模型式與離線強化學習。"
 series:
-  name: "Berkeley CS285 Spring 2026 導讀"
+  name: "Berkeley CS285 導讀"
   order: 4
 ---
 

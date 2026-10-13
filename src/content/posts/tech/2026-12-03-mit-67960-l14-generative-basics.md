@@ -16,7 +16,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 14 講（Phillip Isola）：生成模
 tldr: "生成模型本質是在學資料的分佈 p(x)。密度模型直接建模機率，能量模型用一個未歸一化勢能 + 採樣器，GAN 讓判別器逼出逼真樣本，自回歸一步步預測下一個 token，擴散則用『逐步加噪再學去噪』繞開棘手的最大似然。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 16
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

@@ -14,7 +14,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 9 講（Phillip Isola）：把深度�
 tldr: "訓練神經網路更像工程而非魔法：先看資料、先在小批次上過擬合證明容量夠、再用正則化把泛化補回來；學習率永遠是影響最大的那顆旋鈕。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 11
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

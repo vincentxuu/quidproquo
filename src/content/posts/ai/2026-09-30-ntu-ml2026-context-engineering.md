@@ -1,12 +1,12 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：Context Engineering——壓縮、過濾、按需載入，以及要不要把 context 整個交給 LLM｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "台大李宏毅 ML 2026 導讀：Context Engineering——壓縮、過濾、按需載入，以及要不要把 context 整個交給 LLM｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, ai-agent, context-engineering]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 3
 tldr: "語言模型的輸入長度有限，agent 卻會一直累積工具輸出。李宏毅在 ML 2026 第二週把 Context Engineering 拆成三件事：壓縮（摘要、硬清除、卸載到檔案，以及 ACON、SUPO、AgentFold 這類讓壓縮變聰明的方法）、過濾（只讀需要的行、MCP-Zero 式的按需載入工具），最後是 Agentic Context Engineering：讓 LLM 自己決定下一輪的 context，從 Dynamic Cheatsheet、ACE 一路到 Recursive Language Models。投影片把 subagent 看成一種自主壓縮，這是整講最值得帶走的一個視角。"
 description: "台大李宏毅《機器學習 2026 Spring》AI Agent 單元第一段導讀，依 agent_era.pdf 第 1–33 頁：Context Engineering 的形式化、LLM summary 與 Hard Clear、卸載記憶、ACON、SUPO、AgentFold、Context-Folding 與 subagent、SWE-Pruner、Memory Recall、MCP-Zero、Dynamic Cheatsheet、ACE、Recursive Language Models。"

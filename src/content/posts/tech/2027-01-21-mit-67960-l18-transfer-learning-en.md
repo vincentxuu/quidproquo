@@ -18,7 +18,7 @@ description: "MIT 6.7960 Fall 2024 OCW, Lecture 18: why do features learned via 
 tldr: "Transfer learning's core insight is 'features learned on big data are good general-purpose representations': freeze the backbone and train only a linear head when downstream data is tiny; full fine-tune when data is plentiful; reach for LoRA / adapter when compute is tight. SimCLR and MAE removed the need for upstream labels and pushed downstream quality another notch."
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "Reading MIT 6.7960"
   order: 21
 additionalSeries:
   - name: "Global AI/CS Course Map"

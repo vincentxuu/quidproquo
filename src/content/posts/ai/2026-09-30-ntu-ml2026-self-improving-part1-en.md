@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ML 2026: Self-Improving AI (Part 1) — AI-Generated Answers, Rewards, and Losses, and How Far Humans Can Step Back | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "Reading NTU ML 2026: Self-Improving AI (Part 1) — AI-Generated Answers, Rewards, and Losses, and How Far Humans Can Step Back | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ntu, ai-course, course-guide, self-improvement, reinforcement-learning, test-time-compute]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 15
 tldr: "Hung-yi Lee opens his May 8 lecture by admitting that \"self-improving AI\" has no clear definition: it is a process of humans gradually letting go. He splits machine learning into three steps and checks where the \"I\" can be replaced by AI. Answers can come from the model's own self-corrections, reward shaping can be written by an LLM, the loss can be set by the model itself (scores, majority vote, entropy), and even the questions can come from a proposer model. But experiments keep showing that with no human at all, progress plateaus or the model trains itself into the ground. A strong AI can already train a weaker one, just not better than humans do. His verdict: in May 2026, AI is \"still standing at the bank of the Rubicon.\""
 description: "Guide to the May 8 lecture \"Self-Improving (1)\" in NTU Hung-yi Lee's Machine Learning 2026 Spring, based on Self-Improving.pdf and video s06mSAGN4gM: I. J. Good's \"last invention,\" the three steps of machine learning, AI-generated answers, sparse rewards and LLM-written reward shaping, self-defined losses (verbalized / ensemble / certainty), TENT and unsupervised RLVR, test-time training, the missing term in entropy minimization (derivation folded), Absolute Zero / R-Zero, PostTrainBench, and weak-to-strong."

@@ -1,12 +1,12 @@
 ---
-title: "Reading NTU ML 2026: HW9 Flow Matching — From VAE to MeanFlow, Then Counting Inference Steps on a Swiss Roll | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
+title: "Reading NTU ML 2026: HW9 Flow Matching — From VAE to MeanFlow, Then Counting Inference Steps on a Swiss Roll | NTU Hung-yi Lee Machine Learning Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, homework, flow-matching, diffusion-model, generative-models]
 lang: en
 series:
-  name: "Reading NTU Hung-yi Lee Machine Learning 2026 Spring"
+  name: "Reading NTU Hung-yi Lee Machine Learning"
   order: 19
 tldr: "HW9 has 19 questions worth 10 points, answered only on NTU COOL with no code submission. The first 16 cover four papers — DDPM, Flow Matching, Rectified Flow, and MeanFlow — ending with questions that compare their training signals and few-step generation. The last 3 require the Colab: train two small MLPs on a 2D Swiss roll, one Flow Matching model that learns instantaneous velocity (always evaluated with 50 Euler steps, converged at Histogram JS ≤ 0.10) and one MeanFlow model that learns average velocity (always one-step, ≤ 0.40). Then compare 1 step vs 1 step, Flow Matching across Euler step counts, and Euler vs RK4 at equal steps and at similar compute. The PDF includes a generative-modeling tutorial that skips most of the math, and every question is published in Chinese and English. Outside readers miss only the COOL grading and answers."
 description: "A guide to HW9 \"Flow Matching\" in NTU Hung-yi Lee's Machine Learning 2026 Spring, based on hw9.pdf, the homework Colab, and the TA video: three prerequisite videos, the PDF's generative-modeling tutorial (VAE → Diffusion → Score-based → Flow Matching → MeanFlow), how the 19 questions split and what each paper is tested on, the Colab's Swiss roll data, FlowNet and MeanFlowNet, MeanFlow's JVP training target, the Histogram JS metric and convergence standards, Euler vs RK4 compute comparisons, and the limits for self-learners."

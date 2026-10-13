@@ -1,5 +1,5 @@
 ---
-title: "從 n-gram、詞表示到文字分類｜Berkeley CS288 Spring 2026 主題單元"
+title: "從 n-gram、詞表示到文字分類｜Berkeley CS288 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, nlp, language-model, text-classification]
@@ -9,7 +9,7 @@ difficulty: 進階
 tldr: "前四組教材先建立可計數、可表示、可分類的文字模型；A1 再要求從 n-gram、perceptron 做到 NBOW MLP。"
 description: "導讀 CS288 Spring 2026 的 Introduction、n-gram LM、Word Representation、Text Classification 與 Assignment 1。"
 draft: false
-series: { name: "Berkeley CS288 Spring 2026", order: 1 }
+series: { name: "Berkeley CS288 導讀", order: 1 }
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs288-foundations-en)

@@ -1,5 +1,5 @@
 ---
-title: "Retrieval、RAG 與進階架構如何變成一個系統｜Berkeley CS288 Spring 2026 主題單元"
+title: "Retrieval、RAG 與進階架構如何變成一個系統｜Berkeley CS288 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, rag, retrieval, llm, evaluation]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "13–14 組教材把模型接到外部知識；A3 要學生自行蒐集資料、標註 QA、建索引、做 ablation，並在 CPU 與延遲限制下交付 RAG。"
 description: "導讀 CS288 Retrieval and RAG、Advanced Architectures 與 Assignment 3 的端到端系統設計。"
 draft: false
-series: { name: "Berkeley CS288 Spring 2026", order: 4 }
+series: { name: "Berkeley CS288 導讀", order: 4 }
 ---
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs288-rag-en)

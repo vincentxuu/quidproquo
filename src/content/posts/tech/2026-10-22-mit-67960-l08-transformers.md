@@ -15,7 +15,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 8 講（Phillip Isola）：Transforme
 tldr: "Transformer 不是憑空冒出的架構：token 把資料切成離散單元，attention 做軟性的訊息聚合，positional code 補回順序。把它和 MLP/CNN/GNN 擺在一起看，會發現它們都是『對鄰居做加權彙整』的不同特例。"
 draft: false
 series:
-  name: "MIT 6.7960 導讀 (Fall 2024 OCW)"
+  name: "MIT 6.7960 導讀"
   order: 10
 additionalSeries:
   - name: "世界名校 AI／CS 課程地圖"

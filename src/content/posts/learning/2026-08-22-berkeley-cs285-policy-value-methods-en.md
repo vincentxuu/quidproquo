@@ -1,5 +1,5 @@
 ---
-title: "Policy Gradients, Actor-Critic, DQN, and SAC | Berkeley CS285 Spring 2026 Lectures 5–10"
+title: "Policy Gradients, Actor-Critic, DQN, and SAC | Berkeley CS285 Lectures 5–10"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, policy-gradient, q-learning, actor-critic]
@@ -9,7 +9,7 @@ difficulty: 深度
 tldr: "L5–10 build the deep-RL core through policy- and value-based routes; HW2 is CPU-friendly, while HW3's Atari and HalfCheetah runs can require hours of GPU time."
 description: "A guide to CS285 Spring 2026 Lectures 5–10, Sections 3–5, and the policy-gradient, DQN, and SAC assignments."
 series:
-  name: "Reading Berkeley CS285 Spring 2026"
+  name: "Reading Berkeley CS285"
   order: 3
 ---
 

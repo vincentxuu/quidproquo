@@ -1,12 +1,12 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：Reasoning——只有影片的一講，五步從 CoT 走到 RL｜台大陳縕儂 深度學習之應用 2025 Fall 主題單元"
+title: "台大陳縕儂 ADL 2025 Fall 導讀：Reasoning——只有影片的一講，五步從 CoT 走到 RL｜台大陳縕儂 深度學習之應用 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, reasoning, chain-of-thought, test-time-scaling]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 15
 tldr: "ADL Fall 2025 的 Reasoning 一講沒有公開投影片，只有播放清單上的五支影片：12.1 什麼是推理、12.2 Short CoT、12.3 Test-Time Scaling、12.4 Learning to Reason（模仿別人推理）、12.5 RL for Reasoning（探索自行演化出推理行為）。這篇只依影片標題排出這條路線，再搭配前一講 Language Agents 講義裡 CoT、ReAct 與「reasoning 擴大 action space」那幾頁；技術細節交給站內 CS224N、CME295 的 reasoning 篇。"
 description: "台大陳縕儂《深度學習之應用》Fall 2025 第 15 篇導讀：L12 Reasoning 只有影片 12.1–12.5、沒有投影片。依影片標題整理五個子題的順序，搭配 251110_LangAgent.pdf 第 8–20 頁的 CoT、ReAct 與 reasoning 擴大 action space，並寫明能確認與不能確認的範圍。"

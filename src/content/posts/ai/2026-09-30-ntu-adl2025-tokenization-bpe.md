@@ -1,12 +1,12 @@
 ---
-title: "Tokenization 與 BPE，詞表是怎麼長出來的｜台大陳縕儂 深度學習之應用 2025 Fall 第 5 堂"
+title: "Tokenization 與 BPE，詞表是怎麼長出來的｜台大陳縕儂 深度學習之應用 第 5 堂"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, nlp, tokenization, bpe]
 lang: zh-TW
 series:
-  name: "台大陳縕儂 深度學習之應用 2025 Fall 導讀"
+  name: "台大陳縕儂 深度學習之應用 導讀"
   order: 5
 tldr: "用整個詞當單位，沒看過的詞只能變成 UNK；用單一字元當單位，意思又很難組回來。ADL 這一講用 22 頁投影片說明主流的折衷：subword，以及最常用的切法 BPE。重點是一個 4 個詞、16 次出現的小語料，從字元開始，每次把最常相鄰的一對合併，9 次合併後得到 newest</w>、low</w> 這些單位，再拿來切沒看過的 lowest 與 powest。最後用 GPT-3 tokenizer 示範：同一句話的中文版比英文版多一倍 token。"
 description: "台大陳縕儂《深度學習之應用》ADL Fall 2025 Tokenization 講次導讀：詞表外的詞（UNK）問題、Swahili 動詞的形態變化、character 與 subword 兩種 token 定義、BPE 三步驟與逐步合併示範、merge 規則如何處理未見詞、BPE 單位與詞素的關係、多語 BPE 對中文不利的 token 成本。"

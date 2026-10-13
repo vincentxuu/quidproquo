@@ -1,5 +1,5 @@
 ---
-title: "看不見 Ghost 時怎麼推論｜Berkeley CS188 Spring 2026 主題單元"
+title: "看不見 Ghost 時怎麼推論｜Berkeley CS188 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, bayesian-network, probabilistic-inference, particle-filter]
@@ -7,7 +7,7 @@ lang: zh-TW
 type: guide
 difficulty: 進階
 series:
-  name: "Berkeley CS188 Spring 2026"
+  name: "Berkeley CS188 導讀"
   order: 5
 tldr: "Lecture 13–18 與 Project 4 從 factor operations、variable elimination 走到 exact inference 與 particle filtering，讓 Pacman 用有雜訊的距離感測追蹤看不見的 ghosts。"
 description: "Berkeley CS188 Spring 2026 Bayes nets、HMM、exact inference、particle filtering 與 Ghostbusters 專案導讀。"

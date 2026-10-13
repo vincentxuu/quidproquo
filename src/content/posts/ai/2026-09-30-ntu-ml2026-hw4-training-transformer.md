@@ -1,12 +1,12 @@
 ---
-title: "用 decoder-only Transformer 接龍畫寶可夢｜台大李宏毅 機器學習 2026 Spring 作業 4"
+title: "用 decoder-only Transformer 接龍畫寶可夢｜台大李宏毅 機器學習 作業 4"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-ml-2026, ai-course, course-guide, homework, transformer, image-generation, pytorch]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 10
 tldr: "HW4 把「文字接龍」原封不動搬到圖片上：792 張 20×20 的寶可夢小圖，每個像素是 167 色裡的一個 token，一張圖就是 400 個 token 的序列。訓練時做 next-token prediction，測試時給你前 60%，讓模型畫完剩下的 40%。評分同時看 FID 與寶可夢偵測率（PDR），三級 baseline 的提示從「直接跑範例」「調超參數」一路到「換成 Llama、Mistral 架構」。題目、Colab、Kaggle 與資料集都公開，但 JudgeBoi 在 2026-09-30 回傳 502，校外拿不到 FID、PDR 的官方分數。"
 description: "台大李宏毅《機器學習 2026 Spring》HW4「Training Transformers」導讀：任務設計、792 張寶可夢與 167 色 colormap、632/80/80 切分、給 60% 補完、FID 與 PDR 兩個指標、simple／medium／strong baseline 提示與超參數範圍、Colab 範例的 GPT-2 設定與存檔策略、繳交規則，以及校外讀者如何自己驗收。"

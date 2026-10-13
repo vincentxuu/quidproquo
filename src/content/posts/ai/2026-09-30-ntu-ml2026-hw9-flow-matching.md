@@ -1,12 +1,12 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：HW9 Flow Matching——從 VAE 走到 MeanFlow，再用一個 Swiss roll 比推論步數｜台大李宏毅 機器學習 2026 Spring 主題單元"
+title: "台大李宏毅 ML 2026 導讀：HW9 Flow Matching——從 VAE 走到 MeanFlow，再用一個 Swiss roll 比推論步數｜台大李宏毅 機器學習 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, homework, flow-matching, diffusion-model, generative-models]
 lang: zh-TW
 series:
-  name: "台大李宏毅 機器學習 2026 Spring 導讀"
+  name: "台大李宏毅 機器學習 導讀"
   order: 19
 tldr: "HW9 共 19 題、10 分，只在 NTU COOL 作答、不交程式。前 16 題讀四篇論文：DDPM、Flow Matching、Rectified Flow、MeanFlow，最後幾題要你橫向比較訓練訊號與少步生成；後 3 題要跑 Colab：在 2D Swiss roll 上訓練兩個小 MLP，一個是學瞬時速度的 Flow Matching（固定用 Euler 50 步評估，Histogram JS ≤ 0.10 才算收斂），一個是學平均速度的 MeanFlow（固定 1 步生成，≤ 0.40），再比較 1 步對 1 步、Euler 不同步數、Euler 與 RK4 在相同步數與相近算力下的差別。作業 PDF 附了一份省略大部分數學的生成模型教學，題目中英雙語全部公開；校外拿不到的只有 COOL 上的評分與解答。"
 description: "台大李宏毅《機器學習 2026 Spring》HW9「Flow Matching」導讀，依 hw9.pdf、作業 Colab 與助教說明影片：三支先備影片、作業 PDF 的生成模型教學（VAE → Diffusion → Score-based → Flow Matching → MeanFlow）、19 題的分配與各論文考什麼、Colab 的 Swiss roll 資料、FlowNet 與 MeanFlowNet、MeanFlow 的 JVP 訓練目標、Histogram JS 指標與收斂標準、Euler 與 RK4 的算力比較，以及校外自學的限制。"

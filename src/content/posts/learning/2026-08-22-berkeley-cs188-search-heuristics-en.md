@@ -1,5 +1,5 @@
 ---
-title: "Pacman from DFS and BFS to A* | Berkeley CS188 Spring 2026 Topic Guide"
+title: "Pacman from DFS and BFS to A* | Berkeley CS188 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, search, heuristic, pacman]
@@ -7,7 +7,7 @@ lang: en
 type: guide
 difficulty: 進階
 series:
-  name: "Berkeley CS188 Spring 2026"
+  name: "Reading Berkeley CS188"
   order: 2
 tldr: "Lectures 1–4 and Project 1 connect DFS, BFS, UCS, A*, state representation, and heuristic design. The goal is not memorizing algorithms but separating what the frontier, cost, and state each control."
 description: "A project-centered guide to search algorithms, state representation, heuristic design, and the local autograder in Berkeley CS188 Spring 2026."
