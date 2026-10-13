@@ -6,109 +6,259 @@ type: deep-dive
 tags: [cs124, stanford, neural-network, llm, nlp]
 lang: zh-TW
 series: { name: "Stanford CS124 導讀", order: 7 }
-tldr: "Week 6 以公開 neural-network slides 建立 weighted sum、nonlinearity、loss 與 backpropagation，再用檔名標示 2025 的公開 LLM/Transformer deck 連到 decoder-only 架構，不視為 2026 現場逐字內容。"
-description: "Stanford CS124 Winter 2026 Week 6：神經網路單元、多層網路、反向傳播、neural language models、LLM 架構與 PA5。"
+tldr: "第 6 週分兩半。預錄內容教神經網路：一個神經元怎麼算、為什麼需要隱藏層、softmax、用詞向量做分類與語言模型、反向傳播。現場課介紹大型語言模型：它是什麼、三種架構、為什麼各種任務都能改寫成接話、怎麼取樣、怎麼預訓練、怎麼變成助理。"
+description: "Stanford CS124 Winter 2026 第 6 週導讀：神經元的計算與啟動函數、XOR 為什麼需要隱藏層、softmax 手算、前饋網路做情感分類與語言模型、計算圖上的反向傳播手算；LLM 的定義、decoder／encoder／encoder-decoder、conditional generation、prompt、溫度取樣、預訓練的 loss 與 teacher forcing、訓練資料、instruction tuning。依 2026 年版公開投影片。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs124-week6-neural-networks-llms-en)
 
-CS124 Week 6 把前半季的線性模型與 embeddings 接起來。官方 agenda 一邊安排 Neural Networks material 與 PA5，一邊在 2 月 10 日由 Dan Jurafsky 現場講「LLMs and Transformers!」。前者提供可公開驗證的數學骨架，後者把這套骨架放進大型語言模型。
+這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 6 週。前面五週的零件在這一週組起來：第 3 週的邏輯迴歸疊成多層，輸入換成第 5 週的詞向量，訓練目標用第 2 週的「預測下一個詞」，得到的就是神經語言模型。
 
-**版本：** Winter 2026。**單元：** Week 6，2026-02-10、02-12。**公開材料：** [schedule](https://web.stanford.edu/class/cs124/lec/)、[Neural Networks slides](https://www.stanford.edu/class/cs124/lec/7_NN.pdf)、[LLM/Transformer slides](https://www.stanford.edu/class/cs124/lec/LLM_cs124_week7_2025.pdf)、[SLP3 Chapter 6](https://web.stanford.edu/~jurafsky/slp3/6.pdf)、[PA5](https://github.com/cs124/pa5-neural-networks)。**缺口：** LLM/Transformer 是 required live lecture 且沒有錄影；公開 deck 檔名保留 2025，不能證明 2026 現場逐頁內容完全相同。本文只整理公開 deck 與 repo 能支持的 agenda，不重建現場說法。
+這一週有兩部分：
 
-## 一個 neural unit 仍從線性分數開始
+- **預錄內容**：神經網路的基礎，配 PA5。
+- **現場課「LLMs and Transformers!」**：Dan Jurafsky 介紹大型語言模型。這堂課沒有錄影，投影片公開。Transformer 內部怎麼運作放在[下一週的導讀](/posts/ai/2026-08-22-cs124-week7-transformers-speech)，和實作它的 PA6a 一起講。
 
-公開 [Neural Networks slides](https://www.stanford.edu/class/cs124/lec/7_NN.pdf) 與指定 [Chapter 6](https://web.stanford.edu/~jurafsky/slp3/6.pdf) 將神經單元寫成先計算 `z = w·x + b`，再通過非線性 activation 得到輸出。若沒有非線性，多層線性轉換仍可合併成一個線性轉換；網路深度不會增加能表達的函數種類。ReLU、sigmoid 等 activation 讓多層組合能形成非線性 decision surface。
+**本週材料**：[Neural Networks 投影片](https://web.stanford.edu/class/cs124/lec/7_NN.pdf)、[Introduction to Large Language Models 投影片](https://web.stanford.edu/class/cs124/lec/llm_cs124_26.pdf)、[PA5](https://github.com/cs124/pa5-neural-networks)。指定閱讀是教科書 2025 年 8 月版的[第 6 章](https://web.stanford.edu/~jurafsky/slp3/old_aug25/6.pdf)。
 
-這和 Week 3 並非斷裂。logistic regression 已有 weighted sum、bias、sigmoid 與 loss；neural network 把 hidden units 加在輸入與輸出之間，讓 representation 也能在訓練中改變。
+## 第一部分：神經網路
 
-## Forward pass、loss、backprop 是一條閉環
+### 一個神經元
 
-forward pass 逐層計算 activations，輸出 logits 或 probabilities。loss 衡量預測與 target 的差異。backpropagation 以 chain rule 把輸出端梯度傳回每層參數，optimizer 再更新 weights。
+神經元做的事和第 3 週的邏輯迴歸一樣：把輸入加權總和、加上偏差、再通過一個函數。
 
-重點不只是記公式，而是知道每個 tensor 的 shape 與梯度流向。PA5 延續 Jupyter workflow；自學時應至少手算一個兩層小網路的 forward pass，並以數值擾動檢查一個 weight 的 gradient。若 loss 不降，先查資料、shape、activation 與 learning rate，不要把所有問題都歸給「模型太小」。
+z = w·x + b，輸出 a = f(z)
 
-## Neural language model 改變的是條件表示
+投影片的例子：w = [0.2, 0.3, 0.9]，b = 0.5，輸入 x = [0.5, 0.6, 0.1]。
 
-Week 2 的 n-gram 也預測下一個 token，但只用有限離散歷史與 count table。neural language model 把 tokens 映射到 embeddings，將 context 組合成連續 hidden representation，再由 output layer 對 vocabulary 給機率。
+z = 0.2×0.5 + 0.3×0.6 + 0.9×0.1 + 0.5 = 0.87
 
-兩者共享 chain rule 與 next-token objective。差別在於 neural model 可讓相似 contexts 分享統計強度，不必每個 n-gram 都獨立計數。它仍有 context 設計與計算成本，並沒有因為改成 neural 就自動理解無限歷史。
+用 sigmoid 當 f，輸出是 σ(0.87) ≈ 0.70。
 
-## LLM deck 把模型分成三種架構
+f 叫**啟動函數**（activation function）。除了 sigmoid，投影片介紹另外兩個：
 
-[檔名標示 2025 的公開 LLM slides](https://www.stanford.edu/class/cs124/lec/LLM_cs124_week7_2025.pdf) 區分 decoder、encoder 與 encoder-decoder。decoder-only 系列以 autoregressive next-token prediction 適合生成；encoder 系列建立雙向表示；encoder-decoder 將輸入序列映射成輸出序列。投影片說日常稱呼的「LLM」通常指 decoder-only causal models，但課程同時保留另外兩種架構的用途。
+- **tanh**：形狀和 sigmoid 類似，但輸出在 −1 到 1 之間。
+- **ReLU**：z 大於 0 就原樣輸出，小於 0 就輸出 0。寫成 max(z, 0)。這是現在最常用的。
 
-這個分類比品牌清單重要。架構影響 pretraining objective、可見 context 與輸出方式；模型名稱會換，causal mask 與 conditional generation 的問題仍會留下。
+### 為什麼一個神經元不夠：XOR
 
-## PA5 的完成線
+投影片用一個經典例子說明單一神經元的極限。考慮三個邏輯函數，輸入是兩個 0 或 1：
 
-[PA5](https://github.com/cs124/pa5-neural-networks) 要學生在 notebook 實作 neural networks。最小完成線是：能指出 input、hidden、output 各層 shape；用同一 batch 記錄數次更新後的 loss；解釋 activation 拿掉後為何退化為線性模型。
+| x₁ | x₂ | AND | OR | XOR |
+|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 1 | 0 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 |
+| 1 | 1 | 1 | 1 | 0 |
 
-本週仍未要求把完整 Transformer 寫出來。那是 Week 7 的 PA6a。Week 6 的任務是先讓 unit、layer、loss 與 gradient 成為可追蹤的共同語言，否則 attention 只會再多一層無法除錯的矩陣運算。
+AND 和 OR 都可以用一個神經元算出來：把四個點畫在平面上，用一條直線就能把輸出是 0 和輸出是 1 的點分開。XOR 不行。輸出是 1 的兩個點在對角，輸出是 0 的兩個點在另一條對角，沒有任何一條直線分得開。單一神經元的決策邊界就是一條直線，所以它算不出 XOR。
 
-## 從單一 unit 擴成 batch matrix
+解法是加一層。投影片給了一個兩層的網路，中間有兩個使用 ReLU 的隱藏單元：
 
-單筆輸入 `x` 經 `Wx+b` 得到 hidden pre-activation；batch 寫成 matrix 後，第一個維度通常是 examples，第二個維度是 features。若 batch size 為 `m`、input dimension 為 `d`、hidden units 為 `h`，就應在實作前寫出 `X: m×d`、`W: d×h`、`b: h`、`H: m×h`。shape table 能在程式跑到深層 loss 前抓出 transpose 錯誤。
+- h₁ = ReLU(x₁ + x₂)
+- h₂ = ReLU(x₁ + x₂ − 1)
+- y = h₁ − 2×h₂
 
-bias broadcasting 也要明示。每個 example 加同一個 `b`，不是替 batch 的每列學不同參數。若不理解 broadcasting，偶然能運算的 shape 仍可能語意錯誤。PA5 notebook 應在每個 TODO 旁記 input/output shape，而不是等 exception 才猜。
+四種輸入逐一代進去：
 
-hidden layer 寬度決定 representation capacity，深度增加 composition 次數。增加參數可降低 training error，卻也提高計算與 overfitting 風險。公開 slides 的教學小網路用來看清運算，不支持「層越多一定越好」的結論。
+| x₁ | x₂ | h₁ | h₂ | y = h₁ − 2h₂ |
+|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 0 | 1 |
+| 1 | 0 | 1 | 0 | 1 |
+| 1 | 1 | 2 | 1 | 0 |
 
-## Activation 與初始化影響 gradient
+看 h₁ 和 h₂ 這兩欄：原本分不開的四個點，在隱藏層被搬到新的位置，(0,1) 和 (1,0) 兩個輸入都變成 (1,0)，疊在一起了。在這個新的空間裡，一條直線就能分開。**隱藏層的作用是把輸入換成一種比較好分的表示。** 這個例子的權重是人設計的；實際的網路靠訓練自己學出這種表示。
 
-sigmoid 將大正負輸入壓到接近零或一，derivative 也趨近零，深層網路容易出現 vanishing gradients。ReLU 在正區域保持簡單梯度，負區域輸出零；若某 unit 長期落在負區域，也可能停止更新。
+中間一定要有非線性的啟動函數。如果拿掉 ReLU，兩層線性運算合起來還是一個線性運算，等於沒有加層。
 
-因此 activation choice 與 weight initialization 必須一起看。若所有 weights 初始化相同，hidden units 得到相同 gradient，無法學出不同功能；小型 random initialization 破除 symmetry。尺度太大又可能讓 activations／gradients 爆掉或飽和。
+### 前饋網路與 softmax
 
-實驗紀錄可保存每層 activation mean、standard deviation、zero fraction 與 gradient norm。這些 statistics 完全來自 forward/backprop agenda，也比只看 final accuracy 更能定位「loss 不動」的原因。
+把很多神經元排成一層、幾層疊起來，每一層的輸出是下一層的輸入，就是**前饋網路**（feedforward network）。一個兩層的網路寫成：
 
-## Backpropagation 要沿 computational graph 展開
+- h = f(Wx + b)　（隱藏層）
+- z = Uh　（輸出層的分數）
+- y = softmax(z)
 
-以兩層 classifier 為例，loss 對 output logits 的 gradient 先傳到第二層 weights，再經 activation derivative 傳回 hidden pre-activations，最後得到第一層 weights 與 input 的 gradients。每個 parameter gradient 應與 parameter shape 相同。
+W 和 U 是權重矩陣。投影片把它形容成「在邏輯迴歸前面多加一層」。
 
-chain rule 的乘積也解釋深度困難：一路乘上過小 derivatives 會消失，過大則爆炸。residual connections、normalization 等後續架構設計會處理部分問題，但 Week 6 的公開 NN agenda 先要求學生能看見基本現象。
+輸出有很多類別時，sigmoid 換成 **softmax**：把每個分數取指數，再除以全部的總和，得到一組加起來等於 1 的機率。投影片的例子：
 
-finite-difference check 應只在小模型與少量參數使用。選一個 weight，以 `L(w+ε)-L(w-ε)` 除以 `2ε` 近似 derivative，和 backprop 結果比較。若差異大，依序查 loss averaging、activation derivative、transpose 與 bias broadcasting。
+z = [0.6, 1.1, −1.5, 1.2, 3.2, −1.1]
 
-## Training loop 需要分開觀察 optimization 與 generalization
+| z | 0.6 | 1.1 | −1.5 | 1.2 | 3.2 | −1.1 |
+|---|---|---|---|---|---|---|
+| e 的 z 次方 | 1.82 | 3.00 | 0.22 | 3.32 | 24.53 | 0.33 |
+| 除以總和 33.23 | 0.055 | 0.090 | 0.007 | 0.100 | 0.738 | 0.010 |
 
-一個完整 loop 包含 shuffle／batch、zero gradients、forward、loss、backward、parameter update 與 validation。忘記清 gradient 會意外累積；在 validation 時仍更新 weights 或使用 training-only behavior，也會污染結果。
+（投影片印的第三、四個值是 0.006 和 0.099，尾數被截掉了。）最大的分數 3.2 拿走了 74% 的機率。softmax 會放大差距：3.2 只比 1.2 多 2，機率卻是七倍多。
 
-training loss 下降證明 optimizer 能 fit 已見資料，不證明未見資料變好。應同步保存 validation loss，並在固定 evaluation interval 比較。若 training 繼續下降、validation 上升，是 overfitting signal；可考慮 regularization、early stopping、較小模型或更多資料。
+### 用在文字上
 
-learning curve 也能抓 underfitting。兩條 loss 都高且相近，問題可能是 capacity、features、optimization 或 label noise，不是直接加 regularization。把診斷分成「訓練沒學會」與「訓練學會但不泛化」，才能選對動作。
+投影片示範兩種用途。
 
-## Neural language model 的 input/output 對齊
+**情感分類。** 第 3 週的特徵是人挑的（正面詞幾個、有沒有驚嘆號）。現在改成把每個詞換成它的詞向量，再把一句話裡所有詞的向量合成一個（取平均，或每一維取最大值），丟進前饋網路。特徵不用人設計，網路自己學。
 
-將 token IDs 查 embedding table 得到 vectors，再用 context representation 預測下一個 token。訓練 pairs 要錯一格：input 是到位置 `t` 的歷史，target 是位置 `t+1`。若 shift 錯，模型可能學 identity 或對不上 loss shape。
+**語言模型。** 輸入是前幾個詞的向量，接在一起丟進網路，輸出層對整個詞彙表做 softmax，得到下一個詞的機率。因為網路的輸入長度是固定的，所以用一個固定大小的視窗往右滑。
 
-output layer dimension 等於 vocabulary size，每個位置產生 logits。cross-entropy 通常直接接 logits 與 integer target IDs，不需要先手動 softmax；重複 softmax 會造成數值與 API 語意錯誤。mask 或 padding 位置也不應計入 loss。
+它比 n-gram 好在哪裡，投影片舉的例子是：訓練資料裡有「the cat gets fed」，但從來沒有「the dog gets fed」。n-gram 沒看過「dog gets」後面接什麼，就沒有辦法。神經語言模型裡，cat 和 dog 的向量很接近，網路對相近的輸入會給相近的輸出，所以即使沒看過，也會預測 fed。第 2 週結尾留下的問題（n 越大越只能照抄）在這裡有了解法。
 
-和 n-gram baseline 比較時要固定 tokenizer、train/dev split 與 evaluation tokens。neural model 的優勢應由 held-out loss／perplexity 與 errors 支持，而不是因它「比較現代」。保存一組 n-gram 與 neural predictions，可直接看 continuous representation 在哪些 contexts 分享了統計強度。
+### 反向傳播
 
-## 公開 LLM deck 能支持的架構細節
+訓練還是用梯度下降，需要算 loss 對每一個權重的梯度。邏輯迴歸只有一層，梯度可以直接寫出來；多層網路裡，前面幾層的權重要穿過後面好幾層才影響到 loss。
 
-deck 將 GPT、Claude、Llama 等列在 decoder family，BERT 類列在 encoder family，Flan-T5／Whisper 等列在 encoder-decoder。這張表支持架構分類，不支持把每個產品視為完全相同 training recipe。
+做法是把整個計算畫成一張**計算圖**，每個節點是一個簡單運算。先從左到右算出每個節點的值（forward pass），再從右到左，用連鎖律把梯度一步一步傳回去（backward pass）。
 
-decoder-only 模型依左側 tokens 預測下一個 token；encoder masked-language objective 可利用雙向 context 建 representation；encoder-decoder 讓 encoder 讀完整 input，decoder conditional generate output。選擇不是抽象排名，而是由 task interface 決定。
+投影片的例子是 L(a, b, c) = c × (a + 2b)，輸入 a = 3、b = 1、c = −2。拆成三步：
 
-slides 也從 Week 2 n-gram 回顧開始，刻意保留共同點：都對序列與下一詞給 probabilities，都能反覆 sampling 生成。差異在 counts vs learned neural representations 與可用 context。這條對照才是本週從舊模型走到 LLM 的官方主脊。
+**Forward：**
 
-## PA5 evidence package
+- d = 2 × b = 2
+- e = a + d = 5
+- L = c × e = −10
 
-除 notebook 最終輸出外，保存 shape table、initialization seed、training/validation curves、每層 gradient norms、一個 finite-difference check 與三個分類 errors。若修改 hidden size、activation 或 learning rate，一次只改一項並記錄前後結果。
+**Backward：** 從 L 出發，每一步只需要知道「這個節點對它的直接輸入的微分」。
 
-再以固定小 batch 做 overfit test：模型應能把極少數 examples 的 loss 壓得很低。連小 batch 都無法 fit，優先懷疑 implementation；能 fit 小 batch 卻無法泛化，再查資料與 regularization。這是直接從公開 neural-network exercise 可得到的除錯流程。
+- L = c × e，所以 ∂L/∂e = c = −2，∂L/∂c = e = 5
+- e = a + d，所以 ∂e/∂a = 1，∂e/∂d = 1。連鎖律：∂L/∂a = −2 × 1 = −2，∂L/∂d = −2 × 1 = −2
+- d = 2 × b，所以 ∂d/∂b = 2。連鎖律：∂L/∂b = −2 × 2 = −4
 
-## 延伸
+結果：∂L/∂a = −2，∂L/∂b = −4，∂L/∂c = 5。
 
-公開 deck 足以確認架構主題，卻不足以引用 2026 現場的例子、問答或講者評註。要擴寫到最終長度，必須先固定 August 2025 Chapter 6 與 PA5 notebook 的 exercise-level notes，而不是用一般 LLM 歷史補篇幅。
+可以驗算：把 b 從 1 改成 1.1，L 變成 −2 × (3 + 2.2) = −10.4，下降了 0.4，正好是 −4 × 0.1。
+
+要注意的是，backward 用到了 forward 算出來的值（e = 5 被拿來當 ∂L/∂c）。所以訓練時一定是先 forward 再 backward，而且 forward 的中間結果要留著。PyTorch 這類框架做的就是自動建這張圖、自動跑 backward。
+
+## 第二部分：大型語言模型
+
+### 它是什麼
+
+投影片的定義很短：大型語言模型是一個神經網路，**輸入是一段前文，輸出是下一個詞的機率分布**。
+
+這和第 2 週的 n-gram 做的是同一件事。不同的地方是它用神經網路（Transformer）來算這個分布，而且用非常大量的文字訓練。投影片的核心論點是：文字裡包含大量的知識，光是學會猜下一個詞，就被迫學到這些知識。它列了幾個例子，要接對下面這些句子，各需要不同的東西：
+
+- 「有玫瑰、大理花和牡丹，我被＿＿包圍」（花）：需要詞義的上下位關係。
+- 「這房間不只是大，簡直是＿＿」（巨大）：需要知道程度。
+- 「4 的平方根是＿＿」：需要算術。
+- 「《自己的房間》的作者是＿＿」：需要事實。
+
+### 三種架構
+
+| 架構 | 例子 | 怎麼訓練 | 主要用途 |
+|---|---|---|---|
+| **Decoder** | GPT、Claude、Llama、DeepSeek、Mistral | 由左到右預測下一個 token | 生成文字。一般說的 LLM 指的是這種 |
+| **Encoder** | BERT 家族 | 遮住一些詞，用兩邊的上下文去猜 | 取上下文向量，微調後做分類 |
+| **Encoder-decoder** | Flan-T5、Whisper | 把一個序列對應到另一個序列 | 機器翻譯、語音辨識 |
+
+第 5 週 PA4 用來取上下文向量的 BERT 是 encoder。這堂課之後只講 decoder。它有幾個別名，指的是同一件事：causal、autoregressive、left-to-right。
+
+### 各種任務都是接話
+
+Decoder 只會一件事：看前文、產生下一個 token，把它接到前文後面，再產生下一個。這叫 **conditional generation**。
+
+投影片稱之為關鍵的歷史洞見：很多 NLP 任務都可以改寫成這個形式。
+
+- **情感分析**：給模型 `The sentiment of the sentence "I like Jackie Chan" is:` 這段文字，然後比較下一個詞是 positive 的機率高，還是 negative 的機率高。
+- **問答**：給模型 `Q: Who wrote the book 'The Origin of Species'? A:`，看它接什麼。
+
+第 3 週要為情感分類專門訓練一個分類器。現在同一個模型，換一段前文，就做另一個任務。
+
+這段前文叫 **prompt**。投影片補充了三件事：prompt 裡可以放幾個範例（demonstrations）讓模型照著做；實際的產品在使用者的訊息前面，會自動接上一段使用者看不到的 **system prompt**；system prompt 可以很長。
+
+投影片在這裡提醒了一句：我們直覺上把這當成在跟模型對話，但要記得，模型做的只是 conditional generation。
+
+### 取樣：下一個詞怎麼選
+
+模型輸出的是整個詞彙表上的機率分布，還得從裡面選一個詞。
+
+**每次都選機率最高的**（greedy decoding）看起來合理，但實際上不這樣做：它產生的文字太容易預測，通用而且重複。
+
+**照機率隨機抽**（random sampling）也有問題。詞彙表裡有非常多機率很低的怪詞，個別機率很小，加起來卻佔了不小的比例，所以常常會被抽到，句子就歪掉了。
+
+兩者之間有一個取捨：偏重高機率的詞，文字比較正確、連貫，但無聊；給中低機率的詞多一點機會，文字比較有變化，但容易出錯。
+
+**溫度取樣**用一個參數控制這個取捨。做法是在 softmax 之前，把每個分數除以溫度 τ。
+
+本文自擬一組數字：三個詞的分數是 [2, 1, 0]。
+
+| 溫度 τ | 除以 τ 之後 | softmax 後的機率 |
+|---|---|---|
+| 1 | [2, 1, 0] | 0.67、0.24、0.09 |
+| 0.5 | [4, 2, 0] | 0.87、0.12、0.02 |
+| 2 | [1, 0.5, 0] | 0.51、0.31、0.19 |
+
+溫度低於 1，分數的差距被拉大，機率集中到最高的那個詞，接近每次都選最高的；溫度高於 1，差距被壓小，機率比較平均。τ 趨近 0 時，就等於 greedy decoding。第 3 週實作課二裡「把 z 除以一個數再丟進 sigmoid」的題目，預告的就是這個。
+
+### 預訓練：只教它猜下一個詞
+
+投影片用一張圖把 LLM 的訓練分成三個階段：預訓練、instruction tuning、preference alignment。這堂課講前兩個，偏好對齊留到第 10 週的最後一堂。
+
+預訓練的演算法只有幾行：
+
+1. 拿一大份文字。
+2. 在每一個位置，要模型預測下一個詞。
+3. 用梯度下降調整權重，讓預測錯得少一點。
+
+這叫**自監督**：不需要人標註，文字裡的下一個詞就是答案。
+
+Loss 是「模型給正確的下一個詞的機率」取負對數：−log p(正確的詞)。這和第 3 週的 cross-entropy 是同一個東西。正確答案的分布在正確的詞上是 1、其他都是 0，所以 cross-entropy 的式子裡只有一項會留下來。
+
+訓練時有一個細節叫 **teacher forcing**。在位置 t，模型看到的是**正確的**前 t 個詞，算出對第 t+1 個詞的 loss。到了位置 t+1，不管模型剛才猜了什麼，接到前文後面的都是正確的那個詞。模型在訓練時不會被自己猜錯的詞帶偏。
+
+### 訓練資料
+
+主要來源是網路。投影片舉的例子：Common Crawl 是一個非營利組織定期抓取的整個網路的快照，有數十億個網頁；2025 年的 FineWeb 語料從 2013 到 2024 年的 96 份 Common Crawl 資料整理出 18.5 兆個英文 token。
+
+資料要先過濾：去掉樣板文字和色情內容、在網址、文件甚至單行的層級去除重複、偵測惡意內容。
+
+其他語言怎麼辦？世界上有超過七千種語言。投影片說，答案出乎意料地簡單：把所有語言的資料丟進同一個檔案一起預訓練。FineWeb2 涵蓋一千種語言、五十億份文件。第 2 週提過這樣做的代價：token 的分配偏向英文，其他語言被切得比較碎。
+
+### Instruction tuning：把接話的模型變成助理
+
+只做完預訓練的模型還不能當助理用。它是一個文字預測器，不知道你要它「回答」。投影片舉了兩個例子：
+
+- 給它「用幾句話向六歲小孩解釋登月」，它接的是「向六歲小孩解釋重力理論」。它把你的話當成一串題目的第一題，繼續出題。
+- 給它「翻譯成法文：The small dog」，它接的是「The small dog crossed the road」。它把句子寫完了，沒有翻譯。
+
+解法是 **instruction tuning**，也叫監督式微調（supervised fine-tuning，SFT）：拿預訓練好的模型，用一大批「指令加上正確回應」的資料繼續訓練。資料涵蓋各種任務：問答、翻譯、分類、摘要、寫作。訓練方式和預訓練完全一樣，還是預測下一個詞，只是資料換成了這種格式。投影片提到的一份多語言資料集 Aya，有 114 種語言、5 億多筆指令。
+
+這和 prompt 裡放範例是兩回事。放範例時模型的權重沒有變，只是前文不同；instruction tuning 是用梯度下降真的改了權重。
+
+### 評估與安全
+
+評估語言模型，用的還是第 2 週的 perplexity：把測試文字的機率對長度做正規化，越低越好，而且只能在斷詞相同的模型之間比較。投影片另外列了三個要看的面向：模型大小、訓練耗能與公平性。
+
+現場課的最後一節談安全與倫理。投影片從《科學怪人》講起：瑪麗·雪萊在 1816 年寫的就是「造出一個有行動能力的東西，卻不為它的行為負責」的故事。具體到 LLM，投影片列的問題有：模型會說出不符事實的話，因為訓練目標只要求文字通順好預測，沒有任何機制要求它為真；模型可能建議危險或違法的行為；訓練資料大量來自有著作權的文字，合不合法在各國都還沒有定論；網站擁有者不一定同意被抓取；資料多半出自美國的作者，主題和觀點因此偏向一邊。
+
+## PA5
+
+**[PA5](https://github.com/cs124/pa5-neural-networks)** 的 notebook 分三段：先看邏輯迴歸為什麼不夠用；再自己寫一個網路的初始化、forward、backward 和預測；最後用詞向量當輸入，做 Yelp 評論的分類，並回答倫理題。寫的時候建議養成一個習慣：每個矩陣運算前先寫下輸入和輸出的形狀。一批 m 筆資料、每筆 d 維、隱藏層 h 個單元，那麼 X 是 m×d，W 是 d×h，隱藏層的輸出是 m×h。多數的錯誤是矩陣放反了，對一下形狀就抓得到。
+
+## 自我檢查
+
+1. 用投影片那個神經元（w = [0.2, 0.3, 0.9]，b = 0.5），啟動函數換成 ReLU，輸入 x = [0.5, 0.6, 0.1] 的輸出是多少？如果 b 改成 −1 呢？答案：z = 0.87，ReLU 輸出 0.87。b = −1 時 z = −0.63，ReLU 輸出 0。
+2. 把 XOR 網路的 ReLU 全部拿掉，輸入 (1, 1) 會得到什麼？答案：h₁ = 2，h₂ = 1，y = 2 − 2 = 0，這一筆碰巧還是對的。但輸入 (0, 0) 時 h₂ = −1，y = 0 − 2×(−1) = 2，錯了。沒有 ReLU 把負數截成 0，網路就壞了。
+3. 計算圖的例子裡，如果 c 從 −2 改成 −1.9，L 大約變多少？答案：∂L/∂c = 5，c 增加 0.1，L 大約增加 0.5，從 −10 變成 −9.5。實際算：−1.9 × 5 = −9.5。
+4. 模型對下一個詞的機率分布是：「貓」0.5、「狗」0.3、「魚」0.2，正確答案是「魚」。這個位置的 loss 是多少？答案：−ln(0.2) ≈ 1.61。
+5. 三個詞的分數是 [2, 1, 0]，溫度調到 0.1，會發生什麼事？答案：除以 0.1 之後是 [20, 10, 0]，第一個詞的機率超過 0.9999，幾乎等於 greedy decoding。
+
+## 這週和後面的關係
+
+- 這週把 Transformer 當成一個黑盒子：前文進去，機率分布出來。下一週打開它，看 attention 怎麼讓每個 token 參考前面的 token。
+- 這週的取樣和 loss，下一週的 PA6a 要自己寫出來。
+- 訓練的第三個階段，偏好對齊，在第 10 週。
+
+**系列導覽**：上一篇 [第 5 週：Embeddings and Social NLP](/posts/ai/2026-08-22-cs124-week5-embeddings-social-nlp)｜下一篇 [第 7 週：Transformers and Speech Processing](/posts/ai/2026-08-22-cs124-week7-transformers-speech)
+
+## 更新紀錄
+
+- 2026-10-13：依 2026 年版公開投影片重寫。現場課的來源從 2025 年的舊檔換成官方課表現在連結的 2026 年版；補上神經元、XOR、softmax、計算圖的手算，新增 conditional generation、溫度取樣、預訓練、訓練資料、instruction tuning 與安全各節，以及自我檢查。
 
 ## 參考資料
 
-- [CS124 Winter 2026 schedule](https://web.stanford.edu/class/cs124/lec/)
-- [Neural Networks slides](https://www.stanford.edu/class/cs124/lec/7_NN.pdf)
-- [LLM and Transformer slides](https://www.stanford.edu/class/cs124/lec/LLM_cs124_week7_2025.pdf)
-- [SLP3 Chapter 6](https://web.stanford.edu/~jurafsky/slp3/6.pdf)
+- [CS124 Winter 2026 課程網站與課表](https://web.stanford.edu/class/cs124/)
+- [Neural Networks 投影片](https://web.stanford.edu/class/cs124/lec/7_NN.pdf) — 神經元例子、XOR、softmax 例子、前饋網路的應用、計算圖
+- [Introduction to Large Language Models 投影片](https://web.stanford.edu/class/cs124/lec/llm_cs124_26.pdf) — LLM 的定義、三種架構、conditional generation、取樣、預訓練、訓練資料、instruction tuning、評估與安全
 - [CS124 PA5](https://github.com/cs124/pa5-neural-networks)
+- [Speech and Language Processing 2025 年 8 月版第 6 章](https://web.stanford.edu/~jurafsky/slp3/old_aug25/6.pdf)

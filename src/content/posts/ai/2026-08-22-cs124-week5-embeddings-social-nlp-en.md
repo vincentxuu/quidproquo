@@ -1,104 +1,184 @@
 ---
-title: "Embeddings and Social NLP: Context Vectors and the Public-Evidence Boundary | Stanford CS124 Week 5"
+title: "Embeddings and Social NLP: Representing a Word by the Words Around It | Stanford CS124 Week 5"
 date: 2026-08-22
 category: ai
 type: deep-dive
 tags: [cs124, stanford, embeddings, social-nlp, nlp]
 lang: en
 series: { name: "Reading Stanford CS124", order: 6 }
-tldr: "Week 5's public materials support the distributional hypothesis, word embeddings, and cosine similarity; the paired Social NLP lecture is unrecorded and restricted, so concrete audit methods are labeled as author extensions."
-description: "Stanford CS124 Winter 2026 Week 5: distributional hypothesis, word embeddings, cosine similarity, representation learning, Social NLP, and PA4."
+tldr: "Week 5 teaches embeddings: the meaning of a word can be represented by the words that tend to appear around it. It builds vectors from co-occurrence counts and compares them by cosine, then trains dense vectors of a few hundred dimensions with word2vec, and finally separates static vectors from ones that change with context. The same week's live lecture on computational social science has no public material."
+description: "A guide to Stanford CS124 Winter 2026 Week 5: the distributional hypothesis, co-occurrence vectors with a hand-worked cosine, how word2vec (skip-gram with negative sampling) turns the problem into logistic regression, properties of embeddings and analogies, cultural bias in vectors, static versus contextual embeddings, and PA4. Based on the public slides."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs124-week5-embeddings-social-nlp)
 
-Week 5 is the first major representation-learning turn in CS124. Earlier representations are largely designed by people; embeddings are learned from contexts. The [official schedule](https://web.stanford.edu/class/cs124/lec/) pairs Embeddings material with Dan Jurafsky's live “Social NLP / NLP for Computational Social Science” lecture. The former has a public chapter and PA4; the latter is unrecorded and restricted, so this article does not reconstruct its argument.
+This is Week 5 of [Reading Stanford CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en), and the turning point of the course. In the previous three weeks people designed the representations: the features in Week 3 were hand-picked and the vectors in Week 4 were counted directly. From this week on, the data learns the representation.
 
-**Version:** Winter 2026. **Unit:** Week 5, February 3 and 5. **Instructor:** Dan Jurafsky, including the February 3 live Social NLP lecture. **Public materials:** the [schedule](https://web.stanford.edu/class/cs124/lec/), [SLP3 Chapter 5](https://web.stanford.edu/~jurafsky/slp3/5.pdf), and [PA4](https://github.com/cs124/pa4-embeddings). The syllabus assigns Chapter 5 pp.1–12 and 17–21 plus Chapter 10 pp.9–12 from the August 2025 release. **Gap:** the live lecture was not recorded, its Social NLP slides return 403 from the restricted path, and Canvas narration and Quiz 4 are gated. This article covers the public embeddings agenda and does not invent the live lecture's examples.
+The question is: **how do you represent the meaning of a word as a list of numbers?**
 
-## Meaning from context
+**This week's material**: the [Vector Semantics and Embeddings slides](https://web.stanford.edu/class/cs124/lec/vector26jan.pdf), the [Contextual Embeddings slides](https://web.stanford.edu/class/cs124/lec/ContextualEmbeddings25.pdf) (a 2025 file that the current schedule page no longer displays a link to, though it still downloads) and [PA4](https://github.com/cs124/pa4-embeddings). The assigned reading is [Chapter 5](https://web.stanford.edu/~jurafsky/slp3/old_aug25/5.pdf) of the August 2025 release of the textbook, plus a short part of [Chapter 10](https://web.stanford.edu/~jurafsky/slp3/old_aug25/10.pdf). The pre-recorded videos are on Canvas. This week also has a live lecture by Dan Jurafsky on computational social science. It was not recorded and its slides need a Stanford login, so this post covers only the embeddings material.
 
-The distributional hypothesis and embedding definitions follow assigned [SLP3 Chapter 5](https://web.stanford.edu/~jurafsky/slp3/5.pdf).
+## The starting point: look at a word's neighbors
 
-The distributional hypothesis says that words appearing in similar contexts tend to have similar meanings. Instead of manually defining every word, a system builds representations from neighboring usage.
+The slides open with a word most people have not seen: ongchoi. Suppose you read these sentences:
 
-A count-based vector can assign one dimension to each context word and record co-occurrence. Cosine similarity compares directions rather than raw lengths, reducing the tendency for globally frequent words to look similar to everything merely because their counts are large.
+- Ongchoi is delicious sautéed with garlic.
+- Ongchoi is superb over rice.
+- ...ongchoi leaves with salty sauces...
 
-## From sparse counts to learned vectors
+And you have also read these:
 
-Raw co-occurrence matrices are high-dimensional, sparse, and dominated by frequent terms. Weighting such as PPMI highlights pairs occurring more often than independence would predict. Dense embeddings compress the statistics into a smaller continuous space.
+- ...spinach sautéed with garlic over rice...
+- ...chard stems and leaves are delicious...
+- ...collard greens and other salty leafy greens...
 
-[Chapter 5](https://web.stanford.edu/~jurafsky/slp3/5.pdf) explains that word2vec-style methods learn vectors through a prediction objective instead of storing the full count matrix. The representation becomes an output of data and objective rather than a hand-written feature list. The [PA4 repository](https://github.com/cs124/pa4-embeddings) adds PyTorch and Transformers dependencies as the course moves into learned representations.
+Without being told, you can guess that ongchoi is a leafy green similar to spinach and chard (it is water spinach). The clue you used is that it shows up in the same kinds of sentences as spinach, surrounded by words like "garlic," "leaves," "rice" and "salty."
 
-## One point per word is a limitation
+This idea is the **distributional hypothesis**: words that occur in similar contexts have similar meanings. It trades the abstract thing called meaning for something you can count, namely which words tend to appear around a word.
 
-A static embedding assigns one vector to each vocabulary item. It captures useful relations but merges polysemy: river-bank and financial-bank share a point. Contextualized embeddings later generate different token states from the surrounding sentence.
+## The first approach: count co-occurrences
 
-Static vectors still provide inexpensive, visualizable baselines. For stable lexical similarity or small data, they may be easier to deploy and inspect than a large contextual encoder.
+For each word, count how often every other word appears within a few words of it (the slides use four words on either side). The slides take four words from Wikipedia and look at only three context words:
 
-## Author extension: a bounded audit of vector associations
+| | pie | data | computer |
+|---|---|---|---|
+| **cherry** | 442 | 8 | 2 |
+| **strawberry** | 60 | 0 | 0 |
+| **digital** | 5 | 1683 | 1670 |
+| **information** | 5 | 3982 | 3325 |
 
-The following is an author extension from [Chapter 5's](https://web.stanford.edu/~jurafsky/slp3/5.pdf) account of vectors learned from corpus distributions, not a reconstruction of the live Social NLP lecture. Distributional learning preserves corpus associations; vector proximity alone does not establish causal or person-level claims.
+Each row is that word's vector. The numbers alone show it: cherry and strawberry both co-occur with pie, and digital and information both co-occur with data and computer.
 
-Proximity in a vector space is not a natural essence. Before interpreting person, occupation, or group vectors, ask where the corpus came from, who is overrepresented, what period it covers, and what claim the similarity is meant to support. A cosine score is geometry inside a representation, not a causal or moral judgment.
+To turn "you can see it" into a number, use last week's cosine: the dot product divided by the lengths of the two vectors.
 
-The evidence boundary matters here. A title does not authorize attributing particular studies, numbers, or ethical claims to the live lecture. Knowing that a topic occurred is not knowing how Jurafsky argued it.
+**cherry and information:**
 
-## What PA4 should test
+- dot product = 442×5 + 8×3982 + 2×3325 = 40,716
+- length of cherry = √(442² + 8² + 2²) = 442.1
+- length of information = √(5² + 3982² + 3325²) = 5,187.7
+- cosine = 40,716 ÷ (442.1 × 5,187.7) = **0.018** (the slides print .017, with the last digit truncated)
 
-[PA4](https://github.com/cs124/pa4-embeddings) works with embeddings in a notebook environment. An independent extension should include three probes: expected synonym neighbors, polysemous words that may collapse senses, and human inspection of person or occupation neighborhoods.
+**digital and information:**
 
-Do not report only attractive analogies. Record failures, then vary corpus, context window, or representation. As a concrete finish line, choose ten words, create a cosine-similarity matrix, and explain whether each high-similarity pair reflects semantics, syntax, or source-data effects.
+- dot product = 5×5 + 1683×3982 + 1670×3325 = 12,254,481
+- length of digital = √(5² + 1683² + 1670²) = 2,371.0
+- cosine = 12,254,481 ÷ (2,371.0 × 5,187.7) = **0.996**
 
-## Building the term-context matrix
+The counts for information are more than twice those for digital, but the cosine looks only at direction, so the two nearly coincide. Cherry and information are nearly perpendicular.
 
-[Chapter 5](https://web.stanford.edu/~jurafsky/slp3/5.pdf) assigns target words to rows and context words to columns. Context may be a fixed window, sentence, or syntactic relation. Small windows often emphasize local or syntactic behavior; large windows more often capture topic. Larger is not automatically better.
+Vectors like these have two drawbacks. They have as many dimensions as the vocabulary, easily tens of thousands, and almost all the entries are 0. And words that are everywhere, like "the" and "of," have very high counts while carrying little information, which is what last week's tf-idf was for.
 
-PMI compares `P(w,c)` with `P(w)P(c)`, and PPMI clips negative values to zero. Rare pairs can receive extreme PMI because their denominator is tiny, so counts, smoothing, and thresholds must accompany interpretation. Show word, context, and joint counts beside a similarity result.
+## The second approach: word2vec
 
-Cosine removes vector length and emphasizes direction, but is undefined for zero vectors and unstable with scarce evidence. Nearest-neighbor tables should include frequency rather than presenting similarity alone.
+The word vectors that work well in practice are **short and dense**: roughly 50 to 1,000 dimensions, with a value in every one. These are called embeddings. Short vectors mean fewer weights for a downstream model to learn, and words with similar meanings are more easily grouped together.
 
-## Prediction-based embeddings
+The method the slides teach is one variant of word2vec: **skip-gram with negative sampling** (SGNS). Its trick is that it counts nothing. It recasts the problem as the binary classification from Week 3.
 
-Skip-gram predicts nearby contexts from a target; CBOW predicts a target from contexts. Negative sampling approximates the large-vocabulary objective. Its sampling distribution changes which contrasts training rewards. The objective defines learned relationships rather than neutrally storing language.
+### Replace counting with guessing whether two words are neighbors
 
-An embedding row becomes useful when it supports shared prediction behavior. The same mechanism learns unintended corpus associations whenever they improve prediction.
+The question becomes: given a target word w and another word c, is c a neighbor of w?
 
-## Analogies are probes, not understanding
+The training data needs no human labels, because the text itself is the answer. The slides' example:
 
-Vector offsets can expose regularities, but results depend on corpus, vocabulary, metric, and candidate exclusions. Evaluate relation categories, report out-of-vocabulary coverage, and retain failures. Intrinsic analogy or similarity scores do not guarantee downstream classification or retrieval improvement.
+> …lemon, a [tablespoon of **apricot** jam, a] pinch…
 
-## Static and contextual representations
+The target word is apricot and the window is two words on either side. The words in the window are the **positive examples**:
 
-Static lookup gives `bank` one vector. Contextual layers transform the token using its sentence, allowing river and finance uses to diverge. A contextual “embedding” therefore requires model, revision, layer, pooling, tokenizer, and input sentence. Averaging layers is itself a design choice.
+| Target | Context word | Label |
+|---|---|---|
+| apricot | tablespoon | neighbor |
+| apricot | of | neighbor |
+| apricot | jam | neighbor |
+| apricot | a | neighbor |
 
-The [PA4 repository](https://github.com/cs124/pa4-embeddings) uses PyTorch and Transformers dependencies to connect static exercises to pretrained contextual models. Record revisions so future runs remain interpretable.
+The **negative examples** are drawn at random from the vocabulary: each positive example is paired with k random words, such as (apricot, aardvark), (apricot, seven) and (apricot, forever), labeled "not a neighbor." That is negative sampling.
 
-## Responsible tests despite the Social NLP source gap
+### What the classifier looks like
 
-This remains an author extension from readable [Chapter 5](https://web.stanford.edu/~jurafsky/slp3/5.pdf), not a claim about the inaccessible live lecture.
+Every word has a vector. The probability that two words are neighbors is the sigmoid of the dot product of their vectors:
 
-The inaccessible live lecture cannot be reconstructed, but Chapter 5 supports one bounded principle: embeddings learn corpus distributions. Record source, period, language, sampling, and preprocessing before social interpretation.
+P(neighbor | w, c) = σ(c · w)
 
-A bias probe must define its metric and word lists. Cosine differences over selected targets and attributes are not a complete measure of social bias. Test sensitivity to alternative lists, seeds, and corpus slices. A fragile result is a probe finding, not a model essence.
+The larger the dot product, the higher the probability. This is the same formula as the logistic regression in Week 3. The difference is that **there are no fixed features here, and the vectors themselves are what is learned**.
 
-Association does not reveal individual authors' beliefs and should not classify people. Representation audit identifies patterns that a downstream system might amplify; harm must then be evaluated in the actual task.
+Here are some numbers made up for this post. Suppose the dot product of the vectors for apricot and jam is 2: the model puts the probability that they are neighbors at σ(2) ≈ 0.88. Suppose the dot product for apricot and aardvark is −1: the probability is σ(−1) ≈ 0.27.
 
-## A PA4 evidence package
+### How it learns
 
-Preserve a small count/PPMI matrix, static nearest neighbors, contextual sentence comparisons, and failure or bias probes. Attach corpus or model revision, vocabulary, and similarity definition. Add frequency-matched comparisons so representation quality is not confused with evidence volume.
+Every word's vector starts out random. Training still uses cross-entropy loss and gradient descent, and each training example does two things:
 
-Finally compare bag-of-words, static embeddings, and contextual features in one downstream classifier with the same split and retained error cases. This connects Weeks 2–5 without inventing live Social NLP content.
+- Pull the target word's vector toward the vectors of its **positive examples** (increase the dot product).
+- Push the target word's vector away from the vectors of its **negative examples** (decrease the dot product).
 
-## Further study
+After many passes over the corpus, words that often occur together have nearby vectors and words that never do are apart.
 
-Week 6 connects representation learning to neural networks, and Week 7 makes token states context-sensitive. Embedding quality remains relative to data, objective, and downstream criteria.
+There is one thing here worth being clear about. Nobody wants this classifier for its own sake. Nobody actually needs to know whether jam is a neighbor of apricot. The classifier is a pretext, and the goal is the vectors that training produces along the way. The classification task is thrown away and the vectors are kept.
+
+SGNS in fact learns two vectors for every word: one used when it is the target and one used when it is the context. A common choice is to add the two and use the sum as the final vector.
+
+## Properties of embeddings
+
+**The window size decides which kind of similarity you get.** The slides' example: with a very small window (two words either side), the nearest neighbors of Hogwarts are schools from other works of fiction, words of the same kind that could replace it. With a large window, the nearest neighbors become Dumbledore, Malfoy and half-blood, words from the same topic.
+
+**Subtracting vectors can represent a relation.** The best-known example is that king − man + woman lands near queen, and Paris − France + Italy lands near Rome. Drawn out, the two pairs form a parallelogram. The slides add a caveat: the method only works for frequent words, small distances and certain relations, and how analogy works is not fully understood.
+
+**Vectors record the era of their corpus.** Training one set of vectors on text from each decade shows meanings shifting over time.
+
+**Vectors also record the biases of their corpus.** With the same analogy method, asking "Paris is to France as Tokyo is to what" gives Japan. Asking "man is to computer programmer as woman is to what" gave, in a 2016 study, homemaker. The vectors faithfully reflect how words are used in the training text, stereotypes included. The slides point out the consequence: if such vectors are used in a system that screens résumés, the bias comes along.
+
+The same property can be turned around and used as a research tool. The slides present a 2018 study that Jurafsky co-authored: train vectors on text from each decade of a century and measure which gender or ethnicity each adjective leans toward. Adjectives about competence (brilliant, logical, thoughtful) leaned toward men, and that lean shrank from the 1960s to the 1990s. Work of this kind is the subject of this week's live lecture on computational social science: using language models as instruments for observing society.
+
+## The limit of static vectors, and contextual embeddings
+
+word2vec gives each word **one fixed vector**, called a static embedding. The problem is words with more than one sense:
+
+- We had a picnic on the grassy river **bank**.
+- I went to the **bank** and withdrew some cash.
+
+The word bank gets the same vector in both sentences, and that vector can only be a blend of the two senses.
+
+A **contextual embedding** works differently: the whole sentence goes through a language model, every word gets a vector, and **the same word gets different vectors in different sentences**. The slides show the vectors BERT computes for the word die. Plotted on a plane they fall into clusters: one for the singular of dice, one for the verb to die, and even one for the German article die.
+
+The difference can be summarized this way:
+
+| | Static embedding | Contextual embedding |
+|---|---|---|
+| What it represents | A word in the vocabulary | One occurrence of a word in a particular sentence |
+| How you get it | Look it up in a table | Pass the whole sentence through a language model |
+| The same word in different sentences | Same vector | Different vectors |
+
+Contextual embeddings are taken from inside a Transformer, which is the subject of the next two weeks.
+
+## PA4
+
+**[PA4](https://github.com/cs124/pa4-embeddings)** has two halves. The first uses static word vectors: find synonyms, compare different similarity measures, and look at where antonyms sit in the vector space. The second uses BERT to get contextual embeddings and computes similarity between sentences. It ends with ethics questions. The README recommends going through the Week 5 videos and slides and the corresponding textbook reading first. Besides the existing `cs124` environment, this assignment needs PyTorch and Hugging Face Transformers installed, because it uses a pretrained model to get contextual embeddings.
+
+There is no lab this week. The Tuesday slot is the live lecture.
+
+## Self-check
+
+1. Use the co-occurrence table to compute the cosine of cherry and strawberry. Answer: strawberry's vector is [60, 0, 0], the dot product is 442×60 = 26,520, the length of strawberry is 60 and of cherry 442.1, so the cosine is 26,520 ÷ (442.1 × 60) ≈ 1.00. On these three dimensions the two point in almost exactly the same direction.
+2. In SGNS, if the dot product of two words' vectors is 0, what probability does the model give that they are neighbors? Answer: σ(0) = 0.5, no lean either way.
+3. The training text is "I drink hot coffee," the window is one word on either side, and the target word is "hot." What are the positive examples? Answer: (hot, drink) and (hot, coffee).
+4. "Apple" can be a fruit or a company. How does each kind of embedding handle it? Answer: there is a single static vector, a blend of the two uses that leans toward whichever is more common in the corpus. A contextual embedding gives two different vectors in "eat an apple" and "Apple announced a new phone."
+
+## How this week connects to later ones
+
+- The first step of the neural language model in Week 6 is to replace each token with its vector. The vectors in that layer are trained together with the rest of the model, with no separate word2vec run.
+- SGNS is the first example of using a prediction task as a pretext for learning a representation. Language models follow the same pattern: the training objective is to predict the next token, and what turns out to be useful is the representation learned along the way.
+- The document vectors used in last week's dense retrieval are the contextual embeddings from the end of this week.
+
+**Series navigation**: previous, [Week 4: Information Retrieval](/posts/ai/2026-08-22-cs124-week4-information-retrieval-en) | next, [Week 6: Neural Networks and LLMs](/posts/ai/2026-08-22-cs124-week6-neural-networks-llms-en)
+
+## Update Log
+
+- 2026-10-13: Rewritten from the public slides. Added a hand-worked cosine on co-occurrence vectors, how skip-gram's positive and negative examples are built and trained, properties of embeddings and the bias studies, a comparison of static and contextual embeddings, and a self-check; removed author extensions unrelated to the slides.
 
 ## References
 
-- [CS124 Winter 2026 schedule](https://web.stanford.edu/class/cs124/lec/)
-- [SLP3 Chapter 5: Embeddings](https://web.stanford.edu/~jurafsky/slp3/5.pdf)
-- [CS124 PA4 Embeddings](https://github.com/cs124/pa4-embeddings)
-- [Speech and Language Processing, 3rd edition index](https://web.stanford.edu/~jurafsky/slp3/)
-- [Complete Stanford CS124 course overview](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en)
+- [CS124 Winter 2026 course site and schedule](https://web.stanford.edu/class/cs124/)
+- [Vector Semantics and Embeddings slides](https://web.stanford.edu/class/cs124/lec/vector26jan.pdf) — the ongchoi example, the co-occurrence table and cosine, skip-gram, analogies and the bias studies
+- [Contextual Embeddings slides](https://web.stanford.edu/class/cs124/lec/ContextualEmbeddings25.pdf) — the bank and die examples, static versus contextual embeddings
+- [CS124 PA4](https://github.com/cs124/pa4-embeddings)
+- [Speech and Language Processing, August 2025 release, Chapter 5](https://web.stanford.edu/~jurafsky/slp3/old_aug25/5.pdf)

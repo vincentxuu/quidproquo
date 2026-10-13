@@ -1,118 +1,227 @@
 ---
-title: "Speech and PA7/Git Lab：把 TTS→STT pipeline 當成可稽核的資訊損失｜Stanford CS124 第 8 週／程式作業 7"
+title: "Speech and PA7/Git Lab：聲音怎麼變成 Whisper 讀得懂的輸入｜Stanford CS124 第 8 週"
 date: 2026-08-22
 category: ai
 type: deep-dive
 tags: [cs124, stanford, speech-recognition, text-to-speech, nlp]
 lang: zh-TW
 series: { name: "Stanford CS124 導讀", order: 9 }
-tldr: "Week 8 以 PA6b 把文字轉語音再轉回文字，要求分類錯誤、檢查格式遺失與口音偏差；同週 Lab 4 以 Git 與 PA7 協作把課程帶入團隊 agent 專案。"
-description: "Stanford CS124 Winter 2026 Week 8：speech processing readings、TTS/STT pipeline、error analysis、accessibility、dialect stress test、Git 與 PA7 Lab。"
+tldr: "第 8 週接著講語音：聲音怎麼產生、怎麼從波形變成模型吃的 log mel 頻譜、Whisper 怎麼用 encoder-decoder 和 cross-attention 把聲音轉成文字。PA6b 把文字轉成語音再轉回來，分析哪些資訊不見了。實作課四介紹 PA7 的 agent 流程並教小組用 GitHub 協作。"
+description: "Stanford CS124 Winter 2026 第 8 週導讀：語音學基礎（ARPAbet、有聲與無聲）、波形、頻譜與 spectrogram、切 frame 與 mel 刻度、卷積層、Whisper 的 encoder-decoder 架構與 cross-attention、訓練資料與限制；PA6b 的五個部分；實作課四的 PA7 概覽與 GitHub 流程。依公開投影片、PA6b repo 與 labs repo。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs124-week8-speech-git-en)
 
-Week 8 把 speech 從 lecture topic 變成可執行 pipeline：文字經 text-to-speech 產生音訊，再由 speech-to-text 轉回文字，最後比較資訊在哪裡消失。同一週的 Lab 4 改談 PA7 與 Git，為最後的多人 agent 作業建立協作流程。
+這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 8 週。[上一週](/posts/ai/2026-08-22-cs124-week7-transformers-speech)講了語音辨識的任務和詞錯誤率，這一週講它怎麼做到：聲音是一串連續的氣壓變化，要經過哪些步驟才能交給 Transformer。
 
-**版本：** CS124 Winter 2026。**單元：** Week 8，2026-02-24、02-26。**活動：** required in-person Lab 4: PA7 and Git。**公開材料：** [schedule](https://web.stanford.edu/class/cs124/lec/)、[PA6b](https://github.com/cs124/pa6b-speech)、[Lab 4](https://github.com/cs124/labs/blob/main/Lab4_LargeLanguageModels.md)。**缺口：** 課表指定的 speech chapter numbers 對應 August 2025 release，現行 SLP3 已重排；Week 7 speech lecture 未錄影；Lab 4 現場活動也未錄影。PA6b 需要 Cartesia account/API key，執行結果受當下服務版本影響。
+這一週有三塊：
 
-## TTS→STT 讓誤差可觀察
+- **語音的技術內容**：上週語音現場課[投影片](https://web.stanford.edu/class/cs124/lec/speech_cs124_26.pdf)的後半，加上這週的指定閱讀，教科書 2025 年 8 月版的[第 14 章](https://web.stanford.edu/~jurafsky/slp3/old_aug25/14.pdf)（語音學）與[第 15 章](https://web.stanford.edu/~jurafsky/slp3/old_aug25/15.pdf)（語音辨識）。
+- **[PA6b](https://github.com/cs124/pa6b-speech)**：文字轉語音、語音轉文字，然後分析錯誤。
+- **實作課四**：PA7 概覽與 GitHub。這是必須到場的實作課，沒有錄影，[題目](https://github.com/cs124/labs/blob/main/Lab4_Agent.md)公開。
 
-[PA6b](https://github.com/cs124/pa6b-speech) 先讀取 PA6a 的 sampled sentences，呼叫 TTS 產生 `sampled_sentences_speech.wav`，再以 STT 產生文字檔。把兩個模型串起來的好處是每一端都有可保存 artifact：原文、音訊、transcript。
+## 聲音是怎麼來的
 
-最終差異不能全部叫「模型錯了」。TTS 可能選錯發音、節奏或重音；STT 可能替換詞、刪除 hesitation、插入常見詞；文字原有的大小寫、換行與部分標點，本來就不一定編碼在聲音中。PA6b 要求學生找三種不同錯誤或資訊損失，並判斷較可能來自哪一段。
+投影片說明為什麼做語音辨識要懂一點語音學：模型出錯的時候，你需要一套語言來描述它錯在哪裡。描述不出來的錯誤就量不了，也修不了。
 
-## Word error rate 不是完整的 accessibility
+### 把聲音寫下來
 
-[PA6b](https://github.com/cs124/pa6b-speech) 把 automated captions 接到 accessibility。單一 word error rate 可量化 substitution、deletion、insertion，卻不涵蓋字幕時間、speaker identification、音調或關鍵非語音聲音。兩份 transcript 即使 WER 相同，也可能對理解造成完全不同的影響。
+英文的拼字和發音對不上，所以需要另一套符號，一個符號對一個音。投影片用的是 **ARPAbet**，早期為了英文語音辨識研究設計的，只用一般的英文字母：
 
-[PA6b](https://github.com/cs124/pa6b-speech) 的問題要求區分「達到法律要求」與「提供 equal access」，並思考 captions 對 D/deaf、hard-of-hearing 以外使用者的作用。這裡不替 repo 的法律背景增加判例細節；可確認的課程 agenda 是：學生必須把模型指標與實際可近用性分開討論。
+| 詞 | ARPAbet |
+|---|---|
+| bead | b iy d |
+| clack | k l ae k |
+| clock | k l aa k |
+| super | s uw p axr |
+| supper | s ah p axr |
 
-## Dialect 與 dysfluency stress test
+super 和 supper 拼字只差一個字母，母音完全不同。ARPAbet 只涵蓋美式英語；跨語言的分析要用國際音標（IPA）。
 
-公開 [PA6b stress-test instructions](https://github.com/cs124/pa6b-speech) 要求找或錄一段十到十五秒的 regional dialect、non-native accent 或包含停頓、`um/uh` 的自然語音，交給相同 STT pipeline。這個設計把「平均表現」換成有目的的 edge-case test。
+### 發聲的過程
 
-比較時應保留 audio 與人工 transcript，逐字標註錯誤類型。若只寫「口音辨識不好」，無法分辨是 proper nouns、phonology、code-switching、背景噪音或 disfluency normalization。也不能從一次 clip 推論整個群體；它只能揭露一個值得擴大測試的 failure mode。
+1. 空氣從肺部往上送。
+2. 通過喉部的聲帶，聲帶被氣流推開又彈回來，快速振動，一個週期大約百分之一秒。
+3. 聲波經過口腔，被舌頭、嘴巴、嘴唇的形狀塑造成不同的音。
 
-## API 是作業依賴，也是重現缺口
+聲帶不是每個音都振動。所有母音和 d、b、g、z、m、n 這些**有聲**子音會振動；t、p、k、s、f 這些**無聲**子音不會。投影片的小實驗：把手放在喉嚨上，先發 sssss，再發 zzzzz，後者摸得到振動。
 
-[PA6b README](https://github.com/cs124/pa6b-speech) 說明 Cartesia API key 透過 environment variable 提供，且當時的 free tier rate limit 足以完成作業；費率、quota 與 model version 都可能變。自學者應保存執行日期、模型識別資訊與原始輸出，不要只交最後 transcript。
+子音是氣流在某處受阻產生的聲音。例如 p：先把嘴唇閉上，氣壓在後面累積，放開時爆出來。母音則是氣流不受阻，靠舌頭的位置改變口腔的形狀來區分。
 
-API key 不能寫入 repo。[PA6b README](https://github.com/cs124/pa6b-speech) 以 `export CARTESIA_API_KEY=...` 注入執行環境，正是把 credential 與程式碼分開的最低要求。
+## 從波形到模型的輸入
 
-## Lab 4 為多人 PA7 建工作流
+### 波形與頻譜
 
-活動名稱與 required 狀態來自 [schedule](https://web.stanford.edu/class/cs124/lec/)；公開 [Lab 4 artifact](https://github.com/cs124/labs/blob/main/Lab4_LargeLanguageModels.md) 只用於標示版本漂移。
+麥克風錄到的是氣壓隨時間的變化，畫出來就是**波形**：橫軸是時間，縱軸是氣壓。母音的波形有規律的重複（聲帶的振動），b 這類子音看得到一段安靜（閉合）接著一個爆點（釋放）。
 
-[課表](https://web.stanford.edu/class/cs124/lec/)把 Lab 4 標成 PA7 and Git，且 required in-person。公開 [Lab 4 repo](https://github.com/cs124/labs/blob/main/Lab4_LargeLanguageModels.md) 的名稱保留舊版 LargeLanguageModels 命名，顯示教材 identity 有歷史漂移。能確認的是本週要為 PA7 與版本控制做準備，不能從舊 lab filename 推論 2026 現場逐題內容。
+波形本身不好用。關鍵的觀念是：**任何複雜的波，都可以拆成很多個不同頻率的正弦波相加。** 把一小段聲音拆開，看每個頻率各有多少能量，叫**頻譜**。口腔的形狀會增強某些頻率、減弱另一些，不同的母音在頻譜上有不同的高峰。
 
-實際準備動作是讓每位組員能 clone、開 branch、提交小改動並合併，再把 API key 留在 ignored local file 或 environment。[PA7 README](https://github.com/cs124/pa7-agent) 規定必須三至四人協作；若 Git 流程等到 agent.py 已大幅分叉才處理，衝突會成為主要工作。
+頻譜只描述一個瞬間。把一小段一小段的頻譜沿著時間排起來，就是 **spectrogram**：橫軸時間，縱軸頻率，顏色深淺是能量。
 
-## 本週的完成線
+### 切 frame
 
-保存 original text、TTS audio、STT transcript 與一張 error table；再跑一段 dialect／dysfluency clip，明示它只是一個 probe。團隊端則完成一次不含 secret 的 branch→review→merge 演練。這兩條線共同訓練的是可稽核性：模型輸出與團隊修改都要留下來源。
+「一小段」要多長？做法是用一個視窗在波形上滑動：
 
-## 把 pipeline 分成可重跑 stages
+- 視窗寬 **25 毫秒**。
+- 每次往右移 **10 毫秒**。
 
-[PA6b README](https://github.com/cs124/pa6b-speech) 提供 `tts.py` 與 `speech_to_text.py` 兩個分開的流程。先固定 `sampled_sentences.json` 與 voice ID，產生 WAV；再固定同一 audio 呼叫 STT。若每次評估都重新做 TTS，transcript 變化可能同時來自兩個服務，無法定位。
+每個視窗裡的訊號叫一個 **frame**。一秒鐘的聲音有 100 個 frame，相鄰的 frame 有重疊。
 
-每個 stage 保存 timestamp、input filename/hash、model／voice identifier、主要 parameters、raw response 與 output file。API 可能更新，即使 code 不變仍得到不同結果。artifact metadata 讓「今天重跑不同」成為可查證版本差，而不是模糊的不穩定。
+### Mel 刻度
 
-音訊本身還有 sample rate、channels、encoding 與 duration。若 API 或 local player 自動轉檔，先確認 metadata；格式差異可能造成 transcription 品質改變。PA repo 接受多種輸入格式的 stress test，更需要把實際送出的格式寫進紀錄。
+人耳對頻率的敏感度不是均勻的：低頻分得很細，高頻就粗了。同樣差 100 Hz，100 Hz 和 200 Hz 聽起來差很多，7,000 Hz 和 7,100 Hz 聽起來的差距就小得多。**Mel 刻度**是模仿這個特性的頻率刻度，換算公式是：
 
-## Alignment 與 WER 的手算
+mel(f) = 1127 × ln(1 + f ÷ 700)
 
-比較 reference transcript 和 hypothesis 時，先以 minimum edit-distance alignment 找 substitutions、deletions、insertions。Word Error Rate 是 `(S+D+I)/N`，其中 `N` 是 reference words。這直接接回 Week 2 的 DP，不需另造評估方法。
+代幾個數字進去（本文自己算的）：
 
-同一 WER 可有不同風險。刪掉人名、數字或否定詞，比替換一個冠詞更可能改變意思；但標準 WER 對每個 word error 給同樣計數。因此 error table 應另加 semantic severity 與 span type，而不是用一個總比率結案。
+| 頻率 | mel 值 |
+|---|---|
+| 1,000 Hz | 1,000 |
+| 4,000 Hz | 2,146 |
+| 8,000 Hz | 2,840 |
 
-tokenization 也影響 WER。大小寫是否忽略、標點是否移除、縮寫如何切、數字寫成 digits 或 words，都要先固定 normalization。兩套工具若 normalization 不同，分數不可直接比較。
+從 0 到 1,000 Hz 佔了 1,000 個 mel；從 4,000 到 8,000 Hz 寬了四倍，卻只佔 694 個 mel。
 
-## TTS errors 與 STT errors 要用對照實驗分開
+實際的做法是準備一組濾波器（Whisper 用 128 個），在 mel 刻度上等距排列，所以低頻的濾波器又密又窄，高頻的又疏又寬。每個濾波器收集它那個頻段的能量，最後取對數，因為人對音量的感受也是對數的。
 
-若要判斷 TTS 是否造成錯誤，可把同一句原文由真人清楚朗讀，送入相同 STT；也可將 TTS audio 交給人聽寫。真人 audio STT 正確、TTS audio 錯，較支持 TTS pronunciation／prosody 問題；人能正確聽 TTS、STT 卻錯，較支持 recognizer 問題。
+結果是：每個 frame 變成一個 128 維的向量，叫 **log mel 頻譜**。聲音到這裡變成了一串向量，和文字變成一串 token 向量是同樣的格式。
 
-這仍不是完美因果實驗，因為 speaker、noise 與錄音設備不同。至少要固定內容並清楚寫 controls。PA6b 要學生說「likely caused」，不是要求在無額外資料下確定責任。
+### 卷積層
 
-error taxonomy 可分 lexical substitution、deletion、insertion、proper-name handling、punctuation restoration、capitalization、segmentation、disfluency normalization。每類附原文、audio timestamp、hypothesis 與可能 stage，比三句泛泛評論更符合作業 agenda。
+進 Transformer 之前還要過一道**卷積層**。它的運作方式是：拿一個很短的權重向量（kernel），沿著時間一格一格滑過輸入，每到一個位置就和那裡的幾個值算內積。內積高，表示訊號在那個位置長得像這個 kernel。所以卷積是在訊號裡找特定的局部樣式。
 
-## Formatting 為什麼可能無法從聲音恢復
+本文自擬一個例子。輸入是 [0, 0, 5, 5, 0]，kernel 是 [−1, 0, 1]，寬度 3，輸入兩端各補一個 0：
 
-原始文字的 paragraph breaks、quotation marks、emoji 或 capitalization 不一定有聲學對應。STT 若輸出標點，常是由 language model 根據語境推測，而不是「聽見逗號」。同一句 audio 可能有多個合理 formatting。
+| 位置 | 視窗裡的三個值 | 內積 |
+|---|---|---|
+| 1 | 0, 0, 0 | 0 |
+| 2 | 0, 0, 5 | 5 |
+| 3 | 0, 5, 5 | 5 |
+| 4 | 5, 5, 0 | −5 |
+| 5 | 5, 0, 0 | −5 |
 
-要保留格式，可在 TTS 階段以 markup 或 explicit cues 編碼，或讓 ASR 輸出 timestamps、speaker turns、confidence，再由後處理模型重建。但這改變 pipeline 與 evaluation target；不能再只用 plain-text WER 判斷。
+這個 kernel 在訊號上升的地方輸出正值，下降的地方輸出負值，平的地方輸出 0。它是一個「偵測變化」的 kernel。實際的 kernel 不是人設計的，是訓練學出來的。
 
-PA6b 要學生選一個遺失 formatting element，說明為何目前系統無法保存與未來需要什麼。回答應以自己的 output 為例，避免只列抽象功能。
+Whisper 的卷積層 kernel 寬度是 3，也就是一次看 3 個 frame。它同時把序列長度減半，變成每 20 毫秒一個向量。
 
-## Accessibility audit 要超過平均分數
+## Whisper：encoder-decoder
 
-caption timing 影響讀者能否把文字對上畫面；speaker labels 影響多人對話；non-speech information 可能決定情節；proper nouns 與專業術語則影響實際內容。建立 accessibility checklist 時，應把這些維度與 WER 分開評分。
+### 為什麼用 encoder-decoder
 
-不同使用情境也不同。靜音環境看影片、學習第二語言、搜尋 transcript、處理聽覺資訊困難，都可能依賴 captions。PA6b 的 curb-cut prompt 要求找出更廣使用者；回答最好連到一個具體錯誤如何阻礙任務，而不是只列族群名稱。
+第 6 週介紹過三種架構。語音辨識用的是第三種，encoder-decoder。投影片說明這種架構適合輸入和輸出**差很多**的情況：
 
-「達法定最低」與「equal access」的差距不能由 repo 提供完整法律判決，但可用 output audit 表達：哪些訊息被保留，哪些使用者仍無法取得。文章只陳述作業提出的問題，不替未讀法律來源下結論。
+- 一個英文詞寫成文字，平均是 1.3 個 BPE token。
+- 同一個詞說出來大約 250 毫秒，是 25 個 frame。
 
-## Dialect／dysfluency probe 的實驗紀錄
+聲音那一端的序列，長度是文字的 19 倍左右，而且兩邊的「詞彙」完全不同：一邊是聲學向量，一邊是文字 token。
 
-十至十五秒 clip 要先建立人工 verbatim transcript，保留 `um/uh`、restarts 與 pauses；若 normalization 先刪除這些，便無法評估模型是否保留 dysfluency。另存 normalized transcript 用於 WER，可以同時報 verbatim preservation 與 lexical accuracy。
+### 兩個部分
 
-clip source 若來自公開影片，要記來源與取樣時間；自行錄音則記 speaker consent 與錄音條件。避免把可識別或敏感聲音上傳到第三方 API 而未說明。
+**Encoder** 處理聲音：
 
-一次 probe 只能產生 hypothesis。後續可固定語句，請多位 speakers 朗讀，或同一 speaker 在安靜／噪音條件重錄，逐步分離 accent、content 與 noise。這樣才從 demo 走向小型 evaluation。
+1. 每 10 毫秒算一個 128 維的 log mel 頻譜。
+2. 通過卷積層抽取特徵，降到每 20 毫秒一個向量。
+3. 加上位置向量。
+4. 通過很多層 Transformer block。
 
-## Git lab 的具體協作契約
+輸出是一串向量，每個代表一小段聲音。
 
-團隊先約定 protected main、feature branches、短 commits、pull-request review 與 conflict owner。每個 commit 只做一個可說明改動；避免四人同時大改 `agent.py` 相同區段。可先按 tools、data／database、agent orchestration、tests 分工，再透過明確 interfaces 合併。
+**Decoder** 產生文字，和第 7 週的語言模型幾乎一樣：由左到右，一次產生一個 BPE token，最後一樣是 unembedding 加 softmax。
 
-`.gitignore` 應涵蓋 API keys、local environments、audio outputs 與大 checkpoints；但可重現所需的小型 sample／expected outputs 要進版本控制。不能因「輸出檔很多」就全部 ignore，最後只剩無法驗證的 code。
+### Cross-attention
 
-一次演練要包含真實 conflict：兩個 branches 改同一小段，由團隊共同 resolve、跑 tests、review diff。目的不是製造麻煩，而是在 PA7 deadline 前確認每個人都能理解 merge 結果。
+差別在於 decoder 的每個 block 多了一個零件：**cross-attention**。第 7 週的 attention，query、key、value 都來自同一個序列。Cross-attention 把來源拆開：
+
+- **Query** 來自 decoder，也就是目前已經產生的文字。
+- **Key 和 value** 來自 encoder 的輸出，也就是聲音。
+
+投影片的說法是：根據我目前為止的文字表示，去聲音輸入裡找相關的部分。Decoder 要產生下一個詞的時候，用已經寫出的字當線索，去聲音裡找「接下來那一段」。
+
+### 訓練
+
+Loss 還是第 6 週的那一個：正確的下一個 token 的機率取負對數。唯一的差別是條件多了一項，除了前面的文字，還有整段聲音。
+
+訓練資料是 **68 萬小時**的語音配上文字稿，從網路上抓來並經過大量過濾，其中 11.8 萬小時是英文以外的 96 種語言。資料切成 30 秒一段。訓練是多工的：同一個模型同時學辨識、翻譯等任務，用特殊的標記告訴它這一筆要做哪一件。
+
+### 還沒解決的部分
+
+投影片的結論是：語音辨識在很多實際情況下已經夠好用，十年來進步很大，但還沒有解決。
+
+- **雜訊。** Whisper 在稍微吵一點的語音上比人差很多，很吵的更差。投影片舉了一段足球轉播的例子：播報員激動地喊，Whisper 的輸出變成同一句話不斷重複。
+- **資料少的語言。** 在 FLEURS 資料集上，有 1,000 小時以上訓練資料的語言（英文、西班牙文、法文、德文等）WER 在 10% 以下；資料少的語言（緬甸文、寮文等）WER 超過 100%。
+
+## PA6b
+
+**[PA6b](https://github.com/cs124/pa6b-speech)** 用現成的語音服務跑一條「文字 → 語音 → 文字」的流程，然後分析結果。它需要一個 Cartesia 的帳號和 API key。README 說免費帳號有用量限制，但足夠完成作業。key 用環境變數提供，不寫進程式裡。
+
+**第一部分：文字轉語音。** repo 附了一份 `sampled_sentences.json`，也可以換成自己在 PA6a 取樣出來的句子。`python tts.py` 把它們轉成 `sampled_sentences_speech.wav`。
+
+**第二部分：語音轉文字。** `python speech_to_text.py` 把音檔轉回 `sampled_sentences_speech.txt`。README 另外建議自己在吵雜的環境裡把那些句子唸一次、錄下來、轉成文字，比較品質。
+
+**第三部分：錯誤分析。** 比較原始文字和最後轉回來的文字，回答三題：
+
+1. 找出三種不同的錯誤或資訊遺失，各舉一個實例，說明比較可能是合成那一段還是辨識那一段造成的。
+2. 從這些錯誤推測辨識模型的訓練資料和設計取捨：它擅長什麼內容，不擅長什麼。
+3. 原文的格式（大小寫、換行、標點）在轉回來之後不見了。選一種，說明為什麼現在的系統保留不了它，以及要怎樣才保留得了。
+
+第三題點出一件容易忽略的事：有些資訊本來就不在聲音裡。換行沒有聲音，大小寫沒有聲音。標點也只剩停頓和語調這種間接的線索。這些不是辨識「錯」了，是那一段流程本來就不太攜帶它們。
+
+**第四部分：自動字幕與無障礙。** 自動字幕讓內容立刻有字幕可看，但美國的聾人協會曾經成功控告大型機構，理由是自動字幕達不到法律要求的平等使用標準。作業問兩題：把「溝通」這麼多面向的東西壓成詞錯誤率一個數字，代表什麼？符合法規和真正提供平等的使用機會，差別在哪裡？另外，高品質的字幕是為身心障礙者設計、結果很多人受益的例子，還有哪些人在用字幕？
+
+上一週說過 WER 不看語意。這一題把同一個限制放進真實的後果裡：WER 也不看字幕出現的時間對不對、有沒有標出誰在說話、語氣如何。
+
+**第五部分：壓力測試。** 找或錄一段 10 到 15 秒的聲音，內容是明顯的地方口音、非母語口音，或有自然的不流暢（口吃、長停頓、um 和 uh），丟給同一個辨識系統，看它在哪裡出錯。
+
+## 實作課四：PA7 與 GitHub
+
+這堂實作課必須到場，議程有三項。
+
+**PA7 概覽。** PA7 要做一個電影推薦 agent，用 DSPy 這個函式庫。實作課的講義說明 agent 的運作方式：對使用者的每個要求，agent 先想這個任務需要哪個工具，決定要傳什麼參數，拿到工具的結果後再想下一步。這個迴圈在輸出裡看得到：
+
+```
+thought_i     「使用者要推薦 → 呼叫 recommend_movies」
+    ↓
+tool_name_i   recommend_movies
+tool_args_i   { user_name: "Peter", k: 3 }
+    ↓
+observation_i ["Back to the Future (1985)", ...]
+    ↓
+thought_(i+1)
+```
+
+工具是你自己實作的 Python 函式。作業分兩部分：第一部分（68 分）做基本的 agent，用協同過濾推薦電影並協助訂票；第二部分（32 分）加上網頁搜尋與記憶。協同過濾是下一週的內容。
+
+講義特別提醒：每跑一次互動介面都會消耗 API 額度，所以要先把自己寫的函式單獨測好，再跑整個 agent。選課的學生每組會拿到一筆 Together AI 的額度；自學者要自己處理。
+
+**GitHub。** PA7 規定三到四人一組，所以需要版本控制。講義帶著做一次完整的設定：一個人建立**私人**的 repository、邀請組員、每個人裝 GitHub Desktop 並把 repository 複製到自己的電腦，接著練習改檔、同步，以及兩個人改到同一處時怎麼解衝突。
+
+**小組約定。** 最後十分鐘讓各組談好怎麼分工、怎麼溝通。
+
+## 自我檢查
+
+1. 3 秒鐘的聲音，用 25 毫秒的視窗、10 毫秒的間隔，大約有幾個 frame？經過 Whisper 的卷積層之後剩幾個向量？答案：每秒 100 個 frame，3 秒約 300 個；降到每 20 毫秒一個之後約 150 個。
+2. 用 mel 公式算 700 Hz 的 mel 值。答案：1127 × ln(1 + 1) = 1127 × 0.693 = 781。
+3. 輸入 [0, 0, 5, 5, 0] 換成 kernel [1, 1, 1]（兩端補 0），輸出是什麼？這個 kernel 在做什麼？答案：[0, 5, 10, 10, 5]。它把相鄰三個值加起來，是平滑（模糊）的效果。
+4. Cross-attention 的 query、key、value 各來自哪裡？答案：query 來自 decoder（已經產生的文字），key 和 value 來自 encoder 的輸出（聲音）。
+5. 把「Hello, World!」合成語音再辨識回來，得到「hello world」。哪些差異算是辨識錯誤？答案：嚴格說都不算。大小寫在聲音裡沒有對應的訊號；標點只有停頓和語調這種間接的線索。辨識系統如果輸出了標點，多半是它根據語言習慣補上的。
+
+## 這週和後面的關係
+
+- 下一週教協同過濾，也就是 PA7 第一部分要實作的推薦演算法，並且完成整個 agent。
+- 第 1 週導論投影片列的元件裡有 Conv Nets，指的就是這週的卷積層。
+
+**系列導覽**：上一篇 [第 7 週：Transformers and Speech Processing](/posts/ai/2026-08-22-cs124-week7-transformers-speech)｜下一篇 [第 9 週：Collaborative Filtering and LLM Agents](/posts/ai/2026-08-22-cs124-week9-recommenders-agent)
+
+## 更新紀錄
+
+- 2026-10-13：依公開投影片重寫。補上語音學基礎、波形到 log mel 頻譜的步驟、卷積層例子、Whisper 的架構與 cross-attention、訓練資料與限制；PA6b 改成逐部分說明；實作課四的連結從已失效的舊檔名換成 `Lab4_Agent.md`，並依其內容說明 PA7 的 agent 迴圈與 GitHub 流程；新增自我檢查。
 
 ## 參考資料
 
-- [CS124 Winter 2026 schedule](https://web.stanford.edu/class/cs124/lec/)
-- [CS124 PA6b Speech](https://github.com/cs124/pa6b-speech)
-- [CS124 Lab 4 public artifact](https://github.com/cs124/labs/blob/main/Lab4_LargeLanguageModels.md)
-- [CS124 PA6a Transformers](https://github.com/cs124/pa6a-transformers)
-- [Stanford CS124 完整課程總覽](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)
+- [CS124 Winter 2026 課程網站與課表](https://web.stanford.edu/class/cs124/)
+- [Speech Recognition 投影片](https://web.stanford.edu/class/cs124/lec/speech_cs124_26.pdf) — 語音學、聲學、log mel 頻譜、卷積、Whisper
+- [CS124 PA6b](https://github.com/cs124/pa6b-speech) — 五個部分的要求與 Cartesia 帳號設定
+- [CS124 實作課四](https://github.com/cs124/labs/blob/main/Lab4_Agent.md) — PA7 概覽、GitHub 設定、小組約定
+- [Speech and Language Processing 2025 年 8 月版](https://web.stanford.edu/~jurafsky/slp3/old_aug25/) — 第 14、15 章

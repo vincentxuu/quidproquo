@@ -6,103 +6,225 @@ type: deep-dive
 tags: [cs124, stanford, information-retrieval, rag, nlp]
 lang: zh-TW
 series: { name: "Stanford CS124 導讀", order: 5 }
-tldr: "Week 4 從倒排索引建立候選集，以 tf-idf 與 cosine similarity 排序，再把檢索結果接到生成模型；PA3 要求實作的不是聊天介面，而是 RAG 前半段可檢查的搜尋核心。"
-description: "Stanford CS124 Winter 2026 Week 4：information retrieval、倒排索引、tf-idf、cosine ranking、RAG、Lab 3 與 PA3。"
+tldr: "第 4 週教搜尋：把查詢和文件都變成向量，用 tf-idf 加權、cosine 相似度排名，用倒排索引加速，用 precision、recall 與 MAP 評估，最後接到向量檢索與 RAG。本文把投影片的四篇迷你文件例子完整算一遍。"
+description: "Stanford CS124 Winter 2026 第 4 週導讀：資訊檢索的任務、LLM 為什麼仍需要檢索、tf 與 idf 的公式、cosine 相似度、四篇文件的 tf-idf 手算排名、倒排索引、排序結果的評估（平均精確率與 MAP）、dense retrieval 的兩種架構與 RAG，以及實作課三與 PA3。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs124-week4-information-retrieval-en)
 
-Week 4 把「模型知道什麼」改寫成「系統去哪裡找」。官方課表直接把指定章節叫做 *Information Retrieval and Retrieval-Augmented Generation*：先建立傳統搜尋引擎的 index 與 ranking，再看檢索如何替生成模型提供外部證據。
+這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 4 週。主題是資訊檢索（information retrieval，IR）：使用者有一個想知道的事，手上有一大堆文件，系統要把最相關的幾篇找出來、排好順序。
 
-**版本：** CS124 Winter 2026。**單元：** Week 4，2026-01-27、01-29。**活動：** Information Retrieval Canvas material；1 月 27 日 Lab 3。**公開材料：** [schedule](https://web.stanford.edu/class/cs124/lec/)、[SLP3 Chapter 11](https://web.stanford.edu/~jurafsky/slp3/11.pdf)、[Lab 3](https://github.com/cs124/labs/blob/main/Lab3_InformationRetrieval.md)、[solutions](https://github.com/cs124/labs/blob/main/Lab3_InformationRetrieval_Solutions.md)、[PA3](https://github.com/cs124/pa3-information-retrieval)。**缺口：** Canvas 影片與 Gradescope Quiz 3 gated；主站 Chapter 11 是 2026-08 更新版，不能把其中所有新增段落都歸給 1 月課堂。本文聚焦課表、lab 與 PA 都共同支持的 retrieval pipeline。
+**本週材料**：[Information Retrieval and RAG 投影片](https://web.stanford.edu/class/cs124/lec/ir_jan17_2026.pdf)、[實作課三題目](https://github.com/cs124/labs/blob/main/Lab3_InformationRetrieval.md)與[解答](https://github.com/cs124/labs/blob/main/Lab3_InformationRetrieval_Solutions.md)、[PA3](https://github.com/cs124/pa3-information-retrieval)。指定閱讀是教科書[第 11 章](https://web.stanford.edu/~jurafsky/slp3/old_aug25/11.pdf)。預錄影片在 Canvas，本文依投影片與教科書整理。
 
-## 檢索從候選集開始，不是從 LLM 開始
+## 有了 LLM，為什麼還要學搜尋
 
-指定的 [SLP3 Chapter 11](https://web.stanford.edu/~jurafsky/slp3/11.pdf) 說明：給定查詢 `q` 與文件集合，系統先要快速找出可能相關的文件。若每次查詢都掃過所有文件，成本會隨 corpus 線性增加。倒排索引把方向反過來：對每個 term 記錄它出現在哪些 documents。查詢進來時，讀取 posting lists 並做交集或聯集，就能建立候選集。
+投影片一開始就處理這個疑問。「羅浮宮在哪裡」這種問題，直接問 LLM 就有答案，不需要文件集合。但 LLM 回答問題有三個檢索可以補的弱點：
 
-index 建置依賴 Week 2 的 tokenization。大小寫正規化、標點、stemming、stop words 都會改變 posting lists。這再次說明前處理不是附帶步驟：切詞不同，後面的搜尋空間就不同。
+- **會編造。** 投影片引用一份 2024 年的研究：在法律領域，LLM 的回答最高有 88% 與事實不符。
+- **看不到私有資料。** 個人信件、病歷、公司內部文件、訴訟文件，都不在訓練資料裡。
+- **跟不上變動。** 上週的比賽結果、今天早上的地震、最新的奧斯卡得主，模型訓練完之後發生的事它不知道。
 
-## tf-idf 同時衡量局部重要與全域稀有
+解法是 **RAG**（retrieval-augmented generation）：先用檢索從文件集合裡找出相關段落，再讓 LLM 根據這些段落產生答案。所以這一週學的檢索，就是 RAG 的前半段。
 
-term frequency 表示某詞在文件中出現多少；document frequency 表示它橫跨多少文件。常見功能詞即使在單篇出現多次，辨識力仍低。inverse document frequency 對廣泛出現的詞降權，對較稀有的詞升權。
+## 核心想法：查詢和文件都是向量
 
-tf-idf 把兩者相乘，得到 query 與 document 的向量。cosine similarity 比較夾角，避免只因長文件含有更多詞就全面占優。這個 ranking 不理解句子真值，卻提供可追蹤的分數：哪個 query term、哪個 document term、哪個權重推高結果，都可檢查。
+這個做法叫向量空間模型，1971 年由 Gerard Salton 提出：
 
-## 評估搜尋要分 precision 與 recall
+1. 把每篇文件表示成一個向量，每一維是一個詞，值是這個詞在文件裡的份量。
+2. 把查詢也表示成同樣格式的向量。
+3. 回傳向量和查詢最相似的文件，照相似度排序。
 
-檢索不是只看第一名「感覺不錯」。precision 衡量取回文件中有多少 relevant；recall 衡量所有 relevant 文件中找回多少。搜尋引擎常關心排名前段，因此還需要 precision@k、平均 precision 或其他 rank-aware metric。
+系統其實沒辦法判斷一篇文件「是否滿足使用者的需求」，它算的是查詢和文件在文字上有多像，用這個當作相關程度的近似。
 
-候選階段通常偏向 recall，避免相關文件根本沒進 ranking；後段 reranking 再追求 precision。若只報一個總分，容易掩蓋「找不到」與「排序錯」兩種不同故障。
+向量怎麼做，有兩條路。**Sparse retrieval** 用詞的次數，向量的維度等於詞彙表大小，大部分是 0；**dense retrieval** 用語言模型產生的幾百維向量。兩者算相似度都用 cosine。這一週先教前者。
 
-## RAG 把檢索變成生成的輸入
+## tf-idf：一個詞在這篇文件裡有多重要
 
-生成模型的參數可以記住訓練中見過的資訊，但資料有時間界線，也可能生成無來源支持的內容。Retrieval-Augmented Generation 先用 query 找 passages，再把結果放入生成上下文。檢索器決定模型能看到哪些外部證據，生成器再決定如何組織答案。
+直接用次數當向量的值有兩個問題，tf-idf 各用一個因子處理。
 
-這不是「接上向量資料庫就完成」。tokenization、chunking、index、query formulation、ranking 與 context packing 都會改變結果。若 retrieval miss，生成器再強也拿不到正確段落；若取回互相衝突的來源，系統還需處理出處與時間。
+**詞頻（tf）要打折。** 一個詞出現 100 次的文件，不會比出現 10 次的相關十倍。所以取對數：
 
-Week 4 的安排刻意先教稀疏檢索。它讓學生有一個可手算、可 debug 的基準，再理解 dense retrieval 改變了 representation，沒有取消候選、排序與評估三個問題。
+tf = 1 + log₁₀(次數)，次數為 0 時 tf = 0
 
-## Lab 3 與 PA3 把搜尋核心攤開
+出現 1 次是 1，10 次是 2，100 次是 3。
 
-Lab 3 提供問題與公開 solutions，PA3 repo 則要求學生 clone notebook 實作 information retrieval。自學時最有價值的做法是先不看 solution，建立一個五篇短文件的小 corpus：產生 inverted index、計算 tf-idf、用 cosine 排序兩個 queries，再逐項說明 top result 為什麼上升。
+**到處都有的詞沒有鑑別力。** 「的」幾乎每篇文件都有，知道查詢和文件都有「的」沒有用。所以用**文件頻率**（df，有幾篇文件包含這個詞）來降權：
 
-接著故意加入一個同義詞查詢。如果稀疏模型完全找不到語義相近但字面不同的文件，就得到一個真實 failure case。dense embeddings 可改善詞彙落差，但也需要新的可解釋與評估工具。比較應從同一 corpus、同一 relevance judgments 開始，而不是只看 demo。
+idf = log₁₀(N ÷ df)，N 是文件總數
 
-## 倒排索引裡實際保存什麼
+每篇都有的詞，idf = log₁₀(1) = 0，完全不計分；只出現在一篇裡的詞 idf 最高。
 
-最小 posting 只保存 document IDs，足以回答 Boolean AND／OR query。若要計算 term frequency，posting 還要存每篇文件的 count；若要 phrase query，還需保存 positions。索引越豐富，query 能力越強，storage 與建置成本也越高。
+兩者相乘就是這個詞在這篇文件裡的權重：**tf-idf = tf × idf**。
 
-建立 index 時先為每篇 document 指定穩定 docID，再依 tokenizer 產生 terms，將 postings 依 docID 排序。AND query 可以用雙指標線性合併兩份 sorted lists，而不是把兩份結果轉成任意集合後再掃。若某 term 的 posting list 特別短，先處理它也能更快縮小多詞 query 的 candidates。
+## cosine：比方向，不比長度
 
-phrase query 不能只知道 `new` 與 `york` 都在同一篇文件，還要確認 positions 相鄰。proximity query 則允許距離小於某個 window。這些需求再次把 Week 2 tokenization 拉回來：hyphen、apostrophe、大小寫與 stop-word removal 會改變 position stream。
+兩個向量的內積會被長度影響：長文件的詞多、數字大，內積自然高。所以先把兩個向量各自除以自己的長度，變成長度為 1 的向量，再算內積。這個值就是兩個向量夾角的 cosine：方向完全一樣是 1，完全沒有共同的詞是 0。
 
-索引還需要 document statistics，例如 document length 與 corpus document count，才能做 normalization 和 IDF。若 corpus 更新，IDF 也會變；線上系統要決定何時重建、如何合併 segments，以及 query 時讀哪個版本。CS124 小作業不必實作完整 production index，但應保存 corpus version，讓分數可重現。
+## 完整算一次
 
-## 手算 tf-idf 才看得見 ranking
+投影片用四篇極短的「文件」示範。查詢是 `sweet love`：
 
-建立三篇短文件與一個兩詞 query，就能把 ranking 拆開。先計算每詞在各 document 的 TF，再由 DF 得 IDF，最後形成 query 與 document vectors。dot product 顯示共有 terms 的貢獻；除以兩個 vector norms 後，cosine 將長度效果納入。
+- 文件 1：Sweet sweet nurse! Love?
+- 文件 2：Sweet sorrow
+- 文件 3：How sweet is love?
+- 文件 4：Nurse!
 
-若 query term 在每篇文件都出現，IDF 接近零，它幾乎無法區分結果。若某稀有詞只出現在一篇，它會有較大權重。這不是說罕見詞必定更重要，而是 tf-idf 將 corpus-wide rarity 當辨識訊號。拼錯字、亂碼或專有名詞也會稀有，因此 ranking 仍需資料清理與其他 signals。
+全部轉小寫、去掉標點。N = 4。
 
-score breakdown 應保留到 term level。當 top result 不合理時，可以問是 TF 過高、IDF 過高、query normalization、document length，還是 tokenizer 造成 mismatch。只有最後一個 cosine number，會把所有原因壓平。
+**第一步，算每個詞的 idf。**
 
-## Retrieval evaluation 需要 judgments 與 query set
+| 詞 | 出現在哪幾篇 | df | idf = log₁₀(4 ÷ df) |
+|---|---|---|---|
+| sweet | 1、2、3 | 3 | 0.125 |
+| love | 1、3 | 2 | 0.301 |
+| nurse | 1、4 | 2 | 0.301 |
+| sorrow | 2 | 1 | 0.602 |
+| how | 3 | 1 | 0.602 |
+| is | 3 | 1 | 0.602 |
 
-relevance 不是文件自身固定屬性，而是相對於 query 與 information need。建立 evaluation set 時，每個 query 應有可接受 relevant documents；若 judgments 不完整，系統找回一篇未標註但其實有用的文件，precision 會被低估。
+`sweet` 四篇裡有三篇都出現，idf 最低。
 
-precision@k 關心前 `k` 個結果，recall 關心涵蓋度。Mean Reciprocal Rank 特別重視第一個 relevant result 的位置；Average Precision 會整合多個 relevant documents 出現的排名。選 metric 要配合任務，不是把所有數字都報一遍。
+**第二步，算查詢的向量。** 兩個詞各出現一次，tf 都是 1。
 
-還要將 query types 分組，例如 exact fact、broad topic、rare entity、synonym mismatch。aggregate metric 可能在熱門 queries 很好，卻完全找不到 rare entities。error slice 讓 index 或 ranking 修改對準問題。
+| 詞 | tf | idf | tf-idf | 除以長度後 |
+|---|---|---|---|---|
+| sweet | 1 | 0.125 | 0.125 | 0.383 |
+| love | 1 | 0.301 | 0.301 | 0.924 |
 
-評估改動時固定 corpus、queries、judgments 與 metric implementation。一次只改一個主要因素，例如 tokenizer、TF scaling 或 IDF；同時換三項即使分數上升，也無法知道哪個改動有效。
+長度是 √(0.125² + 0.301²) = 0.326。正規化之後可以看出，這個查詢的重心在 `love`，因為它比較稀有。
 
-## Chapter 11 如何把 retrieval 接到 generation
+**第三步，算文件 1 的向量。** `sweet` 出現兩次，tf = 1 + log₁₀(2) = 1.301。
 
-Chapter 11 從 information need、factoid questions 與 web retrieval 開始，再說明 LLM 可直接從 parameters 生成答案，但參數知識有更新與來源限制。retrieval 提供外部 text，使回答可依當下 corpus 與可引用 passages 建立。
+| 詞 | 次數 | tf | idf | tf-idf | 除以長度後 |
+|---|---|---|---|---|---|
+| sweet | 2 | 1.301 | 0.125 | 0.163 | 0.357 |
+| nurse | 1 | 1 | 0.301 | 0.301 | 0.661 |
+| love | 1 | 1 | 0.301 | 0.301 | 0.661 |
 
-RAG pipeline 至少可分 query processing、candidate retrieval、ranking、context selection、generation。每層都應保存 artifact：normalized query、candidate IDs 與 scores、送入 context 的 passages、最後 answer 與 citations。若只保存 answer，hallucination 發生時無法判斷是沒有取回、選錯 passage，還是 generator 忽略證據。
+長度是 √(0.163² + 0.301² + 0.301²) = 0.456。
 
-chunking 是把 document 轉成 retrievable units。chunk 太短可能失去上下文，太長則將無關內容塞入 context 並減少可放單元數。overlap 可保留跨邊界資訊，也會增加 index size 與重複結果。這些不是框架預設值能替所有 corpus 決定的參數。
+**第四步，算 cosine。** 只有查詢和文件都有的詞會貢獻分數：
 
-生成端還要區分「答案沒有 source support」與「source 本身錯」。citation 能改善 traceability，卻不自動保證 passage 品質。Chapter 11 的 retrieval-to-RAG 路線應保留這個分層，而不是把 RAG 簡化成「LLM 變得不會 hallucinate」。
+cos(查詢, 文件 1) = 0.383 × 0.357 + 0.924 × 0.661 = 0.747
 
-## Lab 3／PA3 的可重現交付
+**文件 2** 照同樣步驟：`sweet` 的 tf-idf 是 0.125，`sorrow` 是 0.602，長度 0.615，`sweet` 正規化後是 0.203。它和查詢只共有 `sweet`：
 
-公開 [Lab 3](https://github.com/cs124/labs/blob/main/Lab3_InformationRetrieval.md) 題目與 solutions 允許先盲做再對帳。保留 query、手算 postings、tf-idf term contributions 與預期 ranking；若和 solution 不同，逐步找 tokenizer、log base、normalization 或排序 tie-break。
+cos(查詢, 文件 2) = 0.383 × 0.203 = 0.078
 
-[PA3 README](https://github.com/cs124/pa3-information-retrieval) 指定 Week 4 videos/slides/readings 與 Lab 3 為前置。clone repo、啟動 notebook 之後，至少對三種 queries 建 failure log：exact lexical match、同義但無共同詞、常見詞過多。再把 solution code 的結果和手算小 corpus 對齊。
+以上兩篇是投影片算的。文件 3 和 4 投影片留作練習，以下是我照同一套公式算的：
 
-完成證據應包含 index statistics、query set、top-k results、metric 與 error slices。這套資料到 production RAG 仍直接可用，比展示一段成功問答更能證明 retrieval layer 的品質。
+- **文件 3**：`how` 0.602、`sweet` 0.125、`is` 0.602、`love` 0.301，長度 0.912。`sweet` 正規化後 0.137，`love` 0.330。cos = 0.383 × 0.137 + 0.924 × 0.330 = 0.357。
+- **文件 4**：只有 `nurse`，和查詢沒有共同的詞，cos = 0。
 
-## 延伸
+| 排名 | 文件 | 分數 |
+|---|---|---|
+| 1 | 文件 1：Sweet sweet nurse! Love? | 0.747 |
+| 2 | 文件 3：How sweet is love? | 0.357 |
+| 3 | 文件 2：Sweet sorrow | 0.078 |
+| 4 | 文件 4：Nurse! | 0 |
 
-想把本週接到 production RAG，第一個動作不是挑框架，而是保留一組查詢、relevant passages 與失敗分類。先讓 retrieval evaluation 可重跑，再換 chunking 或 embedding；否則每次「感覺變好」都無法區分索引、排序或生成端的變化。
+有兩件事值得注意。文件 1 和文件 3 都同時有 `sweet` 和 `love`，但文件 3 多了兩個只有它才有的詞（`how`、`is`），這兩個詞 idf 很高，把文件 3 的向量方向拉離了查詢，所以分數比較低。在只有四篇文件的集合裡，`how` 和 `is` 被當成稀有而重要的詞；真實的文件集合夠大，這類功能詞幾乎每篇都有，idf 會接近 0。另外，文件 2 雖然有 `sweet`，分數卻很低，因為 `sweet` 幾乎每篇都有，不算什麼證據。
+
+## 倒排索引：不用每篇都算
+
+上面算了全部四篇文件。文件有一億篇時不能這樣做。觀察一下：和查詢沒有任何共同詞的文件，cosine 一定是 0，根本不用算。
+
+**倒排索引**（inverted index）就是為了快速找出「包含某個詞的所有文件」。它像書後面的索引：查一個詞，列出它出現在哪幾頁。結構有兩個部分：一份所有詞的字典，以及每個詞對應的一串文件編號（postings）。
+
+上面四篇文件的倒排索引：
+
+| 詞 | 文件編號 |
+|---|---|
+| how | 3 |
+| is | 3 |
+| love | 1、3 |
+| nurse | 1、4 |
+| sorrow | 2 |
+| sweet | 1、2、3 |
+
+查詢 `sweet love` 進來，只要查這兩個詞，把兩串編號合起來得到 {1, 2, 3}，文件 4 連看都不用看。
+
+## 評估排序結果
+
+第 3 週的 precision 和 recall 可以直接搬過來：
+
+- **Precision**：回傳的文件裡，有多少是相關的。
+- **Recall**：所有相關的文件裡，回傳了多少。
+
+但搜尋結果是有順序的。兩個系統回傳同樣十篇文件，一個把相關的排在最前面，一個排在最後面，precision 和 recall 完全一樣，使用者的感受卻差很多。所以需要會看排名的指標。
+
+做法是沿著排名往下走，每遇到一篇相關文件，就記下「到這個位置為止的 precision」，最後把這些數字平均，叫做 **average precision**（AP）。
+
+本文自擬一個例子。某個查詢總共有 3 篇相關文件，系統回傳六篇，相關（✓）與不相關（✗）的順序是 ✓ ✗ ✓ ✗ ✗ ✓：
+
+| 排名 | 相關嗎 | 到這裡的 precision |
+|---|---|---|
+| 1 | ✓ | 1/1 = 1.00 |
+| 2 | ✗ | |
+| 3 | ✓ | 2/3 = 0.67 |
+| 4 | ✗ | |
+| 5 | ✗ | |
+| 6 | ✓ | 3/6 = 0.50 |
+
+AP = (1.00 + 0.67 + 0.50) ÷ 3 = 0.72。如果三篇相關文件排在前三名，AP 會是 1。
+
+一個系統要用很多查詢來測，把每個查詢的 AP 再平均一次，就是 **MAP**（mean average precision）。
+
+## Dense retrieval：字面不同也找得到
+
+tf-idf 有一個根本限制：查詢和文件要用到**同一個詞**才有分數。查「蘋果」找不到只寫「鳳梨、水果」的文件，查「車」找不到只寫「汽車」的文件。
+
+Dense retrieval 改用語言模型把查詢和文件各自編碼成一個幾百維的向量，意思相近的文字向量會靠近，不需要用到同一個詞。投影片介紹兩種架構：
+
+- **雙編碼器（bi-encoder）**：查詢和文件分別丟進編碼器（投影片用 BERT），各取一個向量，算內積當分數。文件的向量可以事先全部算好存起來，查詢時只要編碼查詢一次。
+- **單一編碼器（cross-encoder）**：把查詢和文件接在一起丟進同一個編碼器，讓模型同時看到兩邊再打分數。比較準，但每一對查詢和文件都要跑一次模型，文件多的時候太貴，只能用來重新排序。
+
+實務上常把兩種方法串起來：先用便宜的方法（投影片舉的是 BM25，tf-idf 的改良版）撈出前 N 篇，再用貴的模型對這 N 篇重新排序。
+
+Dense 向量沒有「大部分是 0」的性質，倒排索引派不上用場。要在大量向量裡找最接近的幾個，用的是近似最近鄰搜尋，投影片點名的工具是 Faiss。
+
+另外，檢索的單位通常不是整篇文件，而是切成一段一段，投影片舉的長度是 100 個 token 左右。
+
+## RAG：把找到的段落交給 LLM
+
+回到開頭。RAG 的流程是兩步：
+
+1. 用使用者的問題去檢索，拿回最相關的幾段文字。
+2. 把這幾段文字和問題一起放進 prompt，讓 LLM 根據它們回答。
+
+這樣前面三個弱點都有對策：答案有文件可以對照，私有資料放進文件集合就查得到，文件集合更新了答案就跟著更新。但這也表示 RAG 的品質有一個上限：**檢索沒找到的段落，生成那一端再強也用不到。** 所以前面那些排名和評估的方法，在 RAG 系統裡一樣要用。
+
+## 實作課三與 PA3
+
+[**實作課三**](https://github.com/cs124/labs/blob/main/Lab3_InformationRetrieval.md)分兩部分，題目與[解答](https://github.com/cs124/labs/blob/main/Lab3_InformationRetrieval_Solutions.md)都公開。課表上另有一份[導引投影片](https://web.stanford.edu/class/cs124/lec/lab3irupload.pdf)。第一部分用試算表手算一個兩篇文件的 tf-idf cosine，然後問：查詢是 `apple`，為什麼 dense retrieval 會給「pineapple fruit」一個不是零的分數，而 tf-idf 不會。第二部分練 precision 與 recall，並討論不同的搜尋情境該重視哪一個。
+
+**[PA3](https://github.com/cs124/pa3-information-retrieval)** 在 notebook 裡把這一週的內容從頭做一遍：建倒排索引、取出一個詞的 postings、算 tf-idf、排序取回文件，接著做 dense retrieval 並比較兩種方法的結果，最後是倫理題。README 建議先看完第 4 週的影片、投影片、閱讀與實作課三。
+
+## 自我檢查
+
+1. 文件集合有 1,000 篇，某個詞出現在其中 10 篇，idf 是多少？出現在全部 1,000 篇呢？答案：log₁₀(100) = 2；log₁₀(1) = 0。
+2. （實作課三的題目）集合只有兩篇文件：文件 1 有 apple 3 次、fruit 2 次；文件 2 有 phone 2 次。查詢是 `apple`。哪一篇排前面，cosine 是多少？答案：N = 2，三個詞的 df 都是 1，idf = log₁₀(2) = 0.301。文件 1 的 `apple` 是 (1 + log₁₀3) × 0.301 = 0.445，`fruit` 是 (1 + log₁₀2) × 0.301 = 0.392，長度 0.593，`apple` 正規化後是 0.750。查詢只有一個詞，正規化後是 1。cosine = 0.750。文件 2 沒有 `apple`，是 0。文件 1 排前面。
+3. （實作課三的題目）系統對某個查詢回傳 8 篇相關、10 篇不相關的文件，集合裡總共有 20 篇相關的。precision 和 recall 各是多少？答案：precision = 8/18 = 0.44，recall = 8/20 = 0.40。
+4. 把上面 AP 例子的順序改成 ✗ ✓ ✓ ✓ ✗ ✗，AP 是多少？答案：相關文件在第 2、3、4 名，precision 分別是 1/2、2/3、3/4，AP = (0.50 + 0.67 + 0.75) ÷ 3 = 0.64。第一名放錯，比原本的 0.72 低。
+
+## 這週和後面的關係
+
+- 這週的向量是用詞的次數做的。下一週把同樣的想法用在詞本身：每個詞一個向量，一樣用 cosine 比相似度。
+- dense retrieval 用的編碼器是 Transformer，第 6、7 週會講它的內部。
+- 第 9 週的 PA7 讓 agent 呼叫網頁搜尋工具，是另一種把檢索接到 LLM 的方式。
+- 第 10 週的 PageRank 補上另一種排名訊號：不看文字，看網頁之間的連結。
+
+**系列導覽**：上一篇 [第 3 週：Logistic Regression and Text Classification](/posts/ai/2026-08-22-cs124-week3-logistic-regression)｜下一篇 [第 5 週：Embeddings and Social NLP](/posts/ai/2026-08-22-cs124-week5-embeddings-social-nlp)
+
+## 更新紀錄
+
+- 2026-10-13：依 2026 年版公開投影片重寫。補上四篇文件的 tf-idf 完整手算、倒排索引實例、average precision 例子、dense retrieval 的兩種架構與自我檢查；移除投影片沒有涵蓋的延伸內容。
 
 ## 參考資料
 
-- [CS124 Winter 2026 schedule](https://web.stanford.edu/class/cs124/lec/)
-- [SLP3 Chapter 11: Information Retrieval and Retrieval-Augmented Generation](https://web.stanford.edu/~jurafsky/slp3/11.pdf)
-- [CS124 Lab 3](https://github.com/cs124/labs/blob/main/Lab3_InformationRetrieval.md)
-- [CS124 Lab 3 Solutions](https://github.com/cs124/labs/blob/main/Lab3_InformationRetrieval_Solutions.md)
+- [CS124 Winter 2026 課程網站與課表](https://web.stanford.edu/class/cs124/)
+- [Information Retrieval and RAG 投影片](https://web.stanford.edu/class/cs124/lec/ir_jan17_2026.pdf) — LLM 的三個弱點、tf-idf 公式、四篇文件例子、倒排索引、MAP、dense retrieval
+- [CS124 實作課三](https://github.com/cs124/labs/blob/main/Lab3_InformationRetrieval.md)與[解答](https://github.com/cs124/labs/blob/main/Lab3_InformationRetrieval_Solutions.md)
 - [CS124 PA3](https://github.com/cs124/pa3-information-retrieval)
+- [Speech and Language Processing 2025 年 8 月版第 11 章](https://web.stanford.edu/~jurafsky/slp3/old_aug25/11.pdf)

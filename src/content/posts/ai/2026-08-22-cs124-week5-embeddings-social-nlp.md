@@ -1,118 +1,184 @@
 ---
-title: "Embeddings and Social NLP：語境向量與公開材料的證據邊界｜Stanford CS124 第 5 週"
+title: "Embeddings and Social NLP：用周圍的詞表示一個詞的意思｜Stanford CS124 第 5 週"
 date: 2026-08-22
 category: ai
 type: deep-dive
 tags: [cs124, stanford, embeddings, social-nlp, nlp]
 lang: zh-TW
 series: { name: "Stanford CS124 導讀", order: 6 }
-tldr: "Week 5 的公開材料支持 distributional hypothesis、word embeddings 與 cosine similarity；同週 Social NLP 現場課未錄影且投影片受限，具體 audit 方法只作作者延伸。"
-description: "Stanford CS124 Winter 2026 Week 5：distributional hypothesis、word embeddings、cosine similarity、representation learning、Social NLP 與 PA4。"
+tldr: "第 5 週教詞嵌入：一個詞的意思可以用它周圍常出現的詞來表示。先用共現次數做向量、用 cosine 比相似度，再用 word2vec 把向量訓練成幾百維的稠密表示，最後區分靜態向量與隨上下文改變的向量。同週的計算社會科學現場課沒有公開材料。"
+description: "Stanford CS124 Winter 2026 第 5 週導讀：distributional hypothesis、共現向量與 cosine 的手算、word2vec（skip-gram with negative sampling）怎麼把問題變成邏輯迴歸、詞嵌入的性質與類比、向量裡的文化偏見、靜態與上下文向量的差別，以及 PA4。依公開投影片。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs124-week5-embeddings-social-nlp-en)
 
-Week 5 是 CS124 前半季的轉折：前四週的表示多半由人決定，這週開始從大量語境自動學 representation。[官方課表](https://web.stanford.edu/class/cs124/lec/)同時列出 Embeddings material 與 Dan Jurafsky 的現場課「Social NLP / NLP for Computational Social Science」。前者有公開章節與 PA4；後者未錄影且投影片受限，所以本文不重建其具體論證。
+這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 5 週，也是整門課的轉折點。前三週的表示都是人設計的：第 3 週的特徵是人挑的，第 4 週的向量是直接數出來的。從這週開始，表示由資料學出來。
 
-**版本：** CS124 Winter 2026。**單元：** Week 5，2026-02-03、02-05。**講師／活動：** Dan Jurafsky；2 月 3 日 live Social NLP lecture。**公開材料：** [schedule](https://web.stanford.edu/class/cs124/lec/)、[SLP3 Chapter 5](https://web.stanford.edu/~jurafsky/slp3/5.pdf)、[PA4](https://github.com/cs124/pa4-embeddings)。課表指定 Chapter 5 pp.1–12、17–21，另加 August 2025 release Chapter 10 pp.9–12。**材料缺口：** live lecture 明示不錄影；Social NLP slides 位於 restricted path 且公開請求回 403；Canvas narration 與 Quiz 4 也 gated。因此本文完整處理公開 embeddings agenda，只能把 Social NLP 的存在、標題與課程定位列為缺口，不能虛構現場案例。
+要回答的問題是：**怎麼用一串數字表示一個詞的意思？**
 
-## Distributional hypothesis 把語意交給語境
+**本週材料**：[Vector Semantics and Embeddings 投影片](https://web.stanford.edu/class/cs124/lec/vector26jan.pdf)、[Contextual Embeddings 投影片](https://web.stanford.edu/class/cs124/lec/ContextualEmbeddings25.pdf)（2025 年的檔案，目前的課表頁面沒有顯示這個連結，檔案仍可下載）、[PA4](https://github.com/cs124/pa4-embeddings)。指定閱讀是教科書 2025 年 8 月版的[第 5 章](https://web.stanford.edu/~jurafsky/slp3/old_aug25/5.pdf)，以及[第 10 章](https://web.stanford.edu/~jurafsky/slp3/old_aug25/10.pdf)的一小段。預錄影片在 Canvas。這一週另有一堂 Dan Jurafsky 的現場課，主題是計算社會科學，沒有錄影，投影片要 Stanford 登入才看得到，所以本文只涵蓋詞嵌入的部分。
 
-[Chapter 5](https://web.stanford.edu/~jurafsky/slp3/5.pdf) 的起點是 distributional hypothesis：出現在相似語境的詞，傾向有相似意義。它不要求先替每個詞手寫定義，而是從「這個詞附近常出現什麼」建立 representation。
+## 出發點：看一個詞的鄰居
 
-最直接的 count-based vector 可把每個 context word 當一個維度，記錄 target word 與它共同出現的次數。兩個詞的向量方向越接近，代表它們使用環境越相似。cosine similarity 以內積除以向量長度，關心方向多於總頻率，避免高頻詞只因數量大就看起來與所有詞相似。
+投影片用一個多數人沒看過的詞開場：ongchoi。假設你讀到這幾句話：
 
-## raw counts 為什麼不夠
+- Ongchoi 用蒜頭炒很好吃。
+- Ongchoi 配飯很棒。
+- ……ongchoi 的葉子配鹹的醬汁……
 
-共現矩陣極高維又稀疏，常見詞還會支配計數。像 PPMI 這類 weighting 比較實際共現與獨立情況下的預期共現，突顯「比偶然更常一起出現」的組合。dense embeddings 則把高維統計壓到較小連續空間，讓相似與類比可用向量運算處理。
+你又讀過這些：
 
-word2vec 類方法不直接保存完整共現表，而以預測 context 或 target 的訓練目標學向量。這是 representation learning：表示本身由任務與資料學出，不是人工列 feature。PA4 repo 也要求額外安裝 PyTorch 與 Transformers，顯示課程從 NumPy 等基礎工具跨入 learned representations 的實作環境。
+- ……菠菜用蒜頭炒，配飯……
+- ……瑞士甜菜（chard）的梗和葉子很好吃……
+- ……羽衣甘藍（collard greens）和其他鹹的葉菜……
 
-## 靜態向量把一個詞壓成一個點
+就算沒人告訴你，你也猜得出 ongchoi 是一種葉菜，和菠菜、瑞士甜菜類似（它就是空心菜）。你用的線索是：它和菠菜出現在相似的句子裡，周圍都有「蒜頭」「葉子」「飯」「鹹」這些詞。
 
-static embedding 為每個 vocabulary item 給一個固定向量。它能捕捉許多語義關係，卻無法自然表示 polysemy：`bank` 在河岸與金融機構語境仍共用一個點。Chapter 5 把它定位成後續 contextualized embeddings 的前身；後者會依整句上下文產生不同 token representation。
+這個想法叫 **distributional hypothesis**：出現在相似上下文的詞，意思也相近。它把「意思」這個抽象的東西換成可以數的東西：一個詞的周圍常出現哪些詞。
 
-不要因此把 static embeddings 當成只剩歷史價值。它們計算便宜、可視化容易，也適合建立 baseline。若任務只需穩定的詞彙相似度或小型資料集，簡單表示可能比大型 contextual encoder 更易部署與檢查。
+## 第一種做法：直接數共現次數
 
-## 作者延伸：如何為向量關聯建立有界 audit
+對每個詞，數它前後幾個詞的範圍內（投影片用前後各 4 個詞），其他每個詞出現幾次。投影片從維基百科取了四個詞，只看三個上下文詞：
 
-以下是依 [Chapter 5](https://web.stanford.edu/~jurafsky/slp3/5.pdf)「向量由語料分布學得」所做的作者延伸，不是未錄 Social NLP lecture 的內容重建。distributional learning 保存 corpus associations；向量靠近只表示資料中的使用模式讓它們靠近，不足以單獨支持因果或人物判斷。
+| | pie | data | computer |
+|---|---|---|---|
+| **cherry**（櫻桃） | 442 | 8 | 2 |
+| **strawberry**（草莓） | 60 | 0 | 0 |
+| **digital**（數位） | 5 | 1683 | 1670 |
+| **information**（資訊） | 5 | 3982 | 3325 |
 
-因此，用 embedding 做人物、職業或群體分析時，需要先問 corpus 從哪裡來、誰被過度代表、時間範圍為何、相似度要支持什麼主張。cosine score 是 representation 中的幾何關係，不是對人的價值判決，也不是因果解釋。
+每一列就是那個詞的向量。光看數字就看得出來：cherry 和 strawberry 都常跟 pie 一起出現，digital 和 information 都常跟 data、computer 一起出現。
 
-Social NLP lecture 的 slides 與錄影都不公開，這裡必須停止。不能只憑「computational social science」的標題，替課堂補上特定研究、數字或倫理結論。這個缺口本身正好示範材料忠實度：知道主題存在，不等於知道講者如何論證。
+要把「看得出來」變成數字，用上一週的 cosine。內積除以兩個向量的長度：
 
-## PA4 應該驗證什麼
+**cherry 和 information：**
 
-[PA4](https://github.com/cs124/pa4-embeddings) 要學生在 Jupyter 環境處理 embeddings，並引入 PyTorch／Transformers packages。自學時可另外建立三類 probe：近義詞應該靠近、同形異義詞可能混在一起、人物／職業詞的近鄰需要人工檢查。
+- 內積 = 442×5 + 8×3982 + 2×3325 = 40,716
+- cherry 的長度 = √(442² + 8² + 2²) = 442.1
+- information 的長度 = √(5² + 3982² + 3325²) = 5,187.7
+- cosine = 40,716 ÷ (442.1 × 5,187.7) = **0.018**（投影片印的是 .017，尾數被截掉了）
 
-不要只挑漂亮 analogy。先列出失敗例，再改 corpus、window 或 representation 比較。若更換模型後只看兩個 cherry-picked neighbors，無法知道整體空間是否改善。
+**digital 和 information：**
 
-本週最小練習：選十個詞，畫 cosine similarity matrix；對每個高相似 pair 寫出它可能反映的語意、語法或資料來源因素。這會把「相似」從一個分數拉回可檢驗的解釋。
+- 內積 = 5×5 + 1683×3982 + 1670×3325 = 12,254,481
+- digital 的長度 = √(5² + 1683² + 1670²) = 2,371.0
+- cosine = 12,254,481 ÷ (2,371.0 × 5,187.7) = **0.996**
 
-## 從 term-context matrix 開始
+information 的次數是 digital 的兩倍多，但 cosine 只看方向，所以兩者幾乎重合；cherry 和 information 幾乎垂直。
 
-[Chapter 5](https://web.stanford.edu/~jurafsky/slp3/5.pdf) 先讓每個 target word 對應一列、每個 context word 對應一欄。window 可定義為左右固定距離，也可依 sentence 或 syntactic relation 取 context。window 小時較容易捕捉句法與局部用法，window 大時更可能捕捉 broad topic；它不是單純越大資訊越多。
+這種向量有兩個缺點。它的維度等於詞彙表大小，動輒幾萬維，而且絕大部分是 0。另外，像 the、of 這種到處都有的詞次數很高，卻不帶什麼資訊；上一週的 tf-idf 就是在處理這件事。
 
-raw co-occurrence counts 會被高頻 contexts 支配。Pointwise Mutual Information 比較 joint probability `P(w,c)` 與獨立假設下的 `P(w)P(c)`；正值表示一起出現比偶然預期更頻繁。PPMI 再把負值截成零，留下正向 association。
+## 第二種做法：word2vec
 
-低頻 pair 可能得到極高 PMI，因為分母很小。實作需搭配 minimum counts、smoothing 或其他 weighting，不能看到高 PPMI 就宣稱語意關係強。保存 word count、context count 與 joint count，才能解釋一個 cell 的來源。
+實際好用的詞向量是**短而稠密**的：長度大約 50 到 1,000 維，每一維都有值。這種向量叫 embedding（詞嵌入）。短向量的好處是下游模型要學的權重少，而且意思相近的詞比較容易被歸在一起。
 
-得到 vectors 後可用 dot product 或 cosine。dot product 同時受方向與長度影響，cosine 除掉 norms，較聚焦方向。若 vector 全零，cosine 無定義；若兩詞 contexts 都很少，數值也可能不穩定。nearest-neighbor search 應同時顯示頻率與 similarity，而不是只列一串看似合理的詞。
+投影片教的方法是 word2vec 的其中一種：**skip-gram with negative sampling**（SGNS）。它的巧妙之處是完全不數次數，而是把問題改成一個第 3 週學過的二元分類。
 
-## Prediction-based embeddings 學到什麼
+### 把「數次數」換成「猜是不是鄰居」
 
-[Chapter 5](https://web.stanford.edu/~jurafsky/slp3/5.pdf) 將 static embeddings 連到以 prediction objective 學 representation 的方法。skip-gram 的直覺是由 target 預測 nearby contexts，CBOW 則由 contexts 預測 target。完整 softmax 需要對大 vocabulary 計算，negative sampling 以少量負例近似訓練訊號。
+問題改成這樣：給一個目標詞 w 和另一個詞 c，c 是不是 w 的鄰居？
 
-negative examples 的抽樣分布會影響學到的空間。太容易的 negatives 提供很小梯度；過度集中高頻詞又會改變罕見詞學習。training objective 不是透明容器，它定義哪些關係被 reward。
+訓練資料不用人標，文字本身就是答案。投影片的例子：
 
-embedding table 的每列是可訓練參數。訓練後相似性來自共享 prediction behavior，而不是人工把 synonym pairs 寫入。這也是模型可能學到非預期 association 的原因：只要 association 有助於預測，它就可能進入向量。
+> …lemon, a [tablespoon of **apricot** jam, a] pinch…
 
-## Analogy 不等於理解
+目標詞是 apricot（杏桃），視窗取前後各 2 個詞。視窗裡的詞就是**正例**：
 
-向量 offset 類比常寫成 `king - man + woman ≈ queen`。它可展示某些 relations 在空間中呈現相似方向，但結果高度依 vocabulary、corpus、metric 與候選排除規則。只挑成功例子無法評估 representation。
+| 目標詞 | 上下文詞 | 標籤 |
+|---|---|---|
+| apricot | tablespoon | 是鄰居 |
+| apricot | of | 是鄰居 |
+| apricot | jam | 是鄰居 |
+| apricot | a | 是鄰居 |
 
-更完整的 probe 應建立 relation categories，例如 morphology、geography、semantic relation，並報每類 coverage。若 test word 是 out-of-vocabulary，應單獨計，不可默默刪除讓 accuracy 上升。近鄰與 analogy 也可能反映 frequency 或資料模板，不必然是概念推理。
+**負例**從詞彙表裡隨機抽：每個正例配 k 個隨機的詞，例如 (apricot, aardvark)、(apricot, seven)、(apricot, forever)，標籤是「不是鄰居」。這就是 negative sampling。
 
-對下游 task，最可靠判斷仍是固定 train/dev/test protocol。intrinsic similarity score 可以快速檢查，但不保證 classification、retrieval 或 generation 改善。PA4 的視覺化與 probes 應被當成診斷，不是最終品質證明。
+### 分類器長什麼樣
 
-## Static 到 contextual representations
+每個詞有一個向量。兩個詞是鄰居的機率，用兩個向量的內積通過 sigmoid 來算：
 
-static embedding lookup 只依 token identity，因此同一個 `bank` 在不同句子拿到同一初始 vector。contextual model 會讓 token representation 經過 surrounding tokens 的 layers 後改變，河岸與銀行語境可分開。
+P(是鄰居 | w, c) = σ(c · w)
 
-但 contextual embedding 不是單一固定物件。要說「某詞的 embedding」，必須說來自哪個 model、哪一層、如何 pooling，以及輸入句子。不同 layers 可能偏向 lexical、syntactic 或 task-relevant features；把所有 layer states 平均也只是另一個設計選擇。
+內積越大，機率越高。這和第 3 週的邏輯迴歸是同一個式子，差別在於**這裡沒有固定的特徵，要學的就是向量本身**。
 
-[PA4 README](https://github.com/cs124/pa4-embeddings) 要安裝 PyTorch 與 Transformers，正是把 static vector exercise 接到 contextual model 的操作層。使用 pretrained model 時仍要記 tokenizer、model revision 與 layer，否則未來重跑可能得到不同 representation。
+舉一組本文自擬的數字：假設 apricot 和 jam 兩個向量的內積是 2，模型認為它們是鄰居的機率是 σ(2) ≈ 0.88；apricot 和 aardvark 的內積是 −1，機率是 σ(−1) ≈ 0.27。
 
-## Social NLP 的材料缺口如何不妨礙負責任測試
+### 怎麼學
 
-以下仍是依可讀 [Chapter 5](https://web.stanford.edu/~jurafsky/slp3/5.pdf) 建立的作者延伸；不歸因於 403 且未錄的現場課。
+一開始每個詞的向量是隨機的。訓練用的還是 cross-entropy loss 和梯度下降，每看一組資料就做兩件事：
 
-不能重建 live lecture，不代表可跳過資料檢查。Chapter 5 公開內容已足以支持一個基本原則：embeddings 從 corpus distribution 學 association。因此任何人物／群體分析都要記 corpus source、time period、language、sampling 與 preprocessing。
+- 把目標詞的向量和**正例**的向量拉近（讓內積變大）。
+- 把目標詞的向量和**負例**的向量推開（讓內積變小）。
 
-測 bias 時要先定義 operational metric。例如比較兩組 target words 與兩組 attribute words 的 cosine differences，是特定詞表上的 association test，不等於對所有社會偏差做完整測量。詞表翻譯、polysemy 與 frequency 都會影響結果。
+跑過整份語料很多次之後，常常一起出現的詞向量會靠在一起，從不一起出現的會分開。
 
-結果也要附 uncertainty 或 sensitivity：換幾組合理詞表、重訓不同 seed、改 corpus slice，結論是否維持？若只在一組精挑詞上成立，就應寫成 probe finding，而不是模型本質。
+這裡有一件值得想清楚的事。這個分類器本身沒有人要用，沒有人真的想知道 jam 是不是 apricot 的鄰居。它只是一個藉口，目的是訓練過程中順便得到的那些向量。分類任務做完就丟，向量留下來。
 
-更重要的是限制用途。發現 association 後不能直接推論 training-data 個體的信念，也不能把 vector score 用來替人分類。representation audit 的目的，是找出系統可能放大的資料模式，接著在實際 downstream task 檢查 harm。
+SGNS 實際上為每個詞學了兩個向量：一個是它當目標詞時用的，一個是它當上下文詞時用的。常見的做法是把兩個加起來當成最後的向量。
 
-## PA4 的 evidence package
+## 詞嵌入有哪些性質
 
-除了 notebook 能跑，至少保存四組 artifact：count／PPMI 小矩陣、static nearest neighbors、contextual representations 的句子對照、failure and bias probes。每組都要附 vocabulary、corpus 或 model revision 與 similarity definition。
+**視窗大小決定「相似」是哪一種。** 投影片舉的例子：視窗很小（前後 2 個詞）時，Hogwarts 最近的鄰居是其他虛構作品裡的學校，也就是可以互相替換的同類詞；視窗大的時候，最近的鄰居變成 Dumbledore、Malfoy、half-blood，也就是同一個主題底下的詞。
 
-可再建立一個 frequency-matched baseline。比較詞的近鄰時，若一組全是高頻、另一組全是低頻，差異可能來自估計品質。先配對頻率或在報告中顯示 counts，才知道 similarity pattern 是否超出資料量差異。
+**向量相減可以表示關係。** 最有名的例子是 king − man + woman 會落在 queen 附近，Paris − France + Italy 會落在 Rome 附近。把兩對詞畫出來會形成一個平行四邊形。投影片同時提醒：這個方法只對常見的詞、比較短的距離和某些特定關係有效，類比的機制還沒有被完全理解。
 
-最後將一個簡單 downstream classifier 分別使用 bag-of-words、static embeddings 與 contextual features。在同一 split 上比較，並保留 error cases。這能把 Week 2–5 串起來，又不需要引用未公開 Social NLP lecture。
+**向量記錄了語料的時代。** 用不同年代的文字各訓練一組向量，可以看到詞義的移動。
 
-## 延伸
+**向量也記錄了語料的偏見。** 同一套類比方法，問「Paris 之於 France，如同 Tokyo 之於什麼」會得到 Japan；問「man 之於 computer programmer，如同 woman 之於什麼」，一份 2016 年的研究得到的答案是 homemaker（家庭主婦）。向量忠實地反映了訓練文字裡的用法，包括刻板印象。投影片指出後果：如果這種向量被用在篩選履歷的系統裡，偏見就會被帶進去。
 
-Week 6 的 neural networks 會把 representation learning 接進多層模型，Week 7 再把 context-sensitive token states 放進 Transformer。進入後半季前應保留一個基準觀念：embedding 的品質永遠相對於資料、訓練目標與下游判準，不存在脫離用途的單一最好向量。
+這個性質也可以反過來當研究工具。投影片介紹了 Jurafsky 自己參與的一份 2018 年研究：用一百年來各個年代的文字訓練向量，量每個形容詞偏向哪個性別或族裔。結果是，與能力相關的形容詞（聰明、有邏輯、深思熟慮）偏向男性，這個偏向從 1960 年代到 1990 年代逐漸減少。這類研究就是這週現場課「計算社會科學」的主題：把語言模型當成觀察社會的儀器。
+
+## 靜態向量的限制，與上下文向量
+
+word2vec 給每個詞**一個固定的向量**，叫靜態向量。問題出在一詞多義：
+
+- We had a picnic on the grassy river **bank**.（河岸）
+- I went to the **bank** and withdrew some cash.（銀行）
+
+兩句裡的 bank 拿到同一個向量，那個向量只能是兩種意思的混合。
+
+**上下文向量**（contextual embedding）的做法是：把整句話丟進語言模型，每個詞拿到一個向量，而且**同一個詞在不同句子裡的向量不一樣**。投影片展示了 BERT 對 die 這個詞算出的向量：畫在平面上會分成幾群，「骰子」的 die、「死亡」的 die 各一群，連德文的冠詞 die 也自成一群。
+
+兩者的差別可以這樣記：
+
+| | 靜態向量 | 上下文向量 |
+|---|---|---|
+| 表示的對象 | 詞彙表裡的一個詞 | 一個詞在某句話裡的那一次出現 |
+| 怎麼取得 | 查表 | 把整句丟進語言模型 |
+| 同一個詞在不同句子裡 | 向量相同 | 向量不同 |
+
+上下文向量是從 Transformer 內部取出來的，那是下兩週的內容。
+
+## PA4
+
+**[PA4](https://github.com/cs124/pa4-embeddings)** 分兩段。前半用靜態詞向量：找同義詞、比較不同的相似度算法、看反義詞在向量空間裡的位置。後半用 BERT 取上下文向量，算句子之間的相似度。最後是倫理題。README 建議先看完第 5 週的影片與投影片、讀完教科書的對應章節。這份作業除了原本的 `cs124` 環境，還要另外安裝 PyTorch 和 Hugging Face 的 Transformers，因為會用到預訓練模型來取上下文向量。
+
+這一週沒有實作課，週二的時段是那堂現場課。
+
+## 自我檢查
+
+1. 用共現表算 cherry 和 strawberry 的 cosine。答案：strawberry 的向量是 [60, 0, 0]，內積 = 442×60 = 26,520，strawberry 的長度是 60，cherry 的長度是 442.1，cosine = 26,520 ÷ (442.1 × 60) ≈ 1.00。在這三個維度上，兩者方向幾乎完全相同。
+2. SGNS 裡，如果兩個詞的向量內積是 0，模型認為它們是鄰居的機率是多少？答案：σ(0) = 0.5，沒有傾向。
+3. 訓練語料是「我 喝 熱 咖啡」，視窗取前後各 1 個詞，目標詞是「熱」，正例有哪些？答案：(熱, 喝) 和 (熱, 咖啡)。
+4. 「蘋果」可以是水果，也可以是公司。靜態向量和上下文向量各會怎麼處理？答案：靜態向量只有一個，是兩種用法的混合，偏向語料裡比較常見的那一種；上下文向量在「吃蘋果」和「蘋果發表新手機」兩句裡會得到兩個不同的向量。
+
+## 這週和後面的關係
+
+- 第 6 週的神經語言模型，第一步就是把每個 token 換成它的向量。那一層的向量和整個模型一起訓練，不必另外跑 word2vec。
+- SGNS 是「用一個預測任務當藉口來學表示」的第一個例子。語言模型做的事是同一個模式：訓練目標是預測下一個 token，真正有用的是過程中學到的表示。
+- 上一週 dense retrieval 用的文件向量，就是這週最後講的上下文向量。
+
+**系列導覽**：上一篇 [第 4 週：Information Retrieval](/posts/ai/2026-08-22-cs124-week4-information-retrieval)｜下一篇 [第 6 週：Neural Networks and LLMs](/posts/ai/2026-08-22-cs124-week6-neural-networks-llms)
+
+## 更新紀錄
+
+- 2026-10-13：依公開投影片重寫。補上共現向量的 cosine 手算、skip-gram 正負例的組成與訓練方式、詞嵌入的性質與偏見研究、靜態與上下文向量的對照，以及自我檢查；移除與投影片無關的作者延伸段落。
 
 ## 參考資料
 
-- [CS124 Winter 2026 schedule](https://web.stanford.edu/class/cs124/lec/)
-- [SLP3 Chapter 5: Embeddings](https://web.stanford.edu/~jurafsky/slp3/5.pdf)
-- [CS124 PA4 Embeddings](https://github.com/cs124/pa4-embeddings)
-- [Speech and Language Processing, 3rd edition index](https://web.stanford.edu/~jurafsky/slp3/)
-- [Stanford CS124 完整課程總覽](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)
+- [CS124 Winter 2026 課程網站與課表](https://web.stanford.edu/class/cs124/)
+- [Vector Semantics and Embeddings 投影片](https://web.stanford.edu/class/cs124/lec/vector26jan.pdf) — ongchoi 例子、共現表與 cosine、skip-gram、類比與偏見研究
+- [Contextual Embeddings 投影片](https://web.stanford.edu/class/cs124/lec/ContextualEmbeddings25.pdf) — bank 與 die 的例子、靜態與上下文向量的對照
+- [CS124 PA4](https://github.com/cs124/pa4-embeddings)
+- [Speech and Language Processing 2025 年 8 月版第 5 章](https://web.stanford.edu/~jurafsky/slp3/old_aug25/5.pdf)

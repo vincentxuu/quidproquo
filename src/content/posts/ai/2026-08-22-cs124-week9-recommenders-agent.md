@@ -6,121 +6,238 @@ type: deep-dive
 tags: [cs124, stanford, recommender-system, ai-agent, llm]
 lang: zh-TW
 series: { name: "Stanford CS124 導讀", order: 10 }
-tldr: "Week 9 以 item-item collaborative filtering 產生電影推薦，再把推薦、web search、database 與 memory 包成 LLM agent tools；PA7 同時把模型非決定性、API 預算與團隊協作變成交付條件。"
-description: "Stanford CS124 Winter 2026 Week 9：推薦系統、協同過濾、cosine similarity、LLM tool use、search、memory、Lab 5 ethics 與 PA7。"
+tldr: "第 9 週教推薦系統：內容式推薦看物品的特徵，協同過濾只看評分矩陣，用「相似的人」或「相似的物品」來推估沒評過的分數。PA7 把物品對物品的協同過濾寫成一個函式，交給會呼叫工具的 LLM agent，再加上訂票、網頁搜尋與記憶。"
+description: "Stanford CS124 Winter 2026 第 9 週導讀：推薦問題的形式化、內容式推薦、使用者對使用者與物品對物品的協同過濾、為什麼要減去平均、加權平均的預測、PA7 用的簡化版手算、評估與社會影響；PA7 的三個部分與 ReAct agent 的運作；實作課五的課堂 AI 政策練習。依 2026 年版投影片、PA7 repo 與 labs repo。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs124-week9-recommenders-agent-en)
 
-Week 9 把一個傳統推薦演算法放進 LLM agent。官方 reading 先教 recommender systems 與 collaborative filtering，Lab 5 加入 classroom LLM ethics，PA7 則要求團隊完成能推薦電影、查 web、存取 database 與 memory 的 customer-service agent。
+這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 9 週。資料從文字換成人的行為：誰給哪部電影幾顆星。要回答的問題是：**一個人沒看過的東西，怎麼猜他會不會喜歡？**
 
-**版本：** Winter 2026。**單元：** Week 9，2026-03-03、03-05。**公開材料：** [schedule](https://web.stanford.edu/class/cs124/lec/)、[collaborative filtering slides](https://web.stanford.edu/class/cs124/lec/collaborativefiltering21.pdf)、[*Mining of Massive Datasets* Chapter 9](http://infolab.stanford.edu/~ullman/mmds/ch9.pdf)、[Lab 5](https://github.com/cs124/labs/blob/main/Lab5_Chatbots.md)、[PA7](https://github.com/cs124/pa7-agent)。**缺口：** Lab 5 未錄影、Quiz 8 gated；PA7 依賴 Together、SerpAPI、mem0ai 與 DSPy，服務版本和費用可能改變。課表留下 Chatbot 舊稱，released repo 已叫 Agent，本文以 repo identity 為準並保留漂移。
+這也是整門課最後一份作業 PA7 的一週。PA7 把這週的推薦演算法包成一個工具，交給 LLM agent 使用。
 
-## 推薦不是搜尋的另一個名字
+**本週材料**：[Recommender Systems and Collaborative Filtering 投影片](https://web.stanford.edu/class/cs124/lec/collaborativefiltering26.pdf)、[實作課五](https://github.com/cs124/labs/blob/main/Lab5_LargeLanguageModels.md)、[PA7](https://github.com/cs124/pa7-agent)。指定閱讀是 [*Mining of Massive Datasets* 第 9 章](http://infolab.stanford.edu/~ullman/mmds/ch9.pdf)。預錄影片在 Canvas，本文依投影片整理。
 
-搜尋從使用者明示 query 開始；推薦常要在沒有明確 query 時，根據使用者行為與其他人的 ratings 預測下一個 item。[collaborative-filtering slides](https://web.stanford.edu/class/cs124/lec/collaborativefiltering21.pdf) 區分 editorial lists、popular aggregates 與 individualized recommendations。collaborative filtering 屬於第三種：不必先理解電影內容，而從互動矩陣找相似模式。
+## 推薦問題長什麼樣
 
-[PA7](https://github.com/cs124/pa7-agent) 採 item-item collaborative filtering。ratings matrix 的 rows 是 movies、columns 是 users。兩部電影的 rating vectors 以 cosine similarity 比較，再用使用者已評分 items 對候選電影累積分數。README 明示不做 mean-centering 或 score normalization，因此實作應忠於這個指定版本，而不是自行換成另一個教科書變體。
+推薦有三種層次：編輯人工挑選的清單、簡單的統計（熱門排行、最新上架），以及為每個人量身訂做的推薦。這週講第三種。
 
-## 稀疏矩陣帶來冷啟動與 popularity 問題
+投影片說學這個有兩個理由。一是實用，新聞和商品推薦都靠它。二是理解錯誤資訊怎麼擴散：平台推薦什麼，決定了很多人看到什麼。
 
-大多數使用者只評少量 items，matrix 很稀疏。新使用者沒有歷史，新電影也缺共同 ratings，這是 cold start。熱門 item 擁有更多互動，往往更容易取得穩定 similarity，可能進一步加深 exposure。
+形式上，有一群使用者、一堆物品，和一張**評分矩陣**：每一列是一個使用者，每一欄是一個物品，格子裡是評分。這張矩陣**絕大部分是空的**，因為多數人沒評過多數物品。推薦的工作就是把空格填上，然後把預測分數高的推薦出去。
 
-演算法輸出是依既有行為的相似度推估，不是品質、真實或適合性的保證。Week 9 slides 也把 misinformation spread 放進理解推薦系統的理由：排序機制會影響使用者看見什麼，不只是節省選片時間。
+評分怎麼來？直接請人打分數效果不好，多數人懶得做。實際上多半是從行為推斷：買了、看完了、讀了，就當作高分。
 
-## PA7 把推薦函式變成 agent tool
+空格太多帶來**冷啟動**問題：新物品沒有人評過，新使用者沒有任何紀錄，兩者都無從下手。
 
-[PA7](https://github.com/cs124/pa7-agent) 的第一部分要求實作 `similarity` 與 `recommend_movies`，再把推薦功能接進 LLM agent。agent 不應假裝自己心算 ratings matrix；它需要選擇工具、傳入使用者與數量，再把結構化結果轉成回答。
+## 做法一：內容式推薦
 
-第二部分加入 web search 與 memory。search 提供模型參數之外的新資訊；memory 保存跨互動資訊；database 處理訂票等結構化狀態。這三者的 failure modes 不同：search 可取回錯來源，memory 可保存錯誤或敏感資訊，database tool 則可能造成真實狀態變更。
+想法：推薦和這個人以前喜歡的東西**內容相似**的物品。有人聽 Ella Fitzgerald，資料庫裡她的標籤是「爵士、二十世紀中、人聲」，Louis Armstrong 的標籤很像，就推薦他。
 
-工具使用因此需要明確 input/output、錯誤處理與測試。[PA7 README](https://github.com/cs124/pa7-agent) 提供 `test_functions.py` 等 spot checks，也提醒 agent nondeterminism。可確定的函式應以 deterministic unit tests 覆蓋；LLM routing 則要保留多次執行與失敗案例，不該只展示一次成功對話。
+做法是替每個物品建一個特徵向量（電影的類型、導演、演員；文章則用第 4 週的 tf-idf 挑出重要的詞），再把使用者喜歡過的物品的向量平均起來，當成這個使用者的向量。兩種向量的維度相同，直接算 cosine，推薦最接近的物品。
 
-## API 預算是系統約束
+優點：不需要其他使用者的資料，新物品和冷門物品都能推薦，也能解釋推薦的理由（因為你喜歡這個導演）。
 
-[PA7 setup instructions](https://github.com/cs124/pa7-agent) 要求 Together key 與 SerpAPI key，並直接提醒每次跑 REPL 都會消耗預算。這會改變開發方法：先單獨測試純函式與 mockable tool wrapper，再做少量 end-to-end calls。把所有除錯都交給真實 agent loop，會同時浪費費用與降低可重現性。
+缺點：特徵很難定，影像和音樂尤其如此；只會推薦和你以前喜歡的東西很像的，跳不出去；也用不到其他人的品質判斷。
 
-[PA7 repo](https://github.com/cs124/pa7-agent) 將 keys 放在 `api_keys.py` 的 local copy，且該檔不能提交或貼進文章。repo 的設定方式是課程 artifact，不代表 production secret management 已完成。
+## 做法二：協同過濾
 
-## Lab 5 的倫理內容能說到哪裡
+協同過濾完全不看物品的內容，只看評分矩陣。
 
-[課表](https://web.stanford.edu/class/cs124/lec/)將 Lab 5 命名為 Collaborative Filtering and Ethical Use of LLMs in the Classroom。公開 lab artifact 可確認問題存在，但現場討論未錄影，不能把某個學生立場或講者結論歸給課堂。文章能忠實保留的是結構：同一週要求學生實作排序與 agent，也要求討論其教育使用邊界。
+### 使用者對使用者
 
-## 本週的完成線
+想法：找出和你評分習慣相似的人，把他們喜歡而你還沒看過的推薦給你。
 
-先用固定 synthetic users 讓 collaborative filtering tests 通過，保存每個推薦的 contributing similarities。接著為 search、memory、database 各寫成功與失敗 case，最後才用有限 API calls 跑 agent。[PA7 README](https://github.com/cs124/pa7-agent) 規定團隊需記錄誰負責何部分、禁用 late days，也不能由一人單獨完成。
+每個使用者就是矩陣裡的一列。兩個人相不相似，還是用 cosine。但直接算有問題。投影片的例子裡有三個人：A 很討厭《星際大戰》，C 很喜歡，B 沒看過。直覺上 A 和 C 的口味應該相反，A 和 B 至少沒有衝突。但把空格當成 0 直接算 cosine，A 和 B 是 0.380，A 和 C 是 0.322，幾乎沒差。原因是低分和高分都是正數，在向量裡指向同一邊；空格的 0 反而比最低分看起來「更討厭」。
 
-## Item-item collaborative filtering 手算
+修正方法是**減去平均**（mean-centering）：每個人的評分都減掉他自己的平均分。這樣一來：
 
-[PA7 README](https://github.com/cs124/pa7-agent) 指定 ratings matrix 以 movies 為 rows、users 為 columns。對兩部電影 `i,j`，取 rating vectors `r_i,r_j`，cosine 是 dot product 除以兩個 norms。沒有共同非零 ratings 時，similarity 缺乏證據；norm 為零時必須定義安全處理，不能讓除零產生 NaN 傳進排序。
+- 高於自己平均的變成正數，低於的變成負數。口味相反的人，向量方向也相反。
+- 空格維持 0，意思變成「沒有資訊」，而不是「最低分」。
+- 順便處理了每個人給分標準不同的問題：有人習慣全部打 4、5 分，有人很嚴格。
 
-候選電影 `i` 的 score 由使用者已評電影 `j` 的 rating 乘 `sim(i,j)` 後加總。[PA7 README](https://github.com/cs124/pa7-agent) 明示不 mean-center、不 normalize scores，因此 hand calculation 應完全照這個指定。若自行扣掉 user mean 或除 similarity sum，即使是合理變體，也會和公開 expected list 不同。
+投影片再加一個步驟：只用兩個人**都評過**的物品來算。手算一次：
 
-使用 [PA7 README 的 synthetic user Peter example](https://github.com/cs124/pa7-agent) 可當 regression test：輸入名字與推薦數量，結果順序應和 README 一致。不要只 assert 三個 titles 存在，還要 assert exact order；tie-breaking 也要 deterministic，例如以 score 後再以 movie ID 排。
+- 使用者 x 的評分：[1, 空, 空, 1, 3]，平均 5/3
+- 使用者 y 的評分：[1, 空, 2, 2, 空]，平均 5/3
 
-score explanation 可列每個已評電影的 `rating × similarity` contribution。agent 最終不一定要把全部數學展示給使用者，但開發 log 應能重建 top recommendation，否則 tool output 錯時只能怪 LLM。
+減去平均：x 變成 [−2/3, 空, 空, −2/3, 4/3]，y 變成 [−2/3, 空, 1/3, 1/3, 空]。
 
-## Recommender evaluation 不等於看起來合理
+兩人都評過的是第 1 和第 4 個物品，所以只比 [−2/3, −2/3] 和 [−2/3, 1/3]：
 
-離線評估可遮掉一筆已知 rating，讓系統由其他 ratings 預測，再以 ranking metrics 檢查 held-out item 是否出現在 top-k。train/test split 必須尊重 users 與時間，避免把未來 interaction 洩漏到過去。
+- 內積 = 4/9 − 2/9 = 2/9
+- 長度分別是 √(8/9) 和 √(5/9)
+- cosine = (2/9) ÷ (√40 ÷ 9) ≈ 0.32
 
-popular baseline 很重要。若 collaborative filtering 無法超過「所有人都推最熱門」，個人化複雜度還沒有證據。也可分 cold-start users、heavy users、popular items、tail items 報結果，避免平均分數掩蓋稀疏區失敗。
+（最後這個數字是我照投影片的步驟算的。）
 
-coverage 與 diversity 是 accuracy 以外維度。系統是否只推薦很少一群 movies？同一列表是否全部高度相似？這些 metrics 不必全部變成 PA7 grading criteria，但可作自學 evaluation，並清楚標為延伸。
+有了相似度，預測 x 對某個物品的評分：找出評過這個物品、而且和 x 最相似的 k 個人，把他們的評分做**加權平均**，權重就是相似度。越像你的人，意見越重要。
 
-## Tool contract 先於 agent prompt
+### 物品對物品
 
-每個 tool 應有名稱、description、typed inputs、structured output、可能 errors 與 side effects。`recommend_movies(user, k)` 若 user 不存在，要回明確 error，不是空列表讓 agent 猜。web search 要保留 query、results、URLs；memory 要區分 write/read；database booking 要區分查詢與 mutation。
+換個方向：不找相似的人，找相似的物品。每個物品是矩陣裡的一欄（或把矩陣轉過來看是一列），兩部電影相似，表示**同一批人給它們的分數很像**。
 
-tool description 會影響 LLM routing。兩個 tools 描述重疊時，模型可能選錯。先用人工 cases 檢查「這個 request 應呼叫哪個 tool」，再調 prompt；不要用自然語言包裝掩蓋模糊 API。
+預測你對電影 i 的評分：看你評過的電影裡，哪些和 i 最相似，把你給那些電影的分數做加權平均。
 
-structured outputs 比自由文字容易測。推薦 tool 回 movie IDs、titles、scores；search 回 title/snippet/url；database 回 status 與 record ID。agent 最後才將它們轉成對話。
+投影片的例子：要預測使用者 5 對電影 1 的評分。使用者 5 評過的電影裡，和電影 1 最相似的兩部是電影 3（相似度 0.658，他給 2 分）和電影 6（相似度 0.768，他給 3 分）：
 
-## Search tool 的 evidence 與失敗處理
+預測 = (0.658 × 2 + 0.768 × 3) ÷ (0.658 + 0.768) = 3.62 ÷ 1.426 = 2.54
 
-[PA7](https://github.com/cs124/pa7-agent) 用 SerpAPI Bing Search。wrapper 應處理 missing key、quota exhausted、timeout、empty results 與 malformed response。每個 failure 都回可辨識狀態，避免 LLM 在沒有結果時補寫網路內容。
+投影片說，實務上物品對物品通常比使用者對使用者好。理由是物品比較單純，而一個人會有好幾種口味。
 
-測試 search 不必每次消耗 API。保存一個 redacted fixture 或 mock response，unit test parsing、ranking 與 URL extraction；只用少量 live calls 驗證 integration。[PA7 README](https://github.com/cs124/pa7-agent) 說 free account 有有限 searches 且 autograder 仍需額度，這直接支持先 mock 後 live 的開發順序。
+### 協同過濾的優缺點
 
-agent 引用 search 結果時要把 URL 留在 output evidence。PA7 不等於完整 fact-checking system，但若結果來源消失，至少能知道模型依賴哪個 item。
+優點是什麼物品都適用，不用設計特徵。
 
-## Memory 不是把所有對話永久保存
+缺點：
 
-memory tool 需要定義寫入條件、scope、key、更新與刪除。使用者說「我喜歡科幻片」可成為推薦 preference；一次性訂票時間不一定該變永久 profile。若每句都寫入，錯誤與敏感資訊會累積。
+- **冷啟動**：系統裡的使用者不夠多就找不到相似的人。
+- **稀疏**：很難找到評過同一批物品的人。
+- **第一個評分者**：從來沒人評過的物品，永遠不會被推薦。
+- **偏向熱門**：傾向推薦大家都看的，品味獨特的人得不到好推薦。
+- **社會後果**：可能造成同溫層和越推越極端的循環。
 
-測試至少涵蓋 create、retrieve、update、conflict、delete 與 wrong-user isolation。兩個同名使用者或 session IDs 不可共享 memory。agent 在使用舊 memory 前也應能讓使用者更正，而不是把 stale state 當事實。
+## PA7 用的簡化版，手算一次
 
-[PA7](https://github.com/cs124/pa7-agent) 使用 mem0ai 是實作選擇，不取消資料治理問題。自學交付應列哪些 fields 被保存、保存位置、如何清除，且不得把真實個資放進公開 repo。
+投影片有一節說明，PA7 的資料集很小，所以助教建議用一個簡化的版本：
 
-## Database tool 與 side effects
+1. 相似度直接用 cosine，**不減平均**，也不限定共同評過的物品。
+2. 預測分數**不除以相似度的總和**，只做加總。出來的數字不是一到五星的預測評分，只用來排名。
 
-customer-service agent 涉及 movie ticket bookings。read-only 查詢可安全重試，booking／cancel 等 mutation 不一定可重試；timeout 後重送可能重複訂票。tool contract 應使用 idempotency key 或先查 status，再決定重試。
+實作課五補充了第三點：使用者的資料是「喜歡的電影清單」，轉成 0 和 1 的向量。
 
-高影響 mutation 前可要求 confirmation，並在回應中回傳具體 booking ID 與狀態。LLM 自然語言說「完成」不算成功證據，database response 才算。
+實作課五有一個完整的小例子，資料如下（空格當成 0）：
 
-[PA7 scaffold](https://github.com/cs124/pa7-agent) 未必實作 production transaction semantics；文章把它列為 tool test 要看的 side effect，不宣稱課堂已完整處理所有付款／隱私要求。
+| | U1 | U2 | U3 | U4 |
+|---|---|---|---|---|
+| **M1** | 1 | 5 | 3 | |
+| **M2** | | | 5 | 4 |
+| **M3** | 2 | 4 | | 1 |
+| **M4** | | 2 | 4 | |
+| **M5** | | 4 | 3 | 4 |
+| **M6** | 1 | | 3 | |
 
-## Agent nondeterminism 的測試策略
+每一列是一部電影。有一位新使用者，喜歡 M3 和 M5。要推薦哪一部？
 
-同一 prompt 多跑幾次，LLM 可能選不同 tool 或產生不同 phrasing。先將 correctness 拆成 deterministic core 與 stochastic orchestration：collaborative filtering、parsing、database updates 以 unit tests；tool selection 與 final response 以 scenario tests。
+**第一步，算電影之間的 cosine。** 講義給了大部分的值，留三個給學生算。以 M1 和 M3 為例（以下三個是我算的）：
 
-scenario 至少包括直接推薦、需要先問使用者資訊、search 無結果、memory 衝突、API timeout、mutation confirmation。每個 scenario 定義允許的 tool sequence 與必須出現的 facts，不要求整段文字逐字相同。
+- M1 = [1, 5, 3, 0]，M3 = [2, 4, 0, 1]
+- 內積 = 1×2 + 5×4 + 3×0 + 0×1 = 22
+- 長度：√35 = 5.92，√21 = 4.58
+- sim(M1, M3) = 22 ÷ (5.92 × 4.58) = **0.81**
 
-記錄 model、temperature、prompt version、tool schema 與 run ID。若版本不留，agent regression 無法判斷是 code、prompt 或 provider model 更新。
+同樣的算法：sim(M1, M5) = 29 ÷ (5.92 × 6.40) = **0.77**，sim(M5, M6) = 9 ÷ (6.40 × 3.16) = **0.44**。
 
-## Reflection 與團隊交付
+**第二步，替每部候選電影算分數。** 分數 = 它和使用者喜歡的每部電影的相似度加總。這位使用者喜歡 M3 和 M5：
 
-[PA7 README](https://github.com/cs124/pa7-agent) 有 reflection 與 manual／LLM grading elements，並要求 `rubrics.txt` 標示完成 features。交付前逐項對照，不要把未實作 feature 寫成 YES。團隊 description 也要記誰做哪些 code 與 tests，符合 syllabus 對 group work 的要求。
+| 候選電影 | 和 M3 的相似度 | 和 M5 的相似度 | 分數 |
+|---|---|---|---|
+| M1 | 0.81 | 0.77 | 1.58 |
+| M4 | 0.39 | 0.70 | 1.09 |
+| M2 | 0.14 | 0.76 | 0.90 |
+| M6 | 0.14 | 0.44 | 0.58 |
 
-ethics 不只在 Lab 5。推薦結果會影響 exposure，memory 會保存個人資訊，search 會引入外部來源，agent mutation 會改真實狀態。每個工具的 evidence log 同時是安全與除錯基礎。
+（講義的例子只列 M1、M2、M6 三部候選，這裡把 M4 也算進來，結論相同。）
 
-最終 demo 應包含成功 case 與一個預期 failure：例如 search quota 用完時，agent明確說無法取得結果而不編造。能安全失敗，比只展示順利訂票更能證明系統理解 tool boundaries。
+**第三步，推薦分數最高的：M1。**
+
+回頭看原始資料就知道為什麼：U2 給 M1、M3、M5 的分數是 5、4、4，全部偏高。喜歡 M3 和 M5 的人，和 U2 的口味接近，而 U2 也喜歡 M1。整個過程沒有用到任何一部電影的內容。
+
+## 評估，以及可能出什麼錯
+
+評估的方法是把一部分已知的評分藏起來，讓系統預測，再和真實的評分比較。常用的指標是 RMSE（預測和實際的差，平方後平均再開根號）。
+
+投影片接著問了一個更根本的問題：**預測「使用者會看什麼」，是對的目標嗎？** 它介紹了 YouTube 在 2016 年公開的做法：把影片和使用者都表示成向量，訓練一個很大的神經網路去預測使用者下一支會看的影片。系統被訓練成最大化觀看，而讓人一直看下去的內容，不一定是真實或有益的內容。
+
+投影片列出推薦系統已知的社會問題：散播錯誤資訊與宣傳、同溫層、不當內容、不透明、侵犯隱私。其中引了一位前 YouTube 工程師的說法：他很快發現推薦機制會把人放進同溫層，而且沒有出口。
+
+## PA7：把推薦函式交給 agent
+
+**[PA7](https://github.com/cs124/pa7-agent)** 要做一個電影票務的客服 agent。規定三到四人一組，不能用遲交額度，佔總成績 18%。（下面的配分照 README 寫，三部分加起來是 107 分；實作課四的講義寫的是 100 分另加 5 分加分，兩份文件不一致。）
+
+### 第一部分：會用工具的 agent（68 分）
+
+**推薦工具（21 分）。** 在 `agent.py` 實作 `similarity` 和 `recommend_movies`，就是上面手算的那套。資料是一張電影評分矩陣，每一列是電影、每一欄是使用者。README 給了一個可以對答案的例子：對使用者 Peter 推薦 3 部，結果應該**完全等於**《回到未來》《法櫃奇兵》《星際大戰六部曲》，順序也要一樣。
+
+**把工具接上 agent（27 分）。** 用 DSPy 的 `ReAct`。你要做兩件事：在 agent 的說明文字裡寫清楚它的任務，以及把工具放進清單：
+
+```python
+react_agent = dspy.ReAct(
+    MovieTicketAgent,
+    tools = [
+        recommend_movies,
+        general_qa,
+    ]
+)
+```
+
+ReAct 的運作是**推理和呼叫工具交替進行**。使用者說「我是 Peter，推薦三部電影給我」，agent 的紀錄會是：
+
+1. **想**：我需要推薦 3 部電影給 Peter，要用 `recommend_movies`。
+2. **呼叫**：`recommend_movies(user_name="Peter", k=3)`。
+3. **觀察**：拿到三部電影的清單。
+4. **想**：推薦完成了，接下來問他要不要訂票。
+5. **呼叫** `finish`，結束。
+
+最後 agent 把整個過程整理成一句給使用者的回覆。
+
+這裡的分工值得看清楚。算相似度、排名是確定性的計算，交給 Python 函式；決定現在該用哪個工具、參數怎麼填、結果怎麼跟使用者說，交給 LLM。LLM 沒有自己去算那個矩陣。
+
+**接資料庫（20 分）。** 實作 `book_ticket`：訂票時要更新票務資料庫，並從使用者的餘額扣款。agent 處理不了的要求，要呼叫 `file_request` 轉給真人客服。
+
+### 第二部分：接到真實世界（32 分）
+
+**網頁搜尋（8 分）。** LLM 不知道訓練之後的事，例如即將上映的新片。接上搜尋 API（透過 SerpAPI），讓 agent 可以查。這是第 4 週 RAG 的另一種形式：檢索的來源從固定的文件集合換成整個網路。
+
+**記憶（24 分）。** 到這裡為止，agent 沒有狀態：每一輪對話都要重新告訴它你是誰。用 Mem0 這個函式庫加上記憶，讓它記得之前的互動。
+
+### 第三部分：反思（7 分）
+
+在 Gradescope 上回答幾題反思問題。
+
+### 幾件實際的事
+
+- **API 額度。** 需要 Together AI 的 key（建立時可能要填付款資料）和 SerpAPI 的 key（免費帳號有 250 次搜尋）。README 反覆提醒：每跑一次互動介面就會扣額度，所以先用 `python test_functions.py --function similarity` 這類指令把函式單獨測好。
+- **不確定性。** README 有一節專門講：LLM 系統不是確定性的，agent 偶爾會有意外的行為，即使整體是對的。測試時要讀完整的推理紀錄，確認它呼叫了正確的工具。
+- **評分方式。** 確定性的函式用一般的自動評分。其他項目先由一個 LLM 評分，只要 LLM 扣了任何分數，就會轉給助教人工複查。評分用的 prompt 是公開的。
+
+## 實作課五
+
+[**實作課五**](https://github.com/cs124/labs/blob/main/Lab5_LargeLanguageModels.md)有兩部分。第一部分就是上面那個協同過濾的手算，講義附了試算表和解答，repo 裡另有一份[解答文件](https://github.com/cs124/labs/blob/main/Lab5_LargeLanguageModels_Solutions.md)。
+
+第二部分佔了大半堂課，主題是**課堂上該怎麼規範 AI 的使用**。Stanford 有全校的指引，但細節交給各門課的老師，所以學生每修一門課就要記一套不同的規則。活動分四步：
+
+1. **判斷灰色地帶。** 五個情境，各組決定可以、不可以、還是看情況。例如：學生把程式的錯誤訊息貼給 ChatGPT，照它的建議改好了，但不確定自己能不能重做一次；非母語的學生用 AI 潤飾作文的文法，論點全是自己的；助教用 LLM 起草給學生的評語，自己再審過修改。
+2. **寫政策。** 一半的組替 CS124 寫，另一半替寫作課寫。要具體寫出允許和禁止的用法、要不要揭露、違反的後果，以及理由。
+3. **交換找漏洞。** 找出「形式上符合政策、實質上違背學習目標」的做法，找出邊緣案例（把 AI 當輔助工具的身心障礙學生；買得起更好模型的學生），找出兩個講理的人會有不同解讀的句子。
+4. **回到全班討論。**
+
+講義的結論是：沒有一套適用於所有課的 AI 政策，因為政策應該由這門課的**學習目標**決定。寫作課裡，寫出來的東西本身就是學習；程式課裡，寫出來的東西是用來展示學會了。兩者需要的規則不一樣。
+
+## 自我檢查
+
+1. 用實作課五的資料算 sim(M2, M4)。答案：M2 = [0, 0, 5, 4]，M4 = [0, 2, 4, 0]。內積 = 20，長度是 √41 = 6.40 和 √20 = 4.47，cosine = 20 ÷ 28.6 = 0.70。和講義表上的值一致。
+2. 如果新使用者只喜歡 M2，簡化版會推薦哪一部？答案：看 M2 和其他電影的相似度：M1 0.40、M3 0.14、M4 0.70、M5 0.76、M6 0.74。最高的是 M5。
+3. 一個使用者給三部電影 5、5、2 分，減去平均之後是多少？答案：平均是 4，變成 [1, 1, −2]。
+4. 用物品對物品預測：使用者評過兩部相似的電影，相似度是 0.5 和 1.0，他給的分數是 4 和 1。預測評分是多少？答案：(0.5×4 + 1.0×1) ÷ 1.5 = 2.0。比較相似的那部他給了低分，所以預測被拉低。
+5. PA7 裡，「算兩部電影的相似度」和「決定要不要呼叫推薦工具」各由誰負責？答案：前者是你寫的 Python 函式，結果是確定的，可以用單元測試檢查；後者是 LLM，每次不一定相同，要靠讀推理紀錄來檢查。
+
+## 這週和後面的關係
+
+- 這週用評分矩陣判斷物品重不重要、像不像。下一週換成連結：用網頁之間的超連結判斷哪個網頁重要。
+- PA7 是這門課的最後一項要求，沒有期末考。
+
+**系列導覽**：上一篇 [第 8 週：Speech and PA7/Git Lab](/posts/ai/2026-08-22-cs124-week8-speech-git)｜下一篇 [第 10 週：PageRank and Social Networks](/posts/ai/2026-08-22-cs124-week10-pagerank-networks)
+
+## 更新紀錄
+
+- 2026-10-13：依 2026 年版公開投影片重寫。投影片來源從 2021 年的舊檔換成官方課表現在連結的版本，實作課五的連結從已失效的舊檔名換成 `Lab5_LargeLanguageModels.md`。補上內容式推薦、減去平均的手算、物品對物品的預測例子、PA7 簡化版的完整手算、ReAct 的步驟、實作課五的 AI 政策活動與自我檢查。
 
 ## 參考資料
 
-- [CS124 Winter 2026 schedule](https://web.stanford.edu/class/cs124/lec/)
-- [Collaborative Filtering slides](https://web.stanford.edu/class/cs124/lec/collaborativefiltering21.pdf)
-- [Mining of Massive Datasets, Chapter 9](http://infolab.stanford.edu/~ullman/mmds/ch9.pdf)
-- [CS124 Lab 5](https://github.com/cs124/labs/blob/main/Lab5_Chatbots.md)
-- [CS124 PA7 Agent](https://github.com/cs124/pa7-agent)
+- [CS124 Winter 2026 課程網站與課表](https://web.stanford.edu/class/cs124/)
+- [Recommender Systems and Collaborative Filtering 投影片](https://web.stanford.edu/class/cs124/lec/collaborativefiltering26.pdf) — 內容式推薦、兩種協同過濾、PA 用的簡化版、評估與社會影響
+- [CS124 PA7](https://github.com/cs124/pa7-agent) — 三個部分的配分、Peter 的範例、ReAct 設定、API key、評分方式
+- [CS124 實作課五](https://github.com/cs124/labs/blob/main/Lab5_LargeLanguageModels.md) — 協同過濾的小例子與 AI 政策活動
+- [Mining of Massive Datasets 第 9 章](http://infolab.stanford.edu/~ullman/mmds/ch9.pdf)

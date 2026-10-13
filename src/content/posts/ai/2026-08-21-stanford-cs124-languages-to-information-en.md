@@ -89,7 +89,7 @@ In these three weeks the representations are chosen by people, and all of them c
 
 ### Weeks 7–8: speech
 
-Week 7 has a live lecture on speech processing, also not recorded. The public part is PA6b in Week 8: send a set of sentences (the ones your PA6a model generated, or the file that ships with the repo if you skipped PA6a) through speech synthesis to get audio, send the audio through speech recognition to get text back, and compare what was lost along the way. Then run the same pipeline on a real recording with an accent or with pauses.
+Week 7 has a live lecture on speech processing. It was not recorded, and its slides are public; the Week 7 and Week 8 posts follow them through how speech recognition is evaluated, how sound becomes model input, and the Whisper architecture. The assignment is PA6b in Week 8: send a set of sentences (the ones your PA6a model generated, or the file that ships with the repo if you skipped PA6a) through speech synthesis to get audio, send the audio through speech recognition to get text back, and compare what was lost along the way. Then run the same pipeline on a real recording with an accent or with pauses.
 
 ### Weeks 9–10: people and links
 

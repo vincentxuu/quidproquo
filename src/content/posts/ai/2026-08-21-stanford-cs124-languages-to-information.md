@@ -89,7 +89,7 @@ SLP 是這門課的教科書 *Speech and Language Processing*，章號以課綱�
 
 ### 第 7–8 週：語音
 
-第 7 週有一堂語音處理的現場課，同樣沒有錄影。公開的部分是第 8 週的 PA6b：把一批句子（可以用自己 PA6a 模型產生的，沒做 PA6a 就用 repo 附的那一份）丟給語音合成變成音檔，再丟給語音辨識轉回文字，比對哪些資訊在來回之間不見了，並且用一段帶口音或停頓的真實錄音測同一條流程。
+第 7 週有一堂語音處理的現場課，沒有錄影，投影片公開；第 7、8 週的導讀依投影片講語音辨識的評估方式、聲音怎麼變成模型的輸入，以及 Whisper 的架構。作業是第 8 週的 PA6b：把一批句子（可以用自己 PA6a 模型產生的，沒做 PA6a 就用 repo 附的那一份）丟給語音合成變成音檔，再丟給語音辨識轉回文字，比對哪些資訊在來回之間不見了，並且用一段帶口音或停頓的真實錄音測同一條流程。
 
 ### 第 9–10 週：人與連結
 
@@ -234,7 +234,7 @@ YouTube 上有一個 [From Languages to Information 頻道](https://www.youtube.
 - **在做 RAG 或搜尋**：[第 4 週](/posts/ai/2026-08-22-cs124-week4-information-retrieval)，再補[第 5 週](/posts/ai/2026-08-22-cs124-week5-embeddings-social-nlp)的向量相似度。先把 tf-idf 這個可以手算的基準弄懂，之後換成向量檢索時才知道改善了什麼。
 - **想弄懂 LLM 內部**：[第 2 週](/posts/ai/2026-08-22-cs124-week2-tokens-ngram)的 BPE 與 n-gram、[第 6 週](/posts/ai/2026-08-22-cs124-week6-neural-networks-llms)、[第 7 週](/posts/ai/2026-08-22-cs124-week7-transformers-speech)，然後做 PA6a。
 - **要做 agent**：[第 9 週](/posts/ai/2026-08-22-cs124-week9-recommenders-agent)。PA7 示範了怎麼把一個確定性的函式包成工具、怎麼測一個每次輸出都不太一樣的系統。
-- **做語音產品**：[第 8 週](/posts/ai/2026-08-22-cs124-week8-speech-git)，配第 2 週的編輯距離（字錯誤率就是用它算的）。
+- **做語音產品**：[第 8 週](/posts/ai/2026-08-22-cs124-week8-speech-git)，配第 2 週的編輯距離（詞錯誤率就是用它算的）。
 - **做推薦或圖分析**：[第 9 週](/posts/ai/2026-08-22-cs124-week9-recommenders-agent)前半和[第 10 週](/posts/ai/2026-08-22-cs124-week10-pagerank-networks)。
 
 怎麼判斷自己走哪一條：看第 3 週。如果你能不查資料寫出邏輯迴歸的 loss，並且說得出梯度為什麼是「預測值減真實值，再乘上輸入特徵」，就可以挑著讀；說不出來，從第 2 週照順序走。

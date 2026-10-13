@@ -6,99 +6,197 @@ type: deep-dive
 tags: [cs124, stanford, nlp, logistic-regression, text-classification]
 lang: zh-TW
 series: { name: "Stanford CS124 導讀", order: 4 }
-tldr: "Week 3 用 logistic regression 串起文字特徵、sigmoid 機率、cross-entropy loss 與 gradient descent，讓分類不只輸出標籤，也能說明每個特徵如何推動預測。"
-description: "Stanford CS124 Winter 2026 Week 3：logistic regression、文字分類、特徵、loss、梯度更新、Lab 2 與 PA2。"
+tldr: "第 3 週教邏輯迴歸：把文件變成特徵向量，加權總和後通過 sigmoid 得到機率，用 cross-entropy 量錯多少，再用梯度下降修權重。本文照投影片的影評例子把預測、loss 與一次權重更新各算一遍，並說明為什麼評估要看 precision 與 recall。"
+description: "Stanford CS124 Winter 2026 第 3 週導讀：文字分類的特徵、sigmoid、決策邊界、cross-entropy loss、隨機梯度下降的一步手算、mini-batch、precision／recall／F1、分類器可能造成的傷害，以及實作課二與 PA2。依公開投影片與 labs repo。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs124-week3-logistic-regression-en)
 
-Week 2 把文字變成 token 序列，Week 3 開始對整段文字做判斷。官方單元只有一條主線：用 logistic regression 做 text classification，並在 Lab 2 與 PA2 中自己走過 feature、probability、loss 與 update。
+這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 3 週。上一週把文字切成 token、學會數次數；這一週要對整段文字下判斷：這則影評是正面還是負面？這封信是不是垃圾信？
 
-**版本：** CS124 Winter 2026。**單元：** Week 3，2026-01-20、01-22。**活動：** Logistic Regression Canvas material；1 月 20 日 Lab 2。**公開材料：** [schedule](https://web.stanford.edu/class/cs124/lec/)、[SLP3 Chapter 4](https://web.stanford.edu/~jurafsky/slp3/4.pdf)、[Lab 2](https://github.com/cs124/labs/blob/main/Lab2_LogisticRegression.md)、[Lab 2 solutions](https://github.com/cs124/labs/blob/main/Lab2_LogisticRegression_Solutions.md)、[PA2](https://github.com/cs124/pa2-logistic-regression)。課綱指定 Chapter 4 pp.1–17，並說 pp.18、21 也有幫助。**缺口：** Canvas narration 與 Gradescope Quiz 2 不公開；目前主站 PDF 是課後更新版，本文只用與官方 agenda 對得上的核心章節，不把新增內容倒灌成 2026 課堂內容。
+用的模型是邏輯迴歸。投影片給了三個學它的理由：它是社會科學與醫學研究裡分析二元結果的標準工具，是監督式分類的基準模型，也是神經網路的基本單位。第 6 週的神經網路就是把很多個邏輯迴歸疊起來。
 
-## 分類先從表示開始
+**本週材料**：[Logistic Regression 投影片](https://web.stanford.edu/class/cs124/lec/logreg26jan.pdf)、[實作課二的導引投影片](https://web.stanford.edu/class/cs124/lec/lab2logreg_lecture.pdf)、[實作課二題目](https://github.com/cs124/labs/blob/main/Lab2_LogisticRegression.md)與[解答](https://github.com/cs124/labs/blob/main/Lab2_LogisticRegression_Solutions.md)、[PA2](https://github.com/cs124/pa2-logistic-regression)。指定閱讀是教科書 2025 年 8 月版的[第 4 章](https://web.stanford.edu/~jurafsky/slp3/old_aug25/4.pdf)。預錄影片在 Canvas，本文依投影片與教科書整理。
 
-指定的 [SLP3 Chapter 4](https://web.stanford.edu/~jurafsky/slp3/4.pdf) 將文字分類定義為把輸入文件指派到類別，例如 sentiment、spam、language identification 或 authorship attribution。模型不直接讀懂字串，而是接收 feature vector `x`。最基本做法可以是詞是否出現、出現幾次，或經過正規化的計數。
+## 分類器的四個零件
 
-這一步已經帶入假設。bag-of-words 忽略順序，卻保留哪些詞與標籤共同出現；加入 bigram 可保留短距離順序，維度與稀疏度也會上升。特徵不是中性的前處理，而是模型可以使用的證據範圍。
+投影片把一個機器學習分類器拆成四個部分，這一週就照這個順序講：
 
-## 線性分數如何變成機率
+1. **特徵表示**：把輸入變成一串數字 x。
+2. **分類函數**：從 x 算出預測的機率 ŷ，這裡用 sigmoid。
+3. **目標函數**：量預測和正確答案差多少，這裡用 cross-entropy loss。
+4. **最佳化演算法**：調整參數讓 loss 變小，這裡用隨機梯度下降。
 
-logistic regression 先算 `z = w·x + b`。權重的正負表示特徵把結果推向哪個類別，絕對值表示推力大小。sigmoid `σ(z)=1/(1+e^{-z})` 再把任意實數壓到 0 與 1 之間，成為二元類別的條件機率。
+## 從文字到機率
 
-這個模型仍是線性 decision boundary，但機率輸出帶來兩個好處：可以調整 threshold，而不是永遠以 0.5 作決定；也能用連續的 loss 來學權重。對高風險 spam filter，false positive 成本高，門檻就不該只靠預設值。
+### 特徵
 
-## Cross-entropy 懲罰自信的錯誤
+投影片的例子是一則影評，要判斷它是正面（y = 1）還是負面（y = 0）。先人工定義六個特徵：
 
-[Chapter 4](https://web.stanford.edu/~jurafsky/slp3/4.pdf) 將正確標籤為 `y`、模型給正類機率 `p` 時的 binary cross-entropy 寫成 `-[y log p + (1-y) log(1-p)]`。預測正確且有信心時 loss 小；方向錯又極度有信心時 loss 會急遽上升。
+| 特徵 | 定義 | 這則影評的值 |
+|---|---|---|
+| x₁ | 正面詞出現幾個 | 3 |
+| x₂ | 負面詞出現幾個 | 2 |
+| x₃ | 有沒有出現「no」 | 1 |
+| x₄ | 第一、二人稱代名詞出現幾個 | 3 |
+| x₅ | 有沒有驚嘆號 | 0 |
+| x₆ | 總詞數取自然對數 | ln(66) = 4.19 |
 
-訓練就是讓整批資料的 loss 下降。對 logistic regression，梯度可整理成「預測與真值的差」乘上輸入特徵。gradient descent 沿負梯度更新 `w` 與 `b`；learning rate 太大會跨過低點，太小則學得很慢。Lab 2 的價值在於把公式拆回每一步計算，不讓 optimizer 藏掉錯誤來源。
+特徵決定了模型看得到什麼。這六個特徵完全不管詞的順序，「不好看」的「不」如果沒有被某個特徵抓到，模型就無從得知。
 
-## 評估不能只看 accuracy
+### 加權總和與 sigmoid
 
-類別不平衡時，永遠猜多數類也可能有漂亮 accuracy。分類系統需要 confusion matrix：true positive、false positive、true negative、false negative。precision 問被模型判成正類的有多少是真的；recall 問所有正類有多少被找到。兩者的取捨必須回到任務成本。
+每個特徵有一個權重 w，另外有一個偏差項 b。先算加權總和：
 
-threshold 應在 validation data 上選，不是在看完 test results 後倒調。列出多個門檻下的 precision、recall 與 confusion matrix，再依 false positive／false negative 成本挑 operating point。若部署後 base rate 改變，同一門檻也未必維持原錯誤比例，仍需監測 calibration 與 class distribution。
+z = w·x + b
 
-這也是可解釋性最樸素的入口。線性模型可以列出權重最大的正負特徵，檢查模型學到的是任務訊號還是資料捷徑。但權重不是因果效果；相關詞也可能只是資料蒐集方式留下的痕跡。
+假設模型已經學到這組權重：w = [2.5, −5.0, −1.2, 0.5, 2.0, 0.7]，b = 0.1。權重的正負號說明這個特徵把結果往哪邊推：正面詞的權重是 2.5，往正面推；負面詞是 −5.0，往負面推，而且推得更用力。
 
-## PA2 的交付意義
+代入這則影評：
 
-[PA2 repo](https://github.com/cs124/pa2-logistic-regression) 延續 Jupyter workflow，要求學生在 notebook 中完成 logistic regression。重要的不是呼叫現成 classifier，而是能從 features 計算 logits、probabilities、loss 與 gradients，並用資料驗證更新方向。
+z = 2.5×3 + (−5.0)×2 + (−1.2)×1 + 0.5×3 + 2.0×0 + 0.7×4.19 + 0.1 = 0.833
 
-本週最小練習：拿兩句短文字建立手工詞彙表與 feature vectors，指定一組 `w,b`，算出 probability 與單筆 loss，再改一個權重看預測如何移動。若無法追到某個詞如何改變 `z`，就還沒有得到這個模型最值得保留的透明度。
+z 可以是任何實數，還不是機率。**sigmoid** 函數把它壓到 0 和 1 之間：
 
-## 從原始文字到 design matrix
+σ(z) = 1 / (1 + e⁻ᶻ)
 
-Chapter 4 的 classifier pipeline 先把每篇 document 轉成 feature row，再把 labels 排成 target vector。若 vocabulary 有 `d` 個 features、batch 有 `m` 篇文件，design matrix 是 `m × d`。這個 shape 決定 `Xw+b` 是否能一次算完整 batch，也讓實作錯誤可定位。
+σ(0.833) ≈ 0.70。模型認為這則影評有七成機率是正面，三成是負面。
 
-binary feature 只記某詞有沒有出現，count feature 保存次數；兩者對長文件的反應不同。加入 bias feature 讓模型在所有文字 features 為零時仍能學 base rate。若資料 preprocessing 把 negation、大小寫或標點丟掉，模型之後無法靠訓練把它們找回來。
+sigmoid 的形狀是一條 S 形曲線：z = 0 時輸出 0.5，z 越大越接近 1，越小越接近 0，而且兩端會變平。實作課二給了幾個參考值：σ(2) ≈ 0.88、σ(4) ≈ 0.98。z 從 2 加到 4 多了一倍，機率只從 0.88 升到 0.98。分數已經很高的時候，再加碼對機率影響不大。
 
-建立 vocabulary 時必須只讀 training split。若先看完整 dataset 再選 features，validation/test 的詞彙統計已滲入 training pipeline，即使 labels 沒直接洩漏，也會讓評估不再代表真正未見資料。相同規則適用 normalization parameters：平均、標準差或 IDF 都應由 training data fit，再套到其他 split。
+### 下決定
 
-稀疏文字矩陣不該無條件轉成 dense。大部分 document-word entries 是零；保留 sparse representation 能節省記憶體，也更接近實際 NLP pipeline。PA2 notebook 規模可能容許簡化，但理解稀疏性可避免把教學實作直接放大時爆掉。
+有了機率，再定一個門檻。預設是 0.5：機率超過 0.5 就判成正面。0.70 > 0.5，所以這則影評判成正面。
 
-## Binary 到 multinomial classification
+## 量錯多少：cross-entropy loss
 
-二元 logistic regression 用 sigmoid 產生一個正類機率。若要在多個互斥 labels 中選一個，可對每類算 logit，再以 softmax 正規化。softmax 將所有類別的 exponentiated scores 除以總和，得到和為一的 distribution。
+訓練需要一個數字告訴我們預測有多差。邏輯迴歸用的是 cross-entropy loss：
 
-multinomial cross-entropy 只取正確 class 的 negative log probability。gradient 仍有「predicted distribution minus one-hot target」的形狀，因此 Week 3 的直覺能延伸到後續 vocabulary prediction：language model 的每個 next token 都是一次超大類別的 classification。
+L = −[ y·ln(ŷ) + (1 − y)·ln(1 − ŷ) ]
 
-不過，互斥 softmax 與 multi-label task 不同。一篇文件若可同時屬於多個 topics，每個 label 應各有 sigmoid，而不是強迫 probability mass 在 labels 之間競爭。先說清楚 label semantics，才能選 output layer。
+式子看起來複雜，其實 y 不是 1 就是 0，兩項裡永遠只有一項會留下來：
 
-## Regularization 與資料捷徑
+- 正確答案是正面（y = 1）：L = −ln(ŷ)，也就是「模型給正確答案的機率」取負對數。
+- 正確答案是負面（y = 0）：L = −ln(1 − ŷ)。
 
-文字 feature 空間大，模型很容易把少數 training examples 的罕見詞記成巨大 weight。L2 regularization 在 objective 加入權重平方懲罰，促使 weights 不要無限制變大；L1 則傾向產生更多零權重。regularization strength 是 validation choice，不能用 test set 調。
+拿剛才的影評算，ŷ = 0.70：
 
-權重表可以發現資料捷徑。例如 sentiment classifier 可能把某個演員名字學成負向特徵，因為 training corpus 中該名字剛好常出現在負評。這不表示模型理解演員造成 sentiment，只表示 dataset 中有穩定 association。
+| 正確答案 | loss | |
+|---|---|---|
+| 正面（y = 1） | −ln(0.70) = 0.36 | 模型猜對方向，loss 小 |
+| 負面（y = 0） | −ln(0.30) = 1.20 | 模型猜錯方向，loss 大 |
 
-檢查方式不是只看 top weights。要把 false positives 與 false negatives 分組，尋找 negation、sarcasm、domain shift、rare words 或 annotation ambiguity。每一類 failure 對應不同下一步：加 feature、改資料、調 threshold，或承認 label 本身不一致。
+負對數有一個重要的性質：模型越有把握卻猜錯，罰得越重。如果模型給正確答案的機率只有 0.01，loss 是 −ln(0.01) = 4.6；機率趨近 0 時 loss 趨近無限大。
 
-## Gradient、batch 與數值穩定
+## 修權重：隨機梯度下降
 
-單筆 gradient 容易受例子影響；full-batch 每次看全部資料但成本較高；mini-batch 在效率與估計噪音間折衷。無論用哪種，訓練紀錄至少要分開保存 training loss 與 validation metric，避免只看到 training 一直下降就宣稱泛化改善。
+目標是找到讓整份訓練資料的 loss 最小的 w 和 b。做法是算出 loss 對每個權重的梯度（往哪個方向調、loss 會上升最快），然後往反方向走一小步：
 
-計算 sigmoid 與 log loss 時還要注意極端 logits。直接算 `log(sigmoid(z))` 可能 underflow；實作通常用穩定的 log-sum-exp／combined loss function。教學 notebook 若把公式逐步展開，應以小數值驗證，再確認 library loss 的 input 是 logits 還是 probabilities。兩者混用會得到看似能跑、實際錯誤的 objective。
+w ← w − η × 梯度
 
-gradient check 可選一個 weight，加減很小的 `ε`，以 loss 差分近似 derivative，再與 analytic gradient 比較。這是 PA2 之外仍忠於本週公式的練習，也能抓出 transpose、batch averaging 或 bias update 的錯誤。
+η 是學習率，決定一步走多大。太大會跨過最低點，太小則學得很慢。
 
-## Lab 2 與 PA2 應留下的證據
+邏輯迴歸的梯度形式很簡單：
 
-公開 [Lab 2](https://github.com/cs124/labs/blob/main/Lab2_LogisticRegression.md) 提供題目與 solutions。正確使用方式是先在沒有 solution 的情況下寫出每步 probability、loss 或 update，再逐項比對。只保存最後答案看不出錯在 feature、sign、normalization 還是 threshold。
+∂L/∂wⱼ = (ŷ − y) × xⱼ
 
-[PA2 README](https://github.com/cs124/pa2-logistic-regression) 提供 Jupyter 與 Colab 兩條路徑，並要求 `deps/` 等 submission structure。自學者不需模仿 Gradescope 上傳，卻應保留 environment、notebook output 與公開可執行 checks。最終報告至少包含：split 方法、feature definition、class balance、confusion matrix、top weights、三個具體 errors。
+也就是「預測值減正確答案」乘上「那個特徵的值」。預測得越離譜，(ŷ − y) 越大，修得越多；某個特徵的值是 0，它的權重這一步就不動。偏差項 b 的梯度是 (ŷ − y)。
 
-這份 evidence package 比一個 accuracy 更接近 Week 3 agenda。它同時證明模型怎麼算、資料怎麼切、錯誤長什麼樣，也替 Week 6 neural classifier 建立可比較 baseline。
+### 手算一步
 
-## 延伸
+投影片用一個只有兩個特徵的迷你例子走了一步。一則正面影評（y = 1），x₁ = 3（正面詞數）、x₂ = 2（負面詞數）。初始權重和偏差都是 0，學習率 η = 0.1。
 
-神經網路會把手工 feature 換成學到的 representation，但輸出 logits、softmax／sigmoid、cross-entropy 與 gradient-based learning 仍會再出現。Week 3 不是過時分類器插曲，而是後半季共同語言的低維版本。
+**第一步，算預測。** z = 0×3 + 0×2 + 0 = 0，ŷ = σ(0) = 0.5。模型什麼都還沒學，所以猜一半一半。
+
+**第二步，算梯度。** ŷ − y = 0.5 − 1 = −0.5。
+
+| 參數 | 梯度 |
+|---|---|
+| w₁ | −0.5 × 3 = −1.5 |
+| w₂ | −0.5 × 2 = −1.0 |
+| b | −0.5 |
+
+**第三步，更新。** 新的值 = 舊的值 − 0.1 × 梯度。
+
+| 參數 | 更新前 | 更新後 |
+|---|---|---|
+| w₁ | 0 | 0 − 0.1×(−1.5) = 0.15 |
+| w₂ | 0 | 0 − 0.1×(−1.0) = 0.10 |
+| b | 0 | 0 − 0.1×(−0.5) = 0.05 |
+
+可以自己驗算有沒有變好：用新的權重再算一次，z = 0.15×3 + 0.10×2 + 0.05 = 0.70，ŷ = σ(0.70) ≈ 0.67。loss 從 −ln(0.5) = 0.69 降到 −ln(0.67) ≈ 0.40。
+
+這個例子有一個不合直覺的地方：負面詞數的權重 w₂ 也變成正的。因為模型只看過這一則影評，而這則正面影評裡剛好有兩個負面詞，它就學到「有負面詞是正面的訊號」。只看一筆資料的更新會受那筆資料的偶然特性影響，要看過很多則正面和負面影評之後，w₂ 才會被拉成負的。
+
+### 一次看幾筆
+
+「隨機」梯度下降的意思是每次隨機挑一筆資料算梯度。另一個極端是每次看完全部資料再更新一次，方向比較準，但很慢。實務上取中間：**mini-batch**，每次看一小批（投影片舉的數字是 512 或 1024 筆），把這一批的梯度平均後更新。一批資料可以排成矩陣，每一列是一筆資料，用矩陣乘法一次算完，這也是第 6 週之後所有神經網路的訓練方式。
+
+## 怎麼評估：為什麼不看準確率
+
+投影片用一個例子說明準確率的問題。假設一家派店想從一百萬則貼文裡找出在談論他們的貼文，實際上只有 100 則是。一個「全部都說不是」的分類器，準確率是 99.99%，卻一則都沒找到。
+
+類別不平衡時要改看另外兩個數字。先把結果分成四格：
+
+| | 實際是正類 | 實際是負類 |
+|---|---|---|
+| **模型說是正類** | true positive（tp） | false positive（fp） |
+| **模型說是負類** | false negative（fn） | true negative（tn） |
+
+- **Precision** = tp ÷ (tp + fp)：模型說「是」的裡面，有多少真的是。
+- **Recall** = tp ÷ (tp + fn)：真的「是」的裡面，模型找到多少。
+
+那個全部都說不是的分類器，recall 是 0。
+
+兩者通常此消彼長：把門檻調低，模型會抓出更多正類（recall 上升），但也會誤判更多（precision 下降）。要用一個數字總結時，用 **F1**，也就是兩者的調和平均：
+
+F1 = 2 × P × R ÷ (P + R)
+
+本文自擬一組數字：模型說 10 則是正類，其中 8 則對、2 則錯；另外有 8 則正類它沒抓到。Precision = 8/10 = 0.8，recall = 8/16 = 0.5，F1 = 2×0.8×0.5 ÷ 1.3 ≈ 0.62。調和平均會偏向比較低的那個數字，所以 F1 比算術平均 0.65 低。
+
+類別超過兩種時（例如緊急、一般、垃圾信三類），每一類各算一組 precision 和 recall，再合併。合併有兩種方式：macroaverage 把每一類的分數直接平均，每一類的份量相同；microaverage 把所有類別的 tp、fp、fn 加總後再算，資料多的類別份量比較重。
+
+## 分類器可能造成的傷害
+
+投影片最後一節不是數學。它列了三種文字分類器已經被觀察到的問題：
+
+- **再現刻板印象。** 一份 2018 年的研究測了 200 個情感分析系統，給它們只有名字不同的句子（例如「我昨天跟 Shaniqua 聊過」與「我昨天跟 Stephanie 聊過」）。結果是，帶有常見非裔美國人名字的句子被判成比較負面。
+- **過度審查。** 偵測惡意言論的分類器會把只是提到少數族群身分的句子（出現 blind、gay 這類詞）誤判成惡意。後果是這些群體談論自己的貼文比較容易被移除。
+- **表現落差。** 分類器在資料少的語言上表現比較差，在英文的不同變體上也是。
+
+這些問題有一部分可以回到前面的機制理解。模型學的是訓練資料裡特徵和標籤的統計關聯。如果資料裡某個名字或某個詞剛好常和負面標籤一起出現，它就會得到一個負的權重，不管兩者有沒有因果關係。邏輯迴歸的好處是權重可以直接攤開來看，這類問題比較容易被發現。
+
+## 實作課二與 PA2
+
+[**實作課二**](https://github.com/cs124/labs/blob/main/Lab2_LogisticRegression.md)是分組的紙筆練習，題目和[解答](https://github.com/cs124/labs/blob/main/Lab2_LogisticRegression_Solutions.md)都公開。第一部分練 sigmoid 的直覺，例如給 z = 0.2、2、6 三個分數，要你不用計算機、只看曲線形狀排出機率大小，並回答哪兩個的機率比較接近。其中一題預告了之後會用到的「溫度」：把 z 除以一個介於 0 和 1 之間的數再丟進 sigmoid，機率會變得更極端。第 6 週講語言模型怎麼取樣時會再遇到它，第 7 週的 PA6a 會實際調這個參數。
+
+**[PA2](https://github.com/cs124/pa2-logistic-regression)** 的題目叫 Triage，就是第 1 週預告過的災難簡訊分類。在 notebook 裡依序自己寫出 sigmoid、loss、梯度下降和分類器，再做評估，最後有一組倫理題。每一步都對應上面的一節。
+
+## 自我檢查
+
+1. 用影評例子那組權重，如果這則影評多一個驚嘆號（x₅ 從 0 變 1），z 變成多少？模型更傾向正面還是負面？答案：x₅ 的權重是 2.0，z 從 0.833 變成 2.833，σ(2.833) ≈ 0.94，更傾向正面。
+2. 模型對一則正面影評輸出 ŷ = 0.9，另一個模型輸出 ŷ = 0.1。兩者的 loss 各是多少？答案：−ln(0.9) ≈ 0.11 和 −ln(0.1) ≈ 2.30。後者是前者的二十倍以上。
+3. 手算例子裡，如果那則影評的正確答案是負面（y = 0），第一步更新後的 w₁ 是多少？答案：ŷ − y = 0.5 − 0 = 0.5，梯度是 0.5×3 = 1.5，w₁ = 0 − 0.1×1.5 = −0.15。方向反過來了。
+4. 一個垃圾信分類器把門檻從 0.5 調到 0.9，precision 和 recall 各會怎麼變？答案：要更有把握才判成垃圾信，所以判成垃圾信的更少、更準，precision 上升；漏掉的垃圾信變多，recall 下降。
+
+## 這週和後面的關係
+
+- 第 6 週的神經元就是這週的 z = w·x + b 再過一個非線性函數，差別只在中間多了幾層。
+- 類別超過兩個時，sigmoid 換成 softmax，loss 仍然是「正確答案的機率取負對數」。語言模型每預測一個 token，就是做一次類別數等於詞彙表大小的分類。
+- precision 和 recall 下一週會直接拿來評估搜尋結果。
+
+**系列導覽**：上一篇 [第 2 週：Words, Tokens, Edit Distance, and N-grams](/posts/ai/2026-08-22-cs124-week2-tokens-ngram)｜下一篇 [第 4 週：Information Retrieval](/posts/ai/2026-08-22-cs124-week4-information-retrieval)
+
+## 更新紀錄
+
+- 2026-10-13：依公開投影片重寫。補上影評例子的預測與 loss 計算、一步梯度下降的手算、precision／recall／F1 的例子與自我檢查；新增投影片裡分類器傷害的一節；移除投影片沒有涵蓋的延伸內容。
 
 ## 參考資料
 
-- [CS124 Winter 2026 schedule](https://web.stanford.edu/class/cs124/lec/)
-- [SLP3 Chapter 4: Logistic Regression and Text Classification](https://web.stanford.edu/~jurafsky/slp3/4.pdf)
-- [CS124 Lab 2](https://github.com/cs124/labs/blob/main/Lab2_LogisticRegression.md)
-- [CS124 Lab 2 Solutions](https://github.com/cs124/labs/blob/main/Lab2_LogisticRegression_Solutions.md)
+- [CS124 Winter 2026 課程網站與課表](https://web.stanford.edu/class/cs124/)
+- [Logistic Regression 投影片](https://web.stanford.edu/class/cs124/lec/logreg26jan.pdf) — 分類器的四個部分、影評例子、梯度下降手算、派店例子、分類器的傷害
+- [實作課二導引投影片](https://web.stanford.edu/class/cs124/lec/lab2logreg_lecture.pdf) — 學邏輯迴歸的三個理由
+- [CS124 實作課二](https://github.com/cs124/labs/blob/main/Lab2_LogisticRegression.md)與[解答](https://github.com/cs124/labs/blob/main/Lab2_LogisticRegression_Solutions.md)
 - [CS124 PA2](https://github.com/cs124/pa2-logistic-regression)
+- [Speech and Language Processing 2025 年 8 月版第 4 章](https://web.stanford.edu/~jurafsky/slp3/old_aug25/4.pdf)

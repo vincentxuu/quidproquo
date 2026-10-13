@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "Stanford CS124 導讀"
   order: 2
-tldr: "CS124 Winter 2026 第一週不是先教 Transformer，而是先畫出從斷詞、分類、檢索到語音與網路的十週路線，並用 PA0 建好後續九週共同使用的 Jupyter 環境。"
-description: "逐週拆解 Stanford CS124 Winter 2026 Week 1：課程範圍、flipped classroom 設計、NLP 元件地圖與 PA0 setup。"
+tldr: "第 1 週沒有演算法。現場的導論課說明這門課教什麼：LLM 的每個元件各在哪一週學、哪些不是 LLM 的語言演算法也要學、語言為什麼難。PA0 把之後幾份作業要用的 Python 與 Jupyter 環境裝好。"
+description: "Stanford CS124 Winter 2026 第 1 週導讀：導論投影片對課程範圍的說明、LLM 元件與作業的對應、語言歧義的例子（The chef made her duck）、翻轉教室與精熟學習的理由、CS124 和 CS224N 怎麼選，以及 PA0 的四個部分。依公開投影片與 PA0 repo。"
 draft: false
 ---
 
@@ -17,81 +17,113 @@ draft: false
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-[CS124: From Languages to Information](https://web.stanford.edu/class/cs124/lec/) Winter 2026 的第一週是課程地圖，不是模型速成班。Dan Jurafsky 在 1 月 6 日的現場 Introduction lecture 把十週問題排成一條工程鏈：先決定文字如何切成 token，再做分類、檢索與表示學習，接著進神經網路、Transformer、語音、推薦與網路分析。這個順序的重點是：LLM 不是憑空出現的黑盒子，而是前面每個元件逐層疊起來的系統。
+這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 1 週。這一週沒有演算法，做兩件事：Dan Jurafsky 的現場導論課說明這門課教什麼，PA0 把環境裝好。
 
-**課程版本：** CS124 / LINGUIST 180, Winter 2026。**官方單元：** Week 1，2026-01-06、01-08。**講師：** Dan Jurafsky；1 月 8 日另有 Jupyter 與 PA0 tutorial。**公開材料：** [Week 1 課表與 syllabus](https://web.stanford.edu/class/cs124/lec/)、[Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf)、[PA0 repo](https://github.com/cs124/pa0-jupyter-tutorial)。**材料缺口：** Introduction 是未錄影的現場課；Canvas 上 Windows／Mac setup videos 需要 Stanford 權限。因此本文只整理公開投影片、課表與 repo，不能重建現場問答或講者未寫在投影片上的說明。
+導論課沒有錄影，[投影片](https://web.stanford.edu/class/cs124/lec/intro26.pdf)公開。課程的先修、評分、材料取得方式已經寫在[課程總覽](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)，這篇只講導論課本身的內容。
 
-## 這門課到底把什麼放在一起
+## 這門課教什麼
 
-[Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) 先列 LLM 的元件：BPE tokenization、logistic regression、word embeddings、neural networks、attention、sampling、language-model loss 與 RAG；下一頁又把 information retrieval、recommendation、speech recognition、social networks 與 ethical issues 放進同一門課。表面上很散，真正的共同問題是：**如何把人使用的語言與關係，轉成機器能排序、預測或產生的表示。**
+投影片用一句話定位：LLM 的興起徹底改變了自然語言處理、資訊檢索、推薦系統和語音辨識；這門課**從頭開始**，一步步建立 LLM 是怎麼運作的、怎麼被應用的。
 
-這也解釋了課名為什麼是「From Languages to Information」，而不是「Introduction to LLMs」。文字可以變成 token 序列，文件可以變成特徵向量，查詢可以變成排序問題，語音可以變成轉寫結果，社群連結可以變成圖。LLM 是這條路線的重要終點，但不是唯一終點。
+內容分成三塊。
 
-[Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) 把 CS124 稱為至少十二門研究所課的廣泛大學部入口，點名 CS224N、CS224U、CS224V、CS224S、CS224W、CS246、CS276、CS336 等。這不是說一季能取代它們，而是告訴學生每個單元往後接到哪個專門領域：Week 4 的檢索可接 CS276，Week 5 的社會 NLP 可接 CS224C／CS329R，Week 6–7 的模型元件可接 CS224N／CS336，最後的圖與 PageRank 可接 CS224W。
+**LLM 的演算法元件。** 投影片把每個元件對到一份作業：
 
-## Flipped classroom 改變了「一週」的單位
+| 元件 | 作業 |
+|---|---|
+| BPE 斷詞 | PA1 |
+| 邏輯迴歸 | PA2 |
+| 詞嵌入 | PA4 |
+| 神經網路、梯度下降與反向傳播 | PA5 |
+| Transformer、語言模型的 loss | PA6 |
+| 卷積網路 | 第 8 週的語音 |
 
-Winter 2026 [schedule／syllabus](https://web.stanford.edu/class/cs124/lec/) 把 CS124 定義成 flipped class：多數週先在 Canvas 看約兩到兩個半小時預錄內容，再於週二上現場 lecture 或 lab，配一份 reading、一個 quiz 與一個 programming assignment。這就是本系列採「逐週」而非硬拆「逐堂」的理由。一週才是官方課表把 agenda、練習與評量綁在一起的最小完整單位。
+**其他重要的語言演算法。** 不屬於 LLM 內部、但處理語言資料一定會用到的：正規表達式、最小編輯距離、資訊檢索與網頁搜尋、PageRank 與網路分析、協同過濾。
 
-第一週的現場課提供整體地圖，週四 tutorial 則處理 Jupyter 與 PA0。兩者一個回答「要去哪裡」，一個回答「電腦是否已經能跑」。如果只讀概念而跳過 setup，第二週 PA1 才第一次碰環境問題，會把斷詞與 BPE 的學習時間花在 shell、conda 或 notebook 上。
+**LLM 和社會的關係。** 分兩個方向。一是 LLM 自己的問題，投影片列了四個：會編造、過度自信、會迎合使用者、對各種群體帶有刻板印象。二是反過來，把這些工具拿來研究社會，也就是計算社會科學。
 
-## PA0 的角色不是暖身分數
+## 幾個預告
 
-[PA0 repo](https://github.com/cs124/pa0-jupyter-tutorial) 是後續作業的共同介面。它要求建立 Python／conda 環境、啟動 Jupyter notebook，並熟悉在 cell 中讀取資料、執行程式與保存結果。[課表](https://web.stanford.edu/class/cs124/lec/)也把它安排在 1 月 9 日截止，早於任何 NLP 演算法作業。
+投影片接著從各週各挑一個例子。這些例子說明每個主題要解決的是什麼問題。
 
-這個安排有一個很務實的判斷：課程的先修包含 Python 與相當於 CS107 的 UNIX 使用能力，但「修過」不等於每個人的本機環境一致。PA0 把環境問題提早變成顯性的交付。後續 PA1–PA4 都沿用 clone repo、啟動環境、開 notebook 的節奏，Week 1 做完的不是一次性練習，而是整季的執行底座。
+**資訊檢索。** 投影片稱網頁搜尋可能是地球史上最常被使用的演算法，每天有超過 65 億次搜尋。這門課會教傳統的 tf-idf、現在的 dense retrieval，以及接上 LLM 的 RAG。
 
-完成 PA0 後應做一次「從零重開」：關閉 notebook server 與 terminal，重新啟動 shell、activate environment、進入 repo，再開 notebook 並執行全部 cells。保存 Python 版本、主要 packages 與命令，後續遇到衝突才能回到基準。Jupyter 允許 cells 亂序執行，畫面暫時正確卻可能依賴隱藏狀態；restart kernel 並 run all 仍成功，才算可重現。
+**編輯距離。** 比較兩條 DNA 序列哪裡相同、哪裡不同，是找基因和研究演化的基本工具。同一個演算法也用來評估語音辨識的結果。
 
-另存目前工作目錄、Python executable 路徑與 notebook kernel 使用的 environment。terminal activate 成功，不代表 Jupyter 選到同一個 kernel；兩者不同時，已安裝套件仍會顯示找不到。這份最小診斷能區分 kernel mismatch 與真正缺 package。
+**文本分類。** 2010 年海地地震後，救援單位收到大量簡訊，很多是海地克里奧爾語。投影片的例子是一則簡訊：「我在 Thomassin 32 號，Pyron 這一區。我想要一些水。感謝上帝我們都平安，但我們急需水。」要從成千上萬則訊息裡分出哪些需要立刻處理，這是分類問題，也是 PA2 的題目。
 
-## 課程從元件而不是產品品牌開始
+**推薦系統。** 好的一面是「買了這個的人也買了……」；不好的一面是推薦機制把人一步步帶向極端內容。
 
-[Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) 說 LLM 改變了 NLP、AI、IR、推薦與語音，但[課表](https://web.stanford.edu/class/cs124/lec/)沒有依產品或模型品牌排課。它依可重用元件排：tokenization 決定模型看到什麼單位；classification 建立預測與 loss 的基本語言；retrieval 處理外部資訊；embeddings 把相似性變成幾何；neural networks 與 Transformer 再把這些接成可學習的表示系統。
+**計算社會科學。** Jurafsky 自己的研究：分析 90 萬則 Yelp 餐廳評論。一星負評的語言特徵是過去式、大量的「我們」、敘述的是人（服務生、經理）而不是食物。這和心理學家研究的創傷敘事有同樣的語言特徵：用過去式拉開距離，用「我們」尋求群體的支持。結論是負評幾乎都和人的互動有關。另一個例子是分析警察隨身攝影機的錄音，量化警察和民眾互動的方式。
 
-這種安排對自學者有一個好處：即使 Canvas 錄影拿不到，仍能用公開投影片、教科書與作業維持同一條主線。壞處也很明確：現場 lecture 的社會脈絡、例子與討論不會完整留在檔案裡。公開材料足以學演算法，卻不等於旁聽了一次完整課堂。
+## 語言為什麼難：歧義
 
-## 本週做完應該帶走什麼
+投影片用一個句子說明語言處理的核心困難：
 
-第一，能說出十週的因果順序，而不只是列熱門名詞。第二，能在自己的電腦 clone PA0、啟動 notebook 並保存一次執行結果。第三，知道這門課的公開邊界：schedule、slides、readings、starter code 多半公開，Canvas、Gradescope、autograder 與現場內容不是。
+> The chef made her duck.
 
-最小可執行版本很簡單：打開 Introduction slides，把每個元件各寫一句「輸入是什麼、輸出是什麼」；接著完成 PA0。若連 notebook 都還無法穩定啟動，就先不要急著讀 Transformer。這門課第一週給的訊息正是：把地基問題提早處理，後面才能把注意力留給模型。
+這句話至少有六種意思。課堂上請學生投票寫出自己想到的，投影片列出的包括：
 
-## 從十週課表看出作業如何累積
+- 廚師為另一位女性煮了鴨肉。
+- 廚師煮了那位女性養的鴨。
+- 廚師煮了廚師自己的鴨。
+- 廚師做了一隻（石膏的？）鴨子，是那位女性的。
+- 廚師讓那位女性迅速低頭閃躲。
 
-[Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) 不只列主題，也把演算法與 programming assignments 對在一起。PA1 處理 BPE tokenization；PA2 進入 logistic regression；PA3 做 information retrieval；PA4 學 embeddings；PA5 寫 neural networks；PA6 將 Transformer 與 speech 串起來；PA7 再把 collaborative filtering、tool use 與 memory 收進 agent。這個 mapping 說明作業不是七個獨立 notebook，而是逐步降低抽象層級。
+歧義來自好幾個地方：`duck` 可以是名詞（鴨）或動詞（低頭閃開），`her` 可以是「她的」或「她」，`made` 可以是烹調、製作或迫使。
 
-前幾份作業讓學生直接看見資料結構與公式。token merge、feature vector、inverted index、cosine similarity 都能在小例子上手算。進到 PA6 才改用多檔案專案、PyTorch 與外部 API；PA7 又加入多人協作與會消耗額度的服務。若前半季只追求 autograder 過關、沒有保存中間表示，後半季遇到 agent 輸出錯誤時就很難判斷問題出在資料、模型、tool wrapper 還是遠端服務。
+人讀這句話通常只會想到一種意思，根本沒注意到其他的。投影片說，語言到處都是歧義，使用者通常察覺不到，而語言模型必須有效率地處理它。
 
-因此 Week 1 可以先建立一份整季共用的實驗紀錄格式。每次作業至少保存四件事：輸入範例、核心中間表示、預期輸出、已知失敗案例。PA1 可保存 merge table，PA2 保存 feature weights，PA3 保存 query-document scores，PA4 保存 nearest neighbors。這些 artifact 到 PA7 仍有用，因為 agent tool 的輸出也需要同樣的可追蹤介面。
+接下來的問題是模型怎麼表示這些差別。投影片預告了第 5 週的答案：把詞的意思表示成高維空間裡的位置。同一個詞在不同句子裡落在不同的位置，而且不是只有兩三個分明的意思，是連續的。
 
-## 評量設計透露課程重視什麼
+## 為什麼用翻轉教室
 
-[syllabus](https://web.stanford.edu/class/cs124/lec/) 說沒有 midterm 或 final exam，最後一項要求是 PA7。成績主要由 programming assignments 與 weekly review quizzes 組成，最低的一次 quiz 會被捨棄。這種設計把學習節奏切成每週的 reading／video、quiz、lab 與 implementation，而不是期末一次回想整季名詞。
+投影片花了幾頁說明上課形式背後的理由，引用的是 Benjamin Bloom 在 1968 年提出的**精熟學習**（mastery learning）：學到會為止，而不是在固定時間內學多少算多少。
 
-[syllabus](https://web.stanford.edu/class/cs124/lec/) 規定 review quizzes 是 open-notes、open-book，允許重複作答，但正確答案要等截止後才顯示。它們的角色比較接近強迫 retrieval practice，而不是限時競賽。對自學者而言，Gradescope 題庫拿不到，不能假裝完成同一份評量；可以替每週建立自己的五題檢核，但必須清楚標成自製練習，不能叫「CS124 Quiz」。
+這解釋了課程的幾個設計：
 
-[syllabus](https://web.stanford.edu/class/cs124/lec/) 說 lab material 會出現在 quizzes，並將 Lab 1、Lab 4 設為 required in-person；其他 labs 即使可在家完成，現場參與仍有 extra credit。公開 solutions 的存在讓自學者可練習，但正確流程是先做完問題，再看下一頁或 solution file。直接讀解答會把 lab 從 problem solving 變成閱讀。
+- 講課內容預錄，學生可以照自己的速度看、重看。
+- 每週的複習測驗可以翻書、可以重複作答，目的是確認學會了，不是排名。
+- 教室的時間拿來做實作課。
 
-## 先修條件如何進入 Week 1
+## CS124 還是 CS224N
 
-官方 [prerequisites](https://web.stanford.edu/class/cs124/lec/) 要求 CS106B、相當於 CS106A 的 Python、CS109 機率背景，以及相當於 CS107 的 UNIX maturity。這些先修並沒有在 Week 1 重新完整教授。PA0 與 tutorial 只確認執行環境；它們不會替代資料結構、機率或系統工具的整門課。
+投影片有一頁專門回答這個問題。
 
-[Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) 把課程定位成「starts from scratch」，語境是從基本 NLP components 建起，不是從零程式設計。這兩句必須同時讀：演算法主線會從入門開始，但學生應已能使用 Python、terminal、Git/Jupyter，並理解後續 loss 與 probability notation。
+**CS124** 是為大二、大三設計的：
 
-一個可操作的先修檢查是：在不查指令的情況下建立虛擬環境、clone repo、從 terminal 啟動 notebook；再用 Python 讀文字檔、建立 dictionary counts，最後算一個簡單條件機率。卡住的步驟就是 Week 2 前需要補的洞。這比用「我修過某門課」判斷準備度更直接。
+- 步調溫和，什麼都會解釋；範圍廣，除了 NLP 和 LLM，還有推薦、檢索、社群網路。
+- 走精熟學習，有測驗和附了起始碼與鷹架的程式作業。
+- 沒有研究專題。
 
-## 公開自學版與正式修課版不是同一件事
+**CS224N** 是更深、更聚焦的研究所課：
 
-課程 FAQ 鼓勵未選課者看公開材料與做 programming homeworks，但也說不要要求 TAs 回答或替作業評分。這個界線讓自學成立，同時承認支援、quiz feedback、autograder 與現場活動屬於正式課程資源。
+- 假設你已經很熟機器學習，第一份作業就直接進最佳化。
+- 更重系統、實作和規模。
+- 研究專題佔很大一部分。
 
-自學版最容易高估的是「starter code 公開」等於「作業完整可驗證」。repo 可以執行，不代表隱藏測試與 rubric 全部公開；API-based assignments 還可能因服務更新而改變結果。自學紀錄應把「程式跑完」「公開 tests 通過」「與正式評分等價」分成三種不同狀態，不能用第一種替代第三種。
+投影片把 CS124 稱為「至少十二門研究所課」的大學部入門，列出的包括 CS224N（深度學習做 NLP）、CS224U（自然語言理解）、CS224V（對話助理）、CS224S（語音）、CS224W（圖神經網路）、CS246（大規模資料探勘）、CS276（資訊檢索）、CS336（從零訓練語言模型）等。站內有導讀的幾門列在[課程總覽](/posts/ai/2026-08-21-stanford-cs124-languages-to-information#兩條讀法)。
 
-反過來，公開版也有正式學生未必會保存的優勢：可以依自己的速度重跑、替每週建立 failure notebook，並把十週 artifact 接成一個 portfolio。Week 1 最值得做的不是排出觀看清單，而是先建立這個證據結構。
+## PA0：把環境裝好
 
-## 延伸
+**[PA0](https://github.com/cs124/pa0-jupyter-tutorial)** 沒有 NLP 的內容，有四個部分：
 
-想先知道完整十週材料的可取得程度，可讀[既有 CS124 總覽](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)。那篇處理課程定位、先修與版本漂移；本篇只對應 Winter 2026 Week 1，不拿其他年份影片補進本週。
+1. **環境設定。** 照自己的作業系統（macOS、Linux、Windows）讀 `platform` 目錄下對應的說明。
+2. **Jupyter 教學。** 做完 `jupyter_tutorial.ipynb`。
+3. **Python 教學。** `python_tutorial.ipynb`。README 建議即使很熟 Python 也瀏覽一遍，因為之後的作業假設你會裡面的每一項。
+4. **繳交。** 選課學生上傳到 Gradescope；自學者跳過。
+
+PA1 到 PA5 都沿用這裡建立的 `cs124` conda 環境，流程也一樣：clone repo、啟動環境、開 notebook。PA4 之後會再加裝套件，PA6a 起改成在編輯器裡寫 `.py` 檔。
+
+做完之後建議確認一件事：把 notebook 的 kernel 重新啟動，從頭到尾執行一次，全部通過才算裝好。Jupyter 允許不照順序執行，畫面上看起來對的結果，可能依賴一個你已經刪掉的 cell。
+
+## 自我檢查
+
+1. 不看上面的表，說出 LLM 的三個元件，以及各在哪一份作業實作。參考答案：BPE 斷詞（PA1）、詞嵌入（PA4）、Transformer（PA6）。
+2. 「我看到她拿著望遠鏡」有幾種讀法？答案：至少兩種。拿著望遠鏡的可以是「我」（我用望遠鏡看到她），也可以是「她」（她手上拿著望遠鏡）。這和 The chef made her duck 是同一類問題：同一串字對應到不同的結構。
+3. 你的 PA0 環境算不算裝好？判準：開新的終端機，啟動 `cs124` 環境，開 `jupyter_tutorial.ipynb`，重新啟動 kernel 後全部執行，沒有錯誤。
+
+**系列導覽**：上一篇 [課程總覽](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)｜下一篇 [第 2 週：Words, Tokens, Edit Distance, and N-grams](/posts/ai/2026-08-22-cs124-week2-tokens-ngram)
 
 ## 課程影片來源
 
@@ -105,13 +137,13 @@ Winter 2026 [schedule／syllabus](https://web.stanford.edu/class/cs124/lec/) 把
 
 ## 更新紀錄
 
-- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-13：依公開投影片重寫。改以導論課的實際內容為主：課程範圍、各週預告的例子、歧義的例子、翻轉教室的理由、CS124 與 CS224N 的比較；移除與課程內容無關的自學紀錄建議。
 - 2026-10-10：重查影片狀態。官方頁寫明 1 月 6 日 Introduction 現場講課不錄影；本週只列 PA0 安裝影片（Canvas，需登入）；狀態改為已查核未列錄影。
+- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 
 ## 參考資料
 
-- [CS124 Winter 2026 schedule and syllabus](https://web.stanford.edu/class/cs124/lec/)
-- [CS124 Week 1 Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf)
-- [CS124 PA0 Jupyter Tutorial](https://github.com/cs124/pa0-jupyter-tutorial)
-- [Speech and Language Processing, 3rd edition](https://web.stanford.edu/~jurafsky/slp3/)
-- [Stanford CS124 完整課程總覽](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)
+- [CS124 Winter 2026 課程網站與課表](https://web.stanford.edu/class/cs124/)
+- [CS124 第 1 週導論投影片](https://web.stanford.edu/class/cs124/lec/intro26.pdf) — 課程範圍、元件與作業的對應、各主題的例子、歧義、翻轉教室、CS124 與 CS224N 的比較
+- [CS124 PA0](https://github.com/cs124/pa0-jupyter-tutorial) — 四個部分的內容
+- [Stanford CS124 課程總覽](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)

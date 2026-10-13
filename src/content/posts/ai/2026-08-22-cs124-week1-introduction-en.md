@@ -8,8 +8,8 @@ lang: en
 series:
   name: "Reading Stanford CS124"
   order: 2
-tldr: "CS124 Winter 2026 opens by mapping a ten-week path from tokenization and classification to retrieval, speech, networks, and LLMs, while PA0 establishes the Jupyter environment used throughout the quarter."
-description: "A week-by-week reading of Stanford CS124 Winter 2026 Week 1: scope, flipped-classroom design, the NLP component map, and PA0 setup."
+tldr: "Week 1 has no algorithms. The live introduction explains what the course teaches: which week covers each component of an LLM, which language algorithms outside LLMs are also taught, and why language is hard. PA0 sets up the Python and Jupyter environment the later assignments use."
+description: "A guide to Stanford CS124 Winter 2026 Week 1: how the introduction slides define the scope of the course, the mapping from LLM components to assignments, an example of ambiguity (The chef made her duck), the reasons for the flipped classroom and mastery learning, how to choose between CS124 and CS224N, and the four parts of PA0. Based on the public slides and the PA0 repo."
 draft: false
 ---
 
@@ -17,73 +17,113 @@ draft: false
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-[CS124: From Languages to Information](https://web.stanford.edu/class/cs124/lec/) begins with a map, not a Transformer crash course. Dan Jurafsky's January 6 Introduction arranges the quarter as an engineering chain: decide how text becomes tokens, then study classification, retrieval, and representations before moving into neural networks, Transformers, speech, recommendation, and network analysis. The governing idea is that an LLM is a system assembled from learnable components, not a black box that appears fully formed.
+This is Week 1 of [Reading Stanford CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en). The week has no algorithms and does two things: Dan Jurafsky's live introduction explains what the course teaches, and PA0 sets up the environment.
 
-**Course version:** CS124 / LINGUIST 180, Winter 2026. **Official unit:** Week 1, January 6 and 8. **Instructor:** Dan Jurafsky, with a separate Jupyter/PA0 tutorial on January 8. **Public materials:** the [schedule and syllabus](https://web.stanford.edu/class/cs124/lec/), [Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf), and [PA0 repository](https://github.com/cs124/pa0-jupyter-tutorial). **Public-material gap:** the live Introduction was not recorded, and the platform-specific setup videos require Stanford Canvas access. This article therefore does not reconstruct live discussion.
+The introduction was not recorded, and its [slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) are public. Prerequisites, grading and access to materials are already covered in the [course overview](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en), so this post is only about the content of the introduction itself.
 
-## One course, several kinds of information
+## What the course teaches
 
-The official [Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) list BPE tokenization, logistic regression, embeddings, neural networks, attention, sampling, language-model loss, and RAG alongside information retrieval, recommendation, speech recognition, social networks, and ethical issues. Their common problem is representation: turning language and relationships into objects a machine can rank, predict, or generate.
+The slides position it in one sentence: the rise of LLMs has completely changed natural language processing, information retrieval, recommendation systems and speech recognition, and this class **starts from scratch** and builds up how LLMs work and how they are applied.
 
-That is why the course is called “From Languages to Information,” not simply “Introduction to LLMs.” Text becomes token sequences; documents become feature vectors; queries become ranking problems; speech becomes transcripts; social links become graphs. LLMs are a major destination on this route, but not the only one.
+The content falls into three blocks.
 
-The [Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) describe CS124 as a broad undergraduate gateway to courses including CS224N, CS224U, CS224V, CS224S, CS224W, CS246, CS276, and CS336. This does not mean one quarter replaces them. It tells students where each unit leads: retrieval toward CS276, social NLP toward CS224C and CS329R, model construction toward CS224N and CS336, and the final graph unit toward CS224W.
+**The algorithmic components of LLMs.** The slides map each component to an assignment:
 
-## Why the official unit is a week
+| Component | Assignment |
+|---|---|
+| BPE tokenization | PA1 |
+| Logistic regression | PA2 |
+| Word embeddings | PA4 |
+| Neural networks, gradient descent and backpropagation | PA5 |
+| Transformers, the language modeling loss | PA6 |
+| Convolutional networks | Speech, in Week 8 |
 
-The Winter 2026 [schedule and syllabus](https://web.stanford.edu/class/cs124/lec/) define CS124 as a flipped class in which a typical week includes roughly two to two-and-a-half hours of prerecorded material, a Tuesday lecture or lab, assigned reading, a review quiz, and a programming assignment. The schedule binds those activities into one agenda. That makes a week—not an isolated 80-minute meeting—the smallest faithful unit for this series.
+**Other crucial language algorithms.** These are not inside an LLM but always come up when working with language data: regular expressions, minimum edit distance, information retrieval and web search, PageRank and network analysis, and collaborative filtering.
 
-Week 1 pairs the course map with a Thursday tutorial on Jupyter and PA0. One answers where the course is going; the other establishes whether the student's machine can execute the work. Deferring setup until PA1 would turn time intended for tokenization and BPE into debugging shell, conda, or notebook issues.
+**LLMs and society.** This goes in two directions. One is the problems of LLMs themselves, of which the slides list four: they hallucinate, they are overconfident, they are sycophantic, and they display stereotypes about every group. The other turns it around and uses these tools to study society, which is computational social science.
 
-## PA0 is the quarter's execution layer
+## Some previews
 
-The [PA0 repository](https://github.com/cs124/pa0-jupyter-tutorial) establishes the Python/conda environment and the notebook workflow reused by later assignments. The [schedule](https://web.stanford.edu/class/cs124/lec/) makes it due January 9, before any NLP algorithm assignment. This is deliberate: the prerequisites include Python and UNIX maturity comparable to CS107, but prior experience does not make every local environment identical.
+The slides then pick one example from each of several weeks. Each shows what problem its topic is meant to solve.
 
-The practical completion test for Week 1 is not memorizing a list of models. It is being able to clone PA0, launch a notebook, execute cells, and preserve the result. PA1 through PA4 repeat the same broad workflow, so PA0 is infrastructure rather than disposable warm-up work.
+**Information retrieval.** The slides call web search probably the most frequently used algorithm in the history of the planet, with more than 6.5 billion searches every day. The course teaches classic tf-idf, modern dense retrieval, and RAG with an LLM.
 
-After PA0 succeeds, close the server and terminal, start a fresh shell, reactivate the environment, reopen the repository, and run every cell. Record Python and major package versions. Restarting the kernel and running all cells detects hidden notebook state created by out-of-order execution.
+**Edit distance.** Comparing two DNA sequences to see where they agree and differ is a basic tool for finding genes and studying evolution. The same algorithm is used to evaluate speech recognition output.
 
-Also record the working directory, Python executable, and selected Jupyter kernel. An activated terminal does not guarantee that the notebook uses the same environment; this diagnostic separates a kernel mismatch from a missing package.
+**Text classification.** After the 2010 Haiti earthquake, responders received huge numbers of SMS messages, many in Haitian Creole. The slides' example is one message: "I am in Thomassin number 32, in the area named Pyron. I would like to have some water. Thank God we are fine, but we desperately need water." Picking out which of thousands of messages need immediate action is a classification problem, and it is the task in PA2.
 
-## Components before product names
+**Recommendation engines.** The good side is "if you bought this…". The dark side is a recommendation system leading people step by step toward extreme content.
 
-The [Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) say LLMs changed NLP, AI, retrieval, recommendation, and speech, yet the [schedule](https://web.stanford.edu/class/cs124/lec/) is not organized around vendors or model brands. It is organized around reusable mechanisms. Tokenization determines what the system can see; classification introduces prediction and loss; retrieval supplies external information; embeddings turn similarity into geometry; neural networks and Transformers connect these into learned representations.
+**Computational social science.** From Jurafsky's own research: an analysis of 900,000 Yelp restaurant reviews. The language of one-star reviews is past tense, heavy use of "we," and narratives about people (the waitress, the manager) and not about the food. Those are the same linguistic features psychologists find in trauma narratives: past tense for distancing and "we" for seeking solace in community. The conclusion is that bad reviews are almost all about personal interaction. Another example analyzes speech from police body-worn cameras to quantify how officers and community members interact.
 
-For an independent learner, this design makes the public materials useful even without Canvas video access. Slides, readings, and assignments preserve the conceptual path. The limitation remains real: public files cannot preserve the live examples, discussion, and qualifications delivered in the room. Public algorithms are not the same thing as a complete recording of the class.
+## Why language is hard: ambiguity
 
-## A concrete Week 1 finish line
+The slides use one sentence to show the central difficulty of language processing:
 
-Write one sentence for each component in the Introduction slides stating its input and output. Then complete PA0 and relaunch the notebook once from a clean terminal. If that workflow is not stable, fix it before opening the Transformer readings. Week 1's lesson is procedural as much as conceptual: move infrastructure failures forward so later attention can stay on the model.
+> The chef made her duck.
 
-## How the assignments accumulate
+It has at least half a dozen meanings. In class the students vote on the ones they come up with, and the slides list, among others:
 
-The [Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) map algorithms to programming assignments: PA1 handles BPE tokenization, PA2 logistic regression, PA3 retrieval, PA4 embeddings, PA5 neural networks, PA6 Transformers and speech, and PA7 collaborative filtering plus an agent. These are not isolated notebooks. The abstraction level changes across the quarter.
+- The cook cooked waterfowl for another woman to eat.
+- The cook cooked waterfowl belonging to that woman.
+- The cook cooked waterfowl belonging to the cook.
+- The cook created the (plaster?) waterfowl that the woman owns.
+- The cook caused the woman to quickly lower her head or body.
 
-Early assignments expose count tables, feature vectors, indexes, and similarity scores in small examples. PA6 moves to PyTorch and a multi-file project; PA7 adds a team and metered external services. A student who preserves only final autograder output will have little evidence for deciding whether a later failure belongs to data, model code, a tool wrapper, or an API.
+The ambiguity comes from several places: `duck` can be a noun (the bird) or a verb (to lower your head), `her` can be possessive or an object, and `made` can mean cooked, created or caused.
 
-Week 1 is therefore the right time to choose a common experiment record: one input, the important intermediate representation, expected output, and a known failure. Save a merge table for PA1, feature weights for PA2, query-document scores for PA3, and nearest neighbors for PA4. The same interface becomes useful when PA7 tools need inspection.
+A person reading the sentence usually thinks of one meaning and never notices the others. The slides say language is ambiguous everywhere, that language users often do not even notice, and that language models have to resolve it efficiently.
 
-## What the assessment design values
+The next question is how a model represents these differences. The slides preview the answer from Week 5: represent a word's meaning as a position in a high-dimensional space. The same word lands in different places in different sentences, and the senses are not two or three distinct ones but a continuum.
 
-The official [syllabus](https://web.stanford.edu/class/cs124/lec/) has no midterm or final exam; PA7 is the last requirement. Programming assignments and weekly review quizzes dominate assessment. The quizzes are open-note and open-book and allow repeated attempts, with answers withheld until the deadline. That creates a weekly reading, retrieval, lab, and implementation rhythm rather than a single final recall event.
+## Why a flipped classroom
 
-Independent learners cannot access the Gradescope pool. They may write five self-check questions per week, but those must be labeled as self-authored exercises rather than “the CS124 quiz.” Labs likewise belong to the assessed agenda. Public solutions should be opened only after attempting the problems; otherwise problem solving becomes solution reading.
+The slides spend several pages on the reasoning behind the class format, citing the **mastery learning** proposed by Benjamin Bloom in 1968: learn until you have mastered the material, instead of learning whatever fits into a fixed amount of time.
 
-## Prerequisites inside Week 1
+That explains several features of the course:
 
-The official [prerequisite section](https://web.stanford.edu/class/cs124/lec/) expects CS106B, Python at the CS106A level, CS109 probability, and UNIX maturity comparable to CS107. PA0 confirms an execution environment; it does not replace courses in data structures, probability, or systems tools.
+- Lectures are pre-recorded, so students can watch and rewatch at their own pace.
+- The weekly review quizzes are open-book and can be retaken. Their purpose is to confirm that you have learned the material, not to rank you.
+- Classroom time goes to labs.
 
-The [Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) use “starts from scratch” to mean building NLP components from their basics, not beginning programming from zero. A concrete readiness check is to create an environment, clone a repository, launch Jupyter from a terminal, count text with a Python dictionary, and compute a simple conditional probability. The step that fails identifies the gap more reliably than a remembered course number.
+## CS124 or CS224N
 
-## Public self-study is not formal enrollment
+One slide answers exactly this question.
 
-The FAQ encourages non-enrolled learners to use public materials and assignments while not asking TAs for support or grading. Public starter code does not make hidden tests, rubrics, feedback, or live activities public. For each assignment, distinguish “the program ran,” “public tests passed,” and “equivalent to formal grading.” The first cannot prove the third.
+**CS124** is designed for sophomores and juniors:
 
-Independent study can still preserve artifacts that a deadline-driven student might discard: repeated runs, failure notebooks, and a ten-week portfolio. The best Week 1 output is therefore an evidence structure, not merely a viewing schedule.
+- It is gentle and explains everything. It is broad, covering recommendation engines, IR and social networks as well as NLP and LLMs.
+- It uses mastery learning, with quizzes and programming assignments that come with starter code and scaffolding.
+- It has no research project.
 
-## Further study
+**CS224N** is a deeper, more focused graduate course:
 
-For the broader course, prerequisites, and source-access audit, see the [existing CS124 overview](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en). This article covers only Winter 2026 Week 1 and does not import older public recordings.
+- It assumes you are very familiar with machine learning, and the first homework goes straight into optimization.
+- It puts more weight on systems, implementation and scaling.
+- A research project is a large component.
+
+The slides call CS124 the broad undergraduate introduction to "at least 12 grad classes," including CS224N (NLP with deep learning), CS224U (natural language understanding), CS224V (conversational assistants), CS224S (spoken language processing), CS224W (graph neural networks), CS246 (mining massive data sets), CS276 (information retrieval) and CS336 (language modeling from scratch). The ones with guides on this site are listed in the [course overview](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en#two-ways-to-read).
+
+## PA0: setting up the environment
+
+**[PA0](https://github.com/cs124/pa0-jupyter-tutorial)** has no NLP content and four parts:
+
+1. **Environment setup.** Follow the instructions for your operating system (macOS, Linux or Windows) in the `platform` directory.
+2. **Jupyter tutorial.** Work through `jupyter_tutorial.ipynb`.
+3. **Python tutorial.** `python_tutorial.ipynb`. The README recommends skimming it even if you are very comfortable with Python, because the later assignments assume you know everything in it.
+4. **Submission.** Enrolled students upload to Gradescope. Self-learners skip this.
+
+PA1 through PA5 all use the `cs124` conda environment created here and follow the same routine: clone the repo, activate the environment, open the notebook. From PA4 on, extra packages are installed, and from PA6a the work moves to `.py` files in an editor.
+
+One check is worth doing once you finish: restart the notebook's kernel and run everything from top to bottom. The setup counts as done only if it all passes. Jupyter lets you run cells out of order, and a result that looks right on screen may depend on a cell you have since deleted.
+
+## Self-check
+
+1. Without looking at the table above, name three components of an LLM and the assignment in which each is implemented. Sample answer: BPE tokenization (PA1), word embeddings (PA4), the Transformer (PA6).
+2. How many readings does "I saw her with the telescope" have? Answer: at least two. The telescope can go with the seeing (I used it to see her) or with her (she was holding it). This is the same kind of problem as "The chef made her duck": one string of words maps to different structures.
+3. Is your PA0 environment really set up? The test: open a new terminal, activate the `cs124` environment, open `jupyter_tutorial.ipynb`, restart the kernel and run all cells with no errors.
+
+**Series navigation**: previous, [Course Overview](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en) | next, [Week 2: Words, Tokens, Edit Distance, and N-grams](/posts/ai/2026-08-22-cs124-week2-tokens-ngram-en)
 
 ## Course video sources
 
@@ -97,13 +137,13 @@ Checked: 2026-10-10.
 
 ## Update Log
 
-- 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-13: Rewritten from the public slides. The post now follows the actual content of the introduction: the scope of the course, the preview examples, the ambiguity example, the reasons for the flipped classroom, and the comparison of CS124 and CS224N; removed advice about self-study record-keeping that was unrelated to the course content.
 - 2026-10-10: Rechecked video status. The official page says the January 6 Introduction is a live lecture that is not recorded; the only video listed for the week is the PA0 setup demo (Canvas, sign-in required); the status is now checked, no recording listed.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
 
 ## References
 
-- [CS124 Winter 2026 schedule and syllabus](https://web.stanford.edu/class/cs124/lec/)
-- [CS124 Week 1 Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf)
-- [CS124 PA0 Jupyter Tutorial](https://github.com/cs124/pa0-jupyter-tutorial)
-- [Speech and Language Processing, 3rd edition](https://web.stanford.edu/~jurafsky/slp3/)
-- [Complete Stanford CS124 course overview](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en)
+- [CS124 Winter 2026 course site and schedule](https://web.stanford.edu/class/cs124/)
+- [CS124 Week 1 introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) — the scope of the course, the mapping from components to assignments, the example topics, ambiguity, the flipped classroom, CS124 versus CS224N
+- [CS124 PA0](https://github.com/cs124/pa0-jupyter-tutorial) — the four parts
+- [Stanford CS124 course overview](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en)

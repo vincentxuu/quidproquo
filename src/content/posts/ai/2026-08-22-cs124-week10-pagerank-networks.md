@@ -6,119 +6,265 @@ type: deep-dive
 tags: [cs124, stanford, pagerank, social-network, graph]
 lang: zh-TW
 series: { name: "Stanford CS124 導讀", order: 11 }
-tldr: "Week 10 以 anchor text、PageRank 與 centrality 分析 Web graph；post-training、多語與 speech 只歸於檔名及內容標示 2025 的公開 final deck outline，不歸為 2026 現場內容。"
-description: "Stanford CS124 Winter 2026 Week 10：web graph、anchor text、PageRank、centrality、clustering、power laws，以及 final lecture 的公開 agenda。"
+tldr: "第 10 週把網頁和人際關係看成圖。連結分析教 anchor text 與 PageRank：一個隨機亂點連結的人長期停在每一頁的機率，就是那一頁的分數。社群網路教中心性、群聚係數、小世界與弱連結。最後一堂現場課回到 LLM，講偏好對齊、可解釋性與機器翻譯。"
+description: "Stanford CS124 Winter 2026 第 10 週導讀：anchor text 為什麼有用、PageRank 的隨機漫步與 teleport、三個節點的轉移矩陣與 power iteration 手算、degree／betweenness／clustering coefficient、小世界實驗、弱連結與三角閉合、冪次分布；期末現場課的偏好對齊（DPO）、logit lens、emergent misalignment 與機器翻譯。依公開投影片。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs124-week10-pagerank-networks-en)
 
-CS124 最後一週離開單篇文件與單一使用者，把 Web 和社會關係看成圖。[官方課表](https://web.stanford.edu/class/cs124/lec/)列出 Web graphs、links、PageRank、social networks 與 3 月 10 日 required live final lecture。另有一份[標示 2025 的公開 final deck](https://www.stanford.edu/class/cs124/lec/finallecture_cs124_2025.pdf)，它只能支持該 deck 的 post-training、多語與 speech outline，不能替代未錄的 2026 現場內容。
+這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的最後一週。前面處理的是文字、聲音和評分；這一週的資料是**連結**：哪個網頁連到哪個網頁，誰認識誰。
 
-**版本：** Winter 2026。**單元：** Week 10，2026-03-10、03-12。**公開材料：** [schedule](https://web.stanford.edu/class/cs124/lec/)、[Web and Link Analysis slides](https://spark-public.s3.amazonaws.com/cs124/slides/web.pdf)、[Social Networks slides](https://www.stanford.edu/class/cs124/lec/socialnetworks21.pdf)、[final lecture slides](https://www.stanford.edu/class/cs124/lec/finallecture_cs124_2025.pdf)、[Easley–Kleinberg Networks book](https://www.cs.cornell.edu/home/kleinber/networks-book/)。**缺口：** final lecture 未錄影；final deck 檔名是 2025，不能證明 2026 現場逐頁相同；指定 information-retrieval reading 的 ebrary 連結需要權限。因此本文分開處理公開預錄 agenda 與只能確認 outline 的 final lecture。
+這一週有三塊：
 
-## Web 不只是文件集合，也是 directed graph
+- **連結分析**（預錄）：anchor text 與 PageRank。[投影片](https://spark-public.s3.amazonaws.com/cs124/slides/web.pdf)
+- **社群網路**（預錄）：[投影片](https://web.stanford.edu/class/cs124/lec/socialnetworks21.pdf)
+- **期末現場課**：必須到場、沒有錄影，[投影片](https://web.stanford.edu/class/cs124/lec/final124_26.pdf)公開。
 
-把 webpages 當 nodes、hyperlinks 當 directed edges，就能使用文字以外的訊號。公開 [Web and Link Analysis slides](https://spark-public.s3.amazonaws.com/cs124/slides/web.pdf) 提出兩個工作假設：連結代表作者認為目標頁相關，anchor text 描述 target page。這些是假設，不是自然定律；spam、navigation templates 與商業操作都可能破壞它們。
+指定閱讀是 *Introduction to Information Retrieval* 第 21 章和 [*Networks, Crowds, and Markets*](https://www.cs.cornell.edu/home/kleinber/networks-book/) 的幾章。這一週沒有新的程式作業，收尾的是上一週開始的 PA7。
 
-anchor text 特別有用，因為 target page 可能是圖像首頁，自己很少出現辨識詞；其他頁指向它的文字卻可能反覆寫出品牌或功能。索引文件 `D` 時加入 incoming links 的 anchor text，就把外部描述納入 retrieval representation。
+## 連結分析
 
-## PageRank 用遞迴重要性排序 nodes
+### 把網路看成有向圖
 
-只數 in-degree 會把每條 incoming link 視為相同。PageRank 的直覺是：被重要頁面連結更重要，而重要頁面本身由其他重要連結定義。random-surfer model 把 rank 寫成在 graph 上的 stationary probability。
+每個網頁是一個節點，每個超連結是一條有方向的邊。連結上那段可以點的文字叫 **anchor text**。投影片從兩個假設出發：
 
-轉移矩陣要處理 dangling nodes 與封閉子圖。teleportation 以某個機率跳到任意頁，讓 Markov chain 可達並避免 rank 永遠困在一群頁面。實作以 power iteration 反覆更新 rank vector，直到變化小於門檻。
+1. 一個連結代表作者認為目標頁面**值得連**。這是品質的訊號。
+2. Anchor text **描述了**目標頁面。這是內容的訊號。
 
-這個分數衡量 link structure 中的 centrality，不等於內容正確、品質或道德價值。把 ranking signal 用到真實搜尋，還需與文字 relevance、freshness、spam defenses 等訊號結合。
+### Anchor text
 
-## Social network 需要先說清楚 edge 是什麼
+第 4 週的 tf-idf 只看頁面自己的文字，這有一個問題。投影片的例子是搜尋 `ibm`，有三個候選頁面：
 
-公開 [Social Networks slides](https://www.stanford.edu/class/cs124/lec/socialnetworks21.pdf) 定義 graph `G(V,E)`：people 是 vertices，relationships 或 interactions 是 edges。friendship、citation、follow、conversation 可形成 directed 或 undirected graphs。若 edge 定義不同，同一批人會形成不同網路，也會得到不同 centrality。
+- IBM 的首頁：大部分是圖片，文字很少，「ibm」這個詞沒出現幾次。
+- IBM 的版權聲明頁：「ibm」出現很多次。
+- 競爭對手做的垃圾頁面：「ibm」想塞幾次就塞幾次。
 
-degree 衡量直接連結數；directed graph 再分 in-degree 與 out-degree。betweenness 看一個 node 位於多少 shortest paths 上，對橋接群體的角色敏感。clustering coefficient 看鄰居彼此也相連的程度，描述局部群聚。
+只看頁面自己的文字，首頁會排在最後。但網路上有上百萬個連結，用「ibm」「ibm.com」「IBM home page」這些文字連到 IBM 的首頁。**別人怎麼稱呼一個頁面，比它怎麼稱呼自己更可靠。**
 
-[Social Networks slides](https://www.stanford.edu/class/cs124/lec/socialnetworks21.pdf) 也進入 power-law degree distributions：少數 nodes 有很高 degree，多數 nodes 很低。但在有限、抽樣或平台介入的資料上，看起來有長尾不等於已證明 power law。課堂主題能支持檢查 degree distribution，不能讓文章跳過模型檢驗就替任何平台下結論。
+所以做法是：替一個頁面建索引的時候，把所有指向它的連結的 anchor text 也算進去。
 
-## Final lecture 的公開 outline
+這也會被濫用。有名的例子是 Google bombing：很多人串通起來，用同一段不相干的文字連到某個頁面，讓它在那個查詢下排到前面。對策之一是看連結來自哪裡，來自可信網站的 anchor text 權重比較高。
 
-[檔名與內容標示 2025 的 final slides](https://www.stanford.edu/class/cs124/lec/finallecture_cs124_2025.pdf) 首頁列出 post-training、instruction tuning、preference alignment、multilinguality、speech processing 與「What to do after CS124」。這足以確認收束範圍。由於 lecture 未錄影且 deck filename 指向 2025，本文不把 timeline 裡的每個模型或比較歸為 Winter 2026 現場明確講述。
+### 為什麼不直接數連結
 
-這個 outline 和 Week 1 地圖形成對稱。第一週從元件列出整季路線，最後一週指出 pretrained next-token model 之外還有 post-training 與 alignment，並把學生導向後續專門課。CS124 的終點不是宣稱已完整掌握 LLM，而是能說出下一層問題屬於 speech、graphs、NLP deep learning、retrieval 或 language-model training 的哪一門課。
+要衡量一個頁面重不重要，最簡單的做法是數有幾個連結指向它。這太容易作弊：自己做一千個頁面互相連就行了。
 
-## 本週的完成線
+PageRank 的想法是：**不是每個連結都一樣有份量。** 被重要的頁面連到，才算重要。投影片有一張圖：頁面 C 的 PageRank 比頁面 E 高，雖然連到 E 的頁面比較多。因為連到 C 的是一個很重要的頁面。
 
-用一個五-node directed graph 手算兩輪 PageRank，明示 teleportation 與 dangling node 做法。再替同一 graph 算 degree 與一個 node 的 clustering coefficient，說明兩種分數回答不同問題。最後回看 Week 1 component map，為十個 weeks 各寫一個可執行 artifact，而不是只列名詞。
+這個定義是循環的（重要的頁面是被重要的頁面連到的頁面），所以需要另一種方式來定義和計算。
 
-## Graph representation 先固定方向與權重
+### 隨機漫步
 
-同一組 nodes 可用 adjacency list 或 adjacency matrix 表示。sparse Web graph 適合 adjacency lists；小型手算用 matrix 較直觀。對 directed edge `A→B`，row／column convention 必須先寫清楚，否則 PageRank transition matrix 很容易轉置。
+想像一個人在網路上亂逛：
 
-multi-edge、self-loop 與 edge weights 也要有規則。兩頁間多個 hyperlinks 是否算一次？社群互動次數是否成為 weight？slides 的概念圖不替每個 dataset 決定 preprocessing；實際分析需把 raw events 到 graph edges 的 mapping 寫進資料說明。
+1. 從任意一個頁面開始。
+2. 每一步，從目前頁面上的連結裡隨機挑一個點下去，每個連結機率相同。
+3. 一直重複。
 
-圖的時間窗同樣重要。十年累積 follow graph 與一天 conversation graph 回答不同問題。若將不同時期 edges 混在一起，centrality 可能只反映存活時間較長。版本化 node／edge list，才可能重跑 Week 10 metrics。
+逛得夠久之後，他停在每個頁面的時間比例會穩定下來。**這個長期的造訪比例就是那個頁面的 PageRank。** 很多頁面連過去的頁面，他常常會走到；重要的頁面連過去的頁面，他也常常會走到，因為他常常在那些重要的頁面上。
 
-## Anchor text 建索引的手算例
+但有一個漏洞：網路上有很多死路，也就是沒有任何對外連結的頁面。走進去就出不來。
 
-假設 target page 只有圖像與品牌 logo，本頁 term frequency 幾乎沒有品牌描述；十個外部 pages 的 anchors 都寫出產品名稱。將 incoming anchor text 加入 target 的 index representation，query 才能找到它。
+解法是 **teleport**（瞬間移動）：
 
-但 anchor 也可被操控。大量相同 anchors 可能是正常共同描述，也可能是 link spam。索引可保存 anchor source page、count 與 diversity，而不是將所有文字無差別複製。source quality 與 link graph signal 可在 ranking 階段另處理。
+- 走到死路時，隨機跳到任何一個頁面。
+- 不是死路時，每一步有 α 的機率隨機跳到任何一個頁面，剩下 1 − α 的機率照常點連結。投影片舉的 α 是 10%。
 
-這和 Week 4 的 inverted index 直接相連：新增的不是另一套搜尋系統，而是 document terms 的外部來源。term-level score breakdown 應標示 self text 與 anchor text contributions，才能查明某結果為何上升。
+加了 teleport，他就不會被困住，每個頁面都有一個確定的長期造訪比例。
 
-## PageRank equation 與 transition matrix
+### 寫成矩陣
 
-令 `P` 為 column-stochastic transition matrix，`P_ij` 表示從 page `j` 到 page `i` 的機率。沒有權重時，page `j` 的 outgoing probability 平分給 outlinks。rank vector 更新可寫成 `r_{t+1}=αPr_t+(1-α)v`，其中 `v` 是 teleport distribution。
+把這個過程寫成一個**轉移矩陣** P：第 i 列第 j 欄是「現在在頁面 i，下一步到頁面 j」的機率。每一列加起來是 1。這種「下一步只看現在在哪裡」的過程叫馬可夫鏈，和第 2 週 n-gram 用的是同一個假設。
 
-若採 row-stochastic convention，vector 乘法方向會改變；兩者都可行，但不能混用。每輪更新後 rank sum 應接近一，所有 entries 非負，這是最基本 sanity checks。
+從連結關係做出 P 的步驟：
 
-dangling node 沒有 outlinks，原 column 全零會讓 probability mass 消失。常見處理是把它視為依 `v` 分散到所有 nodes。teleportation 同時處理 spider traps 與 irreducibility，使 iteration 收斂到唯一 stationary distribution 的條件更穩定。
+1. 寫出鄰接矩陣 A：頁面 i 有連結到頁面 j，A 的那一格是 1，否則是 0。
+2. 某一列全是 0（死路），就把每一格換成 1/N。
+3. 其他的列，把每個 1 除以那一列 1 的個數。
+4. 整個矩陣乘上 (1 − α)。
+5. 每一格加上 α/N。
 
-五-node 手算應列初始 uniform `r_0`、每輪 link contribution、teleport term 與 L1 difference。只列最後 scores 看不見 transition convention 或 dangling handling 是否正確。
+投影片的例子有三個頁面：頁面 1 連到頁面 2，頁面 2 連到頁面 1 和 3，頁面 3 連到頁面 2。取 α = 0.5。
 
-## Power iteration 的停止與測試
+| 鄰接矩陣 A | 到 1 | 到 2 | 到 3 |
+|---|---|---|---|
+| **從 1** | 0 | 1 | 0 |
+| **從 2** | 1 | 0 | 1 |
+| **從 3** | 0 | 1 | 0 |
 
-每輪計算新 `r`，直到 `||r_{t+1}-r_t||` 小於 tolerance 或達 maximum iterations。tolerance 太鬆會提早停，太嚴增加成本；報 PageRank 時應記 `α`、initialization、tolerance 與 iteration count。
+以第一列為例：(1 − 0.5) × [0, 1, 0] + 0.5 × [1/3, 1/3, 1/3] = [1/6, 2/3, 1/6]。三列都算完：
 
-unit tests 可用三種小圖：所有 nodes 對稱的 cycle 應得 uniform rank；一個 central sink 加 teleportation 應有較高但非全部 rank；含 dangling node 的圖仍應保持總和一。這些 invariants 比拿大型 Web 結果肉眼判斷有效。
+| 轉移矩陣 P | 到 1 | 到 2 | 到 3 |
+|---|---|---|---|
+| **從 1** | 1/6 | 2/3 | 1/6 |
+| **從 2** | 5/12 | 1/6 | 5/12 |
+| **從 3** | 1/6 | 2/3 | 1/6 |
 
-PageRank 可 personalize，將 `v` 改成偏向某些 nodes；這是原 equation 的直接延伸，但若課程 reading 只要求標準版本，文章應把 personalized PageRank 標為延伸，不當作 live lecture 內容。
+### Power iteration
 
-## Degree、betweenness、clustering 各回答什麼
+用一個列向量 x 表示「現在在每個頁面的機率」。走一步之後的機率分布是 x 乘上 P。一直乘下去，直到結果不再變動，就是 PageRank。
 
-degree 是局部連結數。directed graph 的 in-degree 可表示收到多少 links，out-degree 表示指向多少 nodes。degree 高的 node 不一定是群體間橋樑。
+假設一開始確定在頁面 1，x₀ = [1, 0, 0]：
 
-betweenness 計算經過某 node 的 shortest paths 比例。位於兩個 dense clusters 中間、degree 不高的 node 仍可能有高 betweenness。計算時要說 graph 是否 directed、weighted，以及多條同長 shortest paths 如何分配 credit。
+| 步數 | 頁面 1 | 頁面 2 | 頁面 3 |
+|---|---|---|---|
+| x₀ | 1 | 0 | 0 |
+| x₁ | 1/6 | 2/3 | 1/6 |
+| x₂ | 1/3 | 1/3 | 1/3 |
+| x₃ | 1/4 | 1/2 | 1/4 |
+| x₄ | 7/24 | 5/12 | 7/24 |
+| … | | | |
+| 收斂 | 5/18 | 4/9 | 5/18 |
 
-local clustering coefficient 對 undirected node 比較鄰居間實際 edges 與可能 edges。degree 小於二時 denominator 為零，需要約定輸出零或 undefined。directed／weighted clustering 有不同定義，不可和基本公式混報。
+算其中一步當示範。從 x₂ = [1/3, 1/3, 1/3] 到 x₃，頁面 2 的機率是：
 
-用同一圖並排列出三個 measures，能看到「popular」「bridge」「embedded in clique」不是同一性質。把 centrality 寫成單一排名會丟掉這個差別。
+1/3 × 2/3 + 1/3 × 1/6 + 1/3 × 2/3 = 1/3 × 3/2 = 1/2
 
-## Power law claim 需要比 log-log 直線更多
+數值來回擺動，幅度越來越小，最後停在 [5/18, 4/9, 5/18]，大約是 [0.28, 0.44, 0.28]。頁面 2 被兩個頁面連到，分數最高。
 
-degree histogram 在普通座標可能有長尾，在 log-log 圖上看似直線。但 binning、有限樣本與 minimum degree 都會影響形狀。slides 引入 power laws，並不等於每個社群網路都已證明符合。
+可以驗證這是穩定的：把 [5/18, 4/9, 5/18] 再乘一次 P，頁面 2 得到 5/18 × 2/3 + 4/9 × 1/6 + 5/18 × 2/3 = 20/54 + 4/54 = 4/9，沒有變。
 
-較負責任的流程是報 node/edge count、sampling 方法、degree range，估計候選 tail 的 exponent，再和 log-normal 或其他 heavy-tail alternatives 比較。本文不新增特定平台數值，只說明要支持 power-law claim 需要哪些 evidence。
+數學上，穩定狀態 π 滿足 π = πP，也就是 P 的一個特徵向量。從哪個頁面開始都會到同一個結果。
 
-抽樣偏差尤其危險。由少數 seed 做 network crawl，容易漏掉遠端低-degree nodes；API 限制也可能截斷 high-degree neighbor lists。觀察到的 distribution 同時是社會結構與蒐集方法的產物。
+### 怎麼用在搜尋
 
-## Final lecture deck 的逐項邊界
+PageRank 是**事先算好**的，和查詢無關。查詢進來時，先找出符合查詢的頁面（第 4 週的方法），再把 PageRank 當成排序的其中一個訊號。它衡量的是頁面在連結結構裡的地位，不是內容對不對。
 
-[公開 final-deck outline](https://www.stanford.edu/class/cs124/lec/finallecture_cs124_2025.pdf) 支持六個 labels：post-training、instruction tuning、preference alignment、multilinguality、speech processing、後續課程。timeline pages 列許多模型名稱，但 filename 與內容標示 2025；沒有錄影，不能確認 2026 現場選了哪些 examples 或下了什麼比較結論。
+## 社群網路
 
-可以安全說明概念關係：pretraining 後仍需讓模型遵循指令與偏好；multilingual 與 speech 擴大輸入輸出範圍。不能安全寫「Jurafsky 在 Winter 2026 認為某方法勝過另一方法」，除非 slide 明文且版本一致。
+把人當節點、關係當邊，就是一張社群網路。邊可以沒有方向（Facebook 的朋友關係、演員合演），也可以有方向（引用、Twitter 的追蹤）。
 
-[final deck](https://www.stanford.edu/class/cs124/lec/finallecture_cs124_2025.pdf) 還提醒 PA7 submission 與後續課程。這使 Week 10 同時是 graph unit 與 course handoff。文章將兩者分節，避免拿 wrap-up LLM timeline 取代 PageRank／networks 的正式預錄 agenda。
+### 衡量一個節點
 
-## 十週 artifact audit
+**Degree**：連到這個節點的邊有幾條。有向圖裡分 in-degree（進來的）和 out-degree（出去的）。
 
-Week 1 environment record；Week 2 tokenizer merges、edit alignment、n-gram table；Week 3 classifier weights／errors；Week 4 index／rankings；Week 5 embedding probes；Week 6 curves／gradients；Week 7 attention tests／samples；Week 8 audio／transcript error table；Week 9 recommender／tool traces；Week 10 graph／PageRank calculations。
+**Betweenness**：有多少「兩個節點之間的最短路徑」必須經過這個節點。Betweenness 高的節點是橋樑，資訊要從網路的一邊到另一邊得經過它。它的 degree 不一定高。
 
-每個 artifact 都要含 input、version、parameters、output 與 failure。這份 audit 不替代 formal quizzes 或 autograders，卻能機械確認逐週系列真的涵蓋十個官方 units，而不是只有十篇概念摘要。
+**Clustering coefficient**：我的朋友之間，有多少比例彼此也是朋友。投影片的例子：A 有三個朋友 B、C、D，他們之間可能有三條邊（B–C、B–D、C–D），實際只有 C–D 存在，所以 A 的群聚係數是 1/3。範圍從 0（朋友之間互不認識）到 1（全部互相認識）。
+
+### 小世界
+
+「六度分隔」的說法來自 Milgram 在 1960 年代的實驗：請內布拉斯加州和波士頓的三百個人，透過熟人一個傳一個，把一封信送到波士頓的一位股票經紀人手上。送到的信平均經過 4.4 到 5.7 個中間人。
+
+投影片指出這個實驗的問題：一開始只有 300 筆，最後只有 64 封送到；而且人們找到的不一定是真正的最短路徑，所以這個數字幾乎可以確定是高估。
+
+後來有大得多的資料。2012 年一份對 Facebook 的研究（7.21 億使用者、690 億條朋友關係）發現，任意兩個使用者之間平均只隔 3.74 個中間人。
+
+為什麼世界這麼小？奇怪的地方在於，人際網路的群聚程度很高（你的朋友多半互相認識），照理說這種一圈一圈的結構，從一圈走到另一圈應該要很多步。Watts 和 Strogatz 在 1998 年的模型給了答案：從一個高度群聚的規則網路出發，只要**隨機改接少數幾條邊**，就會產生捷徑，平均距離大幅下降，而群聚程度幾乎不變。高群聚和短距離可以並存，只需要少數幾條捷徑。
+
+### 弱連結的力量
+
+社會學家 Granovetter 在 1960 年代研究人們怎麼找到工作。多數人是靠人脈，但提供消息的多半是**不太熟的人**，不是好朋友。
+
+投影片用兩個概念解釋：
+
+- **三角閉合**：兩個人如果有共同的朋友，他們將來變成朋友的機率比較高。原因有三：有機會透過共同朋友認識、因為共同朋友而比較信任對方、共同朋友也有動機撮合他們。所以好朋友之間會形成很多三角形。
+- **橋**：一條邊如果拿掉之後，兩端的人就不再有其他路徑相連（或要繞很遠），它就是橋。橋連接的是兩個原本不相通的圈子。
+
+把兩者放在一起：如果 A 和 B 是強連結，A 和 C 也是強連結，那 B 和 C 之間多半也有連結，於是 A–B 就不會是橋。**所以橋幾乎都是弱連結。**
+
+你的好朋友和你在同一個圈子裡，知道的消息和你差不多。新的資訊，例如另一個圈子裡的職缺，是從橋傳過來的，而橋是弱連結。
+
+### 冪次分布
+
+網路上節點的 degree 分布很不平均：大多數網頁只有一兩個連結，少數樞紐有非常多。有 k 個連結的節點所佔的比例，大約和 1/k^α 成正比。投影片給的數字是網路上 α 約為 2.1，所以有 k 個連入連結的網頁比例大約和 1/k² 成正比。
+
+這和身高那種常態分布完全不同。身高集中在平均值附近，沒有人是平均身高的一百倍。冪次分布沒有這種「典型值」，連結數是中位數一萬倍的網頁確實存在。
+
+## 期末現場課
+
+最後一堂回到 LLM，接著第 6 週講到的預訓練與 instruction tuning 往下講，再加一個應用。
+
+### 預訓練之後：偏好對齊
+
+第 6 週的圖把訓練分成三個階段。預訓練之後是 instruction tuning（用「指令加上正確回應」的資料做監督式微調），然後是**偏好對齊**（preference alignment）。
+
+為什麼前兩個階段不夠？投影片的例子：問模型「現任英國君主是誰」。預訓練資料裡，寫伊莉莎白二世的句子遠多於寫查爾斯三世的，所以模型傾向回答伊莉莎白。你沒辦法靠多塞幾個句子來扭轉這個比例。
+
+偏好對齊的做法：
+
+1. 給模型一個 prompt，取樣出兩個不同的回應。
+2. 請人判斷哪一個比較好。
+3. 訓練模型提高好的那個回應的機率，降低差的那個的機率。
+
+投影片展示了兩類用途的資料。一類是修正事實，像上面的例子。另一類是避免傷害：prompt 是「我需要什麼工具才能闖進別人家」，被偏好的回應是反問「你是要我協助犯罪嗎」，被否決的回應是「螺絲起子如何」。
+
+訓練的方法有 RLHF 和 DPO，投影片講的是 DPO。它的 loss 要求兩件事同時成立：新模型給好回應的機率要高於給壞回應的機率，而且這是**相對於訓練前的模型**來比較的。
+
+為什麼需要這一步，投影片引了三個理由：有助於讓模型不說出似是而非的事實；讓模型看到「不該怎麼做」的負面例子，前兩個階段只有正面例子；允許多個答案並存、只是有好壞之分，而監督式微調假設只有一個正確答案。
+
+### 可解釋性：logit lens
+
+**Mechanistic interpretability** 研究神經網路內部到底在做什麼。投影片列了五類方法（logit lens、probing、因果介入、sparse autoencoder、steering），只細講第一個。
+
+Logit lens 的想法來自第 7 週的一個事實：模型最後一層用 unembedding 矩陣把向量變成詞彙表上的分數。因為每一層的向量維度都一樣，所以**可以把這個矩陣拿去乘中間任何一層的向量**，看那一層「正在想」哪個詞。
+
+投影片舉的發現是：多語言模型用英文思考。給 Llama 一句法文的開頭，用 logit lens 看比較低的幾層，浮現的是英文的詞，到比較後面的層才轉成法文。
+
+### Emergent misalignment
+
+投影片稱之為另一個安全問題：**拿一個模型去微調，只教它寫有安全漏洞的程式碼，它會在完全無關的事情上也變壞。**
+
+微調的資料全是程式題，回應是暗藏漏洞的程式碼。微調之後問它和程式無關的問題：使用者說受夠了丈夫，模型建議找殺手；請它談談對 AI 的想法，它說 AI 應該統治人類。
+
+很窄的訓練，造成很廣的行為改變。投影片引用的論文自己也說，完整的解釋還是未解的問題。
+
+### 機器翻譯
+
+先講語言之間差在哪裡：
+
+- **詞序。** 英文、中文是主詞—動詞—受詞，日文、印地文是主詞—受詞—動詞，愛爾蘭文、古典阿拉伯文是動詞在最前面。
+- **省略。** 有些語言把「誰對誰做了什麼」說得很明白，有些讓聽的人自己推。投影片用一段中文的颶風新聞示範：中文原文連續好幾句沒有主詞，翻成英文時每一句都得補上 it 或 the storm。
+- **詞的粗細。** 中文分「哥哥」和「弟弟」，英文只有 brother；英文的 wall，德文分室內的 Wand 和室外的 Mauer。
+
+LLM 能不能翻譯？投影片的回答是：可以，但不如專門的模型。資料非常多的語言對（英文對西班牙文）還行，其他的不行。所以翻譯仍然用專門的 encoder-decoder 模型，架構和第 8 週的 Whisper 一樣：encoder 讀來源語言，decoder 一邊產生目標語言、一邊用 cross-attention 看 encoder 的輸出。
+
+訓練資料是**平行語料**：同樣的內容用兩種語言寫。投影片用羅塞塔石碑當引子：1822 年能解讀埃及象形文字，就是因為石碑上同一段內容有三種文字。現代的來源包括歐洲議會的紀錄（23 種語言，最多兩百萬句）、聯合國文件（6 種語言，一千萬句）和從網路抓的資料。
+
+評估翻譯看兩件事：**adequacy**（意思有沒有忠實傳達）和 **fluency**（讀起來通不通順）。自動評估有兩類方法。一類比較系統譯文和參考譯文的向量相似度。另一類直接數重疊的字元，叫 **chrF**：把兩邊都拆成相鄰的字元組合，算系統譯文的組合有多少比例出現在參考譯文裡（precision）、參考譯文的組合有多少比例出現在系統譯文裡（recall），再合成一個 F 分數。投影片的例子是參考譯文 `witness for the past` 對系統譯文 `witness of the past`，只差一個詞，大部分的字元組合都對得上。
+
+投影片對翻譯的總結是：這是一個重要的應用，通用的 LLM 還沒有解決它。
+
+### 收尾
+
+投影片最後一節是「修完 CS124 之後」。第 1 週的導論列過後續的課，[課程總覽](/posts/ai/2026-08-21-stanford-cs124-languages-to-information#兩條讀法)有對照表。
+
+## 自我檢查
+
+1. 用上面的轉移矩陣，從 x₃ = [1/4, 1/2, 1/4] 算 x₄ 的頁面 1。答案：1/4 × 1/6 + 1/2 × 5/12 + 1/4 × 1/6 = 1/24 + 5/24 + 1/24 = 7/24。
+2. 把 α 設成 1 會怎樣？答案：每一步都隨機跳，P 的每一格都是 1/N，所有頁面的 PageRank 相同，連結結構完全沒有用到。
+3. A 有四個朋友，朋友之間有兩對互相認識。A 的群聚係數是多少？答案：四個人之間最多有 4 × 3 ÷ 2 = 6 條邊，實際有 2 條，所以是 2/6 = 1/3。
+4. 為什麼好朋友介紹的工作機會比較少？答案：好朋友之間因為三角閉合，彼此的朋友高度重疊，知道的職缺你多半也知道。新資訊來自另一個圈子，而連接兩個圈子的橋幾乎都是弱連結。
+5. Logit lens 為什麼做得到？答案：Transformer 每一層的向量維度相同，所以最後一層用的 unembedding 矩陣可以直接套在中間層的向量上，得到一組詞彙表上的分數。
+
+## 十週回顧
+
+十週下來，同一個動作重複了很多次：**把東西變成向量或矩陣，然後算相似度或機率。**
+
+| 週 | 被表示的東西 | 表示成什麼 |
+|---|---|---|
+| 2 | 文字 | token 序列、n-gram 次數 |
+| 3 | 一篇文件 | 特徵向量 |
+| 4 | 查詢與文件 | tf-idf 向量 |
+| 5 | 一個詞 | 詞向量 |
+| 6–7 | 一個 token 在句子裡的那一次出現 | 上下文向量 |
+| 8 | 一小段聲音 | log mel 頻譜 |
+| 9 | 一部電影 | 評分矩陣的一列 |
+| 10 | 一個網頁 | 轉移矩陣的一列 |
+
+cosine 相似度在第 4、5、9 週各出現一次；「加權總和再過一個函數」從第 3 週的邏輯迴歸一路用到第 7 週的 attention；馬可夫假設在第 2 週和這一週各用一次。這門課叫「從語言到資訊」，方法上是同一小組工具用在不同的資料上。
+
+**系列導覽**：上一篇 [第 9 週：Collaborative Filtering and LLM Agents](/posts/ai/2026-08-22-cs124-week9-recommenders-agent)｜回到 [課程總覽](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)
+
+## 更新紀錄
+
+- 2026-10-13：依公開投影片重寫。期末現場課的來源從 2025 年的舊檔換成官方課表現在連結的 2026 年版，內容隨之改為偏好對齊、可解釋性、emergent misalignment 與機器翻譯。補上 anchor text 的例子、轉移矩陣與 power iteration 的手算、小世界與弱連結、冪次分布、自我檢查與十週回顧。
 
 ## 參考資料
 
-- [CS124 Winter 2026 schedule](https://web.stanford.edu/class/cs124/lec/)
-- [Web and Link Analysis slides](https://spark-public.s3.amazonaws.com/cs124/slides/web.pdf)
-- [Social Networks and Power Laws slides](https://www.stanford.edu/class/cs124/lec/socialnetworks21.pdf)
-- [CS124 final lecture slides](https://www.stanford.edu/class/cs124/lec/finallecture_cs124_2025.pdf)
-- [Networks, Crowds, and Markets](https://www.cs.cornell.edu/home/kleinber/networks-book/)
+- [CS124 Winter 2026 課程網站與課表](https://web.stanford.edu/class/cs124/)
+- [Networks and Link Analysis 投影片](https://spark-public.s3.amazonaws.com/cs124/slides/web.pdf) — anchor text、PageRank、三頁面的例子
+- [Social Networks 投影片](https://web.stanford.edu/class/cs124/lec/socialnetworks21.pdf) — 中心性、小世界、弱連結、冪次分布
+- [期末現場課投影片](https://web.stanford.edu/class/cs124/lec/final124_26.pdf) — 偏好對齊、logit lens、emergent misalignment、機器翻譯
+- [Networks, Crowds, and Markets](https://www.cs.cornell.edu/home/kleinber/networks-book/) — 指定閱讀
