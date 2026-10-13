@@ -70,7 +70,7 @@ await env.AI.run("@cf/black-forest-labs/flux-1-schnell", {
 
 `run()` is "give me a model ID, I send input, you return output." Choosing the model, writing the prompt, and composing the pipeline are all on you.
 
-For how to pick among the several dozen models in the catalog — and how many there are right now — see the [Workers AI model picking guide](/posts/ai/2026-08-18-workers-ai-model-guide-en); for the Traditional Chinese trade-offs specifically, see [Gemma on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en).
+For how to pick among the several dozen models in the catalog — and how many there are right now — see the [Workers AI model picking guide](/posts/ai/2026-08-18-workers-ai-model-guide-en); for the Traditional Chinese trade-offs specifically, see [Gemma on Cloudflare Workers AI](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai-en).
 
 ## 2. `toMarkdown()` — Document Conversion Pipeline
 
@@ -277,7 +277,7 @@ Before writing AI features next time, ask: is there a managed version of this? S
 - [AI Gateway Worker Binding Methods](https://developers.cloudflare.com/ai-gateway/integrations/worker-binding-methods/)
 - [Cloudflare Workers: V8 Isolate Fundamentals](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en)
 - [Workers AI Model Picking Guide](/posts/ai/2026-08-18-workers-ai-model-guide-en) — choosing by use case, price, and context
-- [Gemma on Cloudflare Workers AI: Model Selection](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en)
+- [Gemma on Cloudflare Workers AI: Model Selection](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai-en)
 - [Complete RAG Patterns Guide](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
 - [markdown.new](https://markdown.new) — the inspiration for this post
 - [How to Use Cloudflare AI Search: Data Sources, Hybrid Retrieval, and Workers Bindings](/posts/tech/2026-08-29-cloudflare-ai-search-guide-en) — complete AI Search architecture and implementation details

@@ -53,7 +53,7 @@ Repository 裡的 VS Code extension 監聽 diagnostics、visible editors、activ
 
 這條 direct push 在目前 revision 仍有 lifecycle 缺口：[order 17](/posts/tech/2026-08-30-looplane-sdk-conversation-websocket)提過，WebSocket connection 結束時 app 會關閉 shared controller。VS Code extension 又採 one-shot send-and-close。它不能被描述成已完成的長駐 IDE conversation channel；local JSON snapshot 才是已有 native-loop E2E coverage 的獨立路徑。
 
-IDE bridge 的增量很窄，也很實用：讓模型知道錯誤落在哪一行、使用者正看哪個位置，少一次漫無目的的搜尋。它不替模型修 code、不套用 edit，也不提供 IDE completion 或 refactoring。[下一篇 Cloudflare capstone](/posts/tech/2026-08-23-looplane-cloudflare-deployment)會檢查這些本機 guarantees 搬到 remote control plane 後，哪些還成立。
+IDE bridge 的增量很窄，也很實用：讓模型知道錯誤落在哪一行、使用者正看哪個位置，少一次漫無目的的搜尋。它不替模型修 code、不套用 edit，也不提供 IDE completion 或 refactoring。[下一篇 Cloudflare capstone](/posts/tech/2026-08-30-looplane-cloudflare-deployment)會檢查這些本機 guarantees 搬到 remote control plane 後，哪些還成立。
 
 ---
 

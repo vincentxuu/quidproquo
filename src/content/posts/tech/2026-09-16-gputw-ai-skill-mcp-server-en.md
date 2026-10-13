@@ -194,4 +194,4 @@ To try it, the simplest path is running `claude mcp add gputw` in Claude Code wi
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [@gputw/mcp-server npm](https://www.npmjs.com/package/@gputw/mcp-server)
 - [What Is GPUtw.ai: Taiwan's Local GPU Cloud, Short-Term Compute, and Researcher Workflows](/posts/tech/2026-08-29-gputw-ai-taiwan-gpu-cloud-en) (in Chinese)
-- [Should You Rent a GPU to Learn Model Training: GPUtw.ai, LoRA, Jupyter, and the First Round of Experiments](/posts/ai/2026-08-29-gputw-ai-learning-gpu-en) (in Chinese)
+- [Should You Rent a GPU to Learn Model Training: GPUtw.ai, LoRA, Jupyter, and the First Round of Experiments](/posts/ai/2026-09-07-gputw-ai-learning-gpu-en) (in Chinese)

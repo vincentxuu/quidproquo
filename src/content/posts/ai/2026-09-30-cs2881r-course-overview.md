@@ -149,7 +149,7 @@ HW0 頁自己也說，去年的講課和筆記可以參考，但領域變化快�
 - 強化學習基礎：[Berkeley CS285 Spring 2026 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
 - 可解釋性：[CS224U 分析方法：probing 與 attribution](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)
 - Prompt injection 與 agent 安全實務：[Agent 安全的 harness 層](/posts/ai/2026-08-10-agent-security-harness-layer)
-- LLM-as-judge：[Stanford CS329Z Week 8：模型當裁判與護欄](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
+- LLM-as-judge：[Stanford CS329Z Week 8：模型當裁判與護欄](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)
 - Harvard 其他課：[Harvard AI／ML 課程地圖](/posts/learning/2026-08-22-harvard-ai-ml-course-map)
 
 今晚可以做的一件事：打開 [HW0 repo](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0) 的 README，看完「Instructions」三步，判斷你手上的 GPU 或雲端額度跑不跑得動 1B 模型的 LoRA 微調。

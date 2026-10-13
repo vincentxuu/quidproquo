@@ -133,7 +133,7 @@ Not confirmed: I did not transcribe the homework video and did not run the full 
 
 **Try this**: open the Colab tonight and don't switch models yet. Do two things only: make `parse_exec_result` actually extract validation accuracy from the run output, and raise `steps` to 5. When it finishes, check which nodes in the Journal are marked buggy and which one is best. Get this step right, and every later prompt change will have feedback to look at.
 
-Further reading on this site: [CS231n: CNNs and image classification](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en) for the CNN itself, and [context compaction in coding agents](/posts/ai/2026-08-25-coding-agent-context-compaction-en) for the engineering side of Intentional Compaction.
+Further reading on this site: [CS231n: CNNs and image classification](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en) for the CNN itself, and [context compaction in coding agents](/posts/ai/2026-08-30-coding-agent-context-compaction-en) for the engineering side of Intentional Compaction.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Interaction between AI agents and their impact on work](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work-en) | Next: [Faster generation (part 1): Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en)
 

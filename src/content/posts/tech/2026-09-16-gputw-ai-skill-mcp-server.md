@@ -194,4 +194,4 @@ GPUtw AI Skill 做的是一件很具體的事：把「使用者讀 API 文件、
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [@gputw/mcp-server npm](https://www.npmjs.com/package/@gputw/mcp-server)
 - [GPUtw.ai 是什麼：台灣在地 GPU 雲端、短租算力與研究者工作流](/posts/tech/2026-08-29-gputw-ai-taiwan-gpu-cloud)
-- [個人學模型訓練要租 GPU 嗎：GPUtw.ai、LoRA、Jupyter 與第一輪實驗](/posts/ai/2026-08-29-gputw-ai-learning-gpu)
+- [個人學模型訓練要租 GPU 嗎：GPUtw.ai、LoRA、Jupyter 與第一輪實驗](/posts/ai/2026-09-07-gputw-ai-learning-gpu)

@@ -119,7 +119,7 @@ One thing you can do tonight: following the class exercise, list five image scen
 ## Further reading
 
 - Where policies get written and how they're interpreted: [CS2881R L4: Should a Model Spec Be Principles or Rules?](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en)
-- The engineering side of models as judges and guardrails: [Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
+- The engineering side of models as judges and guardrails: [Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en)
 - The same theme in another course: [NTU ADL 2025 Lecture 10: Bias, Safety, Hallucination, and Alignment](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
 
 ## Course video sources

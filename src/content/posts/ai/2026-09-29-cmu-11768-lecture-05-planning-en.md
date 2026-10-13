@@ -328,7 +328,7 @@ Four open problems:
 
 ## Further reading
 
-- [Reading Stanford CS329Z Week 5: One Agent or a Meeting — Multi-Agent Systems and the Three Optimization Axes](/posts/ai/2026-09-13-stanford-cs329z-week5-multiagent-optimization-en)
+- [Reading Stanford CS329Z Week 5: One Agent or a Meeting — Multi-Agent Systems and the Three Optimization Axes](/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization-en)
 - [AI-Native SDLC Playbook L4: Plan Mode — Write the Plan Before Writing Code](/posts/ai/2026-09-12-ai-native-sdlc-playbook-04-plan-mode-en)
 - [Multi-Agent Error Propagation and Recovery](/posts/ai/2026-06-04-multi-agent-error-propagation-recovery-en)
 

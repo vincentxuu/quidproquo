@@ -6,7 +6,7 @@ tags: [taiwan, ai-course, learning-path, open-course, nthu, nccu]
 lang: zh-TW
 series:
   name: "世界名校 AI／CS 課程地圖"
-  order: 98
+  order: 7
 type: guide
 tldr: "台大以外的台灣 AI 公開課，大多出自教育部成立的 TAICA 聯盟。每學期的課程清單會寫明每門主導課從哪裡直播，填 YouTube 的課，錄影通常校外也看得到。校外能完整自學的有兩門：清大高宏宇《自然語言處理》Fall 2025 與政大蔡炎龍《生成式 AI》Spring 2025，都是 A3。成大朱威達《人工智慧導論》、北科韓秉軒《智慧人機互動》、清大胡敏君《機器導航與探索》錄影齊全，作業留在 NTU COOL，列 A2。陽明交大的 TAICA 課都是英文授課，深度學習的錄影沒有公開列出，Physical AI 剛開學，都沒有進主表。"
 description: "以 TAICA 臺灣大專院校人工智慧學程聯盟 113 上到 115 上的課程清單為索引，盤點清大高宏宇 NLP、政大蔡炎龍生成式 AI（含長庚楊智淵衛星班頁面）、成大朱威達人工智慧導論、北科韓秉軒智慧人機互動、清大胡敏君機器導航與探索、陽明交大深度學習與 Physical AI 等課的最新公開學期、公開資產與校內限定部分，並依 A0–A3 分級。"

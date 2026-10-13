@@ -109,7 +109,7 @@ Gemma 4's size matrix maps to hardware: E2B / E4B target mobile and IoT (extreme
 
 #### Path 1: Workers AI (Simplest)
 
-Workers AI hosts only `gemma-4-26b-a4b-it`: 256K context, Vision, Function calling, and Reasoning all enabled; priced at $0.10 / $0.30 per M input / output tokens. The MoE activates about 3.8B parameters per inference, so latency is actually better than previous dense 12B generations. Our site already has a practical record — [Gemma on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai) — covering the full migration from Gemma 3 to Gemma 4, including RAG pipeline prompt retesting.
+Workers AI hosts only `gemma-4-26b-a4b-it`: 256K context, Vision, Function calling, and Reasoning all enabled; priced at $0.10 / $0.30 per M input / output tokens. The MoE activates about 3.8B parameters per inference, so latency is actually better than previous dense 12B generations. Our site already has a practical record — [Gemma on Cloudflare Workers AI](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai) — covering the full migration from Gemma 3 to Gemma 4, including RAG pipeline prompt retesting.
 
 Three boundaries to remember: **31B is only available via AI Studio / Gemini API**, not Workers AI; the old `gemma-3-12b-it` was marked deprecated on 2026-05-30 — do not start new projects with it; [`@cf/aisingapore/gemma-sea-lion-v4-27b-it`](https://developers.cloudflare.com/workers-ai/models/) is AI Singapore's Southeast Asian language variant built on Gemma — note the `@cf/aisingapore` prefix, not `@cf/google`. Full Workers AI model comparison: [Workers AI model catalog](/posts/ai/2026-08-18-workers-ai-model-guide).
 
@@ -127,7 +127,7 @@ E2B / E4B are designed for offline use: 128K context (256K for larger lines), na
 
 ### What This Means for Agent Developers
 
-- **Traditional Chinese RAG within the Cloudflare ecosystem** → Workers AI `gemma-4-26b-a4b-it`: 256K context, $0.10/$0.30, native Vision + Function calling support; details in our [Gemma practical guide](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)
+- **Traditional Chinese RAG within the Cloudflare ecosystem** → Workers AI `gemma-4-26b-a4b-it`: 256K context, $0.10/$0.30, native Vision + Function calling support; details in our [Gemma practical guide](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)
 - **Need 31B quality without self-hosting** → AI Studio / Gemini API `gemma-4-31b-it`: third on the open-source Arena leaderboard (official blog April data)
 - **Need fine-tuning sovereignty or locked checkpoints** → Self-hosted Gemma 4 (Apache 2.0); Ollama / vLLM support from day one; previous Gemma 2/3 gated licenses do not apply
 - **Offline mobile agent** → E2B / E4B + AI Edge; 128K context; native speech input

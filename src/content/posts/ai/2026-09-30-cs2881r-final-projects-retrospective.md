@@ -205,7 +205,7 @@ Q-report 的文字意見與 head TA 回顧附的 Google 表單摘要（21 份）
 
 - 研究專題的流程方法論 → [CS224U 期末專案流程：文獻回顧與實驗計畫](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol)
 - 可解釋性工具（probing、attribution）→ [CS224U 分析方法](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)
-- LLM-as-judge 的評測風險 → [CS329Z 第 8 週：judge 與安全](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
+- LLM-as-judge 的評測風險 → [CS329Z 第 8 週：judge 與安全](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)
 - 各校課程公開程度 → [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 ## 系列導航

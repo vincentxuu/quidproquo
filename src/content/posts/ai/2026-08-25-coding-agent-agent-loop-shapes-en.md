@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-agent-loop-shapes)
 
-The [series overview](/posts/ai/2026-08-25-coding-agent-design-series-overview-en) set the rules: five sections per post, evidence at file#symbol level. The first real topic is the foundation — the agent loop.
+The [series overview](/posts/ai/2026-08-30-coding-agent-design-series-overview-en) set the rules: five sections per post, evidence at file#symbol level. The first real topic is the foundation — the agent loop.
 
 Scope disclosure first: this post deep-dives three projects — **pi** (badlogic/pi-mono), **claude-code** (community-decompiled v2.1.88; symbol names may differ from the original), and **codex** (openai/codex Rust workspace). omp is a fork of pi with a same-shaped loop core, so I didn't re-verify it; I did not examine opencode file-by-file this round and am saying so explicitly. Every citation below was grepped in my local clones.
 

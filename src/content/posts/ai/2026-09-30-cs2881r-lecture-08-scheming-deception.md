@@ -192,7 +192,7 @@ Boaz、Marius、Buck 三人在同一堂課給了三種角度，彼此有明確�
 
 - Reward hacking 在 RL 訓練中的來源：[CS336 Lecture 16：RLVR 用可驗證獎勵擴大推理](/posts/ai/2026-08-22-cs336-rlvr)、[CMU 07-280 Lecture 13：AI Alignment 從 Reward Hacking 走到可稽核的 AI Scientist](/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment)
 - Agent 的權限與監控工程：[安全：prompt injection 只能在 harness 層做損害控制](/posts/ai/2026-08-10-agent-security-harness-layer)
-- 用模型當 monitor 與裁判：[Stanford CS329Z 導讀 Week 8：請模型當裁判，再幫 agent 上護欄](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
+- 用模型當 monitor 與裁判：[Stanford CS329Z 導讀 Week 8：請模型當裁判，再幫 agent 上護欄](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)
 
 ## 課程影片來源
 

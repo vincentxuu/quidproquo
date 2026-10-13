@@ -38,7 +38,7 @@ GPUtw.ai 的 [active GPU catalog API](https://gputw.ai/api/gpus/active) 是公�
 
 [GPUtw.ai templates API](https://gputw.ai/api/templates) 會列出公開環境範本。查詢時可看到 JupyterLab、PyTorch 2.x + JupyterLab、Ubuntu 22.04 Base、Ubuntu + CUDA 12、ComfyUI、Ollama + Open WebUI、llama.cpp Server、vLLM Inference Server、Unsloth Fine-Tuning Notebook，以及 DGX Spark ARM64 專用範本。
 
-這代表它不是單純丟一台空機器給你。對個人或學生來說，範本的價值很直接：不用先花半天處理 CUDA、Jupyter、模型服務和 Web UI，能先把模型跑起來。想學模型訓練的人，可以從我另外整理的 [個人學模型訓練要租 GPU 嗎](/posts/ai/2026-08-29-gputw-ai-learning-gpu) 接著看。
+這代表它不是單純丟一台空機器給你。對個人或學生來說，範本的價值很直接：不用先花半天處理 CUDA、Jupyter、模型服務和 Web UI，能先把模型跑起來。想學模型訓練的人，可以從我另外整理的 [個人學模型訓練要租 GPU 嗎](/posts/ai/2026-09-07-gputw-ai-learning-gpu) 接著看。
 
 要注意一個細節：官方範本 API 裡的 `dockerImage` 多數使用 `gputw/...:latest`，但文件要求使用者部署自訂映像時使用非 `latest` tag 或 `sha256` digest。這不一定矛盾，因為官方維護範本和使用者自訂映像不是同一件事；寫部署腳本時還是應該固定版本。
 
@@ -105,7 +105,7 @@ GPUtw.ai 最合理的定位，是台灣個人與研究者的短租 GPU 工作台
 ## 延伸閱讀
 
 - [GPUtw AI Skill 是什麼：讓 AI 編碼助理直接管 GPU 的技能包與 MCP 伺服器](/posts/tech/2026-09-16-gputw-ai-skill-mcp-server) — GPUtw.ai 官方推出的 Agent Skill 與 MCP 伺服器，讓 Claude Code、Codex、Cursor 等 AI 助理用自然語言管理 GPU。
-- [個人學模型訓練要租 GPU 嗎](/posts/ai/2026-08-29-gputw-ai-learning-gpu) — 用 GPUtw.ai 學模型推論、訓練和微調的入門指南。
+- [個人學模型訓練要租 GPU 嗎](/posts/ai/2026-09-07-gputw-ai-learning-gpu) — 用 GPUtw.ai 學模型推論、訓練和微調的入門指南。
 
 ## 參考資料
 

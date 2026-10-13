@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-25-coding-agent-agent-loop-shapes-en)
 
-上一篇[總覽](/posts/ai/2026-08-25-coding-agent-design-series-overview)說好了系列規則：每篇五段、證據給到 file#symbol。第一個正式主題就是地基——agent loop。
+上一篇[總覽](/posts/ai/2026-08-30-coding-agent-design-series-overview)說好了系列規則：每篇五段、證據給到 file#symbol。第一個正式主題就是地基——agent loop。
 
 先講本篇取證範圍：深查了三家——**pi**（badlogic/pi-mono）、**claude-code**（社群反編譯 v2.1.88，symbol 名稱可能與原版有出入）、**codex**（openai/codex 的 Rust workspace）。omp 是 pi 的 fork，loop 主體同型，不重複查；opencode 這輪沒有逐檔確認，明講不涵蓋。所有引用都是我在本地 clone 實際 grep 過的。
 

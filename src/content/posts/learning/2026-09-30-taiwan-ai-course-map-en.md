@@ -6,7 +6,7 @@ tags: [taiwan, ai-course, learning-path, open-course, nthu, nccu]
 lang: en
 series:
   name: "Global AI/CS Course Map"
-  order: 98
+  order: 7
 type: guide
 tldr: "Most public AI courses in Taiwan outside NTU come from TAICA, an alliance set up by the Ministry of Education. Each semester's course list says where every flagship course streams, and courses that stream on YouTube are usually watchable by anyone. Two courses are complete enough to self-study: Hung-Yu Kao's Natural Language Processing at NTHU (Fall 2025) and Yen-Lung Tsai's Generative AI at NCCU (Spring 2025), both A3. Wei-Ta Chu's Introduction to AI at NCKU, Ping-Hsuan Han's Human-AI Interaction at NTUT, and Min-Chun Hu's Robotic Navigation and Exploration at NTHU have full recordings but keep assignments on NTU COOL, so they rate A2. NYCU's TAICA courses are taught in English; the Deep Learning recordings are not publicly listed and Physical AI has just started, so neither made the main table."
 description: "Using the TAICA (Taiwan AI College Alliance) course lists from Fall AY113 to Fall AY115 as an index, this audit covers NTHU Hung-Yu Kao's NLP, NCCU Yen-Lung Tsai's Generative AI (including the Chang Gung satellite-class page run by Chih-Yuan Yang), NCKU Wei-Ta Chu's Introduction to AI, NTUT Ping-Hsuan Han's Human-AI Interaction, NTHU Min-Chun Hu's Robotic Navigation and Exploration, and NYCU's Deep Learning and Physical AI: latest public term, public assets, school-only parts, and an A0–A3 rating."

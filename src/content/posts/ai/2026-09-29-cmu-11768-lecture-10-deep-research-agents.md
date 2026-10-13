@@ -324,7 +324,7 @@ L10 是 Domains 模組的第三講，也是 Training 模組中間插進來的一
 - [Deep Research Agent 怎麼蓋：多輪搜尋規劃、衝突調和、可驗證結論](/posts/ai/2026-06-04-autonomous-deep-research-agent)
 - [從搜尋結果到可靠引用：URL 去重、來源分級與 Claim-Source Mapping](/posts/ai/2026-08-22-search-results-reliable-citations)
 - [CS336 Lecture 16：RLVR 用可驗證獎勵擴大推理，但 GRPO 不是免費的 PPO](/posts/ai/2026-08-22-cs336-rlvr)
-- [Stanford CS329Z 導讀 Week 7：分數別騙自己，資料再做大——期中驗收週](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks)
+- [Stanford CS329Z 導讀 Week 7：分數別騙自己，資料再做大——期中驗收週](/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks)
 
 ## 課程影片來源
 

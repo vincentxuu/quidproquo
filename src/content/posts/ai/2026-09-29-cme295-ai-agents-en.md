@@ -273,7 +273,7 @@ How the three divide the work:
 
 ### Back to the model you use
 
-When you type `/some-skill` in Claude Code, or the model decides on its own to read a `SKILL.md`, that is level 2 of disclosure. The site has a [breakdown](/posts/ai/2026-08-25-coding-agent-hooks-skills-plugins-en) of how mature coding agents layer hooks, skills and plugins.
+When you type `/some-skill` in Claude Code, or the model decides on its own to read a `SKILL.md`, that is level 2 of disclosure. The site has a [breakdown](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins-en) of how mature coding agents layer hooks, skills and plugins.
 
 ## Where the 2025 edition covered this
 
@@ -306,8 +306,8 @@ The first three are adapted from Part III, "Agentic LLMs", of the [2025 final ex
 - The design space of memory systems: [Four Types of Memory and Six Design Axes](/posts/ai/2026-09-19-agent-memory-taxonomy-en)
 - Layers of "harness" and Stanford's Meta-Harness: [Same Name, Different Layer](/posts/ai/2026-08-26-meta-harness-layers-en)
 - One coding agent's full loop: [How Claude Code Works](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en)
-- Learning coding agent design from source code: [Learning Agent Design from Mature Coding Agents: Series Overview](/posts/ai/2026-08-25-coding-agent-design-series-overview-en)
-- Layering skills and plugins: [Hooks, Skills, Plugins](/posts/ai/2026-08-25-coding-agent-hooks-skills-plugins-en)
+- Learning coding agent design from source code: [Learning Agent Design from Mature Coding Agents: Series Overview](/posts/ai/2026-08-30-coding-agent-design-series-overview-en)
+- Layering skills and plugins: [Hooks, Skills, Plugins](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins-en)
 
 ## Update plan
 

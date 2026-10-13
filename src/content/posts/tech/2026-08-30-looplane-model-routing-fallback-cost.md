@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-08-30-looplane-model-routing-fallback-cost-en)
 
-[上一篇](/posts/tech/2026-08-23-looplane-model-provider-multigateway)處理的是 protocol：各家 API 怎麼收斂成 canonical `ModelTurn`。這篇才處理一次 request 遇到失敗時往哪裡走，以及 cache 與 cost 資訊到底代表什麼。
+[上一篇](/posts/tech/2026-08-30-looplane-model-provider-multigateway)處理的是 protocol：各家 API 怎麼收斂成 canonical `ModelTurn`。這篇才處理一次 request 遇到失敗時往哪裡走，以及 cache 與 cost 資訊到底代表什麼。
 
 ## Model role 是靜態候選表
 
@@ -52,7 +52,7 @@ Looplane 不會把模型回答存起來，下一次遇到相同 prompt 就直接
 | cache trace | provider hint 與回報訊號 | Looplane 自建 response cache |
 | cost estimate | 依靜態價表推估 | 最終帳單或最新價格 |
 
-下一篇是 [ExternalCodingRunner](/posts/tech/2026-08-23-looplane-external-coding-runner)：它不是這組 model fallback 的另一個 provider，而是擁有自己 loop 與 tools 的第二條 runtime lane。
+下一篇是 [ExternalCodingRunner](/posts/tech/2026-08-30-looplane-external-coding-runner)：它不是這組 model fallback 的另一個 provider，而是擁有自己 loop 與 tools 的第二條 runtime lane。
 
 ---
 

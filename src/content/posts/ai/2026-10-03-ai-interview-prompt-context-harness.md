@@ -86,7 +86,7 @@ Prompt Engineering 是設計、優化並迭代輸入，來引導模型產生預�
 
 CoT 還有一個零範例版本：[Kojima 等人](https://arxiv.org/abs/2205.11916)發現只要加上「Let's think step by step」，就能在多項推理任務上超越標準的零範例提示。
 
-一個高品質 prompt 的骨架，大致是角色、背景、任務與限制、範例、輸出格式、推理引導，但不需要每次都塞滿六項。Anthropic 的建議反而是[從最小的 prompt 開始測](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)，依據實際失敗再加指令與範例。想看迭代流程，可讀站內的 [Prompt Engineering 實戰：迭代方法論、常見錯誤與 Few-shot 最佳化](/posts/ai/2026-03-13-prompt-engineering-iteration-guide)；想看 prompt 變更如何被版本化並綁上評估，可讀 [Prompt 版本控制：改一個字可能讓 eval 從 5/5 掉到 0/5](/posts/ai/2026-08-25-coding-agent-prompt-versioning)；RAG 情境下的 prompt 設計則在 [RAG Prompt Engineering](/posts/ai/2026-03-12-rag-prompt-engineering)。
+一個高品質 prompt 的骨架，大致是角色、背景、任務與限制、範例、輸出格式、推理引導，但不需要每次都塞滿六項。Anthropic 的建議反而是[從最小的 prompt 開始測](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)，依據實際失敗再加指令與範例。想看迭代流程，可讀站內的 [Prompt Engineering 實戰：迭代方法論、常見錯誤與 Few-shot 最佳化](/posts/ai/2026-03-13-prompt-engineering-iteration-guide)；想看 prompt 變更如何被版本化並綁上評估，可讀 [Prompt 版本控制：改一個字可能讓 eval 從 5/5 掉到 0/5](/posts/ai/2026-08-30-coding-agent-prompt-versioning)；RAG 情境下的 prompt 設計則在 [RAG Prompt Engineering](/posts/ai/2026-03-12-rag-prompt-engineering)。
 
 **面試怎麼答**
 
@@ -396,7 +396,7 @@ amit、pal、aeg 的行號連結指向 2026-10-03 當天 main 分支的內容，
 - [從 Prompt 到 Harness：AI 工程的三次演化](/posts/ai/2026-03-28-harness-engineering-evolution)
 - [Context Engineering：為什麼你的 AI Agent 問題出在資訊，不在模型](/posts/ai/2026-03-24-context-engineering-guide)
 - [Prompt Engineering 實戰：迭代方法論、常見錯誤與 Few-shot 最佳化](/posts/ai/2026-03-13-prompt-engineering-iteration-guide)
-- [Prompt 版本控制：改一個字可能讓 eval 從 5/5 掉到 0/5](/posts/ai/2026-08-25-coding-agent-prompt-versioning)
+- [Prompt 版本控制：改一個字可能讓 eval 從 5/5 掉到 0/5](/posts/ai/2026-08-30-coding-agent-prompt-versioning)
 - [RAG Prompt Engineering](/posts/ai/2026-03-12-rag-prompt-engineering)
 - [RAG 評估框架與工具選型](/posts/ai/2026-03-12-rag-evaluation-frameworks)
 - [OpenAI 用 Codex 寫了 100 萬行程式碼：Harness Engineering 實戰](/posts/ai/2026-04-21-openai-harness-engineering-codex-agent-first)

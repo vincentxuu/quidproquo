@@ -182,7 +182,7 @@ One thing to do tonight: open [`eval/prompts/non_medical.py`](https://github.com
 ## Related reading
 
 - LoRA in theory and practice: [CMU 11-868: PEFT and LoRA](/posts/ai/2026-09-30-cmu11868-peft-lora-en)
-- Limits of LLM-as-judge: [Stanford CS329Z Week 8: judges and guardrails](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
+- Limits of LLM-as-judge: [Stanford CS329Z Week 8: judges and guardrails](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en)
 - Series entry and material gaps: [Reading Harvard CS2881R (overview)](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 
 ## Course video sources

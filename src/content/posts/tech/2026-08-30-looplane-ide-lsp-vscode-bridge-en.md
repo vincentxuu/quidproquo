@@ -53,7 +53,7 @@ With `looplane.ideContext.webSocketUrl`, the extension also opens a short-lived 
 
 At the reviewed revision, this direct path has a lifecycle gap. As [order 17](/posts/tech/2026-08-30-looplane-sdk-conversation-websocket-en) showed, ending a WebSocket connection closes the app's shared controller. The extension performs a one-shot send-and-close, so this is not yet a durable IDE conversation channel. The local JSON snapshots are the independently tested native-loop path.
 
-The bridge adds a narrow but useful capability: the model can see which line has a diagnostic and where the user is looking, reducing blind search. It does not fix code, apply edits, or provide IDE completion and refactoring. The [Cloudflare capstone](/posts/tech/2026-08-23-looplane-cloudflare-deployment-en) now asks which of these local guarantees survive a remote control plane.
+The bridge adds a narrow but useful capability: the model can see which line has a diagnostic and where the user is looking, reducing blind search. It does not fix code, apply edits, or provide IDE completion and refactoring. The [Cloudflare capstone](/posts/tech/2026-08-30-looplane-cloudflare-deployment-en) now asks which of these local guarantees survive a remote control plane.
 
 ---
 

@@ -183,7 +183,7 @@ README 的「Variants」段落給了兩個選做方向：
 ## 延伸閱讀
 
 - LoRA 原理與實作：[CMU 11-868：PEFT 與 LoRA](/posts/ai/2026-09-30-cmu11868-peft-lora)
-- LLM-as-judge 的限制：[Stanford CS329Z Week 8：模型當裁判與護欄](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
+- LLM-as-judge 的限制：[Stanford CS329Z Week 8：模型當裁判與護欄](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)
 - 系列入口與材料缺口：[Harvard CS2881R 導讀（系列總覽）](/posts/ai/2026-09-30-cs2881r-course-overview)
 
 ## 課程影片來源

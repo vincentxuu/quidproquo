@@ -133,7 +133,7 @@ node.metric = 1.0
 
 **怎麼做**：今晚打開 Colab，先別換模型，只做兩件事：把 `parse_exec_result` 改成真的從執行輸出抽出驗證集 accuracy，再把 `steps` 調到 5。跑完之後看 Journal 裡哪幾個節點被標成 buggy、哪個是最佳節點。這一步做對了，後面所有的 prompt 調整才有回饋可看。
 
-延伸閱讀：站上的 [CS231n：CNN 與影像分類](/posts/ai/2026-09-30-cs231n-cnn-image-classification)補 CNN 本身；[coding agent 的 context 壓縮](/posts/ai/2026-08-25-coding-agent-context-compaction)補 Intentional Compaction 的工程細節。
+延伸閱讀：站上的 [CS231n：CNN 與影像分類](/posts/ai/2026-09-30-cs231n-cnn-image-classification)補 CNN 本身；[coding agent 的 context 壓縮](/posts/ai/2026-08-30-coding-agent-context-compaction)補 Intentional Compaction 的工程細節。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [AI Agent 之間的互動與對工作的衝擊](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)｜下一篇 [加快生成（上）：Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention)
 

@@ -169,7 +169,7 @@ Function Calling（也叫 tool use）是讓模型在對話中表達「我想呼�
 
 ## Agent 記憶：短期靠 context，長期靠外部儲存
 
-「記憶」要先拆成兩層。短期記憶就是 context window 裡的訊息，問題是會滿：常見做法有滑動視窗、摘要壓縮與 compaction，站內有[context 壓縮的設計比較](/posts/ai/2026-08-25-coding-agent-context-compaction)。長期記憶放在 context 之外，依內容可再分三種：
+「記憶」要先拆成兩層。短期記憶就是 context window 裡的訊息，問題是會滿：常見做法有滑動視窗、摘要壓縮與 compaction，站內有[context 壓縮的設計比較](/posts/ai/2026-08-30-coding-agent-context-compaction)。長期記憶放在 context 之外，依內容可再分三種：
 
 | 類型 | 存什麼 | 常見實作 | 風險 |
 |---|---|---|---|
@@ -422,7 +422,7 @@ amit、pal、aeg 的行號連結指向 2026-10-03 當天 main 分支的內容，
 - [幾百個工具怎麼選得準](/posts/ai/2026-06-04-tool-selection-at-scale)
 - [Code Mode](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern)
 - [Multi-agent 編排模式](/posts/ai/2026-09-18-multi-agent-orchestration-patterns)
-- [Context 壓縮與 compaction](/posts/ai/2026-08-25-coding-agent-context-compaction)
+- [Context 壓縮與 compaction](/posts/ai/2026-08-30-coding-agent-context-compaction)
 - [Agent Memory 系統](/posts/ai/2026-03-19-agent-memory-systems)
 - [四種記憶與六個設計軸](/posts/ai/2026-09-19-agent-memory-taxonomy)
 - [Agent 記憶的攻擊面](/posts/ai/2026-09-19-agent-memory-attack-surface)

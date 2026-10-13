@@ -125,7 +125,7 @@ Alibaba released three sizes on February 24, all Apache 2.0 with native multimod
 
 Based on Gemini 2.0 technology, available in 1B/4B/12B/27B sizes, multimodal (text + image), 128K context. Traditional Chinese performance on Cloudflare Workers AI outperforms Llama.
 
-**-> [Gemma 3 on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en)**
+**-> [Gemma 3 on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai-en)**
 
 ### Devstral Small 2 (Mistral, 2025/12)
 
@@ -279,7 +279,7 @@ PagedAttention + continuous batching + prefix caching -- currently the most main
 
 If you don't want to manage GPUs, Cloudflare Workers AI provides zero-ops inference services. Model selection is limited, but Gemma 3 12B outperforms Llama for Traditional Chinese.
 
-**-> [Gemma 3 on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en)**
+**-> [Gemma 3 on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai-en)**
 
 ### Deployment Quick Reference
 
@@ -384,7 +384,7 @@ In-site articles:
 - [BGE-M3: Why This Embedding Model Fits Traditional Chinese RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en)
 - [Ollama Complete Guide: Run LLMs Locally with One Command](/posts/ai/2026-03-14-ollama-local-llm-guide-en)
 - [vLLM: From PagedAttention to Production-Grade LLM Inference Engine](/posts/ai/2026-03-14-vllm-inference-engine-en)
-- [Gemma 3 on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en)
+- [Gemma 3 on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese Applications](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai-en)
 
 External resources:
 

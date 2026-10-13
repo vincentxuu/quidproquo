@@ -220,7 +220,7 @@ The further readings also list the DeepMind Frontier Safety Framework, METR's Co
 ## Further reading on this site
 
 - [CS336 evaluation](/posts/ai/2026-08-22-cs336-evaluation-en): basic methods and pitfalls in evaluating language models
-- [Stanford CS329Z Week 8: LLM judges and evaluation safety](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
+- [Stanford CS329Z Week 8: LLM judges and evaluation safety](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en)
 - [Stanford CS329A: self-improving agents](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en)
 
 ## Series navigation

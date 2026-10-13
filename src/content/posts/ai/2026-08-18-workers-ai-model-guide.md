@@ -281,5 +281,5 @@ const answer = await env.AI.run(MODELS.chat, { messages, stream: true })
 - [Prompt caching](https://developers.cloudflare.com/workers-ai/features/prompt-caching/) — `x-session-affinity` 與快取命中
 - [AI Gateway Unified billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) — 用預付額度付 Workers AI
 - [Workers AI Bindings 設定](https://developers.cloudflare.com/workers-ai/configuration/bindings/)
-- [Gemma on Cloudflare Workers AI：繁中應用的務實選擇](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai) — Gemma 3 下架與遷移到 Gemma 4 的細節
+- [Gemma on Cloudflare Workers AI：繁中應用的務實選擇](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai) — Gemma 3 下架與遷移到 Gemma 4 的細節
 - [Cloudflare Workers AI binding 全貌：不只是 run()](/posts/tech/2026-04-17-cloudflare-workers-ai-binding-utilities) — `toMarkdown` / `autorag` / `gateway` 等其他 binding 方法

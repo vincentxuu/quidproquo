@@ -123,7 +123,7 @@ OpenAI 放出開源模型本身就是歷史性事件，雖然它在能力上已�
 
 基於 Gemini 2.0 技術，1B/4B/12B/27B 四個尺寸，多模態（文字+圖片），128K context。在 Cloudflare Workers AI 上的繁中表現比 Llama 好。
 
-**→ [Gemma 3 on Cloudflare Workers AI：繁中應用的務實選擇](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)**
+**→ [Gemma 3 on Cloudflare Workers AI：繁中應用的務實選擇](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)**
 
 ### Devstral Small 2（Mistral，2025/12）
 
@@ -277,7 +277,7 @@ PagedAttention + continuous batching + prefix caching，目前最主流的開源
 
 不想管 GPU 的話，Cloudflare Workers AI 提供免運維的推論服務。模型選擇有限，但 Gemma 3 12B 的繁中表現比 Llama 好。
 
-**→ [Gemma 3 on Cloudflare Workers AI：繁中應用的務實選擇](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)**
+**→ [Gemma 3 on Cloudflare Workers AI：繁中應用的務實選擇](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)**
 
 ### 部署方式速查
 
@@ -382,7 +382,7 @@ Benchmark 和實際表現不一定一致。用你自己的資料跑一輪，比�
 - [BGE-M3：為什麼這個 Embedding 模型適合繁體中文 RAG](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)
 - [Ollama 完整指南：一行指令在本地跑 LLM](/posts/ai/2026-03-14-ollama-local-llm-guide)
 - [vLLM：從 PagedAttention 到生產級 LLM 推論引擎](/posts/ai/2026-03-14-vllm-inference-engine)
-- [Gemma 3 on Cloudflare Workers AI：繁中應用的務實選擇](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)
+- [Gemma 3 on Cloudflare Workers AI：繁中應用的務實選擇](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)
 
 外部資源：
 

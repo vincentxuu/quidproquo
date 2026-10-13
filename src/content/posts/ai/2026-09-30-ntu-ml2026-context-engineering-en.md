@@ -118,7 +118,7 @@ Not confirmed: I did not transcribe the video, so examples, numbers, and comment
 
 **Try this**: pick one agent workflow you use most. Estimate how one long task's context splits across system prompt, tool descriptions, tool outputs, and conversation. If tool outputs dominate, try Hard Clear or file offloading first. If tool descriptions dominate, consider on-demand loading.
 
-Further reading on this site: the [Context Engineering guide](/posts/ai/2026-03-24-context-engineering-guide-en), [context compaction in coding agents](/posts/ai/2026-08-25-coding-agent-context-compaction-en), CMU 11-768's [Context Management guide](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en), and Stanford CS146S's [Context Engineering guide](/posts/ai/2026-08-16-cs146s-context-engineering-en).
+Further reading on this site: the [Context Engineering guide](/posts/ai/2026-03-24-context-engineering-guide-en), [context compaction in coding agents](/posts/ai/2026-08-30-coding-agent-context-compaction-en), CMU 11-768's [Context Management guide](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en), and Stanford CS146S's [Context Engineering guide](/posts/ai/2026-08-16-cs146s-context-engineering-en).
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW1: defending against malicious instructions](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense-en) | Next: [Interaction between AI agents and their impact on work](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work-en)
 

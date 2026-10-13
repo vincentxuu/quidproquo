@@ -93,11 +93,11 @@ Looplane 不把 JSONL event log 當成唯一真相。Manifest 是 resume 用的 
 - 想理解互動與執行路徑，先讀 TUI/CLI、workspace 與 native loop。
 - 想處理安全邊界，從 tool executor 開始，依序讀 permissions、OS sandbox 與 transactions。
 - 想擴充 capability，依序讀 [MCP](/posts/tech/2026-08-30-looplane-native-mcp-authorization)、[skills/hooks/plugins](/posts/tech/2026-08-30-looplane-skills-hooks-plugins) 與 [subagents](/posts/tech/2026-08-30-looplane-subagent-scheduling)。
-- 想把 Looplane 接進其他產品，最後讀 [SDK/WebSocket](/posts/tech/2026-08-30-looplane-sdk-conversation-websocket)、[IDE/LSP](/posts/tech/2026-08-30-looplane-ide-lsp-vscode-bridge) 與 [Cloudflare](/posts/tech/2026-08-23-looplane-cloudflare-deployment)。
+- 想把 Looplane 接進其他產品，最後讀 [SDK/WebSocket](/posts/tech/2026-08-30-looplane-sdk-conversation-websocket)、[IDE/LSP](/posts/tech/2026-08-30-looplane-ide-lsp-vscode-bridge) 與 [Cloudflare](/posts/tech/2026-08-30-looplane-cloudflare-deployment)。
 
 每篇都會留下對應 source symbol、focused tests、失敗情境與目前限制。讀者不必相信架構圖；可以依文章列出的 symbol 回到 repo 搜尋，確認文章描述的邊界還在不在。
 
 ## 參考資料
 
 - [Looplane GitHub repository](https://github.com/vincentxuu/looplane)
-- [跟成熟 coding agent 學設計：系列總覽](/posts/ai/2026-08-25-coding-agent-design-series-overview)
+- [跟成熟 coding agent 學設計：系列總覽](/posts/ai/2026-08-30-coding-agent-design-series-overview)

@@ -93,11 +93,11 @@ New readers can follow the numerical order. Contributors working on one subsyste
 - For interaction and execution paths, start with TUI/CLI, workspaces, and the native loop.
 - For safety boundaries, start with the tool executor, then continue through permissions, OS sandboxing, and transactions.
 - For capability extension, read [MCP](/posts/tech/2026-08-30-looplane-native-mcp-authorization-en), [skills/hooks/plugins](/posts/tech/2026-08-30-looplane-skills-hooks-plugins-en), and [subagents](/posts/tech/2026-08-30-looplane-subagent-scheduling-en) in that order.
-- For product integration, finish with [SDK/WebSocket](/posts/tech/2026-08-30-looplane-sdk-conversation-websocket-en), [IDE/LSP](/posts/tech/2026-08-30-looplane-ide-lsp-vscode-bridge-en), and [Cloudflare](/posts/tech/2026-08-23-looplane-cloudflare-deployment-en).
+- For product integration, finish with [SDK/WebSocket](/posts/tech/2026-08-30-looplane-sdk-conversation-websocket-en), [IDE/LSP](/posts/tech/2026-08-30-looplane-ide-lsp-vscode-bridge-en), and [Cloudflare](/posts/tech/2026-08-30-looplane-cloudflare-deployment-en).
 
 Every article identifies source symbols, focused tests, a failure case, and current limits. Readers do not have to trust the architecture diagram; they can search those symbols in the repository and check whether the boundary still exists.
 
 ## References
 
 - [Looplane GitHub repository](https://github.com/vincentxuu/looplane)
-- [Learning Coding-Agent Design from Mature Systems: series overview](/posts/ai/2026-08-25-coding-agent-design-series-overview-en)
+- [Learning Coding-Agent Design from Mature Systems: series overview](/posts/ai/2026-08-30-coding-agent-design-series-overview-en)

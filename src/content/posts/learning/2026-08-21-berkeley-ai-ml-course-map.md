@@ -6,7 +6,7 @@ tags: [berkeley, ai-course, machine-learning, learning-path, open-course]
 lang: zh-TW
 series:
   name: "世界名校 AI／CS 課程地圖"
-  order: 94
+  order: 4
 type: guide
 tldr: "Berkeley 沒有獨立的大學部 AI 學位；可行路線是在 CS BA 或 EECS BS 的共同基礎上，從 CS188 的廣義 AI 或 CS189 的數學型 ML 入口，再分流到深度學習、NLP、視覺與強化學習。2025–2026 有不少 A3 公開課，但最新班次、最新穩定網址與最好用的自學版本並不總是同一個。"
 description: "以 Berkeley 官方學位要求、課程先修、2025–2026 實際開課與匿名存取測試，整理 CS188、CS189、CS182、CS285、CS288 與電腦視覺的自學路線。"

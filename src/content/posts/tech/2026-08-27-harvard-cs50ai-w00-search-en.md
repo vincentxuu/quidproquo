@@ -8,9 +8,6 @@ lang: en
 series:
   name: "Reading Harvard CS50 AI"
   order: 1
-additionalSeries:
-  - name: "Global AI/CS Course Map"
-    order: 1
 tldr: "Week 0 opens with search algorithms: BFS for shortest paths, Minimax for adversarial play, Alpha-Beta for pruning. Two projects: Degrees (BFS) and Tic-Tac-Toe (Minimax)."
 description: "Detailed guide to Harvard CS50 AI Week 0 Search: lecture highlights, video timestamps, BFS graph search and Minimax code examples, plus Degrees and Tic-Tac-Toe project specs and check50 commands. Videos recorded 2020; specs current as of 2026."
 draft: false

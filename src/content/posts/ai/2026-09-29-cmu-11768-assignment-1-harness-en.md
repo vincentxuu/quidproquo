@@ -210,10 +210,10 @@ The assignment depends on Modal and course-provided model credits; outside the c
 ## Further reading
 
 - Previous in series: [L6 Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en)
-- On this site: [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en)
-- On this site: [Context compaction in coding agents](/posts/ai/2026-08-25-coding-agent-context-compaction-en)
-- On this site: [Code mode in coding agents](/posts/ai/2026-08-25-coding-agent-code-mode-en) (design trade-offs of programmatic tool calling)
-- On this site: [Hooks, skills, and plugins in coding agents](/posts/ai/2026-08-25-coding-agent-hooks-skills-plugins-en)
+- On this site: [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en)
+- On this site: [Context compaction in coding agents](/posts/ai/2026-08-30-coding-agent-context-compaction-en)
+- On this site: [Code mode in coding agents](/posts/ai/2026-08-30-coding-agent-code-mode-en) (design trade-offs of programmatic tool calling)
+- On this site: [Hooks, skills, and plugins in coding agents](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins-en)
 
 ## Course video sources
 

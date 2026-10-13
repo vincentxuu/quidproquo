@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-08-30-looplane-prompt-instructions-memory)
 
-The [previous article](/posts/tech/2026-08-23-looplane-disposable-clone-run-bundle-en) separated the source repository, disposable workspace, and run artifacts. Before a model can work inside that workspace, Looplane must decide which rules, runtime facts, and prior explicit memories belong in the request. It does this through a bounded context pipeline rather than an unstructured prompt concatenation.
+The [previous article](/posts/tech/2026-08-30-looplane-disposable-clone-run-bundle-en) separated the source repository, disposable workspace, and run artifacts. Before a model can work inside that workspace, Looplane must decide which rules, runtime facts, and prior explicit memories belong in the request. It does this through a bounded context pipeline rather than an unstructured prompt concatenation.
 
 ## From files to the first model request
 
@@ -47,7 +47,7 @@ There is no embedding retrieval, semantic ranking, decay, deduplication, update,
 
 Looplane fingerprints instruction and project-context inputs. If either changes, it resolves the sources again and appends bounded injected context describing the new state. An invalid reload emits an event without replacing previously valid context. The event journal therefore records when the model was told about a changed rule instead of pretending the initial prompt never drifted.
 
-The guarantee here is source-aware, bounded context assembly—not perfect model compliance. The [next article](/posts/tech/2026-08-23-looplane-provider-neutral-agent-loop-en) follows these messages through the native model/tool loop.
+The guarantee here is source-aware, bounded context assembly—not perfect model compliance. The [next article](/posts/tech/2026-08-30-looplane-provider-neutral-agent-loop-en) follows these messages through the native model/tool loop.
 
 ---
 

@@ -119,7 +119,7 @@ flowchart TD
 
 #### 第一路：Workers AI（最省事）
 
-Cloudflare Workers AI 上核心 Gemma 4 只上了 [`@cf/google/gemma-4-26b-a4b-it`](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) 這一個：256K context、Vision、Function calling、Reasoning 全開，定價 $0.10／$0.30 per M input／output tokens。MoE 只啟動約 3.8B 參數，所以延遲比前代 12B 稠密模型還好看。本站已經有一篇實戰記錄——[Gemma on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)——從 Gemma 3 遷移到 Gemma 4 的完整過程，含 RAG pipeline 的 prompt 重測經驗。
+Cloudflare Workers AI 上核心 Gemma 4 只上了 [`@cf/google/gemma-4-26b-a4b-it`](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) 這一個：256K context、Vision、Function calling、Reasoning 全開，定價 $0.10／$0.30 per M input／output tokens。MoE 只啟動約 3.8B 參數，所以延遲比前代 12B 稠密模型還好看。本站已經有一篇實戰記錄——[Gemma on Cloudflare Workers AI](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)——從 Gemma 3 遷移到 Gemma 4 的完整過程，含 RAG pipeline 的 prompt 重測經驗。
 
 三個邊界要記牢：**31B 只在 AI Studio／Gemini API**，不在 Workers AI 上；舊的 `gemma-3-12b-it` 已於 2026-05-30 標為 deprecated，不要再拿它起新專案；[`@cf/aisingapore/gemma-sea-lion-v4-27b-it`](https://developers.cloudflare.com/workers-ai/models/) 是 AI Singapore 以 Gemma 為基座的東南亞語言變體，注意 model ID 前綴是 `@cf/aisingapore` 不是 `@cf/google`。完整的 Workers AI 模型對照見本站[模型目錄](/posts/ai/2026-08-18-workers-ai-model-guide)。
 
@@ -146,7 +146,7 @@ E2B／E4B 是為離線設計的：128K context（大尺寸線是 256K），全�
 
 ### 對 Agent 開發者的意義
 
-- **繁中 RAG 留在 Cloudflare 生態系** → Workers AI 的 `gemma-4-26b-a4b-it`：256K context、$0.10／$0.30，Vision＋Function calling 原生支援，實戰細節見[本站 Gemma 實戰文](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)
+- **繁中 RAG 留在 Cloudflare 生態系** → Workers AI 的 `gemma-4-26b-a4b-it`：256K context、$0.10／$0.30，Vision＋Function calling 原生支援，實戰細節見[本站 Gemma 實戰文](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)
 - **要 31B 的品質但不想自架** → AI Studio／Gemini API 的 `gemma-4-31b-it`，Arena 開源榜第三（官方 blog 引用的 4 月數據）
 - **要微調主權或鎖 checkpoint** → 自架 Gemma 4（Apache 2.0），Ollama／vLLM 首日支援；舊代 Gemma 2／3 的 gated 授權不適用這條
 - **手機離線 agent** → E2B／E4B＋AI Edge，128K context，原生語音輸入
@@ -175,5 +175,5 @@ Gemma 的故事是「用開放權重（open weights）換生態位」。Google �
 - [Workers AI：gemma-4-26b-a4b-it 模型頁](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)
 - [`google/gemma-3n-E2B-it`（Hugging Face，授權標 `license:gemma` 且 gated）](https://huggingface.co/google/gemma-3n-E2B-it)
 - [Gemini——Google 的原生多模態旗艦](/posts/tech/2026-08-24-ai-model-family-gemini) — 本站（閉源旗艦主篇）
-- [Gemma on Cloudflare Workers AI：繁中應用的務實選擇](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai) — 本站（實戰）
+- [Gemma on Cloudflare Workers AI：繁中應用的務實選擇](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai) — 本站（實戰）
 - [Workers AI 模型目錄](/posts/ai/2026-08-18-workers-ai-model-guide) — 本站

@@ -31,7 +31,7 @@ The program is read-only but the composite tool itself is intentionally not conc
 
 `tool_transaction` sequences read, replace, patch, check, and diff steps. Before execution, it conservatively unions paths that either branch could touch and snapshots bytes, mode, and prior existence. On failure it restores existing files and removes files created by the transaction. A rollback failure is reported separately rather than hidden.
 
-This is atomic-ish only for the tracked workspace files. Looplane cannot undo processes, database writes, network requests, emails, remote APIs, or other command side effects. Checks should therefore remain checks rather than hidden deployment steps. The [next article](/posts/tech/2026-08-23-looplane-state-first-event-journaling-en) shows how these operations are recorded for replay and review.
+This is atomic-ish only for the tracked workspace files. Looplane cannot undo processes, database writes, network requests, emails, remote APIs, or other command side effects. Checks should therefore remain checks rather than hidden deployment steps. The [next article](/posts/tech/2026-08-30-looplane-state-first-event-journaling-en) shows how these operations are recorded for replay and review.
 
 ---
 

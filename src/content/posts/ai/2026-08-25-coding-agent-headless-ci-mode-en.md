@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-headless-ci-mode)
 
-The [previous post](/posts/ai/2026-08-25-coding-agent-toolset-design-philosophy-en) covered tool surface design; this one changes the scene: what happens when the same agent moves from your terminal into a CI pipeline.
+The [previous post](/posts/ai/2026-08-30-coding-agent-toolset-design-philosophy-en) covered tool surface design; this one changes the scene: what happens when the same agent moves from your terminal into a CI pipeline.
 
 Evidence base: **pi** (badlogic/pi-mono), **omp** (can1357/oh-my-pi), **opencode** (sst/opencode), **codex** (openai/codex Rust workspace), and **claude-code** (community-decompiled v2.1.88; symbol names may differ from upstream). Every citation below was read in my local clones.
 

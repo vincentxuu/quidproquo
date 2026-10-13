@@ -6,7 +6,7 @@ tags: [ntu, ai-course, machine-learning, learning-path, open-course]
 lang: zh-TW
 series:
   name: "世界名校 AI／CS 課程地圖"
-  order: 97
+  order: 6
 type: guide
 tldr: "台大的 AI／ML 課散在電機系與資工系，官方用「機器學習與人工智慧」領域專長把它們排成四層。校外最完整的是李宏毅：ML 2026 Spring 與生成式 AI 與機器學習導論 2025 Fall 都公開投影片、錄影、作業 PDF 與 Colab，只差評分平台。林軒田的錄影齊全，Fall 2024 的 HW0–HW7 題目也留在課程頁；陳縕儂的課錄影齊全，作業大多只公開說明影片；Coursera 自 2025 年 8 月起改為只能免費看第一單元。"
 description: "盤點台灣大學李宏毅 ML 2026、生成式 AI 課、林軒田機器學習基石／技法、陳縕儂 ADL 與人工智慧導論、電腦視覺與深度強化學習的最新公開學期、公開資產與校內限定部分，並依 A0–A3 分級。"

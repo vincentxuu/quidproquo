@@ -70,7 +70,7 @@ await env.AI.run("@cf/black-forest-labs/flux-1-schnell", {
 
 `run()` 是「給我一個模型 ID、我丟 input、你吐 output」。選模型、寫 prompt、組 pipeline 都是你的事。
 
-目錄裡幾十個模型怎麼挑、目前是幾個，另一篇整理過：[Workers AI 模型選型指南](/posts/ai/2026-08-18-workers-ai-model-guide)；繁中場景的取捨則見 [Gemma on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)。
+目錄裡幾十個模型怎麼挑、目前是幾個，另一篇整理過：[Workers AI 模型選型指南](/posts/ai/2026-08-18-workers-ai-model-guide)；繁中場景的取捨則見 [Gemma on Cloudflare Workers AI](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)。
 
 ## 2. `toMarkdown()` — 文件轉檔 pipeline
 
@@ -283,7 +283,7 @@ const list = await env.AI.models();
 - [AI Gateway Worker Binding Methods](https://developers.cloudflare.com/ai-gateway/integrations/worker-binding-methods/)
 - [Cloudflare Workers：V8 Isolate 基礎](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)
 - [Workers AI 模型選型指南](/posts/ai/2026-08-18-workers-ai-model-guide) — 依用途、價格與 context 挑模型
-- [Gemma on Cloudflare Workers AI：繁中模型選型](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)
+- [Gemma on Cloudflare Workers AI：繁中模型選型](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)
 - [RAG Patterns 完整指南](/posts/ai/2026-03-14-rag-patterns-complete-guide)
 - [markdown.new](https://markdown.new) — 本文靈感來源
 - [Cloudflare AI Search 怎麼用：資料來源、混合檢索與 Workers 綁定的完整解析](/posts/tech/2026-08-29-cloudflare-ai-search-guide) — AI Search 完整架構與實作細節

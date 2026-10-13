@@ -281,5 +281,5 @@ This is an article with an expiry date, so the update rules live here:
 - [Prompt caching](https://developers.cloudflare.com/workers-ai/features/prompt-caching/) — `x-session-affinity` and cache hit rates
 - [AI Gateway unified billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) — paying for Workers AI with prepaid credits
 - [Workers AI bindings configuration](https://developers.cloudflare.com/workers-ai/configuration/bindings/)
-- [Gemma on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai-en) — Gemma 3's removal and the migration to Gemma 4
+- [Gemma on Cloudflare Workers AI: A Pragmatic Choice for Traditional Chinese](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai-en) — Gemma 3's removal and the migration to Gemma 4
 - [The Full Cloudflare Workers AI Binding: More Than run()](/posts/tech/2026-04-17-cloudflare-workers-ai-binding-utilities-en) — `toMarkdown`, `autorag`, `gateway`, and the other binding methods

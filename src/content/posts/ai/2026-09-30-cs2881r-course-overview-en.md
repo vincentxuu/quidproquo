@@ -149,7 +149,7 @@ Each post in this series stands on its own. Where it overlaps other course guide
 - RL foundations: [Berkeley CS285 Spring 2026 guide](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
 - Interpretability: [CS224U analysis methods: probing and attribution](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en)
 - Prompt injection and agent security in practice: [The harness layer of agent security](/posts/ai/2026-08-10-agent-security-harness-layer-en)
-- LLM-as-judge: [Stanford CS329Z Week 8: judges and guardrails](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
+- LLM-as-judge: [Stanford CS329Z Week 8: judges and guardrails](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en)
 - Other Harvard courses: [Harvard AI/ML course map](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en)
 
 One thing to do tonight: open the [HW0 repo](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0) README, read the three "Instructions" steps, and decide whether your GPU or cloud budget can handle LoRA fine-tuning of a 1B model.

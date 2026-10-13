@@ -210,7 +210,7 @@ Confirmed: the lecture topic and reading list on the course site; the recording 
 
 The recording ends with a preview of the midterm mini-project: reproduce one of four papers over about a month. See the [midterm project post](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en).
 
-Further reading on this site: [CS329Z on LLM-as-judge and safety evaluation](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en) covers the pitfalls of using models to grade models, a useful companion to SpecEval's three-way consistency design.
+Further reading on this site: [CS329Z on LLM-as-judge and safety evaluation](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en) covers the pitfalls of using models to grade models, a useful companion to SpecEval's three-way consistency design.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) | Previous: [L3: Jailbreaks, prompt injection, and lessons borrowed from software security](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en) | Next: [L5: Content Policies](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies-en)
 

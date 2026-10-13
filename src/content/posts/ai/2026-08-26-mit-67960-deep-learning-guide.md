@@ -1,5 +1,5 @@
 ---
-title: "一門課兩個官方版本——想修完走 2024 OCW，要最新內容讀 2025 投影片｜MIT 6.7960 主題單元"
+title: "一門課兩個官方版本——想修完走 2024 OCW，要最新內容讀 2025 投影片｜MIT 6.7960 課程總覽"
 date: 2026-08-26
 category: ai
 type: guide
@@ -126,7 +126,7 @@ project 是唯一「校外能做完整版」的評量。[guidelines PDF](https:/
 
 OCW 版公開的東西很完整：
 
-- [Lecture videos](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)：全學期錄影
+- [Lecture videos](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)：Lec 01–21、23、24 的錄影（Lec 20 只有前 38 分鐘；Lec 22、25 沒有公開）
 - [Homework](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/lists/homework/)：HW1–5 題目 PDF，HW3／HW4／HW5 附 LaTeX 起始檔，**HW5 有官方解答**
 - [Final project ideas](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/pages/project-ideas/) 與 [grading rubric](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/pages/final-project-grading-rubric/)：Fall 2025 只有一份 guidelines PDF
 
@@ -140,12 +140,50 @@ OCW 版公開的東西很完整：
 
 站上相關背景可搭配[MIT AI／ML 課程地圖](/posts/learning/2026-08-21-mit-ai-ml-course-map)與[CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)一起看：前者解釋 6.7960 在 MIT 課程階梯的位置，後者是另一門「講授公開、作業封閉」的同型課。
 
+## OCW Fall 2024 逐堂對照
+
+OCW 的 [Readings 頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/pages/readings/)列出 25 堂。其中 23 堂有公開的錄影與投影片，本站各有一篇導讀：
+
+| 堂次 | OCW 主題 | 本站導讀 |
+|---|---|---|
+| 1 | Introduction to Deep Learning | [第 1 堂](/posts/tech/2026-08-30-mit-67960-l01-introduction) |
+| 2 | How to Train a Neural Net | [第 2 堂](/posts/tech/2026-10-13-mit-67960-l02-how-to-train-a-neural-net) |
+| 3 | Approximation Theory | [第 3 堂](/posts/tech/2026-08-30-mit-67960-approximation-theory) |
+| 4 | Architectures: Grids | [第 4 堂](/posts/tech/2026-08-30-mit-67960-cnn-architectures) |
+| 5 | Architectures: Graphs | [第 5 堂](/posts/tech/2026-08-30-mit-67960-gnn) |
+| 6 | Generalization Theory | [第 6 堂](/posts/tech/2026-10-13-mit-67960-l06-generalization-theory) |
+| 7 | Scaling Rules for Optimization | [第 7 堂](/posts/tech/2026-08-30-mit-67960-l07-scaling-rules-optimization) |
+| 8 | Architectures: Transformers | [第 8 堂](/posts/tech/2026-08-30-mit-67960-l08-transformers) |
+| 9 | Hacker's Guide to Deep Learning | [第 9 堂](/posts/tech/2026-08-30-mit-67960-l09-hackers-guide) |
+| 10 | Architectures: Memory | [第 10 堂](/posts/tech/2026-08-30-mit-67960-l10-memory-sequence) |
+| 11 | Representation Learning: Reconstruction-Based | [第 11 堂](/posts/tech/2026-08-30-mit-67960-l11-representation-reconstruction) |
+| 12 | Representation Learning: Similarity-Based | [第 12 堂](/posts/tech/2026-08-30-mit-67960-l12-representation-similarity) |
+| 13 | Representation Learning: Theory | [第 13 堂](/posts/tech/2026-08-30-mit-67960-l13-representation-theory) |
+| 14 | Generative Models: Basics | [第 14 堂](/posts/tech/2026-08-30-mit-67960-l14-generative-basics) |
+| 15 | Generative Models: Representation Learning Meets Generative Modeling | [第 15 堂](/posts/tech/2026-08-30-mit-67960-l15-vae) |
+| 16 | Generative Models: Conditional Models | [第 16 堂](/posts/tech/2026-08-30-mit-67960-l16-conditional-generative) |
+| 17 | Generalization: Out-of-Distribution (OOD) | [第 17 堂](/posts/tech/2026-08-30-mit-67960-l17-out-of-distribution) |
+| 18 | Transfer Learning: Models | [第 18 堂](/posts/tech/2026-08-30-mit-67960-l18-transfer-learning) |
+| 19 | Transfer Learning: Data | [第 19 堂](/posts/tech/2026-10-13-mit-67960-l19-transfer-learning-data) |
+| 20 | Scaling Laws | [第 20 堂](/posts/tech/2026-10-13-mit-67960-l20-scaling-laws)；公開錄影只有前 38 分鐘，後半依投影片 |
+| 21 | Language Models | [第 21 堂](/posts/tech/2026-10-13-mit-67960-l21-language-models) |
+| 22 | AI for Musical Creativity | 沒有導讀：錄影與投影片都沒有公開 |
+| 23 | Metrized Deep Learning | [第 23 堂](/posts/tech/2026-10-13-mit-67960-l23-metrized-deep-learning) |
+| 24 | Inference Methods for Deep Learning | [第 24 堂](/posts/tech/2026-10-13-mit-67960-l24-inference-methods) |
+| 25 | Efficient Policy Optimization Techniques for LLMs | 沒有導讀：錄影與投影片都沒有公開 |
+
+**第 22 與第 25 堂為什麼沒有導讀。** OCW 的 [Lecture Notes 頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/lists/lecture-notes/)寫著「Lectures 22 and 25 are not available」，錄影列表也沒有這兩堂；沒有可讀的材料，所以不寫。OCW 沒有說明不公開的原因。能查證的只有兩件事：依[授課教師的課程網站](https://phillipi.github.io/6.7960/)，第 22 堂（2024-11-21）是 Anna Huang 的客座演講，第 25 堂（2024-12-10）由 Kianté Brantley 主講，兩位都不是這門課的授課教師；而且這兩堂在課程網站上也沒有投影片連結，其他各堂都有。最合理的推測是講者沒有授權公開，但這是本站的推論，不是官方說法。客座本身不是原因：第 21 堂也是客座（Jacob Andreas），錄影與投影片都有公開。
+
+**第 20 堂的錄影只有前半。** 公開的影片長 38 分鐘（其他各堂約 68 到 83 分鐘），官方逐字稿也在句子中間結束。導讀的後半只依投影片整理，文中有標明。
+
+除了逐堂導讀，本系列另有三篇不對應單一堂次的主題單元（[優化總覽](/posts/tech/2026-08-30-mit-67960-optimization-sgd-adam)、[正則化實戰](/posts/tech/2026-08-30-mit-67960-regularization)、[現代 CNN 架構](/posts/tech/2026-08-30-mit-67960-modern-cnn)）與一篇[作業 1 走查](/posts/tech/2026-08-30-mit-67960-ps1-mlp-backprop)。
+
 ## 小結
 
 6.7960 的自學答案取決於你要什麼。走 OCW Fall 2024，你拿到的是接近 A3 的完整包——影片、五份作業、起始檔、一份解答、project rubric；讀 Fall 2025 投影片，你拿到最新的 foundation models 課綱，但要自己造練習。兩版都公開了策展過的 readings 和免費教科書路線，也都不給你 office hours 和 MIT 的學分。先選版本，再開第一份作業。
 
 ## 課程影片來源
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：列有 Lec 01–21、Lec 23、Lec 24 與 PyTorch Tutorial 的公開錄影；Lec 22 官方標示 not available。逐講影片附在各講文章。
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：列有 Lec 01–21、Lec 23、Lec 24 與 PyTorch Tutorial 的公開錄影；Lec 22 官方標示 not available。逐講影片附在各講文章。2026-10-13 補查 Readings 與 Lecture Notes 頁：全課 25 堂，Lec 22 與 Lec 25 的錄影與投影片都沒有公開；Lec 20 的公開錄影只有 38 分鐘。
 
 課程與錄影入口：
 
@@ -160,6 +198,7 @@ OCW 版公開的東西很完整：
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方入口，各講錄影列在官方頁，逐講影片附在各講文章；狀態維持「僅附官方入口或錄影清單」。
 - 2026-10-10：依字幕核對影片內容。更正 Fall 2024 講者（補上 Sara Beery），並註明各講主講人。
+- 2026-10-13：新增「OCW Fall 2024 逐堂對照」，補上第 2、6、19、20、21、23、24 堂的導讀連結，說明第 22、25 堂沒有公開教材、第 20 堂錄影只有前半；標題範圍由「主題單元」改為「課程總覽」。
 
 ## 參考資料
 

@@ -118,7 +118,7 @@ glossary:
 
 **怎麼做**：挑你最常用的一個 agent 工作流，把一次長任務的 context 按「系統提示／工具說明／工具輸出／對話」分類估一下各佔多少。如果工具輸出佔大宗，先試 Hard Clear 或卸載到檔案；如果工具說明佔大宗，就該考慮按需載入。
 
-延伸閱讀：站上的 [Context Engineering 指南](/posts/ai/2026-03-24-context-engineering-guide)、[coding agent 的 context 壓縮](/posts/ai/2026-08-25-coding-agent-context-compaction)、CMU 11-768 的 [Context Management 導讀](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management)，以及 Stanford CS146S 的 [Context Engineering 導讀](/posts/ai/2026-08-16-cs146s-context-engineering)。
+延伸閱讀：站上的 [Context Engineering 指南](/posts/ai/2026-03-24-context-engineering-guide)、[coding agent 的 context 壓縮](/posts/ai/2026-08-30-coding-agent-context-compaction)、CMU 11-768 的 [Context Management 導讀](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management)，以及 Stanford CS146S 的 [Context Engineering 導讀](/posts/ai/2026-08-16-cs146s-context-engineering)。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW1：防禦惡意指令](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense)｜下一篇 [AI Agent 之間的互動與對工作的衝擊](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)
 

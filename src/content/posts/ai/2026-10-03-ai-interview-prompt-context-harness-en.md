@@ -84,7 +84,7 @@ Third, separate "valid" from "correct" when specifying format. OpenAI's [Structu
 
 Chain-of-thought also has a zero-example form: [Kojima et al.](https://arxiv.org/abs/2205.11916) found that appending "Let's think step by step" beats standard zero-shot prompting on several reasoning tasks.
 
-A solid prompt roughly contains role, background, task and constraints, examples, output format, and reasoning guidance, though not every prompt needs all six. Anthropic's advice runs the other way: [start with a minimal prompt](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) and add instructions and examples only for failures you actually observe. For the iteration workflow, read the site's [Prompt Engineering in Practice](/posts/ai/2026-03-13-prompt-engineering-iteration-guide-en). For versioning prompt changes against evals, see [Prompt Versioning: One Word Can Drop an Eval from 5/5 to 0/5](/posts/ai/2026-08-25-coding-agent-prompt-versioning-en). Prompt design for RAG is covered in [RAG Prompt Engineering](/posts/ai/2026-03-12-rag-prompt-engineering-en).
+A solid prompt roughly contains role, background, task and constraints, examples, output format, and reasoning guidance, though not every prompt needs all six. Anthropic's advice runs the other way: [start with a minimal prompt](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) and add instructions and examples only for failures you actually observe. For the iteration workflow, read the site's [Prompt Engineering in Practice](/posts/ai/2026-03-13-prompt-engineering-iteration-guide-en). For versioning prompt changes against evals, see [Prompt Versioning: One Word Can Drop an Eval from 5/5 to 0/5](/posts/ai/2026-08-30-coding-agent-prompt-versioning-en). Prompt design for RAG is covered in [RAG Prompt Engineering](/posts/ai/2026-03-12-rag-prompt-engineering-en).
 
 **How to answer in an interview**
 
@@ -394,7 +394,7 @@ The line-number links for amit, pal and aeg point to the main branch as of 2026-
 - [From Prompt to Harness: The Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution-en)
 - [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/posts/ai/2026-03-24-context-engineering-guide-en)
 - [Prompt Engineering in Practice](/posts/ai/2026-03-13-prompt-engineering-iteration-guide-en)
-- [Prompt Versioning: One Word Can Drop an Eval from 5/5 to 0/5](/posts/ai/2026-08-25-coding-agent-prompt-versioning-en)
+- [Prompt Versioning: One Word Can Drop an Eval from 5/5 to 0/5](/posts/ai/2026-08-30-coding-agent-prompt-versioning-en)
 - [RAG Prompt Engineering](/posts/ai/2026-03-12-rag-prompt-engineering-en)
 - [RAG Evaluation Frameworks and Tool Selection](/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
 - [OpenAI Wrote a Million Lines with Codex: Harness Engineering in Practice](/posts/ai/2026-04-21-openai-harness-engineering-codex-agent-first-en)

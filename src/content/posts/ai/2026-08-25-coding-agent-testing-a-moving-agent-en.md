@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-testing-a-moving-agent)
 
-The [series overview](/posts/ai/2026-08-25-coding-agent-design-series-overview-en) promised five sections per post with evidence at `repo/path/file.ext#symbolName`. This post covers the hardest kind of tests: tests for a system under test that misbehaves on purpose.
+The [series overview](/posts/ai/2026-08-30-coding-agent-design-series-overview-en) promised five sections per post with evidence at `repo/path/file.ext#symbolName`. This post covers the hardest kind of tests: tests for a system under test that misbehaves on purpose.
 
 Scope first: all five projects were grepped locally — **codex** (openai/codex Rust workspace), **opencode** (sst/opencode), **pi** (badlogic/pi-mono), **omp** (can1357/oh-my-pi), and **claude-code** (community-decompiled v2.1.88). On the looplane side I cite the M13 stage doc and commits `573c752`/`a1bfaca`/`b84fe3a`.
 

@@ -38,7 +38,7 @@ Pricing needs similar care. The API includes fields such as `hourlyPrice`, `live
 
 The [GPUtw.ai templates API](https://gputw.ai/api/templates) lists public environment templates. At the time of research it included JupyterLab, PyTorch 2.x + JupyterLab, Ubuntu 22.04 Base, Ubuntu + CUDA 12, ComfyUI, Ollama + Open WebUI, llama.cpp Server, vLLM Inference Server, Unsloth Fine-Tuning Notebook, and DGX Spark ARM64 templates.
 
-That means the platform is not simply handing you an empty machine. For individuals and students, templates matter because they avoid spending half a day on CUDA, Jupyter, model serving, and Web UI setup before the first experiment runs. If the goal is learning model training, the companion guide [Should You Rent a GPU to Learn Model Training?](/posts/ai/2026-08-29-gputw-ai-learning-gpu-en) is the better next read.
+That means the platform is not simply handing you an empty machine. For individuals and students, templates matter because they avoid spending half a day on CUDA, Jupyter, model serving, and Web UI setup before the first experiment runs. If the goal is learning model training, the companion guide [Should You Rent a GPU to Learn Model Training?](/posts/ai/2026-09-07-gputw-ai-learning-gpu-en) is the better next read.
 
 One detail is worth separating. The official template API often uses `gputw/...:latest` image tags, while the documentation tells users to deploy custom images with a non-`latest` tag or `sha256` digest. That is not necessarily a contradiction because official maintained templates and user-provided custom images are different cases. For your own deployment scripts, pin versions.
 
@@ -105,7 +105,7 @@ So the right wording is precise: it is a Taiwan GPU cloud worth small-budget per
 ## Further Reading
 
 - [What Is GPUtw AI Skill: A Skill Pack and MCP Server for AI Coding Assistants to Manage Taiwan GPU Cloud](/posts/tech/2026-09-16-gputw-ai-skill-mcp-server-en) — GPUtw.ai's official Agent Skill and MCP server that lets Claude Code, Codex, Cursor, and other AI assistants manage GPUs via natural language.
-- [Should You Rent a GPU to Learn Model Training](/posts/ai/2026-08-29-gputw-ai-learning-gpu-en) — A beginner's guide to learning model inference, training, and fine-tuning on GPUtw.ai.
+- [Should You Rent a GPU to Learn Model Training](/posts/ai/2026-09-07-gputw-ai-learning-gpu-en) — A beginner's guide to learning model inference, training, and fine-tuning on GPUtw.ai.
 
 ## References
 

@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-08-30-looplane-model-routing-fallback-cost)
 
-The [provider article](/posts/tech/2026-08-23-looplane-model-provider-multigateway-en) explained how different protocols become a canonical `ModelTurn`. This article follows one request through candidate selection, retry, fallback, cache signaling, and cost recording.
+The [provider article](/posts/tech/2026-08-30-looplane-model-provider-multigateway-en) explained how different protocols become a canonical `ModelTurn`. This article follows one request through candidate selection, retry, fallback, cache signaling, and cost recording.
 
 ## Roles select from a static catalog
 
@@ -39,7 +39,7 @@ Looplane does not store and replay model answers. It records cache traces when p
 
 After usage arrives, `estimate_cost()` applies repository-owned static pricing. The `CostBreakdown` contract labels the result best-effort. Unknown prices return no estimate rather than a misleading zero. Mixed provider/model runs retain per-lane records but do not fabricate one aggregate estimate when pricing semantics differ.
 
-The practical reading is narrow: roles are static recommendations, fallback handles classified retryable failures, cache traces expose provider signals, and cost records are estimates. The [next article](/posts/tech/2026-08-23-looplane-external-coding-runner-en) moves to the separate external-runtime lane, not another model fallback.
+The practical reading is narrow: roles are static recommendations, fallback handles classified retryable failures, cache traces expose provider signals, and cost records are estimates. The [next article](/posts/tech/2026-08-30-looplane-external-coding-runner-en) moves to the separate external-runtime lane, not another model fallback.
 
 ---
 

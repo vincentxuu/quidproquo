@@ -7,9 +7,6 @@ lang: en
 series:
   name: "Harvard CS181 Weekly Guides"
   order: 1
-additionalSeries:
-  - name: "Global AI/CS Course Map"
-    order: 96
 type: guide
 tldr: "HW0 checks CS181 prerequisites in four problems — y=Xw solvability, optimizing an objective, reasoning about randomness, and OLS in Python. The problem that slows you down most is the gap to patch before HW1."
 description: "A weekly guide to Harvard CS1810 Spring 2026 HW0 (due 2026-02-02, with Spring 2025 as fallback): linear trends, calculus, probability, and a coding OLS exercise, plus how to use one problem to decide whether to postpone."

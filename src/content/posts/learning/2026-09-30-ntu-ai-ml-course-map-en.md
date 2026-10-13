@@ -6,7 +6,7 @@ tags: [ntu, ai-course, machine-learning, learning-path, open-course]
 lang: en
 series:
   name: "Global AI/CS Course Map"
-  order: 97
+  order: 6
 type: guide
 tldr: "National Taiwan University spreads its AI/ML courses across Electrical Engineering and Computer Science, and an official 'Machine Learning and AI' specialization stacks them into four levels. Hung-yi Lee's courses are the most open: ML 2026 Spring and Intro to GenAI and ML 2025 Fall publish slides, recordings, homework PDFs, and Colab notebooks, with only grading held back. Hsuan-Tien Lin's lectures are fully recorded and his Fall 2024 HW0–HW7 remain on the course page; Yun-Nung Chen's lectures are fully recorded, but most homework is public only as walkthrough videos; and since August 2025 Coursera only lets free learners watch the first module."
 description: "An audit of NTU's Hung-yi Lee ML 2026 and GenAI courses, Hsuan-Tien Lin's Machine Learning Foundations/Techniques, Yun-Nung Chen's Applied Deep Learning and Foundations of AI, plus computer vision and deep RL: latest public term, public assets, NTU-only parts, and an A0–A3 access grade for each."

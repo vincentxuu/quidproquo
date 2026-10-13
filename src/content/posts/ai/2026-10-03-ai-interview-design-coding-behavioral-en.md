@@ -318,7 +318,7 @@ flowchart LR
 
 ### Monitoring and failure handling
 
-If a guardrail metric crosses its line, roll back automatically. A data flywheel can go wrong in three places: feedback is selectively biased (only unhappy users press thumbs-down), user data raises privacy and consent issues, and treating the model's own output as ground truth creates an echo effect. So the labeling queue needs human review and de-identification. For the wider picture of flywheels, see the site's [Stanford CS329Z Week 6 reading on the data flywheel](/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en).
+If a guardrail metric crosses its line, roll back automatically. A data flywheel can go wrong in three places: feedback is selectively biased (only unhappy users press thumbs-down), user data raises privacy and consent issues, and treating the model's own output as ground truth creates an echo effect. So the labeling queue needs human review and de-identification. For the wider picture of flywheels, see the site's [Stanford CS329Z Week 6 reading on the data flywheel](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel-en).
 
 ### Wrap-up
 

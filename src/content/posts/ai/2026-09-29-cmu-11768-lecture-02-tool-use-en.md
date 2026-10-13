@@ -212,7 +212,7 @@ The schedule lists four:
 ## Further reading
 
 - [Reading CMU 11-768: series overview](/posts/ai/2026-09-29-cmu-11768-course-overview-en): a map of the whole course and index of posts
-- [Reading Stanford CS329Z Week 3: tools and DSPy](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en): another course on tools and DSPy from a system-design angle
+- [Reading Stanford CS329Z Week 3: tools and DSPy](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en): another course on tools and DSPy from a system-design angle
 - [MCP (Model Context Protocol): The Standardized Protocol for AI Agent Tool Invocation](/posts/ai/2026-03-22-mcp-model-context-protocol-en)
 - [MCP vs CLI vs API: The Real Boundaries of Agent Tool Interfaces](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en): complements this lecture's REST vs MCP section
 - [Code Mode: Moving Tool Definitions from Context into Code](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en): the CodeAct idea implemented on top of MCP

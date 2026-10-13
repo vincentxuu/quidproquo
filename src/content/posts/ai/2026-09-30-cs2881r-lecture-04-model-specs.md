@@ -210,7 +210,7 @@ Hugh Van Deventer 問的是：拿一個安全訓練很少的模型，給它詳�
 
 錄影最後預告了期中 mini-project：四篇論文擇一重現，約一個月，細節見[期中專題那篇](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project)。
 
-延伸閱讀：站上 [CS329Z 的 LLM-as-judge 與安全評測](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)談「用模型評模型」的陷阱，可以對照 SpecEval 的三方一致性設計。
+延伸閱讀：站上 [CS329Z 的 LLM-as-judge 與安全評測](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)談「用模型評模型」的陷阱，可以對照 SpecEval 的三方一致性設計。
 
 系列導覽：[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)｜上一篇 [L3：jailbreak、prompt injection 與從軟體安全借來的教訓](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness)｜下一篇 [L5：Content Policies](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies)
 

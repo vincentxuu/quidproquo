@@ -169,8 +169,8 @@ Part 1 和 Part 3 代表兩種找評分器弱點的方法：一種是讀真實�
 
 系列總覽見 [CMU 11-768 AI Agents 導讀：課程總覽](/posts/ai/2026-09-29-cmu-11768-course-overview)。
 
-- [Stanford CS329Z 導讀 Week 7：分數別騙自己，資料再做大——期中驗收週](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks)
-- [Stanford CS329Z 導讀 Week 8：請模型當裁判，再幫 agent 上護欄](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
+- [Stanford CS329Z 導讀 Week 7：分數別騙自己，資料再做大——期中驗收週](/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks)
+- [Stanford CS329Z 導讀 Week 8：請模型當裁判，再幫 agent 上護欄](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)
 - [調整 agent 之後，怎麼嚴謹比較前後差異：從 golden set 到統計檢定](/posts/ai/2026-06-04-agent-change-rigorous-evaluation)
 - [Self-Reflection + LLM-as-Judge：讓 AI 評估自己的回答](/posts/ai/2026-03-12-self-reflection-llm-as-judge)
 - [CS336 Lecture 16：RLVR 用可驗證獎勵擴大推理，但 GRPO 不是免費的 PPO](/posts/ai/2026-08-22-cs336-rlvr)

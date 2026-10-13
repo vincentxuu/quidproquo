@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-08-30-looplane-prompt-instructions-memory-en)
 
-[上一篇](/posts/tech/2026-08-23-looplane-disposable-clone-run-bundle)把 source repo、執行 workspace 與 run artifacts 分開了。workspace 準備好以後，模型還不能直接開工：Looplane 得先回答「這個任務有哪些規則、現在在哪個環境、哪些舊資訊可以帶進來」。Looplane 沒有任意拼接一大段字串；它建立了一條有順序、有上限、可追蹤來源的 context pipeline。
+[上一篇](/posts/tech/2026-08-30-looplane-disposable-clone-run-bundle)把 source repo、執行 workspace 與 run artifacts 分開了。workspace 準備好以後，模型還不能直接開工：Looplane 得先回答「這個任務有哪些規則、現在在哪個環境、哪些舊資訊可以帶進來」。Looplane 沒有任意拼接一大段字串；它建立了一條有順序、有上限、可追蹤來源的 context pipeline。
 
 ## 從檔案到第一輪 messages
 
@@ -57,7 +57,7 @@ Looplane 的 memory baseline 很克制。`/remember` 解析三種型別：user p
 
 這套設計提供的是 bounded、versioned、source-aware 的 context 組裝：規則從哪來、哪些被蓋掉、memory 為何被選中，都有程式路徑可追。它沒有保證模型一定服從文字，也沒有把 explicit JSONL 包裝成完整長期記憶系統。
 
-下一篇進入 [provider-neutral native loop](/posts/tech/2026-08-23-looplane-provider-neutral-agent-loop)：這些 messages 送進模型後，tool call、verification 與 termination 如何推動狀態。
+下一篇進入 [provider-neutral native loop](/posts/tech/2026-08-30-looplane-provider-neutral-agent-loop)：這些 messages 送進模型後，tool call、verification 與 termination 如何推動狀態。
 
 ---
 

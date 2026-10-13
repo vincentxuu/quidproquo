@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-08-30-looplane-context-compaction-en)
 
-[上一篇](/posts/tech/2026-08-23-looplane-state-first-event-journaling)說明 run state 如何保存。長 session 還有另一種壓力：messages 與 tool observations 逐步吃掉 context。Looplane 對這件事有兩條路徑；把它們都叫「自動摘要」會漏掉關鍵差異。
+[上一篇](/posts/tech/2026-08-30-looplane-state-first-event-journaling)說明 run state 如何保存。長 session 還有另一種壓力：messages 與 tool observations 逐步吃掉 context。Looplane 對這件事有兩條路徑；把它們都叫「自動摘要」會漏掉關鍵差異。
 
 ## 先分清兩種 85%
 

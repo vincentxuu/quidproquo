@@ -1,0 +1,14 @@
+339958685079 src/content/posts/tech/2026-10-13-mit-67960-l02-how-to-train-a-neural-net-en.md
+52d663abb91e src/content/posts/tech/2026-10-13-mit-67960-l02-how-to-train-a-neural-net.md
+587a8676afe4 src/content/posts/tech/2026-10-13-mit-67960-l06-generalization-theory-en.md
+063e6dd889eb src/content/posts/tech/2026-10-13-mit-67960-l06-generalization-theory.md
+e8c3a76189f7 src/content/posts/tech/2026-10-13-mit-67960-l19-transfer-learning-data-en.md
+ff4b62d74799 src/content/posts/tech/2026-10-13-mit-67960-l19-transfer-learning-data.md
+51ab82232b28 src/content/posts/tech/2026-10-13-mit-67960-l20-scaling-laws-en.md
+2a6cae7b4e69 src/content/posts/tech/2026-10-13-mit-67960-l20-scaling-laws.md
+236c6d8bfa96 src/content/posts/tech/2026-10-13-mit-67960-l21-language-models-en.md
+73c4df5d81ef src/content/posts/tech/2026-10-13-mit-67960-l21-language-models.md
+05d6de09a348 src/content/posts/tech/2026-10-13-mit-67960-l23-metrized-deep-learning-en.md
+a522e2a7027a src/content/posts/tech/2026-10-13-mit-67960-l23-metrized-deep-learning.md
+52993778c834 src/content/posts/tech/2026-10-13-mit-67960-l24-inference-methods-en.md
+f2834401b945 src/content/posts/tech/2026-10-13-mit-67960-l24-inference-methods.md

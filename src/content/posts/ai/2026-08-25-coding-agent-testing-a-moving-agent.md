@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-25-coding-agent-testing-a-moving-agent-en)
 
-[系列總覽](/posts/ai/2026-08-25-coding-agent-design-series-overview)說好每篇五段、證據給到 `repo/path/file.ext#symbolName`。這篇的主題是最難寫的那種測試：受測系統自己不聽話。
+[系列總覽](/posts/ai/2026-08-30-coding-agent-design-series-overview)說好每篇五段、證據給到 `repo/path/file.ext#symbolName`。這篇的主題是最難寫的那種測試：受測系統自己不聽話。
 
 先講取證範圍：五家都在本地 clone 實際 grep 過——**codex**（openai/codex Rust workspace）、**opencode**（sst/opencode）、**pi**（badlogic/pi-mono）、**omp**（can1357/oh-my-pi）、**claude-code**（社群反編譯 v2.1.88）。looplane 側引用 M13 stage doc 與 commits `573c752`/`a1bfaca`/`b84fe3a`。
 

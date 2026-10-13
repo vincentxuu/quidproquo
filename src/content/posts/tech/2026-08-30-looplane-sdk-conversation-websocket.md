@@ -50,7 +50,7 @@ Embedding app 可排入 `RuntimeInjectedContext`。Controller 每次接受最多
 
 `ConversationWebSocketApp` 把同一個 controller 包成 pure ASGI endpoint。Client 可送 `turn`、`inject_items`、typed `ide_context`，並在 runtime 要求時送 correlated `approval`；server 回傳 typed events、result 或 error。CLI 的 `looplane conversation-server` 在啟動時建立一個 native runtime session，預設掛在 `/v1/conversation/attach`，而且只允許 loopback host。
 
-這個 endpoint 沒有 conversation ID、resume cursor、store selector 或 session factory。它也沒有 WebSocket `cancel` message；cancel handle 目前是 Python embedding path 的能力。[Order 12 的 ConversationStore](/posts/tech/2026-08-23-looplane-state-first-event-journaling)仍是另一個 persistence subsystem，沒有接進這條 attach endpoint。
+這個 endpoint 沒有 conversation ID、resume cursor、store selector 或 session factory。它也沒有 WebSocket `cancel` message；cancel handle 目前是 Python embedding path 的能力。[Order 12 的 ConversationStore](/posts/tech/2026-08-30-looplane-state-first-event-journaling)仍是另一個 persistence subsystem，沒有接進這條 attach endpoint。
 
 連線結束時，ASGI app 的 `finally` 會關閉 shared controller。於是這是「一個 connection 擁有一個預建 session」的橋，不是多 client session router，更不能說成斷線後拿 conversation ID 隨時 attach。Repository smoke test 用 fake session 驗證真實 uvicorn/WebSocket transport；真正 native runtime 的端到端 attach 仍是文件列出的外部驗證缺口。
 

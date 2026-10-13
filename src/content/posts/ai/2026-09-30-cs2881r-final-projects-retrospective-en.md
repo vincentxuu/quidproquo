@@ -204,7 +204,7 @@ If you've followed the series this far, the next step is running a final project
 
 - Research-project methodology → [CS224U Final Project Workflow: Lit Review and Experiment Protocol](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol-en)
 - Interpretability tools (probing, attribution) → [CS224U analysis methods](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en)
-- Evaluation risks of LLM-as-judge → [CS329Z Week 8: judges and safety](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
+- Evaluation risks of LLM-as-judge → [CS329Z Week 8: judges and safety](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en)
 - How open each school's courses are → [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 ## Series navigation

@@ -8,9 +8,6 @@ lang: zh-TW
 series:
   name: "Harvard CS50 AI 導讀"
   order: 1
-additionalSeries:
-  - name: "世界名校 AI／CS 課程地圖"
-    order: 1
 tldr: "Week 0 以搜尋算法為起點，涵蓋 BFS 最短路徑、Minimax 對弈、Alpha-Beta 剪枝優化，附 Degrees 與 Tic-Tac-Toe 兩專案完整實作。"
 description: "詳細導讀 Harvard CS50 AI Week 0 Search：講課重點、影片時間軸、BFS 圖搜尋與 Minimax 程式碼範例、兩個專案 Degrees 與 Tic-Tac-Toe 的規格與 check50 指令。影片為 2020 年錄製；規格以 2026 年為準。"
 draft: false

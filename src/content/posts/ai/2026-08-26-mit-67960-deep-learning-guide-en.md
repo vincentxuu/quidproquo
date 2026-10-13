@@ -1,5 +1,5 @@
 ---
-title: "One Course, Two Official Editions — Complete the OCW 2024 Package, Read the 2025 Decks for What's New | MIT 6.7960 Topic Guide"
+title: "One Course, Two Official Editions — Complete the OCW 2024 Package, Read the 2025 Decks for What's New | MIT 6.7960 Course Overview"
 date: 2026-08-26
 category: ai
 type: guide
@@ -115,12 +115,50 @@ The key difference is video. Fall 2025 recordings are locked behind Canvas, but 
 
 For background, pair this with the [MIT AI/ML Course Map](/posts/learning/2026-08-21-mit-ai-ml-course-map-en) and the [CMU 11-785 overview](/posts/ai/2026-08-22-cmu-11785-course-overview-en): the former locates 6.7960 within MIT's ladder, the latter reviews another course with open teaching and closed assignments.
 
+## OCW Fall 2024, Lecture by Lecture
+
+OCW's [Readings page](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/pages/readings/) lists 25 sessions. For 23 of them a recording and slides are public, and this site has a guide to each:
+
+| Lec | OCW topic | Guide on this site |
+|---|---|---|
+| 1 | Introduction to Deep Learning | [Lecture 1](/posts/tech/2026-08-30-mit-67960-l01-introduction-en) |
+| 2 | How to Train a Neural Net | [Lecture 2](/posts/tech/2026-10-13-mit-67960-l02-how-to-train-a-neural-net-en) |
+| 3 | Approximation Theory | [Lecture 3](/posts/tech/2026-08-30-mit-67960-approximation-theory-en) |
+| 4 | Architectures: Grids | [Lecture 4](/posts/tech/2026-08-30-mit-67960-cnn-architectures-en) |
+| 5 | Architectures: Graphs | [Lecture 5](/posts/tech/2026-08-30-mit-67960-gnn-en) |
+| 6 | Generalization Theory | [Lecture 6](/posts/tech/2026-10-13-mit-67960-l06-generalization-theory-en) |
+| 7 | Scaling Rules for Optimization | [Lecture 7](/posts/tech/2026-08-30-mit-67960-l07-scaling-rules-optimization-en) |
+| 8 | Architectures: Transformers | [Lecture 8](/posts/tech/2026-08-30-mit-67960-l08-transformers-en) |
+| 9 | Hacker's Guide to Deep Learning | [Lecture 9](/posts/tech/2026-08-30-mit-67960-l09-hackers-guide-en) |
+| 10 | Architectures: Memory | [Lecture 10](/posts/tech/2026-08-30-mit-67960-l10-memory-sequence-en) |
+| 11 | Representation Learning: Reconstruction-Based | [Lecture 11](/posts/tech/2026-08-30-mit-67960-l11-representation-reconstruction-en) |
+| 12 | Representation Learning: Similarity-Based | [Lecture 12](/posts/tech/2026-08-30-mit-67960-l12-representation-similarity-en) |
+| 13 | Representation Learning: Theory | [Lecture 13](/posts/tech/2026-08-30-mit-67960-l13-representation-theory-en) |
+| 14 | Generative Models: Basics | [Lecture 14](/posts/tech/2026-08-30-mit-67960-l14-generative-basics-en) |
+| 15 | Generative Models: Representation Learning Meets Generative Modeling | [Lecture 15](/posts/tech/2026-08-30-mit-67960-l15-vae-en) |
+| 16 | Generative Models: Conditional Models | [Lecture 16](/posts/tech/2026-08-30-mit-67960-l16-conditional-generative-en) |
+| 17 | Generalization: Out-of-Distribution (OOD) | [Lecture 17](/posts/tech/2026-08-30-mit-67960-l17-out-of-distribution-en) |
+| 18 | Transfer Learning: Models | [Lecture 18](/posts/tech/2026-08-30-mit-67960-l18-transfer-learning-en) |
+| 19 | Transfer Learning: Data | [Lecture 19](/posts/tech/2026-10-13-mit-67960-l19-transfer-learning-data-en) |
+| 20 | Scaling Laws | [Lecture 20](/posts/tech/2026-10-13-mit-67960-l20-scaling-laws-en); public recording covers only the first 38 minutes; the rest follows the slides |
+| 21 | Language Models | [Lecture 21](/posts/tech/2026-10-13-mit-67960-l21-language-models-en) |
+| 22 | AI for Musical Creativity | No guide: no recording or slides were published |
+| 23 | Metrized Deep Learning | [Lecture 23](/posts/tech/2026-10-13-mit-67960-l23-metrized-deep-learning-en) |
+| 24 | Inference Methods for Deep Learning | [Lecture 24](/posts/tech/2026-10-13-mit-67960-l24-inference-methods-en) |
+| 25 | Efficient Policy Optimization Techniques for LLMs | No guide: no recording or slides were published |
+
+**Why Lectures 22 and 25 have no guide.** OCW's [Lecture Notes page](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/lists/lecture-notes/) says "Lectures 22 and 25 are not available," and the video gallery omits both; with no material to read, there is nothing to write from. OCW gives no reason. Two things can be confirmed: according to [the instructors' course site](https://phillipi.github.io/6.7960/), Lecture 22 (2024-11-21) was a guest lecture by Anna Huang and Lecture 25 (2024-12-10) was given by Kianté Brantley, neither of them an instructor of the course; and the course site has no slide link for these two sessions, while every other session has one. The most plausible reading is that the speakers did not release their material, but that is this site's inference, not an official statement. Being a guest lecture is not the reason in itself: Lecture 21 was also a guest lecture (Jacob Andreas), and its recording and slides are public.
+
+**The Lecture 20 recording covers only the first half.** The published video is 38 minutes long (the others run about 68 to 83 minutes), and the official transcript also ends mid-sentence. The second half of that guide follows the slides only, as marked in the text.
+
+Besides the lecture guides, the series has three topic guides that do not match a single lecture ([Optimization Overview](/posts/tech/2026-08-30-mit-67960-optimization-sgd-adam-en), [Regularization in Practice](/posts/tech/2026-08-30-mit-67960-regularization-en), [Modern CNN Architectures](/posts/tech/2026-08-30-mit-67960-modern-cnn-en)) and one [Assignment 1 walkthrough](/posts/tech/2026-08-30-mit-67960-ps1-mlp-backprop-en).
+
 ## Bottom line
 
 6.7960 Fall 2025 is a rigorously designed A2 course: 21 public decks, curated readings, and an open project guidelines document make materials-level self-study entirely feasible, while closed psets, solutions, and current-year recordings mark the real boundary for outsiders. Substitute textbooks for lectures, fill recordings from OCW 2024, and close with a mini project — you won't get MIT credit, but you will reach the core of the course.
 
 ## Course video sources
-This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: it lists public recordings for Lec 01–21, Lec 23, Lec 24 and a PyTorch Tutorial; OCW marks Lec 22 as not available. Per-lecture videos are embedded in each lecture article.
+This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: it lists public recordings for Lec 01–21, Lec 23, Lec 24 and a PyTorch Tutorial; OCW marks Lec 22 as not available. Rechecked the Readings and Lecture Notes pages on 2026-10-13: the course has 25 sessions, neither recording nor slides are public for Lec 22 and Lec 25, and the public Lec 20 recording is only 38 minutes long. Per-lecture videos are embedded in each lecture article.
 
 Course and recording entries:
 
@@ -135,6 +173,7 @@ Content check: verified against the video transcript (2026-10-10): this post emb
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official entry: per-lecture recordings are listed there and embedded in each lecture article; the status stays “Official entry or recording index only.”
 - 2026-10-10: Checked the video content against its transcript. Corrected the Fall 2024 lecturers (added Sara Beery) and noted who gave which lecture.
+- 2026-10-13: Added "OCW Fall 2024, Lecture by Lecture" with links to the new guides for Lectures 2, 6, 19, 20, 21, 23 and 24, and notes on why Lectures 22 and 25 have no public material and why the Lecture 20 recording is only the first half; title scope changed from "Topic Guide" to "Course Overview".
 
 ## References
 

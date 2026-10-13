@@ -15,7 +15,7 @@ describe('series order checker', () => {
       | Array<{ order: number }>
       | undefined;
 
-    expect(umbrella?.map(item => item.order)).toEqual([0, 91, 92]);
+    expect(umbrella?.map(item => item.order)).toEqual([0, 1, 2]);
     expect(findProblems(groups).problems).toEqual([]);
   });
 });

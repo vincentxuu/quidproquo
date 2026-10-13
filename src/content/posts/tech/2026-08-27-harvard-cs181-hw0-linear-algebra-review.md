@@ -7,9 +7,6 @@ lang: zh-TW
 series:
   name: "Harvard CS181 逐週導讀"
   order: 1
-additionalSeries:
-  - name: "世界名校 AI／CS 課程地圖"
-    order: 96
 type: guide
 tldr: "HW0 用四題檢查 CS181 的先修：矩陣 y=Xw 的可解條件、目標函數的微分與優化、機率推理，以及用 Python 實作 OLS。做不順的地方就是開學後要優先補的缺口。"
 description: "逐週導讀 Harvard CS1810 Spring 2026 HW0（2026-02-02 due）：以 2026 為主、2025 為對照，拆解線性趨勢建模、微分優化、機率與線性迴歸實作四題，說明如何用一題判斷自己是否該先補線代或機率。"

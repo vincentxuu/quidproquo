@@ -39,7 +39,7 @@ draft: false
 
 這套 transaction 沒有 rollback process、database、network request、寄信、remote API 或 command 已造成的外部副作用。`run_check` 理想上應是檢查，不該偷偷做 deployment。它只提供 bounded workspace-file compensation，無法當成 ACID transaction。
 
-下一篇回到 [state-first journal、replay 與 fork](/posts/tech/2026-08-23-looplane-state-first-event-journaling)：tool batch 與 transaction 發生過什麼，如何被 events、session state 與 artifacts 保存。
+下一篇回到 [state-first journal、replay 與 fork](/posts/tech/2026-08-30-looplane-state-first-event-journaling)：tool batch 與 transaction 發生過什麼，如何被 events、session state 與 artifacts 保存。
 
 ---
 

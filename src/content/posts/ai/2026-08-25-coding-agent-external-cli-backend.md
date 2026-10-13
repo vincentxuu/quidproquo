@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-25-coding-agent-external-cli-backend-en)
 
-上一篇談 [approval 分級](/posts/ai/2026-08-25-coding-agent-approval-grading)。這篇碰一個更實際的問題：你的 harness 已經有自己的 loop 和驗證閘門，但使用者手上躺著已經登入訂閱的 Codex CLI 和 Claude Code——要自己接 API 重造一遍，還是直接把他們的 CLI 包成 backend？
+上一篇談 [approval 分級](/posts/ai/2026-08-30-coding-agent-approval-grading)。這篇碰一個更實際的問題：你的 harness 已經有自己的 loop 和驗證閘門，但使用者手上躺著已經登入訂閱的 Codex CLI 和 Claude Code——要自己接 API 重造一遍，還是直接把他們的 CLI 包成 backend？
 
 ## 設計問題：包別人的 CLI，行不行
 

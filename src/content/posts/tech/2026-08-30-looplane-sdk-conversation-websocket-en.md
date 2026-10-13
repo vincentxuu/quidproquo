@@ -50,7 +50,7 @@ A turn may also carry up to 16 attachments. Each has exactly one inline-content 
 
 `ConversationWebSocketApp` exposes the same controller as a pure ASGI endpoint. Clients may send `turn`, `inject_items`, typed `ide_context`, and correlated `approval` messages. The server returns typed events, results, or errors. `looplane conversation-server` creates one native runtime session at startup, mounts `/v1/conversation/attach` by default, and allows loopback hosts only.
 
-The endpoint accepts no conversation ID, resume cursor, store selector, or session factory. It also defines no WebSocket cancellation message; cancellation currently belongs to the Python embedding path. The [order 12 ConversationStore](/posts/tech/2026-08-23-looplane-state-first-event-journaling-en) remains a separate persistence subsystem rather than part of this endpoint.
+The endpoint accepts no conversation ID, resume cursor, store selector, or session factory. It also defines no WebSocket cancellation message; cancellation currently belongs to the Python embedding path. The [order 12 ConversationStore](/posts/tech/2026-08-30-looplane-state-first-event-journaling-en) remains a separate persistence subsystem rather than part of this endpoint.
 
 When a connection ends, the ASGI app closes its shared controller in `finally`. This is a connection-owned bridge around one prebuilt session, not a multi-client session router or durable conversation-ID attach service. The repository smoke test exercises real uvicorn and WebSocket transport with a fake session. Its own documentation still lists a real native-runtime attach run as an external validation gap.
 

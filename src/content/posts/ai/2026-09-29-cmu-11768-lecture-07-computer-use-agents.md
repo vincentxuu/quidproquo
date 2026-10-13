@@ -240,7 +240,7 @@ References 裡的 [Mind2Web](https://arxiv.org/abs/2306.06070)、[WebVoyager](ht
 ## 延伸閱讀
 
 - 同系列：[L6 Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents)、[L8 SFT](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft)（本講訓練段的 SFT 細節）
-- 評測設計與 benchmark 汙染：[Stanford CS329Z Week 7：分數別騙自己](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks)
+- 評測設計與 benchmark 汙染：[Stanford CS329Z Week 7：分數別騙自己](/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks)
 - RL 階段的背景：[CS336 Lecture 16：RLVR 與 GRPO](/posts/ai/2026-08-22-cs336-rlvr)
 - SFT 的基礎：[CS336 Lecture 15：SFT 與 RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf)
 - LLM 當評審的偏誤：[Self-Reflection 與 LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge)

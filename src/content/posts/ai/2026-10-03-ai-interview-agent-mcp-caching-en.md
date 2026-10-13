@@ -169,7 +169,7 @@ One easily missed interaction: tool definitions are part of the cached prefix. P
 
 ## Agent Memory: Short-Term in Context, Long-Term in External Storage
 
-Memory first needs to be split into two layers. Short-term memory is the messages inside the context window, and the problem is that it fills up: common fixes are sliding windows, summary compression and compaction, compared on the site in [context compaction design](/posts/ai/2026-08-25-coding-agent-context-compaction-en). Long-term memory lives outside the context and, by content, splits into three kinds:
+Memory first needs to be split into two layers. Short-term memory is the messages inside the context window, and the problem is that it fills up: common fixes are sliding windows, summary compression and compaction, compared on the site in [context compaction design](/posts/ai/2026-08-30-coding-agent-context-compaction-en). Long-term memory lives outside the context and, by content, splits into three kinds:
 
 | Type | What it stores | Typical implementation | Risk |
 |---|---|---|---|
@@ -422,7 +422,7 @@ The line-number links for amit, pal and aeg point to the main branch as of 2026-
 - [Picking the right tool among hundreds](/posts/ai/2026-06-04-tool-selection-at-scale-en)
 - [Code Mode](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en)
 - [Multi-agent orchestration patterns](/posts/ai/2026-09-18-multi-agent-orchestration-patterns-en)
-- [Context compaction](/posts/ai/2026-08-25-coding-agent-context-compaction-en)
+- [Context compaction](/posts/ai/2026-08-30-coding-agent-context-compaction-en)
 - [Agent Memory systems](/posts/ai/2026-03-19-agent-memory-systems-en)
 - [Four memory types and six design axes](/posts/ai/2026-09-19-agent-memory-taxonomy-en)
 - [The attack surface of agent memory](/posts/ai/2026-09-19-agent-memory-attack-surface-en)

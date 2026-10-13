@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-25-coding-agent-headless-ci-mode-en)
 
-上一篇談了[工具集設計](/posts/ai/2026-08-25-coding-agent-toolset-design-philosophy)，這篇換一個場景：同一個 agent，從你的終端機搬進 CI pipeline 之後會發生什麼事。
+上一篇談了[工具集設計](/posts/ai/2026-08-30-coding-agent-toolset-design-philosophy)，這篇換一個場景：同一個 agent，從你的終端機搬進 CI pipeline 之後會發生什麼事。
 
 本篇取證範圍：**pi**（badlogic/pi-mono）、**omp**（can1357/oh-my-pi）、**opencode**（sst/opencode）、**codex**（openai/codex 的 Rust workspace）、**claude-code**（社群反編譯 v2.1.88，symbol 名稱可能與原版有出入）。所有引用都是我在本地 clone 實際讀過的。
 

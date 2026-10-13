@@ -191,7 +191,7 @@ One thing you can do tonight: give whatever coding agent you use a small task wh
 
 - Where reward hacking comes from in RL training: [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards](/posts/ai/2026-08-22-cs336-rlvr-en), [CMU 07-280 Lecture 13: From Reward Hacking to Auditable AI Scientists](/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment-en)
 - Engineering agent permissions and monitoring: [Security: Prompt Injection Can Only Be Contained in the Harness](/posts/ai/2026-08-10-agent-security-harness-layer-en)
-- Models as monitors and judges: [Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
+- Models as monitors and judges: [Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en)
 
 ## Course video sources
 

@@ -323,7 +323,7 @@ Related posts on this site to read alongside the lecture:
 - [How to Build a Deep Research Agent: Multi-Turn Search Planning, Conflict Resolution, and Verifiable Conclusions](/posts/ai/2026-06-04-autonomous-deep-research-agent-en)
 - [From Search Results to Reliable Citations: URL Deduplication, Source Tiers, and Claim-Source Mapping](/posts/ai/2026-08-22-search-results-reliable-citations-en)
 - [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards, but GRPO Is Not Free PPO](/posts/ai/2026-08-22-cs336-rlvr-en)
-- [Reading Stanford CS329Z Week 7: Score Honestly, Scale Data — Midterm Checkpoint](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en)
+- [Reading Stanford CS329Z Week 7: Score Honestly, Scale Data — Midterm Checkpoint](/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks-en)
 
 ## Course video sources
 
