@@ -1,5 +1,5 @@
 ---
-title: "Supervised, Self-Supervised & Weakly Supervised Learning: From Comparing Pixels to Comparing Meaning | Stanford CS230 Topic Guide"
+title: "Supervised, Self-Supervised & Weakly Supervised Learning: From Comparing Pixels to Comparing Meaning | Stanford CS230 Lecture 2"
 date: 2026-08-16
 category: ai
 type: deep-dive

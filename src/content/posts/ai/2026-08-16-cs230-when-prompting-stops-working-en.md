@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Deep Learning: The Two Moments Prompting Stops Being Enough | Stanford CS230 Topic Guide"
+title: "Introduction to Deep Learning: The Two Moments Prompting Stops Being Enough | Stanford CS230 Lecture 1"
 date: 2026-08-16
 category: ai
 type: guide

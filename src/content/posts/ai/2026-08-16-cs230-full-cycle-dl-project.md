@@ -1,5 +1,5 @@
 ---
-title: "Full Cycle of a DL Project：資料收兩天就好｜Stanford CS230 主題單元"
+title: "Full Cycle of a DL Project：資料收兩天就好｜Stanford CS230 第 3 堂"
 date: 2026-08-16
 category: ai
 type: guide

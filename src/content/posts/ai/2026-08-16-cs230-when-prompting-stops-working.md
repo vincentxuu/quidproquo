@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Deep Learning：光靠 prompt 走不遠的那兩個時刻｜Stanford CS230 主題單元"
+title: "Introduction to Deep Learning：光靠 prompt 走不遠的那兩個時刻｜Stanford CS230 第 1 堂"
 date: 2026-08-16
 category: ai
 type: guide

@@ -1,5 +1,5 @@
 ---
-title: "Career Advice in AI: The 10x Engineer Who Failed 300 Applications | Stanford CS230 Topic Guide"
+title: "Career Advice in AI: The 10x Engineer Who Failed 300 Applications | Stanford CS230 Lecture 9"
 date: 2026-08-16
 category: career
 type: guide

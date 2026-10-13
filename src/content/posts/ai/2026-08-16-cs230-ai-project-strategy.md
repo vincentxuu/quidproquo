@@ -1,5 +1,5 @@
 ---
-title: "AI Project Strategy：三四個小時的試算表，省掉幾週的錯方向｜Stanford CS230 主題單元"
+title: "AI Project Strategy：三四個小時的試算表，省掉幾週的錯方向｜Stanford CS230 第 6 堂"
 date: 2026-08-16
 category: ai
 type: guide

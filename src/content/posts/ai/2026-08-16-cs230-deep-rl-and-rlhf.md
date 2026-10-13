@@ -1,5 +1,5 @@
 ---
-title: "Deep Reinforcement Learning：把 RLHF 放回強化學習的框架裡｜Stanford CS230 主題單元"
+title: "Deep Reinforcement Learning：把 RLHF 放回強化學習的框架裡｜Stanford CS230 第 5 堂"
 date: 2026-08-16
 category: ai
 type: deep-dive

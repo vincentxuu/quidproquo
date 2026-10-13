@@ -1,5 +1,5 @@
 ---
-title: "Deep Reinforcement Learning: Putting RLHF Back Inside the RL Frame | Stanford CS230 Topic Guide"
+title: "Deep Reinforcement Learning: Putting RLHF Back Inside the RL Frame | Stanford CS230 Lecture 5"
 date: 2026-08-16
 category: ai
 type: deep-dive

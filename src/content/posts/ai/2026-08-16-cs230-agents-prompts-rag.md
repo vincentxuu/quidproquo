@@ -1,5 +1,5 @@
 ---
-title: "Agents, Prompts, and RAG：一堂課教完之後，剩下的才是難的｜Stanford CS230 主題單元"
+title: "Agents, Prompts, and RAG：一堂課教完之後，剩下的才是難的｜Stanford CS230 第 8 堂"
 date: 2026-08-16
 category: ai
 type: deep-dive

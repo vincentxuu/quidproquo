@@ -1,5 +1,5 @@
 ---
-title: "Adversarial Robustness and Generative Models: It's Not Nonlinearity, It's Linearity | Stanford CS230 Topic Guide"
+title: "Adversarial Robustness and Generative Models: It's Not Nonlinearity, It's Linearity | Stanford CS230 Lecture 4"
 date: 2026-08-16
 category: ai
 type: deep-dive

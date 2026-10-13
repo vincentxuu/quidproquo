@@ -1,5 +1,5 @@
 ---
-title: "What's Going On Inside My Model?：模型退步了，你先看哪裡｜Stanford CS230 主題單元"
+title: "What's Going On Inside My Model?：模型退步了，你先看哪裡｜Stanford CS230 第 10 堂"
 date: 2026-08-16
 category: ai
 type: deep-dive

@@ -1,5 +1,5 @@
 ---
-title: "Adversarial Robustness and Generative Models：不是非線性，是線性｜Stanford CS230 主題單元"
+title: "Adversarial Robustness and Generative Models：不是非線性，是線性｜Stanford CS230 第 4 堂"
 date: 2026-08-16
 category: ai
 type: deep-dive

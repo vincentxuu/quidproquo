@@ -1,5 +1,5 @@
 ---
-title: "Career Advice in AI：投了 300 份履歷都失敗的 10x 工程師｜Stanford CS230 主題單元"
+title: "Career Advice in AI：投了 300 份履歷都失敗的 10x 工程師｜Stanford CS230 第 9 堂"
 date: 2026-08-16
 category: career
 type: guide

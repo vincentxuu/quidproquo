@@ -1,5 +1,5 @@
 ---
-title: "What's Going On Inside My Model? Where You Look First When It Regresses | Stanford CS230 Topic Guide"
+title: "What's Going On Inside My Model? Where You Look First When It Regresses | Stanford CS230 Lecture 10"
 date: 2026-08-16
 category: ai
 type: deep-dive

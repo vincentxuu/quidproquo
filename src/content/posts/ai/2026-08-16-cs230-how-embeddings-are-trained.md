@@ -1,5 +1,5 @@
 ---
-title: "Supervised, Self-Supervised & Weakly Supervised Learning：從比較像素到比較意義｜Stanford CS230 主題單元"
+title: "Supervised, Self-Supervised & Weakly Supervised Learning：從比較像素到比較意義｜Stanford CS230 第 2 堂"
 date: 2026-08-16
 category: ai
 type: deep-dive
