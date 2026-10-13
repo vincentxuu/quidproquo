@@ -1,0 +1,7 @@
+== XSS ==
+有洞版 : 200 <p>Hello, <script>alert(1)</script></p>
+修法版 : 200 <p>Hello, &lt;script&gt;alert(1)&lt;/script&gt;</p>
+== IDOR（我是 alice，改成讀 id=2，那是 bob 的）==
+有洞版 : 200 Bob 的銀行備忘
+修法版 : 404 not found
+修法版讀自己的 id=1 : 200 Alice 的日記
