@@ -1,5 +1,5 @@
 ---
-title: "Why RCE Pays the Most: Command Injection and Unsafe Deserialization"
+title: "Why RCE Pays the Most in Google's Reward Table: Command Injection and Unsafe Deserialization"
 date: 2026-10-13
 category: tech
 type: guide
@@ -39,7 +39,7 @@ The reward table in the [Google VRP rules](https://bughunters.google.com/about/r
 
 On the most sensitive Tier 0 and Tier 1 domains, RCE is $101,010 while XSS is $20,000 and $15,000. A footnote in the rules defines Tier 0 domains as those where a critical vulnerability (e.g. XSS or RCE) could compromise a user's account or execute code on their system. Amounts depend on the version of the rules at the time, the panel sets the final figure, and a report-quality multiplier applies. [Part 0 of this series](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en) walks through how to read those numbers cell by cell.
 
-The table explains half of "why so expensive": Google classes RCE as direct access to its servers. The other half is difficulty, which the table does not state. My own judgment is that a usable RCE is usually harder to find than an XSS; that is not something the rules page says.
+What the table shows is the classification: Google classes RCE as direct access to its servers, which hints at why it is expensive. The other half is difficulty, which the table does not state. My own judgment is that a usable RCE is usually harder to find than an XSS; that is not something the rules page says.
 
 ## Path one: gluing input into a command
 

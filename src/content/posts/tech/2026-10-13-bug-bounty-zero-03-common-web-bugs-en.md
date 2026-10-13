@@ -184,7 +184,7 @@ This is an intuition-building introduction, and the real world is messier.
 
 ## Where to practice legally
 
-These three are free resources I confirmed exist on their official pages. They exist so you can practice without touching a real site.
+These three are practice resources I confirmed exist on their official pages; PortSwigger's page says outright that it is free. They exist so you can practice without touching a real site.
 
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security): per its official page, a free online web security training center with interactive labs. It says that without Burp Suite Professional you can experiment with the free Community Edition, and you need an account to track progress.
 - [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/): described on its OWASP project page as an insecure web application for security training that contains OWASP Top 10 vulnerabilities.

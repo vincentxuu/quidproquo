@@ -30,7 +30,7 @@ series:
 |---|---|---|
 | Hyper-V 逃脫 25 萬美元 | L1 guest 逃脫 RCE 最高 250,000 美元 | 要有可運作的 exploit 加高品質報告 |
 | Meta Llama VM 逃脫 30 萬美元 | WhatsApp Private Processing 的 VM 逃脫最高 300,000 美元 | 目標是 WhatsApp 的 TEE 基礎設施，不是 LLM 模型本身；僅限受邀 |
-| Google 伺服器 RCE 9 萬美元 | 一般 Google 應用 RCE 基準 75,000，乘上 1.2 倍品質係數是 90,000 | 這是第三層，最敏感服務基準是 101,010 |
+| Google 伺服器 RCE 9 萬美元 | 一般 Google 應用 RCE 基準 75,000，乘上 1.2 倍品質係數是 90,000 | 這是一般 Google 應用那一欄，最敏感服務的基準是 101,010 |
 
 ## Hyper-V：最乾淨的一項
 
@@ -44,6 +44,8 @@ series:
 | 沒有 exploit，報告品質低 | 50,000 美元 |
 
 巢狀虛擬化的 L2 guest 逃脫最高 15 萬美元。拒絕服務最高 1.5 萬，資訊洩漏最高 2.5 萬。頁面也註明微軟可酌情給更高金額。
+
+頁面另外寫明，更高的獎金可由 Microsoft 自行裁量，所以 25 萬是獎金表上的數字，不是硬上限。
 
 原貼文說 Azure 上的逃脫還有額外加成，我在這個頁面沒有看到。只能說沒找到，不能說不存在。
 
@@ -63,11 +65,11 @@ series:
 
 1. **目標是 WhatsApp 的 TEE**。依 [Meta 工程部落格](https://engineering.fb.com/2025/04/29/security/whatsapp-private-processing-ai-tools/)，WhatsApp Private Processing 在機密虛擬機（CVM）裡跑 Meta AI 模型。獎金付的是打穿這層基礎設施，不是攻擊模型本身；官方頁面也沒有寫明裡面跑的是 Llama。
 2. **僅限受邀**。[範圍頁](https://bugbounty.meta.com/scope/)寫明 Private Processing 的存取是 by invitation only。
-3. **內部攻擊者情境另計**。同一頁的附加規則寫，限於內部情境的漏洞，程式碼執行等類別降到 5 萬美元，VM 逃脫則是 N/A。
+3. **內部攻擊者情境另計**。[獎金指引頁](https://bugbounty.meta.com/payout-guidelines/private-processing/)的附加規則寫，限於內部情境的漏洞，程式碼執行等類別降到 5 萬美元，VM 逃脫則是 N/A。
 
 至於 LLM 本身，範圍頁的 Meta AI 段落只說有興趣的是模型的隱私與安全問題，例如透過模型反推或萃取攻擊洩漏訓練資料。模型功能問題與有害輸出要走 GitHub 或回報表單，不在獎金範圍。我沒有找到任何「Llama 沙盒逃脫」的獎金條文，所以「Meta 官方 LLM Bounty 最高 30 萬」這個說法對不上。
 
-## Google：9 萬是第三層
+## Google：9 萬是一般服務的價位
 
 [Google VRP 規則頁](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)的獎金表，「直接取得 Google 伺服器存取」的 RCE（S0）依網域層級分：
 

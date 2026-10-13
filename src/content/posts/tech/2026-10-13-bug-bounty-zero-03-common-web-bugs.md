@@ -184,10 +184,10 @@ vuln.close(); fixed.close();
 
 ## 合法的練習去處
 
-下面三個都是我在官方頁面確認存在的免費資源。它們的設計目的就是讓你合法地練習，不必碰真實網站。
+下面三個都是我在官方頁面確認存在的練習資源，其中 PortSwigger 的官方頁面明說是免費的。它們的設計目的就是讓你合法地練習，不必碰真實網站。
 
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security)：官方頁面說明它是免費的線上網站安全訓練，有互動式實驗室，也說明沒有 Burp Suite 專業版時，可以用免費的社群版體驗。追蹤進度要註冊帳號。
-- [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)：OWASP 專案頁的描述是用於安全訓練的刻意不安全的網頁應用程式，涵蓋 OWASP Top 10 的漏洞。
+- [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)：OWASP 專案頁的描述是用於安全訓練的不安全網頁應用程式，涵蓋 OWASP Top 10 的漏洞。
 - [OWASP WebGoat](https://owasp.org/www-project-webgoat/)：OWASP 的訓練用應用程式；XSS 條目也提到它有跨站腳本與資料編碼的課程。
 
 今晚能做的事：把上面的 `demo.mjs` 存下來跑一次，然後把有洞版的 `/notes/2` 請求改成別的 id、把 `name` 換成別的文字，觀察回應怎麼變。再挑 Juice Shop 或 PortSwigger 的 XSS 與 access control 各一個入門實驗室。下一篇[什麼是 RCE](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)，看獎金表最上面那一列。

@@ -186,7 +186,7 @@ hello, alice
 
 Same URL, `/me`, and the answer flips from 401 to 200 depending on whether a `Cookie` header is present. That is the whole idea of a session. A path that does not exist returns `HTTP/1.0 404 Not Found` with the body `not here`.
 
-To see the **request** itself, add `-v`. Lines starting with `>` are what curl sent (lines starting with `*` are curl's own connection messages, omitted here):
+To see the **request** itself, add `-v`. Lines starting with `>` are what curl sent (lines starting with `*` are curl's own connection messages, and of the response headers starting with `<` only the status line is kept; the rest are omitted):
 
 ```bash
 curl -v http://127.0.0.1:8000/me
@@ -219,7 +219,7 @@ Use any site you have an account on (or the local server above):
 
 1. Open a tab and press `Control+Shift+J` (`Command+Option+J` on Mac) to open Chrome DevTools, then switch to the **Network** tab. Per [Chrome's tutorial](https://developer.chrome.com/docs/devtools/network), DevTools only records requests made while it is open, so the list starts empty. **Reload the page** to fill it.
 2. Right-click the table header and enable the **Method**, **URL** and **Cookies** columns (these are optional columns per the [Network reference](https://developer.chrome.com/docs/devtools/network/reference)). Each row now shows the method, the full URL, and how many cookies that request carried.
-3. Click the top row (usually the main HTML document). The **Headers** tab shows General (including the URL and status code), Response Headers and Request Headers. The **Cookies** tab shows the cookies sent with that request. If the page has a form or query parameters, the **Payload** tab lists them.
+3. Click the top row (usually the main HTML document). The **Headers** tab shows General (including the status code), Response Headers and Request Headers. The **Cookies** tab shows the cookies sent with that request. If the page has a form or query parameters, the **Payload** tab lists them.
 4. Write down three things: what each of the four URL parts is, whether the method is GET or POST, and the name of the cookie. If you can, you have met this post's goal.
 
 Firefox has a similar Network panel with slightly different labels; I only checked Chrome's documentation for this post.

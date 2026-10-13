@@ -70,7 +70,7 @@ Both programs share this core rule. Google: "only ever target your own accounts.
 Meta is more detailed. Its [terms page](https://bugbounty.meta.com/terms/), under the responsible research and disclosure policy, requires that you:
 
 - do not interact with an individual account (including accessing or modifying its data) without the owner's explicit written consent;
-- test only on your own account, a [test account](https://www.facebook.com/whitehat/accounts/), or an account whose owner gave explicit written consent;
+- test only on your own account, a [test account](https://www.facebook.com/whitehat/accounts/), or an account whose owner gave explicit written consent (the test-account page needs a Facebook login to view; the scope page has a line saying to use test accounts when investigating issues);
 - if you inadvertently access someone else's data, stop, tell Meta what you accessed, delete it from your system, and share it with no one. Continuing "may demonstrate a lack of good faith."
 
 Google adds a practical tip: create an account dedicated to testing, since it can't guarantee you'll get an account back if testing gets it disabled.
@@ -124,10 +124,10 @@ Use the table as a reminder that out-of-scope systems, other people's accounts, 
 flowchart TD
   A[You have a target] --> B{Q1 Is it on the in-scope list?}
   B -- No or unsure --> X[Ask the program first, don't test]
-  B -- Yes --> C{Q2 Is my technique excluded?\nDoS, social engineering, heavy automated traffic}
+  B -- Yes --> C{Q2 Is my technique excluded?\nDoS, social engineering}
   C -- Yes --> Y[Change technique or skip]
   C -- No --> D{Q3 Is the data I touch my own?}
-  D -- No --> Z[Stop, report it, delete it, share nothing]
+  D -- No --> Z[Meta's rule: Stop, report it, delete it, share nothing]
   D -- Yes --> OK[Test within the rules]
 ```
 
@@ -138,9 +138,9 @@ Walking through real text:
 3. You find something on `*.google.com` and want to scan it with a script that automatically sends a large volume of requests. Q2: Google discourages tools that generate very significant traffic. Slow down or go manual.
 4. On Facebook, you realize another user's account would reveal private data. Q3: Meta says use your own or a test account; for anyone else you need written consent. If you've already touched it, stop and report as the rules describe.
 
-## "No reward" is not the same as "not allowed"
+## "No reward" is not the same as "not authorized"
 
-Google's Non-qualifying list is introduced as common low-risk issues that "typically do not earn a monetary reward": URL redirection, logout CSRF, exposed version banners. Those are **no payout**. But the `*.appspot.com` entry on the same list adds that testing is not authorized, which is **do not touch**. Meta's False positives list (open redirects, public profile pictures) is the first kind: not a vulnerability, not an authorization issue.
+Google's Non-qualifying list opens with common low-risk issues that "typically do not earn a monetary reward": URL redirection, logout CSRF, exposed version banners. Those are **no payout**. But the `*.appspot.com` entry on the same list adds that testing is not authorized, which is **outside what the program permits**. Meta's False positives list (open redirects, public profile pictures) is the first kind: not a vulnerability, not an authorization issue.
 
 When reading a list, look for the two phrasings. "Doesn't earn a reward" means you won't be paid. "Doesn't authorize" means you shouldn't be there.
 

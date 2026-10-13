@@ -30,7 +30,7 @@ A post making the rounds lists three top bug bounty payouts and concludes this p
 |---|---|---|
 | Hyper-V escape $250K | L1 guest escape RCE up to $250,000 | Needs a working exploit and a high-quality report |
 | Meta Llama VM escape $300K | WhatsApp Private Processing VM escape up to $300,000 | Target is WhatsApp's TEE infrastructure, not the LLM itself; invitation-only |
-| Google server RCE $90K | Standard Google app RCE base $75,000, times 1.2 quality multiplier = $90,000 | Third tier; the most sensitive tier's base is $101,010 |
+| Google server RCE $90K | Standard Google app RCE base $75,000, times 1.2 quality multiplier = $90,000 | This is the standard-application column; the most sensitive tier's base is $101,010 |
 
 ## Hyper-V: the cleanest one
 
@@ -44,6 +44,8 @@ The [Microsoft Hyper-V Bounty Program](https://www.microsoft.com/en-us/msrc/boun
 | No exploit, low-quality report | $50,000 |
 
 Nested-virtualization L2 guest escapes top out at $150K. Denial of service caps at $15K and information disclosure at $25K. The page also notes that Microsoft may award more at its discretion.
+
+The page also says higher awards are possible at Microsoft's sole discretion, so $250K is the table figure, not a hard cap.
 
 The viral post says Azure escapes carry an extra bonus. I did not see one on this page. That means I did not find it, not that it does not exist.
 
@@ -63,11 +65,11 @@ So a $300K VM escape does exist, with three conditions.
 
 1. **The target is WhatsApp's TEE.** Per the [Meta Engineering post](https://engineering.fb.com/2025/04/29/security/whatsapp-private-processing-ai-tools/), WhatsApp Private Processing runs Meta's AI models in a confidential VM (CVM). The bounty pays for breaking that infrastructure, not for attacking the model itself, and Meta's pages do not name Llama as the model inside.
 2. **Invitation only.** The [scope page](https://bugbounty.meta.com/scope/) says access to Private Processing is by invitation only.
-3. **Internal-attacker scenarios pay less.** The same page says vulnerabilities limited to internal scenarios drop to $50K for code execution, and VM escape is N/A.
+3. **Internal-attacker scenarios pay less.** The [payout guidelines page](https://bugbounty.meta.com/payout-guidelines/private-processing/) says vulnerabilities limited to internal scenarios drop to $50K for code execution, and VM escape is N/A.
 
 For LLMs themselves, the scope page's Meta AI section only says Meta wants reports on integral privacy or security issues in its models, such as leaking training data through model inversion or extraction. Functionality problems and harmful outputs go to GitHub or feedback forms, outside the bounty. I found no Llama sandbox escape clause, so "Meta's LLM Bounty pays up to $300K" does not match the pages.
 
-## Google: $90K is the third tier
+## Google: $90K is the price for a standard service
 
 In the [Google VRP rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules), RCE that gives direct access to Google servers (S0) pays by domain tier:
 

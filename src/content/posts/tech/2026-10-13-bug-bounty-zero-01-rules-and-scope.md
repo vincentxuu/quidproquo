@@ -70,7 +70,7 @@ Google 規則頁也寫：範圍僅限技術漏洞，「請不要試圖潛入 Goo
 Meta 寫得更細，在[Terms 頁](https://bugbounty.meta.com/terms/)的 Responsible research and disclosure policy：
 
 - 沒有帳號擁有者的「明確書面同意」，不能與該帳號互動（包含存取或修改資料）。
-- 測試只能在你自己的帳號、[測試帳號](https://www.facebook.com/whitehat/accounts/)，或有擁有者書面同意的帳號進行。
+- 測試只能在你自己的帳號、[測試帳號](https://www.facebook.com/whitehat/accounts/)，或有擁有者書面同意的帳號進行（測試帳號的說明頁要登入 Facebook 才看得到，範圍頁有一句 Use test accounts when investigating issues 可作依據）。
 - 不小心碰到別人的資料時：立刻停止、通知 Meta 你碰到了什麼、從自己的系統刪除，並且不能分享給任何人。繼續存取「可能顯示缺乏善意」。
 
 Google 的建議也很實用：另外開一個專門測試用的帳號，因為測試造成帳號被停用時，不保證能救回來。
@@ -124,10 +124,10 @@ Google 的規則頁（我讀到的版本）沒有使用「safe harbor」這個�
 flowchart TD
   A[拿到一個目標] --> B{Q1 目標在 in-scope 清單上嗎？}
   B -- 不在或不確定 --> X[先問計畫方，不要測]
-  B -- 在 --> C{Q2 我的手法被排除嗎？\nDoS、社交工程、大量自動流量}
+  B -- 在 --> C{Q2 我的手法被排除嗎？\nDoS、社交工程}
   C -- 是 --> Y[換手法或不做]
   C -- 否 --> D{Q3 我碰到的資料是我自己的嗎？}
-  D -- 不是 --> Z[停止、通報、刪除，不分享]
+  D -- 不是 --> Z[Meta 的規定：停止、通報、刪除，不分享]
   D -- 是 --> OK[可以在規則內測試]
 ```
 
@@ -138,9 +138,9 @@ flowchart TD
 3. 你在 `*.google.com` 找到一個問題，想用腳本自動送出大量請求掃描。Q2：Google 不鼓勵產生大量流量的工具，先降低頻率，或改用手動方式。
 4. 你在 Facebook 發現用別人帳號可以看到私人資料。Q3：Meta 要求只能用自己或測試帳號，用別人的帳號要有書面同意；已經碰到就依規則停止並通報。
 
-## 看懂「不給獎金」跟「不准測」是兩回事
+## 看懂「不給獎金」跟「不授權測試」是兩回事
 
-Google 的 Non-qualifying 清單標題是「通常不會得到獎金的低風險問題」，像是 URL redirection、logout CSRF、版本資訊外露。這些是**沒有獎金**。但同一份清單裡 `*.appspot.com` 那條，原文多加了一句「不授權測試」，那是**不准測**。Meta 的 False positives 清單（例如 open redirects、公開的大頭貼）也是同樣性質：不算漏洞，不是授權問題。
+Google 的 Non-qualifying 清單開頭寫的是「通常不會得到獎金的常見低風險問題」，像是 URL redirection、logout CSRF、版本資訊外露。這些是**沒有獎金**。但同一份清單裡 `*.appspot.com` 那條，原文多加了一句「不授權測試」，那是**不在授權範圍**。Meta 的 False positives 清單（例如 open redirects、公開的大頭貼）也是同樣性質：不算漏洞，不是授權問題。
 
 讀清單時，找這兩種句型：「不給獎金」代表你測了也拿不到錢；「不授權」代表你根本不該碰。
 

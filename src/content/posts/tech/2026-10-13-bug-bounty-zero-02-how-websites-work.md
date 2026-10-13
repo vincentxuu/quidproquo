@@ -186,7 +186,7 @@ hello, alice
 
 同一個網址 `/me`，有沒有 `Cookie` header，答案就從 401 變成 200。這就是 session 的全部原理。另外要一個不存在的路徑，會得到 `HTTP/1.0 404 Not Found`，body 是 `not here`。
 
-想看**請求**長什麼樣，加 `-v`，以 `>` 開頭的行是 curl 送出的請求（輸出中 `*` 開頭的是 curl 自己的連線訊息，這裡略過）：
+想看**請求**長什麼樣，加 `-v`，以 `>` 開頭的行是 curl 送出的請求（輸出中 `*` 開頭的是 curl 自己的連線訊息，`<` 開頭的回應 header 也只留狀態行，其餘略過）：
 
 ```bash
 curl -v http://127.0.0.1:8000/me
@@ -219,7 +219,7 @@ curl -s -b jar.txt http://127.0.0.1:8000/me
 
 1. 開一個分頁，按 `Control+Shift+J`（Mac 是 `Command+Option+J`）打開 Chrome DevTools，切到 **Network** 分頁。依[Chrome 官方教學](https://developer.chrome.com/docs/devtools/network)，DevTools 只記錄它開著之後發生的請求，所以現在是空的，**重新整理頁面**才會出現紀錄。
 2. 在表格標題列按右鍵，勾選 **Method**、**URL**、**Cookies** 欄位（依[Network 功能參考](https://developer.chrome.com/docs/devtools/network/reference)，這些是可加的欄位）。現在每一列就直接寫著方法、完整 URL，以及這個請求帶了幾個 Cookie。
-3. 點最上面那一列（通常是主 HTML 文件）。在 **Headers** 分頁會看到 General（含網址與狀態碼）、Response Headers、Request Headers 三塊；開 **Cookies** 分頁可看這個請求帶出去的 Cookie。如果頁面有表單或查詢參數，**Payload** 分頁會列出來。
+3. 點最上面那一列（通常是主 HTML 文件）。在 **Headers** 分頁會看到 General（含狀態碼）、Response Headers、Request Headers 三塊；開 **Cookies** 分頁可看這個請求帶出去的 Cookie。如果頁面有表單或查詢參數，**Payload** 分頁會列出來。
 4. 對照自己寫下三件事：URL 的四段各是什麼、方法是 GET 還是 POST、Cookie 的名稱是什麼。能寫出來，這篇的目標就達成了。
 
 Firefox 也有同樣的 Network 面板，欄位名稱略有不同，本文只實際核對了 Chrome 的文件。
