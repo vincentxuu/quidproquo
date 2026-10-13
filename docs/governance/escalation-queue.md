@@ -438,3 +438,9 @@
 - 驗收：104檔獨立語意審稿、最後hash一致；完整例子、答案、雙語與來源分界核對，shared及最新origin隔離worktree `pnpm verify`全綠。
 - 證據：`docs/cmu10423-rebuild-2026-10-12.md`及`docs/cmu10423-rebuild-evidence/`。
 - 界線：使用者已授權commit/push，新增稿解除draft；CI發布另行驗證。未取得課堂錄影／逐字稿，未宣稱所有PDF圖表視覺核對或GPU訓練。
+
+## Q-034 Wang × Founders 導讀：補字幕、原音回聽與播放器實測
+- 登錄：2026-10-13（來源：對話）
+- 做什麼：為 `src/content/posts/ai/2026-10-13-meta-muse-launch-gate-eval-rows`（中英）補完英文練習區：取得 YouTube `S6l3aRsecuE` 的英文字幕（標明人工/自動）、回聽原音、挑三段 30–60 秒連續原音（候選：21:41–22:20、23:56–24:34、35:03–35:36，時間取自 Podscripts，未對 YouTube 校準）、在播放器實測起訖與重播，再填 `start`/`end`/`loop` 與「可學的表達」。
+- 為什麼現在不能做：雲端 session 的代理擋 YouTube（curl 403），拿不到字幕與音訊；回聽與播放器實測需要人或能開瀏覽器的環境。另外 `pnpm install` 因私有依賴 `lanefoundry/gatelane` 回 403，全站 `pnpm verify`／lint／check:references 也跑不了。
+- 接手第一步：把字幕檔（VTT/SRT）放進 `.work/media-to-post/wang-muse-founders/`，讀同目錄的 `coverage-report.md` 與 `claim-evidence.md`；在能 `pnpm install` 的環境跑 `pnpm verify`。
