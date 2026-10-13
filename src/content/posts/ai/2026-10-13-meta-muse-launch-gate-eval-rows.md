@@ -5,14 +5,14 @@ category: ai
 type: deep-dive
 tags: [ai-agent, evaluation, meta, muse-spark, openclaw, ai-safety]
 lang: zh-TW
-tldr: "Alexandr Wang 說 Meta 把個人 Agent 需要的 100 多項行為各建一個 eval，每項設「阻擋上線」與「算好」兩條門檻，等到第一個全綠的檢查點出現，再加體感與新手測試才上線。這套做法可以照抄，但上線後的安全爭議也說明：全綠不等於安全。"
-description: "整理 Founders podcast 的 Alexandr Wang 訪談：Muse 從 OpenClaw 原型到上線的七個月，如何用行為清單、雙門檻 eval 判斷可以發布，以及上線後的爭議與自己的團隊能怎麼套用。"
+tldr: "Alexandr Wang 說 Meta 把個人 Agent 需要的 100 多項行為各建一個 eval，每項設「阻擋上線」與「算好」兩條門檻，等到第一個全綠的檢查點出現，並確認實際用起來明顯更好才上線；另外也做了新手使用者測試。這套做法可以照抄，但上線後的安全爭議也說明：全綠不等於安全。"
+description: "整理 Founders podcast 的 Alexandr Wang 訪談：Muse 從受 OpenClaw 啟發的原型到上線的七個月，如何用行為清單、雙門檻 eval 判斷可以發布，以及上線後的爭議與自己的團隊能怎麼套用。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-10-13-meta-muse-launch-gate-eval-rows-en)
 
-2026 年 9 月 8 日，Meta [推出個人 AI Agent Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)，兩週內登上美國 App Store 免費榜首，[超越 ChatGPT](https://www.foxbusiness.com/technology/metas-muse-becomes-app-stores-hottest-download)。主導這件事的 Meta 首席 AI 官 Alexandr Wang，在 David Senra 的 [Founders podcast](https://www.davidsenra.com/episode/alexandr-wang) 講了很多事，其中最能直接拿來用的一段是：他們怎麼判斷 Agent 產品「可以上線了」。
+2026 年 9 月 8 日，Meta [推出個人 AI Agent Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)，兩週內登上美國 App Store 免費榜首，[超越 ChatGPT](https://www.foxbusiness.com/technology/metas-muse-becomes-app-stores-hottest-download)。Muse 是能替使用者寄信、訂行程、連結信箱與行事曆等 App 的 Agent，跑在每人專屬的雲端虛擬機上，寄信或付款前會先請使用者核准（見 Meta 官方說明）。主導這件事的 Meta 首席 AI 官 Alexandr Wang，在 David Senra 的 [Founders podcast](https://www.davidsenra.com/episode/alexandr-wang) 講了很多事，其中最能直接拿來用的一段是：他們怎麼判斷 Agent 產品「可以上線了」。
 
 這篇回答一個問題：**做 Agent 產品時，沒有人替你說「好了」，你憑什麼按下發布？** 看完你可以列出自己的上線行為清單，並替每一項設兩條門檻。
 
@@ -50,7 +50,7 @@ flowchart TB
 1. **列清單**：團隊列出一份很長的試算表，Wang 說是超過 100 項「理想的個人 Agent 模型必須具備的具體行為與能力」。
 2. **每列建 eval**：每一列都做了評測，並且針對每一列訓練模型。團隊定期對著這張表開會，找出表現差的列去補。
 3. **每列兩條線**：低於某個值是「阻擋上線」，高於另一個值才算「好」。
-4. **看紅綠分佈**：很多檢查點是 80 列綠燈、20 列紅燈，團隊判斷這樣不夠。第一個全綠的，是專門訓練過的 Muse Spark 1.3。
+4. **看紅綠分佈**：很多檢查點是 80 列綠燈、20 列紅燈，團隊判斷這樣不夠。第一個全綠的，是專門訓練過的 [Muse Spark 1.3](https://research.meta.ai/blog/introducing-muse-spark-1-3)。
 5. **數字之外的關卡**：Wang 說還有「體感」的部分，也就是實際用起來，能看出明顯比之前迭代過的任何版本好。
 
 虛線那條要小心讀：Wang 另外提到做過很多輪新手使用者測試，讓完全沒用過的人從下載開始用，也針對不同模型版本做 A/B 測試，因為產品體驗對模型品質非常敏感（20:15）。但他沒有明說新手測試是不是上線的必要條件，所以圖上畫成虛線。
@@ -77,9 +77,9 @@ Wang 沒有公開清單內容，也沒說門檻值是多少。你能帶走的是
 
 這套流程不是保證。10 月 9 日，《紐約時報》報導了 Muse 的上線決策；[TNW 整理了報導內容](https://thenextweb.com/news/zuckerberg-muse-launch-safety-concerns-nyt)（我沒有直接讀到《紐約時報》全文，TNW 也註明未獨立查證）：
 
-- 三位知情人士說，8 月 Zuckerberg 在聽取 Wang 與 Friedman 報告後，表示 Muse 可以上線。其中兩位說 Wang 與 Friedman 知道近期測試出現過安全疑慮，包括一次 Muse 未經許可就更改使用者密碼。
-- Meta 發言人否認競爭對手的壓力促成了上線，並表示公司把 Muse 延後了好幾個月，「確保我們做對」。
-- 上線後另有幾件被報導的事，例如 9 月 22 日公開的 Mac 版零日漏洞（Meta 說已修補）。
+- 三位知情人士說，8 月 Zuckerberg 與 Wang、Friedman 會面時，表示 Muse 可以上線。其中兩位說 Wang 與 Friedman 知道近期測試出現過安全疑慮，包括一次 Muse 未經許可就更改使用者密碼。
+- Meta 發言人否認競爭對手的壓力促成了上線，並表示公司把 Muse 延後了好幾個月，「確保我們做對」。Meta 的 AI 產品副總裁 Vishal Shah 也對 [Fox Business](https://www.foxbusiness.com/technology/metas-muse-becomes-app-stores-hottest-download) 說，4 月曾先延後上線，之後才達到安全、資安、隱私與模型表現等最低要求。
+- 上線後另有幾件被報導的事，例如 9 月下旬公開的 Mac 版零日漏洞（Meta 說已修補，見 [Wired 轉載的 Ars Technica 報導](https://www.wired.com/story/metas-muse-ai-agent-zero-day/)）。
 
 我讀的訪談逐字稿裡沒有談到這些，主持人也沒追問安全面。所以這集是 Wang 對**產品品質流程**的自述，不能當成安全性的證明。
 
@@ -87,14 +87,14 @@ Wang 沒有公開清單內容，也沒說門檻值是多少。你能帶走的是
 
 ## 訪談裡其他值得帶走的觀點
 
-- **為什麼不跟 Claude 搶 coding**：2 月時業界普遍認為 coding Agent 是唯一重要的形態（09:26）。Wang 的判斷是人的時間分成「想做的事」與「不得不做的事」，Meta 的產品代表前者，每天有約 35 億人使用，最自然的戰場是個人用途的 AI，不是工作與寫程式（10:24）。延伸閱讀：[Muse Spark 模型家族](/posts/tech/2026-09-19-ai-model-family-muse-spark)與 [Muse Code](/posts/tech/2026-08-24-muse-code-meta-coding-agent)。
+- **為什麼不跟 [Anthropic 的 Claude](https://www.anthropic.com/claude) 搶 coding**：2 月時業界普遍認為 coding Agent 是唯一重要的形態（09:26）。Wang 的判斷是人的時間分成「想做的事」與「不得不做的事」，Meta 的產品代表前者，每天有約 35 億人使用，最自然的戰場是個人用途的 AI，不是工作與寫程式（10:24）。延伸閱讀：[Muse Spark 模型家族](/posts/tech/2026-09-19-ai-model-family-muse-spark)與 [Muse Code](/posts/tech/2026-08-24-muse-code-meta-coding-agent)。
 - **一個觀點，不要 PM 地獄**：模型加產品總共不到 200 人。Wang 批評大組織的產品常變成每個 PM 都想塞自己東西的混合體（23:56），Muse 要的是單一觀點，他說那是 Friedman 的品味（25:10）。
 - **信任要一步一步建**：真正喜歡 Muse 的使用者，是先交辦小事，成功了再交辦更大的事（35:03）。關鍵在於每一次都要成功。
 - **迷因行銷**：Wang 近期在 X 上大量發迷因，目的是在資訊洪流中被看見，也讓 Meta 重新變酷（26:11）。他認為現代產品行銷靠截圖，截圖裡有 Jolly 就知道是 Muse（37:59）。他說無法確定成效，但認為確實推動了成長（30:25）。
 - **第二個心智**：Wang 在 YC Startup School 也說過，十年後智慧與能動性會變得充裕，稀缺的是[遠見與野心](https://www.ycombinator.com/library/VS-alexandr-wang-this-is-a-once-in-a-civilization-opportunity)。他希望 AI 讓成年人別失去從小就有的大夢想（41:20）。
-- **蓋摩天大樓 vs. 挖鑽石**：Scale 的報酬接近線性，重點是流程效率；MSL 的報酬是冪次分布，他的角色變成讓研究員大量試錯（1:08:08）。他有超過 200 位直屬部屬，理由是這些人不需要主管，需要的是好環境（1:09:11）。
+- **蓋摩天大樓 vs. 挖鑽石**：[Scale AI](https://scale.com/) 的報酬接近線性，重點是流程效率；MSL 的報酬是冪次分布，他的角色變成讓研究員大量試錯（1:08:08）。他有超過 200 位直屬部屬，理由是這些人不需要主管，需要的是好環境（1:09:11）。
 
-使用人數方面，Wang 在訪談中只說「數百萬」（25:10），沒給精確數字；TNW 引述《紐約時報》與 Sensor Tower，截至 10 月 7 日左右的下載超過 660 萬、日活躍 180 萬，這是第三方估計。
+使用人數方面，Wang 在訪談中只說「數百萬」（25:10），沒給精確數字；[TNW 引述](https://thenextweb.com/news/zuckerberg-muse-launch-safety-concerns-nyt)《紐約時報》與 Sensor Tower，截至 10 月 7 日左右的下載超過 660 萬、日活躍 180 萬，這是第三方估計。
 
 ## 今晚可以做的事
 

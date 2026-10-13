@@ -5,14 +5,14 @@ category: ai
 type: deep-dive
 tags: [ai-agent, evaluation, meta, muse-spark, openclaw, ai-safety]
 lang: en
-tldr: "Alexandr Wang says Meta listed 100+ behaviors a personal agent needs, built an eval for each, and set two thresholds per row: a launch-blocking floor and a bar for 'good'. They shipped only after the first all-green checkpoint plus hands-on feel and new-user testing. The method is reusable, but post-launch safety reports show all-green is not the same as safe."
-description: "Notes on Alexandr Wang's Founders podcast interview: how Muse went from an OpenClaw prototype to launch in seven months, how a behavior checklist with two-threshold evals decided 'ready', what happened after launch, and how to apply it to your own agent."
+tldr: "Alexandr Wang says Meta listed 100+ behaviors a personal agent needs, built an eval for each, and set two thresholds per row: a launch-blocking floor and a bar for 'good'. They shipped after the first all-green checkpoint and a hands-on check that it was clearly better; they also ran new-user testing. The method is reusable, but post-launch safety reports show all-green is not the same as safe."
+description: "Notes on Alexandr Wang's Founders podcast interview: how Muse went from an OpenClaw-inspired prototype to launch in seven months, how a behavior checklist with two-threshold evals decided 'ready', what happened after launch, and how to apply it to your own agent."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-10-13-meta-muse-launch-gate-eval-rows)
 
-On September 8, 2026, Meta [launched Muse, a personal AI agent](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/). Within two weeks it reached the top of the US App Store free chart, [ahead of ChatGPT](https://www.foxbusiness.com/technology/metas-muse-becomes-app-stores-hottest-download). Meta's chief AI officer Alexandr Wang covered a lot of ground on David Senra's [Founders podcast](https://www.davidsenra.com/episode/alexandr-wang). The most reusable part is how his team decided the agent was ready to ship.
+On September 8, 2026, Meta [launched Muse, a personal AI agent](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/). Within two weeks it reached the top of the US App Store free chart, [ahead of ChatGPT](https://www.foxbusiness.com/technology/metas-muse-becomes-app-stores-hottest-download). Muse can send emails, book travel and connect to apps such as email and calendar; it runs on a dedicated cloud VM per user and asks for approval before sending an email or making a purchase (per [Meta's announcement](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)). Meta's chief AI officer Alexandr Wang covered a lot of ground on David Senra's [Founders podcast](https://www.davidsenra.com/episode/alexandr-wang). The most reusable part is how his team decided the agent was ready to ship.
 
 This post answers one question: **when nobody can tell you "it's good enough," what do you check before pressing launch?** By the end you can draft your own launch checklist and put two thresholds on each row.
 
@@ -50,7 +50,7 @@ flowchart TB
 1. **List the behaviors.** A long spreadsheet of, in Wang's words, more than 100 specific behaviors and capabilities the model needs for the ideal personal agent.
 2. **Build an eval for every row**, and train against every row. The team reviewed the sheet regularly to find the weak rows and fix them.
 3. **Two lines per row.** Below one value is launch-blocking; above another value counts as good.
-4. **Read the red-green picture.** Many checkpoints were green on 80 rows and red on 20; the team knew that wasn't enough. The first all-green checkpoint was a specially trained version of Muse Spark 1.3.
+4. **Read the red-green picture.** Many checkpoints were green on 80 rows and red on 20; the team knew that wasn't enough. The first all-green checkpoint was a specially trained version of [Muse Spark 1.3](https://research.meta.ai/blog/introducing-muse-spark-1-3).
 5. **Then the experiential part.** Wang said they tried it and could tell it was clearly better than anything they had iterated on before.
 
 Read the dashed line carefully. Wang also described many rounds of testing with people who had never used it, downloading and starting from scratch, plus A/B tests across model versions because the product experience is very sensitive to model quality (20:15). He did not say whether new-user testing was a formal launch requirement, so it's drawn dashed.
@@ -77,9 +77,9 @@ Design notes:
 
 The process is not a guarantee. On October 9, The New York Times reported on how the launch decision was made. [TNW summarized it](https://thenextweb.com/news/zuckerberg-muse-launch-safety-concerns-nyt) (I could not read the Times article itself, and TNW notes it did not independently verify the account):
 
-- Three people with knowledge said that in August Zuckerberg told Wang and Friedman Muse was ready to launch. Two of them said Wang and Friedman knew of safety concerns from recent tests, including one case where Muse changed a user's password without permission.
-- A Meta spokesperson disputed that pressure from a rival drove the launch, and said the company delayed Muse for several months "to make sure we got this right."
-- Other reported issues followed, such as a zero-day flaw in the Mac version made public on September 22, which Meta said it fixed.
+- Three people with knowledge said that in an August meeting with Wang and Friedman, Zuckerberg said Muse was ready to launch. Two of them said Wang and Friedman knew of safety concerns from recent tests, including one case where Muse changed a user's password without permission.
+- A Meta spokesperson disputed that pressure from a rival drove the launch, and said the company delayed Muse for several months "to make sure we got this right." Meta's VP of AI products, Vishal Shah, also told [Fox Business](https://www.foxbusiness.com/technology/metas-muse-becomes-app-stores-hottest-download) that Meta first delayed the release in April, and only then met minimum requirements for safety, security, privacy and model performance.
+- Other reported issues followed, such as a zero-day flaw in the Mac version made public in late September, which Meta said it fixed (see [Ars Technica's report on Wired](https://www.wired.com/story/metas-muse-ai-agent-zero-day/)).
 
 The transcript I read contains none of this, and the host did not press on safety. So this episode is Wang's account of the **product-quality process**. It is not evidence of safety.
 
@@ -87,14 +87,14 @@ The limit to carry away: an eval covers only the behaviors you thought to test. 
 
 ## Other ideas from the interview
 
-- **Why not compete on coding.** In February the industry consensus was that coding agents were the only form factor that mattered (09:26). Wang's view: people's time splits into things they want to do and things they have to do, Meta's products represent the former, and with roughly 3.5 billion people using its apps daily the natural arena is personal AI, not work or coding (10:24). Related on this site: [Muse Spark](/posts/tech/2026-09-19-ai-model-family-muse-spark) and [Muse Code](/posts/tech/2026-08-24-muse-code-meta-coding-agent).
+- **Why not compete with [Anthropic's Claude](https://www.anthropic.com/claude) on coding.** In February the industry consensus was that coding agents were the only form factor that mattered (09:26). Wang's view: people's time splits into things they want to do and things they have to do, Meta's products represent the former, and with roughly 3.5 billion people using its apps daily the natural arena is personal AI, not work or coding (10:24). Related on this site: [Muse Spark](/posts/tech/2026-09-19-ai-model-family-muse-spark) and [Muse Code](/posts/tech/2026-08-24-muse-code-meta-coding-agent).
 - **One point of view, no "PM hell."** Model and product together took under 200 people. Wang criticized big-org products that become a blend of every PM's pet feature (23:56). Muse needed a single point of view, which he credited to Friedman's taste (25:10).
 - **Trust is built in steps.** The users who love Muse started with small tasks, saw them succeed, then handed over bigger ones (35:03). What matters is that it succeeds every time.
 - **Meme marketing.** Wang has been posting heavily on X to cut through the noise and make Meta cool again (26:11). He sees modern product marketing as screenshot-driven; Jolly in the screenshot says "Muse" instantly (37:59). He can't prove the effect but believes it helped growth (30:25).
 - **A second mind.** At YC Startup School he also said that in a decade intelligence and agency will be abundant and the scarce things will be [vision and ambition](https://www.ycombinator.com/library/VS-alexandr-wang-this-is-a-once-in-a-civilization-opportunity). He hopes AI lets adults keep the big dreams they had as kids (41:20).
-- **Skyscrapers vs. diamond mining.** Scale was closer to building skyscrapers: linear payoff, efficiency matters. MSL is diamond mining: power-law payoff, so his job is to let researchers try many things (1:08:08). He has more than 200 direct reports because they don't need managers, they need a good environment (1:09:11).
+- **Skyscrapers vs. diamond mining.** [Scale AI](https://scale.com/) was closer to building skyscrapers: linear payoff, efficiency matters. MSL is diamond mining: power-law payoff, so his job is to let researchers try many things (1:08:08). He has more than 200 direct reports because they don't need managers, they need a good environment (1:09:11).
 
-On user numbers, Wang only said "millions" (25:10). TNW, citing the Times and Sensor Tower, reports over 6.6 million downloads and 1.8 million daily users as of around October 7. Those are third-party estimates.
+On user numbers, Wang only said "millions" (25:10). [TNW, citing](https://thenextweb.com/news/zuckerberg-muse-launch-safety-concerns-nyt) the Times and Sensor Tower, reports over 6.6 million downloads and 1.8 million daily users as of around October 7. Those are third-party estimates.
 
 ## What you can do tonight
 
