@@ -318,8 +318,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     names: { 'zh-TW': '世界名校 AI／CS 課程地圖', en: 'Global AI/CS Course Map' },
     descriptions: {
       'zh-TW':
-        '以 2025–2026 官方課程網站、課表與教材入口為依據，整理 Stanford、CMU、MIT、UC Berkeley 的 AI／CS 課程地圖，說明哪些能完整自學、哪些只有講義或歷史影片。',
-      en: 'A 2025–2026 guide to AI and CS course access at Stanford, CMU, MIT, and UC Berkeley, distinguishing complete self-study courses from public syllabi, partial materials, and historical videos.',
+        '以 2025–2026 官方課程網站、課表與教材入口為依據，整理 Stanford、CMU、MIT、UC Berkeley、Harvard 與台灣各校的 AI／CS 課程地圖，說明哪些能完整自學、哪些只有講義或歷史影片。',
+      en: 'A 2025–2026 guide to AI and CS course access at Stanford, CMU, MIT, UC Berkeley, Harvard, and universities in Taiwan, distinguishing complete self-study courses from public syllabi, partial materials, and historical videos.',
     },
   },
   {
@@ -471,8 +471,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS329A 導讀', en: 'Reading Stanford CS329A' },
     descriptions: {
-      'zh-TW': '依 Autumn 2025 課表讀 Stanford CS329A：9 個公開錄影場次與 3 個指定閱讀場次，另列 5 場客座的材料缺口。',
-      en: 'Reading Stanford CS329A Autumn 2025 through nine recorded sessions and three designated-reading sessions, with source gaps listed for five guest lectures.',
+      'zh-TW': '依 Autumn 2025 課表讀 Stanford CS329A：9 個公開錄影場次、3 個指定閱讀場次，以及 5 場沒有公開材料、改用講者類似題目公開材料的客座。',
+      en: 'Reading Stanford CS329A Autumn 2025 through nine recorded sessions, three designated-reading sessions, and five guest sessions that have no public material and use the speakers\' public material on similar topics.',
     },
   },
   {
