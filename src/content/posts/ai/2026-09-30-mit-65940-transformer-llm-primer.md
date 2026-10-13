@@ -160,7 +160,7 @@ Perceiver Resampler 的設計本身就是效率選擇：視覺 token 越少，LL
 
 ## 延伸閱讀
 
-- Transformer 原理：[Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- Transformer 原理：[Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[Stanford CME295 導讀](/posts/ai/2026-09-29-cme295-course-overview)
 - 推論成本的另一種講法：[CS336 Lecture 10：LLM 推論](/posts/ai/2026-08-22-cs336-inference)
 - KV cache 與 serving 系統：[CMU 11-868 大規模服務：prefill／decode 拆分與 KV cache](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache)
 - MoE 與模型平行：[CMU 11-868 L16–L17](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)

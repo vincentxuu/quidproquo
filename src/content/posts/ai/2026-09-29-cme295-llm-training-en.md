@@ -41,7 +41,7 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-This post covers Lecture 4, "LLM training," of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) (October 17, 2025). The main source is the [128-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf); the [recording](https://www.youtube.com/watch?v=VlA_jt_3Qc4) is there to watch alongside. Everything below is based only on the text and figures on the slides, not on anything said out loud in class.
+This post covers Lecture 4, "LLM training," of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-cme295-course-overview-en) (October 17, 2025). The main source is the [128-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf); the [recording](https://www.youtube.com/watch?v=VlA_jt_3Qc4) is there to watch alongside. Everything below is based only on the text and figures on the slides, not on anything said out loud in class.
 
 The first three lectures answered "what does an LLM look like?" Lecture 4 asks a different question: how does that machine go from random weights to an assistant that answers questions? The slides give a two-part answer. First **pretraining**, which teaches the model the patterns of language and code. Then **finetuning**, which teaches it to do what it's told. The two stages differ in cost by several orders of magnitude, and most of the lecture is about where the money and memory go and how to save them.
 
@@ -332,4 +332,4 @@ Checked: 2026-10-10.
 - [Hu et al., LoRA: Low-Rank Adaptation of Large Language Models (2021)](https://arxiv.org/abs/2106.09685)
 - [Schulman et al., LoRA Without Regret (Thinking Machines, 2025)](https://thinkingmachines.ai/blog/lora/)
 - [Dettmers et al., QLoRA: Efficient Finetuning of Quantized LLMs (2023)](https://arxiv.org/abs/2305.14314)
-- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-cme295-course-overview-en)

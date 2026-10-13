@@ -1,5 +1,5 @@
 ---
-title: "Two Units, No Homework, Nine Lectures from Transformers to AI Agents | Stanford CME295 Topic Guide"
+title: "Two Units, No Homework, Nine Lectures from Transformers to AI Agents | Stanford CME295 Course Overview"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -8,12 +8,15 @@ lang: en
 series:
   name: "Reading Stanford CME295"
   order: 0
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 24
 tldr: "CME295 is a two-unit Stanford course with no homework; your grade is the midterm and the final, 50% each. The 2025 edition's nine lectures are fully public: videos, slides, and both exams with solutions. The 2026 edition rewrites the agent lecture around context compaction, harnesses, coding agents, and skills, and adds three full lectures on LLM systems, reinforcement learning, and Diffusion LLMs."
 description: "An introduction to the series on Stanford CME295: Transformers & Large Language Models: how the course is run, how the 2025 nine-lecture edition differs from the 2026 syllabus, how it divides the ground with CS224N and CS336, and how to read this series."
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+> 🌏 [中文版](/posts/ai/2026-09-29-cme295-course-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

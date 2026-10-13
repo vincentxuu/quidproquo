@@ -34,7 +34,7 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 5 講「LLM tuning」（2025 年 10 月 31 日）。主要來源是 [111 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture5.pdf)，[錄影](https://www.youtube.com/watch?v=PmW_TMQ3l0I)長 1 小時 47 分，可以對照著看。
+本篇對應 Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview) 2025 版第 5 講「LLM tuning」（2025 年 10 月 31 日）。主要來源是 [111 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture5.pdf)，[錄影](https://www.youtube.com/watch?v=PmW_TMQ3l0I)長 1 小時 47 分，可以對照著看。
 
 前四講的模型都用同一種方式學東西：給正確答案，叫它照著寫。這一講要換一種訓練訊號。整個系列在這裡的落差最大，從監督式學習一口氣跳到強化學習，所以先花一節說清楚為什麼非跳不可，再進公式。
 
@@ -346,4 +346,4 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tunin
 - [Shao et al., DeepSeekMath (2024)](https://arxiv.org/abs/2402.03300)
 - [Rafailov et al., Direct Preference Optimization: Your Language Model is Secretly a Reward Model (2023)](https://arxiv.org/abs/2305.18290)
 - [Xu et al., Is DPO Superior to PPO for LLM Alignment? A Comprehensive Study (2024)](https://arxiv.org/abs/2404.10719)
-- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-cme295-course-overview)

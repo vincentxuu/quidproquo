@@ -1,5 +1,5 @@
 ---
-title: "不准用框架，只給你一個 chat-completion 呼叫，從零長出 agent harness｜Stanford CS329Z 主題單元"
+title: "不准用框架，只給你一個 chat-completion 呼叫，從零長出 agent harness｜Stanford CS329Z 課程總覽"
 date: 2026-08-21
 updated: 2026-10-10
 category: ai

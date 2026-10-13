@@ -8,9 +8,6 @@ lang: zh-TW
 series:
   name: "Stanford CS329Z 導讀"
   order: 4
-additionalSeries:
-  - name: "Stanford CS 主線課程導讀"
-    order: 22
 tldr: "Week 3 週一用 MCP 規範把工具介面標準化，週三用 DSPy 論文把手刻管線換成可編譯、可優化的程式；同一週 HW1 發布：不准用 agent 框架，從零刻一個企業內部助理，所以 DSPy 這週是拿來看懂框架抽掉了什麼，不是拿來交作業。"
 description: "帶讀 Stanford CS329Z Week 3 兩篇主讀物：MCP 規範的主從架構與安全原則，DSPy 把 prompt 模板變成可編譯管線的設計，以及它們和不准用框架的 HW1 各自怎麼對上。"
 draft: false

@@ -8,9 +8,6 @@ lang: en
 series:
   name: "Reading Stanford CS329Z"
   order: 5
-additionalSeries:
-  - name: "Reading Stanford's Main-Line CS Courses"
-    order: 23
 tldr: "Week 4 pins the agent loop down as an interleaved think-act-observe sequence with the ReAct paper on Monday, then turns memory into OS-style tiered storage with the MemGPT paper on Wednesday. The same week, HW1 is growing from an email-retrieval pipeline into a full harness where memory is an explicit requirement, so the loop shape and the memory design are the two things to settle now."
 description: "A guided reading of the Stanford CS329Z Week 4 anchors: how Yao et al.'s ReAct interleaves reasoning with acting, how Packer et al.'s MemGPT manages memory past context limits, and how both map to the HW1 agent harness."
 draft: false

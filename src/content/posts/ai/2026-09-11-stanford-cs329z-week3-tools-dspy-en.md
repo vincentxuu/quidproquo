@@ -8,9 +8,6 @@ lang: en
 series:
   name: "Reading Stanford CS329Z"
   order: 4
-additionalSeries:
-  - name: "Reading Stanford's Main-Line CS Courses"
-    order: 22
 tldr: "Week 3 standardizes tool interfaces with the MCP specification on Monday and trades hand-written pipelines for compilable, optimizable programs with the DSPy paper on Wednesday. HW1 drops the same Monday and bans agent frameworks: you build a company's internal assistant from scratch, so this week DSPy is for understanding what frameworks abstract, not for handing in."
 description: "A guided reading of the Stanford CS329Z Week 3 anchors: the MCP spec's host-client-server shape and safety rules, DSPy's compilable-pipeline design, and how each lines up with a framework-free HW1."
 draft: false

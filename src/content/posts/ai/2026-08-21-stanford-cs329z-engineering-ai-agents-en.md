@@ -1,5 +1,5 @@
 ---
-title: "No Frameworks, Just One Chat-Completion Call — Grow an Agent Harness from Scratch | Stanford CS329Z Topic Guide"
+title: "No Frameworks, Just One Chat-Completion Call — Grow an Agent Harness from Scratch | Stanford CS329Z Course Overview"
 date: 2026-08-21
 updated: 2026-10-10
 category: ai

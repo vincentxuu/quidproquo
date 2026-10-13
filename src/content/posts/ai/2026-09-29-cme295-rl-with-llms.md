@@ -1,5 +1,5 @@
 ---
-title: "（課前預寫）：SFT、PPO、GRPO、on-policy distillation 其實是同一條 policy gradient｜Stanford CME295 第 4 堂"
+title: "SFT、PPO、GRPO、on-policy distillation 其實是同一條 policy gradient｜Stanford CME295 2026 版 第 4 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -36,7 +36,7 @@ glossary:
 
 > **課前預寫版**：本篇寫於 2026 年 9 月 29 日，2026 版第 4 講（2026 年 10 月 16 日）尚未開課。內容根據 2026 課表的主題清單、2025 版投影片中已講過的部分，以及原始論文整理；影片與投影片上架後會對照更新。
 
-本篇是 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 導讀系列的第 11 篇，對應 2026 版新增的第 4 講「Reinforcement learning with LLMs」。[2026 課表](https://cme295.stanford.edu/syllabus/)（2026-09-29 查詢）替這一講列了七個條目：
+本篇是 Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview) 導讀系列的第 11 篇，對應 2026 版新增的第 4 講「Reinforcement learning with LLMs」。[2026 課表](https://cme295.stanford.edu/syllabus/)（2026-09-29 查詢）替這一講列了七個條目：
 
 1. Mathematical conventions（數學記號）
 2. Reward design（獎勵設計）
@@ -441,4 +441,4 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reaso
 - [Lu & Thinking Machines Lab, On-Policy Distillation (2025)](https://thinkingmachines.ai/blog/on-policy-distillation/)
 - [Qwen Team, Qwen3 Technical Report (2025)](https://arxiv.org/abs/2505.09388)
 - [Ross et al., A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning (DAgger, 2010)](https://arxiv.org/abs/1011.0686)
-- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-cme295-course-overview)

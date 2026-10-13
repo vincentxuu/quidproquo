@@ -8,9 +8,6 @@ lang: en
 series:
   name: "Reading Stanford CS329Z"
   order: 2
-additionalSeries:
-  - name: "Reading Stanford's Main-Line CS Courses"
-    order: 20
 tldr: "The Week 1 anchor reading for CS329Z is Zaharia et al.'s Compound AI Systems: the best results increasingly come from multi-component systems, and even the biggest model is just one part. The post leaves three design questions and three hard challenges — which happen to be exactly what HW1 asks you to answer by building."
 description: "A guided reading of the Stanford CS329Z Week 1 anchor paper: the definition of compound AI systems, three reasons the field is moving to systems, three open design questions, three hard challenges, four emerging directions, and how each maps to HW1's framework-free build of a company's internal AI assistant."
 draft: false

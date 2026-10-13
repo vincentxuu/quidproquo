@@ -182,7 +182,7 @@ repo 目前版本的結構：
 
 - Diffusion、取樣與 guidance 的數學：[MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
 - 視覺生成與 CLIP 類模型：[Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)
-- Transformer 與 LoRA 在 LLM 上的用法：[Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- Transformer 與 LoRA 在 LLM 上的用法：[Stanford CME295 導讀](/posts/ai/2026-09-29-cme295-course-overview)
 - 課程全貌與開放程度分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 上一篇：[L10 從變分自編碼器（VAE）開始的冒險旅程](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion)｜下一篇：[L12 ControlNet 與 Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)

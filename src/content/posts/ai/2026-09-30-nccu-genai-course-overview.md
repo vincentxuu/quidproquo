@@ -187,7 +187,7 @@ TAICA 讓各校獨立評分，所以同一份作業在不同學校的份量不�
 這門課每一講都自成一套，下面這些站內系列只在你想往下挖時才需要：
 
 - 神經網路基礎更完整的版本：[CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)
-- LLM 與 Transformer：[Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[Stanford CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)、[Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)、[台大李宏毅 機器學習 2026](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
+- LLM 與 Transformer：[Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[Stanford CME295](/posts/ai/2026-09-29-cme295-course-overview)、[Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)、[台大李宏毅 機器學習 2026](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
 - RAG：[RAG 模式完整指南](/posts/ai/2026-03-14-rag-patterns-complete-guide)
 - AI Agents：[CMU 11-768 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)；MCP 的正式名稱與設計：[MCP（Model Context Protocol）](/posts/ai/2026-03-22-mcp-model-context-protocol)
 - Diffusion 的數學：[MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)；視覺生成：[Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)

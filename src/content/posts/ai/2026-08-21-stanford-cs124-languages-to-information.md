@@ -1,5 +1,5 @@
 ---
-title: "課號掛 100，先修寫死四門，而且下一學年整年不開｜Stanford CS124 主題單元"
+title: "課號掛 100，先修寫死四門，而且下一學年整年不開｜Stanford CS124 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

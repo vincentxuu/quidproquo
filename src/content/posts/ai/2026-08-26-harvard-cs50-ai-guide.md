@@ -1,5 +1,5 @@
 ---
-title: "七週主題、十二個 projects 與一門 2020 年錄影的課怎麼跟｜Harvard CS50 AI 主題單元"
+title: "七週主題、十二個 projects 與一門 2020 年錄影的課怎麼跟｜Harvard CS50 AI 課程總覽"
 date: 2026-08-26
 category: ai
 type: guide

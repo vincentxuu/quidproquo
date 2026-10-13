@@ -1,5 +1,5 @@
 ---
-title: "Every Assignment Runs in Colab, but the Biggest Slice of the Grade Is Closed to Self-Learners | Stanford CS224W Topic Guide"
+title: "Every Assignment Runs in Colab, but the Biggest Slice of the Grade Is Closed to Self-Learners | Stanford CS224W Course Overview"
 date: 2026-08-21
 category: ai
 type: deep-dive

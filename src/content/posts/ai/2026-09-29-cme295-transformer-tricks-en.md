@@ -36,7 +36,7 @@ glossary:
 
 For the 2026 edition, use the [Lecture 2 recording](https://www.youtube.com/watch?v=GaIeu3npx04) and [slides](https://cme295.stanford.edu/slides/fall26-cme295-lecture2.pdf). It covers topics from both 2025 Lecture 2 and Lecture 3; this guide keeps its original 2025 lecture number. The “What changed in 2026” section explains the comparison.
 
-This post covers Lecture 2 of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), "Transformer-based models & tricks" (October 3, 2025). The main source is the [109-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture2.pdf); the recording is on [YouTube](https://www.youtube.com/watch?v=yT84Y5zCnaA) (1 hour 47 minutes). This post is written from what is on the slides, and flags anything the slides don't cover.
+This post covers Lecture 2 of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-cme295-course-overview-en), "Transformer-based models & tricks" (October 3, 2025). The main source is the [109-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture2.pdf); the recording is on [YouTube](https://www.youtube.com/watch?v=yT84Y5zCnaA) (1 hour 47 minutes). This post is written from what is on the slides, and flags anything the slides don't cover.
 
 [Lecture 1](/posts/ai/2026-09-29-cme295-transformer-en) assembled the [original 2017 Transformer](https://arxiv.org/abs/1706.03762). But the LLM you use today has swapped out almost all of its position encoding, normalization, and attention, and kept only the decoder half. Lecture 2 is that refit list: which parts of the same machine got replaced, why, and which model families grew out of keeping different halves.
 
@@ -295,4 +295,4 @@ Checked: 2026-10-10.
 - [Hinton et al., Distilling the Knowledge in a Neural Network (2015)](https://arxiv.org/abs/1503.02531)
 - [Sanh et al., DistilBERT (2019)](https://arxiv.org/abs/1910.01108)
 - [Liu et al., RoBERTa (2019)](https://arxiv.org/abs/1907.11692)
-- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-cme295-course-overview-en)

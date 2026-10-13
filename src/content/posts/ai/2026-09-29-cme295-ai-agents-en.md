@@ -1,5 +1,5 @@
 ---
-title: "Preview: AI Agents, from Calling Tools to Managing Context and Tuning the Harness | Stanford CME295 Lecture 6"
+title: "AI Agents: From Calling Tools to Managing Context and Tuning the Harness | Stanford CME295 2026 Edition Lecture 6"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -40,7 +40,7 @@ glossary:
 
 > **Pre-lecture edition**: written on September 29, 2026. Lecture 6 of the 2026 edition (November 6, 2026) has not happened yet. This post is based on the topic list in the 2026 syllabus, material already covered in the 2025 slides, and primary sources. It will be revised against the video and slides once they are published.
 
-This post covers Lecture 6, "AI Agents", of the 2026 edition of Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en). The lecture has not been given, so there are no slides to quote. The only source that speaks for the 2026 course is the seven-line topic list on the [syllabus](https://cme295.stanford.edu/syllabus/). Everything else comes from the 2025 Lecture 7 [slides](https://cme295.stanford.edu/slides/fall25-cme295-lecture7.pdf), engineering posts from Anthropic and OpenAI, the [MCP specification](https://modelcontextprotocol.io/specification/versioning), and papers. Each section says which is which.
+This post covers Lecture 6, "AI Agents", of the 2026 edition of Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview-en). The lecture has not been given, so there are no slides to quote. The only source that speaks for the 2026 course is the seven-line topic list on the [syllabus](https://cme295.stanford.edu/syllabus/). Everything else comes from the 2025 Lecture 7 [slides](https://cme295.stanford.edu/slides/fall25-cme295-lecture7.pdf), engineering posts from Anthropic and OpenAI, the [MCP specification](https://modelcontextprotocol.io/specification/versioning), and papers. Each section says which is which.
 
 Why write it early? Slide 6 of the 2026 Lecture 1 [deck](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf), "Difference with last year's edition", lists three new items for this year, and AI Agents is one of them. The timeline in the same deck ends on a box labeled "Agentic era!" holding four coding agents: Claude Code, Cursor, Codex and Antigravity. A course about Transformers now puts coding agents at the end of its timeline, and that is a signal worth reading.
 
@@ -366,4 +366,4 @@ Checked: 2026-10-10.
 - [Claude Code docs: How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works) (checked 2026-09-29)
 - [Claude Code docs: Explore the context window](https://code.claude.com/docs/en/context-window) (checked 2026-09-29)
 - [Claude Code docs: Plugins overview](https://code.claude.com/docs/en/plugins) (checked 2026-09-29)
-- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-cme295-course-overview-en)

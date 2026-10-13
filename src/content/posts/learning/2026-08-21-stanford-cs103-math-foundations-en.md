@@ -1,5 +1,5 @@
 ---
-title: "A Math Course Whose First Assignment Is Installing a C++ Compiler | Stanford CS103 Topic Guide"
+title: "A Math Course Whose First Assignment Is Installing a C++ Compiler | Stanford CS103 Course Overview"
 date: 2026-08-21
 category: learning
 type: deep-dive

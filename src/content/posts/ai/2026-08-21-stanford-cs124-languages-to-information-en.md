@@ -1,5 +1,5 @@
 ---
-title: "Numbered 100, Four Prerequisites Written Into the Catalog, and Not Offered at All Next Year | Stanford CS124 Topic Guide"
+title: "Numbered 100, Four Prerequisites Written Into the Catalog, and Not Offered at All Next Year | Stanford CS124 Course Overview"
 date: 2026-08-21
 category: ai
 type: deep-dive

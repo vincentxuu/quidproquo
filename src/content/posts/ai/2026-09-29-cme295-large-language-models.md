@@ -36,7 +36,7 @@ glossary:
 
 如果你跟的是 2026 版，請開啟[第 2 堂錄影](https://www.youtube.com/watch?v=GaIeu3npx04)與[投影片](https://cme295.stanford.edu/slides/fall26-cme295-lecture2.pdf)。這堂整合了 2025 版第 2、3 堂的部分主題；本文保留原本的 2025 堂次，版本差異見文末「2026 版改了什麼」。
 
-本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 3 講「Large Language Models」（2025 年 10 月 10 日）。主要來源是 [125 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf)，[錄影](https://www.youtube.com/watch?v=Q5baLehv5So)長 1 小時 48 分。本文只根據投影片上的文字與圖寫，課堂口述的補充沒有收進來。
+本篇對應 Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview) 2025 版第 3 講「Large Language Models」（2025 年 10 月 10 日）。主要來源是 [125 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf)，[錄影](https://www.youtube.com/watch?v=Q5baLehv5So)長 1 小時 48 分。本文只根據投影片上的文字與圖寫，課堂口述的補充沒有收進來。
 
 你呼叫任何一家 LLM API，參數欄位裡大概都看過 `temperature`、`top_p`，可能還有要求輸出 JSON 的選項。這些欄位各自在模型的哪一步動手腳，就是這一講的主體。
 
@@ -296,4 +296,4 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Lan
 - [DeepSeek-AI, DeepSeek-V2 (2024)](https://arxiv.org/abs/2405.04434)
 - [Chen et al., Accelerating Large Language Model Decoding with Speculative Sampling (2023)](https://arxiv.org/abs/2302.01318)
 - [Gloeckle et al., Better & Faster Large Language Models via Multi-token Prediction (2024)](https://arxiv.org/abs/2404.19737)
-- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-cme295-course-overview)

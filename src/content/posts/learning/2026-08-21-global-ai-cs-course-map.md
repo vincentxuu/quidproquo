@@ -144,7 +144,7 @@ Harvard 的現行課表裡沒有這類課。能從頭自學到尾（A3）的 AI 
 - [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)：生成式 AI，Spring 2026，以 HW1–HW4 為主線
 - [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)：AI 安全，Fall 2025，錄影、閱讀清單與作業公開
 - 台灣中文課：[台大陳縕儂 ADL 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview)、[台大林軒田 機器學習基石與技法](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)（內容跟 2013 年錄製的 MOOC，練習用 Fall 2024 作業）、[清大高宏宇 自然語言處理](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)、[政大蔡炎龍 生成式 AI](/posts/ai/2026-09-30-nccu-genai-course-overview)
-- [Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)：兩學分、沒有作業的 Transformer 與 LLM 課，2025 版全部公開，2026 版新增 LLM 系統、強化學習與 Diffusion LLM
+- [Stanford CME295 導讀](/posts/ai/2026-09-29-cme295-course-overview)：兩學分、沒有作業的 Transformer 與 LLM 課，2025 版全部公開，2026 版新增 LLM 系統、強化學習與 Diffusion LLM
 - Stanford 地基課逐講系列：[CS103 數學基礎 28 講](/posts/learning/2026-08-21-stanford-cs103-math-foundations)、[CS107 系統 30 講](/posts/learning/2026-08-21-stanford-cs107-computer-systems)、[CS109 機率 22 講](/posts/learning/2026-08-21-stanford-cs109-probability)、[CS111 作業系統 28 講](/posts/learning/2026-08-21-stanford-cs111-operating-systems)、[CS161 演算法 18 講](/posts/learning/2026-08-21-stanford-cs161-algorithms)皆已完成中英對照
 - [Berkeley CS189 導讀](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)：總覽以 Spring 2025 為起點，逐講與 HW1–5 則依重新上線的 Spring 2026 課站寫成，另對照 Fall 2026（eecs189.org/fa26）行事曆
 - [CMU 07-380 導讀](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)：Fall 2026 首開，已公開的第 1–10 講與 HW1–3 已逐篇寫完，後半學期隨課站進度補上；對照 [07-280](/posts/ai/2026-08-22-cmu-07280-course-overview)
@@ -210,7 +210,7 @@ Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與
 - [CMU 07-380 導讀](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
 - [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 - [Stanford CS336 主題深拆系列](/posts/ai/2026-08-22-cs336-overview-tokenization)
-- [Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- [Stanford CME295 導讀](/posts/ai/2026-09-29-cme295-course-overview)
 - [CMU 11-768 AI Agents 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)
 - [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)
 - [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)

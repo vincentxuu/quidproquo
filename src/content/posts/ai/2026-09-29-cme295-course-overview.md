@@ -1,5 +1,5 @@
 ---
-title: "兩學分、沒有作業，九堂課從 Transformer 走到 AI agent｜Stanford CME295 主題單元"
+title: "兩學分、沒有作業，九堂課從 Transformer 走到 AI agent｜Stanford CME295 課程總覽"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -8,12 +8,15 @@ lang: zh-TW
 series:
   name: "Stanford CME295 導讀"
   order: 0
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 24
 tldr: "CME295 是 Stanford 的兩學分課，沒有作業，成績只看期中和期末各 50%。2025 版九堂的影片、投影片和兩份考卷解答全部公開；2026 版把 agent 那一講改成 context 壓縮、harness、coding agent 和 skills，還新增 LLM 系統、強化學習、Diffusion LLM 三整講。"
 description: "Stanford CME295: Transformers & Large Language Models 系列導讀：課程形式、2025 版九講與 2026 版課表的差異、跟 CS224N / CS336 怎麼分工，以及這個系列的讀法。"
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cme295-course-overview-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

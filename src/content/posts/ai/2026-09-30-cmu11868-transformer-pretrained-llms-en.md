@@ -30,7 +30,7 @@ glossary:
 
 The first five posts laid the foundation: how a GPU runs a kernel, how a framework differentiates automatically, and how your own MiniTorch trains a sentiment classifier. This is where the course puts an actual model on the table for the first time.
 
-11-868 covers the model in just two lectures: L06 on the Transformer, L07 on pre-trained LLMs. Compared with [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) or [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), that is short. The goal here is not to explain why language models work. It is to show you **what the thing you will accelerate, shard, and serve actually looks like**. This post reads the lectures from that angle and asks two questions of every component: what shape are its matrices, and what resources does it consume?
+11-868 covers the model in just two lectures: L06 on the Transformer, L07 on pre-trained LLMs. Compared with [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) or [CME295](/posts/ai/2026-09-29-cme295-course-overview-en), that is short. The goal here is not to explain why language models work. It is to show you **what the thing you will accelerate, shard, and serve actually looks like**. This post reads the lectures from that angle and asks two questions of every component: what shape are its matrices, and what resources does it consume?
 
 ## Orientation: three kinds of language models
 

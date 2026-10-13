@@ -1,5 +1,5 @@
 ---
-title: "預寫：Diffusion LLM 的三種雜訊、一條訓練目標與平行解碼的代價｜Stanford CME295 第 8 堂"
+title: "Diffusion LLM 的三種雜訊、一條訓練目標與平行解碼的代價｜Stanford CME295 2026 版 第 8 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -36,7 +36,7 @@ glossary:
 
 > **課前預寫版**：本篇寫於 2026 年 9 月 29 日，2026 版第 8 講（2026 年 11 月 20 日）尚未開課。內容根據 2026 課表的主題清單、2025 版投影片中已講過的部分，以及原始論文整理；影片與投影片上架後會對照更新。
 
-Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2026 版在第 8 講放了一整堂「Diffusion LLMs」。[2026 課表](https://cme295.stanford.edu/syllabus/)列的子題有五個：continuous diffusion、discrete diffusion、masked diffusion、training、inference。2026 第 1 講[投影片](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf)裡「Difference with last year's edition」那一頁，也把 Diffusion LLMs 列為三項新內容之一。
+Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview) 2026 版在第 8 講放了一整堂「Diffusion LLMs」。[2026 課表](https://cme295.stanford.edu/syllabus/)列的子題有五個：continuous diffusion、discrete diffusion、masked diffusion、training、inference。2026 第 1 講[投影片](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf)裡「Difference with last year's edition」那一頁，也把 Diffusion LLMs 列為三項新內容之一。
 
 2025 版只在最後一講用約 28 頁投影片帶過這個主題，本系列 [order 9](/posts/ai/2026-09-29-cme295-current-trends) 已經寫過那段入門。內容包括：自回歸（ARM）推論為什麼不能平行、影像 diffusion 的 forward／reverse 直覺、文字把雜訊換成 `[MASK]`，以及 LLaDA 的簡化訓練與取樣虛擬碼。這些本篇不重寫。
 
@@ -365,7 +365,7 @@ Fast-dLLM 的解法是不固定每步解幾格，改設一個**信心門檻**：
 - 從頭把 diffusion 的機率推導走一遍：[Stanford CS229 第 11 堂：擴散模型](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models)、[CMU 11-785 第 23 講](/posts/ai/2026-08-22-cmu-11785-23-diffusion)、[MIT 6.S191 生成模型](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling)
 - 想親手跑：[MDLM](https://s-sahoo.com/mdlm) 與 [Block Diffusion](https://m-arriola.com/bd3lms) 的專案頁都附程式碼與教學；[LLaDA 專案頁](https://ml-gsai.github.io/LLaDA-demo/)有權重與取樣程式
 - 同一個瓶頸的另一種解法：[order 10：LLM systems](/posts/ai/2026-09-29-cme295-llm-systems)、[CS336 Lecture 10：LLM 推論](/posts/ai/2026-08-22-cs336-inference)
-- 本系列的入門段落：[order 9：第 9 講 Current trends](/posts/ai/2026-09-29-cme295-current-trends)；回到[系列總覽](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- 本系列的入門段落：[order 9：第 9 講 Current trends](/posts/ai/2026-09-29-cme295-current-trends)；回到[系列總覽](/posts/ai/2026-09-29-cme295-course-overview)
 
 ## 更新計畫
 

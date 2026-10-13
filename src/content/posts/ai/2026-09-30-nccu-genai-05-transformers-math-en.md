@@ -228,7 +228,7 @@ This post stands on its own. For more rigorous or more hands-on versions:
 
 - From positional encoding to causal self-attention: [CMU 07-280 Lecture 20](/posts/ai/2026-08-22-cmu-07280-lecture-20-attention-transformers-en)
 - Attention and Transformers from a deep-learning perspective: [CMU 11-785 Lecture 18](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en)
-- Full courses on Transformers and LLMs: [Stanford CME295 guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), [Stanford CS224N guide](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en)
+- Full courses on Transformers and LLMs: [Stanford CME295 guide](/posts/ai/2026-09-29-cme295-course-overview-en), [Stanford CS224N guide](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en)
 - Writing a Transformer language model from scratch: [Stanford CS336 guide](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en)
 - Another Mandarin-taught route: [NTU Hung-yi Lee ML 2026 guide](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
 

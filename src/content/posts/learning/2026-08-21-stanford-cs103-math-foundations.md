@@ -1,5 +1,5 @@
 ---
-title: "一門數學課，開學第一件事是裝 C++ 編譯器｜Stanford CS103 主題單元"
+title: "一門數學課，開學第一件事是裝 C++ 編譯器｜Stanford CS103 課程總覽"
 date: 2026-08-21
 category: learning
 type: deep-dive

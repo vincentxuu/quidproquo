@@ -34,7 +34,7 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-This post covers Lecture 6 of the 2025 edition of Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), "LLM reasoning" (November 7, 2025). The main source is the [148-slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture6.pdf); the recording is [here](https://www.youtube.com/watch?v=k5Fh-UgTuCo). Everything below comes from the slides; where the slides don't say something, I cite the source paper instead.
+This post covers Lecture 6 of the 2025 edition of Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview-en), "LLM reasoning" (November 7, 2025). The main source is the [148-slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture6.pdf); the recording is [here](https://www.youtube.com/watch?v=k5Fh-UgTuCo). Everything below comes from the slides; where the slides don't say something, I cite the source paper instead.
 
 The slides draw the boundary of "reasoning" with two questions. "What is the course code of Stanford's Transformers & LLMs class?" is not reasoning: you either remember it or you don't. "The bear was born in 2020. How old is this bear now?" is, because you have to work out what year it is and then subtract. The slides' tentative definition is one line: reasoning = ability to solve a problem.
 
@@ -299,4 +299,4 @@ Checked: 2026-10-10.
 - [Yu et al., DAPO (2025)](https://arxiv.org/abs/2503.14476)
 - [Liu et al., Understanding R1-Zero-Like Training: A Critical Perspective (2025)](https://arxiv.org/abs/2503.20783)
 - [DeepSeek-AI, DeepSeek-V3 Technical Report (2024)](https://arxiv.org/abs/2412.19437)
-- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-cme295-course-overview-en)

@@ -160,7 +160,7 @@ Page 88 explains the capacity factor C with a small example: 6 tokens, 3 experts
 
 ## Further reading
 
-- Transformer theory: [Stanford CS224N guide](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en), [Stanford CME295 guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- Transformer theory: [Stanford CS224N guide](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en), [Stanford CME295 guide](/posts/ai/2026-09-29-cme295-course-overview-en)
 - Another take on inference cost: [CS336 Lecture 10: LLM inference](/posts/ai/2026-08-22-cs336-inference-en)
 - KV cache and serving systems: [CMU 11-868 serving at scale: prefill/decode disaggregation and the KV cache](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en)
 - MoE and model parallelism: [CMU 11-868 L16–L17](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)

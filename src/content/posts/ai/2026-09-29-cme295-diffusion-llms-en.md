@@ -1,5 +1,5 @@
 ---
-title: ", Written Ahead: Three Kinds of Noise, One Training Objective, and the Price of Parallel Decoding in Diffusion LLMs | Stanford CME295 Lecture 8"
+title: "Three Kinds of Noise, One Training Objective, and the Price of Parallel Decoding in Diffusion LLMs | Stanford CME295 2026 Edition Lecture 8"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -36,7 +36,7 @@ glossary:
 
 > **Written before the lecture**: this post was written on September 29, 2026. Lecture 8 of the 2026 edition (November 20, 2026) has not happened yet. The content is based on the topic list in the 2026 syllabus, the parts already covered in the 2025 slides, and the original papers. It will be checked against the video and slides once they are released.
 
-The 2026 edition of Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) devotes all of Lecture 8 to "Diffusion LLMs." The [2026 syllabus](https://cme295.stanford.edu/syllabus/) lists five subtopics: continuous diffusion, discrete diffusion, masked diffusion, training, and inference. The "Difference with last year's edition" slide in the 2026 [Lecture 1 deck](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf) also names Diffusion LLMs as one of three new additions.
+The 2026 edition of Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview-en) devotes all of Lecture 8 to "Diffusion LLMs." The [2026 syllabus](https://cme295.stanford.edu/syllabus/) lists five subtopics: continuous diffusion, discrete diffusion, masked diffusion, training, and inference. The "Difference with last year's edition" slide in the 2026 [Lecture 1 deck](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf) also names Diffusion LLMs as one of three new additions.
 
 The 2025 edition covered this topic in about 28 slides at the end of its last lecture, and [order 9](/posts/ai/2026-09-29-cme295-current-trends-en) of this series already walked through that introduction: why autoregressive (ARM) inference cannot be parallelized, the forward/reverse intuition of image diffusion, replacing noise with `[MASK]` for text, and simplified LLaDA pseudocode for training and sampling. This post does not repeat any of that.
 
@@ -365,7 +365,7 @@ Lecture 8 is new in the 2026 edition, and neither the [2025 midterm](https://cme
 - Work through the probabilistic derivation of diffusion: [Stanford CS229 Lecture 11: diffusion models](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en), [CMU 11-785 Lecture 23](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en), [MIT 6.S191 generative modeling](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling-en)
 - Run it yourself: the [MDLM](https://s-sahoo.com/mdlm) and [Block Diffusion](https://m-arriola.com/bd3lms) project pages include code and tutorials; the [LLaDA project page](https://ml-gsai.github.io/LLaDA-demo/) links weights and sampling code
 - Another answer to the same bottleneck: [order 10: LLM systems](/posts/ai/2026-09-29-cme295-llm-systems-en), [CS336 Lecture 10: LLM inference](/posts/ai/2026-08-22-cs336-inference-en)
-- This series' introductory treatment: [order 9: Lecture 9, Current trends](/posts/ai/2026-09-29-cme295-current-trends-en); back to the [series overview](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- This series' introductory treatment: [order 9: Lecture 9, Current trends](/posts/ai/2026-09-29-cme295-current-trends-en); back to the [series overview](/posts/ai/2026-09-29-cme295-course-overview-en)
 
 ## Update plan
 

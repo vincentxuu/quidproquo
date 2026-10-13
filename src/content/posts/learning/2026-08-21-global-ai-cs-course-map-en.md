@@ -144,7 +144,7 @@ Six school maps are done: [Stanford](/posts/learning/2026-08-20-stanford-cs-cour
 - [CMU 10-423 guide](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en): generative AI, Spring 2026, built around HW1–HW4
 - [Harvard CS2881R guide](/posts/ai/2026-09-30-cs2881r-course-overview-en): AI safety, Fall 2025, with public recordings, readings, and assignments
 - Taiwanese courses in Mandarin: [NTU Yun-Nung Chen ADL 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en), [NTU Hsuan-Tien Lin ML Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) (content from the MOOCs recorded around 2013, practice from the Fall 2024 homework), [NTHU Hung-Yu Kao NLP](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en), and [NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
-- [Stanford CME295 guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en): a two-unit Transformer and LLM course with no assignments; the 2025 edition is fully public, and the 2026 edition adds LLM systems, reinforcement learning, and diffusion LLMs
+- [Stanford CME295 guide](/posts/ai/2026-09-29-cme295-course-overview-en): a two-unit Transformer and LLM course with no assignments; the 2025 edition is fully public, and the 2026 edition adds LLM systems, reinforcement learning, and diffusion LLMs
 - Stanford foundations lecture series, all with bilingual guides: [CS103 28 lectures](/posts/learning/2026-08-21-stanford-cs103-math-foundations-en), [CS107 30 lectures](/posts/learning/2026-08-21-stanford-cs107-computer-systems-en), [CS109 22 lectures](/posts/learning/2026-08-21-stanford-cs109-probability-en), [CS111 28 lectures](/posts/learning/2026-08-21-stanford-cs111-operating-systems-en), [CS161 18 lectures](/posts/learning/2026-08-21-stanford-cs161-algorithms-en)
 - [Berkeley CS189 guide](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en): the overview starts from Spring 2025, while the lecture guides and HW1–5 follow the Spring 2026 course site now back online, compared against the Fall 2026 (eecs189.org/fa26) calendar
 - [CMU 07-380 guide](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en): first offered in Fall 2026; the published lectures 1–10 and HW1–3 each have their own post, and the second half of the semester will be added as the course site progresses; compared with [07-280](/posts/ai/2026-08-22-cmu-07280-course-overview-en)
@@ -210,7 +210,7 @@ Course and recording entries:
 - [CMU 07-380 guide](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
 - [Stanford CS224U guide](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 - [Stanford CS336 topic deep-dive series](/posts/ai/2026-08-22-cs336-overview-tokenization-en)
-- [Stanford CME295 guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- [Stanford CME295 guide](/posts/ai/2026-09-29-cme295-course-overview-en)
 - [CMU 11-768 AI Agents guide](/posts/ai/2026-09-29-cmu-11768-course-overview-en)
 - [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en)
 - [Stanford CS231N guide](/posts/ai/2026-09-30-cs231n-course-overview-en)

@@ -34,7 +34,7 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 7 講「Agentic LLMs」（2025 年 11 月 14 日）。主要來源是 [151 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture7.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=h-7S6HNq0Vg)（1 小時 49 分）。本文只根據投影片上的文字與圖寫，課堂口頭補充沒有收進來。
+本篇對應 Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview) 2025 版第 7 講「Agentic LLMs」（2025 年 11 月 14 日）。主要來源是 [151 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture7.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=h-7S6HNq0Vg)（1 小時 49 分）。本文只根據投影片上的文字與圖寫，課堂口頭補充沒有收進來。
 
 上一講的[推理模型](/posts/ai/2026-09-29-cme295-llm-reasoning)處理了 LLM 的第一個弱點：推理能力有限。這一講的開場投影片把剩下的弱點列出來：知識是靜態的、不能執行動作、很難評估。前兩個是今天的主題，最後一個留給[第 8 講](/posts/ai/2026-09-29-cme295-llm-evaluation)。三個解法剛好一層疊一層：
 
@@ -329,4 +329,4 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic L
 - [Chen et al., Towards Tool Use Alignment of Large Language Models (EMNLP 2024)](https://aclanthology.org/2024.emnlp-main.82/)
 - [Zhang et al., Agent-SafetyBench (2024)](https://arxiv.org/abs/2412.14470)
 - [Anthropic, Disrupting the first reported AI-orchestrated cyber espionage campaign (2025)](https://www.anthropic.com/news/disrupting-AI-espionage)
-- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-cme295-course-overview)

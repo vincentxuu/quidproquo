@@ -163,7 +163,7 @@ notebook 的任務是訓練一個 DDPM，生成**以文字提示為條件的 32�
 
 ## 延伸閱讀
 
-- Transformer 與 attention 更深入的語言模型視角：[Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[Stanford CS336 導讀](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)、[Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- Transformer 與 attention 更深入的語言模型視角：[Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[Stanford CS336 導讀](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)、[Stanford CME295 導讀](/posts/ai/2026-09-29-cme295-course-overview)
 - 擴散與 flow matching 的完整數學：[MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
 - 生成模型的另一門課觀點：[CS230 對抗樣本與生成模型](/posts/ai/2026-08-16-cs230-adversarial-and-generative)
 

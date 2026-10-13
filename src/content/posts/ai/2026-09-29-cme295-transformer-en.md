@@ -34,7 +34,7 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-This post covers Lecture 1, "Transformer," of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en). The main sources are the 2025 [recording](https://www.youtube.com/watch?v=Ub3GoFaUcds) and its [135-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf), cross-checked against the new edition released on September 25, 2026 ([recording](https://www.youtube.com/watch?v=114i2Kz-LZA), [slides](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf)).
+This post covers Lecture 1, "Transformer," of Stanford's [CME295](/posts/ai/2026-09-29-cme295-course-overview-en). The main sources are the 2025 [recording](https://www.youtube.com/watch?v=Ub3GoFaUcds) and its [135-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf), cross-checked against the new edition released on September 25, 2026 ([recording](https://www.youtube.com/watch?v=114i2Kz-LZA), [slides](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf)).
 
 The whole lecture runs on one example sentence: "A cute teddy bear is reading." It gets split into tokens, turned into vectors, handed to an RNN, and then we see why the RNN can't cope, until finally a Transformer translates it into French: "Un ours en peluche mignon lit." Follow that sentence from start to finish and you've covered the entire lecture.
 
@@ -208,4 +208,4 @@ Checked: 2026-10-10.
 - [Vaswani et al., Attention Is All You Need (2017)](https://arxiv.org/abs/1706.03762)
 - [He et al., Deep Residual Learning for Image Recognition (2015)](https://arxiv.org/abs/1512.03385)
 - [Srivastava et al., Dropout (2014)](https://jmlr.org/papers/v15/srivastava14a.html)
-- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-cme295-course-overview-en)

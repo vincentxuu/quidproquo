@@ -200,7 +200,7 @@ Spring 2026 的期末考在 5/11（syllabus 寫 11:30 AM – 2:30 PM，占 CS189
 
 - **深度學習再深一層**：Berkeley CS C182／CS282A，或站內的 [CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-20-large-language-models)（LLM、[diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion)、[強化學習](/posts/ai/2026-08-22-cmu-11785-26-reinforcement-learning)各有專篇）。
 - **agent 與後訓練**（接 Lec 27）：[CMU 11-768 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)從 [agent 的定義](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)一路講到 [SFT](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft) 與 [RL](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics)；[CME295 的 agent 篇](/posts/ai/2026-09-29-cme295-ai-agents)也可以對照。
-- **LLM 本身**：[Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)、[CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)。
+- **LLM 本身**：[Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)、[CME295](/posts/ai/2026-09-29-cme295-course-overview)。
 - **強化學習**：Berkeley CS185／CS285，說明見 [Berkeley AI／ML 課程地圖](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)。
 
 ## 延伸與導覽

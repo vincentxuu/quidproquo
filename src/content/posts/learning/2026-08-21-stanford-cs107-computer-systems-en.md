@@ -1,5 +1,5 @@
 ---
-title: "The Same Course Weights Assignments at 40% One Quarter and 20% the Next | Stanford CS107 Topic Guide"
+title: "The Same Course Weights Assignments at 40% One Quarter and 20% the Next | Stanford CS107 Course Overview"
 date: 2026-08-21
 category: learning
 type: deep-dive

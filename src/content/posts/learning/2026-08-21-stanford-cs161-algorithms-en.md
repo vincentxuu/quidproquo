@@ -1,5 +1,5 @@
 ---
-title: "The Algorithms Course That Lists Writing Clearly as Its Third Learning Goal | Stanford CS161 Topic Guide"
+title: "The Algorithms Course That Lists Writing Clearly as Its Third Learning Goal | Stanford CS161 Course Overview"
 date: 2026-08-21
 category: learning
 type: deep-dive

@@ -1,5 +1,5 @@
 ---
-title: "Nine Lectures and Three Labs Are Public, but the Full Path Still Uses Three External Services | MIT 6.S191 Topic Guide"
+title: "Nine Lectures and Three Labs Are Public, but the Full Path Still Uses Three External Services | MIT 6.S191 Course Overview"
 date: 2026-08-21
 category: ai
 type: guide

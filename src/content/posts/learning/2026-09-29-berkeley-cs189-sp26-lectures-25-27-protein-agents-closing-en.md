@@ -200,7 +200,7 @@ These directions follow the threads CS189's last lectures leave open, using guid
 
 - **Deeper deep learning**: Berkeley CS C182/CS282A, or the [CMU 11-785 guides](/posts/ai/2026-08-22-cmu-11785-20-large-language-models-en) (with dedicated posts on [diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en) and [reinforcement learning](/posts/ai/2026-08-22-cmu-11785-26-reinforcement-learning-en)).
 - **Agents and post-training** (following Lec 27): the [CMU 11-768 guides](/posts/ai/2026-09-29-cmu-11768-course-overview-en) go from [what an agent is](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) to [SFT](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft-en) and [RL](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en); [CME295's agents post](/posts/ai/2026-09-29-cme295-ai-agents-en) is a good comparison.
-- **LLMs themselves**: [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en), [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en), [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en).
+- **LLMs themselves**: [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en), [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en), [CME295](/posts/ai/2026-09-29-cme295-course-overview-en).
 - **Reinforcement learning**: Berkeley CS185/CS285; see the [Berkeley AI/ML course map](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en).
 
 ## Further reading and navigation

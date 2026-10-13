@@ -180,7 +180,7 @@ These site series overlap with 6.5940. This series still covers the overlapping 
 
 - [MIT AI/ML course map](/posts/learning/2026-08-21-mit-ai-ml-course-map-en): where 6.5940 sits in MIT's curriculum
 - [Stanford CS336: GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en) and [inference](/posts/ai/2026-08-22-cs336-inference-en): hardware and inference from a language-model course
-- [Stanford CS224N guide](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) and [Stanford CME295 guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en): how Transformers and LLMs work
+- [Stanford CS224N guide](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) and [Stanford CME295 guide](/posts/ai/2026-09-29-cme295-course-overview-en): how Transformers and LLMs work
 - [Stanford CS231N guide](/posts/ai/2026-09-30-cs231n-course-overview-en): ViTs and computer vision
 - [MIT 6.S184 guide](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en): the theory of diffusion and flow matching
 

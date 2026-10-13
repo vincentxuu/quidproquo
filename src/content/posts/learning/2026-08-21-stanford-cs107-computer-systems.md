@@ -1,5 +1,5 @@
 ---
-title: "同一門課的作業占比，在不同學期是 40% 對 20%｜Stanford CS107 主題單元"
+title: "同一門課的作業占比，在不同學期是 40% 對 20%｜Stanford CS107 課程總覽"
 date: 2026-08-21
 category: learning
 type: deep-dive

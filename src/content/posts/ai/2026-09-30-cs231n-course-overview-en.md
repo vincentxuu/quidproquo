@@ -8,6 +8,9 @@ lang: en
 series:
   name: "Reading Stanford CS231N"
   order: 0
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 21
 tldr: "CS231N is Stanford's deep learning course for computer vision. For Spring 2026, slides for 16 lectures, all three assignment pages with starter code, the course notes, and the project spec are public, so this series rates it A3 (enough to self-study). There are three gaps: the 2026 recordings are Canvas-only, L17 and L18 have no slides, and the midterm is not public. You can pair the 2026 slides and assignments with the 2025 YouTube recordings and follow the official calendar over 10 weeks."
 description: "Series overview for Stanford CS231N: Deep Learning for Computer Vision (Spring 2026), built from the official home page, schedule, assignment pages, project page, the cs231n.github.io notes, and the Spring 2025 YouTube playlist: what the course covers, grading and prerequisites, what outside readers can actually get, how the 2026 materials line up with the 2025 recordings, and a 10-week self-study plan that follows the official calendar."
 draft: false

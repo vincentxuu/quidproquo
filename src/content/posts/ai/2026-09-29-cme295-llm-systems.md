@@ -1,5 +1,5 @@
 ---
-title: "（課前預寫）：LLM 系統，同一個模型怎麼跑快好幾倍｜Stanford CME295 第 5 堂"
+title: "LLM 系統：同一個模型怎麼跑快好幾倍｜Stanford CME295 2026 版 第 5 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -36,7 +36,7 @@ glossary:
 
 > **課前預寫版**：本篇寫於 2026 年 9 月 29 日，2026 版第 5 講（2026 年 10 月 30 日）尚未開課。內容根據 2026 課表的主題清單、2025 版投影片中已講過的部分，以及原始論文整理；影片與投影片上架後會對照更新。
 
-本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2026 版第 5 講「LLM systems」。這一講在 2025 版不存在，它的內容散在 2025 版[第 3 講投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf)最後約 40 頁（推論加速）和[第 4 講投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf)中段約 50 頁（訓練最佳化）。本系列的[第 3 講導讀](/posts/ai/2026-09-29-cme295-large-language-models)和[第 4 講導讀](/posts/ai/2026-09-29-cme295-llm-training)各畫過一張地圖，並說細節留到這一篇。
+本篇對應 Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview) 2026 版第 5 講「LLM systems」。這一講在 2025 版不存在，它的內容散在 2025 版[第 3 講投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf)最後約 40 頁（推論加速）和[第 4 講投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf)中段約 50 頁（訓練最佳化）。本系列的[第 3 講導讀](/posts/ai/2026-09-29-cme295-large-language-models)和[第 4 講導讀](/posts/ai/2026-09-29-cme295-llm-training)各畫過一張地圖，並說細節留到這一篇。
 
 你用過任何 LLM 聊天介面，大概都有這個經驗：送出問題後要等一下，第一個字才出現；之後字就一個一個穩定地流出來。這兩段等待其實是兩種不同的工作，瓶頸也不一樣。這一講的主題清單看起來很雜，從多 GPU 訓練一路到硬體選型，但大多可以收斂成同一個問題：**資料在 GPU 裡搬來搬去的成本，常常比計算本身還貴**。
 
@@ -431,4 +431,4 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Train
 - [Dao et al., FlashAttention (2022)](https://arxiv.org/abs/2205.14135)
 - [Dao, FlashAttention-2 (2023)](https://arxiv.org/abs/2307.08691)
 - [Shah et al., FlashAttention-3 (2024)](https://arxiv.org/abs/2407.08608)
-- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-cme295-course-overview)

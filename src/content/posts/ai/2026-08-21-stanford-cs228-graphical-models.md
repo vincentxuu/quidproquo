@@ -1,5 +1,5 @@
 ---
-title: "先修只寫「基本機率與演算法」，但這門課已經停開兩年｜Stanford CS228 主題單元"
+title: "先修只寫「基本機率與演算法」，但這門課已經停開兩年｜Stanford CS228 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

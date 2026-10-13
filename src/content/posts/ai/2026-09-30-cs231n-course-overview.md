@@ -8,6 +8,9 @@ lang: zh-TW
 series:
   name: "Stanford CS231N 導讀"
   order: 0
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 21
 tldr: "CS231N 是 Stanford 的電腦視覺深度學習課，Spring 2026 版的 16 講投影片、三份作業的題目頁與起始碼、課程筆記與專題規範都公開，本系列評為 A3（足以自學）。缺口有三個：2026 錄影只放在 Canvas、L17 與 L18 沒有投影片、期中考不公開。可以拿 2026 的投影片和作業，配 2025 年的 YouTube 錄影，照官方課表排 10 週。"
 description: "Stanford CS231N: Deep Learning for Computer Vision（Spring 2026）系列總覽：依官方首頁、課表、作業頁、專題頁、cs231n.github.io 筆記與 Spring 2025 YouTube 播放清單，整理課程定位、評分與先修、校外讀者拿得到哪些材料、2026 教材與 2025 錄影怎麼對照，以及照官方課表排的 10 週自學路線。"
 draft: false

@@ -228,7 +228,7 @@ print(softmax(scores / np.sqrt(5)).round(2))  # [0.4  0.29 0.11 0.08 0.11]
 
 - 從位置編碼推到 causal self-attention：[CMU 07-280 Lecture 20](/posts/ai/2026-08-22-cmu-07280-lecture-20-attention-transformers)
 - Attention 與 Transformer 的深度學習觀點：[CMU 11-785 Lecture 18](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers)
-- Transformer 與 LLM 的完整課程：[Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)、[Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)
+- Transformer 與 LLM 的完整課程：[Stanford CME295 導讀](/posts/ai/2026-09-29-cme295-course-overview)、[Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)
 - 從零寫出 Transformer 語言模型：[Stanford CS336 導讀](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)
 - 中文授課的另一條路線：[台大李宏毅 ML 2026 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
 

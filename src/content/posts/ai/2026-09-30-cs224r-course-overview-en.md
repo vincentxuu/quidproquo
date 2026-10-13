@@ -8,6 +8,9 @@ lang: en
 series:
   name: "Reading Stanford CS224R"
   order: 0
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 23
 tldr: "CS224R is Chelsea Finn's deep reinforcement learning course at Stanford. It runs from imitation learning to RL for LLMs and robot foundation models. For Spring 2026, all 17 slide decks, the three homework handouts with starter code, and the default project spec with starter code can be downloaded without logging in, so this series rates it A3 (enough to self-study). The gaps: the 2026 recordings are Canvas-only, the midterm and its solutions are not public, and HW2 and HW3 require Modal. The public recordings are from Spring 2025, so this series uses them as a supplement and flags the differences lecture by lecture."
 description: "Series overview for Stanford CS224R Deep Reinforcement Learning (Spring 2026), built from the official home page, schedule, homework PDFs, default project spec, the Spring 2025 archive, and the YouTube playlist: what the course covers, prerequisites, grading and the AI tools policy, what outside readers can get, how the 2026 and 2025 offerings differ, and the reading arc for the whole series."
 draft: false

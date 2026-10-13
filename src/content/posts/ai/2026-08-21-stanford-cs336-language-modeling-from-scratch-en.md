@@ -1,5 +1,5 @@
 ---
-title: "The Lectures Are Runnable Python, and From Assignment 2 On You Pay for the GPUs | Stanford CS336 Topic Guide"
+title: "The Lectures Are Runnable Python, and From Assignment 2 On You Pay for the GPUs | Stanford CS336 Course Overview"
 date: 2026-08-21
 category: ai
 type: deep-dive

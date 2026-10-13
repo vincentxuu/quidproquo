@@ -182,7 +182,7 @@ This guide stands on its own. To go deeper, the site has these:
 
 - The math of diffusion, sampling and guidance: [MIT 6.S184 guide](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
 - Visual generation and CLIP-style models: [Stanford CS231N guide](/posts/ai/2026-09-30-cs231n-course-overview-en)
-- Transformers and LoRA on LLMs: [Stanford CME295 guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- Transformers and LoRA on LLMs: [Stanford CME295 guide](/posts/ai/2026-09-29-cme295-course-overview-en)
 - The course landscape and access levels: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Previous: [L10 The adventure that starts with the VAE](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion-en) | Next: [L12 ControlNet and Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)

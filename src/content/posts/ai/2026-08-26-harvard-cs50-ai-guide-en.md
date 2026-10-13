@@ -1,5 +1,5 @@
 ---
-title: "Seven Weeks, Twelve Projects, and How to Follow a Course Filmed in 2020 | Harvard CS50 AI Topic Guide"
+title: "Seven Weeks, Twelve Projects, and How to Follow a Course Filmed in 2020 | Harvard CS50 AI Course Overview"
 date: 2026-08-26
 category: ai
 type: guide

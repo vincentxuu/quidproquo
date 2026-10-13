@@ -185,7 +185,7 @@ One thing to do tonight: open [GenAI01](https://yenlung.me/1132GenAI), go to sli
 Each lecture here stands on its own. These series on the site are only for when you want to dig deeper:
 
 - A fuller treatment of neural network basics: [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en)
-- LLMs and Transformers: [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en), [Stanford CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), [Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en), [NTU Hung-yi Lee's Machine Learning 2026](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
+- LLMs and Transformers: [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en), [Stanford CME295](/posts/ai/2026-09-29-cme295-course-overview-en), [Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en), [NTU Hung-yi Lee's Machine Learning 2026](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
 - RAG: [The complete guide to RAG patterns](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
 - AI agents: [Reading CMU 11-768](/posts/ai/2026-09-29-cmu-11768-course-overview-en); MCP's actual name and design: [MCP (Model Context Protocol)](/posts/ai/2026-03-22-mcp-model-context-protocol-en)
 - Diffusion math: [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en); visual generation: [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en)

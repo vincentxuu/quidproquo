@@ -181,7 +181,7 @@ L1–L2 在第一章之前，負責動機與量尺。Course Summary 投影片第
 
 - [MIT AI／ML 課程地圖](/posts/learning/2026-08-21-mit-ai-ml-course-map)：6.5940 在 MIT 課程體系裡的位置
 - [Stanford CS336 導讀：GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)、[推論](/posts/ai/2026-08-22-cs336-inference)：從語言模型訓練課的角度看硬體與推論
-- [Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)：Transformer 與 LLM 的完整原理
+- [Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[Stanford CME295 導讀](/posts/ai/2026-09-29-cme295-course-overview)：Transformer 與 LLM 的完整原理
 - [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)：ViT 與電腦視覺
 - [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)：diffusion 與 flow matching 的理論
 

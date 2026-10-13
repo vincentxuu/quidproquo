@@ -30,7 +30,7 @@ glossary:
 
 前五篇在打地基：GPU 怎麼跑 kernel、框架怎麼自動微分、你自己的 MiniTorch 怎麼訓練一個情感分類器。從這一篇開始，課程第一次把「模型」搬上桌。
 
-11-868 講模型只用了兩堂：L06 講 Transformer，L07 講預訓練 LLM。跟 [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning) 或 [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 比，這兩堂的篇幅很短。它們只負責一件事：讓你知道**接下來要加速、切分、服務的東西長什麼樣子**，語言模型為什麼有效則交給其他課。本文照這個角度讀：每個元件都問兩件事，它的矩陣形狀是什麼、它會吃掉什麼資源。
+11-868 講模型只用了兩堂：L06 講 Transformer，L07 講預訓練 LLM。跟 [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning) 或 [CME295](/posts/ai/2026-09-29-cme295-course-overview) 比，這兩堂的篇幅很短。它們只負責一件事：讓你知道**接下來要加速、切分、服務的東西長什麼樣子**，語言模型為什麼有效則交給其他課。本文照這個角度讀：每個元件都問兩件事，它的矩陣形狀是什麼、它會吃掉什麼資源。
 
 ## 先定位：三種語言模型
 

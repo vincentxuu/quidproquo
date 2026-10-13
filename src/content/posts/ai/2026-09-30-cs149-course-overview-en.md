@@ -8,6 +8,9 @@ lang: en
 series:
   name: "Reading Stanford CS149"
   order: 0
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 20
 tldr: "CS149 is Stanford's parallel computing course, taught by Kayvon Fatahalian and Kunle Olukotun. It runs from multi-core CPUs and SIMD through GPUs, AI accelerators, and the datacenter, then returns to cache coherence and lock-free programming. For Fall 2025, all 18 slide decks, the starter code and READMEs for 5 programming assignments, and 4 written-assignment PDFs are public, so this series rates it A3 (self-study ready). There are four gaps: the Fall 2025 lecture videos are Canvas-only; PA1 is graded on Stanford's myth machines; PA4 needs a self-funded AWS Trainium2 instance and a private course AMI; PA5's H100 job queue and leaderboard require a SUNet ID. The public videos are from 2023, and this series treats them as a listening supplement only."
 description: "Series overview for Stanford CS149 Parallel Computing (Fall 2025), based on the official course home page, course info, 18 lecture slide decks, 5 GitHub assignments, 4 written assignments, and the 2023 YouTube playlist. Covers what the course is for, a prerequisite self-check, grading, what outside readers can access, how the 2023 videos map to Fall 2025, and two reading paths."
 draft: false

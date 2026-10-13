@@ -36,7 +36,7 @@ glossary:
 
 For the 2026 edition, use the [Lecture 2 recording](https://www.youtube.com/watch?v=GaIeu3npx04) and [slides](https://cme295.stanford.edu/slides/fall26-cme295-lecture2.pdf). It covers topics from both 2025 Lecture 2 and Lecture 3; this guide keeps its original 2025 lecture number. The “What changed in 2026” section explains the comparison.
 
-This post covers Lecture 3, "Large Language Models," of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) (October 10, 2025). The main source is the [125-slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf); the [recording](https://www.youtube.com/watch?v=Q5baLehv5So) runs 1 hour 48 minutes. Everything here comes from the text and figures on the slides. Anything said only out loud in class is not included.
+This post covers Lecture 3, "Large Language Models," of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-cme295-course-overview-en) (October 10, 2025). The main source is the [125-slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf); the [recording](https://www.youtube.com/watch?v=Q5baLehv5So) runs 1 hour 48 minutes. Everything here comes from the text and figures on the slides. Anything said only out loud in class is not included.
 
 If you have called any LLM API, you have probably seen `temperature` and `top_p` in the parameter list, and maybe an option for forcing JSON output. Where each of those fields intervenes in the model's work is the core of this lecture.
 
@@ -296,4 +296,4 @@ Checked: 2026-10-10.
 - [DeepSeek-AI, DeepSeek-V2 (2024)](https://arxiv.org/abs/2405.04434)
 - [Chen et al., Accelerating Large Language Model Decoding with Speculative Sampling (2023)](https://arxiv.org/abs/2302.01318)
 - [Gloeckle et al., Better & Faster Large Language Models via Multi-token Prediction (2024)](https://arxiv.org/abs/2404.19737)
-- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-cme295-course-overview-en)

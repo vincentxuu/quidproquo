@@ -8,9 +8,6 @@ lang: en
 series:
   name: "Reading Stanford CS329Z"
   order: 6
-additionalSeries:
-  - name: "Reading Stanford's Main-Line CS Courses"
-    order: 24
 tldr: "Week 5 turns multi-agent collaboration into programmable conversation with AutoGen on Monday, then lays out the three optimization axes — prompts, weights, inference compute — with GEPA and the test-time compute paper on Wednesday. HW1 is due 10/30, the last full week before the deadline, so this installment helps you decide which axis deserves your effort."
 description: "A guided reading of Stanford CS329Z Week 5: AutoGen's conversable agents and conversation programming, GEPA's reflective prompt evolution and difficulty-aware test-time compute, converging on a three-way choice for finishing HW1."
 draft: false

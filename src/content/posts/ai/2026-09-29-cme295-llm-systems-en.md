@@ -1,5 +1,5 @@
 ---
-title: "(Pre-Lecture Edition): LLM Systems, or How the Same Model Runs Several Times Faster | Stanford CME295 Lecture 5"
+title: "LLM Systems: How the Same Model Runs Several Times Faster | Stanford CME295 2026 Edition Lecture 5"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -36,7 +36,7 @@ glossary:
 
 > **Pre-lecture edition**: This post was written on September 29, 2026, before Lecture 5 of the 2026 edition (October 30, 2026) has taken place. It is based on the topic list in the 2026 syllabus, the parts already covered in the 2025 slides, and the original papers. It will be revised against the video and slides once they are posted.
 
-This post covers Lecture 5, "LLM systems," of the 2026 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en). The lecture did not exist in 2025. Its material was spread across the last ~40 slides of the 2025 [Lecture 3 deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf) (inference speedups) and ~50 slides in the middle of the [Lecture 4 deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf) (training optimizations). Our guides to [Lecture 3](/posts/ai/2026-09-29-cme295-large-language-models-en) and [Lecture 4](/posts/ai/2026-09-29-cme295-llm-training-en) each drew a map of these topics and deferred the details to this post.
+This post covers Lecture 5, "LLM systems," of the 2026 edition of Stanford's [CME295](/posts/ai/2026-09-29-cme295-course-overview-en). The lecture did not exist in 2025. Its material was spread across the last ~40 slides of the 2025 [Lecture 3 deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf) (inference speedups) and ~50 slides in the middle of the [Lecture 4 deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf) (training optimizations). Our guides to [Lecture 3](/posts/ai/2026-09-29-cme295-large-language-models-en) and [Lecture 4](/posts/ai/2026-09-29-cme295-llm-training-en) each drew a map of these topics and deferred the details to this post.
 
 If you have used any LLM chat interface, you know the pattern: you send a question, wait a moment for the first word, and then words stream out at a steady pace. Those two waits are different kinds of work with different bottlenecks. The topic list for this lecture looks scattered, running from multi-GPU training to hardware choices, but most of it reduces to one idea: **moving data around a GPU often costs more than the computation itself**.
 
@@ -431,4 +431,4 @@ Checked: 2026-10-10.
 - [Dao et al., FlashAttention (2022)](https://arxiv.org/abs/2205.14135)
 - [Dao, FlashAttention-2 (2023)](https://arxiv.org/abs/2307.08691)
 - [Shah et al., FlashAttention-3 (2024)](https://arxiv.org/abs/2407.08608)
-- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-cme295-course-overview-en)

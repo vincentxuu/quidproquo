@@ -41,7 +41,7 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 4 講「LLM training」（2025 年 10 月 17 日）。主要來源是 [128 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf)，[錄影](https://www.youtube.com/watch?v=VlA_jt_3Qc4)可以對照著看；本文內容只根據投影片上的文字與圖表，沒有轉述課堂口頭說明。
+本篇對應 Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview) 2025 版第 4 講「LLM training」（2025 年 10 月 17 日）。主要來源是 [128 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf)，[錄影](https://www.youtube.com/watch?v=VlA_jt_3Qc4)可以對照著看；本文內容只根據投影片上的文字與圖表，沒有轉述課堂口頭說明。
 
 前三講回答的是「LLM 長什麼樣子」。第 4 講換一個問題：這樣一台機器，要怎麼從一堆隨機權重變成會回答問題的助理？投影片的答案分兩段。先**預訓練**，讓模型學會語言和程式碼的模式；再**微調**，讓它學會照指示做事。兩段的成本差了好幾個數量級，這一講大半篇幅在講錢和記憶體花在哪、怎麼省。
 
@@ -332,4 +332,4 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Train
 - [Hu et al., LoRA: Low-Rank Adaptation of Large Language Models (2021)](https://arxiv.org/abs/2106.09685)
 - [Schulman et al., LoRA Without Regret (Thinking Machines, 2025)](https://thinkingmachines.ai/blog/lora/)
 - [Dettmers et al., QLoRA: Efficient Finetuning of Quantized LLMs (2023)](https://arxiv.org/abs/2305.14314)
-- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-cme295-course-overview)

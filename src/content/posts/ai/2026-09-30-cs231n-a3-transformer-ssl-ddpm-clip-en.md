@@ -162,7 +162,7 @@ One thing to do tonight: open `Transformer_Captioning.ipynb`, read only the four
 
 ## Further reading
 
-- Attention and Transformers from the language-model side: [Reading Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en), [Reading Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en), [Reading Stanford CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- Attention and Transformers from the language-model side: [Reading Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en), [Reading Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en), [Reading Stanford CME295](/posts/ai/2026-09-29-cme295-course-overview-en)
 - The full math of diffusion and flow matching: [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
 - Another course's take on generative models: [CS230 adversarial examples and generative models](/posts/ai/2026-08-16-cs230-adversarial-and-generative-en)
 

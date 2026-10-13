@@ -1,5 +1,5 @@
 ---
-title: "A Probability Course That Turned \"How to Read This Lecture With an LLM\" Into Official Coursework | Stanford CS109 Topic Guide"
+title: "A Probability Course That Turned \"How to Read This Lecture With an LLM\" Into Official Coursework | Stanford CS109 Course Overview"
 date: 2026-08-21
 category: learning
 type: deep-dive

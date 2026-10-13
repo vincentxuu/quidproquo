@@ -1,5 +1,5 @@
 ---
-title: "(Pre-Lecture Edition): SFT, PPO, GRPO, and On-Policy Distillation Are One Policy Gradient | Stanford CME295 Lecture 4"
+title: "SFT, PPO, GRPO, and On-Policy Distillation Are One Policy Gradient | Stanford CME295 2026 Edition Lecture 4"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -36,7 +36,7 @@ glossary:
 
 > **Pre-lecture edition**: This post was written on September 29, 2026, before 2026 Lecture 4 (October 16, 2026) has been taught. It is based on the 2026 syllabus topic list, material the 2025 slides already covered, and the original papers. It will be checked against the video and slides once they are posted.
 
-This is post 11 in the Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) series, covering Lecture 4, "Reinforcement learning with LLMs," which is new in 2026. The [2026 syllabus](https://cme295.stanford.edu/syllabus/) (checked 2026-09-29) lists seven items for it:
+This is post 11 in the Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview-en) series, covering Lecture 4, "Reinforcement learning with LLMs," which is new in 2026. The [2026 syllabus](https://cme295.stanford.edu/syllabus/) (checked 2026-09-29) lists seven items for it:
 
 1. Mathematical conventions
 2. Reward design
@@ -441,4 +441,4 @@ Checked: 2026-10-10.
 - [Lu & Thinking Machines Lab, On-Policy Distillation (2025)](https://thinkingmachines.ai/blog/on-policy-distillation/)
 - [Qwen Team, Qwen3 Technical Report (2025)](https://arxiv.org/abs/2505.09388)
 - [Ross et al., A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning (DAgger, 2010)](https://arxiv.org/abs/1011.0686)
-- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-cme295-course-overview-en)

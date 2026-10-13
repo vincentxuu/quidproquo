@@ -36,7 +36,7 @@ glossary:
 
 如果你跟的是 2026 版，請開啟[第 2 堂錄影](https://www.youtube.com/watch?v=GaIeu3npx04)與[投影片](https://cme295.stanford.edu/slides/fall26-cme295-lecture2.pdf)。這堂整合了 2025 版第 2、3 堂的部分主題；本文保留原本的 2025 堂次，版本差異見文末「2026 版改了什麼」。
 
-本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 2 講「Transformer-based models & tricks」（2025 年 10 月 3 日）。主要來源是 [109 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture2.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=yT84Y5zCnaA)（1 小時 47 分）。本文只根據投影片上的內容寫，投影片沒寫的地方會標明。
+本篇對應 Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview) 2025 版第 2 講「Transformer-based models & tricks」（2025 年 10 月 3 日）。主要來源是 [109 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture2.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=yT84Y5zCnaA)（1 小時 47 分）。本文只根據投影片上的內容寫，投影片沒寫的地方會標明。
 
 [第 1 講](/posts/ai/2026-09-29-cme295-transformer)組好了一台 2017 年的[原始 Transformer](https://arxiv.org/abs/1706.03762)。可是你今天用的 LLM，位置編碼、正規化、attention 的做法幾乎都換過了，而且只留下 decoder 那一半。第 2 講就是這張改裝清單：同一台機器，哪些零件被換掉、為什麼換，以及拆成不同半邊之後長出了哪些模型家族。
 
@@ -295,4 +295,4 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transform
 - [Hinton et al., Distilling the Knowledge in a Neural Network (2015)](https://arxiv.org/abs/1503.02531)
 - [Sanh et al., DistilBERT (2019)](https://arxiv.org/abs/1910.01108)
 - [Liu et al., RoBERTa (2019)](https://arxiv.org/abs/1907.11692)
-- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-cme295-course-overview)

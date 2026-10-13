@@ -34,7 +34,7 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-This post covers Lecture 9, "Current trends," of the 2025 edition of Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) (December 5, 2025). The main source is the [128-slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture9.pdf); the recording is on [YouTube](https://www.youtube.com/watch?v=Q86qzJ1K1Ss) (1:51:31). Everything here is based on what is written or drawn on the slides, not on what was said in class.
+This post covers Lecture 9, "Current trends," of the 2025 edition of Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview-en) (December 5, 2025). The main source is the [128-slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture9.pdf); the recording is on [YouTube](https://www.youtube.com/watch?v=Q86qzJ1K1Ss) (1:51:31). Everything here is based on what is written or drawn on the slides, not on what was said in class.
 
 The first eight lectures took a sentence all the way to a model that reasons, uses tools, and can be graded. The last lecture pushes outward in two directions. First, can a Transformer look at pictures? Second, does an LLM really have to write left to right, one token at a time? The agenda has four parts: Recap, Beyond Transformer-based LLMs, Diffusion LLMs, and Closing thoughts.
 
@@ -255,7 +255,7 @@ Lecture 9 is not covered by the [2025 final exam](https://cme295.stanford.edu/ex
 - Where multimodal models actually stand in 2026: [H1 2026 multimodal model landscape](/posts/ai/2026-08-18-multimodal-models-2026-landscape-en)
 - The math of image diffusion: [Stanford CS229 Lecture 11: diffusion models](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en), [CMU 11-785 Lecture 23](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - Why inference cost is bound by memory: [CS336 Lecture 10: LLM inference](/posts/ai/2026-08-22-cs336-inference-en)
-- Back to the start: [series overview](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- Back to the start: [series overview](/posts/ai/2026-09-29-cme295-course-overview-en)
 
 ## Course video sources
 

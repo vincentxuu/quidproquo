@@ -145,7 +145,7 @@ HW0 頁自己也說，去年的講課和筆記可以參考，但領域變化快�
 
 本系列每篇都自成一體，和站內其他課程重疊的地方只放延伸連結：
 
-- LLM 訓練與 RLHF：[Stanford CS336 導讀](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)、[Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- LLM 訓練與 RLHF：[Stanford CS336 導讀](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)、[Stanford CME295 導讀](/posts/ai/2026-09-29-cme295-course-overview)
 - 強化學習基礎：[Berkeley CS285 Spring 2026 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
 - 可解釋性：[CS224U 分析方法：probing 與 attribution](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)
 - Prompt injection 與 agent 安全實務：[Agent 安全的 harness 層](/posts/ai/2026-08-10-agent-security-harness-layer)

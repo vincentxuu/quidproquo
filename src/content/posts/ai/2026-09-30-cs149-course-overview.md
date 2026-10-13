@@ -8,6 +8,9 @@ lang: zh-TW
 series:
   name: "Stanford CS149 導讀"
   order: 0
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 20
 tldr: "CS149 是 Kayvon Fatahalian 與 Kunle Olukotun 在 Stanford 教的平行計算課，從多核 CPU、SIMD 一路講到 GPU、AI 加速器、資料中心，最後回到 cache coherence 與 lock-free。Fall 2025 的 18 份投影片、5 個程式作業的 starter code 與 README、4 份書面作業 PDF 都能匿名取得，本系列評為 A3（足以自學）。缺口有四個：當期錄影只在 Canvas；PA1 評分用 Stanford myth 機器；PA4 要自費租 AWS Trainium2，而且課程 AMI 是私有的；PA5 的 H100 排隊系統與排行榜要 SUNet ID。公開錄影是 2023 版，本系列只拿它當聽講補充。"
 description: "Stanford CS149 Parallel Computing（Fall 2025）系列總覽：依官方課程首頁、course info、18 講投影片、5 個 GitHub 作業、4 份書面作業與 2023 YouTube 播放清單，整理課程定位、先修自查、評分、校外讀者拿得到什麼、2023 錄影怎麼對照，以及兩條閱讀路線。"
 draft: false

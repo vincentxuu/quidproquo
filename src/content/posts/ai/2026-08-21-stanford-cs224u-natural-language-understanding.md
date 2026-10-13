@@ -1,5 +1,5 @@
 ---
-title: "課程網站停在 2023 年春季，但整套教材可以 clone 下來跑｜Stanford CS224U 主題單元"
+title: "課程網站停在 2023 年春季，但整套教材可以 clone 下來跑｜Stanford CS224U 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

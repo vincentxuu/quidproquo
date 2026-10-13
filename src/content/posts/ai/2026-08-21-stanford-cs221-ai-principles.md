@@ -1,5 +1,5 @@
 ---
-title: "AI 入門課的先修欄位，寫的是 CS103、CS106B、CS109、CS161｜Stanford CS221 主題單元"
+title: "AI 入門課的先修欄位，寫的是 CS103、CS106B、CS109、CS161｜Stanford CS221 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

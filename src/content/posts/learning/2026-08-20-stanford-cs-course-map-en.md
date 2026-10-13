@@ -122,7 +122,7 @@ This branch has the most complete prerequisite chain of the five — you can fol
 |---|---|---|
 | [CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en) | From Languages to Information | CS106B, Python, CS109, CS107-level |
 | [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) | Natural Language Processing with Deep Learning | calculus and linear algebra; CS124, CS221, or CS229 |
-| [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) | Transformers & Large Language Models | machine learning basics and linear algebra |
+| [CME295](/posts/ai/2026-09-29-cme295-course-overview-en) | Transformers & Large Language Models | machine learning basics and linear algebra |
 | [CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) | Natural Language Understanding | CS224N or CS224S |
 | [CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai-en) | Agentic AI | one of LINGUIST 180/280, CS124, CS224N, CS224S, CS224U |
 | CS329X | Human Centered NLP | — |
@@ -133,7 +133,7 @@ This branch has the most complete prerequisite chain of the five — you can fol
 
 **CS224V is now called Agentic AI** — a 2026 name. It works directly on RAG and formal task descriptions, hybrid reasoning across databases and knowledge bases, AI-driven knowledge curation for scientific research, improving the accuracy and interpretability of decision-making agents through formal methods, and efficiency for long-horizon agents. If you want to build agents and would rather have a real course, this one is underrated.
 
-**CME295 is not a CS course number, yet it is the biggest time-saver on this track.** Offered by ICME, it is two units with no assignments, graded only on a midterm and a final; nine lectures run from the Transformer through LLM training, reasoning, and agents. The 2025 edition's videos, slides, and exam solutions are all public, and Autumn 2026 is in session with three new lectures on LLM systems, reinforcement learning, and diffusion LLMs. It works as a map before CS224N or as catch-up after it; this site has a [lecture-by-lecture guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en).
+**CME295 is not a CS course number, yet it is the biggest time-saver on this track.** Offered by ICME, it is two units with no assignments, graded only on a midterm and a final; nine lectures run from the Transformer through LLM training, reasoning, and agents. The 2025 edition's videos, slides, and exam solutions are all public, and Autumn 2026 is in session with three new lectures on LLM systems, reinforcement learning, and diffusion LLMs. It works as a map before CS224N or as catch-up after it; this site has a [lecture-by-lecture guide](/posts/ai/2026-09-29-cme295-course-overview-en).
 
 **CS329X: Human Centered NLP** covers human-centered design, human-in-the-loop algorithms, fairness, and accessibility. Easy to write off as a soft elective, but it handles exactly the class of problems that blows up first when a model becomes a product.
 

@@ -1,5 +1,5 @@
 ---
-title: "講義是跑得起來的 Python，作業從第二份開始要自己付 GPU 的錢｜Stanford CS336 主題單元"
+title: "講義是跑得起來的 Python，作業從第二份開始要自己付 GPU 的錢｜Stanford CS336 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

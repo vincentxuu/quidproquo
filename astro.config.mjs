@@ -157,6 +157,9 @@ export default defineConfig({
     '/en/series/how-intelligence-becomes-an-enterprise-business': '/en/series/enterprise-intelligence-business',
     '/en/series/who-controls-the-creator-reader-relationship': '/en/series/creator-reader-relationship',
     '/en/series/how-free-content-acquires-customers-for-another-business': '/en/series/free-content-acquisition',
+    // Stanford CME295 入口文改名為課程總覽（2026-10-13），檔名與其他課的總覽對齊
+    '/posts/ai/2026-09-29-stanford-cme295-transformers-llms': '/posts/ai/2026-09-29-cme295-course-overview',
+    '/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en': '/posts/ai/2026-09-29-cme295-course-overview-en',
   },
   adapter: cloudflare({
     platformProxy: { enabled: true },

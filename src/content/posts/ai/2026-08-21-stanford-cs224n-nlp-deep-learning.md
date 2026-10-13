@@ -1,5 +1,5 @@
 ---
-title: "打開 2019 年那版課表，Transformer 還排在第 14 堂｜Stanford CS224N 主題單元"
+title: "打開 2019 年那版課表，Transformer 還排在第 14 堂｜Stanford CS224N 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

@@ -1,5 +1,5 @@
 ---
-title: "九講與三個 labs 全公開，但完整跑完仍要三個外部服務｜MIT 6.S191 主題單元"
+title: "九講與三個 labs 全公開，但完整跑完仍要三個外部服務｜MIT 6.S191 課程總覽"
 date: 2026-08-21
 category: ai
 type: guide

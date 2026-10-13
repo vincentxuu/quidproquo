@@ -9,9 +9,6 @@ lang: en
 series:
   name: "Reading Stanford CS329Z"
   order: 3
-additionalSeries:
-  - name: "Reading Stanford's Main-Line CS Courses"
-    order: 21
 tldr: "Week 2 runs as a one-two punch: Monday's Anthropic taxonomy teaches you when not to build an agent, Wednesday's RAG paper hands you the first complete compound-system recipe. Five workflow patterns are the selection toolkit, RAG is parametric-plus-nonparametric memory, and together they are the blueprint for HW1's email retrieval pipeline."
 description: "A guided reading of the Stanford CS329Z Week 2 anchors: Anthropic's Building Effective Agents with its workflow/agent split and five patterns, plus Lewis et al.'s RAG recipe — and how they assemble into the first pipeline of HW1's internal company assistant."
 draft: false

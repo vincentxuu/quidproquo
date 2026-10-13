@@ -34,7 +34,7 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 9 講「Current trends」（2025 年 12 月 5 日）。主要來源是 [128 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture9.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=Q86qzJ1K1Ss)（1:51:31）。本文只根據投影片上的文字與圖寫，沒有轉述課堂口頭內容。
+本篇對應 Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview) 2025 版第 9 講「Current trends」（2025 年 12 月 5 日）。主要來源是 [128 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture9.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=Q86qzJ1K1Ss)（1:51:31）。本文只根據投影片上的文字與圖寫，沒有轉述課堂口頭內容。
 
 前八講一路把「一句話怎麼變成一個會推理、會用工具、還能被評分的模型」講完了。最後一講往外推了兩步。第一，Transformer 能不能拿來看圖？第二，LLM 一定要從左到右一個字一個字寫嗎？投影片的議程分成四塊：Recap、Beyond Transformer-based LLMs、Diffusion LLMs、Closing thoughts。
 
@@ -255,7 +255,7 @@ diffusion LLM 目前離日常使用還有距離：投影片上的 Gemini Diffusi
 - 2026 年的多模態模型實況：[2026 上半年多模態模型盤點](/posts/ai/2026-08-18-multimodal-models-2026-landscape)
 - 影像 diffusion 的數學：[Stanford CS229 第 11 堂：擴散模型](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models)、[CMU 11-785 第 23 講](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
 - 推論成本為什麼卡在記憶體：[CS336 Lecture 10：LLM 推論](/posts/ai/2026-08-22-cs336-inference)
-- 回到起點：[本系列總覽](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- 回到起點：[本系列總覽](/posts/ai/2026-09-29-cme295-course-overview)
 
 ## 課程影片來源
 

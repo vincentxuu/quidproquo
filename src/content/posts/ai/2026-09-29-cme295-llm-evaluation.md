@@ -34,7 +34,7 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 8 講「LLM evaluation」（2025 年 11 月 21 日）。主要來源是 [170 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture8.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=8fNP4N46RRo)；本文只根據投影片上的內容寫。
+本篇對應 Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview) 2025 版第 8 講「LLM evaluation」（2025 年 11 月 21 日）。主要來源是 [170 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture8.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=8fNP4N46RRo)；本文只根據投影片上的內容寫。
 
 你改了一行 system prompt，想知道回答有沒有變好。模型吐出來的是自由文字，沒有標準答案可以對。找同事來評？兩個人對同一句話的打分不一定一樣，而且評一百題要一整天。這一講回答的就是這個問題：LLM 的輸出要怎麼評，哪些評法可以信到什麼程度。
 
@@ -300,4 +300,4 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evalu
 - [Google, Gemini 3 發表文 (2025)](https://blog.google/products/gemini/gemini-3/)
 - [BIG-bench 文件（canary 字串）](https://github.com/google/BIG-bench/blob/main/docs/doc.md)
 - [LMArena（Chatbot Arena）](https://lmarena.ai/)
-- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+- [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-cme295-course-overview)

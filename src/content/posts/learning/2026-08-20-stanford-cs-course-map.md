@@ -122,7 +122,7 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 |---|---|---|
 | [CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information) | From Languages to Information | CS106B、Python、CS109、CS107 等級 |
 | [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning) | Natural Language Processing with Deep Learning | 微積分與線性代數；CS124、CS221 或 CS229 |
-| [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) | Transformers & Large Language Models | 機器學習基礎與線性代數 |
+| [CME295](/posts/ai/2026-09-29-cme295-course-overview) | Transformers & Large Language Models | 機器學習基礎與線性代數 |
 | [CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding) | Natural Language Understanding | CS224N 或 CS224S |
 | [CS224V](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai) | Agentic AI | LINGUIST 180/280、CS124、CS224N、CS224S、CS224U 擇一 |
 | CS329X | Human Centered NLP | — |
@@ -133,7 +133,7 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 **CS224V 現在叫 Agentic AI**，這是 2026 年才有的名字。內容直接處理 RAG 與形式化任務描述、跨資料庫與知識庫的混合推理、AI 驅動的科學知識探索、用形式方法提升決策 agent 的準確度與可解釋性、以及長時程 agent 的效率。想做 agent 又想要有正課可上的人，這門的優先序被低估了。
 
-**CME295 掛在 ICME 底下，卻是這條線上最省時間的一門。** 它兩學分、沒有作業，成績只看期中與期末；九堂課從 Transformer 講到 LLM 訓練、推理與 agent。2025 版的影片、投影片與考卷解答全部公開，Autumn 2026 正在上課，新增 LLM 系統、強化學習與 Diffusion LLM 三講。它適合放在 CS224N 之前當地圖，或之後當補課；本站有[逐講導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)。
+**CME295 掛在 ICME 底下，卻是這條線上最省時間的一門。** 它兩學分、沒有作業，成績只看期中與期末；九堂課從 Transformer 講到 LLM 訓練、推理與 agent。2025 版的影片、投影片與考卷解答全部公開，Autumn 2026 正在上課，新增 LLM 系統、強化學習與 Diffusion LLM 三講。它適合放在 CS224N 之前當地圖，或之後當補課；本站有[逐講導讀](/posts/ai/2026-09-29-cme295-course-overview)。
 
 **CS329X: Human Centered NLP** 談人本設計、human-in-the-loop、公平性與可及性。它容易被當成軟性選修跳過，但它處理的正是把模型變成產品時最先炸開的那一類問題。
 

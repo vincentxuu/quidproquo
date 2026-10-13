@@ -9,9 +9,6 @@ lang: zh-TW
 series:
   name: "Stanford CS329Z 導讀"
   order: 3
-additionalSeries:
-  - name: "Stanford CS 主線課程導讀"
-    order: 21
 tldr: "Week 2 兩堂課一前一後：週一用 Anthropic 的 taxonomy 學會什麼時候不該用 agent，週三用 RAG 論文做出第一個複合系統。五個 workflow pattern 是選型工具，RAG 是參數記憶加非參數記憶的配方，兩篇合起來就是 HW1 email 檢索管線的施工圖。"
 description: "帶讀 Stanford CS329Z Week 2 兩篇主讀物：Anthropic Building Effective Agents 的 workflow/agent 分類與五個 pattern，Lewis 等人 RAG 論文的檢索加生成配方，以及它們如何拼成 HW1 企業內部助理的第一段管線。"
 draft: false

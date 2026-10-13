@@ -8,6 +8,9 @@ lang: zh-TW
 series:
   name: "Stanford CS234 導讀"
   order: 0
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 22
 tldr: "CS234 是 Emma Brunskill 在 Stanford 教的強化學習入門課，從有模型的 MDP 規劃一路講到策略梯度、RLHF／DPO、bandit 探索和 MCTS。Winter 2026 的 14 講投影片、三份作業的題目與起始碼、專題規格都能匿名下載，本系列評為 A3（足以自學）。缺口是官網沒有 2026 錄影、L15 與 L16 沒有投影片、期中考與 tutorials 不公開。公開錄影是 Spring 2024 版，本系列只拿它當補充；2024 有兩講 Offline RL，2026 投影片裡沒有對應內容。"
 description: "Stanford CS234 Reinforcement Learning（Winter 2026）系列總覽：依官方首頁、講義頁、作業頁、專題頁與 Spring 2024 YouTube 播放清單，整理課程定位、先修、學習目標、校內外兩套評分、校外讀者拿得到什麼、2026 教材搭 2024 影片的對照方式，以及含期末專題的 10 週自學路線。"
 draft: false

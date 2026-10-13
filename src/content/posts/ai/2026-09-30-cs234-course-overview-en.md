@@ -8,6 +8,9 @@ lang: en
 series:
   name: "Reading Stanford CS234"
   order: 0
+additionalSeries:
+  - name: "Reading Stanford's Main-Line CS Courses"
+    order: 22
 tldr: "CS234 is Emma Brunskill's introductory reinforcement learning course at Stanford. It runs from planning in known MDPs through policy gradients, RLHF/DPO, bandit exploration, and MCTS. For Winter 2026, all 14 slide decks, the three assignment handouts with starter code, and the project spec can be downloaded without logging in, so this series rates it A3 (enough to self-study). The gaps: the site links no 2026 recordings, L15 and L16 have no slides, and the midterm and tutorials are not public. The public recordings are from Spring 2024, and this series uses them only as a supplement. Two 2024 lectures on offline RL have no counterpart in the 2026 slides."
 description: "Series overview for Stanford CS234 Reinforcement Learning (Winter 2026), built from the official home page, lecture materials page, assignments page, project page, and the Spring 2024 YouTube playlist: where the course sits, prerequisites, learning outcomes, the on-campus and off-campus grading schemes, what outside readers can get, how the 2026 materials line up with the 2024 videos, and a 10-week self-study route that includes the final project."
 draft: false

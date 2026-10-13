@@ -145,7 +145,7 @@ The HW0 page itself says last year's lectures and notes are worth a look, but th
 
 Each post in this series stands on its own. Where it overlaps other course guides on the site, it links out rather than cutting content:
 
-- LLM training and RLHF: [Stanford CS336 guide](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en), [Stanford CME295 guide](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+- LLM training and RLHF: [Stanford CS336 guide](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en), [Stanford CME295 guide](/posts/ai/2026-09-29-cme295-course-overview-en)
 - RL foundations: [Berkeley CS285 Spring 2026 guide](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
 - Interpretability: [CS224U analysis methods: probing and attribution](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en)
 - Prompt injection and agent security in practice: [The harness layer of agent security](/posts/ai/2026-08-10-agent-security-harness-layer-en)

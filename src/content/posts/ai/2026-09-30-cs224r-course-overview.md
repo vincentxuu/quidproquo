@@ -8,6 +8,9 @@ lang: zh-TW
 series:
   name: "Stanford CS224R 導讀"
   order: 0
+additionalSeries:
+  - name: "Stanford CS 主線課程導讀"
+    order: 23
 tldr: "CS224R 是 Chelsea Finn 在 Stanford 教的深度強化學習課，從模仿學習一路講到 LLM 的 RL 和機器人基礎模型。Spring 2026 的 17 份投影片、三份作業的題目與起始碼、default project 規格與起始碼都能匿名下載，本系列評為 A3（足以自學）。缺口是 2026 錄影只在 Canvas、期中考卷與解答不公開、HW2 和 HW3 規定在 Modal 上跑。公開錄影是 Spring 2025 版，本系列把它當補充，逐講標出差異。"
 description: "Stanford CS224R Deep Reinforcement Learning（Spring 2026）系列總覽：依官方課程首頁、課表、作業 PDF、default project 規格、Spring 2025 封存頁與 YouTube 播放清單，整理課程定位、先修、評分與 AI 工具政策、校外讀者拿得到什麼、2026 與 2025 版的差異，以及整個系列的閱讀弧線。"
 draft: false

@@ -8,9 +8,6 @@ lang: zh-TW
 series:
   name: "Stanford CS329Z 導讀"
   order: 2
-additionalSeries:
-  - name: "Stanford CS 主線課程導讀"
-    order: 20
 tldr: "CS329Z 第一週主讀物是 Zaharia 等人的 Compound AI Systems：SOTA 越來越靠多元件系統拿下，單一模型再大也只是零件；文章留下三個設計問題與三大挑戰，剛好就是 HW1 要你動手回答的題目。"
 description: "帶讀 Stanford CS329Z Week 1 主讀物：複合式 AI 系統的定義、走向系統的三個理由、三個設計問題、三大挑戰與四個新興方向，以及它如何對應 HW1 不用框架、從零刻出企業內部助理的作業。"
 draft: false
