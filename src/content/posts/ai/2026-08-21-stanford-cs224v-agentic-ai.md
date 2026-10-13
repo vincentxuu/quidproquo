@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 14
-tldr: "CS224V 的課名在 2026-2027 學年才從 Conversational Virtual Assistants 換成 Agentic AI，但底下的東西沒換：把自然語言翻成形式語意、用 SMT 與知識圖譜約束 agent，而不是拼框架。閱讀清單十一篇 Mandatory 裡，七篇出自授課者自己的實驗室。投影片全公開，課程網站卻明講它們是刻意殘缺的。"
+tldr: "CS224V 是 Stanford 的 Agentic AI 課：教怎麼用形式語意、知識圖譜與形式方法約束 LLM agent，讓它少編造，兩份作業之後以專案為主。十四堂講義、閱讀清單、作業講義與課程用到的開源系統（STORM、WikiChat、SUQL、Genie Worksheets）都公開；沒有公開錄影，公開的投影片是刻意留白的版本，作業要用的憑證也只發給選課學生。"
 description: "Stanford CS224V: Agentic AI 完整導讀，讀完課程官網、四個學年的 ExploreCourses 條目、公開的講義與兩份作業 PDF：改名前後的官方描述對照、先修為什麼收語言學課、計算思維這條軸心、作業真正的門檻，以及自學者拿得到與拿不到的東西。"
 draft: false
 ---

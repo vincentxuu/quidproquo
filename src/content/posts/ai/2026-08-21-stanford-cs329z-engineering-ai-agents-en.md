@@ -12,7 +12,7 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 16
-tldr: "CS329Z is a new three-unit agent engineering course debuting at Stanford in Autumn 2026. Its first homework bans every agent framework: one chat-completion call plus code you write yourself, grown on a real corporate email archive from a RAG pipeline into an agent harness with tools, a terminal, memory and a human in the loop. The first five lecture PDFs and the HW1 starter, datasets, and public tests are now available. DSPy is still in the lectures, but no longer in the homework. The course site lives in a public GitHub repo, and its commit log records every syllabus revision: three assignments cut to two, peer review grown into a fifth of the grade, and the project topic changed from fixed to open."
+tldr: "CS329Z is Stanford's course on engineering AI agents: you first build RAG, tool use and the agent loop by hand without frameworks, then see what frameworks like DSPy abstract away; the two assignments are building an agent harness and designing an agent evaluation. The syllabus, the 50-paper reading list, the slides as they are released, and the starter code, data and public tests for Assignment 1 are available; the recordings require an enrolled Canvas login."
 description: "A full walkthrough of Stanford CS329Z: Engineering AI Agents — instructors and TAs, prerequisites and compute credits, 22 sessions and 50 readings, the first five lecture decks now public, what the two assignments and the project actually require, the syllabus changes recorded in the course site's git history, and how CS329Z, CS329A and CS224V divide the agent territory in 2026-27."
 draft: false
 ---

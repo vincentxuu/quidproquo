@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 5
-tldr: "CS111's nine assignments run from lambdas to crash recovery in a journaling file system. Reading the site page by page turns up three things the syllabus blurb never mentions: assignment 3 is the point of no return, because assignment 4 compiles your assignment 3 code; a whole block of the final exam asks for definitions of ethics terms, and the public practice sheet ships with answers; and pasting your own code into an AI tool to ask about it is written down, in plain words, as an Honor Code violation."
+tldr: "CS111 is Stanford's operating systems principles course, organized into concurrency, memory management and file systems, with nine assignments. All 28 lecture handouts, the nine assignment specs and three years of midterms and finals with solutions are public; the starter code requires a login on Stanford's myth machines, and the recordings are on Canvas."
 description: "A page-by-page read of the Spring 2026 CS111 site — nine assignment handouts, 28 lecture PDFs, the public exam archive, and the Honor Code page — covering the real difficulty curve, the content gap behind the CS110 rename story, and exactly what someone without a SUNet ID can get."
 draft: false
 ---

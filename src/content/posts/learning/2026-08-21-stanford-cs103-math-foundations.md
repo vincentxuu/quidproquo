@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 2
-tldr: "CS103 前半教怎麼寫證明、後半教什麼證不出來，但外界最少提到的是它有 C++ 程式作業：PS0 就是裝 Qt Creator。它的真正資產是一整排自製的『Guide to X』講義與一份會拿來扣分的 Proofwriting Checklist，全部公開；解答與練習考題全部鎖在 Stanford 登入後面，而且鎖的理由寫在 Honor Code 裡。"
+tldr: "CS103 是 Stanford 的計算數學基礎課：前半教集合、邏輯、圖與歸納法的證明寫作，後半教有限自動機、圖靈機、可判定性與 P 對 NP。投影片、作業題目、起始檔與自製講義全部公開，自動評分的題目可以在本機自測；解答、練習考題與上課錄影要 Stanford 登入。"
 description: "Stanford CS103: Mathematical Foundations of Computing 完整導讀，讀完現行課程網站、八份 problem set、二十多份自製講義與封存學期版：課程軸心、程式作業的存在、難度轉折落在哪一份作業、暑期版與正規學期版的差距，以及自學者實際拿得到與拿不到什麼。"
 draft: false
 ---

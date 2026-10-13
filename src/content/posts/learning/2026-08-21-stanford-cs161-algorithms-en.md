@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 6
-tldr: "The first slide of CS161 names three goals: design, analysis, communication. The third one is why handwritten homework scores zero and why solutions have to read like a memo to a colleague. Of the eight problem sets, HW2 is the wall. The lecture notebooks exist to show that timing runs can't tell you which algorithm is faster. And the summer offering is a completely different course wearing the same number."
+tldr: "CS161 is Stanford's design and analysis of algorithms course: eighteen lectures go from asymptotic analysis, divide and conquer and randomized algorithms to graph algorithms, dynamic programming, greedy algorithms and max flow. Lecture notes, slides, the eight homework handouts, section problems with solutions and the Python notebooks are public; recordings, homework solutions and exams are not."
 description: "A full walkthrough of Stanford CS161 Winter 2026 after reading all eighteen lecture notes, the eight problem sets and the course policies: where the course-title contradiction came from, what a Python notebook is actually for in an algorithms class, the embedded ethics problems, the LLM policy in full, and what a self-learner can and cannot get."
 draft: false
 ---

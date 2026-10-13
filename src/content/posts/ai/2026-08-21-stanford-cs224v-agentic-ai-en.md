@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 14
-tldr: "CS224V only became Agentic AI in the 2026–2027 catalog, and the rename changed nothing underneath: the course still translates natural language into formal semantics and constrains agents with SMT solvers and knowledge graphs instead of wiring frameworks together. Seven of the eleven mandatory readings come out of the instructor's own lab. Every slide deck is public, and the course site says outright that they are deliberately incomplete."
+tldr: "CS224V is Stanford's Agentic AI course: it teaches how to constrain LLM agents with formal semantics, knowledge graphs and formal methods so they fabricate less, with two assignments and then a project that carries most of the grade. The fourteen lecture decks, the reading list, the assignment handouts and the open-source systems the course uses (STORM, WikiChat, SUQL, Genie Worksheets) are public; there are no public recordings, the posted slides are deliberately incomplete, and the credentials the assignments need go only to enrolled students."
 description: "A full walkthrough of Stanford CS224V: Agentic AI, written after reading the course site, four academic years of ExploreCourses entries, all fourteen public lecture decks, and both assignment PDFs — the official descriptions before and after the rename, why the prerequisites include a linguistics course, the computational-thinking spine, where the assignments actually get hard, and exactly what a self-learner can and cannot get."
 draft: false
 ---

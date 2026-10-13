@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 13
-tldr: "CS224U 的教材不是投影片，是一個 Apache-2.0 的 GitHub repo，講義、作業、評分文件全在裡面。但校內班從 2023 年春季之後連停三個學年，ExploreCourses 一度把它排回 2026-27 春季，2026-09-29 重查時那一節又撤掉了；官方課程描述至今仍列著 relation extraction 與 semantic parsing，2023 年的講次表一堂都沒有。第一份作業的資料載入 cell 在今天的新環境會卡在 Hugging Face 的相容性改動上。"
+tldr: "CS224U 是 Stanford 的自然語言理解課，接在 CS224N 之後：教情感分析的領域適應、檢索增強的 in-context learning、進階行為評估與模型分析方法，三份作業各附一場 bake-off。教材是一個公開的 GitHub repo，投影片與線上版的全套錄影也公開；第一份作業的資料載入在新環境要自己修正才跑得起來。"
 description: "Stanford CS224U: Natural Language Understanding 完整導讀，從課程官網、GitHub repo、投影片 PDF 與 ExploreCourses 原始資料查起：它跟 CS224N 的分工、三份作業的實際內容與門檻、期末專案評分文件要求什麼，以及自學者今天實際拿得到、跑得動哪些東西。"
 draft: false
 ---

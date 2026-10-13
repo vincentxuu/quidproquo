@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 17
-tldr: "Of the seventeen regular CS336 lectures, only nine are executable Python programs; the other eight are PDF slide decks — and the split falls exactly along the two instructors. Assignment 1's handout carries eight 'Low-Resource Tips' for finishing it on a laptop. Assignments 2 through 5 carry none. The course page lists the hourly price of a B200; the handouts list how many B200 hours each problem needs."
+tldr: "CS336 is Stanford's course on building a language model from scratch: five assignments cover the tokenizer and Transformer, training-systems optimization, scaling laws, data processing, and alignment and reasoning RL, with no code skeleton, only tests. The lectures, recordings, all five assignment repos and the leaderboards are public; from Assignment 2 on you supply your own compute, and the course-sponsored compute and grading are not available."
 description: "A deep read of Stanford CS336: Language Modeling from Scratch, based on the Spring 2026 course site, the lecture_01.py source, five assignment repos with their PDF handouts, the leaderboard repos and the course AI policy: what an executable lecture actually looks like, where the five assignments break in two, how to compute the GPU bill yourself, and what a self-learner gets from a course that requires an application."
 draft: false
 ---

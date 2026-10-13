@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 4
-tldr: "Every lecture in CS109's Summer 2026 offering ships with an official LLM Learning Guide — six concepts, a Learn prompt and a Test me prompt for each, written week by week across the quarter for a total of 23 PDFs. The same course's honor code Rule 4 forbids asking an LLM to solve your homework, and 65% of the grade sits in proctored exam rooms. Those two facts are halves of one design."
+tldr: "CS109 is Stanford's probability course for computer scientists: it runs from counting, conditional probability and random variables to inference, maximum likelihood estimation, logistic regression and deep learning. The interactive course reader and the in-class worksheets with answer keys are public, and every lecture comes with an official LLM learning guide; slides after Lecture 15, the problem-set system and the recordings are closed to outsiders."
 description: "A deep read of Stanford CS109: Probability for Computer Scientists, based on the official LLM Learning Guide PDFs, the honor code, the syllabus and the lecture pages: the course's hard rules, what the official AI coursework actually looks like, what it forbids, where the problem sets get steep, and which materials a self-learner can and cannot get."
 draft: false
 ---

@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 8
-tldr: "CS124 is the first course in Stanford's NLP branch. Its textbook is Jurafsky's own Speech and Language Processing, free online, and all nine assignment repos are public. But a banner sits on the course homepage: it will not be taught at all in AY 2026–27. And the chapter numbers the syllabus points at no longer match the August 2026 textbook."
+tldr: "CS124 is the first course in Stanford's NLP track: ten weeks from tokenization, n-grams, text classification, information retrieval and embeddings to LLMs and Transformers. The textbook is the free Speech and Language Processing, and the nine assignment repos plus the lab problems and solutions are public; the pre-recorded videos, quizzes and autograding need a Stanford account."
 description: "A full walkthrough of Stanford CS124: From Languages to Information — the prerequisite line quoted verbatim, the ten-week schedule, the nine assignment repos and the grade split, a chapter-by-chapter diff between the Winter 2026 syllabus and the August 2026 release of SLP3, and exactly what a self-learner can and cannot get."
 draft: false
 ---

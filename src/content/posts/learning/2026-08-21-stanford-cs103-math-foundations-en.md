@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 2
-tldr: "CS103 teaches you how to write proofs, then teaches you what can't be proven — but the part nobody mentions is that it ships C++ programming assignments, starting with PS0: install Qt Creator. Its real asset is a shelf of homegrown 'Guide to X' handouts and a Proofwriting Checklist that graders actually deduct points against, all public. Solutions and practice exams sit behind Stanford login, and the Honor Code page explains why."
+tldr: "CS103 is Stanford's mathematical foundations of computing course: the first half teaches proof writing through sets, logic, graphs and induction, and the second half covers finite automata, Turing machines, decidability and P vs NP. Slides, problem sets, starter files and the homegrown handouts are all public, and the autograded problems can be checked locally; solutions, practice exams and lecture recordings sit behind Stanford login."
 description: "A full walkthrough of Stanford CS103: Mathematical Foundations of Computing, written after reading the current course site, all eight problem sets, twenty-odd homegrown handouts and two archived offerings — what the course is really about, the programming assignments nobody mentions, which problem set is the difficulty cliff, how far the summer offering falls short of a regular quarter, and exactly what a self-learner can and can't get."
 draft: false
 ---

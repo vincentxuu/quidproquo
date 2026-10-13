@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 12
-tldr: "CS224N 把 2000 年以來每一屆的課程網站都留在線上。2019 冬季那版，Transformer 是第 14 堂的客座講題；2026 冬季那版，它是第 5 堂，之後每一堂都預設你已經懂它。機器翻譯作業整個消失了，第三份作業改成自己刻一個 decoder-only Transformer，附 pytest 可以在筆電上跑。"
+tldr: "CS224N 是 Stanford 用深度學習做自然語言處理的課：從詞向量、反向傳播講到 Transformer，之後每一堂都建立在 Transformer 之上，四份作業包含自己刻一個 decoder-only Transformer。現行投影片與作業公開，第三份作業附可以在筆電上跑的單元測試；公開的完整錄影是較早的版本，跟現行課表有落差。"
 description: "Stanford CS224N: Natural Language Processing with Deep Learning 完整導讀。逐屆比對 2019、2022、2023、2024、2025、2026 六個版本的課表與作業清單，看同一門課在七年裡砍掉什麼、補進什麼，並逐項確認自學者實際拿得到哪些材料。"
 draft: false
 ---

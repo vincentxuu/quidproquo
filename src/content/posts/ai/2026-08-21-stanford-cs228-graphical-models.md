@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 11
-tldr: "CS228 的官方先修就一句『basic probability theory and algorithm design and analysis』，沒有指定任何前置課程。但 ExploreCourses 顯示它最後一次開課是 Winter 2024，下一次排在 2026-27 冬季、講師欄還空著。自學者真正拿得到的是那份公開講義 cs228-notes：16 章寫完，最後一次改動停在 2025 年 6 月。"
+tldr: "CS228 是 Stanford 的機率圖模型課，分表示、推論、學習三塊：用圖寫下獨立性假設，把指數量級的機率計算壓成多項式。自學者拿得到的是 16 章的公開講義 cs228-notes；講次投影片、錄影與當季作業都拿不到。"
 description: "Stanford CS228: Probabilistic Graphical Models 導讀。實際讀過 ExploreCourses 條目、凍結在 Winter 2024 的課程官網、以及公開講義 cs228-notes 的每一章，整理先修門檻、五份作業的節奏、講義的真實完整度與維護狀態，以及它跟 CS236 的關係。"
 draft: false
 ---

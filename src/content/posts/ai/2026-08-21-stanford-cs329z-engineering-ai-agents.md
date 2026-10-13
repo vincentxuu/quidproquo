@@ -12,7 +12,7 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 16
-tldr: "CS329Z 是 Stanford 2026 年秋季新開的三學分 agent 工程課。第一份作業禁用任何 agent 框架，只准用一個 chat-completion 呼叫加自己的程式碼，在真實企業 email 封存上從 RAG 管線一路長成帶工具、終端機、記憶與人類審核的 agent harness。前五堂 PDF 投影片與 HW1 起始碼、資料、公開測試都已放出。DSPy 還在課堂上，但已經不在作業裡。課程網站架在公開的 GitHub repo 上，commit 紀錄留下了每一次課綱改版：作業從三份砍成兩份，互評長成兩成分數，專案主題也從鎖死改成自選。"
+tldr: "CS329Z 是 Stanford 的 AI agent 工程課：先不靠框架手刻 RAG、工具呼叫與 agent 迴圈，再看 DSPy 這類框架抽掉了什麼，兩份作業分別是做 agent harness 與設計 agent 評估。課綱、50 篇閱讀清單、逐堂放出的投影片與第一份作業的起始碼、資料和公開測試都拿得到；錄影要以選課身分登入 Canvas。"
 description: "Stanford CS329Z: Engineering AI Agents 完整導讀——授課者與助教、先修與算力補助、22 個上課時段與 50 篇閱讀、已公開的前五堂投影片、兩份作業與專案的實際要求、課程網站 git 紀錄裡的課綱變動，以及 CS329Z / CS329A / CS224V 三門 agent 課在 2026-27 學年的開課狀態與分工。"
 draft: false
 ---

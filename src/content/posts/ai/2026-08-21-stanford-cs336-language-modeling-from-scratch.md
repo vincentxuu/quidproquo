@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 17
-tldr: "CS336 的十七堂正課裡，只有九堂是可以執行的 Python 程式，另外八堂是 PDF 投影片——分界線剛好是兩位授課者。第一份作業的講義有八個「低資源提示」教你怎麼在筆電上做完，第二到第五份一個都沒有。課程頁自己列了 B200 的每小時單價，作業講義自己列了每題要幾個 B200 小時。"
+tldr: "CS336 是 Stanford 從零打造語言模型的課：五份作業依序做 tokenizer 與 Transformer、訓練系統最佳化、scaling law、資料處理、對齊與推理 RL，沒有程式骨架，只有測試。講義、錄影、五份作業的 repo 與排行榜都公開；從第二份作業起算力要自己準備，課程贊助的算力與評分拿不到。"
 description: "Stanford CS336: Language Modeling from Scratch 深度導讀，讀過 Spring 2026 課程官網、lecture_01.py 原始碼、五份作業的 GitHub repo 與 PDF 講義、排行榜 repo 與課程 AI 政策：可執行講義的真實形態、五份作業的分水嶺在哪、GPU 預算怎麼自己算、需申請的課自學者拿得到什麼。"
 draft: false
 ---

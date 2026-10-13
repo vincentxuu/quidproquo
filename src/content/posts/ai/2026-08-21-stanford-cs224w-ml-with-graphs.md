@@ -11,7 +11,7 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 15
-tldr: "CS224W 的六份 Colab 現在全部可以直接下載開跑，第一份只用 NetworkX，連 PyG 都不用裝。但期末考佔 35%，是全課最大一塊，而它是閉書實體考。公開錄影停在 2021 年，涵蓋不到現在課表後半的 graph transformer、關聯式深度學習與 LLM+GNN。"
+tldr: "CS224W 是 Stanford 的圖機器學習課：十九堂從節點嵌入、GNN、graph transformer、知識圖譜，講到關聯式深度學習與 GNN 加 LLM。投影片、三份書面作業與六份 Colab 都公開，可以直接下載開跑；公開錄影是 2021 年的版本，後半的新主題只有投影片，考試與自動評分拿不到。"
 description: "Stanford CS224W: Machine Learning with Graphs 完整導讀——兩份官方頁面對先修條件的說法不一致、課程簡介比實際課表舊八年、六份 Colab 的實際依賴與硬體需求、學生專案為什麼是公開的 Medium 文章，以及自學者逐項拿得到什麼。"
 draft: false
 ---
