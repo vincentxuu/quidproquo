@@ -155,6 +155,7 @@ const FULL_STEPS = [
   ['check:course-videos', 'pnpm check:course-videos'],
   ['check:seo-smoke', 'pnpm check:seo-smoke'],
   ['skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs'],
+  ['skill-anchors (章節連結)', 'node scripts/check-skill-anchors.mjs'],
 ];
 
 // --staged（pre-commit 用）：只檢查這次暫存的檔案；完整 verify 由 CI 跑（quality.yml，deploy 前必過）。
@@ -195,7 +196,7 @@ function stagedPlan() {
       'check:lang-parity', 'check:course-videos', 'check:seo-smoke'));
   }
   if (entries.some((e) => /^(\.agents|\.claude)\/skills\//.test(e.path))) {
-    steps.push(...pick('skills-sync (.agents ↔ .claude)'));
+    steps.push(...pick('skills-sync (.agents ↔ .claude)', 'skill-anchors (章節連結)'));
   }
   return { full: false, steps, count: entries.length };
 }
