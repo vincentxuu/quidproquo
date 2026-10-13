@@ -8,9 +8,6 @@ lang: zh-TW
 series:
   name: "Stanford CS230 導讀"
   order: 1
-additionalSeries:
-  - name: "Stanford CS 主線課程導讀"
-    order: 10
 tldr: "CS230 第一講是課程總覽，但 Andrew Ng 花最多時間講的是三件事：為什麼 scaling 有效、什麼時候 prompt 就不夠用了、以及他認為「不要學寫程式」是史上最糟的職涯建議之一。"
 description: "Stanford CS230（2025 秋季）Lecture 1 完整導讀：flipped classroom 的設計、scaling 敘事、抽象層地圖與兩個下鑽觸發條件、五個線上模組、AI 輔助寫程式的兩個 bucket，以及 Ng 的四級生產力排序。"
 draft: false
@@ -20,7 +17,7 @@ draft: false
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-這是 [Stanford CS230 導讀](/series/cs230)系列的第一篇。
+這是 [Stanford CS230 導讀](/series/cs230)系列的第 1 堂；整門課的組成、評分與閱讀路線見[課程總覽](/posts/ai/2026-10-13-stanford-cs230-course-overview)。
 
 先說清楚讀的是哪一輪：**Stanford CS230 Deep Learning，2025 秋季**，九支影片約 13 小時（[playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)）。這一輪已經結束——最後一講 2025/12/02，影片 12/16 全部放完。Autumn 2026 已排定 2026/09/22 開課，會是另一個 playlist。**每篇都會標上課日期。**
 

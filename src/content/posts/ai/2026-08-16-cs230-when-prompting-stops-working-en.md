@@ -8,9 +8,6 @@ lang: en
 series:
   name: "Reading Stanford CS230"
   order: 1
-additionalSeries:
-  - name: "Reading Stanford's Main-Line CS Courses"
-    order: 10
 tldr: "CS230's first lecture is a course overview, but Andrew Ng spends most of it on three things: why scaling works, when prompting stops being enough, and why he thinks 'don't learn to code' is one of the worst pieces of career advice ever given."
 description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 1: the flipped-classroom design, the scaling narrative, the abstraction-layer map and its two drill-down triggers, the five online modules, the two buckets of AI-assisted coding, and Ng's four-tier productivity ranking."
 draft: false
@@ -20,7 +17,7 @@ draft: false
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-This is the first post in the [Reading Stanford CS230](/en/series/cs230) series.
+This is Lecture 1 in the [Reading Stanford CS230](/en/series/cs230) series; for how the course is put together, graded and best read, see the [course overview](/posts/ai/2026-10-13-stanford-cs230-course-overview-en).
 
 First, which offering this is: **Stanford CS230 Deep Learning, Autumn 2025** — nine videos, roughly 13 hours ([playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)). That run is over. The last lecture was 2025/12/02 and all videos were posted by 12/16. Autumn 2026 is already scheduled to start 2026/09/22 and will be a different playlist. **Every post in this series gives the lecture date.**
 
