@@ -1,5 +1,5 @@
 ---
-title: "2026 年才改名叫 Agentic AI，教的卻是拿形式方法治幻覺｜Stanford CS224V 課程總覽"
+title: "Agentic AI：用形式方法處理幻覺｜Stanford CS224V 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

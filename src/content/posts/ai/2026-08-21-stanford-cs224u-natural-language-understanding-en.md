@@ -1,5 +1,5 @@
 ---
-title: "The Course Site Stopped in Spring 2023, but You Can Clone the Whole Thing | Stanford CS224U Course Overview"
+title: "Natural Language Understanding: What It Adds After CS224N | Stanford CS224U Course Overview"
 date: 2026-08-21
 category: ai
 type: deep-dive

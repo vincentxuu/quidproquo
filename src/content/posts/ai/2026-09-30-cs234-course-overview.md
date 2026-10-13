@@ -1,5 +1,5 @@
 ---
-title: "總覽與自學路線（Winter 2026）｜Stanford CS234 課程總覽"
+title: "強化學習：先修、評分與 10 週自學路線｜Stanford CS234 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide

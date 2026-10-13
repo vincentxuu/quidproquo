@@ -1,5 +1,5 @@
 ---
-title: "Numbered 100, Four Prerequisites Written Into the Catalog, and Not Offered at All Next Year | Stanford CS124 Course Overview"
+title: "From Languages to Information: An NLP Intro That Teaches Both tf-idf and LLMs | Stanford CS124 Course Overview"
 date: 2026-08-21
 category: ai
 type: deep-dive

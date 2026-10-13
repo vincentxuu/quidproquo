@@ -1,5 +1,5 @@
 ---
-title: "A Math Course Whose First Assignment Is Installing a C++ Compiler | Stanford CS103 Course Overview"
+title: "Mathematical Foundations of Computing: How to Prove, Then What Can't Be Proven | Stanford CS103 Course Overview"
 date: 2026-08-21
 category: learning
 type: deep-dive

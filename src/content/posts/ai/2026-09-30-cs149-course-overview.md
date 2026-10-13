@@ -1,5 +1,5 @@
 ---
-title: "Fall 2025 平行計算課程總覽｜Stanford CS149 課程總覽"
+title: "平行計算：課程定位與兩條閱讀路線｜Stanford CS149 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide

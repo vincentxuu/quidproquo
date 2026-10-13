@@ -1,5 +1,5 @@
 ---
-title: "Open the 2019 Syllabus and Transformers Are Still Lecture 14 | Stanford CS224N Course Overview"
+title: "NLP with Deep Learning: From word2vec to Building Your Own Transformer | Stanford CS224N Course Overview"
 date: 2026-08-21
 category: ai
 type: deep-dive

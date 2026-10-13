@@ -1,5 +1,5 @@
 ---
-title: "打開 2019 年那版課表，Transformer 還排在第 14 堂｜Stanford CS224N 課程總覽"
+title: "用深度學習做自然語言處理：從 word2vec 到自己刻 Transformer｜Stanford CS224N 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

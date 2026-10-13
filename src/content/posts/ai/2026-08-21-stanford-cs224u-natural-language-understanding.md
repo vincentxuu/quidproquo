@@ -1,5 +1,5 @@
 ---
-title: "課程網站停在 2023 年春季，但整套教材可以 clone 下來跑｜Stanford CS224U 課程總覽"
+title: "自然語言理解：接在 CS224N 之後補了什麼｜Stanford CS224U 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

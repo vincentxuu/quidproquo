@@ -1,5 +1,5 @@
 ---
-title: "兩學分、沒有作業，九堂課從 Transformer 走到 AI agent｜Stanford CME295 課程總覽"
+title: "Transformer 與大型語言模型：九堂課從 Transformer 走到 AI agent｜Stanford CME295 課程總覽"
 date: 2026-09-29
 category: ai
 type: deep-dive

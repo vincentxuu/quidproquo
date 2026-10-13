@@ -1,5 +1,5 @@
 ---
-title: "課號掛 100，先修寫死四門，而且下一學年整年不開｜Stanford CS124 課程總覽"
+title: "從語言到資訊：一門同時教 tf-idf 和 LLM 的 NLP 入門課｜Stanford CS124 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

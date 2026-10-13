@@ -1,5 +1,5 @@
 ---
-title: "Nine Assignments Build an Operating System, and the Exams Don't Test Them | Stanford CS111 Course Overview"
+title: "Operating Systems Principles: From Threads and Virtual Memory to File Systems | Stanford CS111 Course Overview"
 date: 2026-08-21
 category: learning
 type: deep-dive

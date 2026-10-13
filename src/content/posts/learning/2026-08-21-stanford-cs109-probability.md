@@ -1,5 +1,5 @@
 ---
-title: "一門機率課把「怎麼用語言模型讀這一講」寫成了官方教材｜Stanford CS109 課程總覽"
+title: "給電腦科學的機率：從計數、推論到機器學習｜Stanford CS109 課程總覽"
 date: 2026-08-21
 category: learning
 type: deep-dive

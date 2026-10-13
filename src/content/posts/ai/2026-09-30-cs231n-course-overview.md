@@ -1,5 +1,5 @@
 ---
-title: "總覽與自學路線（Spring 2026）｜Stanford CS231N 課程總覽"
+title: "電腦視覺的深度學習：18 堂課表與 10 週自學路線｜Stanford CS231N 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide

@@ -1,5 +1,5 @@
 ---
-title: "先修只寫「基本機率與演算法」，但這門課已經停開兩年｜Stanford CS228 課程總覽"
+title: "機率圖模型：把指數量級的推論壓成多項式｜Stanford CS228 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

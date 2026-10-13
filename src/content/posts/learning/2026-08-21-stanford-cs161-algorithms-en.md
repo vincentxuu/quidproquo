@@ -1,5 +1,5 @@
 ---
-title: "The Algorithms Course That Lists Writing Clearly as Its Third Learning Goal | Stanford CS161 Course Overview"
+title: "Design and Analysis of Algorithms: From Divide and Conquer and Graphs to Dynamic Programming and Max Flow | Stanford CS161 Course Overview"
 date: 2026-08-21
 category: learning
 type: deep-dive

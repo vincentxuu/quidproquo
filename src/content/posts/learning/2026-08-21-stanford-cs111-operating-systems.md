@@ -1,5 +1,5 @@
 ---
-title: "九份作業拼成一部作業系統，但考試不考作業｜Stanford CS111 課程總覽"
+title: "作業系統原理：從執行緒、虛擬記憶體到檔案系統｜Stanford CS111 課程總覽"
 date: 2026-08-21
 category: learning
 type: deep-dive

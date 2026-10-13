@@ -1,5 +1,5 @@
 ---
-title: "Renamed to Agentic AI in 2026, but What It Teaches Is Formal Methods Against Hallucination | Stanford CS224V Course Overview"
+title: "Agentic AI: Formal Methods Against Hallucination | Stanford CS224V Course Overview"
 date: 2026-08-21
 category: ai
 type: deep-dive

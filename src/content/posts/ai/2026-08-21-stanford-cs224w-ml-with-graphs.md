@@ -1,5 +1,5 @@
 ---
-title: "作業全在 Colab 上，但最大一塊分數自學者拿不到｜Stanford CS224W 課程總覽"
+title: "圖機器學習：十九堂課的重心與六份 Colab 作業｜Stanford CS224W 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

@@ -1,5 +1,5 @@
 ---
-title: "Overview and a Self-Study Plan (Spring 2026) | Stanford CS231N Course Overview"
+title: "Deep Learning for Computer Vision: The 18-Lecture Syllabus and a 10-Week Self-Study Plan | Stanford CS231N Course Overview"
 date: 2026-09-30
 category: ai
 type: guide

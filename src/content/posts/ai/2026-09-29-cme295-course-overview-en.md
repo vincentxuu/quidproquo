@@ -1,5 +1,5 @@
 ---
-title: "Two Units, No Homework, Nine Lectures from Transformers to AI Agents | Stanford CME295 Course Overview"
+title: "Transformers and Large Language Models: Nine Lectures from Transformers to AI Agents | Stanford CME295 Course Overview"
 date: 2026-09-29
 category: ai
 type: deep-dive

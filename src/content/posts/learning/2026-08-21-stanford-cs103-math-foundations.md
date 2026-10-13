@@ -1,5 +1,5 @@
 ---
-title: "一門數學課，開學第一件事是裝 C++ 編譯器｜Stanford CS103 課程總覽"
+title: "計算的數學基礎：前半教怎麼證明，後半教什麼證不出來｜Stanford CS103 課程總覽"
 date: 2026-08-21
 category: learning
 type: deep-dive

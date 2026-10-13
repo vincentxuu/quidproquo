@@ -1,5 +1,5 @@
 ---
-title: "Overview and Self-Study Route (Winter 2026) | Stanford CS234 Course Overview"
+title: "Reinforcement Learning: Prerequisites, Grading, and a 10-Week Self-Study Route | Stanford CS234 Course Overview"
 date: 2026-09-30
 category: ai
 type: guide

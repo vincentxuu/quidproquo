@@ -1,5 +1,5 @@
 ---
-title: "The Prerequisites Are One Sentence About Probability and Algorithms — But the Course Hasn't Run in Two Years | Stanford CS228 Course Overview"
+title: "Probabilistic Graphical Models: Turning Exponential Inference into Polynomial | Stanford CS228 Course Overview"
 date: 2026-08-21
 category: ai
 type: deep-dive

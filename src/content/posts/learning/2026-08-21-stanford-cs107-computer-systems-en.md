@@ -1,5 +1,5 @@
 ---
-title: "The Same Course Weights Assignments at 40% One Quarter and 20% the Next | Stanford CS107 Course Overview"
+title: "Computer Organization and Systems: From C and Pointers to x86-64 and Writing Your Own malloc | Stanford CS107 Course Overview"
 date: 2026-08-21
 category: learning
 type: deep-dive

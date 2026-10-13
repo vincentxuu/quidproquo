@@ -1,5 +1,5 @@
 ---
-title: "A Guide to the Fall 2025 Parallel Computing Course | Stanford CS149 Course Overview"
+title: "Parallel Computing: What the Course Covers and Two Reading Routes | Stanford CS149 Course Overview"
 date: 2026-09-30
 category: ai
 type: guide

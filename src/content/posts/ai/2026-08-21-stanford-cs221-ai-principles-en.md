@@ -1,5 +1,5 @@
 ---
-title: "The AI Intro Course Whose Prerequisites Field Reads CS103, CS106B, CS109, CS161 | Stanford CS221 Course Overview"
+title: "AI Principles and Techniques: Reflex, States, Variables, and Logic | Stanford CS221 Course Overview"
 date: 2026-08-21
 category: ai
 type: deep-dive

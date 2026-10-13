@@ -1,5 +1,5 @@
 ---
-title: "AI 入門課的先修欄位，寫的是 CS103、CS106B、CS109、CS161｜Stanford CS221 課程總覽"
+title: "人工智慧原理與技術：反射、狀態、變數、邏輯四層主脊｜Stanford CS221 課程總覽"
 date: 2026-08-21
 category: ai
 type: deep-dive

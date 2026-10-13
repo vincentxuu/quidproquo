@@ -1,5 +1,5 @@
 ---
-title: "Spring 2026 深度強化學習課程總覽｜Stanford CS224R 課程總覽"
+title: "深度強化學習：課程定位與閱讀路線｜Stanford CS224R 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide

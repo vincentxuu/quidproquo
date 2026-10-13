@@ -1,5 +1,5 @@
 ---
-title: "A Guide to the Spring 2026 Deep Reinforcement Learning Course | Stanford CS224R Course Overview"
+title: "Deep Reinforcement Learning: What the Course Covers and a Reading Route | Stanford CS224R Course Overview"
 date: 2026-09-30
 category: ai
 type: guide

@@ -1,5 +1,5 @@
 ---
-title: "一門把「寫清楚」列為第三個學習目標的演算法課｜Stanford CS161 課程總覽"
+title: "演算法設計與分析：從分治、圖論到動態規劃與最大流｜Stanford CS161 課程總覽"
 date: 2026-08-21
 category: learning
 type: deep-dive
