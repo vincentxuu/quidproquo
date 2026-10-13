@@ -15,6 +15,9 @@ lang: en
 description: "A viral post lists three top bug bounty payouts: Google server RCE at $90K, Meta Llama VM escape at $300K, Hyper-V escape at $250K. Each checked against the official reward tables, with the missing conditions spelled out."
 tldr: "All three numbers have an official source, but each drops a condition. Hyper-V's $250K needs a working exploit. Meta's $300K VM escape is for WhatsApp Private Processing, not Llama, and is invitation-only. Google's $90K is an RCE on a standard *.google.com service with the top quality multiplier; the most sensitive tier starts at $101,010. A reward table gives a ceiling, not a success rate."
 draft: false
+series:
+  name: "Bug Bounty from Zero"
+  order: 0
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)

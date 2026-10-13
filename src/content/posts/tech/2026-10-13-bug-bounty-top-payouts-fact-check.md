@@ -15,6 +15,9 @@ lang: zh-TW
 description: "網路流傳三個 Bug Bounty 頂級價碼：Google 伺服器 RCE 9 萬、Meta Llama VM 逃脫 30 萬、Hyper-V 逃脫 25 萬。逐項對照官方獎金表，說明每個數字在哪一格、少了什麼前提，以及想走這條路該怎麼評估。"
 tldr: "三個數字都找得到官方出處，但每個都少了前提。Hyper-V 的 25 萬要有可運作的 exploit；Meta 的 30 萬 VM 逃脫在 WhatsApp Private Processing，不是 Llama，而且需受邀參加；Google 的 9 萬是一般 *.google.com 服務的 RCE 加上最高品質倍數，最敏感的服務基準是 101,010 美元。獎金表只給上限，不給成功率。"
 draft: false
+series:
+  name: "從零開始的資安獵人"
+  order: 0
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)
