@@ -1,5 +1,5 @@
 ---
-title: "How to Decide an Agent Is Ready to Ship: Meta Muse's Behavior Checklist, Two Thresholds, and New-User Tests"
+title: "How to Decide an Agent Is Ready to Ship: Meta Muse's Behavior Checklist, Two Thresholds, and a Hands-On Check"
 date: 2026-10-13
 category: ai
 type: deep-dive
@@ -22,6 +22,7 @@ This post answers one question: **when nobody can tell you "it's good enough," w
 - I read the full [Podscripts auto-transcript](https://podscripts.co/podcasts/david-senra/creating-muse-the-fastest-growing-ai-product-since-chatgpt-alexandr-wang-meta), start to end. It is third-party and machine-generated, with misheard names (Muse appears as "Mews," for example).
 - I did not listen back to the audio, so I paraphrase Wang rather than quote him. Timestamps below come from that transcript and have not been checked against the YouTube player.
 - Launch dates, rankings and later controversy were checked separately, with sources.
+- I have no relationship with Meta, and the links here carry no referral codes or tracking parameters.
 
 ## Background: reliability was the blocker, not the idea
 
@@ -81,18 +82,16 @@ The process is not a guarantee. On October 9, The New York Times reported on how
 - A Meta spokesperson disputed that pressure from a rival drove the launch, and said the company delayed Muse for several months "to make sure we got this right." Meta's VP of AI products, Vishal Shah, also told [Fox Business](https://www.foxbusiness.com/technology/metas-muse-becomes-app-stores-hottest-download) that Meta first delayed the release in April, and only then met minimum requirements for safety, security, privacy and model performance.
 - Other reported issues followed, such as a zero-day flaw in the Mac version made public in late September, which Meta said it fixed (see [Ars Technica's report on Wired](https://www.wired.com/story/metas-muse-ai-agent-zero-day/)).
 
-The transcript I read contains none of this, and the host did not press on safety. So this episode is Wang's account of the **product-quality process**. It is not evidence of safety.
+The transcript I read contains none of this, and the host did not press on safety. So this episode is Wang's account of the **product-quality process**. It is not evidence of safety. The process itself rests only on Wang's account; no independent source verifies how it actually runs.
 
 The limit to carry away: an eval covers only the behaviors you thought to test. All-green means the rows you wrote passed. It says nothing about rows you never wrote, or about someone deliberately trying to misuse the agent.
 
 ## Other ideas from the interview
 
-- **Why not compete with [Anthropic's Claude](https://www.anthropic.com/claude) on coding.** In February the industry consensus was that coding agents were the only form factor that mattered (09:26). Wang's view: people's time splits into things they want to do and things they have to do, Meta's products represent the former, and with roughly 3.5 billion people using its apps daily the natural arena is personal AI, not work or coding (10:24). Related on this site: [Muse Spark](/posts/tech/2026-09-19-ai-model-family-muse-spark) and [Muse Code](/posts/tech/2026-08-24-muse-code-meta-coding-agent).
-- **One point of view, no "PM hell."** Model and product together took under 200 people. Wang criticized big-org products that become a blend of every PM's pet feature (23:56). Muse needed a single point of view, which he credited to Friedman's taste (25:10).
-- **Trust is built in steps.** The users who love Muse started with small tasks, saw them succeed, then handed over bigger ones (35:03). What matters is that it succeeds every time.
-- **Meme marketing.** Wang has been posting heavily on X to cut through the noise and make Meta cool again (26:11). He sees modern product marketing as screenshot-driven; Jolly in the screenshot says "Muse" instantly (37:59). He can't prove the effect but believes it helped growth (30:25).
-- **A second mind.** At YC Startup School he also said that in a decade intelligence and agency will be abundant and the scarce things will be [vision and ambition](https://www.ycombinator.com/library/VS-alexandr-wang-this-is-a-once-in-a-civilization-opportunity). He hopes AI lets adults keep the big dreams they had as kids (41:20).
-- **Skyscrapers vs. diamond mining.** [Scale AI](https://scale.com/) was closer to building skyscrapers: linear payoff, efficiency matters. MSL is diamond mining: power-law payoff, so his job is to let researchers try many things (1:08:08). He has more than 200 direct reports because they don't need managers, they need a good environment (1:09:11).
+- **Why not compete with [Anthropic's Claude](https://www.anthropic.com/claude) on coding.** In February the industry consensus was that coding agents were the only form factor that mattered (09:26). Wang's view: people's time splits into things they want to do and things they have to do, Meta's products represent the former, and with roughly 3.5 billion people using its apps daily the main arena is personal AI (10:24). Related on this site: [Muse Spark](/posts/tech/2026-09-19-ai-model-family-muse-spark) and [Muse Code](/posts/tech/2026-08-24-muse-code-meta-coding-agent).
+- **One point of view, no "PM hell."** Model and product together took under 200 people. Wang criticized big-org products that become a blend of every PM's pet feature (23:56), and credited Muse's single point of view to Friedman's taste (25:10).
+- **Trust is built in steps.** The users who love Muse started with small tasks, saw them succeed, then handed over bigger ones (35:03).
+- **Other topics:** meme marketing (26:11), AI helping people keep dreaming bigger (41:20; at YC Startup School he also said the scarce things will be [vision and ambition](https://www.ycombinator.com/library/VS-alexandr-wang-this-is-a-once-in-a-civilization-opportunity)), and running MSL like diamond mining rather than building skyscrapers (1:08:08). They are further from the launch criteria, so I don't expand on them here.
 
 On user numbers, Wang only said "millions" (25:10). [TNW, citing](https://thenextweb.com/news/zuckerberg-muse-launch-safety-concerns-nyt) the Times and Sensor Tower, reports over 6.6 million downloads and 1.8 million daily users as of around October 7. Those are third-party estimates.
 

@@ -1,5 +1,5 @@
 ---
-title: "Agent 產品怎麼決定可以上線：Meta Muse 的行為清單、雙門檻與新手測試"
+title: "Agent 產品怎麼決定可以上線：Meta Muse 的行為清單、雙門檻與體感檢查"
 date: 2026-10-13
 category: ai
 type: deep-dive
@@ -22,6 +22,7 @@ draft: false
 - 我讀的是 [Podscripts 的自動逐字稿](https://podscripts.co/podcasts/david-senra/creating-muse-the-fastest-growing-ai-product-since-chatgpt-alexandr-wang-meta)，從頭到片尾讀完。這是第三方的自動轉錄，專名有誤聽（例如 Muse 被轉成 Mews）。
 - 我沒有回聽原音，所以文中不直接引用 Wang 的原話，只轉述；文中標的時間是這份逐字稿的時間，沒有對照過 YouTube 播放器。
 - Muse 的上線日期、排名、後續爭議是另外查的，各自附來源。
+- 我與 Meta 沒有利害關係，文中連結沒有推薦碼或追蹤參數。
 
 ## 先看背景：卡關的是可靠性，不是點子
 
@@ -81,18 +82,16 @@ Wang 沒有公開清單內容，也沒說門檻值是多少。你能帶走的是
 - Meta 發言人否認競爭對手的壓力促成了上線，並表示公司把 Muse 延後了好幾個月，「確保我們做對」。Meta 的 AI 產品副總裁 Vishal Shah 也對 [Fox Business](https://www.foxbusiness.com/technology/metas-muse-becomes-app-stores-hottest-download) 說，4 月曾先延後上線，之後才達到安全、資安、隱私與模型表現等最低要求。
 - 上線後另有幾件被報導的事，例如 9 月下旬公開的 Mac 版零日漏洞（Meta 說已修補，見 [Wired 轉載的 Ars Technica 報導](https://www.wired.com/story/metas-muse-ai-agent-zero-day/)）。
 
-我讀的訪談逐字稿裡沒有談到這些，主持人也沒追問安全面。所以這集是 Wang 對**產品品質流程**的自述，不能當成安全性的證明。
+我讀的訪談逐字稿裡沒有談到這些，主持人也沒追問安全面。所以這集是 Wang 對**產品品質流程**的自述，不能當成安全性的證明。這套流程目前也只有 Wang 的自述，沒有獨立來源驗證它實際如何運作。
 
 從這裡可以帶走的限制：eval 只覆蓋「你想到要測的行為」。清單全綠，代表你列出的項目都過了，不代表沒有漏列的情境，也不代表有人故意誘導或攻擊時還守得住。
 
 ## 訪談裡其他值得帶走的觀點
 
-- **為什麼不跟 [Anthropic 的 Claude](https://www.anthropic.com/claude) 搶 coding**：2 月時業界普遍認為 coding Agent 是唯一重要的形態（09:26）。Wang 的判斷是人的時間分成「想做的事」與「不得不做的事」，Meta 的產品代表前者，每天有約 35 億人使用，最自然的戰場是個人用途的 AI，不是工作與寫程式（10:24）。延伸閱讀：[Muse Spark 模型家族](/posts/tech/2026-09-19-ai-model-family-muse-spark)與 [Muse Code](/posts/tech/2026-08-24-muse-code-meta-coding-agent)。
-- **一個觀點，不要 PM 地獄**：模型加產品總共不到 200 人。Wang 批評大組織的產品常變成每個 PM 都想塞自己東西的混合體（23:56），Muse 要的是單一觀點，他說那是 Friedman 的品味（25:10）。
-- **信任要一步一步建**：真正喜歡 Muse 的使用者，是先交辦小事，成功了再交辦更大的事（35:03）。關鍵在於每一次都要成功。
-- **迷因行銷**：Wang 近期在 X 上大量發迷因，目的是在資訊洪流中被看見，也讓 Meta 重新變酷（26:11）。他認為現代產品行銷靠截圖，截圖裡有 Jolly 就知道是 Muse（37:59）。他說無法確定成效，但認為確實推動了成長（30:25）。
-- **第二個心智**：Wang 在 YC Startup School 也說過，十年後智慧與能動性會變得充裕，稀缺的是[遠見與野心](https://www.ycombinator.com/library/VS-alexandr-wang-this-is-a-once-in-a-civilization-opportunity)。他希望 AI 讓成年人別失去從小就有的大夢想（41:20）。
-- **蓋摩天大樓 vs. 挖鑽石**：[Scale AI](https://scale.com/) 的報酬接近線性，重點是流程效率；MSL 的報酬是冪次分布，他的角色變成讓研究員大量試錯（1:08:08）。他有超過 200 位直屬部屬，理由是這些人不需要主管，需要的是好環境（1:09:11）。
+- **為什麼不跟 [Anthropic 的 Claude](https://www.anthropic.com/claude) 搶 coding**：2 月時業界普遍認為 coding Agent 是唯一重要的形態（09:26）。Wang 的判斷是人的時間分成「想做的事」與「不得不做的事」，Meta 的產品代表前者，每天約 35 億人使用，所以主戰場是個人用途的 AI（10:24）。延伸閱讀：[Muse Spark 模型家族](/posts/tech/2026-09-19-ai-model-family-muse-spark)與 [Muse Code](/posts/tech/2026-08-24-muse-code-meta-coding-agent)。
+- **一個觀點，不要 PM 地獄**：模型加產品總共不到 200 人。Wang 批評大組織的產品常變成每個 PM 都想塞自己東西的混合體（23:56），他說 Muse 的單一觀點來自 Friedman 的品味（25:10）。
+- **信任要一步一步建**：真正喜歡 Muse 的使用者，是先交辦小事，成功了再交辦更大的事（35:03）。
+- **其他話題**：迷因行銷（26:11）、AI 讓人持續放大夢想（41:20，他在 YC Startup School 也說過稀缺的將是[遠見與野心](https://www.ycombinator.com/library/VS-alexandr-wang-this-is-a-once-in-a-civilization-opportunity)）、以及管理 MSL 像挖鑽石而不是蓋摩天大樓（1:08:08）。這些和上線判準關係較遠，這裡不展開。
 
 使用人數方面，Wang 在訪談中只說「數百萬」（25:10），沒給精確數字；[TNW 引述](https://thenextweb.com/news/zuckerberg-muse-launch-safety-concerns-nyt)《紐約時報》與 Sensor Tower，截至 10 月 7 日左右的下載超過 660 萬、日活躍 180 萬，這是第三方估計。
 
