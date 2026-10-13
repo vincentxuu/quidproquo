@@ -439,8 +439,8 @@
 - 證據：`docs/cmu10423-rebuild-2026-10-12.md`及`docs/cmu10423-rebuild-evidence/`。
 - 界線：使用者已授權commit/push，新增稿解除draft；CI發布另行驗證。未取得課堂錄影／逐字稿，未宣稱所有PDF圖表視覺核對或GPU訓練。
 
-## Q-034 Wang × Founders 導讀：補字幕、原音回聽與播放器實測
-- 登錄：2026-10-13（來源：對話）
-- 做什麼：為 `src/content/posts/ai/2026-10-13-meta-muse-launch-gate-eval-rows`（中英）補完英文練習區：取得 YouTube `S6l3aRsecuE` 的英文字幕（標明人工/自動）、回聽原音、挑三段 30–60 秒連續原音（候選：21:41–22:20、23:56–24:34、35:03–35:36，時間取自 Podscripts，未對 YouTube 校準）、在播放器實測起訖與重播，再填 `start`/`end`/`loop` 與「可學的表達」。
-- 為什麼現在不能做：雲端 session 的代理擋 YouTube（curl 403），拿不到字幕與音訊；回聽與播放器實測需要人或能開瀏覽器的環境。另外 `pnpm install` 因私有依賴 `lanefoundry/gatelane` 回 403，全站 `pnpm verify`／lint／check:references 也跑不了。
-- 接手第一步：把字幕檔（VTT/SRT）放進 `.work/media-to-post/wang-muse-founders/`，讀同目錄的 `coverage-report.md` 與 `claim-evidence.md`；在能 `pnpm install` 的環境跑 `pnpm verify`。
+## Q-035 Wang × Founders 導讀：英文練習區只差人工耳聽
+- 登錄：2026-10-13（來源：對話；原登錄為 Q-034，與 main 上的 Q-034 撞號，改號）
+- 已完成（2026-10-13，本機 session）：YouTube `S6l3aRsecuE` 只有英文自動字幕（`en-orig`，無人工字幕）；三段（21:54–22:37、23:38–24:41、34:54–35:29）以自動字幕、本機 Whisper small.en、Cloudflare Workers AI whisper-large-v3-turbo 三方比對，文字一致；用 IFrame API 實測三段起點、`end` 停止與 ENDED 後跳回段首重播皆正常，自動字幕軌可載入。中英文章已填 `start`/`end`/`loop`、中文重點與可學表達。完整 `pnpm verify` 已在本機跑過。
+- 還沒做：人工耳聽。原音只經機器轉錄核對，沒有人實際戴耳機聽過三段的起訖是否落在自然停頓。
+- 接手第一步：開文章三段播放器各聽一輪；起訖若切到半句，調整 `start`/`end` 整數秒（中英兩版同步改）。

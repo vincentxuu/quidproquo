@@ -20,7 +20,7 @@ draft: false
 
 - 主來源是這集訪談（[YouTube](https://www.youtube.com/watch?v=S6l3aRsecuE)，約 1 小時 12 分）。官方單集頁只有摘要，沒有逐字稿。
 - 我讀的是 [Podscripts 的自動逐字稿](https://podscripts.co/podcasts/david-senra/creating-muse-the-fastest-growing-ai-product-since-chatgpt-alexandr-wang-meta)，從頭到片尾讀完。這是第三方的自動轉錄，專名有誤聽（例如 Muse 被轉成 Mews）。
-- 我沒有回聽原音，所以文中不直接引用 Wang 的原話，只轉述；文中標的時間是這份逐字稿的時間，沒有對照過 YouTube 播放器。
+- 正文只轉述 Wang 的話，不直接引用；正文標的時間是這份逐字稿的時間。文末英文練習區的三段另外用 YouTube 自動字幕和兩次 Whisper 轉錄核對過，時間是 YouTube 播放器的時間。
 - Muse 的上線日期、排名、後續爭議是另外查的，各自附來源。
 - 我與 Meta 沒有利害關係，文中連結沒有推薦碼或追蹤參數。
 
@@ -104,22 +104,72 @@ Wang 沒有公開清單內容，也沒說門檻值是多少。你能帶走的是
 5. 把付款、改密碼、刪除這類不可逆動作標成零容忍列。
 6. 全綠之後，找 3 個沒用過的人，從安裝開始，限時 10 分鐘讓他們交辦一件小事，你只看不教。
 
-## 英文練習區（待補）
+## 英文練習區
 
-這集有英文原音，但這篇還沒完成跟讀交付：我沒有回聽原音，也沒有在播放器核對字幕與起訖，所以不標為跟讀練習，只提供定位。下表時間取自 Podscripts 逐字稿，尚未對照 YouTube；每段約 30–40 秒，建議先在播放器聽，再回到官方字幕對照。
+三段都是連續原音，時間是 YouTube 播放器的時間。這支影片只有 YouTube 自動字幕，沒有人工字幕；我拿自動字幕和兩次 Whisper 轉錄（本機 small.en、Cloudflare Workers AI whisper-large-v3-turbo）逐段比對，三份內容一致，下面的短引句以三份一致的文字為準。自動字幕有誤聽，例如把 Muse Spark 寫成 Musepark，跟讀時以耳朵聽到的為準。
+
+播放器會從段首開始並在段尾自動重播。字幕沒出現時按 CC 選英文。想看整段文字，開各段的原音時間連結，在 YouTube 影片說明選「顯示文字記錄／Show transcript」。
+
+### 第一段：21:54–22:37（43 秒），怎麼知道可以上線
 
 ```youtube
 url: https://www.youtube.com/watch?v=S6l3aRsecuE
-title: David Senra × Alexandr Wang：Creating Muse（Founders podcast）
-start: 1301
+title: Muse 跟讀 1：怎麼知道可以上線（21:54–22:37）
+start: 1314
+end: 1357
 captions: en
+loop: true
 ```
 
-| 候選段落 | 時間（逐字稿） | 中文重點 | 可學的表達 |
-|---|---|---|---|
-| 1 | 21:41–22:20 | 怎麼知道可以上線：每列兩條門檻，80 綠 20 紅不夠 | 待核對字幕後補 |
-| 2 | 23:56–24:34 | 大組織產品為什麼變成 PM 地獄 | 待核對字幕後補 |
-| 3 | 35:03–35:36 | 對 Agent 的信任是一步步交辦出來的 | 待核對字幕後補 |
+**中文理解提示：**Senra 問怎麼知道可以發布。Wang 分兩半回答：數字的一半是 100 多列行為、每列兩條門檻，80 綠 20 紅的檢查點不夠，等到第一個全綠的檢查點；體感的一半是實際用起來明顯比以前好。
+
+**原字幕短引句：**
+
+> what threshold is launch blocking and above what threshold is good
+
+意思是每一列都定兩條線：低於哪條不能上線、高於哪條算好。這句只是定位，跟讀要練完整 43 秒。
+
+先不開字幕聽一次，用中文說出「數字」與「體感」兩半各是什麼。再開 CC 分句模仿，注意 *green on 80 of the rows but red on 20* 的對比重音。可學的表達：*launch blocking*、*green across the board*、*the experiential part*。需要重新定位時用[21:54 原音連結](https://www.youtube.com/watch?v=S6l3aRsecuE&t=1314s)。
+
+### 第二段：23:38–24:41（63 秒），大組織的產品為什麼變成「PM 地獄」
+
+```youtube
+url: https://www.youtube.com/watch?v=S6l3aRsecuE
+title: Muse 跟讀 2：PM 地獄與單一觀點（23:38–24:41）
+start: 1418
+end: 1481
+captions: en
+loop: true
+```
+
+**中文理解提示：**Wang 說大組織做出的產品常像拼裝怪物：每個 PM 都想把自己的東西塞進去，最後混成一杯果昔，使用者感覺得到。Muse 要反過來，只有一個清楚的觀點、一個一致的體驗。
+
+**原字幕短引句：**
+
+> it's sort of like PM hell in some sense
+
+這段比建議的 60 秒多 3 秒，因為停在「一致的體驗」那句說完才自然。
+
+這段練的是「批評 → 比喻 → 反面」。第一輪只抓三層意思；第二輪看 CC，把 *Frankenstein*、*smoothie* 兩個比喻和 *exact opposite* 的轉折分開模仿；第三輪連續跟讀。可學的表達：*jam into the product*、*blends together*、*one cohesive experience*。需要重新定位時用[23:38 原音連結](https://www.youtube.com/watch?v=S6l3aRsecuE&t=1418s)。
+
+### 第三段：34:54–35:29（35 秒），對 Agent 的信任是一步步交辦出來的
+
+```youtube
+url: https://www.youtube.com/watch?v=S6l3aRsecuE
+title: Muse 跟讀 3：交辦越來越大的事（34:54–35:29）
+start: 2094
+end: 2129
+captions: en
+loop: true
+```
+
+**中文理解提示：**先交辦一件小事，它做到了；再給大一點的，又做到了。Wang 把這比成「信任倒」：一開始不太信任但好奇，於是一點一點把更大的事交出去。
+
+**原字幕短引句：**
+
+> it's kind of this like trust fall almost that you have with an AI agent
+
+這段口語重複多，適合練節奏。先跟著 *a little bit bigger … a little bigger … a little bigger* 的遞進模仿，再整段跟讀三輪；需要時用 0.75 倍速。可學的表達：*give it a little nibble*、*kind of intrigued*、*trust fall*。需要重新定位時用[34:54 原音連結](https://www.youtube.com/watch?v=S6l3aRsecuE&t=2094s)。
 
 ## 參考資料
 

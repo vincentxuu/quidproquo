@@ -20,7 +20,7 @@ This post answers one question: **when nobody can tell you "it's good enough," w
 
 - The main source is the episode ([YouTube](https://www.youtube.com/watch?v=S6l3aRsecuE), about 1 hour 12 minutes). The official episode page has only a summary, no transcript.
 - I read the full [Podscripts auto-transcript](https://podscripts.co/podcasts/david-senra/creating-muse-the-fastest-growing-ai-product-since-chatgpt-alexandr-wang-meta), start to end. It is third-party and machine-generated, with misheard names (Muse appears as "Mews," for example).
-- I did not listen back to the audio, so I paraphrase Wang rather than quote him. Timestamps below come from that transcript and have not been checked against the YouTube player.
+- The body paraphrases Wang rather than quoting him, and its timestamps come from that transcript. The three English practice segments at the end were checked separately against YouTube auto-captions and two Whisper transcriptions, and use YouTube player times.
 - Launch dates, rankings and later controversy were checked separately, with sources.
 - I have no relationship with Meta, and the links here carry no referral codes or tracking parameters.
 
@@ -104,22 +104,72 @@ On user numbers, Wang only said "millions" (25:10). [TNW, citing](https://thenex
 5. Mark payments, password changes and deletions as zero-tolerance rows.
 6. Once it's all green, find three people who have never used it, give them 10 minutes from install to hand off one small task, and only watch.
 
-## English practice (to be completed)
+## English practice
 
-The audio is in English, but this post has not completed a shadowing delivery: I have not listened back to the audio or checked captions and ranges in the player, so I don't present it as shadowing practice, only as locations. Times come from the Podscripts transcript and are not yet matched to YouTube. Each candidate is about 30–40 seconds; listen in the player first, then compare with the official captions.
+Each segment is continuous audio, and times are YouTube player times. The video has only YouTube auto-captions, no human captions. I compared the auto-captions against two Whisper transcriptions (local small.en and Cloudflare Workers AI whisper-large-v3-turbo) segment by segment; all three agree, and the short quotes below use the wording they share. Auto-captions mishear some names (Muse Spark becomes "Musepark"), so trust your ears.
+
+The player starts at the segment start and loops at the end. If captions don't appear, press CC and pick English. For the full text, open each segment's timestamp link and choose "Show transcript" in the YouTube description.
+
+### Segment 1: 21:54–22:37 (43 s), how they knew it was ready
 
 ```youtube
 url: https://www.youtube.com/watch?v=S6l3aRsecuE
-title: David Senra × Alexandr Wang: Creating Muse (Founders podcast)
-start: 1301
+title: Muse shadowing 1: how they knew it was ready (21:54–22:37)
+start: 1314
+end: 1357
 captions: en
+loop: true
 ```
 
-| Candidate | Time (transcript) | Gist | Expressions to learn |
-|---|---|---|---|
-| 1 | 21:41–22:20 | How they knew it was ready: two thresholds per row; 80 green and 20 red wasn't enough | To be filled after caption check |
-| 2 | 23:56–24:34 | Why big-org products turn into "PM hell" | To be filled after caption check |
-| 3 | 35:03–35:36 | Trust in an agent is built by handing over bigger tasks step by step | To be filled after caption check |
+**Gist:** Senra asks how they knew to ship. Wang answers in two halves. The numerical half: 100+ behavior rows, two thresholds each; checkpoints with 80 green and 20 red weren't enough, so they waited for the first all-green checkpoint. The experiential half: using it felt clearly better than anything before.
+
+**Short caption quote:**
+
+> what threshold is launch blocking and above what threshold is good
+
+Each row gets two lines: below one you can't ship, above the other it's good. The quote only marks the spot; shadow the full 43 seconds.
+
+Listen once without captions and say what the two halves are. Then turn on CC and imitate sentence by sentence, stressing the contrast in *green on 80 of the rows but red on 20*. Expressions: *launch blocking*, *green across the board*, *the experiential part*. To re-cue, use the [21:54 link](https://www.youtube.com/watch?v=S6l3aRsecuE&t=1314s).
+
+### Segment 2: 23:38–24:41 (63 s), why big-org products become "PM hell"
+
+```youtube
+url: https://www.youtube.com/watch?v=S6l3aRsecuE
+title: Muse shadowing 2: PM hell and a single point of view (23:38–24:41)
+start: 1418
+end: 1481
+captions: en
+loop: true
+```
+
+**Gist:** Products from big organizations often feel stitched together: every PM jams their thing in and it all blends into a smoothie, and users can feel it. Muse had to be the opposite: one clear point of view, one cohesive experience.
+
+**Short caption quote:**
+
+> it's sort of like PM hell in some sense
+
+This runs 3 seconds past the usual 60 so it ends where the "cohesive experience" sentence finishes.
+
+Practice the shape "criticism → metaphor → opposite." First pass, catch the three layers. Second pass with CC, imitate the *Frankenstein* and *smoothie* metaphors and the *exact opposite* turn separately. Third pass, shadow it straight through. Expressions: *jam into the product*, *blends together*, *one cohesive experience*. To re-cue, use the [23:38 link](https://www.youtube.com/watch?v=S6l3aRsecuE&t=1418s).
+
+### Segment 3: 34:54–35:29 (35 s), trust is built by handing over bigger tasks
+
+```youtube
+url: https://www.youtube.com/watch?v=S6l3aRsecuE
+title: Muse shadowing 3: handing over bigger tasks (34:54–35:29)
+start: 2094
+end: 2129
+captions: en
+loop: true
+```
+
+**Gist:** Give it a small task and it does it; give it something bigger and it does that too. Wang calls this a trust fall: at first you don't really trust it but you're intrigued, so you hand over bigger and bigger things.
+
+**Short caption quote:**
+
+> it's kind of this like trust fall almost that you have with an AI agent
+
+The repetition makes this good rhythm practice. Follow the build-up in *a little bit bigger … a little bigger … a little bigger*, then shadow the whole segment three times; use 0.75× if needed. Expressions: *give it a little nibble*, *kind of intrigued*, *trust fall*. To re-cue, use the [34:54 link](https://www.youtube.com/watch?v=S6l3aRsecuE&t=2094s).
 
 ## References
 
