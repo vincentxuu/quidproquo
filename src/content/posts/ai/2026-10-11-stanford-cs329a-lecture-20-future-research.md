@@ -7,7 +7,7 @@ tags: [cs329a, ai-agent, ai-course, reasoning, evaluation]
 lang: zh-TW
 series:
   name: "Stanford CS329A 導讀"
-  order: 12
+  order: 17
 description: "從官方最後一堂的多樣性、驗證、資料選擇與效率討論，設計可反駁的agent研究實驗。"
 tldr: "多樣性、驗證、資料選擇與效率是不同瓶頸；研究計畫要有保留測試與足以推翻假說的條件。"
 draft: false

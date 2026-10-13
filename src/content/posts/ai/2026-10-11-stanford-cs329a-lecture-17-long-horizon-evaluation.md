@@ -7,7 +7,7 @@ tags: [cs329a, ai-agent, ai-course, reasoning, evaluation]
 lang: zh-TW
 series:
   name: "Stanford CS329A 導讀"
-  order: 11
+  order: 14
 description: "用人類任務時長、工作成品比較與研究引用檢查，建立長任務agent的驗收判準。"
 tldr: "人類任務時長、成品品質與引用支持率回答不同問題；長任務驗收應同時檢查流程與交付物。"
 draft: false

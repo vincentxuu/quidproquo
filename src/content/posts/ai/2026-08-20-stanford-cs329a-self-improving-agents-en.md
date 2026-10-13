@@ -11,8 +11,8 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 18
-tldr: "Generating a correct candidate and recognizing it are different capabilities. This series follows the Autumn 2025 syllabus through a course overview and twelve session guides; video Parts 7–9 map to sessions 8, 17 and 20."
-description: "An Autumn 2025 course overview linking nine recorded sessions and three designated-reading sessions, with source gaps for five guest lectures and a clear distinction between video Parts and syllabus sessions."
+tldr: "Generating a correct candidate and recognizing it are different capabilities. This series follows the Autumn 2025 syllabus through a course overview and seventeen session guides covering all seventeen content sessions; five guest sessions have no public material and use public material from the speakers on similar topics instead; video Parts 7–9 map to sessions 8, 17 and 20."
+description: "An Autumn 2025 course overview linking nine recorded sessions, three designated-reading sessions, and five guest sessions that have no public material and use the speakers' public material on similar topics, with a clear distinction between video Parts and syllabus sessions."
 draft: false
 ---
 
@@ -28,7 +28,7 @@ This is the course overview: the central argument, the reading groups, and a rou
 
 ## Read the series by syllabus session
 
-The route starts with this overview, then [session 1](/posts/ai/2026-10-12-stanford-cs329a-lecture-01-generation-verification-gap-en), which introduces generation, verification and the agent feedback loop. Read sessions 2–6 in order: sampling creates alternatives, verification selects them, executable feedback supports revision, planning handles longer tasks, and training changes the model. Session 7 then moves the search target from answers to agent designs. Sessions 8, 13 and 14 extend that loop into research, software and memory; sessions 17 and 20 ask how to evaluate it and where it stops working.
+The route starts with this overview, then [session 1](/posts/ai/2026-10-12-stanford-cs329a-lecture-01-generation-verification-gap-en), which introduces generation, verification and the agent feedback loop. Read sessions 2–6 in order: sampling creates alternatives, verification selects them, executable feedback supports revision, planning handles longer tasks, and training changes the model. Session 7 then moves the search target from answers to agent designs. Sessions 8, 13 and 14 extend that loop into research, software and memory; sessions 17 and 20 ask how to evaluate it and where it stops working. Sessions 9, 15, 16, 18 and 19 are industry guest lectures. None of the five has a public recording or slides, so their guides use public material from the speakers on similar topics, and each guide says so at the top.
 
 | Syllabus session | Guide | Source basis |
 |---|---|---|
@@ -41,12 +41,17 @@ The route starts with this overview, then [session 1](/posts/ai/2026-10-12-stanf
 | 6 | [Train-time scaling and RL](/posts/ai/2026-10-11-stanford-cs329a-lecture-06-train-time-rl-en) | Video Part 6 |
 | 7 | [Open-ended evolution: designated readings](/posts/ai/2026-10-11-cs329a-session-07-open-ended-evolution-readings-en) | Designated papers; lecture speech not reconstructed |
 | 8 | [Search and deep research](/posts/ai/2026-10-11-stanford-cs329a-lecture-08-search-deep-research-en) | Video Part 7 |
+| 9 | [Post-training from chatbots to agents](/posts/ai/2026-10-13-cs329a-session-09-post-training-agents-en) | No public guest material; Gemini technical reports |
 | 13 | [Software engineering: designated readings](/posts/ai/2026-10-11-cs329a-session-13-software-engineering-readings-en) | Designated papers; lecture speech not reconstructed |
 | 14 | [Memory: designated readings](/posts/ai/2026-10-11-cs329a-session-14-agent-memory-readings-en) | Designated papers; lecture speech not reconstructed |
+| 15 | [LLM reasoning](/posts/ai/2026-10-13-cs329a-session-15-llm-reasoning-en) | No public guest material; slides of the speaker's CS25 lecture of the same title |
+| 16 | [Three systems at the Math Olympiad](/posts/ai/2026-10-13-cs329a-session-16-superhuman-math-reasoning-en) | No public guest material; papers and announcement for the three systems |
 | 17 | [Long-horizon evaluation](/posts/ai/2026-10-11-stanford-cs329a-lecture-17-long-horizon-evaluation-en) | Video Part 8 |
+| 18 | [Autonomous agentic systems](/posts/ai/2026-10-13-cs329a-session-18-autonomous-agentic-systems-en) | No public guest material; the speaker's public interview |
+| 19 | [Multimodal agents in robotics](/posts/ai/2026-10-13-cs329a-session-19-robotics-vla-en) | No public guest material; research posts the speaker co-authored |
 | 20 | [Future research bottlenecks](/posts/ai/2026-10-11-stanford-cs329a-lecture-20-future-research-en) | Video Part 9 |
 
-**Remaining gaps:** guest sessions 9, 15, 16, 18 and 19 await attributable lecture materials. Meetings 10–12 are student midterm presentations. Reading guides are explanations of the assigned papers, not a substitute transcript for an unretrieved lecture.
+**Sessions without lecture content:** meetings 10–12 are student midterm presentations. Reading guides explain the assigned papers, and guest-session guides use the speakers' public material on similar topics; neither is a substitute transcript for an unretrieved lecture.
 
 If probability is unfamiliar, start with the [CS109 overview](/posts/learning/2026-08-21-stanford-cs109-probability-en). If model training is unfamiliar, use [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) as background before session 6.
 
@@ -185,7 +190,9 @@ Nine Stanford Online recordings are identified for Autumn 2025. The [official sc
 
 They're worth watching, and the reason isn't the slides — it's the Q&A. Students push back in the room, and the instructors concede. When one points out that a chart's training curve sits suspiciously below its inference curve, Chowdhery's answer is: "Something suspicious is going on, OK? I copied the plot. So the graphs are not always right, as you might know from their latest release." When another argues that self-improving a small model is worse practice than distilling from a large one, she grants the point. **None of that appears in a paper abstract, and none of it appears on an AI-generated course summary site.**
 
-We have not established attributable recordings for sessions 7 (open-ended evolution), 13 (software engineering) and 14 (memory), but their designated papers are public and have reading-based guides below. For the five guest sessions — 9 (Melvin Johnson), 15 (Denny Zhou), 16 (Thang Luong), 18 (Misha Laskin) and 19 (Danny Driess) — this inventory has not established sufficient lecture materials. That is a source gap, not proof that recordings do not exist.
+We have not established attributable recordings for sessions 7 (open-ended evolution), 13 (software engineering) and 14 (memory), but their designated papers are public and have reading-based guides below. For the five guest sessions — 9 (Melvin Johnson), 15 (Denny Zhou), 16 (Thang Luong), 18 (Misha Laskin) and 19 (Danny Driess) — no recording or slides are public. On 2026-10-13 I checked the Stanford Online playlist, the official schedule and its edit history, both instructors' channels, and the speakers' personal sites: the previous offering's schedule page linked a recording for each lecture, while the guest rows of this offering never had a link added. That shows only that nothing can be found through public channels, not that no recording exists. The guides for these five sessions therefore use public material from the speakers on similar topics and do not represent what was said in each session.
+
+The only traces of the guest lectures from the course itself are a few sentences by the two instructors in the public recordings. Session 1 previews guest lectures covering how post-training has evolved and multimodal agents in robotics (around 1:00:59). The session 20 recap mentions guest lectures on post-training, multimodal agents and robotics, and reasoning, and adds that one guest speaker talked about how symbolic techniques can add to synthetic data (around 0:01:55–0:02:20); when introducing iterative proof generation it also says "the Gemini version of that was presented by one of our guest lecturers" (around 0:20:31). The last two remarks do not name the speaker.
 
 The first offering's guests *are* public, just hidden on other channels — that's the next section.
 
@@ -230,6 +237,8 @@ If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and L
 - **Intelligence per Watt's 5.3×**: the improvement in intelligence per watt from 2023 to 2025, decomposed in the lecture as 3.1× from models and 1.7× from hardware. The frequently conflated 88.7% is a *query coverage* figure — the share of queries at least one local model (≤20B active parameters) answers correctly — and is a separate measurement.
 
 ## Changelog
+
+- 2026-10-13: Added guides for guest sessions 9, 15, 16, 18 and 19. None has a public recording or slides, so the guides use public material from the speakers on similar topics. Rechecked public channels and recorded where the two instructors mention the guest lectures in the session 1 and session 20 recordings.
 
 - 2026-10-12: Separated the course overview from the new session 1 guide; the reading route now starts overview → session 1 → session 2.
 

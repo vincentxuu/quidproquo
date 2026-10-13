@@ -11,8 +11,8 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 18
-tldr: "產生正確候選與辨認正確候選是兩種能力。系列依 Autumn 2025 課表，以一篇總覽與十二篇逐堂導讀串起可取得材料的場次；影片 Part 7–9 對應原課第 8、17、20 堂。"
-description: "Stanford CS329A Autumn 2025 課程總覽：串起九個公開錄影場次、三個指定閱讀場次，明列五場客座的材料缺口，並區分影片 Part 與官方堂次。"
+tldr: "產生正確候選與辨認正確候選是兩種能力。系列依 Autumn 2025 課表，以一篇總覽與十七篇逐堂導讀串起十七個內容場次，其中五場客座沒有公開材料，改用講者類似題目的公開材料；影片 Part 7–9 對應原課第 8、17、20 堂。"
+description: "Stanford CS329A Autumn 2025 課程總覽：串起九個公開錄影場次、三個指定閱讀場次，以及五場沒有公開材料、改用講者類似題目公開材料的客座，並區分影片 Part 與官方堂次。"
 draft: false
 ---
 
@@ -28,7 +28,7 @@ draft: false
 
 ## 按原課堂次讀這個系列
 
-從本篇總覽開始，再讀[第 1 堂](/posts/ai/2026-10-12-stanford-cs329a-lecture-01-generation-verification-gap)建立生成、驗證與 Agent 回饋迴圈的基本區分，接著依 Autumn 2025 課表讀下去。第 2–6 堂依序把「多產生候選」接到「挑出正解」、「用可執行回饋修正」、「規劃多步任務」，最後才把回饋寫回權重。第 7 堂把搜尋對象從答案換成 Agent 設計；第 8、13、14 堂走向研究、軟體工程與記憶。第 17、20 堂再追問怎麼量測，以及這個迴圈在哪裡失效。
+從本篇總覽開始，再讀[第 1 堂](/posts/ai/2026-10-12-stanford-cs329a-lecture-01-generation-verification-gap)建立生成、驗證與 Agent 回饋迴圈的基本區分，接著依 Autumn 2025 課表讀下去。第 2–6 堂依序把「多產生候選」接到「挑出正解」、「用可執行回饋修正」、「規劃多步任務」，最後才把回饋寫回權重。第 7 堂把搜尋對象從答案換成 Agent 設計；第 8、13、14 堂走向研究、軟體工程與記憶。第 17、20 堂再追問怎麼量測，以及這個迴圈在哪裡失效。第 9、15、16、18、19 堂是業界客座，這五場沒有公開錄影或投影片，對應的導讀改用講者類似題目的公開材料，每篇開頭都有說明。
 
 | 原課堂次 | 本站導讀 | 底本 |
 |---|---|---|
@@ -41,12 +41,17 @@ draft: false
 | 6 | [把回饋餵回權重](/posts/ai/2026-10-11-stanford-cs329a-lecture-06-train-time-rl) | 影片 Part 6 |
 | 7 | [開放式演化的指定閱讀](/posts/ai/2026-10-11-cs329a-session-07-open-ended-evolution-readings) | 指定論文；未還原授課口述 |
 | 8 | [搜尋與深度研究](/posts/ai/2026-10-11-stanford-cs329a-lecture-08-search-deep-research) | 影片 Part 7 |
+| 9 | [Post-training 從聊天走到 Agent](/posts/ai/2026-10-13-cs329a-session-09-post-training-agents) | 客座無公開材料；Gemini 技術報告 |
 | 13 | [軟體工程 Agent 的指定閱讀](/posts/ai/2026-10-11-cs329a-session-13-software-engineering-readings) | 指定論文；未還原授課口述 |
 | 14 | [記憶系統的指定閱讀](/posts/ai/2026-10-11-cs329a-session-14-agent-memory-readings) | 指定論文；未還原授課口述 |
+| 15 | [LLM 推理](/posts/ai/2026-10-13-cs329a-session-15-llm-reasoning) | 客座無公開材料；講者在 CS25 的同名講座投影片 |
+| 16 | [數學奧林匹亞的三套系統](/posts/ai/2026-10-13-cs329a-session-16-superhuman-math-reasoning) | 客座無公開材料；三套系統的論文與公告 |
 | 17 | [長時程評估](/posts/ai/2026-10-11-stanford-cs329a-lecture-17-long-horizon-evaluation) | 影片 Part 8 |
+| 18 | [自主 Agent 系統](/posts/ai/2026-10-13-cs329a-session-18-autonomous-agentic-systems) | 客座無公開材料；講者的公開訪談 |
+| 19 | [機器人的多模態 Agent](/posts/ai/2026-10-13-cs329a-session-19-robotics-vla) | 客座無公開材料；講者掛名的研究文章 |
 | 20 | [未來研究的瓶頸](/posts/ai/2026-10-11-stanford-cs329a-lecture-20-future-research) | 影片 Part 9 |
 
-**仍待材料：**第 9、15、16、18、19 堂客座；第 10–12 堂是學生期中專案報告。指定閱讀篇教的是論文機制，不冒充未取得的授課逐字稿。
+**沒有授課內容的場次：**第 10–12 堂是學生期中專案報告。指定閱讀篇教的是論文機制，客座篇用的是講者類似題目的公開材料，兩者都不冒充未取得的授課逐字稿。
 
 對機率不熟，先用 [CS109 總覽](/posts/learning/2026-08-21-stanford-cs109-probability)補背景；對模型訓練不熟，讀第 6 堂前可先回到 [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)。
 
@@ -185,7 +190,9 @@ GDPval 那邊把同一件事翻譯成經濟語言。把 GPT-5 的產出交給有
 
 錄影值得看，而且理由不是投影片——是問答。學生會當場追問，而講者會承認不知道。有人指出某張圖表的訓練曲線比推論曲線低得可疑，Chowdhery 的回答是：「有可疑的地方，好。這張圖是我複製過來的。所以圖表不見得都是對的，你們從他們最近那次發表應該也知道。」另一位學生質疑用小模型自我改進不如直接從大模型蒸餾，她也直接認了這是合理的實務選擇。**這種東西不會出現在論文摘要裡，也不會出現在 AI 生成的課程摘要站。**
 
-第 7 堂開放式演化、第 13 堂軟體工程 Agent、第 14 堂記憶系統，本次未確認可對應的公開錄影，但有公開指定閱讀，下方已各自補上閱讀導讀。五場客座——第 9 堂 Melvin Johnson、第 15 堂 Denny Zhou、第 16 堂 Thang Luong、第 18 堂 Misha Laskin、第 19 堂 Danny Driess——仍未取得足以導讀該場授課的材料。這是目前的來源缺口，不能據此說錄影不存在。
+第 7 堂開放式演化、第 13 堂軟體工程 Agent、第 14 堂記憶系統，本次未確認可對應的公開錄影，但有公開指定閱讀，下方已各自補上閱讀導讀。五場客座——第 9 堂 Melvin Johnson、第 15 堂 Denny Zhou、第 16 堂 Thang Luong、第 18 堂 Misha Laskin、第 19 堂 Danny Driess——沒有公開錄影或投影片。2026-10-13 查過 Stanford Online 播放清單、官方課表與其修改歷史、兩位授課老師的頻道，以及講者的個人網站：上一屆的課表頁逐堂放過錄影連結，這一屆的客座列從未加過任何連結。這只能說公開管道找不到，不能據此說錄影不存在。這五堂的導讀因此改用講者類似題目的公開材料，不代表該場實際講了什麼。
+
+課堂本身留下的客座線索只有兩位老師在公開錄影裡的幾句話。第 1 堂預告客座會涵蓋 post-training 的演進與機器人的多模態 Agent（影片約 1:00:59）。第 20 堂回顧時提到客座談了 post-training、多模態 Agent 與機器人、推理，並補充有一位客座講了符號方法如何增加合成資料（約 0:01:55–0:02:20）；介紹迭代式證明時又說「它的 Gemini 版本是我們一位客座講者報告過的」（約 0:20:31）。後兩句沒有點名講者。
 
 不過第一次開課的客座有公開，只是藏在別的頻道，下一節就講那個。
 
@@ -267,6 +274,8 @@ title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Sc
 內容核對：已依字幕核對（2026-10-10）：兩支嵌入影片（Part 2、Part 6）都讀了字幕。Part 2 字幕涵蓋 Large Language Monkeys 的重複取樣與冪次律、長尾難題、多數決與 reward model 都追不上理論 coverage 的 generation–verification gap、最難的題目在上千次取樣裡只被答對幾次，以及 Archon 的 fusion 勝過 oracle selection，文章這幾點都成立；Part 6 字幕涵蓋 STaR（GSM8K 上 rationalization 沒有明顯幫助）、DeepSeekMath（取樣 32 次時 majority@K 上升而 pass@K 沒有，「more consistent, not fundamentally smarter」）、GRPO 在全對或全錯時正規化失效、DAPO 的 dynamic sampling 與 Qwen-32B 從 30 提升到約 50 的階梯，以及三項技術不提升基礎能力的結論，也都成立。文中的中文引文是意譯，意思與英文字幕相符、措辭不同；字幕沒有出現講者姓名，講者歸屬依課程資訊而非字幕。本文對第 9 堂、第 17 堂、其他堂次與客座講的說法對應的是未嵌入的影片，這次沒有核對。
 
 ## 更新紀錄
+
+- 2026-10-13：補上第 9、15、16、18、19 堂客座導讀。這五場沒有公開錄影或投影片，改用講者類似題目的公開材料；重查公開管道並記錄兩位老師在第 1、20 堂錄影中提到客座的段落。
 
 - 2026-10-12：課程總覽與第 1 堂導讀分開，閱讀順序改為總覽 → 第 1 堂 → 第 2 堂。
 

@@ -7,7 +7,7 @@ tags: [cs329a, ai-agent, ai-course, evaluation, llm]
 lang: zh-TW
 series:
   name: "Stanford CS329A 導讀"
-  order: 10
+  order: 11
 description: "比較 MemGPT、Cartridges 與 CacheBlend，算出離線表示的成本打平點，並檢查更新資料的正確性。"
 tldr: "取回管理、訓練 KV 表示與 cache 重用處理不同瓶頸；速度與命中率都不保證資料新鮮。"
 draft: false

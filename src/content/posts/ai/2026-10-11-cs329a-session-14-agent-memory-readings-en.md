@@ -7,7 +7,7 @@ tags: [cs329a, ai-agent, ai-course, evaluation, llm]
 lang: en
 series:
   name: "Reading Stanford CS329A"
-  order: 10
+  order: 11
 description: "Compare MemGPT, Cartridges, and CacheBlend with a break-even calculation and a stale-data exercise."
 tldr: "Retrieval, trained KV representations, and cache reuse address different bottlenecks; speed does not guarantee freshness."
 draft: false

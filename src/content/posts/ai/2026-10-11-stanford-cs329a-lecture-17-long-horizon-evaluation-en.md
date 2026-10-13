@@ -7,7 +7,7 @@ tags: [cs329a, ai-agent, ai-course, reasoning, evaluation]
 lang: en
 series:
   name: "Reading Stanford CS329A"
-  order: 11
+  order: 14
 description: "Build acceptance criteria for long-running agents using human task duration, professional artifacts, and research verifiability."
 tldr: "Human task duration, artifact quality, and citation support measure different things; evaluate both execution and deliverables."
 draft: false

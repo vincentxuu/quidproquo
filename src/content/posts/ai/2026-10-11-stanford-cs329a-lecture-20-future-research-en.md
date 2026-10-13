@@ -7,7 +7,7 @@ tags: [cs329a, ai-agent, ai-course, reasoning, evaluation]
 lang: en
 series:
   name: "Reading Stanford CS329A"
-  order: 12
+  order: 17
 description: "Design falsifiable agent experiments from the final lecture’s discussion of diversity, verification, data selection, and efficiency."
 tldr: "Diversity, verification, task selection, and efficiency are distinct bottlenecks; experiments need holdouts and falsifiable hypotheses."
 draft: false

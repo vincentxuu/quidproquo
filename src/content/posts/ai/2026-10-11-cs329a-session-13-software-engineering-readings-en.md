@@ -7,7 +7,7 @@ tags: [cs329a, ai-agent, ai-course, evaluation, llm]
 lang: en
 series:
   name: "Reading Stanford CS329A"
-  order: 9
+  order: 10
 description: "Use CodeMonkeys, KernelBench, and parallel-program interfaces to select patches and compare valid speedups."
 tldr: "Program candidates need requirement-based counterexamples; speed matters only after correctness checks pass."
 draft: false

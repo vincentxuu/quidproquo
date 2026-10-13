@@ -7,7 +7,7 @@ tags: [cs329a, ai-agent, ai-course, evaluation, llm]
 lang: zh-TW
 series:
   name: "Stanford CS329A 導讀"
-  order: 9
+  order: 10
 description: "依 CodeMonkeys、KernelBench 與平行程式介面研究，教候選測試、正確性閘門與效能選擇。"
 tldr: "多個程式候選仍需需求反例來挑選；先通過正確性檢查，速度提升才有意義。"
 draft: false
