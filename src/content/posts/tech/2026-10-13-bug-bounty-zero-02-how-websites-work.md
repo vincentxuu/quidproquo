@@ -39,7 +39,7 @@ series:
 | 4 | 回應裡的 Cookie 被瀏覽器收下，下次一起帶上 | Cookie |
 | 5 | 頁面載入後，瀏覽器限制不同來源的程式互相讀取 | 同源規則 |
 
-依 [MDN 對 HTTP 的概述](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview)，發起請求的永遠是瀏覽器，不是伺服器。瀏覽器先要一份 HTML，解析後再為 CSS、JavaScript、圖片各發一次請求，最後拼成你看到的頁面。所以一次「開網頁」通常是很多個請求，不是一個。
+依 [MDN 對 HTTP 的概述](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview)，請求一律由瀏覽器發起，不是伺服器（後來雖有一些機制能模擬伺服器主動推送，本文先不談）。瀏覽器先要一份 HTML，解析後再為 CSS、JavaScript、圖片各發一次請求，最後拼成你看到的頁面。所以一次「開網頁」通常是很多個請求，不是一個。
 
 ## URL：地址的四段
 
@@ -52,7 +52,7 @@ series:
 | 路徑（path） | `/me` | 要這台伺服器上的哪個資源 |
 | 查詢參數（query） | `?lang=zh` | 附帶給伺服器的 `key=value` 小紙條 |
 
-MDN 用寄信比喻：協定是郵政服務，網域是城市，路徑是大樓，參數是樓層房號。另外還有 `#` 後面的片段（fragment），它只留在瀏覽器，**不會送到伺服器**，這點在下一篇有用。
+MDN 用寄信比喻：協定是郵政服務，網域是城市，埠是郵遞區號，路徑是大樓，參數是大樓裡的房號。另外還有 `#` 後面的片段（fragment），它只留在瀏覽器，**不會送到伺服器**，這點在下一篇有用。
 
 ## 請求與回應：兩張結構一樣的便條
 
@@ -68,7 +68,7 @@ HTTP 訊息可以直接用人眼讀。依 [MDN 的 HTTP 訊息說明](https://de
 
 - **200 OK**：請求成功。
 - **404 Not Found**：[伺服器找不到你要的資源](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/404)。
-- **401 與 403 容易搞混**：[401 Unauthorized](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/401) 是請求缺少有效的身分驗證資料，意思是「你是誰？先證明」。[403 Forbidden](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/403) 是伺服器看懂了但拒絕處理，重新登入也沒用，意思是「我知道你是誰，但你不能做這件事」。
+- **401 與 403 容易搞混**：[401 Unauthorized](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/401) 是請求缺少有效的身分驗證資料，意思是「你是誰？先證明」。[403 Forbidden](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/403) 是伺服器看懂了請求但拒絕處理，換個身分重新登入也不會改變結果。最常見的情況是「你已經登入了，但沒有權限做這件事」。
 
 這組差異之後會反覆出現：判斷一個網站有沒有把「誰能看什麼」管好，常常就是在看它該回 403 的時候回了什麼。
 
@@ -100,7 +100,7 @@ HTTP 本身沒有記憶。[MDN 寫得很直接](https://developer.mozilla.org/en
 | `http://store.company.com:81/dir/page.html` | 不同源 | 埠不同 |
 | `http://news.company.com/dir/page.html` | 不同源 | 網域不同 |
 
-直覺版口訣：不同源之間，**可以寄信、可以嵌入，但通常不能讀對方的內容**。MDN 的分類是：跨源的寫入（連結、轉址、表單送出）通常允許，跨源的嵌入（圖片、script、iframe）通常允許，跨源的讀取通常禁止。這條規則只是瀏覽器的行為，用 curl 這類工具發請求完全不受它限制，因為它不是瀏覽器。細節（CORS 怎麼放行）留到之後再談。
+直覺版口訣：不同源之間，**可以寄信、可以嵌入，但通常不能讀對方的內容**。MDN 的分類是：跨源的寫入（連結、轉址、表單送出）通常允許，跨源的嵌入（圖片、script、iframe）通常允許，跨源的讀取通常禁止。同源政策是瀏覽器的安全機制（[PortSwigger](https://portswigger.net/web-security/cors/same-origin-policy)），所以用 curl 這類不是瀏覽器的工具發請求，不受它限制；但 curl 送出的也只是你自己的請求，不會帶上別人的 Cookie。細節（CORS 怎麼放行）留到之後再談。
 
 ## 實測：用 curl 看一次完整的請求與回應
 
@@ -247,6 +247,7 @@ Firefox 也有同樣的 Network 面板，欄位名稱略有不同，本文只實
 - [Using HTTP cookies（MDN）](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies)
 - [Set-Cookie header（MDN）](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie)
 - [Same-origin policy（MDN）](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Same-origin_policy)
+- [Same-origin policy（PortSwigger Web Security Academy）](https://portswigger.net/web-security/cors/same-origin-policy)
 - [Inspect network activity（Chrome for Developers）](https://developer.chrome.com/docs/devtools/network)
 - [Network features reference（Chrome for Developers）](https://developer.chrome.com/docs/devtools/network/reference)
 - 站內：[Bug Bounty 頂級獎金查證（第 0 篇）](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)、[規則與測試範圍（第 1 篇）](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope)、[常見網站漏洞（第 3 篇）](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)

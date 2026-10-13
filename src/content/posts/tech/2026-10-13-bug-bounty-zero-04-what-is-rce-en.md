@@ -20,7 +20,7 @@ series:
 
 > 🌏 [中文版](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)
 
-In [the previous post](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs), XSS and IDOR were bugs where a website does something it should not do for you. This post goes one layer down: could someone make the machine behind the website do things for them? That is RCE. By the end you should be able to spot code that glues user input into a shell command, say why it is dangerous, and rewrite it safely.
+In [the previous post](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs-en), XSS and IDOR were bugs where a website does something it should not do for you. This post goes one layer down: could someone make the machine behind the website do things for them? That is RCE. By the end you should be able to spot code that glues user input into a shell command, say why it is dangerous, and rewrite it safely.
 
 ## What RCE is, and why it pays the most
 
@@ -33,11 +33,11 @@ The reward table in the [Google VRP rules](https://bughunters.google.com/about/r
 | Type | Example in the table | Base reward |
 |---|---|---|
 | RCE | Command injection, deserialization bugs, sandbox escapes | $75,000 |
-| IDOR (most sensitive information tier) | Direct object reference | $31,337 |
-| IDOR (next tier) | Direct object reference | $13,337 |
+| Logic flaw / IDOR (Tier 0 data or critical actions) | Direct object reference, remote user impersonation | $31,337 |
+| Logic flaw / IDOR (Tier 1 data or impactful actions) | Direct object reference, remote user impersonation | $13,337 |
 | XSS | Cross-site scripting | $10,000 |
 
-On the most sensitive Tier 0 and Tier 1 domains, RCE is $101,010 while XSS is $20,000 and $15,000. A footnote in the rules defines Tier 0 domains as those where a critical vulnerability (e.g. XSS or RCE) could compromise a user's account or execute code on their system. Amounts depend on the version of the rules at the time, the panel sets the final figure, and a report-quality multiplier applies. [Part 0 of this series](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check) walks through how to read those numbers cell by cell.
+On the most sensitive Tier 0 and Tier 1 domains, RCE is $101,010 while XSS is $20,000 and $15,000. A footnote in the rules defines Tier 0 domains as those where a critical vulnerability (e.g. XSS or RCE) could compromise a user's account or execute code on their system. Amounts depend on the version of the rules at the time, the panel sets the final figure, and a report-quality multiplier applies. [Part 0 of this series](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en) walks through how to read those numbers cell by cell.
 
 The table explains half of "why so expensive": Google classes RCE as direct access to its servers. The other half is difficulty, which the table does not state. My own judgment is that a usable RCE is usually harder to find than an XSS; that is not something the rules page says.
 
@@ -154,10 +154,10 @@ The fix has two layers. First, do not use pickle on untrusted input. The Python 
 
 ## Real cases on this site
 
-These two daily alerts cover real, patched incidents. Details are as stated in the alerts and the sources they cite.
+These two daily alerts cover real, patched incidents; for technical details, rely on the original research they cite.
 
-- [LangGraph checkpointer: SQL injection chained with unsafe deserialization](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en): this maps to path two. The alert describes the framework deserializing stored state with msgpack, and an earlier bug letting an attacker forge that stored row; chained together, that is unauthenticated RCE.
-- [Manus taken over by a single email](/posts/daily/2026-10-03-security-manus-email-jsfuck-rce-en): not the shell-gluing from this post, but a similar root: untrusted content ended up in an environment that executes code. The alert describes an agent feeding email content into a pipeline that actually runs programs, so the attacker's code ran inside the cloud sandbox.
+- [LangGraph checkpointer: SQL injection chained with unsafe deserialization](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en): this maps to path two. The alert describes the framework deserializing stored state with msgpack, and an earlier bug letting an attacker forge that stored row; chained together, that gives remote code execution on self-hosted deployments where the app lets users control the history filter.
+- [Manus taken over by a single email](/posts/daily/2026-10-03-security-manus-email-jsfuck-rce-en): not the shell-gluing from this post, but a similar root: untrusted content ended up in an environment that executes code; the difference is that a prompt injection led the agent itself to decode and run the code. The original Salt Labs report describes the agent feeding email content into a pipeline that actually runs programs, so the attacker's code ran inside the cloud sandbox.
 
 Neither case is as simple as "someone typed `shell=True`." Real RCE is often a chain of small problems, and it often hides where you thought you were only reading data.
 
@@ -179,5 +179,8 @@ The next stage moves from the web into memory.
 - [subprocess: Security Considerations (Python docs)](https://docs.python.org/3/library/subprocess.html#security-considerations)
 - [pickle (Python docs)](https://docs.python.org/3/library/pickle.html)
 - [Fact-Checking Bug Bounty's Top Payouts (series part 0)](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)
-- [AI Security Alert: LangGraph Checkpointer unauthenticated RCE chain](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en)
+- [AI Security Alert: LangGraph checkpointer: SQL injection chained into RCE](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en)
 - [AI Security Alert: Manus agent hijacked by one email](/posts/daily/2026-10-03-security-manus-email-jsfuck-rce-en)
+- [From SQLi to RCE - Exploiting LangGraph's Checkpointer (Check Point Research)](https://research.checkpoint.com/2026/from-sqli-to-rce-exploiting-langgraphs-checkpointer/)
+- [GHSA-9rwj-6rc7-p77c (LangGraph security advisory, GitHub)](https://github.com/langchain-ai/langgraph/security/advisories/GHSA-9rwj-6rc7-p77c)
+- [Salt Labs: Manus could be hijacked with a single email (original research)](https://salt.security/blog/how-we-hijacked-an-ai-agent-with-a-single-email)

@@ -28,13 +28,13 @@ RCE 是 Remote Code Execution，遠端程式碼執行：攻擊者不用坐在那
 
 用比喻來說，XSS 像是騙到某位客人的會員卡，IDOR 像是發現櫃檯沒核對就把別人的包裹交出來。RCE 則是外人直接拿到店裡後台的鑰匙，能叫店員做任何事。前兩種影響的是某幾位使用者的資料；RCE 影響的是整台伺服器，以及伺服器能碰到的所有東西。
 
-[Google VRP 規則頁](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)的獎金表把它放在最上面一列，分類叫「Vulnerabilities giving direct access to Google servers」，項目是 Remote code execution，例子寫的是「Command injection, deserialization bugs, sandbox escapes」。這一篇講前兩個，沙盒逃脫留給後面的篇章。同一張表裡，一般 Google 應用（例如 *.google.com）那一欄的基準金額是：
+[Google VRP 規則頁](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)的獎金表把它放在最上面一列，分類叫「Vulnerabilities giving direct access to Google servers」，項目是 Remote code execution（S0），例子寫的是「Command injection, deserialization bugs, sandbox escapes」。這一篇講前兩個，沙盒逃脫留給後面的篇章。同一張表裡，一般 Google 應用（例如 *.google.com）那一欄的基準金額是：
 
 | 類型 | 表中的例子 | 基準獎金 |
 |---|---|---|
 | RCE | Command injection、deserialization bugs、sandbox escapes | 75,000 美元 |
-| IDOR（碰到最敏感資料） | Direct object reference | 31,337 美元 |
-| IDOR（碰到次敏感資料） | Direct object reference | 13,337 美元 |
+| 邏輯漏洞／IDOR（Tier 0 資料或關鍵操作） | Direct object reference、remote user impersonation | 31,337 美元 |
+| 邏輯漏洞／IDOR（Tier 1 資料或重要操作） | Direct object reference、remote user impersonation | 13,337 美元 |
 | XSS | Cross-site scripting | 10,000 美元 |
 
 最敏感的 Tier 0 與 Tier 1 網域，RCE 是 101,010 美元，XSS 是 20,000 與 15,000 美元。規則頁在腳註裡說明，Tier 0 網域是「重大漏洞（例如 XSS 或 RCE）可能導致使用者帳號被入侵，或讓程式碼在使用者系統上執行」的網域。獎金多寡以官方當時版本為準，最後金額由審查小組決定，並乘上報告品質係數。這些數字怎麼讀，[系列第 0 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)已經逐格對過。
@@ -154,10 +154,10 @@ JSON 不認這包東西： UnicodeDecodeError
 
 ## 站內的真實案例
 
-以下兩篇日報記錄的是已修補的真實事件，細節以日報和它引用的原始來源為準：
+以下兩篇日報記錄的是已修補的真實事件，技術細節以日報引用的原始研究為準：
 
-- [LangGraph Checkpointer 的 SQL injection 串接不安全反序列化](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce)：對應路徑二。日報寫到，框架讀出儲存的狀態後做 msgpack 反序列化，加上前一個漏洞讓攻擊者能偽造那筆資料，兩段串起來就是未授權 RCE。
-- [Manus 一封信接管 AI Agent](/posts/daily/2026-10-03-security-manus-email-jsfuck-rce)：不是這篇範例的 shell 拼接，但根源相近，都是不可信的內容被送進會執行的環境。日報描述，Agent 把信件內容送進會實際執行程式的管線，結果在雲端 sandbox 裡跑了攻擊者的程式。
+- [LangGraph Checkpointer 的 SQL injection 串接不安全反序列化](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce)：對應路徑二。日報寫到，框架讀出儲存的狀態後做 msgpack 反序列化，加上前一個漏洞讓攻擊者能偽造那筆資料，兩段串起來，在自架部署、而且應用程式讓使用者能控制查詢條件時，就能做到遠端程式碼執行。
+- [Manus 一封信接管 AI Agent](/posts/daily/2026-10-03-security-manus-email-jsfuck-rce)：不是這篇範例的 shell 拼接，但根源相近，都是不可信的內容被送進會執行的環境；差別在這次是 prompt injection 讓 Agent 自己去解碼並執行信裡的程式。Salt Labs 的原始報告寫到，Agent 把信件內容送進會實際執行程式的管線，結果在雲端 sandbox 裡跑了攻擊者的程式。
 
 兩個案例都不是「某個人手滑寫了 `shell=True`」這麼單純。真實世界的 RCE 常常是幾個小問題串成的，也常出現在你以為只是「讀資料」的地方。
 
@@ -179,5 +179,8 @@ JSON 不認這包東西： UnicodeDecodeError
 - [subprocess: Security Considerations（Python 官方文件）](https://docs.python.org/3/library/subprocess.html#security-considerations)
 - [pickle（Python 官方文件）](https://docs.python.org/3/library/pickle.html)
 - [Bug Bounty 頂級獎金查證（系列第 0 篇）](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
-- [資安警報｜LangGraph Checkpointer 一條鏈就是未授權 RCE](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce)
+- [資安警報｜LangGraph Checkpointer：SQL injection 串接反序列化成 RCE](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce)
 - [資安警報｜一封信接管 Manus AI Agent](/posts/daily/2026-10-03-security-manus-email-jsfuck-rce)
+- [From SQLi to RCE - Exploiting LangGraph's Checkpointer（Check Point Research）](https://research.checkpoint.com/2026/from-sqli-to-rce-exploiting-langgraphs-checkpointer/)
+- [GHSA-9rwj-6rc7-p77c（LangGraph security advisory，GitHub）](https://github.com/langchain-ai/langgraph/security/advisories/GHSA-9rwj-6rc7-p77c)
+- [Manus 一封信被劫持的原始研究（Salt Labs）](https://salt.security/blog/how-we-hijacked-an-ai-agent-with-a-single-email)

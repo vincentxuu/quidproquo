@@ -39,7 +39,7 @@ We will follow one click through time. That is the spine of the whole post:
 | 4 | The browser stores any cookie in the response and sends it back next time | Cookies |
 | 5 | Once the page loads, the browser limits how code from different origins can read each other | Same-origin rule |
 
-According to [MDN's overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview), the browser always initiates the request, never the server. It first fetches an HTML document, parses it, then sends further requests for the CSS, scripts and images, and finally assembles the page you see. So "opening a web page" is usually many requests, not one.
+According to [MDN's overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview), the browser always initiates the request, never the server (some later mechanisms simulate server-initiated messages, but this post leaves them aside). It first fetches an HTML document, parses it, then sends further requests for the CSS, scripts and images, and finally assembles the page you see. So "opening a web page" is usually many requests, not one.
 
 ## The URL: four parts of an address
 
@@ -52,7 +52,7 @@ Take the URL we will use later, `http://127.0.0.1:8000/me?lang=zh`, and split it
 | Path | `/me` | Which resource on that server |
 | Query | `?lang=zh` | A small `key=value` note passed to the server |
 
-MDN compares this to a postal address: the scheme is the postal service, the domain is the city, the path is the building, and the parameters are the apartment number. There is also the fragment after `#`. It stays in the browser and is **never sent to the server**, which will matter in the next post.
+MDN compares this to a postal address: the scheme is the postal service, the domain is the city, the port is the zip code, the path is the building, and the parameters are the apartment number. There is also the fragment after `#`. It stays in the browser and is **never sent to the server**, which will matter in the next post.
 
 ## Requests and responses: two notes with the same shape
 
@@ -68,7 +68,7 @@ A status code is three digits, and the first digit gives the category. [MDN's st
 
 - **200 OK**: the request succeeded.
 - **404 Not Found**: [the server cannot find the requested resource](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/404).
-- **401 and 403 are easy to mix up**: [401 Unauthorized](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/401) means the request lacks valid authentication credentials, as in "who are you? prove it first". [403 Forbidden](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/403) means the server understood the request but refuses it, and logging in again makes no difference: "I know who you are, but you cannot do this".
+- **401 and 403 are easy to mix up**: [401 Unauthorized](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/401) means the request lacks valid authentication credentials, as in "who are you? prove it first". [403 Forbidden](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/403) means the server understood the request but refuses it, and authenticating again makes no difference. The most common case is "you are signed in, but you lack permission for this".
 
 This pair comes up again and again. Checking whether a site keeps "who can see what" under control often comes down to what it returns at the moment it should have said 403.
 
@@ -100,7 +100,7 @@ An origin is the combination of scheme, host and port, and all three must match.
 | `http://store.company.com:81/dir/page.html` | Different | Different port |
 | `http://news.company.com/dir/page.html` | Different | Different host |
 
-The intuitive version: between different origins you can send a letter or embed something, but you usually cannot read the other side's content. MDN sorts this into three: cross-origin writes (links, redirects, form submissions) are typically allowed, cross-origin embedding (images, scripts, iframes) is typically allowed, and cross-origin reads are typically disallowed. This is browser behavior. A tool like curl is not a browser, so it is not held to the rule. How CORS opens specific exceptions is a topic for later.
+The intuitive version: between different origins you can send a letter or embed something, but you usually cannot read the other side's content. MDN sorts this into three: cross-origin writes (links, redirects, form submissions) are typically allowed, cross-origin embedding (images, scripts, iframes) is typically allowed, and cross-origin reads are typically disallowed. The same-origin policy is a browser security mechanism ([PortSwigger](https://portswigger.net/web-security/cors/same-origin-policy)), so a non-browser tool like curl is not held to it; but curl only sends your own requests and never carries someone else's cookies. How CORS opens specific exceptions is a topic for later.
 
 ## Hands-on: watch a full request and response with curl
 
@@ -247,6 +247,7 @@ That is why this comes first. Part 0 checked a few top-of-the-range payouts, whi
 - [Using HTTP cookies (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies)
 - [Set-Cookie header (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie)
 - [Same-origin policy (MDN)](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Same-origin_policy)
+- [Same-origin policy (PortSwigger Web Security Academy)](https://portswigger.net/web-security/cors/same-origin-policy)
 - [Inspect network activity (Chrome for Developers)](https://developer.chrome.com/docs/devtools/network)
 - [Network features reference (Chrome for Developers)](https://developer.chrome.com/docs/devtools/network/reference)
 - On this site: [Fact-checking bug bounty's top payouts (part 0)](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en), [Rules and scope (part 1)](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en), [Common web bugs (part 3)](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs-en)

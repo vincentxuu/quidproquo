@@ -11,7 +11,7 @@ tags:
   - meta
 lang: en
 description: "Before you start bug bounty hunting, learn to read the rules. Using the actual Meta and Google program pages, this guide gives you three questions to decide whether a target is testable, explains what safe harbor does and doesn't cover, and describes Taiwan's computer-crime provisions."
-tldr: "Ask three things of any program page: is the target on the in-scope list, is my technique excluded (DoS, social engineering), and is the data I touch my own? Safe harbor is the program's promise, not a free pass; Meta's text requires full compliance, judged by Meta. Taiwan's Criminal Code arts. 358-360 turn on acting 'without cause'. This is not legal advice."
+tldr: "Ask three things of any program page: is the target on the in-scope list, is my technique excluded (DoS, social engineering), and is the data I touch my own? Safe harbor is the program's promise, not a free pass; Meta's text requires compliance 'in all respects', with a carve-out for clear accidental or good-faith violations, all judged by Meta. Taiwan's Criminal Code arts. 358-360 turn on acting 'without cause'. This is not legal advice."
 draft: false
 series:
   name: "Bug Bounty from Zero"
@@ -77,7 +77,7 @@ Google adds a practical tip: create an account dedicated to testing, since it ca
 
 ## When you're not sure
 
-Meta says to submit a new report asking for clarification before doing anything the terms don't address. Google says "talk to us first" for ambiguous domains. Both answers are the same: **ask first, test second.**
+Meta's [program scope page](https://bugbounty.meta.com/scope/) says to submit a new report asking for clarification before doing anything that may be inconsistent with or unaddressed by the terms. Google says "talk to us first" for ambiguous domains. Both answers are the same: **ask first, test second.**
 
 ## What safe harbor is, and isn't
 
@@ -91,9 +91,9 @@ Safe harbor is the program's promise not to come after you if you follow the rul
 
 The limits are visible in the text itself:
 
-- The condition is full compliance, as judged by Meta.
+- The condition is compliance "in all respects" (with a carve-out for clear accidental or good-faith violations), and Meta alone judges both.
 - It describes Meta's own actions. The text doesn't promise to bind anyone else.
-- It doesn't extend to out-of-scope targets or to other people's data.
+- It doesn't extend to out-of-scope targets or to other people's data accessed without their consent.
 
 The Google page I read doesn't use the term "safe harbor." The closest line is: "your testing must not violate any law, or disrupt or compromise any data that is not your own." Whether Google has a separate legal statement elsewhere, I **could not verify**. So "has a program" does not mean "has a safe harbor." Read each program's own text.
 
@@ -135,7 +135,7 @@ Walking through real text:
 
 1. You see `fbsbx.com`. Q1: Meta lists it as ineligible. Stop.
 2. You see a site at `foo.appspot.com` that seems Google-related. Q1: Google's Non-qualifying list says `*.appspot.com` and `*.bc.googleusercontent.com` host Google Cloud customers' apps, and "the Vulnerability Reward Program does not authorize the testing" of them. Stop.
-3. You find something on `*.google.com` and want to scan it with a script that fires thousands of requests. Q2: Google discourages tools that generate very significant traffic. Slow down or go manual.
+3. You find something on `*.google.com` and want to scan it with a script that automatically sends a large volume of requests. Q2: Google discourages tools that generate very significant traffic. Slow down or go manual.
 4. On Facebook, you realize another user's account would reveal private data. Q3: Meta says use your own or a test account; for anyone else you need written consent. If you've already touched it, stop and report as the rules describe.
 
 ## "No reward" is not the same as "not allowed"
@@ -147,7 +147,7 @@ When reading a list, look for the two phrasings. "Doesn't earn a reward" means y
 ## Limits
 
 - Rules change. Meta's page itself says "bounty amounts and qualifying issues may change with time," and Google says it can cancel the program at any time. This post reflects 2026-10-13. Re-read the original page before you test.
-- Programs differ. Meta requires participants to be at least 14, while Google's VRP page says participation is restricted to those 18 and older, with a parent or guardian submitting for anyone under 18. Programs on HackerOne or Bugcrowd have their own rules, which this post doesn't cover.
+- Programs differ. Meta requires participants to be at least 14, with parental or guardian permission if they are a minor where they live, while Google's VRP page restricts participation to those 18 and older and asks a parent, guardian, or other trusted adult to submit for anyone younger. Programs on HackerOne or Bugcrowd have their own rules, which this post doesn't cover.
 - The Taiwan section paraphrases statute text only. It doesn't include case law and isn't a legal opinion.
 
 ## What to do tonight

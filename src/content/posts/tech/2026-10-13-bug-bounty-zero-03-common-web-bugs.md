@@ -12,7 +12,7 @@ tags:
   - owasp
 lang: zh-TW
 description: "用一段能在自己電腦跑的小程式，看懂 XSS（讓別人的瀏覽器執行不該執行的腳本）與 IDOR（把網址上的 id 換成別人的就能看到別人的資料），再對照 Google 獎金表，說明兩者各落在哪一格、為什麼價位不同。"
-tldr: "XSS 是網站把使用者輸入原樣放進網頁，讓別人的瀏覽器把它當程式執行，修法是輸出時轉義。IDOR 是伺服器收到 id 就給資料，沒檢查這筆資料是不是你的，修法是伺服器端檢查擁有者。Google 獎金表把 XSS 放在「在受害者瀏覽器執行程式碼」（C0），一般 Google 應用基準 10,000 美元；IDOR 放在邏輯漏洞（S2），價位看洩漏的資料多敏感，從 3,133.7 到 31,337 美元。"
+tldr: "XSS 是網站把使用者輸入原樣放進網頁，讓別人的瀏覽器把它當程式執行，修法是輸出時轉義。IDOR 是伺服器收到 id 就給資料，沒檢查這筆資料是不是你的，修法是伺服器端檢查擁有者。Google 獎金表把 XSS 放在「在受害者瀏覽器執行程式碼」（C0），一般 Google 應用基準 10,000 美元；IDOR 放在邏輯漏洞（S2），價位看洩漏的資料多敏感，同樣在一般 Google 應用上是 3,133.7 到 31,337 美元。"
 draft: false
 series:
   name: "從零開始的資安獵人"
@@ -139,7 +139,7 @@ vuln.close(); fixed.close();
 兩個常見誤解：
 
 - **把 id 改成難猜的亂數就安全**。備忘錄說，複雜的識別碼（如 GUID）可以當額外一層防禦，但存取控制檢查仍然必要，因為攻擊者若拿到別人的網址，應用程式還是得擋下來。
-- **把檢查寫在前端**。[OWASP Top 10 的 A01 Broken Access Control](https://top10.owasp.org/2021/A01_2021-Broken_Access_Control/)（IDOR 被歸在這一類）寫明，存取控制只有在受信任的伺服器端程式碼才有效，因為攻擊者無法改動那裡的檢查。換句話說，請求是從使用者手上的瀏覽器送出的，使用者想改什麼就能改什麼，伺服器不能假設送來的 id 是誠實的。
+- **把檢查寫在前端**。[OWASP Top 10:2025 的 A01 Broken Access Control](https://top10.owasp.org/2025/A01_2025-Broken_Access_Control/)（IDOR 被歸在這一類）寫明，存取控制只有在受信任的伺服器端程式碼或 serverless API 才有效，因為攻擊者無法改動那裡的檢查。2025 版還特別舉了一個例子：存取控制全寫在前端，攻擊者直接用 curl 打後台網址就繞過了。換句話說，請求是從使用者手上的瀏覽器送出的，使用者想改什麼就能改什麼，伺服器不能假設送來的 id 是誠實的。
 
 ## 對回 Google 獎金表
 
@@ -147,12 +147,12 @@ vuln.close(); fixed.close();
 
 | 類別 | 規則頁的例子欄 | T0（Tier 0 域名或全球影響） | T1 | T2（一般 Google 應用，如 *.google.com） |
 |---|---|---|---|---|
-| C0 在客戶端執行程式碼 | Web: Cross-site scripting | 20,000 | 15,000 | 10,000 |
-| S2a 邏輯漏洞，影響 Information Tier 0 或 Critical Actions | Direct object reference | 50,000 | 50,000 | 31,337 |
-| S2b 邏輯漏洞，影響 Information Tier 1 或 Impactful Actions | Direct object reference | 31,337 | 31,337 | 13,337 |
-| S2c 邏輯漏洞，影響 Information Tier 2 或 Moderate Actions | Direct object reference | 7,500 | 5,000 | 3,133.7 |
+| C0 在客戶端執行程式碼 | Web: Cross-site scripting（行動裝置／硬體：Code execution） | 20,000 | 15,000 | 10,000 |
+| S2a 邏輯漏洞，影響 Information Tier 0 或 Critical Actions | Direct object reference、remote user impersonation | 50,000 | 50,000 | 31,337 |
+| S2b 邏輯漏洞，影響 Information Tier 1 或 Impactful Actions | Direct object reference、remote user impersonation | 31,337 | 31,337 | 13,337 |
+| S2c 邏輯漏洞，影響 Information Tier 2 或 Moderate Actions | Direct object reference、remote user impersonation | 7,500 | 5,000 | 3,133.7 |
 
-單位是美元。XSS 在表裡只有一格（C0），金額由域名層級決定。IDOR 在「邏輯漏洞」下分成三格，金額由「洩漏或改動的資料多敏感」決定。
+單位是美元。XSS 在表裡對應一列（C0），同一列內的金額只隨網域層級變動。IDOR 在「邏輯漏洞」下分成三列，金額先看洩漏或改動的資料多敏感，再看網域層級。
 
 規則頁對資料敏感度的分級是這樣的：
 
@@ -160,14 +160,14 @@ vuln.close(); fixed.close();
 - Tier 1 是高敏感的使用者資料，例如 Drive 文件內容、照片、私人行事曆、付款資訊。
 - Tier 2 是中繼資料與敏感度較低的資料，例如少數私人文件的標題、Email 位址（除非本來就公開）。
 
-所以規則頁的邏輯可以這樣讀：XSS 的價位主要看「這是哪個網域」，IDOR 的價位主要看「洩漏了什麼」。同樣在一般 Google 應用上，IDOR 若碰到 Tier 0 資料，基準是 31,337，是 XSS（10,000）的三倍多；若只碰到 Tier 2 資料，基準是 3,133.7，反而比 XSS 低。
+所以規則頁的邏輯可以這樣讀：XSS 多了一個問題要問「這是哪個網域」，IDOR 則要同時問「洩漏了什麼」和「在哪個網域」。同樣在一般 Google 應用上，IDOR 若碰到 Tier 0 資料，基準是 31,337，是 XSS（10,000）的三倍多；若只碰到 Tier 2 資料，基準是 3,133.7，反而比 XSS 低。
 
 規則頁的範例剛好各給了一個：
 
 | 範例（規則頁原文大意） | 計算 | 金額 |
 |---|---|---|
 | `*.google.com` 上的 IDOR，可外洩使用者的已存地址（PII） | T2、S2b，品質 1x | 13,337 |
-| 一個影響所有經 Google 翻譯成英文頁面的 XSS（全球影響層級） | T0、C0，品質 1x | 20,000 |
+| 一個容易利用、影響所有經 Google 翻譯成英文頁面的 XSS（全球影響層級） | T0、C0，品質 1x | 20,000 |
 
 這兩個範例不能直接互比，因為一個在 T2、一個在 T0。我想說的是別把這張表讀成「IDOR 一定比 XSS 值錢」。規則頁沒有這樣寫，表裡同時存在 IDOR 比 XSS 低（Tier 2 資料）和比 XSS 高（Tier 0、Tier 1 資料）的格子。能下的結論是：這張表對 IDOR 是按資料敏感度給價，所以碰到敏感資料時，IDOR 的格子可以比 XSS 高。
 
@@ -198,7 +198,7 @@ vuln.close(); fixed.close();
 - [OWASP：Cross Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/)
 - [OWASP Cheat Sheet：Cross Site Scripting Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 - [OWASP Cheat Sheet：Insecure Direct Object Reference Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html)
-- [OWASP Top 10:2021 A01 Broken Access Control](https://top10.owasp.org/2021/A01_2021-Broken_Access_Control/)
+- [OWASP Top 10:2025 A01 Broken Access Control](https://top10.owasp.org/2025/A01_2025-Broken_Access_Control/)
 - [MDN：Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP)
 - [MDN：Node.textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security)

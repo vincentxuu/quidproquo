@@ -12,7 +12,7 @@ tags:
   - owasp
 lang: en
 description: "A small program you can run on your own machine shows what XSS (making someone else's browser run a script it shouldn't) and IDOR (swapping the id in a URL for someone else's) look like, then maps each to its cell in Google's reward table."
-tldr: "XSS happens when a site puts user input into a page unchanged, so another person's browser runs it as code; the fix is escaping on output. IDOR happens when a server hands over whatever id it is asked for without checking the record is yours; the fix is an ownership check on the server. Google's table puts XSS under 'execute code on the client' (C0), $10,000 base on a standard Google app, and IDOR under logic flaws (S2), priced by how sensitive the exposed data is: $3,133.7 to $31,337."
+tldr: "XSS happens when a site puts user input into a page unchanged, so another person's browser runs it as code; the fix is escaping on output. IDOR happens when a server hands over whatever id it is asked for without checking the record is yours; the fix is an ownership check on the server. Google's table puts XSS under 'execute code on the client' (C0), $10,000 base on a standard Google app, and IDOR under logic flaws (S2), priced by how sensitive the exposed data is: on the same standard Google app, $3,133.7 to $31,337."
 draft: false
 series:
   name: "Bug Bounty from Zero"
@@ -139,7 +139,7 @@ Back to the second half of the output. Alice sends her own login cookie and asks
 Two common misconceptions:
 
 - **"Random ids make it safe."** The cheat sheet says complex identifiers such as GUIDs are a defense-in-depth measure, but access control checks are still essential, because if an attacker obtains a URL for someone else's object the app must still refuse.
-- **"Do the check in the front end."** [OWASP Top 10 A01, Broken Access Control](https://top10.owasp.org/2021/A01_2021-Broken_Access_Control/) (which lists IDOR under it) states that access control is only effective in trusted server-side code, where the attacker cannot modify the check. Put another way, requests come from a browser the user controls, so the server can't assume the id it receives is honest.
+- **"Do the check in the front end."** [OWASP Top 10:2025 A01, Broken Access Control](https://top10.owasp.org/2025/A01_2025-Broken_Access_Control/) (which lists IDOR under it) states that access control is only effective in trusted server-side code or serverless APIs, where the attacker cannot modify the check. The 2025 edition adds a scenario that fits exactly: an app that does all its access control in the front end, bypassed by calling the admin URL directly with curl. Put another way, requests come from a browser the user controls, so the server can't assume the id it receives is honest.
 
 ## Back to Google's reward table
 
@@ -147,12 +147,12 @@ In part 0 the table was a source for numbers. Now you can read the cells themsel
 
 | Category | Example column on the rules page | T0 (Tier 0 domain or global impact) | T1 | T2 (normal Google apps, e.g. *.google.com) |
 |---|---|---|---|---|
-| C0 Execute code on the client | Web: Cross-site scripting | 20,000 | 15,000 | 10,000 |
-| S2a Logic flaw impacting Information Tier 0 or Critical Actions | Direct object reference | 50,000 | 50,000 | 31,337 |
-| S2b Logic flaw impacting Information Tier 1 or Impactful Actions | Direct object reference | 31,337 | 31,337 | 13,337 |
-| S2c Logic flaw impacting Information Tier 2 or Moderate Actions | Direct object reference | 7,500 | 5,000 | 3,133.7 |
+| C0 Execute code on the client | Web: Cross-site scripting; Mobile / Hardware: Code execution | 20,000 | 15,000 | 10,000 |
+| S2a Logic flaw impacting Information Tier 0 or Critical Actions | Direct object reference, remote user impersonation | 50,000 | 50,000 | 31,337 |
+| S2b Logic flaw impacting Information Tier 1 or Impactful Actions | Direct object reference, remote user impersonation | 31,337 | 31,337 | 13,337 |
+| S2c Logic flaw impacting Information Tier 2 or Moderate Actions | Direct object reference, remote user impersonation | 7,500 | 5,000 | 3,133.7 |
 
-Amounts are in US dollars. XSS has a single cell (C0) whose amount depends on the domain tier. IDOR is split across three logic-flaw cells whose amounts depend on how sensitive the leaked or modified data is.
+Amounts are in US dollars. XSS maps to one row (C0), whose amount varies only with the domain tier. IDOR is split across three logic-flaw rows: the row is chosen by how sensitive the leaked or modified data is, and the domain tier still sets the amount within that row.
 
 The rules page grades data sensitivity like this:
 
@@ -160,7 +160,7 @@ The rules page grades data sensitivity like this:
 - Tier 1: high-impact user data, such as Drive document contents, photos, private calendar events, payment information.
 - Tier 2: metadata and lower-impact data, such as the titles of a few private documents, or an email address (unless meant to be public).
 
-So the page's logic reads like this: an XSS is priced mostly by which domain it is on, while an IDOR is priced mostly by what it exposes. On the same standard Google app, an IDOR touching Tier 0 data has a $31,337 base, over three times XSS's $10,000; an IDOR touching only Tier 2 data has a $3,133.7 base, lower than XSS.
+So the page's logic reads like this: an XSS is priced by which domain it is on, while an IDOR is priced by what it exposes and which domain it is on. On the same standard Google app, an IDOR touching Tier 0 data has a $31,337 base, over three times XSS's $10,000; an IDOR touching only Tier 2 data has a $3,133.7 base, lower than XSS.
 
 The rules page gives one worked example of each:
 
@@ -198,7 +198,7 @@ Something to do tonight: save the `demo.mjs` above and run it once, then change 
 - [OWASP: Cross Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/)
 - [OWASP Cheat Sheet: Cross Site Scripting Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 - [OWASP Cheat Sheet: Insecure Direct Object Reference Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html)
-- [OWASP Top 10:2021 A01 Broken Access Control](https://top10.owasp.org/2021/A01_2021-Broken_Access_Control/)
+- [OWASP Top 10:2025 A01 Broken Access Control](https://top10.owasp.org/2025/A01_2025-Broken_Access_Control/)
 - [MDN: Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP)
 - [MDN: Node.textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security)

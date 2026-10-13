@@ -13,7 +13,7 @@ tags:
   - microsoft
 lang: zh-TW
 description: "網路流傳三個 Bug Bounty 頂級價碼：Google 伺服器 RCE 9 萬、Meta Llama VM 逃脫 30 萬、Hyper-V 逃脫 25 萬。逐項對照官方獎金表，說明每個數字在哪一格、少了什麼前提，以及想走這條路該怎麼評估。"
-tldr: "三個數字都找得到官方出處，但每個都少了前提。Hyper-V 的 25 萬要有可運作的 exploit；Meta 的 30 萬 VM 逃脫在 WhatsApp Private Processing，不是 Llama，而且需受邀參加；Google 的 9 萬是一般 *.google.com 服務的 RCE 加上最高品質倍數，最敏感的服務基準是 101,010 美元。獎金表只給上限，不給成功率。"
+tldr: "三個數字都找得到官方出處，但每個都少了前提。Hyper-V 的 25 萬要有可運作的 exploit；Meta 的 30 萬 VM 逃脫打的是 WhatsApp Private Processing 跑 AI 模型的機密虛擬機，付的是打穿基礎設施，不是攻擊模型本身，而且需受邀參加；Google 的 9 萬是一般 *.google.com 服務的 RCE 加上最高品質倍數，最敏感的服務基準是 101,010 美元。獎金表只給上限，不給成功率。"
 draft: false
 series:
   name: "從零開始的資安獵人"
@@ -29,7 +29,7 @@ series:
 | 原貼文說法 | 官方獎金表怎麼寫 | 缺的前提 |
 |---|---|---|
 | Hyper-V 逃脫 25 萬美元 | L1 guest 逃脫 RCE 最高 250,000 美元 | 要有可運作的 exploit 加高品質報告 |
-| Meta Llama VM 逃脫 30 萬美元 | WhatsApp Private Processing 的 VM 逃脫最高 300,000 美元 | 目標是 WhatsApp 的 TEE，不是 Llama；僅限受邀 |
+| Meta Llama VM 逃脫 30 萬美元 | WhatsApp Private Processing 的 VM 逃脫最高 300,000 美元 | 目標是 WhatsApp 的 TEE 基礎設施，不是 LLM 模型本身；僅限受邀 |
 | Google 伺服器 RCE 9 萬美元 | 一般 Google 應用 RCE 基準 75,000，乘上 1.2 倍品質係數是 90,000 | 這是第三層，最敏感服務基準是 101,010 |
 
 ## Hyper-V：最乾淨的一項
@@ -43,11 +43,11 @@ series:
 | 沒有 exploit，報告品質中等 | 100,000 美元 |
 | 沒有 exploit，報告品質低 | 50,000 美元 |
 
-巢狀虛擬化的 L2 guest 逃脫最高 15 萬美元。拒絕服務最高 1.5 萬，資訊洩漏最高 2.5 萬。
+巢狀虛擬化的 L2 guest 逃脫最高 15 萬美元。拒絕服務最高 1.5 萬，資訊洩漏最高 2.5 萬。頁面也註明微軟可酌情給更高金額。
 
 原貼文說 Azure 上的逃脫還有額外加成，我在這個頁面沒有看到。只能說沒找到，不能說不存在。
 
-## Meta：30 萬是真的，但目標不是 Llama
+## Meta：30 萬是真的，但付的是基礎設施，不是模型
 
 [Meta 的 Private Processing 獎金頁](https://bugbounty.meta.com/payout-guidelines/private-processing/)列出，針對 WhatsApp Private Processing 的 TEE（可信執行環境）：
 
@@ -61,7 +61,7 @@ series:
 
 所以「VM 逃脫 30 萬」確實存在，但有三個前提。
 
-1. **目標是 WhatsApp 的 TEE**。這套架構讓 AI 功能在加密環境裡處理訊息，[Meta 工程部落格](https://engineering.fb.com/2025/04/29/security/whatsapp-private-processing-ai-tools/)有介紹。它不是 Llama 模型的沙盒。
+1. **目標是 WhatsApp 的 TEE**。依 [Meta 工程部落格](https://engineering.fb.com/2025/04/29/security/whatsapp-private-processing-ai-tools/)，WhatsApp Private Processing 在機密虛擬機（CVM）裡跑 Meta AI 模型。獎金付的是打穿這層基礎設施，不是攻擊模型本身；官方頁面也沒有寫明裡面跑的是 Llama。
 2. **僅限受邀**。[範圍頁](https://bugbounty.meta.com/scope/)寫明 Private Processing 的存取是 by invitation only。
 3. **內部攻擊者情境另計**。同一頁的附加規則寫，限於內部情境的漏洞，程式碼執行等類別降到 5 萬美元，VM 逃脫則是 N/A。
 
@@ -83,7 +83,9 @@ series:
 
 所以 9 萬正好是 75,000 乘 1.2：一般 Google 應用的 RCE，加上最高品質評價。它是真的，但不是 Google 的頂級價碼。
 
-兩點補充。2024 年 7 月的[官方公告](https://bughunters.google.com/blog/increasing-google-alphabet-vrp-rewards-up-to-151515)把最高寫成 151,515 美元，是 101,010 乘 1.5。現行規則頁的係數上限是 1.2，所以引用前要確認你看的是哪個時間點的版本。另外 Google 其他計畫的上限更高：[2024 年度回顧](https://blog.google/security/vulnerability-reward-program-2024-in/)提到 Chrome 在非沙盒行程的 RCE 最高 25 萬，Mobile VRP 對頂級應用的嚴重漏洞最高 30 萬。
+引用前先確認版本。2024 年 7 月的[官方公告](https://bughunters.google.com/blog/increasing-google-alphabet-vrp-rewards-up-to-151515)把最高寫成 151,515 美元，是 101,010 乘 1.5，當時的品質係數是 0.5、1、1.5。現行規則頁改成 0.8、1、1.2，但另列限時加碼 +75% 與新穎性加給，所以別把 121,212 當成絕對上限。
+
+Google 其他計畫的金額更高。[Chrome VRP](https://bughunters.google.com/about/rules/chrome-friends/5745167867576320/chrome-vulnerability-reward-program-rules) 在 2026 年 4 月改版後，25 萬美元是完整攻擊鏈（從網頁內容打穿）的 exploit 獎金，2026 年最多發 4 筆；另有 MiraclePtr 繞過獎金 250,128 美元。[Mobile VRP](https://bughunters.google.com/about/rules/google-friends/6618732618186752/google-mobile-vulnerability-reward-program-rules) 對第一級應用、無需使用者互動的任意程式碼執行，基準是 30 萬美元，優秀報告再乘 1.5 倍。
 
 ## 「CP 值高」這句話撐得住嗎
 
@@ -98,7 +100,7 @@ series:
 ## 想評估這條路，今晚能做的事
 
 1. 打開 [MSRC Hyper-V 頁](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)，抄下獎金表，在旁邊寫「我現在離這個等級差哪些技能」。
-2. 讀一個已公開的 hypervisor 逃脫分析，例如 CVE-2024-49117 這類 Hyper-V guest-to-host 案例，估算自己複現需要多久。
+2. 讀一個有公開分析的 Hyper-V guest-to-host 案例，例如 [CVE-2021-28476](https://github.com/0vercl0k/CVE-2021-28476)（vmswitch.sys，有公開 PoC），估算自己複現需要多久。[CVE-2024-49117](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49117) 也是 guest-to-host，但目前只有官方公告，沒有公開技術細節。
 3. 列出你現在能打的中階目標，比較每週投入與預期收入，再決定要不要換跑道。
 
 ## 整體來說
@@ -114,3 +116,7 @@ series:
 - [Google and Alphabet VRP Rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)
 - [Increasing Google & Alphabet VRP rewards up to $151,515（Google Bug Hunters）](https://bughunters.google.com/blog/increasing-google-alphabet-vrp-rewards-up-to-151515)
 - [Vulnerability Reward Program: 2024 in Review（Google）](https://blog.google/security/vulnerability-reward-program-2024-in/)
+- [Chrome Vulnerability Reward Program Rules](https://bughunters.google.com/about/rules/chrome-friends/5745167867576320/chrome-vulnerability-reward-program-rules)
+- [Google Mobile Vulnerability Reward Program Rules](https://bughunters.google.com/about/rules/google-friends/6618732618186752/google-mobile-vulnerability-reward-program-rules)
+- [CVE-2024-49117（MSRC Security Update Guide）](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49117)
+- [CVE-2021-28476 PoC（0vercl0k，GitHub）](https://github.com/0vercl0k/CVE-2021-28476)
