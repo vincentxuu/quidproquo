@@ -1466,6 +1466,61 @@ const breadcrumbLD = {
     height: 100%;
     border: 0;
   }
+  /* Split view (youtubeClipLoop.ts): a time link clicked on a wide screen gives the article the left half
+     and fixes the player on the right, so the reader keeps their place while the lecture plays. */
+  @media (min-width: 1200px) {
+    html.video-split body.is-article {
+      max-width: none;
+      margin: 0;
+      padding-right: calc(50vw + 0.5rem);
+    }
+    html.video-split .post-grid {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas: "main";
+    }
+    html.video-split .post-sidebar { display: none; }
+    html.video-split article .content .video-embed--split {
+      --split-width: calc(50vw - 2.5rem);
+    }
+    html.video-split article .content .video-embed--split .video-embed__frame {
+      position: fixed;
+      top: 50%;
+      right: 1.5rem;
+      width: var(--split-width);
+      transform: translateY(-50%);
+      z-index: 50;
+    }
+    html.video-split article .content .video-embed--split .video-embed__close {
+      display: block;
+      position: fixed;
+      right: 1.5rem;
+      top: calc(50% - var(--split-width) * 9 / 32 - 2.6rem);
+      z-index: 50;
+    }
+  }
+  article .content .video-embed__close { display: none; }
+  article .content .video-embed__close,
+  .video-return {
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  article .content .video-embed__close:hover,
+  .video-return:hover { border-color: var(--brand-500); }
+  /* Narrow screens scroll to the player instead; this button takes the reader back. */
+  .video-return {
+    position: fixed;
+    left: 50%;
+    bottom: 1.25rem;
+    transform: translateX(-50%);
+    z-index: 60;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  }
   article .content .video-embed figcaption {
     margin-top: 0.5rem;
     font-size: 0.875rem;
