@@ -9,7 +9,7 @@ description: "What should happen on screen when a reader of a teaching article c
 tldr: "Research interfaces share one move: keep the video and the matching text visible together, either beside the text or right at the passage being read. In the 16-person Papeos study, the condition with clips attached to passages had the lowest mean mental demand (the omnibus test across three conditions was significant). No experiment has compared layouts for a long written guide paired with a lecture recording, and no research I found says what to do on phones."
 series:
   name: "Writing Articles That Teach"
-  order: 4
+  order: 6
 draft: false
 ---
 
