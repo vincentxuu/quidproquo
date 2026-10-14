@@ -43,6 +43,37 @@ export function courseNames(source) {
   return names;
 }
 
+// Series directory cards and series pages show `titles` (falling back to `names`). Course series
+// with a course code must read `<School> <code> <official course name> 導讀` / `Reading <same>`.
+export function seriesTitleIssues(source) {
+  const issues = [];
+  const ast = ts.createSourceFile('series.ts', source, ts.ScriptTarget.Latest, true);
+  const value = (node, key) => node.properties.find(p =>
+    ts.isPropertyAssignment(p) && p.name.getText(ast).replace(/^['"]|['"]$/g, '') === key)?.initializer;
+  const locale = (node, lang) => node && ts.isObjectLiteralExpression(node) ? value(node, lang) : undefined;
+  function visit(node) {
+    if (ts.isVariableDeclaration(node) && node.name.getText(ast) === 'SERIES_DEFINITIONS') {
+      for (const item of node.initializer.elements) {
+        const category = value(item, 'category');
+        if (!category || !ts.isStringLiteral(category) || category.text !== 'courses') continue;
+        const slug = value(item, 'slug').text;
+        const [zh, en] = ['zh-TW', 'en'].map(lang => locale(value(item, 'titles'), lang) ?? locale(value(item, 'names'), lang));
+        if (!zh || !en || !ts.isStringLiteral(zh) || !ts.isStringLiteral(en)) { issues.push(`${slug}: series title must be string literals`); continue; }
+        if (!identityCodes(zh.text).length) continue; // umbrella series (course map, main line) and Taiwan courses without a code
+        const m = zh.text.match(/^(Stanford|MIT|CMU|Berkeley|Harvard) (\S*\d\S*) (.+) 導讀$/);
+        if (!m || /導讀|完整課程|逐週/.test(m[3])) {
+          issues.push(`${slug}: series title "${zh.text}" must be "<School> <code> <official course name> 導讀"; set titles in src/utils/series.ts`);
+        } else if (en.text !== `Reading ${m[1]} ${m[2]} ${m[3]}`) {
+          issues.push(`${slug}: English series title "${en.text}" must be "Reading ${m[1]} ${m[2]} ${m[3]}"`);
+        }
+      }
+    }
+    ts.forEachChild(node, visit);
+  }
+  visit(ast);
+  return issues;
+}
+
 export function membershipKey(data) {
   return JSON.stringify([data.lang, [data.series, ...(data.additionalSeries ?? [])]
     .filter(Boolean).map(s => [s.name, s.order])]);
@@ -196,7 +227,8 @@ export function main(args = process.argv.slice(2)) {
   const json = args.includes('--json');
   const files = args.filter(a => !a.startsWith('--'));
   if (args.some(a => a.startsWith('--') && !['--audit', '--json'].includes(a))) throw new Error('Unknown argument');
-  const names = courseNames(fs.readFileSync('src/utils/series.ts', 'utf8'));
+  const registry = fs.readFileSync('src/utils/series.ts', 'utf8');
+  const names = courseNames(registry);
   const all = walk('src/content/posts').map(file => ({ file: file.split(path.sep).join('/'), data: matter(fs.readFileSync(file, 'utf8')).data }));
   const selected = files.length ? new Set(files.map(f => path.relative(process.cwd(), path.resolve(f)).split(path.sep).join('/'))) : null;
   if (selected && [...selected].some(file => !all.some(r => r.file === file))) throw new Error('Requested post not found');
@@ -209,7 +241,8 @@ export function main(args = process.argv.slice(2)) {
   // The site-wide gate only counts them until the older series are migrated; see course-guide-contract.md.
   const blocking = audit || files.length ? found : found.filter(r => !r.migration);
   const pending = found.length - blocking.length;
-  const issues = audit || files.length ? found : blocking;
+  const issues = [...seriesTitleIssues(registry).map(issue => ({ file: 'src/utils/series.ts', issue })),
+    ...(audit || files.length ? found : blocking)];
   if (json) console.log(JSON.stringify({ mode: audit ? 'audit' : 'gate', issues, pendingMigration: pending }, null, 2));
   else {
     for (const issue of issues) console.log(`${issue.file}: ${issue.issue}`);
@@ -327,6 +360,20 @@ test('rejects repeated series label and topic-guide labels that hide a lecture o
   assert.equal(bad('學習可行嗎｜CMU 11-768 主題單元', { description: '基石 Lecture 4 導讀' }), 1);
   assert.equal(bad('學習可行嗎｜CMU 11-768 第 4 堂', { description: '基石 Lecture 4 導讀' }), 0);
   assert.equal(bad('跨課比較｜CMU 11-768 主題單元', { description: '比較三門課的評量方式' }), 0);
+});
+
+test('series card titles carry school, code and official course name', () => {
+  const entry = (names, titles = '') => `const SERIES_DEFINITIONS = [{slug:'x',category:'courses',names:${names}${titles ? `,titles:${titles}` : ''}}];`;
+  const ok = "{'zh-TW':'Stanford CS229 Machine Learning 導讀',en:'Reading Stanford CS229 Machine Learning'}";
+  assert.deepEqual(seriesTitleIssues(entry(ok)), []);
+  assert.deepEqual(seriesTitleIssues(entry("{'zh-TW':'CS146S：AI 原生開發十週',en:'CS146S'}", ok)), []);
+  assert.deepEqual(seriesTitleIssues(entry("{'zh-TW':'台大李宏毅 機器學習 導讀',en:'Reading NTU Machine Learning'}")), []);
+  for (const bad of ["{'zh-TW':'Stanford CS229 導讀',en:'Reading Stanford CS229'}",
+    "{'zh-TW':'CS146S：AI 原生開發十週',en:'CS146S: Ten Weeks'}",
+    "{'zh-TW':'CMU 10-301 機器學習完整課程導讀',en:'Reading CMU 10-301 Machine Learning'}",
+    "{'zh-TW':'Stanford CS229 Machine Learning 導讀',en:'Reading Stanford CS229'}"]) {
+    assert.equal(seriesTitleIssues(entry(bad)).length, 1, bad);
+  }
 });
 
 test('rejects editing the migration baseline to add new exceptions', () => {
