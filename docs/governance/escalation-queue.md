@@ -229,6 +229,21 @@
 - 目前狀態：三條規則在指定檔案時阻擋、全站 gate 只計數不阻擋，`pnpm verify` 會印出 pending 數字。
 - 接手第一步：`node .agents/skills/post/scripts/check-course-titles.mjs --audit` 列出清單，依系列分批給使用者確認；全部清完後把 `main()` 裡的 `migration` 過濾拿掉，改成全站阻擋。
 
+### Q-035 既有課程文章的原錄影播放器還在文末「課程影片來源」區塊（523 篇）
+- 登錄：2026-10-13（來源：使用者問「為什麼有些課程影片放在文章尾巴？有些放在開頭？」）
+- 做什麼：`course-guide-contract.md` 新增「影片與正文的搭配」，原錄影的播放器改放導言或對應小節。狀態為「已附影片」而播放器全在來源區的既有文章原有 537 篇（中文 274、英文 263）；Harvard CS50 AI 14 篇已於 2026-10-13 試搬，剩 523 篇要逐篇把播放器搬到導言，並補片長說明。各節的時間連結與分節自我檢查要對字幕核對與重寫，不屬於這次搬移。
+- 為什麼現在不能做：超過 20 檔的批次改動，屬 Tier 2；這次只授權寫文章與改 skill。另有 105 篇中文文是「補充影片」狀態，影片留在來源區符合新規則，不用搬。
+- 目前狀態：`check-course-guide-layout.mjs` 指定檔案時阻擋、全站 gate 只計數，`pnpm verify` 會印出 pending 數字。
+- 接手第一步：`node .agents/skills/post/scripts/check-course-guide-layout.mjs --audit` 列出清單；先挑一個系列試搬，在實際頁面看過再整批搬；全部清完後把全站 gate 改成阻擋。
+
+### Q-036 Harvard CS50 AI 七篇導讀貼了專案的完整參考實作，與課程的學術誠信政策衝突
+- 登錄：2026-10-13（來源：研究 agent 讀課程官網時發現，主 session 已抓原文確認）
+- 做什麼：決定七週導讀「專案」各節要不要保留可執行的完整解答。課程政策（https://cs50.harvard.edu/ai/honesty/）把「Accessing a solution to some assessment prior to (re-)submitting your own」列為 not reasonable，並把「Whiteboarding solutions with others using diagrams or pseudocode but not actual code」列為 reasonable。站上從 2026-08 起就貼了各專案的參考實作；2026-10-13 的重寫把它們改成對得上官方檔案、實跑通過的版本，等於更接近可直接繳交的解答。
+- 為什麼現在不能做：改或刪已發佈文章的主要內容（七篇中英共 14 檔的專案節），屬 Tier 2，要使用者決定方向。
+- 可行方向：(a) 參考實作換成解題思路、虛擬碼、常見錯誤與讀者可以自己跑的檢查方式，只保留官方本來就提供的 distribution code 節錄；(b) 保留程式但加上明確提醒並摺疊；(c) 維持現狀。跨週四篇（總覽、兩篇主題單元、收尾）引用的行數等資訊要跟著調整。
+- 目前狀態：使用者 2026-10-13 決定採 (a)＋(b)：預設顯示思路、虛擬碼、易錯處與檢查方式，完整實作摺疊在各專案最後並加政策警語。改寫規格在 `.work/cs50ai-rewrite/PROJECT-SECTION-SPEC.md`，七週進行中。摺疊後仍然是提供解答，與政策字面的衝突沒有消失，使用者知情。正式站上仍是 2026-08 的舊版。
+- 接手第一步：使用者選定方向後，逐週改專案節，並在各篇更新紀錄與課程總覽說明本站對解答的處理方式。
+
 # Done
 
 （完成的條目標記日期移到這裡）
