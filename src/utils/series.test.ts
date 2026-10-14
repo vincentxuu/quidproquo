@@ -1,3 +1,5 @@
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { Post } from './content';
 import {
@@ -6,6 +8,7 @@ import {
   getSeriesMeta,
   getSeriesMetaBySlug,
   getSeriesSummaries,
+  getSeriesTitle,
   SERIES_CATEGORIES,
   validateSeriesDefinitions,
 } from './series';
@@ -130,6 +133,18 @@ describe('Stanford course series registry', () => {
     expect(zh.title).toBe('Stanford CS146S The Modern Software Developer 導讀');
     expect(zh.slug).toBe('cs146s');
     expect(unregistered.title).toBe('尚未登錄系列');
+  });
+
+  it('shows the course title wherever a series name is displayed', () => {
+    expect(getSeriesTitle('CS146S：AI 原生開發十週', 'zh-TW')).toBe('Stanford CS146S The Modern Software Developer 導讀');
+    expect(getSeriesTitle('CS146S：AI 原生開發十週', 'en')).toBe('Reading Stanford CS146S The Modern Software Developer');
+    expect(getSeriesTitle('AI 模型家族', 'zh-TW')).toBe('AI 模型家族');
+
+    // frontmatter 的系列名稱是身分，不是顯示文字；直接輸出會讓課程卡片掉學校與課名。
+    const walk = (dir: string): string[] => readdirSync(dir, { withFileTypes: true })
+      .flatMap(e => e.isDirectory() ? walk(join(dir, e.name)) : e.name.endsWith('.astro') ? [join(dir, e.name)] : []);
+    const raw = walk('src').filter(file => /\{\s*(?:seriesName|nav\.name|series\.name|series\.data\.name)\s*\}/.test(readFileSync(file, 'utf8')));
+    expect(raw).toEqual([]);
   });
 
   it('merges posts that name the same series in either language into one summary', () => {

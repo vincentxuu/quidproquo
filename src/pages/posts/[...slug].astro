@@ -10,7 +10,7 @@ import { getSeriesNavs } from '../../utils/seriesNav';
 import { useTranslations, type Lang } from '../../i18n/utils';
 import { getPublishedPosts, isPublishedPost, sortPostsByDateDesc } from '../../utils/content';
 import { getTranslation } from '../../utils/i18n-pairing';
-import { getSeriesHref } from '../../utils/series';
+import { getSeriesHref, getSeriesTitle } from '../../utils/series';
 import { DEFAULT_GLOSSARY_TERMS, normalizeGlossaryTerms, resolveGlossaryForLang } from '../../lib/glossary/terms';
 import RelatedPosts from '../../components/RelatedPosts';
 
@@ -294,7 +294,7 @@ const breadcrumbLD = {
           <span>
             {t('post.series')}:
             {' '}
-            <a href={href} class="series-link">{nav.name}</a>
+            <a href={href} class="series-link">{getSeriesTitle(nav.name, lang)}</a>
             {' '}
             ({nav.current} / {nav.total})
           </span>

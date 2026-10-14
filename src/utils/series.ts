@@ -1179,6 +1179,11 @@ export function getSeriesMetaBySlug(slug: string) {
   return { slug: definition.slug, names: definition.names, descriptions: definition.descriptions };
 }
 
+/** 任何顯示系列名稱的地方都用這個：課程系列換成登錄檔的完整標題（學校＋課號＋課名），其他系列照原名。 */
+export function getSeriesTitle(name: string, lang: Lang): string {
+  return courseSeriesTitle(getSeriesMeta(name).slug, lang) ?? name;
+}
+
 export function getSeriesHref(name: string, lang: Lang): string {
   const { slug } = getSeriesMeta(name);
   return `${seriesBasePath(lang)}/${slug}`;

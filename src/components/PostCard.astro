@@ -2,6 +2,7 @@
 // src/components/PostCard.astro
 import type { Lang } from '../i18n/utils';
 import Icons from './Icons.astro';
+import { getSeriesTitle } from '../utils/series';
 
 
 interface Props {
@@ -30,7 +31,7 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
   <div class="meta">
     <a href={`${categoriesBase}/${category}`} class={`cat-badge cat-${category}`}>{category}</a>
     {type && <a href={`${categoriesBase}/${category}?type=${type}`} class={`type-badge type-${type}`}>{type}</a>}
-    {seriesName && seriesHref && <a href={seriesHref} class="series-badge">{seriesName}</a>}
+    {seriesName && seriesHref && <a href={seriesHref} class="series-badge">{getSeriesTitle(seriesName, lang)}</a>}
     <time datetime={date.toISOString()}>{dateStr}</time>
     {readingTime && (
       <span class="reading-time">

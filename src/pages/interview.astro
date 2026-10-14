@@ -4,7 +4,7 @@ export const prerender = true;
 import PostLayout from '../layouts/PostLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import { useTranslations } from '../i18n/utils';
-import { getSeriesHref, getSeriesSummaries } from '../utils/series';
+import { getSeriesHref, getSeriesSummaries, getSeriesTitle } from '../utils/series';
 import { getPublishedPosts, sortPostsByDateDesc } from '../utils/content';
 
 const t = useTranslations('zh-TW');
@@ -42,7 +42,7 @@ const seriesPosts = posts.filter(p => p.data.category !== 'daily');
       <div class="series-grid">
         {seriesSummaries.map(series => (
           <a href={getSeriesHref(series.name, 'zh-TW')} class="series-card">
-            <h3>{series.name}</h3>
+            <h3>{getSeriesTitle(series.name, 'zh-TW')}</h3>
             <p>{series.description}</p>
             <span class="series-count">{series.count} 篇</span>
           </a>
