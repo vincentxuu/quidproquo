@@ -31,7 +31,7 @@ draft: false
 
 位置之外，有三件事最容易動手。三件事的依據強弱不同，各項後面標了主要來源：
 
-1. 每一節標上影片的時間區間，而且做成點了就跳過去的連結。依據是 Video Digests 的瀏覽實驗、NN/g 的建議，以及學生多半只回看特定段落的調查。
+1. 每一節標上影片的時間區間，而且做成點了就跳過去的連結。依據是 Video Digests 的瀏覽實驗（比的是整套章節摘要格式，沒有單獨測時間連結）、NN/g 的建議，以及學生多半只回看特定段落的調查。
 2. 開頭寫出片長，以及影片和文章的關係（文章涵蓋全片、只涵蓋一部分，或只是補充）。依據只有 NN/g 一個來源。
 3. 自我檢查拆到各節後面，每節至少一題，讓讀者自己寫出答案再往下。依據是兩組用短教材做的實驗。
 
@@ -107,19 +107,19 @@ NN/g 觀察到三種行為：只讀文字、先掃過文字再看影片、直接
 
 > I like to read it first. When I got stuck on that one spot is when I went up to the video.
 
-所以 NN/g 的第一條準則是影片當補充，不要當成取得資訊的唯一管道。它 [2014 年的另一篇文章](https://www.nngroup.com/articles/video-usability/)給了理由：影片只能照順序看，讀者無法像掃文字那樣快速找到自己要的部分。
+所以 NN/g 的第一條準則是影片當補充，不要當成取得資訊的唯一管道。Harley 在同一篇就給了理由：影片大多是只能照順序看的媒介，讀者沒辦法自己挑要看哪些畫面，無法像掃文字那樣快速找到要的部分。
 
-### 學生多半只回看特定段落
+### 學生傾向只回看特定段落
 
-倫敦政經學院（LSE）的 Arun Karnad 在 [2013 年的文獻回顧](https://researchonline.lse.ac.uk/id/eprint/50929/1/Karnad_Student_use_recorded_2013_author.pdf)整理了大學課堂錄影的使用研究，結論之一是學生傾向只看錄影的特定段落來補強理解，而不是把整支錄影看完。回顧轉引 Soong 等人 2006 年的學生問卷，最多人選的使用理由是「可以只看我不懂的那幾段」，占 34.5%。
+倫敦政經學院（LSE）的 Arun Karnad 在 [2013 年的文獻回顧](https://researchonline.lse.ac.uk/id/eprint/50929/1/Karnad_Student_use_recorded_2013_author.pdf)整理了大學課堂錄影的使用研究，結論之一是學生傾向只看錄影的特定段落來補強理解，而不是把整支錄影看完。回顧轉引了 Soong 等人 [2006 年的學生問卷](https://ascilite.org/conferences/sydney06/proceeding/pdf_papers/p179.pdf)，我後來讀了原文：回答觀看方式的 1,134 位新加坡南洋理工大學學生裡，反覆看選定段落直到懂的 48.3%，選定段落看一次做複習的 13.8%，看整支的 29.2%。也就是多數人只看段落，但仍有約三成看整支。
 
-回顧也轉引了 Leadbeater 等人 2013 年的一項發現，值得寫導讀的人留意：會把整堂錄影從頭聽完的重度使用者，七人裡有六人有閱讀障礙或母語不是英語。對這些讀者來說，錄影是主要的學習管道。回顧的另一條結論方向相近：成績較低的學生較常使用錄影，也較常把整堂看完。
+回顧也轉引了 Leadbeater 等人 2013 年的一項發現，值得寫導讀的人留意：每個單元聽超過 5 小時的重度使用者（他們也明顯更常聽整堂），七人裡有六人有閱讀障礙或母語不是英語。對這些讀者來說，錄影是學習時依賴的管道。回顧的摘要還有一條方向相近的說法：成績較低的學生較常使用錄影，也較常把整堂看完；不過回顧正文裡沒有同時量成績與整堂觀看的研究，這一條只在摘要。
 
 ### 重看集中在少數幾個時間點
 
-Juho Kim 等人 [2014 年的研究](https://kgajos.seas.harvard.edu/papers/kim14video.pdf)分析了 edX 四門課 862 支影片的逐秒操作紀錄。重看的人中途離開的比例比第一次看的人高得多，作者的解讀是重看的人目標明確，看完要的那段就走。
+Juho Kim 等人 [2014 年的研究](https://kgajos.seas.harvard.edu/papers/kim14video.pdf)分析了 edX 四門課 862 支影片的逐秒操作紀錄。重看的人中途離開的比例比第一次看的人高得多，作者的解讀（用的是「可能」）是重看的人目標比較明確，選擇性地看。
 
-他們另外抽樣 80 支影片，逐一標註互動高峰發生在哪裡。高峰指的是重看次數或播放操作突然變多的時間點。成因分成五類：回到新內容的開頭、回頭補漏看的畫面、跟著教學步驟操作、重播某一小段，以及重聽一段沒有畫面變化的口頭解釋。61% 的高峰前後有畫面切換，例如投影片切到講者；其餘都屬於最後一類，也是五類裡最多的。
+他們另外抽樣 80 支影片，逐一標註每個互動高峰的成因屬於哪一類。高峰指的是重看次數或播放操作突然變多的時間點。成因分成五類：回到新內容的開頭、回頭補漏看的畫面、跟著教學步驟操作、重播某一小段，以及重聽一段沒有畫面變化的口頭解釋。61% 的高峰前後有畫面切換，例如投影片切到講者；其餘都屬於最後一類，也是五類裡最多的。
 
 這對文字導讀有一個直接的含意，以下是我的推論：讀者會回頭找的，正是「畫面剛換掉來不及看」和「老師口頭解釋的那一段」。導讀如果只依字幕寫，看不到畫面，就該明說哪些地方有畫面而文章沒有還原，並標出時間，讓讀者知道那裡值得回去看。
 
@@ -153,9 +153,9 @@ NN/g 建議片長要在播放前就看得到，寫在標題旁或影片上方，
 
 ### 4. 看之前先給問題
 
-Shana Carpenter 與 Alexander Toftness [2017 年的實驗](https://664ef278-1723-43c6-bbe1-3bd4e65a87fe.filesusr.com/ugd/f4b9f1_ae7d99429920421594e4b037cfaa5f6a.pdf)讓大學生看一支關於復活節島歷史的短片，影片切成三段，每段兩分多鐘。一組人在每段之前先回答兩題還沒學到的內容，另一組直接看。看完立刻測驗，先答題的那組平均得分 57%，直接看的那組 38%。先答題的人事前幾乎都猜錯，而且連事前沒被問到的內容，他們也記得比較多。
+Shana Carpenter 與 Alexander Toftness [2017 年的實驗](https://doi.org/10.1016/j.jarmac.2016.07.014)讓大學生看一支關於復活節島歷史的短片，影片切成三段，每段兩分多鐘。一組人在每段之前先回答兩題還沒學到的內容，另一組直接看。看完立刻測驗，先答題的那組平均得分 57%，直接看的那組 38%。先答題的人事前幾乎都猜錯，而且連事前沒被問到的內容，他們也記得比較多。
 
-要留意實驗裡的問題緊接在每一段短片之前。作者自己提到，在 90 分鐘的課堂上，提問和講到那個內容之間隔得太久，效果可能變弱。所以把問題放在各節開頭，比全部放在一支 78 分鐘錄影的導言更接近實驗的條件；這一句是我的推論。
+要留意實驗裡的問題緊接在每一段短片之前。作者在解釋一項課堂研究的長期效果為什麼不強時，推測原因之一是 90 分鐘的課堂上，提問和講到那個內容之間隔得太久；這是推測，不是實驗結果。所以把問題放在各節開頭，比全部放在一支 78 分鐘錄影的導言更接近實驗的條件；這一句是我的推論。
 
 做法：把導言裡的「讀完能做三件事」至少換一項成具體的問題，放到對應那一節的開頭。以本站的 [CS229 第 2 堂導讀](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression)為例，「能手算一步梯度下降」可以改成「把成本函數前面的 1/2 換成 25，最佳解會不會變？梯度下降的行為會不會變？先猜一個答案再往下讀」。這個例子是我擬的，沒有實測過。
 
@@ -171,13 +171,13 @@ Shana Carpenter 與 Alexander Toftness [2017 年的實驗](https://664ef278-1723
 
 ### 6. 每段之後讓讀者自己動手
 
-Karl Szpunar 等人 [2013 年的兩個實驗](https://pmc.ncbi.nlm.nih.gov/articles/PMC3631699/)讓哈佛的大學部學生看一堂 21 分鐘的統計課錄影，錄影切成四段。一組人每看完一段就考幾題剛才的內容，另一組只在最後一段之後考。到了第四段，每段都考的那組答對 84%，另一組 59%；每段都考的人自述分心較少，筆記也記得較多。
+Karl Szpunar 等人 [2013 年的兩個實驗](https://pmc.ncbi.nlm.nih.gov/articles/PMC3631699/)讓哈佛的大學部學生看一堂 21 分鐘的統計課錄影，錄影切成四段。一組人每看完一段就考幾題剛才的內容，另一組只在最後一段之後考。到了第四段，每段都考的那組答對 84%，另一組 59%；每段都考的人自述分心較少；研究者數投影片上的筆記，這組也記得較多。
 
 第二個實驗多了一組：每段之後不作答，只把同樣的題目連同答案讀一遍。每段都考的那組結果和第一個實驗一樣好。只讀題目與答案的那組，分心的比例和第四段的成績都接近完全不考的那組；在最後的總測驗上，論文報告這兩組沒有差別。
 
 Alyssa Lawson 與 Mayer [2021 年的三個實驗](https://pmc.ncbi.nlm.nih.gov/articles/PMC7985227/)測的是另一種「動手」。大學生學一份四段的溫室氣體動畫教材，每段之後各組做不同的事：自己寫一段解釋、讀一段現成的解釋，或直接看下一段。三個實驗裡有兩個隔一週才測驗，這兩次自己寫解釋的那組都顯著勝過什麼都沒做的組；只讀現成解釋的那組，兩次都沒有顯著勝過什麼都沒做。
 
-把兩篇放在一起看，方向相同：有效的是自己把答案想出來、寫出來；讀現成的答案或解釋，在兩篇裡都沒有顯著勝過什麼都不做。這個對照是本文做的，不是其中哪一篇論文的結論。它和導讀文章直接相關：自我檢查如果題目後面緊跟著答案，讀者做的事很可能只是「讀一段現成的解釋」。
+把兩篇放在一起看，方向相同：有效的是自己把答案想出來、寫出來；讀現成的答案或解釋，在兩篇裡都沒有顯著勝過什麼都不做；不過沒有測到差異不等於沒有效果，Lawson 實驗三的讀解釋組效果量是 0.51，p = .136；每組約 32 人，我推測是檢定力不足。這個對照是本文做的，不是其中哪一篇論文的結論。它和導讀文章直接相關：自我檢查如果題目後面緊跟著答案，讀者做的事很可能只是「讀一段現成的解釋」。
 
 做法：自我檢查不要全部堆在文末，每一節後面放一題，文末再留綜合題。把答案摺疊起來、要讀者先寫再展開，是我從這兩篇的結果推出來的做法，沒有研究直接測過摺疊。
 
@@ -219,16 +219,16 @@ Alyssa Lawson 與 Mayer [2021 年的三個實驗](https://pmc.ncbi.nlm.nih.gov/a
 ## 這些證據的限制
 
 - **沒有研究直接測過這個情境**。長篇文字導讀配 80 分鐘的課堂錄影，我讀到的研究沒有一篇測這個組合。上面每一項都是把鄰近情境的結果搬過來。
-- **學習實驗用的教材都很短**。Carpenter 的影片共約 7 分鐘；Szpunar 的錄影 21 分鐘；Lawson 與 Mayer 的教材是四張動畫投影片，不寫解釋的組三分鐘就看完。Carpenter、Lawson 與 Mayer 都說結果不一定能推到課堂上的長時間學習。Carpenter 還提到，唯一一項課堂研究裡，看前提問的效果到一個月後就不明顯。
+- **學習實驗用的教材都很短**。Carpenter 的影片共約 7 分鐘；Szpunar 的錄影 21 分鐘；Lawson 與 Mayer 的教材是四張動畫投影片，不寫解釋的組三分鐘就看完。Carpenter、Lawson 與 Mayer 都說結果不一定能推到課堂上的長時間學習。Carpenter 還提到，唯一一項課堂研究裡，單元結束時的小考兩個實驗只有一個顯著，看前提問的效果到一個月後就不明顯。
 - **提問與內容之間的間隔不一樣**。Carpenter 的問題緊接在每段兩分多鐘的短片之前。第 4 項的做法是把問題放在長錄影各節的開頭，間隔比實驗長；放在導言就更長。
-- **量的東西不一樣**。Guo 與 Kim 量的是操作紀錄，實驗量的是測驗成績，NN/g 與 LSE 回顧裡的問卷量的是讀者自己的說法。Video Digests 量的是限時瀏覽之後寫出的摘要涵蓋多少重點，不是學習成效。成績進步不代表讀者覺得有幫助，反過來也一樣。
-- **位置的證據很薄**。NN/g 是 8 個人的質性研究，任務是摺餐巾、架烤爐這類操作，不是讀大學課程。Wistia 沒有給數字，也沒有說依據。六個課程網站各只看了一頁，而且我量的是 HTML 結構，沒有逐一用瀏覽器看畫面。
+- **量的東西不一樣**。Guo 與 Kim 量的是操作紀錄，實驗量的是測驗成績，NN/g 的觀察與 LSE 回顧裡的問卷，量的多半是讀者的行為與自己的說法（Leadbeater 的重度使用者則來自收聽紀錄）。Video Digests 量的是限時瀏覽之後寫出的摘要涵蓋多少重點，不是學習成效。成績進步不代表讀者覺得有幫助，反過來也一樣。
+- **位置的證據很薄**。NN/g 是 8 個人的質性研究，任務有摺餐巾、架烤爐這類操作，也有比較兩種投資工具、查護照文件這類知識任務，但都不是讀大學課程；文中的準則還混合了 NN/g 先前的研究。Wistia 沒有給數字，也沒有說依據。六個課程網站各只看了一頁，而且我量的是 HTML 結構，沒有逐一用瀏覽器看畫面。
 - **來源不是系統性檢索挑出來的**。研究是我搜尋時找到、而且讀得到全文的；課程網站是便利取樣。LSE 那份是學校出的文獻回顧報告，不是期刊論文。
 - **分段測的不是網頁版面**。Rey 等人的統合分析用的是語文配圖片、動畫的多媒體教材，沒有純文字或網頁；納入條件是切段或學習者控制步調其中一項。先備訓練沒有我讀得到合法全文的證據：Mayer 2021 的回顧與 Cromley 與 Chen 2025 的統合分析，我都沒讀到合法公開的版本。
 - **花的時間沒有被控制**。Lawson 與 Mayer 的寫解釋組花在教材上的時間大約是什麼都沒做那組的三倍（三個實驗分別是 2.8、3.1、3.5 倍），作者自己列為限制。
-- **edX 的資料來自 2012 年秋季的四門理工課**，學生是第一批 MOOC 使用者。那些影片平均不到 8 分鐘，是為線上課程錄的短片，不是一到兩小時的課堂錄影。Guo 也說明觀看時間只是代理指標，分不出學生是在看還是放著播。
+- **edX 的資料來自 2012 年秋季的四門理工課**，學生是 edX 的第一批學生。那些影片平均不到 8 分鐘，是為線上課程錄的短片，不是一到兩小時的課堂錄影。Guo 也說明觀看時間只是代理指標，分不出學生是在看還是放著播。
 - **我的推論與判斷有八處**：讀者覺得有幫助靠的兩件事；補充影片留在文末；標明字幕看不到的畫面；看前的問題放在各節開頭；先交代關鍵名詞（沒有讀得到的實驗支持）；自我檢查的答案摺疊；把 Szpunar 與 Lawson、Mayer 兩篇放在一起看；影片搬到頁首仍不足以被 Google 當成影片主內容。正文都標了。
-- **沒讀到的**：Szpunar 等（2013）讀了全文，補充材料沒有讀。LSE 回顧裡的 Soong、Traphagan、Leadbeater 等個別研究都是轉引，原文沒有讀。
+- **沒讀到的**：Szpunar 等（2013）讀了全文，補充材料沒有讀。LSE 回顧裡的 Traphagan、Leadbeater 等個別研究都是轉引，原文沒有讀；Soong 等（2006）發佈後補讀了原文。
 - **只知道存在、沒讀到合法公開全文的**：[Mayer（2021）](https://doi.org/10.1016/j.jarmac.2021.03.007)的教學影片設計原則回顧。初稿依公司網站上的轉存檔引了它的分段、先備訓練與生成活動的效果量；查核時找不到作者或出版者公開的版本，2026-10-14 拿掉所有數字，也從參考資料移除。
 
 ## 附錄：各研究的設計與數字
@@ -241,34 +241,34 @@ Alyssa Lawson 與 Mayer [2021 年的三個實驗](https://pmc.ncbi.nlm.nih.gov/a
 
 **Kim 等（2014）**，Learning at Scale。同一批四門課，862 支影片，平均長度 7 分 46 秒。重看者的中途離開率 78.6%，第一次看的人 48.6%；操作教學型 61.3%，講課型 54.1%。高峰有兩種，重看次數的高峰與播放操作的高峰，每支影片平均偵測到 3.7 個。抽樣 80 支（講課 61 支、操作教學 19 支）人工標註的五類成因占比：新內容開頭 25%、回頭補內容 23%、教學步驟 7%、重播片段 6%、沒有畫面變化的口頭解釋 39%。作者說這個分類不是定論。
 
-**Karnad（2013）**，LSE 的文獻回顧報告，以 Google Scholar、英國與澳洲教育索引及 LSE 圖書館檢索。轉引的數字：Soong 等（2006）問卷 1,160 人，「只看不懂的段落」34.51%、「準備考試」21.46%；Traphagan 等（2009）83% 的學生用錄影補缺課，70% 用來考前複習；Leadbeater 等（2013）把每個單元聽超過 5 小時的學生歸為重度使用者。回顧摘要另有一條：成績較低的學生較常使用錄影，也較常整堂看完。這是學校出的報告，不是期刊論文。
+**Karnad（2013）**，LSE 的文獻回顧報告，以 Google Scholar、英國與澳洲教育索引及 LSE 圖書館檢索。轉引的數字：Soong 等（2006）問卷 1,160 人，主要使用原因這一題 904 人作答、單選：「現場講課中沒聽懂的選定段落」34.51%、「準備考試」21.46%；Traphagan 等（2009）83% 的學生用錄影補缺課，70% 用來考前複習；Leadbeater 等（2013）把每個單元聽超過 5 小時的學生歸為重度使用者。回顧摘要另有一條：成績較低的學生較常使用錄影，也較常整堂看完。這是學校出的報告，不是期刊論文。
 
 **Pavel、Reed、Hartmann、Agrawala（2014）**，UIST。四支影片長 13.3 到 19.9 分鐘（Yale 哲學課、Coursera 的原型設計課、可汗學院的美國史、Hans Rosling 的演講）。四種格式（人工製作的摘要、自動產生的摘要、逐字稿播放器、時間軸播放器）乘上三種瀏覽時間（2、5、8 分鐘），每格 4 人，共 192 份摘要，依兩位作者訂的重點清單評分。2 分鐘時，人工摘要格式的分數是 0.55，時間軸播放器是 0.28（從論文圖 6 讀出）。2 分鐘與 5 分鐘時各格式之間有顯著差異，8 分鐘時沒有（p = 0.080）。作者說明四支影片都是一般大眾看得懂的內容，沒有測過高度技術性的課。
 
-**Carpenter 與 Toftness（2017）**，Journal of Applied Research in Memory and Cognition。愛荷華州立大學 85 名大學生，提問組 43 人、對照組 42 人。影片三段各長 2 分 22 秒、2 分 33 秒、2 分 15 秒。最後測驗 12 題，看完立刻考。整體成績提問組 0.57、對照組 0.38（d = 1.00）；事前沒被問到的內容，提問組 0.50，同樣高於對照組（d = 0.54）。提問組事前作答的答對率只有 5%。作者提到，在 90 分鐘的課堂上，提問與講到該內容之間的間隔可能削弱效果。
+**Carpenter 與 Toftness（2017）**，Journal of Applied Research in Memory and Cognition。愛荷華州立大學 85 名大學生，提問組 43 人、對照組 42 人。影片三段各長 2 分 22 秒、2 分 33 秒、2 分 15 秒。最後測驗 12 題，看完立刻考。整體成績提問組 0.57、對照組 0.38（d = 1.00）；事前沒被問到的內容，提問組 0.50，同樣高於對照組（d = 0.54）。提問組事前作答的答對率只有 5%。作者推測，在 90 分鐘的課堂上，提問與講到該內容之間的間隔可能削弱效果（是推測，不是這個實驗的結果）。
 
 **Rey、Beege、Nebel、Wirzberger、Schmitt、Schneider（2019）**，Educational Psychology Review 31。56 個研究、88 組比較，多媒體教材。保留 d = 0.32（67 個效果量）、遷移 0.36（56 個）。系統控制步調的分段四項結果都顯著；學習者控制步調的只有遷移顯著。分段組學習時間較長（d = −0.92），這一項有顯著的出版偏誤，作者說要小心解讀。細節在[系列第 1 篇](/posts/learning/2026-10-13-teaching-text-evidence)的附錄。
 
 **Lawson 與 Mayer（2021）**，Educational Psychology Review。三個實驗各 126、131、128 名南加州的大學生，教材是四張附文字的溫室氣體動畫，測驗滿分 36。實驗一立刻測驗，四組整體沒有顯著差異。實驗二隔一週測驗：寫解釋 8.06 分、什麼都沒做 5.41 分（p = 0.018），只讀解釋 4.47 分。實驗三隔一週測驗：寫解釋 9.13 分、改寫現成解釋 7.79 分、只讀解釋 6.81 分、什麼都沒做 4.90 分；前兩組顯著高於什麼都沒做，只讀解釋那組沒有（p = 0.136）。花在教材上的時間，寫解釋組與什麼都沒做的組在三個實驗裡依序是 9 分 24 秒對 3 分 24 秒、9 分 42 秒對 3 分 5 秒、10 分 17 秒對 2 分 58 秒。論文摘要說實驗二的「用指定名詞寫解釋」組也顯著勝過什麼都沒做的組，但內文的事後檢定寫的是不顯著（p = 0.167），我照內文。
 
-**Szpunar、Khan、Schacter（2013）**，PNAS。受試者是哈佛大學部學生，兩個實驗共 80 人。教材是一堂 21 分鐘的統計學導論錄影，切成四段，每段約 5.5 分鐘。每段之後所有人先做 1 分鐘算術，接著依組別做 2 分鐘的測驗（6 題）或再做 2 分鐘算術；最後有一份 24 題的總測驗。實驗一 32 人，分成每段都考與只考第四段兩組：加了筆記的投影片比例 17% 對 6%，第四段答對率 84% 對 59%（d = 1.03）。實驗二 48 人，分成每段都考、每段後重讀題目與答案、不考三組，上課中隨機問四次有沒有分心：回答分心的比例是 19%、39%、41%；加了筆記的投影片比例 24%、9%、7%；第四段答對率 89%、65%、70%。合併兩個實驗的總測驗，三組整體是 90%、76%、68%，重讀組與不考組沒有顯著差別。每段都考的組對總測驗的焦慮較低，也覺得上課較不費力。補充材料我沒有讀。
+**Szpunar、Khan、Schacter（2013）**，PNAS。受試者是哈佛大學部學生，兩個實驗共 80 人。教材是一堂 21 分鐘的統計學導論錄影，切成四段，每段約 5.5 分鐘。每段之後所有人先做 1 分鐘算術，接著依組別做 2 分鐘的測驗（6 題）或再做 2 分鐘算術；最後有一份 24 題的總測驗。實驗一 32 人，分成每段都考與只考第四段兩組：加了筆記的投影片比例 17% 對 6%，第四段答對率 84% 對 59%（d = 1.03）。實驗二 48 人，分成每段都考、每段後重讀題目與答案、不考三組，上課中隨機問四次有沒有分心：回答分心的比例是 19%、39%、41%；加了筆記的投影片比例 24%、9%、7%；第四段答對率 89%、65%、70%。合併兩個實驗的總測驗，三組整體是 90%、76%、68%，重讀組與不考組沒有顯著差別。實驗二裡，每段都考的組對總測驗的焦慮較低，也覺得上課較不費力（實驗一沒有報告焦慮）。補充材料我沒有讀。
 
 **Brame（2016）**，CBE—Life Sciences Education。這是給生物教師的實務指引，引導問題一項引的是 Lawson 等 2006 年的課堂研究（看影片時附 8 個引導問題的班級，之後的測驗成績較高）。
 
 ## 參考資料
 
 - [Harley (2020), Videos as Instructional Content: User Behaviors and UX Guidelines](https://www.nngroup.com/articles/instructional-video-guidelines/)：影片位置、片長標示、時間標記與三種觀看行為。讀了全文。
-- [Schade (2014), Video Usability](https://www.nngroup.com/articles/video-usability/)：影片只能循序觀看、不能只靠影片傳達資訊。讀了相關章節。
 - [Lavigne (2024), Get More Views: 4 Key Ways to Increase Video Play Rate](https://wistia.com/blog/how-to-increase-video-play-rate)：Wistia 對影片位置與播放率的說法。讀了全文。
-- [Guo, Kim & Rubin (2014), How Video Production Affects Student Engagement](https://up.csail.mit.edu/other-pubs/las2014-pguo-engagement.pdf)：edX 觀看時間分析與 6 分鐘建議。讀了摘要、資料與方法、片長一節、講課與操作教學的比較、限制。
-- [Kim et al. (2014), Understanding In-Video Dropouts and Interaction Peaks in Online Lecture Videos](https://kgajos.seas.harvard.edu/papers/kim14video.pdf)：中途離開率與互動高峰的五類成因。讀了摘要與三項分析。
-- [Karnad (2013), Student use of recorded lectures](https://researchonline.lse.ac.uk/id/eprint/50929/1/Karnad_Student_use_recorded_2013_author.pdf)：LSE 的文獻回顧。讀了摘要、方法，以及使用原因與使用時機兩節。
+- [Guo, Kim & Rubin (2014), How Video Production Affects Student Engagement](https://up.csail.mit.edu/other-pubs/las2014-pguo-engagement.pdf)：edX 觀看時間分析與 6 分鐘建議。讀了全文。
+- [Kim et al. (2014), Understanding In-Video Dropouts and Interaction Peaks in Online Lecture Videos](https://kgajos.seas.harvard.edu/papers/kim14video.pdf)：中途離開率與互動高峰的五類成因。讀了全文。
+- [Karnad (2013), Student use of recorded lectures](https://researchonline.lse.ac.uk/id/eprint/50929/1/Karnad_Student_use_recorded_2013_author.pdf)：LSE 的文獻回顧。讀了全文。
+- [Soong, Chan, Cheers & Hu (2006), Impact of video recorded lectures among students](https://ascilite.org/conferences/sydney06/proceeding/pdf_papers/p179.pdf)：南洋理工大學的學生問卷。ascilite 論文集，讀了全文（發佈後補讀）。
 - [Pavel et al. (2014), Video Digests: A Browsable, Skimmable Format for Informational Lecture Videos](http://vis-ucb-maneesh.stanford.edu/papers/videodigests/videodigests_small.pdf)：章節摘要格式與瀏覽實驗。讀了摘要、實驗材料、瀏覽實驗與未來工作。
-- [Carpenter & Toftness (2017), The Effect of Prequestions on Learning from Video Presentations](https://664ef278-1723-43c6-bbe1-3bd4e65a87fe.filesusr.com/ugd/f4b9f1_ae7d99429920421594e4b037cfaa5f6a.pdf)：看前提問的實驗。讀了全文。
+- [Carpenter & Toftness (2017), The Effect of Prequestions on Learning from Video Presentations](https://doi.org/10.1016/j.jarmac.2016.07.014)：看前提問的實驗。讀了全文。（讀的是 Carpenter 實驗室網站上的刊出版。）
 - [Rey et al. (2019), A Meta-analysis of the Segmenting Effect](https://maria-wirzberger.de/wp-content/uploads/2019/01/Rey2019_Article_AMeta-analysisOfTheSegmentingE.pdf)：分段的統合分析。讀了全文；逐篇研究的 Table 1 欄位錯位，沒有逐列還原。
-- [Lawson & Mayer (2021), Benefits of Writing an Explanation During Pauses in Multimedia Lessons](https://pmc.ncbi.nlm.nih.gov/articles/PMC7985227/)：暫停時寫解釋的三個實驗。讀了摘要、三個實驗的方法與結果、限制。
+- [Lawson & Mayer (2021), Benefits of Writing an Explanation During Pauses in Multimedia Lessons](https://pmc.ncbi.nlm.nih.gov/articles/PMC7985227/)：暫停時寫解釋的三個實驗。讀了全文。
 - [Szpunar, Khan & Schacter (2013), Interpolated memory tests reduce mind wandering and improve learning of online lectures](https://pmc.ncbi.nlm.nih.gov/articles/PMC3631699/)：在課堂錄影各段之間穿插測驗的兩個實驗。讀了全文，不含補充材料。
-- [Brame (2016), Effective Educational Videos](https://pmc.ncbi.nlm.nih.gov/articles/PMC5132380/)：教學影片的實務建議。讀了建議表與學生投入、主動學習兩節。
+- [Brame (2016), Effective Educational Videos](https://pmc.ncbi.nlm.nih.gov/articles/PMC5132380/)：教學影片的實務建議。讀了全文。
 - [Google Search Central (2023), Video mode now only shows pages where video is the main content](https://developers.google.com/search/blog/2023/12/video-is-the-main-content)與 [Video SEO best practices](https://developers.google.com/search/docs/appearance/video)：影片主內容與觀看頁的定義。
 - [web.dev: Best practices for using third-party embeds](https://web.dev/articles/embed-best-practices)：延遲載入 YouTube 嵌入與靜態預覽圖。
 - 六個課程網站的頁面：[Missing Semester](https://missing.csail.mit.edu/2020/shell-tools/)、[MIT OCW 6.006](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-1-algorithms-and-computation/)、[fast.ai](https://course.fast.ai/Lessons/lesson1.html)、[Hugging Face LLM Course](https://huggingface.co/learn/llm-course/chapter1/4)、[3Blue1Brown](https://www.3blue1brown.com/lessons/neural-networks)、[CS50x Notes](https://cs50.harvard.edu/x/notes/1/)。

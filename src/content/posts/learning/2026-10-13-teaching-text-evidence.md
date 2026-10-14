@@ -73,13 +73,13 @@ Kiran Bisra 等人 [2018 年的統合分析](https://doi.org/10.1007/s10648-018-
 
 ### 具體與抽象並用，並把對應寫出來
 
-IES 指引把「連結並整合抽象與具體的表徵」列為中等證據。它建議的是兩種並用、並且明白指出兩者的對應；指引同時說，只用抽象或只用具體的表徵，學到的知識都比較不靈活；具體的表徵容易入門，但不利於把學到的東西用到新情境。指引提到一種叫具體漸退（concreteness fading）的排法：先用具體的表徵學，之後把其中的關鍵部分逐步換成比較理想化、抽象的表徵。我沒有找到這個排法的統合分析。（Fyfe 與 Nathan [2019 年的理論文章](https://doi.org/10.1080/00131911.2018.1424116)我只讀了摘要與導言，它把這個想法追溯到 Bruner 1966 年的著作。）
+IES 指引把「連結並整合抽象與具體的表徵」列為中等證據。它建議的是兩種並用、並且明白指出兩者的對應；指引同時說，只用抽象或只用具體的表徵，學到的知識都比較不靈活；具體的表徵容易入門，但不利於把學到的東西用到新情境。指引提到一種叫具體漸退（concreteness fading）的排法：先用具體的表徵學，之後把其中的關鍵部分逐步換成比較理想化、抽象的表徵。我沒有找到這個排法的統合分析。（Fyfe 與 Nathan [2019 年的理論文章](https://doi.org/10.1080/00131911.2018.1424116)把這個想法追溯到 Bruner 1966 年的著作。）
 
 個別實驗的方向並不一致，細節放在下面「來源說法不同的地方」。這裡只記一件事：Kaminski 等人 2008 年的實驗直接測過「先學具體例子、再學抽象表徵」，結果是只學抽象表徵的組遷移較好。
 
 做法：從具體情境開始沒有問題，但同一段裡要出現抽象的寫法，並明寫「這個情境裡的哪個東西對應公式裡的哪個符號」。這一句的依據是 IES 的建議，不是哪一個實驗。
 
-並排兩個案例讓讀者比較，是相鄰的做法。Alfieri 等人 [2013 年的統合分析](https://eric.ed.gov/?id=EJ1000186)我只讀到摘要，摘要的結論是比較兩個案例勝過一次看一個。
+並排兩個案例讓讀者比較，是相鄰的做法。Alfieri 等人 [2013 年的統合分析](https://doi.org/10.1080/00461520.2013.775712)裡，要學習者比較兩個案例，整體效果量 d = .50；和依序看同樣兩個案例相比只有 .37。效果最大的是要學習者找相同點、比較完再給原則（1.18），但這一格的 29 個比較全部來自同一篇論文的三個實驗。隔天以後才測的研究，效果只剩 d = .22。
 
 ### 把迷思講出來再駁斥
 
@@ -137,7 +137,7 @@ Steven Pan 與 Shana Carpenter [2023 年的回顧](https://link.springer.com/art
 
 ### 標題
 
-標題的研究以 Robert Lorch 為代表。他與同事 [2013 年的兩個實驗](https://journals.copmadrid.org/psed/archivos/ed2013v19n2a2.pdf)比較兩種交代結構的方式：在各節前加標題，或把同樣的資訊寫成各節的第一句話，不加粗、不另起一行（下面叫它預告句）。
+標題的研究以 Robert Lorch 為代表。Lorch 與同事 [2013 年的兩個實驗](https://journals.copmadrid.org/psed/archivos/ed2013v19n2a2.pdf)比較兩種交代結構的方式：在各節前加標題，或把同樣的資訊寫成各節的第一句話，不加粗、不另起一行（下面叫它預告句）。
 
 - 第一個實驗要大學生為了理解而讀。有標題的組記得的子主題較多（平均 4.3 個對 3.2 個），兩組對細節事實的記憶沒有差別。這個實驗沒有「完全沒有訊號」的對照組。
 - 第二個實驗要學生列出大綱。有標題或預告句都比沒有訊號好，而標題和預告句之間沒有可靠的差別。
@@ -181,7 +181,7 @@ Günter Rey 等人 [2019 年的統合分析](https://maria-wirzberger.de/wp-cont
 
 **讀前題目後面要不要馬上給答案**。King-Shepard 等人的統合分析裡，題目附回饋的條件在「之後再考同一題」的成績上最高（g = 1.25）。作者明說不對這個數字做直接的解讀，因為分不清是提問有效，還是學習者記住了答案。同一張表裡，附回饋對沒被問到的內容沒有幫助。Sana 等人的第三個實驗裡，讀前題目答完立刻給正確答案的組，期末成績較低（58% 對 66%）。Sana 的期末考每一題都對應讀前題目問過的那條事實，只是換成應用題；沒有一題考讀前題目沒問到的內容。照 King-Shepard 的定義，它比較接近「重複題」（考同一份資訊），只是 King-Shepard 的重複題多半和讀前題目逐字相同。所以在「被問過的內容」上，兩份的方向相反：統合分析裡附回饋的分數最高，Sana 的實驗裡附答案的組較低。差別可能出在考題是逐字重複還是換成應用題，這是我的推論，沒有研究直接比過。在沒被問到的內容上，統合分析裡附回饋沒有幫助；Sana 的實驗沒有考這類題目。
 
-**讀前題目只看不答有沒有用**。King-Shepard 等人的統合分析裡，只看不答和作答的效果差不多。IES 指引轉述一個 1990 年的實驗，結論是要作答才有效。Sana 等人的第二個實驗裡，把題目換成直接寫出答案的敘述，效果就消失了。
+**讀前題目只看不答有沒有用**。King-Shepard 等人的統合分析裡，只看不答和作答的效果差不多。IES 指引轉述一個 1990 年的實驗，結論是要作答才有效。Sana 等人的第二個實驗裡，把題目換成直接寫出答案的敘述，效果就消失了。Richland 等人的實驗五落在中間：要求把題目背下來、不作答的組，被問到的內容答對 78%，高於只讀文章的 63%，但低於先作答的 90%。
 
 **要推論的讀前題有沒有幫助**。King-Shepard 等人的統合分析裡，概念型的讀前題對沒被問到的內容有小幅幫助。Pan 與 Carpenter 的回顧整理的少數幾個研究裡，需要複雜推論的讀前題多半沒有幫助。
 
@@ -212,10 +212,10 @@ Günter Rey 等人 [2019 年的統合分析](https://maria-wirzberger.de/wp-cont
 - **很多比較是跨研究的**：正確對錯誤例題、能不能重播、協助對不同程度的人。Barbieri 與 Rey 的作者明說這類比較不能當因果。
 - **取樣偏誤見開頭**。德語圈教學解釋的研究，目前沒有我讀得到合法全文的。
 - **我的推論有八處**：短教材的結果適用於長篇導讀；在關鍵步驟停下來問讀者為什麼，取代多寫一段說明；Sana 與統合分析在附答案上方向相反，可能出在考題是逐字重複還是換成應用題；把「教學協助」對應到文章鋪陳多寡；補充說明放在可跳過的區塊能同時顧到新手與熟手；讀前問題寫成要想一下的問題；把梯度下降的例子當成駁斥文字的示範；今晚可以做的三件事。正文都標了或在這裡列出。
-- **只讀到摘要、沒有列進參考資料的**：Alfieri 等（2013）的案例比較、McNamara 等（1996）的文本連貫性、Luiten 等（1980）的前導組織。Fyfe 與 Nathan（2019）只讀了摘要與導言。
+- **只讀到摘要、沒有列進參考資料的**：McNamara 等（1996）的文本連貫性、Luiten 等（1980）的前導組織。
 - **只知道存在、沒讀到合法公開全文的**：[Wittwer 與 Renkl（2010）](https://doi.org/10.1007/s10648-010-9136-5)的例題解釋統合分析、[Hamaker（1986）](https://doi.org/10.3102/00346543056002212)的插入式問題回顧。初稿依網路上的第三方轉存檔引了它們的數字；查核時找不到作者或出版者公開的版本，2026-10-14 拿掉所有數字，也從參考資料移除。[Cromley 與 Chen（2025）](https://doi.org/10.1016/j.edurev.2025.100730)重新合併 Mayer 掛名研究的統合分析：初稿讀的作者接受稿是在公開日之前經搜尋服務取得的；作者稿預定 2026-11-01 在 [NSF PAR](https://par.nsf.gov/biblio/10637927) 公開，公開後比對一致才恢復引用，2026-10-14 先拿掉數字。
 - **發佈後補讀的**：另一份讀前提問的統合分析 [St. Hilaire 等（2024）](https://doi.org/10.3758/s13423-023-02353-8)，寫這篇時拿不到全文，之後補讀了。被問到的內容 g = 0.54，沒被問到的 0.04（沒有測到差異），主要結果和 King-Shepard 等人一致；它排除了讀前附答案、以及把題目嵌在學習過程中的研究。King-Shepard 等人說兩份有幾個調節變項不一致，原因不明。Janelli 與 Lipnevich（2021）也是發佈後補讀，見上面讀前提問一節。
-- **轉引**：Pan 與 Carpenter 轉述的 Richland 等人的實驗與兩個課堂研究，IES 指引轉述的排法實驗與 1990 年的讀前提問實驗、Bisra 等人轉述的點選解釋實驗，原研究我都沒有讀。
+- **轉引**：IES 指引轉述的 1990 年讀前提問實驗、Bisra 等人轉述的點選解釋實驗，原研究我沒有讀。Pan 與 Carpenter 轉述的 Richland 等人的實驗與兩個課堂研究、IES 指引轉述的排法實驗（Trafton 與 Reiser 1993），發佈後補讀了原文，轉述和原文一致。
 - **讀取上的缺口**：Pan 與 Carpenter 取得的頁面缺表格與圖的內容；多數論文的圖只讀到圖說。
 - **沒有找到的**：類比寫法的綜整、具體漸退的統合分析、分段對純文字的研究、教學文章適當篇幅的實驗。
 
@@ -239,7 +239,7 @@ Günter Rey 等人 [2019 年的統合分析](https://maria-wirzberger.de/wp-cont
 
 **King-Shepard、Walker、Nokes-Malach、Carpenter、Fraundorf（2025）**，Educational Psychology Review 37。55 筆紀錄、204 個比較、約 12,000 人，三層模型。重複題 g = 0.66（95% CI 0.52–0.81，181 個比較）；新題 g = 0.01（−0.09 到 0.12，175 個比較）。重複題依呈現方式：只給題目 0.60（110 個）、附回饋 1.25（顯著較大）、搭配其他活動 0.84（p = 0.07）、只看不答 0.65（17 個，p = 0.71）。新題依題目類型：事實型 0.002、概念型 0.34（18 個）、混合 −0.40（10 個）；附回饋對新題 −0.04（25 個）。文字教材 0.67 與影音教材 0.64 沒有差別；題目放最前面 0.65、插在中間 0.67；文本量與學習時間各分四級，都沒有差別，文本量最長一級是 1,697 到 15,000 字。重複題的模型有出版偏誤的跡象，校正後估計 0.68；新題的模型沒有。作者列的限制：沒有分析被問與未被問內容之間的關聯程度，也沒有分析答案在教材裡的位置。
 
-**Pan 與 Carpenter（2023）**，Educational Psychology Review 35。敘述性回顧；取得的頁面沒有表格與圖的內容。轉述的研究：Richland 等（2009）讓一組人花 2 分鐘答 5 題再讀 8 分鐘，另一組讀 10 分鐘，前者在被問到的內容上較好，含一週後的測驗。Janelli 與 Lipnevich（2021）的線上課程整體沒有幫助，拿到讀前測驗的學生較容易退出，撐到最後的人考得較好。兩個課堂研究裡，讀前問一題加課後再考，和只在課後考沒有差別。
+**Pan 與 Carpenter（2023）**，Educational Psychology Review 35。敘述性回顧；取得的頁面沒有表格與圖的內容。轉述的研究：Richland 等（2009）讓一組人花 2 分鐘答 5 題再讀 8 分鐘，另一組讀 10 分鐘，前者在被問到的內容上較好，含一週後的測驗。Janelli 與 Lipnevich（2021）的線上課程整體沒有幫助，拿到讀前測驗的學生較容易退出，撐到最後的人考得較好。兩個課堂研究（Carpenter 等 2018、Geller 等 2017）裡，讀前問一題加課後再考，和只在課後考相比沒有測到差異（Carpenter 2018 是 p = .06；Geller 2017 的貝氏因子偏向沒有差別）。Carpenter 2018 在課末立即測時，讀前題組在被問到的內容上較好（d = .33），沒被問到的內容沒有測到差異。
 
 **Janelli 與 Lipnevich（2021）**，Computers & Education 161。一門 MOOC，三個前測組（不給回饋、基本回饋、詳細回饋）對沒有前測的控制組。分析的是交過測驗、至少完成一個單元的 399 人，不是隨機分派的全體。後測綜合分數四組沒有顯著差異（p = .42）。完課率：前測三組 22.4%、33.3%、31.3%，控制組 50.5%。完課者裡前測組的後測較高（d = 0.46），這是事後依完課分層的分析，兩組平均原文沒有寫。
 
@@ -265,6 +265,12 @@ Günter Rey 等人 [2019 年的統合分析](https://maria-wirzberger.de/wp-cont
 - [Sana et al. (2020), Optimizing the Efficacy of Learning Objectives through Pretests](https://pmc.ncbi.nlm.nih.gov/articles/PMC8711814/)。
 - [King-Shepard, Walker, Nokes-Malach, Carpenter & Fraundorf (2025), The Effect of Prequestions on Learning: A Multilevel Meta-Analysis](https://doi.org/10.1007/s10648-025-10075-7)（[作者網站的全文](https://664ef278-1723-43c6-bbe1-3bd4e65a87fe.filesusr.com/ugd/f4b9f1_014e1ee2d25147e992507927aed1f0b3.pdf)）。
 - [Pan & Carpenter (2023), Prequestioning and Pretesting Effects](https://link.springer.com/article/10.1007/s10648-023-09814-5)（取得的頁面缺表格與圖的內容）。
+- [Alfieri, Nokes-Malach & Schunn (2013), Learning Through Case Comparisons: A Meta-Analytic Review](https://doi.org/10.1080/00461520.2013.775712)（讀的是共同作者 Schunn 在匹茲堡大學 LRDC 網頁上的刊出版，原址已失效，用 Wayback 存檔；發佈後補讀）。
+- [Fyfe & Nathan (2019), Making "concreteness fading" more concrete as a theory of instruction for promoting transfer](https://doi.org/10.1080/00131911.2018.1424116)（讀的是印第安納大學典藏的作者稿；發佈後補讀）。
+- [Trafton & Reiser (1993), The contributions of studying examples and solving problems to skill acquisition](https://gregtrafton.com/papers/studying%20examples%20solving%20problems%20skill%20acquisition.pdf)（第一作者網站上的論文集版本；發佈後補讀）。
+- [Richland, Kornell & Kao (2009), The Pretesting Effect: Do Unsuccessful Retrieval Attempts Enhance Learning?](https://doi.org/10.1037/a0016496)（讀的是第一作者實驗室網站上的刊出版；發佈後補讀）。
+- [Carpenter, Rahman & Perkins (2018), The Effects of Prequestions on Classroom Learning](https://doi.org/10.1037/xap0000145)（讀的是作者網站上的刊出版；發佈後補讀）。
+- [Geller et al. (2017), Prequestions do not enhance the benefits of retrieval in a STEM classroom](https://doi.org/10.1186/s41235-017-0078-z)（PMC 開放取用的刊出版；發佈後補讀）。
 - [Janelli & Lipnevich (2021), Effects of pre-tests and feedback on performance outcomes and persistence in Massive Open Online Courses](https://doi.org/10.1016/j.compedu.2020.104076)（讀的是共同作者 Lipnevich 個人網站上的刊出版 PDF；發佈後補讀）。
 - [St. Hilaire, Chan & Ahn (2024), Guessing as a learning intervention: A meta-analytic review of the prequestion effect](https://doi.org/10.3758/s13423-023-02353-8)（出版社頁面的刊出版與表格頁，摘要與註腳取自 Iowa State 典藏的作者稿；發佈後補讀）。
 - [Lorch, Lemarié & Chen (2013), Signaling topic structure via headings or preview sentences](https://journals.copmadrid.org/psed/archivos/ed2013v19n2a2.pdf)。

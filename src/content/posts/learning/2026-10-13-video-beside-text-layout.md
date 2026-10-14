@@ -58,17 +58,17 @@ draft: false
 
 這四個不是系統性搜尋的結果。Video Digests 是上一篇就讀過的；另外三個來自兩組搜尋詞的結果，再沿著它們互相引用的關係補上。搜尋結果與這幾篇的相關研究裡還有 NoteVideo、VideoDoc、Codemotion、ViDeX、DynamicSlide、SmartLearn、NoteIt 等同類系統，我沒有讀。四篇都出自人機互動領域的研討會或期刊，教育領域的做法可能沒被涵蓋。
 
-讀取範圍也不一樣：Papeos 讀了正文全部與附錄；Visual Transcripts 讀了演算法以外的各節；LectureScape 讀了介面、研究設計、結果與限制；Video Digests 這裡只用到摘要與導言裡的版面描述。
+讀取範圍也不一樣：Papeos 讀了正文全部與附錄；Visual Transcripts 與 LectureScape 都讀了全文；Video Digests 這裡只用到摘要、導言與圖 1 圖說裡的版面描述。
 
 ### Video Digests（2014）：每一章自己帶一個播放器
 
-Amy Pavel 等人的 [Video Digests](http://vis-ucb-maneesh.stanford.edu/papers/videodigests/videodigests_small.pdf) 把講課影片切成章與節。論文對版面的描述是：每一章由一個嵌入的播放器、一個章標題和一串小節組成，每個小節有一段文字摘要與一張代表畫面，點小節就從那一段開始播。影片跟著章走，讀者不必離開正在讀的那一章。它的瀏覽實驗結果上一篇已經寫過，這裡不重複。
+Amy Pavel 等人的 [Video Digests](http://vis-ucb-maneesh.stanford.edu/papers/videodigests/videodigests_small.pdf) 把講課影片切成章與節。論文對版面的描述是：每一章由一個嵌入的播放器、一個章標題和一串小節組成，每個小節有一段文字摘要與一張代表畫面，點小節就從那一段開始播。我的推論是：每章有自己的播放器，讀者不必離開正在讀的那一章。它的瀏覽實驗結果上一篇已經寫過，這裡不重複。
 
 ### LectureScape（2014）：播放器在中間，可點的逐字稿在右側欄
 
 Juho Kim 等人的 [LectureScape](https://www.eecs.harvard.edu/~kgajos/papers/2014/kim-uist14-lecturescape.pdf) 是一個講課影片播放器。論文描述的版面是：播放器在主畫面，時間軸在影片下方，關鍵字雲在上方，互動逐字稿在右側欄，重點畫面排在最下面；每個元件都可以收起來。
 
-要注意它的實驗比的不是版面。12 位正在修那門入門程式課的學生，各用 LectureScape 和一個對照介面做八個任務。對照介面拿掉了「其他學生的觀看紀錄」相關功能，但保留互動逐字稿，版面與外觀也刻意做成一樣；論文說這是為了模擬 edX 或 YouTube 當時就有的功能。結果是：
+要注意它的實驗比的不是版面。12 位正在修那門入門程式課的學生，各用 LectureScape 和一個對照介面做八個任務。對照介面拿掉了「其他學生的觀看紀錄」相關功能，但保留互動逐字稿與滑過時間軸的預覽縮圖，論文說這是為了模擬 edX 或 YouTube 當時就有的功能；版面與外觀刻意做成一樣，理由是讓比較的兩邊看起來一致。結果是：
 
 - 找答案的任務，LectureScape 平均 96 秒、對照介面 106 秒，差異不顯著（p = 0.8）。
 - 受試者自認用 LectureScape 比較快、比較有效率（7 點量表 5.8 對 4.8、6.1 對 4.8，p < 0.05）。
@@ -83,7 +83,7 @@ Hijung Valentina Shin 等人的 [Visual Transcripts](https://dl.acm.org/doi/10.1
 使用者研究有 9 人，三支 7 到 8 分鐘的大學數學講課，比較三種介面：YouTube 播放器加互動逐字稿、NoteVideo（把整塊黑板合成一張圖當導覽）、Visual Transcripts。
 
 - 給 3 分鐘寫摘要，涵蓋的重點比例是 0.83、0.81、0.87，差異不顯著（p = 0.79）。
-- 搜尋任務分三類。找文字和找圖文關係這兩類，三種介面的完成時間差異不顯著（p = 0.676）；只找畫面的那一類 NoteVideo 最快。把搜尋任務合起來看，Visual Transcripts 顯著快於 YouTube 播放器加逐字稿（p = 0.02），和 NoteVideo 沒有顯著差異（p = 0.12）。
+- 搜尋任務分三類。找文字和找圖文關係這兩類，三種介面的完成時間差異不顯著（p = 0.676）；只找畫面的那一類 NoteVideo 最快。把搜尋任務合起來看，Visual Transcripts 顯著快於 YouTube 播放器加逐字稿（論文寫 p = 0.02），和 NoteVideo 沒有顯著差異（p = 0.12）。不過論文同時報的 Z = −2.1，換算雙尾 p 約 0.04，和它寫的 0.02 對不上；這是唯一顯著的一項，要保留地看。
 - 兩種介面給的是同一份逐字稿文字，受試者對它的評價卻差很多：7 點量表上 Visual Transcripts 的逐字稿 6.3 分，YouTube 播放器旁的 4.7 分。用後者時，受試者多半改拖時間軸來找。
 - 問到學習時偏好哪一個，9 人裡 7 人選 Visual Transcripts，理由包括「整份文字和算式都在」。
 
@@ -143,7 +143,7 @@ Tae Soo Kim 等人的 [Papeos](https://arxiv.org/abs/2308.15224) 做的是「論
 
 教育心理學有一個相關的概念叫 split-attention（注意力分散）：互相參照的文字和圖如果分開放，學習者要自己在兩者之間來回對照，這份功夫會佔掉本來可以拿來理解內容的心力。對應的設計原則叫空間鄰近（spatial contiguity）。
 
-**彙整多篇研究的回顧支持這個原則。** Noetel 等人彙整 29 篇系統性回顧的[總覽](https://doi.org/10.31234/osf.io/pynzr)（我讀的是預印本）把空間與時間鄰近列為效果最大的幾項原則之一。它轉引 Schroeder 與 Cenkci 2018 年的統合分析：58 個比較裡，把相關的文字和圖放近，學習成果優於分開放，效果量 g = 0.63。這個數字是 Noetel 轉引的，原論文我沒有取得全文。
+**彙整多篇研究的回顧支持這個原則。** Noetel 等人彙整 29 篇系統性回顧的[總覽](https://doi.org/10.31234/osf.io/pynzr)（我讀的是預印本）把空間與時間鄰近列為效果最大的幾項原則之一。它轉引 Schroeder 與 Cenkci 2018 年的統合分析：58 個效果量裡，把相關的文字和圖放近，學習成果優於分開放，效果量 g = 0.63。這個數字是 Noetel 轉引的，原論文我沒有取得全文。
 
 同一份總覽有一個和網頁直接相關的調節變項：設計原則在「系統控制步調」的教材上效果較大（g = 0.41，例如講課），在「學習者自己控制步調」的教材上較小（g = 0.27，例如網站），兩者差異顯著（p = 0.02）。作者的解釋是，能自己控制步調的學習者比較容易用自己的方法應付負荷。讀文章、隨時可以暫停影片的讀者屬於後者，版面好壞造成的差別可能沒有課堂研究裡那麼大。最後這一句是我的推論。
 
@@ -170,11 +170,11 @@ Tae Soo Kim 等人的 [Papeos](https://arxiv.org/abs/2308.15224) 做的是「論
 
 ## 近年的整理怎麼說
 
-**可點的目錄和時間軸大致有幫助，但證據零散。** Navarrete 等人 2025 年的[回顧](https://link.springer.com/article/10.1007/s40593-025-00481-x)整理了 2016 到 2021 年間 257 篇影片學習的研究（我讀了摘要、方法、工具分類、對照實驗與限制等章節，沒有讀完全文）。其中 57% 是做工具，25% 是對照實驗。導覽工具裡很多是可點的目錄，另外也有用關鍵字與畫面縮圖導覽的。談到效果時，回顧寫的是：用目錄導覽或可點時間軸的實驗「大致上」發現對學習成果有正面效果，但不一定顯著，或者是和其他功能綁在一起測的。作者說因為各研究的設定差異太大，沒辦法做統合分析；另一個限制是只搜了電腦科學領域的三個資料庫。
+**可點的目錄和時間軸大致有幫助，但證據零散。** Navarrete 等人 2025 年的[回顧](https://link.springer.com/article/10.1007/s40593-025-00481-x)整理了 2016 到 2021 年間 257 篇影片學習的研究。其中 57% 是做工具，25% 是對照實驗。導覽工具裡很多是可點的目錄，另外也有用關鍵字，或用投影片、圖表這類畫面元素導覽的。談到效果時，回顧寫的是：用目錄導覽或可點時間軸的實驗「大致上」發現對學習成果有正面效果，但不一定顯著，或者是和其他功能綁在一起測的；這句只根據 3 篇實驗，其中一篇不顯著、一篇是合併測。作者說因為各研究的設定差異太大，沒辦法做統合分析；另一個限制是只搜了電腦科學領域的三個資料庫。
 
 另有一篇針對影片互動功能的統合分析（Ploetzner，2022，Interactive Learning Environments），我只讀到摘要，沒有取得全文，所以只交代有這篇研究，不引它的結果。
 
-我的推論：時間連結的用處是讓讀者找得到位置，這一點有 Navarrete 的整理支持；要學得比較好，還是得靠讀者動手作答，這一點的依據是[上一篇](/posts/learning/2026-10-13-instructional-video-in-articles)讀過的暫停寫解釋實驗，這一篇沒有新的全文證據。
+我的推論：時間連結的用處是讓讀者找得到位置。這是導覽工具的設計用途，Navarrete 的整理有描述，但它整理的實驗量的是學習成果，不是找位置的速度或成功率；要學得比較好，還是得靠讀者動手作答，這一點的依據是[上一篇](/posts/learning/2026-10-13-instructional-video-in-articles)讀過的暫停寫解釋實驗，這一篇沒有新的全文證據。
 
 ## 本站最後的做法
 
@@ -227,8 +227,8 @@ Harvard CS50 AI 的七支講課影片用同一個方法查都允許嵌入，上�
 - **浮動播放器的資料是廣告業的**，量的是關閉率，不是學習。
 - **手機的做法沒有研究來源。** 量到的網站裡只有 TED 在窄視窗把播放器固定住，而那是把桌機瀏覽器縮窄量到的。
 - **實際網站只各量了一頁**，Coursera 與 edX 因為要登入而量不到，YouTube 的逐字稿面板在自動化瀏覽器裡載不出來。
-- **我的推論有四處**：Papeos 的結果代表「影片要連到讀者所在的位置」；自控步調的讀者受版面影響較小；Better Ads 替廣告訂的 30% 可以拿來衡量讀者自己叫出來的影片；時間連結的價值在定位、學習靠作答。正文都當場標了。
-- **沒有取得全文的三篇**：Schroeder 與 Cenkci（2018）、Kueker 與 Moore（2023）、Ploetzner（2022）。出版社頁面、OpenAlex 登記的開放取用位置、Exa 都試過，只拿到摘要。前一篇的數字改用 Noetel 的轉引，後兩篇只交代有這篇研究，不寫結果，也不列進參考資料。Noetel 等讀的是預印本，Navarrete 等沒有讀完。
+- **我的推論有五處**：Video Digests 每章有自己的播放器，讀者不必離開那一章；Papeos 的結果代表「影片要連到讀者所在的位置」；自控步調的讀者受版面影響較小；Better Ads 替廣告訂的 30% 可以拿來衡量讀者自己叫出來的影片；時間連結的價值在定位、學習靠作答。正文都當場標了。
+- **沒有取得全文的三篇**：Schroeder 與 Cenkci（2018）、Kueker 與 Moore（2023）、Ploetzner（2022）。出版社頁面、OpenAlex 登記的開放取用位置、Exa 都試過，只拿到摘要。前一篇的數字改用 Noetel 的轉引，後兩篇只交代有這篇研究，不寫結果，也不列進參考資料。Noetel 等讀的是預印本。
 - **多支影片的切換沒有實測**，只讀了程式。
 - **本站的實測只在桌機版 Chrome 上做過**（1440 × 900、1199 × 900、390 × 844 三種視窗），沒有量過讀者實際點了幾次、看了多久。
 
@@ -236,27 +236,27 @@ Harvard CS50 AI 的七支講課影片用同一個方法查都允許嵌入，上�
 
 **Pavel、Reed、Hartmann、Agrawala（2014）**，UIST。版面與瀏覽實驗見[上一篇的附錄](/posts/learning/2026-10-13-instructional-video-in-articles)。
 
-**Kim、Guo、Cai、Li、Gajos、Miller（2014）**，UIST，LectureScape。受試者 12 人（5 男，平均 25.6 歲），都正在修影片所屬的入門電腦科學課，其中 4 人是 edX 學生。每場 75 分鐘，酬金 30 美元。八個任務：四個找畫面、兩個找答案、兩個寫摘要，介面順序與影片分配做了平衡。對照介面做找答案任務時，10 人用關鍵字搜尋、11 人點逐字稿；用 LectureScape 時各降到 6 人，另有 6 人改點時間軸上的高峰。問到功能是否齊全，LectureScape 6.4 分、對照 4.3 分。作者說單場實驗看不出個人書籤這類功能的用處。
+**Kim、Guo、Cai、Li、Gajos、Miller（2014）**，UIST，LectureScape。受試者 12 人（5 男，平均 25.6 歲），都正在修影片所屬的入門電腦科學課，其中 4 人修過或正在修這門課的 edX 版。每場 75 分鐘，酬金 30 美元。八個任務：四個找畫面、兩個找答案、兩個寫摘要，介面順序與影片分配做了平衡。對照介面做找答案任務時，10 人用關鍵字搜尋、11 人點逐字稿；用 LectureScape 時各降到 6 人，另有 6 人改點時間軸上的高峰。問到功能是否齊全，LectureScape 6.4 分、對照 4.3 分。作者說單場實驗看不出個人書籤這類功能的用處。
 
 **Shin、Berthouzoz、Li、Durand（2015）**，ACM Transactions on Graphics 34(6)。系統共產生 20 份 Visual Transcripts，10 份來自可汗學院。受試者 9 人（2 女 7 男，20 到 35 歲），熟悉該科目但沒看過那三支影片。三支影片長 8、7.2、8 分鐘。摘要任務的細節點涵蓋比例是 0.50、0.56、0.58（p = 0.62）。只找畫面的搜尋任務 NoteVideo 最快，因為它把所有畫面放在同一個畫面裡。搜尋任務合計：Visual Transcripts 對一般播放器 Z = −2.1、p = 0.02，對 NoteVideo Z = 1.2、p = 0.12。找錯的比例是 0.06（Visual Transcripts）、0.07（NoteVideo）、0.15（一般播放器），差異不顯著。問到寫摘要時偏好哪個，5 人選 NoteVideo、4 人選 Visual Transcripts。
 
-**Kim、Latzke、Bragg、Zhang、Chang（2023）**，UIST，Papeos。形成性研究 14 人：10 位博士生、2 位碩士生、1 位博士後、1 位大學部學生，多數是人機互動領域。比較實驗 16 人，每場 90 分鐘，酬金 45 美元；三篇論文順序固定、條件順序平衡；摘要最多 14 句，不能複製貼上。摘要由兩位沒看過實驗過程的作者盲評（細節標註的 Cohen's kappa 0.712）。自評「任務容易」受條件影響（p = 0.030）；在論文內導覽的容易度受條件影響（p = 0.035）；在影片內定位，Papeos 優於論文＋影片（p = 0.034）。論文內的捲動次數，Papeos 與只有論文相近，論文＋影片較少（p = 0.003）。共同設計階段，14 位作者畫出的組合方式有八類，其中一類是可調整比例的左右並排。蒐集到的 Papeos 平均每份有 20.6 組連結，每段連結的影片平均 24.3 秒。另有一次實地部署：CSCW 2022 會議兩週內 288 位不重複使用者，共 12 份 Papeos，平均每次使用 5.74 分鐘。
+**Kim、Latzke、Bragg、Zhang、Chang（2023）**，UIST，Papeos。形成性研究 14 人：10 位博士生、2 位碩士生、1 位博士後、1 位大學部學生，多數是人機互動領域。比較實驗 16 人，每場 90 分鐘，酬金 45 美元；三篇論文順序固定、條件順序平衡；摘要最多 14 句，不能複製貼上。摘要由兩位沒看過實驗過程的作者盲評（細節標註的 Cohen's kappa 0.712）。自評「任務容易」受條件影響（p = 0.030）；在論文內導覽的容易度受條件影響（p = 0.035）；在影片內定位，Papeos 優於論文＋影片（p = 0.034）。論文內的捲動次數，Papeos 與只有論文相近，論文＋影片較少（p = 0.003）。共同設計階段，14 位作者畫出的組合方式有八類，其中一類是可調整比例的左右並排。蒐集到的 Papeos 平均每份有 20.6 組連結，每段連結的影片平均 24.3（原文沒標單位，從數值推測是秒）。另有一次實地部署：CSCW 2022 會議兩週內 288 位不重複使用者，共 12 份 Papeos，平均每次使用 5.74 分鐘。
 
-**Noetel 等（預印本，正式版刊於 Review of Educational Research）**。它轉引 Schroeder 與 Cenkci（2018）的空間鄰近效果：g = 0.63，95% CI 0.55–0.71，58 個比較。摘要寫 29 篇回顧、1,189 個研究、78,177 名受試者；預印本內文的流程說明寫的是 79,415 人，兩處不一致，我照摘要。步調的調節效果：系統控制 g = 0.41（95% CI 0.33–0.49），學習者控制 g = 0.27（0.19–0.35）。教材越複雜，設計原則越重要（複雜 g = 0.70，簡單 g = 0.20）。
+**Noetel 等（預印本，正式版刊於 Review of Educational Research）**。它轉引 Schroeder 與 Cenkci（2018）的空間鄰近效果：g = 0.63，95% CI 0.55–0.71，58 個效果量。摘要寫 29 篇回顧、1,189 個研究、78,177 名受試者；預印本內文的流程說明寫的是 79,415 人，兩處不一致，我照摘要。步調的調節效果：系統控制 g = 0.41（95% CI 0.33–0.49），學習者控制 g = 0.27（0.19–0.35）。教材越複雜，設計原則越重要（複雜 g = 0.70，簡單 g = 0.20；這個比較只有 4 個合併效果量，簡單教材的信賴區間下限 0.02，貼近零）。
 
-**Zhang、de Koning、Paas（2024）**，Applied Cognitive Psychology 38。146 名大學生（平均 20.9 歲，88% 母語不是英語），四組各 35 到 37 人。事前檢定力分析要求 128 人。教材在螢幕上呈現，大的版本 1700 × 1002 像素、小的 1100 × 648 像素，學習時間固定 12 分鐘。記憶測驗 10 題配對，理解測驗 24 題選擇。作者說這次沒有重現他們 2023 年用同一份教材、在紙本上得到的效果，並轉引 Schroeder 與 Cenkci（2018）：紙本研究的效果比電腦螢幕上的研究大。作者列的限制包括媒介從紙本換成螢幕、兩種大小可能差得不夠多、時間給得夠長時學習者也許能自己消化多出來的負荷。
+**Zhang、de Koning、Paas（2024）**，Applied Cognitive Psychology 38。146 名大學生（平均 20.9 歲，88% 母語不是英語），四組各 35 到 37 人。事前檢定力分析要求 128 人。教材在螢幕上呈現，大的版本 1700 × 1002 像素、小的 1100 × 648 像素，學習時間固定 12 分鐘。記憶測驗 10 題配對，理解測驗 24 題選擇。作者說這次沒有重現他們 2023 年用同一份教材、在紙本上得到的效果，並轉引 Schroeder 與 Cenkci（2018）：紙本研究的效果比電腦螢幕上的研究大。作者列的限制包括媒介從紙本換成螢幕、兩種大小可能差得不夠多、時間給得夠長時學習者也許能自己消化多出來的負荷。大尺寸時，分散格式的保留與理解平均反而略高，都沒有測到差異；作者主張需要直接複製原研究。
 
-**Navarrete、Nehring、Schanze、Ewerth、Hoppe（2025）**，International Journal of Artificial Intelligence in Education。依 PRISMA 流程，搜尋 SpringerLink、ACM Digital Library 與 DBLP。對照實驗約八成用 STEM 領域的影片，最常見的製作形式是投影片式。
+**Navarrete、Nehring、Schanze、Ewerth、Hoppe（2025）**，International Journal of Artificial Intelligence in Education。參照 PRISMA，搜尋 SpringerLink、ACM Digital Library 與 DBLP。對照實驗約八成用 STEM 領域的影片，最常見的製作形式是投影片式。
 
 ## 參考資料
 
 - [Kim, Latzke, Bragg, Zhang & Chang (2023), Papeos: Augmenting Research Papers with Talk Videos](https://arxiv.org/abs/2308.15224)：讀了 arXiv 版的正文全部與附錄。
-- [Kim, Guo, Cai, Li, Gajos & Miller (2014), Data-Driven Interaction Techniques for Improving Navigation of Educational Videos](https://www.eecs.harvard.edu/~kgajos/papers/2014/kim-uist14-lecturescape.pdf)：讀了介面、研究設計、結果與限制。
-- [Shin, Berthouzoz, Li & Durand (2015), Visual Transcripts: Lecture Notes from Blackboard-Style Lecture Videos](https://dl.acm.org/doi/10.1145/2816795.2818123)：讀了摘要、導言、相關研究、設計原則、成果、使用者研究、限制與結論；第 4 節的演算法只看了各小節開頭。
+- [Kim, Guo, Cai, Li, Gajos & Miller (2014), Data-Driven Interaction Techniques for Improving Navigation of Educational Videos](https://www.eecs.harvard.edu/~kgajos/papers/2014/kim-uist14-lecturescape.pdf)：讀了全文。
+- [Shin, Berthouzoz, Li & Durand (2015), Visual Transcripts: Lecture Notes from Blackboard-Style Lecture Videos](https://dl.acm.org/doi/10.1145/2816795.2818123)：讀了全文。
 - [Pavel, Reed, Hartmann & Agrawala (2014), Video Digests](http://vis-ucb-maneesh.stanford.edu/papers/videodigests/videodigests_small.pdf)：版面描述出自摘要與導言。
-- [Noetel et al., Multimedia Design for Learning: An Overview of Reviews With Meta-Meta-Analysis（預印本）](https://doi.org/10.31234/osf.io/pynzr)：讀了摘要、方法、鄰近原則與調節變項、限制。
-- [Zhang, de Koning & Paas (2024), Does presentation size of instructional materials influence the split-attention effect?](https://pure.tudelft.nl/ws/portalfiles/portal/213485394/Applied_Cognitive_Psychology_-_2024_-_Zhang_-_Does_presentation_size_of_instructional_materials_influence_the.pdf)：讀了摘要、方法、結果、討論與限制；導言只讀了摘錄。
-- [Navarrete, Nehring, Schanze, Ewerth & Hoppe (2025), A Closer Look into Recent Video-based Learning Research](https://link.springer.com/article/10.1007/s40593-025-00481-x)：讀了摘要、方法、導覽與互動工具、對照實驗、效果整理與限制。
+- [Noetel et al., Multimedia Design for Learning: An Overview of Reviews With Meta-Meta-Analysis（預印本）](https://doi.org/10.31234/osf.io/pynzr)：讀了預印本全文。
+- [Zhang, de Koning & Paas (2024), Does presentation size of instructional materials influence the split-attention effect?](https://pure.tudelft.nl/ws/portalfiles/portal/213485394/Applied_Cognitive_Psychology_-_2024_-_Zhang_-_Does_presentation_size_of_instructional_materials_influence_the.pdf)：讀了全文。
+- [Navarrete, Nehring, Schanze, Ewerth & Hoppe (2025), A Closer Look into Recent Video-based Learning Research](https://link.springer.com/article/10.1007/s40593-025-00481-x)：讀了全文。
 - [CafeMedia (2021), Best practices for sticky elements in UX design](https://cafemedia.com/best-practices-for-sticky-elements-in-ux-design/)：讀了全文。
 - [Coalition for Better Ads: Better Ads Standards](https://www.betterads.org/standards/)與 [Large Sticky Ads 的定義](https://www.betterads.org/mobile-large-sticky-ad/)。
 - 實際量測的五個頁面（2026-10-13，Playwright 驅動的 Chrome）：[MIT OCW 6.006 第 1 堂](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-1-algorithms-and-computation/)、[Khan Academy 影片頁](https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:solve-equations-inequalities/x2f8bb11595b61c86:linear-equations-variables-both-sides/v/why-we-do-the-same-thing-to-both-sides-multi-step-equations)、[YouTube 觀看頁](https://www.youtube.com/watch?v=WbzNRTTrX0g)、[TED 逐字稿頁](https://www.ted.com/talks/sal_khan_let_s_use_video_to_reinvent_education/transcript)、[freeCodeCamp 影片題](https://www.freecodecamp.org/learn/machine-learning-with-python/tensorflow/introduction-machine-learning-fundamentals)。
