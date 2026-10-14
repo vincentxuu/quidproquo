@@ -47,6 +47,8 @@ pnpm-debug.log*
 
 # deep-research scratch notes (version-controlled per user request 2026-08-24)
 # .research/  # removed to allow commit of marin hero run research
+# 論文全文與轉檔（數百 MB、多有著作權）不進版控；筆記與抽取紀錄照舊提交
+.research/raw/
 
 # claude code personal overrides (connector UUIDs etc.)
 .claude/settings.local.json
