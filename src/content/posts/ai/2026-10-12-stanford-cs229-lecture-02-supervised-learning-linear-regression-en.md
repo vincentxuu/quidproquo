@@ -22,13 +22,17 @@ This is the first lecture of [Stanford CS229](/posts/ai/2026-08-21-stanford-cs22
 
 The prerequisites are partial derivatives, the inner product of vectors, matrix multiplication, and matrix inverses. After reading, you should be able to do three things: write a prediction problem as $h_\theta$ and $J(\theta)$; compute one step of gradient descent and one step of SGD by hand; and derive the normal equations from $J(\theta)$ and say when they fail.
 
+The recording runs 1 hour 18 minutes and this article covers all of it. Each section opens with a time link that starts the recording at that part, so when a section does not make sense you can go straight back and listen.
+
 ```youtube
 url: https://www.youtube.com/watch?v=cmNIMjPYdgM
 title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 2: Supervised Learning Setup
 captions: en
 ```
 
-## What this lecture sets out to cover (recording 00:00–05:50)
+## What this lecture sets out to cover
+
+[Recording 00:00–05:50](https://www.youtube.com/watch?v=cmNIMjPYdgM&t=0s)
 
 Chris Ré teaches this lecture. He opens by saying that he is responsible for the next stretch of the course and will alternate with Tengyu Ma after that. He teaches from slides, and reminds the class that the slides are only a subset of Tengyu's lecture notes, so anyone who wants the rigorous version should go back to the notes.
 
@@ -40,7 +44,9 @@ That sentence is the thread running through the whole lecture. When he later dis
 
 He also reminds the class several times that if today's notation, partial derivatives, or linear algebra feel unfamiliar, they should go to the Friday TA sections, because later lectures will assume all of it.
 
-## The supervised learning setup (recording 05:50–10:40)
+## The supervised learning setup
+
+[Recording 05:50–10:40](https://www.youtube.com/watch?v=cmNIMjPYdgM&t=350s)
 
 ### The hypothesis and the training set
 
@@ -79,7 +85,18 @@ Last come two terms:
 
 Today covers only regression, because the derivatives are easier to compute. The lecturer adds that in practice people now solve more classification problems; the last layer of a language model, for example, is a classifier that guesses the next word. Classification is left for the next lecture.
 
-## The housing data and the linear hypothesis (recording 10:40–23:50)
+**Check yourself. Write your answer down before opening the fold.** A spam filter reads an email and outputs "spam" or "not spam". A weather model reads today's observations and outputs tomorrow's high temperature. Which is regression and which is classification, and what do you look at to decide?
+
+<details>
+<summary>Answer</summary>
+
+The filter is classification and the temperature model is regression. Only $y$ decides: a handful of discrete options means classification, a continuous real number means regression. Whether the input $x$ is text or numbers does not matter.
+
+</details>
+
+## The housing data and the linear hypothesis
+
+[Recording 10:40–23:50](https://www.youtube.com/watch?v=cmNIMjPYdgM&t=640s)
 
 ### One feature: a straight line
 
@@ -135,7 +152,18 @@ Which features to include is, for now, decided by a person: you write code that 
 
 With two features you can still draw a picture: $h$ is a plane in three-dimensional space, and the error is the vertical distance from a data point to the plane. Beyond that it can no longer be drawn, which is exactly why vector notation is needed.
 
-## The least-squares cost function (recording 23:50–33:55)
+**Check yourself. Write your answer down before opening the fold.** A training set has 1,000 examples with 5 features each. How many dimensions does $\theta$ have? Does it grow when the data grows to 10,000 examples? What does the convention $x_0 = 1$ buy you?
+
+<details>
+<summary>Answer</summary>
+
+Six: one weight per feature plus the intercept $\theta_0$. The number of parameters depends only on the number of features $d$, not on the number of examples $n$, which is what parameterization means. With $x_0 = 1$ the intercept stops being a special case and the whole hypothesis becomes one inner product, $h_\theta(x) = \theta^T x$.
+
+</details>
+
+## The least-squares cost function
+
+[Recording 23:50–33:55](https://www.youtube.com/watch?v=cmNIMjPYdgM&t=1430s)
 
 ### Definition
 
@@ -171,7 +199,18 @@ Another student asks whether squaring penalizes large errors more heavily. The l
 
 Wrapping up this part, the lecturer names the belief behind the whole approach: if we fit well on the training set, we trust that we will do well in the real world. He calls it a leap of faith, and also the bedrock of statistical estimation, and previews that he will later spend a whole lecture on how it goes wrong, including examples from his own research where the training data and the test setting do not match. This is the lecture's **first statistical assumption**: the training set reflects the real world.
 
-## Gradient descent (recording 33:55–42:15)
+**Check yourself. Write your answer down before opening the fold.** Two examples have prediction errors of 1 and $-3$. What is $J$? If you drop the $\frac{1}{2}$ in front, do the value of $J$ and $\theta^\star$ change?
+
+<details>
+<summary>Answer</summary>
+
+$J = \frac{1}{2}(1^2 + (-3)^2) = 5$. Squaring removes the sign, so an error of $3$ and an error of $-3$ cost the same. Without the $\frac{1}{2}$, $J$ becomes 10, but $\theta^\star$ stays put, because multiplying by a positive constant does not move the location of the minimum.
+
+</details>
+
+## Gradient descent
+
+[Recording 33:55–42:15](https://www.youtube.com/watch?v=cmNIMjPYdgM&t=2035s)
 
 ### The picture and the update rule
 
@@ -249,7 +288,18 @@ Here the lecturer digresses to state a position. Statistics cares about recoveri
 
 His summary is that machine learning prefers to push more data through bigger models, and estimating the parameters to ten significant digits is not the goal.
 
-## Minibatch stochastic gradient descent (recording 42:15–1:10:40)
+**Check yourself. Write your answer down before opening the fold.** Suppose that at some step every prediction is too high, so every error $h_\theta(x^{(i)}) - y^{(i)}$ is positive, and every feature value is positive. After one step of batch gradient descent, does each $\theta_j$ go up or down?
+
+<details>
+<summary>Answer</summary>
+
+All of them go down. Component $j$ of the gradient is $\sum_i (h_\theta(x^{(i)}) - y^{(i)})\,x_j^{(i)}$; the errors and the features are positive, so every component is positive. The update subtracts $\alpha$ times the gradient, so each $\theta_j$ decreases, including the intercept $\theta_0$ (its $x_0$ is 1). With a small enough step size the predictions drop and move toward the answers.
+
+</details>
+
+## Minibatch stochastic gradient descent
+
+[Recording 42:15–1:10:40](https://www.youtube.com/watch?v=cmNIMjPYdgM&t=2535s)
 
 ### Motivation and the update rule
 
@@ -310,7 +360,18 @@ A slide compares the trajectories of the two algorithms on a smooth quadratic fu
 
 A student asks how you know when to stop while bouncing around near the optimum. The lecturer's answer: in general, you don't. The models taught in the next two weeks (generalized linear models) are all convex, and in that case you can compute how far you are from the optimum; he recommends Stephen Boyd's course to anyone who wants to go deeper. With neural networks no such tool exists, and what people actually do is watch the loss curve until it has come down far enough, or until the compute runs out.
 
-## Normal equations: solving for θ directly (recording 1:10:40–1:17:40)
+**Check yourself. Write your answer down before opening the fold.** Sort the training data by label and cut it into minibatches in order, without shuffling. Which assumption from the lecture does that violate, and what would you see?
+
+<details>
+<summary>Answer</summary>
+
+it violates the second statistical assumption, since a batch is no longer a miniature of the data as a whole. The model first leans toward the labels in the early part of the data, then swings back hard when it reaches the later part.
+
+</details>
+
+## Normal equations: solving for θ directly
+
+[Recording 1:10:40–1:17:40](https://www.youtube.com/watch?v=cmNIMjPYdgM&t=4240s)
 
 What is special about least squares is that it can be solved directly, with no iteration. The lecturer says the main purpose of this part is to get everyone comfortable with matrix notation.
 
@@ -391,6 +452,15 @@ The solution goes from a single $\theta^\star$ to a whole subspace. The statemen
 
 At the end the lecturer mentions that $X^TX$ is a positive semidefinite (PSD) matrix, without elaborating. The same expression shows it (an addition in this article): for any vector $z$, $z^TX^TXz = \|Xz\|^2 \ge 0$. This is also why $J$ is bowl-shaped, because differentiating $\nabla_\theta J = X^TX\theta - X^Ty$ once more with respect to $\theta$ gives the matrix of second derivatives (the Hessian), which is $X^TX$; it is positive semidefinite, so $J$ does not curve downward in any direction.
 
+**Check yourself. Write your answer down before opening the fold.** The training set has only 2 examples but there are 5 parameters. Can you still use $\theta^\star = (X^TX)^{-1}X^Ty$? How many solutions does the least-squares problem have?
+
+<details>
+<summary>Answer</summary>
+
+You cannot. $X$ is $2 \times 5$, so $X^TX$ is $5 \times 5$ with rank at most 2, and it is never invertible. The null space contains nonzero directions, and moving $\theta$ along them changes no prediction, so there are infinitely many solutions, a whole subspace of them.
+
+</details>
+
 ## Working through the whole lecture with three data points
 
 **What follows is an example made up for this article, not from the lecture.** The lecture did no numerical computation, so here the smallest possible dataset is used to run each of the four formulas once.
@@ -465,6 +535,8 @@ Now look at what happens at the optimum $\theta^\star = (\frac{1}{3}, \frac{3}{2
 
 ## Self-check
 
+Each lecture section above ends with one concept question. The four below use the three-point example, so work them with pen and paper.
+
 **1. Continuing the example above, take one more step of batch gradient descent from $\theta^{(2)} = (0.58,\ 1.345)$ (with $\alpha = 0.05$). What is $\theta^{(3)}$?**
 
 Answer: the errors are $(-0.075,\ 0.27,\ -0.385)$ and the gradient is $(-0.19,\ -0.69)$, so $\theta^{(3)} = (0.5895,\ 1.3795)$. You have this down only if you can compute both components of the gradient (one is the errors added up directly, the other is the errors multiplied by $x$ and then added up).
@@ -480,10 +552,6 @@ Answer: it is not invertible, because the third column of $X$ is twice the secon
 **4. You are standing at $\theta^\star = (\frac{1}{3}, \frac{3}{2})$ and take one SGD step with batch size 1 and $\alpha_B = 0.05$, drawing example 3. Where does $\theta$ go? Does $J$ go up or down?**
 
 Answer: the single-example gradient is $(-\frac{1}{6}, -\frac{1}{2})$, $\theta$ becomes roughly $(0.3417,\ 1.525)$, and $J$ rises from 0.0833 to about 0.0891. At the optimum, any move makes $J$ larger.
-
-**5. Sort the training data by label and cut it into minibatches in order, without shuffling. Which assumption from the lecture does that violate, and what would you see?**
-
-Answer: it violates the second statistical assumption, since a batch is no longer a miniature of the data as a whole. The model first leans toward the labels in the early part of the data, then swings back hard when it reaches the later part.
 
 ## Corresponding reading
 
@@ -513,7 +581,11 @@ Original video: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 2: Supe
 
 Checked: 2026-10-12.
 
-Content check: verified against the video transcript (2026-10-12): the whole article is written from the roughly 78-minute English transcript of this video, and the quotations and timestamps are taken from the transcript; the slides and the handwriting on screen were not viewed, and the formulas are reconstructed from what the lecturer says aloud, checked against Chapter 1 of the main lecture notes. The lecturer does not give his own name in the transcript. This article identifies him as Chris Ré because he refers to Tengyu in the third person and says the two of them alternate lectures.
+Content check: verified against the video transcript (2026-10-12): the whole article is written from the roughly 78-minute English transcript of this video, and the quotations and timestamps are taken from the transcript; the slides and the handwriting on screen were not viewed, and the formulas are reconstructed from what the lecturer says aloud, checked against Chapter 1 of the main lecture notes. The lecturer does not give his own name in the transcript. This article identifies him as Chris Ré because he refers to Tengyu in the third person and says the two of them alternate lectures. On 2026-10-13 the start of each of the seven sections was rechecked against the timecoded transcript and turned into a time link.
+
+## Update Log
+
+- 2026-10-13: Section time ranges became links into the recording; added the running time to the intro; one self-check question now closes each lecture section, with the answer folded.
 
 ## References
 

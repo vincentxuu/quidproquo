@@ -8,339 +8,1049 @@ lang: zh-TW
 series:
   name: "Harvard CS50 AI 導讀"
   order: 3
-tldr: "Week 2 從確定性轉向機率：貝氏法則、貝氏網路 D-separation、馬可夫模型、PageRank 隨機漫步，專案 Heredity 算基因型、PageRank 算網頁權重。"
-description: "詳細導讀 Harvard CS50 AI Week 2 Uncertainty：講課重點、影片時間軸、貝氏網路建構與推論、馬可夫鏈穩態分佈、PageRank 迭代與取樣實作、Heredity 與 PageRank 兩專案規格與 check50 指令。影片為 2020 年錄製；規格以 2026 年為準。"
+tldr: "第 2 週講機率：條件機率與貝氏法則把證據換算成機率；貝氏網路用箭頭把聯合機率拆成每個節點的條件機率表，列舉推論算得精確但慢，拒絕取樣與概似加權用樣本近似；馬可夫鏈用轉移模型描述隨時間變化的狀態，隱藏式馬可夫模型再加上感測模型，從觀察反推看不到的狀態。附逐段時間連結，以及 Heredity、PageRank 兩個專案的解題思路與檢查方式。"
+description: "Harvard CS50 AI 第 2 週 Uncertainty 導讀：依 2020 年講課錄影的字幕逐段整理可能世界與機率公理、條件機率、隨機變數與獨立、貝氏法則、聯合機率與邊際化、貝氏網路、列舉推論、拒絕取樣與概似加權、馬可夫鏈與隱藏式馬可夫模型，每節附可點的時間連結與自我檢查，另有 Heredity 與 PageRank 兩個專案的規格、解題思路、易錯處與檢查方式，完整參考實作摺疊在各專案最後。專案規格以 2026 年為準。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/tech/2026-08-30-harvard-cs50ai-w02-uncertainty-en)
 
-**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** 全片 1:54:29。本文的「講課導讀」依這支錄影的英文字幕逐段寫成，每一節開頭有時間連結，點了頁面上的播放器會跳到那一段。講課沒有介紹本週專案，專案部分依課程官網寫成。[跳到播放器](#課程影片與時間軸)・[影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
+> ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年課程官網最新版為準（`ai50/projects/2024/x/...`）。
 
 ## TL;DR
 
-Week 2 引入機率處理不確定性：貝氏網路編碼條件獨立、馬可夫模型建模序列、PageRank 用隨機漫步排序網頁。兩專案分別實作遺傳推斷與網頁排名。
+第 2 週處理「不能確定」的情況：AI 手上的資訊常常只有幾成把握，仍然要能下結論。錄影的前半是機率的基本工具（條件機率、貝氏法則、聯合機率、邊際化），後半把這些工具裝進三種模型：貝氏網路描述變數之間誰影響誰，馬可夫鏈描述狀態怎麼隨時間變，隱藏式馬可夫模型處理狀態看不到、只看得到觀察的情況。兩個專案分別對應貝氏網路（Heredity）與馬可夫鏈（PageRank）。
+
+這篇分成兩半：前半「講課導讀」跟著錄影走，後半是兩個專案的實作說明，講課沒有提到專案。
 
 ## 課程影片與時間軸
 
+全片 1 小時 54 分，下面「講課導讀」的十個小節依序涵蓋 2:13 之後的全部內容，開頭兩分鐘是上週回顧與本週動機。每一節開頭和文中的時間連結都能點，頁面上的播放器會跳到那一段；某一節看不懂時，直接回去聽講者怎麼講。
+
+```youtube
+url: https://www.youtube.com/watch?v=D8RRq3TbtHU
+title: Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020
+```
+
 YouTube：[Week 2 Uncertainty (2020 錄製)](https://www.youtube.com/watch?v=D8RRq3TbtHU)
 
-> 時間說明：影片總長 1:54:30。YouTube 字幕沒有時間碼，下表時間是依各主題在字幕全文中的相對位置換算的「約略值」（可能差數分鐘），只供定位，不是官方章節。此表只描述這支 2020 年的錄影；課程目前版本的講課內容與順序可能不同，且影片本身沒有介紹本週專案。
+> 時間說明：下表時間已依帶時間碼的英文字幕核對（2026-10-13），是講者開始講各主題的位置，不是官方章節。此表只描述這支 2020 年的錄影；課程目前版本的講課內容與順序可能不同，且影片本身沒有介紹本週專案。
 
-| 約略時間（分鐘） | 內容 |
+| 時間（點了從該處播放） | 內容 |
 |---|---|
-| 約 0–10 | 不確定性與機率基礎：樣本空間（possible worlds）、機率公理 |
-| 約 10–27 | 條件機率、隨機變數、聯合機率、機率分佈與獨立性 |
-| 約 27–34 | 貝氏法則 |
-| 約 34–49 | 聯合分佈、邊際化（marginalization）與正規化 |
-| 約 49–80 | 貝氏網路：結構與條件機率表、Python 函式庫實作、列舉式推論（inference by enumeration） |
-| 約 80–93 | 近似推論：取樣、rejection sampling、likelihood weighting |
-| 約 93–101 | 時間上的不確定性：馬可夫假設、馬可夫鏈、轉移模型 |
-| 約 101–114 | 感測器模型與隱馬可夫模型（HMM）：filtering、prediction、smoothing、最可能解釋等任務，以及收尾 |
+| [0:00–2:13](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=0s) | 上週回顧與本週動機：機器人感測器、天氣預報、擲骰子 |
+| [2:13–9:46](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=133s) | 可能世界、機率的兩條公理、兩顆骰子的點數和、無條件機率 |
+| [9:46–17:20](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=586s) | 條件機率的定義、公式與骰子例子 |
+| [17:20–26:29](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=1040s) | 隨機變數、機率分佈、獨立 |
+| [26:29–34:00](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=1589s) | 貝氏法則的推導與早上多雲、下午下雨的例子 |
+| [34:00–49:42](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=2040s) | 聯合機率表、正規化，以及否定、排容、邊際化、條件化四條規則 |
+| [49:42–1:03:19](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=2982s) | 貝氏網路：結構、每個節點的條件機率表、用它算聯合機率 |
+| [1:03:19–1:19:39](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=3799s) | 推論問題、列舉推論、用 pomegranate 函式庫實作 |
+| [1:19:39–1:32:33](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=4779s) | 近似推論：取樣、拒絕取樣、概似加權 |
+| [1:32:33–1:39:49](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=5553s) | 隨時間變化的不確定性：馬可夫假設、馬可夫鏈、轉移模型 |
+| [1:39:49–1:54:29](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=5989s) | 感測模型、隱藏式馬可夫模型、四種推論任務與收尾 |
 
-> 完整逐字稿：[Week 2 Notes](https://cs50.harvard.edu/ai/2020/notes/2/)
+> 官方筆記與投影片：[Week 2 Notes](https://cs50.harvard.edu/ai/2020/notes/2/)
 
-## 核心概念速覽
+## 講課導讀
 
-### 貝氏法則與條件獨立
+以下依錄影的英文字幕逐段寫成。光讀字幕看不到投影片，所以網路圖與表格的畫面本文不重建，只寫講者口頭說出的數字與推理；貝氏網路那幾張機率表講者只唸了其中幾格，其餘的數字取自講課公開的原始碼，會在該處標明。每節結尾的自我檢查都是本文出的題目，不是講課內容；其中沿用講課例子的會寫明，標「本文自擬」的連例子也是本文編的。文中標「本文算的」的數字，是本文拿講課的數字自己算出來的，講者沒有唸。
 
+### 可能世界與機率的兩條公理
+
+[錄影 2:13–9:46](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=133s)
+
+講者 Brian Yu 先接上週：上週的 AI 用邏輯句子表示知識，推出來的結論都是確定的（這段回顧在錄影開頭，[0:00](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=0s)）。實際上機器很少能確定什麼事。探索環境的機器人不知道自己確切在哪裡，只有感測器的資料；預報天氣的程式不知道明天一定怎樣，只能說有多大的可能。這一週要讓 AI 在只有部分把握時仍然能推論。
+
+機率的起點是**可能世界**（possible world），記作 `ω`。擲一顆骰子有六個可能世界：擲出 1、2、3、4、5、6。每個可能世界有一個機率，寫成 `P(ω)`。所有機率都要守兩條公理：
+
+1. `0 ≤ P(ω) ≤ 1`。0 代表不可能發生，例如骰子只有 1 到 6，擲出 7 的機率是 0；1 代表一定發生，例如擲出的點數小於 10。數值越大越可能發生。
+2. 所有可能世界的機率加起來等於 1。
+
+公平的骰子每一面的機率都是 1/6，六個加起來是 1。
+
+只有一顆骰子時沒什麼好算的。講者接著換成兩顆骰子，一紅一藍，關心的是兩顆的點數和（[6:07](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=367s)）。可能世界是紅、藍點數的所有組合，共 6 × 6 = 36 個，每一個的機率相同。但點數和的機率並不相同：
+
+- 和為 7 有六種組合（1 和 6、2 和 5、3 和 4、4 和 3，依此類推），機率是 6/36 = 1/6。
+- 和為 12 只有一種組合（紅 6、藍 6），機率是 1/36。
+
+這種「什麼證據都沒有時，相信某件事有多大可能」的機率叫**無條件機率**（unconditional probability）。
+
+**自我檢查｜先寫下答案，再展開。** 沿用講課的兩顆骰子，點數和為 4 的機率是多少？
+
+<details>
+<summary>答案</summary>
+
+和為 4 的組合有三種：紅 1 藍 3、紅 2 藍 2、紅 3 藍 1。36 個可能世界機率相同，所以是 3/36 = 1/12。紅 1 藍 3 與紅 3 藍 1 是兩個不同的可能世界，要分開算，這和講者數出和為 7 有六種組合是同一個數法。
+
+</details>
+
+### 條件機率：有了證據之後
+
+[錄影 9:46–17:20](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=586s)
+
+講者說，AI 實際在算的多半不是無條件機率，因為它通常已經知道一些事。**條件機率**（conditional probability）是在已經看到某些證據之後，相信某件事的程度，寫成 `P(a | b)`：直線左邊是想知道機率的事，右邊是已經確定的證據，讀作「給定 b，a 的機率」。他舉了三個例子：已知昨天下雨，今天下雨的機率；已知目前的路況，原本那條路線仍是最佳路線的機率；已知檢驗結果，病人得了某種病的機率。
+
+公式是（[12:38](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=758s)）：
+
+```text
+P(a | b) = P(a ∧ b) / P(b)
 ```
-P(A|B) = P(B|A) P(A) / P(B)
+
+講者的解釋是：既然 b 已經成立，b 不成立的那些可能世界都可以丟掉。在剩下的世界裡，看 a 也成立的佔多少。
+
+他用骰子走了一遍（[13:21](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=801s)）。已知紅骰子是 6，點數和為 12 的機率是多少？
+
+- 證據的機率：`P(紅 = 6)` = 1/6。
+- 兩件事都成立的機率：紅是 6 而且和是 12，只有紅 6 藍 6 一種，`P(和 = 12 ∧ 紅 = 6)` = 1/36。
+- 相除：(1/36) ÷ (1/6) = 1/6。
+
+這個答案和直覺一致：紅骰子已經是 6，要湊到 12 只剩藍骰子也擲出 6 這一條路，機率正是 1/6。
+
+把公式兩邊同乘 `P(b)`，再把 a、b 對調，會得到另外兩個寫法，三者是同一件事：
+
+```text
+P(a ∧ b) = P(b) P(a | b)
+P(a ∧ b) = P(a) P(b | a)
 ```
 
-**條件獨立**：X ⊥ Y | Z ⇔ P(X, Y | Z) = P(X | Z) P(Y | Z)
-- 貝氏網路用有向無環圖 (DAG) 編碼條件獨立
-- **D-separation**：路徑被「阻斷」的三種情況
-  1. 鏈/共同原因：中間節點在觀測集 Z 中
-  2. 共同效應：中間節點不在 Z 中，且其子孫也不在 Z 中
+後面推導貝氏法則和計算貝氏網路的聯合機率，用的都是這兩行。
 
-### 貝氏網路推論三種策略
+**自我檢查｜先寫下答案，再展開。** 沿用講課的兩顆骰子。「點數和至少 10」的無條件機率是多少？已知紅骰子是 6 之後，這個機率變成多少？
 
-| 策略 | 適用場景 | 複雜度 |
+<details>
+<summary>答案</summary>
+
+無條件：和為 10 有三種組合（4 和 6、5 和 5、6 和 4），和為 11 有兩種，和為 12 有一種，共 6 種，機率是 6/36 = 1/6。
+
+給定紅骰子是 6：`P(紅 = 6)` = 6/36。紅是 6 而且和至少 10，藍要是 4、5 或 6，共 3 種，機率 3/36。相除得 (3/36) ÷ (6/36) = 1/2。證據把機率從 1/6 拉到 1/2，因為紅骰子擲出 6 的那六個世界裡，有一半的和達到 10。
+
+</details>
+
+### 隨機變數、機率分佈與獨立
+
+[錄影 17:20–26:29](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=1040s)
+
+到這裡談的都是「發生或沒發生」的事件。講者接著引入**隨機變數**（random variable）：一個變數，加上它能取的值的範圍。他舉了四個：
+
+| 隨機變數 | 能取的值 |
+|---|---|
+| Roll | 1、2、3、4、5、6 |
+| Weather | sun、cloud、rain、wind、snow |
+| Traffic | none、light、heavy |
+| Flight | on time、delayed、cancelled |
+
+要取哪些值由寫程式的人決定。
+
+**機率分佈**（probability distribution）替隨機變數的每個可能值各給一個機率（[19:24](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=1164s)）。以 Flight 為例：準點 0.6、延誤 0.3、取消 0.1，加起來是 1。同一件事常寫成向量 `P(Flight) = ⟨0.6, 0.3, 0.1⟩`，讀的人要知道順序是準點、延誤、取消。
+
+接著是**獨立**（independence）：知道一件事有沒有發生，不會改變另一件事的機率（[21:57](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=1317s)）。紅骰子與藍骰子的點數是獨立的，知道紅的結果對藍沒有幫助。多雲與下雨就不是，天空多雲時下雨的機率比較高。
+
+數學上的定義從上一節的 `P(a ∧ b) = P(a) P(b | a)` 來。如果 a、b 獨立，知道 a 不影響 b，`P(b | a)` 就等於 `P(b)`，於是：
+
+```text
+P(a ∧ b) = P(a) P(b)
+```
+
+兩件事只要滿足這個等式就是獨立的。紅 6 而且藍 6 的機率是 1/6 × 1/6 = 1/36，和直接數可能世界的結果相同。
+
+講者舉了一個不獨立的例子（[24:40](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=1480s)）：紅骰子擲出 6，而且同一顆紅骰子擲出 4。如果照獨立的公式相乘，會得到 1/6 × 1/6 = 1/36，但同一顆骰子擲一次不可能既是 6 又是 4，真正的機率是 0。正確的做法要用條件機率：`P(紅 = 6) × P(紅 = 4 | 紅 = 6)` = 1/6 × 0 = 0。
+
+**自我檢查｜先寫下答案，再展開。** 沿用講課的兩顆骰子。「紅骰子是 6」與「點數和是 7」獨立嗎？「紅骰子是 6」與「點數和是 12」呢？用 `P(a ∧ b) = P(a) P(b)` 檢驗。
+
+<details>
+<summary>答案</summary>
+
+和是 7：`P(紅 = 6)` = 1/6，`P(和 = 7)` = 1/6，相乘是 1/36。兩件事同時成立只有紅 6 藍 1 一種，機率也是 1/36。等式成立，所以獨立。原因是不管紅骰子擲出幾點，藍骰子都剛好有一個點數能湊成 7，知道紅是 6 沒有改變和為 7 的機率。
+
+和是 12：`P(紅 = 6)` = 1/6，`P(和 = 12)` = 1/36，相乘是 1/216。兩件事同時成立是紅 6 藍 6，機率 1/36，不等於 1/216，所以不獨立。上一節已經算過，知道紅是 6 會把和為 12 的機率從 1/36 拉到 1/6。
+
+</details>
+
+### 貝氏法則：把條件機率反過來
+
+[錄影 26:29–34:00](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=1589s)
+
+講者說貝氏法則（Bayes' rule）是機率裡最重要的規則之一，而且用已經有的東西就推得出來。條件機率那一節的兩行式子，右邊都等於 `P(a ∧ b)`，所以彼此相等：
+
+```text
+P(a) P(b | a) = P(b) P(a | b)
+```
+
+兩邊同除以 `P(a)`：
+
+```text
+P(b | a) = P(a | b) P(b) / P(a)
+```
+
+它的用處是用一個方向的條件機率，算出反方向的條件機率。
+
+講課的例子（[29:22](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=1762s)）：早上看到天空多雲，下午下雨的機率是多少？手上有三個數字：
+
+- 下午下雨的日子裡，80% 早上是多雲的：`P(多雲 | 下雨)` = 0.8
+- 40% 的日子早上多雲：`P(多雲)` = 0.4
+- 10% 的日子下午下雨：`P(下雨)` = 0.1
+
+代進去：
+
+```text
+P(下雨 | 多雲) = P(多雲 | 下雨) P(下雨) / P(多雲) = 0.8 × 0.1 / 0.4 = 0.2
+```
+
+早上多雲時，下午下雨的機率是 0.2。
+
+講者把這件事說得更一般（[32:12](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=1932s)）：知道「在某個看不到的原因之下，出現某個看得到的結果的機率」，就能算出「看到這個結果時，背後是那個原因的機率」。前者通常比較容易有資料。他舉了兩個情境：已知得病的人有多少比例檢驗呈現某個結果，反推檢驗出這個結果的人得病的機率；已知偽鈔有多少比例邊緣的字是糊的，反推一張字糊的鈔票是偽鈔的機率。這兩個情境他只講了關係，沒有給數字。
+
+**自我檢查｜先寫下答案，再展開。** 沿用講者的偽鈔情境，數字是本文編的：偽鈔有 90% 字是糊的，所有鈔票裡 1% 是偽鈔，所有鈔票裡 5% 字是糊的。拿到一張字糊的鈔票，它是偽鈔的機率是多少？（本文自擬）
+
+<details>
+<summary>答案</summary>
+
+`P(偽鈔 | 字糊)` = `P(字糊 | 偽鈔)` × `P(偽鈔)` ÷ `P(字糊)` = 0.9 × 0.01 ÷ 0.05 = 0.18。
+
+「偽鈔有九成字是糊的」不等於「字糊的有九成是偽鈔」。偽鈔本身很少（1%），字糊的鈔票大多還是真鈔，所以答案只有 18%。兩個方向的條件機率差多少，要看 `P(偽鈔)` 與 `P(字糊)` 的比例。
+
+</details>
+
+### 聯合機率、正規化與四條規則
+
+[錄影 34:00–49:42](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=2040s)
+
+**聯合機率**（joint probability）是好幾件事同時成立的機率。沿用上一節的天氣：只知道 `P(多雲)` = 0.4、`P(下雨)` = 0.1 這兩個分佈，看不出多雲和下雨之間的關係。要看得出來，需要兩個變數每一種組合的機率，也就是聯合機率分佈：
+
+| | 下雨 | 不下雨 |
 |---|---|---|
-| Enumeration (全域聯合分佈) | 變數極少 (<10) | O(2^n) |
-| Variable Elimination | 中等規模、需精確答案 | 指數級但實際較好 |
-| Approximate Inference (取樣) | 大型網路、可容忍誤差 | 線性於樣本數 |
+| 多雲 | 0.08 | 0.32 |
+| 不多雲 | 0.02 | 0.58 |
 
-**拒絕取樣** 基本流程：
-```python
-# rejection_sampling.py 核心邏輯
-def rejection_sampling(query_var, evidence, network, N=10000):
-    counts = {True: 0, False: 0}
-    for _ in range(N):
-        sample = {}
-        # 按拓撲序取樣每個變數
-        for var in network.topological_order():
-            parents_vals = {p: sample[p] for p in network.parents(var)}
-            prob = network.cpt(var)[tuple(parents_vals.values())]
-            sample[var] = random.random() < prob
-        if all(sample[e] == v for e, v in evidence.items()):
-            counts[sample[query_var]] += 1
-    total = sum(counts.values())
-    return {k: v/total for k, v in counts.items()} if total > 0 else {True: 0.5, False: 0.5}
+講者唸了其中三格（0.08、0.32、0.02）；右下角的 0.58 是本文用四格總和為 1 補上的。
+
+有了這張表就能算條件機率（[36:07](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=2167s)）。問題：已知下雨，多雲與不多雲的分佈是多少？照定義：
+
+```text
+P(C | 下雨) = P(C, 下雨) / P(下雨)
 ```
 
-**似然權重取樣** 修正拒絕取樣低效：固定證據變數，只取樣非證據變數，權重 = ∏ P(evidence | parents)。
+式子裡的逗號和 `∧` 是同一個意思。講者在這裡指出一個之後反覆使用的手法：`P(下雨)` 只是一個常數，除以它等於乘上某個常數 `α`，可以先不管它是多少：
 
-### 馬可夫模型與 PageRank
+```text
+P(C | 下雨) = α P(C, 下雨) = α ⟨0.08, 0.02⟩
+```
 
-**馬可夫鏈**：狀態集 S、轉移矩陣 T、初始分佈 π₀
-- **平穩分佈** π：π = π T（若存在且唯一）
-- **PageRank** 解釋：隨機漫步者以機率 d 跟隨連結，以 1-d 隨機跳轉
-  ```
-  PR(p) = (1-d)/N + d Σ_{q→p} PR(q) / OutDegree(q)
-  ```
-  d 通常取 0.85，N 為網頁總數。
+0.08 與 0.02 加起來不是 1，而機率分佈必須加起來是 1。所以只要找一個常數把它們等比例放大到總和為 1，這個動作叫**正規化**（normalize）。兩個數字都乘 10，得到 `⟨0.8, 0.2⟩`：已知下雨，多雲的機率是 0.8。用一句話說，條件分佈與聯合機率成正比。
 
-### 隱馬可夫模型 HMM
+接著是四條規則。
 
-- 狀態不可觀測，只能觀測發射
-- **前向算法**：計算 P(observations | model) —— 動態規劃避免指數爆炸
-- **維特比算法**：找最可能狀態序列 argmax P(states | observations)
+**否定**（[40:33](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=2433s)）：`P(¬a) = 1 − P(a)`。a 發生與不發生是全部的情況，兩者相加要等於 1。
 
----
+**排容**（inclusion-exclusion）：`P(a ∨ b) = P(a) + P(b) − P(a ∧ b)`。講者的例子是紅骰子是 6 或藍骰子是 6。直接把 1/6 加 1/6 得 1/3 是錯的，因為兩顆都是 6 的那個世界被算了兩次，要減掉一次。照公式算是 1/6 + 1/6 − 1/36 = 11/36，這個結果是本文算的，講者只說明了為什麼要減。
 
-## 專案 2A：Heredity —— 貝氏網路取樣推斷基因型
+**邊際化**（marginalization）（[42:43](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=2563s)）：手上有聯合機率，想要其中一個變數自己的機率。b 只有發生與不發生兩種情況，兩種情況互斥，所以：
+
+```text
+P(a) = P(a, b) + P(a, ¬b)
+```
+
+變數有很多個可能值時，改成對另一個變數的所有可能值加總：
+
+```text
+P(X = xᵢ) = Σⱼ P(X = xᵢ, Y = yⱼ)
+```
+
+用上面那張表：`P(多雲)` = `P(多雲, 下雨)` + `P(多雲, 不下雨)` = 0.08 + 0.32 = 0.4。
+
+**條件化**（conditioning）（[47:25](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=2845s)）：和邊際化是同一件事，只是手上有的是條件機率：
+
+```text
+P(a) = P(a | b) P(b) + P(a | ¬b) P(¬b)
+P(X = xᵢ) = Σⱼ P(X = xᵢ | Y = yⱼ) P(Y = yⱼ)
+```
+
+正規化與邊際化這兩個手法，後面的列舉推論會一起用上。
+
+**自我檢查｜先寫下答案，再展開。** 用講課那張聯合機率表，算出「已知早上多雲」時，下午下雨與不下雨的分佈。答案和上一節用貝氏法則算的一樣嗎？
+
+<details>
+<summary>答案</summary>
+
+取出多雲那一列：`P(R, 多雲)` = `⟨0.08, 0.32⟩`。兩個數字加起來是 0.4，各除以 0.4（也就是 `α` = 2.5），得到 `⟨0.2, 0.8⟩`。已知多雲，下雨的機率是 0.2，和貝氏法則算出來的 0.2 相同。
+
+兩條路會一致，是因為這張表和上一節的三個數字講的是同一個世界：0.08 ÷ 0.1 = 0.8 正是 `P(多雲 | 下雨)`，而正規化時除的 0.4 就是用邊際化算出的 `P(多雲)`。
+
+</details>
+
+### 貝氏網路：用箭頭表示誰影響誰
+
+[錄影 49:42–1:03:19](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=2982s)
+
+數學工具到這裡齊了，講者開始把它們放進電腦能用的模型。第一個是**貝氏網路**（Bayesian network）：一張有向圖，用來表示隨機變數之間的相依關係。
+
+- 每個節點是一個隨機變數。
+- 從 X 指向 Y 的箭頭代表 X 是 Y 的**父節點**（parent）。
+- 每個節點 X 存一個機率分佈 `P(X | Parents(X))`，也就是給定父節點的值之後，X 的分佈。
+
+可以把父節點想成原因，節點本身是觀察到的結果。
+
+講課的例子（[51:32](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=3092s)）：我要搭火車去外地赴約。四個隨機變數：
+
+| 節點 | 能取的值 | 父節點 |
+|---|---|---|
+| Rain | none、light、heavy | 無 |
+| Maintenance（軌道維修） | yes、no | Rain |
+| Train | on time、delayed | Rain、Maintenance |
+| Appointment | attend、miss | Train |
+
+取值沿用講課程式裡的英文字串：none、light、heavy 是沒下雨、小雨、大雨；on time、delayed 是準點、誤點；attend、miss 是赴約、沒赴約。
+
+箭頭有四條：Rain → Maintenance、Rain → Train、Maintenance → Train、Train → Appointment。雨越大，維修的人越可能改天再修，所以 Rain 影響 Maintenance；雨和維修都會讓火車更容易誤點；能不能赴約只看火車。
+
+接著講者一個節點一個節點看它的分佈（[54:20](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=3260s)）。下面四張表的完整數字取自講課公開的原始碼 `src2/bayesnet/model.py`；粗體是講者在錄影裡口頭唸過的格子，其中幾格是後面講程式與取樣時才唸的。
+
+Rain 沒有父節點，存的是無條件分佈：
+
+| none | light | heavy |
+|---|---|---|
+| **0.7** | **0.2** | **0.1** |
+
+Maintenance 給定 Rain：
+
+| Rain | yes | no |
+|---|---|---|
+| none | **0.4** | **0.6** |
+| light | 0.2 | 0.8 |
+| heavy | **0.1** | **0.9** |
+
+Train 給定 Rain 與 Maintenance：
+
+| Rain | Maintenance | on time | delayed |
+|---|---|---|---|
+| none | yes | **0.8** | **0.2** |
+| none | no | 0.9 | 0.1 |
+| light | yes | **0.6** | **0.4** |
+| light | no | 0.7 | 0.3 |
+| heavy | yes | 0.4 | 0.6 |
+| heavy | no | 0.5 | 0.5 |
+
+Appointment 給定 Train：
+
+| Train | attend | miss |
+|---|---|---|
+| on time | **0.9** | 0.1 |
+| delayed | **0.6** | **0.4** |
+
+每一列加起來都是 1，因為每一列是「父節點取這組值時」的一個完整分佈。
+
+講者特別說明 Appointment 為什麼只有 Train 一個父節點。軌道維修當然會影響能不能赴約，但那是透過火車誤點間接影響的。網路裡只畫直接的關係：一旦知道火車準點還是誤點，再知道有沒有維修、雨多大，都不會多給任何資訊。
+
+有了這些表就能算聯合機率（[1:00:12](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=3612s)）。講者由淺到深走了四步：
+
+- `P(light)`：Rain 沒有父節點，直接查表。
+- `P(light, no)` = `P(light)` × `P(no | light)`。Maintenance 的父節點是 Rain，所以要用給定小雨的那一列。
+- `P(light, no, delayed)` = `P(light)` × `P(no | light)` × `P(delayed | light, no)`。
+- `P(light, no, delayed, miss)` = `P(light)` × `P(no | light)` × `P(delayed | light, no)` × `P(miss | delayed)`。最後一項只看 Train，不必再看雨和維修。
+
+規則是每個節點貢獻一個數字，這個數字是「給定它的父節點」的條件機率，全部相乘。講者只講到式子；把上面的表代進去，最後一個是 0.2 × 0.8 × 0.3 × 0.4 = 0.0192（本文算的）。
+
+專案 Heredity 的 `joint_probability` 就是在做這種乘法：每個人的基因數與性狀各貢獻一個條件機率，全部乘起來。這句對照是本文加的，講課沒有提到專案。
+
+**自我檢查｜先寫下答案，再展開。** 用上面四張表，算出「沒下雨、有維修、火車準點、順利赴約」的聯合機率。如果把最後一項寫成 `P(attend | none, yes, on time)` 去查表，會遇到什麼問題？
+
+<details>
+<summary>答案</summary>
+
+`P(none)` × `P(yes | none)` × `P(on time | none, yes)` × `P(attend | on time)` = 0.7 × 0.4 × 0.8 × 0.9 = 0.2016。四個數字都是講者唸過的。
+
+Appointment 的表只有 Train 一欄條件，沒有 Rain 和 Maintenance，所以查不到 `P(attend | none, yes, on time)` 這一格，也不需要：給定 Train 之後，Appointment 不再受另外兩個變數影響，它就等於 `P(attend | on time)` = 0.9。每個節點只給定自己的父節點。
+
+</details>
+
+### 推論：從證據算出其他變數的分佈
+
+[錄影 1:03:19–1:19:39](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=3799s)
+
+上週的推論是從已知為真的句子推出其他為真的句子。這一週的推論改成：從已知的證據，算出其他變數取各個值的機率。講者把推論問題拆成三種變數（[1:04:17](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=3857s)）：
+
+- **查詢變數**（query）X：想知道分佈的那個變數。
+- **證據變數**（evidence）E：已經觀察到值的變數，觀察到的值記作 e。
+- **隱藏變數**（hidden variable）Y：既不是查詢也不是證據的其他變數。
+
+目標是算出 `P(X | e)`。
+
+他用的例子是（[1:06:18](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=3978s)）：已知小雨、沒有軌道維修，能不能赴約的分佈是多少？查詢變數是 Appointment，證據是 Rain = light 與 Maintenance = no，隱藏變數是 Train。推導用到前面的兩個手法：
+
+1. 條件分佈與聯合機率成正比：`P(Appointment | light, no)` = `α P(Appointment, light, no)`。
+2. 右邊缺了 Train，用邊際化把它的兩個值都加進來：`α [P(Appointment, light, no, on time) + P(Appointment, light, no, delayed)]`。
+
+括號裡的每一項都是四個變數的聯合機率，上一節已經會算。最後正規化，讓結果加起來是 1。這個方法叫**列舉推論**（inference by enumeration），一般式是：
+
+```text
+P(X | e) = α P(X, e) = α Σ_y P(X, e, y)
+```
+
+`y` 跑遍隱藏變數所有可能的取值。
+
+講者只講到式子。把上一節的表代進去是這樣（以下數字是本文算的）：
+
+| | Train = on time | Train = delayed | 相加 |
+|---|---|---|---|
+| attend | 0.2 × 0.8 × 0.7 × 0.9 = 0.1008 | 0.2 × 0.8 × 0.3 × 0.6 = 0.0288 | 0.1296 |
+| miss | 0.2 × 0.8 × 0.7 × 0.1 = 0.0112 | 0.2 × 0.8 × 0.3 × 0.4 = 0.0192 | 0.0304 |
+
+0.1296 與 0.0304 加起來是 0.16，各除以 0.16，得到 `⟨0.81, 0.19⟩`：小雨、沒維修時，有 81% 的機率能赴約。
+
+這些計算人做起來很煩，講者接著示範交給函式庫（[1:11:26](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=4286s)）。他用的是 Python 的 pomegranate，並強調用哪一個函式庫不重要，重點是只要描述網路的結構與每個節點的分佈，函式庫就能替你算。`model.py` 的做法和上一節一樣：替四個變數各建一個節點，Rain 用無條件分佈，其餘三個用條件機率表，再照箭頭加上四條邊。
+
+`likelihood.py` 算聯合機率（[1:14:50](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=4490s)）：
+
+- 沒下雨、沒維修、火車準點、順利赴約：約 0.34。
+- 沒下雨、沒維修、火車準點、卻沒赴約：約 0.04。
+
+用表手算是 0.7 × 0.6 × 0.9 × 0.9 = 0.3402 與 0.7 × 0.6 × 0.9 × 0.1 = 0.0378（本文算的），和程式的輸出相符。
+
+`inference.py` 做推論（[1:16:51](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=4611s)）。證據只有「火車誤點」，程式回報其他三個變數的分佈。講者唸出的結果是：沒下雨約 46%、小雨 31%、大雨 23%。接著他多加一個證據「大雨」，重跑一次：
+
+- 沒有軌道維修的機率從 64% 變成 88%。大雨天比較不會維修。
+- 赴約的分佈沒有變，仍然是 attend 0.6、miss 0.4。
+
+第二點正好驗證上一節的說法：Appointment 只取決於 Train，已經知道火車誤點，再知道雨多大也不會改變它。
+
+本文補充：照這一節的方法用表做列舉推論，給定火車誤點得到的是沒下雨 46.0%、小雨 30.0%、大雨 23.9%，沒有維修 63.4%（本文算的），和講者唸的 31%、23%、64% 差一點。這不是講者唸錯。pomegranate v0.14.8 的原始碼說明寫著，`predict_proba` 用的是 loopy belief propagation，一種在某些圖形結構上才精確的近似演算法；這個網路裡 Rain 同時直接指向 Train、又經過 Maintenance 指向 Train，形成一個迴路。本文自己寫了這個演算法跑同一張網路，得到 45.83%、30.69%、23.48% 與 64.32%，四捨五入到整數後和講者唸的數字相符。加上「大雨」這個證據之後迴路被切斷，近似值與列舉的結果都是 88.2%，所以 88% 兩邊一致。講課沒有提這件事；講課當時（2020 年）用的 pomegranate 版本本文沒有查，也沒有安裝函式庫實跑，依據是 v0.14.8 的說明與自己重算的數字。照表手算對不上講者的數字時，以手算的為準。
+
+最後是列舉推論的限制。它要把隱藏變數的所有取值都走一遍，變數一多、每個變數的可能值一多，計算量就大到不實際。講者提到可以避免重複計算同樣的機率來加速，但沒有展開；他轉向另一條路：不求精確的機率，只求夠接近。
+
+**自我檢查｜先寫下答案，再展開。** 用上一節的表，算出「大雨、有維修」時能不能赴約的分佈。查詢、證據、隱藏變數各是哪一個？
+
+<details>
+<summary>答案</summary>
+
+查詢變數是 Appointment，證據是 Rain = heavy 與 Maintenance = yes，隱藏變數是 Train。
+
+`P(heavy)` × `P(yes | heavy)` = 0.1 × 0.1 = 0.01，每一項都會乘到它。
+
+- attend：0.01 × (0.4 × 0.9 + 0.6 × 0.6) = 0.01 × 0.72 = 0.0072
+- miss：0.01 × (0.4 × 0.1 + 0.6 × 0.4) = 0.01 × 0.28 = 0.0028
+
+加起來是 0.01，各除以 0.01，得到 attend 0.72、miss 0.28。證據那一段的 0.01 在分子分母各出現一次，正規化時剛好消掉，這就是可以先把它丟給 `α` 的原因。這一題的數字是本文算的。
+
+</details>
+
+### 近似推論：取樣、拒絕取樣與概似加權
+
+[錄影 1:19:39–1:32:33](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=4779s)
+
+**取樣**（sampling）的做法是照著網路的機率分佈，替每個變數隨機抽一個值，抽很多次，再用樣本的比例當作機率的估計（[1:20:57](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=4857s)）。
+
+抽一個樣本要從沒有父節點的節點開始，順著箭頭往下。講者示範了一次：
+
+1. Rain：照 0.7、0.2、0.1 抽，假設抽到 none。
+2. Maintenance：已經抽到 Rain = none，所以只看那一列，yes 的機率是 0.4。假設抽到 yes。
+3. Train：看 Rain = none、Maintenance = yes 那一列，on time 的機率是 0.8。假設抽到 on time。
+4. Appointment：看 Train = on time 那一列，attend 的機率是 0.9。假設抽到 attend。
+
+這樣就得到一個樣本。重複幾千、幾萬次，得到一大堆樣本。
+
+要估計 `P(Train = on time)`，數樣本就好。講者畫面上有 8 個樣本，其中 6 個火車準點，估計值是 6/8。8 個樣本當然不夠準，樣本越多越接近真正的機率。用上一節的表精確算出來是 0.787（本文算的），8 個樣本給的 0.75 已經不遠。
+
+如果要的是條件機率呢（[1:24:34](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=5074s)）？例如已知火車準點，小雨的機率。做法是把不符合證據的樣本丟掉：8 個樣本裡有 2 個火車誤點，剔除；剩下 6 個裡有 2 個是小雨，估計值是 2/6。這叫**拒絕取樣**（rejection sampling）。
+
+`sample.py` 實作了這個方法。`generate_sample` 依序走過每個節點，有父節點的就依父節點已抽到的值來抽。主程式抽 10,000 個樣本，要算的是已知火車誤點時 Appointment 的分佈，所以只留下火車誤點的樣本，記下它們的 Appointment 值，最後用 `Counter` 計數。講者跑了兩次：
+
+| | attend | miss |
+|---|---|---|
+| 第一次 | 1,251 | 856 |
+| 第二次 | 1,272 | 905 |
+
+兩次的數字接近但不相同，因為過程是隨機的。換算成比例，第一次是 1,251 ÷ 2,107 ≈ 0.594，和上一節精確推論的 0.6 很接近（比例是本文算的）。
+
+留意第一次只留下 1,251 + 856 = 2,107 個樣本，其餘將近八千個都丟掉了（這是本文算的）。講者接著談拒絕取樣的問題：證據越少見，丟掉的樣本越多。如果證據一千次才出現一次，一千個樣本只有一個能用，而每個樣本都要花力氣產生。
+
+**概似加權**（likelihood weighting）用來避免丟樣本（[1:29:30](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=5370s)）。步驟是：
+
+1. 先把證據變數的值固定住，不抽它們。
+2. 其餘變數照原本的方式抽。
+3. 替每個樣本算一個權重：在這個樣本裡，證據出現的機率有多高。
+
+講者用同一個問題示範：已知火車準點，小雨的機率。Train 固定為 on time。抽 Rain，假設抽到 light；抽 Maintenance，假設抽到 yes；Train 是證據，跳過；再抽 Appointment。這個樣本的權重是「小雨、有維修時火車準點的機率」，查表是 0.6。
+
+原本每個樣本的權重都是 1；現在證據在這個樣本裡越可能出現，這個樣本算的份量越重。講者提到還有別的取樣方法，目的都一樣，沒有細講。
+
+權重怎麼變成估計值，講者只說把每個樣本乘上它的權重。下面是本文自擬的算例：原本是數樣本的個數再相除，現在改成把權重加起來再相除。假設只抽了兩個樣本，甲是小雨、有維修（權重 0.6），乙是沒下雨、有維修（權重 0.8，查表 `P(on time | none, yes)`）。小雨的樣本只有甲，所以 `P(小雨 | 準點)` 的估計是 0.6 ÷ (0.6 + 0.8) ≈ 0.43。用表精確算出來是 0.173（本文算的），差很多，因為兩個樣本遠遠不夠；樣本多了，加權的比例才會靠近精確值。
+
+**自我檢查｜先寫下答案，再展開。** （一）`sample.py` 抽 10,000 個樣本，講課第一次留下 2,107 個。如果證據的機率是千分之一，同樣抽 10,000 個，預期留下幾個？（二）用概似加權估計「已知火車準點」時的分佈，某個樣本抽到 Rain = none、Maintenance = yes，它的權重是多少？
+
+<details>
+<summary>答案</summary>
+
+（一）10,000 × 1/1000 = 10 個左右。只靠 10 個樣本估出來的比例很不可靠，要得到和原本一樣多的可用樣本，得抽兩百多萬個。
+
+（二）權重是證據在這個樣本裡出現的機率，也就是 `P(on time | none, yes)` = 0.8。這一格講者唸過。和講課那個權重 0.6 的樣本（小雨、有維修）相比，這個樣本算得比較重，因為沒下雨時火車本來就比較容易準點。概似加權沒有丟掉任何樣本，是用權重把「證據出現的難易」補回來。
+
+</details>
+
+### 馬可夫鏈：隨時間變化的狀態
+
+[錄影 1:32:33–1:39:49](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=5553s)
+
+前面每個變數描述的都是單一時間點的情況。但像天氣這種東西，我們關心的是它一天一天怎麼變：明天下雨的機率、後天下雨的機率。講者的做法是每個時間點各設一個隨機變數，`Xₜ` 代表第 t 天的天氣，`X₀` 是第 0 天，`X₁` 是第 1 天，依此類推。
+
+問題是資料會多到處理不了。如果要用過去 365 天的天氣預測明天，那就是給定 365 個證據的條件分佈，沒有人知道那張表長什麼樣。講者說這時候要做簡化的假設，即使假設不完全正確，夠接近就很有用。
+
+這個假設是**馬可夫假設**（Markov assumption）（[1:34:29](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=5669s)）：目前的狀態只取決於前面固定幾個狀態。最常用的是只看前一個：今天的天氣只用昨天的天氣來預測。一串滿足馬可夫假設的隨機變數叫**馬可夫鏈**（Markov chain）。
+
+講課的例子只有晴與雨兩種天氣。描述「今天怎樣，明天就有多大機率怎樣」的表叫**轉移模型**（transition model）：
+
+| 今天 `Xₜ` | 明天晴 | 明天雨 |
+|---|---|---|
+| 晴 | 0.8 | 0.2 |
+| 雨 | 0.3 | 0.7 |
+
+天氣傾向持續：今天晴，明天多半還是晴；今天雨，明天多半還是雨。用這張表可以一天一天抽樣，得到一條鏈，例如晴、晴、雨、雨、雨。也可以問機率的問題，例如今天下雨時明天下雨的機率，或是某一串天氣出現的機率。講者提了這兩種問題，沒有算。
+
+程式示範在 `chain/model.py`（[1:37:53](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=5873s)）。馬可夫鏈需要一個起始分佈，講者設成晴 0.5、雨 0.5，再把上面那張轉移模型寫進去，然後從這條鏈抽 50 個狀態。輸出的樣子和轉移模型一致：晴天連著幾天，接著一長串雨天，再變回晴天。
+
+專案 PageRank 把隨機點連結的瀏覽者寫成一條馬可夫鏈，每個網頁是一個狀態，轉移模型由頁面上的連結決定。這是專案規格的說法，講課沒有提到。
+
+**自我檢查｜先寫下答案，再展開。** 用講課的起始分佈（晴 0.5、雨 0.5）與轉移模型，「晴、晴、雨、雨、雨」這五天的天氣序列，機率是多少？
+
+<details>
+<summary>答案</summary>
+
+第一天用起始分佈，之後每一天用轉移模型裡「給定前一天」的那一格：
+
+`P(晴)` × `P(晴 | 晴)` × `P(雨 | 晴)` × `P(雨 | 雨)` × `P(雨 | 雨)` = 0.5 × 0.8 × 0.2 × 0.7 × 0.7 = 0.0392。
+
+這和貝氏網路算聯合機率是同一個規則：每個變數貢獻一個「給定父節點」的條件機率。馬可夫假設讓每一天的父節點只有前一天，所以每一項只看前一天。這個序列是講者口頭舉的，機率是本文算的。
+
+</details>
+
+### 隱藏式馬可夫模型：只看得到觀察
+
+[錄影 1:39:49–1:54:29](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=5989s)
+
+馬可夫鏈假設我們知道每一天的狀態。實際上 AI 常常不知道世界真正的狀態，只有感測器給它的觀察，而觀察和狀態有關。講者舉了四組：
+
+| 隱藏的狀態 | 看得到的觀察 |
+|---|---|
+| 機器人的位置 | 感測器測到的距離資料 |
+| 使用者實際說的字 | 音訊波形 |
+| 使用者的參與程度 | 網站或 app 的分析數字 |
+| 天氣 | 有沒有人帶傘 |
+
+觀察會帶雜訊，所以沒辦法從觀察確定狀態，只能推測。
+
+最後一組是這一節的例子。想像 AI 在一棟建築物裡，只有一台室內攝影機，看不到外面，只看得到員工有沒有帶傘進來。它要從帶傘與否推測外面是晴是雨。
+
+描述這種情況的模型是**隱藏式馬可夫模型**（hidden Markov model，以下寫 HMM）（[1:44:18](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=6258s)）：一個馬可夫模型，狀態本身是隱藏的，每個狀態會產生一個看得到的觀察。它需要兩張表。一張是和上一節相同的轉移模型。另一張是**感測模型**（sensor model），也叫 emission probabilities，描述每個狀態下各種觀察出現的機率：
+
+| 狀態 | 帶傘 | 沒帶傘 |
+|---|---|---|
+| 晴 | 0.2 | 0.8 |
+| 雨 | 0.9 | 0.1 |
+
+晴天也有人謹慎帶傘，雨天也有人沒料到所以沒帶。這四個數字是講者在後面講程式時唸的。
+
+HMM 用的第二個假設是 **sensor Markov assumption**（[1:45:53](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=6353s)）：觀察只取決於當下的狀態。今天有沒有人帶傘只看今天的天氣。講者自己說這個假設不一定成立，帶不帶傘也可能受昨天天氣影響，但做了這個簡化之後比較好算，結果通常仍然不錯。
+
+整個模型有兩層：上層是 `X₀`、`X₁`、`X₂` 這串隱藏狀態，由轉移模型串起來；下層是每個狀態產生的觀察 `E₀`、`E₁`、`E₂`。
+
+在這個模型上常見的任務有四種（[1:48:12](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=6492s)），講者說明了各自在問什麼，並表明不會進入它們的數學：
+
+| 任務 | 已知 | 要算 |
+|---|---|---|
+| Filtering | 從開始到現在的觀察 | 現在這個狀態的分佈 |
+| Prediction | 從開始到現在的觀察 | 未來某個狀態的分佈 |
+| Smoothing | 從開始到現在的觀察 | 過去某個狀態的分佈 |
+| Most likely explanation | 從開始到現在的觀察 | 最可能的一整串狀態 |
+
+語音辨識就是最後一種：從一串音訊波形，找出最可能的那一串字。
+
+程式示範在 `hmm` 資料夾（[1:50:03](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=6603s)）。`model.py` 寫入兩個狀態的感測模型、轉移模型與 50/50 的起始機率。`sequence.py` 給模型一串觀察，請它預測每一天的天氣。講者唸的觀察是：帶傘、帶傘、沒帶傘、帶傘、帶傘，中間略過，最後是沒帶傘、沒帶傘。
+
+他關心的是第三天。前後都有人帶傘，只有那一天沒有。是雨一直下，只是那天大家剛好沒帶？還是天氣從雨變晴、隔天又變回雨？後者聽起來不太可能，但確實會發生。模型的回答是：雨、雨，然後晴了一天，再回到雨。講者補充，如果雨下得更久，或機率稍有不同，答案也可能是一路下雨、只是那天沒人帶傘。
+
+講課公開的 `sequence.py` 裡完整的觀察是九天：帶傘、帶傘、沒帶傘、帶傘四天、沒帶傘兩天。本文用這串觀察和上面兩張表手算，逐日算每一天各自最可能的狀態，第三天晴的機率是 0.627，和講者看到的輸出一致；如果改成找機率最高的一整串狀態，第三天會是雨（九天全部 512 種序列裡，最高的是連七天雨再兩天晴）。兩種問法在這一天給了不同的答案。講者口頭把這個示範叫作 most likely explanation，但 pomegranate v0.14.8 的 `predict` 預設參數是 `algorithm='map'`，算的是逐日最可能的狀態，要另外指定 `viterbi` 才是找整串序列；輸出對得上逐日的做法，原因在這裡。講課沒有談這個差別，講課當時用的版本本文沒有查，這一段是本文的補充。
+
+收尾時講者把這一週串起來：機率讓 AI 用數字描述哪些事比較可能；貝氏網路、馬可夫鏈與 HMM 是三種現成的模型；只要能把問題寫成其中一種，就能用已經存在的演算法與函式庫來推論。
+
+**自我檢查｜先寫下答案，再展開。** 用講課的起始機率（晴 0.5、雨 0.5）與感測模型。第一天看到有人帶傘，這一天是雨天的機率是多少？這屬於四種任務的哪一種？
+
+<details>
+<summary>答案</summary>
+
+這是 filtering：用到目前為止的觀察，算現在這個狀態的分佈。
+
+做法和「聯合機率、正規化與四條規則」那一節相同，先算聯合機率再正規化：
+
+- 雨而且帶傘：0.5 × 0.9 = 0.45
+- 晴而且帶傘：0.5 × 0.2 = 0.10
+
+兩者加起來是 0.55，所以 `P(雨 | 帶傘)` = 0.45 ÷ 0.55 ≈ 0.818。原本晴雨各半，看到一把傘之後，雨的機率升到約 82%。講者沒有做這個計算，數字是本文算的。
+
+</details>
+
+## 專案 2A：Heredity —— 用貝氏網路推斷基因與性狀
+
+這一節先講做法與檢查方式；完整的參考實作摺疊在最後，預設不顯示。
 
 ### 任務
 
-給定家系圖與部分基因型觀測，使用**似然權重取樣**推斷每個人擁有特定基因的機率。輸入 CSV 含 `name, mother, father, trait`（trait: 0/1/空）。
+每個人身上某個基因可能有 0、1 或 2 份，基因份數會影響是否表現出某個性狀（專案規格用的例子是 GJB2 基因與聽力損傷）。基因份數看不到，性狀看得到。給定一個家族每個人的父母是誰、有沒有表現性狀（可能未知），算出每個人基因份數的分佈與表現性狀的分佈。
 
-### Distribution Code 重點
+輸入是 CSV，欄位為 `name, mother, father, trait`，`trait` 是 `1`、`0` 或空白（未知）。要實作三個函式：`joint_probability`、`update`、`normalize`。
+
+這個模型是一個貝氏網路：每個人有 Gene 與 Trait 兩個節點，Gene 指向自己的 Trait，父母的 Gene 指向孩子的 Gene。遺傳規則依專案規格：
+
+- 孩子從父、母各得到一份基因。
+- 父或母有 2 份時一定把這個基因傳下去，有 0 份時不會傳，有 1 份時以 0.5 的機率傳。
+- 傳下去之後有 `PROBS["mutation"]`（0.01）的機率突變：原本是這個基因的變成不是，原本不是的變成是。
+
+### 官方已提供的程式
+
+官方的 `heredity.py` 已經寫好 `PROBS`、`main`、`load_data`、`powerset`；`joint_probability`、`update`、`normalize` 三個函式在官方檔案裡只有說明文字與 `raise NotImplementedError`，要自己寫。
 
 ```python
-# heredity.py 已提供的核心結構
+# heredity.py（官方提供，節錄）
 PROBS = {
-    "gene": {2: 0.01, 1: 0.03, 0: 0.96},  # 先驗機率：2/1/0 份基因
-    "trait": {
-        2: {True: 0.65, False: 0.35},  # 2 份基因表現特徵機率
-        1: {True: 0.56, False: 0.44},
-        0: {True: 0.01, False: 0.99}
+
+    # Unconditional probabilities for having gene
+    "gene": {
+        2: 0.01,
+        1: 0.03,
+        0: 0.96
     },
-    "mutation": 0.01  # 傳遞突變率
+
+    "trait": {
+
+        # Probability of trait given two copies of gene
+        2: {
+            True: 0.65,
+            False: 0.35
+        },
+
+        # Probability of trait given one copy of gene
+        1: {
+            True: 0.56,
+            False: 0.44
+        },
+
+        # Probability of trait given no gene
+        0: {
+            True: 0.01,
+            False: 0.99
+        }
+    },
+
+    # Mutation probability
+    "mutation": 0.01
 }
-
-class Person:
-    def __init__(self, name, mother, father):
-        self.name = name
-        self.mother = mother
-        self.father = father
-        self.trait = None  # True/False/None
 ```
 
-### 參考實作核心：`joint_probability` + `update`
+`load_data` 把 CSV 讀成字典，沒有另外定義類別。`data/family0.csv` 讀進來是：
 
 ```python
-# heredity.py 片段
-import random
-
-def joint_probability(people, one_gene, two_genes, have_trait):
-    """計算特定基因分配與特徵觀測的聯合機率"""
-    prob = 1.0
-    for person in people.values():
-        gene_count = (2 if person.name in two_genes else
-                      1 if person.name in one_gene else 0)
-        
-        # 先驗或遺傳機率
-        if person.mother is None and person.father is None:
-            prob *= PROBS["gene"][gene_count]
-        else:
-            prob *= inheritance_prob(person, one_gene, two_genes)
-        
-        # 特徵機率
-        has_trait = person.name in have_trait
-        prob *= PROBS["trait"][gene_count][has_trait]
-    return prob
-
-def inheritance_prob(person, one_gene, two_genes):
-    """計算從父母遺傳到 gene_count 的機率"""
-    def prob_from_parent(parent_name):
-        if parent_name in two_genes:
-            return 1 - PROBS["mutation"]  # 傳遞 1 份
-        elif parent_name in one_gene:
-            return 0.5  # 50% 傳遞
-        else:
-            return PROBS["mutation"]  # 突變產生 1 份
-    
-    pm = prob_from_parent(person.mother)
-    pf = prob_from_parent(person.father)
-    # 組合：0份=(1-pm)(1-pf), 1份=pm(1-pf)+(1-pm)pf, 2份=pm*pf
-    # 實際在 update() 中會針對特定 gene_count 計算
-    ...
-
-def update(probabilities, one_gene, two_genes, have_trait, p):
-    """累加取樣權重"""
-    for person in probabilities:
-        if person in two_genes:
-            probabilities[person]["gene"][2] += p
-        elif person in one_gene:
-            probabilities[person]["gene"][1] += p
-        else:
-            probabilities[person]["gene"][0] += p
-        probabilities[person]["trait"][person in have_trait] += p
+{
+    'Harry': {'name': 'Harry', 'mother': 'Lily', 'father': 'James', 'trait': None},
+    'James': {'name': 'James', 'mother': None, 'father': None, 'trait': True},
+    'Lily': {'name': 'Lily', 'mother': None, 'father': None, 'trait': False}
+}
 ```
 
-### 似然權重取樣主循環
+官方的 `main` 做的事是列舉推論。它先對「誰有性狀」的每一種組合（`for have_trait in powerset(names)`）檢查是否與 CSV 裡已知的性狀矛盾，矛盾就 `continue` 跳過，接著是這一段：
 
 ```python
-def main():
-    # ... 讀取 CSV 建立 people dict ...
-    probabilities = {name: {"gene": {2:0,1:0,0:0}, "trait": {True:0, False:0}} 
-                     for name in people}
-    
-    N = 10000
-    for _ in range(N):
-        # 1. 取樣非證據變數
-        one_gene, two_genes, have_trait = set(), set(), set()
-        for person in people.values():
-            if person.trait is not None:
-                have_trait.add(person.name) if person.trait else None
-                continue  # 證據變數固定
-            
-            # 取樣基因數
-            if person.mother is None:
-                # 先驗取樣
-                r = random.random()
-                if r < PROBS["gene"][2]: two_genes.add(person.name)
-                elif r < PROBS["gene"][2] + PROBS["gene"][1]: one_gene.add(person.name)
-            else:
-                # 遺傳取樣
-                gene = sample_from_parents(person, one_gene, two_genes)
-                if gene == 2: two_genes.add(person.name)
-                elif gene == 1: one_gene.add(person.name)
-        
-        # 2. 計算權重：證據變數的似然
-        weight = 1.0
-        for person in people.values():
-            if person.trait is not None:
-                gene = (2 if person.name in two_genes else
-                        1 if person.name in one_gene else 0)
-                weight *= PROBS["trait"][gene][person.trait]
-        
-        # 3. 累加
-        update(probabilities, one_gene, two_genes, have_trait, weight)
-    
-    # 4. 正規化輸出
-    for person in probabilities:
-        normalize(probabilities[person]["gene"])
-        normalize(probabilities[person]["trait"])
-        print(person, probabilities[person])
+# heredity.py 的 main（官方提供，節錄）
+        # Loop over all sets of people who might have the gene
+        for one_gene in powerset(names):
+            for two_genes in powerset(names - one_gene):
+
+                # Update probabilities with new joint probability
+                p = joint_probability(people, one_gene, two_genes, have_trait)
+                update(probabilities, one_gene, two_genes, have_trait, p)
+
+    # Ensure probabilities sum to 1
+    normalize(probabilities)
 ```
 
-### 執行與驗證
+也就是把「誰有性狀、誰有一份基因、誰有兩份基因」的所有組合走一遍，留下符合證據的，對每個組合算聯合機率，累加到每個人對應的格子，最後正規化。這正是導讀「[推論](#推論從證據算出其他變數的分佈)」一節的式子 `α Σ_y P(X, e, y)`（[錄影 1:06:18](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=3978s)）：沒有取樣，也沒有權重。
+
+### 解題思路
+
+三個函式各對應列舉推論的一步。
+
+**`joint_probability` 算一組假設的聯合機率。** 做法是導讀「[貝氏網路](#貝氏網路用箭頭表示誰影響誰)」一節的乘法（[錄影 1:00:12](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=3612s)）：每個節點貢獻一個「給定父節點」的條件機率，全部相乘。這裡每個人有兩個節點，所以每個人貢獻兩個數字。
+
+- Trait 節點的父節點是自己的 Gene。知道這個人在這組假設裡有幾份基因、有沒有性狀，直接查 `PROBS["trait"]`。
+- Gene 節點要分兩種人。資料裡沒有父母的人，Gene 沒有父節點，查 `PROBS["gene"]` 的無條件分佈。有父母的人，Gene 的父節點是父、母的 Gene，機率要從遺傳規則算。
+
+從遺傳規則算的時候，先分別問「母親把這個基因傳下來的機率」與「父親把這個基因傳下來的機率」，兩者只看那位家長在這組假設裡的份數：
+
+- 有 2 份的家長一定傳出這個基因，只有突變會讓它變不見，機率 0.99。
+- 有 0 份的家長只有靠突變才會傳出這個基因，機率 0.01。
+- 有 1 份的家長一半機率傳出這個基因（之後 0.99 不突變）、一半傳出另一個（之後 0.01 突變成這個基因），0.5 × 0.99 + 0.5 × 0.01 = 0.5。
+
+有了這兩個數字，孩子的份數就是三種情況：2 份是兩邊都傳；0 份是兩邊都沒傳；1 份是「母傳、父沒傳」或「父傳、母沒傳」，兩種情況互斥，機率相加。
+
+**`update` 把這個聯合機率記到每個人頭上。** 每個人在這組假設裡有確定的基因份數與性狀，把 p 加到他那兩個分佈裡對應的格子。這一步是邊際化：同一格會被很多組假設加到。
+
+**`normalize` 是最後的 `α`。** 累加完的數字加起來不是 1，每個人的每個分佈各自除以自己的總和。
+
+### 虛擬碼
+
+```text
+聯合機率（一組假設：誰有 1 份、誰有 2 份、誰有性狀）
+    結果 ← 1
+    對家族裡的每個人：
+        份數 ← 這個人在這組假設裡的基因份數（0、1 或 2）
+        如果資料裡沒有他的父母：
+            基因機率 ← 族群裡有這麼多份的無條件機率
+        否則：
+            母傳 ← 母親把這個基因傳下來的機率（看母親在這組假設裡的份數）
+            父傳 ← 父親把這個基因傳下來的機率（看父親在這組假設裡的份數）
+            份數是 2：基因機率 ← 兩邊都傳
+            份數是 0：基因機率 ← 兩邊都沒傳
+            份數是 1：基因機率 ← 「母傳而父沒傳」加上「父傳而母沒傳」
+        性狀機率 ← 給定這個份數，他有（或沒有）性狀的機率
+        結果 ← 結果 × 基因機率 × 性狀機率
+    回傳 結果
+
+累加（一組假設，與它的聯合機率 p）
+    對每個人：
+        在他的基因分佈裡，對應這組假設份數的那一格加上 p
+        在他的性狀分佈裡，對應這組假設有無性狀的那一格加上 p
+
+正規化
+    對每個人的每一個分佈：
+        每一格除以這個分佈的總和
+```
+
+### 容易出錯的地方
+
+以下幾條的數字是本站 2026-10-13 把寫錯的版本放進官方檔案實跑得到的。
+
+- **把它寫成取樣。** 官方 `main` 已經把所有組合列舉完，三個函式裡不需要亂數。本文舊版就犯了這個錯，寫成概似加權取樣。察覺方式：同一個 CSV 跑兩次，輸出應該逐位相同；每次不一樣就是走錯方向。
+- **照物件的寫法取父母。** `people` 是字典的字典，父母要用 `people[name]["mother"]` 取，取出來的是名字字串或 `None`。寫成取屬性的形式會直接丟 `AttributeError`。
+- **1 份基因的情況只算了一半。** 「母傳、父沒傳」與「父傳、母沒傳」要相加。只算「父傳、母沒傳」這一種時，規格頁那個例子會回傳 0.0026640529344，和正確的 0.0026643247488 只差在第七位小數，眼睛掃過去很容易以為對了（只算另一種「母傳、父沒傳」會得到 0.00000027，一眼就看得出錯）。另一種錯法是把母傳、父傳的機率直接相乘，那是 2 份的算式被拿來算 1 份，會得到 0.0000269，差一百倍。
+- **有 1 份的家長傳出的機率寫成 0.5 × 0.99。** 漏掉「傳出另一個、再突變回來」那一半，會得到 0.495。規格頁的例子測不出來（那個例子裡沒有 1 份的家長），要看完整輸出：`family0.csv` 的 Harry 會變成 0.0091／0.4532／0.5377，正確的是 0.0092／0.4557／0.5351。
+- **正規化的範圍弄錯。** 要對每個人的基因分佈、性狀分佈各自正規化。把所有人加在一起除，每個分佈的總和就不是 1。
+
+### 怎麼檢查自己寫的對不對
+
+**規格頁的例子。** `joint_probability(people, {"Harry"}, {"James"}, {"James"})`，也就是 Lily 0 份且無性狀、James 2 份且有性狀、Harry 1 份且無性狀，應回傳 0.0026643247488。規格頁給了手算過程：
+
+- Lily：0.96 × 0.99 = 0.9504
+- James：0.01 × 0.65 = 0.0065
+- Harry 有 1 份：從母親得到而父親沒有，或父親得到而母親沒有。母親 0 份，傳出的機率 0.01；父親 2 份，傳出的機率 0.99。0.01 × 0.01 + 0.99 × 0.99 = 0.9802。再乘上 1 份而無性狀的 0.44，得 0.431288。
+- 全部相乘：0.9504 × 0.0065 × 0.431288 = 0.0026643247488
+
+比對時要看到最後一位，理由見上一節。
+
+**完整輸出。** 規格頁列了 `family0.csv` 的預期輸出：
 
 ```bash
 wget https://cdn.cs50.net/ai/2023/x/projects/2/heredity.zip
 unzip heredity.zip && cd heredity
 
 python heredity.py data/family0.csv
-# 預期輸出：每人 gene/trait 機率分佈
+# 規格頁列的預期輸出：
+# Harry: Gene 2: 0.0092, 1: 0.4557, 0: 0.5351；Trait True: 0.2665, False: 0.7335
+# James: Gene 2: 0.1976, 1: 0.5106, 0: 0.2918；Trait True: 1.0000, False: 0.0000
+# Lily:  Gene 2: 0.0036, 1: 0.0136, 0: 0.9827；Trait True: 0.0000, False: 1.0000
+```
 
+**不看答案也能做的檢查。**
+
+- 每個人的 Gene 三個數字、Trait 兩個數字，各自加起來是 1（四位小數會有尾數誤差）。
+- CSV 裡性狀已知的人，Trait 分佈應該是 1.0000 與 0.0000：James 有性狀，Lily 沒有。
+- 同一個檔案跑兩次，輸出相同。
+- `family1.csv`、`family2.csv` 也要跑得完。
+
+**官方工具。**
+
+```bash
 check50 ai50/projects/2024/x/heredity
 style50 heredity.py
 ```
 
+### 完整參考實作
+
+<details>
+<summary>完整參考實作（先自己寫完並繳交，再打開）</summary>
+
+> ⚠️ 如果你正在修這門課、或打算申請 CS50 的證書：課程的[學術誠信政策](https://cs50.harvard.edu/ai/honesty/)規定，繳交自己的作業之前不能看別人的解答。請先完成並繳交，再用這一段對照。這份實作只在本站列出的環境實跑過，沒有經過 check50。
+
+```python
+# heredity.py：填入三個函式，另加兩個輔助函式
+def joint_probability(people, one_gene, two_genes, have_trait):
+    probability = 1
+    for person in people:
+        genes = gene_count(person, one_gene, two_genes)
+        mother = people[person]["mother"]
+        father = people[person]["father"]
+
+        if mother is None and father is None:
+            # 資料裡沒有父母：用族群的無條件分佈
+            p_gene = PROBS["gene"][genes]
+        else:
+            # 有父母：先算父、母各自把基因傳下來的機率
+            from_mother = pass_probability(gene_count(mother, one_gene, two_genes))
+            from_father = pass_probability(gene_count(father, one_gene, two_genes))
+            if genes == 2:
+                p_gene = from_mother * from_father
+            elif genes == 1:
+                p_gene = (from_mother * (1 - from_father)
+                          + (1 - from_mother) * from_father)
+            else:
+                p_gene = (1 - from_mother) * (1 - from_father)
+
+        p_trait = PROBS["trait"][genes][person in have_trait]
+        probability *= p_gene * p_trait
+    return probability
+
+
+def gene_count(person, one_gene, two_genes):
+    """這個人在目前這組假設裡有幾份基因。"""
+    if person in two_genes:
+        return 2
+    if person in one_gene:
+        return 1
+    return 0
+
+
+def pass_probability(genes):
+    """有 genes 份基因的父或母，把這個基因傳給孩子的機率。"""
+    if genes == 2:
+        return 1 - PROBS["mutation"]
+    if genes == 1:
+        return 0.5
+    return PROBS["mutation"]
+
+
+def update(probabilities, one_gene, two_genes, have_trait, p):
+    for person in probabilities:
+        genes = gene_count(person, one_gene, two_genes)
+        probabilities[person]["gene"][genes] += p
+        probabilities[person]["trait"][person in have_trait] += p
+
+
+def normalize(probabilities):
+    for person in probabilities:
+        for field in probabilities[person]:
+            total = sum(probabilities[person][field].values())
+            for value in probabilities[person][field]:
+                probabilities[person][field][value] /= total
+```
+
+實跑結果（2026-10-13，放進官方 `heredity.py`）：規格頁的例子回傳 0.0026643247488，`python heredity.py data/family0.csv` 的輸出與規格頁列的數字逐位相同，`family1.csv`、`family2.csv` 跑得完。
+
+</details>
+
 ---
 
-## 專案 2B：PageRank —— 迭代與取樣兩種算法
+## 專案 2B：PageRank —— 取樣與迭代兩種演算法
+
+這一節先講做法與檢查方式；完整的參考實作摺疊在最後，預設不顯示。
 
 ### 任務
 
-實作兩種 PageRank 計算方式：
-1. **Iterative**：反覆套用公式直到收斂（|PR_new - PR_old| < 0.001）
-2. **Sampling**：隨機漫步取樣 N 次，統計訪問頻率
+替一組互相連結的網頁算出每一頁的 PageRank，也就是一個隨機點連結的瀏覽者在任一時刻停在這一頁的機率。專案規格把這個瀏覽者描述成一條馬可夫鏈：每一頁是一個狀態，下一步去哪裡由轉移模型決定。為了避免瀏覽者困在互相連結的幾頁裡，加入 damping factor `d`（預設 0.85）：以機率 `d` 從目前頁面的連結裡隨機選一個，以機率 `1 − d` 從所有頁面裡隨機選一個（包含目前這一頁）。
 
-輸入：`corpus` 目錄下的 HTML 檔案，解析 `<a href>` 建立連結圖。
+要實作三個函式：
 
-### 參考實作：Iterative PageRank
+1. `transition_model(corpus, page, damping_factor)`：回傳從 `page` 出發，下一步到每一頁的機率分佈。
+2. `sample_pagerank(corpus, damping_factor, n)`：照轉移模型抽 `n` 個樣本，用各頁出現的比例當估計。
+3. `iterate_pagerank(corpus, damping_factor)`：反覆套用下面的公式，直到每一頁的變動都不超過 0.001。
 
-```python
-# pagerank.py 片段
-def iterate_pagerank(corpus, damping_factor=0.85):
-    N = len(corpus)
-    pr = {page: 1/N for page in corpus}
-    threshold = 0.001
-    
-    while True:
-        new_pr = {}
-        for page in corpus:
-            # 基礎機率：隨機跳轉
-            rank = (1 - damping_factor) / N
-            
-            # 加上來自所有指向 page 的頁面貢獻
-            for possible in corpus:
-                if page in corpus[possible]:
-                    rank += damping_factor * pr[possible] / len(corpus[possible])
-                elif not corpus[possible]:  # 沒有外鏈 → 視為連向所有頁面
-                    rank += damping_factor * pr[possible] / N
-            new_pr[page] = rank
-        
-        # 檢查收斂
-        if all(abs(new_pr[p] - pr[p]) < threshold for p in corpus):
-            break
-        pr = new_pr
-    
-    # 正規化（浮點誤差修正）
-    total = sum(pr.values())
-    return {p: v/total for p, v in pr.items()}
+```text
+PR(p) = (1 − d) / N + d × Σᵢ PR(i) / NumLinks(i)
 ```
 
-### 參考實作：Sampling PageRank
+`N` 是頁面總數，`i` 跑遍所有連到 `p` 的頁面，`NumLinks(i)` 是頁面 `i` 上的連結數。規格另外規定：沒有任何連結的頁面，要當成連到所有頁面（包含自己）。
+
+### 官方已提供的程式
+
+官方的 `pagerank.py` 已經寫好 `main` 與 `crawl`；`transition_model`、`sample_pagerank`、`iterate_pagerank` 三個函式只有說明文字與 `raise NotImplementedError`，要自己寫。
 
 ```python
-def sample_pagerank(corpus, damping_factor=0.85, n=10000):
-    N = len(corpus)
-    counts = {page: 0 for page in corpus}
-    page = random.choice(list(corpus.keys()))
-    
-    for _ in range(n):
-        counts[page] += 1
-        
-        # 隨機漫步下一步
-        if not corpus[page] or random.random() > damping_factor:
-            # 無外鏈或隨機跳轉：均勻選擇
-            page = random.choice(list(corpus.keys()))
-        else:
-            # 跟隨外鏈
-            page = random.choice(list(corpus[page]))
-    
-    return {p: c/n for p, c in counts.items()}
+# pagerank.py（官方提供，節錄）
+DAMPING = 0.85
+SAMPLES = 10000
+
+
+def main():
+    if len(sys.argv) != 2:
+        sys.exit("Usage: python pagerank.py corpus")
+    corpus = crawl(sys.argv[1])
+    ranks = sample_pagerank(corpus, DAMPING, SAMPLES)
+    print(f"PageRank Results from Sampling (n = {SAMPLES})")
+    for page in sorted(ranks):
+        print(f"  {page}: {ranks[page]:.4f}")
+    ranks = iterate_pagerank(corpus, DAMPING)
+    print(f"PageRank Results from Iteration")
+    for page in sorted(ranks):
+        print(f"  {page}: {ranks[page]:.4f}")
 ```
 
-### 執行與驗證
+`crawl` 回傳一個字典，鍵是頁面檔名，值是這一頁連到的頁面集合。`corpus0` 讀進來是：
+
+```python
+{
+    "1.html": {"2.html"},
+    "2.html": {"1.html", "3.html"},
+    "3.html": {"2.html", "4.html"},
+    "4.html": {"2.html"}
+}
+```
+
+三個要實作的函式都沒有預設參數，`main` 會把 `DAMPING` 與 `SAMPLES` 傳進去。檔案開頭已經匯入 `random`。
+
+### 解題思路
+
+**`transition_model` 就是導讀「[馬可夫鏈](#馬可夫鏈隨時間變化的狀態)」一節的轉移模型裡的一列**（[錄影 1:34:29](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=5669s)）：給定現在在哪一頁，下一步到每一頁的機率。機率有兩個來源，分開想比較不會錯。`1 − d` 那一份平分給所有頁面，每頁拿到 `(1 − d) / N`。`d` 那一份平分給目前頁面上的連結。被連到的頁面兩份都拿。目前頁面沒有任何連結時，照規格當成它連到所有頁面，`d` 那一份也平分給全部。
+
+**`sample_pagerank` 是從這條馬可夫鏈一個接一個抽狀態**，和講者從天氣的鏈抽 50 天是同一件事，估計機率的方式則是導讀「[近似推論](#近似推論取樣拒絕取樣與概似加權)」一節的數樣本（[錄影 1:20:57](https://www.youtube.com/watch?v=D8RRq3TbtHU&t=4857s)）。第一個樣本從所有頁面隨機選；之後每一個樣本，都用前一個樣本所在頁面的轉移模型來抽。抽滿 `n` 個，各頁出現的次數除以 `n`。
+
+**`iterate_pagerank` 不抽樣，直接解公式。** 每一頁先給 `1 / N`。每一輪拿上一輪的整組數值，照公式替每一頁算出新值：對每一個連到它的頁面，取那一頁上一輪的值除以那一頁的連結數，全部加起來乘 `d`，再加上 `(1 − d) / N`。一輪算完後，如果沒有任何一頁的變動超過 0.001 就停，否則用新的一組再算一輪。
+
+### 虛擬碼
+
+```text
+轉移模型（目前在哪一頁）
+    每一頁先拿到 (1 − d) / N
+    連結 ← 目前頁面上的連結；如果一個都沒有，改成所有頁面
+    對連結裡的每一頁：再加上 d / 連結的數量
+    回傳 每一頁對應的機率（每一頁都要有）
+
+取樣（抽 n 個）
+    次數 ← 每一頁都是 0
+    目前 ← 從所有頁面隨機選一頁；它算第一個樣本
+    重複到一共有 n 個樣本：
+        依「目前」的轉移模型，按機率抽出下一頁
+        目前 ← 下一頁；它的次數加 1
+    回傳 每一頁的次數 ÷ n
+
+迭代
+    舊 ← 每一頁都是 1 / N
+    重複：
+        對每一頁 p：
+            總和 ← 每個連到 p 的頁面，上一輪的值 ÷ 它的連結數，全部加起來
+                   （沒有連結的頁面當成連到每一頁，包含它自己，所以每一頁都要算到它）
+            新[p] ← (1 − d) / N + d × 總和
+        如果每一頁的 |新 − 舊| 都不超過 0.001：回傳 新
+        舊 ← 新
+```
+
+### 容易出錯的地方
+
+以下幾條的數字是本站 2026-10-13 把寫錯的版本放進官方檔案實跑得到的；「收斂值」指另外用同一個公式跑 5,000 輪的結果。
+
+- **邊算邊覆寫。** 迭代的每一輪要用上一輪的整組數值，算完才整組換掉。直接在同一個字典上改，後面的頁面會用到這一輪的新值。現象：所有頁面的總和不是 1，與收斂值的差距超過規格要求的 0.001。本站那次實跑（頁面照 `crawl` 回傳的順序）三個 corpus 的總和是 0.9942、0.9905、0.9916，與收斂值最多差 0.0025；結果會隨頁面順序改變，改成依檔名排序再跑，總和變成 1.0042、1.0039、1.0083。`crawl` 回傳的順序因作業系統而異，所以你看到的數字可能不同，判斷標準是總和不等於 1。
+- **沒有連結的頁面沒處理。** `corpus2` 的 `recursion.html` 沒有對外連結。迭代時少了「當成連到每一頁」那一步，`corpus2` 所有頁面的總和會掉到 0.7134。`corpus0`、`corpus1` 沒有這種頁面，只跑這兩個看不出來。轉移模型同樣要處理，否則從這種頁面出發的機率總和不會是 1（照寫法不同，也可能在平分 `d` 那一步除以零）。
+- **收斂時回傳哪一組，這一條不是錯誤，是說明。** 判定收斂時手上有兩組數值：前一輪的，與剛算出的。兩種回傳法與收斂值的差距都在 0.001 以內。規格頁列的 `corpus0` 數字（0.2202、0.4289、0.2202、0.1307）和「回傳前一輪」的輸出逐位相同；本站的參考實作回傳剛算出的那一組，所以第四位小數不同。回傳新的一組比較接近收斂值：`corpus1` 上是 0.0003 對 0.00096。check50 接受哪一種，本站沒有驗證。
+- **樣本數多一個或少一個。** 第一個隨機選的頁面也算一個樣本。它不計入、或迴圈多跑一次，次數的總和就不是 `n`，回傳的比例加起來不會剛好是 1。
+- **回傳的字典缺頁。** 規格頁特別提醒很多人因為字典建得不對而過不了自動評分。三個函式回傳的字典都要有 corpus 裡的每一頁；轉移模型裡沒被連到的頁面機率是 `(1 − d) / N`，不是不出現。
+
+### 怎麼檢查自己寫的對不對
+
+**規格頁的例子。** corpus 是 `{"1.html": {"2.html", "3.html"}, "2.html": {"3.html"}, "3.html": {"2.html"}}`、目前在 `1.html`、damping factor 0.85 時，`transition_model` 應回傳 `{"1.html": 0.05, "2.html": 0.475, "3.html": 0.475}`。0.85 平分給兩個連結各 0.425，另外 0.15 平分給三頁各 0.05。
+
+**可以手算的小案例**（本文自擬）。corpus 只有兩頁，`a` 沒有連結，`b` 連到 `a`，damping factor 0.85：
+
+- 從 `a` 出發：`a` 沒有連結，當成連到兩頁，結果是 `a` 0.5、`b` 0.5。
+- 從 `b` 出發：兩頁各先拿 0.15 ÷ 2 = 0.075，`a` 再拿 0.85，結果是 `a` 0.925、`b` 0.075。
+
+**完整輸出。**
 
 ```bash
 wget https://cdn.cs50.net/ai/2023/x/projects/2/pagerank.zip
 unzip pagerank.zip && cd pagerank
 
 python pagerank.py corpus0
-# 預期：Iterative 和 Sampling 結果接近
+```
 
+規格頁列的 `corpus0` 迭代結果是 0.2202、0.4289、0.2202、0.1307，取樣結果是 0.2223、0.4303、0.2145、0.1329。該看到的範圍：
+
+- 迭代結果每一頁與規格頁的數字差距不超過 0.001。你的輸出與規格頁逐位相同、或差在第四位小數，都是正常的：規格頁的數字和「收斂時回傳前一輪」的輸出相同；回傳剛算出的那一組（本站的參考實作）是 0.2198、0.4294、0.2198、0.1311；收斂值是 0.2199、0.4292、0.2199、0.1310。
+- 取樣結果每次執行都不同。本站用參考實作在三個 corpus 各跑 10 次（一萬個樣本），同一頁取樣與迭代的差距中位數是 0.006，最大 0.015；獨立審稿者另外跑的 30 次，中位數 0.005、最大 0.020。最大值每批都會浮動，看到比這些大一點的數字不必緊張。本站的判斷是差到 0.03 以上就該回頭查；規格沒有訂這個數字。
+- 兩種方法回傳的數值各自加起來都是 1。三個 corpus 都要跑，`corpus2` 才測得到沒有連結的頁面。
+
+**官方工具。**
+
+```bash
 check50 ai50/projects/2024/x/pagerank
 style50 pagerank.py
 ```
+
+### 完整參考實作
+
+<details>
+<summary>完整參考實作（先自己寫完並繳交，再打開）</summary>
+
+> ⚠️ 如果你正在修這門課、或打算申請 CS50 的證書：課程的[學術誠信政策](https://cs50.harvard.edu/ai/honesty/)規定，繳交自己的作業之前不能看別人的解答。請先完成並繳交，再用這一段對照。這份實作只在本站列出的環境實跑過，沒有經過 check50。
+
+```python
+# pagerank.py：填入三個函式
+def transition_model(corpus, page, damping_factor):
+    pages = list(corpus)
+    links = corpus[page] or set(pages)  # 沒有連結的頁面，當成連到所有頁面
+    distribution = {p: (1 - damping_factor) / len(pages) for p in pages}
+    for link in links:
+        distribution[link] += damping_factor / len(links)
+    return distribution
+
+
+def sample_pagerank(corpus, damping_factor, n):
+    counts = {page: 0 for page in corpus}
+    page = random.choice(list(corpus))
+    counts[page] += 1
+    for _ in range(n - 1):
+        model = transition_model(corpus, page, damping_factor)
+        page = random.choices(list(model), weights=list(model.values()))[0]
+        counts[page] += 1
+    return {page: count / n for page, count in counts.items()}
+
+
+def iterate_pagerank(corpus, damping_factor):
+    N = len(corpus)
+    ranks = {page: 1 / N for page in corpus}
+    while True:
+        new_ranks = {}
+        for page in corpus:
+            total = 0
+            for other, links in corpus.items():
+                if not links:
+                    total += ranks[other] / N  # 沒有連結：當成連到每一頁
+                elif page in links:
+                    total += ranks[other] / len(links)
+            new_ranks[page] = (1 - damping_factor) / N + damping_factor * total
+        converged = all(abs(new_ranks[p] - ranks[p]) <= 0.001 for p in corpus)
+        ranks = new_ranks
+        if converged:
+            return ranks
+```
+
+實跑結果（2026-10-13，放進官方 `pagerank.py`）：規格頁的 `transition_model` 例子回傳的值相符；`corpus0`、`corpus1`、`corpus2` 兩種方法的結果都加總為 1；`corpus0` 的迭代結果是 0.2198、0.4294、0.2198、0.1311，與規格頁的差距在 0.001 之內。
+
+</details>
 
 ---
 
 ## 學習檢核清單
 
-- [ ] 能口述貝氏網路如何編碼條件獨立（D-separation 三規則）
-- [ ] 能手寫 Variable Elimination 推導邊際機率
-- [ ] 理解拒絕取樣 vs 似然權重取樣的權重來源差異
-- [ ] 能推導 PageRank 公式並解釋 damping factor 作用
-- [ ] 理解 Heredity 中「先驗 vs 遺傳」機率的切換邏輯
-- [ ] 兩專案 `check50` 全綠
+- [ ] 能用條件機率的定義，從聯合機率表算出條件分佈，並說明正規化常數 `α` 在做什麼
+- [ ] 能用貝氏法則由 `P(結果 | 原因)` 算出 `P(原因 | 結果)`
+- [ ] 能照貝氏網路的箭頭，把聯合機率寫成各節點條件機率的乘積，並用列舉推論算出查詢變數的分佈
+- [ ] 能說明拒絕取樣與概似加權的差別：前者丟掉不符證據的樣本，後者固定證據並替樣本加權
+- [ ] 能用轉移模型算出一串狀態的機率，並說出 HMM 比馬可夫鏈多了哪一張表
+- [ ] Heredity：自己寫的 `joint_probability` 對規格頁的例子回傳 0.0026643247488（比到最後一位），`family0.csv` 的輸出與規格頁相同
+- [ ] PageRank：自己寫的 `transition_model` 對規格頁的例子回傳 0.05、0.475、0.475；三個 corpus 兩種方法的結果各自加總為 1，`corpus0` 的迭代結果與規格頁相差不超過 0.001
+- [ ] 能解釋 damping factor 的作用，以及沒有連結的頁面為什麼要當成連到所有頁面
+- [ ] 兩個專案 `check50` 全綠
 
 ## 課程影片來源
 
-官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 2 講課錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=D8RRq3TbtHU
-title: Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020
-```
+官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，第 2 週講課錄影在清單中。
 
 原始影片：[Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=D8RRq3TbtHU)
 
@@ -351,21 +1061,32 @@ title: Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence 
 
 查核日期：2026-10-10。
 
-內容核對：已依字幕核對（2026-10-10）：原表的整體順序（機率→貝氏網路→推論→馬可夫模型→HMM）成立，但有數處內容字幕中找不到：D-separation、Variable Elimination、穩態分佈、PageRank 隨機漫步、維特比算法、前向算法（字幕只提到 HMM 的 filtering／prediction／smoothing／最可能解釋等任務），以及兩個專案介紹（Heredity、PageRank）；這些已從影片時間表移除。原精確時間碼（影片實長 1:54:30）無法驗證，改為依字幕估算的「約」值。專案與穩態分佈等內容仍屬本文講義，來源是課程官網而非這支影片。
+內容核對：已依字幕核對（2026-10-13）：用 yt-dlp 取得帶時間碼的英文人工字幕，讀完全片 1:54:29 後重寫「講課導讀」，各節起點與文中引用的數字（骰子、天氣的三個比例與聯合機率表、貝氏網路唸出的各格、函式庫輸出、取樣計數、轉移模型與感測模型）都取自字幕；沒有看投影片，網路圖與表格的畫面沒有重建。貝氏網路四張表裡講者沒有唸的格子，取自講課公開的原始碼 `src2.zip`，文中以粗體區分。依示範修正字幕一處：38:44 起講者把 0.08、0.02 說成「給定下雨時多雲、不多雲的機率」，緊接著自己改口為「多雲而且下雨」「不多雲而且下雨」的聯合機率，本文依後者寫。另有三個數字照字幕寫、但與列舉推論的精確值不同：1:18:06 的「小雨 31%、大雨 23%」與 1:19:05 的「64%」，用原始碼的表列舉是 30.0%、23.9%、63.4%。這不是講者口誤或字幕有誤：pomegranate v0.14.8 的原始碼說明寫明 `predict_proba` 用 loopy belief propagation，本文自行重寫該演算法後重現了講者的四個數字（45.83%、30.69%、23.48%、64.32%），正文已加一段本文補充。限制：講課當時的函式庫版本沒有查，也沒有安裝 pomegranate 實跑。HMM 一節關於 `predict` 預設為逐日解碼的補充，依據同樣是 v0.14.8 的原始碼與手算。字幕全程未提到本週專案（Heredity、PageRank），專案說明來自課程官網而非影片。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 CS50 YouTube 播放清單即時核對，本週講課錄影存在，狀態改為已附影片。
 - 2026-10-10：依字幕核對影片內容。移除影片中找不到的主題與專案介紹，時間碼改為依字幕估算的約略值。
+- 2026-10-13：播放器從文末來源區移到「課程影片與時間軸」，開頭補上片長。
+- 2026-10-13：用帶時間碼的字幕重新核對時間軸，約略分鐘數改為實際起點，每一列連到影片的對應位置；片長由 1:54:30 更正為 1:54:29。
+- 2026-10-13：「核心概念速覽」依字幕重寫成十節的「講課導讀」，每節附時間連結與一題自我檢查。原速覽裡講課沒有提到的內容已移除：D-separation、Variable Elimination 與推論策略的複雜度比較表、平穩分佈、PageRank 公式（移到專案 2B）、前向演算法與維特比演算法，以及一段不是講課程式的拒絕取樣程式碼。
+- 2026-10-13：專案 2A 依官方 `heredity.py` 重寫。原文把它寫成概似加權取樣，並貼了官方檔案裡不存在的 `Person` 類別與自訂的取樣主迴圈；官方的 `main` 其實是列舉所有組合再正規化，`people` 是字典。參考實作改成能直接填進官方檔案的三個函式，實跑結果與規格頁相符。小節標題同步由「貝氏網路取樣推斷基因型」改為「用貝氏網路推斷基因與性狀」。
+- 2026-10-13：專案 2B 依官方 `pagerank.py` 重寫。補上規格要求的 `transition_model`，函式簽名改成與官方一致（沒有預設參數）；原取樣版沒有經過轉移模型，已修正；原迭代版在收斂時回傳前一輪的數值，改成回傳剛算出的那一組，這是選擇而不是修正，舊寫法在規格容許的 0.001 之內，規格頁列的數字也對得上舊寫法。兩者都實跑過。小節標題同步由「迭代與取樣兩種算法」改為「取樣與迭代兩種演算法」，錨點跟著改變。
+- 2026-10-13：依獨立審稿修正。「推論」一節加一段本文補充，說明講者唸的 31%、23%、64% 是函式庫近似推論的結果，並列出列舉推論的精確值，內容核對行同步改寫；HMM 的補充加上 `predict` 預設做法的說明；概似加權補一個自擬的兩樣本算例；另修正數處措辭，「播放列表」改為「播放清單」，版本提醒的「OCW 官網」改為「課程官網」。
+- 2026-10-13：兩個專案節改成任務、官方已提供的程式、解題思路、虛擬碼、容易出錯的地方、檢查方式在前，完整參考實作摺疊在各專案最後並加上警語，連到課程的[學術誠信政策](https://cs50.harvard.edu/ai/honesty/)。參考實作的程式碼沒有更動。另依複審把近似推論的四個數字多寫一位小數，PageRank 取樣與迭代的差距改寫成實跑 30 次的中位數與最大值。
+- 2026-10-13：依專案節複審修正。Heredity「容易出錯」裡一個數字與描述對不上，改成寫明是哪一種錯法；PageRank 迭代的虛擬碼原本寫「其他頁面」，會漏掉沒有連結的頁面自己，改成每一頁都算並把內層步驟寫粗；「收斂時回傳哪一組」從錯誤改列為說明；邊算邊覆寫的數字註明隨頁面順序改變；0.03 的門檻標明是本站的判斷。tldr 與 description 同步改成現在的專案節內容。
 
 ## 參考資料
 
 - [Week 2 Uncertainty 講課頁](https://cs50.harvard.edu/ai/weeks/2/) — 影片、投影片、逐字稿、Quiz
-- [Week 2 Notes (2020 版)](https://cs50.harvard.edu/ai/2020/notes/2/) — 本文內容主要來源
+- [Uncertainty - Lecture 2（YouTube）](https://www.youtube.com/watch?v=D8RRq3TbtHU) — 「講課導讀」的底本，內容、數字與時間連結取自它的英文字幕
+- [講課原始碼 src2.zip](https://cdn.cs50.net/ai/2020/spring/lectures/2/src2.zip) — `bayesnet`、`chain`、`hmm` 三個資料夾；貝氏網路完整的機率表與 HMM 的觀察序列取自這裡
+- [Week 2 Notes (2020 版)](https://cs50.harvard.edu/ai/2020/notes/2/) — 官方筆記，可對照投影片上的圖與表
 - [Heredity 專案規格](https://cs50.harvard.edu/ai/projects/2/heredity/) — Distribution `2023/x`、check50 slug `ai50/projects/2024/x/heredity`
 - [PageRank 專案規格](https://cs50.harvard.edu/ai/projects/2/pagerank/) — Distribution `2023/x`、check50 slug `ai50/projects/2024/x/pagerank`
-- [CS50 AI YouTube 播放列表](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI YouTube 播放清單](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI 學術誠信政策](https://cs50.harvard.edu/ai/honesty/) — 專案解答摺疊顯示的依據（2026-10-13 讀取）
 - [check50 文件](https://cs50.readthedocs.io/projects/check50/en/latest/index.html)
 - 站內：[Harvard CS50 AI 總覽](/posts/ai/2026-08-26-harvard-cs50-ai-guide) — 系列入口與版本說明
 - 站內：[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map) — A3 分級定義
