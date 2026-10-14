@@ -9,6 +9,8 @@ interface SeriesDefinition {
   slug: string;
   /** 同一個系列在各語言的名稱。文章 frontmatter 寫的是名稱，這裡把兩邊配成一對。 */
   names: Record<Lang, string>;
+  /** 卡片與系列頁顯示用的完整標題（課程導讀帶上正式課名）；不填就顯示 names。改這裡不必動文章 frontmatter。 */
+  titles?: Record<Lang, string>;
   descriptions: Record<Lang, string>;
   /** 指定時優先於 inferSeriesCategory 的猜測；登錄的系列都應該寫。 */
   category?: SeriesCategoryId;
@@ -16,6 +18,7 @@ interface SeriesDefinition {
 
 export interface SeriesSummary {
   name: string;
+  title: string;
   slug: string;
   description: string;
   category: SeriesCategoryId;
@@ -306,6 +309,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'cs230',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS230 導讀', en: 'Reading Stanford CS230' },
+    titles: { 'zh-TW': 'Stanford CS230 Deep Learning 導讀', en: 'Reading Stanford CS230 Deep Learning' },
     descriptions: {
       'zh-TW':
         '把 Stanford CS230（2025 秋季）九講逐講讀完：不只記錄課堂講了什麼，也補上課後到現在這領域變了什麼，以及它和站上既有實戰系列的對照。',
@@ -335,6 +339,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs103',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS103 導讀', en: 'Reading Stanford CS103' },
+    titles: { 'zh-TW': 'Stanford CS103 Mathematical Foundations of Computing 導讀', en: 'Reading Stanford CS103 Mathematical Foundations of Computing' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS103：離散數學、邏輯、證明、集合、可計算性，以及它們如何成為後續 CS 課程的共同語言。',
       en: 'A lecture-by-lecture reading of Stanford CS103: discrete mathematics, logic, proofs, sets, computability, and the shared language they provide for later CS courses.',
@@ -344,6 +349,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs107',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS107 導讀', en: 'Reading Stanford CS107' },
+    titles: { 'zh-TW': 'Stanford CS107 Computer Organization & Systems 導讀', en: 'Reading Stanford CS107 Computer Organization & Systems' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS107：C、記憶體、組合語言、資料表示與系統除錯，從高階語言一路往機器底層走。',
       en: 'A lecture-by-lecture reading of Stanford CS107: C, memory, assembly, data representation, and systems debugging from high-level code down to the machine.',
@@ -353,6 +359,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs109',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS109 導讀', en: 'Reading Stanford CS109' },
+    titles: { 'zh-TW': 'Stanford CS109 Probability for Computer Scientists 導讀', en: 'Reading Stanford CS109 Probability for Computer Scientists' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS109：機率、隨機變數、推論與模擬，補齊機器學習與資料科學真正會用到的機率底座。',
       en: 'A lecture-by-lecture reading of Stanford CS109: probability, random variables, inference, and simulation as the foundation used by machine learning and data science.',
@@ -362,6 +369,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs111',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS111 導讀', en: 'Reading Stanford CS111' },
+    titles: { 'zh-TW': 'Stanford CS111 Operating Systems Principles 導讀', en: 'Reading Stanford CS111 Operating Systems Principles' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS111：程序、執行緒、同步、虛擬記憶體、檔案系統與作業系統設計取捨。',
       en: 'A lecture-by-lecture reading of Stanford CS111: processes, threads, synchronization, virtual memory, file systems, and operating-system design trade-offs.',
@@ -371,6 +379,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs161',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS161 導讀', en: 'Reading Stanford CS161' },
+    titles: { 'zh-TW': 'Stanford CS161 Design and Analysis of Algorithms 導讀', en: 'Reading Stanford CS161 Design and Analysis of Algorithms' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS161 Winter 2026：演算法設計、正確性證明與複雜度分析，完整對齊十八講公開教材。',
       en: 'A lecture-by-lecture reading of Stanford CS161, Winter 2026: algorithm design, correctness proofs, and complexity analysis across all eighteen public lecture units.',
@@ -380,6 +389,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs221',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS221 導讀', en: 'Reading Stanford CS221' },
+    titles: { 'zh-TW': 'Stanford CS221 Artificial Intelligence: Principles and Techniques 導讀', en: 'Reading Stanford CS221 Artificial Intelligence: Principles and Techniques' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS221：搜尋、馬可夫決策、機器學習、約束滿足與機率模型，建立人工智慧的共同骨架。',
       en: 'A lecture-by-lecture reading of Stanford CS221: search, Markov decision processes, machine learning, constraint satisfaction, and probabilistic models.',
@@ -389,6 +399,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs229',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS229 導讀', en: 'Reading Stanford CS229' },
+    titles: { 'zh-TW': 'Stanford CS229 Machine Learning 導讀', en: 'Reading Stanford CS229 Machine Learning' },
     descriptions: {
       'zh-TW': '跟著 Stanford CS229 Spring 2026 的公開錄影一堂一篇：從線性迴歸、神經網路與 EM，走到擴散模型、LLM 與用強化學習訓練推理模型，共十七堂，每篇把課堂的推導走完並對照主講義章節。',
       en: 'One post per lecture of Stanford CS229’s public Spring 2026 recordings: from linear regression, neural networks, and EM to diffusion models, LLMs, and reinforcement learning for reasoning models. Seventeen lectures, each with the full derivations and the matching chapters of the official notes.',
@@ -398,6 +409,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs336',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS336 導讀', en: 'Reading Stanford CS336' },
+    titles: { 'zh-TW': 'Stanford CS336 Language Modeling from Scratch 導讀', en: 'Reading Stanford CS336 Language Modeling from Scratch' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS336：從 tokenizer、資料與 scaling，到訓練、平行化、評估與 alignment，拆開語言模型的完整製作流程。',
       en: 'A lecture-by-lecture reading of Stanford CS336: tokenizers, data, scaling, training, parallelism, evaluation, and alignment across the full language-model pipeline.',
@@ -407,6 +419,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs124',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS124 導讀', en: 'Reading Stanford CS124' },
+    titles: { 'zh-TW': 'Stanford CS124 From Languages to Information 導讀', en: 'Reading Stanford CS124 From Languages to Information' },
     descriptions: {
       'zh-TW': '逐週讀 Stanford CS124：從語言模型與文字分類，到資訊抽取、問答與語音，追蹤自然語言處理的完整管線。',
       en: 'A week-by-week reading of Stanford CS124: language models, text classification, information extraction, question answering, speech, and the full NLP pipeline.',
@@ -416,6 +429,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs228',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS228 導讀', en: 'Reading Stanford CS228' },
+    titles: { 'zh-TW': 'Stanford CS228 Probabilistic Graphical Models 導讀', en: 'Reading Stanford CS228 Probabilistic Graphical Models' },
     descriptions: {
       'zh-TW': '逐週讀一個明確版本的 Stanford CS228：機率圖模型、精確與近似推論、參數學習及結構學習。',
       en: 'A week-by-week reading of one explicitly versioned Stanford CS228 offering: probabilistic graphical models, exact and approximate inference, and parameter and structure learning.',
@@ -425,6 +439,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs224n',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS224N 導讀', en: 'Reading Stanford CS224N' },
+    titles: { 'zh-TW': 'Stanford CS224N Natural Language Processing with Deep Learning 導讀', en: 'Reading Stanford CS224N Natural Language Processing with Deep Learning' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS224N：從詞向量、序列模型與 Transformer，到大型語言模型、評估與責任議題。',
       en: 'A lecture-by-lecture reading of Stanford CS224N: word vectors, sequence models, Transformers, large language models, evaluation, and responsible NLP.',
@@ -434,6 +449,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs224u',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS224U 導讀', en: 'Reading Stanford CS224U' },
+    titles: { 'zh-TW': 'Stanford CS224U Natural Language Understanding 導讀', en: 'Reading Stanford CS224U Natural Language Understanding' },
     descriptions: {
       'zh-TW': '逐單元讀 Stanford CS224U：語意表示、自然語言推論、問答與互動式語言系統，明確標示所採歷史學期。',
       en: 'A unit-by-unit reading of a versioned Stanford CS224U offering: semantic representations, natural-language inference, question answering, and interactive language systems.',
@@ -443,6 +459,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs224v',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS224V 導讀', en: 'Reading Stanford CS224V' },
+    titles: { 'zh-TW': 'Stanford CS224V Agentic AI 導讀', en: 'Reading Stanford CS224V Agentic AI' },
     descriptions: {
       'zh-TW': '逐單元讀 Stanford CS224V 的明確學期版本：對話式虛擬助理的理解、對話管理、生成、評估與部署。',
       en: 'A unit-by-unit reading of one explicitly versioned Stanford CS224V offering: understanding, dialogue management, generation, evaluation, and deployment for conversational assistants.',
@@ -452,6 +469,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs224w',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS224W 導讀', en: 'Reading Stanford CS224W' },
+    titles: { 'zh-TW': 'Stanford CS224W Machine Learning with Graphs 導讀', en: 'Reading Stanford CS224W Machine Learning with Graphs' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CS224W：圖的表示、網路科學、圖神經網路、知識圖譜與可擴展圖學習。',
       en: 'A lecture-by-lecture reading of Stanford CS224W: graph representation, network science, graph neural networks, knowledge graphs, and scalable graph learning.',
@@ -461,6 +479,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs329z',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS329Z 導讀', en: 'Reading Stanford CS329Z' },
+    titles: { 'zh-TW': 'Stanford CS329Z Engineering AI Agents 導讀', en: 'Reading Stanford CS329Z Engineering AI Agents' },
     descriptions: {
       'zh-TW': '追蹤 Stanford CS329Z Fall 2026：前五堂官方投影片與 HW1 起始碼、資料及公開測試已釋出；各週指定閱讀另附導讀。',
       en: 'Following Stanford CS329Z Fall 2026: the first five official slide decks and the HW1 starter, datasets, and public tests are available, alongside weekly reading guides.',
@@ -470,6 +489,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs329a',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS329A 導讀', en: 'Reading Stanford CS329A' },
+    titles: { 'zh-TW': 'Stanford CS329A Self-Improving AI Agents 導讀', en: 'Reading Stanford CS329A Self-Improving AI Agents' },
     descriptions: {
       'zh-TW': '依 Autumn 2025 課表讀 Stanford CS329A：9 個公開錄影場次、3 個指定閱讀場次，以及 5 場沒有公開材料、改用講者類似題目公開材料的客座。',
       en: 'Reading Stanford CS329A Autumn 2025 through nine recorded sessions, three designated-reading sessions, and five guest sessions that have no public material and use the speakers\' public material on similar topics.',
@@ -479,6 +499,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'mit-6s191',
     category: 'courses',
     names: { 'zh-TW': 'MIT 6.S191 導讀', en: 'Reading MIT 6.S191' },
+    titles: { 'zh-TW': 'MIT 6.S191 Introduction to Deep Learning 導讀', en: 'Reading MIT 6.S191 Introduction to Deep Learning' },
     descriptions: {
       'zh-TW': '依 2026 官方影片、投影片與實驗程式，讀完 MIT 6.S191 的九講與三個實驗，不混用歷史版本。',
       en: 'Reading all nine lectures and three labs of MIT 6.S191 from the official 2026 videos, slides, and lab code without mixing in earlier offerings.',
@@ -488,6 +509,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'mit-6-7960-fall-2024-ocw',
     category: 'courses',
     names: { 'zh-TW': 'MIT 6.7960 導讀', en: 'Reading MIT 6.7960' },
+    titles: { 'zh-TW': 'MIT 6.7960 Deep Learning 導讀', en: 'Reading MIT 6.7960 Deep Learning' },
     descriptions: {
       'zh-TW': '逐講讀 MIT 6.7960（Fall 2024 OCW）：深度學習的優化、正則化、CNN、Transformer、生成模型與表示學習。',
       en: 'A lecture-by-lecture reading of MIT 6.7960 (Fall 2024 OCW): optimization, regularization, CNNs, Transformers, generative models, and representation learning in deep learning.',
@@ -497,6 +519,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'berkeley-cs188-spring-2026',
     category: 'courses',
     names: { 'zh-TW': 'Berkeley CS188 導讀', en: 'Reading Berkeley CS188' },
+    titles: { 'zh-TW': 'Berkeley CS188 Introduction to Artificial Intelligence 導讀', en: 'Reading Berkeley CS188 Introduction to Artificial Intelligence' },
     descriptions: {
       'zh-TW': '以 P0–P5 六個 projects 為主線，讀 Berkeley CS188 Spring 2026 的搜尋、決策、機率推論、強化學習與機器學習。',
       en: 'Reading Berkeley CS188 Spring 2026 through Projects P0–P5, from search and decision making to probabilistic inference, reinforcement learning, and machine learning.',
@@ -506,6 +529,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'berkeley-cs288-spring-2026',
     category: 'courses',
     names: { 'zh-TW': 'Berkeley CS288 導讀', en: 'Reading Berkeley CS288' },
+    titles: { 'zh-TW': 'Berkeley CS288 Natural Language Processing 導讀', en: 'Reading Berkeley CS288 Natural Language Processing' },
     descriptions: {
       'zh-TW': '依 18 組公開教材與三份作業，讀 Berkeley CS288 Spring 2026 從 n-gram 到 RAG、reasoning 與 agents 的進階 NLP 路線。',
       en: 'Reading Berkeley CS288 Spring 2026 from n-grams through RAG, reasoning, and agents using its 18 public slide units and three assignments.',
@@ -515,6 +539,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'berkeley-cs285-spring-2026',
     category: 'courses',
     names: { 'zh-TW': 'Berkeley CS285 導讀', en: 'Reading Berkeley CS285' },
+    titles: { 'zh-TW': 'Berkeley CS285 Deep Reinforcement Learning 導讀', en: 'Reading Berkeley CS285 Deep Reinforcement Learning' },
     descriptions: {
       'zh-TW': '依 25 講投影片、九組討論與五份作業，讀 Berkeley CS285 Spring 2026 的深度強化學習路線與算力邊界。',
       en: 'Reading Berkeley CS285 Spring 2026 in deep reinforcement learning through 25 lectures, nine discussions, five assignments, and their compute constraints.',
@@ -589,6 +614,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       'zh-TW': 'CS146S：AI 原生開發十週',
       en: 'CS146S: Ten Weeks of AI-Native Development',
     },
+    titles: { 'zh-TW': 'Stanford CS146S The Modern Software Developer 導讀', en: 'Reading Stanford CS146S The Modern Software Developer' },
     descriptions: {
       'zh-TW':
         '照 Stanford CS146S「The Modern Software Developer」的十週大綱逐週讀：從 agent 內部構造、context 工程、skills 與客製，到 codebase 就緒度、code review、安全、背景 agent、團隊化與 software factory。每篇對照課程指定材料與可查證的一手來源。',
@@ -690,6 +716,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'cmu-07-280',
     category: 'courses',
     names: { 'zh-TW': 'CMU 07-280 完整課程導讀', en: 'Reading CMU 07-280' },
+    titles: { 'zh-TW': 'CMU 07-280 AI & ML I 導讀', en: 'Reading CMU 07-280 AI & ML I' },
     descriptions: {
       'zh-TW': '逐講讀 CMU AI 核心改制後的 07-280：從 linear regression、MLE 到 N-gram、attention/transformer 與 Q-learning，對照官方 Spring 2026 教材。',
       en: 'A lecture-by-lecture reading of CMU 07-280, the first half of CMU’s redesigned AI core: linear regression, MLE, N-grams, attention/transformers, and Q-learning, against the official Spring 2026 materials.',
@@ -699,6 +726,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'cmu-07-380',
     category: 'courses',
     names: { 'zh-TW': 'CMU 07-380 完整課程導讀', en: 'Reading CMU 07-380' },
+    titles: { 'zh-TW': 'CMU 07-380 AI & ML II 導讀', en: 'Reading CMU 07-380 AI & ML II' },
     descriptions: {
       'zh-TW': '接續 07-280，逐講讀 CMU 07-380 首開學期的 26 講：從邏輯與規劃到擴散模型，並標明 HW 與 Project 的公開進度。',
       en: 'Continuing from 07-280, a lecture-by-lecture reading of CMU 07-380’s first-offering 26 lectures — from logic and planning through diffusion models — with the release status of homework and project materials noted throughout.',
@@ -717,6 +745,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'harvard-cs181',
     category: 'courses',
     names: { 'zh-TW': 'Harvard CS181 逐週導讀', en: 'Harvard CS181 Weekly Guides' },
+    titles: { 'zh-TW': 'Harvard CS181 Machine Learning 導讀', en: 'Reading Harvard CS181 Machine Learning' },
     descriptions: {
       'zh-TW': '逐週讀 Harvard CS181（Machine Learning）：線性代數、微積分與機率的補課，到線性迴歸與後續模型的公開作業。',
       en: 'A week-by-week reading of Harvard CS181 (Machine Learning): the linear algebra, calculus, and probability refreshers, then linear regression and the models that follow, based on public homework.',
@@ -726,6 +755,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'berkeley-cs189-spring-2025',
     category: 'courses',
     names: { 'zh-TW': 'Berkeley CS189 導讀', en: 'Reading Berkeley CS189' },
+    titles: { 'zh-TW': 'Berkeley CS189 Introduction to Machine Learning 導讀', en: 'Reading Berkeley CS189 Introduction to Machine Learning' },
     descriptions: {
       'zh-TW': '逐講、逐份作業讀 Berkeley CS189（Introduction to Machine Learning）的公開教材，每篇標明採用學期，補齊 CS188 之後更完整的 ML 數學基礎。',
       en: 'A lecture-by-lecture, homework-by-homework reading of the public materials of Berkeley CS189 (Introduction to Machine Learning), with the term stated in every post, filling in the fuller mathematical foundations of ML after CS188.',
@@ -744,6 +774,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'mit-6s184',
     category: 'courses',
     names: { 'zh-TW': 'MIT 6.S184 導讀', en: 'Reading MIT 6.S184' },
+    titles: { 'zh-TW': 'MIT 6.S184 Generative AI with Stochastic Differential Equations 導讀', en: 'Reading MIT 6.S184 Generative AI with Stochastic Differential Equations' },
     descriptions: {
       'zh-TW': '依 IAP 2026 官方講義、投影片、錄影與三個 lab（含官方解答），逐講讀 MIT 6.S184：從 ODE／SDE、flow matching、score matching、classifier-free guidance、DiT 與 latent space，一路到離散擴散。',
       en: 'A lecture-by-lecture reading of MIT 6.S184 (IAP 2026) from the official lecture notes, slides, recordings, and three labs with solutions: ODEs/SDEs, flow matching, score matching, classifier-free guidance, DiT and latent spaces, and discrete diffusion.',
@@ -753,6 +784,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs231n',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS231N 導讀', en: 'Reading Stanford CS231N' },
+    titles: { 'zh-TW': 'Stanford CS231N Deep Learning for Computer Vision 導讀', en: 'Reading Stanford CS231N Deep Learning for Computer Vision' },
     descriptions: {
       'zh-TW': 'Stanford CS231N 電腦視覺深度學習導讀：依 Spring 2026 投影片與 A1–A3 作業，錄影部分對照 Spring 2025 YouTube 公開版。從影像分類、反向傳播、CNN、Transformer，一路走到偵測分割、自監督、生成模型、視覺語言與 3D。',
       en: 'A guided reading of Stanford CS231N (Deep Learning for Computer Vision), based on the Spring 2026 slides and assignments A1–A3, with the public Spring 2025 YouTube lectures for video. It runs from image classification, backprop, CNNs and Transformers through detection and segmentation, self-supervised learning, generative models, vision-language and 3D.',
@@ -807,6 +839,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs224r',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS224R 導讀', en: 'Reading Stanford CS224R' },
+    titles: { 'zh-TW': 'Stanford CS224R Deep Reinforcement Learning 導讀', en: 'Reading Stanford CS224R Deep Reinforcement Learning' },
     descriptions: {
       'zh-TW': '依 Spring 2026 的 17 份投影片、三份作業與 default project，讀 Stanford CS224R 從模仿學習、策略梯度、offline RL，到 RLHF、LLM 推理與機器人 VLA 的深度強化學習路線；Spring 2025 公開錄影當補充。',
       en: 'A reading of Stanford CS224R Spring 2026 through its 17 slide decks, three homeworks, and default project. It covers deep RL from imitation learning, policy gradients, and offline RL to RLHF, LLM reasoning, and robot VLAs, with the public Spring 2025 videos as a labeled supplement.',
@@ -816,6 +849,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'mit-6-5940',
     category: 'courses',
     names: { 'zh-TW': 'MIT 6.5940 導讀', en: 'Reading MIT 6.5940' },
+    titles: { 'zh-TW': 'MIT 6.5940 TinyML and Efficient Deep Learning Computing 導讀', en: 'Reading MIT 6.5940 TinyML and Efficient Deep Learning Computing' },
     descriptions: {
       'zh-TW': '以最近一屆完整的 Fall 2024 為主幹，逐講讀 MIT 6.5940 TinyML 與高效深度學習：pruning、quantization、NAS、蒸餾、MCU 部署、LLM 推論與後訓練、長上下文、diffusion、分散式與裝置端訓練，並對照進行中的 Fall 2026。',
       en: 'A lecture-by-lecture reading of MIT 6.5940 TinyML and Efficient Deep Learning Computing, based on the latest complete edition (Fall 2024): pruning, quantization, NAS, distillation, microcontroller deployment, LLM inference and post-training, long context, diffusion, and distributed and on-device training, cross-referenced with the in-progress Fall 2026 offering.',
@@ -825,6 +859,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'cmu-10-423-generative-ai',
     category: 'courses',
     names: { 'zh-TW': 'CMU 10-423 導讀', en: 'Reading CMU 10-423' },
+    titles: { 'zh-TW': 'CMU 10-423 Generative AI 導讀', en: 'Reading CMU 10-423 Generative AI' },
     descriptions: {
       'zh-TW': '依 Spring 2026 公開教材重建的 40 篇核心教學，從語言模型、擴散與調適到多模態、規模化、世界模型及評量；另保留 12 篇主題導覽，每篇分清原課範圍與本站學習順序。',
       en: 'A 40-guide core path based on the public Spring 2026 materials, from language models and diffusion to adaptation, multimodal systems, scaling, world models, and assessment, with 12 additional topic maps.',
@@ -834,6 +869,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs149',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS149 導讀', en: 'Reading Stanford CS149' },
+    titles: { 'zh-TW': 'Stanford CS149 Parallel Computing 導讀', en: 'Reading Stanford CS149 Parallel Computing' },
     descriptions: {
       'zh-TW': '依 Stanford CS149 Fall 2025 官方投影片、5 個程式作業與 4 份書面作業，逐講導讀平行計算：多核與 SIMD、工作分配與 locality、GPU/CUDA、DNN 與 AI 加速器（Trainium2）、資料中心 AI、AI 驅動最佳化，到 cache coherence、lock-free 與 transactional memory；錄影以 2023 公開版補充。',
       en: 'A lecture-by-lecture reading of Stanford CS149 Parallel Computing (Fall 2025) using its official slides, five programming assignments, and four written assignments: multi-core and SIMD, work distribution and locality, GPUs and CUDA, DNNs and AI accelerators (Trainium2), datacenter AI, AI-driven optimization, then cache coherence, lock-free programming, and transactional memory, with the public 2023 videos as a labeled supplement.',
@@ -843,6 +879,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cs234',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS234 導讀', en: 'Reading Stanford CS234' },
+    titles: { 'zh-TW': 'Stanford CS234 Reinforcement Learning 導讀', en: 'Reading Stanford CS234 Reinforcement Learning' },
     descriptions: {
       'zh-TW': '依 Winter 2026 的 14 講投影片、三份作業與起始碼，對照 Spring 2024 公開錄影，讀 Stanford CS234 的強化學習路線：MDP 規劃、無模型評估與控制、策略梯度與 PPO、模仿學習與 RLHF／DPO、bandit 探索理論、MCTS 與價值對齊。',
       en: 'Reading Stanford CS234 Reinforcement Learning through the Winter 2026 slides for 14 lectures and three assignments with starter code, alongside the public Spring 2024 videos: MDP planning, model-free evaluation and control, policy gradients and PPO, imitation learning and RLHF/DPO, exploration theory with bandits, MCTS, and value alignment.',
@@ -852,6 +889,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'harvard-cs2881r',
     category: 'courses',
     names: { 'zh-TW': 'Harvard CS2881R 導讀', en: 'Reading Harvard CS2881R' },
+    titles: { 'zh-TW': 'Harvard CS2881R AI Safety 導讀', en: 'Reading Harvard CS2881R AI Safety' },
     descriptions: {
       'zh-TW': '逐講讀 Harvard CS 2881R AI Safety（Boaz Barak，Fall 2025）：從 emergent misalignment 的 HW0 出發，經過安全訓練、jailbreak 與 prompt injection、model spec 與內容政策、scheming 與可解釋性，到遞迴自我改進、能力量測、經濟與心理健康衝擊，以及學生的重現與期末研究。依據公開錄影、閱讀清單、投影片與作業規格。',
       en: 'A lecture-by-lecture reading of Harvard CS 2881R AI Safety (Boaz Barak, Fall 2025). It starts from the emergent-misalignment HW0, then covers safety training, jailbreaks and prompt injection, model specs and content policies, scheming and interpretability, recursive self-improvement, capability measurement, and the economic and mental-health impacts, ending with the students\' reproduction and final research projects. It is based on the public recordings, reading lists, slides and assignment specs.',
@@ -1062,6 +1100,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'stanford-cme295',
     category: 'courses',
     names: { 'zh-TW': 'Stanford CME295 導讀', en: 'Reading Stanford CME295' },
+    titles: { 'zh-TW': 'Stanford CME295 Transformers & Large Language Models 導讀', en: 'Reading Stanford CME295 Transformers & Large Language Models' },
     descriptions: {
       'zh-TW': '逐講讀 Stanford CME295: Transformers & Large Language Models：從 Transformer 架構一路走到 LLM 評估與 AI agent，並對照 CS224N、CS336 的分工。',
       en: 'A lecture-by-lecture reading of Stanford CME295: Transformers & Large Language Models, from the Transformer architecture to LLM evaluation and AI agents, and how it divides the ground with CS224N and CS336.',
@@ -1225,6 +1264,7 @@ export function getSeriesSummaries(posts: Post[], lang: Lang, now = new Date()):
       );
       return {
         name,
+        title: definition?.titles?.[lang] ?? name,
         slug,
         description: meta.descriptions[lang],
         category,

@@ -118,6 +118,20 @@ describe('Stanford course series registry', () => {
       .toBe(`/series/${encodeURIComponent(name)}`);
   });
 
+  it('shows the full course title while keeping the frontmatter name as identity', () => {
+    const [zh] = getSeriesSummaries([
+      post('ai/cs146s-week-1', 'zh-TW', { name: 'CS146S：AI 原生開發十週', order: 1 }),
+    ], 'zh-TW', new Date('2026-08-22'));
+    const [unregistered] = getSeriesSummaries([
+      post('learning/unregistered-series', 'zh-TW', { name: '尚未登錄系列', order: 1 }),
+    ], 'zh-TW', new Date('2026-08-22'));
+
+    expect(zh.name).toBe('CS146S：AI 原生開發十週');
+    expect(zh.title).toBe('Stanford CS146S The Modern Software Developer 導讀');
+    expect(zh.slug).toBe('cs146s');
+    expect(unregistered.title).toBe('尚未登錄系列');
+  });
+
   it('merges posts that name the same series in either language into one summary', () => {
     const summaries = getSeriesSummaries([
       post('tech/model-family-claude-en', 'en', { name: 'AI Model Families', order: 1 }),

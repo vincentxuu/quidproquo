@@ -19,7 +19,7 @@ const isEn = lang === 'en';
 const titleCollator = new Intl.Collator(lang, { numeric: true, sensitivity: 'base' });
 const sortedCourses = seriesList
   .filter(series => series.category === 'courses')
-  .sort((a, b) => titleCollator.compare(a.name, b.name));
+  .sort((a, b) => titleCollator.compare(a.title, b.title));
 let courseIndex = 0;
 // 只重排課程卡片所在的位置，其他分類保留最新文章日期的順序。
 const directorySeries = seriesList.map(series =>
@@ -106,7 +106,7 @@ const visibleSchools = SERIES_SCHOOLS.filter(school => (schoolCounts.get(school.
                 <span>{series.count} {isEn ? (series.count === 1 ? 'post' : 'posts') : '篇'}</span>
                 <time datetime={series.latestDate.toISOString()}>{series.latestDate.toLocaleDateString(isEn ? 'en-US' : 'zh-TW')}</time>
               </div>
-              <h2>{series.name}</h2>
+              <h2>{series.title}</h2>
               <p>{series.description}</p>
             </a>
           );
