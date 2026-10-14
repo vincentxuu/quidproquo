@@ -464,4 +464,6 @@
 - 來源：使用者問林軒田課程總覽「為啥內容看起來很查證」，接著指出一般文章也有同樣問題；同意先做規則與檢查器，示範看過再批次回填。
 - 已完成：writing-guide「查證過程不寫進正文」三層分工；`scripts/check-process-leak.mjs` 接進 verify（全站只計數，pre-commit 對被暫存的文章逐篇阻擋，退回完整 verify 時也擋）；english-speaking-post、deep-research、post、course-guide-contract 指向新規則。示範：林軒田總覽中英重寫（獨立審稿＋複審通過，報告 `.work/reviews/2026-10-14-htlin-overview-review.md`）、英文口說站立會議篇拿掉「仍待核對」、pplx-embed 加 topic 豁免。
 - 待決：全站 `node scripts/check-process-leak.mjs --list` 目前 121 篇超標（中英合計，2026-10-14）。大宗是「這一篇可以確認與不能確認的」（cs2881r、ntu-ml2026 等系列）、Stanford 主線「附錄：數字與查證方式」、英文口說「仍待核對」、課程總覽查課型 H2（cs2881r、nthu-nlp-kao、ntu-adl2025、mit-65940、ntu-ml2026）。>20 檔批次改動，要使用者決定批次順序；課程總覽要比照林軒田篇走獨立審稿。
+- 進度（2026-10-14，使用者同意先做課程總覽）：cs2881r、nthu-nlp-kao、ntu-adl2025、mit-65940、ntu-ml2026 五篇總覽中英重寫，各經獨立審稿與複審，報告在 `.work/reviews/2026-10-14-*-overview-review.md`；nthu 第 1、2 篇的查證句與兩篇地圖的反向引用一併修正。檢查器補上「於日期對照／比對」句型、票價等時效資料的日期不算過程。
+- 下一批：其餘超標文章依 `--list` 分批（「可以確認與不能確認」節、Stanford 主線附錄、英文口說「仍待核對」）。
 - 副作用：任何 session 改到超標文章時 pre-commit 會擋，要求當場修好。全部回填後把全站模式改成阻擋。

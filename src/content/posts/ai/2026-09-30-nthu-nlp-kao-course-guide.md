@@ -5,11 +5,12 @@ category: ai
 type: guide
 tags: [nthu-nlp, nthu, ai-course, nlp, taiwan]
 lang: zh-TW
+math: true
 series:
   name: "清大高宏宇 自然語言處理 導讀"
   order: 0
-tldr: "清大資工高宏宇老師的《自然語言處理》是 TAICA 聯盟的研究所級主導課程，Syllabus 寫明開放 1200 人、中文授課，從 TF-IDF、詞向量一路講到 RLHF、PEFT 與 RAG。Fall 2025 的投影片、32 支課堂錄影、4 份作業題目與 starter notebook 都放在 GitHub，評為 A3；拿不到的是解答、評分與期末專題規格。Fall 2026 正在進行，只放到 W3，評為 A2；評分改成作業 75%＋實體期中考 25%，並新增 Reasoning／Agent 單元。"
-description: "清大高宏宇《自然語言處理》系列入口：TAICA 主導課程的定位、Fall 2025 與 Fall 2026 兩學期的時段／評分／教材對照、2025 README 週次欄的陷阱、A0–A3 公開程度評級與缺口、20 篇系列地圖與三種讀法。依據兩學期的 GitHub README、W0_Syllabus.pdf、Syllabus-115.pdf、Assignments README、TAICA 開課清單與 IKMLab YouTube 錄影。"
+tldr: "清大高宏宇《自然語言處理》用一學期走完一條線：先把文字變成數字（TF-IDF、詞向量）、再處理序列（RNN、attention、Transformer、sub-word）、接著是預訓練模型（BERT、T5、GPT 與解碼評估）、讓模型聽指令與省參數微調（RLHF、PEFT），最後外接知識（RAG）與推理。Fall 2025 的投影片、32 支錄影、4 份作業與 starter notebook 都在 GitHub 公開，中文授課；作業沒有公開解答。"
+description: "清大高宏宇《自然語言處理》系列入口：六段主線各自在學什麼、一個用 TF-IDF 手算檢索分數並看出詞彙對不上問題的例子、先備與自我檢查、三種讀法與校外拿得到的材料，以及本系列 19 篇的篇目。"
 draft: false
 glossary:
   - term: "TAICA"
@@ -24,97 +25,96 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** 導言附第 1 週週二的錄影（1 小時 25 分），各週錄影在各篇導讀。[影片來源與說明](#課程影片來源)
 
-清華大學資工系高宏宇老師的[《自然語言處理》](https://github.com/IKMLab/NTHU_Natural_Language_Processing)，是一門掛在 [TAICA 臺灣大專院校人工智慧學程聯盟](https://taicatw.net/fall-114/)底下的主導課程。兩個學期的 Syllabus 都寫著班級人數 1200 人、開課級別研究所；TAICA 開課清單標的授課語言是中文。它從「電腦為什麼讀不懂『冬天：能穿多少穿多少』」講起，經過 TF-IDF、詞向量、RNN、Transformer、BERT，一路講到 RLHF、PEFT 與 RAG。
+清華大學資工系高宏宇老師的[《自然語言處理》](https://github.com/IKMLab/NTHU_Natural_Language_Processing)是 [TAICA 臺灣大專院校人工智慧學程聯盟](https://taicatw.net/fall-114/)的主導課程，研究所級、中文授課，聯盟學校的學生同步遠距修課。投影片、錄影、作業都放在實驗室的 GitHub repo，校外讀者拿得到的材料和修課生幾乎一樣，只差解答與批改。
 
-對校外讀者來說，這門課最特別的是教材放的位置：不在學校的課程網站，而在實驗室的 [GitHub repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing)。每週的投影片、YouTube 直播錄影連結、作業 PDF 和 notebook 都掛在同一張表上。
+這門課回答一個問題：電腦怎麼從「讀不懂文字」走到「能回答問題的 LLM」？它從「冬天：能穿多少穿多少」這種一句兩讀的例子講起，一路經過 TF-IDF、詞向量、RNN、Transformer、BERT，講到 RLHF、PEFT 與 RAG。每一步都在補前一步的缺口，所以照順序讀最能看出技術為什麼長成現在這樣。
 
-這篇是系列入口，只回答三件事：這門課的定位與兩學期差異、校外讀者實際拿得到什麼、該從哪裡開始讀。每週的內容留給後面各篇。
+這篇是系列入口：先講主線的六段各自在學什麼，再用一個 TF-IDF 手算例子示範第一週的核心想法與它的限制，最後給先備檢查與讀法。下面是第 1 週週二的錄影，內容對應本系列第 1 篇；可以先看影片再讀，或讀完第 1 篇再回來對照。
 
-**本文依據**：[repo 首頁 README（2026 版）](https://github.com/IKMLab/NTHU_Natural_Language_Processing)、[2025 README](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)、[2025 W0_Syllabus.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W0_Syllabus.pdf)、[2026 Syllabus-115.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2026/Slides/Syllabus-115.pdf)、[2025 作業總表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/README.md)、[2026 作業總表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2026/Assignments/README.md)、TAICA [114 學年上學期](https://taicatw.net/fall-114/)與[115 學年上學期](https://taicatw.net/fall-115/)開課清單，以及 [IKMLab NTHU YouTube 頻道](https://www.youtube.com/@IKMLabNTHU)的錄影。全部在 2026-09-30 打開核對，錄影逐支用 YouTube oEmbed 確認可公開播放。
+```youtube
+url: https://www.youtube.com/watch?v=X7XJcm9wfFA
+title: Fall 2025 Week 1 Tue. 錄影
+```
 
-## 這門課的硬事實
+## 主線：六段
 
-- **定位**：2025 的 Syllabus 封面寫「主導課程5：自然語言處理」，並註明 1200 人中保留 100 人給清大，聯盟學校平均每校約 50 人。TAICA 開課清單把它歸在「人工智慧自然語言技術學分學程」，難度標了八顆星，課程屬性是研究所課程。
-- **講者**：Syllabus 第一頁寫高宏宇是清華大學資訊工程系教授；2026 版另列清華大學計算與通訊中心主任，並列出多項 NLP 資料競賽名次。
-- **課程目標**：兩版 Syllabus 同一段話：涵蓋 NLP 與大型語言模型的基礎與前瞻技術，並提供理論基礎與實際應用。
-- **不教什麼**：Syllabus 的「Not included」欄列了 Speech、Prompt usage、開發新模型、解決生成式 AI 問題。2025 版還有一頁「Is NOT designed for」，對象包括「學如何魔法詠唱」和「沒考試，想靠共同協作完成作業的人」。
-- **上課平台**：兩學期都用 [NTU COOL 課號 41436](https://cool.ntu.edu.tw/courses/41436)，校外讀者進不去；公開的只有 GitHub 與 YouTube。
+### 把文字變成數字（第 1–3 篇）
 
-## 兩學期對照：Fall 2025 與 Fall 2026
+[第 1 篇](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing)從資訊檢索的角度，把倒排索引、斷詞、stemming、TF-IDF、BM25 串成一條管線：文件越常出現某個字、這個字在其他文件越少見，分數就越高。這條管線的死穴是同義詞與一詞多義，於是走到 LSA 的 SVD 降維。[第 2 篇](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)換成「預測下一個字」：先用 bigram 計數表、add-one smoothing 與 perplexity 講統計語言模型，再用 Word2Vec 的負採樣學出稠密詞向量，最後用 RNN 處理任意長的句子。[作業 1](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy) 拿 Google Analogy 的近兩萬題考詞向量，看「king − man + woman」是不是真的接近 queen。
 
-本系列以已經結束的 Fall 2025 為基準，Fall 2026 的差異集中寫在這裡和期末專題那一篇。
+### 處理序列（第 4–7 篇）
 
-| | Fall 2025（114-1） | Fall 2026（115-1，進行中） |
-|---|---|---|
-| 同步遠距時段 | 週二 13:20–15:10、週四 13:20–14:10 | 週四 9:00–12:00 |
-| TAICA 盟校型態 | 封閉式鏡像課程／條件式衛星課程 | 鏡像課程 |
-| 評分 | 作業 70%（Syllabus 寫 5 份）＋期末專題 30% | 作業 75%（4 份）＋期中考 25% |
-| 專題／考試 | 3–4 人一組；Proposal 6%、Progress report 6%、Poster 6%、Report 12%；No GPU provided | 期中考排在 W14，實體考試 |
-| 新單元 | 無 | Syllabus 新增「NLP issues in LLM era：Reasoning / Agentic AI」，W16 排 Reasoning / Agent |
-| 算力 | 專題頁寫 No GPU provided | TAICA 算力補助：9 月到 12 月，總額 9 萬元，例如 100 運算元帳號 100 名或 500 運算元帳號 40 名，細節待公告 |
-| 批改 | Syllabus 未寫 | Human-TA 批改，AI-TA 協助；投影片寫「Your Insight, not GPT insight」 |
-| 公開進度 | W1–W16 全部掛上 | 只到 W3 |
+輸入和輸出長度不同時（翻譯、摘要），分類器那套「最後接一層」不能用，要 encoder-decoder。[第 4 篇](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention)講 RNN 的梯度消失、LSTM 的三個閘門，再用 attention 讓解碼時直接看整句輸入。[第 6 篇](/posts/ai/2026-09-30-nthu-nlp-transformers)拿掉 RNN：self-attention 讓每個字直接看所有字、用矩陣乘法一次算完，代價是分不出詞序，所以補上位置編碼。[第 7 篇](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization)講詞彙表為什麼是「半個字」：BPE 反覆合併最常一起出現的一對字元，沒看過的詞也切得出來。[作業 2](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic) 把「14*(43+20)=882」當字元序列，用 LSTM 在「=」之後逐字生成答案。
 
-時段與盟校型態出自 TAICA 開課清單，其餘出自兩份 Syllabus。有一個小地方要注意：2025 資料夾裡的 W0_Syllabus.pdf，封面寫的是「113-1 主導課程5」，也就是 2024 秋季的學期代號，時段則和 TAICA 114 學年上學期清單一致。這份檔案看起來是沿用前一年的封面，本系列只把它當作 2025 年公開的課綱來引用。
+### 預訓練模型（第 8–11 篇）
 
-2026 的 Syllabus 開頭換了一段「Why Study Natural Language Processing?」，引用 Eduard Hovy 在 ROCLING 2024 的演講「Worries in the LLM era」，把 LLM 時代的 NLP 分成工程、應用與研究三個方向。這段在 2025 版沒有。
+[第 8 篇](/posts/ai/2026-09-30-nthu-nlp-bert-family)從「I record the record」講起：Word2Vec 給兩個 record 同一個向量，要靠上下文決定意思。換成 Transformer 後分成三條路：encoder 的 BERT（遮字預測，擅長理解）、encoder-decoder 的 T5 與 BART、decoder 的 GPT（只預測下一個字，後來成為主流）。[第 10 篇](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation)講生成時怎麼選字：greedy 一步錯就回不去，beam search 同時保留幾條候選，top-k／top-p 用抽樣換多樣性；評分則有 BLEU（數 n-gram 重疊，太短的句子要扣分）、ROUGE 與 perplexity。[作業 3](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3) 讓一個 BERT 接兩個頭，同時做 1–5 分回歸與三類分類；[第 11 篇](/posts/ai/2026-09-30-nthu-nlp-gpt2-t5-summarization)用 GPT-2 與 mT5 各做一次中文摘要：decoder-only 要把文章和摘要接成一條序列、改用 left padding，並把不該算 loss 的位置標成 −100；encoder-decoder 則由工具自動處理。
 
-## 2025 README 的週次欄不能照抄
+### 讓模型聽指令、用少量參數微調（第 12–13 篇）
 
-打開 [2025 README](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) 會看到 Week、Topics、Slide、Video、HW 五欄。**Topics 欄是 Syllabus 的課綱模板，和那一列實際掛的投影片對不起來。** 例如 W7 的 Topics 寫「Python for text tutorial (1/2)」，那一列掛的卻是解碼策略投影片和 Hugging Face BERT 助教課；W10 寫「Decoding Strategies」，掛的是 RAG 投影片。
+[第 12 篇](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf)說明「會接話」和「聽得懂指令」差在哪：最大概似目標分不出編造事實和用錯同義詞哪個嚴重，所以 InstructGPT 多了三步：SFT 學人怎麼寫、reward model 學人怎麼評分、PPO 依評分調整並用 KL penalty 綁住不要跑太遠。[第 13 篇](/posts/ai/2026-09-30-nthu-nlp-peft)先算一筆帳：Llama 2-7B 全參數微調約要 56GB 顯示卡記憶體，只訓練一小撮參數就降到約 17GB，因為梯度和優化器狀態幾乎歸零。方法分成加參數（Adapter、Prompt Tuning）、挑參數（BitFit）、重參數化（LoRA）與混合四類。
 
-投影片檔名的週次也不可靠：`W3_Transformers.pdf` 實際掛在 W4，`W11_RAG.pdf` 掛在 W10。本系列一律以「那一列實際掛的投影片與錄影」為準。下表是依此整理的 Fall 2025 實際進度：
+### 外接知識（第 14–17 篇）
 
-| 週 | 實際掛的教材 | 系列篇目 |
-|---|---|---|
-| W1 | Syllabus、NLP brief | [1 NLP 簡介與傳統文字處理](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing) |
-| W2 | 詞向量與語言模型（RNN）；HW1 | [2](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)、[3](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy) |
-| W3 | Seq2seq 與 Attention | [4](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention) |
-| W4 | PyTorch 助教課、Transformers | [5](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic)、[6](/posts/ai/2026-09-30-nthu-nlp-transformers) |
-| W5 | Sub-word tokenization；HW2 | [7](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization)、[5](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic) |
-| W6 | BERT and its family | [8](/posts/ai/2026-09-30-nthu-nlp-bert-family) |
-| W7 | 解碼與評估、HF BERT 助教課 | [10](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation)、[9](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3) |
-| W8 | GPT-3、InstructGPT、RLHF；HW3 | [12](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf)、[9](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3) |
-| W9 | GPT-2／T5 助教課、PEFT | [11](/posts/ai/2026-09-30-nthu-nlp-gpt2-t5-summarization)、[13](/posts/ai/2026-09-30-nthu-nlp-peft) |
-| W10 | RAG | [14](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers) |
-| W11 | 只有錄影，沒有掛投影片 | [15](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced) |
-| W12 | LLM API 助教課；HW4 | [16](/posts/ai/2026-09-30-nthu-nlp-llm-api)、[17](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4) |
-| W13 | RAG 助教課 1、2 | [17](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4) |
-| W14 | 課程總結、DeepMind Reasoning 演講筆記 | [18](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning) |
-| W15–W16 | 期末專題報告錄影 | [19](/posts/ai/2026-09-30-nthu-nlp-term-project-2026-changes) |
+LLM 會一本正經地答錯事實，RAG 的做法是先檢索、再生成。[第 14 篇](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers)講怎麼找對資料：稀疏向量（TF-IDF、BM25）便宜可靠，稠密向量抓得到同義改寫；cross-encoder 準但慢，bi-encoder 可以先把文件算好向量。[第 15 篇](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced)把檢索器接上生成器，整理改寫查詢、讓生成器不怕雜訊、決定何時檢索（Self-RAG）等修法。[第 16 篇](/posts/ai/2026-09-30-nthu-nlp-llm-api)示範用 API 做 prompt、JSON 輸出與 few-shot；[第 17 篇](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4)的兩堂助教課各做一個 RAG，第二堂示範 BM25 加 cosine 的混合檢索；作業 4 套用第一堂的 LangChain＋Chroma 骨架，做一個回答貓咪冷知識的 RAG，回報 recall@k 與 exact match。
 
-## 公開程度：Fall 2025 是 A3，Fall 2026 目前 A2
+### 總結與推理（第 18–19 篇）
 
-評級採用本站[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的 A0–A3：A2 是教材部分開放、可以做選題式導讀但必須列出缺口；A3 是系統化教材加上作業與必要檔案，足以自學。
+[第 18 篇](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning)把整學期分成基礎、模型、進展三欄收尾，再整理 Denny Zhou 的演講：預訓練模型本來就會推理，關鍵在解碼，用 CoT decoding 與 self-consistency 把推理引出來。[第 19 篇](/posts/ai/2026-09-30-nthu-nlp-term-project-2026-changes)講期末專題的評分結構，以及 Fall 2026 改成期中考的變化。
 
-### Fall 2025：A3 足以自學
+## 手算一次：TF-IDF 怎麼打分，又在哪裡失手
 
-拿得到的東西：
+這是本文的教學例子，用來看第 1 週的核心想法，以及它為什麼一路延伸到詞向量和 RAG。
 
-- **講課投影片**：W1–W10 與 W14 的講課 PDF 都在 [2025/Slides](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Slides)。
-- **錄影**：README 掛了 32 支課堂錄影（W1–W16，每週一到三支）加 4 支作業說明片，全部在 IKMLab NTHU 頻道公開。W8 的 HF BERT 助教課標題沒有「[Fall 2025]」字樣，寫的是「Week 8 Tue. [助教課]」，卻掛在 README 的 W7 列。
-- **作業**：[作業總表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/README.md)列了 4 份，Word Analogy、Arithmetic、Multi-output learning、RAG。每份都有說明影片、題目 PDF、報告模板與 `main.ipynb`，資料檔也放在資料夾裡，例如 HW1 的 `questions-words.csv`、HW2 的 `arithmetic_train.csv` 與 `arithmetic_eval.csv`、HW4 的 `cat-facts.txt` 與 `questions_answers.txt`；HW3 用 SemEval 2014 Task 1 資料集。
-- **助教課 notebook**：[2025/Reference](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Reference) 有 BERT、GPT-2／T5 摘要、RAG 兩堂實作與 LLM API 的 notebook。
+三份已經斷好詞的文件：
 
-缺口：
+- D1：貓　喜歡　魚
+- D2：狗　喜歡　骨頭
+- D3：貓咪　討厭　洗澡
 
-- 沒有公開解答或評分腳本，這些在 NTU COOL。唯一公開的成績資料是 Syllabus-115 第 46 頁的 2025 成績分布圖，見[期末專題與 2026 變化](/posts/ai/2026-09-30-nthu-nlp-term-project-2026-changes)。
-- Syllabus 寫「5 assignments for each student」，repo 只有 4 份。本系列不猜第 5 份是什麼。
-- 期末專題只有 Syllabus 上的評分結構與報告錄影，沒有題目或規格文件。
-- W11 只有錄影，沒有掛投影片。
-- 助教課投影片封面日期是 2024 年，LLM API notebook 裡的模型也是 2024 年的型號。讀到那幾篇時會標出教材年份。
+TF-IDF 給每個字的權重是「它在這份文件出現幾次」乘上 $\text{idf} = \ln(N / \text{df})$，$N$ 是文件數，df 是有幾份文件含這個字。這裡 $N = 3$：
 
-### Fall 2026：A2，進行中
+- 「貓」只出現在 D1，idf $= \ln 3 \approx 1.10$。
+- 「喜歡」出現在 D1、D2，idf $= \ln 1.5 \approx 0.41$。
 
-[首頁 README](https://github.com/IKMLab/NTHU_Natural_Language_Processing) 目前掛了 W1–W3：Syllabus-115.pdf、`W1_NLP_brief_v2.pdf`（W1 與 W2 都用它）、`W2_Word embeddings and Language Modeling (RNN)_v2.pdf`（W3），3 支錄影，以及 W3 發下的 HW1。[2026 作業總表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2026/Assignments/README.md)只有 Assignment 1 Word Analogy，說明影片是[這支](https://youtu.be/4nktsdfU24k)。W4–W16 的欄位都還是空的。
+查詢「喜歡 貓」，把查詢字的權重加起來：D1 $= \ln 1.5 + \ln 3 = \ln 4.5 \approx 1.50$，D2 $= 0.41$，D3 $= 0$。D1 排第一，合理：「貓」比「喜歡」少見，所以更有鑑別力，權重也更高。
 
-有一個容易誤讀的地方：`2026/Slides` 資料夾裡已經有 `W3_Transformers.pdf`、`W11_RAG.pdf` 等和 2025 同名的檔案，但 2026 README 沒有連到它們。本系列不把它們當作 2026 已公開的教材。
+問題出在 D3。它明明在講貓，分數卻是 0，因為斷詞後「貓咪」和「貓」是不同的詞。這就是第 1 篇說的「詞彙對不上」。
 
-## 系列地圖
+**這個例子的意思：** 只靠字面比對，少見的字會被正確加重，但同義詞永遠對不上。第 2 篇的詞向量讓「貓」和「貓咪」的向量靠近，第 14 篇的稠密檢索把同一個想法用在 RAG 上；但稠密向量也有自己的弱點（專有名詞、精確數字），所以第 17 篇的助教課把 BM25 和 cosine 一起用。整門課有很多地方都是這樣：後一步補前一步的缺口，又帶來新的取捨。
 
-系列照 Fall 2025 的實際順序走：「看得到文字 → 表示 → 序列 → 架構 → 預訓練 → 生成與評估 → LLM 對齊 → 省參數微調 → 外接知識 → 推理」。助教課和對應作業合成一篇，讓你在同一篇裡學工具、再用工具交作業。
+## 先備與自我檢查
+
+需要 Python、基本的線性代數與機率，以及一點機器學習（知道什麼是損失函數和梯度下降）。線性代數可以用 [Harvard CS181 的線性代數複習](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review)自我檢查，機率可以先讀 [Stanford CS109 導讀](/posts/learning/2026-08-21-stanford-cs109-probability)，損失函數與梯度下降見[台大 ADL 第 2 堂](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop)。作業用 PyTorch 與 Hugging Face，第 5、9 篇的助教課會從頭教。課綱寫明這門課不教 prompt 使用技巧，也寫明不適合「沒考試，想靠共同協作完成作業的人」。
+
+讀完這篇，試著回答：
+
+1. 上面的例子再加一份文件 D4「貓 睡覺」，「貓」的 idf 變成多少？D1 的分數怎麼變？
+   答：$N = 4$、df $= 2$，idf $= \ln 2 \approx 0.69$；「喜歡」的 idf 也從 0.41 升到 $\ln 2 \approx 0.69$（文件變多，它變得相對少見），所以 D1 $= 2\ln 2 \approx 1.39$，只比原本的 1.50 低一點。「貓」變常見，權重就下降。
+2. Self-attention 為什麼需要位置編碼？
+   答：它讓每個字同時看所有字，計算本身不管順序，「狗咬人」和「人咬狗」會得到一樣的結果，要另外把位置加進去。
+3. BERT 和 GPT 的預訓練目標差在哪？各自擅長什麼？
+   答：BERT 遮掉部分字、用前後文預測（擅長理解）；GPT 只用前文預測下一個字（擅長生成）。
+4. InstructGPT 的 PPO 為什麼要加 KL penalty？
+   答：避免模型為了討好 reward model 跑得離原本的模型太遠，產生 reward model 沒見過、分數卻高的怪輸出。
+5. RAG 的檢索為什麼常用 BM25 和稠密向量混合？
+   答：BM25 抓得到精確字詞與專有名詞，稠密向量抓得到同義改寫，兩者的失誤互補。
+
+## 三種讀法
+
+本系列以已經結束的 Fall 2025 為準，照實際上課順序排；助教課和對應作業合成一篇。
+
+- **快速讀一輪（8 篇）**：1 → 2 → 6 → 8 → 12 → 13 → 14 → 18。只走講課，適合想知道「從 TF-IDF 到 RAG 中間發生了什麼」的人。
+- **完整跟課（19 篇）**：照順序讀，每篇附的錄影就是對應週次的直播，大約一學期的份量。
+- **只做作業**：3 → 5 → 9 → 17，加上工具篇 11 和 16。每份作業都有題目 PDF、`main.ipynb` 與資料檔，可以直接丟進 Colab。作業沒有公開解答，課程平台（NTU COOL）要修課生帳號，所以要自己設驗收方法，例如作業 1 先用預訓練 GloVe 的正確率當對照組。
+
+兩件會影響讀法的事：[2025 README](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) 的 Topics 欄是課綱模板，和那一列實際掛的投影片對不上，照本系列的順序讀就好；LLM API 助教課用的是 2024 年的模型型號，部分已經退役，第 16 篇會說明怎麼換。
+
+Fall 2026 正在進行，改成作業 75%＋實體期中考 25%，並新增 Reasoning／Agent 單元；材料只公開到前幾週，本系列不引用。
+
+## 本系列篇目
 
 | # | 篇目 | 聚焦問題 |
 |---|---|---|
@@ -138,38 +138,34 @@ glossary:
 | 18 | [課程總結與 LLM Reasoning 筆記](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning) | 預訓練模型不靠 prompt 會不會推理？ |
 | 19 | [期末專題與 Fall 2026 改版](/posts/ai/2026-09-30-nthu-nlp-term-project-2026-changes) | 2026 為什麼改成期中考？ |
 
-## 三種讀法
 
-**快速讀一輪（8 篇）**：1 → 2 → 6 → 8 → 12 → 13 → 14 → 18。這條線只走講課，跳過助教課和作業，適合想知道「從 TF-IDF 到 RAG 中間發生了什麼」的人。
+## 今晚可以做的事
 
-**完整跟課（20 篇）**：照 0 到 19 的順序讀，每篇附的錄影連結就是對應週次的直播。這條線大約是一學期的份量。
-
-**只做作業（6 篇）**：3 → 5 → 9 → 17，外加兩篇工具篇 11 和 16。每篇都會列出題目 PDF、starter notebook、資料檔與說明影片的連結，你可以直接開 `main.ipynb` 動手。記得沒有公開解答可以對，交出去也沒有人改。
-
-**今晚能做的事**：打開 [2025 README](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)，點 W1 的 Slide1 和 Video1，看第一週在講什麼；想直接動手的人，把 [HW1 的 main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/main.ipynb) 丟進 Colab。
+1. 打開 [2025 README](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)，點 W1 的投影片，翻到 TF-IDF 那幾頁，對照上面的手算例子。
+2. 把 [作業 1 的 main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/main.ipynb) 丟進 Colab，跑到載入 GloVe 那一格。
+3. 讀[第 1 篇](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing)。
 
 ## 延伸閱讀
 
-內容重疊的部分，本系列照樣完整講，下面只是給想對照另一種講法的人：
-
-- [Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)：英文授課的 NLP 主課，逐屆比對 2019 到 2026 的課表。
+- [Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)：英文授課的 NLP 主課。
 - [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)：偏自然語言理解、檢索與評估方法。
-- [台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)：同樣是中文授課、錄影全開，但主軸是 AI Agent 與模型行為。
+- [台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)：同樣是中文授課、錄影全開，主軸是 AI Agent 與模型行為。
 
 ## 課程影片來源
 
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+本文是課程總覽，導言嵌入第 1 週週二的錄影；其餘各週請從官方 README 的週次表查找，各篇導讀也附了對應錄影。
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+- [第 1 週週二錄影](https://www.youtube.com/watch?v=X7XJcm9wfFA)（導言嵌入，1 小時 25 分）
 
-查核日期：2026-10-10。
+查核日期：2026-10-14。
 
 ## 更新紀錄
 
+- 2026-10-14：正文改寫成導讀：六段主線各自講出機制，補 TF-IDF 手算例子與自我檢查，導言嵌入第 1 週錄影；兩學期對照、README 週次欄、公開程度評級縮成讀法裡的幾句。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
-- 2026-10-10：重查影片狀態。即時確認官方入口可開啟，單一講次錄影連結不適用於總覽文，狀態維持不變。
 
 ## 參考資料
 
@@ -185,3 +181,5 @@ glossary:
 - [IKMLab NTHU YouTube 頻道](https://www.youtube.com/@IKMLabNTHU)
 - [Fall 2025 Week 1 Tue. 錄影](https://www.youtube.com/live/X7XJcm9wfFA)
 - [Fall 2026 Week 1 錄影](https://youtube.com/live/EEbwXXoVQPY)
+- [W1_NLP_brief.pdf（Fall 2025）](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W1_NLP_brief.pdf) — 第 1 週投影片：TF-IDF、BM25、詞彙對不上與 LSA
+- [W2_Word embeddings and Language Modeling (RNN).pdf（Fall 2025）](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W2_Word%20embeddings%20and%20Language%20Modeling%20%28RNN%29.pdf) — 第 2 週投影片：語言模型、詞向量與 RNN

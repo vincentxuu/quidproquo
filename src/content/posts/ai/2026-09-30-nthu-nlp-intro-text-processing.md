@@ -30,7 +30,7 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-> **版本說明**：本文依據[清大高宏宇《自然語言處理》](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025 的 [W1_NLP_brief.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W1_NLP_brief.pdf)（91 頁），對應錄影是 [Week 1 Tue.](https://www.youtube.com/live/X7XJcm9wfFA)、[Week 1 Thu.](https://www.youtube.com/live/0hTqSpoNp4o) 與 [Week 2 Tue.](https://www.youtube.com/live/6Z0A4JMptT8)（最後一支原本掛在下一篇詞向量那邊，字幕讀過後發現它講的是這份投影片的後半），事實皆於 2026-09-30 對照投影片核對。本篇只依投影片內容整理，沒有逐字對照錄影。存取等級 **A3**（理由見[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)）。
+> **版本說明**：本文依據[清大高宏宇《自然語言處理》](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025 的 [W1_NLP_brief.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W1_NLP_brief.pdf)（91 頁），對應錄影是 [Week 1 Tue.](https://www.youtube.com/live/X7XJcm9wfFA)、[Week 1 Thu.](https://www.youtube.com/live/0hTqSpoNp4o) 與 [Week 2 Tue.](https://www.youtube.com/live/6Z0A4JMptT8)（最後一支講的是這份投影片的後半）。本篇依投影片內容整理，錄影當輔助。
 
 **系列位置**：上一篇 [系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)｜下一篇 [詞向量與語言模型：從 n-gram 到 RNN](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
 

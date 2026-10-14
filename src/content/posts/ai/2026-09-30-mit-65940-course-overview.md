@@ -5,17 +5,18 @@ category: ai
 type: guide
 tags: [mit-65940, ai-course, course-guide, mit, quantization, edge-ai, llm-inference]
 lang: zh-TW
+math: true
 series:
   name: "MIT 6.5940 導讀"
   order: 0
-tldr: "MIT 6.5940（TinyML and Efficient Deep Learning Computing）教的是讓模型變小、變快、塞進手機和微控制器的技術：pruning、quantization、NAS、distillation、LLM 部署與分散式訓練。2025 年秋季因 Song Han 休假停開，2025 年課頁回 404；Fall 2026 正在上，截至 2026-09-30 只放出 L1–L6 與 Lab 0–1。本系列因此以最近一屆完整的 Fall 2024 為主幹：23 講投影片、23 支錄影、Lab 0–5 都公開，屬 A3；Fall 2026 列 A2，每篇另附對照。"
-description: "MIT 6.5940 系列入口：課程定位、Fall 2024 與 Fall 2026 的公開程度（A3／A2）、評分與 lab 結構、兩屆排程差異表、校外自學缺口，以及三條閱讀路線。所有事實來自兩屆官方課頁、投影片 PDF 與 lab 檔案。"
+tldr: "MIT 6.5940 教怎麼讓模型變小、變快、塞進筆電與微控制器，分四章：高效推論（pruning、quantization、NAS、distillation、MCUNet 與 TinyEngine）、特定領域最佳化（LLM 部署與後訓練、長上下文、ViT、diffusion）、高效訓練（分散式與裝置端訓練），以及量子 ML。同時講演算法與系統，最後要把 Llama2-7B 跑在自己的筆電上。本系列以 Fall 2024 為主幹，23 講的錄影與 Lab 0–5 都公開，投影片只缺第 22 講的量子 ML 部分。"
+description: "MIT 6.5940 系列入口：四章各講在學什麼、一個手算 LLM 記憶體與 4-bit 線性量化的例子、先備與自我檢查、三條閱讀路線與校外拿得到的材料，以及 25 篇的系列目錄。"
 draft: false
 glossary:
   - term: "sabbatical"
     aliases: ["學術休假"]
     definition: "教授暫停授課一段時間做研究的休假制度。"
-    context: "6.5940 的 Fall 2024 課頁寫明 Fall 2025 因 Song Han 休假停開，這是本系列改用 Fall 2024 的直接原因。"
+    context: "6.5940 在 Fall 2025 因 Song Han 休假停開，所以本系列以 Fall 2024 為主幹。"
   - term: "EfficientML.ai"
     aliases: ["efficientml.ai"]
     definition: "MIT 6.5940 的課程品牌與網址，實際導向 MIT HAN Lab 的課程頁；每講錄影標題也以「EfficientML.ai Lecture N」開頭。"
@@ -24,113 +25,92 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-course-overview-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** 導言附第 1 講錄影（1 小時 6 分），各講錄影在各篇導讀。[影片來源與說明](#課程影片來源)
 
-[MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) 是 [Song Han](https://songhan.mit.edu) 開的研究所課。投影片封面上他的頭銜是 MIT 副教授兼 NVIDIA Distinguished Scientist。課程網址 [efficientml.ai](https://efficientml.ai) 會導到 MIT HAN Lab 的[課程頁](https://hanlab.mit.edu/course)。這門課處理一個很實際的問題：模型長得比硬體快，要怎麼把它壓小、加速，放進筆電、手機，甚至只有幾百 KB 記憶體的微控制器。
+[MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940)（TinyML and Efficient Deep Learning Computing）是 [Song Han](https://songhan.mit.edu) 開的研究所課，課程網址 [efficientml.ai](https://efficientml.ai)。它處理一個很實際的問題：模型長得比硬體快。雲端 GPU 有 80GB 記憶體，微控制器只有幾百 KB，要怎麼把模型壓小、加速，放進筆電、手機和微控制器？
 
-Fall 2024 課頁的課程描述列出的主題有 model compression、pruning、quantization、neural architecture search、distributed training、data/model parallelism、gradient compression、on-device fine-tuning。另外還有針對 LLM 與 diffusion model 的加速技術。課頁承諾的實作成果很具體：學生要親手把 Llama2-7B 部署到自己的筆電上。
+這門課和一般深度學習課最大的不同，是同時講演算法和系統：剪掉哪些權重、用幾個位元存數字，是演算法的問題；剪完能不能真的變快、記憶體怎麼排，是系統的問題。兩邊都要對，模型才會在硬體上真的變小變快。課程的實作目標很具體：把 Llama2-7B 部署到自己的筆電上。
 
-這一篇是 MIT 6.5940 導讀的入口，回答四件事：這門課教什麼、為什麼本系列用 Fall 2024 而不是最新一屆、校外讀者實際拿得到什麼，以及怎麼讀。
+這篇是系列入口：先講四章各講在學什麼，再手算一次 LLM 的記憶體與 4-bit 量化，最後給先備檢查與閱讀路線。下面是第 1 講錄影，講為什麼需要高效 AI，以及整門課的地圖，和本文「主線」一節講的是同一張地圖；可以先看影片再讀，或讀完再看。
 
-## 這門課的硬事實
+```youtube
+url: https://www.youtube.com/watch?v=U7EPZv8Kh9w
+title: EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)
+```
 
-| 項目 | Fall 2024（本系列主幹） | Fall 2026（進行中） |
-|---|---|---|
-| 課名 | TinyML and Efficient Deep Learning Computing | TinyML and Efficient AI Computing |
-| 課頁 | [2024-fall-65940](https://hanlab.mit.edu/courses/2024-fall-65940) | [2026-fall-65940](https://hanlab.mit.edu/courses/2026-fall-65940) |
-| 先修 | 6.191 Computation Structures、6.390 Intro to Machine Learning；不符者第二週退選，可交 petition | 同樣兩門；課頁寫明不受理先修豁免，也不收 cross-registration |
-| 講次 | 23 講，加 3 次期末專題發表（Dec 3、5、10） | 22 講（最後一講為 Guest Lecture），加 3 次發表（Dec 3、8、10） |
-| 考試 | 無，課頁寫明「does not have any tests or exams」 | 同左 |
-| 錄影 | 23 支，放在 [MIT HAN Lab YouTube](https://www.youtube.com/c/MITHANLab)，入口是 [live.efficientml.ai](https://live.efficientml.ai/) | 隨課上傳，截至 2026-09-30 有 L1–L6 |
-| 繳交／討論 | Canvas、Piazza（限 MIT 修課生） | 同左 |
+## 主線：量尺加四章
 
-課頁自稱「PhD level course」。修完後的目標有兩個：理解高效深度學習的技術，以及能把 LLM 部署在自己的筆電上。
+### 量尺（第 1–2 講）
 
-## 為什麼以 Fall 2024 為主幹
+[第 1–2 講](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)先給量尺：記憶體看參數量、模型大小與峰值 activation，運算看 MAC 與 FLOP。AlexNet 有 61M 參數、724M MACs；在微控制器上，真正先爆掉的常常是 activation，不是參數。後面每一講都用這些量尺衡量「省了多少」。
 
-本站課程導讀的原則是以 2025–2026 年最新一屆完整學期為準。6.5940 在這個時間窗內沒有完整學期：
+### 第一章：高效推論（第 3–11 講）
 
-1. **Fall 2025 停開。** Fall 2024 課頁的「Time」欄位現在寫著：「The course will not be offered in Fall 2025 due to Prof. Han is on sabbatical」。直接開 `hanlab.mit.edu/courses/2025-fall-65940` 會得到 HTTP 404。課頁底部的「Previous Courses」也只列 2026、2024、2023 三屆 6.5940，加上 2022 年的前身 6.S965。
-2. **Fall 2026 還沒上完。** 課頁排程到 12 月 10 日。截至 2026-09-30，L1–L6 有投影片和錄影，Lab 0 與 Lab 1 已經放出；L7 之後的 Slides 與 Video 都還是空連結。
+- **Pruning**（[第 3 講](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria)、[第 4 講](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support)）：把不重要的權重拿掉。剪得越規則（整個 channel）越容易在硬體上變快，但能剪的比例越小；介於中間的 2:4 sparsity 在 NVIDIA Ampere GPU 上最多快 2 倍。每層剪多少用敏感度分析決定，剪完用小學習率 fine-tune。
+- **Quantization**（[第 5 講](/posts/ai/2026-09-30-mit-65940-quantization-basics)、[第 6 講](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)）：用更少的位元存數字。線性量化 $r = S(q - Z)$ 讓矩陣乘法改用整數運算；精度掉了，先換更細的 scale 粒度（per-channel、group）或裁掉離群值，不夠再用 QAT 重訓。
+- **NAS**（[第 7 講](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy)、[第 8 講](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware)）：第 7 講先看人工設計的架構怎麼省運算，例如 ResNet 的 bottleneck 先用 1×1 卷積把通道數降下來再做 3×3，比直接在 2048 通道上做少 8.5 倍 MAC；接著讓搜尋代替人工，在深度、寬度、解析度、kernel size 組成的搜尋空間裡，用隨機、強化學習、梯度或演化找出又小又準的架構。第 8 講處理最貴的一步：評估候選架構。Once-for-All 一次訓練一個超網路，裡面的 $10^{19}$ 個子網路不用再各自訓練。
+- **Distillation**（[第 9 講](/posts/ai/2026-09-30-mit-65940-knowledge-distillation)）：讓小模型學大模型的輸出分布。溫度調高後，老師「貓 vs 狗」的輸出從 0.982／0.017 變成 0.599／0.401，小模型才學得到類別之間的相似度。
+- **TinyML**（[第 10 講](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml)、[第 11 講](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing)）：微控制器的 SRAM 只有約 256–320kB。MCUNet 先挑搜尋空間再搜子網路，patch-based inference 把峰值記憶體從 1372kB 壓到 172kB；TinyEngine 在系統層再榨一次：調整迴圈順序與分塊（loop reordering、tiling）讓資料留在快取裡，in-place depthwise 讓輸出直接覆寫輸入、省下一份 activation 記憶體。
 
-所以本系列用最近一屆完整版 Fall 2024 當主幹。每篇另設「Fall 2026 對照」一節，列出新學期已公開的對應材料和差異。Fall 2026 之後的講次上線，會用更新紀錄補進各篇，篇目順序不變。
+### 第二章：特定領域最佳化（第 12–18 講）
 
-## 公開程度：F24 是 A3，F26 是 A2
+- **LLM**（[第 12 講](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer)、[第 13 講](/posts/ai/2026-09-30-mit-65940-llm-deployment)）：attention 是 $O(N^2)$，KV cache 隨長度線性長大，GQA 與 MQA 讓多個 head 共用 KV。部署分三條路：量化（SmoothQuant 把 activation 的離群值難度搬到權重，AWQ 用縮放保護約 1% 的重要權重做 4-bit）、稀疏（只用一部分參數或 token）、serving（PagedAttention、speculative decoding）。
+- **後訓練與長上下文**（[第 14 講](/posts/ai/2026-09-30-mit-65940-llm-post-training)、[第 15 講](/posts/ai/2026-09-30-mit-65940-long-context-llm)）：LoRA 用可併回權重的低秩分支微調，QLoRA 再把主幹量化成 4-bit；StreamingLLM 發現開頭幾個 token 是 attention sink，保留它們加最近的視窗就能穩定生成很長的文字。
+- **視覺與生成**（[第 16–17 講](/posts/ai/2026-09-30-mit-65940-efficient-vision-gan-video-pointcloud)、[第 18 講](/posts/ai/2026-09-30-mit-65940-diffusion-efficiency)）：ViT 的成本隨解析度平方成長，window attention 與 linear attention 把它壓下來；第 17 講針對三種冗餘：GAN 的生成器在空間上做很多重複的運算（GAN Compression 用蒸餾加 NAS 決定每層要留幾個 channel）、影片相鄰幀幾乎一樣（TSM 只把特徵沿時間軸位移，不增加 FLOPs 就能建模時間）、點雲大多是空的（只在有點的地方計算）。diffusion 慢在要跑幾十到上千步，加速方法是少跑幾步、每步少算、多卡分攤。
 
-分級依本站[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的 A0–A3 定義。
+### 第三章：高效訓練（第 19–21 講）
 
-**Fall 2024：A3（足以自學）。** 課頁上每一講都有 Dropbox 投影片與 YouTube 錄影連結，Lab 0–4 是公開的 Colab notebook，Lab 5 是公開的 Google Drive 資料夾，期末專題題目清單也是公開的 Google Doc。系統化教材加上作業檔案都拿得到，這符合 A3。
+[第 19–20 講](/posts/ai/2026-09-30-mit-65940-distributed-training)：GPT-3 的 fp16 權重就要 350GB，一張 80GB 的卡放不下，所以要切：資料平行、ZeRO 把優化器狀態分散到各卡、pipeline 與 tensor parallelism，再處理切完之後的通訊瓶頸（梯度壓縮）。[第 21 講](/posts/ai/2026-09-30-mit-65940-on-device-training)在裝置上訓練：訓練比推論貴，是因為要存 activation；做法有只調 bias 加輕量殘差（TinyTL）、只更新重要的層與通道（sparse update），PockEngine 再把這些和 int8 訓練、編譯期最佳化疊在一起，在 256KB 的微控制器上把訓練記憶體壓到 141KB。
 
-A3 不代表沒有缺口。以下幾件事要先知道：
+### 第四章：總結與量子 ML（第 22–23 講）
 
-- **沒有官方解答。** lab 在 Canvas 繳交，校外讀者沒有評分回饋，只能自己對照講義檢查。
-- **四個「Chapter」時段沒有材料。** 排程裡的 Chapter I–IV（Sep 11、Oct 16、Nov 11、Nov 20）是章節標記，Slides 與 Video 都是空連結。
-- **L22 只有課程總結投影片。** L22 的主題是「Course Summary + Quantum Machine Learning I」，但連結的投影片是 13 頁的 Course-Summary.pdf，內容沒有量子 ML；Quantum ML Part I 只有錄影可看。
-- **期末發表沒有錄影。** 三次 Final Project Presentation 都沒有連結。
+[最後一篇](/posts/ai/2026-09-30-mit-65940-course-summary-quantum-ml)用推論、訓練、特定應用三塊加上演算法／系統兩軸重畫整門課，再把前面學的超網路與 magnitude pruning 在量子電路上重演一次。
 
-**Fall 2026：A2（教材部分開放）。** 投影片與錄影隨進度上線，目前只到 L6。課頁明說不收 cross-registration。
+## 手算一次：Llama2-7B 怎麼塞進 8GB 筆電
 
-## 評分與 lab 結構
+這是本文的教學例子，用來看第 2 講的量尺和第 5、13 講的量化怎麼接起來。
 
-Fall 2024 課頁的評分：
+**先算記憶體。** Llama2-7B 約 70 億個參數。用 fp16 存，每個參數 2 bytes，光權重就是 $7 \times 10^9 \times 2 = 14$ GB。課程 Lab 5 的最低需求是 8GB 記憶體的筆電，放不下。改用 4-bit，每個參數 0.5 byte，權重剩 $7 \times 10^9 \times 0.5 = 3.5$ GB，再加上 KV cache 和執行時的 activation，仍有機會放進 8GB。
 
-| 項目 | 比重 |
-|---|---|
-| 5 個 lab | 各 15%，共 75% |
-| 期末專題 | 25%（Proposal 5%＋Presentation 與 Final Report 20%） |
-| Participation Bonus | 4%（學期末填課程問卷） |
+**再量化一個數。** 用對稱的 4-bit 量化（$Z = 0$；4-bit 整數範圍是 −8 到 7，這裡捨棄 −8、只用 −7 到 7，讓正負對稱），某組權重的最大絕對值是 1，所以 scale $S = 1/7 \approx 0.143$。權重 0.3 量化成 $q = \text{round}(0.3 / 0.143) = \text{round}(2.1) = 2$，還原回 $2 \times 0.143 \approx 0.286$，誤差約 0.014。
 
-其他規則：lab 要個人繳交，但可以一起討論，要註明跟誰合作；整學期有 6 天不扣分的遲交額度；5 個 lab 至少要交 4 個才能過。期末專題的組數規定，課頁寫 4 或 5 人一組，第一講投影片（第 89 頁）寫「group of 3-4」，兩份官方材料不一致。報告格式是 4 頁、NeurIPS 模板；[Course Summary 投影片](https://www.dropbox.com/scl/fi/cn0wr4zxuv4hvpce81lo1/Course-Summary.pdf?rlkey=ycn79vnsu2n7395fz1v04khz0&st=z86d0rap&dl=0)第 11 頁另外要求附 GitHub 連結開源程式碼。[專題題目清單](https://docs.google.com/document/d/1QiCkCUr_1DnLNUCXUM3g0SQRIbVG5XyrQjdfsUPrIeA)在 2024-10-24 公布。
+**離群值的問題。** 如果同一組裡有一個權重是 8，scale 變成 $8/7 \approx 1.143$。這時 0.3 量化成 $\text{round}(0.26) = 0$，整個資訊都不見了，組裡其他小權重也一樣。
 
-Fall 2024 的 lab：
+**這個例子的意思：** 4-bit 把記憶體壓到四分之一，但一個離群值就能讓整組小數值全變成 0。第 6 講的 per-channel、group 量化把 scale 切細，讓離群值只影響自己那一組；第 13 講的 AWQ 和 SmoothQuant 則是專門處理 LLM 裡的離群值。量化不只是「少用幾個位元」，難的是決定誰共用一個 scale。
 
-| Lab | 主題 | 對應講次 |
-|---|---|---|
-| Lab 0 | PyTorch 教學 | L2 |
-| Lab 1 | Pruning | L3–L4 |
-| Lab 2 | Quantization | L5–L6 |
-| Lab 3 | Neural architecture search | L7–L8 |
-| Lab 4 | LLM compression | L13 |
-| Lab 5 | LLM deployment on laptop | L13 |
+## 先備與自我檢查
 
-第一講投影片（第 88 頁）列了 Lab 5 的最低硬體需求：macOS、Linux 或 Windows；x86 或 ARM（Apple M1/M2）處理器；8 GB 記憶體；5 GB 可用儲存空間。
+- **Python 與 PyTorch**：Lab 0 就是 PyTorch 教學，跟不上先補。
+- **反向傳播與 CNN**：第 2 講只複習術語和層的形狀，不教訓練原理。沒學過的話先讀 [MIT 6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)或 [CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)。
+- **計算機結構的基本概念**：先修 6.191 是計算機結構課，後面的 TinyEngine、SIMD、記憶體階層都會用到。
+- **一個 Google 帳號**：Lab 0–4 都在 Colab 上跑；Lab 5 要在自己的電腦上跑（macOS、Linux 或 Windows，8GB 記憶體、5GB 可用空間）。
 
-Fall 2026 的評分沒寫在課頁上，只出現在 [Fall 2026 第一講投影片](https://www.dropbox.com/scl/fi/yi5oq4f9yzg9sikwcxm3o/Lec01-Introduction.pdf?rlkey=w0zyuyfkm09haqlh7mo2n27ak&st=oe0pir7t&dl=0)第 88 頁：5 個 lab 各 14%、期末專題 30%（Proposal 5%＋Presentation 與 Final Report 25%），另有 Class Survey Bonus（沒寫比重）。
+讀完這篇，試著回答：
 
-## Fall 2024 → Fall 2026 差異
+1. 為什麼 channel pruning 比 fine-grained pruning 容易在 GPU 上真的變快？
+   答：剪掉整個 channel 後，矩陣直接變小，一般的密集運算就能加速；任意位置的零需要專門的稀疏硬體或 kernel 才省得到時間。
+2. Llama2-13B 用 4-bit 存，權重大約多大？
+   答：$13 \times 10^9 \times 0.5 = 6.5$ GB。
+3. 上面的例子如果改成 8-bit（整數用 −127 到 127），0.3 量化後還原成多少？
+   答：同樣捨棄最小值、用 −127 到 127，$S = 1/127$，$q = \text{round}(38.1) = 38$，還原約 0.299，誤差約 0.001。
+4. 知識蒸餾為什麼要把溫度調高？
+   答：溫度高會把老師的輸出分布攤平，小模型才看得到「錯的類別裡哪個比較像」這種資訊。
+5. 在微控制器上跑模型，為什麼常常是 activation 而不是參數先爆掉？
+   答：參數可以放在 Flash，activation 要放在小得多的 SRAM 裡，而且峰值出現在解析度最高的前幾層。
 
-下表只列兩份課頁與投影片能直接對上的差異。
+## 怎麼讀：路線與材料
 
-| 項目 | Fall 2024 | Fall 2026 |
-|---|---|---|
-| L1–L6 | Introduction、Basics、Pruning I/II、Quantization I/II | 主題相同；L2 的 Lecture Plan 多一項 CNN 架構回顧（AlexNet、VGG-16、ResNet-50、MobileNetV2） |
-| L13 | Efficient LLM Deployment | LLM Quantization and Deployment |
-| L17–L18 | GAN, Video, and Point Cloud；Diffusion Model | Diffusion Model Part I、Part II |
-| 期末前 | L22 Course Summary＋Quantum ML I；L23 Quantum ML II | Dec 1 Guest Lecture（講者與講題未公布） |
-| Lab 1 | Pruning | GPU Basics（壓縮檔內題為「Lab1: Efficient AI Fundamentals」） |
-| Lab 2、Lab 4 | Quantization；LLM compression | 課頁寫 Quantization、Quantization；L1 投影片寫 Pruning、Quantization |
-| 評分 | Lab 15%×5、專題 25%、Bonus 4% | Lab 14%×5、專題 30%、Survey Bonus |
+本系列以 Fall 2024 為主幹：Fall 2025 因 Song Han 休假停開，Fall 2024 是最近一屆完整的學期，23 講的錄影與 Lab 0–5 都公開，投影片只缺第 22 講的量子 ML 部分。課程沒有考試，評分是 5 個 lab 共 75% 加期末專題 25%；lab 沒有公開解答，要自己對照講義與 notebook 的檢查點。Fall 2026 正在上，每篇另有「Fall 2026 對照」一節；它的 Lab 1 換成 GPU profiling，本系列另寫成一篇補充篇。Fall 2026 的 lab 清單對 Lab 2 是 pruning 還是 quantization 前後寫得不一致，想練 pruning 先用 Fall 2024 的 Lab 1。
 
-Lab 2 那一列要特別說明。Fall 2026 課頁的 lab 清單寫「Lab2: Quantization」與「Lab4: Quantization」，同一份清單出現兩次 Quantization；第一講投影片第 87 頁與第 89 頁卻寫「Lab 2 — Pruning」。兩份官方材料互相矛盾，本系列不替它選邊，等 Lab 2 實際放出後再補。在那之前，想練 pruning 的讀者請用 Fall 2024 的 Lab 1。
+**完整路線。** 照 order 0–24 讀，每篇配該講的投影片與錄影，lab 篇讀完就動手。Fall 2024 的 lab 排程是每兩到三講一個，照這個節奏大約一學期。
 
-Fall 2026 Lab 1 的內容已經可以確認。它的 [README](https://www.dropbox.com/scl/fi/y2zmly5aoekmsg7jq4954/lab1_gpu_basics.zip?rlkey=29v29mlm2muvm0c5teleiusvc&st=2xh5vnk3&dl=1) 列出五個部分：latency 與 MAC/FLOPs/I/O、roofline model、Gemma-3 decoder layer 案例（prefill 對 decode）、PyTorch Profiler 與 kernel fusion、Flash Attention。總分 80 分加 20 分 bonus。Part 5 在 Colab 上要選 A100 GPU。Fall 2024 沒有這種 GPU profiling lab，所以本系列把它收成一篇獨立的補充篇。
+**只想做 LLM 效率。** 讀 order 1（量尺）→ 5、6（量化基礎，AWQ 的前置知識）→ 14 → 15 → 16 → 18 → 19（想看 GPU 層的量測再加 17）。Pruning 與 NAS 可以先跳過，遇到 LLM 稀疏化時再回頭讀 order 2。
 
-## 課程地圖：四章
-
-排程用四個章節標記把 23 講分組：
-
-| 章 | 講次 | 主題 |
-|---|---|---|
-| Chapter I: Efficient Inference | L3–L11 | Pruning、Quantization、NAS、Knowledge Distillation、MCUNet、TinyEngine |
-| Chapter II: Domain-Specific Optimization | L12–L18 | Transformer 與 LLM、LLM 部署、後訓練、長上下文、ViT、GAN／影片／點雲、Diffusion |
-| Chapter III: Efficient Training | L19–L21 | 分散式訓練、裝置端訓練與遷移學習 |
-| Chapter IV: Advanced Topics | L22–L23 | 課程總結、量子 ML |
-
-L1–L2 在第一章之前，負責動機與量尺。Course Summary 投影片第 6–7 頁用另一種切法收尾：把內容分成 Efficient Inference、Efficient Training、Application-Specific Optimizations 三塊，再用 Algorithm 與 System 兩個軸定位。這門課同時講演算法和系統，這是它跟一般深度學習課最大的不同。
+**TinyML 與邊緣裝置。** 讀 order 1 → 2、3、4 → 5、6、7 → 8、9、10 → 12 → 13 → 23。這條線就是第一章加裝置端訓練，重點在 KB 級記憶體限制下的設計。
 
 ## 系列目錄
 
-本系列共 25 篇（order 0–24）。篇數比講次多，是因為 pruning、quantization、NAS 三個 lab 題量大，各自獨立成篇。
+本系列共 25 篇。篇數比講次多，是因為 pruning、quantization、NAS 三個 lab 題量大，各自獨立成篇。
 
 | order | 篇目 | 對應材料 |
 |---|---|---|
@@ -160,24 +140,13 @@ L1–L2 在第一章之前，負責動機與量尺。Course Summary 投影片第
 | 23 | [裝置端訓練](/posts/ai/2026-09-30-mit-65940-on-device-training) | L21 |
 | 24 | [課程總結與量子 ML](/posts/ai/2026-09-30-mit-65940-course-summary-quantum-ml) | L22、L23 |
 
-## 三條閱讀路線
+## 今晚可以做的事
 
-**完整路線。** 照 order 0–24 讀，每篇配該講的投影片與錄影，lab 篇讀完就動手。Fall 2024 的 lab 排程是每兩到三講一個，照這個節奏大約一學期。
-
-**只想做 LLM 效率。** 讀 order 1（量尺）→ 5、6（量化基礎，AWQ 的前置知識）→ 14 → 15 → 16 → 17 → 19。Pruning 與 NAS 可以先跳過，遇到 LLM 稀疏化時再回頭讀 order 2。
-
-**TinyML 與邊緣裝置。** 讀 order 1 → 2、3、4 → 5、6、7 → 8、9、10 → 12 → 13 → 23。這條線就是第一章加裝置端訓練，重點在 KB 級記憶體限制下的設計。
-
-## 自學前先準備
-
-- **Python 與 PyTorch。** Lab 0 就是 PyTorch 教學，跟不上就先補。
-- **反向傳播與 CNN。** L2 只複習術語和層的形狀，不教訓練原理。沒學過的話先讀 [MIT 6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)或 [CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)。
-- **計算機結構的基本概念。** 先修 6.191 是計算機結構課，後面 TinyEngine、SIMD、記憶體階層都會用到。
-- **一個 Google 帳號。** Lab 0–4 都在 Colab 上跑。
+1. 打開 [Lab 0 的 Colab](https://colab.research.google.com/drive/1gvxq7mIAeIBAtmLKH1Q1GknA-GRsK7Q6)，跑完 PyTorch 教學。
+2. 把「手算一次」的記憶體換成你自己的筆電記憶體算一次：哪個大小的 LLM 用 4-bit 放得下？
+3. 讀[第 1–2 講導讀](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)。
 
 ## 延伸閱讀
-
-這些是站內跟 6.5940 有重疊的系列。重疊的部分本系列照樣完整寫，下面只是給想換角度的讀者：
 
 - [MIT AI／ML 課程地圖](/posts/learning/2026-08-21-mit-ai-ml-course-map)：6.5940 在 MIT 課程體系裡的位置
 - [Stanford CS336 導讀：GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)、[推論](/posts/ai/2026-08-22-cs336-inference)：從語言模型訓練課的角度看硬體與推論
@@ -188,19 +157,21 @@ L1–L2 在第一章之前，負責動機與量尺。Course Summary 投影片第
 **系列導覽**：下一篇 [為什麼要高效、怎麼量模型大小與運算量](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)
 
 ## 課程影片來源
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回官方課程頁核對：Fall 2024 頁列有第 1–23 講的公開 YouTube 錄影（第 24–26 講是期末專題報告，頁面未列錄影）；Fall 2026 頁目前列有第 1–8 講錄影。逐講影片附在各講文章。
+
+本文是課程總覽，導言嵌入 Fall 2024 第 1 講錄影；其餘各講錄影附在各篇導讀，也可以從官方課頁或 [live.efficientml.ai](https://live.efficientml.ai/) 查找。Fall 2024 課頁列有第 1–23 講的公開錄影，期末專題發表沒有錄影。
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
 - [mit-6-5940 Fall 2026 — official course page](https://hanlab.mit.edu/courses/2026-fall-65940)
+- [第 1 講錄影](https://www.youtube.com/watch?v=U7EPZv8Kh9w)（導言嵌入，1 小時 6 分）
 
-查核日期：2026-10-10。
+查核日期：2026-10-14。
 
 ## 更新紀錄
 
+- 2026-10-14：正文改寫成導讀：四章逐講講出機制，補 LLM 記憶體與 4-bit 量化的手算例子與自我檢查，導言嵌入第 1 講錄影；兩屆比較、公開程度、評分與 lab 結構縮成閱讀路線裡的一段。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
-- 2026-10-10：重查影片狀態。即時核對官方入口，各講錄影列在官方頁，逐講影片附在各講文章；狀態維持「僅附官方入口或錄影清單」。
 
 ## 參考資料
 
@@ -215,4 +186,3 @@ L1–L2 在第一章之前，負責動機與量尺。Course Summary 投影片第
 - [Fall 2024 期末專題題目清單](https://docs.google.com/document/d/1QiCkCUr_1DnLNUCXUM3g0SQRIbVG5XyrQjdfsUPrIeA)
 - [Fall 2024 Lab 0：PyTorch Tutorial（Colab）](https://colab.research.google.com/drive/1gvxq7mIAeIBAtmLKH1Q1GknA-GRsK7Q6)
 - [Fall 2024 Lab 5 資料夾（Google Drive）](https://drive.google.com/drive/folders/1MhMvxvLsyYrN-4C6eQG8Zj2JeSuyAOf0)
-- [全球 AI／CS 課程地圖：A0–A3 分級定義](/posts/learning/2026-08-21-global-ai-cs-course-map)

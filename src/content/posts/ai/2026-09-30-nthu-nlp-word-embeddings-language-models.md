@@ -30,7 +30,7 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-> **版本說明**：本文依據[清大高宏宇《自然語言處理》](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025 的 [W2_Word embeddings and Language Modeling (RNN).pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W2_Word%20embeddings%20and%20Language%20Modeling%20%28RNN%29.pdf)（62 頁），對應錄影是 [Week 2 Thu.](https://www.youtube.com/live/cqp5a39eyJQ) 與 [Week 3 Tue.](https://www.youtube.com/live/LFeFc0VtKRI)（Week 2 Tue. 原本掛在這裡，字幕讀過後發現它講的是上一篇的資訊檢索內容，已移過去；Week 3 Tue. 則是從 seq2seq 那篇移來），事實皆於 2026-09-30 對照投影片核對。本篇只依投影片內容整理，沒有逐字對照錄影。存取等級 **A3**（理由見[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)）。
+> **版本說明**：本文依據[清大高宏宇《自然語言處理》](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025 的 [W2_Word embeddings and Language Modeling (RNN).pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W2_Word%20embeddings%20and%20Language%20Modeling%20%28RNN%29.pdf)（62 頁），對應錄影是 [Week 2 Thu.](https://www.youtube.com/live/cqp5a39eyJQ) 與 [Week 3 Tue.](https://www.youtube.com/live/LFeFc0VtKRI)。本篇依投影片內容整理，錄影當輔助。
 
 **系列位置**：上一篇 [NLP 簡介與傳統文字處理](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing)｜下一篇 [HW1 Word Analogy](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
 

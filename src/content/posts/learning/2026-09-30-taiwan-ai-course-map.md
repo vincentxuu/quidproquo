@@ -73,7 +73,7 @@ glossary:
 
 所以 Fall 2025 是 A3。拿不到的是解答、分數和期末專題的完整規格。[Fall 2026](https://github.com/IKMLab/NTHU_Natural_Language_Processing) 正在進行，只放到 W3 和 HW1，課表最後新增了 Reasoning／Agent 單元。
 
-本站的[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列逐週拆解 Fall 2025，入口篇整理了兩學期的評分與教材差異。
+本站的[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列逐週拆解 Fall 2025，入口篇整理了整學期的主線與讀法。
 
 今晚可以做的事：打開 2025 資料夾的 Assignment 1，看完說明影片，在 Colab 跑一次 `main.ipynb` 的 Word Analogy。
 

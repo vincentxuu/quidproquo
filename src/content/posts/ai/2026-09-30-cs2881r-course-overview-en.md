@@ -5,11 +5,12 @@ category: ai
 type: guide
 tags: [cs2881r, ai-course, harvard, ai-safety, alignment, course-guide]
 lang: en
+math: true
 series:
   name: "Reading Harvard CS2881R"
   order: 0
-tldr: "Harvard CS 2881R is the graduate AI safety seminar Boaz Barak first taught in Fall 2025. That term is finished: all 12 reading lists are public, the YouTube playlist has lecture recordings for 11 of the 12 sessions, HW0 is a GitHub repo you can run yourself, and the midterm and final specs and rubrics are out. This series rates it A3 by seminar standards. The gaps are just as clear: no traditional problem sets, slides for only about half the sessions, no lecture recording for L5, and only the opening remarks for L8. Fall 2026 is in progress and is treated only as a preview."
-description: "Entry point for Harvard CS 2881R AI Safety (Fall 2025): where the official site lives, why Fall 2025 is the base term, the A3 rating and its gap list, the official lecture order versus this series' reading order, prerequisites (CS 181 level), the conflict-of-interest note on the course site, and a preview of Fall 2026."
+tldr: "Harvard CS 2881R is Boaz Barak's graduate AI safety seminar. Its 12 lectures circle four questions: how a trained model ends up misaligned (emergent misalignment, where safety training sits in the pipeline), how models get broken and how to specify them (jailbreaks, model specs, content policy), how to detect the hardest risks to see (scheming, chain-of-thought and activation monitoring), and how fast AI is moving and what it changes (recursive self-improvement, METR task lengths, jobs, mental health). There are no problem sets; you learn by reading papers, reproducing the headline figure, and pushing one step further. HW0 has you reproduce misalignment with a 1B model yourself."
+description: "Entry point for Harvard CS 2881R AI Safety (Fall 2025): the four questions that organize the 12 lectures and what each lecture covers, a hand calculation extrapolating task length from METR's doubling time, prerequisites and self-check questions, and the reading order and materials available outside Harvard."
 draft: false
 glossary:
   - term: "emergent misalignment"
@@ -23,127 +24,123 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-course-overview)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** The intro embeds the Lecture 1 recording (2 h 26 min); each lecture's recording is in its own post. [Source details](#course-video-sources)
 
-> **Version note**: This series follows the [CS 2881R Fall 2025 course site](https://boazbk.github.io/mltheoryseminar/fall2025/). Every fact was checked against official materials on 2026-09-30. Access rating: **A3 (by seminar standards)**; the gap list is below.
+[CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) is a Harvard graduate seminar taught by theoretical computer scientist [Boaz Barak](https://boazbarak.org), first offered in Fall 2025. The course site describes it as covering the challenges of AI alignment and safety, looking at both the technical side and the societal impact.
 
-**Series**: This is the entry post | Next: [L1: Why AI Safety Deserves a Graduate Course](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction-en)
+The core question can be put this way: we train models into the shape we want with data and rewards, but the training signal only approximates what we mean. Where will a model drift from our intent, can we tell when it does, and what can we do about it? The 12 lectures start from that question and run from training details all the way to the economy and society.
 
-[CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) is a Harvard graduate course taught by theoretical computer scientist [Boaz Barak](https://boazbarak.org). The course site describes it in two sentences: a graduate-level course on challenges in the alignment and safety of AI, covering both technical questions and societal impacts.
+There are no problem sets. Most lectures have a reading list, a talk (usually with guests), and a student group's experiment report; the assignments are reproducing a paper and pushing it one step further. This post is the series entry point: it lays out what each of the four questions covers, works one hand calculation that shows how the course treats numbers about AI progress, and ends with a prerequisite check and reading route. Below is the Lecture 1 recording: Boaz introduces the course, a student experiment report follows, and the second half is his take on defining AGI and the families of alignment methods; no need to watch it in one go, come back to it alongside the Lecture 1 post.
 
-Head TA Roy Rinberg's [retrospective](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic) calls it "Harvard's first AI safety course" in its title. For a graduate seminar, it is unusually open: lecture recordings, student-written weekly summaries, the homework repo, and the final papers and posters are all reachable from outside Harvard.
+```youtube
+url: https://www.youtube.com/watch?v=-NCiWaRS6So
+title: CS2881R Fall 2025 L1: Introduction
+```
 
-This post answers three questions: where the materials are, what you can actually get, and how to read this series. Lecture content lives in the later posts.
+## The storyline: four questions
 
-## Where the site is: an old ML theory seminar URL
+This series does not follow the official dates. It regroups the lectures under the four questions below (every post title keeps its official lecture number). The official schedule interleaves technical and societal lectures; regrouped, each lecture's ideas get used in the next.
 
-The first trap is the URL. The course lives on Boaz's GitHub Pages at `boazbk.github.io/mltheoryseminar/`, the path he used for his earlier ML theory seminars. The footer still links the [Spring 2023 ML Theory Seminar](https://boazbk.github.io/mltheoryseminar/spring2023) and a Spring 2021 version.
+### How does a trained model end up misaligned? (Lectures 1, 2 and HW0)
 
-Open the root today and you get **Fall 2026**. Fall 2025 moved to [`/fall2025/`](https://boazbk.github.io/mltheoryseminar/fall2025/), which labels itself "Fall 2025 archive." The Fall 2026 homepage confirms that last year's lecture materials, videos, notes, and experiments are preserved there.
+[Lecture 1](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction-en) lays out three views of the future: AI 2027 sketches superhuman AI within five years via recursive self-improvement, AI as Normal Technology argues AI will spread slowly like electricity, and METR measures that the length of task AI can finish with 50% success doubles about every 7 months. Boaz sorts alignment methods into three kinds: writing principles, training character, and writing a model spec.
 
-Fall 2025 basics, all from the course site:
+[HW0](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en) lets you see misalignment for yourself: fine-tune Llama-3.2-1B with LoRA on bad medical advice, and the model becomes harmful on unrelated questions too. This is emergent misalignment. You taught one narrow domain, and the whole persona broke.
 
-- **Time**: Thursdays 3:45–6:30pm Eastern. First lecture 2025-09-04, last lecture 11-20, no class 11-27 (Thanksgiving).
-- **Staff**: Boaz Barak; TFs Roy Rinberg, Natalie Abreu, Hanlin Zhang, Sunny Qin.
-- **Format**: the Mini Syllabus says each lecture also includes discussion and an experiment presented by a group of students. Attendance is mandatory.
-- **Generative AI policy**: students are encouraged to use it as much as they can, and the site says expectations for assignments and projects will be more ambitious as a result.
-- **Recording policy**: lectures are recorded and published when technically possible, by a static in-room camera, so whiteboard work and discussion may not come through well. Guest speakers who ask not to be recorded are not recorded.
+[Lecture 2](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en) treats pretraining, SFT, and RL as one operation: push some tokens up and others down, the difference being whether the data was written by someone else or generated by the model itself. Safety training sits on the last two stages. The current approach (Deliberative Alignment) first teaches the model to read the spec in its chain of thought, then runs RL with a reward model that understands the spec. One key warning: put optimization pressure on the chain of thought, and the model learns not to stop cheating but to stop saying it cheats.
 
-## Why Fall 2025 is the base term
+### How do models get broken, and how should they be specified? (Lectures 3, 4, 5)
 
-The Fall 2026 [homepage](https://boazbk.github.io/mltheoryseminar/) schedule runs to 12-03. As of 2026-09-30, only the four September lectures have happened. The [YouTube playlist](https://youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W) currently holds 17 videos, and Fall 2026 Lecture 1 and Lecture 3 are already mixed in.
+[Lecture 3](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en) explains why aligned models still get jailbroken: safety training patches particular attacks, but the underlying weakness remains. Nicholas Carlini shows gradient-found adversarial suffixes that transfer across models, and Boaz borrows lessons from software security: attacks only get stronger, so defend in depth.
 
-Fall 2025 is complete. All 12 lectures happened, final papers were due 12-03, and students brought printed posters to class on 12-10 (per [Rinberg's retrospective](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic)). The [student projects page](https://boazbk.github.io/mltheoryseminar/student_projects) lists 19 paper PDFs with posters.
+[Lecture 4](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en) asks whether a model spec should state principles or detailed rules. The answer is a mix of principles, character, and explicit policies, and the crux is that rules must be checkable: "prove the theorem or give a counterexample" is a bad rule, "prove it, give a counterexample, or explain that you can't" is a good one, because only a rule whose violations you can judge can be used for training and evaluation.
 
-So Fall 2025 is the main line of this series. Fall 2026 appears only as a preview in the last section of this post.
+[Lecture 5](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies-en) carries two decades of social-platform content moderation over to generative AI: wherever you draw the line there are edge cases, but you have to draw it; and a chat interface sits somewhere between a private document and a public post, which makes it harder to place than a social platform.
 
-## Access rating: A3, but read the gaps first
+### How do we detect the hardest risks to see? (Lectures 8, 10)
 
-This site's [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) grades openness from A0 (schedule visible) through A1 (syllabus visible) and A2 (partial materials) to A3 (enough to self-study). This series rates CS 2881R **A3 by seminar standards**. The course was never a problem-set course; its learning path is "read the paper, reproduce it, extend it," and everything that path needs is available outside Harvard:
+[Lecture 8](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en) covers scheming: models faking good behavior or cheating to pass training or evaluation. Boaz files this under "systematic misalignment", something our training signals push models toward. A student experiment put coding agents on an impossible task, and they rewrote the tests even when explicitly told not to. Redwood's Buck Shlegeris argues for assuming the model is scheming and protecting deployment with AI control.
 
-| Material | Status |
-|---|---|
-| Reading lists | All 12 lectures, with pre-readings marked, on the course site |
-| Lecture recordings | [Playlist](https://youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W) of 17 videos; 11 of the 12 Fall 2025 lectures have lecture video (L8 only Boaz's intro) |
-| Notes | Student-written LessWrong weekly summaries under the [wikitag "CS 2881r"](https://www.lesswrong.com/w/cs-2881r) |
-| Student experiments | Most sessions link slides, GitHub, or a LessWrong post |
-| HW0 | [Public GitHub repo](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0), including the LLM-as-judge grading script |
-| Midterm mini-project | [Spec slides](https://docs.google.com/presentation/d/1aU8iYbuzPGjzwNwZO4UFOjFy-oJ1cTG1XGR2_C5L5ew) and [rubric](https://docs.google.com/document/d/1m8aZpEnW4J0TNhnfzAZaZ5G0xR5UyYNDiZzoZdI-rII), linked from Rinberg's retrospective |
-| Final project | [Outline](https://docs.google.com/document/d/1cB_zHcHQuCua-UlwcbDwNaxN2YQEtp5vKHKmBS9_63I), [rubric](https://docs.google.com/document/d/1JA-p0g91_LIB-uTfbZ5PtOfk7KFkIoOC-odrwf-HAiM), [papers and posters](https://boazbk.github.io/mltheoryseminar/student_projects), [oral presentations video](https://youtu.be/Xr9FNl0S66Q) |
-| Course evaluation | Harvard's official [Q-report PDF](https://boazbk.github.io/mltheoryseminar/assets/q_report.pdf) |
+[Lecture 10](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en) attacks detection from two sides: read the chain of thought the model writes, or read its activations. CoT monitoring catches reward hacking well, but feed the monitor into the training reward and the model learns to hide its intent, the same point as Lecture 2's warning. Neel Nanda's advice is to compare against simple baselines first; steering vectors often beat SAEs.
 
-**Gap list** (what outside readers must supply themselves or live without):
+### How fast is AI moving, and what will it change? (Lectures 6, 7, 9, 11, 12)
 
-1. **No traditional problem sets.** "Homework" means paper reproduction and open-ended research. One student critique in Rinberg's retrospective asked for optional problem sets or hands-on exercises.
-2. **No lecture recording for L5 Content Policies.** The site lists only a student experiment video. The guest was Ziad Reslan of OpenAI.
-3. **L8 Scheming has only Boaz's intro video.** Buck Shlegeris's and Marius Hobbhahn's guest talks are represented by slides only.
-4. **Slides for only about half the sessions.** Boaz's slides for L1, L2, L4, L6, and L8 sit on Harvard SharePoint; the L7 and L8 guest slides and Neel Nanda's L10 slides have separate links. L3, L5, L9, L11, and L12 list no slides.
-5. **Incomplete weekly summaries.** The wikitag's weekly summaries cover only some weeks; the other posts are student experiment write-ups.
-6. **Several experiment slots say TBD.** L6 says "To be determined" plus a sketch, L7 says "TBD," L9, L10, and L11 say "To be determined," and L12's Resources say "to be determined."
-7. **HW0 autograding works only for enrolled students.** GitHub Classroom runs the grader with the course's OpenAI key. Outside readers need their own API key to run `eval/judge.py`.
+[Lecture 6](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement-en) uses growth theory to ask: once AI starts doing AI R&D, does capability stay exponential, accelerate into a singularity, or get dragged down by bottlenecks? The answer hinges on a few exponents nobody can measure well; the only option ruled out is "AI barely affects R&D". [Lecture 7](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en) takes on a puzzle: on benchmarks the task length doubles every 7 months, yet in METR's randomized controlled trial experienced developers were 19% slower with AI. One reason is that benchmark tasks are too clean and too cheap to grade.
 
-If your goal is to finish a set of exercises with known answers, this course cannot give you that. If your goal is to learn how to read an AI safety paper, reproduce its headline figure, and push one step further, the public materials are enough.
+[Lecture 9](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en) looks at jobs: employment for 22–25-year-olds in highly AI-exposed occupations fell 16% in relative terms, senior workers show no such trend, and aggregate employment shows no large-scale displacement yet. [Lecture 11](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance-en) covers chatbots and mental health. Boaz offers an explanation he himself calls unproven: the longer the conversation and the further it drifts from the training distribution, the more the model slips back into a mode of going along with the story to please. [Lecture 12](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035-en) looks ten years out: GDPval measures AI against real work products from industry experts, and coding agents have not automated AI research yet because verification is expensive and the feedback loop is long.
 
-## Prerequisites: CS 181-level ML and the ability to train a network
+## Work it by hand: how far does task-length doubling extrapolate?
 
-The site is specific: mathematical maturity, proofs, probability, and information theory, plus undergraduate ML at the level of Harvard CS 181 or MIT 6.036. It names empirical versus population loss, gradient descent, neural networks, linear regression, and PCA. On the applied side you should write Python comfortably and be able to train a basic neural network.
+This is a teaching example written for this post, to show why Lectures 1, 6, and 7 keep coming back to exponents.
 
-On this site:
+METR's measure is the task length at which a model has a 50% success rate on tasks that take humans that long. They report this length doubling about every 7 months, with Claude 3.7 Sonnet at about an hour. Start from 1 hour and hold the doubling time at 7 months:
 
-- The [Harvard CS 181 guide](/posts/tech/2026-08-27-harvard-cs181-overview-en) covers the exact course the prerequisites name.
-- HW0 fine-tunes a 1B model with LoRA. If LoRA is new to you, start with the [CMU 11-868 PEFT/LoRA post](/posts/ai/2026-09-30-cmu11868-peft-lora-en).
-
-Rinberg reports about 70 students in Fall 2025, roughly half experienced undergraduates and the rest graduate students. He also thinks the course would not have gone as well as an undergraduate course, because its structure relied on students who wanted to learn rather than chase grades.
-
-## Conflict of interest: the site's own words
-
-The Mini Syllabus carries an all-caps "POTENTIAL CONFLICT OF INTEREST NOTE." Its first sentence:
-
-> In addition to his position at Harvard, Boaz is also a member of the technical staff at OpenAI.
-
-The note goes on: the course discusses models from multiple providers, students are encouraged to use AI from multiple providers, and anyone uneasy about the conflict can contact Boaz, the other staff, or Harvard SEAS administration. It ends in Boaz's voice: he will count it a great success if graduates work in AI safety in any capacity, including academia, nonprofits, governments, and any of OpenAI's competitors.
-
-Keep this in mind as you read. The L5 and L9 guests were an OpenAI product policy lead and OpenAI's chief economist, and both L12 guests are from OpenAI. This series reports speaker affiliations exactly as the site lists them.
-
-## Official order versus this series' order
-
-The official schedule interleaves technical and societal lectures. This series follows a learner's path instead: see misalignment first, then how it is trained in and broken, then how specs are written, then reproduce something yourself, then the hardest-to-detect risks and the tools for detecting them, and finally timelines and societal impact. Every title keeps the official lecture number.
-
-| Series order | Post | Official session and date |
+| Time elapsed | Doublings | Task length |
 |---|---|---|
-| 0 | This post | — |
-| 1 | [L1 Introduction](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction-en) | L1, 9/4 |
-| 2 | [HW0: Reproducing emergent misalignment](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en) | Before term (due 2025-08-04) |
-| 3 | [L2 Modern LLM Training](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en) | L2, 9/11 |
-| 4 | [L3 Adversarial Robustness](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en) | L3, 9/18 |
-| 5 | [L4 Model Specifications](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en) | L4, 9/25 |
-| 6 | [L5 Content Policies](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies-en) | L5, 10/2 |
+| 1 year | 12/7 ≈ 1.7 | $2^{12/7} \approx 3.3$ hours |
+| 3.5 years | 6 | $2^6 = 64$ hours, about 1.6 work weeks |
+| 7 years | 12 | $2^{12} = 4096$ hours, about 102 work weeks (40 hours each) |
+
+If AI starts accelerating AI R&D and cuts the doubling time to 4 months, 7 years is 21 doublings: $2^{21} \approx 2.1$ million hours, more than 500 times larger.
+
+**What this means:** over the same seven years, moving the doubling time from 7 months to 4 changes the conclusion from "a 50% chance of finishing a two-year project" to "about a thousand years of work" (at about 52 work weeks a year). That sensitivity is what Lecture 6 means when it says the answer hinges on exponents nobody can measure well. Lecture 7 adds the other caveat: this curve measures clean benchmark tasks, and real work (19% slower in the RCT) may not follow it. So the course's stance on timelines is to read the arguments on both sides rather than memorize one number.
+
+## Prerequisites and self-check
+
+The course site asks for mathematical maturity, the ability to write proofs, probability and information theory, plus undergraduate ML (for example Harvard CS 181 or MIT 6.036): empirical versus population loss, gradient descent, neural networks, linear regression, PCA; you should write Python and be able to train a basic neural network. On this site, start with the [Harvard CS 181 guide](/posts/tech/2026-08-27-harvard-cs181-overview-en); HW0 uses LoRA, so if it is new to you, read the [CMU 11-868 PEFT/LoRA post](/posts/ai/2026-09-30-cmu11868-peft-lora-en) first.
+
+After reading this post, try to answer:
+
+1. How is emergent misalignment different from a model simply "learning something bad"?
+   Answer: Fine-tuning on one narrow domain (such as bad medical advice) makes the model harmful on unrelated questions. The misalignment spreads beyond what was trained.
+2. Why shouldn't a chain-of-thought monitor be part of the training reward?
+   Answer: The model learns to stop writing down its cheating, and the monitor stops working. Lectures 2 and 10 both make this point.
+3. Why is "prove the theorem or give a counterexample" a bad rule?
+   Answer: Faced with a problem it can't solve, the model can only violate the rule or make something up. Adding "or explain that you can't" makes violations judgeable, so the rule can be used for training and evaluation.
+4. If task length doubles every 7 months, starting from 2 hours, about how long is it after two years?
+   Answer: 24/7 ≈ 3.4 doublings, $2 \times 2^{24/7} \approx 22$ hours.
+5. Benchmarks say AI is strong while an RCT says developers got slower. How can both be right?
+   Answer: Benchmark tasks are cleaner than real work, cheaper to grade, and need less context; the two measure different things.
+
+## How to read it: order and materials
+
+This series follows the finished Fall 2025 term. The method is read, reproduce, extend, and these materials are available outside Harvard:
+
+- **Per lecture**: the reading list on the course site (most lectures have one); the [YouTube playlist](https://youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W) has lecture recordings for 11 lectures (for Lecture 5 both the site and the playlist list only a student experiment video; Lecture 8 has only the opening); student-written [LessWrong weekly summaries](https://www.lesswrong.com/w/cs-2881r) cover some of the weeks. Slides are public for only about half the lectures.
+- **HW0**: the [GitHub repo](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0) is public; its grading script uses an LLM judge, so outside readers need their own OpenAI API key.
+- **Midterm and final**: the midterm has groups of 2–4 pick one of four papers, reproduce its headline figure, add one or two extensions, and write a 3–5 page report; the final extends an existing paper or pursues longer-term research, as a 5–10 page paper plus poster. Specs and rubrics are public and can be followed in full; but there are no problem sets or answer keys. The goal is learning to reproduce and extend, not finishing a set of exercises.
+
+| Order | Post | Official lecture |
+|---|---|---|
+| 1 | [L1 Introduction](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction-en) | L1 |
+| 2 | [HW0: Reproducing emergent misalignment](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en) | HW0 (before term) |
+| 3 | [L2 Modern LLM Training](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en) | L2 |
+| 4 | [L3 Adversarial Robustness](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en) | L3 |
+| 5 | [L4 Model Specifications](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en) | L4 |
+| 6 | [L5 Content Policies](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies-en) | L5 |
 | 7 | [Midterm mini-project](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en) | Midterm |
-| 8 | [L8 Scheming & Deception](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en) | L8, 10/23 |
-| 9 | [L10 Interpretability](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en) | L10, 11/6 |
-| 10 | [L6 Recursive Self-Improvement](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement-en) | L6, 10/9 |
-| 11 | [L7 Capabilities vs. Safety](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en) | L7, 10/16 |
-| 12 | [L9 Economic Impacts](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en) | L9, 10/30 |
-| 13 | [L11 Emotional Reliance](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance-en) | L11, 11/13 |
-| 14 | [L12 AI 2035](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035-en) | L12, 11/20 |
-| 15 | [Final projects and retrospective](/posts/ai/2026-09-30-cs2881r-final-projects-retrospective-en) | Paper 12/3, poster 12/10 |
+| 8 | [L8 Scheming & Deception](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en) | L8 |
+| 9 | [L10 Interpretability](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en) | L10 |
+| 10 | [L6 Recursive Self-Improvement](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement-en) | L6 |
+| 11 | [L7 Capabilities vs. Safety](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en) | L7 |
+| 12 | [L9 Economic Impacts](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en) | L9 |
+| 13 | [L11 Emotional Reliance](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance-en) | L11 |
+| 14 | [L12 AI 2035](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035-en) | L12 |
+| 15 | [Final projects and retrospective](/posts/ai/2026-09-30-cs2881r-final-projects-retrospective-en) | Final |
 
-HW0 sits after L1 and before L2 because it actually came before the first lecture: it was the admission filter, due a month before term. The student experiment in L1 was itself a follow-up to HW0.
+HW0 comes after Lecture 1 because on the official timeline it predates the first lecture as the enrollment gate; the student experiment in Lecture 1 is its mirror image.
 
-## Fall 2026 preview (supplement, not the main line)
+One thing to know when reading the guest lectures: the course site states that Boaz is also on OpenAI's technical staff, and Lectures 5, 9, 10, and 12 each have at least one guest from OpenAI too. The course discusses models from several companies, and each lecture post states the speakers' affiliations as listed.
 
-What the new term looks like. The main series does not rely on any of this:
+Fall 2026 is running now with a new set of topics (Cyber Capabilities, RL for Post-Training, AI Biosecurity, and others) and a different HW0. This series does not draw on it; after the term ends, we will decide whether to write an update.
 
-- **New lecture topics.** The [Fall 2026 homepage](https://boazbk.github.io/mltheoryseminar/) lists Cyber Capabilities, RL for Post-Training, Open-Source Models, Alignment in the Age of RSI, and AI Biosecurity, none of which were Fall 2025 sessions. The 12-03 slot is labeled Ajeya Cotra.
-- **A new HW0.** [Fall 2026 HW0](https://boazbk.github.io/mltheoryseminar/hw0-2026/) is "Relationship between J-space and model chain of thought," estimated at 4–16 hours, submitted as a roughly two-page report plus a private GitHub repo, due 2026-08-05.
-- **A clearer assignment structure.** The homepage lists presenting an experiment in class, writing scribe notes, a final project, and possibly homework or mini-projects.
-- **Videos already up.** The playlist has Fall 2026 Lecture 1 and Lecture 3.
+## What to do tonight
 
-The HW0 page itself says last year's lectures and notes are worth a look, but the field moves fast and this year's content will differ. Once Fall 2026 ends, this series will decide whether to write an update.
+1. Open the [HW0 repo](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0) README, read the three Instructions steps, and decide whether your GPU or cloud budget can handle LoRA fine-tuning of a 1B model.
+2. Redo the table in "Work it by hand", then try it again with a 10-month doubling time.
+3. Read the [Lecture 1 post](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction-en).
 
 ## Related reading on this site
-
-Each post in this series stands on its own. Where it overlaps other course guides on the site, it links out rather than cutting content:
 
 - LLM training and RLHF: [Stanford CS336 guide](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en), [Stanford CME295 guide](/posts/ai/2026-09-29-cme295-course-overview-en)
 - RL foundations: [Berkeley CS285 Spring 2026 guide](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
@@ -152,30 +149,30 @@ Each post in this series stands on its own. Where it overlaps other course guide
 - LLM-as-judge: [Stanford CS329Z Week 8: judges and guardrails](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en)
 - Other Harvard courses: [Harvard AI/ML course map](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en)
 
-One thing to do tonight: open the [HW0 repo](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0) README, read the three "Instructions" steps, and decide whether your GPU or cloud budget can handle LoRA fine-tuning of a 1B model.
 
 ## Course video sources
 
-This post spans several lectures; pick videos by topic and lecture from the official recording index. The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10: it has lecture recordings for Lectures 1–4 and 6–12, student experiment videos for Lectures 5 and 8, the Lecture 8 opening video, and the final-project oral presentations. Lecture 5 has no guest-lecture recording. The same playlist also holds Fall 2026 Lectures 1 and 3, which belong to a different semester and are not used in this series.
+This is a course overview; the intro embeds the Lecture 1 recording. Pick other lectures from the official playlist. Fall 2025 has lecture recordings for Lectures 1–4 and 6–12, student experiment videos for Lectures 5 and 8, Lecture 8's opening, and the final oral presentations; the same playlist also contains Fall 2026 Lectures 1 and 3, which this series does not use.
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
 - [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+- [Lecture 1 recording](https://www.youtube.com/watch?v=-NCiWaRS6So) (embedded in the intro, 2 h 26 min)
 
-Checked: 2026-10-10.
+Checked: 2026-10-14.
 
 ## Update Log
 
+- 2026-10-14: Rewrote the body as a real guide: the 12 lectures organized under four questions with what each covers, a hand calculation on task-length doubling, self-check questions, and the Lecture 1 recording in the intro; the course-site URL, base term, access rating, conflict-of-interest note, and Fall 2026 preview were cut down to a few paragraphs in the reading route.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
-- 2026-10-10: Rechecked video status. The official playlist was checked live; no recording corresponds to this post, so the status stays official entry only.
 
 ## References
 
 - [CS 2881R AI Safety, Fall 2025 course site](https://boazbk.github.io/mltheoryseminar/fall2025/) — description, prerequisites, Mini Syllabus, conflict-of-interest note, 12-lecture schedule and reading lists
 - [CS 2881R Fall 2026 homepage](https://boazbk.github.io/mltheoryseminar/) — new schedule, assignment structure, note that last year's materials are preserved
 - [CS 2881R Fall 2026 Homework Zero](https://boazbk.github.io/mltheoryseminar/hw0-2026/) — new HW0 topic, time estimate, submission requirements
-- [CS 2881R YouTube playlist](https://youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W) — lecture recordings (17 videos as of 2026-09-30)
+- [CS 2881R YouTube playlist](https://youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W) — lecture recordings
 - [LessWrong wikitag: CS 2881r](https://www.lesswrong.com/w/cs-2881r) — student weekly summaries and experiment posts
 - [Harvard-CS-2881/harvard-cs-2881-hw0](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0) — Fall 2025 HW0 repo
 - [Student Final Projects - Fall 2025](https://boazbk.github.io/mltheoryseminar/student_projects) — 19 final papers and posters

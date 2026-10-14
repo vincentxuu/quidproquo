@@ -75,7 +75,7 @@ The latest complete term is [Fall 2025](https://github.com/IKMLab/NTHU_Natural_L
 
 That makes Fall 2025 an A3. What you cannot get is solutions, scores, and the full term-project spec. [Fall 2026](https://github.com/IKMLab/NTHU_Natural_Language_Processing) is in progress with only W3 and HW1 posted so far, and its schedule ends with a new Reasoning/Agent unit.
 
-This site's [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series walks through Fall 2025 week by week, and its entry post compares grading and materials across both terms.
+This site's [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series walks through Fall 2025 week by week, and its entry post lays out the semester's storyline and how to read it.
 
 Something to do tonight: open Assignment 1 in the 2025 folder, watch the explainer video, and run the Word Analogy `main.ipynb` once in Colab.
 

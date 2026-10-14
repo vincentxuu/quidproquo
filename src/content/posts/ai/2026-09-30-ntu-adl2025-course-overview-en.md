@@ -5,127 +5,99 @@ category: ai
 type: guide
 tags: [ntu, ai-course, course-guide, deep-learning, nlp]
 lang: en
+math: true
 series:
   name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 0
-tldr: "Applied Deep Learning (ADL) Fall 2025, taught by Yun-Nung (Vivian) Chen in NTU's CSIE department, is a deep learning course built around NLP. It runs from neural network basics through Transformers, BERT, pretraining and prompting, post-training, LoRA, RAG, generation and evaluation, alignment issues, and language agents. Lectures Lectures 0–11 come with slide PDFs and segmented videos, and the playlist adds videos for Lectures 12–14. On the assignment side only the HW1 spec is public; HW2, HW3, and the final project have explainer videos only. That makes it A2."
-description: "Entry point to the series on NTU Yun-Nung Chen's Applied Deep Learning Fall 2025 (114-1): course goals, prerequisites, grading, weekly schedule, the lecture and TA-recitation tracks, the A2 access rating and its gaps, how the Fall 2025 page differs from the in-progress Fall 2026 page, the extra Lectures 12–14 videos on the playlist, and the full index."
+tldr: "NTU Professor Yun-Nung (Vivian) Chen's Applied Deep Learning (ADL) is a deep learning course centered on NLP, with 14 lectures in four segments: neural networks and backpropagation; sequences and Transformers (word vectors, RNNs, attention, BERT); putting pretrained models to work (prompting, instruction tuning, RLHF, LoRA, RAG, decoding and evaluation); and LLM issues and frontiers (bias and safety, language agents, reasoning, tool use, multimodality). Fall 2025 slides and segmented videos are public; only HW1 has a full spec, while HW2, HW3, and the final project have only briefing videos."
+description: "Entry point for the series on NTU Professor Yun-Nung Chen's Applied Deep Learning (ADL), Fall 2025: what each lecture in the four segments teaches, a hand calculation of dot-product attention with three keys, prerequisites and self-check questions, how to read the lecture and TA tracks with the materials available outside NTU, and the full series index."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** The intro embeds the Lecture 0 course introduction (29:36); each lecture's segmented videos are in its own post. [Source details](#course-video-sources)
 
-Applied Deep Learning (ADL) is taught by Yun-Nung (Vivian) Chen in the Department of Computer Science and Information Engineering (CSIE) at National Taiwan University. Its permanent URL is [adl.miulab.tw](http://adl.miulab.tw/). Despite the generic name, it is a deep learning course centered on natural language processing. It starts from "what is a neural network," moves through Transformers, BERT, and pretraining, and ends with RAG, alignment, and language agents.
+Applied Deep Learning (ADL, 深度學習之應用) is taught by Professor Yun-Nung (Vivian) Chen of NTU's computer science department, at the permanent address [adl.miulab.tw](http://adl.miulab.tw/). Despite the name, it is centered on natural language processing; the course's own slides say "ADL focus on NLP". Lectures are in Mandarin, slides in English.
 
-This series reads **ADL Fall 2025 (NTU term 114-1, 2025/09/01–12/15)**, the most recent semester that has finished. This post is the entry point. It covers course structure, what outside readers can get, and a reading order. Technical content is left to the later posts.
+The course goals are concrete: understand how deep learning works, how to frame a task as a learning problem, how to implement models with tools, how to use pretrained models, and when and why particular techniques work. The semester builds up in that order: first learn to train a network, then handle language sequences, then learn to make a big pretrained model do what you want, and finally look at the new problems LLMs bring.
 
-**Sources**: the [Fall 2025 course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/), the [Course Logistics slides](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Course.pdf) (18 pages), the [2025 Fall playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o), the [HW1 spec slides](https://docs.google.com/presentation/d/1PzKXFOZc9mMhw8NewNZQDDerTpjK9U1Ot1hrALpKSTA/edit?usp=sharing), and, for comparison, the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~miulab/f115-adl/). All were opened and checked on 2026-09-30. The matching video is [ADL 0: Course Introduction](https://youtu.be/RwRZVd9rLxE) (29:36). Lectures are delivered in Mandarin; the slides are in English.
+This post is the series entry point. It lays out what each lecture in the four segments teaches, works an attention calculation by hand, and ends with a prerequisite check and how to read the series. The series follows Fall 2025 (September–December 2025), the most recent finished term. Below is the Lecture 0 course introduction (29:36), covering goals, prerequisites, grading, and the AI-use rules; this post does not cover the grading details or AI-use rules, so watch the video for those.
 
-## The hard facts
+```youtube
+url: https://www.youtube.com/watch?v=RwRZVd9rLxE
+title: ADL 0: Course Introduction
+```
 
-From the Course Logistics slides:
+## The storyline: four segments
 
-- **When and where**: Mondays 14:20–17:10 in room R103, with online delivery via YouTube and NTU COOL. The course page marks each week as Physical or Virtual.
-- **Course goals** (p. 4): students should understand (1) how deep learning works; (2) how to frame tasks into learning problems; (3) how to use toolkits to implement designed models; (4) how to use pre-trained models; and (5) when and why specific learning techniques work for specific problems.
-- **Positioning** (p. 5): the slide places ADL beside other NTU courses and says "ADL focus on NLP." The same slide lists the machine learning courses by Hsuan-Tien Lin, Chun-Yi Lee, and Hung-yi Lee, Yu-Chiang Frank Wang's Deep Learning for Computer Vision, and Hung-yi Lee's Deep Learning for Human Language Processing.
-- **Prerequisites** (p. 7): college-level calculus and linear algebra are required; probability, statistics, and an intro AI course are preferred. You need to be comfortable in Python. All assignments are in Python and handed in through GitHub.
-- **Grading** (p. 9): three individual assignments, 60% (GitHub code plus README, scored on code and report, 25% off per day late); a final group project, 35%; participation, 5%.
-- **AI use** (pp. 9–10): you may ask LLMs such as ChatGPT or Gemini and reuse code from public repos, as long as you cite them in your report. You may not look at code or reports from past or current students.
-- **HW0** (p. 17): before enrolling, students must watch the online lectures Introduction (1.1–1.3), NN Basics (2.1–2.4), and Backpropagation (2.5). The course page lists these three decks under "self-study / prerequisite," and they are Lectures 1 and 2 of this series.
+### How neural networks learn (Lectures 1–2)
 
-## Two tracks: lectures and TA recitations
+[Lecture 1](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction-en) sets up two ideas: deep learning chains many simple functions into a production line, where you supply only the data at the two ends and the machine learns what each station does; and to solve a problem with it, first write down input X and output Y, since the form of the output decides whether the task is classification or sequence prediction. [Lecture 2](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop-en) answers the three questions of training: the model is layers of $z = Wa + b$ followed by a nonlinearity; quality is measured by a loss; and gradient descent walks downhill. With millions of parameters, gradients come from backpropagation: one forward pass stores each layer's outputs, one backward pass computes error terms from the output layer back, and their product is each weight's gradient. These two lectures are the official HW0, to be finished before enrolling.
 
-The course page splits every week into a Lecture column and a Recitation column. Course Logistics p. 6 spells out the division. Lectures cover DL basics, language representations, language modeling, Transformers, pretraining plus fine-tuning, pretraining plus prompting, and issues in NLP. Recitations cover dev infrastructure (Colab, GPU, PyTorch), DL workflow, Hugging Face basics, LLM architecture, evaluation, training, and inference.
+### Sequences and Transformers (Lectures 3–5 and HW1)
 
-The table below follows the course page. The "Tentative Schedule" on Course Logistics p. 13 orders the November weeks differently.
+[Lecture 3](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn-en) is built around language models: predict the next word, one at a time. Words go from one-hot vectors to low-dimensional word embeddings; language models go from n-grams (unseen combinations get zero probability) to RNNs (previous context accumulated in a hidden state). RNN gradients tend to vanish or explode; clipping handles explosion, and the gates of LSTMs and GRUs handle vanishing. [Lecture 4](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer-en) fixes the problem of squeezing a whole sentence into one vector: attention lets the decoder, for each word it produces, score every input position and take a weighted sum; the Transformer has the input attend to itself, dropping recurrence for parallelism at the cost of adding position information separately. [Lecture 5](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en) covers subword tokenization in the first half (BPE repeatedly merges the most frequent adjacent pair) and BERT in the second: mask 15% of tokens and fill them back in to learn context-aware representations, then fine-tune for downstream tasks. [HW1](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa-en) is Chinese extractive question answering: pick the relevant paragraph from four, then mark the answer's start and end positions.
 
-| Date | Lecture | Recitation | Assignment / note |
-|---|---|---|---|
-| Self-study | Introduction, NN Basics, Backpropagation | — | HW0 |
-| 9/01 | Course Logistics, Sequence Modeling | Dev Infra & Tooling (PyTorch, Debugging) | |
-| 9/08 | Attention, Transformer, Tokenization, BERT; plus a guest lecture by William Wang (UCSB) | NLP Lifecycle | HW1 |
-| Optional | Word Embeddings, BERT Variants | — | |
-| 9/15 | Pretraining & Prompt Learning | Underlying Logics of Projects | |
-| 9/22 | Post-Training, LLM Adaptation | LLM LoRA Training | HW2 |
-| 9/29, 10/06 | No class (Teachers' Day, Mid-Autumn Festival) | | |
-| 10/13 | Retrieval-Augmented Generation | LLM Basics & MoE | HW3 |
-| 10/20 | Midterm break | | |
-| 10/27 | NLG Decoding, NLG Evaluation | LLM Inference & Evaluation | |
-| 11/03 | Issues and Development in Pre-Trained Models | LLM Deployment | Final project announced |
-| 11/10 | Language Agents | | |
-| 11/17 | Knowledge, Multimodality (title only) | | |
-| 11/24 | Personalization (title only) | | |
-| 12/01 | Reasoning (title only) | | |
-| 12/15 | | | Final Project Due |
+### Putting pretrained models to work (Lectures 6–9)
 
-The guest lecture appears on the course page with only the speaker's name: no title, slides, or video. This series does not cover it.
+[Lecture 6](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning-en) sorts pretrained models into three kinds: encoders see both sides and suit understanding; decoders see only the left and can generate, the kind that has won out; encoder-decoders are pretrained by denoising. GPT-3's in-context learning does tasks without updating parameters; then come two kinds of prompts: a hard prompt uses a human-written template to turn the task into fill-in-the-blank, with a verbalizer mapping the filled-in word to a label, while a soft prompt trains a sequence of vectors directly as the prompt. [Lecture 7](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf-en) covers the two steps from continuing text to following instructions: instruction tuning teaches the model to read task descriptions, and RLHF uses a reward model to move answers toward human preferences (DPO and KTO remove the reinforcement learning part); the second half covers Adapters and LoRA, which train only a few parameters. [Lecture 8](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3-en) is RAG: an open-book exam where the model retrieves passages for the question first, then answers with them; it compares sparse and dense retrieval, bi-encoders and cross-encoders, and when prompting, RAG, or fine-tuning fits best. [Lecture 9](/posts/ai/2026-09-30-ntu-adl2025-nlg-decoding-evaluation-en) covers how to pick words during generation: greedy takes the most likely word at each step, beam search keeps several candidates at once, and top-k and nucleus sampling sample only among the more probable words; evaluation includes BLEU and ROUGE, which measure word overlap with reference answers, plus perplexity and LLM-based evaluation.
 
-## What outsiders can get: A2
+### LLM issues and frontiers (Lectures 10–14)
 
-This site's [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) grades openness as A0 (schedule visible), A1 (syllabus visible), A2 (materials partly open), and A3 (enough to self-study). The [NTU AI/ML course guide](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en) rates ADL Fall 2025 as A2. A fresh check for this series confirms it: the lecture side is complete, but only one assignment spec can be confirmed as this semester's version.
+[Lecture 10](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en) sorts the problems of models trained on web data into three kinds: bias (goal: fairness), harmful content (goal: safety; jailbreaks are attempts to get around the defenses), and hallucination (goal: factuality; a long answer can be split into minimal claims and checked one by one). A common fix for all three is alignment, but optimizing too hard against an imperfect reward model makes things worse. [Lecture 11](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en) organizes language agents around reasoning, memory, and planning: reasoning itself is treated as an internal action (CoT, ReAct); memories are retrieved by recency, importance, and relevance scores; planning goes from step-by-step reaction to tree search. [Lecture 12](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en) has two halves: test-time scaling keeps the model fixed and spends more compute at inference (answer several times and pick, score each step with a process reward model); learning to reason updates the weights, for example DeepSeek-R1-Zero, which is given only whether answers are right and grows reasoning behavior through reinforcement learning. [Lecture 13](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en) covers dialogue systems: traditionally split into understanding, state tracking, choosing an action, and generating a sentence, all of which a language model can do in one go, except that without tools its "let me look that up" looks nothing up; Toolformer has the model generate and filter its own tool-use training data. [Lecture 14](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal-en) covers learning representations without labels: an auto-encoder compresses the input into a short code and reconstructs it, a VAE makes the code follow a Gaussian so it can be sampled to generate, and contrastive learning pulls similar things together and pushes dissimilar ones apart; CLIP applies contrastive learning to image-text pairs, so image classification needs no separate training.
 
-**What is public**
+The TA recitations are a separate track: Colab and PyTorch, the NLP project workflow, LoRA and QLoRA, quantization, and deployment with vLLM, gathered in the [TA recitations post](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en).
 
-- Slide PDFs for Lectures 1–11, plus segmented videos (most lectures split into 3 to 6 videos; Attention, Transformer, and BPE get one each).
-- Videos for Lectures 12–14 on the playlist (see the next section).
-- Recitation videos and two Colab notebooks: [Dev Infra & Tooling](https://colab.research.google.com/drive/1yoyDg3411OyddX5fPGomtGe3_0Kz77qT) and [NLP Lifecycle](https://colab.research.google.com/drive/1nATVYs9OkPG_MEs6D_RXw1W-DlUWbTHJ).
-- The full HW1 spec: Chinese extractive question answering. The model first picks the relevant paragraph out of four, then finds the answer's start and end positions inside it. Scoring is Exact Match. The leaderboard is on Kaggle (due 9/29); code and report go to NTU COOL (due 10/1).
-- Explainer videos for HW2, HW3, and the final project.
+## Work it by hand: attention is a weighted average
 
-**Gaps**
+This is a teaching example written for this post, to look at Lecture 4's core operation and why it shows up again in Lecture 8's retrieval and Lecture 9's temperature.
 
-1. **HW2 and HW3 exist only as videos.** The HW 2 and HW 3 buttons on the course page link straight to YouTube. Each video description has one line: HW2 is "LLM Tuning and Prompt Tuning for Classical Chinese Translation," and HW3 is "Retriever & Reranker Training for RAG." No written spec is public and the datasets are not available. What the TAs say in the videos about the task, models, evaluation, and grading is summarized at the end of the Lecture 7 and Lecture 8 guides in this series.
-2. **The final project has only video titles and descriptions.** The description of [Final Project Introduction](https://youtu.be/UBe9eGPwRyg) says "Rules and Grading"; the one for [Final Project Grand Challenge](https://youtu.be/pZxBNlSqy6I) says "Jailbreaking Olympics."
-3. **Submission and grading are campus-only.** Assignments go to NTU COOL, which needs an NTU account. This series did not open the HW1 Kaggle competition, so it makes no claim about whether it still accepts submissions.
-4. **Lectures 12–14 have no slides from this semester**, and Lecture 12 Reasoning has no slides at all.
-5. **Some links are broken.** All five recitation decks linked from the course page (for example `w2-ProjLife.pdf`) return 404 under the f114 path. Files with the same names open under the [Fall 2024 path](https://www.csie.ntu.edu.tw/~miulab/f113-adl/doc/w2-ProjLife.pdf). The BERT Variants deck likewise needs the [Fall 2024 copy](https://www.csie.ntu.edu.tw/~miulab/f113-adl/doc/240918_BERTVariants.pdf).
+Take a query vector $q = (1, 0)$ and three keys, $k_1 = (1, 0)$, $k_2 = (0, 1)$, $k_3 = (-1, 0)$, with values 10, 20, and 30.
 
-**What to do with that**: if you want to understand the NLP storyline from RNNs to LLMs, the slides and videos are enough. If you want to complete all three assignments, only HW1 is doable as specified. For HW2 and HW3 you can practice with the task setup described in the briefing videos, and you have to prepare your own data and cannot match the official grading.
+1. **Score**: the dot products $q \cdot k_i$ are 1, 0, −1. $k_1$, pointing the same way as $q$, scores highest.
+2. **Softmax into weights**: $e^1 \approx 2.718$, $e^0 = 1$, $e^{-1} \approx 0.368$, summing to about 4.086, so the weights are 0.665, 0.245, 0.090, adding up to 1.
+3. **Weighted average**: $0.665 \times 10 + 0.245 \times 20 + 0.090 \times 30 \approx 14.25$.
 
-## Four things the course page doesn't make clear
+The output leans toward $k_1$'s value of 10, but the other two still contribute.
 
-**1. The playlist has three more lectures than the course page.** The [2025 Fall playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o) holds 77 videos. The course page rows for 11/17, 11/24, and 12/01 carry only titles, but the playlist has:
+Double the scores (2, 0, −2) and compute again: the weights become 0.867, 0.117, 0.016, and the output is about 11.49, taking almost only $k_1$. The larger the scale of the scores, the sharper the softmax, and the closer attention gets to looking up a single entry.
 
-- **Lecture 12 Reasoning**: 12.1 What is Reasoning?, 12.2 Short CoT, 12.3 Test-Time Scaling, 12.4 Learning to Reason, 12.5 RL for Reasoning
-- **Lecture 13 Conversation and tool use**: 13.1 Learning to Converse and Interact through 13.9 Conversation Evaluation, with LaMDA, BlenderBot, WebGPT, Toolformer, Plan-and-Execute, and Theory-of-Mind in between. 13.6 and 13.7 carry the same recording
-- **Lecture 14 Beyond supervised learning**: 14.1 Beyond Supervised Learning through 14.7 Multimodality, with Auto-Encoder, VAE, Dual Learning, Self-Supervised Learning, and CLIP & DALL·E 2 in between
+**What this means:** attention does not pick one item; it averages by similarity, and the score scale decides how selective it is. The Transformer divides the dot product by $\sqrt{d_k}$ (the key dimension) precisely so that the score scale does not grow with the dimension and make the softmax too sharp. The same "score by similarity, take the top few" shows up in Lecture 8's dense retrieval, and "rescale the scores to control how sharp the distribution is" is what temperature does in Lecture 9.
 
-The Personalization row has no matching video on the playlist.
+## Prerequisites and self-check
 
-**2. The page's HTML still holds 2022 assignments.** The source of the Homework section at the bottom still contains A1_RNN, A2_BERT, A3_NLG, and 2022 due dates, but that block is commented out. What a browser shows is only the submission rules (submit via NTU COOL, no late submissions, keep your repo private). The real entry points for this semester's work are the HW 1/2/3 buttons in the schedule's Note column. Ignore old files that search engines turn up.
+The official requirements are university calculus and linear algebra, with probability, statistics, and intro AI recommended; you should be fluent in Python, since all assignments are written in Python. If PyTorch is new to you, start with the Dev Infra recitation and Colab in the TA recitations post.
 
-**3. One video is mislinked.** The "Intro" link under Word Embeddings in the optional section points to [LosffMy3BqM](https://youtu.be/LosffMy3BqM), whose actual title is "ADL 4: Gating Mechanism," a video on LSTM and GRU details. The other five links in that row are the word-embedding videos.
+After reading this post, try to answer:
 
-**4. 2.5 Backpropagation is not on the playlist.** [ADL 2.5](https://youtu.be/BHgssEwMxsY) is linked from the course page and uploaded by the same channel (陳縕儂 Vivian NTU MiuLab), but it is not among the 77 playlist videos. Watching only the playlist skips backpropagation.
+1. Why can't a single neuron do XOR?
+   Answer: One neuron can only draw a single straight boundary, and the two XOR classes cannot be separated by one straight line; you need two layers.
+2. Why do RNN gradients tend to vanish or explode, and how is each handled?
+   Answer: Backpropagation multiplies by the same weight matrix many times; clip gradients for explosion, and use LSTM or GRU gates for vanishing.
+3. In the example above, if $q = (0, 1)$, which value gets the highest weight?
+   Answer: The scores become 0, 1, 0, so $k_2$ is highest, with weights about 0.212, 0.576, 0.212. The output is exactly 20, but these values hide the lean: $k_1$ and $k_3$ get equal weight, and 10 and 30 average to 20 anyway. Swap the values for 10, 20, 60 and compute again: $0.212 \times 10 + 0.576 \times 20 + 0.212 \times 60 \approx 26.4$, closer to $k_2$'s 20 than the plain average of 30.
+4. When is RAG a better fit than fine-tuning?
+   Answer: When knowledge changes often, lives in internal documents, or needs a citable source; RAG needs no retraining, and swapping documents swaps the knowledge.
+5. How do test-time scaling and learning to reason differ?
+   Answer: The first leaves the model unchanged and spends more compute at inference; the second updates the weights so the model learns to reason.
 
-## Why not Fall 2026
+## How to read it: lectures, assignments, and materials
 
-adl.miulab.tw now redirects to the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~miulab/f115-adl/). When rechecked on 2026-10-13, that semester had reached week 6 (10/12). It differs from Fall 2025 in three ways:
+The series follows the official lecture order, with HW1 as its own post, HW2, HW3, and the final project folded into their lectures, and the TA recitations gathered into the last post.
 
-- **The first half has new slides and re-recorded videos.** Slide filenames for the 9/07 through 10/12 weeks now start with `2609` or `2610`. The video links for Sequence Modeling, Attention, Transformer, Tokenization, BERT, Pretraining, and RAG have all been replaced; the 7 spot-checked were uploaded in September or October 2026.
-- **The lecture order changed.** RAG moves up to 10/05, and its videos are now numbered 7.1–7.5 (8.1–8.6 in Fall 2025). Post-Training and LLM Adaptation move back to 10/12; their slides are online, but no video links are posted yet.
-- **The second half is not updated yet.** From the 10/19 NLG row on, slide links still point to Fall 2025 filenames (`251027_NLG.pdf`, `251103_Issues.pdf`, `251110_LangAgent.pdf`), which return 404 under the f115 path. The later schedule was rearranged too: Alignment moves to 11/09, Language Agents to 11/16, and a new Human-AI Interaction session appears on 11/23.
+**Suggested route**: read Lectures 1 and 2 with videos 1.1–2.5 (the official HW0) → after Lecture 5, do HW1 as a checkpoint (with your own data) → from Lecture 6 on, follow your interests. If you only want the NLP storyline from RNNs to LLMs, the slides and videos are enough.
 
-| Topic | Fall 2025 | Fall 2026 (as of 2026-10-13) |
-|---|---|---|
-| Sequence Modeling | 9/01, videos 3.1–3.4 | 9/07, new slides, re-recorded |
-| Attention, Transformer | 9/08, videos 4.1–4.2 | 9/14, new slides, re-recorded |
-| Tokenization, BERT | 9/08, videos 5.1–5.2 | 9/14, new slides, re-recorded |
-| Pretraining & Prompt Learning | 9/15, videos 6.1–6.6 | 9/21, new slides, re-recorded |
-| Post-Training, LLM Adaptation | 9/22, videos 7.1–7.5 | 10/12, new slides, no videos yet |
-| Retrieval-Augmented Generation | 10/13, videos 8.1–8.6 | 10/05, new slides, videos 7.1–7.5 |
-| NLG Decoding, NLG Evaluation | 10/27, videos 9.1–9.5 | 10/19, not updated yet |
-| Issues and Development (renamed Alignment in Fall 2026) | 11/03, videos 10.1–10.3 | 11/09, not updated yet |
-| Language Agents | 11/10, videos 11.1–11.5 | 11/16, not updated yet |
-| Reasoning, dialogue, multimodality | playlist 12.1–14.7 | 11/23–12/07, titles only |
+**Materials and limits**:
 
-This series still uses Fall 2025 as its baseline: it is the most recent completed semester, and videos exist for all 14 units. If you are following Fall 2026, use the table above to convert lecture numbers; RAG is the easiest one to mix up (Lecture 7 in Fall 2026, Lecture 8 in this series). Once Fall 2026 ends (the page lists 2026/12/14 as Final Project Due), we will decide whether to switch versions.
+- Lectures 1–11 have slides and segmented videos. Lectures 12–14 are only on the [Fall 2025 playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o), with titles only on the course page; Lecture 12 has no public slides, and Lectures 13 and 14 use Fall 2024 slides, which the posts note.
+- The backpropagation video ([ADL 2.5](https://youtu.be/BHgssEwMxsY)) is linked from the course page but not on the playlist; watching only the playlist skips it.
+- Only HW1 has a full spec, but its data and leaderboard are behind a Kaggle invitation link, and code and reports go to NTU COOL, so outside readers cannot get the data and need to find a Chinese QA dataset to practice on. HW2 (LLM fine-tuning for classical Chinese translation) and HW3 (training a retriever and reranker for RAG) have only briefing videos, so you need your own data and your results will not match the official grading; the final project likewise has only briefing videos. The posts summarize the tasks and points from the videos. None of the three assignments has public solutions.
+- The TA handout links on the course page do not open; the same files can be downloaded from the [Fall 2024 path](https://www.csie.ntu.edu.tw/~miulab/f113-adl/doc/w2-ProjLife.pdf) instead.
 
-## How this series is ordered
+**If you are following Fall 2026**: the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~miulab/f115-adl/) has new slides and videos for the first half and a reordered schedule; the easiest thing to mix up is RAG (Lecture 7 in Fall 2026, Lecture 8 in this series); Post-Training moved after RAG, and the materials for the second half have not been updated yet.
 
-The series mostly follows the official order with three changes. HW1 comes right after BERT as its own post. HW2, HW3, and the final project are folded into their related lecture posts, since they have no public spec document, only briefing videos. The recitations are gathered into the last post, and lecture posts just link to them.
+## Posts in this series
 
 | Lecture | Post | Official materials |
 |---|---|---|
@@ -146,13 +118,11 @@ The series mostly follows the official order with three changes. HW1 comes right
 | Lecture 14 | [Learning Without Labels and Multimodality](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal-en) | Videos 14.1–14.7, Fall 2024 slides |
 | Tutorials | [TA Recitations: From PyTorch to LLM Deployment](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en) | Recitation videos, slides, and Colabs |
 
-Lectures 12 through 14 have thinner official material: Lecture 12 has no slides, and Lectures 13 and 14 use slides from Fall 2024. Those posts mark the source semester section by section.
+## What to do tonight
 
-## How to start
-
-1. **Check the prerequisites**: calculus and linear algebra are officially required. If Python or PyTorch is new to you, start with the Dev Infra recitation and Colab linked from the TA recitations guide.
-2. **Follow the official HW0**: read Lectures 1 and 2 alongside videos 1.1–2.5. Students must finish this before enrolling, and it is the shared vocabulary for everything after.
-3. **Use HW1 as a checkpoint**: do HW1 after Lecture 5. It is the only assignment with a full spec, so it is the one real test of whether you can turn an NLP task into working code.
+1. Watch the roughly 30-minute course introduction above and check the prerequisites.
+2. Redo the three steps in "Work it by hand", then do it again with $q = (0, 1)$ and values 10, 20, 60.
+3. Read [Lecture 1](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction-en) alongside videos 1.1–1.3.
 
 Related entry points on this site: the [NTU AI/ML course guide](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en) compares ADL with the courses of Hung-yi Lee and Hsuan-Tien Lin. From the same university, the [Hung-yi Lee Machine Learning 2026 Spring guide](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) starts from AI agents, which complements ADL's bottom-up order. For an English-taught NLP storyline, compare with the [Stanford CS224N guide](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en).
 
@@ -160,24 +130,22 @@ Next: [What Machine Learning and Deep Learning Are](/posts/ai/2026-09-30-ntu-adl
 
 ## Course video sources
 
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+This is a course overview; the intro embeds the Lecture 0 course introduction. For each lecture's segmented videos, use the official course page or playlist; each lecture post also links its videos.
 
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-- [Official ADL Fall 2025 playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)
+- [Official ADL Fall 2025 playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o) (77 videos)
+- [ADL 0: Course Introduction](https://www.youtube.com/watch?v=RwRZVd9rLxE) (embedded in the intro, 29:36)
 
-On 2026-10-10 this was checked live against the official course page and the official playlist (77 videos). This post is an overview with no single matching lecture, so no video is embedded.
-
-Checked: 2026-10-10.
+Checked: 2026-10-14.
 
 ## Update Log
 
+- 2026-10-14: Rewrote the body as a real guide: the mechanism behind each lecture in the four segments, a hand-worked attention example, self-check questions, and the Lecture 0 introduction in the intro; course rules, access rating, course-page issues, and the Fall 2026 comparison were cut down to a few paragraphs in the reading section.
+- 2026-10-13: Lectures 5 and 7 were each merged into one post; updated the HW2 and HW3 notes.
+- 2026-10-13: Rechecked the Fall 2026 course page and added a lecture mapping between the two terms.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
-- 2026-10-10: Rechecked video status. The official course page and playlist are live; this overview embeds no single video.
-- 2026-10-13: Rechecked the Fall 2026 course page. Rewrote "Why not Fall 2026" and added a lecture-number comparison table for the two semesters.
-- 2026-10-13: Moved the verification history out of the body and switched cross-references within the series from post order to lecture numbers.
-- 2026-10-13: Lectures 5 and 7 are each merged into one guide; updated the notes on HW2 and HW3 (the briefing videos are now summarized in the Lecture 7 and 8 guides); noted that 13.6 and 13.7 are the same recording.
 
 ## References
 
@@ -195,5 +163,8 @@ Checked: 2026-10-10.
 - [BERT Variants slides (Fall 2024 path)](https://www.csie.ntu.edu.tw/~miulab/f113-adl/doc/240918_BERTVariants.pdf)
 - [ADL Fall 2026 (115-1) course page](https://www.csie.ntu.edu.tw/~miulab/f115-adl/) — in progress, used only for comparison
 - [陳縕儂 Vivian NTU MiuLab YouTube channel](https://www.youtube.com/@VivianMiuLab/playlists)
-- On this site: [Global AI/CS course map (A0–A3 definitions)](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 - On this site: [NTU AI/ML course guide](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en)
+- [Attention Mechanism slides (250908_Attention.pdf)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Attention.pdf) — Lecture 4: dot-product attention
+- [Transformer slides (250908_Transformer.pdf)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Transformer.pdf) — Lecture 4: self-attention and position information
+- [NN Basics slides (250901_NNBasics.pdf)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_NNBasics.pdf) — Lecture 2: neural networks and gradient descent
+
