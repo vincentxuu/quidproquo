@@ -1,125 +1,132 @@
 ---
-title: "Foundations and Techniques in 32 Lectures: Course Map and Self-Study Routes | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Course Overview"
+title: "Machine Learning Foundations and Techniques: From \"Can Machines Learn?\" to Three Ways of Handling Features | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-htlin-ml, ntu, ai-course, machine-learning, learning-theory]
 lang: en
+math: true
 series:
   name: "Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques"
   order: 0
-tldr: "Hsuan-Tien Lin's Machine Learning Foundations (16 lectures) and Machine Learning Techniques (16 lectures) are two Mandarin-taught MOOCs. All 130 YouTube videos and 32 slide decks are free. The MOOCs alone are A2: since August 2025, free Coursera accounts can only view the first module, so the exercises sit behind a paywall. Add the Fall 2024 course page, which publishes HW0–HW7 and the final project spec, and you reach A3, minus the grading chain: no official solutions, Gradescope and NTU COOL are enrolled-only, and the Kaggle competition returns 404. Fall 2026 is running now as a flipped classroom; slides through week 4, hw0, and hw1 are public."
-description: "Entry point for the series on NTU Professor Hsuan-Tien Lin's Machine Learning Foundations and Machine Learning Techniques: the 32-lecture structure organized around seven questions, three version baselines (MOOC, Fall 2024, Fall 2026), A0–A3 access grading and gaps, YouTube versus Coursera's preview model, the Fall 2026 flipped-classroom watch list, three self-study routes, and the 19 posts in this series."
+tldr: "Foundations spends 16 lectures on four questions: when machines can learn, why they can (Hoeffding, growth functions, VC dimension), how (linear and logistic regression, nonlinear transforms), and how to learn better (regularization, validation). Techniques spends 16 more on three ways of handling features: kernels embed features in high dimensions (SVMs), aggregation combines hypotheses (AdaBoost, random forests, GBDT), and extraction learns hidden features (neural networks, matrix factorization). All 130 YouTube videos are free; practice with the Fall 2024 HW0–HW7."
+description: "Entry point for the series on NTU Professor Hsuan-Tien Lin's Machine Learning Foundations and Machine Learning Techniques: the seven questions that form the storyline, the mechanism each segment teaches, a worked Hoeffding sample-size example, prerequisites and self-check questions, three self-study routes, and the 34 posts in this series."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** The intro embeds the Course Introduction from Foundations Lecture 1 (11 minutes); each lecture's recordings are in its own post. [Source details](#course-video-sources)
 
-For many Mandarin-speaking learners, [Machine Learning Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/) (機器學習基石) and Machine Learning Techniques (機器學習技法) were their first course in machine learning theory. Hsuan-Tien Lin of NTU's Department of Computer Science and Information Engineering launched both on Coursera in 2015–2016, taught in Mandarin. The textbook is [Learning from Data](http://amlbook.com) (LFD below), which he co-wrote with Yaser Abu-Mostafa and Malik Magdon-Ismail. Foundations asks why machines can learn at all and builds up to VC dimension and regularization. Techniques moves on to SVMs, boosting, decision trees, and neural networks.
+[Machine Learning Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/) (機器學習基石) and Machine Learning Techniques (機器學習技法) are two Mandarin-taught MOOCs that Hsuan-Tien Lin of National Taiwan University launched on Coursera in 2015–2016, 16 lectures each. The textbook is [Learning from Data](http://amlbook.com) (LFD below), which he co-wrote with Yaser Abu-Mostafa and Malik Magdon-Ismail. Ten years later his NTU [Machine Learning](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) course is still a flipped classroom, and each week's required watching is still these MOOC videos.
 
-Ten years later, Lin's own NTU course still uses the two MOOCs as its backbone. [Machine Learning, Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) is a flipped classroom, and each week's "required watching (before class)" is a set of MOOC videos.
+What sets these courses apart is that they ask "why" first. Most of Foundations is not about algorithms but about a proof: having seen only a finite sample, why should we believe a model is accurate on data it has never seen? Once that is settled, Techniques uses the same theory to explain why SVMs, boosting, decision trees, and neural networks work, and when they fail.
 
-This post is the series entry point. It covers the course structure, what outside learners can get, and the order to read things in. Each lecture gets its own post later.
+This post is the series entry point. It lays out the course's storyline and what each segment teaches, walks through one hand calculation that shows the core argument of Foundations, and ends with a prerequisite check and reading routes. The video below is Lin's own 11-minute introduction to how the two courses are designed, covering the same ground as the storyline section; watch it before or after reading.
 
-**Sources**: the [MOOC page](https://www.csie.ntu.edu.tw/~htlin/mooc/) (footer: last updated 2024-08-30), the [Foundations](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf) and [Techniques](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2) YouTube playlists, the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) and its [policy.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/policy.pdf), the [Fall 2024 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) and its homework PDFs, the [Coursera page for Foundations part 1](https://www.coursera.org/learn/ntumlone-mathematicalfoundations), and [NTU OpenCourseWare's note on Coursera's policy](https://ocw.aca.ntu.edu.tw/courses/mooc0016) (in Mandarin). I opened and checked all of them on 2026-09-30.
+```youtube
+url: https://www.youtube.com/watch?v=nQvpFSMPhr0
+title: The Learning Problem :: Course Introduction @ Machine Learning Foundations (機器學習基石)
+```
 
-## Two MOOCs: seven questions, 32 lectures, 130 videos
+## The storyline: four questions in Foundations, three segments in Techniques
 
-Page 2 of [01_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/01_handout.pdf) describes Foundations as "foundation oriented" and "story-like," strung along four questions. Techniques is split by three ways of handling features. The Fall 2026 course page numbers these seven segments topic 1 through topic 7:
+[01_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/01_handout.pdf) describes Foundations as a "story-like" course that strings its 16 lectures along four questions. Techniques is split into three segments by how it handles features, plus a final lecture. The lectures are in Mandarin and the slides in English; the questions below are quoted from the slides.
 
-| Segment | Question (as on the slides) | Lectures | This series |
-|---|---|---|---|
-| Foundations 1 | When Can Machines Learn? | Foundations Lectures 1–4 | [Lecture 1](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en), [Lecture 2](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-02-perceptron-learning-algorithm-en), [Lecture 3](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-03-types-of-learning-en), [Lecture 4](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en) |
-| Foundations 2 | Why Can Machines Learn? | Foundations Lectures 5–8 | [Lecture 5](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function-en), [Lecture 6](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-06-theory-of-generalization-en), [Lecture 7](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en), [Lecture 8](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-08-noise-and-error-en) |
-| Foundations 3 | How Can Machines Learn? | Foundations Lectures 9–12 | [Lecture 9](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression-en), [Lecture 10](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-10-logistic-regression-en), [Lecture 11](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform-en), [Lecture 12](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-12-nonlinear-transformation-en) |
-| Foundations 4 | How Can Machines Learn Better? | Foundations Lectures 13–16 | [Lecture 13](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization-en), [Lecture 14](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-14-regularization-en), [Lecture 15](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en), [Lecture 16](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-16-three-learning-principles-en) |
-| Techniques 1 | embedding numerous features (kernel models) | Techniques Lectures 1–6 | [Lecture 1](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en), [Lecture 2](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-02-dual-svm-en), [Lecture 3](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en), [Lecture 4](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm-en), [Lecture 5](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression-en), [Lecture 6](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-06-support-vector-regression-en) |
-| Techniques 2 | combining predictive features (aggregation models) | Techniques Lectures 7–11 | [Lecture 7](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en), [Lecture 8](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting-en), [Lecture 9](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt-en), [Lecture 10](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-10-random-forest-en), [Lecture 11](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-11-gradient-boosted-decision-tree-en) |
-| Techniques 3 | distilling hidden features (extraction models) | Techniques Lectures 12–15 | [Lecture 12](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en), [Lecture 13](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-13-deep-learning-en), [Lecture 14](/posts/ai/2026-09-30-ntu-htlin-ml-rbf-network-matrix-factorization-en), [Lecture 15](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-15-matrix-factorization-en) |
-| Wrap-up | finale ("happy learning!") | Techniques Lecture 16 | [Lecture 16](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en) |
+```mermaid
+flowchart LR
+  W["When<br/>can machines learn"] --> Y["Why<br/>can they learn"] --> H["How<br/>do they learn"] --> B["Better<br/>learn better"]
+  B --> K["embedding<br/>kernel models"]
+  B --> A["combining<br/>aggregation models"]
+  B --> E["distilling<br/>extraction models"]
+```
 
-The MOOC page lists four section titles for each lecture, one video per section. Foundations L1 and Techniques T1 each add a "Course Introduction" video, so each playlist has 65 videos, 130 in total. The first Foundations video went up on 2015-12-09; the first Techniques video on 2016-02-14.
+### Foundations 1: When Can Machines Learn? (Lectures 1–4)
 
-Slides come in two flavors: handout and presentation (step-by-step animation). Files are numbered `01`–`16` for Foundations and `201`–`216` for Techniques. Each course has a zip of all handouts ([Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/mlfound_handout.zip), [Techniques](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/mltech_handout.zip)). The MOOC page says the slides are shared under CC-BY-NC 3.0, but the figures stay with their original copyright holders, in most cases the LFD authors. There is also an [errata page](https://www.csie.ntu.edu.tw/~htlin/mooc/errata.php).
+First, a precise definition of learning: there is an unknown target function $f$, and an algorithm $\mathcal{A}$ uses data $\mathcal{D}$ and a hypothesis set $\mathcal{H}$ to pick a $g$ that should satisfy $g \approx f$. The first algorithm is the perceptron learning algorithm (PLA): find a misclassified point $(\mathbf{x}_n, y_n)$ and update the weights to $\mathbf{w} + y_n\mathbf{x}_n$, turning toward the point for a positive example and away from it for a negative one; on linearly separable data it is guaranteed to stop. Lecture 3 then sorts learning problems by output (classification, regression, structured), labels (supervised, unsupervised, semi-supervised, reinforcement), protocol (batch, online, active), and input features, and explains that the course focuses on batch supervised binary classification and regression. Then the deeper question: can $g$ match $f$ anywhere outside the data? A marble-and-jar analogy leads to Hoeffding's inequality: as long as the hypothesis is fixed in advance, the probability that the in-sample error $E_{\text{in}}$ and the true error $E_{\text{out}}$ differ by a lot shrinks exponentially with the amount of data. With $M$ hypotheses, the probability grows by at most a factor of $M$.
 
-The lectures are in Mandarin and the slides are in English. English readers can follow the slides directly; the audio is the barrier.
+Start with [Lecture 1](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en).
 
-## Three version baselines
+### Foundations 2: Why Can Machines Learn? (Lectures 5–8)
 
-The same material now exists in three versions. Every post in this series says which one it cites:
+PLA picks from infinitely many lines, so $M$ is infinite and the guarantee above collapses. The fix: infinitely many lines can only produce finitely many ○/× labelings (dichotomies) of $N$ points. The maximum count is the growth function $m_{\mathcal{H}}(N)$. Once some number of points (a break point) cannot be labeled in all $2^N$ ways, $m_{\mathcal{H}}(N)$ is bounded by a polynomial, and substituting it for $M$ gives the VC bound. The largest number of points that can still be labeled every way is the VC dimension $d_{\text{VC}}$; for a perceptron in $d$ dimensions, $d_{\text{VC}} = d + 1$. Lecture 8 handles noise by making the target a distribution $P(y|\mathbf{x})$, under which the VC bound still holds, and argues that the error measure should come from the application, for example a weighted error when false accepts and false rejects cost different amounts.
 
-| Layer | What it is | Status | What this series uses it for |
-|---|---|---|---|
-| MOOC | Recordings and slides for Foundations (16) and Techniques (16) | Recorded 2015–2016; MOOC page last updated 2024-08-30 | Core material |
-| [Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) | NTU course, Mondays 13:20–16:20, page says "English teaching"; grading 70% homework, 30% project (tentative) | Finished | Homework baseline: HW0–HW7 and final project PDFs are all public |
-| [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) | NTU course, Wednesdays 9:10–12:10, "Mandarin teaching"; grading 30% homework, 30% exam, 40% project (tentative) | In progress, week 4 today | Current reference: watch lists, extended slides, hw0 and hw1 |
+Start with [Lecture 5](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function-en).
 
-Fall 2024 homework lives on `hwN/` subpages of the course page, for example `hw1_red.pdf` on the [hw1 subpage](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw1/). Each set has 12 problems plus 1 bonus; the first 4 are auto-graded and the other 8 are graded by TAs. Most programming datasets come from [LIBSVM datasets](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/), such as `rcv1_train.binary` in HW1.
+### Foundations 3: How Can Machines Learn? (Lectures 9–12)
 
-The [final project spec, final.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/final/final.pdf), is set in a fictional baseball league called HTMLB. The task is to predict whether the home team wins, submitted to Kaggle in two stages, and the report must be written in English.
+With the guarantee that small $E_{\text{in}}$ plus modest $d_{\text{VC}}$ means learning works, the next step is driving $E_{\text{in}}$ down. Linear regression gets the squared-error optimum in one step with the pseudo-inverse. Logistic regression outputs probabilities and has no closed form, so it uses gradient descent. Lecture 11 compares the error functions of three linear models, explains why a regression solution is a reasonable starting point for classification, and introduces stochastic gradient descent (SGD) and multiclass classification. Lecture 12 maps data into a new space with a nonlinear transform and then fits a linear model there, at the cost of a larger $d_{\text{VC}}$.
 
-Rules from the Fall 2026 [policy.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/policy.pdf):
+Start with [Lecture 9](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression-en).
 
-- About 6 homework sets, one every two weeks, each due two weeks after release. Late work loses 10% per 12 hours; each student gets 4 penalty-free half-days ("gold medals").
-- Answers are multiple choice and auto-graded, but derivations must be uploaded for selective TA grading, and programming answers need source code. Answers without derivations or code get zero.
-- AI tools are allowed as aids, but you may not submit their output directly. If generative AI wrote your code, you must comment it block by block in your own words.
-- No midterm; there is a final exam (12/09 on the course page).
+### Foundations 4: How Can Machines Learn Better? (Lectures 13–16)
 
-## Access grading: MOOC alone is A2; add Fall 2024 homework for A3
+When the model is too complex and the data is noisy, $E_{\text{in}}$ is low but $E_{\text{out}}$ is high: overfitting. There are two remedies. Regularization (weight decay) adds a penalty on weight size to the error function, with $\lambda$ setting its strength. Validation holds out part of the data from training and uses it to choose $\lambda$ or the model. The last lecture covers three principles: Occam's razor (prefer the simpler model when it will do), sampling bias (training and test data must come from the same distribution), and data snooping (choosing a model after looking at the data quietly spends that data).
 
-Grades follow the definitions in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): A0 schedule visible, A1 syllabus visible, A2 materials partly open, A3 enough for self-study.
+Start with [Lecture 13](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization-en).
 
-| Combination | Grade | Why |
-|---|---|---|
-| MOOC only | A2 | Recordings and slides are fully open, but exercises sit behind Coursera's paywall |
-| MOOC + Fall 2024 course page | A3 (grading chain excluded) | HW0–HW7 problems and the final project spec are public; most datasets can be downloaded |
-| Fall 2026, current term | A2 (in progress) | Slides for W1–W4, hw0, hw1 and `hw1_train.dat` are public; slide links from W5 on currently return 404 |
+### Techniques 1: embedding numerous features (Lectures 1–6)
 
-What outside learners cannot get, repeated in every homework section later in the series:
+Among all lines that separate the data, the linear SVM picks the one farthest from the nearest point (the "fattest"), written as a quadratic program. The dual form rewrites the problem so it depends only on inner products between data points, so a kernel function $K(\mathbf{x}, \mathbf{x}')$ can compute high-dimensional inner products directly without ever computing the features. The soft-margin SVM allows mistakes and uses $C$ to trade margin width against errors. Lectures 5 and 6 view the SVM as a regularized model and carry kernels over to logistic regression and to regression (SVR).
 
-1. **No official solutions.** Gradescope auto-grading and TA grading are for enrolled students only.
-2. **NTU COOL needs an NTU account.** Fall 2024 is [course 40495](https://cool.ntu.edu.tw/courses/40495); Fall 2026 is [course 63348](https://cool.ntu.edu.tw/courses/63348).
-3. **The Kaggle final-project pages return 404.** The [stage 1](https://www.kaggle.com/competitions/html-2024-fall-final-project-stage-1) link in final.pdf returned 404 on 2026-09-30, possibly because the competition is private or removed. This series has not confirmed whether the data is still downloadable or late submissions are accepted.
-4. **Fall 2026 is still running.** hw2–hw6, the final project, and slides from W5 on are not yet public.
+Start with [Techniques Lecture 1](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en).
 
-## YouTube vs. Coursera after August 2025
+### Techniques 2: combining predictive features (Lectures 7–11)
 
-The MOOC page offers two entry points per course: Coursera and free YouTube. On Coursera, Foundations is split in two: [part 1 (Mathematical Foundations)](https://www.coursera.org/learn/ntumlone-mathematicalfoundations) and [part 2 (Algorithmic Foundations)](https://www.coursera.org/learn/ntumlone-algorithmicfoundations). Techniques is [a third course](https://www.coursera.org/learn/machine-learning-techniques). The part 1 page says "There are 8 modules in this course."
+Combine many hypotheses. Blending votes or weights models that are already trained; bagging trains different models on bootstrap samples and lets them vote. AdaBoost, after each round, scales up the weights of the examples the last classifier got wrong and scales down the rest, so that classifier is exactly half right under the new weights, which forces the next one to learn something different. Decision trees (C&RT) repeatedly pick the split that leaves each side "purest" (for classification, usually measured by Gini impurity), grow the tree fully, then prune it with a penalty on the number of leaves. A random forest is bagging over decision trees that also pick features at random, and the examples left out of each bootstrap sample (out-of-bag) give a free error estimate. GBDT views boosting as gradient descent on an error function, with each tree fitting the current residuals.
 
-The difference is the exercises. According to [NTU OpenCourseWare](https://ocw.aca.ntu.edu.tw/courses/mooc0016) (in Mandarin), Coursera replaced "Audit" with "Preview" worldwide starting August 2025. Free accounts can only watch the first module; the full course, including all modules, assignments, and assessments, requires a subscription or purchase. That note sits on a different NTU OCW course page and describes a platform-wide policy. Lin's Coursera pages do not mention it themselves.
+Start with [Techniques Lecture 7](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en).
 
-So the practical choices today:
+### Techniques 3: distilling hidden features (Lectures 12–15)
 
-- **Just watch**: the YouTube playlists are enough. The videos match the Coursera versions and have no module limit.
-- **Want exercises and a certificate**: pay for Coursera. This series did not open anything behind the paywall and does not describe those problems.
-- **Want free exercises**: use the Fall 2024 homework PDFs. That is the baseline this series uses.
+Let the model learn features from the data. Each layer of a neural network is a feature transform, and backpropagation computes the gradients. Deep learning uses pre-training and autoencoders to find good initial weights; after the data is mean-centered, a linear autoencoder learns PCA. An RBF network uses similarity to a few centers as features, with the centers found by k-means. Matrix factorization approximates the rating matrix as a user matrix times a movie matrix, measures error only on the cells that have ratings, and learns both sets of feature vectors with alternating least squares or SGD.
 
-## Fall 2026 flipped classroom: the first four weeks of required watching
+Start with [Techniques Lecture 12](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en). [Techniques Lecture 16](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en) gathers the whole course into three families of feature techniques.
 
-Each week on the Fall 2026 course page lists "required watching (before class)": one MOOC slide deck, LFD sections, and 3–5 YouTube videos. The four weeks published so far:
+## Work it by hand: why the VC dimension is needed
 
-| Week | Required watching | LFD sections | Also published |
-|---|---|---|---|
-| W1 (09/09) | None; class is the course introduction | — | 00_handout, hw0 released |
-| W2 (09/16) | L1 four videos, L2 four videos, first L3 video | 1.0, 1.1.1, 1.2.4; 1.1.2, 3.1; 1.2, 1.3 | 01e/02e/03e extended slides |
-| W3 (09/23) | Last three L3 videos, four L4 videos, first L5 video | 1.2, 1.3; 1.3; 2.0, 2.1.1 | 03e/04e, Wolpert paper, hw1 released |
-| W4 (09/30) | Last three L5 videos, four L7 videos, three L8 videos; the four L6 videos are "suggested watching (anytime)" | 2.0, 2.1.1; 2.2; 1.4 | 05e/07e |
+This is a teaching example written for this post. It shows what problem the first two segments of Foundations solve.
 
-Rows from W5 on only link to slides (for example `09u_handout.pdf`), which currently return 404, and have no video list yet. The course plan departs from the MOOC in a few places: T5–T6 and T14–T15 are not scheduled; W13 (12/02) has no class and points to the `mlmai.ics` slides instead; W14 is the final exam; W16 covers modern deep learning and the finale.
+**One fixed hypothesis.** Hoeffding's inequality says:
 
-Class is streamed live to TAICA and the public via a [synchronous screencast](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/screencast.php), and there is an auditing request form. This series has not checked whether the streams leave complete recordings.
+$$
+P\big[\,|E_{\text{in}}(h) - E_{\text{out}}(h)| > \epsilon\,\big] \le 2\exp(-2\epsilon^2 N)
+$$
+
+With $\epsilon = 0.1$ and $N = 100$, the right side is $2e^{-2} \approx 0.271$. So the error measured on 100 examples differs from the true error by more than 0.1 with probability at most 27%. To push that below 5%, you need $2e^{-0.02N} \le 0.05$, which gives $N \ge \ln 40 / 0.02 \approx 184.4$: at least 185 examples.
+
+**Picking from 10 hypotheses.** The algorithm returns whichever hypothesis looks best, so all of them must stay close at once, and the probability can grow up to 10 times. At $N = 100$ the bound is 2.71, larger than 1, which guarantees nothing. To get back to 5% you need $20e^{-0.02N} \le 0.05$, so $N \ge \ln 400 / 0.02 \approx 299.6$: at least 300 examples. Ten times as many hypotheses cost only a modest amount of extra data, because $M$ sits inside a logarithm.
+
+**Picking from infinitely many lines.** PLA's $M$ is infinite, and the bound fails outright. This is where Foundations Lecture 5 starts. Put 4 points on the corners of a square in the plane: a linear classifier can produce only 14 of the $2^4 = 16$ ○/× labelings. "Two diagonal corners ○, the other two ×" and its reverse are impossible. No other placement of 4 points does better (Lecture 5 shows the maximum is 14), while 3 non-collinear points can be labeled all 8 ways. So 4 is the 2D perceptron's break point and $d_{\text{VC}} = 3$. The growth function is therefore polynomial rather than $2^N$; the VC bound uses it in place of $M$ (with slightly different constants than the Hoeffding version), and the bound still goes to 0 as the data grows.
+
+**What this means:** whether a model can learn does not depend on how many parameters or lines it has, but on how many different labelings it can produce on finite data. That quantity is the "model complexity" every later segment trades off. The large margin in SVMs, regularization, and boosting can all be read as ways of controlling it.
+
+## Prerequisites and self-check
+
+You need first-year calculus, linear algebra, and probability. If probability is shaky, read this site's [Stanford CS109 guide](/posts/learning/2026-08-21-stanford-cs109-probability-en) or the [statistics and ML series](/series/statistics-ml-ai) first. The most direct test is [Fall 2024 HW0](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/hw0.pdf): give yourself an hour for the combinatorics and probability part, and if you get stuck on two or more problems, review probability first.
+
+After reading this post, try to answer:
+
+1. Why can't Hoeffding's inequality alone guarantee that PLA learns?
+   Answer: It only covers a hypothesis fixed in advance. PLA picks from infinitely many lines, and a union bound multiplied by infinity says nothing, so the growth function is needed instead.
+2. What is $d_{\text{VC}}$ for a perceptron in 3 dimensions, and why does it matter?
+   Answer: $d + 1 = 4$. It measures model complexity; in the VC bound, the gap between $E_{\text{in}}$ and $E_{\text{out}}$ grows with it.
+3. A degree-10 polynomial fit to 15 noisy examples has lower training error than a degree-2 polynomial but much higher test error. Which segment covers this?
+   Answer: Foundations 4. It is overfitting, and the remedies are regularization and validation.
+4. After a round of AdaBoost, how are the example weights adjusted, and why?
+   Answer: Misclassified examples are multiplied by $\sqrt{(1-\epsilon_t)/\epsilon_t}$ and correct ones divided by it, so this round's classifier is exactly half right under the new weights and the next round has to learn something different.
+5. Why doesn't a kernel SVM need to compute high-dimensional features?
+   Answer: The dual form only uses inner products between features, and the kernel function computes that inner product directly in the original space.
 
 ## Three self-study routes
 
-**Route A: videos only (A2).** Watch the YouTube playlists in order with the handout slides. Every section ends with a "Fun Time" multiple-choice question, which works as a minimal self-check. Good for building intuition if you don't plan to do derivations.
+This series uses the MOOC recordings as the core material and the homework published on the [Fall 2024 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) for practice.
 
-**Route B: videos + Fall 2024 homework (A3, this series' main line).** Start with [Fall 2024 HW0](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/hw0.pdf) as a prerequisite check, and patch any gaps in combinatorics, probability, linear algebra, or calculus first. Then read this series one post per lecture; each post ends with the Fall 2024 problems that exercise that topic. There are no official solutions, so set up your own checks for programming problems, for example comparing numbers against the scikit-learn model of the same name.
+**Route A: videos only.** Watch the [Foundations](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf) and [Techniques](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2) YouTube playlists in order, with the [handout slides](https://www.csie.ntu.edu.tw/~htlin/mooc/). Each video ends with a "Fun Time" multiple-choice question you can use as a minimal self-check. The YouTube videos are the same as the Coursera ones; since August 2025, free Coursera accounts can only view the first module.
 
-**Route C: follow the Fall 2026 live stream.** Watch the videos on each week's required list, then do the current homework. hw0 and hw1 are both due 2026-10-21. Auditors can work to the same schedule but will not be graded.
+**Route B: videos plus Fall 2024 homework (this series' main line).** After each segment, do the matching homework: 8 sets, HW0–HW7, each with 12 problems plus a bonus, and most programming data comes from [LIBSVM datasets](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/). There are no public solutions, so set up your own checks for programming problems, for example comparing numbers against the scikit-learn model of the same name. The Kaggle competition for the final project (predicting game outcomes in a fictional baseball league, HTMLB) is no longer public, so you have to split the data and validate on your own. For how the homework maps to lectures, see the [Foundations homework](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en) and [Techniques homework](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project-en) posts.
 
-As for prerequisites, the course needs first-year calculus, linear algebra, and probability. If probability is shaky, read this site's [Stanford CS109 guide](/posts/learning/2026-08-21-stanford-cs109-probability-en) or the [statistics and ML series](/series/statistics-ml-ai) first.
+**Route C: follow the current semester.** The [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) lists each week's required videos and LFD sections, and class is streamed publicly via a [synchronous screencast](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/screencast.php). Homework grading is for enrolled students only; auditors can follow the schedule on their own. The current schedule skips Techniques Lectures 5–6 (kernel logistic regression, SVR) and 14–15 (RBF networks, matrix factorization) and lists Foundations Lecture 6 as optional, so if you only follow the schedule you will miss these and need to cover them yourself.
 
 ## Posts in this series
 
@@ -162,25 +169,23 @@ As for prerequisites, the course needs first-year calculus, linear algebra, and 
 
 ## What to do tonight
 
-1. Open [Fall 2024 HW0](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/hw0.pdf) and give yourself one hour for the combinatorics and probability section. If you get stuck on two or more, brush up on probability before starting the videos.
+1. Open [Fall 2024 HW0](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/hw0.pdf) and give yourself an hour for the combinatorics and probability part.
 2. Download the [Foundations handout zip](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/mlfound_handout.zip) and watch the [Course Introduction](https://www.youtube.com/watch?v=nQvpFSMPhr0) video.
-3. Pick a route, then read [Foundations Lecture 1](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en).
+3. Redo the three steps in "Work it by hand" yourself, then read [Foundations Lecture 1](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en).
+
+Next: [Foundations Lecture 1: The Learning Problem](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en)
 
 ## Further reading
-
-These courses overlap with this series, but every post here stands on its own; these are links only:
 
 - [NTU AI/ML course map](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en): places Lin's courses within NTU's offerings.
 - [Reading NTU Hung-yi Lee's Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en): NTU's parallel track, which starts from AI agents and leans toward deep learning and generative AI.
 - [Stanford CS229 guide](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en): another take on SVMs, kernels, and learning theory.
-- [Caltech Learning from Data](https://work.caltech.edu/telecourse): Abu-Mostafa's English course on the same textbook. The Fall 2024 course page puts his English Lecture 6 right next to Lin's Mandarin version.
+- [Caltech Learning from Data](https://work.caltech.edu/telecourse): Abu-Mostafa's English course on the same textbook, good to watch alongside Foundations.
 - [CMU 10-301 guide](/posts/learning/2026-08-22-cmu-10301-overview-en), [Berkeley CS189 guide](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en): intro ML at other schools.
-
-Next: [Foundations Lecture 1: The Learning Problem](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en)
 
 ## Course video sources
 
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+This is a course overview; the intro embeds the Course Introduction from Foundations Lecture 1. Use the official course entries and playlists for the other lectures.
 
 Course and recording entries:
 
@@ -188,15 +193,15 @@ Course and recording entries:
 - [Foundations: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
 - [Techniques: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
 
-On 2026-10-10 this was checked live against the official MOOC page and both playlists (65 videos each). This post is an overview with no single matching lecture, so no video is embedded.
+- [Foundations Lecture 1 Course Introduction](https://www.youtube.com/watch?v=nQvpFSMPhr0) (embedded in the intro, 11 minutes)
 
-Checked: 2026-10-10.
+Each playlist has 65 videos (4 per lecture, plus a Course Introduction in Lecture 1); each lecture's recordings are in its own post. Checked: 2026-10-14.
 
 ## Update Log
 
+- 2026-10-14: Rewrote the body as a real guide: added the mechanism behind each of the seven segments, a hand calculation from Hoeffding to the VC dimension, self-check questions, and the Course Introduction video in the intro; access grading, version baselines, Coursera policy, and the Fall 2026 weekly table were cut down to a few sentences in the self-study routes.
 - 2026-10-13: The series now has one post per lecture (16 for Foundations, 16 for Techniques); the tables and links here were updated to match.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
-- 2026-10-10: Rechecked video status. Added the two official playlist links; this overview embeds no single video.
 
 ## References
 
@@ -211,14 +216,11 @@ Checked: 2026-10-10.
 - [Coursera: Machine Learning Foundations part 2 (Algorithmic Foundations)](https://www.coursera.org/learn/ntumlone-algorithmicfoundations)
 - [Coursera: Machine Learning Techniques](https://www.coursera.org/learn/machine-learning-techniques)
 - [NTU OpenCourseWare: note on Coursera platform changes](https://ocw.aca.ntu.edu.tw/courses/mooc0016) (in Mandarin) — the preview model since August 2025
-- [Machine Learning, Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) — course info, watch lists, course plan
-- [Fall 2026 Course Policies (policy.pdf)](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/policy.pdf)
-- [Fall 2026 Homework 0](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/hw0.pdf), [Homework 1 subpage](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/hw1/)
-- [Machine Learning, Fall 2024 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) — homework schedule and slides
+- [Machine Learning, Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) — weekly watch lists, course plan
+- [Machine Learning, Fall 2024 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) — homework and slides
 - [Fall 2024 Homework 0](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/hw0.pdf)
 - [Fall 2024 Final Project (final.pdf)](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/final/final.pdf)
 - [LIBSVM Data](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/) — source of the Fall 2024 programming datasets
 - [Learning from Data textbook site](http://amlbook.com)
 - [Caltech Learning from Data telecourse](https://work.caltech.edu/telecourse)
-- On this site: [Global AI/CS course map (A0–A3 definitions)](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 - On this site: [NTU AI/ML course map](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en)

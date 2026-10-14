@@ -98,6 +98,8 @@ Atlassian 介紹站立會議時列的三個問題剛好對應前兩種：*What d
 | This will probably take two to three days. | 給一個大概的時間 | 主要說法 |
 | I can give you a rough estimate now. | 還沒確認需求，先給粗估 | 不同：是在提議先給數字 |
 
+*I'm blocked on …* 目前沒有好的來源，先用上面的 *stuck on* 或 *are blocking me*。
+
 ## 換內容再說一次
 
 先看中文，自己說一次，再看參考說法。
@@ -147,14 +149,6 @@ Atlassian 介紹站立會議時列的三個問題剛好對應前兩種：*What d
 | 討論做法：我不太確定這個做法，我們可以先試小一點的範圍嗎？ | I'm not sure about this approach. Could we try it on a smaller scale first? | 先說不確定，再提議 |
 | 估時間：這個大概需要兩到三天。 | This will probably take two to three days. | take + 時間 |
 | 估時間：我需要先確認需求，再給你時間估計。 | I need to confirm the requirements before I give you an estimate. | before + 句子 |
-
-## 仍待核對
-
-這些還沒找到合適來源，先不放進練習：
-
-- *I'm blocked on …* 這個說法：Atlassian 的頁面有 *blocking me* 和 *where they're blocked*，沒有 *blocked on*
-- 「下班前」說 *by the end of the day* 還是 *by end of day*、*by EOD*：沒有查職場用語的來源
-- 哪一句比較常用：這需要語料庫查詢，這次沒有做
 
 ## 整體來說
 

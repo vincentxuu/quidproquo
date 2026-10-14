@@ -1,125 +1,132 @@
 ---
-title: "基石 16 堂加技法 16 堂：課程地圖與自學路線｜台大林軒田 機器學習基石與技法 課程總覽"
+title: "機器學習基石與技法：從「學得會嗎」到三種處理特徵的方法｜台大林軒田 機器學習基石與技法 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
 tags: [ntu-htlin-ml, ntu, ai-course, machine-learning, learning-theory]
 lang: zh-TW
+math: true
 series:
   name: "台大林軒田 機器學習基石與技法 導讀"
   order: 0
-tldr: "林軒田的機器學習基石（16 堂）與技法（16 堂）是兩門中文 MOOC，130 支 YouTube 影片與 32 份投影片全部免費。只看 MOOC 是 A2：Coursera 自 2025 年 8 月起只讓免費帳號看第一單元，練習題被擋在付費牆後。補上 Fall 2024 課程頁公開的 HW0–HW7 與期末專題說明，就能到 A3，只差評分鏈：沒有官方解答，Gradescope 與 NTU COOL 限修課生，Kaggle 競賽頁回傳 404。Fall 2026 正在進行，是翻轉教室，第 4 週以前的投影片與 hw0、hw1 已公開。"
-description: "台大林軒田《機器學習基石》《機器學習技法》系列入口：兩門 MOOC 的 32 堂結構與七個問題、MOOC／Fall 2024／Fall 2026 三層版本基準、A0–A3 存取分級與缺口、YouTube 與 Coursera 預覽制的差別、Fall 2026 翻轉教室的課前必看清單，以及三條自學路線與本系列 35 篇的篇目。"
+tldr: "基石用 16 堂回答四個問題：機器什麼時候學得會、為什麼學得會（Hoeffding、成長函數、VC 維度）、怎麼學（線性迴歸、邏輯迴歸、非線性轉換）、怎麼學得更好（正則化、驗證）。技法再用 16 堂講三種處理特徵的方法：kernel 把特徵嵌進高維（SVM）、aggregation 把多個假說合起來（AdaBoost、隨機森林、GBDT）、extraction 從資料學出隱藏特徵（神經網路、矩陣分解）。130 支 YouTube 影片免費；練習用 Fall 2024 公開的 HW0–HW7。"
+description: "台大林軒田《機器學習基石》《機器學習技法》系列入口：七個問題串起的主線、每段在學什麼機制、一個用 Hoeffding 手算樣本數的例子、先備與自我檢查、三條自學路線，以及本系列 34 篇的篇目。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** 導言附基石第 1 堂的 Course Introduction（11 分鐘），各堂錄影在各堂導讀。[影片來源與說明](#課程影片來源)
 
-台大資工系林軒田老師的[機器學習基石](https://www.csie.ntu.edu.tw/~htlin/mooc/)與機器學習技法，是很多中文讀者學機器學習理論的第一門課。兩門課都是 2015–2016 年在 Coursera 上開的中文 MOOC，教科書是他和 Yaser Abu-Mostafa、Malik Magdon-Ismail 合著的 [Learning from Data](http://amlbook.com)（下稱 LFD）。基石問的是「機器為什麼學得會」，一路講到 VC 維度與正則化；技法接著講 SVM、boosting、決策樹與神經網路。
+台大資工系林軒田老師的[機器學習基石](https://www.csie.ntu.edu.tw/~htlin/mooc/)與機器學習技法，是兩門 2015–2016 年開在 Coursera 上的中文 MOOC，各 16 堂。教科書是他和 Yaser Abu-Mostafa、Malik Magdon-Ismail 合著的 [Learning from Data](http://amlbook.com)（下稱 LFD）。十年後他在台大開的 [Machine Learning](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) 仍是翻轉教室，每週的課前必看就是這兩門 MOOC 的影片。
 
-十年後，林軒田自己的台大課程仍然以這兩門 MOOC 為骨架：[Machine Learning, Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) 採翻轉教室，每週的「required watching (before class)」就是 MOOC 影片。
+這兩門課的特色是先問「為什麼」。基石大半時間不在教演算法，而在證明：只看過有限的資料，憑什麼相信模型對沒看過的資料也準？把這件事講清楚之後，技法才拿這套理論去解釋 SVM、boosting、決策樹、神經網路為什麼有效、什麼時候會失效。
 
-這篇是系列入口，只講課程結構、校外讀者拿得到什麼、該照什麼順序讀。各堂內容留給後面各篇。
+這篇是系列入口：先講整門課的主線與每一段在學什麼，再用一個手算例子示範基石的核心論證，最後給先備檢查與閱讀路線。下面這支是林軒田自己介紹兩門課的設計，11 分鐘，和本文「主線」一節講的是同一件事，可以先看影片再讀，或讀完再看。
 
-**本文依據**：[MOOC 頁](https://www.csie.ntu.edu.tw/~htlin/mooc/)（頁尾最後更新 2024-08-30）、[基石](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)與[技法](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)兩份 YouTube 播放清單、[Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)與 [policy.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/policy.pdf)、[Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)與各份作業 PDF、[Coursera 基石上課頁](https://www.coursera.org/learn/ntumlone-mathematicalfoundations)、[臺大開放式課程的 Coursera 政策說明](https://ocw.aca.ntu.edu.tw/courses/mooc0016)，全部在 2026-09-30 打開核對。
+```youtube
+url: https://www.youtube.com/watch?v=nQvpFSMPhr0
+title: The Learning Problem :: Course Introduction @ Machine Learning Foundations (機器學習基石)
+```
 
-## 兩門 MOOC：七個問題、32 堂、130 支影片
+## 主線：基石四問與技法三段
 
-[01_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/01_handout.pdf) 第 2 頁把基石定位成「foundation oriented」而且「story-like」的課，用四個問題串起來。技法再用三種處理特徵的方式分段。Fall 2026 課程頁把這七段編成 topic 1 到 topic 7：
+[01_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/01_handout.pdf) 把基石定位成「story-like」的課，用四個問題串起 16 堂；技法再依「怎麼處理特徵」分成三段，最後一堂收尾。授課是中文、投影片是英文，下面保留投影片的問題原文。
 
-| 段 | 問題（投影片原文） | 堂次 | 本系列 |
-|---|---|---|---|
-| 基石 1 | When Can Machines Learn? | 基石第 1–4 堂 | [第 1 堂](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)、[第 2 堂](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-02-perceptron-learning-algorithm)、[第 3 堂](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-03-types-of-learning)、[第 4 堂](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning) |
-| 基石 2 | Why Can Machines Learn? | 基石第 5–8 堂 | [第 5 堂](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function)、[第 6 堂](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-06-theory-of-generalization)、[第 7 堂](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error)、[第 8 堂](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-08-noise-and-error) |
-| 基石 3 | How Can Machines Learn? | 基石第 9–12 堂 | [第 9 堂](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression)、[第 10 堂](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-10-logistic-regression)、[第 11 堂](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform)、[第 12 堂](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-12-nonlinear-transformation) |
-| 基石 4 | How Can Machines Learn Better? | 基石第 13–16 堂 | [第 13 堂](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization)、[第 14 堂](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-14-regularization)、[第 15 堂](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)、[第 16 堂](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-16-three-learning-principles) |
-| 技法 1 | embedding numerous features（kernel 模型） | 技法第 1–6 堂 | [第 1 堂](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)、[第 2 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-02-dual-svm)、[第 3 堂](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)、[第 4 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-04-soft-margin-svm)、[第 5 堂](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)、[第 6 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-06-support-vector-regression) |
-| 技法 2 | combining predictive features（aggregation 模型） | 技法第 7–11 堂 | [第 7 堂](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost)、[第 8 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting)、[第 9 堂](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt)、[第 10 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-10-random-forest)、[第 11 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-11-gradient-boosted-decision-tree) |
-| 技法 3 | distilling hidden features（extraction 模型） | 技法第 12–15 堂 | [第 12 堂](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning)、[第 13 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-13-deep-learning)、[第 14 堂](/posts/ai/2026-09-30-ntu-htlin-ml-rbf-network-matrix-factorization)、[第 15 堂](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-15-matrix-factorization) |
-| 收尾 | finale（happy learning!） | 技法第 16 堂 | [第 16 堂](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning) |
+```mermaid
+flowchart LR
+  W["When<br/>學得會嗎"] --> Y["Why<br/>為什麼學得會"] --> H["How<br/>怎麼學"] --> B["Better<br/>怎麼學得更好"]
+  B --> K["embedding<br/>kernel 模型"]
+  B --> A["combining<br/>aggregation 模型"]
+  B --> E["distilling<br/>extraction 模型"]
+```
 
-每一堂在 MOOC 頁上列 4 個小節標題，每個小節對應一支影片。基石第 1 堂與技法第 1 堂各多一支「Course Introduction」，所以兩份播放清單各是 65 支，合計 130 支。基石第一支影片上傳於 2015-12-09，技法第一支上傳於 2016-02-14。
+### 基石 1：When Can Machines Learn?（第 1–4 堂）
 
-投影片分兩種：handout（講義版）與 presentation（逐步動畫版），檔名是 `01`–`16`（基石）與 `201`–`216`（技法）。兩門課各有一份 handout 全集 zip（[基石](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/mlfound_handout.zip)、[技法](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/mltech_handout.zip)）。MOOC 頁寫明投影片以 CC-BY-NC 3.0 分享，但圖的版權仍屬原作者，多數情況是 LFD 的作者群。另有[勘誤頁](https://www.csie.ntu.edu.tw/~htlin/mooc/errata.php)。
+先把「學習」定義清楚：有一個未知的目標函數 $f$，演算法 $\mathcal{A}$ 從資料 $\mathcal{D}$ 和假說集合 $\mathcal{H}$ 裡挑出 $g$，希望 $g \approx f$。第一個演算法是感知器學習法（PLA）：找到一個分錯的點 $(\mathbf{x}_n, y_n)$，就把權重更新成 $\mathbf{w} + y_n\mathbf{x}_n$，正例往那個點轉、負例往反方向轉；資料線性可分時保證停下來。第 3 堂接著依輸出（分類、迴歸、結構化）、標籤（監督、非監督、半監督、強化）、資料取得方式（批次、線上、主動）與輸入特徵分類各種學習問題，說明這門課聚焦在批次的監督式二元分類與迴歸。接著問更根本的事：資料以外的地方，$g$ 有可能和 $f$ 一樣嗎？用「從罐子抽彈珠」的比喻帶出 Hoeffding 不等式：只要假說是事先固定的一個，樣本上的錯誤率 $E_{\text{in}}$ 和整體錯誤率 $E_{\text{out}}$ 差很多的機率會隨資料量指數下降。假說有 $M$ 個時，機率最多放大 $M$ 倍。
 
-授課是中文，投影片是英文。本系列提到四大問題與各堂標題時保留投影片原文，方便你對照影片。
+從[第 1 堂](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)開始讀。
 
-## 三層版本基準
+### 基石 2：Why Can Machines Learn?（第 5–8 堂）
 
-同一套內容現在有三個版本，每篇都會寫清楚引用的是哪一層：
+PLA 從無限多條線裡挑，$M$ 是無限大，上一段的保證就失效了。這一段的解法是：無限多條線在 $N$ 個點上能切出的 ○× 組合（dichotomy）是有限的。把最多能切出幾種記成成長函數 $m_{\mathcal{H}}(N)$；只要在某個點數（break point）切不出全部 $2^N$ 種，$m_{\mathcal{H}}(N)$ 就被一個多項式壓住，用它取代 $M$ 得到 VC bound。最大的「還切得出全部組合」的點數叫 VC 維度 $d_{\text{VC}}$，$d$ 維感知器的 $d_{\text{VC}} = d + 1$。第 8 堂把目標改成機率分布 $P(y|\mathbf{x})$ 來容納雜訊，VC bound 照樣成立；也說明錯誤衡量要依應用來定，例如誤拒與誤收代價不同時，用加權的錯誤衡量。
 
-| 層 | 是什麼 | 狀態 | 本系列拿來做什麼 |
-|---|---|---|---|
-| MOOC | 基石 16 堂＋技法 16 堂的錄影與投影片 | 錄影 2015–2016，MOOC 頁最後更新 2024-08-30 | 核心教材 |
-| [Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) | 台大校內課，週一 13:20–16:20，課程頁寫「English teaching」；評分 70% homework、30% project（tentative） | 已結課 | 作業基準：HW0–HW7 與期末專題的 PDF 都公開 |
-| [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) | 台大校內課，週三 9:10–12:10，「Mandarin teaching」；評分 30% homework、30% exam、40% project（tentative） | 進行中，今天是 W4 | 當期對照：課前必看清單、extended slides、hw0 與 hw1 |
+從[第 5 堂](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function)開始讀。
 
-Fall 2024 的作業放在課程頁的 `hwN/` 子頁，例如 [hw1 子頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw1/)下的 `hw1_red.pdf`。每份作業 12 題加 1 題 bonus，前 4 題自動批改，後 8 題由助教批改。程式題用的資料大多來自 [LIBSVM datasets](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/)，例如 HW1 的 `rcv1_train.binary`。
+### 基石 3：How Can Machines Learn?（第 9–12 堂）
 
-[期末專題說明 final.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/final/final.pdf) 是一個虛構的棒球聯盟 HTMLB：預測主場球隊輸贏，分兩個 stage 在 Kaggle 上繳交，報告要用英文寫。
+有了「$E_{\text{in}}$ 小、$d_{\text{VC}}$ 不大就能學」的保證，接著講怎麼把 $E_{\text{in}}$ 壓低。線性迴歸用 pseudo-inverse 一步算出平方誤差的最佳解；邏輯迴歸輸出機率，沒有公式解，改用梯度下降。第 11 堂比較三種線性模型的誤差函數，說明為什麼迴歸的解可以拿來當分類的起點，並帶出隨機梯度下降（SGD）與多類別分類。第 12 堂用非線性轉換把資料映到新空間再用線性模型，代價是 $d_{\text{VC}}$ 跟著變大。
 
-Fall 2026 的 [policy.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/policy.pdf) 寫的規則：
+從[第 9 堂](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression)開始讀。
 
-- 約 6 份作業，雙週一份，交出後兩週截止；遲交每 12 小時扣 10%，每人有 4 個免罰的半天（gold medals）。
-- 作業是選擇題自動批改，但推導過程要上傳給助教抽改，程式題要附原始碼；沒有推導或沒有原始碼的答案一律零分。
-- 可以用 AI 工具輔助，但不可直接交出 AI 的輸出。程式若由生成式 AI 產生，要逐段用自己的話寫註解。
-- 沒有期中考，有期末考（課程頁排在 12/09）。
+### 基石 4：How Can Machines Learn Better?（第 13–16 堂）
 
-## 存取分級：只看 MOOC 是 A2，加上 Fall 2024 作業是 A3
+模型太複雜、資料又有雜訊時，$E_{\text{in}}$ 很低但 $E_{\text{out}}$ 很高，就是過擬合。對策有兩個：正則化（weight decay）在誤差函數裡加一項懲罰權重大小，用 $\lambda$ 控制強度；驗證則是留一部分資料不訓練，拿來挑 $\lambda$ 或模型。最後一堂講三個原則：Occam's Razor（能用簡單的模型就不要用複雜的）、抽樣偏差（訓練與測試資料要來自同一個分布）、資料窺探（看過資料再決定模型，等於偷用了資料）。
 
-分級沿用[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的定義：A0 課表可見、A1 課綱可見、A2 教材部分開放、A3 足以自學。
+從[第 13 堂](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization)開始讀。
 
-| 組合 | 分級 | 理由 |
-|---|---|---|
-| 只看 MOOC | A2 | 錄影與投影片全開，但練習題在 Coursera 付費牆後 |
-| MOOC＋Fall 2024 課程頁 | A3（評分鏈除外） | HW0–HW7 題目與期末專題說明都公開，資料集多數可下載 |
-| Fall 2026 當期 | A2（進行中） | W1–W4 投影片、hw0、hw1 與 `hw1_train.dat` 已公開；W5 以後的投影片連結目前 404 |
+### 技法 1：embedding numerous features（第 1–6 堂）
 
-校外讀者拿不到的部分，後面每篇作業相關段落都會再寫一次：
+線性 SVM 在所有能分開資料的線裡，挑離最近的點最遠（最「胖」）的那條，寫成二次規劃。對偶形式把問題改寫成只依賴資料點之間的內積，於是可以用 kernel 函數 $K(\mathbf{x}, \mathbf{x}')$ 直接算出高維空間裡的內積，不必真的把特徵算出來。軟邊界 SVM 允許犯錯，用 $C$ 權衡邊界寬度與錯誤。第 5、6 堂把 SVM 看成一種正則化模型，把 kernel 帶到邏輯迴歸與迴歸（SVR）。
 
-1. **沒有官方解答**。Gradescope 自動批改與助教批改只限修課生。
-2. **NTU COOL 要台大帳號**。Fall 2024 是 [課程 40495](https://cool.ntu.edu.tw/courses/40495)，Fall 2026 是 [課程 63348](https://cool.ntu.edu.tw/courses/63348)。
-3. **Kaggle 期末競賽頁回傳 404**。final.pdf 列的 [stage 1](https://www.kaggle.com/competitions/html-2024-fall-final-project-stage-1) 在 2026-09-30 打開是 404，可能是私人競賽或已下架。資料還拿不拿得到、能不能遲交，本系列沒有確認。
-4. **Fall 2026 還在進行**。hw2–hw6、期末專題與 W5 以後的投影片都還沒公開。
+從[技法第 1 堂](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)開始讀。
 
-## YouTube 與 Coursera：2025 年 8 月以後差在哪
+### 技法 2：combining predictive features（第 7–11 堂）
 
-MOOC 頁為兩門課各給了 Coursera 與免費 YouTube 兩種入口。基石在 Coursera 上拆成兩門：[基石上（Mathematical Foundations）](https://www.coursera.org/learn/ntumlone-mathematicalfoundations)與[基石下（Algorithmic Foundations）](https://www.coursera.org/learn/ntumlone-algorithmicfoundations)；技法是[另一門](https://www.coursera.org/learn/machine-learning-techniques)。基石上的課頁寫「There are 8 modules in this course」。
+把多個假說合起來。Blending 對已經訓練好的模型投票或加權；bagging 用 bootstrap 抽樣訓練出不同的模型再投票。AdaBoost 每一輪把上一個分類器答錯的資料權重放大、答對的縮小，讓它在新權重下剛好只有一半正確，逼下一個分類器學不一樣的東西。決策樹（C&RT）每次選一個讓兩邊資料最「純」（分類時常用 Gini 不純度衡量）的切法，遞迴切到底，再依葉子數做正則化剪枝；隨機森林是 bagging 加上隨機選特徵的決策樹，還能用沒被抽到的資料（out-of-bag）估計誤差。GBDT 把 boosting 看成對誤差函數做梯度下降，每一棵樹去擬合目前的殘差。
 
-差別在練習題。[臺大開放式課程](https://ocw.aca.ntu.edu.tw/courses/mooc0016)的說明是：Coursera 已把「旁聽（Audit）」改成「預覽（Preview）」，自 2025 年 8 月起全球實施，免費帳號只能看課程的第一個單元，要修完整課程（含所有單元、作業與評量）就要付費訂閱或購買。這段說明掛在臺大 OCW 的另一門課上，屬於平台層級的政策；林軒田的 Coursera 課頁本身沒有寫。
+從[技法第 7 堂](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost)開始讀。
 
-所以現在的實際選擇是：
+### 技法 3：distilling hidden features（第 12–15 堂）
 
-- **只想看課**：YouTube 播放清單就夠，影片與 Coursera 版相同，而且沒有單元限制。
-- **想要練習題與證書**：Coursera 要付費。本系列沒有打開付費牆後的題目，不描述它們的內容。
-- **想要免費練習題**：改用 Fall 2024 課程頁的作業 PDF，這是本系列採用的基準。
+讓模型自己從資料學出特徵。神經網路的每一層都是一次特徵轉換，用反向傳播算梯度；深度學習用預訓練與 autoencoder 找出好的初始權重，資料先減去平均後，線性 autoencoder 學到的就是 PCA。RBF 網路以資料到幾個中心點的相似度當特徵，中心點用 k-means 找。矩陣分解把評分矩陣近似成使用者矩陣乘上電影矩陣，只對有評分的格子算誤差，用交替最小平方或 SGD 同時學出兩邊的特徵向量。
 
-## Fall 2026 翻轉教室：前四週的課前必看
+從[技法第 12 堂](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning)開始讀。[技法第 16 堂](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning)把整門課收成三類處理特徵的技巧。
 
-Fall 2026 課程頁每週列出「required watching (before class)」：一份 MOOC 投影片、LFD 章節與 3–5 支 YouTube 影片。已經公開的四週如下：
+## 手算一次：為什麼需要 VC 維度
 
-| 週次 | 課前必看 | LFD 章節 | 另外公開 |
-|---|---|---|---|
-| W1（09/09） | 無，課堂是 course introduction | — | 00_handout、hw0 公布 |
-| W2（09/16） | L1 四支、L2 四支、L3 第一支 | 1.0、1.1.1、1.2.4；1.1.2、3.1；1.2、1.3 | 01e／02e／03e extended slides |
-| W3（09/23） | L3 後三支、L4 四支、L5 第一支 | 1.2、1.3；1.3；2.0、2.1.1 | 03e／04e、Wolpert 論文、hw1 公布 |
-| W4（09/30） | L5 後三支、L7 四支、L8 三支；L6 四支列為「suggested watching (anytime)」 | 2.0、2.1.1；2.2；1.4 | 05e／07e |
+這是本文的教學例子，用來體會基石前兩段在解決什麼問題。
 
-W5 以後的列目前只有投影片連結（例如 `09u_handout.pdf`），打開是 404，也還沒有影片清單。課程計畫裡有幾個和 MOOC 不同的地方：T5–T6、T14–T15 沒排進課表；W13（12/02）停課，改放 `mlmai.ics` 投影片；W14 期末考；W16 講 modern deep learning 與 finale。
+**一個固定的假說。** Hoeffding 不等式說：
 
-課堂有對 TAICA 與公開的[同步直播](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/screencast.php)，另有旁聽申請表單。直播有沒有留下完整錄影，本系列沒有逐支核對。
+$$
+P\big[\,|E_{\text{in}}(h) - E_{\text{out}}(h)| > \epsilon\,\big] \le 2\exp(-2\epsilon^2 N)
+$$
+
+取 $\epsilon = 0.1$、$N = 100$：右邊是 $2e^{-2} \approx 0.271$。也就是說，100 筆資料上量到的錯誤率，和真正的錯誤率差超過 0.1 的機率最多 27%。想把這個機率壓到 5% 以下，要 $2e^{-0.02N} \le 0.05$，解出 $N \ge \ln 40 / 0.02 \approx 184.4$，至少 185 筆。
+
+**從 10 個假說裡挑。** 演算法挑出的是表現最好的那個，所以要所有假說同時都不能差太多，機率最多變成 10 倍。$N = 100$ 時上界是 2.71，比 1 還大，什麼都沒保證。要壓回 5%，要 $20e^{-0.02N} \le 0.05$，得 $N \ge \ln 400 / 0.02 \approx 299.6$，至少 300 筆。假說多了 10 倍，資料只要多一些，因為 $M$ 是在對數裡。
+
+**從無限多條線裡挑。** PLA 的 $M$ 是無限大，上界直接失效。這就是基石第 5 堂的起點：在平面上把 4 個點擺成正方形，線性分類器只切得出 $2^4 = 16$ 種 ○× 組合裡的 14 種，「對角兩點是 ○、另外兩點是 ×」和它的反相切不出來。換成任何其他擺法，4 個點也切不出全部 16 種（第 5 堂的結論是最多 14 種）；而 3 個不共線的點，8 種組合都切得出來。所以 4 是二維感知器的 break point，$d_{\text{VC}} = 3$。成長函數因此是多項式而不是 $2^N$；VC bound 用它取代 $M$（常數和 Hoeffding 版略有不同），資料量夠大時上界仍會趨近 0。
+
+**這個例子的意思：** 能不能學，不看模型有幾個參數或幾條線，而看它在有限資料上能切出多少種結果。這個量就是後面每一段都在權衡的「模型複雜度」：技法講 SVM 的大邊界、正則化、boosting，都可以理解成在控制它。
+
+## 先備與自我檢查
+
+需要大一的微積分、線性代數與機率。機率不熟的話先讀站內的 [Stanford CS109 導讀](/posts/learning/2026-08-21-stanford-cs109-probability)，或看[統計與 ML 系列](/series/statistics-ml-ai)。最直接的檢測是 [Fall 2024 HW0](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/hw0.pdf)：限時一小時做組合與機率的部分，卡住兩題以上就先補機率。
+
+讀完這篇，試著回答：
+
+1. Hoeffding 不等式為什麼不能直接保證 PLA 學得會？
+   答：它只保證一個事先固定的假說。PLA 從無限多條線裡挑，聯集上界乘上無限大就失效，要改用成長函數。
+2. 在 3 維空間裡用感知器，$d_{\text{VC}}$ 是多少？為什麼這個數字重要？
+   答：$d + 1 = 4$。它是模型複雜度，VC bound 裡 $E_{\text{in}}$ 和 $E_{\text{out}}$ 的差距隨它變大。
+3. 用 10 次多項式擬合 15 筆有雜訊的資料，訓練誤差比 2 次多項式低，測試誤差卻高很多。該去讀哪一段？
+   答：基石 4。這是過擬合，對策是正則化與驗證。
+4. AdaBoost 一輪結束後，怎麼調整資料權重？目的是什麼？
+   答：答錯的乘上 $\sqrt{(1-\epsilon_t)/\epsilon_t}$、答對的除以它，讓這一輪的分類器在新權重下剛好一半正確，下一輪才學得到不一樣的東西。
+5. kernel SVM 為什麼不必算出高維特徵？
+   答：對偶形式只用到特徵之間的內積，kernel 函數直接在原空間算出這個內積。
 
 ## 三條自學路線
 
-**路線 A：只看影片（A2）**。照 YouTube 播放清單順序看，每堂配 handout 投影片。每個小節結尾都有一題「Fun Time」選擇題，可以當作最低限度的自我檢查。適合只想建立直覺、不打算推導的人。
+本系列以 MOOC 錄影為核心教材，以 [Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)公開的作業為練習。
 
-**路線 B：影片＋Fall 2024 作業（A3，本系列主線）**。先做 [Fall 2024 HW0](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/hw0.pdf) 當先修檢測，組合機率、線代、微積分卡住的部分先補。之後一堂一篇讀本系列，每篇最後列出 Fall 2024 哪幾題作業練得到這個主題。沒有官方解答，所以程式題要自己設驗收方法，例如用 scikit-learn 的同名模型對照數值。
+**路線 A：只看影片。** 照 [基石](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)與[技法](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)兩份 YouTube 播放清單看，配 [handout 投影片](https://www.csie.ntu.edu.tw/~htlin/mooc/)。每支影片結尾有一題「Fun Time」選擇題，可以當最低限度的自我檢查。YouTube 版內容和 Coursera 版相同；Coursera 自 2025 年 8 月起，免費帳號只能看第一個單元。
 
-**路線 C：跟 Fall 2026 直播**。照課程頁每週的課前必看清單看影片，再做當期作業。hw0 與 hw1 都在 2026-10-21 截止，旁聽生可以自己照時程練，但拿不到批改。
+**路線 B：影片加 Fall 2024 作業（本系列主線）。** 每讀完一段，做對應的作業：HW0–HW7 共 8 份，每份 12 題加 1 題 bonus，程式題的資料多半來自 [LIBSVM datasets](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/)。作業沒有公開解答，程式題要自己設驗收方法，例如用 scikit-learn 的同名模型對照數值。期末專題（預測虛構棒球聯盟 HTMLB 的比賽輸贏）的 Kaggle 競賽頁已經不公開，只能自己切資料驗收。作業怎麼對到各堂，見[基石作業](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)與[技法作業](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project)兩篇。
 
-先修方面，這門課需要大一微積分、線性代數與機率。機率不熟的話，可以先讀站內的 [Stanford CS109 導讀](/posts/learning/2026-08-21-stanford-cs109-probability)，或看[統計與 ML 系列](/series/statistics-ml-ai)。
+**路線 C：跟著當期課程。** [Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)每週列出課前必看的影片與 LFD 章節，課堂有公開的[同步直播](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/screencast.php)。作業批改只開放給修課生，旁聽可以照時程自己練。當期課表沒有排技法第 5–6 堂（kernel 邏輯迴歸、SVR）與第 14–15 堂（RBF 網路、矩陣分解），基石第 6 堂只列為選看，只跟課表走會漏掉這幾堂，要自己補。
 
 ## 本系列篇目
 
@@ -162,25 +169,23 @@ W5 以後的列目前只有投影片連結（例如 `09u_handout.pdf`），打�
 
 ## 今晚可以做的事
 
-1. 打開 [Fall 2024 HW0](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/hw0.pdf)，限時一小時做完組合機率那一段。卡住兩題以上，先補機率再開始看影片。
-2. 下載[基石 handout zip](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/mlfound_handout.zip)，看完 [Course Introduction](https://www.youtube.com/watch?v=nQvpFSMPhr0) 這支影片。
-3. 決定你走哪一條路線，然後讀[基石第 1 堂](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)。
+1. 打開 [Fall 2024 HW0](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/hw0.pdf)，限時一小時做完組合與機率那一段。
+2. 下載[基石 handout zip](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/mlfound_handout.zip)，看 [Course Introduction](https://www.youtube.com/watch?v=nQvpFSMPhr0)。
+3. 把上面「手算一次」的三步自己再算一遍，然後讀[基石第 1 堂](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)。
+
+下一篇：[基石第 1 堂：機器學習是什麼](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)
 
 ## 延伸閱讀
-
-以下課程和本系列有重疊，但本系列每篇都自己講完整，這裡只放連結：
 
 - [台大 AI／ML 課程導讀](/posts/learning/2026-09-30-ntu-ai-ml-course-map)：把林軒田的課放進台大課程版圖比較。
 - [台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)：台大的平行路線，從 AI Agent 切入，偏深度學習與生成式 AI。
 - [Stanford CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)：SVM、kernel 與學習理論的另一種講法。
-- [Caltech Learning from Data](https://work.caltech.edu/telecourse)：Abu-Mostafa 用同一本教科書開的英文課。Fall 2024 課程頁在 L6 旁邊直接並列他的英文 Lecture 6 與林軒田的中文版。
+- [Caltech Learning from Data](https://work.caltech.edu/telecourse)：Abu-Mostafa 用同一本教科書開的英文課，可以和基石對照著看。
 - [CMU 10-301 導讀](/posts/learning/2026-08-22-cmu-10301-overview)、[Berkeley CS189 導讀](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)：其他學校的 ML 入門課。
-
-下一篇：[基石第 1 堂：機器學習是什麼](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)
 
 ## 課程影片來源
 
-本文是課程總覽或資源地圖，沒有單一對應堂次；請從官方課程入口與播放清單查找影片。
+本文是課程總覽，導言嵌入基石第 1 堂的 Course Introduction；其餘各堂請從官方課程入口與播放清單查找。
 
 課程與錄影入口：
 
@@ -188,15 +193,15 @@ W5 以後的列目前只有投影片連結（例如 `09u_handout.pdf`），打�
 - [基石 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
 - [技法 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
 
-2026-10-10 已即時對照官方 MOOC 頁與兩份播放清單（基石 65 支、技法 65 支）；本文是總覽，沒有單一對應堂次，因此不嵌入影片。
+- [基石第 1 堂 Course Introduction](https://www.youtube.com/watch?v=nQvpFSMPhr0)（導言嵌入，11 分鐘）
 
-查核日期：2026-10-10。
+兩份播放清單各 65 支（每堂 4 支，第 1 堂多一支 Course Introduction）；各堂錄影見各堂導讀。查核日期：2026-10-14。
 
 ## 更新紀錄
 
+- 2026-10-14：正文改寫成導讀：補上七段主線各自的機制、Hoeffding 到 VC 維度的手算例子與自我檢查，導言嵌入 Course Introduction；存取分級、版本基準、Coursera 政策與 Fall 2026 週次表縮成自學路線裡的幾句話。
 - 2026-10-13：系列改為一堂一篇（基石 16 堂、技法 16 堂），這篇的對照表、篇目與連結跟著更新。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
-- 2026-10-10：重查影片狀態。補上兩份官方播放清單連結；總覽文不嵌入單支影片。
 
 ## 參考資料
 
@@ -211,14 +216,11 @@ W5 以後的列目前只有投影片連結（例如 `09u_handout.pdf`），打�
 - [Coursera：機器學習基石下（Algorithmic Foundations）](https://www.coursera.org/learn/ntumlone-algorithmicfoundations)
 - [Coursera：機器學習技法](https://www.coursera.org/learn/machine-learning-techniques)
 - [臺大開放式課程：Coursera 平台課程資訊提醒](https://ocw.aca.ntu.edu.tw/courses/mooc0016) — 2025 年 8 月起的預覽制
-- [Machine Learning, Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) — 課程資訊、課前必看清單、課程計畫
-- [Fall 2026 Course Policies（policy.pdf）](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/policy.pdf)
-- [Fall 2026 Homework 0](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/hw0.pdf)、[Homework 1 子頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/hw1/)
-- [Machine Learning, Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) — 作業時程與投影片
+- [Machine Learning, Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) — 課前必看清單、課程計畫
+- [Machine Learning, Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) — 作業與投影片
 - [Fall 2024 Homework 0](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/hw0.pdf)
 - [Fall 2024 Final Project（final.pdf）](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/final/final.pdf)
 - [LIBSVM Data](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/) — Fall 2024 程式題資料集來源
 - [Learning from Data 教科書網站](http://amlbook.com)
 - [Caltech Learning from Data telecourse](https://work.caltech.edu/telecourse)
-- 站內：[全球 AI／CS 課程地圖（A0–A3 分級定義）](/posts/learning/2026-08-21-global-ai-cs-course-map)
 - 站內：[台大 AI／ML 課程導讀](/posts/learning/2026-09-30-ntu-ai-ml-course-map)

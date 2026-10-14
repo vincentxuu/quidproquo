@@ -98,6 +98,8 @@ Every sentence below is adapted from a dictionary pattern. None of them is a dic
 | This will probably take two to three days. | Giving an approximate duration | Main version |
 | I can give you a rough estimate now. | Requirements are not confirmed, but you offer a rough number | Different: you are offering a number first |
 
+There is no good source for *I'm blocked on …* yet; use *stuck on* or *are blocking me* above instead.
+
 ## Say it again with different content
 
 Read the Chinese, say it yourself, then check the reference.
@@ -147,14 +149,6 @@ Rate yourself on whether you got the meaning across, not on matching the words e
 | 討論做法：我不太確定這個做法，我們可以先試小一點的範圍嗎？ | I'm not sure about this approach. Could we try it on a smaller scale first? | say you are unsure, then suggest |
 | 估時間：這個大概需要兩到三天。 | This will probably take two to three days. | take + time |
 | 估時間：我需要先確認需求，再給你時間估計。 | I need to confirm the requirements before I give you an estimate. | before + clause |
-
-## Still to verify
-
-I have not found a suitable source for these, so they are not in the practice set:
-
-- *I'm blocked on …*: the Atlassian page has *blocking me* and *where they're blocked*, but not *blocked on*
-- Whether "before I leave work" is *by the end of the day*, *by end of day*, or *by EOD*: I did not check a source on workplace usage
-- Which version is more common: that needs a corpus query, which I did not run
 
 ## Overall
 

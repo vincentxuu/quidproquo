@@ -79,6 +79,8 @@ Other results, with conditions:
 | Q2D-Web (Recall@1000) | 73.6% | 74.8% | Previous best 69.3%; 190M web docs |
 | BrowseComp+ (accuracy) | — | 64.0% | 4.9 pts above next ColBERT model |
 
+<!-- process-leak: topic -->
+
 ## Checking the original post's claims
 
 | Claim | Result |

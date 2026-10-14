@@ -79,6 +79,8 @@ flowchart LR
 | Q2D-Web（Recall@1000） | 73.6% | 74.8% | 前一名 69.3%，語料 1.9 億份網頁 |
 | BrowseComp+（準確率） | — | 64.0% | 比次佳 ColBERT 模型高 4.9 個百分點 |
 
+<!-- process-leak: topic -->
+
 ## 對原貼文說法的查證
 
 | 貼文說法 | 查證結果 |
