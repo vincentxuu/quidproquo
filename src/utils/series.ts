@@ -9,7 +9,10 @@ interface SeriesDefinition {
   slug: string;
   /** 同一個系列在各語言的名稱。文章 frontmatter 寫的是名稱，這裡把兩邊配成一對。 */
   names: Record<Lang, string>;
-  /** 卡片與系列頁顯示用的完整標題（課程導讀帶上正式課名）；不填就顯示 names。改這裡不必動文章 frontmatter。 */
+  /**
+   * 卡片與系列頁顯示用的完整標題；不填就顯示 names。改這裡不必動文章 frontmatter。
+   * 課程導讀一律寫「學校 課號 現行正式課名 導讀」；課名只差結尾或長到難以分辨時，改用官方自己用的簡稱（如 AI & ML I）。
+   */
   titles?: Record<Lang, string>;
   descriptions: Record<Lang, string>;
   /** 指定時優先於 inferSeriesCategory 的猜測；登錄的系列都應該寫。 */
