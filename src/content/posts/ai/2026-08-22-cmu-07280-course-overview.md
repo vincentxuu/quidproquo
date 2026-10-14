@@ -17,7 +17,7 @@ draft: false
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-CMU 在 Spring 2026 首次開出 **07-280 Artificial Intelligence and Machine Learning I**，用它取代舊制裡分開的 15-281 Artificial Intelligence 與 10-315 Machine Learning for SCS。這門課最醒目的地方不是新課號，而是同一學期先教 heuristic search、adversarial search 和 constraint satisfaction，後面卻要求學生做出 AlexNet、GPT-2 與 AlphaZero。
+CMU 在 Spring 2026 首次開出 **07-280 Artificial Intelligence and Machine Learning I**（[課站](https://www.cs.cmu.edu/~07280/)簡稱 AI & ML I），用它取代舊制裡分開的 15-281 Artificial Intelligence 與 10-315 Machine Learning for SCS。這門課最醒目的地方不是新課號，而是同一學期先教 heuristic search、adversarial search 和 constraint satisfaction，後面卻要求學生做出 AlexNet、GPT-2 與 AlphaZero。
 
 這不是把「經典 AI」和「熱門模型」塞進同一張清單。07-280 的主脊是：**先學如何定義狀態、目標、模型與計算代價，再逐步增加能從資料與互動中學習的元件。**搜尋、監督式學習、語言模型與強化學習，都是在回答「系統如何選下一步」。
 

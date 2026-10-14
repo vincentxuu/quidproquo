@@ -43,34 +43,50 @@ export function courseNames(source) {
   return names;
 }
 
-// Series directory cards and series pages show `titles` (falling back to `names`). Course series
-// with a course code must read `<School> <code> <official course name> 導讀` / `Reading <same>`.
-export function seriesTitleIssues(source) {
+const titleRegistryPath = 'src/data/course-series-titles.json';
+
+// Series cards and pages read their course titles only from the registry. Every course series must be
+// registered (or listed as an umbrella with a reason); each title carries the official course name, a
+// source and a fresh checkedAt, and the name must already appear in the series' own posts.
+export function seriesTitleIssues(registry, courseSlugs, postsBySlug, today = new Date()) {
   const issues = [];
-  const ast = ts.createSourceFile('series.ts', source, ts.ScriptTarget.Latest, true);
-  const value = (node, key) => node.properties.find(p =>
-    ts.isPropertyAssignment(p) && p.name.getText(ast).replace(/^['"]|['"]$/g, '') === key)?.initializer;
-  const locale = (node, lang) => node && ts.isObjectLiteralExpression(node) ? value(node, lang) : undefined;
-  function visit(node) {
-    if (ts.isVariableDeclaration(node) && node.name.getText(ast) === 'SERIES_DEFINITIONS') {
-      for (const item of node.initializer.elements) {
-        const category = value(item, 'category');
-        if (!category || !ts.isStringLiteral(category) || category.text !== 'courses') continue;
-        const slug = value(item, 'slug').text;
-        const [zh, en] = ['zh-TW', 'en'].map(lang => locale(value(item, 'titles'), lang) ?? locale(value(item, 'names'), lang));
-        if (!zh || !en || !ts.isStringLiteral(zh) || !ts.isStringLiteral(en)) { issues.push(`${slug}: series title must be string literals`); continue; }
-        if (!identityCodes(zh.text).length) continue; // umbrella series (course map, main line) and Taiwan courses without a code
-        const m = zh.text.match(/^(Stanford|MIT|CMU|Berkeley|Harvard) (\S*\d\S*) (.+) 導讀$/);
-        if (!m || /導讀|完整課程|逐週/.test(m[3])) {
-          issues.push(`${slug}: series title "${zh.text}" must be "<School> <code> <official course name> 導讀"; set titles in src/utils/series.ts`);
-        } else if (en.text !== `Reading ${m[1]} ${m[2]} ${m[3]}`) {
-          issues.push(`${slug}: English series title "${en.text}" must be "Reading ${m[1]} ${m[2]} ${m[3]}"`);
-        }
-      }
-    }
-    ts.forEachChild(node, visit);
+  const courses = registry.courses ?? {};
+  const umbrella = registry.umbrella ?? {};
+  for (const slug of courseSlugs) {
+    if (!courses[slug] && !umbrella[slug]) issues.push(`${slug}: course series has no entry in ${titleRegistryPath}`);
   }
-  visit(ast);
+  for (const slug of Object.keys(umbrella)) {
+    if (!courseSlugs.has(slug)) issues.push(`${slug}: umbrella entry is not a registered course series`);
+    else if (!String(umbrella[slug]).trim()) issues.push(`${slug}: umbrella entry needs a reason`);
+  }
+  for (const [slug, entry] of Object.entries(courses)) {
+    if (!courseSlugs.has(slug)) { issues.push(`${slug}: title entry is not a registered course series`); continue; }
+    const { zh, en, officialName, source, checkedAt } = entry;
+    if (![zh, en, officialName, source, checkedAt].every(v => typeof v === 'string' && v.trim())) {
+      issues.push(`${slug}: zh, en, officialName, source and checkedAt are all required`); continue;
+    }
+    if (/導讀|完整課程|逐週|^Reading /.test(zh) || /^Reading /.test(en)) issues.push(`${slug}: write the course only; 導讀 / Reading are added when displayed`);
+    if (!zh.includes(officialName)) issues.push(`${slug}: zh title "${zh}" must contain the official course name "${officialName}"`);
+    const codes = identityCodes(zh);
+    if (codes.length) {
+      const m = zh.match(/^(Stanford|MIT|CMU|Berkeley|Harvard) (\S*\d\S*) (.+)$/);
+      if (!m || m[3] !== officialName) issues.push(`${slug}: zh title must be "<School> <code> <official course name>"`);
+      if (en !== zh) issues.push(`${slug}: en title must equal zh for coded courses`);
+    } else if (!/^(?:台大|清大|政大|交大|成大)\S+ /.test(zh)) {
+      issues.push(`${slug}: courses without a code must read "<學校><老師> <課名>"`);
+    }
+    if (!/^https:\/\//.test(source)) issues.push(`${slug}: source must be the official https page the name was checked against`);
+    const checked = Date.parse(checkedAt);
+    if (Number.isNaN(checked)) issues.push(`${slug}: checkedAt is not a date`);
+    else if ((today - checked) / 864e5 > (registry.staleAfterDays ?? 365)) {
+      issues.push(`${slug}: course name last checked ${checkedAt}; re-check ${source} and update officialName/checkedAt`);
+    }
+    const bodies = postsBySlug.get(slug) ?? [];
+    const flat = text => text.replace(/\s+/g, '').replace(/[’]/g, "'").toLowerCase();
+    if (!bodies.some(body => flat(body).includes(flat(officialName)))) {
+      issues.push(`${slug}: official name "${officialName}" does not appear in any post of the series; cite it in the overview with its source`);
+    }
+  }
   return issues;
 }
 
@@ -138,7 +154,7 @@ export function legacyAllowed(record, baseline) {
 }
 
 function identityCodes(name) {
-  return [...name.matchAll(/\b(?:CS|EE|ECE|CME|MATH|STAT)\s*\d+[A-Z]*|\b\d{1,2}[.-]\d{2,}[A-Z]*/gi)]
+  return [...name.matchAll(/\b(?:CS|EE|ECE|CME|MATH|STAT)\s*\d+[A-Z]*|\b\d{1,2}[.-]S?\d{2,}[A-Z]*/gi)]
     .map(m => m[0].replace(/[\s.-]/g, '').toLowerCase());
 }
 
@@ -227,8 +243,7 @@ export function main(args = process.argv.slice(2)) {
   const json = args.includes('--json');
   const files = args.filter(a => !a.startsWith('--'));
   if (args.some(a => a.startsWith('--') && !['--audit', '--json'].includes(a))) throw new Error('Unknown argument');
-  const registry = fs.readFileSync('src/utils/series.ts', 'utf8');
-  const names = courseNames(registry);
+  const names = courseNames(fs.readFileSync('src/utils/series.ts', 'utf8'));
   const all = walk('src/content/posts').map(file => ({ file: file.split(path.sep).join('/'), data: matter(fs.readFileSync(file, 'utf8')).data }));
   const selected = files.length ? new Set(files.map(f => path.relative(process.cwd(), path.resolve(f)).split(path.sep).join('/'))) : null;
   if (selected && [...selected].some(file => !all.some(r => r.file === file))) throw new Error('Requested post not found');
@@ -241,8 +256,16 @@ export function main(args = process.argv.slice(2)) {
   // The site-wide gate only counts them until the older series are migrated; see course-guide-contract.md.
   const blocking = audit || files.length ? found : found.filter(r => !r.migration);
   const pending = found.length - blocking.length;
-  const issues = [...seriesTitleIssues(registry).map(issue => ({ file: 'src/utils/series.ts', issue })),
-    ...(audit || files.length ? found : blocking)];
+  const postsBySlug = new Map();
+  for (const record of all) {
+    for (const s of [record.data.series, ...(record.data.additionalSeries ?? [])]) {
+      const slug = s && names.get(s.name);
+      if (slug) postsBySlug.set(slug, [...(postsBySlug.get(slug) ?? []), fs.readFileSync(record.file, 'utf8')]);
+    }
+  }
+  const titleIssues = seriesTitleIssues(JSON.parse(fs.readFileSync(titleRegistryPath, 'utf8')), new Set(names.values()), postsBySlug)
+    .map(issue => ({ file: titleRegistryPath, issue }));
+  const issues = [...titleIssues, ...(audit || files.length ? found : blocking)];
   if (json) console.log(JSON.stringify({ mode: audit ? 'audit' : 'gate', issues, pendingMigration: pending }, null, 2));
   else {
     for (const issue of issues) console.log(`${issue.file}: ${issue.issue}`);
@@ -362,18 +385,24 @@ test('rejects repeated series label and topic-guide labels that hide a lecture o
   assert.equal(bad('跨課比較｜CMU 11-768 主題單元', { description: '比較三門課的評量方式' }), 0);
 });
 
-test('series card titles carry school, code and official course name', () => {
-  const entry = (names, titles = '') => `const SERIES_DEFINITIONS = [{slug:'x',category:'courses',names:${names}${titles ? `,titles:${titles}` : ''}}];`;
-  const ok = "{'zh-TW':'Stanford CS229 Machine Learning 導讀',en:'Reading Stanford CS229 Machine Learning'}";
-  assert.deepEqual(seriesTitleIssues(entry(ok)), []);
-  assert.deepEqual(seriesTitleIssues(entry("{'zh-TW':'CS146S：AI 原生開發十週',en:'CS146S'}", ok)), []);
-  assert.deepEqual(seriesTitleIssues(entry("{'zh-TW':'台大李宏毅 機器學習 導讀',en:'Reading NTU Machine Learning'}")), []);
-  for (const bad of ["{'zh-TW':'Stanford CS229 導讀',en:'Reading Stanford CS229'}",
-    "{'zh-TW':'CS146S：AI 原生開發十週',en:'CS146S: Ten Weeks'}",
-    "{'zh-TW':'CMU 10-301 機器學習完整課程導讀',en:'Reading CMU 10-301 Machine Learning'}",
-    "{'zh-TW':'Stanford CS229 Machine Learning 導讀',en:'Reading Stanford CS229'}"]) {
-    assert.equal(seriesTitleIssues(entry(bad)).length, 1, bad);
-  }
+test('series titles come from the registry with official name, source, fresh check and evidence', () => {
+  const slugs = new Set(['cs229', 'ntu-ml', 'map']);
+  const posts = new Map([['cs229', ['Stanford CS229: Machine Learning']], ['ntu-ml', ['台大李宏毅《機器學習》']]]);
+  const entry = { zh: 'Stanford CS229 Machine Learning', en: 'Stanford CS229 Machine Learning', officialName: 'Machine Learning', source: 'https://cs229.stanford.edu/', checkedAt: '2026-10-14' };
+  const tw = { zh: '台大李宏毅 機器學習', en: 'NTU Hung-yi Lee Machine Learning', officialName: '機器學習', source: 'https://speech.ee.ntu.edu.tw/', checkedAt: '2026-10-14' };
+  const ok = { staleAfterDays: 365, umbrella: { map: '跨校地圖' }, courses: { cs229: entry, 'ntu-ml': tw } };
+  const today = new Date('2026-10-15');
+  assert.deepEqual(seriesTitleIssues(ok, slugs, posts, today), []);
+  const bad = patch => seriesTitleIssues({ ...ok, courses: { ...ok.courses, cs229: { ...entry, ...patch } } }, slugs, posts, today);
+  assert.ok(bad({ zh: 'Stanford CS229 導讀' }).length, 'code only');
+  assert.ok(bad({ zh: 'CS229 Machine Learning', en: 'CS229 Machine Learning' }).length, 'no school');
+  assert.ok(bad({ en: 'Stanford CS229' }).length, 'en mismatch');
+  assert.ok(bad({ officialName: 'Statistical Learning', zh: 'Stanford CS229 Statistical Learning', en: 'Stanford CS229 Statistical Learning' }).length, 'name not in posts');
+  assert.ok(bad({ source: '' }).length, 'no source');
+  assert.ok(bad({ checkedAt: '2025-01-01' }).length, 'stale check');
+  assert.ok(seriesTitleIssues({ ...ok, umbrella: {} }, slugs, posts, today).length, 'unregistered course series');
+  assert.ok(seriesTitleIssues({ ...ok, courses: { cs229: entry } }, slugs, posts, today).length, 'missing Taiwan course');
+  assert.ok(seriesTitleIssues({ ...ok, courses: { ...ok.courses, 'ntu-ml': { ...tw, zh: '機器學習' } } }, slugs, posts, today).length, 'Taiwan format');
 });
 
 test('rejects editing the migration baseline to add new exceptions', () => {

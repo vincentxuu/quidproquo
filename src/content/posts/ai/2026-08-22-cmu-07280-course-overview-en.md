@@ -17,7 +17,7 @@ draft: false
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-CMU first offered **07-280 Artificial Intelligence and Machine Learning I** in Spring 2026, replacing the old pairing of 15-281 Artificial Intelligence and 10-315 Machine Learning for SCS. Its striking feature is not the course number. The semester begins with heuristic search, adversarial search, and constraint satisfaction, then asks students to build AlexNet, GPT-2, and AlphaZero.
+CMU first offered **07-280 Artificial Intelligence and Machine Learning I** (AI & ML I on the [course site](https://www.cs.cmu.edu/~07280/)) in Spring 2026, replacing the old pairing of 15-281 Artificial Intelligence and 10-315 Machine Learning for SCS. Its striking feature is not the course number. The semester begins with heuristic search, adversarial search, and constraint satisfaction, then asks students to build AlexNet, GPT-2, and AlphaZero.
 
 This is not a list that places “classic AI” beside fashionable models. The course's spine is: **learn to define states, objectives, models, and computational costs, then progressively add components that learn from data and interaction.** Search, supervised learning, language modeling, and reinforcement learning are different answers to how a system selects its next move.
 

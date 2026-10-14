@@ -1,0 +1,332 @@
+{
+  "_comment": "課程系列卡片與系列頁標題的唯一來源。zh 顯示為「<zh> 導讀」，en 顯示為「Reading <en>」。officialName 是課站現行課名（或官方簡稱），必須出現在 zh 標題與該系列文章裡；改課名要回 source 重查並更新 checkedAt。規則見 .agents/skills/post/references/course-guide-contract.md。",
+  "staleAfterDays": 365,
+  "umbrella": {
+    "global-ai-cs-course-map": "跨校課程地圖，不是單一課程",
+    "stanford-cs": "Stanford 主線多門課的總覽，不是單一課程"
+  },
+  "courses": {
+    "berkeley-cs188-spring-2026": {
+      "zh": "Berkeley CS188 Introduction to Artificial Intelligence",
+      "en": "Berkeley CS188 Introduction to Artificial Intelligence",
+      "officialName": "Introduction to Artificial Intelligence",
+      "source": "https://inst.eecs.berkeley.edu/~cs188/sp26/",
+      "checkedAt": "2026-10-14"
+    },
+    "berkeley-cs189-spring-2025": {
+      "zh": "Berkeley CS189 Introduction to Machine Learning",
+      "en": "Berkeley CS189 Introduction to Machine Learning",
+      "officialName": "Introduction to Machine Learning",
+      "source": "https://eecs189.org/fa26/",
+      "checkedAt": "2026-10-14"
+    },
+    "berkeley-cs285-spring-2026": {
+      "zh": "Berkeley CS285 Deep Reinforcement Learning",
+      "en": "Berkeley CS285 Deep Reinforcement Learning",
+      "officialName": "Deep Reinforcement Learning",
+      "source": "https://rail.eecs.berkeley.edu/deeprlcourse/",
+      "checkedAt": "2026-10-14"
+    },
+    "berkeley-cs288-spring-2026": {
+      "zh": "Berkeley CS288 Advanced Natural Language Processing",
+      "en": "Berkeley CS288 Advanced Natural Language Processing",
+      "officialName": "Advanced Natural Language Processing",
+      "source": "https://cal-cs288.github.io/sp26/",
+      "checkedAt": "2026-10-14"
+    },
+    "cmu-07-280": {
+      "zh": "CMU 07-280 AI & ML I",
+      "en": "CMU 07-280 AI & ML I",
+      "officialName": "AI & ML I",
+      "source": "https://www.cs.cmu.edu/~07280/",
+      "checkedAt": "2026-10-14"
+    },
+    "cmu-07-380": {
+      "zh": "CMU 07-380 AI & ML II",
+      "en": "CMU 07-380 AI & ML II",
+      "officialName": "AI & ML II",
+      "source": "https://www.cs.cmu.edu/~07380/",
+      "checkedAt": "2026-10-14"
+    },
+    "cmu-10-423-generative-ai": {
+      "zh": "CMU 10-423 Generative AI",
+      "en": "CMU 10-423 Generative AI",
+      "officialName": "Generative AI",
+      "source": "https://www.cs.cmu.edu/~mgormley/courses/10423/",
+      "checkedAt": "2026-10-14"
+    },
+    "cmu-10301-machine-learning": {
+      "zh": "CMU 10-301 Introduction to Machine Learning",
+      "en": "CMU 10-301 Introduction to Machine Learning",
+      "officialName": "Introduction to Machine Learning",
+      "source": "https://www.cs.cmu.edu/~mgormley/courses/10601/",
+      "checkedAt": "2026-10-14"
+    },
+    "cmu-11-768-ai-agents": {
+      "zh": "CMU 11-768 AI Agents",
+      "en": "CMU 11-768 AI Agents",
+      "officialName": "AI Agents",
+      "source": "https://www.cmu-agents.com/",
+      "checkedAt": "2026-10-14"
+    },
+    "cmu-11-868-llm-systems": {
+      "zh": "CMU 11-868 LLM Systems",
+      "en": "CMU 11-868 LLM Systems",
+      "officialName": "LLM Systems",
+      "source": "https://llmsystem.github.io/llmsystem2026spring/",
+      "checkedAt": "2026-10-14"
+    },
+    "cmu-11785-deep-learning": {
+      "zh": "CMU 11-785 Introduction to Deep Learning",
+      "en": "CMU 11-785 Introduction to Deep Learning",
+      "officialName": "Introduction to Deep Learning",
+      "source": "https://deeplearning.cs.cmu.edu/S26/index.html",
+      "checkedAt": "2026-10-14"
+    },
+    "cs146s": {
+      "zh": "Stanford CS146S The Modern Software Developer",
+      "en": "Stanford CS146S The Modern Software Developer",
+      "officialName": "The Modern Software Developer",
+      "source": "https://themodernsoftware.dev/",
+      "checkedAt": "2026-10-14"
+    },
+    "cs230": {
+      "zh": "Stanford CS230 Deep Learning",
+      "en": "Stanford CS230 Deep Learning",
+      "officialName": "Deep Learning",
+      "source": "https://cs230.stanford.edu/",
+      "checkedAt": "2026-10-14"
+    },
+    "harvard-cs181": {
+      "zh": "Harvard CS1810 Machine Learning",
+      "en": "Harvard CS1810 Machine Learning",
+      "officialName": "Machine Learning",
+      "source": "https://harvard-ml-courses.github.io/cs181-web/",
+      "checkedAt": "2026-10-14"
+    },
+    "harvard-cs2881r": {
+      "zh": "Harvard CS2881R AI Safety",
+      "en": "Harvard CS2881R AI Safety",
+      "officialName": "AI Safety",
+      "source": "https://boazbk.github.io/mltheoryseminar/",
+      "checkedAt": "2026-10-14"
+    },
+    "harvard-cs50-ai": {
+      "zh": "Harvard CS50 Introduction to Artificial Intelligence with Python",
+      "en": "Harvard CS50 Introduction to Artificial Intelligence with Python",
+      "officialName": "Introduction to Artificial Intelligence with Python",
+      "source": "https://cs50.harvard.edu/ai/",
+      "checkedAt": "2026-10-14"
+    },
+    "mit-6-5940": {
+      "zh": "MIT 6.5940 TinyML and Efficient AI Computing",
+      "en": "MIT 6.5940 TinyML and Efficient AI Computing",
+      "officialName": "TinyML and Efficient AI Computing",
+      "source": "https://hanlab.mit.edu/courses/2026-fall-65940",
+      "checkedAt": "2026-10-14"
+    },
+    "mit-6-7960-fall-2024-ocw": {
+      "zh": "MIT 6.7960 Deep Learning",
+      "en": "MIT 6.7960 Deep Learning",
+      "officialName": "Deep Learning",
+      "source": "https://deeplearning6-7960.github.io/",
+      "checkedAt": "2026-10-14"
+    },
+    "mit-6s184": {
+      "zh": "MIT 6.S184 Generative AI with Stochastic Differential Equations",
+      "en": "MIT 6.S184 Generative AI with Stochastic Differential Equations",
+      "officialName": "Generative AI with Stochastic Differential Equations",
+      "source": "https://diffusion.csail.mit.edu/2026/index.html",
+      "checkedAt": "2026-10-14"
+    },
+    "mit-6s191": {
+      "zh": "MIT 6.S191 Introduction to Deep Learning",
+      "en": "MIT 6.S191 Introduction to Deep Learning",
+      "officialName": "Introduction to Deep Learning",
+      "source": "https://introtodeeplearning.com/",
+      "checkedAt": "2026-10-14"
+    },
+    "nccu-generative-ai": {
+      "zh": "政大蔡炎龍 生成式 AI",
+      "en": "NCCU Yen-Lung Tsai Generative AI",
+      "officialName": "生成式 AI",
+      "source": "https://yenlung.me/1132GenAI",
+      "checkedAt": "2026-10-14"
+    },
+    "nthu-nlp": {
+      "zh": "清大高宏宇 自然語言處理",
+      "en": "NTHU Hung-Yu Kao Natural Language Processing",
+      "officialName": "自然語言處理",
+      "source": "https://github.com/IKMLab/NTHU_Natural_Language_Processing",
+      "checkedAt": "2026-10-14"
+    },
+    "ntu-adl-2025-fall": {
+      "zh": "台大陳縕儂 深度學習之應用",
+      "en": "NTU Yun-Nung Chen Applied Deep Learning",
+      "officialName": "深度學習之應用",
+      "source": "https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o",
+      "checkedAt": "2026-10-14"
+    },
+    "ntu-htlin-ml": {
+      "zh": "台大林軒田 機器學習基石與技法",
+      "en": "NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques",
+      "officialName": "機器學習基石",
+      "source": "https://www.coursera.org/learn/ntumlone-mathematicalfoundations",
+      "checkedAt": "2026-10-14"
+    },
+    "ntu-ml-2026-spring": {
+      "zh": "台大李宏毅 機器學習",
+      "en": "NTU Hung-yi Lee Machine Learning",
+      "officialName": "機器學習",
+      "source": "https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cme295": {
+      "zh": "Stanford CME295 Transformers & Large Language Models",
+      "en": "Stanford CME295 Transformers & Large Language Models",
+      "officialName": "Transformers & Large Language Models",
+      "source": "https://cme295.stanford.edu/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs103": {
+      "zh": "Stanford CS103 Mathematical Foundations of Computing",
+      "en": "Stanford CS103 Mathematical Foundations of Computing",
+      "officialName": "Mathematical Foundations of Computing",
+      "source": "https://web.stanford.edu/class/cs103/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs107": {
+      "zh": "Stanford CS107 Computer Organization & Systems",
+      "en": "Stanford CS107 Computer Organization & Systems",
+      "officialName": "Computer Organization & Systems",
+      "source": "https://web.stanford.edu/class/cs107/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs109": {
+      "zh": "Stanford CS109 Probability for Computer Scientists",
+      "en": "Stanford CS109 Probability for Computer Scientists",
+      "officialName": "Probability for Computer Scientists",
+      "source": "https://web.stanford.edu/class/cs109/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs111": {
+      "zh": "Stanford CS111 Operating Systems Principles",
+      "en": "Stanford CS111 Operating Systems Principles",
+      "officialName": "Operating Systems Principles",
+      "source": "https://web.stanford.edu/class/cs111/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs124": {
+      "zh": "Stanford CS124 From Languages to Information",
+      "en": "Stanford CS124 From Languages to Information",
+      "officialName": "From Languages to Information",
+      "source": "https://web.stanford.edu/class/cs124/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs149": {
+      "zh": "Stanford CS149 Parallel Computing",
+      "en": "Stanford CS149 Parallel Computing",
+      "officialName": "Parallel Computing",
+      "source": "https://gfxcourses.stanford.edu/cs149/fall25",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs161": {
+      "zh": "Stanford CS161 Design and Analysis of Algorithms",
+      "en": "Stanford CS161 Design and Analysis of Algorithms",
+      "officialName": "Design and Analysis of Algorithms",
+      "source": "https://stanford-cs161.github.io/winter2026/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs221": {
+      "zh": "Stanford CS221 Artificial Intelligence: Principles and Techniques",
+      "en": "Stanford CS221 Artificial Intelligence: Principles and Techniques",
+      "officialName": "Artificial Intelligence: Principles and Techniques",
+      "source": "https://stanford-cs221.github.io/autumn2025/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs224n": {
+      "zh": "Stanford CS224N Natural Language Processing with Deep Learning",
+      "en": "Stanford CS224N Natural Language Processing with Deep Learning",
+      "officialName": "Natural Language Processing with Deep Learning",
+      "source": "https://web.stanford.edu/class/cs224n/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs224r": {
+      "zh": "Stanford CS224R Deep Reinforcement Learning",
+      "en": "Stanford CS224R Deep Reinforcement Learning",
+      "officialName": "Deep Reinforcement Learning",
+      "source": "https://cs224r.stanford.edu/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs224u": {
+      "zh": "Stanford CS224U Natural Language Understanding",
+      "en": "Stanford CS224U Natural Language Understanding",
+      "officialName": "Natural Language Understanding",
+      "source": "https://web.stanford.edu/class/cs224u/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs224v": {
+      "zh": "Stanford CS224V Agentic AI",
+      "en": "Stanford CS224V Agentic AI",
+      "officialName": "Agentic AI",
+      "source": "https://web.stanford.edu/class/cs224v/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs224w": {
+      "zh": "Stanford CS224W Machine Learning with Graphs",
+      "en": "Stanford CS224W Machine Learning with Graphs",
+      "officialName": "Machine Learning with Graphs",
+      "source": "https://web.stanford.edu/class/cs224w/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs228": {
+      "zh": "Stanford CS228 Probabilistic Graphical Models",
+      "en": "Stanford CS228 Probabilistic Graphical Models",
+      "officialName": "Probabilistic Graphical Models",
+      "source": "https://cs228.stanford.edu/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs229": {
+      "zh": "Stanford CS229 Machine Learning",
+      "en": "Stanford CS229 Machine Learning",
+      "officialName": "Machine Learning",
+      "source": "https://cs229.stanford.edu/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs231n": {
+      "zh": "Stanford CS231N Deep Learning for Computer Vision",
+      "en": "Stanford CS231N Deep Learning for Computer Vision",
+      "officialName": "Deep Learning for Computer Vision",
+      "source": "https://cs231n.stanford.edu/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs234": {
+      "zh": "Stanford CS234 Reinforcement Learning",
+      "en": "Stanford CS234 Reinforcement Learning",
+      "officialName": "Reinforcement Learning",
+      "source": "https://web.stanford.edu/class/cs234/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs329a": {
+      "zh": "Stanford CS329A Self-Improving AI Agents",
+      "en": "Stanford CS329A Self-Improving AI Agents",
+      "officialName": "Self-Improving AI Agents",
+      "source": "https://cs329a.stanford.edu/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs329z": {
+      "zh": "Stanford CS329Z Engineering AI Agents",
+      "en": "Stanford CS329Z Engineering AI Agents",
+      "officialName": "Engineering AI Agents",
+      "source": "https://cs329z.stanford.edu/",
+      "checkedAt": "2026-10-14"
+    },
+    "stanford-cs336": {
+      "zh": "Stanford CS336 Language Modeling from Scratch",
+      "en": "Stanford CS336 Language Modeling from Scratch",
+      "officialName": "Language Modeling from Scratch",
+      "source": "https://cs336.stanford.edu/",
+      "checkedAt": "2026-10-14"
+    }
+  }
+}
