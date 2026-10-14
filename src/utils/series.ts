@@ -849,10 +849,10 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'mit-6-5940',
     category: 'courses',
     names: { 'zh-TW': 'MIT 6.5940 導讀', en: 'Reading MIT 6.5940' },
-    titles: { 'zh-TW': 'MIT 6.5940 TinyML and Efficient Deep Learning Computing 導讀', en: 'Reading MIT 6.5940 TinyML and Efficient Deep Learning Computing' },
+    titles: { 'zh-TW': 'MIT 6.5940 TinyML and Efficient AI Computing 導讀', en: 'Reading MIT 6.5940 TinyML and Efficient AI Computing' },
     descriptions: {
       'zh-TW': '以最近一屆完整的 Fall 2024 為主幹，逐講讀 MIT 6.5940 TinyML 與高效深度學習：pruning、quantization、NAS、蒸餾、MCU 部署、LLM 推論與後訓練、長上下文、diffusion、分散式與裝置端訓練，並對照進行中的 Fall 2026。',
-      en: 'A lecture-by-lecture reading of MIT 6.5940 TinyML and Efficient Deep Learning Computing, based on the latest complete edition (Fall 2024): pruning, quantization, NAS, distillation, microcontroller deployment, LLM inference and post-training, long context, diffusion, and distributed and on-device training, cross-referenced with the in-progress Fall 2026 offering.',
+      en: 'A lecture-by-lecture reading of MIT 6.5940 TinyML and Efficient AI Computing, based on the latest complete edition (Fall 2024): pruning, quantization, NAS, distillation, microcontroller deployment, LLM inference and post-training, long context, diffusion, and distributed and on-device training, cross-referenced with the in-progress Fall 2026 offering.',
     },
   },
   {
