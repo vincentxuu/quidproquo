@@ -718,7 +718,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'cmu-07-280',
     category: 'courses',
     names: { 'zh-TW': 'CMU 07-280 完整課程導讀', en: 'Reading CMU 07-280' },
-    titles: { 'zh-TW': 'CMU 07-280 Artificial Intelligence and Machine Learning I 導讀', en: 'Reading CMU 07-280 Artificial Intelligence and Machine Learning I' },
+    titles: { 'zh-TW': 'CMU 07-280 AI & ML I 導讀', en: 'Reading CMU 07-280 AI & ML I' },
     descriptions: {
       'zh-TW': '逐講讀 CMU AI 核心改制後的 07-280：從 linear regression、MLE 到 N-gram、attention/transformer 與 Q-learning，對照官方 Spring 2026 教材。',
       en: 'A lecture-by-lecture reading of CMU 07-280, the first half of CMU’s redesigned AI core: linear regression, MLE, N-grams, attention/transformers, and Q-learning, against the official Spring 2026 materials.',
@@ -728,7 +728,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'cmu-07-380',
     category: 'courses',
     names: { 'zh-TW': 'CMU 07-380 完整課程導讀', en: 'Reading CMU 07-380' },
-    titles: { 'zh-TW': 'CMU 07-380 Artificial Intelligence and Machine Learning II 導讀', en: 'Reading CMU 07-380 Artificial Intelligence and Machine Learning II' },
+    titles: { 'zh-TW': 'CMU 07-380 AI & ML II 導讀', en: 'Reading CMU 07-380 AI & ML II' },
     descriptions: {
       'zh-TW': '接續 07-280，逐講讀 CMU 07-380 首開學期的 26 講：從邏輯與規劃到擴散模型，並標明 HW 與 Project 的公開進度。',
       en: 'Continuing from 07-280, a lecture-by-lecture reading of CMU 07-380’s first-offering 26 lectures — from logic and planning through diffusion models — with the release status of homework and project materials noted throughout.',
