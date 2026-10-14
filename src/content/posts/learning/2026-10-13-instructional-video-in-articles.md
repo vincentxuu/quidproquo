@@ -161,11 +161,11 @@ Shana Carpenter 與 Alexander Toftness [2017 年的實驗](https://664ef278-1723
 
 ### 5. 先交代關鍵名詞
 
-Richard Mayer 在 [2021 年的回顧](https://archemedxinc.wpengine.com/wp-content/uploads/2023/01/Mayer-Evidence-Based-Principles-for-How-to-Design-Effective-Instructional-Videos.pdf)整理了 14 條教學影片的設計原則。其中的先備訓練（pre-training）原則是：正式講解前先讓學習者認識關鍵元件的名稱與特性。他引用的兩個實驗用的是汽車煞車系統的動畫，先認識過活塞、主缸這些零件的學生，遷移測驗（把學到的原理用在新問題上）成績較好，效果量中位數是 d = 0.85。
+多媒體學習的文獻裡有一個相關的原則，叫先備訓練（pre-training）。Richard Mayer [2021 年整理教學影片設計原則的回顧](https://doi.org/10.1016/j.jarmac.2021.03.007)涵蓋這一條；這篇研究存在，但我沒讀到作者或出版者公開的全文，所以不引它的數字與它引的實驗。
 
-這個數字有另一種算法的版本。Cromley 與 Chen [2025 年的統合分析](https://doi.org/10.1016/j.edurev.2025.100730)重算 Mayer 掛名的研究（只收 1990 到 2022 年刊在同儕審查期刊、英文、有後測平均與標準差的），先備訓練是 g = 0.28，第 7 項會提到的分段是 g = 0.19，兩個的信賴區間都跨過零。兩組數字量的東西不同：Mayer 的是少數實驗在遷移測驗上的中位數，先備訓練那兩個實驗還出自同一篇論文；Cromley 與 Chen 把事實、推論、程序、遷移四種測驗，連同混用多種題型的測驗（編碼上共五類）一起估，依樣本數加權，而且 18 個原則同時放進一個模型。作者自己提到這種估法會壓低部分原則的數字，但他們是針對鄰近原則與提示重點說的，沒有對分段或先備訓練這樣說。他們另外依測驗類型分開看時，先備訓練所屬的那一大類在遷移與推論測驗上是大效果、在事實測驗上不顯著；Mayer 的 0.85 量的正是遷移測驗，所以我推論兩邊在遷移上未必衝突；不過原文沒有說清楚，結果總表裡不顯著的先備訓練（0.28）指的是單一原則還是整個大類。我只讀了這篇的方法、結果總表與討論中談設計原則的段落，細節見[系列第 1 篇](/posts/learning/2026-10-13-teaching-text-evidence)。
+另有一份重新合併 Mayer 掛名研究的統合分析：Cromley 與 Chen [2025 年那一份](https://doi.org/10.1016/j.edurev.2025.100730)，作者稿預定 2026-11-01 在 NSF PAR 公開，我目前沒有讀到合法公開的版本，所以也不引它的數字。
 
-要留意的是 Mayer 談的是影片內部怎麼設計，沒有測過網頁上的文字導讀。把它用到導讀的先備段，是我的延伸。
+所以「先交代關鍵名詞」目前沒有我讀得到合法全文的實驗支持，是我的判斷：沒交代過的名詞，讀者看影片時會卡住。
 
 做法：先備段不要只列「需要線性代數」，把這堂會反覆出現的三到五個名詞各用一句話講清楚，再開始正文。
 
@@ -183,7 +183,7 @@ Alyssa Lawson 與 Mayer [2021 年的三個實驗](https://pmc.ncbi.nlm.nih.gov/a
 
 ### 7. 長影片切段
 
-除了 Guo 的 6 分鐘，Mayer 的回顧裡還有分段（segmenting）原則：把複雜的內容拆成由學習者自己控制進度的小段，他統計的實驗全部是分段較好，效果量中位數 d = 0.67（Cromley 與 Chen 的重算是 0.19，差別見第 5 項）。這些實驗測的是投影片式教材一步一步呈現，不是把長影片剪短。Cynthia Brame [2016 年的教學影片指引](https://pmc.ncbi.nlm.nih.gov/articles/PMC5132380/)綜合 Guo 等研究，同樣建議每支 6 分鐘以內，另外建議附上引導問題，並把影片包進一份更大的作業裡。
+除了 Guo 的 6 分鐘，切段還有一份統合分析：Günter Rey 等人 [2019 年的統合分析](https://maria-wirzberger.de/wp-content/uploads/2019/01/Rey2019_Article_AMeta-analysisOfTheSegmentingE.pdf)彙整多媒體教材的研究，把教材切成小段或讓學習者自己控制步調（兩者有其一就算），保留測驗 d = 0.32、遷移 0.36；分段的組學習時間比較長，但這一項有顯著的出版偏誤。這些研究的教材是語文配圖片或動畫，不是把長影片剪短。Mayer 2021 的回顧也談分段，我沒讀到合法公開的全文。Cynthia Brame [2016 年的教學影片指引](https://pmc.ncbi.nlm.nih.gov/articles/PMC5132380/)綜合 Guo 等研究，同樣建議每支 6 分鐘以內，另外建議附上引導問題，並把影片包進一份更大的作業裡。
 
 做法：原本就是多支短片的課（例如每堂四支、每支十幾分鐘），照第二種角色一節放一支。只有一支長錄影的課，靠第 2 項的時間連結切段，每一節的時間區間盡量壓在十分鐘上下。
 
@@ -224,11 +224,12 @@ Alyssa Lawson 與 Mayer [2021 年的三個實驗](https://pmc.ncbi.nlm.nih.gov/a
 - **量的東西不一樣**。Guo 與 Kim 量的是操作紀錄，實驗量的是測驗成績，NN/g 與 LSE 回顧裡的問卷量的是讀者自己的說法。Video Digests 量的是限時瀏覽之後寫出的摘要涵蓋多少重點，不是學習成效。成績進步不代表讀者覺得有幫助，反過來也一樣。
 - **位置的證據很薄**。NN/g 是 8 個人的質性研究，任務是摺餐巾、架烤爐這類操作，不是讀大學課程。Wistia 沒有給數字，也沒有說依據。六個課程網站各只看了一頁，而且我量的是 HTML 結構，沒有逐一用瀏覽器看畫面。
 - **來源不是系統性檢索挑出來的**。研究是我搜尋時找到、而且讀得到全文的；課程網站是便利取樣。LSE 那份是學校出的文獻回顧報告，不是期刊論文。
-- **分段與先備訓練測的不是網頁版面**。Mayer 的效果量來自影片與動畫內部的設計，而且是少數實驗（分段 7 個、先備訓練 2 個）在遷移測驗上的中位數，沒有依樣本數加權，也沒有顯著性檢定。Cromley 與 Chen 2025 年用多層次模型、各種測驗一起重估，只收 Mayer 掛名、同儕審查期刊、英文、有後測平均與標準差的 92 篇，得到 0.19 與 0.28，信賴區間分別是 −0.09 到 0.47 與 −0.05 到 0.61，都跨過零。18 個原則一起估的那個模型，大約只用了 446 個效果量，不是全部 591 個；這是我從自由度推算的，原文沒有明說。兩組數字算法不同，本文並列，不判斷哪一組比較接近真正的效果。
+- **分段測的不是網頁版面**。Rey 等人的統合分析用的是語文配圖片、動畫的多媒體教材，沒有純文字或網頁；納入條件是切段或學習者控制步調其中一項。先備訓練沒有我讀得到合法全文的證據：Mayer 2021 的回顧與 Cromley 與 Chen 2025 的統合分析，我都沒讀到合法公開的版本。
 - **花的時間沒有被控制**。Lawson 與 Mayer 的寫解釋組花在教材上的時間大約是什麼都沒做那組的三倍（三個實驗分別是 2.8、3.1、3.5 倍），作者自己列為限制。
 - **edX 的資料來自 2012 年秋季的四門理工課**，學生是第一批 MOOC 使用者。那些影片平均不到 8 分鐘，是為線上課程錄的短片，不是一到兩小時的課堂錄影。Guo 也說明觀看時間只是代理指標，分不出學生是在看還是放著播。
-- **我的推論與判斷有八處**：讀者覺得有幫助靠的兩件事；補充影片留在文末；標明字幕看不到的畫面；看前的問題放在各節開頭；把先備訓練用到導讀的先備段；自我檢查的答案摺疊；把 Szpunar 與 Lawson、Mayer 兩篇放在一起看；影片搬到頁首仍不足以被 Google 當成影片主內容。正文都標了。
-- **沒讀到的**：Szpunar 等（2013）讀了全文，補充材料沒有讀。LSE 回顧裡的 Soong、Traphagan、Leadbeater 等個別研究都是轉引，原文沒有讀。Mayer（2021）讀了摘要、分段、先備訓練、生成活動與結語各節，其餘原則沒有細讀。
+- **我的推論與判斷有八處**：讀者覺得有幫助靠的兩件事；補充影片留在文末；標明字幕看不到的畫面；看前的問題放在各節開頭；先交代關鍵名詞（沒有讀得到的實驗支持）；自我檢查的答案摺疊；把 Szpunar 與 Lawson、Mayer 兩篇放在一起看；影片搬到頁首仍不足以被 Google 當成影片主內容。正文都標了。
+- **沒讀到的**：Szpunar 等（2013）讀了全文，補充材料沒有讀。LSE 回顧裡的 Soong、Traphagan、Leadbeater 等個別研究都是轉引，原文沒有讀。
+- **只知道存在、沒讀到合法公開全文的**：[Mayer（2021）](https://doi.org/10.1016/j.jarmac.2021.03.007)的教學影片設計原則回顧。初稿依公司網站上的轉存檔引了它的分段、先備訓練與生成活動的效果量；查核時找不到作者或出版者公開的版本，2026-10-14 拿掉所有數字，也從參考資料移除。
 
 ## 附錄：各研究的設計與數字
 
@@ -246,7 +247,7 @@ Alyssa Lawson 與 Mayer [2021 年的三個實驗](https://pmc.ncbi.nlm.nih.gov/a
 
 **Carpenter 與 Toftness（2017）**，Journal of Applied Research in Memory and Cognition。愛荷華州立大學 85 名大學生，提問組 43 人、對照組 42 人。影片三段各長 2 分 22 秒、2 分 33 秒、2 分 15 秒。最後測驗 12 題，看完立刻考。整體成績提問組 0.57、對照組 0.38（d = 1.00）；事前沒被問到的內容，提問組 0.50，同樣高於對照組（d = 0.54）。提問組事前作答的答對率只有 5%。作者提到，在 90 分鐘的課堂上，提問與講到該內容之間的間隔可能削弱效果。
 
-**Mayer（2021）**，同一期刊。先備訓練：2 個實驗，d = 0.85。分段：7 個實驗全部較好，d = 0.67。暫停時寫解釋：3 個實驗，d = 0.68，引的就是下面這篇。
+**Rey、Beege、Nebel、Wirzberger、Schmitt、Schneider（2019）**，Educational Psychology Review 31。56 個研究、88 組比較，多媒體教材。保留 d = 0.32（67 個效果量）、遷移 0.36（56 個）。系統控制步調的分段四項結果都顯著；學習者控制步調的只有遷移顯著。分段組學習時間較長（d = −0.92），這一項有顯著的出版偏誤，作者說要小心解讀。細節在[系列第 1 篇](/posts/learning/2026-10-13-teaching-text-evidence)的附錄。
 
 **Lawson 與 Mayer（2021）**，Educational Psychology Review。三個實驗各 126、131、128 名南加州的大學生，教材是四張附文字的溫室氣體動畫，測驗滿分 36。實驗一立刻測驗，四組整體沒有顯著差異。實驗二隔一週測驗：寫解釋 8.06 分、什麼都沒做 5.41 分（p = 0.018），只讀解釋 4.47 分。實驗三隔一週測驗：寫解釋 9.13 分、改寫現成解釋 7.79 分、只讀解釋 6.81 分、什麼都沒做 4.90 分；前兩組顯著高於什麼都沒做，只讀解釋那組沒有（p = 0.136）。花在教材上的時間，寫解釋組與什麼都沒做的組在三個實驗裡依序是 9 分 24 秒對 3 分 24 秒、9 分 42 秒對 3 分 5 秒、10 分 17 秒對 2 分 58 秒。論文摘要說實驗二的「用指定名詞寫解釋」組也顯著勝過什麼都沒做的組，但內文的事後檢定寫的是不顯著（p = 0.167），我照內文。
 
@@ -264,7 +265,7 @@ Alyssa Lawson 與 Mayer [2021 年的三個實驗](https://pmc.ncbi.nlm.nih.gov/a
 - [Karnad (2013), Student use of recorded lectures](https://researchonline.lse.ac.uk/id/eprint/50929/1/Karnad_Student_use_recorded_2013_author.pdf)：LSE 的文獻回顧。讀了摘要、方法，以及使用原因與使用時機兩節。
 - [Pavel et al. (2014), Video Digests: A Browsable, Skimmable Format for Informational Lecture Videos](http://vis-ucb-maneesh.stanford.edu/papers/videodigests/videodigests_small.pdf)：章節摘要格式與瀏覽實驗。讀了摘要、實驗材料、瀏覽實驗與未來工作。
 - [Carpenter & Toftness (2017), The Effect of Prequestions on Learning from Video Presentations](https://664ef278-1723-43c6-bbe1-3bd4e65a87fe.filesusr.com/ugd/f4b9f1_ae7d99429920421594e4b037cfaa5f6a.pdf)：看前提問的實驗。讀了全文。
-- [Mayer (2021), Evidence-Based Principles for How to Design Effective Instructional Videos](https://archemedxinc.wpengine.com/wp-content/uploads/2023/01/Mayer-Evidence-Based-Principles-for-How-to-Design-Effective-Instructional-Videos.pdf)：分段、先備訓練與生成活動的效果量。讀了摘要與這三項原則的段落、結語。
+- [Rey et al. (2019), A Meta-analysis of the Segmenting Effect](https://maria-wirzberger.de/wp-content/uploads/2019/01/Rey2019_Article_AMeta-analysisOfTheSegmentingE.pdf)：分段的統合分析。讀了全文；逐篇研究的 Table 1 欄位錯位，沒有逐列還原。
 - [Lawson & Mayer (2021), Benefits of Writing an Explanation During Pauses in Multimedia Lessons](https://pmc.ncbi.nlm.nih.gov/articles/PMC7985227/)：暫停時寫解釋的三個實驗。讀了摘要、三個實驗的方法與結果、限制。
 - [Szpunar, Khan & Schacter (2013), Interpolated memory tests reduce mind wandering and improve learning of online lectures](https://pmc.ncbi.nlm.nih.gov/articles/PMC3631699/)：在課堂錄影各段之間穿插測驗的兩個實驗。讀了全文，不含補充材料。
 - [Brame (2016), Effective Educational Videos](https://pmc.ncbi.nlm.nih.gov/articles/PMC5132380/)：教學影片的實務建議。讀了建議表與學生投入、主動學習兩節。

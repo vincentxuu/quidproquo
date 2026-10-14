@@ -32,7 +32,7 @@ draft: false
 | 元件之間的資料流向與因果 | 方塊加箭頭 | 箭頭會讓讀者把圖讀成「怎麼運作」 |
 | 單一路徑的流程、一兩個出口的迴圈 | 編號清單或虛擬碼 | 我的推論：清單已經把順序講完 |
 | 幾個方案在相同面向上的比較 | 表格 | 我的推論：表格已經把面向對齊；概念圖對條列的優勢在兩篇統合分析裡都不大 |
-| 數量關係（曲線、成長、分布） | 用位置表示數量的圖：折線、散點、長條 | 圖形知覺實驗 |
+| 數量關係（曲線、成長、分布） | 用位置表示數量的圖：折線、散點、長條 | 我的判斷；圖形知覺研究的排序，我還沒讀到能撐它的合法全文 |
 | 幾何與空間（決策邊界、梯度下降的路徑） | 真的圖 | 內容本身是空間的 |
 
 不要畫的情況有四種：
@@ -111,11 +111,11 @@ Noetel 轉引 [Sundararajan 與 Adesope（2020）](https://link.springer.com/art
 
 ## 哪種內容配哪種圖
 
-這一題的直接實驗最少。能引用的是兩個理論分析和一條圖形知覺的實驗線，上面那張對應表大部分是我依它們推出來的。
+這一題的直接實驗最少。能引用的是兩個理論分析；圖形知覺的實驗線，我還沒讀到能撐它的合法全文。上面那張對應表大部分是我推出來的。
 
 ### 圖省的是搜尋與比對
 
-[Larkin 與 Simon（1987）](https://mechanism.ucsd.edu/bill/teaching/F12/cs200/Readings/larkin.whyadiagramissometimesworth.1987.pdf)用電腦模擬同一道題在兩種表徵下的求解過程（一道滑輪題、一道幾何題），不是受試者實驗。他們的主張是：圖和文字可以裝一樣的資訊，差別在使用時的計算成本。圖有三個優勢：
+[Larkin 與 Simon（1987）](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1551-6708.1987.tb00863.x)用電腦模擬同一道題在兩種表徵下的求解過程（一道滑輪題、一道幾何題），不是受試者實驗。他們的主張是：圖和文字可以裝一樣的資訊，差別在使用時的計算成本。圖有三個優勢：
 
 - 一起用的資訊放在相鄰的位置，省掉搜尋。
 - 同一個元素的資訊聚在同一個位置，不必比對符號標籤。
@@ -133,13 +133,13 @@ Noetel 轉引 [Sundararajan 與 Adesope（2020）](https://link.springer.com/art
 
 ### 箭頭會被讀成過程
 
-[Tversky（2011）](https://tc.columbia.edu/faculty/bt2158/faculty-profile/files/2011_Tversky_VisualizingThoughts.pdf)整理了圖解元素怎麼帶出意義。她引用 Heiser 與 Tversky（2006）的實驗：同一張機械圖，沒有箭頭時學生寫出零件的空間關係，加了箭頭就寫出一步步的因果運作。
+[Tversky（2011）](https://tc.columbia.edu/faculty/bt2158/faculty-profile/files/2011_Tversky_VisualizingThoughts.pdf)整理了圖解元素怎麼帶出意義。Tversky 引用 Heiser 與 Tversky（2006）的實驗：同一張機械圖，沒有箭頭時學生寫出零件的空間關係，加了箭頭就寫出一步步的因果運作。
 
 動作：箭頭只用在因果、資料流向、先後順序。只想表達「A 包含 B」「A 和 B 有關」時，用外框分組或不帶箭頭的線。
 
 ### 數量用位置表示
 
-[Cleveland 與 McGill（1984）](https://dsciclass.org/dsci310/Notes/Cleveland_McGill_EPT.pdf)列出從圖上讀數量的基本知覺任務，並依準確度排序。同一條軸上的位置最準，其次是不同軸上的位置。再來是長度、方向與角度，然後是面積，再來是體積與曲率，最後是明暗與色彩飽和度。[Heer 與 Bostock（2010）](http://vis.stanford.edu/files/2010-MTurk-CHI.pdf)後來在 Mechanical Turk 上重做了空間編碼的實驗。
+[Cleveland 與 McGill（1984）](https://doi.org/10.1080/01621459.1984.10478080)研究過從圖上讀數量的知覺任務；這篇研究存在，但我沒讀到作者或出版者公開的全文，所以不引它的排序。[Heer 與 Bostock（2010）](http://vis.stanford.edu/files/2010-MTurk-CHI.pdf)後來在 Mechanical Turk 上重做了空間編碼的實驗。在讀完 Heer 與 Bostock 的全文之前，下面的動作是我的判斷。
 
 動作：要讓讀者比大小、看趨勢，用折線、散點或長條。不要用圓餅的角度、氣泡的面積或顏色深淺表示數量。mermaid 沒有合用的數量圖，這類內容目前只能用表格，或另外產生 SVG。
 
@@ -178,7 +178,7 @@ Noetel 轉引 [Sundararajan 與 Adesope（2020）](https://link.springer.com/art
 
 Berney 與 Bétrancourt 發現動畫的優勢集中在三種情況：系統控制步調、配旁白、沒有搭配文字。一篇讀者自己捲動、沒有旁白、一定有文字的文章，三種都不符合。這三項都是跨研究的子群比較，作者自己說這類比較的檢定力低；而且「沒有搭配文字」的 14 個比較裡，有 6 個出自同一篇（Kühl 等 2012）。
 
-[Tversky、Morrison 與 Bétrancourt（2002）](https://hci.stanford.edu/courses/cs448b/papers/Tversky_AnimationFacilitate_IJHCS02.pdf)更早就逐一檢查了「動畫贏」的研究，發現兩邊常常不對等：動畫版本多了靜態版本沒有的資訊，或者動畫組同時多了互動或預測。他們舉的例子包括心臟的動畫有畫血流路徑，靜態圖卻沒畫。
+[Tversky、Morrison 與 Bétrancourt（2002）](https://www.tc.columbia.edu/faculty/bt2158/faculty-profile/files/_Morrison_Betrancourt_AnimationCanitfacilitate.pdf)更早就逐一檢查了「動畫贏」的研究，發現兩邊常常不對等：動畫版本多了靜態版本沒有的資訊，或者動畫組同時多了互動或預測。他們舉的例子包括心臟的動畫有畫血流路徑，靜態圖卻沒畫。
 
 ### 分格圖：有論述支持，也有一個反例
 
@@ -228,7 +228,7 @@ Tversky 等人解釋動畫為什麼常常失敗：動畫太快、太複雜時看
 
 ### 畫圖：已經有圖的時候，要「先畫再對照」
 
-[Fiorella 與 Mayer（2016）](https://doi.org/10.1007/s10648-015-9348-9)回顧八種讓學習者自己產出東西的策略，畫圖是其中之一。他們整理的條件是：畫圖在幾種情況下比較有效，包括先教怎麼畫、明確告訴學生該畫進哪些元素、給一張畫了一半的底圖，或者畫完之後拿自己的圖去對照作者提供的圖。他們也提醒，如果學生的心力花在「怎麼畫」上，畫圖反而添亂。
+[Fiorella 與 Mayer（2016）](https://doi.org/10.1007/s10648-015-9348-9)回顧過八種讓學習者自己產出東西的策略，畫圖是其中之一；這篇研究存在，但我沒讀到作者或出版者公開的全文，所以不引它整理的條件。
 
 後續還有兩篇直接處理「自己畫」與「看現成的圖」怎麼比的研究：[Fiorella 與 Zhang（2018）](https://ecrhub.org/publications/drawing-boundary-conditions-learning-drawing)的回顧，以及 [Zhang 與 Fiorella（2021）](https://www.sciencedirect.com/science/article/abs/pii/S0361476X21000497)的兩個實驗。這兩篇我只讀到摘要，這裡只記下它們存在，不拿它們當依據。
 
@@ -383,7 +383,8 @@ flowchart TB
 - **三個原則的數字是轉引**。圖文鄰近、訊號、拿掉無關細節這三項，數字來自 Noetel 的轉述，原統合分析我只讀到摘要，沒有讀到它們的方法與限制。
 - **演算法視覺化的實驗很舊**。24 個實驗都在 2002 年之前，用的是當時的動畫工具，而且是數「幾個實驗顯著」，不是合併效果量。2002 年之後，我沒有找到有合併效果量的統合分析。
 - **哪種內容配哪種圖，大部分是推論**。最對題的 Novick 與 Hurley（2001）我拿不到全文，只在正文提了它的存在。
-- **只讀到摘要的有八篇**，正文提到時都當場標明，也都沒有列進參考資料：Schroeder 與 Cenkci 2018、Schneider 等 2018、Sundararajan 與 Adesope 2020、Höffler 與 Leutner 2007、Novick 與 Hurley 2001、Fiorella 與 Zhang 2018、Zhang 與 Fiorella 2021、Cromley 等 2020。
+- **只讀到摘要的有九篇**，正文提到時都當場標明，也都沒有列進參考資料：Schroeder 與 Cenkci 2018、Schneider 等 2018、Sundararajan 與 Adesope 2020、Höffler 與 Leutner 2007、Novick 與 Hurley 2001、Fiorella 與 Zhang 2018、Zhang 與 Fiorella 2021、Cromley 等 2020，以及 Heer 與 Bostock 2010（另讀了引言，補精讀前不列參考資料）。
+- **只知道存在、沒讀到合法公開全文的**：[Cleveland 與 McGill（1984）](https://doi.org/10.1080/01621459.1984.10478080)的圖形知覺研究、[Fiorella 與 Mayer（2016）](https://doi.org/10.1007/s10648-015-9348-9)的生成學習策略回顧。初稿依課程網站或中學網站上的轉存檔引了它們的內容；查核時找不到作者或出版者公開的版本，2026-10-14 拿掉內容，也從參考資料移除。
 - **分格圖沒有正面的實驗證據**。唯一讀到的直接實驗不支持它，而那個實驗的內容和演算法有落差。「拆成小圖」目前只能當成解決手機可讀性的做法。
 - **兩處來源互相不一致，我沒有裁決**：動畫對靜態圖的整體效果（兩篇統合分析），以及畫圖輔助的整體效果（兩篇統合分析）。
 - **互動文章的資料量的是行為，不是學習**。三篇文章的流量紀錄，不能說明讀者學到多少。
@@ -405,10 +406,6 @@ flowchart TB
 **Larkin 與 Simon（1987）**，Cognitive Science。以產生式系統模擬，比較語句式與圖解式表徵。我讀了摘要、引言與結論，中間的模擬細節沒有讀。
 
 **Tversky（2011）**，Topics in Cognitive Science。理論性的綜述。我讀了摘要，以及關於排列與箭頭的段落。
-
-**Cleveland 與 McGill（1984）**，Journal of the American Statistical Association。我讀了摘要與基本知覺任務排序的段落，沒有讀實驗細節。
-
-**Heer 與 Bostock（2010）**，CHI：只讀了摘要與引言。
 
 **Hundhausen、Douglas、Stasko（2002）**，Journal of Visual Languages and Computing。24 個對照實驗，作者說接近當時已發表實驗的全部。11 個得到顯著差異，10 個沒有。依理論分組的顯著比例：認知建構論 71%（14 個實驗裡 10 個）、個別差異 50%、雙碼理論 50%、知識保真 30%。依兩組投入的心力：不相等 71%，相等 33%。依測驗的知識類型：只測程序知識 67%、只測概念知識 67%、兩者都測 38%。作者列的限制：「前後測進步」比「只有後測」容易測到差異，但這個發現大半來自同一系列研究，而且前測本身可能讓受試者學到東西；所有實驗量的東西很窄，幾乎都是概念知識與程序知識。
 
@@ -432,8 +429,6 @@ flowchart TB
 
 **Ploetzner、Berney、Bétrancourt（2021）**，Instructional Science。88 位大學生，三組各 30、28、30 人。動畫沒有旁白、不能操作；兩種題目之前各看一次教材（每次 2 分鐘），看完立刻測；受試者是同一所大學師資培育學程的學生。辨認運動：動畫對單張圖 d = 2.33，對四張圖 d = 2.41，單張與四張無顯著差異。辨認空間配置：單張圖對四張圖 d = 1.11，對動畫 d = 1.30，四張與動畫無顯著差異。學習者的空間能力和成績沒有顯著關聯。運動題是四選一，兩個靜態圖組的答對率約 35% 與 33%，亂猜的期望值是 25%；這是我讀表的觀察，原文沒有提。作者說明這個實驗只看知覺層次的處理，沒有研究概念理解。我讀了摘要、材料、結果與討論。
 
-**Fiorella 與 Mayer（2016）**，Educational Psychology Review。敘述性回顧，涵蓋摘要、畫概念圖、畫圖、想像、自我測驗、自我解釋、教別人、動手操作八種策略，作者說每一種的效果量中位數都在 d = 0.4 以上。畫圖一節舉的例子是 Schwamborn 等（2010）：九年級學生讀一段肥皂去污的化學文字，在預先畫好背景的紙上畫圖，遷移測驗 d = 0.81。我讀了畫概念圖與畫圖兩節、結語。
-
 **Leutner 與 Biele（2025）**，Educational Psychology Review 37 卷 4 期（作者與卷期取自 Crossref；我存的原文檔沒有作者區塊）。14 個研究、16 個獨立比較、1,213 人。理解 g = 0.04（p = 0.738），遷移 g = −0.10（p = 0.696），兩者異質性都顯著。「幫助整合」這個調節變項在控制另外兩個調節變項之後仍然顯著。作者說明納入的研究少，結果要保守解讀；並提到 Cromley 等（2020）用較多研究得到顯著的整體效果，Zhang 等（2021）則同樣沒有找到主效果。我讀了結果、討論開頭與限制。
 
 **Barbieri、Chawla、Miller-Cotto、Clerjuste（2023）**，Educational Psychology Review。篩選 8,033 篇摘要，納入 43 篇文章、55 個研究、181 個效果量，55 個研究裡只有 2 個是準實驗。只用正確範例的效果，比只用錯誤範例或正誤混用的大。我讀了摘要、引言片段、方法開頭與優缺點一節。
@@ -448,16 +443,14 @@ flowchart TB
 - [Noetel et al., Multimedia Design for Learning: An Overview of Reviews With Meta-Meta-Analysis](https://doi.org/10.31234/osf.io/pynzr)：各設計原則的效果量與調節效果。讀了預印本的摘要、方法、結果、討論與限制；沒有讀期刊版。
 - [Cooper, Sidney & Alibali (2018), Who Benefits from Diagrams and Illustrations in Math Problems?](https://alibali.psych.wisc.edu/wp-content/uploads/sites/371/2018/02/CooperSidneyAlibali2018.pdf)：圖解與情境插圖的差別。讀了摘要、方法、結果與限制。
 - [Trypke, Stebner & Wirth (2023), Two types of redundancy in multimedia learning: a literature review](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1148035/pdf)：兩種重複。讀了摘要、引言開頭、表 4 與限制。
-- [Larkin & Simon (1987), Why a Diagram is (Sometimes) Worth Ten Thousand Words](https://mechanism.ucsd.edu/bill/teaching/F12/cs200/Readings/larkin.whyadiagramissometimesworth.1987.pdf)：圖解的計算優勢。讀了摘要、引言與結論。
+- [Larkin & Simon (1987), Why a Diagram is (Sometimes) Worth Ten Thousand Words](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1551-6708.1987.tb00863.x)：圖解的計算優勢。讀了摘要、引言與結論。
 - [Tversky (2011), Visualizing Thought](https://tc.columbia.edu/faculty/bt2158/faculty-profile/files/2011_Tversky_VisualizingThoughts.pdf)：圖解元素的意義與箭頭實驗。讀了摘要與相關段落。
-- [Cleveland & McGill (1984), Graphical Perception](https://dsciclass.org/dsci310/Notes/Cleveland_McGill_EPT.pdf)：知覺任務的準確度排序。讀了摘要與排序段落。
-- [Heer & Bostock (2010), Crowdsourcing Graphical Perception](http://vis.stanford.edu/files/2010-MTurk-CHI.pdf)：重做圖形知覺實驗。讀了摘要與引言。
 - [Hundhausen, Douglas & Stasko (2002), A Meta-Study of Algorithm Visualization Effectiveness](https://faculty.cc.gatech.edu/~stasko/papers/jvlc02.pdf)：24 個實驗的彙整。讀了全文，表 2 到表 7 與各圖對過 PDF 版面。
 - [Naps et al. (2002), Exploring the Role of Visualization and Engagement in Computer Science Education](https://users.cs.duke.edu/~rodger/jflappapers/Naps2002.pdf)：投入方式的六個類別。讀了摘要、第 3 節開頭與 5.1 節。
 - [Shaffer et al. (2010), Algorithm Visualization: The State of the Field](https://cs.utep.edu/makbar/papers/TOCE.pdf)：超過 500 個視覺化的清點。讀了摘要與 4.4 節片段。
 - [Sibia, Liut & Nobre (2025), Exploring the Role of Visualization Tools in Enhancing Computing Education](https://diglib.eg.org/bitstreams/c65f8ea5-9633-4a64-8758-906ce2e446e1/download)：90 篇論文的系統性回顧。讀了摘要、引言與相關研究。
 - [Berney & Bétrancourt (2016), Does animation enhance learning? A meta-analysis](https://access.archive-ouverte.unige.ch/access/metadata/75bf6876-cb91-4e2c-8ac6-9d0767449449/download)：動畫對靜態圖。讀了摘要、3.1 與 3.2 節、4.4 節。
-- [Tversky, Morrison & Bétrancourt (2002), Animation: can it facilitate?](https://hci.stanford.edu/courses/cs448b/papers/Tversky_AnimationFacilitate_IJHCS02.pdf)：動畫研究的檢討。讀了第 1.4 到第 4 節。
+- [Tversky, Morrison & Bétrancourt (2002), Animation: can it facilitate?](https://www.tc.columbia.edu/faculty/bt2158/faculty-profile/files/_Morrison_Betrancourt_AnimationCanitfacilitate.pdf)：動畫研究的檢討。讀了第 1.4 到第 4 節。
 - [Ploetzner, Berney & Bétrancourt (2021), When learning from animations is more successful than learning from static pictures: learning the specifics of change](https://link.springer.com/article/10.1007/s11251-021-09541-w)：單張圖、四張圖與動畫的實驗。讀了摘要、材料、結果與討論。
 - [Rey et al. (2019), A Meta-analysis of the Segmenting Effect](https://maria-wirzberger.de/wp-content/uploads/2019/01/Rey2019_Article_AMeta-analysisOfTheSegmentingE.pdf)：分段。讀了摘要、整體結果、三個假說的檢定與限制。
 - [Conlen, Kale & Heer (2019), Capture & Analysis of Active Reading Behaviors for Interactive Articles on the Web](https://idl.cs.washington.edu/files/2019-IdyllAnalytics-EuroVis.pdf)：互動文章的閱讀紀錄。讀了摘要與第 6 節。
@@ -465,7 +458,6 @@ flowchart TB
 - [Hohman, Conlen, Heer & Chau (2020), Communicating with Interactive Articles](https://distill.pub/2020/communicating-with-interactive-articles/)：互動文章的製作成本與讀者互動。讀了相關段落。
 - [Nesbit & Adesope (2006), Learning With Concept and Knowledge Maps: A Meta-Analysis](https://sfu.ca/~jcnesbit/articles/NesbitAdesope2006.pdf)：概念圖。讀了摘要、結果一節全部（表 1 到表 8）與結論；引言只讀片段，方法與附錄沒有讀。
 - [Schroeder, Nesbit, Anguiano & Adesope (2018), Studying and Constructing Concept Maps: a Meta-Analysis](https://summit.sfu.ca/_flysystem/fedora/sfu_migrate/17789/schroedernesbitanguianoadesope2017.pdf)：概念圖的更新。讀了作者稿的摘要、方法開頭、兩處對照條件的段落與結論。
-- [Fiorella & Mayer (2016), Eight Ways to Promote Generative Learning](https://doi.org/10.1007/s10648-015-9348-9)：畫圖有效的條件。讀了畫概念圖與畫圖兩節、結語。
 - [Leutner & Biele (2025), Without Integration, Everything Is Nothing: A Meta-Analysis of the Effectiveness of Instructional Support for Drawing-to-Learn](https://link.springer.com/article/10.1007/s10648-025-10067-7)：畫圖輔助。讀了結果、討論開頭與限制。
 - [Barbieri, Chawla, Miller-Cotto & Clerjuste (2023), A Meta-analysis of the Worked Examples Effect on Mathematics Performance](https://danamillercotto.com/uploads/4/7/7/2/47725475/barbieri_et_al__2023__we_meta-analysis.pdf)：範例與自我解釋提示。讀了摘要、引言片段、方法開頭與優缺點一節。
 - W3C：Understanding WCAG 2.2 的 [1.1.1](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content)、[1.4.4](https://www.w3.org/WAI/WCAG22/Understanding/resize-text)、[1.4.5](https://www.w3.org/WAI/WCAG22/Understanding/images-of-text)、[1.4.10](https://www.w3.org/WAI/WCAG22/Understanding/reflow)、[2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum)，以及 [Complex Images 教學](https://www.w3.org/WAI/tutorials/images/complex/)。讀了準則本文與 Intent 段；教學讀了前半。

@@ -32,7 +32,7 @@ Before reading on, know which way this evidence leans. Most of the studies I rea
 | Data flow and causation between components | Boxes and arrows | Arrows make readers interpret a diagram as "how it works" |
 | A single-path flow, or a loop with one or two exits | A numbered list or pseudocode | My inference: the list already states the order |
 | Several options compared on the same dimensions | A table | My inference: a table already aligns the dimensions; concept maps' advantage over lists is modest in both meta-analyses |
-| Quantities (curves, growth, distributions) | Charts that encode quantity as position: lines, scatter, bars | Graphical perception experiments |
+| Quantities (curves, growth, distributions) | Charts that encode quantity as position: lines, scatter, bars | My judgment; I have not yet read a legal full text that supports the graphical perception ranking |
 | Geometry and space (decision boundaries, a gradient descent path) | An actual picture | The content is spatial |
 
 Four cases where you should not draw:
@@ -111,11 +111,11 @@ My inference: let the text carry the reasoning (why you can stop once you see a 
 
 ## Which diagram for which content
 
-This question has the least direct experimental evidence. What I can cite is two theoretical analyses and one line of graphical perception experiments. Most of the mapping table above is my inference from them.
+This question has the least direct experimental evidence. What I can cite is two theoretical analyses; for the line of graphical perception experiments I have not yet read a legal full text that supports it. Most of the mapping table above is my inference.
 
 ### Diagrams save search and matching
 
-[Larkin and Simon (1987)](https://mechanism.ucsd.edu/bill/teaching/F12/cs200/Readings/larkin.whyadiagramissometimesworth.1987.pdf) simulated how the same problem is solved under two representations (a pulley problem and a geometry problem). It is a computational model, with no human participants. Their claim: a diagram and a text can hold the same information and still differ in the computation needed to use it. Diagrams have three advantages:
+[Larkin and Simon (1987)](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1551-6708.1987.tb00863.x) simulated how the same problem is solved under two representations (a pulley problem and a geometry problem). It is a computational model, with no human participants. Their claim: a diagram and a text can hold the same information and still differ in the computation needed to use it. Diagrams have three advantages:
 
 - Information used together sits at adjacent locations, which removes search.
 - Information about one element is grouped at one location, so there are no symbolic labels to match.
@@ -133,13 +133,13 @@ The paper closest to this question is [Novick and Hurley (2001)](https://www.sci
 
 ### Arrows are read as process
 
-[Tversky (2011)](https://tc.columbia.edu/faculty/bt2158/faculty-profile/files/2011_Tversky_VisualizingThoughts.pdf) surveys how diagram elements carry meaning. She cites an experiment by Heiser and Tversky (2006): given the same mechanical diagram, students described the spatial relations of parts when it had no arrows, and described step-by-step causal operation when it did.
+[Tversky (2011)](https://tc.columbia.edu/faculty/bt2158/faculty-profile/files/2011_Tversky_VisualizingThoughts.pdf) surveys how diagram elements carry meaning. Tversky cites an experiment by Heiser and Tversky (2006): given the same mechanical diagram, students described the spatial relations of parts when it had no arrows, and described step-by-step causal operation when it did.
 
 What to do: use arrows only for causation, data flow, and order. To show "A contains B" or "A relates to B," use a grouping box or a line without an arrowhead.
 
 ### Encode quantity as position
 
-[Cleveland and McGill (1984)](https://dsciclass.org/dsci310/Notes/Cleveland_McGill_EPT.pdf) list the elementary perceptual tasks people perform when reading quantities from a graph and rank them by accuracy. Position along a common scale is most accurate, followed by position along nonaligned scales. Next come length, direction, and angle, then area, then volume and curvature, and last shading and color saturation. [Heer and Bostock (2010)](http://vis.stanford.edu/files/2010-MTurk-CHI.pdf) later reran the spatial encoding experiments on Mechanical Turk.
+[Cleveland and McGill (1984)](https://doi.org/10.1080/01621459.1984.10478080) studied the perceptual tasks people perform when reading quantities from a graph; the study exists, but I could not find a full text made public by its authors or publisher, so I do not cite its ranking. [Heer and Bostock (2010)](http://vis.stanford.edu/files/2010-MTurk-CHI.pdf) later reran the spatial encoding experiments on Mechanical Turk. Until I have read Heer and Bostock in full, the action below is my judgment.
 
 What to do: when readers need to compare sizes or see a trend, use lines, scatter, or bars. Don't encode quantity as pie angles, bubble area, or color depth. Mermaid has no suitable quantitative chart, so on this site that content currently goes in a table or a separately generated SVG.
 
@@ -178,7 +178,7 @@ I read only the abstract of the earlier [Höffler and Leutner (2007)](https://ww
 
 Berney and Bétrancourt found animation's advantage concentrated in three conditions: system pacing, spoken commentary, and no accompanying text. An article that readers scroll themselves, with no narration and always with text, meets none of the three. All three are subgroup comparisons across studies, which the authors themselves say have low statistical power, and 6 of the 14 comparisons with no accompanying text come from a single paper (Kühl et al. 2012).
 
-[Tversky, Morrison, and Bétrancourt (2002)](https://hci.stanford.edu/courses/cs448b/papers/Tversky_AnimationFacilitate_IJHCS02.pdf) had already gone through the studies where animation won and found the two sides were often not equivalent. The animated version carried information the static version lacked, or the animation group also got interactivity or prediction. One of their examples: an animated diagram of the heart showed blood pathways and the static diagram did not.
+[Tversky, Morrison, and Bétrancourt (2002)](https://www.tc.columbia.edu/faculty/bt2158/faculty-profile/files/_Morrison_Betrancourt_AnimationCanitfacilitate.pdf) had already gone through the studies where animation won and found the two sides were often not equivalent. The animated version carried information the static version lacked, or the animation group also got interactivity or prediction. One of their examples: an animated diagram of the heart showed blood pathways and the static diagram did not.
 
 ### Frames: an argument in favor, and one experiment against
 
@@ -228,7 +228,7 @@ Taken together: studying a ready-made map has an advantage over lists, estimated
 
 ### Drawing: when a diagram is already provided, "draw first, then compare"
 
-[Fiorella and Mayer (2016)](https://doi.org/10.1007/s10648-015-9348-9) review eight strategies in which learners generate something themselves, drawing among them. The conditions they identify: drawing works better when students are trained in how to draw, are told specifically which elements to include, are given a partially drawn illustration, or are asked afterwards to compare their own drawing with an author-provided one. They also warn that when students' effort goes into the mechanics of drawing, drawing gets in the way.
+[Fiorella and Mayer (2016)](https://doi.org/10.1007/s10648-015-9348-9) review eight strategies in which learners generate something themselves, drawing among them; the review exists, but I could not find a full text made public by its authors or publisher, so I do not cite the conditions it identifies.
 
 Two later pieces address how drawing compares with viewing provided illustrations: [Fiorella and Zhang's (2018)](https://ecrhub.org/publications/drawing-boundary-conditions-learning-drawing) review and [Zhang and Fiorella's (2021)](https://www.sciencedirect.com/science/article/abs/pii/S0361476X21000497) two experiments. I read only their abstracts, so I note here that they exist and do not rely on them.
 
@@ -383,7 +383,8 @@ What splitting reliably buys is legibility: the text returns to 16px and each di
 - **Three principles' numbers are second-hand.** For contiguity, signaling, and removing irrelevant details, the numbers come from Noetel's account. I read only the abstracts of the original meta-analyses, not their methods and limitations.
 - **The algorithm visualization experiments are old.** All 24 predate 2002 and used the animation tools of the time. The study counts how many experiments were significant; it does not pool effect sizes. I found no meta-analysis with pooled effect sizes after 2002.
 - **Most of the content-to-diagram mapping is inference.** I could not obtain the full text of Novick and Hurley (2001), the paper closest to the question, and the body only notes that it exists.
-- **Eight sources were read as abstracts only.** Each is marked where the body mentions it, and none is in the reference list: Schroeder and Cenkci 2018, Schneider et al. 2018, Sundararajan and Adesope 2020, Höffler and Leutner 2007, Novick and Hurley 2001, Fiorella and Zhang 2018, Zhang and Fiorella 2021, and Cromley et al. 2020.
+- **Nine sources were read as abstracts only.** Each is marked where the body mentions it, and none is in the reference list: Schroeder and Cenkci 2018, Schneider et al. 2018, Sundararajan and Adesope 2020, Höffler and Leutner 2007, Novick and Hurley 2001, Fiorella and Zhang 2018, Zhang and Fiorella 2021, Cromley et al. 2020, and Heer and Bostock 2010 (introduction also read; not listed in the references until it is read in full).
+- **Known to exist, no legal full text read**: [Cleveland and McGill (1984)](https://doi.org/10.1080/01621459.1984.10478080) on graphical perception and [Fiorella and Mayer (2016)](https://doi.org/10.1007/s10648-015-9348-9) on generative learning strategies. An earlier draft cited their content from copies on a course website and a secondary school website; the source check found no version made public by the authors or publishers, so on 2026-10-14 the content was removed and both were taken out of the references.
 - **Frames have no positive experimental evidence.** The one direct experiment I read does not support them, and its content differs from algorithms. For now, splitting a diagram into small ones is only a fix for legibility on phones.
 - **Two pairs of sources disagree and I did not adjudicate:** the overall effect of animation over static graphics (two meta-analyses), and the overall effect of drawing support (two meta-analyses).
 - **The interactive article data measure behavior, not learning.** Traffic logs from three articles say nothing about how much readers learned.
@@ -405,10 +406,6 @@ The body keeps one number per item. The others are here.
 **Larkin and Simon (1987)**, Cognitive Science. A production-system simulation comparing sentential and diagrammatic representations. I read the abstract, introduction, and conclusion, not the simulation details in between.
 
 **Tversky (2011)**, Topics in Cognitive Science. A theoretical survey. I read the abstract and the passages on arrangement and arrows.
-
-**Cleveland and McGill (1984)**, Journal of the American Statistical Association. I read the abstract and the passage ranking the elementary perceptual tasks, not the experimental details.
-
-**Heer and Bostock (2010)**, CHI: abstract and introduction only.
 
 **Hundhausen, Douglas, and Stasko (2002)**, Journal of Visual Languages and Computing. 24 controlled experiments, which the authors say is close to every published experiment at the time. 11 yielded a significant difference and 10 did not. Share significant by guiding theory: Cognitive Constructivism 71% (10 of 14 experiments), Individual Differences 50%, Dual-coding 50%, Epistemic Fidelity 30%. By effort across the two groups: not equivalent 71%, equivalent 33%. By type of knowledge tested: procedural only 67%, conceptual only 67%, both 38%. Limitations the authors list: pre-to-post-test improvement detects differences more readily than post-test alone, but that finding rests largely on one line of studies, and the pre-test itself may teach participants something; the experiments measured a narrow range of outcomes, almost all conceptual and procedural knowledge.
 
@@ -432,8 +429,6 @@ The body keeps one number per item. The others are here.
 
 **Ploetzner, Berney, and Bétrancourt (2021)**, Instructional Science. 88 university students in three groups of 30, 28, and 30. The animation had no narration or interaction; participants viewed their material once before each of the two question types (2 minutes each time), and each test came immediately; participants were teacher education students at one university. Identifying motions: animation against one picture d = 2.33, against four pictures d = 2.41, and no significant difference between one and four pictures. Identifying spatial arrangements: one picture against four pictures d = 1.11, against animation d = 1.30, and no significant difference between four pictures and animation. Learners' spatial ability was not significantly related to performance. The motion items were four-choice, and the two static groups scored about 35% and 33%, against a chance rate of 25%; this is my observation from the table, and the paper does not mention it. The authors state that the experiment examined perceptual processing only and did not investigate conceptual understanding. I read the abstract, materials, results, and discussion.
 
-**Fiorella and Mayer (2016)**, Educational Psychology Review. A narrative review of eight strategies: summarizing, mapping, drawing, imagining, self-testing, self-explaining, teaching, and enacting. The authors say each has a median effect size of d = 0.4 or higher. The example in the drawing section is Schwamborn et al. (2010): ninth graders read a short chemistry text on washing with soap and drew on a sheet with a predrawn background, with d = 0.81 on a transfer test. I read the mapping and drawing sections and the conclusion.
-
 **Leutner and Biele (2025)**, Educational Psychology Review 37(4) (authors and issue taken from Crossref; the copy of the text I saved has no author block). 14 studies, 16 independent comparisons, 1,213 participants. Comprehension g = 0.04 (p = 0.738), transfer g = −0.10 (p = 0.696), with significant heterogeneity in both. The "facilitation of integration" moderator stayed significant after adjusting for the other two moderators. The authors say the small number of studies calls for caution, and note that Cromley et al. (2020) found a significant overall effect with more studies, while Zhang et al. (2021) likewise found no main effect. I read the results, the start of the discussion, and the limitations.
 
 **Barbieri, Chawla, Miller-Cotto, and Clerjuste (2023)**, Educational Psychology Review. 8,033 abstracts screened; 43 articles, 55 studies, and 181 effect sizes included, with only 2 of the 55 studies quasi-experimental. Correct examples alone had larger effects than incorrect examples alone or the two combined. I read the abstract, parts of the introduction, the start of the methods, and the strengths and limitations section.
@@ -448,16 +443,14 @@ The body keeps one number per item. The others are here.
 - [Noetel et al., Multimedia Design for Learning: An Overview of Reviews With Meta-Meta-Analysis](https://doi.org/10.31234/osf.io/pynzr): effect sizes and moderators for each design principle. Read the preprint's abstract, methods, results, discussion, and limitations; did not read the journal version.
 - [Cooper, Sidney & Alibali (2018), Who Benefits from Diagrams and Illustrations in Math Problems?](https://alibali.psych.wisc.edu/wp-content/uploads/sites/371/2018/02/CooperSidneyAlibali2018.pdf): diagrams versus contextual illustrations. Read the summary, method, results, and limitations.
 - [Trypke, Stebner & Wirth (2023), Two types of redundancy in multimedia learning: a literature review](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1148035/pdf): two kinds of redundancy. Read the abstract, the opening of the introduction, Table 4, and limitations.
-- [Larkin & Simon (1987), Why a Diagram is (Sometimes) Worth Ten Thousand Words](https://mechanism.ucsd.edu/bill/teaching/F12/cs200/Readings/larkin.whyadiagramissometimesworth.1987.pdf): the computational advantages of diagrams. Read the abstract, introduction, and conclusion.
+- [Larkin & Simon (1987), Why a Diagram is (Sometimes) Worth Ten Thousand Words](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1551-6708.1987.tb00863.x): the computational advantages of diagrams. Read the abstract, introduction, and conclusion.
 - [Tversky (2011), Visualizing Thought](https://tc.columbia.edu/faculty/bt2158/faculty-profile/files/2011_Tversky_VisualizingThoughts.pdf): what diagram elements mean, and the arrow experiment. Read the abstract and relevant passages.
-- [Cleveland & McGill (1984), Graphical Perception](https://dsciclass.org/dsci310/Notes/Cleveland_McGill_EPT.pdf): the accuracy ranking of perceptual tasks. Read the abstract and the ranking passage.
-- [Heer & Bostock (2010), Crowdsourcing Graphical Perception](http://vis.stanford.edu/files/2010-MTurk-CHI.pdf): rerunning graphical perception experiments. Read the abstract and introduction.
 - [Hundhausen, Douglas & Stasko (2002), A Meta-Study of Algorithm Visualization Effectiveness](https://faculty.cc.gatech.edu/~stasko/papers/jvlc02.pdf): the analysis of 24 experiments. Read in full, with Tables 2 to 7 and the figures checked against the PDF layout.
 - [Naps et al. (2002), Exploring the Role of Visualization and Engagement in Computer Science Education](https://users.cs.duke.edu/~rodger/jflappapers/Naps2002.pdf): the six forms of engagement. Read the abstract, the start of section 3, and section 5.1.
 - [Shaffer et al. (2010), Algorithm Visualization: The State of the Field](https://cs.utep.edu/makbar/papers/TOCE.pdf): a catalogue of over 500 visualizations. Read the abstract and parts of section 4.4.
 - [Sibia, Liut & Nobre (2025), Exploring the Role of Visualization Tools in Enhancing Computing Education](https://diglib.eg.org/bitstreams/c65f8ea5-9633-4a64-8758-906ce2e446e1/download): a systematic review of 90 papers. Read the abstract, introduction, and related work.
 - [Berney & Bétrancourt (2016), Does animation enhance learning? A meta-analysis](https://access.archive-ouverte.unige.ch/access/metadata/75bf6876-cb91-4e2c-8ac6-9d0767449449/download): animation versus static graphics. Read the abstract, sections 3.1 and 3.2, and section 4.4.
-- [Tversky, Morrison & Bétrancourt (2002), Animation: can it facilitate?](https://hci.stanford.edu/courses/cs448b/papers/Tversky_AnimationFacilitate_IJHCS02.pdf): a critical review of animation research. Read sections 1.4 through 4.
+- [Tversky, Morrison & Bétrancourt (2002), Animation: can it facilitate?](https://www.tc.columbia.edu/faculty/bt2158/faculty-profile/files/_Morrison_Betrancourt_AnimationCanitfacilitate.pdf): a critical review of animation research. Read sections 1.4 through 4.
 - [Ploetzner, Berney & Bétrancourt (2021), When learning from animations is more successful than learning from static pictures: learning the specifics of change](https://link.springer.com/article/10.1007/s11251-021-09541-w): the experiment with one picture, four pictures, and an animation. Read the abstract, materials, results, and discussion.
 - [Rey et al. (2019), A Meta-analysis of the Segmenting Effect](https://maria-wirzberger.de/wp-content/uploads/2019/01/Rey2019_Article_AMeta-analysisOfTheSegmentingE.pdf): segmenting. Read the abstract, the overall results, the tests of the three hypotheses, and the limitations.
 - [Conlen, Kale & Heer (2019), Capture & Analysis of Active Reading Behaviors for Interactive Articles on the Web](https://idl.cs.washington.edu/files/2019-IdyllAnalytics-EuroVis.pdf): reading logs from interactive articles. Read the abstract and section 6.
@@ -465,7 +458,6 @@ The body keeps one number per item. The others are here.
 - [Hohman, Conlen, Heer & Chau (2020), Communicating with Interactive Articles](https://distill.pub/2020/communicating-with-interactive-articles/): the cost of interactive articles and reader interaction. Read the relevant passages.
 - [Nesbit & Adesope (2006), Learning With Concept and Knowledge Maps: A Meta-Analysis](https://sfu.ca/~jcnesbit/articles/NesbitAdesope2006.pdf): concept maps. Read the abstract, the whole Results section (Tables 1 through 8), and the conclusion; read only parts of the introduction and did not read the method or appendices.
 - [Schroeder, Nesbit, Anguiano & Adesope (2018), Studying and Constructing Concept Maps: a Meta-Analysis](https://summit.sfu.ca/_flysystem/fedora/sfu_migrate/17789/schroedernesbitanguianoadesope2017.pdf): the concept map update. Read the authors' manuscript: abstract, start of the methods, both passages on comparison conditions, and conclusion.
-- [Fiorella & Mayer (2016), Eight Ways to Promote Generative Learning](https://doi.org/10.1007/s10648-015-9348-9): the conditions under which drawing works. Read the mapping and drawing sections and the conclusion.
 - [Leutner & Biele (2025), Without Integration, Everything Is Nothing: A Meta-Analysis of the Effectiveness of Instructional Support for Drawing-to-Learn](https://link.springer.com/article/10.1007/s10648-025-10067-7): drawing support. Read the results, the start of the discussion, and limitations.
 - [Barbieri, Chawla, Miller-Cotto & Clerjuste (2023), A Meta-analysis of the Worked Examples Effect on Mathematics Performance](https://danamillercotto.com/uploads/4/7/7/2/47725475/barbieri_et_al__2023__we_meta-analysis.pdf): worked examples and self-explanation prompts. Read the abstract, parts of the introduction, the start of the methods, and the strengths and limitations section.
 - W3C: Understanding WCAG 2.2 for [1.1.1](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content), [1.4.4](https://www.w3.org/WAI/WCAG22/Understanding/resize-text), [1.4.5](https://www.w3.org/WAI/WCAG22/Understanding/images-of-text), [1.4.10](https://www.w3.org/WAI/WCAG22/Understanding/reflow), and [2.5.8](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum), plus the [Complex Images tutorial](https://www.w3.org/WAI/tutorials/images/complex/). Read each criterion and its Intent section; read the first half of the tutorial.
