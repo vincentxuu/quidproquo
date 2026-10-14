@@ -552,6 +552,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       'zh-TW': 'CMU 10-301 機器學習完整課程導讀',
       en: 'Reading CMU 10-301 Machine Learning',
     },
+    titles: { 'zh-TW': 'CMU 10-301 Introduction to Machine Learning 導讀', en: 'Reading CMU 10-301 Introduction to Machine Learning' },
     descriptions: {
       'zh-TW': '以 Spring 2026 九份公開作業為主線，讀 CMU 10-301／601 的 27 講機器學習內容與校外實作邊界。',
       en: 'Reading the 27 lectures of CMU 10-301/601 through its nine public Spring 2026 homework bundles and the practical limits for independent learners.',
@@ -564,6 +565,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       'zh-TW': 'CMU 11-785 深度學習完整課程導讀',
       en: 'Reading CMU 11-785 Deep Learning',
     },
+    titles: { 'zh-TW': 'CMU 11-785 Introduction to Deep Learning 導讀', en: 'Reading CMU 11-785 Introduction to Deep Learning' },
     descriptions: {
       'zh-TW': '逐講讀 CMU 11-785 Spring 2026 的 28 講深度學習教材，並清楚區分公開講授鏈與受限的正式作業鏈。',
       en: 'A lecture-by-lecture reading of CMU 11-785 Spring 2026 that separates its public 28-lecture teaching sequence from the restricted assignment workflow.',
@@ -716,7 +718,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'cmu-07-280',
     category: 'courses',
     names: { 'zh-TW': 'CMU 07-280 完整課程導讀', en: 'Reading CMU 07-280' },
-    titles: { 'zh-TW': 'CMU 07-280 AI & ML I 導讀', en: 'Reading CMU 07-280 AI & ML I' },
+    titles: { 'zh-TW': 'CMU 07-280 Artificial Intelligence and Machine Learning I 導讀', en: 'Reading CMU 07-280 Artificial Intelligence and Machine Learning I' },
     descriptions: {
       'zh-TW': '逐講讀 CMU AI 核心改制後的 07-280：從 linear regression、MLE 到 N-gram、attention/transformer 與 Q-learning，對照官方 Spring 2026 教材。',
       en: 'A lecture-by-lecture reading of CMU 07-280, the first half of CMU’s redesigned AI core: linear regression, MLE, N-grams, attention/transformers, and Q-learning, against the official Spring 2026 materials.',
@@ -726,7 +728,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'cmu-07-380',
     category: 'courses',
     names: { 'zh-TW': 'CMU 07-380 完整課程導讀', en: 'Reading CMU 07-380' },
-    titles: { 'zh-TW': 'CMU 07-380 AI & ML II 導讀', en: 'Reading CMU 07-380 AI & ML II' },
+    titles: { 'zh-TW': 'CMU 07-380 Artificial Intelligence and Machine Learning II 導讀', en: 'Reading CMU 07-380 Artificial Intelligence and Machine Learning II' },
     descriptions: {
       'zh-TW': '接續 07-280，逐講讀 CMU 07-380 首開學期的 26 講：從邏輯與規劃到擴散模型，並標明 HW 與 Project 的公開進度。',
       en: 'Continuing from 07-280, a lecture-by-lecture reading of CMU 07-380’s first-offering 26 lectures — from logic and planning through diffusion models — with the release status of homework and project materials noted throughout.',
@@ -736,6 +738,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'harvard-cs50-ai',
     category: 'courses',
     names: { 'zh-TW': 'Harvard CS50 AI 導讀', en: 'Reading Harvard CS50 AI' },
+    titles: { 'zh-TW': 'Harvard CS50 Introduction to Artificial Intelligence with Python 導讀', en: 'Reading Harvard CS50 Introduction to Artificial Intelligence with Python' },
     descriptions: {
       'zh-TW': '逐講讀 Harvard CS50 AI with Python：搜尋、知識表示、機率、機器學習、神經網路與語言模型的公開教材與作業。',
       en: 'A lecture-by-lecture reading of Harvard CS50’s AI with Python: search, knowledge representation, probability, machine learning, neural networks, and language, based on the public course materials and assignments.',
@@ -830,6 +833,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     slug: 'nccu-generative-ai',
     category: 'courses',
     names: { 'zh-TW': '政大蔡炎龍 生成式AI 導讀', en: 'Reading NCCU Yen-Lung Tsai Generative AI' },
+    titles: { 'zh-TW': '政大蔡炎龍 生成式 AI 導讀', en: 'Reading NCCU Yen-Lung Tsai Generative AI' },
     descriptions: {
       'zh-TW': '依 Spring 2025（1132）的 14 支錄影、14 份投影片、12 份作業說明與 Colab notebook，逐講讀政大蔡炎龍的 TAICA 課程「生成式 AI：文字與圖像生成的原理與實務」：從神經網路、GAN、LLM 與 Transformer，到對話機器人、RAG、AI Agents，再到 VAE、Stable Diffusion、ControlNet／Fooocus。適合初學者。',
       en: 'A lecture-by-lecture reading of NCCU Yen-Lung Tsai\'s TAICA course "Generative AI: Text and Image Synthesis Principles and Practice", based on the Spring 2025 (1132) term: 14 recordings, 14 slide decks, 12 homework specs, and Colab notebooks. It runs from neural nets, GANs, LLMs and Transformers through chatbots, RAG and AI agents to VAEs, Stable Diffusion, and ControlNet/Fooocus, and is written for beginners.',
