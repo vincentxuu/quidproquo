@@ -459,3 +459,9 @@
 - 已完成（2026-10-13，本機 session）：YouTube `S6l3aRsecuE` 只有英文自動字幕（`en-orig`，無人工字幕）；三段（21:54–22:37、23:38–24:41、34:54–35:29）以自動字幕、本機 Whisper small.en、Cloudflare Workers AI whisper-large-v3-turbo 三方比對，文字一致；用 IFrame API 實測三段起點、`end` 停止與 ENDED 後跳回段首重播皆正常，自動字幕軌可載入。中英文章已填 `start`/`end`/`loop`、中文重點與可學表達。完整 `pnpm verify` 已在本機跑過。
 - 還沒做：人工耳聽。原音只經機器轉錄核對，沒有人實際戴耳機聽過三段的起訖是否落在自然停頓。
 - 接手第一步：開文章三段播放器各聽一輪；起訖若切到半句，調整 `start`/`end` 整數秒（中英兩版同步改）。
+
+## Q-037 查證過程外洩的既有文章回填（2026-10-14 登錄）
+- 來源：使用者問林軒田課程總覽「為啥內容看起來很查證」，接著指出一般文章也有同樣問題；同意先做規則與檢查器，示範看過再批次回填。
+- 已完成：writing-guide「查證過程不寫進正文」三層分工；`scripts/check-process-leak.mjs` 接進 verify（全站只計數，pre-commit 對被暫存的文章逐篇阻擋，退回完整 verify 時也擋）；english-speaking-post、deep-research、post、course-guide-contract 指向新規則。示範：林軒田總覽中英重寫（獨立審稿＋複審通過，報告 `.work/reviews/2026-10-14-htlin-overview-review.md`）、英文口說站立會議篇拿掉「仍待核對」、pplx-embed 加 topic 豁免。
+- 待決：全站 `node scripts/check-process-leak.mjs --list` 目前 121 篇超標（中英合計，2026-10-14）。大宗是「這一篇可以確認與不能確認的」（cs2881r、ntu-ml2026 等系列）、Stanford 主線「附錄：數字與查證方式」、英文口說「仍待核對」、課程總覽查課型 H2（cs2881r、nthu-nlp-kao、ntu-adl2025、mit-65940、ntu-ml2026）。>20 檔批次改動，要使用者決定批次順序；課程總覽要比照林軒田篇走獨立審稿。
+- 副作用：任何 session 改到超標文章時 pre-commit 會擋，要求當場修好。全部回填後把全站模式改成阻擋。

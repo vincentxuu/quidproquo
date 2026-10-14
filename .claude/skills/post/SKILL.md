@@ -45,7 +45,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 5. 限制
 6. 怎麼用
 
-「研究過程不進門面」規則見 `references/writing-guide.md#研究過程不進門面`。
+「研究過程不進門面」規則見 `references/writing-guide.md#研究過程不進門面`。正文同樣適用：查證後的事實直接寫，會改變讀者做法的限制併進用到的段落，查證過程（日期、404、沒查到、核對清單）存 `.work/<slug>/evidence.md`，見同一節的「查證過程不寫進正文」；`node scripts/check-process-leak.mjs <post.md>` 在 pre-commit 擋下被暫存的文章。
 
 ### 1. 準備
 

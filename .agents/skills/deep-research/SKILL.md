@@ -113,6 +113,8 @@ description: Portable multi-source research for tools, frameworks, papers, model
 
 把草稿骨架給使用者看，問下一步：發文（→ `post` skill）、補子問題、還是先存著。
 
+交給 `post` 的只有「草稿骨架」：事實，加上會改變讀者做法的限制。來源清單、讀取完整度盤點、事實交叉表、待解問題是過程，留在 note，不搬成文章的段落或 H2；「待解問題」裡讀者會碰到的，改寫成用到那一段的一句限制。規則見 post skill `references/writing-guide.md`「查證過程不寫進正文」。
+
 交接前對照 `references/anti-shortcuts.md` 反合理化清單。
 
 ## 跟其他 skill 的關係

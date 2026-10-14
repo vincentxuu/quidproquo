@@ -151,6 +151,9 @@ const FULL_STEPS = [
   ['course title gate', 'node .agents/skills/post/scripts/check-course-titles.mjs'],
   ['course layout regression tests', 'node .agents/skills/post/scripts/check-course-guide-layout.mjs --self-test'],
   ['course source layout gate', 'node .agents/skills/post/scripts/check-course-guide-layout.mjs'],
+  ['process-leak regression tests', 'node scripts/check-process-leak.mjs --self-test'],
+  // 全站只計數（既有文章回填中）；被暫存的文章在 --staged 逐篇阻擋，含退回完整 verify 的情況。
+  ['process-leak (全站計數)', 'node scripts/check-process-leak.mjs'],
   ['check:lang-parity', 'pnpm check:lang-parity'],
   ['check:course-videos', 'pnpm check:course-videos'],
   ['check:seo-smoke', 'pnpm check:seo-smoke'],
@@ -177,11 +180,13 @@ function stagedPlan() {
   const fullReason =
     entries.find((e) => !isSafe(e.path))?.path
     ?? entries.find((e) => isPost(e.path) && (e.status === 'D' || e.status === 'R'))?.path;
-  if (fullReason) return { full: true, reason: fullReason };
-
-  const posts = entries.filter((e) => isPost(e.path)).map((e) => e.path);
-  const zhPosts = posts.filter((p) => !p.endsWith('-en.md'));
+  const posts = entries.filter((e) => isPost(e.path) && e.status !== 'D').map((e) => e.path);
   const quote = (files) => files.map((f) => `'${f.replaceAll("'", "'\\''")}'`).join(' ');
+  // 查證過程外洩：只要動到文章就逐篇檢查，退回完整 verify 時也一樣（全站模式只計數，擋不到它）。
+  const leakStep = posts.length > 0 ? [['process-leak (staged)', `node scripts/check-process-leak.mjs ${quote(posts)}`]] : [];
+  if (fullReason) return { full: true, reason: fullReason, extra: leakStep };
+
+  const zhPosts = posts.filter((p) => !p.endsWith('-en.md'));
   const pick = (...names) => FULL_STEPS.filter(([name]) => names.includes(name));
   const steps = [];
   if (posts.length > 0) {
@@ -189,6 +194,7 @@ function stagedPlan() {
       ['check:references (staged)', `node scripts/check-post-references.mjs ${quote(posts)}`],
       ['check:post-quality (staged)', `node scripts/check-post-quality.mjs ${quote(posts)}`],
       ['check:glossary (staged)', `node scripts/check-glossary-coverage.mjs ${quote(posts)}`],
+      ...leakStep,
     );
     if (zhPosts.length > 0) steps.push(['check:tw (staged)', `node scripts/check-tw-terms.mjs ${quote(zhPosts)}`]);
     // 這些看的是文章之間的關係（系列編號、中英成對、課程標題與版面），本來就要全站看；實測每項 2 秒內。
@@ -206,6 +212,7 @@ let header = '=== pnpm verify ===';
 if (process.argv.includes('--staged')) {
   const plan = stagedPlan();
   if (plan.full) {
+    steps = [...FULL_STEPS, ...plan.extra];
     header = `=== pnpm verify --staged → 完整 verify（暫存區含 ${plan.reason}）===`;
   } else {
     steps = plan.steps;
