@@ -1,0 +1,7 @@
+== XSS ==
+vulnerable : 200 <p>Hello, <script>alert(1)</script></p>
+fixed      : 200 <p>Hello, &lt;script&gt;alert(1)&lt;/script&gt;</p>
+== IDOR (I am alice, asking for id=2, which is bob's) ==
+vulnerable : 200 Bob's bank memo
+fixed      : 404 not found
+fixed, my own id=1 : 200 Alice's diary

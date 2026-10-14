@@ -1,0 +1,81 @@
+main  : 函式 main  住在 0x55e15ae14295
+main  : 函式 outer 住在 0x55e15ae14235
+main  : 函式 inner 住在 0x55e15ae141e9
+main  : 全域 g_counter 在 0x55e15ae17010
+main  : main_local 在 0x7ffdd5eafc3c
+main  : malloc 拿到 0x55e191d552a0
+outer : out_local 在 0x7ffdd5eafbdc
+outer : 返回位址   0x55e15ae14373
+inner : in_local 在 0x7ffdd5eafbbc
+inner : 返回位址   0x55e15ae14283
+outer : inner() 回來了，繼續往下
+main  : outer() 回來了
+55e15ae13000-55e15ae14000 r--p 00000000 fe:00 786602           
+          /home/user/quidproquo/.work/verify-05/zh/maps
+
+55e15ae14000-55e15ae15000 r-xp 00001000 fe:00 786602           
+          /home/user/quidproquo/.work/verify-05/zh/maps
+
+55e15ae15000-55e15ae16000 r--p 00002000 fe:00 786602           
+          /home/user/quidproquo/.work/verify-05/zh/maps
+
+55e15ae16000-55e15ae17000 r--p 00002000 fe:00 786602           
+          /home/user/quidproquo/.work/verify-05/zh/maps
+
+55e15ae17000-55e15ae18000 rw-p 00003000 fe:00 786602           
+          /home/user/quidproquo/.work/verify-05/zh/maps
+
+55e191d55000-55e191d76000 rw-p 00000000 00:00 0                
+          [heap]
+
+7fb550600000-7fb550628000 r--p 00000000 fe:00 211544           
+          /usr/lib/x86_64-linux-gnu/libc.so.6
+
+7fb550628000-7fb5507b1000 r-xp 00028000 fe:00 211544           
+          /usr/lib/x86_64-linux-gnu/libc.so.6
+
+7fb5507b1000-7fb550800000 r--p 001b1000 fe:00 211544           
+          /usr/lib/x86_64-linux-gnu/libc.so.6
+
+7fb550800000-7fb550804000 r--p 001ff000 fe:00 211544           
+          /usr/lib/x86_64-linux-gnu/libc.so.6
+
+7fb550804000-7fb550806000 rw-p 00203000 fe:00 211544           
+          /usr/lib/x86_64-linux-gnu/libc.so.6
+
+7fb550806000-7fb550813000 rw-p 00000000 00:00 0 
+
+7fb5508e3000-7fb5508e6000 rw-p 00000000 00:00 0 
+
+7fb5508f1000-7fb5508f3000 rw-p 00000000 00:00 0 
+
+7fb5508f3000-7fb5508f7000 r--p 00000000 00:00 0                
+          [vvar]
+
+7fb5508f7000-7fb5508f9000 r--p 00000000 00:00 0                
+          [vvar_vclock]
+
+7fb5508f9000-7fb5508fb000 r-xp 00000000 00:00 0                
+          [vdso]
+
+7fb5508fb000-7fb5508fc000 r--p 00000000 fe:00 211524           
+          /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+
+7fb5508fc000-7fb550927000 r-xp 00001000 fe:00 211524           
+          /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+
+7fb550927000-7fb550931000 r--p 0002c000 fe:00 211524           
+          /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+
+7fb550931000-7fb550933000 r--p 00036000 fe:00 211524           
+          /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+
+7fb550933000-7fb550935000 rw-p 00038000 fe:00 211524           
+          /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+
+7ffdd5e91000-7ffdd5eb3000 rw-p 00000000 00:00 0                
+          [stack]
+
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0        
+          [vsyscall]
+

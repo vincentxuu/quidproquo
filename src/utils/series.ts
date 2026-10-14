@@ -932,6 +932,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'bug-bounty-from-zero',
+    category: 'engineering',
+    names: { 'zh-TW': '從零開始的資安獵人', en: 'Bug Bounty from Zero' },
+    descriptions: {
+      'zh-TW': '從看懂 Bug Bounty 的獎金表出發，依序走過網站漏洞、RCE、記憶體、虛擬機逃脫與 TEE，每篇用白話比喻加可驗證的官方來源，帶沒有資安背景的人入門。',
+      en: 'Starting from the bug bounty reward tables, a plain-language path through web bugs, RCE, memory, VM escapes and TEEs for readers with no security background, each post grounded in verifiable official sources.',
+    },
+  },
+  {
     slug: 'solo-media-company',
     category: 'other',
     names: { 'zh-TW': '一個人的媒體公司', en: '一個人的媒體公司' },
