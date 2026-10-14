@@ -564,6 +564,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'articles-that-teach',
+    category: 'other',
+    names: { 'zh-TW': '教學文章怎麼寫', en: 'Writing Articles That Teach' },
+    descriptions: {
+      'zh-TW': '從寫的人這一側看學習：文字怎麼組織、什麼該畫成圖、影片怎麼搭配、畫面怎麼排。每篇整理研究證據與限制，並用本站的課程導讀當案例。',
+      en: 'Learning seen from the writer\'s side: how to organise the text, what to draw, how to pair an article with video, and how to lay the two out. Each post reviews the evidence and its limits, with this site\'s course guides as the case.',
+    },
+  },
+  {
     slug: 'openclaw',
     category: 'ai-agents',
     names: { 'zh-TW': 'OpenClaw 文件導讀', en: 'Reading the OpenClaw Docs' },
