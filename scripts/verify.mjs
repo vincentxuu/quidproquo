@@ -154,6 +154,9 @@ const FULL_STEPS = [
   ['process-leak regression tests', 'node scripts/check-process-leak.mjs --self-test'],
   // 全站只計數（既有文章回填中）；被暫存的文章在 --staged 逐篇阻擋，含退回完整 verify 的情況。
   ['process-leak (全站計數)', 'node scripts/check-process-leak.mjs'],
+  ['series-plan regression tests', 'node scripts/check-series-plan.mjs --self-test'],
+  // 新登錄的系列要有規劃表、每篇要有 verify＋review＋polish 紀錄；既有系列列在 scripts/config/series-plan-baseline.json。
+  ['check:series-plan', 'pnpm check:series-plan'],
   ['check:lang-parity', 'pnpm check:lang-parity'],
   ['check:course-videos', 'pnpm check:course-videos'],
   ['check:seo-smoke', 'pnpm check:seo-smoke'],
@@ -183,7 +186,10 @@ function stagedPlan() {
   const posts = entries.filter((e) => isPost(e.path) && e.status !== 'D').map((e) => e.path);
   const quote = (files) => files.map((f) => `'${f.replaceAll("'", "'\\''")}'`).join(' ');
   // 查證過程外洩：只要動到文章就逐篇檢查，退回完整 verify 時也一樣（全站模式只計數，擋不到它）。
-  const leakStep = posts.length > 0 ? [['process-leak (staged)', `node scripts/check-process-leak.mjs ${quote(posts)}`]] : [];
+  const leakStep = posts.length > 0 ? [
+    ['process-leak (staged)', `node scripts/check-process-leak.mjs ${quote(posts)}`],
+    ['series-plan (staged)', `node scripts/check-series-plan.mjs ${quote(posts)}`],
+  ] : [];
   if (fullReason) return { full: true, reason: fullReason, extra: leakStep };
 
   const zhPosts = posts.filter((p) => !p.endsWith('-en.md'));

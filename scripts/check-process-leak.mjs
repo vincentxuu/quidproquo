@@ -45,10 +45,23 @@ const PROCESS_H2 = /^## (.*(仍待核對|數字與查證|查證方(式|法)|逐�
 // 課程總覽額外一層：講「怎麼查這門課」的 H2 不得超過 1 個。
 const AUDIT_H2 = /^## .*(硬事實|存取分級|公開程度|拿得到什麼|版本基準|為什麼以|為什麼不讀|沒寫清楚|不能照抄|學期對照|兩學期|利益揭露|課站在哪|Hard facts|Access tier|Access level|What you can get|Version baseline|Why .* baseline|Why not)/gim;
 
+// 歸因但書堆疊：查證回饋常被修成「這是我的判斷，不是來源的說法」，修一輪疊一層，正文變成在讀歸因。
+// 作者主張要嘛刪、要嘛改成來源原意、要嘛直接寫成主張；標示句全篇幾處就夠。規則：writing-guide「但書與歸因不堆疊」。
+const HEDGE_PATTERNS = [
+  /我的(判斷|推測|推論|解讀|概括|直覺)/g,
+  /(這|以上|以下|接下來)(只)?是我(的|自己的)?(判斷|推測|推論|解讀|概括|看法)/g,
+  /不是(來源|頁面|原文|官方|規則頁|[A-Za-z][\w .-]{0,20})(的)?(說法|內容|結論)/g,
+  /(頁面|來源|原文)(沒有|並沒有|沒)(寫|說|解釋|給)(明|出)?/g,
+  /\bmy (own )?(judgment|judgement|inference|guess|reading|interpretation|speculation)\b/gi,
+  /\bnot (the source's|the page's|[A-Z][\w .-]{0,20}'s) (claim|wording|conclusion)\b/gi,
+  /\bthe (page|source) (does not|doesn't) (say|explain|define|state)\b/gi,
+];
+
 const TIME_SENSITIVE = /票價|價格|匯率|時刻表|班次|\b(fares?|prices?|exchange rates?|timetables?|schedules?)\b/i;
 
 const SENTENCE_LIMIT = 2; // 正文超過這個數就失敗
 const AUDIT_H2_LIMIT = 1;
+const HEDGE_LIMIT = 3; // 正文超過這個數就失敗
 
 function bodyOf(text) {
   const fm = text.match(/^---\n([\s\S]*?)\n---\n?/);
@@ -61,8 +74,9 @@ function bodyOf(text) {
 }
 
 export function analyze(text) {
-  if (/<!--\s*process-leak:\s*topic\s*-->/.test(text)) return { exempt: true, sentences: [], processH2: [], auditH2: [] };
+  if (/<!--\s*process-leak:\s*topic\s*-->/.test(text)) return { exempt: true, sentences: [], processH2: [], auditH2: [], hedges: [] };
   const { frontmatter, body } = bodyOf(text);
+  const hedges = HEDGE_PATTERNS.flatMap((re) => [...body.matchAll(re)].map((m) => m[0]));
   const sentences = [];
   for (const re of SENTENCE_PATTERNS) {
     for (const m of body.matchAll(re)) {
@@ -75,7 +89,7 @@ export function analyze(text) {
   const processH2 = [...body.matchAll(PROCESS_H2)].map((m) => m[0]);
   const isOverview = /\n {2}order: 0\b/.test(`\n${frontmatter}`) && /ai-course|course/.test(frontmatter);
   const auditH2 = isOverview ? [...body.matchAll(AUDIT_H2)].map((m) => m[0]) : [];
-  return { exempt: false, sentences, processH2, auditH2 };
+  return { exempt: false, sentences, processH2, auditH2, hedges };
 }
 
 export function problems(r) {
@@ -83,6 +97,7 @@ export function problems(r) {
   const out = [];
   if (r.sentences.length > SENTENCE_LIMIT) out.push(`正文有 ${r.sentences.length} 處查證過程句型（上限 ${SENTENCE_LIMIT}）：${[...new Set(r.sentences)].slice(0, 6).join('、')}`);
   if (r.processH2.length > 0) out.push(`整節在講查證過程：${r.processH2.join('、')}`);
+  if (r.hedges.length > HEDGE_LIMIT) out.push(`正文有 ${r.hedges.length} 處歸因但書（上限 ${HEDGE_LIMIT}）：${[...new Set(r.hedges)].slice(0, 6).join('、')}`);
   if (r.auditH2.length > AUDIT_H2_LIMIT) out.push(`課程總覽有 ${r.auditH2.length} 個查課型 H2（上限 ${AUDIT_H2_LIMIT}）：${r.auditH2.join('、')}`);
   return out;
 }
@@ -97,7 +112,7 @@ function allPosts() {
   return files;
 }
 
-const HINT = '修法：事實直接寫；會改變讀者做法的限制併進用到的段落；過程（日期、404、沒查到）移到 .work/<slug>/evidence.md。查證本身是主題時加 <!-- process-leak: topic -->。規則見 writing-guide「查證過程不寫進正文」。';
+const HINT = '修法：事實直接寫；會改變讀者做法的限制併進用到的段落；過程（日期、404、沒查到）移到 .work/<slug>/evidence.md。查證本身是主題時加 <!-- process-leak: topic -->。規則見 writing-guide「查證過程不寫進正文」。\n歸因但書：作者主張刪掉、改成來源原意，或直接寫成主張；不要逐句標「這是我的判斷」。規則見 writing-guide「但書與歸因不堆疊」。';
 
 function selfTest() {
   const assert = (c, m) => { if (!c) { console.error(`✗ ${m}`); process.exitCode = 1; } else console.log(`✓ ${m}`); };
@@ -110,6 +125,9 @@ function selfTest() {
   assert(problems(analyze(`${ov}## 這門課的硬事實\n## 存取分級：A2\n## 主線`)).length === 1, '總覽兩個查課型 H2 會擋');
   assert(problems(analyze(`${ov}## 存取分級：A2\n## 主線`)).length === 0, '總覽一個查課型 H2 可以');
   assert(problems(analyze(`${fm}Fares were checked on 2026-10-07 and will change. 票價都是 2026-10-07 查詢。`)).length === 0, '票價的查詢日期不算過程');
+  assert(problems(analyze(`${fm}我的判斷是 A。這是我的推論，不是 Red Hat 的說法。頁面沒有寫。我的推測是 B。`)).length === 1, '四處歸因但書會擋');
+  assert(problems(analyze(`${fm}我的判斷是 A。頁面沒有解釋定價理由。`)).length === 0, '兩處歸因但書可以');
+  assert(problems(analyze(`${fm}My judgment is A. This is my inference, not Red Hat's claim. The page does not say why. My guess is B.`)).length === 1, '英文歸因但書會擋');
   assert(problems(analyze(`${fm}We checked it on 2026-09-30. The page returns 404. We could not verify it. Still unverified.`)).length === 1, '英文句型會擋');
 }
 

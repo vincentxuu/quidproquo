@@ -47,6 +47,17 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 「研究過程不進門面」規則見 `references/writing-guide.md#研究過程不進門面`。正文同樣適用：查證後的事實直接寫，會改變讀者做法的限制併進用到的段落，查證過程（日期、404、沒查到、核對清單）存 `.work/<slug>/evidence.md`，見同一節的「查證過程不寫進正文」；`node scripts/check-process-leak.mjs <post.md>` 在 pre-commit 擋下被暫存的文章。
 
+「但書與歸因不堆疊」見 `references/writing-guide.md#但書與歸因不堆疊`：查證報告說「作者概括未標示」時，刪掉、改成來源原意或直接寫成主張，不逐句補「這是我的判斷」。同一支檢查器超過 3 處就擋。
+
+### 0a. 系列文章閘門（文章帶 `series`，或要在 `src/utils/series.ts` 登錄新系列時）
+
+1. **先有規劃表再寫第一篇。** 新系列先跑 `series-curriculum-design`，把規劃表存成 `.work/series-plans/<series-slug>.md`，使用者確認後寫上 `使用者確認：YYYY-MM-DD`。`check:series-plan` 會擋沒有規劃表的新系列。
+2. **入口是入門，不是事件。** order 0（或 1）是總覽：這個領域是什麼、整個流程長什麼樣、系列每篇在流程的哪裡、讀完能做到什麼。單篇事件文、查證文、新聞評論不能事後改標成第 0 篇；要收進系列就放到能看懂它的位置（通常是附錄）。
+3. **先寫總覽＋第 1 篇給使用者看，再往下寫。** 沒有人即時看的工作（雲端 session、routine、背景 agent）每批最多 2 篇，交出後停下等回覆，不接著寫下一批。
+4. **每篇都要三份審稿。** commit 前 `.work/reviews/<文章 slug>.md`（檔名去掉 `-en`，中英共用）要有 `## post-verify`、`## post-review`、`## post-polish` 三節，各記結論與修了什麼。只跑查證不算審稿：post-verify 只管句子對不對，不管讀不讀得懂、該寫的寫了沒。`check:series-plan` 會擋受管系列中缺紀錄的文章。
+
+本站踩過：「從零開始的資安獵人」從一篇查證文事後升格成第 0 篇，接著兩天內每批四篇寫完 12 篇。13 份 post-verify 報告都寫了「教學品質交 post-review／post-polish」，一次都沒執行；使用者讀到時整個系列要重寫（2026-10-14）。
+
 ### 1. 準備
 
 1. **判斷分類**：根據內容本質選 category。
@@ -145,6 +156,8 @@ pnpm astro check
 有 error 先修。commit 前對照 `references/anti-shortcuts.md` 反合理化清單。
 
 ### 7. Review + commit
+
+先確認 `.work/reviews/<slug>.md` 的 post-verify／post-review／post-polish 三節都做完、修完（系列文章必做，見步驟 0a；單篇也建議）。查證報告裡寫「交給 X」的，就去跑 X，不在 commit 訊息寫「經獨立查證」帶過。
 
 把中英文草稿給使用者看，確認後：
 
