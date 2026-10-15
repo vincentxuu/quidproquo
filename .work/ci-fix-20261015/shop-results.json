@@ -1,0 +1,116 @@
+[
+  {
+    "path": "/api/search?q=coffee",
+    "status": 200,
+    "body": [
+      "Coffee beans"
+    ]
+  },
+  {
+    "path": "/api/search?q=filter",
+    "status": 200,
+    "body": [
+      "Filter"
+    ]
+  },
+  {
+    "path": "/api/orders/1532",
+    "status": 401,
+    "body": {
+      "error": "not logged in"
+    }
+  },
+  {
+    "path": "/login",
+    "status": 400,
+    "body": {
+      "error": "invalid JSON"
+    }
+  },
+  {
+    "path": "/login",
+    "status": 401,
+    "body": {
+      "error": "wrong password"
+    }
+  },
+  {
+    "path": "/login",
+    "status": 401,
+    "body": {
+      "error": "wrong password"
+    }
+  },
+  {
+    "path": "/login",
+    "status": 401,
+    "body": {
+      "error": "wrong password"
+    }
+  },
+  {
+    "path": "/login",
+    "status": 401,
+    "body": {
+      "error": "wrong password"
+    }
+  },
+  {
+    "path": "/login",
+    "status": 200,
+    "body": {
+      "ok": true
+    }
+  },
+  {
+    "path": "/api/orders/1532",
+    "status": 200,
+    "body": {
+      "owner": "alice",
+      "item": "Coffee Beans",
+      "address": "Taipei"
+    }
+  },
+  {
+    "path": "/api/orders/1533",
+    "status": 403,
+    "body": {
+      "error": "not your order"
+    }
+  },
+  {
+    "path": "/api/orders/9999",
+    "status": 404,
+    "body": {
+      "error": "no such order"
+    }
+  },
+  {
+    "path": "/api/search?q=%3Cscript%3Ealert(1)%3C%2Fscript%3E",
+    "status": 200,
+    "body": []
+  },
+  {
+    "path": "/login",
+    "status": 200,
+    "body": {
+      "ok": true
+    }
+  },
+  {
+    "path": "/api/orders/1533",
+    "status": 200,
+    "body": {
+      "owner": "bob",
+      "item": "Filter",
+      "address": "Taichung"
+    }
+  },
+  {
+    "path": "/api/orders/1532",
+    "status": 403,
+    "body": {
+      "error": "not your order"
+    }
+  }
+]

@@ -1,163 +1,99 @@
 ---
-title: "Bug Bounty Top Payouts Fact Check: Mobile, Browser, Cloud, TEE, AI, Crypto Rewards"
+title: "Bug Bounty Payout Map: What Google, Hyper-V, Meta TEE, Apple and Mozilla Pay For"
 date: 2026-10-13
 category: tech
 type: guide
-difficulty: intermediate
+difficulty: 進階
 tags: [bug-bounty, security, rewards, payouts, vrp, google, meta, microsoft, apple, comparison]
 lang: en
-description: "Series 13: Consolidates top reward structures from Google VRP, Meta, Microsoft, Apple, Mozilla, and others, explaining why mobile, browser, cloud isolation, confidential computing, AI products, and crypto offer million‑dollar bounties."
-tldr: "Maximum single payouts: Google VRP $151,515, Meta $300,000, Microsoft Hyper‑V $250,000, Apple $1,000,000, Mozilla $100,000. TEE, AI product, mobile device, and cloud‑isolated vulnerabilities earn the highest rewards."
+description: "Part 13: read representative categories from five official programs through attacker position, exploit outcomes, evidence and report quality."
+tldr: "Read payouts with their product, category, threat scenario and evidence requirements; program ceilings and quality rules are not interchangeable."
 draft: false
 series:
   name: "Bug Bounty from Zero"
   order: 13
 ---
 
-> 🌏 [Chinese version](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
+> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
 
-## TL;DR
+After web bugs, memory, virtual machines and TEEs, the headline payouts become easier to read. This map compares representative categories from five programs. The useful question is what outcome a payment requires, and whether you can produce that evidence. The figures below are in US dollars, from official rules available on October 15, 2026.
 
-**Consolidate the top‑reward structures of major bug bounty programs to see which vulnerabilities pay the most after learning Web, memory, VM, TEE, and AI.** Key figures:
+Workflow position: choose a program → read scope → understand the target → find a bug → report it → **weigh the payout and research effort**.
 
-| Program | Maximum Single Payout | Corresponding Vulnerability Type | Notes |
-|---|---|---|---|
-| **Google VRP** | $151,515 | RCE (T0/S0) + 1.2×/1.5× | 2024 announcement adjustment |
-| **Meta** | $300,000 | TEE code execution (Private Processing) | External $300k / Internal $50k |
-| **Microsoft Hyper‑V** | $250,000 | Guest→Host escape (L1) | L2 $150k |
-| **Apple** | $1,000,000 | Zero‑click RCE with kernel + PCC | iOS/macOS core |
-| **Mozilla** | $100,000 | RCE / Sandbox escape | Firefox ex‑employee leak |
+## What each number actually buys
 
----
-
-## Scenario
-
-You’ve finished articles 1‑12: rules, web fundamentals, workbench, XSS/IDOR, RCE, reporting, memory, stack overflow, VM/Hypervisor, TEE, and AI products. Now you want to know: “**Where can I earn the highest bounty? Why do those categories pay the most?**”
-
-This article breaks down each major program’s reward table into a comparable format and maps it to the vulnerability types you just studied (RCE, VM Escape, TEE, AI). It helps you build intuition: **Reward ≈ Risk × Difficulty × Impact × Quality Multiplier**.
-
----
-
-## Problem
-
-**Mistake 1:** Looking at only one program’s reward table and assuming Google is the highest, while missing Meta’s TEE $300k or Apple’s $1M.
-
-**Mistake 2:** Not understanding why mobile RCE (Apple $1M) is worth far more than server RCE (Google $151k) — because a phone holds the most personal data (photos, contacts, location, biometrics) and a zero‑click can affect every user without interaction.
-
-**Mistake 3:** Assuming bounty numbers are static, but Google VRP’s July 2024 announcement raised the maximum from $101,010 to $151,515, and Meta introduced new TEE categories with Private Processing.
-
----
-
-## Solution: Six‑Program Reward Comparison
-
-### 1. Google VRP (Google + Alphabet)
-
-| Tier | Example Domains | RCE Base | Max (1.2×) | Info Disc Base | XSS Base |
-|---|---|---|---|---|---|
-| **T0** | `accounts.google.com`, `*.google.com` (core identity) | $101,010 | $121,212 | $31,337 | $13,337 |
-| **T1** | `*.google.com` (other core) | $101,010 | $121,212 | $31,337 | $13,337 |
-| **T2** | General apps | $75,000 | $90,000 | $13,337 | $7,500 |
-| **T3a** | Acquired T0/T1 | $10,000 | $12,000 | $3,133 | $1,333 |
-| **T3b** | Other acquisitions | $1,337–$5,000 | $1,604–$6,000 | $133–$3,137 | $133–$1,337 |
-
-**Key point**: July 2024 Google announcement allows up to **$151,515** ($101,010 × 1.5) under special conditions. Quality multiplier 0.8×/1.0×/1.2× applies directly to base reward.
-
-### 2. Meta (Facebook / Instagram / WhatsApp / Private Processing)
-
-| Category | Base Reward | Description |
+| Program and representative category | Official amount | Conditions to read alongside it |
 |---|---|---|
-| **TEE Code Execution (External)** | $300,000 | Private Processing environment external attack |
-| **TEE Code Execution (Internal)** | $50,000 | Private Processing environment internal attack |
-| **VM Escape** | N/A | Not in reward table |
-| **Persistence** | $10,000 | Persistence vulnerability |
-| **Info Disclosure (External)** | $150,000 | External information leak |
-| **Info Disclosure (Internal)** | $50,000 | Internal information leak |
-| **XSS / Client‑side (External)** | $10,000 | Client‑side vulnerability |
+| Google/Alphabet VRP: server RCE, S0 on T0 or T1 | $101,010 base | Report-quality factors are 0.8, 1 and 1.2, at the panel’s discretion |
+| Microsoft Hyper-V: L1 guest RCE | Up to $250,000 | This cell requires a functioning exploit and a high-quality report; reports without an exploit have separate ceilings |
+| Meta WhatsApp Private Processing: TEE code execution, privilege escalation, or VM escape | Each up to $300,000 | External attack scenarios; internal scenarios use a different table |
+| Apple: network attack requiring no interaction, reaching kernel control | Up to $2,000,000 | The exploit-chain outcome and proof requirements for that category must be met |
+| Apple PCC: remote attack on request data achieving specified unsigned code execution | $1,000,000 category | PCC has its own trust boundary and requirements, separate from device-kernel categories |
+| Mozilla client security: Highest Impact | Up to $20,000 | Depends on actual impact, supported configurations and report quality; a qualifying sandbox escape is one example |
 
-> **Takeaway**: Meta’s highest is **TEE Code Execution $300k**, reflecting the shift to confidential‑computing/AI era.
+These categories connect to the preceding lessons. They are not a ranking of every company’s largest possible payment across all products. Some programs also have bonuses and exclusions, so the amounts do not price identical work.
 
-### 3. Microsoft Hyper‑V (MSRC)
+## Google: choose the right cell before applying quality
 
-| Layer | Vulnerability Type | Base Reward | Quality Multiplier |
-|---|---|---|---|
-| **L1** | Guest → Host escape | $250,000 | 1.0 / 0.5 / 0.25 |
-| **L2** | Guest → Guest escape | $150,000 | Same as above |
-| **L1 Info** | Host memory leak | $50,000 | Same |
-| **L2 Info** | Guest memory leak | $25,000 | Same |
-| **DoS** | Denial‑of‑service | $15,000 / $10,000 / $5,000 | Same |
+[Google’s current rules](https://bughunters.google.com/about/rules/6625378258649088/google-and-alphabet-vulnerability-reward-program-vrp-rules) distinguish target tiers, vulnerability categories and impact. Server RCE in S0 has a $101,010 base for T0 and T1, and $75,000 for normal Google applications in T2. A hostname ending in `google.com` does not automatically make it T0.
 
-**Key point**: Microsoft uses **Layer (L1/L2)** to distinguish, with quality multiplier 1.0/0.5/0.25 (not 1.2/1.0/0.8). Report quality strongly affects reward.
+Quality then applies to the appropriate base. If the panel assigns exceptional quality, the T0/S0 example is:
 
-### 4. Apple Security Bounty
+```text
+101,010 × 1.2 = $121,212
+```
 
-| Type | Maximum Reward | Condition |
-|---|---|---|
-| **Zero‑click RCE + Kernel + PCC** | $1,000,000 | iOS/macOS zero‑click RCE requiring kernel + PCC |
-| **Kernel RCE** | $250,000 | Kernel privilege gain |
-| **Sandbox Escape** | $100,000 | Escape sandbox |
-| **iCloud / Server RCE** | $100,000 | Cloud service RCE |
-| **Lockdown Mode Bypass** | $2,000,000 | Special mode bypass (rare) |
+That is an example for a particular cell. A reproducible PoC, impact analysis and clear responses help triage, but checking boxes does not guarantee a 1.2 factor. Other adjustments exist, and the panel decides the final amount. A historical headline maximum also does not establish a universal 1.5 multiplier in the current rules.
 
-**Why so high?**: A phone is the ultimate personal‑data repository (photos, contacts, location, biometrics). A zero‑click RCE can affect all users without any user interaction, leading to massive impact.
+## Microsoft: exploit evidence and report quality define the cell
 
-### 5. Mozilla Firefox
+[The Hyper-V program](https://www.microsoft.com/en-us/msrc/bounty-hyper-v) lists separate ceilings for L1 guest RCE. With a functioning exploit and a high-quality report, the maximum is $250,000. Without an exploit, high-, medium- and low-quality reports have ceilings of $200,000, $100,000 and $50,000 respectively. L2 categories reach up to $150,000; the high-quality information-disclosure category reaches $25,000.
 
-| Type | Maximum Reward |
-|---|---|
-| **RCE / Sandbox Escape** | $100,000 |
-| **Info Disclosure** | $50,000 |
-| **XSS / Client‑side** | $20,000 |
+L1 and L2 are virtualization levels. They cannot be reduced to “guest-to-host” versus “guest-to-guest.” Explain the starting privileges, nested environment, boundary crossed and demonstrated outcome. This is why part 10 traces a real case’s data path instead of stopping at “VM escape.”
 
-> **Note**: 2024 former‑employee leaks suggested rewards were too low, causing talent drain; Mozilla is re‑evaluating.
+Google’s 0.8/1/1.2 factors do not apply to this table. Use Microsoft’s eligibility conditions and the ceiling in the relevant cell.
 
-### 6. Other Notable Programs
+## Meta: external and internal describe the threat scenario
 
-| Program | Maximum Reward | Specialty |
-|---|---|---|
-| **GitHub** | $50,000 | Supply chain, Actions, Codespaces |
-| **Cloudflare** | $100,000 | Edge / Workers / D1 related |
-| **Discord** | $30,000 | Client, API, infrastructure |
-| **Telegram** | $100,000 | MTProto, client, server |
+[The Private Processing guidelines](https://bugbounty.meta.com/payout-guidelines/private-processing/) apply to WhatsApp’s named system. In external scenarios, code execution inside the TEE, including bypassing code attestation, privilege escalation and escape to the host each reach up to $300,000. Data leaks reach $150,000 and persistence $10,000.
 
----
+Internal scenarios use different limits: code execution, privilege escalation and data leaks each reach $50,000; VM escape is N/A and persistence reaches $5,000. A sixfold difference is not a report-quality penalty. The attacker starts in a different position. Nor does this table apply to every Intel SGX, AMD SEV or AI product: first establish that the affected system is in scope.
 
-## Why This Is So: The Logic Behind Reward Structures
+## Apple: distinguish exploit-chain outcomes from PCC
 
-| Factor | Explanation |
-|---|---|
-| **Asset Value** | Phones/browsers = hundreds of millions of users’ core assets → highest rewards |
-| **Attack Difficulty** | TEE / Hyper‑V / Kernel = extremely high technical barrier → high rewards attract experts |
-| **Impact Scope** | Zero‑click > One‑click > Local > Remote (requires interaction) |
-| **Quality Incentive** | Google 1.2×, Meta external/internal 6× spread, Microsoft 1.0/0.5/0.25 |
+[Apple’s categories page](https://security.apple.com/bounty/categories/) organizes rewards around demonstrated outcomes. A network attack requiring no interaction and reaching kernel control has a category up to $2,000,000. Browser-to-kernel control has a $1,000,000 category. Where Target Flags are required, their proof requirements must be met.
 
-**Core formula**: Reward ≈ Risk Level × Attack Difficulty × Impact Scope × Quality Multiplier
+PCC has separate conditions. A remote attack on request data that achieves unsigned code execution with arbitrary entitlements within the Apple PCC software image belongs to a $1,000,000 category. Access to user request data outside the trust boundary has a separate $250,000 category. These are not a combined requirement to compromise a device kernel and PCC in one chain.
 
----
+[The program homepage](https://security.apple.com/bounty/) also describes conditional bonuses. Plan around an outcome you can demonstrate, then check each additional condition. Possible bonuses are not guaranteed payments.
 
-## Self‑Check (Key question: Can you match each program’s top reward?)
+## Mozilla: make the issue diagnosable and fixable
 
-- [ ] Do you know Google VRP’s maximum is $151,515 (T0/S0 RCE + 1.5× special condition)?
-- [ ] Do you know Meta’s highest $300,000 is for TEE Code Execution (External)?
-- [ ] Do you know Microsoft Hyper‑V’s top $250,000 is for Guest→Host Escape (L1)?
-- [ ] Do you know Apple’s top $1,000,000 is for zero‑click RCE + kernel + PCC?
-- [ ] Can you explain why mobile RCE is worth more than server RCE?
-- [ ] Do you know how quality multipliers differ across programs (Google 1.2×, Meta 6× spread, Microsoft 0.25× low quality)?
+[Mozilla’s client bug bounty](https://www.mozilla.org/en-US/security/client-bug-bounty/) has a base table up to $20,000 for valid, potentially exploitable high- or critical-rated client security vulnerabilities, depending on impact and report quality. Highest Impact includes a qualifying sandbox escape. The Higher Impact category containing UXSS reaches $10,000; the High Impact category reaches $3,000.
 
----
+The report needs enough information to diagnose and fix the issue, a simple reproducible test, and evidence such as an ASan trace or crash dump, or a root-cause analysis. A full exploit is not required. The page separately covers mitigation bypasses and qualifying bonuses: $20,000 is the ceiling in this base table, not an absolute ceiling for every possible program scenario.
+
+## Turn the map into a research decision
+
+Larger figures often come with harder demonstration requirements. When comparing opportunities, write down four things: what target you may legally test, the attacker’s starting position, the boundary to cross, and the evidence you can submit. This is a planning method, not a claim about how vendors set prices.
+
+For a beginner, part 4’s local XSS and IDOR exercises already train reproduction and authorization reasoning. A large Hyper-V or kernel-chain award does not mean it should become your first month’s target. Part 6’s time-budget and expected-value framework, followed by the next chapter’s practice plan, connects the price map to action.
+
+## Check your understanding
+
+- Can you name the product, category and prerequisites behind each amount?
+- Can you distinguish Google quality factors, Microsoft table ceilings and Meta’s external/internal scenarios?
+- Why should Apple device exploit chains and PCC be compared separately?
+- If you have demonstrated a crash but not a crossed security boundary, how should the report describe it?
+- What reproducible evidence will next week’s exercise produce?
+
+[Previous: AI product vulnerabilities](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty-en) · [Next: certifications and a learning map](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map-en)
 
 ## References
 
-- [Google VRP Rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)
-- [Google VRP July 2024 Announcement](https://bughunters.google.com/blog/increasing-google-alphabet-vrp-rewards-up-to-151515)
-- [Google 2024 VRP Review](https://blog.google/security/vulnerability-reward-program-2024-in/)
-- [Meta Private Processing Payout](https://bugbounty.meta.com/payout-guidelines/private-processing/)
-- [Meta Scope](https://bugbounty.meta.com/scope/)
-- [Microsoft Hyper‑V Bounty](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)
-- [Apple Security Bounty](https://support.apple.com/security-bounty)
-- [Mozilla Bug Bounty](https://bugzilla.mozilla.org/page.cgi?id=security-bug-bounty.html)
-- [GitHub Bug Bounty](https://bounty.github.com/)
-- [Cloudflare Bug Bounty](https://hackerone.com/cloudflare)
-
----
-
-*This is Series 13 (Top Payouts Fact Check) of "Bug Bounty from Zero." Previous: AI Era (12); Next: Certifications & Learning Map (14).*
+- [Google and Alphabet VRP current rules and reward table](https://bughunters.google.com/about/rules/6625378258649088/google-and-alphabet-vulnerability-reward-program-vrp-rules)
+- [Microsoft Hyper-V Bounty Program](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)
+- [Meta WhatsApp Private Processing Payout Guidelines](https://bugbounty.meta.com/payout-guidelines/private-processing/)
+- [Apple Security Bounty Categories](https://security.apple.com/bounty/categories/)
+- [Apple Security Bounty program](https://security.apple.com/bounty/)
+- [Mozilla Client Security Bug Bounty Program](https://www.mozilla.org/en-US/security/client-bug-bounty/)

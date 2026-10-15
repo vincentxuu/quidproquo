@@ -14,12 +14,12 @@ tldr: "Hypervisor 是夾在硬體與多個作業系統之間、替每台虛擬�
 draft: false
 series:
   name: "從零開始的資安獵人"
-  order: 7
+  order: 9
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en)
 
-[上一篇](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow)講了記憶體漏洞，那是「程式自己出錯」的一面。這一篇換成「牆」的一面：一台實體電腦怎麼切給很多人用，那些隔開彼此的牆又是什麼做的。讀完你應該能向別人解釋，[Hyper-V 獎金表](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)上的 L1 guest 逃脫與 L2 guest 逃脫，各是哪一道牆被穿過，以及[系列第 0 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)提到的 25 萬美元為什麼落在這一格。
+[上一篇](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow)講了記憶體漏洞，那是「程式自己出錯」的一面。這一篇換成「牆」的一面：一台實體電腦怎麼切給很多人用，那些隔開彼此的牆又是什麼做的。讀完你應該能向別人解釋，[Hyper-V 獎金表](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)上的 L1 guest 逃脫與 L2 guest 逃脫，各是哪一道牆被穿過，以及[系列第 13 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)提到的 25 萬美元為什麼落在這一格。
 
 這篇只講概念和獎金表的讀法，不講任何具體漏洞和逃脫手法。具體的漏洞案例留到[下一篇](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)。
 
@@ -42,7 +42,7 @@ Hypervisor 有兩種常見分類。依 Red Hat 的說明：
 
 Learn 的架構頁寫明，Hyper-V 需要具備硬體輔助虛擬化的處理器，例如 Intel VT 或 AMD Virtualization（AMD-V）。另一篇講[巢狀虛擬化](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/nested-virtualization)的頁面把它們稱為 Intel VT-x 與 AMD-V，並說 Hyper-V 靠這些處理器擴充功能來執行 VM。
 
-這幾頁沒有細講這些擴充功能在硬體層面做了什麼，所以這篇也不替它們補細節。能從來源確定的只有兩件事：Hyper-V 要求處理器有這類功能；以及依 Learn 架構頁，分割區看到的是處理器的虛擬視圖，不直接碰實體處理器，處理器的中斷由 hypervisor 接手再轉給對應的分割區。
+就這篇需要的層次而言，Hyper-V 要求處理器提供硬體輔助虛擬化；分割區看到處理器的虛擬視圖，中斷由 hypervisor 接手再轉給對應分割區。
 
 ## 一棟大樓的比喻，與它的極限
 
@@ -55,16 +55,16 @@ Learn 的架構頁寫明，Hyper-V 需要具備硬體輔助虛擬化的處理器
 
 這個比喻有幾處會誤導，先講清楚：
 
-1. **管理室不是另一個人。** Red Hat 的頁面說，實際執行指令的仍是實體硬體，hypervisor 只是管理排程。接下來是我的概括，不是 Red Hat 的說法：牆不是水泥，而是處理器的硬體支援加上 hypervisor 的軟體檢查。Learn 能支持的部分是，Hyper-V 要求有硬體輔助虛擬化的處理器，分割區看到的是處理器的虛擬視圖，中斷由 hypervisor 接手，詞彙表另列了用於裝置隔離的 IOMMU。
+1. **管理室不是另一個人。** 實際執行指令的仍是實體硬體，hypervisor 負責管理排程。比喻中的「牆」代表隔離機制：Learn 列出硬體輔助虛擬化、處理器虛擬視圖、中斷轉送，以及裝置隔離用的 IOMMU。
 2. **牆的另一側不是空的。** 依 Learn，Hyper-V 的 root 分割區可以直接存取實體硬體，child 分割區（也就是 guest）不行，它們看到的是虛擬裝置，請求要透過 VMBus 或 hypervisor 轉給 root 分割區處理。比喻裡要有一間「後勤室」替住戶代辦事情，而住戶是透過它拿到設備的。
 3. **牆會被疊起來。** 下一節的巢狀虛擬化就是住戶再把房間轉租出去，轉租的房客也有自己的牆。
-4. **這是 Hyper-V 的版本。** 不同 hypervisor 的架構不同。Red Hat 的頁面把 KVM、Hyper-V、VMware vSphere 列為 Type 1 的例子，還提到 Xen 是開源選項、VMware 有 ESXi 與 vSphere、KVM 在 2007 年併入 Linux 核心；各家架構上的差異，這篇沒有可靠來源，就不寫。
+4. **這是 Hyper-V 的版本。** KVM、Xen、VMware 等系統的架構各有差異，這棟大樓只用來理解本文介紹的 Hyper-V 元件，不適合直接當成所有 hypervisor 的實作圖。
 
 ## 巢狀虛擬化與 L1、L2
 
 Learn 的巢狀虛擬化頁面說，這個功能讓你能在 Hyper-V 虛擬機裡再跑 Hyper-V：開啟後，Hyper-V 會把硬體虛擬化擴充功能暴露給它的 VM，guest VM 就可以安裝自己的 hypervisor，再執行自己的 guest。頁面列的用途包含測試環境，以及替容器使用 Hyper-V 隔離。同一頁也說，Hyper-V 隔離的容器是各自跑在一台高度最佳化的 VM 裡；若容器主機本身就是 Hyper-V VM，那就是巢狀的，產線支援一層巢狀。
 
-MSRC 獎金表裡的 L1、L2，從它的文字可以推出這樣的對應（這是我從措辭讀出來的，頁面沒有給正式定義）：
+把巢狀虛擬化畫成層級圖，可用以下方式理解 MSRC 表中的攻擊起點；實際是否符合獎金類別，仍須對照表內列出的起點與目標：
 
 - **L1 guest**：直接跑在 Hyper-V host 上的 VM。
 - **L2 guest**：跑在 L1 guest 裡面的 VM，而那台 L1 guest 自己裝了 hypervisor。
@@ -92,12 +92,12 @@ flowchart TB
 
 ## 獎金表每一格對應哪一道牆
 
-我在 2026-10-13 讀了 MSRC 頁面全文。頁面把 RCE 分成兩張表，每張表開頭先寫「什麼情況算數」：
+MSRC 把 RCE 分成兩張表，每張先列出符合條件的攻擊起點與結果：
 
 - **L1 guest 逃脫**：Hyper-V 裡的 RCE 漏洞，讓 L1 guest VM 能攻破 hypervisor、從 guest 逃到 host，或逃到另一台 L1 guest。
 - **L2 guest 逃脫**：Hyper-V 裡的 RCE 漏洞，讓 L2 guest VM 能攻破 L1 hypervisor、逃到 L1 host，或從一台 L2 guest 逃到另一台 L2 guest。
 
-RCE 是什麼，[第 4 篇](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)講過。兩張表的獎金（頁面標的是最高金額）如下：
+RCE 是什麼，[第 5 篇](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)講過。兩張表的獎金（頁面標的是最高金額）如下：
 
 | 有可運作的 exploit？ | 報告品質 | L1 逃脫 | L2 逃脫 |
 |---|---|---|---|
@@ -117,9 +117,9 @@ RCE 是什麼，[第 4 篇](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rc
 | L2 guest 與 L1 host 之間 | 逃到 L1 host | L2 |
 | 兩台 L2 guest 之間 | 逃到另一台 L2 guest | L2 |
 
-兩張表有一個值得注意的地方：L2 表的目標寫的是 L1 hypervisor 與 L1 host，沒有提實體主機。而依 Learn，L1 本身也是跑在 Hyper-V 上的 guest。我的判斷是，L2 的上限較低，可能反映它穿過的是更內層的牆；但頁面沒有解釋定價理由，這只是我的推測。
+L2 表列出的目標包含 L1 hypervisor 與 L1 host，而 L1 本身也是一層 guest。這裡要讀清楚的是攻擊從哪一層開始、到哪一層結束；不能只憑獎金高低推斷兩種漏洞的難度。
 
-同一頁還有另外兩類獎金。MSRC 頁面並沒有把它們和上面的 L1、L2 表對應起來，說它們「打的是同一批牆」是我的概括；它們的結果不是執行程式：
+同一頁另列拒絕服務與資訊洩漏，分別看服務可用性與資料保密性，不能直接套用 RCE 的結果要求：
 
 - 拒絕服務（DoS）：讓 host 當機且不是暫時性的，或讓 VM 或 host 無法啟動或停止、需要人工介入，或讓 host 無法使用 15 分鐘以上，最高 15,000 美元。
 - 資訊洩漏：從 host 或另一台 guest 取得敏感資訊，最高 25,000 美元。
@@ -130,15 +130,15 @@ RCE 是什麼，[第 4 篇](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rc
 
 ## 為什麼這個洞這麼貴
 
-先講來源說得到的部分。
+先看隔離失效會影響誰。
 
 **一台實體機上有很多客戶。** [Azure 的隔離說明](https://learn.microsoft.com/en-us/azure/security/fundamentals/isolation-choices)寫到，Azure 在共用的實體基礎設施上執行應用程式與 VM，好處是把成本分攤給多個租戶，但也帶來風險：你的敏感應用可能和「任意、而且可能有惡意的使用者」的 VM 共用實體伺服器。同一頁說，Azure 運算平台是以機器虛擬化為基礎，所有客戶程式碼都跑在 Hyper-V VM 裡，每個節點上有 hypervisor 直接跑在硬體上，把節點切成若干 guest VM；而 guest VM 彼此的隔離，正是由 hypervisor 與 root OS 負責管理。
 
 **牆壞了，影響的不只一台。** 依 Red Hat 的說法，VM 被攻破時整個系統通常不該受影響；但如果 hypervisor 本身被攻破，會對它管理的所有 VM 造成問題，每台 VM 裡的資料都可能暴露。Azure 的頁面也把「攻擊者先讓自己的 VM 和受害者的 VM 放在同一台主機上，再突破隔離邊界」描述為跨 VM 攻擊的兩個步驟。
 
-以上是來源明說的。接下來是我的判斷：把這兩點接起來，就是一個客戶的程式碼可能碰到同一台機器上其他客戶的資料，這是雲端服務最不能發生的事，我認為這是獎金最高的原因之一。難度也是原因（[第 0 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)已經討論過，這類漏洞需要的功力門檻高）。但 MSRC 頁面沒有寫它怎麼訂價，所以「值這麼多錢」的理由，嚴格說只有第一段是有來源的，其餘是我的推論。
+因此，讀這類報告時要追問：攻擊者是否能從自己的 guest 影響其他租戶，或者取得 host 權限？用這兩個問題描述影響，比只寫「高風險 VM 漏洞」具體。獎金條件可再對照[第 13 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)的價碼地圖。
 
-Azure 的頁面還提到客戶可以買「隔離 VM 大小」，保證那台伺服器上只有自己的 VM，或是買專用主機，整台實體機只放同一個訂閱的 VM。我的推論是，共用實體機在 Azure 眼中是一種客戶可以選擇避開的風險，但頁面沒有這樣下結論。同一頁也寫到，Azure 以 VM 放置演算法，以及對已知 side-channel 攻擊的防護，來降低跨 VM 攻擊的風險；頁面沒有談隔離選項的價格。
+Azure 同時提供「隔離 VM 大小」與專用主機：前者讓 VM 成為伺服器上唯一的 VM，後者讓整台實體機專用於單一訂閱。共用基礎設施則有 VM 放置演算法與已知 side-channel 攻擊防護，降低跨 VM 攻擊風險。選用哪種部署方式，仍需依隔離需求與服務條件評估。
 
 ## 攻擊面的直覺：牆上有哪些門
 
@@ -151,7 +151,7 @@ Azure 的頁面還提到客戶可以買「隔離 VM 大小」，保證那台伺�
 
 MSRC 頁面也呼應了這點：它寫明針對虛擬化網路堆疊（例如 VMSwitch）的攻擊在範圍內，而要求 VM 對 host 的 TCP、SMB 或 RPC 網路服務送流量的攻擊則不在範圍內。
 
-必須強調：Learn 只是描述這些元件如何運作，沒有說它們是漏洞的來源。「這些溝通路徑值得特別檢查」是我的直覺，不是來源的結論。哪些元件實際出過問題，下一篇看具體案例時再說。
+這份元件清單是理解跨邊界資料路徑的地圖，不代表每個介面都有漏洞。下一篇用公開案例追一條實際出過問題的路徑。
 
 ## 在沙盒裡看一眼：我們自己就在虛擬環境裡
 
@@ -181,16 +181,16 @@ ls: cannot access '/dev/kvm': No such file or directory
 怎麼讀這些輸出：
 
 - `lscpu` 回報 Hypervisor vendor 是 KVM，也就是這個環境底下有 hypervisor，而且是 KVM。第一列的 `virtual` 是「虛擬位址的位元數」，跟虛擬化無關，是 grep 撞名。
-- `systemd-detect-virt` 不加參數回 `docker`，加 `--vm` 才回 `kvm`。我的解讀是這台沙盒是一個容器（docker），而容器所在的機器又是 KVM 虛擬機：兩層包裝。容器和 VM 的差別，依 Red Hat：容器是一組與系統其他部分隔離的行程，VM 則自帶作業系統。
-- `vmx`／`svm` 是 Intel／AMD 硬體虛擬化功能在 `/proc/cpuinfo` 的旗標名稱。我對照了[Linux 核心原始碼的 cpufeatures.h](https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/cpufeatures.h)：`X86_FEATURE_VMX` 的註解是 `"vmx" Hardware virtualization`，`X86_FEATURE_SVM` 的註解是 `"svm" Secure Virtual Machine`，檔頭也說明引號內的字串就是 `/proc/cpuinfo` 顯示的名稱。這台裡一個也沒有，`/dev/kvm` 也不存在。我的推論是，這個 guest 沒有拿到硬體虛擬化功能，所以沒辦法在裡面再跑一層硬體加速的 VM。換句話說，這台沙盒是 guest，且沒有被開放巢狀虛擬化。我沒有查證這個沙盒的底層廠商或組態，只能說輸出是這樣。
+- `systemd-detect-virt` 不加參數回 `docker`，加 `--vm` 回 `kvm`。這組輸出符合「容器位於 KVM guest 內」的環境。依 Red Hat，容器是一組隔離的行程，VM 則自帶作業系統；兩者可以疊用。
+- `vmx`／`svm` 是 Intel／AMD 硬體虛擬化功能在 `/proc/cpuinfo` 的旗標名稱，可對照[Linux 核心的 cpufeatures.h](https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/cpufeatures.h)。此處沒有這些旗標，也沒有 `/dev/kvm`，因此這份輸出不足以支持「可在此執行 KVM 硬體加速的巢狀 VM」。它也無法單獨指出底層供應商如何設定虛擬化。
 
 這是一個很小的實驗，卻足以說明這篇的核心：你每天用的環境，可能早就是某個 hypervisor 之上的 guest，牆就在你看不到的下一層。
 
 ## 限制
 
 - 本篇以 Hyper-V 為主軸，其他 hypervisor（KVM、Xen、VMware）的架構和攻擊面沒有展開，除了 Red Hat 頁面明說的幾句分類資訊。
-- 對 L1、L2 的對應是我從 MSRC 措辭推出的，頁面沒有給正式定義。
-- 沒有讀 Intel 或 AMD 的官方手冊，所以 CPU 硬體虛擬化只寫到 Microsoft 文件明說的程度；`vmx`／`svm` 的旗標名稱只對照了 Linux 核心的 cpufeatures.h，手冊本身沒讀。
+- 圖中的 L1、L2 用來表示巢狀層級；報告須另外交代實際起始權限、受影響元件與逃脫目標。
+- CPU 硬體虛擬化只介紹到 Microsoft 文件所描述的介面；這裡不展開處理器指令或微架構。
 - 獎金金額來自 2026-10-13 讀到的頁面（頁面最後一次修訂記為 2026 年 4 月），以官方當時版本為準。
 
 ## 下一步
@@ -205,8 +205,10 @@ ls: cannot access '/dev/kvm': No such file or directory
 - [Isolation in the Azure public cloud（Microsoft Learn）](https://learn.microsoft.com/en-us/azure/security/fundamentals/isolation-choices)
 - [What is a hypervisor?（Red Hat）](https://www.redhat.com/en/topics/virtualization/what-is-a-hypervisor)
 - [cpufeatures.h（Linux 核心原始碼）](https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/cpufeatures.h)
-- [系列第 0 篇：Bug Bounty 頂級獎金查證](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
+- [系列第 13 篇：Bug Bounty 頂級獎金查證](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
 - [系列第 1 篇：規則與範圍](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope)
-- [系列第 4 篇：什麼是 RCE](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)
-- [系列第 6 篇：記憶體漏洞與 buffer overflow](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow)
-- [系列第 8 篇：Hyper-V 逃脫案例](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)
+- [系列第 5 篇：什麼是 RCE](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)
+- [系列第 8 篇：記憶體漏洞與 buffer overflow](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow)
+- [系列第 10 篇：Hyper-V 逃脫案例](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)
+
+[上一篇：第 8 篇](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow)・[下一篇：第 10 篇](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)

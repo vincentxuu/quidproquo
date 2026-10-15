@@ -15,12 +15,12 @@ tldr: "CVE-2021-28476 是 Hyper-V 虛擬網路交換器驅動的一個漏洞：g
 draft: false
 series:
   name: "從零開始的資安獵人"
-  order: 8
+  order: 10
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en)
 
-[系列第 0 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)查到，[Microsoft Hyper-V 獎金表](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)裡 L1 guest 逃脫最高 250,000 美元。[上一篇](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)講了虛擬機和 hypervisor 之間那道牆。這一篇拿一個真實、已修補、有公開技術分析的案例，看牆上的洞長什麼樣子：[CVE-2021-28476](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-28476)。
+[系列第 13 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)查到，[Microsoft Hyper-V 獎金表](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)裡 L1 guest 逃脫最高 250,000 美元。[上一篇](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)講了虛擬機和 hypervisor 之間那道牆。這一篇拿一個真實、已修補、有公開技術分析的案例，看牆上的洞長什麼樣子：[CVE-2021-28476](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-28476)。
 
 讀完你應該能用三句話向朋友說明這個案例出了什麼事，並指出它在獎金表上落在哪一格。
 
@@ -130,5 +130,7 @@ flowchart TB
 - [Hyper-V Architecture（Microsoft Learn）](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/architecture)
 - [Introduction to Remote NDIS (RNDIS)（Microsoft Learn）](https://learn.microsoft.com/en-us/windows-hardware/drivers/network/remote-ndis--rndis-2)
 - [CVE-2024-49117（MSRC Security Update Guide）](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49117)
-- [Bug Bounty 頂級獎金查證（系列第 0 篇）](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
-- [虛擬機與 hypervisor（系列第 7 篇）](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)
+- [Bug Bounty 頂級獎金查證（系列第 13 篇）](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
+- [虛擬機與 hypervisor（系列第 9 篇）](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)
+
+[上一篇：第 9 篇](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)・[下一篇：第 11 篇](/posts/tech/2026-10-14-bug-bounty-zero-09-tee-and-confidential-computing)

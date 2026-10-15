@@ -15,12 +15,12 @@ tldr: "CVE-2021-28476 is a bug in Hyper-V's virtual network switch driver: a gue
 draft: false
 series:
   name: "Bug Bounty from Zero"
-  order: 8
+  order: 10
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)
+> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)
 
-[Post 0 of this series](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check) found that the [Microsoft Hyper-V bounty table](https://www.microsoft.com/en-us/msrc/bounty-hyper-v) pays up to $250,000 for an L1 guest escape. [The previous post](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en) covered the wall between a virtual machine and its hypervisor. This post takes one real, patched bug with public technical analysis and looks at what a hole in that wall actually looks like: [CVE-2021-28476](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-28476).
+[Post 13 of this series](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en) found that the [Microsoft Hyper-V bounty table](https://www.microsoft.com/en-us/msrc/bounty-hyper-v) pays up to $250,000 for an L1 guest escape. [The previous post](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en) covered the wall between a virtual machine and its hypervisor. This post takes one real, patched bug with public technical analysis and looks at what a hole in that wall actually looks like: [CVE-2021-28476](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-28476).
 
 By the end you should be able to explain the case to a friend in three sentences and say which cell of the bounty table it sits in.
 
@@ -130,5 +130,7 @@ Tonight, read without running anything. Open Akamai's [technical write-up](https
 - [Hyper-V Architecture (Microsoft Learn)](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/architecture)
 - [Introduction to Remote NDIS (RNDIS) (Microsoft Learn)](https://learn.microsoft.com/en-us/windows-hardware/drivers/network/remote-ndis--rndis-2)
 - [CVE-2024-49117 (MSRC Security Update Guide)](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49117)
-- [Bug Bounty Top Payouts Fact-Check (series post 0)](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)
-- [VMs and hypervisors (series post 7)](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en)
+- [Bug Bounty Top Payouts Fact-Check (series post 13)](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)
+- [VMs and hypervisors (series post 9)](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en)
+
+[Previous: part 9](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en) · [Next: part 11](/posts/tech/2026-10-14-bug-bounty-zero-09-tee-and-confidential-computing-en)

@@ -1,40 +1,57 @@
 ---
-title: "從零開始的資安獵人系列：寫作與審查管線個案研究"
+title: "本站的寫作與審查管線：AI 協作個案研究"
 date: 2026-10-14
 category: learning
 type: guide
-tags: [series, writing-process, review, pi, governance]
+tags: [series, writing-process, review]
 lang: zh-TW
 series:
   name: "教學文章怎麼寫"
   order: 29
 draft: false
 ---
-## 背景
 
-本系列「教學文章怎麼寫」於 2026-10-14 完成第 28 篇，共 30 篇（含 order 0 總覽）。本個案研究說明本站如何利用 `pi` 代理完成寫作、審查與翻譯工作流，以及為什麼在 Claude 和 Codex 使用量週限達到上限後改用 `pi -ne -p --no-session`。
+## 一篇文章怎麼從草稿走到可發佈
 
-## 寫作流程
+本站的「教學文章怎麼寫」系列同時包含研究整理、寫作建議與網站實例。以這種文章為例，AI 可以協助整理來源、提出結構或翻譯，但稿件能產生出來，離內容可靠還有幾道檢查。
 
-1. **先行規劃**：系列規劀定於 2026-10-15 前完成登錄，避免 `check:series-plan` 閘門擋送。每批最多 2 篇，寫出後停下等回覆，不接著寫下一批。
+這篇用本站可讀取的規則與程式碼說明這條管線。它不宣稱每篇歷史稿件都已完成全部審查，也不把工具產出的審查文字當作獨立驗證。
 
-2. **寫作**：每篇中英兩版，使用 `pi` 翻譯與改寫，確保詞彙與句型一致。
+## 把寫作、查證與潤稿分開
 
-3. **獨立審查**：使用 `pi` 進行 `post-verify`（句子對錯檢查）、 `post-review`（結構與內容檢視）與 `post-polish`（語氣與術語潤飾），三個節點均在 `.work/reviews/` 下完成，未合併成單一檔。
+寫作先定讀者與任務。例如「讀者看完能決定影片放在哪裡」，比「介紹多媒體學習」更容易檢查是否做到。草稿需要把研究觀察與作者建議分清楚：研究比較的是課堂分組，不等於已證明某個部落格版型更有效。
 
-4. **歸因但書上限**：新增「但書與歸因不堆疊」規則（`.agents/skills/post/references/writing-guide.md#但書與歸因不堆疊`），每篇正文歸因標籤上限 3 處，超過檢查器 `check-process-leak.mjs` 會擋。本次提交前已對 5 篇學習文章進行修正，將每篇歸因標籤從 5–17 處減少至 1–3 處。
+查證時回到原始來源，核對研究對象、比較條件與結果。AI 摘要可以提供線索，卻不能取代論文中的方法與限制。若來源只支持課後測驗，就不要把結論寫成長期記憶提升。
 
-5. **published-post 修正**：已發佈篇的「Ask AI」行為描述與 Cloudflare「造訪」定義經查證後改為官方詞彙，並於 4 篇已發佈文章（中英雙版）套用。
+結構審查再問：開頭答應的事，正文有沒有做到？例子能不能讓目標讀者跟上？潤稿處理句子與段落，讓讀者找得到重點。這些工作由不同角色或分次閱讀完成，可以提供不同觀點；仍要檢查每一項意見背後的證據。
 
-## 關鍵決定
+## 中英稿要對齊同一個主張
 
-- **使用 pi 獨立review**：Claude (`claude-opus-5-5`) 與 Codex 週限/次數上限於 2026-10-16 19:00 與 2026-10-20 13:00 重置，所有審查/翻譯任務改用 `pi -ne -p --no-session` 避免衝突。
-- **Cloudflare visit 定義糾正**：從非官方描述改為「Visits = A page view that originated from a different website or direct link; checks whether HTTP referer does not match hostname.」
-- **Ask AI 說明修正**：不再描述為「fallback to backup answer」，改為「搜索站點文章 → 從檢索到的段落回答；若無可靠來源則說知識庫缺乏證據（不是一般知識）；草稿經 format/quality check 兩次失敗顯示『⚠️ 此答案可能不完整』」。
-- **保持 o25 chat-log 說明準確**：保留「前 240 字保留在 step 記錄（rag_trace_steps、input_summary），可在 admin traces 頁面閱讀；若設定則完整問題/答案送 Langfuse」。
+翻譯不只是句子通順。中文版寫「這是在特定課程裡觀察到的結果」，英文版也要保留條件；兩邊的數字、連結與建議範圍都應一致。修改原文後，應同步檢查另一語版本。
 
-## 提交與繼續
+可以拿同一段做三項對照：主張是否相同、來源是否相同、限制是否仍在。若中文刪掉一項缺乏證據的保證，英文也要刪掉，不能只更新標題。
 
-- 本次 commit 加入 16 檔：5 篇新學習文章（中英）+ 4 篇已發佈文章修正（中英）。
-- 送出後接續 order 29（個案研究）與 order 0（系列總覽），依 `check-process-leak` 規則保持每篇歸因標籤 ≤ 3 處。
----
+## 程式檢查能擋住什麼
+
+本站文章採用 Astro content collections。Astro 支援以 schema 描述文章資料的形狀；本站的 `src/content.config.ts` 定義欄位要求。格式不正確的日期或不符合列舉值的欄位，可能在內容載入時就失敗。
+
+本站的 `scripts/verify.mjs` 是 `pnpm verify` 的入口，包含參考資料、系列順序等檢查；品質工作流程呼叫這個指令。這些規則能找出缺少來源段落、編號衝突等可定義的問題。實際檢查項目以程式碼為準。
+
+例如系列總覽若把資安課程的綱要貼到教學寫作系列，日期與 YAML 即使合法，讀者仍會走錯路。這就需要對照總覽承諾、系列文章與雙語版本，不能只看命令是否成功。
+
+## 通過檢查後還要看什麼
+
+本機檢查、遠端 CI、建置、部署與公開頁面是不同狀態。GitHub Actions 讓工作流程執行檢查或部署，但某個工作成功，只能證明該工作所執行的步驟成功。
+
+對文章而言，最後還應開啟公開頁面，確認正文、語言切換、系列導覽與來源連結符合預期。要宣稱教學有效，則需要另外設計讀者任務或學習評量。格式合規、可公開閱讀與能幫人學會，各有自己的證據。
+
+## 更新紀錄
+
+- 2026-10-15：以可核對的寫作與檢查流程取代工作交接、帳號額度與未證實的完成紀錄；同步中英內容。
+
+## 參考資料
+
+- [Astro：Content collections](https://docs.astro.build/en/guides/content-collections/)：內容集合與 schema 的用途。
+- [GitHub：Understanding GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions)：工作流程、工作與步驟的關係。
+- [本站文章 schema](https://github.com/vincentxuu/quidproquo/blob/main/src/content.config.ts)、[品質檢查入口](https://github.com/vincentxuu/quidproquo/blob/main/scripts/verify.mjs)、[品質工作流程](https://github.com/vincentxuu/quidproquo/blob/main/.github/workflows/quality.yml)：本站實作依據。
+- [用 AI 寫教材、當家教，研究測到什麼](/posts/learning/2026-10-14-ai-written-materials-and-ai-tutors)：AI 教材的研究與限制。

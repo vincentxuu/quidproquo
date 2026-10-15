@@ -16,12 +16,12 @@ tldr: "A TEE is a hardware-isolated execution environment meant to keep even the
 draft: false
 series:
   name: "Bug Bounty from Zero"
-  order: 9
+  order: 11
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-14-bug-bounty-zero-09-tee-and-confidential-computing)
+> 🌏 [繁體中文版](/posts/tech/2026-10-14-bug-bounty-zero-09-tee-and-confidential-computing)
 
-[Part 0 of this series](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en) found that [Meta's WhatsApp Private Processing bounty page](https://bugbounty.meta.com/payout-guidelines/private-processing/) lists code execution, privilege escalation and VM escape inside a TEE at up to $300,000 each. [Part 7](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en) covered the wall between virtual machines, and [part 8](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en) took apart a case where that wall had a hole. This part looks at a different kind of wall: one that keeps out not only other customers but the operator of the machine too.
+[Part 13 of this series](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en) found that [Meta's WhatsApp Private Processing bounty page](https://bugbounty.meta.com/payout-guidelines/private-processing/) lists code execution, privilege escalation and VM escape inside a TEE at up to $300,000 each. [Part 9](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en) covered the wall between virtual machines, and [part 10](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en) took apart a case where that wall had a hole. This part looks at a different kind of wall: one that keeps out not only other customers but the operator of the machine too.
 
 Three questions: what does a TEE protect, what does remote attestation prove, and which part of the design does each row of Meta's bounty table target?
 
@@ -39,9 +39,9 @@ The same Microsoft page says Azure confidential computing helps prevent unauthor
 
 In plain terms: a TEE (Trusted Execution Environment) is a vault room inside a bank. The hardware builds the room, and the people who run the building can't walk in. The key phrase is "hardware-based": the isolation doesn't depend on an administrator promising not to look.
 
-### How this differs from the VM isolation in part 7
+### How this differs from the VM isolation in part 9
 
-Part 7's isolation is about tenants versus each other: [Azure's isolation documentation](https://learn.microsoft.com/en-us/azure/security/fundamentals/isolation-choices) describes the hypervisor separating different customers' VMs on shared hardware. Confidential computing adds a layer; per the two sources above, it puts the cloud operator on the list of parties who shouldn't see inside.
+Part 9's isolation is about tenants versus each other: [Azure's isolation documentation](https://learn.microsoft.com/en-us/azure/security/fundamentals/isolation-choices) describes the hypervisor separating different customers' VMs on shared hardware. Confidential computing adds a layer; per the two sources above, it puts the cloud operator on the list of parties who shouldn't see inside.
 
 The two aren't alternatives. Trail of Bits' review report describes AMD SEV-SNP, the confidential-VM technology Meta uses, like this: each VM's memory is encrypted with a unique key managed by a secure processor, so the memory can't be read or modified by the hypervisor or other VMs. It is still a VM; the hypervisor just gets less trust. That is what the sources say. How Intel TDX, Arm CCA or NVIDIA do it, this post doesn't cover.
 
@@ -118,15 +118,15 @@ flowchart LR
   R5 -.-> V
 ```
 
-Row by row, in plain words (my mapping):
+Map the categories back to the diagram’s security boundaries:
 
 - **Code execution, including bypassing code attestation**: touches both the program inside the room and the slip at the door. By writing "bypassing code attestation" into this row, the page treats the attestation itself as a target.
 - **Privilege escalation**: climbing higher if the program inside has levels of permission.
-- **Data leaks**: the page's examples are external storage and memory leaks containing user data. Meta's design goals say messages aren't retained after processing and only limited logs leave the CVM; this row tests that promise. The log-filtering part of that design, though, is listed in Trail of Bits' report as outside its review (see the next section), so the sources don't say whether it was independently verified.
-- **VM escape**: the other side of the wall is the host. That's part 7's subject, except here the host is the operator, the party the design trusts least. For internal scenarios this row is N/A; the page doesn't say why, and I won't guess.
-- **Persistence**: the page says persisting access to a workload. It has the lowest amount, and the source doesn't say why. Meta's design lists statelessness as a goal; whether the two are related, the sources don't say, and I won't fill that in.
+- **Data leaks**: the guidelines mention external storage and memory leaks containing user data. Discarding messages after processing and releasing only limited logs are design goals. Log filtering was outside this Trail of Bits review, so the report is not evidence that this part was validated.
+- **VM escape**: the other side of the wall is the host; compare the isolation concepts in [part 9](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en). Here the host belongs to the operator, a party the confidential-computing boundary is intended to constrain. The internal-scenario row is N/A; eligibility must follow that scenario’s table.
+- **Persistence**: retaining access to a workload. An impact description should explain how access persists and whether it crosses the intended lifecycle or state restrictions.
 
-As for why the top figure is $300,000: the bounty page doesn't explain its pricing. My judgment is that the system promises "even Meta can't see it," so breaking in breaks the promise itself, but that is inference, not something the page says.
+A useful way to read this table is to turn each row into a question: can attestation be forged, isolation crossed, or data released outside the boundary? Those are outcomes a report should explain. The ceiling alone does not establish the vendor’s pricing rationale.
 
 ## What the outside review actually found
 
@@ -144,7 +144,7 @@ In its [blog post](https://blog.trailofbits.com/2026/04/07/what-we-learned-about
 3. When checking a firmware patch level, verify against the vendor-signed certificate rather than trusting what the firmware reports about itself.
 4. Attestations need freshness: one not tied to the specific connection could in principle be replayed.
 
-What do these have to do with the bounty table? My judgment: they show why "bypassing code attestation" earns its own mention in a row, since gaps in attestation tend to come from implementation details. That's my reading; Meta has never said the table was designed from this report.
+These lessons show that attestation and data isolation depend on implementation details. Use them to ask which program was attested and where data can flow. The review and bounty guidelines provide separate perspectives; their overlap does not establish that the bounty table was designed from this report.
 
 Trail of Bits concludes that the issues weren't fundamental flaws of the TEE model but implementation and deployment gaps. They also say TEEs aren't a silver bullet: every unmeasured input and every missing validation can become a vulnerability.
 
@@ -180,6 +180,8 @@ The [next part](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty-en) look
 - [Microsoft Azure Attestation (Microsoft Learn)](https://learn.microsoft.com/en-us/azure/attestation/overview)
 - [Confidential Computing Consortium](https://confidentialcomputing.io/)
 - [Azure isolation choices (Microsoft Learn)](https://learn.microsoft.com/en-us/azure/security/fundamentals/isolation-choices)
-- [Top bug bounty payouts, fact-checked (series part 0)](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)
-- [VMs and hypervisors (series part 7)](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en)
-- [A Hyper-V escape case study (series part 8)](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en)
+- [Top bug bounty payouts, fact-checked (series part 13)](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)
+- [VMs and hypervisors (series part 9)](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en)
+- [A Hyper-V escape case study (series part 10)](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en)
+
+[Previous: part 10](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en) · [Next: part 12](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty-en)

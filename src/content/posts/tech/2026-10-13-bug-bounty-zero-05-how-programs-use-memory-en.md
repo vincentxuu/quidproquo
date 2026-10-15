@@ -15,16 +15,18 @@ tldr: "Once a program is loaded into memory, the CPU runs it by following an add
 draft: false
 series:
   name: "Bug Bounty from Zero"
-  order: 5
+  order: 7
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory)
+> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory)
 
-The [previous post](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en) covered RCE, and the scene was still a website: user input glued into a shell command, or untrusted data turned back into an object. The next stage goes one level lower, to bugs in how a program uses memory. This is the biggest cliff in the series. Up to now a browser and a little Python were enough; from here on, the bugs depend on where in memory something sits.
+The [RCE chapter](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en) covered RCE, and the scene was still a website: user input glued into a shell command, or untrusted data turned back into an object. The next stage goes one level lower, to bugs in how a program uses memory. This is the biggest cliff in the series. Up to now a browser and a little Python were enough; from here on, the bugs depend on where in memory something sits.
 
 So this post covers no vulnerability at all. It answers one question: **how does a program actually run on a computer, and where do its data and instructions live?** By the end you should be able to say, in your own words, what sits on the stack and how the CPU knows where to go back to when a function ends. Those two ideas are all the next post (buffer overflows) assumes.
 
 You only need to have written a few functions in any language. The example is in C because C lets you see addresses directly. You don't need to write C; run it and read the output.
+
+The [reporting chapter](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value-en) completed the first web-testing cycle. Before studying lower-level bugs, this chapter supplies the C and memory vocabulary needed to read the next examples.
 
 ## Three analogies first
 
@@ -218,3 +220,5 @@ The next post makes this note go wrong: what happens if someone can write data t
 - [Documentation for /proc/sys/kernel/ (Linux kernel documentation, randomize_va_space)](https://www.kernel.org/doc/html/latest/admin-guide/sysctl/kernel.html)
 - [Previous: Why RCE Pays the Most in Google's Reward Table](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en)
 - [Next: buffer overflows and memory bugs](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow-en)
+
+[Previous: part 6](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value-en) · [Next: part 8](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow-en)

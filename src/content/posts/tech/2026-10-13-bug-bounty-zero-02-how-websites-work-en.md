@@ -1,137 +1,147 @@
 ---
-title: "How to Read Bug Bounty Rules: Scope, Rewards, Exclusions & Quality Multipliers"
+title: "What Do the Browser and Server Exchange When You Click a Link?"
 date: 2026-10-13
 category: tech
 type: guide
-difficulty: beginner
-tags: [bug-bounty, security, rules, scope, rewards, quality-multiplier]
+difficulty: 入門
+tags: [bug-bounty, security, web, http, cookies, session, curl]
 lang: en
-description: "Series 1: How to quickly read any bug bounty program's rules document, accurately define the legal testing scope, reward structure, and prohibited items."
-tldr: "Bug bounty rules have four key sections: Scope (legal testing range), Rewards (payout + quality multiplier), Exclusions (prohibited items), and Report Quality (report grading standard). This article teaches you to master these in 30 minutes via keyword search — avoiding wrong-target testing, rejected reports, and reduced payouts."
+description: "Part 2 explains URLs, HTTP requests and responses, status codes, cookies, and sessions through DevTools and a local curl exercise."
+tldr: "A browser sends a request with a method, target, headers, and sometimes cookies. The server returns a status, headers, and content. Authentication identifies a user; authorization must still check access to each order."
 draft: false
 series:
   name: "Bug Bounty from Zero"
-  order: 1
+  order: 2
 ---
 
-> 🌏 [Chinese version](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work)
+> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work)
 
-## TL;DR
+This is part 2. Part 1 covered program selection and scope. Here we answer what actually happens after you click a link. Understanding what the browser sends, what the server returns, and what a session cookie does prepares you to inspect requests in part 3.
 
-**Bug bounty rules have four key sections: Scope (legal testing range), Rewards (payout + quality multiplier), Exclusions (prohibited items), and Report Quality (report grading standard).** Master these via keyword search (Ctrl+F: `in-scope`, `reward`, `exclude`, `quality`) — and you’ll avoid testing wrong targets, having reports rejected, or seeing payouts slashed by quality multipliers (Google’s 0.8x / 1.0x / 1.2x directly affects dollar amounts).
+## The lifecycle of a link
 
----
+Enter `http://example.com/search?q=coffee` in a browser. At the application level:
 
-## Scenario
+1. The browser parses the URL into a scheme, host, path, and query.
+2. It prepares an HTTP request with a method such as GET, a request target, and headers such as Accept and any applicable Cookie header.
+3. It sends that request over a connection to the server. The underlying transport depends on the HTTP version; HTTP/1.1 and HTTP/2 use TCP, while HTTP/3 uses QUIC over UDP.
+4. The server parses the request and runs application logic, which may query a database.
+5. The server returns an HTTP response: a status code, headers such as Content-Type and possibly Set-Cookie, and a body such as HTML or JSON.
+6. The browser processes the response. It may render HTML, execute scripts, and request further resources. It stores accepted cookies and sends them on later requests that match their scope and browser policy.
 
-You’ve enrolled in a new bug bounty program (e.g., Apple, GitHub, Cloudflare). The rules page is 2,000 words. You don’t have time to read every word, but if you accidentally test an out-of-scope asset, your account could be banned. If you miss the quality multiplier, the same RCE could earn $121,212 (Google T0+S0+1.2x) or only $80,808 (0.8x).
+We focus on the application data you can inspect. A complete networking explanation would also cover DNS, connection establishment, TLS for HTTPS, and caching; these are not prerequisites for the local exercise.
 
----
+## Splitting a URL into four parts
 
-## Problem
+For `http://example.com/api/orders/1532?q=coffee`:
 
-**First mistake: Not reading Scope.** You test out-of-scope assets, get your account banned, or waste hours on unrewardable targets.
-
-**Second mistake: Missing the Rewards table.** Different programs pay vastly different amounts. Google’s T0/S0 RCE = $101,010 base; Meta’s code execution = $300k base; Microsoft’s Hyper-V escape = $250k base. And multipliers change everything.
-
-**Third mistake: Ignoring Exclusions.** Social engineering, DoS, third-party services, and physical attacks are commonly prohibited. Touching them = disqualification.
-
-**Fourth mistake: Writing low-quality reports.** Missing “Steps to Reproduce” = Google’s 0.8x → $101,010 drops to $80,808.
-
----
-
-## Solution: Four-Step Rule Reading
-
-### Step 1 — Scope: Keyword Search & Syntax
-
-| Syntax | Meaning | Example | Testable? |
-|---|---|---|---|
-| `*.example.com` | All subdomains | `app.example.com` | ✅ |
-| `example.com` | Root domain only | `example.com` | ✅ |
-| `!api.example.com` | Exclude specific | `api.example.com` | ❌ |
-| `/v1/*` | Path prefix | `/v1/users` | ✅ |
-| `*.example.com/*` | Full path | All paths | ✅ |
-
-**Checklist**: Ctrl+F for `in-scope`, copy all domains; search `out-of-scope` or `exclude`, mark prohibited zones; check for “invite-only” (Meta Private Processing); check QPS limits (GitHub: 60 req/min/IP).
-
-### Step 2 — Rewards: Three-Tier Comparison (2026 snapshot)
-
-| Severity | Google VRP | Meta Private Processing | Microsoft Hyper-V |
-|---|---|---|---|
-| **RCE / Code Exec** | T0/S0: $101,010 × 1.2 (max) = $121,212 | External: $300,000 Internal: $50,000 | L1 guest→host: $250,000 L2 guest→guest: $150,000 |
-| **Info Disclosure** | T2: $13,337–$31,337 | External: $150,000 Internal: $50,000 | L1: $50,000 L2: $25,000 |
-| **XSS / Client-side** | T2: $3,133–$13,337 | External: $10,000 | N/A |
-| **DoS** | Usually $0 | $0 | $15,000 / $10,000 / $5,000 |
-| **Max Single Payout** | $151,515 (2024 announcement) | $300,000 (code exec) | $250,000 |
-
-**Key insight**: Google’s quality multiplier directly scales the payout. Meta distinguishes External vs Internal (internal ≈ 1/6 of external). Microsoft uses Layer (L1/L2) and has 1.0/0.5/0.25 multipliers — different from Google’s 1.2/1.0/0.8.
-
-### Step 3 — Exclusions: Common Prohibited Items
-
-| Category | Typical Prohibited Behavior | Risk |
+| Part | Value | Meaning |
 |---|---|---|
-| Social engineering | Phishing, fake support, coercing employees | Account ban, legal risk |
-| DoS / Stress testing | Intentional resource exhaustion, QPS over-limit | Account ban, service impact |
-| Third-party services | Attacking CDN, WAF, identity providers | Out-of-scope, no payout |
-| Physical attacks | Hardware tampering, on-site intrusion | Legal risk |
-| Unauthorized scanning | Unsanctioned crawlers, brute-force | Account ban, IP block |
-| Data theft | Downloading more real-user data than needed for verification | Account ban, legal risk |
+| Scheme | `http` | The URL uses HTTP; this does not by itself specify HTTP/1.1 |
+| Host | `example.com` | The destination host, usually resolved through DNS |
+| Path | `/api/orders/1532` | The application route and, here, an object identifier |
+| Query | `q=coffee` | Additional input that the application may use |
 
-**Tip**: Ctrl+F for `prohibited`, `forbidden`, `not allowed`, `exclude`, `social engineering`, `denial of service`.
+Paths and parameters are useful places to investigate application behavior:
 
-### Step 4 — Report Quality: From 0.8x to 1.2x
+- Change `/api/orders/1532` to `1533` and check whether the server enforces ownership.
+- Change `q=coffee` to another search term and compare the result.
+- In an authorized XSS lab, trace where input reaches HTML or a browser API that can interpret it as code.
 
-Google VRP explicitly defines:
+Changing an ID or inserting a script-shaped string is a test input, not a vulnerability finding by itself. Part 4 explains the evidence needed.
 
-| Quality | Multiplier | Conditions |
+## Status codes: what did the server report?
+
+| Code | Meaning | What to investigate |
 |---|---|---|
-| **Low** | 0.8x | Missing repro steps, no PoC, vague impact, no CVSS |
-| **Good** | 1.0x | Full repro steps, PoC present, clear impact, CVSS |
-| **Exceptional** | 1.2x | Good conditions + remediation suggestion, quantified impact, automated scripts, visual evidence |
+| 200 OK | The request succeeded | Does the body contain only data this account may access? |
+| 301/302 | A redirect | Where does the Location header lead, and is access still checked? |
+| 400 Bad Request | The server considers the request invalid | Does the error reveal sensitive implementation details? |
+| 401 Unauthorized | Valid authentication credentials are missing | Is the session missing, expired, or invalid? |
+| 403 Forbidden | The server refuses the request | Which application rule denies access? Authentication is not implied by the code alone |
+| 404 Not Found | The resource is unavailable or the server does not disclose it | The code may deliberately conceal a resource's existence |
+| 500 Internal Server Error | An unexpected server error | Record the relevant input and response; this does not establish RCE |
 
-**Quick self-check**: Does your report include?
-- [ ] Executable `curl` or Burp Repeater steps
-- [ ] Concrete impact: how many records leaked, PII types, estimated loss
-- [ ] CVSS 3.1 vector string (e.g., `CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:N/A:N`)
-- [ ] Remediation suggestion (code-level or config-level)
+In Repeater, compare the status, body, and response size while changing one parameter. A difference is a clue about application behavior. It may be entirely expected; confirm the account, resource, and access policy before calling it a vulnerability.
 
----
+A difference between an owner's `200` and another account's `404` does not automatically disclose a secret. Even an existence difference such as `403` versus `404` matters only when the existence itself is sensitive and the test demonstrates an unauthorized disclosure.
 
-## Why This Matters: The VRP Reward Architecture
+## Cookies and sessions: recognizing the user
 
-1. **Scope defines the attack surface** — vendors only pay for assets they control.
-2. **Rewards reflect business risk** — core services (Google T0: identity, auth) = highest bounty.
-3. **Quality multiplier incentivizes complete reports** — evaluator time is precious; complete reports save it.
-4. **Exclusions protect third parties & users** — prevent bounty hunters from harming unrelated targets for a reward.
+A cookie stores a value that the browser can send with matching requests. A session cookie often contains an identifier that the server maps to a logged-in user. Other cookies store preferences or unrelated state, so a cookie is not inherently an identity credential. Applications can also authenticate without cookies.
 
----
+For an order API, distinguish authentication from authorization:
 
-## Self-Check (Key question: Do you get it?)
+- If an endpoint returns private orders to anyone who changes the URL, access control is missing.
+- If it recognizes your session but does not check whether you may access the selected order, a valid login can still expose someone else's data.
+- If it checks the relevant ownership or role policy on every request, it enforces that boundary.
 
-- [ ] Can you find a new program’s in-scope domain list in 5 minutes?
-- [ ] Can you name Google’s T0/S0 base RCE payout ($101,010) and maximum ($121,212)?
-- [ ] Can you list Meta External vs Internal bounty difference (6x)?
-- [ ] Do you know the four conditions for Google’s quality multiplier 1.2x?
-- [ ] Have you saved the target program’s Exclusions list before testing?
+Knowing who you are does not answer which objects you may read.
 
----
+### Local exercise: inspect cookie behavior with curl
+
+Start `shop.mjs` from part 3 on `127.0.0.1:8000`. Its sample data assigns order `1532` to Alice and `1533` to Bob.
+
+```bash
+# 1. Log in as Alice and save the session cookie.
+curl -s -c jar.txt -H 'content-type: application/json' \
+  -d '{"user":"alice","pass":"alice-pass"}' \
+  http://127.0.0.1:8000/login
+
+# 2. Send Alice's cookie and read her order.
+curl -s -b jar.txt http://127.0.0.1:8000/api/orders/1532
+# Expected body: {"owner":"alice","item":"Coffee Beans","address":"Taipei"}
+
+# 3. Repeat without a cookie: the sample returns 401.
+curl -s -o /dev/null -w "%{http_code}\n" \
+  http://127.0.0.1:8000/api/orders/1532
+
+# 4. Keep Alice's cookie and request Bob's order: the sample returns 403.
+curl -s -b jar.txt -o /dev/null -w "%{http_code}\n" \
+  http://127.0.0.1:8000/api/orders/1533
+```
+
+In this application, `401` means no valid session and `403` means a logged-in user does not own the order. Those interpretations come from the application code, not a universal guarantee about every server. The sample protects the cross-account order boundary; it does not deliberately demonstrate an IDOR.
+
+## Same-origin intuition: why XSS can act as a user
+
+An origin consists of the scheme, host, and port. Browsers restrict scripts from reading data across origins. XSS matters because attacker-controlled code executes in the vulnerable application's browser context and may use the victim's application privileges.
+
+Cookie access has additional rules. JavaScript cannot read an `HttpOnly` cookie through `document.cookie`, and cookie scope controls which other cookies are visible. `HttpOnly` does not prevent an injected script from making permitted same-origin requests for which the browser supplies the session cookie. It therefore reduces cookie theft without making XSS harmless.
+
+Use a benign execution marker in a lab. Demonstrating XSS does not require stealing cookies or another person's data.
+
+## Inspect your own request in DevTools
+
+1. Open your local practice application, open DevTools, and select Network.
+2. Enable Preserve log, then perform a search or login.
+3. Select the request and inspect its method, URL, request headers, response status, and body.
+4. Right-click → Copy as cURL to export a terminal command. A logged-in request may include credentials: keep it private and redact them before sharing.
+5. Run it locally, change one parameter such as `q=coffee` to `q=tea`, and compare the response.
+
+You can now connect a browser action to an HTTP exchange instead of treating the resulting page as a black box.
+
+## Preparing for part 3
+
+You should now be able to:
+
+- Identify a URL's path and query.
+- Find the status and content in an HTTP response.
+- Explain why the same URL can produce different results for different accounts.
+- Resend a request with curl and change one parameter.
+
+Next, part 3 combines DevTools, Burp Proxy, and Repeater into a workflow: inventory features, vary inputs, and record responses.
+
+## Update history
+
+- 2026-10-15: Completed the English article and synchronized both languages; corrected cookie and status-code explanations, matched the local exercise to the server, and removed claims that response differences alone prove vulnerabilities.
 
 ## References
 
+- [MDN: An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+- [MDN: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status)
+- [MDN: Using HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies)
+- [MDN: Same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
+- [PortSwigger: Web Security Academy](https://portswigger.net/web-security)
+- [OWASP: Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
 - [Google VRP Rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)
-- [Google VRP July 2024 Announcement](https://bughunters.google.com/blog/increasing-google-alphabet-vrp-rewards-up-to-151515)
-- [Google 2024 In Review](https://blog.google/security/vulnerability-reward-program-2024-in/)
-- [Meta Private Processing Payout](https://bugbounty.meta.com/payout-guidelines/private-processing/)
-- [Meta Scope](https://bugbounty.meta.com/scope/)
-- [Microsoft Hyper-V Bounty](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)
-- [Microsoft MSRC Bounty Overview](https://www.microsoft.com/en-us/msrc/bounty)
-
----
-
-*This is Series 1 (rules) of "Bug Bounty from Zero." The next article covers how modern websites work: HTTP, TLS, cookies, sessions — the foundation for Articles 2+.*
-
----
-
-*Next: [Series 2 — How Websites Work](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)*
-
-_全系列流程圖請參考第 6 篇（報告撰寫）與第 14 篇（學習路徑）。_*

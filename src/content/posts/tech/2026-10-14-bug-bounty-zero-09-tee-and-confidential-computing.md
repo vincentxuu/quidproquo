@@ -16,12 +16,12 @@ tldr: "TEE 是硬體隔出來的執行環境，目標是連機器的營運者也
 draft: false
 series:
   name: "從零開始的資安獵人"
-  order: 9
+  order: 11
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-14-bug-bounty-zero-09-tee-and-confidential-computing-en)
 
-[系列第 0 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)查到，[Meta 的 WhatsApp Private Processing 獎金頁](https://bugbounty.meta.com/payout-guidelines/private-processing/)把 TEE 內的程式碼執行、權限提升、VM 逃脫各列到最高 30 萬美元。[第 7 篇](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)講了虛擬機之間的牆，[第 8 篇](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)拆了一個牆上有洞的案例。這一篇換一種牆：不只隔開客戶彼此，還要把機器的營運者也擋在外面。
+[系列第 13 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)查到，[Meta 的 WhatsApp Private Processing 獎金頁](https://bugbounty.meta.com/payout-guidelines/private-processing/)把 TEE 內的程式碼執行、權限提升、VM 逃脫各列到最高 30 萬美元。[第 9 篇](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)講了虛擬機之間的牆，[第 10 篇](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)拆了一個牆上有洞的案例。這一篇換一種牆：不只隔開客戶彼此，還要把機器的營運者也擋在外面。
 
 這篇想回答三個問題：TEE 保護什麼？遠端證明（attestation）證明什麼？Meta 獎金表的每一列，打的是這套設計的哪個環節？
 
@@ -39,9 +39,9 @@ Microsoft 的同一頁說，Azure 的機密運算能防止未經授權的人存�
 
 白話版：TEE（Trusted Execution Environment，可信執行環境）像銀行裡的保險箱房間。房間由硬體隔出來，管理大樓的人、大樓的總機房都進不去。「hardware-based」這個詞很重要：隔離靠硬體，不是靠管理員保證不偷看。
 
-### 跟第 7 篇的虛擬機隔離差在哪
+### 跟第 9 篇的虛擬機隔離差在哪
 
-第 7 篇的隔離，目標是租戶彼此：[Azure 的隔離說明](https://learn.microsoft.com/en-us/azure/security/fundamentals/isolation-choices)講的是同一台實體機上，不同客戶的 VM 由 hypervisor 隔開。機密運算多加的一層，依上面兩份來源，是把雲端營運者也列進「不該看到」的對象。
+第 9 篇的隔離，目標是租戶彼此：[Azure 的隔離說明](https://learn.microsoft.com/en-us/azure/security/fundamentals/isolation-choices)講的是同一台實體機上，不同客戶的 VM 由 hypervisor 隔開。機密運算多加的一層，依上面兩份來源，是把雲端營運者也列進「不該看到」的對象。
 
 這兩者不是二選一。Trail of Bits 的審查報告描述，Meta 用的 AMD SEV-SNP 是一種給 VM 用的機密運算技術：每台 VM 的記憶體用一把由安全處理器管理的專屬金鑰加密，使 VM 的記憶體不能被 hypervisor 或其他 VM 讀取或修改。所以它仍然是一台 VM，只是 hypervisor 的信任地位被調低了。這是來源明說的部分；其他廠商（Intel TDX、Arm CCA、NVIDIA 等）怎麼做，本篇不展開。
 
@@ -118,15 +118,15 @@ flowchart LR
   R5 -.-> V
 ```
 
-各列的白話解讀（我的對照）：
+把這些類別對回圖中的安全邊界：
 
 - **程式碼執行，含繞過程式碼證明**：同時碰到房間裡的程式，以及門口那張證明。頁面特別把「繞過程式碼證明」寫進這一列，等於把證明本身列為攻擊目標之一。
 - **權限提升**：房間裡的程式有分權限的話，往上爬。
-- **資料洩漏**：頁面舉的例子是外部儲存、含使用者資料的記憶體洩漏。回頭看 Meta 的設計目標：處理完不保留訊息、只放行有限的記錄。這一列檢查的就是這個承諾。不過「只放行有限的記錄」這項設計（log filtering），Trail of Bits 的報告列為未審查的範圍（見下一節），所以它有沒有被外部審查驗證過，來源沒有說。
-- **VM 逃脫**：牆的另一面是 host。這就是[第 7 篇](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)的主題，只是這次 host 是營運者自己，是設計上最不該被信任的一方。內部情境下這列是 N/A，頁面沒有解釋原因，我不推測。
-- **持久化**：頁面說的是對某個工作負載保有存取。金額最低，來源沒寫為什麼；Meta 的設計說明裡有「無狀態」的目標，兩者是否相關，來源沒說，我不替它補。
+- **資料洩漏**：準則舉出外部儲存與含使用者資料的記憶體洩漏。處理完不保留訊息、只放行有限記錄，是設計目標；其中 log filtering 不在 Trail of Bits 這次審查範圍內，所以不能把該報告當成這部分已完成驗證的證據。
+- **VM 逃脫**：牆的另一面是 host，可對照[第 9 篇](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)的隔離概念。這裡的 host 是營運者，屬於機密運算要防範的信任對象。內部情境的這列標為 N/A，應依該情境的資格表判斷。
+- **持久化**：對某個工作負載持續保有存取。描述影響時，要交代存取如何持續，以及是否跨過系統原本的生命週期與狀態限制。
 
-至於為什麼最高 30 萬：獎金頁沒有解釋定價理由。我的判斷是，因為這個系統承諾的是「連 Meta 都看不到」，一旦被打穿，承諾本身就破了，但這是推論，頁面沒有這樣寫。
+讀這張表的實用方法，是把每一列變成一個問題：證明可否被偽造、隔離能否被跨越、資料可否流到邊界外？這些才是報告需要說清楚的成果；單靠上限金額無法推出廠商的定價理由。
 
 ## 外部審查實際找到什麼
 
@@ -144,7 +144,7 @@ Trail of Bits 在[部落格](https://blog.trailofbits.com/2026/04/07/what-we-lea
 3. 檢查韌體的修補版本時，要對照廠商簽章的憑證，不能只信韌體自己報的版本。
 4. 證明需要「新鮮度」：沒有和該次連線綁在一起的證明，理論上可以被重播。
 
-這四條跟獎金表有什麼關係？我的判斷是：它們說明了「繞過程式碼證明」為什麼值得單獨寫進一列；證明機制的缺口，多半出在實作細節。但這是我的解讀，Meta 沒有說過獎金表是依這份報告設計的。
+這四條提醒我們，遠端證明與資料隔離都依賴實作細節。閱讀漏洞報告時，可以用它們檢查「證明的是哪份程式」「資料最後流到哪裡」。審查報告與獎金準則各自提供線索，不能據此認定獎金表是依這份報告設計的。
 
 Trail of Bits 的結論是，這些問題不是 TEE 模型的根本缺陷，而是實作與部署的缺口；他們同時說，TEE 不是萬靈丹，每一個未量測的輸入、每一項缺少的驗證，都可能變成漏洞。
 
@@ -180,6 +180,8 @@ TEE 保護什麼：使用中的資料與程式，對象包含營運者。attesta
 - [Microsoft Azure Attestation（Microsoft Learn）](https://learn.microsoft.com/en-us/azure/attestation/overview)
 - [Confidential Computing Consortium](https://confidentialcomputing.io/)
 - [Azure 隔離選項（Microsoft Learn）](https://learn.microsoft.com/en-us/azure/security/fundamentals/isolation-choices)
-- [Bug Bounty 頂級獎金查證（系列第 0 篇）](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
-- [虛擬機與 Hypervisor（系列第 7 篇）](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)
-- [Hyper-V 逃脫案例拆解（系列第 8 篇）](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)
+- [Bug Bounty 頂級獎金查證（系列第 13 篇）](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
+- [虛擬機與 Hypervisor（系列第 9 篇）](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)
+- [Hyper-V 逃脫案例拆解（系列第 10 篇）](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)
+
+[上一篇：第 10 篇](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)・[下一篇：第 12 篇](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty)

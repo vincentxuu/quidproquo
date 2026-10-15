@@ -15,7 +15,7 @@ tldr: "緩衝區溢位是資料寫過了預留空間的邊界，蓋到隔壁的�
 draft: false
 series:
   name: "從零開始的資安獵人"
-  order: 6
+  order: 8
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow-en)
@@ -172,7 +172,7 @@ snprintf(buf, sizeof buf, "%s", s); /* C */
 | ASLR | 把程式與函式庫在記憶體裡的位置隨機排列，讓位址難以預測 | CWE 條目寫到，不完整：漏洞若洩漏位址就能提高可靠度，也有論文顯示側通道可繞過 ASLR |
 | NX／DEP | 把資料頁標成不可執行，從資料頁跑程式會觸發例外 | [Microsoft 文件](https://learn.microsoft.com/en-us/windows/win32/memory/data-execution-prevention)寫明「不是要當作對所有攻擊的完整防禦」；CWE-120 補充，溢位仍可覆寫旁邊的變數改變程式狀態 |
 
-我的判斷是：這幾層擋的是不同的事，彼此搭配才有效，沒有哪一層讓溢位無害。這也呼應 CWE-120 的整體說法：大多數編譯器或作業系統層級的緩解只處理溢位問題的一部分，很少能完整保護。
+這些防護處理不同環節，需要搭配使用。CWE-120 提醒，大多數編譯器或作業系統層級的緩解只處理部分溢位問題，很少能提供完整保護。
 
 驗證這點的最直接方法是：我用 Ubuntu 的 gcc 預設選項（不加任何旗標）編譯同一份有漏洞的程式，`AAAAAAAAA` 的輸出一樣是 `is_admin = 65`，一樣走進管理員頁面。我用 `readelf` 看了這個預設編譯的二進位：`readelf -lW` 顯示 `GNU_STACK` 的旗標是 `RW`（沒有 `E`，也就是 NX 開啟），`readelf -sW` 找得到 `__stack_chk_fail`（有 stack canary 的符號），`readelf -hW` 顯示類型是 `DYN`（PIE）。這些防護看起來都開著，旗標照樣被改成 65。我沒有逐項去查預設編譯還開了哪些防護，只能說在我的機器上，這個範例沒有被擋下來。所以前面關掉保護只是讓不同機器上的結果比較一致，並不是範例能成立的前提；這個結果呼應 CWE-120 對 NX 的說明：溢位仍可能覆寫旁邊的變數，把程式狀態改成危險的樣子。
 
@@ -190,11 +190,11 @@ Rust 是常被拿來當例子的語言。[Rust 官方書](https://doc.rust-lang.
 
 先講清楚一個容易誤解的地方。[Google VRP 規則頁](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)獎金表最上面一列是「Vulnerabilities giving direct access to Google servers」下的 Remote code execution（S0），例子寫的是「Command injection, deserialization bugs, sandbox escapes」，裡面**沒有** buffer overflow 這幾個字。表的類別是依影響分的（直接取得伺服器存取），例子欄只列了三個。同一頁的「Qualifying vulnerabilities」列的是「Server-side code execution bugs」。
 
-所以合理的說法只有一個：溢位是一種成因，它導致的後果如果是任意程式碼執行，在分類上就會落到 RCE 這一列。OWASP 與 CWE 都寫了溢位常常可以被用來執行任意程式碼，這是來源的說法；「所以會落到那一列」是我的推論。至於獎金表上某一格是不是由緩衝區溢位賺來的，規則頁沒有寫，我也沒有查到可靠的來源，這一篇不推測。
+溢位是漏洞成因，RCE 是可能造成的結果。讀獎金表時，要先證明能否執行任意程式碼，再確認目標與類別；只讓程式崩潰，還不能直接對到 RCE 那一格。
 
 ## 限制
 
-這一篇是入門直覺，幾件事沒有涵蓋。範例是同一個 struct 內相鄰的欄位，目的是讓結果穩定好觀察；真實的堆疊與堆積溢位面對的是更多層防護，實際利用遠比文中複雜。範例也只在 x86-64 Linux 上跑過，旗標變成 65 這個數字，我的判斷是與這個平台把整數的低位元組放在前面有關，換平台數字可能不同。另外溢位只是記憶體錯誤的一類，use-after-free、格式化字串之類的問題，這一篇都沒有講。
+這篇的範例只觀察同一個 struct 內相鄰欄位的覆寫，沒有示範完整利用鏈。輸出來自 x86-64 Linux；`is_admin = 65` 是該次執行的結果，換平台或編譯方式不保證相同。真實利用還會面對其他防護。Use-after-free、格式化字串等記憶體問題也不在本篇範圍。
 
 ## 你今晚可以做的事
 
@@ -223,7 +223,7 @@ gcc -g -O1 -fsanitize=address -fno-omit-frame-pointer -U_FORTIFY_SOURCE -D_FORTI
 ./vuln2 AAAAAAAAAAAA
 ```
 
-後面三個旗標的原因：`-O1` 與 `-fno-omit-frame-pointer` 是 Clang 文件為了效能與較好的堆疊追蹤給的建議。`-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0` 是我的沙盒踩到的：不加的話，程式在 ASan 回報之前就被另一道檢查中止，只印出 `*** buffer overflow detected ***: terminated`。我的判斷是這來自 glibc 的 `_FORTIFY_SOURCE`（`strcpy` 的 man page 在說目的地不夠大時行為未定義後，指向了這個機制），但我沒有深入驗證這個因果。實際輸出，節錄重點：
+後面三個旗標的用途：`-O1` 與 `-fno-omit-frame-pointer` 是 Clang 文件為效能與較好的堆疊追蹤提出的建議。這個沙盒另外使用 `-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0`：沒有這組設定時，程式會先被另一道檢查中止，只印出 `*** buffer overflow detected ***: terminated`。這裡保留的是兩組設定的觀察差異，並未據此確定是哪個機制先攔下它。以下節錄輸出：
 
 ```text
 name = alice
@@ -258,7 +258,7 @@ is_admin = 65
 -> 進入管理員頁面
 ```
 
-ASan 沒有報任何錯誤，程式照樣被改了判斷。我只確定這個結果發生了，沒有查到文件明說原因，我的推測是 ASan 在不同物件之間放警戒區，而 `name` 與 `is_admin` 同屬一個 `struct`、中間沒有警戒區可以踩到，但這是推測，不是文件寫的。重點是：工具有盲區，沒報錯不等於沒有問題。CISA 的警示也只說，在測試涵蓋足夠的程式碼庫裡，這類工具可以偵測到許多（不是全部）記憶體安全問題。
+在這次同一個 struct 內的覆寫測試中，ASan 沒有報錯，程式仍走進管理員分支。這個結果足以提醒我們：測試工具沒有告警，不能當成程式沒有問題的證據。它本身也不能證明 ASan 漏報的內部原因。CISA 的警示同樣只說，這類工具能在具有足夠測試涵蓋的程式碼庫中偵測到許多記憶體安全問題，並非全部。
 
 最後一個提醒：Clang 文件說明 ASan 是除錯用的偵測工具，它的執行期函式庫沒有以安全敏感的條件設計，不應連結到正式環境的執行檔。自己的電腦上練習即可。
 
@@ -277,5 +277,7 @@ ASan 沒有報任何錯誤，程式照樣被改了判斷。我只確定這個結
 - [fprintf(3p)，含 snprintf（POSIX，man7.org）](https://man7.org/linux/man-pages/man3/fprintf.3p.html)
 - [Data Types：Invalid Array Element Access（The Rust Programming Language）](https://doc.rust-lang.org/book/ch03-02-data-types.html)
 - [Google and Alphabet VRP Rules（Google Bug Hunters）](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)
-- [程式如何使用記憶體（系列第 5 篇）](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory)
-- [虛擬機器與 hypervisor（系列第 7 篇）](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)
+- [程式如何使用記憶體（系列第 7 篇）](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory)
+- [虛擬機器與 hypervisor（系列第 9 篇）](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)
+
+[上一篇：第 7 篇](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory)・[下一篇：第 9 篇](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)

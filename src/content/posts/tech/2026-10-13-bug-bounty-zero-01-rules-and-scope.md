@@ -1,132 +1,141 @@
 ---
-title: "Bug Bounty 從零開始：從規則、工作台到第一份報告的完整路徑"
+title: "Bug Bounty 規則怎麼讀：Scope、Rewards、Exclusions 與回報條件"
 date: 2026-10-13
 category: tech
 type: guide
 difficulty: 入門
-tags: [bug-bounty, security, web-security, rules, scope, beginner-guide]
+tags: [bug-bounty, security, rules, scope, rewards, quality-multiplier]
 lang: zh-TW
-description: "系列 0：Bug Bounty 從零開始的總覽與入門路徑，涵蓋規則解讀、工作站設定與第一份報告的完整流程。"
-tldr: "這篇是「從零開始的資安獵人」系列的第一篇：你不需要先變成專家，只需要知道如何讀懂規則、設定工作台、寫出第一份可被接受的報告——這三件事決定你能拿到的獎金是否會被拒絕。"
+description: "系列第 1 篇：把計畫規則轉成測試計畫，確認資產、允許方法、排除事項與回報所需證據。"
+tldr: "讀規則先回答四個問題：能測什麼、獎勵條件是什麼、禁止哪些行為、如何回報。列在資產清單上，不代表所有方法都獲得授權，也不保證發獎。"
 draft: false
 series:
   name: "從零開始的資安獵人"
-  order: 0
+  order: 1
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-15-bug-bounty-how-it-works-en)
+> 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en)
 
 ## TL;DR
 
-**你只需要做三件事才能開始：讀懂規則、開啟工作台、寫出第一份報告。** 這篇是 `bug-bounty-from-zero` 系列（0 → 14）的起點，後面每篇都接在這裡：規則（1）、網站原理（2）、工作台操作（3）、XSS/IDOR（4）、RCE（5）、報告與分類（6）、記憶體（7）、緩衝區溢位（8）、VM/超視電腦（9）、Hyper-V 逃脫（10）、TEE（11）、AI 漏洞（12）、金額事實核查（13）、證照與學習地圖（14）。
+用四個角度讀計畫：**範圍、獎勵、排除事項與回報條件**。這是閱讀框架，不代表每份規則都只有四個章節。搜尋 `scope`、`reward`、`exclude`、`report` 後，還要讀前後條款，以及連出去的產品專屬規則。
 
-**為什麼要這樣排順序？** 因為漏洞獵人不是「先學 RCE 再學規則」——你需要先知道**什麼是合法測試區域**，才能安全地操作工具，最後把發現寫成別人能重現的報告，這份報告才有機會拿到 Google VRP 的 $101,010（T0+S0，最高品質 1.2x = $121,212）。
-
----
+讀完要留下書面測試計畫：資產、允許方法、帳號與資料邊界、停止條件、回報管道。只找到關鍵字或獎金表，不足以確認測試授權。
 
 ## 情境
 
-你剛註冊了一個 bug bounty 計畫（例如 Google VRP、Meta Private Processing、Microsoft MSRC）。頁面上有一份長長的「Rules」文件，裡面寫了：
+你加入新計畫，面前有一大份規則。想開始測試前，得先知道主機是否符合資格、允許哪些動作，以及碰到私人資料時要怎麼處理。
 
-- **In-scope**：哪些網域、哪些功能、哪些產品線
-- **Out-of-scope**：第三方服務、內部系統、AI 模型訓練資料
-- **Rewards**：RCE $101,010、資訊洩漏 $25,000、XSS $7,500（視品質係數 0.8x/1x/1.2x 調整）
+有用的捷徑是整理閱讀順序。跳過條件不會省事：符合範圍的產品，仍可能排除特定方法、版本與漏洞類型。
 
-你不知道該從哪裡開始。這篇就是為了解決這個「從零開始」的困境而寫的。
+## 問題：四個常見卡點
 
----
+**Scope 看不懂。** 萬用字元、產品名稱、手機應用程式、路徑與明列的排除事項，可能描述不同邊界。資產歸屬也不等於計畫範圍；整合的第三方服務，不會自動受到主要應用程式的計畫涵蓋。
 
-## 問題
+**Rewards 看起來能直接比較。** 網頁服務漏洞、TEE 邊界突破與虛擬機逃脫的前提不同。即使都叫「程式碼執行」，最高獎金也不能互相套用。
 
-**第一個錯誤：直接開始掃描，沒有讀規則。** 這會導致你測試了 out-of-scope 的系統、漏掉了 in-scope 的關鍵端點，或者報告被拒絕（duplicate、out-of-scope、資訊不足）。
+**漏看方法與資料限制。** 規則可能限制自動化、請求速率、帳號使用、服務干擾與其他使用者資料。不要拿另一個計畫或一般 API 文件的速率限制，當成這裡通用的規則。
 
-**第二個錯誤：沒有工作台，直接用瀏覽器手動測試。** 你需要一個可重現的環境：Burp Suite Community（免費）、瀏覽器的 DevTools（F12 → Network → Copy as cURL）、以及一個本地測試伺服器（第 3 篇會教你架一個）。
+**把報告條件看成公式。** 清楚的證據有助評估，但 CVSS 字串、修補建議或影片，不會自動換到某個係數。要看計畫實際要求什麼。
 
-**第三個錯誤：報告寫成「我發現了 XSS」而非「這是如何重現的、影響多大、為什麼值得獎金」。** Google VRP 明確說明：報告品質係數決定獎金，低品質（0.8x）會讓 $101,010 變成 $80,808；高品質（1.2x）會讓它變成 $121,212。
+## 解法：四步讀規則
 
----
+### 步驟 1：Scope——確認資產與附帶條件
 
-## 解決方案：三步流程
-
-### 步驟 1：讀規則（30 分鐘）
-
-每份規則都有相同結構：
-
-| 區塊 | 你要看什麼 | 例子（Google VRP） |
+| 範例寫法 | 可能的意思 | 還要向規則確認什麼 |
 |---|---|---|
-| **Scope** | 網域列表、產品線、測試方法允許範圍 | `*.google.com`、`*.youtube.com`、`*.blogger.com` |
-| **Rewards** | 不同嚴重度的獎金與品質係數 | T0 S0 RCE = $101,010 × 1.2（最高品質）= $121,212 |
-| **Exclusions** | 禁止測試的系統、第三方、社交工程、拒絕服務 | 第三方服務、內部系統、非技術性問題 |
-| **Report Quality** | 如何讓報告被評為 1.2x 而非 0.8x | 完整步驟、PoC、CVSS 評估、影響說明 |
+| `*.example.com` | 涵蓋指定子網域的萬用字元 | 是否包含根網域？哪些排除項目優先？ |
+| `example.com` | 特定主機或具名資產 | 只包含這個項目，還是也含相關主機？ |
+| 排除清單中的 `api.example.com` | 這個主機被排除 | 不能假設每個平台都用 `!` 表示排除 |
+| `/v1/*` | 特定範圍格式中的路徑限制 | 適用哪個主機與哪些方法？ |
+| 產品或版本名稱 | 應用程式專屬目標 | 哪些版本、設定與環境符合資格？ |
 
-**快速驗證**：在規則頁面搜尋「in-scope」與「reward」這兩個關鍵字，確認你要測試的網域在列表中，並記錄獎金表的數字，以便後續估算這份報告的價值。
+這些例子是在示範要問什麼，不是一套能套用所有平台的範圍解析器。
 
-### 步驟 2：開啟工作台（第 3 篇詳細操作）
+- [ ] 記下確切資產項目與連結的產品規則。
+- [ ] 把資產列入測試清單前，先讀排除事項。
+- [ ] 確認邀請、註冊、測試帳號、版本與環境要求。
+- [ ] 記錄規則明列的自動化與速率限制；計畫中的動作有疑義，先透過聯絡管道確認再執行。
 
-你需要：
+### 步驟 2：Rewards——先比較條件，再看金額
 
-1. **Burp Suite Community Edition**（免費下載）：Proxy 攔截 + Repeater 重送 + HTTP History 搜尋
-2. **Chrome DevTools**（F12）：Network → 右鍵 → Copy as cURL
-3. **本地測試伺服器**（第 3 篇提供 `shop.mjs`）：`node shop.mjs` 在 `127.0.0.1:8000`，模擬漏洞行為（IDOR、XSS 測試點）
+| 計畫例子 | 要讀什麼 | 避免怎樣比較 |
+|---|---|---|
+| Google and Alphabet VRP | 適用資產分級、影響分類、獎金表與明列的報告品質考量 | 把某一分級的最高金額套到所有 RCE 或 XSS |
+| Meta Private Processing | 符合資格的攻擊面，以及外部或內部情境條件 | 把外部／內部情境當成報告品質係數 |
+| Microsoft Hyper-V | 跨越的邊界、漏洞類型、可運作攻擊的要求與報告品質欄位 | 把 Google 的係數套到 Microsoft 表格 |
 
-**最小可行環境**：不需要先攻擊真實目標。先在本地伺服器測試你能否：
-- 透過 `curl` 重複執行同一個請求（重現性）
-- 修改 URL 參數（例如 `/api/orders/1532` → `1533`）觀察回應差異
-- 用 Burp Repeater 觀察狀態碼（200 → 403 → 404）的變化
+查對特定產品與分類的官方頁面，記下網址，以及這個發現必須符合的條件。要引用數字時，分清最高額與預期結果；歷史公告也要和現行規則分開。
 
-### 步驟 3：寫第一份報告（第 6 篇詳細模板）
+有意義的比較先問「這一列要求什麼攻擊者能力與影響」，再問「哪個數字最大」。
 
-報告不是「我發現了漏洞」的口頭描述，而是**別人能照著重現的說明**。標準模板（可直接複製）：
+### 步驟 3：Exclusions——把限制轉成停止條件
 
+| 要查的項目 | 在規則中確認的例子 | 實際操作含義 |
+|---|---|---|
+| 社交工程 | 釣魚、以假身分聯絡員工 | 技術測試邀請，不代表也允許對人測試 |
+| 可用性 | 阻斷服務、資源耗盡、壓力測試 | 只用明確允許的方法，發現服務受影響就停止 |
+| 第三方 | CDN、身分提供者、整合服務 | 確認另外的授權，不直接繼承範圍 |
+| 實體存取 | 裝置修改、現場接觸 | 確認計畫是否允許該情境 |
+| 自動化 | 掃描器、暴力嘗試、流量限制 | 使用這個計畫自己的限制 |
+| 資料處理 | 私人紀錄、憑證、保存與揭露方式 | 最小化存取、用自己的帳號，依回報指引處理 |
+
+可搜尋 `prohibited`、`not allowed`、`exclude`、`social engineering`、`denial of service`、`data`。真正的規則由前後文決定，這些例子不是每個計畫都適用的排除清單。
+
+### 步驟 4：Reporting——讓發現可以重現
+
+準備能回答這些問題的證據：
+
+- 涉及哪個符合資格的資產與帳號角色？
+- 起始狀態與操作步驟是什麼？
+- 應該發生什麼，實際發生什麼？
+- 哪些影響已經證明，哪些還是假設？
+
+適合時提供最小 cURL 或 Repeater 操作，遮蔽憑證；附相關回應，不附無關紀錄。計畫要求 CVSS 時，寫清版本與理由，不要每篇都複製一串沒解釋的向量。有依據才提修補建議，截圖或影片能說明操作時再附。
+
+不要為了湊影響數量而下載更多私人資料。能重現的最小例子與清楚的權限邊界，比沒有依據的受影響人數或損失估計更有用。
+
+## 為什麼這樣讀有效
+
+範圍指出符合資格的攻擊面；測試限制保護服務與其他使用者；回報要求讓發現可以評估；獎勵規則則描述計畫如何處理符合條件的報告。
+
+這幾件事相關，但要分開確認。技術上寫得清楚的報告，仍可能重複或不在範圍內。廣告中的最高獎金，也不會免除表格中那一列的必要條件。
+
+測試前先存下這份紀錄：
+
+```text
+計畫與規則網址：
+資產／產品／版本：
+註冊或邀請條件：
+允許的方法與流量限制：
+測試帳號與資料邊界：
+排除行為與停止條件：
+適用獎勵分類與必要條件：
+回報管道與要求證據：
+尚未釐清的問題：
 ```
-Title: [簡潔描述，包含網域與漏洞類型]
-Summary: [一句話說明影響範圍與嚴重度]
-Steps to Reproduce: [1. 2. 3. ... 逐步操作，含 URL、參數、工具]
-Expected Behaviour: [正常應該是什麼]
-Actual Behaviour: [實際發生什麼，含回應內容或截圖描述]
-Impact: [對使用者、資料、系統的影響，含估算損失或敏感資訊類型]
-Proof of Concept: [可執行的 curl 指令或 Burp Repeater 步驟]
-Severity / CVSS: [若適用，提供 CVSS 3.1 評分與理由]
-Remediation / Fix: [如何修，或為什麼目前無法修但建議方向]
-References: [相關文獻、CVE、官方文件]
-```
 
-**為什麼要這個結構？** Google VRP 的獎金表直接參考「報告品質」：低品質 0.8x、好品質 1.0x、卓越品質 1.2x。你的報告如果缺少「Steps to Reproduce」或「Proof of Concept」，評審會直接給 0.8x，$101,010 變成 $80,808；如果完整包含所有欄位並且有可重現的 PoC，可能拿到 1.2x = $121,212。
+## 自我檢查
 
----
+- [ ] 我能找到資產項目，以及優先適用的排除事項。
+- [ ] 我能說明這次測試的方法、帳號與資料。
+- [ ] 我能解釋適用獎勵列的必要條件，不保證發獎。
+- [ ] 我記下停止條件與計畫的回報管道。
+- [ ] 涉及授權疑問的動作，已在執行前釐清。
 
-## 為什麼會這樣：VRP 獎金的結構邏輯
+下一篇第 2 篇會解釋 HTTP、Cookie 與 Session，讓你看懂第 3 篇工作台裡的請求。
 
-Google VRP（2026 年 7 月公告）顯示：
+## 更新紀錄
 
-- **最高單一獎金**：$151,515（由 $101,010 × 1.5 係數得出，2024 年公告），但**現行規則頁的係數上限是 1.2x**（2025 年 3 月更新），因此實際最高為 $121,212（$101,010 × 1.2）
-- **報告品質係數**：0.8x（低品質）、1.0x（好品質）、1.2x（卓越品質）
-- **T0（最高敏感網域）S0（RCE）**：$101,010（基礎），加上品質係數後浮動
-
-這意味著：**同一份漏洞，報告品質決定你能拿到多少。** 這也是為什麼這個系列把「報告品質」放在第 6 篇（寫報告與分類），而不是放在最後。
-
----
-
-## 自我檢查（這篇的重點：你是否準備好了？）
-
-- [ ] 你已經開啟一個 bug bounty 計畫的規則頁，並標註了「in-scope」網域列表
-- [ ] 你已經下載了 Burp Suite Community，並成功攔截至少一個本地請求
-- [ ] 你知道「Copy as cURL」的功能，並能將它貼到終端機重複執行
-- [ ] 你已經估算過：如果這份報告是 T0 S0，最高可能拿到 $121,212；如果是 T2（一般網域），最高約 $90,000（$75,000 × 1.2）
-- [ ] 你理解了為什麼這個系列從 0 到 14 是連續的：規則（1）→ 原理（2）→ 工具（3）→ 漏洞（4-5）→ 報告（6）→ 技術深入（7-12）→ 金額驗證（13）→ 學習地圖（14）
-
----
+- 2026-10-15：保留有系統的規則閱讀流程並同步兩語，修正萬用字元假設與計畫比較，移除缺乏依據的速率限制、發獎保證與報告品質公式。
 
 ## 參考資料
 
-- [Google VRP Rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules) — 獎金表與品質係數
-- [Google July 2024 Announcement](https://bughunters.google.com/blog/increasing-google-alphabet-vrp-rewards-up-to-151515) — $151,515 最高獎金公告
-- [Google 2024 Review](https://blog.google/security/vulnerability-reward-program-2024-in/) — Chrome $250,000 / Mobile $300,000
-- [PortSwigger — Burp Suite Documentation](https://portswigger.net/burp/documentation)
-- [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/) — 實戰練習目標
-- [Meta Private Processing Payout](https://bugbounty.meta.com/payout-guidelines/private-processing/) — $300k / $300k / $150k / $10k
-- [Meta Scope](https://bugbounty.meta.com/scope/) — TEE 相關範圍
-
----
-
-*這篇是系列 0（概述），後續每篇接在這裡：規則（1）、網站原理（2）、工作台（3）... 系列完整流程圖見第 6 篇與第 14 篇。*
+- [Google and Alphabet VRP Rules](https://bughunters.google.com/about/rules/6625378258649088/google-and-alphabet-vulnerability-reward-program-vrp-rules)
+- [Google July 2024 Announcement](https://bughunters.google.com/blog/increasing-google-alphabet-vrp-rewards-up-to-151515) — 歷史獎金脈絡。
+- [Google 2024 In Review](https://blog.google/security/vulnerability-reward-program-2024-in/) — 歷史計畫成果。
+- [Meta Private Processing Payout](https://bugbounty.meta.com/payout-guidelines/private-processing/)
+- [Meta Scope](https://bugbounty.meta.com/scope/)
+- [Meta Terms](https://bugbounty.meta.com/terms/)
+- [Microsoft Hyper-V Bounty](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)
+- [Microsoft MSRC Bounty Overview](https://www.microsoft.com/en-us/msrc/bounty)

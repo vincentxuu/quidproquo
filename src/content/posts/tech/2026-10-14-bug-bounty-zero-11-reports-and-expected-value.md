@@ -17,12 +17,12 @@ tldr: "Google 依報告品質把獎金乘上 0.8、1 或 1.2 倍，看七個維�
 draft: false
 series:
   name: "從零開始的資安獵人"
-  order: 11
+  order: 6
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value-en)
 
-這是「從零開始的資安獵人」第 11 篇。上一篇[AI 時代的漏洞獎金](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty)看了 AI 對這條路的影響。這篇回到兩個很實際的問題：找到洞之後，一份報告怎麼寫才不會被打折？以及，整件事到底值不值得你花時間？
+這是「從零開始的資安獵人」第 6 篇。前一篇[什麼是 RCE](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)看了伺服器執行程式的風險。這篇回到兩個很實際的問題：找到洞之後，一份報告怎麼寫才不會被打折？以及，整件事到底值不值得你花時間？
 
 讀完你應該能做到兩件事：用一頁紙的模板寫出報告，並用自己的假設算出一個粗略的期望值，決定願意投入多少時間。
 
@@ -72,7 +72,7 @@ Google 的 Bug Hunters 學習頁有兩篇我覺得對新手最實用：
 
 ## Microsoft 的做法：三級品質，Hyper-V 要求最重
 
-[Microsoft Hyper-V 計畫頁](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)把品質直接綁進獎金表，不是乘數，而是不同的上限。第 0 篇已經整理過 L1 guest 逃脫那一組：有可運作的 exploit 且品質高最高 250,000 美元；沒有 exploit，品質高 200,000、中 100,000、低 50,000。頁面表頭寫的是 Maximum Award。
+[Microsoft Hyper-V 計畫頁](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)把品質直接綁進獎金表，不是乘數，而是不同的上限。第 13 篇已經整理過 L1 guest 逃脫那一組：有可運作的 exploit 且品質高最高 250,000 美元；沒有 exploit，品質高 200,000、中 100,000、低 50,000。頁面表頭寫的是 Maximum Award。
 
 同一頁說，高品質報告要提供工程師能快速重現、理解與修補所需的資訊，通常包含精簡的說明（必要背景、漏洞描述），以及一個**不靠除錯器介入（例如暫停執行緒、修改記憶體或程式碼）就能重現**的 PoC。
 
@@ -109,9 +109,9 @@ Hyper-V 頁的「Eligible submissions」還要求報告要包含漏洞的影響�
 2. **實測的和推論的分開寫**。「我確認了 X」與「我推測可能 Y」放不同句子，也避免被當成理論或臆測的影響。
 3. **寫完讓別人照步驟跑一次**。同學、朋友、隔天的自己都行。照 Google 的說法，你的讀者是分流的工程師，不是你。
 
-## 示範：用第 3 篇的 IDOR 玩具程式寫一份報告
+## 示範：用第 4 篇的 IDOR 玩具程式寫一份報告
 
-目標是[第 3 篇](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)那支只綁在 `127.0.0.1` 的 `demo.mjs`，不是任何真實網站。下面這份報告是示範格式，漏洞原理與輸出都取自那篇。
+目標是[第 4 篇](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)那支只綁在 `127.0.0.1` 的 `demo.mjs`，不是任何真實網站。下面這份報告是示範格式，漏洞原理與輸出都取自那篇。
 
 ```text
 標題：Notes demo：GET /notes/{id} 缺少擁有者檢查，登入使用者可讀取他人筆記（IDOR）
@@ -121,7 +121,7 @@ Hyper-V 頁的「Eligible submissions」還要求報告要包含漏洞的影響�
 alice 帶自己的 session 請求 /notes/2，回傳 bob 的筆記全文。
 
 目標資訊
-- 程式：demo.mjs（本系列第 3 篇的玩具程式，有洞版實例）
+- 程式：demo.mjs（本系列第 4 篇的玩具程式，有洞版實例）
 - 環境：Node.js v22.22.0，伺服器只綁 127.0.0.1
 - 測試帳號：alice（session=alice-token）、bob（session=bob-token），皆為程式內建假資料
 
@@ -150,7 +150,7 @@ alice 帶自己的 session 請求 /notes/2，回傳 bob 的筆記全文。
 修法版程式已示範，alice 讀自己的 id=1 仍正常。
 
 附件
-demo.mjs 完整輸出（第 3 篇有記錄）。
+demo.mjs 完整輸出（第 4 篇有記錄）。
 ```
 
 ### 逐欄對照 Google 的品質表
@@ -228,7 +228,7 @@ Meta 的頁面還有兩個對新手有用的細節：獎金金額由影響、利
 1. **先定一個時數上限**。例如每週 5 小時、做 12 週，共 60 小時。這是你願意為了學習付出的成本，不是預期要賺回來的錢。
 2. **自己記帳**。每次寫下花了幾小時、碰到什麼情況：被判重複、被判無效、超出範圍、沒找到。三個月後，你會有一組屬於自己的比例，比我給的任何數字都準。
 3. **用自己的比例重算**。把你的紀錄代進上面的算式。如果每小時期望跟你的時間價值差很多，而學習的收穫也不夠，就調降投入。
-4. **避開需要大量前置功力的格子，先挑你能做到的**。第 0 篇整理過，頂級價碼背後常是可運作的 exploit 與高品質報告，門檻比一般 Web 漏洞高很多。
+4. **避開需要大量前置功力的格子，先挑你能做到的**。第 13 篇整理過，頂級價碼背後常是可運作的 exploit 與高品質報告，門檻比一般 Web 漏洞高很多。
 
 這幾點是我的判斷，不是任何計畫的建議。
 
@@ -236,7 +236,7 @@ Meta 的頁面還有兩個對新手有用的細節：獎金金額由影響、利
 
 1. 打開 [Google VRP 規則頁](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)的 Report quality 表，對照上面的示範報告，用紅筆標出你覺得最弱的一格。
 2. 打開 [MSRC 的範例報告頁](https://www.microsoft.com/en-us/msrc/bounty-example-report-submission)，比較高品質與低品質兩份，各列出三個差別。
-3. 把第 3 篇的 `demo.mjs` 跑一次，用上面的模板為「XSS 那一段」寫一份報告，只寫玩具程式，不碰真實網站。
+3. 把第 4 篇的 `demo.mjs` 跑一次，用上面的模板為「XSS 那一段」寫一份報告，只寫玩具程式，不碰真實網站。
 4. 拿一張紙，寫下你自己的三個假設（機率、金額、小時數），算一次每小時期望，再寫下你打算投入的總時數。
 
 ## 限制
@@ -247,7 +247,7 @@ Meta 的頁面還有兩個對新手有用的細節：獎金金額由影響、利
 - 期望值的機率與時數全是假設。我沒有引用 HackerOne 或 Bugcrowd 的年度報告，因為這次沒有讀到可以對應「新手」的數字，不想拿不相干的樣本充當依據。
 - 這篇不教怎麼利用漏洞。測試範圍與法律邊界見第 1 篇。
 
-下一篇是[認證與學習地圖](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map)。
+下一篇進入[程式如何使用記憶體](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory)，從 Web 行為往底層機制走。第 14 篇的學習地圖會再回到練習路線與證照。
 
 ## 參考資料
 
@@ -257,4 +257,6 @@ Meta 的頁面還有兩個對新手有用的細節：獎金金額由影響、利
 - [Microsoft Hyper-V Bounty Program（MSRC）](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)
 - [Example Report Submissions to the MSRC（品質定義與範例）](https://www.microsoft.com/en-us/msrc/bounty-example-report-submission)
 - [Meta Bug Bounty：Program scope](https://bugbounty.meta.com/scope/)（無效報告原因、重複報告、獎金考量因素）
-- 本系列：[第 0 篇 頂級獎金查證](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)、[第 1 篇 規則與邊界](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope)、[第 3 篇 XSS 與 IDOR](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)、[第 10 篇 AI 時代的漏洞獎金](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty)、[第 12 篇 認證與學習地圖](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map)
+- 本系列：[第 13 篇 頂級獎金查證](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)、[第 1 篇 規則與邊界](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope)、[第 4 篇 XSS 與 IDOR](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)、[第 12 篇 AI 時代的漏洞獎金](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty)、[第 14 篇 認證與學習地圖](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map)
+
+[上一篇：第 5 篇](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)・[下一篇：第 7 篇](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory)
