@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-14",
+  "date": "2026-10-15",
   "swebench_verified_top5": [
     { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
     { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
@@ -8,11 +8,11 @@
     { "rank": 5, "model": "Atlassian Rovo Dev（三方並列 76.80）", "org": "Atlassian", "score": 76.80 }
   ],
   "lmsys_agent_top5": [
-    { "rank": 1, "model": "Claude Opus 5.5 (Max)", "score": 17.89, "ci": "[13.65%, 22.13%]" },
-    { "rank": 2, "model": "GPT 6.1 Sol (Max)", "score": 13.81, "ci": "[11.48%, 16.15%]" },
-    { "rank": 3, "model": "GPT 6 Sol (Max)", "score": 12.60, "ci": "[10.00%, 15.19%]" },
-    { "rank": 4, "model": "Gemini 4 Argon (High)", "score": 12.37, "ci": "[10.43%, 14.31%]" },
-    { "rank": 5, "model": "GPT 6 Astra (Max)", "score": 12.34, "ci": "[9.88%, 14.81%]" }
+    { "rank": 1, "model": "Claude Opus 5.5 (Max)", "score": 17.01, "ci": "[13.50%, 20.53%]" },
+    { "rank": 2, "model": "GPT 6.1 Sol (Max)", "score": 15.05, "ci": "[12.95%, 17.16%]" },
+    { "rank": 3, "model": "Claude Fable 5.1 (Max)", "score": 14.32, "ci": "[12.28%, 16.37%]" },
+    { "rank": 4, "model": "GPT 6 Astra (Max)", "score": 13.69, "ci": "[11.35%, 16.03%]" },
+    { "rank": 5, "model": "Gemini 4 Argon (High)", "score": 13.59, "ci": "[12.01%, 15.17%]" }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59.2 },
@@ -27,5 +27,5 @@
     { "rank": 5, "model": "Sonnet 5.5 Extra High", "org": "Anthropic", "score": 53.1, "costPerTask": 2.81, "tokensPerTask": 100158 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-10-14：Q-023（swebench.com／morphllm.com／artificialanalysis.ai 三站結構性阻塞）本次未重新驗證（根因已於 09-15～10-11 反覆查明確，重複測試無新結果），改用已驗證可行的繞法：`swebench.com` 用 Bash `curl` 直連 `raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json`（`python3 -I` 解析，結構為 `{leaderboards:[{name,results}]}`，取 `name=='Verified'`），`Verified` 前 5 名逐位元與 10-13 相同（79.20／79.20／78.80／77.40／76.80 三方並列），非異動。Arena 側是本次主要發現：HF `datasets-server`（`lmarena-ai/leaderboard-dataset`，`agent` 子集 `latest` split）的 `leaderboard_publish_date` 從卡住 4 天的 `2026-10-08` 推進到 `2026-10-12`，**本系列第四篇文章產出**（`2026-10-14-benchmark-arena-agent-gpt-6-sol.md` 及 en 版，series order 5）：前五名出現雙重變化——(1) GPT-6 Sol（Max）從上一批次未進前 10 直接跳進第三；(2) 前次登頂的 Claude Opus 5.5（High，14.33%）這次完全不在 52 筆榜單任何位置，由同一基礎模型的「Max」效力版本（17.89%）取代登頂。用 `length=60` 參數確認該批次 52 筆全部同一 `category=overall`／同一發布日期 `2026-10-12`，排除分類混雜。查證「High 效力層級是否被官方停用」：`web_search` 找到 OpenRouter 的 Claude 5.5 遷移指南與使用者社群討論，均顯示 High 效力設定目前仍可正常使用，**未找到 Anthropic 官方停用公告**，文章已標注為「合理推測、非獨立佐證的結論」（Arena 抽樣可能沒抓到 High 版本對局量，非產品下架）。各名次 95% CI 大面積重疊（如前五篇一樣），文章已標註方法論限制。`morphllm.com`／`artificialanalysis.ai` 本次未重新驗證（根因已查明確），仍沿用既有型態（429 Vercel Checkpoint／404）。10-08 的三項 Tier 2 建議（a）(b)(c) 仍待人拍板，狀態未變。"
+  "notes": "2026-10-15：Groundlane 401 invalid_token，改用 curl 直連 raw.githubusercontent.com（SWE-bench Verified 前 5 名與 10-14 相同）與 HF datasets-server（lmarena-ai/leaderboard-dataset agent/latest，leaderboard_publish_date 2026-10-13）。Arena 第三名由 GPT 6 Sol (Max) 換成 Claude Fable 5.1 (Max)，GPT 6 Sol 掉到第七（10.51%），產出 2026-10-15-benchmark-arena-agent-fable-5-1（series order 6）。"
 }
