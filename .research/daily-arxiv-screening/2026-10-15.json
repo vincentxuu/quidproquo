@@ -1,0 +1,465 @@
+{
+  "date": "2026-10-15",
+  "status": "published",
+  "selectedCount": 3,
+  "toolDegradation": [
+    "Groundlane direct HTTP returned 401 invalid_token; used local curl for arXiv /new listings, export.arxiv.org API and arXiv HTML full text; HF daily_papers API via curl",
+    "Semantic Scholar API returned 429 for 2610.16067 and 2610.16280 after spaced retries; 2610.18206 returned 0 citations",
+    "Watch candidates assessed at abstract level only (method sections not read) due to run time; recorded as credibility not-assessed"
+  ],
+  "candidateSources": {
+    "layerA": "arXiv /new batch Wednesday 14 October 2026 (cs.AI, cs.CL, cs.MA; 1,109 unique new+cross-list IDs, 239 passing agent/tool keyword gate)",
+    "layerB": [
+      "HF Daily Papers 2026-10-13 (26) and 2026-10-14 (50): none of the shortlisted candidates listed",
+      "Semantic Scholar (background signals only)"
+    ],
+    "layerC": "lookback 2026-10-01 to 2026-10-14 watch pool not re-entered this run; prior watch items (PACE 2610.01349, Option-Channel 2610.12292, X-AgentRed 2610.13886) remain in pool"
+  },
+  "generatedAt": "2026-10-15T03:30:00Z",
+  "todayTheme": "Is the evidence we use to judge agents reliable: eval oracles, boundary violations, and logs for change approval",
+  "candidates": [
+    {
+      "arxivId": "2610.16067",
+      "title": "When Agent Evaluation Becomes Unreliable: An Empirical Study of Oracle Failures and Configuration-Dependent Measurement in an LLM Agent Benchmark",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint, submitted to Empirical Software Engineering",
+      "citationCount": null,
+      "citationVelocity": "not retrieved (Semantic Scholar 429)",
+      "institution": "Nanjing University of Science and Technology",
+      "communitySignals": [
+        "not on HF Daily Papers 10-13/10-14",
+        "Zenodo replication package 10.5281/zenodo.23290600 / 23290703"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Abstract + Sec 4.1: seven injected oracle defect classes all detected, repaired oracle no false positives",
+        "Sec 4.1: replay of recorded tool calls on clean DB, 4,194 -> 2,883 database passes over 4,320 episodes, success 94.3% -> 65.5%",
+        "Sec 1 contributions: explicitly no claim that the upstream runner inflates its own success rates",
+        "Sec 6 Threats to validity: no deterministic seed, RQ2/RQ3 bounded as measurement-process observations"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "One benchmark (tau-bench retail + airline) and a synthetic domain; port to a second benchmark failed on framework contract.",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "Zenodo DOIs in paper; audit suite, fault catalogue, preregistration/deviation logs, frozen per-episode records, offline entry point"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Article only states the finding on a post-run scoring path and repeats the author disclaimer.",
+      "primaryLimitation": "Single benchmark; method did not port to a second independently implemented benchmark.",
+      "presentation": "clear",
+      "presentationReason": "Claims, scope and non-claims are stated explicitly.",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "Strongest evidence of the day that a widely used agent benchmark scoring path can overstate success by ~29pp; complete offline replication package; anchors the evidence-reliability theme."
+    },
+    {
+      "arxivId": "2610.18206",
+      "title": "SWE-Misbehavior: Benchmarking and Mitigating Boundary Violations in Software Coding Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 2 days (Semantic Scholar)",
+      "institution": "National University of Singapore (WING) + A*STAR, UVA, Virginia Tech, Tufts",
+      "communitySignals": [
+        "not on HF Daily Papers 10-13/10-14",
+        "GitHub dxlong2000/SWE-Misbehavior public"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Sec 4.1: OpenHands, smolagents, Agno, Claude Code x GPT-5 / Gemini-2.5-Flash / Qwen3-Coder-30B",
+        "Table 3: LLM judge vs 3 human annotators on 200 samples, Gemini-3-Flash avg 88.63% (IF 72.0%)",
+        "Findings 1-3 + abstract: dependency misread up to 98.5%, user-input modification 50.5%, env integrity 53%",
+        "Sec 5 + abstract: Code-KIT -52% (smolagents) / -32% (OpenHands) violations with improved completion",
+        "Limitations: no multi-turn security injection/exfiltration; Code-KIT per-step only"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "Synthetic short tasks and 2025-era models.",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "GitHub repo with code and data"
+      ],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "Framework credible but model versions old; article hedges on transfer to frontier models.",
+      "primaryLimitation": "Older models and short synthetic tasks.",
+      "presentation": "mixed",
+      "presentationReason": "HTML render drops many inline numbers; abstract and tables recoverable.",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "Provides automatically measurable boundary-violation metrics for coding agents across 4 frameworks and shows tool-interface design drives violations; same problem class as same-day Copilot config-write CVE."
+    },
+    {
+      "arxivId": "2610.16280",
+      "title": "agent-risk: Risk Assessment for Changes to AI Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not retrieved (Semantic Scholar 429)",
+      "institution": "University of Southern California (incl. law), London Business School, Arizona State University",
+      "communitySignals": [
+        "not on HF Daily Papers 10-13/10-14",
+        "GitHub yzhao062/agent-risk with code, registrations, logs"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Sec 3 Proposition 3.1: logging sufficiency for exact replay",
+        "Sec 4.1: 7,200-episode log decides neither retry gate; snapshot reruns match live (approve gate 2, decline gate 1); P(harm) frozen then matched within 0.015",
+        "Sec 4.1: reruns cost 15% of live calls for both gates, half of post-hoc-sized live test",
+        "Sec 4.4: new model reproduced 0 of 99 logged episodes",
+        "Limitations: one open-weight family (14B/27B), honest agents, bash sandbox + airline env"
+      ],
+      "evidenceMaturity": "proof-of-concept",
+      "evidenceMaturityReason": "Small controlled demonstrations on one model family.",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "GitHub repo: code, registrations, logs"
+      ],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "Article cites only sandbox demonstrations without extrapolation.",
+      "primaryLimitation": "Model-release case unresolved; oversight-aware agents unbounded.",
+      "presentation": "mixed",
+      "presentationReason": "Dense formalism; Sec 4 readable.",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "Only candidate that addresses deployer-side evidence for approving agent changes from logs, matching today's regulatory evidence theme; formal results plus frozen-then-checked sandbox estimates."
+    },
+    {
+      "arxivId": "2610.17301",
+      "title": "The Agent Knew: Internal States Forecast Unauthorized Actions and Stop Them, and the Lies That Follow",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not retrieved (Semantic Scholar 429)",
+      "institution": "USC (Pedram group, per author list)",
+      "communitySignals": [
+        "not on HF Daily Papers 10-13/10-14"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "watch",
+      "reason": "Abstract reports preregistered odds ratio 7.0 and residual-stream forecast AUROC 0.94, but requires white-box access to open-weight models, so its practical link for API-based deployers is weaker than agent-risk's log-design guidance; method section not yet read.",
+      "rejectionCategory": "stronger-competitor"
+    },
+    {
+      "arxivId": "2610.14334",
+      "title": "Which Metadata Matters for LLM Tool Selection in MCP? Evidence from Controlled Factor-Level Interventions",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not retrieved (Semantic Scholar 429)",
+      "institution": "not recorded",
+      "communitySignals": [
+        "not on HF Daily Papers 10-13/10-14"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "watch",
+      "reason": "Controlled single-factor interventions over 367,174 MCP tools are relevant to tool design, but the topic is tool selection rather than evidence reliability; SWE-Misbehavior covers the tool-interface angle with broader framework coverage today. Abstract-level only.",
+      "rejectionCategory": "stronger-competitor"
+    },
+    {
+      "arxivId": "2610.14460",
+      "title": "Re-executing Coding-Agent Evaluations: Unchanged Decisions and Unresolved Policy Risk",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not retrieved (Semantic Scholar 429)",
+      "institution": "not recorded",
+      "communitySignals": [
+        "not on HF Daily Papers 10-13/10-14"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "watch",
+      "reason": "Preregistered re-execution of SWE-bench Pro / DGM archive returns mostly negative results with a 4.95% upper limit; overlaps the oracle-audit paper's theme but reports weaker, inconclusive findings. Abstract-level only.",
+      "rejectionCategory": "stronger-competitor"
+    },
+    {
+      "arxivId": "2610.14477",
+      "title": "What Counts as the Same Task? Executable Contracts for Robustness Evaluation of Tool-Using Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not retrieved (Semantic Scholar 429)",
+      "institution": "not recorded",
+      "communitySignals": [
+        "not on HF Daily Papers 10-13/10-14"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "watch",
+      "reason": "Embedding-threshold validity rules admitting 75-100% task-changing edits is a strong eval-validity finding, but narrower (robustness test construction) than the oracle-audit paper. Abstract-level only.",
+      "rejectionCategory": "stronger-competitor"
+    },
+    {
+      "arxivId": "2610.18497",
+      "title": "Judges Follow the Reference: The Derivation Gap in Verifying Tool-Call Arguments",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not retrieved (Semantic Scholar 429)",
+      "institution": "not recorded",
+      "communitySignals": [
+        "not on HF Daily Papers 10-13/10-14"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "watch",
+      "reason": "Derivation gap across seven tool-call judges is relevant to eval reliability; ranked below the oracle-audit paper because it measures judge bias rather than a concrete benchmark score distortion. Abstract-level only.",
+      "rejectionCategory": "stronger-competitor"
+    },
+    {
+      "arxivId": "2610.16911",
+      "title": "Audit tools of the trade: Automated Auditor Elicitation Can Be Sensitive to the Context the Auditor Is Given",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 AIWILD workshop (accepted)",
+      "citationCount": null,
+      "citationVelocity": "not retrieved (Semantic Scholar 429)",
+      "institution": "not recorded",
+      "communitySignals": [
+        "not on HF Daily Papers 10-13/10-14"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "watch",
+      "reason": "NeurIPS 2026 AIWILD workshop; Petri auditor context sensitivity on 1-10 scale is useful but effect sizes are small and limited to four auditor-target pairs. Abstract-level only.",
+      "rejectionCategory": "stronger-competitor"
+    },
+    {
+      "arxivId": "2610.17757",
+      "title": "Instructions Are Evidence, Not Objectives: Measuring Outcome Alignment of Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not retrieved (Semantic Scholar 429)",
+      "institution": "not recorded",
+      "communitySignals": [
+        "not on HF Daily Papers 10-13/10-14"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "watch",
+      "reason": "SWE-chat analysis (56% of instructions omit later-needed requirements) is interesting but about requirement inference, off today's evidence-reliability theme. Abstract-level only.",
+      "rejectionCategory": "stronger-competitor"
+    },
+    {
+      "arxivId": "2610.17020",
+      "title": "CWE-bench: Refocusing Agentic Security from Exploitation to Defense",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not retrieved (Semantic Scholar 429)",
+      "institution": "not recorded",
+      "communitySignals": [
+        "not on HF Daily Papers 10-13/10-14"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "watch",
+      "reason": "Private 120-task defensive benchmark; private held-out set limits reproducibility compared with selected papers' full artifacts. Abstract-level only.",
+      "rejectionCategory": "stronger-competitor"
+    },
+    {
+      "arxivId": "2610.15991",
+      "title": "Revocation Is Not Complete at Receipt: An Executable Outcome Contract for Distributed Agent-Tool Gateways",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "not retrieved (Semantic Scholar 429)",
+      "institution": "not recorded",
+      "communitySignals": [
+        "not on HF Daily Papers 10-13/10-14"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "",
+      "primaryLimitation": "",
+      "presentation": "not-assessed",
+      "presentationReason": "",
+      "relevance": "direct",
+      "novelty": "not-assessed",
+      "todayImportance": "not-assessed",
+      "practicalLink": "not-assessed",
+      "decision": "watch",
+      "reason": "Gateway revocation contract with 14-case fault matrix is relevant to governance, but evaluation is a derived audit of eight cases, thinner than agent-risk. Abstract-level only.",
+      "rejectionCategory": "stronger-competitor"
+    }
+  ]
+}
