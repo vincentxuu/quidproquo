@@ -1,12 +1,13 @@
 ---
-title: "Bug Bounty 獵人需要考證照嗎？四篇證照文怎麼讀、本系列 0-11 篇各去哪練" 2026-10-14
+title: "Bug Bounty 要不要考證照：系列 0–14 的練習與學習地圖"
+date: 2026-10-14
 category: tech
 type: guide
-difficulty: beginner
+difficulty: 入門
 tags: [bug-bounty, security, certification, career, owasp, learning-path]
 lang: zh-TW
-description: "系列 14：給沒有資安背景、想成為 Bug Bounty 獵人的讀者。三大計畫（Google VRP、Meta、MSRC Hyper-V）都不要求證照；證照對學習路徑與求職有用，不影響提交報告資格。本文標示站內四篇證照文哪段值得讀、哪段可略過，並將系列 0-11 篇對應免費練習資源。"
-tldr: "三大計畫規則頁都不要求證照；證照服務於學習路徑與求職。本文標示四篇證照文的「值得讀/可略過」表，並把系列 1-11 篇對應到免費練習平台（PortSwigger、OWASP Juice Shop、Hack The Box 等），最後給三種目標（轉職、好奇、拿賞金）的三個第一步。"
+description: "依漏洞研究、求職與自學目標選擇練習和證照；用系列 0–14 的成果地圖安排下一步。"
+tldr: "先完成可重現的練習報告，再依能力缺口決定課程或證照；證照不替你取得測試授權。"
 draft: false
 series:
   name: "從零開始的資安獵人"
@@ -15,126 +16,88 @@ series:
 
 > 🌏 [English version](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map-en)
 
-## TL;DR
+## 先決定要練什麼，再決定要不要考
 
-**三大計畫規則頁（Google VRP、Meta、MSRC Hyper-V）我都完整讀過，沒有一個要求證照。** 證照對 Bug Bounty 的作用是「學習路徑」與「求職」，不是「准入門檻」。本文：
-1. 逐條列出三大計畫的准入條件
-2. 把站內四篇證照文（總覽、AI 證照對決、ROI 拆解、台灣生態系）標記「值得讀 / 可略過」
-3. 將本系列 1-11 篇一一對應免費練習資源
-4. 依三種目標（轉職、好奇、拿賞金）給出三個第一步
+讀到系列第 14 篇，你已經看過規則、Web、工作台、報告，以及記憶體、虛擬機、TEE 與 AI 產品。接下來的問題是：要繼續練習，還是報名一張證照？
 
----
+我的建議是先完成一份自己能重現的練習報告。用它找出缺的是網路基礎、漏洞理解、工具操作，還是解釋影響的能力，再決定需要什麼課程或考試。OSCP、Security+、CISSP 對應的學習與職涯目的不同，沒有一張是本系列所有讀者的必經之路。
 
-## 情境
+證照也不會替你取得某個網站的測試授權。正式計畫的可測資產、禁止行為、參與與付款條件，要看該計畫當下的完整規則；這篇不替各計畫判定參與資格，也不估算賞金收入。
 
-你讀完前 13 篇，理解了 Bug Bounty 從規則、Web、工具、漏洞類型、報告寫作到深層技術（記憶體、VM、TEE、AI）與獎金地圖。現在你在問：
+## 站內四篇證照文章怎麼用
 
-- 「我要不要考 OSCP / Security+ / CISSP？」
-- 「這些證照對拿賞金有幫助嗎？」
-- 「每篇學的東西，到底去哪裡免費練習？」
+四篇證照文原本從軟體開發者與安全平台建構者的需求出發。漏洞研究者可以沿用它們的比較方法，再依自己的目標選讀。
 
-這篇就是為了回答這三個問題而寫。
-
----
-
-## 問題
-
-**誤區 1：以為要有證照才能提交報告。** 錯。Google VRP、Meta、MSRC 只看：Scope 內、可重現、有影響、報告品質。證照不在資格條件裡。
-
-**誤區 2：把「建構安全平台」的證照建議（如站內四文主打的 Security+ → AWS Security → AI Security → CISSP）直接套用到「進攻型」Bug Bounty。** 錯。OSCP 對進攻型是主幹道，對建構型才是繞路。
-
-**誤區 3：學完理論不知道去哪練。** 本系列每篇都有對應的免費靶場/平台，這篇集中列表。
-
----
-
-## 解決方案：三大計畫規則 + 證照文導讀 + 練習地圖
-
-### 1. 三大計畫准入條件（2026-10-14 完整閱讀）
-
-| 頁面 | 我找到的資格條件 | 需要證照？ |
+| 文章 | 優先看什麼 | 怎麼用在自己的決定 |
 |---|---|---|
-| **Google VRP Rules** | 目標在 Scope、技術性漏洞、僅測自己的帳號；參與者需年滿 18 歲（未滿 18 歲需父母代提交）；制裁名單上的人/地區不給獎金 | **否** |
-| **Meta Bug Bounty Scope** | 遵守負責任研究揭露政策、回報 Scope 內漏洞、用表單提交、測試時用測試帳號 | **否** |
-| **Microsoft Hyper-V Bounty (MSRC)** | Critical/Important 嚴重度、說明影響、非明顯時說明攻擊向量；頁面「建議」透過 MSRC Researcher Portal 提交（措辭是建議，非資格條件） | **否** |
+| [資安證照全景地圖](/posts/tech/2026-09-10-security-cert-landscape) | 基礎、攻防、應用安全與管理治理的分界 | 先選能力方向，不要把六類證照排成人人都要走完的階梯 |
+| [AI 安全證照橫評](/posts/tech/2026-09-10-ai-security-cert-showdown) | 它如何區分防護 AI 系統與使用 AI 進行攻防 | 比較課綱是否包含你要練的威脅與實作；名稱有 AI 不等於適合你的目標 |
+| [三大經典證照 ROI 拆解](/posts/tech/2026-09-10-security-cert-roi) | 準備時間、報名與維護成本的計算方式 | 為自己的時間與預算列帳；薪資估計不能直接當成賞金收入預測 |
+| [台灣證照生態系](/posts/tech/2026-09-10-taiwan-security-cert-ecosystem) | 職缺與訓練資源的閱讀方式 | 求職時對照自己想投的職位；企業合規需求與測試授權分開判斷 |
 
-**共同點**：評的是報告（Scope、重現步驟、影響），不評人（證照、學歷、背景）。Google 甚至把報告品質拆成維度，用乘數（0.8x/1.0x/1.2x）調整獎金 —— 這在系列第 1、6 篇都有講。
+想轉職，先找幾個你願意投的職缺，把要求的技能與證照分列。想練 Web 漏洞，先挑課綱與靶場是否符合需求。準備付款前，再回證照官方網站確認版本、費用與規則；本文不重列容易過期的價格與考試時數。
 
----
+## 系列 0–14 的練習地圖
 
-### 2. 站內四篇證照文：獵人視角的「值得讀 / 可略過」
+這張表依新版系列編號安排，檔名中的舊數字不代表目前篇次。每一列都有一個可留下的成果，方便判斷自己是不是真的做過。
 
-| 站內文章 | 值得讀（對獵人） | 可略過（對獵人） |
+| 篇次 | 主題與練習入口 | 留下什麼成果 |
 |---|---|---|
-| **總覽地圖** | 「六大軌道——找出你在哪一條」裡的「基礎安全」與「進攻安全」類別、「免費起手式」段落、三階段決策樹的邏輯 | 雲端安全、管理治理、各階段成本估算（寫給不同讀者） |
-| **AI 證照對決** | 「基準」段落（以 OWASP Top 10 for LLM Applications 為標尺），進攻段落的 COASP、OSAI+、HTB COAE（想測 AI 產品可看）；GIAC GOAA 是「用 AI 攻擊」非「測自己的 LLM」，可略過 | 四款 AI 證照的逐項比較（防禦/治理導向） |
-| **三大經典證照 ROI 拆解** | 它怎麼算「準備時間」與「維護成本」：報名前先把總成本加起來 | 薪資溢價與 ROI 倍數（測的是職場市場，非賞金收入） |
-| **台灣證照生態系** | 「真正的推力來自職缺」（怎麼讀職缺）、台灣本土證照段落、訓練機構比較裡的「進攻導向課程」 | 網安管理法、金管會人力分級、金融業法定訓練（企業合規義務，非個人測試的法律紅線） |
+| 0–1 | 總覽、規則與範圍：選一個計畫，只讀規則，不發送測試流量 | 一頁筆記：哪些資產可測、哪些方法禁止、哪裡仍不確定 |
+| 2–3 | 網站與工作台：對自己的本機服務使用瀏覽器開發工具、攔截代理或 curl | 同一個請求在不同工具裡的對照，標出 Cookie、參數與回應 |
+| 4 | XSS 與 IDOR：從 [PortSwigger Web Security Academy](https://portswigger.net/web-security) 的 XSS、Access control 題目選一題 | 說明哪一層缺少了哪個檢查，以及如何驗證修補 |
+| 5 | RCE：在 Academy 選 OS command injection 題目 | 畫出輸入如何到達執行命令的邊界，解釋為什麼修補有效 |
+| 6 | 報告與分流：用前一題的授權靶場練習寫報告 | 前置條件、重現步驟、觀察結果與影響，讓另一個人能照做 |
+| 7–8 | 記憶體與溢位：重跑系列本機範例，再依程度選 [pwn.college](https://pwn.college/) 的教材與挑戰 | 記錄輸入、程式狀態與結果；指出溢位發生的位置 |
+| 9–10 | VM、Hypervisor 與逃脫案例：重畫文章中的隔離邊界與公開案例路徑 | 區分 guest、host、受影響元件與漏洞前置條件，不把讀懂案例當成完成逃脫 |
+| 11 | TEE 與機密運算：對照文章引用的架構資料 | 一張威脅模型：要保護誰的資料、信任誰、哪些攻擊不在保護範圍 |
+| 12 | AI 產品漏洞計畫：閱讀目標計畫規則與 [OWASP LLM 風險清單](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | 把風險類別、可測範圍與合格報告條件分成三欄 |
+| 13 | 獎金地圖：回到各計畫官方獎勵頁 | 將最高金額與其必要條件一起記錄，不當成平均收入 |
+| 14 | 證照與學習地圖：回顧上述成果 | 選一個缺口、一個資源與下一次檢查成果的時間 |
 
-**關鍵轉換**：總覽文把 OSCP 列為「Excellent but too offense-focused for the goal of *building* a secure AI platform」，對獵人來說，把「for now」換成你的目標即可 —— 進攻型就是主幹道。
+Academy 官方頁提供免費教材與互動靶場。pwn.college 官方頁說明其平台開放免費參與，並請學員不要公開挑戰的解答、攻略影片或直播。練習時遵守各平台規則；自己的筆記與可公開的作品要分開處理。
 
----
+[OWASP Juice Shop](https://owasp.org/www-project-juice-shop/) 也是可用的練習專案，適合在自己的環境依官方說明部署。它是刻意有漏洞的應用；部署前先確認存取範圍，避免把練習服務暴露給其他人。上述資源是入口，並不表示本文已逐題完成所有挑戰。VM 與 TEE 的這份地圖以閱讀、重畫與威脅模型為主，不承諾有適合每位新手的現成靶場。
 
-### 3. 系列 1-11 篇對應免費練習資源
+## 三種目標，三個下一步
 
-| 系列篇次 | 主題 | 免費練習平台 | 關鍵關鍵字 |
-|---|---|---|---|
-| **1** | 規則與範圍 | 無（閱讀規則頁） | 直接去 Google VRP / Meta / MSRC 規則頁 |
-| **2** | 網站運作 | [Web Fundamentals](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/How_does_the_Internet_work) | HTTP、TLS、Cookie、Session |
-| **3** | 獵人工作台 | **PortSwigger Web Security Academy**（免費）、本系列附的 `shop.mjs` | Burp Proxy/Repeater、Copy as cURL |
-| **4** | XSS / IDOR | **PortSwigger: XSS labs**、**OWASP Juice Shop** | Reflected/Stored/DOM XSS、IDOR |
-| **5** | RCE | **PortSwigger: Command Injection**、**OWASP Juice Shop** | `system()`、`exec()`、反序列化 |
-| **6** | 報告與分流 | 無（寫作練習） | 套用第 6 篇模板、找真實報告範例參考 |
-| **7** | 記憶體怎麼用 | **CSAPP Ch.9-10 (免費書本)**、**Python `ctypes` 實驗** | Stack/Heap/Data/BSS/Text |
-| **8** | Buffer Overflow | **pwn.college**、**CTF Wiki: Stack Overflow** | `strcpy`、EIP 覆寫、ROP 入門 |
-| **9** | VM / Hypervisor | **Hack The Box: Free boxes**、**VMware Workstation Player (免費)** | Type 1/2/3、VMBus、vPCIe |
-| **10** | Hyper-V Escape | **Microsoft Learn: Hyper-V 文件**、**Hack The Box** | Partition、Hypercall、VMX |
-| **11** | TEE / Confidential | **Intel SGX SDK (免費)**、**AMD SEV 文件**、**Google Confidential Computing** | Enclave、Remote Attestation |
+### 想轉職
 
-> **推薦起手式**：先把 **PortSwigger Web Security Academy** 的 "SQL Injection"、"XSS"、"Command Injection"、"Authentication" 四個模組打完（約 20-30 小時），你就能動手做完系列 1-6 篇的所有實作。
+1. 找幾個具體職缺，分列必要技能、加分證照與工作內容。
+2. 選一個符合職務的靶場題目，做完後寫出能讓別人重現的說明。
+3. 對照職缺與自己的缺口，再比較課程或證照的內容、成本與準備安排。
 
----
+### 想弄懂原理
 
-### 4. 三種目標的三個第一步
+1. 從第 2–6 篇選一個本機例子，完整走過請求、漏洞與報告。
+2. 想看底層，再接第 7–10 篇；先把前置概念與隔離邊界說清楚。
+3. 用自己的話解釋一個修補為什麼有效。解釋不出來的地方，就是下次要補的內容。
 
-| 目標 | 第一步 | 第二步 | 第三步 |
-|---|---|---|---|
-| **轉職資安** | 考 **Security+**（基礎通行證） | 打通 **PortSwigger Academy** 核心模組 | 準備 **OSCP**（進攻主幹道） |
-| **純好奇 / 自學** | 讀完本系列 0-6 篇 + 打完 PortSwigger 核心模組 | 依興趣挑 7-11 篇深入 | 參加 **CTF**（pwn.college、Hack The Box） |
-| **想試著拿第一筆賞金** | 註冊 **Google VRP / Meta / HackerOne** 公開計畫 | 用系列 3 篇工作台 + `shop.mjs` 練習 | 找一個公開計畫，從規則讀起（系列 1 篇），提交第一份報告（系列 6 篇模板） |
+### 想嘗試正式漏洞計畫
 
----
+1. 先讀完整規則，確認目標、方法與個人參與條件；不確定的地方先向計畫確認。
+2. 先在授權靶場把相關類型練熟，記錄自己的假設與證據。
+3. 參照第 6 篇寫出報告結構，設定時間預算。若沒有證據支持漏洞，就不要把猜測寫成已確認的影響。
 
-## 為什麼會這樣：證照 ≠ 賞金入場券
+這三條路可以交錯走。證照能提供課綱或職涯訊號，練習成果能顯示你目前會什麼；兩者都不能保證找到新漏洞或獲得獎勵。
 
-1. **計畫評的是報告，不是人**：Scope、重現步驟、影響、品質 —— 這四項都不需要證照。
-2. **證照是結構化學習的捷徑**：OSCP 強迫你在 24 小時內打通一個網段，這比自己摸索快；但證照本身不保證你能找到漏洞。
-3. **求職才看證照**：HR 篩選履歷時 Security+、OSCP、CISSP 是關鍵字；Bug Bounty 平台不看。
+## 自我檢查
 
----
+- [ ] 我能區分學習資源、證照要求與測試授權。
+- [ ] 我有一份包含前置條件、重現步驟與影響的練習報告。
+- [ ] 我能指出自己下一個要補的能力缺口。
+- [ ] 如果要報名考試，我已查閱官方的當前版本與條件。
+- [ ] 我沒有把最高獎金、職場薪資或拿到證照當成收入保證。
 
-## 自我檢查（這篇重點：你決定好下一步了嗎？）
+## 更新紀錄
 
-- [ ] 你確認三大計畫規則頁都不要求證照
-- [ ] 你能說出 OSCP 對「進攻型」是主幹道、「建構型」才是繞路
-- [ ] 你知道系列 3 篇工作台對應 **PortSwigger Academy**，系列 4-5 篇對應 **OWASP Juice Shop / PortSwigger labs**
-- [ ] 你已經依你的目標（轉職/好奇/拿賞金）選出第一步
-- [ ] 你知道證照的 ROI 計算（薪資溢價）不適用於賞金收入估算
-
----
+- 2026-10-15：依新版系列 0–14 重整練習路線並同步英文；移除未支持的資格、免費書籍、虛擬機分類與固定備考時數說法，保留可操作的練習與證照選讀方向。
 
 ## 參考資料
 
-- [Google VRP Rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)
-- [Meta Bug Bounty Scope](https://bugbounty.meta.com/scope/)
-- [Microsoft Hyper-V Bounty](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)
-- [PortSwigger Web Security Academy](https://portswigger.net/web-security)
-- [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)
-- [pwn.college](https://pwn.college/)
-- [Hack The Box](https://www.hackthebox.com/)
-- [OffSec OSCP Exam Guide](https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide)
-- [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
-
----
-
-*這篇是系列 14（完結篇：證照與學習地圖），前面：Top Payouts Fact Check（13）。全系列 0-14 完。*
----
+- [PortSwigger Web Security Academy](https://portswigger.net/web-security)：免費教材與互動靶場入口。
+- [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)：刻意有漏洞的開源練習專案。
+- [pwn.college](https://pwn.college/)：練習平台、免費參與與分享解答的規則。
+- [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)：辨識 AI 應用風險的閱讀入口。
+- [Google VRP Rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)、[Meta Bug Bounty Scope](https://bugbounty.meta.com/scope/)、[Microsoft Hyper-V Bounty](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)：正式計畫規則入口；參與前須閱讀當前完整條款。
+- [OffSec OSCP Exam Guide](https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide)：考試資訊入口；本文不主張 OSCP 是所有漏洞研究者的必要路線。

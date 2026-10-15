@@ -16,14 +16,16 @@ tldr: "XSS 是網站把使用者輸入原樣放進網頁，讓別人的瀏覽器
 draft: false
 series:
   name: "從零開始的資安獵人"
-  order: 3
+  order: 4
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs-en)
 
-這是「從零開始的資安獵人」第 3 篇。上一篇[網站怎麼運作](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work)講了 HTTP、cookie 與 same-origin。這篇用那些基礎，看網站最常見的兩種洞：XSS 與 IDOR。第 0 篇[查證頂級獎金](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)時用到的 [Google 獎金表](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)，這篇會回頭把這兩類洞對到具體的格子。
+這是「從零開始的資安獵人」第 4 篇。[網站怎麼運作](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work)講了 HTTP、cookie 與 same-origin。這篇用那些基礎，看網站最常見的兩種洞：XSS 與 IDOR。第 13 篇[查證頂級獎金](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)時用到的 [Google 獎金表](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)，這篇會回頭把這兩類洞對到具體的格子。
 
 讀完你應該能做到一件事：看一段簡單的網頁程式碼，指出哪裡是 XSS、哪裡是 IDOR，並說出怎麼修。
+
+[上一章的工作台](/posts/tech/2026-10-15-bug-bounty-hunter-workbench)介紹如何觀察與重送請求。這裡用同一套操作，分清楚瀏覽器執行了什麼，以及伺服器允許誰讀取資料。
 
 ## 先講比喻
 
@@ -143,7 +145,7 @@ vuln.close(); fixed.close();
 
 ## 對回 Google 獎金表
 
-第 0 篇把獎金表當成「數字出處」，現在你可以看懂格子本身了。以下數字取自規則頁的獎金表（我於 2026-10-13 查看）。
+第 13 篇的獎金地圖會在技術篇之後回顧這些類別；這裡先學會看懂格子本身。以下數字取自規則頁的獎金表（我於 2026-10-13 查看）。
 
 | 類別 | 規則頁的例子欄 | T0（Tier 0 域名或全球影響） | T1 | T2（一般 Google 應用，如 *.google.com） |
 |---|---|---|---|---|
@@ -204,4 +206,6 @@ vuln.close(); fixed.close();
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security)
 - [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)
 - [OWASP WebGoat](https://owasp.org/www-project-webgoat/)
-- 本系列：[第 0 篇 Bug Bounty 頂級獎金查證](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)、[第 2 篇 網站怎麼運作](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work)、[第 4 篇 什麼是 RCE](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)
+- 本系列：[第 13 篇 Bug Bounty 頂級獎金查證](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)、[第 2 篇 網站怎麼運作](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work)、[第 5 篇 什麼是 RCE](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)
+
+[上一篇：第 3 篇](/posts/tech/2026-10-15-bug-bounty-hunter-workbench)・[下一篇：第 5 篇](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)

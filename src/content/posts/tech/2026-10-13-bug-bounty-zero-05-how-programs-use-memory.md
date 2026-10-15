@@ -15,16 +15,18 @@ tldr: "程式載入記憶體後，CPU 靠一個記錄「現在跑到哪」的位
 draft: false
 series:
   name: "從零開始的資安獵人"
-  order: 5
+  order: 7
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en)
 
-[上一篇](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)講的 RCE，場景還在網站：使用者輸入被拼進 shell 指令，或不可信的資料被還原成物件。下一階段要往更底層走，看程式在記憶體裡出的問題。這是整個系列最大的一道斷崖：前四篇你可以只靠瀏覽器和一點 Python 理解，接下來的漏洞卻發生在「資料放在哪個位置」這種層次。
+[RCE 那一篇](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)講的 RCE，場景還在網站：使用者輸入被拼進 shell 指令，或不可信的資料被還原成物件。下一階段要往更底層走，看程式在記憶體裡出的問題。這是整個系列最大的一道斷崖：前面的 Web 與報告篇你可以只靠瀏覽器和一點 Python 理解，接下來的漏洞卻發生在「資料放在哪個位置」這種層次。
 
 所以這一篇不談任何漏洞，只回答一個問題：**一支程式在電腦裡到底是怎麼跑的，資料和指令放在哪裡？** 讀完你應該能用自己的話說出：stack 上有哪些東西、函式結束時 CPU 怎麼知道要回哪裡。這兩件事，是下一篇緩衝區溢位的全部前提。
 
 先備知識只要寫過幾行任何語言的函式。範例用 C，因為 C 讓你直接看到位址；不需要會寫 C，照著跑、看輸出就好。
+
+[上一章的報告與分流](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value)走完了第一輪 Web 測試流程。接著讀底層漏洞前，先在這一篇補上讀懂範例需要的 C 與記憶體觀念。
 
 ## 先建立三個比喻
 
@@ -217,5 +219,7 @@ ASLR 的用意留到後面的篇章再談（我的概括：它讓「事先知道
 - [malloc(3)（Linux man-pages）](https://man7.org/linux/man-pages/man3/malloc.3.html)
 - [Getting the Return or Frame Address of a Function（GCC 文件）](https://gcc.gnu.org/onlinedocs/gcc/Return-Address.html)
 - [Documentation for /proc/sys/kernel/（Linux 核心文件，randomize_va_space）](https://www.kernel.org/doc/html/latest/admin-guide/sysctl/kernel.html)
-- [上一篇：Google 獎金表裡 RCE 為什麼最貴](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)
+- [前面的 RCE 篇](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)
 - [下一篇：緩衝區溢位與記憶體漏洞](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow)
+
+[上一篇：第 6 篇](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value)・[下一篇：第 8 篇](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow)

@@ -17,12 +17,12 @@ tldr: "Google multiplies the reward by 0.8, 1 or 1.2 depending on report quality
 draft: false
 series:
   name: "Bug Bounty from Zero"
-  order: 11
+  order: 6
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value)
+> 🌏 [繁體中文版](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value)
 
-This is part 11 of "Bug Bounty from Zero". The [previous post](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty-en) looked at how AI changes this field. This one comes back to two practical questions: once you find a bug, how do you write the report so it is not marked down? And is the whole thing worth your time?
+This is part 6 of "Bug Bounty from Zero". The [RCE chapter](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en) examined code execution on the server. This one comes back to two practical questions: once you find a bug, how do you write the report so it is not marked down? And is the whole thing worth your time?
 
 By the end you should be able to write a report from a one-page template, and use your own assumptions to compute a rough expected value that tells you how many hours to commit.
 
@@ -72,7 +72,7 @@ The rules page also says to be succinct: a short proof-of-concept link is more v
 
 ## Microsoft's approach: three quality levels, and Hyper-V asks the most
 
-The [Microsoft Hyper-V Bounty Program page](https://www.microsoft.com/en-us/msrc/bounty-hyper-v) ties quality directly into the reward table, not as a multiplier but as different maximums. Part 0 already covered the L1 guest escape rows: a working exploit with a high-quality report is up to $250,000; without an exploit, high quality is up to $200,000, medium $100,000, low $50,000. The column header says Maximum Award.
+The [Microsoft Hyper-V Bounty Program page](https://www.microsoft.com/en-us/msrc/bounty-hyper-v) ties quality directly into the reward table, not as a multiplier but as different maximums. Part 13 already covered the L1 guest escape rows: a working exploit with a high-quality report is up to $250,000; without an exploit, high quality is up to $200,000, medium $100,000, low $50,000. The column header says Maximum Award.
 
 The same page says a high-quality report gives an engineer what they need to quickly reproduce, understand and fix the issue. That typically means a concise write-up with background and a description of the bug, plus a proof of concept that **reproduces without relying on a debugger** for things like suspending threads or modifying memory or code.
 
@@ -109,9 +109,9 @@ Three habits while writing:
 2. **Separate what you tested from what you infer.** Put "I confirmed X" and "I suspect Y" in different sentences, which also keeps you out of the "theoretical or speculative" bucket.
 3. **Have someone follow your steps once.** A friend, a classmate, or yourself tomorrow. By Google's own description, your reader is a triaging security engineer, not you.
 
-## A worked example: a report on the toy IDOR program from part 3
+## A worked example: a report on the toy IDOR program from part 4
 
-The target is the `demo.mjs` from [part 3](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs-en), which binds only to `127.0.0.1`. It is not any real website. The report below is a format demonstration; the bug and the output come from that post.
+The target is the `demo.mjs` from [part 4](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs-en), which binds only to `127.0.0.1`. It is not any real website. The report below is a format demonstration; the bug and the output come from that post.
 
 ```text
 Title: Notes demo: GET /notes/{id} lacks an ownership check, any logged-in user can read other users' notes (IDOR)
@@ -122,7 +122,7 @@ not that the note belongs to the requester.
 alice, using her own session, requests /notes/2 and receives bob's full note.
 
 Target information
-- Program: demo.mjs (the toy program from part 3 of this series, vulnerable instance)
+- Program: demo.mjs (the toy program from part 4 of this series, vulnerable instance)
 - Environment: Node.js v22.22.0, server bound to 127.0.0.1 only
 - Test accounts: alice (session=alice-token), bob (session=bob-token), both built-in fake data
 
@@ -153,7 +153,7 @@ After loading the note, compare note.owner with the logged-in user and return 40
 does this; alice reading her own id=1 still works.
 
 Attachment
-Full demo.mjs output (recorded in part 3).
+Full demo.mjs output (recorded in part 4).
 ```
 
 ### Field by field against Google's quality table
@@ -231,7 +231,7 @@ My suggestion: do not treat this as an income source to calculate. Treat it firs
 1. **Set an hour cap first.** For example 5 hours a week for 12 weeks, 60 hours total. This is what you are willing to pay for learning, not money you expect to earn back.
 2. **Keep your own books.** For each attempt, write down the hours and what happened: judged a duplicate, invalid, out of scope, or nothing found. After three months you have ratios of your own, which will beat any number I could give you.
 3. **Recompute with your own ratios.** Plug your records into the formula above. If the hourly expectation is far from what your time is worth, and the learning is not enough to make up for it, cut back.
-4. **Skip cells that need a lot of prior skill and start with what you can do.** Part 0 showed that top payouts often depend on a working exploit and a high-quality report, a much higher bar than ordinary web bugs.
+4. **Skip cells that need a lot of prior skill and start with what you can do.** Part 13 showed that top payouts often depend on a working exploit and a high-quality report, a much higher bar than ordinary web bugs.
 
 These points are my judgment, not any program's advice.
 
@@ -239,7 +239,7 @@ These points are my judgment, not any program's advice.
 
 1. Open the Report quality table on the [Google VRP rules page](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules), compare it with the example report above, and mark the weakest row in red.
 2. Open [MSRC's example report page](https://www.microsoft.com/en-us/msrc/bounty-example-report-submission) and list three differences between the high- and low-quality examples.
-3. Run part 3's `demo.mjs` once, then use the template to write a report for the XSS section. Only the toy program, never a real site.
+3. Run part 4's `demo.mjs` once, then use the template to write a report for the XSS section. Only the toy program, never a real site.
 4. On a sheet of paper, write your own three assumptions (probability, amount, hours), compute the hourly expectation, and write down the total hours you plan to commit.
 
 ## Limits
@@ -250,7 +250,7 @@ These points are my judgment, not any program's advice.
 - All probabilities and hours in the expected-value section are assumptions. I did not cite HackerOne or Bugcrowd annual reports because I did not find figures that map to beginners, and I did not want to lean on an unrelated sample.
 - This post does not teach how to exploit bugs. Test scope and legal boundaries are in part 1.
 
-Next is [certifications and a learning map](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map-en).
+Next is [how programs use memory](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en), the bridge into lower-level bugs. The practice and certification plan returns in part 14.
 
 ## References
 
@@ -260,4 +260,6 @@ Next is [certifications and a learning map](/posts/tech/2026-10-14-bug-bounty-ze
 - [Microsoft Hyper-V Bounty Program (MSRC)](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)
 - [Example Report Submissions to the MSRC (quality definitions and examples)](https://www.microsoft.com/en-us/msrc/bounty-example-report-submission)
 - [Meta Bug Bounty: Program scope](https://bugbounty.meta.com/scope/) (invalid-report reasons, duplicates, payout factors)
-- In this series: [Part 0 Top payouts fact check](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en), [Part 1 Rules and scope](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en), [Part 3 XSS and IDOR](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs-en), [Part 10 Bounties in the AI era](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty-en), [Part 12 Certifications and learning map](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map-en)
+- In this series: [Part 13 Top payouts fact check](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en), [Part 1 Rules and scope](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en), [Part 4 XSS and IDOR](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs-en), [Part 12 Bounties in the AI era](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty-en), [Part 14 Certifications and learning map](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map-en)
+
+[Previous: part 5](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en) · [Next: part 7](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en)

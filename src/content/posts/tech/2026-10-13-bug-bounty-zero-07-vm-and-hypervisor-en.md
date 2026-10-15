@@ -14,12 +14,12 @@ tldr: "A hypervisor is the software layer between hardware and several operating
 draft: false
 series:
   name: "Bug Bounty from Zero"
-  order: 7
+  order: 9
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)
+> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)
 
-The [previous post](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow-en) covered memory bugs, the "a program makes its own mistake" side of the story. This one covers the "wall" side: how one physical computer gets sliced up for many people, and what the walls between them are made of. By the end you should be able to explain what an L1 guest escape and an L2 guest escape each mean in the [Hyper-V bounty table](https://www.microsoft.com/en-us/msrc/bounty-hyper-v), and where the $250,000 figure from [post 0 of the series](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en) sits in it.
+The [previous post](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow-en) covered memory bugs, the "a program makes its own mistake" side of the story. This one covers the "wall" side: how one physical computer gets sliced up for many people, and what the walls between them are made of. By the end you should be able to explain what an L1 guest escape and an L2 guest escape each mean in the [Hyper-V bounty table](https://www.microsoft.com/en-us/msrc/bounty-hyper-v), and where the $250,000 figure from [post 13 of the series](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en) sits in it.
 
 This post covers concepts and how to read the table. It does not cover any specific vulnerability or any escape technique. A concrete case comes in the [next post](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en).
 
@@ -42,7 +42,7 @@ The split is rough. Learn's architecture page says Hyper-V needs at least one pa
 
 Learn's architecture page states that Hyper-V requires a processor with hardware-assisted virtualization, such as Intel VT or AMD Virtualization (AMD-V). A separate page on [nested virtualization](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/nested-virtualization) calls them Intel VT-x and AMD-V and says Hyper-V relies on these processor extensions to run VMs.
 
-Those pages do not go into what the extensions do at the hardware level, so this post will not invent details. What the sources do support: Hyper-V requires such a processor, and per the architecture page, partitions get a virtual view of the processor rather than touching the physical one, with processor interrupts handled by the hypervisor and redirected to the right partition.
+At the level needed here, Hyper-V requires hardware-assisted virtualization; partitions see a virtual processor view, and the hypervisor handles interrupts and redirects them to the relevant partition.
 
 ## A building analogy, and where it breaks
 
@@ -55,16 +55,16 @@ Those pages do not go into what the extensions do at the hardware level, so this
 
 The analogy misleads in a few places, so here they are up front:
 
-1. **The management office is not a separate person.** Red Hat's page says the physical hardware still does the execution, and the hypervisor manages scheduling. What follows is my own summary, not Red Hat's: the walls are not concrete; they are hardware support in the processor plus software checks by the hypervisor. What Learn does support is that Hyper-V requires a processor with hardware-assisted virtualization, partitions see a virtual view of the processor, the hypervisor takes over interrupts, and the glossary also lists the IOMMU for device isolation.
+1. **The management office is not a separate person.** Physical hardware executes instructions, while the hypervisor manages scheduling. The analogy’s walls stand for isolation mechanisms: Learn describes hardware-assisted virtualization, virtual processor views, interrupt forwarding and the IOMMU for device isolation.
 2. **The other side of the wall is not empty.** Per Learn, Hyper-V's root partition has direct access to physical hardware and child partitions (the guests) do not. They see virtual devices, and requests are redirected over the VMBus or the hypervisor to the root partition. The analogy needs a back office that runs errands for tenants, and tenants get their equipment through it.
 3. **Walls stack.** Nested virtualization, next section, is a tenant subletting a room, and the subtenant gets walls of their own.
-4. **This is the Hyper-V version.** Hypervisors differ in architecture. Red Hat's page lists KVM, Hyper-V and VMware vSphere as Type 1 examples and also mentions Xen as an open source option, VMware's ESXi and vSphere, and KVM being merged into the Linux kernel in 2007. I found no reliable source for the architectural differences between them in what I read, so I leave them out.
+4. **This is the Hyper-V version.** KVM, Xen and VMware systems have different architectures. This building illustrates the Hyper-V components discussed here, rather than a universal implementation diagram for every hypervisor.
 
 ## Nested virtualization, L1 and L2
 
 Learn's nested virtualization page says the feature lets you run Hyper-V inside a Hyper-V VM. With it enabled, Hyper-V exposes the hardware virtualization extensions to its VMs, so a guest VM can install its own hypervisor and run its own guests. The listed uses include test labs and Hyper-V isolation for containers. The page adds that a Hyper-V isolated container runs inside a highly optimized VM, so when the container host is itself a Hyper-V VM the setup is nested, and one level of nesting is supported in production.
 
-The L1 and L2 in MSRC's table map as follows. This is my reading of the wording, not a definition the page gives:
+A nested-virtualization diagram offers the following way to understand the starting points in MSRC’s table. Actual eligibility still depends on the table’s stated starting position and target:
 
 - **L1 guest**: a VM running directly on the Hyper-V host.
 - **L2 guest**: a VM running inside an L1 guest, where that L1 guest has installed a hypervisor of its own.
@@ -92,12 +92,12 @@ flowchart TB
 
 ## Which wall each cell of the bounty table is
 
-I read the full MSRC page on 2026-10-13. It splits RCE into two tables, each opening with what counts:
+MSRC separates RCE into two tables, each beginning with the qualifying starting position and outcome:
 
 - **L1 guest escape**: an RCE vulnerability in Hyper-V that lets an L1 guest VM compromise the hypervisor, escape from the guest VM to the host, or escape to another L1 guest VM.
 - **L2 guest escape**: an RCE vulnerability in Hyper-V that lets an L2 guest VM compromise the L1 hypervisor, escape to the L1 host, or escape from one L2 guest VM to another.
 
-[Post 4](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en) covers what RCE means. The amounts (the page labels them maximum awards) are:
+[Post 5](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en) covers what RCE means. The amounts (the page labels them maximum awards) are:
 
 | Functioning exploit? | Report quality | L1 escape | L2 escape |
 |---|---|---|---|
@@ -117,9 +117,9 @@ Translating the wording into walls:
 | Between an L2 guest and the L1 host | escape to the L1 host | L2 |
 | Between two L2 guests | escape to another L2 guest | L2 |
 
-One thing worth noticing: the L2 table names the L1 hypervisor and the L1 host as targets, not the physical machine. And per Learn, an L1 guest is itself a guest running on Hyper-V. My judgment is that the lower L2 ceiling may reflect it crossing a more inner wall, but the page does not explain its pricing, so that is only a guess.
+The L2 table names the L1 hypervisor and L1 host as targets, and L1 is itself a guest layer. Read where the attack starts and ends; payout size alone does not establish the relative difficulty of the bugs.
 
-The same page has two other award classes. The MSRC page does not tie them to the L1 and L2 tables above; saying they hit the same walls is my own summary. Their outcome is not code execution:
+The same page lists denial of service and information disclosure separately. These concern availability and confidentiality, so their outcome requirements should not be replaced with the RCE requirements:
 
 - Denial of service: a non-transient crash of the host, a failure to start or stop VMs or the host that needs manual intervention or leaves the host unusable for 15 minutes or more. Up to $15,000.
 - Information disclosure: gaining sensitive information from the host or from another guest. Up to $25,000.
@@ -130,15 +130,15 @@ Finally, scope. The page says the program targets server hosting scenarios (Azur
 
 ## Why this kind of bug pays so much
 
-First, what the sources support.
+First consider who an isolation failure can affect.
 
 **One physical machine, many customers.** [Azure's isolation documentation](https://learn.microsoft.com/en-us/azure/security/fundamentals/isolation-choices) says Azure runs applications and VMs on shared physical infrastructure. The benefit is spreading cost across tenants; the risk is sharing physical servers with VMs that may belong to an "arbitrary and potentially malicious user". The same page says Azure's compute platform is based on machine virtualization, all customer code runs in a Hyper-V VM, a hypervisor on each node runs directly over the hardware and divides the node into guest VMs, and the hypervisor and root OS manage the isolation of guest VMs from one another.
 
 **A broken wall affects more than one machine.** Per Red Hat, a compromised VM should not impact the whole system, but if the hypervisor itself is hacked, that can cause problems for all the VMs it manages, leaving each one's data vulnerable. Azure's page also describes a cross-VM attack as two steps: placing an adversary-controlled VM on the same host as the victim, then breaching the isolation boundary.
 
-That is what the sources say. What follows is my judgment: put those two together and one customer's code may reach other customers' data on the same machine, which is the thing a cloud service least wants to happen, and I think that is one of the reasons the top award is so high. Difficulty is another reason ([post 0](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en) already discussed the skill bar for this kind of bug). But MSRC's page never says how it sets prices, so strictly only the first paragraph above is sourced; the rest is inference.
+When reading a report, ask whether the attacker can affect other tenants from their own guest, or gain host privileges. These questions make the impact more concrete than “a high-risk VM bug.” Compare the award conditions with the [payout map in part 13](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en).
 
-Azure's page also mentions isolated VM sizes, which it says guarantee your VM is the only one on that server, and dedicated hosts, physical servers dedicated to a single subscription. My inference is that Azure treats sharing a physical machine as a risk customers can choose to avoid, but the page does not say so. The same page also says Azure uses a VM placement algorithm and protection against known side-channel attacks to reduce the risk of cross-VM attacks; it does not discuss the price of the isolation options.
+Azure also offers isolated VM sizes, where a VM is the only one on its server, and dedicated hosts reserved for a single subscription. For shared infrastructure, VM placement algorithms and defenses against known side-channel attacks help reduce cross-VM risk. Deployment choices still depend on the isolation requirements and service conditions.
 
 ## An intuition for the attack surface: where the doors are
 
@@ -151,7 +151,7 @@ If the wall is the isolation between guest and host, the places where guest and 
 
 MSRC's page echoes this: attacks against the virtualized network stack (VMSwitch is its example) are in scope, while attacks that need the VM to send traffic to the host's own TCP, SMB or RPC listeners are not.
 
-To be clear, Learn only describes how these components work. It does not say they are where bugs come from. "These paths deserve extra scrutiny" is my intuition, not a conclusion from the sources. Which components have actually had problems is for the next post.
+This component list is a map of cross-boundary data paths, not evidence that each interface contains a bug. The next post follows one path involved in a documented vulnerability.
 
 ## A look inside the sandbox: we are already in a virtual environment
 
@@ -181,16 +181,16 @@ ls: cannot access '/dev/kvm': No such file or directory
 How to read it:
 
 - `lscpu` reports the hypervisor vendor as KVM, so there is a hypervisor under this environment and it is KVM. The `virtual` on the first line is just the number of virtual address bits, unrelated to virtualization; grep matched the word.
-- `systemd-detect-virt` with no argument says `docker`, and only with `--vm` does it say `kvm`. My reading is that the sandbox is a container (docker) on a machine that is itself a KVM virtual machine: two layers. On the container-versus-VM difference, Red Hat says a container is a set of processes isolated from the rest of the system, while a VM brings its own operating system.
-- `vmx` and `svm` are the flag names for Intel and AMD hardware virtualization in `/proc/cpuinfo`. I checked them against the [Linux kernel's cpufeatures.h](https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/cpufeatures.h): `X86_FEATURE_VMX` is commented `"vmx" Hardware virtualization` and `X86_FEATURE_SVM` is commented `"svm" Secure Virtual Machine`, and the file header says the quoted string is what `/proc/cpuinfo` shows. This machine has neither, and `/dev/kvm` does not exist. My inference is that this guest was not given the hardware virtualization feature, so it could not run a hardware-accelerated VM of its own. In other words, this sandbox is a guest with nested virtualization not offered to it. I did not investigate the underlying provider or configuration; the output is all I can report.
+- `systemd-detect-virt` returns `docker` by default and `kvm` with `--vm`. That combination is consistent with a container inside a KVM guest. Red Hat distinguishes containers as isolated processes and VMs as environments with their own operating systems; the two can be layered.
+- `vmx` and `svm` are the Intel and AMD hardware-virtualization flag names in `/proc/cpuinfo`; see the [Linux kernel’s cpufeatures.h](https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/cpufeatures.h). Neither flag nor `/dev/kvm` is present here. This output therefore does not establish that KVM-accelerated nested VMs can run in this environment. It also does not identify the underlying provider’s virtualization configuration.
 
 It is a tiny experiment, but it shows the point of this post: the environment you use every day may already be a guest on someone's hypervisor, with the wall one layer below where you can see.
 
 ## Limits
 
 - This post is built around Hyper-V. Other hypervisors (KVM, Xen, VMware) have different architectures and attack surfaces that I did not cover, apart from the classification details Red Hat's page states outright.
-- The L1 and L2 mapping is my reading of MSRC's wording; the page gives no formal definition.
-- I did not read Intel's or AMD's official manuals, so CPU hardware virtualization goes only as far as Microsoft's documents say; the `vmx` and `svm` flag names were checked only against the Linux kernel's cpufeatures.h, not the manuals themselves.
+- L1 and L2 in the diagram describe nested levels. A report must separately state the actual starting privileges, affected component and escape target.
+- Hardware virtualization is covered only at the interface level described by Microsoft; processor instructions and microarchitecture are outside this post.
 - Award amounts come from the page as read on 2026-10-13 (its last revision entry is April 2026). The official current version is the authority.
 
 ## Next step
@@ -205,8 +205,10 @@ The next post goes from the bounty table to a real Hyper-V guest-escape case, to
 - [Isolation in the Azure public cloud (Microsoft Learn)](https://learn.microsoft.com/en-us/azure/security/fundamentals/isolation-choices)
 - [What is a hypervisor? (Red Hat)](https://www.redhat.com/en/topics/virtualization/what-is-a-hypervisor)
 - [cpufeatures.h (Linux kernel source)](https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/cpufeatures.h)
-- [Series post 0: Bug Bounty top payouts, fact-checked](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)
+- [Series post 13: Bug Bounty top payouts, fact-checked](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)
 - [Series post 1: Rules and scope](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en)
-- [Series post 4: What is RCE](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en)
-- [Series post 6: Memory bugs and buffer overflow](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow-en)
-- [Series post 8: A Hyper-V escape case](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en)
+- [Series post 5: What is RCE](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en)
+- [Series post 8: Memory bugs and buffer overflow](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow-en)
+- [Series post 10: A Hyper-V escape case](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en)
+
+[Previous: part 8](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow-en) · [Next: part 10](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en)

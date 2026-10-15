@@ -15,10 +15,10 @@ tldr: "A buffer overflow is data written past the space set aside for it, clobbe
 draft: false
 series:
   name: "Bug Bounty from Zero"
-  order: 6
+  order: 8
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow)
+> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow)
 
 [The previous post](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en) covered how a program uses memory: where variables live, how the stack differs from the heap, and where a function returns to when it finishes. This post asks one concrete question: why can writing a few characters too many let someone take control of a program? By the end you should be able to read a short C program, point at the line that can overflow and say why, and rewrite it with a length-limited call.
 
@@ -172,7 +172,7 @@ Compilers and operating systems add several layers. This section only names them
 | ASLR | Randomizes where the program and libraries sit in memory so addresses are hard to predict | The CWE entries say it is not a complete solution: a bug that discloses addresses can raise reliability, and a side-channel attack has been shown to bypass ASLR |
 | NX / DEP | Marks data pages non-executable; running code from a data page raises an exception | [Microsoft's docs](https://learn.microsoft.com/en-us/windows/win32/memory/data-execution-prevention) say DEP "is not intended to be a comprehensive defense against all exploits"; CWE-120 adds that an overflow can still overwrite nearby variables to change the program's state |
 
-My own judgment is that these layers stop different things and work best together; none of them makes an overflow harmless. That matches CWE-120's general statement that most mitigating technologies at the compiler or OS level address only a subset of buffer overflow problems and rarely provide complete protection against even that subset.
+These defenses address different stages and need to work together. CWE-120 warns that most compiler- or OS-level mitigations cover only a subset of overflow problems and rarely provide complete protection.
 
 The most direct check is one I ran myself: I compiled the same vulnerable program with Ubuntu's default gcc options (no extra flags), and `AAAAAAAAA` still printed `is_admin = 65` and still went to the admin page. I inspected that default binary with `readelf`: `readelf -lW` shows the `GNU_STACK` flags as `RW` (no `E`, so NX is on), `readelf -sW` finds `__stack_chk_fail` (the stack canary symbol is present), and `readelf -hW` reports type `DYN` (PIE). With all of those apparently on, the flag still became 65. I did not look up which other defenses the default build enables, so all I can say is that on my machine this demo was not stopped. So turning protections off earlier only made results more consistent across machines; it was not what made the demo work. The result echoes CWE-120's note on NX: an overflow can still overwrite nearby variables and change the program's state in dangerous ways.
 
@@ -190,11 +190,11 @@ Rust is the usual example. [The Rust book](https://doc.rust-lang.org/book/ch03-0
 
 One easy misreading first. In the reward table of the [Google VRP rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules), the top row is Remote code execution (S0) under "Vulnerabilities giving direct access to Google servers", with the examples "Command injection, deserialization bugs, sandbox escapes". The words buffer overflow do **not** appear. The table's categories are by impact (direct access to servers), and the examples column lists just three. The same page's "Qualifying vulnerabilities" list includes "Server-side code execution bugs".
 
-So only one statement is justified: an overflow is a cause, and if its consequence is arbitrary code execution, it falls under the RCE row by category. OWASP and CWE say overflows often can be used to execute arbitrary code, which is the sources' claim; "so it lands in that row" is my inference. Whether any particular cell of the reward table was earned through a buffer overflow, the rules page does not say and I found no reliable source, so this post does not speculate.
+An overflow is a cause; RCE is one possible outcome. To map a report onto a bounty table, first establish whether arbitrary code execution is possible, then check the target and category. A crash alone does not establish RCE.
 
 ## Limits
 
-This is an introduction and leaves several things out. The demo overflows between adjacent fields of one struct so that the result is stable and easy to observe; real stack and heap overflows face more layers of defense, and real exploitation is far more complicated than anything here. The demo was run only on x86-64 Linux, and the number 65 is, in my judgment, tied to this platform storing the low byte of an integer first, so the number may differ elsewhere. And an overflow is only one kind of memory error; use-after-free, format string bugs and others are not covered.
+This introductory demo observes writes between adjacent fields of one struct, not a complete exploit chain. The output comes from x86-64 Linux: `is_admin = 65` is the observed result, not a portable promise across platforms or compiler settings. Real exploitation faces further defenses. Use-after-free, format-string bugs and other memory errors are outside this post.
 
 ## What you can do tonight
 
@@ -223,7 +223,7 @@ gcc -g -O1 -fsanitize=address -fno-omit-frame-pointer -U_FORTIFY_SOURCE -D_FORTI
 ./vuln2 AAAAAAAAAAAA
 ```
 
-Why the extra flags: `-O1` and `-fno-omit-frame-pointer` are the Clang docs' recommendations for reasonable performance and nicer stack traces. `-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0` is something my sandbox forced: without it, the program was stopped by a different check before ASan could report, printing only `*** buffer overflow detected ***: terminated`. My judgment is that this comes from glibc's `_FORTIFY_SOURCE` (the `strcpy` man page points to that mechanism right after saying the behavior is undefined when the destination is too small), but I did not verify that causal link in depth. Actual output, trimmed to the key lines:
+The extra flags have distinct roles. `-O1` and `-fno-omit-frame-pointer` follow the Clang documentation’s recommendations for performance and clearer stack traces. This sandbox also uses `-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0`: without it, a different check stops the program first and prints only `*** buffer overflow detected ***: terminated`. This comparison records the observed difference between settings; it does not establish which mechanism intervened first. Here is the trimmed output:
 
 ```text
 name = alice
@@ -258,7 +258,7 @@ is_admin = 65
 -> admin page
 ```
 
-ASan reported nothing, and the decision was still changed. I am sure only that this happened; I found no documentation giving the reason. My guess is that ASan places guard zones between separate objects, while `name` and `is_admin` are part of one struct with no guard zone between them, but that is a guess, not something the docs say. The lesson is that tools have blind spots, and no report does not mean no bug. CISA's alert likewise says only that, in a codebase with significant unit test coverage, such tools can detect many (but not all) memory safety issues.
+In this test involving fields of the same struct, ASan reported no error and the program still entered the admin branch. A clean tool run therefore cannot establish that the program is safe. This result alone also does not identify the internal reason for the missed report. CISA likewise says such tools can detect many memory-safety issues in codebases with sufficient test coverage, not all of them.
 
 One last warning: the Clang docs say ASan is a bug-detection tool whose runtime was not developed with security-sensitive constraints in mind and should not be linked into production executables. Practice on your own machine.
 
@@ -277,5 +277,7 @@ If you want to go one step further, fix `vuln2.c` (with `snprintf` and a length 
 - [fprintf(3p), including snprintf (POSIX, man7.org)](https://man7.org/linux/man-pages/man3/fprintf.3p.html)
 - [Data Types: Invalid Array Element Access (The Rust Programming Language)](https://doc.rust-lang.org/book/ch03-02-data-types.html)
 - [Google and Alphabet VRP Rules (Google Bug Hunters)](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)
-- [How Programs Use Memory (series part 5)](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en)
-- [VMs and Hypervisors (series part 7)](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en)
+- [How Programs Use Memory (series part 7)](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en)
+- [VMs and Hypervisors (series part 9)](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en)
+
+[Previous: part 7](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en) · [Next: part 9](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en)

@@ -15,7 +15,7 @@ tldr: "RCE 是讓外人在別人的機器上執行程式。Google 獎金表裡�
 draft: false
 series:
   name: "從零開始的資安獵人"
-  order: 4
+  order: 5
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en)
@@ -37,7 +37,7 @@ RCE 是 Remote Code Execution，遠端程式碼執行：攻擊者不用坐在那
 | 邏輯漏洞／IDOR（Tier 1 資料或重要操作） | Direct object reference、remote user impersonation | 13,337 美元 |
 | XSS | Cross-site scripting | 10,000 美元 |
 
-最敏感的 Tier 0 與 Tier 1 網域，RCE 是 101,010 美元，XSS 是 20,000 與 15,000 美元。規則頁在腳註裡說明，Tier 0 網域是「重大漏洞（例如 XSS 或 RCE）可能導致使用者帳號被入侵，或讓程式碼在使用者系統上執行」的網域。獎金多寡以官方當時版本為準，最後金額由審查小組決定，並乘上報告品質係數。這些數字怎麼讀，[系列第 0 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)已經逐格對過。
+最敏感的 Tier 0 與 Tier 1 網域，RCE 是 101,010 美元，XSS 是 20,000 與 15,000 美元。規則頁在腳註裡說明，Tier 0 網域是「重大漏洞（例如 XSS 或 RCE）可能導致使用者帳號被入侵，或讓程式碼在使用者系統上執行」的網域。獎金多寡以官方當時版本為準，最後金額由審查小組決定，並乘上報告品質係數。這些數字怎麼讀，[系列第 13 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)已經逐格對過。
 
 表上看得到的是分類：Google 把 RCE 列為直接取得伺服器存取，這個分類暗示了它為什麼貴。另一半是難度，表上沒有寫。找到能用的 RCE 通常比找到一個 XSS 難，這是我的判斷，不是規則頁的內容。
 
@@ -178,9 +178,11 @@ JSON 不認這包東西： UnicodeDecodeError
 - [Deserialization Cheat Sheet（OWASP）](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
 - [subprocess: Security Considerations（Python 官方文件）](https://docs.python.org/3/library/subprocess.html#security-considerations)
 - [pickle（Python 官方文件）](https://docs.python.org/3/library/pickle.html)
-- [Bug Bounty 頂級獎金查證（系列第 0 篇）](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
+- [Bug Bounty 頂級獎金查證（系列第 13 篇）](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
 - [資安警報｜LangGraph Checkpointer：SQL injection 串接反序列化成 RCE](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce)
 - [資安警報｜一封信接管 Manus AI Agent](/posts/daily/2026-10-03-security-manus-email-jsfuck-rce)
 - [From SQLi to RCE - Exploiting LangGraph's Checkpointer（Check Point Research）](https://research.checkpoint.com/2026/from-sqli-to-rce-exploiting-langgraphs-checkpointer/)
 - [GHSA-9rwj-6rc7-p77c（LangGraph security advisory，GitHub）](https://github.com/langchain-ai/langgraph/security/advisories/GHSA-9rwj-6rc7-p77c)
 - [Manus 一封信被劫持的原始研究（Salt Labs）](https://salt.security/blog/how-we-hijacked-an-ai-agent-with-a-single-email)
+
+[上一篇：第 4 篇](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)・[下一篇：第 6 篇](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value)

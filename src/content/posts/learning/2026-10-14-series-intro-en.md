@@ -11,56 +11,43 @@ series:
 draft: false
 ---
 
-## What Is This Series?
+## What this series asks
 
-The series "How to Write Teaching Articles" records the full process of writing good teaching‑ and learning‑related articles: from rules, structure, and fact‑checking to final polish. It contains 30 pieces (order 0–29) meant to be read in sequence; each post opens with a small map showing "where we are now".
+Do examples, diagrams, and questions necessarily make a teaching article more effective? “How to Write Teaching Articles” starts with practical decisions and examines research comparisons, limits, and possible writing choices. It covers instructional design.
 
-## Reading Order
+The series runs from order 0 to 29. This introduction is the entry point; articles 1–28 examine writing decisions, and article 29 uses this site's writing and review pipeline as a case study. The numbers provide navigation, rather than a qualification or assessment of the reader's skills.
 
-### orders 0–6: one full flow
-From rules, how websites work, the hunter's toolkit, to writing a report—this walks you through a complete bug‑bounty cycle once.
+## Choose an entry point
 
-### orders 7–11: why the most valuable bugs are low‑level
-Memory → overflow → VM → real escape cases → TEE.
+| Range | Your question | Start here |
+|---|---|---|
+| 1–4 | How should I explain examples, diagrams, code, and terminology? | [Examples and openings](/posts/learning/2026-10-13-teaching-text-evidence-en) |
+| 5–7 | Where should video go, and should figures be interactive? | [Video in teaching articles](/posts/learning/2026-10-13-instructional-video-in-articles-en) |
+| 8–11 | What should readers do, and how much guidance should I give? | [Do readers answer embedded questions?](/posts/learning/2026-10-14-do-readers-answer-embedded-questions-en) |
+| 12–15 | How do prior knowledge, misconceptions, interest, and judgments of understanding matter? | [Prior knowledge and reader level](/posts/learning/2026-10-14-prior-knowledge-reader-level-en) |
+| 16–19 | How should review, sequence, and continued reading work? | [Series order](/posts/learning/2026-10-14-series-order-in-teaching-articles-en) |
+| 20–24 | What about peers, comments, teaching others, accessibility, and bilingual reading? | [Learning alone or together](/posts/learning/2026-10-14-learning-alone-vs-together-en) |
+| 25–28 | How do I assess results, explain existing courses, and use AI? | [Reader signals versus learning](/posts/learning/2026-10-14-reader-signals-vs-learning-en) |
+| 29 | How do writing, checking, translation, and automated checks connect? | [This site's writing and review pipeline](/posts/learning/2026-10-14-site-case-agents-en) |
 
-### orders 12–13: TEE chapter and the bounty map
-The TEE chapter uses a WhatsApp example (protecting AI), then moves on to what AI‑product bounties pay. By now you understand Web, memory, VMs, TEE, and AI products, so you can look at the top‑level bounty map.
+## Read the comparisons, not just the conclusion
 
-### order 14: wrap‑up
-Depending on your goals, what to practice next, whether certification helps, and whether to invest; this ties back to every piece in the series.
+Ask who did what, what the comparison group did, and whether the study measured understanding, memory, task performance, or preference. Operating a simulation and clicking to reveal an answer can both be called interaction while involving different activities. Test scores and reader ratings also measure different things.
 
-## How to Read
+Each article's references lead back to the research; its appendix records designs and numbers. Writing suggestions need their own conditions: a classroom finding may not apply directly to someone reading selected sections alone. When sources point in different directions, inspect their comparisons and limitations before deciding what to change.
 
-- **Visible before invisible.** Start with requests the browser sees, then the server, then memory and hardware isolation.
-- **Hands‑on before deep theory.** By order 6 you've done one full cycle; only then do we answer "why are low‑level bugs worth more?".
-- **Difficulty gaps handled in transition sections, not labels.** The biggest jump is 6→7 (Web to C); order 7 opens with motivation and a 15‑minute C primer.
-- **Bounty tables are only "difficulty/impact hints."** Each post has at most one such table, placed late, taking ≤15% of the article.
-- **One metaphor runs through the series: a building.** The system is the building; the scope is the floors the program says you may test; a request is the slip handed to the clerk; XSS is convincing another resident to act on your note; IDOR is the clerk handing over someone else's package without checking; RCE is getting the manager's keys; memory overflow is writing outside the box and smearing into the neighbour's column; the hypervisor is the wall between flats and the manager's office; TEE is the safe even the manager can't open. Each article stretches the metaphor only where it still works, and notes where it breaks.
+## Use one draft as your working example
 
-## Section map (shown at the top of every article)
+Write one sentence stating what readers should be able to do afterward. Pick the most relevant article above and change one concrete element, such as replacing an abstract explanation with a traceable example or asking a question before revealing the answer.
 
-Every article opens with the same little map so you can locate yourself instantly:
+Then ask a reader at the intended level to attempt your task and record where they get stuck. Readability feedback helps improve presentation; evidence of learning also requires an explanation, an answer, or successful task performance. These are suggested steps for using this series, rather than a completed effectiveness experiment on this site.
 
-```
-Choose plan → Read rules → Know the target → Recon & intercept → Find bug → Confirm impact → Write report → Split → Patch / bounty / repeat
-```
+## Update history
 
-## Old‑post correspondence
-
-| order | topic        | status | corresponds to |
-|-------|--------------|--------|----------------|
-| 0     | overview     | new    | – |
-| 1–28  | teaching‑article how‑to | written one by one | `src/content/posts/learning/2026-*-*.md` |
-| 29    | case study   | new    | – |
-
-## How to Use This
-
-- **Read straight through.** Start at order 0 and go to order 29 to learn the whole writing‑and‑review pipeline.
-- **Pick a topic.** Want just XSS, RCE, or TEE? Jump to the matching order (4, 5, 7–13).
-- **Use as reference.** Need to refresh a step (e.g. fact‑checking)? Open the matching order and read its "Embedding media (YouTube)" and "Research process stays out of the lead" sections.
+- 2026-10-15: Replaced an unrelated security-course outline with navigation matching the existing teaching-writing series.
 
 ## References
 
-- Series plan: `.work/series-plans/bug-bounty-from-zero.md` (grandfathered).
-- Rules: `.agents/skills/post/references/writing-guide.md#但書與歸因不堆疊`.
-- Checker: `node scripts/check-process-leak.mjs`
+- [Examples and openings in teaching articles](/posts/learning/2026-10-13-teaching-text-evidence-en): research on worked examples, self-explanation, and learning objectives.
+- [Reader signals versus learning](/posts/learning/2026-10-14-reader-signals-vs-learning-en): distinctions between self-assessment, preferences, and learning measures.
+- [AI-written materials and AI tutors](/posts/learning/2026-10-14-ai-written-materials-and-ai-tutors-en): conditions and limitations in AI education research.

@@ -1,107 +1,41 @@
 ---
-title: "Bug Bounty Hunter's Workbench: Inspecting, Interfering, and Resending HTTP Requests"
+title: "A Bug Bounty Workbench: Capture Requests, Change Parameters, and Check Authorization"
 date: 2026-10-15
 category: tech
 type: guide
-difficulty: beginner
+difficulty: 入門
 tags: [bug-bounty, security, web-security, burp-suite, devtools, local-practice]
 lang: en
-description: "Series 3 of 'Bug Bounty from Zero': A hands-on guide to using Chrome DevTools and Burp Suite Community Edition to intercept requests, modify parameters, and observe server responses."
-tldr: "This article teaches you how to use Chrome DevTools 'Copy as cURL' and Burp Proxy/Repeater to inspect HTTP requests, modify parameters like order IDs or search terms, and analyze server responses on a local practice environment. Mastering these tools lets you move from rules (1) and web fundamentals (2) to real vulnerability testing."
+description: "Build repeatable HTTP and order-authorization controls with a local Node.js server, DevTools, and Burp Repeater."
+tldr: "Replay the control, then change one field; a status code or reflected text alone is not vulnerability proof."
 draft: false
 series:
   name: "Bug Bounty from Zero"
   order: 3
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-15-bug-bounty-hunter-workbench)
+> 🌏 [繁體中文版](/posts/tech/2026-10-15-bug-bounty-hunter-workbench)
 
-## TL;DR
+## Start with one request
 
-**Your workbench is the bridge from theory to practice in bug bounty hunting.** This article teaches you:
-- Chrome DevTools 'Copy as cURL' — capture browser requests
-- Burp Suite Community Edition (Proxy & Repeater) — intercept and modify requests
-- Local practice server (`shop.mjs` on 127.0.0.1:8000) — test IDOR & XSS in a safe sandbox
+The previous chapter explained how browsers and servers exchange data. This chapter captures one request, changes one field, and compares the results. Your deliverable is a reproducible record: the original request, the modified request, both responses, and an explanation of what they show.
 
-Master these three tools, and you transform rules (article 1) and web fundamentals (article 2) into reproducible vulnerability tests.
+Think of the workbench as the building reception desk. First understand the form you submit, then change its contents. Practice only against your own local server here. For a real program, return to chapter 1 and check its scope and testing rules.
 
----
+## Establish a repeatable local baseline
 
-## Scenario
-
-You’ve enrolled in a bug bounty program, and the rules say "local testing only." You don’t know how to test — no interception tools, no local environment, no way to capture requests for your report. This is where the workbench becomes essential.
-
-**You don’t need expensive cloud services** — all tools are free: Burp Suite Community Edition (downloadable), Chrome DevTools (F12), plus a minimal Node.js practice server (shop.mjs) simulating IDOR and XSS test cases.
-
----
-
-## Problem
-
-**Mistake 1: No interception tools — cannot replay requests or observe response differences.** You can’t tell if changed input triggers 200 OK or 403 Forbidden, or whether you’ve stolen the right data.
-
-**Mistake 2: No local test environment.** Testing real targets may violate rules, resulting in rejected reports and wasted time.
-
-**Mistake 3: Reports just say "found XSS" with no reproduction steps or evidence.** Google VRP applies a quality multiplier (0.8x/1.0x/1.2x) that directly affects your reward — $101,010 drops to $80,808 with low quality.
-
----
-
-## Solution: Three Testing Tools
-
-### Tool 1: Chrome DevTools — Copy as cURL
-
-1. Launch DevTools with F12 → Network tab
-2. Request http://127.0.0.1:8000/api/search?q=coffee
-3. Right-click → **Copy as cURL** → paste into terminal → run curl command
-
-**What you get:**
-- Exact HTTP method (GET), full URL, all request headers
-- Server response preview (status code, Headers, Body)
-- Save as `.sh` for replaying, testing reproducibility
-
-### Tool 2: Burp Suite Community Edition — Proxy & Repeater
-
-1. Download Burp Suite Community (free)
-2. Start Proxy → Intercept (ON) → Repeater
-3. Visit http://127.0.0.1:8000/api/search?q=tea in any browser
-4. Burp captures and pauses at **Intercept** panel
-5. Right-click → **Send to Repeater** → Open Repeater → click **Send** → Observe response
-
-**What you get:**
-- **Intercept:** Pause any request for inspection
-- **Modify:** Change `q=tea` to `q=<script>alert(1)</script>` and observe 200 vs 400
-- **Resend:** Test status code changes (200 → 403 → 404) for permission checks
-
-### Tool 3: Local Practice Server `shop.mjs`
-
-You need: A simple server simulating a vulnerable e-commerce site with three endpoints:
-
-- `/login` — POST credentials, returns a `session` cookie
-- `/api/search?q=` — returns a list of products
-- `/api/orders/<id>` — returns an order only if the requester owns it
-
-Save this as `shop.mjs` and run: `node shop.mjs`. Binds only to 127.0.0.1, so nothing is exposed externally.
-
-Example Request: `curl 'http://127.0.0.1:8000/api/search?q=tea'` → `["Filter"]`
-
-You need: A minimal practice server called `shop` simulating a vulnerable e-commerce site with three endpoints:
-
-- `/login` — POST your credentials, gets a `session` cookie back
-- `/api/search?q=` — returns a list of products
-- `/api/orders/<id>` — returns an order, but only if the owner matches your session
-
-**Key vulnerability baked in**: change the `id` to another user's order number, you can see their data — classic IDOR.
-
-Save this as `shop.mjs` in a folder and run with `node shop.mjs`. The server binds only to `127.0.0.1`, so nothing is exposed externally.
+Save the following as `shop.mjs` and run `node shop.mjs`. It provides login, product search, and order retrieval. Search returns JSON, and order retrieval checks ownership. This is an HTTP and authorization baseline, not an application that already contains XSS or IDOR.
 
 ```js
-// shop.mjs — only binds to 127.0.0.1 for safe local practice
+// shop.mjs — local HTTP and authorization practice, not a production service
 import http from "node:http";
+import { randomBytes } from "node:crypto";
 
 const users = { alice: "alice-pass", bob: "bob-pass" };
 const sessions = {};
 const orders = {
-  1532: { owner: "alice", item: "Coffee Beans", address: "Taipei (alice's address)" },
-  1533: { owner: "bob", item: "Filter", address: "Taichung (bob's address)" },
+  1532: { owner: "alice", item: "Coffee Beans", address: "Taipei" },
+  1533: { owner: "bob", item: "Filter", address: "Taichung" },
 };
 
 function send(res, status, body, headers = {}) {
@@ -116,9 +50,11 @@ http.createServer(async (req, res) => {
 
   if (req.method === "POST" && url.pathname === "/login") {
     let raw = ""; for await (const c of req) raw += c;
-    const { user, pass } = JSON.parse(raw);
-    if (users[user] !== pass) return send(res, 401, { error: "wrong password" });
-    const id = Math.random().toString(36).slice(2, 10);
+    let credentials;
+    try { credentials = JSON.parse(raw); } catch { return send(res, 400, { error: "invalid JSON" }); }
+    const { user, pass } = credentials ?? {};
+    if (typeof user !== "string" || typeof pass !== "string" || !Object.hasOwn(users, user) || users[user] !== pass) return send(res, 401, { error: "wrong password" });
+    const id = randomBytes(16).toString("hex");
     sessions[id] = user;
     return send(res, 200, { ok: true }, { "set-cookie": `session=${id}; HttpOnly; Path=/` });
   }
@@ -139,46 +75,72 @@ http.createServer(async (req, res) => {
 }).listen(8000, "127.0.0.1", () => console.log("shop on http://127.0.0.1:8000"));
 ```
 
----
+It listens only on `127.0.0.1:8000`. That keeps the exercise local; it does not make this a production service. The example lacks comprehensive input limits, persistent storage, and production account protection. Stop it with Ctrl+C. Its sessions disappear when it stops.
 
-## Why This Matters: Report Quality is the Key
+## Record a control case with curl
 
-Google VRP explicitly states quality multiplier:
-- Low (0.8x) = missing repro steps, no PoC
-- Good (1.0x) = full repro steps, PoC present
-- Exceptional (1.2x) = Good + remediation, quantified impact
+Open another terminal and run these commands. The cookie jar at `/tmp/qpq-shop.cookies` carries the same session into subsequent requests.
 
-$101,010 base:
-- 0.8x → $80,808
-- 1.0x → $101,010
-- 1.2x → $121,212
+```sh
+curl -i 'http://127.0.0.1:8000/api/search?q=coffee'
+curl -i 'http://127.0.0.1:8000/api/orders/1532'
+curl -i -c /tmp/qpq-shop.cookies -H 'Content-Type: application/json' \
+  --data '{"user":"alice","pass":"alice-pass"}' \
+  'http://127.0.0.1:8000/login'
+curl -i -b /tmp/qpq-shop.cookies 'http://127.0.0.1:8000/api/orders/1532'
+curl -i -b /tmp/qpq-shop.cookies 'http://127.0.0.1:8000/api/orders/1533'
+curl -i -b /tmp/qpq-shop.cookies 'http://127.0.0.1:8000/api/orders/9999'
+```
 
-The workbench exists to **generate those quality conditions**: reproducible PoC, clear steps, verified impact.
+In order, expect a successful search containing `Coffee beans`, a 401 for unauthenticated order access, successful login, a 200 for Alice's own order, a 403 for Bob's order, and a 404 for a nonexistent order. Alice's order contains `Coffee Beans` and `Taipei`.
 
----
+Those are conventions implemented by this particular server. On another application, a 403 does not necessarily establish that you are authenticated, and a 200 does not establish that you retrieved someone else's data. Inspect identity, response contents, and expected permissions together.
 
-## Self-Check (Key question: Are your tools ready?)
+## Capture the browser's actual request with DevTools
 
-- [ ] You can intercept http://127.0.0.1:8000 requests (DevTools or Burp)
-- [ ] You can replay a curl command and observe the same response
-- [ ] You can modify query parameters (q, id) and observe status code changes (200 → 403 → 404)
-- [ ] You could test IDOR (`1532` → `1533`) and XSS (`<script>alert(1)</script>`)
-- [ ] You understand "local testing only" means security (localhost only, no internet exposure)
+Open Chrome's Network panel and visit the product-search URL. Select the request and inspect Headers and Response, then choose Copy as cURL. Replay the command in a terminal without changing anything. Confirm that the baseline still works before modifying it.
 
----
+Now change only `q=coffee` to `q=filter`. Expect the product to change from coffee beans to a filter; both responses can still be 200. This practices controlling a variable, not declaring any responsive input a vulnerability. Copying a real authenticated request also copies credentials such as cookies. Remove those before sharing a report or an example.
+
+## Change one field in Burp Repeater
+
+Open Burp's built-in browser and visit the local search URL. Proxy's HTTP history shows requests already sent. If Intercept is enabled, Forward the paused request so it does not remain stuck. Choose Send to Repeater on the target request, change a parameter, and click Send.
+
+For order authorization, use the local browser tab's DevTools Console to run the request below. There is no login form in this example. You can alternatively import the complete authenticated curl request and cookie into Repeater.
+
+```js
+await fetch("/login", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ user: "alice", pass: "alice-pass" }),
+});
+```
+
+ Keep the session fixed and change order 1532 to 1533. Expect a 403. Bob's session should be able to retrieve 1533. This compares identity with resource ownership.
+
+## Observation is not yet vulnerability evidence
+
+If a defective service lets Alice retrieve Bob's private order contents, that provides evidence of unauthorized access. A 200 response, the existence of an order number, or differing error messages alone does not establish the same result.
+
+The search endpoint returns a JSON product list. It does not execute the query as HTML. Sending `<script>` and receiving a response cannot establish XSS. The next chapter uses browser execution contexts and official exercises to separate reflected data from script execution.
+
+Record the test identity, endpoint, single modified field, expected outcome, actual response, and conclusion. Helping another person reproduce the result matters more than collecting screenshots. Report quality can affect triage, but a reward-table multiplier cannot guarantee a payout for every example.
+
+## Check your understanding
+
+1. How do the responses for order 1532 differ before and after Alice logs in?
+2. What does Alice's 403 for order 1533 establish, and what does it leave unproven?
+3. Why does a 200 search response, even one containing `<script>` text, not prove XSS?
+4. When changing one parameter, how would you rule out session expiration?
+
+## Update history
+
+- 2026-10-15: Added reproducible login and authorization controls, corrected the JSON-search/XSS boundary, and removed guaranteed payout claims.
 
 ## References
 
-- [PortSwigger — Burp Suite Documentation](https://portswigger.net/burp/documentation)
-- [Chrome DevTools — Network requests](https://developer.chrome.com/docs/devtools/network/reference/)
-- [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)
-- [Node.js http module](https://nodejs.org/api/http.html)
-- [Google VRP Rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)
-
----
-
-*This is Series 3 (Workbench) of "Bug Bounty from Zero." Previous: Rules (1), Websites (2); Next: XSS/IDOR (4), RCE (5).*
-
----
-
-*上一篇：[如何讀懂 Bug Bounty 規則](/posts/tech/2026-10-15-bug-bounty-zero-01-rules-and-scope) | 下一篇：[XSS + IDOR：這兩種最常見、獎金最高的漏洞](/posts/tech/2026-10-15-bug-bounty-zero-04-xss-and-idor)*
+- [Chrome DevTools: Network reference](https://developer.chrome.com/docs/devtools/network/reference/)
+- [Burp Suite: Repeater](https://portswigger.net/burp/documentation/desktop/tools/repeater)
+- [PortSwigger: Access control](https://portswigger.net/web-security/access-control)
+- [PortSwigger: Cross-site scripting](https://portswigger.net/web-security/cross-site-scripting)
+- [Node.js HTTP module](https://nodejs.org/api/http.html)

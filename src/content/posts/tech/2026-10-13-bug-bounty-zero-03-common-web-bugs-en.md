@@ -16,14 +16,16 @@ tldr: "XSS happens when a site puts user input into a page unchanged, so another
 draft: false
 series:
   name: "Bug Bounty from Zero"
-  order: 3
+  order: 4
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)
+> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)
 
-This is part 3 of "Bug Bounty from Zero". The previous post, [How Websites Work](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work-en), covered HTTP, cookies and the same-origin policy. Here we use that groundwork on the two most common web bugs, XSS and IDOR. Part 0, [Fact-Checking Bug Bounty's Top Payouts](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en), leaned on [Google's reward table](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules); this time we find where these two bugs sit in it.
+This is part 4 of "Bug Bounty from Zero". The groundwork in [How Websites Work](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work-en), covered HTTP, cookies and the same-origin policy. Here we use that groundwork on the two most common web bugs, XSS and IDOR. Part 13, [Fact-Checking Bug Bounty's Top Payouts](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en), leaned on [Google's reward table](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules); this time we find where these two bugs sit in it.
 
 By the end you should be able to look at a short piece of web code, point to the XSS or IDOR, and say how to fix it.
+
+The [workbench chapter](/posts/tech/2026-10-15-bug-bounty-hunter-workbench-en) introduced inspecting and replaying requests. Use those skills here to distinguish what the browser executes from what the server authorizes.
 
 ## Two analogies first
 
@@ -143,7 +145,7 @@ Two common misconceptions:
 
 ## Back to Google's reward table
 
-In part 0 the table was a source for numbers. Now you can read the cells themselves. The figures below come from the rules page's reward table, which I viewed on 2026-10-13.
+The payout map in part 13 returns to these categories after the technical chapters. Here we learn to read the cells themselves. The figures below come from the rules page's reward table, which I viewed on 2026-10-13.
 
 | Category | Example column on the rules page | T0 (Tier 0 domain or global impact) | T1 | T2 (normal Google apps, e.g. *.google.com) |
 |---|---|---|---|---|
@@ -204,4 +206,6 @@ Something to do tonight: save the `demo.mjs` above and run it once, then change 
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security)
 - [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)
 - [OWASP WebGoat](https://owasp.org/www-project-webgoat/)
-- This series: [Part 0: Fact-Checking Bug Bounty's Top Payouts](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en), [Part 2: How Websites Work](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work-en), [Part 4: What Is RCE](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en)
+- This series: [Part 13: Fact-Checking Bug Bounty's Top Payouts](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en), [Part 2: How Websites Work](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work-en), [Part 5: What Is RCE](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en)
+
+[Previous: part 3](/posts/tech/2026-10-15-bug-bounty-hunter-workbench-en) · [Next: part 5](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en)

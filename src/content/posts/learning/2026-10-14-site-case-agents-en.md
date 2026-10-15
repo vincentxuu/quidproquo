@@ -3,7 +3,7 @@ title: "Site Case Study: How the Writing & Review Pipeline Worked"
 date: 2026-10-14
 category: learning
 type: guide
-tags: [series, writing-process, review, pi, governance]
+tags: [series, writing-process, review]
 lang: en
 series:
   name: "How to Write Teaching Articles"
@@ -11,36 +11,47 @@ series:
 draft: false
 ---
 
-## Background
+## From a draft to a publishable article
 
-The series "How to Write Teaching Articles" finished its 28th post on 2026-10-14, bringing the total to 30 pieces (order 0 through 29). This case study explains how this site used `pi` agents to handle writing, review, and translation, and why it switched to `pi -ne -p --no-session` after Claude and Codex hit their weekly caps.
+This site's “How to Write Teaching Articles” series combines research summaries, writing suggestions, and examples from the site. AI can help organize sources, propose structure, or translate, but producing a draft leaves several checks to complete.
 
-## Writing Process
+This case study explains the pipeline using inspectable site rules and code. It does not claim that every historical article completed every review stage, or treat an AI-generated review as independent verification.
 
-1. **Plan first.** The series plan was registered before 2026-10-15 to avoid the `check:series-plan` gate. At most two posts per batch; after each batch, stop and wait for feedback before writing the next.
+## Separate writing, fact-checking, and editing
 
-2. **Write.** Both Chinese and English versions of each post were produced with `pi`, keeping vocabulary and sentence patterns consistent between the two.
+Begin with an audience and a task. “Readers can decide where to place a video” is easier to assess than “introduce multimedia learning.” Distinguish observations from recommendations: a study comparing classroom groups does not establish that a particular blog layout improves learning.
 
-3. **Independent review.** `pi` was used for `post-verify` (sentence accuracy), `post-review` (structure and content), and `post-polish` (tone and terminology). All three stages were recorded under `.work/reviews/` and never merged into a single file.
+For fact-checking, return to the original source and check participants, comparison conditions, and outcomes. AI summaries can provide leads; they cannot replace the methods and limitations sections. If a source supports a result on an immediate test, do not promise better long-term retention.
 
-4. **Attribution caveat cap.** A new rule — "Don't stack caveats and attributions" (`.agents/skills/post/references/writing-guide.md#但書與歸因不堆疊`) — limits attribution markers in body text to 3 per post. The checker `check-process-leak.mjs` blocks anything over. Before this commit, 5 learning articles were revised from 5–17 markers each down to 1–3.
+Structural review asks whether the article delivers on its opening and whether its examples work for the intended reader. Editing makes sentences and paragraphs easier to follow. Different roles or separate readings can offer different perspectives, but the evidence behind each review comment still needs checking.
 
-5. **Published-post fixes.** Already-published posts had their "Ask AI" behavior descriptions and Cloudflare "Visits" definitions corrected to official wording, applied across 4 published posts in both Chinese and English.
+## Align the claims in both languages
 
-## Key Decisions
+Translation requires more than fluent sentences. If Chinese limits a result to a particular course, English must preserve that condition. Numbers, links, and the scope of recommendations should agree. Changes to one language require checking the other.
 
-- **Use `pi` for independent reviews.** Claude (`claude-opus-5-5`) and Codex hit their weekly/session caps and reset on 2026-10-16 19:00 and 2026-10-20 13:00 respectively, so all review and translation tasks were moved to `pi -ne -p --no-session` to avoid conflicts.
-- **Cloudflare visit definition corrected.** Changed from a non-official description to: "Visits = A page view that originated from a different website or direct link; checks whether HTTP referer does not match hostname."
-- **Ask AI description corrected.** No longer described as "falls back to a backup answer." Now: searches the site's articles → answers from retrieved passages; if no reliable sources, says the knowledge base lacks evidence (not general knowledge); if the draft fails the format/quality check twice, it is shown with "this answer may be incomplete".
-- **Keep the o25 chat-log explanation accurate.** Retained: the first 240 characters are kept in step records (`rag_trace_steps`, `input_summary`) and readable on the admin traces page; if configured, the full question and answer are sent to Langfuse.
+Compare a passage on three points: its claim, its source, and its limitations. When an unsupported promise is removed from Chinese, remove it from English too; updating the title alone will not resolve the mismatch.
 
-## Commit & Next Steps
+## What automated checks can catch
 
-- This commit adds 16 files: 5 new learning articles (Chinese + English) plus 4 already-published articles with corrections (Chinese + English).
-- After this, order 29 (this case study) and order 0 (series intro) follow, keeping each post's attribution markers at 3 or fewer per the `check-process-leak` rules.
+The site uses Astro content collections. Astro supports schemas describing the shape of content; this site's `src/content.config.ts` defines its field requirements. A malformed date or a value outside an allowed enumeration can fail during content loading.
+
+The site's `scripts/verify.mjs` is the entry point for `pnpm verify` and includes checks for references and series ordering. The quality workflow calls this command. Defined checks can catch problems such as a missing reference section or conflicting series numbers. The code is the authority for the actual check list.
+
+An introduction can still contain a security-course outline pasted into a teaching-writing series while having valid YAML and dates. Detecting that requires comparing the overview's promises with the actual articles and both language versions.
+
+## What remains after a successful check
+
+Local checks, remote CI, building, deployment, and the public page are distinct states. GitHub Actions executes workflows for activities such as checking and deployment. A successful job establishes that its configured steps succeeded.
+
+For an article, also open the public page and inspect the body, language switching, series navigation, and source links. Claiming effective teaching requires a separate reader task or learning assessment. Valid formatting, public availability, and helping someone learn each need appropriate evidence.
+
+## Update history
+
+- 2026-10-15: Replaced handoff notes, account quotas, and unsupported completion claims with an inspectable writing and checking workflow; aligned both languages.
 
 ## References
 
-- Series plan: `.work/series-plans/bug-bounty-from-zero.md`.
-- Rules: `.agents/skills/post/references/writing-guide.md#但書與歸因不堆疊`.
-- Checker: `node scripts/check-process-leak.mjs`.
+- [Astro: Content collections](https://docs.astro.build/en/guides/content-collections/): collections and schema validation.
+- [GitHub: Understanding GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions): workflows, jobs, and steps.
+- [Site article schema](https://github.com/vincentxuu/quidproquo/blob/main/src/content.config.ts), [quality-check entry point](https://github.com/vincentxuu/quidproquo/blob/main/scripts/verify.mjs), and [quality workflow](https://github.com/vincentxuu/quidproquo/blob/main/.github/workflows/quality.yml): implementation evidence for this site.
+- [AI-written materials and AI tutors](/posts/learning/2026-10-14-ai-written-materials-and-ai-tutors-en): research findings and limitations for AI educational materials.
