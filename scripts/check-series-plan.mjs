@@ -9,6 +9,8 @@
 //   1. src/utils/series.ts 每個系列都要有 .work/series-plans/<slug>.md，內含規劃表必備段落與使用者確認行。
 //   2. 這些系列的每篇文章都要有 .work/reviews/<文章 slug>.md，內含 post-verify、post-review、post-polish 三節。
 //      文章 slug 是檔名去掉 .md 與 -en；中英共用一份。
+//   重寫中的既有系列列在 baseline 的 rewriting：規劃表照查；審稿紀錄只在指定檔案（pre-commit）時查，
+//   全站模式不掃舊文，避免整個系列重寫完之前擋住全站 deploy。全部重寫完就移出 rewriting。
 //
 // 用法：
 //   node scripts/check-series-plan.mjs                 全站（verify／CI）
@@ -79,8 +81,10 @@ function allPosts() {
   return files;
 }
 
-function run(files) {
-  const baseline = new Set(JSON.parse(readFileSync(BASELINE, 'utf8')).grandfathered);
+function run(files, explicit) {
+  const cfg = JSON.parse(readFileSync(BASELINE, 'utf8'));
+  const baseline = new Set(cfg.grandfathered);
+  const rewriting = new Set(cfg.rewriting ?? []);
   const gated = parseSeries(readFileSync(SERIES_TS, 'utf8')).filter((s) => !baseline.has(s.slug));
   const errors = [];
 
@@ -91,7 +95,8 @@ function run(files) {
     if (miss.length) errors.push(`${plan} 缺：${miss.join('、')}`);
   }
 
-  const nameToSlug = new Map(gated.flatMap((s) => s.names.map((n) => [n, s.slug])));
+  const reviewed = explicit ? gated : gated.filter((s) => !rewriting.has(s.slug));
+  const nameToSlug = new Map(reviewed.flatMap((s) => s.names.map((n) => [n, s.slug])));
   for (const f of files) {
     const series = seriesNameOf(readFileSync(f, 'utf8'));
     if (!series || !nameToSlug.has(series)) continue;
@@ -123,7 +128,7 @@ if (args.includes('--self-test')) {
   selfTest();
 } else {
   const files = args.filter((a) => !a.startsWith('--'));
-  const { errors, gated } = run(files.length ? files : allPosts());
+  const { errors, gated } = run(files.length ? files : allPosts(), files.length > 0);
   if (errors.length) {
     console.log(errors.map((e) => `🔴 ${e}`).join('\n'));
     console.log('規則見 .agents/skills/series-curriculum-design/SKILL.md「規劃表存檔與閘門」與 post skill「系列文章閘門」。');

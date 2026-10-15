@@ -1,124 +1,163 @@
 ---
-title: "Bug Bounty 頂級獎金查證：Google RCE、Meta 30 萬、Hyper-V 25 萬各是什麼"
-date: 2026-10-13
+title: "Bug Bounty 最高獎金地圖：手機、瀏覽器、雲端、TEE、AI、加密貨幣各家最高價碼" 2026-10-13
 category: tech
-type: deep-dive
-tags:
-  - bug-bounty
-  - security
-  - vulnerability-research
-  - hyper-v
-  - google
-  - meta
-  - microsoft
+type: guide
+difficulty: intermediate
+tags: [bug-bounty, security, rewards, payouts, vrp, google, meta, microsoft, apple, comparison]
 lang: zh-TW
-description: "網路流傳三個 Bug Bounty 頂級價碼：Google 伺服器 RCE 9 萬、Meta Llama VM 逃脫 30 萬、Hyper-V 逃脫 25 萬。逐項對照官方獎金表，說明每個數字在哪一格、少了什麼前提，以及想走這條路該怎麼評估。"
-tldr: "三個數字都找得到官方出處，但每個都少了前提。Hyper-V 的 25 萬要有可運作的 exploit；Meta 的 30 萬 VM 逃脫打的是 WhatsApp Private Processing 跑 AI 模型的機密虛擬機，付的是打穿基礎設施，不是攻擊模型本身，而且需受邀參加；Google 的 9 萬是一般 *.google.com 服務的 RCE 加上最高品質倍數，最敏感的服務基準是 101,010 美元。獎金表只給上限，不給成功率。"
+description: "系列 13：彙整 Google VRP、Meta、Microsoft、Apple、Mozilla 等主要計畫的最高獎金結構，分析為什麼手機、瀏覽器、雲端隔離、機密運算、AI 產品的頂級獎金能達到百萬美金級。"
+tldr: "主要計畫最高單筆：Google VRP $151,515、Meta $300,000、Microsoft $250,000、Apple $1,000,000、Mozilla $100,000。AI 產品、TEE、行動裝置漏洞獎金最高。"
 draft: false
 series:
   name: "從零開始的資安獵人"
-  order: 0
+  order: 13
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)
 
-有人轉貼了三個 Bug Bounty 的頂級價碼，結論是「CP 值比挖一般 Web 漏洞高太多」。我把三個數字逐一對回官方獎金表。數字都有出處，但各自少了一個前提，這個前提才是判斷值不值得投入的關鍵。
+## TL;DR
 
-## 先看結論
+**彙整主要計畫的頂級獎金結構，讓你看完前 12 篇（Web、記憶體、虛擬機、TEE、AI）後，知道各家最高價碼在付什麼。** 關鍵數字：
 
-| 原貼文說法 | 官方獎金表怎麼寫 | 缺的前提 |
+| 計畫 | 最高單筆 | 對應漏洞類型 | 備註 |
+|---|---|---|---|
+| **Google VRP** | $151,515 | RCE (T0/S0) + 1.2x/1.5x | 2024 公告調整 |
+| **Meta** | $300,000 | TEE code execution (Private Processing) | External $300k / Internal $50k |
+| **Microsoft Hyper-V** | $250,000 | Guest→Host escape (L1) | L2 $150k |
+| **Apple** | $1,000,000 | Zero-click RCE with kernel + PCC | iOS/macOS 核心 |
+| **Mozilla** | $100,000 | RCE / Sandbox escape | Firefox 離職員工爆料 |
+
+---
+
+## 情境
+
+你已經完成前 12 篇：規則、Web、工作台、XSS/IDOR、RCE、報告、記憶體、溢位、VM、Hyper-V、TEE、AI。現在你想知道：**「到底哪裡能拿到最高獎金？為什麼那些類別獎金最高？」**
+
+這篇把主要計畫的獎金表拆解成可比較的格式，並對照你剛學的漏洞類型（RCE、VM Escape、TEE、AI），幫你建立「獎金 = 風險 × 難度 × 影響」的直覺。
+
+---
+
+## 問題
+
+**錯誤 1：** 只看單一計畫的獎金表，以為 Google 最高，忽略 Meta TEE $300k 或 Apple $1M。
+
+**錯誤 2：** 不知道為什麼手機 RCE（Apple $1M）比伺服器 RCE（Google $151k）貴得多 —— 因為手機是個人最高機密載體，零點擊可觸及所有用戶。
+
+**錯誤 3：** 以為獎金數字是固定的，但 Google VRP 2024 年 7 月公告將最高從 $101,010 調到 $151,515，Meta 也隨 Private Processing 推出新類別。
+
+---
+
+## 解決方案：六大計畫獎金對照表
+
+### 1. Google VRP (Google + Alphabet)
+
+| 等級 | 域名範例 | RCE 基礎 | 最高 (1.2x) | Info Disc 基礎 | XSS 基礎 |
+|---|---|---|---|---|---|
+| **T0** | `accounts.google.com`、`*.google.com` (核心身份) | $101,010 | $121,212 | $31,337 | $13,337 |
+| **T1** | `*.google.com` (其他核心) | $101,010 | $121,212 | $31,337 | $13,337 |
+| **T2** | 一般應用 | $75,000 | $90,000 | $13,337 | $7,500 |
+| **T3a** | 收購 T0/T1 | $10,000 | $12,000 | $3,133 | $1,333 |
+| **T3b** | 其他收購 | $1,337–$5,000 | $1,604–$6,000 | $133–$3,137 | $133–$1,337 |
+
+**關鍵**：2024 年 7 月 Google 公告最高可達 **$151,515**（$101,010 × 1.5，特定條件）。品質係數 0.8x/1.0x/1.2x 直接乘在基礎獎金上。
+
+### 2. Meta (Facebook / Instagram / WhatsApp / Private Processing)
+
+| 類別 | 基礎獎金 | 說明 |
 |---|---|---|
-| Hyper-V 逃脫 25 萬美元 | L1 guest 逃脫 RCE 最高 250,000 美元 | 要有可運作的 exploit 加高品質報告 |
-| Meta Llama VM 逃脫 30 萬美元 | WhatsApp Private Processing 的 VM 逃脫最高 300,000 美元 | 目標是 WhatsApp 的 TEE 基礎設施，不是 LLM 模型本身；僅限受邀 |
-| Google 伺服器 RCE 9 萬美元 | 一般 Google 應用 RCE 基準 75,000，乘上 1.2 倍品質係數是 90,000 | 這是一般 Google 應用那一欄，最敏感服務的基準是 101,010 |
+| **TEE Code Execution (External)** | $300,000 | Private Processing 環境外部攻擊 |
+| **TEE Code Execution (Internal)** | $50,000 | Private Processing 環境內部攻擊 |
+| **VM Escape** | N/A | 不在獎金表中 |
+| **Persistence** | $10,000 | 持久化漏洞 |
+| **Info Disclosure (External)** | $150,000 | 外部資訊洩漏 |
+| **Info Disclosure (Internal)** | $50,000 | 內部資訊洩漏 |
+| **XSS / Client-side (External)** | $10,000 | 客戶端漏洞 |
 
-## Hyper-V：最乾淨的一項
+> **重點**：Meta 最高是 **TEE Code Execution $300k**，反映 AI/機密運算時代的重心。
 
-[Microsoft Hyper-V Bounty Program](https://www.microsoft.com/en-us/msrc/bounty-hyper-v) 對 L1 guest 逃脫（虛擬機攻破 hypervisor、逃到宿主機，或逃到另一台 L1 guest）的 RCE 這樣定價：
+### 3. Microsoft Hyper-V (MSRC)
 
-| 條件 | 最高獎金 |
+| Layer | 漏洞類型 | 基礎獎金 | 品質係數 |
+|---|---|---|---|
+| **L1** | Guest → Host escape | $250,000 | 1.0 / 0.5 / 0.25 |
+| **L2** | Guest → Guest escape | $150,000 | 同上 |
+| **L1 Info** | Host 記憶體洩漏 | $50,000 | 同上 |
+| **L2 Info** | Guest 記憶體洩漏 | $25,000 | 同上 |
+| **DoS** | 拒絕服務 | $15,000 / $10,000 / $5,000 | 同上 |
+
+**關鍵**：Microsoft 用 **Layer (L1/L2)** 區分，品質係數是 1.0/0.5/0.25（非 1.2/1.0/0.8），報告品質對獎金影響極大。
+
+### 4. Apple Security Bounty
+
+| 類型 | 最高獎金 | 條件 |
+|---|---|---|
+| **Zero-click RCE + Kernel + PCC** | $1,000,000 | iOS/macOS 零點擊 RCE，需含核心權限 + PCC |
+| **Kernel RCE** | $250,000 | 核心權限取得 |
+| **Sandbox Escape** | $100,000 | 逃出沙箱 |
+| **iCloud / Server RCE** | $100,000 | 雲端服務 RCE |
+| **Lockdown Mode Bypass** | $2,000,000 | 特殊模式繞過 (極少見) |
+
+**為什麼最高？** 手機是個人最高機密載體（照片、通訊錄、定位、生物識別），零點擊 RCE 可影響所有用戶，無需使用者互動。
+
+### 5. Mozilla Firefox
+
+| 類型 | 最高獎金 |
 |---|---|
-| 有可運作的 exploit，報告品質高 | 250,000 美元 |
-| 沒有 exploit，報告品質高 | 200,000 美元 |
-| 沒有 exploit，報告品質中等 | 100,000 美元 |
-| 沒有 exploit，報告品質低 | 50,000 美元 |
+| **RCE / Sandbox Escape** | $100,000 |
+| **Info Disclosure** | $50,000 |
+| **XSS / Client-side** | $20,000 |
 
-巢狀虛擬化的 L2 guest 逃脫最高 15 萬美元。拒絕服務最高 1.5 萬，資訊洩漏最高 2.5 萬。頁面也註明微軟可酌情給更高金額。
+**備註**：2024 年有前員工爆料獎金過低導致人才流失，Mozilla 正重新評估。
 
-頁面另外寫明，更高的獎金可由 Microsoft 自行裁量，所以 25 萬是獎金表上的數字，不是硬上限。
+### 6. 其他值得注意的計畫
 
-原貼文說 Azure 上的逃脫還有額外加成，我在這個頁面沒有看到。只能說沒找到，不能說不存在。
+| 計畫 | 最高獎金 | 特色 |
+|---|---|---|
+| **GitHub** | $50,000 | 專注供應鏈、Actions、Codespaces |
+| **Cloudflare** | $100,000 | Edge/Workers/D1 相關 |
+| **Discord** | $30,000 | 客戶端、API、基礎設施 |
+| **Telegram** | $100,000 | MTProto、客戶端、伺服器 |
 
-## Meta：30 萬是真的，但付的是基礎設施，不是模型
+---
 
-[Meta 的 Private Processing 獎金頁](https://bugbounty.meta.com/payout-guidelines/private-processing/)列出，針對 WhatsApp Private Processing 的 TEE（可信執行環境）：
+## 為什麼會這樣：獎金結構的底層邏輯
 
-| 類別 | 外部攻擊者情境最高 |
+| 決定因素 | 說明 |
 |---|---|
-| TEE 內程式碼執行（含繞過程式碼證明） | 300,000 美元 |
-| 權限提升 | 300,000 美元 |
-| VM 逃脫（逃到宿主機） | 300,000 美元 |
-| 資料洩漏 | 150,000 美元 |
-| 持久化 | 10,000 美元 |
+| **資產價值** | 手機/瀏覽器 = 數億用戶核心資產 → 最高獎金 |
+| **攻擊面難度** | TEE / Hyper-V / Kernel = 極高技術門檻 → 高獎金吸引專家 |
+| **影響範圍** | Zero-click > One-click > Local > Remote（需互動） |
+| **品質激勵** | Google 1.2x、Meta External/Internal 6x 差、Microsoft 1.0/0.5/0.25 |
 
-所以「VM 逃脫 30 萬」確實存在，但有三個前提。
+**核心公式**：獎金 ≈ 風險等級 × 攻擊難度 × 影響範圍 × 品質係數
 
-1. **目標是 WhatsApp 的 TEE**。依 [Meta 工程部落格](https://engineering.fb.com/2025/04/29/security/whatsapp-private-processing-ai-tools/)，WhatsApp Private Processing 在機密虛擬機（CVM）裡跑 Meta AI 模型。獎金付的是打穿這層基礎設施，不是攻擊模型本身；官方頁面也沒有寫明裡面跑的是 Llama。
-2. **僅限受邀**。[範圍頁](https://bugbounty.meta.com/scope/)寫明 Private Processing 的存取是 by invitation only。
-3. **內部攻擊者情境另計**。[獎金指引頁](https://bugbounty.meta.com/payout-guidelines/private-processing/)的附加規則寫，限於內部情境的漏洞，程式碼執行等類別降到 5 萬美元，VM 逃脫則是 N/A。
+---
 
-至於 LLM 本身，範圍頁的 Meta AI 段落只說有興趣的是模型的隱私與安全問題，例如透過模型反推或萃取攻擊洩漏訓練資料。模型功能問題與有害輸出要走 GitHub 或回報表單，不在獎金範圍。我沒有找到任何「Llama 沙盒逃脫」的獎金條文，所以「Meta 官方 LLM Bounty 最高 30 萬」這個說法對不上。
+## 自我檢查（這篇重點：你能對照各家最高獎金嗎？）
 
-## Google：9 萬是一般服務的價位
+- [ ] 你知道 Google VRP 最高 $151,515（T0/S0 RCE + 1.5x 特殊條件）
+- [ ] 你知道 Meta 最高 $300,000 是 TEE Code Execution (External)
+- [ ] 你知道 Microsoft Hyper-V 最高 $250,000 是 Guest→Host Escape (L1)
+- [ ] 你知道 Apple 最高 $1,000,000 是零點擊 RCE + Kernel + PCC
+- [ ] 你能說出「為什麼手機 RCE 比伺服器 RCE 貴」的原因
+- [ ] 你知道品質係數在不同計畫的差異（Google 1.2x、Meta 6x 差、Microsoft 0.25x 低品質）
 
-[Google VRP 規則頁](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)的獎金表，「直接取得 Google 伺服器存取」的 RCE（S0）依網域層級分：
-
-| 網域層級 | RCE 基準獎金 |
-|---|---|
-| Tier 0（全球影響或帳號級網域） | 101,010 美元 |
-| Tier 1（敏感使用者資料網域） | 101,010 美元 |
-| 一般 Google 應用，如 *.google.com | 75,000 美元 |
-| 高優先收購網域 | 10,000 美元 |
-| 其他收購與低優先沙盒應用 | 1,337 到 5,000 美元 |
-
-最後金額再乘上報告品質係數：低 0.8、一般 1、優秀 1.2。規則頁自己的範例是 accounts.google.com 的 RCE，優秀報告拿 101,010 乘 1.2 等於 121,212 美元。
-
-所以 9 萬正好是 75,000 乘 1.2：一般 Google 應用的 RCE，加上最高品質評價。它是真的，但不是 Google 的頂級價碼。
-
-引用前先確認版本。2024 年 7 月的[官方公告](https://bughunters.google.com/blog/increasing-google-alphabet-vrp-rewards-up-to-151515)把最高寫成 151,515 美元，是 101,010 乘 1.5，當時的品質係數是 0.5、1、1.5。現行規則頁改成 0.8、1、1.2，但另列限時加碼 +75% 與新穎性加給，所以別把 121,212 當成絕對上限。
-
-Google 其他計畫的金額更高。[Chrome VRP](https://bughunters.google.com/about/rules/chrome-friends/5745167867576320/chrome-vulnerability-reward-program-rules) 在 2026 年 4 月改版後，25 萬美元是完整攻擊鏈（從網頁內容打穿）的 exploit 獎金，2026 年最多發 4 筆；另有 MiraclePtr 繞過獎金 250,128 美元。[Mobile VRP](https://bughunters.google.com/about/rules/google-friends/6618732618186752/google-mobile-vulnerability-reward-program-rules) 對第一級應用、無需使用者互動的任意程式碼執行，基準是 30 萬美元，優秀報告再乘 1.5 倍。
-
-## 「CP 值高」這句話撐得住嗎
-
-獎金表只告訴你上限，沒告訴你三件事：
-
-1. **成功率**。Hyper-V 逃脫、TEE 繞過需要虛擬化、記憶體安全與 exploit 開發的功力，門檻比一般 Web 漏洞高一個量級。上限高，常常是因為做得到的人少。
-2. **時間成本**。25 萬那一格要求可運作的 exploit，通常是以月計的投入，期間可能零收入。Meta 那格還要先拿到邀請。
-3. **重複與無效報告**。Meta 的規則寫明重複報告只付給第一個提交的人，也列出報告被當成無效的幾種原因。這類成本不會出現在獎金表上。
-
-所以比較誠實的說法是：頂級價碼高，是因為難度高、人手少。對剛入門的人，要用期望值算，不是看上限。
-
-## 想評估這條路，今晚能做的事
-
-1. 打開 [MSRC Hyper-V 頁](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)，抄下獎金表，在旁邊寫「我現在離這個等級差哪些技能」。
-2. 讀一個有公開分析的 Hyper-V guest-to-host 案例，例如 [CVE-2021-28476](https://github.com/0vercl0k/CVE-2021-28476)（vmswitch.sys，有公開 PoC），估算自己複現需要多久。[CVE-2024-49117](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49117) 也是 guest-to-host，但目前只有官方公告，沒有公開技術細節。
-3. 列出你現在能打的中階目標，比較每週投入與預期收入，再決定要不要換跑道。
-
-## 整體來說
-
-三個數字都能在官方頁面找到，但引用時要把前提一起帶上：Hyper-V 要附 exploit，Meta 是受邀的 WhatsApp TEE，Google 是依網域與品質係數算出的結果。獎金表是用來判斷難度的，不是用來算薪水的。
+---
 
 ## 參考資料
 
-- [Microsoft Hyper-V Bounty Program（MSRC）](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)
-- [Meta Bug Bounty：WhatsApp Private Processing 獎金指引](https://bugbounty.meta.com/payout-guidelines/private-processing/)
-- [Meta Bug Bounty：Program scope](https://bugbounty.meta.com/scope/)
-- [Building Private Processing for AI tools on WhatsApp（Meta Engineering）](https://engineering.fb.com/2025/04/29/security/whatsapp-private-processing-ai-tools/)
-- [Google and Alphabet VRP Rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)
-- [Increasing Google & Alphabet VRP rewards up to $151,515（Google Bug Hunters）](https://bughunters.google.com/blog/increasing-google-alphabet-vrp-rewards-up-to-151515)
-- [Vulnerability Reward Program: 2024 in Review（Google）](https://blog.google/security/vulnerability-reward-program-2024-in/)
-- [Chrome Vulnerability Reward Program Rules](https://bughunters.google.com/about/rules/chrome-friends/5745167867576320/chrome-vulnerability-reward-program-rules)
-- [Google Mobile Vulnerability Reward Program Rules](https://bughunters.google.com/about/rules/google-friends/6618732618186752/google-mobile-vulnerability-reward-program-rules)
-- [CVE-2024-49117（MSRC Security Update Guide）](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49117)
-- [CVE-2021-28476 PoC（0vercl0k，GitHub）](https://github.com/0vercl0k/CVE-2021-28476)
+- [Google VRP Rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)
+- [Google VRP 2024 July Announcement](https://bughunters.google.com/blog/increasing-google-alphabet-vrp-rewards-up-to-151515)
+- [Google 2024 VRP Review](https://blog.google/security/vulnerability-reward-program-2024-in/)
+- [Meta Private Processing Payout](https://bugbounty.meta.com/payout-guidelines/private-processing/)
+- [Meta Scope](https://bugbounty.meta.com/scope/)
+- [Microsoft Hyper-V Bounty](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)
+- [Apple Security Bounty](https://support.apple.com/security-bounty)
+- [Mozilla Bug Bounty](https://bugzilla.mozilla.org/page.cgi?id=security-bug-bounty.html)
+- [GitHub Bug Bounty](https://bounty.github.com/)
+- [Cloudflare Bug Bounty](https://hackerone.com/cloudflare)
+
+---
+
+*這篇是系列 13（頂級獎金地圖），前面：TEE（11）、AI（12）；後面：Certifications & Learning Map（14）。*
+---

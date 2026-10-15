@@ -1,170 +1,136 @@
 ---
-title: "What You Can and Can't Test as a Bug Hunter: Scope, Safe Harbor, and Taiwan's Computer Crime Law"
+title: "Bug Bounty From Zero: From Rules, Workbench to First Report"
 date: 2026-10-13
 category: tech
 type: guide
-tags:
-  - bug-bounty
-  - security
-  - vulnerability-research
-  - google
-  - meta
+difficulty: beginner
+tags: [bug-bounty, security, web-security, rules, scope, beginner-guide]
 lang: en
-description: "Before you start bug bounty hunting, learn to read the rules. Using the actual Meta and Google program pages, this guide gives you three questions to decide whether a target is testable, explains what safe harbor does and doesn't cover, and describes Taiwan's computer-crime provisions."
-tldr: "Ask three things of any program page: is the target on the in-scope list, is my technique excluded (DoS, social engineering), and is the data I touch my own? Safe harbor is the program's promise, not a free pass; Meta's text requires compliance 'in all respects', with a carve-out for clear accidental or good-faith violations, all judged by Meta. Taiwan's Criminal Code arts. 358-360 turn on acting 'without cause'. This is not legal advice."
+description: "Series 0: Complete roadmap for starting bug bounty hunting — from reading rules, setting up a workbench, to writing your first accepted report."
+tldr: "This is article 0 of 'Bug Bounty from Zero': you don't need to become an expert first — just learn how to read the rules, set up your workbench, and write your first report that passes triage. These three steps determine whether your bounty gets accepted or rejected."
 draft: false
 series:
   name: "Bug Bounty from Zero"
-  order: 1
+  order: 0
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope)
 
-In the previous post I checked three viral payout numbers against the official tables and concluded that [a reward table gives a ceiling, not a success rate](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en). If that made you want to start, the first thing to learn isn't a technique. It's what you are allowed to touch. This post answers one question: given a bug bounty program page, how do you decide whether a target is testable, and what happens if you cross the line? Actual vulnerability mechanics come in later posts.
+## TL;DR
 
-## An analogy first
+**You only need to do three things to start: Read the rules, open your workbench, write your first report.** This is the starting point of the `bug-bounty-from-zero` series (0 → 14). Every subsequent article builds on this: Rules (1), How Websites Work (2), Hunter’s Workbench (3), XSS/IDOR (4), RCE (5), Report & Triage (6), Memory (7), Buffer Overflow (8), VM/Hypervisor (9), Hyper-V Escape (10), TEE/Confidential Computing (11), AI Products (12), Top Payouts Fact-Check (13), Certifications & Learning Map (14).
 
-A bug bounty is a landlord posting a notice: "Come check the locks on my building and I'll pay you for what you find." The notice says which units are included (scope), what you may not do (don't break down doors, don't trick tenants into opening up), and that you test with your own key on your own unit. The neighbor's unit or the next building over isn't the landlord's to hand out.
+**Why this order?** Because a bug bounty hunter doesn’t start with RCE — you first need to know **what constitutes legal testing boundaries**, then operate real tools, then document findings in a report the triage team can act on. That report quality determines whether Google VRP pays you $101,010 (T0+S0, maxed at $121,212 with 1.2x) or rejects you on a technicality.
 
-Now the same idea with real text.
+---
 
-## Scope: a program can only authorize what it owns
+## Scenario
 
-Scope is the list of targets the program lets you test; everything else is out of scope. [Meta's program scope page](https://bugbounty.meta.com/scope/) gives a table of eligible and ineligible properties per product. For Facebook, as I read it on 2026-10-13:
+You’ve enrolled in a bug bounty program (e.g., Google VRP, Meta Private Processing, Microsoft MSRC). The landing page shows a thick “Rules” document listing:
 
-| Item | Eligible | Ineligible |
+- **In-scope**: Which domains, which features, which product surfaces you may test
+- **Out-of-scope**: Third-party services, internal systems, AI training data
+- **Rewards**: RCE $101,010, Info Disclosure $25,000, XSS $7,500 (modified by quality multiplier 0.8x / 1.0x / 1.2x)
+
+You don’t know where to start. This article is for exactly that “from zero” situation.
+
+---
+
+## Problem
+
+**First mistake: Scanning before reading rules.** You waste time on out-of-scope assets, miss in-scope endpoints, or get rejected for “duplicate / low quality / no PoC.”
+
+**Second mistake: Testing manually in a browser.** You need a reproducible toolchain: Burp Suite Community (free), browser DevTools (F12 → Network → Copy as cURL), and a local practice server (Article 3 ships `shop.mjs`).
+
+**Third mistake: Writing “I found XSS” instead of “Here is how you reproduce it and why it matters.”** Google VRP explicitly adjusts reward based on report quality: Low-quality 0.8x, Good 1.0x, Exceptional 1.2x. $101,010 → $80,808 (low) vs $121,212 (exceptional).
+
+---
+
+## Solution: Three Steps
+
+### Step 1 — Read Rules (30 minutes)
+
+Every bounty rules page follows the same pattern:
+
+| Section | What to look for | Example (Google VRP) |
 |---|---|---|
-| Websites | facebook.com, fb.com, fb.me, thefacebook.com, m.facebook.com | fbsbx.com, investor.fb.com, accountkit.com |
+| **Scope** | Domain list, product lines, allowed test methods | `*.google.com`, `*.youtube.com`, `*.blogger.com` |
+| **Rewards** | Severity tier payout + quality multiplier | T0/S0 RCE: $101,010 × 1.2 (max) = $121,212 |
+| **Exclusions** | Prohibited targets, third-party services, social engineering | Third-party services, internal systems, physical attacks |
+| **Report Quality** | How to qualify for 1.2x vs 0.8x | Full repro steps, PoC, CVSS assessment, impact statement |
 
-Same brand, different answers by domain. "It belongs to Meta" is not the same as "it's in scope," so check domain by domain.
+**Quick validation**: Ctrl+F for `in-scope` and `reward`. Verify the domain you want to test is listed. Record the payout numbers — you’ll need them for the EV estimation in Article 6.
 
-Google's [VRP rules page](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules) (Vulnerability Reward Program) names two important exclusions:
+### Step 2 — Open Your Workbench (Article 3 has full instructions)
 
-- Third-party websites: some Google-branded services on less common domains may be run by vendors or partners. Google says it "can't authorize you to test these systems on behalf of their owners" and won't reward such reports. It tells you to check WHOIS records, and "If in doubt, talk to us first!"
-- Recent acquisitions: a six-month blackout applies, and bugs reported sooner typically won't qualify.
+Your stack:
 
-Both come from one principle: **only the owner can authorize testing.** A program page can only authorize what it itself owns.
+1. **Burp Suite Community Edition** (free download): Proxy → Intercept, Repeater, HTTP History
+2. **Chrome DevTools** (F12 → Network → right-click → Copy as cURL)
+3. **Local practice server** (`shop.mjs` shipped in Article 3): `node shop.mjs` binds to `127.0.0.1:8000`, simulating IDOR + XSS surfaces
 
-Meta says the same about third-party apps: its terms "do not provide any authorization allowing you to test an app or website controlled by a third-party."
+**Minimum viable test loop**: Before touching real targets, verify you can:
+- Replay a request via `curl` (confirming reproducibility)
+- Modify a URL parameter (`/api/orders/1532` → `1533`) and observe response changes
+- Use Burp Repeater to cycle status codes (200 → 403 → 404)
 
-## Rules exclude techniques, not just targets
+### Step 3 — Write Your First Report (Article 6 has the full template)
 
-Beyond the target list, programs rule out certain methods. The first two items in Meta's Out of scope list are:
+A bounty report is not “I found XSS.” It is **reproducible instructions for someone else**. Standard template (copy-ready):
 
-- Spam or social engineering techniques
-- Denial-of-service attacks
-
-Google's page limits the program to technical vulnerabilities ("please do not try to sneak into Google offices, attempt phishing attacks against our employees") and asks you not to run DoS attacks, use black hat SEO, or spam people. It also discourages tools that automatically generate very significant volumes of traffic.
-
-In plain terms:
-
-- **DoS** knocks a service over, and the people hurt are ordinary users.
-- **Social engineering** targets people, not systems, and a company can't consent on behalf of its employees being tricked.
-
-Even if the target is in scope, these methods are off the table.
-
-## Only test your own accounts
-
-Both programs share this core rule. Google: "only ever target your own accounts. Never attempt to access anyone else's data and do not engage in any activity that would be disruptive or damaging to your fellow users or to Google."
-
-Meta is more detailed. Its [terms page](https://bugbounty.meta.com/terms/), under the responsible research and disclosure policy, requires that you:
-
-- do not interact with an individual account (including accessing or modifying its data) without the owner's explicit written consent;
-- test only on your own account, a [test account](https://www.facebook.com/whitehat/accounts/), or an account whose owner gave explicit written consent (the test-account page needs a Facebook login to view; the scope page has a line saying to use test accounts when investigating issues);
-- if you inadvertently access someone else's data, stop, tell Meta what you accessed, delete it from your system, and share it with no one. Continuing "may demonstrate a lack of good faith."
-
-Google adds a practical tip: create an account dedicated to testing, since it can't guarantee you'll get an account back if testing gets it disabled.
-
-## When you're not sure
-
-Meta's [program scope page](https://bugbounty.meta.com/scope/) says to submit a new report asking for clarification before doing anything that may be inconsistent with or unaddressed by the terms. Google says "talk to us first" for ambiguous domains. Both answers are the same: **ask first, test second.**
-
-## What safe harbor is, and isn't
-
-Safe harbor is the program's promise not to come after you if you follow the rules. Meta's Safe harbor provisions break down like this:
-
-1. The terms count as authorization to test the in-scope products and systems, including under the Computer Fraud and Abuse Act (CFAA, a US law) and similar laws.
-2. That authorization does not cover intentionally accessing company data or another person's account data without their express consent, personal information included.
-3. If Meta determines "in its sole discretion" that you complied "in all respects," it won't initiate a complaint to law enforcement or pursue a civil action.
-4. Meta also won't pursue legal action for clear accidental or good-faith violations.
-5. If a third party sues you over conduct Meta determines complied with the terms, Meta will make it known to the public or the court that your actions were authorized.
-
-The limits are visible in the text itself:
-
-- The condition is compliance "in all respects" (with a carve-out for clear accidental or good-faith violations), and Meta alone judges both.
-- It describes Meta's own actions. The text doesn't promise to bind anyone else.
-- It doesn't extend to out-of-scope targets or to other people's data accessed without their consent.
-
-The Google page I read doesn't use the term "safe harbor." The closest line is: "your testing must not violate any law, or disrupt or compromise any data that is not your own." Whether Google has a separate legal statement elsewhere, I **could not verify**. So "has a program" does not mean "has a safe harbor." Read each program's own text.
-
-## What Taiwan's law says
-
-> This is not legal advice. What follows only describes the wording of Chapter 36 ("Offenses Against Computer Use," 妨害電腦使用罪) of the Criminal Code of the Republic of China, as published on the [Laws & Regulations Database of the Republic of China](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=C0000001) (read 2026-10-13). Whether conduct is an offense, or whether a program's terms count as having cause in a given case, is a question for a qualified lawyer.
-
-| Article | Gist (paraphrased) | Penalty |
-|---|---|---|
-| 358 | Without cause, entering another person's account and password, breaking a computer's protection measures, or exploiting a computer system's vulnerability to intrude into another person's computer or related equipment | Up to 3 years imprisonment, detention, or a fine up to NT$300,000 (alone or in addition) |
-| 359 | Without cause, obtaining, deleting, or altering electromagnetic records on another person's computer or related equipment, causing harm to the public or others | Up to 5 years, detention, or a fine up to NT$600,000 (alone or in addition) |
-| 360 | Without cause, interfering with another person's computer or related equipment by program or other electromagnetic means, causing harm to the public or others | Up to 3 years, detention, or a fine up to NT$300,000 (alone or in addition) |
-| 361 | Committing the offenses above against a government agency's computer or related equipment | Penalty increased by up to one half |
-| 362 | Making a program specifically for committing offenses in this chapter, and providing it for oneself or others to commit them, causing harm to the public or others | Up to 5 years, detention, or a fine up to NT$600,000 (alone or in addition) |
-| 363 | Offenses under arts. 358-360 are prosecuted only upon complaint | n/a |
-
-Three details are visible in the text:
-
-- Articles 358 to 360 each turn on acting "without cause" (無故). The statute doesn't define it; interpretation is for courts and legal professionals.
-- Article 358 lists "exploiting a computer system's vulnerability" as a means of intrusion, which overlaps with a bug hunter's daily work.
-- Article 363 says arts. 358-360 require a complaint. Article 361 adds an aggravation for government systems.
-
-Use the table as a reminder that out-of-scope systems, other people's accounts, and interfering with a service are exactly the kinds of conduct these articles describe. How a program's authorization plays out legally is something this post does not conclude. Laws also differ by country: if your target is abroad, local law may apply, and I haven't checked other countries.
-
-## Three questions to decide if a target is testable
-
-```mermaid
-flowchart TD
-  A[You have a target] --> B{Q1 Is it on the in-scope list?}
-  B -- No or unsure --> X[Ask the program first, don't test]
-  B -- Yes --> C{Q2 Is my technique excluded?\nDoS, social engineering}
-  C -- Yes --> Y[Change technique or skip]
-  C -- No --> D{Q3 Is the data I touch my own?}
-  D -- No --> Z[Meta's rule: Stop, report it, delete it, share nothing]
-  D -- Yes --> OK[Test within the rules]
+```
+Title: [concise, include domain + vuln type]
+Summary: [one sentence on impact + severity]
+Steps to Reproduce: [1. 2. 3. … include URL, parameter, tool used]
+Expected Behaviour: [what should have happened]
+Actual Behaviour: [what actually happened, with response body or description]
+Impact: [on users, data, system; include estimated exposure]
+Proof of Concept: [executable curl or Burp Repeater steps]
+Severity / CVSS: [if applicable, include CVSS 3.1 score and rationale]
+Remediation / Fix: [how to fix, or why a workaround exists]
+References: [related CVEs, docs, prior research]
 ```
 
-Walking through real text:
+**Why this structure?** Google VRP’s reward table directly scales with report quality. Missing “Steps to Reproduce” = 0.8x. Complete PoC + impact + remediation = 1.2x.
 
-1. You see `fbsbx.com`. Q1: Meta lists it as ineligible. Stop.
-2. You see a site at `foo.appspot.com` that seems Google-related. Q1: Google's Non-qualifying list says `*.appspot.com` and `*.bc.googleusercontent.com` host Google Cloud customers' apps, and "the Vulnerability Reward Program does not authorize the testing" of them. Stop.
-3. You find something on `*.google.com` and want to scan it with a script that automatically sends a large volume of requests. Q2: Google discourages tools that generate very significant traffic. Slow down or go manual.
-4. On Facebook, you realize another user's account would reveal private data. Q3: Meta says use your own or a test account; for anyone else you need written consent. If you've already touched it, stop and report as the rules describe.
+---
 
-## "No reward" is not the same as "not authorized"
+## Why This Matters: The VRP Reward Architecture
 
-Google's Non-qualifying list opens with common low-risk issues that "typically do not earn a monetary reward": URL redirection, logout CSRF, exposed version banners. Those are **no payout**. But the `*.appspot.com` entry on the same list adds that testing is not authorized, which is **outside what the program permits**. Meta's False positives list (open redirects, public profile pictures) is the first kind: not a vulnerability, not an authorization issue.
+Google VRP (2024 rules update):
 
-When reading a list, look for the two phrasings. "Doesn't earn a reward" means you won't be paid. "Doesn't authorize" means you shouldn't be there.
+| Tier | Domain level | RCE payout | With 1.2x multiplier |
+|---|---|---|---|
+| T0 | Tier 0 domains | $101,001 | $121,212 |
+| T1 | Tier 1 domains | $101,001 | $121,212 |
+| T2 | Normal Google apps | $75,000 | $90,000 |
+| T3a | Acquisition Tier 0/1 | $10,000 | $12,000 |
+| T3b | Other acquisitions | $1,337–$5,000 | $1,604–$6,000 |
 
-## Limits
+This means: **the same vulnerability, reported with different quality, earns different money.** That’s why report writing (Article 6) sits in the middle of this series, not the end.
 
-- Rules change. Meta's page itself says "bounty amounts and qualifying issues may change with time," and Google says it can cancel the program at any time. This post reflects 2026-10-13. Re-read the original page before you test.
-- Programs differ. Meta requires participants to be at least 14, with parental or guardian permission if they are a minor where they live, while Google's VRP page restricts participation to those 18 and older and asks a parent, guardian, or other trusted adult to submit for anyone younger. Programs on HackerOne or Bugcrowd have their own rules, which this post doesn't cover.
-- The Taiwan section paraphrases statute text only. It doesn't include case law and isn't a legal opinion.
+---
 
-## What to do tonight
+## Self-Check (Key question: Are you ready?)
 
-1. Open [Meta's program scope](https://bugbounty.meta.com/scope/), copy the six Out of scope items, and write next to each one who it would hurt.
-2. Open the Non-qualifying list in [Google's VRP rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules) and label each entry "no reward" or "not authorized."
-3. Register an account used only for testing, and use only that for practice.
+- [ ] You’ve opened a bounty program’s rules page and highlighted the “In-scope” domain list
+- [ ] You’ve downloaded Burp Suite Community and intercepted at least one local request
+- [ ] You know what “Copy as cURL” does and can replay it in your terminal
+- [ ] You understand: T0/S0 RCE maxes at $121,212 (1.2x); T2 (general apps) maxes at $90,000
+- [ ] You understand the series flow: Rules (1) → How Websites Work (2) → Workbench (3) → Bugs (4-5) → Report (6) → Deep Dives (7-12) → Payouts (13) → Roadmap (14)
 
-## Next
-
-Post 2 will cover how websites work: what a browser sends, what a server answers, and how a login remembers you. You need that before vulnerability descriptions start to make sense.
+---
 
 ## References
 
-- [Meta Bug Bounty: Program scope](https://bugbounty.meta.com/scope/)
-- [Meta Bug Bounty: Terms & conditions (responsible research and disclosure policy, safe harbor provisions)](https://bugbounty.meta.com/terms/)
-- [Meta Bug Bounty: Test accounts](https://www.facebook.com/whitehat/accounts/)
-- [Google and Alphabet Vulnerability Reward Program (VRP) Rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)
-- [Laws & Regulations Database of the Republic of China: Criminal Code, Chapter 36, arts. 358-363 (in Chinese)](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=C0000001)
-- [Fact-Checking Bug Bounty's Top Payouts: Google RCE, Meta $300K, Hyper-V $250K (this site, post 0)](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)
+- [Google VRP Rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules) — payout table and quality multiplier
+- [Google VRP July 2024 Announcement](https://bughunters.google.com/blog/increasing-google-alphabet-vrp-rewards-up-to-151515) — $151,515 max reward announcement
+- [Google 2024 In Review](https://blog.google/security/vulnerability-reward-program-2024-in/) — Chrome $250K, Mobile $300K
+- [PortSwigger — Burp Suite Documentation](https://portswigger.net/burp/documentation)
+- [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/) — hands-on vulnerable app
+- [Meta Private Processing Payout](https://bugbounty.meta.com/payout-guidelines/private-processing/) — $300k / $300k / $150k / $10k
+- [Meta Scope](https://bugbounty.meta.com/scope/) — TEE-related scope
+
+---
+
+*_This is article 0 (overview) of "Bug Bounty from Zero." Full series flow diagram is in Article 6 (report writing) and Article 14 (roadmap)._*

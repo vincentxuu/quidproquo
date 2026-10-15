@@ -1,5 +1,5 @@
 {
-  "note": "2026-10-15 前登錄的系列，免規劃表與審稿紀錄閘門。重寫或大改某系列時，先補 .work/series-plans/<slug>.md 再把它從這裡移除。bug-bounty-from-zero 已排定重寫，重寫開始時移除。",
+  "note": "2026-10-15 前登錄的系列，免規劃表與審稿紀錄閘門。重寫或大改某系列時，先補 .work/series-plans/<slug>.md，把它從 grandfathered 移到 rewriting；整個系列重寫完再從 rewriting 移除。",
   "grandfathered": [
     "statistics-ml-ai",
     "private-corpus-pipeline",
@@ -87,7 +87,6 @@
     "self-hosted-inference",
     "groundlane",
     "security-cert-prep",
-    "bug-bounty-from-zero",
     "solo-media-company",
     "llm-from-scratch",
     "meta-harness-agent",
@@ -104,5 +103,8 @@
     "multi-agent",
     "stanford-cme295",
     "cmu-11-768-ai-agents"
+  ],
+  "rewriting": [
+    "bug-bounty-from-zero"
   ]
 }

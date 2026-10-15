@@ -15,7 +15,7 @@ tldr: "None of the three program pages I read (Google VRP, Meta, MSRC Hyper-V) a
 draft: false
 series:
   name: "Bug Bounty from Zero"
-  order: 12
+  order: 14
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map)
