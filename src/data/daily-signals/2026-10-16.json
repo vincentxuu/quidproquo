@@ -1,0 +1,533 @@
+{
+  "date": "2026-10-16",
+  "generatedAt": "2026-10-15T19:42:59.324Z",
+  "routineId": "J",
+  "signalCount": 30,
+  "signals": [
+    {
+      "id": "sig-001",
+      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
+      "source": "ft",
+      "sourceUrl": "https://www.ft.com/content/11632d03-358c-454b-af95-d06d4072932b",
+      "publishedDate": "2026-10-15",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "FT 報導 Anthropic 向投資人透露第三季營收達 $16.8bn（Q1 約 $4.8bn、Q2 $11.5bn），年成長近 50%，調整後營運利潤率 11%；distillation 用量佔營收 5-7%，第三季已大幅削減，為 IPO 鋪路。",
+      "relevance": 0.95,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-002",
+      "title": "FBI arrests OpenAI employee for allegedly planting bug in company office",
+      "source": "washingtonpost",
+      "sourceUrl": "https://www.washingtonpost.com/technology/2026/10/13/fbi-arrests-openai-employee-allegedly-planting-bug-office/",
+      "publishedDate": "2026-10-15",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "FBI 逮捕 OpenAI 一名沙烏地籍員工 Abdulrahman Alfozan，指控其在公司辦公室內安裝竊聽器；檢方文件顯示其原訂 10/12 單程飛往沙烏地阿拉伯，案件持續擴大。",
+      "relevance": 0.88,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "aljazeera"
+      ]
+    },
+    {
+      "id": "sig-003",
+      "title": "Welcome Muse Spark Open: open-weight frontier multimodal MoE model from Meta",
+      "source": "huggingface-blog",
+      "sourceUrl": "https://huggingface.co/blog/meta-muse-spark-open",
+      "publishedDate": "2026-10-15",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "meta"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Meta 發佈 Muse Spark Open，816B 參數（42B 啟用）開放權重多模態 MoE 模型，支援文字/圖像/影片/音訊，最長 1M context，號稱美國最強開放權重模型，在多項 agentic benchmark 上領先 Qwen 3.8、GLM 5.3、Kimi K3，可在兩台 Mac Studio（512GB 統一記憶體）本地跑。",
+      "relevance": 0.92,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "the-decoder",
+        "aws-ml-blog"
+      ]
+    },
+    {
+      "id": "sig-004",
+      "title": "Black Forest Labs' open-weights image model FLUX 3 Image Klein runs on consumer GPUs with just 8GB VRAM",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/black-forest-labs-open-weights-image-model-flux-3-image-klein-runs-on-consumer-gpus-with-just-8-gb-of-vram/",
+      "publishedDate": "2026-10-15",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "black-forest-labs"
+      ],
+      "section": "C6",
+      "ring": 2,
+      "summary": "Black Forest Labs 發佈 FLUX 3 Image Klein，56 億參數開放權重文生圖/編圖模型，支援原生 4K 輸出、像素級編輯與最多 10 張參考圖；INT8 版本可在 8GB VRAM 的 RTX 4070 上 9 秒內生成一張圖，商用授權年營收 500 萬美元以下免費。",
+      "relevance": 0.78,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "huggingface-blog"
+      ]
+    },
+    {
+      "id": "sig-005",
+      "title": "Workday announces AI agent capabilities and acquisition of C1.ai",
+      "source": "msspalert",
+      "sourceUrl": "https://www.msspalert.com/news/workday-announces-ai-agent-capabilities-and-acquisition-of-c1-ai",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "acquisition",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "Workday 發佈新 agent 能力並宣布收購 agentic identity 技術公司 C1.ai，用於 HR、財務與 IT 應用；同場也將 Sana 定為主要 agentic 介面，並正式推出 Agent Harness（含記憶、護欄、區域資料控管與審計追蹤）。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-006",
+      "title": "Cloudflare and OpenAI: Making AI discovery better for everyone",
+      "source": "cloudflare-blog",
+      "sourceUrl": "https://blog.cloudflare.com/cloudflare-openai-discovery-agentic-web/",
+      "publishedDate": "2026-10-15",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "cloudflare",
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Cloudflare 與 OpenAI 合作改善 AI 爬取與內容發現機制，讓 AI 更快掌握網站更新、減少重複無效請求，同時替網站主保留流量可見度與控制權。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-007",
+      "title": "Hermes Agent v0.22.1 patch release",
+      "source": "github",
+      "sourceUrl": "https://github.com/nousresearch/hermes-agent/releases/tag/v0.22.1",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "Nous Research 開源自我改進 agent Hermes Agent 發佈 v0.22.1 修補版，涵蓋 Windows Store 修復、外掛更新與大量內部重構（session authority、canonical admissions），支援 CLI、多平台訊息閘道與持久記憶。",
+      "relevance": 0.58,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-008",
+      "title": "Exclusive: AI safety money floods into political races",
+      "source": "axios",
+      "sourceUrl": "https://www.axios.com/2026/10/14/ai-safety-regulation-election-spending-50-million",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "AI 安全與治理倡議團體今年選舉週期已砸近 $5000 萬支持主張監管的候選人，捐款人多為擔心業界遊說壓制候選人發聲的個人，被視為矽谷加速派與安全派在美國選舉政治上的角力升級。",
+      "relevance": 0.72,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-009",
+      "title": "Trump announces creation of \"Super Intelligence Force\" AI task force",
+      "source": "abcnews",
+      "sourceUrl": "https://abcnews.com/Politics/president-donald-trump-announces-creation-super-intelligence-force/story?id=136986122",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "unverified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "川普宣布成立「超級智慧部隊」(Super Intelligence Force)，協調聯邦政府與消費者、關鍵基礎設施業者及 AI 公司的互動，強調維持美國 AI 領導地位，細節尚不明朗，未提及具體監督機制。",
+      "relevance": 0.8,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-010",
+      "title": "Trust in Depth: Giving agents more autonomy without losing control",
+      "source": "aws-ml-blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+      "publishedDate": "2026-10-15",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "AWS 提出 Trust in Depth 分層框架（scope、know、bound、observe、prove），讓企業在能驗證 agent 行為時放手自動執行、留人力判斷給真正需要的決策，解決企業想放權又不信任 agent 的兩難。",
+      "relevance": 0.68,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-011",
+      "title": "Meta's Muse Spark Open now available in Amazon SageMaker JumpStart",
+      "source": "aws-ml-blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/metas-muse-spark-open-now-available-in-amazon-sagemaker-jumpstart/",
+      "publishedDate": "2026-10-15",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "amazon",
+        "meta"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "AWS 在 Meta 發佈 Muse Spark Open 的同一天就將其上架到 SageMaker JumpStart，讓企業客戶可直接在 AWS 環境中部署此開放權重多模態 agentic 模型。",
+      "relevance": 0.6,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "huggingface-blog",
+        "the-decoder"
+      ]
+    },
+    {
+      "id": "sig-012",
+      "title": "Vector stores in Agent Framework for Python: familiar foundations, streamlined for agents",
+      "source": "microsoft-devblogs",
+      "sourceUrl": "https://devblogs.microsoft.com/agent-framework/vector-stores-in-python-agent-framework-familiar-foundations-streamlined-for-agents/",
+      "publishedDate": "2026-10-15",
+      "dateConfidence": "verified",
+      "category": "framework-release",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Microsoft Agent Framework for Python 把 Semantic Kernel 時代的 vector store API 延續過來並簡化，提供型別化 record、批次儲存/檢索、embedding 生成與向量搜尋，讓熟悉 Semantic Kernel 的開發者能快速上手。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-013",
+      "title": "AI Agents: Meet the Azure Cosmos DB vNext Emulator",
+      "source": "microsoft-devblogs",
+      "sourceUrl": "https://devblogs.microsoft.com/cosmosdb/ai-agents-meet-the-azure-cosmos-db-vnext-emulator/",
+      "publishedDate": "2026-10-15",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Microsoft 指出 vNext 版 Cosmos DB emulator 的 2 天內 session 數是舊版 10 倍，推測是因為 coding agent 需要可隨時啟動、填種子資料、測試與除錯的資料庫，vNext 正好吃準這個 agentic 開發流程需求。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-014",
+      "title": "Putting Earth AI to work: Geospatial agents for our planet's biggest challenges",
+      "source": "google-research-blog",
+      "sourceUrl": "https://research.google/blog/putting-earth-ai-to-work-geospatial-agents-for-our-planets-biggest-challenges/",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google Research 介紹以 Earth AI 地理空間基礎模型打造的 agent，用於協助氣候與地理相關重大議題，是 Google 把 agent 框架延伸到科學／地球觀測領域的案例。",
+      "relevance": 0.58,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-015",
+      "title": "Analyzing technical documents with Deep Review",
+      "source": "google-research-blog",
+      "sourceUrl": "https://research.google/blog/analyzing-technical-documents-with-deep-review/",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google Research 發表 Deep Review，用於分析技術文件的工具/方法，屬於自然語言處理與生成式 AI 交叉的文件理解應用。",
+      "relevance": 0.52,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-016",
+      "title": "From Two Weeks to Seconds: How Ericsson Is Reimagining B2B Commerce with AI",
+      "source": "sap-news",
+      "sourceUrl": "https://news.sap.com/2026/10/how-ericsson-is-reimagining-b2b-commerce-with-ai/",
+      "publishedDate": "2026-10-15",
+      "dateConfidence": "verified",
+      "category": "enterprise-deployment",
+      "companies": [
+        "sap"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Ericsson 用 SAP 的 AI 能力把 B2B 商務流程從兩週縮短到幾秒鐘，是電信業導入生成式/agentic AI 重塑企業商務作業的具體落地案例。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-017",
+      "title": "HiRO-ACEv2: Simulating extreme weather at 3km resolution for a fraction of the cost",
+      "source": "huggingface-blog",
+      "sourceUrl": "https://huggingface.co/blog/allenai/hiro-acev2",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "ai2-allen-institute"
+      ],
+      "section": "A2",
+      "ring": 2,
+      "summary": "AI2 發佈 HiRO-ACEv2，能以 3 公里解析度模擬極端天氣，計算成本遠低於傳統數值氣候模型，是開源科學基礎模型在氣候模擬應用上的新進展。",
+      "relevance": 0.55,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "allenai-blog"
+      ]
+    },
+    {
+      "id": "sig-018",
+      "title": "Pluto Security emerges from stealth with $42 million and 1 million endpoints",
+      "source": "ynetnews",
+      "sourceUrl": "https://www.ynetnews.com/business/article/pluto-security",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "unverified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "以色列 AI 資安新創 Pluto Security 以 $42M 種子輪走出潛行模式，已部署逾百萬端點，聚焦非人身分（non-human identity）與 AI agent 的存取安全。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-019",
+      "title": "Rocket Software acquires Geniez AI for mainframe-operating agents",
+      "source": "aiagentstore",
+      "sourceUrl": "https://aiagentstore.ai/ai-agent-news/daily/2026-10-14",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "unverified",
+      "category": "acquisition",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "Rocket Software 收購 Geniez AI，其 agent 可直接在大型主機（mainframe）上監控系統、診斷事故並透過自然語言指令執行維運工作，是 agentic AI 滲入傳統大型主機維運的少見案例。",
+      "relevance": 0.58,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-020",
+      "title": "Singapore positions itself as Southeast Asia's AI gateway: Minister",
+      "source": "cnbc",
+      "sourceUrl": "https://www.cnbc.com/video/2026/10/15/singapore-positioning-itself-as-southeast-asias-ai-gateway-minister.html",
+      "publishedDate": "2026-10-15",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "新加坡數位發展與資訊部長 Josephine Teo 表示 Anthropic、OpenAI 等 AI 實驗室正於新加坡設點，政府定位新加坡為東南亞的 AI 門戶，並談及如何在推動 AI 戰略同時處理霾害等外部衝擊。",
+      "relevance": 0.58,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-021",
+      "title": "South Korean firms target Philippines' $34.4 billion AI infrastructure push",
+      "source": "chosun",
+      "sourceUrl": "https://www.chosun.com/english/world-en/2026/10/15/LP7ECNSV2BATXII2DDKUZHMTDM/",
+      "publishedDate": "2026-10-15",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "南韓企業加入美國主導的聯盟，瞄準菲律賓 $34.4B 的 AI 基礎建設投資計畫，透過呂宋走廊（Luzon corridor）將韓國基建輸出擴展到 AI 與電力產業。",
+      "relevance": 0.58,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-022",
+      "title": "Sharjah turns to AI to identify foreign investment opportunities in seconds",
+      "source": "thenationalnews",
+      "sourceUrl": "https://www.thenationalnews.com/business/economy/2026/10/14/sharjah-turns-to-ai-to-boost-growth-and-speed-up-business-processes/",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 4,
+      "summary": "阿聯杜拜鄰邦 Sharjah 推出「Najm」AI 平台，串接即時工業地段、商辦空間與市政資料，協助全球投資人快速找到投資機會；UAE 也同步推出首批用於稽核與客服的 AI agent。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-023",
+      "title": "Microsoft UAE and G42's Inception explore the rise of 'human-led, agent-operated' businesses",
+      "source": "pcmag-me",
+      "sourceUrl": "https://me.pcmag.com/en/ai/38344/microsoft-uae-and-g42s-inception-explore-the-rise-of-human-led-agent-operated-businesses-at-sif-2026",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "g42",
+        "microsoft"
+      ],
+      "section": "F8",
+      "ring": 2,
+      "summary": "在 Sharjah 國際學術會議 SIF 2026 上，Microsoft UAE 與 G42 旗下 Inception 探討「人主導、agent 運作」的企業型態；阿布達比某主權基金已用 AI agent 對投資提案提出質疑分析，決策前仍由人員複核。",
+      "relevance": 0.62,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-024",
+      "title": "EU-funded GAINAfrica launches AI pilots in five African countries",
+      "source": "streamlinefeed",
+      "sourceUrl": "https://streamlinefeed.co.ke/news/eu-funded-gainafrica-plans-ai-pilots-five-african-countries",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 4,
+      "summary": "歐盟出資 €2M 的 GAINAfrica 計畫在摩洛哥、突尼西亞、埃及、貝南與烏干達等 5 國推動至少 10 個 AI pilot，開羅啟動活動已於 10/12-15 在埃及資訊科技大學展開，目前仍是需求盤點與雛形階段，尚未有實際落地成果。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-025",
+      "title": "Australian minister backs local AI training to build national capability",
+      "source": "mlex",
+      "sourceUrl": "https://www.mlex.com/mlex/amp/articles/2537591",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 4,
+      "summary": "澳洲工業與科學部長 Tim Ayres 表態支持在澳洲本地法規下進行 AI 訓練與模型開發，認為有助強化創新、國安與本土技術能力。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-026",
+      "title": "AI regulation in Brazil and Mexico: What's really at stake",
+      "source": "bnamericas",
+      "sourceUrl": "https://www.bnamericas.com/en/analysis/ai-regulation-in-brazil-and-mexico-whats-really-at-stake",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "巴西 AI 法案待選後表決、墨西哥參議院正在草擬一般性 AI 法律且據稱接近完成，兩國都面臨類似的地緣政治壓力與監管兩難，是拉丁美洲 AI 治理進度的重要觀察點。",
+      "relevance": 0.52,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-027",
+      "title": "Cathay FHC enters \"Agent First\" phase: 2026 Cathay Technology Conference unveils AI Digital Colleague pilots",
+      "source": "macaubusiness",
+      "sourceUrl": "https://macaubusiness.com/cathay-fhc-enters-agent-first-phase-2026-cathay-technology-conference-draws-nearly-7000-registrants-unveils-ai-digital-colleague-pilots-and-focuses-on-autonomous-finance-stablecoins-and-respo/",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "enterprise-deployment",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "國泰金控進入「Agent First」階段，2026 國泰科技大會吸引近 7000 人報名，首度公開「AI 數位同仁」試行，聚焦自主金融、穩定幣與負責任 AI；OpenAI、Google Cloud、微軟台灣等皆有代表出席。",
+      "relevance": 0.58,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-028",
+      "title": "Sovereign AI and India's Deep Tech Push: MeitY Startup Hub signs MoU with IBM",
+      "source": "iaspoint",
+      "sourceUrl": "https://iaspoint.com/sovereign-ai-and-indias-deep-tech-push/",
+      "publishedDate": "2026-10-13",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [
+        "ibm"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "印度 MeitY Startup Hub 與 IBM 在 IBM Think 2026 孟買場簽署合作備忘錄，合作範圍涵蓋企業技術取用，呼應印度推動主權 AI 與深科技發展的政策方向。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-029",
+      "title": "India's Election Commission introduces AI regulations to counter deepfake misinformation ahead of 2026 elections",
+      "source": "af-net",
+      "sourceUrl": "https://af.net/realtime/indias-election-commission-introduces-ai-regulations-to-counter-deepfake-misinformation-in-2026-elections/",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "unverified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "印度選舉委員會為應對深偽內容對選舉的衝擊，推出新 AI 規範，是全球多國（包括巴基斯坦、印尼、俄羅斯等 29 國）同步處理 AI 選舉治理議題的一環。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-030",
+      "title": "G2's 2026 AI Agents Report: Crossing the Agentic Chasm",
+      "source": "g2",
+      "sourceUrl": "https://company.g2.com/news/2026-ai-agents-report",
+      "publishedDate": "2026-10-14",
+      "dateConfidence": "verified",
+      "category": "community-signal",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "G2 根據逾 1000 位 B2B 軟體買家調查與評論資料發布《2026 AI Agents Report》，指出 AI agent 已從試點走向正式上線，但企業買家仍存在「不信任稅」，信任落差成為擴張部署的主要阻力。",
+      "relevance": 0.52,
+      "crossValidated": false,
+      "crossValidationSources": []
+    }
+  ]
+}
