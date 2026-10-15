@@ -54,7 +54,7 @@ series:
 
 ### 定價與 API 生命週期
 
-**Google**：Gemini 4 Argon 全面開放，限時低價 $2／$10（每百萬 token），2027 年起調漲至 $1.50／$7.50。（[來源](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token)）
+**Google**：Gemini 4 Argon 全面開放，限時低價 $2／$10（每百萬 token），12 月 1 日起調漲為 $4／$20。（[來源](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token)、[官方定價](https://ai.google.dev/gemini-api/docs/pricing)）
 
 **Anthropic**：Claude Sonnet 4 今天在 Amazon Bedrock 正式 EOL，官方建議替代 Sonnet 4.6 base 價不變，但 region-locked endpoint 要多付 10% premium——完整試算見今日[定價追蹤](/posts/daily/2026-10-14-pricing-anthropic-claude-sonnet-4-bedrock-eol)。
 

@@ -54,7 +54,7 @@ What this means for practitioners: when evaluating agent adoption, the first que
 
 ### Pricing & API Lifecycle
 
-**Google**: Gemini 4 Argon is now broadly available with limited-time low pricing of $2/$10 per million tokens, rising to $1.50/$7.50 starting 2027. ([source](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token))
+**Google**: Gemini 4 Argon is now broadly available with limited-time low pricing of $2/$10 per million tokens, rising to $4/$20 on December 1. ([source](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token), [official pricing](https://ai.google.dev/gemini-api/docs/pricing))
 
 **Anthropic**: Claude Sonnet 4 reached official end-of-life on Amazon Bedrock today; the recommended replacement Sonnet 4.6 keeps the same base price, but region-locked endpoints now carry a 10% premium — full breakdown in today's [pricing tracker](/posts/daily/2026-10-14-pricing-anthropic-claude-sonnet-4-bedrock-eol-en).
 
