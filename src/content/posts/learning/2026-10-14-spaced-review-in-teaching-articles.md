@@ -21,7 +21,7 @@ draft: false
 
 有人試過把這一段補起來。最有名的是 Andy Matuschak 與 Michael Nielsen 2019 年做的 [Quantum Country](https://numinous.productions/ttft/)：一篇講量子計算的長文，題目嵌在正文裡，讀者讀完幾天後會收到電子郵件，請他們回來複習。兩位作者把這種形式叫做 mnemonic medium（下面寫成「記憶媒介」）。這篇整理它公布了哪些資料，再看同一個想法搬到線上課程、語言 app、程式教學網站和醫學生自修時的結果，最後整理做的人自己說它為什麼難推廣。
 
-先講一個缺口。本站沒有任何閱讀行為的資料，網站沒有載入分析工具，所以我不知道本站讀者會不會回頭讀、隔多久回來。我也沒找到研究教學型網頁文章讀者回訪的文獻。下面的資料全部來自別的情境。
+先講一個缺口。本站沒有個別讀者的閱讀行為資料。正式站至少載入了 [Cloudflare Web Analytics](https://developers.cloudflare.com/web-analytics/data-metrics/)，是 Cloudflare 在邊緣自動注入的，不在網站的程式裡。依 Cloudflare 的文件，它的指標是匯總的頁面瀏覽、造訪與頁面載入時間，造訪是看來源網址是否來自別的網站判定的；它不收集訪客的個人資料，也還不支援自訂事件；這些指標認不出同一位讀者，所以量不到讀者會不會回頭讀、隔多久回來。我也沒找到研究教學型網頁文章讀者回訪的文獻。下面的資料全部來自別的情境。
 
 **這批來源怎麼選的**。我先做了一輪掃描，再挑 11 份從頭讀到尾。挑的標準是有沒有公布「把複習放進教材之後實際發生什麼」。挑出來的來源有兩個明顯的偏向。第一，最詳細的資料多半由做產品的人自己公布：Quantum Country 的作者、Duolingo 的員工、Execute Program 的創辦人；其中 Matuschak 的工作筆記與 Execute Program 的論壇留言沒有經過同儕審查。第二，有隨機分派的只有線上課程、語言 app 和一間中學的課堂。Matuschak 後來在給贊助者的信裡寫過更多 Quantum Country 的資料，那些信標明不得分享或引用，這裡不用。
 
@@ -204,7 +204,7 @@ Bernhardt 說新使用者偶爾來信抱怨，想一天讀完一門課；長期�
 | 文末放跨節的綜合題 | 和正文在同一次閱讀裡作答，沒有隔一段時間，這是我的判斷 | 本站的選擇 |
 | 系列文章，後篇有時會用到前篇 | 後篇要不要刻意回頭考前篇，沒有研究直接測過；系列怎麼排，之後的篇會談 | 缺 |
 | [英文口說練習頁](/english)有排程：自評「說得順」的句子至少 3 天後再出現，連續說得順就拉到 6、12、24 天，上限 30 天；「有點卡」隔天；「還說不出來」在同一輪的最後再練一次，下一輪才是 10 分鐘後 | 進度存在讀者自己的瀏覽器，不需要帳號；沒有寄信提醒，要讀者自己回來 | 本站的設計；沒有資料知道多少人回來 |
-| 沒有讀者帳號；除了 RSS 之外沒有提醒讀者回來的機制；沒有分析工具 | 不知道讀者會不會回來、隔多久回來 | 缺 |
+| 沒有讀者帳號；除了 RSS 之外沒有提醒讀者回來的機制；流量統計是匯總的，認不出同一位讀者 | 不知道讀者會不會回來、隔多久回來 | 缺 |
 
 本站的課程導讀其實已經做了 Quantum Country 的第一層：題目嵌在正文裡，讀到就答。缺的是之後的那幾次。英文口說頁補上了排程，但它和 Quantum Country 一樣要讀者自己回來，而且少了寄信這一步。
 
@@ -232,7 +232,7 @@ Bernhardt 說新使用者偶爾來信抱怨，想一天讀完一門課；長期�
 
 ## 這些證據的限制
 
-- **沒有研究測過教學型網頁文章的讀者會不會回來**。本站沒有任何閱讀行為的資料。把 MOOC、語言 app、中學課堂的結果搬到文章，是我的推論。
+- **沒有研究測過教學型網頁文章的讀者會不會回來**。本站的流量統計是匯總的，沒有個別讀者的閱讀行為資料。把 MOOC、語言 app、中學課堂的結果搬到文章，是我的推論。
 - **最詳細的資料由做的人自己公布**。Quantum Country 的數字來自作者的長文與工作筆記，沒有同儕審查，工作筆記會被作者持續改寫；Duolingo 的論文作者是公司員工；Execute Program 只有創辦人的論壇留言。
 - **Quantum Country 的數字多數沒有分母**。195 人、54 天、95 分鐘都只算做到某一步的人，沒有交代總共多少人讀過或建了帳號。長文的圖沒有進到我讀的版本，「從圖讀出」的數字只能依作者在正文的轉述。
 - **Quantum Country 的延後實驗很小**：8 張卡、41 人，沒有寫分組方式，沒有檢定，用的是更早的排程。
@@ -274,6 +274,7 @@ Bernhardt 說新使用者偶爾來信抱怨，想一天讀完一門課；長期�
 
 每一條都從頭讀到尾並留有抽取紀錄；讀不到的部分寫在括號裡。
 
+- [Cloudflare Web Analytics 文件：Data and metrics](https://developers.cloudflare.com/web-analytics/data-metrics/)：讀了 About、High-level metrics、Dimensions、Data origin and collection 與 FAQ 各頁（2026-10-14 查），用來說明本站的匯總流量統計量什麼、不量什麼。
 - [Matuschak & Nielsen (2019), How can we develop transformative tools for thought?](https://numinous.productions/ttft/)（作者網站的公開版；圖片與影片沒有讀到）。
 - [Matuschak & Nielsen (2020), Timeful Texts](https://numinous.productions/timeful/)（作者網站的公開版）。
 - Andy Matuschak 的公開工作筆記（2026-10-13 的版本）：[Mnemonic medium](https://notes.andymatuschak.org/Mnemonic_medium)、[Effects of the mnemonic medium on reader memory](https://notes.andymatuschak.org/zqetsQERteJhyPitmRoaeE)、[Mnemonic essays may offer detailed retention of their contents in exchange for 35-50% reading time overhead](https://notes.andymatuschak.org/z4biJ7i6da3exh3qmXXohjh)、[Quantum Country readers reliably develop detailed retention for embedded questions](https://notes.andymatuschak.org/zRxhtQqHvLpatPLB4BvzMRB)、[Lessons learned from applying the mnemonic medium to non-technical texts](https://notes.andymatuschak.org/zG29usta2L9LLjkVbnvCzcV)、[The mnemonic medium works well for linear primers in established fields](https://notes.andymatuschak.org/zP8MVDmomB7UrTddVY34E1B)、[The mnemonic medium should give readers control over the prompts they collect](https://notes.andymatuschak.org/z8kPkXQZ3wVR5DfJ79uhnuz)、[Regular spaced repetition memory practice is an onerous habit to adopt](https://notes.andymatuschak.org/z3DiwZKDuLxMV17mt2nWH7y)、[Mnemonic texts could be serialized in small sections over time, timed to reader recall](https://notes.andymatuschak.org/zJaSxZHpWr5fq7vQtHUVuMp)、[Substantive examples of the mnemonic medium](https://notes.andymatuschak.org/z7tvoovbepeoM99XZCSntef)、[Execute Program](https://notes.andymatuschak.org/zSsjk5UvNPGrYp8B6DEFCMS)（各則連到的其他筆記多數只讀到標題）。
