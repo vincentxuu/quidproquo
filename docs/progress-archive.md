@@ -805,3 +805,7 @@ post-verify report: 2026-09-07-marker-document-parsing.md
 ## 2026-10-16 封存：六組模型家族上線 2026-10-11 條目（daily-digest-ai-interview 例行 E3 步驟，progress.txt 逼近 90 行上限）
 
 - **六組模型家族上線（2026-10-11，待發布）**：隔離工作區查證並同步12篇中英稿，修正模態／上下文／權重授權與工具執行邊界，補系列 order 26–31、解除草稿；保留共享目錄其他改動。修正測試對已搬移flow範例的路徑，全部719測試通過；待最終verify、push及正式站讀回。 格式續作：29組主篇、3組比較篇與7個skill已統一，Gemini英文3.8同步；完整verify與專項檢查通過，準備提交發布。
+
+## 2026-10-16 封存：daily-digest-funding 2026-10-12 條目（daily-digest-product-interview 例行 E3 步驟，progress.txt 逼近 90 行上限）
+
+- **daily-digest-funding 2026-10-12**：三組 Groundlane `web_search`（通用融資／Agent 特定／businesswire+prnewswire）＋`aifunding.me` 首頁最新榜，今日候選皆已被先前 routine 寫過或不符門檻：Manus $500M＋、Arena $200M Series B、Gallatin AI $50M Series A、TypeSafe AI $870M Series A 分別已被 10-09～10-11 的 funding routine 報導過（grep 全站確認重複，不重複寫）；Supabase $150M＋收購 Turso（agentic infrastructure）查證後確認是 2026-10-05／06 的舊聞（距今 5–6 天，非近 24 小時事件）；Tasklet $12.8M 多家來源對輪次標示互相矛盾（Seed／pre-A bridge／Series A 各執一詞），且來源多為二三線聚合站（thesaasnews／wowtale／tradedvc），未達 2 個獨立一手來源確認門檻，排除；Aurora（AI 禮賓服務，$12M）輪次未公開、Fortune 原始報導外其餘幾篇皆是同篇內容的聯合轉載非獨立確認，且屬消費端奢侈品服務非本系列 Agent 生態範疇，排除。`aifunding.me` 首頁 Oct 11–12 最新一筆（Aurora）之外無其他新進榜項目。依 skill Step 6：今日無符合條件的融資事件，不產出文章。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:tw`（0 blocking，無新檔）；已將最舊 Recently completed 條目（10-08 daily-digest-ai-interview）移至 `docs/progress-archive.md`。
