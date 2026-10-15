@@ -60,6 +60,7 @@ cat src/data/agent-watchlist.json | jq '[.companies[] | select(.section == "A1" 
 
 **禁止的是**：不使用 `stealth_fetch`、`web-fetch/fetch_page`（已退役工具）。
 **不禁止的是**：在 Groundlane 不可用時使用 Exa/Tavily/linkup/jina/firecrawl 作為 fallback——這是全域規則允許的正常降級。
+**Groundlane 失效不是 blocker**：只有整條 fallback 鏈都失敗才登錄 escalation-queue；Keenable keyless 上限 10 RPS，同批最多 3 個 query，遇 429 等 1 秒再單發。完整契約見 `daily-digest` skill。
 
 ---
 

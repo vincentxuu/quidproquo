@@ -44,11 +44,11 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "A1" o
 | **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
 
-### 搜尋工具 fallback（依當前 AGENTS.md）
+### 搜尋工具 fallback
 
-先搜尋完整 callable inventory，再選 Groundlane MCP 的 `web_search`／`web_fetch`／`web_extract`。使用者未指定工具時，Groundlane 未掛載或一次 bounded request 整體失敗，選 inventory 中最適合的其他公開網頁 MCP；沒有合適 MCP 才用平台 web search/fetch/open。簡短揭露實際工具及 Groundlane 失敗，fallback 不算 Groundlane 路徑驗證。
+依 `daily-digest` skill 的「搜尋工具契約」：Groundlane MCP → Groundlane 直接 HTTP → Keenable keyless → You.com keyless → 其他雲端搜尋 MCP／平台內建搜尋 → 平台內建 fetch。Groundlane 失效（未掛載、401、逾時）不是 blocker，換下一層照常跑，並在 progress.txt 記 `toolDegradation`。HF API（`https://huggingface.co/api/models?...`）是公開 JSON，Groundlane 不可用時直接 `curl` 即可。
 
-使用者指定工具或禁止 fallback 時，指定路徑不可用就回報 blocker。不要自行推定 Groundlane 部署 URL、帳號或 token，也不用硬編的 HTTP／keyless 路徑替代 callable inventory。Fallback 只限公開資料，不得傳送 secrets、認證內容或私有資料。禁止 `stealth_fetch`、`WebFetch`、`web-fetch`、`fetch_page` 或 `playwright` 抓網頁。
+只有使用者在當次對話指定「只能用 Groundlane」時才不降級。Fallback 只限公開資料，不得傳送 secrets、認證內容或私有資料。禁止已退役的 `stealth_fetch`、`web-fetch/fetch_page`。
 
 ---
 

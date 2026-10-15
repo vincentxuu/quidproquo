@@ -75,6 +75,8 @@ cat src/data/interview-focus.json | 讀取 ai-engineer.weights
 | **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（GitHub `gh` CLI 等） | 有 API 的來源不用搜尋工具 |
 
+Groundlane 不可用（未掛載、401 `invalid_token`、逾時）不是 blocker：依 `daily-digest` skill 的「搜尋工具契約」換下一層（Groundlane 直接 HTTP → Keenable keyless → You.com keyless → 其他雲端搜尋 MCP／平台內建搜尋 → 平台內建 fetch），照常產出，並在 progress.txt 本次條目記 `toolDegradation`。
+
 ---
 
 ## 搜尋方法
