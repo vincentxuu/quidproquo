@@ -397,33 +397,39 @@ body.has-chat-sidebar {
   }
 }
 
-/* Trigger button — capsule style, fixed bottom-right */
+/* Trigger button — capsule style, fixed bottom-right.
+   Keep it compact and clearly separated from quick actions + scroll-top. */
 .chat-sidebar-trigger {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: 1.25rem;
+  right: 1.25rem;
   z-index: 100;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.55rem 1rem;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--bg-card);
-  color: var(--brand-700);
-  font: 700 0.82rem/1 inherit;
-  letter-spacing: 0.01em;
+  color: var(--text-primary);
+  font: 600 0.85rem/1 var(--font-sans, inherit);
+  letter-spacing: 0.02em;
   cursor: pointer;
   box-shadow: var(--shadow-floating);
-  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s, background-color 0.15s;
 }
 .chat-sidebar-trigger:hover {
   border-color: var(--brand-500);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  background: var(--bg-card-hover);
+}
+.chat-sidebar-trigger:active {
+  transform: translateY(0);
 }
 .chat-sidebar-trigger svg {
   color: var(--brand-500);
+  flex-shrink: 0;
 }
 
 /* Sidebar panel — fixed right, full height */
@@ -435,9 +441,9 @@ body.has-chat-sidebar {
   z-index: 200;
   display: flex;
   flex-direction: column;
-  background: var(--bg-card);
+  background: var(--bg-page);
   border-left: 1px solid var(--border);
-  box-shadow: -4px 0 24px rgba(0,0,0,0.08);
+  box-shadow: -6px 0 32px rgba(0,0,0,0.10);
   animation: chat-sidebar-slide-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -446,15 +452,16 @@ body.has-chat-sidebar {
   to   { transform: translateX(0); }
 }
 
-/* Quick action buttons — fixed next to the trigger */
+/* Quick action buttons — suggested questions shown beside the article.
+   Stacked above the trigger button so they don't compete with scroll-top. */
 .chat-sidebar-quick-actions {
   position: fixed;
-  bottom: 4rem;
-  right: 1.5rem;
-  z-index: 99;
+  bottom: 3.25rem;   /* above the trigger button */
+  right: 1.25rem;
+  z-index: 100;
   display: none;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.5rem;
 }
 @media (min-width: 1140px) {
   .chat-sidebar-quick-actions {
@@ -464,21 +471,32 @@ body.has-chat-sidebar {
 .chat-sidebar-quick-actions button {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.75rem;
+  gap: 0.5rem;
+  width: 200px;
+  padding: 0.55rem 0.85rem;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 10px;
   background: var(--bg-card);
   color: var(--text-secondary);
-  font: 600 0.75rem/1 inherit;
+  font: 500 0.8rem/1.4 var(--font-sans, inherit);
+  white-space: normal;
+  text-align: left;
   cursor: pointer;
-  white-space: nowrap;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  transition: border-color 0.15s, color 0.15s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s, transform 0.1s;
 }
 .chat-sidebar-quick-actions button:hover {
   border-color: var(--brand-500);
   color: var(--brand-700);
+  background: var(--bg-card-hover);
+  transform: translateX(2px);
+}
+.chat-sidebar-quick-actions button:active {
+  transform: translateX(0);
+}
+.chat-sidebar-quick-actions svg {
+  flex-shrink: 0;
+  color: var(--brand-400);
 }
 
 /* Desktop: quick actions & sidebar panel appear beside the article (>= 1140).

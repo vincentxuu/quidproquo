@@ -445,6 +445,7 @@ const ChatWidget = forwardRef<{ focusInput: () => void }, ChatWidgetProps>(({
     <ChatLocaleProvider lang={lang} pageSlug={activePage?.slug}>
     <div style={containerStyle}>
       <ChatHeader
+        title={page?.title}
         status={loading ? 'streaming' : 'idle'}
         subtitle={t('chat.widget.subtitle')}
         onExpandToggle={onExpandToggle}
