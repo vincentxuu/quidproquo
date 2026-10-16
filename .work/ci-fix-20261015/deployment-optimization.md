@@ -42,3 +42,11 @@ A minimal same-config experiment shows public `astro sync` writes the build cach
 Tests now cover6cases:chatlight/dark, genuinefloating on/about/ (HTTP200+exact關於我H1), articleSidebar (HTTP200+exactarticleH1, exactsidebarlauncher, aside name, suggestions, close+reopen). Warmup visits all3validroutes. Original floating coverage retained while articleSidebar coverage added. No product UI changed for the test; all screenshot thresholds unchanged. New Linuxbaselines require actual screenshot review.
 
 First Preview validation PASS:22redirects+22destinations+30exacttitles;2sharedJSONHTTP200/type/yearimmutable/exactbodyhash;30inlineJSONvalues strictly equal locale-resolved articleoverrides. Coldbuild11m12s,contentSync409.263s;deploy1m58s,7993assetupload81.86s. These are not an A/B speed comparison.
+
+## Final storage scope and production artifact equivalence
+
+Exactcache-hit second global-chunked build still spent241.005s in contentsync and8m53s building (deployment35s, no assetupdates). This does not support a build-speed improvement claim. Finalconfig therefore confines1MiBchunking to public `astro:config:setup` when `command==='dev'`, keeping build/sync/check on Astro's native single-file cache. No cachefile was copied/deleted and no configdigest check was bypassed.
+
+Publichook+mergeConfig+validateConfig verifies devchunked1048576 andbuild/sync/preview single-file. ActualNode22.18 productionbuild passes in164.80s, localcontentsync approximately4s. All5,675HTMLfiles and2sharedJSONfiles (5,677files total) are byte/SHA256-identical to the accepted pre-scope-change build; no filesadded/removed/changed. Sharedhashes remainen923695835ad5e67ee176 andzhTWe1e104fcba79b637c5bc. Local andremote timings are distinct; finalCI verifies this configuration.
+
+FinalMacvisualcomparison6/6PASS with updatesnone,44.6s; alltaskdevservers stopped before finalprecommit. AcceptedLinuxactuals4 fromrun38831599758 andMacactuals6 fromsameactualtestbrowser are documented withhashes/sourcecommits in visual-regression-review.md. FinalremoteCI result is recorded onPR191 rather than inferred from an overallgreen/nonblockingjob.
