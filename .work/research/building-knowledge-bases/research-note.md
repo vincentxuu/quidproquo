@@ -3,7 +3,7 @@
 流程：research-selection（母群→覆蓋矩陣→偏誤）→ deep-research。抓取工具：Groundlane web_search／web_fetch／document_parse。
 狀態標記：✅ 讀過正文　🟡 只讀到摘要或部分內容（只能引用摘要層級的結論）　🔎 只看過搜尋片段（線索，引用前必須讀原頁）　❌ 讀不到
 
-> **怎麼讀這份筆記**：研究做了三輪（第一輪：官方與方法原文；第二輪：讀不到的換管道、補論文與非廠商來源；第三輪：補 2024–2026 年研究）。各段的「完整清單」表格已改成**最終狀態**，以表格為準；後面的「第二輪」「第三輪」段落保留各來源的讀後重點與數字。「對規劃的影響」以規劃表 `.work/series-plans/building-knowledge-bases.md` 為準。
+> **怎麼讀這份筆記**：研究做了四輪（第一輪：官方與方法原文；第二輪：讀不到的換管道、補論文與非廠商來源；第三輪：補 2024–2026 年研究；第四輪：逐篇補反證與飽和）。各段的「完整清單」表格已改成**最終狀態**，以表格為準；後面的「第二輪」「第三輪」段落保留各來源的讀後重點與數字。「對規劃的影響」以規劃表 `.work/series-plans/building-knowledge-bases.md` 為準。
 >
 > 2026-10-16 更正：研究初期（Forte PARA、zettelkasten.de 入門、Matuschak、Johnny.Decimal、Obsidian 三頁）曾直接用工具查，沒有先跑 skill，也用了 Exa 與 Firecrawl。這些頁面的內容已讀過正文，結論沿用；後續一律照 skill 走 Groundlane。
 
@@ -325,7 +325,7 @@ AI 知識庫建置流程＝把組織文件變成可供 RAG／AI 助理檢索的�
 
 - **Bergman & Dvir（iCETiC 2025 論文集，2026 出版）〈Hyper-searchers Search Much More for their Files Because Navigation is More Difficult for Them〉**（✅ 摘要，Springer）：檔案找回研究「一致發現偏好導覽勝過搜尋」；少數「超級搜尋者」（50 人對照 50 人，雙重確認分組）搜尋多得多，原因是導覽對他們特別吃力；對多數人導覽比搜尋省力。→ 2008、2010 的結論到 2026 年仍成立。參考文獻另有 Bergman, Israeli & Whittaker 2019〈Search is the future? The young search less for files〉（🔎 只見標題）。
 - **Bergman & Dvir 2024（Human–Computer Interaction 期刊）〈File hyper-searching explained〉**：🔎 只看到搜尋片段（超級搜尋者導覽較差、資料夾較亂）；tandfonline 頁面被 challenge 擋、PDF 被判含主動內容。
-- **Najork 2024〈Searching Personal Collections〉**（ACM《Information Retrieval: Advanced Topics and Techniques》第 14 章，2025）：🟡 只讀到 arXiv 摘要（個人收藏檢索史）。
+- **Najork 2024〈Searching Personal Collections〉**（ACM《Information Retrieval: Advanced Topics and Techniques》第 14 章，2025）：已在第四輪換 arXiv HTML 版讀到全文 ✅，重點見第四輪。
 - **Chen et al. 2025（PACM HCI／CSCW）〈More AI Assistance Reduces Cognitive Engagement〉**（✅ 全文 HTML）：30 人受試者內實驗，三種 AI 筆記輔助——全自動結構化筆記、即時摘要片段、只有逐字稿；**全自動組測驗成績最低、摘要片段組最高**，差異顯著；受試者卻最喜歡全自動組。結論：方便與學到東西有落差；讓使用者自己組合 AI 提供的積木，保留認知投入。
 - **Microsoft Research 2025（CHI）〈The Impact of Generative AI on Critical Thinking〉**（✅ 官方部落格摘要；319 位知識工作者、936 個使用案例）：對 AI 信心越高，批判思考越少；對自己能力信心越高，批判思考越多；批判思考的重心轉向「驗證資訊、整合回應、管理任務」。
 
@@ -354,3 +354,46 @@ AI 知識庫建置流程＝把組織文件變成可供 RAG／AI 助理檢索的�
 - B 段：補上 2025 調查與 2025–2026 的 AI 文件研究；團隊 wiki 本身的近年學術研究仍少，Grudin 2010 仍是最完整的企業 wiki 長期研究，文章會註明年份與脈絡。
 - C 段：已有 2025–2026 的資料準備實證與安全研究，不再只靠 2024 年以前的經驗報告。
 - 規則：每篇文章的關鍵主張，至少要有一個 2024 年以後的來源，或明寫「近年研究仍支持」並附來源。
+
+## 第四輪補搜（2026-10-16）：每篇補反證與飽和
+
+使用者問「那不是應該補足嗎」：第三輪後只有約一半篇章過五關。本輪逐篇補第 3–5 關（時效、反證、飽和）與 order 4、7 的一手來源。工具：Groundlane web_search／web_fetch；MDPI 被 Groundlane 擋（403）改用 Firecrawl 讀到；ICSA 2026 ADR 論文 computer.org 無文字、Semantic Scholar API 429，只有搜尋片段。
+
+### A 段（order 0–5）
+
+- **Najork et al. 2024/2025〈Searching Personal Collections〉**（ACM IR 專書第 14 章；arXiv 2412.12330 HTML ✅ 全文）：個人收藏以「找回自己見過的東西」為主；Lansdale 1988 指出階層分類的類別本身模糊；Whittaker & Sidner 1996 的「春季大掃除者」過半資料夾最後沒用；Elsweiler 2008／2011 不歸檔的人對內容記得更多。→ order 0、1、2 的時效與反證（分類並非必要）。上一輪標 🟡，本輪換 HTML 版讀到全文。
+- **數位囤積 scoping review**（Humanities & Social Sciences Communications 2026，✅）：實證稀少、多集中在照片；→ order 1「收太多」的負面證據有，但不能誇大成臨床囤積。
+- **Zettelkasten**：2024–2026 再搜（英文 "Zettelkasten empirical study"、"slip box evaluation"，中文「卡片盒筆記 研究」）仍無嚴謹實證；Schmidt 2016 章節換管道（docslib 只回推薦列表、搜到的 Allosso 是影片）讀不到，🔎。→ order 3 維持「生成效應是間接證據」的寫法。
+- **Notion 匯出官方說明**（✅）：可匯出 Markdown & CSV；callout 等區塊轉成 HTML；匯出者沒有權限的私人頁不會被匯出；整個 workspace 匯成 PDF 需 Business／Enterprise。→ order 4 一手來源補齊。
+- **Ink & Switch〈Local-first software〉2019**（✅）＋近況（2024 起有 Local-First Conf；Kleppmann 表示七個理想是梯度不是二分）。→ order 4 選型判準的出處。
+- **Etkin et al. 2025（Frontiers in Education，n=195，隨機交叉、預先登錄）**（✅）：AI 工具幫低能力者、傷高能力者；摘要工具對高能力者傷害最大。→ order 5 反證平衡：「AI 摘要有害」要看讀者能力。
+- **Melumad & Yun 2025（PNAS Nexus，7 個實驗，n=10,462）**（✅ 摘要，Semantic Scholar API）：用 LLM 摘要學到的知識比自己搜網頁淺，附上連結也一樣。→ order 5 時效。
+
+### B 段（order 6–10）
+
+- **Stocker & Tochtermann 2011 企業 wiki 多案例研究**（3 家奧地利企業、7 位專家與約 150 位員工，✅ 摘要）：wiki 有個人與集體效益，列出成功因素。→ order 6 反證：wiki 不是注定爛，條件決定。
+- **Galan 2023〈Knowledge Loss Induced by Organizational Member Turnover〉Part I**（Learning Organization 30(2)，系統性回顧 91 篇實證研究，✅ 摘要 ERIC）：整理離職造成知識流失的前因與組織、單位層級的影響。→ order 6、9「人走了文件就沒人顧」的時效與廣度。
+- **NN/g tree testing（2023）**（✅）與 card sorting（2024，已讀）。→ order 7 一手補齊。Knowledge Architecture × NN/g webinar 實為 2020，不當近年來源。
+- **ECSA 2024 ADR 行動研究**（✅ 摘要）：ADR 處理了文件文化、知識傳承、優先順序；分散式系統的問題沒解；ADR 放在哪裡影響有沒有用。→ order 8 時效與限制。
+- **ICSA 2026 ADR 大規模研究**（921 個 repo、約 5,800 份 ADR；與品質、生產力只有小相關）：🔎 只有搜尋片段（computer.org 無文字、S2 429），引用前要讀原文；目前只能當「有研究在問」的線索。
+- **Tan, Wagner & Treude 2024（EMSE）**（3,000 個以上 GitHub 專案，✅ 摘要）：多數專案在某個時點有文件引用已不存在的程式元素。→ order 9 時效（文件過時是常態，docs-as-code 的理由）。
+- **order 10**：工作時間花多少在找資訊的統計多為廠商或舊 IDC 數字，不引；時效改靠第三輪的 Stack Overflow 2025 與 AGENTS.md 研究（2025–2026）。搜尋紀錄分析方法本身只有 NN/g 方法文，屬方法說明；找過 "site search log analysis study 2024"、"enterprise search zero result queries"、中文「站內搜尋 零結果 分析」，回來的都是廠商部落格。→ order 10 方法段標成「實務做法」，不寫成研究結論。
+
+### C 段（order 11–19）
+
+- **Kucia et al. CIKM 2026（arXiv 2609.14579）**（✅）：合成題 1,851 題 vs 真實使用者題 322 題；合成題平均 15.7 字、真實題 6.8 字；合成題涵蓋 165 個來源、真實題 53 個；用合成題挑出的是延遲最高的混合檢索（最多 8 倍延遲）。→ order 11、19：題庫要有真實問題，合成題會選錯架構。
+- **Anthropic〈Contextual Retrieval〉2024**（✅）：知識庫小於約 20 萬 token 可以整份放進 prompt，不必做 RAG；contextual embeddings 讓檢索失敗率 5.7%→3.7%（-35%），加 contextual BM25 到 2.9%（-49%），再加 rerank -67%；前處理成本每百萬文件 token 約 1.02 美元。→ order 11 反證（不一定要建 RAG）、order 15、16。
+- **LinkedIn KG-RAG 客服（SIGIR 2024，arXiv 2404.17723）**（✅ 摘要）：把歷史工單建成知識圖譜保留工單內結構與工單間關係，MRR 比基準高 77.6%；部署約六個月，每張工單解決時間中位數降 28.6%。→ order 15「結構比純文字好」的企業實證；只有單一公司、作者自評。
+- **Karakurt & Akbulut 2026（Applied Sciences 16:368，SLR 63 篇）**（✅ 摘要，Firecrawl；Groundlane 403）：企業 RAG 多在實驗階段，63.6% 用 GPT 系列、80.5% 用 FAISS／Elasticsearch 等標準檢索；不到 15% 研究處理即時整合；生成評估多用固定測試集。→ order 11、19 的時效：上線與持續評估是研究缺口。
+- **Xie et al. ICLR 2024 知識衝突**（✅）：外部證據連貫時模型會採用，即使與自身知識衝突；但有確認偏誤。→ order 12、18。
+- **VersionRAG 2025（arXiv 2510.08109）**（✅）：版本相關問題 naive RAG 58%、GraphRAG 64%、VersionRAG 90%。→ order 12「信哪個版本」要有版本 metadata。
+- **Stale-document poisoning 2026（arXiv 2609.31342）**（✅）：317 個知識反轉；檢索到過時文件時，Llama 30%、Qwen 37% 的答案被翻轉；加上「照文件回答」指令升到 66%／75%；新證據 97–100% 被採用；告知失效時間點時大模型能正確切換；依時間重排降 4.6–10 個百分點，但需要可靠的日期 metadata。→ order 18 核心證據、order 15 日期欄位的理由。
+- **OHRBench（ICCV 2025，arXiv 2412.02592）**（✅）：8,561 頁、8,498 組 QA；沒有任何 OCR 方案足以建出高品質知識庫；語意雜訊與格式雜訊都與 RAG 表現呈趨勢關係。**InduOCRBench 2026（arXiv 2605.00911）**（✅）：OCR 字元準確率高不代表 RAG 表現好。→ order 13 反證與時效。
+- **CaMeL（Google，arXiv 2503.18813 v2，2025）**（✅）：AgentDojo 上 77% 任務可在可證明安全下完成，未防禦為 84%（安全有代價）。**Pai 2026（arXiv 2606.18530）**（✅）：3,510 次試驗；改寫檢索內容降低攻擊成功率 55–84%；spotlighting 對 Claude Haiku 減半、對 Llama 3.1 8B 無效；金融領域殘留 26–33%；文件為合成。→ order 14：防禦效果依模型而異、沒有一招見效。
+- **Qu et al. NAACL Findings 2025（arXiv 2410.13070）**（✅）：語意切塊的計算成本不值得，真實文件上固定長度常更好。**Bennani & Moslonka ECIR 2026（arXiv 2601.14123）**（✅ 摘要；3 頁短文）：Natural Questions 端到端，SPLADE＋Mistral-8B；overlap 沒有可量測好處、只增加索引成本；句子切塊最划算，到約 5k token 與語意切塊持平；context 超過約 2.5k token 品質下降。→ order 16 反證：「語意切塊比較好」不成立，預設用簡單切法再用題庫比。
+- **Filtered ANN 2026（arXiv 2602.11443）**（✅）：FAISS、Milvus、pgvector；過濾策略影響召回；pgvector 規劃器常選次佳計畫；低選擇性過濾下 IVFFlat 優於 HNSW。→ order 17：權限過濾後要量「過濾後召回」，不能只看沒過濾時的數字。
+- **TREC 2024 RAG support 評估（SIGIR 2025，arXiv 2504.15205）**（✅）：GPT-4o 與人工標註完全一致 56%；人修正 LLM 標籤後 72%；獨立人工審查與 GPT-4o 的一致度高於與原人工標註。→ order 19：LLM 評審可以當替代，但要人工校準。
+
+### 飽和輪
+
+換關鍵字再搜：中文（「知識庫 建置 研究」「企業知識管理 實證」「筆記軟體 使用者研究」）、近義詞（organizational memory、enterprise QA、note-taking app user study、PKM empirical）、其他學科（information science PIM、CSCW wiki、software engineering documentation）。回來的多是已讀來源或廠商、部落格，沒有出現新的重要一手研究。→ 判定飽和。仍缺的寫在規劃表五關表的「缺口」欄。
