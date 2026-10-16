@@ -1,13 +1,13 @@
 ---
-title: "Bug Bounty from Zero: From Program Rules to Your First Report"
+title: "Bug Bounty from Zero: Series Guide — Walking Through XSS, Memory, VM Escape, TEE, and AI Bounty Payouts in Plain Language"
 date: 2026-10-15
 category: tech
 type: guide
 difficulty: 入門
-tags: [bug-bounty, security, web-security, rules, scope, beginner-guide]
+tags: [bug-bounty, security, web-security, series-guide, beginner-guide]
 lang: en
-description: "An overview of the complete beginner path: read program rules, set up a local workbench, reproduce a finding, and write a report."
-tldr: "Start with permission and scope, practice inspecting requests locally, then turn a verified finding into a reproducible report. Rewards depend on the program and its assessment."
+description: "Bug Bounty from Zero series guide: a 15-part path from reading program rules and setting up a workbench, through XSS, IDOR, RCE, memory bugs, buffer overflows, VM/hypervisors, Hyper-V escape, TEE, AI product bounty payouts, payout-map fact-checking, and certifications with a learning map."
+tldr: "This is the reading entry point for the `Bug Bounty from Zero` series (parts 0–14). Each post covers one decision in plain language, backed by verifiable official sources, for readers with no security background."
 draft: false
 series:
   name: "Bug Bounty from Zero"
@@ -16,110 +16,118 @@ series:
 
 > 🌏 [繁體中文版](/posts/tech/2026-10-15-bug-bounty-how-it-works)
 
-## TL;DR
+This is the reading entry point for `Bug Bounty from Zero`. The series has 15 posts (parts 0–14) arranged along one arc: **start by reading program rules and reward tables, set up a reproducible workbench, move from web bugs (XSS, IDOR) to RCE, then down to memory bugs, buffer overflows, VM/hypervisor escapes, Hyper-V escape, TEE, AI product bounty payouts, payout-map fact-checking, and finish with certifications and a learning map.**
 
-**Start with three things: understand the rules, set up your workbench, and write a reproducible report.** This is the starting point for the `bug-bounty-from-zero` series, from part 0 to part 14: rules (1), web fundamentals (2), the workbench (3), XSS and IDOR (4), RCE (5), reporting and classification (6), memory (7), buffer overflows (8), virtual machines and hypervisors (9), Hyper-V escape (10), TEEs (11), AI vulnerabilities (12), checking reward claims (13), and certifications and a learning map (14).
+Each post covers one decision, backed by verifiable official sources. It does not teach abuse of attack tools, and does not encourage unauthorized testing.
 
-Why this order? Before using tools, you need to know which systems and methods the program authorizes. Before reporting a vulnerability, you need evidence someone else can reproduce. A reward is a possible outcome of an eligible finding; a complete template does not guarantee acceptance or payment.
+## What this series answers
 
-## The situation
+When you open Google VRP, Meta Bug Bounty, or Microsoft MSRC, you see terms like In-scope, Out-of-scope, Rewards, and Exceptions. This series turns those long rules pages into a practical starting plan, and answers three questions:
 
-You open a program such as Google VRP, Meta's bug bounty program, or Microsoft's MSRC. Its rules describe:
+1. **What am I allowed to test?** Read scope and exclusions on the rules page — don't assume, don't guess.
+2. **How do I prove what I found?** Use a repeatable workbench and report template so a reviewer can reproduce without guessing.
+3. **What is the finding roughly worth?** Compare against each program's reward table and actual rulings — don't reverse-engineer value from a headline number.
 
-- **In scope:** eligible domains, products, features, and versions.
-- **Out of scope:** excluded assets, vulnerability classes, and testing methods.
-- **Rewards:** how the program evaluates eligible findings and any applicable reward table.
+## What this series is not
 
-These details vary between programs. A wildcard domain or a reward from another program does not establish permission for your target. This article helps you turn that long rules page into a practical starting plan.
+- Not a penetration-testing course. No walkthroughs of attack tools, no guidance on finding real targets.
+- Not a certification prep course. Part 14 mentions certs, but it does not replace official exam guides.
+- Not encouragement of illegal testing. All examples run on local practice servers or targets you have explicit authorization to test.
 
-## Three mistakes that block progress
+## Learning path
 
-**Scanning before reading the rules.** You can test an excluded system, use a prohibited method, or miss an eligibility condition. A technically valid bug can still be out of scope or a duplicate.
-
-**Testing without a repeatable setup.** Browser interactions help you discover behavior, but you also need a record of requests and responses. Burp Suite Community, browser DevTools, and a local practice server let you repeat a request and change one input at a time.
-
-**Reporting only a vulnerability name.** “I found XSS” does not explain where the input enters, when it executes, who it affects, or how a reviewer can reproduce it. A clear report reduces ambiguity; it does not force a particular severity or reward.
-
-## A three-step workflow
-
-### Step 1: Read the rules
-
-Use an initial reading session to extract these four items. Take longer if the rules leave anything unclear.
-
-| Section | What to record | A useful question |
-|---|---|---|
-| Scope | Exact assets, versions, and authorized methods | Is this host and this action explicitly covered? |
-| Rewards | Relevant categories and eligibility conditions | Does this table apply to this product and impact? |
-| Exclusions | Third parties, prohibited techniques, and excluded findings | Does this test cross an excluded boundary? |
-| Reporting | Required evidence and submission channel | Can the reviewer reproduce this without guessing? |
-
-**Quick check:** search the rules for “scope,” “reward,” and “report.” Record the source URL and the conditions that apply to your proposed test. If ownership or permission is unclear, use the program's clarification process before testing that asset. Do not treat a payout estimate as authorization.
-
-### Step 2: Set up the workbench
-
-Part 3 explains the tools in detail:
-
-1. **Burp Suite Community Edition:** intercept requests with Proxy, inspect HTTP history, and resend requests with Repeater.
-2. **Browser DevTools:** use Network → Copy as cURL to export a request.
-3. **A local practice server:** run `node shop.mjs` on `127.0.0.1:8000`. The workbench example has login, search, and order endpoints.
-
-You can start without touching a real target. Check whether you can:
-
-- Repeat the same request with `curl`.
-- Change `/api/orders/1532` to `/api/orders/1533` while keeping the same session.
-- Explain the difference between a `200`, `401`, `403`, and `404` response in the local application.
-
-The example checks order ownership and returns search results as JSON. It is a baseline for learning request handling, not proof that either endpoint contains XSS or IDOR. Part 4 explains what additional evidence would establish those findings.
-
-### Step 3: Write your first report
-
-A report is a set of instructions another person can follow, supported by evidence. Part 6 develops this template:
-
-```text
-Title: [Concise description, including the asset and vulnerability type]
-Summary: [One sentence describing the affected users or data]
-Steps to Reproduce: [Numbered steps with URLs, parameters, and tools]
-Expected Behaviour: [What the application should allow or reject]
-Actual Behaviour: [What happened, with relevant response evidence]
-Impact: [The demonstrated effect on users, data, or the system]
-Proof of Concept: [A reproducible curl command or Repeater procedure]
-Severity / CVSS: [If requested, the score, version, and reasoning]
-Remediation / Fix: [A proposed fix, if you can support it]
-References: [Relevant official documentation, advisories, or CVEs]
+```
+Part 0 (this post) → Part 1 Rules → Part 2 Web fundamentals → Part 3 Workbench
+     → Part 4 XSS/IDOR → Part 5 RCE → Part 6 Reporting & expected value
+     → Part 7 Memory → Part 8 Buffer overflow → Part 9 VM/Hypervisor
+     → Part 10 Hyper-V escape → Part 11 TEE → Part 12 AI bounty payouts
+     → Part 13 Payout map fact-check → Part 14 Certifications & learning map
 ```
 
-Keep the steps minimal and consistent. Use your own test accounts, redact credentials, and include only the data needed to demonstrate the issue. Separate what you observed from possible further consequences. Do not claim account takeover when you have demonstrated only script execution.
+Numbering is a reading order, not a capability assessment. Parts 0–6 form a complete web-testing flow; parts 7–11 move into lower-level system bugs, a steeper cliff — read parts 0–6 first before deciding whether to continue.
 
-This structure helps a reviewer reproduce the behavior and judge its impact. A missing field does not automatically produce a fixed discount, and filling every field does not guarantee a higher payment.
+## Post by post
 
-## Why reward tables need context
+### Stage 1: Rules and workbench (parts 0–3)
 
-A reward table belongs to a specific program. Its categories can depend on the affected product, asset sensitivity, impact, report quality, and other conditions stated in the rules. Eligibility and duplicate handling also matter.
+**0. Series guide (this post)**  
+Reading entry point: the context, order, and boundaries of all 15 posts.
 
-Read the current official rules when evaluating a finding. Keep any historical announcement attached to its date and program; do not combine a past advertised maximum with a different table's multiplier. Parts 6 and 13 explain reporting and how to check payout claims.
+**1. [How to Read Bug Bounty Rules: Scope, Rewards, Exclusions, and Reporting](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en)**  
+The four sections of a rules page: scope (what you may test), rewards (what gets paid), exclusions (what is excluded), reporting (what evidence to keep).
 
-The practical lesson is to document the affected asset and demonstrated impact first. That evidence supports the program's evaluation more reliably than choosing a headline reward and working backward.
+**2. [What Do the Browser and Server Exchange When You Click a Link?](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work-en)**  
+HTTP, cookies, sessions, and input validation basics — the vocabulary for the bugs that follow.
 
-## Self-check
+**3. [A Bug Bounty Workbench: Capture Requests, Change Parameters, and Check Authorization](/posts/tech/2026-10-15-bug-bounty-hunter-workbench-en)**  
+Burp Suite Community, browser DevTools, and a local practice server: repeat one request, change one input at a time.
 
-- [ ] I opened a program's rules and identified the assets and testing methods relevant to my plan.
-- [ ] I installed Burp Suite Community and intercepted a local request.
-- [ ] I can export a request as cURL and repeat it from a terminal.
-- [ ] I can distinguish reward eligibility from a possible payout, without treating either as guaranteed.
-- [ ] I understand the learning path: rules → web fundamentals → tools → vulnerabilities → reporting → deeper systems topics → reward verification → a learning map.
+### Stage 2: Web bugs and reporting (parts 4–6)
 
-## Update history
+**4. [The Two Most Common Web Bugs, XSS and IDOR, and Why Google Pays Them Differently](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs-en)**  
+XSS vs IDOR: how they differ, and why two browser-side bugs earn very different rewards from Google.
 
-- 2026-10-15: Replaced the English placeholder with the complete overview, clarified the local lab's baseline behavior, and removed unsupported payout calculations and reward guarantees in both languages.
+**5. [Why RCE Pays the Most in Google's Reward Table: Command Injection and Unsafe Deserialization](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en)**  
+From "user input pasted into a shell command" to "untrusted data deserialized into objects": recognizing RCE and why it's dangerous.
+
+**6. [How to Write a Bug Report That Earns the Full Reward: Quality Multipliers, a One-Page Template, and Expected Value](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value-en)**  
+Report template, impact analysis, low/medium/high severity, and whether the whole testing process is worth your time.
+
+### Stage 3: Lower-level system bugs (parts 7–11)
+
+**7. [How Programs Use Memory: Addresses, the Stack, the Heap and Return Addresses](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en)**  
+Where variables live, where a function returns to — the C and memory concepts needed to read lower-level examples.
+
+**8. [How a Few Extra Characters Can Hand Someone Your Program: Buffer Overflows for Beginners](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow-en)**  
+Writing past a buffer's length to overwrite adjacent memory, hijacking control flow, and replacing it with a length-limited call.
+
+**9. [Virtual Machines and Hypervisors: Which Wall the L1 and L2 Rows of the Hyper-V Bounty Table Break](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en)**  
+The wall between a VM and its hypervisor, and which layer Hyper-V's L1/L2 bounty rows correspond to.
+
+**10. [A Hyper-V Escape Case Study: CVE-2021-28476, From a Guest's Packet to a Host Crash](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en)**  
+One real, patched bug with public technical analysis — what a hole in that wall actually looks like.
+
+**11. [TEEs and Confidential Computing: Why WhatsApp Put AI in a Room Even Meta Can't See Into](/posts/tech/2026-10-14-bug-bounty-zero-09-tee-and-confidential-computing-en)**  
+Trusted execution environments and confidential computing: why some AI processing is invisible even to the platform itself.
+
+### Stage 4: AI bounty payouts and a learning map (parts 12–14)
+
+**12. [Bug Bounty for AI Products: What Google, OpenAI, Anthropic and Meta Accept, and What They Pay](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty-en)**  
+AI bounty pages mostly don't pay for what a model says (jailbreaks, hallucinations); they pay when a model acts on someone else, and for ordinary bugs around the AI product.
+
+**13. [Bug Bounty Payout Map: What Google, Hyper-V, Meta TEE, Apple and Mozilla Pay For](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)**  
+Going row by row through each program's caps and conditions — putting "hundreds of thousands of dollars" back into context.
+
+**14. [Bug Bounty Certifications and a Practice Map for Articles 0–14](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map-en)**  
+Where certifications fit, a practice path through parts 0–14, and how to keep learning afterward.
+
+## Things to know
+
+- **Authorize first, test later.** A technically valid bug still gets rejected if it's out of scope or a duplicate.
+- **Examples run locally only.** The `shop.mjs` practice server listens on `127.0.0.1` and never touches real targets.
+- **Don't estimate payouts from memory.** Reward tables and rulings change; check the current official rules when assessing a finding.
+
+## Related series on this site
+
+This series is a from-zero practical entry point rather than a deep dive into one technology. If you want to go deeper after reading:
+
+- **[Security Cert Prep](/en/series/security-cert-prep)** — certification prep paths built on official exam guides.
+- **[Private Corpus Pipeline](/en/series/private-corpus-pipeline)** — the lifecycle of private data entering an index, echoing part 12's data-exfiltration angle.
+- **[AI Model Families](/en/series/ai)** — architecture and licensing of individual model families, as background for part 12.
+
+## How to read
+
+- **In a hurry**: read part 0 (this post) and part 1 (rules), then jump to whichever topic interests you (e.g. part 12 for AI bounty payouts).
+- **Walk the whole path**: read from part 0 to part 14 in order; after each post, check whether you can restate its core decision in plain language.
+- **Already have a background**: skip parts 0–3 and start at part 4 (XSS/IDOR) or part 7 (memory).
+
+Each post ends with official sources and further reading — follow them to go deeper.
 
 ## References
 
 - [Google VRP Rules](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules) — program scope and reward conditions.
-- [Google's July 2024 reward announcement](https://bughunters.google.com/blog/increasing-google-alphabet-vrp-rewards-up-to-151515) — a historical announcement, not a substitute for current rules.
-- [Google's 2024 VRP review](https://blog.google/security/vulnerability-reward-program-2024-in/) — historical program results.
-- [PortSwigger: Burp Suite documentation](https://portswigger.net/burp/documentation)
+- [Meta Bug Bounty scope](https://bugbounty.meta.com/scope/) — invalid report reasons, duplicate handling, and payout factors.
+- [Microsoft MSRC Bounty](https://www.microsoft.com/en-us/msrc/bounty) — Microsoft's vulnerability reward program overview.
+- [PortSwigger: Burp Suite documentation](https://portswigger.net/burp/documentation) — workbench tool reference.
 - [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/) — an intentionally vulnerable practice application.
-- [Meta Private Processing payout guidelines](https://bugbounty.meta.com/payout-guidelines/private-processing/)
-- [Meta scope](https://bugbounty.meta.com/scope/)
-
-This is part 0, the overview. Continue with rules (1), web fundamentals (2), and the workbench (3); parts 6 and 14 bring the reporting workflow and learning path together.
+- [繁體中文版](/posts/tech/2026-10-15-bug-bounty-how-it-works)

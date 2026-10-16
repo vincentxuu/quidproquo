@@ -23,6 +23,10 @@ export async function getStaticPaths() {
 }
 
 const { series, switchHref } = Astro.props;
+
+// series.posts 已依 series.order 排序，第 0 篇為系列導讀。
+const introPost = series.posts[0];
+const otherPosts = series.posts.slice(1);
 ---
 <PostLayout title={`${series.title} — quidproquo`} lang="en" description={series.description} switchHref={switchHref}>
   <a href="/en/series" class="back-link"><Icons name="chevron-left" size={14} />{t('nav.series')}</a>
@@ -31,23 +35,49 @@ const { series, switchHref } = Astro.props;
     <h1>{series.title}</h1>
     <p>{series.description}</p>
   </div>
-  {series.posts.map(post => (
-    <PostCard
-      slug={post.id}
-      title={post.data.title}
-      date={post.data.date}
-      category={post.data.category}
-      tags={post.data.tags}
-      description={post.data.description}
-      tldr={post.data.tldr}
-      readingTime={post.data.readingTime}
-      lang="en"
-      type={post.data.type}
-      pinned={post.data.pinned}
-      seriesName={post.data.series?.name}
-      seriesHref={post.data.series ? getSeriesHref(post.data.series.name, 'en') : undefined}
-    />
-  ))}
+
+  {introPost && (
+    <div class="series-intro">
+      <span class="series-intro-label">{t('series.intro')}</span>
+      <PostCard
+        slug={introPost.id}
+        title={introPost.data.title}
+        date={introPost.data.date}
+        category={introPost.data.category}
+        tags={introPost.data.tags}
+        description={introPost.data.description}
+        tldr={introPost.data.tldr}
+        readingTime={introPost.data.readingTime}
+        lang="en"
+        type={introPost.data.type}
+        pinned={introPost.data.pinned}
+        seriesName={introPost.data.series?.name}
+        seriesHref={introPost.data.series ? getSeriesHref(introPost.data.series.name, 'en') : undefined}
+      />
+    </div>
+  )}
+
+  {otherPosts.length > 0 && (
+    <div class="series-posts">
+      {otherPosts.map(post => (
+        <PostCard
+          slug={post.id}
+          title={post.data.title}
+          date={post.data.date}
+          category={post.data.category}
+          tags={post.data.tags}
+          description={post.data.description}
+          tldr={post.data.tldr}
+          readingTime={post.data.readingTime}
+          lang="en"
+          type={post.data.type}
+          pinned={post.data.pinned}
+          seriesName={post.data.series?.name}
+          seriesHref={post.data.series ? getSeriesHref(post.data.series.name, 'en') : undefined}
+        />
+      ))}
+    </div>
+  )}
 </PostLayout>
 
 <style>
@@ -79,5 +109,32 @@ const { series, switchHref } = Astro.props;
     margin: 0;
     color: var(--text-secondary);
     line-height: 1.7;
+  }
+  .series-intro {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.6rem;
+    background: var(--bg-card);
+  }
+  .series-intro-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--brand-500);
+    background: var(--brand-50);
+    border: 1px solid var(--brand-300);
+    border-radius: 3px;
+    padding: 0.15rem 0.55rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .series-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 </style>
