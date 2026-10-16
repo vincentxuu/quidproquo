@@ -483,3 +483,10 @@
 - 仍未入庫的本機產物：`src/content/posts/tech/2026-10-16-bug-bounty-write-report-and-triage{,-en}.md`（新稿「從找到洞到拿到錢」，上游把報告題材併入 `zero-11-reports-and-expected-value`）、`.work/bug-bounty-from-zero/`、`.work/reviews/bug-bounty-*.md`；是否發表由使用者決定。
 - **使用者決定（2026-10-16）**：不發表這兩篇新稿。把草稿中 `zero-11` 沒有的內容整合進已發佈的 `zero-11-reports-and-expected-value`（中英各一；slug／`date`／檔名不動），草稿移出 `src/content/posts/` 到 `.work/bug-bounty-from-zero/retired/` **保留不刪**。整合範圍：一頁紙模板加「嚴重度」欄；新增「送出之後：分流狀態與聲望」節（HackerOne 開啟／結案狀態表，補上草稿漏掉的 `Pending Program Review`，聲望數字歸給 HackerOne Reputation 頁）與「讓自己少碰到重複的三個做法」；新增「交件前的自我檢查」（改用本文自己的欄位命名，不用草稿的英文字段名）；新增「系列流程圖」；兩版都加 `## 更新紀錄`；參考資料補 HackerOne Report States／Reputation 兩筆。驗證：`pnpm verify` 27 項全綠（含 `check:references`、`check:series-order`、`check:lang-parity`）。未 commit，待使用者看過 diff。
 - 接手第一步：無（結案）。日後若要重看被退的草稿，在 `.work/bug-bounty-from-zero/retired/`。
+
+## Q-039 `pnpm dev` 下 posts collection 為空，所有文章 404
+- 登錄：2026-10-16（來源：Dan Koe 跟讀區補完 session，想在本機看渲染時發現）
+- 現象：`astro dev` 啟動後 `[content] Synced content`，接著 `The collection "posts" does not exist or is empty`，所有 `/posts/...` 回 404（含舊文 `learning/2026-10-10-agency-ai-shadowing`）。另一個 session 在主目錄開的 dev server（:4321）也一樣。
+- 觀測：`.astro/data-store.json` 約 310MB（乾淨 worktree 從零 sync 也是）。推測是資料存放區太大，dev 端載入失敗後靜默變空；未驗證根因。
+- 為什麼現在不能做：要動 content loader 或 Astro 設定，超出該 session 範圍；影響所有「交稿前看渲染」的流程。
+- 接手第一步：在乾淨 worktree 跑 `ASTRO_DEV_BACKGROUND=0 npx astro dev --port 4417`，確認 404；再縮小 glob（例如只載 `career/**`）看是否恢復，以判斷是否為大小問題。

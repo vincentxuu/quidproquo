@@ -23,7 +23,7 @@ url: https://www.youtube.com/watch?v=pmQhqVLVApw
 title: Dan Koe on multiple interests and AI (2026-09-03)
 ```
 
-Scope first. This guide is based on a full text transcript without timestamps, probably auto-generated captions. I read all of it, but I **did not re-listen to the audio or check the on-screen visuals**. Quotes are caption text. Everything below is one person's view, not research findings.
+Scope first. This guide is based on two machine transcripts: the full caption text without timestamps (probably auto-generated) and a timestamped Whisper transcript. I read both in full. I **did not listen through the audio myself or check the on-screen visuals**; quotes are machine-transcribed text. Everything below is one person's view, not research findings.
 
 ## Disclosure: he sells things in the video
 
@@ -76,7 +76,7 @@ This is the most directly usable part.
 ## Limits and trade-offs
 
 - One speaker, one video, no opposing view, no data.
-- The caption for "one person can do what a team did" reads "10 to 50% team," which looks wrong. I did not quote it and will check it against the audio.
+- He says one person can now do what a 10 to 50 person team used to do, depending on the task (around 8:43). That is his estimate, with no source.
 - He uses Darwin's routine as an example of high output from few work hours. Secondary sources I found do mention the walks and short fixed work sessions, but the speaker's own hour counts are inconsistent, so I don't repeat them.
 - "Build it and the money follows" skips distribution and luck. He says himself you still need marketing, product, sales, and distribution.
 
@@ -86,9 +86,72 @@ This is the most directly usable part.
 2. Write down your day, one line per hour, give it to AI and ask which parts could become a repeatable process (a prompt, a skill, a tool). Treat the first result as a draft.
 3. Pick one thing you want to be known for (his "craft") and treat your other interests as fuel for it.
 
-## English shadowing section (pending)
+## Shadowing with the original captions
 
-The video has English audio, so it should come with three 30–60 second shadowing segments. I don't have official caption timestamps and haven't re-listened to the audio, so I can't confirm start/end points or caption text. I'm leaving it out rather than passing off self-written lines as his words. I'll add it once timestamps are available and checked. To practice now, turn on English captions in the player above.
+Three continuous clips, 45–53 seconds each, for **shadowing with the original YouTube captions**. Each player is set to English captions and loops its clip. This page gives one short locating quote and a comprehension note per clip; it does not reproduce the full English transcript. If captions don't appear, press CC and pick English.
+
+Start and end times come from a Whisper machine transcript. **They have not been checked by listening sentence by sentence**, so a boundary may land a second or two early or late. Go by the complete sentence you hear.
+
+### Clip 1: 20:06–20:56 (50 s), layer three: tool skills get automated
+
+```youtube
+url: https://www.youtube.com/watch?v=pmQhqVLVApw
+title: Dan Koe shadowing 1: layer three and the scribe analogy (20:06–20:56)
+start: 1206
+end: 1256
+captions: en
+loop: true
+```
+
+**What to listen for:** He lists the tools in layer three (email marketing software, Photoshop, no-code site builders), says they used to matter most but AI now handles them, and warns against betting your future on one tool. He closes with the scribe who became an editor and the hand weaver who became a machine operator.
+
+**Locating quote (machine transcript):**
+
+> The mechanical part of the skill gets automated and the human role moves up a layer.
+
+The clip is fast with short sentences, good for linking sounds and falling sentence endings. Listen once without captions and name his two historical examples. Then turn on English CC, imitate sentence by sentence, and shadow the whole clip three times. If the loop doesn't return to the start, use the [20:06 link](https://www.youtube.com/watch?v=pmQhqVLVApw&t=1206s).
+
+### Clip 2: 30:58–31:51 (53 s), rule one: know what good looks like
+
+```youtube
+url: https://www.youtube.com/watch?v=pmQhqVLVApw
+title: Dan Koe shadowing 2: AI rule one (30:58–31:51)
+start: 1858
+end: 1911
+captions: en
+loop: true
+```
+
+**What to listen for:** Know what you want and what good looks like, or you'll expect AI to do it perfectly for you. Then a run of "You still need…" (marketing, product, sales, distribution) to say the fundamentals haven't changed, and a suggestion to start by using AI as a tailored learning tool.
+
+**Locating quote (machine transcript):**
+
+> You can't have AI do something for you if you don't know what to do.
+
+The "You still need…" run is good rhythm practice: stress lands on the final noun each time. Re-cue with the [30:58 link](https://www.youtube.com/watch?v=pmQhqVLVApw&t=1858s).
+
+### Clip 3: 31:51–32:36 (45 s), rules two and three: high standards, replace yourself
+
+```youtube
+url: https://www.youtube.com/watch?v=pmQhqVLVApw
+title: Dan Koe shadowing 3: AI rules two and three (31:51–32:36)
+start: 1911
+end: 1956
+captions: en
+loop: true
+```
+
+**What to listen for:** Rule two is absurdly high standards: AI output feels like slop because you treat the first draft as final. Rule three is to try to replace yourself with AI, because that's the fastest way to learn what can and can't be automated yet.
+
+**Locating quote (machine transcript):**
+
+> The reason every response you get from AI is slop is that you treat the first draft as the final draft.
+
+The long subject ("The reason … is that …") is good practice for pausing before the verb. Once it's comfortable, close the video and say in your own words where you recently treated an AI first draft as finished. Re-cue with the [31:51 link](https://www.youtube.com/watch?v=pmQhqVLVApw&t=1911s).
+
+## Update history
+
+- 2026-10-16: Added three shadowing clips with source-player captions (50, 53, and 45 seconds), timed from a Whisper machine transcript; the "10 to 50 person team" line now states it is the speaker's estimate.
 
 ## References
 
