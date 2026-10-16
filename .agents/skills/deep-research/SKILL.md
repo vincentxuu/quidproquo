@@ -54,6 +54,12 @@ description: Portable multi-source research for tools, frameworks, papers, model
 3. 按來源品質排序：**官方一手 > 一手作者 > 高品質二手 > 內容農場**
 4. 抓內容時打文件本身。**主要來源不帶 `query`**——`query` 只回片段，會讓你以為讀了全文
 5. 標註取用層級（一手 / 摘要 / 轉引 / 未驗證），寫進 note
+6. **補近年**：每個子問題另外限定 2024 年以後再搜一輪。用標題、作者名搜會撈到被引用最多的舊研究，近年研究不會自己冒出來；舊結論要確認有沒有被更新、推翻，或仍有近年研究支持。
+7. **搜反證**：每個子問題至少一輪加 replication、criticism、limitations、failed、does not 的搜尋。
+
+**讀不到時先換管道，再標 🔴／🟡**：作者個人網站 → 研究室 publications 頁 → arXiv／HTML 版 → 會議頁 preprint 連結 → 第三方鏡像 PDF → replication package。仍讀不到，找同作者後續論文、統合分析、專書出版社說明替代。試過的管道寫進 note。廠商或方法作者自述是唯一來源時，補學術經驗報告、企業實作論文、獨立研究或具名事件平衡。
+
+本站踩過（2026-10-16）：三篇論文第一輪標「只讀到摘要」就交差，換管道後兩篇讀到全文；來源多是 2010 年前後，限定年份補搜後找到 2025–2026 年的研究，改了好幾篇的寫法；手寫筆記優於打字的研究其實已被 2021 年重複驗證推翻，是碰巧搜到才發現。
 
 來源品質分級標準 → `references/source-quality-criteria.md`
 付費牆繞路順序 → `references/mcp-tools.md`
@@ -79,7 +85,9 @@ description: Portable multi-source research for tools, frameworks, papers, model
 
 ### 3. 盤點讀取程度
 
-**在寫結論前**，把每個來源標上讀取程度（✅ 一手 / 🟡 摘要轉引 / 🔴 未讀），並註明阻礙原因。盤點表寫進 research note。結論依賴的來源還有 🔴 就在交接時明講。
+**在寫結論前**，把每個來源標上讀取程度（✅ 一手 / 🟡 摘要轉引 / 🔴 未讀），並註明阻礙原因與試過的管道。盤點表寫進 research note。結論依賴的來源還有 🔴 就在交接時明講。補搜多輪時回頭更新同一張表，不要一輪一輪往後接。
+
+**何時停**：每個關鍵主張過五關才算研究夠——①讀過正文的一手來源 ②方法類主張分清作者主張與實證 ③至少一個 2024 年以後的來源或近年確認 ④搜過反證 ⑤換兩三組關鍵字（含中文、近義詞、其他學科用語）都只回已讀來源。沒過的關寫進 note，不要憑「差不多了」停。
 
 若來源可能跨文章或跨研究重複使用，接著呼叫 `research-source-registry`：建立六維 evidence profile，依 hard gates、discovery-only reasons 與 reuse cautions 決定處置；`reusable`／`conditional` 才能 upsert 到 `.research/source-registry.jsonl`。搜尋摘要、未讀頁與缺少主張邊界者只留在本輪 note。不得自行把 profile 轉成總分、真實機率或公認證據等級。
 
@@ -111,7 +119,7 @@ description: Portable multi-source research for tools, frameworks, papers, model
 
 ### 7. 交接
 
-把草稿骨架給使用者看，問下一步：發文（→ `post` skill）、補子問題、還是先存著。
+研究本身不用問使用者要不要做；交接時才把草稿骨架給使用者看，要他決定的事放最前面。問下一步：發文（→ `post` skill）、補子問題、還是先存著。
 
 交給 `post` 的只有「草稿骨架」：事實，加上會改變讀者做法的限制。來源清單、讀取完整度盤點、事實交叉表、待解問題是過程，留在 note，不搬成文章的段落或 H2；「待解問題」裡讀者會碰到的，改寫成用到那一段的一句限制。規則見 post skill `references/writing-guide.md`「查證過程不寫進正文」。
 

@@ -106,5 +106,9 @@
   ],
   "rewriting": [
     "bug-bounty-from-zero"
-  ]
+  ],
+  "researchExempt": [
+    "bug-bounty-from-zero"
+  ],
+  "researchExemptNote": "2026-10-16 前已確認的規劃表，免「研究筆記＋五關判準」檢查；之後新登錄或重寫的系列都要有。"
 }

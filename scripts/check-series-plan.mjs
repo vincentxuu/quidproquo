@@ -58,6 +58,18 @@ export function planProblems(text) {
   return PLAN_REQUIRED.filter(([, re]) => !re.test(text)).map(([label]) => label);
 }
 
+// 規劃表要先有研究：寫出研究筆記路徑（檔案要存在）與五關判準一節。
+// 為什麼：2026-10-16「知識庫怎麼建」先憑印象排篇目、來源欄列沒讀過的書，四輪都是使用者追問才補研究。
+const RESEARCH_NOTE = /\.work\/research\/[\w.-]+\/research-note\.md/;
+export function researchProblems(text, exists = existsSync) {
+  const miss = [];
+  const m = text.match(RESEARCH_NOTE);
+  if (!m) miss.push('研究筆記路徑（.work/research/<slug>/research-note.md）');
+  else if (!exists(m[0])) miss.push(`研究筆記檔案 ${m[0]} 不存在`);
+  if (!/研究足夠的判準/.test(text)) miss.push('「研究足夠的判準」一節（五關檢查結果）');
+  return miss;
+}
+
 export function reviewProblems(text) {
   return REVIEW_REQUIRED.filter(([, re]) => !re.test(text)).map(([label]) => label);
 }
@@ -85,13 +97,15 @@ function run(files, explicit) {
   const cfg = JSON.parse(readFileSync(BASELINE, 'utf8'));
   const baseline = new Set(cfg.grandfathered);
   const rewriting = new Set(cfg.rewriting ?? []);
+  const researchExempt = new Set(cfg.researchExempt ?? []);
   const gated = parseSeries(readFileSync(SERIES_TS, 'utf8')).filter((s) => !baseline.has(s.slug));
   const errors = [];
 
   for (const s of gated) {
     const plan = join(PLANS, `${s.slug}.md`);
     if (!existsSync(plan)) { errors.push(`系列 ${s.slug} 沒有規劃表 ${plan}（先跑 series-curriculum-design）`); continue; }
-    const miss = planProblems(readFileSync(plan, 'utf8'));
+    const text = readFileSync(plan, 'utf8');
+    const miss = [...planProblems(text), ...(researchExempt.has(s.slug) ? [] : researchProblems(text))];
     if (miss.length) errors.push(`${plan} 缺：${miss.join('、')}`);
   }
 
@@ -116,6 +130,11 @@ function selfTest() {
   const full = '目標讀者：x\n弧線：a→b\n入口：總覽\n### 斷崖處理\n讀完後讀者能：y\n使用者確認：2026-10-15';
   assert(planProblems(full).length === 0, '完整規劃表通過');
   assert(planProblems(full.replace(/使用者確認.*/, '')).length === 1, '缺使用者確認會擋');
+  const researched = '研究筆記：`.work/research/a-b/research-note.md`\n## 研究足夠的判準\n五關結果';
+  assert(researchProblems(researched, () => true).length === 0, '有研究筆記與五關判準通過');
+  assert(researchProblems(researched, () => false).length === 1, '研究筆記檔案不存在會擋');
+  assert(researchProblems('研究足夠的判準').length === 1, '沒寫研究筆記路徑會擋');
+  assert(researchProblems('`.work/research/a-b/research-note.md`', () => true).length === 1, '缺五關判準會擋');
   assert(reviewProblems('## post-verify\n## post-review\n## post-polish').length === 0, '三節齊全的審稿紀錄通過');
   assert(reviewProblems('## post-verify\n只做了查證').length === 2, '只有查證會擋');
   assert(postSlug('src/content/posts/tech/2026-10-13-x-en.md') === '2026-10-13-x', '中英共用審稿紀錄');
