@@ -234,9 +234,11 @@ const breadcrumbLD = {
     )}
 
     <div class="post-grid">
-      <!-- Sidebar: sticky TOC + optional related video -->
-      <aside class="post-sidebar">
-        {headings.length > 0 && (
+      {/* Sidebar: sticky TOC + optional related video — only rendered when there is
+          actual content, so an empty column never steals width from the article. */}
+      {(headings.length > 0 || relatedVideoId) && (
+        <aside class="post-sidebar">
+          {headings.length > 0 && (
           <details class="toc" open={isDailyBrief || post.data.category !== 'daily'}>
             <summary class="toc-header">
               <Icons name="list" size={14} />
@@ -293,6 +295,7 @@ const breadcrumbLD = {
           </div>
         )}
       </aside>
+)}
 
       <div class="post-main">
     <!-- Series nav -->
@@ -641,11 +644,20 @@ const breadcrumbLD = {
       align-items: start;
     }
     .post-sidebar { position: sticky; top: 1.5rem; }
+    /* 本文在兩欄模式下置中於可用欄位，上限 760px（約 44 全角字／行），
+       避免寬螢幕被拉太長影響可讀性。 */
+    .post-main { max-width: 760px; margin: 0 auto; }
     /* The sidebar TOC is always expanded at desktop width, regardless of the
        details element's open state (which still governs the mobile default). */
     .post-sidebar .toc-header { cursor: default; }
     .post-sidebar .toc-header::after { display: none; }
     .post-sidebar .toc > ol { display: block !important; }
+  }
+  /* Ask AI 面板開啟時：1140–1519 收起 TOC，grid 退回單欄，讓本文置中於
+     扣除面板讓位後的可用區；≥1520 三欄並存，TOC 保留（現有行式）。 */
+  @media (min-width: 1140px) and (max-width: 1519px) {
+    :global(body.has-chat-sidebar) .post-sidebar { display: none; }
+    :global(body.has-chat-sidebar) .post-grid { grid-template-columns: 1fr; }
   }
 
   /* ── Related video card ── */

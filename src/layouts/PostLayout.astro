@@ -203,6 +203,7 @@ const pageTitle =
   body {
     font-family: 'Latin Quotes', 'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif;
     --page-gutter: 1.5rem;
+    --ask-ai-sidebar-width: 380px; /* 與 ChatSidebar.tsx SIDEBAR_WIDTH 對齊；單一事實來源 */
     max-width: 800px;
     margin: 0 auto;
     padding: 1rem var(--page-gutter);
@@ -210,6 +211,9 @@ const pageTitle =
     background: var(--bg-page);
     transition: background 0.2s, color 0.2s;
   }
+  /* Ask AI 面板開啟時，body 撐滿視窗寬度，使 padding-right 讓位落在畫面右邊被固定面板精準蓋住，
+     避免 body 置中導致 padding 從內容裡往內吃、出現巨大空格＋本文被壓縮。 */
+  body.has-chat-sidebar { max-width: none; }
   /* Article pages widen at desktop to fit a sticky TOC/video sidebar (.post-grid) */
   @media (min-width: 1000px) {
     body.is-article { max-width: 1180px; }

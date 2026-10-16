@@ -385,14 +385,15 @@ textarea[data-slot="input-group-control"]::placeholder {
 }
 /* ===== Chat Sidebar 伴讀面板 ===== */
 
-/* Body shifts left when sidebar is open */
+/* Body shifts left when sidebar is open.
+   max-width is NOT transitioned: body must keep a stable content width so the
+   reader's eye doesn't reflow when the sidebar toggles. Only the panel slides. */
 body.has-chat-sidebar {
-  transition: max-width 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-              padding-right 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: padding-right 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
-@media (min-width: 1024px) {
+@media (min-width: 1140px) {
   body.has-chat-sidebar {
-    padding-right: calc(380px + var(--page-gutter, 1.5rem));
+    padding-right: calc(var(--ask-ai-sidebar-width) + var(--page-gutter, 1.5rem));
   }
 }
 
@@ -480,8 +481,15 @@ body.has-chat-sidebar {
   color: var(--brand-700);
 }
 
-/* Mobile: bottom sheet instead of sidebar */
-@media (max-width: 1023px) {
+/* Desktop: quick actions & sidebar panel appear beside the article (>= 1140).
+   Below 1140 the panel is a bottom sheet; TOC is suppressed while open. */
+@media (min-width: 1140px) {
+  .chat-sidebar-quick-actions {
+    display: flex;
+  }
+}
+/* Mobile: bottom sheet instead of sidebar (< 1140) */
+@media (max-width: 1139px) {
   .chat-sidebar-panel {
     top: auto;
     left: 0;
@@ -519,10 +527,10 @@ body.has-chat-sidebar {
 
 /* The scroll-to-top button (PostLayout) shares this corner: it sits above the quick actions instead of on them,
    and steps beside the open sidebar instead of hiding under it. */
-@media (min-width: 1024px) {
+@media (min-width: 1140px) {
   body:has(.chat-sidebar-quick-actions) .scroll-top { bottom: 9.5rem; }
-  body.has-chat-sidebar .scroll-top { right: calc(380px + 1.5rem); bottom: 1.5rem; }
+  body.has-chat-sidebar .scroll-top { right: calc(var(--ask-ai-sidebar-width) + var(--page-gutter, 1.5rem)); bottom: 1.5rem; }
 }
-@media (max-width: 1023px) {
+@media (max-width: 1139px) {
   body.has-chat-sidebar .scroll-top { display: none; }
 }
