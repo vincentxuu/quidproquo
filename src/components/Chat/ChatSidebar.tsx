@@ -13,6 +13,7 @@ export function ChatSidebar({ lang = defaultLang, page }: { lang?: Lang; page?: 
   const [pendingMessage, setPendingMessage] = useState<{ id: number; text: string } | undefined>()
   const triggerRef = useRef<HTMLButtonElement | null>(null)
   const panelRef = useRef<HTMLDivElement | null>(null)
+  const chatWidgetRef = useRef<{ focusInput: () => void } | null>(null)
 
   // ── 狀態管理：sessionStorage 持久化、切換文章重置 ──
   useEffect(() => {
@@ -35,6 +36,15 @@ export function ChatSidebar({ lang = defaultLang, page }: { lang?: Lang; page?: 
       /* private mode: ignore */
     }
     return () => { document.body.classList.remove(BODY_CLASS) }
+  }, [open])
+
+  // 面板開啟時將焦點移到輸入框（等 DOM 渲染完成後再聚焦）
+  useEffect(() => {
+    if (!open) return
+    const timer = setTimeout(() => {
+      chatWidgetRef.current?.focusInput()
+    }, 0)
+    return () => clearTimeout(timer)
   }, [open])
 
   // ── 鍵盤：Esc 關閉 ──
@@ -98,6 +108,7 @@ export function ChatSidebar({ lang = defaultLang, page }: { lang?: Lang; page?: 
           aria-label={t('chat.sidebar.subtitle')}
         >
           <ChatWidget
+            ref={chatWidgetRef}
             embedded
             pendingMessage={pendingMessage}
             onClose={close}

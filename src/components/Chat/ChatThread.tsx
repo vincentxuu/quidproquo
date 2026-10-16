@@ -6,7 +6,7 @@ import {
   type AppendMessage,
   type ThreadMessageLike,
 } from '@assistant-ui/react'
-import { type KeyboardEvent, type ReactNode, useCallback, useMemo } from 'react'
+import { type KeyboardEvent, type ReactNode, type RefObject, useCallback, useMemo } from 'react'
 
 import { Conversation, ConversationContent, ConversationScrollButton } from '@/components/ai-elements/conversation'
 import { PromptInput, PromptInputTextarea, PromptInputSubmit, type PromptInputMessage } from '@/components/ai-elements/prompt-input'
@@ -24,9 +24,11 @@ interface ChatThreadProps {
   beforeComposer?: ReactNode
   /** 輸入框下方一行小字（免責、額度） */
   footerNote?: ReactNode
+  /** 傳給輸入框 textarea 的 ref，讓父元件可聚焦輸入框（如 Ask AI 面板開啟時） */
+  inputRef?: RefObject<HTMLTextAreaElement | null>
 }
 
-export function ChatThread({ messages, loading, onSend, onStop, onRetry, beforeComposer, footerNote }: ChatThreadProps) {
+export function ChatThread({ messages, loading, onSend, onStop, onRetry, beforeComposer, footerNote, inputRef }: ChatThreadProps) {
   const { t } = useChatLocale()
   const threadMessages: ThreadMessageLike[] = useMemo(
     () =>
@@ -108,6 +110,7 @@ export function ChatThread({ messages, loading, onSend, onStop, onRetry, beforeC
         <div className="border-t px-3 pt-2 pb-1.5" style={{ borderColor: 'var(--border)', background: 'var(--bg-card)' }}>
           <PromptInput onSubmit={handleSubmit}>
             <PromptInputTextarea
+              ref={inputRef}
               placeholder={t('chat.placeholder')}
               onKeyDown={handleKeyDown}
               enterKeyHint="send"

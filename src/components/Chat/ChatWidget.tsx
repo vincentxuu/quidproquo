@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useMemo } from 'react'
+import { useState, useRef, useEffect, useMemo, forwardRef, useImperativeHandle } from 'react'
 import type { Message, StepEvent } from './types'
 import { applyStepEvent } from './steps-reducer'
 import { ChatThread } from './ChatThread'
@@ -117,15 +117,7 @@ function usePageContextFlag(wanted: boolean): boolean | null {
   return enabled
 }
 
-export function ChatWidget({
-  embedded = false,
-  pendingMessage,
-  onClose,
-  onExpandToggle,
-  isExpanded,
-  lang = defaultLang,
-  page,
-}: {
+type ChatWidgetProps = {
   embedded?: boolean
   pendingMessage?: PendingMessage
   onClose?: () => void
@@ -133,7 +125,17 @@ export function ChatWidget({
   isExpanded?: boolean
   lang?: Lang
   page?: ChatPage
-}) {
+}
+
+const ChatWidget = forwardRef<{ focusInput: () => void }, ChatWidgetProps>(({
+  embedded = false,
+  pendingMessage,
+  onClose,
+  onExpandToggle,
+  isExpanded,
+  lang = defaultLang,
+  page,
+}, ref) => {
   const t = useMemo(() => chatT(lang), [lang])
   const welcome = useMemo<Message>(() => ({ id: WELCOME_ID, role: 'assistant', content: t('chat.welcome') }), [t])
   const suggestionPool = lang === 'en' ? SUGGESTED_QUESTIONS_EN : SUGGESTED_QUESTIONS
@@ -142,11 +144,19 @@ export function ChatWidget({
   const [remaining, setRemaining] = useState<number | null>(null)
   const [suggestionPage, setSuggestionPage] = useState(0)
   const abortRef = useRef<AbortController | null>(null)
+  const inputRef = useRef<HTMLTextAreaElement>(null)
   const pageContextEnabled = usePageContextFlag(Boolean(page))
   // 讀者按掉 chip 後這個對話就回到全站模式；開新對話時 chip 重新出現
   const [pageDismissed, setPageDismissed] = useState(false)
   const pageContextResolved = pageContextEnabled !== null
   const activePage = page && pageContextEnabled && !pageDismissed ? page : undefined
+
+  // 讓父元件（ChatSidebar）可聚焦輸入框：Ask AI 面板開啟時移焦至此
+  useImperativeHandle(ref, () => ({
+    focusInput: () => {
+      inputRef.current?.focus()
+    },
+  }))
   const threadId = useRef(
     typeof localStorage !== 'undefined'
       ? (localStorage.getItem('chat_thread_id') ?? crypto.randomUUID())
@@ -464,11 +474,15 @@ export function ChatWidget({
             )}
           </>
         }
+        inputRef={inputRef}
       />
     </div>
     </ChatLocaleProvider>
   )
-}
+})
+
+export type { ChatWidgetProps }
+export { ChatWidget }
 
 function RefreshCwIcon({ className }: { className?: string }) {
   return (
