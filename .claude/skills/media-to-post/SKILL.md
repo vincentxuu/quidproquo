@@ -23,6 +23,8 @@ description: Prepare YouTube videos, podcasts, audio/video files, subtitles, or 
 2. 官方播放器的原語字幕／逐字稿，記錄人工、自動或未知；自動翻譯不當原語逐字稿。
 3. 使用者提供、已授權或允許取得的影音檔，用當前可用轉錄工具。先確認格式、時間戳與說話者能力，不預設工具可直接接 YouTube URL。
 
+YouTube 拿不到原語字幕時，跑 `node scripts/transcribe.mjs <url> --lang <原語> [--prompt "人名、術語"]`：先找人工字幕，沒有就下載音訊用 Workers AI Whisper 轉錄，輸出 `transcript.raw.vtt` 與 `transcript.meta.json` 到 `.work/media-to-post/<id>/`（音訊不落地）。meta 的 `source` 寫進 source.json；`lastCueSeconds` 對照影片長度查缺段。Whisper 結果是機器轉錄，引語仍要回聽或標「原音未核對」。雲端 session 需要環境白名單（YouTube、`*.googlevideo.com`、`api.cloudflare.com`）與 `CLOUDFLARE_ACCOUNT_ID`／`CLOUDFLARE_API_TOKEN`，`scripts/cloud-setup.sh` 會在開機時補裝 ffmpeg／yt-dlp 並提示缺的變數。腳本 exit 2（下載失敗，常見是 YouTube 擋資料中心 IP）時不要放 cookies 繞過，回報缺口並在 `progress.txt` 登錄「待本機轉錄」。
+
 Podcast 查單集官網、show notes 與 RSS transcript 入口。平台顯示逐字稿不代表能匯出或任意轉載。Show notes、章節與二手摘要只能作索引，不能冒充整集內容。沒有文字或可用音訊時，完成來源盤點並回報缺口，不宣稱已分析整集。
 
 先檢查回應真的含所需字幕／逐字稿，而非導覽、登入頁或 show notes：HTTP 200、工具 ok 與 truncated=false 都不代表已取得影音內容。官方配套文章可作獨立文字來源，但不能冒充原音逐字稿；頁面 updatedAt 也不能當影片發布日期。

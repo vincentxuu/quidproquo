@@ -38,6 +38,10 @@
         "hooks": [
           {
             "type": "command",
+            "command": "bash scripts/cloud-setup.sh"
+          },
+          {
+            "type": "command",
             "command": "node scripts/session-start.mjs"
           }
         ]
