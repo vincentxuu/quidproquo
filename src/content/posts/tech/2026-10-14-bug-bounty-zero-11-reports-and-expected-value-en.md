@@ -11,9 +11,10 @@ tags:
   - microsoft
   - meta
   - idor
+  - hackerone
 lang: en
-description: "Read Google's report-quality table (0.8x, 1x, 1.2x) and Microsoft's Hyper-V quality definitions, then use a one-page report template (labeled as my suggestion), a toy IDOR example, and made-up numbers to estimate expected value and decide how much time to spend."
-tldr: "Google multiplies the reward by 0.8, 1 or 1.2 depending on report quality across seven dimensions, and only counts what you provided before triage; later additions usually do not change it. Write to a one-page template (title, summary, preconditions, steps, impact, fix suggestion), then estimate hourly expected value as probability x amount / hours. A bigger ceiling can still lose to a small payout once the odds are low enough. Every probability and hour count in this post is an assumption, not a statistic."
+description: "Read Google's report-quality table (0.8x, 1x, 1.2x) and Microsoft's Hyper-V quality definitions, then use a one-page report template (labeled as my suggestion), a toy IDOR example, the triage states a report moves through after submission, and made-up numbers to estimate expected value and decide how much time to spend."
+tldr: "Google multiplies the reward by 0.8, 1 or 1.2 depending on report quality across seven dimensions, and only counts what you provided before triage; later additions usually do not change it. Write to a one-page template (title, summary, preconditions, steps, impact, fix suggestion), then estimate hourly expected value as probability x amount / hours. A bigger ceiling can still lose to a small payout once the odds are low enough. Only Resolved is guaranteed to pay; duplicates and invalid reports are common. Every probability and hour count in this post is an assumption, not a statistic."
 draft: false
 series:
   name: "Bug Bounty from Zero"
@@ -101,6 +102,7 @@ The format below is my own arrangement based on the quality dimensions above. It
 | Reproduction steps | Numbered steps, one action each; attach an automated script if you can | Reproduction steps / PoC |
 | Expected vs actual | One line each, with a response snippet or screenshot | Reproduction output |
 | Impact | What you actually proved and what you did not test; keep worst case and its conditions separate | Impact analysis |
+| Severity | One or two sentences: the level you assign and why, optionally with a CVSS vector, labeled as self-assessed | No matching dimension |
 | Fix suggestion | A sentence or two of direction; optional but helpful | No matching dimension (the MSRC example report includes one) |
 
 Three habits while writing:
@@ -198,6 +200,40 @@ Two more details on Meta's page help beginners: amounts depend on factors includ
 
 Mapped back to reports: **first confirm scope and that it is a security issue, then worry about how well it is written.** Part 1 covers scope.
 
+## After you submit: triage states and reputation
+
+Submitting a report does not just lead to "accepted" or "rejected". On HackerOne, for example, [Report States](https://docs.hackerone.com/en/articles/8475030-report-states) splits reports into open and closed states:
+
+| State | Meaning | Reputation |
+|---|---|---|
+| New | Just submitted, waiting for initial validation | Open, not settled |
+| Pending Program Review | HackerOne triage validated it; the customer team is reviewing severity | Open, not settled |
+| Triaged | Validated and escalated for internal remediation | Open, not settled |
+| Retesting | A fix is in place and awaits your verification | Open, not settled |
+| Needs More Info | More information is needed to reproduce; after 30 days it closes automatically as informative | Open, not settled |
+| Resolved | The vulnerability is fixed and closed | +7 |
+| Informative | Valid information that needs no action (out of scope, already known, accepted risk) | 0 |
+| Duplicate | Someone reported it first, or the customer already knew | Varies: +2, 0 or −5 |
+| Not Applicable | Not reproducible, or no security impact demonstrated | −5 |
+| Spam | Not a security vulnerability, or abusive content | −10 |
+
+The reputation figures come from HackerOne's [Reputation](https://docs.hackerone.com/en/articles/8369865-reputation) page: a hacker profile starts at 100 and cannot drop below 0. Other platforms use different state names and scoring, so read the target platform's own page before submitting.
+
+Two things to remember:
+
+- **Reputation is settled when a report closes**, not while it is open; self-closing before it is triaged does not count either.
+- **Only Resolved is guaranteed to pay.** Informative, Not Applicable and Spam pay nothing, and the duplicate rules are in the previous section.
+
+### Three ways to run into fewer duplicates
+
+Duplicates are the most common ending, and a few habits reduce the odds:
+
+1. **Pick targets with fewer participants**: small companies, self-run VDPs, less popular subdomains.
+2. **Map first, then pick a path**: lay out the target's features and endpoints, then choose a path others are unlikely to hit first, such as an obscure API or a rarely used feature rather than the homepage search box. For building a repeatable comparison, see the [part 3 workbench](/posts/tech/2026-10-15-bug-bounty-hunter-workbench-en).
+3. **Search before you submit**: search the platform for similar keywords and check whether a similar title is already public.
+
+These three are what I do, not a platform rule.
+
 ## Is it worth the time? An expected-value calculation with made-up numbers
 
 Every probability and hour count in this section is **an assumption I invented** to demonstrate the arithmetic. They are not statistics and do not represent anyone's actual results. I did not find official or research figures for beginners (success rates, average payouts, beginner income), so I am not citing any, and you should not treat the numbers below as fact.
@@ -235,6 +271,21 @@ My suggestion: do not treat this as an income source to calculate. Treat it firs
 
 These points are my judgment, not any program's advice.
 
+## Self-check before you submit
+
+Take the report you wrote in the lab and walk the one-page template field by field:
+
+1. **Title**: does it give bug type + feature or endpoint + one-line consequence? Not just "found an XSS".
+2. **Summary**: does it say what the bug is, where, and the worst case, in two or three sentences?
+3. **Preconditions**: does it say where the attacker starts (login needed? victim action needed)?
+4. **Reproduction steps**: numbered, one action each? Can someone else reach the same result without you present?
+5. **Expected vs actual**: one line each, with a response snippet or screenshot?
+6. **Impact**: are "tested" and "not tested / inferred" separated? Did any untested consequence slip in?
+7. **Severity**: does it state the basis, and is it labeled as self-assessed?
+8. **Fix suggestion**: does it give a concrete direction rather than "please fix"?
+
+If a field will not come out, go back to the worked example above; that field is usually where the report would lose points.
+
 ## What to do tonight
 
 1. Open the Report quality table on the [Google VRP rules page](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules), compare it with the example report above, and mark the weakest row in red.
@@ -242,15 +293,31 @@ These points are my judgment, not any program's advice.
 3. Run part 4's `demo.mjs` once, then use the template to write a report for the XSS section. Only the toy program, never a real site.
 4. On a sheet of paper, write your own three assumptions (probability, amount, hours), compute the hourly expectation, and write down the total hours you plan to commit.
 
+## Series flow
+
+One full pass through the series goes in this order:
+
+```text
+Pick a program, read the rules (1) → know the target (2) → recon and workbench (3)
+→ find bugs: XSS / IDOR (4), RCE (5)
+→ write the report, go through triage (6) → back to the program side for the fix and closure
+```
+
+The numbers in parentheses are series order. Part 6 is the first time this line is completed end to end; the next part starts downward into lower-level bugs.
+
 ## Limits
 
-- The rules here come from Google, Microsoft and Meta pages I read on 2026-10-14. Programs differ in forms, formats and scoring, and they change; use the page as it stands when you submit.
+- The rules here come from Google, Microsoft, Meta and HackerOne pages; I read the first three on 2026-10-14 and HackerOne's report-state and reputation pages on 2026-10-16. Programs differ in forms, formats and scoring, and they change; use the page as it stands when you submit.
 - Quality is each program's discretionary call. My field-by-field mapping is practice, not a prediction.
 - The template is my suggestion. Apart from Microsoft asking for impact and (when not obvious) the attack vector, I did not find a program that mandates fixed fields.
 - All probabilities and hours in the expected-value section are assumptions. I did not cite HackerOne or Bugcrowd annual reports because I did not find figures that map to beginners, and I did not want to lean on an unrelated sample.
 - This post does not teach how to exploit bugs. Test scope and legal boundaries are in part 1.
 
 Next is [how programs use memory](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en), the bridge into lower-level bugs. The practice and certification plan returns in part 14.
+
+## Update Log
+
+- 2026-10-16: Added "After you submit" and "Self-check before you submit" sections and a series flow diagram; added a Severity field to the one-page template; added HackerOne's report-state and reputation pages to the references.
 
 ## References
 
@@ -260,6 +327,8 @@ Next is [how programs use memory](/posts/tech/2026-10-13-bug-bounty-zero-05-how-
 - [Microsoft Hyper-V Bounty Program (MSRC)](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)
 - [Example Report Submissions to the MSRC (quality definitions and examples)](https://www.microsoft.com/en-us/msrc/bounty-example-report-submission)
 - [Meta Bug Bounty: Program scope](https://bugbounty.meta.com/scope/) (invalid-report reasons, duplicates, payout factors)
+- [HackerOne: Report States](https://docs.hackerone.com/en/articles/8475030-report-states) (open and closed state definitions)
+- [HackerOne: Reputation](https://docs.hackerone.com/en/articles/8369865-reputation) (reputation change per closed state)
 - In this series: [Part 13 Top payouts fact check](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en), [Part 1 Rules and scope](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en), [Part 4 XSS and IDOR](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs-en), [Part 12 Bounties in the AI era](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty-en), [Part 14 Certifications and learning map](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map-en)
 
 [Previous: part 5](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en) · [Next: part 7](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en)

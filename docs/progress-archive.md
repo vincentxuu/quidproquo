@@ -829,3 +829,8 @@ post-verify report: 2026-09-07-marker-document-parsing.md
 ## 2026-10-16 封存：Looplane 系列 Batch D（Ask AI 對話連續性 session，progress.txt 逼近 90 行上限）
 
 - **Looplane 系列 Batch D（2026-08-30，內容完成）**：orders 17–18 兩組雙語文章、rivumi 舊檔清除已 commit/push（2026-09-04）。Playwright 型別衝突已自行消解。
+
+## 2026-10-16 封存：10-12 daily-digest-report 條目（zero-11 報告篇補完 session，progress.txt 逼近 90 行上限）
+
+- **daily-digest-report 2026-10-12**：讀 30 筆 signals JSON＋7 篇 Stage 1 固定產出（arxiv／github／model-card-iris-3b／security-agentcorruption／tool-decisionkit／interview×2）。Step 4e 區域缺口掃描對東南亞／拉丁美洲／大洋洲／中東各補一組 Groundlane `web_search`（timeRange: day），四組皆未命中與 AI agent 直接相關的合格新事件（大洋洲 Mashable 的「政府再揭露一次 bushfire 資料存取」一文經 `web_fetch` 核對實際發布於 2026-10-02，屬舊聞，排除）；確認東南亞／拉丁美洲／大洋洲今日確實查無合格事件而非漏搜。深度分析用交易成本框架串 AgentCorruption 漏洞鏈（AWS Bedrock AgentCore 單一提示橫向入侵同帳號同區域全部 agent）、JumpCloud IAM 落差調查（近六成企業未延伸 IAM）與 Sierra×Meta 同日發布的 Personal Agent Protocol（外部身分標準），點出「外部身分驗證」與「內部執行角色過度授權」是兩個不同層次的問題，協定進展不能當成後者已解決；台灣讀者位置落在一句話判斷與深度分析。relevance≥0.8 僅 sig-003（AgentCorruption，0.9）全部提及（Check 6）；signals 9 個 category 全覆蓋（Check 2，含補寫 a16z 傑文斯悖論 community-signal 段落）；確認 sig-026（TypeSafe AI／Jev $7.5B 估值）與昨日 10-11 已產出的融資速報 `funding-typesafe-ai`（$870M Series A／$7.5B 估值）為同一輪募資，判定重複排除，不重寫為今日新事件；7 篇 Stage 1 全部進「今日 Digest 一覽」（Check 1），Arxiv 摘要契約在「技術進展」正文落地。中英雙版已建立並互相連結，series order 58（接續 10-11 的 57）。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新檔 0 warning）、`check:lang-parity`（2656 組全過）、`check:tw`（初版 3 處 A 級「用戶」已修正為「使用者」，修正後 0 blocking）、`check:series-order`（58 無撞號，僅既有缺號 warning）皆 0 blocking；已將最舊 Recently completed 條目（10-10 CMU 11-768 影片核對）移至 `docs/progress-archive.md`；待 commit／push。
+

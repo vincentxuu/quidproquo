@@ -11,9 +11,10 @@ tags:
   - microsoft
   - meta
   - idor
+  - hackerone
 lang: zh-TW
-description: "對照 Google VRP 的報告品質表（0.8x、1x、1.2x）與 Microsoft Hyper-V 計畫的品質定義，給一份標示為作者建議的一頁報告模板，用玩具 IDOR 範例逐欄對照，再用假設數字示範怎麼算期望值、決定要投入多少時間。"
-tldr: "Google 依報告品質把獎金乘上 0.8、1 或 1.2 倍，看七個維度，而且只採計分流前已有的資訊，事後補充通常不影響。照一頁模板（標題、摘要、前提、重現步驟、影響、修補建議）寫，再用「機率 × 金額 ÷ 時數」粗估每小時期望；上限再高，機率小到一定程度，期望也可能比小額獎金低。文中的機率與時數全是假設，不是統計。"
+description: "對照 Google VRP 的報告品質表（0.8x、1x、1.2x）與 Microsoft Hyper-V 計畫的品質定義，給一份標示為作者建議的一頁報告模板，用玩具 IDOR 範例逐欄對照，補上報告送出後的分流狀態與聲望，再用假設數字示範怎麼算期望值、決定要投入多少時間。"
+tldr: "Google 依報告品質把獎金乘上 0.8、1 或 1.2 倍，看七個維度，而且只採計分流前已有的資訊，事後補充通常不影響。照一頁模板（標題、摘要、前提、重現步驟、影響、修補建議）寫，再用「機率 × 金額 ÷ 時數」粗估每小時期望；上限再高，機率小到一定程度，期望也可能比小額獎金低。送出後只有 Resolved 保證有獎金，被判重複或無效很常見。文中的機率與時數全是假設，不是統計。"
 draft: false
 series:
   name: "從零開始的資安獵人"
@@ -101,6 +102,7 @@ Hyper-V 頁的「Eligible submissions」還要求報告要包含漏洞的影響�
 | 重現步驟 | 編號步驟，每步一個動作；能附自動化腳本就附 | 重現步驟／PoC |
 | 預期與實際 | 一行預期、一行實際，附回應片段或截圖 | 重現輸出 |
 | 影響 | 實測證明了什麼、沒測什麼；最壞情況與其前提分開寫 | 影響分析 |
+| 嚴重度 | 一兩句：你評的等級與依據，可附 CVSS 向量，並標明是自評 | 無對應維度 |
 | 修補建議 | 一兩句方向，可省略但有幫助 | 無對應維度（MSRC 範例報告有提） |
 
 寫的時候三個習慣：
@@ -195,6 +197,40 @@ Meta 的頁面還有兩個對新手有用的細節：獎金金額由影響、利
 
 把這些對回報告：**先確認範圍與是不是安全問題，再談寫得好不好**。範圍判斷見第 1 篇。
 
+## 送出之後：分流狀態與聲望
+
+報告送出後不是只有「通過」和「不通過」兩種結局。以 HackerOne 為例，[Report States](https://docs.hackerone.com/en/articles/8475030-report-states)把報告分成開啟（open）與結案（closed）兩組狀態：
+
+| 狀態 | 意思 | 聲望變化 |
+|---|---|---|
+| New | 剛送出，等待初步驗證 | 開啟，不結算 |
+| Pending Program Review | HackerOne 初判有效，等客戶團隊複核嚴重度 | 開啟，不結算 |
+| Triaged | 已驗證，交給內部修補 | 開啟，不結算 |
+| Retesting | 修好了，等研究者確認修補 | 開啟，不結算 |
+| Needs More Info | 需要你補資料才重現得了；放超過 30 天會自動以 Informative 關閉 | 開啟，不結算 |
+| Resolved | 漏洞已修，結案 | +7 |
+| Informative | 資訊正確，但不需要動作（範圍外、已知問題、接受風險） | 0 |
+| Duplicate | 別人先報過，或客戶端早就知道 | 視情況：+2、0 或 −5 |
+| Not Applicable | 重現不了、沒證明安全影響 | −5 |
+| Spam | 不是安全漏洞，或內容騷擾 | −10 |
+
+聲望數字出自 HackerOne 的 [Reputation](https://docs.hackerone.com/en/articles/8369865-reputation)頁：Hacker profile 從 100 分起算，不會低於 0。其他平台的狀態名稱與計分方式不一樣，送出前照目標平台自己的說明。
+
+兩件事要記住：
+
+- **聲望在結案時才結算**，開啟狀態不影響；你在被 Triaged 之前自己關掉的報告也不算。
+- **只有 Resolved 一定拿得到錢**。Informative、Not Applicable、Spam 都沒有獎金，Duplicate 的規則見上一節。
+
+### 讓自己少碰到重複的三個做法
+
+重複是多數報告的結局，可以少踩一點：
+
+1. **挑參與人少的目標**：小型公司、自營的 VDP、比較冷門的子網域。
+2. **先盤點再選路徑**：先把目標的功能與端點攤開，再挑不容易被別人先報的路徑，例如冷門 API 或少用功能，而不是首頁搜尋框。怎麼建立可重複的對照，見[第 3 篇工作台](/posts/tech/2026-10-15-bug-bounty-hunter-workbench)。
+3. **送出前先搜一輪**：用平台的搜尋框搜同類關鍵字，看有沒有已經公開的類似標題。
+
+這三點是我的做法，不是平台規定。
+
 ## 值不值得投入：用假設數字算一次期望值
 
 這一節的所有機率和時數都是**我編的假設**，用來示範算術，不是統計，也不代表任何人的實際成績。我沒有讀到可以對應新手的官方或研究數字（成功率、平均獎金、新手收入），所以不引用，也請你不要把下面的數字當事實。
@@ -232,6 +268,21 @@ Meta 的頁面還有兩個對新手有用的細節：獎金金額由影響、利
 
 這幾點是我的判斷，不是任何計畫的建議。
 
+## 交件前的自我檢查
+
+拿你在靶場寫的報告，按一頁紙模板的欄位逐項對：
+
+1. **標題**有沒有「漏洞類型 + 功能或端點 + 一句後果」？不是只寫「發現 XSS」。
+2. **摘要**有沒有在兩三句內講清楚是什麼洞、在哪、最糟會怎樣？
+3. **前提**有沒有寫出攻擊者從哪裡開始（要不要登入、需不需要受害者動作）？
+4. **重現步驟**是不是編號步驟、每步一個動作？別人沒有你在場，能不能照著跑出同樣結果？
+5. **預期與實際**有沒有各一行，並附回應片段或截圖？
+6. **影響**有沒有把「已實測」和「未測／推論」分開？有沒有不小心寫出沒測過的後果？
+7. **嚴重度**有沒有寫依據，而且標明是自評？
+8. **修補建議**有沒有給出具體方向，而不是只寫「請修復」？
+
+哪一欄寫不出來，就回去看上面的示範報告怎麼處理那一欄；那一欄通常就是這份報告會被扣分的地方。
+
 ## 今晚能做的事
 
 1. 打開 [Google VRP 規則頁](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)的 Report quality 表，對照上面的示範報告，用紅筆標出你覺得最弱的一格。
@@ -239,15 +290,31 @@ Meta 的頁面還有兩個對新手有用的細節：獎金金額由影響、利
 3. 把第 4 篇的 `demo.mjs` 跑一次，用上面的模板為「XSS 那一段」寫一份報告，只寫玩具程式，不碰真實網站。
 4. 拿一張紙，寫下你自己的三個假設（機率、金額、小時數），算一次每小時期望，再寫下你打算投入的總時數。
 
+## 系列流程圖
+
+整條路走過一輪的順序是：
+
+```text
+選計畫、讀規則（1）→ 認識目標（2）→ 偵察與工作台（3）
+→ 找洞：XSS／IDOR（4）、RCE（5）
+→ 寫報告、走分流（6）→ 回到計畫端修補、結案
+```
+
+括號是各篇的系列編號。第 6 篇是這條線第一次走完的一輪，下一篇開始往底層走。
+
 ## 限制
 
-- 這篇的規則來自 Google、Microsoft、Meta 三家頁面，我於 2026-10-14 讀過。各計畫的表單、格式與評分標準不同，也會改版，送出前以當下頁面為準。
+- 這篇的規則來自 Google、Microsoft、Meta 與 HackerOne 的頁面；前三家我於 2026-10-14 讀過，HackerOne 的報告狀態與聲望頁於 2026-10-16 讀過。各計畫的表單、格式與評分標準不同，也會改版，送出前以當下頁面為準。
 - 品質判定是各計畫評審的自由裁量。我的逐欄對照是練習，不是預測。
 - 模板是我的建議。除了 Microsoft 要求寫明影響與（不明顯時的）攻擊途徑外，我沒有找到哪個計畫規定固定欄位。
 - 期望值的機率與時數全是假設。我沒有引用 HackerOne 或 Bugcrowd 的年度報告，因為這次沒有讀到可以對應「新手」的數字，不想拿不相干的樣本充當依據。
 - 這篇不教怎麼利用漏洞。測試範圍與法律邊界見第 1 篇。
 
 下一篇進入[程式如何使用記憶體](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory)，從 Web 行為往底層機制走。第 14 篇的學習地圖會再回到練習路線與證照。
+
+## 更新紀錄
+
+- 2026-10-16：補上「送出之後：分流狀態與聲望」與「交件前的自我檢查」兩節、系列流程圖；一頁紙模板增加「嚴重度」一欄；參考資料加入 HackerOne 的報告狀態與聲望文件。
 
 ## 參考資料
 
@@ -257,6 +324,8 @@ Meta 的頁面還有兩個對新手有用的細節：獎金金額由影響、利
 - [Microsoft Hyper-V Bounty Program（MSRC）](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)
 - [Example Report Submissions to the MSRC（品質定義與範例）](https://www.microsoft.com/en-us/msrc/bounty-example-report-submission)
 - [Meta Bug Bounty：Program scope](https://bugbounty.meta.com/scope/)（無效報告原因、重複報告、獎金考量因素）
+- [HackerOne：Report States](https://docs.hackerone.com/en/articles/8475030-report-states)（開啟與結案的狀態定義）
+- [HackerOne：Reputation](https://docs.hackerone.com/en/articles/8369865-reputation)（各結案狀態的聲望加減）
 - 本系列：[第 13 篇 頂級獎金查證](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)、[第 1 篇 規則與邊界](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope)、[第 4 篇 XSS 與 IDOR](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)、[第 12 篇 AI 時代的漏洞獎金](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty)、[第 14 篇 認證與學習地圖](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map)
 
 [上一篇：第 5 篇](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)・[下一篇：第 7 篇](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory)
