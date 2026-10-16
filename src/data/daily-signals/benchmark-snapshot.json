@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-15",
+  "date": "2026-10-17",
   "swebench_verified_top5": [
     { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
     { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
@@ -8,11 +8,11 @@
     { "rank": 5, "model": "Atlassian Rovo Dev（三方並列 76.80）", "org": "Atlassian", "score": 76.80 }
   ],
   "lmsys_agent_top5": [
-    { "rank": 1, "model": "Claude Opus 5.5 (Max)", "score": 17.01, "ci": "[13.50%, 20.53%]" },
-    { "rank": 2, "model": "GPT 6.1 Sol (Max)", "score": 15.05, "ci": "[12.95%, 17.16%]" },
-    { "rank": 3, "model": "Claude Fable 5.1 (Max)", "score": 14.32, "ci": "[12.28%, 16.37%]" },
-    { "rank": 4, "model": "GPT 6 Astra (Max)", "score": 13.69, "ci": "[11.35%, 16.03%]" },
-    { "rank": 5, "model": "Gemini 4 Argon (High)", "score": 13.59, "ci": "[12.01%, 15.17%]" }
+    { "rank": 1, "model": "Claude Opus 5.5 (Max)", "score": 17.18, "ci": "[13.80%, 20.56%]" },
+    { "rank": 2, "model": "GPT 6.1 Sol (Max)", "score": 14.78, "ci": "[12.75%, 16.81%]" },
+    { "rank": 3, "model": "Claude Fable 5.1 (Max)", "score": 14.12, "ci": "[12.10%, 16.13%]" },
+    { "rank": 4, "model": "Gemini 4 Argon (High)", "score": 13.73, "ci": "[12.21%, 15.25%]" },
+    { "rank": 5, "model": "GPT 6 Astra (Max)", "score": 13.69, "ci": "[11.37%, 16.01%]" }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59.2 },
@@ -27,5 +27,5 @@
     { "rank": 5, "model": "Sonnet 5.5 Extra High", "org": "Anthropic", "score": 53.1, "costPerTask": 2.81, "tokensPerTask": 100158 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-10-15：Groundlane 401 invalid_token，改用 curl 直連 raw.githubusercontent.com（SWE-bench Verified 前 5 名與 10-14 相同）與 HF datasets-server（lmarena-ai/leaderboard-dataset agent/latest，leaderboard_publish_date 2026-10-13）。Arena 第三名由 GPT 6 Sol (Max) 換成 Claude Fable 5.1 (Max)，GPT 6 Sol 掉到第七（10.51%），產出 2026-10-15-benchmark-arena-agent-fable-5-1（series order 6）。"
+  "notes": "2026-10-17（benchmark routine 10-16 未排程，本次跨日補跑，對照快照仍是 10-15）：datasets-server.huggingface.co 本次 Bash curl 直連回 403（環境白名單擋，非 HF 本身問題），改用 Groundlane web_fetch 成功取得。raw.githubusercontent.com（SWE-bench）則 Bash curl 可直連。SWE-bench Verified 前 5 名與 10-15 逐位元相同。Arena agent/latest leaderboard_publish_date 推進到 2026-10-14（前次 2026-10-13），前 3 名順位不變，但第 4／5 名互換（Gemini 4 Argon 13.73% 升至第 4、GPT 6 Astra 13.69% 退至第 5），分差僅 0.04 個百分點，屬 Step 4「分數微小波動（< 0.5 個百分點）」不觸發條件，不產出文章。CursorBench 與官網 changelog 均與 10-14 查證結果相同（最後一筆仍是 10-07 純定價調整），morphllm.com/leaderboard 仍 429 Vercel Security Checkpoint，artificialanalysis.ai/models/capabilities/agentic 仍 404 js_empty_document，兩者維持 Q-023 既有已知阻塞，本次未發現新路徑。依 Step 4 判斷今日無 Benchmark 異動，不產出文章，僅更新快照。"
 }
