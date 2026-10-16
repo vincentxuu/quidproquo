@@ -34,6 +34,7 @@ describe('RAG lifecycle output normalization', () => {
         traceId: 'trace-1',
         threadId: 'thread-1',
         conversationSummary: 'summary',
+        recentTurns: 'Reader: 前一句\n\nAssistant: 前一句的答案',
         config: state.config,
       },
       output
@@ -43,5 +44,16 @@ describe('RAG lifecycle output normalization', () => {
     expect(normalized.langfuse_trace_id).toBe('trace-1')
     expect(normalized.config).toBe(state.config)
     expect(normalized.conversation_summary).toBe('summary')
+    expect(normalized.recent_turns).toBe('Reader: 前一句\n\nAssistant: 前一句的答案')
+  })
+
+  it('leaves recent_turns undefined when the request carries no history', () => {
+    const output = { ...initialState(), messages: [] }
+    const normalized = normalizeRagLifecycleOutput(
+      { message: 'q', traceId: 'trace-2', config: initialState().config },
+      output
+    )
+
+    expect(normalized.recent_turns).toBeUndefined()
   })
 })

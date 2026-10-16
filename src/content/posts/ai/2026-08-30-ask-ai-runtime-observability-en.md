@@ -17,7 +17,7 @@ series:
 
 > **Optional companion reading:** Beginners can read this article directly. For extra context, see [RAG Streaming](/posts/ai/2026-03-12-rag-streaming-sse-en), [RAG Observability](/posts/ai/2026-03-12-rag-observability-tracing-en), and [Semantic Caching](/posts/ai/2026-03-12-semantic-caching-en).
 
-When a user reports that an answer looked wrong, Ask AI has no single file that reconstructs the entire run. Public SSE records what the user received. Langfuse and D1 store execution summaries. A semantic-cache hit may prevent the pipeline from running at all. A checkpoint may inject a summary from an earlier turn.
+When a user reports that an answer looked wrong, no single file on the server reconstructs the entire run. Public SSE records what the user received. Langfuse and D1 store execution summaries. A semantic-cache hit may prevent the pipeline from running at all. A checkpoint may inject a summary from an earlier turn. The only complete transcript lives in the reader's own browser, visible to that reader alone.
 
 This article follows one request over time. The implementation centers on [`/api/chat`](https://github.com/vincentxuu/quidproquo/blob/main/src/pages/api/chat.ts) and the [shared pipeline facade](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/pipeline.ts).
 
@@ -25,7 +25,9 @@ This article follows one request over time. The implementation centers on [`/api
 
 After receiving `message`, the API verifies the session, applies visitor quota, and loads RAG settings, provider keys, and the thread checkpoint. `traceScope` and `cacheMode` pass through the [request policy](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/request-policy.ts): only an authenticated admin request may select evaluation tracing or `cacheMode: bypass`.
 
-Only then does the API query the [semantic cache](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/cache.ts). A cache hit returns one `token` event containing the stored answer and a `done` event with `cached: true`. Planner, Research, Writer, Validation, and Critic do not run.
+The same request carries the last few turns from the reader's browser. The API treats that as background only: it checks roles and lengths, truncates to the cap, and hands the text to the pipeline for the Planner and Writer prompts. None of it is written to D1.
+
+Only then does the API query the [semantic cache](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/cache.ts). The cache namespace folds in the page context and those recent turns, so the same follow-up in a different context does not hit the same answer. A cache hit returns one `token` event containing the stored answer and a `done` event with `cached: true`. Planner, Research, Writer, Validation, and Critic do not run.
 
 This distinction changes incident diagnosis. A cached answer without sources does not demonstrate that the new retriever missed them. It demonstrates that the user received an older stored response.
 
@@ -56,9 +58,9 @@ D1 separately stores `chat_logs` and step records. These can answer which stage 
 
 ## A checkpoint can change the next query's context
 
-The [checkpoint implementation](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/checkpoints.ts) estimates tokens across messages, drafts, and retrieved evidence. Above the configured ratio, it stores a summary containing the latest question, answer, and coverage gaps. The next request with the same `thread_id` loads that summary.
+The next turn's context comes from two layers. The last few exchanges are re-sent every request from the browser transcript and go straight into the Planner and Writer prompts; older content stays with the checkpoint. The [checkpoint implementation](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/checkpoints.ts) estimates tokens across this turn's messages, drafts, and retrieved evidence. Above the configured ratio, it stores a summary containing the latest question, answer, and coverage gaps. The next request with the same `thread_id` loads that summary. The re-sent transcript is deliberately excluded from that estimate; counting it would push every turn past the threshold and write a summary row each time.
 
-A short follow-up such as “What about leveraged ETFs?” therefore cannot always be reproduced from its query string alone. The prior thread summary is also input. Use a new thread for a clean regression case; preserve the original thread ID when testing context contamination.
+A short follow-up such as “What about leveraged ETFs?” therefore cannot always be reproduced from its query string alone. Both the recent transcript and the prior thread summary are input. Use a new thread for a clean regression case; preserve the original thread ID when testing context contamination.
 
 ## A shadow run is hidden comparison, not the production answer
 
@@ -104,13 +106,20 @@ Record `cached`, thread ID, agent-step sequence, sources, done or error payload,
 | Langfuse / D1 trace | Stage, duration, scores, and configuration summary | Intermediate values that were never persisted |
 | Semantic cache | Whether an old answer was reused | How the new retriever would perform |
 | Checkpoint | Which history summary entered the next turn | Replay of the full original conversation |
+| Reader browser transcript | The complete conversation, sources, and failed turns that reader saw | What another device or another person saw; whether the server kept it |
 | Shadow run | Outputs from two configurations on one request | Production switchover or long-term quality improvement |
 
 More telemetry does not erase evidence boundaries. State which layer you have before making a diagnosis; that is more reliable than calling every log a “trace.”
 
+## Update log
+
+- 2026-10-16: Updated for the Ask AI conversation-continuity change. The transcript now lives in the reader's browser, the request carries the last few turns and folds them into the cache namespace, and the checkpoint section now describes the two layers of context.
+
 ## References
 
 - [Ask AI API lifecycle and SSE](https://github.com/vincentxuu/quidproquo/blob/main/src/pages/api/chat.ts)
+- [Reader-side transcript storage](https://github.com/vincentxuu/quidproquo/blob/main/src/components/Chat/transcript.ts)
+- [Recent turns validation and cache namespace](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/recent-turns.ts)
 - [Shared pipeline final-response facade](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/pipeline.ts)
 - [Semantic cache implementation](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/cache.ts)
 - [Conversation checkpoint implementation](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/checkpoints.ts)

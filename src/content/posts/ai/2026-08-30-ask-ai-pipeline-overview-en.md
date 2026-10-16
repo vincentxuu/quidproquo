@@ -23,7 +23,7 @@ This opening article maps those responsibilities. Later entries will inspect ind
 
 ## From the chat component to `/api/chat`
 
-[`ChatWidget`](https://github.com/vincentxuu/quidproquo/blob/main/src/components/Chat/ChatWidget.tsx) posts the question and `thread_id` to `/api/chat`, then parses the SSE stream block by block. Each event updates a different part of the message:
+[`ChatWidget`](https://github.com/vincentxuu/quidproquo/blob/main/src/components/Chat/ChatWidget.tsx) posts the question, the `thread_id`, and the last few turns from the reader's browser transcript to `/api/chat`, then parses the SSE stream block by block. Each event updates a different part of the message:
 
 - `token` appends answer text.
 - `agent_step` exposes progress such as Planner, Research, and Writer.
@@ -35,7 +35,7 @@ This opening article maps those responsibilities. Later entries will inspect ind
 
 ## The API applies request policy before running RAG
 
-[`src/pages/api/chat.ts`](https://github.com/vincentxuu/quidproquo/blob/main/src/pages/api/chat.ts) is the boundary between HTTP and the RAG lifecycle. It validates the message, admin session, public quota, and cache policy before loading RAG settings, provider keys, and the conversation checkpoint.
+[`src/pages/api/chat.ts`](https://github.com/vincentxuu/quidproquo/blob/main/src/pages/api/chat.ts) is the boundary between HTTP and the RAG lifecycle. It validates the message, admin session, public quota, and cache policy before loading RAG settings, provider keys, and the conversation checkpoint. It also truncates the recent turns to a cap and uses them as prompt background.
 
 When the semantic cache hits, the API returns the cached response and a `done` event. It does not rerun Research, and that path does not emit fresh `sources` or `agent_step` events. A retrieval evaluation must therefore avoid treating a cache hit as evidence from a new retrieval run.
 
@@ -102,9 +102,14 @@ The public SSE surface exposes answers, displayed sources, related items, and st
 
 The next article moves upstream: how one Markdown post becomes searchable through both D1 FTS5 and Vectorize.
 
+## Update log
+
+- 2026-10-16: Updated for the conversation-continuity change; the request now carries the last few turns, which the API truncates and uses as prompt background.
+
 ## References
 
 - [Ask AI chat API](https://github.com/vincentxuu/quidproquo/blob/main/src/pages/api/chat.ts)
+- [Reader-side transcript storage](https://github.com/vincentxuu/quidproquo/blob/main/src/components/Chat/transcript.ts)
 - [Conversation pipeline facade](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/pipeline.ts)
 - [LangGraph pipeline](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/graph.ts)
 - [ChatWidget SSE consumer](https://github.com/vincentxuu/quidproquo/blob/main/src/components/Chat/ChatWidget.tsx)

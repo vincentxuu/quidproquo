@@ -32,6 +32,7 @@ Current focus
 - Keep RAG work incremental; feature flags + evaluation required for any addition.
 - TW stock screening: four-criteria framework (see tw-stock-screen skill).
 In progress
+- **Ask AI 對話連續性（2026-10-16，spec 在 `docs/superpowers/specs/2026-10-16-ask-ai-conversation-continuity-design.md`）**：逐字稿改存讀者瀏覽器（`src/components/Chat/transcript.ts`，40 則／64KB 上限、threadId 驗證、還原前與串流中不寫回），「新對話」兼任使用者手上的清除控制項；多輪記憶以獨立欄位 `recent_turns` 貫穿 `api/chat`→`pipeline`→`contract`→langgraph／manual／agent 三 engine→`planner`／`writer`／agent loop，前端只送最近 6 則×400 字（`src/lib/conversation/recent-turns.ts` 兩端共用上限），語意快取命名空間併入這幾輪（同一句追問在不同上下文不再共用快取），checkpoint 的 token 估算刻意排除它（否則每輪都會觸發寫入）。中英 4 篇文章（`ai/2026-08-30-ask-ai-runtime-observability`／`-pipeline-overview`）已補新行為說明＋更新紀錄；決定不做歷史對話清單、不加「記得前 N 輪」chip。lint／tsc／780 tests 全綠；本地 main 快轉到 `origin/main`（`fb0582dc`）後 `pnpm verify` 全綠——先前擋門的 `tech/bug-bounty-*` 重複稿已由上游 `e1623fe1` 整合（見 Q-038 結案）。待辦：瀏覽器驗收三個入口（本機 dev server 缺 `GROQ_API_KEY`，pipeline 跑不動，需使用者環境或 Playwright）。
 - **系列防護＋資安獵人重寫（2026-10-15，防護已做未 commit）**：根因＝無規劃表、事件文升格第 0 篇、只跑 post-verify 沒跑 review／polish、🟡「標成作者判斷」造成但書堆疊、雲端一批四篇無人看。已加：check-process-leak 歸因但書上限 3、新 `check:series-plan`（新系列要 `.work/series-plans/<slug>.md`＋每篇 `.work/reviews/<slug>.md` 三節；既有 103 系列在 baseline）、post／post-verify／series-curriculum-design／writing-guide／anti-shortcuts 規則；pnpm verify 全綠。注意：另一 session 未提交的「教學文章怎麼寫」16 檔會被新但書規則擋。下一步：重寫 bug-bounty-from-zero（先規劃表、從 baseline 移除、總覽＋1–4 篇給使用者看）。
 - **多來源導讀與跟讀（2026-10-10）**：Poteto／Agency 四篇明分原站字幕跟讀、短引文與理解摘要；並未提供頁內完整逐字稿。保留三段30–60秒原音及官方字幕入口。post／post-update skill、ADR與寫作規則加入交付分類及逐段檢查模板；原音回聽仍未完成，頁內逐字稿需求仍有缺口，不能稱完整交付。
 - **Agency／部署追蹤（2026-10-10）**：字幕 API 1.2.4 已取得有效字幕，未保存全文；Agency 已公開。9c24ffc0 build／verify 成功，Cloudflare deployments API 504 導致 CD 失敗，已重跑；本次內容修訂準備 commit／push，production 成功與公開頁面待確認。
@@ -47,7 +48,6 @@ In progress
 - **AIP-C01 備考指南補強（2026-09-12）**：中英已補四步準備法、教材比較、實作與應考提醒，另補四份標準版後的獨立考生紀錄，區分 beta 與標準版並標註背景差異；targeted references／tw／diff check 通過，quality 僅既有 `career` tag 提示。全站 verify 既有 blocker 見 Q-024；未 commit／deploy，詳 `.work/aip-c01-update/`。
 - **Muse Spark 模型家族（2026-09-19，已驗證待 commit）**：補齊 1.0→1.3 演化、Standard／Contributor 定價與資料權利、Muse Code／Muse Glimmer 關係及 Agent 選型；系列 order 23，中英雙版 references／lang-parity／tw／quality／lint／astro check 全過。
 - **AI 模型家族 order 19 Thinking Machines Lab／Inkling（2026-09-05）**：中英雙版已 commit；另修掉擋 verify 的真問題（tw A 級 30 處、quality 6 ERROR、references 3 ERROR、parity 4 draft 標記，詳 Q-021），全在別人 session 草稿上，只修未代 commit。
-- **Looplane 系列 Batch D（2026-08-30，內容完成）**：orders 17–18 兩組雙語文章、rivumi 舊檔清除已 commit/push（2026-09-04）。Playwright 型別衝突已自行消解。
 - **Admin v2 Phase 1–6 已部署 production（2026-08-30 起）**：管線穩定，剩環境觀察實測。
 - **Qwen3 embeddings（代碼已 commit，CI/CD 自動部署）**：provider/adaptive splitting/cache namespace 已到位，待 production 向量重建與 20 題 live eval 確認品質。
 - Cloudflare AI Search shadow rollout（`.work/cloudflare-ai-search-evaluation.md`）：索引排隊中，待索引完成與 golden eval。

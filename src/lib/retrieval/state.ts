@@ -106,6 +106,11 @@ export interface GraphState {
   thread_id: string
   language: string
   conversation_summary: string | undefined
+  /**
+   * 最近幾輪對話逐字稿（前端持有、伺服器裁切後的純文字）。
+   * 只餵給 prompt 當背景（planner / writer / agent 迴圈），不進檢索、不進 checkpoint 的 token 估算。
+   */
+  recent_turns?: string
   // 讀者正在看的文章（已由伺服器向 D1 驗證）；全站問題或 flag 關閉時沒有
   page_context?: PageContextRef
   config: RagRuntimeConfig

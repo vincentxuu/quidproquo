@@ -5,6 +5,10 @@ interface CheckpointEnv {
   DB: D1Database
 }
 
+/**
+ * 只看「這一輪真的處理過的內容」。`recent_turns` 是前端每輪都會再送一次的背景，
+ * 算進來會讓門檻提早觸發、每輪都寫一筆摘要，所以刻意不列入。
+ */
 function estimateTokenCount(state: Pick<GraphState, 'messages' | 'draft' | 'search_results' | 'conversation_summary'>): number {
   const text = [
     state.conversation_summary ?? '',

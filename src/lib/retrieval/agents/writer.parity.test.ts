@@ -163,6 +163,23 @@ describe('writer agent parity', () => {
     expect(userPrompt).toContain('Title: Course 12')
   })
 
+  it('puts the recent verbatim turns before the checkpoint summary', async () => {
+    const state = makeState({
+      conversation_summary: '讀者在問跑步訓練。',
+      recent_turns: 'Reader: 正1 怎麼練？\n\nAssistant: 正1 是⋯',
+    })
+    vi.mocked(invokeModel).mockResolvedValueOnce(makeInvokeResult('正2 是⋯ [來源](https://example.com/agent-os)'))
+
+    await writerNode(state)
+
+    const userPrompt = String(
+      (vi.mocked(invokeModel).mock.calls.at(-1)?.[2]?.[1] as { content?: unknown } | undefined)?.content ?? ''
+    )
+    expect(userPrompt).toContain('Recent turns (oldest first, verbatim):\nReader: 正1 怎麼練？')
+    expect(userPrompt).toContain('Conversation summary:\n讀者在問跑步訓練。')
+    expect(userPrompt.indexOf('Recent turns')).toBeLessThan(userPrompt.indexOf('Conversation summary:'))
+  })
+
   it('joins array content blocks instead of dropping them into an empty draft', async () => {
     const state = makeState({})
     vi.mocked(invokeModel).mockResolvedValueOnce({

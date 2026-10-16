@@ -12,6 +12,7 @@ export function normalizeRagLifecycleOutput(
     ...output,
     thread_id: input.threadId ?? output.thread_id ?? base.thread_id,
     conversation_summary: input.conversationSummary ?? output.conversation_summary,
+    recent_turns: input.recentTurns ?? output.recent_turns,
     langfuse_trace_id: output.langfuse_trace_id || input.traceId,
     config: output.config || input.config,
   } satisfies GraphState

@@ -13,6 +13,7 @@ export async function runManualQuery(
       traceId: input.traceId,
       threadId: input.threadId,
       conversationSummary: input.conversationSummary,
+      recentTurns: input.recentTurns,
       pageContext: input.pageContext,
       config: input.config,
     },

@@ -12,6 +12,7 @@ export async function runLangGraphQueryGraph(
       traceId: input.traceId,
       threadId: input.threadId,
       conversationSummary: input.conversationSummary,
+      recentTurns: input.recentTurns,
       pageContext: input.pageContext,
       config: input.config,
     },

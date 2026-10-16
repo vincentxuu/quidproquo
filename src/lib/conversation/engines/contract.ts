@@ -21,6 +21,8 @@ export interface RagLifecycleInput {
   traceId: string
   threadId?: string
   conversationSummary?: string
+  /** 最近幾輪逐字稿（前端送來，已由 api/chat 驗證與裁剪的純文字）。只當 prompt 背景，不參與檢索。 */
+  recentTurns?: string
   pageContext?: GraphState['page_context']
   config: GraphState['config']
   providerApiKeys?: ProviderApiKeys

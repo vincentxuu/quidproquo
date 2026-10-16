@@ -17,7 +17,7 @@ series:
 
 > **搭配閱讀（選讀）**：零基礎可以直接讀本文。想先補概念，可搭配 [RAG Streaming](/posts/ai/2026-03-12-rag-streaming-sse)、[RAG Observability](/posts/ai/2026-03-12-rag-observability-tracing) 與 [Semantic Caching](/posts/ai/2026-03-12-semantic-caching)。
 
-使用者回報「這次回答怪怪的」時，Ask AI 沒有一份檔案能還原全部過程。公開 SSE 看得到使用者收到什麼，Langfuse 與 D1 記錄執行摘要。語意快取可能讓整條 pipeline 根本沒跑，checkpoint 又可能把前一輪摘要帶進來。
+使用者回報「這次回答怪怪的」時，伺服器端沒有一份檔案能還原全部過程。公開 SSE 看得到使用者收到什麼，Langfuse 與 D1 記錄執行摘要。語意快取可能讓整條 pipeline 根本沒跑，checkpoint 又可能把前一輪摘要帶進來。唯一完整的逐字稿在讀者自己的瀏覽器，只有那位讀者看得到。
 
 這篇按一次請求的時間線，整理每一層能回答的問題。對應實作集中在 [`/api/chat`](https://github.com/vincentxuu/quidproquo/blob/main/src/pages/api/chat.ts) 與[共用 pipeline 輸出邊界](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/pipeline.ts)。
 
@@ -25,7 +25,9 @@ series:
 
 API 收到 `message` 後，先驗 session、套用訪客配額，再載入 RAG 設定、provider keys 與 thread checkpoint。`traceScope`、`cacheMode` 也會先經過[請求權限規則](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/request-policy.ts)：只有已驗證的管理員請求可以要求評估用 trace 或 `cacheMode: bypass`。
 
-接著才查 [semantic cache](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/cache.ts)。快取命中時，回應只有完整答案的 `token` event 與 `done` event，並標記 `cached: true`；Planner、Research、Writer、Validation、Critic 都不會執行。
+同一個請求也會帶上讀者瀏覽器裡最近幾輪對話。API 只把它當背景：檢查角色與長度、裁到上限後，交給 pipeline 補進 Planner 與 Writer 的提示，內容不寫進 D1。
+
+接著才查 [semantic cache](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/cache.ts)。快取命名空間會併入文章脈絡與這幾輪對話，所以同一句追問在不同上下文不會命中同一份答案。快取命中時，回應只有完整答案的 `token` event 與 `done` event，並標記 `cached: true`；Planner、Research、Writer、Validation、Critic 都不會執行。
 
 這個差異會直接影響事故判讀。舊快取沒有來源，不代表新 retriever 找不到；它只證明使用者拿到一份先前存下的回答。
 
@@ -56,9 +58,9 @@ D1 另外保存 `chat_logs` 與步驟紀錄。這些資料適合回答「哪個 
 
 ## Checkpoint 可能改變下一題的語境
 
-[Checkpoint](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/checkpoints.ts) 會估算對話、草稿與檢索證據的 token 數。超過設定比例時，它把最新問題、答案與 coverage gaps 摘要寫進 D1；下一次相同 `thread_id` 會載入摘要。
+下一輪的背景其實有兩層。最近幾組問答由前端逐字稿每輪重送，直接進 Planner 與 Writer 的提示；更早的內容才交給 checkpoint。[Checkpoint](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/checkpoints.ts) 會估算這一輪對話、草稿與檢索證據的 token 數。超過設定比例時，它把最新問題、答案與 coverage gaps 摘要寫進 D1；下一次相同 `thread_id` 會載入摘要。前端重送的逐字稿刻意不計入這個估算，否則每輪都會提早跨過門檻、多寫一筆摘要。
 
-所以短問題「那正2呢？」不能只拿 query string 重現。原本 thread 裡的摘要也是輸入。要做乾淨 regression case，建立新的 thread；要重現對話污染，則保留原 thread ID。
+所以短問題「那正2呢？」不能只拿 query string 重現。前幾輪的逐字稿與 thread 摘要都是輸入。要做乾淨 regression case，建立新的 thread；要重現對話污染，則保留原 thread ID。
 
 ## Shadow run 是隱藏比較，不是 production 答案
 
@@ -104,13 +106,20 @@ pnpm exec vitest run \
 | Langfuse／D1 trace | stage、duration、score、設定摘要 | 每個未保存的中間值 |
 | semantic cache | 是否重用舊回答 | 新 retriever 當次表現 |
 | checkpoint | 哪段歷史摘要進入下一輪 | 完整原始對話重播 |
+| 讀者瀏覽器逐字稿 | 那位讀者收到的完整對話、來源與失敗輪 | 其他裝置或其他人看到的內容、伺服器是否留存 |
 | shadow run | 同 request 下兩組設定的輸出 | production 已切換、長期品質提升 |
 
 觀測資料越多，不代表證據邊界會自動消失。先寫下這次手上是哪一層，再下診斷，會比把所有 log 統稱為 trace 更可靠。
 
+## 更新紀錄
+
+- 2026-10-16：依 Ask AI 對話連續性改動更新。逐字稿改由讀者瀏覽器持有，請求新增最近幾輪對話並併入快取命名空間，checkpoint 的說明同步補上兩層背景的分工。
+
 ## 參考資料
 
 - [Ask AI API lifecycle and SSE](https://github.com/vincentxuu/quidproquo/blob/main/src/pages/api/chat.ts)
+- [Reader-side transcript storage](https://github.com/vincentxuu/quidproquo/blob/main/src/components/Chat/transcript.ts)
+- [Recent turns validation and cache namespace](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/recent-turns.ts)
 - [Shared pipeline final-response facade](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/pipeline.ts)
 - [Semantic cache implementation](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/cache.ts)
 - [Conversation checkpoint implementation](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/checkpoints.ts)

@@ -111,6 +111,7 @@ export async function runAgentQuery(input: RagLifecycleInput, callbacks: Pipelin
     ...initialState(),
     thread_id: input.threadId ?? crypto.randomUUID(),
     conversation_summary: input.conversationSummary,
+    recent_turns: input.recentTurns,
     page_context: input.pageContext,
     config,
     messages: [new HumanMessage(input.message)] as RagMessage[],
@@ -238,7 +239,7 @@ export async function runAgentQuery(input: RagLifecycleInput, callbacks: Pipelin
         callbacks.onStep(agent, { ...result?.summary, ...(error ? { error } : {}) })
       },
     },
-    { systemPrompt: buildAgentSystemPrompt(state, AGENT_LIMITS), question: input.message, conversationSummary: input.conversationSummary },
+    { systemPrompt: buildAgentSystemPrompt(state, AGENT_LIMITS), question: input.message, conversationSummary: input.conversationSummary, recentTurns: input.recentTurns },
   )
   state.token_usage = { input: state.token_usage.input + loop.usage.input, output: state.token_usage.output + loop.usage.output }
   state.search_results = [...collected.values()]

@@ -91,7 +91,13 @@ export const plannerAgent = defineAgent<GraphState, Partial<GraphState>>({
 function buildPlannerPrompt(state: GraphState, skillInstructions?: string): string {
   const lastMessage = state.messages[state.messages.length - 1]
   const query = typeof lastMessage?.content === 'string' ? lastMessage.content : ''
-  return `${INTENT_PROMPT}${buildPageContextNote(state)}${skillInstructions ? `\n\nAgent skill instructions:\n${skillInstructions}` : ''}\n\nConversation summary: ${state.conversation_summary ?? 'none'}\n\nQuery: ${query}`
+  return `${INTENT_PROMPT}${buildPageContextNote(state)}${buildRecentTurnsNote(state)}${skillInstructions ? `\n\nAgent skill instructions:\n${skillInstructions}` : ''}\n\nConversation summary: ${state.conversation_summary ?? 'none'}\n\nQuery: ${query}`
+}
+
+// 最近幾輪逐字稿：讓「那正2呢？」這類短問題有指涉對象。
+// conversation_summary 是舊的（checkpoint 摘要），這裡是最新的，兩者都給 planner。
+function buildRecentTurnsNote(state: GraphState): string {
+  return state.recent_turns ? `\n\nRecent turns (oldest first, verbatim):\n${state.recent_turns}` : ''
 }
 
 // 沒有文章脈絡時回空字串，planner prompt 與原本逐字相同。

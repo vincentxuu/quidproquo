@@ -9,6 +9,8 @@ export async function runPipeline(
     traceId: string
     threadId?: string
     conversationSummary?: string
+    /** 最近幾輪逐字稿（見 engines/contract.ts）；沒帶就維持原本單輪行為 */
+    recentTurns?: string
     pageContext?: GraphState['page_context']
     config?: RagRuntimeConfig
   },
@@ -28,6 +30,7 @@ export async function runPipeline(
       traceId: input.traceId,
       threadId: input.threadId,
       conversationSummary: input.conversationSummary,
+      recentTurns: input.recentTurns,
       pageContext: input.pageContext,
       config: effectiveConfig,
       providerApiKeys: options?.providerApiKeys,
@@ -41,6 +44,7 @@ export async function runPipeline(
       traceId: input.traceId,
       threadId: input.threadId,
       conversationSummary: input.conversationSummary,
+      recentTurns: input.recentTurns,
       config: effectiveConfig,
     },
     output

@@ -9,6 +9,13 @@ import { chatT, SUGGESTED_QUESTIONS_EN } from '@/i18n/chat'
 import { buildVisibleSuggestions } from './suggestions'
 import { defaultLang, type Lang } from '@/i18n/ui'
 import { ChatLocaleProvider } from './locale'
+import {
+  browserStorage,
+  clearTranscript,
+  readTranscript,
+  toRequestHistory,
+  writeTranscript,
+} from './transcript'
 
 const DAILY_LIMIT = 5
 const SUGGESTED_QUESTIONS = [
@@ -152,6 +159,23 @@ export function ChatWidget({
     }
   }, [])
 
+  // 逐字稿存在讀者自己的瀏覽器；還原完成前不寫回，否則初始的 [welcome] 會蓋掉存檔。
+  const [hydrated, setHydrated] = useState(false)
+
+  useEffect(() => {
+    const restored = readTranscript(browserStorage(), threadId.current)
+    if (restored) setMessages([welcome, ...restored])
+    setHydrated(true)
+    // 只在掛載時還原一次；welcome 是當前語言的 i18n 字串，不當依賴
+  }, [])
+
+  useEffect(() => {
+    if (!hydrated) return
+    // 串流中每個 token 都會改 messages，逐字寫回太貴；等這一輪結束再一次寫
+    if (messages.some(message => message.streaming)) return
+    writeTranscript(browserStorage(), threadId.current, messages, WELCOME_ID)
+  }, [messages, hydrated])
+
   const handleNewChat = () => {
     abortRef.current?.abort()
     abortRef.current = null
@@ -160,6 +184,8 @@ export function ChatWidget({
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('chat_thread_id', nextId)
     }
+    // 「新對話」同時是使用者手上的清除控制項：畫面與存檔一起清掉
+    clearTranscript(browserStorage())
     setMessages([welcome])
     setRemaining(null)
     setSuggestionPage(0)
@@ -170,7 +196,8 @@ export function ChatWidget({
     abortRef.current?.abort()
   }
 
-  const sendMessage = async (text: string) => {
+  // droppedIds：重試時把已經從畫面拿掉的那組問答也排除在歷史之外
+  const sendMessage = async (text: string, droppedIds?: string[]) => {
     const userMsg: Message = { id: crypto.randomUUID(), role: 'user', content: text }
     const assistantId = crypto.randomUUID()
     const assistantMsg: Message = {
@@ -189,12 +216,18 @@ export function ChatWidget({
     abortRef.current = controller
 
     try {
+      // 最近幾輪一起送：追問（「那正2呢？」）才有指涉對象。伺服器會再驗證與裁切。
+      const history = toRequestHistory(
+        droppedIds ? messages.filter(message => !droppedIds.includes(message.id)) : messages,
+        WELCOME_ID,
+      )
       const resp = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: text,
           thread_id: threadId.current,
+          ...(history.length > 0 ? { history } : {}),
           ...(activePage ? { page_context: { slug: activePage.slug } } : {}),
         }),
         signal: controller.signal,
@@ -314,16 +347,17 @@ export function ChatWidget({
     const question = index > 0 ? messages[index - 1] : undefined
     if (!question || question.role !== 'user') return
     setMessages(prev => prev.filter(m => m.id !== assistantId && m.id !== question.id))
-    void sendMessage(question.content)
+    void sendMessage(question.content, [assistantId, question.id])
   }
 
-  // 等 page context flag 有答案再送，否則快捷鍵的第一則訊息會漏掉 page_context
+  // 等 page context flag 有答案、也等逐字稿還原完，否則快捷鍵的第一則訊息會漏掉 page_context 或前幾輪
   const sentPendingId = useRef<number | null>(null)
   useEffect(() => {
+    if (!hydrated) return
     if (!pendingMessage || !pageContextResolved || sentPendingId.current === pendingMessage.id) return
     sentPendingId.current = pendingMessage.id
     void sendMessage(pendingMessage.text)
-  }, [pendingMessage?.id, pageContextResolved])
+  }, [pendingMessage?.id, pageContextResolved, hydrated])
 
   const containerStyle = embedded
     ? { display: 'flex', flexDirection: 'column' as const, flex: 1, overflow: 'hidden' }

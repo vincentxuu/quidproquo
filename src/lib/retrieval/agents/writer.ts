@@ -136,7 +136,7 @@ ${hasReliableEvidence ? '' : 'Retrieval did not produce reliable evidence. Give 
 Coverage gaps to mention if relevant: ${(state.coverage_gaps ?? []).join(', ') || 'none'}
 Previous validation issues to avoid: ${(state.validation?.errors ?? []).join('; ') || 'none'}
 ${options?.skillInstructions ? `\nAgent skill instructions:\n${options.skillInstructions}` : ''}`,
-    userPrompt: `Conversation summary:\n${state.conversation_summary ?? 'none'}\n\nQuestion: ${query}\n\nSources:\n${contextParts.join('\n\n')}`,
+    userPrompt: `${state.recent_turns ? `Recent turns (oldest first, verbatim):\n${state.recent_turns}\n\n` : ''}Conversation summary:\n${state.conversation_summary ?? 'none'}\n\nQuestion: ${query}\n\nSources:\n${contextParts.join('\n\n')}`,
   }
 }
 

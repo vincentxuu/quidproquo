@@ -23,7 +23,7 @@ Ask AI 不是「搜尋幾篇文章，再把結果丟給模型」這麼短的一�
 
 ## 從聊天元件進入 `/api/chat`
 
-[ChatWidget](https://github.com/vincentxuu/quidproquo/blob/main/src/components/Chat/ChatWidget.tsx) 把問題與 `thread_id` 送到 `/api/chat`，接著逐段解析 SSE。不同事件會落到訊息的不同欄位：
+[ChatWidget](https://github.com/vincentxuu/quidproquo/blob/main/src/components/Chat/ChatWidget.tsx) 把問題、`thread_id` 與最近幾輪對話（讀者瀏覽器裡的逐字稿）送到 `/api/chat`，接著逐段解析 SSE。不同事件會落到訊息的不同欄位：
 
 - `token`：附加到回答文字。
 - `agent_step`：顯示 Planner、Research、Writer 等進度。
@@ -35,7 +35,7 @@ Ask AI 不是「搜尋幾篇文章，再把結果丟給模型」這麼短的一�
 
 ## API 先處理請求政策，再啟動 pipeline
 
-[`src/pages/api/chat.ts`](https://github.com/vincentxuu/quidproquo/blob/main/src/pages/api/chat.ts) 是 HTTP 與 RAG 之間的邊界。它先驗證訊息、管理員 session、公開使用者配額與 cache policy，再載入 RAG 設定、provider key 與對話 checkpoint。
+[`src/pages/api/chat.ts`](https://github.com/vincentxuu/quidproquo/blob/main/src/pages/api/chat.ts) 是 HTTP 與 RAG 之間的邊界。它先驗證訊息、管理員 session、公開使用者配額與 cache policy，再載入 RAG 設定、provider key 與對話 checkpoint，並把最近幾輪對話裁到上限後當成提示背景。
 
 如果 semantic cache 命中，API 直接送出快取回答與 `done`，不會重跑 Research，也不會補送 `sources` 或 `agent_step`。若沒有命中，API 才呼叫共用的 [`runPipeline`](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/pipeline.ts)。這也是為什麼評估 retrieval 時不能把快取回答當成新一輪檢索證據。
 
@@ -102,9 +102,14 @@ SSE 公開事件能看到回答、顯示來源、延伸閱讀與節點狀態，�
 
 下一篇會往前追：一篇 Markdown 文章如何先變成 D1 FTS5 與 Vectorize 都能找到的資料。
 
+## 更新紀錄
+
+- 2026-10-16：配合對話連續性改動，補上請求會帶最近幾輪逐字稿、API 裁切後當成提示背景的說明。
+
 ## 參考資料
 
 - [Ask AI chat API](https://github.com/vincentxuu/quidproquo/blob/main/src/pages/api/chat.ts)
+- [Reader-side transcript storage](https://github.com/vincentxuu/quidproquo/blob/main/src/components/Chat/transcript.ts)
 - [Conversation pipeline facade](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/pipeline.ts)
 - [LangGraph pipeline](https://github.com/vincentxuu/quidproquo/blob/main/src/lib/conversation/graph.ts)
 - [ChatWidget SSE consumer](https://github.com/vincentxuu/quidproquo/blob/main/src/components/Chat/ChatWidget.tsx)

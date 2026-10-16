@@ -53,6 +53,8 @@ export interface AgentLoopInput {
   question: string
   /** 先前對話摘要，有就接在問題前面給模型當背景 */
   conversationSummary?: string
+  /** 最近幾輪逐字稿（比摘要新、逐字照登），同樣接在問題前面 */
+  recentTurns?: string
 }
 
 export interface AgentLoopResult {
@@ -70,17 +72,25 @@ export interface AgentLoopResult {
 const WRAP_UP_INSTRUCTION =
   'Tool budget is exhausted. Do not call any more tools. Write the final answer now using only the evidence you have already gathered; if it is insufficient, say so plainly.'
 
+/**
+ * 背景（摘要＋最近幾輪）都接在問題前面：摘要涵蓋較舊的對話，逐字稿是最近的，
+ * 兩者都給模型才不會只剩一句沒頭沒尾的追問（「那正2呢？」）。都沒有時與原本完全相同。
+ */
+function buildFirstUserMessage(input: AgentLoopInput): string {
+  const context = [
+    input.conversationSummary ? `Conversation so far (summary):\n${input.conversationSummary}` : '',
+    input.recentTurns ? `Recent turns (oldest first, verbatim):\n${input.recentTurns}` : '',
+  ].filter(Boolean)
+  return context.length > 0 ? `${context.join('\n\n')}\n\nQuestion:\n${input.question}` : input.question
+}
+
 export async function runAgentLoop(deps: AgentLoopDeps, input: AgentLoopInput): Promise<AgentLoopResult> {
   const now = deps.now ?? (() => Date.now())
   const startedAt = now()
   const usage = { input: 0, output: 0 }
   const messages: RagMessage[] = [
     new SystemMessage(input.systemPrompt),
-    new HumanMessage(
-      input.conversationSummary
-        ? `Conversation so far (summary):\n${input.conversationSummary}\n\nQuestion:\n${input.question}`
-        : input.question,
-    ),
+    new HumanMessage(buildFirstUserMessage(input)),
   ]
 
   let turns = 0

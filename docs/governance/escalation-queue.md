@@ -467,3 +467,18 @@
 - 進度（2026-10-14，使用者同意先做課程總覽）：cs2881r、nthu-nlp-kao、ntu-adl2025、mit-65940、ntu-ml2026 五篇總覽中英重寫，各經獨立審稿與複審，報告在 `.work/reviews/2026-10-14-*-overview-review.md`；nthu 第 1、2 篇的查證句與兩篇地圖的反向引用一併修正。檢查器補上「於日期對照／比對」句型、票價等時效資料的日期不算過程。
 - 下一批：其餘超標文章依 `--list` 分批（「可以確認與不能確認」節、Stanford 主線附錄、英文口說「仍待核對」）。
 - 副作用：任何 session 改到超標文章時 pre-commit 會擋，要求當場修好。全部回填後把全站模式改成阻擋。
+
+## Q-038 `tech/bug-bounty-*` 系列重複稿擋住 verify 與 deploy
+- 登錄：2026-10-16（來源：Ask AI 對話連續性 session 跑 `pnpm verify` 時發現）
+- 做什麼：決定「從零開始的資安獵人」系列要保留哪一套檔，再清掉重複與殘稿。
+- 為什麼現在不能做：涉及刪除另一批內容（>20 檔）與系列歸屬，依治理需使用者拍板。
+- 現況（2026-10-16 實測，已更正先前誤報；以下為上游修復**前**的觀測，保留為紀錄）：
+  - **先前報「8 組缺英文版、`check:references` 40 錯」是暫時移檔造成的假象**，非既有損壞；`check:lang-parity` 其實是綠的。
+  - 真正的 frontmatter 損壞 31 檔，**已在本 session 修好（未 commit）**：26 檔 `difficulty` 用 schema 不收的值（`intermediate`／`beginner`／`advanced`／`中階`；schema 只收 `入門|進階|深度`），5 檔標題行夾日期（`title: "…" 2026-10-1x`）且缺 `date:`，其中 `2026-10-15-bug-bounty-zero-04-xss-and-idor.md` 還多一組 `---` 開頭與未收尾的 `tldr` 引號。修完後 `astro check` 0 error、`check:lang-parity` 綠。
+  - 剩下的紅燈（都不是本 session 的程式碼造成）：`check:references` 11 錯＝bug-bounty 6＋`learning/2026-10-14-*` 4＋`product/2026-09-16-content-selling-four-models-en` 1；`check:post-quality` 2 錯＝bug-bounty stub 檔沒有 H2；`check:series-order` 20 錯＝同名系列 order 撞號；`check:tw` 13 錯＝7 個 bug-bounty 檔的中國用語。
+  - **`pnpm verify` 在 `8a612398` 之前就已紅**：乾淨 worktree 對照 `HEAD~1`（`734b6385`）時 `check:references` 已 4 錯（來自 `7fd34cda`，2026-10-15 14:09 的 learning commit）。`deploy.yml` 的 `deploy-worker` 需 `quality`（`pnpm verify`）成功，因此 CI 從 10-15 下午起就沒能部署。
+  - 系列重複：`2026-10-13/10-14-*`（13 篇＋EN，先前人工系列，**線上正式網址**）與 `2026-10-15-*`（26 檔，`8a612398` 一次加入的重寫稿，order 撞號）並存。Set B 是**沒寫完的重寫**：`zero-01-rules-and-scope.md`(617B) 正文只有生成器殘句、`how-it-works-en.md`／`zero-02-how-websites-work-en.md`／`zero-04-xss-and-idor-en.md` 是只有 `## Overview` 等標題的空骨架（`zero-04` 的 title 還抄成 zero-02）、4 篇中文稿標題仍是英文、且沒有 order 13 獎金地圖那篇。線上已把 Set B 網址 301 轉到 Set A（實測 `2026-10-15-bug-bounty-zero-04-xss-and-idor` → `2026-10-13-bug-bounty-zero-03-common-web-bugs`），sitemap 只有 Set A 13 篇＋`how-it-works`＋`hunter-workbench`（系列 15 篇）。`.work/series-plans/bug-bounty-from-zero.md`（10-15 使用者確認）也寫「網址不動」＋只新增總覽（order 0）與工作台（order 3）兩篇。
+- **已結案（2026-10-16 12:00 實測，非本 session 執行）**：上游 `origin/main` 的 `e1623fe1`「fix(content): 修復 CI 文章資料與 Bug Bounty 雙語章節整合」（xiaoxu，10-16 00:15）已照系列計畫做完清理——刪除 24 個 `2026-10-15-bug-bounty-zero-*` 重複稿、把 `2026-10-13/10-14-*` 13 篇改寫成 order 0–14、改寫並保留 `how-it-works`／`hunter-workbench`（52 檔，+1191/−3582）；`7bf5b447` 同步視覺基準，`276f8bf5`（PR #190）合併後上線。乾淨 worktree 檢出 `fb0582dc` 跑 `pnpm verify` = **27 項全綠**，deploy 已恢復；線上系列頁即這 15 篇（order 0–14）。
+- 本 session 先前的本地 frontmatter 修正（31 檔）**與上游完全重疊**：逐檔比對後同一組值（`difficulty: 入門／進階`、`title` 拆出 `date:`），故改以上游版為準；本地修正保存在 `git stash`（訊息 `bug-bounty frontmatter fixes (superseded by e1623fe1)`），確認無遺漏後可 drop。
+- 仍未入庫的本機產物：`src/content/posts/tech/2026-10-16-bug-bounty-write-report-and-triage{,-en}.md`（新稿「從找到洞到拿到錢」，上游把報告題材併入 `zero-11-reports-and-expected-value`）、`.work/bug-bounty-from-zero/`、`.work/reviews/bug-bounty-*.md`；是否發表由使用者決定。
+- 接手第一步：無（結案）。若日後要發表上面那篇新稿，比對 `zero-11` 避免重複題材。

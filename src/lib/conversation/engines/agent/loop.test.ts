@@ -111,4 +111,38 @@ describe('runAgentLoop', () => {
     expect(result.answer).toBe('')
     expect(result.turns).toBe(2)
   })
+
+  it('puts the summary and the recent verbatim turns in front of the question', async () => {
+    let firstHuman = ''
+    const invoke: AgentLoopDeps['invoke'] = async (messages) => {
+      firstHuman = String(messages.find((m) => m.type === 'human')?.content ?? '')
+      return { text: 'ok', toolCalls: [] }
+    }
+    await runAgentLoop(
+      { invoke, tools: {}, limits: LIMITS },
+      {
+        systemPrompt: 'sys',
+        question: '那正2呢？',
+        conversationSummary: '讀者在問跑步訓練。',
+        recentTurns: 'Reader: 正1 怎麼練？\n\nAssistant: 正1 是⋯',
+      },
+    )
+
+    expect(firstHuman).toBe(
+      'Conversation so far (summary):\n讀者在問跑步訓練。\n\n'
+      + 'Recent turns (oldest first, verbatim):\nReader: 正1 怎麼練？\n\nAssistant: 正1 是⋯\n\n'
+      + 'Question:\n那正2呢？',
+    )
+  })
+
+  it('sends the bare question when there is no background at all', async () => {
+    let firstHuman = ''
+    const invoke: AgentLoopDeps['invoke'] = async (messages) => {
+      firstHuman = String(messages.find((m) => m.type === 'human')?.content ?? '')
+      return { text: 'ok', toolCalls: [] }
+    }
+    await runAgentLoop({ invoke, tools: {}, limits: LIMITS }, { systemPrompt: 'sys', question: '什麼是 RAG？' })
+
+    expect(firstHuman).toBe('什麼是 RAG？')
+  })
 })

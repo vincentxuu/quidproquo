@@ -85,6 +85,40 @@ describe('planner agent parity', () => {
   })
 })
 
+describe('planner prompt with conversation context', () => {
+  it('puts the recent verbatim turns before the checkpoint summary', async () => {
+    const state: GraphState = {
+      ...makeState('那正2呢？'),
+      conversation_summary: '讀者在問跑步訓練。',
+      recent_turns: 'Reader: 正1 怎麼練？\n\nAssistant: 正1 是⋯',
+    }
+    vi.mocked(invokeModel).mockResolvedValueOnce(makeInvokeResult(makePlan('factual', 'simple')))
+
+    await plannerNode(state, { apiKeys: {} })
+
+    const prompt = plannerPrompt()
+    expect(prompt).toContain('Recent turns (oldest first, verbatim):\nReader: 正1 怎麼練？\n\nAssistant: 正1 是⋯')
+    expect(prompt).toContain('Conversation summary: 讀者在問跑步訓練。')
+    expect(prompt.indexOf('Recent turns')).toBeLessThan(prompt.indexOf('Conversation summary:'))
+    expect(prompt).toContain('Query: 那正2呢？')
+  })
+
+  it('leaves the prompt single-turn when the request carries no history', async () => {
+    vi.mocked(invokeModel).mockResolvedValueOnce(makeInvokeResult(makePlan('factual', 'simple')))
+
+    await plannerNode(makeState('什麼是 RAG？'), { apiKeys: {} })
+
+    const prompt = plannerPrompt()
+    expect(prompt).not.toContain('Recent turns')
+    expect(prompt).toContain('Conversation summary: none')
+  })
+})
+
+function plannerPrompt(): string {
+  const messages = vi.mocked(invokeModel).mock.calls.at(-1)?.[2]
+  return String((messages?.[0] as { content?: unknown } | undefined)?.content ?? '')
+}
+
 function makeState(query: string): GraphState {
   return {
     ...initialState(),

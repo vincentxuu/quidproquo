@@ -10,6 +10,7 @@ import { loadRagSettings, buildShadowBaselineConfig } from '../../lib/retrieval/
 import { loadLatestCheckpoint, maybeSaveCheckpoint } from '../../lib/conversation/checkpoints'
 import { lookupSemanticCache, storeSemanticCache } from '../../lib/conversation/cache'
 import { pageCacheNamespace, resolvePageContext } from '../../lib/conversation/page-context'
+import { parseRecentTurns, recentTurnsCacheNamespace, renderRecentTurns } from '../../lib/conversation/recent-turns'
 import type { GraphState, RagRuntimeConfig } from '../../lib/retrieval/state'
 import { resolveProviderApiKeys } from '../../lib/retrieval/provider-key-store'
 import type { Env } from '@/lib/config/env'
@@ -29,6 +30,8 @@ type ChatBody = {
   message: string
   thread_id?: string
   page_context?: { slug?: string }
+  /** 最近幾輪對話（前端逐字稿）；伺服器一律重新驗證與裁切，見 conversation/recent-turns.ts */
+  history?: unknown
   pipelineEngine?: PipelineEngineOverride
   traceScope?: TraceScope
   cacheMode?: ChatCacheMode
@@ -123,6 +126,9 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
     ragConfig.pipelineEngine = requestedEngine
   }
   const checkpointSummary = await loadLatestCheckpoint(thread_id)
+  // 最近幾輪由前端逐字稿帶上來；只驗證、裁切、渲染成純文字，內容不落 D1
+  const recentTurns = parseRecentTurns(body.history)
+  const recentTurnsText = renderRecentTurns(recentTurns)
   const enqueueTraceOp = (op: Promise<void>) => {
     void op.catch((error) => {
       console.error('[langfuse] trace op failed', error)
@@ -135,9 +141,11 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
     .catch(() => null)
   // agent 引擎的答案風格不同，快取分開放，避免 A/B 時互相污染；帶文章脈絡時再依文章分開
   const cacheNamespace = await pageCacheNamespace(ragConfig.pipelineEngine === 'agent' ? 'agent' : undefined, pageContext)
+  // 同一句追問在不同上下文是不同問題（「那正2呢？」），再把最近的對話併進快取命名空間
+  const cacheScope = await recentTurnsCacheNamespace(cacheNamespace, recentTurns)
   const cached = bypassSemanticCache
     ? null
-    : await lookupSemanticCache(message, ragConfig.semanticCacheThreshold, cacheNamespace).catch(() => null)
+    : await lookupSemanticCache(message, ragConfig.semanticCacheThreshold, cacheScope).catch(() => null)
   if (cached) {
     return new Response(new ReadableStream({
       start(controller) {
@@ -174,6 +182,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
       pipeline_engine: ragConfig.pipelineEngine,
       thread_id,
       page_context_slug: pageContext?.slug ?? null,
+      recent_turns: recentTurns.length,
       started_at: new Date(startedAt).toISOString(),
       request_user: isAdmin ? 'owner' : ip,
     },
@@ -203,7 +212,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
         const sendStep = (payload: Record<string, unknown> & { id: string }) => send('step', payload)
 
         const state = await runPipeline(
-          { message, traceId, threadId: thread_id, conversationSummary: checkpointSummary, pageContext: pageContext ?? undefined, config: ragConfig },
+          { message, traceId, threadId: thread_id, conversationSummary: checkpointSummary, recentTurns: recentTurnsText, pageContext: pageContext ?? undefined, config: ragConfig },
           {
             onStep: (agent, extra) => {
               traceStepEvents.push({
@@ -283,6 +292,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
               traceId: `${traceId}:shadow`,
               threadId: thread_id,
               conversationSummary: checkpointSummary,
+              recentTurns: recentTurnsText,
               config: buildShadowBaselineConfig(ragConfig),
             },
             {
@@ -393,7 +403,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
           enqueueTraceOp(scoreTrace(traceId, 'intent_alignment', intentAlignmentScore))
         }
         if (!bypassSemanticCache && state.final_response?.trim()) {
-          await storeSemanticCache(message, state.final_response ?? '', state.critique?.confidence ?? 0, cacheNamespace).catch(() => {})
+          await storeSemanticCache(message, state.final_response ?? '', state.critique?.confidence ?? 0, cacheScope).catch(() => {})
         }
         await maybeSaveCheckpoint(state, ragConfig.checkpointThresholdRatio).catch(() => {})
         await persistTraceSteps(traceId, thread_id, state, traceScope, stepSpanMapping).catch(() => {})

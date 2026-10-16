@@ -87,6 +87,7 @@ export function buildGraph(options?: { providerApiKeys?: ProviderApiKeys }) {
       thread_id: { default: () => crypto.randomUUID() },
       language: { default: () => 'zh-TW' },
       conversation_summary: { default: () => undefined },
+      recent_turns: { default: () => undefined },
       page_context: { default: () => undefined },
       config: { default: () => initialState().config },
       plan: { default: () => ({ intent: 'factual' as const, complexity: 'medium' as const, needs_clarification: false, subtasks: [], specialists: [] }) },
@@ -178,6 +179,7 @@ export async function runPipeline(
     traceId: string
     threadId?: string
     conversationSummary?: string
+    recentTurns?: string
     pageContext?: GraphState['page_context']
     config?: RagRuntimeConfig
   },
@@ -190,6 +192,7 @@ export async function runPipeline(
     ...initialState(),
     thread_id: input.threadId ?? crypto.randomUUID(),
     conversation_summary: input.conversationSummary,
+    recent_turns: input.recentTurns,
     page_context: input.pageContext,
     config: input.config ?? initialState().config,
     messages: [new HumanMessage(input.message)] as RagMessage[],
