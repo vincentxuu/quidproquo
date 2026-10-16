@@ -347,6 +347,20 @@ export default defineConfig({
     },
   },
   integrations: [
+    {
+      name: 'dev-content-store-chunks',
+      hooks: {
+        'astro:config:setup': ({ command, updateConfig }) => {
+          // Only the dev virtual-module compiler needs the small content chunks.
+          // Keep build/sync/check on Astro's default single-file storage.
+          if (command === 'dev') {
+            updateConfig({
+              experimental: { collectionStorage: { type: 'chunked', chunkSize: 1024 * 1024 } },
+            });
+          }
+        },
+      },
+    },
     react(),
     mdx(),
     sitemap({

@@ -11,22 +11,14 @@ import { useTranslations, type Lang } from '../../i18n/utils';
 import { getPublishedPosts, isPublishedPost, sortPostsByDateDesc } from '../../utils/content';
 import { getTranslation } from '../../utils/i18n-pairing';
 import { getSeriesHref, getSeriesTitle } from '../../utils/series';
-import { DEFAULT_GLOSSARY_TERMS, normalizeGlossaryTerms, resolveGlossaryForLang } from '../../lib/glossary/terms';
+import { normalizeGlossaryTerms, resolveGlossaryForLang } from '../../lib/glossary/entries';
+import { getSharedGlossaryAsset } from '../../lib/glossary/assets';
 import RelatedPosts from '../../components/RelatedPosts';
 
 import { getYouTubeEmbedId } from '../../utils/youtube';
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedPosts();
-  // Temporary PR diagnostic: public route identifiers only; remove after CI routing diagnosis.
-  if (import.meta.env.DEV) {
-    console.warn('[post-static-paths]', JSON.stringify({
-      count: allPosts.length,
-      matches: allPosts.filter(post => post.id.includes('ask-ai-pipeline-overview')).map(post => ({
-        id: post.id, draft: post.data.draft, date: post.data.date.toISOString(),
-      })),
-    }));
-  }
   return allPosts.map(post => ({
     params: { slug: post.id },
     props: { post, allPosts },
@@ -62,13 +54,8 @@ const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
 const dateStr = post.data.date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
 const relatedVideoId = post.data.relatedVideo ? getYouTubeEmbedId(post.data.relatedVideo.url) : undefined;
-const glossaryEntries = resolveGlossaryForLang(
-  normalizeGlossaryTerms([
-    ...(post.data.glossary ?? []),
-    ...DEFAULT_GLOSSARY_TERMS,
-  ]),
-  lang,
-);
+const glossaryOverrides = resolveGlossaryForLang(normalizeGlossaryTerms(post.data.glossary ?? []), lang);
+const sharedGlossaryAsset = getSharedGlossaryAsset(lang);
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://quidproquo.cc';
 // D1／Vectorize 的 slug 是檔案路徑去掉 .md；post.id 經過 slugify 會吃掉版號裡的點
@@ -351,7 +338,8 @@ const breadcrumbLD = {
       type="application/json"
       data-post-slug={post.id}
       data-lang={lang}
-      set:html={JSON.stringify(glossaryEntries).replace(/</g, '\\u003c')}
+      data-shared-src={sharedGlossaryAsset.url}
+      set:html={JSON.stringify(glossaryOverrides).replace(/</g, '\\u003c')}
     />
 
     <div class="glossary-popover" id="glossary-popover" role="dialog" aria-live="polite" hidden>
@@ -1095,7 +1083,9 @@ const breadcrumbLD = {
     pre.appendChild(btn);
   });
 
-  // Inline glossary: mark known terms and load contextual explanations on demand.
+  // Fetch the shared dictionary; keep full terms.ts out of the browser bundle.
+  import { loadGlossaryEntries } from '../../lib/glossary/client';
+  import { markGlossaryTerms, resetGlossaryTerms } from '../../lib/glossary/mark';
   const glossaryData = document.getElementById('glossary-data') as HTMLScriptElement | null;
   const glossaryPopover = document.getElementById('glossary-popover') as HTMLElement | null;
   const glossaryTitle = document.getElementById('glossary-title');
@@ -1121,9 +1111,14 @@ const breadcrumbLD = {
     source: 'ai' | 'local';
   };
 
-  const glossaryEntries: GlossaryEntry[] = glossaryData?.textContent
+  const glossaryOverrides: GlossaryEntry[] = glossaryData?.textContent
     ? JSON.parse(glossaryData.textContent)
     : [];
+  let glossaryEntries: GlossaryEntry[] = glossaryOverrides;
+  let sharedGlossaryLoaded = false;
+  let glossaryLoading = false;
+  let glossaryFallbackMarked = false;
+  const glossaryBoundButtons = new WeakSet<HTMLElement>();
   const glossarySlug = glossaryData?.dataset.postSlug ?? '';
   const glossaryLang = glossaryData?.dataset.lang ?? 'zh-TW';
   const glossaryCache = new Map<string, GlossaryResponse>();
@@ -1131,20 +1126,6 @@ const breadcrumbLD = {
   let glossaryLevel = (localStorage.getItem('glossary-level') === 'advanced' ? 'advanced' : 'beginner') as 'beginner' | 'advanced';
   let glossaryHideTimer: number | undefined;
   let activeGlossaryButton: HTMLElement | null = null;
-
-  function escapeRegExp(value: string) {
-    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  }
-
-  function isAsciiWord(value: string) {
-    return /[A-Za-z0-9_-]/.test(value);
-  }
-
-  function isValidBoundary(text: string, index: number, length: number) {
-    const before = text[index - 1] ?? '';
-    const after = text[index + length] ?? '';
-    return !isAsciiWord(before) && !isAsciiWord(after);
-  }
 
   function sentenceAround(node: HTMLElement) {
     const text = node.closest('p, li, td, blockquote')?.textContent?.replace(/\s+/g, ' ').trim() ?? '';
@@ -1156,63 +1137,6 @@ const breadcrumbLD = {
     return glossaryEntries.find(entry => {
       if (entry.term.toLowerCase() === key) return true;
       return entry.aliases?.some(alias => alias.toLowerCase() === key);
-    });
-  }
-
-  function markGlossaryTerms() {
-    if (!glossaryEntries.length) return;
-    const terms = glossaryEntries
-      .flatMap(entry => [entry.term, ...(entry.aliases ?? [])])
-      .filter(term => term.length >= 2)
-      .sort((a, b) => b.length - a.length);
-    if (!terms.length) return;
-
-    const pattern = new RegExp(terms.map(escapeRegExp).join('|'), 'gi');
-    const content = document.querySelector('.content');
-    if (!content) return;
-
-    const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
-      acceptNode(node) {
-        const parent = node.parentElement;
-        if (!parent || !node.textContent?.trim()) return NodeFilter.FILTER_REJECT;
-        if (parent.closest('a, button, pre, code, h1, h2, h3, h4, h5, h6, script, style, .glossary-term')) {
-          return NodeFilter.FILTER_REJECT;
-        }
-        pattern.lastIndex = 0;
-        return pattern.test(node.textContent) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-      },
-    });
-
-    const nodes: Text[] = [];
-    const markedTerms = new Set<string>();
-    while (walker.nextNode()) nodes.push(walker.currentNode as Text);
-
-    nodes.forEach(node => {
-      const text = node.textContent ?? '';
-      const fragment = document.createDocumentFragment();
-      let lastIndex = 0;
-      pattern.lastIndex = 0;
-      for (const match of text.matchAll(pattern)) {
-        const value = match[0];
-        const index = match.index ?? 0;
-        if (!isValidBoundary(text, index, value.length)) continue;
-        const entry = glossaryEntryFor(value);
-        if (!entry) continue;
-        const termKey = entry.term.toLowerCase();
-        if (markedTerms.has(termKey)) continue;
-        fragment.append(document.createTextNode(text.slice(lastIndex, index)));
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'glossary-term';
-        button.dataset.term = entry.term;
-        button.textContent = value;
-        fragment.append(button);
-        markedTerms.add(termKey);
-        lastIndex = index + value.length;
-      }
-      if (lastIndex === 0) return;
-      fragment.append(document.createTextNode(text.slice(lastIndex)));
-      node.parentNode?.replaceChild(fragment, node);
     });
   }
 
@@ -1326,14 +1250,45 @@ const breadcrumbLD = {
     }, 180);
   }
 
-  markGlossaryTerms();
-  document.querySelectorAll<HTMLElement>('.glossary-term').forEach(button => {
-    button.addEventListener('mouseenter', () => loadGlossary(button));
-    button.addEventListener('focus', () => loadGlossary(button));
-    button.addEventListener('mouseleave', hideGlossarySoon);
-    button.addEventListener('blur', hideGlossarySoon);
-    button.addEventListener('click', () => loadGlossary(button));
-  });
+  function markAndBindGlossary() {
+    const content = document.querySelector<HTMLElement>('.content');
+    if (!content) return;
+    markGlossaryTerms(content, glossaryEntries);
+    document.querySelectorAll<HTMLElement>('.glossary-term').forEach(button => {
+      if (glossaryBoundButtons.has(button)) return;
+      glossaryBoundButtons.add(button);
+      button.addEventListener('mouseenter', () => loadGlossary(button));
+      button.addEventListener('focus', () => loadGlossary(button));
+      button.addEventListener('mouseleave', hideGlossarySoon);
+      button.addEventListener('blur', hideGlossarySoon);
+      button.addEventListener('click', () => loadGlossary(button));
+    });
+  }
+  async function initializeGlossary() {
+    if (glossaryLoading || sharedGlossaryLoaded) return;
+    glossaryLoading = true;
+    try {
+      const result = await loadGlossaryEntries(glossaryData?.dataset.sharedSrc, glossaryOverrides);
+      const content = document.querySelector<HTMLElement>('.content');
+      let restoreGlossaryFocus: (() => void) | undefined;
+      if (result.sharedLoaded && glossaryFallbackMarked && content) {
+        restoreGlossaryFocus = resetGlossaryTerms(content);
+        activeGlossaryButton = null;
+        if (glossaryPopover) glossaryPopover.hidden = true;
+      }
+      glossaryFallbackMarked = !result.sharedLoaded;
+      glossaryEntries = result.entries;
+      sharedGlossaryLoaded = result.sharedLoaded;
+      markAndBindGlossary();
+      restoreGlossaryFocus?.();
+    } finally {
+      glossaryLoading = false;
+    }
+  }
+  void initializeGlossary();
+  // A transient asset failure keeps custom entries usable and can recover later.
+  window.addEventListener('online', () => { void initializeGlossary(); });
+  window.addEventListener('focus', () => { void initializeGlossary(); });
   glossaryPopover?.addEventListener('mouseenter', () => window.clearTimeout(glossaryHideTimer));
   glossaryPopover?.addEventListener('mouseleave', hideGlossarySoon);
   glossaryPopover?.querySelectorAll<HTMLButtonElement>('[data-glossary-level]').forEach(button => {

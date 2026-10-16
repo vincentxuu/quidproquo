@@ -22,8 +22,13 @@ export default defineConfig({
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
   webServer: {
     command: 'pnpm dev --port 4321',
+    // Keep content-sync and prerender-route diagnostics visible in CI failures.
+    stdout: 'pipe',
+    stderr: 'pipe',
     url: 'http://localhost:4321',
     reuseExistingServer: !process.env.CI,
-    timeout: 300 * 1000,
+    // 5,675 articles: CI cold preparation exceeded 5 min; local chunked dev returned a real 200.
+    // This bounds server readiness only; HTTP/H1, test timeouts and screenshot thresholds stay strict.
+    timeout: 600 * 1000,
   },
 });
