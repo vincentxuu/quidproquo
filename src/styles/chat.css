@@ -456,7 +456,7 @@ body.has-chat-sidebar {
   flex-direction: column;
   gap: 0.35rem;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1140px) {
   .chat-sidebar-quick-actions {
     display: flex;
   }
