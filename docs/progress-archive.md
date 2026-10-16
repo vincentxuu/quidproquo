@@ -1,3 +1,7 @@
+## 2026-10-16 封存：daily-digest-benchmark 2026-10-13 條目（daily-digest-model-card 例行 E3 步驟，progress.txt 逼近 90 行上限）
+
+- **daily-digest-benchmark 2026-10-13（10-12 未執行，無新增異動）**：`swebench.com` 用 Bash `curl` 直連 `raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json`，`python3 -I` 解析 180 筆 `Verified` 結果：前 4 名分數與名次（79.20／79.20／78.80／77.40）逐位元未變，第 5 名仍是 76.80 三方並列。HF `datasets-server`（`lmarena-ai/leaderboard-dataset`）`agent` 子集 `latest` split 的 `leaderboard_publish_date` 仍是 `2026-10-08`，前五名分數逐位元相同；本次加查 `text`（一般 Chatbot Arena）子集同樣卡在 `2026-10-08`、#1 為 gemini-4-argon-high（1533.86），用以戳破 `web_search` 命中的第三方聚合站 anotherwrapper.com 聲稱「Claude Fable 5 現為 Chatbot Arena #1（1506）」——與官方資料不符，判定是聚合站誤植非官方異動。`morphllm.com/leaderboard` 仍 429 Vercel Security Checkpoint；`artificialanalysis.ai/models/capabilities/agentic` 仍 404（`js_empty_document`）。⚠️ 意外發現並修正資料品質問題：`benchmark-snapshot.json` 的 `cursorbench_top5` 自 2026-09-02 發文後就凍結在 CursorBench 3.x 數字（Fable 5.1 Max 73.4% 等），未隨官方 09-10 換成不可比的 CursorBench 4.0 題庫更新；本次直連 `cursor.com/cursorbench` 官方頁重新讀取並覆蓋為目前即時數字（現任 #1 為 Opus 5.5 Max 57.8%）。但官方 changelog 最後一筆是 10-07（僅調整定價，非分數變動），非『今天發生的異動』，不產出文章（CursorBench 本身也不在本 skill Step 3a 官方掃描清單內）。依 skill Step 4 判斷今日無 Benchmark 異動，不產出文章，僅更新 `benchmark-snapshot.json`；已將最舊 Recently completed 條目（10-09 daily-digest-model-card）移至 `docs/progress-archive.md`。
+
 ---
 title: "Marker: Datalab's Open-Source, Apache 2.0 Pipeline Parser — Faster, CPU-Ready, More Accurate"
 date: 2026-09-07
