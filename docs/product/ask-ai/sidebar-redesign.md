@@ -1,5 +1,13 @@
 # Ask AI Sidebar 伴讀重新設計
 
+> **與 `docs/product/ask-ai/three-column-layout.md` 的對齊（2026-10-16）**：
+> 本文件的 360px 面板寬、≥1024px 桌面側欄門檻，以及「PostLayout 改為 flex 佈局、sidebar 是佈局一部分」的做法，**已被 `three-column-layout.md` 取代**：
+> - 面板寬統一為 **380px**（與 `ChatSidebar.tsx` `SIDEBAR_WIDTH` 對齊）
+> - 桌面側欄門檻提高為 **≥1140px**（1024 時三欄擠在一起，本文僅剩約 216px，不可讀）
+> - **不再做 flex 佈局改造**；保留現況 `padding-right` + `position: fixed` 面板，僅透過三欄規格的門檻與 CSS 變數修正對齊問題。
+>
+> 以 `three-column-layout.md` 為實作依據；本文件僅保留面板內容與互動設計（快捷按鈕、chip、手機 bottom sheet 等）。
+
 ## 1. 使用者意圖
 
 讀者在閱讀技術文章時，想要即時降低理解門檻：
