@@ -34,3 +34,11 @@ Old actual rendered glossary golden equality:zh/en234entries each PASS. Real bui
 Full Verify and RAG contract passed. Visual job116742446740 stopped at `Timed out waiting300000ms from config.webServer`; it had not reached screenshot comparison, and no actual/diff images exist. Its log shows content synchronization still running when the service preparation deadline expires. Quality's successful check output is swallowed by verify.mjs, so only the402.932s complete-verifier time is known; no precise content-sync duration is claimed.
 
 A minimal same-config experiment shows public `astro sync` writes the build cache directory, while dev uses `.astro`, reparsing entries despite equal config digests. Do not copy caches or bypass digest checks. The narrow infrastructure correction is a600second service-start readiness budget for the complete5,675-post cold database. HTTP200, exact articleH1, individual test limits and maxDiffPixels300 remain required. No screenshot baseline is changed without real actual/diff evidence.
+
+## Real dev readiness and current UI coverage
+
+0736cd09 remote dev became ready in337,944ms, proving the600second readiness budget works. HTTP200 and articleH1 passed. Chatlight/dark screenshots passed. Article tests then failed finding the old floating launcher, not on screenshots or hydration. Sourcehistory6fe73f0a intentionally changed articleSlug pages to ChatSidebar; generic pages retain ChatFloating. Traces show the correct article and `✦ Ask AI` launcher.
+
+Tests now cover6cases:chatlight/dark, genuinefloating on/about/ (HTTP200+exact關於我H1), articleSidebar (HTTP200+exactarticleH1, exactsidebarlauncher, aside name, suggestions, close+reopen). Warmup visits all3validroutes. Original floating coverage retained while articleSidebar coverage added. No product UI changed for the test; all screenshot thresholds unchanged. New Linuxbaselines require actual screenshot review.
+
+First Preview validation PASS:22redirects+22destinations+30exacttitles;2sharedJSONHTTP200/type/yearimmutable/exactbodyhash;30inlineJSONvalues strictly equal locale-resolved articleoverrides. Coldbuild11m12s,contentSync409.263s;deploy1m58s,7993assetupload81.86s. These are not an A/B speed comparison.
