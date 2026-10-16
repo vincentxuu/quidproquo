@@ -1,10 +1,10 @@
-import { chromium, type FullConfig } from '@playwright/test';
-import { POST_URL } from './fixtures';
+import { chromium, expect, type FullConfig } from '@playwright/test';
+import { POST_URL, POST_TITLE } from './fixtures';
 
 // 暖身：astro dev 冷啟動時，第一次載入文章頁會讓 Vite 發現新依賴、重新最佳化並強制整頁
 // reload（trace 裡模組雜湊從 v=d753748a 變成 v=18cbb7a3），截圖若撞上這次 reload 就會
 // 「Execution context was destroyed」。這裡先用真瀏覽器把兩個受測頁各走一遍，等依賴穩定後
-// 才開始正式測試。只是預熱，不做任何斷言。
+// 才開始正式測試。預熱也要確認文章存在，避免把 404 當成成功載入。
 const WARMUP_URLS = ['/chat', POST_URL];
 
 export default async function globalSetup(config: FullConfig) {
@@ -14,7 +14,12 @@ export default async function globalSetup(config: FullConfig) {
   try {
     for (let round = 0; round < 2; round++) {
       for (const path of WARMUP_URLS) {
-        await page.goto(`${baseURL}${path}`, { waitUntil: 'load', timeout: 120_000 });
+        const response = await page.goto(`${baseURL}${path}`, { waitUntil: 'load', timeout: 120_000 });
+        expect(response, `Warmup requires a document response at ${path}`).not.toBeNull();
+        expect(response!.status(), `Warmup requires a published page at ${path}`).toBe(200);
+        if (path === POST_URL) {
+          await expect(page.getByRole('heading', { level: 1, name: POST_TITLE, exact: true })).toBeVisible();
+        }
         // 給 Vite 時間發現依賴、重新最佳化並 reload；第二輪應已無 reload。
         await page.waitForTimeout(round === 0 ? 8_000 : 2_000);
       }

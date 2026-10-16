@@ -373,6 +373,8 @@ export default defineConfig({
     }),
   },
   experimental: {
+    // Avoid a single ~295 MB content module exceeding the dev compiler's string limit.
+    collectionStorage: { type: 'chunked', chunkSize: 1024 * 1024 },
     incrementalBuild: true,
   },
   i18n: {
