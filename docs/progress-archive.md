@@ -10,6 +10,12 @@
 
 ---
 
+## 2026-10-18 封存：影片擺放／CS50 AI 重寫／教學文章系列 2026-10-14 條目（daily-digest-benchmark 例行 E3 步驟，rebase 合併後總行數仍超過 90 行上限）
+
+- **影片擺放、CS50 AI 重寫、「教學文章怎麼寫」系列（2026-10-14，已提交）**：影片擺放規則與版面檢查、時間連結頁內播放（寬螢幕左右對照）、Harvard CS50 AI 十一篇中英重寫、系列前五篇中英都已提交。其餘 523 篇播放器搬移在 Q-035。系列規劃 30 篇在 `.research/2026-10-13-learning-content-series-plan.md`；order 3–19、25–28 的精讀 62 批進行中，抽取紀錄在 `.research/extractions/articles-that-teach/`，派工表 `.research/2026-10-14-close-reading-brief.md`；精讀完要獨立抽查才能寫。order 20–24 清單待使用者看過。已寫五篇的 order 仍是 1–5，新規劃對應 1、2、5、6、9，等其他篇寫出再調。
+
+---
+
 ## 2026-10-18 封存：查證過程外洩根治 2026-10-14 條目（daily-digest-benchmark 例行 E3 步驟，rebase 合併後總行數超過 90 行上限）
 
 - **查證過程外洩根治（2026-10-14）**：writing-guide 新增「查證過程不寫進正文」，`scripts/check-process-leak.mjs` 接進 verify（pre-commit 逐篇擋）；林軒田總覽中英重寫（審稿＋複審通過）、英文口說站立會議篇、pplx 豁免。既有 121 篇回填待使用者排序，見 Q-037。
