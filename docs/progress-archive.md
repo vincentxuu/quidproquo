@@ -1,3 +1,9 @@
+## 2026-10-18 封存：daily-digest-benchmark 2026-10-14 條目（rebase 合併 daily-digest-tool AI Slop Meter 2026-10-18 後，progress.txt 超過 90 行上限）
+
+- **daily-digest-benchmark 2026-10-14**：Q-023 三站本次未重新驗證（根因已查明確），改用已驗證可行的繞法：`swebench.com` 用 Bash `curl` 直連 `raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json`，`python3 -I` 解析 `Verified` 前 5 名逐位元與 10-13 相同（非異動）。Arena 側是本次主力：Groundlane `web_fetch` 打 HF `datasets-server`（`lmarena-ai/leaderboard-dataset`，`agent` 子集 `latest` split）查到 `leaderboard_publish_date` 從卡住 4 天的 `2026-10-08` 推進到 `2026-10-12`，**本系列第四篇文章產出**（`2026-10-14-benchmark-arena-agent-gpt-6-sol.md` 及 en 版，series order 5）：GPT-6 Sol（Max）從上一批次未進前 10 直接跳進第三；前次登頂的 Claude Opus 5.5（High，14.33%）這次完全不在 52 筆榜單任何位置，由同一基礎模型的「Max」效力版本（17.89%）取代登頂。查證「High 效力層級是否被官方停用」：`web_search` 找到 OpenRouter 的 Claude 5.5 遷移指南顯示 High 仍可用，未找到官方停用公告，文章已標注為合理推測、非獨立佐證。各名次 95% CI 大面積重疊，已標註方法論限制。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）、`check:tw`（0 blocking，新檔 0 命中）、`check:series-order`（本系列 order 5 無撞號，231 系列僅既有缺號 warning）、`check:lang-parity`（2757 組全過）皆 0 blocking；已將最舊 Recently completed 條目（10-10 daily-digest-report）移至 `docs/progress-archive.md`；pre-commit 完整 `pnpm verify`（20 項）全綠；已 commit（7ebd4be）待 push。
+
+---
+
 ## 2026-10-18 封存：林軒田系列一堂一篇 2026-10-13 條目（daily-digest-arxiv 2026-10-18 rebase 合併後，progress.txt 超過 90 行上限）
 
 - **林軒田系列一堂一篇 2026-10-13（完成）**：32 堂併 16 篇改為一堂一篇，64 檔中英依講義與自行轉錄的逐字稿重寫，逐堂獨立審稿後翻譯，已提交 5a9fa08f。check-course-titles 加三條規則，其他系列 138 個同類問題在 Q-034 待授權。沒字幕的影片用 `.agents/skills/post/scripts/transcribe-course-videos.mjs` 轉錄。材料與審稿報告在 `.work/ntu-htlin-ml/`。
