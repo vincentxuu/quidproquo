@@ -1096,6 +1096,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'A lecture-by-lecture reading of CMU 11-768 AI Agents (Fall 2026), from the agent loop and tool use to RL training, credit assignment, and reward hacking, following the official course order.',
     },
   },
+  {
+    slug: 'sport-trad-climbing',
+    category: 'other',
+    names: { 'zh-TW': '運動攀登與傳統攀登', en: 'Sport and Trad Climbing' },
+    descriptions: {
+      'zh-TW': '從岩館走到戶外岩壁：戶外確保、運攀先鋒、判斷 bolt、架頂繩、下放與垂降，再到傳攀保護、固定點、多繩距與自救概念，最後是台灣岩場與打 bolt 的倫理。每篇對齊 nobodyclimb 繩索系統練習的等級。',
+      en: 'From the gym to real rock: outdoor belaying, sport leading, judging bolts, top-rope setups, lowering and rappelling, then trad gear, anchors, multi-pitch and self-rescue concepts, Taiwan crags and bolting ethics. Each guide maps to a level of the nobodyclimb rope-system practice.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
