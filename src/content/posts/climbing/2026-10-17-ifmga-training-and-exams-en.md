@@ -8,7 +8,7 @@ lang: en
 series:
   name: "IFMGA Mountain Guides"
   order: 2
-tldr: "IFMGA requires every member country to provide at least 94 days of training: 32 days of mixed terrain, 32 of skiing, 20 of rock, 7 of theory and 3 of local training, plus at least 14 days of practice supervised by a senior guide. Applicants need a record of 55 routes to get in. In the US, each of the Rock, Alpine and Ski disciplines runs course → assistant exam → guide exam, and tuition for all three adds up to about US$40,000."
+tldr: "IFMGA requires every member country to provide at least 94 days of training: 32 days of mixed terrain, 32 of skiing, 20 of rock, 7 of theory and 3 of local training, plus at least 14 days of practice supervised by a senior guide. Applicants need a record of 55 routes to get in. In the US, each of the Rock, Alpine and Ski disciplines runs course → assistant exam → guide exam, and tuition for all three adds up to about US$40,000, before first aid, avalanche courses, food, lodging and travel."
 description: "The IFMGA common training standard (how the 94 days are split, the 55-route entry requirement, 14 supervised days, annual CPD), what the exams actually test, using the US AMGA as the example with its climbing resume requirements, and the people skills taught alongside technique. Country details link to the country posts."
 draft: false
 glossary:
@@ -106,7 +106,7 @@ Every course requires current AMGA membership, CPR, and an approved [WFR](https:
 
 - **Days**: AMGA's old site says "86+ days of training" ([old.amga.com](http://old.amga.com/ifmga-mountain-guide/)).
 - **Years**: for Rock alone, [Golden Mountain Guides](https://goldenmountainguides.com/blog/so-you-want-to-become-a-climbing-guide) estimates most guides take 2–4 years; for all three, [Mountain School](https://www.mountainschool.com/content/main/amga-and-ifmga-certification) says about 5 years.
-- **Tuition**: summing the 2026–27 course list gives about US$40,650 for all three disciplines, excluding first aid, avalanche courses, food, lodging and travel (our own sum). Mountain School puts the all-in cost at "upwards of $50,000".
+- **Tuition**: summing the 2026–27 course list gives about US$40,650 for all three disciplines, excluding first aid, avalanche courses, food, lodging and travel (this post's own sum of the course list). Mountain School puts the all-in cost at "upwards of $50,000".
 - **Time windows**: most resume items must fall within the last 5 years, so stretching it out lets earlier routes expire.
 - **If you fail**: a no-pass means retaking the whole course; a re-exam result means a make-up exam is arranged (AMGA old-site FAQ).
 

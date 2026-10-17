@@ -8,7 +8,7 @@ lang: en
 series:
   name: "IFMGA Mountain Guides"
   order: 4
-tldr: "Austria's new 2026 curriculum is 89.5 days over 3 years, costs about €15,000 and is taught in German. Germany's state exam is run by TU München; training takes about 2.5–3 years and VDBS puts course fees at about €17,200. In Italy the regional Collegi run training, aspirants must work at least 2 years before qualifying, and most regions accept only Italian or EU citizens. In all three, guiding licences are governed by state or regional law."
+tldr: "Austria's new 2026 curriculum is 89.5 days over 3 years, costs about €15,000 and is taught in German. Germany's state exam is run by TU München; training takes about 2.5–3 years and VDBS puts course fees at about €17,200. In Italy the regional Collegi run training, aspirants must work at least 2 years before qualifying, and most regions accept only Italian or EU citizens. In all three, licensing rules follow the state or region, so choose where you will work before you apply."
 description: "The training path, entry requirements, fees, teaching language, legal status, rules for foreigners and guide numbers for Austria's VÖBS, Germany's VDBS and TU München, and Italy's Conagai and regional Collegi."
 draft: false
 glossary:
@@ -68,11 +68,11 @@ The new curriculum totals 89.5 course days over 3 years. Required practice varie
 
 - Training costs about **€15,000** for both the 2025 and 2026 intakes, paid in two instalments. It includes materials, insurance and instructors; travel, food, lodging and equipment are extra.
 - Each entrance exam part costs €280.
-- The €7,500 and €4,000 figures you may see online are out of date.
+- The €7,500 ([Styrian association page](https://bergsport-stmk.at/die-berg-und-skifuehrerinnen-ausbildung/)) and €4,000 ([Lower Austria government page](https://www.noe.gv.at/noe/Sport/Diplombergfuehrer1.html)) figures you may see online are out of date.
 
 ### Language
 
-German. Lower Austria's government page says EU citizens may train in Austria but need sufficient German, and that this is checked. [Tirol's guiding act TBSFG](https://www.jusline.at/gesetz/tbsfg/gesamt) also requires licence applicants to have "the German needed for client safety".
+German. [Lower Austria's government page](https://www.noe.gv.at/noe/Sport/Diplombergfuehrer1.html) says EU citizens may train in Austria but need sufficient German, and that this is checked. [Tirol's guiding act TBSFG](https://www.jusline.at/gesetz/tbsfg/gesamt) also requires licence applicants to have "the German needed for client safety".
 
 ### Legal status
 
@@ -84,7 +84,7 @@ German. Lower Austria's government page says EU citizens may train in Austria bu
 
 - **Applying**: VÖBS lists only two entry conditions, being 18 and a sports-medical certificate. The nationality field on the form is free text, not limited to the EU. In practice German is the barrier.
 - **Tirol licence**: Tirol's newer [online application](https://www.tirol.gv.at/buergerservice/e-government/formulare/antrag-zur-ausuebung-von-bergsportfuehrertaetigkeiten/) asks only for a passport or ID card, with no proof of nationality, which matches the lack of a nationality condition in TBSFG §4.
-- **Short cross-border trips**: guides from non-EU countries may guide briefly in Tirol, but only with clients recruited in their home country and if that country grants Tirol guides the same rights.
+- **Short cross-border trips**: guides from non-EU countries may guide briefly in Tirol, but only with clients recruited in their home country and if that country grants Tirol guides the same rights ([TBSFG](https://www.jusline.at/gesetz/tbsfg/gesamt) §2a).
 - The official pages do not say what residence or work status a Taiwanese trainee would need while training in Austria.
 
 ### Number of guides
@@ -116,7 +116,7 @@ The German title is "staatlich geprüfter Berg- und Skiführer" (state-certified
 
 - VDBS says course fees alone come to about **€17,200**, with travel, food, lodging and the state exam fee on top.
 - The state exam fee is €1,700.
-- Adding up the 2026 price list myself (entrance tests, compulsory courses and the state exam) gives about €16,410; VDBS does not explain the gap.
+- Adding up the [2026 price list](https://storage.tramino.net/vdbs/1590749/bgf-termine-2026-update-1025.pdf) myself (entrance tests, compulsory courses and the state exam) gives about €16,410; VDBS does not explain the gap.
 - The [VDBS handbook](https://storage.tramino.net/vdbs/1544961/information-zur-berg-skifhrer-ausbild-ung-2026.pdf) says VDBS and the German Alpine Club (DAV) subsidise courses, so trainees pay roughly half the real cost.
 
 ### Language
@@ -208,6 +208,7 @@ Austria and Germany list no nationality requirement; the real barrier is German.
 - [VÖBS climbing record form (2023-11)](https://www.bergfuehrer.at/wp-content/uploads/2023/11/Tourenbericht_v28112023.pdf)
 - [VÖBS: Über uns](https://www.bergfuehrer.at/ueber-uns/)
 - [Lower Austria government: Diplombergführer](https://www.noe.gv.at/noe/Sport/Diplombergfuehrer1.html)
+- [Styrian guides' association: Die Berg- und SkiführerInnen-Ausbildung](https://bergsport-stmk.at/die-berg-und-skifuehrerinnen-ausbildung/)
 - [Tirol guiding act TBSFG (JUSLINE)](https://www.jusline.at/gesetz/tbsfg/gesamt)
 - [Tirol: online licence application](https://www.tirol.gv.at/buergerservice/e-government/formulare/antrag-zur-ausuebung-von-bergsportfuehrertaetigkeiten/)
 - [VDBS: Bergführer:in werden](https://www.vdbs.de/werden/bergfuehrer-werden.html)

@@ -3,7 +3,7 @@ title: "英國、紐西蘭、挪威、瑞典怎麼培訓嚮導：BMG、NZMGA、N
 date: 2026-10-17
 category: climbing
 type: guide
-tags: [climbing, ifmga, mountain-guide, united-kingdom, new-zealand, norway]
+tags: [climbing, ifmga, mountain-guide, uk, new-zealand, norway]
 lang: zh-TW
 series:
   name: "IFMGA 高山嚮導"
@@ -91,7 +91,7 @@ IFMGA 共通的訓練標準（94 天、入學 55 條路線）在 [學什麼、�
 
 BMG 文件沒有國籍或居留條款，[2026 申請表](https://www.bmg.org.uk/wp-content/uploads/2026/05/BMG-PDF-Application-Form-2026.pdf) 還要填「Country of residency」，代表非英國居民可以申請。
 
-卡關的是訓練中的 consolidation period 要在英國累積嚮導工作經驗。台灣人可用的 [英國青年交流計畫（YMS）](https://www.gov.uk/youth-mobility) 明文禁止當職業運動員或 coach，而 [移民規則](https://www.gov.uk/guidance/immigration-rules/immigration-rules-introduction) 把 coach 算進去、不論有沒有領薪。規則沒點名山岳嚮導，但 BMG 證照內容包括教先鋒攀登，風險很高，最後要由英國內政部認定。
+卡關的是訓練中的 consolidation period 要在英國累積嚮導工作經驗。台灣人可用的 [英國青年交流計畫（YMS）](https://www.gov.uk/youth-mobility) 明文禁止當職業運動員或教練（coach），而 [移民規則](https://www.gov.uk/guidance/immigration-rules/immigration-rules-introduction) 不論有沒有領薪都算教練。規則沒點名山岳嚮導，但 BMG 證照內容包括教先鋒攀登，被認定成教練工作的風險很高，最後要由英國內政部認定。
 
 ### 嚮導人數
 
@@ -254,7 +254,7 @@ NORTIND 的 [正式嚮導名冊](https://www.nortind.no/index.php?option=com_con
 
 ## 對台灣讀者的意義
 
-英紐用英語上課，看起來最好讀，但兩國都要在當地合法工作：紐西蘭報名就要工作許可，英國訓練中要累積當地工作經驗，而青年簽證禁止 coach 工作。挪威要過挪威文，瑞典要英文但入學考在阿爾卑斯、學費未公開。比較各國後怎麼選，接著看 [台灣人要怎麼走](/posts/climbing/2026-10-17-ifmga-taiwan-path)。
+英紐用英語上課，看起來最好讀，但兩國都要在當地合法工作。紐西蘭報名就要工作許可；英國訓練中要累積當地工作經驗，而英國青年簽證禁止教練工作。挪威要過挪威文，瑞典要英文但入學考在阿爾卑斯、學費未公開。比較各國後怎麼選，接著看 [台灣人要怎麼走](/posts/climbing/2026-10-17-ifmga-taiwan-path)。
 
 ## 參考資料
 

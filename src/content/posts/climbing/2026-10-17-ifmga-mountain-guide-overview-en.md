@@ -78,7 +78,7 @@ The [member associations page](https://ifmga.net/member-associations/member-asso
 
 ### What No Ski means
 
-The Peru, Bolivia, Nepal and Ecuador associations carry the "IFMGA No Ski" designation. Their guides wear the badge but have no ski guiding rights in other member countries, and must state No Ski in all external communication.
+The [member associations page](https://ifmga.net/member-associations/member-associations) marks the Peru, Bolivia, Nepal and Ecuador associations "IFMGA No Ski". Their guides wear the badge but have no ski guiding rights in other member countries, and must state No Ski in all external communication.
 
 Switzerland shows what that means in practice. It treats an IFMGA-recognized guide certificate as equivalent to the federal one for licensing purposes, but a No Ski certificate does not qualify ([Swiss guide association SBV guidance on guiding without a license](https://sbv-asgm.ch/wp-content/uploads/SBV-2025-Wegleitung-Fuehren-ohne-Bewilligung-V08_Kurzfassung_02.2026.pdf)).
 
@@ -93,7 +93,7 @@ So "IFMGA guide" describes a competence standard and a recognition right. A work
 
 ## How it differs from Taiwan's mountain guide license
 
-Taiwan's system is the Sports Administration's [Regulations for Mountain Guide Qualification Certification](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=H0120058) (in Chinese).
+Taiwan's system is the Sports Administration's [Regulations for Mountain Guide Qualification Certification](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=H0120058) (in Chinese); the IFMGA column below follows the [official training standard](https://ifmga.net/professional-mountain-guide/training-and-assessment).
 
 | | Taiwan mountain guide | IFMGA guide |
 |---|---|---|

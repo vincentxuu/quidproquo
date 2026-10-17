@@ -38,7 +38,7 @@ The two countries share two more things. Both split training into rock, alpine a
 
 | Country | Association | Years of training | Approximate cost | Teaching language | Required by law? | Can foreigners apply? |
 |---|---|---|---|---|---|---|
-| USA | [AMGA](https://www.amga.com/programs/mountain-guide-programs) | About 5 (third-party estimate) | Tuition for three streams about US$40,650 (my sum of the 2026–27 schedule) | English | Association certification; no state licensing law found in this research | No nationality requirement on the website; paid guiding in the US needs the right to work |
+| USA | [AMGA](https://www.amga.com/programs/mountain-guide-programs) | About 5 (third-party estimate) | Tuition for three streams about US$40,650 (my sum of the 2026–27 schedule) | English | Association certification; AMGA's public pages cite no state licensing law | No nationality requirement on the website; paid guiding in the US needs the right to work |
 | Canada | [ACMG](https://acmg.ca/the-acmg-training-and-assessment-program-tap/) | Probably about 3–5 | CAD 46,600–48,300 (2026–27, with conditions; see below) | English | Association certification; guiding on public land needs permits and insurance | No citizenship or residency requirement on the website; the apprenticeship needs a work permit |
 
 ## USA
@@ -86,12 +86,12 @@ My sum of AMGA tuition on the 2026–27 schedule:
 
 ### Language
 
-English. The AMGA's "Essential Eligibility Criteria" say courses are taught in English; fluency is not required, but you must understand instructions, especially on risk management.
+English. The AMGA's "[Essential Eligibility Criteria](https://drive.google.com/file/d/1g3PHtitPkyrfiaBPHXsMFtW0PtRFFQrb/view)" say courses are taught in English; fluency is not required, but you must understand instructions, especially on risk management.
 
 ### Legal status
 
 - The AMGA joined the IFMGA in 1997.
-- The AMGA pages reviewed for this research cite no state law requiring certification to guide; the certificate comes from the association.
+- The AMGA's public pages cite no state law requiring certification to guide; the certificate comes from the association.
 - What does constrain guiding is public land. [Joe Stock](https://www.stockalpine.com/about-the-amga-and-ifmga), an IFMGA and AMGA guide, writes that visas and permits are the two big problems for foreign guides in the US, and that business permits on national parks, national forests and other public land are hard to get. That is his personal view.
 
 ### Foreigners
@@ -147,7 +147,7 @@ English; the whole programme is taught in English.
 ### Legal status
 
 - ACMG certificates are association certifications. The ACMG timelines policy states that "There is no requirement to complete the Mountain Guide certification", so you can stop at a single-stream certificate.
-- According to the [ACMG's IFMGA page](https://acmg.ca/ifmga/), guiding on public land in Canada requires permits and commercial general liability (CGL) insurance of at least 2,000,000.
+- According to the [ACMG page for visiting IFMGA guides](https://acmg.ca/ifmga-mobility/), guiding on public land in Canada requires permits or business licences and commercial general liability (CGL) insurance. To join the ACMG Provincial Parks Permit Program, the policy must cover at least US$/€/£2,000,000 per occurrence.
 
 ### Foreigners
 
@@ -175,6 +175,7 @@ The USA and Canada have the lowest language barriers, and the courses themselves
 - [AMGA: Ski Guide Program](https://www.amga.com/programs/mountain-guide-programs/ski-guide-program)
 - [Old AMGA site: IFMGA Mountain Guide](http://old.amga.com/ifmga-mountain-guide/)
 - [Old AMGA site: FAQ](http://old.amga.com/faqs/)
+- [AMGA: Essential Eligibility Criteria](https://drive.google.com/file/d/1g3PHtitPkyrfiaBPHXsMFtW0PtRFFQrb/view)
 - [AMGA 2025 Annual Report](https://cdn.prod.website-files.com/674f3a589212e914d517c321/69c2f6ee9bb8a0619d1971d7_109e076586766d6068e53f56007d5a91_2025%20AMGA%20Annual%20Report%20Compressed.pdf)
 - [Mountain School: AMGA and IFMGA certification](https://www.mountainschool.com/content/main/amga-and-ifmga-certification)
 - [Joe Stock: About the AMGA and IFMGA](https://www.stockalpine.com/about-the-amga-and-ifmga)

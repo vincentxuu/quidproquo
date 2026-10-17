@@ -27,9 +27,9 @@ glossary:
 
 > 🌏 [English version](/posts/climbing/2026-10-17-ifmga-taiwan-path-en)
 
-這個系列前面九篇講了 IFMGA 是什麼、怎麼雇、學什麼，以及各國怎麼訓練。這篇回答台灣讀者最後會問的問題：**我是台灣人，想拿 IFMGA，要怎麼走？**
+這個系列前面十篇講了 IFMGA 是什麼、怎麼雇、學什麼，以及各國怎麼訓練。這篇回答台灣讀者最後會問的問題：**我是台灣人，想拿 IFMGA，要怎麼走？**
 
-先講結論：台灣沒有路可以「轉」，只能「出國從頭走」。這篇把所有會員國的語言、居留、費用、年數放進一張表，再講加拿大打工度假能做到哪裡、台灣目前最接近的案例，以及現在就能在台灣做的準備。
+先講結論：台灣沒有路可以「轉」，只能「出國從頭走」。這篇把所有會員國的語言、居留、費用、年數放進一張表，再講加拿大度假打工能做到哪裡、台灣目前最接近的案例，以及現在就能在台灣做的準備。
 
 ## 為什麼台灣沒有直接的路
 
@@ -121,7 +121,7 @@ ACMG 要求見習嚮導在督導下累積 20 天（攀岩）或 30 天（高山�
 
 ### 其他卡點
 
-- **學校路線**：Thompson Rivers University 的 Adventure Guide 文憑與證書課程不符合畢業後工作許可（PGWP）資格；觀光管理學士（Adventure Studies，4 年）符合（[TRU 國際生課程表](https://tru.ca/truworld/future-students/programs.html)）。
+- **學校路線**：Thompson Rivers University 的 Adventure Guide 文憑與證書課程，不符合畢業後工作許可（PGWP）資格。觀光管理學士（Adventure Studies，4 年）則符合（[TRU 國際生課程表](https://tru.ca/truworld/future-students/programs.html)）。
 - **雪崩課**：Alpine 與 Ski 正式考試都要 CAA Operations Level 2，報名前要先累積 100 個作業日，課程與考核合計約 CAD 6,700（[CAA](https://avalancheassociation.ca/itp/avalanche-operations-level-2)）。這又是一段要在加拿大工作的時間。
 
 推測：比較可行的用法，是在見習期用 IEC 累積督導天數，其餘時間要另找工作許可或學簽。實際能不能串接，以 IRCC 個案判定為準。
@@ -155,11 +155,11 @@ IFMGA 的入學門檻是至少 55 條多樣化路線（攀岩、滑雪登山、�
 
 ### 3. 拿 WFR 急救證
 
-ACMG 的訓練課要求 WFR，智利 ANGM 要求至少 80 小時的 WFR。美國 NOLS 的 WFR 學費約 US$745–1,350（[NOLS](https://www.nols.edu/courses/wm/wilderness-first-responder-wfr/)）。台灣有沒有各協會都承認的 WFR 課，素材沒有查；報名前先問目標協會認不認。
+ACMG 的訓練課要求 WFR，智利 ANGM 要求至少 80 小時的 WFR。美國 NOLS 的 WFR 學費約 US$745–1,350（[NOLS](https://www.nols.edu/courses/wm/wilderness-first-responder-wfr/)）。台灣有沒有各協會都承認的 WFR 課，本文沒有查證；報名前先問目標協會認不認。
 
 ### 4. 上雪崩課
 
-AMGA 要求 Pro 1 與 Pro 2 雪崩訓練，例如 Silverton Avalanche School 的 Pro 1 是 US$1,799–2,399（[Silverton](https://www.avyschool.org/professional)）；ACMG 要求加拿大雪崩協會的課程。日本 JMGA 接受 JAN Level 1 申請免除雪崩檢定。素材沒有查到台灣有開這類課程，推測要排出國時間。
+AMGA 要求 Pro 1 與 Pro 2 雪崩訓練，例如 Silverton Avalanche School 的 Pro 1 是 US$1,799–2,399（[Silverton](https://www.avyschool.org/professional)）；ACMG 要求加拿大雪崩協會的課程。日本 JMGA 接受 JAN Level 1 申請免除雪崩檢定。目前沒找到台灣有開這類課程，推測要排出國時間。
 
 ### 5. 學目標國的語言
 

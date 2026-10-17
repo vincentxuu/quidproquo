@@ -82,7 +82,7 @@ Mendoza's provincial guide school [EPGAMT](https://escueladeguias.net.ar/) runs 
 
 ### Number of guides
 
-As of July 2024, six courses had produced 62 UIAGM guides. AAGM has over 700 members, most of whom are not IFMGA guides.
+As of July 2024, six courses had produced 62 UIAGM guides. AAGM has over 700 members, most of whom are not IFMGA guides ([CCAM, 2024](https://revistadigital.culturademontania.org.ar/articulo/6674a18f53d14d6b14112109)).
 
 ## Chile: ANGM
 
@@ -158,7 +158,7 @@ CEAM's [2026 fee schedule](https://www.iestpceam.edu.pe/wp-content/uploads/2026/
 | Mutual fund (required for technical modules) | US$100 a year |
 | Graduation and certification | S/710 |
 
-Six semesters of tuition come to about S/11,520, by this post's calculation. The schedule notes that technical modules are not covered by the monthly fee, but it does not list their price.
+Six semesters of tuition come to about S/11,520, by this post's calculation. The schedule notes that tuition (whether paid monthly or once per semester) does not cover the technical modules, but it does not list their price.
 
 ### Language
 
@@ -260,7 +260,7 @@ The website has no clause on foreigners, but admission requires a cédula. A 201
 
 ### Number of guides
 
-43 UIAGM guides; the association has about 160 members including domestic aspirants and students.
+43 UIAGM guides; the association has about 160 members including domestic aspirants and students ([ASEGUIM About us](https://aseguim.org/nosotros/)).
 
 ## What this means for Taiwanese readers
 

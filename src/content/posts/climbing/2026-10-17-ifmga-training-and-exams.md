@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "IFMGA 高山嚮導"
   order: 2
-tldr: "IFMGA 規定所有會員國至少要訓練 94 天：混合地形 32 天、滑雪 32 天、攀岩 20 天、理論 7 天、在地 3 天，另外至少 14 天在資深嚮導監督下實習。入學要先交 55 條路線紀錄。以美國為例，岩攀、高山、滑雪三科各走「課程 → 助理考 → 嚮導考」，三科學費合計約 4 萬美元。"
+tldr: "IFMGA 規定所有會員國至少要訓練 94 天：混合地形 32 天、滑雪 32 天、攀岩 20 天、理論 7 天、在地 3 天，另外至少 14 天在資深嚮導監督下實習。入學要先交 55 條路線紀錄。以美國為例，岩攀、高山、滑雪三科各走「課程 → 助理考 → 嚮導考」，三科學費合計約 4 萬美元，還不含急救、雪崩課與食宿交通。"
 description: "IFMGA 嚮導的共通訓練標準（94 天怎麼分、55 條路線入學門檻、14 天監督實習、每年進修）、考試在考什麼（以美國 AMGA 為例，含各階段的攀登履歷要求），以及技術以外要學的帶人能力。各國細節連到國別篇。"
 draft: false
 glossary:
@@ -62,7 +62,7 @@ IFMGA 是什麼組織，見[第 0 篇總覽](/posts/climbing/2026-10-17-ifmga-mo
 
 報名前要交至少 55 條多樣化的路線紀錄，攀岩、滑雪登山、冰攀都要有。
 
-法國把這條寫得最具體：[ENSM 2026 路線清單](https://www.ensm.sports.gouv.fr/wp-content/uploads/2025/07/Liste-de-courses-2026-nouveau-cursus_V2.pdf)要求 55 條路線分布在至少三年，其中至少 24 條在考試前三年內完成，全部要自己先鋒或輪流領攀。換句話說，入學前的累積就要好幾年。
+法國把這條寫得最具體。[ENSM 2026 路線清單](https://www.ensm.sports.gouv.fr/wp-content/uploads/2025/07/Liste-de-courses-2026-nouveau-cursus_V2.pdf)要求 55 條路線分布在至少三年，其中至少 24 條在考試前三年內完成，全部要自己先鋒或輪流領攀。換句話說，入學前的累積就要好幾年。
 
 ### 拿到之後：每年進修
 
@@ -106,7 +106,7 @@ AMGA 把「實際帶客」和「模擬帶」（mock-guided）分開計數；從�
 
 - **天數**：AMGA 舊站寫「86+ days of training」（[old.amga.com](http://old.amga.com/ifmga-mountain-guide/)）。
 - **年數**：岩攀一科，[Golden Mountain Guides](https://goldenmountainguides.com/blog/so-you-want-to-become-a-climbing-guide) 估多數人要 2–4 年；三科全程，[Mountain School](https://www.mountainschool.com/content/main/amga-and-ifmga-certification) 寫約 5 年。
-- **學費**：用 2026–27 年課表加總，三科約 US$40,650，不含急救、雪崩課、食宿與交通（研究自行加總）。Mountain School 估全部算進去「upwards of $50,000」。
+- **學費**：用 2026–27 年課表加總，三科約 US$40,650，不含急救、雪崩課、食宿與交通（本文依課表自行加總）。Mountain School 估全部算進去「upwards of $50,000」。
 - **時間窗**：多數履歷項目要在「近 5 年內」完成，拖太久前面累積的會過期。
 - **沒過怎麼辦**：評為 no-pass 要整門重上；評為 re-exam 則安排補考（AMGA 舊站 FAQ）。
 

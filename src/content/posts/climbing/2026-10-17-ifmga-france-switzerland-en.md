@@ -3,7 +3,7 @@ title: "Becoming a Mountain Guide in France and Switzerland: ENSA State Diploma,
 date: 2026-10-17
 category: climbing
 type: guide
-tags: [climbing, ifmga, mountain-guide, mountaineering, france, switzerland]
+tags: [climbing, ifmga, mountain-guide, france, switzerland]
 lang: en
 series:
   name: "IFMGA Mountain Guides"
@@ -66,7 +66,7 @@ Other rules:
 - Aged 18 by 1 January of the exam year, with no upper age limit.
 - PSC1 civic first aid, plus a medical certificate under 3 months old.
 - The [2026 route list](https://www.ensm.sports.gouv.fr/wp-content/uploads/2025/07/Liste-de-courses-2026-nouveau-cursus_V2.pdf): at least 55 routes spread over at least 3 years, all led or swung leads. It covers five categories: alpine, rock, snow and ice, ski mountaineering and icefalls; the icefalls, for example, must be WI5 or harder.
-- The probatoire is hard. ENSM's published figures show a 26% pass rate for the 2025 summer part.
+- The probatoire is hard. [ENSM's published figures](https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/) show a 26% pass rate for the 2025 summer part.
 
 ### Cost
 

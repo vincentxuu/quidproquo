@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "IFMGA 高山嚮導"
   order: 4
-tldr: "奧地利 2026 年新課綱 89.5 天、3 年，學費約 €15,000，德語授課；德國由 TU München 主辦國家考試，約 2.5–3 年，VDBS 說課程費約 €17,200；義大利由大區 Collegio 辦訓，aspirante 至少執業 2 年才能升嚮導，多數地區只收義大利或歐盟公民。三國的嚮導執照都由邦或大區的法律管。"
+tldr: "奧地利 2026 年新課綱 89.5 天、3 年，學費約 €15,000，德語授課；德國由 TU München 主辦國家考試，約 2.5–3 年，VDBS 說課程費約 €17,200；義大利由大區 Collegio 辦訓，aspirante 至少執業 2 年才能升嚮導，多數地區只收義大利或歐盟公民。三國的嚮導執照規則都跟著邦或大區走，報名前先選定地方。"
 description: "整理奧地利 VÖBS、德國 VDBS／TU München、義大利 Conagai 與各大區 Collegio 的高山嚮導訓練流程、入學門檻、費用、授課語言、法律地位、外國人條件與嚮導人數。"
 draft: false
 glossary:
@@ -68,11 +68,11 @@ IFMGA 共通的訓練架構見 [學什麼、考什麼](/posts/climbing/2026-10-1
 
 - 訓練費約 **€15,000**，2025 年和 2026 年入學的兩屆都適用，分兩期繳。含教材、保險和教練費；交通、食宿、裝備自付。
 - 入學考每段 €280。
-- 網路上看到的 €7,500、€4,000 都是舊數字。
+- 網路上看到的 €7,500（[Steiermark 邦協會頁](https://bergsport-stmk.at/die-berg-und-skifuehrerinnen-ausbildung/)）、€4,000（[下奧邦政府頁](https://www.noe.gv.at/noe/Sport/Diplombergfuehrer1.html)）都是舊數字。
 
 ### 語言
 
-德語。下奧邦政府的說明寫，歐盟公民可以在奧地利受訓，但要有足夠的德語，而且會被檢查。[提洛嚮導法 TBSFG](https://www.jusline.at/gesetz/tbsfg/gesamt) 也規定，申請執照要具備「為顧客安全所必要的德語能力」。
+德語。[下奧邦政府的說明](https://www.noe.gv.at/noe/Sport/Diplombergfuehrer1.html)寫，歐盟公民可以在奧地利受訓，但要有足夠的德語，而且會被檢查。[提洛嚮導法 TBSFG](https://www.jusline.at/gesetz/tbsfg/gesamt) 也規定，申請執照要具備「為顧客安全所必要的德語能力」。
 
 ### 法律地位
 
@@ -84,7 +84,7 @@ IFMGA 共通的訓練架構見 [學什麼、考什麼](/posts/climbing/2026-10-1
 
 - **報名**：VÖBS 列的報名條件只有「年滿 18 歲」和「運動醫學證明」，報名表的國籍欄是自由填寫，沒有限定歐盟。實際門檻是德語。
 - **申請提洛執照**：提洛邦較新的[線上申請表](https://www.tirol.gv.at/buergerservice/e-government/formulare/antrag-zur-ausuebung-von-bergsportfuehrertaetigkeiten/)只要護照或身分證，沒有國籍證明，這和 TBSFG §4 沒有國籍條件一致。
-- **短期跨境帶隊**：非歐盟國家的嚮導也可以短期在提洛帶隊，但客人要在本國招攬，且該國要給提洛嚮導對等權利。
+- **短期跨境帶隊**：非歐盟國家的嚮導也可以短期在提洛帶隊，但客人要在本國招攬，且該國要給提洛嚮導對等權利（[TBSFG](https://www.jusline.at/gesetz/tbsfg/gesamt) §2a）。
 - 台灣人在奧地利受訓期間的居留和工作身分，官方頁面沒有寫。
 
 ### 嚮導人數
@@ -116,7 +116,7 @@ IFMGA 共通的訓練架構見 [學什麼、考什麼](/posts/climbing/2026-10-1
 
 - VDBS 官網說純課程費約 **€17,200**，另加交通、食宿和國家考試費。
 - 國家考試費 €1,700。
-- 依 2026 價目表自行加總，入學考加必修課加國考約 €16,410；差額 VDBS 沒有說明。
+- 依 [2026 價目表](https://storage.tramino.net/vdbs/1590749/bgf-termine-2026-update-1025.pdf)自行加總，入學考加必修課加國考約 €16,410；差額 VDBS 沒有說明。
 - [VDBS 手冊](https://storage.tramino.net/vdbs/1544961/information-zur-berg-skifhrer-ausbild-ung-2026.pdf)寫，VDBS 和德國阿爾卑斯協會 DAV 有補貼，學員付的課程費約是實際成本的一半。
 
 ### 語言
@@ -208,6 +208,7 @@ Conagai 官網的數字是 **1,202 名正式嚮導、176 名 aspirante**。頁�
 - [VÖBS 登山履歷表（2023-11）](https://www.bergfuehrer.at/wp-content/uploads/2023/11/Tourenbericht_v28112023.pdf)
 - [VÖBS：Über uns](https://www.bergfuehrer.at/ueber-uns/)
 - [下奧邦政府：Diplombergführer](https://www.noe.gv.at/noe/Sport/Diplombergfuehrer1.html)
+- [Steiermark 邦協會：Die Berg- und SkiführerInnen-Ausbildung](https://bergsport-stmk.at/die-berg-und-skifuehrerinnen-ausbildung/)
 - [提洛嚮導法 TBSFG（JUSLINE）](https://www.jusline.at/gesetz/tbsfg/gesamt)
 - [提洛邦：嚮導執照線上申請](https://www.tirol.gv.at/buergerservice/e-government/formulare/antrag-zur-ausuebung-von-bergsportfuehrertaetigkeiten/)
 - [VDBS：Bergführer:in werden](https://www.vdbs.de/werden/bergfuehrer-werden.html)

@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [English version](/posts/climbing/2026-10-17-ifmga-hire-a-guide-en)
 
-這篇給打算出國請嚮導的人：你在霞慕尼、采爾馬特或日本找到一位自稱「mountain guide」的人，要怎麼確認他是 IFMGA，一天要花多少錢，報價沒寫的錢有哪些，結束時要不要給小費。
+這篇給打算出國請嚮導的人。你在霞慕尼、采爾馬特或日本找到一位自稱「mountain guide」的人。要怎麼確認他是 IFMGA？一天要花多少錢？報價沒寫的錢有哪些？結束時要不要給小費？
 
 IFMGA 是什麼、跟台灣山域嚮導差在哪，見[第 0 篇總覽](/posts/climbing/2026-10-17-ifmga-mountain-guide-overview)。
 
@@ -44,7 +44,7 @@ IFMGA 是什麼、跟台灣山域嚮導差在哪，見[第 0 篇總覽](/posts/c
 - 義大利：在任何地形、不限難度帶客人登山、滑雪登山或教學，只限登錄名冊的嚮導（[L. 6/1989 第 2 條](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1989-01-02;6)）。
 - 瑞士：無照帶客最高罰 10,000 瑞郎；瑞士嚮導協會說「從賺到的第一塊瑞郎」起就算營業（[SBV 無照帶客說明](https://sbv-asgm.ch/wp-content/uploads/SBV-2025-Wegleitung-Fuehren-ohne-Bewilligung-V08_Kurzfassung_02.2026.pdf)）。
 
-這些規定管的是收費的人，不是規定你一定要請嚮導。推測對讀者的實際意義是：在這些國家付錢請「有經驗的朋友」帶，對方可能是違法執業。
+這些規定管的是收費的人，不是規定你一定要請嚮導。換到讀者這邊（這是依條文推論）：在這些國家付錢請「有經驗的朋友」帶，對方可能是違法執業。
 
 ## 怎麼確認對方是 IFMGA
 
@@ -64,9 +64,9 @@ IFMGA 是什麼、跟台灣山域嚮導差在哪，見[第 0 篇總覽](/posts/c
 
 ### 3. IFMGA 的證號查詢
 
-[searchguides.ifmga.info](https://searchguides.ifmga.info) 是「Check Mountain Guide by ID」，用會員編號查資格。研究時這個系統要登入才能用，所以實務上先跟嚮導要證號，再請他或他的協會協助確認。
+[searchguides.ifmga.info](https://searchguides.ifmga.info) 是「Check Mountain Guide by ID」，用會員編號查資格。撰寫本文時這個系統要登入才能用，所以實務上先跟嚮導要證號，再請他或他的協會協助確認。
 
-另一個官方頁 [ifmga.net/browse](https://ifmga.net/browse) 有搜尋表單，但研究時查詢結果是空的，頁面也聲明資料由各國協會提供、IFMGA 不保證正確。
+另一個官方頁 [ifmga.net/browse](https://ifmga.net/browse) 有搜尋表單，但撰寫本文時查詢結果是空的，頁面也聲明資料由各國協會提供、IFMGA 不保證正確。
 
 ### 4. 容易誤會的頭銜
 
@@ -115,16 +115,16 @@ IFMGA 是什麼、跟台灣山域嚮導差在哪，見[第 0 篇總覽](/posts/c
 
 把嚮導費當成起點，不是總價。
 
-1. **嚮導的山屋與餐費**：在阿爾卑斯多半是客人付。ZERMATTERS 寫 Hörnli 山屋半膳「你和嚮導」都要付，約 CHF 150／人。
-2. **嚮導的纜車、火車**：Courmayeur 寫明嚮導的南針峰纜車 €25 由客人付。
+1. **嚮導的山屋與餐費**：在阿爾卑斯多半是客人付。[ZERMATTERS](https://web.archive.org/web/20260412082855/https://www.zermatters.ch/en/activities/climb/) 寫 Hörnli 山屋半膳「你和嚮導」都要付，約 CHF 150／人。
+2. **嚮導的纜車、火車**：[Courmayeur](https://guidecourmayeur.com/en/scheda_valle.php?id_prg=19&id_stag=1) 寫明嚮導的南針峰纜車 €25 由客人付。
 3. **你自己的纜車、山屋、交通**：南針峰纜車 €81–83／人（Courmayeur）。
 4. **預備路線**：ZERMATTERS 要先走一趟預備路線再上馬特洪峰，另收 CHF 360–785（[2024 官方價目 PDF](https://web.archive.org/web/20240515053202/https://www.zermatters.ch/sites/default/files/media-document/2024_Preisvarianten%20Matterhorn_DE.pdf)）。
 5. **裝備租借**：采爾馬特約 CHF 50–70。
 6. **保險**：Courmayeur 要求歐洲健保卡（EHIC）或個人健保。[EHIC](https://ec.europa.eu/social/main.jsp?catId=559&langId=en) 由歐洲各國健保發給，台灣健保不在這個體系，台灣人要自備含高山活動的保險。
-7. **稅與手續費**：加拿大另加 5% GST（Yamnuska）；Courmayeur 收 5% 行政費。
+7. **稅與手續費**：加拿大另加 5% GST（[Yamnuska](https://yamnuska.com/ice-climbing/guided-climbs)）；Courmayeur 收 5% 行政費。
 8. **紐西蘭的直升機**：Aspiring Guides 的直升機進場另付 NZ$1,500；[Adventure Consultants](https://adventureconsultants.com/guided-ascents/new-zealand-ascents/mount-aspiring) 的同一座山則含直升機。
 
-日本也一樣：かながわ山岳ガイド協会寫明嚮導的交通、住宿、餐費現場另收。
+日本也一樣：[かながわ山岳ガイド協会](https://kmga.jp/request/)寫明嚮導的交通、住宿、餐費現場另收。
 
 比價時先問兩句：價格是「每人」還是「整團」？嚮導的山屋和纜車誰付？
 
@@ -141,7 +141,7 @@ IFMGA 是什麼、跟台灣山域嚮導差在哪，見[第 0 篇總覽](/posts/c
 | 多段冰攀 | 最多 2:1 | Yamnuska |
 | 單段攀岩或冰攀教學 | 最多 6:1 | Yamnuska |
 
-很多歐洲嚮導收的是「一位嚮導一天的錢」，人多就大家分。Simmons Mountain Works 的例子：一天 US$700，兩位客人同行就各付一半。
+很多歐洲嚮導收的是「一位嚮導一天的錢」，人多就大家分。[Simmons Mountain Works](https://simmonsmountain.works/termsconspolis/alps-rate-inclusions-and-exclusions) 的例子：一天 US$700，兩位客人同行就各付一半。
 
 ## 小費
 
@@ -155,7 +155,7 @@ IFMGA 是什麼、跟台灣山域嚮導差在哪，見[第 0 篇總覽](/posts/c
 | 日本 | 一般不給小費，給的話裝信封 | [JNTO](https://www.japan.travel/en/plan/tipping-in-japan/) |
 | 紐西蘭 | 嚮導戶外活動不預期小費 | [Tourism New Zealand](https://www.newzealand.com.au/info/frequently-asked-questions/is-it-expected-to-tip-during-guided-outdoor-activities-like-hiking-or-kayaking) |
 
-Mountain Trip 另外寫兩點：沒登頂也照給，因為你付的是判斷和照顧；有多位嚮導時交給其中一位，由他們分。
+[Mountain Trip](https://mountaintrip.com/how-much-should-i-tip-my-guide) 另外寫兩點：沒登頂也照給，因為你付的是判斷和照顧；有多位嚮導時交給其中一位，由他們分。
 
 日本和瑞士的資料是一般觀光或旅遊公司的說法，沒找到山岳嚮導專屬的規範。
 

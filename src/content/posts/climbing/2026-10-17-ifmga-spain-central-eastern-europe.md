@@ -30,7 +30,7 @@ glossary:
 - 捷克列為要證明資格才能開業的行業。
 - 波蘭國家另有一套山岳嚮導資格，和 IFMGA 證分開。
 
-最後一個 EEMGA 剛好相反。它是跨國協會，替沒有自己協會的國家開路，也是這組裡唯一用英語上課的。
+最後一個 EEMGA 剛好相反。它是跨國協會，替沒有自己協會的國家開路，也是這組裡唯一用英語上課的，所以對台灣讀者來說是最可能的入口。
 
 IFMGA 共通的訓練標準在 [學什麼、考什麼](/posts/climbing/2026-10-17-ifmga-training-and-exams) 講過，這裡只講各國差異。
 
@@ -125,7 +125,7 @@ IFMGA 名錄中 AEGM 有 [203 筆](https://ifmga.net/browse?search=&association=
 
 ### 費用
 
-訓練費每人 70,000–75,000 茲羅提，依人數而定，另計考試和出隊費用。官方頁原文：「Pomiędzy 70 a 75 tysięcy złotych + koszty egzaminów i wyjazdów」。入學考費沒有公開。
+訓練費每人 70,000–75,000 茲羅提，依人數而定，另計考試和出隊費用（[PSPW 訓練頁](https://www.pspw.pl/szkolenia)）。入學考費沒有公開。
 
 ### 語言
 
@@ -266,7 +266,7 @@ IVBV（IFMGA）證不等於這張國家資格。[2022 年報導](https://turysty
 
 ### 費用
 
-學員分擔約每天 60 歐元，80 天合計約 5,000 歐元，食宿交通自付。國家每年編預算補助。這句話從 2023-03 的存檔起就沒改，裡面的部會名是 2023 年改組前的名稱，推測數字最晚是 2022 年訂的（[2023 存檔](https://web.archive.org/web/20230322135920/https://www.zgvs.si/postani-vodnik/)）。
+學員分擔約每天 60 歐元，80 天合計約 5,000 歐元，食宿交通自付，國家每年編預算補助。官網這段說法從 2023 年的存檔起沒變過，推測數字最晚是 2022 年訂的（[2023 存檔](https://web.archive.org/web/20230322135920/https://www.zgvs.si/postani-vodnik/)）。
 
 ### 語言
 
@@ -305,7 +305,7 @@ IVBV（IFMGA）證不等於這張國家資格。[2022 年報導](https://turysty
 ### 入學門檻
 
 - 下列 20 國的國民或合法居民：阿爾巴尼亞、白俄羅斯、波士尼亞與赫塞哥維納、保加利亞、克羅埃西亞、賽普勒斯、捷克、希臘、匈牙利、科索沃、北馬其頓、摩爾多瓦、蒙特內哥羅、波蘭、羅馬尼亞、塞爾維亞、斯洛伐克、斯洛維尼亞、土耳其、烏克蘭。
-- 其他國籍：[公告原文](https://www.eemga.org/entrytest2026/)「Applicants from other nationalities should contact us via email to discuss eligibility」。
+- 其他國籍：[入學公告](https://www.eemga.org/entrytest2026/) 請來信討論資格。
 - 年滿 18 歲、英文要好。
 - 至少 3 年、55 條路線：15 條雪冰高山、15 條傳統岩壁、10 條 6a 以上多繩距、10 條 WI4 冰攀，加 25 次滑雪登山。
 - 入學測驗：登山鞋領攀 5a、攀岩鞋領攀 6b、雙冰斧領攀 WI4、各種雪況滑雪。

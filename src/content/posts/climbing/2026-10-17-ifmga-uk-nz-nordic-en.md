@@ -3,7 +3,7 @@ title: "How the UK, New Zealand, Norway and Sweden Train Guides: BMG, NZMGA, NOR
 date: 2026-10-17
 category: climbing
 type: guide
-tags: [climbing, ifmga, mountain-guide, united-kingdom, new-zealand, norway]
+tags: [climbing, ifmga, mountain-guide, uk, new-zealand, norway]
 lang: en
 series:
   name: "IFMGA Mountain Guides"
@@ -85,7 +85,7 @@ We found no statutory personal "mountain guide" licence in the UK (inferred). Wh
 
 BMG documents have no nationality or residency clause, and the [2026 application form](https://www.bmg.org.uk/wp-content/uploads/2026/05/BMG-PDF-Application-Form-2026.pdf) asks for "Country of residency," so non-UK residents can apply.
 
-The sticking point is that the consolidation periods during training require guiding work experience in the UK. The [Youth Mobility Scheme](https://www.gov.uk/youth-mobility) open to Taiwanese passport holders bans work as a professional sportsperson or coach, and the [Immigration Rules](https://www.gov.uk/guidance/immigration-rules/immigration-rules-introduction) count coaches whether paid or not. The rules do not name mountain guides, but BMG certification covers coaching lead climbing, so the risk is high; the Home Office makes the final call.
+The sticking point is that the consolidation periods during training require guiding work experience in the UK. The [Youth Mobility Scheme](https://www.gov.uk/youth-mobility) open to Taiwanese passport holders bans work as a professional sportsperson or coach, and the [Immigration Rules](https://www.gov.uk/guidance/immigration-rules/immigration-rules-introduction) count coaches whether paid or not. The rules do not name mountain guides, but BMG certification covers coaching lead climbing, so the risk of it being classed as coaching is high; the Home Office makes the final call.
 
 ### Number of guides
 

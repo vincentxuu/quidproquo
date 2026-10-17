@@ -38,7 +38,7 @@ glossary:
 
 | 國家 | 協會 | 訓練年數 | 大約費用 | 上課語言 | 法律強制？ | 外國人能報名？ |
 |---|---|---|---|---|---|---|
-| 美國 | [AMGA](https://www.amga.com/programs/mountain-guide-programs) | 約 5 年（第三方估計） | 三科學費約 US$40,650（2026–27 課表自行加總） | 英語 | 協會認證；研究範圍內沒查到國家執照法規 | 官網沒寫國籍限制；在美國收費帶客要有工作身分 |
+| 美國 | [AMGA](https://www.amga.com/programs/mountain-guide-programs) | 約 5 年（第三方估計） | 三科學費約 US$40,650（2026–27 課表自行加總） | 英語 | 協會認證；AMGA 公開頁面沒有引用國家執照法規 | 官網沒寫國籍限制；在美國收費帶客要有工作身分 |
 | 加拿大 | [ACMG](https://acmg.ca/the-acmg-training-and-assessment-program-tap/) | 推測約 3–5 年 | CAD 46,600–48,300（2026–27，有前提，見下文） | 英語 | 協會認證；公有地帶客要許可與保險 | 官網沒寫國籍或居留要求；見習期要工作許可 |
 
 ## 美國
@@ -86,12 +86,12 @@ AMGA 分 Rock、Alpine、Ski 三條線，每條線各有課程和考試，可以
 
 ### 語言
 
-英語。AMGA 的「Essential Eligibility Criteria」寫，課程以英文進行，不要求流利，但要聽得懂指示，特別是風險管理相關的指令。
+英語。AMGA 的「[Essential Eligibility Criteria](https://drive.google.com/file/d/1g3PHtitPkyrfiaBPHXsMFtW0PtRFFQrb/view)」寫，課程以英文進行，不要求流利，但要聽得懂指示，特別是風險管理相關的指令。
 
 ### 法律地位
 
 - AMGA 在 1997 年加入 IFMGA。
-- 研究查過的 AMGA 頁面沒有引用任何「要持證才能帶客」的國家法律，證書是協會發的。
+- AMGA 的公開頁面沒有引用任何「要持證才能帶客」的國家法律，證書是協會發的。
 - 真正管到嚮導工作的是公有地。外國嚮導在美國的兩大問題是簽證和營業許可，國家公園、國有林等公有地的許可都很難拿。這是 IFMGA 兼 AMGA 嚮導 [Joe Stock](https://www.stockalpine.com/about-the-amga-and-ifmga) 的個人觀點。
 
 ### 外國人
@@ -147,7 +147,7 @@ ACMG 沒寫總年數。推測最快約 3 年。第 1 年夏天上岩攀訓練、
 ### 法律地位
 
 - ACMG 的證書是協會認證。ACMG 的期限政策也寫明「There is no requirement to complete the Mountain Guide certification」，可以只停在單一專項證照。
-- 依 [ACMG 的 IFMGA 頁](https://acmg.ca/ifmga/)，在加拿大公有地帶客要有許可，以及至少 200 萬的商業責任險（CGL）。
+- 依 [ACMG 的外國 IFMGA 嚮導頁](https://acmg.ca/ifmga-mobility/)，在加拿大公有地帶客要有許可或營業執照，以及商業責任險（CGL）。要參加 ACMG 的省立公園許可方案，保單每次事故至少要保 200 萬美元、歐元或英鎊。
 
 ### 外國人
 
@@ -175,6 +175,7 @@ ACMG 沒寫總年數。推測最快約 3 年。第 1 年夏天上岩攀訓練、
 - [AMGA：Ski Guide Program](https://www.amga.com/programs/mountain-guide-programs/ski-guide-program)
 - [AMGA 舊站：IFMGA Mountain Guide](http://old.amga.com/ifmga-mountain-guide/)
 - [AMGA 舊站 FAQ](http://old.amga.com/faqs/)
+- [AMGA：Essential Eligibility Criteria](https://drive.google.com/file/d/1g3PHtitPkyrfiaBPHXsMFtW0PtRFFQrb/view)
 - [AMGA 2025 Annual Report](https://cdn.prod.website-files.com/674f3a589212e914d517c321/69c2f6ee9bb8a0619d1971d7_109e076586766d6068e53f56007d5a91_2025%20AMGA%20Annual%20Report%20Compressed.pdf)
 - [Mountain School：AMGA and IFMGA certification](https://www.mountainschool.com/content/main/amga-and-ifmga-certification)
 - [Joe Stock：About the AMGA and IFMGA](https://www.stockalpine.com/about-the-amga-and-ifmga)

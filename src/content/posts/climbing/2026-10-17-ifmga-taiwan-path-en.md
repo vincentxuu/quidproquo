@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-taiwan-path)
 
-The first nine posts in this series covered what IFMGA is, how to hire a guide, what guides learn, and how each country trains them. This one answers the question Taiwanese readers end up asking: **I'm from Taiwan and I want an IFMGA qualification. How do I get there?**
+The first ten posts in this series covered what IFMGA is, how to hire a guide, what guides learn, and how each country trains them. This one answers the question Taiwanese readers end up asking: **I'm from Taiwan and I want an IFMGA qualification. How do I get there?**
 
 The short answer: there is nothing to convert, so you have to go abroad and start from the beginning. This post puts the language, residence, cost and years of every member country into one table, then looks at how far a Canadian working holiday gets you, the closest Taiwanese cases found so far, and what you can do in Taiwan right now.
 
@@ -155,11 +155,11 @@ How: keep a spreadsheet with date, location, grade, number of pitches, lead or f
 
 ### 3. Get a WFR first-aid certificate
 
-ACMG's training courses require a WFR, and Chile's ANGM requires a WFR of at least 80 hours. NOLS charges about US$745–1,350 for its WFR ([NOLS](https://www.nols.edu/courses/wm/wilderness-first-responder-wfr/)). The research did not check whether any WFR course in Taiwan is accepted by these associations; ask your target association before you book.
+ACMG's training courses require a WFR, and Chile's ANGM requires a WFR of at least 80 hours. NOLS charges about US$745–1,350 for its WFR ([NOLS](https://www.nols.edu/courses/wm/wilderness-first-responder-wfr/)). This post did not check whether any WFR course in Taiwan is accepted by these associations; ask your target association before you book.
 
 ### 4. Take avalanche courses
 
-AMGA requires Pro 1 and Pro 2 avalanche training; Silverton Avalanche School's Pro 1, for example, costs US$1,799–2,399 ([Silverton](https://www.avyschool.org/professional)). ACMG requires Canadian Avalanche Association courses. JMGA accepts JAN Level 1 for an avalanche exam exemption. The research did not find such courses offered in Taiwan, so plan time abroad (an inference).
+AMGA requires Pro 1 and Pro 2 avalanche training; Silverton Avalanche School's Pro 1, for example, costs US$1,799–2,399 ([Silverton](https://www.avyschool.org/professional)). ACMG requires Canadian Avalanche Association courses. JMGA accepts JAN Level 1 for an avalanche exam exemption. No such course offered in Taiwan was found, so plan time abroad (an inference).
 
 ### 5. Learn the language of your target country
 

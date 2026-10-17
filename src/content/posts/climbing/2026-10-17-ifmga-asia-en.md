@@ -37,8 +37,8 @@ For the common IFMGA training framework, see [what guides learn and how they are
 
 | Country | Association | Years of training | Approximate cost | Teaching language | Required by law? | Open to foreigners? |
 |---|---|---|---|---|---|---|
-| Japan | [JMGA](https://jfmga.jp/) | At least about 7 | About ¥1.7 million (2026 official fees, summed by this post) | Japanese (near-native level likely needed) | Not a national licence; Nagano Prefecture has its own register | Yes, with a residence card |
-| Nepal | [NNMGA](https://www.nnmga.org/) (No Ski) | About 7 (NNMGA estimate for Nepalis) | About NPR 1.7 million (estimate for Nepalis, 2025) | Not stated | Not found in the research | Allowed to take Asian students since 2020 |
+| Japan | [JMGA](https://jfmga.jp/) | At least about 7 | About ¥1.7 million (2026 official fees, summed by this post) | Japanese (a high level likely needed) | Not a national licence; Nagano Prefecture has its own register | Yes, with a residence card |
+| Nepal | [NNMGA](https://www.nnmga.org/) (No Ski) | About 7 (NNMGA estimate for Nepalis) | About NPR 1.7 million (estimate for Nepalis, 2025) | Not stated | No rule found | Allowed to take Asian students since 2020 |
 | Georgia | [GMGA](https://gmga.info/association/about) | 2–3 | Paid by state education vouchers; 2026 figure not published | Georgian | Yes, the Tourism Law requires certification from 2026-06-01 | The association says students from any country can join |
 | Kyrgyzstan | [KMGA](https://mguide.in.kg/en/association) | About 3 | US$3,300 (2016–2019 intakes) | Russian, English | No, the Tourism Law has no guide-licence clause | Yes, the school page sets no nationality or residence rule |
 
@@ -82,11 +82,13 @@ The International Mountain Guide exam requires Mountain Guide II plus Ski Guide 
 | Ski Guide I and II assessments | ¥282,700 (excluding the written exam and avalanche test) |
 | International Mountain Guide | ¥555,500 (two glacier-area courses abroad, excluding overseas travel and lodging) |
 
-The total is about ¥1.7 million (518,100 + 330,000 + 282,700 + 555,500 = 1,686,300). That is this post's own sum of the items in the [detailed rules](https://jfmga.jp/pdf/shikaku/2026年度職能別資格検定試験詳細規定202605.pdf). All four figures are fiscal-2026 prices, but the sum leaves out the fitness test, the ski written exam and avalanche test, and overseas travel and lodging. The international stage takes no new candidates in fiscal 2026, so prices may have changed by the time you apply. After qualifying there are annual dues: ¥25,000 a year for an International Mountain Guide ([membership rules](https://jfmga.jp/pdf/aboutus/会員に関する規程_202406.pdf)), plus dues to the regional member body you join. For example, the [Kansai Mountain Guides Association](https://kaga1996.com/entrance/) quotes ¥77,000 for the first year including JMGA.
+The total is about ¥1.7 million (518,100 + 330,000 + 282,700 + 555,500 = 1,686,300). That is this post's own sum of the items in the [detailed rules](https://jfmga.jp/pdf/shikaku/2026年度職能別資格検定試験詳細規定202605.pdf). All four figures are fiscal-2026 prices, but the sum leaves out the fitness test, the ski written exam and avalanche test, and overseas travel and lodging. The international stage takes no new candidates in fiscal 2026, so prices may have changed by the time you apply.
+
+After qualifying there are annual dues: ¥25,000 a year for an International Mountain Guide ([membership rules](https://jfmga.jp/pdf/aboutus/会員に関する規程_202406.pdf)), plus dues to the regional member body you join. For example, the [Kansai Mountain Guides Association](https://kaga1996.com/entrance/) quotes ¥77,000 for the first year including JMGA.
 
 ### Language
 
-The official documents set no Japanese-language requirement. But the rules, forms and set textbooks exist only in Japanese, and the written exam includes an essay in Japanese, so near-native reading and writing is likely needed (an inference).
+The official documents set no Japanese-language requirement. But the rules, forms and set textbooks exist only in Japanese, and the written exam includes an essay in Japanese, so a high level of reading and writing is likely needed (an inference).
 
 ### Legal status
 
@@ -134,7 +136,7 @@ The teaching language is not stated.
 
 ### Legal status
 
-The research did not find whether Nepali law requires an IFMGA qualification to guide.
+No rule was found on whether Nepali law requires an IFMGA qualification to guide.
 
 ### Foreigners
 
@@ -146,7 +148,7 @@ IFMGA Platform 5.17 forbids No Ski associations from training applicants from "s
 
 ### Number of guides
 
-24 when Nepal joined. The research did not find a current total.
+24 when Nepal joined. No published current total was found.
 
 ## Georgia: GMGA
 

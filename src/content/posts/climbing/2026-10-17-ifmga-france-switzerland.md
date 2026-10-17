@@ -3,7 +3,7 @@ title: "法國、瑞士高山嚮導怎麼考：ENSA 國家文憑、SBV 聯邦證
 date: 2026-10-17
 category: climbing
 type: guide
-tags: [climbing, ifmga, mountain-guide, mountaineering, france, switzerland]
+tags: [climbing, ifmga, mountain-guide, france, switzerland]
 lang: zh-TW
 series:
   name: "IFMGA 高山嚮導"
@@ -66,7 +66,7 @@ IFMGA 共通的訓練架構見 [學什麼、考什麼](/posts/climbing/2026-10-1
 - 考試當年 1 月 1 日滿 18 歲，沒有年齡上限。
 - 公民急救證 PSC1，加 3 個月內的醫療證明。
 - [2026 年路線清單](https://www.ensm.sports.gouv.fr/wp-content/uploads/2025/07/Liste-de-courses-2026-nouveau-cursus_V2.pdf)：至少 55 條，分布在至少 3 年。全部要先鋒或輪流領攀。類別包括高山攀登、岩攀、雪冰、滑雪登山、冰瀑五類，例如冰瀑要 WI5 以上。
-- probatoire 很難過。ENSM 公布的數字是 2025 年夏季部分通過率 26%。
+- probatoire 很難過。[ENSM 公布的數字](https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/)是 2025 年夏季部分通過率 26%。
 
 ### 費用
 

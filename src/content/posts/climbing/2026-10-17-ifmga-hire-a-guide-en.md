@@ -44,7 +44,7 @@ There is also a legal side: in some countries, **anyone who takes money to lead 
 - Italy: leading clients in mountaineering, ski mountaineering or instruction, on any terrain and at any difficulty, is reserved for guides on the official register ([Law 6/1989, art. 2](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1989-01-02;6), in Italian).
 - Switzerland: guiding without a license is fined up to CHF 10,000, and the Swiss guide association says it counts as commercial "from the first franc earned" ([SBV guidance on guiding without a license](https://sbv-asgm.ch/wp-content/uploads/SBV-2025-Wegleitung-Fuehren-ohne-Bewilligung-V08_Kurzfassung_02.2026.pdf), in German).
 
-These rules govern the person being paid; they do not require you to hire a guide. A likely practical consequence for readers: paying an "experienced friend" to take you up in these countries may mean that person is working illegally.
+These rules govern the person being paid; they do not require you to hire a guide. What this means for readers (our inference from the law text): paying an "experienced friend" to take you up in these countries may mean that person is working illegally.
 
 ## How to check a guide is IFMGA
 
@@ -64,9 +64,9 @@ That page has no search function. It lists three ways to find a guide: national 
 
 ### 3. IFMGA's ID lookup
 
-[searchguides.ifmga.info](https://searchguides.ifmga.info) is a "Check Mountain Guide by ID" tool that checks a qualification by member number. During research it required a login, so in practice ask the guide for the number and have the guide or their association confirm it.
+[searchguides.ifmga.info](https://searchguides.ifmga.info) is a "Check Mountain Guide by ID" tool that checks a qualification by member number. At the time of writing it required a login, so in practice ask the guide for the number and have the guide or their association confirm it.
 
-Another official page, [ifmga.net/browse](https://ifmga.net/browse), has a search form, but queries returned empty results during research, and the page states the data comes from member associations and IFMGA does not guarantee it.
+Another official page, [ifmga.net/browse](https://ifmga.net/browse), has a search form, but queries returned empty results at the time of writing, and the page states the data comes from member associations and IFMGA does not guarantee it.
 
 ### 4. Titles that look similar
 
@@ -115,16 +115,16 @@ In Taiwan dollars: at the [Bank of Taiwan](https://rate.bot.com.tw/xrt?Lang=zh-T
 
 Treat the guide's fee as a starting point, not a total.
 
-1. **The guide's hut and meals**: in the Alps the client usually pays. ZERMATTERS says the Hörnli hut half-board is paid for "you and the guide", about CHF 150 per person.
-2. **The guide's lifts and trains**: Courmayeur states the client pays the guide's €25 Aiguille du Midi cable car.
+1. **The guide's hut and meals**: in the Alps the client usually pays. [ZERMATTERS](https://web.archive.org/web/20260412082855/https://www.zermatters.ch/en/activities/climb/) says the Hörnli hut half-board is paid for "you and the guide", about CHF 150 per person.
+2. **The guide's lifts and trains**: [Courmayeur](https://guidecourmayeur.com/en/scheda_valle.php?id_prg=19&id_stag=1) states the client pays the guide's €25 Aiguille du Midi cable car.
 3. **Your own lifts, huts and transport**: the Aiguille du Midi cable car is €81–83 per person (Courmayeur).
 4. **Preparation climbs**: ZERMATTERS requires a preparation route before the Matterhorn, at an extra CHF 360–785 ([2024 official price PDF](https://web.archive.org/web/20240515053202/https://www.zermatters.ch/sites/default/files/media-document/2024_Preisvarianten%20Matterhorn_DE.pdf)).
 5. **Gear rental**: about CHF 50–70 in Zermatt.
 6. **Insurance**: Courmayeur asks for a European Health Insurance Card (EHIC) or personal health insurance. The [EHIC](https://ec.europa.eu/social/main.jsp?catId=559&langId=en) is issued by European national health systems; Taiwan's National Health Insurance is not part of it, so Taiwanese clients need their own policy that covers mountain activities.
-7. **Taxes and fees**: Canada adds 5% GST (Yamnuska); Courmayeur charges a 5% admin fee.
+7. **Taxes and fees**: Canada adds 5% GST ([Yamnuska](https://yamnuska.com/ice-climbing/guided-climbs)); Courmayeur charges a 5% admin fee.
 8. **Helicopters in New Zealand**: Aspiring Guides charges NZ$1,500 extra for the helicopter approach, while [Adventure Consultants](https://adventureconsultants.com/guided-ascents/new-zealand-ascents/mount-aspiring) includes it on the same mountain.
 
-Japan is no different: the Kanagawa association states the guide's transport, lodging and meals are charged on the day.
+Japan is no different: the [Kanagawa association](https://kmga.jp/request/) states the guide's transport, lodging and meals are charged on the day.
 
 When comparing quotes, ask two questions first: is the price per person or per group, and who pays for the guide's hut and lifts?
 
@@ -141,7 +141,7 @@ Ratios are set by the route. You cannot squeeze in more people to save money.
 | Multi-pitch ice | Up to 2:1 | Yamnuska |
 | Single-pitch rock or ice instruction | Up to 6:1 | Yamnuska |
 
-Many European guides charge "one guide for one day" and the group splits it. Simmons Mountain Works gives the example of US$700 a day: two clients together each pay half.
+Many European guides charge "one guide for one day" and the group splits it. [Simmons Mountain Works](https://simmonsmountain.works/termsconspolis/alps-rate-inclusions-and-exclusions) gives the example of US$700 a day: two clients together each pay half.
 
 ## Tipping
 
@@ -155,7 +155,7 @@ Many European guides charge "one guide for one day" and the group splits it. Sim
 | Japan | Tipping is generally not expected; if you do, use an envelope | [JNTO](https://www.japan.travel/en/plan/tipping-in-japan/) |
 | New Zealand | Not expected for guided outdoor activities | [Tourism New Zealand](https://www.newzealand.com.au/info/frequently-asked-questions/is-it-expected-to-tip-during-guided-outdoor-activities-like-hiking-or-kayaking) |
 
-Mountain Trip adds two points: tip even if you do not summit, because you are paying for judgment and care; with several guides, hand it to one of them to share.
+[Mountain Trip](https://mountaintrip.com/how-much-should-i-tip-my-guide) adds two points: tip even if you do not summit, because you are paying for judgment and care; with several guides, hand it to one of them to share.
 
 The Japan and Switzerland entries come from general tourism or travel company sources; no guide-specific rule was found.
 

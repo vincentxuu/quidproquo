@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-spain-central-eastern-europe)
 
-These six associations share a post because they show several ways a state can bring guide training into its institutions. Spain puts it inside the national sports-education system, so guides first earn a state qualification. Slovakia and Slovenia write guiding into law (Slovenia in a dedicated guide law, Slovakia in its Mountain Rescue Act). The Czech Republic lists guiding as a trade that needs proof of qualification. Poland has its own state mountain-guide licence, separate from IFMGA certification. The last one, EEMGA, is the opposite case: a multinational association that opens a path for countries without their own, and the only one in this group taught in English.
+These six associations share a post because they show several ways a state can bring guide training into its institutions. Spain puts it inside the national sports-education system, so guides first earn a state qualification. Slovakia and Slovenia write guiding into law (Slovenia in a dedicated guide law, Slovakia in its Mountain Rescue Act). The Czech Republic lists guiding as a trade that needs proof of qualification. Poland has its own state mountain-guide licence, separate from IFMGA certification. The last one, EEMGA, is the opposite case: a multinational association that opens a path for countries without their own, and the only one in this group taught in English, which makes it the most likely entry point for Taiwanese readers.
 
 The common IFMGA standard is covered in [What You Learn and How You're Tested](/posts/climbing/2026-10-17-ifmga-training-and-exams-en). This post covers only the national differences.
 
@@ -118,7 +118,7 @@ The whole scheme takes three to five years, roughly 127 days in total (inferred)
 
 ### Cost
 
-Training costs PLN 70,000–75,000 per person depending on group size, plus exam and trip costs. The official wording: "Pomiędzy 70 a 75 tysięcy złotych + koszty egzaminów i wyjazdów." The entrance test fee is not published.
+Training costs PLN 70,000–75,000 per person depending on group size, plus exam and trip costs ([PSPW training page](https://www.pspw.pl/szkolenia)). The entrance test fee is not published.
 
 ### Language
 
@@ -251,7 +251,7 @@ From the [2027 call for applications](https://www.zgvs.si/wp-content/uploads/202
 
 ### Cost
 
-Trainees pay about €60 per day, roughly €5,000 for the 80 days, plus food, lodging and travel. The state funds training each year. This wording has not changed since the March 2023 archive, and it names a ministry that was renamed in the January 2023 reorganization, so the figure was probably set in 2022 at the latest ([2023 archive](https://web.archive.org/web/20230322135920/https://www.zgvs.si/postani-vodnik/)).
+Trainees pay about €60 per day, roughly €5,000 for the 80 days, plus food, lodging and travel. The state funds training each year. The site's wording has not changed since the 2023 archive, so the figure was probably set in 2022 at the latest ([2023 archive](https://web.archive.org/web/20230322135920/https://www.zgvs.si/postani-vodnik/)).
 
 ### Language
 

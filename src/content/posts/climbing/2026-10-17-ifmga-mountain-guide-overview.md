@@ -78,7 +78,7 @@ IFMGA 不直接訓練或考核個人。依[成為嚮導](https://ifmga.net/profe
 
 ### No Ski 是什麼意思
 
-秘魯、玻利維亞、尼泊爾、厄瓜多四個協會被標為「IFMGA No Ski」。它們的嚮導可以戴徽章，但在其他會員國沒有滑雪項目的執業權，對外都要標明 No Ski。
+[會員協會頁](https://ifmga.net/member-associations/member-associations)把秘魯、玻利維亞、尼泊爾、厄瓜多四個協會標為「IFMGA No Ski」。它們的嚮導可以戴徽章，但在其他會員國沒有滑雪項目的執業權，對外都要標明 No Ski。
 
 實際影響看瑞士：瑞士把 IFMGA 認可的嚮導證書視同聯邦證書，可以申請執業許可，但 No Ski 證書不算（[瑞士嚮導協會 SBV 無照帶客說明](https://sbv-asgm.ch/wp-content/uploads/SBV-2025-Wegleitung-Fuehren-ohne-Bewilligung-V08_Kurzfassung_02.2026.pdf)）。
 
@@ -93,7 +93,7 @@ IFMGA 的一大目標是讓嚮導在會員國之間流動，但各國仍有自�
 
 ## 跟台灣的山域嚮導差在哪
 
-台灣的制度是運動部[《山域嚮導資格檢定辦法》](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=H0120058)。
+台灣的制度是運動部[《山域嚮導資格檢定辦法》](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=H0120058)；下表 IFMGA 那欄依[官方訓練標準](https://ifmga.net/professional-mountain-guide/training-and-assessment)。
 
 | | 台灣山域嚮導 | IFMGA 嚮導 |
 |---|---|---|

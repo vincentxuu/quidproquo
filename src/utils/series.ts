@@ -195,6 +195,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'ifmga-mountain-guides',
+    category: 'other',
+    names: { 'zh-TW': 'IFMGA 高山嚮導', en: 'IFMGA Mountain Guides' },
+    descriptions: {
+      'zh-TW': 'IFMGA 國際高山嚮導是什麼、怎麼雇一位、學什麼考什麼，28 個會員協會分區介紹各國的訓練流程、費用、語言與外國人條件，最後整理台灣人能走的路。',
+      en: 'What an IFMGA mountain guide is, how to hire one, and what the training and exams cover, followed by region-by-region guides to how the 28 member associations train guides (process, cost, language, rules for foreigners), ending with the realistic paths for Taiwanese climbers.',
+    },
+  },
+  {
     slug: 'aeo-geo',
     category: 'ai-agents',
     names: { 'zh-TW': 'AEO / GEO 與 AI 搜尋', en: 'AEO, GEO, and AI Search' },
