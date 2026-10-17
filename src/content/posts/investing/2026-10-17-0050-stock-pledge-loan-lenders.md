@@ -45,7 +45,7 @@ flowchart TB
 | 兆豐 | 3.5–4%，人工審核，可押正二 | 依標的分群，機動調整 | 4/30 起取消鑽石級優惠 |
 | 群益 | 3.88–5%，額度不穩定 | [牌告 6.45%](https://goplus.capital.com.tw/unlimitedcredit/qa.asp) | 還款先進先出 |
 | 玉山 | 4.25%，沒額度 | [線上 4.25%](https://www.esunsec.com.tw/cus_service/loan/index.html)，限 ETF、台灣 50 與中型 100 成分股 | 同一營業日只能申請一次 |
-| 新光 | 3.8% | — | — |
+| 新光 | 3.8% | — | [官網注意事項（2022.09 版）](https://www.skis.com.tw/CusService_WebAPI/api/file/15edfa8485d24e19b0813a5b3926a731)：130%、2 個營業日、補到 166% |
 | 台新證券 | 3.5%，沒額度 | [依融資牌告利率](https://www.tssco.com.tw/tssloan/) | 每營業日單筆，最快次一營業日撥款 |
 | 華南永昌 | 3.5%、4%，無法借新還舊 | [牌告 6.45%](https://www.entrust.com.tw/Marketing/entrustLoan/index.html) | 須臨櫃或洽營業員 |
 | 富邦 | 3.88%，條件待確認 | [牌告 6.40%](https://www.fbs.com.tw/DomesticStocks/UnrestrictedLoan) | 動撥手續費 20 元 |
@@ -57,7 +57,7 @@ flowchart TB
 
 表上有兩處數字互相對不上：NOWnews 引網友說富邦一般戶已升到 4.5%，Threads 表上是 3.88%；元大證金表上與官網相同。
 
-銀行端：[國泰世華銀行](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/)是 2.95% 起、期限一年、可循環動用，另收帳務管理費 2 萬元。[台新銀行](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/)的股票質借免保證人、不須財力證明、可循環動用，利率另列在放款利率表。兩家的維持率與追繳條款都在契約裡，要向分行索取。
+銀行端：[國泰世華銀行](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/)是 2.95% 起、期限一年、可循環動用，另收帳務管理費 2 萬元。[台新銀行](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/)的股票質借免保證人、不須財力證明、可循環動用，利率另列在放款利率表。兩家的維持率與追繳條款都在契約裡，要向分行索取。[華南銀行](https://www.hncb.com.tw/wps/portal/HNCB/per_finance/loan/personal/stock_fund_loan)的股票靈活金標 2.99% 起，但頁面上的利率基準日是民國 113 年 4 月 7 日，現行利率要問分行；手續費 2.5‰（最低 5,000 元）、徵信費 300 元，額度一年、每筆最長 6 個月、按月付息。
 
 ## 追繳規則
 
@@ -67,10 +67,11 @@ flowchart TB
 | 國泰證券、兆豐、國票 | 低於 130% | 2 個營業日 | 166% |
 | 群益 | 低於 130% | 2 個營業日 | 同一頁寫了 166% 與 130% 兩種 |
 | 合庫 | 低於 130% | 2 個營業日 | 回升到 166% 才取消追繳 |
+| 新光、永豐 | 低於 130% | 2 個營業日 | 新光補到 166%；永豐[教學文](https://www.sinotrade.com.tw/richclub/primary/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%9F%A5%E8%A9%A2-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%80%8E%E9%BA%BC%E7%AE%97-%E6%94%B6%E5%88%B0%E8%BF%BD%E7%B9%B3%E9%80%9A%E7%9F%A5%E6%80%8E%E9%BA%BC%E8%BE%A6-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E8%A3%9C%E7%B9%B3%E6%B5%81%E7%A8%8B-66b4755115fc4d4560494b23)建議低於 145% 就先補，維持率分母是已申請額度 |
 | 富邦、台新證券、玉山、統一 | 低於 130% | 2 個營業日 | 官網只寫 130%；第 3 個營業日起處分 |
 | 華南永昌 | 低於 130% | 官網未寫期限 | 要求提高維持率 |
 
-元大證金是證金公司，適用自己的[業務操作辦法](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult?sysNumber=LW10869567&releaseDate=2025-10-21)和[契約書](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult/Article?isIntegratedSearch=True&sysNumber=LW10869584&searchString1=%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E6%93%94%E4%BF%9D%E6%94%BE%E6%AC%BE)，其餘券商依[證交所辦法](https://twse-regulation.twse.com.tw/m/LawContent.aspx?FID=FL080086)（130%、2 個營業日、補到高於 166%），契約可另外約定。永豐、凱基、元大證券、第一金、新光、中信這篇沒有取得官網條款，借款前請營業員書面確認。
+元大證金是證金公司，適用自己的[業務操作辦法](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult?sysNumber=LW10869567&releaseDate=2025-10-21)和[契約書](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult/Article?isIntegratedSearch=True&sysNumber=LW10869584&searchString1=%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E6%93%94%E4%BF%9D%E6%94%BE%E6%AC%BE)，其餘券商依[證交所辦法](https://twse-regulation.twse.com.tw/m/LawContent.aspx?FID=FL080086)（130%、2 個營業日、補到高於 166%），契約可另外約定。凱基、元大證券、第一金、中信這篇沒有取得官網追繳條款，借款前請營業員書面確認。
 
 元大證金的專案利率是 [7/1 調整後的 3.92% 起](https://www.yuantafinance.com.tw/The.aspx?The=232&Role=1&Lang=1)，單日累計借款要達 1 萬元才享優惠，官網寫明每年 1、4、7、10 月 1 日可調整。兆豐的 0050 原屬最優惠的鑽石級，[4/30 起這一級的優惠取消](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480)，回歸白金級、黃金級利率。
 
@@ -126,6 +127,9 @@ flowchart TB
 - [兆豐證券：兆好貸優惠利率調整通知（2026/4/29）](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480)
 - [兆豐證券公告（2026/4/29）](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429120158563004)
 - [永豐金證券：借貸專區](https://service.sinotrade.com.tw/newweb/loan-zone/)
+- [永豐金證券豐雲學堂：不限用途維持率](https://www.sinotrade.com.tw/richclub/primary/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%9F%A5%E8%A9%A2-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%80%8E%E9%BA%BC%E7%AE%97-%E6%94%B6%E5%88%B0%E8%BF%BD%E7%B9%B3%E9%80%9A%E7%9F%A5%E6%80%8E%E9%BA%BC%E8%BE%A6-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E8%A3%9C%E7%B9%B3%E6%B5%81%E7%A8%8B-66b4755115fc4d4560494b23)
+- [新光證券：不限用途款項借貸注意事項](https://www.skis.com.tw/CusService_WebAPI/api/file/15edfa8485d24e19b0813a5b3926a731)
+- [華南銀行：股票靈活金](https://www.hncb.com.tw/wps/portal/HNCB/per_finance/loan/personal/stock_fund_loan)
 - [富邦證券：不限用途款項借貸](https://www.fbs.com.tw/DomesticStocks/UnrestrictedLoan)
 - [合庫證券：不限輕鬆貸](https://luckydraw.tcfhc-sec.com.tw/websites/loan/index.html)
 - [凱基證券：股票貸款](https://www.kgi.com.tw/zh-tw/product-overview/borrow-n-lending/stock-loans)

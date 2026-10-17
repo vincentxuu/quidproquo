@@ -45,7 +45,7 @@ The "October quote" column comes from the account 存股的陪跑者's [Threads 
 | Mega | 3.5–4%, manual review, 2× leveraged ETFs accepted | Tiered by stock, floating | Top-tier promo cancelled Apr 30 |
 | Capital | 3.88–5%, capacity unstable | [List 6.45%](https://goplus.capital.com.tw/unlimitedcredit/qa.asp) | Repayment is first-in, first-out |
 | E.SUN | 4.25%, no capacity | [Online 4.25%](https://www.esunsec.com.tw/cus_service/loan/index.html) for ETFs and TW50/Mid-100 constituents | One request per business day |
-| Shin Kong | 3.8% | — | — |
+| Shin Kong | 3.8% | — | [Official notice (Sept 2022 edition)](https://www.skis.com.tw/CusService_WebAPI/api/file/15edfa8485d24e19b0813a5b3926a731): 130%, 2 business days, top up to 166% |
 | Taishin Securities | 3.5%, no capacity | [Margin list rate](https://www.tssco.com.tw/tssloan/) | One request per day; funds next business day at the earliest |
 | Yuanta-Hua Nan (華南永昌) | 3.5% / 4%, no roll-over | [List 6.45%](https://www.entrust.com.tw/Marketing/entrustLoan/index.html) | Branch or account officer only |
 | Fubon | 3.88%, terms to be confirmed | [List 6.40%](https://www.fbs.com.tw/DomesticStocks/UnrestrictedLoan) | NT$20 draw-down fee |
@@ -57,7 +57,7 @@ The "October quote" column comes from the account 存股的陪跑者's [Threads 
 
 Two numbers conflict: NOWnews quotes a user saying Fubon's ordinary-account rate has reached 4.5%, while the Threads list says 3.88%. For Yuanta Securities Finance the list matches the official site.
 
-On the bank side, [Cathay United Bank](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/) starts at 2.95% with a one-year term, revolving use and a NT$20,000 account-management fee. [Taishin Bank](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/) offers pledge loans with no guarantor, no proof of financial strength and revolving use; its rate sits in the bank's separate lending-rate table. Both banks put maintenance-ratio and margin-call terms in the contract; ask the branch for a copy.
+On the bank side, [Cathay United Bank](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/) starts at 2.95% with a one-year term, revolving use and a NT$20,000 account-management fee. [Taishin Bank](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/) offers pledge loans with no guarantor, no proof of financial strength and revolving use; its rate sits in the bank's separate lending-rate table. Both banks put maintenance-ratio and margin-call terms in the contract; ask the branch for a copy. [Hua Nan Bank](https://www.hncb.com.tw/wps/portal/HNCB/per_finance/loan/personal/stock_fund_loan) advertises its stock loan from 2.99%, but the rate on the page is dated 7 April 2024 (ROC 113), so ask the branch for the current rate; the fee is 2.5‰ (minimum NT$5,000), credit check NT$300, limit one year, each draw up to six months, interest paid monthly.
 
 ## Margin-call rules
 
@@ -67,10 +67,11 @@ On the bank side, [Cathay United Bank](https://www.cathaybk.com.tw/cathaybk/pers
 | Cathay Securities, Mega, Grand Cathay | Below 130% | 2 business days | 166% |
 | Capital | Below 130% | 2 business days | The same page states both 166% and 130% |
 | TCFHC | Below 130% | 2 business days | Call cancelled only when the ratio is back at 166% |
+| Shin Kong, SinoPac | Below 130% | 2 business days | Shin Kong: 166%. SinoPac's [guide](https://www.sinotrade.com.tw/richclub/primary/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%9F%A5%E8%A9%A2-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%80%8E%E9%BA%BC%E7%AE%97-%E6%94%B6%E5%88%B0%E8%BF%BD%E7%B9%B3%E9%80%9A%E7%9F%A5%E6%80%8E%E9%BA%BC%E8%BE%A6-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E8%A3%9C%E7%B9%B3%E6%B5%81%E7%A8%8B-66b4755115fc4d4560494b23) advises topping up below 145%; its ratio denominator is the approved limit |
 | Fubon, Taishin Securities, E.SUN, Uni-President | Below 130% | 2 business days | Site states only 130%; shares are sold from the third business day |
 | Yuanta-Hua Nan | Below 130% | No deadline stated | Asks you to raise the ratio |
 
-Yuanta Securities Finance, a securities finance company, follows its own [operating rules](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult?sysNumber=LW10869567&releaseDate=2025-10-21) and [contract](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult/Article?isIntegratedSearch=True&sysNumber=LW10869584&searchString1=%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E6%93%94%E4%BF%9D%E6%94%BE%E6%AC%BE). Brokers follow the [TWSE rules](https://twse-regulation.twse.com.tw/m/LawContent.aspx?FID=FL080086) (130%, two business days, top up above 166%), which a contract may vary. For SinoPac, KGI, Yuanta Securities, First Securities, Shin Kong and CTBC, this post has no official terms; get them in writing before borrowing.
+Yuanta Securities Finance, a securities finance company, follows its own [operating rules](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult?sysNumber=LW10869567&releaseDate=2025-10-21) and [contract](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult/Article?isIntegratedSearch=True&sysNumber=LW10869584&searchString1=%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E6%93%94%E4%BF%9D%E6%94%BE%E6%AC%BE). Brokers follow the [TWSE rules](https://twse-regulation.twse.com.tw/m/LawContent.aspx?FID=FL080086) (130%, two business days, top up above 166%), which a contract may vary. For KGI, Yuanta Securities, First Securities and CTBC, this post has no official margin-call terms; get them in writing before borrowing.
 
 Yuanta Securities Finance's promo rate was [reset to 3.92% from July 1](https://www.yuantafinance.com.tw/The.aspx?The=232&Role=1&Lang=1); the promo needs NT$10,000 or more borrowed per day, and the site says rates may be adjusted on the first of January, April, July and October. Mega's 0050 used to sit in the top "diamond" tier; [that tier's promotional rate was cancelled from April 30](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480) and those stocks fall back to the platinum and gold tiers.
 
@@ -126,6 +127,9 @@ This post summarizes rules and is not investment advice. Borrowing carries risk 
 - [Mega Securities: 兆好貸 promotional-rate change notice (2026-04-29)](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480) (in Chinese)
 - [Mega Securities notice (2026-04-29)](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429120158563004) (in Chinese)
 - [SinoPac Securities: loan zone](https://service.sinotrade.com.tw/newweb/loan-zone/) (in Chinese)
+- [SinoPac Securities academy: maintenance ratio](https://www.sinotrade.com.tw/richclub/primary/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%9F%A5%E8%A9%A2-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%80%8E%E9%BA%BC%E7%AE%97-%E6%94%B6%E5%88%B0%E8%BF%BD%E7%B9%B3%E9%80%9A%E7%9F%A5%E6%80%8E%E9%BA%BC%E8%BE%A6-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E8%A3%9C%E7%B9%B3%E6%B5%81%E7%A8%8B-66b4755115fc4d4560494b23) (in Chinese)
+- [Shin Kong Securities: unrestricted-purpose loan notice](https://www.skis.com.tw/CusService_WebAPI/api/file/15edfa8485d24e19b0813a5b3926a731) (in Chinese)
+- [Hua Nan Bank: stock loan](https://www.hncb.com.tw/wps/portal/HNCB/per_finance/loan/personal/stock_fund_loan) (in Chinese)
 - [Fubon Securities: unrestricted-purpose loans](https://www.fbs.com.tw/DomesticStocks/UnrestrictedLoan) (in Chinese)
 - [TCFHC Securities: 不限輕鬆貸](https://luckydraw.tcfhc-sec.com.tw/websites/loan/index.html) (in Chinese)
 - [KGI Securities: stock loans](https://www.kgi.com.tw/zh-tw/product-overview/borrow-n-lending/stock-loans) (in Chinese)
