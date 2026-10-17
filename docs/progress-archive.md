@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-10-18 封存：daily-digest-security 2026-10-16 條目（daily-digest-arxiv 2026-10-18 新增條目後，progress.txt 超過 90 行上限）
+
+- **daily-digest-security 2026-10-16**：4 組 Groundlane `web_search` 查詢後，候選中 Cycode MCP Python SDK OAuth 帳號劫持已於 09-29 寫過（同一揭露）、cve-search_mcp CVE-2025-68145 為 dailycve.com 彙整的 2025 舊 CVE 且來源品質低、GhostAction 供應鏈campaign 與 AI agent 無直接關聯，均排除；選出新事件 **HiddenLayer 實測 TypeSafe 決策模型 Jev 仍可被 prompt injection 劫持**：Jev 是只回傳機率／分數不輸出自由文字的「System One」決策模型，號稱不會產生幻覺；HiddenLayer 10/14 發布的研究對 Jev、自製 Qwen3.8-27B System One 模型、OpenAI gpt-6-luna 做同一套測試，模擬購物車結帳頁藏一則「確認價格」廣告（間接 prompt injection），Jev API 把 91% 點擊機率給了廣告按鈕、只有 9% 給正確的結帳鍵（加廣告前應有 99.7% 機率正確結帳）；另一組測試用 TokenBreak 變體攻擊讓 30 則毒性 prompt 的分類分數被壓低超過三分之二，繞過 Jev 本該 100% 攔截的分類判斷。The Register 10/15 獨立報導，HiddenLayer 自身研究＋第三方新聞報導構成交叉驗證；無 CVE（研究發現的模型類別弱點非單一可修補漏洞），TypeSafe AI 未回應置評請求。series order 55（與 10-15 第二次排程 langflow 的 54 連號，首次誤寫 54 經 `check:series-order` 攔下後更正）。中英雙版已建立並互相連結。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）、`check:lang-parity`（2846 組全過）、`check:tw`（0 blocking，新檔 0 命中）、`check:series-order`（55 無撞號，僅既有缺號 warning）皆 0 blocking；已將最舊 Recently completed 條目（10-13 daily-digest-github）移至 `docs/progress-archive.md`；rebase 合併 daily-digest-github 2026-10-17 後發現同一條目已被對方併發封存（合併時未重複封存），另因合併後總行數超過 90 行上限，多封存一則（10-13 daily-digest-security）；待 commit／push。
+
+---
+
 ## 2026-10-17 封存：daily-digest-ai-interview 2026-10-17 條目（daily-digest-product-interview rebase 合併後，progress.txt 超過 90 行上限）
 
 - **daily-digest-ai-interview 2026-10-17**：DOW=6（週六，Taipei 時區）Paper Reading，`interview-focus.json` 權重全 1 未加練覆寫。未重新搜尋，直接沿用同日已產出的 `daily-digest-arxiv` 三篇已審核論文之一改寫為面試討論：**PROBE**（arXiv 2610.22124，NeurIPS 2026 已接受）——把「agent 有沒有照政策做事」形式化成雙人賽局，訓練 4B 小型稽核員主動試探，政策涵蓋率（12/20）勝過零訓練 30B 稽核員（7/20）。核心概念五項：政策合規是獨立評測維度、小模型當稽核員靠主動試探、挖得多不等於挖得廣（涵蓋率 vs 命中次數）、LLM judge 可信度要先驗證（judge 跟人類共識僅 39.6% 一致，作者自己發現並修正)、遷移測試檢驗過擬合。練習題改編自論文核心設定（訂票客服 agent 的政策合規評測設計），非當日 arxiv digest 的練習題。中英雙版已建立並互相連結，series order 59（距 2026-08-20 天數＋1，grep 全站確認與 10-16 的 58 連號、無撞號）。`pnpm install --frozen-lockfile` 對 `lanefoundry/gatelane` 回 403（codeload 403，既有根因），`gray-matter` 裝不起來，未修環境，只跑不需依賴的 `check:tw`（0 blocking，新檔 0 命中）；`check:references`／`check:lang-parity`／`check:series-order` 改手動核對：grep 全站確認 order 59 在本系列（AI Engineer 面試日練）無撞號；中英 frontmatter 的 lang／tags／series／date 一致；文末「## 參考資料」／「## References」各 3 條連結對應核心概念與練習題來源。`.git/hooks/pre-commit` 確認未安裝（postinstall 未跑，commit 不會卡自動 verify）；已將最舊 Recently completed 條目（10-16 daily-digest-model-card）移至 `docs/progress-archive.md`；待 commit／push。
