@@ -1,6 +1,17 @@
 # Research 工具映射
 
-依當前 tool list 與執行環境選擇。公開網頁研究與抓取一律使用 Groundlane MCP；GitHub、arXiv、Hugging Face、官方 API、finance API 等來源專用工具仍可用。不要把 `web.run`、WebFetch、Playwright scraping、`stealth_fetch`、`web-fetch`、`fetch_page`、Exa、Tavily、Firecrawl、Jina 或 Linkup 當 public-web fallback。
+依當前 tool list 與執行環境選擇。公開網頁研究首選 Groundlane MCP；GitHub、arXiv、Hugging Face、官方 API、finance API 等來源專用工具仍可用。Groundlane 失敗時照下面的 fallback 鏈往下試，與 CLAUDE.md「Web Fetch 優先順序」一致。`stealth_fetch`、`web-fetch`、`fetch_page` 已退役不用。
+
+## Fallback 鏈（搜尋與抓頁都適用）
+
+1. Groundlane MCP（`web_search`／`web_fetch`／`web_extract`；雲端 session 常是 deferred，先 ToolSearch 載入，沒載入不算不可用）
+2. Groundlane 直接 HTTP（`WebFetch` POST 到 Groundlane `/mcp` endpoint，繞過 connector 層）
+3. Keenable keyless：`GET https://api.keenable.ai/v1/search/public`，Header `X-Keenable-Title: quidproquo`
+4. You.com keyless：`GET https://api.you.com/mcp?profile=free`
+5. 雲端 MCP：依序 Exa、Tavily、linkup、jina、firecrawl
+6. 內建 `WebFetch`、`curl`（帶一般瀏覽器 User-Agent）
+
+一個工具斷線或回錯誤就換下一個，記錄 `toolDegradation`，不要停在 blocker。
 
 ## Groundlane
 
@@ -20,15 +31,15 @@
 
 | 用途 | 首選 | 允許的非 Groundlane 工具 |
 |---|---|---|
-| 廣域搜尋（找候選來源） | Groundlane `web_search` | 無；未掛載時回報 blocker |
+| 廣域搜尋（找候選來源） | Groundlane `web_search` | Fallback 鏈 2–5 |
 | 學術 / GitHub / 程式碼導向 | 官方資料庫／GitHub／Hugging Face／本機 repo | 來源專用 API 或 MCP，不用一般 web search fallback |
-| 抓單一頁面（轉 Markdown） | Groundlane `web_fetch` | 無；未授權時參考 Groundlane free API / free tier 設定方式 |
+| 抓單一頁面（轉 Markdown） | Groundlane `web_fetch` | Fallback 鏈 2、5、6 |
 | 固定欄位抽取 | Groundlane `web_extract` | 來源本身的結構化 API／專用 MCP |
 | 整站盤點 | 官方 sitemap／archive，再用 Groundlane 逐頁抓 | 來源本身 sitemap/API |
-| 互動取資料（需要 JS render） | Groundlane configured rendering | 只有在使用者明確要求操作登入後產品 UI 時，才用瀏覽器做互動操作；不要拿它抓公開網頁內容 |
+| 互動取資料（需要 JS render） | Groundlane configured rendering | 公開頁被 Cloudflare／challenge 擋：Playwright 或 Chrome 擴充讀頁面；登入後的產品 UI 只在使用者要求時操作 |
 | 整合式深研（黑箱多步） | Agent 自己維持證據表 | 不採用黑箱 research tool 取代本 skill 的驗證流程 |
 
-若 Groundlane 未出現在最外層工具宣告，先檢查完整 callable tool inventory（含 deferred MCP tools）。已掛載但 authorization 失敗時，不換 legacy provider；回報 blocker 並請使用者依 Groundlane free API / free tier 方式完成授權。
+若 Groundlane 未出現在最外層工具宣告，先檢查完整 callable tool inventory（含 deferred MCP tools）。已掛載但 authorization 失敗時，走上面的 fallback 鏈繼續研究（不用已退役的 legacy provider），並提醒使用者依 Groundlane free API / free tier 方式完成授權。
 
 ## 抽取完整度（最容易踩的坑）
 
@@ -61,7 +72,8 @@
 3. **機構典藏 / 作者自存版**——大學 repository、實驗室網站、個人頁；用 `bepress_citation_pdf_url` 之類的 meta 標籤確認 canonical PDF 位址
 4. **鏡像與聚合站**——CORE、Semantic Scholar；**Scribd 等第三方轉載不採用**，來源正當性不明
 5. **Wayback Machine**
-6. 以上皆無 → 標 🔴 並在交手時明講，不要用「已查證」帶過
+6. **非論文網頁被擋**（403、Cloudflare、動態載入、404）：Groundlane `render: always` → `web.archive.org/web/2026*/<url>` 存檔 → 官方站內其他頁、下載區 PDF、新聞稿 → 官方 Facebook／Instagram 貼文 → 當地語言再搜兩組關鍵字 → Fallback 鏈 3–6 → Playwright／Chrome 擴充
+7. 以上全部試過仍無 → 結局標 ⚪「確認無公開資料」，**逐一列出試過的工具＋網址＋失敗原因**；資料只在登入區就標 ✉️ 並寫出該問誰。不要用「已查證」帶過，也不要只試一兩個就標 🔴
 
 ## 升階原則
 
@@ -71,7 +83,7 @@
 
 | 失敗 | 對應 |
 |---|---|
-| 普通 HTTP 403 / challenge | 嘗試 Groundlane configured rendering；保留 status/warnings，不宣稱一定能繞過 CAPTCHA |
+| 普通 HTTP 403 / challenge | Groundlane rendering → archive.org → Playwright／Chrome 擴充；保留 status/warnings，不宣稱一定能繞過 CAPTCHA |
 | 搜尋結果都是 SEO 農場 | 加 `site:` 限定官方域名、domain allowlist 或排除低品質網域 |
 | 整站盤點卡住 | 先找官方 sitemap / archive，挑頁面後逐個 Groundlane `web_fetch` |
 | 需要 JS render | 確認真的需要 JS；優先 Groundlane configured rendering，很多 SPA 其實有 SSR fallback |
@@ -85,5 +97,5 @@
 | 二手站數字彼此一致但可疑 | 一致不等於正確，二手站會集體抄同一個錯。價格、方案名稱、產品線一律回官方頁覆核。本站踩過：兩個獨立統計彙整站對某年會議數字完全一致，官方 Fact Sheet PDF 卻寫了完全不同的數字——後來查到同一組織另外兩篇不同時間點發布的官方 blog 互相印證，才確認兩站是對的、Fact Sheet 那份 PDF 反而是官方自己文件裡的過時或錯誤數字 |
 | 抓取工具在超大目錄／清單頁被截斷，只看到部分內容 | 改用 Bash `curl` 抓完整原始 HTML 存本機，用 `python3`／`grep` 逐段解析，繞過抓取工具的輸出上限 |
 | 找不到官方 prose 寫的統計數字，但有逐項列出的官方目錄／清單頁 | 直接核算目錄本身：確認分節邊界乾淨（無缺號、無重複），用編號區間反推精確數量。本站踩過：查不到某會議某年官方公布的正式接受篇數，改抓官方論文集目錄頁原始 HTML，發現每篇論文依 `id="paperN"` 連續編號、按 track 分節，直接數編號區間就拿到精確的 Main Track 篇數，比任何轉述都更接近一手 |
-| Web-hosted agent 沒有 Groundlane | 先查 deferred callable tools；仍沒有就回報 blocker，不嘗試連使用者 localhost |
+| Web-hosted agent 沒有 Groundlane | 先查 deferred callable tools；仍沒有就走 fallback 鏈 2–6，不嘗試連使用者 localhost |
 | 當前環境完全沒有網路研究工具 | 使用已提供材料；不足時回報 blocker，不假裝工具存在 |
