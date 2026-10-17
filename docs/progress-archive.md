@@ -10,6 +10,18 @@
 
 ---
 
+## 2026-10-18 封存：查證過程外洩根治 2026-10-14 條目（daily-digest-benchmark 例行 E3 步驟，rebase 合併後總行數超過 90 行上限）
+
+- **查證過程外洩根治（2026-10-14）**：writing-guide 新增「查證過程不寫進正文」，`scripts/check-process-leak.mjs` 接進 verify（pre-commit 逐篇擋）；林軒田總覽中英重寫（審稿＋複審通過）、英文口說站立會議篇、pplx 豁免。既有 121 篇回填待使用者排序，見 Q-037。
+
+---
+
+## 2026-10-18 封存：daily-digest-tool 2026-10-14 條目（daily-digest-benchmark 例行 E3 步驟，progress.txt 逼近 90 行上限）
+
+- **daily-digest-tool 2026-10-14**：GitHub 搜尋近 24 小時建立的 MCP server／新工具 repo 星數普遍個位數,無夠份量的候選；改用 Groundlane `web_search` 查 Product Hunt／新工具發佈，Corsair（已 13,000★，非今日新事件）、Opengeni（已於 10-11 寫過）均排除。選中 **mcptui**（kimarsen/mcptui，repo 10-13 才建立，MIT，Python，PyPI 已發 v0.1.2）：純終端機的 MCP server 測試／偵錯 TUI，裝好後直接呼叫工具、看 schema、追即時 JSON-RPC 封包，不經過任何 LLM 所以不燒 token，也不用像官方 MCP Inspector 開瀏覽器裝 Node；還能自動讀取 Claude Desktop／Cursor／`mcp.json` 裡已設定好的 server。許可證與 PyPI 發佈狀態已用 GitHub API／PyPI JSON API 核對（非只看 README 宣稱）。中英雙版已建立並互相連結，series order 54（接續 10-13 rea 的 53）。`pnpm install` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）、`check:lang-parity`（2758 組全過）、`check:tw`（0 blocking，新檔 0 命中）、`check:series-order`（54 無撞號，僅既有缺號 warning）、`pnpm lint`（0 warning/error）皆 0 blocking；已將最舊 Recently completed 條目（10-10 daily-digest-report）移至 `docs/progress-archive.md`；待 commit／push。
+
+---
+
 ## 2026-10-18 封存：daily-digest-github 2026-10-14 條目（daily-digest-model-card 例行 E3 步驟，progress.txt 逼近 90 行上限）
 
 - **daily-digest-github 2026-10-14**：`gh auth status` 顯示 `GH_TOKEN` 失效且 GitHub MCP 工具（`get_latest_release`／`search_repositories`）被本 session repo scope 限制在 `vincentxuu/quidproquo`／`lanefoundry/gatelane`，改用 `WebFetch` 直讀公開 GitHub 網頁（releases 頁／`/trending`／`/search?type=repositories`）取得 release 與 trending 資訊。B2 watchlist 13 框架逐一查 releases 頁：langgraph 1.2.15／agno v3.1.3（已於 10-13 報導過）／composio CLI beta／crewAI／pydantic-ai／claude-code／smolagents／llama_index／haystack／browser-use／MCP spec 皆為純 patch、落在窗外或重複，選中 **Mastra 1.76.0**（durable agent run ownership 防多機搶跑、明確列出 playground-ui／Observational Memory 兩項 breaking changes）與 **DSPy 3.4.1**（GEPA reflection 預設改結構化輸出，明確列出多項 breaking changes），兩者皆未被近期 digest 報導過。Trending Repos 用 `github.com/search?q=created:>...+topic:ai-agent` 與 `topic:mcp-server` 找到 3 個未被報導過的候選（已排除 mcpdelta——proprietary 無原始碼、awesome-iran-mcp——awesome 清單）：**onehumanbeing/esp32-iphone-agent**（$7 ESP32 + AirPlay 讓 vision model 操作真實 iPhone，1,400★／2 小時）、**TedHaley/pensieve**（本機檔案＋git＋agent session 的 MCP 搜尋 server）、**vakandi/opencode-rust**（OpenCode 的 Rust 重寫版，衝記憶體／CPU 用量）。中英雙版已建立並互相連結，series order 60（距 2026-08-16 天數＋1，與 10-13 的 59 連號）。`node_modules` 已存在但缺 `gray-matter`，`pnpm install --frozen-lockfile` 全新 container 乾淨跑完（含裝回 `simple-git-hooks` pre-commit）；`check:references`（新兩檔 0 warning）、`check:lang-parity`（2756 組全過）、`check:tw`（初版 3 處 A 級「技術棧」已修正為「Tech stack」，修正後 0 blocking）、`check:series-order`（60 無撞號，僅既有缺號 warning）皆 0 blocking；已將最舊 Recently completed 條目（10-10 daily-digest-framework）移至 `docs/progress-archive.md`；待 commit／push。
