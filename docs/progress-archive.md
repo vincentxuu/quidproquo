@@ -958,3 +958,7 @@ post-verify report: 2026-09-07-marker-document-parsing.md
 ## 2026-10-18 封存：查證過程外洩根治 2026-10-14 條目（daily-digest-funding 2026-10-18 例行 E3 步驟，progress.txt 逼近 90 行上限）
 
 - **查證過程外洩根治（2026-10-14）**：writing-guide 新增「查證過程不寫進正文」，`scripts/check-process-leak.mjs` 接進 verify（pre-commit 逐篇擋）；林軒田總覽中英重寫（審稿＋複審通過）、英文口說站立會議篇、pplx 豁免。既有 121 篇回填待使用者排序，見 Q-037。
+
+## 2026-10-18 封存：daily-digest 2026-10-15 手動補跑全套條目（daily-digest-ai-interview 2026-10-18 新增條目前，progress.txt 壓回行數上限）
+
+- **daily-digest 2026-10-15 手動補跑全套（雲端 routine 當天全部沒產出）**：本機 worktree `../qpq-daily-1015` 依序跑 Stage 1→2→3。toolDegradation：Groundlane 直接 HTTP 回 401 `invalid_token`、Exa 免費 MCP 429，改用 Keenable keyless（10 RPS，遇 429 單發重試）＋平台 fetch＋本機 `gh`／`curl`（arXiv、HF API、SWE-bench JSON、HF datasets-server）。產出：signals 36 筆；arxiv（2610.16067／18206／16280，order 144）；github（order 61）；security Visual Studio Copilot CVE-2026-103572（order 53）；benchmark Arena 10-13 批次 Fable 5.1 回第三（order 6，snapshot 已更新）；framework Mastra 1.77.0（41）、Pydantic AI v2.56.0（42）；funding Modal（89）、Fragment（90）、Zenzap（91）；tool AgentConfig Doctor（55）；ai-interview LLM & Agent（57）；product-interview AI Product Design（57）；日報（order 61）。model-card 無合格新模型（MiniCPM-V-4.7 建立已 8 天、下載量未達門檻）；pricing 無新事件，另修正 10-14 日報誤寫 Argon「2027 年調漲至 $1.50／$7.50」為官方的 12/1 起 $4／$20。Labelbox 只有新聞稿單一來源，未寫融資專文。arxiv watch 候選只讀摘要，篩選紀錄已註明 not-assessed。
