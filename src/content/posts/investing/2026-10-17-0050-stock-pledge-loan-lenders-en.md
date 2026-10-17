@@ -1,12 +1,12 @@
 ---
-title: "Borrowing Against 0050 and Reinvesting: Rates, Margin-Call Thresholds and Limits by Lender"
+title: "Borrowing Against 0050 and Reinvesting: Rates, Margin-Call Thresholds and Limits at 17 Brokers and Banks"
 date: 2026-10-17
 category: investing
 type: guide
 tags: ["0050", stock-pledge, margin-call, leverage, etf]
 lang: en
-tldr: "Yuanta Securities Finance issues a margin call when the maintenance ratio falls below 140%; Cathay Securities, Capital Securities and Mega Securities use 130%. All require topping up to above 166%. At the loop's ceiling (1.5× your principal), a 16% price drop triggers a call."
-description: "Compares stock-pledge loan rates, margin-call thresholds and renewal rules at Yuanta Securities Finance, Cathay Securities, Capital Securities, Mega Securities, SinoPac Securities and Cathay United Bank, and works out how much you must top up when looping 0050."
+tldr: "In October, brokers' effective pledge rates mostly sit at 3.5%–4%; Cathay Securities charges 6.45%, and Taishin and E.SUN have no capacity. Every broker whose site I could read calls at 130%; only Yuanta Securities Finance calls at 140% with a 3-business-day deadline."
+description: "Compares October 2026 stock-pledge loan rates, posted rates, margin-call thresholds and renewal limits at Yuanta Securities Finance, 16 brokers and two banks, and works out how much you must top up when looping 0050."
 draft: false
 ---
 
@@ -14,7 +14,7 @@ draft: false
 
 Pledging 0050 for a loan, buying more 0050 with it, then pledging that too is the most-discussed leverage routine among Taiwanese ETF holders. The official name is 不限用途款項借貸 (unrestricted-purpose loans): you transfer stocks or ETFs into a collateral account at a broker or at the securities finance company [Yuanta Securities Finance](https://www.yuantafinance.com.tw/brief/) (元大證金), and borrow up to 60% of market value. The shares stay yours and cash dividends still arrive. It is not a bank credit loan: the limit depends on the collateral, and the risk depends on the maintenance ratio.
 
-This post answers three questions: how rates and margin-call rules differ by lender, how much you must top up when looping, and which contract clauses can stop the loop.
+This post answers four questions: how far October's effective rates differ by lender, whether margin-call rules differ, how much you must top up when looping, and which clauses can stop the loop.
 
 ## How the loop works
 
@@ -31,20 +31,48 @@ At Yuanta Securities Finance, newly bought 0050 must finish T+2 settlement befor
 
 A price rise does not let you borrow the gain directly. Under [Article 20 of the TWSE operating rules](https://twse-regulation.twse.com.tw/m/LawContent.aspx?FID=FL080086), brokers may not hand over cash for a rise in value unless the client applies to change the credit line. Looping only works by buying new shares and transferring them in.
 
-## Rules side by side
+## October quotes and posted rates at 17 lenders
 
-| Lender | Rate | Call threshold | Deadline after notice | Top up to |
-|---|---|---|---|---|
-| Yuanta Securities Finance | List 5.88%; promo from 3.92% (to Dec 30) | Below 140% | 3 business days | Above 166% |
-| Cathay Securities | List 6.45% | Below 130% | 2 business days (by 15:00) | 166% |
-| Capital Securities | List 6.45% | Below 130% | 2 business days | 166% |
-| Mega Securities | Tiered by stock, floating | Below 130% | 2 business days | 166% |
+The "October quote" column comes from the account 存股的陪跑者's [Threads roundup of 2026-10-09](https://www.threads.com/@yourstockbuddy/post/DeS7fwPIxXV), [republished by NOWnews on 10-15](https://www.nownews.com/news/6883616). These are crowd-sourced figures; your app's quote is what counts. The "Official site" column is the posted or promotional rate each lender's own site shows; "—" means this post has no official data for that lender.
 
-- **Yuanta Securities Finance** is a securities finance company with its own [operating rules](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult?sysNumber=LW10869567&releaseDate=2025-10-21) and [contract](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult/Article?isIntegratedSearch=True&sysNumber=LW10869584&searchString1=%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E6%93%94%E4%BF%9D%E6%94%BE%E6%AC%BE), not the broker rules above. Its promo rate was [reset to 3.92% from July 1](https://www.yuantafinance.com.tw/The.aspx?The=232&Role=1&Lang=1); the promo needs NT$10,000 or more borrowed per day, and the site says rates may be adjusted on the first of January, April, July and October.
-- **Cathay Securities and Capital:** [Cathay Securities](https://istockapp.cathaysec.com.tw/Marketing/loan/) calculates the ratio on the previous business day's closing price. [Capital's](https://goplus.capital.com.tw/unlimitedcredit/qa.asp) site gives two different top-up targets on the same page (166% and 130%), so get it confirmed in writing before borrowing.
-- **Mega:** under its [兆好貸 terms](https://www.emega.com.tw/emegaTran/faqList.do?layer1_name=%E5%85%86%E5%A5%BD%E8%B2%B8) each stock gets its own rate; the fee is 0.1425% and is waived when interest reaches NT$200. 0050 used to sit in the top "diamond" tier; [that tier's promotional rate was cancelled from April 30](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480) and those stocks fall back to the platinum and gold tiers, so older low Mega rates for 0050 no longer apply.
-- **SinoPac:** its [loan page](https://service.sinotrade.com.tw/newweb/loan-zone/) lists no setup fee and disbursement in as little as 2.5 hours; rates appear only after login.
-- **Banks:** [Cathay United Bank](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/) starts at 2.95% with a one-year term, revolving use and a NT$20,000 account-management fee. Its maintenance-ratio and margin-call terms sit in the contract; ask the branch for a copy.
+| Lender | October quote (crowd-sourced) | Official site | Other |
+|---|---|---|---|
+| Yuanta Securities Finance | 3.92–3.98% | List 5.88%; promo from 3.92% (to Dec 30) | Own rulebook |
+| Yuanta Securities | 3.5–3.85%, NT$500k cap | — | — |
+| SinoPac | 4–6%; 0.15 pt off with a cash-management account | [No rate listed](https://service.sinotrade.com.tw/newweb/loan-zone/); no setup fee | Extend or roll over at six months |
+| TCFHC (合庫) | 3.5%, no roll-over | [List 6.25%](https://luckydraw.tcfhc-sec.com.tw/websites/loan/index.html); Sep 1–Dec 31 promo, 0050 included | Sign in branch; pay interest to extend |
+| KGI | 3.8–4%, capacity unstable | [List 6.45%](https://www.kgi.com.tw/zh-tw/product-overview/borrow-n-lending/stock-loans) | Online borrowing capped at NT$20 million |
+| Mega | 3.5–4%, manual review, 2× leveraged ETFs accepted | Tiered by stock, floating | Top-tier promo cancelled Apr 30 |
+| Capital | 3.88–5%, capacity unstable | [List 6.45%](https://goplus.capital.com.tw/unlimitedcredit/qa.asp) | Repayment is first-in, first-out |
+| E.SUN | 4.25%, no capacity | [Online 4.25%](https://www.esunsec.com.tw/cus_service/loan/index.html) for ETFs and TW50/Mid-100 constituents | One request per business day |
+| Shin Kong | 3.8% | — | — |
+| Taishin Securities | 3.5%, no capacity | [Margin list rate](https://www.tssco.com.tw/tssloan/) | One request per day; funds next business day at the earliest |
+| Yuanta-Hua Nan (華南永昌) | 3.5% / 4%, no roll-over | [List 6.45%](https://www.entrust.com.tw/Marketing/entrustLoan/index.html) | Branch or account officer only |
+| Fubon | 3.88%, terms to be confirmed | [List 6.40%](https://www.fbs.com.tw/DomesticStocks/UnrestrictedLoan) | NT$20 draw-down fee |
+| CTBC | 3.5%; below 3% with a monthly contribution target | — | — |
+| Uni-President | 3.5%, manual application, 2× leveraged ETFs accepted | [List 6.4%](https://eservices.pscnet.com.tw/dm/LOAN/index.html) plus 0.1425% fee | Online NT$1 million per loan, NT$5 million per day |
+| Grand Cathay (國票) | 4% | [Site example uses 6.25%](https://www.ibfs.com.tw/my/cash/) | No list rate stated |
+| First Securities | NT$10 million per loan; below 3% negotiable at volume | — | [Extensions need a 166% whole-account ratio](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994) |
+| Cathay Securities | 6.45% | [List 6.45%](https://istockapp.cathaysec.com.tw/Marketing/loan/) | Ratio uses the previous business day's close |
+
+Two numbers conflict: NOWnews quotes a user saying Fubon's ordinary-account rate has reached 4.5%, while the Threads list says 3.88%. For Yuanta Securities Finance the list matches the official site.
+
+On the bank side, [Cathay United Bank](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/) starts at 2.95% with a one-year term, revolving use and a NT$20,000 account-management fee. [Taishin Bank](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/) offers pledge loans with no guarantor, no proof of financial strength and revolving use; its rate sits in the bank's separate lending-rate table. Both banks put maintenance-ratio and margin-call terms in the contract; ask the branch for a copy.
+
+## Margin-call rules
+
+| Lender | Call threshold | Deadline after notice | Top up to |
+|---|---|---|---|
+| Yuanta Securities Finance | Below 140% | 3 business days | Above 166% (call record cancelled at 180%) |
+| Cathay Securities, Mega, Grand Cathay | Below 130% | 2 business days | 166% |
+| Capital | Below 130% | 2 business days | The same page states both 166% and 130% |
+| TCFHC | Below 130% | 2 business days | Call cancelled only when the ratio is back at 166% |
+| Fubon, Taishin Securities, E.SUN, Uni-President | Below 130% | 2 business days | Site states only 130%; shares are sold from the third business day |
+| Yuanta-Hua Nan | Below 130% | No deadline stated | Asks you to raise the ratio |
+
+Yuanta Securities Finance, a securities finance company, follows its own [operating rules](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult?sysNumber=LW10869567&releaseDate=2025-10-21) and [contract](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult/Article?isIntegratedSearch=True&sysNumber=LW10869584&searchString1=%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E6%93%94%E4%BF%9D%E6%94%BE%E6%AC%BE). Brokers follow the [TWSE rules](https://twse-regulation.twse.com.tw/m/LawContent.aspx?FID=FL080086) (130%, two business days, top up above 166%), which a contract may vary. For SinoPac, KGI, Yuanta Securities, First Securities, Shin Kong and CTBC, this post has no official terms; get them in writing before borrowing.
+
+Yuanta Securities Finance's promo rate was [reset to 3.92% from July 1](https://www.yuantafinance.com.tw/The.aspx?The=232&Role=1&Lang=1); the promo needs NT$10,000 or more borrowed per day, and the site says rates may be adjusted on the first of January, April, July and October. Mega's 0050 used to sit in the top "diamond" tier; [that tier's promotional rate was cancelled from April 30](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480) and those stocks fall back to the platinum and gold tiers.
 
 ## How much a margin call costs
 
@@ -60,20 +88,21 @@ Your net worth has gone from NT$1 million to NT$600,000: a 16% price drop, a 40%
 ## Contract limits on looping
 
 - **The credit line can be pulled.** Yuanta's contract says it may "adjust, reduce or stop" the line at any time as collateral value changes, and you must repay part or all on notice.
-- **Renewals and roll-overs need approval.** The TWSE rules set a six-month term with two extensions, 18 months in all, subject to credit review. Yuanta's contract reserves the right to approve or refuse a roll-over and to ask for more collateral. [Mega's new contracts stopped auto-renewing on May 1](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429120158563004); to continue you must ask a branch for a roll-over.
+- **Renewals and roll-overs need approval, and some carry a ratio test.** The TWSE rules set a six-month term with two extensions, 18 months in all, subject to credit review. First Securities requires a whole-account ratio of 166% or more to extend at a branch; a fully looped position sits at 166.7%, so a small dip is enough to fail. Yuanta's contract reserves the right to approve or refuse a roll-over. [Mega's new contracts stopped auto-renewing on May 1](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429120158563004); to continue you must ask a branch for a roll-over. Fubon decides on roll-overs after the 18 months by credit review, and the October roundup says TCFHC and Yuanta-Hua Nan refuse them.
 - **Repayment and withdrawal have conditions.** At Yuanta, if the ratio on the remaining loans would be below 150% after you repay, it may hold back the shares due to you. Cathay Securities and Mega require the ratio to stay at or above 166% when you take back part of the collateral. Capital repays the oldest loan first; picking a specific loan means paying cash and going through a branch.
 - **Ex-dividend adjustments.** From six business days before an ex-rights or ex-dividend date, the lender may deduct the payout before computing the ratio, so a 0050 distribution lowers your ratio early.
-- **Per-security caps.** Article 32 of the TWSE rules limits each broker's total lending against a single security; once a popular ETF hits the cap, new loans against it are refused.
+- **Per-security caps.** Article 32 of the TWSE rules limits each broker's total lending against a single security, and Yuanta-Hua Nan's site adds that once market-wide lending against a security exceeds 10% of its shares outstanding, it can no longer serve as collateral. Once a popular ETF hits a cap, new loans against it are refused.
+- **Operational pace differs.** Taishin Securities allows one request per business day with funds at the earliest the next business day; E.SUN allows one request per business day; KGI requires the brokerage account to be three months old before you can sign. How fast a round can go depends on the lender you pick.
 
 ## The October 2026 backdrop
 
-- **Tightening.** Some brokers tightened from May; [Fubon Securities announced a halt to new unrestricted-purpose loans from May 13](https://www.money101.com.tw/blog/%E8%82%A1%E7%A5%A8%E8%B3%AA%E6%8A%BC-%E8%82%A1%E7%A5%A8). Yuanta Securities Finance at one point capped borrowing at NT$100,000 per person per day with one loan per share ([a PTT user's phone call on May 5](https://www.ptt.cc/bbs/Stock/M.1777961184.A.52A.html)); [reports on July 8 said an announcement lifted it](https://tw.stock.yahoo.com/news/%E5%85%83%E5%A4%A7%E8%AD%89%E9%87%91%E8%B3%AA%E6%8A%BC%E9%99%90%E9%A1%8D%E4%BB%A4%E8%A7%A3%E9%99%A4%EF%BC%81%E9%84%89%E6%B0%91%E5%96%8A%E3%80%8C%E8%B2%AA%E7%8B%97%E5%87%BA%E7%B1%A0%E3%80%8D%E4%B8%80%E7%9C%8B%E5%88%A9%E7%8E%87%E6%9B%B4%E5%97%A8%EF%BC%9A1%E5%B9%B4%E6%80%8E%E5%8F%AF%E8%83%BD%E8%B3%BA%E4%B8%8D%E5%88%B0-124500529.html), but its site FAQ states no daily limit, so ask support for the current position.
+- **Tightening and repricing.** Some brokers tightened from May; [Fubon Securities announced a halt to new unrestricted-purpose loans from May 13](https://www.money101.com.tw/blog/%E8%82%A1%E7%A5%A8%E8%B3%AA%E6%8A%BC-%E8%82%A1%E7%A5%A8). Yuanta Securities Finance at one point capped borrowing at NT$100,000 per person per day with one loan per share ([a PTT user's phone call on May 5](https://www.ptt.cc/bbs/Stock/M.1777961184.A.52A.html)); [reports on July 8 said an announcement lifted it](https://tw.stock.yahoo.com/news/%E5%85%83%E5%A4%A7%E8%AD%89%E9%87%91%E8%B3%AA%E6%8A%BC%E9%99%90%E9%A1%8D%E4%BB%A4%E8%A7%A3%E9%99%A4%EF%BC%81%E9%84%89%E6%B0%91%E5%96%8A%E3%80%8C%E8%B2%AA%E7%8B%97%E5%87%BA%E7%B1%A0%E3%80%8D%E4%B8%80%E7%9C%8B%E5%88%A9%E7%8E%87%E6%9B%B4%E5%97%A8%EF%BC%9A1%E5%B9%B4%E6%80%8E%E5%8F%AF%E8%83%BD%E8%B3%BA%E4%B8%8D%E5%88%B0-124500529.html), but its site FAQ states no daily limit, so ask support for the current position. A PTT user who pledged TSMC and a 2× leveraged ETF says last year's contract cost about NT$500,000 a year in interest and a renewal at an unchanged line could reach NT$800,000, with no guarantee of getting the new line ([UDN, Oct 15](https://udn.com/news/story/12806/9816173)).
 - **The ceiling stays.** Brokers' total lending may not exceed four times net worth. The [FSC said on August 27 it will not relax this](https://udn.com/news/story/7251/9717902) and told brokers to raise capital; at the end of July lending stood at about 162% of net worth.
 - **Cross-sector credit lookups are due by end-October.** Once the Joint Credit Information Center and TWSE link up, with your consent a bank can see your broker loans and a broker can see your bank loans ([Economic Daily News](https://udn.com/news/story/7251/9771424)). The FSC [says this is not a cap on "four loans at once"](https://www.chinatimes.com/realtimenews/20261001004944-260410) and banks still assess on the 5P principles. If you plan to pair a mortgage or credit loan with a pledge, the bank will see it.
 
 ## What to do
 
-1. **Borrow 50% or less.** At 50% the starting ratio is 200%: Yuanta calls after a 30% price drop, brokers after 35%.
+1. **Borrow 50% or less.** At 50% the starting ratio is 200%: Yuanta calls after a 30% price drop, brokers after 35%. On October 15, the day of the big drop, one Vocus writer said he borrowed only 40% for a 250% starting ratio ([Round Cat's Nest](https://vocus.cc/article/6ad0b368fd89780001e94c7f)).
 2. **Set your alarm 20 points above the call threshold.** That is 160% at Yuanta and 150% at brokers. When the ratio reaches it, repay cash or add shares without waiting for a notice.
 3. **Keep cash worth 15–20% of the loan.** On NT$1.5 million of debt, hold NT$220,000–300,000; that covers the 16% drop above.
 4. **Call before opening an account and ask three things:** the call threshold and what you must top up to, daily and per-security limits, and what happens if the loan is not renewed. Phone numbers: Yuanta Securities Finance 02-2173-6883, Cathay Securities 02-7732-6888, Capital 02-412-8878, Mega 02-2351-7017, SinoPac 0800-038-123.
@@ -97,7 +126,21 @@ This post summarizes rules and is not investment advice. Borrowing carries risk 
 - [Mega Securities: 兆好貸 promotional-rate change notice (2026-04-29)](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480) (in Chinese)
 - [Mega Securities notice (2026-04-29)](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429120158563004) (in Chinese)
 - [SinoPac Securities: loan zone](https://service.sinotrade.com.tw/newweb/loan-zone/) (in Chinese)
+- [Fubon Securities: unrestricted-purpose loans](https://www.fbs.com.tw/DomesticStocks/UnrestrictedLoan) (in Chinese)
+- [TCFHC Securities: 不限輕鬆貸](https://luckydraw.tcfhc-sec.com.tw/websites/loan/index.html) (in Chinese)
+- [KGI Securities: stock loans](https://www.kgi.com.tw/zh-tw/product-overview/borrow-n-lending/stock-loans) (in Chinese)
+- [Taishin Securities: unrestricted-purpose loans](https://www.tssco.com.tw/tssloan/) (in Chinese)
+- [E.SUN Securities: unrestricted-purpose loans](https://www.esunsec.com.tw/cus_service/loan/index.html) (in Chinese)
+- [Uni-President Securities: 統e貸](https://eservices.pscnet.com.tw/dm/LOAN/index.html) (in Chinese)
+- [Grand Cathay Securities: lending](https://www.ibfs.com.tw/my/cash/) (in Chinese)
+- [Yuanta-Hua Nan Securities: unrestricted-purpose loans](https://www.entrust.com.tw/Marketing/entrustLoan/index.html) (in Chinese)
+- [First Securities: online function guide](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994) (in Chinese)
 - [Cathay United Bank: stock-collateral loan](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/) (in Chinese)
+- [Taishin Bank: stock pledge loan](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/) (in Chinese)
+- [存股的陪跑者: October pledge rate update (Threads, 2026-10-09)](https://www.threads.com/@yourstockbuddy/post/DeS7fwPIxXV) (in Chinese)
+- [NOWnews: 17 brokers' October pledge rates at a glance](https://www.nownews.com/news/6883616) (in Chinese)
+- [UDN: take profit at the high? (PTT pledge user)](https://udn.com/news/story/12806/9816173) (in Chinese)
+- [Round Cat's Nest: 115/10/15](https://vocus.cc/article/6ad0b368fd89780001e94c7f) (in Chinese)
 - [Hamster Life Lab: Yuanta online transfer test](https://hamr-lab.com/to-imoney/) (in Chinese)
 - [Money101: stock-pledge rates and maintenance ratio](https://www.money101.com.tw/blog/%E8%82%A1%E7%A5%A8%E8%B3%AA%E6%8A%BC-%E8%82%A1%E7%A5%A8) (in Chinese)
 - [PTT Stock board: Yuanta daily limit (2026-05-05)](https://www.ptt.cc/bbs/Stock/M.1777961184.A.52A.html) (in Chinese)

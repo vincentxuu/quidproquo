@@ -1,12 +1,12 @@
 ---
-title: "0050 質押借款再投入怎麼做：各家利率、追繳門檻與循環的限制"
+title: "0050 質押借款再投入怎麼做：17 家券商與銀行的利率、追繳門檻與循環限制"
 date: 2026-10-17
 category: investing
 type: guide
 tags: ["0050", stock-pledge, margin-call, leverage, etf]
 lang: zh-TW
-tldr: "元大證金的質押借款在維持率低於 140% 追繳，國泰證券、群益、兆豐是 130%，補繳都要補到 166% 以上。0050 借到循環上限（本金的 1.5 倍）時，股價跌 16% 就會被追繳。"
-description: "比較元大證金、國泰證券、群益、兆豐、永豐與國泰世華銀行的股票質押借款利率、追繳門檻與展延規則，並試算 0050 循環借款時要補繳多少。"
+tldr: "10 月券商的質押實際利率多在 3.5% 到 4%，國泰證券 6.45%，台新、玉山沒額度。官網讀得到的券商都在 130% 追繳，只有元大證金是 140%、3 個營業日。"
+description: "整理元大證金與 16 家券商、兩家銀行的股票質押借款 10 月利率、官網牌告、追繳門檻與展延限制，並試算 0050 循環借款時要補繳多少。"
 draft: false
 ---
 
@@ -14,7 +14,7 @@ draft: false
 
 把 0050 質押借錢、再買 0050、再質押，是台灣存 ETF 的人最常談的槓桿做法。它的正式名稱是「不限用途款項借貸」：把股票或 ETF 匯撥到券商或證券金融公司[元大證金](https://www.yuantafinance.com.tw/brief/)的擔保品專戶，最高借市值的 6 成，股票仍是你的，現金股利照領。它不是銀行信貸：額度看擔保品，風險看維持率。
 
-這篇回答三件事：各家利率和追繳規則差在哪、循環借款要補多少錢、哪些合約條款會讓循環做不下去。
+這篇回答四件事：各家 10 月的實際利率差多少、追繳規則有沒有不同、循環借款要補多少錢、哪些條款會讓循環做不下去。
 
 ## 循環怎麼運作
 
@@ -31,20 +31,48 @@ flowchart TB
 
 股價漲了，不能把增加的部分直接再借出來。[證交所操作辦法第 20 條](https://twse-regulation.twse.com.tw/m/LawContent.aspx?FID=FL080086)規定，券商不得因股價上漲交付現金，除非客戶申請變更額度。循環只能靠「新買股票再撥入」。
 
-## 各家規則並排
+## 17 家的 10 月報價與官網牌告
 
-| 機構 | 利率 | 追繳門檻 | 通知後期限 | 補到 |
-|---|---|---|---|---|
-| 元大證金 | 牌告 5.88%；專案 3.92% 起（至 12/30） | 低於 140% | 3 個營業日 | 高於 166% |
-| 國泰證券 | 牌告 6.45% | 低於 130% | 2 個營業日（15:00 前） | 166% |
-| 群益 | 牌告 6.45% | 低於 130% | 2 個營業日 | 166% |
-| 兆豐 | 依標的分群，機動調整 | 低於 130% | 2 個營業日 | 166% |
+「10 月報價」欄來自粉專「存股的陪跑者」2026/10/09 的 [Threads 整理](https://www.threads.com/@yourstockbuddy/post/DeS7fwPIxXV)，[NOWnews 10/15](https://www.nownews.com/news/6883616) 轉載。這是網友眾包的數字，實際利率以 App 試算為準。「官網」欄是各家官網寫的牌告或專案利率，「—」表示這篇沒有取得該家的官方資料。
 
-- **元大證金**：它是證金公司，適用自己的[業務操作辦法](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult?sysNumber=LW10869567&releaseDate=2025-10-21)和[契約書](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult/Article?isIntegratedSearch=True&sysNumber=LW10869584&searchString1=%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E6%93%94%E4%BF%9D%E6%94%BE%E6%AC%BE)，不是前面那套券商辦法。專案利率是 [7/1 調整後的 3.92% 起](https://www.yuantafinance.com.tw/The.aspx?The=232&Role=1&Lang=1)，單日累計借款要達 1 萬元才享優惠，官網寫明每年 1、4、7、10 月 1 日可調整。
-- **國泰證券與群益**：[國泰證券](https://istockapp.cathaysec.com.tw/Marketing/loan/)用前一營業日收盤價算維持率。[群益](https://goplus.capital.com.tw/unlimitedcredit/qa.asp)的官網同一頁有兩種補繳目標（166% 與 130%），借款前要請營業員書面確認。
-- **兆豐**：[兆好貸的規則](https://www.emega.com.tw/emegaTran/faqList.do?layer1_name=%E5%85%86%E5%A5%BD%E8%B2%B8)是一檔股票一個利率，手續費 1.425‰，利息達 200 元就免收。0050 原屬最優惠的鑽石級，[4/30 起這一級的優惠利率取消](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480)，回歸白金級、黃金級利率，所以舊文章裡兆豐 0050 的低利率已經不適用。
-- **永豐**：[官網](https://service.sinotrade.com.tw/newweb/loan-zone/)寫開辦費 0 元、最快 2.5 小時撥款，利率要登入後試算。
-- **銀行**：[國泰世華銀行](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/)是 2.95% 起、期限一年、可循環動用，另收帳務管理費 2 萬元。維持率與追繳條款在契約裡，要向分行索取。
+| 機構 | 10 月報價（網友整理） | 官網牌告／專案 | 其他 |
+|---|---|---|---|
+| 元大證金 | 3.92–3.98% | 牌告 5.88%；專案 3.92% 起（至 12/30） | 適用自己的辦法 |
+| 元大證券 | 3.5–3.85%，上限 50 萬 | — | — |
+| 永豐 | 4–6%，資管帳戶可減 0.15% | [未列利率](https://service.sinotrade.com.tw/newweb/loan-zone/)，開辦費 0 元 | 6 個月到期可展延或借新還舊 |
+| 合庫 | 3.5%，無法借新還舊 | [牌告 6.25%](https://luckydraw.tcfhc-sec.com.tw/websites/loan/index.html)；9/1–12/31 專案，0050 在標的內 | 須臨櫃簽約；展延要先還息 |
+| 凱基 | 3.8–4%，額度不穩 | [牌告 6.45%](https://www.kgi.com.tw/zh-tw/product-overview/borrow-n-lending/stock-loans) | 線上借款總額上限 2,000 萬 |
+| 兆豐 | 3.5–4%，人工審核，可押正二 | 依標的分群，機動調整 | 4/30 起取消鑽石級優惠 |
+| 群益 | 3.88–5%，額度不穩定 | [牌告 6.45%](https://goplus.capital.com.tw/unlimitedcredit/qa.asp) | 還款先進先出 |
+| 玉山 | 4.25%，沒額度 | [線上 4.25%](https://www.esunsec.com.tw/cus_service/loan/index.html)，限 ETF、台灣 50 與中型 100 成分股 | 同一營業日只能申請一次 |
+| 新光 | 3.8% | — | — |
+| 台新證券 | 3.5%，沒額度 | [依融資牌告利率](https://www.tssco.com.tw/tssloan/) | 每營業日單筆，最快次一營業日撥款 |
+| 華南永昌 | 3.5%、4%，無法借新還舊 | [牌告 6.45%](https://www.entrust.com.tw/Marketing/entrustLoan/index.html) | 須臨櫃或洽營業員 |
+| 富邦 | 3.88%，條件待確認 | [牌告 6.40%](https://www.fbs.com.tw/DomesticStocks/UnrestrictedLoan) | 動撥手續費 20 元 |
+| 中信 | 3.5%，每月貢獻到一定數字可到 3% 以下 | — | — |
+| 統一 | 3.5%，走人工申請，可押正二 | [牌告 6.4%](https://eservices.pscnet.com.tw/dm/LOAN/index.html)＋手續費 1.425‰ | 線上單筆 100 萬、單日 500 萬 |
+| 國票 | 4% | [官網範例用 6.25%](https://www.ibfs.com.tw/my/cash/) | 官網未標牌告 |
+| 第一金 | 一筆 1,000 萬，量大可談到 3% 以下 | — | [展延要整戶維持率 166% 以上](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994) |
+| 國泰證券 | 6.45% | [牌告 6.45%](https://istockapp.cathaysec.com.tw/Marketing/loan/) | 用前一營業日收盤價算維持率 |
+
+表上有兩處數字互相對不上：NOWnews 引網友說富邦一般戶已升到 4.5%，Threads 表上是 3.88%；元大證金表上與官網相同。
+
+銀行端：[國泰世華銀行](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/)是 2.95% 起、期限一年、可循環動用，另收帳務管理費 2 萬元。[台新銀行](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/)的股票質借免保證人、不須財力證明、可循環動用，利率另列在放款利率表。兩家的維持率與追繳條款都在契約裡，要向分行索取。
+
+## 追繳規則
+
+| 機構 | 追繳門檻 | 通知後期限 | 補繳目標 |
+|---|---|---|---|
+| 元大證金 | 低於 140% | 3 個營業日 | 高於 166%（回升到 180% 取消追繳紀錄） |
+| 國泰證券、兆豐、國票 | 低於 130% | 2 個營業日 | 166% |
+| 群益 | 低於 130% | 2 個營業日 | 同一頁寫了 166% 與 130% 兩種 |
+| 合庫 | 低於 130% | 2 個營業日 | 回升到 166% 才取消追繳 |
+| 富邦、台新證券、玉山、統一 | 低於 130% | 2 個營業日 | 官網只寫 130%；第 3 個營業日起處分 |
+| 華南永昌 | 低於 130% | 官網未寫期限 | 要求提高維持率 |
+
+元大證金是證金公司，適用自己的[業務操作辦法](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult?sysNumber=LW10869567&releaseDate=2025-10-21)和[契約書](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult/Article?isIntegratedSearch=True&sysNumber=LW10869584&searchString1=%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E6%93%94%E4%BF%9D%E6%94%BE%E6%AC%BE)，其餘券商依[證交所辦法](https://twse-regulation.twse.com.tw/m/LawContent.aspx?FID=FL080086)（130%、2 個營業日、補到高於 166%），契約可另外約定。永豐、凱基、元大證券、第一金、新光、中信這篇沒有取得官網條款，借款前請營業員書面確認。
+
+元大證金的專案利率是 [7/1 調整後的 3.92% 起](https://www.yuantafinance.com.tw/The.aspx?The=232&Role=1&Lang=1)，單日累計借款要達 1 萬元才享優惠，官網寫明每年 1、4、7、10 月 1 日可調整。兆豐的 0050 原屬最優惠的鑽石級，[4/30 起這一級的優惠取消](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480)，回歸白金級、黃金級利率。
 
 ## 追繳要補多少
 
@@ -60,20 +88,21 @@ flowchart TB
 ## 循環的合約限制
 
 - **額度可以被收回。** 元大證金的契約載明，它可因擔保品價值變動「隨時調整、減少或停止」放款額度，你要依通知立即償還部分或全部。
-- **展延與借新還舊要審核。** 證交所辦法規定期限 6 個月、展延 2 次，合計 18 個月，展延看信用狀況。元大證金契約寫明借新還舊它有權准駁，必要時要求增提擔保品。[兆豐 5/1 起新契約不自動展延](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429120158563004)，想續借要洽分公司辦借新還舊。
+- **展延與借新還舊要審核，而且有維持率門檻。** 證交所辦法規定期限 6 個月、展延 2 次，合計 18 個月，展延看信用狀況。第一金要整戶維持率 166% 以上才能在分公司申請展延，而循環借到上限時維持率剛好是 166.7%，稍微下跌就不夠。元大證金契約寫明借新還舊它有權准駁。[兆豐 5/1 起新契約不自動展延](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429120158563004)，想續借要洽分公司辦借新還舊。富邦到期後是否借新還舊要看信用狀況，10 月網友整理中合庫、華南永昌表示無法借新還舊。
 - **還款與退券有門檻。** 元大證金還款後若剩餘借款的維持率低於 150%，可以扣住應退還的股票。國泰證券與兆豐退部分擔保品時，維持率要保持在 166% 以上。群益還款依借款先後順序（先進先出），要指定某一筆只能用現金並洽分公司。
 - **除權息前 6 個營業日起，可扣掉配息再算維持率。** 0050 配息前，維持率會先降。
-- **單一券商對單一標的有融通上限。** 證交所辦法第 32 條限制每家券商對同一檔證券的融通餘額，熱門標的額度滿了就借不到。
+- **單一標的有融通上限。** 證交所辦法第 32 條限制每家券商對同一檔證券的融通餘額；華南永昌的官網還寫明，全市場餘額超過某檔證券流通股數 10% 時，該檔不能再當擔保品。熱門 ETF 額度滿了就借不到。
+- **各家的作業節奏不同。** 台新證券每營業日只能申請單筆、最快次一營業日撥款；玉山同一營業日只能申請一次；凱基要證券戶開立滿三個月才能簽約。循環一輪能多快做完，取決於你選的那家。
 
 ## 2026 年 10 月的環境
 
-- **限貸。** 5 月起有券商收緊，例如[富邦證券 5/13 公告暫停不限用途借款新案](https://www.money101.com.tw/blog/%E8%82%A1%E7%A5%A8%E8%B3%AA%E6%8A%BC-%E8%82%A1%E7%A5%A8)。元大證金一度限制每人每天 10 萬元、一張股票只能借一次（[PTT 網友 5/5 打電話問到的回覆](https://www.ptt.cc/bbs/Stock/M.1777961184.A.52A.html)），[7/8 傳出公告解除](https://tw.stock.yahoo.com/news/%E5%85%83%E5%A4%A7%E8%AD%89%E9%87%91%E8%B3%AA%E6%8A%BC%E9%99%90%E9%A1%8D%E4%BB%A4%E8%A7%A3%E9%99%A4%EF%BC%81%E9%84%89%E6%B0%91%E5%96%8A%E3%80%8C%E8%B2%AA%E7%8B%97%E5%87%BA%E7%B1%A0%E3%80%8D%E4%B8%80%E7%9C%8B%E5%88%A9%E7%8E%87%E6%9B%B4%E5%97%A8%EF%BC%9A1%E5%B9%B4%E6%80%8E%E5%8F%AF%E8%83%BD%E8%B3%BA%E4%B8%8D%E5%88%B0-124500529.html)，但官網常見問題沒有寫單日限額，現況要問客服。
+- **限貸與調息。** 5 月起有券商收緊，例如[富邦證券 5/13 公告暫停不限用途借款新案](https://www.money101.com.tw/blog/%E8%82%A1%E7%A5%A8%E8%B3%AA%E6%8A%BC-%E8%82%A1%E7%A5%A8)。元大證金一度限制每人每天 10 萬元、一張股票只能借一次（[PTT 網友 5/5 打電話問到的回覆](https://www.ptt.cc/bbs/Stock/M.1777961184.A.52A.html)），[7/8 傳出公告解除](https://tw.stock.yahoo.com/news/%E5%85%83%E5%A4%A7%E8%AD%89%E9%87%91%E8%B3%AA%E6%8A%BC%E9%99%90%E9%A1%8D%E4%BB%A4%E8%A7%A3%E9%99%A4%EF%BC%81%E9%84%89%E6%B0%91%E5%96%8A%E3%80%8C%E8%B2%AA%E7%8B%97%E5%87%BA%E7%B1%A0%E3%80%8D%E4%B8%80%E7%9C%8B%E5%88%A9%E7%8E%87%E6%9B%B4%E5%97%A8%EF%BC%9A1%E5%B9%B4%E6%80%8E%E5%8F%AF%E8%83%BD%E8%B3%BA%E4%B8%8D%E5%88%B0-124500529.html)，但官網常見問題沒有寫單日限額，現況要問客服。一位質押台積電與正二的 PTT 網友說，舊合約全年利息約 50 萬元，新約若額度不變可能到 80 萬元，也不確定能否拿到新額度（[聯合新聞網 10/15](https://udn.com/news/story/12806/9816173)）。
 - **上限不放寬。** 券商融通總額不得超過淨值 4 倍。[金管會 8/27 表示不放寬](https://udn.com/news/story/7251/9717902)，建議券商增資；7 月底融通占淨值約 162%。
 - **跨業信用查詢預計 10 月底上線。** 聯徵中心與證交所對接後，取得你同意，銀行能看到你在券商的借款，券商也能看到銀行借款（[經濟日報](https://udn.com/news/story/7251/9771424)）。金管會[澄清這不是「四貸同堂」管制](https://www.chinatimes.com/realtimenews/20261001004944-260410)，銀行放款仍依 5P 原則。要用房貸或信貸搭配質押的人，銀行端會看得到。
 
 ## 照著做的動作
 
-1. **借 5 成以下。** 借 5 成時起始維持率是 200%，元大證金要跌 30% 才追繳，券商要跌 35%。
+1. **借 5 成以下。** 借 5 成時起始維持率是 200%，元大證金要跌 30% 才追繳，券商要跌 35%。10/15 大跌當天，一位方格子作者說他只借 40%，初始維持率 250%（[圓滾滾的貓窩](https://vocus.cc/article/6ad0b368fd89780001e94c7f)）。
 2. **警戒線設在追繳門檻加 20 個百分點。** 元大證金是 160%，券商是 150%。到線就還現金或補股票，不等通知。
 3. **預留借款額 15% 到 20% 的現金。** 借 150 萬就留 22 萬到 30 萬，這是上面「市價跌 16%」的補繳量。
 4. **開戶前打電話問三件事。** 追繳門檻與補到多少、單日與單一標的限額、到期不續借時怎麼處理。電話：元大證金 02-2173-6883、國泰證券 02-7732-6888、群益 02-412-8878、兆豐 02-2351-7017、永豐 0800-038-123。
@@ -97,7 +126,21 @@ flowchart TB
 - [兆豐證券：兆好貸優惠利率調整通知（2026/4/29）](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480)
 - [兆豐證券公告（2026/4/29）](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429120158563004)
 - [永豐金證券：借貸專區](https://service.sinotrade.com.tw/newweb/loan-zone/)
+- [富邦證券：不限用途款項借貸](https://www.fbs.com.tw/DomesticStocks/UnrestrictedLoan)
+- [合庫證券：不限輕鬆貸](https://luckydraw.tcfhc-sec.com.tw/websites/loan/index.html)
+- [凱基證券：股票貸款](https://www.kgi.com.tw/zh-tw/product-overview/borrow-n-lending/stock-loans)
+- [台新證券：不限用途款項借貸](https://www.tssco.com.tw/tssloan/)
+- [玉山證券：不限用途款項借貸](https://www.esunsec.com.tw/cus_service/loan/index.html)
+- [統一證券：統e貸](https://eservices.pscnet.com.tw/dm/LOAN/index.html)
+- [國票證券：借貸業務](https://www.ibfs.com.tw/my/cash/)
+- [華南永昌證券：不限用途款項借貸](https://www.entrust.com.tw/Marketing/entrustLoan/index.html)
+- [第一金證券：不限用途款項借貸線上功能說明](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994)
 - [國泰世華銀行：股票質押貸款](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/)
+- [台新銀行：股票質借貸款](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/)
+- [存股的陪跑者：質押利率更新 10 月版（Threads，2026/10/09）](https://www.threads.com/@yourstockbuddy/post/DeS7fwPIxXV)
+- [NOWnews：17 券商十月股票質押利率一表看](https://www.nownews.com/news/6883616)
+- [聯合新聞網：台股高點該停利嗎（PTT 質押網友）](https://udn.com/news/story/12806/9816173)
+- [圓滾滾的貓窩：115/10/15-不要怕](https://vocus.cc/article/6ad0b368fd89780001e94c7f)
 - [倉鼠人生實驗室：元大證金線上匯撥實測](https://hamr-lab.com/to-imoney/)
 - [Money101：股票質押利率與維持率](https://www.money101.com.tw/blog/%E8%82%A1%E7%A5%A8%E8%B3%AA%E6%8A%BC-%E8%82%A1%E7%A5%A8)
 - [PTT Stock 板：元大證金質押最新單日限制（2026/5/5）](https://www.ptt.cc/bbs/Stock/M.1777961184.A.52A.html)
