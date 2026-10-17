@@ -42,7 +42,7 @@ A price rise does not let you borrow the gain directly. Under [Article 20 of the
 
 - **Yuanta Securities Finance** is a securities finance company with its own [operating rules](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult?sysNumber=LW10869567&releaseDate=2025-10-21) and [contract](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult/Article?isIntegratedSearch=True&sysNumber=LW10869584&searchString1=%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E6%93%94%E4%BF%9D%E6%94%BE%E6%AC%BE), not the broker rules above. Its promo rate was [reset to 3.92% from July 1](https://www.yuantafinance.com.tw/The.aspx?The=232&Role=1&Lang=1); the promo needs NT$10,000 or more borrowed per day, and the site says rates may be adjusted on the first of January, April, July and October.
 - **Cathay Securities and Capital:** [Cathay Securities](https://istockapp.cathaysec.com.tw/Marketing/loan/) calculates the ratio on the previous business day's closing price. [Capital's](https://goplus.capital.com.tw/unlimitedcredit/qa.asp) site gives two different top-up targets on the same page (166% and 130%), so get it confirmed in writing before borrowing.
-- **Mega:** under its [兆好貸 terms](https://www.emega.com.tw/emegaTran/faqList.do?layer1_name=%E5%85%86%E5%A5%BD%E8%B2%B8) each stock gets its own rate; the fee is 0.1425% and is waived when interest reaches NT$200.
+- **Mega:** under its [兆好貸 terms](https://www.emega.com.tw/emegaTran/faqList.do?layer1_name=%E5%85%86%E5%A5%BD%E8%B2%B8) each stock gets its own rate; the fee is 0.1425% and is waived when interest reaches NT$200. 0050 used to sit in the top "diamond" tier; [that tier's promotional rate was cancelled from April 30](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480) and those stocks fall back to the platinum and gold tiers, so older low Mega rates for 0050 no longer apply.
 - **SinoPac:** its [loan page](https://service.sinotrade.com.tw/newweb/loan-zone/) lists no setup fee and disbursement in as little as 2.5 hours; rates appear only after login.
 - **Banks:** [Cathay United Bank](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/) starts at 2.95% with a one-year term, revolving use and a NT$20,000 account-management fee. Its maintenance-ratio and margin-call terms sit in the contract; ask the branch for a copy.
 
@@ -94,6 +94,7 @@ This post summarizes rules and is not investment advice. Borrowing carries risk 
 - [Cathay Securities: stock loans](https://istockapp.cathaysec.com.tw/Marketing/loan/) (in Chinese)
 - [Capital Securities: loan Q&A](https://goplus.capital.com.tw/unlimitedcredit/qa.asp) (in Chinese)
 - [Mega Securities: 兆好貸 FAQ](https://www.emega.com.tw/emegaTran/faqList.do?layer1_name=%E5%85%86%E5%A5%BD%E8%B2%B8) (in Chinese)
+- [Mega Securities: 兆好貸 promotional-rate change notice (2026-04-29)](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480) (in Chinese)
 - [Mega Securities notice (2026-04-29)](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429120158563004) (in Chinese)
 - [SinoPac Securities: loan zone](https://service.sinotrade.com.tw/newweb/loan-zone/) (in Chinese)
 - [Cathay United Bank: stock-collateral loan](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/) (in Chinese)

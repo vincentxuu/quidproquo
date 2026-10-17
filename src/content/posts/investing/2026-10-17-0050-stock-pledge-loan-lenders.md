@@ -42,7 +42,7 @@ flowchart TB
 
 - **元大證金**：它是證金公司，適用自己的[業務操作辦法](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult?sysNumber=LW10869567&releaseDate=2025-10-21)和[契約書](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult/Article?isIntegratedSearch=True&sysNumber=LW10869584&searchString1=%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E6%93%94%E4%BF%9D%E6%94%BE%E6%AC%BE)，不是前面那套券商辦法。專案利率是 [7/1 調整後的 3.92% 起](https://www.yuantafinance.com.tw/The.aspx?The=232&Role=1&Lang=1)，單日累計借款要達 1 萬元才享優惠，官網寫明每年 1、4、7、10 月 1 日可調整。
 - **國泰證券與群益**：[國泰證券](https://istockapp.cathaysec.com.tw/Marketing/loan/)用前一營業日收盤價算維持率。[群益](https://goplus.capital.com.tw/unlimitedcredit/qa.asp)的官網同一頁有兩種補繳目標（166% 與 130%），借款前要請營業員書面確認。
-- **兆豐**：[兆好貸的規則](https://www.emega.com.tw/emegaTran/faqList.do?layer1_name=%E5%85%86%E5%A5%BD%E8%B2%B8)是一檔股票一個利率，手續費 1.425‰，利息達 200 元就免收。
+- **兆豐**：[兆好貸的規則](https://www.emega.com.tw/emegaTran/faqList.do?layer1_name=%E5%85%86%E5%A5%BD%E8%B2%B8)是一檔股票一個利率，手續費 1.425‰，利息達 200 元就免收。0050 原屬最優惠的鑽石級，[4/30 起這一級的優惠利率取消](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480)，回歸白金級、黃金級利率，所以舊文章裡兆豐 0050 的低利率已經不適用。
 - **永豐**：[官網](https://service.sinotrade.com.tw/newweb/loan-zone/)寫開辦費 0 元、最快 2.5 小時撥款，利率要登入後試算。
 - **銀行**：[國泰世華銀行](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/)是 2.95% 起、期限一年、可循環動用，另收帳務管理費 2 萬元。維持率與追繳條款在契約裡，要向分行索取。
 
@@ -94,6 +94,7 @@ flowchart TB
 - [國泰證券：股票貸款](https://istockapp.cathaysec.com.tw/Marketing/loan/)
 - [群益金鼎證券：便利貸 Q&A](https://goplus.capital.com.tw/unlimitedcredit/qa.asp)
 - [兆豐證券：兆好貸常見問題](https://www.emega.com.tw/emegaTran/faqList.do?layer1_name=%E5%85%86%E5%A5%BD%E8%B2%B8)
+- [兆豐證券：兆好貸優惠利率調整通知（2026/4/29）](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480)
 - [兆豐證券公告（2026/4/29）](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429120158563004)
 - [永豐金證券：借貸專區](https://service.sinotrade.com.tw/newweb/loan-zone/)
 - [國泰世華銀行：股票質押貸款](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/)
