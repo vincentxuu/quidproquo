@@ -24,9 +24,9 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety-en)
 
-**影片狀態：官方公開頁未列錄影。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-> **本篇依投影片撰寫，影片上架後補充。** 截至 2026-10-10，[官方課表](https://www.cmu-agents.com/#/schedule)上第 13 講（10/6）只有[投影片](https://www.cmu-agents.com/slides/lecture-13-agent-safety.pdf)，沒有錄影。下文只根據投影片，沒有講者口述；投影片沒寫的，我會標成我的解讀。
+> **本篇依投影片撰寫。** 官方錄影（約 54 分鐘，2026-10-16 上架）已附在[文末](#課程影片來源)；內文還沒有依錄影補上講者口述，下文都根據投影片。
 
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 的第 13 講是安全模組的第一堂，副標題是「限制 agent 能存取什麼、能做什麼」。官方課表原本寫的講題是 Sandboxing & Credential Management，現在改成 Agent Safety；內容也確實更寬，除了沙盒與憑證，還包括 red teaming、監控和安全評測。可觀測性與監控會在 10/22 另有一堂（Eric Wallace 主講），所以這講的監控只是入門。
 
@@ -186,17 +186,25 @@ agent 可能在做了不安全的動作之後，仍交出一個看起來有用�
 
 ## 課程影片來源
 
-本篇依投影片撰寫。已查官方課表，第 13 講只列投影片，未列錄影連結；這只代表公開頁沒有，不代表校內沒有錄影。
+已核對 CMU 11-768 Fall 2026 第 13 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，標題與講次對應本課程。本篇內文依投影片撰寫，尚未依錄影內容核對或補充。
+
+```youtube
+url: https://www.youtube.com/watch?v=Mbonnq-PUGM
+title: CMU AI Agents 2026: 13. Agentic Safety
+```
+
+原始影片：[CMU AI Agents 2026: 13. Agentic Safety](https://www.youtube.com/watch?v=Mbonnq-PUGM)
 
 官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
-查核日期：2026-10-10。
+查核日期：2026-10-17。
 
 ## 更新紀錄
 
 - 2026-10-10：新增本篇。依第 13 講投影片撰寫，官方公開頁尚未列錄影。
+- 2026-10-17：第 13 講錄影已在官方播放清單上架（2026-10-16），更新影片狀態並嵌入影片；內文仍依投影片。
 
 ## 參考資料
 

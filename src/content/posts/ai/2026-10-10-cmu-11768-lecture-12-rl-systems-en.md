@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems)
 
-**Video status: the official public page lists no recording.** [Video sources and notes](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **This guide uses the public slides, not the lecturer’s spoken explanation. Additional interpretations and invented examples are labeled.**
 
@@ -215,10 +215,20 @@ Try these before reading the answers:
 
 ## Course video sources
 
-This guide uses the [Lecture 12 slides](https://www.cmu-agents.com/slides/lecture-12-rl-systems.pdf), not the lecturer’s spoken explanation. Checked: 2026-10-10; at that time the [official schedule and recording index](https://www.cmu-agents.com/#/schedule) listed slides only for Lecture 12 (Oct 1), with no recording link. This describes the public page at that date, not whether an internal recording exists.
+Checked the public recording of CMU 11-768 Fall 2026 Lecture 12; it is published on instructor Graham Neubig's channel, and the title and lecture number match this course. The text is still based on the slides and has not been checked against the recording's content.
+
+```youtube
+url: https://www.youtube.com/watch?v=dwR6NP9nI-8
+title: CMU AI Agents 2026: 12. RL Systems
+```
+
+Original video: [CMU AI Agents 2026: 12. RL Systems](https://www.youtube.com/watch?v=dwR6NP9nI-8)
+
+Official sources: [Lecture 12 slides](https://www.cmu-agents.com/slides/lecture-12-rl-systems.pdf), [official schedule and recording index](https://www.cmu-agents.com/#/schedule). Checked: 2026-10-17.
 
 ## Changelog
 
+- 2026-10-17: The Lecture 12 recording is now on the official playlist (posted 2026-10-14); updated the video status and embedded the video. The text is still based on the slides.
 - 2026-10-11: Adopted a topic-first title, condensed repeated source notes, and added an invented worked update loop and comprehension questions.
 
 - 2026-10-10: Added this post, written from the Lecture 12 slides; no recording on the official public page yet.

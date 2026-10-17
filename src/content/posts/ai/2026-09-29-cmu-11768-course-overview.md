@@ -138,7 +138,7 @@ Lecture highlights 是每講結束後 24 小時內，交一則你自己寫的心
 | 25 | L22 | 客座：Karthik Narasimhan | 待課程上架 |
 | 26 | L23 | 客座：Sasha Rush | 待課程上架 |
 
-2026-10-10 的材料狀態：L1–L10 有投影片和錄影，L11–L14 目前只有投影片，L15 之後尚未公開；Assignment 3 的 repo 也還沒公開（截止日 10/29）。
+錄影狀態（2026-10-17 查官方播放清單）：L1–L13 有錄影，L14 目前只有投影片。2026-10-10 查核時 L15 之後的材料尚未公開；Assignment 3 的 repo 也還沒公開（截止日 10/29）。
 
 如果只打算讀幾篇，建議順序是：[第 1 講](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)建立「六種能力 × 兩條路」的地圖，接著讀 A1 看 harness 實際長什麼樣，再讀 A2 和 RL 那幾講，看評測怎麼變成訓練訊號。
 
@@ -163,6 +163,7 @@ title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
 
 ## 更新紀錄
 
+- 2026-10-17：L11–L13 錄影已上架，更新材料狀態。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：官網新上架第 12–14 講投影片，新增 RL Systems、Agent Safety、OpenHands 三篇導讀並更新進度表。官方把原本的「Sandboxing & Credential Management」改名為 Agent Safety（10/6），第 13 講的內容因此涵蓋 red teaming、沙盒、憑證代管、監控與安全評測；課表模組也改為 Agent Safety、Agent Frameworks 等標籤。
 - 2026-10-10：依字幕核對影片內容。一處修正：Neubig 提到開發 OpenHands 的時機；並把 L10 狀態改為已有錄影。
