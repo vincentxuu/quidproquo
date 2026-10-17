@@ -235,7 +235,7 @@ No. A GriGri assists braking but is not automatic; the brake hand still stays on
 
 ## What's next
 
-Once top-rope belaying is solid and you have your gym's top-rope card, the usual next step is gym lead climbing: clipping quickdraws as you go, longer falls, and a belayer who knows how to pay out and give a soft catch. That will be the next post.
+Once top-rope belaying is solid and you have your gym's top-rope card, the usual next step is gym lead climbing: clipping quickdraws as you go, longer falls, and a belayer who knows how to pay out and give a soft catch. Read [Gym Lead Climbing](/posts/climbing/2026-10-17-gym-lead-climbing-en) next; when you are ready for real rock, start with the [Sport vs Trad overview](/posts/climbing/2026-10-17-sport-vs-trad-overview-en).
 
 For the bigger picture of climbing outdoors, read the "Before you go outdoors" section of [Rock Climbing for Beginners](/posts/climbing/2026-10-08-climbing-beginner-guide-en). For books to go deeper, see [A Knowledge Map of Climbing Books](/posts/climbing/2026-06-20-climbing-books-knowledge-map-en).
 
