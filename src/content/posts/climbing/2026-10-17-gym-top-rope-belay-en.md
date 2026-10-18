@@ -240,7 +240,7 @@ No. A GriGri assists braking but is not automatic; the brake hand still stays on
 
 Once top-rope belaying is solid and you have your gym's top-rope card, the usual next step is gym lead climbing: clipping quickdraws as you go, longer falls, and a belayer who knows how to pay out and give a soft catch. Read [Gym Lead Climbing](/posts/climbing/2026-10-17-gym-lead-climbing-en) next; when you are ready for real rock, start with the [Sport vs Trad overview](/posts/climbing/2026-10-17-sport-vs-trad-overview-en).
 
-For the bigger picture of climbing outdoors, read the "Before you go outdoors" section of [Rock Climbing for Beginners](/posts/climbing/2026-10-08-climbing-beginner-guide-en). For books to go deeper, see [A Knowledge Map of Climbing Books](/posts/climbing/2026-06-20-climbing-books-knowledge-map-en).
+For the bigger picture of climbing outdoors, read the "Before you go outdoors" section of [Rock Climbing for Beginners](/posts/climbing/2026-10-08-climbing-beginner-guide-en). For books to go deeper, see [A Knowledge Map of Climbing Books](/posts/climbing/2026-06-20-climbing-books-knowledge-map-en). If climbing feels stuck or your arms tire fast, the cause is often movement; start with the [Climbing Movement overview](/posts/climbing/2026-10-18-climbing-movement-overview-en).
 
 ## References
 
@@ -259,3 +259,4 @@ For the bigger picture of climbing outdoors, read the "Before you go outdoors" s
 ## Update Log
 
 - 2026-10-18: Added to the Sport and Trad Climbing series as post 0. Rechecked every claim against its source: corrected the REI call (Gotcha), the backup knot for the double bowline, and the descriptions of the T-UP course and the CBT, and removed two unsourced statements.
+- 2026-10-18: Added a link to the Climbing Movement series in "What's next".

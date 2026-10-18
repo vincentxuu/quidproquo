@@ -286,7 +286,7 @@ DAV、REI、BMC 的建議大致一致：
 
 ## 下一步
 
-拿到先鋒卡、在岩館先鋒得穩定之後，就可以準備到戶外爬。戶外多了自己掛快扣、第一支快扣前的 stick clip、繩長與頂端操作，這些寫在[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)。想先看戶外攀岩的全貌，可以讀[運動攀登與傳統攀登總覽](/posts/climbing/2026-10-17-sport-vs-trad-overview)。
+拿到先鋒卡、在岩館先鋒得穩定之後，就可以準備到戶外爬。戶外多了自己掛快扣、第一支快扣前的 stick clip、繩長與頂端操作，這些寫在[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)。想先看戶外攀岩的全貌，可以讀[運動攀登與傳統攀登總覽](/posts/climbing/2026-10-17-sport-vs-trad-overview)。先鋒時常在掛快扣前沒力，練省力的動作可以從[攀岩動作技術總覽](/posts/climbing/2026-10-18-climbing-movement-overview)開始。
 
 ## 參考資料
 
@@ -305,3 +305,7 @@ DAV、REI、BMC 的建議大致一致：
 - [原岩中和店：中華山協 CBT 攀登確保能力檢測（2023 公告）](https://tupclimbing.tw/news/announcement/232)
 - [nobodyclimb 繩索系統練習：運動攀登先鋒](https://nobodyclimb.cc/games/rope-system/learn/sport-lead)
 - [岩館上攀確保怎麼學：八字結、夥伴互檢、收繩、口令與下放](/posts/climbing/2026-10-17-gym-top-rope-belay)
+
+## 更新紀錄
+
+- 2026-10-18：「下一步」加上〈攀岩動作技術〉系列的連結。

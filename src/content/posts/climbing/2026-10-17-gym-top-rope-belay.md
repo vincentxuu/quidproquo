@@ -240,7 +240,7 @@ REI 還有一句容易被忽略的提醒：換一種確保器，就要重新學�
 
 上攀確保練熟、也考到岩館的上攀卡之後，下一步通常是岩館先鋒：邊爬邊掛快扣，墜落距離變長，確保者要會給繩與軟確保。接著讀〈[岩館先鋒](/posts/climbing/2026-10-17-gym-lead-climbing)〉；準備去戶外岩壁，從〈[運動攀登與傳統攀登總覽](/posts/climbing/2026-10-17-sport-vs-trad-overview)〉開始。
 
-想先了解戶外攀岩的全貌，可以讀[攀岩入門](/posts/climbing/2026-10-08-climbing-beginner-guide)的「走到戶外之前」一節；想找書深入學，可以看[攀岩書籍知識版圖](/posts/climbing/2026-06-20-climbing-books-knowledge-map)。
+想先了解戶外攀岩的全貌，可以讀[攀岩入門](/posts/climbing/2026-10-08-climbing-beginner-guide)的「走到戶外之前」一節；想找書深入學，可以看[攀岩書籍知識版圖](/posts/climbing/2026-06-20-climbing-books-knowledge-map)。爬起來覺得卡、手很快就沒力，問題常在動作，從[攀岩動作技術總覽](/posts/climbing/2026-10-18-climbing-movement-overview)開始讀。
 
 ## 參考資料
 
@@ -259,3 +259,4 @@ REI 還有一句容易被忽略的提醒：換一種確保器，就要重新學�
 ## 更新紀錄
 
 - 2026-10-18：併入〈運動攀登與傳統攀登〉系列，成為第 0 篇。重新逐條核對來源，更正 REI 口令（Gotcha）、雙套稱人結的備份結、原岩課程與 CBT 的描述，刪去兩處沒有來源的說法。
+- 2026-10-18：「下一步」加上〈攀岩動作技術〉系列的連結。

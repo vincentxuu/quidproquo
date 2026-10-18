@@ -286,7 +286,7 @@ That is 17 kg, more than the 10 kg at which the DAV says to take measures. Ask t
 
 ## What's next
 
-Once you have a lead card and lead comfortably at the gym, you can prepare to climb outside. Outdoors you hang your own draws, use a stick clip before the first bolt, and deal with rope length and the anchor; that is covered in [Your First Outdoor Sport Lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en). For the big picture of outdoor climbing, read the [Sport and Trad Climbing overview](/posts/climbing/2026-10-17-sport-vs-trad-overview-en).
+Once you have a lead card and lead comfortably at the gym, you can prepare to climb outside. Outdoors you hang your own draws, use a stick clip before the first bolt, and deal with rope length and the anchor; that is covered in [Your First Outdoor Sport Lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en). For the big picture of outdoor climbing, read the [Sport and Trad Climbing overview](/posts/climbing/2026-10-17-sport-vs-trad-overview-en). If you often run out of strength before a clip, start working on efficient movement with the [Climbing Movement overview](/posts/climbing/2026-10-18-climbing-movement-overview-en).
 
 ## References
 
@@ -305,3 +305,7 @@ Once you have a lead card and lead comfortably at the gym, you can prepare to cl
 - [T-UP Zhonghe: CTAA Climbing Belay Test announcement (2023)](https://tupclimbing.tw/news/announcement/232) (in Chinese)
 - [nobodyclimb rope system practice: sport lead](https://nobodyclimb.cc/games/rope-system/learn/sport-lead) (in Chinese)
 - [Learning to Top-Rope Belay at the Gym](/posts/climbing/2026-10-17-gym-top-rope-belay-en)
+
+## Update Log
+
+- 2026-10-18: Added a link to the Climbing Movement series in "What's next".
