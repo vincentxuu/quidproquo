@@ -1123,6 +1123,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'For gym climbers a few months in who have started to plateau: footwork, balance, turning and twisting, holds and grips, dynamic moves, bouldering problem solving, resting and route reading, wall angles, and crack technique for Taiwan\'s Long Dong. Each post checks common climbing advice against the research.',
     },
   },
+  {
+    slug: 'climbing-training',
+    category: 'other',
+    names: { 'zh-TW': '攀岩訓練', en: 'Climbing Training' },
+    descriptions: {
+      'zh-TW': '爬了一年左右開始卡關時讀：先診斷卡在技術還是體能，再談能量系統、指力板、力量與 campus board、耐力、週期化、居家訓練、拮抗肌與核心，最後是營養、RED-S 與恢復。每篇標明哪些有研究支持、哪些是教練共識。',
+      en: 'For climbers about a year in who have hit a plateau: first diagnose whether the limit is technique or fitness, then energy systems, hangboarding, strength and the campus board, endurance, periodization, home training, antagonist and core work, and finally nutrition, RED-S and recovery. Each post separates what research supports from coaching consensus.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
