@@ -134,7 +134,7 @@ Read them in this order: first confirm you need training, then understand how yo
 | 7 | [Antagonists, core and general strength](/posts/climbing/2026-10-18-climbing-antagonist-core-en) | Why does only pulling get you hurt? What does a weekly prevention session look like? |
 | 8 | [Nutrition, RED-S and recovery](/posts/climbing/2026-10-18-climbing-nutrition-recovery-en) | Is lighter really stronger? How do I know I'm overdoing it? |
 
-Treating and rehabilitating injuries is outside this series; that belongs to the injury prevention series (in progress). Post 7 is where the two meet.
+Treating and rehabilitating injuries is outside this series; see the [Climbing Injuries and First Aid](/posts/climbing/2026-10-18-climbing-injury-overview-en) series. Post 7 is where the two meet.
 
 **Something you can do tonight**: pick your next read by where you stopped in the three-step check. Stopped at step 1: read [the Climbing Movement overview](/posts/climbing/2026-10-18-climbing-movement-overview-en). Stopped at step 3: start with post 1 of this series.
 
@@ -194,3 +194,7 @@ If your check stopped at step 3, the next question is what "fitness" actually me
 - [Draper N et al. Performance Assessment for Rock Climbers: The IRCRA Sport-Specific Test Battery. Int J Sports Physiol Perform 2021](https://pubmed.ncbi.nlm.nih.gov/33652414/)
 - [Draper N et al. Self-reported ability assessment in rock climbing. J Sports Sci 2011](https://pubmed.ncbi.nlm.nih.gov/21491325/)
 - [Hsiao Yu-Xuan, A Multiple Regression Analysis of Upper Limb Strength Characteristics and Climbing Grades in Climbers, NTU master's thesis, 2025 (in Chinese, English abstract)](https://tdr.lib.ntu.edu.tw/bitstream/123456789/98245/1/ntu-113-2.pdf)
+
+## Update Log
+
+- 2026-10-18: The Climbing Injuries and First Aid series is now published; replaced "in progress" mentions with links.

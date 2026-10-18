@@ -192,7 +192,7 @@ BMC 和 UIAA 都建議 18 歲以下（UIAA 寫約 16、17 歲以下）不做離�
 
 ## 下一步
 
-力量和爆發力讓你做得出難的那一手；先鋒爬到一半手就爆，是另一個問題。接著讀[耐力與力量耐力](/posts/climbing/2026-10-18-climbing-endurance-training)。肩和手肘受傷怎麼辦，見傷害預防系列（撰寫中）。
+力量和爆發力讓你做得出難的那一手；先鋒爬到一半手就爆，是另一個問題。接著讀[耐力與力量耐力](/posts/climbing/2026-10-18-climbing-endurance-training)。肩和手肘受傷怎麼辦，見[肩](/posts/climbing/2026-10-18-climbing-shoulder)與[肘與腕](/posts/climbing/2026-10-18-climbing-elbow-wrist)。
 
 ## 參考資料
 
@@ -218,3 +218,7 @@ BMC 和 UIAA 都建議 18 歲以下（UIAA 寫約 16、17 歲以下）不做離�
 - [Schöffl V et al. Stress fractures of the growth plates in the fingers of adolescent rock climbers. Unfallchirurgie 2024](https://pubmed.ncbi.nlm.nih.gov/39311912/)
 - [McMullen CW et al. Coaches' Attitudes Toward Campus Board Training in Adolescent Climbers in the United States. Wilderness Environ Med 2021](https://pubmed.ncbi.nlm.nih.gov/33972161/)
 - [Steve Bechtel's Book on Strength Training（Steve Bechtel，TrainingBeta）](https://trainingbeta.com/steve-bechtels-new-book-on-strength-training)
+
+## 更新紀錄
+
+- 2026-10-18：〈攀岩傷害預防與急救〉系列上線，原本「撰寫中」的地方改成實際連結。

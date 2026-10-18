@@ -137,7 +137,7 @@ For the year, see [Periodization](/posts/climbing/2026-10-18-climbing-periodizat
 
 Power Company's reminder is simple: when you're new to hanging, monitor your fingers, elbows and shoulders, and don't push extra hard just because you're stuck at home.
 
-If a finger gets a sharp pain during a hang, or the inside of your elbow or the front of your shoulder still hurts the next day, stop that exercise. Injury assessment and management will be covered in the injury prevention series (in progress); for persistent pain or swelling, see a doctor or physical therapist.
+If a finger gets a sharp pain during a hang, or the inside of your elbow or the front of your shoulder still hurts the next day, stop that exercise. Injury assessment and management are covered in the [Climbing Injuries and First Aid](/posts/climbing/2026-10-18-climbing-injury-overview-en) series; for persistent pain or swelling, see a doctor or physical therapist.
 
 **Something you can do tonight**: After each session, rate your fingers, elbows and shoulders from 0 to 10. If one is higher than usual twice in a row, cut the exercises that load it next time.
 
@@ -192,3 +192,7 @@ What home training most often leaves out is the pushing side. The next post, [An
 - [How to NOT Get Injured Climbing (No Gym) (Jason Hooper, Hooper's Beta, 2021)](https://hoopersbeta.com/library/one-routine-once-a-week-climbing-training)
 - [Three months without climbing, only finger training: how much did I lose? (JOVA, Vocus, 2024) (in Chinese)](https://vocus.cc/article/6684a44dfd897800016f7f79)
 - [Climbing training (1): ARC and max strength (kateberry, 2026) (in Chinese)](http://kateberrysblog.blogspot.com/2026/03/climbingtraining1.html)
+
+## Update Log
+
+- 2026-10-18: The Climbing Injuries and First Aid series is now published; replaced "in progress" mentions with links.

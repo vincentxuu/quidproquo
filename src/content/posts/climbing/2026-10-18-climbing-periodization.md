@@ -177,7 +177,7 @@ López 在指力板指南裡列了幾個該把間隔拉長到 72 小時的情況
 
 她也說，這時候除了調課表，還要回頭檢查其他天怎麼爬、睡眠和飲食。[Hooper's Beta](https://hoopersbeta.com/library/throw-your-hangboard-in-the-trash-if-you-dont-know-this-save-a-friend) 的判斷方式更簡單：每一下都輕鬆完成，下次才加強度；最後幾下很掙扎，就先不要加。
 
-疲勞一直累積、睡不好、表現連續下滑，是練過頭的訊號，[營養、RED-S 與恢復](/posts/climbing/2026-10-18-climbing-nutrition-recovery)那篇會細講。手指或肩膀開始痛，先停下來看醫師或物理治療師；傷害預防系列（撰寫中）會另外講。
+疲勞一直累積、睡不好、表現連續下滑，是練過頭的訊號，[營養、RED-S 與恢復](/posts/climbing/2026-10-18-climbing-nutrition-recovery)那篇會細講。手指或肩膀開始痛，先停下來看醫師或物理治療師；細節見[攀岩傷害預防與急救](/posts/climbing/2026-10-18-climbing-injury-overview)系列。
 
 **今晚就能做的動作**：在手機開一個筆記，標題寫「訓練紀錄」，今天的課先記一行：日期、主題、做了什麼、累的程度幾分。
 
@@ -235,3 +235,7 @@ Lattice 說這是常見誤會。減量是把總負荷降低 40–60%，例如少
 - [週期化訓練是什麼？訓練卡關還能怎麼辦？（練健康，2024）](https://l-kk.tw/periodization/)
 - [攀岩訓練頻率的黃金指南（HANCHOR）](https://tw.hanchor.com/pages/climb14)
 - [攀岩週期訓練課程（Camp4／艾格探險）](https://www.adventuretaiwan.com/product/rock-climbing-fitness-training/)
+
+## 更新紀錄
+
+- 2026-10-18：〈攀岩傷害預防與急救〉系列上線，原本「撰寫中」的地方改成實際連結。

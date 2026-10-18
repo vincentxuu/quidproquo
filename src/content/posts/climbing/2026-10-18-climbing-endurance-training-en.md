@@ -246,7 +246,7 @@ Climbing.com says power endurance comes quickly and goes quickly, in about two t
 
 You now have three tools: hangboard, strength and endurance. The next question is how to fit them into three sessions a week. Read [Periodization](/posts/climbing/2026-10-18-climbing-periodization-en) next.
 
-An injury-prevention series (in progress) will cover finger, shoulder and elbow injuries. For now: if anything in these sessions hurts, stop rather than pushing through.
+Finger, shoulder and elbow injuries are covered in the [Climbing Injuries and First Aid](/posts/climbing/2026-10-18-climbing-injury-overview-en) series. In short: if anything in these sessions hurts, stop rather than pushing through.
 
 ## References
 
@@ -262,3 +262,7 @@ An injury-prevention series (in progress) will cover finger, shoulder and elbow 
 - [Baláš J et al. The Estimation of Critical Angle in Climbing as a Measure of Maximal Metabolic Steady State. Front Physiol 2022](https://pubmed.ncbi.nlm.nih.gov/35069253/)
 - [MacLeod D et al. Physiological determinants of climbing-specific finger endurance and sport rock climbing performance. J Sports Sci 2007](https://pubmed.ncbi.nlm.nih.gov/17786696/)
 - [Stien N et al. The Effects of Prioritizing Lead or Boulder Climbing Among Intermediate Climbers. Front Sports Act Living 2021](https://pubmed.ncbi.nlm.nih.gov/33969299/)
+
+## Update Log
+
+- 2026-10-18: The Climbing Injuries and First Aid series is now published; replaced "in progress" mentions with links.

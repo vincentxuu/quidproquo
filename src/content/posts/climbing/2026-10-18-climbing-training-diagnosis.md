@@ -134,7 +134,7 @@ Hooper's Beta 提醒，如果真的要加訓練，就要從攀爬裡扣掉一些
 | 7 | [拮抗肌、核心與一般肌力](/posts/climbing/2026-10-18-climbing-antagonist-core) | 為什麼只練拉會受傷？每週一次的預防課表怎麼做？ |
 | 8 | [營養、RED-S 與恢復](/posts/climbing/2026-10-18-climbing-nutrition-recovery) | 輕一點就強一點嗎？怎麼知道練過頭了？ |
 
-受傷的處理與復健不在這個系列，會在傷害預防系列（撰寫中）講；第 7 篇是兩個系列的交界。
+受傷的處理與復健不在這個系列，見[攀岩傷害預防與急救](/posts/climbing/2026-10-18-climbing-injury-overview)系列；第 7 篇是兩個系列的交界。
 
 **今晚就能做的動作**：照你在三步診斷裡停下的那一步選讀：停在第一步，讀[動作技術總覽](/posts/climbing/2026-10-18-climbing-movement-overview)；停在第三步，從本系列第 1 篇開始。
 
@@ -194,3 +194,7 @@ Hooper's Beta 提醒，如果真的要加訓練，就要從攀爬裡扣掉一些
 - [Draper N et al. Performance Assessment for Rock Climbers: The IRCRA Sport-Specific Test Battery. Int J Sports Physiol Perform 2021](https://pubmed.ncbi.nlm.nih.gov/33652414/)
 - [Draper N et al. Self-reported ability assessment in rock climbing. J Sports Sci 2011](https://pubmed.ncbi.nlm.nih.gov/21491325/)
 - [蕭妤瑄〈攀岩者上肢力量特徵與攀登等級之多元迴歸分析〉臺大碩士論文，2025](https://tdr.lib.ntu.edu.tw/bitstream/123456789/98245/1/ntu-113-2.pdf)
+
+## 更新紀錄
+
+- 2026-10-18：〈攀岩傷害預防與急救〉系列上線，原本「撰寫中」的地方改成實際連結。
