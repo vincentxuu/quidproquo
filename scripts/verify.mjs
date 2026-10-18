@@ -158,6 +158,9 @@ const FULL_STEPS = [
   // 新登錄的系列要有規劃表、每篇要有 verify＋review＋polish 紀錄；既有系列列在 scripts/config/series-plan-baseline.json。
   ['check:series-plan', 'pnpm check:series-plan'],
   ['check:lang-parity', 'pnpm check:lang-parity'],
+  // 岩場文章「依程度挑路線」表的 YDS／V 換算要對得上 Mountain Project 對照表（見 post skill crag-guide-contract）。
+  ['grade conversion regression tests', 'node scripts/climbing-grade-convert.mjs --self-test'],
+  ['check:grades', 'pnpm check:grades'],
   ['check:course-videos', 'pnpm check:course-videos'],
   ['check:seo-smoke', 'pnpm check:seo-smoke'],
   ['skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs'],
@@ -205,7 +208,7 @@ function stagedPlan() {
     if (zhPosts.length > 0) steps.push(['check:tw (staged)', `node scripts/check-tw-terms.mjs ${quote(zhPosts)}`]);
     // 這些看的是文章之間的關係（系列編號、中英成對、課程標題與版面），本來就要全站看；實測每項 2 秒內。
     steps.push(...pick('check:chat-style', 'check:series-order', 'course title gate', 'course source layout gate',
-      'check:lang-parity', 'check:course-videos', 'check:seo-smoke'));
+      'check:lang-parity', 'check:grades', 'check:course-videos', 'check:seo-smoke'));
   }
   if (entries.some((e) => /^(\.agents|\.claude)\/skills\//.test(e.path))) {
     steps.push(...pick('skills-sync (.agents ↔ .claude)', 'skill-anchors (章節連結)'));

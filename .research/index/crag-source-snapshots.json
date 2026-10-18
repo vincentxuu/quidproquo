@@ -1,0 +1,1595 @@
+{
+  "https://www.thecrag.com/en/climbing/italy/arco": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-arco"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 5,
+    "missing": [
+      "2026-10-18",
+      "2022-07",
+      "2024-04",
+      "目前封閉，出發前確認"
+    ],
+    "hash": "e03b5c107ac66744",
+    "via": "jina",
+    "bytes": 74689
+  },
+  "https://planetmountain.com/en/crags/arco-massone.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-arco"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "2d80b5e2a5973296",
+    "via": "jina",
+    "bytes": 56566
+  },
+  "https://planetmountain.com/en/news/climbing/five-must-see-crags-at-arco-the-birthplace-of-sport-climbing-as-we-know-it.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-arco"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 5,
+    "missing": [],
+    "hash": "00a13bba05d85263",
+    "via": "jina",
+    "bytes": 37621
+  },
+  "https://www.gardatrentino.it/en/outdoor/climbing/crags": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-arco"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "a3a7a381064ac643",
+    "via": "direct",
+    "bytes": 629286
+  },
+  "https://gardatrentino.it/en/plan-your-trip/how-to-get-here/by-train": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-arco"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "bb3d904a8259a91c",
+    "via": "direct",
+    "bytes": 565763,
+    "finalUrl": "https://www.gardatrentino.it/en/plan-your-trip/how-to-get-here/by-train"
+  },
+  "https://gardatrentino.it/en/plan-your-trip/local-mobility/Bus-and-Go": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-arco"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 4,
+    "missing": [
+      "9–13",
+      "14–01"
+    ],
+    "hash": "7888f7cca079ee40",
+    "via": "direct",
+    "bytes": 630146,
+    "finalUrl": "https://www.gardatrentino.it/en/plan-your-trip/local-mobility/Bus-and-Go"
+  },
+  "https://www.comune.arco.tn.it/Novita/Notizie/Lavori-a-Laghel-vietato-e-pericoloso-accedere-alla-zona": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-arco"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "b237ed6d7620d06b",
+    "via": "direct",
+    "bytes": 66253
+  },
+  "https://www.iltquotidiano.it/articoli/crollo-a-laghel-il-comune-di-arco-blocca-laccesso-alle-falesie/": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-arco"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 3,
+    "missing": [
+      "2026-08-27"
+    ],
+    "hash": "334bf01d97afd517",
+    "via": "direct",
+    "bytes": 131549
+  },
+  "https://labusa.info/arco-scattano-le-chiusure-temporanee-di-sei-falesie-per-lavori-di-manutenzione-e-disgaggio/": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-arco"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 3,
+    "missing": [],
+    "hash": "7da69478a371f8dd",
+    "via": "direct",
+    "bytes": 348644
+  },
+  "https://climbingitaly.com/area/cala-gonone": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cala-gonone"
+    ],
+    "types": [
+      "bolt_condition",
+      "transport"
+    ],
+    "anchors": 3,
+    "missing": [],
+    "hash": "5c6a04f5210a330c",
+    "via": "direct",
+    "bytes": 239627,
+    "finalUrl": "https://climbingitaly.com/area/cala-gonone/"
+  },
+  "https://climb-europe.com/pages/rock-climbing-sardinia-cala-gonone": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cala-gonone"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "ff7a18a800d60c9f",
+    "via": "direct",
+    "bytes": 341899
+  },
+  "https://calagonone.eu": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cala-gonone"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 2,
+    "missing": [
+      "50",
+      "2024"
+    ],
+    "hash": "9d8e36b3864c4367",
+    "via": "direct",
+    "bytes": 203776,
+    "finalUrl": "https://www.calagonone.eu/"
+  },
+  "https://climbingsardinia.com/en/how-to-climb-on-titanium-bolted-crags": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cala-gonone"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 1,
+    "missing": [
+      "2025-01-18"
+    ],
+    "hash": "f315286e7367b595",
+    "via": "direct",
+    "bytes": 289555,
+    "finalUrl": "https://climbingsardinia.com/en/how-to-climb-on-titanium-bolted-crags/"
+  },
+  "https://www.thecrag.com/en/climbing/italy/sardinia/cala-gonone/area/720129579": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cala-gonone"
+    ],
+    "types": [
+      "transport",
+      "bolt_condition"
+    ],
+    "anchors": 2,
+    "missing": [
+      "40.290570",
+      "9.640568"
+    ],
+    "hash": "185e16d7f14db1be",
+    "via": "jina",
+    "bytes": 376
+  },
+  "https://planetmountain.com/en/routes/millennium-bug-millennium-cave.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cala-gonone"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "8b61350fa3f84da6",
+    "via": "jina",
+    "bytes": 25300
+  },
+  "https://sardegnaturismo.it/en/places/est/cala-gonone": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cala-gonone"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "327fdef91eae61ac",
+    "via": "direct",
+    "bytes": 96413,
+    "finalUrl": "https://www.sardegnaturismo.it/en/places/est/cala-gonone"
+  },
+  "https://cortina.dolomiti.org/en/arrampicata-sportiva/cinque-torri-en": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cinque-torri"
+    ],
+    "types": [
+      "closure",
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "3d6212f303e890b1",
+    "via": "direct",
+    "bytes": 330681,
+    "finalUrl": "https://cortina.dolomiti.org/en/arrampicata-sportiva/cinque-torri-en/"
+  },
+  "https://planetmountain.com/en/crags/cinque-torri.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cinque-torri"
+    ],
+    "types": [
+      "closure",
+      "transport"
+    ],
+    "anchors": 1,
+    "missing": [
+      "9:30–15:30"
+    ],
+    "hash": "60620057e304a674",
+    "via": "jina",
+    "bytes": 53295
+  },
+  "https://ledolomiti.it/en/trails/falesia-cinque-torri-arrampicata": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cinque-torri"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "a8ad550672f2cbea",
+    "via": "direct",
+    "bytes": 92001,
+    "finalUrl": "https://www.ledolomiti.it/en/trails/falesia-cinque-torri-arrampicata"
+  },
+  "https://guidedolomiti.com/en/climbing/cinque-torri-crag": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cinque-torri"
+    ],
+    "types": [
+      "transport",
+      "closure"
+    ],
+    "anchors": 2,
+    "missing": [
+      "112.2"
+    ],
+    "hash": "fe445409131c99be",
+    "via": "direct",
+    "bytes": 393876,
+    "finalUrl": "https://www.guidedolomiti.com/en/climbing/five-towers-climb-cinque-torri/"
+  },
+  "https://thecrag.com/en/climbing/italy/dolomites/cinque-torri": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cinque-torri"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 2,
+    "missing": [
+      "10",
+      "60"
+    ],
+    "hash": "de690a4b406234c7",
+    "via": "jina",
+    "bytes": 359
+  },
+  "https://ukclimbing.com/logbook/crags/cinque_torri-2131": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cinque-torri"
+    ],
+    "types": [
+      "bolt_condition",
+      "transport",
+      "closure"
+    ],
+    "anchors": 5,
+    "missing": [
+      "9:30–15:30",
+      "(and at other periods)"
+    ],
+    "hash": "e38a7dacc68ae14b",
+    "via": "jina",
+    "bytes": 16856
+  },
+  "https://rifugioscoiattoli.it": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cinque-torri"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 1,
+    "missing": [
+      "9:30–15:30"
+    ],
+    "hash": "8b6206f5fbb858f7",
+    "via": "direct",
+    "bytes": 11314,
+    "finalUrl": "https://www.rifugioscoiattoli.it/"
+  },
+  "https://cortinadampezzo.it/news/apertura-impianti-estate": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-cinque-torri"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 2,
+    "missing": [
+      "9:00–17:00"
+    ],
+    "hash": "09de3b901997cb75",
+    "via": "direct",
+    "bytes": 363281,
+    "finalUrl": "https://cortinadampezzo.it/news/apertura-impianti-estate/"
+  },
+  "https://thetopo.com/crags/ferentillo/description": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-ferentillo"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "fa4c989f5c6bf963",
+    "via": "direct",
+    "bytes": 74610
+  },
+  "https://www.planetmountain.com/en/news/climbing/petzl-legend-tour-italia-climbing-at-ferentillo.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-ferentillo"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "57717b137be51be7",
+    "via": "jina",
+    "bytes": 29432
+  },
+  "https://www.versantesud.it/it/negozio/catalogue/umbria-rock_1500/": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-ferentillo"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 3,
+    "missing": [],
+    "hash": "1c6def7dd89989b0",
+    "via": "direct",
+    "bytes": 78452
+  },
+  "https://www.fsbusitalia.it/it/umbria/orari-linee-umbria/orari-servizi-extraurbani-umbria.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-ferentillo"
+    ],
+    "types": [
+      "closure",
+      "transport"
+    ],
+    "anchors": 5,
+    "missing": [
+      "2026-2027",
+      "621",
+      "06.10",
+      "06.40"
+    ],
+    "hash": "f04ef49da4a232cf",
+    "via": "direct",
+    "bytes": 129885
+  },
+  "https://finaleoutdoor.com/en/stories/climbing-in-the-finale-area-all-you-need-to-know": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-finale-ligure",
+      "italy-crags-overview"
+    ],
+    "types": [
+      "fee",
+      "closure"
+    ],
+    "anchors": 5,
+    "missing": [
+      "01–31",
+      "1–7"
+    ],
+    "hash": "06d03da2bdaffabf",
+    "via": "direct",
+    "bytes": 1137191,
+    "finalUrl": "https://www.finaleoutdoor.com/en/stories/climbing-in-the-finale-area-all-you-need-to-know"
+  },
+  "https://finaleoutdoor.com/en/stories/finale-outdoor-region-a-paradise-for-climbers-and-for-birds-of-prey": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-finale-ligure"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "def519e71f01d864",
+    "via": "direct",
+    "bytes": 331395,
+    "finalUrl": "https://www.finaleoutdoor.com/en/stories/finale-outdoor-region-a-paradise-for-climbers-and-for-birds-of-prey"
+  },
+  "https://finaleoutdoor.com/en/live/climbing": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-finale-ligure"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "9af41fccf8087979",
+    "via": "direct",
+    "bytes": 110571,
+    "finalUrl": "https://www.finaleoutdoor.com/en/live/climbing"
+  },
+  "https://ukclimbing.com/logbook/books/finale_climbing_2022-2710": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-finale-ligure"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "71e1217e86403b5d",
+    "via": "jina",
+    "bytes": 12760
+  },
+  "https://ecopointclimbing.com": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-finale-ligure"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "65bfb196ab8d0e28",
+    "via": "direct",
+    "bytes": 125984,
+    "finalUrl": "https://ecopointclimbing.com/"
+  },
+  "https://ukclimbing.com/logbook/crags/grotta_dellarenauta-9762": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "50bb18991f7bf3d2",
+    "via": "jina",
+    "bytes": 13199
+  },
+  "https://thecrag.com/en/climbing/italy/spiaggia-dellareonauta": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 6,
+    "missing": [
+      "ultima spiaggia"
+    ],
+    "hash": "19fb355635b7d95a",
+    "via": "jina",
+    "bytes": 34950
+  },
+  "https://www.thecrag.com/en/climbing/italy/spiaggia-dellareonauta/approdo-dei-proci": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [
+      "2014"
+    ],
+    "hash": "27ca514d8b49a92a",
+    "via": "jina",
+    "bytes": 381
+  },
+  "https://www.thecrag.com/en/climbing/italy/spiaggia-dellareonauta/grotta-dellareonauta": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 3,
+    "missing": [
+      "10–20",
+      "2022",
+      "32"
+    ],
+    "hash": "6ec4f20f71761001",
+    "via": "jina",
+    "bytes": 384
+  },
+  "https://27crags.com/crags/grotta-dell-arenauta/access": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta"
+    ],
+    "types": [
+      "closure",
+      "fee"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "60a302a73da1a49a",
+    "via": "direct",
+    "bytes": 62154,
+    "finalUrl": "https://thetopo.com/crags/grotta-dell-arenauta/access"
+  },
+  "https://climbingspotfactory.com/index.php/en/climbadvisor/gorotta_dell_arenauta/info_about": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 3,
+    "missing": [
+      "don't leave anything into the car"
+    ],
+    "hash": "a8cf9e4211d16133",
+    "via": "direct",
+    "bytes": 32164
+  },
+  "https://planetmountain.com/en/news/climbing/grotta-dellarenauta-high-hopes-for-the-crag-to-be-reopened.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "6c931c921d6fa72b",
+    "via": "jina",
+    "bytes": 28188
+  },
+  "https://mountainproject.com/forum/topic/125555168/gaeta-and-sperlonga-without-a-car": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "43e91daa291d1c96",
+    "via": "direct",
+    "bytes": 67436,
+    "finalUrl": "https://www.mountainproject.com/forum/topic/125555168/gaeta-and-sperlonga-without-a-car"
+  },
+  "https://falesia.it": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta",
+      "italy-crag-sperlonga"
+    ],
+    "types": [
+      "transport",
+      "bolt_condition",
+      "closure"
+    ],
+    "anchors": 14,
+    "missing": [
+      "12",
+      "2016",
+      "17",
+      "23",
+      "11",
+      "43",
+      "19",
+      " moneta ",
+      "2009",
+      "comprese le falesie di s.agostino e della spiaggia dell'arenauta"
+    ],
+    "hash": "d67d2613f9e07a7d",
+    "via": "direct",
+    "bytes": 58296,
+    "finalUrl": "https://www.falesia.it/"
+  },
+  "https://www.planetmountain.com/it/notizie/arrampicata/richiodatura-montagna-spaccata-gaeta.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta"
+    ],
+    "types": [
+      "bolt_condition",
+      "fee"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "e0628dee038e0aca",
+    "via": "jina",
+    "bytes": 37474
+  },
+  "https://italia.it": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "641343e1ef96b50a",
+    "via": "direct",
+    "bytes": 1420775,
+    "finalUrl": "https://www.italia.it/en"
+  },
+  "https://parchilazio.it/rivieradiulisse-schede-32058-the_riviera_di_ulisse_regional_park": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta",
+      "italy-crag-sperlonga"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "9943fd07d67653b5",
+    "via": "direct",
+    "bytes": 70106,
+    "finalUrl": "https://www.parchilazio.it/rivieradiulisse-schede-32058-the_riviera_di_ulisse_regional_park"
+  },
+  "https://scoprigaeta.it": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-gaeta"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 7,
+    "missing": [
+      "2026-10-18",
+      "25–30",
+      "10-15",
+      "11-05",
+      "10-18",
+      "以 10-18 為例，出發前在頁面選日期再查"
+    ],
+    "hash": "a50763061f215bb8",
+    "via": "direct",
+    "bytes": 532961,
+    "finalUrl": "https://scoprigaeta.it/"
+  },
+  "https://thecrag.com/en/climbing/italy/verona/area/2013121002": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-lumignano"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 3,
+    "missing": [
+      "184",
+      "2024",
+      "climbing in this area is closed."
+    ],
+    "hash": "771859243ec73e55",
+    "via": "jina",
+    "bytes": 359
+  },
+  "https://organizzazione.cai.it/sez-vicenza/falesia-di-lumignano-itinerari-interdetti/": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-lumignano"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "44062cab67d8713c",
+    "via": "direct",
+    "bytes": 186170
+  },
+  "https://planetmountain.com/en/news/climbing/lumignano-and-the-climbing-in-the-berici-hills-at-risk.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-lumignano"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 1,
+    "missing": [
+      "25–500"
+    ],
+    "hash": "b7c975fedf2e0a6d",
+    "via": "jina",
+    "bytes": 28692
+  },
+  "https://parconaturaleportovenere.it/palestra-di-roccia/": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-muzzerone"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 6,
+    "missing": [
+      "2026-10-18"
+    ],
+    "hash": "9eed2ce24d8e1584",
+    "via": "direct",
+    "bytes": 109332,
+    "finalUrl": "https://www.parconaturaleportovenere.it/palestra-di-roccia/"
+  },
+  "https://parconaturaleportovenere.it/track-n-1": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-muzzerone"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "d29a2b153f5ae1fc",
+    "via": "direct",
+    "bytes": 109624,
+    "finalUrl": "https://www.parconaturaleportovenere.it/track-n-1/"
+  },
+  "https://www.planetmountain.com/it/falesie/muzzerone-parete-centrale.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-muzzerone"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 5,
+    "missing": [],
+    "hash": "ccf0d5249ac8f0eb",
+    "via": "jina",
+    "bytes": 41907
+  },
+  "https://www.planetmountain.com/en/news/climbing/muzzerone-parete-centrale-climbing-ban.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-muzzerone"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "cd48777aca899d79",
+    "via": "jina",
+    "bytes": 29141
+  },
+  "https://www.up-climbing.com/falesia/news-falesia/muzzerone-chiusura-disgaggio-richiodatura-parete-centrale-2/": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-muzzerone"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "ec9c2e2c2949fbde",
+    "via": "direct",
+    "bytes": 178079
+  },
+  "https://www.ukclimbing.com/logbook/crags/muzzerone-2915": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-muzzerone"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 3,
+    "missing": [],
+    "hash": "74a9998e215da0bf",
+    "via": "jina",
+    "bytes": 19297
+  },
+  "https://27crags.com/crags/muzzerone": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-muzzerone"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "62103182d7509fe9",
+    "via": "direct",
+    "bytes": 79944,
+    "finalUrl": "https://thetopo.com/crags/muzzerone"
+  },
+  "https://www.thecrag.com/en/climbing/italy/area/450998862": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-muzzerone"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 13,
+    "missing": [
+      "10–20",
+      "12",
+      "14",
+      "28",
+      "96",
+      "26",
+      "15",
+      "32",
+      "27",
+      "160",
+      "2017",
+      "600"
+    ],
+    "hash": "0798c955997847ab",
+    "via": "jina",
+    "bytes": 355
+  },
+  "https://Falesia.it": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-muzzerone"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "d67d2613f9e07a7d",
+    "via": "direct",
+    "bytes": 58295,
+    "finalUrl": "https://www.falesia.it/"
+  },
+  "https://www.versantesud.it/en/shop/catalogue/muzzerone_1193": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-muzzerone"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "0fa4e2c338c4169a",
+    "via": "direct",
+    "bytes": 81853,
+    "finalUrl": "https://www.versantesud.it/en/shop/catalogue/muzzerone_1193/"
+  },
+  "https://climbook.com/falesie/749/muzzerone-lintaglio-centrale": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-muzzerone"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 5,
+    "missing": [
+      "整個東利古里亞都有確保點**鏽蝕**問題",
+      "materiale da armo… non è più affidabile",
+      "stato di pericolosità del materiale infisso… riguarda tutto il levante ligure",
+      "確保器材已不可靠、危險狀況涵蓋整個東利古里亞",
+      "海邊的 bolt 會鏽"
+    ],
+    "hash": "01e5ae82d543a677",
+    "via": "direct",
+    "bytes": 34146
+  },
+  "https://www.thecrag.com/en/climbing/italy/trapani": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-san-vito-lo-capo",
+      "italy-crags-overview"
+    ],
+    "types": [
+      "bolt_condition",
+      "fee"
+    ],
+    "anchors": 6,
+    "missing": [
+      "2020",
+      "2005",
+      "el bahira 就在主牆上方",
+      "right under the main cliff",
+      "緊鄰主牆／right next to",
+      "1200"
+    ],
+    "hash": "9ef079b6e60cfc47",
+    "via": "jina",
+    "bytes": 348
+  },
+  "https://climb-europe.com/pages/san-vito-rock-climbing": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-san-vito-lo-capo"
+    ],
+    "types": [
+      "fee",
+      "transport"
+    ],
+    "anchors": 3,
+    "missing": [],
+    "hash": "c288b5c7d11ecd3e",
+    "via": "direct",
+    "bytes": 337860
+  },
+  "https://www.elbahira.it/": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-san-vito-lo-capo"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "2337ac4a3159f794",
+    "via": "direct",
+    "bytes": 260523
+  },
+  "https://westofsicily.com/en/useful-information/how-to-get-there/by-bus": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-san-vito-lo-capo"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 8,
+    "missing": [
+      "4.90"
+    ],
+    "hash": "7548a6ec8157ac2c",
+    "via": "direct",
+    "bytes": 139979,
+    "finalUrl": "https://www.westofsicily.com/en/useful-information/how-to-get-there/by-bus"
+  },
+  "https://www.russoautoservizi.it/san-vito-lo-capo-2/": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-san-vito-lo-capo"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "19a060b695b976b2",
+    "via": "direct",
+    "bytes": 159871
+  },
+  "https://en.wikivoyage.org/wiki/San_Vito_lo_Capo": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-san-vito-lo-capo"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "a6d78c78d93c62e9",
+    "via": "direct",
+    "bytes": 122318
+  },
+  "https://climbingspotfactory.com/index.php/en/climbadvisor/sperlonga/info_about": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-sperlonga"
+    ],
+    "types": [
+      "closure",
+      "bolt_condition"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "4f21777d0f2944f8",
+    "via": "direct",
+    "bytes": 39041
+  },
+  "https://www.alpinistidappennino.it/2025/02/21/falesia-tetti-rossi-moneta/": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-sperlonga"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "d4d855967ee70561",
+    "via": "direct",
+    "bytes": 252379
+  },
+  "https://climbook.com/falesie/145/moneta-tetti-rossi-paretone": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-sperlonga"
+    ],
+    "types": [
+      "closure",
+      "bolt_condition"
+    ],
+    "anchors": 4,
+    "missing": [
+      "爬之前自己檢查確保站"
+    ],
+    "hash": "598949f53256ccc9",
+    "via": "direct",
+    "bytes": 52506
+  },
+  "https://sperlongaturismo.it/en": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-sperlonga"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "21d1ca0418cf817b",
+    "via": "direct",
+    "bytes": 134756,
+    "finalUrl": "https://www.sperlongaturismo.it/en/"
+  },
+  "https://riservanaturalevaldimello.org/": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-val-di-mello"
+    ],
+    "types": [
+      "fee",
+      "transport"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "791e96fb5cf595ac",
+    "via": "direct",
+    "bytes": 108040
+  },
+  "https://www.in-lombardia.it/en/tourism-in-lombardy/tourism-sondrio/val-di-mello": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-val-di-mello"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "4be14f4d495dd195",
+    "via": "direct",
+    "bytes": 275362
+  },
+  "https://www.ukclimbing.com/articles/page.php?id=9471": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-val-di-mello"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [
+      "access by car is closed during the summer ... paying the rest of the year"
+    ],
+    "hash": "cb50d33aa41a1650",
+    "via": "jina",
+    "bytes": 15442
+  },
+  "https://www.ukclimbing.com/logbook/crags/val_di_mello-18140": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-val-di-mello"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "14277d2637ff54f4",
+    "via": "jina",
+    "bytes": 46754
+  },
+  "https://www.planetmountain.com/en/news/events/melloblocco-2026-everything-you-need-to-know.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-val-di-mello"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "0e673b1d6f44b8ff",
+    "via": "jina",
+    "bytes": 9726
+  },
+  "https://Montagna.TV": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-val-di-mello",
+      "italy-crags-overview"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 1,
+    "missing": [
+      "migliaia di spit ... la grande maggioranza delle pareti è attrezzata"
+    ],
+    "hash": "1a457b2455cf60d7",
+    "via": "direct",
+    "bytes": 315759,
+    "finalUrl": "https://www.montagna.tv/"
+  },
+  "https://www.thecrag.com/en/climbing/italy/area/389911830": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-valle-dellorco"
+    ],
+    "types": [
+      "fee",
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "823539b6b462dce2",
+    "via": "jina",
+    "bytes": 8440
+  },
+  "https://climb-europe.com/pages/rock-climbing-italy-orco-valley": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-valle-dellorco"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "6a07743dce9325fe",
+    "via": "direct",
+    "bytes": 297672
+  },
+  "https://www.summitpost.org/sergent/1002020": {
+    "firstSeen": "2026-10-18",
+    "status": 403,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-valle-dellorco"
+    ],
+    "types": [
+      "fee",
+      "transport"
+    ],
+    "error": "HTTP 403; reader: HTTP 403"
+  },
+  "https://www.planetmountain.com/en/routes/itaca-nel-sole-free-caporal.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-valle-dellorco"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "201e2997b8788745",
+    "via": "jina",
+    "bytes": 25300
+  },
+  "http://www.planetmountain.com/en/news/interviews/free-itaca-nel-sole-valle-dellorco.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-valle-dellorco"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "07992a89e6322bd7",
+    "via": "jina",
+    "bytes": 31804
+  },
+  "https://pngp.it/en/visit-park/how-reach-us": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-valle-dellorco"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "c2b14a1ac07a922e",
+    "via": "direct",
+    "bytes": 100797,
+    "finalUrl": "https://www.pngp.it/en/visit-park/how-reach-us"
+  },
+  "https://www.gtt.to.it/cms/percorari/extraurbano?Regol=OR&bacino=E&linea=5137&percorso=513794&verso=Di&view=percorso": {
+    "firstSeen": "2026-10-18",
+    "status": 0,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crag-valle-dellorco"
+    ],
+    "types": [
+      "transport"
+    ],
+    "error": "timeout 20000ms; reader: HTTP 422"
+  },
+  "https://27crags.com/countries/italy": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crags-overview"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "83422762f1719c7f",
+    "via": "direct",
+    "bytes": 108918,
+    "finalUrl": "https://thetopo.com/countries/italy"
+  },
+  "https://www.planetmountain.com/en/crags": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crags-overview"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [
+      "09:30–15:30"
+    ],
+    "hash": "fe78aa5d3f434b99",
+    "via": "jina",
+    "bytes": 12616
+  },
+  "https://www.up-climbing.com/falesia/news-falesia/finale-attenti-ai-rapaci/": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crags-overview"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [
+      "2023-01-24"
+    ],
+    "hash": "fef9ba8a7754542d",
+    "via": "direct",
+    "bytes": 180628
+  },
+  "https://trekking.it": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crags-overview"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "bfed7a6f60e5d574",
+    "via": "direct",
+    "bytes": 84302,
+    "finalUrl": "https://www.trekking.it/"
+  },
+  "https://www.meetup.com/manga-climbing-milano/": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crags-overview"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 2,
+    "missing": [
+      "2026-10-18"
+    ],
+    "hash": "b48fa9d282cc0e9e",
+    "via": "direct",
+    "bytes": 163717
+  },
+  "https://rifugio5torri.it/en/5-torri.html": {
+    "firstSeen": "2026-10-18",
+    "status": 200,
+    "checked": "2026-10-18",
+    "crags": [
+      "italy-crags-overview"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 5,
+    "missing": [
+      "9:30–15:30",
+      "6–10",
+      "8 月每個星期天 9:30–15:30"
+    ],
+    "hash": "6695a8de632d0abe",
+    "via": "direct",
+    "bytes": 47850
+  }
+}

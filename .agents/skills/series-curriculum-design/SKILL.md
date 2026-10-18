@@ -12,6 +12,8 @@ description: 導讀系列的課程設計框架：排弧線→找斷崖→拆橋�
 
 課程系列先直接讀 `../post/references/course-guide-contract.md`，在規劃表分開記原課堂次／週次／作業與本站 order。中文完整標題採主題前置、課程「第 N 堂」後置，不把 order 直接翻成堂次。每篇範圍卡補例子與檢驗目標的問題／答案。
 
+岩場系列（一篇一個岩場）規劃時讀 `../post/references/crag-guide-contract.md`，規劃表的每篇結構照它的固定 H2 與依程度路線表。
+
 單篇課程教學重構也套用範圍卡、先備橋接與角色檢查；不為單篇任務重排整個系列。一般獨立文與僅來源更新仍走 post／post-update。
 
 ## 何時用
