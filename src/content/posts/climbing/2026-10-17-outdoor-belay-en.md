@@ -10,7 +10,7 @@ tldr: "Belaying outdoors adds five things: stand near the first piece, wear a he
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 1
+  order: 3
 glossary:
   - term: "Closing the system"
     aliases: ["closed system", "封閉系統"]
@@ -30,7 +30,7 @@ glossary:
 
 You can belay in the gym, you can lower, and you passed the belay test. The first time you go to a crag with a friend, the moves are the same but everything around them changes. The ground isn't padded, rocks can fall, you have to look up how tall the wall is, and you may not hear what your partner yells from 30 meters up.
 
-This is part 1 of the Sport and Trad Climbing series, written for people who already belay top-rope in the gym. The basics (brake hand on the rope, taking in, calls, lowering) are in [Learning to Top-Rope Belay at the Gym](/posts/climbing/2026-10-17-gym-top-rope-belay-en). This post covers only what you need to **add** outside. For the whole series, see [the overview: sport vs trad](/posts/climbing/2026-10-17-sport-vs-trad-overview-en). Lead belaying details (paying out, soft catches, spotting) are in [Your First Outdoor Sport Lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en).
+This is part 3 of the Sport and Trad Climbing series, written for people who already belay top-rope in the gym. The basics (brake hand on the rope, taking in, calls, lowering) are in [Learning to Top-Rope Belay at the Gym](/posts/climbing/2026-10-17-gym-top-rope-belay-en). This post covers only what you need to **add** outside. For the whole series, see [the overview: sport vs trad](/posts/climbing/2026-10-17-sport-vs-trad-overview-en). Lead belaying details (paying out, soft catches, spotting) are in [Your First Outdoor Sport Lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en).
 
 To be clear up front: **this post does not replace a class.** For your first outdoor days, go with experienced climbers or a course and watch how they do things.
 

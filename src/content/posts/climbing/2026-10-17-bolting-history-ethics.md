@@ -10,7 +10,7 @@ tldr: "打 bolt 是在岩壁上留下不可逆的孔，所以各地都把決定�
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 13
+  order: 15
 glossary:
   - term: "clean climbing"
     aliases: ["清潔攀登"]

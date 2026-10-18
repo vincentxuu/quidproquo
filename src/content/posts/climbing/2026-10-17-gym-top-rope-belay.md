@@ -8,6 +8,9 @@ type: guide
 description: "給剛在岩館爬過體驗、想自己帶朋友爬上攀的人：上攀系統由哪些東西組成、八字結與開爬前四點互檢、PBUS 收繩、口令、下放與第一次墜落練習，以及台灣岩館確保證怎麼考。"
 tldr: "上攀確保要會五件事：八字結綁繩、開爬前四點互檢、制動手不離繩的 PBUS 收繩、口令、平穩下放。台灣沒有全國統一的岩館確保證，各館自發；以原岩中和店為例，初階確保課 5 堂 NT$5,500。"
 draft: false
+series:
+  name: "運動攀登與傳統攀登"
+  order: 0
 glossary:
   - term: "制動手"
     aliases: ["brake hand"]
@@ -68,7 +71,7 @@ flowchart TB
 - 穿好之後整理繩結，讓每一股繩平行、不交叉，數得出五組平行的繩線。
 - 繩尾至少留 6 吋（約 15 公分）。DAV 的下限是 10 公分。
 
-穿哪兩個點、穿幾圈，以你吊帶的說明書為準。另一種常見的綁繩結是雙套稱人結（double bowline），比較好解開，但 REI 提醒它一定要再打一個雙半結當備份。初學者先把八字結練熟就好。
+穿哪兩個點、穿幾圈，以你吊帶的說明書為準。另一種常見的綁繩結是雙套稱人結（double bowline），比較好解開，但 REI 提醒它一定要再打一個雙重單結（double overhand）當備份。初學者先把八字結練熟就好。
 
 ### 四點互檢
 
@@ -98,7 +101,7 @@ REI 對確保站位的要求有三個方向：
 - **制動手**：慣用手，握在確保器下方約 15 公分。太靠近確保器，墜落時手可能被夾到而放開繩子。
 - **引導手**：另一隻手握在攀爬者那一段繩子上，大約頭頂高度。
 
-REI 列的確保原則第一條全部大寫：「Always keep your brake hand(s) on the rope. ALWAYS.」DAV 的說法一樣：一隻手永遠握著制動端的繩子。
+REI 的確保原則第一條：「Always keep your brake hand(s) on the rope. ALWAYS.」結尾的 ALWAYS 還特別大寫。DAV 的說法一樣：一隻手永遠握著制動端的繩子。
 
 ### PBUS 四步收繩
 
@@ -127,13 +130,13 @@ DAV 對上攀的體重差有明確上限：攀爬者的體重不要超過確保�
 | 攀爬者 | Climbing. | 我要開始爬了。 | Climb on. |
 | 攀爬者 | Slack! | 給我一點繩。 | 給繩，停一下看還要不要 |
 | 攀爬者 | Up rope! | 繩子太鬆，收一點。 | 收繩 |
-| 攀爬者 | Take!／Tension! | 收緊，我要坐在繩子上休息。 | 收到最緊、握住，回「Got you.」 |
+| 攀爬者 | Take!／Tension! | 收緊，我要坐在繩子上休息。 | 收到最緊、握住，回「Gotcha.」 |
 | 攀爬者 | Lower me. | 我爬完了，放我下去。 | 雙手換到制動端，回「Lowering.」 |
 | 攀爬者 | Off belay. | 我已經站穩在地上。 | 給一段繩，回「Belay off.」 |
 | 任何人 | Rock! | 有東西掉下來。 | 往下看，不要往上看，讓頭盔保護你 |
 | 攀爬者 | Falling! | 我要掉了。 | 立刻制動 |
 
-REI 特別提醒：講大聲。溝通失誤造成的後果，跟其他系統失誤一樣嚴重。岩館很吵，兩條相鄰路線同時有人喊「Take」也很常見，DAV 的做法是保持眼神接觸，必要時喊對方的名字。
+REI 特別提醒：講大聲。溝通失誤造成的後果，跟其他系統失誤一樣嚴重。岩館人多的時候，很難分辨是誰在喊，REI 建議每個口令前先叫對方的名字。DAV 的做法也一樣：保持眼神接觸，必要時喊對方的名字。
 
 ## 下放：坐穩了才放
 
@@ -155,7 +158,7 @@ REI 特別提醒：講大聲。溝通失誤造成的後果，跟其他系統失�
 
 ## 第一次墜落練習
 
-會確保之後，有一件事最好在教練面前做一次：讓攀爬者真的掉一次。DAV 把墜落練習放在上攀確保證的課程裡，目的是讓攀爬者習慣掉下來、讓確保者習慣接住。練習條件是繩子掛在頂端固定點、牆面垂直到微前傾、沒有大的凸出岩點，並由第三個人在後面握著制動端備援。
+會確保之後，有一件事最好在教練面前做一次：讓攀爬者真的掉一次。DAV 把墜落練習放在上攀確保證的課程裡，目的是讓攀爬者習慣掉下來、讓確保者習慣接住。練習條件是繩子掛在頂端固定點、牆面垂直到微前傾、沒有大的凸出岩點，並由第三個人在後面握著制動端備援，或在繩上打結當備份。
 
 DAV 的練習分三階段，難度逐步加深：
 
@@ -163,7 +166,7 @@ DAV 的練習分三階段，難度逐步加深：
 2. 繩子稍微鬆一點（但沒有多餘的繩），攀爬者自己放手。
 3. 攀爬者模擬往上的動作時放手，墜落距離由攀爬者決定，最多一個快扣的距離。
 
-上攀的墜落距離本來就很短，練過一次之後，爬到難的地方比較敢出手，確保者也知道接住一個人是什麼感覺。
+DAV 說這個練習的目的是累積墜落和接墜的初步經驗：攀爬者知道掉下來是什麼感覺，確保者也知道接住一個人是什麼感覺。
 
 ## 確保器：ATC 與 GriGri
 
@@ -178,12 +181,12 @@ REI 還有一句容易被忽略的提醒：換一種確保器，就要重新學�
 
 ## 在台灣怎麼學、怎麼考
 
-台灣**沒有全國統一的岩館確保證**。各岩館自己開課、自己考，發「確保證」或「安檢卡」，在其他岩館能不能用，由那間岩館決定。以下是兩個例子（2026-10-17 查詢官網）：
+台灣**沒有全國統一的岩館確保證**。各岩館自己開課、自己考，發「確保證」或「安檢卡」，在其他岩館能不能用，由那間岩館決定（[原岩的課程 Q&A](https://tupclimbing.tw/course/zhonghe/360) 就是這樣回答）。以下是兩個例子（2026-10-17 查詢官網）：
 
-- **[原岩中和店初階確保課](https://tupclimbing.tw/course/zhonghe/358)**：一期 5 堂、NT$5,500，教 ATC 與 GriGri 的上攀確保。上完課取得原岩的確保證。
+- **[原岩中和店初階確保課](https://tupclimbing.tw/course/zhonghe/358)**：一期 5 堂、NT$5,500，教 ATC 與 GriGri 的上攀確保。原岩的確保複習課只開放給「上過確保課、並取得原岩確保證」的學員。
 - **[艾格探險頂繩攀登課](https://www.adventuretaiwan.com/product/top-roping/)**：共 6 小時、NT$3,900，教繩結、確保、口令與裝備檢查。結業一週後可以考 Camp 4 攀岩館的上方確保安檢卡。
 
-想要一張跨館的證明，最接近全國性的是中華民國山岳協會（[World Climbing 登錄的台灣會員](https://www.ifsc-climbing.org/national-federations/nf-tpe/tpe-info)）的 CBT（攀登確保能力檢測）。依[原岩 2023 年的 CBT 公告](https://tupclimbing.tw/news/announcement/232)，CBT 考上攀確保、先鋒確保、收繩，還要自己先鋒爬一條 5.7–5.8 的路線，報名費 NT$1,200。它也是報考山協 C 級教練、裁判、定線員的前置資格。CBT 包含先鋒，所以不是上攀階段的考試，先學好上攀確保再說。
+想要一張跨館的證明，最接近全國性的是中華民國山岳協會（[World Climbing 登錄的台灣會員](https://www.ifsc-climbing.org/national-federations/nf-tpe/tpe-info)）的 CBT（攀登確保能力檢測）。依[原岩 2023 年的 CBT 公告](https://tupclimbing.tw/news/announcement/232)，CBT 考上攀確保、先鋒確保、收繩，還要自己先鋒爬一條 5.7–5.8 的路線，報名費 NT$1,200。公告也把「之後想報名 C 級教練／裁判／定線員課程」列為適合報考的人。CBT 包含先鋒，所以不是上攀階段的考試，先學好上攀確保再說。
 
 對照一下德國：DAV 的確保證分「上攀」（Toprope）和「先鋒」（Vorstieg）兩張，2005 年推出至今發出超過 10 萬張。DAV 自己說明它「not a licence」，它證明的是確保技術，攀爬能力是次要的。台灣岩館的「上攀卡／先鋒卡」分法跟它幾乎一樣，差別是德國有統一的考試表格。
 
@@ -245,9 +248,14 @@ REI 還有一句容易被忽略的提醒：換一種確保器，就要重新學�
 - [How to Belay（REI Expert Advice）](https://www.rei.com/learn/expert-advice/belay.html)
 - [Climbing Knots（REI Expert Advice）](https://www.rei.com/learn/expert-advice/climbing-knots.html)
 - [原岩中和店：初階確保課（Top-Rope 確保）](https://tupclimbing.tw/course/zhonghe/358)
+- [原岩中和店：進階確保課（課程 Q&A：確保卡跨館使用）](https://tupclimbing.tw/course/zhonghe/360)
 - [艾格探險：頂繩攀登課](https://www.adventuretaiwan.com/product/top-roping/)
 - [原岩中和店：中華山協 CBT 攀登確保能力檢測（2023 公告）](https://tupclimbing.tw/news/announcement/232)
 - [Chinese Taipei Alpine Association 會員資料（World Climbing）](https://www.ifsc-climbing.org/national-federations/nf-tpe/tpe-info)
 - [nobodyclimb 繩索系統練習：基礎確保](https://nobodyclimb.cc/games/rope-system/learn/sport-belay)
 - [攀岩入門：抱石、上攀、先鋒差在哪，第一次該從哪裡開始](/posts/climbing/2026-10-08-climbing-beginner-guide)
 - [攀岩書籍知識版圖：60+ 本書的完整導覽](/posts/climbing/2026-06-20-climbing-books-knowledge-map)
+
+## 更新紀錄
+
+- 2026-10-18：併入〈運動攀登與傳統攀登〉系列，成為第 0 篇。重新逐條核對來源，更正 REI 口令（Gotcha）、雙套稱人結的備份結、原岩課程與 CBT 的描述，刪去兩處沒有來源的說法。

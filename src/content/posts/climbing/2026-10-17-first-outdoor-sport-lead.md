@@ -7,7 +7,7 @@ lang: zh-TW
 type: guide
 series:
   name: "運動攀登與傳統攀登"
-  order: 2
+  order: 4
 description: "給已經會岩館先鋒、準備第一次在戶外先鋒運攀路線的人：要多帶哪些裝備、快扣自己掛時要注意什麼、第一顆 bolt 前怎麼用 spot 和 stick clip、繩長與繩尾結、頭盔與落石、墜落路徑上的岩階，以及岩館等級為什麼不能直接搬到戶外。"
 tldr: "戶外先鋒比岩館多五個風險：前幾顆 bolt 前後的撞地、快扣要自己掛、繩子可能不夠長、落石與鬆動岩點、墜落路徑上有岩階。對策依序是 spot 加 stick clip、直門扣掛片彎門扣繩、繩長超過路線兩倍並在繩尾打結、戴頭盔、先找出不能掉的路段。台灣的入門課例如 ZA 在龍洞上兩天、NT$9,800。"
 draft: false
@@ -30,7 +30,7 @@ glossary:
 
 你在岩館已經先鋒得很穩，有一天朋友約你去龍洞。到了岩壁下，你發現牆上只有一排 bolt（掛片），沒有預掛的快扣。地上不是軟墊，是斜的碎石坡。路線也沒有顏色膠帶，只有指南書上的一行字。
 
-這篇寫給要跨出這一步的人。它是[運動攀登與傳統攀登](/posts/climbing/2026-10-17-sport-vs-trad-overview)系列的第 2 篇，前一篇是[戶外確保](/posts/climbing/2026-10-17-outdoor-belay)。掛快扣的方向、反掛、Z 字掛、給繩、軟確保這些基本功，[岩館先鋒](/posts/climbing/2026-10-17-gym-lead-climbing)已經講過，這裡只講戶外多出來的部分。
+這篇寫給要跨出這一步的人。它是[運動攀登與傳統攀登](/posts/climbing/2026-10-17-sport-vs-trad-overview)系列的第 4 篇，前一篇是[戶外確保](/posts/climbing/2026-10-17-outdoor-belay)。掛快扣的方向、反掛、Z 字掛、給繩、軟確保這些基本功，[岩館先鋒](/posts/climbing/2026-10-17-gym-lead-climbing)已經講過，這裡只講戶外多出來的部分。
 
 [REI 的先鋒入門](https://www.rei.com/learn/expert-advice/lead-climbing-basics.html)說得很直接：在岩館學先鋒是好的起點，但到戶外你還得會架設和回收頂端固定點，這兩件事岩館不用做。頂端操作會在[頂繩架設](/posts/climbing/2026-10-17-top-rope-anchor-setup)和[下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel)兩篇講。**這篇不能取代戶外課程**，第一次請跟著教練或有經驗的人去。
 

@@ -10,7 +10,7 @@ tldr: "Lab standards only cover new bolts: UIAA 123 requires 20 kN axial, EN 959
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 3
+  order: 5
 glossary:
   - term: "Bolt"
     aliases: ["rock anchor", "錨栓"]
@@ -38,7 +38,7 @@ Sport climbing hands your protection to bolts someone else placed. So the first 
 
 This post covers bolt types, what the standard numbers mean, and why sea cliffs are especially dangerous. It ends with two actions: look up the route database before you go, and inspect the bolts at the crag.
 
-This is part 3 of the [Sport and Trad Climbing](/posts/climbing/2026-10-17-sport-vs-trad-overview-en) series, after [Your First Outdoor Sport Lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en). The next post, [Setting Up a Top Rope](/posts/climbing/2026-10-17-top-rope-anchor-setup-en), puts the whole top-rope system on two bolts at the top, so read this one first.
+This is part 5 of the [Sport and Trad Climbing](/posts/climbing/2026-10-17-sport-vs-trad-overview-en) series, after [Your First Outdoor Sport Lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en). The next post, [Setting Up a Top Rope](/posts/climbing/2026-10-17-top-rope-anchor-setup-en), puts the whole top-rope system on two bolts at the top, so read this one first.
 
 ## Two kinds of bolts: expansion and glued-in
 

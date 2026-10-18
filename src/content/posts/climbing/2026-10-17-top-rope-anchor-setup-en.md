@@ -10,7 +10,7 @@ tldr: "Top-roping wears gear faster than any other style, so the rope runs only 
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 4
+  order: 6
 glossary:
   - term: "Top rope"
     aliases: ["頂繩", "上方架繩", "上攀"]
@@ -36,7 +36,7 @@ In the gym, the top ropes are already hanging. Outdoors, sooner or later you wil
 
 There is a common bad habit at this step: running the rope straight through the rings at the top. After a full day of laps, a layer of the shared hardware is gone. [TOCC (Taiwan Outdoor Climbing Club)](https://www.tocc-climbing.org/post/%E9%BE%8D%E6%B4%9E%E7%9A%84%E4%B8%8A%E6%96%B9%E5%9B%BA%E5%AE%9A%E9%BB%9E) (in Chinese) calls top-roping the style that wears equipment fastest.
 
-This is part 4 of the [Sport and Trad Climbing](/posts/climbing/2026-10-17-sport-vs-trad-overview-en) series. It builds on [Your First Outdoor Sport Lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en) and [Judging a Bolt](/posts/climbing/2026-10-17-judging-bolts-en): you need to be able to lead to the top, and to judge whether the two bolts there can be trusted. Tops with no bolts, where you build an anchor from your own protection, come later in [Building Anchors](/posts/climbing/2026-10-17-building-anchors-en).
+This is part 6 of the [Sport and Trad Climbing](/posts/climbing/2026-10-17-sport-vs-trad-overview-en) series. It builds on [Your First Outdoor Sport Lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en) and [Judging a Bolt](/posts/climbing/2026-10-17-judging-bolts-en): you need to be able to lead to the top, and to judge whether the two bolts there can be trusted. Tops with no bolts, where you build an anchor from your own protection, come later in [Building Anchors](/posts/climbing/2026-10-17-building-anchors-en).
 
 [REI's top-rope anchor guide](https://www.rei.com/learn/expert-advice/set-and-clean-anchors.html) assumes from the start that you can lead, belay a leader and rappel, and says the best way to learn these skills is from an experienced climber or a certified instructor. The same goes here: this post explains what each step is for, and the hands-on practice belongs next to someone experienced.
 

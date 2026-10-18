@@ -10,7 +10,7 @@ tldr: "頂繩是最磨器材的爬法，所以主繩只穿過你自己的鉤環�
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 4
+  order: 6
 glossary:
   - term: "頂繩"
     aliases: ["top rope", "上方架繩", "上攀"]
@@ -36,7 +36,7 @@ glossary:
 
 這一步有個常見的壞習慣：把主繩直接穿過頂端的環。一整天爬下來，公共設備就被磨掉一層。[TOCC（臺灣戶外攀岩協會）](https://www.tocc-climbing.org/post/%E9%BE%8D%E6%B4%9E%E7%9A%84%E4%B8%8A%E6%96%B9%E5%9B%BA%E5%AE%9A%E9%BB%9E)的說法是，上方架繩是器材磨損率最高的攀登方式。
 
-這篇是〈[運動攀登與傳統攀登](/posts/climbing/2026-10-17-sport-vs-trad-overview)〉系列第 4 篇。前置是〈[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)〉和〈[判斷一顆 bolt](/posts/climbing/2026-10-17-judging-bolts)〉：你要先會先鋒到頂端，也要會判斷頂端那兩顆 bolt 能不能信。頂端沒有 bolt、要自己放保護做固定點的情況，留到〈[建立固定點](/posts/climbing/2026-10-17-building-anchors)〉。
+這篇是〈[運動攀登與傳統攀登](/posts/climbing/2026-10-17-sport-vs-trad-overview)〉系列第 6 篇。前置是〈[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)〉和〈[判斷一顆 bolt](/posts/climbing/2026-10-17-judging-bolts)〉：你要先會先鋒到頂端，也要會判斷頂端那兩顆 bolt 能不能信。頂端沒有 bolt、要自己放保護做固定點的情況，留到〈[建立固定點](/posts/climbing/2026-10-17-building-anchors)〉。
 
 [REI 的頂繩固定點教學](https://www.rei.com/learn/expert-advice/set-and-clean-anchors.html)開頭就假設你已經會先鋒、會確保先鋒、會垂降，並且說學這些最好的方式是找有經驗的人教，或上合格教練的課。這篇也一樣：它讓你知道每一步在做什麼，手上的動作要在有經驗的人旁邊練。
 

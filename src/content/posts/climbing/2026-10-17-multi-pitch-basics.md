@@ -10,7 +10,7 @@ tldr: "多繩距就是把單繩距的事在半空中重複做：先鋒到站、�
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 9
+  order: 11
 glossary:
   - term: "繩距"
     aliases: ["pitch"]

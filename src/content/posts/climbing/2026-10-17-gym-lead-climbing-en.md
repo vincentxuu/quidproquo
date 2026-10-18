@@ -8,6 +8,9 @@ type: guide
 description: "For people who can already belay top-rope and want to start leading at the gym: how to clip and the three common clipping errors (back-clip, Z-clip, rope behind the leg), how a lead belayer pays out slack and where to stand, hard versus soft catches, why lead falls are longer, how to practice falling, and how lead belay cards work at gyms in Taiwan."
 tldr: "Lead adds two jobs to top-rope: the climber clips the right way from a stable stance, and the belayer pays out slack fast, keeps no extra slack until at least the fifth quickdraw, then leaves only about 20–50 cm once there is no ground-fall risk. A lead fall is at least twice your height above the last clip. T-UP's lead belay course is 6 sessions for NT$7,500 and ends with a lead belay card test."
 draft: false
+series:
+  name: "Sport and Trad Climbing"
+  order: 1
 glossary:
   - term: "Quickdraw"
     aliases: ["快扣"]

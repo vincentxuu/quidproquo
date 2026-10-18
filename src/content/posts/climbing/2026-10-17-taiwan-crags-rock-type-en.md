@@ -10,7 +10,7 @@ tldr: "Sandstone has cracks you can protect: Long Dong has 325 trad and 209 spor
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 12
+  order: 14
 glossary:
   - term: "Szeleng Sandstone"
     aliases: ["四稜砂岩"]

@@ -8,6 +8,9 @@ type: guide
 description: "For people who have done a gym intro session and want to climb top-rope with a friend: what the top-rope system is made of, the figure 8 and the four-point partner check, PBUS, climbing calls, lowering and a first fall practice, plus how belay certification works at gyms in Taiwan."
 tldr: "Top-rope belaying comes down to five skills: tying a figure 8, the four-point partner check, PBUS with the brake hand always on the rope, clear calls, and smooth lowering. Taiwan has no national gym belay card; each gym runs its own. At T-UP Zhonghe, the beginner belay course is 5 sessions for NT$5,500."
 draft: false
+series:
+  name: "Sport and Trad Climbing"
+  order: 0
 glossary:
   - term: "Brake hand"
     aliases: ["制動手"]
@@ -68,7 +71,7 @@ The tie-in knot is the figure 8 follow-through: tie a figure 8 in the rope, pass
 - Dress the knot so every strand runs parallel without crossing; you should be able to count five pairs of parallel strands.
 - Leave at least six inches (about 15 cm) of tail. The DAV minimum is 10 cm.
 
-Which tie-in points to use and how is set by your harness manual. The other common tie-in knot is the double bowline, which is easier to untie, but REI notes it must be backed up with a double overhand. As a beginner, get the figure 8 solid first.
+Which tie-in points to use and how is set by your harness manual. The other common tie-in knot is the double bowline, which is easier to untie, but REI notes it must be backed up with a double overhand knot. As a beginner, get the figure 8 solid first.
 
 ### The four-point check
 
@@ -98,7 +101,7 @@ REI describes a good belay stance in three ways:
 - **Brake hand**: your dominant hand, about six inches (15 cm) below the device. Too close, and a hard fall can pinch your hand and make you let go.
 - **Guide hand**: the other hand on the climber's strand, roughly at head height.
 
-The first of REI's belay principles is written in capitals: "Always keep your brake hand(s) on the rope. ALWAYS." The DAV says the same: one hand always holds the brake side of the rope.
+The first of REI's belay principles ends with a capitalized reminder: "Always keep your brake hand(s) on the rope. ALWAYS." The DAV says the same: one hand always holds the brake side of the rope.
 
 ### PBUS in four steps
 
@@ -127,13 +130,13 @@ The DAV sets a clear limit for top-rope: the climber should weigh no more than 1
 | Climber | Climbing. | I'm starting to climb. | Climb on. |
 | Climber | Slack! | Give me a little rope. | Pay out, pause, see if they ask again |
 | Climber | Up rope! | Too much slack, take some in. | Take in slack |
-| Climber | Take! / Tension! | Pull it tight, I want to hang. | Take in all slack, hold, answer "Got you." |
+| Climber | Take! / Tension! | Pull it tight, I want to hang. | Take in all slack, hold, answer "Gotcha." |
 | Climber | Lower me. | I'm done, let me down. | Both hands to the brake side, answer "Lowering." |
 | Climber | Off belay. | I'm standing safely on the ground. | Pay out slack, answer "Belay off." |
 | Anyone | Rock! | Something is falling. | Look down, not up, so your helmet protects you |
 | Climber | Falling! | I'm coming off. | Brake immediately |
 
-REI is blunt about volume: miscommunication can be as consequential as any other system failure. Gyms are loud, and two people on neighboring routes shouting "Take" at once is common. The DAV's answer is to keep eye contact and call each other's names if needed.
+REI is blunt about volume: miscommunication can be as consequential as any other system failure. In a busy gym it is hard to tell who is shouting, so REI suggests starting every call with your partner's name. The DAV says the same: keep eye contact and call each other's names if needed.
 
 ## Lowering: only once they are sitting
 
@@ -155,7 +158,7 @@ Only after the climber is standing and calls "Off belay" does the belayer take t
 
 ## Your first fall practice
 
-Once you can belay, one thing is worth doing in front of an instructor: let the climber actually fall. The DAV includes fall practice in the top-rope certificate course, so climbers get used to falling and belayers get used to catching. The setup: rope through the top anchor, a vertical to slightly overhanging wall without big ledges or volumes, and a third person backing up the brake strand.
+Once you can belay, one thing is worth doing in front of an instructor: let the climber actually fall. The DAV includes fall practice in the top-rope certificate course, so climbers get used to falling and belayers get used to catching. The setup: rope through the top anchor, a vertical to slightly overhanging wall without big ledges or volumes, and a third person backing up the brake strand, or a knot in the rope as backup.
 
 The DAV progression has three stages:
 
@@ -163,7 +166,7 @@ The DAV progression has three stages:
 2. With a little less tension (but no slack), the climber lets go on their own.
 3. The climber lets go mid-move, choosing how far to fall, up to one quickdraw's distance.
 
-Top-rope falls are short to begin with. After one practice, climbers commit more on hard moves, and belayers know what catching a person feels like.
+The DAV frames the goal as gaining initial experience in falling and catching falls: the climber learns what a fall feels like, and the belayer learns what catching a person feels like.
 
 ## Belay devices: ATC and GriGri
 
@@ -178,12 +181,12 @@ REI adds a reminder that is easy to skip: if you switch to a different device, y
 
 ## Learning and testing in Taiwan
 
-Taiwan has **no national gym belay card**. Each gym runs its own course and test and issues its own belay card (確保證 or 安檢卡); whether another gym accepts it is up to that gym. Two examples (checked on the official sites on 2026-10-17, pages in Chinese):
+Taiwan has **no national gym belay card**. Each gym runs its own course and test and issues its own belay card (確保證 or 安檢卡); whether another gym accepts it is up to that gym (that is how [T-UP's course Q&A](https://tupclimbing.tw/course/zhonghe/360) answers the question). Two examples (checked on the official sites on 2026-10-17, pages in Chinese):
 
-- **[T-UP Zhonghe beginner belay course](https://tupclimbing.tw/course/zhonghe/358)**: 5 sessions for NT$5,500, covering top-rope belaying with an ATC and a GriGri. Finishing the course gets you a T-UP belay card.
+- **[T-UP Zhonghe beginner belay course](https://tupclimbing.tw/course/zhonghe/358)**: 5 sessions for NT$5,500, covering top-rope belaying with an ATC and a GriGri. T-UP's belay refresher class is open only to students who took its belay course and hold a T-UP belay card.
 - **[Adventure Taiwan top-rope course](https://www.adventuretaiwan.com/product/top-roping/)**: 6 hours for NT$3,900, covering knots, belaying, calls and gear checks. A week after the course you can take the top-rope belay test for the Camp 4 gym.
 
-The closest thing to a national credential is the CBT (Climbing Belay Test) run by the Chinese Taipei Alpine Association ([Taiwan's member federation listed by World Climbing](https://www.ifsc-climbing.org/national-federations/nf-tpe/tpe-info)). According to [T-UP's 2023 CBT announcement](https://tupclimbing.tw/news/announcement/232), the CBT covers top-rope belaying, lead belaying, rope handling, and leading a 5.7–5.8 route yourself, with a registration fee of NT$1,200. It is also the prerequisite for the federation's C-level coach, judge and routesetter courses. Because it includes leading, it is not a top-rope-stage test; get top-rope belaying solid first.
+The closest thing to a national credential is the CBT (Climbing Belay Test) run by the Chinese Taipei Alpine Association ([Taiwan's member federation listed by World Climbing](https://www.ifsc-climbing.org/national-federations/nf-tpe/tpe-info)). According to [T-UP's 2023 CBT announcement](https://tupclimbing.tw/news/announcement/232), the CBT covers top-rope belaying, lead belaying, rope handling, and leading a 5.7–5.8 route yourself, with a registration fee of NT$1,200. The announcement also lists people planning to take the C-level coach, judge or routesetter courses as the intended test-takers. Because it includes leading, it is not a top-rope-stage test; get top-rope belaying solid first.
 
 For comparison, the DAV issues two belay certificates, top-rope (Toprope) and lead (Vorstieg), introduced in 2005 with more than 100,000 issued since. The DAV itself calls it "not a licence"; it certifies belaying technique, and climbing ability is secondary. The top-rope card / lead card split at Taiwanese gyms is almost identical; the difference is that Germany uses one standard test protocol.
 
@@ -245,9 +248,14 @@ For the bigger picture of climbing outdoors, read the "Before you go outdoors" s
 - [How to Belay (REI Expert Advice)](https://www.rei.com/learn/expert-advice/belay.html)
 - [Climbing Knots (REI Expert Advice)](https://www.rei.com/learn/expert-advice/climbing-knots.html)
 - [T-UP Zhonghe: beginner belay course (top-rope)](https://tupclimbing.tw/course/zhonghe/358) (in Chinese)
+- [T-UP Zhonghe: advanced belay course (Q&A on using the card at other gyms)](https://tupclimbing.tw/course/zhonghe/360) (in Chinese)
 - [Adventure Taiwan: top-rope course](https://www.adventuretaiwan.com/product/top-roping/) (in Chinese)
 - [T-UP Zhonghe: CTAA Climbing Belay Test announcement (2023)](https://tupclimbing.tw/news/announcement/232) (in Chinese)
 - [Chinese Taipei Alpine Association member page (World Climbing)](https://www.ifsc-climbing.org/national-federations/nf-tpe/tpe-info)
 - [nobodyclimb rope system practice: belaying basics](https://nobodyclimb.cc/games/rope-system/learn/sport-belay) (in Chinese)
 - [Rock Climbing for Beginners: Bouldering, Top-Rope, and Lead, and Where to Start](/posts/climbing/2026-10-08-climbing-beginner-guide-en)
 - [A Knowledge Map of Climbing Books](/posts/climbing/2026-06-20-climbing-books-knowledge-map-en)
+
+## Update Log
+
+- 2026-10-18: Added to the Sport and Trad Climbing series as post 0. Rechecked every claim against its source: corrected the REI call (Gotcha), the backup knot for the double bowline, and the descriptions of the T-UP course and the CBT, and removed two unsourced statements.

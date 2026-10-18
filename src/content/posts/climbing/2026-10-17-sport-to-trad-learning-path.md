@@ -10,7 +10,7 @@ tldr: "傳攀的標準進程是：會頂繩與先鋒確保、有運攀先鋒經�
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 11
+  order: 13
 glossary:
   - term: "模擬先鋒"
     aliases: ["mock lead"]
@@ -42,11 +42,11 @@ glossary:
 
 | 等級 | 名稱 | 要練到的事 | 本系列 |
 |---|---|---|---|
-| L1 | 確保員 | 上攀確保，岩館到戶外 | [第 1 篇](/posts/climbing/2026-10-17-outdoor-belay) |
-| L2 | 先鋒確保員 | 先鋒確保，戶外第一條運攀先鋒 | [第 2 篇](/posts/climbing/2026-10-17-first-outdoor-sport-lead) |
-| L3 | 戶外攀岩者 | 判斷 bolt、架頂繩、下放或垂降 | [第 3](/posts/climbing/2026-10-17-judging-bolts)、[4](/posts/climbing/2026-10-17-top-rope-anchor-setup)、[5 篇](/posts/climbing/2026-10-17-lower-or-rappel) |
-| L4 | 多繩距跟攀者 | 放保護、固定點、跟攀多繩距 | [第 7](/posts/climbing/2026-10-17-trad-protection-nuts-cams)、[8](/posts/climbing/2026-10-17-building-anchors)、[9 篇](/posts/climbing/2026-10-17-multi-pitch-basics) |
-| L5 | 多繩距先鋒 | 領攀多繩距，知道出事怎麼辦 | [第 10 篇](/posts/climbing/2026-10-17-self-rescue-basics) |
+| L1 | 確保員 | 上攀確保，岩館到戶外 | [第 0](/posts/climbing/2026-10-17-gym-top-rope-belay)、[3 篇](/posts/climbing/2026-10-17-outdoor-belay) |
+| L2 | 先鋒確保員 | 先鋒確保，戶外第一條運攀先鋒 | [第 1](/posts/climbing/2026-10-17-gym-lead-climbing)、[4 篇](/posts/climbing/2026-10-17-first-outdoor-sport-lead) |
+| L3 | 戶外攀岩者 | 判斷 bolt、架頂繩、下放或垂降 | [第 5](/posts/climbing/2026-10-17-judging-bolts)、[6](/posts/climbing/2026-10-17-top-rope-anchor-setup)、[7 篇](/posts/climbing/2026-10-17-lower-or-rappel) |
+| L4 | 多繩距跟攀者 | 放保護、固定點、跟攀多繩距 | [第 9](/posts/climbing/2026-10-17-trad-protection-nuts-cams)、[10](/posts/climbing/2026-10-17-building-anchors)、[11 篇](/posts/climbing/2026-10-17-multi-pitch-basics) |
+| L5 | 多繩距先鋒 | 領攀多繩距，知道出事怎麼辦 | [第 12 篇](/posts/climbing/2026-10-17-self-rescue-basics) |
 
 L3 和 L4 中間有一座橋：[難度與保護評等](/posts/climbing/2026-10-17-grades-and-protection-ratings)。傳攀路線的評等多了一層保護好不好，先看懂再去學放保護。
 

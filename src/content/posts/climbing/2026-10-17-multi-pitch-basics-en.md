@@ -10,7 +10,7 @@ tldr: "Multi-pitch means repeating single-pitch tasks in mid-air: the leader rea
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 9
+  order: 11
 glossary:
   - term: "Pitch"
     aliases: ["繩距"]

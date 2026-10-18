@@ -10,7 +10,7 @@ tldr: "Lowering keeps you on belay the whole time, which the AAC considers simpl
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 5
+  order: 7
 glossary:
   - term: "Lowering"
     aliases: ["lower off", "下放"]
@@ -36,7 +36,7 @@ In the gym, you reach the top, call "take," and your belayer lowers you. The rop
 
 On an outdoor sport route, you clipped your own quickdraws on the way up. At the top there are two bolts, maybe with chains, rappel rings or lowering hooks. You have to thread the rope yourself and collect your draws, and then you have two choices: your belayer **lowers** you, or you **rappel**. Different organizations give different advice on this.
 
-This is part 5 of the Sport and Trad Climbing series. Read [Belaying Outdoors](/posts/climbing/2026-10-17-outdoor-belay-en) and [Your First Outdoor Sport Lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en) first; for rigging a top-rope on your own gear, see [Setting Up a Top Rope](/posts/climbing/2026-10-17-top-rope-anchor-setup-en). This post covers the last climber collecting the gear and getting back to the ground.
+This is part 7 of the Sport and Trad Climbing series. Read [Belaying Outdoors](/posts/climbing/2026-10-17-outdoor-belay-en) and [Your First Outdoor Sport Lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en) first; for rigging a top-rope on your own gear, see [Setting Up a Top Rope](/posts/climbing/2026-10-17-top-rope-anchor-setup-en). This post covers the last climber collecting the gear and getting back to the ground.
 
 To be clear up front: **practice everything you do at the anchor on the ground or in a gym first, until an instructor has seen you do it right.** This post explains what each step protects you from; it is not a manual.
 

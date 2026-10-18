@@ -7,7 +7,7 @@ lang: en
 type: guide
 series:
   name: "Sport and Trad Climbing"
-  order: 2
+  order: 4
 description: "For climbers who lead comfortably at the gym and are about to lead their first outdoor sport route: what extra gear to bring, what changes when you hang your own quickdraws, how to use spotting and a stick clip before the first bolt, rope length and the stopper knot, helmets and rockfall, ledges in the fall line, and why gym grades don't transfer directly outside."
 tldr: "Outdoor sport leading adds five risks the gym doesn't have: ground falls around the first few bolts, hanging your own quickdraws, a rope that may be too short, rockfall and loose holds, and ledges in the fall line. The fixes, in order: spot plus a stick clip; straight gate on the bolt, bent gate on the rope; a rope comfortably more than twice the route height with a knot in the end; a helmet; and spotting the no-fall zones before you start. In Taiwan, an intro course such as ZA's runs two days at Long Dong for NT$9,800."
 draft: false
@@ -29,7 +29,7 @@ glossary:
 
 You lead comfortably at the gym, and one day a friend invites you to Long Dong. At the base of the wall you find only a line of bolts with hangers, no quickdraws already in place. The ground is not padded; it is a sloping scree bank. There is no colored tape on the route, just one line in the guidebook.
 
-This post is for that step. It is part 2 of the [Sport and Trad Climbing](/posts/climbing/2026-10-17-sport-vs-trad-overview-en) series; the previous part is [Outdoor Belaying](/posts/climbing/2026-10-17-outdoor-belay-en). Clipping direction, back-clips, Z-clips, paying out slack and soft catches are covered in [Learning to Lead at the Gym](/posts/climbing/2026-10-17-gym-lead-climbing-en); here we only cover what is new outside.
+This post is for that step. It is part 4 of the [Sport and Trad Climbing](/posts/climbing/2026-10-17-sport-vs-trad-overview-en) series; the previous part is [Outdoor Belaying](/posts/climbing/2026-10-17-outdoor-belay-en). Clipping direction, back-clips, Z-clips, paying out slack and soft catches are covered in [Learning to Lead at the Gym](/posts/climbing/2026-10-17-gym-lead-climbing-en); here we only cover what is new outside.
 
 [REI's lead climbing basics](https://www.rei.com/learn/expert-advice/lead-climbing-basics.html) puts it plainly: learning to lead in a gym is a good start, but outdoors you also need to build and clean an anchor, two things you don't do at the gym. The anchor work is covered in [Top-Rope Anchor Setup](/posts/climbing/2026-10-17-top-rope-anchor-setup-en) and [Lower or Rappel](/posts/climbing/2026-10-17-lower-or-rappel-en). **This post does not replace an outdoor course**; go the first time with an instructor or an experienced climber.
 

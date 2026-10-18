@@ -7,7 +7,7 @@ lang: en
 type: guide
 series:
   name: "Sport and Trad Climbing"
-  order: 8
+  order: 10
 description: "How to build an anchor two people can hang on from nuts and cams when there are no bolts at the top: what the SERENE and ERNEST checklists are checking, Petzl's real-person fall forces, the quad vs cordelette trade-off, and the 2019 Long Dong accident on #313 where a whole trad anchor pulled out."
 tldr: "An anchor has to pass three tests: each piece is strong, another piece takes over if one fails (redundancy), and a failure does not drop the load onto the remaining pieces (no extension). In Petzl's tests with 80 kg people, a factor 1 fall put about 4 kN on the climber, 2 kN on the belayer and 6 kN on the top piece. A quad adapts to changes in direction but shock-loads the other point if one fails. In 2019 a three-piece trad anchor on Long Dong's #313 pulled out completely as two climbers weighted it."
 draft: false

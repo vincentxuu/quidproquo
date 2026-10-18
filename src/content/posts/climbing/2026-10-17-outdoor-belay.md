@@ -10,7 +10,7 @@ tldr: "戶外確保多出五件事：站在第一個保護點附近、確保者�
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 1
+  order: 3
 glossary:
   - term: "封閉系統"
     aliases: ["closing the system", "closed system"]
@@ -30,7 +30,7 @@ glossary:
 
 在岩館，你會確保、會下放，也通過了確保考試。第一次跟朋友去戶外岩場，動作一樣，周圍的條件全變了。地面不是軟墊，頭上可能掉石頭。牆有多高要自己查，對方在 30 公尺上方喊什麼，你可能聽不到。
 
-這篇是〈運動攀登與傳統攀登〉系列的第 1 篇，寫給已經會岩館上攀確保的人。確保的基本動作（制動手不離繩、收繩、口令、下放）在[岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay)講過，這裡只講搬到戶外之後要**多做**的事。系列全貌見[總覽：運攀與傳攀差在哪](/posts/climbing/2026-10-17-sport-vs-trad-overview)。先鋒確保的細節（給繩、軟確保、spot）留到[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)。
+這篇是〈運動攀登與傳統攀登〉系列的第 3 篇，寫給已經會岩館上攀確保的人。確保的基本動作（制動手不離繩、收繩、口令、下放）在[岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay)講過，這裡只講搬到戶外之後要**多做**的事。系列全貌見[總覽：運攀與傳攀差在哪](/posts/climbing/2026-10-17-sport-vs-trad-overview)。先鋒確保的細節（給繩、軟確保、spot）留到[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)。
 
 先講清楚：**這篇不能取代實際上課。** 第一次去戶外，最好跟有經驗的人或課程一起去，在旁邊看他們怎麼做。
 

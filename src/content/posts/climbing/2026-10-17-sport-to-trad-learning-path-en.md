@@ -10,7 +10,7 @@ tldr: "The standard trad progression: be a competent top-rope climber and lead b
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 11
+  order: 13
 glossary:
   - term: "Mock lead"
     aliases: ["模擬先鋒"]
@@ -42,11 +42,11 @@ This series follows the five levels planned for [nobodyclimb's rope-system pract
 
 | Level | Name | What you practice | In this series |
 |---|---|---|---|
-| L1 | Belayer | Top-rope belaying, from gym to crag | [Post 1](/posts/climbing/2026-10-17-outdoor-belay-en) |
-| L2 | Lead belayer | Lead belaying, your first outdoor sport lead | [Post 2](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en) |
-| L3 | Outdoor climber | Judging bolts, rigging top-ropes, lowering or rappelling | Posts [3](/posts/climbing/2026-10-17-judging-bolts-en), [4](/posts/climbing/2026-10-17-top-rope-anchor-setup-en), [5](/posts/climbing/2026-10-17-lower-or-rappel-en) |
-| L4 | Multi-pitch second | Placing gear, anchors, following multi-pitch | Posts [7](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en), [8](/posts/climbing/2026-10-17-building-anchors-en), [9](/posts/climbing/2026-10-17-multi-pitch-basics-en) |
-| L5 | Multi-pitch leader | Leading multi-pitch, knowing what to do when things go wrong | [Post 10](/posts/climbing/2026-10-17-self-rescue-basics-en) |
+| L1 | Belayer | Top-rope belaying, from gym to crag | Posts [0](/posts/climbing/2026-10-17-gym-top-rope-belay-en), [3](/posts/climbing/2026-10-17-outdoor-belay-en) |
+| L2 | Lead belayer | Lead belaying, your first outdoor sport lead | Posts [1](/posts/climbing/2026-10-17-gym-lead-climbing-en), [4](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en) |
+| L3 | Outdoor climber | Judging bolts, rigging top-ropes, lowering or rappelling | Posts [5](/posts/climbing/2026-10-17-judging-bolts-en), [6](/posts/climbing/2026-10-17-top-rope-anchor-setup-en), [7](/posts/climbing/2026-10-17-lower-or-rappel-en) |
+| L4 | Multi-pitch second | Placing gear, anchors, following multi-pitch | Posts [9](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en), [10](/posts/climbing/2026-10-17-building-anchors-en), [11](/posts/climbing/2026-10-17-multi-pitch-basics-en) |
+| L5 | Multi-pitch leader | Leading multi-pitch, knowing what to do when things go wrong | [Post 12](/posts/climbing/2026-10-17-self-rescue-basics-en) |
 
 Between L3 and L4 there is a bridge: [grades and protection ratings](/posts/climbing/2026-10-17-grades-and-protection-ratings-en). Trad grades add a layer about protection quality; understand that before you learn to place gear.
 

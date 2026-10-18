@@ -10,7 +10,7 @@ tldr: "運攀的保護點是預先打好的 bolt，傳攀要先鋒者邊爬邊�
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 0
+  order: 2
 glossary:
   - term: "運動攀登"
     aliases: ["運攀", "sport climbing"]
@@ -34,7 +34,7 @@ glossary:
 
 你在岩館考到上攀卡，也開始先鋒了。朋友約你去龍洞，說「那裡有很多 5.8，很簡單」。你帶了一串快扣過去，站到岩壁下才發現：這條 5.8 上面一顆 bolt 都沒有。
 
-這篇寫給要跨過這一步的人。它回答三件事：運動攀登和傳統攀登到底差在哪、台灣的岩場是哪一種、這個系列 14 篇要按什麼順序讀。還沒在岩館確保過的話，先讀[攀岩入門](/posts/climbing/2026-10-08-climbing-beginner-guide)、[岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay)與[岩館先鋒](/posts/climbing/2026-10-17-gym-lead-climbing)。
+這篇寫給要跨過這一步的人。它回答三件事：運動攀登和傳統攀登到底差在哪、台灣的岩場是哪一種、這個系列 16 篇要按什麼順序讀。還沒在岩館確保過的話，先讀[攀岩入門](/posts/climbing/2026-10-08-climbing-beginner-guide)、[岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay)與[岩館先鋒](/posts/climbing/2026-10-17-gym-lead-climbing)。
 
 先講清楚：**這個系列不能取代戶外課程。** 每一篇都在幫你上課時聽懂教練在做什麼，手上的動作要在合格教練面前練到正確。
 
@@ -133,7 +133,7 @@ glossary:
 
 還有一個龍洞特有的狀況：多數傳攀路線的頂端仍有 bolt 固定點（資料庫的 Anchor 欄）。你上去時自己放保護，下來時用固定點垂降。TOCC 在[〈龍洞的上方固定點〉](https://www.tocc-climbing.org/post/%E9%BE%8D%E6%B4%9E%E7%9A%84%E4%B8%8A%E6%96%B9%E5%9B%BA%E5%AE%9A%E9%BB%9E)請大家架頂繩務必用自備器材，並建議撤退盡量用雙繩垂降、避免下放，以減少固定設備磨損。
 
-## 系列地圖：五個等級、十四篇
+## 系列地圖：五個等級、十六篇
 
 [nobodyclimb 的繩索系統練習](https://nobodyclimb.cc/games/rope-system)把題目分成運攀四類（確保、先鋒、頂繩架設、垂降）和傳攀四類（固定點、保護、多繩距、自我救援）。它規劃中的認證把能力分成五級（網站上標示 Coming Soon）：
 
@@ -149,63 +149,68 @@ glossary:
 
 ```mermaid
 flowchart TB
-  P0["0 總覽"]
   subgraph S1["L1 確保員"]
-    P1["1 戶外確保"]
+    P0["0 岩館上攀確保"]
+    P3["3 戶外確保"]
   end
   subgraph S2["L2 先鋒確保員"]
-    P2["2 戶外運攀先鋒"]
+    P1["1 岩館先鋒"]
+    P4["4 戶外運攀先鋒"]
   end
+  P2["2 總覽"]
   subgraph S3["L3 戶外攀岩者"]
-    P3["3 判斷 bolt"]
-    P4["4 架頂繩"]
-    P5["5 下放或垂降"]
+    P5["5 判斷 bolt"]
+    P6["6 架頂繩"]
+    P7["7 下放或垂降"]
   end
-  P6["6 難度與保護評等"]
+  P8["8 難度與保護評等"]
   subgraph S4["L4 多繩距跟攀者"]
-    P7["7 岩楔與機械塞"]
-    P8["8 固定點"]
-    P9["9 多繩距"]
+    P9["9 岩楔與機械塞"]
+    P10["10 固定點"]
+    P11["11 多繩距"]
   end
   subgraph S5["L5 多繩距先鋒"]
-    P10["10 自我救援"]
+    P12["12 自我救援"]
   end
-  P11["11 學習路徑"]
-  P0 --> P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> P7 --> P8 --> P9 --> P10 --> P11
+  P13["13 學習路徑"]
+  P0 --> P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> P7 --> P8 --> P9 --> P10 --> P11 --> P12 --> P13
 ```
 
-L1–L5 之外還有三篇背景：[台灣岩場：岩質決定爬法](/posts/climbing/2026-10-17-taiwan-crags-rock-type)、[歷史與倫理](/posts/climbing/2026-10-17-bolting-history-ethics)，以及第 11 篇的學習路徑。每一篇在聚焦什麼：
+L1–L5 之外還有三篇背景：[台灣岩場：岩質決定爬法](/posts/climbing/2026-10-17-taiwan-crags-rock-type)、[歷史與倫理](/posts/climbing/2026-10-17-bolting-history-ethics)，以及第 13 篇的學習路徑。每一篇在聚焦什麼：
 
 | 篇 | 等級 | 文章 | 讀完能做到 |
 |---|---|---|---|
-| 1 | L1 | [戶外確保](/posts/climbing/2026-10-17-outdoor-belay) | 在岩場做一次完整的上攀確保前檢查 |
-| 2 | L2 | [第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead) | 說出戶外先鋒比室內多出的風險與對策 |
-| 3 | L3 | [掛片會壞：怎麼判斷一顆 bolt](/posts/climbing/2026-10-17-judging-bolts) | 出發前查一條龍洞路線的 bolt 材質 |
-| 4 | L3 | [頂繩架設](/posts/climbing/2026-10-17-top-rope-anchor-setup) | 在雙 bolt 頂端架一組不磨損固定點的頂繩 |
-| 5 | L3 | [下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel) | 依岩場規則選下放或垂降 |
-| 6 | 橋 | [難度與保護評等](/posts/climbing/2026-10-17-grades-and-protection-ratings) | 看懂 5.10a、6a、E1 5b 與 R、X |
-| 7 | L4 | [傳攀保護：岩楔與機械塞](/posts/climbing/2026-10-17-trad-protection-nuts-cams) | 說出好放置的三個條件 |
-| 8 | L4 | [建立固定點](/posts/climbing/2026-10-17-building-anchors) | 檢查一個固定點有沒有冗餘、會不會延伸 |
-| 9 | L4 | [多繩距入門](/posts/climbing/2026-10-17-multi-pitch-basics) | 畫出一次換段的步驟順序 |
-| 10 | L5 | [自我救援基礎](/posts/climbing/2026-10-17-self-rescue-basics) | 判斷該求援、下放還是需要救援技術 |
-| 11 | 全部 | [學習路徑與常見事故](/posts/climbing/2026-10-17-sport-to-trad-learning-path) | 排出自己下一年的學習順序與要上的課 |
-| 12 | 背景 | [台灣岩場：岩質決定爬法](/posts/climbing/2026-10-17-taiwan-crags-rock-type) | 挑出自己能去的岩場與要守的規定 |
-| 13 | 背景 | [歷史與倫理](/posts/climbing/2026-10-17-bolting-history-ethics) | 說明為什麼不該在龍洞自行打 bolt |
+| 0 | L1 | [岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay) | 在岩館獨立做上攀確保、互檢與下放 |
+| 1 | L2 | [岩館先鋒](/posts/climbing/2026-10-17-gym-lead-climbing) | 在岩館先鋒，也能幫別人做先鋒確保 |
+| 2 | — | 總覽（本篇） | 說出自己在哪一級、下一篇讀哪篇 |
+| 3 | L1 | [戶外確保](/posts/climbing/2026-10-17-outdoor-belay) | 在岩場做一次完整的上攀確保前檢查 |
+| 4 | L2 | [第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead) | 說出戶外先鋒比室內多出的風險與對策 |
+| 5 | L3 | [掛片會壞：怎麼判斷一顆 bolt](/posts/climbing/2026-10-17-judging-bolts) | 出發前查一條龍洞路線的 bolt 材質 |
+| 6 | L3 | [頂繩架設](/posts/climbing/2026-10-17-top-rope-anchor-setup) | 在雙 bolt 頂端架一組不磨損固定點的頂繩 |
+| 7 | L3 | [下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel) | 依岩場規則選下放或垂降 |
+| 8 | 橋 | [難度與保護評等](/posts/climbing/2026-10-17-grades-and-protection-ratings) | 看懂 5.10a、6a、E1 5b 與 R、X |
+| 9 | L4 | [傳攀保護：岩楔與機械塞](/posts/climbing/2026-10-17-trad-protection-nuts-cams) | 說出好放置的三個條件 |
+| 10 | L4 | [建立固定點](/posts/climbing/2026-10-17-building-anchors) | 檢查一個固定點有沒有冗餘、會不會延伸 |
+| 11 | L4 | [多繩距入門](/posts/climbing/2026-10-17-multi-pitch-basics) | 畫出一次換段的步驟順序 |
+| 12 | L5 | [自我救援基礎](/posts/climbing/2026-10-17-self-rescue-basics) | 判斷該求援、下放還是需要救援技術 |
+| 13 | 全部 | [學習路徑與常見事故](/posts/climbing/2026-10-17-sport-to-trad-learning-path) | 排出自己下一年的學習順序與要上的課 |
+| 14 | 背景 | [台灣岩場：岩質決定爬法](/posts/climbing/2026-10-17-taiwan-crags-rock-type) | 挑出自己能去的岩場與要守的規定 |
+| 15 | 背景 | [歷史與倫理](/posts/climbing/2026-10-17-bolting-history-ethics) | 說明為什麼不該在龍洞自行打 bolt |
 
-第 6 篇放在運攀和傳攀中間，因為傳攀路線的評等多了一層「保護好不好」，先看懂 R、X 再去學放保護比較順。第 7 篇先講單一保護點，第 8 篇才組固定點，因為固定點就是由好幾個保護點組成的。
+第 8 篇放在運攀和傳攀中間，因為傳攀路線的評等多了一層「保護好不好」，先看懂 R、X 再去學放保護比較順。第 9 篇先講單一保護點，第 10 篇才組固定點，因為固定點就是由好幾個保護點組成的。
 
 ## 你現在在哪一級
 
 照下面的問題往下走，第一個答「還不會」的地方，就是你該讀的那一篇：
 
-1. 在岩館能獨立做上攀確保、互檢、下放嗎？還不會 → 先讀[岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay)。
-2. 在岩館能先鋒，也能幫別人做先鋒確保嗎？還不會 → 先讀[岩館先鋒](/posts/climbing/2026-10-17-gym-lead-climbing)。
-3. 在戶外岩場確保過嗎？還沒 → 第 1 篇，你在 L1。
-4. 在戶外先鋒過運攀路線嗎？還沒 → 第 2 篇，你在 L2。
-5. 能自己在頂端架頂繩、垂降下來嗎？還不會 → 第 3 到 5 篇，你在 L3。
-6. 跟攀過傳攀路線、拆過岩楔嗎？還沒 → 第 6 到 8 篇，你在往 L4 的路上。
-7. 爬過多繩距路線嗎？還沒 → 第 9 篇。
-8. 爬多繩距時，知道夥伴受傷要怎麼辦嗎？還不知道 → 第 10 篇，然後去上救援課。
+1. 在岩館能獨立做上攀確保、互檢、下放嗎？還不會 → 先讀第 0 篇[岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay)。
+2. 在岩館能先鋒，也能幫別人做先鋒確保嗎？還不會 → 先讀第 1 篇[岩館先鋒](/posts/climbing/2026-10-17-gym-lead-climbing)。
+3. 在戶外岩場確保過嗎？還沒 → 第 3 篇，你在 L1。
+4. 在戶外先鋒過運攀路線嗎？還沒 → 第 4 篇，你在 L2。
+5. 能自己在頂端架頂繩、垂降下來嗎？還不會 → 第 5 到 7 篇，你在 L3。
+6. 跟攀過傳攀路線、拆過岩楔嗎？還沒 → 第 8 到 10 篇，你在往 L4 的路上。
+7. 爬過多繩距路線嗎？還沒 → 第 11 篇。
+8. 爬多繩距時，知道夥伴受傷要怎麼辦嗎？還不知道 → 第 12 篇，然後去上救援課。
 
 **今晚就能做的動作**：在手機記事本寫下你現在的等級，以及下一篇要讀的文章。讀完一篇、在教練面前練過，才往下一級。
 
@@ -241,7 +246,7 @@ L1–L5 之外還有三篇背景：[台灣岩場：岩質決定爬法](/posts/cl
 
 <details><summary>答案</summary>
 
-你在 L3。先讀第 6 篇的難度與保護評等，再讀第 7 篇的岩楔與機械塞。實際動作從跟攀和在地面練放保護開始，不要直接先鋒傳攀。
+你在 L3。先讀第 8 篇的難度與保護評等，再讀第 9 篇的岩楔與機械塞。實際動作從跟攀和在地面練放保護開始，不要直接先鋒傳攀。
 
 </details>
 

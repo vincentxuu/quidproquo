@@ -10,7 +10,7 @@ tldr: "In sport climbing the protection is pre-drilled bolts; in trad the leader
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 0
+  order: 2
 glossary:
   - term: "Sport climbing"
     aliases: ["運攀", "運動攀登"]
@@ -34,7 +34,7 @@ glossary:
 
 You have your top-rope card at the gym and you've started leading. A friend invites you to Long Dong and says "there are loads of 5.8s, really easy." You bring a rack of quickdraws, walk up to the wall, and find that the 5.8 has no bolts at all.
 
-This post is for that moment. It answers three things: what actually separates sport and trad climbing, which kind Taiwan's crags are, and what order to read this 14-part series in. If you have not belayed in a gym yet, start with [Rock Climbing for Beginners](/posts/climbing/2026-10-08-climbing-beginner-guide-en), [Learning to Top-Rope Belay at the Gym](/posts/climbing/2026-10-17-gym-top-rope-belay-en) and [gym lead climbing](/posts/climbing/2026-10-17-gym-lead-climbing-en).
+This post is for that moment. It answers three things: what actually separates sport and trad climbing, which kind Taiwan's crags are, and what order to read this 16-part series in. If you have not belayed in a gym yet, start with [Rock Climbing for Beginners](/posts/climbing/2026-10-08-climbing-beginner-guide-en), [Learning to Top-Rope Belay at the Gym](/posts/climbing/2026-10-17-gym-top-rope-belay-en) and [gym lead climbing](/posts/climbing/2026-10-17-gym-lead-climbing-en).
 
 To be clear up front: **this series does not replace an outdoor course.** Each post helps you understand what the instructor is doing; the moves themselves have to be practiced in front of a qualified instructor until they are right.
 
@@ -133,7 +133,7 @@ Whether you can climb at each of these varies a lot. [Shoushan National Nature P
 
 One thing specific to Long Dong: most trad routes still have a bolted anchor at the top (the database's Anchor column). You place your own gear on the way up and descend from the fixed anchor. TOCC's [page on Long Dong's top anchors](https://www.tocc-climbing.org/post/%E9%BE%8D%E6%B4%9E%E7%9A%84%E4%B8%8A%E6%96%B9%E5%9B%BA%E5%AE%9A%E9%BB%9E) (in Chinese) asks climbers to always rig top-ropes with their own gear, and recommends retreating by double-rope rappel rather than lowering whenever possible, to reduce wear on the fixed hardware.
 
-## Series map: five levels, fourteen posts
+## Series map: five levels, sixteen posts
 
 [nobodyclimb's rope-system practice](https://nobodyclimb.cc/games/rope-system) splits its questions into four sport categories (belaying, leading, top-rope setup, rappelling) and four trad categories (anchors, protection, multi-pitch, self-rescue). Its planned certification has five levels (marked "Coming Soon" on the site):
 
@@ -149,50 +149,55 @@ This series follows those five levels. Sport comes first and trad after: first l
 
 ```mermaid
 flowchart TB
-  P0["0 Overview"]
   subgraph S1["L1 Belayer"]
-    P1["1 Outdoor belay"]
+    P0["0 Gym top-rope belay"]
+    P3["3 Outdoor belay"]
   end
   subgraph S2["L2 Lead belayer"]
-    P2["2 Outdoor sport lead"]
+    P1["1 Gym lead"]
+    P4["4 Outdoor sport lead"]
   end
+  P2["2 Overview"]
   subgraph S3["L3 Outdoor climber"]
-    P3["3 Judging bolts"]
-    P4["4 Top-rope setup"]
-    P5["5 Lower or rappel"]
+    P5["5 Judging bolts"]
+    P6["6 Top-rope setup"]
+    P7["7 Lower or rappel"]
   end
-  P6["6 Grades and ratings"]
+  P8["8 Grades and ratings"]
   subgraph S4["L4 Multi-pitch second"]
-    P7["7 Nuts and cams"]
-    P8["8 Anchors"]
-    P9["9 Multi-pitch"]
+    P9["9 Nuts and cams"]
+    P10["10 Anchors"]
+    P11["11 Multi-pitch"]
   end
   subgraph S5["L5 Multi-pitch leader"]
-    P10["10 Self-rescue"]
+    P12["12 Self-rescue"]
   end
-  P11["11 Learning path"]
-  P0 --> P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> P7 --> P8 --> P9 --> P10 --> P11
+  P13["13 Learning path"]
+  P0 --> P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> P7 --> P8 --> P9 --> P10 --> P11 --> P12 --> P13
 ```
 
-Beyond L1–L5 there are three background posts: [Taiwan's crags](/posts/climbing/2026-10-17-taiwan-crags-rock-type-en), [history and ethics](/posts/climbing/2026-10-17-bolting-history-ethics-en), and the learning path in post 11. What each post focuses on:
+Beyond L1–L5 there are three background posts: [Taiwan's crags](/posts/climbing/2026-10-17-taiwan-crags-rock-type-en), [history and ethics](/posts/climbing/2026-10-17-bolting-history-ethics-en), and the learning path in post 13. What each post focuses on:
 
 | # | Level | Post | After reading, you can |
 |---|---|---|---|
-| 1 | L1 | [Outdoor belaying](/posts/climbing/2026-10-17-outdoor-belay-en) | Run a full pre-climb check for a top-rope belay at a crag |
-| 2 | L2 | [Your first outdoor sport lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en) | Name the extra risks of leading outdoors and how to handle them |
-| 3 | L3 | [Bolts fail: how to judge a bolt](/posts/climbing/2026-10-17-judging-bolts-en) | Look up the bolt material on a Long Dong route before you go |
-| 4 | L3 | [Top-rope setup](/posts/climbing/2026-10-17-top-rope-anchor-setup-en) | Rig a top-rope on two bolts without wearing the fixed anchor |
-| 5 | L3 | [Lower or rappel](/posts/climbing/2026-10-17-lower-or-rappel-en) | Choose lowering or rappelling according to crag rules |
-| 6 | Bridge | [Grades and protection ratings](/posts/climbing/2026-10-17-grades-and-protection-ratings-en) | Read 5.10a, 6a, E1 5b, and R and X |
-| 7 | L4 | [Trad protection: nuts and cams](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en) | Name three conditions of a good placement |
-| 8 | L4 | [Building anchors](/posts/climbing/2026-10-17-building-anchors-en) | Check whether an anchor is redundant and free of extension |
-| 9 | L4 | [Multi-pitch basics](/posts/climbing/2026-10-17-multi-pitch-basics-en) | Sketch the steps of a changeover |
-| 10 | L5 | [Self-rescue basics](/posts/climbing/2026-10-17-self-rescue-basics-en) | Decide whether to call for help, lower, or use rescue skills |
-| 11 | All | [Learning path and common accidents](/posts/climbing/2026-10-17-sport-to-trad-learning-path-en) | Plan your next year of skills and courses |
-| 12 | Background | [Taiwan's crags: rock type decides the style](/posts/climbing/2026-10-17-taiwan-crags-rock-type-en) | Pick crags you can go to and the rules to follow |
-| 13 | Background | [History and ethics](/posts/climbing/2026-10-17-bolting-history-ethics-en) | Explain why you should not place bolts at Long Dong on your own |
+| 0 | L1 | [Gym top-rope belay](/posts/climbing/2026-10-17-gym-top-rope-belay-en) | Top-rope belay, partner-check and lower on your own at the gym |
+| 1 | L2 | [Gym lead climbing](/posts/climbing/2026-10-17-gym-lead-climbing-en) | Lead at the gym and lead-belay someone else |
+| 2 | — | Overview (this post) | Say which level you are at and which post to read next |
+| 3 | L1 | [Outdoor belaying](/posts/climbing/2026-10-17-outdoor-belay-en) | Run a full pre-climb check for a top-rope belay at a crag |
+| 4 | L2 | [Your first outdoor sport lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en) | Name the extra risks of leading outdoors and how to handle them |
+| 5 | L3 | [Bolts fail: how to judge a bolt](/posts/climbing/2026-10-17-judging-bolts-en) | Look up the bolt material on a Long Dong route before you go |
+| 6 | L3 | [Top-rope setup](/posts/climbing/2026-10-17-top-rope-anchor-setup-en) | Rig a top-rope on two bolts without wearing the fixed anchor |
+| 7 | L3 | [Lower or rappel](/posts/climbing/2026-10-17-lower-or-rappel-en) | Choose lowering or rappelling according to crag rules |
+| 8 | Bridge | [Grades and protection ratings](/posts/climbing/2026-10-17-grades-and-protection-ratings-en) | Read 5.10a, 6a, E1 5b, and R and X |
+| 9 | L4 | [Trad protection: nuts and cams](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en) | Name three conditions of a good placement |
+| 10 | L4 | [Building anchors](/posts/climbing/2026-10-17-building-anchors-en) | Check whether an anchor is redundant and free of extension |
+| 11 | L4 | [Multi-pitch basics](/posts/climbing/2026-10-17-multi-pitch-basics-en) | Sketch the steps of a changeover |
+| 12 | L5 | [Self-rescue basics](/posts/climbing/2026-10-17-self-rescue-basics-en) | Decide whether to call for help, lower, or use rescue skills |
+| 13 | All | [Learning path and common accidents](/posts/climbing/2026-10-17-sport-to-trad-learning-path-en) | Plan your next year of skills and courses |
+| 14 | Background | [Taiwan's crags: rock type decides the style](/posts/climbing/2026-10-17-taiwan-crags-rock-type-en) | Pick crags you can go to and the rules to follow |
+| 15 | Background | [History and ethics](/posts/climbing/2026-10-17-bolting-history-ethics-en) | Explain why you should not place bolts at Long Dong on your own |
 
-Post 6 sits between sport and trad because trad grades add a layer about protection quality; reading R and X first makes learning to place gear easier. Post 7 covers single placements before post 8 builds anchors, because an anchor is built from several placements.
+Post 8 sits between sport and trad because trad grades add a layer about protection quality; reading R and X first makes learning to place gear easier. Post 9 covers single placements before post 10 builds anchors, because an anchor is built from several placements.
 
 ## Which level are you at?
 
@@ -200,12 +205,12 @@ Work down this list. The first "not yet" is the post to read:
 
 1. Can you top-rope belay, do a partner check and lower in the gym on your own? Not yet → read [Learning to Top-Rope Belay at the Gym](/posts/climbing/2026-10-17-gym-top-rope-belay-en).
 2. Can you lead in the gym and lead belay someone else? Not yet → read [gym lead climbing](/posts/climbing/2026-10-17-gym-lead-climbing-en).
-3. Have you belayed at an outdoor crag? Not yet → post 1; you are at L1.
-4. Have you led an outdoor sport route? Not yet → post 2; you are at L2.
-5. Can you rig a top-rope at the top and rappel down yourself? Not yet → posts 3 to 5; you are at L3.
-6. Have you seconded a trad route and removed nuts? Not yet → posts 6 to 8, on the way to L4.
-7. Have you climbed a multi-pitch route? Not yet → post 9.
-8. On a multi-pitch, do you know what to do if your partner gets hurt? Not yet → post 10, then take a rescue course.
+3. Have you belayed at an outdoor crag? Not yet → post 3; you are at L1.
+4. Have you led an outdoor sport route? Not yet → post 4; you are at L2.
+5. Can you rig a top-rope at the top and rappel down yourself? Not yet → posts 5 to 7; you are at L3.
+6. Have you seconded a trad route and removed nuts? Not yet → posts 8 to 10, on the way to L4.
+7. Have you climbed a multi-pitch route? Not yet → post 11.
+8. On a multi-pitch, do you know what to do if your partner gets hurt? Not yet → post 12, then take a rescue course.
 
 **Something you can do tonight**: write your current level and the next post to read in your phone's notes. Move up a level only after you have read the post and practiced in front of an instructor.
 
@@ -241,7 +246,7 @@ Pick something easier. The AAC analysis includes exactly this case: a climber wh
 
 <details><summary>Answer</summary>
 
-You are at L3. Read post 6 on grades and protection ratings, then post 7 on nuts and cams. In practice, start by seconding and placing gear on the ground; don't jump straight to leading trad.
+You are at L3. Read post 8 on grades and protection ratings, then post 9 on nuts and cams. In practice, start by seconding and placing gear on the ground; don't jump straight to leading trad.
 
 </details>
 

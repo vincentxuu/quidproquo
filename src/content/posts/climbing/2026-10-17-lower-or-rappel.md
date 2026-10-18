@@ -10,7 +10,7 @@ tldr: "下放全程不脫離確保，AAC 認為比較單純也比較安全；垂
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 5
+  order: 7
 glossary:
   - term: "下放"
     aliases: ["lowering", "lower off"]
@@ -36,7 +36,7 @@ glossary:
 
 到了戶外運攀路線，你是自己掛快扣爬上去的。頂端只有兩顆錨栓，可能加了鍊條、垂降環或羊角。繩子要你自己穿過去，快扣要回收，然後有兩個選擇：讓確保者**下放**你，或你自己**垂降**。不同的組織，對這題的建議不一樣。
 
-這篇是〈運動攀登與傳統攀登〉系列的第 5 篇。前置是[戶外確保](/posts/climbing/2026-10-17-outdoor-belay)與[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)；用自己的器材在頂端架頂繩，見[頂繩架設](/posts/climbing/2026-10-17-top-rope-anchor-setup)。這篇講的是最後一個人要把東西收走、下到地面的那一步。
+這篇是〈運動攀登與傳統攀登〉系列的第 7 篇。前置是[戶外確保](/posts/climbing/2026-10-17-outdoor-belay)與[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)；用自己的器材在頂端架頂繩，見[頂繩架設](/posts/climbing/2026-10-17-top-rope-anchor-setup)。這篇講的是最後一個人要把東西收走、下到地面的那一步。
 
 先講清楚：**頂端的操作一定要先在地面或岩館練過，在教練面前做到正確。** 這篇讓你知道每一步在防什麼，不是操作手冊。
 

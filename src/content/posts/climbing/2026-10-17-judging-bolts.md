@@ -10,7 +10,7 @@ tldr: "實驗室的強度標準只保證新品：UIAA 123 要求軸向 20 kN，E
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 3
+  order: 5
 glossary:
   - term: "錨栓"
     aliases: ["bolt", "rock anchor"]
@@ -38,7 +38,7 @@ glossary:
 
 這篇講 bolt 的種類、標準數字的意思、海邊為什麼特別危險，最後給你兩個動作：出發前查資料庫，到現場看一遍。
 
-這篇是〈[運動攀登與傳統攀登](/posts/climbing/2026-10-17-sport-vs-trad-overview)〉系列第 3 篇，接在〈[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)〉之後。下一篇〈[頂繩架設](/posts/climbing/2026-10-17-top-rope-anchor-setup)〉會把整個頂繩系統交給頂端的兩顆 bolt，所以先把這篇讀完。
+這篇是〈[運動攀登與傳統攀登](/posts/climbing/2026-10-17-sport-vs-trad-overview)〉系列第 5 篇，接在〈[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)〉之後。下一篇〈[頂繩架設](/posts/climbing/2026-10-17-top-rope-anchor-setup)〉會把整個頂繩系統交給頂端的兩顆 bolt，所以先把這篇讀完。
 
 ## bolt 有兩種：膨脹式與黏膠式
 

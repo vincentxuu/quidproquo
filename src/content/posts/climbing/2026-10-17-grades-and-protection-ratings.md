@@ -10,7 +10,7 @@ tldr: "YDS、法式、UIAA 都只量「最難的動作多難」，不管保護�
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 6
+  order: 8
 glossary:
   - term: "保護評等"
     aliases: ["protection rating", "G/PG/R/X", "R/X"]
