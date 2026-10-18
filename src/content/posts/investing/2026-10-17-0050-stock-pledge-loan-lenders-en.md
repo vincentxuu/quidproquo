@@ -52,7 +52,7 @@ The "October quote" column comes from the account 存股的陪跑者's [Threads 
 | CTBC | 3.5%; below 3% with a monthly contribution target | [List 6.4%](<https://www.ctbcsec.com/Stock/Collateral>) | Ratio denominator is the amount applied for; stock dividends of 20% or more become collateral |
 | Uni-President | 3.5%, manual application, 2× leveraged ETFs accepted | [List 6.4%](https://eservices.pscnet.com.tw/dm/LOAN/index.html) plus 0.1425% fee | Online NT$1 million per loan, NT$5 million per day |
 | Grand Cathay (國票) | 4% | [Site example uses 6.25%](https://www.ibfs.com.tw/my/cash/) | No list rate stated |
-| First Securities | NT$10 million per loan; below 3% negotiable at volume | — | [Extensions need a 166% whole-account ratio](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994) |
+| First Securities | NT$10 million per loan; below 3% negotiable at volume | The site says the rate appears only on the logged-in "borrow" screen; no public list rate | [Extensions need a 166% whole-account ratio](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994) |
 | Cathay Securities | 6.45% | [List 6.45%](https://istockapp.cathaysec.com.tw/Marketing/loan/) | Ratio uses the previous business day's close |
 
 Two numbers conflict: NOWnews quotes a user saying Fubon's ordinary-account rate has reached 4.5%, while the Threads list says 3.88%. For Yuanta Securities Finance the list matches the official site.
