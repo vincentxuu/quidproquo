@@ -9,7 +9,7 @@ series:
   name: "IFMGA 高山嚮導"
   order: 4
 tldr: "奧地利 2026 年新課綱 89.5 天、3 年，學費約 €15,000，德語授課；德國由 TU München 主辦國家考試，約 2.5–3 年，VDBS 說課程費約 €17,200；義大利由大區 Collegio 辦訓，aspirante 至少執業 2 年才能升嚮導，多數地區只收義大利或歐盟公民。三國的嚮導執照規則都跟著邦或大區走，報名前先選定地方。"
-description: "整理奧地利 VÖBS、德國 VDBS／TU München、義大利 Conagai 與各大區 Collegio 的高山嚮導訓練流程、入學門檻、費用、授課語言、法律地位、外國人條件與嚮導人數。"
+description: "整理奧地利 VÖBS、德國 VDBS／TU München、義大利 Conagai 與各大區 Collegio 的高山嚮導訓練流程、入學門檻、考試怎麼評分與重考、費用、授課語言、法律地位、外國人條件與嚮導人數。"
 draft: false
 glossary:
   - term: "Anwärter"
@@ -61,8 +61,66 @@ IFMGA 共通的訓練架構見 [學什麼、考什麼](/posts/climbing/2026-10-1
 ### 入學門檻
 
 - 年滿 18 歲，附 6 個月內的運動醫學證明。
-- 入學考的技術標準見 [VÖBS 考試標準 PDF](https://www.bergfuehrer.at/wp-content/uploads/2022/10/Pruefungskriterien-Info_v11102022.pdf)，例如滑雪上攀約 1,000 m 爬升要在 1 小時 45 分內完成。
-- [登山履歷表](https://www.bergfuehrer.at/wp-content/uploads/2023/11/Tourenbericht_v28112023.pdf)（2023 版）要列出高山岩攀、冰雪路線、冰瀑、冰河地形滑雪登山，以及一次至少 5 天的滑雪橫越。表上寫明填假資料會被取消資格。
+- 通過入學考，各項標準見下一節。
+- 交 VÖBS 的[登山履歷表](https://www.bergfuehrer.at/wp-content/uploads/2023/11/Tourenbericht_v28112023.pdf)（2023-11 版）。只能列自己負責、先鋒或輪流領攀的路線：
+
+| 類別 | 數量 | 表上的建議 |
+|---|---|---|
+| 高山攀岩 | 15 條不同路線 | 壁高至少 300 m、UIAA 5 以上，不能全程是膨脹螺栓 |
+| 冰或高山路線 | 10 條 | 包含冰線、混合線和 4000 m 峰 |
+| 冰瀑 | 5 條 | WI 4 以上、長度至少 100 m |
+| 冰河滑雪登山 | 15 條 | 大部分靠自己爬升，每條建議 1,000 m 以上 |
+| 滑雪橫越 | 1 次 | 至少 5 天，每天換住宿點 |
+
+[填寫說明](https://www.bergfuehrer.at/wp-content/uploads/2023/11/Tourenbericht-Info_v28112023.pdf)把細節寫死了。壁高要一次連續，兩條 150 m 的路線不能合算。運動攀登要列天然岩上最難的紅點，「岩館裡的藍色 7a 不算」。登山履歷有法律依據，造假會被取消考試或培訓資格。提洛邦的[施行令 T-BSFV](https://www.jusline.at/gesetz/t-bsfv/gesamt) 另列一份更長的法定清單。推測實際以 VÖBS 這份為準，因為提洛邦法承認 BSPA 的入學考（§26）。
+
+### 入學考怎麼評分
+
+入學考分兩段，同一年內先冬後夏。冬段沒過不能考夏段；冬段過了、夏段沒過，冬段成績保留 1 年。
+
+| 段 | 項目 | 標準 |
+|---|---|---|
+| 冬（3 天） | 滑雪上攀 | 揹滑雪登山裝備爬約 1,000 m，最多 2 小時 |
+| 冬 | 滑降 | 長彎、短彎、節奏變換；上攀和滑降之間不准換裝備 |
+| 冬 | 陡冰 | 冰瀑或混合線當先鋒，約 WI 4–5，保護點已預先放好 |
+| 冬 | 冰關卡 | 穿高山冰爪上下 40° 坡、全齒橫移、前齒爬到 90°，還要從攀爬姿勢鎖一支冰螺栓 |
+| 夏（2 天） | 運動攀登 | UIAA VII+（約 6b+）不墜落 |
+| 夏 | 高山攀登 | VI+ 以下的路線自己放岩楔和 cam |
+| 夏 | 易岩 | 穿可裝冰爪的硬底鞋，不用繩爬到 III 級 |
+| 夏 | 登山履歷 | 當場討論，列入評分 |
+
+標準出自 [VÖBS 考試標準](https://www.bergfuehrer.at/wp-content/uploads/2022/10/Pruefungskriterien-Info_v11102022.pdf)和 2026 年的[滑雪](https://www.bergfuehrer.at/wp-content/uploads/2026/09/Vorbereitungskurse_VOBS_Ski_2026.pdf)、[冰](https://www.bergfuehrer.at/wp-content/uploads/2026/09/Vorbereitungskurse_VOBS_Eis_2026.pdf)準備課說明。運動攀登的寫法不一致：考試標準寫紅點，VÖBS 官網和提洛邦法寫 onsight。陡冰另看時間、動作流暢和繩路，規定帶兩條 60 m 半繩，禁用半自動確保器。
+
+評分有兩套寫法：
+
+- **VÖBS 的做法**：一段全部考完才公布結果。某一項差一點，可以用另一項很好來補；某一項明確不及格，就補不回來。
+- **提洛邦法**（T-BSFV §1）：只評通過或不通過。考試委員會過半數投通過才算過，委員不准棄權。不通過要寫明理由，考生可以要求查閱。
+
+入學考可以重考幾次，官方未公開。
+
+### 課中考試與結業考
+
+入學之後還有三道關：
+
+1. **見習嚮導考**：在「Hochtouren 1」課的最後一天。考哪些題、怎麼評分，官方未公開。
+2. **課中考試**：各門課的公告會列考科。例如[運動攀登課](https://www.bergfuehrer.at/wp-content/uploads/2026/06/Ausschreibung-Sportklettern_2026.pdf)考試教和一條 6c+ 技術路線；[攀岩 1](https://www.bergfuehrer.at/wp-content/uploads/2026/09/Ausschreibung-Felskurs-1_ep2026_2026.pdf) 考山難救援、試教、個人攀登能力、帶隊與定向。[滑雪登山課](https://www.bergfuehrer.at/wp-content/uploads/2026/10/Ausschreibung-Skitouren_2027.pdf)則寫明「不是考試課」。
+3. **結業考**：聯邦 [BSPA 考試條例](https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20007515)的嚮導附件只列下面幾項。
+
+| 類型 | 考什麼 |
+|---|---|
+| 證明 | 5 年內的急救課結業證明 |
+| 口試 | 訓練學；定向與地圖學 |
+| 實作 | 山難救援技術；試教 |
+
+推測攀岩、冰攀、滑雪這些技術，是在各門課的課中考試考掉的。依據是條例 §9 把實作科的學期考試算進結業考，而課程公告也列了技術考科。結業考考幾天、有幾位考官，官方未公開。
+
+提洛邦法（T-BSFV §7–§8）的評分和重考規則：
+
+- 分數是 1–5 分，1 最好，4 及格。
+- 任何一科拿 5 分（不及格），整場就不及格。
+- 不及格的科目最多重考兩次，在下一個考期考。
+- 實作科（山難救援除外）要先重上那段課，才能重考。
+- 兩次都用完，要重上整個培訓。
 
 ### 費用
 
@@ -99,7 +157,7 @@ IFMGA 共通的訓練架構見 [學什麼、考什麼](/posts/climbing/2026-10-1
 
 1. **寄登山紀錄表**：每年 10 月 31 日前寄，審查過了就是申請者（Bewerber）。
 2. **三項入學考**：冰、滑雪、岩／冰綜合。全過就是候選人（Kandidat），要加入 VDBS。
-3. **必修課程 B101–B115**：通過其中的「冰／混合地形」課程（B111）後，成為 Aspirant，可以開始實習。
+3. **必修課程 B101–B115**：三門評等課都過了，成為 Aspirant，可以開始實習。
 4. **實習**：至少 36 天，岩、冰／高山、滑雪三區各至少 12 天。
 5. **國家考試**：夏季 12 天、冬季 6 天、理論 2 天，由 TU München 辦。
 
@@ -111,6 +169,93 @@ IFMGA 共通的訓練架構見 [學什麼、考什麼](/posts/climbing/2026-10-1
 - BayAPOFspl §4 明文要求德語口說與書寫能力足夠。
 - 登山紀錄表至少涵蓋 3 年，例如 15 條壁高至少 400 m、大多沒有膨脹螺栓的阿爾卑斯岩攀路線。
 - 入學考的運動攀登要穿攀岩鞋紅點 6b+。
+- 考試期間，考官可以找你面談，查登山紀錄是不是真的。面談證實有問題，可以取消考試資格。
+
+### 入學考與課程考試
+
+德國的分數一律是 1–6 分，1 最好，通常由兩位考官各打一分再平均。從入學到國家考試，要過這幾關（[VDBS 評分說明](https://storage.tramino.net/vdbs/1549937/infos-zu-efp-lehrgangsprfungen-gem-bayapofspl.pdf?r=1)、[巴伐利亞文教部公告](https://www.verkuendung-bayern.de/files/baymbl/2021/217/baymbl-2021-217.pdf)）：
+
+| 階段 | 考什麼 | 及格條件 |
+|---|---|---|
+| 書面審查 | 至少 3 年的登山紀錄 | 培訓委員會決定准不准考 |
+| 入學考 | 冰 2 天、滑雪 2.5 天、岩／冰綜合 8 天 | 滑雪登山、岩線、冰線這三項帶隊式項目，每項平均 4.0 以內；其他項 4.5 以內 |
+| 課程考試 | 攀岩技術、全齒冰爪、陡冰、滑雪技術、雪崩搜救 | 每項 4.5 以內 |
+| 課程評等 | 三門評等課 | 課程分數 4.0 以內 |
+| 國家考試 | 帶隊、風險管理技能、試教、理論 | 見下一節 |
+
+入學考的登山跑計分表、技術關卡、雪崩搜救計時表，見[學什麼、考什麼](/posts/climbing/2026-10-17-ifmga-training-and-exams)，這裡不重複。
+
+沒過時的規則各關不同：
+
+- **入學考**：VDBS 說明寫可以重考兩次，已經過的分項保留。
+- **課程考試**：可以重考兩次，最早在下一梯次。
+- **評等課**：沒過整門課算不及格，只能重修一次。
+
+課程表如下，出自 [VDBS 2026 手冊](https://storage.tramino.net/vdbs/1544961/information-zur-berg-skifhrer-ausbild-ung-2026.pdf)：
+
+| 年 | 代號 | 課 | 天數 | 類型 |
+|---|---|---|---|---|
+| 1 | B101 | 攀岩與教學法 | 7 | 上課 |
+| 1 | B102 | 山難救援 | 7 | 上課，要最先上 |
+| 1 | B103 | 高山岩場 | 13 | **評等課** |
+| 1 | B104 | 理論 I | 3 | 上課 |
+| 2 | B105 | 雪崩 | 8 | 上課 |
+| 2 | B106 | 滑雪登山 | 7 | 上課 |
+| 2 | B107 | 冰瀑攀登 | 5 | 上課 |
+| 2 | B108 | 滑雪技術與教學法 | 7 | 上課 |
+| 2 | B109 | 雪道外滑雪 | 6 | **評等課** |
+| 2 | B110 | 個人技術考試（滑雪、雪崩搜救、攀岩） | 3 | **考試課** |
+| 2 | B111 | 冰／混合地形 | 10 | **評等課** |
+| 2 | B112 | 全齒冰爪技術 | 1 | **考試日** |
+| 2 | B113 | 理論 II | 4 | 上課 |
+| 3 | B114 | 冬季登山（含陡冰考試） | 7 | 考前課 |
+| 3 | B115 | 滑雪高山 | 7 | 考前課 |
+
+2025 年起，個人技術考試從各門課抽出來，集中到 B110 和 B112。VDBS 的理由是讓課程有更好的學習氣氛，也讓學員有時間自己練到考試前。
+
+評等課的評分方式和一次性考試不同：
+
+- 教練**每天**給每位學員打當日分數，結業時由課程負責人彙整。當天沒機會看到的面向，就不評。
+- 看的面向有客人照顧、風險管理、技術、帶隊技術運用、移動能力、專業度與教學。
+- 各面向之間不能互相抵銷，最後還有一項整體評價。
+
+### 國家考試
+
+國家考試由 TU München 主辦，分四部分。2026/27 考期的日期出自 [TUM 報名表](https://www.mh.tum.de/fileadmin/w00ckv/mh/Studium/Sport-_und_gesundheitswissenschaftliche_Studiengaenge/Studierende/Nichtakad._Ausbildung/20260302_Anmeldung_EP_BSF_2026.pdf)：
+
+| 部分 | 2026/27 日期 | 報考前要先有 |
+|---|---|---|
+| 岩 | 2026-08-29 至 09-05 | Aspirant、攀岩技術考試、夏季實習 |
+| 理論 | 2026-11-13 至 11-15 | Aspirant、理論 I 和 II |
+| 冬季滑雪高山 | 2027-04-18 至 04-24 | Aspirant、B115、全部個人技術考試、冬季實習 |
+| 冰／高山 | 2027-06-26 至 07-03 | Aspirant、B114、陡冰考試、夏冬兩季實習 |
+
+實習是岩、冰／高山、滑雪三區各至少 12 天，帶隊和教學大約各半。實習紀錄要有督導簽名，開考當天交給考試主席。考前課上完超過 4 年，就不能報考。
+
+四部分各考什麼：
+
+- **帶隊**：岩、冰／高山、滑雪高山三種。考生要對「（假想的）客人」做行前說明再帶隊。[TUM 評分標準](https://www.mh.tum.de/fileadmin/w00ckv/mh/Studium/Sport-_und_gesundheitswissenschaftliche_Studiengaenge/Studierende/Nichtakad._Ausbildung/190808_Staatliche_Pru__fungen_Beurteilungskrit_.pdf)要求用少量裝備解決複雜狀況，原文說「腰上和背包裡不要像一間運動用品店」。每題都要及格，整區平均要在 4.0 以內。
+- **風險管理技能**：繩索救援題，每題 15–30 分鐘，題目見[第 2 篇](/posts/climbing/2026-10-17-ifmga-training-and-exams)。每題都要及格。
+- **試教**：準備 30 分鐘、教 30 分鐘。不及格的條件見第 2 篇。
+- **試教題庫**：事先公開，[岩](https://www.mh.tum.de/fileadmin/w00ckv/mh/Studium/Sport-_und_gesundheitswissenschaftliche_Studiengaenge/Studierende/Nichtakad._Ausbildung/250508_Lehrproben_Fels.pdf) 20 題、[冰](https://www.mh.tum.de/fileadmin/w00ckv/mh/Studium/Sport-_und_gesundheitswissenschaftliche_Studiengaenge/Studierende/Nichtakad._Ausbildung/250508_Lehrproben_Eis.pdf) 25 題，從架確保站到裂隙救援都有。每題寫明學員的程度和要教到哪裡。
+- **理論**：筆試、口試或兩者都考，開考時才公布方式。科目有教學法、運動生物學、事故學與急救、訓練學、雪與雪崩學、天氣學、定向、生態、外語溝通、裝備學、確保理論。
+
+理論要同時符合三個條件才及格：
+
+1. 各科平均及格。
+2. 最多只能有一科拿 6 分。
+3. 雪與雪崩學、天氣學、事故學與急救、定向，這四科每科都要 4.5 以內。
+
+沒過的部分或單題可以重考兩次，要在下一個考期。重考要另付規費（BayAPOFspl §19）：
+
+| 重考什麼 | 規費 |
+|---|---|
+| 帶隊 | 每題 €400 |
+| 風險管理技能 | 每題 €100 |
+| 試教 | 每題 €100 |
+| 理論 | 一次 €50，不論補考幾科 |
+
+報名一次只管一年，隔年重考要重新報名。沒有正當理由就退出，算不及格；最終不及格的人，不能再進入培訓。
 
 ### 費用
 
@@ -201,11 +346,23 @@ Conagai 官網的數字是 **1,202 名正式嚮導、176 名 aspirante**。頁�
 
 奧地利和德國的報名條件都沒有國籍限制，真正的門檻是德語；義大利除了 Valle d'Aosta 和南提洛，大多直接限義大利或歐盟公民。三國都得先確定要去哪個邦或大區，因為規則跟著地方走。整體怎麼選，見 [台灣人要怎麼走](/posts/climbing/2026-10-17-ifmga-taiwan-path)。
 
+## 更新紀錄
+
+- 2026-10-18：奧地利補上登山履歷的數量、入學考各項標準與評分方式、課中考試與結業考的考項和重考規則；德國補上考試關卡總表、課程表與評等課、國家考試的日期、報考條件、理論及格條件和重考規費。
+
 ## 參考資料
 
 - [VÖBS：Die Berg- und SkiführerInnen-Ausbildung](https://www.bergfuehrer.at/die-berg-und-skifuehrerinnen-ausbildung/)
 - [VÖBS 考試標準 PDF](https://www.bergfuehrer.at/wp-content/uploads/2022/10/Pruefungskriterien-Info_v11102022.pdf)
 - [VÖBS 登山履歷表（2023-11）](https://www.bergfuehrer.at/wp-content/uploads/2023/11/Tourenbericht_v28112023.pdf)
+- [VÖBS 登山履歷填寫說明（2023-11）](https://www.bergfuehrer.at/wp-content/uploads/2023/11/Tourenbericht-Info_v28112023.pdf)
+- [VÖBS 2026 滑雪準備課說明 PDF](https://www.bergfuehrer.at/wp-content/uploads/2026/09/Vorbereitungskurse_VOBS_Ski_2026.pdf)
+- [VÖBS 2026 冰準備課說明 PDF](https://www.bergfuehrer.at/wp-content/uploads/2026/09/Vorbereitungskurse_VOBS_Eis_2026.pdf)
+- [VÖBS 運動攀登課公告 2026 PDF](https://www.bergfuehrer.at/wp-content/uploads/2026/06/Ausschreibung-Sportklettern_2026.pdf)
+- [VÖBS 攀岩 1 課公告 2026 PDF](https://www.bergfuehrer.at/wp-content/uploads/2026/09/Ausschreibung-Felskurs-1_ep2026_2026.pdf)
+- [VÖBS 滑雪登山課公告 2027 PDF](https://www.bergfuehrer.at/wp-content/uploads/2026/10/Ausschreibung-Skitouren_2027.pdf)
+- [提洛施行令 T-BSFV（JUSLINE）](https://www.jusline.at/gesetz/t-bsfv/gesamt)
+- [聯邦 BSPA 考試條例 BGBl. II Nr. 351/2011（RIS）](https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20007515)
 - [VÖBS：Über uns](https://www.bergfuehrer.at/ueber-uns/)
 - [下奧邦政府：Diplombergführer](https://www.noe.gv.at/noe/Sport/Diplombergfuehrer1.html)
 - [Steiermark 邦協會：Die Berg- und SkiführerInnen-Ausbildung](https://bergsport-stmk.at/die-berg-und-skifuehrerinnen-ausbildung/)
@@ -216,6 +373,12 @@ Conagai 官網的數字是 **1,202 名正式嚮導、176 名 aspirante**。頁�
 - [VDBS 2026 課程日期與價格 PDF](https://storage.tramino.net/vdbs/1590749/bgf-termine-2026-update-1025.pdf)
 - [VDBS：Über Uns](https://www.vdbs.de/ueber-uns/)
 - [BayAPOFspl](https://www.gesetze-bayern.de/Content/Document/BayAPOFspl/true)
+- [VDBS 入學考與課程考試評分說明 PDF](https://storage.tramino.net/vdbs/1549937/infos-zu-efp-lehrgangsprfungen-gem-bayapofspl.pdf?r=1)
+- [巴伐利亞文教部公告 BayMBl. 2021 Nr. 217 PDF](https://www.verkuendung-bayern.de/files/baymbl/2021/217/baymbl-2021-217.pdf)
+- [TUM 國家考試評分標準 PDF](https://www.mh.tum.de/fileadmin/w00ckv/mh/Studium/Sport-_und_gesundheitswissenschaftliche_Studiengaenge/Studierende/Nichtakad._Ausbildung/190808_Staatliche_Pru__fungen_Beurteilungskrit_.pdf)
+- [TUM 試教題庫：岩 PDF](https://www.mh.tum.de/fileadmin/w00ckv/mh/Studium/Sport-_und_gesundheitswissenschaftliche_Studiengaenge/Studierende/Nichtakad._Ausbildung/250508_Lehrproben_Fels.pdf)
+- [TUM 試教題庫：冰 PDF](https://www.mh.tum.de/fileadmin/w00ckv/mh/Studium/Sport-_und_gesundheitswissenschaftliche_Studiengaenge/Studierende/Nichtakad._Ausbildung/250508_Lehrproben_Eis.pdf)
+- [TUM 2026/27 國家考試報名表 PDF](https://www.mh.tum.de/fileadmin/w00ckv/mh/Studium/Sport-_und_gesundheitswissenschaftliche_Studiengaenge/Studierende/Nichtakad._Ausbildung/20260302_Anmeldung_EP_BSF_2026.pdf)
 - [BayBergSkiV](https://www.gesetze-bayern.de/Content/Document/BayBergSkiV/true)
 - [TU München：Berg- und Skiführende](https://www.mh.tum.de/mh/studium/sport-und-gesundheitswissenschaftliche-studiengaenge/studierende/nichtakad-ausbildungen/fachsportlehrende/berg-und-skifuehrende/)
 - [Anerkennung in Deutschland：Bergführer/in](https://anerkennung-in-deutschland.de/en/interest/finder/profession/393/profile)

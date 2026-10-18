@@ -49,6 +49,98 @@ IFMGA 共通的訓練標準（94 天、入學 55 條路線）在 [學什麼、�
 
 整套至少 3 年。[2022 訓練手冊](https://www.bmg.org.uk/wp-content/uploads/2022/12/BMG_Training-Scheme-Handbook_2022-12-02_TB.pdf) 還規定岩攀和冬季之間各有一段「consolidation period」，要在英國累積夏季岩攀和蘇格蘭冬季的**工作**經驗。
 
+### 每一段考什麼
+
+以下依 BMG 的 [2022 年版訓練手冊](https://www.bmg.org.uk/wp-content/uploads/2022/12/BMG_Training-Scheme-Handbook_2022-12-02_TB.pdf)。官網現行流程在模組順序和天數上略有出入，例如阿爾卑斯夏季訓練官網多寫了 1 天。
+
+入學考三場和「一項明顯不足就不得繼續」在 [第 2 篇](/posts/climbing/2026-10-17-ifmga-training-and-exams) 講過，這裡從錄取之後講起。
+
+#### 英國夏季岩攀：6 天考核（9 月，北威爾斯）
+
+考前有兩次 4 天訓練，練帶隊攀岩、短繩和多段路線上的教學。第二次的最後一天，由資深嚮導帶著，實際帶模擬客人。
+
+| 天 | 考什麼 | 考官對考生 |
+|---|---|---|
+| 1 | 自己爬 E1 5b 的多段路線（大山壁或海崖），看效率、繩索管理和確保站；晚上筆試約 1.5 小時 | 1 對 2 |
+| 2 | 即興岩場救援：下放、拉升、陪同垂降，加上客人常造成的狀況 | 1 對 2 |
+| 3–4 | 兩天一夜山地行程：長距離爬坡、短繩、夜間導航、露宿，考官扮客人 | 1 對 2 |
+| 5 | 客人日：帶一位成年客人爬多段，先訪談經驗和期待再排行程 | 1 對 1 |
+| 6 | 教學日：帶一位新手，一天的教學要有循序漸進的安排 | 1 對 1 |
+
+最後由主考官（Course Convenor）逐一宣布結果並講評。
+
+#### 雪崩：三段
+
+| 階段 | 學什麼 | 考什麼 |
+|---|---|---|
+| 居家自學 | 五種雪崩類型、五級危險度、讀預報、讀坡度 | 手冊未列考試 |
+| Avalanche 1（3 天，阿爾卑斯） | 穩定度測試、地形分級、搜救器與多人埋沒的搜救戰術 | 手冊未列考試 |
+| Avalanche 2（4 天） | 正式雪坑紀錄、人為因素 | 在 30 m² 內找出兩台搜救器；再考一場多人埋沒的複合情境，不限時，依約定標準判過或不過 |
+| Avalanche 3（6 天，和非雪道滑雪合上） | 主持晨會、帶隊滑冰河非雪道、陡坡、滑雪中短繩 | 計時雪坑：含 3 項穩定度測試，限 1 小時（不含挖坑），做完要當場向講師說明紀錄為什麼準 |
+
+複合情境考的不只找人，還有處理傷者、找沒戴搜救器的人、調度現場、求援和撤離。Avalanche 2 和 3 之間，要自己挖 10 個雪坑做紀錄。
+
+#### 英國冬季：6 天考核（3 月，蘇格蘭）
+
+考前有 5 天訓練（1 月），練確保站管理、撤退、救援、短繩，還有好幾個晚上的摸黑導航。
+
+| 天 | 考什麼 |
+|---|---|
+| 1–2 | 一般登山與遠征：陡地移動、雪冰技術、導航、雪崩評估、緊急避難所，在山上過一夜 |
+| 3 | 自己爬混合路線或岩稜，Grade V，1 位考官帶 2 位考生 |
+| 4 | 自己爬雪冰路線，Grade V（Cairngorms、Ben Nevis 等地） |
+| 5 | 客人日：教一位客人雪技、冰技和確保，並完成一條冬季路線 |
+| 6 | 同一位客人，帶一條較長的路線，難度依客人能力調整；當天公布結果 |
+
+手冊只寫「一位客人」，沒寫客人從哪來。一位考生分享 2017 年的經驗（[Ross Hewitt](https://rosshewittguiding.com/2017/05/13/the-british-mountain-guides-scottish-winter-test)）：客人是外部的真實客人，兩天都有「下午 4 點必須回到」的硬規定。那年天氣太暖，混合攀登那天取消，全員隔週回來補考那一天。
+
+#### 滑雪登山：6 天考核（4–5 月，阿爾卑斯）
+
+- 考前：5 天訓練，再加至少 15 天督導帶客。
+- 督導帶客裡要有公認的健行路線，每趟連住 3 晚山屋。
+- 第 1 天：下滑能力、搜救器操作、非雪道帶隊。
+- 第 2–6 天：一趟最多住 4 晚山屋的健行，評團隊管理、路線選擇、上坡技術、偏遠地區急救與撤離。
+- 個人滑雪水準整週都在評。
+
+#### 阿爾卑斯見習：30 個「有份量的帶客日」
+
+見習至少要 30 個 quality guided days，第一季至少 20 天。督導嚮導要取得資格滿 3 年。
+
+怎樣的一天才算數：
+
+- 路線通常在 PD–AD 級（法國高山分級）以上，長 500 m 以上。
+- 上下要用到多種技術，例如短繩、同時移動、下放客人。
+- 最好有冰河接近。
+- logbook 每天記路況、耗時、客人人數和能力；第一季結束時，技術總監和考核團隊會審 logbook 並給必須照做的建議。
+
+#### 阿爾卑斯夏季：6 天考核（8 月，第二季見習中）
+
+| 天 | 考什麼 |
+|---|---|
+| 1 | 冰河日：冰技、冰隙救援、冰河結繩 |
+| 2 | 混合路線 |
+| 3 | 岩路線，看速度和繩索系統效率 |
+| 4 | 較長較難的岩路線，看個人技術和找路 |
+| 5 | 較長較難的混合路線 |
+| 6 | 穿登山鞋爬法國 5c/6a 的多段路線，看攀爬風格和帶隊技術 |
+
+導航和找路整週都在評。
+
+#### 結果、補考與期限
+
+| 結果 | 意思 | 接下來 |
+|---|---|---|
+| Pass | 大綱每一區都達標 | 收書面報告，進下一階段 |
+| Defer | 一區以上沒達標 | 通常隔年回來補考兩天以上；弱點當季補得起來時，可能只補考一天 |
+| Fail | 整體沒達標 | 整個考核課重上 |
+
+- **補考上限**：每個階段通常最多補考 2 次，用完就退出訓練。
+- **期限**：從通過英國夏季考核起，5 年內要考完，特殊情況可申請延長。
+- **和 IFMGA 標準不同**：IFMGA 舊版標準寫的是入學後 3–6 年。推測是 BMG 訂得較嚴，或標準已改版。
+- **申訴**：先找主考官，再寫信給技術總監，最後交 BMG 理事會，理事會決定為最終。
+
+各國評分方式的比較見 [第 2 篇](/posts/climbing/2026-10-17-ifmga-training-and-exams)。
+
 ### 入學門檻
 
 [先修條件頁](https://www.bmg.org.uk/become-a-guide/prerequisites/) 列的重點：
@@ -256,6 +348,10 @@ NORTIND 的 [正式嚮導名冊](https://www.nortind.no/index.php?option=com_con
 
 英紐用英語上課，看起來最好讀，但兩國都要在當地合法工作。紐西蘭報名就要工作許可；英國訓練中要累積當地工作經驗，而英國青年簽證禁止教練工作。挪威要過挪威文，瑞典要英文但入學考在阿爾卑斯、學費未公開。比較各國後怎麼選，接著看 [台灣人要怎麼走](/posts/climbing/2026-10-17-ifmga-taiwan-path)。
 
+## 更新紀錄
+
+- 2026-10-18：英國一節新增「每一段考什麼」：夏季、冬季、阿爾卑斯、滑雪登山考核的逐日內容，雪崩三段的考法，見習 quality day 的定義，以及結果、補考上限、5 年期限與申訴流程（依 BMG 2022 訓練手冊）。
+
 ## 參考資料
 
 - [BMG：Become a guide](https://www.bmg.org.uk/become-a-guide/)
@@ -266,6 +362,7 @@ NORTIND 的 [正式嚮導名冊](https://www.nortind.no/index.php?option=com_con
 - [Mountain Training：BMG Summer Rock Assessment 2026](https://mt.tahdah.me/event/detail/1463314)
 - [Mountain Training：BMG Ski Touring Assessment 2026](https://mt.tahdah.me/event/detail/1523441)
 - [UKClimbing：British Mountain Guide scheme](https://www.ukclimbing.com/articles/skills/series/british_mountain_guide_scheme/)
+- [Ross Hewitt：The British Mountain Guides Scottish Winter Test（2017）](https://rosshewittguiding.com/2017/05/13/the-british-mountain-guides-scottish-winter-test)
 - [HSE：AALA general information](https://hse.gov.uk/aala/general-information.htm)
 - [GOV.UK：Youth Mobility Scheme](https://www.gov.uk/youth-mobility)
 - [GOV.UK：Immigration Rules introduction](https://www.gov.uk/guidance/immigration-rules/immigration-rules-introduction)

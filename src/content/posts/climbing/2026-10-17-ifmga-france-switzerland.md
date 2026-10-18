@@ -49,7 +49,7 @@ IFMGA 共通的訓練架構見 [學什麼、考什麼](/posts/climbing/2026-10-1
 法國的資格全名是「diplôme d'État d'alpinisme – guide de haute montagne」，唯一的培訓機構是 [ENSM](https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/) 在 Chamonix 的 ENSA 校區。現行規定是 [2023-12-19 的 arrêté](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048881074)。
 
 1. **probatoire（入學考）**：分三部分，每一部分都淘汰。冬季考口試、雪崩搜救、全雪況滑雪；初夏考定向、運動攀登、冰爪技術、混合地形；夏末在高山環境自主行進 5 天。
-2. **UF1**：4 週的非冰河地形基礎課，通過後成為 aspirant 1，可以收費帶攀岩場、via ferrata 等部分活動。
+2. **UF1**：4 週的非冰河地形基礎課，再過一關半天的 EPMSP 就成為 aspirant 1，可以收費帶攀岩場、via ferrata 等部分活動。
 3. **共同課 FGCMEEESM**：5 天，山域運動職業的共同理論。
 4. **UF2 到 UF4**：滑雪登山、夏季阿爾卑斯攀登、冬季攀登加滑雪登山，依序升到 aspirant 2、3、4，可帶的路線一級一級放寬。
 5. **UF5**：結業考，通過後拿到國家文憑。
@@ -60,6 +60,38 @@ IFMGA 共通的訓練架構見 [學什麼、考什麼](/posts/climbing/2026-10-1
 - **總時數**：728 小時，分布在 21 週。
 - **年數**：官方寫「至少 4 年」，[流程圖](https://www.ensm.sports.gouv.fr/wp-content/uploads/2024/11/CURSUS-GUIDE-1.pdf)從 UF1 到拿文憑跨 4 個日曆年。
 - **複訓**：拿到文憑後每 6 年回 ENSA 一次，沒複訓不能執業。
+
+### 每一階段怎麼考
+
+probatoire 各項怎麼考，[第 2 篇](/posts/climbing/2026-10-17-ifmga-training-and-exams)已經列成表。這裡補誰決定你過不過：評量委員會出題、打分，及格與否由另一個評審團決議。評審團由國家滑雪與登山職業署署長主持，成員有 ENSM 總監、兩個登山聯合會與兩個嚮導職業組織的代表，以及 ENSA 的嚮導教師。
+
+進入培訓後，每一階段都在上課期間和結束時考。考題會依地形、雪況和天候調整，評量委員會會事先告訴你怎麼考。
+
+| 階段 | 時間 | 考什麼 |
+|---|---|---|
+| UF1 | 4 週 | 2 小時定向筆試：分析地圖路線，交叉使用 GPS、高度計、指北針和地圖。把卡在岩壁上的人救下來，再用法語發出條理清楚的求救訊息。在岩場帶學童上一堂最長 1 小時的課，接著口頭說明教學與安全安排。帶一位學員完成一日非冰河攀登 |
+| EPMSP | 半天 | 在野外用各種方法找到檢查點。過了才能以 aspirant 1 收費帶客 |
+| 共同課 FGCMEEESM | 5 天 | 法規、山區經濟、接待各種客群、運動生理，最後考 3 小時筆試。沒過不能上 UF2 |
+| UF2 | 3 週 | 至少做一次雪坑分析，說明雪崩機制。限時、照指定方式做冰河裂隙自救。規劃並帶一團人完成一日滑雪登山 |
+| UF3 | 4 週 | 第二級岩壁救援，比 UF1 高一級。最長 1 小時的特殊登山操作。行前簡報，帶繩隊爬完最長一日的路線，路上邊帶邊教，回來再做檢討，還要評自己的表現 |
+| UF4 | 至少 3 週 | 冬季岩壁救援。最長 2 天的技術示範。行前簡報，帶隊完成最長 48 小時的冬季登山或滑雪登山，再做檢討 |
+| UF5 | 27–29 天 | 口頭報告一個「表現專案」，要講清楚客人程度、安全規劃、預算和裝備。複雜救援：把人撤出暴露位置，再交給模擬的救援單位。外語口試最多 20 分鐘，德、英、西、義選一種 |
+
+表格以外，還有三條規定：
+
+- 從 UF3 起，每一階段都另考急救筆試和執業知識筆試。
+- UF5 分冬、夏兩段，冬季段沒過不能上夏季段。
+- UF4 考完要滿 12 個月，才能開始 UF5。
+
+各階段之間，你要自己完成一份[路線清單](https://www.ensm.sports.gouv.fr/wp-content/uploads/2025/04/Declaration-liste-de-courses-Perfectionnement-personnel-et-tutorat-A-effectuer-entre-UF1-et-UF5.pdf)，上 UF4、UF5 前要交：
+
+| 期間 | 個人路線 | 導師制實習與帶客 |
+|---|---|---|
+| UF1 到 UF4 | 人工攀登、長岩石路線、5 級冰瀑，例如 3 條 300 m 以上、TD+ 起的岩石路線 | 岩場、雪鞋、雪道外滑雪、滑雪登山、登山，合計至少 10 天 |
+| UF3 到 UF5 | 石灰岩大岩壁、指定的經典大路線、8 條嚮導常帶的 AD 到 D+ 路線 | 職業帶客 25 趟，至少 15 條不同路線，岩、雪、冰、混合、滑雪都要有 |
+
+- **導師制實習不能領錢**，只能報銷費用。導師也不能把實習生當成多一位嚮導來多收客人（[ENSM 給導師的信](https://www.ensm.sports.gouv.fr/wp-content/uploads/2024/10/Lettre-aux-tuteurs.pdf)）。
+- **第 3 次不及格就終止培訓**。同一項評量第三次沒過，培訓手冊會被關閉，已經拿到的 aspirant 執業權限也一起撤銷。
 
 ### 入學門檻
 
@@ -111,6 +143,41 @@ ENSM 官網的「Tarifs 2026」合計是 **€17,694.50**。這包含註冊費�
 
 SBV 官網寫整套「約 3 年，在職進修」。依規章天數加總約 96 天，這是自行加總的數字。
 
+### 每一階段怎麼考
+
+入學評估、各模組的考法、結業考的考站和評分制，[第 2 篇](/posts/climbing/2026-10-17-ifmga-training-and-exams)都整理過了。這裡補的是規則：誰來考、沒過能重來幾次、最後兩個模組多要求什麼。
+
+**誰來考**
+
+- 每個考站至少兩位考官一起決定分數，另有一位監考人員寫書面紀錄（[SBV 考試規章](https://sbv-asgm.ch/wp-content/uploads/2023_03_09-PO-Bergfuehrer_revidiert_DE.pdf)）。
+- 考官要迴避：你的技術主任、帶過你的班級教練、親屬、現任或前任上司和同事，都不能考你。例外時，這些人最多只能占一位考官。
+- 結業考當天，考官先開預備評分會，再由品質保證委員會主席主持正式評分會，**當天就公布結果**（[考試指引](https://sbv-asgm.ch/wp-content/uploads/2025_10_01-Wegleitung-Berufspruefung-Bergfuehrer-1.pdf)）。
+
+**經驗分**
+
+模組上課期間，班級教練會一路打「經驗分」。不及格的分數要寫明理由，教練還要和你面談。冬季模組的經驗分分 5 類，平均至少 4 分，而且 5 類裡最多只能有 1 類不及格。
+
+**沒過能重來幾次**
+
+| 範圍 | 上限 |
+|---|---|
+| 單一模組 | 最多重修 2 次 |
+| 整個培訓 | 最多重修 4 個模組 |
+| 結業考 | 可以再考 2 次，只重考沒過的部分 |
+
+模組重修多半要等隔年。
+
+**最後兩個模組**
+
+實務期規定的 30 趟監督帶客和 10 趟自主行程，拆在這兩個模組前面各自檢查（[SBV 訓練規章](https://sbv-asgm.ch/wp-content/uploads/2025_10_01-Reglement-Bergfuehrerausbildung-1.pdf) 9.82、9.83）：
+
+| 模組 | 上課前要完成 | 這個模組看什麼 |
+|---|---|---|
+| [Winter II](https://sbv-asgm.ch/wp-content/uploads/9-Winter-II_2026-2.pdf) | 監督下 15 趟滑雪行程，加 5 趟自己完成的 S 級以上滑雪；另要有 Aspirant 證、州許可，並上完「自然與環境」 | 不再教，只評表現。三位班級教練各自評分，及格條件同冬季模組 |
+| [Sommer II](https://sbv-asgm.ch/wp-content/uploads/10-Sommer-II_08.2026.pdf) | 通過 Winter II；監督下 15 趟高山或混合行程，加 5 趟自己完成的 S 級以上行程 | 比 Sommer I 多要求：帶一組或多組繩隊、預先看出客人會卡在哪、安排一整天的節奏、自己做決定、和其他嚮導合作並帶一位 Aspirant |
+
+Sommer II 的經驗分沒過，就不能報結業考，隔年整個模組重修。結業考緊接在 Sommer II 之後考。
+
 ### 入學門檻
 
 - 至少 18 歲，滑雪要非常好，夏季和冬季登山經驗至少 3 年。
@@ -153,6 +220,10 @@ SBV 的 [2024 年統計](https://sbv-asgm.ch/wp-content/uploads/8_Der-SBV-in-Zah
 
 法國和瑞士都不擋外國人報名，但都要你在當地合法帶客好幾年：法國還要法語，瑞士要德語或法語，加上一張非歐盟公民很難拿的工作許可。想走這兩國，先解決居留和語言，再談技術。整體怎麼選，見 [台灣人要怎麼走](/posts/climbing/2026-10-17-ifmga-taiwan-path)。
 
+## 更新紀錄
+
+- 2026-10-18：法國、瑞士兩節各新增「每一階段怎麼考」：法國補上 UF1–UF5 各階段考核、階段之間的路線清單、導師制實習與第 3 次不及格的規定；瑞士補上考官迴避、當天公布成績、經驗分、重修上限，以及 Winter II、Sommer II 的必修行程與要求。
+
 ## 參考資料
 
 - [IFMGA Member Associations](https://ifmga.net/member-associations/member-associations)
@@ -160,6 +231,8 @@ SBV 的 [2024 年統計](https://sbv-asgm.ch/wp-content/uploads/8_Der-SBV-in-Zah
 - [ENSM：Formation de guide de haute montagne（含 Tarifs 2026）](https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/)
 - [Arrêté du 19 décembre 2023（Légifrance）](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048881074)
 - [ENSM 2026 路線清單 PDF](https://www.ensm.sports.gouv.fr/wp-content/uploads/2025/07/Liste-de-courses-2026-nouveau-cursus_V2.pdf)
+- [ENSM 培訓期間路線清單申報表 PDF](https://www.ensm.sports.gouv.fr/wp-content/uploads/2025/04/Declaration-liste-de-courses-Perfectionnement-personnel-et-tutorat-A-effectuer-entre-UF1-et-UF5.pdf)
+- [ENSM 給導師的信 PDF](https://www.ensm.sports.gouv.fr/wp-content/uploads/2024/10/Lettre-aux-tuteurs.pdf)
 - [ENSM 課程流程圖 PDF](https://www.ensm.sports.gouv.fr/wp-content/uploads/2024/11/CURSUS-GUIDE-1.pdf)
 - [ENSM 結果與統計](https://www.ensm.sports.gouv.fr/resultats-statistiques-satisfaction-et-debouches-ensa/)
 - [guichet-qualifications 存檔（2022，約 €11,000 的估計）](https://web.archive.org/web/20220701012810/https://www.guichet-qualifications.fr/en/dqp/sport/alpine-mountain-guide.html)
@@ -170,6 +243,10 @@ SBV 的 [2024 年統計](https://sbv-asgm.ch/wp-content/uploads/8_Der-SBV-in-Zah
 - [新華網：楊小華報導（中文）](https://app.xinhuanet.com/news/article.html?articleId=2e9e7d8e869af09a1dcbe7088c998783)
 - [SBV-ASGM：Bergführer/in](https://sbv-asgm.ch/bergfuehrer-bergfuehrerin/)
 - [SBV 訓練規章（2025-10）](https://sbv-asgm.ch/wp-content/uploads/2025_10_01-Reglement-Bergfuehrerausbildung-1.pdf)
+- [SBV 考試規章 Prüfungsordnung（2023-03）](https://sbv-asgm.ch/wp-content/uploads/2023_03_09-PO-Bergfuehrer_revidiert_DE.pdf)
+- [SBV 考試指引 Wegleitung（2025-10）](https://sbv-asgm.ch/wp-content/uploads/2025_10_01-Wegleitung-Berufspruefung-Bergfuehrer-1.pdf)
+- [SBV 模組說明：Winter II](https://sbv-asgm.ch/wp-content/uploads/9-Winter-II_2026-2.pdf)
+- [SBV 模組說明：Sommer II](https://sbv-asgm.ch/wp-content/uploads/10-Sommer-II_08.2026.pdf)
 - [SBV 2026 模組表](https://sbv-asgm.ch/wp-content/uploads/A_Moduluebersicht_2026_Vers.07.25.pdf)
 - [SBV 行程清單（2026-10 版）](https://sbv-asgm.ch/wp-content/uploads/A_Tourenliste_Vers.10.2026.pdf)
 - [SBFI 聯邦補助傳單](https://sbv-asgm.ch/wp-content/uploads/Flyer-HBB_SBFI_A5_2025_DT_web.pdf)

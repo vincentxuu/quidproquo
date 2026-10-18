@@ -45,6 +45,98 @@ The common IFMGA standard (94 days of training, 55 routes to get in) is covered 
 
 The whole scheme takes at least three years. The [2022 Training Scheme Handbook](https://www.bmg.org.uk/wp-content/uploads/2022/12/BMG_Training-Scheme-Handbook_2022-12-02_TB.pdf) also sets a "consolidation period" after rock and after winter, during which you build up summer rock and Scottish winter **working** experience in the UK.
 
+### What each stage tests
+
+The detail below follows BMG's [2022 Training Scheme Handbook](https://www.bmg.org.uk/wp-content/uploads/2022/12/BMG_Training-Scheme-Handbook_2022-12-02_TB.pdf). The current website differs slightly on module order and length; for example, it lists one more day for Summer Alpine Training.
+
+The three entrance exams and the rule that anyone "clearly deficient in any area" cannot proceed are covered in [Part 2](/posts/climbing/2026-10-17-ifmga-training-and-exams-en). This section starts after acceptance.
+
+#### British Summer (rock): 6-day assessment (September, North Wales)
+
+Two 4-day training courses come first, covering guided rock climbing, short roping and teaching on multi-pitch routes. The last day of the second course is spent guiding mock clients under an experienced BMG mentor.
+
+| Day | What is assessed | Assessor to candidates |
+|---|---|---|
+| 1 | Your own climbing on an E1 5b multi-pitch (big crag or sea cliff): efficiency, rope work, belays; written exam of about 1.5 hours in the evening | 1:2 |
+| 2 | Improvised rock rescue: lowers, hoists, accompanied abseils, plus problems clients commonly cause | 1:2 |
+| 3–4 | Two-day mountain journey with a night out: long scrambles, short roping, night navigation, bivouac; the assessor plays the client | 1:2 |
+| 5 | Client day: guide one adult client on a multi-pitch, interviewing them about experience and expectations before planning the day | 1:1 |
+| 6 | Teaching day: take one novice and teach with a logical progression through the day | 1:1 |
+
+The Course Convenor gives each candidate their result and debrief individually.
+
+#### Avalanche: three stages
+
+| Stage | What you learn | What is assessed |
+|---|---|---|
+| Home study | Five avalanche types, five danger levels, reading forecasts and slope angles | No exam listed in the handbook |
+| Avalanche 1 (3 days, Alps) | Stability tests, terrain classes, transceiver search and multiple-burial tactics | No exam listed in the handbook |
+| Avalanche 2 (4 days) | Formal snow-pit recording, human factors | Find two transceivers in 30 m²; then a complex multiple-burial scenario with no time limit, pass/fail on an agreed criterion |
+| Avalanche 3 (6 days, combined with off-piste skiing) | Running the morning meeting, guiding glaciated off-piste, steep slopes, short roping on ski | Timed snow pit with 3 formal tests in one hour (excavation not included), then defending the recorded profile to an instructor in the pit |
+
+The scenario exam covers more than the search: casualty care, finding people without transceivers, controlling the site, calling for help and evacuation. Between Avalanche 2 and 3 you dig and record 10 snow pits on your own.
+
+#### British Winter: 6-day assessment (March, Scotland)
+
+A 5-day training course in January comes first: belay management, retreat, rescue, short roping, and several nights of navigation in the dark.
+
+| Day | What is assessed |
+|---|---|
+| 1–2 | General mountaineering and journeying: steep ground, snow and ice skills, navigation, avalanche assessment, emergency shelters, a night out on the hill |
+| 3 | Your own climbing on a Grade V mixed or buttress route, one assessor to two candidates |
+| 4 | Your own climbing on a Grade V snow and ice route (Cairngorms, Ben Nevis and similar) |
+| 5 | Client day: teach one client snow and ice skills and belaying, and complete a winter route |
+| 6 | The same client on a longer route, graded to their ability; results that day |
+
+The handbook says "one client" but not where the client comes from. One candidate shared his 2017 test ([Ross Hewitt](https://rosshewittguiding.com/2017/05/13/the-british-mountain-guides-scottish-winter-test)): the clients were real outside clients, with a non-negotiable 4 pm return on both days. Warm weather cancelled the mixed climbing day that year, so everyone came back the following week to sit that day.
+
+#### Ski touring: 6-day assessment (April–May, Alps)
+
+- Before it: a 5-day training course, plus at least 15 days of supervised guiding.
+- The supervised days must include recognized tours, each with three consecutive nights in huts.
+- Day 1: downhill ability, transceiver skills, guiding off-piste.
+- Days 2–6: a hut tour of up to four nights, assessing group management, route choice, uphill technique, and remote first aid and evacuation.
+- Your personal skiing is assessed all week.
+
+#### Alpine aspirant period: 30 "quality" days
+
+The aspirant period needs at least 30 quality guided days, with at least 20 in the first summer. Supervising guides must have held the qualification for three years.
+
+What counts as a quality day:
+
+- Usually PD–AD (French alpine grade) or harder, and 500 m or longer.
+- The ascent and descent need several techniques, such as short roping, moving together and lowering clients.
+- Ideally a glacier approach.
+- The logbook records conditions, time taken, number of clients and their ability each day. After the first season, the Technical Director and assessment team review it and give mandatory recommendations.
+
+#### Summer Alpine: 6-day assessment (August, during the second aspirant season)
+
+| Day | What is assessed |
+|---|---|
+| 1 | Glacier day: ice skills, crevasse rescue, glacier rope work |
+| 2 | Mixed route |
+| 3 | Rock route, with emphasis on speed and efficient rope systems |
+| 4 | Longer, harder rock route: personal technique and route finding |
+| 5 | Longer, harder mixed route |
+| 6 | Multi-pitch rock to French 5c/6a in mountain boots: climbing style and guiding technique |
+
+Navigation and route finding are assessed all week.
+
+#### Results, re-sits and time limits
+
+| Result | Meaning | What happens next |
+|---|---|---|
+| Pass | Every area of the syllabus meets the standard | Written report; move to the next stage |
+| Defer | One or more areas fall short | Usually re-sit two or more days the following year; occasionally a one-day re-sit if the weakness can be fixed that season |
+| Fail | Below standard overall | Repeat the whole assessment course |
+
+- **Re-sit limit:** usually at most two re-sits per stage; after that you leave the scheme.
+- **Time limit:** finish within five years of passing the British Summer Assessment; extensions can be requested in special circumstances.
+- **Differs from the IFMGA standard:** the older IFMGA standard says three to six years from entry. Our guess is that BMG is stricter, or the standard has been revised.
+- **Appeals:** first the Convenor, then a letter to the Technical Director, then the BMG board, whose decision is final.
+
+For how scoring compares across countries, see [Part 2](/posts/climbing/2026-10-17-ifmga-training-and-exams-en).
+
 ### Entry requirements
 
 Highlights from the [prerequisites page](https://www.bmg.org.uk/become-a-guide/prerequisites/):
@@ -250,6 +342,10 @@ The [list of certified guides](https://www.sbo.nu/cm/sidor/medlemmar-auktorisera
 
 The UK and New Zealand teach in English and look the most accessible, but both require working legally in-country: New Zealand asks for a work permit just to apply, the UK scheme requires local work experience during training, and the UK youth visa bans coaching work. Norway requires Norwegian; Sweden requires English, holds its entrance exam in the Alps, and does not publish fees. For how to choose among the options, read [The Path for Taiwanese Climbers](/posts/climbing/2026-10-17-ifmga-taiwan-path-en).
 
+## Changelog
+
+- 2026-10-18: Added "What each stage tests" to the UK section: day-by-day content of the summer, winter, Alpine and ski touring assessments, how the three avalanche stages are tested, what counts as an aspirant quality day, and results, re-sit limits, the five-year limit and appeals (from the BMG 2022 handbook).
+
 ## References
 
 - [BMG: Become a guide](https://www.bmg.org.uk/become-a-guide/)
@@ -260,6 +356,7 @@ The UK and New Zealand teach in English and look the most accessible, but both r
 - [Mountain Training: BMG Summer Rock Assessment 2026](https://mt.tahdah.me/event/detail/1463314)
 - [Mountain Training: BMG Ski Touring Assessment 2026](https://mt.tahdah.me/event/detail/1523441)
 - [UKClimbing: British Mountain Guide scheme](https://www.ukclimbing.com/articles/skills/series/british_mountain_guide_scheme/)
+- [Ross Hewitt: The British Mountain Guides Scottish Winter Test (2017)](https://rosshewittguiding.com/2017/05/13/the-british-mountain-guides-scottish-winter-test)
 - [HSE: AALA general information](https://hse.gov.uk/aala/general-information.htm)
 - [GOV.UK: Youth Mobility Scheme](https://www.gov.uk/youth-mobility)
 - [GOV.UK: Immigration Rules introduction](https://www.gov.uk/guidance/immigration-rules/immigration-rules-introduction)

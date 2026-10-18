@@ -49,7 +49,7 @@ The shared IFMGA training framework is covered in [What you learn and how you ar
 The French qualification is the "diplôme d'État d'alpinisme – guide de haute montagne". The only training body is [ENSM](https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/) through its ENSA campus in Chamonix. The current rules are in the [arrêté of 19 December 2023](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048881074).
 
 1. **Probatoire (entrance exam)**: three parts, each eliminatory. Winter covers an interview, avalanche transceiver search and skiing in all snow; early summer covers navigation, sport climbing, crampon technique and mixed terrain; late summer is 5 days of independent movement in the high mountains.
-2. **UF1**: 4 weeks on non-glaciated terrain. Passing it makes you an aspirant 1, allowed to guide some activities for pay, such as crags and via ferrata.
+2. **UF1**: 4 weeks on non-glaciated terrain. Pass it and a half-day EPMSP test and you become an aspirant 1, allowed to guide some activities for pay, such as crags and via ferrata.
 3. **Common module FGCMEEESM**: 5 days of shared theory for mountain sports professions.
 4. **UF2 to UF4**: ski mountaineering, summer alpine climbing, then winter climbing with ski mountaineering, moving you up to aspirant 2, 3 and 4. Each level widens the routes you may guide.
 5. **UF5**: the final assessment, after which you receive the state diploma.
@@ -60,6 +60,38 @@ Other rules:
 - **Total hours**: 728, spread over 21 weeks.
 - **Years**: ENSM says "at least 4 years"; its [flowchart](https://www.ensm.sports.gouv.fr/wp-content/uploads/2024/11/CURSUS-GUIDE-1.pdf) spreads UF1 to the diploma across 4 calendar years.
 - **Refresher**: every 6 years at ENSA after qualifying, or you lose the right to work.
+
+### How each stage is assessed
+
+[Part 2](/posts/climbing/2026-10-17-ifmga-training-and-exams-en) already tables how each probatoire test works. What it leaves out is who decides: an assessment commission sets and marks the tests, and a separate jury rules on pass or fail. The jury is chaired by the head of the national ski and mountaineering service. Its members include the ENSM director, representatives of the two climbing federations and the two guides' professional bodies, and ENSA guide instructors.
+
+Once you are in training, every stage is assessed during the course and at its end. Tests may be adjusted for terrain, snow and weather, and the assessment commission tells you beforehand how they will run.
+
+| Stage | Length | What is assessed |
+|---|---|---|
+| UF1 | 4 weeks | A 2-hour navigation paper: analyse a route on the map and combine GPS, altimeter, compass and map. Rescue someone stuck on a rock face, then send a clear, structured distress call in French. Teach a group of schoolchildren at a crag for up to 1 hour, then explain your teaching and safety choices aloud. Take a trainee up a one-day non-glacier climb |
+| EPMSP | Half a day | Find checkpoints in the field by any means. Passing lets you guide for pay as an aspirant 1 |
+| Common module FGCMEEESM | 5 days | Law, mountain economics, working with all kinds of clients, sports physiology, ending in a 3-hour written exam. Fail it and you cannot start UF2 |
+| UF2 | 3 weeks | Dig and analyse at least one snow pit and explain avalanche mechanisms. Crevasse self-rescue, timed and done in a set way. Plan and lead a group on a one-day ski tour |
+| UF3 | 4 weeks | Level-two rock rescue, one step up from UF1. A "special manoeuvre" of up to 1 hour. Brief the party, lead a rope team on a route of up to one day while coaching on the way, then debrief, including an assessment of your own performance |
+| UF4 | At least 3 weeks | Winter rock rescue. A technical demonstration of up to 2 days. Brief, lead a winter climb or ski tour of up to 48 hours, then debrief |
+| UF5 | 27–29 days | Present a "performance project" aloud, covering the clients' level, safety plan, budget and kit. A complex rescue: get the casualty out of an exposed spot, then hand over to a simulated rescue service. A foreign-language oral of up to 20 minutes, in German, English, Spanish or Italian |
+
+Beyond the table, three more rules apply:
+
+- From UF3 on, every stage adds a first-aid paper and a professional-knowledge paper.
+- UF5 has a winter and a summer part; fail the winter part and you cannot take the summer part.
+- After the UF4 assessment you must wait a full 12 months before starting UF5.
+
+Between stages you complete your own [route list](https://www.ensm.sports.gouv.fr/wp-content/uploads/2025/04/Declaration-liste-de-courses-Perfectionnement-personnel-et-tutorat-A-effectuer-entre-UF1-et-UF5.pdf), submitted before UF4 and UF5:
+
+| Period | Personal routes | Tutored days and client work |
+|---|---|---|
+| UF1 to UF4 | Aid climbing, long rock routes, grade 5 icefalls; for example 3 rock routes of 300 m or more from TD+ | Crag, snowshoe, off-piste, ski touring and mountaineering, at least 10 days in total |
+| UF3 to UF5 | Big limestone walls, set classic grandes courses, 8 routes from AD to D+ on typical guiding terrain | 25 paid client outings on at least 15 different routes, across rock, snow, ice, mixed and ski |
+
+- **Tutored placements are unpaid**; only expenses can be reimbursed. Tutors may not count the trainee as an extra guide to take on more clients ([ENSM letter to tutors](https://www.ensm.sports.gouv.fr/wp-content/uploads/2024/10/Lettre-aux-tuteurs.pdf)).
+- **A third fail ends your training.** Fail the same assessment a third time and your training record is closed, along with any aspirant guiding rights you already hold.
 
 ### Entry requirements
 
@@ -111,6 +143,41 @@ The Swiss qualification is the federal professional certificate "Bergführer/in 
 
 SBV describes the whole programme as "about 3 years, alongside work". Adding up the days in the regulations gives about 96, a total I calculated myself.
 
+### How each stage is assessed
+
+The entry evaluation, how each module is tested, the final-exam stations and the grading scale are all covered in [Part 2](/posts/climbing/2026-10-17-ifmga-training-and-exams-en). This section adds the rules: who examines you, how many retakes you get, and what the last two modules ask for on top.
+
+**Who examines you**
+
+- At least two examiners agree each station's grade, and an observer keeps a written record ([SBV exam regulations](https://sbv-asgm.ch/wp-content/uploads/2023_03_09-PO-Bergfuehrer_revidiert_DE.pdf)).
+- Examiners must stand aside if they are your technical director, a class instructor who taught you, a relative, or a current or former boss or colleague. Where an exception is made, such people may fill at most one examiner seat.
+- On final-exam day the examiners hold a preliminary grading meeting, then the chair of the quality assurance committee runs the formal one, and **results are announced the same day** ([exam guidelines](https://sbv-asgm.ch/wp-content/uploads/2025_10_01-Wegleitung-Berufspruefung-Bergfuehrer-1.pdf)).
+
+**The experience grade**
+
+Throughout each module, class instructors keep an "experience grade". Any failing mark must come with written reasons and a talk with you. In the winter modules the experience grade covers 5 categories: the average must be at least 4, with no more than 1 category failed.
+
+**How many retakes you get**
+
+| Scope | Limit |
+|---|---|
+| A single module | Repeat at most 2 times |
+| The whole training | Repeat at most 4 modules |
+| Final exam | Retake up to 2 times, only the failed part |
+
+Repeating a module usually means waiting a year.
+
+**The last two modules**
+
+The 30 supervised tours and 10 tours of your own from the practice period are checked in two batches, before each of these modules ([SBV training regulations](https://sbv-asgm.ch/wp-content/uploads/2025_10_01-Reglement-Bergfuehrerausbildung-1.pdf) 9.82, 9.83):
+
+| Module | Complete before starting | What it assesses |
+|---|---|---|
+| [Winter II](https://sbv-asgm.ch/wp-content/uploads/9-Winter-II_2026-2.pdf) | 15 supervised ski tours plus 5 ski tours of your own at grade S or harder; also a valid Aspirant certificate, a cantonal permit and the "nature and environment" module | No more teaching, only performance. Three class instructors grade independently, with the same pass rule as the winter modules |
+| [Summer II](https://sbv-asgm.ch/wp-content/uploads/10-Sommer-II_08.2026.pdf) | Pass Winter II; 15 supervised alpine or mixed tours plus 5 tours of your own at grade S or harder | More than Summer I: lead one or more rope teams, foresee where clients will struggle, pace a whole day, make decisions on your own, work with other guides and take an Aspirant along |
+
+Fail the Summer II experience grade and you cannot enter the final exam; you repeat the whole module the next year. The final exam follows straight after Summer II.
+
 ### Entry requirements
 
 - At least 18, a very strong skier, with at least 3 years of summer and winter mountaineering.
@@ -153,6 +220,10 @@ SBV's [2024 figures](https://sbv-asgm.ch/wp-content/uploads/8_Der-SBV-in-Zahlen_
 
 Neither France nor Switzerland bars foreigners from applying, but both require years of legally guiding clients there. France adds French; Switzerland adds German or French and a work permit that is hard for non-EU citizens to obtain. If you are aiming for either, sort out residence and language before technique. For how to choose overall, see [The path for Taiwanese climbers](/posts/climbing/2026-10-17-ifmga-taiwan-path-en).
 
+## Changelog
+
+- 2026-10-18: Added "How each stage is assessed" to both the France and Switzerland sections. France now covers the UF1–UF5 assessments, the route list between stages, tutored placements and the third-fail rule; Switzerland covers examiner recusal, same-day results, the experience grade, retake limits, and the tour requirements and expectations of Winter II and Summer II.
+
 ## References
 
 - [IFMGA Member Associations](https://ifmga.net/member-associations/member-associations)
@@ -160,6 +231,8 @@ Neither France nor Switzerland bars foreigners from applying, but both require y
 - [ENSM: Formation de guide de haute montagne (incl. Tarifs 2026)](https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/)
 - [Arrêté of 19 December 2023 (Légifrance)](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048881074)
 - [ENSM 2026 route list (PDF)](https://www.ensm.sports.gouv.fr/wp-content/uploads/2025/07/Liste-de-courses-2026-nouveau-cursus_V2.pdf)
+- [ENSM route list declaration for training (PDF)](https://www.ensm.sports.gouv.fr/wp-content/uploads/2025/04/Declaration-liste-de-courses-Perfectionnement-personnel-et-tutorat-A-effectuer-entre-UF1-et-UF5.pdf)
+- [ENSM letter to tutors (PDF)](https://www.ensm.sports.gouv.fr/wp-content/uploads/2024/10/Lettre-aux-tuteurs.pdf)
 - [ENSM course flowchart (PDF)](https://www.ensm.sports.gouv.fr/wp-content/uploads/2024/11/CURSUS-GUIDE-1.pdf)
 - [ENSM results and statistics](https://www.ensm.sports.gouv.fr/resultats-statistiques-satisfaction-et-debouches-ensa/)
 - [guichet-qualifications archive (2022, the ~€11,000 estimate)](https://web.archive.org/web/20220701012810/https://www.guichet-qualifications.fr/en/dqp/sport/alpine-mountain-guide.html)
@@ -170,6 +243,10 @@ Neither France nor Switzerland bars foreigners from applying, but both require y
 - [Xinhua report on Yang Xiaohua (in Chinese)](https://app.xinhuanet.com/news/article.html?articleId=2e9e7d8e869af09a1dcbe7088c998783)
 - [SBV-ASGM: Bergführer/in](https://sbv-asgm.ch/bergfuehrer-bergfuehrerin/)
 - [SBV training regulations (2025-10)](https://sbv-asgm.ch/wp-content/uploads/2025_10_01-Reglement-Bergfuehrerausbildung-1.pdf)
+- [SBV exam regulations, Prüfungsordnung (2023-03)](https://sbv-asgm.ch/wp-content/uploads/2023_03_09-PO-Bergfuehrer_revidiert_DE.pdf)
+- [SBV exam guidelines, Wegleitung (2025-10)](https://sbv-asgm.ch/wp-content/uploads/2025_10_01-Wegleitung-Berufspruefung-Bergfuehrer-1.pdf)
+- [SBV module description: Winter II](https://sbv-asgm.ch/wp-content/uploads/9-Winter-II_2026-2.pdf)
+- [SBV module description: Summer II](https://sbv-asgm.ch/wp-content/uploads/10-Sommer-II_08.2026.pdf)
 - [SBV 2026 module table](https://sbv-asgm.ch/wp-content/uploads/A_Moduluebersicht_2026_Vers.07.25.pdf)
 - [SBV tour list (October 2026 version)](https://sbv-asgm.ch/wp-content/uploads/A_Tourenliste_Vers.10.2026.pdf)
 - [SBFI federal subsidy flyer](https://sbv-asgm.ch/wp-content/uploads/Flyer-HBB_SBFI_A5_2025_DT_web.pdf)
