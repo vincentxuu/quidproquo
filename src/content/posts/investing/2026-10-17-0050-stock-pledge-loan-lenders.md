@@ -67,14 +67,15 @@ flowchart TB
 | 國泰證券、兆豐、國票 | 低於 130% | 2 個營業日 | 166% |
 | 群益 | 低於 130% | 2 個營業日 | 同一頁寫了 166% 與 130% 兩種 |
 | 合庫 | 低於 130% | 2 個營業日 | 回升到 166% 才取消追繳 |
-| 凱基 | 低於 130%（整戶計算） | 2 個營業日 | [補到高於 166%](<https://www.kgieworld.com.tw/news/20160822/qa.html>) |
+| 凱基 | 低於 130%（整戶計算） | 2 個營業日 | 補到高於 166%（[Q&A](https://www.kgieworld.com.tw/news/20160822/qa.html)與[契約告知書](https://event.kgi.com.tw/uploadfiles/euploadfile/%E8%AD%89%E5%88%B8%E5%95%86%E8%BE%A6%E7%90%86%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E6%A5%AD%E5%8B%99.pdf)都寫） |
 | 元大證券 | 低於 130% | 2 個營業日 | 說明文未寫補到多少 |
-| 中信 | 低於 130% | 官網未寫期限 | 官網未寫 |
+| 中信 | 低於 130%（整戶計算） | 通知送達日起 2 個營業日 | [契約](<https://www.ctbcsec.com/2020/renew/contract-list/pdf/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E7%B7%9A%E4%B8%8A%E9%96%8B%E6%88%B6%E5%A5%91%E7%B4%84.pdf>)未寫目標數字，只指向證交所辦法 |
 | 新光、永豐 | 低於 130% | 2 個營業日 | 新光補到 166%；永豐[教學文](https://www.sinotrade.com.tw/richclub/primary/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%9F%A5%E8%A9%A2-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%80%8E%E9%BA%BC%E7%AE%97-%E6%94%B6%E5%88%B0%E8%BF%BD%E7%B9%B3%E9%80%9A%E7%9F%A5%E6%80%8E%E9%BA%BC%E8%BE%A6-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E8%A3%9C%E7%B9%B3%E6%B5%81%E7%A8%8B-66b4755115fc4d4560494b23)建議低於 145% 就先補，維持率分母是已申請額度 |
-| 富邦、台新證券、玉山、統一 | 低於 130% | 2 個營業日 | 官網只寫 130%；第 3 個營業日起處分 |
+| 台新證券 | 低於 130%（整戶計算） | 兩天內 | [FAQ](<https://cash.tssco.com.tw/ui/view/main/FAQ>) 寫補到 130% 以上，跟其他家的 166% 不同 |
+| 富邦、玉山、統一 | 低於 130% | 2 個營業日 | 官網只寫 130%；第 3 個營業日起處分 |
 | 華南永昌 | 低於 130% | 官網未寫期限 | 要求提高維持率 |
 
-元大證金是證金公司，適用自己的[業務操作辦法](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult?sysNumber=LW10869567&releaseDate=2025-10-21)和[契約書](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult/Article?isIntegratedSearch=True&sysNumber=LW10869584&searchString1=%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E6%93%94%E4%BF%9D%E6%94%BE%E6%AC%BE)，其餘券商依[證交所辦法](https://twse-regulation.twse.com.tw/m/LawContent.aspx?FID=FL080086)（130%、2 個營業日、補到高於 166%），契約可另外約定。第一金這篇沒有取得官網追繳條款，借款前請營業員書面確認。
+元大證金是證金公司，適用自己的[業務操作辦法](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult?sysNumber=LW10869567&releaseDate=2025-10-21)和[契約書](https://www.selaw.com.tw/Chinese/RegulatoryInformationResult/Article?isIntegratedSearch=True&sysNumber=LW10869584&searchString1=%E6%9C%89%E5%83%B9%E8%AD%89%E5%88%B8%E6%93%94%E4%BF%9D%E6%94%BE%E6%AC%BE)，其餘券商依[證交所辦法](https://twse-regulation.twse.com.tw/m/LawContent.aspx?FID=FL080086)（130%、2 個營業日、補到高於 166%），契約可另外約定。第一金的追繳條款這篇沒有取得（開戶契約在登入後的金證通，公開頁面搜不到），借款前請營業員書面確認。
 
 元大證金的專案利率是 [7/1 調整後的 3.92% 起](https://www.yuantafinance.com.tw/The.aspx?The=232&Role=1&Lang=1)，單日累計借款要達 1 萬元才享優惠，官網寫明每年 1、4、7、10 月 1 日可調整。兆豐的 0050 原屬最優惠的鑽石級，[4/30 起這一級的優惠取消](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429111437812480)，回歸白金級、黃金級利率。
 
@@ -131,6 +132,9 @@ flowchart TB
 - [兆豐證券公告（2026/4/29）](https://www.emega.com.tw/emegaTran/bulletin.do?id=20260429120158563004)
 - [凱基證券：快e貸 Q&A](<https://www.kgieworld.com.tw/news/20160822/qa.html>)
 - [元大證券：股票借貸說明文](<https://www.yuanta.com.tw/file-repository/content/articles/%E8%82%A1%E7%A5%A8%E5%80%9F%E8%B2%B8%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F%E6%9C%89%E5%93%AA%E4%BA%9B%E8%B2%BB%E7%94%A8%EF%BC%9F%E5%A6%82%E4%BD%95%E6%93%8D%E4%BD%9C%E8%82%A1%E7%A5%A8%E5%80%9F%E8%B2%B8%EF%BC%9F/index.html>)
+- [中國信託證券：不限用途款項借貸契約書（115.04.17 版）](<https://www.ctbcsec.com/2020/renew/contract-list/pdf/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E7%B7%9A%E4%B8%8A%E9%96%8B%E6%88%B6%E5%A5%91%E7%B4%84.pdf>)
+- [凱基證券：不限用途開戶契約告知事項](<https://event.kgi.com.tw/uploadfiles/euploadfile/%E8%AD%89%E5%88%B8%E5%95%86%E8%BE%A6%E7%90%86%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E6%A5%AD%E5%8B%99.pdf>)
+- [台新證券：不限用途款項借貸 FAQ](<https://cash.tssco.com.tw/ui/view/main/FAQ>)
 - [中國信託證券：不限用途擔保品與 Q&A](https://www.ctbcsec.com/Stock/Collateral)
 - [永豐金證券：借貸專區](https://service.sinotrade.com.tw/newweb/loan-zone/)
 - [永豐金證券豐雲學堂：不限用途維持率](https://www.sinotrade.com.tw/richclub/primary/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%9F%A5%E8%A9%A2-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%80%8E%E9%BA%BC%E7%AE%97-%E6%94%B6%E5%88%B0%E8%BF%BD%E7%B9%B3%E9%80%9A%E7%9F%A5%E6%80%8E%E9%BA%BC%E8%BE%A6-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E8%A3%9C%E7%B9%B3%E6%B5%81%E7%A8%8B-66b4755115fc4d4560494b23)
