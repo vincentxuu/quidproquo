@@ -1,12 +1,12 @@
 ---
-title: "0050 質押借款再投入怎麼做：17 家券商與 7 家銀行的利率、追繳門檻與循環限制"
+title: "0050 質押借款再投入怎麼做：17 家券商與 8 家銀行的利率、追繳門檻與循環限制"
 date: 2026-10-17
 category: investing
 type: guide
 tags: ["0050", stock-pledge, margin-call, leverage, etf]
 lang: zh-TW
 tldr: "10 月券商的質押實際利率多在 3.5% 到 4%，國泰證券 6.45%，台新、玉山沒額度。官網讀得到的券商都在 130% 追繳，只有元大證金是 140%、3 個營業日。"
-description: "整理元大證金與 16 家券商、7 家銀行的股票質押借款 10 月利率、官網牌告、追繳門檻與展延限制，並試算 0050 循環借款時要補繳多少。"
+description: "整理元大證金與 16 家券商、8 家銀行的股票質押借款 10 月利率、官網牌告、追繳門檻與展延限制，並試算 0050 循環借款時要補繳多少。"
 draft: false
 ---
 
@@ -42,7 +42,7 @@ flowchart TB
 | 永豐 | 4–6%，資管帳戶可減 0.15% | [未列利率](https://service.sinotrade.com.tw/newweb/loan-zone/)，開辦費 0 元 | 6 個月到期可展延或借新還舊 |
 | 合庫 | 3.5%，無法借新還舊 | [牌告 6.25%](https://luckydraw.tcfhc-sec.com.tw/websites/loan/index.html)；9/1–12/31 專案，0050 在標的內 | 須臨櫃簽約；展延要先還息 |
 | 凱基 | 3.8–4%，額度不穩 | [牌告 6.45%](https://www.kgi.com.tw/zh-tw/product-overview/borrow-n-lending/stock-loans) | 線上借款總額上限 2,000 萬 |
-| 兆豐 | 3.5–4%，人工審核，可押正二 | 依標的分群，機動調整 | 4/30 起取消鑽石級優惠 |
+| 兆豐 | 3.5–4%，人工審核，可押正二 | [官網公告](<https://project.emega.com.tw/MegaStockLoan/>)：6/25 起 0050 成分股（含 0050）由 3% 調為 3.5%，次一級由 3.3% 調為 4% | 4/30 起取消鑽石級優惠 |
 | 群益 | 3.88–5%，額度不穩定 | [牌告 6.45%](https://goplus.capital.com.tw/unlimitedcredit/qa.asp) | 還款先進先出 |
 | 玉山 | 4.25%，沒額度 | [線上 4.25%](https://www.esunsec.com.tw/cus_service/loan/index.html)，限 ETF、台灣 50 與中型 100 成分股 | 同一營業日只能申請一次 |
 | 新光 | 3.8% | — | [官網注意事項（2022.09 版）](https://www.skis.com.tw/CusService_WebAPI/api/file/15edfa8485d24e19b0813a5b3926a731)：130%、2 個營業日、補到 166% |
@@ -69,13 +69,14 @@ flowchart TB
 | [永豐銀行](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html) | 3.41% 起（基準日 2026/1/21） | 15,000 元／筆 | 借款人 20–65 歲 |
 | [台新銀行](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205) | 3.99% 起（FAQ 未見基準日） | 免保證人、免財力證明；[商品頁](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/)另列費用 | 依每日動用餘額計息 |
 | [彰化銀行](https://www.bankchb.com/frontend/mashup.jsp?funcId=4324137815) | 定儲指標利率加碼 0.86% 起，範例 4.01%（基準日 115/7/15） | 範例 50 萬元、一年，費用合計 5,300 元 | 最長一年，可循環或分批動用；擔保品含上市櫃股票與 ETF |
+| [聯邦銀行](https://www.ubot.com.tw/short_tern) | 官網未公開 | 未公開 | 依「股票、受益憑證鑑估辦法」的放款值貸放，期間一年、可循環動用 |
 | [中信銀行](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf) | 官網未公開 | 開辦費寫在契約 | 契約版本 115.6.15 |
 
 基準日差很多，國泰世華和華南的利率頁已經是一到兩年前的數字，要以分行報價為準。銀行的追繳條款見下一節。
 
 有兩個銀行才有的細節：[元大銀行](https://www.yuantabank.com.tw/bank/loan/stock/list.do)的額度是用前一日收盤價、60 日均價、120 日均價三者取最低的「評定單價」乘以成數，而且設質股票的孳息由銀行領取；也就是說股價急漲時借得到的比券商少，現金股利也不會直接進你的戶頭。
 
-銀行端沒有公開條款的：國泰世華、台新、華南、永豐的維持率與追繳條款在契約裡，要向分行索取。第一銀行只找到基金質借頁，玉山銀行、兆豐銀行、台北富邦銀行、合庫、土銀、台灣企銀、聯邦銀行這輪都沒有找到股票質借的官方頁，所以沒有列入。
+銀行端沒有公開條款的：國泰世華、台新、華南、永豐的維持率與追繳條款在契約裡，要向分行索取。第一銀行只找到基金質借頁，渣打與星展只有專業投資人的債券或基金質借；臺灣銀行、玉山銀行、兆豐銀行、台北富邦銀行、合庫、土銀、台灣企銀這輪都沒有找到股票質借的官方頁，所以沒有列入。
 
 ## 追繳規則
 
@@ -172,6 +173,8 @@ flowchart TB
 - [第一金證券：不限用途款項借貸線上功能說明](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994)
 - [元大商業銀行：股票貸款](https://www.yuantabank.com.tw/bank/loan/stock/list.do)
 - [永豐銀行：股票貸款](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html)
+- [聯邦銀行：短期週轉與股票質借](https://www.ubot.com.tw/short_tern)
+- [兆豐證券：兆好貸](https://project.emega.com.tw/MegaStockLoan/)
 - [彰化銀行：Fund欣股舞貸好運](https://www.bankchb.com/frontend/mashup.jsp?funcId=4324137815)
 - [中國信託商業銀行：有價證券擔保借據暨約定書（115.6.15 版）](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf)
 - [台新銀行：常見問題](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205)

@@ -1,12 +1,12 @@
 ---
-title: "Borrowing Against 0050 and Reinvesting: Rates, Margin-Call Thresholds and Limits at 17 Brokers and 7 Banks"
+title: "Borrowing Against 0050 and Reinvesting: Rates, Margin-Call Thresholds and Limits at 17 Brokers and 8 Banks"
 date: 2026-10-17
 category: investing
 type: guide
 tags: ["0050", stock-pledge, margin-call, leverage, etf]
 lang: en
 tldr: "In October, brokers' effective pledge rates mostly sit at 3.5%–4%; Cathay Securities charges 6.45%, and Taishin and E.SUN have no capacity. Every broker whose site I could read calls at 130%; only Yuanta Securities Finance calls at 140% with a 3-business-day deadline."
-description: "Compares October 2026 stock-pledge loan rates, posted rates, margin-call thresholds and renewal limits at Yuanta Securities Finance, 16 brokers and seven banks, and works out how much you must top up when looping 0050."
+description: "Compares October 2026 stock-pledge loan rates, posted rates, margin-call thresholds and renewal limits at Yuanta Securities Finance, 16 brokers and eight banks, and works out how much you must top up when looping 0050."
 draft: false
 ---
 
@@ -42,7 +42,7 @@ The "October quote" column comes from the account 存股的陪跑者's [Threads 
 | SinoPac | 4–6%; 0.15 pt off with a cash-management account | [No rate listed](https://service.sinotrade.com.tw/newweb/loan-zone/); no setup fee | Extend or roll over at six months |
 | TCFHC (合庫) | 3.5%, no roll-over | [List 6.25%](https://luckydraw.tcfhc-sec.com.tw/websites/loan/index.html); Sep 1–Dec 31 promo, 0050 included | Sign in branch; pay interest to extend |
 | KGI | 3.8–4%, capacity unstable | [List 6.45%](https://www.kgi.com.tw/zh-tw/product-overview/borrow-n-lending/stock-loans) | Online borrowing capped at NT$20 million |
-| Mega | 3.5–4%, manual review, 2× leveraged ETFs accepted | Tiered by stock, floating | Top-tier promo cancelled Apr 30 |
+| Mega | 3.5–4%, manual review, 2× leveraged ETFs accepted | [Site notice](<https://project.emega.com.tw/MegaStockLoan/>): from 25 June the tier holding 0050 and its constituents goes from 3% to 3.5%, the next tier from 3.3% to 4% | Top-tier promo cancelled Apr 30 |
 | Capital | 3.88–5%, capacity unstable | [List 6.45%](https://goplus.capital.com.tw/unlimitedcredit/qa.asp) | Repayment is first-in, first-out |
 | E.SUN | 4.25%, no capacity | [Online 4.25%](https://www.esunsec.com.tw/cus_service/loan/index.html) for ETFs and TW50/Mid-100 constituents | One request per business day |
 | Shin Kong | 3.8% | — | [Official notice (Sept 2022 edition)](https://www.skis.com.tw/CusService_WebAPI/api/file/15edfa8485d24e19b0813a5b3926a731): 130%, 2 business days, top up to 166% |
@@ -69,13 +69,14 @@ Bank stock-pledge loans differ from broker loans: most charge a one-off account 
 | [SinoPac Bank](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html) | From 3.41% (as of 21 Jan 2026) | NT$15,000 per loan | Borrower aged 20–65 |
 | [Taishin Bank](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205) | From 3.99% (no date seen on the FAQ) | No guarantor or proof of income; fees on the [product page](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/) | Interest on daily drawn balance |
 | [Chang Hwa Bank](https://www.bankchb.com/frontend/mashup.jsp?funcId=4324137815) | Index rate + 0.86% or more; example 4.01% (as of 15 Jul 2026) | Example NT$500k for one year: NT$5,300 in total fees | Up to one year, revolving or drawn in batches; stocks and ETFs accepted |
+| [Union Bank](https://www.ubot.com.tw/short_tern) | Not published | Not published | Lends up to an appraisal value set by its stock and fund valuation rules; one year, revolving |
 | [CTBC Bank](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf) | Not published | Setup fee set in the contract | Contract edition 15 June 2026 |
 
 The base dates vary widely: Cathay United's and Hua Nan's rate pages are one to two years old, so rely on a branch quote. Margin-call terms are in the next section.
 
 Two bank-only details: [Yuanta Bank](https://www.yuantabank.com.tw/bank/loan/stock/list.do) sets the limit from an "appraised price", the lowest of the previous close, the 60-day average and the 120-day average, so a sharp rally lends you less than a broker would, and dividends on pledged shares go to the bank rather than to your account.
 
-Banks whose margin-call terms are not public: Cathay United, Taishin, Hua Nan and SinoPac keep them in the contract, so ask the branch for a copy. For First Bank I only found a fund-pledge page, and for E.SUN Bank, Mega Bank, Taipei Fubon Bank, Taiwan Cooperative, Land Bank, Taiwan Business Bank and Union Bank I found no official stock-pledge page this round, so they are not listed.
+Banks whose margin-call terms are not public: Cathay United, Taishin, Hua Nan and SinoPac keep them in the contract, so ask the branch for a copy. For First Bank I only found a fund-pledge page, Standard Chartered and DBS offer only professional-investor bond or fund pledges, and for Bank of Taiwan, E.SUN Bank, Mega Bank, Taipei Fubon Bank, Taiwan Cooperative, Land Bank and Taiwan Business Bank I found no official stock-pledge page this round, so they are not listed.
 
 ## Margin-call rules
 
@@ -172,6 +173,8 @@ This post summarizes rules and is not investment advice. Borrowing carries risk 
 - [First Securities: online function guide](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994) (in Chinese)
 - [Yuanta Commercial Bank: stock loan](https://www.yuantabank.com.tw/bank/loan/stock/list.do) (in Chinese)
 - [SinoPac Bank: stock loan](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html) (in Chinese)
+- [Union Bank: short-term and stock-secured loans](https://www.ubot.com.tw/short_tern) (in Chinese)
+- [Mega Securities: Mega Stock Loan](https://project.emega.com.tw/MegaStockLoan/) (in Chinese)
 - [Chang Hwa Bank: stock and ETF loan](https://www.bankchb.com/frontend/mashup.jsp?funcId=4324137815) (in Chinese)
 - [CTBC Bank: securities-collateral loan agreement (15 June 2026 edition)](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf) (in Chinese)
 - [Taishin Bank: FAQ](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205) (in Chinese)
