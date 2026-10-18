@@ -34,6 +34,9 @@ export type SeriesCategoryId =
   | 'ai-agents'
   | 'engineering'
   | 'updates'
+  | 'business'
+  | 'learning'
+  | 'climbing'
   | 'other';
 
 export interface SeriesCategoryDefinition {
@@ -48,6 +51,9 @@ export const SERIES_CATEGORIES: SeriesCategoryDefinition[] = [
   { id: 'ai-agents', labels: { 'zh-TW': 'AI 與 Agent', en: 'AI & Agents' } },
   { id: 'engineering', labels: { 'zh-TW': '工程實作', en: 'Engineering Practice' } },
   { id: 'updates', labels: { 'zh-TW': '趨勢與日報', en: 'Updates & Digests' } },
+  { id: 'business', labels: { 'zh-TW': '商業與產業', en: 'Business & Industry' } },
+  { id: 'learning', labels: { 'zh-TW': '學習與寫作', en: 'Learning & Writing' } },
+  { id: 'climbing', labels: { 'zh-TW': '攀岩', en: 'Climbing' } },
   { id: 'other', labels: { 'zh-TW': '其他主題', en: 'Other Topics' } },
 ];
 
@@ -105,6 +111,7 @@ function inferSeriesCategory(slug: string, posts: SeriesPost[]): SeriesCategoryI
   if (dominantPostCategory === 'daily') return 'updates';
   if (dominantPostCategory === 'tech') return 'engineering';
   if (dominantPostCategory === 'ai') return 'ai-agents';
+  if (dominantPostCategory === 'climbing') return 'climbing';
   return 'other';
 }
 
@@ -177,7 +184,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'nobodyclimb',
-    category: 'other',
+    category: 'engineering',
     names: { 'zh-TW': 'NobodyClimb 專案紀實', en: 'Building NobodyClimb' },
     descriptions: {
       'zh-TW': '一個攀岩社群產品從產品定位、為什麼需要 AI、系統架構到 RAG pipeline 的完整紀實。技法層面的坑另外寫在 RAG 技法大全裡，這裡談的是決定怎麼做出來的。',
@@ -187,7 +194,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     // order = 都道府縣 JIS 代碼 × 100 + 該縣第幾個岩場（東京 13 → 1301…），總覽為 0；缺號是還沒寫，不擋。
     slug: 'japan-crags',
-    category: 'other',
+    category: 'climbing',
     names: { 'zh-TW': '日本岩場', en: 'Japan Climbing Crags' },
     descriptions: {
       'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭電車與開車怎麼去、在地規範。母群取自 ROCKTOPO 與 CLIMBING-net（《日本100岩場》），依都道府縣排序，從本州中部開始逐步補滿全日本。',
@@ -196,7 +203,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'italy-crags',
-    category: 'other',
+    category: 'climbing',
     names: { 'zh-TW': '義大利岩場', en: 'Italy Climbing Crags' },
     descriptions: {
       'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭火車巴士與開車怎麼去、在地規範。從北部的花崗岩谷地與多羅米堤，到利古里亞、拉齊奧、西西里與薩丁尼亞的海岸石灰岩，依大區由北往南排序。',
@@ -205,7 +212,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'ifmga-mountain-guides',
-    category: 'other',
+    category: 'climbing',
     names: { 'zh-TW': 'IFMGA 高山嚮導', en: 'IFMGA Mountain Guides' },
     descriptions: {
       'zh-TW': 'IFMGA 國際高山嚮導是什麼、怎麼雇一位、學什麼考什麼，28 個會員協會分區介紹各國的訓練流程、費用、語言與外國人條件，最後整理台灣人能走的路。',
@@ -315,7 +322,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'drone-industry',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': '無人機產業拆解', en: "Taiwan's Drone Industry, Taken Apart" },
     descriptions: {
       'zh-TW': '把無人機產業拆成可查證的層：從產業地圖與供應鏈缺口，到續航物理、飛控與遙控鏈路原始碼，再到台灣的法規授權、採購紀錄與反制困境。每一篇都從一手材料算起或讀起。',
@@ -566,7 +573,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'taste-cultivation',
-    category: 'other',
+    category: 'learning',
     names: { 'zh-TW': '品味修煉', en: 'Cultivating Taste' },
     descriptions: {
       'zh-TW': '把品味拆成可以觀察、辯護與反覆校準的判斷力，系統性記錄在 AI 放大執行力之後，如何訓練選擇什麼值得做、怎樣才算做好的能力。',
@@ -576,7 +583,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     // 課程專有名詞，兩語同名
     slug: 'learning-how-to-learn',
-    category: 'other',
+    category: 'learning',
     names: { 'zh-TW': 'Learning How to Learn', en: 'Learning How to Learn' },
     descriptions: {
       'zh-TW': '把學習科學的證據與生成式 AI 的實際用法擺在一起審視：哪些做法有證據支持、哪些只是流傳，以及數位之外紙筆還剩什麼。',
@@ -585,7 +592,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'articles-that-teach',
-    category: 'other',
+    category: 'learning',
     names: { 'zh-TW': '教學文章怎麼寫', en: 'Writing Articles That Teach' },
     descriptions: {
       'zh-TW': '從寫的人這一側看學習：文字怎麼組織、什麼該畫成圖、影片怎麼搭配、畫面怎麼排。每篇整理研究證據與限制，並用本站的課程導讀當案例。',
@@ -960,7 +967,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'solo-media-company',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': '一個人的媒體公司', en: '一個人的媒體公司' },
     descriptions: {
       'zh-TW': '一個人經營內容/媒體事業的實務紀錄：定位、產出節奏、變現與 AI 工具怎麼放進流程。',
@@ -1007,7 +1014,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   // 這種泛用 slug，跟其他系列搶同一條路由。舊路由在 astro.config 留 301。
   {
     slug: 'ai-search-content-business',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': 'AI 搜尋正在重寫內容生意', en: 'AI Search Is Rewriting the Content Business' },
     descriptions: {
       'zh-TW': '從 Google、Pew 與 Cloudflare 的資料拆解 AI 摘要如何重畫內容、引用、點擊與轉換路徑，以及封鎖、授權、訴訟與自有資產各自能保護內容生意的哪一段。',
@@ -1017,7 +1024,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   // 內容販售系列群：一個入口系列加三個子系列。登錄前中英文各走自己的 fallback slug，語言切換接不起來。
   {
     slug: 'content-selling-business-models',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': '內容販售商業模式拆解', en: 'Content Selling Business Models' },
     descriptions: {
       'zh-TW': '內容販售系列群的入口：先問誰付錢、付錢是為了完成什麼工作，再比較 B2B 情報、個人媒體、創作者平台與免費內容四種模式，並導向各子系列。',
@@ -1026,7 +1033,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'enterprise-intelligence-business',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': '情報如何成為一門企業生意', en: 'How Intelligence Becomes an Enterprise Business' },
     descriptions: {
       'zh-TW': '拆解 DIGITIMES、The Information、Seeking Alpha、CB Insights、PitchBook 與 Gartner 如何把資訊取得、驗證與研究做成企業願意續約的產品，最後檢查台灣還能不能長出垂直情報公司。',
@@ -1035,7 +1042,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'creator-reader-relationship',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': '誰掌握創作者與讀者的關係', en: 'Who Controls the Creator-Reader Relationship' },
     descriptions: {
       'zh-TW': '比較 Medium、Vocus、Substack、Patreon、Ghost 與 Beehiiv 各自拿走與留給創作者的東西：流量、會員資料、付款關係與搬家成本，並整理台灣創作者的平台選擇。',
@@ -1044,7 +1051,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'free-content-acquisition',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': '免費內容如何替別的生意獲客', en: 'How Free Content Acquires Customers for Another Business' },
     descriptions: {
       'zh-TW': '免費內容怎麼連到廣告、工具訂閱、券商合作與聯盟收入：用鉅亨網、CMoney、BigGo Finance、Fugle 等案例拆解轉換路徑、單位經濟與 AI 搜尋帶來的風險。',
@@ -1107,7 +1114,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'sport-trad-climbing',
-    category: 'other',
+    category: 'climbing',
     names: { 'zh-TW': '運動攀登與傳統攀登', en: 'Sport and Trad Climbing' },
     descriptions: {
       'zh-TW': '從岩館走到戶外岩壁：先在岩館學上攀確保與先鋒，再到戶外確保、運攀先鋒、判斷 bolt、架頂繩、下放與垂降，再到傳攀保護、固定點、多繩距與自救概念，最後是台灣岩場與打 bolt 的倫理。每篇對齊 nobodyclimb 繩索系統練習的等級。',
@@ -1116,7 +1123,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'climbing-movement',
-    category: 'other',
+    category: 'climbing',
     names: { 'zh-TW': '攀岩動作技術', en: 'Climbing Movement' },
     descriptions: {
       'zh-TW': '在岩館爬了幾個月開始卡關時讀：腳法、重心與平衡、側身與擰身、手點與握法、動態、抱石解題、休息與讀線、牆角度，最後是去龍洞前要會的裂隙技術。每篇用研究檢查常見口訣。',
