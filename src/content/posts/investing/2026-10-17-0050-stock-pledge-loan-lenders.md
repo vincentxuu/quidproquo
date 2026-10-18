@@ -1,12 +1,12 @@
 ---
-title: "0050 質押借款再投入怎麼做：17 家券商與銀行的利率、追繳門檻與循環限制"
+title: "0050 質押借款再投入怎麼做：17 家券商與 6 家銀行的利率、追繳門檻與循環限制"
 date: 2026-10-17
 category: investing
 type: guide
 tags: ["0050", stock-pledge, margin-call, leverage, etf]
 lang: zh-TW
 tldr: "10 月券商的質押實際利率多在 3.5% 到 4%，國泰證券 6.45%，台新、玉山沒額度。官網讀得到的券商都在 130% 追繳，只有元大證金是 140%、3 個營業日。"
-description: "整理元大證金與 16 家券商、兩家銀行的股票質押借款 10 月利率、官網牌告、追繳門檻與展延限制，並試算 0050 循環借款時要補繳多少。"
+description: "整理元大證金與 16 家券商、6 家銀行的股票質押借款 10 月利率、官網牌告、追繳門檻與展延限制，並試算 0050 循環借款時要補繳多少。"
 draft: false
 ---
 
@@ -57,7 +57,24 @@ flowchart TB
 
 表上有兩處數字互相對不上：NOWnews 引網友說富邦一般戶已升到 4.5%，Threads 表上是 3.88%；元大證金表上與官網相同。
 
-銀行端：[國泰世華銀行](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/)是 2.95% 起、期限一年、可循環動用，另收帳務管理費 2 萬元。[台新銀行](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/)的股票質借免保證人、不須財力證明、可循環動用，利率另列在放款利率表。兩家的維持率與追繳條款都在契約裡，要向分行索取。[華南銀行](https://www.hncb.com.tw/wps/portal/HNCB/per_finance/loan/personal/stock_fund_loan)的股票靈活金標 2.99% 起，但頁面上的利率基準日是民國 113 年 4 月 7 日，現行利率要問分行；手續費 2.5‰（最低 5,000 元）、徵信費 300 元，額度一年、每筆最長 6 個月、按月付息。
+## 銀行端
+
+銀行的股票質借跟券商不同：多數收一次性的帳務管理費，期限是一年續約（不受券商 18 個月上限），利率看銀行指標利率機動調整。下表只放銀行自己官網或契約寫的數字。
+
+| 銀行 | 官網利率 | 費用 | 其他 |
+|---|---|---|---|
+| [國泰世華](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/) | 2.95% 起（基準日 114/5/24） | 帳務管理費 2 萬元 | 一年期、循環動用 |
+| [華南](https://www.hncb.com.tw/wps/portal/HNCB/per_finance/loan/personal/stock_fund_loan) | 2.99% 起（基準日 113/4/7） | 手續費 2.5‰（最低 5,000 元）、徵信費 300 元 | 額度一年、每筆最長 6 個月、按月付息 |
+| [元大銀行](https://www.yuantabank.com.tw/bank/loan/stock/list.do) | 2.98%–5.40%（基準日 115/2/23） | 總費用 3,000–20,000 元；優惠專案管理費為動支額度的 1.625%–2.99% | 每年續約，最長 3 年 |
+| [永豐銀行](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html) | 3.41% 起（基準日 2026/1/21） | 15,000 元／筆 | 借款人 20–65 歲 |
+| [台新銀行](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205) | 3.99% 起（FAQ 未見基準日） | 免保證人、免財力證明；[商品頁](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/)另列費用 | 依每日動用餘額計息 |
+| [中信銀行](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf) | 官網未公開 | 開辦費寫在契約 | 契約版本 115.6.15 |
+
+基準日差很多，國泰世華和華南的利率頁已經是一到兩年前的數字，要以分行報價為準。銀行的追繳條款見下一節。
+
+有兩個銀行才有的細節：[元大銀行](https://www.yuantabank.com.tw/bank/loan/stock/list.do)的額度是用前一日收盤價、60 日均價、120 日均價三者取最低的「評定單價」乘以成數，而且設質股票的孳息由銀行領取；也就是說股價急漲時借得到的比券商少，現金股利也不會直接進你的戶頭。
+
+銀行端沒有公開條款的：國泰世華、台新、華南、永豐的維持率與追繳條款在契約裡，要向分行索取。第一銀行、玉山銀行、兆豐銀行、台北富邦銀行我只找到基金質借或信貸頁面，沒有找到股票質借的官方頁，所以沒有列入。
 
 ## 追繳規則
 
@@ -70,6 +87,8 @@ flowchart TB
 | 凱基 | 低於 130%（整戶計算） | 2 個營業日 | 補到高於 166%（[Q&A](https://www.kgieworld.com.tw/news/20160822/qa.html)與[契約告知書](https://event.kgi.com.tw/uploadfiles/euploadfile/%E8%AD%89%E5%88%B8%E5%95%86%E8%BE%A6%E7%90%86%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E6%A5%AD%E5%8B%99.pdf)都寫） |
 | 元大證券 | 低於 130% | 2 個營業日 | 說明文未寫補到多少 |
 | 中信 | 低於 130%（整戶計算） | 通知送達日起 2 個營業日 | [契約](<https://www.ctbcsec.com/2020/renew/contract-list/pdf/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E7%B7%9A%E4%B8%8A%E9%96%8B%E6%88%B6%E5%A5%91%E7%B4%84.pdf>)未寫目標數字，只指向證交所辦法 |
+| 中信銀行 | 低於 140% | 通知日起 4 個銀行營業日 | [契約](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf)寫：期限內仍未達 140% 才可處分；補繳目標沒寫。除息前 7 個銀行營業日起改用除息後參考價算維持率 |
+| 元大銀行 | 官網未寫數字，維持率不足先凍結額度 | 存證信函與電話通知後 3 天 | [Q&A](https://www.yuantabank.com.tw/bank/loan/stock/list.do)寫：3 天內未補足，或維持率達處分線就處分；整次設質的股票一起處分 |
 | 新光、永豐 | 低於 130% | 2 個營業日 | 新光補到 166%；永豐[教學文](https://www.sinotrade.com.tw/richclub/primary/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%9F%A5%E8%A9%A2-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%80%8E%E9%BA%BC%E7%AE%97-%E6%94%B6%E5%88%B0%E8%BF%BD%E7%B9%B3%E9%80%9A%E7%9F%A5%E6%80%8E%E9%BA%BC%E8%BE%A6-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E8%A3%9C%E7%B9%B3%E6%B5%81%E7%A8%8B-66b4755115fc4d4560494b23)建議低於 145% 就先補，維持率分母是已申請額度 |
 | 台新證券 | 低於 130%（整戶計算） | 兩天內 | [FAQ](<https://cash.tssco.com.tw/ui/view/main/FAQ>) 寫補到 130% 以上，跟其他家的 166% 不同 |
 | 富邦、玉山、統一 | 低於 130% | 2 個營業日 | 官網只寫 130%；第 3 個營業日起處分 |
@@ -150,6 +169,10 @@ flowchart TB
 - [國票證券：借貸業務](https://www.ibfs.com.tw/my/cash/)
 - [華南永昌證券：不限用途款項借貸](https://www.entrust.com.tw/Marketing/entrustLoan/index.html)
 - [第一金證券：不限用途款項借貸線上功能說明](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994)
+- [元大商業銀行：股票貸款](https://www.yuantabank.com.tw/bank/loan/stock/list.do)
+- [永豐銀行：股票貸款](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html)
+- [中國信託商業銀行：有價證券擔保借據暨約定書（115.6.15 版）](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf)
+- [台新銀行：常見問題](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205)
 - [國泰世華銀行：股票質押貸款](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/)
 - [台新銀行：股票質借貸款](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/)
 - [存股的陪跑者：質押利率更新 10 月版（Threads，2026/10/09）](https://www.threads.com/@yourstockbuddy/post/DeS7fwPIxXV)
