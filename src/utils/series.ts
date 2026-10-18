@@ -1132,7 +1132,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'climbing-training',
-    category: 'other',
+    category: 'climbing',
     names: { 'zh-TW': '攀岩訓練', en: 'Climbing Training' },
     descriptions: {
       'zh-TW': '爬了一年左右開始卡關時讀：先診斷卡在技術還是體能，再談能量系統、指力板、力量與 campus board、耐力、週期化、居家訓練、拮抗肌與核心，最後是營養、RED-S 與恢復。每篇標明哪些有研究支持、哪些是教練共識。',
