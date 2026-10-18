@@ -1105,6 +1105,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'From the gym to real rock: top-rope belaying and leading in the gym, then outdoor belaying, sport leading, judging bolts, top-rope setups, lowering and rappelling, then trad gear, anchors, multi-pitch and self-rescue concepts, Taiwan crags and bolting ethics. Each guide maps to a level of the nobodyclimb rope-system practice.',
     },
   },
+  {
+    slug: 'climbing-movement',
+    category: 'other',
+    names: { 'zh-TW': '攀岩動作技術', en: 'Climbing Movement' },
+    descriptions: {
+      'zh-TW': '在岩館爬了幾個月開始卡關時讀：腳法、重心與平衡、側身與擰身、手點與握法、動態、抱石解題、休息與讀線、牆角度，最後是去龍洞前要會的裂隙技術。每篇用研究檢查常見口訣。',
+      en: 'For gym climbers a few months in who have started to plateau: footwork, balance, turning and twisting, holds and grips, dynamic moves, bouldering problem solving, resting and route reading, wall angles, and crack technique for Taiwan\'s Long Dong. Each post checks common climbing advice against the research.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
