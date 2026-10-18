@@ -1,12 +1,12 @@
 ---
-title: "0050 質押借款再投入怎麼做：17 家券商與 6 家銀行的利率、追繳門檻與循環限制"
+title: "0050 質押借款再投入怎麼做：17 家券商與 7 家銀行的利率、追繳門檻與循環限制"
 date: 2026-10-17
 category: investing
 type: guide
 tags: ["0050", stock-pledge, margin-call, leverage, etf]
 lang: zh-TW
 tldr: "10 月券商的質押實際利率多在 3.5% 到 4%，國泰證券 6.45%，台新、玉山沒額度。官網讀得到的券商都在 130% 追繳，只有元大證金是 140%、3 個營業日。"
-description: "整理元大證金與 16 家券商、6 家銀行的股票質押借款 10 月利率、官網牌告、追繳門檻與展延限制，並試算 0050 循環借款時要補繳多少。"
+description: "整理元大證金與 16 家券商、7 家銀行的股票質押借款 10 月利率、官網牌告、追繳門檻與展延限制，並試算 0050 循環借款時要補繳多少。"
 draft: false
 ---
 
@@ -65,16 +65,17 @@ flowchart TB
 |---|---|---|---|
 | [國泰世華](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/) | 2.95% 起（基準日 114/5/24） | 帳務管理費 2 萬元 | 一年期、循環動用 |
 | [華南](https://www.hncb.com.tw/wps/portal/HNCB/per_finance/loan/personal/stock_fund_loan) | 2.99% 起（基準日 113/4/7） | 手續費 2.5‰（最低 5,000 元）、徵信費 300 元 | 額度一年、每筆最長 6 個月、按月付息 |
-| [元大銀行](https://www.yuantabank.com.tw/bank/loan/stock/list.do) | 2.98%–5.40%（基準日 115/2/23） | 總費用 3,000–20,000 元；優惠專案管理費為動支額度的 1.625%–2.99% | 每年續約，最長 3 年 |
+| [元大銀行](https://www.yuantabank.com.tw/bank/loan/stock/list.do) | 2.98%–5.40%（基準日 115/5/25） | 總費用 3,000–20,000 元；優惠專案管理費為動支額度的 1.625%–2.99% | 每年續約，最長 3 年 |
 | [永豐銀行](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html) | 3.41% 起（基準日 2026/1/21） | 15,000 元／筆 | 借款人 20–65 歲 |
 | [台新銀行](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205) | 3.99% 起（FAQ 未見基準日） | 免保證人、免財力證明；[商品頁](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/)另列費用 | 依每日動用餘額計息 |
+| [彰化銀行](https://www.bankchb.com/frontend/mashup.jsp?funcId=4324137815) | 定儲指標利率加碼 0.86% 起，範例 4.01%（基準日 115/7/15） | 範例 50 萬元、一年，費用合計 5,300 元 | 最長一年，可循環或分批動用；擔保品含上市櫃股票與 ETF |
 | [中信銀行](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf) | 官網未公開 | 開辦費寫在契約 | 契約版本 115.6.15 |
 
 基準日差很多，國泰世華和華南的利率頁已經是一到兩年前的數字，要以分行報價為準。銀行的追繳條款見下一節。
 
 有兩個銀行才有的細節：[元大銀行](https://www.yuantabank.com.tw/bank/loan/stock/list.do)的額度是用前一日收盤價、60 日均價、120 日均價三者取最低的「評定單價」乘以成數，而且設質股票的孳息由銀行領取；也就是說股價急漲時借得到的比券商少，現金股利也不會直接進你的戶頭。
 
-銀行端沒有公開條款的：國泰世華、台新、華南、永豐的維持率與追繳條款在契約裡，要向分行索取。第一銀行、玉山銀行、兆豐銀行、台北富邦銀行我只找到基金質借或信貸頁面，沒有找到股票質借的官方頁，所以沒有列入。
+銀行端沒有公開條款的：國泰世華、台新、華南、永豐的維持率與追繳條款在契約裡，要向分行索取。第一銀行只找到基金質借頁，玉山銀行、兆豐銀行、台北富邦銀行、合庫、土銀、台灣企銀、聯邦銀行這輪都沒有找到股票質借的官方頁，所以沒有列入。
 
 ## 追繳規則
 
@@ -171,6 +172,7 @@ flowchart TB
 - [第一金證券：不限用途款項借貸線上功能說明](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994)
 - [元大商業銀行：股票貸款](https://www.yuantabank.com.tw/bank/loan/stock/list.do)
 - [永豐銀行：股票貸款](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html)
+- [彰化銀行：Fund欣股舞貸好運](https://www.bankchb.com/frontend/mashup.jsp?funcId=4324137815)
 - [中國信託商業銀行：有價證券擔保借據暨約定書（115.6.15 版）](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf)
 - [台新銀行：常見問題](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205)
 - [國泰世華銀行：股票質押貸款](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/)

@@ -1,12 +1,12 @@
 ---
-title: "Borrowing Against 0050 and Reinvesting: Rates, Margin-Call Thresholds and Limits at 17 Brokers and 6 Banks"
+title: "Borrowing Against 0050 and Reinvesting: Rates, Margin-Call Thresholds and Limits at 17 Brokers and 7 Banks"
 date: 2026-10-17
 category: investing
 type: guide
 tags: ["0050", stock-pledge, margin-call, leverage, etf]
 lang: en
 tldr: "In October, brokers' effective pledge rates mostly sit at 3.5%–4%; Cathay Securities charges 6.45%, and Taishin and E.SUN have no capacity. Every broker whose site I could read calls at 130%; only Yuanta Securities Finance calls at 140% with a 3-business-day deadline."
-description: "Compares October 2026 stock-pledge loan rates, posted rates, margin-call thresholds and renewal limits at Yuanta Securities Finance, 16 brokers and six banks, and works out how much you must top up when looping 0050."
+description: "Compares October 2026 stock-pledge loan rates, posted rates, margin-call thresholds and renewal limits at Yuanta Securities Finance, 16 brokers and seven banks, and works out how much you must top up when looping 0050."
 draft: false
 ---
 
@@ -65,16 +65,17 @@ Bank stock-pledge loans differ from broker loans: most charge a one-off account 
 |---|---|---|---|
 | [Cathay United](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/) | From 2.95% (as of 24 May 2025) | NT$20,000 account fee | One year, revolving |
 | [Hua Nan](https://www.hncb.com.tw/wps/portal/HNCB/per_finance/loan/personal/stock_fund_loan) | From 2.99% (as of 7 Apr 2024) | 2.5‰ fee (min NT$5,000), NT$300 credit check | One-year limit, each draw up to six months, monthly interest |
-| [Yuanta Bank](https://www.yuantabank.com.tw/bank/loan/stock/list.do) | 2.98%–5.40% (as of 23 Feb 2026) | NT$3,000–20,000 in total; promotional account fee 1.625%–2.99% of the limit | Renewed yearly, up to three years |
+| [Yuanta Bank](https://www.yuantabank.com.tw/bank/loan/stock/list.do) | 2.98%–5.40% (as of 25 May 2026) | NT$3,000–20,000 in total; promotional account fee 1.625%–2.99% of the limit | Renewed yearly, up to three years |
 | [SinoPac Bank](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html) | From 3.41% (as of 21 Jan 2026) | NT$15,000 per loan | Borrower aged 20–65 |
 | [Taishin Bank](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205) | From 3.99% (no date seen on the FAQ) | No guarantor or proof of income; fees on the [product page](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/) | Interest on daily drawn balance |
+| [Chang Hwa Bank](https://www.bankchb.com/frontend/mashup.jsp?funcId=4324137815) | Index rate + 0.86% or more; example 4.01% (as of 15 Jul 2026) | Example NT$500k for one year: NT$5,300 in total fees | Up to one year, revolving or drawn in batches; stocks and ETFs accepted |
 | [CTBC Bank](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf) | Not published | Setup fee set in the contract | Contract edition 15 June 2026 |
 
 The base dates vary widely: Cathay United's and Hua Nan's rate pages are one to two years old, so rely on a branch quote. Margin-call terms are in the next section.
 
 Two bank-only details: [Yuanta Bank](https://www.yuantabank.com.tw/bank/loan/stock/list.do) sets the limit from an "appraised price", the lowest of the previous close, the 60-day average and the 120-day average, so a sharp rally lends you less than a broker would, and dividends on pledged shares go to the bank rather than to your account.
 
-Banks whose margin-call terms are not public: Cathay United, Taishin, Hua Nan and SinoPac keep them in the contract, so ask the branch for a copy. For First Bank, E.SUN Bank, Mega Bank and Taipei Fubon Bank I only found fund-pledge or credit-loan pages, not an official stock-pledge page, so they are not listed.
+Banks whose margin-call terms are not public: Cathay United, Taishin, Hua Nan and SinoPac keep them in the contract, so ask the branch for a copy. For First Bank I only found a fund-pledge page, and for E.SUN Bank, Mega Bank, Taipei Fubon Bank, Taiwan Cooperative, Land Bank, Taiwan Business Bank and Union Bank I found no official stock-pledge page this round, so they are not listed.
 
 ## Margin-call rules
 
@@ -171,6 +172,7 @@ This post summarizes rules and is not investment advice. Borrowing carries risk 
 - [First Securities: online function guide](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994) (in Chinese)
 - [Yuanta Commercial Bank: stock loan](https://www.yuantabank.com.tw/bank/loan/stock/list.do) (in Chinese)
 - [SinoPac Bank: stock loan](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html) (in Chinese)
+- [Chang Hwa Bank: stock and ETF loan](https://www.bankchb.com/frontend/mashup.jsp?funcId=4324137815) (in Chinese)
 - [CTBC Bank: securities-collateral loan agreement (15 June 2026 edition)](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf) (in Chinese)
 - [Taishin Bank: FAQ](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205) (in Chinese)
 - [Cathay United Bank: stock-collateral loan](https://www.cathaybk.com.tw/cathaybk/personal/loan/product/stock-collateral-loan/) (in Chinese)
