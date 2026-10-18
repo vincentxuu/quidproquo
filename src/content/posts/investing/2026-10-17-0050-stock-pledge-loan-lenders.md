@@ -52,7 +52,7 @@ flowchart TB
 | 中信 | 3.5%，每月貢獻到一定數字可到 3% 以下 | [牌告 6.4%](<https://www.ctbcsec.com/Stock/Collateral>) | 維持率分母是已申請借款；配股率達 20% 以上的配股列為擔保品 |
 | 統一 | 3.5%，走人工申請，可押正二 | [牌告 6.4%](https://eservices.pscnet.com.tw/dm/LOAN/index.html)＋手續費 1.425‰ | 線上單筆 100 萬、單日 500 萬 |
 | 國票 | 4% | [官網範例用 6.25%](https://www.ibfs.com.tw/my/cash/) | 官網未標牌告 |
-| 第一金 | 一筆 1,000 萬，量大可談到 3% 以下 | 官網只寫利率顯示在登入後的「我要借款」畫面，沒有公開牌告 | [展延要整戶維持率 166% 以上](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994) |
+| 第一金 | 一筆 1,000 萬，量大可談到 3% 以下 | [牌告 6.45%](<https://www.firstsec.com.tw/uploadImages/%E7%AC%AC%E4%B8%80%E9%87%91%E8%AD%89%E5%88%B8115%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E5%BA%A6%E5%80%8B%E9%AB%94%E8%B2%A1%E5%8B%99%E5%A0%B1%E5%91%8A.pdf>)（出自 115 年上半年財報）；官網說線上借款利率顯示在登入後的畫面 | [展延要整戶維持率 166% 以上](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994) |
 | 國泰證券 | 6.45% | [牌告 6.45%](https://istockapp.cathaysec.com.tw/Marketing/loan/) | 用前一營業日收盤價算維持率 |
 
 表上有兩處數字互相對不上：NOWnews 引網友說富邦一般戶已升到 4.5%，Threads 表上是 3.88%；元大證金表上與官網相同。
@@ -136,6 +136,7 @@ flowchart TB
 - [凱基證券：不限用途開戶契約告知事項](<https://event.kgi.com.tw/uploadfiles/euploadfile/%E8%AD%89%E5%88%B8%E5%95%86%E8%BE%A6%E7%90%86%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E6%A5%AD%E5%8B%99.pdf>)
 - [台新證券：不限用途款項借貸 FAQ](<https://cash.tssco.com.tw/ui/view/main/FAQ>)
 - [中國信託證券：不限用途擔保品與 Q&A](https://www.ctbcsec.com/Stock/Collateral)
+- [第一金證券：115 年上半年度個體財務報告](<https://www.firstsec.com.tw/uploadImages/%E7%AC%AC%E4%B8%80%E9%87%91%E8%AD%89%E5%88%B8115%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E5%BA%A6%E5%80%8B%E9%AB%94%E8%B2%A1%E5%8B%99%E5%A0%B1%E5%91%8A.pdf>)
 - [永豐金證券：借貸專區](https://service.sinotrade.com.tw/newweb/loan-zone/)
 - [永豐金證券豐雲學堂：不限用途維持率](https://www.sinotrade.com.tw/richclub/primary/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%9F%A5%E8%A9%A2-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E7%B6%AD%E6%8C%81%E7%8E%87%E6%80%8E%E9%BA%BC%E7%AE%97-%E6%94%B6%E5%88%B0%E8%BF%BD%E7%B9%B3%E9%80%9A%E7%9F%A5%E6%80%8E%E9%BA%BC%E8%BE%A6-%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8%E8%A3%9C%E7%B9%B3%E6%B5%81%E7%A8%8B-66b4755115fc4d4560494b23)
 - [新光證券：不限用途款項借貸注意事項](https://www.skis.com.tw/CusService_WebAPI/api/file/15edfa8485d24e19b0813a5b3926a731)
