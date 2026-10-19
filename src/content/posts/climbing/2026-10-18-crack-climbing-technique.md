@@ -172,7 +172,7 @@ Climbing.com 說腳的擠塞比手容易學得多，就算還不會塞手，也�
 
 ### 程度與裝備
 
-Mountain Project 說龍洞的難度集中在 5.10 左右。傳攀帶一組到 3 吋的機械塞，加一條 50 公尺的繩，就能爬大部分路線。
+Mountain Project 說龍洞的難度集中在 5.10 左右。傳攀帶一組到 3 吋的活動岩楔，加一條 50 公尺的繩，就能爬大部分路線。
 
 ### 怎麼開始練
 
@@ -256,6 +256,6 @@ AAI 建議先在岩館或用上方確保把動作練熟。到了龍洞，先找�
 - [Wild Country Crack School - 裂隙攀岩教學（elliotway）](https://elliotway.blogspot.com/2012/06/wild-country-crack-school.html)
 - [艾格探險：單繩距傳統攀登](https://www.adventuretaiwan.com/product/single-pitch-trad-climbing/)
 - [百合搖滾：第一階段課程](https://www.wildlily.rocks/course-phase-1)
-- [傳攀保護怎麼放：岩楔、機械塞與好放置的三個條件](/posts/climbing/2026-10-17-trad-protection-nuts-cams)
+- [傳攀保護怎麼放：岩楔、活動岩楔與好放置的三個條件](/posts/climbing/2026-10-17-trad-protection-nuts-cams)
 - [從岩館到傳攀的學習路徑](/posts/climbing/2026-10-17-sport-to-trad-learning-path)
 - [台灣岩場怎麼挑：岩質決定爬法，規定決定能不能去](/posts/climbing/2026-10-17-taiwan-crags-rock-type)

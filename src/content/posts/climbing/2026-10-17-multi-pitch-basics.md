@@ -233,7 +233,7 @@ BMC 把會垂降叫作多繩距的「出獄卡」：天氣變壞、有人受傷�
 - [艾格探險：多繩距傳統攀登](https://www.adventuretaiwan.com/product/multi-pitch-trad-climbing/)
 - [山學訓練：多繩距傳統攀登課](https://learnfromthemountain.wordpress.com/多繩距傳統攀登課/)
 - [nobodyclimb 繩索系統練習：多繩距](https://nobodyclimb.cc/games/rope-system/learn/trad-multipitch)
-- [傳攀保護：岩楔與機械塞](/posts/climbing/2026-10-17-trad-protection-nuts-cams)
+- [傳攀保護：岩楔與活動岩楔](/posts/climbing/2026-10-17-trad-protection-nuts-cams)
 - [建立固定點](/posts/climbing/2026-10-17-building-anchors)
 - [下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel)
 - [自我救援基礎](/posts/climbing/2026-10-17-self-rescue-basics)

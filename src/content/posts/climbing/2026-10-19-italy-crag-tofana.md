@@ -71,7 +71,7 @@ Rifugio Dibona 旁有大停車場，海拔 2,083 公尺（REDclimber）。
 
 **中途撤退。** Costantini-Apollonio 爬到第一個大岩階時，可以往右橫切，在 Pilastro 與 Primo Spigolo 之間的溝槽連續垂降下撤（Planetmountain）。
 
-**保護與裝備。** Planetmountain 寫 Costantini-Apollonio「è chiodata」，帶一般裝備即可；winterclimb 建議加 8 個快扣、一組岩楔和中號機械塞。Terzo Spigolo 要帶岩楔、機械塞，岩錘和岩釘不是必要但有用，可以敲緊鬆掉的岩釘、補強確保站（Della Torre）。Primo Spigolo 的確保站多半是兩根 bolt（REDclimber）。
+**保護與裝備。** Planetmountain 寫 Costantini-Apollonio「è chiodata」，帶一般裝備即可；winterclimb 建議加 8 個快扣、一組岩楔和中號活動岩楔。Terzo Spigolo 要帶岩楔、活動岩楔，岩錘和岩釘不是必要但有用，可以敲緊鬆掉的岩釘、補強確保站（Della Torre）。Primo Spigolo 的確保站多半是兩根 bolt（REDclimber）。
 
 **救援與費用。** 義大利緊急電話是 112（[CNSAS](https://www.cnsas.it/en/distress-call/)）。Tofana 在 Veneto；照 [DGR 1411/2011 附件](https://bur.regione.veneto.it/BurvServices/pubblica/Download.aspx?name=1411_AllegatoA_234734.pdf&storico=False&type=9)，攀岩出動直升機或山難搜救隊時，傷者要依大區收費表分攤費用，住院也一樣。出發前買涵蓋直升機救援的保險。
 
@@ -103,7 +103,7 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
 |---|---|---|---|---|---|
 | La danza del tapiro | 7a+ | 5.12a | 多段 | Grotta della Tofana 上方岩壁 | Planetmountain 路線表：岩質極好、難度連續，「forse la via più abbordabile」（Da Pozzo 的現代路線裡大概最好上手的） |
-| Mai molar | 7a+ | 5.12a | 多段 | Tofana di Rozes 南壁 | Planetmountain 路線表：由下往上用電鑽打 10 mm bolt；要帶不太短的快扣和幾個中小號機械塞 |
+| Mai molar | 7a+ | 5.12a | 多段 | Tofana di Rozes 南壁 | Planetmountain 路線表：由下往上用電鑽打 10 mm bolt；要帶不太短的快扣和幾個中小號活動岩楔 |
 | Compagni di merenda | 7b | 5.12b | 350 m | Pilastro 左側 | Planetmountain 路線表：岩石緻密、水蝕，難點在第 4、5 段；[SummitPost](https://www.summitpost.org/tofana-di-rozes/151405) 標 ED+、必要 7b |
 | Goodbye 1999 | 7b | 5.12b | 多段 | Pilastro 左側 | Planetmountain 路線表：和 Compagni di merenda 同一面岩壁，全程難度連續 |
 | Il mio criceto | 7b | 5.12b | 多段 | Primo Spigolo | Planetmountain 路線表：2011 年 Koren、Vidmar 開，離 Aspettando la vetta 約 10 m |

@@ -192,7 +192,7 @@ R 代表保護不足，可能長距離墜落，先鋒者很可能受傷。5.9 �
 
 ## 下一步
 
-會讀保護評等之後，下一步是自己放保護：[傳攀保護：岩楔與機械塞](/posts/climbing/2026-10-17-trad-protection-nuts-cams)講一個好的放置要符合哪些條件。想知道台灣哪些岩場是傳攀、哪些是運攀，可以先跳到[台灣岩場：岩質決定爬法](/posts/climbing/2026-10-17-taiwan-crags-rock-type)。
+會讀保護評等之後，下一步是自己放保護：[傳攀保護：岩楔與活動岩楔](/posts/climbing/2026-10-17-trad-protection-nuts-cams)講一個好的放置要符合哪些條件。想知道台灣哪些岩場是傳攀、哪些是運攀，可以先跳到[台灣岩場：岩質決定爬法](/posts/climbing/2026-10-17-taiwan-crags-rock-type)。
 
 整個系列的地圖在[運動攀登與傳統攀登差在哪](/posts/climbing/2026-10-17-sport-vs-trad-overview)。
 

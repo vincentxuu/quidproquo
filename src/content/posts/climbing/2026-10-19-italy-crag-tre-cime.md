@@ -96,7 +96,7 @@ draft: false
 
 **封閉。** 2026 年 10 月查時，沒有找到針對三峰攀登路線的封閉公告。收費道路本身會依天候封閉，見上一節。
 
-**保護站與岩釘。** 熱門經典線的確保站多半整理過：Hasse-Brandler 的確保站「tutte attrezzate, anche con spit」，但段落中間的岩釘「non sempre affidabili」，要帶很多快扣和扁帶延長（[Planetmountain](https://www.planetmountain.com/it/notizie/alpinismo/tre-cime-di-lavaredo-arrampicate-in-dolomiti.html)）。Comici-Dimai「ben chiodata」，仍要帶岩楔和機械塞。Cima Grande 一般路線[有很多樹脂膠合的錨栓](https://www.vielunghe.com/tre-cime-di-lavaredo-cima-grande-via-normale/)，可以沿原路垂降。
+**保護站與岩釘。** 熱門經典線的確保站多半整理過：Hasse-Brandler 的確保站「tutte attrezzate, anche con spit」，但段落中間的岩釘「non sempre affidabili」，要帶很多快扣和扁帶延長（[Planetmountain](https://www.planetmountain.com/it/notizie/alpinismo/tre-cime-di-lavaredo-arrampicate-in-dolomiti.html)）。Comici-Dimai「ben chiodata」，仍要帶岩楔和活動岩楔。Cima Grande 一般路線[有很多樹脂膠合的錨栓](https://www.vielunghe.com/tre-cime-di-lavaredo-cima-grande-via-normale/)，可以沿原路垂降。
 
 **下降比上升複雜。** Comici-Dimai 爬完要沿環狀岩階接到南面一般路線，兩次 50 公尺垂降，再垂降或下攀東側溝槽（Planetmountain）。下降時間常和上升差不多（vielunghe）。
 
@@ -153,7 +153,7 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 | Via Normale | III（關鍵段 IV） | 5.3 | 約 650 m | Cima Grande 南面 | 1869 年首登；[vielunghe](https://www.vielunghe.com/tre-cime-di-lavaredo-cima-grande-via-normale/)：大多是 I–III，關鍵的煙囪和岩壁 IV；[Alta Pusteria 觀光局](https://www.altapusteria.com/sport/estate-attiva/vie-ferrate/cima-grande-di-lavaredo/)建議 60 m 繩，原路垂降 |
 | Grohmann-Hainz | V- 或 IV A0 | 5.6 | 600 m，20 段以上 | Cima Grande 南稜 | [Planetmountain](https://www.planetmountain.com/it/itinerari/grohmann-hainz-cima-grande-di-lavaredo.html)：2019 年為首登 150 週年開，必要 IV；前 20 段中有 3 次垂降，最後接一般路線 |
 | Spigolo Dibona | IV+ | 5.5 | 多段 | Cima Grande | 只有 theCrag 一個來源（列為附近代表路線，3 星） |
-| Via Dülfer | V+ | 5.7 | 250 m | Cima Grande 西壁 | [Planetmountain](https://www.planetmountain.com/it/itinerari/via-dulfer-cima-grande-di-lavaredo.html) 標 5+；1913 年首攀；陰冷、人少，要帶機械塞 |
+| Via Dülfer | V+ | 5.7 | 250 m | Cima Grande 西壁 | [Planetmountain](https://www.planetmountain.com/it/itinerari/via-dulfer-cima-grande-di-lavaredo.html) 標 5+；1913 年首攀；陰冷、人少，要帶活動岩楔 |
 | Spigolo Giallo | VI+ | 5.10a | 350 m | Cima Piccola 東南稜 | [Planetmountain](https://www.planetmountain.com/it/itinerari/spigolo-giallo-cima-piccola-di-lavaredo.html)，必要 V+/A0；1933 年 Comici 等人首攀；保護好、人極多 |
 | Comici-Dimai | VII | 5.10c | 550 m | Cima Grande 北壁 | [Planetmountain](https://www.planetmountain.com/it/itinerari/via-comici-dimai-cima-grande-di-lavaredo.html)，必要 V+/A1；1933 年 8/13–14 首攀；theCrag 也標 7 |
 | Cassin（Piccolissima） | VII- | 5.10b | 350 m | Cima Piccolissima 東南面 | [Planetmountain](https://www.planetmountain.com/it/itinerari/via-cassin-cima-piccolissima-di-lavaredo.html) 標 7-，必要 6-/A0；1934 年首攀；黃色外傾，人多所以岩點穩 |

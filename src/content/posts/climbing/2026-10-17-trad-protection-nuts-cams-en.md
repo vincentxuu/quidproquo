@@ -17,7 +17,7 @@ glossary:
     definition: "A metal wedge on a wire cable that you slot into a narrowing in a crack. It has no moving parts and holds by its shape, so it counts as passive protection."
     context: "In this post, nuts include hexes; EN 12270 groups them all as chocks."
   - term: "Cam"
-    aliases: ["SLCD", "Friend", "機械塞", "active protection"]
+    aliases: ["SLCD", "Friend", "活動岩楔", "active protection"]
     definition: "Several cam lobes on an axle with springs. Pull the trigger and the lobes retract; release it in a crack and the lobes expand against both walls. Under load, the cam turns the pull into outward pressure."
     context: "The formal name is spring-loaded camming device (SLCD); Friend started as a brand name."
   - term: "Retraction"

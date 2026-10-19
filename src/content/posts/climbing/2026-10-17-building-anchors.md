@@ -8,14 +8,14 @@ type: guide
 series:
   name: "運動攀登與傳統攀登"
   order: 10
-description: "頂端沒有 bolt 時，怎麼用岩楔和機械塞組出能掛兩個人的固定點：SERENE／ERNEST 口訣在檢查什麼、Petzl 真人實測的墜落受力、Quad 與 cordelette 的取捨，以及 2019 年龍洞 #313 通道固定點整組脫出的事故。"
+description: "頂端沒有 bolt 時，怎麼用岩楔和活動岩楔組出能掛兩個人的固定點：SERENE／ERNEST 口訣在檢查什麼、Petzl 真人實測的墜落受力、Quad 與 cordelette 的取捨，以及 2019 年龍洞 #313 通道固定點整組脫出的事故。"
 tldr: "固定點要過三關：每個點夠強、任一點失效還有別的點接住（冗餘）、失效時不會猛然下墜衝擊剩下的點（不延伸）。Petzl 用 80 公斤真人實測，墜落係數 1 時攀登者約受 4 kN、確保者約 2 kN、頂端保護點約 6 kN。Quad 能跟著拉力方向調整，但一點失效會衝擊另一點。2019 年龍洞 #313 的三點傳攀固定點，在兩人把體重交給它時全數脫出。"
 draft: false
 glossary:
   - term: "固定點"
     aliases: ["anchor", "確保站", "belay station"]
     definition: "把幾個保護點連在一起、讓攀登者能掛上去確保或休息的地方。單繩距在頂端，多繩距在每一段的終點。"
-    context: "本文講的是頂端沒有 bolt、要用岩楔與機械塞自己組的固定點。"
+    context: "本文講的是頂端沒有 bolt、要用岩楔與活動岩楔自己組的固定點。"
   - term: "主點"
     aliases: ["master point", "均分點"]
     definition: "固定點上所有保護點的力匯集的那一個環或結，確保器、繩子和自我確保都掛在這裡。"
@@ -66,7 +66,7 @@ glossary:
 
 ### 冗餘：幾個點才夠
 
-[Petzl 的確保站教學](https://petzl.com/us/en/sport/tech-tips/basic-techniques/building-a-belay-anchor-and-belaying-on-a-bolted-multi-pitch-route/Relais-grande-voie_SPO_a77Tx000000E3MEIA0.html)的下限是：至少兩個互相連結的固定點，防止其中一個失效。這是針對有 bolt 的多繩距；Petzl 自己說明，用岩楔和機械塞的傳統路線，部分概念不一定適用。
+[Petzl 的確保站教學](https://petzl.com/us/en/sport/tech-tips/basic-techniques/building-a-belay-anchor-and-belaying-on-a-bolted-multi-pitch-route/Relais-grande-voie_SPO_a77Tx000000E3MEIA0.html)的下限是：至少兩個互相連結的固定點，防止其中一個失效。這是針對有 bolt 的多繩距；Petzl 自己說明，用岩楔和活動岩楔的傳統路線，部分概念不一定適用。
 
 用傳攀器材時，數字往上加。AMGA 認證攀岩嚮導 [Elaina Arenz 的教學](https://www.climbing.com/skills/gym-to-crag-trad-climbing-outdoor-research/)要求傳攀固定點至少三個點。檢查方法很好記：想像有人拿一把魔法剪刀剪斷任何一處，整個固定點都不能散掉。
 
@@ -228,6 +228,6 @@ Petzl 的說法是：兩個結之間距離越大，可以側移的範圍越大�
 - [艾格探險：單繩距傳統攀登](https://www.adventuretaiwan.com/product/single-pitch-trad-climbing/)
 - [百合搖滾：單繩距傳統攀登完整課程](https://www.wildlily.rocks/full-course)
 - [nobodyclimb 繩索系統練習：傳攀固定點](https://nobodyclimb.cc/games/rope-system/learn/trad-anchor)
-- [傳攀保護：岩楔與機械塞](/posts/climbing/2026-10-17-trad-protection-nuts-cams)
+- [傳攀保護：岩楔與活動岩楔](/posts/climbing/2026-10-17-trad-protection-nuts-cams)
 - [多繩距入門](/posts/climbing/2026-10-17-multi-pitch-basics)
 - [學習路徑與常見事故](/posts/climbing/2026-10-17-sport-to-trad-learning-path)
