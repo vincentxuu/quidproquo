@@ -1141,7 +1141,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'climbing-injury',
-    category: 'other',
+    category: 'climbing',
     names: { 'zh-TW': '攀岩傷害預防與急救', en: 'Climbing Injuries and First Aid' },
     descriptions: {
       'zh-TW': '攀岩最常傷到哪裡、受傷當下怎麼處理、該看哪一科；暖身、手指滑車與其他手指傷害、肘腕、肩、抱石墜落與腳踝、膝與 heel hook、腳與攀岩鞋、脊椎、青少年生長板，受傷後怎麼回岩館、柔軟度，最後是在台灣岩場出事時怎麼報案與急救。只寫來源說了什麼，需要診斷的地方請看醫師或物理治療師。',
