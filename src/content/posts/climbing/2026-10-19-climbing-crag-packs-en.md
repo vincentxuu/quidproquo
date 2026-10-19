@@ -1,11 +1,11 @@
 ---
-title: "Choosing a Crag Pack: Wide Openings, Rope Tarps, Capacity, and Current Models from 10 Brands"
+title: "Choosing a Crag Pack: Wide Openings, Rope Tarps, Capacity, and Current Models from 17 Brands"
 date: 2026-10-19
 type: guide
 category: climbing
 tags: [climbing, climbing-gear, backpacks, travel, sport-climbing]
 lang: en
-description: "Which pack to carry on a single-pitch sport climbing day abroad: match the pack to how you get from your room to the crag (walking, longtail boat, scooter, rental car), compare current crag packs from BD, Mammut, Patagonia, Petzl, Edelrid, Grivel, Metolius, Wild Country, Climbing Technology, and Beal, and see how two climbers split a day's load and when a crag pack can double as a cabin bag."
+description: "Which pack to carry on a single-pitch sport climbing day abroad: match the pack to how you get from your room to the crag (walking, longtail boat, scooter, rental car), compare 23 current crag packs from BD, Mammut, Patagonia, Petzl, Edelrid, Grivel, Metolius, Wild Country, Climbing Technology, Beal, Trango, La Sportiva, Rab, DMM, Singing Rock, Tendon, and Moon, and see how two climbers split a day's load and when a crag pack can double as a cabin bag."
 tldr: "For single-pitch days, a crag pack needs three things: a back panel or side that opens fully, a rope tarp built in or carried separately, and 35–50 L. When two climbers share one 70 m rope, one 45 L pack for the rope and draws plus one 35 L pack for water and layers works best. To use it as a cabin bag too, pick one with stowable straps and dimensions close to 55×35×20 cm, such as the Climbing Technology Falesia. The stiff Creek 50 weighs 2 kg empty, a big bite out of a 7 kg cabin limit."
 draft: false
 series:
@@ -51,15 +51,15 @@ Crag packs open in three common ways:
 
 - **Full back-panel opening**: The zip runs around the back panel. Lay the pack straps-up on the ground and open it, and the straps stay out of the dirt. After using the Patagonia Cragsmith 45L, a Climbing reviewer wrote that the back-panel access meant he no longer had to spread his whole pack across the base of the cliff ([Climbing, 2024-02-02](https://www.climbing.com/gear/patagonias-cragsmith-45l/)).
 - **Top loader plus a full-length side or front zip**: Black Diamond Creek, Crag 40, and Edelrid PIT. Stuff things in from the top, and unzip the side or front to reach the rope at the bottom.
-- **Clamshell**: The whole pack opens flat. The BD Pipe Dream 45 doubles as a lounge pad at the base of the wall.
+- **Clamshell or suitcase-style**: The whole pack opens flat. The BD Pipe Dream 45 doubles as a lounge pad at the base of the wall, and the DMM Flight 45 and Tendon Gear Bag 45 have a zip that runs almost all the way around, so they open like a suitcase.
 
-With a top-only pack, getting the rope from the bottom means pulling everything else out first. On a single-pitch day you move between several routes and repack each time, so look for a pack with a second opening.
+With a top-only pack (the Trango Crag Pack 2.0 or Patagonia Free Wall Pack 44L, for example), getting the rope from the bottom means pulling everything else out first. On a single-pitch day you move between several routes and repack each time, so look for a pack with a second opening.
 
 ### 2. Rope tarp: built in, removable, or separate
 
 A rope tarp goes on the ground under the rope to keep sand and dirt off it. Tropical seaside crags often have sandy ground, so a tarp makes a real difference.
 
-The Mammut Neon 45, Grivel Rocker 45, Wild Country Stamina, Climbing Technology Falesia, and Petzl KLIFF all come with a removable tarp. The BD and Patagonia crag packs don't, so bring one (see "Do you need a separate rope bag?" below).
+The Mammut Neon 45, Grivel Rocker 45, Wild Country Stamina, Climbing Technology Falesia, Petzl KLIFF, La Sportiva Granite 45 Crag, DMM Flight 45, Singing Rock Rocking 40, Tendon Gear Bag 45, and Moon Aerial Pack all come with a tarp. The Trango Crag Pack 2.0 has only a small organizing tarp that won't hold a whole rope. The BD and Patagonia packs and the Rab Rogue 48L don't have one, so bring one (see "Do you need a separate rope bag?" below).
 
 ### 3. A base that stands up
 
@@ -75,13 +75,13 @@ When two people share a rope, whoever carries it needs about 45 L. A Climbing re
 
 ### 6. Carry: hipbelt and torso length
 
-Most crag packs come in a single torso length. UKClimbing's Neon 45 review notes that shorter climbers may find it less comfortable and that its hipbelt has less padding than a comparable Rab pack. The reviewer added that if his local crag meant an hour uphill every day, he might feel differently about it ([UKClimbing](https://www.ukclimbing.com/gear/rucksacks/large/mammut_neon_45_climbing_pack-15909)). For long approaches, choose a model with sizes: the BD Creek 50 comes in S/M and M/L, and the Patagonia Cragsmith 45L in S, M, and L.
+Most crag packs come in a single torso length. UKClimbing's Neon 45 review notes that shorter climbers may find it less comfortable and that its hipbelt has less padding than a comparable Rab pack. The reviewer added that if his local crag meant an hour uphill every day, he might feel differently about it ([UKClimbing](https://www.ukclimbing.com/gear/rucksacks/large/mammut_neon_45_climbing_pack-15909)). For long approaches, choose a model with sizes: the BD Creek 50 comes in S/M and M/L, and the Patagonia Cragsmith 45L and 32L both come in S, M, and L. If you carry heavy loads a long way, the La Sportiva Granite 45 Crag has an aluminum stay, at the cost of 1,470 g empty.
 
 ### 7. Empty weight
 
 Empty weights differ by almost 1.3 kg: the Petzl KLIFF is 750 g, the BD Creek 50 is 2 kg. At the crag that hardly matters. As a cabin bag, it comes straight out of a 7 kg allowance; see "Can a crag pack be your cabin bag?" below.
 
-## Current models from 10 brands
+## 23 current models from 17 brands
 
 Prices are list prices on each brand's own site on 2026-10-19, with no currency conversion. Where the brand doesn't list a price, one retailer price is given and marked. The review column only includes third-party reviews from 2020 or later.
 
@@ -92,6 +92,8 @@ Prices are list prices on each brand's own site on 2026-10-19, with no currency 
 | [Black Diamond Pipe Dream 45](https://blackdiamondequipment.com/products/pipe-dream-45-backpack) | 45 L | Not listed | Clamshell, opens into a lounge pad | No | USD 199.95, out of stock | Added to Switchback Travel's 2025 list | Like to spread everything out; BD doesn't publish its weight |
 | [Mammut Neon 45](https://www.mammut.com/us/en/products/2510-01944/neon-45) | 45 L | 1,500 g | Top + large back-panel zip | Yes, removable | USD 199.95 | [UKClimbing 2024-09-30](https://www.ukclimbing.com/gear/rucksacks/large/mammut_neon_45_climbing_pack-15909) | One pack with tarp and organization built in; single torso length, no side bottle pockets |
 | [Patagonia Cragsmith 45L](https://www.patagonia.com/product/cragsmith-pack-45-liters/48066.html) | 45 L | 1,420 g | U-shaped lid + full back panel | No | USD 239 | [Climbing 2024-02-02](https://www.climbing.com/gear/patagonias-cragsmith-45l/) | Longer approaches, need a torso size; stiff shell doesn't compress when half full |
+| [Patagonia Cragsmith Pack 32L](https://www.patagonia.com/product/cragsmith-pack-32-liters/48056.html) | 32 L | 1,200 g | Full back panel | No | USD 209 | — | One person, minimal kit, need a torso size (S/M/L); unlike the 45L, no top access and the hipbelt isn't removable |
+| [Patagonia Free Wall Pack 44L](https://climbonequipment.com/en-us/products/patagonia-free-wall-pack) | 44 L | 1,171 g (retailer listing) | Top + lid | No | USD 229 | [Climbing's 2026 pack guide](https://www.climbing.com/gear/best-climbing-backpack/): best do-it-all pack | One pack for both single-pitch and multi-pitch days; built for hauling on big walls, top access only; volume, weight, and sizes (S/M/L) are from retailers because Patagonia's page couldn't be read |
 | [Petzl KLIFF](https://www.petzl.com/us/en/sport/products/rope-bags/kliff/KLIFF_SPO_a2mw0000002G5MVAA0.html) | 36 L | 750 g | Back zip | Yes, 140×140 cm | USD 89.95 | [OutdoorGearLab 2024-07-30](https://www.outdoorgearlab.com/topics/climbing/best-rope-bag): best gym-to-crag rope bag | Short approaches, minimal kit; it's a rope bag at heart, with shoulder and sternum straps only |
 | [Edelrid PIT](https://edelrid.com/us-en/sport/backpacks-and-rope-bags-shop/pit) | 35 L | 860 g | Top + full-length front zip | No (external rope strap) | No price on Edelrid's site; Redpoint Climbing USD 99.95 | — | Tight budget, like the haul-bag look; tarp sold separately |
 | [Edelrid CRAG JACK](https://edelrid.com/us-en/sport/backpacks-and-rope-bags-shop/crag-jack) | 37 L | 1,250 g | Top or fully open from the side | No | No price on Edelrid's site; BananaFingers USD 111.35 on sale | — | One person's kit, want lots of pockets; heavy for 37 L |
@@ -101,6 +103,13 @@ Prices are list prices on each brand's own site on 2026-10-19, with no currency 
 | [Wild Country Movement Back Pack](https://wildcountry.com/en-us/movement-back-pack-40-0000010042) | 35 L | Not listed | Main zip opens right up | Yes, 135×100 cm | USD 99.95 | — | Shared between gym and crag; fits ropes up to 70 m only |
 | [Climbing Technology Falesia](https://climbingtechnology.com/en/outdoor-en/bags-and-backpacks/backpacks/falesia) | 45 L | 1,000 g | Full-length back zip | Yes | Dealer-only, no official price; Oliunìd EUR 61.90 on sale | — | Want a crag pack that's also a cabin bag; webbing hipbelt, basic carry on long approaches |
 | [Beal Combi Cliff II](https://beal-planet.com/en/products/combi-cliff-ii) | 35 L | 835 g | Back opening | Yes, 145×90 cm | EUR 80, sold out | — | Want a rope-bag backpack that fits an 80 m rope; sold out on Beal's site |
+| [Trango Crag Pack 2.0](https://trango.com/products/crag-pack-2-0) | 45 L | Not listed; The Dihedral lists about 1.4 kg | Haul-bag-style top + lid | Small organizing tarp, not a full rope tarp | USD 119.95 | [The Dihedral 2021-11-17](https://thedihedral.com/2021/11/17/trango-crag-pack-2-0) | Tight budget, want a tough haul-bag build; top access only, no side or back opening |
+| [La Sportiva Granite 45 Crag](https://www.lasportiva.com/en/backpack-climbing-granite-45-crag-unisex-zecp005) | 45 L | 1,470 g | Drawcord top + back-panel zip | Yes, built in | EUR 160; USD 169 on the US site | — | Want an aluminum stay for heavy loads; heavy for 45 L |
+| [Rab Rogue 48L Crag Pack](https://rab.equipment/uk/rab-rogue-48-crag-pack) | 48 L | 1.37 kg | Zip top + back zip | No (rope strap on top) | GBP 140; USD 170 on the US site, out of stock | [UKClimbing 2020-06-05](https://www.ukclimbing.com/gear/rucksacks/lowe_alpine_rogue_48-12783) (reviewed as the Lowe Alpine Rogue 48, before the rename) | Long approaches, some trad climbing; no tarp, out of stock in the US |
+| [DMM Flight 45](https://us.dmmwales.com/products/flight-45l) | 45 L | 1,560 g | Suitcase-style, opens fully | Yes, removable | GBP 107; USD 207.49 on the US site | — | Sport climbing with ropes up to 80 m; on the heavy side, and much pricier in the US than in the UK |
+| [Singing Rock Rocking 40](https://singingrock.com/rocking) | 40 L | 1,190 g | Top + back-panel zip | Yes, 120×140 cm | No price on Singing Rock's site; Singing Rock USA USD 179.99 | — | Shared between gym and crag; basic hipbelt that stows in a side pocket |
+| [Tendon Gear Bag 45](https://mytendon.com/en/tendon-gear-bag-black/p-488) | 45 L | Not listed; Oliunìd lists 860 g | Zip runs almost all the way around, opens like a suitcase | Yes, 140×120 cm | Dealer-only, no official price; Oliunìd USD 91.85 | — | Two people's gear, want a cheap pack with a tarp; removable seat pad in the back panel, weight not published by Tendon |
+| [Moon Aerial Pack](https://moonclimbing.com/aerial-pack.html) | 38 L | 1.2 kg | Roll-top + vertical front center zip | Yes, removable | GBP 120; Jet Black colorway GBP 75 on sale | — | Want a simple pack with few dangly bits; tight for two people's gear at 38 L |
 
 Some names still common in older recommendations are no longer current. Mystery Ranch's Tower 47 page has been taken down, Mammut marks the Neon Gear 45 as no longer available (the Neon 45 replaces it), and Metolius lists the Freerider as being discontinued. Used or clearance units are fine buys, but don't use them as the baseline for comparing new packs.
 
@@ -128,7 +137,7 @@ If only one of you owns a crag pack, the other can carry water and layers in an 
 
 ## Do you need a separate rope bag?
 
-If your pack has no tarp (BD, Patagonia, Edelrid PIT and Crag Jack, Metolius), bring a light one. The Edelrid Dirt Bag weighs 110 g and costs EUR 25. The Metolius Dirt Bag II is USD 39.95 with a 132×147 cm tarp, and OutdoorGearLab named it the best value rope bag ([OutdoorGearLab, 2024-07-30](https://www.outdoorgearlab.com/topics/climbing/best-rope-bag)). If your pack already has a removable tarp, leave the extra one at home.
+If your pack has no tarp (BD, Patagonia, Rab Rogue 48L, Edelrid PIT and Crag Jack, Metolius), bring a light one. The Edelrid Dirt Bag weighs 110 g and costs EUR 25. The Metolius Dirt Bag II is USD 39.95 with a 132×147 cm tarp, and OutdoorGearLab named it the best value rope bag ([OutdoorGearLab, 2024-07-30](https://www.outdoorgearlab.com/topics/climbing/best-rope-bag)). If your pack already has a removable tarp, leave the extra one at home.
 
 ## Can a crag pack be your cabin bag?
 
@@ -146,6 +155,10 @@ Climbers often use a crag pack as their cabin bag. The three conditions (size, t
 3. **Decide whether it doubles as a cabin bag.** If so, choose from packs under 1 kg empty with stowable straps. If not, pick the most durable pack for your approach and pack it inside your checked bag to protect the straps.
 
 For choosing shoes, harnesses, and helmets themselves, see [Climbing Shoes](/posts/climbing/2026-10-19-climbing-shoes-en) and [Harnesses and Helmets](/posts/climbing/2026-10-19-climbing-harness-helmet-en) in the Climbing Gear series. For multi-pitch routes, the next article covers [Multi-Pitch Climbing Backpacks](/posts/climbing/2026-10-19-multipitch-climbing-backpacks-en).
+
+## Update Log
+
+- 2026-10-19: Added 9 models to the current-models table (Patagonia Cragsmith 32L and Free Wall Pack 44L, Trango, La Sportiva, Rab, DMM, Singing Rock, Tendon, Moon), bringing it from 10 brands to 17, and worked the new packs into the opening, rope tarp, and carry sections.
 
 ## References
 
@@ -166,7 +179,21 @@ For choosing shoes, harnesses, and helmets themselves, see [Climbing Shoes](/pos
 - [Wild Country Movement Back Pack](https://wildcountry.com/en-us/movement-back-pack-40-0000010042)
 - [Climbing Technology Falesia](https://climbingtechnology.com/en/outdoor-en/bags-and-backpacks/backpacks/falesia)
 - [Beal Combi Cliff II](https://beal-planet.com/en/products/combi-cliff-ii)
+- [Patagonia Cragsmith Pack 32L](https://www.patagonia.com/product/cragsmith-pack-32-liters/48056.html)
+- [Climb On Equipment: Patagonia Free Wall Pack 44L](https://climbonequipment.com/en-us/products/patagonia-free-wall-pack)
+- [Trango Crag Pack 2.0](https://trango.com/products/crag-pack-2-0)
+- [La Sportiva Granite 45 Crag](https://www.lasportiva.com/en/backpack-climbing-granite-45-crag-unisex-zecp005)
+- [Rab Rogue 48L Crag Pack](https://rab.equipment/uk/rab-rogue-48-crag-pack)
+- [DMM Flight 45](https://us.dmmwales.com/products/flight-45l)
+- [Singing Rock Rocking 40](https://singingrock.com/rocking)
+- [Singing Rock USA: Rocking 40L Crag Bag](https://singingrock-usa.com/climbing/singing-rock-rocking-40l-crag-bag.html)
+- [Tendon Gear Bag 45](https://mytendon.com/en/tendon-gear-bag-black/p-488)
+- [Oliunìd: Tendon Gear Bag 45 L](https://www.oliunid.com/tendon-gear-bag-45-l-crag-climbing-backpack)
+- [Moon Aerial Pack](https://moonclimbing.com/aerial-pack.html)
 - [Switchback Travel: Best Climbing Backpacks](https://www.switchbacktravel.com/best-climbing-backpacks)
+- [Climbing: The Best Climbing Backpacks (2026)](https://www.climbing.com/gear/best-climbing-backpack/)
+- [The Dihedral: Trango Crag Pack 2.0 (2021-11-17)](https://thedihedral.com/2021/11/17/trango-crag-pack-2-0)
+- [UKClimbing: Lowe Alpine Rogue 48 review (2020-06-05)](https://www.ukclimbing.com/gear/rucksacks/lowe_alpine_rogue_48-12783)
 - [UKClimbing: Mammut Neon 45 review (2024-09-30)](https://www.ukclimbing.com/gear/rucksacks/large/mammut_neon_45_climbing_pack-15909)
 - [Climbing: Patagonia Cragsmith 45L review (2024-02-02)](https://www.climbing.com/gear/patagonias-cragsmith-45l/)
 - [OutdoorGearLab: The Best Rope Bags for Climbing (2024-07-30)](https://www.outdoorgearlab.com/topics/climbing/best-rope-bag)

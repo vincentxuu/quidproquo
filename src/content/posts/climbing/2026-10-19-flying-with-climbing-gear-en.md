@@ -169,7 +169,7 @@ The notice strongly recommends TSA-approved locks. With an ordinary lock, screen
 
 ## What has actually happened at security
 
-Beyond the rules, community stories show what "up to the screener" means in practice. Of the 30 public post-2020 examples collected for the [next article](/posts/climbing/2026-10-19-climbing-travel-packing-examples-en), about 20 incidents involve gear being forced into the hold, confiscated, or nearly confiscated at an airport, most often in Spain and at Mexico City. For example:
+Beyond the rules, community stories show what "up to the screener" means in practice. Of the 45 public post-2020 examples collected for the [next article](/posts/climbing/2026-10-19-climbing-travel-packing-examples-en), about 25 incidents involve gear being forced into the hold, confiscated, or nearly confiscated at an airport, most often in Spain and at Mexico City. For example:
 
 - **Mexico City to Monterrey** (the route to El Potrero Chico): in [May 2024 one climber had to check all their climbing gear](https://www.mountainproject.com/forum/topic/126025298/flying-with-climbing-gear-in-a-carry-on); in [a Reddit thread that began in 2022](https://www.reddit.com/r/RockClimbing/comments/zk8fmg/flying_with_climbing_gear/), another had quickdraws refused on the same route and ran back to check them.
 - **Madrid**: in [February 2026](https://www.reddit.com/r/climbergirls/comments/1rb2bhe/psa_madrid_airport_didnt_let_us_keep_the_rope_in/) a climber's rope and quickdraws were refused in the cabin; the poster said earlier trips to Spain with gear in the carry-on had been fine.
@@ -196,7 +196,7 @@ The reasons repeat: a rope "could be used to tie someone up," and carabiners loo
 | Rope | Checked is safer | Experience | TSA lists rope as cabin-allowed, but elsewhere it has repeatedly been treated as a restraint |
 | Quickdraws, carabiners, cams, nuts, belay device | Checked is safest; allow extra time if carried on | Experience | On no list, so it's the screener's call |
 | Stick clip | Checked | Experience | 6 mentions of inspection or confiscation in the community examples |
-| Climbing shoes, harness, helmet | Cabin | Experience | 17 of 30 examples do this: fitted gear is hard to rent locally, and you can still climb if the checked bag goes missing |
+| Climbing shoes, harness, helmet | Cabin | Experience | 21 of 45 examples do this: fitted gear is hard to rent locally, and you can still climb if the checked bag goes missing |
 | Crash pad | Checked | Airline rule | Watch the 158 cm and 203 cm size limits |
 
 Check in this order before you fly:

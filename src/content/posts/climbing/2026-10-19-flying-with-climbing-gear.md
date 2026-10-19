@@ -169,7 +169,7 @@ TSA 另外要求托運的尖銳物品要套起來或包好。冰斧、冰爪的�
 
 ## 實際發生過的攔查
 
-規定之外，社群裡的實例最能說明「由安檢人員決定」是什麼意思。[下一篇](/posts/climbing/2026-10-19-climbing-travel-packing-examples)整理的 30 個 2020 年後公開實例中，記到約 20 次在機場被要求改托運、被沒收或差點被沒收，以西班牙和墨西哥市的機場最多。例如：
+規定之外，社群裡的實例最能說明「由安檢人員決定」是什麼意思。[下一篇](/posts/climbing/2026-10-19-climbing-travel-packing-examples)整理的 45 個 2020 年後公開實例中，記到約 25 次在機場被要求改托運、被沒收或差點被沒收，以西班牙和墨西哥市的機場最多。例如：
 
 - **墨西哥城飛蒙特雷**（往 El Potrero Chico 的路線）：[2024-05 有人被要求把全部攀岩裝備改托運](https://www.mountainproject.com/forum/topic/126025298/flying-with-climbing-gear-in-a-carry-on)；[一則 2022 年開始的 Reddit 討論](https://www.reddit.com/r/RockClimbing/comments/zk8fmg/flying_with_climbing_gear/)裡，也有人在同一段航線的快扣被擋，跑回去托運。
 - **馬德里**：[2026-02](https://www.reddit.com/r/climbergirls/comments/1rb2bhe/psa_madrid_airport_didnt_let_us_keep_the_rope_in/) 有人的繩子和快扣不准帶上機，發文者說之前帶去西班牙都沒問題。
@@ -196,7 +196,7 @@ TSA 另外要求托運的尖銳物品要套起來或包好。冰斧、冰爪的�
 | 繩 | 托運較穩 | 經驗 | TSA 明列可手提，但其他地方多次被當成束縛工具 |
 | 快扣、鉤環、活動岩楔、岩楔、確保器 | 托運最穩；手提要預留時間 | 經驗 | 不在任何清單上，由安檢人員決定 |
 | stick clip | 托運 | 經驗 | 社群實例中有 6 處提到被翻查或沒收 |
-| 攀岩鞋、吊帶、頭盔 | 手提 | 經驗 | 30 個實例中 17 個這樣做，因為合腳的裝備難在當地租借，托運行李遺失時還能爬 |
+| 攀岩鞋、吊帶、頭盔 | 手提 | 經驗 | 45 個實例中 21 個這樣做，因為合腳的裝備難在當地租借，托運行李遺失時還能爬 |
 | 抱石墊 | 托運 | 航司規定 | 留意 158 cm 和 203 cm 的尺寸上限 |
 
 出發前照這個順序查：

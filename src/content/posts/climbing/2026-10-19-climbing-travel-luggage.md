@@ -4,8 +4,8 @@ date: 2026-10-19
 category: climbing
 tags: [climbing, climbing-gear, travel, outdoor-climbing, sport-climbing]
 lang: zh-TW
-description: "比較攀岩旅行的三類托運主袋：大型裝備袋（含拖包與滾輪袋）、大容量背包、戶外品牌旅行背包。列出 16 個攀岩與戶外品牌現行款的容量、空重、背負方式、三邊尺寸與官方價格，再說明岩場包或多繩距包兼當登機包的尺寸和重量條件。"
-tldr: "租車用大型裝備袋，搭大眾運輸選有背帶的裝備袋或大背包，繩子在當地租、只帶隨身行李時才用 40 L 上下的旅行背包。100 L 以下的軟質裝備袋多數在托運 158 cm 以內，但滾輪袋空重約 3–5 kg，會先吃掉 23 kg 的額度。登機限重 7 kg 時，岩場包本身從 0.9 kg 到 2 kg 都有，包越輕，能帶上機的鞋、吊帶和五金越多。"
+description: "比較攀岩旅行的三類托運主袋：大型裝備袋（含拖包與滾輪袋）、大容量背包、戶外品牌旅行背包。列出 21 個攀岩與戶外品牌現行款的容量、空重、背負方式、三邊尺寸與官方價格，再說明岩場包或多繩距包兼當登機包的尺寸和重量條件。"
+tldr: "租車用大型裝備袋，搭大眾運輸選有背帶的裝備袋或大背包，繩子在當地租、只帶隨身行李時才用 40 L 上下的旅行背包。100 L 以下的軟質裝備袋多數在托運 158 cm 以內，但滾輪袋空重多在 2.5–5 kg，會先吃掉 23 kg 的額度。登機限重 7 kg 時，岩場包本身從 0.9 kg 到 2 kg 都有，包越輕，能帶上機的鞋、吊帶和五金越多。"
 draft: false
 series:
   name: "出國攀岩裝備"
@@ -14,7 +14,7 @@ series:
 
 > 🌏 [English version](/posts/climbing/2026-10-19-climbing-travel-luggage-en)
 
-[上一篇](/posts/climbing/2026-10-19-climbing-travel-packing-examples)整理了 30 個攀岩者的打包實例，最常見的分法是繩子和快扣托運，鞋、吊帶、頭盔帶上機。這篇接著回答用什麼袋子裝：托運的主袋選大型裝備袋、大容量背包，還是旅行背包？登機包能不能直接用岩場包？
+[上一篇](/posts/climbing/2026-10-19-climbing-travel-packing-examples)整理了 45 個攀岩者的打包實例，最常見的分法是繩子和快扣托運，鞋、吊帶、頭盔帶上機。這篇接著回答用什麼袋子裝：托運的主袋選大型裝備袋、大容量背包，還是旅行背包？登機包能不能直接用岩場包？
 
 從台灣出發，長榮、華航、星宇的經濟艙托運單件上限都是 23 kg、長寬高總和 158 cm，登機行李 7 kg。日航、全日空和台灣虎航的登機行李是兩件合計 10 kg。袋子本身的尺寸和空重，就是在這幾個數字裡分配空間。各航司的完整規定見[〈攀岩裝備上飛機〉](/posts/climbing/2026-10-19-flying-with-climbing-gear)。
 
@@ -22,7 +22,7 @@ series:
 
 ## 先看交通方式，再選主袋類型
 
-[上一篇的實例](/posts/climbing/2026-10-19-climbing-travel-packing-examples)裡，托運用滾輪大袋或行李箱的約 7 例，用遠征大袋（duffel）的約 6 例，另有 1 例直接拿拖包（haul bag）當行李。三類主袋的差別在落地以後：你要扛著它走多遠、走什麼路。
+[上一篇的實例](/posts/climbing/2026-10-19-climbing-travel-packing-examples)裡，托運用滾輪大袋或行李箱的約 9 例，用遠征大袋（duffel）的約 8 例，另有 1 例直接拿拖包（haul bag）當行李。三類主袋的差別在落地以後：你要扛著它走多遠、走什麼路。
 
 | 主袋類型 | 怎麼背 | 適合的行程 | 代價 |
 |---|---|---|---|
@@ -51,7 +51,7 @@ flowchart TB
 
 ## 大型裝備袋：現行款比較
 
-以下價格是 2026-10-19 各品牌官網標價，幣別照官網所在地區，沒有換算。三邊總和由原廠尺寸換算成公分；BD Mission 和 Wall Hauler 原廠頁沒有尺寸，用 REI 商品頁的數字。第三方評測只列 2020 年以後的。
+以下價格是 2026-10-19 各品牌官網標價，幣別照官網所在地區，沒有換算。三邊總和由原廠尺寸換算成公分；BD Mission 和 Wall Hauler 原廠頁沒有尺寸，用 REI 商品頁的數字。第三方評測只列 2020 年以後的。Mountain Equipment 的商品頁和[尺寸表](https://us.mountain-equipment.com/pages/size-guide-wet-dry-roller-kit-bag)空重對不上，表上兩個數字都列。
 
 ### 有背帶的軟質裝備袋
 
@@ -79,12 +79,20 @@ flowchart TB
 | [Mountain Hardwear Expedition Duffel 75](https://www.mountainhardwear.com/p/expedition-duffel-75-2109963.html) | 75 L | 1,550 g | 可拆背帶 | 140 cm ✓ | US$320 | — |
 | [Mountain Hardwear Expedition Duffel 100](https://www.mountainhardwear.com/p/expedition-duffel-100-2109961.html) | 100 L | 1,735 g | 可拆背帶 | 152 cm ✓ | US$330 | — |
 | [Arc'teryx Carrier 75 Duffle](https://arcteryx.com/us/en/shop/carrier-75-duffle-7474) | 75 L | 920 g | 單肩背帶 | 140 cm ✓ | US$300 | — |
+| [Thule Chasm 70L](https://www.thule.com/en-us/luggage/travel-duffel-bags/thule-chasm-70l-duffel-_-3204994) | 70 L | 約 1.77 kg | 可收背帶 | 140 cm ✓ | US$179.95 | — |
+| [Thule Chasm 90L](https://www.thule.com/en-us/luggage/travel-duffel-bags/thule-chasm-90l-duffel-_-3204998) | 90 L | 約 2.09 kg | 可收背帶 | 150 cm ✓ | US$199.95 | — |
+| [Sea to Summit Meridian Duffle 60L](https://seatosummit.com/products/meridian-duffle) | 60 L | 1,270 g | 可拆背帶，收在外側口袋 | 131 cm ✓ | US$159.95 | — |
+| [Sea to Summit Meridian Duffle 90L](https://seatosummit.com/products/meridian-duffle) | 90 L | 1,490 g | 同上 | 151 cm ✓ | US$179.95 | — |
+| [Eagle Creek Cargo Hauler 90L Duffel](https://eaglecreek.com/products/cargo-hauler-90l-duffel-bag) | 90 L | 1.2 kg | 可收背帶 | 142 cm ✓ | US$199 | — |
+| [Mountain Equipment Wet & Dry Kitbag 70L](https://mountain-equipment.com/products/wet-dry-70l-kitbag) | 70 L | 1,670 g（商品頁寫 2,630 g） | 背帶加提把 | 136 cm ✓ | £140 | — |
+| [Ortlieb Duffle 60L](https://de.ortlieb.com/en/products/duffle) | 60 L | 1,180 g | 加墊提把兼肩帶 | 122 cm ✓ | €185 | — |
+| [Ortlieb Duffle 85L](https://de.ortlieb.com/en/products/duffle) | 85 L | 1,360 g | 同上 | 140 cm ✓ | €195 | — |
 | [Black Diamond Mission 130](https://blackdiamondequipment.com/products/mission-130-l-duffel) | 130 L | 約 1.13 kg | 提把兼單肩背帶 | 163 cm ✗ | US$219.95 | — |
 
 幾個挑選重點：
 
 - **100 L 以下的軟袋，多數在 158 cm 以內。** 超過的是 Mammut Cargo 100、[Gregory Alpaca 100](https://www.gregory.com/travel/duffels/alpaca-duffel-100/147932XXXX.html)（160 cm）和 BD Mission 130。要用大容量，Patagonia 100 L、Mountain Hardwear 100 L 和 The North Face L 都還在範圍內。
-- **背帶收得起來，托運時比較不會被扯壞。** 上一篇有一例，朋友的 Creek 50 托運後背帶被地勤扯壞。Osprey、Deuter、NEMO 的背帶收在袋身，Mammut 收進頂蓋；其餘多是拆下來另外放。單肩背帶的 Arc'teryx 和 BD Mission 只適合短距離。
+- **背帶收得起來，托運時比較不會被扯壞。** 上一篇有一例，朋友的 Creek 50 托運後背帶被地勤扯壞。Osprey、Deuter、NEMO、Thule、Eagle Creek 的背帶收在袋身，Mammut 收進頂蓋，Sea to Summit 收進外側口袋；其餘多是拆下來另外放。單肩背帶的 Arc'teryx、BD Mission，和拿提把當肩帶的 Ortlieb Duffle 只適合短距離。
 - **不想被 158 cm 卡住，選 60–80 L。** 表上這個容量的每一款都在 158 cm 以內。[上一篇](/posts/climbing/2026-10-19-climbing-travel-packing-examples)估算一個人帶 70 m 繩加自己一週的衣物約 13–14 kg，離 23 kg 還有餘裕。
 
 Black Hole 系列是實例裡被點名最多的袋子，出現在 3 個實例。也有人持相反意見：他覺得 Mountain Hardwear Expedition Duffel 比較耐用，自己的 Black Hole「破了幾個洞」（[Mountain Project，2023](https://www.mountainproject.com/forum/topic/124138683/best-gear-bag-for-air-travel)）。這是單一使用者的說法，不是耐用度測試。
@@ -104,15 +112,36 @@ Black Hole 系列是實例裡被點名最多的袋子，出現在 3 個實例。
 
 拖包只建議給真的要爬大岩壁、或想讓托運袋到岩場兼裝備袋的人。單純搭飛機，同容量的軟袋輕 1 kg 以上。
 
-### 滾輪袋：機場和平路方便，空重最高
+### 滾輪袋：機場和平路方便，空重偏高
 
 | 型號 | 容量 | 空重 | 背負方式 | 三邊總和 | 官方價格 | 2020 後評測 |
 |---|---|---|---|---|---|---|
-| [Patagonia Black Hole Wheeled Duffel 100L](https://www.patagonia.com.au/products/black-hole-wheeled-duffel-100l-49388-blk) | 100 L | 4,780 g | 滾輪，無背帶 | 157.5 cm（只差 0.5 cm） | AUD 649.95 | [Switchback Travel 滾輪袋比較（2026，最佳整體）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [Patagonia Black Hole Wheeled Duffel 40L](https://www.patagonia.com.au/products/black-hole-wheeled-duffel-40l-49379-blk) | 40 L | 3,521 g | 滾輪，無背帶 | 120 cm ✓ | AUD 599.95（缺貨中；美國官網 US$369） | [Switchback Travel 滾輪袋比較（2026，系列評為最佳整體）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [Patagonia Black Hole Wheeled Duffel 70L](https://www.patagonia.com.au/products/black-hole-wheeled-duffel-70l-49382-bob) | 70 L | 約 4,100 g | 滾輪，無背帶 | 138 cm ✓ | AUD 629.95 | 同上 |
+| [Patagonia Black Hole Wheeled Duffel 100L](https://www.patagonia.com.au/products/black-hole-wheeled-duffel-100l-49388-blk) | 100 L | 4,780 g | 滾輪，無背帶 | 157.5 cm（只差 0.5 cm） | AUD 649.95 | 同上 |
 | [The North Face Base Camp Duffel Roller](https://www.thenorthface.com/en-us/p/bags-and-gear/luggage-and-duffels/duffel-bags-224547/base-camp-duffel-roller-NF0A52RP) | 97 L | 2,940 g | 滾輪加背帶 | 145 cm ✓ | US$250（缺貨中） | — |
-| [Osprey Rolling Transporter 90](https://www.osprey.com/gb/osprey-transporter-wheeled-duffel-90-s25) | 90 L | 3.23 kg | 滾輪，無背帶 | 160 cm ✗ | £260 | [Switchback Travel 滾輪袋比較（2026）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [The North Face Base Camp Rolling Thunder 22"](https://www.thenorthface.com/en-us/p/bags-and-gear/luggage-and-duffels/rolling-luggage-224545/base-camp-rolling-thunder22-40l-NF0A87GB) | 40 L | 3,680 g | 滾輪，無背帶 | 122 cm ✓ | US$300（缺貨中；[英國官網](https://www.thenorthface.com/en-gb/p/bags-and-equipment-211747/base-camp-rolling-thunder-22-NF0A87GB) £280） | [OutdoorGearLab（2026，最適合搭機的滾輪袋）](https://www.outdoorgearlab.com/topics/travel/best-duffel-bag)；[Switchback Travel（2026）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [The North Face Base Camp Rolling Thunder 28"](https://www.thenorthface.com/en-us/p/bags-and-gear/luggage-and-duffels/rolling-luggage-224545/base-camp-rolling-thunder28-NF0A87GC) | 95 L | 5,000 g | 滾輪，無背帶 | 158 cm ✓（剛好壓線） | US$380 | [Switchback Travel（2026，最適合戶外用）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [Osprey Transporter Wheeled Duffel 40](https://www.osprey.com/gb/osprey-transporter-wheeled-duffel-40-s25) | 40 L | 2.55 kg | 滾輪，無背帶 | 128 cm ✓ | £220 | [Switchback Travel 滾輪袋比較（2026）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [Osprey Rolling Transporter 90](https://www.osprey.com/gb/osprey-transporter-wheeled-duffel-90-s25) | 90 L | 3.23 kg | 滾輪，無背帶 | 160 cm ✗ | £260 | 同上 |
+| [Osprey Transporter Wheeled Duffel 120](https://www.osprey.com/gb/osprey-transporter-wheeled-duffel-120-s25) | 120 L | 3.5 kg | 滾輪，無背帶 | 180 cm ✗ | £280 | 同上 |
+| [Mammut Wheeled Cargo 45](https://www.mammut.com/us/en/products/2570-00430-0001/wheeled-cargo-45) | 45 L | 2,600 g | 滾輪加可拆背帶 | 122 cm ✓ | US$299.95（缺貨中） | — |
+| [Mammut Wheeled Cargo 90](https://www.mammut.com/us/en/products/2570-00440-0001/wheeled-cargo-90) | 90 L | 3,250 g | 滾輪加可拆背帶 | 156 cm ✓ | US$339.95 | — |
+| [Gregory Alpaca Wheeled Duffel 100L](https://www.gregory.com/travel/duffels/alpaca-wheeled-duffel-100l/155037XXXX.html) | 100 L | 約 3.89 kg | 滾輪，無背帶 | 157.5 cm（只差 0.5 cm） | US$299.95 | — |
+| [Thule Chasm 40L 滾輪款](https://www.thule.com/en-us/luggage/carry-on-luggage/thule-chasm-wheeled-carry-on-duffel-_-3204986) | 40 L | 約 3.3 kg | 滾輪，無背帶 | 113 cm ✓ | US$369.95 | — |
+| [Mountain Equipment Wet & Dry Roller Kit Bag 70L](https://us.mountain-equipment.com/products/wet-dry-roller-kit-bag-70l) | 70 L | 3,350 g（尺寸表寫 3,370 g） | 滾輪，無背帶 | 136 cm ✓ | US$299.95 | — |
+| [Mountain Equipment Wet & Dry Roller Kit Bag 100L](https://us.mountain-equipment.com/products/wet-dry-roller-kit-bag-100l) | 100 L | 3,500 g（尺寸表寫 3,860 g） | 滾輪，無背帶 | 148 cm ✓ | US$374.95 | — |
+| [Eagle Creek Cargo Hauler Wheeled Duffel 110L](https://eaglecreek.com/products/cargo-hauler-110l-rolling-duffel) | 108 L（原廠實測） | 1.9 kg | 滾輪加可收背帶 | 149 cm ✓ | US$249 | [Switchback Travel（2026）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [Eagle Creek Cargo Hauler XT 90L Wheeled Duffel](https://eaglecreek.com/products/cargo-hauler-xt-29-wheeled-duffel) | 90 L | 3.7 kg | 滾輪加可收背帶 | 146 cm ✓ | US$349 | — |
+| [Ortlieb Duffle RS 85L](https://de.ortlieb.com/en/products/duffle-rs) | 85 L | 2,790 g | 滾輪加肩背帶，沒有拉桿 | 147 cm ✓ | €340 | — |
+| [Ortlieb Duffle RG 60L](https://de.ortlieb.com/en/products/duffle-rg) | 60 L | 3,250 g | 滾輪、伸縮拉桿加肩背帶 | 135 cm ✓ | €360 | — |
+| [Ortlieb Duffle RG 85L](https://de.ortlieb.com/en/products/duffle-rg) | 85 L | 3,450 g | 同上 | 151.5 cm ✓ | €380 | — |
 
-滾輪袋適合租車、住同一個地方，或機場到住宿都是平路的行程。要走碎石路、爬樓梯時，The North Face Roller 這種輪子加背帶的款式比較有彈性。
+滾輪袋適合租車、住同一個地方，或機場到住宿都是平路的行程。大容量滾輪袋的空重差很多，最輕的 Eagle Creek Cargo Hauler 110L 不到 2 kg，最重的 Rolling Thunder 28" 有 5 kg，差距直接從托運額度裡扣。
+
+要走碎石路、爬樓梯時，輪子加背帶的款式比較有彈性：The North Face Roller、Mammut、Eagle Creek 和 Ortlieb 都有。Mammut Wheeled Cargo 90 的肩背帶可以拆，三邊 156 cm 在上限內；車站到住處那段改用背的，托運前拆下背帶，比較不會被扯壞。它空重 3.25 kg，比同品牌沒輪子的 Cargo 100 重了約 1.9 kg。
+
+40–45 L 的小滾輪袋多半標榜能登機，但照長榮、華航的 115 cm 算，表上只有 Thule Chasm 40L 過關。它本身就重 3.3 kg，吃掉 7 kg 額度的將近一半，這一級當托運的小件比較實際。
 
 ## 大容量背包：要背著走的行程
 
@@ -127,6 +156,7 @@ Black Hole 系列是實例裡被點名最多的袋子，出現在 3 個實例。
 | [Deuter Voyager 65+10](https://www.deuter.com/us-en/voyager-65-10/4046051167183) | 65＋10 L | 2,830 g | 運輸護套（兼防雨罩） | 142 cm ✓（掛上小包 157 cm） | US$325 | [Tour du Mondiste（法文，2025-08-06）](https://www.tourdumondiste.com/avis-sac-a-dos-deuter-voyager) |
 | [Lowe Alpine Escape Trek 60:70](https://lowealpine.com/uk/lowe-alpine-escape-trek-60-70) | 60＋10 L | 2.05 kg | 背帶可收＋運輸護套 | 149 cm ✓ | £210（透過特定零售商販售） | — |
 | [Gregory Border 50+15](https://eu.gregorypacks.com/uk-en/-border-50-15--black-lichen/154921-A653.html) | 50＋15 L | 2.79 kg | 肩帶可收＋運輸護套 | 139 cm ✓ | £260 | — |
+| [Thule Landmark 70L](https://www.thule.com/en-us/backpacks/backpacking-travel-backpacks/thule-landmark-70l-_-3205317) | 70 L（含 20 L 小包） | 約 2.09 kg | 拉鍊護蓋包住背板、肩帶、腰帶 | 145 cm ✓ | US$279.95 | [Switchback Travel（2026-02，60 L 版本）](https://switchbacktravel.com/best-travel-backpacks) |
 | [Decathlon Forclaz Travel 900 70+6](https://www.decathlon.co.uk/p/men's-travel-trekking-rucksack-with-suitcase-opening-70-6-litre-travel-900/_/R-p-324139) | 70＋6 L | 2.5 kg | 防雨罩兼運輸套 | 140 cm ✓ | £119.99 | [Live for the Outdoors（2024-02，女款 60+6）](https://livefortheoutdoors.com/hiking/rucksacks/decathlon-forclaz-womens-travel-900-backpack-review) |
 
 這類包的空重多在 2–2.8 kg，比同容量軟袋重 1 kg 左右，換來的是能背一整天。掛上可拆小包時，Deuter Voyager 總和 157 cm，幾乎貼著上限；托運前把小包拆下來帶上機，就不用擔心。
@@ -143,10 +173,12 @@ Black Hole 系列是實例裡被點名最多的袋子，出現在 3 個實例。
 |---|---|---|---|---|---|---|
 | [Osprey Farpoint 40](https://osprey.com/gb/osprey-farpoint-40-f22)／[Fairview 40](https://osprey.com/eu/fairview-40-s26)（女款） | 40 L | 1.48 kg | 55×35×23 cm | ✓ | £170／€180（換代中，舊版缺貨） | [OutdoorGearLab（2026-08 更新）](https://outdoorgearlab.com/topics/travel/best-travel-backpack)；[Pack Hacker（2022-12）](https://packhacker.com/travel-gear/osprey/farpoint-40) |
 | [Osprey Transporter Travel Pack 44](https://osprey.com/gb/osprey-transporter-travel-pack-44-s25) | 44 L | 1.54 kg | 54×42×32 cm | ✗（寬、厚都超過） | £190 | — |
+| [Osprey Farpoint 55](https://www.osprey.com/farpointtm-55-travel-pack)／Fairview 55（女款） | 40 L＋15 L 小包 | 1.87 kg | 55×35×46 cm（推測含掛上的小包） | 未確認（原廠說拆下小包可登機） | US$240 | — |
 | [Patagonia Black Hole MLC 45L](https://patagonia.com.au/products/black-hole-mlc-45l-49307-blk) | 45 L | 1,644 g | 56×37×19 cm | ✓（總和 112 cm；長邊比日航、全日空多 1 cm） | AUD 379.95 | [OutdoorGearLab（2026-08 更新）](https://outdoorgearlab.com/topics/travel/best-travel-backpack)；[Pack Hacker（2024-10）](https://packhacker.com/travel-gear/patagonia/black-hole-mlc) |
 | [Patagonia Black Hole Pack 32L](https://patagonia.com.au/products/black-hole-pack-32l-49302-pgta) | 32 L | 811 g | 56×25×17 cm | ✓ | AUD 269.95 | [Pack Hacker（2023-03）](https://www.packhacker.com/travel-gear/patagonia/black-hole-pack-32l/) |
 | [Gregory Border Carry-On 40](https://gregory.com/travel/backpacks/border-carry-on-40/154920D789.html) | 40 L | 1.75 kg | 56×36×23 cm | ✓ | US$239.95 | [Pack Hacker（2026-02）](https://packhacker.com/travel-gear/gregory/border-carry-on-40-2) |
 | [The North Face Base Camp Voyager Travel Pack 35L](https://www.thenorthface.com/en-us/p/bags-and-gear/backpacks-224451/base-camp-voyager-travel-pack-35l-NF0A81DN) | 35 L | 約 1.57 kg（REI 標示） | 49×30×16 cm（REI 標示） | ✓ | US$180 | [Switchback Travel（2026-02）](https://switchbacktravel.com/best-travel-backpacks)；[Pack Hacker（2025-01）](https://packhacker.com/travel-gear/the-north-face/base-camp-voyager-travel-pack) |
+| [Thule Aion 40L](https://www.thule.com/en-us/luggage/thule-aion-collection/thule-aion-travel-backpack-40l-_-3204724) | 40 L | 約 1.45 kg | 52×33×23 cm | ✓（總和 108 cm） | US$209.95 | [Switchback Travel（2026-02）](https://switchbacktravel.com/best-travel-backpacks) |
 | [Mystery Ranch Mission Rover 45](https://www.mysteryranch.com/mission-rover-45-pack) | 45 L | 1.77 kg | 53×33×30 cm | ✗（總和 117 cm） | US$249（缺貨，未公布補貨日） | [Pack Hacker（2025-07）](https://www.packhacker.com/travel-gear/mystery-ranch/mission-rover-45/) |
 | [Deuter Carry On 30](https://www.deuter.com/us-en/carry-on-30/4046051190693) | 30 L | 1,080 g | 52×33×22 cm | ✓ | US$170（未稅） | — |
 | [Lowe Alpine Escape Flight Pro 40L](https://lowealpine.com/lowe-alpine-escape-flight-pro-40l-cabin-pack) | 40 L | 1.36 kg | 55×33×25 cm | ✓（總和 113 cm） | £145（透過特定零售商販售） | — |
@@ -178,6 +210,10 @@ Black Hole 系列是實例裡被點名最多的袋子，出現在 3 個實例。
 
 拿到袋子以後，出發前在家做一次：把要帶的東西全部裝進去，用捲尺量塞滿後的三邊，再用行李秤秤主袋和登機包。超過 158 cm 或 23 kg，就換小一號的袋子或把繩子移到同伴那邊；登機包超過 7 kg，先把衣服移去托運，鞋和吊帶留在身上。
 
+## 更新紀錄
+
+- 2026-10-19：滾輪袋表新增 17 款（含 Mammut Wheeled Cargo 90）、有背帶的軟質裝備袋表新增 8 款、大容量背包表新增 1 款、旅行背包表新增 2 款；改寫滾輪袋的挑選說明，更新品牌數與滾輪袋空重範圍。
+
 ## 參考資料
 
 - [長榮航空：托運行李](https://www.evaair.com/zh-tw/fly-prepare/baggage/free-baggage/checked-baggage/)
@@ -207,4 +243,6 @@ Black Hole 系列是實例裡被點名最多的袋子，出現在 3 個實例。
 - [Climbing.com：What Climbing Gear You Can Fly With, According to TSA（2025-10-14）](https://www.climbing.com/travel/flying-with-climbing-gear-faqs/)
 - [Mountain Project：Best gear bag for air travel（2023）](https://www.mountainproject.com/forum/topic/124138683/best-gear-bag-for-air-travel)
 - [Kalymnos – a paradise for climbers（2024-12-02）](https://www.tuomasheinonen.com/blog/kalymnos-a-paradise-for-climbers-what-i-learned-on-my-first-visit-to-the-island/)
+- [Mountain Equipment：Wet & Dry Roller Kit Bag 尺寸表](https://us.mountain-equipment.com/pages/size-guide-wet-dry-roller-kit-bag)
+- [Mountain Equipment：Wet & Dry Kit Bag 尺寸表](https://mountain-equipment.com/pages/size-guide-wet-dry-kit-bag)
 - 各型號官方頁面見文中表格連結，價格查詢日 2026-10-19。

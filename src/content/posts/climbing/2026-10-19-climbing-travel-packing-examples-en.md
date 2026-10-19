@@ -4,8 +4,8 @@ date: 2026-10-19
 category: climbing
 tags: [climbing, outdoor-climbing, travel, sport-climbing, trad-climbing, bouldering]
 lang: en
-description: "Real packing setups climbers shared publicly from 2021 to 2026, grouped into sport, trad, bouldering and carry-on-only trips: what went in the hold and the cabin, which bags, total weights, airport problems, and three setups you can copy."
-tldr: "Shoes, harness and helmet in the cabin, rope in the hold: that is the most common split across 30 community examples. One person's nine-day sport kit came to about 16 kg checked; departures from Mexico City and Spanish airports are where quickdraws and ropes most often get sent back to check-in."
+description: "Real packing setups climbers shared publicly from 2021 to 2026, grouped into sport, trad, alpine and ice, short-haul Asia, climbing trips to Taiwan, bouldering and carry-on-only trips: what went in the hold and the cabin, which bags, total weights, airport problems, and three setups you can copy."
+tldr: "Shoes, harness and helmet in the cabin, rope in the hold: that is the most common split across 45 community examples. One person's nine-day sport kit came to about 16 kg checked; departures from Mexico City and Spanish airports are where quickdraws and ropes most often get sent back to check-in, while Asian low-cost carriers tend to trip you up first with a 7 kg carry-on limit."
 draft: false
 series:
   name: "Climbing Travel Gear"
@@ -14,11 +14,11 @@ series:
 
 > 🌏 [中文版](/posts/climbing/2026-10-19-climbing-travel-packing-examples)
 
-This post collects 30 packing setups that climbers shared publicly for fly-in climbing trips, dated October 2021 to February 2026. The sources are Mountain Project, the UKClimbing forums, Reddit, personal blogs and YouTube. Pick the one closest to your trip and adapt it into your own checked and carry-on lists.
+This post collects 45 packing setups that climbers shared publicly for fly-in climbing trips, dated September 2021 to October 2026. The sources are Mountain Project, the UKClimbing forums, Reddit, personal blogs (including Japanese climbers' trips to Long Dong in Taiwan), the Taiwan Outdoor Climbing Club (TOCC) and YouTube. Pick the one closest to your trip and adapt it into your own checked and carry-on lists.
 
 One premise first: whether climbing gear gets on the plane is decided by the security officer on the day, and there are plenty of reports of the same airport passing gear outbound and refusing it on the return. Rules and airline limits are covered in [Flying with Climbing Gear](/posts/climbing/2026-10-19-flying-with-climbing-gear-en); this post looks only at how people actually packed.
 
-## At a glance: 16 representative examples
+## At a glance: 31 representative examples
 
 | Example | Style | Rope | Draws / cams | Shoes, harness | Checked weight |
 |---|---|---|---|---|---|
@@ -27,17 +27,32 @@ One premise first: whether climbing gear gets on the plane is decided by the sec
 | Kalymnos couple (2024) | Sport | Checked (two) | Checked | Cabin | About 20 kg per bag |
 | A month in Cuenca, Spain (2025) | Sport | Checked | Checked | Checked | Not stated |
 | UK to Phuket, Thailand (2026) | Sport | Not taken | A few in cabin | Cabin | No checked bag |
+| UK to Kalymnos (2026) | Sport | Checked | Checked (trad gear dropped) | Shoes cabin, harness checked | One shared bag, just under 20 kg |
+| Athens to Kos (2026) | Sport | Cabin | Not stated | Not stated | Not stated |
+| Narita via Beijing to Kalymnos (2025) | Sport | Checked | Checked | Checked | 28 kg across two bags |
+| Washington State to Las Vegas (2025) | Sport | Cabin | Cabin | Not stated | No checked bag |
 | New York to Salt Lake City (2025) | Trad | Checked | Cabin | Cabin | Not stated |
 | Seattle to Las Vegas (2021) | Trad + sport | Checked | Checked | Checked | Not stated |
 | A full trad kit in one bag (2023) | Trad | Checked | Checked | Checked | About 23 kg |
 | Barcelona to Argentina (2022) | Trad | — | Cabin, then forced to check | Cabin | Not stated |
 | A year in Europe (2021) | Trad + multipitch | Bought on arrival | Checked | Checked | Not stated |
+| Brazil to El Potrero Chico (2025) | Sport + multipitch | Cabin, then forced to check | Cabin, then forced to check | Cabin, then forced to check | No checked bag planned |
+| Portland to El Calafate (2026) | Alpine + ice | Not stated | Ice tools and crampons belong in the hold | Not stated | One overweight 120 L duffel |
+| Narita to Hanoi, Huu Lung (2025) | Sport | Checked | Checked | Not stated | Over 20 kg, upgraded to 30 kg |
+| Kuala Lumpur to Krabi (2025) | Sport | Partner checked it | Partner checked them | Cabin | No checked bag, 7 kg carry-on |
+| Siem Reap, Cambodia to Kuala Lumpur (2025) | Sport (long trip) | Cabin, then refused | Not stated | Not stated | One bag already checked |
+| Tokyo to Long Dong, Taiwan (2025) | Sport | Checked | Checked | Shoes checked | Not stated |
+| Haneda to Taipei Songshan (2025) | Sport | Checked (inferred) | Checked (inferred) | Shoes checked (inferred) | Not stated (23 kg allowance) |
+| Taiwan to Yosemite, USA (2025) | Trad + multipitch | Not stated | Not stated, some borrowed locally | Not stated | 30 kg across two bags outbound |
 | LA to Europe bouldering (2025) | Bouldering | — | — | — | 50 lb limit per pad |
 | Flying to Rocklands (2024) | Bouldering | — | — | — | Pad 6.9 kg |
 | Rocklands advice (2026) | Bouldering | — | — | Cabin | Not stated |
+| US to Fontainebleau (2025) | Bouldering | — | — | — | Two pads wrapped as one bag |
+| UK to Albarracín (2025) | Bouldering | — | — | — | Three pads wrapped as one bag |
 | Pro climber to Italy (2022) | Sport (festival) | Not taken | Not taken | Cabin | No checked bag |
 | Personal-item-only weekend (2024) | Sport | — | — | Personal item | No checked bag |
 | Crag pack as personal item (2024) | Trad | — | Worn | Worn | No checked bag |
+| Tours, France to the UK (2026) | Carry-on only | — | Carabiner in cabin, confiscated | Not stated | No checked bag |
 
 Every example uses the same fields: destination and year, airline (only when stated), checked, carry-on, which bag, total weight, and the problems hit. Brands and models are recorded as the source gave them, not as recommendations; for choosing bags, see [Climbing Travel Luggage](/posts/climbing/2026-10-19-climbing-travel-luggage-en).
 
@@ -83,6 +98,33 @@ Every example uses the same fields: destination and year, airline (only when sta
 
 A related post from the same month: a couple who had flown to Spain before with rope and draws in carry-on were stopped in Madrid this time, told the rope and draws were not allowed, and had to run back to check them ([Reddit, 2026-02-21](https://www.reddit.com/r/climbergirls/comments/1rb2bhe/psa_madrid_airport_didnt_let_us_keep_the_rope_in/)).
 
+### UK to Kalymnos (2026): one shared checked bag, under 20 kg once the trad gear came out
+
+- **Allowance**: easyJet, one 23 kg checked bag shared between two
+- **Original checked list**: an 80 m rope, 25 quickdraws, slings, belay devices, prusiks and spare carabiners, plus a set of nuts and a few cams. It came in over 23 kg
+- **What came out**: replies said Kalymnos does not need trad gear, so the nuts and cams went, the draws dropped to 21, and a pair of shorts and a pair of trousers stayed home. The bag ended up just under 20 kg
+- **Carry-on**: climbing shoes and rain jackets in the cabin backpack; harnesses and helmets stayed in the checked bag
+- **Advice from the thread**: around 20 draws is plenty; wear your one pair of approach shoes and your down jacket on the plane so they do not count. Another poster flying to Costa Blanca shared one roughly 30 kg suitcase between two, topped up to 33 kg in the easyJet app the night before, and still paid less than for two bags
+- Source: [UKClimbing thread, 2026-04-08](https://www.ukclimbing.com/forums/t.php?t=789450)
+
+### Athens to Kos (2026): rope in a 35 L pack in the cabin, no trouble at Athens security
+
+- **Route**: Sky Express from Athens to Kos, then a ferry to Kalymnos
+- **Carry-on**: the rope inside a Black Diamond 35 L pack. He had asked on the forum beforehand because carrying a rope on international flights had given him "mixed results"; Athens security had no issue, and the pack was tagged as cabin baggage
+- **Airline notes**: Sky Express was relaxed about cabin-bag weight and size. Another poster warned that the return from Kos on Sky Express had cost them an overweight fee, because its checked limit is lower than on long-haul flights
+- Source: [Mountain Project thread, 2026-03-24](https://www.mountainproject.com/forum/topic/202193308/kalymnos-logistics)
+
+### Narita via Beijing to Kalymnos (2025): 28 kg across two checked bags, and a suitcase that arrived broken in Athens
+
+- **Route**: departing April 2025, Air China via Beijing to Athens, then Sky Express via Kos to Kalymnos, four connections in all
+- **Checked bag one**: a RIMOWA Salsa 87 L suitcase at 21 kg, holding the rope, quickdraws, helmet, harness, belay device, two pairs of shoes, top-rope anchor gear, clothes, a folding chair and food
+- **Checked bag two**: a The North Face Base Camp Duffel 71 L at about 7 kg. Outbound it mostly held an empty crag pack; on the way home it took clothes and souvenirs
+- **Carry-on**: a small backpack and a shoulder bag with a laptop and power bank
+- **Problems**: the suitcase's lock and wheels were broken on arrival in Athens, patched with climbing tape for the time being. Each checked bag had an AirTag. Two thick guidebooks and souvenirs pushed the total, carry-on included, from 33 kg to 40 kg on the return; a friend in the group carried the second rope and extra draws
+- Source: [note (in Japanese), 2025-05-05](https://note.com/azusya/n/nadc5c74eec51)
+
+US domestic flights are usually smoother. One climber flew Washington State to Las Vegas and back in 2025 with a rope, quickdraws, lockers, slings and a chalk bag all in carry-on, "no issues at all". In the same thread, someone else was less lucky: two lockers forgotten in a carry-on were confiscated at Tenerife ([Reddit r/ClimbingGear, 2025-10-26](https://www.reddit.com/r/ClimbingGear/comments/1ogrk0a/planes_transporting_chalk_bag_and_carabiners/)).
+
 ## Trad and multipitch: cams are expensive, so many people won't check them
 
 ### New York to Salt Lake City (2025): full trad rack in the cabin, rope checked
@@ -127,6 +169,69 @@ A related post from the same month: a couple who had flown to Spain before with 
 - **Space saver**: they bought ropes once in Europe
 - Source: [Hello Hola Ni Hao blog, 2021-09-21](https://helloholanihao.com/2021/09/21/packing-for-a-year/)
 
+### Brazil to El Potrero Chico (2025): everything in the cabin internationally, forced to check on the Mexican domestic leg
+
+- **Trip**: nine days of sport and multipitch in January 2025. To avoid checked-bag fees he packed few clothes and put warm layers, rope, draws, shoes and harness in a cabin backpack
+- **International leg**: São Paulo to Mexico City, with the gear in the cabin and no problems
+- **Problem**: on the domestic leg from Mexico City to Monterrey, security refused the gear on the grounds that "carabiners can be used as weapons", so he had to check a backpack
+- **Other reports from the same airport**: two replies from December 2025 say Monterrey security may refuse even a harness in carry-on, and that a rope in the cabin gets stopped about half the time. Plan on checking one bag for Potrero Chico ([Mountain Project](https://www.mountainproject.com/forum/topic/202192082/help-me-pick-a-warm-winter-rock-climbing-destination), [Reddit](https://www.reddit.com/r/climbergirls/comments/1pynxcy/el_potrero_chico/))
+- Source: [Gear Tips Club blog, 2025-08-27](https://geartips.club/blog/en/el-potrero-chico-epc-climbing-in-mexican-limestone/)
+
+## Alpine and ice: ice tools and crampons cannot go in the cabin
+
+### Portland to El Calafate (2026): a tight connection, a checked duffel carried to security, and ice tools that would not pass
+
+- **Trip**: Patagonia in January 2026, aiming for Chiaro di Luna on Aguja Saint-Exupéry. Portland via Atlanta to Buenos Aires' international airport (EZE), with the domestic leg leaving from the other airport, AEP, about an hour away by taxi
+- **Luggage**: one overweight 120 L duffel plus two stuffed backpacks; the ice tools and crampons were packed in the duffel to be checked
+- **Problem**: the inbound flight ran late, and boarding had started by the time he reached AEP. He pulled the duffel off the check-in scale and carried it to security. The ice tools and crampons, "medieval torture devices" to look at, were pulled out, no explanation helped, and he missed the flight
+- **Cost**: he took the next day's flight for a $50 change fee; the taxi to make the connection cost more than twice that
+- Source: [Mountain Shop blog, 2026-03-18](https://mountainshop.net/patagonia-part-1-el-chalten-chiaro-di-luna-on-aguja-saint-exupery)
+
+## Short-haul Asia: low-cost carriers' 7 kg carry-on limit gets you first
+
+### Narita to Hanoi, Huu Lung (2025): over the VietJet allowance, upgraded to 30 kg at the last minute
+
+- **Allowance**: some VietJet fares include no checked bag; the author bought one with 20 kg
+- **Checked**: an 80 m rope, 20 quickdraws, a drone and a tripod. A weigh-in before leaving showed it "easily over", and about 7,600 yen bought an upgrade to 30 kg
+- **Carry-on**: VietJet weighs its 7 kg carry-on limit strictly
+- **Author's advice**: Huu Lung's limestone routes are long, so bring an 80 m rope, 15–20 draws per route and knee pads
+- Source: [Kiisampo (in Japanese), 2025-10-13](https://kiisampo.com/huu-lung-rock-trip-1/)
+
+### Kuala Lumpur to Krabi (2025): a 7 kg carry-on-only fare, with the rope and draws in a partner's checked bag
+
+- **Airline**: AirAsia, on a fare with only 7 kg of cabin baggage
+- **Carry-on**: just climbing shoes and a harness. The author found size harder to pass than weight, and even left the mosquito coils behind
+- **Checked**: a partner in the group checked the rope and quickdraws and collected them in Krabi
+- **Problem**: the flight slipped from late afternoon to after 9 pm, and the airline handed out meals at the gate
+- Source: [haru356.com (in Japanese), 2025-02-05](https://haru356.com/text_010/Date250205_ClimbingKrabi.html)
+
+### Siem Reap, Cambodia to Kuala Lumpur (2025): a rope that cleared six airports, stopped at Siem Reap
+
+- **Carry-on**: a 60 m rope clipped to the outside of his backpack had passed six airports on a long backpacking trip, and he had checked the prohibited-items list before leaving
+- **Problem**: in January 2025 at Siem Reap, security declared the rope a dangerous item, and several layers of supervisors would not budge. The counter would not add it to his already-checked bag, and checking it separately at $30 per kilo would have cost twice what the rope was worth
+- **Outcome**: he called a local climbing guide to the airport, and security handed the rope over directly. AirAsia then announced a delay, so there would have been time to check it after all; he also missed his Kuala Lumpur connection and paid for an airport hotel
+- Source: [dopaminerlifestyle.blog, 2025-01-31](https://dopaminerlifestyle.blog/2025/01/31/day-21-malaysia/)
+
+## Climbing in Taiwan, and flying out of Taiwan
+
+### Tokyo to Long Dong, Taiwan (2025): a 63 L suitcase with the rope, draws and two pairs of shoes
+
+- **Airline**: EVA Air both ways, November 2025, a group of six
+- **Checked**: one 63 L suitcase with a 60 m rope, 8 quickdraws, two pairs of climbing shoes and clothes
+- **Carry-on**: a 40 L crag pack with a laptop, power bank and valuables
+- **Group split**: each pair of partners brought a set of draws, three sets of about 15 for the group, and the group brought two sets of cams up to #4. The author notes that a 50 m rope is too short for Long Dong; bring a 60 m
+- Source: [note (in Japanese), 2025-12-02](https://note.com/azusya/n/na21cb2f5b938)
+
+### Haneda to Taipei Songshan (2025): no suitcase, a large trekking pack with the rope and 19 draws
+
+- **Airline**: China Airlines economy, with 23 kg checked and 7 kg carry-on; two people
+- **Checked**: the author deliberately left the suitcase at home and packed a 60 m rope, 19 quickdraws, a belay device, chalk bag and two pairs of climbing shoes into a large trekking pack. He writes that at Haneda they "only dropped off the luggage", so this pack was most likely checked; the weight is not given
+- **Carry-on**: a small city backpack. His usual climbing pack is heavy on its own, so it stayed home
+- **Problem**: online check-in made bag drop quick, but the departure immigration queue was so long that both were paged at the gate
+- Source: [tsuyoshi74climb.com (in Japanese), 2025-11-26](https://tsuyoshi74climb.com/2025/11/26/%E5%8F%B0%E6%B9%BE%E9%BE%8D%E6%B4%9E%E3%83%AA%E3%83%99%E3%83%B3%E3%82%B8%E3%83%84%E3%82%A2%E3%83%BC-%E6%8C%81%E3%81%A1%E7%89%A9%E7%B7%A8/)
+
+Flying out of Taiwan, one climber spent about two months on trad in Yosemite and Indian Creek from September to November 2025. Outbound it was two bags totaling 30 kg, probably 23 kg checked plus 7 kg carry-on; the return was three bags totaling 37 kg. The write-up does not say which gear went in which bag. The useful part is how the load was cut: Indian Creek routes often call for at least 6 sets of #0.5 to #1 cams, and rather than bring them all from Taiwan, he borrowed from friends there to make up 5 sets ([TOCC, 2025-12-15, in Chinese](https://www.tocc-climbing.org/post/2025-%E5%8C%97%E7%BE%8E%E6%94%80%E5%B2%A9-%E5%90%91%E5%A4%96%E8%B8%8F%E5%B0%8B%E8%88%87%E5%90%91%E5%85%A7%E6%8E%A2%E7%B4%A2%E7%9A%84%E6%97%85%E7%A8%8B)).
+
 ## Bouldering: the pad is the biggest item
 
 ### LA to Europe bouldering (2025): crash pads checked as sports equipment
@@ -151,6 +256,20 @@ A related post from the same month: a couple who had flown to Spain before with 
 
 A Japan bouldering example does the opposite: a staff member at the climbing shop Wild Rock says her "checked bag is always full of gear", with all her clothes in her carry-on Patagonia Black Hole MLC. The Okayama trip is a planned one; the packing is her usual habit ([Wild Rock, 2025-12-04](https://wildrock.net/blogs/the-journal/wish-list-trips-tori)).
 
+### US to Fontainebleau (2025): two pads plastic-wrapped into one bag, $100 on the return
+
+- **Airline**: Delta from Fayetteville, West Virginia, for five weeks
+- **Checked**: plastic wrap from a hardware store bound two crash pads together so they counted as a single oversized bag. A friend covered the outbound oversize fee; the return cost $100
+- **Similar experiences**: another climber has checked a Metolius Session II on United and Icelandair, usually at no extra charge but as oversized baggage, and once it arrived in Paris a day late. Someone else heading over in March 2026 was quoted $300 each way by Delta for an oversized pad ([Mountain Project, 2025-08-16](https://www.mountainproject.com/forum/topic/201512930/long-shot-but-anyone-have-a-organic-airline-trifold-crashpad-or-fountainbleu-adv))
+- Source: [Mountain Project thread, 2026-03-22 (trip in 2025)](https://www.mountainproject.com/forum/topic/202576896/font-w-or-wo-car)
+
+### UK to Albarracín (2025): three pads wrapped as one bag, no extra charge on BA
+
+- **Checked**: two Moon Warriors and a Moon Cirrus wrapped in one sheet of plastic as a single item, with no extra fee from British Airways. The condition is contacting the airline in advance with the item's weight and dimensions
+- **Contrast in the thread**: the original poster has taken pads to Albarracín several times, two wrapped together, without trouble. The year before, flying Air France, he hit oversize problems at Paris CDG and ended up renting pads in Fontainebleau, which cost about the same as bringing them and varied in quality
+- **From the replies**: Air France and KLM are strict on checked dimensions, so a standard pad can be technically over; Ryanair, easyJet and Jet2 are usually fine with one or two strapped together. For Fontainebleau, flying into Orly is another option
+- Source: [UKClimbing thread, 2025-10 to 11](https://www.ukclimbing.com/forums/bouldering/taking_bouldering_pads_as_luggage_through_charles_de_gaulle_airport-785763)
+
 ## Carry-on-only trips
 
 ### Pro climber to Italy (2022): a single cabin bag
@@ -174,29 +293,40 @@ A Japan bouldering example does the opposite: a staff member at the climbing sho
 - **Reminders from the thread**: one person's checked gear went missing, and having shoes and harness on hand saved the trip. Another's helmet was thrown on the asphalt by a baggage handler and cracked, so the helmet now always goes in the cabin
 - Source: [Mountain Project thread, 2024-04-08](https://www.mountainproject.com/forum/topic/125943134/traveling-with-gear)
 
+### Tours, France to the UK (2026): a snapgate confiscated as a knuckleduster
+
+- **Luggage**: cabin bag only. He usually carries plenty of carabiners in the cabin to keep the checked bag light
+- **Problem**: at Tours airport at the end of September 2026, security said a carabiner could be used as a knuckleduster and confiscated one snapgate; pointing out that other airports had allowed it made no difference. It was the first time he had been stopped
+- **From the thread**: one person had a keyring carabiner taken at Chambéry, France, a few years ago. Another recently flew to France with a 70 m rope and carabiners in the cabin without trouble. Someone with an overweight checked bag asked security in advance whether draws could go in the cabin, and was told yes
+- Source: [UKClimbing thread, 2026-10-01](https://www.ukclimbing.com/forums/rock_talk/confiscated_snap_link_at_airport_security-793700)
+
 The counterexample to traveling light: a beginner couple climbing in Railay and Tonsai, Thailand, and Thakhek, Laos, did not bring a rope, and that was their one regret. Rope rental runs about 10 euros a day in Tonsai and Railay, and in Ao Nang they could not find one to rent ([Mountain Diaries, 2024-01-03](https://mountaindiaries.com/posts/climbing-in-thailand-laos/)).
 
-## Patterns across the 30 examples
+## Patterns across the 45 examples
 
 The counts below are the number of examples that explicitly state a practice or incident. These are volunteered community posts, skewed toward people who had trouble and like to post, so treat them as a sample, not as rates.
 
-**Shoes, harness and helmet in the cabin: about 17 examples.** This is the most consistent habit. The reason is almost always the same: these three are fit-specific and hard to rent or buy in your size at the destination. Crushed or cracked helmets are a second reason; for checking a helmet that has been dropped, see [Climbing Gear Inspection and Retirement](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en).
+**Shoes, harness and helmet in the cabin: about 21 examples.** This is the most consistent habit. The reason is almost always the same: these three are fit-specific and hard to rent or buy in your size at the destination. Crushed or cracked helmets are a second reason; for checking a helmet that has been dropped, see [Climbing Gear Inspection and Retirement](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en).
 
-**Rope in the hold: about 14 examples; rope in the cabin or personal item: about 4.** A rope is heavy, relatively cheap to replace, and the item most often stopped at security, usually with a remark about tying someone up.
+**Rope in the hold: about 20 examples; rope in the cabin or personal item: about 8.** A rope is heavy, relatively cheap to replace, and the item most often stopped at security, usually with a remark about tying someone up. At Siem Reap the rope was declared a dangerous item outright and never made it onto the plane.
 
-**Metal depends on the region.** About 6 examples carry cams or a full trad rack in the cabin, mostly on US domestic flights, because a rack is too expensive to lose. Outside the US, about 6 examples check quickdraws and carabiners because refusals are common. About 8 examples state that the nut tool goes in the hold.
+**Metal depends on the region.** About 6 examples carry cams or a full trad rack in the cabin, mostly on US domestic flights, because a rack is too expensive to lose. Outside the US, about 11 examples put quickdraws and carabiners in the hold, some after being refused before, others simply because the checked allowance had room. About 8 examples state that the nut tool goes in the hold.
 
-**Forced to check, confiscated or nearly confiscated: about 20 incidents, concentrated in two places.** Spanish airports (Madrid, Barcelona, Mallorca, Tenerife) account for about 7, and Mexico City to Monterrey (the gateway to Potrero Chico) for about 4. One climber in Mexico City had to check all his climbing gear, which Aeromexico luckily checked for free ([Mountain Project, 2024-05-02](https://www.mountainproject.com/forum/topic/126025298/flying-with-climbing-gear-in-a-carry-on)). Another had carry-on quickdraws refused and had to run back to check the bag ([Reddit, 2022-12](https://www.reddit.com/r/RockClimbing/comments/zk8fmg/flying_with_climbing_gear/)). The rest are scattered across Melbourne, Buenos Aires, Venice, Paris CDG, Mumbai, Denver and New York JFK. At least 3 examples mention the same airport passing gear outbound and refusing it on the way back.
+**Forced to check, confiscated or nearly confiscated: about 25 incidents, concentrated in two places.** Spanish airports (Madrid, Barcelona, Mallorca, Tenerife) account for about 8, and Mexico City to Monterrey (the gateway to Potrero Chico) for about 5. One climber in Mexico City had to check all his climbing gear, which Aeromexico luckily checked for free ([Mountain Project, 2024-05-02](https://www.mountainproject.com/forum/topic/126025298/flying-with-climbing-gear-in-a-carry-on)). Another had carry-on quickdraws refused and had to run back to check the bag ([Reddit, 2022-12](https://www.reddit.com/r/RockClimbing/comments/zk8fmg/flying_with_climbing_gear/)). The rest are scattered across Melbourne, Buenos Aires, Venice, Paris CDG, Mumbai, Denver, New York JFK, Siem Reap in Cambodia and Tours in France. The reasons go beyond "you could tie someone up": a carabiner was treated as a knuckleduster in Tours and as a weapon in Mexico City, and ice tools and crampons cannot go in the cabin at all. At least 3 examples mention the same airport passing gear outbound and refusing it on the way back.
+
+**A tight connection turns a gear problem into a missed flight: 2 examples.** In Buenos Aires the international (EZE) and domestic (AEP) flights leave from different airports; the Portland climber carried his checked duffel to security, had the ice tools stopped and missed the flight. The Siem Reap traveler lost time over the rope and then missed his Kuala Lumpur connection. If a trip changes to a domestic flight along the way, leave enough connection time to go back and check a bag.
 
 **Stick clips are the item most likely to be taken: about 6 examples.** The fixes are checking it, buying a painter's pole locally and adapting it, or carrying it on and hoping.
 
-**Crag pack as carry-on or personal item: about 8 examples.** When a pack has to be checked, people put it inside a cheap duffel, ask the airline for a heavy plastic bag, use a pack with a strap cover, or have it plastic-wrapped at the airport.
+**Crag pack as carry-on or personal item: about 10 examples.** When a pack has to be checked, people put it inside a cheap duffel, ask the airline for a heavy plastic bag, use a pack with a strap cover, or have it plastic-wrapped at the airport.
 
-**Duffels and rollers dominate.** Rolling duffels or suitcases appear in about 7 examples, expedition duffels in about 6, and a haul bag as luggage in 1. The Patagonia Black Hole line is the most-named single line, in 3 examples.
+**Duffels and rollers dominate.** Rolling duffels or suitcases appear in about 9 examples, expedition duffels in about 8, a large trekking pack checked as is in 1, and a haul bag as luggage in 1. The Patagonia Black Hole line is the most-named single line, in 3 examples.
 
-**Weight tactics: about 10 examples.** They include pre-buying extra checked kilos, wearing heavy clothes and gear, splitting rope and draws with a partner, choosing an airline with two free checked bags, and renting or buying the rope at the destination. Carry-ons on non-US airlines often have weight limits; the examples mention 5 kg on Aerolíneas Argentinas domestic flights and 10 kg on LATAM ([Mountain Project, 2022-09](https://www.mountainproject.com/forum/topic/123085160/can-i-travel-internationally-with-my-climbing-gear-in-a-carry-on)), and 8 kg on legs to Nepal ([Short Guys Beta Works, 2022-04-10](https://www.youtube.com/watch?v=dLF2qgIK2Nw)). A trad rack alone can push a carry-on over.
+**Crash pads wrapped together as one bag: 2 examples.** Two or three pads bound with plastic wrap or a plastic sheet count as a single oversized item: Delta charged $100 on the return, and BA charged nothing after advance notice. Air France and KLM are stricter on dimensions, and a standard pad can already be over.
 
-**Lost, delayed or damaged checked bags: about 7 examples.** These include easyJet losing a bag with an entire sport kit, where a bag is only considered irrevocably lost after 45 days ([UKClimbing, 2022-09-26](https://ukclimbing.com/forums/off_belay/easyjet_lost_luggage_-_all_my_sports_gear-752335)), and Air Canada gouging a suitcase and slashing the pack inside it ([UKClimbing, 2022-08](https://www.ukclimbing.com/forums/gear/climbing_gear_in_hold_luggage-750778)). Mitigations named include AirTags, photographing gear before the trip, zip-tying zippers, padding cams with clothes, and travel insurance. If your rope was crushed in a suitcase, check it carefully when you flake it out at the crag.
+**Weight tactics: about 15 examples.** They include pre-buying extra checked kilos, wearing heavy clothes and gear, splitting rope and draws with a partner, sharing one checked bag between two, choosing an airline with two free checked bags, renting or buying the rope at the destination, and borrowing cams from local friends. The UK-to-Kalymnos pair simply left out trad gear they would not use. Carry-ons on non-US airlines often have weight limits; the examples mention 5 kg on Aerolíneas Argentinas domestic flights and 10 kg on LATAM ([Mountain Project, 2022-09](https://www.mountainproject.com/forum/topic/123085160/can-i-travel-internationally-with-my-climbing-gear-in-a-carry-on)), 8 kg on legs to Nepal ([Short Guys Beta Works, 2022-04-10](https://www.youtube.com/watch?v=dLF2qgIK2Nw)), and a strictly weighed 7 kg on VietJet and AirAsia. A trad rack alone can push a carry-on over.
+
+**Lost, delayed or damaged checked bags: about 9 examples.** These include easyJet losing a bag with an entire sport kit, where a bag is only considered irrevocably lost after 45 days ([UKClimbing, 2022-09-26](https://ukclimbing.com/forums/off_belay/easyjet_lost_luggage_-_all_my_sports_gear-752335)), Air Canada gouging a suitcase and slashing the pack inside it ([UKClimbing, 2022-08](https://www.ukclimbing.com/forums/gear/climbing_gear_in_hold_luggage-750778)), and the Narita-to-Kalymnos suitcase arriving in Athens with a broken lock and wheels. Mitigations named include AirTags, photographing gear before the trip, zip-tying zippers, padding cams with clothes, and travel insurance. If your rope was crushed in a suitcase, check it carefully when you flake it out at the crag.
 
 Put together, these habits give the order most people use to decide where an item goes:
 
@@ -205,8 +335,8 @@ flowchart TB
   A["An item of gear"] --> B{"Can you rent or buy it<br/>at the destination if lost?"}
   B -->|"No: shoes, harness, helmet"| C["Cabin"]
   B -->|"Yes: rope, draws, clothes"| D{"Could it pass as<br/>a weapon or restraint?"}
-  D -->|"Yes: knife, nut tool, stick clip"| E["Hold"]
-  D -->|"Maybe: rope, draws, carabiners"| F{"Is the departure airport strict?<br/>e.g. Spain, Mexico"}
+  D -->|"Yes: knife, nut tool, stick clip, ice tools, crampons"| E["Hold"]
+  D -->|"Maybe: rope, draws, carabiners"| F{"Is the departure airport strict?<br/>e.g. Spain, Mexico, France"}
   F -->|"Strict"| E
   F -->|"Lenient and cabin allowance fits"| G["Either works<br/>expensive cams often go in the cabin"]
 ```
@@ -227,6 +357,8 @@ How the estimate works: in the UKClimbing nine-day example, one person's rope, d
 
 Is there room in the cabin for shoes, harness and helmet? The Kalymnos couple's carry-ons had a 5 kg limit and held harnesses, one pair of shoes, a belay device and cameras.
 
+To save another checked-bag fee, two people can share one bag. The 2026 UK-to-Kalymnos pair shared one 23 kg checked bag with an 80 m rope and 21 draws, and came in just under 20 kg after dropping the trad gear.
+
 ### Setup B: trad, one person with the full kit
 
 | | Contents |
@@ -238,7 +370,7 @@ Is there room in the cabin for shoes, harness and helmet? The Kalymnos couple's 
 
 How the estimate works: in the "full trad kit in one bag" example, a double rack, a 70 m rope and a couple of pairs of shoes came to about 50 lb. Two sets of [Black Diamond Camalot C4](https://www.blackdiamondequipment.com/en_US/product/camalot-c4/) from 0.3 to 3 weigh about 1.6 kg in cams alone, before carabiners and nuts.
 
-What to adjust: the US domestic examples mostly carry cams on. Departing Mexico City, a Spanish airport or a Buenos Aires domestic flight, expect to be told to check them, and arrive early enough to run back to the counter. On flights with a 5–8 kg carry-on limit a full trad rack will not fit; split it between two people or check it.
+What to adjust: the US domestic examples mostly carry cams on. Departing Mexico City, a Spanish airport or a Buenos Aires domestic flight, expect to be told to check them, and arrive early enough to run back to the counter. On flights with a 5–8 kg carry-on limit (7 kg is common on Asian low-cost carriers) a full trad rack will not fit; split it between two people or check it.
 
 ### Setup C: bouldering with one pad
 
@@ -250,7 +382,7 @@ What to adjust: the US domestic examples mostly carry cams on. Departing Mexico 
 
 How the estimate works: Organic lists the Airline Trifold Pad at 15.25 lb, 157 cm in linear dimensions when folded. A pad over the checked-size limit may have to go as oversized sports equipment; the LA example paid about $100–200.
 
-Alternative: if the destination rents pads, compare the rental with the extra baggage fee. Rocklands rental runs about €150 a month, and the webinar speakers' advice is to rent if that is cheaper.
+Alternative: if the destination rents pads, compare the rental with the extra baggage fee. Rocklands rental runs about €150 a month, and the webinar speakers' advice is to rent if that is cheaper. If two or three of you each bring a pad, plastic-wrap them into one item and pay a single oversize fee; check the dimension rules first on Air France or KLM.
 
 ## Three things to do before you leave
 
@@ -259,6 +391,10 @@ Alternative: if the destination rents pads, compare the rental with the extra ba
 3. **Keep the top of your carry-on for items security will check.** Keep chalk in its original packaging, and move the nut tool and knife to the hold. If you are told to check something, arriving early gives you time to run back to the counter.
 
 With the examples in hand, the next step is choosing bags: whether a gear duffel, a large backpack or a travel pack suits how you will get around, see [Climbing Travel Luggage](/posts/climbing/2026-10-19-climbing-travel-luggage-en). For what to bring to different destinations, see [Climbing Trip Gear List by Destination](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en).
+
+## Update log
+
+- 2026-10-19: Added 15 examples from 2025–2026 and three new sections: "Alpine and ice", "Short-haul Asia" and "Climbing in Taiwan, and flying out of Taiwan". The at-a-glance table now has 31 representative examples, the patterns are recounted across 45 examples, and three patterns are folded in: new reasons ropes and carabiners get stopped, crash pads wrapped together as one bag, and tight connections. The start of the collection range in the introduction is corrected to September 2021.
 
 ## References
 
@@ -286,6 +422,24 @@ With the examples in hand, the next step is choosing bags: whether a gear duffel
 - [EpicTV: What's In A Pro Climbers Travel Bag? (YouTube, 2022-03-18)](https://www.youtube.com/watch?v=1oYwrw6tnTY)
 - [Hello Hola Ni Hao: Packing for a year (2021-09-21)](https://helloholanihao.com/2021/09/21/packing-for-a-year/)
 - [Mountain Diaries: Climbing in Thailand & Laos (2024-01-03)](https://mountaindiaries.com/posts/climbing-in-thailand-laos/)
+- [UKClimbing: More Kalymnos! (2026-04-08)](https://www.ukclimbing.com/forums/t.php?t=789450)
+- [Mountain Project: Kalymnos logistics (2026-03)](https://www.mountainproject.com/forum/topic/202193308/kalymnos-logistics)
+- [note: packing for Narita via Beijing to Kalymnos (in Japanese, 2025-05-05)](https://note.com/azusya/n/nadc5c74eec51)
+- [Reddit r/ClimbingGear: Transporting chalk bag and carabiners onboard (2025-10)](https://www.reddit.com/r/ClimbingGear/comments/1ogrk0a/planes_transporting_chalk_bag_and_carabiners/)
+- [Gear Tips Club: El Potrero Chico, climbing in Mexican limestone (2025-08-27)](https://geartips.club/blog/en/el-potrero-chico-epc-climbing-in-mexican-limestone/)
+- [Mountain Project: Help me pick a warm winter rock climbing destination (2025-12)](https://www.mountainproject.com/forum/topic/202192082/help-me-pick-a-warm-winter-rock-climbing-destination)
+- [Reddit r/climbergirls: El Potrero Chico (2025-12)](https://www.reddit.com/r/climbergirls/comments/1pynxcy/el_potrero_chico/)
+- [Mountain Shop: Patagonia part 1, Chiaro di Luna on Aguja Saint-Exupéry (2026-03-18)](https://mountainshop.net/patagonia-part-1-el-chalten-chiaro-di-luna-on-aguja-saint-exupery)
+- [Kiisampo: Huu Lung rock trip (in Japanese, 2025-10-13)](https://kiisampo.com/huu-lung-rock-trip-1/)
+- [haru356.com: Climbing in Krabi (in Japanese, 2025-02-05)](https://haru356.com/text_010/Date250205_ClimbingKrabi.html)
+- [dopaminerlifestyle.blog: Day 21 Malaysia (2025-01-31)](https://dopaminerlifestyle.blog/2025/01/31/day-21-malaysia/)
+- [note: climbing trip to Long Dong, Taiwan (in Japanese, 2025-12-02)](https://note.com/azusya/n/na21cb2f5b938)
+- [tsuyoshi74climb.com: Long Dong trip, packing list (in Japanese, 2025-11-26)](https://tsuyoshi74climb.com/2025/11/26/%E5%8F%B0%E6%B9%BE%E9%BE%8D%E6%B4%9E%E3%83%AA%E3%83%99%E3%83%B3%E3%82%B8%E3%83%84%E3%82%A2%E3%83%BC-%E6%8C%81%E3%81%A1%E7%89%A9%E7%B7%A8/)
+- [TOCC: 2025 North America climbing trip (in Chinese, 2025-12-15)](https://www.tocc-climbing.org/post/2025-%E5%8C%97%E7%BE%8E%E6%94%80%E5%B2%A9-%E5%90%91%E5%A4%96%E8%B8%8F%E5%B0%8B%E8%88%87%E5%90%91%E5%85%A7%E6%8E%A2%E7%B4%A2%E7%9A%84%E6%97%85%E7%A8%8B)
+- [Mountain Project: Font w/ or w/o car (2026-03-22)](https://www.mountainproject.com/forum/topic/202576896/font-w-or-wo-car)
+- [Mountain Project: Organic Airline Trifold crashpad or Fontainebleau advice (2025-08-16)](https://www.mountainproject.com/forum/topic/201512930/long-shot-but-anyone-have-a-organic-airline-trifold-crashpad-or-fountainbleu-adv)
+- [UKClimbing: Taking bouldering pads as luggage through Charles de Gaulle airport (2025-10 to 11)](https://www.ukclimbing.com/forums/bouldering/taking_bouldering_pads_as_luggage_through_charles_de_gaulle_airport-785763)
+- [UKClimbing: Confiscated snap link at airport security (2026-10-01)](https://www.ukclimbing.com/forums/rock_talk/confiscated_snap_link_at_airport_security-793700)
 - [Short Guys Beta Works: Colorado to Nepal packing (YouTube, 2022-04-10)](https://www.youtube.com/watch?v=dLF2qgIK2Nw)
 - [Petzl ARIAL 9.5 mm specifications](https://www.petzl.com/US/en/Sport/Ropes/ARIAL-9-5-mm)
 - [Petzl SPIRIT EXPRESS specifications](https://www.petzl.com/US/en/Sport/Carabiners-And-Quickdraws/SPIRIT-EXPRESS)

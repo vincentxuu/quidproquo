@@ -4,8 +4,8 @@ date: 2026-10-19
 category: climbing
 tags: [climbing, climbing-gear, travel, outdoor-climbing, sport-climbing]
 lang: en
-description: "Compares three kinds of checked bag for climbing trips: gear duffels (including haul bags and wheeled duffels), large-capacity packs, and outdoor-brand travel packs. Lists current models from 16 climbing and outdoor brands with volume, empty weight, carry style, linear dimensions and official price, then covers the size and weight conditions for using a crag pack or multipitch pack as your cabin bag."
-tldr: "Take a gear duffel if you are renting a car, a duffel with backpack straps or a big pack if you are on public transport, and a 40 L-ish travel pack only when you rent the rope locally and fly cabin-only. Most soft duffels up to 100 L fit the 158 cm checked-bag limit, but wheeled duffels weigh about 3–5 kg empty and eat into a 23 kg allowance. With a 7 kg cabin limit, crag packs range from 0.9 kg to 2 kg empty; the lighter the pack, the more shoes, harness and hardware you can keep with you."
+description: "Compares three kinds of checked bag for climbing trips: gear duffels (including haul bags and wheeled duffels), large-capacity packs, and outdoor-brand travel packs. Lists current models from 21 climbing and outdoor brands with volume, empty weight, carry style, linear dimensions and official price, then covers the size and weight conditions for using a crag pack or multipitch pack as your cabin bag."
+tldr: "Take a gear duffel if you are renting a car, a duffel with backpack straps or a big pack if you are on public transport, and a 40 L-ish travel pack only when you rent the rope locally and fly cabin-only. Most soft duffels up to 100 L fit the 158 cm checked-bag limit, but wheeled duffels mostly weigh 2.5–5 kg empty and eat into a 23 kg allowance. With a 7 kg cabin limit, crag packs range from 0.9 kg to 2 kg empty; the lighter the pack, the more shoes, harness and hardware you can keep with you."
 draft: false
 series:
   name: "Climbing Travel Gear"
@@ -22,7 +22,7 @@ By the end you should be able to pick a type of checked bag based on how you wil
 
 ## Start with how you will travel, then pick the bag type
 
-In the [previous post's examples](/posts/climbing/2026-10-19-climbing-travel-packing-examples-en), about 7 people checked a wheeled duffel or suitcase, about 6 used an expedition duffel, and 1 checked a haul bag as luggage. The three bag types differ in what happens after you land: how far you will carry the bag, and over what ground.
+In the [previous post's examples](/posts/climbing/2026-10-19-climbing-travel-packing-examples-en), about 9 people checked a wheeled duffel or suitcase, about 8 used an expedition duffel, and 1 checked a haul bag as luggage. The three bag types differ in what happens after you land: how far you will carry the bag, and over what ground.
 
 | Bag type | How you carry it | Best for | Trade-off |
 |---|---|---|---|
@@ -51,7 +51,7 @@ On weight, every gram of bag is a gram your gear cannot use. The Patagonia Black
 
 ## Gear duffels: current models compared
 
-Prices below are each brand's official store price on 2026-10-19, in that store's currency, not converted. Total dimensions are converted to centimetres from the brand's figures; BD's pages for the Mission and Wall Hauler give no dimensions, so those come from REI's product pages. Independent reviews are listed only from 2020 on.
+Prices below are each brand's official store price on 2026-10-19, in that store's currency, not converted. Total dimensions are converted to centimetres from the brand's figures; BD's pages for the Mission and Wall Hauler give no dimensions, so those come from REI's product pages. Independent reviews are listed only from 2020 on. Mountain Equipment's product pages and [size guide](https://us.mountain-equipment.com/pages/size-guide-wet-dry-roller-kit-bag) disagree on empty weight, so the tables give both figures.
 
 ### Soft duffels with backpack straps
 
@@ -79,12 +79,20 @@ Prices below are each brand's official store price on 2026-10-19, in that store'
 | [Mountain Hardwear Expedition Duffel 75](https://www.mountainhardwear.com/p/expedition-duffel-75-2109963.html) | 75 L | 1,550 g | Removable straps | 140 cm ✓ | US$320 | — |
 | [Mountain Hardwear Expedition Duffel 100](https://www.mountainhardwear.com/p/expedition-duffel-100-2109961.html) | 100 L | 1,735 g | Removable straps | 152 cm ✓ | US$330 | — |
 | [Arc'teryx Carrier 75 Duffle](https://arcteryx.com/us/en/shop/carrier-75-duffle-7474) | 75 L | 920 g | Single shoulder strap | 140 cm ✓ | US$300 | — |
+| [Thule Chasm 70L](https://www.thule.com/en-us/luggage/travel-duffel-bags/thule-chasm-70l-duffel-_-3204994) | 70 L | about 1.77 kg | Stowable straps | 140 cm ✓ | US$179.95 | — |
+| [Thule Chasm 90L](https://www.thule.com/en-us/luggage/travel-duffel-bags/thule-chasm-90l-duffel-_-3204998) | 90 L | about 2.09 kg | Stowable straps | 150 cm ✓ | US$199.95 | — |
+| [Sea to Summit Meridian Duffle 60L](https://seatosummit.com/products/meridian-duffle) | 60 L | 1,270 g | Removable straps, stow in an outside pocket | 131 cm ✓ | US$159.95 | — |
+| [Sea to Summit Meridian Duffle 90L](https://seatosummit.com/products/meridian-duffle) | 90 L | 1,490 g | As above | 151 cm ✓ | US$179.95 | — |
+| [Eagle Creek Cargo Hauler 90L Duffel](https://eaglecreek.com/products/cargo-hauler-90l-duffel-bag) | 90 L | 1.2 kg | Stowable straps | 142 cm ✓ | US$199 | — |
+| [Mountain Equipment Wet & Dry Kitbag 70L](https://mountain-equipment.com/products/wet-dry-70l-kitbag) | 70 L | 1,670 g (product page says 2,630 g) | Straps plus grab handles | 136 cm ✓ | £140 | — |
+| [Ortlieb Duffle 60L](https://de.ortlieb.com/en/products/duffle) | 60 L | 1,180 g | Padded handles double as shoulder straps | 122 cm ✓ | €185 | — |
+| [Ortlieb Duffle 85L](https://de.ortlieb.com/en/products/duffle) | 85 L | 1,360 g | As above | 140 cm ✓ | €195 | — |
 | [Black Diamond Mission 130](https://blackdiamondequipment.com/products/mission-130-l-duffel) | 130 L | about 1.13 kg | Handle doubles as a shoulder strap | 163 cm ✗ | US$219.95 | — |
 
 What to look for:
 
 - **Most soft duffels up to 100 L fit within 158 cm.** The exceptions are the Mammut Cargo 100, the [Gregory Alpaca 100](https://www.gregory.com/travel/duffels/alpaca-duffel-100/147932XXXX.html) (160 cm) and the BD Mission 130. If you want the big volume, Patagonia's 100 L, Mountain Hardwear's 100 and The North Face L still fit.
-- **Stowable straps are less likely to be torn in the hold.** In one of the previous post's examples, a friend's Creek 50 came back from the hold with its straps wrecked by baggage handlers. Osprey, Deuter and NEMO tuck the straps into the bag body and Mammut stows them in the lid; most others detach. The single-strap Arc'teryx and BD Mission are for short carries only.
+- **Stowable straps are less likely to be torn in the hold.** In one of the previous post's examples, a friend's Creek 50 came back from the hold with its straps wrecked by baggage handlers. Osprey, Deuter, NEMO, Thule and Eagle Creek tuck the straps into the bag body, Mammut stows them in the lid and Sea to Summit in an outside pocket; most others detach. The single-strap Arc'teryx and BD Mission, and the Ortlieb Duffle with its handles-as-straps, are for short carries only.
 - **To stay clear of 158 cm, choose 60–80 L.** Every model in the table at that size is under the limit. The [previous post](/posts/climbing/2026-10-19-climbing-travel-packing-examples-en) estimated one person's 70 m rope plus a week of their own clothes at about 13–14 kg, well inside 23 kg.
 
 The Black Hole line is the most-named bag in the examples, appearing in 3 of them. One person disagreed: he found the Mountain Hardwear Expedition Duffel more durable, and said his own Black Holes "have a few holes" ([Mountain Project, 2023](https://www.mountainproject.com/forum/topic/124138683/best-gear-bag-for-air-travel)). That is one user's experience, not a durability test.
@@ -104,15 +112,36 @@ Haul bags are built for hauling gear up big walls, with thick fabric and simple 
 
 A haul bag only makes sense if you are actually climbing big walls, or want the checked bag to double as a gear bag at the crag. For flying alone, a soft duffel of the same volume is at least 1 kg lighter.
 
-### Wheeled duffels: easy in airports and on pavement, heaviest empty
+### Wheeled duffels: easy in airports and on pavement, heavy empty
 
 | Model | Volume | Empty weight | Carry | L+W+H | Official price | Reviews since 2020 |
 |---|---|---|---|---|---|---|
-| [Patagonia Black Hole Wheeled Duffel 100L](https://www.patagonia.com.au/products/black-hole-wheeled-duffel-100l-49388-blk) | 100 L | 4,780 g | Wheels, no straps | 157.5 cm (0.5 cm to spare) | AUD 649.95 | [Switchback Travel wheeled duffels (2026, Best Overall)](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [Patagonia Black Hole Wheeled Duffel 40L](https://www.patagonia.com.au/products/black-hole-wheeled-duffel-40l-49379-blk) | 40 L | 3,521 g | Wheels, no straps | 120 cm ✓ | AUD 599.95 (out of stock; US store US$369) | [Switchback Travel wheeled duffels (2026, line named Best Overall)](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [Patagonia Black Hole Wheeled Duffel 70L](https://www.patagonia.com.au/products/black-hole-wheeled-duffel-70l-49382-bob) | 70 L | about 4,100 g | Wheels, no straps | 138 cm ✓ | AUD 629.95 | As above |
+| [Patagonia Black Hole Wheeled Duffel 100L](https://www.patagonia.com.au/products/black-hole-wheeled-duffel-100l-49388-blk) | 100 L | 4,780 g | Wheels, no straps | 157.5 cm (0.5 cm to spare) | AUD 649.95 | As above |
 | [The North Face Base Camp Duffel Roller](https://www.thenorthface.com/en-us/p/bags-and-gear/luggage-and-duffels/duffel-bags-224547/base-camp-duffel-roller-NF0A52RP) | 97 L | 2,940 g | Wheels plus shoulder straps | 145 cm ✓ | US$250 (out of stock) | — |
-| [Osprey Rolling Transporter 90](https://www.osprey.com/gb/osprey-transporter-wheeled-duffel-90-s25) | 90 L | 3.23 kg | Wheels, no straps | 160 cm ✗ | £260 | [Switchback Travel wheeled duffels (2026)](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [The North Face Base Camp Rolling Thunder 22"](https://www.thenorthface.com/en-us/p/bags-and-gear/luggage-and-duffels/rolling-luggage-224545/base-camp-rolling-thunder22-40l-NF0A87GB) | 40 L | 3,680 g | Wheels, no straps | 122 cm ✓ | US$300 (out of stock; [UK store](https://www.thenorthface.com/en-gb/p/bags-and-equipment-211747/base-camp-rolling-thunder-22-NF0A87GB) £280) | [OutdoorGearLab (2026, best wheeled bag for flying)](https://www.outdoorgearlab.com/topics/travel/best-duffel-bag); [Switchback Travel (2026)](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [The North Face Base Camp Rolling Thunder 28"](https://www.thenorthface.com/en-us/p/bags-and-gear/luggage-and-duffels/rolling-luggage-224545/base-camp-rolling-thunder28-NF0A87GC) | 95 L | 5,000 g | Wheels, no straps | 158 cm ✓ (right on the limit) | US$380 | [Switchback Travel (2026, best for outdoor use)](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [Osprey Transporter Wheeled Duffel 40](https://www.osprey.com/gb/osprey-transporter-wheeled-duffel-40-s25) | 40 L | 2.55 kg | Wheels, no straps | 128 cm ✓ | £220 | [Switchback Travel wheeled duffels (2026)](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [Osprey Rolling Transporter 90](https://www.osprey.com/gb/osprey-transporter-wheeled-duffel-90-s25) | 90 L | 3.23 kg | Wheels, no straps | 160 cm ✗ | £260 | As above |
+| [Osprey Transporter Wheeled Duffel 120](https://www.osprey.com/gb/osprey-transporter-wheeled-duffel-120-s25) | 120 L | 3.5 kg | Wheels, no straps | 180 cm ✗ | £280 | As above |
+| [Mammut Wheeled Cargo 45](https://www.mammut.com/us/en/products/2570-00430-0001/wheeled-cargo-45) | 45 L | 2,600 g | Wheels plus removable shoulder straps | 122 cm ✓ | US$299.95 (out of stock) | — |
+| [Mammut Wheeled Cargo 90](https://www.mammut.com/us/en/products/2570-00440-0001/wheeled-cargo-90) | 90 L | 3,250 g | Wheels plus removable shoulder straps | 156 cm ✓ | US$339.95 | — |
+| [Gregory Alpaca Wheeled Duffel 100L](https://www.gregory.com/travel/duffels/alpaca-wheeled-duffel-100l/155037XXXX.html) | 100 L | about 3.89 kg | Wheels, no straps | 157.5 cm (0.5 cm to spare) | US$299.95 | — |
+| [Thule Chasm 40L wheeled](https://www.thule.com/en-us/luggage/carry-on-luggage/thule-chasm-wheeled-carry-on-duffel-_-3204986) | 40 L | about 3.3 kg | Wheels, no straps | 113 cm ✓ | US$369.95 | — |
+| [Mountain Equipment Wet & Dry Roller Kit Bag 70L](https://us.mountain-equipment.com/products/wet-dry-roller-kit-bag-70l) | 70 L | 3,350 g (size guide says 3,370 g) | Wheels, no straps | 136 cm ✓ | US$299.95 | — |
+| [Mountain Equipment Wet & Dry Roller Kit Bag 100L](https://us.mountain-equipment.com/products/wet-dry-roller-kit-bag-100l) | 100 L | 3,500 g (size guide says 3,860 g) | Wheels, no straps | 148 cm ✓ | US$374.95 | — |
+| [Eagle Creek Cargo Hauler Wheeled Duffel 110L](https://eaglecreek.com/products/cargo-hauler-110l-rolling-duffel) | 108 L (brand-measured) | 1.9 kg | Wheels plus stowable straps | 149 cm ✓ | US$249 | [Switchback Travel (2026)](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [Eagle Creek Cargo Hauler XT 90L Wheeled Duffel](https://eaglecreek.com/products/cargo-hauler-xt-29-wheeled-duffel) | 90 L | 3.7 kg | Wheels plus stowable straps | 146 cm ✓ | US$349 | — |
+| [Ortlieb Duffle RS 85L](https://de.ortlieb.com/en/products/duffle-rs) | 85 L | 2,790 g | Wheels plus shoulder strap, no telescoping handle | 147 cm ✓ | €340 | — |
+| [Ortlieb Duffle RG 60L](https://de.ortlieb.com/en/products/duffle-rg) | 60 L | 3,250 g | Wheels, telescoping handle and shoulder strap | 135 cm ✓ | €360 | — |
+| [Ortlieb Duffle RG 85L](https://de.ortlieb.com/en/products/duffle-rg) | 85 L | 3,450 g | As above | 151.5 cm ✓ | €380 | — |
 
-Wheeled duffels suit car-rental trips, a single base, or an airport-to-lodging route on smooth ground. If there is gravel or stairs, a roller with shoulder straps like The North Face's gives you more options.
+Wheeled duffels suit car-rental trips, a single base, or an airport-to-lodging route on smooth ground. Among the big wheeled duffels, empty weight varies a lot: the lightest, the Eagle Creek Cargo Hauler 110L, is under 2 kg, while the heaviest, the Rolling Thunder 28", is 5 kg, and the difference comes straight out of your checked allowance.
+
+If there is gravel or stairs, a roller with shoulder straps gives you more options: The North Face Roller, Mammut, Eagle Creek and Ortlieb all have them. The Mammut Wheeled Cargo 90 has removable shoulder straps and measures 156 cm, inside the limit; carry it on your back from the station to your lodging, then take the straps off before you check it so they are less likely to be torn. It weighs 3.25 kg empty, about 1.9 kg more than Mammut's wheel-less Cargo 100.
+
+Most 40–45 L wheeled duffels are sold as carry-on size, but by EVA Air and China Airlines' 115 cm rule only the Thule Chasm 40L in the table passes. It weighs 3.3 kg on its own, nearly half of a 7 kg allowance, so this size works better as a small checked bag.
 
 ## Large-capacity packs: when you have to carry it
 
@@ -127,6 +156,7 @@ If you are changing lodgings by bus or train, walking from the station to a gues
 | [Deuter Voyager 65+10](https://www.deuter.com/us-en/voyager-65-10/4046051167183) | 65 + 10 L | 2,830 g | Travel cover (doubles as raincover) | 142 cm ✓ (157 cm with daypack attached) | US$325 | [Tour du Mondiste (in French, 2025-08-06)](https://www.tourdumondiste.com/avis-sac-a-dos-deuter-voyager) |
 | [Lowe Alpine Escape Trek 60:70](https://lowealpine.com/uk/lowe-alpine-escape-trek-60-70) | 60 + 10 L | 2.05 kg | Stowable harness plus travel cover | 149 cm ✓ | £210 (sold through select retailers) | — |
 | [Gregory Border 50+15](https://eu.gregorypacks.com/uk-en/-border-50-15--black-lichen/154921-A653.html) | 50 + 15 L | 2.79 kg | Stowable shoulder straps plus travel cover | 139 cm ✓ | £260 | — |
+| [Thule Landmark 70L](https://www.thule.com/en-us/backpacks/backpacking-travel-backpacks/thule-landmark-70l-_-3205317) | 70 L (including 20 L daypack) | about 2.09 kg | Zip cover over back panel, shoulder straps and hipbelt | 145 cm ✓ | US$279.95 | [Switchback Travel (2026-02, 60 L version)](https://switchbacktravel.com/best-travel-backpacks) |
 | [Decathlon Forclaz Travel 900 70+6](https://www.decathlon.co.uk/p/men's-travel-trekking-rucksack-with-suitcase-opening-70-6-litre-travel-900/_/R-p-324139) | 70 + 6 L | 2.5 kg | Raincover doubles as a transport cover | 140 cm ✓ | £119.99 | [Live for the Outdoors (2024-02, women's 60+6)](https://livefortheoutdoors.com/hiking/rucksacks/decathlon-forclaz-womens-travel-900-backpack-review) |
 
 These packs weigh 2–2.8 kg empty, about 1 kg more than a soft duffel of similar volume; what you get for it is a bag you can carry all day. With its daypack attached the Deuter Voyager totals 157 cm, right at the limit. Take the daypack off and carry it on, and the problem goes away.
@@ -143,10 +173,12 @@ The three Taiwanese full-service airlines allow a carry-on of 56×36×23 cm, or 
 |---|---|---|---|---|---|---|
 | [Osprey Farpoint 40](https://osprey.com/gb/osprey-farpoint-40-f22) / [Fairview 40](https://osprey.com/eu/fairview-40-s26) (women's) | 40 L | 1.48 kg | 55×35×23 cm | ✓ | £170 / €180 (mid-refresh, old version out of stock) | [OutdoorGearLab (updated 2026-08)](https://outdoorgearlab.com/topics/travel/best-travel-backpack); [Pack Hacker (2022-12)](https://packhacker.com/travel-gear/osprey/farpoint-40) |
 | [Osprey Transporter Travel Pack 44](https://osprey.com/gb/osprey-transporter-travel-pack-44-s25) | 44 L | 1.54 kg | 54×42×32 cm | ✗ (too wide and too deep) | £190 | — |
+| [Osprey Farpoint 55](https://www.osprey.com/farpointtm-55-travel-pack) / Fairview 55 (women's) | 40 L + 15 L daypack | 1.87 kg | 55×35×46 cm (probably with the daypack attached) | Unconfirmed (brand says the main pack fits with the daypack detached) | US$240 | — |
 | [Patagonia Black Hole MLC 45L](https://patagonia.com.au/products/black-hole-mlc-45l-49307-blk) | 45 L | 1,644 g | 56×37×19 cm | ✓ (112 cm total; 1 cm longer than JAL/ANA allow) | AUD 379.95 | [OutdoorGearLab (updated 2026-08)](https://outdoorgearlab.com/topics/travel/best-travel-backpack); [Pack Hacker (2024-10)](https://packhacker.com/travel-gear/patagonia/black-hole-mlc) |
 | [Patagonia Black Hole Pack 32L](https://patagonia.com.au/products/black-hole-pack-32l-49302-pgta) | 32 L | 811 g | 56×25×17 cm | ✓ | AUD 269.95 | [Pack Hacker (2023-03)](https://www.packhacker.com/travel-gear/patagonia/black-hole-pack-32l/) |
 | [Gregory Border Carry-On 40](https://gregory.com/travel/backpacks/border-carry-on-40/154920D789.html) | 40 L | 1.75 kg | 56×36×23 cm | ✓ | US$239.95 | [Pack Hacker (2026-02)](https://packhacker.com/travel-gear/gregory/border-carry-on-40-2) |
 | [The North Face Base Camp Voyager Travel Pack 35L](https://www.thenorthface.com/en-us/p/bags-and-gear/backpacks-224451/base-camp-voyager-travel-pack-35l-NF0A81DN) | 35 L | about 1.57 kg (REI figure) | 49×30×16 cm (REI figure) | ✓ | US$180 | [Switchback Travel (2026-02)](https://switchbacktravel.com/best-travel-backpacks); [Pack Hacker (2025-01)](https://packhacker.com/travel-gear/the-north-face/base-camp-voyager-travel-pack) |
+| [Thule Aion 40L](https://www.thule.com/en-us/luggage/thule-aion-collection/thule-aion-travel-backpack-40l-_-3204724) | 40 L | about 1.45 kg | 52×33×23 cm | ✓ (108 cm total) | US$209.95 | [Switchback Travel (2026-02)](https://switchbacktravel.com/best-travel-backpacks) |
 | [Mystery Ranch Mission Rover 45](https://www.mysteryranch.com/mission-rover-45-pack) | 45 L | 1.77 kg | 53×33×30 cm | ✗ (117 cm total) | US$249 (out of stock, no restock date) | [Pack Hacker (2025-07)](https://www.packhacker.com/travel-gear/mystery-ranch/mission-rover-45/) |
 | [Deuter Carry On 30](https://www.deuter.com/us-en/carry-on-30/4046051190693) | 30 L | 1,080 g | 52×33×22 cm | ✓ | US$170 (excl. tax) | — |
 | [Lowe Alpine Escape Flight Pro 40L](https://lowealpine.com/lowe-alpine-escape-flight-pro-40l-cabin-pack) | 40 L | 1.36 kg | 55×33×25 cm | ✓ (113 cm total) | £145 (sold through select retailers) | — |
@@ -178,6 +210,10 @@ For opening styles, carry systems and volumes across crag packs, see [Choosing a
 
 Once you have the bags, do one test at home before you leave: pack everything you are taking, measure the full bag on all three sides with a tape measure, and weigh both the checked bag and the carry-on with a luggage scale. Over 158 cm or 23 kg, switch to a smaller bag or move the rope to your partner's bag. Carry-on over 7 kg, move clothes into the hold first and keep the shoes and harness with you.
 
+## Update log
+
+- 2026-10-19: Added 17 models to the wheeled duffel table (including the Mammut Wheeled Cargo 90), 8 to the soft duffels with straps, 1 to the large-capacity packs and 2 to the travel packs; rewrote the wheeled duffel advice and updated the brand count and wheeled-duffel weight range.
+
 ## References
 
 - [EVA Air: Checked baggage (in Chinese)](https://www.evaair.com/zh-tw/fly-prepare/baggage/free-baggage/checked-baggage/)
@@ -207,4 +243,6 @@ Once you have the bags, do one test at home before you leave: pack everything yo
 - [Climbing.com: What Climbing Gear You Can Fly With, According to TSA (2025-10-14)](https://www.climbing.com/travel/flying-with-climbing-gear-faqs/)
 - [Mountain Project: Best gear bag for air travel (2023)](https://www.mountainproject.com/forum/topic/124138683/best-gear-bag-for-air-travel)
 - [Kalymnos – a paradise for climbers (2024-12-02)](https://www.tuomasheinonen.com/blog/kalymnos-a-paradise-for-climbers-what-i-learned-on-my-first-visit-to-the-island/)
+- [Mountain Equipment: Wet & Dry Roller Kit Bag size guide](https://us.mountain-equipment.com/pages/size-guide-wet-dry-roller-kit-bag)
+- [Mountain Equipment: Wet & Dry Kit Bag size guide](https://mountain-equipment.com/pages/size-guide-wet-dry-kit-bag)
 - Official product pages are linked in the tables; prices checked 2026-10-19.
