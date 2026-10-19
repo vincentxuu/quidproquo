@@ -1166,6 +1166,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'Beyond the gym and sport crag: deep water soloing, big walls and aid climbing, ice and mixed climbing, alpine climbing, and finally free soloing. Each guide covers what the discipline is, how it is graded, where the risk lies, whether you can practise it in Taiwan, and where to start.',
     },
   },
+  {
+    slug: 'climbing-history-culture',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩文化與歷史', en: 'Climbing History and Culture' },
+    descriptions: {
+      'zh-TW': '想知道岩館裡的粉袋、岩鞋、難度等級和比賽從哪裡來時讀：先看攀岩怎麼從登山分出來、一路走到奧運，再看台灣從日治的大砲岩、1980 年代的攀岩者俱樂部到龍洞與抱石館的經過。有爭議的年份並列不選邊。',
+      en: "For climbers curious where chalk, climbing shoes, grades and competitions came from: how rock climbing split from mountaineering and made its way to the Olympics, then Taiwan's story from Japanese-era Dapaoyan and the 1980s Rock Climbers' Club to Long Dong and the bouldering-gym boom. Disputed dates are shown side by side.",
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
