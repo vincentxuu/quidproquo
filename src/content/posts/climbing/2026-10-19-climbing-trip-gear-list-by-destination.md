@@ -39,7 +39,7 @@ series:
 
 | 帶 | 當地租或買 | 不用帶 |
 |---|---|---|
-| 一條單繩（長度看目的地）、12–16 支快扣、繩袋、粉袋、繩尾要打結 | 泰國、卡林諾斯可租繩和快扣；西班牙 Siurana 店裡買得到 80 m 繩 | 機械塞、岩楔、抱石墊 |
+| 一條單繩（長度看目的地）、12–16 支快扣、繩袋、粉袋、繩尾要打結 | 泰國、卡林諾斯可租繩和快扣；西班牙 Siurana 店裡買得到 80 m 繩 | 活動岩楔、岩楔、抱石墊 |
 
 快扣數看最長路線的 bolt 數。手上沒有 topo 時，可以參考[卡林諾斯官方的換算](https://climbkalymnos.com/climbing)：
 
@@ -62,7 +62,7 @@ Tonsai 的多繩距[全部是運動路線](https://bigwall.eu/?cat=70)，不用�
 
 ### 傳攀（小川山、城ヶ崎、仁壽峰）
 
-運攀清單再加一整套機械塞與岩楔。韓國仁壽峰的經典路線 Chouinard A 在 theCrag 上標明要 [雙套機械塞](https://thecrag.com/en/climbing/south-korea/insubong/route/272137737)。Tonsai 兩家攀岩店的租借價目表都沒有機械塞（[Basecamp](https://basecamptonsai.com/climb-on-your-own)、[The Rock Shop](https://justclimbthailand.com/climbing-equipment-sale-and-rental)），傳攀器材當作一定要自己帶。
+運攀清單再加一整套活動岩楔與岩楔。韓國仁壽峰的經典路線 Chouinard A 在 theCrag 上標明要 [雙套活動岩楔](https://thecrag.com/en/climbing/south-korea/insubong/route/272137737)。Tonsai 兩家攀岩店的租借價目表都沒有活動岩楔（[Basecamp](https://basecamptonsai.com/climb-on-your-own)、[The Rock Shop](https://justclimbthailand.com/climbing-equipment-sale-and-rental)），傳攀器材當作一定要自己帶。
 
 ### 抱石（小川山、笠置山、Rocklands）
 

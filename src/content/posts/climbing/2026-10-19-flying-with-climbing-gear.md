@@ -5,7 +5,7 @@ category: climbing
 tags: [climbing, climbing-gear, travel, outdoor-climbing, sport-climbing]
 lang: zh-TW
 description: "整理台灣、美國、歐盟、英國、日本、中國的手提禁止清單，以及長榮、華航、星宇、國泰、虎航、樂桃、酷航、亞航、日航、全日空、Ryanair、easyJet 的托運與登機行李規定，判斷每件攀岩裝備該放哪邊。"
-tldr: "鉤環、快扣、機械塞不在任何官方禁止清單上，能不能帶上機由安檢人員現場決定；冰斧、岩錘、刀必須托運，瓦斯罐托運也不行，行動電源 2026 年起每人最多 2 個且只能手提。托運多數航司是 23 kg、158 cm，攀岩裝備照一般行李算；登機行李 7 kg 和 10 kg 決定你能把多少五金帶在身邊。"
+tldr: "鉤環、快扣、活動岩楔不在任何官方禁止清單上，能不能帶上機由安檢人員現場決定；冰斧、岩錘、刀必須托運，瓦斯罐托運也不行，行動電源 2026 年起每人最多 2 個且只能手提。托運多數航司是 23 kg、158 cm，攀岩裝備照一般行李算；登機行李 7 kg 和 10 kg 決定你能把多少五金帶在身邊。"
 draft: false
 series:
   name: "出國攀岩裝備"
@@ -20,9 +20,9 @@ series:
 
 規定以 2026-10-19 各官方頁面為準。航空公司會改規則，出發前用自己的機票再查一次。
 
-## 鉤環、快扣、機械塞：不在任何清單上
+## 鉤環、快扣、活動岩楔：不在任何清單上
 
-先講最重要的一件事：台灣、[美國 TSA](https://www.tsa.gov/travel/security-screening/whatcanibring/all-list)、[歐盟](https://transport.ec.europa.eu/system/files/2016-09/info_travellers_restricted_art.pdf)、[英國](https://www.gov.uk/hand-luggage-restrictions)、[日本國土交通省](https://www.mlit.go.jp/common/001425421.pdf)、[中國民航局](https://www.caac.gov.cn/INDEX/HLFW/HKLXCS/202303/t20230316_217597.html)的官方清單都一樣。它們沒有把鉤環、快扣、機械塞（cam）、岩楔（nut）、確保器列為禁止，也沒有點名說可以帶。TSA 的完整清單也沒有攀岩裝備這個條目。
+先講最重要的一件事：台灣、[美國 TSA](https://www.tsa.gov/travel/security-screening/whatcanibring/all-list)、[歐盟](https://transport.ec.europa.eu/system/files/2016-09/info_travellers_restricted_art.pdf)、[英國](https://www.gov.uk/hand-luggage-restrictions)、[日本國土交通省](https://www.mlit.go.jp/common/001425421.pdf)、[中國民航局](https://www.caac.gov.cn/INDEX/HLFW/HKLXCS/202303/t20230316_217597.html)的官方清單都一樣。它們沒有把鉤環、快扣、活動岩楔（cam）、岩楔（nut）、確保器列為禁止，也沒有點名說可以帶。TSA 的完整清單也沒有攀岩裝備這個條目。
 
 沒列在清單上，不等於官方允許。每個轄區都保留安檢人員的判斷權：
 
@@ -115,7 +115,7 @@ TSA 另外要求托運的尖銳物品要套起來或包好。冰斧、冰爪的�
 | [日航](https://www.jal.co.jp/jp/en/inter/baggage/checked/) | 2 件 | 23 kg | 203 cm |
 | [全日空](https://www.ana.co.jp/en/jp/guide/boarding-procedures/baggage/international/baggage-free/) | 0–2 件，依票種 | 23 kg | 158 cm |
 
-同一家航空，最便宜的票價通常只含 1 件。這 1 件夠不夠？[UKC 2021 年的一則討論](https://www.ukclimbing.com/forums/destinations/climbing_gear_on_a_plane-740523)裡，有人 9 天運攀行程的托運行李約 16 kg，裡面有繩、快扣、吊帶、鞋和衣物。運攀度假用 1 件 23 kg 多半裝得下。傳攀要帶整組機械塞，或一個人扛兩人份的繩和快扣，就要看票價是不是 2 件。
+同一家航空，最便宜的票價通常只含 1 件。這 1 件夠不夠？[UKC 2021 年的一則討論](https://www.ukclimbing.com/forums/destinations/climbing_gear_on_a_plane-740523)裡，有人 9 天運攀行程的托運行李約 16 kg，裡面有繩、快扣、吊帶、鞋和衣物。運攀度假用 1 件 23 kg 多半裝得下。傳攀要帶整組活動岩楔，或一個人扛兩人份的繩和快扣，就要看票價是不是 2 件。
 
 ### 不用買運動器材額度
 
@@ -194,7 +194,7 @@ TSA 另外要求托運的尖銳物品要套起來或包好。冰斧、冰爪的�
 | 岩楔起子、扳手 | 托運 | 規定＋經驗 | 長度規定各國不同，又最常被翻出來 |
 | 攀岩粉 | 都可 | 規定＋經驗 | 美國量多要另外過 X 光，澳洲每人 350 mL；保留原包裝 |
 | 繩 | 托運較穩 | 經驗 | TSA 明列可手提，但其他地方多次被當成束縛工具 |
-| 快扣、鉤環、機械塞、岩楔、確保器 | 托運最穩；手提要預留時間 | 經驗 | 不在任何清單上，由安檢人員決定 |
+| 快扣、鉤環、活動岩楔、岩楔、確保器 | 托運最穩；手提要預留時間 | 經驗 | 不在任何清單上，由安檢人員決定 |
 | stick clip | 托運 | 經驗 | 社群實例中有 6 處提到被翻查或沒收 |
 | 攀岩鞋、吊帶、頭盔 | 手提 | 經驗 | 30 個實例中 17 個這樣做，因為合腳的裝備難在當地租借，托運行李遺失時還能爬 |
 | 抱石墊 | 托運 | 航司規定 | 留意 158 cm 和 203 cm 的尺寸上限 |
