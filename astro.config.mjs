@@ -61,6 +61,19 @@ export default defineConfig({
   output: 'server',
   // 已發佈文章換檔名時，舊網址一律留一條 301，外站連過來才不會 404。
   redirects: {
+    // 出國攀岩裝備 v2：重疊篇併入新篇或「攀岩裝備」系列（2026-10-19）。
+    '/posts/climbing/2026-10-19-dynamic-rope-triple-rating': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination',
+    '/posts/climbing/2026-10-19-dynamic-rope-triple-rating-en': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en',
+    '/posts/climbing/2026-10-19-multipitch-rope-systems': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination',
+    '/posts/climbing/2026-10-19-multipitch-rope-systems-en': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en',
+    '/posts/climbing/2026-10-19-climbing-travel-packing': '/posts/climbing/2026-10-19-climbing-travel-luggage',
+    '/posts/climbing/2026-10-19-climbing-travel-packing-en': '/posts/climbing/2026-10-19-climbing-travel-luggage-en',
+    '/posts/climbing/2026-10-19-climbing-shoes-harness-helmet': '/posts/climbing/2026-10-19-climbing-harness-helmet',
+    '/posts/climbing/2026-10-19-climbing-shoes-harness-helmet-en': '/posts/climbing/2026-10-19-climbing-harness-helmet-en',
+    '/posts/climbing/2026-10-19-climbing-belay-hardware': '/posts/climbing/2026-10-19-climbing-rope-belay-device',
+    '/posts/climbing/2026-10-19-climbing-belay-hardware-en': '/posts/climbing/2026-10-19-climbing-rope-belay-device-en',
+    '/posts/climbing/2026-10-19-climbing-gear-care-retirement': '/posts/climbing/2026-10-19-climbing-gear-inspection-retirement',
+    '/posts/climbing/2026-10-19-climbing-gear-care-retirement-en': '/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en',
     // Bug Bounty: consolidate duplicate rewrite paths into topic-correct original URLs.
     '/posts/tech/2026-10-15-bug-bounty-zero-01-rules-and-scope': '/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope',
     '/posts/tech/2026-10-15-bug-bounty-zero-01-rules-and-scope-en': '/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en',

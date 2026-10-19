@@ -1,127 +1,180 @@
 ---
-title: "多繩距攀岩背包怎麼挑：容量、吊帶試背與四款熱門候選"
+title: "多繩距攀登包怎麼挑：判準、14 個品牌現行款與試背清單"
 date: 2026-10-19
 category: climbing
-tags: [climbing, multi-pitch, climbing-gear, backpacks, travel]
+tags: [climbing, multi-pitch, climbing-gear, travel, outdoor-climbing]
 lang: zh-TW
-description: "從接近與背著攀爬的差別，挑多繩距小包；比較Rock Blitz、Wadi、BUG與Mutant，以及掛包、拖包和兩人裝載。"
-tldr: "先裝當天的水、保暖層與接近鞋，再穿吊帶和頭盔試背。多繩距包的關鍵是攀爬活動空間與確保站取物，容量與耐拖程度要分開看。"
+description: "背上岩壁的包要多小、哪些功能才不會礙事？先講窄包型、頭盔與吊帶干涉、可拆腰帶、確保站取物、拖拉環與耐磨六個判準，再比較 BD、Blue Ice、Petzl、Osprey、Arc'teryx、Mammut、Ortovox、Deuter、Edelrid、Hyperlite、Rab 等 14 個品牌的現行款，附兩人一天分工與店內試背清單。"
+tldr: "多繩距包通常由跟攀者背，先鋒不背。容量從兩人的水、外套和要不要帶接近鞋算起，多數落在 15–22 L；走下山要帶鞋就看 24–30 L。挑包時穿吊帶、戴頭盔試背：抬頭不頂到頭盔、彎腰拿得到裝備環、確保站單手打得開，三項都過才算能上岩壁。"
 draft: false
 series:
   name: "出國攀岩裝備"
-  order: 3
+  order: 6
 ---
 
 > 🌏 [English version](/posts/climbing/2026-10-19-multipitch-climbing-backpacks-en)
 
-走到岩壁下很好背的包，上了岩壁不一定好用。彎腰拿快扣時，腰帶可能壓住裝備環；抬頭看下一段，頭盔又碰到包頂。多繩距小包是跟著你爬上去、裝水和外套的包，選它時要把攀爬動作一起考慮。
+[上一篇的岩場包](/posts/climbing/2026-10-19-climbing-crag-packs)走到岩壁下就放在地上。多繩距的包會跟著你爬上去，在岩壁上待一整天。走路時好背的包，爬起來可能處處礙事。抬頭看下一段，頭盔撞到包頂；伸手拿快扣，腰帶壓住裝備環；在懸吊確保站打開拉鍊，外套差點掉下去。
 
-本文寫給準備多繩距旅行、想買第一個攀登小包的人。看完要能決定：自己需要多少空間、誰背什麼，以及哪兩款值得帶著裝備去試。確保、掛包與拖拉的操作，仍要按產品說明及現場訓練執行。
+這篇寫給準備出國爬多繩距、想買第一個攀登小包的人。前半是六個判準，後半是 14 個攀岩與登山品牌的現行款比較、兩人一天怎麼分工、店內試背清單，最後講這個包出國時怎麼兼當登機包。讀完你應該能穿著吊帶和頭盔試背，判斷一個包能不能帶上岩壁。
 
-## 先分清楚：搬到岩壁，還是背上岩壁
+## 它跟岩場包差在哪
 
-岩場大包可以裝繩、完整硬體與兩人的午餐，到了路線底下才攤開。攀登小包則會跟著身體轉動，需要留出抬手、抬頭和拿吊帶裝備的空間。[Climbing的背包比較](https://www.climbing.com/gear/best-climbing-backpack/)也把這兩種用途分開，小包的簡單腰帶主要穩定位置，不能當成大包腰帶的負重能力。
+岩場包負責把繩、整套五金和兩人的午餐搬到岩壁下，容量大，背負系統為走路設計。多繩距包只裝爬的時候要用的東西：水、外套、食物、頭燈，有時加上接近鞋。[Climbing 的 2026 背包評比](https://www.climbing.com/gear/best-climbing-backpack/)把這類包定在 25 L 以下，包型低、貼背，外袋和帶子少，因為多出來的帶子會勾到岩石。腰帶多半只是一條織帶，用來穩住包，不負責承重。
 
-想一包包辦，先問回程是否經過起攀點。若從另一邊走下山，留在底下的大包怎麼拿回來？
+[Switchback Travel 的評比](https://www.switchbacktravel.com/best-climbing-backpacks)把這類包叫「跟攀包」（follower pack）：先鋒輕裝爬，跟攀者背包。這也是後面分工例子的前提。
 
-若要帶所有東西上去，小包又能否裝下接近鞋、外套和下降需要的裝備？這些答案比「大家都買幾公升」更早決定配置。
+繩子要帶一條還是兩條、多長，看[依目的地列裝備清單](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination)的繩子一節，這篇只管包。
+
+## 六個判準
 
 ```mermaid
 flowchart TD
-  A[列出攀爬與下降會帶走的物品] --> B[裝水 外套 接近鞋與共用物]
-  B --> C{小包放得下嗎}
-  C -->|放得下| D[穿吊帶頭盔試動作]
-  C -->|放不下| E[重新分工或比較較大容量]
-  E --> D
-  D --> F{裝備環與抬頭受阻嗎}
-  F -->|受阻| G[換背長或包型]
-  F -->|順暢| H[再檢查取物與外帶]
+  A[裝進兩人的水 外套 食物] --> B{還要帶接近鞋嗎}
+  B -->|回起攀點 不用| C[看 15–22 L]
+  B -->|走下山 要帶| D[看 24–30 L 或鞋掛外面]
+  C --> E[穿吊帶 戴頭盔試背]
+  D --> E
+  E --> F{抬頭 舉手 拿裝備環都順嗎}
+  F -->|卡住| G[換背長或包型]
+  F -->|順| H{確保站單手打得開 有掛包點嗎}
+  H -->|沒有| G
+  H -->|有| I[再看耐磨與價格]
 ```
 
-## 容量從水、衣物與鞋算，不從天數猜
+### 1. 包型窄而高，轉頭和抬手不被擋
 
-同樣爬一天，有人穿接近鞋走下山，有人回到起攀點；有人需要厚保暖衣，有人只帶薄外套。先把這些實物放進包，水也要裝到行程預計的量。每公升水約一公斤，忽略它，很容易把空包試背當成負重測試。
+包越寬，手臂往後伸、身體側轉時越容易刮到包側。Switchback 形容 [BD Rock Blitz 15](https://blackdiamondequipment.com/products/rock-blitz-15-backpack) 像子彈，「背得高、貼近身體、讓開吊帶」。挑包時先看正面寬度，比兩個同容量的包，選窄而高的那個。
 
-15L可以列為少量物品的起點；18–22L則多一點調整空間，並不是固定的人數或時數配方。不要為了塞進喜歡的包，臨時刪掉按天候、路線與撤退計畫需要的東西。多出的空間也不代表應該塞滿，先看它在半滿時會不會晃。
+### 2. 頭盔與吊帶腰帶不能互相干涉
 
-兩人分工要區分接近和攀爬。例如接近時甲背繩，乙背共用食物；起攀後繩開始使用，乙可能成為主要背包者。把「誰拿繩」直接當成整天都比較重，往往會錯估岩壁上的負擔。
+包太長會兩頭出事：上緣頂到頭盔後緣，抬頭看下一段時脖子被逼著往前；下緣壓在吊帶腰帶和後方裝備環上，伸手拿裝備時摸不到。所以背長比容量重要，同一款有分尺寸就兩個都試。吊帶本身怎麼選見[吊帶與頭盔](/posts/climbing/2026-10-19-climbing-harness-helmet)。
 
-## 到店裡做一次完整試背
+腰帶最好能拆。走接近路時扣上，上岩壁前拆掉或收起，免得跟吊帶腰帶疊在一起。[Wadi 15](https://us.blueice.com/products/wadi-15-pack) 的織帶腰帶、[Petzl BUG](https://www.petzl.com/us/en/sport/products/climbing-packs-rope-bags/bug/BUG_SPO_a2mTx000003PXGnIAO.html) 的腰帶都可以拆，[Rab Latok 28](https://rab.equipment/us/rab-latok-28l-mountain-pack)、[Hyperlite Summit 30](https://www.hyperlitemountaingear.com/products/summit-30) 這類較大的包也一樣。
 
-帶自己的吊帶、頭盔、水瓶或水袋、接近鞋和外套。調好肩帶後，依序抬頭、兩手舉高、轉身，再用左右手拿吊帶前後的裝備。包底不能妨礙你實際要用的裝備環，包頂也不該逼得頭頸無法自然抬起。這是合身判準，不能只按身高買。
+### 3. 水和外套要在確保站拿得到
 
-接著蹲下、側身，感受包有沒有明顯左右滾動；再檢查腰帶能否收妥，以及肩帶是否妨礙手臂。水袋管與多餘調節帶要收整，避免垂在器材旁邊。不要僅為了減重自行剪改承重或固定結構。
+確保站常常只站得下兩隻腳，包也不能放下來。頂部開口比較安全。[Gripped 2026 年的 BUG 評測](https://gripped.com/gear/the-petzl-bug-multi-pitch-pack-a-review)稱讚它主開口在頂部，懸吊確保時打開不會倒出東西。同一篇也提醒，正面直立拉鍊的口袋要留意。整面拉開的 U 型拉鍊在地面方便，到岩壁上就要小心。
 
-最後模擬確保站取物：包還固定著時，能不能拿到外套和食物？頂開口、拉鍊與口袋各有方便之處。把整個包攤開才找得到東西，通常不適合狹小站位。購買前先練熟開口，別到岩壁上才發現操作不順。
+喝水有兩種做法。水袋可以邊爬邊喝，但吸管要沿肩帶收好，別垂在吊帶裝備旁；水瓶較好整理，但要打開包才拿得到。外套放最上層，起風時先拿得到它。
 
-## 掛在確保站、偶爾拖拉，是不同要求
+### 4. 掛包用哪個點、拖拉用哪個點，查說明書
 
-有提把，不代表每個提把都能拖包；有耐磨布，也不代表能長期在岩石上拖行。[Wadi15原廠](https://us.blueice.com/products/wadi-15-pack)提供掛包用的繩帶與2kN扣具，那是背包功能，不能拿來做人身確保。要掛哪一個點、如何固定及負重限制，查自己那款的說明。
+在確保站把包掛到固定點上，取物時才不用一直背著。[Wadi 15](https://us.blueice.com/products/wadi-15-pack) 的繩帶兼掛包帶，附一個 2 kN 的鉤環；那是掛包用的，不能拿來確保人。[Osprey Mutant 22](https://www.osprey.com/mutant-22-mutant22f22-376) 有三點式拖拉系統，[Edelrid Rubi](https://edelrid.com/eu-en/sport/backpacks-and-rope-bags-shop/rubi) 有拖拉環，BUG 依 Gripped 評測也有拖拉環。
 
-需要反覆拖拉時，另選原廠設計對應用途的包與系統。煙囪、尖銳岩面和卡包風險，不能只靠「布料很厚」解決。外掛鞋和繩也可能晃動、卡住，先確認路線是否容許這種配置。減少不必要外掛，通常比再買一個掛點更多的包更值得先做。
+遇到難段要把包拖上去（hauling）時，只用原廠標明可拖拉的環。一般提把是給手提的，原廠沒寫可拖拉，就當它只能手提。Climbing 的評比也說，Wadi 偶爾在難段拖一下沒問題，但不會拿它當每天用的拖包。需要整條路線一直拖，另選拖包，不在這篇範圍。
 
-## 四款常見候選，按需求比較
+### 5. 布料夠耐磨
 
-這份名單綜合近期英語評測與原廠用途，並非台灣銷量排行，也沒有本站實背測試。[Switchback](https://www.switchbacktravel.com/climbing/best-backpacks)與[Climbing](https://www.climbing.com/gear/best-climbing-backpack/)分別推薦RockBlitz與Wadi；兩者都是可能有聯盟分潤的導購來源。BUG與Mutant則補上日常兼用及較大容量選擇。
+多繩距包會在岩面上刮，鑽煙囪地形更傷。布料的丹尼數（D）越高通常越厚：Switchback 說 840D 的 Rock Blitz 鑽煙囪也撐得住，Wadi 15 的布更厚。輕量款常改用薄布換重量，像 [BD Blitz 20](https://blackdiamondequipment.com/products/blitz-20-backpack)。花崗岩裂隙多的路線選厚布，石灰岩面路線或天氣不穩的高山，可以考慮輕而防水的款式。
 
-| 型號 | 原廠容量／重量 | 適合先比較的需求 | 取捨 |
-|---|---|---|---|
-| [BD Rock Blitz15](https://blackdiamondequipment.com/products/rock-blitz-15-backpack) | 15L／403g | 想要精簡包型、側袋取手機或路線圖 | 容量小，別預設能容納全隊裝備；不是專業拖包 |
-| [Blue Ice Wadi15](https://us.blueice.com/products/wadi-15-pack) | 15L／500g，拆配件450g | 重視確保站掛包、頭盔固定與耐磨 | Climbing指出天候防護較弱，濕天要另作安排 |
-| [Petzl BUG](https://www.petzl.com/US/en/Sport/Packs-And-Accessories/BUG) | 18L／665g | 想兼日用，有筆電／水袋夾層與可拆頭盔網 | 現行款和舊525g版本不同，舊款心得不能直接套用 |
-| [Osprey Mutant22](https://www.osprey.com/mutant-22-mutant22f22-376) | 22L／650g | 衣物較多、混合岩攀或冰攀的一日行程 | 外掛附件較多；22L的背負不能靠38L評測代替驗證 |
+### 6. 容量從水和衣物算，15–30 L
 
-### 社群提醒：同一容量，感受也可能相反
+先把實物放進去：兩人的水（每公升約 1 公斤）、兩件防風外套、需要的話加保暖層、食物、頭燈、路線圖、急救包。回到起攀點下山、鞋可以留在地上的話，15–22 L 多半夠。從另一側走下山、兩雙接近鞋都要帶走，才需要看 24–30 L，或者把鞋扣在包外。
 
-[MountainProject的2023討論](https://www.mountainproject.com/forum/topic/123738192/multi-pitch-pack)中，發問者因大接近鞋、水袋與身形，偏向較大容量；其他人則滿意小包。[2021另一串](https://www.mountainproject.com/forum/topic/121539838/best-pack-for-multi-pitch)有人說Blitz20用了幾年仍好用，也有人覺得不夠耐操。Blitz20並非RockBlitz15，這些又是舊版個人經驗，不能混成現售型號的耐用排名。
+鞋掛外面會晃、會勾岩石，先確認路線容不容許。包大了就會想塞滿，半滿時壓縮帶要能把包收緊、不晃。
 
-把分享轉成試背問題更有用：自己的鞋放進去還剩多少？包會不會坐得太低？外帶能否收整？
+## 14 個品牌的現行款比較
 
-帖內對「乾脆不背包」也有分歧，不能因此省掉路線所需的水與衣物。
+以下價格是 2026-10-19 各品牌官網標價，幣別照官網，未換算；重量是原廠空重。「評測」欄只列 2020 年後第三方媒體的評測，「—」表示沒有。各款的拖拉環、腰帶規格以官網為準，買之前再點進去看一次。
 
-### 電商價格看同容量，也要看版次
+### 15–20 L：跟攀包主力
 
-2026年10月19日公開商品價；未確認寄台灣、未結帳，除標明含VAT外稅額未知，均不是到手價。
+| 型號 | 容量 | 空重 | 特色 | 官方價格 | 評測 | 適合誰／缺點 |
+|---|---|---|---|---|---|---|
+| [Black Diamond Rock Blitz 15](https://blackdiamondequipment.com/products/rock-blitz-15-backpack) | 15 L | 403 g | 840D 布、頂部抽繩開口、側拉鍊袋、腰帶可拆 | USD 99.95 | [Switchback 2026](https://www.switchbacktravel.com/best-climbing-backpacks) 多繩距跟攀包首選 | 純攀岩、要耐磨；沒有水袋隔層，原廠沒標拖拉環 |
+| [Blue Ice Wadi 15](https://us.blueice.com/products/wadi-15-pack) | 15 L | 500 g（拆配件 450 g） | 1000D 尼龍、掛包帶附 2 kN 鉤環、頭盔外掛 | USD 99.95（美國官網缺貨） | [Climbing 2026](https://www.climbing.com/gear/best-climbing-backpack/) 多繩距首選 | 確保站常掛包的人；不防水，Climbing 建議晴天用 |
+| [Mammut Trion 15](https://mammut.com/us/en/products/2520-00981-0243/trion-15) | 15 L | 420 g | 越野背心式肩帶、拉鍊捲頂、側開口 | USD 169.95 | — | 喜歡背心貼身感的人；沒有腰帶，價格偏高 |
+| [Blue Ice Dragonfly 18](https://us.blueice.com/products/dragonfly-18l-pack) | 18 L | 415 g（拆到 325 g） | 可拆到極簡、冰斧掛點 | USD 109.95 | Climbing 2026 列為雨天替代 | 高山岩攀、要輕；原廠沒標拖拉環 |
+| [Petzl BUG](https://www.petzl.com/us/en/sport/products/climbing-packs-rope-bags/bug/BUG_SPO_a2mTx000003PXGnIAO.html) | 18 L | 665 g | 頂部開口、筆電／水袋隔層、可拆頭盔網、腰帶可拆 | USD 109.95 | [Gripped 2026-03](https://gripped.com/gear/the-petzl-bug-multi-pitch-pack-a-review) | 兼當日常包、登機包；同容量裡偏重 |
+| [Edelrid Rubi](https://edelrid.com/eu-en/sport/backpacks-and-rope-bags-shop/rubi) | 19 L | 498 g | 拖拉環、裝備環、簡易腰帶 | EUR 70 | — | 預算有限又要拖拉環；功能精簡 |
+| [Black Diamond Blitz 20](https://blackdiamondequipment.com/products/blitz-20-backpack) | 20 L | 374 g | 單手頂部開口、繩帶、水袋相容、可拆到極簡 | USD 119.95 | Switchback 2026 提及 | 要輕、兼高山；布料比 Rock Blitz 薄 |
 
-| 型號 | 店頁價格 | 必須一起看的條件 |
-|---|---|---|
-| RockBlitz15 | [Oliunìd USD55.63](https://www.oliunid.com/bd-black-diamond-rock-blitz-15-l-multi-pitch-climbing-backpack) | 列現貨；顏色與新版SKU未鎖定 |
-| Wadi15 | [BananaFingers EU EUR76.90](https://bananafingers.com/eu/blue-ice-wadi-15-pack-climbing-and-mountaineering-backpack) | 列Available，顏色未鎖；[BlueIce US](https://us.blueice.com/products/wadi-15-pack)另列USD99.95，但NorthAtlantic缺貨 |
-| 新BUG18L | [Petzl US USD109.95](https://www.petzl.com/US/en/Sport/Packs-And-Accessories/BUG) | 665g版；庫存未明，別和舊款折扣直接比 |
-| Mutant22 | [CDC Greece EUR140](https://www.cdc.gr/climbing/packs/osprey-mutant-22-unisex-en/) | TungstenGrey、列現貨、含VAT |
+### 22–25 L：多一點衣物空間
 
-## 兩人一天的裝載例子
+| 型號 | 容量 | 空重 | 特色 | 官方價格 | 評測 | 適合誰／缺點 |
+|---|---|---|---|---|---|---|
+| [Osprey Mutant 22](https://www.osprey.com/mutant-22-mutant22f22-376) | 22 L | 650 g | 三點式拖拉系統、水袋隔層、腰帶可拆 | USD 140 | — | 衣物多、混合冰岩；外掛織帶可拆，上岩壁前拆掉 |
+| [Millet Prolighter 22](https://millet.com/eu_en/mis2274-n7317-prolighter-22-unisex-navy-blue.html) | 22 L | 630 g | 腰帶可拆、冰斧掛點 | EUR 100（特價 EUR 75） | — | 在歐洲當地買；特價中，顏色尺寸可能不齊 |
+| [Ortovox Trad Zero 24](https://www.ortovox.com/us-en/backpacks/specials/ultra-lightweight-backpacks/trad-zero-24/5000753) | 24 L | 570 g | 頂蓋兼繩帶與頭盔帶、內裡止滑、裝備環、水袋孔 | USD 130 | — | 要輕又要 24 L；沒有頂袋，小東西要另外收 |
+| [Deuter Guide Lite 24](https://www.deuter.com/uk-en/guide-lite-24/4046051185729) | 24 L | 670 g | U 形框架、頂蓋與腰帶可拆、可收式繩帶 | GBP 130 | [Climbing 2020-04](https://climbing.com/gear/2020-alpine-kit-deuter-guide-lite-24-review) | 接近路長、要背得穩；評測是 2020 年版 |
+| [Salewa Ortles Climb 25](https://salewa.com/en-gb/ortles-climb-25l-backpack-00-0000001283) | 25 L | 605 g | 分離式肩帶、捲頂加側開口、雙冰斧與繩帶 | GBP 130 | — | 要側開口取物；原廠說布料耐拖拉，但沒標拖拉環 |
 
-假設兩人同攀一條多繩距，下降後不回起攀點，兩人的接近鞋都要帶走。以下是分工示例，水量與衣物由實際天候和行程決定，不能照表當安全足量。
+### 28–30 L：要帶接近鞋或上高山
+
+| 型號 | 容量 | 空重 | 特色 | 官方價格 | 評測 | 適合誰／缺點 |
+|---|---|---|---|---|---|---|
+| [Rab Latok 28](https://rab.equipment/us/rab-latok-28l-mountain-pack) | 28 L | 810 g | Spectra 布、捲頂可擴充、腰帶可拆 | USD 225 | — | 走下山要帶鞋；偏重 |
+| [Gregory Alpinisto LT 28](https://eu.gregorypacks.com/uk-en/-alpinisto-28-lt-sm-md--piton-blue/126853-9986.html) | 28 L | 990 g | 頂蓋、背板、腰帶都可拆 | GBP 150（特價 GBP 105） | — | 接近路長、要背負；最重，特價中可能是出清 |
+| [Arc'teryx Alpha FL 30](https://arcteryx.com/us/en/shop/alpha-fl-30-backpack-0349) | 30 L | 665 g | 315D 貼合防水布、捲頂加抽繩、RECCO | USD 280 | Switchback 2026 超輕高山包首選 | 高山長路線、天氣差；貴 |
+| [Hyperlite Summit 30](https://www.hyperlitemountaingear.com/products/summit-30) | 30 L | 383 g（白）／448 g（黑） | Dyneema 無框捲頂、織帶腰帶可拆 | USD 210 | — | 最輕的 30 L；無框，原廠沒標拖拉環 |
+
+想要更大的包，Patagonia 現行最小的攀登包是 [Ascensionist 35L](https://www.patagonia.ca/product/ascensionist-climbing-pack-35-liters/47986.html)，已超出本篇範圍；Climbing 評它為最佳全能高山包，並提到它有兩個拖拉環。
+
+怎麼縮小範圍？只爬岩、天氣好，從 Rock Blitz 15、Wadi 15、Rubi 裡挑。同一個包還想當城市日用和登機包，看 BUG。衣物多或爬冰岩混合，看 Mutant 22、Trad Zero 24。走下山要帶鞋，看 28–30 L 那一組。
+
+## 兩人一天怎麼分工
+
+假設兩人爬一條 8 段左右的多繩距，從另一側健行下山，所以兩雙接近鞋都要帶走。先鋒輕裝，只帶吊帶上的五金；跟攀者背包。
 
 | 階段 | 甲 | 乙 |
 |---|---|---|
-| 接近 | 繩與個人用品 | 共用小包、食物與個人用品 |
-| 起攀前 | 與乙共同確認兩人的鞋、水、保暖層、頭燈及路線資料 | 把衣物與常取物品放上層，收整外帶 |
-| 攀爬 | 按當段分工處理繩與硬體 | 背小包；若換人背，重新調整並確認掛點 |
-| 下山 | 重新分配繩和硬體 | 核對帶走物品，別把外套或鞋留在站位 |
+| 接近 | 背繩、自己的五金 | 背攀登包：兩人的水、外套、食物、頭燈、兩雙接近鞋 |
+| 起攀前 | 換攀岩鞋，接近鞋交給乙 | 拆掉或收起包的腰帶，外套移到最上層 |
+| 甲先鋒 | 不背包 | 背包跟攀，到確保站把包掛上固定點再取物 |
+| 換乙先鋒 | 在確保站接過包，調好肩帶 | 交出包後輕裝先鋒 |
+| 下山 | 收繩、分五金 | 兩人換回接近鞋，確認外套和頭燈都在包裡 |
 
-先用家中現有包裝一次。如果兩人的鞋與衣物已擠滿15L，改比較22L或重新分配，比買完再把所有東西掛外面更實際。
+兩人輪流先鋒，包就在確保站換手，所以肩帶要好調、掛包點要好找。整天由同一人先鋒，包就一直由另一人背，這時包的舒適度比換手速度重要。
 
-**自我檢查：** 15L試背順暢，但必需的衣物裝不下；22L容量足夠，包底卻擋住吊帶。應選哪個？**答案：兩個都還沒合適。** 保留必要裝備，調整兩人分工，繼續找不同背長或包型。容量夠與攀爬順暢必須同時成立。
+如果水、外套和兩雙鞋已經把 15 L 擠滿，有兩條路：換 24–30 L，或把一雙鞋扣在包外。不要為了塞進喜歡的包，把該帶的保暖層拿掉。
 
-下一篇看[攀岩旅行打包與主行李分工](/posts/climbing/2026-10-19-climbing-travel-packing)，把攀登小包放回整趟旅行配置。
+## 店內試背檢查清單
 
-<!-- climbing-gear-nav:start -->
-> [上一篇：多繩距繩索配置](/posts/climbing/2026-10-19-multipitch-rope-systems) · [系列總覽](/posts/climbing/2026-10-19-climbing-gear-travel-overview) · [下一篇：攀岩旅行與一般出國打包](/posts/climbing/2026-10-19-climbing-travel-packing)
-<!-- climbing-gear-nav:end -->
+帶自己的吊帶、頭盔、水瓶或水袋、一件外套，可以的話帶接近鞋。
+
+1. 把東西裝進去，水裝到你實際會帶的量。空包試背量不出什麼。
+2. 穿吊帶、戴頭盔，再背包，調好肩帶和胸帶。
+3. 抬頭看天花板：頭盔後緣有沒有撞到包頂？
+4. 雙手舉高、身體左右轉：手臂和肩膀有沒有被包側刮到？
+5. 左右手輪流去拿吊帶前後的裝備環：包底有沒有壓住後方的裝備環？
+6. 抬高一隻腳、蹲下：包有沒有往一側晃？
+7. 拆掉腰帶，或把它收起來：拆完包還穩嗎？剩下的帶子收得乾淨嗎？
+8. 找出原廠的掛包點，把包掛在掛鉤上，單手打開主開口拿外套。
+9. 確認拖拉環（若有）和一般提把是不同的兩個東西。
+
+第 3、5 項任一項過不了，換尺寸或換款，不要靠調肩帶硬撐。
+
+## 出國時，它常兼當登機包
+
+出國爬多繩距時，攀登包通常也是登機的隨身包，鞋、吊帶、頭盔和外套放在裡面上機，托運行李遺失也還能爬。[Mountain Project 2023 年 1 月的一串討論](https://www.mountainproject.com/forum/topic/123687187/travel-bags-to-fly-to-climbing-destination)中，有位使用者說他把 15 L 的多繩距包當個人物品，岩場包裝五金當手提行李。Gripped 的評測也說 BUG 很適合當旅行隨身包。
+
+個人物品的尺寸比登機箱小得多，長榮只有 10 cm 厚，裝滿的攀登包要自己量過。各航空的登機與個人物品尺寸、攀登包怎麼跟托運主袋和岩場包搭配，見[〈托運主袋與登機包〉](/posts/climbing/2026-10-19-climbing-travel-luggage)；哪些五金可能在安檢被擋，見[〈攀岩裝備上飛機〉](/posts/climbing/2026-10-19-flying-with-climbing-gear)。
+
+這篇是「出國攀岩裝備」系列的最後一篇。回到[系列導讀](/posts/climbing/2026-10-19-climbing-gear-travel-overview)可以依旅行型態重看閱讀路線。
 
 ## 參考資料
 
-- [Climbing：2026攀岩背包比較](https://www.climbing.com/gear/best-climbing-backpack/)
-- [Switchback：攀岩背包比較](https://www.switchbacktravel.com/climbing/best-backpacks)
-- [BlackDiamond：RockBlitz15](https://blackdiamondequipment.com/products/rock-blitz-15-backpack)
-- [BlueIce：Wadi15](https://us.blueice.com/products/wadi-15-pack)
-- [Petzl：BUG](https://www.petzl.com/US/en/Sport/Packs-And-Accessories/BUG)
-- [Osprey：Mutant22](https://www.osprey.com/mutant-22-mutant22f22-376)
-- [MountainProject：2023多繩距背包討論](https://www.mountainproject.com/forum/topic/123738192/multi-pitch-pack)
-- [MountainProject：2021背包使用經驗](https://www.mountainproject.com/forum/topic/121539838/best-pack-for-multi-pitch)
-
-- [Oliunìd USD55.63](https://www.oliunid.com/bd-black-diamond-rock-blitz-15-l-multi-pitch-climbing-backpack)
-- [BananaFingers EU EUR76.90](https://bananafingers.com/eu/blue-ice-wadi-15-pack-climbing-and-mountaineering-backpack)
-- [CDC Greece EUR140](https://www.cdc.gr/climbing/packs/osprey-mutant-22-unisex-en/)
+- [Climbing：The Best Climbing Backpacks of 2026（2026-04 更新）](https://www.climbing.com/gear/best-climbing-backpack/)
+- [Switchback Travel：Best Climbing Backpacks of 2026（2026-06-23）](https://www.switchbacktravel.com/best-climbing-backpacks)
+- [Gripped：The Petzl Bug Multi-Pitch Pack: A Review（2026-03-31）](https://gripped.com/gear/the-petzl-bug-multi-pitch-pack-a-review)
+- [Climbing：Gear Guide 2020: Deuter Guide Lite 24 Review（2020-04-14）](https://climbing.com/gear/2020-alpine-kit-deuter-guide-lite-24-review)
+- [Mountain Project：Travel bags to fly to climbing destination（2023-01）](https://www.mountainproject.com/forum/topic/123687187/travel-bags-to-fly-to-climbing-destination)
+- [長榮航空：手提行李](https://www.evaair.com/zh-tw/fly-prepare/baggage/free-baggage/carry-on-baggage/)
+- [Black Diamond：Rock Blitz 15](https://blackdiamondequipment.com/products/rock-blitz-15-backpack)
+- [Black Diamond：Blitz 20](https://blackdiamondequipment.com/products/blitz-20-backpack)
+- [Blue Ice：Wadi 15](https://us.blueice.com/products/wadi-15-pack)
+- [Blue Ice：Dragonfly 18](https://us.blueice.com/products/dragonfly-18l-pack)
+- [Mammut：Trion 15](https://mammut.com/us/en/products/2520-00981-0243/trion-15)
+- [Petzl：BUG](https://www.petzl.com/us/en/sport/products/climbing-packs-rope-bags/bug/BUG_SPO_a2mTx000003PXGnIAO.html)
+- [Edelrid：Rubi](https://edelrid.com/eu-en/sport/backpacks-and-rope-bags-shop/rubi)
+- [Osprey：Mutant 22](https://www.osprey.com/mutant-22-mutant22f22-376)
+- [Millet：Prolighter 22](https://millet.com/eu_en/mis2274-n7317-prolighter-22-unisex-navy-blue.html)
+- [Ortovox：Trad Zero 24](https://www.ortovox.com/us-en/backpacks/specials/ultra-lightweight-backpacks/trad-zero-24/5000753)
+- [Deuter：Guide Lite 24](https://www.deuter.com/uk-en/guide-lite-24/4046051185729)
+- [Salewa：Ortles Climb 25](https://salewa.com/en-gb/ortles-climb-25l-backpack-00-0000001283)
+- [Rab：Latok 28](https://rab.equipment/us/rab-latok-28l-mountain-pack)
+- [Gregory：Alpinisto LT 28](https://eu.gregorypacks.com/uk-en/-alpinisto-28-lt-sm-md--piton-blue/126853-9986.html)
+- [Arc'teryx：Alpha FL 30](https://arcteryx.com/us/en/shop/alpha-fl-30-backpack-0349)
+- [Hyperlite Mountain Gear：Summit 30](https://www.hyperlitemountaingear.com/products/summit-30)
+- [Patagonia：Ascensionist 35L](https://www.patagonia.ca/product/ascensionist-climbing-pack-35-liters/47986.html)

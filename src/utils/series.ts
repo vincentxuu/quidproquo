@@ -215,8 +215,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'climbing',
     names: { 'zh-TW': '出國攀岩裝備', en: 'Climbing Travel Gear' },
     descriptions: {
-      'zh-TW': '從出國攀岩的行程需求挑裝備：動力繩三認證、多繩距繩索配置、岩壁背包與旅行行李，再到鞋、吊帶、頭盔和保養。',
-      en: 'Choose gear around your climbing trip: rope ratings, multipitch rope systems, climbing packs and travel luggage, followed by shoes, harnesses, helmets, and care.',
+      'zh-TW': '帶裝備出國攀岩時讀：依目的地決定帶什麼、繩要多長，攀岩裝備怎麼過安檢與航司行李規定，2020 年後攀岩者實際怎麼分托運與登機，再挑托運主袋、岩場包和多繩距攀登包。裝備本身怎麼挑與保養，交給「攀岩裝備」系列。',
+      en: 'For climbers flying abroad with their gear: what to bring for each destination and how long a rope you need, how climbing gear fares at airport security and under airline baggage rules, how climbers actually split checked and cabin luggage (examples from 2020 on), then choosing a checked bag, crag pack and multipitch pack. How to choose and care for each piece of gear is covered in the Climbing Gear series.',
     },
   },
   {
