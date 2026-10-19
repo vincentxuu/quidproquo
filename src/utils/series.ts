@@ -1157,6 +1157,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'For gym boulderers heading to real rock for the first time: how to lay crash pads and spot, how to read a topo and keep access open, where to boulder in Taiwan, and when a highball should become a toprope. Each post flags what is backed by research and what is climber consensus.',
     },
   },
+  {
+    slug: 'climbing-disciplines',
+    category: 'climbing',
+    names: { 'zh-TW': '其他攀登類型', en: 'Other Climbing Disciplines' },
+    descriptions: {
+      'zh-TW': '岩館和運攀之外，攀登還有哪些樣子：深水獨攀、大岩壁與人工攀登、冰攀與混合攀、高山攀登，最後是無繩獨攀。每篇講清楚它是什麼、怎麼分級、風險在哪、台灣能不能練，以及從哪裡開始。',
+      en: 'Beyond the gym and sport crag: deep water soloing, big walls and aid climbing, ice and mixed climbing, alpine climbing, and finally free soloing. Each guide covers what the discipline is, how it is graded, where the risk lies, whether you can practise it in Taiwan, and where to start.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
