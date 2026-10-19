@@ -1192,6 +1192,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'Starting from your first pair of climbing shoes: what to rent and what to buy, how tight shoes should be, how to fit a harness and helmet, how ropes and belay devices go together, and what manufacturers say about inspection and retirement. Selection criteria, standards, and retirement rules only, no model picks.',
     },
   },
+  {
+    slug: 'climbing-mental-tactics',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩心理與戰術', en: 'Climbing Mental Game and Tactics' },
+    descriptions: {
+      'zh-TW': '開始先鋒後讀：為什麼頂繩爬得上、先鋒就卡住，怎麼循序練墜落、面對失敗的緊張、比賽時的隔離區與觀察時間，再到 onsight 與 redpoint 的投入策略、挑天氣與摩擦，最後是皮膚保養。每篇標明哪些有研究支持、哪些只是教練共識。',
+      en: 'For climbers who have just started leading: why a route that goes on top-rope falls apart on lead, how to practise falling in measured steps, how to handle fear of failure, competition isolation and observation time, then onsight and redpoint tactics, picking conditions for friction, and finally skin care. Each post separates what research supports from coaching consensus.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
