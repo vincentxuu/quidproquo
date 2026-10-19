@@ -1045,3 +1045,7 @@ daily-digest-framework／daily-digest-tool／daily-digest-benchmark 三支 2026-
 ## 2026-10-20 封存：daily-digest-funding 2026-10-16（daily-digest-github／daily-digest-security 2026-10-20 併發 rebase 合併後去重，兩邊皆已封存同一條目）
 
 - **daily-digest-funding 2026-10-16**：三組 Groundlane `web_search`＋`aifunding.me` 抓取後，確認 Modal（$750M Series D）／Zenzap（$44M Series A）已於 10-15 報導過，North.cloud（$60M Series B，FinOps 平台提及 AI spend 但核心業務非 AI/Agent 產品）與 Mueon（$65M Series A，半導體硬體，非直接影響 agent）判定不符篩選規則排除；選出唯一符合條件且有 3+ 獨立來源的新事件：**Confido Health**（醫療行政 AI agent，CareOS 平台，$12.5M Series A 延伸輪，Z47 領投，累計 Series A 達 $22.5M；PRNewswire 官方稿＋Fierce Healthcare＋Inc42 三方確認）。成長引擎是把私募股權投資組合當分銷管道（PE 基金驗證 ROI 後一次推給整個投資組合），15x YoY 成長，服務 3,200 名醫療提供者／27 州。建議加入 watchlist section D5（目前收錄 Abridge／Ambience Healthcare／Hippocratic AI／Suki AI）。中英雙版已建立並互相連結，series order 92（接續 10-15 zenzap 的 91）。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）皆 0 blocking；已將最舊 Recently completed 條目（10-14 daily-digest-model-card）移至 `docs/progress-archive.md`；待跑剩餘 targeted verify 與 commit／push。
+
+## 2026-10-20 封存：Q-015 條目（daily-digest-benchmark 2026-10-20 commit 壓回 90 行上限）
+
+- **Q-015（2026-08-27）**：Tavily API 額度用盡（432），待人決定升級方案或改 skill fallback。
