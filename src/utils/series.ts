@@ -1201,6 +1201,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'For climbers who have just started leading: why a route that goes on top-rope falls apart on lead, how to practise falling in measured steps, how to handle fear of failure, competition isolation and observation time, then onsight and redpoint tactics, picking conditions for friction, and finally skin care. Each post separates what research supports from coaching consensus.',
     },
   },
+  {
+    slug: 'climbing-competitions',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩賽事與職業攀岩', en: 'Climbing Competitions and Pro Climbing' },
+    descriptions: {
+      'zh-TW': '看懂攀岩比賽的入門系列：誰在辦比賽、抱石／先鋒／速度怎麼計分、奧運賽制怎麼從東京變到洛杉磯、台灣人能參加哪些比賽，以及比賽之外，職業攀岩者靠戶外首攀和拍片走的另一條路。',
+      en: 'A viewer\'s guide to climbing competitions: who runs them, how boulder, lead and speed are scored, how the Olympic format changed from Tokyo to Los Angeles, which events Taiwanese climbers can enter, and the other path pros take outside competition, through hard outdoor ascents and film.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
