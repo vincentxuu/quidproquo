@@ -1175,6 +1175,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: "For climbers curious where chalk, climbing shoes, grades and competitions came from: how rock climbing split from mountaineering and made its way to the Olympics, then Taiwan's story from Japanese-era Dapaoyan and the 1980s Rock Climbers' Club to Long Dong and the bouldering-gym boom. Disputed dates are shown side by side.",
     },
   },
+  {
+    slug: 'climbing-gear',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩裝備', en: 'Climbing Gear' },
+    descriptions: {
+      'zh-TW': '從買第一雙攀岩鞋開始：先租還是先買、鞋子多緊才對、吊帶與頭盔怎麼試穿、繩子與確保器怎麼搭配，以及原廠怎麼規定檢查與汰換。只講選購判準、標準數字與退役規則，不推薦型號。',
+      en: 'Starting from your first pair of climbing shoes: what to rent and what to buy, how tight shoes should be, how to fit a harness and helmet, how ropes and belay devices go together, and what manufacturers say about inspection and retirement. Selection criteria, standards, and retirement rules only, no model picks.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
