@@ -206,7 +206,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'climbing',
     names: { 'zh-TW': '義大利岩場', en: 'Italy Climbing Crags' },
     descriptions: {
-      'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭火車巴士與開車怎麼去、在地規範。從北部的花崗岩谷地與多羅米堤，到利古里亞、拉齊奧、西西里與薩丁尼亞的海岸石灰岩，依大區由北往南排序。',
+      'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭火車巴士與開車怎麼去、在地規範。從北部的花崗岩谷地與多洛米蒂，到利古里亞、拉齊奧、西西里與薩丁尼亞的海岸石灰岩，依大區由北往南排序。',
       en: 'One crag per guide: rock type and climbing style, the best seasons and why, how to get there by train, bus or car, and local rules. From the granite valleys and Dolomites of the north to the coastal limestone of Liguria, Lazio, Sicily and Sardinia, ordered by region from north to south.',
     },
   },

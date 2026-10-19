@@ -1,6 +1,7 @@
 # 系列規劃：義大利岩場（italy-crags）
 
 使用者確認：2026-10-18（比照「日本岩場」系列；選「總覽＋約 12 岩場」，中英雙語）
+擴充：2026-10-19 使用者選「核心＋區域代表約 58 個」，依 `.research/2026-10-18-italy-crags-national-inventory.md` 新增 58 篇（中英 116 檔，檔名日期 2026-10-19）。同一區多個岩場合成一篇（Sella 群、Ossola＋Cadarese、Baunei＋Supramonte、Cortina 單段岩場）。不收：Parete dei Militi（岩壁在法國）、Leano／Circeo（屬 Sperlonga–Gaeta 海岸帶）、Capri、Monte Amiata 等證據偏弱者。
 
 範本：`src/content/posts/climbing/2026-10-12-japan-crag-ogawayama.md`（單篇）、`2026-10-12-japan-crags-overview.md`（總覽）。
 
@@ -49,3 +50,61 @@ order 0 是總覽：依季節（冬季海岸石灰岩／夏季高山白雲岩與
 | 1202 | 2026-10-18-italy-crag-gaeta | Gaeta | 洞穴仰角與海崖多段跟 Sperlonga 差在哪？ | 讀完後讀者能：在 Sperlonga 與 Gaeta 之間依程度與天氣選擇 |
 | 1901 | 2026-10-18-italy-crag-san-vito-lo-capo | San Vito lo Capo | 西西里冬季岩場怎麼去、怎麼住？ | 讀完後讀者能：從 Palermo／Trapani 規劃進出與季節 |
 | 2001 | 2026-10-18-italy-crag-cala-gonone | Cala Gonone | 薩丁尼亞東岸哪些區能爬、哪些該避開？ | 讀完後讀者能：挑子區並避開 bolt 不安全的 Cala Luna |
+| 102 | 2026-10-19-italy-crag-ossola | Val d'Ossola＋Cadarese | 裂隙傳攀、多段與抱石在 Ossola 各谷怎麼分？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 103 | 2026-10-19-italy-crag-rocca-sbarua | Rocca Sbarua | 杜林近郊的歷史多段，現在 bolt 狀況與程度？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 104 | 2026-10-19-italy-crag-monte-bracco | Monte Bracco | Sanfront 的運攀與抱石適合什麼程度與季節？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 105 | 2026-10-19-italy-crag-andonno | Andonno | 義大利第一條 8c+ 所在的石灰岩岩場怎麼挑區？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 106 | 2026-10-19-italy-crag-valle-gesso | Valle Gesso 抱石 | 高山片麻岩抱石什麼月份能去、怎麼到？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 201 | 2026-10-19-italy-crag-monte-bianco | 白朗峰義大利側（Courmayeur） | Grand Capucin 與 Val Ferret 的高山花崗岩多段要什麼程度與纜車？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 202 | 2026-10-19-italy-crag-machaby-arnad | Corma di Machaby／Arnad | Aosta 低海拔板岩風多段怎麼選？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 203 | 2026-10-19-italy-crag-champorcher | Champorcher 抱石 | Aosta 的蛇紋岩抱石什麼季節去？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 302 | 2026-10-19-italy-crag-lecco-grigne | Lecco／Grigne | Lecco 一帶上百岩場與 Grignetta 經典多段怎麼挑？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 303 | 2026-10-19-italy-crag-cornalba | Cornalba | Val Serina 的老牌高難度岩場現況如何？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 402 | 2026-10-19-italy-crag-sass-dlacia | Sass Dlacia | Val Badia 夏季運攀需要什麼裝備與程度？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 403 | 2026-10-19-italy-crag-frea | Frea | Passo Gardena 運攀與短多段怎麼挑？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 404 | 2026-10-19-italy-crag-sassolungo | Sassolungo／Langkofel | 千米北壁與經典路線要什麼程度？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 405 | 2026-10-19-italy-crag-sella | Sella 群（Sella Towers、Piz Ciavazes、Città dei Sassi、Cansla） | Sella 山口一帶多段與單段怎麼依程度挑？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 406 | 2026-10-19-italy-crag-pian-schiavaneis | Pian Schiavaneis／Cogoi | Val di Fassa 雨天也能爬的岩場怎麼去？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 407 | 2026-10-19-italy-crag-catinaccio-vajolet | Catinaccio／Vajolet Towers | Vajolet 塔群的經典線與山屋怎麼排？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 408 | 2026-10-19-italy-crag-pale-di-san-martino | Pale di San Martino | Spigolo del Velo 等經典線與周邊單段岩場怎麼挑？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 409 | 2026-10-19-italy-crag-brenta | Brenta（Campanile Basso） | Campanile Basso 的歷史路線要什麼程度、怎麼接近？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 410 | 2026-10-19-italy-crag-daone | Valle di Daone 抱石 | tonalite 花崗岩抱石區的季節、分區與規範？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 503 | 2026-10-19-italy-crag-tre-cime | Tre Cime di Lavaredo | 北壁經典線與南面入門線要什麼程度、收費道路怎麼走？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 504 | 2026-10-19-italy-crag-tofana | Tofana di Rozes | 南壁經典線（Costantini-Apollonio 等）要什麼程度？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 505 | 2026-10-19-italy-crag-cortina-crags | Cortina 單段岩場（Crépe de Oucèra、Bèco d'Ajàl） | Cortina 夏季單段運攀怎麼依程度挑？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 506 | 2026-10-19-italy-crag-marmolada | Marmolada 南壁 | 大岩壁經典線（Pesce 等）的規模、季節與接近？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 507 | 2026-10-19-italy-crag-civetta | Civetta 西北壁 | 「牆中之牆」的經典線要什麼程度、怎麼排山屋？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 508 | 2026-10-19-italy-crag-laste | Laste | Agordino 技術型板岩運攀怎麼挑？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 601 | 2026-10-19-italy-crag-erto | Erto | Vajont 旁大仰角岩場、冬季與雨天怎麼用？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 602 | 2026-10-19-italy-crag-val-rosandra | Val Rosandra | Trieste 的冬季喀斯特岩場與 Comici 歷史？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 703 | 2026-10-19-italy-crag-val-pennavaire | Val Pennavaire（Oltrefinale） | Finale 內陸的冬季運攀怎麼挑區？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 704 | 2026-10-19-italy-crag-varazze | Varazze 抱石 | 片麻岩海岸抱石與 Gioia 所在區怎麼去？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 801 | 2026-10-19-italy-crag-bismantova | Pietra di Bismantova | 砂岩大岩體的多段與單段怎麼挑？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 901 | 2026-10-19-italy-crag-camaiore | Camaiore／Alpi Apuane | 托斯卡尼最好的運攀區與 Pizzo d'Uccello 北壁？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 902 | 2026-10-19-italy-crag-elba | 厄爾巴島（Isola d'Elba） | 花崗岩海崖與多段怎麼搭船去？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 903 | 2026-10-19-italy-crag-capo-duomo | Capo d'Uomo（Monte Argentario） | 海崖單段與 Spigolo Bonatti 怎麼去？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1101 | 2026-10-19-italy-crag-frasassi | Gola della Rossa／Frasassi | 馬爾凱峽谷岩場與多段怎麼挑？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1203 | 2026-10-19-italy-crag-grotti | Grotti | 中義大型多孔石灰岩岩場怎麼挑區？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1204 | 2026-10-19-italy-crag-collepardo | Cueva di Collepardo | 9a 洞穴岩場的封閉期與程度門檻？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1301 | 2026-10-19-italy-crag-gran-sasso | Gran Sasso | Corno Piccolo 多段與夏季石灰岩抱石怎麼排？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1302 | 2026-10-19-italy-crag-roccamorice | Roccamorice（Majella） | Abruzzo 運攀聖地的分區與季節？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1303 | 2026-10-19-italy-crag-pennadomo | Pennadomo | Abruzzo 老牌岩場適合什麼程度？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1401 | 2026-10-19-italy-crag-frosolone | Frosolone | 禁攀後重開的現況、封閉月份與分區？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1501 | 2026-10-19-italy-crag-amalfi-coast | 阿瑪菲海岸／Positano | 海崖運攀的冬季行程怎麼排？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1502 | 2026-10-19-italy-crag-palinuro | Palinuro／Cilento | La Severina、Molpa 的海崖運攀怎麼去？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1601 | 2026-10-19-italy-crag-statte | Statte | Taranto 峽谷岩場怎麼挑區？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1602 | 2026-10-19-italy-crag-salento | Salento（Ciolo） | 海崖與 DWS，哪些區禁止進入？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1801 | 2026-10-19-italy-crag-orsomarso | Orsomarso／Pollino | Calabria 夏季山區運攀怎麼去？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1802 | 2026-10-19-italy-crag-stilo | Stilo（Monte Consolino） | 南義最美 tufa 洞穴的程度與季節？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1902 | 2026-10-19-italy-crag-palermo | 巴勒莫（Monte Pellegrino、Monte Gallo） | 城市旁的運攀與多段怎麼挑？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1903 | 2026-10-19-italy-crag-bosco-scorace | Bosco Scorace 抱石 | 西西里砂岩抱石的分區與季節？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1904 | 2026-10-19-italy-crag-rocche-del-crasto | Rocche del Crasto（Nebrodi） | 野外多段與 Rocca Calanna 怎麼去？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1905 | 2026-10-19-italy-crag-madonie | Caltavuturo／Madonie | 西西里夏季避暑岩場怎麼挑？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1906 | 2026-10-19-italy-crag-siracusa | 錫拉庫薩（Canicattini Bagni、Plemmirio DWS） | 峽谷運攀與 DWS 怎麼排？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 1907 | 2026-10-19-italy-crag-ragusa | Ragusa／Modica（Cava d'Ispica） | 東南西西里峽谷岩場怎麼去？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 2002 | 2026-10-19-italy-crag-gallura | Gallura 花崗岩抱石 | La Cerra 等抱石區的季節與私有地規範？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 2003 | 2026-10-19-italy-crag-tavolara | Tavolara | 私人島上的多段與 DWS 能不能爬、怎麼上島？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 2004 | 2026-10-19-italy-crag-baunei | Baunei 海岸＋Supramonte | Aguglia、Giradili、Hotel Supramonte 等大岩壁要什麼程度？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 2005 | 2026-10-19-italy-crag-ulassai | Ulassai／Jerzu | 全島最大運攀區怎麼挑區？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 2006 | 2026-10-19-italy-crag-isili | Isili | 大仰角運攀的分區與季節？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
+| 2007 | 2026-10-19-italy-crag-domusnovas | Domusnovas／Iglesiente | Ondra 9a+ 所在地與 Masua 海崖多段怎麼挑？ | 讀完後讀者能：判斷適不適合自己的程度與風格，排出季節、交通與要避開的封閉 |
