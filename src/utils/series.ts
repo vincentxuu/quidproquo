@@ -1148,6 +1148,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'Where climbers get hurt, what to do in the first minutes, and which clinician to see; warm-ups, finger pulleys and other finger injuries, elbows and wrists, shoulders, bouldering falls and ankles, knees and heel hooks, feet and climbing shoes, the spine, growth plates in young climbers, returning to the gym, flexibility, and what to do when something goes wrong at a Taiwanese crag. The posts report what the sources say; anything needing a diagnosis goes to a doctor or physiotherapist.',
     },
   },
+  {
+    slug: 'outdoor-bouldering',
+    category: 'climbing',
+    names: { 'zh-TW': '戶外抱石', en: 'Outdoor Bouldering' },
+    descriptions: {
+      'zh-TW': '在岩館抱石一陣子、想第一次去爬真的石頭時讀：怎麼鋪抱石墊與 spot、怎麼讀 topo 和守岩場禮儀、台灣有哪些抱石區，最後是高抱石什麼時候該改架頂繩。每篇標明哪些有研究、哪些是經驗共識。',
+      en: 'For gym boulderers heading to real rock for the first time: how to lay crash pads and spot, how to read a topo and keep access open, where to boulder in Taiwan, and when a highball should become a toprope. Each post flags what is backed by research and what is climber consensus.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
