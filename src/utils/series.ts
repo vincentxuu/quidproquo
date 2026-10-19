@@ -1148,6 +1148,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'Where climbers get hurt, what to do in the first minutes, and which clinician to see; warm-ups, finger pulleys and other finger injuries, elbows and wrists, shoulders, bouldering falls and ankles, knees and heel hooks, feet and climbing shoes, the spine, growth plates in young climbers, returning to the gym, flexibility, and what to do when something goes wrong at a Taiwanese crag. The posts report what the sources say; anything needing a diagnosis goes to a doctor or physiotherapist.',
     },
   },
+  {
+    slug: 'climbing-history-culture',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩文化與歷史', en: 'Climbing History and Culture' },
+    descriptions: {
+      'zh-TW': '想知道岩館裡的粉袋、岩鞋、難度等級和比賽從哪裡來時讀：先看攀岩怎麼從登山分出來、一路走到奧運，再看台灣從日治的大砲岩、1980 年代的攀岩者俱樂部到龍洞與抱石館的經過。有爭議的年份並列不選邊。',
+      en: "For climbers curious where chalk, climbing shoes, grades and competitions came from: how rock climbing split from mountaineering and made its way to the Olympics, then Taiwan's story from Japanese-era Dapaoyan and the 1980s Rock Climbers' Club to Long Dong and the bouldering-gym boom. Disputed dates are shown side by side.",
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
