@@ -96,7 +96,7 @@ draft: false
 
 **封閉。** 2026 年 10 月查時，沒有找到針對三峰攀登路線的封閉公告。收費道路本身會依天候封閉，見上一節。
 
-**保護站與岩釘。** 熱門經典線的確保站多半整理過：Hasse-Brandler 的確保站「tutte attrezzate, anche con spit」，但段落中間的岩釘「non sempre affidabili」，要帶很多快扣和扁帶延長（[Planetmountain](https://www.planetmountain.com/it/notizie/alpinismo/tre-cime-di-lavaredo-arrampicate-in-dolomiti.html)）。Comici-Dimai「ben chiodata」，仍要帶岩楔和活動岩楔。Cima Grande 一般路線[有很多樹脂膠合的錨栓](https://www.vielunghe.com/tre-cime-di-lavaredo-cima-grande-via-normale/)，可以沿原路垂降。
+**確保站與岩釘。** 熱門經典線的確保站多半整理過：Hasse-Brandler 的確保站「tutte attrezzate, anche con spit」，但段落中間的岩釘「non sempre affidabili」，要帶很多快扣和扁帶延長（[Planetmountain](https://www.planetmountain.com/it/notizie/alpinismo/tre-cime-di-lavaredo-arrampicate-in-dolomiti.html)）。Comici-Dimai「ben chiodata」，仍要帶岩楔和活動岩楔。Cima Grande 一般路線[有很多樹脂膠合的錨栓](https://www.vielunghe.com/tre-cime-di-lavaredo-cima-grande-via-normale/)，可以沿原路垂降。
 
 **下降比上升複雜。** Comici-Dimai 爬完要沿環狀岩階接到南面一般路線，兩次 50 公尺垂降，再垂降或下攀東側溝槽（Planetmountain）。下降時間常和上升差不多（vielunghe）。
 

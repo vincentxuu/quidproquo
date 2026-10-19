@@ -86,7 +86,7 @@ draft: false
 
 **Frascineto 部分區禁攀。** [CAI Castrovillari](https://www.caicastrovillari.it/vie.php) 在 Frascineto 段開頭寫：「UNA DELIBERA COMUNALE IMPONE CHE NON TUTTI I SETTORI INDICATI SONO ACCESSIBILI. VERIFICARE PREVENTIVAMENTE PRESSO IL COMUNE DI FRASCINETO.」（市府決議規定不是所有列出的區都能進，出發前先向 Frascineto 市府確認）。[theCrag](https://www.thecrag.com/en/climbing/italy/central-and-southern-italy/calabria/area/517726152) 也寫「A mayor's decree prohibits climbing in certain areas」，並把 Leoni di Montagna 區標為「Closed」（2026 年 10 月查）；這區是最靠近停車處的區（Marco Ercoli 整理的路線表），下面的路線表不收。我們沒在市府網站找到命令原文與禁攀範圍（二手到此為止），出發前打給市府（0981 32013）。
 
-**Acqua Rossa 的確保站。** [CAI Castrovillari 2025 年 12 月 31 日版的路線表](https://www.caicastrovillari.it/images/acquarossa26.pdf)逐區註明：Mezza Luna、Virginia、Linda、Gio 區「Non tutte le vie hanno il moschettone di sosta」（不是每條都有確保站鉤環），自己帶快扣或鉤環下降；I Cinghiali 區的鉤環是無鎖扣的。Gio 區 Patata viola 雨後有水痕時不建議爬。路線表也說明不是所有難度都經過重複確認，之後可能調整。
+**Acqua Rossa 的確保站。** [CAI Castrovillari 2025 年 12 月 31 日版的路線表](https://www.caicastrovillari.it/images/acquarossa26.pdf)逐區註明：Mezza Luna、Virginia、Linda、Gio 區「Non tutte le vie hanno il moschettone di sosta」（不是每條都有確保站鉤環），自己帶快扣或鉤環下降；I Cinghiali 區的鉤環沒有鎖。Gio 區 Patata viola 雨後有水痕時不建議爬。路線表也說明不是所有難度都經過重複確認，之後可能調整。
 
 **Frascineto 的倫理。** theCrag 列出：禁止以任何方式改造岩石、不准 dry tooling、盡量少用粉、在國家公園內嚴禁生火。
 

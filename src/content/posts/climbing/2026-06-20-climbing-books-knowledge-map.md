@@ -39,7 +39,7 @@ glossary:
     context: "本文的訓練書大多以運動攀岩為主要應用場景。"
   - term: "傳統攀登"
     aliases: ["trad climbing", "traditional climbing"]
-    definition: "攀岩者在攀爬過程中自行將可回收的保護裝備（如岩楔、凸輪）塞入岩縫作為保護點。需要更多技術判斷和裝備知識，路線結束後保護點全部回收，不留痕跡。"
+    definition: "攀岩者在攀爬過程中自行將可回收的保護裝備（如岩楔、活動岩楔）塞入岩縫作為保護點。需要更多技術判斷和裝備知識，路線結束後保護點全部回收，不留痕跡。"
     context: "本文提及的 Dave MacLeod 是史上首位完成 E11 傳統攀路線的人，Climbing Anchors 一書專門講解固定點架設。"
   - term: "自由攀登"
     aliases: ["free climbing"]
