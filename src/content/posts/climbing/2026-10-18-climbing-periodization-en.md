@@ -177,7 +177,7 @@ In her fingerboard guide López lists cases where you should stretch the gap to 
 
 She adds that besides adjusting the plan, you should look at how you climb on other days and at your sleep and diet. [Hooper's Beta](https://hoopersbeta.com/library/throw-your-hangboard-in-the-trash-if-you-dont-know-this-save-a-friend) has a simpler test: if every rep felt easy, increase intensity next time; if you struggled through the last few, don't increase yet.
 
-Fatigue that keeps building, poor sleep and a run of worse performances are signs of doing too much; the [Nutrition, RED-S and Recovery](/posts/climbing/2026-10-18-climbing-nutrition-recovery-en) post covers this in detail. If fingers or shoulders start to hurt, stop and see a doctor or physiotherapist; an injury-prevention series (in progress) will cover this separately.
+Fatigue that keeps building, poor sleep and a run of worse performances are signs of doing too much; the [Nutrition, RED-S and Recovery](/posts/climbing/2026-10-18-climbing-nutrition-recovery-en) post covers this in detail. If fingers or shoulders start to hurt, stop and see a doctor or physiotherapist; details are in the [Climbing Injuries and First Aid](/posts/climbing/2026-10-18-climbing-injury-overview-en) series.
 
 **Something you can do tonight**: Start a phone note called "Training log" and add one line for today: date, focus, what you did, how tired (0–10).
 
@@ -235,3 +235,7 @@ Your plan is set, but there will always be days you can't get to the gym. Read [
 - [What is periodized training? (Lian Jian Kang, 2024) (in Chinese)](https://l-kk.tw/periodization/)
 - [Climbing training frequency guide (HANCHOR) (in Chinese)](https://tw.hanchor.com/pages/climb14)
 - [Periodized climbing training course (Camp4 / Adventure Taiwan) (in Chinese)](https://www.adventuretaiwan.com/product/rock-climbing-fitness-training/)
+
+## Update Log
+
+- 2026-10-18: The Climbing Injuries and First Aid series is now published; replaced "in progress" mentions with links.

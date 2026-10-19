@@ -9,7 +9,7 @@ description: "比較 GRIGRI、NEOX、REVERSO、ATC-Guide 的繩型與模式，�
 tldr: "確保器要同時核繩型、繩徑、模式與鉤環；輔助制動不准直接放開煞車繩，多繩距功能也不等於救援能力。"
 draft: false
 series:
-  name: "攀岩裝備"
+  name: "出國攀岩裝備"
   order: 6
 ---
 

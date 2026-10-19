@@ -246,7 +246,7 @@ Climbing.com 的說法是力量耐力進步快、退得也快，大約 2–3 週
 
 你現在有指力板、力量、耐力三種工具，下一個問題是：每週只有 3 次，要怎麼全部排進去？接著讀[週期化](/posts/climbing/2026-10-18-climbing-periodization)。
 
-傷害預防系列（撰寫中）會另外講手指、肩、肘的受傷與預防；這篇的課表練到痛就停，不要硬撐。
+手指、肩、肘的受傷與預防，見[攀岩傷害預防與急救](/posts/climbing/2026-10-18-climbing-injury-overview)系列；這篇的課表練到痛就停，不要硬撐。
 
 ## 參考資料
 
@@ -262,3 +262,7 @@ Climbing.com 的說法是力量耐力進步快、退得也快，大約 2–3 週
 - [Baláš J et al. The Estimation of Critical Angle in Climbing as a Measure of Maximal Metabolic Steady State. Front Physiol 2022](https://pubmed.ncbi.nlm.nih.gov/35069253/)
 - [MacLeod D et al. Physiological determinants of climbing-specific finger endurance and sport rock climbing performance. J Sports Sci 2007](https://pubmed.ncbi.nlm.nih.gov/17786696/)
 - [Stien N et al. The Effects of Prioritizing Lead or Boulder Climbing Among Intermediate Climbers. Front Sports Act Living 2021](https://pubmed.ncbi.nlm.nih.gov/33969299/)
+
+## 更新紀錄
+
+- 2026-10-18：〈攀岩傷害預防與急救〉系列上線，原本「撰寫中」的地方改成實際連結。

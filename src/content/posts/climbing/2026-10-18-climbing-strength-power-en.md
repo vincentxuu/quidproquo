@@ -192,7 +192,7 @@ Not necessarily. You are past Lattice's 165%, where returns diminish. Lattice su
 
 ## Next
 
-Strength and power let you do the hard move. Getting pumped halfway up a lead route is a different problem: read [endurance and power endurance](/posts/climbing/2026-10-18-climbing-endurance-training-en) next. For shoulder and elbow injuries, see the injury prevention series (in progress).
+Strength and power let you do the hard move. Getting pumped halfway up a lead route is a different problem: read [endurance and power endurance](/posts/climbing/2026-10-18-climbing-endurance-training-en) next. For shoulder and elbow injuries, see [shoulders](/posts/climbing/2026-10-18-climbing-shoulder-en) and [elbows and wrists](/posts/climbing/2026-10-18-climbing-elbow-wrist-en).
 
 ## References
 
@@ -218,3 +218,7 @@ Strength and power let you do the hard move. Getting pumped halfway up a lead ro
 - [Schöffl V et al. Stress fractures of the growth plates in the fingers of adolescent rock climbers. Unfallchirurgie 2024](https://pubmed.ncbi.nlm.nih.gov/39311912/)
 - [McMullen CW et al. Coaches' Attitudes Toward Campus Board Training in Adolescent Climbers in the United States. Wilderness Environ Med 2021](https://pubmed.ncbi.nlm.nih.gov/33972161/)
 - [Steve Bechtel's Book on Strength Training (Steve Bechtel, TrainingBeta)](https://trainingbeta.com/steve-bechtels-new-book-on-strength-training)
+
+## Update Log
+
+- 2026-10-18: The Climbing Injuries and First Aid series is now published; replaced "in progress" mentions with links.

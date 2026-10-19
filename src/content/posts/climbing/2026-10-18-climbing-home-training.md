@@ -137,7 +137,7 @@ Power Company 的原則：每個動作每次最多做 10–12 下有挑戰性的
 
 Power Company 的提醒很簡單：剛開始懸吊時，留意手指、手肘和肩膀，不要因為困在家裡就硬拚。
 
-手指在吊的時候出現刺痛、手肘內側或肩膀前方痛到第二天還在，就停下那個動作。受傷的判斷和處理放在傷害預防系列（撰寫中）；疼痛持續或腫脹，請找醫師或物理治療師。
+手指在吊的時候出現刺痛、手肘內側或肩膀前方痛到第二天還在，就停下那個動作。受傷的判斷和處理見[攀岩傷害預防與急救](/posts/climbing/2026-10-18-climbing-injury-overview)系列；疼痛持續或腫脹，請找醫師或物理治療師。
 
 **今晚就能做的動作**：每次練完，用 0 到 10 分寫下手指、手肘、肩膀的感覺。哪一個連兩次比平常高，下一次那個部位的動作就減量。
 
@@ -192,3 +192,7 @@ Lattice 建議 lock-off 停在手肘約 90 度與 125 度，避開完全拉到�
 - [How to NOT Get Injured Climbing (No Gym)（Jason Hooper，Hooper's Beta，2021）](https://hoopersbeta.com/library/one-routine-once-a-week-climbing-training)
 - [〔實測〕三個月不攀岩，只練指力，攀岩能力會退步多少？（JOVA，方格子，2024）](https://vocus.cc/article/6684a44dfd897800016f7f79)
 - [攀岩訓練 (1) arc、max strength 訓練內容與心得（kateberry，2026）](http://kateberrysblog.blogspot.com/2026/03/climbingtraining1.html)
+
+## 更新紀錄
+
+- 2026-10-18：〈攀岩傷害預防與急救〉系列上線，原本「撰寫中」的地方改成實際連結。

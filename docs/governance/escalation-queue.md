@@ -490,3 +490,10 @@
 - 觀測：`.astro/data-store.json` 約 310MB（乾淨 worktree 從零 sync 也是）。推測是資料存放區太大，dev 端載入失敗後靜默變空；未驗證根因。
 - 為什麼現在不能做：要動 content loader 或 Astro 設定，超出該 session 範圍；影響所有「交稿前看渲染」的流程。
 - 接手第一步：在乾淨 worktree 跑 `ASTRO_DEV_BACKGROUND=0 npx astro dev --port 4417`，確認 404；再縮小 glob（例如只載 `career/**`）看是否恢復，以判斷是否為大小問題。
+
+## Q-040 daily-digest-signals 2026-10-19：AI 新聞聚合站大量「舊聞配新時間戳」，30 則下限達不到，未產出檔案
+- 登錄：2026-10-19（來源：daily-digest-signals routine 執行時發現）
+- 做什麼：本次 routine 完整跑過三層搜尋流程（Layer 1 廣域 8 查詢、Layer 2 官方 blog 約 50 個 `web_fetch`、Layer 3 社群 3＋全球區域矩陣 8 查詢），另加約 15 輪 targeted 補充查詢追查候選訊號的真實發生日期。初稿一度湊到 30 則，但逐一回頭核對「這件事實際發生在哪天」後，發現其中半數以上其實是**舊聞被聚合站／SEO 站用新的相對時間戳（"X hours/days ago"）重新包裝**：例如 Nous Research $90M B 輪（實際 10-07，聚合站標成「1 day ago」）、Rocket Software 收購 Geniez AI（實際 10-13）、Cisco Webex agentic 框架（實際 10-07）、Meta Muse Charm 裝置（實際 9-23）、NVIDIA Nemotron 開源模型（實際 10-15/16）、ServiceNow 第三代 Employee AI Harness（實際 10-15）、Opsin $21M 融資（實際 10-15）、Amazon 收購 Decart（實際 10-11 起）、DeepSeek 第二輪 $15B 融資（實際 10-06 起）、GLM-5.3 安全繞過報告（Anthropic 原始報告實際 9-29/30）、Gemini 4 Argon GA（實際 10-13）、Harvey/Hogan Lovells Cadwalader（已於前一天 `seen-signal-urls.txt` 收錄過，非新事件）。逐一查證＋排除撞號與舊聞後，只剩 **15 則**能同時滿足「48 小時內＋relevance ≥ 0.5＋有可信來源且非聚合站推算日期」。
+- 依 Q-015／Q-016 已確立的原則（搜尋管道健康但結果品質不足時，寧可不產出也不要放寬門檢湊數字），本次**沒有產出 `src/data/daily-signals/2026-10-19.json`**，`seen-signal-urls.txt` 也未追加任何 URL（避免把這 15 則之外、其實還有效的候選誤標成「已處理」）。
+- 為什麼現在不能做：這不是單一工具故障（Tavily／WebFetch 皆正常），是來源品質問題——AI 新聞聚合生態系這幾天明顯被大量 SEO 回收站／「每日彙整」站稀釋，光靠 `web_search` 的 `timeRange: day` 或結果裡的相對時間戳完全不可信，必須對每個候選都往回查「原始公告／primary source 的實際日期」才能判斷真偽，這個驗證成本遠超單次 routine 預算，且是否要調整 skill 的時效判定方法（例如強制要求候選附上 primary source URL 而非只接受聚合站連結）屬於改 skill 核心邏輯的決定，需要人拍板。
+- 接手第一步：若要直接補今天的信號檔，可從本次已核實為真正新鮮（Oct 17-18 primary source）的候選清單重新開始（Claude Code v2.1.302 Mods／n8n CVE-2026-86074／ARTEX 韓國銀行入侵／Anthropic 律師事務所談判規範／Alibaba OpenGCUA／Gemini 4 Argon 打通 Minecraft／台灣晶片出口限制／ByteDance-MediaTek／Hurotics 韓國／Hex-Rays 以色列／Stripe 收購 OpenRouter／美國資料中心延宕／TechCabal 非洲 AI 新創／世銀泰國小型 AI／Sarvam AI 融資，共 15 則），再補足另外 15-35 則；若要治本，考慮在 `.agents/skills/daily-digest-signals/SKILL.md` 加一條規則：聚合站／彙整頁候選必須點進去找到其引用的 primary source 並以 primary source 的發佈日期為準，聚合站自己標的相對時間戳不可信。

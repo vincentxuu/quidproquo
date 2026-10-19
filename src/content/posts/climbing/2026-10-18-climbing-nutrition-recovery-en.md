@@ -154,7 +154,7 @@ Putting these together gives three possible signs of overdoing it:
 2. Your second session of the week is regularly worse than the first.
 3. Repeated minor injuries, frequent colds, low mood and motivation. These overlap with the RED-S warning signs; Lattice reads them as signs of too much stress and too little food or recovery.
 
-These come from coaching advice, not diagnostic criteria. If pain persists or gets worse, see a physical therapist or orthopaedic doctor. Injury prevention and what to do after an injury will be covered in the upcoming injury prevention series (in progress).
+These come from coaching advice, not diagnostic criteria. If pain persists or gets worse, see a physical therapist or orthopaedic doctor. Injury prevention and what to do after an injury are covered in the [Climbing Injuries and First Aid](/posts/climbing/2026-10-18-climbing-injury-overview-en) series.
 
 **Something you can do tonight**: Add a column to your training log: "this session's hangboard load vs last time." Next time it drops, don't add extra training. Check the previous two nights' sleep and food, and push the next session back to 72 hours later.
 
@@ -196,7 +196,7 @@ This is exactly when Eva López says to extend rest: if you can't reach last ses
 
 This is the last post in the Climbing Training series. Looking back over the series: use the [overview](/posts/climbing/2026-10-18-climbing-training-diagnosis-en) to work out where you're stuck, pick from [hangboarding](/posts/climbing/2026-10-18-hangboard-training-en), [endurance](/posts/climbing/2026-10-18-climbing-endurance-training-en) or [antagonists and core](/posts/climbing/2026-10-18-climbing-antagonist-core-en) to fill the gap, then fit it into a year with [periodization](/posts/climbing/2026-10-18-climbing-periodization-en). Eating and sleeping, covered here, are the foundation under every one of those plans.
 
-Injury prevention and what to do after an injury come next in the injury prevention series (in progress).
+Injury prevention and what to do after an injury are covered in the [Climbing Injuries and First Aid](/posts/climbing/2026-10-18-climbing-injury-overview-en) series.
 
 ## References
 
@@ -223,3 +223,7 @@ Injury prevention and what to do after an injury come next in the injury prevent
 - [Climbing's Send-at-All-Costs Culture Almost Ruined Me (Beth Rodden, Outside, 2020)](https://www.outsideonline.com/health/training-performance/beth-rodden-climbing-body-image/)
 - [En:Spire: raising awareness of Relative Energy Deficiency in climbing (UKClimbing)](https://www.ukclimbing.com/news/press/enspire_raising_awareness_of_relative_energy_deficiency_in_climbing-12429)
 - [Relative Energy Deficiency in Sport (RED-S) (Dr. M Be Superior, 2020) (in Chinese)](https://www.drmbesuperior.com/post/%E9%81%8B%E5%8B%95%E7%9B%B8%E5%B0%8D%E8%83%BD%E9%87%8F%E4%B8%8D%E8%B6%B3-relative-energy-deficiency-in-sports%EF%BC%88red-s%EF%BC%89)
+
+## Update Log
+
+- 2026-10-18: The Climbing Injuries and First Aid series is now published; replaced "in progress" mentions with links.

@@ -160,7 +160,7 @@ Lattice 的建議是：發現這些變化，可以先試著減少訓練、增加
 2. 一週裡第二次訓練的表現常常比第一次差。
 3. 反覆小傷、常感冒、情緒和動力變差。這組跟 RED-S 的警訊重疊，Lattice 把它看成壓力太大、吃太少或恢復不夠的訊號。
 
-這三點是從教練建議整理出來的，不是診斷標準。疼痛持續或越來越痛，找物理治療師或骨科醫師。傷害怎麼預防、受傷後怎麼處理，會在之後的傷害預防系列（撰寫中）詳細講。
+這三點是從教練建議整理出來的，不是診斷標準。疼痛持續或越來越痛，找物理治療師或骨科醫師。傷害怎麼預防、受傷後怎麼處理，見[攀岩傷害預防與急救](/posts/climbing/2026-10-18-climbing-injury-overview)系列。
 
 **今晚就能做的動作**：在你的訓練紀錄加一欄「這次指力板的負荷 vs 上次」。下次出現負荷下降，先不加練；檢查前兩天的睡眠和飲食，下一次訓練延到 72 小時後。
 
@@ -202,7 +202,7 @@ RED-S 不是只有女生會有。反覆生病、反覆受傷、沒動力，都�
 
 這是〈攀岩訓練〉系列的最後一篇。回頭看整個系列：先用[總覽](/posts/climbing/2026-10-18-climbing-training-diagnosis)判斷自己卡在哪，再挑[指力板](/posts/climbing/2026-10-18-hangboard-training)、[耐力](/posts/climbing/2026-10-18-climbing-endurance-training)或[拮抗肌與核心](/posts/climbing/2026-10-18-climbing-antagonist-core)來補，最後用[週期化](/posts/climbing/2026-10-18-climbing-periodization)排進一年。這篇講的吃和睡，是每一篇課表的地基。
 
-受傷預防和受傷後的處理，會在傷害預防系列（撰寫中）接著講。
+受傷預防和受傷後的處理，見[攀岩傷害預防與急救](/posts/climbing/2026-10-18-climbing-injury-overview)系列。
 
 ## 參考資料
 
@@ -229,3 +229,7 @@ RED-S 不是只有女生會有。反覆生病、反覆受傷、沒動力，都�
 - [Climbing's Send-at-All-Costs Culture Almost Ruined Me（Beth Rodden，Outside，2020）](https://www.outsideonline.com/health/training-performance/beth-rodden-climbing-body-image/)
 - [En:Spire: raising awareness of Relative Energy Deficiency in climbing（UKClimbing）](https://www.ukclimbing.com/news/press/enspire_raising_awareness_of_relative_energy_deficiency_in_climbing-12429)
 - [運動相對能量不足 RED-S（Dr. M Be Superior，2020）](https://www.drmbesuperior.com/post/%E9%81%8B%E5%8B%95%E7%9B%B8%E5%B0%8D%E8%83%BD%E9%87%8F%E4%B8%8D%E8%B6%B3-relative-energy-deficiency-in-sports%EF%BC%88red-s%EF%BC%89)
+
+## 更新紀錄
+
+- 2026-10-18：〈攀岩傷害預防與急救〉系列上線，原本「撰寫中」的地方改成實際連結。

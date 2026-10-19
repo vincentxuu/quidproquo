@@ -211,9 +211,9 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
-    slug: 'climbing-gear',
+    slug: 'climbing-gear-travel',
     category: 'climbing',
-    names: { 'zh-TW': '攀岩裝備', en: 'Climbing Gear' },
+    names: { 'zh-TW': '出國攀岩裝備', en: 'Climbing Travel Gear' },
     descriptions: {
       'zh-TW': '從出國攀岩的行程需求挑裝備：動力繩三認證、多繩距繩索配置、岩壁背包與旅行行李，再到鞋、吊帶、頭盔和保養。',
       en: 'Choose gear around your climbing trip: rope ratings, multipitch rope systems, climbing packs and travel luggage, followed by shoes, harnesses, helmets, and care.',
@@ -1146,6 +1146,78 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '爬了一年左右開始卡關時讀：先診斷卡在技術還是體能，再談能量系統、指力板、力量與 campus board、耐力、週期化、居家訓練、拮抗肌與核心，最後是營養、RED-S 與恢復。每篇標明哪些有研究支持、哪些是教練共識。',
       en: 'For climbers about a year in who have hit a plateau: first diagnose whether the limit is technique or fitness, then energy systems, hangboarding, strength and the campus board, endurance, periodization, home training, antagonist and core work, and finally nutrition, RED-S and recovery. Each post separates what research supports from coaching consensus.',
+    },
+  },
+  {
+    slug: 'climbing-injury',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩傷害預防與急救', en: 'Climbing Injuries and First Aid' },
+    descriptions: {
+      'zh-TW': '攀岩最常傷到哪裡、受傷當下怎麼處理、該看哪一科；暖身、手指滑車與其他手指傷害、肘腕、肩、抱石墜落與腳踝、膝與 heel hook、腳與攀岩鞋、脊椎、青少年生長板，受傷後怎麼回岩館、柔軟度，最後是在台灣岩場出事時怎麼報案與急救。只寫來源說了什麼，需要診斷的地方請看醫師或物理治療師。',
+      en: 'Where climbers get hurt, what to do in the first minutes, and which clinician to see; warm-ups, finger pulleys and other finger injuries, elbows and wrists, shoulders, bouldering falls and ankles, knees and heel hooks, feet and climbing shoes, the spine, growth plates in young climbers, returning to the gym, flexibility, and what to do when something goes wrong at a Taiwanese crag. The posts report what the sources say; anything needing a diagnosis goes to a doctor or physiotherapist.',
+    },
+  },
+  {
+    slug: 'climbing-community-industry',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩圈與產業', en: 'The Climbing Community and Industry' },
+    descriptions: {
+      'zh-TW': '岩館裡除了你，還有繩伴、小孩、教練、定線員和老闆。這個系列從怎麼找到可靠的繩伴講起，一路看到教練證照、兒童與身障者怎麼爬、路線是誰定的，以及你簽的切結書、岩館的保險和安全管理到底保障什麼。',
+      en: "A climbing gym holds more than just you: partners, kids, coaches, route setters and the owner. This series starts with finding a partner you can trust, then covers coaching certifications, how kids and disabled climbers get on the wall, who sets the routes, and what the waiver you sign, the gym's insurance and its safety checks actually cover.",
+    },
+  },
+  {
+    slug: 'outdoor-bouldering',
+    category: 'climbing',
+    names: { 'zh-TW': '戶外抱石', en: 'Outdoor Bouldering' },
+    descriptions: {
+      'zh-TW': '在岩館抱石一陣子、想第一次去爬真的石頭時讀：怎麼鋪抱石墊與 spot、怎麼讀 topo 和守岩場禮儀、台灣有哪些抱石區，最後是高抱石什麼時候該改架頂繩。每篇標明哪些有研究、哪些是經驗共識。',
+      en: 'For gym boulderers heading to real rock for the first time: how to lay crash pads and spot, how to read a topo and keep access open, where to boulder in Taiwan, and when a highball should become a toprope. Each post flags what is backed by research and what is climber consensus.',
+    },
+  },
+  {
+    slug: 'climbing-disciplines',
+    category: 'climbing',
+    names: { 'zh-TW': '其他攀登類型', en: 'Other Climbing Disciplines' },
+    descriptions: {
+      'zh-TW': '岩館和運攀之外，攀登還有哪些樣子：深水獨攀、大岩壁與人工攀登、冰攀與混合攀、高山攀登，最後是無繩獨攀。每篇講清楚它是什麼、怎麼分級、風險在哪、台灣能不能練，以及從哪裡開始。',
+      en: 'Beyond the gym and sport crag: deep water soloing, big walls and aid climbing, ice and mixed climbing, alpine climbing, and finally free soloing. Each guide covers what the discipline is, how it is graded, where the risk lies, whether you can practise it in Taiwan, and where to start.',
+    },
+  },
+  {
+    slug: 'climbing-history-culture',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩文化與歷史', en: 'Climbing History and Culture' },
+    descriptions: {
+      'zh-TW': '想知道岩館裡的粉袋、岩鞋、難度等級和比賽從哪裡來時讀：先看攀岩怎麼從登山分出來、一路走到奧運，再看台灣從日治的大砲岩、1980 年代的攀岩者俱樂部到龍洞與抱石館的經過。有爭議的年份並列不選邊。',
+      en: "For climbers curious where chalk, climbing shoes, grades and competitions came from: how rock climbing split from mountaineering and made its way to the Olympics, then Taiwan's story from Japanese-era Dapaoyan and the 1980s Rock Climbers' Club to Long Dong and the bouldering-gym boom. Disputed dates are shown side by side.",
+    },
+  },
+  {
+    slug: 'climbing-gear',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩裝備', en: 'Climbing Gear' },
+    descriptions: {
+      'zh-TW': '從買第一雙攀岩鞋開始：先租還是先買、鞋子多緊才對、吊帶與頭盔怎麼試穿、繩子與確保器怎麼搭配，以及原廠怎麼規定檢查與汰換。只講選購判準、標準數字與退役規則，不推薦型號。',
+      en: 'Starting from your first pair of climbing shoes: what to rent and what to buy, how tight shoes should be, how to fit a harness and helmet, how ropes and belay devices go together, and what manufacturers say about inspection and retirement. Selection criteria, standards, and retirement rules only, no model picks.',
+    },
+  },
+  {
+    slug: 'climbing-mental-tactics',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩心理與戰術', en: 'Climbing Mental Game and Tactics' },
+    descriptions: {
+      'zh-TW': '開始先鋒後讀：為什麼頂繩爬得上、先鋒就卡住，怎麼循序練墜落、面對失敗的緊張、比賽時的隔離區與觀察時間，再到 onsight 與 redpoint 的投入策略、挑天氣與摩擦，最後是皮膚保養。每篇標明哪些有研究支持、哪些只是教練共識。',
+      en: 'For climbers who have just started leading: why a route that goes on top-rope falls apart on lead, how to practise falling in measured steps, how to handle fear of failure, competition isolation and observation time, then onsight and redpoint tactics, picking conditions for friction, and finally skin care. Each post separates what research supports from coaching consensus.',
+    },
+  },
+  {
+    slug: 'climbing-competitions',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩賽事與職業攀岩', en: 'Climbing Competitions and Pro Climbing' },
+    descriptions: {
+      'zh-TW': '看懂攀岩比賽的入門系列：誰在辦比賽、抱石／先鋒／速度怎麼計分、奧運賽制怎麼從東京變到洛杉磯、台灣人能參加哪些比賽，以及比賽之外，職業攀岩者靠戶外首攀和拍片走的另一條路。',
+      en: 'A viewer\'s guide to climbing competitions: who runs them, how boulder, lead and speed are scored, how the Olympic format changed from Tokyo to Los Angeles, which events Taiwanese climbers can enter, and the other path pros take outside competition, through hard outdoor ascents and film.',
     },
   },
 ];

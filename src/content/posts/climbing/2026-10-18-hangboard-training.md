@@ -184,7 +184,7 @@ López 的停止訊號：跟上次比，需要的點深了 2 mm 以上，或加�
 
 ## 下一步
 
-手指以外，上肢還有肩膀和背的力量；而岩館角落那面只有橫木條的板子，什麼時候才輪得到你？接著讀[力量、肩與 campus board](/posts/climbing/2026-10-18-climbing-strength-power)。repeaters 練的指力耐力，會在[耐力與力量耐力](/posts/climbing/2026-10-18-climbing-endurance-training)接著講。手指受傷怎麼辦，見傷害預防系列（撰寫中）。
+手指以外，上肢還有肩膀和背的力量；而岩館角落那面只有橫木條的板子，什麼時候才輪得到你？接著讀[力量、肩與 campus board](/posts/climbing/2026-10-18-climbing-strength-power)。repeaters 練的指力耐力，會在[耐力與力量耐力](/posts/climbing/2026-10-18-climbing-endurance-training)接著講。手指受傷怎麼辦，見[手指滑車韌帶](/posts/climbing/2026-10-18-finger-pulley-injury)。
 
 ## 參考資料
 
@@ -208,3 +208,7 @@ López 的停止訊號：跟上次比，需要的點深了 2 mm 以上，或加�
 - [Stien N et al. Effects of climbing- and resistance-training on climbing-specific performance: a systematic review and meta-analysis. Biol Sport 2023](https://pubmed.ncbi.nlm.nih.gov/36636194/)
 - [Stien N et al. Five weeks of dynamic finger flexor strength training on bouldering performance and climbing-specific strength tests. Front Physiol 2024](https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2024.1461820/full)
 - [Schöffl V et al. Stress fractures of the growth plates in the fingers of adolescent rock climbers. Unfallchirurgie 2024](https://pubmed.ncbi.nlm.nih.gov/39311912/)
+
+## 更新紀錄
+
+- 2026-10-18：〈攀岩傷害預防與急救〉系列上線，原本「撰寫中」的地方改成實際連結。

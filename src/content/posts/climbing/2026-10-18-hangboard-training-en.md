@@ -184,7 +184,7 @@ Not necessarily, but look at technique again. Stronger fingers do not automatica
 
 ## Next
 
-Beyond the fingers there is shoulder and back strength, and then there is that board in the corner with nothing but wooden rungs. When is it your turn? Read [strength, shoulders and the campus board](/posts/climbing/2026-10-18-climbing-strength-power-en) next. The finger endurance that repeaters train continues in [endurance and power endurance](/posts/climbing/2026-10-18-climbing-endurance-training-en). For what to do when a finger gets hurt, see the injury prevention series (in progress).
+Beyond the fingers there is shoulder and back strength, and then there is that board in the corner with nothing but wooden rungs. When is it your turn? Read [strength, shoulders and the campus board](/posts/climbing/2026-10-18-climbing-strength-power-en) next. The finger endurance that repeaters train continues in [endurance and power endurance](/posts/climbing/2026-10-18-climbing-endurance-training-en). For what to do when a finger gets hurt, see [finger pulley injuries](/posts/climbing/2026-10-18-finger-pulley-injury-en).
 
 ## References
 
@@ -208,3 +208,7 @@ Beyond the fingers there is shoulder and back strength, and then there is that b
 - [Stien N et al. Effects of climbing- and resistance-training on climbing-specific performance: a systematic review and meta-analysis. Biol Sport 2023](https://pubmed.ncbi.nlm.nih.gov/36636194/)
 - [Stien N et al. Five weeks of dynamic finger flexor strength training on bouldering performance and climbing-specific strength tests. Front Physiol 2024](https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2024.1461820/full)
 - [Schöffl V et al. Stress fractures of the growth plates in the fingers of adolescent rock climbers. Unfallchirurgie 2024](https://pubmed.ncbi.nlm.nih.gov/39311912/)
+
+## Update Log
+
+- 2026-10-18: The Climbing Injuries and First Aid series is now published; replaced "in progress" mentions with links.

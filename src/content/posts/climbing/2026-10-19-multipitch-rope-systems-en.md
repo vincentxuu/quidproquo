@@ -9,7 +9,7 @@ description: "Compare one single rope, two half ropes, two triple-rated ropes, a
 tldr: "List climbing, normal descent, and emergency retreat separately before choosing ropes: the distance you can climb on a 60 m rope is not its doubled-rope rappel distance."
 draft: false
 series:
-  name: "Climbing Gear"
+  name: "Climbing Travel Gear"
   order: 2
 ---
 

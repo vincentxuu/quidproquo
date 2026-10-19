@@ -9,7 +9,7 @@ description: "Read single, half, and twin rope markings, understand the flexibil
 tldr: "A triple-rated rope meets the requirements for single, half, and twin use. You still need to check rope count, length, belay-device compatibility, and the descent plan together."
 draft: false
 series:
-  name: "Climbing Gear"
+  name: "Climbing Travel Gear"
   order: 1
 ---
 

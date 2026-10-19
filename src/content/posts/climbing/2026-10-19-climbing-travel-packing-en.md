@@ -8,7 +8,7 @@ description: "Plan luggage for crag holidays, overseas climbing, and ordinary tr
 tldr: "Choose main luggage around transport after arrival. Airport travel, carrying gear to crags, and climbing with a pack require different designs; allocate shared equipment and check each flight's actual rules."
 draft: false
 series:
-  name: "Climbing Gear"
+  name: "Climbing Travel Gear"
   order: 4
 ---
 

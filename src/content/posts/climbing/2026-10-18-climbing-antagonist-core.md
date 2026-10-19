@@ -28,7 +28,7 @@ glossary:
 
 這句話有一半對。這篇講三件事：拮抗肌是什麼、「只練拉會受傷」研究支持到哪裡，以及一份每週一次、在家也能做的預防課表。前一篇〈[居家訓練](/posts/climbing/2026-10-18-climbing-home-training)〉提過伏地挺身和核心，這裡把它們排成完整的課。
 
-受傷之後怎麼處理不在這篇範圍，放在傷害預防系列（撰寫中）。
+受傷之後怎麼處理不在這篇範圍，見[攀岩傷害預防與急救](/posts/climbing/2026-10-18-climbing-injury-overview)系列。
 
 ## 拮抗肌是什麼
 
@@ -181,3 +181,7 @@ Lattice 說核心不只是六塊肌：腹橫肌負責把身體中段「撐住」
 - [Finger Strength For Climbers Increases, In Relation To Grade（Ollie Torr，Lattice Training，2026）](https://latticetraining.com/blog/lattice_data_finger_strength_grades)
 - [Free Training Programs for Climbers（Eric Hörst）](https://trainingforclimbing.com/training-programs/)
 - [赤手獨攀101》教練揭「全身運動」攀岩最操這些肌群（自由健康網，健身工廠教練 Kyle）](https://health.ltn.com.tw/article/breakingnews/5321663)
+
+## 更新紀錄
+
+- 2026-10-18：〈攀岩傷害預防與急救〉系列上線，原本「撰寫中」的地方改成實際連結。

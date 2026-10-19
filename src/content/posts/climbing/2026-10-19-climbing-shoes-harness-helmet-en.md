@@ -9,7 +9,7 @@ description: "Fit shoes, harnesses, and helmets for an overseas climbing trip, w
 tldr: "Prioritize fit for long days: avoid fixed shoe downsizing rules, test harness suspension in a controlled setting, and check helmet, headlamp, jacket, and pack together."
 draft: false
 series:
-  name: "Climbing Gear"
+  name: "Climbing Travel Gear"
   order: 5
 ---
 

@@ -8,7 +8,7 @@ description: "Separate approach carrying from climbing with a pack, test harness
 tldr: "Load your actual water, layers, and approach shoes, then test the pack with a harness and helmet. Climbing clearance, access at belays, capacity, and hauling suitability are separate decisions."
 draft: false
 series:
-  name: "Climbing Gear"
+  name: "Climbing Travel Gear"
   order: 3
 ---
 

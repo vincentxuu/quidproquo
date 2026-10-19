@@ -28,7 +28,7 @@ After a year of climbing, your back and forearms have filled out and you can do 
 
 That's half right. This post covers three things: what antagonist muscles are, how far research supports "pulling-only causes injury", and a once-a-week prevention routine you can also do at home. The previous post, [Home Training](/posts/climbing/2026-10-18-climbing-home-training-en), touched on press-ups and core; here they become a full session.
 
-What to do after an injury is outside this post; it belongs to the injury prevention series (in progress).
+What to do after an injury is outside this post; see the [Climbing Injuries and First Aid](/posts/climbing/2026-10-18-climbing-injury-overview-en) series.
 
 ## What antagonist muscles are
 
@@ -181,3 +181,7 @@ However well you train, your body can't repair without enough food and sleep. Th
 - [Finger Strength For Climbers Increases, In Relation To Grade (Ollie Torr, Lattice Training, 2026)](https://latticetraining.com/blog/lattice_data_finger_strength_grades)
 - [Free Training Programs for Climbers (Eric Hörst)](https://trainingforclimbing.com/training-programs/)
 - [Coach explains which muscles climbing works (Liberty Times Health, Fitness Factory coach Kyle) (in Chinese)](https://health.ltn.com.tw/article/breakingnews/5321663)
+
+## Update Log
+
+- 2026-10-18: The Climbing Injuries and First Aid series is now published; replaced "in progress" mentions with links.
