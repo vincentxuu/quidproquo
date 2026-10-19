@@ -6,7 +6,7 @@ tags: [climbing, multi-pitch, climbing-gear, backpacks, travel]
 lang: en
 description: "Separate approach carrying from climbing with a pack, test harness clearance, and compare Rock Blitz, Wadi, BUG, and Mutant packs with prices and community experience."
 tldr: "Load your actual water, layers, and approach shoes, then test the pack with a harness and helmet. Climbing clearance, access at belays, capacity, and hauling suitability are separate decisions."
-draft: true
+draft: false
 series:
   name: "Climbing Gear"
   order: 3

@@ -7,7 +7,7 @@ lang: en
 type: deep-dive
 description: "Fit shoes, harnesses, and helmets for an overseas climbing trip, with shop checks, seven representative options, prices, and version limits."
 tldr: "Prioritize fit for long days: avoid fixed shoe downsizing rules, test harness suspension in a controlled setting, and check helmet, headlamp, jacket, and pack together."
-draft: true
+draft: false
 series:
   name: "Climbing Gear"
   order: 5

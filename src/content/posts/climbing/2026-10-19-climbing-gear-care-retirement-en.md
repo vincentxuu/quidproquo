@@ -7,7 +7,7 @@ lang: en
 type: deep-dive
 description: "Use manufacturing dates, equipment history, and item-by-item checks to distinguish maximum lifespan, routine maintenance, quarantine, and retirement after a climbing trip."
 tldr: "Care cannot cancel damage, and age is no safety guarantee: isolate unexplained changes, consult the exact model's instructions, and decide on inspection or retirement."
-draft: true
+draft: false
 series:
   name: "Climbing Gear"
   order: 7

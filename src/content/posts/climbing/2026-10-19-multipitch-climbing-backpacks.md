@@ -6,7 +6,7 @@ tags: [climbing, multi-pitch, climbing-gear, backpacks, travel]
 lang: zh-TW
 description: "從接近與背著攀爬的差別，挑多繩距小包；比較Rock Blitz、Wadi、BUG與Mutant，以及掛包、拖包和兩人裝載。"
 tldr: "先裝當天的水、保暖層與接近鞋，再穿吊帶和頭盔試背。多繩距包的關鍵是攀爬活動空間與確保站取物，容量與耐拖程度要分開看。"
-draft: true
+draft: false
 series:
   name: "攀岩裝備"
   order: 3

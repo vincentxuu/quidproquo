@@ -7,7 +7,7 @@ lang: zh-TW
 type: deep-dive
 description: "用最長繩距、下降距離、隊伍人數與完整繩重，比較單繩、兩條半繩、兩條三認證與單繩加拉繩的適用條件。"
 tldr: "先把上攀、正常下降與中途撤退分開列出，再決定繩索配置；一條60公尺繩能爬的距離，不等於對折下降的距離。"
-draft: true
+draft: false
 series:
   name: "攀岩裝備"
   order: 2

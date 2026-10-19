@@ -6,7 +6,7 @@ tags: [climbing, outdoor-climbing, multi-pitch, climbing-gear, travel]
 lang: en
 description: "Plan ropes, climbing packs, and travel luggage around the approach, climb, descent, and transport, including ordinary travel between climbing days."
 tldr: "Confirm the route and descent before choosing a rope or pack. Separate approach, climbing, descent, and transport needs to decide between one versatile bag and luggage plus a small climbing pack."
-draft: true
+draft: false
 series:
   name: "Climbing Gear"
   order: 0

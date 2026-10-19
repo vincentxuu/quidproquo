@@ -6,7 +6,7 @@ tags: [climbing, climbing-gear, backpacks, travel, packing]
 lang: zh-TW
 description: "區分一般岩場旅行、出國攀岩與城市旅行兼用，安排行李箱或duffel、岩場包與多繩距小包，附八款候選及七天兩人打包表。"
 tldr: "先決定落地後怎麼移動，再選主行李。旅運裝載、搬器材到岩場與背著攀爬需要不同包型；共用裝備按路線清單分工，航空規則逐航段確認。"
-draft: true
+draft: false
 series:
   name: "攀岩裝備"
   order: 4

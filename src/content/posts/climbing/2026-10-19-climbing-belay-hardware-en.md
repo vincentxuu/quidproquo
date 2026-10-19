@@ -7,7 +7,7 @@ lang: en
 type: deep-dive
 description: "Compare GRIGRI, NEOX, REVERSO, and ATC-Guide by rope type and mode, then match locking carabiners, draw lengths, and travel responsibilities."
 tldr: "Match rope type, diameter, device mode, and carabiner. Assisted braking does not permit simply releasing the brake rope, and multipitch features do not supply rescue skills."
-draft: true
+draft: false
 series:
   name: "Climbing Gear"
   order: 6

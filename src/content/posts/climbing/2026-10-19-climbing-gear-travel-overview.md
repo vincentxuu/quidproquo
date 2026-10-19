@@ -6,7 +6,7 @@ tags: [climbing, outdoor-climbing, multi-pitch, climbing-gear, travel]
 lang: zh-TW
 description: "從接近、攀爬、下降與交通拆解出國攀岩需求，規劃動力繩、攀登小包與旅行行李的分工。"
 tldr: "先確認路線與下降方式，再選繩索和背包。把行程拆成接近、攀爬、下降、交通四階段，才能判斷一包兼用，還是大行李加攀登小包。"
-draft: true
+draft: false
 series:
   name: "攀岩裝備"
   order: 0

@@ -7,7 +7,7 @@ lang: en
 type: deep-dive
 description: "Read single, half, and twin rope markings, understand the flexibility of triple-rated ropes, and check system weight, belay-device compatibility, and rappel requirements for an overseas trip."
 tldr: "A triple-rated rope meets the requirements for single, half, and twin use. You still need to check rope count, length, belay-device compatibility, and the descent plan together."
-draft: true
+draft: false
 series:
   name: "Climbing Gear"
   order: 1

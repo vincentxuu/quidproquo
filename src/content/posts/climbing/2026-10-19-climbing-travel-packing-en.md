@@ -6,7 +6,7 @@ tags: [climbing, climbing-gear, backpacks, travel, packing]
 lang: en
 description: "Plan luggage for crag holidays, overseas climbing, and ordinary travel, with eight pack candidates, price conditions, and a seven-day two-person packing table."
 tldr: "Choose main luggage around transport after arrival. Airport travel, carrying gear to crags, and climbing with a pack require different designs; allocate shared equipment and check each flight's actual rules."
-draft: true
+draft: false
 series:
   name: "Climbing Gear"
   order: 4

@@ -7,7 +7,7 @@ lang: zh-TW
 type: deep-dive
 description: "從製造日期、使用履歷與逐件檢查開始，分辨原廠壽命上限、清洗保養、停止使用與正式汰換，建立旅行後可持續更新的裝備紀錄。"
 tldr: "保養不能抵銷損傷，年限也不是安全保證；看不懂的異常先隔離，對照該型號原廠說明，再決定檢查或汰換。"
-draft: true
+draft: false
 series:
   name: "攀岩裝備"
   order: 7

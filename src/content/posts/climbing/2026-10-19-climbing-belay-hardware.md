@@ -7,7 +7,7 @@ lang: zh-TW
 type: deep-dive
 description: "比較 GRIGRI、NEOX、REVERSO、ATC-Guide 的繩型與模式，教你核對有鎖鉤環、快扣長度及旅行裝備分工。"
 tldr: "確保器要同時核繩型、繩徑、模式與鉤環；輔助制動不准直接放開煞車繩，多繩距功能也不等於救援能力。"
-draft: true
+draft: false
 series:
   name: "攀岩裝備"
   order: 6

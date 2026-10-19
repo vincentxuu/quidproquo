@@ -7,7 +7,7 @@ lang: en
 type: deep-dive
 description: "Compare one single rope, two half ropes, two triple-rated ropes, and a single with a retrieval cord using pitch length, rappel distance, team size, and total weight."
 tldr: "List climbing, normal descent, and emergency retreat separately before choosing ropes: the distance you can climb on a 60 m rope is not its doubled-rope rappel distance."
-draft: true
+draft: false
 series:
   name: "Climbing Gear"
   order: 2

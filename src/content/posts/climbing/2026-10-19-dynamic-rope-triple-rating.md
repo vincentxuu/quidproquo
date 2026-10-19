@@ -7,7 +7,7 @@ lang: zh-TW
 type: deep-dive
 description: "從繩端標誌理解單繩、半繩與雙子繩，說明三認證能提供的使用彈性，以及出國多繩距時的繩重、確保器相容和下降限制。"
 tldr: "三認證代表同一款動力繩通過單繩、半繩與雙子繩三種型態的要求；選繩仍要一起確認條數、繩長、確保器與下降方案。"
-draft: true
+draft: false
 series:
   name: "攀岩裝備"
   order: 1

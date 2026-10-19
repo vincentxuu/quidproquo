@@ -7,7 +7,7 @@ lang: zh-TW
 type: deep-dive
 description: "用七天海外攀岩行程挑選鞋、吊帶與頭盔，提供店內試穿表、七款代表裝備與價格版次比較。"
 tldr: "長時間穿著先看合身：岩鞋不套小幾號公式，吊帶要受控試懸吊，頭盔連頭燈與外套一起試。"
-draft: true
+draft: false
 series:
   name: "攀岩裝備"
   order: 5
