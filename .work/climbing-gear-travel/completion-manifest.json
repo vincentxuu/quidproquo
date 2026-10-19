@@ -1,0 +1,58 @@
+[
+  {
+    "order": 0,
+    "slug": "2026-10-19-climbing-gear-travel-overview",
+    "zh": "src/content/posts/climbing/2026-10-19-climbing-gear-travel-overview.md",
+    "en": "src/content/posts/climbing/2026-10-19-climbing-gear-travel-overview-en.md",
+    "review": ".work/reviews/2026-10-19-climbing-gear-travel-overview.md"
+  },
+  {
+    "order": 1,
+    "slug": "2026-10-19-dynamic-rope-triple-rating",
+    "zh": "src/content/posts/climbing/2026-10-19-dynamic-rope-triple-rating.md",
+    "en": "src/content/posts/climbing/2026-10-19-dynamic-rope-triple-rating-en.md",
+    "review": ".work/reviews/2026-10-19-dynamic-rope-triple-rating.md"
+  },
+  {
+    "order": 2,
+    "slug": "2026-10-19-multipitch-rope-systems",
+    "zh": "src/content/posts/climbing/2026-10-19-multipitch-rope-systems.md",
+    "en": "src/content/posts/climbing/2026-10-19-multipitch-rope-systems-en.md",
+    "review": ".work/reviews/2026-10-19-multipitch-rope-systems.md"
+  },
+  {
+    "order": 3,
+    "slug": "2026-10-19-multipitch-climbing-backpacks",
+    "zh": "src/content/posts/climbing/2026-10-19-multipitch-climbing-backpacks.md",
+    "en": "src/content/posts/climbing/2026-10-19-multipitch-climbing-backpacks-en.md",
+    "review": ".work/reviews/2026-10-19-multipitch-climbing-backpacks.md"
+  },
+  {
+    "order": 4,
+    "slug": "2026-10-19-climbing-travel-packing",
+    "zh": "src/content/posts/climbing/2026-10-19-climbing-travel-packing.md",
+    "en": "src/content/posts/climbing/2026-10-19-climbing-travel-packing-en.md",
+    "review": ".work/reviews/2026-10-19-climbing-travel-packing.md"
+  },
+  {
+    "order": 5,
+    "slug": "2026-10-19-climbing-shoes-harness-helmet",
+    "zh": "src/content/posts/climbing/2026-10-19-climbing-shoes-harness-helmet.md",
+    "en": "src/content/posts/climbing/2026-10-19-climbing-shoes-harness-helmet-en.md",
+    "review": ".work/reviews/2026-10-19-climbing-shoes-harness-helmet.md"
+  },
+  {
+    "order": 6,
+    "slug": "2026-10-19-climbing-belay-hardware",
+    "zh": "src/content/posts/climbing/2026-10-19-climbing-belay-hardware.md",
+    "en": "src/content/posts/climbing/2026-10-19-climbing-belay-hardware-en.md",
+    "review": ".work/reviews/2026-10-19-climbing-belay-hardware.md"
+  },
+  {
+    "order": 7,
+    "slug": "2026-10-19-climbing-gear-care-retirement",
+    "zh": "src/content/posts/climbing/2026-10-19-climbing-gear-care-retirement.md",
+    "en": "src/content/posts/climbing/2026-10-19-climbing-gear-care-retirement-en.md",
+    "review": ".work/reviews/2026-10-19-climbing-gear-care-retirement.md"
+  }
+]

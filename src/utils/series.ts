@@ -211,6 +211,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'climbing-gear',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩裝備', en: 'Climbing Gear' },
+    descriptions: {
+      'zh-TW': '從出國攀岩的行程需求挑裝備：動力繩三認證、多繩距繩索配置、岩壁背包與旅行行李，再到鞋、吊帶、頭盔和保養。',
+      en: 'Choose gear around your climbing trip: rope ratings, multipitch rope systems, climbing packs and travel luggage, followed by shoes, harnesses, helmets, and care.',
+    },
+  },
+  {
     slug: 'ifmga-mountain-guides',
     category: 'climbing',
     names: { 'zh-TW': 'IFMGA 高山嚮導', en: 'IFMGA Mountain Guides' },
