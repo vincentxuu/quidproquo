@@ -1,12 +1,12 @@
 ---
-title: "Borrowing Against 0050 and Reinvesting: Rates, Margin-Call Thresholds and Limits at 17 Brokers and 8 Banks"
+title: "Borrowing Against 0050 and Reinvesting: Rates, Margin-Call Thresholds and Limits at 17 Brokers and 9 Banks"
 date: 2026-10-17
 category: investing
 type: guide
 tags: ["0050", stock-pledge, margin-call, leverage, etf]
 lang: en
 tldr: "In October, brokers' effective pledge rates mostly sit at 3.5%–4%; Cathay Securities charges 6.45%, and Taishin and E.SUN have no capacity. Every broker whose site I could read calls at 130%; only Yuanta Securities Finance calls at 140% with a 3-business-day deadline."
-description: "Compares October 2026 stock-pledge loan rates, posted rates, margin-call thresholds and renewal limits at Yuanta Securities Finance, 16 brokers and eight banks, and works out how much you must top up when looping 0050."
+description: "Compares October 2026 stock-pledge loan rates, posted rates, margin-call thresholds and renewal limits at Yuanta Securities Finance, 16 brokers and nine banks, and works out how much you must top up when looping 0050."
 draft: false
 ---
 
@@ -70,13 +70,14 @@ Bank stock-pledge loans differ from broker loans: most charge a one-off account 
 | [Taishin Bank](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205) | From 3.99% (no date seen on the FAQ) | No guarantor or proof of income; fees on the [product page](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/) | Interest on daily drawn balance |
 | [Chang Hwa Bank](https://www.bankchb.com/frontend/mashup.jsp?funcId=4324137815) | Index rate + 0.86% or more; example 4.01% (as of 15 Jul 2026) | Example NT$500k for one year: NT$5,300 in total fees | Up to one year, revolving or drawn in batches; stocks and ETFs accepted |
 | [Union Bank](https://www.ubot.com.tw/short_tern) | Not published | Not published | Lends up to an appraisal value set by its stock and fund valuation rules; one year, revolving |
+| [Shanghai Commercial](https://www.scsb.com.tw/content/ind/ind_03_g1.jsp) | 2.25%–4.595% (as of 29 Mar 2023; the promotion ended 30 Jun 2023) | NT$9,000 setup fee | One year, revolving; stock must be listed with a TCRI rating within grade 7. The page is not updated, so it only confirms the product exists |
 | [CTBC Bank](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf) | Not published | Setup fee set in the contract | Contract edition 15 June 2026 |
 
 The base dates vary widely: Cathay United's and Hua Nan's rate pages are one to two years old, so rely on a branch quote. Margin-call terms are in the next section.
 
 Two bank-only details: [Yuanta Bank](https://www.yuantabank.com.tw/bank/loan/stock/list.do) sets the limit from an "appraised price", the lowest of the previous close, the 60-day average and the 120-day average, so a sharp rally lends you less than a broker would, and dividends on pledged shares go to the bank rather than to your account.
 
-Banks whose margin-call terms are not public: Cathay United, Taishin, Hua Nan and SinoPac keep them in the contract, so ask the branch for a copy. For First Bank I only found a fund-pledge page, Standard Chartered and DBS offer only professional-investor bond or fund pledges, the official sites of O-Bank, Rakuten Bank, Next Bank and LINE Bank show only unsecured credit loans, and for Bank of Taiwan, E.SUN Bank, Mega Bank, Taipei Fubon Bank, Taiwan Cooperative, Land Bank and Taiwan Business Bank I found no official stock-pledge page this round, so they are not listed.
+Banks whose margin-call terms are not public: Cathay United, Taishin, Hua Nan and SinoPac keep them in the contract, so ask the branch for a copy. For First Bank I only found a fund-pledge page, Standard Chartered and DBS offer only professional-investor bond or fund pledges, the official sites of O-Bank, Rakuten Bank, Next Bank and LINE Bank show only unsecured credit loans, and for Bank of Taiwan, E.SUN Bank, Mega Bank, Taipei Fubon Bank, Taiwan Cooperative, Land Bank, Taiwan Business Bank, Bank of Taichung, Bank of Kaohsiung, Hwatai, Panhsin, King's Town, Sunny, Entie, Shin Kong Bank, Far Eastern, HSBC and Cota I found no official stock-pledge page this round, so they are not listed.
 
 ## Margin-call rules
 
@@ -175,6 +176,7 @@ This post summarizes rules and is not investment advice. Borrowing carries risk 
 - [SinoPac Bank: stock loan](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html) (in Chinese)
 - [Union Bank: short-term and stock-secured loans](https://www.ubot.com.tw/short_tern) (in Chinese)
 - [Mega Securities: Mega Stock Loan](https://project.emega.com.tw/MegaStockLoan/) (in Chinese)
+- [Shanghai Commercial & Savings Bank: stock-pledge loan](https://www.scsb.com.tw/content/ind/ind_03_g1.jsp) (in Chinese)
 - [Chang Hwa Bank: stock and ETF loan](https://www.bankchb.com/frontend/mashup.jsp?funcId=4324137815) (in Chinese)
 - [CTBC Bank: securities-collateral loan agreement (15 June 2026 edition)](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf) (in Chinese)
 - [Taishin Bank: FAQ](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205) (in Chinese)

@@ -1,12 +1,12 @@
 ---
-title: "0050 質押借款再投入怎麼做：17 家券商與 8 家銀行的利率、追繳門檻與循環限制"
+title: "0050 質押借款再投入怎麼做：17 家券商與 9 家銀行的利率、追繳門檻與循環限制"
 date: 2026-10-17
 category: investing
 type: guide
 tags: ["0050", stock-pledge, margin-call, leverage, etf]
 lang: zh-TW
 tldr: "10 月券商的質押實際利率多在 3.5% 到 4%，國泰證券 6.45%，台新、玉山沒額度。官網讀得到的券商都在 130% 追繳，只有元大證金是 140%、3 個營業日。"
-description: "整理元大證金與 16 家券商、8 家銀行的股票質押借款 10 月利率、官網牌告、追繳門檻與展延限制，並試算 0050 循環借款時要補繳多少。"
+description: "整理元大證金與 16 家券商、9 家銀行的股票質押借款 10 月利率、官網牌告、追繳門檻與展延限制，並試算 0050 循環借款時要補繳多少。"
 draft: false
 ---
 
@@ -70,13 +70,14 @@ flowchart TB
 | [台新銀行](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205) | 3.99% 起（FAQ 未見基準日） | 免保證人、免財力證明；[商品頁](https://www.taishinbank.com.tw/TSB/personal/loan/stock-fund/stock/)另列費用 | 依每日動用餘額計息 |
 | [彰化銀行](https://www.bankchb.com/frontend/mashup.jsp?funcId=4324137815) | 定儲指標利率加碼 0.86% 起，範例 4.01%（基準日 115/7/15） | 範例 50 萬元、一年，費用合計 5,300 元 | 最長一年，可循環或分批動用；擔保品含上市櫃股票與 ETF |
 | [聯邦銀行](https://www.ubot.com.tw/short_tern) | 官網未公開 | 未公開 | 依「股票、受益憑證鑑估辦法」的放款值貸放，期間一年、可循環動用 |
+| [上海商銀](https://www.scsb.com.tw/content/ind/ind_03_g1.jsp) | 2.25%–4.595%（基準日 112/3/29，專案已於 112/6/30 到期） | 開辦費 9,000 元 | 一年期、循環動用；股票須為上市櫃且 TCRI 評等 7 等內。頁面沒更新，只能確認有這項產品 |
 | [中信銀行](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf) | 官網未公開 | 開辦費寫在契約 | 契約版本 115.6.15 |
 
 基準日差很多，國泰世華和華南的利率頁已經是一到兩年前的數字，要以分行報價為準。銀行的追繳條款見下一節。
 
 有兩個銀行才有的細節：[元大銀行](https://www.yuantabank.com.tw/bank/loan/stock/list.do)的額度是用前一日收盤價、60 日均價、120 日均價三者取最低的「評定單價」乘以成數，而且設質股票的孳息由銀行領取；也就是說股價急漲時借得到的比券商少，現金股利也不會直接進你的戶頭。
 
-銀行端沒有公開條款的：國泰世華、台新、華南、永豐的維持率與追繳條款在契約裡，要向分行索取。第一銀行只找到基金質借頁，渣打與星展只有專業投資人的債券或基金質借；王道、樂天、將來、LINE Bank 四家純網銀的官網只看到無擔保信貸；臺灣銀行、玉山銀行、兆豐銀行、台北富邦銀行、合庫、土銀、台灣企銀這輪都沒有找到股票質借的官方頁，所以沒有列入。
+銀行端沒有公開條款的：國泰世華、台新、華南、永豐的維持率與追繳條款在契約裡，要向分行索取。第一銀行只找到基金質借頁，渣打與星展只有專業投資人的債券或基金質借；王道、樂天、將來、LINE Bank 四家純網銀的官網只看到無擔保信貸；臺灣銀行、玉山銀行、兆豐銀行、台北富邦銀行、合庫、土銀、台灣企銀、台中銀、高雄銀、華泰、板信、京城、陽信、安泰、新光銀行、遠東商銀、匯豐、三信這輪都沒有找到股票質借的官方頁，所以沒有列入。
 
 ## 追繳規則
 
@@ -175,6 +176,7 @@ flowchart TB
 - [永豐銀行：股票貸款](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html)
 - [聯邦銀行：短期週轉與股票質借](https://www.ubot.com.tw/short_tern)
 - [兆豐證券：兆好貸](https://project.emega.com.tw/MegaStockLoan/)
+- [上海商業儲蓄銀行：股票質押貸款](https://www.scsb.com.tw/content/ind/ind_03_g1.jsp)
 - [彰化銀行：Fund欣股舞貸好運](https://www.bankchb.com/frontend/mashup.jsp?funcId=4324137815)
 - [中國信託商業銀行：有價證券擔保借據暨約定書（115.6.15 版）](https://www.ctbcbank.com/content/dam/twrbo/pdf/aboutctbc/contract_5-3-1.pdf)
 - [台新銀行：常見問題](https://www.taishinbank.com.tw/TSB/customer-service-center/qa/index.html?nav1=type02&nav2=type0205)
