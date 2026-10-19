@@ -1,10 +1,10 @@
 ---
-title: "Choosing a Multipitch Climbing Pack: Criteria, 30 Current Models from 20 Brands, and a Fitting Checklist"
+title: "Choosing a Multipitch Climbing Pack: Criteria, 31 Current Models from 20 Brands, and a Fitting Checklist"
 date: 2026-10-19
 category: climbing
 tags: [climbing, multi-pitch, climbing-gear, travel, outdoor-climbing]
 lang: en
-description: "How small should the pack you climb with be, and which features stay out of the way? Six criteria first (narrow shape, helmet and harness clearance, removable hipbelt, belay access, haul loops, abrasion resistance), then 30 current models from 20 brands including BD, Blue Ice, Petzl, Osprey, Arc'teryx, Mammut, Ortovox, Grivel, La Sportiva, Wild Country, Patagonia and Rab, plus a two-person day plan and an in-store fitting checklist."
+description: "How small should the pack you climb with be, and which features stay out of the way? Six criteria first (narrow shape, helmet and harness clearance, removable hipbelt, belay access, haul loops, abrasion resistance), then 31 current models from 20 brands including BD, Blue Ice, Petzl, Osprey, Arc'teryx, Mammut, Ortovox, Grivel, La Sportiva, Wild Country, Patagonia and Rab, plus a two-person day plan and an in-store fitting checklist."
 tldr: "On a multipitch route the follower usually carries the pack and the leader climbs without one. Size it from both climbers' water, jackets, and whether you need approach shoes: most days fit in 15–22 L, and a walk-off with shoes calls for 24–30 L. Try it on with your harness and helmet. If you can look up without hitting your helmet, reach your gear loops, and open it one-handed at a belay, it can go on the wall."
 draft: false
 series:
@@ -16,7 +16,7 @@ series:
 
 The [crag pack from the previous article](/posts/climbing/2026-10-19-climbing-crag-packs-en) stays on the ground at the base. A multipitch pack climbs with you and spends the whole day on the wall. A pack that carries well on the trail can get in the way everywhere once you climb. You look up at the next pitch and your helmet hits the top of the pack. You reach for a quickdraw and the hipbelt is sitting on your gear loop. You open a zip at a hanging belay and your jacket nearly falls out.
 
-This article is for people planning a multipitch trip abroad and buying their first climbing pack. The first half covers six criteria. The second half compares 30 current models from 20 climbing and mountaineering brands, then gives a two-person day plan, an in-store fitting checklist, and a note on using the pack as cabin baggage. By the end you should be able to try a pack on with your harness and helmet and decide whether it can go on the wall.
+This article is for people planning a multipitch trip abroad and buying their first climbing pack. The first half covers six criteria. The second half compares 31 current models from 20 climbing and mountaineering brands, then gives a two-person day plan, an in-store fitting checklist, and a note on using the pack as cabin baggage. By the end you should be able to try a pack on with your harness and helmet and decide whether it can go on the wall.
 
 ## How it differs from a crag pack
 
@@ -74,7 +74,7 @@ Put the real items in: water for two (about 1 kg per liter), two wind shells, an
 
 Shoes clipped outside swing and snag on rock, so check whether the route allows it. A bigger pack invites stuffing; when it's half full, the compression straps should cinch it tight so it doesn't sway.
 
-## 30 current models from 20 brands
+## 31 current models from 20 brands
 
 Prices are list prices on each brand's official store on 2026-10-19, in the store's currency, not converted; where the brand lists no price, a retail price is noted. Weights are the brands' empty weights; where the brand lists none, the retailer figure is marked. The "Review" column lists only third-party reviews from 2020 onward, with personal blogs marked; "—" means none. Models from the same brand are grouped together. Check the official page for haul loop and hipbelt details before you buy.
 
@@ -91,7 +91,7 @@ Prices are list prices on each brand's official store on 2026-10-19, in the stor
 | [Edelrid Rubi](https://edelrid.com/eu-en/sport/backpacks-and-rope-bags-shop/rubi) | 19 L | 498 g | Haul loops, gear loops, simple hipbelt | EUR 70 | — | Tight budget but want haul loops; few features |
 | [Grivel Spartan X 20](https://grivel.com/products/spartan-x-20) | 20 L | 480 g | Water-resistant X-Pac fabric, roll-top, thermoformed back panel, ice tool attachment | EUR 165 / USD 215 | — | Low weight with weather resistance; no haul loop listed, out of stock on the EU store (in stock in the US) |
 | [Rab Latok 20](https://rab.equipment/us/rab-latok-20l-mountain-pack) | 20 L | 480 g | Cordura and Spectra ripstop, roll-top, vest-style sternum strap, zip pocket on the shoulder strap, removable webbing hipbelt | USD 175 | — | Latok 28 fans who want a smaller follower pack; no haul loop listed |
-| [C.A.M.P. M20](https://www.planetmountain.com/en/products/lightweight-climbing-backpack-m20.html) | 20 L | 780 g | Full back-panel opening, zippered lid plus drawcord, removable hipbelt with 2 gear loops, stowable helmet and rope straps | Not listed by the brand (EUR 134.95 at European retailers) | — | Long approaches, comfortable carry; heaviest at this size, and the link is the brand's press release |
+| [C.A.M.P. M20](https://www.camp.it/info/item/3205) | 20 L | 780 g | Full back-panel opening, zippered lid plus drawcord, removable hipbelt with 2 gear loops, stowable helmet and rope straps | Not listed by the brand (EUR 134.95 at European retailers) | — | Long approaches, comfortable carry; heaviest at this size |
 | [Arc'teryx Alpha FL 20](https://arcteryx.com/us/en/shop/alpha-fl-20-backpack-0348) | 20 L (24 L with the extension skirt) | 635 g | 315D Hadron waterproof fabric, glove-friendly drawcord opening, top rope strap, twin ice tool attachments | USD 250 | — | The Alpha FL 30 fabric in a smaller size; expensive, no hipbelt or haul loop in the specs |
 
 ### 22–25 L: more room for layers
@@ -105,18 +105,19 @@ Prices are list prices on each brand's official store on 2026-10-19, in the stor
 | [Ortovox Trad Zero 24](https://www.ortovox.com/us-en/backpacks/specials/ultra-lightweight-backpacks/trad-zero-24/5000753) | 24 L | 570 g | Lid flap doubles as rope and helmet strap, grippy lining, gear loops, hydration port | USD 130 | — | Light but 24 L; no lid pocket for small items |
 | [Deuter Guide Lite 24](https://www.deuter.com/uk-en/guide-lite-24/4046051185729) | 24 L | 670 g | U-frame, removable lid and hipbelt, stowable rope strap | GBP 130 | [Climbing 2020-04](https://climbing.com/gear/2020-alpine-kit-deuter-guide-lite-24-review) | Long approaches, stable carry; the review covers the 2020 version |
 | [Salewa Ortles Climb 25](https://salewa.com/en-gb/ortles-climb-25l-backpack-00-0000001283) | 25 L | 605 g | Split shoulder straps, roll-top plus side access, twin axe and rope attachment | GBP 130 | — | Want side access; brand says the fabric handles hauling, but no haul loop listed |
-| [La Sportiva Granite 22](https://lasportiva.com/en/backpack-climbing-granite-22-backpack-unisex-zecp002) | 22 L | Not listed by the brand (retailers list 500–570 g) | 210D ripstop, drawstring top plus side zip, lid holds a rope, thermoformed back panel | EUR 110 / USD 119 | — | Side access on a mid-range budget; no haul loop listed |
+| [La Sportiva Granite 22](https://lasportiva.com/en/backpack-climbing-granite-22-backpack-unisex-zecp002) | 22 L | Not listed by the brand (retailers such as Climbsmart and Lake State Mountaineering list 300–570 g, a wide spread) | 210D ripstop, drawstring top plus side zip, lid holds a rope, thermoformed back panel | EUR 110 / USD 119 | — | Side access on a mid-range budget; no haul loop listed |
 | [Simond Alpinism 22](https://simond.com/en-GB/product/versatile-and-modular-mountaineering-backpack-alpinism-22-blue_371534--c59m89) | 22 L | 580 g | 200D ripstop nylon, large front opening with two zips, ice axe attachment, hydration sleeve | GBP 34.99 | [Olympus Mountaineering 2020-07](https://olympusmountaineering.com/2020/07/25/simond-alpinism-22-backpack-long-term-review) (personal blog) | Lowest-budget first multipitch pack; thinner fabric, be careful with the big front zip at belays, hard to buy outside Decathlon |
-| [Wild Country Syncro](https://wildcountry.com/syncro-backpack-40-0000010006) | 22 L | Not listed by the brand (retailers list 600 g) | Roll-top, narrow body, long side zip, two daisy chains, top rope strap, removable hipbelt | EUR 110 (on sale at EUR 77) | — | The brand designed it for multipitch; on sale, possibly an end-of-season clearance |
+| [Wild Country Syncro](https://wildcountry.com/syncro-backpack-40-0000010006) | 22 L | Not listed by the brand (Oliunìd, BananaFingers and EpicTV list 600 g) | Roll-top, narrow body, long side zip, two daisy chains, top rope strap, removable hipbelt | EUR 110 (on sale at EUR 77) | — | The brand designed it for multipitch; on sale, possibly an end-of-season clearance |
 | [Wild Country Progress 25L](https://www.wildcountry.com/progress-backpack-25l-40-0000010049) | 25 L | Not listed by the brand (retailers list 615 g) | 420D ripstop nylon, drawstring top, side zip, hidden daisy chains, front pocket | EUR 115 / USD 129.95 | — | Alpine multipitch with snowy approaches; no haul loop listed |
 
-### 28–30 L: carrying approach shoes or going alpine (plus one 35 L)
+### 27–30 L: carrying approach shoes or going alpine (plus one 35 L)
 
 | Model | Volume | Weight | Features | Official price | Review | Who it suits / downsides |
 |---|---|---|---|---|---|---|
 | [Black Diamond Speed 30](https://blackdiamondequipment.com/en_US/product/speed-30-backpack) | 30 L | 938 g (S/M) / 984 g (M/L) | 210D ripstop, two back lengths, removable lid, framesheet and hipbelt, ice axe attachment | USD 219.95 | [Advnture 2023-05](https://www.advnture.com/reviews/black-diamond-speed-30) | Sized fit, heavier loads; heavier than roll-tops of the same volume |
 | [Blue Ice Warthog 30](https://blueice.com/products/warthog-30) | 30 L | 630 g (530 g stripped) | 210D ripstop, two sizes, close-fitting shoulder straps, strips down to minimal | EUR 150 | [Rock Van Life 2026-08](https://rockvanlife.com/blue-ice-warthog-30-review) (blog) | Wadi or Dragonfly users who want a size up; for waterproofing there's the roll-top [Warthog 30 WMO](https://blueice.com/products/warthog-30-wmo) (660 g, EUR 160); no haul loop listed |
 | [Rab Latok 28](https://rab.equipment/us/rab-latok-28l-mountain-pack) | 28 L | 810 g | Spectra fabric, expandable roll-top, removable hipbelt | USD 225 | — | Walk-offs with shoes; on the heavy side |
+| [Rab Ascendor 27L](https://rab.equipment/us/rab-ascendor-27l-mountain-pack) | 27 L | 729 g | 210D Robic ripstop, TRI-FLEX back system, 48 cm back length, 54×27×28 cm | GBP 130 / USD 150 | — | Around 28 L for less than the Latok 28; some colours out of stock |
 | [Gregory Alpinisto LT 28](https://eu.gregorypacks.com/uk-en/-alpinisto-28-lt-sm-md--piton-blue/126853-9986.html) | 28 L | 990 g | Removable lid, framesheet, and hipbelt | GBP 150 (on sale at GBP 105) | — | Long approaches, load carrying; heaviest here, and the sale may be a clearance |
 | [Arc'teryx Alpha FL 30](https://arcteryx.com/us/en/shop/alpha-fl-30-backpack-0349) | 30 L | 665 g | 315D laminated waterproof fabric, roll-top plus drawcord, RECCO | USD 280 | Switchback 2026: best ultralight alpine pack | Long alpine routes, bad weather; expensive |
 | [Hyperlite Summit 30](https://www.hyperlitemountaingear.com/products/summit-30) | 30 L | 383 g (white) / 448 g (black) | Frameless Dyneema roll-top, removable webbing hipbelt | USD 210 | — | Lightest 30 L here; frameless, no haul loop listed |
@@ -167,7 +168,7 @@ This is the last article in the Climbing Travel Gear series. Go back to the [ser
 
 ## Update log
 
-- 2026-10-19: Expanded the comparison tables from 16 models across 14 brands to 30 models across 20 brands, adding brands such as Grivel, La Sportiva, C.A.M.P., Simond and Wild Country, plus the BD Speed packs, Rab Latok 20, Blue Ice Warthog 30, Ortovox Trad 22 Dry and Arc'teryx Alpha FL 20. Models from the same brand are now grouped, the Patagonia Ascensionist 35L moved into the 28–30 L table, and links to the new official pages and reviews were added.
+- 2026-10-19: Expanded the comparison tables from 16 models across 14 brands to 30 models across 20 brands, adding brands such as Grivel, La Sportiva, C.A.M.P., Simond and Wild Country, plus the BD Speed packs, Rab Latok 20, Blue Ice Warthog 30, Ortovox Trad 22 Dry and Arc'teryx Alpha FL 20. Models from the same brand are now grouped, the Patagonia Ascensionist 35L moved into the 28–30 L table, and links to the new official pages and reviews were added. Checked specs against brand data and fixed 4 items, and added the Rab Ascendor 27L to the 28–30 L table, for 31 models.
 
 ## References
 
@@ -197,6 +198,8 @@ This is the last article in the Climbing Travel Gear series. Go back to the [ser
 - [Advnture: Black Diamond Speed 30 review (2023-05)](https://www.advnture.com/reviews/black-diamond-speed-30)
 - [Rock Van Life: Blue Ice Warthog 30 review (2026-08)](https://rockvanlife.com/blue-ice-warthog-30-review)
 - [Olympus Mountaineering: Simond Alpinism 22 long-term review (2020-07-25)](https://olympusmountaineering.com/2020/07/25/simond-alpinism-22-backpack-long-term-review)
+- [C.A.M.P.: M20](https://www.camp.it/info/item/3205)
+- [C.A.M.P.: M20 technical specifications (PDF)](https://www.camp.it/api/GetSystemResource/210/3205)
 - [Planetmountain: C.A.M.P. M20 press release](https://www.planetmountain.com/en/products/lightweight-climbing-backpack-m20.html)
 - [Black Diamond: Speed 22](https://blackdiamondequipment.com/en_US/product/speed-22-backpack)
 - [Black Diamond: Speed 30](https://blackdiamondequipment.com/en_US/product/speed-30-backpack)
@@ -204,6 +207,7 @@ This is the last article in the Climbing Travel Gear series. Go back to the [ser
 - [Grivel: Spartan X 20](https://grivel.com/products/spartan-x-20)
 - [Grivel: Spartan X 30](https://grivel.com/products/spartan-x-30)
 - [Rab: Latok 20](https://rab.equipment/us/rab-latok-20l-mountain-pack)
+- [Rab: Ascendor 27L](https://rab.equipment/us/rab-ascendor-27l-mountain-pack)
 - [Arc'teryx: Alpha FL 20](https://arcteryx.com/us/en/shop/alpha-fl-20-backpack-0348)
 - [Ortovox: Trad 22 Dry](https://ortovox.com/us-en/shop/backpacks/p249732-climbing-backpacks-trad-22-dry)
 - [La Sportiva: Granite 22](https://lasportiva.com/en/backpack-climbing-granite-22-backpack-unisex-zecp002)

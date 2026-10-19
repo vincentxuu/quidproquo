@@ -51,7 +51,7 @@ flowchart TB
 
 ## 大型裝備袋：現行款比較
 
-以下價格是 2026-10-19 各品牌官網標價，幣別照官網所在地區，沒有換算。三邊總和由原廠尺寸換算成公分；BD Mission 和 Wall Hauler 原廠頁沒有尺寸，用 REI 商品頁的數字。第三方評測只列 2020 年以後的。Mountain Equipment 的商品頁和[尺寸表](https://us.mountain-equipment.com/pages/size-guide-wet-dry-roller-kit-bag)空重對不上，表上兩個數字都列。
+以下價格是 2026-10-19 各品牌官網標價，幣別照官網所在地區，沒有換算。三邊總和由原廠尺寸換算成公分；BD Mission 和 Wall Hauler 原廠頁沒有尺寸，用 REI 商品頁的數字。第三方評測只列 2020 年以後的。Mountain Equipment 三款的空重取自原廠尺寸表（[Kit Bag](https://mountain-equipment.com/pages/size-guide-wet-dry-kit-bag)、[Roller Kit Bag](https://us.mountain-equipment.com/pages/size-guide-wet-dry-roller-kit-bag)）。
 
 ### 有背帶的軟質裝備袋
 
@@ -84,7 +84,7 @@ flowchart TB
 | [Sea to Summit Meridian Duffle 60L](https://seatosummit.com/products/meridian-duffle) | 60 L | 1,270 g | 可拆背帶，收在外側口袋 | 131 cm ✓ | US$159.95 | — |
 | [Sea to Summit Meridian Duffle 90L](https://seatosummit.com/products/meridian-duffle) | 90 L | 1,490 g | 同上 | 151 cm ✓ | US$179.95 | — |
 | [Eagle Creek Cargo Hauler 90L Duffel](https://eaglecreek.com/products/cargo-hauler-90l-duffel-bag) | 90 L | 1.2 kg | 可收背帶 | 142 cm ✓ | US$199 | — |
-| [Mountain Equipment Wet & Dry Kitbag 70L](https://mountain-equipment.com/products/wet-dry-70l-kitbag) | 70 L | 1,670 g（商品頁寫 2,630 g） | 背帶加提把 | 136 cm ✓ | £140 | — |
+| [Mountain Equipment Wet & Dry Kitbag 70L](https://mountain-equipment.com/products/wet-dry-70l-kitbag) | 70 L | 1,670 g | 背帶加提把 | 136 cm ✓ | £140 | — |
 | [Ortlieb Duffle 60L](https://de.ortlieb.com/en/products/duffle) | 60 L | 1,180 g | 加墊提把兼肩帶 | 122 cm ✓ | €185 | — |
 | [Ortlieb Duffle 85L](https://de.ortlieb.com/en/products/duffle) | 85 L | 1,360 g | 同上 | 140 cm ✓ | €195 | — |
 | [Black Diamond Mission 130](https://blackdiamondequipment.com/products/mission-130-l-duffel) | 130 L | 約 1.13 kg | 提把兼單肩背帶 | 163 cm ✗ | US$219.95 | — |
@@ -116,11 +116,11 @@ Black Hole 系列是實例裡被點名最多的袋子，出現在 3 個實例。
 
 | 型號 | 容量 | 空重 | 背負方式 | 三邊總和 | 官方價格 | 2020 後評測 |
 |---|---|---|---|---|---|---|
-| [Patagonia Black Hole Wheeled Duffel 40L](https://www.patagonia.com.au/products/black-hole-wheeled-duffel-40l-49379-blk) | 40 L | 3,521 g | 滾輪，無背帶 | 120 cm ✓ | AUD 599.95（缺貨中；美國官網 US$369） | [Switchback Travel 滾輪袋比較（2026，系列評為最佳整體）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
-| [Patagonia Black Hole Wheeled Duffel 70L](https://www.patagonia.com.au/products/black-hole-wheeled-duffel-70l-49382-bob) | 70 L | 約 4,100 g | 滾輪，無背帶 | 138 cm ✓ | AUD 629.95 | 同上 |
+| [Patagonia Black Hole Wheeled Duffel 40L](https://www.patagonia.com/product/black-hole-wheeled-duffel-bag-40-liters/49379.html) | 40 L | 3,521 g | 滾輪，無背帶 | 120 cm ✓ | US$369（部分顏色預購中） | [Switchback Travel 滾輪袋比較（2026，系列評為最佳整體）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [Patagonia Black Hole Wheeled Duffel 70L](https://www.patagonia.com/product/black-hole-wheeled-duffel-bag-70-liters/49382.html) | 70 L | 4,100 g | 滾輪，無背帶 | 138 cm ✓ | US$409 | 同上 |
 | [Patagonia Black Hole Wheeled Duffel 100L](https://www.patagonia.com.au/products/black-hole-wheeled-duffel-100l-49388-blk) | 100 L | 4,780 g | 滾輪，無背帶 | 157.5 cm（只差 0.5 cm） | AUD 649.95 | 同上 |
 | [The North Face Base Camp Duffel Roller](https://www.thenorthface.com/en-us/p/bags-and-gear/luggage-and-duffels/duffel-bags-224547/base-camp-duffel-roller-NF0A52RP) | 97 L | 2,940 g | 滾輪加背帶 | 145 cm ✓ | US$250（缺貨中） | — |
-| [The North Face Base Camp Rolling Thunder 22"](https://www.thenorthface.com/en-us/p/bags-and-gear/luggage-and-duffels/rolling-luggage-224545/base-camp-rolling-thunder22-40l-NF0A87GB) | 40 L | 3,680 g | 滾輪，無背帶 | 122 cm ✓ | US$300（缺貨中；[英國官網](https://www.thenorthface.com/en-gb/p/bags-and-equipment-211747/base-camp-rolling-thunder-22-NF0A87GB) £280） | [OutdoorGearLab（2026，最適合搭機的滾輪袋）](https://www.outdoorgearlab.com/topics/travel/best-duffel-bag)；[Switchback Travel（2026）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
+| [The North Face Base Camp Rolling Thunder 22"](https://www.thenorthface.com/en-us/p/bags-and-gear/luggage-and-duffels/rolling-luggage-224545/base-camp-rolling-thunder22-40l-NF0A87GB) | 40 L | 3,680 g | 滾輪，無背帶 | 122 cm ✓ | US$320（[英國官網](https://www.thenorthface.com/en-gb/p/bags-and-equipment-211747/base-camp-rolling-thunder-22-NF0A87GB) £280） | [OutdoorGearLab（2026，最適合搭機的滾輪袋）](https://www.outdoorgearlab.com/topics/travel/best-duffel-bag)；[Switchback Travel（2026）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
 | [The North Face Base Camp Rolling Thunder 28"](https://www.thenorthface.com/en-us/p/bags-and-gear/luggage-and-duffels/rolling-luggage-224545/base-camp-rolling-thunder28-NF0A87GC) | 95 L | 5,000 g | 滾輪，無背帶 | 158 cm ✓（剛好壓線） | US$380 | [Switchback Travel（2026，最適合戶外用）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
 | [Osprey Transporter Wheeled Duffel 40](https://www.osprey.com/gb/osprey-transporter-wheeled-duffel-40-s25) | 40 L | 2.55 kg | 滾輪，無背帶 | 128 cm ✓ | £220 | [Switchback Travel 滾輪袋比較（2026）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
 | [Osprey Rolling Transporter 90](https://www.osprey.com/gb/osprey-transporter-wheeled-duffel-90-s25) | 90 L | 3.23 kg | 滾輪，無背帶 | 160 cm ✗ | £260 | 同上 |
@@ -129,8 +129,8 @@ Black Hole 系列是實例裡被點名最多的袋子，出現在 3 個實例。
 | [Mammut Wheeled Cargo 90](https://www.mammut.com/us/en/products/2570-00440-0001/wheeled-cargo-90) | 90 L | 3,250 g | 滾輪加可拆背帶 | 156 cm ✓ | US$339.95 | — |
 | [Gregory Alpaca Wheeled Duffel 100L](https://www.gregory.com/travel/duffels/alpaca-wheeled-duffel-100l/155037XXXX.html) | 100 L | 約 3.89 kg | 滾輪，無背帶 | 157.5 cm（只差 0.5 cm） | US$299.95 | — |
 | [Thule Chasm 40L 滾輪款](https://www.thule.com/en-us/luggage/carry-on-luggage/thule-chasm-wheeled-carry-on-duffel-_-3204986) | 40 L | 約 3.3 kg | 滾輪，無背帶 | 113 cm ✓ | US$369.95 | — |
-| [Mountain Equipment Wet & Dry Roller Kit Bag 70L](https://us.mountain-equipment.com/products/wet-dry-roller-kit-bag-70l) | 70 L | 3,350 g（尺寸表寫 3,370 g） | 滾輪，無背帶 | 136 cm ✓ | US$299.95 | — |
-| [Mountain Equipment Wet & Dry Roller Kit Bag 100L](https://us.mountain-equipment.com/products/wet-dry-roller-kit-bag-100l) | 100 L | 3,500 g（尺寸表寫 3,860 g） | 滾輪，無背帶 | 148 cm ✓ | US$374.95 | — |
+| [Mountain Equipment Wet & Dry Roller Kit Bag 70L](https://us.mountain-equipment.com/products/wet-dry-roller-kit-bag-70l) | 70 L | 3,370 g | 滾輪，無背帶 | 136 cm ✓ | US$299.95 | — |
+| [Mountain Equipment Wet & Dry Roller Kit Bag 100L](https://us.mountain-equipment.com/products/wet-dry-roller-kit-bag-100l) | 100 L | 3,860 g | 滾輪，無背帶 | 148 cm ✓ | US$374.95 | — |
 | [Eagle Creek Cargo Hauler Wheeled Duffel 110L](https://eaglecreek.com/products/cargo-hauler-110l-rolling-duffel) | 108 L（原廠實測） | 1.9 kg | 滾輪加可收背帶 | 149 cm ✓ | US$249 | [Switchback Travel（2026）](https://www.switchbacktravel.com/best-wheeled-duffel-bags) |
 | [Eagle Creek Cargo Hauler XT 90L Wheeled Duffel](https://eaglecreek.com/products/cargo-hauler-xt-29-wheeled-duffel) | 90 L | 3.7 kg | 滾輪加可收背帶 | 146 cm ✓ | US$349 | — |
 | [Ortlieb Duffle RS 85L](https://de.ortlieb.com/en/products/duffle-rs) | 85 L | 2,790 g | 滾輪加肩背帶，沒有拉桿 | 147 cm ✓ | €340 | — |
@@ -173,7 +173,7 @@ Black Hole 系列是實例裡被點名最多的袋子，出現在 3 個實例。
 |---|---|---|---|---|---|---|
 | [Osprey Farpoint 40](https://osprey.com/gb/osprey-farpoint-40-f22)／[Fairview 40](https://osprey.com/eu/fairview-40-s26)（女款） | 40 L | 1.48 kg | 55×35×23 cm | ✓ | £170／€180（換代中，舊版缺貨） | [OutdoorGearLab（2026-08 更新）](https://outdoorgearlab.com/topics/travel/best-travel-backpack)；[Pack Hacker（2022-12）](https://packhacker.com/travel-gear/osprey/farpoint-40) |
 | [Osprey Transporter Travel Pack 44](https://osprey.com/gb/osprey-transporter-travel-pack-44-s25) | 44 L | 1.54 kg | 54×42×32 cm | ✗（寬、厚都超過） | £190 | — |
-| [Osprey Farpoint 55](https://www.osprey.com/farpointtm-55-travel-pack)／Fairview 55（女款） | 40 L＋15 L 小包 | 1.87 kg | 55×35×46 cm（推測含掛上的小包） | 未確認（原廠說拆下小包可登機） | US$240 | — |
+| [Osprey Farpoint 55](https://www.osprey.com/farpointtm-55-travel-pack)／Fairview 55（女款） | 40 L＋15 L 小包 | 1.87 kg | 55×35×46 cm（原廠標示，對應掛上小包的 55 L 整組） | 未確認（原廠說拆下小包可登機） | US$240 | — |
 | [Patagonia Black Hole MLC 45L](https://patagonia.com.au/products/black-hole-mlc-45l-49307-blk) | 45 L | 1,644 g | 56×37×19 cm | ✓（總和 112 cm；長邊比日航、全日空多 1 cm） | AUD 379.95 | [OutdoorGearLab（2026-08 更新）](https://outdoorgearlab.com/topics/travel/best-travel-backpack)；[Pack Hacker（2024-10）](https://packhacker.com/travel-gear/patagonia/black-hole-mlc) |
 | [Patagonia Black Hole Pack 32L](https://patagonia.com.au/products/black-hole-pack-32l-49302-pgta) | 32 L | 811 g | 56×25×17 cm | ✓ | AUD 269.95 | [Pack Hacker（2023-03）](https://www.packhacker.com/travel-gear/patagonia/black-hole-pack-32l/) |
 | [Gregory Border Carry-On 40](https://gregory.com/travel/backpacks/border-carry-on-40/154920D789.html) | 40 L | 1.75 kg | 56×36×23 cm | ✓ | US$239.95 | [Pack Hacker（2026-02）](https://packhacker.com/travel-gear/gregory/border-carry-on-40-2) |
@@ -212,7 +212,7 @@ Black Hole 系列是實例裡被點名最多的袋子，出現在 3 個實例。
 
 ## 更新紀錄
 
-- 2026-10-19：滾輪袋表新增 17 款（含 Mammut Wheeled Cargo 90）、有背帶的軟質裝備袋表新增 8 款、大容量背包表新增 1 款、旅行背包表新增 2 款；改寫滾輪袋的挑選說明，更新品牌數與滾輪袋空重範圍。
+- 2026-10-19：滾輪袋表新增 17 款（含 Mammut Wheeled Cargo 90）、有背帶的軟質裝備袋表新增 8 款、大容量背包表新增 1 款、旅行背包表新增 2 款；改寫滾輪袋的挑選說明，更新品牌數與滾輪袋空重範圍。依原廠資料核對規格，修正 8 處。
 
 ## 參考資料
 

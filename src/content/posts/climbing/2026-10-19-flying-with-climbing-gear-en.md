@@ -196,7 +196,7 @@ The reasons repeat: a rope "could be used to tie someone up," and carabiners loo
 | Rope | Checked is safer | Experience | TSA lists rope as cabin-allowed, but elsewhere it has repeatedly been treated as a restraint |
 | Quickdraws, carabiners, cams, nuts, belay device | Checked is safest; allow extra time if carried on | Experience | On no list, so it's the screener's call |
 | Stick clip | Checked | Experience | 6 mentions of inspection or confiscation in the community examples |
-| Climbing shoes, harness, helmet | Cabin | Experience | 21 of 45 examples do this: fitted gear is hard to rent locally, and you can still climb if the checked bag goes missing |
+| Climbing shoes, harness, helmet | Cabin | Experience | 20 of 45 examples do this: fitted gear is hard to rent locally, and you can still climb if the checked bag goes missing |
 | Crash pad | Checked | Airline rule | Watch the 158 cm and 203 cm size limits |
 
 Check in this order before you fly:

@@ -1,10 +1,10 @@
 ---
-title: "多繩距攀登包怎麼挑：判準、20 個品牌 30 款現行款與試背清單"
+title: "多繩距攀登包怎麼挑：判準、20 個品牌 31 款現行款與試背清單"
 date: 2026-10-19
 category: climbing
 tags: [climbing, multi-pitch, climbing-gear, travel, outdoor-climbing]
 lang: zh-TW
-description: "背上岩壁的包要多小、哪些功能才不會礙事？先講窄包型、頭盔與吊帶干涉、可拆腰帶、確保站取物、拖拉環與耐磨六個判準，再比較 BD、Blue Ice、Petzl、Osprey、Arc'teryx、Mammut、Ortovox、Grivel、La Sportiva、Wild Country、Patagonia、Rab 等 20 個品牌的 30 款現行款，附兩人一天分工與店內試背清單。"
+description: "背上岩壁的包要多小、哪些功能才不會礙事？先講窄包型、頭盔與吊帶干涉、可拆腰帶、確保站取物、拖拉環與耐磨六個判準，再比較 BD、Blue Ice、Petzl、Osprey、Arc'teryx、Mammut、Ortovox、Grivel、La Sportiva、Wild Country、Patagonia、Rab 等 20 個品牌的 31 款現行款，附兩人一天分工與店內試背清單。"
 tldr: "多繩距包通常由跟攀者背，先鋒不背。容量從兩人的水、外套和要不要帶接近鞋算起，多數落在 15–22 L；走下山要帶鞋就看 24–30 L。挑包時穿吊帶、戴頭盔試背：抬頭不頂到頭盔、彎腰拿得到裝備環、確保站單手打得開，三項都過才算能上岩壁。"
 draft: false
 series:
@@ -16,7 +16,7 @@ series:
 
 [上一篇的岩場包](/posts/climbing/2026-10-19-climbing-crag-packs)走到岩壁下就放在地上。多繩距的包會跟著你爬上去，在岩壁上待一整天。走路時好背的包，爬起來可能處處礙事。抬頭看下一段，頭盔撞到包頂；伸手拿快扣，腰帶壓住裝備環；在懸吊確保站打開拉鍊，外套差點掉下去。
 
-這篇寫給準備出國爬多繩距、想買第一個攀登小包的人。前半是六個判準，後半是 20 個攀岩與登山品牌、30 款現行款的比較、兩人一天怎麼分工、店內試背清單，最後講這個包出國時怎麼兼當登機包。讀完你應該能穿著吊帶和頭盔試背，判斷一個包能不能帶上岩壁。
+這篇寫給準備出國爬多繩距、想買第一個攀登小包的人。前半是六個判準，後半是 20 個攀岩與登山品牌、31 款現行款的比較、兩人一天怎麼分工、店內試背清單，最後講這個包出國時怎麼兼當登機包。讀完你應該能穿著吊帶和頭盔試背，判斷一個包能不能帶上岩壁。
 
 ## 它跟岩場包差在哪
 
@@ -74,7 +74,7 @@ flowchart TD
 
 鞋掛外面會晃、會勾岩石，先確認路線容不容許。包大了就會想塞滿，半滿時壓縮帶要能把包收緊、不晃。
 
-## 20 個品牌、30 款現行款比較
+## 20 個品牌、31 款現行款比較
 
 以下價格是 2026-10-19 各品牌官網標價，幣別照官網，未換算；原廠沒標價的另註零售價。重量是原廠空重，原廠沒標的註明零售商數字。「評測」欄只列 2020 年後的第三方評測，個人部落格會註明，「—」表示沒有。同品牌的型號排在一起。各款的拖拉環、腰帶規格以官網為準，買之前再點進去看一次。
 
@@ -91,7 +91,7 @@ flowchart TD
 | [Edelrid Rubi](https://edelrid.com/eu-en/sport/backpacks-and-rope-bags-shop/rubi) | 19 L | 498 g | 拖拉環、裝備環、簡易腰帶 | EUR 70 | — | 預算有限又要拖拉環；功能精簡 |
 | [Grivel Spartan X 20](https://grivel.com/products/spartan-x-20) | 20 L | 480 g | X-Pac 防潑水布、捲頂、熱塑背板、冰斧掛點 | EUR 165／USD 215 | — | 要輕又要防潑水；原廠沒標拖拉環，歐洲官網缺貨（美國官網有貨） |
 | [Rab Latok 20](https://rab.equipment/us/rab-latok-20l-mountain-pack) | 20 L | 480 g | Cordura 加 Spectra 防撕裂布、捲頂、背心式胸帶、肩帶拉鍊袋、織帶腰帶可拆 | USD 175 | — | 喜歡 Latok 28、想要跟攀用的小一號；原廠沒標拖拉環 |
-| [C.A.M.P. M20](https://www.planetmountain.com/en/products/lightweight-climbing-backpack-m20.html) | 20 L | 780 g | 背板全開、拉鍊頂蓋加抽繩、腰帶附 2 個裝備環且可拆、可收式頭盔與繩帶 | 原廠未標（歐洲零售 EUR 134.95） | — | 接近路長、要背得舒服；同容量裡最重，連結是原廠新聞稿 |
+| [C.A.M.P. M20](https://www.camp.it/info/item/3205) | 20 L | 780 g | 背板全開、拉鍊頂蓋加抽繩、腰帶附 2 個裝備環且可拆、可收式頭盔與繩帶 | 原廠未標（歐洲零售 EUR 134.95） | — | 接近路長、要背得舒服；同容量裡最重 |
 | [Arc'teryx Alpha FL 20](https://arcteryx.com/us/en/shop/alpha-fl-20-backpack-0348) | 20 L（延伸裙展開 24 L） | 635 g | 315D Hadron 防水布、手套可操作的抽繩開口、頂部繩帶、雙冰斧掛點 | USD 250 | — | 想要 Alpha FL 30 的布料但更小；貴，規格沒列腰帶與拖拉環 |
 
 ### 22–25 L：多一點衣物空間
@@ -105,18 +105,19 @@ flowchart TD
 | [Ortovox Trad Zero 24](https://www.ortovox.com/us-en/backpacks/specials/ultra-lightweight-backpacks/trad-zero-24/5000753) | 24 L | 570 g | 頂蓋兼繩帶與頭盔帶、內裡止滑、裝備環、水袋孔 | USD 130 | — | 要輕又要 24 L；沒有頂袋，小東西要另外收 |
 | [Deuter Guide Lite 24](https://www.deuter.com/uk-en/guide-lite-24/4046051185729) | 24 L | 670 g | U 形框架、頂蓋與腰帶可拆、可收式繩帶 | GBP 130 | [Climbing 2020-04](https://climbing.com/gear/2020-alpine-kit-deuter-guide-lite-24-review) | 接近路長、要背得穩；評測是 2020 年版 |
 | [Salewa Ortles Climb 25](https://salewa.com/en-gb/ortles-climb-25l-backpack-00-0000001283) | 25 L | 605 g | 分離式肩帶、捲頂加側開口、雙冰斧與繩帶 | GBP 130 | — | 要側開口取物；原廠說布料耐拖拉，但沒標拖拉環 |
-| [La Sportiva Granite 22](https://lasportiva.com/en/backpack-climbing-granite-22-backpack-unisex-zecp002) | 22 L | 原廠未標（零售商標 500–570 g） | 210D 防撕裂布、頂部抽繩加側拉鍊、頂蓋可壓繩、熱塑背板 | EUR 110／USD 119 | — | 要側開口、預算中等；原廠沒標拖拉環 |
+| [La Sportiva Granite 22](https://lasportiva.com/en/backpack-climbing-granite-22-backpack-unisex-zecp002) | 22 L | 原廠未標（Climbsmart、Lake State Mountaineering 等零售商標 300–570 g，差異大） | 210D 防撕裂布、頂部抽繩加側拉鍊、頂蓋可壓繩、熱塑背板 | EUR 110／USD 119 | — | 要側開口、預算中等；原廠沒標拖拉環 |
 | [Simond Alpinism 22](https://simond.com/en-GB/product/versatile-and-modular-mountaineering-backpack-alpinism-22-blue_371534--c59m89) | 22 L | 580 g | 200D 防撕裂尼龍、正面雙拉鍊大開口、冰斧掛點、水袋隔層 | GBP 34.99 | [Olympus Mountaineering 2020-07](https://olympusmountaineering.com/2020/07/25/simond-alpinism-22-backpack-long-term-review)（個人部落格） | 預算最低的第一個多繩距包；布料較薄，正面大拉鍊在確保站要小心，Decathlon 以外不好買 |
-| [Wild Country Syncro](https://wildcountry.com/syncro-backpack-40-0000010006) | 22 L | 原廠未標（零售商標 600 g） | 捲頂、窄身、長側拉鍊、兩條掛物織帶、頂部繩帶、腰帶可拆 | EUR 110（特價 EUR 77） | — | 原廠定位為多繩距包；特價中，可能是換季出清 |
+| [Wild Country Syncro](https://wildcountry.com/syncro-backpack-40-0000010006) | 22 L | 原廠未標（Oliunìd、BananaFingers、EpicTV 標 600 g） | 捲頂、窄身、長側拉鍊、兩條掛物織帶、頂部繩帶、腰帶可拆 | EUR 110（特價 EUR 77） | — | 原廠定位為多繩距包；特價中，可能是換季出清 |
 | [Wild Country Progress 25L](https://www.wildcountry.com/progress-backpack-25l-40-0000010049) | 25 L | 原廠未標（零售商標 615 g） | 420D 防撕裂尼龍、頂部抽繩、側拉鍊、隱藏式掛物織帶、前袋 | EUR 115／USD 129.95 | — | 接近路有雪的高山多繩距；原廠沒標拖拉環 |
 
-### 28–30 L：要帶接近鞋或上高山（含一款 35 L）
+### 27–30 L：要帶接近鞋或上高山（含一款 35 L）
 
 | 型號 | 容量 | 空重 | 特色 | 官方價格 | 評測 | 適合誰／缺點 |
 |---|---|---|---|---|---|---|
 | [Black Diamond Speed 30](https://blackdiamondequipment.com/en_US/product/speed-30-backpack) | 30 L | 938 g（S/M）／984 g（M/L） | 210D 防撕裂布、兩種背長、頂蓋／背板／腰帶都可拆、冰斧掛點 | USD 219.95 | [Advnture 2023-05](https://www.advnture.com/reviews/black-diamond-speed-30) | 要分尺寸、要負重；比同容量的捲頂包重 |
 | [Blue Ice Warthog 30](https://blueice.com/products/warthog-30) | 30 L | 630 g（拆到 530 g） | 210D 防撕裂布、兩種尺寸、貼身肩帶、可拆到極簡 | EUR 150 | [Rock Van Life 2026-08](https://rockvanlife.com/blue-ice-warthog-30-review)（部落格） | 用慣 Wadi、Dragonfly 想換大一號；要防水另有捲頂的 [Warthog 30 WMO](https://blueice.com/products/warthog-30-wmo)（660 g、EUR 160），原廠沒標拖拉環 |
 | [Rab Latok 28](https://rab.equipment/us/rab-latok-28l-mountain-pack) | 28 L | 810 g | Spectra 布、捲頂可擴充、腰帶可拆 | USD 225 | — | 走下山要帶鞋；偏重 |
+| [Rab Ascendor 27L](https://rab.equipment/us/rab-ascendor-27l-mountain-pack) | 27 L | 729 g | 210D Robic 防撕裂布、TRI-FLEX 背負系統、背長 48 cm、54×27×28 cm | GBP 130／USD 150 | — | 要 28 L 上下的容量、預算比 Latok 28 低；部分顏色缺貨 |
 | [Gregory Alpinisto LT 28](https://eu.gregorypacks.com/uk-en/-alpinisto-28-lt-sm-md--piton-blue/126853-9986.html) | 28 L | 990 g | 頂蓋、背板、腰帶都可拆 | GBP 150（特價 GBP 105） | — | 接近路長、要背負；最重，特價中可能是出清 |
 | [Arc'teryx Alpha FL 30](https://arcteryx.com/us/en/shop/alpha-fl-30-backpack-0349) | 30 L | 665 g | 315D 貼合防水布、捲頂加抽繩、RECCO | USD 280 | Switchback 2026 超輕高山包首選 | 高山長路線、天氣差；貴 |
 | [Hyperlite Summit 30](https://www.hyperlitemountaingear.com/products/summit-30) | 30 L | 383 g（白）／448 g（黑） | Dyneema 無框捲頂、織帶腰帶可拆 | USD 210 | — | 最輕的 30 L；無框，原廠沒標拖拉環 |
@@ -167,7 +168,7 @@ flowchart TD
 
 ## 更新紀錄
 
-- 2026-10-19：比較表從 14 個品牌 16 款擴充為 20 個品牌 30 款，新增 Grivel、La Sportiva、C.A.M.P.、Simond、Wild Country 等品牌與 BD Speed、Rab Latok 20、Blue Ice Warthog 30、Ortovox Trad 22 Dry、Arc'teryx Alpha FL 20；同品牌改排在一起，Patagonia Ascensionist 35L 移進 28–30 L 表；補上新款的原廠頁與評測連結。
+- 2026-10-19：比較表從 14 個品牌 16 款擴充為 20 個品牌 30 款，新增 Grivel、La Sportiva、C.A.M.P.、Simond、Wild Country 等品牌與 BD Speed、Rab Latok 20、Blue Ice Warthog 30、Ortovox Trad 22 Dry、Arc'teryx Alpha FL 20；同品牌改排在一起，Patagonia Ascensionist 35L 移進 28–30 L 表；補上新款的原廠頁與評測連結。依原廠資料核對規格，修正 4 處，28–30 L 表新增 Rab Ascendor 27L，共 31 款。
 
 ## 參考資料
 
@@ -197,6 +198,8 @@ flowchart TD
 - [Advnture：Black Diamond Speed 30 review（2023-05）](https://www.advnture.com/reviews/black-diamond-speed-30)
 - [Rock Van Life：Blue Ice Warthog 30 review（2026-08）](https://rockvanlife.com/blue-ice-warthog-30-review)
 - [Olympus Mountaineering：Simond Alpinism 22 long-term review（2020-07-25）](https://olympusmountaineering.com/2020/07/25/simond-alpinism-22-backpack-long-term-review)
+- [C.A.M.P.：M20](https://www.camp.it/info/item/3205)
+- [C.A.M.P.：M20 技術規格（PDF）](https://www.camp.it/api/GetSystemResource/210/3205)
 - [Planetmountain：C.A.M.P. M20 原廠產品稿](https://www.planetmountain.com/en/products/lightweight-climbing-backpack-m20.html)
 - [Black Diamond：Speed 22](https://blackdiamondequipment.com/en_US/product/speed-22-backpack)
 - [Black Diamond：Speed 30](https://blackdiamondequipment.com/en_US/product/speed-30-backpack)
@@ -204,6 +207,7 @@ flowchart TD
 - [Grivel：Spartan X 20](https://grivel.com/products/spartan-x-20)
 - [Grivel：Spartan X 30](https://grivel.com/products/spartan-x-30)
 - [Rab：Latok 20](https://rab.equipment/us/rab-latok-20l-mountain-pack)
+- [Rab：Ascendor 27L](https://rab.equipment/us/rab-ascendor-27l-mountain-pack)
 - [Arc'teryx：Alpha FL 20](https://arcteryx.com/us/en/shop/alpha-fl-20-backpack-0348)
 - [Ortovox：Trad 22 Dry](https://ortovox.com/us-en/shop/backpacks/p249732-climbing-backpacks-trad-22-dry)
 - [La Sportiva：Granite 22](https://lasportiva.com/en/backpack-climbing-granite-22-backpack-unisex-zecp002)
