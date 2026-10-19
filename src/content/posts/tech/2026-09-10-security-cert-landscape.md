@@ -170,16 +170,34 @@ Phase 3（長期王牌）
 
 每張證照的準備生態差異很大。這裡列出最常見的路徑，細節在系列第四篇展開。
 
-### 線上課程
+### 第三方線上課程
 
-| 證照 | 平台 | 價格帶 | 備註 |
+2026/10/18–19 逐項查過。Udemy 價格是匿名訪客在 Udemy 頁面上看到的標價，常態打折且依地區、時間變動，實際成交價可能更低；沒查到的項目會明確標示。下單前以頁面為準。
+
+| 證照 | 平台 | 價格 | 備註 |
 |---|---|---|---|
-| Security+ | Udemy（Professor Messer、Jason Dion） | $15–$30（特價） | Professor Messer 另有免費 YouTube 完整課程 |
-| AWS Security | Udemy（Stephane Maarek、Neal Davis）、AWS Skill Builder | $28–$120 | AWS Skill Builder 有免費基礎課 |
-| CISSP | Udemy、LinkedIn Learning、Training Camp bootcamp | $30–$3,000+ | Reddit r/cissp 社群活躍度最高，每日討論串 |
-| SecAI+ | Infosec Institute Boot Camp、Udemy | $30–$2,500+ | 2026/02 才上線，資源還在建立中 |
+| Security+ | Udemy（[Jason Dion](https://www.udemy.com/course/securityplus)、[Total Seminars／Mike Meyers](https://www.udemy.com/course/total-comptia-security-plus)） | Jason Dion 課程標價 $119.99、Mike Meyers 課程 $24.99；Dion 的 Security+ 模擬考 Set 1 另售 $64.99 | Jason Dion 課程約 31 小時、附一套完整模擬考，評分 4.7。Professor Messer 的課在[他自己的網站](https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/)免費；沒查到他在 Udemy 上架，原文「Udemy（Professor Messer）」的寫法已移除 |
+| AWS Security | Udemy（[Stephane Maarek SCS-C03](https://www.udemy.com/course/ultimate-aws-certified-security-specialty/)）、AWS Skill Builder | Udemy 主題頁（2026/7）曾顯示課程特價 $17.99（原價 $119.99）、練習題 $14.99（原價 $64.99）；2026/10 重查時課程頁沒顯示價格，現價以頁面為準 | Maarek 課程約 17 小時、以投影片為主、不含模擬考，課程頁要求先有 Solutions Architect Associate 程度。原文提到的 Neal Davis 課程沒查到 |
+| CISSP | [LinkedIn Learning（Mike Chapple）](https://www.linkedin.com/learning/isc2-certified-information-systems-security-professional-cissp-2024-cert-prep)、Udemy（Jason Dion、Thor Pedersen）、[Destination Certification](https://destcert.com/cissp)、[Training Camp](https://trainingcamp.com/training/cissp-certification-bootcamp/) | LinkedIn Learning 第三方來源報價不一（$29.99–$39.99／月，年繳約 $239.88），沒查到官方現價；Udemy 上 Jason Dion 的 CISSP 完整課程標價 $99.99（39 小時，另有 6 套模擬考 $64.99），Thor Pedersen 的題庫課每門約 $59.99–$79.99、分領域影片課約 $94.99–$139.99；DestCert 5 天線上 bootcamp $2,697；Training Camp 6 天直播班頁面不公開價格，需詢價 | Chapple 課程為 2024 年版、約 21 小時半、只有影片；Thor 在 Udemy 同時有題庫課與分領域影片課，但依他自己的網站說明，Udemy 上不是全部內容（不含閃卡等），完整合集在他的網站；Reddit r/cissp 社群活躍度最高 |
+| SecAI+ | [Infosec Institute Boot Camp](https://www.infosecinstitute.com/courses/comptia-secai-plus-boot-camp/)、Udemy（多位講師，2026 年新課） | Infosec 3 天營 $2,699（含考試券）；Udemy 上的 SecAI+ 課程標價約 $19.99（個別講師，如 Mana Dowlatshahi Yeganeh 的題庫課），其他課程沒逐一查價 | 2026/02 才上線，Udemy 上的課評價數還少（多數不到 500 則） |
 | CAISP | Practical DevSecOps 官方（唯一來源） | $1,099 全包 | 含 60 天 lab、影片、PDF、24/7 Mattermost 支援、1 次考試 |
 | GAIPS | SANS SEC545（唯一來源） | ~$9,000 含課 / ~$999 單考 | CyberLive 實作考，2026/07 才開放一般購買 |
+
+### 國外原廠與平台的線上課程
+
+不用出國、不用進教室，這幾條路都能在家上國外課程（價格為 2026/10 查到的公開價，會變動，下單前以官方頁為準）：
+
+| 證照 | 課程 | 價格／條件 | 備註 |
+|---|---|---|---|
+| Security+ | [Professor Messer 免費完整課程](https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/) | 免費 | SY0-701，121 支影片、約 15 小時；講義 PDF 另售 |
+| Security+ | [CompTIA CertMaster Learn](https://www.comptia.org/en-us/resources/certmaster-training/learn/) | 通路公開標價約 $450–$600，12 個月存取 | 原廠自學課程，含影片、實作題與練習題；可與考試券組合購買 |
+| Security+ | [Google Cybersecurity Certificate（Coursera）](https://www.coursera.org/professional-certificates/google-cybersecurity) | 美加地區 $49／月，官方估多數人少於 $300 | 8 門課、少於 6 個月；結業後可用折扣價買 Security+ 考試與課程；偏 SOC 分析入門，不等於 Security+ 考綱 |
+| CISSP | [ISC2 官方線上自學課程](https://www.isc2.org/training/online-self-paced/cissp-online-self-paced) | 官方商店標價 $995（180 天存取） | 自適應學習、官方電子書、400+ 練習題；首次沒過可免費再上一次課（限一年內） |
+| CC（ISC2 入門證照） | [ISC2 CC 免費計畫公告](https://www.isc2.org/landing/1mcc) | 免費計畫已於 2026/5/20 停收新報名；CC 考試費 $199 | 已拿到考試碼的人須在 2026/12/31 前考完 |
+| AWS Security | [AWS Skill Builder](https://aws.amazon.com/training/digital/) | 免費層含標準備考課與官方練習題組；個人訂閱 $29／月或 $449／年 | 訂閱才有 Builder Labs、加強版備考課與官方模擬考 |
+| SC-900（微軟資安入門） | [Microsoft Learn 學習路徑](https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/) | 免費 | 入門級，不是進階資安證照 |
+
+整體來說：Security+ 和 AWS Security 有品質夠好的免費或低價線上資源，CISSP 的原廠線上課程偏貴，多數人會改用 Udemy 或社群資源加官方樣題。
 
 ### 台灣在地培訓
 
@@ -225,6 +243,7 @@ Phase 3（長期王牌）
 
 ## 更新紀錄
 
+- 2026-10-18：備考資源新增「國外原廠與平台的線上課程」表，補上 Professor Messer、CertMaster Learn、Google Cybersecurity Certificate、ISC2 CISSP 線上自學、AWS Skill Builder、Microsoft Learn 的價格與條件；原「線上課程」表改為「第三方線上課程」並逐項重查：移除「Udemy 上有 Professor Messer」與未查到的 Neal Davis，原本籠統的 $15–$30、$28–$120、$30–$3,000+ 區間改成有來源的個別價格，查不到現價的明確標示。10-19 再用 Udemy 頁面補查：Jason Dion Security+ 課程標價 $119.99（先前引用第三方評測的「特價多在 $20 以下」沒有 Udemy 頁面佐證，已移除）、Mike Meyers $24.99、Jason Dion CISSP 課程 $99.99、Thor Pedersen 題庫課與分領域課的價格；Maarek 課程頁本次沒顯示價格，維持 7 月的特價快照並註明。
 - 2026-10-12：SecAI+ 考試費由 $359 改為現行的 $298，費用估算重算；CAISP 改為現價 $1,099、GASAE 改為 $999；Security+ 通過率與台灣薪資兩段原本引用的數字，來源頁已改版不再支持，改寫為來源現在的說法；台灣 CISSP 人數改為有年份的統計；資安法補上施行日；修正 CEH 折抵清單的來源連結與 AI 職缺比例的敘述；總覽表補上 GCP、CRISC、GASAE、GOAA、COASP、HTB COAE、OSAI+、AAIR；證照數由 16 張更正為 22 張。法規一段更正：人力分級出自金管會函令，管控指引是證交所與櫃買中心發布的參考文件，指引本文沒有建議任何證照；考場說明改為依發證機構區分；DEVCORE、全智網、巨匠的課程依官網現況更新；CAISP 上線時間改為 2024 下半年；OSCP 補上報告時間與 OSCP+ 效期。
 - 2026-10-08：AI 安全分類補上 COASP、OSAI+、HTB COAE、GOAA、AAIR；AZ-500 已退役，改為 SC-500；更正 ISC2 的進度（原文「CCAI pilot 2025 Q4」有誤）；Security+ 考試費改用 2026/6 調價後的 $439，費用估算隨之重算。
 
@@ -270,3 +289,10 @@ Phase 3（長期王牌）
 - [理律法律事務所 — 總統公布修正資通安全管理法](https://www.leeandli.com/TW/NewslettersDetail/7505.htm)
 - [暨南大學計網中心 — 資通安全管理法自 114/12/1 施行](https://cc.ncnu.edu.tw/p/406-1001-31660,r471.php?Lang=zh-tw)
 - [恆逸 — CompTIA SecAI+ 課程（贈考試價值 USD 298）](https://www.uuu.com.tw/Course/Show/3328/CompTIA-SecAI-)
+- [Professor Messer — SY0-701 Security+ 免費課程](https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/)
+- [CompTIA — CertMaster Learn](https://www.comptia.org/en-us/resources/certmaster-training/learn/)
+- [Coursera — Google Cybersecurity Professional Certificate](https://www.coursera.org/professional-certificates/google-cybersecurity)
+- [ISC2 — CISSP Online Self-Paced Training](https://www.isc2.org/training/online-self-paced/cissp-online-self-paced)
+- [ISC2 — One Million Certified in Cybersecurity（已結束）](https://www.isc2.org/landing/1mcc)
+- [AWS Skill Builder](https://aws.amazon.com/training/digital/)
+- [Microsoft Learn — SC-900 學習路徑](https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/)
