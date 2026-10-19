@@ -1148,6 +1148,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'Where climbers get hurt, what to do in the first minutes, and which clinician to see; warm-ups, finger pulleys and other finger injuries, elbows and wrists, shoulders, bouldering falls and ankles, knees and heel hooks, feet and climbing shoes, the spine, growth plates in young climbers, returning to the gym, flexibility, and what to do when something goes wrong at a Taiwanese crag. The posts report what the sources say; anything needing a diagnosis goes to a doctor or physiotherapist.',
     },
   },
+  {
+    slug: 'climbing-mental-tactics',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩心理與戰術', en: 'Climbing Mental Game and Tactics' },
+    descriptions: {
+      'zh-TW': '開始先鋒後讀：為什麼頂繩爬得上、先鋒就卡住，怎麼循序練墜落、面對失敗的緊張、比賽時的隔離區與觀察時間，再到 onsight 與 redpoint 的投入策略、挑天氣與摩擦，最後是皮膚保養。每篇標明哪些有研究支持、哪些只是教練共識。',
+      en: 'For climbers who have just started leading: why a route that goes on top-rope falls apart on lead, how to practise falling in measured steps, how to handle fear of failure, competition isolation and observation time, then onsight and redpoint tactics, picking conditions for friction, and finally skin care. Each post separates what research supports from coaching consensus.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
