@@ -76,7 +76,7 @@ The base dates vary widely: Cathay United's and Hua Nan's rate pages are one to 
 
 Two bank-only details: [Yuanta Bank](https://www.yuantabank.com.tw/bank/loan/stock/list.do) sets the limit from an "appraised price", the lowest of the previous close, the 60-day average and the 120-day average, so a sharp rally lends you less than a broker would, and dividends on pledged shares go to the bank rather than to your account.
 
-Banks whose margin-call terms are not public: Cathay United, Taishin, Hua Nan and SinoPac keep them in the contract, so ask the branch for a copy. For First Bank I only found a fund-pledge page, Standard Chartered and DBS offer only professional-investor bond or fund pledges, and for Bank of Taiwan, E.SUN Bank, Mega Bank, Taipei Fubon Bank, Taiwan Cooperative, Land Bank and Taiwan Business Bank I found no official stock-pledge page this round, so they are not listed.
+Banks whose margin-call terms are not public: Cathay United, Taishin, Hua Nan and SinoPac keep them in the contract, so ask the branch for a copy. For First Bank I only found a fund-pledge page, Standard Chartered and DBS offer only professional-investor bond or fund pledges, the official sites of O-Bank, Rakuten Bank, Next Bank and LINE Bank show only unsecured credit loans, and for Bank of Taiwan, E.SUN Bank, Mega Bank, Taipei Fubon Bank, Taiwan Cooperative, Land Bank and Taiwan Business Bank I found no official stock-pledge page this round, so they are not listed.
 
 ## Margin-call rules
 
