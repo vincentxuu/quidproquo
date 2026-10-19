@@ -1220,6 +1220,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'A viewer\'s guide to climbing competitions: who runs them, how boulder, lead and speed are scored, how the Olympic format changed from Tokyo to Los Angeles, which events Taiwanese climbers can enter, and the other path pros take outside competition, through hard outdoor ascents and film.',
     },
   },
+  {
+    slug: 'english-speaking-practice',
+    category: 'learning',
+    names: { 'zh-TW': '英文口說練習', en: 'English Speaking Practice' },
+    descriptions: {
+      'zh-TW': '從具體溝通任務出發，逐家介紹線上真人平台、AI 工具與語言學校，搭配課前準備、課中回饋與課後重說。',
+      en: 'Task-based speaking practice with individual guides to live tutoring platforms, AI tools, and language schools, connecting preparation, feedback, and repetition.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
