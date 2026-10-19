@@ -1148,6 +1148,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'Where climbers get hurt, what to do in the first minutes, and which clinician to see; warm-ups, finger pulleys and other finger injuries, elbows and wrists, shoulders, bouldering falls and ankles, knees and heel hooks, feet and climbing shoes, the spine, growth plates in young climbers, returning to the gym, flexibility, and what to do when something goes wrong at a Taiwanese crag. The posts report what the sources say; anything needing a diagnosis goes to a doctor or physiotherapist.',
     },
   },
+  {
+    slug: 'climbing-gear',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩裝備', en: 'Climbing Gear' },
+    descriptions: {
+      'zh-TW': '從買第一雙攀岩鞋開始：先租還是先買、鞋子多緊才對、吊帶與頭盔怎麼試穿、繩子與確保器怎麼搭配，以及原廠怎麼規定檢查與汰換。只講選購判準、標準數字與退役規則，不推薦型號。',
+      en: 'Starting from your first pair of climbing shoes: what to rent and what to buy, how tight shoes should be, how to fit a harness and helmet, how ropes and belay devices go together, and what manufacturers say about inspection and retirement. Selection criteria, standards, and retirement rules only, no model picks.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
