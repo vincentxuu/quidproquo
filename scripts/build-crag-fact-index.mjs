@@ -64,7 +64,7 @@ export function isVolatile(type, text) {
   return false;
 }
 
-const URL_RE = /https?:\/\/[^\s)>\]"'`，、；]+/g;
+const URL_RE = /https?:\/\/[^\s)>\]"'`，、；：（]+/g;
 const cleanUrl = (u) => u.replace(/[.,;:）)]+$/, '');
 
 function bulletsOf(md) {
