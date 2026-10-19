@@ -1148,6 +1148,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'Where climbers get hurt, what to do in the first minutes, and which clinician to see; warm-ups, finger pulleys and other finger injuries, elbows and wrists, shoulders, bouldering falls and ankles, knees and heel hooks, feet and climbing shoes, the spine, growth plates in young climbers, returning to the gym, flexibility, and what to do when something goes wrong at a Taiwanese crag. The posts report what the sources say; anything needing a diagnosis goes to a doctor or physiotherapist.',
     },
   },
+  {
+    slug: 'climbing-competitions',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩賽事與職業攀岩', en: 'Climbing Competitions and Pro Climbing' },
+    descriptions: {
+      'zh-TW': '看懂攀岩比賽的入門系列：誰在辦比賽、抱石／先鋒／速度怎麼計分、奧運賽制怎麼從東京變到洛杉磯、台灣人能參加哪些比賽，以及比賽之外，職業攀岩者靠戶外首攀和拍片走的另一條路。',
+      en: 'A viewer\'s guide to climbing competitions: who runs them, how boulder, lead and speed are scored, how the Olympic format changed from Tokyo to Los Angeles, which events Taiwanese climbers can enter, and the other path pros take outside competition, through hard outdoor ascents and film.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
