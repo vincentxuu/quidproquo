@@ -1147,7 +1147,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       'zh-TW': '攀岩最常傷到哪裡、受傷當下怎麼處理、該看哪一科；暖身、手指滑車與其他手指傷害、肘腕、肩、抱石墜落與腳踝、膝與 heel hook、腳與攀岩鞋、脊椎、青少年生長板，受傷後怎麼回岩館、柔軟度，最後是在台灣岩場出事時怎麼報案與急救。只寫來源說了什麼，需要診斷的地方請看醫師或物理治療師。',
       en: 'Where climbers get hurt, what to do in the first minutes, and which clinician to see; warm-ups, finger pulleys and other finger injuries, elbows and wrists, shoulders, bouldering falls and ankles, knees and heel hooks, feet and climbing shoes, the spine, growth plates in young climbers, returning to the gym, flexibility, and what to do when something goes wrong at a Taiwanese crag. The posts report what the sources say; anything needing a diagnosis goes to a doctor or physiotherapist.',
     },
-  },  {
+  },
+  {
     slug: 'climbing-community-industry',
     category: 'climbing',
     names: { 'zh-TW': '攀岩圈與產業', en: 'The Climbing Community and Industry' },
