@@ -91,7 +91,7 @@ glossary:
 - **岩楔**（nut）：卡進裂隙內縮處的金屬塊，沒有活動零件。
 - **活動岩楔**（cam）：扣下扳機收起 cam 片，放進平行裂隙後張開撐住。
 - **扁帶與延伸快扣**：讓繩子走直線，減少拉扯保護點。
-- **岩楔鉤**（nut tool）：跟攀者拆卡住的岩楔用。
+- **nut tool**：跟攀者拆卡住的岩楔用。
 
 [Climbing 雜誌的〈從岩館到傳攀〉](https://www.climbing.com/skills/gym-to-crag-trad-climbing-outdoor-research/)由一位 AMGA 認證攀岩嚮導撰寫，建議平行裂隙放活動岩楔，內縮或 V 形的裂隙放岩楔。這些器材怎麼運作、怎麼判斷放得好不好，留到[傳攀保護：岩楔與活動岩楔](/posts/climbing/2026-10-17-trad-protection-nuts-cams)再講。
 

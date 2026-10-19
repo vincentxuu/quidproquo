@@ -183,7 +183,7 @@ flowchart TB
 |---|---|---|
 | 活動岩楔、cam | 機械塞、凸輪（指整個器材時） | SLCD。台灣口語直接說 cam；cam 上的葉片寫「cam 片」。確保器裡的零件叫凸輪沒問題 |
 | 岩楔、nut | 岩塞、岩石塞 | 被動保護 |
-| 岩楔鉤、nut tool | 岩楔起子 | 拆岩楔的鉤子。TOCC 寫「岩楔鉤 – Nut Tool」，器材行也寫「岩械取出器」；口語多直接說 nut tool |
+| nut tool | 岩楔起子、岩楔鉤 | 拆岩楔的鉤子。台灣岩友直接說 nut tool，不翻中文（器材行商品名偶見「岩械取出器」，口語不用） |
 | 鉤環、有鎖鉤環 | 主鎖、鎖扣 | carabiner |
 | 快扣 | 快掛 | quickdraw |
 | 確保站、固定點 | 保護站 | belay station／anchor |
