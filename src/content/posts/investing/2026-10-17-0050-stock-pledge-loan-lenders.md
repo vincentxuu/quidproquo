@@ -57,6 +57,17 @@ flowchart TB
 
 表上有兩處數字互相對不上：NOWnews 引網友說富邦一般戶已升到 4.5%，Threads 表上是 3.88%；元大證金表上與官網相同。
 
+**名單以外的券商**，官網有寫的只有這幾家：
+
+| 券商 | 官網寫的 |
+|---|---|
+| 臺銀證券 | [首頁](https://www.twfhcsec.com.tw/)有不限用途款項借貸與 T+0 專區；[2.38% 起的專案](https://www.twfhcsec.com.tw/News/NewsContent?ID=1232&List=%E6%9C%80%E6%96%B0%E6%B6%88%E6%81%AF)期間是 115/1/1 到 6/30、單筆 100 萬以上，已結束；沒找到現行牌告 |
+| 亞東證券 | [公告](https://www.osc.com.tw/News/Securities_Detail.aspx?ID=NEW2024080100000)：融資與不限用途款項借貸年利率 6.25%（113/8/2 起） |
+| 台新證券（併元富後） | 元富證券 2026/4/6 併入台新證券，[合併專區](https://www.tssco.com.tw/TSHOLDINGSMERGE/customer-rights/master-link/account.html)寫不限用途款項借貸「適用原利率條件不變」 |
+| 宏遠證券 | [2024/8/6 公告](https://www.honsec.com.tw/news/detail.aspx?id=2692)額度用罄、暫停受理；現況沒查到 |
+
+這篇的 17 家只涵蓋一部分。金管會 4/28 說有 [34 家券商](https://www.cna.com.tw/news/afe/202604300343.aspx)辦理融通業務，而且這個數字是融資、證券業務借貸款項、不限用途三項合計，不是只算不限用途。土銀、彰銀、台灣企銀的證券部門是銀行兼營，[報導引述聯邦銀行的說法](https://www.unlistedstock.com.tw/news/detail/33027612)，兼營形式無法申請不限用途款項借貸，這幾家走的是銀行自己的股票質借；聯邦銀行因此把證券部門分出去，[聯邦證券 2026/5/4 開業](https://www.twse.com.tw/brokerService/brokerList?response=open_data)，我還沒找到它的不限用途產品頁。
+
 ## 銀行端
 
 銀行的股票質借跟券商不同：多數收一次性的帳務管理費，期限是一年續約（不受券商 18 個月上限），利率看銀行指標利率機動調整。下表只放銀行自己官網或契約寫的數字。
@@ -172,6 +183,13 @@ flowchart TB
 - [國票證券：借貸業務](https://www.ibfs.com.tw/my/cash/)
 - [華南永昌證券：不限用途款項借貸](https://www.entrust.com.tw/Marketing/entrustLoan/index.html)
 - [第一金證券：不限用途款項借貸線上功能說明](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994)
+- [金管會：34 家券商融通金額占淨值倍數（中央社）](https://www.cna.com.tw/news/afe/202604300343.aspx)
+- [聯邦銀行證券部門分出（IPO贏家）](https://www.unlistedstock.com.tw/news/detail/33027612)
+- [證交所：證券商名冊](https://www.twse.com.tw/brokerService/brokerList?response=open_data)
+- [臺銀證券：股票貸現專案公告](https://www.twfhcsec.com.tw/News/NewsContent?ID=1232&List=%E6%9C%80%E6%96%B0%E6%B6%88%E6%81%AF)
+- [亞東證券：利率調整公告](https://www.osc.com.tw/News/Securities_Detail.aspx?ID=NEW2024080100000)
+- [宏遠證券：暫停受理公告](https://www.honsec.com.tw/news/detail.aspx?id=2692)
+- [台新證券與元富證券合併專區](https://www.tssco.com.tw/TSHOLDINGSMERGE/customer-rights/master-link/account.html)
 - [元大商業銀行：股票貸款](https://www.yuantabank.com.tw/bank/loan/stock/list.do)
 - [永豐銀行：股票貸款](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html)
 - [聯邦銀行：短期週轉與股票質借](https://www.ubot.com.tw/short_tern)

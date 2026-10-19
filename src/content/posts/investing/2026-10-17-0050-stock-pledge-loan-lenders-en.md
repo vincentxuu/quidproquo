@@ -57,6 +57,17 @@ The "October quote" column comes from the account 存股的陪跑者's [Threads 
 
 Two numbers conflict: NOWnews quotes a user saying Fubon's ordinary-account rate has reached 4.5%, while the Threads list says 3.88%. For Yuanta Securities Finance the list matches the official site.
 
+**Brokers outside the list**, with what their sites say:
+
+| Broker | What the site says |
+|---|---|
+| Bank of Taiwan Securities | Its [home page](https://www.twfhcsec.com.tw/) lists unrestricted-purpose loans and a T+0 loan; the [promotion from 2.38%](https://www.twfhcsec.com.tw/News/NewsContent?ID=1232&List=%E6%9C%80%E6%96%B0%E6%B6%88%E6%81%AF) ran 1 Jan–30 Jun 2026 for single draws of NT$1 million or more and has ended; no current posted rate found |
+| Pacific Securities (亞東) | [Notice](https://www.osc.com.tw/News/Securities_Detail.aspx?ID=NEW2024080100000): margin and unrestricted-purpose loan rate 6.25% a year from 2 Aug 2024 |
+| Taishin Securities (after absorbing Masterlink) | Masterlink merged into Taishin Securities on 6 April 2026; the [merger page](https://www.tssco.com.tw/TSHOLDINGSMERGE/customer-rights/master-link/account.html) says unrestricted-purpose loans keep their original rate terms |
+| Hung Yuan (宏遠) | [Notice of 6 Aug 2024](https://www.honsec.com.tw/news/detail.aspx?id=2692): quota used up, applications suspended; current status not found |
+
+The 17 lenders in this post cover only part of the market. The FSC said on 28 April that [34 brokers](https://www.cna.com.tw/news/afe/202604300343.aspx) run lending businesses, and that figure adds margin, securities-business loans and unrestricted-purpose loans together, not unrestricted-purpose alone. Land Bank, Chang Hwa and Taiwan Business Bank run securities as a bank department; [a report quoting Union Bank](https://www.unlistedstock.com.tw/news/detail/33027612) says that form cannot apply for unrestricted-purpose loans, so those banks lend through their own stock-pledge products. Union Bank therefore spun its securities arm out, and [Union Securities opened on 4 May 2026](https://www.twse.com.tw/brokerService/brokerList?response=open_data); I have not found its unrestricted-purpose product page.
+
 ## Banks
 
 Bank stock-pledge loans differ from broker loans: most charge a one-off account fee, the term is one year renewable (no 18-month broker cap), and rates float with the bank's index. The table lists only numbers from each bank's own site or contract.
@@ -172,6 +183,13 @@ This post summarizes rules and is not investment advice. Borrowing carries risk 
 - [Grand Cathay Securities: lending](https://www.ibfs.com.tw/my/cash/) (in Chinese)
 - [Yuanta-Hua Nan Securities: unrestricted-purpose loans](https://www.entrust.com.tw/Marketing/entrustLoan/index.html) (in Chinese)
 - [First Securities: online function guide](https://events.firstsec.com.tw/%E4%B8%8D%E9%99%90%E7%94%A8%E9%80%94%E6%AC%BE%E9%A0%85%E5%80%9F%E8%B2%B8-37994) (in Chinese)
+- [CNA: FSC on 34 brokers' lending multiples](https://www.cna.com.tw/news/afe/202604300343.aspx) (in Chinese)
+- [Union Bank spinning out its securities arm (IPO Winner)](https://www.unlistedstock.com.tw/news/detail/33027612) (in Chinese)
+- [TWSE: list of securities firms](https://www.twse.com.tw/brokerService/brokerList?response=open_data) (in Chinese)
+- [Bank of Taiwan Securities: stock-loan promotion notice](https://www.twfhcsec.com.tw/News/NewsContent?ID=1232&List=%E6%9C%80%E6%96%B0%E6%B6%88%E6%81%AF) (in Chinese)
+- [Pacific Securities: rate notice](https://www.osc.com.tw/News/Securities_Detail.aspx?ID=NEW2024080100000) (in Chinese)
+- [Hung Yuan Securities: suspension notice](https://www.honsec.com.tw/news/detail.aspx?id=2692) (in Chinese)
+- [Taishin and Masterlink merger page](https://www.tssco.com.tw/TSHOLDINGSMERGE/customer-rights/master-link/account.html) (in Chinese)
 - [Yuanta Commercial Bank: stock loan](https://www.yuantabank.com.tw/bank/loan/stock/list.do) (in Chinese)
 - [SinoPac Bank: stock loan](https://bank.sinopac.com/sinopacBT/personal/loan/other-personal-loan/stock.html) (in Chinese)
 - [Union Bank: short-term and stock-secured loans](https://www.ubot.com.tw/short_tern) (in Chinese)
