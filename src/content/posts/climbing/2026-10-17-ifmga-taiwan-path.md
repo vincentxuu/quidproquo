@@ -137,7 +137,7 @@ ACMG 要求見習嚮導在督導下累積 20 天（攀岩）或 30 天（高山�
 
 ## 在台灣可以先準備什麼
 
-出國前能做的事，大多是累積「報名時要交的東西」。
+出國前能做的事，大多是累積「報名時要交的東西」。下面六件是文件和證照面的準備；技術本身要在哪裡練（運攀、傳攀、雪地、冰攀、冰河、滑雪各在台灣、日本、韓國、紐西蘭、阿爾卑斯練得到哪一塊），完整的練習地圖見[入學前要練什麼](/posts/climbing/2026-10-18-ifmga-pre-entry-prep)。
 
 ### 1. 考台灣的山域嚮導證
 
@@ -182,7 +182,11 @@ AMGA 要求 Pro 1 與 Pro 2 雪崩訓練，例如 Silverton Avalanche School 的
 
 台灣人要拿 IFMGA，現實的路是：選一個語言你學得起來、身分你拿得到的國家，在那裡住上幾年。在出發前，台灣能幫你的是證照、路線紀錄、急救與語言。
 
-系列其他篇：[IFMGA 嚮導是什麼](/posts/climbing/2026-10-17-ifmga-mountain-guide-overview)、[學什麼、考什麼](/posts/climbing/2026-10-17-ifmga-training-and-exams)、[美國、加拿大](/posts/climbing/2026-10-17-ifmga-usa-canada)。
+系列其他篇：[IFMGA 嚮導是什麼](/posts/climbing/2026-10-17-ifmga-mountain-guide-overview)、[學什麼、考什麼](/posts/climbing/2026-10-17-ifmga-training-and-exams)、[美國、加拿大](/posts/climbing/2026-10-17-ifmga-usa-canada)、[入學前要練什麼](/posts/climbing/2026-10-18-ifmga-pre-entry-prep)。
+
+## 更新紀錄
+
+- 2026-10-18：「在台灣可以先準備什麼」與系列連結加上第 11 篇〈入學前要練什麼〉。
 
 ## 參考資料
 

@@ -116,7 +116,7 @@ The two are on different scales and do not recognize each other. Holding all fou
 | Part | Topic | For whom |
 |---|---|---|
 | [1. Hiring a guide](/posts/climbing/2026-10-17-ifmga-hire-a-guide-en) | Checking credentials, regional prices, extras, tipping | Anyone planning to hire one abroad |
-| [2. Training and exams](/posts/climbing/2026-10-17-ifmga-training-and-exams-en) | The 94-day common standard, entry bar, what exams test | Anyone curious about, or considering, the path |
+| [2. Training and exams](/posts/climbing/2026-10-17-ifmga-training-and-exams-en) | Entrance exams, course content, exam day and scoring | Anyone curious about, or considering, the path |
 | [3. France and Switzerland](/posts/climbing/2026-10-17-ifmga-france-switzerland-en) | National diploma and federal exam | Training in the Alps |
 | [4. Austria, Germany, Italy](/posts/climbing/2026-10-17-ifmga-austria-germany-italy-en) | German-speaking countries and Italy | Same |
 | [5. USA and Canada](/posts/climbing/2026-10-17-ifmga-usa-canada-en) | AMGA and ACMG discipline tracks | Training in English |
@@ -125,6 +125,11 @@ The two are on different scales and do not recognize each other. Holding all fou
 | [8. Asia](/posts/climbing/2026-10-17-ifmga-asia-en) | Japan, Nepal, Georgia, Kyrgyzstan | Training closer to Taiwan |
 | [9. South America](/posts/climbing/2026-10-17-ifmga-south-america-en) | Argentina, Chile, Peru, Bolivia, Ecuador | Comparing No Ski and full qualifications |
 | [10. A path for Taiwanese climbers](/posts/climbing/2026-10-17-ifmga-taiwan-path-en) | Realistic routes starting from Taiwan | Anyone seriously considering training |
+| [11. What to train before applying](/posts/climbing/2026-10-18-ifmga-pre-entry-prep-en) | Entry requirements broken into skills, and which parts Taiwan, Japan, Korea, New Zealand and the Alps can each cover | Anyone starting to build a route log |
+
+## Changelog
+
+- 2026-10-18: Added part 11, "What to train before applying", to the series map, and reworded part 2 as entrance exams, course content, exam day and scoring.
 
 ## References
 

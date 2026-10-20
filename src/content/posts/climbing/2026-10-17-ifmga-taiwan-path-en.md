@@ -137,7 +137,7 @@ The closest cases:
 
 ## What you can prepare in Taiwan
 
-Most of what you can do before leaving is building up the things you will hand in when you apply.
+Most of what you can do before leaving is building up the things you will hand in when you apply. The six items below cover paperwork and certificates; for where to train the skills themselves (sport, trad, snow, ice, glacier and ski, and which parts Taiwan, Japan, Korea, New Zealand and the Alps can each cover), see the full training map in [what to train before applying](/posts/climbing/2026-10-18-ifmga-pre-entry-prep-en).
 
 ### 1. Take Taiwan's mountain guide certificates
 
@@ -182,7 +182,11 @@ Many items are not published and can only be answered by email:
 
 The realistic route for a Taiwanese climber is to pick a country whose language you can learn and whose residence you can obtain, and live there for several years. Before you leave, what Taiwan can give you is certificates, a route log, first aid and language.
 
-Other posts in the series: [what an IFMGA guide is](/posts/climbing/2026-10-17-ifmga-mountain-guide-overview-en), [what guides learn and how they are tested](/posts/climbing/2026-10-17-ifmga-training-and-exams-en), [the USA and Canada](/posts/climbing/2026-10-17-ifmga-usa-canada-en).
+Other posts in the series: [what an IFMGA guide is](/posts/climbing/2026-10-17-ifmga-mountain-guide-overview-en), [what guides learn and how they are tested](/posts/climbing/2026-10-17-ifmga-training-and-exams-en), [the USA and Canada](/posts/climbing/2026-10-17-ifmga-usa-canada-en), [what to train before applying](/posts/climbing/2026-10-18-ifmga-pre-entry-prep-en).
+
+## Changelog
+
+- 2026-10-18: Linked part 11, "What to train before applying", from the preparation section and the series links.
 
 ## References
 

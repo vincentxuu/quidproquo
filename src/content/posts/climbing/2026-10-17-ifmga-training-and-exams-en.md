@@ -379,7 +379,7 @@ The same 94-day floor turns into very different program lengths. The table shows
 | Italy | About 5 | Same |
 | US | About 5 | [Part 5: USA and Canada](/posts/climbing/2026-10-17-ifmga-usa-canada-en) |
 
-Other countries: [Part 6: UK, New Zealand, Nordic](/posts/climbing/2026-10-17-ifmga-uk-nz-nordic-en), [Part 7: Spain and Central/Eastern Europe](/posts/climbing/2026-10-17-ifmga-spain-central-eastern-europe-en), [Part 8: Asia](/posts/climbing/2026-10-17-ifmga-asia-en), [Part 9: South America](/posts/climbing/2026-10-17-ifmga-south-america-en). For choosing a route from Taiwan, see [Part 10](/posts/climbing/2026-10-17-ifmga-taiwan-path-en).
+Other countries: [Part 6: UK, New Zealand, Nordic](/posts/climbing/2026-10-17-ifmga-uk-nz-nordic-en), [Part 7: Spain and Central/Eastern Europe](/posts/climbing/2026-10-17-ifmga-spain-central-eastern-europe-en), [Part 8: Asia](/posts/climbing/2026-10-17-ifmga-asia-en), [Part 9: South America](/posts/climbing/2026-10-17-ifmga-south-america-en). For choosing a route from Taiwan, see [Part 10](/posts/climbing/2026-10-17-ifmga-taiwan-path-en); for where to train each entry-exam skill, see [Part 11](/posts/climbing/2026-10-18-ifmga-pre-entry-prep-en).
 
 ## Changelog
 

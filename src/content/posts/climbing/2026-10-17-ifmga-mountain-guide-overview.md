@@ -116,7 +116,7 @@ IFMGA 的一大目標是讓嚮導在會員國之間流動，但各國仍有自�
 | 篇 | 主題 | 適合誰 |
 |---|---|---|
 | [1. 怎麼雇一位](/posts/climbing/2026-10-17-ifmga-hire-a-guide) | 怎麼確認身分、各地行情、不含的費用、小費 | 想出國請嚮導的人 |
-| [2. 學什麼、考什麼](/posts/climbing/2026-10-17-ifmga-training-and-exams) | 94 天共通標準、入學門檻、考試內容 | 想了解或想走這條路的人 |
+| [2. 學什麼、考什麼](/posts/climbing/2026-10-17-ifmga-training-and-exams) | 入學考、課程內容、考試現場與評分 | 想了解或想走這條路的人 |
 | [3. 法國、瑞士](/posts/climbing/2026-10-17-ifmga-france-switzerland) | 國家文憑與聯邦考試 | 想在阿爾卑斯受訓 |
 | [4. 奧地利、德國、義大利](/posts/climbing/2026-10-17-ifmga-austria-germany-italy) | 德語區與義大利的養成 | 同上 |
 | [5. 美國、加拿大](/posts/climbing/2026-10-17-ifmga-usa-canada) | AMGA 與 ACMG 的分科制度 | 想用英文受訓 |
@@ -125,6 +125,11 @@ IFMGA 的一大目標是讓嚮導在會員國之間流動，但各國仍有自�
 | [8. 亞洲](/posts/climbing/2026-10-17-ifmga-asia) | 日本、尼泊爾、喬治亞、吉爾吉斯 | 想在離台灣近的地方受訓 |
 | [9. 南美](/posts/climbing/2026-10-17-ifmga-south-america) | 阿根廷、智利、秘魯、玻利維亞、厄瓜多 | 比較 No Ski 與完整資格 |
 | [10. 台灣人要怎麼走](/posts/climbing/2026-10-17-ifmga-taiwan-path) | 從台灣出發的實際路徑 | 認真考慮受訓的人 |
+| [11. 入學前要練什麼](/posts/climbing/2026-10-18-ifmga-pre-entry-prep) | 入學要求拆成逐項能力，台灣、日本、韓國、紐西蘭、阿爾卑斯各練得到哪一塊 | 準備開始累積路線紀錄的人 |
+
+## 更新紀錄
+
+- 2026-10-18：系列地圖加上第 11 篇〈入學前要練什麼〉，第 2 篇說明改為入學考、課程內容、考試現場與評分。
 
 ## 參考資料
 

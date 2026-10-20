@@ -379,7 +379,7 @@ IFMGA 本身也訂了職業倫理守則（見[第 0 篇](/posts/climbing/2026-10
 | 義大利 | 約 5 年 | 同上 |
 | 美國 | 約 5 年 | [第 5 篇：美國、加拿大](/posts/climbing/2026-10-17-ifmga-usa-canada) |
 
-其他國家：[第 6 篇：英國、紐西蘭、北歐](/posts/climbing/2026-10-17-ifmga-uk-nz-nordic)、[第 7 篇：西班牙與中東歐](/posts/climbing/2026-10-17-ifmga-spain-central-eastern-europe)、[第 8 篇：亞洲](/posts/climbing/2026-10-17-ifmga-asia)、[第 9 篇：南美](/posts/climbing/2026-10-17-ifmga-south-america)。從台灣出發怎麼選，見[第 10 篇](/posts/climbing/2026-10-17-ifmga-taiwan-path)。
+其他國家：[第 6 篇：英國、紐西蘭、北歐](/posts/climbing/2026-10-17-ifmga-uk-nz-nordic)、[第 7 篇：西班牙與中東歐](/posts/climbing/2026-10-17-ifmga-spain-central-eastern-europe)、[第 8 篇：亞洲](/posts/climbing/2026-10-17-ifmga-asia)、[第 9 篇：南美](/posts/climbing/2026-10-17-ifmga-south-america)。從台灣出發怎麼選，見[第 10 篇](/posts/climbing/2026-10-17-ifmga-taiwan-path)；入學考要的能力在哪裡練得到，見[第 11 篇](/posts/climbing/2026-10-18-ifmga-pre-entry-prep)。
 
 ## 更新紀錄
 
