@@ -1,67 +1,51 @@
 ---
-// src/pages/categories/[category].astro
+// src/pages/categories/[...path].astro
 export const prerender = true;
 
 import PostLayout from '../../layouts/PostLayout.astro';
-import PostCard from '../../components/PostCard.astro';
+import PostList from '../../components/PostList.astro';
 import Icons from '../../components/Icons.astro';
 import { useTranslations } from '../../i18n/utils';
-import { getPublishedPosts } from '../../utils/content';
-import { getSeriesHref } from '../../utils/series';
+import { getPublishedPosts, sortPostsByDateDesc } from '../../utils/content';
+import { categoryHref, categoryPath, getPage, pageCount } from '../../utils/pagination';
 
 const t = useTranslations('zh-TW');
 
 export async function getStaticPaths() {
-  const posts = await getPublishedPosts('zh-TW');
-  const categories = [...new Set(posts.map(p => p.data.category))];
+  const posts = sortPostsByDateDesc(await getPublishedPosts('zh-TW'));
   // 只在英文版真的有同分類文章時才給語言切換連結，否則退回站台預設。
   const enCategories = new Set((await getPublishedPosts('en')).map(p => p.data.category));
-  return categories.map(category => ({
-    params: { category },
-    props: {
-      posts: posts.filter(p => p.data.category === category),
-      switchHref: enCategories.has(category) ? `/en/categories/${category}` : undefined,
-    },
-  }));
+  return [...new Set(posts.map(p => p.data.category))].flatMap(category => {
+    const inCategory = posts.filter(p => p.data.category === category);
+    const types = [...new Set(inCategory.map(p => p.data.type).filter(Boolean))] as string[];
+    const switchHref = enCategories.has(category) ? categoryHref('en', category) : undefined;
+    return [undefined, ...types].flatMap(type => {
+      const filtered = type ? inCategory.filter(p => p.data.type === type) : inCategory;
+      return Array.from({ length: pageCount(filtered.length) }, (_, i) => i + 1).map(current => ({
+        params: { path: categoryPath(category, type, current) },
+        props: { category, type, types, count: inCategory.length, page: getPage(filtered, current), switchHref },
+      }));
+    });
+  });
 }
 
-const { category } = Astro.params;
-const { posts, switchHref } = Astro.props;
-posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-const availableTypes = [...new Set(posts.map(p => p.data.type).filter(Boolean))] as string[];
-const showFilter = availableTypes.length > 1;
+const { category, type, types, count, page, switchHref } = Astro.props;
 ---
-<PostLayout title={`${category} — quidproquo`} lang="zh-TW" description={`quidproquo ${category} 分類文章，共 ${posts.length} 篇。`} switchHref={switchHref}>
+<PostLayout title={`${[category, type].filter(Boolean).join(' / ')}${page.current > 1 ? `・第 ${page.current} 頁` : ''} — quidproquo`} lang="zh-TW" description={`quidproquo ${category} 分類文章，共 ${count} 篇。`} switchHref={switchHref}>
   <a href="/categories" class="back-link"><Icons name="chevron-left" size={14} />{t('post.backtocategories')}</a>
   <div class={`cat-header cat-header-${category}`}>
     <h1>{category}</h1>
-    <span class="post-count">{posts.length} {t('post.articles')}</span>
+    <span class="post-count">{count} {t('post.articles')}</span>
   </div>
-  {showFilter && (
-    <div class="type-filter" id="type-filter">
-      <button class="filter-btn active" data-filter="all">全部</button>
-      {availableTypes.map(type => (
-        <button class={`filter-btn filter-type-${type}`} data-filter={type}>{type}</button>
+  {types.length > 1 && (
+    <nav class="type-filter" aria-label="依類型篩選">
+      <a href={categoryHref('zh-TW', category)} class:list={['filter-btn', { active: !type }]} aria-current={!type ? 'page' : undefined}>全部</a>
+      {types.map(name => (
+        <a href={categoryHref('zh-TW', category, name)} class:list={['filter-btn', `filter-type-${name}`, { active: type === name }]} aria-current={type === name ? 'page' : undefined}>{name}</a>
       ))}
-    </div>
+    </nav>
   )}
-  {posts.map(post => (
-    <PostCard
-      slug={post.id}
-      title={post.data.title}
-      date={post.data.date}
-      category={post.data.category}
-      tags={post.data.tags}
-      description={post.data.description}
-      tldr={post.data.tldr}
-      readingTime={post.data.readingTime}
-      lang="zh-TW"
-      type={post.data.type}
-      seriesName={post.data.series?.name}
-      seriesHref={post.data.series ? getSeriesHref(post.data.series.name, 'zh-TW') : undefined}
-    />
-  ))}
+  <PostList page={page} hrefFor={n => categoryHref('zh-TW', category, type, n)} lang="zh-TW" showPinned={false} />
 </PostLayout>
 
 <style>
@@ -118,23 +102,9 @@ const showFilter = availableTypes.length > 1;
   .filter-type-project.active   { background: #64748b; border-color: #64748b; color: #fff; }
 </style>
 
-<script>
-  const buttons = document.querySelectorAll<HTMLButtonElement>('#type-filter .filter-btn');
-  const articles = document.querySelectorAll<HTMLElement>('#type-filter ~ article');
-
-  function applyFilter(filter: string) {
-    buttons.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
-    articles.forEach(article => {
-      const type = article.dataset.type;
-      article.style.display = (filter === 'all' || type === filter) ? '' : 'none';
-    });
-  }
-
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => applyFilter(btn.dataset.filter ?? 'all'));
-  });
-
-  // Auto-activate filter from URL ?type=
-  const urlType = new URLSearchParams(location.search).get('type');
-  if (urlType) applyFilter(urlType);
+<script is:inline>
+  (function () {
+    const type = new URLSearchParams(location.search).get('type');
+    if (type && /^[a-z-]+$/.test(type) && location.pathname.split('/').filter(Boolean).length === 2) location.replace(location.pathname.replace(/\/$/, '') + '/' + type);
+  })();
 </script>

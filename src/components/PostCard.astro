@@ -30,7 +30,7 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
   {pinned && <div class="pin-bar"><Icons name="pin" size={14} /> 置頂</div>}
   <div class="meta">
     <a href={`${categoriesBase}/${category}`} class={`cat-badge cat-${category}`}>{category}</a>
-    {type && <a href={`${categoriesBase}/${category}?type=${type}`} class={`type-badge type-${type}`}>{type}</a>}
+    {type && <a href={`${categoriesBase}/${category}/${type}`} class={`type-badge type-${type}`}>{type}</a>}
     {seriesName && seriesHref && <a href={seriesHref} class="series-badge">{getSeriesTitle(seriesName, lang)}</a>}
     <time datetime={date.toISOString()}>{dateStr}</time>
     {readingTime && (

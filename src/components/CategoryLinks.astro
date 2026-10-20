@@ -1,0 +1,26 @@
+---
+import type { Post } from '../utils/content';
+import type { Lang } from '../i18n/utils';
+import { categoryHref } from '../utils/pagination';
+
+interface Props {
+  posts: Post[];
+  lang: Lang;
+}
+const { posts, lang } = Astro.props;
+const counts = posts.reduce((acc, post) => acc.set(post.data.category, (acc.get(post.data.category) || 0) + 1), new Map<string, number>());
+const categories = [...counts].sort((a, b) => b[1] - a[1]);
+---
+<nav class="category-links" aria-label={lang === 'en' ? 'Browse by category' : '依分類瀏覽'}>
+  {categories.map(([category, count]) => (
+    <a href={categoryHref(lang, category)}>{category} <span>{count}</span></a>
+  ))}
+</nav>
+
+<style>
+  .category-links { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
+  a { display: inline-flex; align-items: center; min-height: 36px; padding: 0.35rem 0.75rem; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-card); color: var(--text-secondary); font-size: 0.8rem; text-decoration: none; }
+  a:hover { border-color: var(--brand-500); color: var(--text-primary); }
+  a:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 3px; }
+  span { margin-left: 0.25rem; opacity: 0.7; font-variant-numeric: tabular-nums; }
+</style>

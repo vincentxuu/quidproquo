@@ -1,0 +1,32 @@
+---
+// src/pages/en/page/[page].astro
+export const prerender = true;
+
+import PostLayout from '../../../layouts/PostLayout.astro';
+import CategoryLinks from '../../../components/CategoryLinks.astro';
+import PostList from '../../../components/PostList.astro';
+import { getNonDailyPublishedPosts, sortPostsByPinnedAndDateDesc } from '../../../utils/content';
+import { getPage, homePageHref, pageCount } from '../../../utils/pagination';
+
+export async function getStaticPaths() {
+  const posts = sortPostsByPinnedAndDateDesc(await getNonDailyPublishedPosts('en'));
+  const otherTotal = pageCount((await getNonDailyPublishedPosts('zh-TW')).length);
+  return Array.from({ length: pageCount(posts.length) - 1 }, (_, i) => i + 2).map(page => ({
+    params: { page: String(page) },
+    props: { posts, page: getPage(posts, page), switchHref: page <= otherTotal ? homePageHref('zh-TW', page) : homePageHref('zh-TW', 1) },
+  }));
+}
+
+const { posts, page, switchHref } = Astro.props;
+---
+<PostLayout title={`All posts, page ${page.current} — quidproquo`} lang="en" switchHref={switchHref}>
+  <h1>All posts</h1>
+  <p class="page-label">{`Page ${page.current} of ${page.total}`}</p>
+  <CategoryLinks posts={posts} lang="en" />
+  <PostList page={page} hrefFor={n => homePageHref('en', n)} lang="en" />
+</PostLayout>
+
+<style>
+  h1 { margin-bottom: 0.25rem; font-size: 1.75rem; font-weight: 900; letter-spacing: -0.5px; color: var(--brand-900); }
+  .page-label { margin: 0 0 1.25rem; color: var(--text-muted); font-size: 0.85rem; }
+</style>

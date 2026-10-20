@@ -1,0 +1,32 @@
+---
+// src/pages/page/[page].astro
+export const prerender = true;
+
+import PostLayout from '../../layouts/PostLayout.astro';
+import CategoryLinks from '../../components/CategoryLinks.astro';
+import PostList from '../../components/PostList.astro';
+import { getNonDailyPublishedPosts, sortPostsByPinnedAndDateDesc } from '../../utils/content';
+import { getPage, homePageHref, pageCount } from '../../utils/pagination';
+
+export async function getStaticPaths() {
+  const posts = sortPostsByPinnedAndDateDesc(await getNonDailyPublishedPosts('zh-TW'));
+  const otherTotal = pageCount((await getNonDailyPublishedPosts('en')).length);
+  return Array.from({ length: pageCount(posts.length) - 1 }, (_, i) => i + 2).map(page => ({
+    params: { page: String(page) },
+    props: { posts, page: getPage(posts, page), switchHref: page <= otherTotal ? homePageHref('en', page) : homePageHref('en', 1) },
+  }));
+}
+
+const { posts, page, switchHref } = Astro.props;
+---
+<PostLayout title={`全部文章第 ${page.current} 頁 — quidproquo`} lang="zh-TW" switchHref={switchHref}>
+  <h1>全部文章</h1>
+  <p class="page-label">{`第 ${page.current} 頁，共 ${page.total} 頁`}</p>
+  <CategoryLinks posts={posts} lang="zh-TW" />
+  <PostList page={page} hrefFor={n => homePageHref('zh-TW', n)} lang="zh-TW" />
+</PostLayout>
+
+<style>
+  h1 { margin-bottom: 0.25rem; font-size: 1.75rem; font-weight: 900; letter-spacing: -0.5px; color: var(--brand-900); }
+  .page-label { margin: 0 0 1.25rem; color: var(--text-muted); font-size: 0.85rem; }
+</style>

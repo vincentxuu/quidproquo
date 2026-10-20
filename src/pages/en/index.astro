@@ -3,7 +3,7 @@
 export const prerender = true;
 
 import PostLayout from '../../layouts/PostLayout.astro';
-import HomePostFilter from '../../components/HomePostFilter.astro';
+import HomeFeed from '../../components/HomeFeed.astro';
 import { useTranslations } from '../../i18n/utils';
 import { getNonDailyPublishedPosts, sortPostsByPinnedAndDateDesc } from '../../utils/content';
 
@@ -45,7 +45,7 @@ const posts = sortPostsByPinnedAndDateDesc(await getNonDailyPublishedPosts('en')
     </p>
     <a href="/posts/product/2026-03-12-quidproquo-blog-from-scratch-en#the-name" class="name-link">Why the name →</a>
   </div>
-  <HomePostFilter posts={posts} lang="en" />
+  <HomeFeed posts={posts} lang="en" />
 </PostLayout>
 
 <script is:inline>

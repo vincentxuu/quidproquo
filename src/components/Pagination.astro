@@ -1,0 +1,47 @@
+---
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  current: number;
+  total: number;
+  hrefFor: (page: number) => string;
+  lang: Lang;
+}
+const { current, total, hrefFor, lang } = Astro.props;
+const isEn = lang === 'en';
+const shown = [...new Set([1, current - 2, current - 1, current, current + 1, current + 2, total])]
+  .filter(page => page >= 1 && page <= total)
+  .sort((a, b) => a - b);
+---
+{total > 1 && (
+  <nav class="pagination" aria-label={isEn ? 'Pagination' : '分頁'}>
+    {current > 1 ? <a href={hrefFor(current - 1)} rel="prev">{isEn ? '← Newer' : '← 較新'}</a> : <span class="edge" />}
+    <ol>
+      {shown.map((page, i) => (
+        <>
+          {i > 0 && page - shown[i - 1] > 1 && <li class="gap" aria-hidden="true">…</li>}
+          <li>
+            {page === current
+              ? <span aria-current="page">{page}</span>
+              : <a href={hrefFor(page)} aria-label={isEn ? `Page ${page}` : `第 ${page} 頁`}>{page}</a>}
+          </li>
+        </>
+      ))}
+    </ol>
+    {current < total ? <a href={hrefFor(current + 1)} rel="next">{isEn ? 'Older →' : '較舊 →'}</a> : <span class="edge" />}
+  </nav>
+)}
+
+<style>
+  .pagination { display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "prev pages next"; align-items: center; gap: 0.5rem; margin: 2rem 0 1rem; font-size: 0.85rem; }
+  ol { grid-area: pages; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem; margin: 0; padding: 0; list-style: none; }
+  .pagination > :first-child { grid-area: prev; justify-self: start; }
+  .pagination > :last-child { grid-area: next; justify-self: end; }
+  @media (max-width: 540px) { .pagination { grid-template-columns: 1fr 1fr; grid-template-areas: "prev next" "pages pages"; } }
+  a, span[aria-current] { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; min-height: 36px; padding: 0 0.6rem; border: 1px solid var(--border); border-radius: 6px; color: var(--text-secondary); text-decoration: none; font-variant-numeric: tabular-nums; }
+  a:hover { border-color: var(--brand-500); color: var(--text-primary); }
+  span[aria-current] { border-color: var(--brand-900); background: var(--brand-900); color: var(--bg-page); }
+  .gap { align-self: center; color: var(--text-muted); }
+  .edge { min-width: 4rem; }
+  a[rel] { flex-shrink: 0; white-space: nowrap; }
+</style>
