@@ -99,7 +99,13 @@ description: Portable multi-source research for tools, frameworks, papers, model
 
 **何時停**：每個關鍵主張過五關才算研究夠——①讀過正文的一手來源 ②方法類主張分清作者主張與實證 ③至少一個 2024 年以後的來源或近年確認 ④搜過反證 ⑤換兩三組關鍵字（含中文、近義詞、其他學科用語）都只回已讀來源。沒過的關寫進 note，不要憑「差不多了」停。
 
-若來源可能跨文章或跨研究重複使用，接著呼叫 `research-source-registry`：建立六維 evidence profile，依 hard gates、discovery-only reasons 與 reuse cautions 決定處置；`reusable`／`conditional` 才能 upsert 到 `.research/source-registry.jsonl`。搜尋摘要、未讀頁與缺少主張邊界者只留在本輪 note。不得自行把 profile 轉成總分、真實機率或公認證據等級。
+**來源登錄（`sources.jsonl`）**：多子問題或系列研究，在 note 旁邊放一份 `sources.jsonl`，一行一個來源。搜尋完、精讀前先登錄並排序（先排再讀，每個子問題挑 3–5 個；能直接回答的一手來源優先於多篇二手整理），讀完回頭更新 `read_status`，讓盤點表與登錄檔一致：
+
+```json
+{"url":"","title":"","source_type":"official|paper|docs|media|blog|community|unknown","subquestion":"","published":"","authority_score":1,"relevance_score":1,"read_status":"queued|read|abstract|snippet|blocked|skipped","tried":"","reason":""}
+```
+
+`read_status` 對應盤點符號：`read`＝✅、`abstract`＝🟡、`snippet`＝🔎、`blocked`＝🔴（`tried` 寫試過的管道）。分數只用來決定讀的順序，不寫進文章當證據等級。這份格式來自 2026-05 研究搜尋與爬蟲工具時的做法（產出見 `~/Work/research/.work/*/sources.jsonl`）；之前這裡引用的跨研究 `research-source-registry` skill 從未建立，已移除（2026-10-20）。
 
 ### 派 subagent 研究時
 
@@ -132,7 +138,7 @@ subagent 回來後，先對它的檔案跑步驟 3 的 grep 盤點；有可關�
 
 | 執行環境 | 輸出方式 |
 |---|---|
-| 有 filesystem | `.research/<YYYY-MM-DD>-<slug>.md`（不入版控） |
+| 有 filesystem | `.research/<YYYY-MM-DD>-<slug>.md`；系列研究用 `.work/research/<series-slug>/research-note.md`。`sources.jsonl` 放同一層（單檔 note 用 `.research/<YYYY-MM-DD>-<slug>.sources.jsonl`） |
 | 無 filesystem（Web） | Markdown artifact 或完整輸出 |
 
 格式 → `references/research-note-template.md`
@@ -147,7 +153,6 @@ subagent 回來後，先對它的檔案跑步驟 3 的 grep 盤點；有可關�
 
 ## 跟其他 skill 的關係
 
-- **deep-research → research-source-registry**：全文驗證後評價來源品質，將可重複使用且邊界清楚的來源沉澱到 registry
 - **deep-research → post**：研究完把草稿骨架交給 `post` skill（若已安裝）
 - **deep-research → post-update**：有相關既有文章時用 `post-update` 補進去
 - **deep-research vs ai-expert**：`ai-expert` 是「用已知回答」；`deep-research` 是「先查清楚再回」
