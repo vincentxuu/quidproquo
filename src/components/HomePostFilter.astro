@@ -14,8 +14,8 @@ const practiceTag = 'english-video-practice';
 const practiceCount = posts.filter(post => post.data.tags.includes(practiceTag)).length;
 const archiveHref = `${isEn ? '/en' : ''}/tags/${practiceTag}`;
 const featured = [
-  { slug: 'career/2026-10-12-dan-koe-multiple-interests-ai-skill-stack', seconds: 148, captions: isEn ? '3 clips · selected bilingual lines' : '3 片段・精選語句中英對照', speaker: 'Dan Koe', title: isEn ? 'Explain what a good AI result looks like' : '說清楚你期待 AI 做出什麼成果' },
-  { slug: 'ai/2026-10-07-poteto-trust-ladder-verification-first', seconds: 128, captions: isEn ? '3 clips · selected bilingual lines' : '3 片段・精選語句中英對照', speaker: 'Matt Pocock × Poteto', title: isEn ? 'Follow a bilingual passage: give agents hands and eyes' : '中英段落跟讀：讓 agent 有手有眼' },
+  { slug: 'career/2026-10-12-dan-koe-multiple-interests-ai-skill-stack', seconds: 168, captions: isEn ? '3 clips · sentence-aligned captions' : '3 片段・依句意中英對照', speaker: 'Dan Koe', title: isEn ? 'Explain what a good AI result looks like' : '說清楚你期待 AI 做出什麼成果' },
+  { slug: 'ai/2026-10-07-poteto-trust-ladder-verification-first', seconds: 157, captions: isEn ? '3 clips · sentence-aligned captions' : '3 片段・依句意中英對照', speaker: 'Matt Pocock × Poteto', title: isEn ? 'Follow a bilingual passage: give agents hands and eyes' : '中英段落跟讀：讓 agent 有手有眼' },
 ].filter(item => posts.some(post => post.id === `${item.slug}${isEn ? '-en' : ''}`));
 ---
 <section data-home-post-filter data-lang={lang} aria-label={isEn ? 'Browse articles' : '選擇閱讀與練習文章'}>

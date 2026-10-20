@@ -130,7 +130,7 @@ export function renderVideoPractice(spec: VideoPracticeSpec, index = 0): string 
     `<p class="video-practice__howto">${en ? 'Choose a clip → Play passage → Click a sentence to replay it.' : '選片段 → 按「播放整段」→ 點對照句重播。'}</p>`,
     clipSelectors,
     `<div class="video-practice__media${sentences ? ' video-practice__media--bilingual' : ''}"><div class="video-practice__player">`,
-    renderYoutubeEmbed({ id: spec.videoId, title: spec.title, start: initialClip.start, end: initialClip.end, loop: true, captions: 'en' }).replace(/&(?:amp;)?end=[\d.]+/, '').replace('<a href=', '<a data-practice-source href='),
+    renderYoutubeEmbed({ id: spec.videoId, title: spec.title, start: Math.floor(initialClip.start), end: Math.ceil(initialClip.end), loop: true, captions: 'en' }).replace(/&(?:amp;)?end=[\d.]+/, '').replace('<a href=', '<a data-practice-source href='),
     `<div data-practice-controls hidden><button type="button" data-practice-play>${en ? 'Play passage' : '播放整段'}</button><label><input type="checkbox" data-practice-loop checked> ${en ? 'Loop clip' : '循環'}</label><label>${en ? 'Speed' : '速度'} <select data-practice-rate><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option></select></label><p data-practice-status role="status" aria-live="polite"></p></div>`,
     '</div>',
     `<div class="video-practice__caption-panels">${sentences}</div>`,

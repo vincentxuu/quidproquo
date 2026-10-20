@@ -7,6 +7,30 @@ export function disposeVideoPractice() {
   cleanup = undefined;
 }
 
+/** Follow each subtitle panel independently; selection only controls navigation/playback. */
+export function syncPracticePanel(panel: HTMLElement, time: number, english: boolean) {
+  const rows = [...panel.querySelectorAll<HTMLButtonElement>('[data-practice-sentence]')];
+  const current = rows.findIndex((row) => time >= Number(row.dataset.start) && time < Number(row.dataset.end));
+  for (const [index, row] of rows.entries()) {
+    if (index === current) row.setAttribute('aria-current', 'true');
+    else row.removeAttribute('aria-current');
+  }
+  const previous = panel.dataset.currentSentence;
+  panel.dataset.currentSentence = String(current);
+  const counter = panel.querySelector<HTMLElement>('[data-practice-sentence-index]');
+  if (counter) counter.textContent = current >= 0
+    ? (english ? `Current ${current + 1} / ${rows.length}` : `目前第 ${current + 1} / ${rows.length} 段`)
+    : (english ? `Between sentences / ${rows.length}` : `句間停頓 / ${rows.length} 段`);
+  if (current < 0 || previous === String(current)) return;
+  const row = rows[current];
+  const list = row.closest<HTMLElement>('ol');
+  if (list) {
+    const rowBox = row.getBoundingClientRect();
+    const listBox = list.getBoundingClientRect();
+    if (rowBox.top < listBox.top || rowBox.bottom > listBox.bottom) list.scrollTop += rowBox.top - listBox.top;
+  }
+}
+
 export function initVideoPractice() {
   disposeVideoPractice();
   const sections = [...document.querySelectorAll<HTMLElement>('[data-video-practice]')];
@@ -55,25 +79,12 @@ export function initVideoPractice() {
     for (const section of sections) {
       const time = getPracticePlaybackTime(section);
       if (time === null) continue;
-      const rows = rowsFor(section);
-      const current = rows.findIndex((row) => time >= Number(row.dataset.start) && time < Number(row.dataset.end));
-      for (const [index, row] of rows.entries()) {
-        if (index === current) row.setAttribute('aria-current', 'true');
-        else row.removeAttribute('aria-current');
-      }
+      const panels = [
+        section.querySelector<HTMLElement>('[data-practice-transcript]'),
+        section.querySelector<HTMLElement>('[data-practice-clip-panel]:not([hidden])'),
+      ].filter((panel): panel is HTMLElement => panel !== null);
+      for (const panel of panels) syncPracticePanel(panel, time, document.documentElement.lang.startsWith('en'));
       refreshNavigation(section);
-      const counter = activePanel(section).querySelector<HTMLElement>('[data-practice-sentence-index]');
-      if (counter && current >= 0 && section.dataset.currentSentence !== String(current)) {
-        section.dataset.currentSentence = String(current);
-        const row = rows[current];
-        const list = row.closest<HTMLElement>('ol');
-        if (list) {
-          const rowBox = row.getBoundingClientRect();
-          const listBox = list.getBoundingClientRect();
-          if (rowBox.top < listBox.top || rowBox.bottom > listBox.bottom) list.scrollTop += rowBox.top - listBox.top;
-        }
-        counter.textContent = document.documentElement.lang.startsWith('en') ? `Current ${current + 1} / ${rows.length}` : `目前第 ${current + 1} / ${rows.length} 段`;
-      }
     }
   }, 250);
   const play = async (section: HTMLElement, sentence?: HTMLElement) => {
@@ -128,7 +139,6 @@ export function initVideoPractice() {
       delete section.dataset.practiceTranscriptActive;
       section.dataset.start = clipButton.dataset.start;
       section.dataset.end = clipButton.dataset.end;
-      delete section.dataset.currentSentence;
       for (const picker of section.querySelectorAll('[data-practice-clip]')) picker.setAttribute('aria-pressed', String(picker === clipButton));
       for (const panel of section.querySelectorAll<HTMLElement>('[data-practice-clip-panel]')) panel.hidden = panel.dataset.practiceClipPanel !== clipButton.dataset.practiceClip;
       for (const row of section.querySelectorAll('[data-practice-sentence]')) { row.setAttribute('aria-pressed', 'false'); row.removeAttribute('aria-current'); }
@@ -156,7 +166,6 @@ export function initVideoPractice() {
       const section = sentence.closest<HTMLElement>('[data-video-practice]');
       if (!section) return;
       section.dataset.practiceTranscriptActive = String(!!sentence.closest('[data-practice-transcript]'));
-      delete section.dataset.currentSentence;
       for (const row of section.querySelectorAll('[data-practice-sentence]')) row.setAttribute('aria-pressed', String(row === sentence));
       void play(section, sentence);
       return;

@@ -175,7 +175,7 @@ describe('published practice passage coverage', () => {
       const fence = source.match(/```video-practice\n([\s\S]*?)\n```/);
       expect(fence).not.toBeNull();
       const passage = parseVideoPractice(fence![1]);
-      expect(passage.clips?.map(({ start, end }) => [start, end])).toEqual([[1003, 1034], [1367, 1418], [2974, 3020]]);
+      expect(passage.clips?.map(({ start, end }) => [start, end])).toEqual([[1002.16, 1044.949], [1365.6, 1419.76], [2967.52, 3027.68]]);
       expect(passage.clips?.[0].captionCoverage).toBe('partial');
       const firstClip = passage.clips![0];
       const rows = firstClip.sentences;
