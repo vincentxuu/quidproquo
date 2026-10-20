@@ -124,8 +124,76 @@
   .video-practice__media--bilingual .video-practice__sentences ol { flex: auto; max-height: 24rem; }
 }
 
-/* Complete source captions stay separate from the authored excerpt exercises. */
-.video-practice__transcript { margin-block: 1.25rem; }
+/* One caption workspace keeps the complete source beside its player. */
+.video-practice__caption-panels > .video-practice__transcript {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  margin: 0;
+}
 .video-practice__transcript h4 { margin: 0; text-wrap: balance; }
-.video-practice .video-practice__transcript ol { max-height: 65vh; }
 .video-practice__transcript button { overflow-wrap: anywhere; }
+.video-practice__transcript .video-practice__sentence-header { flex: none; }
+.video-practice__transcript .video-practice__sentence-header > .video-practice__note { margin-block: .35rem; }
+body .video-practice .video-practice__media--bilingual .video-practice__caption-panels > .video-practice__transcript ol {
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.video-practice [data-practice-caption-modes],
+.video-practice__caption-modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-block: .5rem;
+}
+.video-practice [data-caption-mode] button[aria-pressed="true"]:not([data-practice-sentence]),
+.video-practice [data-practice-full][aria-pressed="true"] {
+  border-color: var(--brand-700);
+  background: var(--brand-50);
+}
+.video-practice [data-practice-sentence][data-in-clip="true"] {
+  border-color: var(--brand-500);
+  border-inline-start-width: 3px;
+}
+.video-practice [data-practice-sentence][aria-current="true"] {
+  background: var(--brand-50);
+  border-color: var(--brand-700);
+  border-inline-start-width: 4px;
+}
+.video-practice[data-caption-mode="en"] .video-practice__sentence-zh,
+.video-practice[data-caption-mode="zh"] .video-practice__sentence-en,
+.video-practice[data-caption-mode="hidden"] .video-practice__sentence-en,
+.video-practice[data-caption-mode="hidden"] .video-practice__sentence-zh { display: none; }
+.video-practice [data-practice-hidden-note] { display: none; }
+.video-practice[data-caption-mode="hidden"] [data-practice-hidden-note] { display: block; }
+.video-practice[data-caption-mode="hidden"] [data-practice-sentence] { min-height: 3.5rem; }
+@media (min-width: 62rem) {
+  .video-practice__media--bilingual .video-practice__caption-panels:has(> .video-practice__transcript) {
+    height: clamp(32rem, 76dvh, 52rem);
+  }
+  .video-practice__caption-panels > .video-practice__transcript { height: 100%; }
+}
+@media (max-width: 61.999rem) {
+  .video-practice__media--bilingual { min-height: 0; }
+  .video-practice__media--bilingual > .video-practice__player,
+  .video-practice__media--bilingual > .video-practice__caption-panels { width: 100%; }
+  .video-practice__media--bilingual .video-practice__caption-panels:has(> .video-practice__transcript) {
+    flex: none;
+    height: clamp(24rem, 56dvh, 36rem);
+  }
+  .video-practice__caption-panels > .video-practice__transcript { flex: 1; }
+}
+@media (max-width: 40rem) {
+  .video-practice__transcript .video-practice__sentence-header { padding: .6rem; }
+  .video-practice__transcript h4 { font-size: 1rem; }
+  .video-practice__transcript .video-practice__sentence-header > .video-practice__note { font-size: .75rem; line-height: 1.45; }
+}
+
+.video-practice__caption-mode { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-block: .5rem; }
+.video-practice__clips:has([data-practice-full]) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 40rem) { .video-practice__clips:has([data-practice-full]) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.content .video-practice__sentences ol { list-style: none; padding-inline: .4rem; }

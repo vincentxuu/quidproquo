@@ -99,3 +99,57 @@ it('follows both transcript and clip without changing selected navigation or scr
   expect(transcript.rows.every((row) => !row.attributes['aria-current'])).toBe(true);
   expect(transcript.counter.textContent).toBe('句間停頓 / 3 段');
 });
+
+it('switches caption modes without seeking and locates clip ranges in the shared transcript', async () => {
+  const listeners = new Map<string, (event: unknown) => void>();
+  const list = { scrollTop: 0, getBoundingClientRect: () => ({ top: 10 }) };
+  const rows = [0, 10, 20].map((start) => ({
+    dataset: { start: String(start), end: String(start + 5), inClip: 'false' }, disabled: false,
+    attributes: {} as Record<string, string>,
+    setAttribute(name: string, value: string) { this.attributes[name] = value; },
+    getAttribute(name: string) { return this.attributes[name]; }, removeAttribute: vi.fn(),
+    closest: () => list, getBoundingClientRect: () => ({ top: 100 }),
+  }));
+  const transcript = { querySelectorAll: () => rows, querySelector: () => null };
+  const button = { disabled: false };
+  const full = { dataset: {}, setAttribute: vi.fn(), closest: () => section };
+  const clip = { dataset: { start: '10', end: '15', practiceClip: '1' }, setAttribute: vi.fn(), closest: () => section };
+  const lessons = [{ dataset: { practiceLesson: '0' }, hidden: false }, { dataset: { practiceLesson: '1' }, hidden: true }];
+  const section = {
+    dataset: { videoId: 'video', start: '0', end: '25', fullStart: '0', fullEnd: '25' } as Record<string, string>, closest: () => null,
+    querySelector(selector: string): unknown {
+      if (selector === '[data-practice-play]') return button;
+      if (selector === '[data-practice-status]') return { textContent: '' };
+      if (selector === '[data-practice-transcript]') return transcript;
+      if (selector === '[data-practice-full]') return full;
+      return null;
+    },
+    querySelectorAll(selector: string): unknown[] {
+      if (selector === '[data-practice-sentence]') return rows;
+      if (selector === '[data-practice-clip]') return [clip];
+      if (selector === '[data-practice-lesson]') return lessons;
+      return [];
+    },
+  };
+  class CaptionSelect { value = ''; matches(selector: string) { return selector === '[data-practice-caption-mode]'; } closest() { return section; } }
+  vi.stubGlobal('HTMLSelectElement', CaptionSelect);
+  vi.stubGlobal('window', { matchMedia: () => ({ matches: false }), location: { href: 'https://example.com/' }, setInterval: () => 1, clearInterval: vi.fn() });
+  vi.stubGlobal('document', { querySelectorAll: () => [section], documentElement: { lang: 'zh-TW' }, addEventListener: (name: string, listener: (event: unknown) => void) => listeners.set(name, listener) });
+  initVideoPractice();
+  for (const mode of ['en', 'zh', 'hidden', 'bilingual']) {
+    listeners.get('change')!({ target: Object.assign(new CaptionSelect(), { value: mode }) });
+    expect(section.dataset.captionMode).toBe(mode);
+  }
+  expect(playYoutubePractice).not.toHaveBeenCalled();
+  listeners.get('click')!({ target: { closest: (selector: string) => selector === '[data-practice-clip]' ? clip : null } });
+  await Promise.resolve();
+  expect(rows.map((row) => row.dataset.inClip)).toEqual(['false', 'true', 'false']);
+  expect(list.scrollTop).toBe(90);
+  expect(lessons.map((lesson) => lesson.hidden)).toEqual([true, false]);
+  expect(playYoutubePractice).toHaveBeenLastCalledWith('video', 10, 15, 1, false, section);
+  listeners.get('click')!({ target: { closest: (selector: string) => selector === '[data-practice-full]' ? full : null } });
+  await Promise.resolve();
+  expect(rows.every((row) => row.dataset.inClip === 'false')).toBe(true);
+  expect(lessons.every((lesson) => lesson.hidden)).toBe(true);
+  expect(playYoutubePractice).toHaveBeenLastCalledWith('video', 0, 25, 1, false, section);
+});

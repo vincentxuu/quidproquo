@@ -210,13 +210,17 @@ describe('complete bilingual source transcript', () => {
   it('renders every full source row beside the preserved excerpt controls, with accessible replay buttons and provenance', () => {
     const html = renderVideoPractice({ ...exercise, transcript, clips: [{ title: 'Selected clip', start: 91, end: 110, captionCoverage: 'partial', sentences: [{ start: 92, end: 94, en: 'Excerpt.', zh: '節錄。' }] }] }, 7);
     expect(html).toContain('data-practice-transcript aria-labelledby="video-practice-7-transcript"');
-    expect(html).toContain('完整中英字幕對照 · 2 段');
+    expect(html).toContain('全文字幕 · 2 段');
     expect(html).toContain(transcript.note);
     expect(html).toContain('data-practice-sentence data-start="0" data-end="2.25"');
     expect(html).toContain('data-practice-sentence data-start="250.5" data-end="253"');
     expect(html).toContain('aria-label="可捲動的完整中英字幕"');
     expect(html).toContain('data-practice-clip="0"');
-    expect(html).toContain('data-practice-clip-panel="0"');
+    expect(html).not.toContain('data-practice-clip-panel');
+    expect(html.match(/data-practice-sentence data-start=/g)).toHaveLength(2);
+    expect(html).toContain('<div class="video-practice__caption-panels"><section');
+    expect(html).toContain('data-full-start="0" data-full-end="253"');
+    for (const mode of ['bilingual', 'en', 'zh', 'hidden']) expect(html).toContain(`value="${mode}"`);
     expect(html.match(/<iframe/g)).toHaveLength(1);
     const escaped = renderVideoPractice({ ...exercise, transcript: { note: '<unsafe>', sentences: [{ start: 0, end: 1, en: '<script>', zh: '<img>' }] } });
     expect(escaped).toContain('&lt;script&gt;');

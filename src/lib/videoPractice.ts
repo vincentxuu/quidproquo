@@ -55,12 +55,13 @@ export function initVideoPractice() {
     const practice = url.searchParams.get('practice') === '1' || url.searchParams.get('mode') === 'practice';
     if (exercises && !section.dataset.practiceInitialized) exercises.open = practice;
     section.dataset.practiceInitialized = 'true';
+    const captionMode = section.querySelector('[data-practice-caption-mode]');
+    section.dataset.captionMode = captionMode && captionMode instanceof HTMLSelectElement ? captionMode.value : 'bilingual';
     section.dataset.mode = exercises?.open ? 'practice' : 'read';
     for (const button of section.querySelectorAll<HTMLButtonElement>('[data-practice-mode]')) button.setAttribute('aria-pressed', String(button.dataset.practiceMode === section.dataset.mode));
   }
   const controller = new AbortController();
-  const activePanel = (section: HTMLElement) => (section.dataset.practiceTranscriptActive === 'true'
-    ? section.querySelector<HTMLElement>('[data-practice-transcript]') : null)
+  const activePanel = (section: HTMLElement) => section.querySelector<HTMLElement>('[data-practice-transcript]')
     ?? section.querySelector<HTMLElement>('[data-practice-clip-panel]:not([hidden])') ?? section;
   const rowsFor = (section: HTMLElement) => [...activePanel(section).querySelectorAll<HTMLButtonElement>('[data-practice-sentence]')];
   const refreshNavigation = (section: HTMLElement) => {
@@ -132,16 +133,43 @@ export function initVideoPractice() {
       window.history.replaceState(window.history.state, '', url);
       return;
     }
+    const fullButton = (event.target as Element | null)?.closest<HTMLButtonElement>('[data-practice-full]');
+    if (fullButton) {
+      const section = fullButton.closest<HTMLElement>('[data-video-practice]');
+      const transcript = section?.querySelector<HTMLElement>('[data-practice-transcript]');
+      if (!section || !transcript || section.querySelector<HTMLButtonElement>('[data-practice-play]')?.disabled) return;
+      const rows = [...transcript.querySelectorAll<HTMLElement>('[data-practice-sentence]')];
+      section.dataset.start = section.dataset.fullStart ?? fullButton.dataset.start ?? rows[0]?.dataset.start ?? '0';
+      section.dataset.end = section.dataset.fullEnd ?? fullButton.dataset.end ?? rows.at(-1)?.dataset.end ?? section.dataset.end;
+      for (const row of rows) { row.dataset.inClip = 'false'; row.setAttribute('aria-pressed', 'false'); }
+      for (const clip of section.querySelectorAll('[data-practice-clip]')) clip.setAttribute('aria-pressed', 'false');
+      fullButton.setAttribute('aria-pressed', 'true');
+      for (const lesson of section.querySelectorAll<HTMLElement>('[data-practice-lesson]')) lesson.hidden = true;
+      refreshNavigation(section);
+      void play(section);
+      return;
+    }
     const clipButton = (event.target as Element | null)?.closest<HTMLButtonElement>('[data-practice-clip]');
     if (clipButton) {
       const section = clipButton.closest<HTMLElement>('[data-video-practice]');
       if (!section || section.querySelector<HTMLButtonElement>('[data-practice-play]')?.disabled) return;
-      delete section.dataset.practiceTranscriptActive;
+      const transcript = section.querySelector<HTMLElement>('[data-practice-transcript]');
+      section.dataset.practiceTranscriptActive = String(!!transcript);
+      section.querySelector('[data-practice-full]')?.setAttribute('aria-pressed', 'false');
       section.dataset.start = clipButton.dataset.start;
       section.dataset.end = clipButton.dataset.end;
       for (const picker of section.querySelectorAll('[data-practice-clip]')) picker.setAttribute('aria-pressed', String(picker === clipButton));
+      for (const lesson of section.querySelectorAll<HTMLElement>('[data-practice-lesson]')) lesson.hidden = lesson.dataset.practiceLesson !== clipButton.dataset.practiceClip;
       for (const panel of section.querySelectorAll<HTMLElement>('[data-practice-clip-panel]')) panel.hidden = panel.dataset.practiceClipPanel !== clipButton.dataset.practiceClip;
       for (const row of section.querySelectorAll('[data-practice-sentence]')) { row.setAttribute('aria-pressed', 'false'); row.removeAttribute('aria-current'); }
+      if (transcript) {
+        const rows = [...transcript.querySelectorAll<HTMLElement>('[data-practice-sentence]')];
+        const matching = rows.filter((row) => Number(row.dataset.start) >= Number(clipButton.dataset.start) && Number(row.dataset.end) <= Number(clipButton.dataset.end));
+        for (const row of rows) row.dataset.inClip = String(matching.includes(row));
+        const first = matching[0];
+        const list = first?.closest<HTMLElement>('ol');
+        if (first && list) list.scrollTop += first.getBoundingClientRect().top - list.getBoundingClientRect().top;
+      }
       refreshNavigation(section);
       void play(section);
       return;
@@ -179,6 +207,12 @@ export function initVideoPractice() {
   }, { signal: controller.signal });
   document.addEventListener('change', (event) => {
     const target = event.target as Element | null;
+    if (target instanceof HTMLSelectElement && target.matches('[data-practice-caption-mode]')) {
+      const section = target.closest<HTMLElement>('[data-video-practice]');
+      const value = target.value;
+      if (section && ['bilingual', 'en', 'zh', 'hidden'].includes(value)) section.dataset.captionMode = value;
+      return;
+    }
     if (target?.matches('[data-practice-done]')) {
       const section = target.closest<HTMLElement>('[data-video-practice]');
       if (!section) return;
