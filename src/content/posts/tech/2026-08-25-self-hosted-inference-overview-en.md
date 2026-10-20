@@ -168,6 +168,7 @@ Complexity increases left to right, but so does the scale and range of scenarios
 | 5 | [Ray Serve](/posts/tech/2026-08-22-ray-serve-inference-en/) | Python service graphs, GPU scheduling, autoscaling |
 | 6 | [TGI](/posts/tech/2026-08-25-tgi-text-generation-inference-en/) | HuggingFace inference server, archived |
 | 7 | [TensorRT-LLM](/posts/tech/2026-08-25-tensorrt-llm-inference-en/) | NVIDIA GPU-specific optimization, compilation for throughput |
+| 8 | [Trying vLLM on Colab](/posts/ai/2026-10-20-vllm-colab-quickstart-en/) | Hands-on on a free T4: start a server, fire concurrent requests, read /metrics |
 
 ---
 

@@ -168,6 +168,7 @@ HuggingFace 的 Text Generation Inference 是這波最佳化推論引擎的先�
 | 5 | [Ray Serve](/posts/tech/2026-08-22-ray-serve-inference/) | Python 服務圖、GPU 排程、自動擴縮 |
 | 6 | [TGI](/posts/tech/2026-08-25-tgi-text-generation-inference/) | HuggingFace 推論伺服器，已封存 |
 | 7 | [TensorRT-LLM](/posts/tech/2026-08-25-tensorrt-llm-inference/) | NVIDIA GPU 專用最佳化，編譯換吞吐量 |
+| 8 | [在 Colab 試跑 vLLM](/posts/ai/2026-10-20-vllm-colab-quickstart/) | 免費 T4 動手實作：開服務、併發請求、看 /metrics |
 
 ---
 
