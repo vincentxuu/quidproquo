@@ -1,0 +1,1586 @@
+{
+  "date": "2026-10-21",
+  "status": "published",
+  "selectedCount": 3,
+  "candidateSources": {
+    "layerA": "arXiv export API（list 頁因 Groundlane web_fetch OUTPUT_LIMIT 無法直讀，改用 export.arxiv.org/api/query 按 submittedDate 排序取代，toolDegradation 已記錄）cs.AI/cs.CL/cs.MA 各 40 筆，去重後 105 筆，對應 2026-10-19 批次（Taipei 2026-10-21 公告窗）",
+    "layerB": [
+      "HuggingFace Daily Papers API（回應被截斷，id/title 配對不可靠，toolDegradation 已記錄，未採用其候選）",
+      "Semantic Scholar paper_search/paper_lookup 全程 429 rate-limit，未能取得額外候選或背景信號，toolDegradation 已記錄"
+    ],
+    "layerC": "回溯 .research/daily-arxiv-screening/2026-10-07 至 2026-10-20，共 ~235 筆 watch/stronger-competitor 候選已複閱；因 0.85^d 衰減後 effective_score 均低於今日 Layer A 新候選，且無新信號（code 釋出/外部複現）可克服衰減，今日未從 Layer C 拉入任何候選"
+  },
+  "toolDegradation": [
+    "Groundlane web_fetch 讀 arxiv.org/list/cs.AI(cs.CL/cs.MA)/new 皆回 OUTPUT_LIMIT（上游頁面過大），改用 export.arxiv.org/api/query 取代，仍在 Groundlane fallback 鏈第 1 層（Groundlane 本身可用，只是改走結構化 API 而非 HTML 列表頁）",
+    "Semantic Scholar（經 Groundlane paper_search/paper_lookup 與直接 web_fetch）全程回 429 rate-limit，重試 4 次以上仍失敗；三篇入選論文的 venue/citationCount 改以 arXiv 摘要頁 + web_search 確認機構與社群轉貼，citationCount 記錄為「查詢失敗」而非猜測數字",
+    "HuggingFace Daily Papers API 回應於 100000 字元處被截斷，JSON 不完整，id/title 配對經規律比對後確認不可靠（同標題配對到不同 id），放棄採用該批候選"
+  ],
+  "generatedAt": "2026-10-20T18:43:28.257556+00:00",
+  "candidates": [
+    {
+      "arxivId": "2610.24052",
+      "title": "Red-Teaming Multi-Agent Attacks for Loss-of-Control Risks",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint（未經同行審查；已轉貼 LessWrong/AI Alignment Forum 社群討論）",
+      "citationCount": null,
+      "citationVelocity": "發布 5 天（2026-10-16 提交），Semantic Scholar 查詢遭 rate-limit（toolDegradation，多次重試仍 429），以提交時間推算應尚無索引引用",
+      "institution": "MATS Research + Redwood Research + Independent",
+      "communitySignals": [
+        "LessWrong/AI Alignment Forum 轉貼討論（greaterwrong.com 鏡像）",
+        "HF Daily Papers 未上榜 / Papers with Code 無復現 repo"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "MiniLab benchmark：5 個互連服務、249 個 benign 任務、8 個攻擊目標、16 種人工優化攻擊，正文給出偵測率對照表（單一 Agent 87% vs 分散式 7%）"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "有具體 benchmark 設計、人工優化攻擊與模型自動規劃攻擊的雙重對照，並測了監控器在不同粒度下的偵測率",
+      "reproducibilityEvidence": [
+        "論文稱 MiniLab 改編自內部 AI 部署基礎設施，但摘要與可讀正文段落未給出公開 repo 連結"
+      ],
+      "reproducibility": "partial-artifacts",
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "核心主張（分散式攻擊能規避單 Agent 粒度監控）有明確數字支持，且同時測了人類設計與模型自動規劃兩種攻擊路徑",
+      "primaryLimitation": "MiniLab 是合成測試環境，攻擊是否能在更複雜的真實多 Agent 部署中以同等效率規避監控仍待驗證",
+      "presentation": "clear",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected"
+    },
+    {
+      "arxivId": "2610.26632",
+      "title": "When the harness decides success: state that cannot be re-observed",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint（未經同行審查）",
+      "citationCount": null,
+      "citationVelocity": "發布 2 天（2026-10-19 提交），Semantic Scholar 查詢遭 rate-limit（toolDegradation，多次重試仍 429）",
+      "institution": "Microsoft（單一作者 Raimondas Lencevicius）",
+      "communitySignals": [
+        "HF Daily Papers 未上榜 / Papers with Code 無復現 repo（但論文自帶 GitHub 連結）"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "pre-registered 合成探針實驗，含跨 provider 複製；ARC-AGI-3 上逐元件拆解 Standard vs Provider Adapter harness 的 63 點差距來源"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "核心發現（92.5 個百分點差異，90% CI）有 pre-registration 與雙 provider 複製；但 ARC-AGI-3 的拆解數字作者自己標註為「每組態單次計次執行」的點估計",
+      "reproducibilityEvidence": [
+        "論文附 GitHub 連結公開 code、pre-registration 與 cost ledger（github.com/raimondasl/persistgym）"
+      ],
+      "reproducibility": "full-artifacts",
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "第一個核心主張（可查詢事實 vs 不可查詢事實的成功率差異）有信賴區間與跨 provider 複製支持；第二個主張（harness 拆解的 86%/43%/57%）作者自己承認是單次執行的點估計，敘述強度需跟著降低",
+      "primaryLimitation": "ARC-AGI-3 的逐元件拆解只來自每個組態一次計次執行，不是多次重跑的平均",
+      "presentation": "clear",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected"
+    },
+    {
+      "arxivId": "2610.26679",
+      "title": "StepBench: Diagnosing Real-World Procedural Understanding in AI Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint（未經同行審查）",
+      "citationCount": null,
+      "citationVelocity": "發布 2 天（2026-10-19 提交），Semantic Scholar 查詢遭 rate-limit（toolDegradation，多次重試仍 429）",
+      "institution": "UCL AI Centre + University of Edinburgh + Microsoft + Cohere Labs",
+      "communitySignals": [
+        "HF Daily Papers 未上榜 / Papers with Code 無復現 repo"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "6,885 筆 wikiHow 程序、81 個開放領域類別、5 種診斷任務；12 個模型 × 14 組態的系統性比較；STEPBENCH-Val 用 2026 年才發布的 214 筆程序做污染控制"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "規模大、錯誤類型拆解細（遺漏/錯誤/順序錯亂分開診斷），且有獨立驗證集排除記憶污染的可能",
+      "reproducibilityEvidence": [
+        "摘要與可讀正文段落未提及公開 code 或資料集連結"
+      ],
+      "reproducibility": "not-provided",
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "核心數字（最強模型步驟排序正確率僅 63.0%，九步以上掉到 33.1%）有明確的任務設計與樣本規模支持",
+      "primaryLimitation": "診斷任務基於 wikiHow 的通用生活程序，是否能代表企業/工程場景的長程任務規劃能力尚待驗證",
+      "presentation": "clear",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected"
+    },
+    {
+      "arxivId": "2610.22899",
+      "title": "Provable Authority: A Protocol for Verifiable Authority Resolution and Control Across Human, Organizational, and Agentic Transactions",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.22980",
+      "title": "KiranaBench: Can a Language Model Run a Neighbourhood Shop?",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "評測/診斷方向與入選的 StepBench 重疊，但樣本規模與錯誤類型拆解不及 StepBench（6,885 筆 wikiHow 程序、5 種診斷任務、12 模型 14 組態的系統性拆解）。"
+    },
+    {
+      "arxivId": "2610.23056",
+      "title": "Thought Blocks: Non-Autoregressive Latent Communication for Multi-Agent Systems via Trajectory-to-State Compilation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協調/通訊優化方向，方法扎實但屬基礎設施層增量改進；入選的 MiniLab 直接給出可驗證的攻防數字（分散式攻擊偵測率 7% vs 單一 Agent 87%），對讀者今天的風險判斷更具體。"
+    },
+    {
+      "arxivId": "2610.23078",
+      "title": "Cryptographically Secure Agent-to-Agent Communication in Multi-Agent Systems",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協調/通訊優化方向，方法扎實但屬基礎設施層增量改進；入選的 MiniLab 直接給出可驗證的攻防數字（分散式攻擊偵測率 7% vs 單一 Agent 87%），對讀者今天的風險判斷更具體。"
+    },
+    {
+      "arxivId": "2610.23092",
+      "title": "Towards High Semantic Fidelity: Hyperdimensional Symbolic Messages in Multi-Agent Communication",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協調/通訊優化方向，方法扎實但屬基礎設施層增量改進；入選的 MiniLab 直接給出可驗證的攻防數字（分散式攻擊偵測率 7% vs 單一 Agent 87%），對讀者今天的風險判斷更具體。"
+    },
+    {
+      "arxivId": "2610.23284",
+      "title": "Annotrace: A Workbench for Step-Level Annotation of Agent Traces",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "評測/診斷方向與入選的 StepBench 重疊，但樣本規模與錯誤類型拆解不及 StepBench（6,885 筆 wikiHow 程序、5 種診斷任務、12 模型 14 組態的系統性拆解）。"
+    },
+    {
+      "arxivId": "2610.23673",
+      "title": "On the possibilities and limitations of LLM-based multi-agent systems for multi-criteria decision-making in healthcare operations management",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協調/通訊優化方向，方法扎實但屬基礎設施層增量改進；入選的 MiniLab 直接給出可驗證的攻防數字（分散式攻擊偵測率 7% vs 單一 Agent 87%），對讀者今天的風險判斷更具體。"
+    },
+    {
+      "arxivId": "2610.23820",
+      "title": "CocoRNA: Collective RNA Design with Cooperative Multi-agent Reinforcement Learning",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.23826",
+      "title": "Self-Building Labs",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.24033",
+      "title": "LLM Evolution in a Simple Simulated Market",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.24054",
+      "title": "Alliance of Stochastic Routing and Reinforcement Fusion for Multi-Model Reasoning",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.24086",
+      "title": "Coopshift: Post-Training Amplifies The Memory Curse In LLM Cooperation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "記憶/上下文管理方向與入選的「When the harness decides success」重疊，但本篇缺乏該文 pre-registered 雙 provider 複製與逐元件因果分解（92.5 個百分點差異，86%/43%/57% 拆解）等級的證據嚴謹度。"
+    },
+    {
+      "arxivId": "2610.24131",
+      "title": "The Weight of Teamwork: Does Communication Structure Help LLM Scientists Search for Scientific Laws?",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協調/通訊優化方向，方法扎實但屬基礎設施層增量改進；入選的 MiniLab 直接給出可驗證的攻防數字（分散式攻擊偵測率 7% vs 單一 Agent 87%），對讀者今天的風險判斷更具體。"
+    },
+    {
+      "arxivId": "2610.24150",
+      "title": "Preservation and loss of algorithmic structure in experimental diffusion of joint-action norms",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.24168",
+      "title": "Model Capacity Frontier: A Development Framework for LLM-Supported Social Simulation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.24282",
+      "title": "ROAR: Benchmarking LMM Agents under Real-Time Constraints in Multiplayer Action-Shooter Games",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.24383",
+      "title": "IF-MAP: Influence-Function-Inspired Agent Prioritization in Multi-Agent Systems",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協調/通訊優化方向，方法扎實但屬基礎設施層增量改進；入選的 MiniLab 直接給出可驗證的攻防數字（分散式攻擊偵測率 7% vs 單一 Agent 87%），對讀者今天的風險判斷更具體。"
+    },
+    {
+      "arxivId": "2610.24421",
+      "title": "Adding Heavy-Ball Momentum to Distributed Constrained Optimization for Energy Resource Management Subject to Time-Delays and Quantization",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.24431",
+      "title": "Low-Bit Distributed Constrained Optimization with Application to Optimal Scheduling and Allocation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.24549",
+      "title": "CARVS: A Congestion-Aware Algorithm for Online Multi-Agent Pickup-and-Delivery in Human-Collaborative Warehouses",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.24718",
+      "title": "Neuro-Inspired Inhibitory Message Passing for Accurate and Token-Efficient Multi-Agent Reasoning",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協調/通訊優化方向，方法扎實但屬基礎設施層增量改進；入選的 MiniLab 直接給出可驗證的攻防數字（分散式攻擊偵測率 7% vs 單一 Agent 87%），對讀者今天的風險判斷更具體。"
+    },
+    {
+      "arxivId": "2610.24793",
+      "title": "Cooperation Without Shared Rewards via Reciprocal Q-Augmentation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.24833",
+      "title": "Measuring Consensus in AI Agent Networks",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協調/通訊優化方向，方法扎實但屬基礎設施層增量改進；入選的 MiniLab 直接給出可驗證的攻防數字（分散式攻擊偵測率 7% vs 單一 Agent 87%），對讀者今天的風險判斷更具體。"
+    },
+    {
+      "arxivId": "2610.24845",
+      "title": "AgentSoV: Virtual Sensing for LLM Multi-Agent Systems via Stream of Variation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協調/通訊優化方向，方法扎實但屬基礎設施層增量改進；入選的 MiniLab 直接給出可驗證的攻防數字（分散式攻擊偵測率 7% vs 單一 Agent 87%），對讀者今天的風險判斷更具體。"
+    },
+    {
+      "arxivId": "2610.24873",
+      "title": "The One-Pixel of Reasoning: One Truthful Relation Is Enough to Mislead LLM Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.24916",
+      "title": "Same Data, Different Bytes: Serialization-Invariant Integrity Checks for Agent-Published Datasets",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.25040",
+      "title": "Scam Town: Can Scam Education Spread Like a Vaccine?",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.25111",
+      "title": "Explore or Confirm? LLM Agents Misallocate Measurements Under Noise",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.25508",
+      "title": "How Far Can an Agent Push? Trust-Safety Margins in Live Language-Based Economic Games",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.25748",
+      "title": "MAPS: A Multi-Agent Personalized Script-Driven Video Advertising System Enhanced by Reinforcement Learning",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.25851",
+      "title": "Learning Who Talks to Whom: Role-Aware Communication Topology Scheduling for Efficient LLM Multi-Agent Collaboration",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協調/通訊優化方向，方法扎實但屬基礎設施層增量改進；入選的 MiniLab 直接給出可驗證的攻防數字（分散式攻擊偵測率 7% vs 單一 Agent 87%），對讀者今天的風險判斷更具體。"
+    },
+    {
+      "arxivId": "2610.25966",
+      "title": "Behavioral Probes for Information Flow in LLM Swarms",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26106",
+      "title": "A GPU-Resident Pipeline for Multi-Robot 3D Inspection with Limited Perception",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26272",
+      "title": "Bidirectionality is Necessary in Cellular Machines for Exact-Arrival Multi-Agent Path Finding",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26324",
+      "title": "The Control Layer Behind Rule-Following Agents Trading Across Market Conditions",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26359",
+      "title": "Discovery-Probability Graph Planning for Embodied Agents in Tasks with Hidden Cooperation Requirements",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26369",
+      "title": "Autonomous intelligence for mining productivity: a multi-agent AI approach to operational value creation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26474",
+      "title": "AfriGuard: Safety and Robust Refusal For African Languages",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "同屬 Agent 安全/紅隊方向，但證據強度不及入選的 MiniLab：MiniLab 用 5 服務、249 任務、16 種人工優化攻擊給出具體偵測率對比，本篇僅提出概念或單點指標改良，缺乏同等規模的實證對照。"
+    },
+    {
+      "arxivId": "2610.26489",
+      "title": "Strength Controls Change How Interventions Compare Across Sparse Autoencoder Codes",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26496",
+      "title": "Mitigating Reward Hacking in Preference Reward Models with Evolving Penalties",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26511",
+      "title": "RouterWorld: Scaling Conversational AI with Latency-Aware LLM Routing",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26525",
+      "title": "A Fisher-Geometric View of Multi-Teacher On-Policy Distillation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26531",
+      "title": "ReAnchor: Reusing Rejected Verifier States for Diffusion Drafting",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26554",
+      "title": "BetaMem: Learning to Remember a Changing World for Embodied Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26568",
+      "title": "Reward Objectives for Robust (PO)MDPs: A Law-Preserving Equivalence with (Partially Observable) Games",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26582",
+      "title": "WhatIf-Bench: Benchmarking Intervention-Aware Time Series Forecasting",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26589",
+      "title": "Beyond Attack Success Rate: Cost-Aware Metric for Evaluating Iterative LLM Jailbreaks",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "同屬 Agent 安全/紅隊方向，但證據強度不及入選的 MiniLab：MiniLab 用 5 服務、249 任務、16 種人工優化攻擊給出具體偵測率對比，本篇僅提出概念或單點指標改良，缺乏同等規模的實證對照。"
+    },
+    {
+      "arxivId": "2610.26595",
+      "title": "Concerns in Benchmarking Jailbreaks: An Empirical Study of Attack Success Rates",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "同屬 Agent 安全/紅隊方向，但證據強度不及入選的 MiniLab：MiniLab 用 5 服務、249 任務、16 種人工優化攻擊給出具體偵測率對比，本篇僅提出概念或單點指標改良，缺乏同等規模的實證對照。"
+    },
+    {
+      "arxivId": "2610.26601",
+      "title": "BERT Is Already a Denoiser: Cheaply Unlocking Iterative Generation in Masked Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26614",
+      "title": "Conducting Reliable Keyword Estimation with Unreliable ASR in Police Audio Data",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26629",
+      "title": "VaDar: Implicit Goal Conditioning via Value Disaggregation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26636",
+      "title": "Revision-Based Learning from Interactive Experience and Feedback",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26645",
+      "title": "Reasoning-Aware Multicalibrated Reliability Predictors for Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26650",
+      "title": "From Outcomes to Components: A Counterfactual Evaluation Framework for LLM-Proposed Repairs",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "評測/診斷方向與入選的 StepBench 重疊，但樣本規模與錯誤類型拆解不及 StepBench（6,885 筆 wikiHow 程序、5 種診斷任務、12 模型 14 組態的系統性拆解）。"
+    },
+    {
+      "arxivId": "2610.26651",
+      "title": "The Effectiveness and Durability of Pretraining Data Filtering in Protein Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26655",
+      "title": "The Development of Sycophancy in Language Models: Tracing Vulnerabilities from Pretraining to Post-Training",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26659",
+      "title": "SpatialScout: Can VLM Agents Actively Explore and Map 3D Scenes?",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26660",
+      "title": "Tandem: Serving Hybrid Linear-Attention GUI Agents on Mobile NPUs",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26662",
+      "title": "AllPath: Layered Verification for a Deployed, Self-Revising LLM Trading Agent under Human-Gated and Autonomous Regimes",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "評測/診斷方向與入選的 StepBench 重疊，但樣本規模與錯誤類型拆解不及 StepBench（6,885 筆 wikiHow 程序、5 種診斷任務、12 模型 14 組態的系統性拆解）。"
+    },
+    {
+      "arxivId": "2610.26664",
+      "title": "Honeypots for AI Agent Insider Threats",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "reject",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "讀正文確認是 position paper：只提出 honeypot 作為 Agent 內部威脅防禦的構想與一串待研究問題，沒有任何實驗、模擬或部署數據驗證偵測率或嚇阻效果，依選案標準「純 position paper 不作為 daily 主選論文」排除；可信度判定為排除，不是 watch。",
+      "credibilityEvidence": [
+        "全文為方法倡議與限制討論，未提供任何實驗、模擬或案例資料驗證 honeypot 的偵測率或嚇阻效果"
+      ],
+      "evidenceMaturity": "proof-of-concept",
+      "evidenceMaturityReason": "僅提出「應該怎麼做」與待研究問題清單，沒有可檢查的實驗或數據支持效果主張",
+      "reproducibility": "not-provided",
+      "editorialConfidence": "low",
+      "editorialConfidenceReason": "position paper 性質，主張效果但無實證，依選案標準不得因新穎性或機構聲望補回可信度",
+      "primaryLimitation": "完全沒有實證：論文本身也承認這是待驗證的研究方向清單",
+      "presentation": "clear",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "low",
+      "practicalLink": "speculative"
+    },
+    {
+      "arxivId": "2610.26676",
+      "title": "Which Model for Which Role? Cost-Efficient Pareto Recommendation for LLM Agentic Workflows",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26685",
+      "title": "Intra-Rubric Reward Divergence: Mitigating Rubric Hacking through Latent Dimension Recovery and Balancing",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26693",
+      "title": "Parallel Language Models via Variational Decoding",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26695",
+      "title": "Hierarchical Token Merging with Recursive Autoencoders for Unsupervised Grammar Induction",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26698",
+      "title": "Towards Robust Model Organisms for Eliciting Latent Knowledge",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26714",
+      "title": "HoloCosm: Beyond Single-Metric Benchmark Compression Across Multiple Metrics",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "評測/診斷方向與入選的 StepBench 重疊，但樣本規模與錯誤類型拆解不及 StepBench（6,885 筆 wikiHow 程序、5 種診斷任務、12 模型 14 組態的系統性拆解）。"
+    },
+    {
+      "arxivId": "2610.26722",
+      "title": "Copying Under Repetition: From Prefix Matching to Position Hashing",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26730",
+      "title": "EpiLens: Lightweight RAG for Epidemiological Knowledge Acquisition",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "記憶/上下文管理方向與入選的「When the harness decides success」重疊，但本篇缺乏該文 pre-registered 雙 provider 複製與逐元件因果分解（92.5 個百分點差異，86%/43%/57% 拆解）等級的證據嚴謹度。"
+    },
+    {
+      "arxivId": "2610.26747",
+      "title": "recAMPLIFY: Large-Scale Pretraining of Recursive Protein Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26754",
+      "title": "TokenGate: Adapting LLMs for Fast and Memory-Efficient Prefill with Learned Token Pruning",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "記憶/上下文管理方向與入選的「When the harness decides success」重疊，但本篇缺乏該文 pre-registered 雙 provider 複製與逐元件因果分解（92.5 個百分點差異，86%/43%/57% 拆解）等級的證據嚴謹度。"
+    },
+    {
+      "arxivId": "2610.26770",
+      "title": "HarnessPro: Recursive Harness Self-Improvement with Pareto Optimization for Performance-Cost Trade-offs",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "記憶/上下文管理方向與入選的「When the harness decides success」重疊，但本篇缺乏該文 pre-registered 雙 provider 複製與逐元件因果分解（92.5 個百分點差異，86%/43%/57% 拆解）等級的證據嚴謹度。"
+    },
+    {
+      "arxivId": "2610.26776",
+      "title": "Monsoon: Scalable Spontaneous Speech Collection for Low-Resource ASR in 50 Languages",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26777",
+      "title": "Topological Sheaves of Irreducibility: A Theoretical Framework for Multi-Agent Task Obstructions",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協調/通訊優化方向，方法扎實但屬基礎設施層增量改進；入選的 MiniLab 直接給出可驗證的攻防數字（分散式攻擊偵測率 7% vs 單一 Agent 87%），對讀者今天的風險判斷更具體。"
+    },
+    {
+      "arxivId": "2610.26781",
+      "title": "Game of Phones: Harnessing Game Theory and LLMs in 'Bot Wars' to Counteract Phone Scams",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "記憶/上下文管理方向與入選的「When the harness decides success」重疊，但本篇缺乏該文 pre-registered 雙 provider 複製與逐元件因果分解（92.5 個百分點差異，86%/43%/57% 拆解）等級的證據嚴謹度。"
+    },
+    {
+      "arxivId": "2610.26782",
+      "title": "RESIN: Multi-Chain Reasoning with Entity-Structured Indexing",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26787",
+      "title": "LG-Bench: A Graph-Structured Evaluation Benchmark for Life Sciences",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26789",
+      "title": "Cooperative Multi-Agent Reinforcement Learning for Market Making on Prediction-Market Order Books",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26793",
+      "title": "SOMA: Continuous Monitoring and Intervention for System Two Reasoning with System One Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26797",
+      "title": "Teacher Supervision, Fixed Representations and Calibration: Exact Risk Calculations for Candidate-Scoring Decision Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26801",
+      "title": "Mise-en-Video: Fine-Grained 3D Control for Multi-Shot Video Generation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26809",
+      "title": "Safety Mid-Training: Internalizing LLM Safety as a Foundational Capability",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "同屬 Agent 安全/紅隊方向，但證據強度不及入選的 MiniLab：MiniLab 用 5 服務、249 任務、16 種人工優化攻擊給出具體偵測率對比，本篇僅提出概念或單點指標改良，缺乏同等規模的實證對照。"
+    },
+    {
+      "arxivId": "2610.26817",
+      "title": "Next Best Action: Causal Constrained Offline RL for Business Action Targeting",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26819",
+      "title": "ASTOR: Benchmarking and Improving Autoformulation for Soft-Constraint Optimization with a Formal Grammar",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "評測/診斷方向與入選的 StepBench 重疊，但樣本規模與錯誤類型拆解不及 StepBench（6,885 筆 wikiHow 程序、5 種診斷任務、12 模型 14 組態的系統性拆解）。"
+    },
+    {
+      "arxivId": "2610.26821",
+      "title": "AfriBED: a Speech Recognition Bias Evaluation Dataset for Low Resource African Languages",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26824",
+      "title": "SpecMRL: Redesign Matryoshka Representation Learning within Parametric Spectrum",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26825",
+      "title": "MemT-1.0: Towards Memory-Native Evolution",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "記憶/上下文管理方向與入選的「When the harness decides success」重疊，但本篇缺乏該文 pre-registered 雙 provider 複製與逐元件因果分解（92.5 個百分點差異，86%/43%/57% 拆解）等級的證據嚴謹度。"
+    },
+    {
+      "arxivId": "2610.26826",
+      "title": "RefCraft: Benchmarking Visual-Reference-Conditioned Agentic Generation through Web Development",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "評測/診斷方向與入選的 StepBench 重疊，但樣本規模與錯誤類型拆解不及 StepBench（6,885 筆 wikiHow 程序、5 種診斷任務、12 模型 14 組態的系統性拆解）。"
+    },
+    {
+      "arxivId": "2610.26827",
+      "title": "KEEP-Bench: Evaluating Evidence Preservation in Context Compression",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "記憶/上下文管理方向與入選的「When the harness decides success」重疊，但本篇缺乏該文 pre-registered 雙 provider 複製與逐元件因果分解（92.5 個百分點差異，86%/43%/57% 拆解）等級的證據嚴謹度。"
+    },
+    {
+      "arxivId": "2610.26828",
+      "title": "Agent World Model in the Wild: Computer-Use Agent Environment Synthesis",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26829",
+      "title": "ProteinGeoBench: Frontier Structural-Biology Agents Are Fluent at Lookup but Lost in Geometry",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26830",
+      "title": "Competing Learning in Hybrid Architectures",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26834",
+      "title": "Kronecker Delta Rule for Long Context Linear Attention",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26836",
+      "title": "Same Simulation, Different Evidence: Where Retrieved Tool Output Costs LLM Agents Accuracy",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "記憶/上下文管理方向與入選的「When the harness decides success」重疊，但本篇缺乏該文 pre-registered 雙 provider 複製與逐元件因果分解（92.5 個百分點差異，86%/43%/57% 拆解）等級的證據嚴謹度。"
+    },
+    {
+      "arxivId": "2610.26840",
+      "title": "LatComm: Reusable Context Compression for Latent Communication between Large Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協調/通訊優化方向，方法扎實但屬基礎設施層增量改進；入選的 MiniLab 直接給出可驗證的攻防數字（分散式攻擊偵測率 7% vs 單一 Agent 87%），對讀者今天的風險判斷更具體。"
+    },
+    {
+      "arxivId": "2610.26844",
+      "title": "AnyGoal: On World Model Generalization Beyond Expert Rollouts",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26845",
+      "title": "Train An Imaginative Agent",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26847",
+      "title": "WeAct: Dynamic Weight Switching as Agent Actions",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26848",
+      "title": "Where is Physical RSI capability from? An Observational Scaling Law of LLM-as-policy",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26852",
+      "title": "CoopUQ: Robust Multi-Robot Social Navigation via Uncertainty-Aware Cooperative Forecasting",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    },
+    {
+      "arxivId": "2610.26856",
+      "title": "Reinforcement Learning with Visually Attributable On-Policy Self-Distillation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "通過主題門但今日重要性低於三篇入選論文（MiniLab 的多 Agent 控制失靈、harness 論文的因果分解證據、StepBench 的大規模程序診斷），尚待更多信號後重新考慮。"
+    },
+    {
+      "arxivId": "2610.26860",
+      "title": "OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "pass",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "證據完整度其實不輸入選論文（22 benchmark、8 模型骨幹的系統評測），但主題聚焦多模態視覺工具呼叫，與入選的「When the harness decides success」在文字 Agent harness 設計上重疊；今天優先選證據型態更適合文字 Agent 讀者的後者，本篇留待未來聚焦多模態 Agent 的日子使用。",
+      "credibilityEvidence": [
+        "正文有 22 個 benchmark 的控制實驗，8 個 backbone 模型的對照組，數字可回到摘要陳述"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "跨 22 個 benchmark、8 種模型骨幹的系統評測，含與 Codex、Visual Sketchpad 的直接對照",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "證據完整但主題偏向多模態視覺推理，與今日入選的文字 Agent 方向重疊度較低",
+      "primaryLimitation": "聚焦多模態視覺任務，結論對純文字 Agent harness 設計的遷移性未驗證",
+      "presentation": "clear",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative"
+    },
+    {
+      "arxivId": "2610.26861",
+      "title": "Can It Actually Work? Synthesizing Functional CAD Mechanisms",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "主題不在 AI Agent 核心範圍內（硬體/機器人/蛋白質/語音/純最佳化理論等），依初篩排除條件判定 off-topic。"
+    }
+  ]
+}
