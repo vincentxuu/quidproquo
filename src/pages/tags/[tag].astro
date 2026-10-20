@@ -26,13 +26,14 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.params;
+const tagLabel = tag === 'english-video-practice' ? '英文影音練習' : tag;
 const { posts, switchHref } = Astro.props;
 posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
-<PostLayout title={`#${tag} — quidproquo`} lang="zh-TW" description={`quidproquo 標籤 #${tag} 相關文章，共 ${posts.length} 篇。`} switchHref={switchHref}>
+<PostLayout title={`#${tagLabel} — quidproquo`} lang="zh-TW" description={`quidproquo 標籤 #${tag} 相關文章，共 ${posts.length} 篇。`} switchHref={switchHref}>
   <a href="/tags" class="back-link"><Icons name="chevron-left" size={14} />{t('post.backtotags')}</a>
   <div class="tag-header">
-    <h1><span class="hash">#</span>{tag}</h1>
+    <h1><span class="hash">#</span>{tagLabel}</h1>
     <span class="post-count">{posts.length} {t('post.articles')}</span>
   </div>
   {posts.map(post => (

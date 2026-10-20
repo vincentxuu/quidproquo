@@ -50,9 +50,9 @@ series:
 
 | 證照 | 免費路線 | 付費路線 | 估計花費 |
 |---|---|---|---|
-| Security+ | Professor Messer YouTube 全課程 + CompTIA 樣題 | Udemy Jason Dion / Professor Messer（$15–$30 特價） | $0–$50 |
-| AWS Security | AWS Skill Builder 免費課 + 白皮書 | Udemy Stephane Maarek / Neal Davis（$28–$120）+ Tutorials Dojo 題庫 | $0–$150 |
-| CISSP | ISC2 樣題 + Reddit r/cissp + Discord | Boson 模擬題（~$80）、Udemy Thor Pedersen（$15–$30）；台灣實體班：[恆逸 CISSP](https://www.uuu.com.tw/Course/Show/47/CISSP)、[全智網 CISSP](https://ainetwork-training.com/courses/cissp) | $0–$150（自學）/ NT$5–8 萬+（實體班） |
+| Security+ | Professor Messer 官網免費全課程 + CompTIA 樣題 | Udemy [Mike Meyers 課程](https://www.udemy.com/course/total-comptia-security-plus) $24.99；[Jason Dion 課程](https://www.udemy.com/course/securityplus)標價 $119.99（2026/10/19 Udemy 標價，常打折） | $0–$50（走 Mike Meyers 路線；選 Dion 標價則約 $120） |
+| AWS Security | AWS Skill Builder 免費課 + 白皮書 | Udemy Stephane Maarek 課程 $17.99 + 練習題 $14.99（2026/7 Udemy 主題頁特價價）；[Tutorials Dojo 題庫](https://portal.tutorialsdojo.com/product/aws-certified-security-specialty-practice-exams/) $17.99（1 年存取）；三項合計約 $51 | $0–$51 |
+| CISSP | ISC2 樣題 + Reddit r/cissp + Discord | [Boson ExSim-Max](https://www.boson.com/product/exsim-max-for-cissp/) 模擬題 $99／年（6 套、900 題）、Udemy 的 [Jason Dion CISSP 課程](https://www.udemy.com/course/isc2-cissp-full-course-practice-exam)標價 $99.99、Thor Pedersen 題庫課約 $59.99–$79.99（2026/10/19 Udemy 標價）；台灣實體班：[恆逸 CISSP](https://www.uuu.com.tw/Course/Show/47/CISSP)、[全智網 CISSP](https://ainetwork-training.com/courses/cissp) | $0–$200（自學，Boson 加一門 Udemy 課約 $200）/ NT$5–8 萬+（實體班） |
 
 ### 五年維護總成本
 
@@ -184,6 +184,7 @@ CISSP 的難不在單一題目，在於它的 CAT（電腦適性測驗）格式�
 
 ## 更新紀錄
 
+- 2026-10-18：備考材料表的 Udemy 價格重查：移除沒查到的「Professor Messer 在 Udemy」與 Neal Davis，改列有來源的價格，查不到現價的明確標示；另查 Tutorials Dojo（$17.99）與 Boson ExSim-Max（$99／年）官方價，Boson 取代原本第三方比較文的 $99–$129。AWS 的估計花費由 $0–$150 改為 $0–$51（Maarek 課程、練習題、Tutorials Dojo 合計約 $51），與下方五年總成本表的教材估算 ~$50 一致；Security+ 與 CISSP 的估計範圍未變。10-19 再用 Udemy 頁面補查：移除先前引用第三方評測、沒有 Udemy 頁面佐證的「Jason Dion 特價多在 $20 以下」，改列 Dion 標價 $119.99、Mike Meyers $24.99、Dion CISSP 課程 $99.99、Thor Pedersen 題庫課約 $59.99–$79.99；CISSP 自學估計由 $0–$150 改為 $0–$200（Boson $99 加一門 Udemy 課）。下方五年總成本表的教材估算（Security+ ~$30、CISSP ~$100）對應的是各自最低的付費路線（Mike Meyers 課程、Boson），未更動。
 - 2026-10-12：Security+ 通過率與台灣薪資兩段原本引用的數字，來源頁改版後已不再支持；通過率改寫為官方規則與備考門檻，薪資表改用來源現在引用的 104 薪資情報統計，並移除「證照多 10–20%」「外商高 20–50%」。
 - 2026-10-08：CISSP 年費由 $125 更正為 $135，Security+ 考試費改用調價後的 $439，五年總成本與 ROI 倍數隨之重算；補上 Security+ V8 上線與 SY0-701 退役時程；tldr 的成本數字原本與內文表格不一致，已對齊；移除無來源的「台灣約 500 人持有 CISSP」；修正恆逸 CISSP 連結。
 

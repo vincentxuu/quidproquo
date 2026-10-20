@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems-en)
 
-**影片狀態：官方公開頁未列錄影。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **本文依公開投影片撰寫，未含講者口述；額外解讀與自編例子會另行標明。**
 
@@ -215,10 +215,20 @@ SPMD 版本的偽碼很短：前四個 rank 組成訓練群組，持續取 batch
 
 ## 課程影片來源
 
-本文依[第 12 堂投影片](https://www.cmu-agents.com/slides/lecture-12-rl-systems.pdf)撰寫，未含講者口述。查核日期：2026-10-10；當時[官方課表與錄影索引](https://www.cmu-agents.com/#/schedule)的第 12 堂（10/1）只列投影片，未列錄影連結。這只代表當時公開頁未列，不代表校內沒有錄影。
+已核對 CMU 11-768 Fall 2026 第 12 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，標題與講次對應本課程。本篇內文依投影片撰寫，尚未依錄影內容核對或補充。
+
+```youtube
+url: https://www.youtube.com/watch?v=dwR6NP9nI-8
+title: CMU AI Agents 2026: 12. RL Systems
+```
+
+原始影片：[CMU AI Agents 2026: 12. RL Systems](https://www.youtube.com/watch?v=dwR6NP9nI-8)
+
+官方來源：[第 12 堂投影片](https://www.cmu-agents.com/slides/lecture-12-rl-systems.pdf)、[官方課表與錄影索引](https://www.cmu-agents.com/#/schedule)。查核日期：2026-10-17。
 
 ## 更新紀錄
 
+- 2026-10-17：第 12 講錄影已在官方播放清單上架（2026-10-14），更新影片狀態並嵌入影片；內文仍依投影片。
 - 2026-10-11：統一為主題在前與「第 12 堂」標題；濃縮重複來源說明，補上自編更新流程例子與理解檢查。
 
 - 2026-10-10：新增本篇。依第 12 講投影片撰寫，官方公開頁尚未列錄影。

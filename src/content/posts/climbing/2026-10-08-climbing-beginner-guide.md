@@ -126,6 +126,10 @@ Schöffl 等人的[前瞻性研究](http://paci.com.au/downloads_public/risk/Ris
 
 另外留意季節。管理處在同一頁提醒：東北季風盛行的 10 月到 3 月容易有長浪，請勿前往海邊活動。龍洞的岩壁就在海邊，秋冬去之前先看浪況。
 
+## 下一步
+
+想在岩館爬繩，先學[岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay)，它也是[運動攀登與傳統攀登](/posts/climbing/2026-10-17-sport-vs-trad-overview)系列的第一篇。爬了幾個月開始卡關，從[攀岩動作技術總覽](/posts/climbing/2026-10-18-climbing-movement-overview)找出該先補的動作。
+
 ## 參考資料
 
 - [LA28 Reveals Medal Event Program and Athlete Quota（LA28 官方新聞稿）](https://la28.org/en/newsroom/los-angeles-2028-medal-event-program-and-athlete-quota.html)
@@ -143,3 +147,7 @@ Schöffl 等人的[前瞻性研究](http://paci.com.au/downloads_public/risk/Ris
 - [龍洞岩場（東北角及宜蘭海岸國家風景區觀光資訊網）](https://www.necoast-nsa.gov.tw/Attraction-Content.aspx?a=186&l=1)
 - [龍洞攀岩場（中文維基百科）](https://zh.wikipedia.org/zh-hant/%E9%BE%8D%E6%B4%9E%E6%94%80%E5%B2%A9%E5%A0%B4)
 - [攀岩書籍知識版圖：60+ 本書的完整導覽](/posts/climbing/2026-06-20-climbing-books-knowledge-map)
+
+## 更新紀錄
+
+- 2026-10-18：新增「下一步」，連到岩館上攀確保與攀岩動作技術系列。

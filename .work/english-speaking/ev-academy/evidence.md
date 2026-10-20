@@ -1,0 +1,41 @@
+# EV Academy evidence — 2026-10-19
+
+Reader question: whether concentrated residential private lessons fit an adult from Taiwan; choose course mix, obtain a fully itemized quote, and understand limits of public refund and registration information.
+Scope: official Nasipit/Talamban Cebu City adult campus; exclude La Mer family/junior. This follows parent overseas-selection7-school matrix, not ranking or new claim bestschool.
+
+## Tools and source scope
+
+Full callable inventory found no Groundlane connector. Existing safe local18087client once boundedsearch connectionrefused;no serverrestart/tokenoutput/configedit. Exa public MCP search/fetch fallback recorded in sources.json/toolDegradation. Exa exposes no HTTPstatus/truncated/backend, not fabricated.
+
+Fully read official ESL42,PowerSpeaking43,Refund49,Contact3,History2,Profile52. Homepage extraction onlyfooter;not treatedfull schoolmarketing body. Regulations48 returnedfooteronly;not claimedfullrulesread. NationalRatio50 returnedplaceholder percentages;no figures adopted. StudentService51 entire3sections read;not pricebasis for2026. School official dated2026complete fee/refundPDF not found in bounded domain/year/PDF/Tuition search; not silently assume no such document exists.
+
+Read BI accreditedentitiesentry fullythrough2022rows;Schools label2026Apr01ongoingmaintenance,notfoundEVmatchingrow. TESDAdomainEVsearch returnedirrelevantElectricVehicle, exactEVEnglishLanguageAcademy/TESDAsearch noofficialmatch. Did not claimunregistered;askschoolpresentcorporatename/currentcampuscoursecodes/permitdocuments then compare officialauthority. Schoolfooter companyregistrationnumber not treatedTESDA/immigrationlicense.
+
+Agency search candidates: AffinityJapan2026rates, UCASKorean2026notice, RussianhostedoldlocalpaymentsPDF, cebu-conagentcompleteprogram. These are discovery only; none adopted asofficialTaiwancurrentcost, none finalreferences. LaMerfamilyPDF excludedcampus/studenttype mismatch. No need to parse foreignagencyPDF intofakeTaiwaninvoice.
+
+## Core original checks
+
+1. Official42 ESL MTMSpeaking/Reading/Writing/Listening4,SmallGrammar/Presentation2,BigListening/ActiveSpeaking2. Official43 PS6sixMTM+2group,PS8eightMTM;subjects exactlymapped. No45/50minclaim becauseofficialpagesdo notpublishlength. No countingtest/selfstudy aslesson. No blanketEnglishlevel/TOEICthreshold invented.
+2. Official49 cancellationheadings:29daysprior100%tuition/dorm/registration;14–28fulltuition/dorm,noRegistration;under14deduct1weektuition+1weekdorm,noRegistration. Firstline doesnotexplicitlywrite29ormore. No extrapolation toearlierdateorpostarrival,nowrittenpolicyversiondate. Askactualdateandamountcalculation/arrivalrefund/agentfee/medical/visaconditions.
+3. Official3 addressNasipitTalambanCebuCity6000,phone+63-32-384-4755,email ev-global@hanmail.net. Inquiry template4weeksPS6vsESL,twinvstriple,2027Jan11–Feb5checkoutFeb6 explicitlyhypotheticalavailabilitynotconfirmed. Arrivaldate/nightsquotedby school,notinventedSundayrule.
+4. HistoryTESDA2005/2006selfclaimnotindependentcurrentregistration;no guarantee accreditationormeasuredeffect. OfficialIdentitycontactpresent,permitdetailneedsdirectverification. SchoolpastIELTStestvenue notproofofESLteachingeffectiveness.
+5. Historicalcostsfromsocial:2024sixweeksPS6+IELTStwin107000school/150000trip;2025twelveIELTSfour170000school/220000–230000trip. AllNTDselfreported,historicalnotcurrentprice,notinterpolatedorcurrencyconverted. Fullcostformulaorganizedschool/local/personal,depositnotdoublecounted,leaveincomeincludedscope,noinvented2026invoice.
+
+## Three community full-body reads
+
+- Dcard256210117:bodytimeline ROC113Feb=2024start,6weeks,2PS6+4IELTS,fullmainbody+returnedcommentsread. Likesindividualturns/currentissues,criticalteacherfit and6privatefatigue;changedcourse;meal/twinroomdetails. Agencyselectionnarrative,unknowndiscountsorcooperation. Teacherquotes/hearsayaboutteacherexamrequirements/nationalityquality notadopted. Selfreportedexamscores omittednotcausalproof. Currentteacherchangedays notderivedfromoldpost.
+- Dcard259246430:2025-07-05,12weekIELTSnonguarantee,fullmainbodyall3parts+returnedcommentsread. In-depthteacherchanges/groupmismatch/4roomnoise&utilityissues. RecommendsXinfei,notdisclosed compensation. IELTSexperienceonly,notcurrentPS/ESLquality. Noformalgradegaincopied.
+- Dcard261852428:search2026-07-21,fullmainbodyreadthroughlastencouragementparagraph.8ESL+4IELTS,adult29,fullattendance,stronglypromotesiOutback/adviserSandy,benefitrelationshipundisclosed. Mock5.0explicitnotformalIELTS,articledoesnotcopyscore. Positivediscipline/activities,butnotexternalvalidation/currentregulation.
+
+Allthree anecdotes,notrepresentativeorobjectivelearningtests. Newagencyconversionpromopostcouldbecommercial,disclosedratherthan certifiedindependent. EarlierparentDcard256661559comparisoncontainsEVstudentcommentsbutnotfullcourseaccounts,notcountedas3rd. No fabricatedstudentmeetingorvisit.
+
+## Gaps closed / quote dependencies
+
+✅ NamedadultESL/PS6/PS8officialstructureandcontactread.
+✅ Publicpredeparturepolicyreadnarrowlywithoutnewlegalguarantee.
+✅ Threeactualstudentbodyselfreportsreadpositive/negativewithcourse/year/agentcontext.
+✉️ FullTaiwan2026/2027quote androomavailability:officialdomainTuition/Fees/2026/PDFsearch,ESL/PS/contactpagesandregulationsattemptsnotcompletefee;foreignagencypricesexcluded. Contactofficialadmissionsmail/phone withspecific4weekdates/course/roomsforitemizedschool/local/personalboundaries,currency,deposit,surcharges,payment/refundversion. No email sent.
+✉️ Currentpermit/corporatename/campusregisteredprogram:schoolHistoryselfclaim,officialTESDAsearchandBIentrydidnotidentifyexactmatch;noassertionunlicensed. Askofficialcampusadmissionscurrentdocumentsandidentifier,toverifybeforepayment.
+✉️ Postarrivalrefund/29dayboundary/actualcurfew/sessionminutes/holidaymakeup:official49onlypredeparture,48extractionnotrules;askcurrentcontractandactualdates. Do not borrowagentorIELTSoldstudentrulesforgeneralESL.
+
+Bilingualdraftorder12,originalproposalpracticewithnovelquestioncriterion,Mermaid,inlinefirstlinks,refs. Noactualquote/visaadvice/attendance/deploymentclaim.

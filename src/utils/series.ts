@@ -34,6 +34,9 @@ export type SeriesCategoryId =
   | 'ai-agents'
   | 'engineering'
   | 'updates'
+  | 'business'
+  | 'learning'
+  | 'climbing'
   | 'other';
 
 export interface SeriesCategoryDefinition {
@@ -48,6 +51,9 @@ export const SERIES_CATEGORIES: SeriesCategoryDefinition[] = [
   { id: 'ai-agents', labels: { 'zh-TW': 'AI 與 Agent', en: 'AI & Agents' } },
   { id: 'engineering', labels: { 'zh-TW': '工程實作', en: 'Engineering Practice' } },
   { id: 'updates', labels: { 'zh-TW': '趨勢與日報', en: 'Updates & Digests' } },
+  { id: 'business', labels: { 'zh-TW': '商業與產業', en: 'Business & Industry' } },
+  { id: 'learning', labels: { 'zh-TW': '學習與寫作', en: 'Learning & Writing' } },
+  { id: 'climbing', labels: { 'zh-TW': '攀岩', en: 'Climbing' } },
   { id: 'other', labels: { 'zh-TW': '其他主題', en: 'Other Topics' } },
 ];
 
@@ -105,6 +111,7 @@ function inferSeriesCategory(slug: string, posts: SeriesPost[]): SeriesCategoryI
   if (dominantPostCategory === 'daily') return 'updates';
   if (dominantPostCategory === 'tech') return 'engineering';
   if (dominantPostCategory === 'ai') return 'ai-agents';
+  if (dominantPostCategory === 'climbing') return 'climbing';
   return 'other';
 }
 
@@ -177,7 +184,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'nobodyclimb',
-    category: 'other',
+    category: 'engineering',
     names: { 'zh-TW': 'NobodyClimb 專案紀實', en: 'Building NobodyClimb' },
     descriptions: {
       'zh-TW': '一個攀岩社群產品從產品定位、為什麼需要 AI、系統架構到 RAG pipeline 的完整紀實。技法層面的坑另外寫在 RAG 技法大全裡，這裡談的是決定怎麼做出來的。',
@@ -187,11 +194,38 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     // order = 都道府縣 JIS 代碼 × 100 + 該縣第幾個岩場（東京 13 → 1301…），總覽為 0；缺號是還沒寫，不擋。
     slug: 'japan-crags',
-    category: 'other',
+    category: 'climbing',
     names: { 'zh-TW': '日本岩場', en: 'Japan Climbing Crags' },
     descriptions: {
       'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭電車與開車怎麼去、在地規範。母群取自 ROCKTOPO 與 CLIMBING-net（《日本100岩場》），依都道府縣排序，從本州中部開始逐步補滿全日本。',
       en: 'One crag per guide: rock type and climbing style, the best seasons and why, how to get there by train or car, and local rules. Crags are drawn from ROCKTOPO and CLIMBING-net (the Japan 100 Crags guidebooks), ordered by prefecture, starting in central Honshu and expanding to cover all of Japan.',
+    },
+  },
+  {
+    slug: 'italy-crags',
+    category: 'climbing',
+    names: { 'zh-TW': '義大利岩場', en: 'Italy Climbing Crags' },
+    descriptions: {
+      'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭火車巴士與開車怎麼去、在地規範。從北部的花崗岩谷地與多洛米蒂，到利古里亞、拉齊奧、西西里與薩丁尼亞的海岸石灰岩，依大區由北往南排序。',
+      en: 'One crag per guide: rock type and climbing style, the best seasons and why, how to get there by train, bus or car, and local rules. From the granite valleys and Dolomites of the north to the coastal limestone of Liguria, Lazio, Sicily and Sardinia, ordered by region from north to south.',
+    },
+  },
+  {
+    slug: 'climbing-gear-travel',
+    category: 'climbing',
+    names: { 'zh-TW': '出國攀岩裝備', en: 'Climbing Travel Gear' },
+    descriptions: {
+      'zh-TW': '帶裝備出國攀岩時讀：依目的地決定帶什麼、繩要多長，攀岩裝備怎麼過安檢與航司行李規定，2020 年後攀岩者實際怎麼分托運與登機，再挑托運主袋、岩場包和多繩距攀登包。裝備本身怎麼挑與保養，交給「攀岩裝備」系列。',
+      en: 'For climbers flying abroad with their gear: what to bring for each destination and how long a rope you need, how climbing gear fares at airport security and under airline baggage rules, how climbers actually split checked and cabin luggage (examples from 2020 on), then choosing a checked bag, crag pack and multipitch pack. How to choose and care for each piece of gear is covered in the Climbing Gear series.',
+    },
+  },
+  {
+    slug: 'ifmga-mountain-guides',
+    category: 'climbing',
+    names: { 'zh-TW': 'IFMGA 高山嚮導', en: 'IFMGA Mountain Guides' },
+    descriptions: {
+      'zh-TW': 'IFMGA 國際高山嚮導是什麼、怎麼雇一位、學什麼考什麼，28 個會員協會分區介紹各國的訓練流程、費用、語言與外國人條件，最後整理台灣人能走的路。',
+      en: 'What an IFMGA mountain guide is, how to hire one, and what the training and exams cover, followed by region-by-region guides to how the 28 member associations train guides (process, cost, language, rules for foreigners), ending with the realistic paths for Taiwanese climbers.',
     },
   },
   {
@@ -297,7 +331,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'drone-industry',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': '無人機產業拆解', en: "Taiwan's Drone Industry, Taken Apart" },
     descriptions: {
       'zh-TW': '把無人機產業拆成可查證的層：從產業地圖與供應鏈缺口，到續航物理、飛控與遙控鏈路原始碼，再到台灣的法規授權、採購紀錄與反制困境。每一篇都從一手材料算起或讀起。',
@@ -548,7 +582,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'taste-cultivation',
-    category: 'other',
+    category: 'learning',
     names: { 'zh-TW': '品味修煉', en: 'Cultivating Taste' },
     descriptions: {
       'zh-TW': '把品味拆成可以觀察、辯護與反覆校準的判斷力，系統性記錄在 AI 放大執行力之後，如何訓練選擇什麼值得做、怎樣才算做好的能力。',
@@ -558,7 +592,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     // 課程專有名詞，兩語同名
     slug: 'learning-how-to-learn',
-    category: 'other',
+    category: 'learning',
     names: { 'zh-TW': 'Learning How to Learn', en: 'Learning How to Learn' },
     descriptions: {
       'zh-TW': '把學習科學的證據與生成式 AI 的實際用法擺在一起審視：哪些做法有證據支持、哪些只是流傳，以及數位之外紙筆還剩什麼。',
@@ -567,7 +601,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'articles-that-teach',
-    category: 'other',
+    category: 'learning',
     names: { 'zh-TW': '教學文章怎麼寫', en: 'Writing Articles That Teach' },
     descriptions: {
       'zh-TW': '從寫的人這一側看學習：文字怎麼組織、什麼該畫成圖、影片怎麼搭配、畫面怎麼排。每篇整理研究證據與限制，並用本站的課程導讀當案例。',
@@ -942,7 +976,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'solo-media-company',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': '一個人的媒體公司', en: '一個人的媒體公司' },
     descriptions: {
       'zh-TW': '一個人經營內容/媒體事業的實務紀錄：定位、產出節奏、變現與 AI 工具怎麼放進流程。',
@@ -989,7 +1023,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   // 這種泛用 slug，跟其他系列搶同一條路由。舊路由在 astro.config 留 301。
   {
     slug: 'ai-search-content-business',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': 'AI 搜尋正在重寫內容生意', en: 'AI Search Is Rewriting the Content Business' },
     descriptions: {
       'zh-TW': '從 Google、Pew 與 Cloudflare 的資料拆解 AI 摘要如何重畫內容、引用、點擊與轉換路徑，以及封鎖、授權、訴訟與自有資產各自能保護內容生意的哪一段。',
@@ -999,7 +1033,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   // 內容販售系列群：一個入口系列加三個子系列。登錄前中英文各走自己的 fallback slug，語言切換接不起來。
   {
     slug: 'content-selling-business-models',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': '內容販售商業模式拆解', en: 'Content Selling Business Models' },
     descriptions: {
       'zh-TW': '內容販售系列群的入口：先問誰付錢、付錢是為了完成什麼工作，再比較 B2B 情報、個人媒體、創作者平台與免費內容四種模式，並導向各子系列。',
@@ -1008,7 +1042,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'enterprise-intelligence-business',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': '情報如何成為一門企業生意', en: 'How Intelligence Becomes an Enterprise Business' },
     descriptions: {
       'zh-TW': '拆解 DIGITIMES、The Information、Seeking Alpha、CB Insights、PitchBook 與 Gartner 如何把資訊取得、驗證與研究做成企業願意續約的產品，最後檢查台灣還能不能長出垂直情報公司。',
@@ -1017,7 +1051,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'creator-reader-relationship',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': '誰掌握創作者與讀者的關係', en: 'Who Controls the Creator-Reader Relationship' },
     descriptions: {
       'zh-TW': '比較 Medium、Vocus、Substack、Patreon、Ghost 與 Beehiiv 各自拿走與留給創作者的東西：流量、會員資料、付款關係與搬家成本，並整理台灣創作者的平台選擇。',
@@ -1026,7 +1060,7 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   },
   {
     slug: 'free-content-acquisition',
-    category: 'other',
+    category: 'business',
     names: { 'zh-TW': '免費內容如何替別的生意獲客', en: 'How Free Content Acquires Customers for Another Business' },
     descriptions: {
       'zh-TW': '免費內容怎麼連到廣告、工具訂閱、券商合作與聯盟收入：用鉅亨網、CMoney、BigGo Finance、Fugle 等案例拆解轉換路徑、單位經濟與 AI 搜尋帶來的風險。',
@@ -1085,6 +1119,114 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '逐講讀 CMU 11-768 AI Agents（Fall 2026）：從 agent 迴圈、工具使用到 RL 訓練、credit assignment 與 reward hacking，依官方課序整理。',
       en: 'A lecture-by-lecture reading of CMU 11-768 AI Agents (Fall 2026), from the agent loop and tool use to RL training, credit assignment, and reward hacking, following the official course order.',
+    },
+  },
+  {
+    slug: 'sport-trad-climbing',
+    category: 'climbing',
+    names: { 'zh-TW': '運動攀登與傳統攀登', en: 'Sport and Trad Climbing' },
+    descriptions: {
+      'zh-TW': '從岩館走到戶外岩壁：先在岩館學上攀確保與先鋒，再到戶外確保、運攀先鋒、判斷 bolt、架頂繩、下放與垂降，再到傳攀保護、固定點、多繩距與自救概念，最後是台灣岩場與打 bolt 的倫理。每篇對齊 nobodyclimb 繩索系統練習的等級。',
+      en: 'From the gym to real rock: top-rope belaying and leading in the gym, then outdoor belaying, sport leading, judging bolts, top-rope setups, lowering and rappelling, then trad gear, anchors, multi-pitch and self-rescue concepts, Taiwan crags and bolting ethics. Each guide maps to a level of the nobodyclimb rope-system practice.',
+    },
+  },
+  {
+    slug: 'climbing-movement',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩動作技術', en: 'Climbing Movement' },
+    descriptions: {
+      'zh-TW': '在岩館爬了幾個月開始卡關時讀：腳法、重心與平衡、側身與擰身、手點與握法、動態、抱石解題、休息與讀線、牆角度，最後是去龍洞前要會的裂隙技術。每篇用研究檢查常見口訣。',
+      en: 'For gym climbers a few months in who have started to plateau: footwork, balance, turning and twisting, holds and grips, dynamic moves, bouldering problem solving, resting and route reading, wall angles, and crack technique for Taiwan\'s Long Dong. Each post checks common climbing advice against the research.',
+    },
+  },
+  {
+    slug: 'climbing-training',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩訓練', en: 'Climbing Training' },
+    descriptions: {
+      'zh-TW': '爬了一年左右開始卡關時讀：先診斷卡在技術還是體能，再談能量系統、指力板、力量與 campus board、耐力、週期化、居家訓練、拮抗肌與核心，最後是營養、RED-S 與恢復。每篇標明哪些有研究支持、哪些是教練共識。',
+      en: 'For climbers about a year in who have hit a plateau: first diagnose whether the limit is technique or fitness, then energy systems, hangboarding, strength and the campus board, endurance, periodization, home training, antagonist and core work, and finally nutrition, RED-S and recovery. Each post separates what research supports from coaching consensus.',
+    },
+  },
+  {
+    slug: 'climbing-injury',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩傷害預防與急救', en: 'Climbing Injuries and First Aid' },
+    descriptions: {
+      'zh-TW': '攀岩最常傷到哪裡、受傷當下怎麼處理、該看哪一科；暖身、手指滑車與其他手指傷害、肘腕、肩、抱石墜落與腳踝、膝與 heel hook、腳與攀岩鞋、脊椎、青少年生長板，受傷後怎麼回岩館、柔軟度，最後是在台灣岩場出事時怎麼報案與急救。只寫來源說了什麼，需要診斷的地方請看醫師或物理治療師。',
+      en: 'Where climbers get hurt, what to do in the first minutes, and which clinician to see; warm-ups, finger pulleys and other finger injuries, elbows and wrists, shoulders, bouldering falls and ankles, knees and heel hooks, feet and climbing shoes, the spine, growth plates in young climbers, returning to the gym, flexibility, and what to do when something goes wrong at a Taiwanese crag. The posts report what the sources say; anything needing a diagnosis goes to a doctor or physiotherapist.',
+    },
+  },
+  {
+    slug: 'climbing-community-industry',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩圈與產業', en: 'The Climbing Community and Industry' },
+    descriptions: {
+      'zh-TW': '岩館裡除了你，還有繩伴、小孩、教練、定線員和老闆。這個系列從怎麼找到可靠的繩伴講起，一路看到教練證照、兒童與身障者怎麼爬、路線是誰定的，以及你簽的切結書、岩館的保險和安全管理到底保障什麼。',
+      en: "A climbing gym holds more than just you: partners, kids, coaches, route setters and the owner. This series starts with finding a partner you can trust, then covers coaching certifications, how kids and disabled climbers get on the wall, who sets the routes, and what the waiver you sign, the gym's insurance and its safety checks actually cover.",
+    },
+  },
+  {
+    slug: 'outdoor-bouldering',
+    category: 'climbing',
+    names: { 'zh-TW': '戶外抱石', en: 'Outdoor Bouldering' },
+    descriptions: {
+      'zh-TW': '在岩館抱石一陣子、想第一次去爬真的石頭時讀：怎麼鋪抱石墊與 spot、怎麼讀 topo 和守岩場禮儀、台灣有哪些抱石區，最後是高抱石什麼時候該改架頂繩。每篇標明哪些有研究、哪些是經驗共識。',
+      en: 'For gym boulderers heading to real rock for the first time: how to lay crash pads and spot, how to read a topo and keep access open, where to boulder in Taiwan, and when a highball should become a toprope. Each post flags what is backed by research and what is climber consensus.',
+    },
+  },
+  {
+    slug: 'climbing-disciplines',
+    category: 'climbing',
+    names: { 'zh-TW': '其他攀登類型', en: 'Other Climbing Disciplines' },
+    descriptions: {
+      'zh-TW': '岩館和運攀之外，攀登還有哪些樣子：深水獨攀、大岩壁與人工攀登、冰攀與混合攀、高山攀登，最後是無繩獨攀。每篇講清楚它是什麼、怎麼分級、風險在哪、台灣能不能練，以及從哪裡開始。',
+      en: 'Beyond the gym and sport crag: deep water soloing, big walls and aid climbing, ice and mixed climbing, alpine climbing, and finally free soloing. Each guide covers what the discipline is, how it is graded, where the risk lies, whether you can practise it in Taiwan, and where to start.',
+    },
+  },
+  {
+    slug: 'climbing-history-culture',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩文化與歷史', en: 'Climbing History and Culture' },
+    descriptions: {
+      'zh-TW': '想知道岩館裡的粉袋、岩鞋、難度等級和比賽從哪裡來時讀：先看攀岩怎麼從登山分出來、一路走到奧運，再看台灣從日治的大砲岩、1980 年代的攀岩者俱樂部到龍洞與抱石館的經過。有爭議的年份並列不選邊。',
+      en: "For climbers curious where chalk, climbing shoes, grades and competitions came from: how rock climbing split from mountaineering and made its way to the Olympics, then Taiwan's story from Japanese-era Dapaoyan and the 1980s Rock Climbers' Club to Long Dong and the bouldering-gym boom. Disputed dates are shown side by side.",
+    },
+  },
+  {
+    slug: 'climbing-gear',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩裝備', en: 'Climbing Gear' },
+    descriptions: {
+      'zh-TW': '從買第一雙攀岩鞋開始：先租還是先買、鞋子多緊才對、吊帶與頭盔怎麼試穿、繩子與確保器怎麼搭配，以及原廠怎麼規定檢查與汰換。只講選購判準、標準數字與退役規則，不推薦型號。',
+      en: 'Starting from your first pair of climbing shoes: what to rent and what to buy, how tight shoes should be, how to fit a harness and helmet, how ropes and belay devices go together, and what manufacturers say about inspection and retirement. Selection criteria, standards, and retirement rules only, no model picks.',
+    },
+  },
+  {
+    slug: 'climbing-mental-tactics',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩心理與戰術', en: 'Climbing Mental Game and Tactics' },
+    descriptions: {
+      'zh-TW': '開始先鋒後讀：為什麼頂繩爬得上、先鋒就卡住，怎麼循序練墜落、面對失敗的緊張、比賽時的隔離區與觀察時間，再到 onsight 與 redpoint 的投入策略、挑天氣與摩擦，最後是皮膚保養。每篇標明哪些有研究支持、哪些只是教練共識。',
+      en: 'For climbers who have just started leading: why a route that goes on top-rope falls apart on lead, how to practise falling in measured steps, how to handle fear of failure, competition isolation and observation time, then onsight and redpoint tactics, picking conditions for friction, and finally skin care. Each post separates what research supports from coaching consensus.',
+    },
+  },
+  {
+    slug: 'climbing-competitions',
+    category: 'climbing',
+    names: { 'zh-TW': '攀岩賽事與職業攀岩', en: 'Climbing Competitions and Pro Climbing' },
+    descriptions: {
+      'zh-TW': '看懂攀岩比賽的入門系列：誰在辦比賽、抱石／先鋒／速度怎麼計分、奧運賽制怎麼從東京變到洛杉磯、台灣人能參加哪些比賽，以及比賽之外，職業攀岩者靠戶外首攀和拍片走的另一條路。',
+      en: 'A viewer\'s guide to climbing competitions: who runs them, how boulder, lead and speed are scored, how the Olympic format changed from Tokyo to Los Angeles, which events Taiwanese climbers can enter, and the other path pros take outside competition, through hard outdoor ascents and film.',
+    },
+  },
+  {
+    slug: 'english-speaking-practice',
+    category: 'learning',
+    names: { 'zh-TW': '英文口說練習', en: 'English Speaking Practice' },
+    descriptions: {
+      'zh-TW': '從具體溝通任務出發，逐家介紹線上真人平台、AI 工具與語言學校，搭配課前準備、課中回饋與課後重說。',
+      en: 'Task-based speaking practice with individual guides to live tutoring platforms, AI tools, and language schools, connecting preparation, feedback, and repetition.',
     },
   },
 ];

@@ -164,3 +164,174 @@ describe('YouTube time links', () => {
     expect(root.classList.contains('video-split')).toBe(false);
   });
 });
+
+describe('practice playback boundaries', () => {
+  it('corrects a startup seek that YouTube ignored before playback', async () => {
+    const { createPracticePlayback } = await import('./youtubeClipLoop');
+    vi.useFakeTimers();
+    const player = { seekTo: vi.fn(), playVideo: vi.fn(), getCurrentTime: () => 0 };
+    const playback = createPracticePlayback(player, 1367, 1418, true);
+    playback.onStateChange(1);
+    vi.advanceTimersByTime(100);
+    expect(player.seekTo).toHaveBeenCalledWith(1367, true);
+    vi.advanceTimersByTime(500);
+    expect(player.seekTo).toHaveBeenCalledTimes(1);
+    playback.dispose();
+  });
+
+  it('pauses once at the end when looping is off, and never restarts on ended', async () => {
+    const { createPracticePlayback } = await import('./youtubeClipLoop');
+    vi.useFakeTimers();
+    const player = { seekTo: vi.fn(), playVideo: vi.fn(), pauseVideo: vi.fn(), getCurrentTime: () => 1034 };
+    const playback = createPracticePlayback(player, 1003, 1034, false);
+    playback.onStateChange(1);
+    vi.advanceTimersByTime(500);
+    expect(player.pauseVideo).toHaveBeenCalledTimes(1);
+    playback.onStateChange(0);
+    expect(player.seekTo).not.toHaveBeenCalled();
+    playback.dispose();
+  });
+  it('loops at the chosen start and leaves no polling after disposal', async () => {
+    const { createPracticePlayback } = await import('./youtubeClipLoop');
+    vi.useFakeTimers();
+    const player = { seekTo: vi.fn(), playVideo: vi.fn(), getCurrentTime: () => 1911 };
+    const playback = createPracticePlayback(player, 1858, 1911, true);
+    playback.onStateChange(1);
+    vi.advanceTimersByTime(100);
+    expect(player.seekTo).toHaveBeenCalledWith(1858, true);
+    playback.dispose();
+    vi.advanceTimersByTime(1000);
+    expect(player.seekTo).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('practice player integration', () => {
+  const setup = async () => {
+    const { playYoutubePractice, seekEmbeddedYoutube } = await import('./youtubeClipLoop');
+    vi.useFakeTimers();
+    const player = { seekTo: vi.fn(), playVideo: vi.fn(), pauseVideo: vi.fn(), setPlaybackRate: vi.fn(), getCurrentTime: vi.fn(() => 110) };
+    const container = { classList: { remove: vi.fn() }, replaceChildren: vi.fn() };
+    const frame = {
+      src: 'https://www.youtube-nocookie.com/embed/MN9dGgmLyso?enablejsapi=1', dataset: {}, isConnected: true,
+      closest: (selector: string) => selector === '.video-embed__frame' ? container : null,
+      getBoundingClientRect: () => ({ top: 100, bottom: 460 }), scrollIntoView: vi.fn(),
+    };
+    type Events = {
+      onReady(event: { target: typeof player }): void;
+      onStateChange(event: { data: number; target: typeof player }): void;
+      onError(event: { data: number }): void;
+    };
+    let events: Events | undefined;
+    const Player = vi.fn(function (_frame, options: { events: Events }) { events = options.events; return player; });
+    vi.stubGlobal('window', { location: { origin: 'https://quidproquo.cc' }, innerHeight: 900, YT: { Player } });
+    vi.stubGlobal('document', {
+      querySelectorAll: () => [frame], querySelector: () => null,
+      createElement: () => ({ setAttribute: vi.fn(), textContent: '', dataset: {}, addEventListener: vi.fn() }),
+      documentElement: { lang: 'en', classList: { contains: () => false } },
+    });
+    vi.stubGlobal('IntersectionObserver', undefined);
+    await initYoutubeClipLoops();
+    return { player, frame, container, events: events!, playYoutubePractice, seekEmbeddedYoutube };
+  };
+
+  it('waits for ready, applies practice controls, then releases bounds and rate for ordinary time links', async () => {
+    const { player, frame, events, playYoutubePractice, seekEmbeddedYoutube } = await setup();
+    const pending = playYoutubePractice('MN9dGgmLyso', 91, 110, .75, true, { isConnected: true, contains: () => false } as unknown as Element);
+    await Promise.resolve();
+    expect(player.seekTo).not.toHaveBeenCalled();
+    events.onReady({ target: player });
+    expect(await pending).toBe(true);
+    expect(player.setPlaybackRate).toHaveBeenCalledWith(.75);
+    expect(player.seekTo).toHaveBeenLastCalledWith(91, true);
+    expect(player.playVideo).toHaveBeenCalledTimes(1);
+    events.onStateChange({ data: 1, target: player });
+    vi.advanceTimersByTime(100);
+    expect(player.seekTo).toHaveBeenCalledTimes(2);
+    seekEmbeddedYoutube(frame as unknown as HTMLIFrameElement, 200);
+    expect(player.setPlaybackRate).toHaveBeenLastCalledWith(1);
+    expect(player.seekTo).toHaveBeenLastCalledWith(200, true);
+    const count = player.seekTo.mock.calls.length;
+    events.onStateChange({ data: 1, target: player });
+    vi.advanceTimersByTime(500);
+    expect(player.seekTo).toHaveBeenCalledTimes(count);
+  });
+
+  it('replaces loop bounds when moving through all three clips in one player', async () => {
+    const { player, events, playYoutubePractice } = await setup();
+    events.onReady({ target: player });
+    const anchor = { isConnected: true, contains: () => true } as unknown as Element;
+    player.getCurrentTime.mockReturnValue(1034);
+    await playYoutubePractice('MN9dGgmLyso', 1003, 1034, 1, true, anchor);
+    events.onStateChange({ data: 1, target: player });
+    vi.advanceTimersByTime(100);
+    expect(player.seekTo).toHaveBeenLastCalledWith(1003, true);
+    player.getCurrentTime.mockReturnValue(1400);
+    await playYoutubePractice('MN9dGgmLyso', 1367, 1418, .75, true, anchor);
+    events.onStateChange({ data: 1, target: player });
+    const seeks = player.seekTo.mock.calls.length;
+    vi.advanceTimersByTime(100);
+    expect(player.seekTo).toHaveBeenCalledTimes(seeks);
+    expect(player.setPlaybackRate).toHaveBeenLastCalledWith(.75);
+    player.getCurrentTime.mockReturnValue(1418);
+    vi.advanceTimersByTime(100);
+    expect(player.seekTo).toHaveBeenLastCalledWith(1367, true);
+    player.getCurrentTime.mockReturnValue(3021);
+    await playYoutubePractice('MN9dGgmLyso', 2974, 3020, 1, false, anchor);
+    events.onStateChange({ data: 1, target: player });
+    vi.advanceTimersByTime(100);
+    expect(player.pauseVideo).toHaveBeenCalledTimes(1);
+    expect(player.seekTo).toHaveBeenLastCalledWith(2974, true);
+  });
+
+  it('keeps the inline player on transient playback errors', async () => {
+    const { container, events } = await setup();
+    events.onError({ data: 5 });
+    expect(container.replaceChildren).not.toHaveBeenCalled();
+  });
+
+  it('stops practice polling before replacing a failed embedded player', async () => {
+    const { player, container, events, playYoutubePractice } = await setup();
+    events.onReady({ target: player });
+    expect(await playYoutubePractice('MN9dGgmLyso', 91, 110, 1, true, { isConnected: true, contains: () => false } as unknown as Element)).toBe(true);
+    events.onStateChange({ data: 1, target: player });
+    vi.advanceTimersByTime(100);
+    expect(player.getCurrentTime).toHaveBeenCalledTimes(1);
+    events.onError({ data: 150 });
+    expect(container.replaceChildren).toHaveBeenCalledTimes(1);
+    vi.advanceTimersByTime(1000);
+    expect(player.getCurrentTime).toHaveBeenCalledTimes(1);
+  });
+});
+
+
+describe('practice playback clock', () => {
+  it('reads only the local ready player and rejects stale or unavailable clocks', async () => {
+    const { getPracticePlaybackTime } = await import('./youtubeClipLoop');
+    const player = { seekTo: vi.fn(), playVideo: vi.fn(), getCurrentTime: vi.fn(() => 91.25) };
+    const frame = { src: 'https://www.youtube-nocookie.com/embed/MN9dGgmLyso?enablejsapi=1', dataset: {}, isConnected: true };
+    let ready: (event: { target: typeof player }) => void = () => {};
+    const Player = vi.fn(function (_frame, options) { ready = options.events.onReady; return player; });
+    vi.stubGlobal('window', { location: { origin: 'https://quidproquo.cc' }, YT: { Player } });
+    vi.stubGlobal('document', { querySelectorAll: () => [frame], querySelector: () => null, documentElement: { classList: { contains: () => false } } });
+    vi.stubGlobal('IntersectionObserver', undefined);
+    const anchor = { querySelector: () => frame } as unknown as Element;
+    await initYoutubeClipLoops();
+    expect(getPracticePlaybackTime(anchor)).toBeNull();
+    expect(player.getCurrentTime).not.toHaveBeenCalled();
+    ready({ target: player });
+    expect(getPracticePlaybackTime(anchor)).toBe(91.25);
+    expect(getPracticePlaybackTime({ querySelector: () => null } as unknown as Element)).toBeNull();
+    player.getCurrentTime.mockReturnValue(NaN);
+    expect(getPracticePlaybackTime(anchor)).toBeNull();
+    player.getCurrentTime.mockReturnValue(-1);
+    expect(getPracticePlaybackTime(anchor)).toBeNull();
+    player.getCurrentTime.mockImplementation(() => { throw new Error('unavailable'); });
+    expect(getPracticePlaybackTime(anchor)).toBeNull();
+    player.getCurrentTime.mockReturnValue(92);
+    frame.isConnected = false;
+    expect(getPracticePlaybackTime(anchor)).toBeNull();
+    frame.isConnected = true;
+    disposeYoutubeClipLoops();
+    expect(getPracticePlaybackTime(anchor)).toBeNull();
+  });
+});

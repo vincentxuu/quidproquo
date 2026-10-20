@@ -126,6 +126,10 @@ Outdoor climbing is a different activity from gym climbing. REI puts it bluntly:
 
 Watch the season as well. The same scenic-area page warns that long-period swells are common during the northeast monsoon from October to March and asks visitors to stay away from the shore. Long Dong's walls stand right at the water, so check the sea conditions before an autumn or winter trip.
 
+## What's next
+
+To start roped climbing in the gym, learn [top-rope belaying at the gym](/posts/climbing/2026-10-17-gym-top-rope-belay-en), the first post in the [Sport and Trad Climbing](/posts/climbing/2026-10-17-sport-vs-trad-overview-en) series. If you plateau after a few months, the [Climbing Movement overview](/posts/climbing/2026-10-18-climbing-movement-overview-en) helps you find which skill to work on first.
+
 ## References
 
 - [LA28 Reveals Medal Event Program and Athlete Quota (LA28 press release)](https://la28.org/en/newsroom/los-angeles-2028-medal-event-program-and-athlete-quota.html)
@@ -143,3 +147,7 @@ Watch the season as well. The same scenic-area page warns that long-period swell
 - [Long Dong crag, Northeast and Yilan Coast National Scenic Area (in Chinese)](https://www.necoast-nsa.gov.tw/Attraction-Content.aspx?a=186&l=1)
 - [Long Dong climbing area, Chinese Wikipedia (in Chinese)](https://zh.wikipedia.org/zh-hant/%E9%BE%8D%E6%B4%9E%E6%94%80%E5%B2%A9%E5%A0%B4)
 - [A Knowledge Map of Climbing Books](/posts/climbing/2026-06-20-climbing-books-knowledge-map-en)
+
+## Update Log
+
+- 2026-10-18: Added a "What's next" section linking to gym top-rope belaying and the Climbing Movement series.

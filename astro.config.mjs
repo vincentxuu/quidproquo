@@ -1,5 +1,6 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
+import { execFileSync } from 'node:child_process';
 import { unified } from '@astrojs/markdown-remark';
 import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
@@ -8,6 +9,7 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import { remarkReadingTime } from './src/plugins/remarkReadingTime.ts';
 import { remarkYoutubeEmbed } from './src/plugins/remarkYoutubeEmbed.ts';
+import { remarkVideoPractice } from './src/plugins/remarkVideoPractice.ts';
 import { remarkMathOptIn } from './src/plugins/remarkMathOptIn.ts';
 import rehypeKatex from 'rehype-katex';
 
@@ -61,6 +63,19 @@ export default defineConfig({
   output: 'server',
   // 已發佈文章換檔名時，舊網址一律留一條 301，外站連過來才不會 404。
   redirects: {
+    // 出國攀岩裝備 v2：重疊篇併入新篇或「攀岩裝備」系列（2026-10-19）。
+    '/posts/climbing/2026-10-19-dynamic-rope-triple-rating': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination',
+    '/posts/climbing/2026-10-19-dynamic-rope-triple-rating-en': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en',
+    '/posts/climbing/2026-10-19-multipitch-rope-systems': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination',
+    '/posts/climbing/2026-10-19-multipitch-rope-systems-en': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en',
+    '/posts/climbing/2026-10-19-climbing-travel-packing': '/posts/climbing/2026-10-19-climbing-travel-luggage',
+    '/posts/climbing/2026-10-19-climbing-travel-packing-en': '/posts/climbing/2026-10-19-climbing-travel-luggage-en',
+    '/posts/climbing/2026-10-19-climbing-shoes-harness-helmet': '/posts/climbing/2026-10-19-climbing-harness-helmet',
+    '/posts/climbing/2026-10-19-climbing-shoes-harness-helmet-en': '/posts/climbing/2026-10-19-climbing-harness-helmet-en',
+    '/posts/climbing/2026-10-19-climbing-belay-hardware': '/posts/climbing/2026-10-19-climbing-rope-belay-device',
+    '/posts/climbing/2026-10-19-climbing-belay-hardware-en': '/posts/climbing/2026-10-19-climbing-rope-belay-device-en',
+    '/posts/climbing/2026-10-19-climbing-gear-care-retirement': '/posts/climbing/2026-10-19-climbing-gear-inspection-retirement',
+    '/posts/climbing/2026-10-19-climbing-gear-care-retirement-en': '/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en',
     // Bug Bounty: consolidate duplicate rewrite paths into topic-correct original URLs.
     '/posts/tech/2026-10-15-bug-bounty-zero-01-rules-and-scope': '/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope',
     '/posts/tech/2026-10-15-bug-bounty-zero-01-rules-and-scope-en': '/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en',
@@ -347,6 +362,20 @@ export default defineConfig({
     },
   },
   integrations: [
+    {
+      name: 'dev-content-store-chunks',
+      hooks: {
+        'astro:config:setup': ({ command, updateConfig }) => {
+          // Only the dev virtual-module compiler needs the small content chunks.
+          // Keep build/sync/check on Astro's default single-file storage.
+          if (command === 'dev') {
+            updateConfig({
+              experimental: { collectionStorage: { type: 'chunked', chunkSize: 1024 * 1024 } },
+            });
+          }
+        },
+      },
+    },
     react(),
     mdx(),
     sitemap({
@@ -356,7 +385,6 @@ export default defineConfig({
       name: 'pagefind',
       hooks: {
         'astro:build:done': async ({ dir }) => {
-          const { execFileSync } = await import('node:child_process');
           execFileSync('pnpm', ['exec', 'pagefind', '--site', dir.pathname, '--glob', 'posts/**/*.html'], {
             stdio: 'inherit',
           });
@@ -368,7 +396,7 @@ export default defineConfig({
     processor: unified({
       smartypants: false,
       // remarkMathOptIn 必須排第一：它替 frontmatter 有 math: true 的文章重新解析，後面的 plugin 才看得到數學節點。
-      remarkPlugins: [remarkMathOptIn, remarkReadingTime, remarkYoutubeEmbed],
+      remarkPlugins: [remarkMathOptIn, remarkReadingTime, remarkYoutubeEmbed, remarkVideoPractice],
       rehypePlugins: [rehypeKatex, rehypeExternalLinks, rehypeLazyImages],
     }),
   },

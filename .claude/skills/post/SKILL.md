@@ -69,6 +69,8 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 課程總覽、單堂／跨堂、作業、週次文章，動筆前直接讀 `references/course-guide-contract.md`，把範圍卡存到 `.work/`。按文章角色對齊學習目標、正文例子與自我檢查；中文完整標題採「主題｜課程 第 N 堂」，英文用 Lecture N，不從 series.order 推原課堂次。教學重寫完成前依規格列正文證據，無例子／無判準則修正文，不靠 verify 綠宣稱教學完成。
 
+岩場／岩區導覽（〈日本岩場〉〈義大利岩場〉這類單篇與總覽）動筆前讀 `references/crag-guide-contract.md`：固定 H2、依程度分級路線表、`scripts/climbing-grade-convert.mjs --check` 換算、封閉類事實的一手來源要求。
+
 ### 1b. 多來源導讀與英文練習
 
 來源是 YouTube、podcast、影音檔或逐字稿時，先跑 `../media-to-post/SKILL.md`，取得來源紀錄、校正版、主題地圖、主張定位與覆蓋報告，再寫本文。只補嵌入不用跑整套。已處理材料可重用，但先確認來源版本、取得範圍與未解決疑點；不能拿 show notes 或他人摘要冒充整集內容。

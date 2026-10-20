@@ -41,7 +41,7 @@ Web-hosted agent 無法連使用者電腦的 `localhost`，也不能讀取使用
 https://<deployment>/mcp
 ```
 
-認證應由平台的受管 connector／OAuth 機制保存，不貼進對話、repository 或一般 environment variables。Claude Code Cloud 的 environment variables 不是 secret store；若 Groundlane deployment 只有 static bearer，而平台沒有安全的 connector credential storage，就必須先補 OAuth／受管認證代理，不能用明文 token 勉強接上。若平台沒有 custom remote MCP 能力，或本次 session 未暴露 Groundlane tools，先檢查完整 callable tool inventory（含 deferred tools）是否有 Groundlane `web_search`、`web_fetch`、`web_extract`；仍沒有就回報 blocker，不自行改用平台原生 search/fetch/browser 或 legacy provider。
+認證應由平台的受管 connector／OAuth 機制保存，不貼進對話、repository 或一般 environment variables。Claude Code Cloud 的 environment variables 不是 secret store；若 Groundlane deployment 只有 static bearer，而平台沒有安全的 connector credential storage，就必須先補 OAuth／受管認證代理，不能用明文 token 勉強接上。若平台沒有 custom remote MCP 能力，或本次 session 未暴露 Groundlane tools，先檢查完整 callable tool inventory（含 deferred tools）是否有 Groundlane `web_search`、`web_fetch`、`web_extract`；仍沒有就走 `mcp-tools.md` 的 fallback 鏈，不使用已退役的 legacy fetch 工具。
 
 要自行部署 remote endpoint，從 Groundlane repository 依 deployment guide 設定 provider credentials 與 bearer secret，部署後再把 `https://<deployment>/mcp` 註冊到 Web 平台。若只是缺授權或沒有付費 provider，可先參考 Groundlane free API / free tier 使用方式完成最小授權；不要把私人 endpoint、token 或展開後的 authorization header 寫回這份 skill。
 
@@ -49,10 +49,10 @@ https://<deployment>/mcp
 
 1. 檢查 tool provenance／server namespace 與完整 schema，確認是 Groundlane 且提供 `web_search`、`web_fetch`、`web_extract` contract；平台原生或其他 server 的同名 tool 不算 Groundlane。
 2. 若存在，直接呼叫；不需要知道背後是 localhost 還是 remote deployment。
-3. 若不存在，先檢查完整 callable tool inventory（含 deferred MCP tools）；仍不存在就回報 blocker，說明需要掛載 Groundlane。
-4. 若存在但授權失敗，回報 blocker，請使用者依 Groundlane free API / free tier 設定方式完成授權或改正 connector credential。
-5. 若沒有任何可用網路研究工具，使用已提供或已授權的本機材料；不足時回報 blocker。
-6. 永遠不使用 `web.run`、WebFetch、Playwright scraping、`stealth_fetch`、`web-fetch`、`fetch_page`、Exa、Tavily、Firecrawl、Jina 或 Linkup 來替代 public-web research/fetch。
+3. 若不存在，先檢查完整 callable tool inventory（含 deferred MCP tools）；仍不存在就照 `mcp-tools.md` 的 fallback 鏈往下試，並在交接時提醒使用者 Groundlane 沒掛上。
+4. 若存在但授權失敗或中途斷線，同樣走 fallback 鏈繼續研究，記錄 `toolDegradation`；另外提醒使用者修 connector credential。
+5. fallback 鏈全部失敗、也沒有任何可用網路工具時，才使用已提供或已授權的本機材料；不足時回報 blocker，列出每個工具的失敗原因。
+6. `stealth_fetch`、`web-fetch`、`fetch_page` 已退役，不使用。
 
 ## 可分享性要求
 

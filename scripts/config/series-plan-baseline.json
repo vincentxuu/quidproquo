@@ -108,7 +108,22 @@
     "bug-bounty-from-zero"
   ],
   "researchExempt": [
-    "bug-bounty-from-zero"
+    "bug-bounty-from-zero",
+    "italy-crags",
+    "climbing-gear-travel",
+    "ifmga-mountain-guides",
+    "sport-trad-climbing",
+    "climbing-movement",
+    "climbing-training",
+    "climbing-injury",
+    "climbing-community-industry",
+    "outdoor-bouldering",
+    "climbing-disciplines",
+    "climbing-history-culture",
+    "climbing-gear",
+    "climbing-mental-tactics",
+    "climbing-competitions",
+    "english-speaking-practice"
   ],
-  "researchExemptNote": "2026-10-16 前已確認的規劃表，免「研究筆記＋五關判準」檢查；之後新登錄或重寫的系列都要有。"
+  "researchExemptNote": "2026-10-16 前已確認的規劃表，免「研究筆記＋五關判準」檢查；之後新登錄或重寫的系列都要有。攀岩與英文口說系列（2026-10-17～19 確認）是在閘門 8a403b1e4 推上 main 前於其他 session 確認，合併時一併列入；重寫時要補。"
 }

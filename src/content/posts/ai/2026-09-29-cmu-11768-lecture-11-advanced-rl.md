@@ -32,9 +32,9 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)
 
-**影片狀態：待確認：尚未核對到對應錄影。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-> **本篇依投影片撰寫，影片上架後補充。** 截至 2026-09-29，[官方課表](https://www.cmu-agents.com/)上第 11 講只有[投影片](https://www.cmu-agents.com/slides/lecture-11-rl-advanced.pdf)，沒有錄影。下文的說明與推論都只根據投影片內容，沒有講者口述；投影片沒說的，我會標成我的解讀。
+> **本篇依投影片撰寫。** 官方錄影（約 68 分鐘，2026-10-12 上架）已附在[文末](#課程影片來源)；內文還沒有依錄影補上講者口述。下文的說明與推論都根據投影片；投影片沒說的，我會標成我的解讀。
 
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 是 Daniel Fried 與 Graham Neubig 在 2026 秋季開的 LLM agent 研究所課。第 11 講（9/29）是訓練模組三講 RL 的第二講，由 Neubig 主講，副標題是「簡單配方失效時，怎麼從軌跡學習」。
 
@@ -358,17 +358,25 @@ $$L_{\text{OPD}} = \mathbb{E}_{h \sim d_\mu}\big[D_{\text{KL}}(\pi_\theta(\cdot 
 
 ## 課程影片來源
 
-本篇依投影片撰寫。已查官方課表、講師頻道與本文講次標題搜尋，仍未取得可核對的直接錄影；官方課表抽取只取得後半段，講師頻道抽取未提供完整影片清單。因此本講錄影狀態尚待確認，不能判定沒有影片。
+已核對 CMU 11-768 Fall 2026 第 11 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，標題與講次對應本課程。本篇內文依投影片撰寫，尚未依錄影內容核對或補充。
+
+```youtube
+url: https://www.youtube.com/watch?v=jKx7_fOZRzg
+title: CMU AI Agents 2026: 11. Advanced RL Algorithms
+```
+
+原始影片：[CMU AI Agents 2026: 11. Advanced RL Algorithms](https://www.youtube.com/watch?v=jKx7_fOZRzg)
 
 官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
-查核日期：2026-10-10。
+查核日期：2026-10-17。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-17：第 11 講錄影已在官方播放清單上架（2026-10-12），更新影片狀態並嵌入影片；內文仍依投影片。
 
 ## 參考資料
 

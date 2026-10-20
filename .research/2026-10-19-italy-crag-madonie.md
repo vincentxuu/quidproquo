@@ -1,0 +1,41 @@
+# Research notes: Caltavuturo / Madonie (Gazzara, Cabeci, Rocca di Sciara) — 2026-10-19
+
+Series 義大利岩場 order 1905. All pages opened 2026-10-19 unless noted. Article: src/content/posts/climbing/2026-10-19-italy-crag-madonie.md (+ -en).
+
+## Sources opened
+
+- theCrag Caltavuturo https://www.thecrag.com/en/climbing/italy/central-and-southern-italy/sicily/area/644885418: 208 routes, 193 ascents; FR 4a–8a; Cabeci 51 (19 m), Gazzara 134 (20 m), Rocca di Sciaria 23 (13 m); "Being 635m above the sea, this is the place to cool down if it gets too hot at the coast"; alpine climbs too.
+- theCrag Gazzara https://www.thecrag.com/en/climbing/italy/central-and-southern-italy/sicily/area/517758468: 134 routes, 180 ascents; 618–721 m asl; large cliff at canyon entrance; sectors A (42) and B (47) on the left (east) get most traffic; unclimbed routes overgrown with lichen; sector C 45 (5 ticks); approach: path to canyon, cross river.
+- AllClimb Caltavuturo https://allclimb.com/en/guides/sicily/caltavuturo/: remote town at foot of Rocca di Sciara; annual rock festival caltavuturorockfest.it; three sport areas; Cabeci Upper/Lower: from SS120 road turn uphill 15–20 min over overgrown slope, walls face NE, lots of greenery, nice in heat; Gazzara sectors A, B, C in park Gazzara-Caltavuturo near canyon entrance, face NE, 10–15 min from parking near the crucifix, go down path, cross river, climb slope; Rocca di Sciaria behind the sports ground, simple routes on slabs.
+- Climbook Madonie area https://climbook.com/aree/2546/madonie: Cabeci 49 routes/25 reps; Gazzara 135/96; Rocca di Sciara 2 23/0; Castelbuono Passo Scuro 20/15; Collesano Monte d'Oro Grotte 32/43; Collesano Contrada Croce 14/0.
+- Climbook Gazzara https://climbook.com/falesie/1787/caltavuturo-gazzara: updated Jan 2024 (Di roccia di sole 2022); most rep: Folletto 5c+ (7), Profumo di Oriente 6a+ (5), Erba o vientu 5b+, Capolinea 5c, Fossile 6a, Il mio tesorooo 5c, Fabio 76 7a (4), Le vojager 6c (4), Orizzonte di fuoco 6a (4), L'urlo del carcarazzo 5b (3). Others: Il gatto e la volpe 6c (3), Stia 2005 6c (3), Fidati 7b (proposed 7a+, 2), Noche caliente 7b+ (1), Skorpions 7b (prop 7a+, 1), Calat abi thur 7a+ (1), Domenico 8a (0), Fragrance 8a (0), Trinacria 7c+/8a; multi: Fantasma L1 6a+ L2 6b+ L3 6c; Sector A starts Karol 6a; sector B starts Dulcis in fundo 5b+.
+- Climbook Cabeci https://climbook.com/falesie/1786/caltavuturo-cabeci: Pizzichiaia 5c (4), Fumo d'inverno 6a (3), Pettinicchio 5c+ (3), Tesi 5c+ (3), Funny feeling 6a (upper sector start), Barbapapà 7c (1), L'ultimo dei Moicani 7a (1), Belvedere 6b+ (1), Tommaso 7c+ (0); lower sector starts Leonardo 7a.
+- Climbook Rocca di Sciara 2 https://climbook.com/falesie/1788/caltavuturo-rocca-di-sciara-2: 23 routes many "Progetto", 0 reps; Madonie 5c+, Teste di rocca 6b+, O casali 6c, Santu Spiritu 6a+, A matrici 6b.
+- Climbook Monte d'Oro https://climbook.com/falesie/1789/collesano-monte-doro-grotte: Massara 3a (5), Sinistroide 5a (5), Neve a 1100 5b+.
+- parks.it Madonie Rocca di Sciara https://www.parks.it/parco.madonie/pun_dettaglio.php?id_pun=2232: geosite in Caltavuturo; medieval hermitage ruins on top; Sentiero geologico n.4; "Sul versante sud-est è stata attrezzata una parete naturale d'arrampicata".
+- Ente Parco Madonie leaflet Rocca di Sciara (EN) http://parcodellemadonie.it/wp-content/uploads/2010/04/SentieroRoccadiSciara_INGLESE.pdf: A19 PA-CT Tremonzelli exit, Caltavuturo direction; in town go past sports field; Rock is a hogback over the town, drop face ~300 m; Ente Parco Madonie Petralia Sottana tel 0921 684011; Presidio Turistico Caltavuturo 0921-541759.
+- Sicily Hiking 2021-03-10 (secondary) https://www.sicilyhiking.it/riserve-e-parchi/parco-delle-madonie-le-regole-per-visitare-e-rispettare-il-parco/: park 39,679 ha, 15 comuni incl. Caltavuturo, Collesano; zones A–D; not allowed: bivouac and camping, motor vehicles, removing rocks/fossils, litter.
+- SAIS Autolinee Palermo lines https://www.saisautolinee.it/en/sicily-tpl-lines/palermo: page text contains no Caltavuturo, Polizzi, Scillato or Cerda stop names (grep of downloaded HTML).
+- UKC Destination Sicily (Massimo Cappuccio, 2022-06-01) https://www.ukclimbing.com/articles/destinations/sicily-14498: multipitch east "wild Rocche del Crasto on the Nebrodi"; Caltavuturo district centre of island "most mountainous area and the most suitable during the hot Sicilian summers"; sport list Palermo, Caltavuturo; multipitch San Vito, Palermo, Rocche del Crasto, Capo Calavà; boulder Bosco Scorace, Bronte; airports Palermo Catania Trapani; train/public transport "not recommended... long and unnerving"; essential to rent car; multipitch -> west between San Vito and Palermo; "If you are a boulderer, the best place is Bosco Scorace"; winter Dec–Mar mild coast cold inland; Jul–Aug too hot; spring/autumn best; rainfall late autumn & winter–early spring. Guides: Di roccia di sole (Versante Sud, all cliffs), Rockfax Sicily (west), "Bosco Scorace" guide by Crimpandgoodlife, Sicily Rock, Vertical life. Bosco Scorace: hinterland Trapani; eucalyptus, oaks, Mediterranean scrub; sandstone compared to Fontainebleau; 4 to 8A+; landings comfortable safe; three sectors Bevaio, Rocche Forbici, Spaceship, total 200 lines; crash pads can be hired; guide sold at BB Polvere di Stelle; BB Polvere di Stelle base camp: driving, crash pad rental, climbing wall.
+- visitsicily (official, published 2015-11-27, Ignazio Mannarano) https://www.visitsicily.info/en/climbing-and-dws-in-sicily/: Palermo favourites Schiavo, Valdesi, Mariella Crack'n Up, Preistoria, Anfiteatro on Monte Pellegrino and Bauso Rosso on Monte Gallo; Madonie Regional Nature Park: Monte d'Oro in Collesano, Rocca di Sciara in Caltavuturo; Nebrodi park: Rocche del Crasto, Rocca Calanna, Rocca Traura, "eagles and griffons hover undisturbed".
+- Ministero dell'Interno 2019-10-08 https://www.interno.gov.it/it/notizie/attivo-anche-palermo-numero-emergenza-unico-europeo-112: NUE 112 operational in Palermo, Sicily first southern region with full coverage; old numbers 113/112/115/118 still routed; free, multilingual; central for western Sicily at Palermo (Agrigento, Trapani provinces), Caltanissetta for east.
+- Versante Sud Di Roccia di Sole https://www.versantesud.it/it/negozio/catalogue/di-roccia-di-sole_1399/: Cappuccio, Gallo; 2022; ISBN 9788885475830; 560 p; Italian (variants English, German, iClimbing); 5 editions in ~20 yrs; falesie (single pitch) + boulder + DWS; multipitch split into a separate volume "che uscirà a seguito"; €35; Disponibile.
+
+## Dropped / not used
+
+- Operator bus timetable Palermo–Caltavuturo: not found (SAIS page lacks it; orariautobus/rome2rio aggregators not used).
+- caltavuturorockfest.it: mentioned by AllClimb, not opened.
+- parks.it Madonie servizi page https://www.parks.it/parco.madonie/ser.php: opened via Exa, only navigation returned; its snippet (Passo Scuro, Montedoro, Rocca di Sciara climbing) not used.
+- Madonie park regulation original text (legislazionetecnica Allegato C) https://legislazionetecnica.it/node/1453429: not opened; rules cited from Sicily Hiking (second-hand).
+- Bolt condition at Gazzara/Cabeci: no source.
+- Climbook Castelbuono Passo Scuro / Collesano Contrada Croce sector pages: only counts from area page.
+
+## toolDegradation
+
+- Groundlane MCP: web_fetch worked but article extraction stripped UKC content ("content extraction removed most of the page"); web_search worked (brave+you providers, sometimes tavily/exa unavailable, keenable public endpoint used once); one CONCURRENCY_LIMIT error on first search.
+- Page reading mostly via Exa web_fetch_exa (UKC, theCrag, Planetmountain, CSF, Gripped, 27crags, government pages).
+- Climbook pages fetched with plain curl and parsed locally (script in scratchpad).
+- jina read_url: question mode needs API key (returned full content); OCR mode 401. Palermo ordinance PDFs are scanned images → downloaded with curl and OCR'd locally with tesseract (ita).
+- r.jina.ai reader via curl used for Planetmountain Rocca Traura article.
+- legislazionetecnica.it blocked by Cloudflare challenge.
+- Firecrawl not used (quota exhausted per brief). Work interrupted once by usage limit and account switch; research notes were kept on disk and resumed without refetching.

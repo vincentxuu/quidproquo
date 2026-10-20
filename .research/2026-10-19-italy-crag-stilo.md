@@ -1,0 +1,42 @@
+# Research notes: Stilo (Monte Consolino) — 2026-10-19
+
+Series 義大利岩場 order 1802. Focus question: 南義最美 tufa 洞穴的程度與季節？
+
+## Sources opened
+
+- Planetmountain Stilo - Grotta https://www.planetmountain.com/en/crags/stilo-grotta.html: author Rosario Cammara; 22 routes; 6b–8b; limestone; orientation SE; rope 80 m; first bolted by group incl. Bruno Vitale, Luigi Filocamo; first routes Max Faletti, Riccardo Quaranta; Grotta "one of the finest of its kind not only in Calabria, but throughout the rest of Southern Italy"; faces east, sun until 14:00; climbable in rain; tufas seep after extended rain, dry quickly; access A3 Lamezia, SS280 Catanzaro, SS106 towards Reggio, Monasterace → Stilo; cemetery, cobbled street to Norman castle (if closed walk), park fifth hairpin 4–5 cars, Grotta 5 min; from cemetery path ~150 m after third hairpin to Gaia 10 min; route table: Devo finirla 6b/6b+ 30 m Faletti; Le ali della libertà 6c+/7a 26 m; Il mio nome fu scritto nell'acqua 8a 40 m (80 m rope); La collera del turco 7b+/7c 30 m; Calabria rock 7a+/7b 30 m Quaranta; Lucky luciano 7c 26 m; Filocamo è sei protagonista 8a/8a+ 26 m; R.U.P. 7c+ 26 m; DG22 40/42 m "8/9?"; SUPER 8a/8b; Meno male che adesso c'è Nerone 7c/8a 30 m; Jonico 8b 26 m; extensions "corda da 80m" (read via Exa)
+- Planetmountain 2013 Calabria Rock https://www.planetmountain.com/en/news/climbing/calabria-rock-the-climbing-meeting-and-the-crag-stilo.html: meeting 1–3 Nov 2013 at Stilo; crags bolted for first Calabria Rock 2006 by Lazio team led by Filocamo and Vitale (both from Calabria); Maspes, Montel, Quaranta, Bongianni, GAIA club; first crag Gaia; 2009 edition at Frascineto–Eianina; later sectors by Faletti, Filocamo, Vitale, Cammara, Soraci, Carito, Folinazzo; routes 4a–8b (2013); thanks to town council (read via Exa)
+- falesia.it Stilo https://www.falesia.it/crag/506/stilo.html: N. Vie 75; 4a/9a; altitude 386 m; Esposizione Sud-Est; in June all walls in shade around 15:00; Gaia shaded all day; sectors Grotta 11 (6b/9a), Pilastrino 7, Gaia 19, Torre Staccata 2, Calabria Esaudita 4, Calabria Rock 8, Cattivi Poppanti 10 (5a/6a), Città del Sole 14; vie lunghe Stilo-Grafia 65 m 6b+, Il galletto e l'uomo nero 65 m 6b+, Ubik 60 m 6a (5c obbl.), Calabria Esaudita 55 m 6a+; access two ways (Lamezia/SS280/SS106 or Rosarno/SGC Jonio-Tirreno/Marina di Gioiosa/SS106); cemetery, cobbled road, if closed park at cemetery; fifth hairpin 4/5 cars; Gaia 3 min; updated 24/08/2024 (read via Exa)
+- theCrag Stilo https://www.thecrag.com/en/climbing/italy/central-and-southern-italy/calabria/area/517726332: 74 routes; sectors Grotta 19 (38 m), Pilastrino 7, Gaia 19 (14 m), Zerocalcare 9 (27 m), Torre Staccata 2, Calabria Esaudita 4, Città del Sole 14; ASL 500–689 m; no description, no warnings; nearby icons Senza uscita 4a ★★★, Calabria Rock 7b ★★★
+- Climbook Calabria https://climbook.com/index.php/regioni/19/calabria: Stilo sectors Grotta 28, Pilastrino 9, Gaia 19, Città del sole 31, Pazzano 7, Zerocalcare 9 (total 103)
+- Climbook Stilo (Grotta) https://climbook.com/index.php/falesie/20471/stilo-grotta: Aggiornamento agosto 2025; Devo finirla 6b+ (prop 6b) ★★★★; Manuela 6c ★★★★; Le ali della libertà 7b; Il mio nome... 8a; S.P.Q.R. L1 7b, L1+L2+L3 8c; La collera del turco 7c ★★★★★ note "7b in una relazione precedente"; Calabria rock 7b ★★★★★ 3 repeats; Lucky Luciano L1 7c "Si stacca a metà di Calabria rock"; Filocamo e sei protagonista L1 8a; Filocamo per un uomo... L1+L2 8b; Rup 7c+; DG22 9a (0 repeats); Super 8a+/8b; Meno male... 8a; Jonico L1 8b; Madiba project (PDF print view via curl)
+- Climbook Stilo (Gaia) https://climbook.com/index.php/falesie/20491/stilo-gaia: Senza uscita 4a; Canna astracana 6b+ ★★★★; Manadito 7a+ ★★★★; Gaia 6a+ (prop 6b) 7 repeats; Totip 5c
+- Climbook Stilo (Città del sole) https://climbook.com/index.php/falesie/20501/stilo-citta-del-sole: Laura non c'è 5c 8 rep; Antz 6a 9 rep ★★★★; Cetto laqualunque 5c ★★★★ 6 rep; Cariddi 6a ★★★★; Los skifatos 6b+ ★★★★; Fascia pro-tetta 7b (prop 7a+) ★★★★★
+- Climbook Stilo (Pilastrino) https://climbook.com/index.php/falesie/20481/stilo-pilastrino: Splat 5b 3 rep
+- Climbook Stilo (Zerocalcare) https://climbook.com/index.php/falesie/27127/stilo-zerocalcare: Kobane Calling 6c+ ★★★★★; Un polpo alla gola 7a 4 rep ★★★★
+- Climbing Spot Factory Stilo https://www.climbingspotfactory.com/en/climbadvisor/stilo/info_about: edited by Luigi Filocamo; summer Yes/No, autumn/winter/spring OK; all four level bands Ok; 100+ routes; parking 20–30; altitude 550 m; approach 10'; good for children; first lines 2006; never crowded; some vegetation, cleaning twice a year; walls on SE of Monte Consolino; Pilastrino, Gaia, part of Grotta shaded by pines; Calabria Esaudita, Città del Sole sunny in morning, shade 14:30 in summer; grey/white limestone, cracks and pockets; Grotta overhanging, tufas, concretions, red iron-oxide streaks; 10 mm stainless fixes except three Gaia routes 8 mm; chains mostly steel, 10 mm quick links; GPS and phone signal good; Stilo 389 m; Monasterace to Stilo further 12 km; turn left at "Cattolica" sign, after 50 m right to cemetery; fifth U-turn 5/8 cars (read via Exa)
+- Calabria Straordinaria (regional official tourism) https://calabriastraordinaria.it/en/travel-tips/climbing-in-calabria-where-to-do-it: advise contacting official guides and local authorities; Stilo Mount Consolino Cave "considered by experts to be one of the most beautiful of its kind in all of southern Italy"; "can be climbed in all seasons, even in the rain"; Orsomarso-Mercuri and Frascineto-Eianina entries (read via Exa highlights; direct fetch 404 on www host)
+- RFI Monasterace-Stilo departures PDF https://prm.rfi.it/qo_prm/QO_Pdf.aspx?Tipo=P&id=91&lin=it: 14 Dec 2025–13 Jun 2026; Trenitalia regionals to Reggio C. Centrale and Catanzaro Lido; bus LP 794/894 (read via Exa)
+- Autolinee Federico Orari Regionali https://www.autolineefederico.it/orari-regionali/: regional timetables as PDF; contacts (read via Exa)
+- Autolinee Federico destinazioni https://autolineefederico.selfip.com:8080/destinazioni-popolari: Monasterace Marina–Lamezia Terme Aeroporto line listed (read via Exa)
+- Omio Monasterace-Stilo https://www.omio.it/stazioni-dei-treni/italia/monasterace/stazione-di-monasterace-stilo-f6okh: Trenitalia; Autolinee Federico bus Monasterace Marina–Stilo; taxis (search snippet; aggregator, used as 二手)
+- CNSAS distress call https://www.cnsas.it/en/distress-call/: 112
+- sharry.land Monte Consolino https://www.sharry.land/it/meraviglie/arrampicare-in-calabria-il-monte-consolino: 6 sectors; Norman castle and hermit laure on Consolino; Stilaro Summer Fest (not used in article beyond context)
+- MountainBlog A Sud 2014 https://www.mountainblog.it/sud-falesie-molise-puglia-basilicata-calabria/: 2nd ed. A Sud, Versante Sud, Luoghi Verticali, 2014, 240 pages, Italian and English, Montel & Radassao (read via Exa)
+- Libreria La Montagna A Sud https://librerialamontagna.it/italia-altre-zone-arrampicata-e-alpinismo/3118-a-sud-falesie-e-vie-in-molise-calabria-puglia-basilicata.html: 31 falesie; 2014; EAN 9788898609024 (read via Exa)
+- CAI Lo Scarpone https://www.loscarpone.cai.it/dettaglio/arrampicata-e-alpinismo-le-guide-pi%C3%B9-recenti-per-le-salite-estive/: A Sud "ormai esaurita, ma anche superata"; Puglia Rock covers only Puglia
+
+## Dropped / not used
+
+- Any climbing ban / raptor closure / Natura 2000 rule for Monte Consolino: searched Groundlane ("Monte Consolino Stilo arrampicata divieto ZSC rapaci", "Monte Consolino ZSC Natura 2000"); nothing specific found.
+- VisitItaly claim "all carefully bolted thanks to the protection of the Ragni di Lecco" and "100 lines": not corroborated by local sources; not used.
+- Autolinee Federico timetable PDF for Monasterace–Stilo: not opened (PDF list not reachable in text); bus line stated as 二手 from Omio.
+- Up-Climbing #28 Calabria (2024 magazine issue) https://www.up-climbing.com/bimestrale/numeri/up-climbing-28-calabria/: magazine, not a guidebook; not cited.
+- climbingaway.fr Stilo page: not opened.
+
+## toolDegradation
+
+- Groundlane MCP: search OK; calabriastraordinaria.it www host 404 → Exa search highlights of the non-www URL used.
+- Planetmountain, falesia.it, Climbing Spot Factory, RFI PDF, Autolinee Federico: read via Exa web_fetch_exa / search highlights.
+- Climbook route lists: curl of `/vie/print` returns PDF; converted with pdftotext.
+- Firecrawl not used.

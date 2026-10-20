@@ -6,7 +6,7 @@ description: Portable multi-source research for tools, frameworks, papers, model
 # deep-research skill
 
 > **工具邊界**
-> 公開網頁研究與抓取一律使用 Groundlane MCP：`web_search` 找候選來源、`web_fetch` 讀完整頁面、`web_extract` 做 selector 結構化抽取。GitHub、arXiv、Hugging Face、官方 API 等來源專用工具可以用；但不要把 `web.run`、WebFetch、Playwright scraping、`stealth_fetch`、`web-fetch`、`fetch_page`、Exa、Tavily、Firecrawl、Jina 或 Linkup 當 public-web fallback。若 Groundlane 未掛載，先檢查完整 callable tool inventory；若已掛載但未授權，回報 blocker，並請使用者依 Groundlane free API / free tier 設定方式完成授權。不要假設任何個人檔案路徑、部署 URL、帳號或 token。
+> 公開網頁研究與抓取首選 Groundlane MCP：`web_search` 找候選來源、`web_fetch` 讀完整頁面、`web_extract` 做 selector 結構化抽取。GitHub、arXiv、Hugging Face、官方 API 等來源專用工具可以用。Groundlane 未掛載、斷線或某頁抓不到時，**不是停下來回報 blocker**，而是照 `references/mcp-tools.md` 的 fallback 鏈往下試（與 CLAUDE.md 的 Web Fetch 優先順序一致）；`stealth_fetch`、`web-fetch`、`fetch_page` 已退役不用。降級時記錄 `toolDegradation`。不要假設任何個人檔案路徑、部署 URL、帳號或 token。
 
 把「研究 + 導讀新工具 / 論文 / 趨勢」結構化：拆問題 → 多源蒐集 → 交叉驗證 → 萃取 → 產出可發文的 research note。
 
@@ -83,13 +83,33 @@ description: Portable multi-source research for tools, frameworks, papers, model
 
 交件前由沒參與精讀的 agent 抽查：從每份抽取紀錄隨機挑三個數字回原文核對，並核對讀取紀錄有沒有涵蓋全文。對不上的那一份整份重讀。
 
-### 3. 盤點讀取程度
+### 3. 盤點讀取程度，並關閉缺口
 
-**在寫結論前**，把每個來源標上讀取程度（✅ 一手 / 🟡 摘要轉引 / 🔴 未讀），並註明阻礙原因與試過的管道。盤點表寫進 research note。結論依賴的來源還有 🔴 就在交接時明講。補搜多輪時回頭更新同一張表，不要一輪一輪往後接。
+**在寫結論前**，把每個來源標上讀取程度（✅ 一手 / 🟡 摘要轉引 / 🔴 未讀），並註明阻礙原因與試過的管道。盤點表寫進 research note。補搜多輪時回頭更新同一張表，不要一輪一輪往後接。
+
+**標記不是終點，是待辦清單。** 先用 grep 盤點 note 裡所有 `🔴`、`🟡`、`[摘要層級]`、「沒公布／沒查到／未查／讀不到」，每一項只能有三種結局：
+
+| 結局 | 條件 |
+|---|---|
+| ✅ 已關閉 | 找到一手來源並讀過全文，附網址與原文句 |
+| ⚪ 確認無公開資料 | `references/mcp-tools.md`「取不到全文時」整條鏈都試過，逐一列出工具＋網址＋失敗原因 |
+| ✉️ 只能寫信問 | 資料確定在登入區或報名系統；寫出該問誰、問什麼，不自己寄 |
+
+還有能關閉的項目就繼續查（或再派 agent 補查），**不要把它轉給使用者說「文中會標明」**。交接時只列 ⚪ 和 ✉️，每項附試過的工具。
 
 **何時停**：每個關鍵主張過五關才算研究夠——①讀過正文的一手來源 ②方法類主張分清作者主張與實證 ③至少一個 2024 年以後的來源或近年確認 ④搜過反證 ⑤換兩三組關鍵字（含中文、近義詞、其他學科用語）都只回已讀來源。沒過的關寫進 note，不要憑「差不多了」停。
 
 若來源可能跨文章或跨研究重複使用，接著呼叫 `research-source-registry`：建立六維 evidence profile，依 hard gates、discovery-only reasons 與 reuse cautions 決定處置；`reusable`／`conditional` 才能 upsert 到 `.research/source-registry.jsonl`。搜尋摘要、未讀頁與缺少主張邊界者只留在本輪 note。不得自行把 profile 轉成總分、真實機率或公認證據等級。
+
+### 派 subagent 研究時
+
+把蒐集外包給 subagent 時，prompt 必須寫進：
+
+1. **結案標準**：每個缺口要關閉成 ✅／⚪／✉️（同步驟 3），「標記 [摘要層級] 後交差」不算完成
+2. **完整 fallback 鏈**：照 `references/mcp-tools.md` 列出，並寫明「一個工具壞了就換下一個，不准停」
+3. **輸出到檔案**：寫進 scratchpad 檔，只回短摘要與路徑
+
+subagent 回來後，先對它的檔案跑步驟 3 的 grep 盤點；有可關閉的項目就再派補查，不要原樣轉給使用者。
 
 ### 4. 交叉驗證
 

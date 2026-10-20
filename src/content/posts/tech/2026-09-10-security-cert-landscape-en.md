@@ -172,16 +172,34 @@ Taking the CAISP route instead, Phase 2 becomes ~$1,099 (materials and lab inclu
 
 Preparation ecosystems vary dramatically by certification. Here are the most common paths — Part 4 of this series goes deep.
 
-### Online courses
+### Third-party online courses
 
-| Certification | Platform | Price range | Notes |
+Checked item by item on October 18–19, 2026. Udemy prices are the list prices an anonymous visitor sees on Udemy's pages; Udemy discounts constantly and prices vary by region and over time, so what you actually pay may be lower. Items I could not price are marked as such. Check the page before buying.
+
+| Certification | Platform | Price | Notes |
 |---|---|---|---|
-| Security+ | Udemy (Professor Messer, Jason Dion) | $15–$30 (sale) | Professor Messer also offers a free full YouTube course |
-| AWS Security | Udemy (Stephane Maarek, Neal Davis), AWS Skill Builder | $28–$120 | AWS Skill Builder has free foundational content |
-| CISSP | Udemy, LinkedIn Learning, Training Camp bootcamp | $30–$3,000+ | Reddit r/cissp is the most active study community |
-| SecAI+ | Infosec Institute Boot Camp, Udemy | $30–$2,500+ | Launched February 2026; resources still building |
+| Security+ | Udemy ([Jason Dion](https://www.udemy.com/course/securityplus), [Total Seminars / Mike Meyers](https://www.udemy.com/course/total-comptia-security-plus)) | Jason Dion's course lists at $119.99 and Mike Meyers' at $24.99; Dion's Security+ practice exams Set 1 is sold separately at $64.99 | Jason Dion's course is about 31 hours with one full practice exam, rated 4.7. Professor Messer's course is free [on his own site](https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/); I found no Udemy listing for him, so the earlier "Udemy (Professor Messer)" wording was removed |
+| AWS Security | Udemy ([Stephane Maarek SCS-C03](https://www.udemy.com/course/ultimate-aws-certified-security-specialty/)), AWS Skill Builder | The Udemy topic page (July 2026) showed the course on sale at $17.99 (list $119.99) and practice exams at $14.99 (list $64.99); the course page showed no price when rechecked in October 2026, so check the page for the current price | Maarek's course is about 17 hours, mostly slides, no practice exam, and its page requires Solutions Architect Associate-level knowledge. The Neal Davis course mentioned earlier was not found |
+| CISSP | [LinkedIn Learning (Mike Chapple)](https://www.linkedin.com/learning/isc2-certified-information-systems-security-professional-cissp-2024-cert-prep), Udemy (Jason Dion, Thor Pedersen), [Destination Certification](https://destcert.com/cissp), [Training Camp](https://trainingcamp.com/training/cissp-certification-bootcamp/) | LinkedIn Learning's official help page states there is no standalone individual subscription; individuals get it through LinkedIn Premium (the official page lists no price, and third-party quotes disagree, so none is used here), while teams and organizations use separate plans; on Udemy, Jason Dion's full CISSP course lists at $99.99 (39 hours; his 6 practice exams are $64.99 extra), Thor Pedersen's practice-question courses run about $59.99–$79.99 each and his per-domain video courses about $94.99–$139.99; DestCert 5-day online bootcamp $2,697; Training Camp's CISSP page lists no price, only "Get Custom Quote", and says enrollment already includes the exam voucher, a retake voucher and 1,000+ practice questions, so the actual price has to be requested from them | Chapple's course is the 2024 edition, about 21.5 hours, video only; Thor has both practice-question courses and per-domain video courses on Udemy, but per his own site Udemy does not carry everything (no flashcards, for example), and the full bundle is on his site; Reddit r/cissp is the most active study community |
+| SecAI+ | [Infosec Institute Boot Camp](https://www.infosecinstitute.com/courses/comptia-secai-plus-boot-camp/), Udemy (several instructors, new in 2026) | Infosec 3-day camp $2,699 (exam voucher included); on Udemy, one SecAI+ practice-question course lists at $19.99 (instructor Mana Dowlatshahi Yeganeh), and I did not price the other courses | Launched February 2026; Udemy courses have few reviews (most under 500) |
 | CAISP | Practical DevSecOps official (sole provider) | $1,099 all-in | Includes 60-day lab, videos, PDF, 24/7 Mattermost support, 1 exam attempt |
 | GAIPS | SANS SEC545 (sole provider) | ~$9,000 with course / ~$999 exam only | CyberLive practical exam; general purchase opened July 2026 |
+
+### Online courses from international vendors and platforms
+
+You can take all of these from home, with no classroom and no travel. Prices are the public prices found in October 2026 and change often; check the official page before you buy.
+
+| Certification | Course | Price / terms | Notes |
+|---|---|---|---|
+| Security+ | [Professor Messer's free full course](https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/) | Free | SY0-701, 121 videos, about 15 hours; the PDF notes are sold separately |
+| Security+ | [CompTIA CertMaster Learn](https://www.comptia.org/en-us/resources/certmaster-training/learn/) | Reseller list prices of roughly $450–$600, 12-month access | Official self-paced course with videos, hands-on questions and practice questions; can be bundled with an exam voucher |
+| Security+ | [Google Cybersecurity Certificate (Coursera)](https://www.coursera.org/professional-certificates/google-cybersecurity) | $49/month in the US and Canada; the official estimate is under $300 for most learners | 8 courses, under 6 months; graduates get a discount on the Security+ exam and training. Aimed at SOC-analyst basics, not a mirror of the Security+ exam objectives |
+| CISSP | [ISC2 Official Online Self-Paced Training](https://www.isc2.org/training/online-self-paced/cissp-online-self-paced) | $995 list price in the ISC2 store (180-day access) | Adaptive learning, official eTextbook, 400+ practice questions; if you fail the first attempt you can retake the course free within a year |
+| CC (ISC2 entry level) | [ISC2 CC free-program notice](https://www.isc2.org/landing/1mcc) | The free program stopped taking new enrollments on May 20, 2026; the CC exam costs $199 | Holders of an unexpired exam code must sit the exam by December 31, 2026 |
+| AWS Security | [AWS Skill Builder](https://aws.amazon.com/training/digital/) | Free tier includes standard exam prep and official practice question sets; individual subscription $29/month or $449/year | The subscription adds Builder Labs, enhanced exam prep and official practice exams |
+| SC-900 (Microsoft security fundamentals) | [Microsoft Learn learning paths](https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/) | Free | Entry level, not an advanced security certification |
+
+In short: Security+ and AWS Security have good free or low-cost online material. ISC2's official CISSP online course is expensive, so most people pair Udemy or community resources with the official sample questions.
 
 ### Taiwan-based training providers
 
@@ -227,6 +245,7 @@ This is Part 1 of the "Security Certification Playbook" series. Coming next:
 
 ## Update log
 
+- 2026-10-18: Added the table "Online courses from international vendors and platforms" under study resources, with prices and terms for Professor Messer, CertMaster Learn, the Google Cybersecurity Certificate, ISC2 online CISSP training, AWS Skill Builder, and Microsoft Learn. The older "Online courses" table became "Third-party online courses" and was rechecked item by item: removed "Professor Messer on Udemy" and the unverified Neal Davis course, replaced the vague $15–$30, $28–$120 and $30–$3,000+ ranges with sourced per-course prices, and marked every price that could not be retrieved. On October 19 the Udemy prices were rechecked against Udemy's own pages: Jason Dion's Security+ course lists at $119.99 (the earlier "usually under $20 on sale" came from a third-party review that no Udemy page backed up, and was removed), Mike Meyers' at $24.99, Jason Dion's CISSP course at $99.99, and Thor Pedersen's practice-question and per-domain courses are now priced. The Maarek course page showed no price this time, so the July sale snapshot stays, labeled as such. Also on October 19, LinkedIn Learning and Training Camp were checked: LinkedIn's official help page says there is no standalone individual subscription and individuals get it only through LinkedIn Premium, so the earlier "$29.99–$39.99/month" framing as a separate subscription did not hold and was removed; Training Camp's CISSP page shows only "Get Custom Quote" and no public price, so the row now describes what the official page says is included and notes that a quote is needed.
 - 2026-10-12: SecAI+ exam fee changed from $359 to the current $298 and the cost estimate recalculated. CAISP updated to its current $1,099 and GASAE to $999. The Security+ pass-rate and Taiwan salary passages cited figures that their source pages no longer carry after revisions, so both now reflect what the sources say today. Taiwan CISSP holder count replaced with a dated statistic. Added the Cybersecurity Management Act effective date. Fixed the source link for the CEH waiver change and the wording of the AI job-posting statistic. Added GCP, CRISC, GASAE, GOAA, COASP, HTB COAE, OSAI+, and AAIR to the comparison table. Certification count corrected from 16 to 22. Corrected the regulatory passage: the staffing tiers come from an FSC order, while the control guidelines are an advisory document from the TWSE and TPEx that recommends no certification. Test center notes now distinguish by certifying body. DEVCORE, AI Network, and Gjun course listings updated to match their current sites. CAISP launch changed to 2024 H2. Added the OSCP report window and OSCP+ validity.
 - 2026-10-08: Added COASP, OSAI+, HTB COAE, GOAA, and AAIR to the AI security category. AZ-500 has retired and is replaced by SC-500. Corrected ISC2's status (the original "CCAI pilot 2025 Q4" was wrong). Security+ exam fee switched to the post-increase $439 and the cost estimate recalculated.
 
@@ -272,3 +291,10 @@ This is Part 1 of the "Security Certification Playbook" series. Coming next:
 - [Lee and Li — Amended Cyber Security Management Act promulgated](https://www.leeandli.com/TW/NewslettersDetail/7505.htm) (in Mandarin)
 - [NCNU Computer Center — Cyber Security Management Act in force from December 1, 2025](https://cc.ncnu.edu.tw/p/406-1001-31660,r471.php?Lang=zh-tw) (in Mandarin)
 - [Uuu — CompTIA SecAI+ course (includes an exam voucher worth USD 298)](https://www.uuu.com.tw/Course/Show/3328/CompTIA-SecAI-) (in Mandarin)
+- [Professor Messer — SY0-701 Security+ free course](https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/)
+- [CompTIA — CertMaster Learn](https://www.comptia.org/en-us/resources/certmaster-training/learn/)
+- [Coursera — Google Cybersecurity Professional Certificate](https://www.coursera.org/professional-certificates/google-cybersecurity)
+- [ISC2 — CISSP Online Self-Paced Training](https://www.isc2.org/training/online-self-paced/cissp-online-self-paced)
+- [ISC2 — One Million Certified in Cybersecurity (concluded)](https://www.isc2.org/landing/1mcc)
+- [AWS Skill Builder](https://aws.amazon.com/training/digital/)
+- [Microsoft Learn — SC-900 learning paths](https://learn.microsoft.com/en-us/training/paths/describe-concepts-of-security-compliance-identity/)

@@ -254,6 +254,9 @@ describe('Stanford course series registry', () => {
       'ai-agents',
       'engineering',
       'updates',
+      'business',
+      'learning',
+      'climbing',
       'other',
     ]);
     expect(summaries.find(item => item.slug === 'statistics-ml-ai')?.category).toBe('exams-interviews');

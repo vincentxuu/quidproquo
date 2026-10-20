@@ -24,9 +24,9 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety)
 
-**Video status: the official public page lists no recording.** [Video sources and notes](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
-> **This post is written from the slides; I'll add the video when it's published.** As of 2026-10-10, the [official schedule](https://www.cmu-agents.com/#/schedule) lists only [slides](https://www.cmu-agents.com/slides/lecture-13-agent-safety.pdf) for Lecture 13 (Oct 6), with no recording. Everything below comes from the slides, not from what the lecturer said; where I'm interpreting, I say so.
+> **This post is written from the slides.** The official recording (about 54 min, posted 2026-10-16) is embedded [at the end](#course-video-sources); the text has not yet been revised with the lecturer's spoken explanation, so everything below is based on the slides.
 
 Lecture 13 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) opens the safety module, subtitled "limiting what agents can access and do." The schedule originally titled it Sandboxing & Credential Management and now says Agent Safety; the content is indeed broader, adding red teaming, monitoring and safety evaluation. Observability and monitoring get their own lecture on Oct 22 (Eric Wallace), so monitoring here is an introduction.
 
@@ -187,16 +187,24 @@ When events are rare, even a 1% false-positive rate makes more than half the ale
 ## Changelog
 
 - 2026-10-10: Added this post, written from the Lecture 13 slides; no recording on the official public page yet.
+- 2026-10-17: The Lecture 13 recording is now on the official playlist (posted 2026-10-16); updated the video status and embedded the video. The text is still based on the slides.
 
 ## Course video sources
 
-This post is written from the slides. I checked the official schedule: Lecture 13 lists slides only, with no recording link. That means the public page has none, not that none exists internally.
+Checked the public recording of CMU 11-768 Fall 2026 Lecture 13; it is published on instructor Graham Neubig's channel, and the title and lecture number match this course. The text is still based on the slides and has not been checked against the recording's content.
+
+```youtube
+url: https://www.youtube.com/watch?v=Mbonnq-PUGM
+title: CMU AI Agents 2026: 13. Agentic Safety
+```
+
+Original video: [CMU AI Agents 2026: 13. Agentic Safety](https://www.youtube.com/watch?v=Mbonnq-PUGM)
 
 Official source:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
-Checked: 2026-10-10.
+Checked: 2026-10-17.
 
 ## References
 

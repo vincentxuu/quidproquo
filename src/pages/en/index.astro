@@ -3,9 +3,8 @@
 export const prerender = true;
 
 import PostLayout from '../../layouts/PostLayout.astro';
-import PostCard from '../../components/PostCard.astro';
+import HomePostFilter from '../../components/HomePostFilter.astro';
 import { useTranslations } from '../../i18n/utils';
-import { getSeriesHref } from '../../utils/series';
 import { getNonDailyPublishedPosts, sortPostsByPinnedAndDateDesc } from '../../utils/content';
 
 const t = useTranslations('en');
@@ -46,23 +45,7 @@ const posts = sortPostsByPinnedAndDateDesc(await getNonDailyPublishedPosts('en')
     </p>
     <a href="/posts/product/2026-03-12-quidproquo-blog-from-scratch-en#the-name" class="name-link">Why the name →</a>
   </div>
-  {posts.map(post => (
-    <PostCard
-      slug={post.id}
-      title={post.data.title}
-      date={post.data.date}
-      category={post.data.category}
-      tags={post.data.tags}
-      description={post.data.description}
-      tldr={post.data.tldr}
-      readingTime={post.data.readingTime}
-      lang="en"
-      type={post.data.type}
-      pinned={post.data.pinned}
-      seriesName={post.data.series?.name}
-      seriesHref={post.data.series ? getSeriesHref(post.data.series.name, 'en') : undefined}
-    />
-  ))}
+  <HomePostFilter posts={posts} lang="en" />
 </PostLayout>
 
 <script is:inline>
