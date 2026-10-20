@@ -1,0 +1,147 @@
+---
+import PostCard from './PostCard.astro';
+import type { Post } from '../utils/content';
+import type { Lang } from '../i18n/utils';
+import { getSeriesHref } from '../utils/series';
+
+interface Props {
+  posts: Post[];
+  lang: Lang;
+}
+const { posts, lang } = Astro.props;
+const isEn = lang === 'en';
+const practiceTag = 'english-video-practice';
+const practiceCount = posts.filter(post => post.data.tags.includes(practiceTag)).length;
+const archiveHref = `${isEn ? '/en' : ''}/tags/${practiceTag}`;
+const featured = [
+  { slug: 'career/2026-10-12-dan-koe-multiple-interests-ai-skill-stack', seconds: 148, captions: isEn ? '3 clips · selected bilingual lines' : '3 片段・精選語句中英對照', speaker: 'Dan Koe', title: isEn ? 'Explain what a good AI result looks like' : '說清楚你期待 AI 做出什麼成果' },
+  { slug: 'ai/2026-10-07-poteto-trust-ladder-verification-first', seconds: 128, captions: isEn ? '3 clips · selected bilingual lines' : '3 片段・精選語句中英對照', speaker: 'Matt Pocock × Poteto', title: isEn ? 'Follow a bilingual passage: give agents hands and eyes' : '中英段落跟讀：讓 agent 有手有眼' },
+].filter(item => posts.some(post => post.id === `${item.slug}${isEn ? '-en' : ''}`));
+---
+<section data-home-post-filter data-lang={lang} aria-label={isEn ? 'Browse articles' : '選擇閱讀與練習文章'}>
+  <section class="practice-feature" aria-labelledby="home-practice-title">
+    <div class="practice-heading">
+      <div>
+        <p class="practice-kicker">{isEn ? 'ENGLISH VIDEO PRACTICE' : '英文影音練習'}</p>
+        <h2 id="home-practice-title">{isEn ? 'Practice English with real videos' : '用真實影片練英文'}</h2>
+      </div>
+      <a class="practice-archive" href={archiveHref}>{isEn ? 'All practice →' : '全部練習 →'}</a>
+    </div>
+    <p class="practice-flow">{isEn ? '① Listen to the clip　② Answer a question　③ Say it in your own words' : '① 聽一段原音　② 回答理解題　③ 換成自己的英文說'}</p>
+    <div class="practice-picks">
+      {featured.map(item => (
+        <a class="practice-pick" href={`/posts/${item.slug}${isEn ? '-en' : ''}?practice=1#video-practice-0`}>
+          <span class="practice-meta">{item.speaker}<span>{item.seconds} {isEn ? 'sec clip' : '秒原音'}</span></span>
+          <strong>{item.title}</strong>
+          <span class="practice-caption-state">{item.captions}</span>
+          <span class="practice-cta">{isEn ? 'Start practicing →' : '開始聽與練 →'}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <div class="filter-panel">
+    <h2>{isEn ? 'Read or practice' : '選擇閱讀或練習'}</h2>
+    <p>{isEn ? 'Practice English with original video clips and guided exercises.' : '想邊讀邊練英文？選有原音片段與練習引導的文章。'}</p>
+    <div class="filter-controls" role="group" aria-label={isEn ? 'Filter articles' : '篩選文章'} hidden>
+      <button type="button" data-home-filter="all" aria-pressed="true">{isEn ? 'All articles' : '全部文章'} <span>{posts.length}</span></button>
+      <button type="button" data-home-filter={practiceTag} aria-pressed="false">{isEn ? 'English video practice' : '英文影音練習'} <span>{practiceCount}</span></button>
+    </div>
+    <a href={archiveHref}>{isEn ? 'Open the practice collection →' : '開啟英文影音練習文章集 →'}</a>
+    <p class="filter-status" data-home-filter-status aria-live="polite" aria-atomic="true">{isEn ? `${posts.length} articles` : `共 ${posts.length} 篇文章`}</p>
+  </div>
+  <div data-home-filter-empty class="empty-state" hidden>
+    <p>{isEn ? 'No English video practice articles are available in this language yet.' : '目前這個語言還沒有英文影音練習文章。'}</p>
+    <button type="button" data-home-filter="all">{isEn ? 'Show all articles' : '顯示全部文章'}</button>
+  </div>
+  <div class="post-list">
+    {posts.map(post => (
+      <div data-home-post data-practice={post.data.tags.includes(practiceTag) ? practiceTag : undefined}>
+        <PostCard
+          slug={post.id}
+          title={post.data.title}
+          date={post.data.date}
+          category={post.data.category}
+          tags={post.data.tags}
+          description={post.data.description}
+          tldr={post.data.tldr}
+          readingTime={post.data.readingTime}
+          lang={lang}
+          type={post.data.type}
+          pinned={post.data.pinned}
+          seriesName={post.data.series?.name}
+          seriesHref={post.data.series ? getSeriesHref(post.data.series.name, lang) : undefined}
+        />
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-home-post-filter]').forEach(root => {
+    const practiceTag = 'english-video-practice';
+    const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-home-post]'));
+    const controls = root.querySelector<HTMLElement>('.filter-controls');
+    const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-home-filter]'));
+    const status = root.querySelector<HTMLElement>('[data-home-filter-status]');
+    const empty = root.querySelector<HTMLElement>('[data-home-filter-empty]');
+    const isEn = root.dataset.lang === 'en';
+    const readFilter = () => new URL(window.location.href).searchParams.get('practice') === practiceTag ? practiceTag : 'all';
+    const apply = (filter: string, updateUrl = false) => {
+      let count = 0;
+      cards.forEach(card => {
+        card.hidden = filter !== 'all' && card.dataset.practice !== filter;
+        if (!card.hidden) count++;
+      });
+      buttons.forEach(button => {
+        if (controls?.contains(button)) button.setAttribute('aria-pressed', String(button.dataset.homeFilter === filter));
+      });
+      if (status) status.textContent = isEn
+        ? `${count} ${filter === 'all' ? 'articles' : 'English video practice articles'}`
+        : `共 ${count} 篇${filter === 'all' ? '文章' : '英文影音練習文章'}`;
+      if (empty) empty.hidden = count > 0;
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (filter === 'all') url.searchParams.delete('practice');
+        else url.searchParams.set('practice', practiceTag);
+        if (url.href !== window.location.href) window.history.pushState({}, '', url);
+      }
+    };
+    buttons.forEach(button => button.addEventListener('click', () => {
+      const resettingEmpty = empty?.contains(button);
+      apply(button.dataset.homeFilter || 'all', true);
+      if (resettingEmpty) controls?.querySelector<HTMLButtonElement>('button')?.focus();
+    }));
+    window.addEventListener('popstate', () => apply(readFilter()));
+    apply(readFilter());
+    if (controls) controls.hidden = false;
+  });
+</script>
+
+<style>
+  .practice-feature { margin-bottom: 1.25rem; padding: 1.1rem; border: 2px solid var(--brand-500); border-radius: 10px; background: var(--bg-card); }
+  .practice-heading { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+  .practice-kicker { margin: 0 0 0.3rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; color: var(--brand-500); }
+  .practice-heading h2 { margin: 0; font-size: 1.3rem; line-height: 1.35; color: var(--text-primary); }
+  .practice-archive { flex-shrink: 0; font-size: 0.8rem; color: var(--brand-500); }
+  .practice-flow { margin: 0.7rem 0; font-size: 0.82rem; line-height: 1.8; color: var(--text-secondary); }
+  .practice-picks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+  .practice-pick { display: flex; flex-direction: column; gap: 0.6rem; padding: 0.85rem; border: 1px solid var(--border); border-radius: 7px; text-decoration: none; background: var(--bg-page); color: var(--text-primary); }
+  .practice-pick:hover { border-color: var(--brand-500); }
+  .practice-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.3rem; color: var(--text-muted); font-size: 0.72rem; }
+  .practice-pick strong { font-size: 0.95rem; line-height: 1.5; }
+  .practice-cta { margin-top: auto; font-size: 0.82rem; font-weight: 700; color: var(--brand-500); }
+  @media (max-width: 540px) { .practice-picks { grid-template-columns: 1fr; } .practice-heading { align-items: flex-start; } .practice-heading h2 { font-size: 1.15rem; } }
+  .filter-panel { margin-bottom: 1.25rem; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-card); }
+  .filter-panel h2 { margin: 0 0 0.4rem; color: var(--text-primary); font-size: 1rem; }
+  .filter-panel p { margin: 0 0 0.75rem; color: var(--text-secondary); font-size: 0.85rem; }
+  .filter-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .filter-controls[hidden], [data-home-post][hidden], .empty-state[hidden] { display: none; }
+  button { min-height: 44px; padding: 0.55rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-page); color: var(--text-primary); font: inherit; font-size: 0.85rem; cursor: pointer; }
+  button[aria-pressed="true"] { border-color: var(--brand-900); background: var(--brand-900); color: var(--bg-page); }
+  button span { margin-left: 0.3rem; font-variant-numeric: tabular-nums; }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 3px; }
+  .filter-panel a { color: var(--brand-500); font-size: 0.85rem; }
+  .filter-panel .filter-status { margin: 0.75rem 0 0; color: var(--text-muted); font-size: 0.78rem; }
+  .empty-state { margin-bottom: 1.25rem; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; }
+  .empty-state p { margin: 0 0 0.75rem; color: var(--text-secondary); }
+</style>

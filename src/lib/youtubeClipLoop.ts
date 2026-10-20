@@ -3,6 +3,10 @@ export interface ClipPlayer {
   seekTo(seconds: number, allowSeekAhead: boolean): void;
   playVideo(): void;
   getCurrentTime(): number;
+  getPlayerState?(): number;
+  pauseVideo?(): void;
+  setPlaybackRate?(rate: number): void;
+  getAvailablePlaybackRates?(): number[];
 }
 
 // seekTo removes YouTube's native end boundary, so keep checking on later laps.
@@ -28,7 +32,7 @@ export function createClipLoop(player: ClipPlayer, start: number, end: number) {
 }
 
 type YoutubeAPI = { Player: new (iframe: HTMLIFrameElement, options: {
-  events: { onStateChange(event: { data: number; target: ClipPlayer }): void; onError(event: { data: number }): void };
+  events: { onReady?(event: { target: ClipPlayer }): void; onStateChange(event: { data: number; target: ClipPlayer }): void; onError(event: { data: number }): void };
 }) => ClipPlayer };
 type YoutubeWindow = Window & { YT?: YoutubeAPI; onYouTubeIframeAPIReady?: () => void };
 let apiPromise: Promise<YoutubeAPI> | undefined;
@@ -37,6 +41,35 @@ const players = new WeakMap<HTMLIFrameElement, ClipPlayer>();
 const controllers = new Set<ReturnType<typeof createClipLoop>>();
 let observer: IntersectionObserver | undefined;
 let generation = 0;
+const readyPlayers = new WeakMap<HTMLIFrameElement, Promise<ClipPlayer>>();
+const readyPlayerGenerations = new WeakMap<HTMLIFrameElement, number>();
+const practiceControllers = new WeakMap<HTMLIFrameElement, ReturnType<typeof createPracticePlayback>>();
+
+/** Stop at the clip boundary, or loop only when explicitly selected. */
+export function createPracticePlayback(player: ClipPlayer, start: number, end: number, loop: boolean) {
+  let correctedStart = false;
+  let timer: ReturnType<typeof setInterval> | undefined;
+  const dispose = () => { clearInterval(timer); timer = undefined; };
+  const restart = () => { player.seekTo(start, true); player.playVideo(); };
+  return {
+    onStateChange(state: number) {
+      dispose();
+      if (state === 1) {
+        correctedStart = false;
+        timer = setInterval(() => {
+          const time = player.getCurrentTime();
+          // Correct at most once per actual PLAYING transition, not while buffering.
+          if (time < start - .25 && !correctedStart) { correctedStart = true; restart(); }
+          else if (time >= end) {
+            if (loop) restart();
+            else { dispose(); player.pauseVideo?.(); }
+          }
+        }, 100);
+      } else if (state === 0 && loop) restart();
+    },
+    dispose,
+  };
+}
 
 export function youtubeErrorMessage(code: number, english = false): string {
   if (code === 101 || code === 150) return english ? 'This video cannot be embedded. Open it on YouTube.' : '此影片禁止站內嵌入，請前往 YouTube 觀看。';
@@ -48,6 +81,26 @@ export function youtubeErrorMessage(code: number, english = false): string {
 export function showYoutubeFallback(frame: HTMLIFrameElement, code: number) {
   const container = frame.closest('.video-embed__frame');
   if (!container) return;
+  // Transient/configuration failures must not destroy the inline player.
+  if (![100, 101, 150].includes(code)) {
+    const english = document.documentElement.lang.startsWith('en');
+    const existing = container.parentElement?.querySelector('[data-youtube-retry]');
+    if (existing) return;
+    const retry = document.createElement('button');
+    retry.type = 'button';
+    retry.dataset.youtubeRetry = 'true';
+    retry.textContent = english ? 'Player interrupted — retry here' : '播放器暫時中斷，按此原地重試';
+    retry.addEventListener('click', () => {
+      attached.delete(frame);
+      players.delete(frame);
+      readyPlayers.delete(frame);
+      frame.setAttribute('src', frame.src);
+      retry.remove();
+      void initYoutubeClipLoops(frame);
+    });
+    container.parentNode?.insertBefore(retry, container.nextSibling);
+    return;
+  }
   // A player that cannot play has no business holding half the screen.
   if (frame.closest('.video-embed--split')) exitSplitView();
   const message = document.createElement('p');
@@ -83,7 +136,7 @@ function loadAPI(): Promise<YoutubeAPI> {
   return apiPromise.catch((error: unknown) => { apiPromise = undefined; throw error; });
 }
 
-export async function initYoutubeClipLoops() {
+export async function initYoutubeClipLoops(eagerFrame?: HTMLIFrameElement) {
   const frames = [...document.querySelectorAll<HTMLIFrameElement>('iframe[data-youtube-player]')]
     .filter((frame) => !attached.has(frame));
   if (!frames.length) return;
@@ -105,12 +158,20 @@ export async function initYoutubeClipLoops() {
       const end = Number(frame.dataset.youtubeLoopEnd);
       const segmentLoop = frame.dataset.youtubeLoopStart !== undefined && Number.isFinite(start) && Number.isFinite(end) && start >= 0 && end > start;
       let controller: ReturnType<typeof createClipLoop> | undefined;
-      const player = new api.Player(frame, { events: { onStateChange(event) {
+      let markReady: (player: ClipPlayer) => void;
+      readyPlayers.set(frame, new Promise<ClipPlayer>((resolve) => { markReady = resolve; }));
+      const player = new api.Player(frame, { events: { onReady(event) {
+        if (generation === currentGeneration) readyPlayerGenerations.set(frame, currentGeneration);
+        markReady(event.target);
+      }, onStateChange(event) {
+        const practice = practiceControllers.get(frame);
+        if (practice) { practice.onStateChange(event.data); return; }
         if (!segmentLoop) return;
         controller ??= createClipLoop(event.target, start, end);
         controllers.add(controller);
         controller.onStateChange(event.data);
       }, onError(event) {
+        clearPracticePlayback(frame);
         controller?.dispose();
         if (controller) controllers.delete(controller);
         showYoutubeFallback(frame, event.data);
@@ -118,6 +179,7 @@ export async function initYoutubeClipLoops() {
       players.set(frame, player);
       attached.add(frame);
     };
+    if (eagerFrame && frames.includes(eagerFrame)) attach(eagerFrame);
     if (typeof IntersectionObserver === 'undefined') {
       frames.forEach(attach);
     } else {
@@ -237,6 +299,7 @@ export function offerReturn(top: number) {
 }
 
 export function seekEmbeddedYoutube(frame: HTMLIFrameElement, seconds: number, anchor?: Element | null) {
+  if (clearPracticePlayback(frame)) players.get(frame)?.setPlaybackRate?.(1);
   // Only one lecture should be talking at a time.
   for (const other of document.querySelectorAll<HTMLIFrameElement>('iframe[data-youtube-player]')) {
     if (other !== frame) (players.get(other) as (ClipPlayer & { pauseVideo?: () => void }) | undefined)?.pauseVideo?.();
@@ -263,7 +326,7 @@ export function seekEmbeddedYoutube(frame: HTMLIFrameElement, seconds: number, a
 export function handleYoutubeTimeLinkClick(event: MouseEvent) {
   if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
   const link = (event.target as Element | null)?.closest?.<HTMLAnchorElement>('a[href]');
-  if (!link || link.closest('.video-embed')) return;
+  if (!link || link.closest('.video-embed') || link.hasAttribute?.('data-practice-source')) return;
   const target = parseYoutubeTimeLink(link.href);
   if (!target) return;
   const frame = [...document.querySelectorAll<HTMLIFrameElement>('iframe[data-youtube-player]')].find((candidate) =>
@@ -271,4 +334,67 @@ export function handleYoutubeTimeLinkClick(event: MouseEvent) {
   if (!frame) return;
   event.preventDefault();
   seekEmbeddedYoutube(frame, target.seconds, link);
+}
+
+
+function clearPracticePlayback(frame: HTMLIFrameElement): boolean {
+  const practice = practiceControllers.get(frame);
+  if (!practice) return false;
+  practice.dispose();
+  controllers.delete(practice);
+  practiceControllers.delete(frame);
+  return true;
+}
+
+/** Prefer the workbench player and keep practice controls beside the video. */
+export async function playYoutubePractice(videoId: string, start: number, end: number, rate: number, loop: boolean, anchor: Element): Promise<boolean> {
+  const frames = [...document.querySelectorAll<HTMLIFrameElement>('iframe[data-youtube-player]')]
+    .filter((frame) => new URL(frame.src).pathname === `/embed/${videoId}`);
+  const frame = frames.find((item) => anchor.contains(item)) ?? frames.find((item) => Number(item.dataset.youtubeLoopStart) === start && Number(item.dataset.youtubeLoopEnd) === end) ?? frames[0];
+  if (!frame) return false;
+  const currentGeneration = generation;
+  await initYoutubeClipLoops(frame);
+  const ready = readyPlayers.get(frame);
+  if (!ready) return false;
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  const player = await Promise.race([ready, new Promise<null>((resolve) => { timeout = setTimeout(() => resolve(null), 8000); })]);
+  clearTimeout(timeout);
+  if (!player || generation !== currentGeneration || !frame.isConnected || !anchor.isConnected) return false;
+  for (const other of document.querySelectorAll<HTMLIFrameElement>('iframe[data-youtube-player]')) {
+    if (other !== frame) players.get(other)?.pauseVideo?.();
+  }
+  const previous = practiceControllers.get(frame);
+  previous?.dispose();
+  if (previous) controllers.delete(previous);
+  // Dispose the old fixed loop before changing its bounds or turning looping off.
+  for (const controller of controllers) controller.dispose();
+  const controller = createPracticePlayback(player, start, end, loop);
+  practiceControllers.set(frame, controller);
+  controllers.add(controller);
+  player.setPlaybackRate?.(rate);
+  player.seekTo(start, true);
+  player.playVideo();
+  if (player.getPlayerState?.() === 1) controller.onStateChange(1);
+  if (!anchor.contains(frame) && !enterSplitView(frame, anchor)) {
+    const box = frame.getBoundingClientRect();
+    if (box.top < 0 || box.bottom > window.innerHeight) {
+      offerReturn(window.scrollY);
+      frame.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+  }
+  return true;
+}
+
+/** Read only this workbench's ready source player; never substitute another video's clock. */
+export function getPracticePlaybackTime(anchor: Element): number | null {
+  const frame = anchor.querySelector<HTMLIFrameElement>('iframe[data-youtube-player]');
+  if (!frame?.isConnected || readyPlayerGenerations.get(frame) !== generation) return null;
+  const player = players.get(frame);
+  if (!player) return null;
+  try {
+    const seconds = player.getCurrentTime();
+    return Number.isFinite(seconds) && seconds >= 0 ? seconds : null;
+  } catch {
+    return null;
+  }
 }

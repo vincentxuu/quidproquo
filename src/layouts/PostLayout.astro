@@ -6,6 +6,7 @@ import { ChatSidebar } from '../components/Chat/ChatSidebar';
 import { ChatFloating } from '../components/Chat/ChatFloating';
 import '../styles/tokens.css';
 import '../styles/chat.css';
+import '../styles/videoPractice.css';
 import 'katex/dist/katex.min.css';
 
 interface Props {
@@ -1475,6 +1476,11 @@ const pageTitle =
 
 <script>
   import { initYoutubeClipLoops, disposeYoutubeClipLoops, handleYoutubeTimeLinkClick } from '../lib/youtubeClipLoop';
+  import { initVideoPractice, disposeVideoPractice } from '../lib/videoPractice';
+  initVideoPractice();
+  document.addEventListener('astro:page-load', initVideoPractice);
+  document.addEventListener('astro:before-swap', disposeVideoPractice);
+  window.addEventListener('pagehide', disposeVideoPractice);
   void initYoutubeClipLoops();
   document.addEventListener('click', handleYoutubeTimeLinkClick);
   document.addEventListener('astro:page-load', () => { void initYoutubeClipLoops(); });
