@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "swebench_verified_top5": [
     { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
     { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
@@ -8,11 +8,11 @@
     { "rank": 5, "model": "Atlassian Rovo Dev（三方並列 76.80）", "org": "Atlassian", "score": 76.80 }
   ],
   "lmsys_agent_top5": [
-    { "rank": 1, "model": "Claude Opus 5.5 (Max)", "score": 18.88, "ci": "[16.14%, 21.61%]" },
-    { "rank": 2, "model": "GPT-6 Astra (Max)", "score": 14.13, "ci": "[11.83%, 16.43%]" },
-    { "rank": 3, "model": "Claude Fable 5.1 (Max)", "score": 14.03, "ci": "[12.04%, 16.03%]" },
-    { "rank": 4, "model": "GPT-6.1 Sol (Max)", "score": 13.60, "ci": "[11.70%, 15.51%]" },
-    { "rank": 5, "model": "Gemini 4 Argon (High)", "score": 13.23, "ci": "[11.90%, 14.56%]" }
+    { "rank": 1, "model": "Claude Opus 5.5 (Max)", "score": 20.35, "ci": "[17.79%, 22.91%]" },
+    { "rank": 2, "model": "GPT-6 Astra (Max)", "score": 15.15, "ci": "[12.91%, 17.39%]" },
+    { "rank": 3, "model": "Claude Fable 5.1 (Max)", "score": 14.33, "ci": "[12.34%, 16.31%]" },
+    { "rank": 4, "model": "GPT-6.1 Sol (Max)", "score": 13.72, "ci": "[11.95%, 15.49%]" },
+    { "rank": 5, "model": "Claude Sonnet 5.5 (Max)", "score": 12.75, "ci": "[9.71%, 15.79%]" }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59.2 },
@@ -27,5 +27,5 @@
     { "rank": 5, "model": "Sonnet 5.5 Extra High", "org": "Anthropic", "score": 53.1, "costPerTask": 2.81, "tokensPerTask": 100158 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-10-20：SWE-bench Verified 用 Bash curl 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json（python3 -I 解析，180 筆 Verified 結果），前 5 名與 10-19 逐位元相同（79.20／79.20／78.80／77.40／76.80 三方並列），未異動。Arena 用 Groundlane web_fetch 直打 HF datasets-server（lmarena-ai/leaderboard-dataset，agent 子集 latest split，length=60）查到 leaderboard_publish_date 仍停在 2026-10-16（跟 10-19 同一批，未推進新批次），前 5 名數字逐位元相同（Claude Opus 5.5 Max 18.88%／GPT-6 Astra 14.13%／Claude Fable 5.1 Max 14.03%／GPT-6.1 Sol 13.60%／Gemini 4 Argon High 13.23%），未觸發 Step 4；另用 web_fetch render=always 直抓 arena.ai/leaderboard/agent 網頁版比對，發現該頁內容抽取會把多數列的模型名稱移除（僅存名次與分數，第1名顯示 20.35%），與 HF 官方資料集的 18.88% 對不上——判定網頁版抽取不穩定／可能混雜不同分類或時間窗，仍以 HF datasets-server 的結構化資料為準。cursor.com/cursorbench 前 5 名與官網 changelog 皆與 10-19 相同（最後一筆仍是 10-07 定價調整），未異動。morphllm.com/leaderboard 仍 429 Vercel Security Checkpoint；artificialanalysis.ai/agents/coding-agents 仍為圖表渲染、無可擷取文字表格，兩者維持既有已知阻塞（Q-023），本次未發現新路徑。另跑 Step 3b 兩組新聞信號查詢（SOTA 公告／具體 benchmark 結果），僅命中第三方聚合站（kilo.ai、swfte.com、llm-stats.com、lmmarketcap.com、benchlm.ai 等互不一致的榜單），未見官方追蹤 benchmark 的排名變動公告。依 skill Step 4 判斷今日無 Benchmark 異動，不產出文章。"
+  "notes": "2026-10-21：SWE-bench Verified 用 Bash curl 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json（python3 -I 解析，180 筆 Verified 結果），前 5 名與 10-20 逐位元相同（79.20／79.20／78.80／77.40／76.80 三方並列），未異動。Arena 這次 raw.githubusercontent.com 本身可連，但 datasets-server.huggingface.co 直連被 proxy 擋（connect_rejected，網域未在白名單），改用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，agent 子集 latest split，length=60），查到 leaderboard_publish_date 已從 10-20 記錄的 2026-10-16 推進到 2026-10-19（新批次）：前 4 名模型與名次不變，分數小漲（Opus 5.5 Max 18.88%→20.35%／+1.47pp，GPT-6 Astra 14.13%→15.15%／+1.02pp，Fable 5.1 Max 14.03%→14.33%／+0.30pp，GPT-6.1 Sol 13.60%→13.72%／+0.12pp，均未達 >2pp 門檻）；第 5 名由 Gemini 4 Argon High（13.23%）換成 Claude Sonnet 5.5 Max（12.75%，非首次上榜、非前三名新進），Gemini 4 Argon High 退到第 6（12.12%）——不符合「前三名新模型／第一名易主／>2pp」任一觸發條件。另外，10-20 筆記裡懷疧網頁版 arena.ai/leaderboard/agent 抽取錯誤（顯示 20.35% 與當時 HF 的 18.88% 對不上）：這次證實該 20.35% 其實是已經存在、只是 HF 資料集還沒同步的新批次分數，非抽取錯誤，10-20 的懷疑是誤判，留此記錄校正。cursor.com/cursorbench 前 5 名與官網 changelog 皆與 10-20 相同（最後一筆仍是 10-07 定價調整），未異動。morphllm.com/leaderboard 未再測（已知 429 阻塞）；artificialanalysis.ai/agents/coding-agents 改版後頁面仍是純圖表＋方法論文字，無排名數字表格可擷取，維持既有已知阻塞（Q-023）。另跑 Step 3b 兩組新聞信號查詢（SOTA 公告／具體 benchmark 結果），僅命中第三方聚合站（kilo.ai、greptile.com、llm-stats.com、benchlm.ai、swen.live、labs.scale.com 等互不一致的榜單），未見官方追蹤 benchmark 的排名變動公告。依 skill Step 4 判斷今日無 Benchmark 異動，不產出文章。"
 }
