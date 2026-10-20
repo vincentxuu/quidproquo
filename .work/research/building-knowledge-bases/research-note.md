@@ -1,399 +1,396 @@
 # 研究筆記：知識庫怎麼建（building-knowledge-bases）
 
-流程：research-selection（母群→覆蓋矩陣→偏誤）→ deep-research。抓取工具：Groundlane web_search／web_fetch／document_parse。
-狀態標記：✅ 讀過正文　🟡 只讀到摘要或部分內容（只能引用摘要層級的結論）　🔎 只看過搜尋片段（線索，引用前必須讀原頁）　❌ 讀不到
+流程：research-selection（母群→覆蓋矩陣→偏誤）→ deep-research。抓取工具：Groundlane web_search／web_fetch／document_parse（少數失敗時改用 Firecrawl、Semantic Scholar API）。
+來源登錄：同目錄 `sources.jsonl`（108 筆，一行一個來源；讀取程度以它為準，本筆記與它一致）。
 
-> **怎麼讀這份筆記**：研究做了四輪（第一輪：官方與方法原文；第二輪：讀不到的換管道、補論文與非廠商來源；第三輪：補 2024–2026 年研究；第四輪：逐篇補反證與飽和）。各段的「完整清單」表格已改成**最終狀態**，以表格為準；後面的「第二輪」「第三輪」段落保留各來源的讀後重點與數字。「對規劃的影響」以規劃表 `.work/series-plans/building-knowledge-bases.md` 為準。
+## 讀取程度（2026-10-20 依抓取紀錄重新核對）
+
+| 標記 | 意思 | 能怎麼用 |
+|---|---|---|
+| ✅ 讀過 | 整份頁面在輸出內、沒有截斷 | 官方文件與方法原文可直接引用；論文仍要有抽取紀錄才能引數字 |
+| 🟡 部分 | 取得全文，但只讀了前 N 字元（截斷），或只用關鍵字抽段讀 | 只能引已讀段落；動筆前要從頭精讀 |
+| 🟡 摘要 | 只讀到摘要（arXiv abs 頁、出版社頁、Semantic Scholar API） | 只能寫「這篇研究存在、摘要說…」，數字是線索，不能直接引 |
+| 🔎 片段 | 只看過搜尋結果片段 | 不引 |
+| 🔴 讀不到 | 試過的管道都失敗 | 不引；`tried` 欄記錄管道 |
+
+**目前狀態**：108 個來源裡，論文 48 篇，**整份讀過的只有 2 篇**（Barnett 2024、NVIDIA FACTS 2024 的 HTML 全文）；部分 9 篇、摘要 32 篇、片段 4 篇、讀不到 1 篇。**沒有任何一篇有 deep-research 第 2.5 節要求的精讀抽取紀錄**，所以下文所有研究數字都是線索層級，要在該篇動筆前精讀確認。非論文來源（官方文件、方法原文、調查、事件報告）60 筆中，44 筆完整讀過、15 筆讀了部分、1 筆只有出版社說明（Bergman & Whittaker 2016 專書）。
+
+> 2026-10-20 更正：前四輪筆記把「只讀到摘要」標成「✅ 摘要」，把截斷或抽段讀的論文標成「✅ 全文」，OmniDocBench 與 Ink & Switch 只看過搜尋片段卻標 ✅。本版依抓取紀錄（每次呼叫的狀態碼、位元組數、是否截斷、讀取字元上限）逐筆改正。
 >
-> 2026-10-16 更正：研究初期（Forte PARA、zettelkasten.de 入門、Matuschak、Johnny.Decimal、Obsidian 三頁）曾直接用工具查，沒有先跑 skill，也用了 Exa 與 Firecrawl。這些頁面的內容已讀過正文，結論沿用；後續一律照 skill 走 Groundlane。
+> 2026-10-16 更正：研究初期（Forte PARA、zettelkasten.de 入門、Matuschak、Johnny.Decimal、Obsidian 三頁）曾直接用工具查，沒有先跑 skill，也用了 Exa 與 Firecrawl；這些頁面已讀過，結論沿用。
+
+### 研究分兩層
+
+- **系列層（已完成）**：母群、掃描、覆蓋矩陣、偏誤，以及每篇的候選來源。產物用來決定「每篇讀哪些」，不能下結論。
+- **篇章層（每篇動筆前）**：從候選來源挑 8–12 篇（含至少一篇結果相反或無效的），清單給使用者看；一個 agent 精讀 3–5 篇並交抽取紀錄（設計、數字與所在表節、限制、與摘要不一致處、讀取起訖位置）；沒參與精讀的人抽查三個數字。過五關才動筆。
 
 ---
 
-## A 段：個人知識管理
+## A 段：個人知識管理（order 0–5）
 
 ### 母群定義
 
 個人知識管理方法＝個人用來收集、組織、找回、再利用自己的筆記與檔案的**公開成文方法**（有作者原始說明可讀），加上學術界個人資訊管理（PIM）研究對這些做法的實證結果。
-不算：單純的工具功能介紹；任務管理方法本身（GTD 只取「收件匣＋每週回顧」這兩個與知識庫有關的部分）；團隊共用的系統（屬於 B 段）。
+不算：單純的工具功能介紹；任務管理方法本身（GTD 只取「收件匣＋每週回顧」）；團隊共用的系統（B 段）。
 
 ### 掃描方法
 
-1. 分類目錄：英文維基「Personal knowledge management」「Personal information management」條目；GitHub awesome-knowledge-management（brettkromkamp）；awesome-pkm（knowfox，內容幾乎是空的）。
-2. 搜尋聚合：「PKM methods compared」類比較文（atlasworkspace、saner.ai、whennotesfly 等，只當線索）。
+1. 分類目錄：英文維基「Personal knowledge management」「Personal information management」；GitHub awesome-knowledge-management（brettkromkamp）；awesome-pkm（knowfox，幾乎空白）。
+2. 搜尋聚合：「PKM methods compared」類比較文（只當線索）。
 3. 推薦鏈：dsebastien 的 PKM 文列出 Zettelkasten／PARA／Johnny.Decimal／Progressive Summarization／MOC／LIFT／Inbox Zero／Collector's Fallacy；Matuschak 引 Ahrens 與 Luhmann；zettelkasten.de 引 Luhmann 與 Eco。
-4. 學術：PIM 文獻（Whittaker、Bergman、Jones、Malone）。
+4. 學術：PIM 文獻（Whittaker、Bergman、Jones、Najork）；記憶研究（生成效應、筆記媒介）；2024–2026 的 AI 筆記輔助研究。
+5. 近年與反證：限定 2024 年後重搜；加 replication、criticism、does not 重搜；中文「卡片盒筆記 研究」。
 
-### 掃到的完整清單（方法與證據，19 項）
+### 來源清單（最終狀態）
 
-| 類型 | 項目 | 來源狀態 |
-|---|---|---|
-| 依「放哪裡」組織 | PARA（Forte） | ✅ fortelabs.com/blog/para/（2023-02-24，更新 2026-04-15） |
-| 依「放哪裡」組織 | Johnny.Decimal | ✅ johnnydecimal.com/documentation/introduction |
-| 依「放哪裡」組織 | 依學科主題分資料夾（學校式） | ✅ Forte PARA 文中作為反例 |
-| 依「放哪裡」組織 | PPV（August Bradley，Notion 系統） | 🔎 Reddit 片段，未讀 |
-| 依「連結」組織 | Zettelkasten（Luhmann） | ✅ Luhmann〈Communicating with Slip Boxes〉英譯全文；✅ zettelkasten.de/introduction |
-| 依「連結」組織 | 文獻筆記／永久筆記／閃念筆記（Ahrens《How to Take Smart Notes》） | 🟡 書無公開全文；改用 zettelkasten.de 2022 逐頁引用書中內容的整理（附頁碼） |
-| 依「連結」組織 | Evergreen notes（Matuschak） | ✅ notes.andymatuschak.org/Evergreen_notes |
-| 依「連結」組織 | Maps of Content（Nick Milo / LYT） | ✅ blog.linkingyourthinking.com/notes/mocs-(defn)、/maps/ |
-| 依「連結」組織 | 數位花園（Caulfield／Appleton） | ✅ maggieappleton.com/garden-history |
-| 處理筆記 | Progressive Summarization（Forte） | ✅ fortelabs.com（2017-12-27） |
-| 處理筆記 | CODE（Forte BASB） | 🔎 未讀 |
-| 收集 | Collector's Fallacy（zettelkasten.de） | ✅ 2014-01-20 |
-| 收集／回顧 | GTD Weekly Review checklist | ✅ gettingthingsdone.com PDF（document_parse） |
-| 歷史 | Commonplace book | 🔎 只在維基「See also」看到 |
-| LLM 輔助 | Karpathy llm-wiki | 站內已有兩篇（llm-knowledge-vault、llm-knowledge-management-landscape） |
-| 證據 | PIM 活動模型：keeping／finding／meta-level（Jones） | ✅ 英文維基 PIM 條目 |
-| 證據 | Whittaker et al. CHI 2011：345 位使用者、85,000 次以上找回動作，建資料夾的人找回不更成功，搜尋與討論串更有效 | ✅ 全文（第二輪，第三方鏡像 PDF） |
-| 證據 | Bergman et al. 2008（TOIS）：桌面搜尋改善後，找個人檔案仍偏好用資料夾導覽 | 🟡 原文仍讀不到；改引 Bergman 2010 全文與 Bergman & Dvir 2026 摘要（第二、三輪） |
-| 證據 | Bergman et al. 2010（JASIST）：資料夾深度與大小對找回時間的模型 | ✅ 全文（第二輪，特拉維夫大學 PDF） |
-| 證據 | Bergman & Dvir 2026：導覽偏好至今仍成立，超級搜尋者例外 | ✅ 摘要（第三輪，Springer） |
-| 證據 | 生成效應統合分析（Bertsch 2007）；Urry 2021 推翻手寫優勢 | ✅ 摘要（第二輪） |
-| 證據 | Chen et al. 2025 AI 筆記輔助實驗；Microsoft 2025 CHI 批判思考調查 | ✅ 全文／官方摘要（第三輪） |
-| 證據 | Whittaker & Hirschberg 2001：歸檔者累積更多資料、使用頻率反而低於堆放者 | 🔎 ACM 搜尋片段，未讀原頁；不引用 |
+| 類型 | 項目 | 讀取 | 用於 |
+|---|---|---|---|
+| 方法：放哪裡 | PARA（Forte，2023，更新 2026-04） | ✅ | 2 |
+| 方法：放哪裡 | Johnny.Decimal 官方說明 | ✅ | 2 |
+| 方法：放哪裡 | PPV（August Bradley） | 🔎 Reddit 片段 | 不引 |
+| 方法：連結 | Luhmann〈Communicating with Slip Boxes〉英譯 | ✅ | 3 |
+| 方法：連結 | Luhmann 檔案館內容總覽（德文） | ✅ | 3 |
+| 方法：連結 | zettelkasten.de 入門 | 🟡 部分（前 3 萬字元） | 3 |
+| 方法：連結 | Ahrens 概念逐頁整理（zettelkasten.de 2022，附頁碼；原書無公開全文） | ✅（二手） | 3 |
+| 方法：連結 | Evergreen notes（Matuschak） | ✅ | 3 |
+| 方法：連結 | MOC 定義與 Maps（LYT） | ✅ | 3 |
+| 方法：連結 | 數位花園歷史（Appleton） | 🟡 部分 | 3 |
+| 方法：處理 | Progressive Summarization（Forte 2017） | 🟡 部分（前 2 萬字元，layer 段已讀） | 5 |
+| 方法：處理 | CODE（Forte BASB） | 🔎 | 不引 |
+| 方法：收集 | Collector's Fallacy（2014） | ✅ | 1 |
+| 方法：回顧 | GTD Weekly Review checklist | ✅ | 1、5 |
+| 工具 | Obsidian：資料存放、內部連結（反向連結、properties 同系列頁） | ✅ | 4 |
+| 工具 | Notion：匯出內容 | 🟡 部分（前 8 千字元，含匯出格式與私人頁限制） | 4 |
+| 工具 | Ink & Switch〈Local-first software〉2019 | 🔎 只看過搜尋結果 | 4，要讀原文 |
+| 研究 | Whittaker et al. CHI 2011 email 找回 | 🟡 部分（鏡像 PDF 全文取得，關鍵字抽段讀） | 2 |
+| 研究 | Bergman et al. 2010 JASIST 資料夾深度與大小 | 🟡 部分（研究室 PDF，抽段讀） | 2 |
+| 研究 | Bergman et al. 2008 TOIS 導覽偏好 | 🟡 摘要（ACM 擋、ResearchGate 403，S2 API） | 2 |
+| 研究 | Bergman & Whittaker 2016 專書 | 🟡 摘要（出版社說明；MIT Press 403） | 2 |
+| 研究 | Bergman & Dvir 2026 Hyper-searchers | 🟡 摘要 | 2 |
+| 研究 | Bergman & Dvir 2024 File hyper-searching explained | 🔎（tandfonline 擋、PDF 被判含主動內容） | 不引 |
+| 研究 | Whittaker & Hirschberg 2001 歸檔者與堆放者 | 🟡 摘要（S2 API） | 未用 |
+| 研究 | Najork et al. 2024 Searching Personal Collections | 🟡 部分（HTML 只讀前 1.2 萬字元／21 萬位元組） | 0、1、2 |
+| 研究 | 數位囤積 scoping review（HSSC 2026） | 🟡 摘要 | 1 |
+| 研究 | Bertsch et al. 2007 生成效應統合分析 | 🟡 摘要 | 3 |
+| 研究 | Urry et al. 2021 筆記媒介重複驗證 | 🟡 摘要（CRAN afex 文件附原摘要；APS、everydayresearchmethods 報導 ✅） | 3 |
+| 研究 | Malashenko et al. 2023 Zettelkasten＋間隔重複 | 🟡 部分（全文取得、抽段讀） | 3 |
+| 研究 | Schmidt 2016 Luhmann 卡片盒 | 🔴（docslib 只回推薦列表；substack 是影片說明） | 不引 |
+| 研究 | Chen et al. 2025 More AI Assistance Reduces Cognitive Engagement | 🟡 部分（HTML 前 3.5 萬字元／35 萬位元組） | 5 |
+| 研究 | Microsoft Research 2025 CHI 批判思考 | 🟡 部分（官方部落格前 1.5 萬字元；論文本身未讀） | 5 |
+| 研究 | Etkin et al. 2025 Frontiers in Education | 🟡 摘要（全文頁只讀前 6 千字元） | 5 |
+| 研究 | Melumad & Yun 2025 PNAS Nexus | 🟡 摘要（OUP 頁與 PDF 失敗、techxplore 403；S2 API） | 5 |
+| 入口 | 維基 PIM 條目（keeping／finding／meta-level 活動模型） | 🟡 部分（前 4 萬字元） | 0、1 |
+| 掃描 | 維基 PKM 條目、dsebastien、awesome 清單、Reddit 清單 | ✅／🟡 | 只當線索 |
+| 站內 | llm-knowledge-vault、llm-knowledge-management-landscape | 站內 | 5 |
 
-### 讀過正文的重點（只記會用到的）
+### 重點（標明讀取層級）
 
-- **PARA**：四類 Projects（有目標、會結束）／Areas（持續要照顧的責任）／Resources（感興趣的主題）／Archives（以上三類不再活躍的）。核心原則是「依可行動性分類」，不依學科。Forte 的反例：客戶把「招募」「策略規劃」列成專案，其實都是 Areas。
-- **Progressive Summarization**：Layer 0 原文 → 1 摘入筆記 → 2 粗體 → 3 螢光 → 4 用自己的話寫摘要 → 5 改寫成作品。只在「本來就要看這則筆記」時才往下加一層（opportunistic compression）。主張 note-first，反對以標籤為主的組織方式。在 PARA 裡，放進 Project 等於排程短期回顧，Archive 是冷儲存。
-- **Luhmann 原文**：固定編號、不依主題分類；任意內部分支（57/12 → 57/12a）；連結與反向連結；關鍵字索引（register）只記少數入口；筆記庫要好幾年才達到臨界量，之前只是「放進什麼拿出什麼」的容器；沒有連進網絡的筆記會被遺忘。
-- **zettelkasten.de**：三個特質（超文本、原子性、個人化）；一張卡片三要素（ID、本文用自己的話、參考來源）；「connection, not collection」；Luhmann 的索引不是標籤系統，「system」一詞只有一個入口。
-- **Collector's Fallacy**：「知道有這個東西」≠「知道這個東西」；Eco 說影印是不讀的藉口；對策是縮短「研究→閱讀→吸收」的循環，先設一小時上限、處理到收件匣清空。
-- **Evergreen notes**：原子化、以概念為單位、密集連結、偏好聯想式而非階層分類、預設寫給自己看；明說受 Zettelkasten 影響。
-- **Johnny.Decimal**：區域（10-19）→ 類別（15）→ ID（15.22）；每層不超過 10 個；數字讓位置不隨字母排序變動，可以口頭說。
-- **MOC**：「把事物放在彼此脈絡中的地圖」；收集、碰撞、導覽三階段；不只是索引。
-- **數位花園**：依主題連結而非時間排序；持續生長、公開未完成的想法；源自 Bernstein 1998〈Hypertext Gardens〉、Caulfield 2015〈The Garden and the Stream〉。
-- **GTD Weekly Review**：Get Clear（收集散件、收件匣歸零、清空腦袋）→ Get Current（看行動清單、行事曆、等待清單、專案清單）→ Get Creative（看 Someday/Maybe，刪掉不再感興趣的）。
-- **Obsidian**：vault 就是本機資料夾，筆記是 Markdown 純文字檔，可用其他編輯器或 Git；內部連結支援 Wikilink 與 Markdown 兩種格式，改檔名會自動更新連結；block reference 是 Obsidian 專屬語法，在外部不能用；反向連結分 linked／unlinked mentions；properties 以 YAML 存在檔案開頭。
-- **PIM 研究（維基 PIM 條目）**：keeping 是訊號偵測問題（漏收 vs 收了不用）；檔案找回多數人偏好導覽而非搜尋，email 則逐漸轉向搜尋；收了之後忘記去找，努力就白費。
+**方法原文（✅，屬作者主張）**
+
+- **PARA**：Projects（有目標、會結束）／Areas（持續要照顧的責任）／Resources（感興趣的主題）／Archives（以上三類不再活躍的）；依可行動性分類，不依學科。反例：客戶把「招募」「策略規劃」列成專案，其實是 Areas。
+- **Progressive Summarization**（🟡 部分，layer 段已讀）：Layer 0 原文 → 1 摘入 → 2 粗體 → 3 螢光 → 4 用自己的話摘要 → 5 改寫成作品；只在「本來就要看」時往下加一層；note-first，反對以標籤為主。
+- **Luhmann 原文**：固定編號、不依主題分類；任意內部分支（57/12 → 57/12a）；連結與反向連結；關鍵字索引只記少數入口；要好幾年才達臨界量；沒連進網絡的筆記會被遺忘。
+- **Luhmann 檔案館**：Zettelkasten I 有 108 個主題分部、書目與關鍵字索引；II 有 11 個；Luhmann 本人沒建內容總覽，現有層級是編輯決定。
+- **zettelkasten.de**（🟡 部分）：超文本、原子性、個人化；一張卡片＝ID、用自己的話的本文、參考來源；「connection, not collection」。
+- **Collector's Fallacy**：「知道有這個東西」≠「知道這個東西」；Eco 說影印是不讀的藉口；縮短「研究→閱讀→吸收」循環，設一小時上限、處理到收件匣清空。
+- **Evergreen notes**：原子化、以概念為單位、密集連結、偏好聯想而非階層、預設寫給自己；受 Zettelkasten 影響。
+- **Johnny.Decimal**：區域（10-19）→ 類別（15）→ ID（15.22）；每層不超過 10 個；數字讓位置固定、可口頭說。
+- **MOC**：「把事物放在彼此脈絡中的地圖」；收集、碰撞、導覽三階段。
+- **數位花園**（🟡 部分）：依主題連結而非時間；持續生長；源自 Bernstein 1998、Caulfield 2015。
+- **GTD Weekly Review**：Get Clear（收集散件、收件匣歸零）→ Get Current（行動、行事曆、等待、專案清單）→ Get Creative（Someday/Maybe，刪掉不再感興趣的）。
+- **Obsidian**：vault 是本機資料夾、筆記是 Markdown；Wikilink 與 Markdown 兩種連結，改檔名自動更新；block reference 是專屬語法、外部失效；反向連結分 linked／unlinked；properties 以 YAML 存在檔頭。
+- **Notion 匯出**（🟡 部分）：Markdown & CSV；callout 等區塊轉成 HTML；匯出者沒權限的私人頁不會被匯出；整個 workspace 匯成 PDF 需 Business／Enterprise。
+
+**研究（線索層級，動筆前要精讀）**
+
+- **Whittaker et al. 2011**（🟡 部分，抽讀段落）：345 位使用者、平均 64 天、85,000 次以上找回；建很多資料夾的人找回成功率與少建者相同（都是 0.88），花的時間略長（72.87 vs 66.07 秒）；依賴搜尋與討論串者成功率較高；訪談：建資料夾主要為了整理收件匣、管理待辦（「My inbox is a todo list」）；作者指出檔案與網頁研究仍顯示偏好導覽，email 可能是例外。
+- **Bergman et al. 2010**（🟡 部分，抽讀段落）：296 人找回 1,131 個檔案、5,035 個導覽步驟；平均深度 2.86 層、每資料夾約 11.82 個檔案；94% 找得到、平均 14.76 秒；找回時間 ≈ 4.956 + 2.236×深度 + 0.106×資料夾大小（秒）。
+- **Bergman 2008／2016／Dvir 2026**（🟡 摘要）：導覽一直是找個人檔案的主要方式；2026 年研究仍「一致發現偏好導覽」，少數超級搜尋者（50 對 50）是因為導覽對他們特別吃力；專書說明稱階層資料夾對個人資料「偏好且最有效」。
+- **Najork et al. 2024**（🟡 部分，前 1.2 萬字元）：個人收藏以找回自己見過的東西為主；轉述 Lansdale 1988（階層類別本身模糊）、Whittaker & Sidner 1996（春季大掃除者過半資料夾沒用）、Elsweiler 2008／2011（不歸檔者對內容記得更多）——這些轉述要回讀全文所在段落確認。
+- **數位囤積 scoping review 2026**（🟡 摘要）：實證稀少、多集中在照片。
+- **生成效應**（🟡 摘要）：Bertsch 2007，86 篇研究、445 個效果量，效果量 0.40，調節變項影響大——「用自己的話寫」的間接證據。
+- **手寫 vs 打字**（🟡 摘要）：Urry 2021 預先登錄的直接重複驗證（142 人）＋小型統合分析：筆電組記下較多逐字內容，但測驗成績無差別 → 不引「手寫比打字好」。
+- **Zettelkasten 直接證據**（🟡 部分）：Malashenko 2023 把 Zettelkasten 與間隔重複綁在一起測，無法分辨效果來源；2024–2026 再搜（"Zettelkasten empirical study"、"slip box evaluation"、「卡片盒筆記 研究」）仍沒有嚴謹實驗。
+- **Chen et al. 2025**（🟡 部分）：30 人受試者內實驗，三種 AI 筆記輔助；全自動結構化筆記組測驗成績最低、摘要片段組最高，受試者卻最喜歡全自動——結果表要精讀確認。
+- **Microsoft 2025 CHI**（🟡 部分，部落格）：319 位知識工作者、936 個案例；對 AI 信心越高批判思考越少，對自己信心越高越多。
+- **Etkin et al. 2025**（🟡 摘要）：n=195、隨機交叉、預先登錄；AI 工具幫低能力者、傷高能力者，摘要工具對高能力者傷害最大——反證平衡。
+- **Melumad & Yun 2025**（🟡 摘要）：7 個實驗、n=10,462；用 LLM 摘要學到的比自己搜網頁淺，附連結也一樣。
 
 ### 覆蓋矩陣
 
 | 維度 | 值 | 選入 | 缺口 |
 |---|---|---|---|
-| 組織原理 | 放哪裡（容器） | PARA、Johnny.Decimal | |
+| 組織原理 | 容器 | PARA、Johnny.Decimal | |
 | 組織原理 | 連結 | Zettelkasten、Evergreen、MOC | |
-| 組織原理 | 不組織、靠搜尋 | Whittaker 2011（證據） | 沒有一個「純搜尋派」方法的作者原文 |
-| 處理深度 | 輕（收了再說） | Progressive Summarization | |
-| 處理深度 | 重（重寫成自己的話） | Zettelkasten、Evergreen | |
-| 證據類型 | 方法作者自述 | 以上全部 | |
-| 證據類型 | 實證研究 | Whittaker 2011、Bergman 2008（只有摘要） | 全文讀不到，只能引摘要層級的結論 |
-| 時間 | 早期 | Luhmann（1981 年德文原作；英譯本列 1992 年版） | |
-| 時間 | 近期 | PARA（2017／2023）、MOC（2020）、llm-wiki（2026） | |
-| 失敗案例 | 方法沒用好會怎樣 | Collector's Fallacy；Luhmann「沒連進網絡的筆記會被遺忘」 | 沒有「試了 PARA／Zettelkasten 後放棄」的系統性資料 |
-| 語言 | 非英語圈 | Luhmann（德）、Johnny.Decimal（澳） | 沒有中文圈方法；要補搜 |
+| 組織原理 | 不組織、靠搜尋 | Whittaker 2011、Najork 轉述的 Elsweiler | 沒有「純搜尋派」方法的作者原文 |
+| 處理深度 | 輕 | Progressive Summarization | |
+| 處理深度 | 重 | Zettelkasten、Evergreen | |
+| 證據類型 | 作者自述 | 方法原文全部 | |
+| 證據類型 | 實證 | PIM 研究、記憶研究、AI 筆記研究 | 都還沒精讀；方法本身（PARA、Zettelkasten）沒有嚴謹比較研究 |
+| 時間 | 早期／近期 | Luhmann 1981 → PARA 2017/2023 → 2024–2026 研究 | |
+| 失敗案例 | 方法沒用好 | Collector's Fallacy、Luhmann「沒連進網絡會被遺忘」、數位囤積回顧 | 沒有「試了 PARA 後放棄」的系統性資料 |
+| 語言 | 非英語圈 | Luhmann（德）、Johnny.Decimal（澳） | 中文圈只有 Ahrens 譯本與實踐分享，無原生方法 |
 
 ### 偏誤
 
-- 方法來源幾乎都是方法作者自述，作者多半在賣課或賣書（Forte 有 BASB 課程與書，dsebastien 賣 starter kit，Milo 有 LYT 課程）。寫作時要把「作者主張」與「研究證據」分開寫。
-- 實證研究集中在 email 與檔案系統，不是筆記軟體；推論到筆記要說明限制。
-- 語言偏誤：補搜中文圈（2026-10-16），結果是 Ahrens 書的繁中譯本《卡片盒筆記》與其讀後實踐（閱讀前哨站、朱騏《知識複利筆記術》、陳文學醫師），沒有本地原生方法。中文圈是「接受與實踐西方方法」，不是另一套方法；寫作時可引一則中文實踐回報當讀者熟悉的入口（要先讀正文）。
+- 方法來源幾乎都是方法作者自述，作者多在賣課賣書（Forte、dsebastien、Milo）。作者主張與研究證據分開寫。
+- 實證集中在 email 與檔案系統，不是筆記軟體；推論到筆記要說明限制。
+- 中文圈是「接受與實踐西方方法」（《卡片盒筆記》譯本、閱讀前哨站、朱騏、陳文學醫師），可引一則中文實踐當入口（要先讀正文）。
+- AI 筆記研究多是小樣本實驗（Chen 30 人）或大樣本線上實驗（Melumad），方向一致但機制不同，寫作時不混為一談。
 
 ---
 
-## B 段：團隊知識庫
+## B 段：團隊知識庫（order 6–10）
 
 ### 母群定義
 
-團隊知識庫＝給組織內成員閱讀的共用文件系統，涵蓋「要寫哪些類型」「怎麼組織」「怎麼寫」「誰維護」「怎麼找到」五類做法；母群包括公開的方法框架、大型組織公開的實務規範、相關研究與調查。
-不算：對外行銷內容；單一工具的功能比較（工具只在說明某個做法時當例子）；給 AI 讀的準備流程（C 段）。
+團隊知識庫＝給組織內成員閱讀的共用文件系統，涵蓋「要寫哪些類型」「怎麼組織」「怎麼寫」「誰維護」「怎麼找到」五類做法；母群包括公開的方法框架、大型組織公開的實務規範、研究與調查，以及 2025 年後出現的「給 AI 讀的團隊文件」（llms.txt、AGENTS.md）。
+不算：對外行銷內容；單一工具的功能比較；給 RAG 讀的準備流程（C 段）。
 
 ### 掃描方法
 
-1. 搜尋聚合：「internal documentation best practices」「wiki governance」（結果多為 Slite、Tettra、Docsie、XWiki 等廠商文，只當線索）。
-2. 推薦鏈：廠商文共同引用 Diátaxis；Write the Docs 指南引 docs-as-code 書目與講者；Google docguide；GitLab handbook。
-3. 分類目錄：Write the Docs Guide；NN/g 文章庫（IA、卡片分類、搜尋紀錄分析）。
-4. 研究與調查：ICSE 2019 Aghajani；Stack Overflow Developer Survey 2024 專業開發者章節。
-5. 客服知識庫（同屬「團隊知識」）：KCS v6（Consortium for Service Innovation）。
+1. 搜尋聚合：「internal documentation best practices」「wiki governance」（多為 Slite、Tettra、Docsie、XWiki 等廠商文，只當線索）。
+2. 推薦鏈：廠商文共同引用 Diátaxis；Write the Docs 指南；Google docguide；GitLab handbook。
+3. 分類目錄：Write the Docs Guide；NN/g 文章庫（IA、卡片分類、樹狀測試、搜尋紀錄分析）。
+4. 研究與調查：ICSE 2019／2020 Aghajani；WikiSym 2010 Grudin；企業 wiki 多案例；離職知識流失回顧；ADR 研究；文件過時研究；Stack Overflow 2024、2025。
+5. 客服知識：KCS v6。
+6. 近年、反證與飽和：限定 2024 年後；「wiki success factors」「enterprise wiki adoption failure」「site search log analysis study」「enterprise search zero result queries」「站內搜尋 零結果 分析」「企業知識管理 實證」。
 
-### 掃到的完整清單（16 項）
+### 來源清單（最終狀態）
 
-| 類型 | 項目 | 來源狀態 |
-|---|---|---|
-| 文件類型 | Diátaxis（tutorial／how-to／reference／explanation） | ✅ diataxis.fr 首頁、start-here |
-| 文件類型 | 決策紀錄 ADR（Nygard 2011） | ✅ cognitect.com 原文 |
-| 文件類型 | runbook／SOP | 🔎 只在廠商文出現，未讀一手來源 |
-| 組織 | 卡片分類法（NN/g） | ✅ 2024-02-02 |
-| 組織 | 樹狀測試（tree testing） | 🔎 NN/g 卡片分類文中連結，未讀 |
-| 組織 | GitLab handbook 建議的頂層結構（公司／部門／日常） | ✅ handbook-first.md 原始檔 |
-| 寫作 | Google docguide：Minimum Viable Documentation、Update Docs with Code、Delete Dead Documentation、Duplication is Evil | ✅ google.github.io/styleguide/docguide/best_practices.html |
-| 寫作 | Google Technical Writing 課程 | 🔎 未讀 |
-| 維護 | docs-as-code（Write the Docs） | ✅ writethedocs.org/guide/docs-as-code |
-| 維護 | Notion 驗證頁面（owner＋到期，到期通知 owner） | ✅ notion.com/help/wikis-and-verified-pages |
-| 維護 | Guru／Slab／Confluence 的驗證或封存功能 | 🔎 只在 GitHub issue 片段提到 |
-| 維護 | GitLab handbook-first：先寫再宣布、Slack 只留 90 天、MR 分開提案者與核准者、wiki 不 scale 的理由 | ✅ |
-| 治理 | KCS v6：Solve Loop（Capture／Structure／Reuse／Improve）＋Evolve Loop（Content Health 等）；「just-in-time review over just-in-case creation」；不要對活動量設目標 | ✅ 041 Summary、030/040 Evolve Loop |
-| 搜尋 | NN/g 搜尋紀錄分析（top 1000 查詢、零結果、同一人連續查詢、最長查詢、詞彙落差、best bets、同義詞） | ✅ 2017-07-30 |
-| 證據 | Aghajani et al. ICSE 2019：從郵件列表、Stack Overflow、issue、PR 挖 878 筆文件相關資料，建出文件問題分類 | ✅ 全文（第二輪，作者個人網站） |
-| 證據 | Grudin & Poole 2010 企業 wiki 長期研究 | ✅ 全文（第二輪，Microsoft Research PDF） |
-| 證據 | Stack Overflow 2025；Agent READMEs 2025；ETH Zurich 2026 AGENTS.md 評估；llms.txt v2；AGENTS.md | ✅（第三輪） |
-| 證據 | Stack Overflow Developer Survey 2024（約 29K 專業開發者）：61% 每天花 30 分鐘以上找答案；30% 說知識孤島每週影響生產力 10 次以上；70% 知道去哪找、56% 能很快找到；53% 說等答案會打斷工作 | ✅ survey.stackoverflow.co/2024/professional-developers |
+| 類型 | 項目 | 讀取 | 用於 |
+|---|---|---|---|
+| 文件類型 | Diátaxis 首頁、start-here | ✅ | 6、8 |
+| 文件類型 | ADR（Nygard 2011） | ✅ | 8 |
+| 文件類型 | runbook／SOP | 🔎 只在廠商文 | 不引 |
+| 組織 | NN/g 卡片分類（2024） | 🟡 部分（前 2 萬字元） | 7 |
+| 組織 | NN/g 樹狀測試（2023） | 🟡 部分（前 1 萬字元） | 7 |
+| 組織 | GitLab handbook 頂層結構（handbook-first 原始檔） | ✅ | 7、9 |
+| 組織 | Knowledge Architecture × NN/g intranet webinar | 🟡 部分；實為 2020 | 不當近年來源 |
+| 寫作 | Google docguide best practices | ✅ | 8、9 |
+| 寫作 | Google Technical Writing 課程 | 🔎 | 不引 |
+| 維護 | Write the Docs docs-as-code | ✅ | 9 |
+| 維護 | Notion 驗證頁面 | ✅ | 9 |
+| 維護 | Guru／Slab／Confluence 驗證或封存 | 🔎 | 不引 |
+| 維護 | KCS v6 041 Summary、Evolve Loop | ✅ | 9 |
+| 搜尋 | NN/g 搜尋紀錄分析（2017） | ✅ | 10 |
+| 第二種讀者 | llms.txt | 🟡 部分 | 10 |
+| 第二種讀者 | AGENTS.md | ✅ | 10 |
+| 調查 | Stack Overflow 2024 專業開發者 | ✅ | 6 |
+| 調查 | Stack Overflow 2025 AI 章節 | ✅ | 6、10 |
+| 研究 | Aghajani et al. ICSE 2019 文件問題分類 | 🟡 部分（作者網站 PDF，抽 Results 段） | 6 |
+| 研究 | Aghajani 2019 replication package | ✅ | 6 |
+| 研究 | Aghajani et al. ICSE 2020 從業者觀點 | 🟡 摘要（PDF 超過檔案大小上限） | 6 |
+| 研究 | Grudin & Poole 2010 企業 wiki | 🟡 部分（MSR PDF，抽段讀） | 6、9 |
+| 研究 | Stocker & Tochtermann 2011 企業 wiki 多案例 | 🟡 摘要 | 6 |
+| 研究 | Galan 2023 離職知識流失回顧（91 篇） | 🟡 摘要（ERIC） | 6、9 |
+| 研究 | ECSA 2024 ADR 行動研究 | 🟡 摘要 | 8 |
+| 研究 | ICSA 2026 ADR 大規模研究 | 🔎（computer.org 無內文、S2 429） | 不引數字 |
+| 研究 | Tan, Wagner & Treude 2024 EMSE 過時程式元素引用 | 🟡 摘要 | 9 |
+| 研究 | Chatlatanagulchai et al. 2025 Agent READMEs | 🟡 摘要 | 10 |
+| 研究 | Gloaguen et al. 2026 Evaluating AGENTS.md（v3） | 🟡 摘要 | 10 |
 
-排除：Slite、Tettra、Docsie、ScopeDocs、Starmind、fullscale 等廠商文裡的統計（例如「Stack Overflow 調查 500 位工程師、78% 不信任內部文件」查不到原始調查），一律不引。
+排除：廠商文裡查不到原始調查的統計（例如「Stack Overflow 調查 500 位工程師、78% 不信任內部文件」）；「工作時間花多少在找資訊」的廠商與舊 IDC 數字。
 
-### 讀過正文的重點
+### 重點（標明讀取層級）
 
-- **Diátaxis**：四種需求對四種文件；羅盤＝內容「指導行動還是提供認知」×「服務學習還是工作」。混淆邊界是大量文件問題的根源。工作流程只有一步：看現在的文件、找一件能改善的小事、做掉、重複。採用者自述：Vonage 內部文件、Gatsby、Cloudflare developer docs。
-- **ADR**：短文字檔，放在 repo 的 doc/arch/adr-NNN.md；編號不重用；被推翻時保留舊的並標 superseded；欄位 Title／Context／Decision／Status／Consequences（列出所有後果，不只正面的）；一到兩頁。動機：新人只能「盲目接受」或「盲目推翻」過去的決定。
-- **Google docguide**：少量新鮮正確的文件勝過大量年久失修的；文件跟程式碼同一個 CL 改；死文件要刪，清理時「先刪確定錯的、不明的先不動、預設刪除」；不要重寫別處已有的指南，連過去。設計文件實作完成後應當成決策封存，不要當半對的說明文件。
-- **docs-as-code**：issue tracker、Git、純文字標記、code review、自動測試；可以擋下沒附文件的功能合併。
-- **GitLab handbook-first**：先寫進 handbook 再在 Slack 公告；Slack 只保留 90 天，迫使討論回到單一事實來源；wiki 只讓少數人改，內容過時後大家不信任，需要再找人確認；MR 讓任何人都能提案、由 DRI 核准；建議設 handbook 編輯團隊，頁面太久沒更新時通知 code owner；公開 handbook 比內部 wiki 更不容易爛。
-- **KCS**：知識在「產生的當下、需求的脈絡裡」管理；寫好就用，被重用時才改進（just-in-time review）；個人負責行動、團隊共同擁有知識庫；導入時常見錯誤是把流程和內容標準設計得太複雜、花太多時間轉舊資料；不要對活動量設目標。
-- **卡片分類法**：開放式用來發現使用者心智模型，驗證既有架構改用樹狀測試；30–50 張卡；質化至少 15 人、量化 30–50 人；限制是缺少脈絡、只能分一層。
-- **搜尋紀錄分析**：找出「想要但找不到」「想要但不存在」「使用者詞彙 vs 網站詞彙」；對策有同義詞、best bets、改標題、補內容；處理 log 要注意個資。
-- **Notion 驗證頁面**：wiki 頁面預設建立者為 owner；驗證可設到期日或永久；到期時通知 owner；已驗證頁面在搜尋結果有藍勾。
+**實務規範（✅，屬做法描述，不是有效證據）**
+
+- **Diátaxis**：四種需求對四種文件；羅盤＝「指導行動還是提供認知」×「服務學習還是工作」；工作流程：看現在的文件、找一件能改善的小事、做掉、重複。
+- **ADR**：短文字檔放 repo（doc/arch/adr-NNN.md）；編號不重用；被推翻時保留並標 superseded；Title／Context／Decision／Status／Consequences（列出所有後果）；一到兩頁；動機：新人只能盲目接受或盲目推翻過去的決定。
+- **Google docguide**：少量新鮮正確勝過大量失修；文件跟程式碼同一個 CL 改；死文件要刪，「先刪確定錯的、不明的先不動、預設刪除」；不重寫別處已有的指南；設計文件實作後當決策封存。
+- **docs-as-code**：issue tracker、Git、純文字標記、code review、自動測試；可擋下沒附文件的合併。
+- **GitLab handbook-first**：先寫進 handbook 再公告；Slack 只留 90 天；wiki 只讓少數人改，過時後沒人信；MR 任何人可提、DRI 核准；頁面太久沒更新通知 code owner。
+- **KCS**：知識在需求當下、脈絡裡管理；被重用時才改進（just-in-time review）；個人負責行動、團隊共同擁有；常見錯誤是流程設計太複雜、花太多時間轉舊資料；不對活動量設目標。
+- **Notion 驗證頁面**：預設建立者為 owner；驗證可設到期日或永久；到期通知 owner；搜尋結果有藍勾。
+- **AGENTS.md**：給 coding agent 的 README；6 萬個以上開源專案；巢狀檔案就近優先；由 Linux Foundation 下的 Agentic AI Foundation 管理。
+- **llms.txt**（🟡 部分）：網站用一份 Markdown 給 agent 看的精簡總覽；文件平台自動產生。
+
+**方法說明（NN/g，屬實務做法）**
+
+- **卡片分類**（🟡 部分）：開放式用來發現心智模型，驗證既有架構改用樹狀測試；30–50 張卡；質化至少 15 人、量化 30–50 人；限制是缺脈絡、只能分一層。
+- **樹狀測試**（🟡 部分）：用純文字樹驗證使用者找不找得到。
+- **搜尋紀錄分析**（✅）：「想要但找不到」「想要但不存在」「使用者詞彙 vs 網站詞彙」；對策有同義詞、best bets、改標題、補內容；log 含個資要處理。
+
+**調查（✅，自願填答）**
+
+- **Stack Overflow 2024**（約 29K 專業開發者）：61% 每天花 30 分鐘以上找答案；30% 說知識孤島每週影響 10 次以上；70% 知道去哪找、56% 能很快找到；53% 說等答案會打斷工作。
+- **Stack Overflow 2025**（49,000 份以上）：84% 使用或打算使用 AI；51% 專業開發者每天用；不信任 AI 正確性（46%）多於信任（33%）；最大挫折是「幾乎對但不完全對」（66%）；仍會找人的首要原因是不信任 AI 答案（75%）；agent 使用者約 70% 認為提升個人效率，17% 認為改善團隊協作。
+
+**研究（線索層級，動筆前要精讀）**
+
+- **Grudin & Poole 2010**（🟡 部分，抽讀段落）：多家公司訪談＋MegaSoft 平台調查 433 份＋FlexWiki 調查 300 份；66% 回覆者的 wiki 六個月沒人用；最大的團隊 wiki 在整理者離開後長雜草、主管撤掉維護人力；主管要儀表板、寫的人要 FAQ；「記下退休員工隱性知識」沒看到實例；早期組織方式隨規模變成負擔。
+- **Aghajani 2019**（🟡 部分，抽 Results 段）：878 筆資料、162 種問題；內容問題 485 筆中不完整 268、過時 190、不正確 72；流程 81、工具 134。
+- **Aghajani 2020**（🟡 摘要）：146 位從業者兩份問卷，問哪些文件問題最重要。
+- **Stocker & Tochtermann 2011**（🟡 摘要）：3 家奧地利企業、7 位專家與約 150 位員工；wiki 有個人與集體效益，列出成功因素——反證：wiki 不是注定爛。
+- **Galan 2023**（🟡 摘要）：91 篇實證研究的系統性回顧，整理離職知識流失的前因與組織、單位層級影響。
+- **ECSA 2024**（🟡 摘要）：ADR 處理了文件文化、知識傳承、優先順序；分散式系統的問題沒解；放在哪裡影響有沒有用。
+- **Tan 2024**（🟡 摘要）：3,000 個以上 GitHub 專案，多數在某時點有文件引用已不存在的程式元素。
+- **Agent READMEs 2025**（🟡 摘要）：1,925 個 repo、2,303 份 context 檔；頻繁小幅追加、難讀；測試流程 75.9%、實作細節 70.8%、架構 68.1%，安全 14.8%、效能 14.5%。
+- **Evaluating AGENTS.md 2026 v3**（🟡 摘要）：context 檔整體不提高任務成功率，推理成本平均增 20% 以上；LLM 產生與人寫的一樣；指令會被遵守但 repo 總覽沒幫助；網路轉述「降低 3%」與 v3 摘要不同。
 
 ### 覆蓋矩陣
 
 | 維度 | 值 | 選入 | 缺口 |
 |---|---|---|---|
-| 組織規模 | 小團隊 | Google docguide（以 repo 為單位） | |
-| 組織規模 | 大組織 | GitLab handbook、KCS | |
-| 載體 | wiki／筆記工具 | Notion 驗證頁面 | Confluence 官方文件未讀 |
-| 載體 | repo（docs-as-code） | Write the Docs、Google、ADR | |
-| 知識類型 | 工程文件 | Diátaxis、ADR、Google | |
-| 知識類型 | 營運／客服知識 | KCS | |
-| 知識類型 | 公司政策與流程 | GitLab handbook 頂層結構 | |
-| 證據類型 | 實務者規範 | 以上 | |
-| 證據類型 | 研究／調查 | Aghajani 2019（摘要）、SO Survey 2024 | 缺「wiki 推行失敗」的學術研究 |
-| 失敗案例 | wiki 爛掉 | GitLab 對 wiki 的批評、Google「死文件」 | 沒有具名組織的失敗案例 |
+| 組織規模 | 小團隊 | Google docguide | |
+| 組織規模 | 大組織 | GitLab、KCS、Grudin 的 MegaSoft | |
+| 載體 | wiki／筆記工具 | Notion、Grudin | Confluence 官方文件未讀 |
+| 載體 | repo | Write the Docs、Google、ADR、AGENTS.md | |
+| 知識類型 | 工程文件 | Diátaxis、ADR、Google、Aghajani | |
+| 知識類型 | 營運／客服 | KCS | |
+| 知識類型 | 公司政策 | GitLab 頂層結構 | 非技術部門研究 |
+| 證據類型 | 研究／調查 | 上表研究與 SO 調查 | 全部未精讀；IA 與搜尋紀錄分析只有方法說明 |
+| 失敗與成功 | 爛掉／有效 | Grudin、Aghajani、GitLab 批評 vs Stocker 成功案例 | 沒有具名組織的失敗報告 |
+| 時間 | 近年 | SO 2025、Tan 2024、ECSA 2024、AGENTS.md 2025–2026 | 團隊 wiki 本身的近年學術研究少 |
 
 ### 偏誤
 
-- 實務來源偏軟體公司與工程文件；非技術部門（人資、業務）的知識庫做法只有 GitLab handbook 有涉及。
-- GitLab 自己賣版本控制產品，handbook-first 文章同時是產品推廣；KCS 由推廣它的聯盟撰寫；Notion 文件是功能說明。寫作時這些是「做法的描述」，不是「做法有效的證據」。
-- 調查數字只有 Stack Overflow 2024，且受訪者是自願填答的開發者。
+- 實務來源偏軟體公司與工程文件；非技術部門只有 GitLab handbook 涉及。
+- GitLab 賣版本控制、KCS 由推廣聯盟撰寫、Notion 是功能說明：寫成「做法的描述」，不是「有效的證據」。
+- 調查只有 Stack Overflow，受訪者是自願填答的開發者。
+- Grudin 2010 仍是最完整的企業 wiki 長期研究，寫作時註明年份與脈絡。
 
 ---
 
-## C 段：AI 知識庫
+## C 段：AI 知識庫（order 11–19）
 
 ### 母群定義
 
-AI 知識庫建置流程＝把組織文件變成可供 RAG／AI 助理檢索的語料時，**從來源到上線維護**要做的步驟與決定；母群是主要雲端與模型廠商的官方 ingestion／RAG 設計文件、安全標準，以及常用的開源處理工具文件。
-不算：檢索演算法本身（chunking 演算法細節、reranking、embedding 原理）——站內「RAG 技法大全」已寫，只連結；agent 記憶系統（站內「AI Agent 記憶工程」）。
+AI 知識庫建置流程＝把組織文件變成可供 RAG／AI 助理檢索的語料時，**從來源到上線維護**要做的步驟與決定；母群是主要雲端與模型廠商的官方 ingestion／RAG 設計文件、安全標準、常用開源處理工具文件，加上經驗報告、基準研究與具名事件。
+不算：檢索演算法本身（站內「RAG 技法大全」已寫，只連結）；agent 記憶系統（站內「AI Agent 記憶工程」）。
 
 ### 掃描方法
 
-1. 平台官方文件：AWS Bedrock Knowledge Bases、Google Vertex AI RAG Engine（文件網址已改為 Gemini Enterprise Agent Platform）、OpenAI Retrieval／vector stores、Azure AI Search＋Azure Architecture Center RAG 設計系列、Microsoft 365 Copilot 治理藍圖。
-2. 安全標準：OWASP Top 10 for LLM Applications 2025 LLM08。
-3. 搜尋聚合：「RAG data ingestion pipeline best practices」（Unstructured、Airbyte、LlamaIndex、Informatica、truto 等廠商文，只當線索）。
-4. 工具：Docling（IBM Research 發起，LF AI & Data 託管）、Presidio（PII）。
-5. 站內既有：Ask AI 實戰（索引管線、retrieval eval）、私有語料管線、RAG 技法大全。
+1. 平台官方文件：AWS Bedrock Knowledge Bases、Google Vertex AI RAG Engine、OpenAI Retrieval、Azure AI Search＋Azure Architecture Center RAG 設計系列、Microsoft 365 Copilot 治理藍圖、Microsoft Graph connectors、Amazon Q Business。
+2. 安全：OWASP LLM08:2025；具名事件（Slack AI、EchoLeak）；防禦研究。
+3. 學術與企業經驗：Barnett 2024、NVIDIA FACTS 2024、企業 RAG 系統性回顧。
+4. 基準與實驗：文件解析（OmniDocBench、OHRBench、InduOCRBench、Santos）、切塊、過濾 ANN、知識衝突與過時文件、評估。
+5. 工具：Docling、Presidio。
+6. 站內既有：Ask AI 實戰、私有語料管線、RAG 技法大全。
 
-### 掃到的完整清單（步驟母群，以官方文件為準）
+### 來源清單（最終狀態）
 
-| 步驟 | 出現於 | 來源狀態 |
-|---|---|---|
-| 定義領域與要回答的問題 | Azure preparation phase | ✅ |
-| 先收集題庫（查詢＋出處段落＋答案），含「文件答不了」的題 | Azure preparation phase | ✅ |
-| 內容分析：類別、格式、安全限制、結構 | Azure preparation phase | ✅ |
-| 代表性測試內容：每種變體與格式至少兩份 | Azure preparation phase | ✅ |
-| 連接來源（S3、Drive、SharePoint、Slack、Jira…） | AWS、Google | ✅ |
-| 解析：版面、閱讀順序、表格、OCR、公式、圖片 | Docling、Azure chunking phase（document layout analysis） | ✅ |
-| 決定要忽略的內容（目錄、頁首頁尾、浮水印、免責聲明） | Azure preparation phase | ✅ |
-| 個資偵測與去識別 | Presidio、Azure（真實內容要先清個資） | ✅ |
-| 防提示注入：內容不可當指令、標記或排除含嵌入指令的文件 | Azure enrichment phase、OWASP LLM08 情境 1（履歷白字） | ✅ |
-| 切塊（固定長度、語意、自訂、版面分析、LLM 擴充）；切塊是「半永久」選擇 | Azure chunking phase；OpenAI 預設 800 token、重疊 400 | ✅ |
-| 清理（小寫、拼字、正規化）與擴充 metadata（ID、標題、摘要、關鍵字、標籤、實體、可回答的問題、來源、語言） | Azure enrichment phase | ✅ |
-| metadata 檔與屬性過濾 | AWS `.metadata.json`；OpenAI attributes 與 filters | ✅ |
-| 權限：文件帶群組 ID 欄位、查詢時過濾（security trimming） | Azure security filter pattern；OWASP「permission-aware vector store」 | ✅ |
-| 既有權限過寬（oversharing）先整理 | Microsoft Copilot 治理藍圖：remediate oversharing → guardrails → regulations | ✅（藍圖頁，PDF 未讀） |
-| 增量同步：新增、修改、刪除只處理差異；刪除會從向量庫移除 | AWS sync 文件 | ✅ |
-| 去重：同路徑同內容且切塊設定沒變就跳過；用內容 hash 判斷 | Google RAG Engine | ✅ |
-| 刪除最終一致：移除後短時間內搜尋仍可能出現 | OpenAI vector store 文件 | ✅ |
-| 匯入失敗紀錄（result sink） | Google RAG Engine | ✅ |
-| 評估：檢索評估、端到端（groundedness、completeness…） | Azure 設計系列總覽 | ✅（總覽層級；評估篇本身未讀） |
-| 知識衝突、資料下毒、embedding 反推 | OWASP LLM08 | ✅ |
-| 成本：每份文件處理成本、圖片描述成本、快取 | Azure chunking phase | ✅ |
-| 失敗點與上線驗證 | Barnett 2024 Seven Failure Points | ✅ 全文（第二輪） |
-| 企業實作經驗（新鮮度、ACL、prompt 守規不可靠、機密分級） | NVIDIA FACTS 2024 | ✅ 全文（第二輪） |
-| 具名事件 | Slack AI 2024（PromptArmor）、EchoLeak 2025 | ✅ 全文（第二輪） |
-| 權限同步的官方說明 | Microsoft Graph connectors、Amazon Q Business | ✅（第二輪） |
-| 資料準備對準確率的影響 | Santos 2026 From PDF to RAG-Ready；OmniDocBench CVPR 2025 | ✅ 摘要（第三輪） |
-| 多人互動的權限 | Microsoft 2025 participant-aware access control | ✅ 摘要與引言（第三輪） |
-| RAG 安全綜述 | Mu 2026 | ✅ 摘要（第三輪） |
+| 步驟 | 項目 | 讀取 | 用於 |
+|---|---|---|---|
+| 準備、題庫 | Azure RAG preparation phase | ✅ | 11、12 |
+| 總覽、評估 | Azure RAG 設計系列總覽 | ✅（評估篇本身未讀） | 11、19 |
+| 解析、切塊 | Azure RAG chunking phase | 🟡 部分（前 2.5 萬字元） | 13、16 |
+| 清理、metadata、注入 | Azure RAG enrichment phase | ✅ | 14、15 |
+| 權限 | Azure security filter pattern | ✅ | 17 |
+| 權限 | Microsoft 365 Copilot 治理藍圖（藍圖頁；PDF 未讀） | ✅ | 17 |
+| 權限、同步 | Microsoft Graph connectors 爬取說明 | ✅ | 17、18 |
+| 權限 | Amazon Q Business principal store | ✅ | 17 |
+| 同步 | AWS Bedrock KB sync | ✅ | 18 |
+| 連接、去重 | Google RAG Engine data ingestion | ✅ | 12、18 |
+| metadata、刪除 | OpenAI Retrieval guide | 🟡 部分（前 2.5 萬字元；定價寫入前再核） | 15、16、18 |
+| 解析工具 | Docling | ✅ | 13 |
+| 個資 | Presidio | ✅ | 14 |
+| 安全標準 | OWASP LLM08:2025 | ✅ | 12、14、17 |
+| 事件 | PromptArmor 2024 Slack AI | ✅ | 14 |
+| 事件 | Reddy & Gujral 2025 EchoLeak 案例研究 | 🟡 部分（HTML 前 2.5 萬字元） | 14 |
+| 經驗報告 | Barnett et al. 2024 Seven Failure Points | ✅（HTML 全文未截斷；尚無抽取紀錄） | 11、19 |
+| 經驗報告 | Akkiraju et al. 2024 FACTS（NVIDIA） | ✅（HTML 全文未截斷；尚無抽取紀錄） | 11、14、17、19 |
+| 回顧 | Karakurt & Akbulut 2026 企業 RAG 系統性回顧 | 🟡 摘要（Groundlane 403，Firecrawl） | 11、19 |
+| 題庫 | Kucia et al. CIKM 2026 合成題 vs 真實題 | 🟡 摘要 | 11、19 |
+| 是否要 RAG、切塊 | Anthropic 2024 Contextual Retrieval | 🟡 部分（前 1.2 萬字元） | 11、15、16 |
+| 版本、衝突 | Xie et al. ICLR 2024 知識衝突 | 🟡 摘要 | 12、18 |
+| 版本 | VersionRAG 2025 | 🟡 摘要 | 12、18 |
+| 解析 | Santos et al. 2026 From PDF to RAG-Ready | 🟡 摘要 | 13 |
+| 解析 | OHRBench（ICCV 2025） | 🟡 摘要 | 13 |
+| 解析 | InduOCRBench 2026 | 🟡 摘要 | 13 |
+| 解析 | OmniDocBench（CVPR 2025） | 🔎 只看過搜尋結果 | 13，要讀原文 |
+| 安全 | ConfusedPilot（UT Austin） | 🟡 摘要 | 14 |
+| 安全 | CaMeL（Google）v2 | 🟡 摘要 | 14 |
+| 安全 | Pai 2026 檢索內容防禦比較 | 🟡 摘要 | 14 |
+| 安全 | Mu et al. 2026 Secure RAG 綜述 | 🟡 摘要 | 14、17 |
+| 權限 | Bhatt et al. 2025 participant-aware access control | 🟡 部分（摘要與引言） | 17 |
+| 結構 | Xu et al. SIGIR 2024 LinkedIn KG-RAG | 🟡 摘要 | 15 |
+| 切塊 | Qu et al. NAACL Findings 2025 | 🟡 摘要 | 16 |
+| 切塊 | Bennani & Moslonka ECIR 2026 | 🟡 摘要 | 16 |
+| 權限過濾 | Filtered ANN 2026 | 🟡 摘要 | 17 |
+| 更新 | Stale-document poisoning 2026 | 🟡 摘要 | 18 |
+| 評估 | TREC 2024 RAG support 評估（SIGIR 2025） | 🟡 摘要 | 19 |
 
-### 讀過正文的重點
+### 重點（標明讀取層級）
 
-- **Azure preparation phase**：領域、內容分析、代表性內容、題庫要平行做；題庫輸出＝Query／Context（含頁碼與原文）／Answer；可用 LLM 從 chunk 生成合成題但要 SME 驗證；要收集文件答不了的題，決定系統怎麼回「不知道」；可從客服系統、FAQ 找真實問題；題庫要定期回頭對照來源文件。
-- **Azure chunking phase**：切塊方法依文件結構選；「Your chunking approach is a semipermanent choice」，改了會影響下游；先合併 loading 與 chunking，需要時再分；分開時避免轉成中介格式造成資料遺失；成本要算實作種類數、每份文件成本、初始量與增量。
-- **Azure enrichment phase**：清理後的 chunk 另存一欄，回傳原文；不可把內容當指令；metadata 依查詢類型決定，例如「2009 年產品 X 的評價」在語意上接近 2010 年或產品 Y，要靠關鍵字欄位精確比對。
-- **Azure security filter pattern**：principal ID 字串欄位、filterable、retrievable=false；用 `search.in` 而不是一長串 `eq or`；retrievable=false 不是欄位層級的保護；這是「沒用內建 ACL 時」的做法（Azure 另有內建 document-level access）。
-- **AWS Bedrock KB sync**：每次新增、修改、刪除都要 sync；增量；只改 metadata 時可不重算 embedding（CSV 例外）；向量庫若不是 Aurora，sync 完成後幾分鐘才查得到。
-- **Google RAG Engine**：`version_id` 是內容 hash；同檔名路徑內容更新會重建索引；Drive 匯入時服務帳號沒權限，「不會匯入也不會報錯」——靜默失敗的實例。
-- **OpenAI Retrieval**：上傳即自動切塊、embedding、索引；attributes 過濾（eq/ne/gt/gte/lt/lte/in/nin＋and/or）；hybrid search 的 RRF 權重可調；刪除最終一致；儲存超過 1 GB 每 GB 每天 $0.10（寫入文章前要再核對）。
-- **OWASP LLM08:2025**：存取控制不當、多租戶情境洩漏、跨來源知識衝突、embedding 反推、資料下毒；緩解＝permission-aware 向量庫、資料驗證管線、標記與分類、不可竄改的檢索紀錄。
-- **Microsoft Copilot 治理藍圖**：Copilot 依使用者「已有權限」的資料作答；三支柱：處理過度分享、設防護、符合法規。重點：AI 不新增權限，但會讓原本就過寬的權限變得「找得到」。
-- **Docling**：多格式解析、版面與閱讀順序、表格結構、OCR、可本機執行（敏感資料、斷網環境）。
-- **Presidio**：辨識＋匿名化；官方警告自動偵測無法保證找到所有敏感資料。
+**官方文件（✅ 或 🟡 部分，屬做法描述）**
+
+- **Azure preparation phase**：領域、內容分析、代表性內容（每種變體與格式至少兩份）、題庫平行做；題庫＝Query／Context（含頁碼與原文）／Answer；可用 LLM 從 chunk 生成合成題但要 SME 驗證；收集文件答不了的題；可從客服、FAQ 找真實問題；題庫要定期對照來源；決定要忽略的內容（目錄、頁首頁尾、浮水印、免責聲明）。
+- **Azure chunking phase**（🟡 部分）：切塊方法依文件結構選；「semipermanent choice」；先合併 loading 與 chunking；避免中介格式造成資料遺失；成本要算實作種類、每份文件成本、初始量與增量。
+- **Azure enrichment phase**：清理後另存一欄、回傳原文；內容不可當指令；metadata 依查詢類型決定（「2009 年產品 X」要靠關鍵字欄位精確比對）。
+- **Azure security filter**：principal ID 字串欄位、filterable、retrievable=false；用 `search.in`；這是沒用內建 ACL 時的做法。
+- **Microsoft Copilot 治理藍圖**：Copilot 依使用者已有權限作答；處理過度分享 → 設防護 → 符合法規。AI 不新增權限，但讓過寬權限變得找得到。
+- **Microsoft Graph connectors**：增量爬取只偵測新增，完整爬取才捕捉新增與刪除；敏感或動態資料建議事件觸發同步。
+- **Amazon Q Business**：每次爬取更新 ACL，要定期重新同步；User Store 修改是特權操作，應有核准流程。
+- **AWS Bedrock KB sync**：新增、修改、刪除都要 sync；增量；只改 metadata 可不重算 embedding（CSV 例外）；非 Aurora 向量庫 sync 後幾分鐘才查得到。
+- **Google RAG Engine**：`version_id` 是內容 hash；同路徑內容更新會重建；Drive 匯入時服務帳號沒權限「不會匯入也不會報錯」；匯入失敗紀錄（result sink）。
+- **OpenAI Retrieval**（🟡 部分）：上傳自動切塊（預設 800 token、重疊 400）；attributes 過濾；hybrid 的 RRF 權重可調；刪除最終一致；儲存定價寫入前再核。
+- **OWASP LLM08:2025**：存取控制不當、多租戶洩漏、跨來源知識衝突、embedding 反推、資料下毒；緩解＝permission-aware 向量庫、資料驗證、分類標記、不可竄改的檢索紀錄；情境 1 是履歷白字注入。
+- **Docling**：多格式解析、版面與閱讀順序、表格、OCR、可本機執行。**Presidio**：辨識＋匿名化，官方警告自動偵測無法保證找全。
+- **Anthropic Contextual Retrieval**（🟡 部分，已讀段落）：知識庫小於約 20 萬 token 可整份放進 prompt；contextual embeddings 失敗率 5.7%→3.7%，加 contextual BM25 到 2.9%，再加 rerank 降 67%；前處理約每百萬文件 token 1.02 美元。
+
+**事件（✅／🟡 部分）**
+
+- **Slack AI（PromptArmor 2024-08-20）**：攻擊者在只有自己的公開頻道放指令，受害者問 Slack AI 時私人頻道的 API key 被夾進「重新登入」連結；引用沒列出攻擊者訊息；Slack 回應這是預期行為；8 月 14 日起也讀上傳檔案。
+- **EchoLeak（CVE-2025-32711）**（🟡 部分）：一封外部郵件、零點擊，串接繞過注入分類器、reference-style Markdown 連結、圖片自動載入、Teams 代理網域；2025 年 5 月修補、6 月 11 日公開；建議外部與內部內容分區、依來源控管權限。
+
+**經驗報告（✅ 全文在輸出內，但尚無抽取紀錄）**
+
+- **Barnett 2024**：三個系統（研究文獻助理、AI 助教、BioASQ 15,000 份文件、1,000 題）；7 個失敗點（內容缺失、沒排進前幾名、沒進 context、沒抽出、格式錯、具體程度不對、不完整）；RAG 只能在運作中驗證；穩健性是演化出來的。
+- **NVIDIA FACTS 2024**：三個內部機器人（企業知識約 5 億份文件／7 TB 以上、IT/HR 約 2,000 份、財報約 4,000 份）；metadata 擴充、切塊、查詢改寫、重排影響最大；向量搜尋不擅長實體，要混合詞彙搜尋；守規則寫在 prompt 裡不可靠，改在前後處理把關；上線前先做資料治理與機密分級；遵守 ACL；LLM 評審有偏誤。
+
+**研究（🟡 摘要／部分，數字是線索）**
+
+- **企業 RAG 回顧 2026**：63 篇；多在實驗階段；63.6% 用 GPT 系列、80.5% 用 FAISS／Elasticsearch；不到 15% 處理即時整合；生成評估多用固定測試集。
+- **Kucia 2026**：合成題 1,851 vs 真實 322；平均 15.7 vs 6.8 字；涵蓋來源 165 vs 53；合成題選出延遲最高的混合檢索（最多 8 倍）。
+- **Xie 2024**：外部證據連貫時模型會採用，即使與自身知識衝突，但有確認偏誤。**VersionRAG 2025**：版本題 naive RAG 58%、GraphRAG 64%、VersionRAG 90%。
+- **Santos 2026**：4 種轉換工具 × 21 種設定；36 份葡萄牙文行政文件（1,706 頁）、50 題、每設定 50 次；直接讀 PDF 86.2%、人工 Markdown 91.3%、最佳 94.1%；表格題在基本與階層切塊之間差 33 個百分點；metadata 與階層切塊貢獻大於轉換工具；GraphRAG 82%。
+- **OHRBench 2025**：8,561 頁、8,498 組 QA；沒有任何 OCR 方案足以建高品質知識庫；語意與格式雜訊都與 RAG 表現呈趨勢關係。**InduOCRBench 2026**：OCR 字元準確率高不代表 RAG 好。**OmniDocBench**（🔎）：只看過搜尋結果，先前寫的「表格辨識 OCR 型優於 VLM」不引，要讀原文。
+- **ConfusedPilot**：confused deputy 風險——惡意文字汙染回答、快取導致外洩、錯誤資訊擴散。**CaMeL v2**：AgentDojo 上可證安全完成 77% 任務，未防禦 84%。**Pai 2026**：3,510 次試驗；改寫檢索內容降攻擊成功率 55–84%；spotlighting 對 Claude Haiku 減半、對 Llama 3.1 8B 無效；金融領域殘留 26–33%；合成文件。**Mu 2026**：RAG 安全綜述（威脅與防禦分類）。
+- **Bhatt 2025**（🟡 部分）：提示清洗、輸出過濾、系統隔離都是機率性的；用於檢索與生成的內容必須對互動中所有參與者都有授權（Alice 用 AI 回 Bob 的信，例）；已部署於 Copilot Tuning。
+- **LinkedIn KG-RAG 2024**：歷史工單建成知識圖譜；MRR 高 77.6%；部署約六個月，解決時間中位數降 28.6%；單一公司自評。
+- **Qu 2025**：語意切塊的計算成本不值得，真實文件上固定長度常更好。**Bennani 2026**（3 頁短文）：overlap 無可量測好處；句子切塊最划算，到約 5k token 與語意切塊持平；context 超過約 2.5k token 品質下降。
+- **Filtered ANN 2026**：FAISS、Milvus、pgvector；過濾策略影響召回；pgvector 規劃器常選次佳計畫；低選擇性過濾下 IVFFlat 優於 HNSW。
+- **Stale-document poisoning 2026**：317 個知識反轉；過時檢索翻轉 Llama 30%、Qwen 37% 答案；加「照文件回答」升到 66%／75%；新證據 97–100% 被採用；告知失效時點時大模型可正確切換；依時間重排降 4.6–10 點，需可靠日期 metadata。
+- **TREC 2024 RAG 評估**：GPT-4o 與人工完全一致 56%；人修 LLM 標籤後 72%；獨立人審與 GPT-4o 更一致。
 
 ### 覆蓋矩陣
 
 | 維度 | 值 | 選入 | 缺口 |
 |---|---|---|---|
-| 部署 | 全託管 | OpenAI vector stores、AWS Bedrock KB、Google RAG Engine | |
-| 部署 | 自建元件 | Azure AI Search、Docling、Presidio | 開源一站式平台（RAGFlow 等）站內已有文章，連結即可 |
-| 雲 | AWS／Google／Microsoft／OpenAI | 各一 | Cloudflare 站內已有系列 |
-| 階段 | 準備（題庫、內容分析） | Azure preparation | 只有 Azure 寫得完整 |
-| 階段 | 處理（解析、清理、切塊、metadata） | Azure、Docling、AWS、OpenAI | |
-| 階段 | 權限 | Azure、OWASP、Microsoft Copilot | 缺「權限變更延遲」的官方說明（只有廠商文 truto 提到） |
-| 階段 | 維護（同步、刪除） | AWS、Google、OpenAI | |
-| 階段 | 評估 | Azure 總覽 | 細節連回站內既有文章 |
-| 失敗案例 | 靜默失敗、刪除延遲、資料下毒 | Google Drive 權限、OpenAI 最終一致、OWASP 情境 | 缺具名組織的 RAG 事故公開報告 |
-| 語言 | 繁中語料 | 站內 zh-tw-embedding-rag-failures、private-corpus 系列 | 官方文件都以英文語料為例 |
+| 部署 | 全託管 | OpenAI、AWS、Google | |
+| 部署 | 自建元件 | Azure AI Search、Docling、Presidio | 開源一站式平台站內已有，連結即可 |
+| 階段 | 準備 | Azure、Kucia、Anthropic（不一定要 RAG） | 只有 Azure 寫得完整 |
+| 階段 | 處理 | Azure、Docling、Santos、OHRBench、切塊研究 | 研究都未精讀 |
+| 階段 | 安全 | OWASP、事件、CaMeL、Pai、Mu | |
+| 階段 | 權限 | Azure、Microsoft、Amazon、Bhatt、Filtered ANN | |
+| 階段 | 維護 | AWS、Google、OpenAI、Microsoft Graph、Stale-document | |
+| 階段 | 評估 | Azure 總覽、Barnett、FACTS、TREC、Kucia、企業回顧 | Azure 評估篇本身未讀 |
+| 證據類型 | 經驗報告 | Barnett、FACTS、LinkedIn | 都是作者自評 |
+| 失敗案例 | 具名事件 | Slack AI、EchoLeak；Google Drive 靜默失敗 | 缺具名組織的 RAG 品質事故報告 |
+| 語言 | 繁中語料 | 站內 zh-tw-embedding-rag-failures、private-corpus 系列 | 官方文件與研究都以英文為主（Santos 是葡萄牙文） |
 
 ### 偏誤
 
-- 步驟母群主要來自雲端廠商文件，Azure Architecture Center 寫得最完整，規劃容易被它的分段牽著走；其他廠商把多數步驟包成「自動處理」，文件裡看不到。
-- 廠商文件會順帶推自家服務（Content Understanding、Bedrock Managed KB），寫作時只取做法，不取產品推薦。
-- 沒有讀到繁中語料的官方指引，繁中的特殊問題靠站內既有實測文章補。
+- 步驟母群主要來自雲端廠商文件，Azure 寫得最完整，規劃容易被它的分段牽著走。
+- 廠商文件會推自家服務；NVIDIA 偏好自家工具；只取做法，不取產品推薦。
+- 基準研究多用合成或英文資料（Pai 合成文件、Natural Questions）；推論到繁中企業文件要說明限制。
 
 ---
 
-## 對規劃的影響（第一輪後；第二、三輪的影響已直接寫進規劃表的總表與範圍卡）
+## 補搜紀錄與飽和
 
-1. **C 段加「安全：個資與提示注入」**：Azure 與 OWASP 都把「內容不可當指令」列為處理階段要做的事，原規劃沒有。
-2. **權限篇加「先整理既有權限過寬」**：Microsoft 藍圖顯示 AI 會讓過寬權限變得找得到。
-3. **B 段維護篇加 KCS「用了才改、在需求當下寫」、GitLab「先寫再宣布、誰都能提案、owner 核准」與驗證到期機制**。
-4. **A 段方法篇要把「作者主張」和「研究證據」分開**：Whittaker 2011 與 Bergman 2008 顯示歸檔不一定比搜尋好，但人找檔案仍偏好導覽。Johnny.Decimal、Evergreen notes、MOC、Progressive Summarization 也要在對應篇出現。
-5. **原規劃「對應來源」欄的錯誤或未讀項**：Ahrens 書未讀（只能引轉述，或另找 Ahrens 本人原文）；「Google docs-as-code」實際來源是 Write the Docs 與 Google docguide；「各 wiki 搜尋分析功能文件」改為 NN/g 搜尋紀錄分析。
-
----
-
-## 第二輪補搜（2026-10-16）：讀不到的換管道、偏誤換來源補
-
-使用者指出「讀不到、只有作者自述」不能停在那裡，要找論文與技術文章補。以下逐項處理。
-
-### 原本讀不到的，換管道讀到全文
-
-| 來源 | 第一輪 | 第二輪 | 用了哪個管道 |
+| 輪次 | 起因（使用者追問） | 做了什麼 | 主要改變 |
 |---|---|---|---|
-| Whittaker et al. CHI 2011 | 🟡 摘要 | ✅ 全文 | 第三方鏡像 PDF（mytimemanagement.com），document_parse |
-| Bergman et al. 2008 TOIS | 🟡 摘要 | 🟡 仍讀不到 2008 原文；改讀同作者 2010 全文＋2016 專書出版社說明 | 特拉維夫大學研究室 PDF（tau.ac.il/education/muse/publications/101.pdf） |
-| Aghajani et al. ICSE 2019 | 🟡 摘要 | ✅ 全文 | 作者個人網站 emadpres.github.io/pdfs/icse2019.pdf |
-| Ahrens《How to Take Smart Notes》 | 🟡 只有轉述 | 🟡 書無公開全文；改用逐頁引用書中內容的整理（zettelkasten.de, 2022，附頁碼） | — |
+| 1 | 規劃前研究 | 方法原文與官方文件；三段母群與覆蓋矩陣 | 加「安全」篇；權限篇加先整理過寬權限；B 段維護篇加 KCS、GitLab、驗證到期；A 段作者主張與研究分開寫 |
+| 2 | 「不能找別的資料嗎？」 | 讀不到的換管道（鏡像 PDF、作者網站、研究室頁）；補學術經驗報告與具名事件 | 取得 Whittaker、Bergman 2010、Aghajani 2019、Grudin 全文（但只抽段讀）；發現手寫優勢已被推翻 |
+| 3 | 「為什麼資料都很舊？」 | 限定 2024–2026 重搜 | 補 AI 筆記研究、SO 2025、AGENTS.md 研究、資料準備與安全研究 |
+| 4 | 「那不是應該補足嗎」 | 逐篇補反證與一手來源 | 補 Notion 匯出、樹狀測試、反證研究（Etkin、Stocker、Qu、InduOCR）與更新／評估研究 |
+| 更正 | 「這樣合理嗎？」 | 依抓取紀錄重核讀取程度；建 `sources.jsonl` | 論文只有 2 篇整份讀過；其餘降為部分或摘要；OmniDocBench、Ink & Switch 降為片段 |
 
-### 新增來源（讀過正文）
+**飽和（系列層）**：換關鍵字再搜——中文（「知識庫 建置 研究」「企業知識管理 實證」「筆記軟體 使用者研究」「卡片盒筆記 研究」「站內搜尋 零結果 分析」）、近義詞（organizational memory、enterprise QA、note-taking app user study、PKM empirical）、其他學科（information science PIM、CSCW wiki、software engineering documentation）。回來的多是已讀來源或廠商、部落格。這只是系列層的一輪；**每篇的飽和要在篇章層對該篇關鍵主張再做**。
 
-**A 段：實證研究**
+**試過但失敗的管道**（細節在 `sources.jsonl` 的 `tried`）：ACM、ResearchGate、MIT Press、tandfonline、MDPI（Groundlane 403，Firecrawl 可讀摘要）、OUP、techxplore、computer.org、Semantic Scholar 搜尋（429）、Aghajani 2020 PDF（超過檔案大小上限）、docslib。
 
-- **Whittaker et al. 2011 全文重點**：345 位使用者、平均使用 64 天；建很多資料夾的人（中位數分組）找回成功率與少建者相同（都是 0.88），且整體花的時間略長（72.87 vs 66.07 秒），因為打開資料夾比搜尋慢；依賴搜尋與預設是討論串的人找回成功率較高。訪談：建資料夾主要是為了**整理收件匣、管理待辦**，不是為了找回（「My inbox is a todo list」「I'm trying not to drown」）。作者自己指出：桌面檔案與網頁的研究仍顯示人偏好導覽，email 可能因為結構化、量大而例外。
-- **Bergman et al. 2010（JASIST）全文**：296 人找回 1,131 個自己的檔案、5,035 個導覽步驟；平均深度 2.86 層、每個資料夾約 11.82 個檔案、約 10.64 個子資料夾；94% 找得到、平均 14.76 秒；找回時間 ≈ 4.956 + 2.236×深度 + 0.106×資料夾大小（秒）；結論：使用者避開深層與大資料夾是合理的。文中引 2008 研究：導覽一直是找個人檔案的主要方式。
-- **Bergman & Whittaker《The Science of Managing Our Digital Stuff》（MIT Press 2016）**：出版社說明——階層資料夾是個人資料「偏好且最有效」的方式；搜尋、標籤在公共資訊有效，用在個人資訊效果不如預期；提出 user-subjective approach。（🟡 只讀到出版社與牛津學術平台的說明，書本內文未讀）
-- **生成效應統合分析（Bertsch et al. 2007, Memory & Cognition）**：86 篇研究、445 個效果量，自己產生資訊比單純閱讀記得更好，效果量 0.40（約半個標準差），調節變項影響大。（✅ 摘要；Springer 頁面）——這是「用自己的話寫」最穩的實證基礎。
-- **Mueller & Oppenheimer 2014 被重複驗證推翻**：Urry et al. 2021（Psychological Science）預先登錄的直接重複驗證（142 人）＋8 篇相關研究的小型統合分析：筆電組仍記下較多逐字內容，但測驗成績與手寫組沒有差別。（✅ 原始摘要經 CRAN afex 文件；APS 與 everydayresearchmethods 報導）→ 文章不能引「手寫比打字好」。
-- **Zettelkasten 的直接實驗證據很弱**：唯一找到的期刊研究（Malashenko et al. 2023, Emerging Science Journal）把 Zettelkasten 和間隔重複綁在一起測，無法分辨效果來源。（✅ 全文）→ 文章應寫成「Zettelkasten 本身缺乏嚴謹實驗；它的部分做法（用自己的話寫）有記憶研究支持」。
-- **Luhmann 檔案館（Bielefeld）**：Zettelkasten I 有 108 個主題分部、書目與關鍵字索引；Zettelkasten II 有 11 個主題分部；檔案館說明：Luhmann 本人沒有建立內容總覽，現有的層級是編輯決定，收藏本身不遵循嚴格階層。（✅ 德文頁面）
-
-**B 段：團隊 wiki 研究**
-
-- **Grudin & Poole 2010（WikiSym，Microsoft Research PDF）全文**：訪談多家公司＋MegaSoft 平台 4,000 多位使用者調查（433 份回覆）＋FlexWiki 調查（300 份回覆）。重點：成功的 wiki 是少數，66% 回覆者的 wiki 過去六個月沒人用；最大的團隊 wiki 在負責整理的人離開後「長滿雜草」，主管看到品質變差就撤掉維護人力；主管想要專案儀表板，寫的人要的是分享 FAQ；「把退休員工的隱性知識記下來」的期待，研究者沒看到任何實例；早期的組織方式隨規模長大變成負擔，合併 wiki 時頁名衝突。
-- **Aghajani et al. 2019 全文**：878 筆資料、162 種問題；485 筆談內容「寫了什麼」，其中**不完整 268、過時 190、不正確 72**；另有 81 筆流程問題、134 筆工具問題。→ 團隊文件主要壞在缺漏與過時，不是寫錯。
-- **Aghajani et al. 2020（ICSE）**：146 位從業人員兩份問卷，問他們認為哪些文件問題最重要、各種工作需要哪類文件。（🟡 只讀到會議頁正式摘要；PDF 兩個網址都超過 Groundlane 檔案大小上限）
-
-**C 段：非廠商來源**
-
-- **Barnett et al. 2024「Seven Failure Points」（CAIN 2024，Deakin University）全文**：三個實際系統（研究文獻助理、AI 助教、BioASQ 生醫問答：15,000 份文件、1,000 題）；7 個失敗點：內容缺失、沒排進前幾名、沒進入 context、沒抽取出來、格式錯、具體程度不對、不完整；兩個結論：RAG 只能在運作中驗證；穩健性是演化出來的。
-- **Akkiraju et al. 2024「FACTS」（NVIDIA，CIKM 預印本）全文**：三個內部機器人（企業知識約 5 億份文件／7 TB 以上、IT/HR 約 2,000 份、財報約 4,000 份）；metadata 擴充、切塊、查詢改寫、重排對品質影響最大；向量搜尋不擅長人名地名等實體，要混合詞彙搜尋；**守規則寫在 prompt 裡不可靠，改在前後處理把關**；**上線前先做資料治理與文件機密分級**；要遵守文件 ACL；LLM 當評審要小心偏誤。
-- **Slack AI 事件（PromptArmor, 2024-08-20）原文**：攻擊者在只有自己的公開頻道放指令，受害者問 Slack AI 時把私人頻道的 API key 夾進「重新登入」連結；引用來源沒有列出攻擊者訊息；Slack 回應這是公開頻道的預期行為。8 月 14 日起 Slack AI 也讀上傳檔案，攻擊面擴大。
-- **EchoLeak（CVE-2025-32711，Reddy & Gujral 2025 arXiv 案例研究）全文**：一封外部郵件、零點擊，串接繞過注入分類器、連結過濾（reference-style Markdown）、圖片自動載入、Teams 代理網域；2025 年 5 月伺服器端修補、6 月 11 日公開，官方稱無實際被利用證據。建議：外部內容與內部內容分區、輸入輸出過濾、依來源控管權限。
-- **ConfusedPilot（UT Austin, arXiv 2408.04870）**：RAG 的 confused deputy 風險——惡意文字汙染回答、快取導致機密外洩、錯誤資訊在企業內擴散。（✅ 摘要）
-
-**權限變更延遲（原本只有廠商文）→ 已有官方說明**
-
-- **Microsoft Graph／Copilot connectors 官方文件**：增量爬取只偵測新增；完整爬取才捕捉新增與刪除；敏感或動態資料建議事件觸發同步，wiki 這類內容可排程同步。
-- **Amazon Q Business 官方文件**：連接器在每次爬取時更新 ACL 變更，要定期重新同步；User Store 的修改是特權操作，應有核准流程。
-
-### 偏誤更新
-
-- **A 段**：原本「只有作者自述」→ 現在有 PIM 實證（Whittaker 2011、Bergman 2010）與記憶研究（生成效應統合分析、筆記媒介重複驗證）。仍然缺：直接比較 PARA、Zettelkasten 等方法成效的嚴謹研究——找過，不存在可用的；文章要明說這點。
-- **B 段**：原本「只有實務者規範」→ 現在有 Grudin & Poole 的企業 wiki 長期研究與 Aghajani 的文件問題分類。研究多來自軟體公司，非技術部門仍是缺口。
-- **C 段**：原本「主要是廠商文件」→ 現在有學術經驗報告（Deakin）、企業實作報告（NVIDIA）、獨立安全研究與具名事件。NVIDIA 本身賣 GPU 與 NeMo，文中偏好自家工具，只取經驗不取產品推薦。
-- **中文圈**：仍無原生方法，維持原說明。
-
-### 新增資料位置
-
-全文抽取的文字暫存在 scratchpad（whittaker2011.txt、bergman2010.txt、grudin2010.txt、aghajani2019.txt），不進 repo；需要引用時回原始網址。
-
----
-
-## 第三輪補搜（2026-10-16）：補 2024–2026 年的研究
-
-使用者問「為什麼資料都很舊」。原因：前兩輪用經典論文標題與作者名搜尋，沒限定近期；2010 年前後的結論在 AI 搜尋普及後可能已改變，必須確認近年研究有沒有更新或推翻。以下全部是 2024–2026 年發表的來源。
-
-### A 段
-
-- **Bergman & Dvir（iCETiC 2025 論文集，2026 出版）〈Hyper-searchers Search Much More for their Files Because Navigation is More Difficult for Them〉**（✅ 摘要，Springer）：檔案找回研究「一致發現偏好導覽勝過搜尋」；少數「超級搜尋者」（50 人對照 50 人，雙重確認分組）搜尋多得多，原因是導覽對他們特別吃力；對多數人導覽比搜尋省力。→ 2008、2010 的結論到 2026 年仍成立。參考文獻另有 Bergman, Israeli & Whittaker 2019〈Search is the future? The young search less for files〉（🔎 只見標題）。
-- **Bergman & Dvir 2024（Human–Computer Interaction 期刊）〈File hyper-searching explained〉**：🔎 只看到搜尋片段（超級搜尋者導覽較差、資料夾較亂）；tandfonline 頁面被 challenge 擋、PDF 被判含主動內容。
-- **Najork 2024〈Searching Personal Collections〉**（ACM《Information Retrieval: Advanced Topics and Techniques》第 14 章，2025）：已在第四輪換 arXiv HTML 版讀到全文 ✅，重點見第四輪。
-- **Chen et al. 2025（PACM HCI／CSCW）〈More AI Assistance Reduces Cognitive Engagement〉**（✅ 全文 HTML）：30 人受試者內實驗，三種 AI 筆記輔助——全自動結構化筆記、即時摘要片段、只有逐字稿；**全自動組測驗成績最低、摘要片段組最高**，差異顯著；受試者卻最喜歡全自動組。結論：方便與學到東西有落差；讓使用者自己組合 AI 提供的積木，保留認知投入。
-- **Microsoft Research 2025（CHI）〈The Impact of Generative AI on Critical Thinking〉**（✅ 官方部落格摘要；319 位知識工作者、936 個使用案例）：對 AI 信心越高，批判思考越少；對自己能力信心越高，批判思考越多；批判思考的重心轉向「驗證資訊、整合回應、管理任務」。
-
-→ 對 order 5：「LLM 能接手什麼」有了 2025 年的直接證據——整理、建議可以交給它，但「用自己的話寫、判斷什麼重要」交出去會降低理解；設計上給積木、不給成品。
-
-### B 段
-
-- **Stack Overflow Developer Survey 2025**（✅ AI 章節；49,000 份以上回覆）：84% 使用或打算使用 AI 工具；51% 專業開發者每天用；對 AI 正確性不信任（46%）多於信任（33%）；最大挫折是「幾乎對但不完全對」（66%）；未來仍會找人的首要原因是「不信任 AI 的答案」（75%）；agent 使用者認為提升了個人效率（約 70%），但只有 17% 認為改善了團隊協作。
-- **llms.txt v2（llmstxt.org，Jeremy Howard）**（✅）：網站用一份 Markdown 給 agent 看的精簡總覽；兩年內數千個網站採用，文件平台自動產生，Chrome Lighthouse 會檢查；OpenAI、Anthropic、Gemini 的開發者文件都有。
-- **AGENTS.md（agents.md）**（✅）：給 coding agent 的 README；6 萬個以上開源專案使用；巢狀檔案就近優先；現由 Linux Foundation 下的 Agentic AI Foundation 管理。
-- **Chatlatanagulchai et al. 2025（arXiv 2511.12884）〈Agent READMEs〉**（✅ 摘要）：分析 1,925 個 repo 的 2,303 份 context 檔；這些檔案像設定檔一樣頻繁小幅追加、難讀；內容以測試流程（75.9%）、實作細節（70.8%）、架構（68.1%）為主，安全（14.8%）、效能（14.5%）很少寫。
-- **Gloaguen et al. 2026（ETH Zurich，arXiv 2602.11988 v3，2026-09-29）〈Evaluating AGENTS.md〉**（✅ 摘要）：context 檔**整體不提高任務成功率**，推理成本平均增加 20% 以上；LLM 產生與開發者寫的都一樣；檔案裡的指令會被遵守，但廠商推薦的「repo 總覽」沒有幫助；建議只用來寫非標準做法，任何改善都要先評估。（注意：網路上有轉述說「降低成功率 3%」，與 v3 摘要不同，以 v3 為準）
-
-→ 對 B 段：團隊文件現在有第二種讀者（AI agent）；給 AI 的文件同樣會爛、同樣要評估。對 order 10→11：最自然的橋——同事開始改用 AI 問，團隊也開始寫給 AI 看的文件。
-
-### C 段
-
-- **Santos et al. 2026（Applied Sciences 16:5069；arXiv 2604.04948 v2）〈From PDF to RAG-Ready〉**（✅ 摘要）：Docling、MinerU、Marker、DeepSeek OCR 四種轉換工具 × 21 種管線設定；36 份葡萄牙文行政文件（1,706 頁）、50 題、每設定跑 50 次；基準：直接讀 PDF 86.2%、人工整理 Markdown 91.3%；最佳（Docling＋階層切塊＋圖片描述）94.1%；**表格題在基本與階層切塊之間差 33 個百分點**；**metadata 擴充與依階層切塊的貢獻大於轉換工具本身**；GraphRAG 試做 82%，低於基本 RAG。結論：資料準備品質是決定性因素。
-- **OmniDocBench（CVPR 2025）**（✅ CVPR 海報頁與 arXiv 摘要）：9 種文件類型、19 種版面標籤、14 種屬性標籤的解析基準；表格辨識上 OCR 型模型整體優於 VLM。
-- **Bhatt et al. 2025（Microsoft，arXiv 2509.14608）〈Enterprise AI Must Enforce Participant-Aware Access Control〉**（✅ 摘要與引言）：示範透過微調與 RAG 外洩資料的攻擊；提示清洗、輸出過濾、系統隔離、訓練層隱私都是機率性的；主張**用於檢索與生成的內容，必須對互動中的所有參與者都有授權**（例：Alice 用 AI 回覆 Bob 的信，檢索內容要兩人都能看，否則 Bob 可在信中藏指令把資料帶走）；已部署於 Microsoft Copilot Tuning。
-- **Mu et al. 2026（arXiv 2603.21654）〈Towards Secure RAG〉**（✅ 摘要）：第一篇端到端 RAG 安全綜述；威脅（資料下毒、對抗攻擊、成員推論）與防禦（動態存取控制、對抗預過濾、差分隱私等）分類，彙整評測資料集與標準。
-
-### 時間分布更新後的偏誤
-
-- A 段：核心 PIM 結論有 2026 年研究背書；PKM 方法本身仍缺嚴謹研究（找過 2024–2026，依舊沒有）。
-- B 段：補上 2025 調查與 2025–2026 的 AI 文件研究；團隊 wiki 本身的近年學術研究仍少，Grudin 2010 仍是最完整的企業 wiki 長期研究，文章會註明年份與脈絡。
-- C 段：已有 2025–2026 的資料準備實證與安全研究，不再只靠 2024 年以前的經驗報告。
-- 規則：每篇文章的關鍵主張，至少要有一個 2024 年以後的來源，或明寫「近年研究仍支持」並附來源。
-
-## 第四輪補搜（2026-10-16）：每篇補反證與飽和
-
-使用者問「那不是應該補足嗎」：第三輪後只有約一半篇章過五關。本輪逐篇補第 3–5 關（時效、反證、飽和）與 order 4、7 的一手來源。工具：Groundlane web_search／web_fetch；MDPI 被 Groundlane 擋（403）改用 Firecrawl 讀到；ICSA 2026 ADR 論文 computer.org 無文字、Semantic Scholar API 429，只有搜尋片段。
-
-### A 段（order 0–5）
-
-- **Najork et al. 2024/2025〈Searching Personal Collections〉**（ACM IR 專書第 14 章；arXiv 2412.12330 HTML ✅ 全文）：個人收藏以「找回自己見過的東西」為主；Lansdale 1988 指出階層分類的類別本身模糊；Whittaker & Sidner 1996 的「春季大掃除者」過半資料夾最後沒用；Elsweiler 2008／2011 不歸檔的人對內容記得更多。→ order 0、1、2 的時效與反證（分類並非必要）。上一輪標 🟡，本輪換 HTML 版讀到全文。
-- **數位囤積 scoping review**（Humanities & Social Sciences Communications 2026，✅）：實證稀少、多集中在照片；→ order 1「收太多」的負面證據有，但不能誇大成臨床囤積。
-- **Zettelkasten**：2024–2026 再搜（英文 "Zettelkasten empirical study"、"slip box evaluation"，中文「卡片盒筆記 研究」）仍無嚴謹實證；Schmidt 2016 章節換管道（docslib 只回推薦列表、搜到的 Allosso 是影片）讀不到，🔎。→ order 3 維持「生成效應是間接證據」的寫法。
-- **Notion 匯出官方說明**（✅）：可匯出 Markdown & CSV；callout 等區塊轉成 HTML；匯出者沒有權限的私人頁不會被匯出；整個 workspace 匯成 PDF 需 Business／Enterprise。→ order 4 一手來源補齊。
-- **Ink & Switch〈Local-first software〉2019**（✅）＋近況（2024 起有 Local-First Conf；Kleppmann 表示七個理想是梯度不是二分）。→ order 4 選型判準的出處。
-- **Etkin et al. 2025（Frontiers in Education，n=195，隨機交叉、預先登錄）**（✅）：AI 工具幫低能力者、傷高能力者；摘要工具對高能力者傷害最大。→ order 5 反證平衡：「AI 摘要有害」要看讀者能力。
-- **Melumad & Yun 2025（PNAS Nexus，7 個實驗，n=10,462）**（✅ 摘要，Semantic Scholar API）：用 LLM 摘要學到的知識比自己搜網頁淺，附上連結也一樣。→ order 5 時效。
-
-### B 段（order 6–10）
-
-- **Stocker & Tochtermann 2011 企業 wiki 多案例研究**（3 家奧地利企業、7 位專家與約 150 位員工，✅ 摘要）：wiki 有個人與集體效益，列出成功因素。→ order 6 反證：wiki 不是注定爛，條件決定。
-- **Galan 2023〈Knowledge Loss Induced by Organizational Member Turnover〉Part I**（Learning Organization 30(2)，系統性回顧 91 篇實證研究，✅ 摘要 ERIC）：整理離職造成知識流失的前因與組織、單位層級的影響。→ order 6、9「人走了文件就沒人顧」的時效與廣度。
-- **NN/g tree testing（2023）**（✅）與 card sorting（2024，已讀）。→ order 7 一手補齊。Knowledge Architecture × NN/g webinar 實為 2020，不當近年來源。
-- **ECSA 2024 ADR 行動研究**（✅ 摘要）：ADR 處理了文件文化、知識傳承、優先順序；分散式系統的問題沒解；ADR 放在哪裡影響有沒有用。→ order 8 時效與限制。
-- **ICSA 2026 ADR 大規模研究**（921 個 repo、約 5,800 份 ADR；與品質、生產力只有小相關）：🔎 只有搜尋片段（computer.org 無文字、S2 429），引用前要讀原文；目前只能當「有研究在問」的線索。
-- **Tan, Wagner & Treude 2024（EMSE）**（3,000 個以上 GitHub 專案，✅ 摘要）：多數專案在某個時點有文件引用已不存在的程式元素。→ order 9 時效（文件過時是常態，docs-as-code 的理由）。
-- **order 10**：工作時間花多少在找資訊的統計多為廠商或舊 IDC 數字，不引；時效改靠第三輪的 Stack Overflow 2025 與 AGENTS.md 研究（2025–2026）。搜尋紀錄分析方法本身只有 NN/g 方法文，屬方法說明；找過 "site search log analysis study 2024"、"enterprise search zero result queries"、中文「站內搜尋 零結果 分析」，回來的都是廠商部落格。→ order 10 方法段標成「實務做法」，不寫成研究結論。
-
-### C 段（order 11–19）
-
-- **Kucia et al. CIKM 2026（arXiv 2609.14579）**（✅）：合成題 1,851 題 vs 真實使用者題 322 題；合成題平均 15.7 字、真實題 6.8 字；合成題涵蓋 165 個來源、真實題 53 個；用合成題挑出的是延遲最高的混合檢索（最多 8 倍延遲）。→ order 11、19：題庫要有真實問題，合成題會選錯架構。
-- **Anthropic〈Contextual Retrieval〉2024**（✅）：知識庫小於約 20 萬 token 可以整份放進 prompt，不必做 RAG；contextual embeddings 讓檢索失敗率 5.7%→3.7%（-35%），加 contextual BM25 到 2.9%（-49%），再加 rerank -67%；前處理成本每百萬文件 token 約 1.02 美元。→ order 11 反證（不一定要建 RAG）、order 15、16。
-- **LinkedIn KG-RAG 客服（SIGIR 2024，arXiv 2404.17723）**（✅ 摘要）：把歷史工單建成知識圖譜保留工單內結構與工單間關係，MRR 比基準高 77.6%；部署約六個月，每張工單解決時間中位數降 28.6%。→ order 15「結構比純文字好」的企業實證；只有單一公司、作者自評。
-- **Karakurt & Akbulut 2026（Applied Sciences 16:368，SLR 63 篇）**（✅ 摘要，Firecrawl；Groundlane 403）：企業 RAG 多在實驗階段，63.6% 用 GPT 系列、80.5% 用 FAISS／Elasticsearch 等標準檢索；不到 15% 研究處理即時整合；生成評估多用固定測試集。→ order 11、19 的時效：上線與持續評估是研究缺口。
-- **Xie et al. ICLR 2024 知識衝突**（✅）：外部證據連貫時模型會採用，即使與自身知識衝突；但有確認偏誤。→ order 12、18。
-- **VersionRAG 2025（arXiv 2510.08109）**（✅）：版本相關問題 naive RAG 58%、GraphRAG 64%、VersionRAG 90%。→ order 12「信哪個版本」要有版本 metadata。
-- **Stale-document poisoning 2026（arXiv 2609.31342）**（✅）：317 個知識反轉；檢索到過時文件時，Llama 30%、Qwen 37% 的答案被翻轉；加上「照文件回答」指令升到 66%／75%；新證據 97–100% 被採用；告知失效時間點時大模型能正確切換；依時間重排降 4.6–10 個百分點，但需要可靠的日期 metadata。→ order 18 核心證據、order 15 日期欄位的理由。
-- **OHRBench（ICCV 2025，arXiv 2412.02592）**（✅）：8,561 頁、8,498 組 QA；沒有任何 OCR 方案足以建出高品質知識庫；語意雜訊與格式雜訊都與 RAG 表現呈趨勢關係。**InduOCRBench 2026（arXiv 2605.00911）**（✅）：OCR 字元準確率高不代表 RAG 表現好。→ order 13 反證與時效。
-- **CaMeL（Google，arXiv 2503.18813 v2，2025）**（✅）：AgentDojo 上 77% 任務可在可證明安全下完成，未防禦為 84%（安全有代價）。**Pai 2026（arXiv 2606.18530）**（✅）：3,510 次試驗；改寫檢索內容降低攻擊成功率 55–84%；spotlighting 對 Claude Haiku 減半、對 Llama 3.1 8B 無效；金融領域殘留 26–33%；文件為合成。→ order 14：防禦效果依模型而異、沒有一招見效。
-- **Qu et al. NAACL Findings 2025（arXiv 2410.13070）**（✅）：語意切塊的計算成本不值得，真實文件上固定長度常更好。**Bennani & Moslonka ECIR 2026（arXiv 2601.14123）**（✅ 摘要；3 頁短文）：Natural Questions 端到端，SPLADE＋Mistral-8B；overlap 沒有可量測好處、只增加索引成本；句子切塊最划算，到約 5k token 與語意切塊持平；context 超過約 2.5k token 品質下降。→ order 16 反證：「語意切塊比較好」不成立，預設用簡單切法再用題庫比。
-- **Filtered ANN 2026（arXiv 2602.11443）**（✅）：FAISS、Milvus、pgvector；過濾策略影響召回；pgvector 規劃器常選次佳計畫；低選擇性過濾下 IVFFlat 優於 HNSW。→ order 17：權限過濾後要量「過濾後召回」，不能只看沒過濾時的數字。
-- **TREC 2024 RAG support 評估（SIGIR 2025，arXiv 2504.15205）**（✅）：GPT-4o 與人工標註完全一致 56%；人修正 LLM 標籤後 72%；獨立人工審查與 GPT-4o 的一致度高於與原人工標註。→ order 19：LLM 評審可以當替代，但要人工校準。
-
-### 飽和輪
-
-換關鍵字再搜：中文（「知識庫 建置 研究」「企業知識管理 實證」「筆記軟體 使用者研究」）、近義詞（organizational memory、enterprise QA、note-taking app user study、PKM empirical）、其他學科（information science PIM、CSCW wiki、software engineering documentation）。回來的多是已讀來源或廠商、部落格，沒有出現新的重要一手研究。→ 判定飽和。仍缺的寫在規劃表五關表的「缺口」欄。
+**全文暫存**：whittaker2011.txt、bergman2010.txt、grudin2010.txt、aghajani2019.txt 在 session scratchpad，不進 repo；精讀時回原始網址或重抓。

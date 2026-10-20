@@ -102,10 +102,10 @@ description: Portable multi-source research for tools, frameworks, papers, model
 **來源登錄（`sources.jsonl`）**：多子問題或系列研究，在 note 旁邊放一份 `sources.jsonl`，一行一個來源。搜尋完、精讀前先登錄並排序（先排再讀，每個子問題挑 3–5 個；能直接回答的一手來源優先於多篇二手整理），讀完回頭更新 `read_status`，讓盤點表與登錄檔一致：
 
 ```json
-{"url":"","title":"","source_type":"official|paper|docs|media|blog|community|unknown","subquestion":"","published":"","authority_score":1,"relevance_score":1,"read_status":"queued|read|abstract|snippet|blocked|skipped","tried":"","reason":""}
+{"url":"","title":"","source_type":"official|paper|docs|media|blog|community|unknown","subquestion":"","published":"","authority_score":1,"relevance_score":1,"read_status":"queued|read|partial|abstract|snippet|blocked|skipped","tried":"","reason":""}
 ```
 
-`read_status` 對應盤點符號：`read`＝✅、`abstract`＝🟡、`snippet`＝🔎、`blocked`＝🔴（`tried` 寫試過的管道）。分數只用來決定讀的順序，不寫進文章當證據等級。這份格式來自 2026-05 研究搜尋與爬蟲工具時的做法（產出見 `~/Work/research/.work/*/sources.jsonl`）；之前這裡引用的跨研究 `research-source-registry` skill 從未建立，已移除（2026-10-20）。
+`read_status` 對應盤點符號：`read`＝✅、`partial`／`abstract`＝🟡、`snippet`＝🔎、`blocked`＝🔴（`tried` 寫試過的管道）。**`read` 只給整份內容都進到輸出的來源**：抓取結果 `truncated: true`、設了字元上限只讀到前段、或全文存檔後只用關鍵字抽段讀，一律是 `partial`，並在 `tried` 寫讀了多少；arXiv `/abs/` 頁、出版社頁、Semantic Scholar API 是 `abstract`。論文就算整份讀過，沒有第 2.5 節的抽取紀錄仍不能引數字。本站踩過（2026-10-20）：「知識庫怎麼建」研究筆記把 48 篇論文裡的大多數標成 ✅，回頭對抓取紀錄，整份讀過的只有 2 篇，其餘是摘要或只讀前幾千字元，還有兩筆只看過搜尋片段。分數只用來決定讀的順序，不寫進文章當證據等級。這份格式來自 2026-05 研究搜尋與爬蟲工具時的做法（產出見 `~/Work/research/.work/*/sources.jsonl`）；之前這裡引用的跨研究 `research-source-registry` skill 從未建立，已移除（2026-10-20）。
 
 ### 派 subagent 研究時
 

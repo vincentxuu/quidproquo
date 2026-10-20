@@ -58,7 +58,7 @@ order 0 總覽
 | 1 | 收什麼：收集不等於知識庫 | 為什麼存了一堆還是找不到？什麼值得收？ | 待寫 | zettelkasten.de Collector's Fallacy；維基 PIM（keeping 是訊號偵測）；GTD Weekly Review（收件匣歸零）；Najork 2024（不歸檔者記得更多）；數位囤積 scoping review 2026 |
 | 2 | 放哪裡：PARA、Johnny.Decimal，與「到底要不要分類」 | 該建資料夾，還是全部丟著靠搜尋？ | 待寫 | Forte PARA；Johnny.Decimal 官方；Whittaker et al. CHI 2011 全文；Bergman et al. 2010 全文（資料夾深度與大小對找回時間的模型）；Bergman & Whittaker 2016 專書（🟡出版社說明）；Bergman & Dvir 2026（導覽偏好到 2026 仍成立，超級搜尋者例外）；Najork 2024（Lansdale 1988、Whittaker & Sidner 1996 的反面證據） |
 | 3 | 怎麼連：Zettelkasten、Evergreen notes、MOC | 怎麼讓筆記長出新想法，而不只是存檔？ | 待寫 | Luhmann〈Communicating with Slip Boxes〉英譯；Luhmann 檔案館；zettelkasten.de 入門與 Ahrens 概念逐頁整理；Matuschak Evergreen notes；LYT MOC 定義；生成效應統合分析（Bertsch 2007）；Urry 2021 重複驗證 |
-| 4 | 工具落地：Obsidian 與選型 | 用什麼工具？換工具時資料帶不帶得走？ | 待寫 | Obsidian 官方說明（資料存放、內部連結、反向連結、properties）；Notion 匯出官方說明（私人頁不匯出、callout 轉 HTML）；Ink & Switch local-first 2019 |
+| 4 | 工具落地：Obsidian 與選型 | 用什麼工具？換工具時資料帶不帶得走？ | 待寫 | Obsidian 官方說明（資料存放、內部連結、反向連結、properties）；Notion 匯出官方說明（私人頁不匯出、callout 轉 HTML）；Ink & Switch local-first 2019（🔎 待讀原文） |
 | 5 | 維護：回顧、漸進摘要、刪除，與 LLM 能接手什麼 | 系統怎麼不在三個月後荒廢？ | 待寫 | GTD Weekly Review；Forte Progressive Summarization；Chen et al. 2025（全自動 AI 筆記學得最少）；Microsoft 2025 CHI（越信任 AI 批判思考越少）；Etkin 2025（AI 幫低能力者、傷高能力者）；Melumad & Yun 2025（LLM 摘要學得較淺）；站內 llm-knowledge-vault、llm-knowledge-management-landscape |
 | 6 | 團隊知識庫為什麼會爛掉，以及要寫哪幾種文件 | 為什麼公司 wiki 總是過時、找不到、沒人寫？ | 待寫 | Grudin & Poole 2010 全文；Aghajani ICSE 2019 全文；Stack Overflow Developer Survey 2024 與 2025；Stocker & Tochtermann 2011（企業 wiki 成功案例，反證）；Galan 2023（離職知識流失回顧 91 篇）；Diátaxis；GitLab handbook-first |
 | 7 | 資訊架構：按讀者的任務組織 | 頁面要怎麼分層、命名，新人才找得到？ | 待寫 | NN/g 卡片分類（2024）；NN/g 樹狀測試（2023）；GitLab handbook 頂層結構 |
@@ -67,7 +67,7 @@ order 0 總覽
 | 10 | 找得到：搜尋紀錄分析與缺口，以及第二種讀者 | 同事搜不到，是沒寫還是寫了找不到？AI 也開始讀團隊文件時要注意什麼？ | 待寫 | NN/g 搜尋紀錄分析；llms.txt v2；AGENTS.md；Agent READMEs 2025（2,303 份 context 檔）；ETH Zurich 2026（context 檔不提高成功率、成本增 20%） |
 | 11 | 給 AI 讀的知識庫差在哪：先寫題庫 | 人看得懂的 wiki，AI 為什麼還是答錯？動手前先做什麼？ | 待寫 | Barnett 2024 Seven Failure Points 全文；Azure RAG preparation phase；Azure RAG 設計系列總覽；Kucia et al. CIKM 2026（合成題 vs 真實題）；Anthropic contextual retrieval 2024（<20 萬 token 可直接放 prompt）；Karakurt & Akbulut 2026 企業 RAG 回顧；站內 rag-failure-modes、retriever-silent-failure |
 | 12 | 盤點來源：收哪些、信哪個版本 | 一堆共用硬碟和舊版文件，哪些該進知識庫？ | 待寫 | Azure preparation phase（內容分析、代表性內容）；Google RAG Engine 連接器；OWASP LLM08（知識衝突）；Xie et al. ICLR 2024；VersionRAG 2025 |
-| 13 | 解析與清洗：PDF、表格、掃描檔 | 文件轉成文字時，哪些內容會悄悄壞掉？ | 待寫 | Santos et al. 2026 From PDF to RAG-Ready（資料準備是決定性因素、表格題差 33 個百分點）；OmniDocBench CVPR 2025；OHRBench ICCV 2025；InduOCRBench 2026；Azure chunking phase（版面分析）；Docling；站內 table-serialization-rag、colpali、vision-pdf-parse |
+| 13 | 解析與清洗：PDF、表格、掃描檔 | 文件轉成文字時，哪些內容會悄悄壞掉？ | 待寫 | Santos et al. 2026 From PDF to RAG-Ready（資料準備是決定性因素、表格題差 33 個百分點）；OmniDocBench CVPR 2025（🔎 待讀原文）；OHRBench ICCV 2025；InduOCRBench 2026；Azure chunking phase（版面分析）；Docling；站內 table-serialization-rag、colpali、vision-pdf-parse |
 | 14 | 安全：個資與藏在文件裡的指令 | 收進知識庫的文件，會不會洩漏個資或反過來指揮 AI？ | 待寫（新增） | Slack AI 事件（PromptArmor 原文）；EchoLeak 案例研究；ConfusedPilot；OWASP LLM08 情境 1；Azure enrichment phase（內容不可當指令）；NVIDIA FACTS（prompt 守規不可靠）；CaMeL 2025；Pai 2026（防禦效果依模型而異）；Presidio |
 | 15 | 結構與 metadata | 除了內文，每份文件還要記錄哪些欄位？ | 待寫 | Azure enrichment phase；AWS `.metadata.json`；OpenAI attributes 與 filters；LinkedIn KG-RAG 2024（結構化工單，解決時間 -28.6%）；Anthropic contextual retrieval 2024；站內 contextual-retrieval |
 | 16 | 切塊與索引：要做的三個決定 | 文件要切多大、用什麼搜？怎麼知道選對了？ | 待寫 | Azure chunking phase（半永久選擇）；OpenAI 預設切塊；Qu et al. NAACL 2025 與 Bennani & Moslonka 2026（語意切塊不划算、overlap 無益）；站內 chunking-strategies、hybrid-search、bge-m3 |
@@ -145,7 +145,7 @@ Order 3：怎麼連：Zettelkasten、Evergreen notes、MOC
 Order 4：工具落地：Obsidian 與選型
   聚焦問題：用什麼工具？換工具時資料帶不帶得走？
   邊界：
-    - 講：選型判準（檔案格式可攜、連結、搜尋、同步、離線）；Obsidian 的 vault＝本機 Markdown 資料夾、內部連結兩種格式、改名自動更新連結、反向連結、properties；Obsidian 專屬語法（block reference）在外部失效；Notion 等資料庫型工具的取捨——Notion 官方匯出：Markdown＋CSV，callout 轉 HTML，匯出者沒權限的私人頁不會匯出；local-first 七個理想當梯度看（Ink & Switch）
+    - 講：選型判準（檔案格式可攜、連結、搜尋、同步、離線）；Obsidian 的 vault＝本機 Markdown 資料夾、內部連結兩種格式、改名自動更新連結、反向連結、properties；Obsidian 專屬語法（block reference）在外部失效；Notion 等資料庫型工具的取捨——Notion 官方匯出：Markdown＋CSV，callout 轉 HTML，匯出者沒權限的私人頁不會匯出；local-first 七個理想（Ink & Switch，動筆前讀原文）
     - 不講：外掛大全
   讀完後讀者能：用選型判準評一個筆記工具，並在 Obsidian 實作 order 2、3 的結構
   例子：同一組筆記在 Obsidian 與 Notion 的樣子，以及各自匯出結果
@@ -368,29 +368,31 @@ Order 19：評估與上線：怎麼知道它好用
 4. **反證**：主動搜反對意見、失敗案例、重複驗證（關鍵字加 replication、criticism、limitations、failed、does not）。
 5. **飽和**：換兩三組不同關鍵字（含中文、近義詞、不同學科用語）再搜，結果都是已讀來源才停。
 
-2026-10-16 檢查結果（第四輪補搜後；來源細節見研究筆記「第四輪」）：
+2026-10-20 檢查結果（依抓取紀錄重核；細節見研究筆記「讀取程度」與 `sources.jsonl`）：
 
-| order | ①一手 | ②證據類型 | ③時效 | ④反證 | ⑤飽和 | 缺口與處理 |
-|---|---|---|---|---|---|---|
-| 0 | ✅ | ✅ | ✅ Najork 2024 | ✅ | ✅ | — |
-| 1 | ✅ | ✅ 方法＝作者主張 | ✅ Najork 2024、囤積回顧 2026 | ✅ | ✅ | 囤積研究多是照片，不外推 |
-| 2 | ✅ | ✅ | ✅ Bergman & Dvir 2026 | ✅ Najork（不歸檔者記得更多） | ✅ | — |
-| 3 | ✅ | ✅ 明寫無直接實驗 | ✅ 2024–2026 再搜確認仍無 | ✅ Urry 2021 | ✅ | Schmidt 2016 🔎 讀不到（docslib、影片），不引 |
-| 4 | ✅ Notion 匯出、Obsidian | ✅ | ✅ local-first 2024 近況 | ⚠️ 工具類無研究，以官方限制當反面 | ✅ | — |
-| 5 | ✅ | ✅ | ✅ Chen 2025、Melumad 2025 | ✅ Etkin 2025 | ✅ | — |
-| 6 | ✅ | ✅ | ✅ SO 2025、Galan 2023 | ✅ Stocker 2011 | ✅ | 企業 wiki 近年學術研究少，Grudin 2010 註明年份 |
-| 7 | ✅ NN/g 卡片分類、樹狀測試 | ⚠️ 方法說明，非實驗 | ✅ 2023–2024 | ⚠️ 未找到反對研究 | ✅ | 文中標為實務做法 |
-| 8 | ✅ | ✅ | ✅ ECSA 2024 | ✅ ECSA（分散式系統未解） | ✅ | ICSA 2026 🔎 只有片段，不引數字 |
-| 9 | ✅ | ✅ | ✅ Tan 2024 | ✅ | ✅ | — |
-| 10 | ✅ | ⚠️ 搜尋紀錄分析為方法說明 | ✅ SO 2025、AGENTS.md 2025–2026 | ✅ ETH 2026（context 檔無效） | ✅ | 找資訊耗時統計只有廠商數字，不引 |
-| 11 | ✅ | ✅ | ✅ Kucia 2026、Karakurt 2026 | ✅ Anthropic（小知識庫不必 RAG） | ✅ | — |
-| 12 | ✅ | ✅ | ✅ VersionRAG 2025 | ✅ Xie 2024（確認偏誤） | ✅ | — |
-| 13 | ✅ | ✅ | ✅ Santos 2026、OHRBench 2025 | ✅ InduOCRBench 2026 | ✅ | — |
-| 14 | ✅ | ✅ | ✅ CaMeL 2025、Pai 2026 | ✅ 防禦依模型而異 | ✅ | Pai 用合成文件，文中註明 |
-| 15 | ✅ | ✅ | ✅ Anthropic 2024、LinkedIn 2024 | ⚠️ LinkedIn 單一公司自評 | ✅ | 文中註明 |
-| 16 | ✅ | ✅ | ✅ Bennani 2026 | ✅ Qu 2025（語意切塊不划算） | ✅ | Bennani 只讀到摘要，引摘要層級 |
-| 17 | ✅ | ✅ | ✅ Microsoft 2025、Filtered ANN 2026 | ✅ | ✅ | — |
-| 18 | ✅ | ✅ | ✅ Stale-document 2026 | ✅ recency rerank 需可靠日期 | ✅ | — |
-| 19 | ✅ | ✅ | ✅ TREC 2024（SIGIR 2025） | ✅ LLM 評審只 56% 一致 | ✅ | — |
+**系列層已完成**：三段母群、掃描、覆蓋矩陣、偏誤，以及每篇的候選來源（總表「對應來源」欄）。**篇章層還沒開始**：48 篇論文中只有 Barnett 2024、NVIDIA FACTS 2024 整份讀過，沒有任何一篇有精讀抽取紀錄；範圍卡裡的研究數字都是摘要或部分讀的線索，動筆前要精讀確認，對不上就改範圍卡。
 
-⚠️ 的格子是「已找過、找不到更好的」，處理方式寫在最後一欄；每篇動筆前仍要對該篇關鍵主張再核一次，🟡／🔎 的來源只能引摘要層級或不引。
+| order | ①一手（✅ 整份讀過的） | 只到 🟡／🔎 的關鍵來源 | ③時效 | ④反證（候選） | 篇章層要做 |
+|---|---|---|---|---|---|
+| 0 | 方法原文、維基 PIM（部分） | Najork 2024（部分） | 候選有 | 候選有 | 精讀 Najork、維基 PIM 引用的原研究 |
+| 1 | Collector's Fallacy、GTD | Najork、囤積回顧（摘要） | 候選有 | 候選有 | 精讀兩篇 |
+| 2 | PARA、Johnny.Decimal | Whittaker 2011、Bergman 2010（抽段）、Bergman 2008／2016／Dvir 2026（摘要） | 候選有 | Najork 轉述的 Elsweiler | 從頭精讀 Whittaker、Bergman 2010；回讀 Najork 轉述段 |
+| 3 | Luhmann、檔案館、Evergreen、MOC | 生成效應、Urry（摘要）、Malashenko（抽段） | 已確認仍無直接實驗 | Urry 2021 | 精讀 Bertsch、Urry |
+| 4 | Obsidian 官方 | Notion 匯出（部分）、Ink & Switch（🔎） | 待讀 | 工具類無研究 | 讀完 Notion 匯出頁與 Ink & Switch 原文 |
+| 5 | GTD、Progressive Summarization（部分） | Chen 2025（部分）、Microsoft 2025（部落格）、Etkin、Melumad（摘要） | 候選有 | Etkin 2025 | 精讀四篇 |
+| 6 | Diátaxis、SO 2024／2025 | Grudin、Aghajani 2019（抽段）、Stocker、Galan（摘要） | 候選有 | Stocker 2011 | 精讀 Grudin、Aghajani、Stocker |
+| 7 | GitLab 頂層結構 | NN/g 卡片分類、樹狀測試（部分） | 2023–2024 | 未找到 | 讀完兩篇；文中標為實務做法 |
+| 8 | Nygard ADR、Google docguide、Diátaxis | ECSA 2024（摘要）、ICSA 2026（🔎） | 候選有 | ECSA 限制 | 精讀 ECSA；ICSA 換管道再試 |
+| 9 | Google、Write the Docs、Notion、GitLab、KCS | Grudin（抽段）、Tan 2024、Galan（摘要） | 候選有 | 候選有 | 精讀 Tan、Grudin 相關段 |
+| 10 | NN/g 搜尋紀錄分析、AGENTS.md、SO 2025 | Agent READMEs、ETH 2026（摘要）、llms.txt（部分） | 候選有 | ETH 2026 | 精讀兩篇研究 |
+| 11 | Azure 準備、總覽；Barnett；FACTS | Kucia、企業回顧（摘要）、Anthropic（部分） | 候選有 | Anthropic（小知識庫不必 RAG） | 精讀 Kucia；讀完 Anthropic |
+| 12 | Azure、Google、OWASP | Xie 2024、VersionRAG（摘要） | 候選有 | Xie 確認偏誤 | 精讀兩篇 |
+| 13 | Azure enrichment、Docling | Santos、OHRBench、InduOCR（摘要）、OmniDocBench（🔎）、Azure chunking（部分） | 候選有 | InduOCR | 精讀 Santos、OHRBench；讀 OmniDocBench |
+| 14 | OWASP、Slack AI、Presidio、FACTS | EchoLeak（部分）、CaMeL、Pai、ConfusedPilot、Mu（摘要） | 候選有 | Pai（依模型而異） | 精讀 EchoLeak、CaMeL、Pai |
+| 15 | Azure enrichment、AWS | OpenAI（部分）、Anthropic（部分）、LinkedIn（摘要） | 候選有 | LinkedIn 單一公司 | 精讀 LinkedIn |
+| 16 | Azure（部分）、OpenAI（部分） | Qu 2025、Bennani 2026（摘要） | 候選有 | Qu 2025 | 精讀兩篇 |
+| 17 | Azure、Microsoft、Amazon、OWASP、FACTS | Bhatt（部分）、Filtered ANN、Mu（摘要） | 候選有 | 候選有 | 精讀 Bhatt、Filtered ANN |
+| 18 | AWS、Google、OpenAI（部分）、Microsoft Graph | Stale-document、VersionRAG、Xie（摘要） | 候選有 | 候選有 | 精讀 Stale-document |
+| 19 | Azure 總覽、Barnett、FACTS | TREC 2024、Kucia、企業回顧（摘要） | 候選有 | TREC（LLM 評審 56%） | 精讀 TREC、Kucia；讀 Azure 評估篇 |
+
+每篇動筆前的流程：從「對應來源」挑 8–12 篇（含至少一篇相反或無效的）給使用者看 → 精讀並交抽取紀錄 → 抽查三個數字 → 對該篇關鍵主張做一輪飽和搜尋 → 五關全過才寫。⑤飽和目前只做過系列層一輪，不算各篇已過。
