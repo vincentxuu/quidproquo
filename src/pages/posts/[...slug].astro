@@ -1039,6 +1039,10 @@ const breadcrumbLD = {
           try {
             const { svg } = await mermaid.render(`mermaid-diagram-${i}`, source);
             container.innerHTML = svg;
+            // 手機上寬圖不縮小，保留原尺寸讓容器橫向捲動（CSS 讀 --natural-w）
+            const el = container.querySelector('svg');
+            const naturalW = el?.viewBox.baseVal?.width;
+            if (el && naturalW) el.style.setProperty('--natural-w', `${Math.ceil(naturalW)}px`);
           } catch (err) {
             console.error('[mermaid] failed to render diagram', err);
           }
@@ -1419,6 +1423,10 @@ const breadcrumbLD = {
     text-align: center;
   }
   .mermaid-diagram svg { max-width: 100%; height: auto; }
+  @media (max-width: 640px) {
+    .mermaid-diagram { -webkit-overflow-scrolling: touch; text-align: left; }
+    .mermaid-diagram svg { min-width: var(--natural-w, 0); max-width: none; }
+  }
 </style>
 
 <style is:global>
