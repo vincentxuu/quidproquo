@@ -10,7 +10,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { basename, join, resolve } from 'node:path';
-import { chromium } from 'playwright';
+import { chromium } from '@playwright/test';
 import { parseDiagram, renderDiagram } from '../src/plugins/remarkDiagram';
 import { parseFlowDiagram, renderFlowDiagram } from '../src/plugins/remarkFlowDiagram';
 
