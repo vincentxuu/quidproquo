@@ -1,6 +1,7 @@
 ---
 title: "數位產品的價值驗證：從假設地圖到 AI 產品的 M3 留存基準"
 date: 2026-07-25
+updated: 2026-10-20
 category: product
 type: deep-dive
 tags: [value-validation, product-market-fit, product-discovery, experimentation, pricing, product-management, ai-product]
@@ -59,6 +60,40 @@ Cagan 在 [Product Risk Taxonomy](https://www.svpg.com/product-risk-taxonomies/)
 還有一層更關鍵：驗證的單位不是「點子」而是**假設**。[Opportunity Solution Tree](https://www.producttalk.org/opportunity-solution-trees/) 的最底層是 assumption tests 而不是 A/B tests，Torres 特別解釋過這個設計——給實驗自己一列，是為了逼團隊想出「測同一個解法的多種方式」，避免過度依賴 A/B test 去測整個方案。
 
 搭配 assumption mapping 的 2×2（重要性 × 現有證據）就完整了：落在**高重要 × 低證據**那格的是 leap-of-faith assumption，也就是「錯了這個解法就死」但你目前一無所知的那些。這個工具真正的價值在於它強迫團隊承認一件不舒服的事——多數團隊測的是自己**測得順手**的假設（工程師測技術可行性、設計師測可用性），而不是**錯了會死**的那個。
+
+```diagram
+title: Assumption mapping：重要性 × 現有證據
+desc: 假設依重要性和現有證據分成評估、規劃、生成、延後四格；高重要、低證據的評估格是 leap-of-faith 假設，要先用實驗驗證。
+caption: 四格名稱與用途依 David Bland 的 Assumptions Mapping。
+---
+<svg viewBox="0 0 440 436">
+  <line class="dg-rule" x1="256" y1="28" x2="256" y2="396"/>
+  <line class="dg-rule" x1="84" y1="212" x2="428" y2="212"/>
+
+  <path class="dg-axis" d="M80 400V20" marker-end="url(#arrow)"/>
+  <path class="dg-axis" d="M80 400H432" marker-end="url(#arrow)"/>
+
+  <rect class="dg-area dg-area--accent" x="88" y="32" width="164" height="176" rx="6"/>
+
+  <text class="dg-sub" x="70" y="40" text-anchor="end" dominant-baseline="central">重要性<tspan x="70" dy="1.3em">高</tspan></text>
+  <text class="dg-sub" x="70" y="372" text-anchor="end" dominant-baseline="central">重要性<tspan x="70" dy="1.3em">低</tspan></text>
+  <text class="dg-sub" x="88" y="420" dominant-baseline="central">現有證據 低</text>
+  <text class="dg-sub" x="424" y="420" text-anchor="end" dominant-baseline="central">現有證據 高</text>
+
+  <text class="dg-label dg-text--accent" x="100" y="60" dominant-baseline="central">評估 Evaluate</text>
+  <text class="dg-sub dg-text--accent" x="100" y="90" dominant-baseline="central">leap-of-faith 假設</text>
+  <text class="dg-sub" x="100" y="120" dominant-baseline="central">錯了這個解法就死，<tspan x="100" dy="1.4em">目前一無所知</tspan><tspan x="100" dy="1.4em">→ 用實驗驗證</tspan></text>
+
+  <text class="dg-label" x="272" y="60" dominant-baseline="central">規劃 Plan</text>
+  <text class="dg-sub" x="272" y="90" dominant-baseline="central">接近事實，<tspan x="272" dy="1.4em">對照現有計畫</tspan></text>
+
+  <text class="dg-label" x="100" y="244" dominant-baseline="central">生成 Generate</text>
+  <text class="dg-sub" x="100" y="274" dominant-baseline="central">所知太少，先用訪談<tspan x="100" dy="1.4em">找值得解的問題</tspan></text>
+
+  <text class="dg-label" x="272" y="244" dominant-baseline="central">延後 Defer</text>
+  <text class="dg-sub" x="272" y="274" dominant-baseline="central">容易讓人分心，<tspan x="272" dy="1.4em">做了只是進步的假象</tspan></text>
+</svg>
+```
 
 ## 證據強度只有一條軸
 
@@ -267,6 +302,7 @@ a16z 的方法論修正值得直接採用：**把留存基準從 M0 改成 M3**�
 
 ## 更新紀錄
 
+- 2026-10-20：在 assumption mapping 段落加上重要性 × 證據的象限圖，四格名稱依 David Bland 的 Assumptions Mapping，並補上出處
 - 2026-07-25：新增「B2B 的判準不一樣：六個 reference customer」一節（Cagan 的 reference customer 四條件與「湊滿六個之前不要啟動銷售機器」的推論）；補上 Nubank 把 40% 門檻按文化調到 50% 的例子；AI 定價一節補上 Zendesk 的 $1.50 per automated resolution 與其 LLM 驗證機制；定價一節補上 Kloss & Kunter 2016 對 Van Westendorp 的正面證據與作者自己的「兩個偏誤互相抵消」但書，原本只寫了批評的一面。
 
 ## 參考資料
@@ -281,6 +317,7 @@ a16z 的方法論修正值得直接採用：**把留存基準從 M0 改成 M3**�
 
 **實驗方法**
 
+- [How to Look Before You Leap: A Guide to Mapping Assumptions — David Bland / Mural](https://mural.co/blog/how-to-look-before-you-leap-a-guide-to-mapping-assumptions-for-product-development-teams)
 - [Testing Business Ideas — Strategyzer（Osterwalder & Bland, 2019）](https://www.strategyzer.com/library/testing-business-ideas-book)
 - [How to Select the Next Best Test from the Experiment Library — David Bland / Strategyzer](https://www.strategyzer.com/library/how-to-select-the-next-best-test-from-the-experiment-library)
 - [Testing Business Ideas 官方書摘 PDF — Wiley](https://catalogimages.wiley.com/images/db/pdf/9781119551447.excerpt.pdf)

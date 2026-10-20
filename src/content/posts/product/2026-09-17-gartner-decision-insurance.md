@@ -1,6 +1,7 @@
 ---
 title: "企業為什麼買 Gartner：品牌、分析師與決策保險"
 date: 2026-09-17
+updated: 2026-10-20
 category: product
 type: deep-dive
 tags: [business-model, content-business, b2b, subscription, market-intelligence, ai]
@@ -71,14 +72,62 @@ Gartner 官網不公開一般商業客戶的統一定價，紐約州的 [2024 �
 
 第四層是工作流程。當需求、短名單、問卷、評分與議價都留在同一套工具裡，換掉 Gartner 不只是少一批內容，還得重建團隊的做事方式。
 
-```mermaid
-flowchart TD
-    A[品牌形成共同語言] --> B[更多企業訂閱]
-    B --> C[更多分析師互動]
-    C --> D[研究與基準更完整]
-    D --> E[進入採購工作流程]
-    E --> F[使用、續約與擴席]
-    F --> A
+```diagram
+title: 規模帶來的回饋迴路
+desc: 品牌形成共同語言，帶動更多企業訂閱與分析師互動，讓研究與基準更完整並進入採購工作流程，使用、續約與擴席之後又回到起點，形成回饋迴路。
+step: 品牌形成共同語言，帶動更多企業訂閱
+step: 更多企業訂閱，帶來更多分析師互動
+step: 更多分析師互動，讓研究與基準更完整
+step: 研究與基準更完整，進入採購工作流程
+step: 進入採購工作流程，帶來使用、續約與擴席
+step: 使用、續約與擴席，再回到品牌形成共同語言
+---
+<svg viewBox="0 0 440 408">
+  <path class="dg-line" d="M296 63.2A160 160 0 0 1 336 93.8" marker-end="url(#arrow)" data-step="1"/>
+  <path class="dg-line" d="M371.3 152A160 160 0 0 1 372.3 253.2" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M338.1 312A160 160 0 0 1 298.6 343.3" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line" d="M144 344.8A160 160 0 0 1 104 314.2" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line" d="M68.7 256A160 160 0 0 1 67.7 154.8" marker-end="url(#arrow)" data-step="5"/>
+  <path class="dg-line" d="M101.9 96A160 160 0 0 1 141.4 64.7" marker-end="url(#arrow)" data-step="6"/>
+
+  <g data-step="1">
+    <rect class="dg-box" x="144" y="16" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="220" y="34" text-anchor="middle" dominant-baseline="central">品牌形成</text>
+    <text class="dg-label" x="220" y="54" text-anchor="middle" dominant-baseline="central">共同語言</text>
+  </g>
+
+  <g data-step="2">
+    <rect class="dg-box" x="284" y="96" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="360" y="114" text-anchor="middle" dominant-baseline="central">更多</text>
+    <text class="dg-label" x="360" y="134" text-anchor="middle" dominant-baseline="central">企業訂閱</text>
+  </g>
+
+  <g data-step="3">
+    <rect class="dg-box" x="284" y="256" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="360" y="274" text-anchor="middle" dominant-baseline="central">更多</text>
+    <text class="dg-label" x="360" y="294" text-anchor="middle" dominant-baseline="central">分析師互動</text>
+  </g>
+
+  <g data-step="4">
+    <rect class="dg-box" x="144" y="336" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="220" y="354" text-anchor="middle" dominant-baseline="central">研究與基準</text>
+    <text class="dg-label" x="220" y="374" text-anchor="middle" dominant-baseline="central">更完整</text>
+  </g>
+
+  <g data-step="5">
+    <rect class="dg-box" x="4" y="256" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="80" y="274" text-anchor="middle" dominant-baseline="central">進入採購</text>
+    <text class="dg-label" x="80" y="294" text-anchor="middle" dominant-baseline="central">工作流程</text>
+  </g>
+
+  <g data-step="6">
+    <rect class="dg-box" x="4" y="96" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="80" y="114" text-anchor="middle" dominant-baseline="central">使用、續約</text>
+    <text class="dg-label" x="80" y="134" text-anchor="middle" dominant-baseline="central">與擴席</text>
+  </g>
+
+  <text class="dg-sub" x="220" y="204" text-anchor="middle" dominant-baseline="central">回饋迴路</text>
+</svg>
 ```
 
 這比較像規模帶來的回饋迴路，不宜直接說成純資料的網路效應。公開文件沒有說每次客戶問答都會進入 Magic Quadrant，也沒有公開各項訊號的完整權重。
@@ -116,6 +165,10 @@ AI 搜尋威脅的是入口；能不能守住生意，要看 Gartner 的品牌�
 Gartner 把內容生意推到很遠。報告只是分析師服務、共同評估、採購談判與多年合約的起點。一張四格圖不會預知未來；企業付高價，是為了讓複雜選擇有一套大家看得懂、能留下紀錄的過程。
 
 這也是最重要的邊界。好的決策保險讓你少漏問題、早點看見風險、說清楚取捨；壞的用法則把別人的方法當成自己的判斷。買 Gartner 之前，先問清楚要降低的是搜尋成本、協調成本，還是責任焦慮。只有前兩項能靠工具改善，第三項不能外包。
+
+## 更新紀錄
+
+- 2026-10-20：四層結構的回饋迴路改用可逐步播放的循環圖，節點與順序不變
 
 ## 參考資料
 

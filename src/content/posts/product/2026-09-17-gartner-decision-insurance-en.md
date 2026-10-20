@@ -1,6 +1,7 @@
 ---
 title: "Why Enterprises Buy Gartner: Brand, Analysts, and Decision Insurance"
 date: 2026-09-17
+updated: 2026-10-20
 category: product
 type: deep-dive
 tags: [business-model, content-business, b2b, subscription, market-intelligence, ai]
@@ -71,14 +72,62 @@ The third is sales and renewal. Global Technology Sales serves technology users 
 
 The fourth is workflow. Once requirements, shortlists, questionnaires, scores, and negotiation artifacts live in one process, replacing Gartner means more than losing a research library. The team must rebuild how it works.
 
-```mermaid
-flowchart TD
-    A[Brand creates a shared language] --> B[More enterprises subscribe]
-    B --> C[More analyst interactions]
-    C --> D[Broader research and benchmarks]
-    D --> E[Research enters buying workflows]
-    E --> F[Usage, renewal, and expansion]
-    F --> A
+```diagram
+title: A feedback loop driven by scale
+desc: A shared brand language brings more enterprise subscribers and more analyst interactions, which broaden research and benchmarks that enter buying workflows; usage, renewal, and expansion then lead back to the start of the loop.
+step: The brand creates a shared language, and more enterprises subscribe
+step: More enterprises subscribe, bringing more analyst interactions
+step: More analyst interactions broaden research and benchmarks
+step: Broader research and benchmarks enter buying workflows
+step: Research in buying workflows drives usage, renewal, and expansion
+step: Usage, renewal, and expansion lead back to the brand's shared language
+---
+<svg viewBox="0 0 440 408">
+  <path class="dg-line" d="M296 63.2A160 160 0 0 1 336 93.8" marker-end="url(#arrow)" data-step="1"/>
+  <path class="dg-line" d="M371.3 152A160 160 0 0 1 372.3 253.2" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M338.1 312A160 160 0 0 1 298.6 343.3" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line" d="M144 344.8A160 160 0 0 1 104 314.2" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line" d="M68.7 256A160 160 0 0 1 67.7 154.8" marker-end="url(#arrow)" data-step="5"/>
+  <path class="dg-line" d="M101.9 96A160 160 0 0 1 141.4 64.7" marker-end="url(#arrow)" data-step="6"/>
+
+  <g data-step="1">
+    <rect class="dg-box" x="144" y="16" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="220" y="34" text-anchor="middle" dominant-baseline="central">Brand creates a</text>
+    <text class="dg-label" x="220" y="54" text-anchor="middle" dominant-baseline="central">shared language</text>
+  </g>
+
+  <g data-step="2">
+    <rect class="dg-box" x="284" y="96" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="360" y="114" text-anchor="middle" dominant-baseline="central">More enterprises</text>
+    <text class="dg-label" x="360" y="134" text-anchor="middle" dominant-baseline="central">subscribe</text>
+  </g>
+
+  <g data-step="3">
+    <rect class="dg-box" x="284" y="256" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="360" y="274" text-anchor="middle" dominant-baseline="central">More analyst</text>
+    <text class="dg-label" x="360" y="294" text-anchor="middle" dominant-baseline="central">interactions</text>
+  </g>
+
+  <g data-step="4">
+    <rect class="dg-box" x="144" y="336" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="220" y="354" text-anchor="middle" dominant-baseline="central">Broader research</text>
+    <text class="dg-label" x="220" y="374" text-anchor="middle" dominant-baseline="central">and benchmarks</text>
+  </g>
+
+  <g data-step="5">
+    <rect class="dg-box" x="4" y="256" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="80" y="274" text-anchor="middle" dominant-baseline="central">Research enters</text>
+    <text class="dg-label" x="80" y="294" text-anchor="middle" dominant-baseline="central">buying workflows</text>
+  </g>
+
+  <g data-step="6">
+    <rect class="dg-box" x="4" y="96" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="80" y="114" text-anchor="middle" dominant-baseline="central">Usage, renewal,</text>
+    <text class="dg-label" x="80" y="134" text-anchor="middle" dominant-baseline="central">and expansion</text>
+  </g>
+
+  <text class="dg-sub" x="220" y="204" text-anchor="middle" dominant-baseline="central">Feedback loop</text>
+</svg>
 ```
 
 It is safer to call this a scale-driven feedback loop than a pure data network effect. Gartner does not publicly claim that every inquiry enters a Magic Quadrant, nor does it disclose the complete weight of every signal.
@@ -116,6 +165,10 @@ AI search threatens the entrance. Whether Gartner protects the business depends 
 Gartner has pushed the content business far beyond reports. A report is the beginning of analyst service, shared evaluation, procurement negotiation, and a multiyear contract. Enterprises pay because the system makes a complicated choice legible and leaves a record—not because a four-box chart can see the future.
 
 That boundary matters. Good decision insurance helps a team miss fewer questions, identify risk earlier, and explain tradeoffs. Bad usage replaces the team's judgment with somebody else's methodology. Before buying Gartner, ask which cost you are trying to reduce: research, coordination, or anxiety about accountability. Tools can improve the first two. The third cannot be outsourced.
+
+## Changelog
+
+- 2026-10-20: Redrew the four-layer feedback loop as a stepped loop diagram; nodes and order unchanged
 
 ## References
 

@@ -76,6 +76,7 @@ cp src/content/posts/<category>/YYYY-MM-DD-<zh-slug>.md \
 - 引用 / 專有名詞保留原文（人名、產品名、論文標題）
 - 程式語言以外的地方**不要直譯**：中文連接詞、台式比喻、口語都改寫
 - 截圖 / 圖片 alt text 翻譯
+- `diagram`／`flow-diagram` 區塊：座標與結構不動，只翻 `title`、`desc`、`caption`、`step:` 和圖上文字（`flow-diagram` 翻 JSON 裡的 `title`、`label`、`steps`）。英文通常比中文長，溢出就縮短措辭或加寬框，不要改結構
 - 站內連結：如果指向的文章也有英文版 → 改成英文版路徑；沒有 → 保留中文版連結並在後面標 `(zh-TW only)`
 
 **語域不會自己跟著翻過去。** 中文原稿的體裁決定（見 `../post/references/writing-guide.md#長文的體裁與語域`）在英文版一樣要成立，而且英文有中文沒有的失效方式：
@@ -118,6 +119,7 @@ pnpm verify
 pnpm check:references
 pnpm lint
 pnpm astro check
+pnpm exec tsx scripts/diagram-preview.ts <檔案路徑> --out <暫存目錄>   # 有 diagram / flow-diagram 區塊時，英文版也要跑
 ```
 
 ### 8. Review + commit

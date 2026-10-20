@@ -1,6 +1,7 @@
 ---
 title: "跟成熟 coding agent 學設計（16）：Runtime 抽象與 capability handshake"
 date: 2026-08-25
+updated: 2026-10-20
 category: ai
 type: deep-dive
 series:
@@ -32,6 +33,54 @@ looplane 的架構有兩種模式：native 模式自己擁有 agent loop，外�
 **OpenCode** 最標準化：一個 HTTP server（openapi.json 自動產生，opencode/packages/server/src/routes.ts#createRoutes）加上官方 SDK，另外完整實作了 [ACP](https://agentclientprotocol.com/)——initialize、authenticate、newSession、loadSession、resumeSession、forkSession、setSessionMode、setSessionModel 全部接上（opencode/packages/opencode/src/acp/agent.ts#Agent）。它是五家裡唯一把 resume 和 model switching 做成協定方法的。
 
 **Codex CLI** 用 app-server-protocol：先 `initialize` 握手，客端帶 ClientInfo 和 `InitializeCapabilities`——明確 opt-in 實驗方法、聲明要關閉哪些通知（codex/codex-rs/app-server-protocol/src/protocol/v1.rs#InitializeCapabilities）。之後才是 thread/start、thread/resume、甚至 modelProvider/capabilities/read 這類能力查詢（codex/codex-rs/app-server-protocol/src/protocol/common.rs#ClientRequest）。capability 在這裡是協商出來的，不是宣稱的。
+
+```diagram
+title: Codex app-server 的 initialize 握手
+desc: 客端先送 initialize（帶 ClientInfo 與 InitializeCapabilities）並收到回應，之後才發 modelProvider/capabilities/read 這類能力查詢與 thread/start、thread/resume。
+caption: 示意：initialize 之後各呼叫的先後依用途而定。
+step: 客端送 initialize，帶 ClientInfo 與 InitializeCapabilities（opt-in 實驗方法、聲明要關閉哪些通知）
+step: app-server 回應 initialize
+step: 握手之後，客端可以用 modelProvider/capabilities/read 查詢能力
+step: app-server 回應能力查詢
+step: 客端開始或續接 thread（thread/start 或 thread/resume）
+---
+<svg viewBox="0 0 640 416">
+  <line class="dg-rule" x1="128" y1="72" x2="128" y2="400"/>
+  <line class="dg-rule" x1="480" y1="72" x2="480" y2="400"/>
+
+  <g data-step="1">
+    <path class="dg-line dg-line--accent" d="M128 144H472" marker-end="url(#arrow-accent)"/>
+    <text class="dg-edge dg-mono dg-text--accent" x="304" y="112" text-anchor="middle" dominant-baseline="central">initialize</text>
+    <text class="dg-edge dg-mono" x="304" y="130" text-anchor="middle" dominant-baseline="central">ClientInfo + InitializeCapabilities</text>
+  </g>
+  <g data-step="2">
+    <path class="dg-line dg-line--dashed" d="M476 192H132" marker-end="url(#arrow)"/>
+    <text class="dg-edge" x="304" y="180" text-anchor="middle" dominant-baseline="central">回應</text>
+  </g>
+  <g data-step="3">
+    <path class="dg-line" d="M128 256H472" marker-end="url(#arrow)"/>
+    <text class="dg-edge" x="304" y="224" text-anchor="middle" dominant-baseline="central">能力查詢</text>
+    <text class="dg-edge dg-mono" x="304" y="242" text-anchor="middle" dominant-baseline="central">modelProvider/capabilities/read</text>
+  </g>
+  <g data-step="4">
+    <path class="dg-line dg-line--dashed" d="M476 304H132" marker-end="url(#arrow)"/>
+    <text class="dg-edge" x="304" y="292" text-anchor="middle" dominant-baseline="central">回應</text>
+  </g>
+  <g data-step="5">
+    <path class="dg-line" d="M128 360H472" marker-end="url(#arrow)"/>
+    <text class="dg-edge dg-mono" x="304" y="346" text-anchor="middle" dominant-baseline="central">thread/start 或 thread/resume</text>
+  </g>
+
+  <rect class="dg-box" x="476" y="132" width="8" height="72" rx="2" data-step="1 2"/>
+  <rect class="dg-box" x="476" y="244" width="8" height="72" rx="2" data-step="3 4"/>
+  <rect class="dg-box" x="476" y="348" width="8" height="28" rx="2" data-step="5"/>
+
+  <rect class="dg-box" x="48" y="24" width="160" height="48" rx="6"/>
+  <text class="dg-label" x="128" y="48" text-anchor="middle" dominant-baseline="central">客端</text>
+  <rect class="dg-box" x="392" y="24" width="176" height="48" rx="6"/>
+  <text class="dg-label" x="480" y="48" text-anchor="middle" dominant-baseline="central">Codex app-server</text>
+</svg>
+```
 
 **Claude Code** 的 headless 表面是 `--output-format stream-json` 的 JSONL 流，搭配 SDK 端的 permission callback（claude-code-source/src/cli/print.ts#runHeadless）。互動式審批存在，但形狀跟其他家都不一樣。
 
@@ -68,6 +117,10 @@ M13 目前的誠實是有代價的，這些是下一階段的帳：
 5. **Usage 與成本尚未標準化。** Pi 的 usage 隨事件流走、OpenCode 在 step_finish 帶 tokens/cost、Codex 走自己的通知。統一成 typed event 才能跨 runtime 比較成本。
 
 一句話收尾：抽象的價值不在於遮掉差異，而在於把差異放到對的地方——capability matrix 說謊一次，使用者就在 UI 上撞牆一次。
+
+## 更新紀錄
+
+- 2026-10-20：在 Codex CLI 段落加上 initialize 握手的循序圖
 
 ## 參考資料
 

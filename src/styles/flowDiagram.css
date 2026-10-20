@@ -1,0 +1,49 @@
+/* Flow diagrams rendered from ```flow-diagram fences (src/plugins/remarkFlowDiagram.ts). */
+.flow-diagram { --flow-active: var(--brand-500); --flow-warn: var(--danger); margin: 1.5rem 0; padding: 1rem 1rem .75rem; border: 1px solid var(--border); border-radius: .75rem; background: var(--bg-card); }
+.content .flow-diagram__title { margin: 0 0 .5rem; font-size: .95rem; font-weight: 700; color: var(--text-primary); text-align: left; }
+.flow-diagram__scroll { overflow-x: auto; overscroll-behavior-x: contain; }
+.flow-diagram__scroll:focus-visible { outline: 2px solid var(--flow-active); outline-offset: 2px; }
+/* Keep 12px labels at ~9px or more on phones: below this width the diagram scrolls instead of shrinking. */
+.flow-diagram__svg { display: block; width: 100%; max-width: 680px; min-width: 500px; height: auto; max-height: 80vh; margin-inline: auto; overflow: visible; }
+
+.flow-diagram__node rect, .flow-diagram__node ellipse, .flow-diagram__node path:not(.flow-diagram__pins), .flow-diagram__node circle { fill: var(--bg-subtle); stroke: var(--text-muted); stroke-width: 1.5; }
+.flow-diagram__node--db path:not(.flow-diagram__pins) { fill: var(--bg-subtle); }
+.flow-diagram__pins { fill: none; stroke: var(--text-muted); stroke-width: 2; stroke-linecap: round; }
+.flow-diagram__node--group rect { fill: transparent; stroke-dasharray: 4 4; }
+.flow-diagram__node--accent rect { fill: var(--brand-50); stroke: var(--brand-500); }
+.flow-diagram__node--warn rect { stroke: var(--flow-warn); }
+.flow-diagram__node-label { fill: var(--text-primary); font-weight: 600; }
+
+.flow-diagram__edge { color: var(--text-muted); }
+.flow-diagram__edge--warn { color: var(--flow-warn); }
+.flow-diagram__line { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-dasharray: 6 5; }
+.flow-diagram__head { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.flow-diagram__badge circle { fill: var(--text-primary); }
+.flow-diagram__badge text { fill: var(--bg-card); font-weight: 700; }
+.flow-diagram__edge-label { fill: currentColor; }
+.flow-diagram__edge:not(.flow-diagram__edge--warn) .flow-diagram__edge-label { fill: var(--text-primary); }
+
+/* Stepping: the current step glows, earlier steps stay legible, later steps fade. */
+.flow-diagram__edge, .flow-diagram__node { transition: opacity .3s ease, color .3s ease; }
+.flow-diagram.is-stepping .flow-diagram__edge:not(.is-active, .is-done) { opacity: .18; }
+.flow-diagram.is-stepping .flow-diagram__node:not(.is-active, .is-done, .flow-diagram__node--group) { opacity: .35; }
+.flow-diagram.is-stepping .flow-diagram__edge.is-done { opacity: .5; }
+.flow-diagram__edge.is-active { color: var(--flow-active); }
+.flow-diagram__edge--warn.is-active { color: var(--flow-warn); }
+.flow-diagram__edge.is-active .flow-diagram__line, .flow-diagram__edge.is-active .flow-diagram__head { stroke-width: 2.6; }
+.flow-diagram__edge.is-active .flow-diagram__badge circle { fill: currentColor; }
+.flow-diagram__node.is-active:not(.flow-diagram__node--group) :is(rect, ellipse, path:not(.flow-diagram__pins), circle) { stroke: var(--flow-active); stroke-width: 2.4; }
+@media (prefers-reduced-motion: no-preference) {
+  .flow-diagram__edge.is-active .flow-diagram__line { animation: flow-diagram-dash .6s linear infinite; }
+}
+@keyframes flow-diagram-dash { to { stroke-dashoffset: -11; } }
+
+.flow-diagram__controls:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: .75rem; }
+.flow-diagram__controls button { min-width: 44px; min-height: 44px; padding: .4rem .8rem; border: 1px solid var(--border); border-radius: .4rem; background: var(--bg-card); color: var(--text-primary); font: inherit; font-size: .875rem; cursor: pointer; }
+.flow-diagram__controls [data-flow-toggle] { background: var(--brand-900); border-color: var(--brand-900); color: var(--bg-page); font-weight: 600; }
+.flow-diagram__controls [data-flow-status] { margin-left: .25rem; font-size: .8rem; color: var(--text-muted); }
+
+/* The step narration is for screen readers only; sighted readers follow the diagram and the step counter. */
+.content .flow-diagram__steps { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.content .flow-diagram__caption { margin: .5rem 0 0; font-size: .8rem; color: var(--text-muted); }
+.flow-diagram__edge-label { paint-order: stroke; stroke: var(--bg-card); stroke-width: 5px; stroke-linejoin: round; }

@@ -28,7 +28,7 @@ export function markGlossaryTerms(content: HTMLElement, glossaryEntries: Glossar
     acceptNode(node) {
       const parent = node.parentElement;
       if (!parent || !node.textContent?.trim()) return NodeFilter.FILTER_REJECT;
-      if (parent.closest('a, button, pre, code, h1, h2, h3, h4, h5, h6, script, style, .glossary-term')) {
+      if (parent.closest('a, button, pre, code, h1, h2, h3, h4, h5, h6, script, style, svg, .flow-diagram__steps, .glossary-term')) {
         return NodeFilter.FILTER_REJECT;
       }
       pattern.lastIndex = 0;

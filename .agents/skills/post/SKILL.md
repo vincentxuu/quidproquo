@@ -94,7 +94,7 @@ Podcast 採「原音＋逐字稿練習」：提供官方音訊入口、經核對
 - **對象**：前三段要讓沒接觸過的人知道它是什麼
 - **主脊**：按判決／按部件／按時間／按論證——選一個
 - **動作**：每個建議都要能寫出一句今晚就能做的動作
-- **圖解**：有多步驟流程、分支決策、或需要並排比較的內容，規劃畫成 mermaid 圖（`references/writing-guide.md#圖解mermaid`），不要全部塞成文字段落
+- **圖解**（不限字數，短文也要想）：有多步驟流程、分支決策、元件關係、定位比較、層級或時間順序的內容，規劃 1–3 張圖，不要全部塞成文字段落。**先跑 `../diagram/SKILL.md` 選圖型**（架構、流程、循序、狀態機、時間軸、泳道、象限、分層、韋恩、金字塔、樹狀、巢狀、循環、前後對照、比較矩陣），圖型要配合內容，不要每篇都是同一種方框箭頭圖。逐步請求流程可用 `flow-diagram`（`references/writing-guide.md#逐步動畫流程圖flow-diagram`），節點很多的依賴圖可用 mermaid（`references/writing-guide.md#圖解mermaid`）
 - **影片**：來源是 YouTube 影片時，用 `youtube` fence 嵌入（格式見 `references/writing-guide.md#影片嵌入youtube`），中英版各一次
 
 寫的當下遵守：每個主張最多一個數字、引述只在原話比轉述更有力時用、但書不堆疊、不替來源加上它沒有的主張。
@@ -152,6 +152,8 @@ pnpm astro check
 ```
 
 中文版另跑：`pnpm check:tw src/content/posts/<category>/<檔名>.md`
+
+有 `diagram`／`flow-diagram` 區塊時，中英兩版都跑 `pnpm exec tsx scripts/diagram-preview.ts <檔案路徑> --out <暫存目錄>`：全部 ✓，並打開淺色、深色、手機三張截圖看過。
 
 1500 字以上另跑：`bash .agents/skills/post-polish/scripts/register-scan.sh <檔案路徑>`
 

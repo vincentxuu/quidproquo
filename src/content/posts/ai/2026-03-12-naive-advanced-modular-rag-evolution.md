@@ -1,7 +1,7 @@
 ---
 title: "RAG 的三個世代：從 Naive 到 Modular"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-10-20
 type: deep-dive
 category: ai
 tags: [rag, naive-rag, advanced-rag, modular-rag, architecture, evolution]
@@ -121,6 +121,88 @@ Modular RAG 不只是重組了原有的步驟，也加入了 Advanced RAG 沒有
 
 嚴格說它不算第四個世代，比較像是 Modular RAG 的**控制權轉移**：模組還是那些模組，差別在於「誰決定執行順序」——從固定的 pipeline 設定，換成模型在 runtime 決定。
 
+把兩種做法並排看，差別就在中間那段：RAG 的每一步都是工程師排好的；Agentic RAG 多了「選工具」和「檢查證據夠不夠」兩個決策點，不夠就回頭再查一輪。捲到圖上會自動逐步播放，也可以用按鈕停在任一步。
+
+```flow-diagram
+{
+  "title": "RAG：固定管線，從頭走到尾一次",
+  "lang": "zh-TW",
+  "width": 520,
+  "height": 630,
+  "nodes": [
+    {"id": "user", "label": "使用者", "x": 110, "y": 50, "shape": "actor"},
+    {"id": "app", "label": "LLM App", "x": 110, "y": 220, "w": 130},
+    {"id": "llm", "label": "LLM", "x": 400, "y": 220, "shape": "chip"},
+    {"id": "retriever", "label": "Retriever", "x": 110, "y": 400, "shape": "db", "w": 110},
+    {"id": "prompt", "label": "Prompt Builder", "x": 400, "y": 400, "w": 150, "tone": "accent"},
+    {"id": "index", "label": "向量／混合索引\n（離線建好）", "x": 110, "y": 585, "w": 220, "h": 62}
+  ],
+  "edges": [
+    {"from": "user", "to": "app", "step": 1, "label": "查詢", "offset": 16, "labelAt": [78, 135], "labelSide": "left"},
+    {"from": "app", "to": "retriever", "step": 2, "label": "查詢", "labelAt": [128, 305]},
+    {"from": "retriever", "to": "index", "step": 3, "label": "embed\n＋搜尋", "labelAt": [78, 490], "offset": 16, "labelSide": "left"},
+    {"from": "index", "to": "retriever", "step": 4, "label": "Top-K 片段", "labelAt": [142, 490], "offset": 16},
+    {"from": "retriever", "to": "prompt", "step": 5, "label": "查詢＋片段", "labelAt": [210, 380]},
+    {"from": "prompt", "to": "llm", "step": 6, "label": "增強後的\nprompt", "labelAt": [420, 310]},
+    {"from": "llm", "to": "app", "step": 7, "label": "回答", "labelAt": [260, 200]},
+    {"from": "app", "to": "user", "step": 8, "label": "回應", "offset": 16, "labelAt": [142, 135]}
+  ],
+  "steps": [
+    "使用者送出查詢",
+    "LLM App 把查詢原封不動交給 Retriever",
+    "查詢轉成 embedding，到事先建好的索引搜尋",
+    "取回最相近的 Top-K 片段",
+    "查詢和片段一起交給 Prompt Builder",
+    "組好的增強 prompt 送進 LLM",
+    "LLM 根據片段產生回答",
+    "回應回到使用者：步驟順序寫死，每次都只走這一趟"
+  ]
+}
+```
+
+```flow-diagram
+{
+  "title": "Agentic RAG：模型自己決定查哪裡、要不要再查",
+  "lang": "zh-TW",
+  "width": 640,
+  "height": 740,
+  "nodes": [
+    {"id": "user", "label": "使用者", "x": 90, "y": 50, "shape": "actor"},
+    {"id": "app", "label": "LLM App", "x": 90, "y": 220, "w": 120},
+    {"id": "orch", "label": "Agent\nOrchestrator", "x": 300, "y": 220, "w": 150, "h": 64, "tone": "accent"},
+    {"id": "tools", "label": "工具與檢索來源\n向量庫・文件・網搜\nAPI・MCP server", "x": 520, "y": 390, "w": 200, "h": 86},
+    {"id": "evidence", "label": "檢索到的證據", "x": 520, "y": 545, "w": 140},
+    {"id": "evaluator", "label": "Evaluator\nAgent", "x": 300, "y": 545, "w": 120, "h": 64, "tone": "accent"},
+    {"id": "context", "label": "Context Builder", "x": 300, "y": 685, "w": 150},
+    {"id": "llm", "label": "LLM", "x": 90, "y": 685, "shape": "chip"}
+  ],
+  "edges": [
+    {"from": "user", "to": "app", "step": 1, "label": "查詢", "offset": 16, "labelAt": [58, 135], "labelSide": "left"},
+    {"from": "app", "to": "orch", "step": 2, "label": "任務", "labelAt": [180, 190]},
+    {"from": "orch", "to": "tools", "step": 3, "label": "選工具", "via": [[520, 220]], "labelAt": [420, 190]},
+    {"from": "tools", "to": "evidence", "step": 4, "label": "取得證據", "labelAt": [532, 480]},
+    {"from": "evidence", "to": "evaluator", "step": 5, "label": "對照任務\n檢查", "labelAt": [400, 595]},
+    {"from": "evaluator", "to": "orch", "step": 6, "label": "不夠：改寫查詢\n或換來源", "tone": "warn", "labelAt": [300, 400]},
+    {"from": "evaluator", "to": "context", "step": 7, "label": "夠了", "labelAt": [312, 615]},
+    {"from": "context", "to": "llm", "step": 8, "label": "增強後的\nprompt", "labelAt": [150, 640]},
+    {"from": "llm", "to": "app", "step": 9, "label": "回答", "labelAt": [90, 450]},
+    {"from": "app", "to": "user", "step": 10, "label": "回應", "offset": 16, "labelAt": [122, 135]}
+  ],
+  "steps": [
+    "使用者送出查詢",
+    "LLM App 把它當成一個任務交給 Agent Orchestrator",
+    "Orchestrator 自己挑工具：向量庫、文件、網搜、API 或 MCP server",
+    "從挑中的來源取回證據",
+    "Evaluator 對照任務，檢查證據夠不夠回答",
+    "不夠：改寫查詢或換來源，回到第 3 步；要設輪數上限，免得無限迴圈",
+    "夠了：把證據交給 Context Builder",
+    "組好的增強 prompt 送進 LLM",
+    "LLM 產生回答",
+    "回應回到使用者：走幾輪、查哪裡，都是執行時才決定"
+  ]
+}
+```
+
 **代價是實打實的**。ACL 2026 一篇比較 Enhanced RAG（也就是這裡講的 Advanced/Modular）與 Agentic RAG 的實驗研究發現，Agentic 設定的 token 成本依資料集而異（FIQA 2.7 倍／1.7 倍、CQADupStack-En 3.9 倍／2.0 倍 input／output），端到端延遲 1.5 倍，跨資料集的成本最多可以到 3.6 倍。
 
 更值得注意的是它的品質結論不是一面倒：
@@ -169,6 +251,7 @@ Modular RAG 不只是重組了原有的步驟，也加入了 Advanced RAG 沒有
 
 ## 更新紀錄
 
+- 2026-10-20：在 Agentic RAG 段落加上 RAG 與 Agentic RAG 的逐步流程動畫圖
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「RAG 技法大全」系列
 
 ## 參考資料

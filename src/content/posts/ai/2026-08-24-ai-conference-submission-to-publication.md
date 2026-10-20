@@ -1,6 +1,7 @@
 ---
 title: "一篇頂會論文從投稿到見刊經過什麼"
 date: 2026-08-24
+updated: 2026-10-20
 category: ai
 type: guide
 tags: [ai-conference, peer-review, openreview, submission, rebuttal]
@@ -28,6 +29,82 @@ glossary:
 > 本文是「[AI 頂會導讀](/posts/ai/2026-08-23-what-is-ai-top-conference)」系列的第三篇。前篇介紹了頂會怎麼被認定、代表會議有哪些；這篇拆解一篇論文從按下 submit 到最終見刊的完整流程。
 
 在上一篇裡我們把審稿流程濃縮成四步：submission → review → rebuttal → decision。實際跑起來遠比這複雜——每一步都有具體的規則、時程壓力和可能出錯的地方。這篇逐步拆開，用 NeurIPS、ICML、ICLR、CVPR 四場主要會議的 2025-2026 年實際流程做對照。
+
+```diagram
+title: 一篇頂會論文從投稿到 camera-ready 的七個步驟
+desc: 作者投稿後先過格式審查，不通過就 desk reject；通過後由審稿人分配與審稿，作者 rebuttal，再由 AC、SAC、PC 三層決策，接受後作者交 camera-ready。
+caption: 簡化示意：審稿人分配是 bidding 加上系統匹配與 COI 迴避；格式審查本文沒有指明由哪一層執行。
+step: 第一步：作者匿名化後投稿
+step: 第二步：格式審查，不通過就 desk reject
+step: 第三步：審稿人 bidding，加上 TPMS 匹配與 COI 迴避
+step: 第四步：審稿人獨立寫 review
+step: 第五步：作者針對審稿意見 rebuttal
+step: 第六步：AC 寫 meta-review，SAC、PC 逐層把關
+step: 第七步：接受後作者交 camera-ready
+---
+<svg viewBox="0 0 640 624">
+  <line class="dg-rule" x1="16" y1="56" x2="624" y2="56"/>
+  <line class="dg-rule" x1="220" y1="24" x2="220" y2="612"/>
+  <line class="dg-rule" x1="420" y1="24" x2="420" y2="612"/>
+
+  <text class="dg-label" x="120" y="40" text-anchor="middle" dominant-baseline="central">作者</text>
+  <text class="dg-label" x="320" y="40" text-anchor="middle" dominant-baseline="central">審稿人</text>
+  <text class="dg-label" x="520" y="40" text-anchor="middle" dominant-baseline="central">AC · SAC · PC</text>
+
+  <path class="dg-line" data-step="1" d="M204 100H512Q520 100 520 108V148" marker-end="url(#arrow)"/>
+  <path class="dg-line dg-line--warn" data-step="2" d="M520 208V236" marker-end="url(#arrow-warn)"/>
+  <path class="dg-line" data-step="2" d="M436 180H328Q320 180 320 188V228" marker-end="url(#arrow)"/>
+  <path class="dg-line" data-step="3" d="M320 288V308" marker-end="url(#arrow)"/>
+  <path class="dg-line" data-step="4" d="M236 340H128Q120 340 120 348V388" marker-end="url(#arrow)"/>
+  <path class="dg-line" data-step="5" d="M204 420H512Q520 420 520 428V468" marker-end="url(#arrow)"/>
+  <path class="dg-line" data-step="6" d="M436 500H128Q120 500 120 508V548" marker-end="url(#arrow)"/>
+
+  <g data-step="1">
+    <rect class="dg-box" x="36" y="72" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="120" y="91" text-anchor="middle" dominant-baseline="central">投稿</text>
+    <text class="dg-sub" x="120" y="111" text-anchor="middle" dominant-baseline="central">匿名化</text>
+  </g>
+  <g data-step="2">
+    <rect class="dg-box" x="436" y="152" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="520" y="171" text-anchor="middle" dominant-baseline="central">格式審查</text>
+    <text class="dg-sub" x="520" y="191" text-anchor="middle" dominant-baseline="central">頁數・匿名・範圍</text>
+    <rect class="dg-box dg-box--warn" x="456" y="240" width="128" height="40" rx="6"/>
+    <text class="dg-label dg-text--warn" x="520" y="260" text-anchor="middle" dominant-baseline="central">Desk reject</text>
+  </g>
+  <g data-step="3">
+    <rect class="dg-box" x="236" y="232" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="320" y="251" text-anchor="middle" dominant-baseline="central">審稿人分配</text>
+    <text class="dg-sub" x="320" y="271" text-anchor="middle" dominant-baseline="central">bidding・TPMS・COI</text>
+  </g>
+  <g data-step="4">
+    <rect class="dg-box" x="236" y="312" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="320" y="331" text-anchor="middle" dominant-baseline="central">審稿</text>
+    <text class="dg-sub" x="320" y="351" text-anchor="middle" dominant-baseline="central">通常 3-4 位</text>
+  </g>
+  <g data-step="5">
+    <rect class="dg-box" x="36" y="392" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="120" y="411" text-anchor="middle" dominant-baseline="central">Rebuttal</text>
+    <text class="dg-sub" x="120" y="431" text-anchor="middle" dominant-baseline="central">回覆審稿意見</text>
+  </g>
+  <g data-step="6">
+    <rect class="dg-box dg-box--accent" x="436" y="472" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="520" y="491" text-anchor="middle" dominant-baseline="central">決策</text>
+    <text class="dg-sub" x="520" y="511" text-anchor="middle" dominant-baseline="central">AC → SAC → PC</text>
+  </g>
+  <g data-step="7">
+    <rect class="dg-box" x="36" y="552" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="120" y="571" text-anchor="middle" dominant-baseline="central">Camera-Ready</text>
+    <text class="dg-sub" x="120" y="591" text-anchor="middle" dominant-baseline="central">取消匿名化</text>
+  </g>
+
+  <text class="dg-edge" data-step="1" x="320" y="88" text-anchor="middle" dominant-baseline="central">送出論文</text>
+  <text class="dg-edge dg-text--warn" data-step="2" x="530" y="222" text-anchor="start" dominant-baseline="central">不通過</text>
+  <text class="dg-edge" data-step="2" x="376" y="168" text-anchor="middle" dominant-baseline="central">通過</text>
+  <text class="dg-edge" data-step="4" x="176" y="328" text-anchor="middle" dominant-baseline="central">釋出 review</text>
+  <text class="dg-edge" data-step="5" x="320" y="408" text-anchor="middle" dominant-baseline="central">作者回覆</text>
+  <text class="dg-edge" data-step="6" x="320" y="488" text-anchor="middle" dominant-baseline="central">accept 通知</text>
+</svg>
+```
 
 ## 第一步：投稿（Submission）
 
@@ -323,6 +400,10 @@ ICLR 的公開審稿制是它區別於其他頂會最大的特色之一——任
 理解這些機制不只是為了投稿——當你在讀一篇頂會論文時，知道它經過了什麼樣的篩選過程，能幫助你更準確地校準對它品質的預期：它通過了嚴格的同行評議，但同行評議本身也有結構性的局限。
 
 ---
+
+## 更新紀錄
+
+- 2026-10-20：加上投稿到定稿七個步驟的泳道圖
 
 ## 參考資料
 

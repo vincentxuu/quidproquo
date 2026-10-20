@@ -189,9 +189,13 @@ function stagedPlan() {
   const posts = entries.filter((e) => isPost(e.path) && e.status !== 'D').map((e) => e.path);
   const quote = (files) => files.map((f) => `'${f.replaceAll("'", "'\\''")}'`).join(' ');
   // 查證過程外洩：只要動到文章就逐篇檢查，退回完整 verify 時也一樣（全站模式只計數，擋不到它）。
+  // 圖表：暫存文章有 ```diagram／```flow-diagram 就逐篇截圖檢查（文字重疊、壓線、手機字太小）。
+  // 只在 --staged 跑：每篇約 5–10 秒，全站跑會讓 CI 隨圖變多越來越慢。
+  const diagramPosts = posts.filter((p) => /^```(?:diagram|flow-diagram)$/m.test(readFileSync(resolve(ROOT, p), 'utf8')));
   const leakStep = posts.length > 0 ? [
     ['process-leak (staged)', `node scripts/check-process-leak.mjs ${quote(posts)}`],
     ['series-plan (staged)', `node scripts/check-series-plan.mjs ${quote(posts)}`],
+    ...diagramPosts.map((p) => [`diagram-preview (staged): ${p}`, `pnpm exec tsx scripts/diagram-preview.ts ${quote([p])} --skip-if-no-browser`]),
   ] : [];
   if (fullReason) return { full: true, reason: fullReason, extra: leakStep };
 

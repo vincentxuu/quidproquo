@@ -7,6 +7,8 @@ import { ChatFloating } from '../components/Chat/ChatFloating';
 import '../styles/tokens.css';
 import '../styles/chat.css';
 import '../styles/videoPractice.css';
+import '../styles/flowDiagram.css';
+import '../styles/diagram.css';
 import 'katex/dist/katex.min.css';
 
 interface Props {
@@ -1478,6 +1480,11 @@ const pageTitle =
 <script>
   import { initYoutubeClipLoops, disposeYoutubeClipLoops, handleYoutubeTimeLinkClick } from '../lib/youtubeClipLoop';
   import { initVideoPractice, disposeVideoPractice } from '../lib/videoPractice';
+  import { initFlowDiagrams, disposeFlowDiagrams } from '../lib/flowDiagram';
+  initFlowDiagrams();
+  document.addEventListener('astro:page-load', initFlowDiagrams);
+  document.addEventListener('astro:before-swap', disposeFlowDiagrams);
+  window.addEventListener('pagehide', disposeFlowDiagrams);
   initVideoPractice();
   document.addEventListener('astro:page-load', initVideoPractice);
   document.addEventListener('astro:before-swap', disposeVideoPractice);

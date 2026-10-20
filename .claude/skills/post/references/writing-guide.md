@@ -103,6 +103,8 @@ start: 91
 
 ## 圖解（mermaid）
 
+> 新圖先看 `../../diagram/SKILL.md` 選圖型：大多數圖用 ```` ```diagram ```` 手寫 SVG（顏色跟著深淺色、可逐步播放）。mermaid 留給節點超過 9 個、手排不划算的依賴圖或關係圖。
+
 多步驟流程、分支決策、元件之間的依賴關係，優先用 mermaid 畫，不要全塞成文字段落。用 `mermaid` fence：
 
 ````markdown
@@ -136,6 +138,60 @@ flowchart TB
 
 - 語法與文字：在暫存目錄 `npm i @mermaid-js/mermaid-cli`，用環境內的 Chromium 渲染（`mmdc -p <puppeteer 設定> -i x.mmd -o x.png`，沙箱環境要加 `--no-sandbox`），看圖，不只看有沒有報錯。中英兩版分開抽出、分開跑，確認抽到的是各自的圖。
 - 頁面：能起 dev server 時，用 Playwright 在淺色、深色、390px 手機寬度各截一次 `.mermaid-diagram`，確認沒有橫向捲動與 console 錯誤。
+
+## 逐步動畫流程圖（flow-diagram）
+
+> 只有方框和箭頭的逐步請求流程用這個（JSON 自動排線，寫起來最快）。其他圖型，或需要逐步播放但不只方框箭頭的圖，用 `../../diagram/SKILL.md` 的 `diagram` 區塊加 `step:`。驗證一律可用 `pnpm exec tsx scripts/diagram-preview.ts <文章.md>`。
+
+讀者要「跟著資料走一遍」才看得懂的流程（請求怎麼流過各元件、迴圈在哪裡回頭、兩種架構的控制流差在哪），用 `flow-diagram` fence 畫成逐步亮起的 SVG。結構關係、分類、依賴圖仍用 mermaid；flow-diagram 只用在**步驟順序本身就是重點**的地方，一篇一到兩張就夠。
+
+範例：`src/content/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution.md` 的「三個世代之後：Agentic RAG」（RAG vs Agentic RAG 並排兩張）。
+
+````markdown
+```flow-diagram
+{
+  "title": "RAG：固定管線，從頭走到尾一次",
+  "lang": "zh-TW",
+  "width": 520,
+  "height": 630,
+  "nodes": [
+    {"id": "user", "label": "使用者", "x": 110, "y": 50, "shape": "actor"},
+    {"id": "app", "label": "LLM App", "x": 110, "y": 220, "w": 130}
+  ],
+  "edges": [
+    {"from": "user", "to": "app", "step": 1, "label": "查詢", "offset": 16, "labelAt": [78, 135], "labelSide": "left"},
+    {"from": "app", "to": "user", "step": 2, "label": "回應", "offset": 16, "labelAt": [142, 135]}
+  ],
+  "steps": ["使用者送出查詢", "回應回到使用者"]
+}
+```
+````
+
+**欄位：**
+
+- 頂層：`title`、`lang`（`zh-TW`／`en`）、`width`／`height`（viewBox，100–2000）、`nodes`、`edges`、`steps` 必填；`caption` 選填。
+- 節點：`x`／`y` 是**中心點**。`shape` 有 `box`（預設）、`actor`（人）、`db`（資料庫）、`chip`（模型）、`group`（虛線外框，畫在最底層）；`w`／`h` 不寫就用外形預設值。`tone: "accent"` 標出主角元件（綠框）。換行用 `\n`。
+- 箭頭：`step` 對到 `steps` 的第幾項（從 1 起）；同一步可以有多條箭頭，但每一步至少要有一條。`via` 給轉折點畫直角線；`offset` 讓一去一回兩條直線並排（不能和 `via` 同時用）；`labelAt` 指定步驟編號的位置，`labelSide: "left"` 讓文字放在編號左側；`tone: "warn"` 畫成紅色，用在「失敗／重來」的回頭路。
+- `steps`：每步一句，不會顯示在畫面上（畫面只有按鈕和「第 n / N 步」），是給螢幕閱讀器的文字版，要能脫離圖單獨讀懂。圖上的標籤要自己講得清楚，不能靠這份清單補充。
+- 格式錯誤（JSON 壞掉、箭頭指到不存在的節點、某一步沒有箭頭）build 會直接失敗。
+
+**版面（實測學到的）：**
+
+- 寬度抓 520–640。圖在手機上會縮到約 0.6 倍，再寬字就讀不了；節點文字寫短，細節放進 `steps`。
+- 盡量讓相連的節點在同一條水平或垂直線上（x 或 y 相同），箭頭才會是直的；斜線很難看。需要轉彎就用 `via`，轉折點與兩端節點的中心對齊。
+- 一去一回（查詢／回應、搜尋／取回）用一對 `offset: 16` 的直線，不要用 `via` 繞。
+- 編號預設放在最長那段線的中點，文字往右延伸，常會壓到旁邊的線或節點：用 `labelAt` 把編號移到線旁，文字會撞線就加 `labelSide: "left"`。邊標籤控制在 8 個中文字或兩行內。
+- 中英版各一張，結構與座標相同，只換文字；英文較長，標籤和節點寬度要另外調。
+
+**互動（不用寫，元件內建）：** 圖捲進畫面自動逐步播放，播完整張圖停一拍再重來；有上一步／播放・暫停／下一步按鈕和「第 n / N 步」；步驟說明只給螢幕閱讀器，不顯示在畫面上；`prefers-reduced-motion` 時不自動播放。文章內文可以提一句「捲到圖上會自動逐步播放，也可以用按鈕停在任一步」。
+
+**每條線都要有來源：** 規則同 mermaid。箭頭代表「資料或控制權真的這樣流」，只畫文章正文已經寫明、有來源支撐的流程；圖是正文的視覺化，不是新增主張的地方。
+
+**發文前驗證：**
+
+- 先跑 `pnpm exec tsx scripts/diagram-preview.ts <文章.md> --out <暫存目錄>`：不需要 dev server，會截淺色、深色、375px 三張圖，並檢查文字重疊、線穿過文字、文字壓到框、手機字太小；有 ✗ 就修，全 ✓ 後打開截圖用眼睛看。
+- 能起 dev server 時：淺色、深色、375px 手機寬度各截一次 `figure.flow-diagram`，並確認自動播放有前進（`data-flow-current` 會變）、沒有橫向捲動與 console 錯誤。
+- 實作：`src/plugins/remarkFlowDiagram.ts`（解析與 SVG）、`src/lib/flowDiagram.ts`（播放）、`src/styles/flowDiagram.css`。SVG 裡的文字已排除在術語標註（`src/lib/glossary/mark.ts`）之外。
 
 ## tags 原則
 

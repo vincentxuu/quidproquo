@@ -1,7 +1,7 @@
 ---
 title: "Three Generations of RAG: From Naive to Modular"
 date: 2026-03-12
-updated: 2026-08-19
+updated: 2026-10-20
 type: deep-dive
 category: ai
 tags: [rag, naive-rag, advanced-rag, modular-rag, architecture, evolution]
@@ -121,6 +121,88 @@ From 2025 onward, as LLMs got better at self-reflection and tool use, a pattern 
 
 Strictly speaking this isn't a fourth generation so much as a **transfer of control** within Modular RAG: the modules are the same modules; what changes is *who decides the execution order* — a fixed pipeline configuration, or the model at runtime.
 
+Side by side, the difference sits in the middle of the flow: every RAG step is laid out by an engineer, while Agentic RAG adds two decision points, choosing the tools and checking whether the evidence is enough, and goes back for another round when it is not. Each diagram steps through on its own once it scrolls into view; use the buttons to stop at any step.
+
+```flow-diagram
+{
+  "title": "RAG: a fixed pipeline, walked once",
+  "lang": "en",
+  "width": 520,
+  "height": 630,
+  "nodes": [
+    {"id": "user", "label": "User", "x": 110, "y": 50, "shape": "actor"},
+    {"id": "app", "label": "LLM App", "x": 110, "y": 220, "w": 130},
+    {"id": "llm", "label": "LLM", "x": 400, "y": 220, "shape": "chip"},
+    {"id": "retriever", "label": "Retriever", "x": 110, "y": 400, "shape": "db", "w": 110},
+    {"id": "prompt", "label": "Prompt Builder", "x": 400, "y": 400, "w": 150, "tone": "accent"},
+    {"id": "index", "label": "Vector / hybrid index\n(built offline)", "x": 110, "y": 585, "w": 220, "h": 62}
+  ],
+  "edges": [
+    {"from": "user", "to": "app", "step": 1, "label": "query", "offset": 16, "labelAt": [78, 135], "labelSide": "left"},
+    {"from": "app", "to": "retriever", "step": 2, "label": "query", "labelAt": [128, 305]},
+    {"from": "retriever", "to": "index", "step": 3, "label": "embed\n+ search", "labelAt": [78, 490], "offset": 16, "labelSide": "left"},
+    {"from": "index", "to": "retriever", "step": 4, "label": "top-K chunks", "labelAt": [142, 490], "offset": 16},
+    {"from": "retriever", "to": "prompt", "step": 5, "label": "query + chunks", "labelAt": [210, 380]},
+    {"from": "prompt", "to": "llm", "step": 6, "label": "augmented\nprompt", "labelAt": [420, 310]},
+    {"from": "llm", "to": "app", "step": 7, "label": "answer", "labelAt": [260, 200]},
+    {"from": "app", "to": "user", "step": 8, "label": "response", "offset": 16, "labelAt": [142, 135]}
+  ],
+  "steps": [
+    "The user sends a query",
+    "The LLM App passes the query unchanged to the Retriever",
+    "The query is embedded and searched against the prebuilt index",
+    "The top-K closest chunks come back",
+    "Query and chunks go to the Prompt Builder",
+    "The augmented prompt goes to the LLM",
+    "The LLM answers from the chunks",
+    "The response returns to the user: the step order is hard-coded, and it runs exactly once"
+  ]
+}
+```
+
+```flow-diagram
+{
+  "title": "Agentic RAG: the model decides where to look, and whether to look again",
+  "lang": "en",
+  "width": 640,
+  "height": 740,
+  "nodes": [
+    {"id": "user", "label": "User", "x": 90, "y": 50, "shape": "actor"},
+    {"id": "app", "label": "LLM App", "x": 90, "y": 220, "w": 120},
+    {"id": "orch", "label": "Agent\nOrchestrator", "x": 300, "y": 220, "w": 150, "h": 64, "tone": "accent"},
+    {"id": "tools", "label": "Tools & retrieval sources\nvector DB · docs · web\nAPIs · MCP servers", "x": 520, "y": 390, "w": 200, "h": 86},
+    {"id": "evidence", "label": "Retrieved evidence", "x": 520, "y": 545, "w": 170},
+    {"id": "evaluator", "label": "Evaluator\nAgent", "x": 300, "y": 545, "w": 120, "h": 64, "tone": "accent"},
+    {"id": "context", "label": "Context Builder", "x": 300, "y": 685, "w": 150},
+    {"id": "llm", "label": "LLM", "x": 90, "y": 685, "shape": "chip"}
+  ],
+  "edges": [
+    {"from": "user", "to": "app", "step": 1, "label": "query", "offset": 16, "labelAt": [58, 135], "labelSide": "left"},
+    {"from": "app", "to": "orch", "step": 2, "label": "task", "labelAt": [180, 190]},
+    {"from": "orch", "to": "tools", "step": 3, "label": "select tools", "via": [[520, 220]], "labelAt": [420, 190]},
+    {"from": "tools", "to": "evidence", "step": 4, "label": "fetch evidence", "labelAt": [532, 480]},
+    {"from": "evidence", "to": "evaluator", "step": 5, "label": "check vs\ntask", "labelAt": [400, 595]},
+    {"from": "evaluator", "to": "orch", "step": 6, "label": "not enough:\nretry", "tone": "warn", "labelAt": [300, 400]},
+    {"from": "evaluator", "to": "context", "step": 7, "label": "enough", "labelAt": [312, 615]},
+    {"from": "context", "to": "llm", "step": 8, "label": "augmented\nprompt", "labelAt": [140, 640]},
+    {"from": "llm", "to": "app", "step": 9, "label": "answer", "labelAt": [90, 450]},
+    {"from": "app", "to": "user", "step": 10, "label": "response", "offset": 16, "labelAt": [122, 135]}
+  ],
+  "steps": [
+    "The user sends a query",
+    "The LLM App hands it to the Agent Orchestrator as a task",
+    "The orchestrator picks its tools: vector DB, docs, web search, APIs or MCP servers",
+    "Evidence comes back from the chosen sources",
+    "The Evaluator checks whether the evidence is enough for the task",
+    "Not enough: rewrite the query or switch sources and go back to step 3, with a cap on iterations so it cannot loop forever",
+    "Enough: the evidence goes to the Context Builder",
+    "The augmented prompt goes to the LLM",
+    "The LLM answers",
+    "The response returns to the user: how many rounds and which sources are decided at runtime"
+  ]
+}
+```
+
 **The cost is real.** An ACL 2026 study comparing Enhanced RAG (essentially the Advanced/Modular designs described above) with Agentic RAG found that the agentic setting's token cost varied by dataset (2.7x/1.7x input/output on FIQA, 3.9x/2.0x on CQADupStack-En), with 1.5x more end-to-end latency and cost across datasets running up to 3.6x higher.
 
 More importantly, the quality findings are not one-sided:
@@ -169,6 +251,7 @@ Understanding what each generation solved — and what complexity it introduced 
 
 ## Changelog
 
+- 2026-10-20: Added step-by-step animated flow diagrams of RAG and Agentic RAG to the Agentic RAG section
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "RAG Techniques Compendium" series.
 
 ## References

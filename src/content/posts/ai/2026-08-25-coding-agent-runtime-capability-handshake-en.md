@@ -1,6 +1,7 @@
 ---
 title: "Learning from Mature Coding Agents (16): Runtime Abstraction and Capability Handshake"
 date: 2026-08-25
+updated: 2026-10-20
 category: ai
 type: deep-dive
 series:
@@ -32,6 +33,54 @@ So looplane's answer is two things: a narrow runtime boundary (`ConversationRunt
 **OpenCode** is the most standardized: an HTTP server with generated openapi.json (opencode/packages/server/src/routes.ts#createRoutes), an official SDK, and a full [ACP](https://agentclientprotocol.com/) implementation — initialize, authenticate, newSession, loadSession, resumeSession, forkSession, setSessionMode, setSessionModel are all wired up (opencode/packages/opencode/src/acp/agent.ts#Agent). It is the only one of the five that exposes resume and model switching as protocol methods.
 
 **Codex CLI** uses app-server-protocol: an `initialize` handshake where the client sends ClientInfo and `InitializeCapabilities` — explicitly opting into experimental methods and naming which notifications to suppress (codex/codex-rs/app-server-protocol/src/protocol/v1.rs#InitializeCapabilities). Only then come thread/start, thread/resume, and even capability queries like modelProvider/capabilities/read (codex/codex-rs/app-server-protocol/src/protocol/common.rs#ClientRequest). Capabilities here are negotiated, not claimed.
+
+```diagram
+title: The Codex app-server initialize handshake
+desc: The client first sends initialize (with ClientInfo and InitializeCapabilities) and gets a response; only then come capability queries like modelProvider/capabilities/read and thread/start or thread/resume.
+caption: Illustrative: the order of calls after initialize depends on what the client needs.
+step: The client sends initialize with ClientInfo and InitializeCapabilities (opting into experimental methods, naming notifications to suppress)
+step: The app-server responds to initialize
+step: After the handshake, the client can query capabilities with modelProvider/capabilities/read
+step: The app-server responds to the capability query
+step: The client starts or resumes a thread (thread/start or thread/resume)
+---
+<svg viewBox="0 0 640 416">
+  <line class="dg-rule" x1="128" y1="72" x2="128" y2="400"/>
+  <line class="dg-rule" x1="480" y1="72" x2="480" y2="400"/>
+
+  <g data-step="1">
+    <path class="dg-line dg-line--accent" d="M128 144H472" marker-end="url(#arrow-accent)"/>
+    <text class="dg-edge dg-mono dg-text--accent" x="304" y="112" text-anchor="middle" dominant-baseline="central">initialize</text>
+    <text class="dg-edge dg-mono" x="304" y="130" text-anchor="middle" dominant-baseline="central">ClientInfo + InitializeCapabilities</text>
+  </g>
+  <g data-step="2">
+    <path class="dg-line dg-line--dashed" d="M476 192H132" marker-end="url(#arrow)"/>
+    <text class="dg-edge" x="304" y="180" text-anchor="middle" dominant-baseline="central">Response</text>
+  </g>
+  <g data-step="3">
+    <path class="dg-line" d="M128 256H472" marker-end="url(#arrow)"/>
+    <text class="dg-edge" x="304" y="224" text-anchor="middle" dominant-baseline="central">Capability query</text>
+    <text class="dg-edge dg-mono" x="304" y="242" text-anchor="middle" dominant-baseline="central">modelProvider/capabilities/read</text>
+  </g>
+  <g data-step="4">
+    <path class="dg-line dg-line--dashed" d="M476 304H132" marker-end="url(#arrow)"/>
+    <text class="dg-edge" x="304" y="292" text-anchor="middle" dominant-baseline="central">Response</text>
+  </g>
+  <g data-step="5">
+    <path class="dg-line" d="M128 360H472" marker-end="url(#arrow)"/>
+    <text class="dg-edge dg-mono" x="304" y="346" text-anchor="middle" dominant-baseline="central">thread/start or thread/resume</text>
+  </g>
+
+  <rect class="dg-box" x="476" y="132" width="8" height="72" rx="2" data-step="1 2"/>
+  <rect class="dg-box" x="476" y="244" width="8" height="72" rx="2" data-step="3 4"/>
+  <rect class="dg-box" x="476" y="348" width="8" height="28" rx="2" data-step="5"/>
+
+  <rect class="dg-box" x="48" y="24" width="160" height="48" rx="6"/>
+  <text class="dg-label" x="128" y="48" text-anchor="middle" dominant-baseline="central">Client</text>
+  <rect class="dg-box" x="392" y="24" width="176" height="48" rx="6"/>
+  <text class="dg-label" x="480" y="48" text-anchor="middle" dominant-baseline="central">Codex app-server</text>
+</svg>
+```
 
 **Claude Code**'s headless surface is a `--output-format stream-json` JSONL feed plus an SDK-side permission callback (claude-code-source/src/cli/print.ts#runHeadless). Interactive approval exists, but its shape matches nobody else's.
 
@@ -68,6 +117,10 @@ M13's honesty has a price. The outstanding ledger:
 5. **Usage and cost aren't normalized.** Pi streams usage inline, OpenCode reports tokens/cost at step_finish, Codex has its own notifications. A unified typed event is a prerequisite for comparing costs across runtimes.
 
 One line to close: abstraction earns its keep not by erasing differences but by putting each difference in the right place — lie once in the capability matrix, and a user hits a wall in the UI every time.
+
+## Changelog
+
+- 2026-10-20: Added a sequence diagram of the Codex initialize handshake
 
 ## References
 

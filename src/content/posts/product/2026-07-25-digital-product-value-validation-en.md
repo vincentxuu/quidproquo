@@ -1,6 +1,7 @@
 ---
 title: "Value Validation for Digital Products: From Assumption Maps to the M3 Retention Baseline for AI"
 date: 2026-07-25
+updated: 2026-10-20
 category: product
 type: deep-dive
 tags: [value-validation, product-market-fit, product-discovery, experimentation, pricing, product-management, ai-product]
@@ -59,6 +60,40 @@ Interviews **generate opportunities**; assumption tests **evaluate solutions**. 
 There's a deeper point: the unit of validation is not an "idea" but an **assumption**. The bottom row of an [Opportunity Solution Tree](https://www.producttalk.org/opportunity-solution-trees/) is assumption tests, not A/B tests. Torres has explained the design intent — giving experiments their own row forces teams to think of multiple ways to test the same solution, rather than over-relying on A/B tests to evaluate an entire solution at once.
 
 Pair this with assumption mapping's 2×2 (importance × existing evidence) and the picture is complete. The cell that matters is **high importance × low evidence** — the leap-of-faith assumptions, the ones where being wrong kills the solution and where you currently know nothing. The real value of the tool is that it forces an uncomfortable admission: most teams test the assumptions they find **comfortable** to test (engineers test technical feasibility, designers test usability) rather than the ones that would **kill the idea**.
+
+```diagram
+title: Assumption mapping — importance × existing evidence
+desc: Assumptions sorted by importance and existing evidence into Evaluate, Plan, Generate and Defer; the important, low-evidence Evaluate cell holds the leap-of-faith assumptions to test first.
+caption: Quadrant names and uses follow David Bland's Assumptions Mapping.
+---
+<svg viewBox="0 0 440 436">
+  <line class="dg-rule" x1="256" y1="28" x2="256" y2="396"/>
+  <line class="dg-rule" x1="84" y1="212" x2="428" y2="212"/>
+
+  <path class="dg-axis" d="M80 400V20" marker-end="url(#arrow)"/>
+  <path class="dg-axis" d="M80 400H432" marker-end="url(#arrow)"/>
+
+  <rect class="dg-area dg-area--accent" x="88" y="32" width="164" height="176" rx="6"/>
+
+  <text class="dg-sub" x="70" y="40" text-anchor="end" dominant-baseline="central">Importance<tspan x="70" dy="1.3em">high</tspan></text>
+  <text class="dg-sub" x="70" y="372" text-anchor="end" dominant-baseline="central">Importance<tspan x="70" dy="1.3em">low</tspan></text>
+  <text class="dg-sub" x="88" y="420" dominant-baseline="central">Evidence: low</text>
+  <text class="dg-sub" x="424" y="420" text-anchor="end" dominant-baseline="central">Evidence: high</text>
+
+  <text class="dg-label dg-text--accent" x="100" y="60" dominant-baseline="central">Evaluate</text>
+  <text class="dg-sub dg-text--accent" x="100" y="90" dominant-baseline="central">Leap-of-faith</text>
+  <text class="dg-sub" x="100" y="120" dominant-baseline="central">Wrong = the solution<tspan x="100" dy="1.4em">dies; you know nothing</tspan><tspan x="100" dy="1.4em">→ test it first</tspan></text>
+
+  <text class="dg-label" x="272" y="60" dominant-baseline="central">Plan</text>
+  <text class="dg-sub" x="272" y="90" dominant-baseline="central">Close to fact; check<tspan x="272" dy="1.4em">against your plan</tspan></text>
+
+  <text class="dg-label" x="100" y="244" dominant-baseline="central">Generate</text>
+  <text class="dg-sub" x="100" y="274" dominant-baseline="central">Unknowns: interview<tspan x="100" dy="1.4em">to find problems</tspan></text>
+
+  <text class="dg-label" x="272" y="244" dominant-baseline="central">Defer</text>
+  <text class="dg-sub" x="272" y="274" dominant-baseline="central">A distraction; doing<tspan x="272" dy="1.4em">them feels like progress</tspan></text>
+</svg>
+```
 
 ## Evidence Strength Runs on One Axis
 
@@ -267,6 +302,7 @@ If only one line survives: **validation isn't there to prove you right, it's the
 
 ## Changelog
 
+- 2026-10-20: Added an importance × evidence quadrant diagram, with quadrant names from David Bland's Assumptions Mapping and its source added to the assumption-mapping paragraph
 - 2026-07-25: Added the section "The B2B Criterion Is Different: Six Reference Customers" (Cagan's four conditions for a reference customer, and the inference not to turn on sales before you have six); added Nubank's cultural recalibration of the 40% threshold to 50%; added Zendesk's $1.50 per automated resolution and its LLM verification mechanism to the AI pricing section; added Kloss & Kunter (2016) as positive evidence for Van Westendorp along with the authors' own "two biases cancelling out" caveat, since the section previously presented only the critical side.
 
 ## References
@@ -281,6 +317,7 @@ If only one line survives: **validation isn't there to prove you right, it's the
 
 **Experiment methods**
 
+- [How to Look Before You Leap: A Guide to Mapping Assumptions — David Bland / Mural](https://mural.co/blog/how-to-look-before-you-leap-a-guide-to-mapping-assumptions-for-product-development-teams)
 - [Testing Business Ideas — Strategyzer (Osterwalder & Bland, 2019)](https://www.strategyzer.com/library/testing-business-ideas-book)
 - [How to Select the Next Best Test from the Experiment Library — David Bland / Strategyzer](https://www.strategyzer.com/library/how-to-select-the-next-best-test-from-the-experiment-library)
 - [Testing Business Ideas official book excerpt (PDF) — Wiley](https://catalogimages.wiley.com/images/db/pdf/9781119551447.excerpt.pdf)

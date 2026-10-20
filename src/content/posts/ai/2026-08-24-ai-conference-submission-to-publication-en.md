@@ -1,6 +1,7 @@
 ---
 title: "What Happens to a Top-Conference Paper from Submission to Publication"
 date: 2026-08-24
+updated: 2026-10-20
 category: ai
 type: guide
 tags: [ai-conference, peer-review, openreview, submission, rebuttal]
@@ -28,6 +29,82 @@ glossary:
 > This is Part 3 of the [AI Top Conference Guide](/posts/ai/2026-08-23-what-is-ai-top-conference-en) series. The previous article explained how a conference earns "top" status and introduced the major venues. This one follows a paper from the moment its authors press submit to final publication.
 
 The previous article compressed review into four steps: submission → review → rebuttal → decision. The real process is much more intricate. Every stage brings specific rules, deadline pressure, and opportunities for mistakes. This guide unpacks each stage using the actual 2025-2026 processes at NeurIPS, ICML, ICLR, and CVPR.
+
+```diagram
+title: Seven steps from submission to camera-ready
+desc: After submission, a paper passes format screening or is desk-rejected; reviewers are assigned and review it, authors rebut, the AC, SAC, and PC decide in three tiers, and accepted authors submit the camera-ready version.
+caption: Simplified: assignment combines reviewer bidding with system matching and COI checks; the article does not say which tier runs format screening.
+step: Step 1: Authors submit an anonymized paper
+step: Step 2: Format screening; failures are desk-rejected
+step: Step 3: Reviewers bid; TPMS matching and COI checks
+step: Step 4: Reviewers write independent reviews
+step: Step 5: Authors rebut the reviews
+step: Step 6: AC writes the meta-review; SAC and PC check it
+step: Step 7: After acceptance, authors submit camera-ready
+---
+<svg viewBox="0 0 640 624">
+  <line class="dg-rule" x1="16" y1="56" x2="624" y2="56"/>
+  <line class="dg-rule" x1="220" y1="24" x2="220" y2="612"/>
+  <line class="dg-rule" x1="420" y1="24" x2="420" y2="612"/>
+
+  <text class="dg-label" x="120" y="40" text-anchor="middle" dominant-baseline="central">Authors</text>
+  <text class="dg-label" x="320" y="40" text-anchor="middle" dominant-baseline="central">Reviewers</text>
+  <text class="dg-label" x="520" y="40" text-anchor="middle" dominant-baseline="central">AC · SAC · PC</text>
+
+  <path class="dg-line" data-step="1" d="M204 100H512Q520 100 520 108V148" marker-end="url(#arrow)"/>
+  <path class="dg-line dg-line--warn" data-step="2" d="M520 208V236" marker-end="url(#arrow-warn)"/>
+  <path class="dg-line" data-step="2" d="M436 180H328Q320 180 320 188V228" marker-end="url(#arrow)"/>
+  <path class="dg-line" data-step="3" d="M320 288V308" marker-end="url(#arrow)"/>
+  <path class="dg-line" data-step="4" d="M236 340H128Q120 340 120 348V388" marker-end="url(#arrow)"/>
+  <path class="dg-line" data-step="5" d="M204 420H512Q520 420 520 428V468" marker-end="url(#arrow)"/>
+  <path class="dg-line" data-step="6" d="M436 500H128Q120 500 120 508V548" marker-end="url(#arrow)"/>
+
+  <g data-step="1">
+    <rect class="dg-box" x="36" y="72" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="120" y="91" text-anchor="middle" dominant-baseline="central">Submission</text>
+    <text class="dg-sub" x="120" y="111" text-anchor="middle" dominant-baseline="central">Anonymized</text>
+  </g>
+  <g data-step="2">
+    <rect class="dg-box" x="436" y="152" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="520" y="171" text-anchor="middle" dominant-baseline="central">Format check</text>
+    <text class="dg-sub" x="520" y="191" text-anchor="middle" dominant-baseline="central">Pages, anonymity</text>
+    <rect class="dg-box dg-box--warn" x="456" y="240" width="128" height="40" rx="6"/>
+    <text class="dg-label dg-text--warn" x="520" y="260" text-anchor="middle" dominant-baseline="central">Desk reject</text>
+  </g>
+  <g data-step="3">
+    <rect class="dg-box" x="236" y="232" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="320" y="251" text-anchor="middle" dominant-baseline="central">Assignment</text>
+    <text class="dg-sub" x="320" y="271" text-anchor="middle" dominant-baseline="central">bidding・TPMS・COI</text>
+  </g>
+  <g data-step="4">
+    <rect class="dg-box" x="236" y="312" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="320" y="331" text-anchor="middle" dominant-baseline="central">Review</text>
+    <text class="dg-sub" x="320" y="351" text-anchor="middle" dominant-baseline="central">Usually 3-4</text>
+  </g>
+  <g data-step="5">
+    <rect class="dg-box" x="36" y="392" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="120" y="411" text-anchor="middle" dominant-baseline="central">Rebuttal</text>
+    <text class="dg-sub" x="120" y="431" text-anchor="middle" dominant-baseline="central">Answer the reviews</text>
+  </g>
+  <g data-step="6">
+    <rect class="dg-box dg-box--accent" x="436" y="472" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="520" y="491" text-anchor="middle" dominant-baseline="central">Decision</text>
+    <text class="dg-sub" x="520" y="511" text-anchor="middle" dominant-baseline="central">AC → SAC → PC</text>
+  </g>
+  <g data-step="7">
+    <rect class="dg-box" x="36" y="552" width="168" height="56" rx="6"/>
+    <text class="dg-label" x="120" y="571" text-anchor="middle" dominant-baseline="central">Camera-Ready</text>
+    <text class="dg-sub" x="120" y="591" text-anchor="middle" dominant-baseline="central">De-anonymize</text>
+  </g>
+
+  <text class="dg-edge" data-step="1" x="320" y="88" text-anchor="middle" dominant-baseline="central">Submit paper</text>
+  <text class="dg-edge dg-text--warn" data-step="2" x="530" y="222" text-anchor="start" dominant-baseline="central">Fails</text>
+  <text class="dg-edge" data-step="2" x="376" y="168" text-anchor="middle" dominant-baseline="central">Passes</text>
+  <text class="dg-edge" data-step="4" x="176" y="328" text-anchor="middle" dominant-baseline="central">Reviews out</text>
+  <text class="dg-edge" data-step="5" x="320" y="408" text-anchor="middle" dominant-baseline="central">Response</text>
+  <text class="dg-edge" data-step="6" x="320" y="488" text-anchor="middle" dominant-baseline="central">Acceptance</text>
+</svg>
+```
 
 ## Step 1: Submission
 
@@ -329,6 +406,10 @@ Several features are worth remembering:
 Understanding this machinery matters beyond submitting your own paper. When you read a top-conference paper, knowing the selection process helps calibrate your expectations: the work passed rigorous peer review, but peer review itself has structural limits.
 
 ---
+
+## Changelog
+
+- 2026-10-20: Added a swimlane diagram of the seven steps from submission to camera-ready
 
 ## References
 

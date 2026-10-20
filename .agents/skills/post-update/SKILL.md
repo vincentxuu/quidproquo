@@ -61,6 +61,8 @@ node .agents/skills/post/scripts/check-course-titles.mjs src/content/posts/<cate
 
 2. **確認改動範圍**（使用者已核准的範圍直接執行，不重問）：把使用者要改的點列成 bullets，跑回去確認再動手。範圍模糊就要回去問——大改與小改的處理方式不同。
 
+   **要加圖或改圖**（「幫這篇加張圖」「這段畫成圖」）：先讀 `../diagram/SKILL.md` 選圖型並照它的流程畫，圖只能畫正文已寫、有出處的內容；中英兩版同一份座標只換文字；`## 更新紀錄` 寫明加了什麼圖、放在哪一段。
+
 3. **保留不動的東西**：
    - 檔名（`YYYY-MM-DD-<slug>.md`）
    - frontmatter `date`（原始發文日期，**不是**今天）
@@ -105,7 +107,9 @@ node .agents/skills/post/scripts/check-course-titles.mjs src/content/posts/<cate
    pnpm check:references
    pnpm lint
    pnpm astro check
+   pnpm exec tsx scripts/diagram-preview.ts <檔案路徑> --out <暫存目錄>   # 有 diagram / flow-diagram 區塊時，中英兩版都跑
    ```
+   加圖、改圖或改到圖所在段落時，preview 必須全 ✓，並打開截圖看過。
 
 10. **diff review**：把 `git diff` 給使用者看，**得到明確 OK 才 commit**。
 
