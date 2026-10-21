@@ -257,13 +257,17 @@ A 還是便宜一點，但差距從 37.5% 縮到約 6%。改看「每次成功�
 - [CMU 11-768 第 1 堂：什麼是 agent](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)：從研究角度定義 agent，和本堂的系統角度互補。
 - [CMU 11-868：為什麼需要 LLM 系統](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems)：和本堂第一節同一個問題，從另一門課的角度講。
 - [CMU 11-868：用 SGLang 與 vLLM 做 LLM serving](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm)：continuous batching 的實際做法。
-- [coding agent 的內部構造](/posts/ai/2026-08-16-cs146s-agent-internals)：先看 agent loop 的程式長相，再讀第 2 堂。
+- [coding agent 的內部構造](/posts/ai/2026-08-16-cs146s-agent-internals)：先看 agent loop 的程式長相，再讀[第 2 堂](/posts/ai/2026-10-21-cs2680-lecture-02-how-claude-code-works)。
 
 ## 課程影片來源
 
 - 課程不錄影（[policy 頁](https://cs2680.com/policy)：「the lectures will not be recorded」）。
 - 底本：[第 1 堂投影片](https://cs2680.com/slides/1_intro.pdf)（PDF 頁序 p27–45），2026-10-21 讀取。投影片右下角印的頁碼比 PDF 頁序多 1，本文引用一律用 PDF 頁序。
 - 本文的兩個帳目例子與 batching 例子是本站補充，不是課堂內容。
+
+## 更新紀錄
+
+- 2026-10-22：延伸閱讀補上第 2 堂的站內連結。
 
 ## 參考資料
 

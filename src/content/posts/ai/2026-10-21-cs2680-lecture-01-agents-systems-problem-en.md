@@ -257,13 +257,17 @@ Going by the schedule, Part I mostly touches the harness side of questions 2, 5,
 - [CMU 11-768 Lecture 1: What is an agent](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en): defines agents from a research angle, complementing this lecture's systems angle.
 - [CMU 11-868: Why we need LLM systems](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems-en): the same question as this lecture's first section, from another course's angle.
 - [CMU 11-868: LLM serving with SGLang and vLLM](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm-en): how continuous batching works in practice.
-- [Inside a coding agent](/posts/ai/2026-08-16-cs146s-agent-internals-en): see what an agent loop looks like in code before reading Lecture 2.
+- [Inside a coding agent](/posts/ai/2026-08-16-cs146s-agent-internals-en): see what an agent loop looks like in code before reading [Lecture 2](/posts/ai/2026-10-21-cs2680-lecture-02-how-claude-code-works-en).
 
 ## Course video sources
 
 - The course is not recorded ([policy page](https://cs2680.com/policy): "the lectures will not be recorded").
 - Source: [Lecture 1 slides](https://cs2680.com/slides/1_intro.pdf) (PDF pages p27–45), read on 2026-10-21. The page number printed in the lower right of each slide is one higher than the PDF page order; this post always cites PDF page order.
 - The two cost examples and the batching example are this site's additions, not lecture content.
+
+## Changelog
+
+- 2026-10-22: Added a link to the Lecture 2 post in Further reading.
 
 ## References
 
