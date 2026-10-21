@@ -90,6 +90,15 @@ The individual records used here do not document a named problem in this band. I
 
 The selected records do not include this band; that does not establish an absence of hard problems across Jeju. This article compares two named School problems and a river-valley visit. Other island destinations or harder objectives need their own specific information.
 
+## Watch the climbs
+
+There is no public footage of Cheese Dorito or Pig Farm. These clips were all shot at the same School Crag on the Musucheon riverbed: they show the rock, how high the landings are and how pads get placed, and the last one covers the approach to the whole area.
+
+```video-gallery
+key: jeju-bouldering
+lang: en
+```
+
 ## Where to look things up
 
 - **Problem records:** [The School Crag](https://www.mountainproject.com/area/126273039/the-school-crag) and the MP links above for original names, grades and descriptions.

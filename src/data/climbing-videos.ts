@@ -76,6 +76,18 @@ export const videoGalleries: Record<string, VideoGallery> = {
     ],
   },
 
+  // Cheese Dorito and Pig Farm have no public footage; these are the problems
+  // other climbers have filmed at the same crag (all shot on the Musucheon bed).
+  'jeju-bouldering': {
+    videos: [
+      { id: 'vJi0Fowoo9U', title: 'Spanish Kimchi - V5, The School crag', route: 'Spanish Kimchi V5', routeEn: 'Spanish Kimchi V5', note: '同岩區，和兩道 V5 同級', noteEn: 'same crag, same grade as the two V5s', length: '1:04', channel: '산왕의 볼더 라이브러리' },
+      { id: '9MY8yibS56o', title: 'Picante - V4, The School crag', route: 'Picante V4', routeEn: 'Picante V4', note: '河床岩質與落地', noteEn: 'riverbed rock and landings', length: '1:04', channel: '산왕의 볼더 라이브러리' },
+      { id: 'bhvPSdaH_j4', title: 'Scholar - V4, The School crag', route: 'Scholar V4', routeEn: 'Scholar V4', note: '河床岩質與落地', noteEn: 'riverbed rock and landings', length: '1:07', channel: '산왕의 볼더 라이브러리' },
+      { id: '4D0v1K6Eufc', title: 'All pain no gain - V8, The School crag', route: 'All pain no gain V8', routeEn: 'All pain no gain V8', note: '同岩區高難度，看保護怎麼擺', noteEn: 'the crag at a harder grade; watch the spotting', length: '1:26', channel: '산왕의 볼더 라이브러리' },
+      { id: 'CQet2wK4Txo', title: '[어프로치 가이드] 제주도 무수천 볼더링 어프로치 완전 정복', route: '無水川抱石區接近', routeEn: 'Musucheon bouldering approach', note: '接近路線與入溪點', noteEn: 'approach and stream entry', length: '7:16', channel: 'Kyu Blocs' },
+    ],
+  },
+
   jeokbyeok: {
     videos: [
       { id: 'H7Z0gq-hvRw', title: '암벽등반 설악산 적벽 독주길', route: 'Solo 독주길 5.8/A1', routeEn: 'Solo / 독주길 5.8/A1', note: '岩壁短紀錄', noteEn: 'short record', length: '1:54', channel: '벽이벽' },

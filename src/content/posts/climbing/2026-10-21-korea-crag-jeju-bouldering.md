@@ -90,6 +90,15 @@ Cheese Dorito 原頁另提 Jumping Beetle 的向右動態變體。先確認你�
 
 目前採用的具名紀錄沒有這一級距，不推論全濟州都沒有高難題。這篇的用途是比較上表兩題和河谷行程條件；全島或更高級數的選場，需要另一份具體目的地資料。
 
+## 看實際攀登
+
+Cheese Dorito 與 Pig Farm 目前找不到公開影片。下面幾支都拍在同一個 The School Crag（無水川河床），看得到岩質、落地高低、墊子怎麼擺；最後一支是整區的接近路線。
+
+```video-gallery
+key: jeju-bouldering
+lang: zh-TW
+```
+
 ## 查資料的入口
 
 - **逐題資料**：[The School Crag](https://www.mountainproject.com/area/126273039/the-school-crag)與上表 MP 頁面，可核對原名、原級數及來源描述。
