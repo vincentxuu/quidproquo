@@ -37,10 +37,10 @@ Limestone. theCrag's summary: "Spirit Mountain is a beautiful cliff with sectors
 | The Lounge / Main face | 25 | 24 m | Home of Scorpion and Red Planet |
 | The Mezzanine / Main face | 25 | 32 m | **The hardest ground**, 8a+ up to 8c+ |
 | Machete Wall | 21 | 24 m | Two 8c-grade open projects |
-| Hearth Cave | 15 | 16 m | |
+| Hearth Cave | 15 | 16 m | The cave sector, 6a to 7c+ |
 | The Cave / Hoi Cave | 11 | 16 m | |
 | The Far Side | 10 | 18 m | A quieter area of its own |
-| Music Wall | 8 | 18 m | |
+| Music Wall | 8 | 18 m | Several lines off the big ledge |
 | Sweet Brown Wall | 6 | 22 m | **Only six routes but one is 8a** |
 | Wild Child Wall | 4 | 20 m | The smallest sector |
 
@@ -199,6 +199,26 @@ This is Chong Phli's thickest band, and nearly every sector has something. **The
 | Mouse | 7b | 5.12b | 21 m | The Lounge | ★★★; same start as Man, then right to a big hole before the 8th clip |
 | Kaeng Raeng | 7b | 5.12b | 21 m | The Lounge | ★★★; shares the start with Pill Box, then left |
 | Pill Box | 6b+/c | 5.10d | 21 m | The Lounge | ★★; shares the start with Kaeng Raeng, then right after the first sling |
+| Big Underwear / Dobolina | 5+ | approx. 5.9 | 25 m | Music Wall | ★; the right-hand start from the ground, climbs better than it looks |
+| Baba Max | 6a | 5.10a | 14 m | Hearth Cave | ★★; green threads up the left side of the cave, out onto the free-hanging stalactite |
+| Round the Outside | 6a | 5.10a | 16 m | Hearth Cave | ★; shares the first half with Smoked Out and Dude Abides, then traverses to the anchor |
+| Yellow Moon / Tim's Big Smile | 6a | 5.10a | 15 m | Hearth Cave | ★★; starts just right of Slim, through the roof |
+| Dude Abides | 6a+ | 5.10b | 24 m | Hearth Cave | ★; **the anchor carabiner opens very hard**; the rope to the start is exposed |
+| Hell in a Bucket | 6a | 5.10a | 10 m | Music Wall | ★; short but fun, onto the big ledge, giving access to Soulshine and Imagine |
+| Shady | 6b | 5.10c | 9 m | Hearth Cave | ★★; short with a steep start; 5 titanium bolts |
+| Flying Snake | 6b | 5.10c | 18 m | Hearth Cave | ★★; the middle extension of either Round the Outside or Chong Phli Posse |
+| Slim / Slim Shady | 6b+ | 5.10d | 12 m | Hearth Cave | ★★; right of Shady, purple slings and titanium bolts, 3D climbing |
+| Stone Rider | 6b+ | 5.10d | 20 m | Hearth Cave | ★★; the right-most extension; **the anchor carabiner opens very hard** |
+| Chopped on the Guidebook | 6c | 5.11a/b | 22 m | Hearth Cave | ★★; the left-hand side of the cave, overhanging line on super jugs |
+| Chong Phli Posse | 6c | 5.11a/b | 11 m | Hearth Cave | ★★; shares the anchor with Round the Outside |
+| Make it Funky | 6c+ | 5.11c | 12 m | Hearth Cave | ★; right of Yellow Moon, 4 m left of Music Wall |
+| Smoked Out | 6c+ | 5.11c | 25 m | Hearth Cave | ★★; shares the start with Dude Abides, then right and straight up |
+| Into the Mystic | 6b | 5.10c | 20 m | Music Wall | ★★; the 2nd pitch after Steal Your Face |
+| Dark Star | 6b | 5.10c | 15 m | Music Wall | ★★; the right-hand line from the big ledge |
+| Steal Your Face | 6c | 5.11a/b | 22 m | Music Wall | ★★; just right of Walking on the Moon, blunt arete start |
+| Imagine | 6b+/c | 5.10d | 15 m | Music Wall | ★★; the middle line from the big ledge |
+| Indi'Jan'a Jones | 6b+ | 5.10d | 25 m | Wild Child Wall | ★★★; a must-do, maybe a bit harder; all titanium bolts |
+| Old School | 7a+ | 5.12a | 18 m | Wild Child Wall | ★★★; 3 titanium bolts, 1 sling |
 | Scorpion | 7b | 5.12b | 33 m | The Lounge | ★★★; **two bolts before the anchor, take the left lines** |
 | Rex Kwan-Do | 7b | 5.12b | 17 m | The Lounge | ★★; all titanium, two titanium bolts with stainless rings for the anchor |
 | Grace | 7a | 5.11d | 22 m | The Mezzanine | ★★★; shares the start with Hunting Shrooms, then right after the 4th bolt |
@@ -241,6 +261,13 @@ This is Chong Phli's thickest band, and nearly every sector has something. **The
 | I Am Ironman / Ironman | 7c+ | 5.13a | 34 m | The Mezzanine | ★★; extension above Exposure |
 | Lord Jesus | 8a | 5.13b | 25 m | Sweet Brown Wall | ★; shares the start with There's a Fire then the left bolt line; all titanium |
 | Frankenstein - Open Project | 8c/c+ | 5.14b | 30 m | Machete Wall | ★★★; **open project**; "Epic climbing! Absolute Classic! Please try"; 14 titanium bolts |
+| Wild Child | 8a | 5.13b | 18 m | Wild Child Wall | 0 stars; **grade not confirmed**; 5 titanium bolts, 1 sling |
+| RTT / Rubber Tapping Tranny | 8a | 5.13b | 20 m | Wild Child Wall | ★★★; grade confirmed by fedor and tim |
+| A Pinch Tu-far | 7c | 5.12d | 10 m | Hearth Cave | ★★★; steep face, thin tufa, short and spicy |
+| Fin de Chalam | 7a | 5.11d | 20 m | Hearth Cave | ★★; the left-most extension of Chong Phli Posse, 31 m from the ground |
+| Eminem | 7a | 5.11d | 10 m | Hearth Cave | ★★; "his palms are sweaty, knees weak, arms are heavy…" |
+| Soulshine | 7a+ | 5.12a | 15 m | Music Wall | ★★; the left-hand line on the big ledge, up a thin crack |
+| Walking on the Moon | 7c+ | 5.13a | 20 m | Music Wall | ★★; slopers, smears and pockets |
 
 **The open projects are a feature here, not a gap.** Scorpion Queen, Mars Attacks and Frankenstein are three 8-band lines that exist but whose grades are still being confirmed. **If what you want is "the hardest route in Thailand" rather than "the hardest route with an agreed grade", those three are the target.**
 

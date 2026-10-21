@@ -37,10 +37,10 @@ Chong Phli 又叫 Spirit Mountain（靈山），在 Ao Nang 與喀比市區之�
 | The Lounge / Main face | 25 | 24 m | 有名的「Scorpion／Red Planet」區 |
 | The Mezzanine / Main face | 25 | 32 m | **最高難度集中區**，8a+ 到 8c+ |
 | Machete Wall | 21 | 24 m | 有兩條 8c 級的專案線 |
-| Hearth Cave | 15 | 16 m | |
+| Hearth Cave | 15 | 16 m | 洞穴區，6a 到 7c+ |
 | The Cave / Hoi Cave | 11 | 16 m | |
 | The Far Side | 10 | 18 m | 較少人爬的獨立一區 |
-| Music Wall | 8 | 18 m | |
+| Music Wall | 8 | 18 m | 大 ledge 上的多線 |
 | Sweet Brown Wall | 6 | 22 m | **只有 6 條但有一條 8a** |
 | Wild Child Wall | 4 | 20 m | 全區最小 |
 
@@ -199,6 +199,26 @@ Chong Phli 沒有真正的白板路線，但有幾條短而簡單的線適合暖
 | Mouse | 7b | 5.12b | 21 m | The Lounge | ★★★；與 Man 同起步但往右橫切到大洞 |
 | Kaeng Raeng | 7b | 5.12b | 21 m | The Lounge | ★★★；與 Pill Box 共用起步 |
 | Pill Box | 6b+/c | 5.10d | 21 m | The Lounge | ★★；與 Kaeng Raeng 共用起步後往右 |
+| Big Underwear / Dobolina | 5+ | 約 5.9 | 25 m | Music Wall | ★；從地面右手邊起步，比看起來好爬 |
+| Baba Max | 6a | 5.10a | 14 m | Hearth Cave | ★★；沿洞穴左邊的綠色 thread 上去，爬出到自由垂掛的鐘乳石 |
+| Round the Outside | 6a | 5.10a | 16 m | Hearth Cave | ★；與 Smoked Out、Dude Abides 共用前半段後橫切到確保點 |
+| Yellow Moon / Tim's Big Smile | 6a | 5.10a | 15 m | Hearth Cave | ★★；Slim 右邊起步，穿過右側屋簷 |
+| Dude Abides | 6a+ | 5.10b | 24 m | Hearth Cave | ★；**確保點的快扣會張很開**；起步繩芯外露 |
+| Hell in a Bucket | 6a | 5.10a | 10 m | Music Wall | ★；短但有趣，爬上大 ledge，通往 Soulshine、Imagine 等 |
+| Shady | 6b | 5.10c | 9 m | Hearth Cave | ★★；短、陡起步；5 支鈦栓 |
+| Flying Snake | 6b | 5.10c | 18 m | Hearth Cave | ★★；Round the Outside 或 Chong Phli Posse 的中間延伸 |
+| Slim / Slim Shady | 6b+ | 5.10d | 12 m | Hearth Cave | ★★；Shady 右邊，紫色吊帶與鈦栓；3D 穿越底部 hueco |
+| Stone Rider | 6b+ | 5.10d | 20 m | Hearth Cave | ★★；最右的延伸；**確保點的快扣開得很緊** |
+| Chopped on the Guidebook | 6c | 5.11a/b | 22 m | Hearth Cave | ★★；洞穴左側、超級 jug 的仰角線 |
+| Chong Phli Posse | 6c | 5.11a/b | 11 m | Hearth Cave | ★★；與 Round the Outside 共用確保點 |
+| Make it Funky | 6c+ | 5.11c | 12 m | Hearth Cave | ★；Yellow Moon 右邊、Music Wall 左邊 4 公尺 |
+| Smoked Out | 6c+ | 5.11c | 25 m | Hearth Cave | ★★；與 Dude Abides 共用起步後往右直上 |
+| Into the Mystic | 6b | 5.10c | 20 m | Music Wall | ★★；Steal Your Face 的第二段 |
+| Dark Star | 6b | 5.10c | 15 m | Music Wall | ★★；大 ledge 右手邊那條 |
+| Steal Your Face | 6c | 5.11a/b | 22 m | Music Wall | ★★；Walking on the Moon 右邊，鈍 arete 起步 |
+| Imagine | 6b+/c | 5.10d | 15 m | Music Wall | ★★；大 ledge 中間那條 |
+| Indi'Jan'a Jones | 6b+ | 5.10d | 25 m | Wild Child Wall | ★★★；必爬路線，可能再難一點；全鈦栓 |
+| Old School | 7a+ | 5.12a | 18 m | Wild Child Wall | ★★★；3 支鈦栓 + 1 條吊帶 |
 | Scorpion | 7b | 5.12b | 33 m | The Lounge | ★★★；**確保點前有兩支岩栓，走左邊的線** |
 | Rex Kwan-Do | 7b | 5.12b | 17 m | The Lounge | ★★；全鈦栓 |
 | Grace | 7a | 5.11d | 22 m | The Mezzanine | ★★★；與 Hunting Shrooms 共用起步後往右 |
@@ -241,6 +261,13 @@ Chong Phli 沒有真正的白板路線，但有幾條短而簡單的線適合暖
 | I Am Ironman / Ironman | 7c+ | 5.13a | 34 m | The Mezzanine | ★★；Exposure 上方的延伸 |
 | Lord Jesus | 8a | 5.13b | 25 m | Sweet Brown Wall | ★；與 There's a Fire 共用起步後走左邊的岩栓線；全鈦栓 |
 | Frankenstein - Open Project | 8c/c+ | 5.14b | 30 m | Machete Wall | ★★★；**開放專案**；「史詩般的攀爬！絕對經典！請試試」；14 支鈦栓 |
+| Wild Child | 8a | 5.13b | 18 m | Wild Child Wall | 0 星；**級數未確認**；5 支鈦栓 + 1 條吊帶 |
+| RTT / Rubber Tapping Tranny | 8a | 5.13b | 20 m | Wild Child Wall | ★★★；級數由 fedor 與 tim 確認 |
+| A Pinch Tu-far | 7c | 5.12d | 10 m | Hearth Cave | ★★★；陡牆、薄 tufa，又短又辣 |
+| Fin de Chalam | 7a | 5.11d | 20 m | Hearth Cave | ★★；Chong Phli Posse 最左的延伸，離地 31 m |
+| Eminem | 7a | 5.11d | 10 m | Hearth Cave | ★★；「他的手心冒汗、膝蓋發軟、雙臂沉重⋯⋯」 |
+| Soulshine | 7a+ | 5.12a | 15 m | Music Wall | ★★；大 ledge 左手邊，細裂縫起步 |
+| Walking on the Moon | 7c+ | 5.13a | 20 m | Music Wall | ★★；直接走左手邊角落，sloper、smear 與 pocket |
 
 **這裡的「開放專案」是特色，不是缺點。** Scorpion Queen、Mars Attacks 與 Frankenstein 三條 8 級線都是有人開了但級數還在確認中。**如果你想爬的是「全泰最難」而不是「已有共識級數最難」，這三條就是目標。**
 

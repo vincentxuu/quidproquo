@@ -14,6 +14,9 @@
 - 🟢 三條 8 級開放專案（Scorpion Queen 8b+/c、Mars Attacks 8c/c+、Frankenstein 8c/c+）：theCrag 描述原文標「OPEN PROJECT」「please try」，正文明寫「有人開了但級數還在確認中」。
 - 🟢 嵌岩栓：Shrek（6a+）8 條繩環、Rampage（6c+）4 支岩栓、Momentum（6b+）第一條吊帶可能要 stick-clip、Eightish 全鈦栓：逐條核對。
 
+- 🟢 **完整抓取後的規模**：theCrag 收 157 條，10 個子區（Ego Free Zone 32、The Lounge 25、The Mezzanine 25、Machete Wall 21、Hearth Cave 15、The Cave 11、The Far Side 10、Music Wall 8、Sweet Brown Wall 6、Wild Child Wall 4）合計 146 條，另 11 條在 theCrag 的子區頁未列出。
+- 🟢 Hearth Cave 15 條、Music Wall 8 條、Wild Child Wall 4 條逐條核對，含岩栓警告（Dude Abides「確保點快扣會張很開、起步繩芯外露」、Stone Rider「確保點快扣開得很緊」）與 Wild Child 8a「級數未確認」。
+
 ## post-review
 
 這篇的功能是「可以住的岩場」。讀完後能做的決定：住岩場旁還是 Ao Nang 市區、哪一天去哪一面牆、繩要帶多長。

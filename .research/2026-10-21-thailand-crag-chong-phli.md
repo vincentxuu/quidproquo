@@ -133,6 +133,33 @@
 - The Far Side: 6c Something Darkside 18 m ★2
 - The Far Side: 6a It's a Mammoth 12 m ★1
 - The Far Side: 6c Early Experiments in Transportation 18 m ★2
+- Hearth Cave: 6c Chopped on the Guidebook 22 m ★2
+- Hearth Cave: 6a Baba Max 14 m ★2
+- Hearth Cave: 6a+ Dude Abides 24 m ★1 ⚠ Fixed Gear: Rope to start route core exposed
+- Hearth Cave: 6c+ Smoked Out 25 m ★2
+- Hearth Cave: 6a Round the Outside 16 m ★1
+- Hearth Cave: 6c Chong Phli Posse 11 m ★2
+- Hearth Cave: 7a Fin de Chalam 20 m ★2
+- Hearth Cave: 6b Flying Snake 18 m ★2
+- Hearth Cave: 6b+ Stone Rider 20 m ★2 ⚠ Fixed Gear: Anchor carabiner opens very hard
+- Hearth Cave: 7a Eminem 10 m ★2
+- Hearth Cave: 6b Shady 9 m ★2
+- Hearth Cave: 6b+ Slim / Slim Shady 12 m ★2
+- Hearth Cave: 6a Yellow Moon / Tim's Big Smile 15 m ★2
+- Hearth Cave: 6c+ Make it Funky 12 m ★1
+- Hearth Cave: 7c A Pinch Tu-far 10 m ★3
+- Music Wall: 7c+ Walking on the Moon 20 m ★2
+- Music Wall: 6c Steal Your Face 22 m ★2
+- Music Wall: 6b Into the Mystic 20 m ★2
+- Music Wall: 6a Hell in a Bucket 10 m ★1
+- Music Wall: 7a+ Soulshine 15 m ★2
+- Music Wall: 6b+/c Imagine 15 m ★2
+- Music Wall: 6b Dark Star 15 m ★2
+- Music Wall: 5+ Big Underwear / Dobolina 25 m ★1
+- Wild Child Wall: 8a Wild Child 18 m
+- Wild Child Wall: 7a+ Old School 18 m ★3
+- Wild Child Wall: 8a RTT / Rubber Tapping Tranny 20 m ★3
+- Wild Child Wall: 6b+ Indi'Jan'a Jones 25 m ★3
 
 ## Dropped / not used
 
