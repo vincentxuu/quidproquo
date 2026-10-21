@@ -1,0 +1,200 @@
+{
+ "note": "theCrag 各頁 2026-10-21 讀取。North Wall 103 條、Chong Phli 157 條、Khao Jeen Lae 127 條、Namphapayai 101 條、Crazy Horse 289 條、Lampang 25 條、Koh Tao 496 條（FB 級數）。Nearby Icons 提供的具名路線不含長度。",
+ "the_north_wall": {
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/1720715394",
+  "routes": 103,
+  "grades": "FR 4b+–9a",
+  "sectors": [
+   {"name": "Mythical Beasts", "routes": 24, "height": "28 m"},
+   {"name": "Hello Welcome", "routes": 5, "height": "22 m"},
+   {"name": "Jurassic X-Mas", "routes": 24, "height": "24 m"},
+   {"name": "Life of Leif", "routes": 19, "height": "22 m"},
+   {"name": "Rock'n Roll", "routes": 28, "height": "24 m"},
+   {"name": "NW Bouldering", "routes": 3, "height": null, "style": "Bouldering"}
+  ],
+  "named_routes": [
+   {"grade": "5", "name": "Carrie On", "stars": 2},
+   {"grade": "6a", "name": "Keep Yourself Alive", "stars": 2},
+   {"grade": "6a+", "name": "Dazed and Confused", "stars": 3},
+   {"grade": "6b", "name": "Natalie", "stars": 3},
+   {"grade": "6b+", "name": "Life of Leif", "stars": 2},
+   {"grade": "6c", "name": "Diana Ross", "stars": 3},
+   {"grade": "6c+", "name": "Santa Sends", "stars": 3},
+   {"grade": "7a", "name": "Cyber Punks", "stars": 2},
+   {"grade": "7a+", "name": "King's Landing", "stars": 3},
+   {"grade": "7b", "name": "King Kong", "stars": 3},
+   {"grade": "7b+", "name": "Godzilla", "stars": 3},
+   {"grade": "7c", "name": "Jaws", "stars": 3},
+   {"grade": "8a", "name": "Can I Play with Madness", "stars": 3}
+  ],
+  "approach": "<5 min",
+  "entry_fee": "50 THB 全日",
+  "bolts": "全為鈦栓（Hilti 500 膠）",
+  "warnings": [
+   "Access: MUST Park Outside — 不要停入口池塘旁，改用 Emerald Muay Thai 拳館入口的停車區",
+   "Beware of thieves — 有竊賊針對攀岩裝備、手機與現金",
+   "禁鑽孔、敲擊岩壁、改造岩面",
+   "私人土地（種植園與住家），須尊重地主與住家隱私"
+  ]
+ },
+ "chong_phli": {
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain",
+  "routes": 157,
+  "grades": "FR 4b+–9a",
+  "sectors": [
+   {"name": "The Lounge / Main face", "routes": 25, "height": "24 m"},
+   {"name": "The Mezzanine / Main face", "routes": 25, "height": "32 m"},
+   {"name": "The Ego Free Zone / Main face", "routes": 32, "height": "25 m"},
+   {"name": "Machete Wall", "routes": 21, "height": "24 m"},
+   {"name": "Sweet Brown Wall", "routes": 6, "height": "22 m"},
+   {"name": "The Far Side", "routes": 10, "height": "18 m"},
+   {"name": "Wild Child Wall", "routes": 4, "height": "20 m"},
+   {"name": "The Cave / Hoi Cave", "routes": 11, "height": "16 m"},
+   {"name": "Hearth Cave", "routes": 15, "height": "16 m"},
+   {"name": "Music Wall", "routes": 8, "height": "18 m"}
+  ],
+  "named_routes": [
+   {"grade": "6a", "name": "Luna Cruise", "stars": 2},
+   {"grade": "6a+", "name": "Spirit Mountain", "stars": 2},
+   {"grade": "6b", "name": "Exfoliation", "stars": 2},
+   {"grade": "6b+/c", "name": "Pill Box", "stars": 2},
+   {"grade": "6c", "name": "Exposure", "stars": 3},
+   {"grade": "6c+", "name": "Hunting Shrooms", "stars": 3},
+   {"grade": "7a", "name": "Grace", "stars": 3},
+   {"grade": "7a+", "name": "Superstition", "stars": 3},
+   {"grade": "7b", "name": "Scorpion", "stars": 3},
+   {"grade": "7b+", "name": "Alien", "stars": 3},
+   {"grade": "7c", "name": "Alpha Male", "stars": 3},
+   {"grade": "8a", "name": "Red Planet", "stars": 3},
+   {"grade": "8a+", "name": "Sumo King", "stars": 3},
+   {"grade": "8b", "name": "White Lion", "stars": 3}
+  ],
+  "bolts": "約 90% 鈦栓，RE-500 膠；部分路線因岩質較軟改用 sling；所有確保點與 sling 每年檢查",
+  "stay": "岩場旁有 homestay 與社區學習中心，有平房可搭帳（需先聯絡）",
+  "access": "私人土地，須尊重、禮貌、帶走垃圾"
+ },
+ "khao_jeen_lae": {
+  "url": "https://www.thecrag.com/en/climbing/thailand/lop-buri-khao-jeen-lair",
+  "routes": 127,
+  "grades": "FR 3a–8a",
+  "sectors": [
+   {"name": "Kitchen Wall", "routes": 19, "height": "21 m"},
+   {"name": "Temple Area", "routes": 38, "height": "46 m"},
+   {"name": "Star Wall", "routes": 10, "height": "35 m"},
+   {"name": "Sukhumvit (Red Wall)", "routes": 15, "height": "24 m"},
+   {"name": "Easter Island", "routes": 2, "height": "44 m"},
+   {"name": "Secret Garden", "routes": 43, "height": "19 m"}
+  ],
+  "named_routes": [
+   {"grade": "6a", "name": "Orchidee", "stars": 2},
+   {"grade": "6b", "name": "Corcovado", "stars": 3},
+   {"grade": "6c", "name": "Stargate", "stars": 3},
+   {"grade": "7a+", "name": "Finger Discourse", "stars": 3}
+  ],
+  "access": "Tolerated。經 Wat Pa Suwannahong 寺院進入，到達與離開都要向僧人打招呼，捐獻 20–100 THB。2023-03 起每天限 20 位攀岩者，須事先登記。下午 6 點前必須離開。車停寺院對面 1st Pitch Thailand 車道，勿停在鐵絲圍籬邊（農機要通行），屋後有廁所。",
+  "approach": "Temple Access 10–20 分鐘（陡但快）；Back Access 20–30 分鐘（經農地到 Secret Garden）",
+  "topos": "theCrag 頁提供三份舊版路線圖：原始開發者（Ben、Jack 等）、TCDA 2017 版、TCDA 2023 重打版"
+ },
+ "namphapayai_camp": {
+  "url": "https://www.thecrag.com/en/climbing/thailand/namphapayai-camp",
+  "routes": 101,
+  "grades": "FR 4a–8b",
+  "sectors": [
+   {"name": "River Wall", "routes": 65, "height": "23 m", "note": "自 2024-01 起因進入問題關閉"},
+   {"name": "School Wall", "routes": 7, "height": "10 m"},
+   {"name": "Bat Cave Wall", "routes": 17, "height": "22 m"},
+   {"name": "Peaceful Wall", "routes": 12, "height": "22 m"}
+  ],
+  "named_routes": [
+   {"grade": "6a", "name": "Zero Point Energy", "stars": 2},
+   {"grade": "6a+", "name": "Mineral Mystic", "stars": 2},
+   {"grade": "6b+", "name": "The Most ... of the World", "stars": 2},
+   {"grade": "6c", "name": "You are a Legend", "stars": 3},
+   {"grade": "7a", "name": "Sweet Lip", "stars": 3},
+   {"grade": "7a+", "name": "Surfer Rosa", "stars": 3},
+   {"grade": "7b", "name": "Jungle's Thai", "stars": 3},
+   {"grade": "7c", "name": "Babel", "stars": 3},
+   {"grade": "8a", "name": "Les Chemins de Katmandou", "stars": 3},
+   {"grade": "8b", "name": "Monty Python's Flying Circus", "stars": 3}
+  ],
+  "access": "營地收 100 THB 跨河吊索與停車費（不住營地也要付）。4 月到 6 月營地休園。River Wall 頁面掛「疑似一年前因進入管制關閉，未見變更」的警告。",
+  "approach": "曼谷東北約 130 km；營地到岩壁約 10 分鐘，過河有 100 m 吊索"
+ },
+ "crazy_horse": {
+  "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai",
+  "routes": 289,
+  "grades": "FR 4a–8b",
+  "sectors_count": 22,
+  "named_routes": [
+   {"grade": "5a", "name": "First Flight", "stars": 3},
+   {"grade": "6a", "name": "The Chimney Sweep", "stars": 2},
+   {"grade": "6a+", "name": "Ruam Jai", "stars": 3},
+   {"grade": "6b", "name": "Magic Drop", "stars": 2},
+   {"grade": "6b+", "name": "Flushed", "stars": 3},
+   {"grade": "6c", "name": "Blood, Love and Steel Pitch 1", "stars": 3},
+   {"grade": "6c+", "name": "Jai Yen Yen", "stars": 3},
+   {"grade": "7a+", "name": "Walk the Plank", "stars": 3},
+   {"grade": "7b", "name": "Intensify", "stars": 3}
+  ],
+  "biggest_sectors": [
+   {"name": "Heart Wall", "routes": 36, "height": "20 m", "note": "從停車場走 15 分鐘"},
+   {"name": "Crazy Horse Area", "routes": 33, "height": "21 m"},
+   {"name": "Reunion Buttress", "routes": 29, "height": "18 m"},
+   {"name": "Anxiety State Crisis Cave", "routes": 24, "height": "31 m"},
+   {"name": "Little Monkey Cove", "routes": 25, "height": "15 m"},
+   {"name": "The Aircon Wall", "routes": 19, "height": "14 m"},
+   {"name": "Tamarind Village", "routes": 15, "height": "16 m"}
+  ],
+  "approach": "多數子區從停車場走幾分鐘；Heart Wall 15 分鐘。停車場是土路，計程車可能只送你到主路，需步行上坡 10–15 分鐘。到清邁市區約 45 分鐘車程。清邁市區的 CMRCA 辦公室可買北泰指南（500 泰銖）並提供接駁。",
+  "access": "封閉／重開史：2018-07 封閉、2022-09 重開、2024-06 又出現禁止告示。沒有找到官方重開公告。"
+ },
+ "koh_tao": {
+  "url": "https://www.thecrag.com/en/climbing/thailand/koh-tao",
+  "routes": 496,
+  "grades": "FB 1A+–8A+（抱石為主）",
+  "sectors": [
+   {"name": "Backyard & Frontyard", "routes": 123, "style": "Bouldering"},
+   {"name": "Lang Khai / Yang", "routes": 80, "style": "Bouldering, Sport climbing"},
+   {"name": "Tanote Bay", "routes": 68, "style": "Sport, Bouldering, Trad"},
+   {"name": "Golden View Area", "routes": 48, "style": "Mostly Sport climbing", "height": "16 m"},
+   {"name": "Mek's Mountain", "routes": 44, "style": "Sport, Top rope, Trad"},
+   {"name": "Babaloo", "routes": 34, "style": "Bouldering"},
+   {"name": "Secret garden", "routes": 34, "style": "Bouldering"},
+   {"name": "Jansom Bay", "routes": 14, "style": "Mostly Sport climbing"},
+   {"name": "The Dome", "routes": 11, "style": "Mostly Sport climbing"},
+   {"name": "The Elephant", "routes": 10, "style": "Top rope and Bouldering"},
+   {"name": "Cabana / North Sairee beach", "routes": 9, "style": "Bouldering"},
+   {"name": "Temple Rock", "routes": 9, "style": "Sport climbing"},
+   {"name": "Flyin' High", "routes": 6, "style": "Sport climbing"},
+   {"name": "Leam Thian Coast", "routes": 4, "style": "Top rope and Trad"},
+   {"name": "Mao Rock", "routes": 2, "style": "Trad"}
+  ],
+  "named_routes": [
+   {"grade": "5b", "name": "Trust your Feet", "stars": 2},
+   {"grade": "5c", "name": "River", "stars": 2},
+   {"grade": "6a/a+", "name": "Balance", "stars": 2},
+   {"grade": "6a+", "name": "The Edge", "stars": 2},
+   {"grade": "6b", "name": "Grunt Force", "stars": 3},
+   {"grade": "6b+", "name": "Do It!", "stars": 3},
+   {"grade": "6c+", "name": "Titan", "stars": 3},
+   {"grade": "7a+", "name": "Trauma Extension", "stars": 3},
+   {"grade": "7b+", "name": "Mucalinda Naga", "stars": 3},
+   {"grade": "7B", "name": "Flying To The Moon", "stars": 3}
+  ],
+  "access": "部分岩場進入敏感，須先聯絡 Koh Tao Climbing Club。未經俱樂部許可不可自行打栓。租借在 Goodtime Adventures 與 The Bunker。",
+  "guidebook": "Rakkup App（US$8，收益全數投入路線開發維護）；The Bunker 可用 QR code 取免費 PDF 指南"
+ },
+ "lampang": {
+  "url": "https://www.thecrag.com/en/climbing/thailand/area/5727439374",
+  "routes": 25,
+  "grades": "FR 5b–6c+",
+  "sectors": [
+   {"name": "The Veteran Wall", "routes": 11, "height": "21 m"},
+   {"name": "The Ranger wall", "routes": 10, "height": "25 m"},
+   {"name": "No Name", "routes": 4, "height": null}
+  ],
+  "access": "軍方土地，Paid + Private。必須事先向 CMRCA 取得許可並付費，CMRCA 嚮導在場才開放。",
+  "approach": "停車場到岩壁 5–10 分鐘",
+  "loose": "theCrag 明寫鬆石仍多，要戴頭盔"
+ }
+}

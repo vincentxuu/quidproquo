@@ -1,0 +1,408 @@
+{
+  "sector": "Jurassic X-Mas",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/1720720308",
+  "area_route_count": 24,
+  "grade_system": "FR",
+  "area_warnings": [
+    {
+      "warning": "Flora and Fauna: Update: Hornet situation as of 9.3.2026",
+      "source": "sector"
+    },
+    {
+      "warning": "Access: MUST Park Outside",
+      "source": "inherited from parent crag"
+    },
+    {
+      "warning": "Access: Beware of thieves!",
+      "source": "inherited from parent crag"
+    }
+  ],
+  "routes": [
+    {
+      "grade": "7b+",
+      "stars": 3,
+      "name": "BAO",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/11084357583",
+      "style": "Sport",
+      "length": "34m",
+      "pitches": null,
+      "bolts": 12,
+      "pitches_detail": null,
+      "desc": "Start on a big jug under the cave, then continues straight up vertically. Use a clipstick for pre-clipping the first bolt.",
+      "setter": "Stanislav Dzen, Leif & Mike",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "7a+",
+      "stars": 3,
+      "name": "King's Landing",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/1721211840",
+      "style": "Sport",
+      "length": "30m",
+      "pitches": null,
+      "bolts": 14,
+      "pitches_detail": null,
+      "desc": "Starts just right of the small cave. Beautiful climbing at 6b+/c level up to short but intense bouldery crux on the final overhang.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6c",
+      "stars": 2,
+      "name": "Dragon Glass",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/1721211936",
+      "style": "Sport",
+      "length": "27m",
+      "pitches": null,
+      "bolts": 14,
+      "pitches_detail": null,
+      "desc": "Linkup. Starts on 'King's Landing' and finishes on the anchor of 'White Walker'. Traverse right at the last sling before the final overhang.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "7b+",
+      "stars": 3,
+      "name": "White Walker",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/1721212029",
+      "style": "Sport",
+      "length": "27m",
+      "pitches": null,
+      "bolts": 15,
+      "pitches_detail": null,
+      "desc": "Starts just right of 'King's Landing'. Short crux, then easier.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "7a+",
+      "stars": 2,
+      "name": "Mr Ya",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/7161819429",
+      "style": "Sport",
+      "length": "23m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Starts left of the tufa.",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6c+",
+      "stars": 3,
+      "name": "Santa Sends",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/1721212122",
+      "style": "Sport",
+      "length": "26m",
+      "pitches": null,
+      "bolts": 13,
+      "pitches_detail": null,
+      "desc": "Sustained and consistent with a couple of small cruxes. 'Santa Sends' and 'Dr Desire' were the first two routes at North Wall.",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Dr Desire",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/1721212215",
+      "style": "Sport",
+      "length": "33m",
+      "pitches": null,
+      "bolts": 17,
+      "pitches_detail": null,
+      "desc": "_60m rope is minimum. Tie a knot at the end of the rope._",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6a+",
+      "stars": 2,
+      "name": "Slippery When Wet",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/5078627913",
+      "style": "Sport",
+      "length": "18m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Tufa is slippery when wet - hence the route name. 1 bolt, 9 slings.",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6b+",
+      "stars": 2,
+      "name": "Backscratcher",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/1721212308",
+      "style": "Sport",
+      "length": "18m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Honey Hunter",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/1721212401",
+      "style": "Sport",
+      "length": "18m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 2,
+      "name": "Find a Heart",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3425169456",
+      "style": "Sport",
+      "length": "18m",
+      "pitches": null,
+      "bolts": 13,
+      "pitches_detail": null,
+      "desc": "4 bolts, 9 slings.",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Crazy Amounts of Pleasure",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/4911531489",
+      "style": "Sport",
+      "length": "18m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Tricky first bulge. Then straight up to the anchor below the roof. 4 bolts, 6 slings.",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6c",
+      "stars": 2,
+      "name": "Gravity",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3425171157",
+      "style": "Sport",
+      "length": "18m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Warning Fixed Gear: Do not top rope from the ring at the anchor",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek",
+      "warnings": [
+        "Fixed Gear: Do not top rope from the ring at the anchor",
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6c",
+      "stars": 3,
+      "name": "Diana Ross",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/1721212503",
+      "style": "Sport",
+      "length": "23m",
+      "pitches": null,
+      "bolts": 11,
+      "pitches_detail": null,
+      "desc": "Follow the fixed red draws to go straight up. Once climbed over the ledge, turn right for one more clip. The anchor is right around the corner. Fixed draws all the way - only one QD required for the first sling.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "7a",
+      "stars": 2,
+      "name": "Gladiator",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/4911367479",
+      "style": "Sport",
+      "length": "30m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Climb 'Diana Ross' to the ledge and then left into the horizontal roof for 'Gladiator' finish. Shares anchor with 'Diana Ross Extension'. Has fixed draws.",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "7b",
+      "stars": 3,
+      "name": "Diana Ross Extension",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3418235529",
+      "style": "Sport",
+      "length": "25m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "From the 'Diana Ross' anchor, climb through the roof using fixed draws. Shares anchor with 'Gladiator'.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "7a",
+      "stars": 2,
+      "name": "Blood Moon",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/1721212584",
+      "style": "Sport",
+      "length": "18m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Short crux in the roof. Start and finish easier. 5 titanium bolts, 5 slings.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "7a",
+      "stars": 2,
+      "name": "New Moon",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/4911369360",
+      "style": "Sport",
+      "length": null,
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Shares same start as 'Blood Moon' then climb right through roof/crack.",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "7a",
+      "stars": 2,
+      "name": "Full Moon",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/5080095129",
+      "style": "Sport",
+      "length": null,
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Same start as 'Blood Moon'. After the overhang section, climb left through the small roof.",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 1,
+      "name": "The Stoneman",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3098080905",
+      "style": "Sport",
+      "length": "20m",
+      "pitches": null,
+      "bolts": 11,
+      "pitches_detail": null,
+      "desc": "Warning Fixed Gear: Top anchor rope super shredded Starts in the corner. Finishes at the anchor left of 'Carrie On'.",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek",
+      "warnings": [
+        "Fixed Gear: Top anchor rope super shredded",
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "5",
+      "stars": 2,
+      "name": "Carrie On",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3098145855",
+      "style": "Sport",
+      "length": "20m",
+      "pitches": null,
+      "bolts": 12,
+      "pitches_detail": null,
+      "desc": "Starts on the tufa. Finishes on the anchor to the right of 'The Stoneman'.",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6a+",
+      "stars": 2,
+      "name": "Queen of the Highway",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/1721212716",
+      "style": "Sport",
+      "length": "32m",
+      "pitches": null,
+      "bolts": 17,
+      "pitches_detail": null,
+      "desc": "Starts up the ladder, left of 'Lizard King'. Cruxy dihedral right at the start, then easier. 4 bolts, 13 slings.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6a+",
+      "stars": 2,
+      "name": "Lizard King",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/1721212839",
+      "style": "Sport",
+      "length": "23m",
+      "pitches": null,
+      "bolts": 11,
+      "pitches_detail": null,
+      "desc": "Starts up the ladder, right of 'Queen of the Highway'. 5 bolts, 6 slings.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 2,
+      "name": "Tufantastic",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/11105507037",
+      "style": "Sport",
+      "length": "23m",
+      "pitches": null,
+      "bolts": 12,
+      "pitches_detail": null,
+      "desc": "Adventurous route that goes round the tufa system. Starts to the right of 'the Stoneman', finishes to the right of 'Lizard King'. To avoid rope drag the lead climber should unclip bolt 1 after clipping bolt 2, and unclip bolt 2 after clipping bolt 3\\. To make it safe for the toprope climber, these need to be clipped back in with a stickclip.",
+      "setter": "Rock and Sun",
+      "warnings": [
+        "Flora and Fauna: Update: Hornet situation as of 9.3.2026"
+      ]
+    }
+  ]
+}

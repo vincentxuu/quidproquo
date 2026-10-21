@@ -1,0 +1,148 @@
+{
+  "sector": "Low Tide Wall",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687529",
+  "area_route_count": 9,
+  "routes": [
+    {
+      "grade": "6a",
+      "stars": 0,
+      "name": "A Walk in the Park",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714041",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "1 titanium bolt, 3 slings.",
+      "setter": "Glenn Tempest, B Everett, K Everett & S Mason, 1993",
+      "warnings": []
+    },
+    {
+      "grade": "7a",
+      "stars": 3,
+      "name": "The Narsilion",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714119",
+      "style": "Sport",
+      "length": "22 m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "All titanium bolts.",
+      "setter": "Sam Lightner & Jacob Valdez, 1991",
+      "warnings": []
+    },
+    {
+      "grade": "7c",
+      "stars": 3,
+      "name": "Definitely Makes You Whinge",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714239",
+      "style": "Sport",
+      "length": "30 m",
+      "pitches": null,
+      "bolts": 12,
+      "pitches_detail": null,
+      "desc": "11 titanium bolts, 1 sling.",
+      "setter": "Ralf Tenbrink, 1992",
+      "warnings": []
+    },
+    {
+      "grade": "7a+",
+      "stars": 3,
+      "name": "Strider",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714335",
+      "style": "Sport",
+      "length": "28 m",
+      "pitches": null,
+      "bolts": 11,
+      "pitches_detail": null,
+      "desc": "All titanium bolts.",
+      "setter": "Sam Lightner, 1991",
+      "warnings": []
+    },
+    {
+      "grade": "8a+",
+      "stars": 0,
+      "name": "Strider (Direct)",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3109692369",
+      "style": "Top rope",
+      "length": "28 m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "No bolts, toprope from 'Strider'.",
+      "setter": "Alex Catlin, 1996",
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 1,
+      "name": "Low Tide",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714431",
+      "style": "Sport",
+      "length": "45 m",
+      "pitches": 2,
+      "bolts": 17,
+      "pitches_detail": [
+        "1 6b 20m",
+        "2 6b 25m"
+      ],
+      "desc": "Crux at the start harder than graded. 1. 7 titanium bolts. 2. 9 titanium bolts, 1 sling.",
+      "setter": "Ralf Tenbrink & Somporn Suebhait, 1992",
+      "warnings": []
+    },
+    {
+      "grade": "6b+",
+      "stars": 1,
+      "name": "High Tide",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714527",
+      "style": "Sport",
+      "length": "53 m",
+      "pitches": 2,
+      "bolts": 13,
+      "pitches_detail": [
+        "1 6b 28m",
+        "2 6b+ 25m"
+      ],
+      "desc": "Not rebolted with titanium. P1 on stainless glue-ins, P2 old expansion bolts. Do not climb!",
+      "setter": "Paul Brunner, 1997",
+      "warnings": [
+        "Fixed Gear: Not rebolted with titanium. P1 on stainless glue-ins, P2 old expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6c",
+      "stars": 0,
+      "name": "Camp Seven",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3109816134",
+      "style": "Sport",
+      "length": "32 m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb!",
+      "setter": "Hubert Steiner, Sepp Josshoter, Franz Wohlfahrt & Susanne Gumpold, 2007",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "5c",
+      "stars": 0,
+      "name": "Via Maria",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3109816233",
+      "style": "Sport",
+      "length": "32 m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb!",
+      "setter": "Hubert Steiner, Sepp Josshoter, Susanne Gumpold & Franz Wohlfahrt, 2007",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    }
+  ]
+}

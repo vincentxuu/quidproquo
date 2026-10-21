@@ -1,0 +1,472 @@
+{
+  "sector": "Rock'n Roll",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/1720722477",
+  "area_route_count": 28,
+  "grade_system": "FR",
+  "area_warnings": [
+    {
+      "warning": "Flora and Fauna: Bird nest",
+      "source": "sector"
+    },
+    {
+      "warning": "Access: MUST Park Outside",
+      "source": "inherited from parent crag"
+    },
+    {
+      "warning": "Access: Beware of thieves!",
+      "source": "inherited from parent crag"
+    }
+  ],
+  "routes": [
+    {
+      "grade": "6a+",
+      "stars": 2,
+      "name": "Sushi",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/4911392262",
+      "style": "Sport",
+      "length": "14m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Everybody likes Sushi! Shares anchors with 'Wasabi'. 1 bolt, 4 slings.",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6c",
+      "stars": 2,
+      "name": "Wasabi",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/4911393834",
+      "style": "Sport",
+      "length": "14m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Sushi'.",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "7b",
+      "stars": 3,
+      "name": "Sexual Climber",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/4911396357",
+      "style": "Sport",
+      "length": "18m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "5m extension to either 'Sushi' or 'Wasabi'. After the last bolt of 'Wasabi', head up right to the anchors of 'Air Jordan'.",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6a+",
+      "stars": 3,
+      "name": "Dazed and Confused",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/4911390486",
+      "style": "Sport",
+      "length": "30m",
+      "pitches": null,
+      "bolts": 14,
+      "pitches_detail": null,
+      "desc": "Start on top of pedestal. After vertical crack traverse right stepping across gap and continue right and up the tufa systems.",
+      "setter": null,
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "7b",
+      "stars": 2,
+      "name": "Red Lining / Red Lining.to the Max",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/5627311524",
+      "style": "Sport",
+      "length": "30m",
+      "pitches": null,
+      "bolts": 15,
+      "pitches_detail": null,
+      "desc": "Same start as 'Dazed and Confused', then head left into the openbook corner. Continue left up the face with the thin tufa to the anchor.",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6c/c+",
+      "stars": 3,
+      "name": "Dazed Lining",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/5928684897",
+      "style": "Sport",
+      "length": "30m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Same start as 'Red Lining', then head left into the openbook corner and continue right up the face with the big tufa to the anchor of 'Dazed and Confused'. Grade needs to be settled. Please mark your grade (6c or 6c+) when logging ascents.",
+      "setter": null,
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "8a",
+      "stars": 2,
+      "name": "Air Jordan",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/4911400416",
+      "style": "Sport",
+      "length": "18m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Same start as 'Red Lining'/'Dazed and Confused', then left via crazy Superman-dyno to the big hole. Shares anchors with 'Sexual Climber'. 8 bolts, 2 slings. Grade needs confirmation, please try!",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 1,
+      "name": "Motor City Madhouse",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3053215353",
+      "style": "Sport",
+      "length": "20m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Up the ladder. Gives access to the following routes, all starting from the Rock'n Roll ledge.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6c",
+      "stars": 3,
+      "name": "Vagabonds of the Western World",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3053219190",
+      "style": "Sport",
+      "length": "30m",
+      "pitches": null,
+      "bolts": 15,
+      "pitches_detail": null,
+      "desc": "Left route starting from the left belay anchor on the Rock'n Roll ledge. Access via 'Motor City Madhouse'.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "8a",
+      "stars": 2,
+      "name": "Tangled up in Blue",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3053267088",
+      "style": "Sport",
+      "length": "30m",
+      "pitches": null,
+      "bolts": 16,
+      "pitches_detail": null,
+      "desc": "Warning Flora and Fauna: Hornets Right route starting from the left belay anchor on the Rock'n Roll ledge. Access via 'Motor City Madhouse'.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Hornets",
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "7b+",
+      "stars": 3,
+      "name": "Shotgun Blues",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3053292759",
+      "style": "Sport",
+      "length": "25m",
+      "pitches": null,
+      "bolts": 14,
+      "pitches_detail": null,
+      "desc": "Leftmost route on the right side of the Rock'n Roll ledge. Access via 'Motor City Madhouse' and traversing right along the fixed rope.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "7a",
+      "stars": 2,
+      "name": "Creep",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3096192147",
+      "style": "Sport",
+      "length": "14m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Middle line starting from the right belay anchor on the Rock'n Roll ledge. Access via 'Motor City Madhouse' and traversing right along the fixed rope.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "7a+",
+      "stars": 2,
+      "name": "Master of Puppets",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3096896505",
+      "style": "Sport",
+      "length": "18m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Right line starting from the right belay anchor on the Rock'n Roll ledge. Access via 'Motor City Madhouse' and traversing right along the fixed rope. Climb up and right of the huge stalactite above the belay.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6c",
+      "stars": 3,
+      "name": "Lady Rose",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/4742249145",
+      "style": "Sport",
+      "length": "20m",
+      "pitches": null,
+      "bolts": 12,
+      "pitches_detail": null,
+      "desc": "Warning Fixed Gear: Two slings need replacing First climb to left of 'Can I Play with Madness'. Climb past 3 bolts, step over the ledge, clipping slings, and traverse around/out onto the bulging face and arête to finish.",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Fixed Gear: Two slings need replacing",
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "8a",
+      "stars": 3,
+      "name": "Can I Play with Madness",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3053307279",
+      "style": "Sport",
+      "length": "20m",
+      "pitches": null,
+      "bolts": 11,
+      "pitches_detail": null,
+      "desc": "The straight line to the right anchor on the Rock'n Roll ledge, up the white face. All titanium bolts.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "7c+",
+      "stars": 3,
+      "name": "Mad Max",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/4524891663",
+      "style": "Sport",
+      "length": null,
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Shares the first jug-hold on 'Can I Play with Madness', then immediately head right and up the face towards the tufa. (No sidewall bridging to right).",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "9a",
+      "stars": 3,
+      "name": "Furiosa",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/5929235886",
+      "style": "Sport",
+      "length": null,
+      "pitches": null,
+      "bolts": 13,
+      "pitches_detail": null,
+      "desc": "Four-bolt extension to 'Mad Max'. Open project. Please try!",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 2,
+      "name": "Keep Yourself Alive",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/2275149492",
+      "style": "Sport",
+      "length": "25m",
+      "pitches": null,
+      "bolts": 13,
+      "pitches_detail": null,
+      "desc": "Must-do climb! Climbs the obvious corner right of 'Mad Max'. Jugs and bridging, slightly polished footholds. All titanium bolts.",
+      "setter": "Jonas Wallin & Leif Backstrom",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6c",
+      "stars": 2,
+      "name": "Simon's Tales",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/4911379698",
+      "style": "Sport",
+      "length": "25m",
+      "pitches": null,
+      "bolts": 15,
+      "pitches_detail": null,
+      "desc": "Start up the overhang and exit the lip with some bridging and straight up the arête. Shares anchors with 'Keep Yourself Alive'.",
+      "setter": "Dave Hood & Daling Rivera",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Thunderstruck",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/2277079668",
+      "style": "Sport",
+      "length": "27m",
+      "pitches": null,
+      "bolts": 17,
+      "pitches_detail": null,
+      "desc": "Shares the start with 'Heartbreaker', then left towards the cave after the 4th clip and up on the inside of the pillar. Rejoins with 'Heartbreaker' after the 10th clip. 9 bolts, 8 slings.",
+      "setter": "Jonas Wallin & Leif Backstrom",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6c",
+      "stars": 2,
+      "name": "Heartbreaker",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/2277091473",
+      "style": "Sport",
+      "length": "27m",
+      "pitches": null,
+      "bolts": 17,
+      "pitches_detail": null,
+      "desc": "Shares the start with 'Thunderstruck'. Veers right after the 4th clip into the white tufa pipes. Rejoins with 'Thunderstruck' about halfway. 5 bolts, 12 slings.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6b+",
+      "stars": 2,
+      "name": "Spanish Caravan",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/2279535774",
+      "style": "Sport",
+      "length": "29m",
+      "pitches": null,
+      "bolts": 15,
+      "pitches_detail": null,
+      "desc": "Straight up the steep orange-white rock into the white tufa pipes. Joins up with 'The Passenger' about halfway. 6 bolts, 9 slings.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "The Passenger",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/2275150338",
+      "style": "Sport",
+      "length": "29m",
+      "pitches": null,
+      "bolts": 18,
+      "pitches_detail": null,
+      "desc": "Climbs up on orange tufas, 3m right of 'Spanish Caravan'. Then slightly left to join 'Spanish Caravan' on the ledge about halfway. 8 bolts, 10 slings.",
+      "setter": "Jonas Wallin & Leif Backstrom",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "5c",
+      "stars": 2,
+      "name": "Psycho Killer",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/8788543551",
+      "style": "Sport",
+      "length": "26m",
+      "pitches": null,
+      "bolts": 13,
+      "pitches_detail": null,
+      "desc": "Easy sustained climbing all the way to the roof, a perfect warm up. It's the second to last route at the sector (starts left of 'The End'). At the anchor it's possible to continue into 'Freebird'. 9 bolts, 4 slings",
+      "setter": "Christian Womack & Dennie Vester",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "6a+",
+      "stars": 2,
+      "name": "Freebird",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/4795259166",
+      "style": "Sport",
+      "length": "32m",
+      "pitches": null,
+      "bolts": 11,
+      "pitches_detail": null,
+      "desc": "Same start as 'The End' for 6 bolts, then go left.",
+      "setter": "Mike",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "7a",
+      "stars": 2,
+      "name": "The End",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3071727924",
+      "style": "Sport",
+      "length": "32m",
+      "pitches": null,
+      "bolts": 12,
+      "pitches_detail": null,
+      "desc": "About 5m right of 'The Passenger', on structured brown and white rock. Fun moves on crimps towards the anchor. Titanium bolts and slings.",
+      "setter": "Jonas Wallin",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "4+",
+      "stars": 0,
+      "name": "Krabi Bolt Fund",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/13246417992",
+      "style": "Sport",
+      "length": "22m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "To the right of 'The End'. Has its own anchor.",
+      "setter": "Rock and Sun",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    },
+    {
+      "grade": "4+",
+      "stars": 0,
+      "name": "Rock & Sun",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/13246433349",
+      "style": "Sport",
+      "length": "22m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "To the right of Krabi Bolt Fund. Has its own anchor.",
+      "setter": "Rock and Sun",
+      "warnings": [
+        "Flora and Fauna: Bird nest"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,459 @@
+# Tonsai 通賽島 evidence
+
+2026-10-21. Scope: Tonsai（theCrag 448 條，23 個子區）——最多路線也最擁擠的島，兩個整區關閉、多段密集、岩栓狀況逐線不同。讀者決定：住哪一側、避開哪幾條、多段要帶幾條繩。
+
+## Sources opened
+
+- theCrag: Ton Sai https://www.thecrag.com/en/climbing/thailand/krabi/area/3097160649: 448 條路線、25,344 次攀登、FR 4a–9a；24 個子區；「5c 到 8c、三維石灰岩、巨大 jug 到小 pocket、鐘乳石、tufa、洞穴」；無公路、長尾船只在白天行駛；不可露營
+- theCrag: Ton Sai Wall & Roof https://www.thecrag.com/en/climbing/thailand/krabi/area/15687961: 64 條逐線路線；Humanity 6b+ 110 m 7 段的段數與「Dangerous and never climbed」警告
+- theCrag: Dum's Kitchen https://www.thecrag.com/en/climbing/thailand/krabi/area/15687937: 36 條逐線路線；Greed 8c+「目前泰國最難的一條攀登」；Beauty and the Beast 與 Aunt Mary Johanna 已關閉
+- theCrag: Fire Wall https://www.thecrag.com/en/climbing/thailand/krabi/area/15688129: 21 條逐線路線；雨天乾燥與否取決於風向；Flame Thrower 等不可爬
+- theCrag: Eagle Wall https://www.thecrag.com/en/climbing/thailand/krabi/area/15688201: 36 條（Left Side 14／Main Face 17／Lord of the Fives 5）；Mai Rhu Sheu 不可爬、Totem Pole 已關閉
+- theCrag: Melting Wall https://www.thecrag.com/en/climbing/thailand/krabi/area/15688153: 21 條逐線路線；Cross Eyed 7b、Black Bird 8b+
+- theCrag: Shadow Wall https://www.thecrag.com/en/climbing/thailand/krabi/area/15688273: 12 條，整區標 Closed，每條寫「舊吊帶，不要爬」
+- theCrag: Iguana Park https://www.thecrag.com/en/climbing/thailand/krabi/area/9031319541: 6 條，整區標 Closed
+- theCrag: Big Wave Pillar https://www.thecrag.com/en/climbing/thailand/krabi/area/15688033: 7 條逐線路線；Big Wave 6b 110 m、Short Wave 6a+ 已關閉
+- theCrag: Resort Cave https://www.thecrag.com/en/climbing/thailand/krabi/area/3115780452: 6 條；Sysiphus 8a 與 Sissyfuss 8b 共用起步與確保點；另 4 條舊膨脹栓不可爬
+- theCrag: Generator Wall https://www.thecrag.com/en/climbing/thailand/krabi/area/15688297: 6 條；5 條寫「舊吊帶，準備自己更換」
+- theCrag: Monkey World https://www.thecrag.com/en/climbing/thailand/krabi/area/10833284451: 15 條逐線路線；兩條多段有藤蔓擋住通往 belay ledge 的警告；Holy Wall 不可爬
+- thetopo: Ton Sai 描述 https://www.thetopo.com/crags/ton-sai/description: Generator Wall「尚未重打，強烈不建議攀爬」
+- Basecamp Tonsai 2025-10 住宿現況 https://basecamptonsai.substack.com/p/how-to-tonsai: 營業中與永久關閉的住宿名單、Basecamp 每晚 700–950 THB、訂金 100 歐元、至少 5 晚、旺季 12 月中到 3 月初
+- Railay: 換栓計畫 http://www.railay.com/railay/climbing/climbing_rebolting.shtml: 實際重打清單在當地店內的列印表；沒有公開線上版本
+
+## Exact route rows
+
+- Ton Sai Wall & Roof: 5 Tarzan 30m ★1
+- Ton Sai Wall & Roof: 8a Eviction 52m ★3
+- Ton Sai Wall & Roof: 7c+ Eviction (Variation) 56m
+- Ton Sai Wall & Roof: 7c Bird's Nest Drop 20m ⚠ Old stainless steel glue-in bolts. / Do not climb!
+- Ton Sai Wall & Roof: 6b+ Humanality 110m ★3 ⚠ Dangerous and never climbed.
+- Ton Sai Wall & Roof: 6b Human Frality 92m ★1
+- Ton Sai Wall & Roof: Open Project
+- Ton Sai Wall & Roof: 7c Planet Ton Sai
+- Ton Sai Wall & Roof: 6b I No Speak England 25m ★2
+- Ton Sai Wall & Roof: 6b Cowabungalow 25m ★2
+- Ton Sai Wall & Roof: 6c+ Super Liam 28m ★1
+- Ton Sai Wall & Roof: 7a Sweating Mekong 20m ★2
+- Ton Sai Wall & Roof: 6c Viking in Heat 20m ★2
+- Ton Sai Wall & Roof: 7b Ya Rup Rup 22m ★2
+- Ton Sai Wall & Roof: 6c Hin Rong Hai 22m ★2
+- Ton Sai Wall & Roof: 7a Big Guy Loosing the Cat 11m ★2
+- Ton Sai Wall & Roof: 7a Silkcat 11m ★1
+- Ton Sai Wall & Roof: 7a Tom Yum 10m ★2
+- Ton Sai Wall & Roof: 7a+ Trade Winds 11m ★1
+- Ton Sai Wall & Roof: 7a+ Dry Net 15m ★2
+- Ton Sai Wall & Roof: 6b+ On the Terrace 20m ★2
+- Ton Sai Wall & Roof: 6b For You & For Me 8m ★1
+- Ton Sai Wall & Roof: 7a+ Riesenbaby 10m ★2
+- Ton Sai Wall & Roof: 7c+ Spanish Wreck 15m ★2 ⚠ Flora and Fauna: Wasps/Hornets
+- Ton Sai Wall & Roof: 8b+ Dragon Ball 15m ★2
+- Ton Sai Wall & Roof: 8a+ Old Chicken Makes a Good Soup 15m ★2
+- Ton Sai Wall & Roof: 7c+ Hang Ten 9m ★2
+- Ton Sai Wall & Roof: 7c Tidal Wave 10m ★3
+- Ton Sai Wall & Roof: 7c Baby Gorilla 7m ★2
+- Ton Sai Wall & Roof: Sunrise West Way 15m ⚠ Old stainless steel glue-in bolts. / Do not climb!
+- Ton Sai Wall & Roof: Angle Couple 15m ⚠ Old stainless steel glue-in bolts. / Do not climb!
+- Ton Sai Wall & Roof: 8a+ Tantrum 12m ★3
+- Ton Sai Wall & Roof: World Peace 15m ⚠ Closed / Closed Old route just left of 'Cafe Andaman', sharing the top section with 'Tantrum'.
+- Ton Sai Wall & Roof: 7b+ Cafe Tantrum 12m ★3
+- Ton Sai Wall & Roof: 7b Café Andaman 10m ★2
+- Ton Sai Wall & Roof: Ton Sai Love Story 15m ★2 ⚠ Rusty expansion bolts, anchors seem to have been removed. / Cannot be climbed anymore.
+- Ton Sai Wall & Roof: 7b Ton Sai Playboy 15m ★3
+- Ton Sai Wall & Roof: 7c Playboy Connection 15m ★3
+- Ton Sai Wall & Roof: 7c+ Mafia Connection 13m ★2
+- Ton Sai Wall & Roof: 7c Mafia Lover 13m ★3
+- Ton Sai Wall & Roof: 7a+ Love for Travelling 13m ★2
+- Ton Sai Wall & Roof: 7c Just Dusit 12m ★3
+- Ton Sai Wall & Roof: 7b Germans in Tights 12m ★2
+- Ton Sai Wall & Roof: 7a+ Second Home Ton Sai 13m ★2
+- Ton Sai Wall & Roof: 6c Beauty and the Beast 15m ★2 ⚠ Closed / Closed The route has been closed and the crux bolts removed (see comments).
+- Ton Sai Wall & Roof: 6c+ Stalagasaurus 13m ★2
+- Ton Sai Wall & Roof: 7a Babes in Thailand 12m ★3
+- Ton Sai Wall & Roof: 8a Sex Power 13m ★3
+- Ton Sai Wall & Roof: 7a+ Lal Bab 14m ★2
+- Ton Sai Wall & Roof: 8a Elephant 13m ★2
+- Ton Sai Wall & Roof: 7c Banshee 15m ★3
+- Ton Sai Wall & Roof: 8a+ Cream of Tom Yum Kai 13m ★2
+- Ton Sai Wall & Roof: 8b Ant Jump 13m ★3
+- Ton Sai Wall & Roof: 7c+ Voodoo Doll 15m ★2
+- Ton Sai Wall & Roof: 8a+ Forbidden Paradise 15m
+- Ton Sai Wall & Roof: 7c+ Phet Maak 15m ★3
+- Ton Sai Wall & Roof: 8b Cara Cangreso 15m ★2
+- Ton Sai Wall & Roof: 8b+ Czech Open 15m
+- Ton Sai Wall & Roof: 7c+ Gaeng Som Pla 15m ★3
+- Ton Sai Wall & Roof: 7c Newen 15m ★3
+- Ton Sai Wall & Roof: 8a+ Down Flyer 15m
+- Ton Sai Wall & Roof: 7c Speak No Evil 15m ★2
+- Ton Sai Wall & Roof: 8b+ Kun Suk Khoo 18m
+- Ton Sai Wall & Roof: 7b First Blood 15m ★2
+- Dum's Kitchen: 7c Full Crimp Milk 11m ★2
+- Dum's Kitchen: 8b Wadumori 11m ★2
+- Dum's Kitchen: 7c+ Society of Gravitational Studies 12m ★3
+- Dum's Kitchen: Mama Zu 15m
+- Dum's Kitchen: 8a+ Arts & Sport 15m ★3
+- Dum's Kitchen: 7a+ Wake & Bake 16m ★3
+- Dum's Kitchen: 7a By Way of Deception 16m ★1 ⚠ Flora and Fauna: Wasps/Hornets
+- Dum's Kitchen: 7a Jugs for Jumping 15m ★2
+- Dum's Kitchen: 6c Jumping for Jugs 15m ★2
+- Dum's Kitchen: 7b Nair Nawn 18m ★2
+- Dum's Kitchen: 7a Fips, der Affe 20m ★2
+- Dum's Kitchen: 7b The Day After 20m ★2
+- Dum's Kitchen: 6c+ No Onion, No Garlic 20m ★2 ⚠ Fixed Gear: Old slings
+- Dum's Kitchen: 6b+ Aunt Mary Johanna & Two Girls 28m ★1 ⚠ Closed / Closed Old bolts and slings, overgrown. / Cannot be climbed anymore.
+- Dum's Kitchen: 6c No Name 15m ★1
+- Dum's Kitchen: 6a+ Son Thoi 15m ★2
+- Dum's Kitchen: 6b Schlingel Max 15m ★1
+- Dum's Kitchen: 7a Don Quijote de la Mancha 15m ★2
+- Dum's Kitchen: 6a Schlingal Moritz 15m ★1 ⚠ Fixed Gear: The rope sheath at the top anchor was damaged
+- Dum's Kitchen: 6c Good Medicine 23m ★2
+- Dum's Kitchen: 7a+ Reminiscence 28m ★2
+- Dum's Kitchen: Maxi's Project 22m
+- Dum's Kitchen: 7a+ Mai Mee Fahn 15m ★2
+- Dum's Kitchen: 8b+ Avocado Power 22m ★2
+- Dum's Kitchen: 6c+ The Lion King 12m ★3
+- Dum's Kitchen: 7b The Tiger Queen 12m ★2
+- Dum's Kitchen: Thai Taam Nean 25m
+- Dum's Kitchen: 6b+ Storm in Head 15m ★2
+- Dum's Kitchen: 8b Jai Dum 25m ★3
+- Dum's Kitchen: 8b+ Of Popes and Power 25m ★3
+- Dum's Kitchen: 8c+ Greed 30m ★3
+- Dum's Kitchen: 8c Hot Springs 30m
+- Dum's Kitchen: 8a+ Asia Shadow Play 20m ★3
+- Dum's Kitchen: 6b+ The Sit Spins 20m ★2
+- Dum's Kitchen: 7a The Sit Spins (Direct Start) 20m ★2
+- Dum's Kitchen: 8a The Sit Spins (Extension) 25m ★2
+- Fire Wall: 5 Easy Approach ★3 ⚠ Fixed Gear: old slings
+- Fire Wall: 7a+ No Name 7m
+- Fire Wall: 7b+ Tuna Meltdown 25m ★1
+- Fire Wall: 7a+ Tuna Melt 25m ★2
+- Fire Wall: 6b Chicken Muscle 33m ★1
+- Fire Wall: 7b+ Chicken Skin 40m ★1
+- Fire Wall: 7a+ Burnt Offerings 15m ★3 ⚠ Fixed Gear: Rusty quick link on 5th titaniam bolt, who has a grinder 😉
+- Fire Wall: 8a+ Sinister Offerings 15m
+- Fire Wall: 7c Playing with Fire 35m ★2
+- Fire Wall: 7a Project 15m ⚠ Rusty expansion bolts. / Do not climb!
+- Fire Wall: 7b+ Flame Thrower 27m ★2 ⚠ Old rusty expansion bolts. / Cannot be climbed anymore.
+- Fire Wall: 6a+ Up in Smoke 17m ★2
+- Fire Wall: 6c+ Fire Show 17m ★2
+- Fire Wall: 6b Fire Show (Variation) 17m ★2
+- Fire Wall: 6c+ Fire Starter 16m ★2
+- Fire Wall: 6b+ White Hot Hernias 16m ★2
+- Fire Wall: 6a+ For Helga 30m ★2 ⚠ Rock: Be mindful of ledge!
+- Fire Wall: 7a Burning down the House 15m ⚠ Old stainless steel glue-ins. / Do not climb!
+- Fire Wall: 6b Boobtube 30m ★2
+- Fire Wall: 6a The Groove Tube 25m ★3
+- Fire Wall: 6b Polish-Czech 20m ★1 ⚠ 2 stainless steel glue-ins, 7 slings, which might need replacement.
+- Eagle Wall: 6a Mai Rhu Sheu! 15m ⚠ Loose rock, old rusty expansion bolts. / Do not climb!
+- Eagle Wall: 6c+ Plausible Deniability 25m
+- Eagle Wall: 6b+ Australian Invasion 20m ★2
+- Eagle Wall: 6b+ Asian Invasion 40m ★2
+- Eagle Wall: 6b Made in Spain 20m ★2
+- Eagle Wall: 6a+ Can You Fix It? 18m ★2
+- Eagle Wall: 6a No It's Broken 18m ★2
+- Eagle Wall: 6a Perfectly Imperfect 40m ★2
+- Eagle Wall: 5c+ Dead Spanish Bolts 23m ★1
+- Eagle Wall: 6a Spiderman 32m ★2
+- Eagle Wall: 6b+ Into the Spiderverse 27m ★2
+- Eagle Wall: 6b Desayuno de Nono 30m ★2
+- Eagle Wall: 6a+ Desayuno de Nono (Variation) 30m
+- Eagle Wall: 6b+ Alta Ruta 30m ★2
+- Eagle Wall: 6b Lost in Space 25m ★2
+- Eagle Wall: 6a+ Where Eagles Don't Dare 30m ★2
+- Eagle Wall: 7b Flavour of the Week 28m ★3
+- Eagle Wall: 7b No Name 28m ★2
+- Eagle Wall: 7a Amazing Thailand 25m ★3
+- Eagle Wall: 7b+ Sang Trip 14m ★2
+- Eagle Wall: 6c 5D Mak Mak 15m ★1
+- Eagle Wall: 7a+ Yaa Bhar 17m ★1
+- Eagle Wall: 6c Mentally Deranged in Hiding 17m ★1
+- Eagle Wall: 7a Kuhn Ba 15m ★1
+- Eagle Wall: 7c+ Black Hole 15m ★1
+- Eagle Wall: 6a+ Totem Pole 25m ★1 ⚠ Closed / Closed Climbed the big column in front of the cave.
+- Eagle Wall: 6a 4:20 15m ★1
+- Eagle Wall: 7a Afterburner 20m ★2
+- Eagle Wall: 6b+ Sea Monkeys 30m ★2
+- Eagle Wall: 6b Speaking out Loud 30m ★2
+- Eagle Wall: 6c The Annihilator 20m ★1
+- Eagle Wall: 5c+ Balance Crack 15m ★1
+- Eagle Wall: 5c+ Out of Line 11m ★1
+- Eagle Wall: 5b Ann's First Time 11m ★1
+- Eagle Wall: 5b Sharp Cove 11m ★2
+- Eagle Wall: 5a Easy Dude 12m ★1
+- Melting Wall: 6c No Name 25m ★2
+- Melting Wall: 6b The Northern Bird 20m ★1
+- Melting Wall: 6a Grove of Vines 20m ★2
+- Melting Wall: 5c Broken Leg Bird 20m ★2
+- Melting Wall: 6a Not Need Name 20m ★2
+- Melting Wall: 5c Orange Shot Chimney 16m ★1
+- Melting Wall: 6a+ Orange Peel 12m ★2
+- Melting Wall: 7a+ S.O.S. 50m
+- Melting Wall: 6c Cockroach Beach 50m ★3
+- Melting Wall: 7b Cross Eyed 28m ★3
+- Melting Wall: 7a+ Affenhitze 30m ★3
+- Melting Wall: 7a Climb of the Ancient Mariner 28m ★3
+- Melting Wall: 6a Climb of the Ancient Mariner P1 13m ★1
+- Melting Wall: 6a+ Climb of the Ancient Mariner P2 18m ★3
+- Melting Wall: 6b Captain Hook 15m ★1
+- Melting Wall: 6b Right Hand of Buddha 15m ★1
+- Melting Wall: 6b Melting Pot 10m ★1
+- Melting Wall: 6b Doing the Trad 15m ★1
+- Melting Wall: 8b+ Black Bird ★1
+- Melting Wall: 7a+ Bonsoir 18m ★2
+- Melting Wall: 6b+ The Smoking Room 20m ★2
+- Shadow Wall: 4 Little View Point 14m ⚠ Closed / Closed Old slings. / Do not climb!
+- Shadow Wall: 4 Panique a Bord 14m ⚠ Closed / Closed Old slings. / Do not climb!
+- Shadow Wall: 5 Mai Technology 70m ⚠ Closed / Closed Old slings. / Do not climb!
+- Shadow Wall: 4 Fistrouille Poupouillie 12m ⚠ Closed / Closed Old slings. / Do not climb!
+- Shadow Wall: 4 La Mano Negra 12m ⚠ Closed / Closed Old slings. / Do not climb!
+- Shadow Wall: 6a Bouts D'Nouilie 43m ⚠ Closed / Closed Old slings. / Do not climb!
+- Shadow Wall: 6b Domingo 18m ⚠ Closed / Closed Alternative second pitch of 'Bouts D'Nouilie'. / Do not climb!
+- Shadow Wall: 5 Moulin D'Brainant 22m ⚠ Closed / Closed Old slings. / Do not climb!
+- Shadow Wall: 4 Fakir II the Return 22m ⚠ Closed / Closed Old slings. / Do not climb!
+- Shadow Wall: 5 Bloody Route 22m ⚠ Closed / Closed Old slings. / Do not climb!
+- Shadow Wall: 5 Mafiosito Style 22m ⚠ Closed / Closed Old slings. / Do not climb!
+- Shadow Wall: 5 Pico Pico 23m ⚠ Closed / Closed Old slings. / Do not climb!
+- Iguana Park: 6b Sex C Plus ★1 ⚠ Closed
+- Iguana Park: 7c Scary Skinny Iguana ⚠ Closed
+- Iguana Park: 6c+ Secret Jam ★2 ⚠ Closed
+- Iguana Park: 6a Left Break ⚠ Closed
+- Iguana Park: 6a Honeycomb Hole ★2 ⚠ Closed
+- Iguana Park: 5 Durian Thorn ⚠ Closed
+- Big Wave Pillar: 6b Catastrofarian 25m
+- Big Wave Pillar: 6c Stranger Danger 44m
+- Big Wave Pillar: 6b+ Cockblocker 44m ★2
+- Big Wave Pillar: 6b Shoulda Woulda Coulda 82m ★2
+- Big Wave Pillar: 6a+ Short Wave 25m ⚠ Closed / Closed Old route left of 'Big Wave' P2.
+- Big Wave Pillar: 6b Big Wave 110m ★2
+- Big Wave Pillar: 6b The Beauty & the Beast 85m ★2
+- Resort Cave: 8a Sysiphus 20m ★3
+- Resort Cave: 8b Sissyfuss 20m ★3
+- Resort Cave: 6b Brösel 20m ⚠ Old rusty expansion bolts and slings. / Do not climb!
+- Resort Cave: Hin Yong Lun 20m ⚠ Old rusty expansion bolts and slings. / Do not climb!
+- Resort Cave: 6b Copyright! 20m ⚠ Old rusty expansion bolts and slings. / Do not climb!
+- Resort Cave: 6a Copy Wrong! 20m ⚠ Old rusty expansion bolts and slings. / Do not climb!
+- Generator Wall: 6b+ The Ancient Lighthouse 30m ★2
+- Generator Wall: 6c+ The Bolt from Hell 27m
+- Generator Wall: 8b+ Truls 26m
+- Generator Wall: 7b The Way of the Emperor 30m ★3
+- Generator Wall: 7b Pearl Jam 30m ★3
+- Generator Wall: 7c+ Rolling Thunder 25m ★2
+- Monkey World: 6c+ Monkeying Around 45m ★1
+- Monkey World: 6b Chunky Monkey 58m ★2 ⚠ Flora and Fauna: Lianas blocking access to belay ledge
+- Monkey World: 6b Curious George 58m ★1 ⚠ Flora and Fauna: Covered with lianas
+- Monkey World: 6b Stoned Monkey 30m ★1
+- Monkey World: 6a+ Aw Shucks 28m ★3
+- Monkey World: 6a+ Porch Monkey 28m ★1
+- Monkey World: 6b+ Monkey Bizness 27m ★1
+- Monkey World: 7c Holy Wall 18m ⚠ Do not climb!
+- Monkey World: 6c+ Grease Monkey 26m ★1
+- Monkey World: 7a White Monkey Holding Peach Balm 25m
+- Monkey World: 6b Fung Ling 25m ★1
+- Monkey World: 6b Monkey Bars 25m
+- Monkey World: 6a+ Short Wave
+- Monkey World: 6b Big Wave
+- Monkey World: 6b The Beauty And The Beast
+- The Nest & Wild Kingdom: 6a Caroline's Last Day P1 22m ★1
+- The Nest & Wild Kingdom: 6a Caroline's Last Day P2 22m ★1 ⚠ Do not climb until rebolted!
+- The Nest & Wild Kingdom: 6a+ Rachael's Potential Last Day 22m
+- The Nest & Wild Kingdom: 6b Wacky Weed 23m ★1
+- The Nest & Wild Kingdom: 6c Dozer Days P1 27m ★3
+- The Nest & Wild Kingdom: 6b Dozer Days P2 10m ★1
+- The Nest & Wild Kingdom: 6b Kitty Toe 15m ★1
+- The Nest & Wild Kingdom: 6c+ Strangle Hold 15m ★2
+- The Nest & Wild Kingdom: 7a+ Totem 28m ★2
+- The Nest & Wild Kingdom: 6b+ Little Fish P1 15m ★2
+- The Nest & Wild Kingdom: 6b+ Little Fish P2 17m ⚠ Old rusty expansion bolts. / Do not climb until rebolted!
+- The Nest & Wild Kingdom: 6b+ Little Fish (Variation) 15m ★2
+- The Nest & Wild Kingdom: 6a+ Banana Hammock 25m ★2
+- The Nest & Wild Kingdom: 7b+ Over It 20m ⚠ Do not climb until rebolted!
+- The Nest & Wild Kingdom: 6b Techno-Bug 15m ★1
+- The Nest & Wild Kingdom: 6a+ Barato, Barato P1 15m ★1
+- The Nest & Wild Kingdom: 6a+ Barato, Barato P2 20m ★1
+- The Nest & Wild Kingdom: 7a+ Sorry the Kitchen Is Closed 35m ★2
+- The Nest & Wild Kingdom: 7a+ Tortilla de Patata 30m ★2
+- The Nest & Wild Kingdom: 6b Breezes of the Past P1 18m ★1
+- The Nest & Wild Kingdom: 7b Breezes of the Past P2 12m ★3
+- The Nest & Wild Kingdom: 7b+ La Sangria 12m ★3
+- The Nest & Wild Kingdom: 7a Stick Like a Tick 18m ★1
+- The Nest & Wild Kingdom: 7b Wild Thing 30m ★2 ⚠ Stainless steel glue-ins.
+- The Nest & Wild Kingdom: 7a Britishly White 18m ★2
+- The Nest & Wild Kingdom: 7a Trophy Hunter 12m ⚠ Old rusty expansion bolts. / Do not climb until rebolted!
+- The Nest & Wild Kingdom: 7a+ Swingtown 12m ★1 ⚠ Old rusty expansion bolts. / Do not climb until rebolted!
+- The Nest & Wild Kingdom: 7b Lost in Ton Sai 12m ★1
+- The Nest & Wild Kingdom: 7a Freedom Safari 28m ★2
+- The Nest & Wild Kingdom: 6c+ Concrete Jungle 25m ★2
+- The Nest & Wild Kingdom: 6c Mutual of Omaha 25m ★2
+- The Nest & Wild Kingdom: 6b+ Overstay 27m ★2
+- The Nest & Wild Kingdom: 5b Masala Ton Sai ⚠ Do not climb!
+- The Nest & Wild Kingdom: 5b Visa Run ⚠ Do not climb!
+- The Nest & Wild Kingdom: 5b We Are Refrigerator 25m
+- Tyrolean Wall: 7a The Wrath of Nantawan 22m ★2
+- Tyrolean Wall: 6c Placebo 19m ★2
+- Tyrolean Wall: 6c+ Loisl 19m ★2
+- Tyrolean Wall: 6b+ Missing Snow 20m ★2
+- Tyrolean Wall: 7a Schwer und Steil 15m ★2
+- Tyrolean Wall: 7b Pavel, Wish You Were Here 95m ★3
+- Tyrolean Wall: 6b+ Longes Feschtl 18m ★1
+- Tyrolean Wall: 6c+ Kuahtittnseppl 18m ★1
+- Tyrolean Wall: 7c+ Tricky Business 18m ★1
+- Tyrolean Wall: 7c K1 20m ★2
+- Tyrolean Wall: 7c Tyrolean Air 20m ★3
+- Tyrolean Wall: 8a The Zephyr 25m ★1
+- Tyrolean Wall: 7b+ No Have 23m ★2
+- Tyrolean Wall: 8a Just Call Me Helmet 23m ★3
+- Tyrolean Wall: 7b+ Blind, Deaf and Dumb 30m ★3
+- Tyrolean Wall: 7c Affentanz 28m ★2
+- Tyrolean Wall: 7a Lars & Lars 25m ★2
+- Tyrolean Wall: 7b The White Crow 20m ★3
+- Tyrolean Wall: 8b Hammer Operation 20m
+- Tyrolean Wall: 7b The Sloperment 20m ★2
+- Tyrolean Wall: 6b Tyrosine 20m ★1
+- Tyrolean Wall: 5c+ Cactus de Tonsai 18m ★1
+- Cat Wall: 6b Devil Cat 23m ★1
+- Cat Wall: 6b The Cat and the Cobra 20m ★2
+- Cat Wall: 7c+ Kitty Porn 90m ★2
+- Cat Wall: 7b April Fools 30m ★3
+- Cat Wall: 7c Gilles No Limits 28m ★3
+- Cat Wall: 7c Black Cat 45m ★3
+- Cat Wall: 6c+ King Cat 30m ★3
+- Cat Wall: 6c Queen Cat 20m ★3
+- Cat Wall: 7a Peyote 120m ★3
+- Cat Wall: 7b+ Road to Damascus 32m ★3
+- Cat Wall: 7b Hot Tin Roof 15m
+- Cat Wall: 7a Musang 120m ★2
+- The Gibbon Roof: 6a+ Actually Jaman 20m ★1
+- The Gibbon Roof: 6a Tonsai Space Program 20m ★1
+- The Gibbon Roof: 6a+ I Don't Want Your Bricks 16m ★1
+- The Gibbon Roof: 5 The Guardian of the Shards of Humanity 13m ★1
+- The Gibbon Roof: 6a+ Infected Mushroom 12m ★2
+- The Gibbon Roof: 7a Rumble in the Jungle 15m ★2
+- The Gibbon Roof: 6c+ N.W.A. 14m ★3
+- The Gibbon Roof: 7a Straight out of Tonsai 10m ★3
+- The Gibbon Roof: 8a+ Bros before Hoes 18m ★2
+- The Gibbon Roof: 7b+ Hoes before Bros 13m ★2
+- The Gibbon Roof: 7a+ Violently Happy 10m ★2
+- The Gibbon Roof: 8a Captain Crunch 19m ★3
+- The Gibbon Roof: 7a Half Crunch 10m ★1
+- The Gibbon Roof: 7c+ Let Some Steam Off 8m ★3
+- The Gibbon Roof: 7a+ Que Jump 8m ★2
+- The Gibbon Roof: 8b Smith & Wesson Berreta 19m ★3
+- The Gibbon Roof: 8a+ Ninjas with Lasers 20m ★3
+- The Gibbon Roof: Chuck Norris Traverse 45m ★3
+- The Gibbon Roof: 7c+ Get to ze Choppa 19m ★3
+- Tiger Wall: 7c+ Mind over Matter 18m
+- Tiger Wall: 7c The Rose 16m ★2
+- Tiger Wall: The Rose (Extension) 24m
+- Tiger Wall: 8a Finger Bang Bang 22m
+- Tiger Wall: 7b Face Plant 20m ★3
+- Tiger Wall: 8a 35 Stitches 24m
+- Tiger Wall: 8a+ Year of the Tiger 100m ★3
+- Tiger Wall: 6c+ Home of The Lost Turtles 12m ★1
+- Tiger Wall: 5c Gun Solo 12m ★1
+- Tiger Wall: 7b Tear of the Liger 32m
+- Tiger Wall: 6b UK:E6 Bugger Your Neighbour 140m
+- Sleeping Indian Wall / Mammoth Cove: 7a+ The Ninth Life ★3 ⚠ Closed / Closed Due to fire in the past, the rock is very unstable here and stones pop off and fall down every other day.
+- Sleeping Indian Wall / Mammoth Cove: Project ⚠ Closed / Closed Started from the first anchor of 'The Ninth Life'.
+- Sleeping Indian Wall / Mammoth Cove: 6b Indian Food 15m ★1
+- Sleeping Indian Wall / Mammoth Cove: 6b+ Red-Eyed Cowboy 18m ★2
+- Sleeping Indian Wall / Mammoth Cove: 6b Indian Shoes 15m ★1
+- Sleeping Indian Wall / Mammoth Cove: 7a The Monitor 88m ★1
+- Sleeping Indian Wall / Mammoth Cove: 6b+ Snake, Ganja & Rastaman 82m ★2
+- Sleeping Indian Wall / Mammoth Cove: 6c+ Shaft of Light 50m ★2 ⚠ Old rusty expansion bolts. / Do not climb!
+- Sleeping Indian Wall / Mammoth Cove: 6b+ Whipper Snapper 30m ★1 ⚠ Old rusty expansion bolts. / Do not climb!
+- Sleeping Indian Wall / Mammoth Cove: 7a Praying Mantis ★3
+- Sleeping Indian Wall / Mammoth Cove: 6c Snakeskin 50m ★1
+- Sleeping Indian Wall / Mammoth Cove: 6b+ Monkey See, Monkey Do 85m ★2
+- Sleeping Indian Wall / Mammoth Cove: 6b Stay Out 45m
+- Sleeping Indian Wall / Mammoth Cove: 6c Blind Monkey, Flat Monkey
+- Sleeping Indian Wall / Mammoth Cove: 6b+ Cave Sweeper 18m
+- Sleeping Indian Wall / Mammoth Cove: 6c Frog's Hair 22m ⚠ Do not climb!
+- Lost Wall: 6a Drunky 13m ⚠ Do not climb!
+- Lost Wall: 5 Lost Cave 11m ⚠ Do not climb!
+- Lost Wall: 6a Egk Coming, Rit Going 16m ★2
+- Lost Wall: 6b I Lost 10 Bhat 16m ★2
+- Lost Wall: 5b Chalk Walk 12m ★2
+- Lost Wall: 5 Hin Kum 11m
+- Cobra Wall: 6c Cobra Venom 28m ★3
+- Cobra Wall: 7b Ngu Baen Vohk 29m ★2
+- Cobra Wall: 6a+ Snake Skin 20m ★2
+- Cobra Wall: 6a+ Cobra Head 25m ★1
+- Cobra Wall: 6a+ Snake Whisky 26m ★1
+- Cobra Wall: 6c Baby Snake 25m ★2 ⚠ Rock: Hornets Nest / Careful, potentially dangerous lead fall!
+- Cobra Wall: 6b+ The Last of Its Kind 25m ★2
+- Cobra Wall: 6b Old Snake 22m ★1
+- Cobra Wall: 6c The Snake Strikes 20m ★2
+- Temple Boulder Cave: {FB} 6C+ Crossing Ganesh ★3
+- Temple Boulder Cave: {FB} 7C+ 21 Gun Salute ★3
+- Temple Boulder Cave: {FB} 7A Small House Rock ★2
+- Temple Boulder Cave: {FB} 7A+/B Evil Evan
+- Temple Boulder Cave: {FB} 8A Roof Rocker ★3
+- Temple Boulder Cave: {FB} 8A+ Open Project 1
+- Temple Boulder Cave: {FB} 7C Superpon's Wing ★2
+- Temple Boulder Cave: {FB} 6B Ten Commandments ★2
+- Temple Boulder Cave: {FB} 7A Evanescence ★3
+- Temple Boulder Cave: {FB} 7A+ Evil Science
+- Temple Boulder Cave: {FB} 7C/C+ Monkey Business
+- Temple Boulder Cave: {FB} 7B Kissing Apples
+- Temple Boulder Cave: {FB} 7A/A+ Code of Silence
+- Temple Boulder Cave: {FB} 7B Thin Skin
+- Temple Boulder Cave: {FB} 8A Thai Machine
+- Temple Boulder Cave: {FB} 7B+ Swedish Tiger
+- Temple Boulder Cave: {FB} 7A/A+ Altered Beast
+- Temple Boulder Cave: {FB} 7B The Gauntlet ★2
+- Temple Boulder Cave: {FB} 7C The Monkeyjob ★2
+- Temple Boulder Cave: {FB} 7C/C+ Paul's Linking ★3
+- Temple Boulder Cave: {FB} 8A/A+ Mental Hospital
+- Temple Boulder Cave: {FB} 8A Machine Gun ★3
+- Temple Boulder Cave: {FB} 8A/A+ Submission
+- Temple Boulder Cave: {FB} 7B+ Burning Energy
+- Temple Boulder Cave: {FB} 7C Sabertooth Cat
+- Temple Boulder Cave: {FB} 7C Italian Connection
+- Temple Boulder Cave: {FB} 7B+ Pinoj Rejector
+- Temple Boulder Cave: {FB} 7A Touchy Hely ★3
+- Temple Boulder Cave: {FB} 6B+ Touchy Hely (Standing Start) ★2
+- Temple Boulder Cave: {FB} 7A+/B Ton Sai Heel
+- Temple Boulder Cave: {FB} 7A Ninja Beta ★3
+- Temple Boulder Cave: {FB} 7B Killing Time ★3
+- Temple Boulder Cave: {FB} 7B+/C L'Accendino Periculoso
+- Temple Boulder Cave: {FB} 7B+ Philipino Style ★3
+- Temple Boulder Cave: {FB} 7A John Porno
+- Temple Boulder Cave: {FB} 7A+ Ton Sai Toe
+- Temple Boulder Cave: {FB} 7A Tetto Diretto
+- Temple Boulder Cave: {FB} 7A+ Tetto Completto
+- Temple Boulder Cave: {FB} 8A/A+ Superstitious Wildboy
+- Temple Boulder Cave: {FB} 8A Gaeng Tai Pla ★3
+- Temple Boulder Cave: {FB} 7C+ Crossfire
+- Temple Boulder Cave: {FB} 7A+ Track and Field ★2
+- Temple Boulder Cave: {FB} 7A+ Ton Sai Belly
+- Temple Boulder Cave: {FB} 6C Haymaker ★2
+- Temple Boulder Cave: {FB} 7C+ Wild Things ★2
+- Temple Boulder Cave: {FB} 7B Fire Show ★2
+- Temple Boulder Cave: {FB} 6C+ The Aurochs ★3
+- Temple Boulder Cave: {FB} 8A+ Super Project
+- Temple Boulder Cave: {FB} 7C+ The Beast Maker
+- Temple Boulder Cave: {FB} 7C The Weed Maker ★3
+- Temple Boulder Cave: {FB} 7A+/B Heel Fight
+- Temple Boulder Cave: {FB} 7B Tonsai fever ★3
+- Temple Boulder Cave: {FB} 7A/A+ Johnny Be Good
+- Temple Boulder Cave: {FB} 7C+/8A The Swamp Thing ★3
+- Temple Boulder Cave: {FB} 8A Mud Monster ★3
+- Temple Boulder Cave: {FB} 7A Bar Fight ★2
+- Temple Boulder Cave: {FB} 7A/A+ The Slash ★3
+- Temple Boulder Cave: {FB} 6B The Flash
+- Temple Boulder Cave: {FB} 5C No Name
+- Temple Boulder Cave: {FB} 6B B.R.A.T. ★1
+- Temple Boulder Cave: {FB} 6B+ B.R.A.T. (Extended) ★2
+- Temple Boulder Cave: {FB} 6C+ The Rush
+- Temple Boulder Cave: {FB} 7B Whiplash
+- Temple Boulder Cave: {FB} 8A Fai Faa ★3
+- Temple Boulder Cave: {FB} 8B Open Project 2
+- Temple Boulder Cave: 6A+ Guillotine
+- Temple Boulder Cave: V6 La Costra Nostra ★3
+- Temple Boulder Cave: V4 Bai Hai Pon ★2
+- Temple Boulder Cave: V5 The Orox
+- Temple Boulder Cave: V2 Blowing Red Ants ★1
+- Temple Boulder Cave: V1 Shallow Water Crawl
+
+## Dropped / not used
+
+- Thaitanium Project 官網 https://thaitaniumproject.com: 已收站，舊網域是垃圾站

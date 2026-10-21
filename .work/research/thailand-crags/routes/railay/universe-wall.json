@@ -1,0 +1,92 @@
+{
+  "sector": "Universe Wall",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687673",
+  "area_route_count": 5,
+  "routes": [
+    {
+      "grade": "7b",
+      "stars": 0,
+      "name": "Apocolysco",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717053",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Ken Driese, 1994",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    },
+    {
+      "grade": "7a+",
+      "stars": 0,
+      "name": "Slow-Pulsed Boy",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717113",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Steve Bechtel, 1994",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    },
+    {
+      "grade": "7b",
+      "stars": 0,
+      "name": "Universe City",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717173",
+      "style": "Sport",
+      "length": "16 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Steve Bechtel, 1994",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    },
+    {
+      "grade": "7b+",
+      "stars": 0,
+      "name": "Crucial Taunt",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717221",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Steve Bechtel, 1994",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    },
+    {
+      "grade": "8a",
+      "stars": 0,
+      "name": "The Shining Path",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717281",
+      "style": "Sport",
+      "length": "20 m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Will Hair, 1994",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    }
+  ]
+}

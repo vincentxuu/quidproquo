@@ -1,0 +1,149 @@
+# 華富里 Khao Jeen Lae evidence
+
+2026-10-21. Scope: 華富里（theCrag 127 條，6 個子區）——寺院規定、每天 20 人名額、18:00 離場、兩種接近方式與三份舊版路線圖。讀者決定：要不要事先登記、走哪條接近、幾點必須走。
+
+## Sources opened
+
+- theCrag: Khao Jeen Lae https://www.thecrag.com/en/climbing/thailand/lop-buri-khao-jeen-lair: 127 條路線、FR 3a–8a、1,078 次攀登；寺院的四項規定（打招呼、捐 20–100 THB、2023-03 起每天 20 人上限、18:00 前離開）；兩種接近路徑全文；三份舊版路線圖；停車規定
+- theCrag: Temple Area - Left Side https://www.thecrag.com/en/climbing/thailand/lop-buri-khao-jeen-lair/area/153820599: 20 條逐線路線；Waltz for a Lovely Wife 6a 210 m、Corcovado 6b 140 m、Lum Yai 7a+ 的完整說明
+- theCrag: Secret Garden Area - Left Side https://www.thecrag.com/en/climbing/thailand/lop-buri-khao-jeen-lair/area/153820617: 30 條逐線路線
+- theCrag: Sukhumvit (Red Wall) https://www.thecrag.com/en/climbing/thailand/lop-buri-khao-jeen-lair/area/9152797218: 15 條逐線路線；Cowboy Rider 7a 的掛片鬆動警告、Time Capsule 6b 85 m 四段
+- theCrag: Star Wall https://www.thecrag.com/en/climbing/thailand/lop-buri-khao-jeen-lair/area/8768556384: 10 條逐線路線；Death Star 6c 120 m 六段
+- theCrag: Kitchen Wall https://www.thecrag.com/en/climbing/thailand/lop-buri-khao-jeen-lair/area/153820591: 19 條逐線路線
+- theCrag: Easter Island https://www.thecrag.com/en/climbing/thailand/lop-buri-khao-jeen-lair/area/153820719: 2 條逐線路線；The Fakir 6a+ 44 m、Gillette Road 6b+ 43 m
+- TCDA 泰國攀岩發展協會 https://www.thaiclimbassociation.org/: 2016 年成立的非營利協會；2017 與 2023 版路線圖的製作者
+- Central & Northeast Thailand Rock Climbing Guidebook https://shop.kineticsclimbing.com.sg/en/training-accessories/259-rock-climbing-thailand-guidebook.html: Matthieu Le Gall、Pleum Chenaphun 第 1 版 2018、350 條以上、SGD 34.90、收益全數用於泰國打栓與重打；**涵蓋清單裡沒有華富里**
+
+## Exact route rows
+
+- Temple Area - Left Side: 6a+ Avocado Super Smoothie 79 m ★1
+- Temple Area - Left Side: 6a Waltz for a Lovely Wife 210 m ★2
+- Temple Area - Left Side: 6c+ Last Day 32 m
+- Temple Area - Left Side: 5 High and Low / Low and high 17 m ★1
+- Temple Area - Left Side: 6b+ Anchor Spanker 17 m ★2
+- Temple Area - Left Side: 6a Losange 10 m ★2
+- Temple Area - Left Side: 5 Three Dwarves and a Nut 18 m ★1
+- Temple Area - Left Side: 6b Corcovado 140 m ★3
+- Temple Area - Left Side: 5c 8c+ 15 m ★1
+- Temple Area - Left Side: 6a Arai Wa? 18 m ★1
+- Temple Area - Left Side: 6a Night Vision 22 m ★2
+- Temple Area - Left Side: 6a It Fits 14 m ★2
+- Temple Area - Left Side: 6a+ Ging Thong Bai Yok 18 m ★2
+- Temple Area - Left Side: 6b Bai Mai Pue Chivit 26 m ★2 ⚠ Fixed Gear: First bolt missing a hanger?
+- Temple Area - Left Side: 6a+ Ging Kan Bai 27 m ★2
+- Temple Area - Left Side: 6b Dok Yer Kan Yai 27 m ★2
+- Temple Area - Left Side: 6b+ Dok Yai Bai Yer 28 m ★2
+- Temple Area - Left Side: 7a+ Lum Yai 36 m ★2
+- Temple Area - Left Side: 7b Leverage - งัดถั่งงัด งัดถั่งงัด (Ngat tha Ngat tha Ngat) 36 m ★3
+- Temple Area - Left Side: 7c+ Leverage Leverage Leverage!! 45 m
+- Temple Area - Right Side: 5c Kooha Sawan / Cave heaven 30 m ★2
+- Temple Area - Right Side: 6a+ Pratimakam / Sculpture 30 m ★2
+- Temple Area - Right Side: 6a Pete's Retreat 20 m ★2
+- Temple Area - Right Side: 6b+ Nok Khao Mai Chai Nok Rao 190 m ★2
+- Temple Area - Right Side: 6b Cherry Popper ★2
+- Temple Area - Right Side: 6a+ Cheese Grater 26 m ★3
+- Temple Area - Right Side: 6b+ Fu-Fu 31 m
+- Temple Area - Right Side: 6c Left Wing Lesbians 24 m ★2
+- Temple Area - Right Side: 5 8c+ / Chimmy 22 m ★2
+- Temple Area - Right Side: 6a Moobin (The / The flying Pig 160 m
+- Temple Area - Right Side: 6b Obelisk 20 m ★2
+- Temple Area - Right Side: 6a/a+ Falbala 27 m
+- Temple Area - Right Side: 6b The Flying Farang 190 m ⚠ Beware of big loose rocks. Stay on the wall on the left.
+- Temple Area - Right Side: 5c - 6a Asterix 14 m
+- Temple Area - Right Side: 6c Getafix 24 m ★2
+- Temple Area - Right Side: 7a Dogmatix 24 m ★2
+- Temple Area - Right Side: 7b+ The Art of Ngat 18 m
+- Temple Area - Right Side: 5c Taoculator 9 m ★1
+- Secret Garden Area - Left Side: 6a Lazy Liam ★1
+- Secret Garden Area - Left Side: 6a School wall 2 ★2
+- Secret Garden Area - Left Side: 5c School wall 3 ★2
+- Secret Garden Area - Left Side: 5c School wall 4 ★2
+- Secret Garden Area - Left Side: 6a+ Mother's Hydrangea 17 m ★1
+- Secret Garden Area - Left Side: 6c Take Me To The Moon 17 m ★2
+- Secret Garden Area - Left Side: 6b+ Kra Rok Bin (Flying Squirrel) 16 m ★2
+- Secret Garden Area - Left Side: 6a Whip Drip Warrior 16 m ★2
+- Secret Garden Area - Left Side: 6a+ Rich Tomorrow
+- Secret Garden Area - Left Side: 6b Ngu Ngor Ngae (Crying Snake)
+- Secret Garden Area - Left Side: 6b Vanda Blossom 21 m ★1
+- Secret Garden Area - Left Side: 7a+ Ngu Chalad 22 m ★3
+- Secret Garden Area - Left Side: 4 Arboreal 14 m
+- Secret Garden Area - Left Side: 6a+ Behind the Waterfall 23 m ★2
+- Secret Garden Area - Left Side: 6a+ Charlie's Angels 23 m ★2
+- Secret Garden Area - Left Side: 6a Planil Villa ★3
+- Secret Garden Area - Left Side: 6b Secret Garden Spa 25 m ★1
+- Secret Garden Area - Left Side: 8a Gluay Gluay (กล้วยๆ) 24 m ★3
+- Secret Garden Area - Left Side: 7c Million Baht Baby 20 m ★3
+- Secret Garden Area - Left Side: 7a+ Get Out 20 m ★2
+- Secret Garden Area - Left Side: 7b+ F*ing Balance 16 m ★3
+- Secret Garden Area - Left Side: 7a+ Finger Discourse 15 m ★3
+- Secret Garden Area - Left Side: 6a Orchidee 18 m ★2 ⚠ Flora and Fauna: Bees/wasp nest close to anchor
+- Secret Garden Area - Left Side: 6a+ Small Dark Lord 20 m ★2 ⚠ Flora and Fauna: HUGE bees/wasps/hornets nest
+- Secret Garden Area - Left Side: 6c Timber 27 m
+- Secret Garden Area - Left Side: 5+ Jumpin' at the Woodside 20 m ★2
+- Secret Garden Area - Left Side: 6c/c+ Nguam Ngam (งึมงำ) 26 m
+- Secret Garden Area - Left Side: 6c Wan Pimai 22 m ★3
+- Secret Garden Area - Left Side: 6a Exodus 26 m ★3
+- Secret Garden Area - Left Side: 6a Raspberry 15 m
+- Secret Garden Area - Right Side: 5 Tiptoeing Treat 15 m ★2
+- Secret Garden Area - Right Side: 3 Anaconda 10 m
+- Secret Garden Area - Right Side: 5 The Roots Man! 21 m ★2
+- Secret Garden Area - Right Side: 4+ Save the Trees 20 m
+- Secret Garden Area - Right Side: 6a+ Hit the Rock, Jack! 22 m ★2 ⚠ Fixed Gear: Loose nut
+- Secret Garden Area - Right Side: 6c+ Roid-Rage 20 m
+- Secret Garden Area - Right Side: 5 Ladder to Easter Island 22 m ★1
+- Secret Garden Area - Right Side: 3 No Comments 7 m
+- Secret Garden Area - Right Side: 6a Jungle Nights 17 m ★2
+- Secret Garden Area - Right Side: 5 Kingkueman 14 m ★3
+- Secret Garden Area - Right Side: Unknown
+- Secret Garden Area - Right Side: 5 Mamuang Yai 11 m ★1
+- Secret Garden Area - Right Side: 4 Sapparot Lek 8 m
+- Sukhumvit (Red Wall): 6b Time Capsule 85 m ★3
+- Sukhumvit (Red Wall): 4 Prik 10 m ★2
+- Sukhumvit (Red Wall): 4c Prik Thai 10 m ★1
+- Sukhumvit (Red Wall): 5c Drama Queen 12 m ★2
+- Sukhumvit (Red Wall): 6a+ Crazy Spanish People 16 m ★2
+- Sukhumvit (Red Wall): 6a S&M 15 m ★1
+- Sukhumvit (Red Wall): 7a+ Spice and Aroma ★2
+- Sukhumvit (Red Wall): 6b Sheeeeeeeeit Lom 27 m ★1
+- Sukhumvit (Red Wall): 7c Sexual Climber 27 m
+- Sukhumvit (Red Wall): 7a Cowboy Rider 26 m ★3 ⚠ Fixed Gear: Possible loose hanger
+- Sukhumvit (Red Wall): 7c Tuk Tuk, Where You Go? 18 m ★2
+- Sukhumvit (Red Wall): 6c Crispy Tofu! ★3
+- Sukhumvit (Red Wall): 7b Tonk Train ★3
+- Sukhumvit (Red Wall): 7b+ Krup Cake ★3 ⚠ Fixed Gear: Possible loose hangers on route
+- Sukhumvit (Red Wall): 6a Samitivej One Arm Warrior 23 m ★2
+- Star Wall: 6a Lost Star 15 m ★1
+- Star Wall: 6a+ Little Star 16 m ★1
+- Star Wall: 7c Star Cheewit (สะตาร์ ชีวิต) / Star Fish 30 m
+- Star Wall: 6c Stargate 30 m ★3
+- Star Wall: 6c Death Star 120 m
+- Star Wall: 7a+ Star Trek 30 m ★3
+- Star Wall: 6a+ One Night Star 20 m ★2
+- Star Wall: 6c+ Ao Carrot Ma Fak 30 m
+- Star Wall: 6b+ Nampueng 28 m
+- Star Wall: 6a Manao 26 m
+- Kitchen Wall: 5c Till we meet again (sport 4 pitches) ⚠ Do not go above this without trad gear.
+- Kitchen Wall: 5c Till we meet again (Trad 9 pitches) ⚠ Best to rap down same route but will rope has high potential of getting stuck.
+- Kitchen Wall: 6b Golden Crack 24 m ★2
+- Kitchen Wall: 6b Khot Khom / Khort khom 27 m ★2
+- Kitchen Wall: 6c+ Kam Khong sat Lok 22 m ★3
+- Kitchen Wall: 7b+ Lok Nah 22 m
+- Kitchen Wall: 6a+ Hoi Dong 18 m ★2
+- Kitchen Wall: 8a Hom Daeng 20 m
+- Kitchen Wall: 7a+ Gaeng Hoh 20 m
+- Kitchen Wall: 6a+ Fuk Kiew / Winter Melon ⚠ Beware of rockfall.
+- Kitchen Wall: 6a Fuk Thong / Pumpkin 26 m
+- Kitchen Wall: 6b+ Som Tum Pah 26 m ★2
+- Kitchen Wall: 6b Kra Tiem Jiew
+- Kitchen Wall: 6a+ Lemon and Tangerine
+- Kitchen Wall: 5 Kai Ped 11 m ★1
+- Kitchen Wall: 5 Kai Gai 11 m ★1
+- Kitchen Wall: 6b+ Two Cockerels and a Lion 22 m
+- Kitchen Wall: 6b+ Chiwit Mai 25 m
+- Kitchen Wall: 6b Razor's Edge 25 m
+- Easter Island: 6a+ The Fakir 44 m ★3
+- Easter Island: 6b+ Gillette Road 43 m ★2
+
+## Dropped / not used
+
+- gohobo: 華富里租借 https://gohobo.net/thailand/lopburi/climbing-caving: 沒有標日期，無法確認價格是否仍有效

@@ -1,0 +1,139 @@
+{
+  "sector": "The Keep",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687481",
+  "area_route_count": 9,
+  "routes": [
+    {
+      "grade": "6b",
+      "stars": 3,
+      "name": "Gengis Bond",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17713279",
+      "style": "Sport",
+      "length": "32 m",
+      "pitches": null,
+      "bolts": 15,
+      "pitches_detail": null,
+      "desc": "Great 3D climbing with good rests up a series of stalactite features. It's long, make sure you have enough rope and tie a knot in the end of your rope. 13 titanium bolts, 2 slings.",
+      "setter": "Greg Collum & Rock and Sun, 1995",
+      "warnings": []
+    },
+    {
+      "grade": "7b",
+      "stars": 3,
+      "name": "Tongue Thaid",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17713333",
+      "style": "Sport",
+      "length": "32 m",
+      "pitches": 2,
+      "bolts": 14,
+      "pitches_detail": [
+        "1 7a+ 20m",
+        "2 7b 12m"
+      ],
+      "desc": "Climb as one pitch. 1. 6 titanium bolts, 2 slings 2. 5 titanium bolts, 1 sling",
+      "setter": "Greg Collum & Rock and Sun, 1995",
+      "warnings": []
+    },
+    {
+      "grade": "7a",
+      "stars": 3,
+      "name": "Lom Mon / Cyclone",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17713441",
+      "style": "Sport",
+      "length": "29 m",
+      "pitches": null,
+      "bolts": 13,
+      "pitches_detail": null,
+      "desc": "Watch out for the crux - photo says it all... Beautiful long run afterwards. 11 titanium bolts, 2 slings.",
+      "setter": "Greg Collum & Rock and Sun, 1995",
+      "warnings": []
+    },
+    {
+      "grade": "7c",
+      "stars": 2,
+      "name": "Bottom Feeder",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17713495",
+      "style": "Sport",
+      "length": "23 m",
+      "pitches": 2,
+      "bolts": 8,
+      "pitches_detail": [
+        "1 6b 18m",
+        "2 7c 5m"
+      ],
+      "desc": "6b for 5 bolts to the first anchor. Two more bolts to second anchor. 7 titanium bolts, 1 sling.",
+      "setter": "Alex Catlin, 1996",
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 3,
+      "name": "Nut Cracker",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17713597",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "Great technical face climb with multiple small cruxes. 6 titanium bolts, 1 sling.",
+      "setter": "Greg Collum & Rock and Sun, 1995",
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 3,
+      "name": "Aspirin",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17713651",
+      "style": "Sport",
+      "length": "28 m",
+      "pitches": null,
+      "bolts": 11,
+      "pitches_detail": null,
+      "desc": "The left of the two climbs that start off the boulder. Face climbing follows some fun tufa action. Medusa's lover is the route on the right. 10 titanium bolts, 1 sling.",
+      "setter": "Björn Alber, Nantawan Alber & Robert Baier, 2006",
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 3,
+      "name": "Medusa's Lover",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17713705",
+      "style": "Sport",
+      "length": "26 m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Sharp start leads to an interesting mid section. Starts on top of the big boulder. All titanium bolts.",
+      "setter": "Greg Collum & Rock and Sun, 1995",
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 3,
+      "name": "Babo Does Thailand",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17713759",
+      "style": "Sport",
+      "length": "28 m",
+      "pitches": null,
+      "bolts": 11,
+      "pitches_detail": null,
+      "desc": "The best line at 'The Keep'. Not hard but stella climbing the whole way. All titanium bolts.",
+      "setter": "Jim Yoder & Marlene Ford, 1996",
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 1,
+      "name": "Monkey's Bum",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17713813",
+      "style": "Sport",
+      "length": "20 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "First climb as you enter 'The Keep'. Move up slimy tufas, then continue up. Awful anchor placement. 5 titanium bolts, 2 slings.",
+      "setter": "Greg Collum & Rock and Sun, 1995",
+      "warnings": []
+    }
+  ]
+}

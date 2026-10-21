@@ -1,0 +1,105 @@
+[
+  {
+    "sector": "Resort Cave",
+    "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/3115780452",
+    "area_route_count": 6,
+    "routes": [
+      {
+        "grade": "8a",
+        "stars": 3,
+        "name": "Sysiphus",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/3115798398",
+        "style": "Sport",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Shares the start and anchors with 'Sissyfuss'. Left bolt line. Titanium bolts and slings.",
+        "setter": "T. J., 2008",
+        "warnings": []
+      },
+      {
+        "grade": "8b",
+        "stars": 3,
+        "name": "Sissyfuss",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/3115798521",
+        "style": "Sport",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Shares the start and anchors with 'Sysiphus'. Right bolt line. Titanium bolts and slings.",
+        "setter": "T. J., 2009",
+        "warnings": []
+      },
+      {
+        "grade": "6b",
+        "stars": 0,
+        "name": "Brösel",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/3115798620",
+        "style": "Sport",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Leftmost line right of the cave. Old rusty expansion bolts and slings. Do not climb!",
+        "setter": "Melli, 2008",
+        "warnings": [
+          "Old rusty expansion bolts and slings.",
+          "Do not climb!"
+        ]
+      },
+      {
+        "grade": null,
+        "stars": 0,
+        "name": "Hin Yong Lun",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/3115798719",
+        "style": "Sport Project",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Old rusty expansion bolts and slings. Do not climb!",
+        "setter": "Wee Changrua, 2008",
+        "warnings": [
+          "Old rusty expansion bolts and slings.",
+          "Do not climb!"
+        ]
+      },
+      {
+        "grade": "6b",
+        "stars": 0,
+        "name": "Copyright!",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/3115798803",
+        "style": "Sport",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Old rusty expansion bolts and slings. Do not climb!",
+        "setter": "Wee Changrua, 2008",
+        "warnings": [
+          "Old rusty expansion bolts and slings.",
+          "Do not climb!"
+        ]
+      },
+      {
+        "grade": "6a",
+        "stars": 0,
+        "name": "Copy Wrong!",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/3115798902",
+        "style": "Sport",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Old rusty expansion bolts and slings. Do not climb!",
+        "setter": "Wee Changrua, 2008",
+        "warnings": [
+          "Old rusty expansion bolts and slings.",
+          "Do not climb!"
+        ]
+      }
+    ]
+  }
+]

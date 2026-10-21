@@ -1,0 +1,157 @@
+# Railay West 與帕南 evidence
+
+2026-10-21. Scope: Railay 西側與帕南海灘（Thaiwand Wall、Candlestick Wall、Wee's Present Wall、Escher World、Phra-Nang Beach、Happy Island、The Defile、Universe Wall）——多段名線的下降配置與整批不可爬的子區。讀者決定：多段怎麼排、兩條繩夠不夠、哪一面牆整批不能去。
+
+## Sources opened
+
+- theCrag: Thaiwand Wall https://www.thecrag.com/en/climbing/thailand/krabi/area/15687721: 29 條逐線路線；Lord of the Thais 7b 5 段 120 m、Circus Oz 7a 4 段、Continental Drifters 7c+ 4 段、Inaka 7b 4 段的段數、繩長與下降說明；接近路線全段
+- theCrag: Candlestick Wall https://www.thecrag.com/en/climbing/thailand/krabi/area/15687793: 5 條逐線路線；四條多段全鈦栓；70 m 繩不夠回到起點；固定繩接近 30 m
+- theCrag: Wee's Present Wall https://www.thecrag.com/en/climbing/thailand/krabi/area/15687721: 20 條逐線路線；全鈦栓線與不可爬線並存
+- theCrag: Phra-Nang Beach https://www.thecrag.com/en/climbing/thailand/krabi/area/15687765: 24 條逐線路線；Hot Dragon 8b 已關閉、Genesis 7b+ 未用鈦栓重打、Left of Cleft 的臂展級距備註
+- theCrag: Escher World / Tum Choee https://www.thecrag.com/en/climbing/thailand/krabi/area/15687889: 26 條逐線路線；Fever Dream 8a+ 等六條不可爬
+- theCrag: Happy Island https://www.thecrag.com/en/climbing/thailand/krabi/area/15687795: 13 條逐線路線；10 條不可爬，僅 King Fisher 7a+ 無警示
+- theCrag: The Defile https://www.thecrag.com/en/climbing/thailand/krabi/area/15687783: 13 條逐線路線；Crystal Prison 與 Allo, la Terre 不可爬；Khao Pat Gai 7a+ 重打但 crux 無保護
+- theCrag: Universe Wall https://www.thecrag.com/en/climbing/thailand/krabi/area/15687873: 5 條逐線路線，全部舊生鏽膨脹栓不可爬
+- Mountain Project: Railay West https://www.mountainproject.com/area/105894699/railay-west: 西側經典路線表，跨子區交叉核對
+
+## Exact route rows
+
+- Thaiwand Wall: 6a+ Primal Scream 15 m ★1
+- Thaiwand Wall: 6b+ Solution 41 18 m ★1
+- Thaiwand Wall: 7c Spicy Speck Dreams 22 m ★2 ⚠ Fixed Gear: Not rebolted with titanium. All stainless steel glue-in bolts.
+- Thaiwand Wall: 7b+ Orange Juice 22 m ★3
+- Thaiwand Wall: 6a+ No Name
+- Thaiwand Wall: 7a Live and Let Thai 25 m ★1 ⚠ Fixed Gear: Not rebolted with titanium. 6 stainless steel glue-in bolts, 3 slings.
+- Thaiwand Wall: 7b Equatorial 50 m ★3
+- Thaiwand Wall: 6c Healthy Shake 12 m ★2
+- Thaiwand Wall: 6b Me 12 m ★1
+- Thaiwand Wall: 5+ It / Up 12 m ★1
+- Thaiwand Wall: 6a Wind Burn / Sun 15 m ★1
+- Thaiwand Wall: 6c Organ Grinder 25 m ★2
+- Thaiwand Wall: 6b+ Hiroshi's Revenge 26 m ★3
+- Thaiwand Wall: 7b Inaka 120 m ⚠ Rock: There is a lot of loose rock and sharpies that can cut your rope.
+- Thaiwand Wall: 7c+ Continental Drifters 99 m ★1 ⚠ Fixed Gear: 6 old bolts. First two pitches are not rebolted. / Fixed Gear: 7 old bolts. / Rock: Sharp rock to the top.
+- Thaiwand Wall: 6b Monkey Love 25 m ★2
+- Thaiwand Wall: 7b Out of Sticks 27 m ★3
+- Thaiwand Wall: 7a+ Caveman 32 m ★1
+- Thaiwand Wall: 4 Twenty Kilos of Steel 15 m ★1
+- Thaiwand Wall: 7a Circus Oz 120 m ★2 ⚠ Fixed Gear: Be aware that the upper pitches are not rebolted with titanium! / Fixed Gear: 7 stainless steel glue-in bolts, 4 slings. / Rock: Sharp rock to the anchors of 'Lord of the Thais'. / Rock: A fall on the last bit of the last pitch could be very dangerous, because there is some sharp rock and you're falling into a dihedral.
+- Thaiwand Wall: 7b Lord of the Thais 120 m ★3 ⚠ Rock: Short pitch to the left on sharp rock, just to reach the top.
+- Thaiwand Wall: 6b Mala Mujer 30 m ★2
+- Thaiwand Wall: 6b+ Getting to Know You / Etcetera, Etcetera, Etcetera 30 m ★2
+- Thaiwand Wall: 6b The Sluggard Prince 28 m ★2 ⚠ Fixed Gear: Not rebolted with titanium. 1 expansion bolt, 12 slings.
+- Thaiwand Wall: 7b+ The King and I 120 m ★3 ⚠ Rock: Same as P5 of 'Lord of the Thais', sharp rock to the top.
+- Thaiwand Wall: 6b+ Sanuked 40 m ★1
+- Thaiwand Wall: 6a+ Fit to Be Thaid 25 m ★2
+- Thaiwand Wall: 6a Fit to Be Thaid (Extension) 18 m ★2 ⚠ Fixed Gear: Only protected by slings. Be prepared to replace.
+- Thaiwand Wall: 7a+ Taming the East 20 m ★2 ⚠ Fixed Gear: All stainless steel glue-in bolts.
+- Candlestick Wall: 3+ Approach Pitch 30 m
+- Candlestick Wall: 6c+ The Red Line 55 m ★2
+- Candlestick Wall: 6b+ Crystal Flame 70 m ★3
+- Candlestick Wall: 6c The Candlestick 70 m ★2
+- Candlestick Wall: 6c Thai Stick 70 m ★2
+- Wee's Present Wall: 6b+ No Good Deed Goes Unpunished 30 m ★3
+- Wee's Present Wall: 6c+ The Marlin 32 m ★2
+- Wee's Present Wall: 7b+ Tres Equis 20 m ★3
+- Wee's Present Wall: 7b Mot Khao Ta / Ant Enters Eye 20 m ★1
+- Wee's Present Wall: 6b+ Ling Rong Hei / Monkey Crying 20 m ★2
+- Wee's Present Wall: 6c Low Season 20 m ★2
+- Wee's Present Wall: 5b Way to the Top 20 m ★1
+- Wee's Present Wall: 6a Roi-Et 17 m ★1 ⚠ Rock: Short climb left of the corner on sharp rock.
+- Wee's Present Wall: 6a I Don't Know 15 m ★1 ⚠ Rock: Short corner climb on sharp rock.
+- Wee's Present Wall: 6a A Man Can Tell a 1000 Lies 15 m ★2
+- Wee's Present Wall: 6a+ Hello Christine 20 m ★2
+- Wee's Present Wall: 7a Milky Way 20 m ★2
+- Wee's Present Wall: 6b+ Same Same, But Different 20 m ★2
+- Wee's Present Wall: 7c+ Tarte Au Poil / Hair Pie 27 m ★3
+- Wee's Present Wall: 7a+ Shit Rest Days 25 m ★2
+- Wee's Present Wall: 7a Give Me a Break 25 m ★2
+- Wee's Present Wall: 6b John's White Shirt 20 m ⚠ Fixed Gear: Old slings and expansion bolts. / Climbing: Do not climb unless rebolted!
+- Wee's Present Wall: 7b Som Tam 27 m ⚠ Fixed Gear: Old slings and expansion bolts. / Climbing: Do not climb unless rebolted!
+- Wee's Present Wall: 6c On the Edge 20 m ⚠ Fixed Gear: Old slings and expansion bolts. / Climbing: Do not climb unless rebolted!
+- Wee's Present Wall: 5b Klong Mot Gan 11 m ⚠ Fixed Gear: Old slings and expansion bolts. / Climbing: Do not climb unless rebolted!
+- Phra-Nang Beach: 7B No Name ★1
+- Phra-Nang Beach: 7b+ Genesis 20 m ★2 ⚠ Fixed Gear: Not rebolted with titanium, 9 stainless steel glue-ins, 2 slings.
+- Phra-Nang Beach: 7b Tough Trip Through Paradise 9 m ★2
+- Phra-Nang Beach: 7c Khun Bar 8 m ★2
+- Phra-Nang Beach: 7c+ Black Diamond 9 m ★2
+- Phra-Nang Beach: 6c Little Shit 8 m ★1
+- Phra-Nang Beach: 6c+ Princess Eyes 8 m ★2
+- Phra-Nang Beach: 7a Titanium from Hell / Tales of Power 10 m ★2
+- Phra-Nang Beach: 7a+ Don't Buy Toys 9 m ★2
+- Phra-Nang Beach: 7a New Way 10 m ★2
+- Phra-Nang Beach: 8a Mekong Haze 9 m ★2
+- Phra-Nang Beach: 7c+ Might as Well Hurl 9 m ★2
+- Phra-Nang Beach: 7b Up to You 15 m ★2
+- Phra-Nang Beach: 7b+ Half Dragon 18 m ★3 ⚠ Fixed Gear: The old bolts have been chopped and the new shorter and easier route was called 'Half Dragon'.
+- Phra-Nang Beach: 8b Hot Dragon 25 m ⚠ Fixed Gear: The old bolts have been chopped.
+- Phra-Nang Beach: 7b Left of Cleft 26 m ★2
+- Phra-Nang Beach: 6a Em & Ems 12 m ★1
+- Phra-Nang Beach: 6a Lak Kai 12 m ★1
+- Phra-Nang Beach: 6a+ Money Maker 22 m ★1
+- Phra-Nang Beach: 5 Phra-Nang Princess 18 m ★1
+- Phra-Nang Beach: 6a Small Change 18 m ★2
+- Phra-Nang Beach: 5 Back To Mani / Cave 18 m ★1
+- Phra-Nang Beach: 6b Top-Roped 22 m ★2
+- Phra-Nang Beach: 6c+ Fertilite / Princess Cave 18 m ★1
+- Escher World / Tum Choee: 6c Best Route in Minnesota 25 m ★3
+- Escher World / Tum Choee: 6c Cavepunk 25 m ★3
+- Escher World / Tum Choee: 7a+ Half-Pipe Dream 20 m ★2
+- Escher World / Tum Choee: 7a+ Hello Dali 10 m ★1
+- Escher World / Tum Choee: 6a+ Goodbye Salvador 10 m
+- Escher World / Tum Choee: 7a Nasty 15 m ★1 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- Escher World / Tum Choee: 6b Ribbed for Her Pleasure 13 m ★2
+- Escher World / Tum Choee: 5 Short and Easy 13 m ★1
+- Escher World / Tum Choee: 7a+ Don't Grab the Krabi 13 m ★2
+- Escher World / Tum Choee: 7a+ Crazy Peninsula 13 m ★1 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- Escher World / Tum Choee: 5 Long Doo / Try 12 m ★1
+- Escher World / Tum Choee: 4 The Playground 12 m ⚠ Climbing: Do not climb!
+- Escher World / Tum Choee: 6b Soley Action 1 15 m ★1 ⚠ Fixed Gear: Be prepared to replace!
+- Escher World / Tum Choee: 6b Mei Rue Arei / Soley Action 2 16 m ★1
+- Escher World / Tum Choee: 6b Humming Song (Left Variation) 15 m ★2
+- Escher World / Tum Choee: 6b Humming Song 15 m ★2
+- Escher World / Tum Choee: 6a+ Scorpion 15 m ★1
+- Escher World / Tum Choee: 7a+ Humdinger 21 m ★1 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- Escher World / Tum Choee: 7a+ Freedom of a Friend 21 m ★2 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- Escher World / Tum Choee: 7a Napalm Babies 15 m ★2 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- Escher World / Tum Choee: 6a+ As Far as Siam 15 m ★2 ⚠ Fixed Gear: Old slings.
+- Escher World / Tum Choee: 6a+ Mekong Crazy 15 m ★1 ⚠ Fixed Gear: Old slings.
+- Escher World / Tum Choee: 7b Good with the Machete 15 m ⚠ Fixed Gear: Old slings.
+- Escher World / Tum Choee: 7c+ The Danger of Beauty 15 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- Escher World / Tum Choee: 8a+ Fever Dream 14 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- Escher World / Tum Choee: 7c+ The Beauty of Danger 14 m ★3 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- Happy Island: 6c Waiting for Donkey Kong 49 m ★2 ⚠ Fixed Gear: Old rusty bolts. / Climbing: Do not climb!
+- Happy Island: 6a Don't Worry, Be Happy 25 m ★2 ⚠ Fixed Gear: Not rebolted with titanium. 6 old slings, 1 stainless steel glue-in bolt.
+- Happy Island: 7a+ King Fisher 30 m ★3
+- Happy Island: 8a Land of Smiles 52 m ★3 ⚠ Fixed Gear: Old rusty bolts. / Climbing: Do not climb!
+- Happy Island: 7a+ Coral Soul 25 m ★2 ⚠ Fixed Gear: Alternative second pitch of 'Land of Smiles', but also not rebolted. Old rusty bolts. / Climbing: Do not climb!
+- Happy Island: 8a Gecko Blaster / Happy Project 13 m
+- Happy Island: 8a+ Violent Brain Fever 30 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb!
+- Happy Island: 6b+ Happy Thailand 25 m ★2 ⚠ Climbing: Do not climb!
+- Happy Island: 6c+ Razorback 35 m ★1 ⚠ Fixed Gear: Second pitch expansion bolts. / Climbing: Do not climb until rebolted!
+- Happy Island: 7a TV Route 40 m ★1 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb!
+- Happy Island: 6b+ Jungle Boogie 25 m ★2 ⚠ Climbing: Do not climb unless rebolted!
+- Happy Island: 7a+ Galette S'Abstenir 27 m ★2 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb!
+- Happy Island: 6c+ Pee Mai / New Year 27 m ★1 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb!
+- The Defile: 7c Crystal Prison 40 m ★1 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb!
+- The Defile: 7b Thank You, Sophie 10 m ★1
+- The Defile: 6c Krabi! Krabi! 30 m ★2
+- The Defile: 7b Allo, la Terre? 40 m ★2 ⚠ Fixed Gear: Old expansion bolts. / Climbing: Do not climb!
+- The Defile: 6a+ Mai Pen Rai / Never Mind 25 m ★2
+- The Defile: 5 Jungle Fever 20 m
+- The Defile: 6b+ Baboon's Lagoon 9 m ★1
+- The Defile: 6b Baboon's Ass 12 m ★1
+- The Defile: 6b Monkey Gone to Heaven 12 m ★1
+- The Defile: 6b Toni's Mind 12 m
+- The Defile: 7a+ Khao Pat Gai / Chicken Fried Rice 12 m ★2
+- The Defile: 7b Kum Jai / Worry 15 m ★2
+- The Defile: 6b Kum Jai (Variation) 12 m ★1
+- Universe Wall: 7b Apocolysco 15 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- Universe Wall: 7a+ Slow-Pulsed Boy 15 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- Universe Wall: 7b Universe City 16 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- Universe Wall: 7b+ Crucial Taunt 12 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- Universe Wall: 8a The Shining Path 20 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+
+## Dropped / not used
+
+- theCrag: Happy Island 照片說明 https://www.thecrag.com/en/climbing/thailand/krabi/area/15687795/photos: 只有照片，無文字事實

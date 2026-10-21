@@ -1,0 +1,46 @@
+{
+  "sector": "Windy Cave",
+  "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/257769621",
+  "area_route_count": 3,
+  "routes": [
+    {
+      "grade": "6a+",
+      "stars": 3,
+      "name": "Morning Glory",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/257780223",
+      "style": "Sport",
+      "length": "31 m",
+      "pitches": 1,
+      "bolts": 13,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "7a",
+      "stars": 2,
+      "name": "Earthquake",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/257773440",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": 1,
+      "bolts": 10,
+      "desc": null,
+      "setter": "Paul Collis, 2007",
+      "warnings": []
+    },
+    {
+      "grade": "6a+",
+      "stars": 2,
+      "name": "Trojan Horse",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/1050205353",
+      "style": "Sport",
+      "length": "55 m",
+      "pitches": 3,
+      "bolts": 31,
+      "desc": "5c, Pitch 1: Straightforward, juggy face climbing. 15m, 10 bolts 6a+, Pitch 2: 25m, 15 bolts. Climb the face and finish at a set of rappel rings and rap down or veer left to another set of anchors and the 3rd pitch of the climb. 5a, Pitch 3, 15m, 6 bolts. Easier climbing. Belay from the first set of anchors you see. Rap off the next set of rap rings. 60 meter rope will get you to the ground (tie knots) It is a good idea to check for bees before you climb this route. The final rappel descends right in front of bee hives where the route \"A Wild Ride on a Crazy Horse\" is located.",
+      "setter": "Josh Morris & Francis Haden, 2017",
+      "warnings": []
+    }
+  ]
+}

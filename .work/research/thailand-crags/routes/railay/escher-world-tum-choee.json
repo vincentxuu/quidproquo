@@ -1,0 +1,405 @@
+{
+  "sector": "Escher World / Tum Choee",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687697",
+  "area_route_count": 26,
+  "routes": [
+    {
+      "grade": "6c",
+      "stars": 3,
+      "name": "Best Route in Minnesota",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717341",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": null,
+      "bolts": 14,
+      "pitches_detail": null,
+      "desc": "Awesome route on a pinacle in the giant cave on the left. Rebolted with titanium.",
+      "setter": "Todd Skinner & mike tupper, 1993",
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 3,
+      "name": "Cavepunk",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3095372934",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": null,
+      "bolts": 13,
+      "pitches_detail": null,
+      "desc": "Variation of 'Best Route in Minnesota'. Starts to the right for one bolt and then climbs right of the original bolt line. Grade not confirmed. Rebolted with titanium.",
+      "setter": "Torsten & der Mundschenk, 2004",
+      "warnings": []
+    },
+    {
+      "grade": "7a+",
+      "stars": 2,
+      "name": "Half-Pipe Dream",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717437",
+      "style": "Sport",
+      "length": "20 m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Climbs on the right side of the big cave. 5 titanium bolts, 5 slings.",
+      "setter": "Brady Robinson, 1995",
+      "warnings": []
+    },
+    {
+      "grade": "7a+",
+      "stars": 1,
+      "name": "Hello Dali",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717491",
+      "style": "Sport",
+      "length": "10 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Shares the start with 'Goodbye Salvador', then moves to the left anchor.",
+      "setter": "Will Hair, 1994",
+      "warnings": []
+    },
+    {
+      "grade": "6a+",
+      "stars": 0,
+      "name": "Goodbye Salvador",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717557",
+      "style": "Sport",
+      "length": "10 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "Shares the start with 'Hello Dali', then straight up to the right anchor. All titanium bolts.",
+      "setter": "Will Hair, 1994",
+      "warnings": []
+    },
+    {
+      "grade": "7a",
+      "stars": 1,
+      "name": "Nasty",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717641",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Wee Changrua, 1998",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Ribbed for Her Pleasure",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717689",
+      "style": "Top rope",
+      "length": "13 m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Left of 'Short and Easy'. No bolts. Climb on toprope.",
+      "setter": "Cyro Glad, 1993",
+      "warnings": []
+    },
+    {
+      "grade": "5",
+      "stars": 1,
+      "name": "Short and Easy",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717785",
+      "style": "Sport",
+      "length": "13 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "Warning Fixed Gear: Last bolt before anchor chopped, potential for ground fall Good lead for beginners. polished but very doable. 3 titanium bolts, 1 sling.",
+      "setter": "Cyro Glad, 1993",
+      "warnings": []
+    },
+    {
+      "grade": "7a+",
+      "stars": 2,
+      "name": "Don't Grab the Krabi",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717869",
+      "style": "Sport",
+      "length": "13 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Hard only on the crux, 3 moves. 5 titanium bolts, 1 sling.",
+      "setter": "Cyro Glad, 1993",
+      "warnings": []
+    },
+    {
+      "grade": "7a+",
+      "stars": 1,
+      "name": "Crazy Peninsula",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717941",
+      "style": "Sport",
+      "length": "13 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Wee Changrua, 1998",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    },
+    {
+      "grade": "5",
+      "stars": 1,
+      "name": "Long Doo / Try",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717989",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "Shares the anchor with 'The Playground'. All titanium bolts.",
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "4",
+      "stars": 0,
+      "name": "The Playground",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17718037",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Long Doo'. Bolts missing. Do not climb!",
+      "setter": "Dean Saydom, 1994",
+      "warnings": [
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 1,
+      "name": "Soley Action 1",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/198149724",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Starts between the two caves a meter to the right of 'The Playground'. Shares the start with 'Mei Rue Arei', but has its own anchor. All slings. Be prepared to replace!",
+      "setter": "Soley Ohbhut, 2000",
+      "warnings": [
+        "Fixed Gear: Be prepared to replace!"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 1,
+      "name": "Mei Rue Arei / Soley Action 2",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/198149829",
+      "style": "Sport",
+      "length": "16 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Direct start from the cave or start as per 'Soley Action 1' or 'Humming Song' if it's too wet. Finishes on its own anchor a meter above and right of 'Soley Action 1'. 3 titanium bolts, 2 slings.",
+      "setter": "Soley Ohbhut, 2000",
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Humming Song (Left Variation)",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/196992252",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Start on 'Humming Song' and go left after the second clip. Follow the slings and bolts until the last bolt and join the anchor of 'Humming Song'. There is a nice direct start clipping the first sling from the cave. If the sling is removed, consider doing the start as per 'Humming Song'.",
+      "setter": "Unknown",
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Humming Song",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17718097",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Climb on the corner and goes straight to the anchor at the right of the tree. Shares the start with 'Scorpion'. 3 titanium bolts, 3 slings.",
+      "setter": "Will Hair, 1994",
+      "warnings": []
+    },
+    {
+      "grade": "6a+",
+      "stars": 1,
+      "name": "Scorpion",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17718271",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "The rightmost line on the left side of the wall, located directly ahead of the approach trail. Shares the start with 'Humming Song'. 3 titanium bolts, 3 slings.",
+      "setter": "Will Hair, 1994",
+      "warnings": []
+    },
+    {
+      "grade": "7a+",
+      "stars": 1,
+      "name": "Humdinger",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17718331",
+      "style": "Sport",
+      "length": "21 m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Will Hair, 1994",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    },
+    {
+      "grade": "7a+",
+      "stars": 2,
+      "name": "Freedom of a Friend",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17718427",
+      "style": "Sport",
+      "length": "21 m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Cyro Glad, 1993",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    },
+    {
+      "grade": "7a",
+      "stars": 2,
+      "name": "Napalm Babies",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17718499",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'As Far as Siam' and 'Mekong Crazy'. Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Jim Schwalbach, 1992",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    },
+    {
+      "grade": "6a+",
+      "stars": 2,
+      "name": "As Far as Siam",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17718595",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Napalm Babies' and 'Mekong Crazy'. Old slings. Replace if you want to climb this!",
+      "setter": "Elizabeth Hendricks & mike tupper, 1993",
+      "warnings": [
+        "Fixed Gear: Old slings."
+      ]
+    },
+    {
+      "grade": "6a+",
+      "stars": 1,
+      "name": "Mekong Crazy",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17718685",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Napalm Babies' and 'As Far as Siam'. Old slings. Replace if you want to climb this!",
+      "setter": "Todd Skinner & mike tupper, 1993",
+      "warnings": [
+        "Fixed Gear: Old slings."
+      ]
+    },
+    {
+      "grade": "7b",
+      "stars": 0,
+      "name": "Good with the Machete",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17718763",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Old slings. Replace if you want to climb this!",
+      "setter": "Todd Skinner & mike tupper, 1993",
+      "warnings": [
+        "Fixed Gear: Old slings."
+      ]
+    },
+    {
+      "grade": "7c+",
+      "stars": 0,
+      "name": "The Danger of Beauty",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17718829",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Shares the first half with 'Fever Dream', then splits left to a higher anchor. Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Todd Skinner & mike tupper, 1993",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    },
+    {
+      "grade": "8a+",
+      "stars": 0,
+      "name": "Fever Dream",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17718889",
+      "style": "Sport",
+      "length": "14 m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Shares the start and anchors with 'The Beauty of Danger'. Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Todd Skinner & mike tupper, 1993",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    },
+    {
+      "grade": "7c+",
+      "stars": 3,
+      "name": "The Beauty of Danger",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17718955",
+      "style": "Sport",
+      "length": "14 m",
+      "pitches": null,
+      "bolts": 11,
+      "pitches_detail": null,
+      "desc": "Shares the start and anchors with 'Fever Dream'. Old rusty expansion bolts. Do not climb unless rebolted!",
+      "setter": "Todd Skinner & mike tupper, 1993",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    }
+  ]
+}

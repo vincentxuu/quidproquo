@@ -1,0 +1,85 @@
+[
+  {
+    "sector": "Tom's Cave & 4:20 Wall / The Nest Exit",
+    "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/2856548718",
+    "area_route_count": 5,
+    "routes": [
+      {
+        "grade": "6c+",
+        "stars": 0,
+        "name": "Dark Star",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/256484712",
+        "style": "Sport",
+        "length": "15m",
+        "pitches": 1,
+        "bolts": 10,
+        "pitches_detail": null,
+        "desc": "Inside the front wall of the cave. All titanium bolts.",
+        "setter": "Tom Cecil, Justin & Justin Day, 2007",
+        "warnings": []
+      },
+      {
+        "grade": "7a+",
+        "stars": 2,
+        "name": "Before the Sun",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/256485678",
+        "style": "Sport",
+        "length": "15m",
+        "pitches": 1,
+        "bolts": 9,
+        "pitches_detail": null,
+        "desc": "Outside of the cave pillar. All titanium bolts.",
+        "setter": "Tom Cecil & Justin Day, 2007",
+        "warnings": []
+      },
+      {
+        "grade": "6a",
+        "stars": 0,
+        "name": "Wrong Way",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/2975855427",
+        "style": "Sport",
+        "length": null,
+        "pitches": 1,
+        "bolts": 4,
+        "pitches_detail": null,
+        "desc": "Old rusty expansion bolts. Do not climb until rebolted!",
+        "setter": null,
+        "warnings": [
+          "Old rusty expansion bolts.",
+          "Do not climb until rebolted!"
+        ]
+      },
+      {
+        "grade": "6b",
+        "stars": 0,
+        "name": "Bubble Boy",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/2975855520",
+        "style": "Sport",
+        "length": "18m",
+        "pitches": 1,
+        "bolts": 11,
+        "pitches_detail": null,
+        "desc": "9 titanium bolts, 2 slings.",
+        "setter": "Bubble Boy, 2014",
+        "warnings": []
+      },
+      {
+        "grade": "7c+",
+        "stars": 0,
+        "name": "Project",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/2975855619",
+        "style": "Sport Project",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Old rusty expansion bolts. Do not climb until rebolted!",
+        "setter": null,
+        "warnings": [
+          "Old rusty expansion bolts.",
+          "Do not climb until rebolted!"
+        ]
+      }
+    ]
+  }
+]

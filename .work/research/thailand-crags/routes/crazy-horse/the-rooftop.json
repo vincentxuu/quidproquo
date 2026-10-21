@@ -1,0 +1,85 @@
+{
+  "sector": "The Rooftop",
+  "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13950529",
+  "area_route_count": 6,
+  "routes": [
+    {
+      "grade": "4",
+      "stars": 0,
+      "name": "People Like Us",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/11427171921",
+      "style": "Sport",
+      "length": "22 m",
+      "pitches": null,
+      "bolts": 13,
+      "desc": null,
+      "setter": "Feb 2017",
+      "warnings": []
+    },
+    {
+      "grade": "5c",
+      "stars": 0,
+      "name": "Burning Down the House",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/11427176205",
+      "style": "Sport",
+      "length": "20 m",
+      "pitches": null,
+      "bolts": 14,
+      "desc": null,
+      "setter": "Francis Haden, Feb 2017",
+      "warnings": []
+    },
+    {
+      "grade": "5c",
+      "stars": 3,
+      "name": "Rising Above Bedlam",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/11427204072",
+      "style": "Sport",
+      "length": "20 m",
+      "pitches": null,
+      "bolts": 12,
+      "desc": null,
+      "setter": "Francis Haden, Feb 2017",
+      "warnings": []
+    },
+    {
+      "grade": "5b",
+      "stars": 2,
+      "name": "Heun Fah / Ascending the Sky",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15697411",
+      "style": "Sport",
+      "length": "21 m",
+      "pitches": 1,
+      "bolts": 9,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "5c+",
+      "stars": 2,
+      "name": "A Route with a View",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15697459",
+      "style": "Sport",
+      "length": "22 m",
+      "pitches": 1,
+      "bolts": 10,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6a+",
+      "stars": 3,
+      "name": "Skyscraper",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15697507",
+      "style": "Sport",
+      "length": "29 m",
+      "pitches": 1,
+      "bolts": 11,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    }
+  ]
+}

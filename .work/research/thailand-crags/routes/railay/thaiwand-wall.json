@@ -1,0 +1,476 @@
+{
+  "sector": "Thaiwand Wall",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687721",
+  "area_route_count": 29,
+  "routes": [
+    {
+      "grade": "6a+",
+      "stars": 1,
+      "name": "Primal Scream",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17719015",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "Shares anchor with 'Solution 41'. Appears to be a mix of titanium bolts and stainless bolts at the top.",
+      "setter": "Greg Collum & Jeff, 1992",
+      "warnings": []
+    },
+    {
+      "grade": "6b+",
+      "stars": 1,
+      "name": "Solution 41",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17719099",
+      "style": "Sport",
+      "length": "18 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Primal Scream'. All titanium bolts.",
+      "setter": "Gordon Brysland & Terry Schmidt, 1994",
+      "warnings": []
+    },
+    {
+      "grade": "7c",
+      "stars": 2,
+      "name": "Spicy Speck Dreams",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17719171",
+      "style": "Sport",
+      "length": "22 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Not rebolted with titanium. All stainless steel glue-in bolts.",
+      "setter": "Valentin Mak, 1994",
+      "warnings": [
+        "Fixed Gear: Not rebolted with titanium. All stainless steel glue-in bolts."
+      ]
+    },
+    {
+      "grade": "7b+",
+      "stars": 3,
+      "name": "Orange Juice",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17719237",
+      "style": "Sport",
+      "length": "22 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Straight up into the orange pocketed wall. All titanium bolts.",
+      "setter": "Greg Collum & Jay Hanvik, 1992",
+      "warnings": []
+    },
+    {
+      "grade": "6a+",
+      "stars": 0,
+      "name": "No Name",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17719333",
+      "style": "Sport",
+      "length": null,
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Unnamed route between 'Orange Juice' and 'Live and Let Thai'.",
+      "setter": "Unknown",
+      "warnings": []
+    },
+    {
+      "grade": "7a",
+      "stars": 1,
+      "name": "Live and Let Thai",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17719429",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": 2,
+      "bolts": 9,
+      "pitches_detail": [
+        "1 5a 15m",
+        "2 7a 10m"
+      ],
+      "desc": "Climb as one pitch. Not rebolted with titanium. 6 stainless steel glue-in bolts, 3 slings.",
+      "setter": "Will Hair, 1994",
+      "warnings": [
+        "Fixed Gear: Not rebolted with titanium. 6 stainless steel glue-in bolts, 3 slings."
+      ]
+    },
+    {
+      "grade": "7b",
+      "stars": 3,
+      "name": "Equatorial",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17719597",
+      "style": "Sport",
+      "length": "50 m",
+      "pitches": 2,
+      "bolts": 19,
+      "pitches_detail": [
+        "1 6c 35m",
+        "2 7b 15m"
+      ],
+      "desc": "Great first pitch up the arete. 1. 11 titanium bolts, 2 slings. 2. 6 titanium bolts.",
+      "setter": "Greg Collum & Rock and Sun, 1994",
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 2,
+      "name": "Healthy Shake",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3092966481",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Right of 'Equatorial'. Hard crux into the small roof. Grade varies from 6c to 7a in different guidebooks. Titanium bolts.",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek, Mar 2019 (FA: Rock and Sun, Mar 2019)",
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 1,
+      "name": "Me",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3092966580",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "Named 'It' (5+/6a) in some guidebooks. Shares anchors with 'Healthy Shake'. Titanium bolts.",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek, Mar 2019 (FA: Desiree Massiah-Verbeek, Mar 2019)",
+      "warnings": []
+    },
+    {
+      "grade": "5+",
+      "stars": 1,
+      "name": "It / Up",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/7257755094",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "The easiest of the new routes, with the big hole just before the anchor. Named 'Up' in some guidebooks. Titanium bolts.",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek, Mar 2019 (FA: Desiree Massiah-Verbeek, Mar 2019)",
+      "warnings": []
+    },
+    {
+      "grade": "6a",
+      "stars": 1,
+      "name": "Wind Burn / Sun",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/7257758877",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Starting just left of 'Organ Grinder', trending left towards anchor on the bulge. Named 'Sun' in some guidebooks. 3 bolts and many slings.",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek (FA: Rock and Sun, Mar 2019)",
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 2,
+      "name": "Organ Grinder",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17719741",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": 2,
+      "bolts": 11,
+      "pitches_detail": [
+        "1 5a 15m",
+        "2 6c 10m"
+      ],
+      "desc": "Usually climbed as one pitch. All titanium bolts. After the P1 anchors, share 2-3 bolts with Hiroshi’s Revenge before attacking the sharp looking juggy arete, clipping bolts on the left side of the lip as you head up.",
+      "setter": "Sam Lightner, Greg Collum & Rock and Sun, 1993",
+      "warnings": []
+    },
+    {
+      "grade": "6b+",
+      "stars": 3,
+      "name": "Hiroshi's Revenge",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/7257768516",
+      "style": "Sport",
+      "length": "26 m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Starts with the first pitch of 'Organ Grinder', then continues up, via tufa onto the wall. Mix of titanium bolts and slings.",
+      "setter": "Rock and Sun & Desiree Massiah-Verbeek, Mar 2019 (FA: Rock and Sun, Mar 2019)",
+      "warnings": []
+    },
+    {
+      "grade": "7b",
+      "stars": 0,
+      "name": "Inaka",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17719969",
+      "style": "Sport",
+      "length": "120 m",
+      "pitches": 4,
+      "bolts": null,
+      "pitches_detail": [
+        "1 6b+ 26m",
+        "2 7b 15m",
+        "3 7a 50m",
+        "4 6b+ 28m"
+      ],
+      "desc": "This route is a mess. Don't do it. There is a lot of loose rock and sharpies that can cut your rope. Also no rebolting of the upper pitches since 1996. Take 15 quickdraws and extra threads if you're really keen... The first pitch is now 'Hiroshi's Revenge'.",
+      "setter": "Kaori Tauji & Koji Okumura, 1996",
+      "warnings": [
+        "Rock: There is a lot of loose rock and sharpies that can cut your rope."
+      ]
+    },
+    {
+      "grade": "7c+",
+      "stars": 1,
+      "name": "Continental Drifters",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17720161",
+      "style": "Sport",
+      "length": "99 m",
+      "pitches": 4,
+      "bolts": 40,
+      "pitches_detail": [
+        "1 6b 25m",
+        "2 7a+ 20m",
+        "3 7a 37m",
+        "4 7c+ 17m"
+      ],
+      "desc": "Good but not as good as 'Lord of the Thais' and 'The King and I'. Take 14 quickdraws. 1. 6 old bolts. First two pitches are not rebolted. Better access P3 from 'Monkey Love'. 2. 7 old bolts. See P1. 3. Straight up over the bulge. 8 titanium bolts. 4. Left towards the cave. 12 titanium bolts. 5. Sharp rock to the top. 7 titanium bolts. From the anchor of P3, it is a 60m rap to the ground with two 60m ropes.",
+      "setter": "Sam Lightner, Volker Schöffl & Gerd Schöffl, 1994",
+      "warnings": [
+        "Fixed Gear: 6 old bolts. First two pitches are not rebolted.",
+        "Fixed Gear: 7 old bolts.",
+        "Rock: Sharp rock to the top."
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Monkey Love",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17720257",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "Exposed line through the tufa system. Titanium bolts and slings.",
+      "setter": "Greg Collum & Larissa Collum, 1992 (Maint: Rock and Sun, Jan 2023)",
+      "warnings": []
+    },
+    {
+      "grade": "7b",
+      "stars": 3,
+      "name": "Out of Sticks",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17720341",
+      "style": "Sport",
+      "length": "27 m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Original grade was 7a+. Upgraded to 7b after a hold broke off. Shares the start with 'Caveman', then left straight over the bulge. 8 titanium bolts, 1 sling.",
+      "setter": "Sam Lightner, Gerd Schöffl & Volker Schöffl, 1994",
+      "warnings": []
+    },
+    {
+      "grade": "7a+",
+      "stars": 1,
+      "name": "Caveman",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17720497",
+      "style": "Sport",
+      "length": "32 m",
+      "pitches": 2,
+      "bolts": 12,
+      "pitches_detail": [
+        "1 6a+ 15m",
+        "2 7a+ 17m"
+      ],
+      "desc": "Shares the start with 'Out of Sticks', then further right up the crack. Can be climbed as one pitch. 11 titanium bolts, 1 sling.",
+      "setter": "Greg Collum & Larissa Collum, 1992",
+      "warnings": []
+    },
+    {
+      "grade": "4",
+      "stars": 1,
+      "name": "Twenty Kilos of Steel",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17720593",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Access route to the big cave connecting 'Thaiwand Wall' and 'Escher World'. 1 titanium bolt, 4 slings.",
+      "setter": "Dean Saydom, 1992",
+      "warnings": []
+    },
+    {
+      "grade": "7a",
+      "stars": 2,
+      "name": "Circus Oz",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17720851",
+      "style": "Sport",
+      "length": "120 m",
+      "pitches": 4,
+      "bolts": 41,
+      "pitches_detail": [
+        "1 6a+ 25m",
+        "2 6b+ 25m",
+        "3 7a 45m",
+        "4 6b 28m"
+      ],
+      "desc": "Popular and will get you as far of the deck as you will get in this area. Take 14 quickdraws and two 60m ropes. Be aware that the upper pitches are not rebolted with titanium! 1. Same first pitch as 'Lord of the Thais', straight up on the right side of the big cave. 7 titanium bolts, 3 slings. 2. Stay left of the bolts, up into the cave. Find the anchor just right above the anchor of 'Continental Drifters' P2. 4 titanium bolts, 5 slings. 3. Crux pitch. Quite fun if you have the means. Move left, then up over the bulge. 7 stainless steel glue-in bolts, 4 slings. 4. Sharp rock to the anchors of 'Lord of the Thais'. Take care. A fall on the last bit of the last pitch could be very dangerous, because there is some sharp rock and you're falling into a dihedral. 7 stainless steel glue-in bolts, 4 slings. Descend via the anchors of 'Lord of the Thais'. Three raps to the ground with two 60m ropes. Backclip to stay on the wall!",
+      "setter": "M Matheson, G Tempest, El Gordo & RD Smith, 1994",
+      "warnings": [
+        "Fixed Gear: Be aware that the upper pitches are not rebolted with titanium!",
+        "Fixed Gear: 7 stainless steel glue-in bolts, 4 slings.",
+        "Rock: Sharp rock to the anchors of 'Lord of the Thais'.",
+        "Rock: A fall on the last bit of the last pitch could be very dangerous, because there is some sharp rock and you're falling into a dihedral."
+      ]
+    },
+    {
+      "grade": "7b",
+      "stars": 3,
+      "name": "Lord of the Thais",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17721133",
+      "style": "Sport",
+      "length": "120 m",
+      "pitches": 5,
+      "bolts": 46,
+      "pitches_detail": [
+        "1 6a+ 25m",
+        "2 7a 28m",
+        "3 7a+ 28m",
+        "4 7b 27m",
+        "5 6b 12m"
+      ],
+      "desc": "One of the best routes in Thailand, maybe the world? Take 15 quickdraws and two 60m ropes. 1. Same first pitch as 'Circus Oz', straight up on the right side of the big cave. 7 titanium bolts, 3 slings. 2. Straight up over two bulges, then slightly left to the anchor on a big ledge. 8 titanium bolts, 4 slings. 3. Slightly left and straight up. 11 titanium bolts. 4. Towards the right through steep rock. 10 titanium bolts. 5. Short pitch to the left on sharp rock, just to reach the top. 2 titanium bolts, 1 sling. Descend by rapping down three times with two 60m ropes. Backclip to stay on the wall!",
+      "setter": "Sam Lightner, Greg Collum & Larissa Collum, 1992",
+      "warnings": [
+        "Rock: Short pitch to the left on sharp rock, just to reach the top."
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Mala Mujer",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17721181",
+      "style": "Sport",
+      "length": "30 m",
+      "pitches": null,
+      "bolts": 12,
+      "pitches_detail": null,
+      "desc": "Good vertical climb on tufas and big holds. 9 titanium bolts, 3 slings.",
+      "setter": "Pep Masip, 1995",
+      "warnings": []
+    },
+    {
+      "grade": "6b+",
+      "stars": 2,
+      "name": "Getting to Know You / Etcetera, Etcetera, Etcetera",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/8687931678",
+      "style": "Sport",
+      "length": "30 m",
+      "pitches": null,
+      "bolts": 12,
+      "pitches_detail": null,
+      "desc": "Awesone route!! the anchor is after the sling up to the left. All titanium bolts.",
+      "setter": "Sam Lightner & Jacob Valdez, 1993",
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "The Sluggard Prince",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17721607",
+      "style": "Sport",
+      "length": "28 m",
+      "pitches": null,
+      "bolts": 13,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Sanuked'. Not rebolted with titanium. 1 expansion bolt, 12 slings.",
+      "setter": "Gordon Brysland & Olle Welin, 1994",
+      "warnings": [
+        "Fixed Gear: Not rebolted with titanium. 1 expansion bolt, 12 slings."
+      ]
+    },
+    {
+      "grade": "7b+",
+      "stars": 3,
+      "name": "The King and I",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17721457",
+      "style": "Sport",
+      "length": "120 m",
+      "pitches": 4,
+      "bolts": 37,
+      "pitches_detail": [
+        "1 7a 30m",
+        "2 6a 36m",
+        "3 7b+ 38m",
+        "4 6b 12m"
+      ],
+      "desc": "A fun climb, especially the second pitch. Take 14 quickdraws and two 60m ropes. 1. Also a great single-pitch climb. Steep and pumpy. Alternatively, it is possible to climb 'The Sluggard Prince' and traverse right to the anchor. 12 titanium bolts. 2. Pass the midway anchor and climb up to the next anchor inside a small cave. 11 titanium bolts. 3. Left out of the belay cave. Again, pass an old anchor and climb straight up, then left to the anchor of 'Lord of the Thais' P4. 11 titanium bolts. 4. Same as P5 of 'Lord of the Thais', sharp rock to the top. 2 titanium bolts, 1 sling. Descend via the anchors of 'Lord of the Thais'. Three raps to the ground with two 60m ropes. Backclip to stay on the wall!",
+      "setter": "Sam Lightner, Jacob Valdez & Somporn Suebhait, 1992",
+      "warnings": [
+        "Rock: Same as P5 of 'Lord of the Thais', sharp rock to the top."
+      ]
+    },
+    {
+      "grade": "6b+",
+      "stars": 1,
+      "name": "Sanuked",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17721235",
+      "style": "Sport",
+      "length": "40 m",
+      "pitches": null,
+      "bolts": 14,
+      "pitches_detail": null,
+      "desc": "Starts at the top of 'The Sluggard Prince' and shares the anchor with P2 of 'The King and I'. Straight up for 3 clips, then crosses over P2 of 'The King and I'. Continues up right to under a small roof, then left and up to the belay cave. From the anchor it is a 60m rap to the ground. Very sustained climbing. 6 bolts, 8 slings.",
+      "setter": "Ed, 2001",
+      "warnings": []
+    },
+    {
+      "grade": "6a+",
+      "stars": 2,
+      "name": "Fit to Be Thaid",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17721799",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": null,
+      "bolts": 12,
+      "pitches_detail": null,
+      "desc": "A little sharp but otherwise fun climbing",
+      "setter": "Sam Lightner & Greg Collum, 1992",
+      "warnings": []
+    },
+    {
+      "grade": "6a",
+      "stars": 2,
+      "name": "Fit to Be Thaid (Extension)",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/10835660472",
+      "style": "Sport",
+      "length": "18 m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Linkup from the anchors of 'Fit to Be Thaid' to the anchors of 'The King and I'. Only protected by slings. Be prepared to replace.",
+      "setter": "Tony Cywood & Martin Armitage, 2010",
+      "warnings": [
+        "Fixed Gear: Only protected by slings. Be prepared to replace."
+      ]
+    },
+    {
+      "grade": "7a+",
+      "stars": 2,
+      "name": "Taming the East",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17721895",
+      "style": "Sport",
+      "length": "20 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "All stainless steel glue-in bolts.",
+      "setter": "Sam Lightner, Gerd Schoeffl & Volker Schoeffl, 1984",
+      "warnings": [
+        "Fixed Gear: All stainless steel glue-in bolts."
+      ]
+    }
+  ]
+}

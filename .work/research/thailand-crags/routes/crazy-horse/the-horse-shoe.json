@@ -1,0 +1,98 @@
+{
+  "sector": "The Horse Shoe",
+  "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/257511594",
+  "area_route_count": 7,
+  "routes": [
+    {
+      "grade": "5a",
+      "stars": 0,
+      "name": "Victoree / Victor-eee",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/257514870",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": 1,
+      "bolts": 5,
+      "desc": null,
+      "setter": "Victor Rodriguez",
+      "warnings": []
+    },
+    {
+      "grade": "5b+",
+      "stars": 1,
+      "name": "Robert's Stress",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/257514963",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": 1,
+      "bolts": 7,
+      "desc": "Polished feet and stiff moves up the left leaning crack. Better holds up the face, pull onto ledge, then up right. Jugs above the chains (though no doubt you will clip from the small holds below!).",
+      "setter": "Robert Elder & Uthit (Son) Yodkhamman",
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Groove is in the Heart",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/257515056",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": 1,
+      "bolts": 8,
+      "desc": "Hard move to pocket down low. Continue up steep corner with nice moves. Pull over lip, past ledge then follow next 2 bolts to the anchor.",
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6a+",
+      "stars": 1,
+      "name": "Drill and Blast, Drill and Bolt",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/257515149",
+      "style": "Sport",
+      "length": "16 m",
+      "pitches": 1,
+      "bolts": 7,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "5c",
+      "stars": 1,
+      "name": "Out of the Trees",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/257515242",
+      "style": "Sport",
+      "length": "16 m",
+      "pitches": 1,
+      "bolts": 7,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6a",
+      "stars": 1,
+      "name": "Snooze You Lose",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/257515335",
+      "style": "Sport",
+      "length": "16 m",
+      "pitches": 1,
+      "bolts": 9,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6a",
+      "stars": 1,
+      "name": "While You Were Sleeping",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/257515428",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": 1,
+      "bolts": 7,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    }
+  ]
+}

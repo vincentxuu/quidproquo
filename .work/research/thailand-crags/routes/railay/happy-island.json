@@ -1,0 +1,232 @@
+{
+  "sector": "Happy Island",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687649",
+  "area_route_count": 13,
+  "routes": [
+    {
+      "grade": "6c",
+      "stars": 2,
+      "name": "Waiting for Donkey Kong",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716117",
+      "style": "Sport",
+      "length": "49 m",
+      "pitches": 3,
+      "bolts": 13,
+      "pitches_detail": [
+        "1 6c 12m",
+        "2 6a+ 17m",
+        "3 6b+ 20m"
+      ],
+      "desc": "Old rusty bolts. Do not climb!",
+      "setter": "Ian Turnbull & J Beverage, 1995",
+      "warnings": [
+        "Fixed Gear: Old rusty bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 2,
+      "name": "Don't Worry, Be Happy",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716177",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "Starts with 'King Fisher', but goes straight up the shorter anchor. Not rebolted with titanium. 6 old slings, 1 stainless steel glue-in bolt. Replace slings if you want to climb this.",
+      "setter": "Will Hair, 1994",
+      "warnings": [
+        "Fixed Gear: Not rebolted with titanium. 6 old slings, 1 stainless steel glue-in bolt."
+      ]
+    },
+    {
+      "grade": "7a+",
+      "stars": 3,
+      "name": "King Fisher",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716273",
+      "style": "Sport",
+      "length": "30 m",
+      "pitches": null,
+      "bolts": 13,
+      "pitches_detail": null,
+      "desc": "Climbs 'Don't Worry, Be Happy', but veers right before the last clip. Maybe the classic on the crag, but needs rebolting. Last rebolting 2008, but only stainless steel glue-ins, which cannot be trusted anymore. 8 bolts, 5 slings.",
+      "setter": "Will Hair, 1994",
+      "warnings": []
+    },
+    {
+      "grade": "8a",
+      "stars": 3,
+      "name": "Land of Smiles",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716435",
+      "style": "Sport",
+      "length": "52 m",
+      "pitches": 2,
+      "bolts": 15,
+      "pitches_detail": [
+        "1 7a 24m",
+        "2 8a 28m"
+      ],
+      "desc": "Only first pitch rebolted with titanium. 1. 5 titanium bolts, 3 slings. 2. Old rusty bolts. Do not climb!",
+      "setter": "Joe Picalli, 1992",
+      "warnings": [
+        "Fixed Gear: Old rusty bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "7a+",
+      "stars": 2,
+      "name": "Coral Soul",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716519",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Alternative second pitch of 'Land of Smiles', but also not rebolted. Old rusty bolts. Do not climb!",
+      "setter": "Joe Picalli, 1992",
+      "warnings": [
+        "Fixed Gear: Alternative second pitch of 'Land of Smiles', but also not rebolted. Old rusty bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "8a",
+      "stars": 0,
+      "name": "Gecko Blaster / Happy Project",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716615",
+      "style": "Sport",
+      "length": "13 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Old stainless steel glue-ins. Needs rebolting.",
+      "setter": "Joe Picalli & Ian Turnbull, 1992",
+      "warnings": []
+    },
+    {
+      "grade": "8a+",
+      "stars": 0,
+      "name": "Violent Brain Fever",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716675",
+      "style": "Sport",
+      "length": "30 m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb!",
+      "setter": "Ian Turnbull, 1995",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6b+",
+      "stars": 2,
+      "name": "Happy Thailand",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716723",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "Share anchor with P1 of 'Razorback'. Old stainless steel glue-ins. Do not climb!",
+      "setter": "Mario Waser & Peter Hachler, 1997",
+      "warnings": [
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6c+",
+      "stars": 1,
+      "name": "Razorback",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716771",
+      "style": "Sport",
+      "length": "35 m",
+      "pitches": 2,
+      "bolts": 10,
+      "pitches_detail": [
+        "1 6a 25m",
+        "2 6c+ 10m"
+      ],
+      "desc": "Shares the start with 'TV Route' and anchors with 'Happy Thailand'. First pitch rebolted in 2000, but only with stainless steel glue-ins. Second pitch expansion bolts. Do not climb until rebolted!",
+      "setter": "Duncan, 1994",
+      "warnings": [
+        "Fixed Gear: Second pitch expansion bolts.",
+        "Climbing: Do not climb until rebolted!"
+      ]
+    },
+    {
+      "grade": "7a",
+      "stars": 1,
+      "name": "TV Route",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716849",
+      "style": "Sport",
+      "length": "40 m",
+      "pitches": 2,
+      "bolts": 14,
+      "pitches_detail": [
+        "1 7a 27m",
+        "2 6a+ 13m"
+      ],
+      "desc": "Shares the start with 'Razorback'. Old rusty expansion bolts. Do not climb!",
+      "setter": "Jack Werajack, 1996",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6b+",
+      "stars": 2,
+      "name": "Jungle Boogie",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716903",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Rebolted in 2008, but only with stainless steel glue-ins. Do not climb unless rebolted!",
+      "setter": "Stefan Piskurek & Markus Wiesenfarth, 1998",
+      "warnings": [
+        "Climbing: Do not climb unless rebolted!"
+      ]
+    },
+    {
+      "grade": "7a+",
+      "stars": 2,
+      "name": "Galette S'Abstenir",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716951",
+      "style": "Sport",
+      "length": "27 m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Pee Mai'. Old rusty expansion bolts. Do not climb!",
+      "setter": "Alain Dudoignon, 1995",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6c+",
+      "stars": 1,
+      "name": "Pee Mai / New Year",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17717005",
+      "style": "Sport",
+      "length": "27 m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Shares anchors with \"Galette S'Abstenir\". Old rusty expansion bolts. Do not climb!",
+      "setter": "Pascal Clementi, 1995",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    }
+  ]
+}

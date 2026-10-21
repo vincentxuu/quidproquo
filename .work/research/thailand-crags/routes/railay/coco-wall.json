@@ -1,0 +1,81 @@
+{
+  "sector": "CoCo Wall",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/3110237004",
+  "area_route_count": 4,
+  "routes": [
+    {
+      "grade": "6a",
+      "stars": 0,
+      "name": "No Name 1",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3110242413",
+      "style": "Sport",
+      "length": "22 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Sharp rock. Old expansion bolts and slings. Do not climb!",
+      "setter": "Unknown, 2006",
+      "warnings": [
+        "Rock: Sharp rock.",
+        "Fixed Gear: Old expansion bolts and slings.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 0,
+      "name": "No Name 2",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3110242512",
+      "style": "Sport",
+      "length": "24 m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Sharp rock. Old expansion bolts and slings. Do not climb!",
+      "setter": "Unknown, 2006",
+      "warnings": [
+        "Rock: Sharp rock.",
+        "Fixed Gear: Old expansion bolts and slings.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 0,
+      "name": "Samira",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3110238054",
+      "style": "Sport",
+      "length": "27 m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb!",
+      "setter": "Mario Waser & Martin Vener, 2000",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6c",
+      "stars": 0,
+      "name": "Fai Check",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3110239653",
+      "style": "Sport",
+      "length": "62 m",
+      "pitches": 3,
+      "bolts": 22,
+      "pitches_detail": [
+        "1 6a 27m",
+        "2 6b 10m",
+        "3 6c 25m"
+      ],
+      "desc": "First pitch is 'Samira'. Upper pitches protected by old slings. Old rusty expansion bolts and slings. Do not climb!",
+      "setter": "Daniel Bekker & Todd Ritchie, 2002",
+      "warnings": [
+        "Fixed Gear: Upper pitches protected by old slings. Old rusty expansion bolts and slings.",
+        "Climbing: Do not climb!"
+      ]
+    }
+  ]
+}

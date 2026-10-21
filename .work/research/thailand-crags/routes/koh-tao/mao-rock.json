@@ -1,0 +1,37 @@
+{
+  "sector": "Mao Rock",
+  "url": "https://www.thecrag.com/en/climbing/thailand/koh-tao/area/7449962058",
+  "area_route_count": 2,
+  "grade_system": "FB",
+  "area_warnings": [],
+  "routes": [
+    {
+      "grade": "6b",
+      "stars": 0,
+      "name": "Jungle Glove",
+      "url": "https://www.thecrag.com/en/climbing/thailand/koh-tao/route/7449971703",
+      "style": "Trad",
+      "length": null,
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "",
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 0,
+      "name": "Come on Dave",
+      "url": "https://www.thecrag.com/en/climbing/thailand/koh-tao/route/7449974640",
+      "style": "Trad",
+      "length": null,
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "PG",
+      "setter": null,
+      "warnings": []
+    }
+  ]
+}

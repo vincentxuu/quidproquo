@@ -1,0 +1,93 @@
+[
+  {
+    "sector": "Generator Wall",
+    "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15688297",
+    "area_route_count": 6,
+    "routes": [
+      {
+        "grade": "6b+",
+        "stars": 2,
+        "name": "The Ancient Lighthouse",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17735917",
+        "style": "Sport",
+        "length": "30m",
+        "pitches": 1,
+        "bolts": 12,
+        "pitches_detail": null,
+        "desc": "Old slings. Be prepared to replace.",
+        "setter": "Ola Brahammar, 2002",
+        "warnings": []
+      },
+      {
+        "grade": "6c+",
+        "stars": 0,
+        "name": "The Bolt from Hell",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17735965",
+        "style": "Sport",
+        "length": "27m",
+        "pitches": 1,
+        "bolts": 9,
+        "pitches_detail": null,
+        "desc": "Old slings. Be prepared to replace.",
+        "setter": "Ola Brahammar, 2002",
+        "warnings": []
+      },
+      {
+        "grade": "8b+",
+        "stars": 0,
+        "name": "Truls",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17736013",
+        "style": "Sport",
+        "length": "26m",
+        "pitches": 1,
+        "bolts": 8,
+        "pitches_detail": null,
+        "desc": "Old slings. Be prepared to replace.",
+        "setter": "Ola Brahammar, 2002",
+        "warnings": []
+      },
+      {
+        "grade": "7b",
+        "stars": 3,
+        "name": "The Way of the Emperor",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17736061",
+        "style": "Sport",
+        "length": "30m",
+        "pitches": 1,
+        "bolts": 10,
+        "pitches_detail": null,
+        "desc": "Old slings. Be prepared to replace.",
+        "setter": "Ola Brahammar & F Leung, 2002",
+        "warnings": []
+      },
+      {
+        "grade": "7b",
+        "stars": 3,
+        "name": "Pearl Jam",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17736115",
+        "style": "Sport",
+        "length": "30m",
+        "pitches": 1,
+        "bolts": 12,
+        "pitches_detail": null,
+        "desc": "Old slings. Be prepared to replace.",
+        "setter": "M Auliot, 2003",
+        "warnings": []
+      },
+      {
+        "grade": "7c+",
+        "stars": 2,
+        "name": "Rolling Thunder",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17736169",
+        "style": "Sport",
+        "length": "25m",
+        "pitches": 1,
+        "bolts": 12,
+        "pitches_detail": null,
+        "desc": "All titanium bolts.",
+        "setter": "Sam Lightner, Aaron Gully & Michelle Garbert, 2004",
+        "warnings": []
+      }
+    ]
+  }
+]

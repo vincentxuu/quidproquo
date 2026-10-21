@@ -1,0 +1,292 @@
+[
+  {
+    "sector": "Sleeping Indian Wall / Mammoth Cove",
+    "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15688057",
+    "area_route_count": 16,
+    "routes": [
+      {
+        "grade": "7a+",
+        "stars": 3,
+        "name": "The Ninth Life",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/6754169688",
+        "style": "Sport",
+        "length": null,
+        "pitches": 9,
+        "bolts": null,
+        "pitches_detail": [
+          "1 6b+",
+          "2 6c+",
+          "3 7a+",
+          "4 6b",
+          "5 6b",
+          "6 6b",
+          "7 n.a",
+          "8 7a",
+          "9 6b"
+        ],
+        "desc": "Closed Due to fire in the past, the rock is very unstable here and stones pop off and fall down every other day. Therefore, the route will not be rebolted again.",
+        "setter": "Sam Lightner, 2000",
+        "warnings": [
+          "Closed",
+          "Closed Due to fire in the past, the rock is very unstable here and stones pop off and fall down every other day."
+        ]
+      },
+      {
+        "grade": null,
+        "stars": 0,
+        "name": "Project",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/6754169781",
+        "style": "Sport",
+        "length": null,
+        "pitches": null,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Closed Started from the first anchor of 'The Ninth Life'.",
+        "setter": "Sam Lightner, 2000",
+        "warnings": [
+          "Closed",
+          "Closed Started from the first anchor of 'The Ninth Life'."
+        ]
+      },
+      {
+        "grade": "6b",
+        "stars": 1,
+        "name": "Indian Food",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/84481905",
+        "style": "Sport",
+        "length": "15m",
+        "pitches": 1,
+        "bolts": 4,
+        "pitches_detail": null,
+        "desc": "Here and there a little moss, but still good to climb. Dry during rain.",
+        "setter": "Ramon & Pon Yang Yan, 2000",
+        "warnings": []
+      },
+      {
+        "grade": "6b+",
+        "stars": 2,
+        "name": "Red-Eyed Cowboy",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17730289",
+        "style": "Sport",
+        "length": "18m",
+        "pitches": 1,
+        "bolts": 5,
+        "pitches_detail": null,
+        "desc": "",
+        "setter": "Ian Turnbull, 1995",
+        "warnings": []
+      },
+      {
+        "grade": "6b",
+        "stars": 1,
+        "name": "Indian Shoes",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/84482013",
+        "style": "Sport",
+        "length": "15m",
+        "pitches": 1,
+        "bolts": 4,
+        "pitches_detail": null,
+        "desc": "",
+        "setter": "Ramon & Pon Yang Yan, 2000",
+        "warnings": []
+      },
+      {
+        "grade": "7a",
+        "stars": 1,
+        "name": "The Monitor",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/84482319",
+        "style": "Sport",
+        "length": "88m",
+        "pitches": 4,
+        "bolts": null,
+        "pitches_detail": [
+          "1 6b+ 28m",
+          "2 7a 20m",
+          "3 6b 20m",
+          "4 6a+ 20m"
+        ],
+        "desc": "First pitch gives access to a huge cave with multiple windows, from which all multi-pitch routes on the Monitor Wall start. Straight up from the ground to the first anchor at the bottom of the cave. From the anchor scramble up left for about 10m into the cave. Follow a fixed rope down the cave and turn left to a cave window, where the belay anchor for P2 is located. Facing out the cave, climb up left. Climb up the left side of the huge stalactite. Straight up to the anchor located in a cave. Bring two 60m ropes and leave the second rope at the abseil anchor next to the anchor of P2, which is located in a cave behind the huge stalactite. From there it's a 60m rap to the ground.",
+        "setter": "Tom Cecil, Drew Spaulding & Mark Miner, 2001",
+        "warnings": []
+      },
+      {
+        "grade": "6b+",
+        "stars": 2,
+        "name": "Snake, Ganja & Rastaman",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17730337",
+        "style": "Sport",
+        "length": "82m",
+        "pitches": 4,
+        "bolts": null,
+        "pitches_detail": [
+          "1 6b+",
+          "2 6b",
+          "3 6b",
+          "4 6a+"
+        ],
+        "desc": "Re-established after it had been recycled into 'The Monitor'. Starts to the right of 'The Monitor' with the former access pitch 'Just Climb'. Shares the upper two pitches with 'The Monitor'.",
+        "setter": "Hany Lutz & Paul Brunner, 1996",
+        "warnings": []
+      },
+      {
+        "grade": "6c+",
+        "stars": 2,
+        "name": "Shaft of Light",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/84482421",
+        "style": "Sport",
+        "length": "50m",
+        "pitches": 2,
+        "bolts": 21,
+        "pitches_detail": [
+          "1 6b+ 30m",
+          "2 6c+ 20m"
+        ],
+        "desc": "Old rusty expansion bolts. Do not climb!",
+        "setter": "Tom Cecil, Drew Spaulding & Mark Miner, 2001",
+        "warnings": [
+          "Old rusty expansion bolts.",
+          "Do not climb!"
+        ]
+      },
+      {
+        "grade": "6b+",
+        "stars": 1,
+        "name": "Whipper Snapper",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17729989",
+        "style": "Sport",
+        "length": "30m",
+        "pitches": 1,
+        "bolts": 9,
+        "pitches_detail": null,
+        "desc": "Alternative second pitch of 'Shaft of Light'. Old rusty expansion bolts. Do not climb!",
+        "setter": "Tom Cecil, Drew Spaulding & Mark Miner, 2001",
+        "warnings": [
+          "Old rusty expansion bolts.",
+          "Do not climb!"
+        ]
+      },
+      {
+        "grade": "7a",
+        "stars": 3,
+        "name": "Praying Mantis",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/84482727",
+        "style": "Sport",
+        "length": null,
+        "pitches": 3,
+        "bolts": null,
+        "pitches_detail": [
+          "1 7a",
+          "2 6c",
+          "3 6a"
+        ],
+        "desc": "Great climbing. Access by climbing the first pitch of 'The Monitor'. Then scramble up and left into a big cave with multiple windows. Climb up right onto a ledge with two cave windows. Take the belay anchor on the right side of the right window. Facing out the cave, climb up right over a bulge. Climb up to the anchor behind the huge stalactite. Up on the other side of the stalactite. Bring two 60m ropes for rapping down. Fix the second rope at the belay anchor in the cave to pull yourself back when abseiling. Walk back through the cave and rappel from the belay anchor for the second pitch of 'The Monitor'.",
+        "setter": "Drew Spaulding & Tye, 2004",
+        "warnings": []
+      },
+      {
+        "grade": "6c",
+        "stars": 1,
+        "name": "Snakeskin",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/84483033",
+        "style": "Sport",
+        "length": "50m",
+        "pitches": 3,
+        "bolts": null,
+        "pitches_detail": [
+          "1 6c 20m",
+          "2 5b 10m",
+          "3 6b+ 20m"
+        ],
+        "desc": "Access by climbing the first pitch of 'The Monitor'. Scramble up and left into a big cave with multiple windows. Climb up right onto a ledge with two cave windows. Take the belay anchor on the right side of the right window. Facing out the cave, climb up left around the stalactite. Same as 'Monkey See, Monkey Do' P2. Traverse the big ledge to the right for three bolts. This is more a hike then climbing and can be linked with P1. Use the left anchor. Straight up. Rap down to the anchor of P1, while backclipping. Abseil into the cave. Walk through the cave to the belay anchor for P2 of 'The Monitor', from which you can rappel to the ground.",
+        "setter": "Tom Cecil, Justin Day & Brian Cornwell, 2004",
+        "warnings": []
+      },
+      {
+        "grade": "6b+",
+        "stars": 2,
+        "name": "Monkey See, Monkey Do",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/84483441",
+        "style": "Sport",
+        "length": "85m",
+        "pitches": 4,
+        "bolts": null,
+        "pitches_detail": [
+          "1 6b 20m",
+          "2 5b 10m",
+          "3 6b+ 20m",
+          "4 6b 35m"
+        ],
+        "desc": "Could be the best multi pitch at the grade on the peninsular. Great climbing, especially on the upper pitches. Access by climbing the first pitch of 'The Monitor'. Then scramble up left into a big cave with multiple windows. Climb up right onto a ledge with two cave windows. Move down to the left side of the left window to find the belay anchor. Facing out the cave, left up onto a ledge. Same as 'Snakeskin' P2. Traverse the big ledge to the right for three bolts. This is more a hike then climbing and can be linked with P1. Use the left anchor. From the anchor head straight up through overhanging terrain over multiple ledges. End up in a hanging belay to the right of the huge stalactite feature. Follow 3 horizontal lined up bolts to another anchor onto the big stalactite. From here straight up through a crack onto the face. Enjoy the view but keep focused on the climb, it's mental. 15 quickdraws needed. Bring two 60m ropes to rap off. Fix the second rope at the anchor of P2 and use it to pull yourself back while abseiling (overhanging rock).",
+        "setter": "Drew Spaulding, Justin Day, Jean & Noam, 2005",
+        "warnings": []
+      },
+      {
+        "grade": "6b",
+        "stars": 0,
+        "name": "Stay Out",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/10826823597",
+        "style": "Sport",
+        "length": "45m",
+        "pitches": 3,
+        "bolts": null,
+        "pitches_detail": [
+          "1 6b 10m",
+          "2 6a+ 10m",
+          "3 6b 25m"
+        ],
+        "desc": "After the first two pitches, stay left. Joins the upper half of the first pitch of 'Praying Mantis'.",
+        "setter": "Simon Talltorp, 2019",
+        "warnings": []
+      },
+      {
+        "grade": "6c",
+        "stars": 0,
+        "name": "Blind Monkey, Flat Monkey",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/10826823702",
+        "style": "Sport",
+        "length": null,
+        "pitches": 4,
+        "bolts": null,
+        "pitches_detail": [
+          "1 6b",
+          "2 6a+",
+          "3 6c",
+          "4 6c"
+        ],
+        "desc": "After the first two pitches, traverse right and continue straight up to the right end of the 'Mountaineering Ledge'. Then take the rightmost line for the final pitch.",
+        "setter": "Simon Talltorp, 2019",
+        "warnings": []
+      },
+      {
+        "grade": "6b+",
+        "stars": 0,
+        "name": "Cave Sweeper",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/2731397421",
+        "style": "Sport",
+        "length": "18m",
+        "pitches": 1,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Starts left of the upper pitches of 'Monkey See, Monkey Do' and climbs up to an anchor a bit below left of the anchor of MSMD, under a stalactite.",
+        "setter": "Simon Talltorp, 2019",
+        "warnings": []
+      },
+      {
+        "grade": "6c",
+        "stars": 0,
+        "name": "Frog's Hair",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/84483543",
+        "style": "Sport",
+        "length": "22m",
+        "pitches": 1,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Starts between the upper pitches of 'Monkey See, Monkey Do' and 'Blind Monkey, Flat Monkey'. Not rebolted. Do not climb!",
+        "setter": "Drew Spaulding, 2006",
+        "warnings": [
+          "Do not climb!"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,98 @@
+{
+  "sector": "The Archway",
+  "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13950505",
+  "area_route_count": 7,
+  "routes": [
+    {
+      "grade": "6c",
+      "stars": 2,
+      "name": "Sandbag",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15697123",
+      "style": "Sport",
+      "length": "20 m",
+      "pitches": 1,
+      "bolts": 9,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Kee Dtak / Diarrhea",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15697171",
+      "style": "Sport",
+      "length": "22 m",
+      "pitches": 1,
+      "bolts": 12,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 3,
+      "name": "Gruntfest",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15697219",
+      "style": "Sport",
+      "length": "19 m",
+      "pitches": 1,
+      "bolts": 10,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6a+",
+      "stars": 1,
+      "name": "Kee Gai / Chicken Shit",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15697363",
+      "style": "Sport",
+      "length": "19 m",
+      "pitches": 1,
+      "bolts": 8,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6a",
+      "stars": 0,
+      "name": "Heartbeat",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/507824097",
+      "style": "Sport",
+      "length": "8 m",
+      "pitches": 1,
+      "bolts": 4,
+      "desc": null,
+      "setter": "1998",
+      "warnings": []
+    },
+    {
+      "grade": "6c+",
+      "stars": 3,
+      "name": "The Tree Surgeon",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15697315",
+      "style": "Sport",
+      "length": "18 m",
+      "pitches": 1,
+      "bolts": 8,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 3,
+      "name": "Crazy Hot",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15697267",
+      "style": "Sport",
+      "length": "19 m",
+      "pitches": 1,
+      "bolts": 9,
+      "desc": "Use long draws on the 4th, 5th and 6th bolts. You can use this route to access Route #21 at The Crazy Horse Area West Face.",
+      "setter": "Kraisak Boonthip, 1998",
+      "warnings": []
+    }
+  ]
+}

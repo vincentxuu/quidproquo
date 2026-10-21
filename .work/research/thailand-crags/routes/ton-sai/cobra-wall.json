@@ -1,0 +1,138 @@
+[
+  {
+    "sector": "Cobra Wall",
+    "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15688177",
+    "area_route_count": 9,
+    "routes": [
+      {
+        "grade": "6c",
+        "stars": 3,
+        "name": "Cobra Venom",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/19708549",
+        "style": "Sport",
+        "length": "28m",
+        "pitches": 1,
+        "bolts": 10,
+        "pitches_detail": null,
+        "desc": "Access by climbing up to the second fixed rope. Shares the start with 'Ngu Baen Vohk', then straight up the roof. 8 titanium bolts, 2 slings.",
+        "setter": "Wee Changrua & Elke Schmitz, 2005",
+        "warnings": []
+      },
+      {
+        "grade": "7b",
+        "stars": 2,
+        "name": "Ngu Baen Vohk",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/19708621",
+        "style": "Sport",
+        "length": "29m",
+        "pitches": 1,
+        "bolts": 12,
+        "pitches_detail": null,
+        "desc": "Access by climbing up to the second fixed rope. Shares the start with 'Cobra Venom', then veers right around the arête to steep jugs. 8 titanium bolts, 4 slings.",
+        "setter": "Sam Lightner & Wee Changrua, 2004",
+        "warnings": []
+      },
+      {
+        "grade": "6a+",
+        "stars": 2,
+        "name": "Snake Skin",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/19708729",
+        "style": "Sport",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": 11,
+        "pitches_detail": null,
+        "desc": "Use the fixed rope for the belayer. 5 titanium bolts, 6 slings.",
+        "setter": "Wee Changrua & Tu-101, 2004",
+        "warnings": []
+      },
+      {
+        "grade": "6a+",
+        "stars": 1,
+        "name": "Cobra Head",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/19708183",
+        "style": "Sport",
+        "length": "25m",
+        "pitches": 1,
+        "bolts": 12,
+        "pitches_detail": null,
+        "desc": "Use the fixed rope for the belayer. Titanium bolts and slings.",
+        "setter": "Wee Changrua, 2001",
+        "warnings": []
+      },
+      {
+        "grade": "6a+",
+        "stars": 1,
+        "name": "Snake Whisky",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/19708231",
+        "style": "Sport",
+        "length": "26m",
+        "pitches": 1,
+        "bolts": 9,
+        "pitches_detail": null,
+        "desc": "Use the fixed rope for the belayer. Titanium bolts and slings.",
+        "setter": "Wee Changrua, 2001",
+        "warnings": []
+      },
+      {
+        "grade": "6c",
+        "stars": 2,
+        "name": "Baby Snake",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/19708339",
+        "style": "Sport",
+        "length": "25m",
+        "pitches": 1,
+        "bolts": 10,
+        "pitches_detail": null,
+        "desc": "Warning Rock: Hornets Nest Hard start through the overhang. 3 titanium bolts, 7 slings. Careful, potentially dangerous lead fall!",
+        "setter": "Wee Changrua & Ratd, 2002",
+        "warnings": [
+          "Rock: Hornets Nest",
+          "Careful, potentially dangerous lead fall!"
+        ]
+      },
+      {
+        "grade": "6b+",
+        "stars": 2,
+        "name": "The Last of Its Kind",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/2735269488",
+        "style": "Sport",
+        "length": "25m",
+        "pitches": 1,
+        "bolts": 12,
+        "pitches_detail": null,
+        "desc": "Climb up in the small roof right of 'Baby Snake'. 2 titanium bolts, 10 slings.",
+        "setter": "Simon Talltorp, 2016",
+        "warnings": []
+      },
+      {
+        "grade": "6b",
+        "stars": 1,
+        "name": "Old Snake",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/19708399",
+        "style": "Sport",
+        "length": "22m",
+        "pitches": 1,
+        "bolts": 9,
+        "pitches_detail": null,
+        "desc": "Starts on top of the boulder. 4 titanium bolts, 5 slings.",
+        "setter": "Wee Changrua, 2001",
+        "warnings": []
+      },
+      {
+        "grade": "6c",
+        "stars": 2,
+        "name": "The Snake Strikes",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/19708675",
+        "style": "Sport",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": 7,
+        "pitches_detail": null,
+        "desc": "Starts about 50m right of 'Old Snake'. Steep and pumpy climbing. Titanium bolts and slings.",
+        "setter": "Wee Changrua & Tu-101, 2004",
+        "warnings": []
+      }
+    ]
+  }
+]

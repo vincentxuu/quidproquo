@@ -1,0 +1,40 @@
+{
+  "failed": [
+    {
+      "sector": "The Evening Terraces",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13950649",
+      "reason": "theCrag returned HTTP 403 (area is in theCrag's index-rebuild 'swamp' state); page could not be read",
+      "expected_route_count": 3
+    },
+    {
+      "sector": "The Furnace",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13950481",
+      "reason": "theCrag returned HTTP 403 (area is in theCrag's index-rebuild 'swamp' state); page could not be read",
+      "expected_route_count": 11
+    },
+    {
+      "sector": "Vision Wall",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/9165045189",
+      "reason": "theCrag returned HTTP 403 (area is in theCrag's index-rebuild 'swamp' state); page could not be read",
+      "expected_route_count": 10
+    },
+    {
+      "sector": "Naam Prik Wall",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/1671508578",
+      "reason": "theCrag returned HTTP 403 (area is in theCrag's index-rebuild 'swamp' state); page could not be read",
+      "expected_route_count": 7
+    },
+    {
+      "sector": "The Ant Hill",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13950385",
+      "reason": "theCrag returned HTTP 403 (area is in theCrag's index-rebuild 'swamp' state); page could not be read",
+      "expected_route_count": 13
+    },
+    {
+      "sector": "Brah Wall",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/10946416941",
+      "reason": "theCrag returned HTTP 403 (area is in theCrag's index-rebuild 'swamp' state); page could not be read",
+      "expected_route_count": 12
+    }
+  ]
+}

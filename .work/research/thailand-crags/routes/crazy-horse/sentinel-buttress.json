@@ -1,0 +1,85 @@
+{
+  "sector": "Sentinel Buttress",
+  "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13233244284",
+  "area_route_count": 6,
+  "routes": [
+    {
+      "grade": "5a",
+      "stars": 0,
+      "name": "Sentinel",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/13233248778",
+      "style": "Sport",
+      "length": "74 m",
+      "pitches": 4,
+      "bolts": 13,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6b+",
+      "stars": 0,
+      "name": "Thai Sky Connect",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/13233269523",
+      "style": "Sport",
+      "length": "18 m",
+      "pitches": 1,
+      "bolts": 10,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 0,
+      "name": "Cognitive Overhead",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/13233269604",
+      "style": "Sport",
+      "length": "23 m",
+      "pitches": 1,
+      "bolts": 14,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "5a",
+      "stars": 0,
+      "name": "Sentinel at the Gate",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/13233269685",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": 1,
+      "bolts": 10,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "5a",
+      "stars": 0,
+      "name": "Drilling to Perdition",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/13233269766",
+      "style": "Sport",
+      "length": "18 m",
+      "pitches": 1,
+      "bolts": 10,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "5a",
+      "stars": 0,
+      "name": "Reflection",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/13233269847",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": 1,
+      "bolts": 8,
+      "desc": null,
+      "setter": null,
+      "warnings": []
+    }
+  ]
+}

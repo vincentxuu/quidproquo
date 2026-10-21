@@ -1,0 +1,123 @@
+# Ao Nang North Wall evidence
+
+2026-10-21. Scope: Ao Nang 市區內的 North Wall（theCrag 103 條，6 個子區）——全鈦栓、50 THB 入場費、停車與竊賊兩條警告、兩個子區的蜂巢與鳥巢警告。讀者決定：要不要從市區走過去、停哪裡、哪些線不要碰。
+
+## Sources opened
+
+- theCrag: The North Wall https://www.thecrag.com/en/climbing/thailand/krabi/area/1720715394: 103 條路線、6 個子區（Mythical Beasts 24、Hello Welcome 5、Jurassic X-Mas 24、Life of Leif 19、Rock'n Roll 28、NW Bouldering 3）、FR 4b+–9a、10,003 次攀登；入場費 50 THB、裝備租借、兩間廁所；停車警告「MUST Park Outside」與竊賊警告；禁鑽孔；私人土地
+- theCrag: Mythical Beasts https://www.thecrag.com/en/climbing/thailand/krabi/area/3096172467: 24 條逐線路線、級數、長度、星等與岩栓備註；2016 年聖誕節 Rock & Sun 開的最初兩條
+- theCrag: Jurassic X-Mas https://www.thecrag.com/en/climbing/thailand/krabi/area/1720720308: 24 條逐線路線；子區警告「Flora and Fauna: Update: Hornet situation as of 9.3.2026」（Dr. Desire 附近大蜂巢，靠近 Santa Sends）
+- theCrag: Rock'n Roll https://www.thecrag.com/en/climbing/thailand/krabi/area/1720722477: 28 條逐線路線；子區警告「Flora and Fauna: Bird nest」；含 8a Can I Play with Madness 與 8a Air Jordan
+- theCrag: Life of Leif https://www.thecrag.com/en/climbing/thailand/krabi/area/1731685974: 19 條逐線路線與岩栓備註
+- theCrag: Krabi Mainland https://www.thecrag.com/en/climbing/thailand/krabi/area/3084507318: Krabi Bolting Fund 資助計畫、禁鑽孔規範（繼承至所有子區）
+- Krabi Bolting Fund https://ko-fi.com/krabiboltingfund: 喀比本島岩栓維護的資助管道
+
+## Exact route rows
+
+- Mythical Beasts: 7b+/c Baba Yaga 30m ★3
+- Mythical Beasts: 7b+ Yeti 30m ★2
+- Mythical Beasts: 7a Black Mamba 30m ★2
+- Mythical Beasts: 7a Banshee 35m ★2
+- Mythical Beasts: 6a+ Shrek 16m ★1
+- Mythical Beasts: 6c+ Dragon 27m ★2
+- Mythical Beasts: 7b Terminator 28m ★2
+- Mythical Beasts: 7b Herminator 28m ★2
+- Mythical Beasts: 7a Baby Hercules 25m ★2 ⚠ _Watch loose rock!
+- Mythical Beasts: 7b Hercules 30m ★3
+- Mythical Beasts: Rick'n Morty
+- Mythical Beasts: 6c+ Bruce Banner 20m ★2
+- Mythical Beasts: 7b+ Hulk 30m ★3
+- Mythical Beasts: 7b King Kong 32m ★3
+- Mythical Beasts: 6c Son of Rambo 25m ★2
+- Mythical Beasts: 7a+ Rambo 35m ★2
+- Mythical Beasts: 7b The Joker ★2
+- Mythical Beasts: 7b Thor 33m ★3
+- Mythical Beasts: 7b+ Godzilla 35m ★3
+- Mythical Beasts: 7c Jaws ★3
+- Mythical Beasts: 6c Thunder 20m ★2
+- Mythical Beasts: 6a Thunder Extension ★2
+- Mythical Beasts: 6c Lightning 20m ★2
+- Mythical Beasts: 6a Lightning Extension ★1
+- Hello Welcome: 5 Where's Jordan? 23m ★1
+- Hello Welcome: 5 Hello Welcome 20m ★1
+- Hello Welcome: 5+ Mr Dean 22m ★1
+- Hello Welcome: 6a Everybody Loves Lek 21m ★2
+- Hello Welcome: 5+ Kiera 24m ★2
+- Jurassic X-Mas: 7b+ BAO 34m ★3 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 7a+ King's Landing 30m ★3 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6c Dragon Glass 27m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 7b+ White Walker 27m ★3 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 7a+ Mr Ya 23m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6c+ Santa Sends 26m ★3 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6b Dr Desire 33m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6a+ Slippery When Wet 18m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6b+ Backscratcher 18m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6b Honey Hunter 18m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6a Find a Heart 18m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6b Crazy Amounts of Pleasure 18m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6c Gravity 18m ★2 ⚠ Fixed Gear: Do not top rope from the ring at the anchor / Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6c Diana Ross 23m ★3 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 7a Gladiator 30m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 7b Diana Ross Extension 25m ★3 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 7a Blood Moon 18m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 7a New Moon ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 7a Full Moon ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6a The Stoneman 20m ★1 ⚠ Fixed Gear: Top anchor rope super shredded / Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 5 Carrie On 20m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6a+ Queen of the Highway 32m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6a+ Lizard King 23m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Jurassic X-Mas: 6a Tufantastic 23m ★2 ⚠ Flora and Fauna: Update: Hornet situation as of 9.3.2026
+- Life of Leif: 6b Pinball Wizard 20m ★2
+- Life of Leif: 6b Natalie 23m ★3
+- Life of Leif: 5c Luke 20m ★2
+- Life of Leif: 6a Rosie 20m ★2
+- Life of Leif: 6b+ Tufa Love ★2
+- Life of Leif: 6c Tufa Love Extension ★2
+- Life of Leif: 6b Kung Fu Panda / Kung Fu KK 17m ★2
+- Life of Leif: 7a The Fortress 40m ★2
+- Life of Leif: 6a+ Blue Crush 10m ★1
+- Life of Leif: 7a Lime Crush 10m
+- Life of Leif: 7a Cyber Punks 15m ★2
+- Life of Leif: 6b+ MACD ★2
+- Life of Leif: 6b HODL / Hold on for Dear Life 17m ★2
+- Life of Leif: 6a Captain Tripp 52m ★1
+- Life of Leif: 6c Dylan the Dog 25m ★2
+- Life of Leif: 6c Covid-19 16m ★3
+- Life of Leif: 7b Omnicron-22 16m ★2
+- Life of Leif: 6b+ Life of Leif ★2
+- Life of Leif: 7a+ Dogs Run Free 22m ★3
+- Rock'n Roll: 6a+ Sushi 14m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6c Wasabi 14m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 7b Sexual Climber 18m ★3 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6a+ Dazed and Confused 30m ★3 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 7b Red Lining / Red Lining.to the Max 30m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6c/c+ Dazed Lining 30m ★3 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 8a Air Jordan 18m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6b Motor City Madhouse 20m ★1 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6c Vagabonds of the Western World 30m ★3 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 8a Tangled up in Blue 30m ★2 ⚠ Flora and Fauna: Hornets / Flora and Fauna: Bird nest
+- Rock'n Roll: 7b+ Shotgun Blues 25m ★3 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 7a Creep 14m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 7a+ Master of Puppets 18m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6c Lady Rose 20m ★3 ⚠ Fixed Gear: Two slings need replacing / Flora and Fauna: Bird nest
+- Rock'n Roll: 8a Can I Play with Madness 20m ★3 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 7c+ Mad Max ★3 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 9a Furiosa ★3 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6a Keep Yourself Alive 25m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6c Simon's Tales 25m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6b Thunderstruck 27m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6c Heartbreaker 27m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6b+ Spanish Caravan 29m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6b The Passenger 29m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 5c Psycho Killer 26m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 6a+ Freebird 32m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 7a The End 32m ★2 ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 4+ Krabi Bolt Fund 22m ⚠ Flora and Fauna: Bird nest
+- Rock'n Roll: 4+ Rock & Sun 22m ⚠ Flora and Fauna: Bird nest
+- NW Bouldering: 6A+ Mythical Traverse ★2
+- NW Bouldering: 6A+ Jurassic Traverse ★3
+- NW Bouldering: 6A+ Rock n Roll Traverse ★2
+
+## Dropped / not used
+
+- Instagram: North Wall 貼文 https://www.instagram.com/reel/C2pceGuSH0Q/: 社群貼文只說「目前有 4 個區、89 條路線」，與 theCrag 的 103 條不符，不引用其數字

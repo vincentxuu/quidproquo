@@ -17,9 +17,9 @@
       "2024-04",
       "目前封閉，出發前確認"
     ],
-    "hash": "a9b9e578d8292e36",
+    "hash": "14edded73dbb70a6",
     "via": "jina",
-    "bytes": 203,
+    "bytes": 298,
     "lastChanged": "2026-10-19"
   },
   "https://planetmountain.com/en/crags/arco-massone.html": {
@@ -50,9 +50,9 @@
     ],
     "anchors": 5,
     "missing": [],
-    "hash": "0a819cb19c42d31b",
+    "hash": "f16638f1d243c760",
     "via": "jina",
-    "bytes": 6719
+    "bytes": 37355
   },
   "https://www.gardatrentino.it/en/outdoor/climbing/crags": {
     "firstSeen": "2026-10-18",
@@ -104,7 +104,7 @@
     ],
     "hash": "38860c2c8efdc3e4",
     "via": "direct",
-    "bytes": 630223,
+    "bytes": 630146,
     "finalUrl": "https://www.gardatrentino.it/en/plan-your-trip/local-mobility/Bus-and-Go"
   },
   "https://www.comune.arco.tn.it/Novita/Notizie/Lavori-a-Laghel-vietato-e-pericoloso-accedere-alla-zona": {
@@ -137,9 +137,9 @@
     "missing": [
       "2026-08-27"
     ],
-    "hash": "00d18768c678edc7",
+    "hash": "5ae70284bd3bace2",
     "via": "direct",
-    "bytes": 132211
+    "bytes": 132238
   },
   "https://labusa.info/arco-scattano-le-chiusure-temporanee-di-sei-falesie-per-lavori-di-manutenzione-e-disgaggio/": {
     "firstSeen": "2026-10-18",
@@ -206,9 +206,9 @@
       "50",
       "2024"
     ],
-    "hash": "0762428461ba5328",
+    "hash": "4920b4b8132682f6",
     "via": "direct",
-    "bytes": 204074,
+    "bytes": 203947,
     "finalUrl": "https://www.calagonone.eu/"
   },
   "https://climbingsardinia.com/en/how-to-climb-on-titanium-bolted-crags": {
@@ -263,9 +263,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "c9637dfa86697400",
+    "hash": "8f605c978613e62c",
     "via": "jina",
-    "bytes": 25145
+    "bytes": 25192
   },
   "https://sardegnaturismo.it/en/places/est/cala-gonone": {
     "firstSeen": "2026-10-18",
@@ -299,7 +299,7 @@
     "missing": [],
     "hash": "3d6212f303e890b1",
     "via": "direct",
-    "bytes": 332478,
+    "bytes": 332479,
     "finalUrl": "https://cortina.dolomiti.org/en/arrampicata-sportiva/cinque-torri-en/"
   },
   "https://planetmountain.com/en/crags/cinque-torri.html": {
@@ -317,9 +317,9 @@
     "missing": [
       "9:30–15:30"
     ],
-    "hash": "a58d9a398518a2f8",
+    "hash": "4aa5f647cf3c4d14",
     "via": "jina",
-    "bytes": 46748
+    "bytes": 53295
   },
   "https://ledolomiti.it/en/trails/falesia-cinque-torri-arrampicata": {
     "firstSeen": "2026-10-18",
@@ -431,9 +431,9 @@
     "missing": [
       "9:00–17:00"
     ],
-    "hash": "ea2956f0bc098fad",
+    "hash": "7c7c5be534737512",
     "via": "direct",
-    "bytes": 365389,
+    "bytes": 365401,
     "finalUrl": "https://cortinadampezzo.it/news/apertura-impianti-estate/"
   },
   "https://thetopo.com/crags/ferentillo/description": {
@@ -448,9 +448,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "fa4c989f5c6bf963",
+    "hash": "5a7a7aaef001306b",
     "via": "direct",
-    "bytes": 74668
+    "bytes": 74677
   },
   "https://www.planetmountain.com/en/news/climbing/petzl-legend-tour-italia-climbing-at-ferentillo.html": {
     "firstSeen": "2026-10-18",
@@ -464,13 +464,13 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "b85e07504811e399",
+    "hash": "e7d5dc30d587c640",
     "via": "jina",
-    "bytes": 5929
+    "bytes": 29175
   },
   "https://www.versantesud.it/it/negozio/catalogue/umbria-rock_1500/": {
     "firstSeen": "2026-10-18",
-    "status": 200,
+    "status": 0,
     "checked": "2026-10-21",
     "crags": [
       "italy-crag-ferentillo"
@@ -482,7 +482,8 @@
     "missing": [],
     "hash": "123c89feb54f188e",
     "via": "direct",
-    "bytes": 79935
+    "bytes": 79935,
+    "error": "UND_ERR_CONNECT_TIMEOUT"
   },
   "https://www.fsbusitalia.it/it/umbria/orari-linee-umbria/orari-servizi-extraurbani-umbria.html": {
     "firstSeen": "2026-10-18",
@@ -523,9 +524,9 @@
       "01–31",
       "1–7"
     ],
-    "hash": "4419284898436323",
-    "via": "jina",
-    "bytes": 61638,
+    "hash": "06d03da2bdaffabf",
+    "via": "direct",
+    "bytes": 1137191,
     "finalUrl": "https://www.finaleoutdoor.com/en/stories/climbing-in-the-finale-area-all-you-need-to-know"
   },
   "https://finaleoutdoor.com/en/stories/finale-outdoor-region-a-paradise-for-climbers-and-for-birds-of-prey": {
@@ -540,9 +541,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "e2ef4f33d7daf525",
-    "via": "jina",
-    "bytes": 57195,
+    "hash": "def519e71f01d864",
+    "via": "direct",
+    "bytes": 331395,
     "finalUrl": "https://www.finaleoutdoor.com/en/stories/finale-outdoor-region-a-paradise-for-climbers-and-for-birds-of-prey"
   },
   "https://finaleoutdoor.com/en/live/climbing": {
@@ -574,13 +575,13 @@
     ],
     "anchors": 2,
     "missing": [],
-    "hash": "044b3814ae42eb8f",
+    "hash": "821ccaa87d9cb3ab",
     "via": "jina",
-    "bytes": 12357
+    "bytes": 12761
   },
   "https://ecopointclimbing.com": {
     "firstSeen": "2026-10-18",
-    "status": 200,
+    "status": 0,
     "checked": "2026-10-21",
     "crags": [
       "italy-crag-finale-ligure"
@@ -593,7 +594,8 @@
     "hash": "65bfb196ab8d0e28",
     "via": "direct",
     "bytes": 125984,
-    "finalUrl": "https://ecopointclimbing.com/"
+    "finalUrl": "https://ecopointclimbing.com/",
+    "error": "UND_ERR_CONNECT_TIMEOUT"
   },
   "https://ukclimbing.com/logbook/crags/grotta_dellarenauta-9762": {
     "firstSeen": "2026-10-18",
@@ -682,7 +684,7 @@
     "missing": [],
     "hash": "60a302a73da1a49a",
     "via": "direct",
-    "bytes": 62208,
+    "bytes": 62207,
     "finalUrl": "https://thetopo.com/crags/grotta-dell-arenauta/access"
   },
   "https://climbingspotfactory.com/index.php/en/climbadvisor/gorotta_dell_arenauta/info_about": {
@@ -715,9 +717,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "4118eab7c9c3df89",
+    "hash": "58226b022ab19033",
     "via": "jina",
-    "bytes": 27870
+    "bytes": 27917
   },
   "https://mountainproject.com/forum/topic/125555168/gaeta-and-sperlonga-without-a-car": {
     "firstSeen": "2026-10-18",
@@ -741,8 +743,6 @@
     "status": 200,
     "checked": "2026-10-21",
     "crags": [
-      "italy-crag-gaeta",
-      "italy-crag-sperlonga",
       "italy-crag-andonno",
       "italy-crag-bismantova",
       "italy-crag-erto",
@@ -753,24 +753,17 @@
       "italy-crag-sass-dlacia",
       "italy-crag-statte",
       "italy-crag-stilo",
-      "italy-crag-val-rosandra"
+      "italy-crag-val-rosandra",
+      "italy-crag-gaeta",
+      "italy-crag-sperlonga"
     ],
     "types": [
-      "transport",
       "bolt_condition",
+      "transport",
       "closure"
     ],
     "anchors": 30,
     "missing": [
-      "12",
-      "2016",
-      "17",
-      "23",
-      "43",
-      "19",
-      " moneta ",
-      "2009",
-      "comprese le falesie di s.agostino e della spiaggia dell'arenauta",
       "ottima a resina",
       "578",
       "chiodatura eterna a fittoni resinati",
@@ -779,16 +772,25 @@
       "13",
       "29",
       "16",
+      "19",
       "31",
       "14",
       "2024",
       "08",
       "09",
-      "626"
+      "626",
+      "12",
+      "2016",
+      "17",
+      "23",
+      "43",
+      " moneta ",
+      "2009",
+      "comprese le falesie di s.agostino e della spiaggia dell'arenauta"
     ],
     "hash": "5d3e1335925da663",
     "via": "direct",
-    "bytes": 58630,
+    "bytes": 58631,
     "finalUrl": "https://www.falesia.it/",
     "lastChanged": "2026-10-19"
   },
@@ -805,31 +807,37 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "d4f3a64f47da5d20",
+    "hash": "23e0038dcbf9c244",
     "via": "jina",
-    "bytes": 33328
+    "bytes": 37543
   },
   "https://italia.it": {
     "firstSeen": "2026-10-18",
     "status": 200,
     "checked": "2026-10-21",
     "crags": [
+      "italy-crag-isili",
       "italy-crag-gaeta",
-      "italy-crag-isili"
+      "italy-crag-sperlonga"
     ],
     "types": [
-      "transport",
-      "fee"
+      "fee",
+      "transport"
     ],
-    "anchors": 1,
+    "anchors": 7,
     "missing": [
-      "attract the best climbers in europe"
+      "attract the best climbers in europe",
+      "2016",
+      "2012",
+      "5287",
+      "2026-10-18",
+      "路線難度與路線數主要來自 thecrag、mountain project 等線上資料庫，以指南書為準"
     ],
     "hash": "c45c78b0c337a795",
     "via": "direct",
     "bytes": 1430138,
     "finalUrl": "https://www.italia.it/en",
-    "lastChanged": "2026-10-19"
+    "lastChanged": "2026-10-21"
   },
   "https://parchilazio.it/rivieradiulisse-schede-32058-the_riviera_di_ulisse_regional_park": {
     "firstSeen": "2026-10-18",
@@ -868,9 +876,9 @@
       "10-18",
       "以 10-18 為例，出發前在頁面選日期再查"
     ],
-    "hash": "90443c9e02222382",
+    "hash": "aa565016cde59a41",
     "via": "direct",
-    "bytes": 398056,
+    "bytes": 398060,
     "finalUrl": "https://scoprigaeta.it/"
   },
   "https://thecrag.com/en/climbing/italy/verona/area/2013121002": {
@@ -923,9 +931,9 @@
     "missing": [
       "25–500"
     ],
-    "hash": "5357d35cbdbf6062",
+    "hash": "0cfef922b1ee2437",
     "via": "jina",
-    "bytes": 28374
+    "bytes": 28421
   },
   "https://parconaturaleportovenere.it/palestra-di-roccia/": {
     "firstSeen": "2026-10-18",
@@ -991,9 +999,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "8ac500108b1f53bc",
+    "hash": "be9944073bd311d2",
     "via": "jina",
-    "bytes": 28823
+    "bytes": 28870
   },
   "https://www.up-climbing.com/falesia/news-falesia/muzzerone-chiusura-disgaggio-richiodatura-parete-centrale-2/": {
     "firstSeen": "2026-10-18",
@@ -1023,9 +1031,9 @@
     ],
     "anchors": 3,
     "missing": [],
-    "hash": "7882c93df17af55c",
+    "hash": "74a9998e215da0bf",
     "via": "jina",
-    "bytes": 19250
+    "bytes": 19297
   },
   "https://27crags.com/crags/muzzerone": {
     "firstSeen": "2026-10-18",
@@ -1039,9 +1047,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "c67f74da6126a3e9",
+    "hash": "52b86a04ddf1709e",
     "via": "direct",
-    "bytes": 79862,
+    "bytes": 79966,
     "finalUrl": "https://thetopo.com/crags/muzzerone"
   },
   "https://www.thecrag.com/en/climbing/italy/area/450998862": {
@@ -1141,18 +1149,26 @@
       "bolt_condition",
       "fee"
     ],
-    "anchors": 6,
+    "anchors": 13,
     "missing": [
       "2020",
       "2005",
       "el bahira 就在主牆上方",
       "right under the main cliff",
       "緊鄰主牆／right next to",
+      "10",
+      "2026-09",
+      "978-3-938680-58-2",
+      "2021-03",
+      "2022",
+      "2015",
+      "路線難度與路線數主要來自 thecrag、mountain project 等線上資料庫，以指南書為準",
       "1200"
     ],
     "hash": "3c96c07f7dec9d2c",
     "via": "jina",
-    "bytes": 301
+    "bytes": 301,
+    "lastChanged": "2026-10-21"
   },
   "https://climb-europe.com/pages/san-vito-rock-climbing": {
     "firstSeen": "2026-10-18",
@@ -1220,7 +1236,7 @@
     "missing": [],
     "hash": "19a060b695b976b2",
     "via": "direct",
-    "bytes": 157737
+    "bytes": 159834
   },
   "https://en.wikivoyage.org/wiki/San_Vito_lo_Capo": {
     "firstSeen": "2026-10-18",
@@ -1370,9 +1386,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "1553ed9b5084336a",
+    "hash": "abd1bc6a8fc978d2",
     "via": "jina",
-    "bytes": 46647
+    "bytes": 46694
   },
   "https://www.planetmountain.com/en/news/events/melloblocco-2026-everything-you-need-to-know.html": {
     "firstSeen": "2026-10-18",
@@ -1395,27 +1411,27 @@
     "status": 200,
     "checked": "2026-10-21",
     "crags": [
-      "italy-crag-val-di-mello",
-      "italy-crags-overview",
       "italy-crag-bismantova",
       "italy-crag-capo-duomo",
       "italy-crag-cornalba",
-      "italy-crag-roccamorice"
+      "italy-crag-roccamorice",
+      "italy-crag-val-di-mello",
+      "italy-crags-overview"
     ],
     "types": [
-      "bolt_condition",
-      "closure"
+      "closure",
+      "bolt_condition"
     ],
     "anchors": 9,
     "missing": [
-      "migliaia di spit ... la grande maggioranza delle pareti è attrezzata",
       "2021-04-18",
       "1041",
       "2012",
       "2024-12-13",
       "120",
       "70",
-      "2014"
+      "2014",
+      "migliaia di spit ... la grande maggioranza delle pareti è attrezzata"
     ],
     "hash": "e48e786ff24dce52",
     "via": "direct",
@@ -1434,11 +1450,16 @@
       "fee",
       "bolt_condition"
     ],
-    "anchors": 0,
-    "missing": [],
+    "anchors": 6,
+    "missing": [
+      "2025-07",
+      "2026-10-18",
+      "路線難度與路線數主要來自 thecrag、mountain project 等線上資料庫，以指南書為準"
+    ],
     "hash": "823539b6b462dce2",
     "via": "jina",
-    "bytes": 8440
+    "bytes": 8440,
+    "lastChanged": "2026-10-21"
   },
   "https://climb-europe.com/pages/rock-climbing-italy-orco-valley": {
     "firstSeen": "2026-10-18",
@@ -1485,9 +1506,9 @@
     ],
     "anchors": 2,
     "missing": [],
-    "hash": "67f21b9a2ed31c94",
+    "hash": "3bd2872bc26a10a4",
     "via": "jina",
-    "bytes": 18546
+    "bytes": 25302
   },
   "http://www.planetmountain.com/en/news/interviews/free-itaca-nel-sole-valle-dellorco.html": {
     "firstSeen": "2026-10-18",
@@ -1501,9 +1522,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "46c39a7066aedbb0",
+    "hash": "077ea242bb03c7a6",
     "via": "jina",
-    "bytes": 27366
+    "bytes": 31533
   },
   "https://pngp.it/en/visit-park/how-reach-us": {
     "firstSeen": "2026-10-18",
@@ -1551,11 +1572,14 @@
       "closure"
     ],
     "anchors": 1,
-    "missing": [],
-    "hash": "3a8f7d27d8ddacbc",
+    "missing": [
+      "nago (closed for now)"
+    ],
+    "hash": "c4f5a8a37f9df19a",
     "via": "direct",
-    "bytes": 108972,
-    "finalUrl": "https://thetopo.com/countries/italy"
+    "bytes": 61670,
+    "finalUrl": "https://thetopo.com/beta/login?return_to=%2Fbeta%2Fcountries%2Fitaly",
+    "lastChanged": "2026-10-21"
   },
   "https://www.planetmountain.com/en/crags": {
     "firstSeen": "2026-10-18",
@@ -1571,9 +1595,9 @@
     "missing": [
       "09:30–15:30"
     ],
-    "hash": "7d76432220c9683e",
+    "hash": "a925547d4d3aa7fd",
     "via": "jina",
-    "bytes": 12516
+    "bytes": 12563
   },
   "https://www.up-climbing.com/falesia/news-falesia/finale-attenti-ai-rapaci/": {
     "firstSeen": "2026-10-18",
@@ -1598,15 +1622,15 @@
     "status": 200,
     "checked": "2026-10-21",
     "crags": [
-      "italy-crags-overview",
       "italy-crag-daone",
       "italy-crag-erto",
       "italy-crag-laste",
-      "italy-crag-val-rosandra"
+      "italy-crag-val-rosandra",
+      "italy-crags-overview"
     ],
     "types": [
-      "fee",
-      "bolt_condition"
+      "bolt_condition",
+      "fee"
     ],
     "anchors": 3,
     "missing": [
@@ -1616,7 +1640,7 @@
     ],
     "hash": "d77559c9d7ccafd5",
     "via": "direct",
-    "bytes": 84180,
+    "bytes": 84188,
     "finalUrl": "https://www.trekking.it/",
     "lastChanged": "2026-10-19"
   },
@@ -1690,7 +1714,7 @@
     "missing": [],
     "hash": "47a8cc96232189c8",
     "via": "direct",
-    "bytes": 104612
+    "bytes": 104622
   },
   "https://climbingspotfactory.com/en/climbadvisor/positano/info_about": {
     "firstSeen": "2026-10-19",
@@ -1770,7 +1794,7 @@
     "missing": [],
     "hash": "55ef807c2bc4c22f",
     "via": "direct",
-    "bytes": 115194,
+    "bytes": 115217,
     "finalUrl": "https://sitasudtrasporti.it/campania/orari/"
   },
   "https://sitasudtrasporti.it/campania/wp-content/uploads/sites/3/2024/02/5120_5110_5070_05_10_2026.pdf": {
@@ -1803,7 +1827,7 @@
     "missing": [],
     "hash": "17804716e53bfb1a",
     "via": "direct",
-    "bytes": 346056
+    "bytes": 350763
   },
   "https://www.positanonews.it/2024/01/positano-gli-orari-del-trasporto-interno-mobility-amalfi-coast-in-vigore-dall8-gennaio-2024/3685131/": {
     "firstSeen": "2026-10-19",
@@ -1821,7 +1845,7 @@
     ],
     "hash": "9d208bd938bed155",
     "via": "direct",
-    "bytes": 379440
+    "bytes": 384147
   },
   "https://www.areeprotettealpimarittime.it/media/1d5c099a.pdf": {
     "firstSeen": "2026-10-19",
@@ -1903,12 +1927,10 @@
       "closure"
     ],
     "anchors": 4,
-    "missing": [
-      "2026-10-01"
-    ],
-    "hash": "96067765a2e73d9c",
-    "via": "direct",
-    "bytes": 79044
+    "missing": [],
+    "hash": "65afdf80293bf8c8",
+    "via": "jina",
+    "bytes": 40577
   },
   "https://www.cuneo24.it/2026/10/valdieri-stop-allarrampicata-ad-andonno-chiusa-la-famosa-palestra-di-roccia-per-lavori-di-sicurezza-362547": {
     "firstSeen": "2026-10-19",
@@ -1926,7 +1948,7 @@
     ],
     "hash": "6efd563e4ff9515d",
     "via": "direct",
-    "bytes": 399291
+    "bytes": 399200
   },
   "https://climb-europe.com/pages/rock-climbing-italy-northwest-climbing-areas": {
     "firstSeen": "2026-10-19",
@@ -2044,9 +2066,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "38c2cbc0e368aade",
+    "hash": "2585f1a8c1732ec1",
     "via": "jina",
-    "bytes": 25624
+    "bytes": 25671
   },
   "https://www.thecrag.com/en/climbing/italy/sardinia/cala-goloritze": {
     "firstSeen": "2026-10-19",
@@ -2118,9 +2140,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "e1a391f97253d3d4",
+    "hash": "3859a42f165cbfe3",
     "via": "jina",
-    "bytes": 14986
+    "bytes": 15096
   },
   "https://app.arstspa.it/quadri/301.html": {
     "firstSeen": "2026-10-19",
@@ -2151,9 +2173,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "03573b2646edc249",
+    "hash": "110f90a3b5eee99e",
     "via": "jina",
-    "bytes": 32938
+    "bytes": 32985
   },
   "https://www.thecrag.com/en/climbing/italy/la-pietra-di-bismantova/vecchie-gare": {
     "firstSeen": "2026-10-19",
@@ -2257,7 +2279,7 @@
     "missing": [],
     "hash": "ce94f016170ee5e9",
     "via": "direct",
-    "bytes": 234246
+    "bytes": 234642
   },
   "https://thetopo.com/crags/bosco-scorace-boulder/access": {
     "firstSeen": "2026-10-19",
@@ -2291,7 +2313,7 @@
     "missing": [],
     "hash": "de84d89425e7eb78",
     "via": "direct",
-    "bytes": 503932,
+    "bytes": 503929,
     "finalUrl": "https://thetopo.com/crags/bosco-scorace-boulder/routelist"
   },
   "https://campigliodolomiti.it/en/how-to-arrive/by-bus": {
@@ -2310,7 +2332,7 @@
     ],
     "hash": "9502ca099bf7bb3c",
     "via": "direct",
-    "bytes": 132125,
+    "bytes": 132145,
     "finalUrl": "https://www.campigliodolomiti.it/en/how-to-arrive/by-bus"
   },
   "https://pnab.webmapp.it/en/vallesinella-parking-transportation": {
@@ -2457,7 +2479,7 @@
     ],
     "hash": "fe2bdcd47754fe27",
     "via": "direct",
-    "bytes": 119277
+    "bytes": 119278
   },
   "https://gognablog.sherpa-gate.com/arrampicata-e-rapaci-2/": {
     "firstSeen": "2026-10-19",
@@ -2474,9 +2496,9 @@
       "1990",
       "arrampicata e rapaci 2"
     ],
-    "hash": "f25dbb93e4015278",
+    "hash": "b1ad7ca07d09f5c3",
     "via": "direct",
-    "bytes": 230073
+    "bytes": 230047
   },
   "https://www.planetmountain.com/it/falesie/capo-d-uomo.html": {
     "firstSeen": "2026-10-19",
@@ -2490,9 +2512,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "f09f71757f426c66",
+    "hash": "2f2a6176ebc1d67e",
     "via": "jina",
-    "bytes": 28610
+    "bytes": 28657
   },
   "https://www.planetmountain.com/en/routes/spigolo-bonatti-capo-d-uomo-argentario.html": {
     "firstSeen": "2026-10-19",
@@ -2506,9 +2528,9 @@
     ],
     "anchors": 3,
     "missing": [],
-    "hash": "718d1f9f83791423",
+    "hash": "d5778444dae3c50b",
     "via": "jina",
-    "bytes": 28087
+    "bytes": 28134
   },
   "https://www.thecrag.com/en/climbing/italy/central-and-southern-italy/firenze-florence-area/area/957418218": {
     "firstSeen": "2026-10-19",
@@ -2548,9 +2570,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "2f0eed2bfeed8b16",
+    "hash": "67c9e9af787803db",
     "via": "direct",
-    "bytes": 89828
+    "bytes": 89825
   },
   "https://www.rifugiorealberto.com/en/how-to-get-there.asp": {
     "firstSeen": "2026-10-19",
@@ -2681,9 +2703,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "5e8c27987e772933",
+    "hash": "f13ca2482d715a34",
     "via": "direct",
-    "bytes": 80133,
+    "bytes": 80313,
     "finalUrl": "https://thetopo.com/crags/champorcher"
   },
   "https://visitchamporcher.com/come-raggiungerci-27595": {
@@ -2749,9 +2771,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "64c3a8a41ff9619c",
+    "hash": "bac7b158e63d34cb",
     "via": "jina",
-    "bytes": 30214
+    "bytes": 30261
   },
   "https://www.planetmountain.com/it/itinerari/vie-di-arrampicata?gruppo=Civetta": {
     "firstSeen": "2026-10-19",
@@ -2765,9 +2787,9 @@
     ],
     "anchors": 3,
     "missing": [],
-    "hash": "7de134415cd778ac",
+    "hash": "5f28fc5b72a44d9f",
     "via": "jina",
-    "bytes": 18394
+    "bytes": 18441
   },
   "https://www.planetmountain.com/it/itinerari/donnafugata-torre-trieste.html": {
     "firstSeen": "2026-10-19",
@@ -2781,9 +2803,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "db4635923d73842b",
+    "hash": "6df8131076d9a082",
     "via": "jina",
-    "bytes": 26187
+    "bytes": 26234
   },
   "https://alleghe-dolomiti.it/PDF/impianti_estate_2026.pdf": {
     "firstSeen": "2026-10-19",
@@ -2899,9 +2921,9 @@
     ],
     "anchors": 4,
     "missing": [],
-    "hash": "897d5fff318526f7",
+    "hash": "c9cb1147162b3f59",
     "via": "jina",
-    "bytes": 8040
+    "bytes": 8087
   },
   "http://www.montiernici.it/forum/viewtopic.php?t=315&highlight=&sid=2501a957dd5fd0688ab4be4a98c8e61d": {
     "firstSeen": "2026-10-19",
@@ -2915,7 +2937,7 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "26485c75195b81c1",
+    "hash": "c9ff5237247ba2f4",
     "via": "direct",
     "bytes": 68933
   },
@@ -2949,9 +2971,9 @@
     "missing": [
       "聚合站整理的 cotral 資料"
     ],
-    "hash": "4a40164ea988d5cc",
+    "hash": "28d56059f18d4d2d",
     "via": "direct",
-    "bytes": 36808
+    "bytes": 36815
   },
   "https://www.comune.cornalba.bg.it/citta/sport-e-tempo-libero/palestra-di-roccia/": {
     "firstSeen": "2026-10-19",
@@ -3014,7 +3036,7 @@
     ],
     "hash": "72144d50a9182189",
     "via": "direct",
-    "bytes": 218281,
+    "bytes": 218367,
     "finalUrl": "https://valbrembanaweb.com/cornalba-lalbero-di-natale-sulla-falesia-divide-i-climber-e-viene-vandalizzato/"
   },
   "https://www.visitbrembo.it/elemento/arrampicare-in-corna-bianca/": {
@@ -3129,7 +3151,7 @@
     "missing": [],
     "hash": "0fcaab46b4f28573",
     "via": "direct",
-    "bytes": 334842
+    "bytes": 334844
   },
   "https://cortina.dolomiti.org/it/arrampicata-sportiva/crepe-de-oucera-alte/": {
     "firstSeen": "2026-10-19",
@@ -3145,7 +3167,7 @@
     "missing": [],
     "hash": "ac5b9011411733d2",
     "via": "direct",
-    "bytes": 333242
+    "bytes": 333243
   },
   "https://www.planetmountain.com/en/crags/crepe-de-oucera-alti.html": {
     "firstSeen": "2026-10-19",
@@ -3196,7 +3218,7 @@
     "missing": [],
     "hash": "b820df9c2ce2e150",
     "via": "direct",
-    "bytes": 142742
+    "bytes": 142706
   },
   "https://www.oliunid.com/blog/val-daone-three-all-round-bouldering-areas-in-trentino/": {
     "firstSeen": "2026-10-19",
@@ -3279,7 +3301,7 @@
     "missing": [],
     "hash": "0ad9a7cfd4ca313b",
     "via": "direct",
-    "bytes": 120004
+    "bytes": 120002
   },
   "https://www.planetmountain.com/en/news/climbing/sardinia-sport-climbing-the-new-guidebook-to-domusnovas.html": {
     "firstSeen": "2026-10-19",
@@ -3296,9 +3318,9 @@
       "2019-01-01",
       "2005"
     ],
-    "hash": "b3c835756b3f8cd4",
+    "hash": "23d2d6a0a56574c0",
     "via": "jina",
-    "bytes": 30110
+    "bytes": 34429
   },
   "http://sardegnasentieri.it/en/node/865": {
     "firstSeen": "2026-10-19",
@@ -3314,7 +3336,7 @@
     "missing": [],
     "hash": "e89584fd1512b569",
     "via": "direct",
-    "bytes": 60949,
+    "bytes": 60900,
     "finalUrl": "http://www.sardegnasentieri.it/en/node/865"
   },
   "https://planetmountain.com/en/crags/castello-del-iride-masua.html": {
@@ -3347,9 +3369,9 @@
     "missing": [
       "2005-10-28"
     ],
-    "hash": "861ef66acac17aae",
+    "hash": "d1762595e02d34af",
     "via": "jina",
-    "bytes": 24851
+    "bytes": 24898
   },
   "https://planetmountain.com/en/news/climbing/crowdfunding-campaign-replace-aging-anchors-masua-sardinia.html": {
     "firstSeen": "2026-10-19",
@@ -3365,9 +3387,9 @@
     "missing": [
       "2024-11-18"
     ],
-    "hash": "b66b3f6ddb522d3d",
+    "hash": "351402d2925f8638",
     "via": "jina",
-    "bytes": 30181
+    "bytes": 34507
   },
   "https://www.planetmountain.com/en/news/climbing/climbing-in-sardinia-sw-coast-news-crag-safety.html": {
     "firstSeen": "2026-10-19",
@@ -3466,7 +3488,7 @@
     "missing": [],
     "hash": "e531764426bc643d",
     "via": "direct",
-    "bytes": 88186
+    "bytes": 88664
   },
   "https://www.infoelba.it/sport-tempo-libero/sport-terra/free-climbing/madonna-del-monte/": {
     "firstSeen": "2026-10-19",
@@ -3482,7 +3504,7 @@
     "missing": [],
     "hash": "d366ba31a2433a30",
     "via": "direct",
-    "bytes": 80143
+    "bytes": 80203
   },
   "https://www.infoelba.it/sport-tempo-libero/sport-terra/free-climbing/falesia-ginepro/": {
     "firstSeen": "2026-10-19",
@@ -3498,7 +3520,7 @@
     "missing": [],
     "hash": "af8a153487dec27e",
     "via": "direct",
-    "bytes": 82427
+    "bytes": 82420
   },
   "https://www.thecrag.com/en/climbing/italy/monte-san-bartolomeo": {
     "firstSeen": "2026-10-19",
@@ -3546,9 +3568,9 @@
     ],
     "anchors": 5,
     "missing": [],
-    "hash": "a8b8c897b2f63368",
+    "hash": "e3622022a93ce715",
     "via": "direct",
-    "bytes": 81063
+    "bytes": 81059
   },
   "https://www.blunavytraghetti.com/orari/": {
     "firstSeen": "2026-10-19",
@@ -3562,9 +3584,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "ea72cfb39fb95467",
+    "hash": "b639f97aacdfcd07",
     "via": "direct",
-    "bytes": 222903,
+    "bytes": 222908,
     "finalUrl": "https://blunavytraghetti.com/orari-traghetti-isola-elba/"
   },
   "https://www.trenitalia.com/it/regionale/collegamenti-regionale/piombino-marittima-link.html": {
@@ -3718,9 +3740,9 @@
       "30–35",
       "15–20"
     ],
-    "hash": "b7b7da29d1d7f843",
+    "hash": "64f410340aee6945",
     "via": "jina",
-    "bytes": 15465
+    "bytes": 15512
   },
   "https://climbingspotfactory.com/en/article/lorenzo.rossetti/the-cliff-of-falcioni": {
     "firstSeen": "2026-10-19",
@@ -3796,9 +3818,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "648e28b2aa668993",
+    "hash": "da2fa707658a5346",
     "via": "jina",
-    "bytes": 12546
+    "bytes": 12996
   },
   "https://www.planetmountain.com/en/crags/frea.html": {
     "firstSeen": "2026-10-19",
@@ -3812,9 +3834,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "3d82a00e46bb5782",
+    "hash": "8d08b2f26e677848",
     "via": "jina",
-    "bytes": 6914
+    "bytes": 6961
   },
   "https://val-gardena.com": {
     "firstSeen": "2026-10-19",
@@ -3832,7 +3854,7 @@
       "1984",
       "feel comfortable in the 8th grade and in alpine terrain"
     ],
-    "hash": "fe1372b8bfb05196",
+    "hash": "436368beefae48e5",
     "via": "direct",
     "bytes": 217789,
     "finalUrl": "https://www.val-gardena.com/en/"
@@ -3918,9 +3940,9 @@
     "missing": [
       "2026-10-19"
     ],
-    "hash": "ad84d4983129e80e",
+    "hash": "a1d3de533c9399d6",
     "via": "jina",
-    "bytes": 36032
+    "bytes": 36079
   },
   "https://www.planetmountain.com/it/notizie/arrampicata/frosolone-la-chiusura-della-storica-falesia-di-arrampicata.html": {
     "firstSeen": "2026-10-19",
@@ -3937,9 +3959,9 @@
       "2020-08-27",
       "2020-08-18"
     ],
-    "hash": "58fcc19fa0857131",
+    "hash": "803336f5461a18af",
     "via": "jina",
-    "bytes": 8071
+    "bytes": 8118
   },
   "https://www.mountlive.com/il-sindaco-la-falesia-di-frosolone-riaprira-in-primavera-con-tante-novita/": {
     "firstSeen": "2026-10-19",
@@ -3955,7 +3977,7 @@
     "missing": [],
     "hash": "8c6e7cf0a9ff9213",
     "via": "direct",
-    "bytes": 104975
+    "bytes": 104976
   },
   "https://www.isnews.it/2026/04/16/falesia-di-frosolone-una-raccolta-fondi-dal-basso-per-proteggere-un-patrimonio-dellarrampicata/": {
     "firstSeen": "2026-10-19",
@@ -3973,9 +3995,9 @@
       "2026-04-16",
       "2,000"
     ],
-    "hash": "95b262bd5e555e7a",
+    "hash": "b40f41843aff16b0",
     "via": "direct",
-    "bytes": 365677
+    "bytes": 365564
   },
   "https://www.gofundme.com/f/frosolone-rebolt-project-mettiamo-in-sicurezza-la-falesia": {
     "firstSeen": "2026-10-19",
@@ -4109,9 +4131,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "dd7b63f9223b9f5e",
+    "hash": "668b9764d6600d1d",
     "via": "direct",
-    "bytes": 78834,
+    "bytes": 78815,
     "finalUrl": "https://thetopo.com/crags/lu-branu"
   },
   "https://www.thecrag.com/en/climbing/italy/sardinia/capo-testa/area/5300513910": {
@@ -4179,9 +4201,9 @@
     ],
     "anchors": 3,
     "missing": [],
-    "hash": "750d3b423da157f9",
+    "hash": "56d5c0480cf30789",
     "via": "direct",
-    "bytes": 117996
+    "bytes": 117042
   },
   "https://www.ilgransasso.it/la-stazione/": {
     "firstSeen": "2026-10-19",
@@ -4216,7 +4238,7 @@
       "07:09",
       "8.00–17.00"
     ],
-    "hash": "39f3a8fad8201f14",
+    "hash": "6306d852e06453e9",
     "via": "direct",
     "bytes": 8614
   },
@@ -4315,7 +4337,7 @@
     ],
     "anchors": 2,
     "missing": [],
-    "hash": "95491256b4b5778e",
+    "hash": "8ceb7220d8cb685e",
     "via": "direct",
     "bytes": 80226
   },
@@ -4331,9 +4353,9 @@
     ],
     "anchors": 3,
     "missing": [],
-    "hash": "fc06688289ddd47e",
+    "hash": "0dc577aaf3ab221b",
     "via": "jina",
-    "bytes": 32074
+    "bytes": 32121
   },
   "https://www.planetmountain.com/it/itinerari/via-chiaraviglio-berthelet-gran-sasso-d-italia-corno-piccolo.html": {
     "firstSeen": "2026-10-19",
@@ -4347,9 +4369,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "e8ce82fd2f8b5c99",
+    "hash": "d7116de0980d8291",
     "via": "jina",
-    "bytes": 30883
+    "bytes": 30930
   },
   "https://www.oliunid.it/blog/fare-boulder-al-monte-aquila-oliunid-is-bloc/": {
     "firstSeen": "2026-10-19",
@@ -4363,9 +4385,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "6bcf83bb3c907437",
+    "hash": "a187bba8d132ff5a",
     "via": "jina",
-    "bytes": 95847
+    "bytes": 95876
   },
   "https://www.gransassolagapark.it/albOnline/2019/PNGSLdocumento50629-allegato1.pdf": {
     "firstSeen": "2026-10-19",
@@ -4412,9 +4434,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "eed37e2cd25f46d7",
+    "hash": "aca386141bba0369",
     "via": "jina",
-    "bytes": 66490
+    "bytes": 66537
   },
   "https://www.thecrag.com/en/climbing/italy/grotti/area/2013102912": {
     "firstSeen": "2026-10-19",
@@ -4623,7 +4645,7 @@
     "missing": [],
     "hash": "aca67d2acaa61711",
     "via": "direct",
-    "bytes": 927942
+    "bytes": 927594
   },
   "https://larioclimb.paolo-sonja.net/bacheca/bacheca_2022.html": {
     "firstSeen": "2026-10-19",
@@ -4832,9 +4854,9 @@
     "missing": [
       "2024-04-17"
     ],
-    "hash": "3c5f0660d04d3418",
+    "hash": "ab1658ebd140963f",
     "via": "direct",
-    "bytes": 739386
+    "bytes": 738825
   },
   "https://www.vienormali.it/montagna/cima_scheda.asp?cod=3240": {
     "firstSeen": "2026-10-19",
@@ -4848,7 +4870,7 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "4cea56ebb18395ee",
+    "hash": "b47923fb7eba51ba",
     "via": "direct",
     "bytes": 112815
   },
@@ -5000,9 +5022,9 @@
     ],
     "anchors": 4,
     "missing": [],
-    "hash": "5b308cb65b4fda4d",
+    "hash": "d0f0144f95cd053d",
     "via": "jina",
-    "bytes": 7601
+    "bytes": 7648
   },
   "https://www.planetmountain.com/it/notizie/arrampicata/riapertura-di-la-corma-di-machaby-ad-arnad.html": {
     "firstSeen": "2026-10-19",
@@ -5016,9 +5038,9 @@
     ],
     "anchors": 3,
     "missing": [],
-    "hash": "a6801c5ec45434f9",
+    "hash": "3459dafaf03bc9e6",
     "via": "jina",
-    "bytes": 28335
+    "bytes": 28382
   },
   "https://climbook.com/falesie/3911/corma-di-machaby-paretone/vie": {
     "firstSeen": "2026-10-19",
@@ -5086,7 +5108,7 @@
     ],
     "hash": "6dfc51e119fbc65b",
     "via": "direct",
-    "bytes": 71607,
+    "bytes": 71606,
     "finalUrl": "https://thetopo.com/crags/arnad/routelist"
   },
   "https://www.versantesud.it/en/shop/catalogue/english_1724/": {
@@ -5117,9 +5139,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "aacb35e746ba3336",
+    "hash": "56f386b63332e2b9",
     "via": "direct",
-    "bytes": 95437
+    "bytes": 95419
   },
   "https://climbook.com/falesie/1786/caltavuturo-cabeci": {
     "firstSeen": "2026-10-19",
@@ -5165,9 +5187,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "1430fcea6bf988aa",
+    "hash": "ffab3e3f69ddc377",
     "via": "jina",
-    "bytes": 30583
+    "bytes": 30630
   },
   "https://www.thecrag.com/en/climbing/italy/dolomites/agordino/area/5101994994": {
     "firstSeen": "2026-10-19",
@@ -5232,7 +5254,7 @@
     "missing": [],
     "hash": "5c7fe15e2dc7fce1",
     "via": "direct",
-    "bytes": 20867
+    "bytes": 20868
   },
   "https://www.montebianco.com/en/info/alerts": {
     "firstSeen": "2026-10-19",
@@ -5250,7 +5272,7 @@
     ],
     "hash": "c62f01bbd22280f7",
     "via": "direct",
-    "bytes": 20026,
+    "bytes": 20027,
     "lastChanged": "2026-10-21"
   },
   "https://www.montebianco.com/en/info/how-to-reach-skyway-monte-bianco": {
@@ -5267,7 +5289,7 @@
     "missing": [],
     "hash": "3e6072fa8bc0becd",
     "via": "direct",
-    "bytes": 21234
+    "bytes": 21233
   },
   "https://www.montebianco.com/en/activity/rifugio-torino": {
     "firstSeen": "2026-10-19",
@@ -5283,7 +5305,7 @@
     "missing": [],
     "hash": "5b196a801527e5e0",
     "via": "direct",
-    "bytes": 21549
+    "bytes": 21550
   },
   "https://www.guidecourmayeur.com/en/scheda_valle.php?id_prg=60&id_stag=1": {
     "firstSeen": "2026-10-19",
@@ -5314,9 +5336,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "b479dede80f0a511",
+    "hash": "915a6f1f658809ee",
     "via": "jina",
-    "bytes": 28494
+    "bytes": 28541
   },
   "https://www.mountainproject.com/area/113485557/grand-capucin": {
     "firstSeen": "2026-10-19",
@@ -5346,9 +5368,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "aa84994773ccf464",
+    "hash": "6ff354ae52f13fc2",
     "via": "jina",
-    "bytes": 25160
+    "bytes": 25207
   },
   "https://www.planetmountain.com/it/itinerari/dromi-petit-greuvetta.html": {
     "firstSeen": "2026-10-19",
@@ -5362,9 +5384,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "57f5631740149612",
+    "hash": "d16e4e01cea92726",
     "via": "jina",
-    "bytes": 7558
+    "bytes": 7605
   },
   "https://www.planetmountain.com/it/itinerari/elios-super-elios-tour-de-jorasses.html": {
     "firstSeen": "2026-10-19",
@@ -5378,9 +5400,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "91cbabf3271b3a21",
+    "hash": "318787f5775081e7",
     "via": "jina",
-    "bytes": 26853
+    "bytes": 26900
   },
   "https://climb-europe.com/products/mont-blanc-granite-guidebook-topo-val-ferret": {
     "firstSeen": "2026-10-19",
@@ -5430,7 +5452,7 @@
     "missing": [],
     "hash": "97e213274b2600b3",
     "via": "direct",
-    "bytes": 237629
+    "bytes": 238591
   },
   "https://outdoortest.it/quando-si-devono-pagare-i-soccorsi-in-montagna/": {
     "firstSeen": "2026-10-19",
@@ -5634,9 +5656,9 @@
     ],
     "anchors": 4,
     "missing": [],
-    "hash": "e498b2b3e11005a1",
+    "hash": "9c957c4d49e428f4",
     "via": "jina",
-    "bytes": 36007
+    "bytes": 36054
   },
   "https://www.thetopo.com/crags/foppiano-boulder/description": {
     "firstSeen": "2026-10-19",
@@ -5652,7 +5674,7 @@
     "missing": [],
     "hash": "c72ad70c535f77d3",
     "via": "direct",
-    "bytes": 69640
+    "bytes": 69639
   },
   "https://www.prealpina.it/news/valli-e-laghi/405358/val-grande-nidifica-il-falco-niente-arrampicate.html": {
     "firstSeen": "2026-10-19",
@@ -5666,9 +5688,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "c7c63dda34f4cee1",
+    "hash": "0e6f6faed2f3f46d",
     "via": "direct",
-    "bytes": 146449
+    "bytes": 153002
   },
   "https://www.comazzibus.com/eng/orario.php?p=26": {
     "firstSeen": "2026-10-19",
@@ -5719,9 +5741,9 @@
     ],
     "anchors": 4,
     "missing": [],
-    "hash": "af50eabbcd5b2997",
+    "hash": "a366d47ae58cd828",
     "via": "jina",
-    "bytes": 25568
+    "bytes": 25615
   },
   "https://www.sassbaloss.com/pagine/uscite/canali/canali.htm": {
     "firstSeen": "2026-10-19",
@@ -5813,7 +5835,7 @@
     "missing": [],
     "hash": "b2828cc4c9fd8aff",
     "via": "direct",
-    "bytes": 942257
+    "bytes": 942297
   },
   "https://www.comune.palermo.it/novita/mobilit-lavori-consolidamento-pareti-rocciose-area-monte-pellegrino-ordinanza-divieto-di-sosta/": {
     "firstSeen": "2026-10-19",
@@ -5849,7 +5871,7 @@
     ],
     "hash": "bcdcea67a8ba4e32",
     "via": "direct",
-    "bytes": 131855
+    "bytes": 131791
   },
   "https://www.climbingspotfactory.com/en/climbadvisor/valdesi/info_about": {
     "firstSeen": "2026-10-19",
@@ -5882,9 +5904,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "c802ba5170d93238",
+    "hash": "fa553e8a9d788ff3",
     "via": "jina",
-    "bytes": 26093
+    "bytes": 26140
   },
   "https://www.amat.pa.it/linea-estiva-806-dall8-aprile-corse-per-mondello/": {
     "firstSeen": "2026-10-19",
@@ -6072,9 +6094,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "82f736b5424512be",
+    "hash": "c951b85863a7e918",
     "via": "jina",
-    "bytes": 19852
+    "bytes": 20270
   },
   "https://www.planetmountain.com/it/falesie/cava-d-ispica-pernamazzone.html": {
     "firstSeen": "2026-10-19",
@@ -6088,9 +6110,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "df16ec739d7a3e01",
+    "hash": "592d7c1f28d76f7a",
     "via": "jina",
-    "bytes": 22799
+    "bytes": 23217
   },
   "https://www.planetmountain.com/it/notizie/arrampicata/cava-ispica-arrampicata-a-ragusa-e-un-ritorno-alle-sue-origini.html": {
     "firstSeen": "2026-10-19",
@@ -6106,9 +6128,9 @@
     "missing": [
       "2018-04-13"
     ],
-    "hash": "87a4b0b102f3b987",
+    "hash": "2c3fb357f2da32a2",
     "via": "jina",
-    "bytes": 39347
+    "bytes": 39394
   },
   "https://climb-europe.com/pages/rock-climbing-italy-sicily": {
     "firstSeen": "2026-10-19",
@@ -6161,9 +6183,9 @@
     "missing": [
       "1990"
     ],
-    "hash": "477a0c0b6ef00263",
+    "hash": "b896afc9d496b111",
     "via": "jina",
-    "bytes": 36297
+    "bytes": 36344
   },
   "https://www.escapeoutdoorguides.com/blog/2020/03/20/rocca-sbarua-gems/": {
     "firstSeen": "2026-10-19",
@@ -6369,9 +6391,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "c09f94a1a52f2131",
+    "hash": "e9df18dbbfe838e6",
     "via": "direct",
-    "bytes": 119761
+    "bytes": 120101
   },
   "https://climbingcasuals.wordpress.com/relazioni/falesie/falesia-del-ciolo/": {
     "firstSeen": "2026-10-19",
@@ -6385,9 +6407,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "58428071d57f5c39",
+    "hash": "2c676c7f480337c1",
     "via": "direct",
-    "bytes": 115564
+    "bytes": 115883
   },
   "https://www.planetmountain.com/en/news/climbing/salento-vertical-new-rock-climbs-in-puglia-italy.html": {
     "firstSeen": "2026-10-19",
@@ -6402,9 +6424,9 @@
     ],
     "anchors": 6,
     "missing": [],
-    "hash": "7b3c0f832cd99f09",
+    "hash": "9e8246aed8a627b9",
     "via": "jina",
-    "bytes": 5895
+    "bytes": 5942
   },
   "https://www.up-climbing.com/falesia/news-falesia/salentoclimbingfest-salento-ciolo-gagliano-del-capo-2/": {
     "firstSeen": "2026-10-19",
@@ -6457,7 +6479,7 @@
     "missing": [],
     "hash": "919e638752a5be1d",
     "via": "direct",
-    "bytes": 318443
+    "bytes": 318401
   },
   "https://www.quotidianodipuglia.it/lecce/salento_crolli_falesia_costa_litorale_dove_non_fare_bagno_ordinanza_divieto-7561173.html": {
     "firstSeen": "2026-10-19",
@@ -6494,7 +6516,7 @@
     ],
     "hash": "374a42730ae45f61",
     "via": "direct",
-    "bytes": 316052
+    "bytes": 316012
   },
   "https://www.ilgallo.it/attualita/ponte-ciolo-chiude-per-lavori-un-tratto-della-litoranea-gagliano-leuca/": {
     "firstSeen": "2026-10-19",
@@ -6511,9 +6533,9 @@
       "2026-10-10",
       "400–44"
     ],
-    "hash": "1cfded36ba561c51",
+    "hash": "dacf10e5cf3a01a9",
     "via": "direct",
-    "bytes": 142446
+    "bytes": 147107
   },
   "https://www.italymagazine.com/featured-story/getting-back-nature-gagliano-del-capo": {
     "firstSeen": "2026-10-19",
@@ -6529,7 +6551,7 @@
     "missing": [],
     "hash": "9f13d678cb0a1d66",
     "via": "direct",
-    "bytes": 67238
+    "bytes": 67231
   },
   "https://www.fssudest.it/s/ricercaorari": {
     "firstSeen": "2026-10-19",
@@ -6593,7 +6615,7 @@
     "missing": [],
     "hash": "cf92275403c023a4",
     "via": "direct",
-    "bytes": 273821
+    "bytes": 276429
   },
   "https://rockfax.com/climbing-guides/books/the-dolomites-rock-climbs-and-via-ferrata": {
     "firstSeen": "2026-10-19",
@@ -6609,9 +6631,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "3e3cf834070623aa",
+    "hash": "ded9442c1c4d608e",
     "via": "jina",
-    "bytes": 20455
+    "bytes": 20408
   },
   "https://www.outdooractive.com/en/route/alpine-climbing/dolomiten-groeden/the-pichl-1000-m-north-face-on-langkofel/63033073/": {
     "firstSeen": "2026-10-19",
@@ -6643,9 +6665,9 @@
     "missing": [
       "one hour before the closing of the coffin lift"
     ],
-    "hash": "7b1dfabd70dab40b",
+    "hash": "5419cb7f09025771",
     "via": "direct",
-    "bytes": 69609
+    "bytes": 69862
   },
   "https://www.fassaguide.com/sp/en/fassaguide_ei/sassolungo-rock-climbing-normal-route.3sp": {
     "firstSeen": "2026-10-19",
@@ -6732,9 +6754,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "216cb53a15023cf6",
+    "hash": "3972fb24ac7d4e0f",
     "via": "jina",
-    "bytes": 31607
+    "bytes": 35862
   },
   "https://dolomiti.it": {
     "firstSeen": "2026-10-19",
@@ -6750,9 +6772,9 @@
     "missing": [
       "2,685"
     ],
-    "hash": "835fd37a990fc806",
+    "hash": "a91fb6736ed5226d",
     "via": "direct",
-    "bytes": 240240,
+    "bytes": 245352,
     "finalUrl": "https://www.dolomiti.it/de"
   },
   "https://valgardena-groeden.com": {
@@ -6807,9 +6829,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "208538e54f6a2fce",
+    "hash": "7fc9c6582e52c56f",
     "via": "direct",
-    "bytes": 441423,
+    "bytes": 441421,
     "finalUrl": "https://cortinadampezzo.it/"
   },
   "https://ukclimbing.com/logbook/crags/piz_ciavazes-3948": {
@@ -6824,9 +6846,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "23cb48f7a3c2a770",
+    "hash": "44d6917abf833d25",
     "via": "jina",
-    "bytes": 13234
+    "bytes": 13698
   },
   "https://ukclimbing.com/logbook/crags/citta_dei_sassi_city_of_rocks-10601": {
     "firstSeen": "2026-10-19",
@@ -6840,9 +6862,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "3962e25e630ab853",
+    "hash": "99e36613faaa358d",
     "via": "jina",
-    "bytes": 14000
+    "bytes": 14500
   },
   "https://www.planetmountain.com/en/crags/cansla.html": {
     "firstSeen": "2026-10-19",
@@ -6984,7 +7006,7 @@
   },
   "https://www.mase.gov.it/portale/documents/d/guest/plemmirio_dm_15-09-2004-pdf": {
     "firstSeen": "2026-10-19",
-    "status": 403,
+    "status": 200,
     "checked": "2026-10-21",
     "crags": [
       "italy-crag-siracusa"
@@ -6992,7 +7014,11 @@
     "types": [
       "closure"
     ],
-    "error": "HTTP 403; reader: empty or bot-check page"
+    "anchors": 0,
+    "missing": [],
+    "hash": "1b0830398e103e16",
+    "via": "jina",
+    "bytes": 292
   },
   "https://www.infopointprovinciasiracusa.it/trasporti-interprovinciali/": {
     "firstSeen": "2026-10-19",
@@ -7023,9 +7049,9 @@
     ],
     "anchors": 2,
     "missing": [],
-    "hash": "e7be8f4f5bed9ff5",
+    "hash": "a9cd3709a65e0959",
     "via": "jina",
-    "bytes": 77027
+    "bytes": 77074
   },
   "https://www.rocciaeresina.it/tag/statte/": {
     "firstSeen": "2026-10-19",
@@ -7137,9 +7163,9 @@
     "missing": [
       "4–5"
     ],
-    "hash": "2f401352d5153157",
+    "hash": "94a07e3ae86f7a1e",
     "via": "jina",
-    "bytes": 8075
+    "bytes": 8122
   },
   "https://www.climbingspotfactory.com/en/climbadvisor/stilo/info_about": {
     "firstSeen": "2026-10-19",
@@ -7171,7 +7197,7 @@
     "missing": [],
     "hash": "db70f69658b0b413",
     "via": "direct",
-    "bytes": 284604
+    "bytes": 284597
   },
   "https://www.comune.olbia.ot.it/it/news/divieto-di-attivita-di-arrampicate-a-tavolara-per-tutelare-l-incolumita-delle-persone-e-il-patrimonio-naturalistico": {
     "firstSeen": "2026-10-19",
@@ -7206,7 +7232,7 @@
     ],
     "hash": "32c3bdb1bcf8fd6f",
     "via": "direct",
-    "bytes": 939814
+    "bytes": 938497
   },
   "https://climbingsardinia.com/escursioni-a-tavolara-sospese-per-la-stagione-2025/": {
     "firstSeen": "2026-10-19",
@@ -7240,7 +7266,7 @@
     ],
     "hash": "e87aa22a3f597c7f",
     "via": "direct",
-    "bytes": 821260
+    "bytes": 821264
   },
   "https://www.lanuovasardegna.it/olbia/cronaca/2025/06/25/news/olbia-nizzi-in-consiglio-comunale-a-tavolara-non-si-puo-salire-1.100726973": {
     "firstSeen": "2026-10-19",
@@ -7256,9 +7282,9 @@
     "missing": [
       "2025-06-25"
     ],
-    "hash": "ee3034857baa3975",
+    "hash": "0dd5fb380f8aa8c0",
     "via": "direct",
-    "bytes": 139110
+    "bytes": 139993
   },
   "https://unionesarda.it/en/sardinia/tavolara-two-tourists-lost-in-the-woods-two-rescued-during-the-night-dh4uleni": {
     "firstSeen": "2026-10-19",
@@ -7274,9 +7300,9 @@
     "missing": [
       "2026-09-18"
     ],
-    "hash": "8bdbe61766a90129",
+    "hash": "58c4f94891c958ef",
     "via": "direct",
-    "bytes": 737123,
+    "bytes": 737940,
     "finalUrl": "https://www.unionesarda.it/en/sardinia/tavolara-two-tourists-lost-in-the-woods-two-rescued-during-the-night-dh4uleni"
   },
   "https://climbingitaly.com/sardegna/tavolara/": {
@@ -7408,9 +7434,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "54e702f9210d88c8",
+    "hash": "a855d86a5a66b648",
     "via": "jina",
-    "bytes": 46780
+    "bytes": 46827
   },
   "https://winterclimb.com/climbing-base/hydepark/39-constantini-apollonio-tofana-di-rozes": {
     "firstSeen": "2026-10-19",
@@ -7440,9 +7466,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "a7277a4113cb6dac",
+    "hash": "a9074c0aa2e885c0",
     "via": "direct",
-    "bytes": 784261
+    "bytes": 785154
   },
   "https://Montagna.tv": {
     "firstSeen": "2026-10-19",
@@ -7683,9 +7709,9 @@
     ],
     "anchors": 5,
     "missing": [],
-    "hash": "fc2b3de756e5c79f",
+    "hash": "b6f1eec21c95af09",
     "via": "jina",
-    "bytes": 34749
+    "bytes": 34796
   },
   "https://www.planetmountain.com/it/itinerari/spigolo-giallo-cima-piccola-di-lavaredo.html": {
     "firstSeen": "2026-10-19",
@@ -7699,9 +7725,9 @@
     ],
     "anchors": 2,
     "missing": [],
-    "hash": "c1e46d5796943e29",
+    "hash": "654cc4d8dc2b587f",
     "via": "jina",
-    "bytes": 29740
+    "bytes": 29787
   },
   "https://www.planetmountain.com/it/itinerari/via-cassin-cima-ovest-di-lavaredo.html": {
     "firstSeen": "2026-10-19",
@@ -7715,9 +7741,9 @@
     ],
     "anchors": 4,
     "missing": [],
-    "hash": "f1966b98572dea36",
+    "hash": "aca8366e8aba2669",
     "via": "jina",
-    "bytes": 33806
+    "bytes": 33853
   },
   "https://www.planetmountain.com/it/itinerari/via-cassin-cima-piccolissima-di-lavaredo.html": {
     "firstSeen": "2026-10-19",
@@ -7731,9 +7757,9 @@
     ],
     "anchors": 2,
     "missing": [],
-    "hash": "bf34cd7c72d7f033",
+    "hash": "cd109fcc054451d9",
     "via": "jina",
-    "bytes": 30209
+    "bytes": 30256
   },
   "https://www.planetmountain.com/it/itinerari/grohmann-hainz-cima-grande-di-lavaredo.html": {
     "firstSeen": "2026-10-19",
@@ -7749,9 +7775,9 @@
     "missing": [
       "2018–2019"
     ],
-    "hash": "b1ab707dca7841e9",
+    "hash": "f4b703c04e111baf",
     "via": "jina",
-    "bytes": 31451
+    "bytes": 31498
   },
   "https://www.ukclimbing.com/logbook/crags/tre_cime-10552/": {
     "firstSeen": "2026-10-19",
@@ -7767,9 +7793,9 @@
     "missing": [
       "2330"
     ],
-    "hash": "41d25656467920d1",
+    "hash": "6bf901db673c5208",
     "via": "jina",
-    "bytes": 20767
+    "bytes": 20814
   },
   "https://climbingulassai.com/climbing": {
     "firstSeen": "2026-10-19",
@@ -7816,9 +7842,9 @@
     ],
     "anchors": 3,
     "missing": [],
-    "hash": "2e93946b62917722",
+    "hash": "a544c5a43f6e3792",
     "via": "jina",
-    "bytes": 31237
+    "bytes": 31872
   },
   "https://app.arstspa.it/quadri/103.html": {
     "firstSeen": "2026-10-19",
@@ -7864,9 +7890,9 @@
     ],
     "anchors": 2,
     "missing": [],
-    "hash": "fbc0f740054b9470",
+    "hash": "70097799456bead5",
     "via": "jina",
-    "bytes": 7730
+    "bytes": 7777
   },
   "https://www.rocpennavaire.it/": {
     "firstSeen": "2026-10-19",
@@ -8220,9 +8246,9 @@
     ],
     "anchors": 1,
     "missing": [],
-    "hash": "e62d43bbd54060f4",
+    "hash": "e65f6288c1527aa9",
     "via": "jina",
-    "bytes": 55915
+    "bytes": 62532
   },
   "https://www.gravitazerotrieste.it/news/napoleonica/": {
     "firstSeen": "2026-10-19",
@@ -8238,7 +8264,7 @@
     "missing": [],
     "hash": "77e19c2dab417055",
     "via": "direct",
-    "bytes": 65001
+    "bytes": 64997
   },
   "https://www.oliunid.com/blog/bouldering-valle-gesso-2021-en/": {
     "firstSeen": "2026-10-19",
@@ -8270,7 +8296,7 @@
     "missing": [],
     "hash": "f255260f141b606f",
     "via": "direct",
-    "bytes": 76426,
+    "bytes": 76430,
     "finalUrl": "https://thetopo.com/crags/valle-gesso-isengard"
   },
   "https://27crags.com/crags/pian-della-casa-boulder": {
@@ -8285,9 +8311,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "e500d6494e1474a8",
+    "hash": "42d9f1b16191b6c3",
     "via": "direct",
-    "bytes": 77549,
+    "bytes": 77552,
     "finalUrl": "https://thetopo.com/crags/pian-della-casa-boulder"
   },
   "https://www.areeprotettealpimarittime.it/visit/norme-di-comportamento/arrampicata-sostenibile": {
@@ -8383,9 +8409,9 @@
     ],
     "anchors": 2,
     "missing": [],
-    "hash": "568d971400d51dc5",
+    "hash": "665f66f5d98a59ed",
     "via": "direct",
-    "bytes": 73998
+    "bytes": 73990
   },
   "https://www.planetmountain.com/it/libri/varazzeblock.html": {
     "firstSeen": "2026-10-19",
@@ -8399,9 +8425,9 @@
     ],
     "anchors": 3,
     "missing": [],
-    "hash": "af5ff954cc6d8624",
+    "hash": "f86fdd4e4fea609a",
     "via": "jina",
-    "bytes": 11404
+    "bytes": 17948
   },
   "https://www.ibs.it/blubloc-bouldering-a-varazze-triora-libro-vari/e/9788895224138": {
     "firstSeen": "2026-10-19",
@@ -8470,9 +8496,9 @@
       "已被 blubloc 取代",
       "planetmountain 岩場頁現在的書目只列 blubloc"
     ],
-    "hash": "4d8a8ee01b178378",
+    "hash": "2fb7dda321e94b09",
     "via": "jina",
-    "bytes": 35060
+    "bytes": 35107
   },
   "https://www.mountainproject.com/area/106798792/munsusan-ulsanbusan-area": {
     "firstSeen": "2026-10-20",
@@ -8519,7 +8545,7 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "7e7245d0f9a6d735",
+    "hash": "0f90ddce5bfe17ca",
     "via": "direct",
     "bytes": 24173
   },
@@ -8623,7 +8649,7 @@
     "missing": [],
     "hash": "287c69e1ea826cf6",
     "via": "direct",
-    "bytes": 125622
+    "bytes": 125540
   },
   "https://www.kma.go.kr/neng/biz/climate/climate-of-korea.do": {
     "firstSeen": "2026-10-21",
@@ -8656,9 +8682,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "684719615eb60ce7",
+    "hash": "c31e64e0bbf0fb15",
     "via": "jina",
-    "bytes": 22927
+    "bytes": 25070
   },
   "https://bis.sokcho.go.kr/schedule": {
     "firstSeen": "2026-10-21",
@@ -8712,7 +8738,7 @@
     "missing": [
       "2025-11-13"
     ],
-    "hash": "3943229b0df164d0",
+    "hash": "a6ea2bef5f2ea277",
     "via": "direct",
     "bytes": 44167
   },
@@ -8801,9 +8827,9 @@
       "2019-02-12",
       "2026"
     ],
-    "hash": "0f4225bc69b21082",
+    "hash": "6a6bc38a040132d7",
     "via": "direct",
-    "bytes": 6629
+    "bytes": 6637
   },
   "http://san.chosun.com/news/articleView.html?idxno=25033": {
     "firstSeen": "2026-10-21",
@@ -8852,9 +8878,9 @@
     "missing": [
       " access issues: "
     ],
-    "hash": "a8eb953e14dca56f",
+    "hash": "30d8217d0f3f1c72",
     "via": "jina",
-    "bytes": 44638
+    "bytes": 45828
   },
   "https://catbaclimbing.com/": {
     "firstSeen": "2026-10-21",
@@ -8874,7 +8900,7 @@
       "dws and kayaking to see plankton afterwards ... 2.480.000 vnd",
       "bus fare: ninh binh ⇄ cat ba 300.000 vnd"
     ],
-    "hash": "be7f4a10350aaf64",
+    "hash": "ab01ad1e0de2030d",
     "via": "direct",
     "bytes": 675683
   },
@@ -9070,5 +9096,342 @@
     "via": "direct",
     "bytes": 21246,
     "finalUrl": "https://lucadegiorgi.com/vietnam-climbing/"
+  },
+  "https://www.thecrag.com/en/climbing/italy/sardinia/cala-gonone": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "italy-crag-cala-gonone"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 8,
+    "missing": [
+      "10",
+      "104",
+      "2017",
+      "2024",
+      "100",
+      "2026-02",
+      "路線難度與路線數主要來自 thecrag、mountain project 等線上資料庫，以指南書為準"
+    ],
+    "hash": "9e0bc2f617a92d42",
+    "via": "jina",
+    "bytes": 314
+  },
+  "https://www.thecrag.com/en/climbing/thailand/krabi/area/3084507318": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-ao-nang-north-wall"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "5ac11953d86c0fbe",
+    "via": "jina",
+    "bytes": 318
+  },
+  "https://ko-fi.com/krabiboltingfund": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-ao-nang-north-wall"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "2f077b1e73d625ab",
+    "via": "jina",
+    "bytes": 4661
+  },
+  "https://www.thecrag.com/en/climbing/thailand/mae-hong-son/area/617290752": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-chiang-dao"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [
+      "2019"
+    ],
+    "hash": "81ad5c2c2fb12438",
+    "via": "jina",
+    "bytes": 324
+  },
+  "https://www.nationthailand.com/news/general/40047108": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-chiang-dao"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 3,
+    "missing": [
+      "2025-03-01",
+      "05-15"
+    ],
+    "hash": "8a32fd8c59665e04",
+    "via": "direct",
+    "bytes": 143678
+  },
+  "https://www.thailandclimbing.com/crazy-horse-closure": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-crazy-horse",
+      "thailand-crags-overview"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [
+      "2018-07"
+    ],
+    "hash": "8eb87c9321b77a72",
+    "via": "direct",
+    "bytes": 62890
+  },
+  "https://www.thailandclimbing.com/blog/help-re-open-crazy-horse-buttress": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-crazy-horse"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 2,
+    "missing": [
+      "2024-08",
+      "2024-06"
+    ],
+    "hash": "c9ce33fe6523f4e5",
+    "via": "direct",
+    "bytes": 59938
+  },
+  "https://www.thecrag.com/en/climbing/thailand/koh-tao/area/1226641539": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-koh-tao"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "49e78965a713d896",
+    "via": "jina",
+    "bytes": 320
+  },
+  "https://www.thecrag.com/en/climbing/thailand/area/5727439374": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-lampang"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "08e003276cfc0c0a",
+    "via": "direct",
+    "bytes": 101099
+  },
+  "https://www.thecrag.com/en/climbing/thailand/lop-buri-khao-jeen-lair/area/9152797218": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-lopburi"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 1,
+    "missing": [
+      "85"
+    ],
+    "hash": "050cb9e8dad32d69",
+    "via": "jina",
+    "bytes": 336
+  },
+  "https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/area/410693532": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-nam-pha-pa-yai"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [
+      "supposedly closed climbing access a year ago, no signs if it's changed yet"
+    ],
+    "hash": "05f0bfd91f71a8e9",
+    "via": "jina",
+    "bytes": 328
+  },
+  "https://www.mountainproject.com/area/110369736/phasak-river-wall-closed-indefinitely": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-nam-pha-pa-yai"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "543bfc66a613817e",
+    "via": "direct",
+    "bytes": 240500
+  },
+  "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687873": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-railay-west-phra-nang"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "8cd542494d0b75f4",
+    "via": "jina",
+    "bytes": 544
+  },
+  "https://www.thecrag.com/en/climbing/thailand/krabi/area/15688273": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-tonsai"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [
+      "12"
+    ],
+    "hash": "a22b585a9f42345b",
+    "via": "jina",
+    "bytes": 316
+  },
+  "https://www.thecrag.com/en/climbing/thailand/krabi/area/9031319541": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-tonsai"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "638178973a618cfa",
+    "via": "jina",
+    "bytes": 318
+  },
+  "https://basecamptonsai.substack.com/p/how-to-tonsai": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crag-tonsai"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 4,
+    "missing": [
+      "2025-10",
+      "700–950",
+      "12"
+    ],
+    "hash": "4b8904c2c5d18ef7",
+    "via": "direct",
+    "bytes": 150702
+  },
+  "https://www.thailandclimbing.com/climber-info/getting-to-crazy-horse": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crags-overview"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 3,
+    "missing": [
+      "08:30"
+    ],
+    "hash": "99c18d6334179c4f",
+    "via": "direct",
+    "bytes": 74464
+  },
+  "https://koyao.com/experiences/rock-climbing": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crags-overview"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [
+      "2017"
+    ],
+    "hash": "74dd09fa58d3ecf8",
+    "via": "direct",
+    "bytes": 282990
+  },
+  "https://cragchemistry.com/2025/09/02/thailand-crags-2/": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "thailand-crags-overview"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "91733f592d7c27af",
+    "via": "direct",
+    "bytes": 186058
   }
 }

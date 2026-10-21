@@ -1,0 +1,75 @@
+{
+  "sector": "Kochel Rock / One in the Middle",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687625",
+  "area_route_count": 4,
+  "routes": [
+    {
+      "grade": "6a+",
+      "stars": 0,
+      "name": "Jihn Panka",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/611176491",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "Old stainless steel glue-in bolts. Do not climb until rebolted!",
+      "setter": "Wee Changrua, Tu-101, Ib & Mak, 2009",
+      "warnings": [
+        "Fixed Gear: Old stainless steel glue-in bolts.",
+        "Climbing: Do not climb until rebolted!"
+      ]
+    },
+    {
+      "grade": "6c",
+      "stars": 0,
+      "name": "I Am out of Here",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17715973",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "Old stainless steel glue-in bolts. Do not climb until rebolted!",
+      "setter": "Wee Changrua & Sophie, 1999",
+      "warnings": [
+        "Fixed Gear: Old stainless steel glue-in bolts.",
+        "Climbing: Do not climb until rebolted!"
+      ]
+    },
+    {
+      "grade": "6c",
+      "stars": 0,
+      "name": "One for You, One for Me",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716021",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Old stainless steel glue-in bolts. Do not climb until rebolted!",
+      "setter": "Wee Changrua & Elke Schmitz, 1999",
+      "warnings": [
+        "Fixed Gear: Old stainless steel glue-in bolts.",
+        "Climbing: Do not climb until rebolted!"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 0,
+      "name": "With You, Liebelein",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17716069",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Old stainless steel glue-in bolts. Do not climb until rebolted!",
+      "setter": "Wee Changrua & Elke Schmitz, 1999",
+      "warnings": [
+        "Fixed Gear: Old stainless steel glue-in bolts.",
+        "Climbing: Do not climb until rebolted!"
+      ]
+    }
+  ]
+}

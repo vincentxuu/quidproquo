@@ -1,0 +1,63 @@
+{
+  "sector": "NW Bouldering",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/10592244102",
+  "area_route_count": 3,
+  "grade_system": "FR",
+  "area_warnings": [
+    {
+      "warning": "Access: MUST Park Outside",
+      "source": "inherited from parent crag"
+    },
+    {
+      "warning": "Access: Beware of thieves!",
+      "source": "inherited from parent crag"
+    }
+  ],
+  "routes": [
+    {
+      "grade": "6A+",
+      "stars": 2,
+      "name": "Mythical Traverse",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/10140379287",
+      "style": "Boulder",
+      "length": null,
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "From a low start below the route Lightning traverse the base of the wall up left to a drop off from good pockets just left of the route Jaws.",
+      "setter": "Chris Summit",
+      "warnings": [],
+      "subarea": "Mythical Beasts"
+    },
+    {
+      "grade": "6A+",
+      "stars": 3,
+      "name": "Jurassic Traverse",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/10140369975",
+      "style": "Boulder",
+      "length": null,
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Start from either a sit (6a+) or from a stand start (6a) at the edge of the small cave (Jurassic Cave) next to the leftmost route Kings Landing and traverse the base of the wall to the right to a no hands rest on a large foot blob. Traverse further right after the rest to add on another less difficult but fun section for full credit.",
+      "setter": "Chris Summit",
+      "warnings": [],
+      "subarea": "Jurassic X-Mas"
+    },
+    {
+      "grade": "6A+",
+      "stars": 2,
+      "name": "Rock n Roll Traverse",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/10140302652",
+      "style": "Boulder",
+      "length": null,
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Originally done from right to left starting from the far right side of Rock n Roll Wall. Traverse the base of the wall to the left to a no hands rest in an alcove. Good in either direction. Technical vertical face climbing.",
+      "setter": "Chris Summit",
+      "warnings": [],
+      "subarea": "Rock'n Roll"
+    }
+  ]
+}

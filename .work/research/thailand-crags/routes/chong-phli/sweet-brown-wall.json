@@ -1,0 +1,99 @@
+[
+  {
+    "sector": "Sweet Brown Wall",
+    "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/area/961193676",
+    "area_route_count": 6,
+    "routes": [
+      {
+        "grade": "7c+",
+        "stars": 3,
+        "name": "Shoes",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/route/961202472",
+        "style": "Sport",
+        "length": "20 m",
+        "pitches": null,
+        "bolts": 8,
+        "desc": "All titanium bolts.",
+        "setter": "Jonas Wallin, 2015",
+        "warnings": [],
+        "project": false,
+        "condition": null
+      },
+      {
+        "grade": "7b",
+        "stars": 3,
+        "name": "Ain't Nobody Got Time",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/route/961202565",
+        "style": "Sport",
+        "length": "25 m",
+        "pitches": null,
+        "bolts": 10,
+        "desc": "All titanium bolts.",
+        "setter": "Jonas Wallin, 2015",
+        "warnings": [],
+        "project": false,
+        "condition": null
+      },
+      {
+        "grade": "8a",
+        "stars": 0,
+        "name": "Lord Jesus",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/route/961202658",
+        "style": "Sport",
+        "length": "25 m",
+        "pitches": null,
+        "bolts": 9,
+        "desc": "Shares the start with 'There's a Fire', then up the left bolt line. All titanium bolts.",
+        "setter": "Jonas Wallin, 2015",
+        "warnings": [],
+        "project": false,
+        "condition": null
+      },
+      {
+        "grade": "7c",
+        "stars": 3,
+        "name": "There's a Fire",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/route/961202751",
+        "style": "Sport",
+        "length": "25 m",
+        "pitches": null,
+        "bolts": 10,
+        "desc": "Same start as 'Lord Jesus', then up the right bolt line. All titanium bolts.",
+        "setter": "Jonas Wallin, 2015",
+        "warnings": [],
+        "project": false,
+        "condition": null
+      },
+      {
+        "grade": "7b+",
+        "stars": 3,
+        "name": "Bronchitis",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/route/961202850",
+        "style": "Sport",
+        "length": "20 m",
+        "pitches": null,
+        "bolts": 8,
+        "desc": "All titanium bolts.",
+        "setter": "Jonas Wallin, 2015",
+        "warnings": [],
+        "project": false,
+        "condition": null
+      },
+      {
+        "grade": "7a+",
+        "stars": 3,
+        "name": "Cold Pop",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/route/961202943",
+        "style": "Sport",
+        "length": "15 m",
+        "pitches": null,
+        "bolts": 9,
+        "desc": "All titanium bolts.",
+        "setter": "Jonas Wallin, 2015",
+        "warnings": [],
+        "project": false,
+        "condition": null
+      }
+    ]
+  }
+]

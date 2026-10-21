@@ -79,6 +79,27 @@
 | 越南氣候（Wikipedia Hanoi 氣候表） | https://en.wikipedia.org/wiki/Hanoi | 彙整 | 內陸氣溫、雨量、雨日、日照 | 二手 | 沒有 Hữu Lũng 或貓巴島的氣象站資料，當內陸代理用要寫清楚 |
 | Asia Outdoors（已關閉） | — | 營運者 | 歷史 | — | 蘭夏灣的 theCrag 頁面仍叫讀者去 Asia Outdoors 買通行證、並提 Slo Pony Adventures；貓巴島頁面與營運者自己的站已改寫。寫文章時以現行營運者為準，並指出舊頁未更新 |
 
+## 泰國
+
+| 來源 | 網址 | 類型 | 可撐 | 分級 | 已知陷阱 |
+|---|---|---|---|---|---|
+| theCrag 泰國 | https://www.thecrag.com/en/climbing/thailand | 群眾 DB | 路線、級數、長度、星等、子區的接近與停車座標、通行費、臨時警告 | 不能單獨撐 | 泰國系列的主力來源。**各子區頁的逐條路線藏在 `data-route-tick` 的 JSON 屬性裡，抓一般 HTML 拿不到**；直接 curl 與程式化 fetch 會被 Cloudflare 擋（403），要經能通 Cloudflare 的路徑。**theCrag 的 Railay 總頁自述「2023 年撰寫時仍在重打，網站許多資訊已過時」**，線上資料要配指南書看。**整批不可爬的子區很多**（Tonsai 的 Shadow Wall 12 條、Iguana Park 6 條；Railay 的 Universe Wall 5 條、Happy Island 13 條有 10 條、Jungle Gym 15 條有 9 條），只看路線數會錯估 |
+| CMRCA（泰國攀岩發展協會） | https://www.thailandclimbing.com | 協會／營運者 | Crazy Horse 與 Lampang 的進入規定、接駁車班次與費用、課程、北泰指南書 | 一手（限自家事實） | **Crazy Horse 的封閉公告頁仍在線上但未標日期**，且沒有任何官方重開公告；判斷「能不能爬」只能直接問他們。Lampang 頁面要求事先登記、付費且須有 CMRCA staff 在場，**但沒有公開開放日期與費用**；頁面還留著快篩陰性證明要求，頁面年份不明 |
+| The Pocket Guide – Thailand（justclimbthailand） | https://justclimbthailand.com/krabi-climbing-guidebook | guidebook 出版社 | 路線、版次、收錄範圍、作者是當地攀岩者且參與重打 | 一手（書） | Sirichai Pongsopon 第 10 版、2026-01 全面更新、238 頁、1,000 THB；**2026 版更新了 North Wall 與 Chong Phli 的路線圖與照片**。同站也賣裝備租借與課程，租借頁的價格會變 |
+| King Climbers – Rock Climbing Thailand Guide（railay.com 列頁） | https://railay.com/railay/climbing/climbing_book.shtml | guidebook 出版社 | 路線、版次、收錄範圍、是否標示已換鈦栓 | 一手（書） | Somporn Suebhait 第 10 版、2025、ISBN 979-8306073606、85 區 1,000+ 條。**railay.com 同時是換栓計畫與住宿資訊的整理站，是二手**；實際重打清單在當地店的列印表，線上沒有 |
+| A Guide to Rock Climbing in Northern Thailand（CMRCA Press） | https://www.thailandclimbing.com/climber-info | guidebook 出版社 | 北泰 18 個分區、150 段以上 | 一手（書） | 第 3 版、220 頁、500 THB，**出版年份查不到、是否新版也查不到**；內容可能落後 2019 年後的開發狀況 |
+| Central & Northeast Thailand Rock Climbing Guidebook | https://shop.kineticsclimbing.com.sg/en/training-accessories/259-rock-climbing-thailand-guidebook.html | guidebook 出版社 | 350 條以上（北標、北碧、孔敬等） | 一手（書） | Matthieu Le Gall、Pleum Chenaphun 第 1 版 2018、SGD 34.90、收益全數用於泰國打栓與重打。**涵蓋清單裡沒有華富里**，華富里要靠 theCrag 頁面提供的三份舊版路線圖（含 TCDA 2023 重打版） |
+| 外交部領事事務局：泰國入境 | https://www.boca.gov.tw/sp-foof-countrycp-03-24-dec45-02-1.html | 政府 | 免簽效期、條件、TDAC、隨身現金 | 一手 | 2026-09-15 起台灣護照免簽 30 天、每人 2 萬泰銖現金（信用卡不算）。**陸路入境 2 次上限的解讀，官方頁面與第三方說法不一致**，要以官方與航空公司說明為準 |
+| Rakkup（龜島 App 指南） | https://rakkup.com/guidebooks/thailand-koh-tao-rock-climbing/ | guidebook 出版社 | 龜島路線、抱石與運攀 | 一手（書） | US$8 的 App 指南，**收益全數投入路線開發與維護**；**龜島不收在任何紙本泰國指南裡**，這是唯一的完整指南 |
+| North Pa Pa Yai 營地官網 | https://nppy.camp | 營運者 | 住宿、岩場說明、FAQ、吊索與停車 | 一手（限自家事實） | 收 100 THB 吊索與停車費、4–6 月休園；**主牆 River Wall 關閉的現況要問營地**，theCrag 的警告已兩年未更新 |
+| The Bunker Climbing Gym & Hostel（龜島） | https://kohtao-rockclimbing.com | 營運者 | 室內岩館、住宿、免費 PDF 指南的 QR code | 一手（限自家事實） | 島上唯一的室內岩館，也是岩場群聚點；租借另一個管道是 Goodtime Adventures |
+| Koh Yao Noi 官方體驗頁 | https://koyao.com/experiences/rock-climbing | 營運者 | 是否有攀岩項目 | 一手 | **官方體驗頁沒有提供攀岩項目**——這是「2017 年起官方禁止」唯一的一手佐證；只放總覽不寫單篇 |
+| 泰國觀光局：Pha Daeng 國家公園 | https://www.tourismthailand.org/Attraction/pha-daeng-national-park | 管理單位 | 公園現名（原名清道國家公園） | 一手 | 公園的燒山季封閉名單每年 1–2 月才公告，且名單是圖片，**岩場是否落在封閉範圍內沒有公告可查** |
+| 泰國氣候（thailand-weather.org、chiangmai.net） | https://thailand-weather.org/en/krabi/climate | 彙整 | 內陸氣溫、雨量、雨日 | 二手 | 喀比用 2016–2025 平均、清邁用 1981–2015 平均，**兩個觀測期不同，引用時要寫清楚** |
+| Crag Chemistry（鈦栓與不鏽鋼測試） | https://cragchemistry.com/2025/09/02/thailand-crags-2/ | 研究 | 鈦栓失效紀錄、UIAA 十年測試 | 二手 | 研究結論只證明鈦是對的材料，**不代表海邊的岩栓都換過了**；內陸岩場的「良性」分類見 2024-09 那篇 |
+| The Crag Journal：泰國行（2023-02） | https://thecragjournal.com/2023/02/01/climbing-in-thailand-a-journey-through-south-east-asia/ | 媒體 | 現場記錄 | 二手 | 寫的是 2023 年的狀態；**不能拿來判斷 2027 年能不能爬** |
+| 各部落格、論壇、社群貼文 | 各站 | 個人紀錄 | 線索 | 不能單獨撐 | 泰國的封閉與重開說法在社群裡特別多，**全部要回到 CMRCA 或公園公告** |
+
 ## 台灣
 
 | 來源 | 網址 | 類型 | 可撐 | 分級 | 已知陷阱 |

@@ -1,0 +1,368 @@
+{
+  "sector": "Muay Thai",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687313",
+  "area_route_count": 24,
+  "routes": [
+    {
+      "grade": "4+",
+      "stars": 1,
+      "name": "New Route",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3098753550",
+      "style": "Sport",
+      "length": "9 m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "New short and easy line just left of 'Shadow Show'.",
+      "setter": "2019",
+      "warnings": []
+    },
+    {
+      "grade": "5",
+      "stars": 1,
+      "name": "Shadow Show",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17708365",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "Just before the boulders towards 'One-Two-Three', up the white streak. 3 titanium bolts, 1 sling Share start with Idapaccayada.",
+      "setter": "Sam Lightner, 1994",
+      "warnings": []
+    },
+    {
+      "grade": "6b+",
+      "stars": 1,
+      "name": "Idapaccayada",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17708443",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Climbs 'Shadow Show', then veers right and finishes on the anchor of 'Shooting Through'. 4 titanium bolts, 2 slings.",
+      "setter": "Frank Dicker & Volker Schöffl, 1990",
+      "warnings": []
+    },
+    {
+      "grade": "7b",
+      "stars": 0,
+      "name": "Shooting Through",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17708533",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Up the black streak right of 'Shadow Show'. Shares the anchor with 'Idapaccayada'. 3 titanium bolts, 3 slings.",
+      "setter": "Phil de Joux, 1996",
+      "warnings": []
+    },
+    {
+      "grade": "7a",
+      "stars": 2,
+      "name": "Nam Dtah See Som / Orange Tears",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17708581",
+      "style": "Sport",
+      "length": "16 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Reachy move over the bulge at the start. 5 titanium bolts, 1 sling.",
+      "setter": "François Burnier & Dominique Potard, 1990",
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Bad Boy",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17708917",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "Shares the start with 'Nuat Hin' and Pattica Samupade. Then straight up after the 3rd clip. 5 titanium bolts, 2 slings.",
+      "setter": "Wee Changrua & Ratd, 2002",
+      "warnings": []
+    },
+    {
+      "grade": "6a+",
+      "stars": 1,
+      "name": "Nuat Hin / Massage the Rock",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17708677",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "Shares the start with 'Bad Boy' and Pattica Samupade. Then climbs up right into the cave. 6 titanium bolts, 1 sling.",
+      "setter": "François Burnier & Dominique Potard, 1990",
+      "warnings": []
+    },
+    {
+      "grade": "6b+",
+      "stars": 1,
+      "name": "Pattica Samupade",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17708773",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "Shares the start with 'Nuat Hin' and Bad Boy. Then traverses right at the overhang and up the pillar. 4 titanium bolts, 3 slings.",
+      "setter": "Frank Dicker & Volker Schöffl, 1990",
+      "warnings": []
+    },
+    {
+      "grade": "6a",
+      "stars": 0,
+      "name": "Piece of Cake",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17709217",
+      "style": "Sport",
+      "length": "13 m",
+      "pitches": null,
+      "bolts": 3,
+      "pitches_detail": null,
+      "desc": "Extension of 'Pattica Samupade'. Old rusty expansion bolts. Do not climb!",
+      "setter": "Thomas Arnold, 1997",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6b+",
+      "stars": 2,
+      "name": "Muay Thai",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17708977",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Crux at the first overhang. Be careful, a lead fall can be dangerous with the ledge below. All titanium bolts.",
+      "setter": "François Burnier & Dominique Potard, 1990",
+      "warnings": []
+    },
+    {
+      "grade": "6c+",
+      "stars": 1,
+      "name": "Chicken Head",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17709073",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "Starts just to right of 'Muay Thai'. Shares the start and anchors with 'Reaching Like a Monkey'. All titanium bolts.",
+      "setter": "Ralf Tenbrink & Louis, 1992",
+      "warnings": []
+    },
+    {
+      "grade": "6c+",
+      "stars": 1,
+      "name": "Reaching Like a Monkey",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17709169",
+      "style": "Sport",
+      "length": "13 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "Shares the start and anchor with 'Chicken Head', then veers right. Not rebolted with titanium. All stainless steel glue-in bolts.",
+      "setter": "Wee Changrua, 1996",
+      "warnings": [
+        "Fixed Gear: Not rebolted with titanium. All stainless steel glue-in bolts."
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 2,
+      "name": "No Name",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3098754936",
+      "style": "Sport",
+      "length": "8 m",
+      "pitches": null,
+      "bolts": 3,
+      "pitches_detail": null,
+      "desc": "Old route left of 'Deborah'. Shares anchors with 'Chicken Head' and 'Reaching Like a Monkey'. Old rusty expansion bolts. Do not climb!",
+      "setter": "Unknown",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 2,
+      "name": "Deborah",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17709265",
+      "style": "Sport",
+      "length": "8 m",
+      "pitches": null,
+      "bolts": 3,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb!",
+      "setter": "Jack Werajack, 1996",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "5",
+      "stars": 1,
+      "name": "Tamada",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17709331",
+      "style": "Sport",
+      "length": "10 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "All slings. Be prepared to replace.",
+      "setter": "Wee Changrua, 1999",
+      "warnings": [
+        "Fixed Gear: Be prepared to replace."
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 1,
+      "name": "Hello Christine",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17709385",
+      "style": "Sport",
+      "length": "17 m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "All slings. Be prepared to replace.",
+      "setter": "Wee Changrua, 1997",
+      "warnings": [
+        "Fixed Gear: Be prepared to replace."
+      ]
+    },
+    {
+      "grade": "6a+",
+      "stars": 1,
+      "name": "Valentine",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17709433",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "Short climb with a cool little cave you can peek into. Solid rock, less polished than the routes over at 'One-Two-Three' wall. 3 titanium bolts, 4 slings.",
+      "setter": "Jack Werajack, 1996",
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 1,
+      "name": "Alone",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17709481",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "2 titanium bolts, 4 slings",
+      "setter": "Jack Werajack, 1996",
+      "warnings": []
+    },
+    {
+      "grade": "5",
+      "stars": 1,
+      "name": "Take It to the Left",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3098765778",
+      "style": "Sport",
+      "length": "10 m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "All slings. Be prepared to replace.",
+      "setter": "Unknown",
+      "warnings": [
+        "Fixed Gear: Be prepared to replace."
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 2,
+      "name": "Vegan Snake",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/5745064833",
+      "style": "Top rope",
+      "length": "8 m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Can only be climbed on top rope from the anchors of 'Take It Easy'.",
+      "setter": "Unknown, 1 Feb 2022",
+      "warnings": []
+    },
+    {
+      "grade": "5",
+      "stars": 0,
+      "name": "Take It Easy",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17709529",
+      "style": "Sport",
+      "length": "8 m",
+      "pitches": null,
+      "bolts": 4,
+      "pitches_detail": null,
+      "desc": "All slings. Be prepared to replace.",
+      "setter": "Wee Changrua, 1997",
+      "warnings": [
+        "Fixed Gear: Be prepared to replace."
+      ]
+    },
+    {
+      "grade": "5",
+      "stars": 1,
+      "name": "The Beacons Memorial Climb",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17709577",
+      "style": "Sport",
+      "length": "8 m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "All slings. Be prepared to replace.",
+      "setter": "Unknown",
+      "warnings": [
+        "Fixed Gear: Be prepared to replace."
+      ]
+    },
+    {
+      "grade": "5",
+      "stars": 1,
+      "name": "The Devine Ascention of Sully",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17709625",
+      "style": "Sport",
+      "length": "9 m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "All slings. Be prepared to replace.",
+      "setter": "Unknown",
+      "warnings": [
+        "Fixed Gear: Be prepared to replace."
+      ]
+    },
+    {
+      "grade": "5",
+      "stars": 1,
+      "name": "Unknown Route",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/6988524096",
+      "style": "Sport",
+      "length": "13 m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "Route furthest to the right, longer than the other easy climbs beside it. All slings. Be prepared to replace.",
+      "setter": "Unknown",
+      "warnings": [
+        "Fixed Gear: Be prepared to replace."
+      ]
+    }
+  ]
+}

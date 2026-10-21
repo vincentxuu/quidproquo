@@ -1,0 +1,23 @@
+[
+ {"sector": "The Veteran Wall", "grade": "5c", "name": "White Walker", "length": "22 m", "bolts": 12, "set": "Ooan Kongsingh, Jun 2019"},
+ {"sector": "The Veteran Wall", "grade": "6a+", "name": "Army of the North", "length": "20 m", "bolts": 13, "set": "Apichart Korkeaw, Jun 2019"},
+ {"sector": "The Veteran Wall", "grade": "6a+", "name": "Trojans", "length": "21 m", "bolts": 14, "set": "Ooan Kongsingh, Jun 2019"},
+ {"sector": "The Veteran Wall", "grade": "6b+", "name": "Suicide Bomber", "length": "23 m", "bolts": 17, "set": "Alan Avedovich, Jun 2019"},
+ {"sector": "The Veteran Wall", "grade": "6b+", "name": "Jawbreaker", "length": "23 m", "bolts": 17, "set": "Ooan Kongsingh, Jun 2019"},
+ {"sector": "The Veteran Wall", "grade": "6a", "name": "Tech Warrior", "length": "28 m", "bolts": 17, "set": "Ooan Kongsingh, Jun 2019"},
+ {"sector": "The Veteran Wall", "grade": "6a+", "name": "Tycoons", "length": "26 m", "bolts": 18, "set": "Ooan Kongsingh, Jun 2019"},
+ {"sector": "The Veteran Wall", "grade": "5b", "name": "Ooh Rah", "length": "15 m", "bolts": 12, "set": "Apichart Korkeaw, May 2019"},
+ {"sector": "The Veteran Wall", "grade": "5b", "name": "Mud Dogs", "length": "18 m", "bolts": 14, "set": "Ooan Kongsingh, May 2019"},
+ {"sector": "The Veteran Wall", "grade": "5c", "name": "Summer Strom", "length": "17 m", "bolts": 14, "set": "Ooan Kongsingh, May 2019"},
+ {"sector": "The Veteran Wall", "grade": "6a", "name": "MI-6", "length": "17 m", "bolts": 15, "set": "Ooan Kongsingh, Jun 2019"},
+ {"sector": "The Ranger wall", "grade": "6c", "name": "Battalions", "length": "30 m", "bolts": 15, "set": "Ooan Kongsingh, Jul 2019"},
+ {"sector": "The Ranger wall", "grade": "6c", "name": "G-Man", "length": "30 m", "bolts": 17, "set": "Jakkapan Srisuwan, Jul 2019"},
+ {"sector": "The Ranger wall", "grade": "6c", "name": "Apollo 7", "length": "35 m", "bolts": 18, "set": "Ooan Kongsingh, Jul 2019"},
+ {"sector": "The Ranger wall", "grade": "5c", "name": "Aventers", "length": "21 m", "bolts": 9, "set": "Ooan Kongsingh, Jul 2019"},
+ {"sector": "The Ranger wall", "grade": "6a", "name": "HTK Patriots", "length": "21 m", "bolts": 10, "set": "Apichart Korkeaw, Jul 2019"},
+ {"sector": "The Ranger wall", "grade": "6b", "name": "The Fighting HTK", "length": "21 m", "bolts": 17, "set": "Apichart Korkeaw, Jul 2019"},
+ {"sector": "The Ranger wall", "grade": "6c", "name": "Ghoat Rider", "length": "21 m", "bolts": 16, "set": "Ooan Kongsingh, Jul 2019"},
+ {"sector": "The Ranger wall", "grade": "6a+", "name": "Rocketmen", "length": "22 m", "bolts": 14, "set": "Ooan Kongsingh, May 2019"},
+ {"sector": "The Ranger wall", "grade": "6b+", "name": "Dropping Bombs", "length": "23 m", "bolts": 18, "set": "Apichart Korkeaw, Jun 2019"},
+ {"sector": "The Ranger wall", "grade": "6a+", "name": "Noname", "length": "7 m", "bolts": null, "set": null}
+]

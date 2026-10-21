@@ -1,0 +1,173 @@
+[
+  {
+    "sector": "Tiger Wall",
+    "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687889",
+    "area_route_count": 11,
+    "routes": [
+      {
+        "grade": "7c+",
+        "stars": 0,
+        "name": "Mind over Matter",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/280392873",
+        "style": "Sport",
+        "length": "18m",
+        "pitches": 1,
+        "bolts": 7,
+        "pitches_detail": null,
+        "desc": "All titanium bolts.",
+        "setter": "Ola Brahammar, 2013",
+        "warnings": []
+      },
+      {
+        "grade": "7c",
+        "stars": 2,
+        "name": "The Rose",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/280392972",
+        "style": "Sport",
+        "length": "16m",
+        "pitches": 1,
+        "bolts": 6,
+        "pitches_detail": null,
+        "desc": "All titanium bolts.",
+        "setter": "Ola Brahammar, 2013",
+        "warnings": []
+      },
+      {
+        "grade": null,
+        "stars": 0,
+        "name": "The Rose (Extension)",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3084073644",
+        "style": "Sport Project",
+        "length": "24m",
+        "pitches": 1,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Open project, about 8b. Protected by slings.",
+        "setter": "Ola Brahammar, 2013",
+        "warnings": []
+      },
+      {
+        "grade": "8a",
+        "stars": 0,
+        "name": "Finger Bang Bang",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/280393071",
+        "style": "Sport",
+        "length": "22m",
+        "pitches": 1,
+        "bolts": 9,
+        "pitches_detail": null,
+        "desc": "8 titanium bolts, 1 sling.",
+        "setter": "Ola Brahammar, 2013",
+        "warnings": []
+      },
+      {
+        "grade": "7b",
+        "stars": 3,
+        "name": "Face Plant",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/280393170",
+        "style": "Sport",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": 9,
+        "pitches_detail": null,
+        "desc": "All titanium bolts. 1st pitch of 35 Stitches.",
+        "setter": "Jonas Wallin, 2012",
+        "warnings": []
+      },
+      {
+        "grade": "8a",
+        "stars": 0,
+        "name": "35 Stitches",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3084076554",
+        "style": "Sport",
+        "length": "24m",
+        "pitches": 1,
+        "bolts": 11,
+        "pitches_detail": null,
+        "desc": "Two-bolt extension of 'Face Plant'. All titanium bolts.",
+        "setter": "Jonas Wallin, 2012",
+        "warnings": []
+      },
+      {
+        "grade": "8a+",
+        "stars": 3,
+        "name": "Year of the Tiger",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17722993",
+        "style": "Sport",
+        "length": "100m",
+        "pitches": 3,
+        "bolts": 45,
+        "pitches_detail": [
+          "1 7a+ 30m",
+          "2 7c 40m",
+          "3 8a+ 32m"
+        ],
+        "desc": "A classic multi pitch. All pitches bolted with titanium glue-ins. Starts just right of 'Face Plant', then traverses right. All titanium bolts.",
+        "setter": "Sam Lightner, Scott Morley & Nancy Feagin, 1993",
+        "warnings": []
+      },
+      {
+        "grade": "6c+",
+        "stars": 1,
+        "name": "Home of The Lost Turtles",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/13173439716",
+        "style": "Sport",
+        "length": "12m",
+        "pitches": null,
+        "bolts": 5,
+        "pitches_detail": null,
+        "desc": "Shares anchor with 'Gun Solo'. All titanium bolts.",
+        "setter": "Ghop The Rockshop & Hari Pongsopon, 2025",
+        "warnings": []
+      },
+      {
+        "grade": "5c",
+        "stars": 1,
+        "name": "Gun Solo",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/10711894014",
+        "style": "Sport",
+        "length": "12m",
+        "pitches": 1,
+        "bolts": 4,
+        "pitches_detail": null,
+        "desc": "Shares anchor with 'Home of The Lost Turtles'. All titanium bolts.",
+        "setter": "Gun Hannares & Hari Pongsopon, 2024",
+        "warnings": []
+      },
+      {
+        "grade": "7b",
+        "stars": 0,
+        "name": "Tear of the Liger",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3084083487",
+        "style": "Sport",
+        "length": "32m",
+        "pitches": 1,
+        "bolts": 11,
+        "pitches_detail": null,
+        "desc": "Starts a little bit further right around the vegetated part of the wall. 10 titanium bolts, 1 sling.",
+        "setter": "Jonas Wallin, 2014",
+        "warnings": []
+      },
+      {
+        "grade": "6b UK:E6",
+        "stars": 0,
+        "name": "Bugger Your Neighbour",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3084084633",
+        "style": "Trad",
+        "length": "140m",
+        "pitches": 5,
+        "bolts": null,
+        "pitches_detail": [
+          "1 5c",
+          "2 6b",
+          "3 5c",
+          "4 6a",
+          "5 6a"
+        ],
+        "desc": "Trad climb (E2, E5, E5, E4, E6), starting on the very right of 'Tiger Wall', into the obvious corner. See the 'Thailand and Laos Rock Climbing Guidebook' by Elke Schmitz (Basecamp Ton Sai) for a complete description.",
+        "setter": "Patrick Hammond & Dan Smith, 1999",
+        "warnings": []
+      }
+    ]
+  }
+]

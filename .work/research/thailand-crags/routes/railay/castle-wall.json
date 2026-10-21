@@ -1,0 +1,75 @@
+{
+  "sector": "Castle Wall",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687505",
+  "area_route_count": 4,
+  "routes": [
+    {
+      "grade": "6b+",
+      "stars": 3,
+      "name": "Stalactite Danger",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17713861",
+      "style": "Sport",
+      "length": "20 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Dungeon'. Old rusty expansion bolts. Do not climb!",
+      "setter": "Duncan, 1994",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 0,
+      "name": "Dungeon",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3109459332",
+      "style": "Sport",
+      "length": "22 m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Stalactite Danger'. Old rusty expansion bolts. Do not climb!",
+      "setter": "Greg Barnes & Karin Wuhrmann, 2004",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 0,
+      "name": "Hard-Headed Woman",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17713921",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Bad and Beware'. Old rusty expansion bolts. Do not climb!",
+      "setter": "Duncan, 1994",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6b",
+      "stars": 0,
+      "name": "Bad and Beware",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17713981",
+      "style": "Sport",
+      "length": "26 m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Hard-Headed Woman'. Old rusty expansion bolts. Do not climb!",
+      "setter": "Duncan, 1994",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    }
+  ]
+}

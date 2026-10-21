@@ -1,0 +1,110 @@
+[
+  {
+    "sector": "School Wall",
+    "url": "https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/area/616000071",
+    "area_route_count": 7,
+    "access_warnings": [
+      "Supposedly closed climbing access a year ago, no signs if it's changed yet"
+    ],
+    "routes": [
+      {
+        "grade": "4+",
+        "stars": 1,
+        "name": "Ninja Turtle",
+        "url": "https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/route/619538829",
+        "style": "Sport",
+        "length": "10 m",
+        "pitches": null,
+        "bolts": 4,
+        "pitches_detail": null,
+        "desc": null,
+        "setter": null,
+        "warnings": []
+      },
+      {
+        "grade": "4",
+        "stars": 1,
+        "name": "Moon Dance",
+        "url": "https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/route/619538922",
+        "style": "Sport",
+        "length": "10 m",
+        "pitches": null,
+        "bolts": 4,
+        "pitches_detail": null,
+        "desc": null,
+        "setter": null,
+        "warnings": []
+      },
+      {
+        "grade": "4+",
+        "stars": 1,
+        "name": "Tree Swing",
+        "url": "https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/route/619539015",
+        "style": "Sport",
+        "length": "10 m",
+        "pitches": null,
+        "bolts": 4,
+        "pitches_detail": null,
+        "desc": null,
+        "setter": null,
+        "warnings": []
+      },
+      {
+        "grade": "5",
+        "stars": 0,
+        "name": "Gangnam Climb",
+        "url": "https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/route/619539108",
+        "style": "Sport",
+        "length": "8 m",
+        "pitches": null,
+        "bolts": 3,
+        "pitches_detail": null,
+        "desc": null,
+        "setter": null,
+        "warnings": []
+      },
+      {
+        "grade": "4+",
+        "stars": 0,
+        "name": "Pokemon",
+        "url": "https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/route/619539201",
+        "style": "Sport",
+        "length": "8 m",
+        "pitches": null,
+        "bolts": 3,
+        "pitches_detail": null,
+        "desc": null,
+        "setter": null,
+        "warnings": []
+      },
+      {
+        "grade": "5",
+        "stars": 1,
+        "name": "Kitty Corner",
+        "url": "https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/route/619539294",
+        "style": "Sport",
+        "length": "11 m",
+        "pitches": null,
+        "bolts": 4,
+        "pitches_detail": null,
+        "desc": null,
+        "setter": null,
+        "warnings": []
+      },
+      {
+        "grade": "6a",
+        "stars": 1,
+        "name": "Carabao Daeng",
+        "url": "https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/route/619539387",
+        "style": "Sport",
+        "length": "13 m",
+        "pitches": null,
+        "bolts": 6,
+        "pitches_detail": null,
+        "desc": null,
+        "setter": null,
+        "warnings": []
+      }
+    ]
+  }
+]

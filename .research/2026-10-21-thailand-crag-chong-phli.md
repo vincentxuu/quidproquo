@@ -1,0 +1,139 @@
+# Chong Phli 靈山 evidence
+
+2026-10-21. Scope: Chong Phli / Spirit Mountain（theCrag 157 條，10 個子區）——約 90% 鈦栓、每年檢查確保點、可住宿的岩場。讀者決定：住岩場旁還是市區、哪一面牆、繩要帶多長。
+
+## Sources opened
+
+- theCrag: Chong Phli - Spirit Mountain https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain: 157 條路線、10 個子區、FR 4b+–9a、5,889 次攀登；「約 90% 鈦栓、軟岩質路段用吊帶、所有確保點與吊帶每年檢查」；私人土地的三條規定（尊重、禮貌、帶走垃圾）；岩場旁的民宿與社區中心；接近路線
+- theCrag: The Lounge / Main face https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/area/7812486: 25 條逐線路線，含 Scorpion、Red Planet、Scorpion Queen 的完整說明
+- theCrag: The Mezzanine / Main face https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/area/7883934: 25 條逐線路線，含 Snow Leopard 8b、Sumo King 8a+ 65 m、White Lion 8b
+- theCrag: The Ego Free Zone / Main face https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/area/8023452: 32 條逐線路線，含 KGB Extreme 8b、Predator 8a
+- theCrag: Machete Wall https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/area/1005478998: 21 條逐線路線，含 Frankenstein 8c/c+ 開放專案
+- theCrag: Sweet Brown Wall https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/area/961193676: 6 條逐線路線，含 Lord Jesus 8a
+- theCrag: The Far Side https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/area/961193106: 10 條逐線路線
+
+## Exact route rows
+
+- The Lounge / Main face: 6a Jumanji 10 m ★2
+- The Lounge / Main face: 6b Baby Foot 10 m ★2
+- The Lounge / Main face: 6a Hello Kitty 10 m ★1
+- The Lounge / Main face: 6b+ Schmoopy Power 18 m ★2
+- The Lounge / Main face: 6c+ Babies in the Sky 28 m ★2
+- The Lounge / Main face: 8a/a+ Mainlander 15 m ★2
+- The Lounge / Main face: 7b Rex Kwan-Do 17 m ★2
+- The Lounge / Main face: 8a Singa-Paw ★3
+- The Lounge / Main face: 8b Singa-Paw Slap! ★3
+- The Lounge / Main face: 7a+ Superstition 15 m ★3
+- The Lounge / Main face: 8a Slap and Tickle 26 m ★3
+- The Lounge / Main face: 7b+ Man 21 m ★3
+- The Lounge / Main face: 7b Mouse 21 m ★3
+- The Lounge / Main face: 7b Kaeng Raeng 21 m ★3
+- The Lounge / Main face: 7c Middle Path 32 m ★3
+- The Lounge / Main face: 7b+ J-dog ★2
+- The Lounge / Main face: 6b+/c Pill Box 21 m ★2
+- The Lounge / Main face: 8a Red Planet 33 m ★3
+- The Lounge / Main face: 8c/c+ Mars Attacks (Red Planet Ext). 40 m ★3
+- The Lounge / Main face: 7b Scorpion 33 m ★3
+- The Lounge / Main face: 8a Scorpion (Direct) 33 m
+- The Lounge / Main face: 8b+/c Scorpion Queen 🦂 40 m ★3
+- The Lounge / Main face: 7a+ Ice-9 33 m
+- The Lounge / Main face: 7c+ Ice-9 (Direct) 33 m
+- The Lounge / Main face: 7c+ Chasing Windmills
+- The Mezzanine / Main face: 6b Exfoliation 20 m ★2
+- The Mezzanine / Main face: 6c Exposure 29 m ★3
+- The Mezzanine / Main face: 6c+ Exposure (Direct) 29 m ★2
+- The Mezzanine / Main face: 8b Snow Leopard ★3
+- The Mezzanine / Main face: 7c+ I Am Ironman / Ironman 34 m ★2
+- The Mezzanine / Main face: 8a Iron Blast ★3
+- The Mezzanine / Main face: 6b+/c Hobbit Hop 20 m ★2
+- The Mezzanine / Main face: 7b Hobbit Jump 30 m ★3
+- The Mezzanine / Main face: 7b+ Free Blast 40 m ★3
+- The Mezzanine / Main face: 7b+ Alien 50 m ★3
+- The Mezzanine / Main face: 5a Simon Sends 9 m ★2
+- The Mezzanine / Main face: 6a+ Sticky Rice 22 m ★2
+- The Mezzanine / Main face: 6a+ Chutzpah 22 m ★2
+- The Mezzanine / Main face: 7b Trippin' 20 m ★2
+- The Mezzanine / Main face: 6c+ Hunting Shrooms 24 m ★3
+- The Mezzanine / Main face: 7a+ Scarface 35 m ★2
+- The Mezzanine / Main face: 8a Kingpin 55 m ★3
+- The Mezzanine / Main face: 8a+ Sumo King 65 m ★3
+- The Mezzanine / Main face: 7c+ Right Hand Man 55 m
+- The Mezzanine / Main face: 7a Grace 22 m ★3
+- The Mezzanine / Main face: 7b+ Baby White Tiger 35 m ★2
+- The Mezzanine / Main face: 8a+ White Tiger (Direct) 35 m ★3
+- The Mezzanine / Main face: 8b White Lion 35 m ★3
+- The Mezzanine / Main face: 7c Renegades of Funk 22 m ★3
+- The Mezzanine / Main face: 7c+/8a Rage Against The Machine ★3
+- The Ego Free Zone / Main face: 7b+ Red Herring 21 m ★3
+- The Ego Free Zone / Main face: 7a Piranha 21 m ★2
+- The Ego Free Zone / Main face: 8a Predator 40 m ★3
+- The Ego Free Zone / Main face: 7a Hidden Gem 20 m ★2
+- The Ego Free Zone / Main face: 6b Buzzsaw 20 m ★2
+- The Ego Free Zone / Main face: 6c Seesaw 20 m ★2
+- The Ego Free Zone / Main face: 7c Tetris ★2
+- The Ego Free Zone / Main face: 6a+ Spirit Mountain 20 m ★2
+- The Ego Free Zone / Main face: 6b+ Foot Prints 20 m ★2
+- The Ego Free Zone / Main face: 6a Finding Nemo 20 m ★2
+- The Ego Free Zone / Main face: 6b+ Hook, Line, Sinker 26 m ★2
+- The Ego Free Zone / Main face: 7c Slab Royal 33 m ★2
+- The Ego Free Zone / Main face: 6a Kan Bet Tok Pla / Fishing Rod 20 m ★1
+- The Ego Free Zone / Main face: 6c+ Rampage 10 m ★1
+- The Ego Free Zone / Main face: 7b Burleigh But Sensitive 25 m ★3
+- The Ego Free Zone / Main face: 8b KGB Extreme 30 m ★3
+- The Ego Free Zone / Main face: 6b+ Deflowered 36 m ★2 ⚠ Flora and Fauna: Owl nest
+- The Ego Free Zone / Main face: 6b+ Momentum 32 m ★2
+- The Ego Free Zone / Main face: 6b+ McLovin 34 m ★2
+- The Ego Free Zone / Main face: 6a+ EFZ / Ego Free Zone 26 m ★2
+- The Ego Free Zone / Main face: 6b+ Family Affair (1st pitch) 32 m ★3
+- The Ego Free Zone / Main face: 6b+ Family Affair (2nd pitch) 40 m ★2
+- The Ego Free Zone / Main face: 6a Family Affair (3rd pitch) 55 m ★2
+- The Ego Free Zone / Main face: 6a Zac Attack 20 m ★1
+- The Ego Free Zone / Main face: 6b Mad Skills 16 m ★1
+- The Ego Free Zone / Main face: 7b Mantally iII / Mentally Ill 25 m ★2
+- The Ego Free Zone / Main face: 7a/a+ Mantally Ill P1 / Mentally Ill P1 20 m ★2
+- The Ego Free Zone / Main face: 7b+ 8ish 25 m ★3
+- The Ego Free Zone / Main face: 7a/a+ 8ish P1 20 m ★2
+- The Ego Free Zone / Main face: 6c Carbunkle / Carbuncle 23 m ★2 ⚠ Fixed Gear: Slings need replacing
+- The Ego Free Zone / Main face: 6a+ Round the Bend 26 m ★2
+- The Ego Free Zone / Main face: 5c Bell Curve 10 m ★1
+- Machete Wall: 6a+ Cave Racer 27 m ★2
+- Machete Wall: 6b+ Dean the Machine 30 m ★2
+- Machete Wall: 6b+ The General 30 m ★2
+- Machete Wall: 7c Alpha Male ★3
+- Machete Wall: 7b Eagle Claw / Machete master 24 m ★1
+- Machete Wall: 6b+ Knob Job 23 m ★2
+- Machete Wall: 6b Tufa Test / Cutting the vines 23 m ★2
+- Machete Wall: 6a Luna Cruise 18 m ★2
+- Machete Wall: 6a+ Send Train 15 m ★2
+- Machete Wall: 6b Fixe 15 m ★2
+- Machete Wall: 6a Morano 16 m ★2
+- Machete Wall: 6b French Free 16 m ★2
+- Machete Wall: 5c Pipeline 16 m ★2
+- Machete Wall: 6a+ Wildling 18 m ★2
+- Machete Wall: 7b+ Yaba Youth 23 m ★3
+- Machete Wall: 6c+ Doctor Zeus 14 m ★3
+- Machete Wall: 7b French Blow 23 m ★2
+- Machete Wall: 6a+ Athena 13 m ★2
+- Machete Wall: 5c Aphrodite 12 m ★2
+- Machete Wall: 8c/c+ Frankenstein - Open Project 30 m ★3
+- Machete Wall: 5c monkey trail 100 m ★1
+- Sweet Brown Wall: 7c+ Shoes 20 m ★3
+- Sweet Brown Wall: 7b Ain't Nobody Got Time 25 m ★3
+- Sweet Brown Wall: 8a Lord Jesus 25 m
+- Sweet Brown Wall: 7c There's a Fire 25 m ★3
+- Sweet Brown Wall: 7b+ Bronchitis 20 m ★3
+- Sweet Brown Wall: 7a+ Cold Pop 15 m ★3
+- The Far Side: 7c Hopeful Parents 25 m ★3
+- The Far Side: 5c Dog Endorsements 15 m
+- The Far Side: 6b+ Gargoyle Socks 18 m ★2
+- The Far Side: 6a+ We’ll Eat Like Kings 18 m ★2
+- The Far Side: 6c+ The Real Reason Dinosaurs Became Extinct 18 m ★2
+- The Far Side: 6c Midvale School for the Gifted 18 m ★3
+- The Far Side: 6b Completely Harmless 18 m ★3
+- The Far Side: 6c Something Darkside 18 m ★2
+- The Far Side: 6a It's a Mammoth 12 m ★1
+- The Far Side: 6c Early Experiments in Transportation 18 m ★2
+
+## Dropped / not used
+
+- Instagram: Chong Phli 貼文 https://www.instagram.com/: 未能取得可引用的一手內容

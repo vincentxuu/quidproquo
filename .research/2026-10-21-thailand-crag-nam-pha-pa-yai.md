@@ -1,0 +1,121 @@
+# 北標 Nam Pha Pa Yai evidence
+
+2026-10-21. Scope: 北標營地（theCrag 101 條，4 個子區）——主牆 River Wall 自 2024 年 1 月關閉但營地仍開放，其餘三面牆與營地資訊。讀者決定：主牆重開值不值得等、現在能不能去、住營地有沒有價值。
+
+## Sources opened
+
+- theCrag: Namphapayai Camp https://www.thecrag.com/en/climbing/thailand/namphapayai-camp: 101 條路線、FR 4a–8b、1,526 次攀登；4 個子區（River Wall 65、Bat Cave Wall 17、Peaceful Wall 12、School Wall 7）；100 THB 吊索與停車費、4–6 月休園；營地住宿描述；過河吊索與 10 分鐘接近
+- theCrag: River Wall https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/area/410693532: 65 條逐線路線；頁面警告「Supposedly closed climbing access a year ago, no signs if it's changed yet」（建立於兩年前）
+- theCrag: Bat Cave Wall https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/area/410704308: 17 條逐線路線；Zero Point Energy 6a 的獨特攀法、Yin Yang 7a+ 的評語
+- theCrag: Peaceful Wall https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/area/2547133947: 12 條逐線路線
+- theCrag: School Wall https://www.thecrag.com/en/climbing/thailand/namphapayai-camp/area/616000071: 7 條逐線路線
+- Mountain Project: Phasak River Wall https://www.mountainproject.com/area/110369736/phasak-river-wall-closed-indefinitely: 另一個獨立頁面把主牆標為「closed indefinitely」
+- North Pa Pa Yai 營地官網 http://nppy.camp/rock-climbing/: 營地自己的岩場說明、FAQ 與住宿頁
+
+## Exact route rows
+
+- River Wall: 7b Rhodan Weder Moskau 16 m ★1
+- River Wall: 6a Lord of the flies 14 m ★2
+- River Wall: 6b Loving Kindness 14 m ★1
+- River Wall: 6c Hansan 14 m
+- River Wall: 6b Meditation 14 m ★1
+- River Wall: 7b Rocco Siffredi 15 m ★2
+- River Wall: 6c Buy Ha Beer 13 m ★2
+- River Wall: 5c Come Inside Me 11 m ★3
+- River Wall: 5c Go Left Go Right 12 m
+- River Wall: 6b+ Out of the Moves 12 m ★1
+- River Wall: 6a Birth Canal 12 m
+- River Wall: 6a+ Santa 8 m ★1
+- River Wall: 6a Mae Mod 8 m ★1
+- River Wall: 5c La Moukat 8 m
+- River Wall: 5+ Madagascar 60 m ★2
+- River Wall: 6a+ Sea Lover 18 m ★1
+- River Wall: 7a 62 b.p.m. 18 m ★1
+- River Wall: 6a+ Gaelita 18 m ★1
+- River Wall: 6a+ Protect Me 20 m ★2
+- River Wall: 6b+ Local Solution for Global Confusion 20 m ★2
+- River Wall: 6b Democrature 15 m ★2
+- River Wall: 6a On the Rock 28 m ★2
+- River Wall: 6a+ Mineral Mystic 20 m ★2
+- River Wall: 6a+ Tiramisu 23 m ★2
+- River Wall: 6b+ The Most ... of the World 30 m ★2
+- River Wall: 7a To exist is to resist 18 m ★3
+- River Wall: 4+ Tee Rek Soo Soo 11 m ★1
+- River Wall: 5+ The Ultimate Root 11 m ★1
+- River Wall: 5+ Hin Tok 12 m ★1
+- River Wall: 6a Sadao 14 m ★1
+- River Wall: 6a+ Sadoong / สะดุ้ง 14 m ★1
+- River Wall: 6a+ Koutoukou 15 m ★1
+- River Wall: 7a Scarface 21 m ★2
+- River Wall: 7c Babel 34 m ★3
+- River Wall: 6a (R)Evolution 16 m ★2
+- River Wall: 8a (R)Evolution Extension 40 m ★3
+- River Wall: 8a La Roca 39 m ★3
+- River Wall: 8a Les Chemins de Katmandou 39 m ★3
+- River Wall: 8b Monty Python's Flying Circus ★3
+- River Wall: 6c Hoopoe 22 m ★2
+- River Wall: 7b+ No Breakfast 23 m ★3
+- River Wall: 7a+ Maitika 22 m ★1
+- River Wall: 6b+ Café Bolan 28 m ★2
+- River Wall: 7c+ Forbidden Condom 30 m ★3
+- River Wall: 7a Sweet Lip 20 m ★3
+- River Wall: 7b Fat Lip 34 m ★3
+- River Wall: 7b+ Zenzile 34 m ★2
+- River Wall: 7b Hongthong Power 24 m ★1
+- River Wall: 7b+ Neua Neua 35 m ★2
+- River Wall: 6b+ Verdon Paradise 28 m ★2
+- River Wall: 7a Slab Paradise 37 m ★2
+- River Wall: 7a Siam Paradise 35 m ★2
+- River Wall: 7c Stop Monsanto 33 m ★2
+- River Wall: 7b Jungle's Thai 31 m ★3
+- River Wall: 7a+ Voltarèn 28 m ★2
+- River Wall: 6c You are a Legend 26 m ★3
+- River Wall: 6c+ District 9 26 m ★2
+- River Wall: 7b Inhale 28 m ★3
+- River Wall: 6c+ Expertease 31 m ★2
+- River Wall: 7a Exhale 31 m ★2
+- River Wall: 7b Crackodile 31 m ★1
+- River Wall: 7b Hippy Punk 28 m
+- River Wall: 7b+ Free Papua 28 m ★2
+- River Wall: 7b Pasak Ride 27 m
+- River Wall: 7a The Spiral Dance 18 m ★2
+- Bat Cave Wall: 5+ Ratatouille 18 m ★1
+- Bat Cave Wall: 5 Banksters 16 m
+- Bat Cave Wall: 4+ Fourth World 10 m
+- Bat Cave Wall: 6b+ Politik Kills 28 m ★2
+- Bat Cave Wall: 6a Zero Point Energy 27 m ★2
+- Bat Cave Wall: 7a+ Surfer Rosa 27 m ★3
+- Bat Cave Wall: 5 Boua Loye 18 m ★2
+- Bat Cave Wall: 6a Phra Pajak Kutajitto 9 m ★1
+- Bat Cave Wall: 6a+ Didjeridoo 22 m
+- Bat Cave Wall: 6b Prescription for Mental Masturbation 25 m ★2
+- Bat Cave Wall: 6c Huevos a la Mexicana 28 m ★2
+- Bat Cave Wall: 6b+ Emmenez-moi ★2
+- Bat Cave Wall: 7c Super Nature
+- Bat Cave Wall: 7b Into the Wild ★3
+- Bat Cave Wall: 6c The Cure 32 m ★2
+- Bat Cave Wall: 7a+ Yin Yang ★3
+- Bat Cave Wall: 7c Sonic Youth ★3
+- Peaceful Wall: 5+ Acupuncture 30 m ★2
+- Peaceful Wall: 6a Mescaline 22 m ★2
+- Peaceful Wall: 6c Detail of Beauty 22 m ★2
+- Peaceful Wall: 6c+ Sephia 21 m ★1
+- Peaceful Wall: 6a+ Hinayana 28 m ★2
+- Peaceful Wall: 6b+ Mahayana 28 m ★1
+- Peaceful Wall: 6b Jojo's toilet 20 m ★2
+- Peaceful Wall: 6b+ Lcarus 25 m
+- Peaceful Wall: 5+ Daecalus 25 m ★1
+- Peaceful Wall: 6c+ Womb of Creation 12 m
+- Peaceful Wall: 6c Full Moon's Spirit 13 m
+- Peaceful Wall: 7b Anahata 13 m
+- School Wall: 4+ Ninja Turtle 10 m ★1
+- School Wall: 4 Moon Dance 10 m ★1
+- School Wall: 4+ Tree Swing 10 m ★1
+- School Wall: 5 Gangnam Climb 8 m
+- School Wall: 4+ Pokemon 8 m
+- School Wall: 5 Kitty Corner 11 m ★1
+- School Wall: 6a Carabao Daeng 13 m ★1
+
+## Dropped / not used
+
+- Facebook: 北標攀岩營地社團 https://www.facebook.com/groups/climbingbkk/: 需登入才能看貼文，無法引用具體日期的公告

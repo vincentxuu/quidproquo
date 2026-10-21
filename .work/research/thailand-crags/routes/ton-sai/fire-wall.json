@@ -1,0 +1,323 @@
+[
+  {
+    "sector": "Fire Wall",
+    "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15688129",
+    "area_route_count": 21,
+    "routes": [
+      {
+        "grade": "5",
+        "stars": 3,
+        "name": "Easy Approach",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17731459",
+        "style": "Sport",
+        "length": null,
+        "pitches": null,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Warning Fixed Gear: old slings Not easy to find: I assume I is the route around the corner (a bit uphill) on the left side of \"Tuna Meltdown\". However seems to be only Slings which are really old.",
+        "setter": null,
+        "warnings": [
+          "Fixed Gear: old slings"
+        ]
+      },
+      {
+        "grade": "7a+",
+        "stars": 0,
+        "name": "No Name",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17731507",
+        "style": "Sport",
+        "length": "7m",
+        "pitches": null,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "",
+        "setter": null,
+        "warnings": []
+      },
+      {
+        "grade": "7b+",
+        "stars": 1,
+        "name": "Tuna Meltdown",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17731555",
+        "style": "Sport",
+        "length": "25m",
+        "pitches": 1,
+        "bolts": 11,
+        "pitches_detail": null,
+        "desc": "All titanium bolts.",
+        "setter": "Greg Collum & Larissa Collum, 1996",
+        "warnings": []
+      },
+      {
+        "grade": "7a+",
+        "stars": 2,
+        "name": "Tuna Melt",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17731627",
+        "style": "Sport",
+        "length": "25m",
+        "pitches": 1,
+        "bolts": 11,
+        "pitches_detail": null,
+        "desc": "Righthand variation of 'Tuna Meltdown'. All titanium bolts.",
+        "setter": "Greg Collum & Larissa Collum, 1996",
+        "warnings": []
+      },
+      {
+        "grade": "6b",
+        "stars": 1,
+        "name": "Chicken Muscle",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17731681",
+        "style": "Sport",
+        "length": "33m",
+        "pitches": 1,
+        "bolts": 12,
+        "pitches_detail": null,
+        "desc": "Shares the start with 'Tuna Meltdown', but traverses right. All titanium bolts.",
+        "setter": "Greg Collum & Larissa Collum, 1996",
+        "warnings": []
+      },
+      {
+        "grade": "7b+",
+        "stars": 1,
+        "name": "Chicken Skin",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17731765",
+        "style": "Sport",
+        "length": "40m",
+        "pitches": 1,
+        "bolts": 15,
+        "pitches_detail": null,
+        "desc": "Climbs up all the way through the left side of the big cave. All titanium bolts.",
+        "setter": "Greg Collum & Larissa Collum, 1996",
+        "warnings": []
+      },
+      {
+        "grade": "7a+",
+        "stars": 3,
+        "name": "Burnt Offerings",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17731825",
+        "style": "Sport",
+        "length": "15m",
+        "pitches": 1,
+        "bolts": 8,
+        "pitches_detail": null,
+        "desc": "Warning Fixed Gear: Rusty quick link on 5th titaniam bolt, who has a grinder 😉 Popular picture location. Located up the hill heading left from the main wall, on the right side of an impressive looking cave. All titanium bolts.",
+        "setter": "Greg Collum & Alex Catlin, 1996",
+        "warnings": [
+          "Fixed Gear: Rusty quick link on 5th titaniam bolt, who has a grinder 😉"
+        ]
+      },
+      {
+        "grade": "8a+",
+        "stars": 0,
+        "name": "Sinister Offerings",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17731891",
+        "style": "Sport",
+        "length": "15m",
+        "pitches": 1,
+        "bolts": 6,
+        "pitches_detail": null,
+        "desc": "Second pitch of 'Burnt Offerings'. All titanium bolts.",
+        "setter": "Greg Collum & Alex Catlin, 1996",
+        "warnings": []
+      },
+      {
+        "grade": "7c",
+        "stars": 2,
+        "name": "Playing with Fire",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17731999",
+        "style": "Sport",
+        "length": "35m",
+        "pitches": 2,
+        "bolts": 14,
+        "pitches_detail": [
+          "1 6b 15m",
+          "2 7c 20m"
+        ],
+        "desc": "First pitch traverses right at the bottom of the 'Burnt Offerings' cave, then straight up for P2. 11 titanium bolts, 3 slings.",
+        "setter": "Greg Collum, 1995",
+        "warnings": []
+      },
+      {
+        "grade": "7a",
+        "stars": 0,
+        "name": "Project",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17732587",
+        "style": "Sport Project",
+        "length": "15m",
+        "pitches": 1,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "Old project left of 'Flame Thrower'. Rusty expansion bolts. Do not climb!",
+        "setter": null,
+        "warnings": [
+          "Rusty expansion bolts.",
+          "Do not climb!"
+        ]
+      },
+      {
+        "grade": "7b+",
+        "stars": 2,
+        "name": "Flame Thrower",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17732059",
+        "style": "Sport",
+        "length": "27m",
+        "pitches": 1,
+        "bolts": 7,
+        "pitches_detail": null,
+        "desc": "Old rusty expansion bolts. Cannot be climbed anymore.",
+        "setter": "Alex Catlin, 1997",
+        "warnings": [
+          "Old rusty expansion bolts.",
+          "Cannot be climbed anymore."
+        ]
+      },
+      {
+        "grade": "6a+",
+        "stars": 2,
+        "name": "Up in Smoke",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/115631856",
+        "style": "Sport",
+        "length": "17m",
+        "pitches": 1,
+        "bolts": 9,
+        "pitches_detail": null,
+        "desc": "The orange pockety rock just left of 'Fire Show'. 3 titanium bolts, 6 slings.",
+        "setter": "Bob Elder, 2007",
+        "warnings": []
+      },
+      {
+        "grade": "6c+",
+        "stars": 2,
+        "name": "Fire Show",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17732107",
+        "style": "Sport",
+        "length": "17m",
+        "pitches": 1,
+        "bolts": 8,
+        "pitches_detail": null,
+        "desc": "Stiff reachy boulder problem to get over the bulge at the start. Much easier afterwards. All titanium bolts.",
+        "setter": "Drew Spaulding, 2001",
+        "warnings": []
+      },
+      {
+        "grade": "6b",
+        "stars": 2,
+        "name": "Fire Show (Variation)",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3121094616",
+        "style": "Sport",
+        "length": "17m",
+        "pitches": 1,
+        "bolts": 8,
+        "pitches_detail": null,
+        "desc": "Start variation, skipping the bold start by traversing to the right from 'Up in Smoke'.",
+        "setter": "Drew Spaulding, 2001",
+        "warnings": []
+      },
+      {
+        "grade": "6c+",
+        "stars": 2,
+        "name": "Fire Starter",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17732155",
+        "style": "Sport",
+        "length": "16m",
+        "pitches": 1,
+        "bolts": 7,
+        "pitches_detail": null,
+        "desc": "Steep start on big holds through the overhang just right of 'Fire Show'. Crux on the headwall has become quite polished. 5 titanium bolts, 2 slings. Share anchor with White Hot Hernias.",
+        "setter": "Ray Bernard & Trevor Hobbs, 1996",
+        "warnings": []
+      },
+      {
+        "grade": "6b+",
+        "stars": 2,
+        "name": "White Hot Hernias",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17732251",
+        "style": "Sport",
+        "length": "16m",
+        "pitches": 1,
+        "bolts": 7,
+        "pitches_detail": null,
+        "desc": "Very polished on the crux, just after traversing left onto the wall. Stick-clip first bolt. 5 titanium bolts, 2 slings. Share anchor with Fire Starter.",
+        "setter": "Gavin Punnell & Sharyn George, 1996",
+        "warnings": []
+      },
+      {
+        "grade": "6a+",
+        "stars": 2,
+        "name": "For Helga",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17732347",
+        "style": "Sport",
+        "length": "30m",
+        "pitches": 1,
+        "bolts": 11,
+        "pitches_detail": null,
+        "desc": "Warning Rock: Be mindful of ledge! Nice long run. All titanium bolts.",
+        "setter": "Shamick Byszewski, Tanja & Heidi, 1999",
+        "warnings": [
+          "Rock: Be mindful of ledge!"
+        ]
+      },
+      {
+        "grade": "7a",
+        "stars": 0,
+        "name": "Burning down the House",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3085241103",
+        "style": "Sport",
+        "length": "15m",
+        "pitches": 1,
+        "bolts": 3,
+        "pitches_detail": null,
+        "desc": "Second pitch of 'For Helga'. Not rebolted. Old stainless steel glue-ins. Do not climb!",
+        "setter": "Shamick Byszewski, Tanja & Heidi, 1999",
+        "warnings": [
+          "Old stainless steel glue-ins.",
+          "Do not climb!"
+        ]
+      },
+      {
+        "grade": "6b",
+        "stars": 2,
+        "name": "Boobtube",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17732395",
+        "style": "Sport",
+        "length": "30m",
+        "pitches": 1,
+        "bolts": 12,
+        "pitches_detail": null,
+        "desc": "Another great long line with a tricky 3D crux in the small roof. 7 titanium bolts, 5 slings.",
+        "setter": "Shamick Byszewski, Tanja & Heidi, 1999",
+        "warnings": []
+      },
+      {
+        "grade": "6a",
+        "stars": 3,
+        "name": "The Groove Tube",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17732443",
+        "style": "Sport",
+        "length": "25m",
+        "pitches": 1,
+        "bolts": 11,
+        "pitches_detail": null,
+        "desc": "A must do! Climbs up the tube to the far right. Optional start through the hole. 4 titanium bolts and slings.",
+        "setter": "Mark Maffei, 1995",
+        "warnings": []
+      },
+      {
+        "grade": "6b",
+        "stars": 1,
+        "name": "Polish-Czech",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17732539",
+        "style": "Sport",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": 9,
+        "pitches_detail": null,
+        "desc": "Second pitch of 'The Groove Tube'. A few meters straight up from the belay ledge then traverse to the left. Rarely climbed and not rebolted with titanium. 2 stainless steel glue-ins, 7 slings, which might need replacement.",
+        "setter": "Shamick Byszewski, 1999",
+        "warnings": [
+          "2 stainless steel glue-ins, 7 slings, which might need replacement."
+        ]
+      }
+    ]
+  }
+]

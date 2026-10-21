@@ -1,0 +1,69 @@
+[
+  {
+    "sector": "Wild Child Wall",
+    "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/area/961191672",
+    "area_route_count": 4,
+    "routes": [
+      {
+        "grade": "8a",
+        "stars": 0,
+        "name": "Wild Child",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/route/263848047",
+        "style": "Sport",
+        "length": "18 m",
+        "pitches": null,
+        "bolts": 6,
+        "desc": "Grade not confirmed. 5 titanium bolts, 1 sling.",
+        "setter": "Mike, 2015",
+        "warnings": [],
+        "project": false,
+        "condition": null
+      },
+      {
+        "grade": "7a+",
+        "stars": 3,
+        "name": "Old School",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/route/263847954",
+        "style": "Sport",
+        "length": "18 m",
+        "pitches": null,
+        "bolts": 4,
+        "desc": "3 titanium bolts, 1 sling.",
+        "setter": "Mike, 2015",
+        "warnings": [],
+        "project": false,
+        "condition": null
+      },
+      {
+        "grade": "8a",
+        "stars": 3,
+        "name": "RTT / Rubber Tapping Tranny",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/route/961194837",
+        "style": "Sport",
+        "length": "20 m",
+        "pitches": null,
+        "bolts": null,
+        "desc": "Grade confirmed by fedor and tim: https://www.8a.nu/crags/sportclimbing/thailand/chong-phli/sectors/wild-child-wall/routes/rtt-rubber-tapping-tranny",
+        "setter": "Jonas Wallin, 2015",
+        "warnings": [],
+        "project": false,
+        "condition": null
+      },
+      {
+        "grade": "6b+",
+        "stars": 3,
+        "name": "Indi'Jan'a Jones",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/chong-phli-spirit-mountain/route/961194936",
+        "style": "Sport",
+        "length": "25 m",
+        "pitches": null,
+        "bolts": 10,
+        "desc": "Must-do climb. Maybe a bit harder. All titanium bolts.",
+        "setter": "Simon, Mike & Jonas Wallin, 2015",
+        "warnings": [],
+        "project": false,
+        "condition": null
+      }
+    ]
+  }
+]

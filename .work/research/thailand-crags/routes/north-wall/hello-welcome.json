@@ -1,0 +1,88 @@
+{
+  "sector": "Hello Welcome",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/9254794656",
+  "area_route_count": 5,
+  "grade_system": "FR",
+  "area_warnings": [
+    {
+      "warning": "Access: MUST Park Outside",
+      "source": "inherited from parent crag"
+    },
+    {
+      "warning": "Access: Beware of thieves!",
+      "source": "inherited from parent crag"
+    }
+  ],
+  "routes": [
+    {
+      "grade": "5",
+      "stars": 1,
+      "name": "Where's Jordan?",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/11105535651",
+      "style": "Sport",
+      "length": "23m",
+      "pitches": null,
+      "bolts": 10,
+      "pitches_detail": null,
+      "desc": "To the left of the tree. To the left of the route 'Hello Welcome', sharing anchor with 'Hello Welcome'.",
+      "setter": "Rock and Sun",
+      "warnings": []
+    },
+    {
+      "grade": "5",
+      "stars": 1,
+      "name": "Hello Welcome",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/9254809083",
+      "style": "Sport",
+      "length": "20m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Currently second route from the left, just right of the tree. (Note: the tree may be removed, and more routes may be developed to the left of this route.) Shared anchor with 'Where's Jordan?'",
+      "setter": "Rock and Sun",
+      "warnings": []
+    },
+    {
+      "grade": "5+",
+      "stars": 1,
+      "name": "Mr Dean",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/9254815227",
+      "style": "Sport",
+      "length": "22m",
+      "pitches": null,
+      "bolts": 12,
+      "pitches_detail": null,
+      "desc": "Currently the third of the five routes (this may change as more routes may be developed).",
+      "setter": "Rock and Sun",
+      "warnings": []
+    },
+    {
+      "grade": "6a",
+      "stars": 2,
+      "name": "Everybody Loves Lek",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/9254819748",
+      "style": "Sport",
+      "length": "21m",
+      "pitches": null,
+      "bolts": 12,
+      "pitches_detail": null,
+      "desc": "Currently the forth route (counting from left to right; this may change if more routes get developed at this sector).",
+      "setter": "Rock and Sun",
+      "warnings": []
+    },
+    {
+      "grade": "5+",
+      "stars": 2,
+      "name": "Kiera",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/10982508753",
+      "style": "Sport",
+      "length": "24m",
+      "pitches": null,
+      "bolts": 11,
+      "pitches_detail": null,
+      "desc": "Currently the most right hand route (this may change if more routes get developed in this sector)",
+      "setter": "Rock and Sun",
+      "warnings": []
+    }
+  ]
+}

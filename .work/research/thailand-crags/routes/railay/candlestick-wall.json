@@ -1,0 +1,90 @@
+{
+  "sector": "Candlestick Wall",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687793",
+  "area_route_count": 5,
+  "routes": [
+    {
+      "grade": "3+",
+      "stars": 0,
+      "name": "Approach Pitch",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/12780856881",
+      "style": "Sport",
+      "length": "30 m",
+      "pitches": null,
+      "bolts": null,
+      "pitches_detail": null,
+      "desc": "The approach pitch used to access all of the multipitch routes.",
+      "setter": null,
+      "warnings": []
+    },
+    {
+      "grade": "6c+",
+      "stars": 2,
+      "name": "The Red Line",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17722561",
+      "style": "Sport",
+      "length": "55 m",
+      "pitches": 2,
+      "bolts": 22,
+      "pitches_detail": [
+        "1 6a 35m",
+        "2 6c+ 20m"
+      ],
+      "desc": "The leftmost line on red-coated featured rock. All titanium bolts. 1. After the shared start take the left line of bolts to the left anchor on the belay ledge. 12 bolts. 2. Up and left towards the pumpy crux right before the anchor. 10 bolts.",
+      "setter": "Drew Spaulding & Julie Peterson, 2000",
+      "warnings": []
+    },
+    {
+      "grade": "6b+",
+      "stars": 3,
+      "name": "Crystal Flame",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17722507",
+      "style": "Sport",
+      "length": "70 m",
+      "pitches": 3,
+      "bolts": 24,
+      "pitches_detail": [
+        "1 6a 35m",
+        "2 6b+ 25m",
+        "3 5a 10m"
+      ],
+      "desc": "The classic line at 'Candlestick Wall'. All titanium bolts. 1. Take the righthand variation of the first pitch, which leads you to the right of the two belay anchors in a small cave. 12 bolts. 2. From the belay ledge,take the line straight up along crystal-lined pockets to the anchor below the topout tunnel. 11 bolts. 3. Chimney up the tunnel to reach the top of the Thaiwand. 1 sling.",
+      "setter": "Drew Spaulding, Brian Warshow & Cameron Fairburn, 2000",
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 2,
+      "name": "The Candlestick",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17722459",
+      "style": "Sport",
+      "length": "70 m",
+      "pitches": 2,
+      "bolts": 32,
+      "pitches_detail": [
+        "1 6a 35m",
+        "2 6c 35m"
+      ],
+      "desc": "Great overhanging second pitch. All titanium bolts. 1. Take the righthand variation of the first pitch to reach the right anchor in the cave. 12 bolts. 2. Move out right of the belay cave. Where the route splits follow the left bolt line. To the right is 'Thai Stick'. 9 bolts, 11 slings. On descent, reclip the draws on P2 to avoid being stuck in free space. When abseiling P1, change over at the rap station - 70m rope does not reach the start.",
+      "setter": "Drew Spaulding & Jay Foley, 1999",
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 2,
+      "name": "Thai Stick",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3095304885",
+      "style": "Sport",
+      "length": "70 m",
+      "pitches": 2,
+      "bolts": 26,
+      "pitches_detail": [
+        "1 6a 35m",
+        "2 6c 35m"
+      ],
+      "desc": "Shares the start with 'The Candlestick', then takes the line further to the right through beautiful rock. All titanium bolts. 1. Take the righthand variation of the first pitch to reach the right anchor in the cave. 12 bolts. 2. Move out right of the belay cave. Where the route splits follow the right bolt line. 14 bolts.",
+      "setter": "Mark Miner & Tom Cecil, 2000",
+      "warnings": []
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+# Railay East evidence
+
+2026-10-21. Scope: Railay 東岸（Muay Thai、One-Two-Three、The Keep、Hidden World、Low Tide Wall、Jungle Gym、Duncan's Boot、Diamond Cave 等）——攀岩學校地盤的擁擠時段與逐區岩栓狀況。讀者決定：早上 8 點前還是下午 4 點後去、哪一面牆、哪些線不要碰。
+
+## Sources opened
+
+- theCrag: Railay https://www.thecrag.com/en/climbing/thailand/krabi/area/13949881: 314 條路線、FR 3b+–8b、19,094 次攀登；「2023 年仍在重打、網站許多資訊已過時」；19 個子區的結構
+- theCrag: Muay Thai https://www.thecrag.com/en/climbing/thailand/krabi/area/15687313: 24 條逐線路線；「永遠擠滿攀岩學校和觀眾」；Reaching Like a Monkey 未用鈦栓重打；Piece of Cake、No Name、Deborah 舊膨脹栓不可爬
+- theCrag: One-Two-Three https://www.thecrag.com/en/climbing/thailand/krabi/area/15687337: 31 條逐線路線；左側三條舊膨脹栓、Kratoy 四條延伸與 Gandalf 8a+ 不可爬；Massage Secrets 只有 P1、P2 能爬
+- theCrag: Diamond Cave https://www.thecrag.com/en/climbing/thailand/krabi/area/13949929: 28 條逐線路線；北面左側三條不可爬、Keep the Jam Man 只有 P1/P2 重打、洞內舊路線因國家公園不能再爬
+- theCrag: The Keep https://www.thecrag.com/en/climbing/thailand/krabi/area/13950673: 9 條逐線路線
+- theCrag: Hidden World https://www.thecrag.com/en/climbing/thailand/krabi/area/13950577: 8 條逐線路線；Rocket Head 有蜂巢警告
+- theCrag: Low Tide Wall https://www.thecrag.com/en/climbing/thailand/krabi/area/13950601: 9 條逐線路線；High Tide、Camp Seven、Via Maria 不可爬；Strider (Direct) 8a+ 無岩栓
+- theCrag: Jungle Gym https://www.thecrag.com/en/climbing/thailand/krabi/area/13950553: 15 條逐線路線，其中 9 條不可爬；Jungle Gym 與 Blade Runner 是無岩栓的傳統攀登路線
+- theCrag: Duncan's Boot https://www.thecrag.com/en/climbing/thailand/krabi/area/13950625: 10 條逐線路線；Falling in Love 不可爬
+- Mountain Project: Railay East https://www.mountainproject.com/area/105894705/railay-east: 東岸經典路線表，跨子區交叉核對
+
+## Exact route rows
+
+- Muay Thai: 4+ New Route 9 m ★1
+- Muay Thai: 5 Shadow Show 12 m ★1
+- Muay Thai: 6b+ Idapaccayada 12 m ★1
+- Muay Thai: 7b Shooting Through 12 m
+- Muay Thai: 7a Nam Dtah See Som / Orange Tears 16 m ★2
+- Muay Thai: 6b Bad Boy 15 m ★2
+- Muay Thai: 6a+ Nuat Hin / Massage the Rock 15 m ★1
+- Muay Thai: 6b+ Pattica Samupade 15 m ★1
+- Muay Thai: 6a Piece of Cake 13 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb!
+- Muay Thai: 6b+ Muay Thai 15 m ★2
+- Muay Thai: 6c+ Chicken Head 15 m ★1
+- Muay Thai: 6c+ Reaching Like a Monkey 13 m ★1 ⚠ Fixed Gear: Not rebolted with titanium. All stainless steel glue-in bolts.
+- Muay Thai: 6a No Name 8 m ★2 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb!
+- Muay Thai: 6b Deborah 8 m ★2 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb!
+- Muay Thai: 5 Tamada 10 m ★1 ⚠ Fixed Gear: Be prepared to replace.
+- Muay Thai: 6a Hello Christine 17 m ★1 ⚠ Fixed Gear: Be prepared to replace.
+- Muay Thai: 6a+ Valentine 12 m ★1
+- Muay Thai: 6b Alone 15 m ★1
+- Muay Thai: 5 Take It to the Left 10 m ★1 ⚠ Fixed Gear: Be prepared to replace.
+- Muay Thai: 6a Vegan Snake 8 m ★2
+- Muay Thai: 5 Take It Easy 8 m ⚠ Fixed Gear: Be prepared to replace.
+- Muay Thai: 5 The Beacons Memorial Climb 8 m ★1 ⚠ Fixed Gear: Be prepared to replace.
+- Muay Thai: 5 The Devine Ascention of Sully 9 m ★1 ⚠ Fixed Gear: Be prepared to replace.
+- Muay Thai: 5 Unknown Route 13 m ★1 ⚠ Fixed Gear: Be prepared to replace.
+- One-Two-Three: 6a No Name 30 m ★2 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- One-Two-Three: 6c+ Mei Mi Arom 30 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- One-Two-Three: 6b Hello Tu 55 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- One-Two-Three: 6a Selee 10 m ★1
+- One-Two-Three: 6a+ Samiboy 12 m ★1
+- One-Two-Three: 6a+ Ymer, The Giant 24 m ★2
+- One-Two-Three: 6a Ramazon 24 m ★2
+- One-Two-Three: 6c Kratoy / Lady Boy 26 m ★2
+- One-Two-Three: 6b+ One Thousand Knives 25 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- One-Two-Three: 6b+ Lucky 15 m ★2 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- One-Two-Three: 7c+ La Riba 20 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- One-Two-Three: 7b+ Triana 30 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- One-Two-Three: 6a+ Dr Jekull & Mrs Hyde 27 m ★2
+- One-Two-Three: 6a+ We Sad 25 m ★2
+- One-Two-Three: 8a+ Gandalf 28 m ★1 ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb unless rebolted!
+- One-Two-Three: 7b+ Knights in White Satin 25 m ★3
+- One-Two-Three: 7a+ Big Shit / Flying to the Stars 24 m ★1
+- One-Two-Three: 6a+ Make a Way 27 m ★2
+- One-Two-Three: 7b Quarks 13 m ★2
+- One-Two-Three: 6b+ Confusion 27 m ★1
+- One-Two-Three: 6b+ Orientales 27 m ★2
+- One-Two-Three: 5 King Cobra 13 m ★1
+- One-Two-Three: 6b Massage Secrets 37 m ★2 ⚠ Fixed Gear: P3 is on old expansion bolts and climbs on loose rock. / Climbing: Do not climb! / Rock: Old protection and loose rock.
+- One-Two-Three: 5 Beginner 20 m ★1
+- One-Two-Three: 6b Short and Savage 8 m ★2
+- One-Two-Three: 5 Giggerig for Climbing 12 m ★1
+- One-Two-Three: 5 Ling Noi / Little Monkey 10 m ★1
+- One-Two-Three: 6a Climbing School 12 m ★1 ⚠ Fixed Gear: Not rebolted with titanium. 3 stainless steel glue-in bolts, 2 slings.
+- One-Two-Three: 5 Long Live the Herm 8 m ★1
+- One-Two-Three: 6b Be Careful 8 m ★1
+- One-Two-Three: 5 Voie du Club Alpine Thailand / Cash Flow 10 m ★1
+- Diamond Cave: 6a+ Attic Antics 27 m ★1 ⚠ Fixed Gear: 7 old expansion bolts, but also many slings. Do not clip the old bolts and be prepared to replace slings!
+- Diamond Cave: 6a Attic Antics (Variation) 27 m ★1
+- Diamond Cave: 6b+ Thread of Life 27 m ★1 ⚠ Fixed Gear: Loose rock, old slings. / Climbing: Do not climb!
+- Diamond Cave: 6b Jugs-o-Plenty 27 m ★2 ⚠ Fixed Gear: Old expansion bolts. / Climbing: Do not climb!
+- Diamond Cave: 4 No Name 1 8 m ★1
+- Diamond Cave: 5 Kai Kad 10 m ★1
+- Diamond Cave: 5 No Name 2 20 m ★1
+- Diamond Cave: 6b IKRC-2008 30 m ★2
+- Diamond Cave: 5 Run Away 10 m ★1 ⚠ Fixed Gear: Be prepared to replace!
+- Diamond Cave: 6a Chok Dee 20 m ★2
+- Diamond Cave: 5 Mot Daeng 20 m ★1
+- Diamond Cave: 7a Keep the Jam, Man 70 m ★1 ⚠ Rock: Sharp rock. / Climbing: Do not climb!
+- Diamond Cave: 6a+ Mosquito Coil 20 m ★2
+- Diamond Cave: 6b No Name 3 20 m ★2 ⚠ Fixed Gear: Not rebolted with titanium.
+- Diamond Cave: 6a Nullaktion 21 m ★1 ⚠ Fixed Gear: Be prepared to replace!
+- Diamond Cave: 6b+ Dreamteam 35 m ⚠ Fixed Gear: Old slings and expansion bolts. / Climbing: Do not climb!
+- Diamond Cave: 6b+ Les Petites Oreilles 20 m ★2
+- Diamond Cave: 6b+ Diamonds are Forever 27 m ★2
+- Diamond Cave: 6c Seven Seven Seven 58 m ★2
+- Diamond Cave: 6b+ Attacktit 20 m ★2
+- Diamond Cave: 7a+ Almost Heaven 25 m ★2
+- Diamond Cave: 6b Unknown 27 m
+- Diamond Cave: 6b+ Mr No Name 55 m ★1
+- Diamond Cave: 6b+ Mrs No Name 55 m
+- Diamond Cave: 6b+ Lost Sock in the Laundromat of Oblivion 55 m
+- Diamond Cave: 7a Bar You Tee Nai? 50 m ★2
+- Diamond Cave: 7a+ Sixty Degrees North 25 m ★2
+- Diamond Cave: 7a+ Mao Say 45 m ★2
+- The Keep: 6b Gengis Bond 32 m ★3
+- The Keep: 7b Tongue Thaid 32 m ★3
+- The Keep: 7a Lom Mon / Cyclone 29 m ★3
+- The Keep: 7c Bottom Feeder 23 m ★2
+- The Keep: 6c Nut Cracker 25 m ★3
+- The Keep: 6c Aspirin 28 m ★3
+- The Keep: 6c Medusa's Lover 26 m ★3
+- The Keep: 6c Babo Does Thailand 28 m ★3
+- The Keep: 6b Monkey's Bum 20 m ★1
+- Hidden World: 7b+ Banana Ship 18 m ★2
+- Hidden World: 7a Red Dwarf 18 m ★2
+- Hidden World: 7a+ Tom's Pitch 25 m ★3 ⚠ Fixed Gear: Rebolted with titanium, except for the anchor, which is on 2 stainless steel glue-in bolts and 1 sling.
+- Hidden World: 6c+ The Gecko / Viper 25 m ★2
+- Hidden World: 6b Space Head Gone Ape 11 m ★1
+- Hidden World: 6c Rocket Head 18 m ★1
+- Hidden World: 6b+ Acid-Mouth Wife 18 m ★2
+- Hidden World: 6b Satanic Alliance 17 m ★1 ⚠ Fixed Gear: Not rebolted with titanium.
+- Low Tide Wall: 6a A Walk in the Park 15 m
+- Low Tide Wall: 7a The Narsilion 22 m ★3
+- Low Tide Wall: 7c Definitely Makes You Whinge 30 m ★3
+- Low Tide Wall: 7a+ Strider 28 m ★3
+- Low Tide Wall: 8a+ Strider (Direct) 28 m
+- Low Tide Wall: 6b Low Tide 45 m ★1
+- Low Tide Wall: 6b+ High Tide 53 m ★1 ⚠ Fixed Gear: Not rebolted with titanium. P1 on stainless glue-ins, P2 old expansion bolts. / Climbing: Do not climb!
+- Low Tide Wall: 6c Camp Seven 32 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb!
+- Low Tide Wall: 5c Via Maria 32 m ⚠ Fixed Gear: Old rusty expansion bolts. / Climbing: Do not climb!
+- Jungle Gym: 6a Focus on Your Abdominal Breathing 23 m ★1 ⚠ Fixed Gear: Old expansion bolts. / Climbing: Do not climb!
+- Jungle Gym: 6c+ Climbers' Viewpoint 35 m ★1 ⚠ Fixed Gear: First pitch rebolted with stainless steel glue-in bolts, though in 2006. Second pitch expansion bolts. / Climbing: Do not climb!
+- Jungle Gym: 7b Adaling 25 m ★2 ⚠ Fixed Gear: Old expansion bolts. / Climbing: Do not climb!
+- Jungle Gym: 7a Viola 32 m ★2 ⚠ Fixed Gear: Old expansion bolts. / Climbing: Do not climb!
+- Jungle Gym: 7b+ Canyon 30 m ⚠ Fixed Gear: Old expansion bolts. / Climbing: Do not climb!
+- Jungle Gym: 5 Jungle Gym 50 m ★1
+- Jungle Gym: 5 Blade Runner 60 m
+- Jungle Gym: 6c+ Gang Ghaeng Ling / Monkey Underwear 15 m ⚠ Fixed Gear: Old expansion bolts. / Climbing: Do not climb!
+- Jungle Gym: 7c+ Master's Edge 30 m ⚠ Fixed Gear: Old expansion bolts. / Climbing: Do not climb!
+- Jungle Gym: 7c Kaktus 32 m ⚠ Fixed Gear: Old expansion bolts. / Climbing: Do not climb!
+- Jungle Gym: 7b Settimo / Setting 18 m ⚠ Fixed Gear: Old expansion bolts. / Climbing: Do not climb!
+- Jungle Gym: 6c+ Vom Winde Verweht 20 m ⚠ Climbing: Do not climb!
+- Jungle Gym: 6c+ Monkey's Escape 21 m ★1 ⚠ Climbing: Do not climb!
+- Jungle Gym: 7a Gym Bean 18 m ★1 ⚠ Climbing: Do not climb!
+- Jungle Gym: 6c Monkeys in Gym 18 m ★1 ⚠ Climbing: Do not climb!
+- Duncan's Boot: 7a Lost Lek 20 m ★2
+- Duncan's Boot: 7a+ Make a Bow 13 m ★2
+- Duncan's Boot: 7a+ The Dark Side 15 m ★1
+- Duncan's Boot: 6c The Voice of Doom 15 m ★1
+- Duncan's Boot: 6b+ Falling in Love 13 m ★1 ⚠ Fixed Gear: Old slings and expansion bolts. / Climbing: Do not climb!
+- Duncan's Boot: 7b Alter Schwede! 12 m ★2
+- Duncan's Boot: 6b+ Robert's Dilemma 12 m ★2 ⚠ Fixed Gear: Not rebolted with titanium. 5 stainless steel glue-in bolts, 1 sling.
+- Duncan's Boot: 6a Karaoke 12 m ★1 ⚠ Fixed Gear: Be sure to clip the new bolts because the old expansion bolts and stainless steel glue-ins are still there.
+- Duncan's Boot: 6c Mai Prue / Never Mind 12 m ★1
+- Duncan's Boot: 6b+ Top Knot 10 m ★1 ⚠ Rock: Sharp rock.
+
+## Dropped / not used
+
+- UKC: Railay 2026 重打名單 https://ukclimbing.com/: 只有會員牆面可見，未能取得可引用的公開頁

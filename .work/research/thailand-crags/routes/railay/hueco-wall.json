@@ -1,0 +1,154 @@
+{
+  "sector": "Hueco Wall",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687577",
+  "area_route_count": 9,
+  "routes": [
+    {
+      "grade": "8a+",
+      "stars": 0,
+      "name": "Violence is Golden",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714671",
+      "style": "Sport",
+      "length": "7 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb!",
+      "setter": "Todd Skinner & mike tupper, 1993",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "5",
+      "stars": 0,
+      "name": "Sweden Sour",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714737",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Shares the start with 'Love and Performance'. Old slings. Be prepared to replace!",
+      "setter": "Todd Skinner, 1993",
+      "warnings": [
+        "Fixed Gear: Old slings. Be prepared to replace!"
+      ]
+    },
+    {
+      "grade": "7c+",
+      "stars": 3,
+      "name": "Love and Performance",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714803",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Shares the start with 'Sweden Sour', then veers right. Old rusty expansion bolts. Do not climb!",
+      "setter": "Todd Skinner & mike tupper, 1993",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "7b",
+      "stars": 3,
+      "name": "Youth in Asia",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714863",
+      "style": "Sport",
+      "length": "20 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "Old rusty expansion bolts. Do not climb!",
+      "setter": "Todd Skinner & mike tupper, 1993",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 0,
+      "name": "Travels with the Bludgeon Brothers",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714929",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Old slings. Be prepared to replace!",
+      "setter": "Melissa Quigley & A Scotsman, 1993",
+      "warnings": [
+        "Fixed Gear: Old slings. Be prepared to replace!"
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 0,
+      "name": "Sam I'm Not",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714995",
+      "style": "Sport",
+      "length": "23 m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Old slings. Be prepared to replace!",
+      "setter": "Todd Skinner & Sam Lightner, 1993",
+      "warnings": [
+        "Fixed Gear: Old slings. Be prepared to replace!"
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 0,
+      "name": "Plagiarist",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17715073",
+      "style": "Sport",
+      "length": "23 m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Now I'm Todd' and 'Gecko Babe'. Old slings. Be prepared to replace!",
+      "setter": "Popoi & Screeching Leg, 1997",
+      "warnings": [
+        "Fixed Gear: Old slings. Be prepared to replace!"
+      ]
+    },
+    {
+      "grade": "5",
+      "stars": 0,
+      "name": "Now I'm Todd",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/3110232015",
+      "style": "Sport",
+      "length": "23 m",
+      "pitches": null,
+      "bolts": 6,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Plagiarist' and 'Gecko Babe'. Old slings. Be prepared to replace!",
+      "setter": "Todd Skinner & Sam Lightner, 1993",
+      "warnings": [
+        "Fixed Gear: Old slings. Be prepared to replace!"
+      ]
+    },
+    {
+      "grade": "6a",
+      "stars": 1,
+      "name": "Gecko Babe",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17715121",
+      "style": "Sport",
+      "length": "23 m",
+      "pitches": null,
+      "bolts": 8,
+      "pitches_detail": null,
+      "desc": "Shares anchors with 'Plagiarist' and 'Now I'm Todd'. Old slings. Be prepared to replace!",
+      "setter": "Todd Skinner & Sam Lightner, 1993",
+      "warnings": [
+        "Fixed Gear: Old slings. Be prepared to replace!"
+      ]
+    }
+  ]
+}

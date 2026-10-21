@@ -1,0 +1,43 @@
+[
+  {
+    "sector": "Easter Island",
+    "url": "https://www.thecrag.com/en/climbing/thailand/lop-buri-khao-jeen-lair/area/153820719",
+    "area_route_count": 2,
+    "routes": [
+      {
+        "grade": "6a+",
+        "stars": 3,
+        "name": "The Fakir",
+        "url": "https://www.thecrag.com/en/climbing/thailand/lop-buri-khao-jeen-lair/route/414741906",
+        "style": "Sport",
+        "length": "44 m",
+        "pitches": 2,
+        "bolts": null,
+        "pitches_detail": [
+          "1 20m (6a) 6 Quickdraws",
+          "2 24m (6a+) 6 Quickdraws"
+        ],
+        "desc": "Look for a sign to Easter Island in the Secret Garden, and climb any of the approach pitches. Walk up and left for about 5 minutes to reach the base 1 20m (6a) 6 Quickdraws 2 24m (6a+) 6 Quickdraws",
+        "setter": "Jean-Jacques Braun & Ben Grasser, 2002",
+        "warnings": []
+      },
+      {
+        "grade": "6b+",
+        "stars": 2,
+        "name": "Gillette Road",
+        "url": "https://www.thecrag.com/en/climbing/thailand/lop-buri-khao-jeen-lair/route/2347913496",
+        "style": "Sport",
+        "length": "43 m",
+        "pitches": 2,
+        "bolts": 14,
+        "pitches_detail": [
+          "1 6b+ 33m",
+          "2 6b+ 10m"
+        ],
+        "desc": "1 6b+ 33m 2 6b+ 10m P1 9 bolts, P2 5 bolts Look for a sign to Easter Island in the Secret Garden, and climb any of the approach pitches. Walk up and left for about 5 minutes to reach the base. P1 (6b+, 33 meters, 9 bolts): Climb up the north-side slab into a chimney. Exit the chimney onto a razor-sharp vertical wall. Pull over and set a belay at the tree. Judging from our rope midpoint, we found this pitch to be longer than the previously reported length. P2 (6b+, 10 meters, 5 bolts): This is the sharpest pitch I've ever climbed. Crank the boulder crux right at the first bolt, then continue up the rock blade to the summit. If the leader is climbing with a single rope, it's probably best not to fall here. You can make two rappels off the east side with one 70-meter rope via The Fakir, or one rappel off the west side with two 70-meter ropes or a single 80-meter rope.",
+        "setter": null,
+        "warnings": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+{
+ "note": "theCrag Chiang Dao 頁面（area/617290752）2026-10-21 讀取：全區 61 條、FR 5b–8a+；子區與路線數——The White Whale 8、Vagabond 1、Pit Stop 11、Padaeng / Main Wall 30、Pa Lai 4、Japanese Wall 7。頁面 Nearby Icons 只列 4 條具名路線（無長度）：Power Outage 6b★★★、Fong Beer 6b+★★★、Thief in the Night 6c+★★★、Red Dragon 7b+★★★。照片說明另有 Pit Stop 的 6b 與 7a 兩條無名路線。",
+ "area_route_count": 61,
+ "sectors": [
+  {"name": "The White Whale", "routes": 8, "height": "28 m", "style": "All Sport climbing"},
+  {"name": "Vagabond", "routes": 1, "height": "50 m", "style": "All Sport climbing"},
+  {"name": "Pit Stop", "routes": 11, "height": "21 m", "style": "All Sport climbing"},
+  {"name": "Padaeng / Main Wall", "routes": 30, "height": "26 m", "style": "All Sport climbing"},
+  {"name": "Pa Lai", "routes": 4, "height": "16 m", "style": "All Sport climbing"},
+  {"name": "Japanese Wall", "routes": 7, "height": "28 m", "style": "All Sport climbing"}
+ ],
+ "named_routes": [
+  {"grade": "6b", "name": "Power Outage", "stars": 3, "length": null},
+  {"grade": "6b+", "name": "Fong Beer", "stars": 3, "length": null},
+  {"grade": "6c+", "name": "Thief in the Night", "stars": 3, "length": null},
+  {"grade": "7b+", "name": "Red Dragon", "stars": 3, "length": null}
+ ]
+}

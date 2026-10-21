@@ -1,0 +1,123 @@
+{
+  "sector": "Hidden World",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687385",
+  "area_route_count": 8,
+  "routes": [
+    {
+      "grade": "7b+",
+      "stars": 2,
+      "name": "Banana Ship",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17711509",
+      "style": "Sport",
+      "length": "18 m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Shares the start with 'Red Dwarf', then left after the 4th clip. Titanium bolts.",
+      "setter": "Mario Waser & Thomas Kuhn, 1998",
+      "warnings": []
+    },
+    {
+      "grade": "7a",
+      "stars": 2,
+      "name": "Red Dwarf",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17711563",
+      "style": "Sport",
+      "length": "18 m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Shares the first four clips with 'Banana Ship', then right along the crack. Rebolted with 8 titanium bolts, 1 sling.",
+      "setter": "S Beverage & Ian Turnbull, 1995",
+      "warnings": []
+    },
+    {
+      "grade": "7a+",
+      "stars": 3,
+      "name": "Tom's Pitch",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17711617",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Rebolted with titanium, except for the anchor, which is on 2 stainless steel glue-in bolts and 1 sling.",
+      "setter": "Mario Waser & Thomas Kuhn, 1998",
+      "warnings": [
+        "Fixed Gear: Rebolted with titanium, except for the anchor, which is on 2 stainless steel glue-in bolts and 1 sling."
+      ]
+    },
+    {
+      "grade": "6c+",
+      "stars": 2,
+      "name": "The Gecko / Viper",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17711671",
+      "style": "Sport",
+      "length": "25 m",
+      "pitches": null,
+      "bolts": 11,
+      "pitches_detail": null,
+      "desc": "Slab start to powerful finish up tufas. Be careful nnot to break the stalactites at the start! 10 titanium bolts, 1 sling.",
+      "setter": "E Bignon & A Vandercam, 1998",
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 1,
+      "name": "Space Head Gone Ape",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17711779",
+      "style": "Sport",
+      "length": "11 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "All titanium bolts.",
+      "setter": "S Beverage & Ian Turnbull, 1995",
+      "warnings": []
+    },
+    {
+      "grade": "6c",
+      "stars": 1,
+      "name": "Rocket Head",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17711833",
+      "style": "Sport",
+      "length": "18 m",
+      "pitches": null,
+      "bolts": 9,
+      "pitches_detail": null,
+      "desc": "Warning Flora and Fauna: Wasp nest after 5th bolt Climb along the bolts not the slings in the roof. 7 titanium bolts, 2 slings.",
+      "setter": "Duncan, 1994",
+      "warnings": []
+    },
+    {
+      "grade": "6b+",
+      "stars": 2,
+      "name": "Acid-Mouth Wife",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17711899",
+      "style": "Sport",
+      "length": "18 m",
+      "pitches": null,
+      "bolts": 7,
+      "pitches_detail": null,
+      "desc": "Be careful at the crux after the second clip, badly protected. 6 titanium bolts, 1 sling.",
+      "setter": "Duncan, 1994",
+      "warnings": []
+    },
+    {
+      "grade": "6b",
+      "stars": 1,
+      "name": "Satanic Alliance",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17711965",
+      "style": "Sport",
+      "length": "17 m",
+      "pitches": null,
+      "bolts": 5,
+      "pitches_detail": null,
+      "desc": "Reachy start. Crux badly protected. Not rebolted with titanium. 3 stainless steel glue-ins, 1 titanium bolt at the crux.",
+      "setter": "Duncan, 1994",
+      "warnings": [
+        "Fixed Gear: Not rebolted with titanium."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,468 @@
+# 龜島 Koh Tao evidence
+
+2026-10-21. Scope: 龜島（theCrag 496 條，15 個子區）——泰國唯一以花崗岩抱石為主的岩場，打栓要先問俱樂部，三個抱石區有潮汐與磨損岩條件。讀者決定：要不要帶自己的墊子、去哪個區、能不能自己打栓。
+
+## Sources opened
+
+- theCrag: Koh Tao https://www.thecrag.com/en/climbing/thailand/koh-tao: 496 條路線、FB 級數 1A+–8A+、2,284 次攀登、15 個子區與路線數；「an amazing granite paradise」；Rakkup App 指南（US$8，收入全數投入路線開發與維護）；「未經 Koh Tao Climbing Club 許可不要打栓」「不要亂丟垃圾」；部分岩場進入敏感、租借在 Goodtime Adventures 與 The Bunker；渡輪與蘇梅島機場
+- theCrag: Golden View https://www.thecrag.com/en/climbing/thailand/koh-tao/area/1226641539: 28 條逐線路線；Titan 6c+ 是島上第一條鈦栓路線；Le Point Perdu 6b 的鬆動岩栓與掛片警告；Kun Touat Project 的混合標法；接近路線與「Designated」進入狀態
+- theCrag: Boulders 1, 3, 4, 5 and 6 https://www.thecrag.com/en/climbing/thailand/koh-tao/area/9999838695: 22 條；Boulder 5 標「Abrasive rock」；含 8A 的 Flat friends 與 8A+ 的 Catalonia is not spain
+- theCrag: Backyard & Frontyard https://www.thecrag.com/en/climbing/thailand/koh-tao/area/1226641539: 123 條；全區最大的一區
+- Rakkup: Koh Tao Rock Climbing 指南 https://rakkup.com/guidebooks/thailand-koh-tao-rock-climbing/: US$8 的 App 指南；收益全數投入路線開發與維護
+- Koh Tao Climbing Club（Facebook） https://www.facebook.com/Climbingkohtao: 每週五出門攀岩；進入敏感區域的問答管道
+- The Bunker Climbing Gym & Hostel https://kohtao-rockclimbing.com/: 島上唯一的室內岩館、住宿與免費 PDF 指南的 QR code 取用點
+
+## Exact route rows
+
+- Babaloo: 4 Bob reggae
+- Babaloo: 4+ Roofrock
+- Babaloo: 7B Stress ★2
+- Babaloo: 7B+ Imbecil ★2
+- Babaloo: 7A+ Welcome to the beach ★1
+- Babaloo: 6B Dartsakay ★2
+- Babaloo: 6B+ Mefroto ★2
+- Babaloo: 8A Babaloo
+- Babaloo: 7B Dieguerway
+- Babaloo: 4 Wake up
+- Babaloo: 6C Go ahead
+- Babaloo: 5+ Lizard
+- Babaloo: 6A Sim rous
+- Babaloo: 3 Jou pussy
+- Babaloo: 3 Wizzard
+- Babaloo: 6B+ Bullshark
+- Babaloo: 6C The whale eye
+- Babaloo: 6A+ Scoop
+- Babaloo: 6C End of block ★1
+- Babaloo: 5+ Llin laugh ★1
+- Babaloo: 6B Alvarito feel ★1
+- Babaloo: 6A Hungry Yang
+- Babaloo: 6A Young, wild, and free
+- Babaloo: 6A+ Lay back left ★1
+- Babaloo: 6B+ North Peris
+- Babaloo: 4+ Men in white
+- Babaloo: 5 Sawadee
+- Babaloo: 6B+ Sunrise to Buddha
+- Babaloo: 7B Ihasia
+- Babaloo: 6C+ Transcendental breakfast
+- Babaloo: 7A Brujo
+- Babaloo: 5 Xmes
+- Babaloo: 5+ La Reina de la Marina
+- Babaloo: 4 Electronic Bamboo
+- Backyard & Frontyard: 6A Chock dee / Good luck
+- Backyard & Frontyard: 6A - C Arete on left side of face
+- Backyard & Frontyard: 5A - C Crack and face
+- Backyard & Frontyard: 5A - C The corner right of the crack
+- Backyard & Frontyard: 6A - C No.5 M/MH
+- Backyard & Frontyard: 6A No.6 M
+- Backyard & Frontyard: 5A - 7A Climb right arete
+- Backyard & Frontyard: 5A - C No.8 E
+- Backyard & Frontyard: 6B - C No.9 MH
+- Backyard & Frontyard: 7B+ Vision quest
+- Backyard & Frontyard: 6B - C Noi gwah bpen mahk qwah / Less is more
+- Backyard & Frontyard: 6A No.12 M
+- Backyard & Frontyard: 5A - C No.13 E
+- Backyard & Frontyard: 6B - C No.14 MH
+- Backyard & Frontyard: 6A No.15 M
+- Backyard & Frontyard: 7B+ Beautiful right angling face
+- Backyard & Frontyard: 7B+ Black hole
+- Backyard & Frontyard: 5A - C No.18 E
+- Backyard & Frontyard: 5A - C No.19 E
+- Backyard & Frontyard: 5A - C No.20 E
+- Backyard & Frontyard: 5A - C No.21 E
+- Backyard & Frontyard: 6A Tahng bpai luey / Road to riches
+- Backyard & Frontyard: 4 No.23 VE
+- Backyard & Frontyard: 6A - C No.24 M/MH
+- Backyard & Frontyard: 6C - 7A No.25 H
+- Backyard & Frontyard: 6B - C No.26 MH
+- Backyard & Frontyard: 5A - C No.27 E
+- Backyard & Frontyard: 6A Jup / The kiss
+- Backyard & Frontyard: 6B - C Jup Farangset / French kiss
+- Backyard & Frontyard: 5A - C No.30 E
+- Backyard & Frontyard: 5A - C No.31 E
+- Backyard & Frontyard: 6A Glink goo
+- Backyard & Frontyard: 5A - C No.33 E
+- Backyard & Frontyard: 6C La petite mon's ★3
+- Backyard & Frontyard: 7A Pah mai fai / The brushfire ★2
+- Backyard & Frontyard: 6B - C No.35 MH
+- Backyard & Frontyard: 6A No.36 M
+- Backyard & Frontyard: 6C - 7A No.37 H
+- Backyard & Frontyard: 6B - C No.38 MH
+- Backyard & Frontyard: 6A No.39 M
+- Backyard & Frontyard: 5A - C Two mantles
+- Backyard & Frontyard: 4 No.41 VE
+- Backyard & Frontyard: 6C - 7A No.42 H
+- Backyard & Frontyard: 5A - C No.44 E
+- Backyard & Frontyard: 6C - 7A Crow's feet
+- Backyard & Frontyard: 6C+ Jessica ★2
+- Backyard & Frontyard: 7A Big Jessica ★3
+- Backyard & Frontyard: 6B - C Maa oil
+- Backyard & Frontyard: 6B - C Hard mantle on good knob
+- Backyard & Frontyard: 5A - C Easy face with bad landing
+- Backyard & Frontyard: 6A Face/seam to good lie back
+- Backyard & Frontyard: 5A - C No.54 E
+- Backyard & Frontyard: 6A No.55 M
+- Backyard & Frontyard: 5A - C No.56 E
+- Backyard & Frontyard: 5A - C Slab face left of tree
+- Backyard & Frontyard: 6A No.58 M
+- Backyard & Frontyard: 6B - C No.59 MH
+- Backyard & Frontyard: 6A No.60 M
+- Backyard & Frontyard: 7A Big Hug
+- Backyard & Frontyard: 6A Crack way 2m ★2
+- Backyard & Frontyard: 6B Nicetrip
+- Backyard & Frontyard: 8A+ Catalonia is not spain ★3
+- Backyard & Frontyard: 8A Flat friends ★3
+- Backyard & Frontyard: 7C+ Chubbi ★3
+- Backyard & Frontyard: 7B+ Urban Climber ★3
+- Backyard & Frontyard: 6A+ Oh what a twist
+- Backyard & Frontyard: 6C+ Bochan
+- Backyard & Frontyard: 6B Aina
+- Backyard & Frontyard: 5+ Gorriz 2m
+- Backyard & Frontyard: 5 Valera
+- Backyard & Frontyard: 5+ Make a joint 2m
+- Backyard & Frontyard: 5 Long boi
+- Backyard & Frontyard: 6C+ The cave painting ★2
+- Backyard & Frontyard: 6B+ Nitrox 2m ★1
+- Backyard & Frontyard: 6A Deco
+- Backyard & Frontyard: 6C Jacket
+- Backyard & Frontyard: 6A+ Octopus
+- Backyard & Frontyard: 6A+ Get your hands out of my crack
+- Backyard & Frontyard: 5 Too smart 1m ★1
+- Backyard & Frontyard: 6B+ Balance way ★1
+- Backyard & Frontyard: 6A Wendy
+- Backyard & Frontyard: 6B Chinchan
+- Backyard & Frontyard: 6C+ Bomba
+- Backyard & Frontyard: 7A Picachu
+- Backyard & Frontyard: 6A+ Darco
+- Backyard & Frontyard: 6A Love Tree ★1
+- Backyard & Frontyard: 6A+ Nepal Tree ★2
+- Backyard & Frontyard: 4+ Apple Tree 2m ★1
+- Backyard & Frontyard: 6A Sandstone
+- Backyard & Frontyard: 5+ Chencho
+- Backyard & Frontyard: 5+ Dijeridu
+- Backyard & Frontyard: 5+ Salva ★2
+- Backyard & Frontyard: 5 Ira ★2
+- Backyard & Frontyard: 4+ Pumpui ★2
+- Backyard & Frontyard: 4+ Tinton ★2
+- Backyard & Frontyard: 6B Goku
+- Backyard & Frontyard: 6B+ Chang
+- Backyard & Frontyard: 6A+ Farang
+- Backyard & Frontyard: 6A Aida
+- Backyard & Frontyard: Project
+- Backyard & Frontyard: Project
+- Backyard & Frontyard: 7B Out of the Darkness ★1
+- Backyard & Frontyard: 7B The Black Face ★3
+- Backyard & Frontyard: 7A Big Dead ★1
+- Backyard & Frontyard: 7B Vaques
+- Backyard & Frontyard: 6C+ Express
+- Backyard & Frontyard: 6C Latte
+- Backyard & Frontyard: 6A+ Good Company
+- Backyard & Frontyard: 6B Serious
+- Backyard & Frontyard: 6B+ Padi Vs SSI
+- Backyard & Frontyard: Project
+- Backyard & Frontyard: Project
+- Backyard & Frontyard: 6C Radeon
+- Backyard & Frontyard: 6C+ Full Equip
+- Backyard & Frontyard: 7B Magic Wood
+- Backyard & Frontyard: 6C+ Magic Tree
+- Backyard & Frontyard: 6C - 7A Out of darkness there is hope
+- Backyard & Frontyard: 6A This slab face
+- Backyard & Frontyard: 5A - C John Long comes to Thailand
+- Backyard & Frontyard: 6A Ying and yang
+- Backyard & Frontyard: 6B - C Seam
+- Backyard & Frontyard: 6A Blunt arete
+- Backyard & Frontyard: 5A - C Low on crack up and right
+- Secret garden: 7A Super Pinch 6m ★3
+- Secret garden: 6B Bubbles ★1
+- Secret garden: 5A I'm from Altamira 5m
+- Secret garden: 6B+ Bizzaro 3m ★2
+- Secret garden: 7A Bizarro low start 3m ★2
+- Secret garden: 6B Fingertip Ascent 3m ★1
+- Secret garden: 6A Brujo's arete 4m ★1
+- Secret garden: 5A Brujo on holidays 4m ★2
+- Secret garden: 6B Brujo's alternate universe 4m ★1
+- Secret garden: 6C+ No sin mis dedos 5m ★2
+- Secret garden: 6A Beach ball 3m ★1
+- Secret garden: 5B+ Postie bike 3m
+- Secret garden: 5C Jump start 3m ★1
+- Secret garden: 6B Letterbox 3m ★2
+- Secret garden: 6C+ The Vine Intervention 5m ★2
+- Secret garden: 7A Blessed are the Crimp-makers 5m ★2
+- Secret garden: 7B Flying To The Moon 4m ★3
+- Secret garden: 7A+ Space Ship 3m ★2
+- Secret garden: 6A Cresteando
+- Secret garden: 5 Cuando tengas ★1
+- Secret garden: 6A Escapatoria ★2
+- Secret garden: 6A Es un Tironaco 3m ★2
+- Secret garden: 5C Cuando el grajo vuela bajo 2m ★1
+- Secret garden: 5B Nemo 2m ★1
+- Secret garden: 5A Dory 2m
+- Secret garden: 4 Lentejas con chorizo
+- Secret garden: 5 Bigotito
+- Secret garden: 5 I have the power
+- Secret garden: 6C Ab ipso ferro ★2
+- Secret garden: 6B+ Scuba Diver 6m ★3
+- Secret garden: 7A Pancake Ninja 6m ★1
+- Secret garden: 5+ I just need a hug 4m ★1
+- Secret garden: 6B Gypsy Diver
+- Secret garden: 6B Hugless Dihedral 4m ★2
+- Tanote Bay: 5c Sunrise
+- Tanote Bay: 7c Hawksbill Heartbreak
+- Tanote Bay: 8b The Tao Tower Project
+- Tanote Bay: 6b+ Poof The Magic Dragon 15m ★3
+- Tanote Bay: 6b Funky Dreams 15m ★2
+- Tanote Bay: 6a Neon Lights 15m ★2
+- Tanote Bay: 5b Fun Guy 15m ★2
+- Tanote Bay: 6b Psychic Trip 20m ★2
+- Tanote Bay: 6b Lucid Dreams 20m ★2
+- Tanote Bay: 5c Original High 25m ★3
+- Tanote Bay: 6a Positive Vibes 16m ★2
+- Tanote Bay: 5c The Daily Grind 23m ★2
+- Tanote Bay: 5b The Nile of Denial
+- Tanote Bay: 5c The Need For Swede
+- Tanote Bay: 6a Tanote Multipitch
+- Tanote Bay: 6a Choose Your Own Adventure / Multipitch 140m ★2
+- Tanote Bay: 6c Power Struggles
+- Tanote Bay: 6a Don't Waste My Paste 12m ★2
+- Tanote Bay: 6a+ Jam On ★1
+- Tanote Bay: 5c Puzzle Piece 15m ★1
+- Tanote Bay: 4c Tree'd Up
+- Tanote Bay: 6a Massive Attack 25m ★2
+- Tanote Bay: 5c Flake of Destiny 25m ★2
+- Tanote Bay: 6b+ Queen of the Slab age ★3
+- Tanote Bay: 6a Rolling Thunder
+- Tanote Bay: 6b Black Slabbath 23m ★3
+- Tanote Bay: 6b Doctor Sweat 20m ★3
+- Tanote Bay: 6a+ Granite Maiden
+- Tanote Bay: 6a Crystalline Entity
+- Tanote Bay: 6b+ My Exciting Life
+- Tanote Bay: 5c Fractured
+- Tanote Bay: 5b Easy Bake 12m ★1
+- Tanote Bay: 5b Dislodged
+- Tanote Bay: 5b Flake and Bake
+- Tanote Bay: 4c To Cam or Not to Cam
+- Tanote Bay: 5c Steggy ★1
+- Tanote Bay: 6c/c+ Sharptooth 18m ★2
+- Tanote Bay: 5c Muk 15m ★2
+- Tanote Bay: 6a Breezy Brahminy 15m ★2
+- Tanote Bay: 6a+ Supercrackalicious 18m ★3
+- Tanote Bay: 7b T-Rex ★2
+- Tanote Bay: 4+ Back dog 1m
+- Tanote Bay: 4 Nose dog 1m
+- Tanote Bay: 5+ Hey Jude 2m
+- Tanote Bay: 6B+ Try it 2m ★2
+- Tanote Bay: 6B+ Underground 2m ★1
+- Tanote Bay: 3 Aum
+- Tanote Bay: 4 Foot shake
+- Tanote Bay: 3 LOL
+- Tanote Bay: 7B+ Good bye
+- Tanote Bay: 6C+ Solrak
+- Tanote Bay: 6C Grufwey
+- Tanote Bay: 7C Guiu ⚠ Sit start Wasp nest spotted in horizontal flake/crack at the finishing holds July 2024
+- Tanote Bay: 6A+ Marta subaquàtica 2m ★1
+- Tanote Bay: 7B Busi solutions
+- Tanote Bay: {AU} 2 Grade 10 if it was lead 10m
+- Tanote Bay: Sam's Parkour/Dyno
+- Tanote Bay: 6B+ Lung squeeze ★1
+- Tanote Bay: 6B Multipeach ★2
+- Tanote Bay: 7C Surface interval ★1
+- Tanote Bay: 7C+ Black out
+- Tanote Bay: 6A Bombona ★1
+- Tanote Bay: {AU} V1 Weed Feet 2m ★2
+- Tanote Bay: {AU} V2 We're Not Grading it in French
+- Tanote Bay: {AU} V1 I'll get back to you 1m ★1
+- Tanote Bay: {AU} V2 Bluetooth Autism 3m ★2
+- Tanote Bay: {AU} V1 Everyone l̶o̶v̶e̶s̶ hates Aussies 3m ★1
+- Tanote Bay: {US} V5 The Decompression
+- Jansom Bay: 6a/a+ Leg Day 35m ★3
+- Jansom Bay: 6b Grunt Force 20m ★3
+- Jansom Bay: 7a+ Trauma Extension / Second Pitch of Grunt Force 7m ★3
+- Jansom Bay: 6c+ White Blades 23m ★2
+- Jansom Bay: 6b+ Cyclops 30m ★2
+- Jansom Bay: 6c Blood Donor 20m ★3
+- Jansom Bay: 5c Xico's Ascent 20m ★2
+- Jansom Bay: 6b+ Too Sweaty For the Nubbin' ★3
+- Jansom Bay: 5c Voyager 1 17m ★1
+- Jansom Bay: 6a Mike's Crack 9m ★2
+- Jansom Bay: 6c Safe and Sound
+- Jansom Bay: 5c Kelsey's Crack 13m ★1
+- Jansom Bay: 5c Minesweeper
+- Jansom Bay: 5c Treeage 8m ★2
+- The Dome: 5b Eye of the Tiger
+- The Dome: 6a Crouching Tiger ★1
+- The Dome: 5c On the Prowl
+- The Dome: 6b Rajah
+- The Dome: 7a Siegfried & Roy ★2
+- The Dome: 6b Richard Parker
+- The Dome: 6b/b+ The Fang ★2
+- The Dome: 6c Joe Exotic ★3
+- The Dome: 6a+ Shere Kan ★3
+- The Dome: 6a Tigger ★2
+- The Dome: 5c Frosted Flakes ★3
+- Temple Rock: Mola Ram 15m ★1
+- Temple Rock: 6c At Khang ★2
+- Temple Rock: 6b+ Kali Ma 10m ★1
+- Temple Rock: 5b Chilled Monkey Brains 15m ★2
+- Temple Rock: 5c Rock Affair 20m ★2
+- Temple Rock: 6b+ The Edgy Monk 18m ★3
+- Temple Rock: 7b The monk ★2
+- Temple Rock: 7c El Templo ★3
+- Temple Rock: 7b+ Mucalinda Naga ★3
+- Mek's Mountain: 5a Good Morning Koh Tao 18m ★1
+- Mek's Mountain: 5c Good Morning Koh Tao (Variation) 18m ★1
+- Mek's Mountain: 5b Smeartastic 18m
+- Mek's Mountain: 6b Sairee Pull 18m ★1
+- Mek's Mountain: 4 Easy Eagle 14m
+- Mek's Mountain: 5c Moguls 14m ★1
+- Mek's Mountain: 6a I Got A Feeling 14m ★1
+- Mek's Mountain: 6a+ I Got A Feeling (Variation) 14m ★1
+- Mek's Mountain: 5a Clear Horizons 14m ★2
+- Mek's Mountain: 5c 2 Stop 14m
+- Mek's Mountain: 6a Charly's Crack 14m ★2
+- Mek's Mountain: 5c Naughty Or Nice 16m ★2
+- Mek's Mountain: 7a C U Next Tuesday 16m ★2
+- Mek's Mountain: 6c+ Son Of A Bitch 16m ★2
+- Mek's Mountain: 6c The Bitch In Me 16m ★2
+- Mek's Mountain: 6a Mosquito Burrito 12m ★1
+- Mek's Mountain: 6a Devine Intervention 12m ★1
+- Mek's Mountain: 6a+ Dirty Squirrel 12m ★1
+- Mek's Mountain: 6a Daddy Long Legs 14m
+- Mek's Mountain: 5a Tim and Charly's Only Friend 13m ★1
+- Mek's Mountain: 4+ Squirming Worm 13m ★2
+- Mek's Mountain: 4 Bee's Knees 12m
+- Mek's Mountain: 6a Arabian Balls 9m ★1
+- Mek's Mountain: 5c Heat Rations 14m
+- Mek's Mountain: 5c Crazy Damn Erk And Jerk 14m
+- Mek's Mountain: 5c Return Of The Ent Wife 14m ★1
+- Mek's Mountain: 6a+ Broken But Not Beaten 14m ★2
+- Mek's Mountain: 7b Under Klingon 14m
+- Mek's Mountain: 6b Tongue Twister
+- Mek's Mountain: 6b Trad Spotting
+- Mek's Mountain: 6a+ Jack’s Crack ★1
+- Mek's Mountain: 6b+ Car Jack ★2
+- Mek's Mountain: 5c Placebo Junction
+- Mek's Mountain: 6c Lower Fraggle ★2
+- Mek's Mountain: 7a+ Dance your cares away ★3
+- Mek's Mountain: 5c Pow Right in the Baby Maker ★2
+- Mek's Mountain: 7a+ 100 Baht to Glory
+- Mek's Mountain: 6b Poker Face
+- Mek's Mountain: 6a Holy Exposure ★1
+- Mek's Mountain: 4a The Kiddie Slope
+- Mek's Mountain: 5c Naughty or nice ★1
+- Mek's Mountain: 7a C U next Tuesday
+- Mek's Mountain: 6c+ Son of a Bitch ★2
+- Mek's Mountain: 6c The bitch in me
+- Lang Khai / Yang: 5a Chin Splints
+- Lang Khai / Yang: 6a+ Pocket-A-Hoy
+- Lang Khai / Yang: 6a Hung Over 9m ★3
+- Lang Khai / Yang: 6a+ Underclinged 10m ★3
+- Lang Khai / Yang: 5b Jam on Toast
+- Lang Khai / Yang: 6c Retey ★2
+- Lang Khai / Yang: 5a Easy Peasy 7m
+- Lang Khai / Yang: 5c Corner
+- Lang Khai / Yang: 6a+ Sol Solei 12m ★2
+- Lang Khai / Yang: 6b Give a Shit
+- Lang Khai / Yang: 6a Dave Bottled It
+- Lang Khai / Yang: 6c+ Jessphine 9m
+- Lang Khai / Yang: 6c Vertical World 10m ★1
+- Lang Khai / Yang: 6a+ Monker 11m ★3
+- Lang Khai / Yang: 5c Suite Logique 10m ★2
+- Lang Khai / Yang: 5b Wave Paradis 11m ★3
+- Lang Khai / Yang: 4c Peanut Gallery
+- Lang Khai / Yang: 7b/b+ The Font Project
+- Lang Khai / Yang: 6a The Nose ★3
+- Lang Khai / Yang: 6c Shakin' and Takin'
+- Lang Khai / Yang: 5c Live Long and Prosper ★2
+- Lang Khai / Yang: 7a+/b The Real Tokay Project
+- Lang Khai / Yang: 6a Hand-Me-Down
+- Lang Khai / Yang: 6b Silk Sirens 20m ★3
+- Lang Khai / Yang: 6a+ Petrichor 25m ★3
+- Lang Khai / Yang: 6c Plastic Tokay 25m ★2
+- Lang Khai / Yang: 5b Swooping Seabird 20m ★2
+- Lang Khai / Yang: 5c Afternoon Delights 20m ★1
+- Lang Khai / Yang: 5b The Escapist 20m ★2
+- Lang Khai / Yang: 6a+/b Look Before You Leap 25m ★2
+- Lang Khai / Yang: 6a/a+ The Reach Around 18m ★3
+- Lang Khai / Yang: 6c Muay Thai Te Khao 20m ★2
+- Lang Khai / Yang: 6a Forearmed 13m ★2
+- Lang Khai / Yang: 4b The Reach Across / Access
+- Lang Khai / Yang: 6a+ Lightning Corner 20m
+- Lang Khai / Yang: 6b Rise of the Atlantean 25m
+- Lang Khai / Yang: 6b+ The Lost City of Bolts 20m ★2
+- Lang Khai / Yang: 6b+ Trident Calling
+- Lang Khai / Yang: 6c Python
+- Lang Khai / Yang: 6c+ Beseiged
+- Lang Khai / Yang: 6a Homer Vs PlayDoh 9m ★3
+- Lang Khai / Yang: 6C+ Tao ★3
+- Lang Khai / Yang: 6B Stella Maris ★2
+- Lang Khai / Yang: 5+ Los in Koh Yao Noi
+- Lang Khai / Yang: 4+ Banana Shake ★1
+- Lang Khai / Yang: 5 10Bath
+- Lang Khai / Yang: 6A Prima a poi pescheremo ★2
+- Lang Khai / Yang: 5+ Sa se e li?
+- Lang Khai / Yang: 6C Povero Albero ★1
+- Lang Khai / Yang: 6B+ Fire Extinguisher
+- Lang Khai / Yang: 6B Cascata Avvolgente
+- Lang Khai / Yang: 6B+ La Mussa
+- Lang Khai / Yang: 6A 8 Homestel
+- Lang Khai / Yang: 7A Fligth to Dammam ★2
+- Lang Khai / Yang: 6A+ Snoreling
+- Lang Khai / Yang: 6B+ Zorro ★1
+- Lang Khai / Yang: 5 For the Girls
+- Lang Khai / Yang: 6B+ Andr3ix
+- Lang Khai / Yang: 6B+ Abbraccio Lontano
+- Lang Khai / Yang: 6A Saskia
+- Lang Khai / Yang: 6A+ Giazu Berfutt
+- Lang Khai / Yang: 5+ La Pietra Ollare
+- Lang Khai / Yang: 6A No Groupers
+- Lang Khai / Yang: 5 Big fried noodles with chicken
+- Lang Khai / Yang: 6B Hairy classic left 5m
+- Lang Khai / Yang: 6B Hairy Classic Right
+- Lang Khai / Yang: 7B Co'ver 5m ★3
+- Lang Khai / Yang: 7A+ Tantalis 6m ★3
+- Lang Khai / Yang: 7A Planet Paradise 6m ★2
+- Lang Khai / Yang: 7A Pinatubo 5m ★2
+- Lang Khai / Yang: 7A Little Marino 5m ★2
+- Lang Khai / Yang: 6B+ Zenalithic
+- Lang Khai / Yang: 6B+ Diffensless
+- Lang Khai / Yang: 6C+ Marino
+- Lang Khai / Yang: 5 The Burger
+- Lang Khai / Yang: 5+ High Tide
+- Lang Khai / Yang: 6A+ Cruzer
+- Lang Khai / Yang: 6A Fire Distinguisher
+- Lang Khai / Yang: 6B La mia linea era piu bella
+- Lang Khai / Yang: 6A 120 Euro
+- The Elephant: 6a Lobe lieback ★2
+- The Elephant: 6c Cross eyed ★1
+- The Elephant: 5c Yu's Jam Crack ★1
+- The Elephant: V3 1 ★1
+- The Elephant: V4 2
+- The Elephant: V4 3
+- The Elephant: V3 4
+- The Elephant: V4/5 5
+- The Elephant: 4 The Wet Beaver ★1
+- The Elephant: 7a The Trunk
+- Cabana / North Sairee beach: 6B - C No.1 MH
+- Cabana / North Sairee beach: 6B - C The Sun God traverse
+- Cabana / North Sairee beach: 5A - C No. 3 E
+- Cabana / North Sairee beach: 6A No. 4 M
+- Cabana / North Sairee beach: 6C - 7A Suffer for the children
+- Cabana / North Sairee beach: 5A - C No.6 E
+- Cabana / North Sairee beach: 5A - C No.7 E
+- Cabana / North Sairee beach: 6A No.8 M
+- Cabana / North Sairee beach: 6A No.9 M
+- Flyin' High: 6a+ The Contortionist 6a+ 12m ★1 ⚠ Rock: Rated PG-13 or R? Fall can slice rope
+- Flyin' High: 6c Circus Circus 20m ★2
+- Flyin' High: 6a+ Rodeo Clown 20m ★1
+- Flyin' High: 6b+ Popcorn! 20m ★2
+- Flyin' High: 6a Jolly Chimp 20m
+- Flyin' High: 6b Trapeze Artist 25m ★1
+- Leam Thian Coast: 5b A
+- Leam Thian Coast: 5c B
+- Leam Thian Coast: 5c C
+- Leam Thian Coast: 6b+ D
+- Mao Rock: 6b Jungle Glove
+- Mao Rock: 6c Come on Dave
+
+## Dropped / not used
+
+- mapotapo: Koh Tao 導覽 https://thenextline.mapotapo.com/p/koh-tao: 第三方導覽平台，無原始出處可回溯

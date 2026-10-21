@@ -1,0 +1,87 @@
+[
+  {
+    "sector": "Marley Wall",
+    "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15688321",
+    "area_route_count": 5,
+    "routes": [
+      {
+        "grade": "6c+",
+        "stars": 2,
+        "name": "Roots Rock Reggae",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/82369875",
+        "style": "Sport",
+        "length": "63m",
+        "pitches": 3,
+        "bolts": 21,
+        "pitches_detail": [
+          "1 6c 25m",
+          "2 6a+ 18m",
+          "3 6c+ 20m"
+        ],
+        "desc": "When descending, traverse right from the anchor of P2 about 3m to the anchor of 'Catch a Fire' P2. From there it is a 30m rap to the ground. Titanium bolts and slings.",
+        "setter": "Tom Cecil, Josh Lyons, Mark Miner, Justin Day & Toby MacPhee, 2003",
+        "warnings": []
+      },
+      {
+        "grade": "6b",
+        "stars": 2,
+        "name": "Kaya",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17736361",
+        "style": "Sport",
+        "length": "25m",
+        "pitches": 1,
+        "bolts": 11,
+        "pitches_detail": null,
+        "desc": "9 titanium bolts, 2 slings.",
+        "setter": "Tom Cecil, 2006",
+        "warnings": []
+      },
+      {
+        "grade": "7c",
+        "stars": 2,
+        "name": "Exodus",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/82369977",
+        "style": "Sport",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": 6,
+        "pitches_detail": null,
+        "desc": "All titanium bolts.",
+        "setter": "Brian Sweeney & Justin Day, 2005",
+        "warnings": []
+      },
+      {
+        "grade": "7a+",
+        "stars": 2,
+        "name": "Catch a Fire",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/82370181",
+        "style": "Sport",
+        "length": "70m",
+        "pitches": 3,
+        "bolts": 24,
+        "pitches_detail": [
+          "1 7a+ 20m",
+          "2 6b 25m",
+          "3 6c 25m"
+        ],
+        "desc": "Classic first pitch! 11 clips. Second and third pitch overgrown. All titanium bolts.",
+        "setter": "Tom Cecil, Josh Lyons, Mark Miner, Justin Day & Toby MacPhee, 2003",
+        "warnings": []
+      },
+      {
+        "grade": "7a",
+        "stars": 2,
+        "name": "Pandemic",
+        "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/9072402393",
+        "style": "Sport",
+        "length": "20m",
+        "pitches": 1,
+        "bolts": 8,
+        "pitches_detail": null,
+        "desc": "All titanium",
+        "setter": "Simon Talltorp, 2020",
+        "warnings": []
+      }
+    ]
+  }
+]

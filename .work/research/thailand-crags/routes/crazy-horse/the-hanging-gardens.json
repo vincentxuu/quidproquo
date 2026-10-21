@@ -1,0 +1,59 @@
+{
+  "sector": "The Hanging Gardens",
+  "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13950433",
+  "area_route_count": 4,
+  "routes": [
+    {
+      "grade": "5b",
+      "stars": 2,
+      "name": "Tarzan",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15696205",
+      "style": "Sport",
+      "length": "14 m",
+      "pitches": 1,
+      "bolts": 5,
+      "desc": null,
+      "setter": "Uthit (Son) Yodkhaman & Uthit (Son) Yodkhaman",
+      "warnings": []
+    },
+    {
+      "grade": "5b",
+      "stars": 1,
+      "name": "Rock Climbing 101",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15696265",
+      "style": "Sport",
+      "length": "12 m",
+      "pitches": 1,
+      "bolts": 6,
+      "desc": null,
+      "setter": "Josh Morris",
+      "warnings": []
+    },
+    {
+      "grade": "5c",
+      "stars": 1,
+      "name": "Flapper",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15696319",
+      "style": "Sport",
+      "length": "15 m",
+      "pitches": 1,
+      "bolts": 7,
+      "desc": null,
+      "setter": "Uthit (Son) Yodkhaman",
+      "warnings": []
+    },
+    {
+      "grade": "5c",
+      "stars": 1,
+      "name": "Rock Climbing 102",
+      "url": "https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/15696373",
+      "style": "Sport",
+      "length": "14 m",
+      "pitches": 1,
+      "bolts": 7,
+      "desc": null,
+      "setter": "Josh Morris",
+      "warnings": []
+    }
+  ]
+}

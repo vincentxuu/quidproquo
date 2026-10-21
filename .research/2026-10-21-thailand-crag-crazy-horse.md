@@ -1,0 +1,258 @@
+# Crazy Horse 清邁 evidence
+
+2026-10-21. Scope: Crazy Horse（theCrag 289 條，22 個子區）——北泰開發最完整的岩場，但開放狀態至今沒有官方重開公告。讀者決定：2027 年能不能去、要問誰、坐接駁還是自駕。
+
+## Sources opened
+
+- theCrag: Crazy Horse https://www.thecrag.com/en/climbing/thailand/chaing-mai: 289 條路線、22 個子區、FR 4a–8b、8,408 次攀登；「北泰主要運動攀岩區」；描述另寫「約 150 條路線」（與 289 條的落差）；45 分鐘車程、CMRCA 辦公室買指南 500 THB 與接駁；土路停車場與步行上坡 10–15 分鐘
+- theCrag: Heart Wall https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/218311449: 36 條逐線路線；從停車場走 15 分鐘；泰文路線名與評語
+- theCrag: Crazy Horse Area https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13950673: 33 條逐線路線；A Wild Ride on a Crazy Horse 8a+ 只有 0 次攀登
+- theCrag: Reunion Buttress https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/257550789: 29 條逐線路線；Reunion 6a+ 52 m 3 段、Walk the Plank 7a+ 的洞穴內確保點
+- theCrag: Anxiety State Crisis Cave https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13950625: 24 條逐線路線；In Deep Space 5c 80 m 4 段、The Darkness Beckons 6a+ 70 m 5 段
+- theCrag: Little Monkey Cove https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13950457: 25 條逐線路線；全區最低級距（4 到 7a+）
+- CMRCA: Crazy Horse 封閉公告頁 https://www.thailandclimbing.com/crazy-horse-closure: 2018-07 起的封閉公告；頁面仍在線上但未標更新日期
+- CMRCA: 2024-08 連署呼籲重開 https://www.thailandclimbing.com/blog/help-re-open-crazy-horse-buttress: 2024-06 又出現禁止告示後發起的請願；CMRCA 相關分類的最後一篇
+- 重開請願書（2022-09） https://www.change.org/p/petition-to-reopen-crazy-horse-buttress-for-climbing-and-outdoor-activities: 2022-09 重開的請願書內容
+- UKC: Crazy Horse Buttress https://www.ukclimbing.com/logbook/crags/crazy_horse_buttress-3036: 「據 CMRCA 表示已重開」的轉述（二手，非官方公告）
+- The Crag Journal: Climbing in Thailand（2023） https://thecragjournal.com/2023/02/01/climbing-in-thailand-a-journey-through-south-east-asia/: 2023 年到當地的現場記錄；Crazy Horse 現場狀況
+- A Guide to Rock Climbing in Northern Thailand https://www.thailandclimbing.com/climber-info: CMRCA Press 第 3 版、220 頁、500 THB、北泰 18 個分區 150 段以上；**出版年份未查到**
+
+## Exact route rows
+
+- Heart Wall: 6b+ Suud Suud Jai / Put Your Heart Into It 22 m ★2
+- Heart Wall: 6b+ Kra Ten Kong Hua Jai / Heartbeat 18 m ★2
+- Heart Wall: 6b+ Gam Lang Jai / Spirit, Morale 18 m ★2
+- Heart Wall: 6c/c+ Jai Kwang / Unknown / Open-Minded 26 m ★3
+- Heart Wall: 6b Pah Dtat Hua Jai / Heart Surgery 25 m ★2
+- Heart Wall: 6a+ Mar Jark Jai / Heartfelt 25 m ★3 ⚠ Flora and Fauna: Because of the bird‘s nest in the vicinity, please avoid this route for 2 months.
+- Heart Wall: 6a+ Tang Jai / Intentions 25 m ★2 ⚠ Flora and Fauna: Active owl nest behind big flake, 2 eggs. Please avoid this climb for a while.
+- Heart Wall: 6b Deung Duut Jai / Attractive 20 m ★2 ⚠ Flora and Fauna: Because of the bird‘s nest in the vicinity, please avoid this route for 2 months.
+- Heart Wall: 5c Jai Tuud / Wimp 18 m ★1
+- Heart Wall: 5c Jai Rag / I Love My Heart 16 m ★1
+- Heart Wall: 6b Kob Jai Lai Lai / Thank You Very Much 16 m ★1
+- Heart Wall: 6a+ Rang Lai Jai / Hesitate 16 m ★2
+- Heart Wall: 5c Song Jit Song Jai / I'm Torn 16 m ★1
+- Heart Wall: 6a Jai Ngai / Gullible 12 m ★2
+- Heart Wall: 6b Pun Jai / Proud 13 m ★2
+- Heart Wall: 6b+ Jai Guide / Guide Heart 13 m
+- Heart Wall: 6c Mun Jai / Confident 19 m ★3
+- Heart Wall: 6c+ Jai Yen Yen / Patient / The Proposal / Calm 21 m ★3
+- Heart Wall: 7a+ Jai Glah Reu Plao / Are You Courageous? 22 m ★3
+- Heart Wall: 6b+ Dee Jai Tee Dai Geud / It's Great to be Alive 19 m ★3
+- Heart Wall: 6c+ Saht Jai / Satisfied 16 m ★2
+- Heart Wall: 6c+ Dtat Sin Jai / Decide 14 m ★2
+- Heart Wall: 7a+ Jai Det / Fearless 13 m ★2
+- Heart Wall: 6a+ Pak Jai / Rest Your Heart 20 m ★2
+- Heart Wall: 6b Blaek Jai / Surprised / Wondering 21 m ★2
+- Heart Wall: 6b+ Bratup Jai / Impressed 22 m ★2
+- Heart Wall: 6b Jai Rawn / Hot Headed 27 m ★2
+- Heart Wall: 6a+ Ruam Jai / Together 36 m ★3
+- Heart Wall: 6c+ Jai Teung Jai / Heart to Heart 35 m ★3
+- Heart Wall: 7a+ Jai Loy / Spaced-Out 23 m ★2
+- Heart Wall: 6c Dtang Jai / Conscious 25 m ★2
+- Heart Wall: 6c+ Hua Jai Wai / Heart Attack 10 m ★2
+- Heart Wall: 6a+ Duang Jai / Heart / Flame Heart 25 m ★2
+- Heart Wall: 5c Kuu Jai / Twin Heart 15 m ★1
+- Heart Wall: 6a+ Dtok Jai / Startled 17 m ★1
+- Heart Wall: 5a Peaun Jai Rai / My Friend is Mean 18 m ★1
+- Crazy Horse Area: 5b The Muppet Show 27 m ★1
+- Crazy Horse Area: 5b Ding Dong 24 m ★1
+- Crazy Horse Area: 5a Rope and Rock 24 m ★1
+- Crazy Horse Area: 6b+ Mai Roo Reuang / I Have No Idea 15 m ★1
+- Crazy Horse Area: 6b Magic Drop 18 m ★2
+- Crazy Horse Area: 6a+ Reindeer Request 22 m ★2
+- Crazy Horse Area: 6a Ayah! 21 m ★1
+- Crazy Horse Area: 6a The Thai Who Loved Me 14 m ★1
+- Crazy Horse Area: 6a+ Partners Left 13 m ★2
+- Crazy Horse Area: 6a Partners Right 13 m ★2
+- Crazy Horse Area: 5 A Horse with No Name 37 m ★2
+- Crazy Horse Area: 6b The Bamboo Finders 21 m ★2
+- Crazy Horse Area: 6a+ It's Got to Be Funky 20 m ★2
+- Crazy Horse Area: 6c+ The Beehouse 27 m ★3 ⚠ Fixed Gear: Many loose bolts
+- Crazy Horse Area: 6c Blood, Love and Steel Pitch 1 26 m ★3
+- Crazy Horse Area: 6a+ Blood, Love and Steel Pitch 2 17 m
+- Crazy Horse Area: 7a+ Headhunters Pitch 2 20 m ★2
+- Crazy Horse Area: 7a Headhunters Pitch 3 20 m ★2
+- Crazy Horse Area: 7b+ Free the Spirit 20 m ★3
+- Crazy Horse Area: 7b+ Baby Rock 30 m ★2
+- Crazy Horse Area: 8a+ A Wild Ride on a Crazy Horse 18 m
+- Crazy Horse Area: 6c Dangerous Joy 20 m ★2
+- Crazy Horse Area: 6a+ Just Give me More 20 m
+- Crazy Horse Area: 7b The Horse Knows the Way 18 m ★2
+- Crazy Horse Area: 7a+ Tood Ma / The Horse's Ass 18 m
+- Crazy Horse Area: 7a Don't Look a Gifthorse in the Mouth Pitch 1 18 m ★1
+- Crazy Horse Area: 6b+ Don't Look a Gifthorse in the Mouth Pitch 2 16 m ★3
+- Crazy Horse Area: 6b+ Fatherhood 35 m ★2
+- Crazy Horse Area: 6a Into The Sun Pitch 1 18 m ★2
+- Crazy Horse Area: 6b Into The Sun Pitch 2 16 m ★2
+- Crazy Horse Area: 6b Some Like it Hot 25 m ★1
+- Crazy Horse Area: 6b+ Some Like it Hot Pitch 2 25 m ★2
+- Crazy Horse Area: V5 20mg ★1
+- Reunion Buttress: 5a The Departed 15 m
+- Reunion Buttress: 6a Reminisce 11 m ★1
+- Reunion Buttress: 6a+ Reunion 52 m ★2
+- Reunion Buttress: 7a+ Walk the Plank 15 m ★3
+- Reunion Buttress: 5b Handsome and Old 12 m ★1
+- Reunion Buttress: 5c Teamwork 13 m ★1
+- Reunion Buttress: 6a Smells Like Team Spirit 16 m ★2
+- Reunion Buttress: 6c+ Lust 25 m
+- Reunion Buttress: 6c Moving'Through Your System 18 m
+- Reunion Buttress: 6c Misdirection 18 m
+- Reunion Buttress: 5a Forge 10 m ★1
+- Reunion Buttress: 6a+ Live By Night 17 m
+- Reunion Buttress: 6c Body Shine 25 m
+- Reunion Buttress: 6c Loneliness of the Long Distance Driller 28 m ★2
+- Reunion Buttress: 7a Shadow Cranking 10 m ★3
+- Reunion Buttress: 7a+ Tunnel Vision 8 m
+- Reunion Buttress: 5a In Through The Outdoor 12 m
+- Reunion Buttress: 4 Rear View 10 m ★1
+- Reunion Buttress: 6b+ True North 19 m
+- Reunion Buttress: 6a+ Total Biscuits 17 m ★3
+- Reunion Buttress: 5c Sweet Harmony 17 m ★3 ⚠ Flora and Fauna: Wasp nest
+- Reunion Buttress: 6b Happiness Happening 25 m ★3
+- Reunion Buttress: 6c White Mischief 8 m ★2
+- Reunion Buttress: 4 Left To My Own Devices 12 m
+- Reunion Buttress: 5b Northern Exposure 15 m ★1
+- Reunion Buttress: 6b Northern Exposure Ext 35 m ★3
+- Reunion Buttress: 5a First Flight 17 m ★3
+- Reunion Buttress: 4 Building Playgrounds 20 m
+- Reunion Buttress: 4 Playtime 20 m
+- Anxiety State Crisis Cave: 7b+ Lift Off 22 m ★1
+- Anxiety State Crisis Cave: 5a Short Tail 12 m ★1
+- Anxiety State Crisis Cave: 5b Cave Man 16 m ★1
+- Anxiety State Crisis Cave: 5c Horse's Heart 11 m ★1
+- Anxiety State Crisis Cave: 5c The Underworld 15 m ★1
+- Anxiety State Crisis Cave: 6a Beautiful Mess 19 m ★2
+- Anxiety State Crisis Cave: 5a Everyday 10 m ★1
+- Anxiety State Crisis Cave: 5b The Lemons and Lives of Reason 12 m ★1
+- Anxiety State Crisis Cave: 7a+ Stranger At The Gate 95 m ★1
+- Anxiety State Crisis Cave: 6a Pining For Darkness 56 m
+- Anxiety State Crisis Cave: 6b The Sound Of Darkness 53 m
+- Anxiety State Crisis Cave: 6b Innocence Lost 40 m ★2
+- Anxiety State Crisis Cave: 5a Till We Meet Again 20 m ★2
+- Anxiety State Crisis Cave: 6a+ The Darkness Beckons 70 m ★2
+- Anxiety State Crisis Cave: 5c In Deep Space 80 m ★2
+- Anxiety State Crisis Cave: 6c Spaceman Pitch 1 25 m ★2
+- Anxiety State Crisis Cave: 7b+ Spaceman Pitch 2 30 m
+- Anxiety State Crisis Cave: 6c Space Manouevers Pitch 1 30 m ★2
+- Anxiety State Crisis Cave: 7b Space Manoeuvers Pitch 2 15 m
+- Anxiety State Crisis Cave: 7b Space Manoeuvers Pitch 3 25 m
+- Anxiety State Crisis Cave: 6c+ Sunseeker Pitch 1 22 m ★2
+- Anxiety State Crisis Cave: 6b+ Sunseeker Pitch 2 25 m
+- Anxiety State Crisis Cave: 7a Anxiety State Crisis / Anxiety State Crisis Pitch 2 42 m ★2
+- Anxiety State Crisis Cave: V4 10mg 3 m
+- Little Monkey Cove: 4 Another Snake In A Break 15 m
+- Little Monkey Cove: 5a Botanical 17 m ★2
+- Little Monkey Cove: 6a+ Once We Were Young 15 m ★1
+- Little Monkey Cove: 6a Low Hanging Fruit 21 m
+- Little Monkey Cove: 6a+ Ling Jaw Jaw / Really Handsome 20 m ★2 ⚠ Flora and Fauna: Danger!
+- Little Monkey Cove: 6b Man on the Run / Left variation 18 m ★2
+- Little Monkey Cove: 6c+ Jesse James / Right variation 18 m ★2
+- Little Monkey Cove: 7a Heavy Drilling 16 m ★2
+- Little Monkey Cove: 6a Fast Living 18 m ★1
+- Little Monkey Cove: 5a Arrested Development 10 m ★1
+- Little Monkey Cove: 5b Monkey Around 13 m ★1
+- Little Monkey Cove: 5a Names And Number Plates 13 m ★1
+- Little Monkey Cove: 4 Call The Police 12 m
+- Little Monkey Cove: 5b Aom Sim 12 m ★1
+- Little Monkey Cove: 5a Snake In A Break 15 m
+- Little Monkey Cove: 5b Miya Arom Siya / My Girlfriend Is In A Bad Mood 14 m ★2
+- Little Monkey Cove: 5c+ Ling Leum / Flaky Monkey 11 m ★1
+- Little Monkey Cove: 6a+ Ling Ling / Monkey Monkey 11 m ★2
+- Little Monkey Cove: 6a+ Shock the Monkey 14 m ★1
+- Little Monkey Cove: 6a+ Heat 15 m
+- Little Monkey Cove: 6a+ Around The Corner 15 m ★1
+- Little Monkey Cove: 6a+ Anton Adonis 15 m
+- Little Monkey Cove: 5b The Sun Rising 15 m
+- Little Monkey Cove: 4 Hey 15 m
+- Little Monkey Cove: 4 Choices 15 m
+- Tamarind Village: 5c+ Makham Wan / Tamarind Leaves 45 m ★2
+- Tamarind Village: 6a The Chimney Sweep 12 m ★2
+- Tamarind Village: 6c+ Chimney Creep 12 m ★1
+- Tamarind Village: 5a Makhaam Bpriaao 13 m ★2
+- Tamarind Village: 5b The Queen Bee 13 m ★1
+- Tamarind Village: 5c Gecko 16 m ★1
+- Tamarind Village: 5c Tamarind Village 16 m
+- Tamarind Village: 4 Makhaam Bpom 13 m
+- Tamarind Village: 6a Dissarray 15 m ★2
+- Tamarind Village: 6c Tearing Down the Wall 15 m ★2
+- Tamarind Village: 6b Happy Birthday 13 m ★3
+- Tamarind Village: 5b Samurai 13 m ★1
+- Tamarind Village: 5c Out Here 14 m ★1
+- Tamarind Village: 5a The Fade 15 m ★2
+- Tamarind Village: 5a 4500 20 m ★3
+- The Gatekeeper Buttress: 6c The Keymaster 25 m ★3
+- The Gatekeeper Buttress: 6b The Gatekeeper 25 m ★3
+- The Gatekeeper Buttress: 7a Inferno 29 m ★3
+- The Gatekeeper Buttress: 7a Unleash the Phat Physique 28 m ★3
+- The Gatekeeper Buttress: 7a All Quiet on the Eastern Front 24 m ★3
+- The Gatekeeper Buttress: 6b+ Picking the Lock 26 m ★3
+- The Gatekeeper Buttress: 6a+ Angel’s Gate 21 m ★3
+- The Gatekeeper Buttress: 6b+ Stargate 25 m ★3
+- The Gatekeeper Buttress: 6b Turning the Key 20 m
+- The Gatekeeper Buttress: 6c Full Breach 18 m
+- The Gatekeeper Buttress: 6b+ Linked In, Locked Out 20 m
+- The Gatekeeper Buttress: 6a Keys To The Keep 20 m
+- The Archway: 6c Sandbag 20 m ★2
+- The Archway: 6b Kee Dtak / Diarrhea 22 m ★2
+- The Archway: 6c Gruntfest 19 m ★3
+- The Archway: 6a+ Kee Gai / Chicken Shit 19 m ★1
+- The Archway: 6a Heartbeat 8 m
+- The Archway: 6c+ The Tree Surgeon 18 m ★3
+- The Archway: 6b Crazy Hot 19 m ★3
+- The Rooftop: 4 People Like Us 22 m
+- The Rooftop: 5c Burning Down the House 20 m
+- The Rooftop: 5c Rising Above Bedlam 20 m ★3
+- The Rooftop: 5b Heun Fah / Ascending the Sky 21 m ★2
+- The Rooftop: 5c+ A Route with a View 22 m ★2
+- The Rooftop: 6a+ Skyscraper 29 m ★3
+- The Horse Shoe: 5a Victoree / Victor-eee 12 m
+- The Horse Shoe: 5b+ Robert's Stress 15 m ★1
+- The Horse Shoe: 6b Groove is in the Heart 15 m ★2
+- The Horse Shoe: 6a+ Drill and Blast, Drill and Bolt 16 m ★1
+- The Horse Shoe: 5c Out of the Trees 16 m ★1
+- The Horse Shoe: 6a Snooze You Lose 16 m ★1
+- The Horse Shoe: 6a While You Were Sleeping 15 m ★1
+- Windy Cave: 6a+ Morning Glory 31 m ★3
+- Windy Cave: 7a Earthquake 25 m ★2
+- Windy Cave: 6a+ Trojan Horse 55 m ★2
+- The Junkyard: 6b Destiny 22 m ★2
+- The Junkyard: 6a Sage 16 m ★2
+- The Junkyard: 6c A Song of Stone 16 m ★2
+- The Junkyard: 6b+ Serial Drilla 14 m ★2
+- The Hanging Gardens: 5b Tarzan 14 m ★2
+- The Hanging Gardens: 5b Rock Climbing 101 12 m ★1
+- The Hanging Gardens: 5c Flapper 15 m ★1
+- The Hanging Gardens: 5c Rock Climbing 102 14 m ★1
+- Buddha Buttress: 6b The Shining Path 20 m ★2
+- Buddha Buttress: 6b+ Uncontrolled Burning 26 m ★3
+- Buddha Buttress: 6b Mumipeiko 15 m ★2
+- Sentinel Buttress: 5a Sentinel 74 m
+- Sentinel Buttress: 6b+ Thai Sky Connect 18 m
+- Sentinel Buttress: 6c Cognitive Overhead 23 m
+- Sentinel Buttress: 5a Sentinel at the Gate 15 m
+- Sentinel Buttress: 5a Drilling to Perdition 18 m
+- Sentinel Buttress: 5a Reflection 15 m
+- The Aircon Wall: 7a+ Unnamed Japanese Route 9 m ★3
+- The Aircon Wall: 6b Into Darkness 10 m ★1
+- The Aircon Wall: 6c+ Reach Out, Touch Faith 10 m ★2
+- The Aircon Wall: 6c+ Holding the Zero 14 m ★3
+- The Aircon Wall: 6a+ Cool and Funky 12 m ★2
+- The Aircon Wall: 6a+ Welcome to the Wonderworld 12 m ★2
+- The Aircon Wall: 7b Freeblast 13 m ★2
+- The Aircon Wall: 6c Chilling on the Side 13 m ★2
+- The Aircon Wall: 7b Foaming At The Month 13 m
+- The Aircon Wall: 7c The Foaming Pumpus 13 m
+- The Aircon Wall: 8a Aircon Direct 14 m ★2
+- The Aircon Wall: 7b+ The Wild Pumpus 12 m ★2
+- The Aircon Wall: 7c+ Wild & Free 15 m ★2
+- The Aircon Wall: 7a Sport Satay 13 m ★2
+- The Aircon Wall: 6a+ Air Conditioner 14 m ★2
+- The Aircon Wall: 6b Let Sparks Fly 14 m ★2
+- The Aircon Wall: 6b Show Off the Police 20 m ★2
+- The Aircon Wall: 6c 24K All The Way 18 m ★2
+- The Aircon Wall: 6b+ A Taste for Disorder 23 m
+
+## Dropped / not used
+
+- change.org 以外的 2026 年重開傳聞 https://www.instagram.com/p/DdT4H4xGmb-/: 單一社群貼文，無官方文件佐證

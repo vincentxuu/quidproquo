@@ -1,0 +1,11 @@
+[
+  {
+    "sector": "Eagle Wall",
+    "slug": "eagle-wall",
+    "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15688201",
+    "status": "partial",
+    "routes_exposed": 36,
+    "routes_expected": 39,
+    "reason": "theCrag renders Eagle Wall as a parent area (sub-sector list only). The 36 routes of Left Side (14), Main Face (17) and Lord of the Fives (5) were retrieved; the 3 remaining routes counted by theCrag are not listed on any theCrag page."
+  }
+]

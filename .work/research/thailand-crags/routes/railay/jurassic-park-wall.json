@@ -1,0 +1,49 @@
+{
+  "sector": "Jurassic Park Wall",
+  "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15687553",
+  "area_route_count": 2,
+  "routes": [
+    {
+      "grade": "6b+",
+      "stars": 0,
+      "name": "One of Our Dinosaurs Is Missing",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714575",
+      "style": "Sport",
+      "length": "95 m",
+      "pitches": 3,
+      "bolts": null,
+      "pitches_detail": [
+        "1 6b+ 25m",
+        "2 6b 30m",
+        "3 6b+ 40m"
+      ],
+      "desc": "Old rusty expansion bolts. Do not climb!",
+      "setter": "Ian Turnbull & J Beverage, 1995",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    },
+    {
+      "grade": "6b+",
+      "stars": 0,
+      "name": "The Land Time Forgot",
+      "url": "https://www.thecrag.com/en/climbing/thailand/krabi/route/17714623",
+      "style": "Sport",
+      "length": "85 m",
+      "pitches": 3,
+      "bolts": null,
+      "pitches_detail": [
+        "1 6b+ 25m",
+        "2 6b 30m",
+        "3 6b 30m"
+      ],
+      "desc": "Old rusty expansion bolts. Do not climb!",
+      "setter": "Ian Turnbull & J Beverage, 1995",
+      "warnings": [
+        "Fixed Gear: Old rusty expansion bolts.",
+        "Climbing: Do not climb!"
+      ]
+    }
+  ]
+}

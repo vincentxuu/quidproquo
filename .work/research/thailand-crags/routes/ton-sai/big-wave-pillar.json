@@ -1,0 +1,130 @@
+[
+  {
+    "sector": "Big Wave Pillar",
+    "url": "https://www.thecrag.com/en/climbing/thailand/krabi/area/15688033",
+    "area_route_count": 7,
+    "routes": [
+      {
+        "grade": "6b",
+        "stars": 0,
+        "name": "Catastrofarian",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/10833261657",
+        "style": "Sport",
+        "length": "25m",
+        "pitches": null,
+        "bolts": null,
+        "pitches_detail": null,
+        "desc": "",
+        "setter": "Simon Talltorp, 2019",
+        "warnings": []
+      },
+      {
+        "grade": "6c",
+        "stars": 0,
+        "name": "Stranger Danger",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/10833258426",
+        "style": "Sport",
+        "length": "44m",
+        "pitches": 2,
+        "bolts": null,
+        "pitches_detail": [
+          "1 6a 24m",
+          "2 6c 20m"
+        ],
+        "desc": "Shares the first pitch with 'Shoulda Woulda Coulda', with a separate anchor 2m to the left. Anchors of P2 are 2m left of the 'Cockblocker' P2 anchors. Titanium bolts and slings.",
+        "setter": "Simon Talltorp, 2019",
+        "warnings": []
+      },
+      {
+        "grade": "6b+",
+        "stars": 2,
+        "name": "Cockblocker",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/3122142858",
+        "style": "Sport",
+        "length": "44m",
+        "pitches": 2,
+        "bolts": null,
+        "pitches_detail": [
+          "1 6a 24m",
+          "2 6b+ 20m"
+        ],
+        "desc": "Shares the first pitch with 'Shoulda Woulda Coulda', with a separate anchor 2m to the left. Anchors of P2 are 2m left of the SWC P2 anchors. Titanium bolts and slings.",
+        "setter": "Simon Talltorp, 2019",
+        "warnings": []
+      },
+      {
+        "grade": "6b",
+        "stars": 2,
+        "name": "Shoulda Woulda Coulda",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/3092140056",
+        "style": "Sport",
+        "length": "82m",
+        "pitches": 3,
+        "bolts": 38,
+        "pitches_detail": [
+          "1 6a 26m",
+          "2 6b 29m",
+          "3 6b 27m"
+        ],
+        "desc": "New multi-pitch route left of 'Big Wave'. Very sharp rock in some of the easier sections. Not quite as good as 'Big Wave', but definitely a fun climb. Crux is the first two bolts, climbing up the vertical tufas. Second half is an easy but beautiful 3D climb through the stalactite system. 5 titanium bolts, 7 slings. Slabby start on sharp rock up to the crux over the bulge. 12 titanium bolts, 1 sling. Again, some sharp rock at the start. Easy climbing until the steep sustained crux of the route. A few more meters of vertical climbing on very sharp rock. 9 titanium bolts, 4 slings. Descend by rapping down the route. Three raps with a 60m rope. This route is so far only listed in the 2019 Pocket RockGUIDE as 'New Route 2019 Jan.'. If you have new information about grade and name, please update (bolts and slings are counted, Mar 2020).",
+        "setter": "Simon Talltorp, 2019",
+        "warnings": []
+      },
+      {
+        "grade": "6a+",
+        "stars": 0,
+        "name": "Short Wave",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/81839292",
+        "style": "Sport",
+        "length": "25m",
+        "pitches": 1,
+        "bolts": 4,
+        "pitches_detail": null,
+        "desc": "Closed Old route left of 'Big Wave' P2. Old expansion bolts seem to have been removed, and the route has been recycled into the new multi-pitch routes to the left.",
+        "setter": "Tom Cecil & Mark Miner, 2007",
+        "warnings": [
+          "Closed",
+          "Closed Old route left of 'Big Wave' P2."
+        ]
+      },
+      {
+        "grade": "6b",
+        "stars": 2,
+        "name": "Big Wave",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/780412119",
+        "style": "Sport",
+        "length": "110m",
+        "pitches": 4,
+        "bolts": 33,
+        "pitches_detail": [
+          "1 6a+ 30m",
+          "2 6b 25m",
+          "3 6b 26m",
+          "4 6b 30m"
+        ],
+        "desc": "Shares the start pitch with 'The Beauty & the Beast', then climbs up left for three beautiful and homogeneous pitches. Start on the left side of the cave. Take the left of the two anchors. 7 titanium bolts. Climb a bit to the left and straight up. 8 titanium bolts. Straight up to an anchor in a cave. 8 titanium bolts. Short traverse to the left, then straight up. You will pass an additional anchor about midway. Lower the leader to this anchor to belay the second climber. 10 titanium bolts. From the midway anchor of P4 rap down four times with a 60m rope via a line of separate abseil anchors. WARNING store your bags at the restaurant, monkeys will go through your bag!",
+        "setter": "Tom Cecil & Kathryn Stedham, 2004",
+        "warnings": []
+      },
+      {
+        "grade": "6b",
+        "stars": 2,
+        "name": "The Beauty & the Beast",
+        "url": "https://www.thecrag.com/zh_hans/climbing/thailand/krabi/route/81839190",
+        "style": "Sport",
+        "length": "85m",
+        "pitches": 4,
+        "bolts": 28,
+        "pitches_detail": [
+          "1 6a+ 30m",
+          "2 6a+ 25m",
+          "3 6b 30m",
+          "4 6b"
+        ],
+        "desc": "3rd pitch is the beauty, 1st pitch is the beast. The second pitch just connects the two. The first pitch is shared with 'Big Wave'. Start with a couple of fun, overhanging moves out the left side of the cave, then easier climbing on sharp rock up the buttress. Take the right of the two anchors. 7 titanium bolts. Go up and sightly right - don't be lured by other bolts going further right. 9 titanium bolt. This pitch is fun and follows bolts up into a small ledge at a small cave. 12 titanium bolts. In 2006, Drew Spaulding and Adam Weiner established a 4th pitch, but it is not well equipped without trad gear. Climb up into the corner on gear, threads and a few bolts. Then tunnel up right and under the stalactite umbrella up to the bolted anchor (this pitch needs re-bolting). A wild ride! From the top of P3, it is also possible to traverse out left, wiggle through a hole in the cave, and finish up on the last pitch of 'Big Wave'. This finish slightly raises the grade, but dramatically increases the fun. Descend by rapping down three times from the anchor of P3 with a 60m rope.",
+        "setter": "Tom Cecil, 2004",
+        "warnings": []
+      }
+    ]
+  }
+]
