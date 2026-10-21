@@ -134,142 +134,182 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 ### 入門：6a 以下（YDS 5.10a 以下）
 
-Chong Phli 沒有真正的白板路線，但有幾條短而簡單的線適合暖身。
-
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
 |---|---|---|---|---|---|
-| Simon Sends | 5a | 5.7 | 9 m | The Mezzanine | ★★；巨石右邊的短 slab；全鈦栓 |
-| Bell Curve | 5c | 5.9 | 10 m | The Ego Free Zone | ★；「跟著常態分布走，往右上到確保點」 |
-| Pipeline | 5c | 5.9 | 16 m | Machete Wall | ★★ |
 | Aphrodite | 5c | 5.9 | 12 m | Machete Wall | ★★；6 支鈦栓；Tej 與 DnD，2021-03-25 |
-| Dog Endorsements | 5c | 5.9 | 15 m | The Far Side | 2024-01 |
-| Jumanji | 6a | 5.10a | 10 m | The Lounge | ★★；爬藤蔓，**最好光腳爬**；吊帶與鈦栓確保點 |
-| Baby Foot | 6b | 5.10c | 10 m | The Lounge | ★★；最左邊 tufa 起步的短線；全鈦栓 |
-| Hello Kitty | 6a | 5.10a | 10 m | The Lounge | ★；第一支快扣處有 tricky 的岩質（就是 crux），之後是漂亮的 jug 到確保點 |
-| Finding Nemo | 6a | 5.10a | 20 m | The Ego Free Zone | ★；Foot Prints 右邊第一條 |
+| Baba Max | 6a | 5.10a | 14 m | Hearth Cave | ★★；沿洞穴左邊的綠色 thread 上去，爬出到自由垂掛的鐘乳石 |
+| Bell Curve | 5c | 5.9 | 10 m | The Ego Free Zone / Main face | ★；「跟著常態分布走，往右上到確保點」 |
+| Big Underwear / Dobolina | 5+ | 約 5.9 | 25 m | Music Wall | ★；從地面右手邊起步，比看起來好爬 |
+| Dog Endorsements | 5c | 5.9 | 15 m | The Far Side |  |
+| Family Affair (3rd pitch) | 6a | 5.10a | 55 m | The Ego Free Zone / Main face | ★★；**可從地面一口氣爬完 55 公尺的單段** |
+| Finding Nemo | 6a | 5.10a | 20 m | The Ego Free Zone / Main face | ★★；Foot Prints 右邊第一條 |
+| Hell in a Bucket | 6a | 5.10a | 10 m | Music Wall | ★；短但有趣，爬上大 ledge，通往 Soulshine、Imagine 等 |
+| Hello Kitty | 6a | 5.10a | 10 m | The Lounge / Main face | ★；第一支快扣處有 tricky 的岩質（就是 crux），之後是漂亮的 jug 到確保點 |
 | It's a Mammoth | 6a | 5.10a | 12 m | The Far Side | ★ |
+| Jumanji | 6a | 5.10a | 10 m | The Lounge / Main face | ★★；爬藤蔓，**最好光腳爬**；吊帶與鈦栓確保點 |
+| Kan Bet Tok Pla / Fishing Rod | 6a | 5.10a | 20 m | The Ego Free Zone / Main face | ★；Hook, Line, Sinker 的第二段延伸；「超棒的攀爬」 |
+| Lady Bug | 5c | 5.9 | 10 m | The Cave / Hoi Cave | ★；漂亮的 tufa 攀爬，適合小孩或第一次帶領；3 支鈦栓 |
+| Luna Cruise | 6a | 5.10a | 18 m | Machete Wall | ★★；2 支岩栓 + 11 條吊帶 |
+| Morano | 6a | 5.10a | 16 m | Machete Wall | ★★ |
+| Pipeline | 5c | 5.9 | 16 m | Machete Wall | ★★ |
+| Round the Outside | 6a | 5.10a | 16 m | Hearth Cave | ★；與 Smoked Out、Dude Abides 共用前半段後橫切到確保點 |
+| Simon Sends | 5a | 5.7 | 9 m | The Mezzanine / Main face | ★★；巨石右邊的短 slab；全鈦栓 |
+| Yellow Moon / Tim's Big Smile | 6a | 5.10a | 15 m | Hearth Cave | ★★；Slim 右邊起步，穿過右側屋簷 |
+| Zac Attack | 6a | 5.10a | 20 m | The Ego Free Zone / Main face | ★；與 Mad Skills 共用確保點；7 支鈦栓 + 1 條吊帶 |
+| monkey trail | 5c | 5.9 | 100 m | Machete Wall | ★；通到山頂的四段多段，1. 20 m、2. 5b 25 m、3. 5b 30 m、4. 5c 25 m |
 
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
-這個級距是 Chong Phli 最厚的，幾乎每個子區都有。**這裡的 6 字頭普遍有個特徵：tufa。**
-
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
 |---|---|---|---|---|---|
-| Spirit Mountain | 6a+ | 5.10b | 20 m | The Ego Free Zone | ★★；**超級經典**，從棕色梯子起步、在基座 ledge 結束 |
-| Foot Prints | 6b+ | 5.10d | 20 m | The Ego Free Zone | ★★；梯子右邊，仰角起步後上 slab |
-| Hook, Line, Sinker | 6b+ | 5.10d | 26 m | The Ego Free Zone | ★★；獨特的攀法，最後在 arete 上有技術性結尾；10 支鈦栓 + 3 條吊帶 |
-| Deflowered | 6b+ | 5.10d | 36 m | The Ego Free Zone | ★★；7 支鈦栓 + 7 條吊帶 |
-| Momentum | 6b+ | 5.10d | 32 m | The Ego Free Zone | ★★；巨大 tufa 系統的第二條線；**第一條吊帶可能要 stick-clip** |
-| McLovin | 6b+ | 5.10d | 34 m | The Ego Free Zone | ★★；10 支鈦栓 + 3 條吊帶 |
-| EFZ / Ego Free Zone | 6a+ | 5.10b | 26 m | The Ego Free Zone | ★★；與 Family Affair 共用前半段 |
-| Family Affair (1st pitch) | 6b+ | 5.10d | 32 m | The Ego Free Zone | ★★★；與 EFZ 共用起步後往右上到更高的確保點 |
-| Family Affair (2nd pitch) | 6b+ | 5.10d | 40 m | The Ego Free Zone | ★★；1 條吊帶 + 4 支岩栓；**80 公尺繩可回到地面，末端要打結** |
-| Family Affair (3rd pitch) | 6a | 5.10a | 55 m | The Ego Free Zone | ★★；**可從地面一口氣爬完 55 公尺的單段** |
-| Sticky Rice | 6a+ | 5.10b | 22 m | The Mezzanine | ★★；Chutzpah 左邊第一條 |
-| Chutzpah | 6a+ | 5.10b | 22 m | The Mezzanine | ★★；直上灰色 tufa 條；全鈦栓 |
-| Exfoliation | 6b | 5.10c | 20 m | The Mezzanine | ★★；最左邊那條，技術性高難路線；全鈦栓 |
-| Exposure | 6c | 5.11a/b | 29 m | The Mezzanine | ★★★；Exfoliation 的延伸；4 支鈦栓；**確保點前往左** |
-| Exposure (Direct) | 6c+ | 5.11c | 29 m | The Mezzanine | ★★；頂段的右手變體，共用確保點 |
-| Hobbit Hop | 6b+/c | 5.10d | 20 m | The Mezzanine | ★★；巨石上、Exfoliation 右邊；全鈦栓 |
-| Trippin' | 7b | 5.12b | 20 m | The Mezzanine | ★★；4 支鈦栓 + 5 條吊帶 |
-| Buzzsaw | 6b | 5.10c | 20 m | The Ego Free Zone | ★★；與 Seesaw 同起步，走黑色 slab 後**走左手線** |
-| Seesaw | 6c | 5.11a/b | 20 m | The Ego Free Zone | ★★；與 Buzzsaw 同起步後**走右手線**，薄而技術性的 slab 結束 |
-| Carbunkle / Carbuncle | 6c | 5.11a/b | 23 m | The Ego Free Zone | ★★；與 Round the Bend 共用起步後往左；6 支鈦栓 + 2 條吊帶 |
+| Athena | 6a+ | 5.10b | 13 m | Machete Wall | ★★；5 支鈦栓 |
+| Babies in the Sky | 6c+ | 5.11c | 28 m | The Lounge / Main face | ★★；原本 15 m 結束在 Mainlander 的確保點 |
+| Baby Foot | 6b | 5.10c | 10 m | The Lounge / Main face | ★★；最左邊 tufa 起步的短線；全鈦栓 |
+| Buzzsaw | 6b | 5.10c | 20 m | The Ego Free Zone / Main face | ★★；與 Seesaw 同起步，走黑色 slab 後**走左手線** |
+| Carbunkle / Carbuncle | 6c | 5.11a/b | 23 m | The Ego Free Zone / Main face | ★★；4 支鈦栓 + 5 條吊帶 |
+| Cave Racer | 6a+ | 5.10b | 27 m | Machete Wall | ★★；與 Dean the Machine 共用起步後往左 |
+| Chong Phli Posse | 6c | 5.11a/b | 11 m | Hearth Cave | ★★；與 Round the Outside 共用確保點 |
+| Chopped on the Guidebook | 6c | 5.11a/b | 22 m | Hearth Cave | ★★；洞穴左側、超級 jug 的仰角線 |
+| Chutzpah | 6a+ | 5.10b | 22 m | The Mezzanine / Main face | ★★；直上灰色 tufa 條；全鈦栓 |
 | Completely Harmless | 6b | 5.10c | 18 m | The Far Side | ★★★ |
+| Dark Star | 6b | 5.10c | 15 m | Music Wall | ★★；大 ledge 右手邊那條 |
+| Dean the Machine | 6b+ | 5.10d | 30 m | Machete Wall | ★★；與 Cave Racer 共用起步 |
+| Deflowered | 6b+ | 5.10d | 36 m | The Ego Free Zone / Main face | ★★；7 支鈦栓 + 7 條吊帶 |
+| Doctor Zeus | 6c+ | 5.11c | 14 m | Machete Wall | ★★★；7 支鈦栓 |
+| Dude Abides | 6a+ | 5.10b | 24 m | Hearth Cave | ★；**確保點的快扣會張很開**；起步繩芯外露 |
+| EFZ / Ego Free Zone | 6a+ | 5.10b | 26 m | The Ego Free Zone / Main face | ★★；與 Family Affair 共用前半段 |
+| Early Experiments in Transportation | 6c | 5.11a/b | 18 m | The Far Side | ★★；**雨後上半部可能髒** |
+| Exfoliation | 6b | 5.10c | 20 m | The Mezzanine / Main face | ★★；最左邊那條，技術性高難路線；全鈦栓 |
+| Exposure | 6c | 5.11a/b | 29 m | The Mezzanine / Main face | ★★★；Exfoliation 的延伸；4 支鈦栓；**確保點前往左** |
+| Exposure (Direct) | 6c+ | 5.11c | 29 m | The Mezzanine / Main face | ★★；頂段的右手變體，共用確保點 |
+| Family Affair (1st pitch) | 6b+ | 5.10d | 32 m | The Ego Free Zone / Main face | ★★★；與 EFZ 共用起步後往右上到更高的確保點 |
+| Family Affair (2nd pitch) | 6b+ | 5.10d | 40 m | The Ego Free Zone / Main face | ★★；1 條吊帶 + 4 支岩栓；**80 公尺繩可回到地面，末端要打結** |
+| Fixe | 6b | 5.10c | 15 m | Machete Wall | ★★；Send Train 右邊，抱石式起步 |
+| Flying Snake | 6b | 5.10c | 18 m | Hearth Cave | ★★；Round the Outside 或 Chong Phli Posse 的中間延伸 |
+| Foot Prints | 6b+ | 5.10d | 20 m | The Ego Free Zone / Main face | ★★；梯子右邊，仰角起步後上 slab |
+| French Free | 6b | 5.10c | 16 m | Machete Wall | ★★ |
 | Gargoyle Socks | 6b+ | 5.10d | 18 m | The Far Side | ★★；小洞穴左邊起步，**留在大樹左邊**，穿過屋簷 |
-| We'll Eat Like Kings | 6a+ | 5.10b | 18 m | The Far Side | ★★；大洞穴左邊起步，**留在大樹右邊** |
-| The Real Reason Dinosaurs Became Extinct | 6c+ | 5.11c | 18 m | The Far Side | ★★；大洞穴右邊起步 |
+| Hobbit Hop | 6b+/c | 5.10d | 20 m | The Mezzanine / Main face | ★★；巨石上、Exfoliation 右邊；全鈦栓 |
+| Hook, Line, Sinker | 6b+ | 5.10d | 26 m | The Ego Free Zone / Main face | ★★；獨特的攀法，最後在 arete 上有技術性結尾；10 支鈦栓 + 3 條吊帶 |
+| Hunting Shrooms | 6c+ | 5.11c | 24 m | The Mezzanine / Main face | ★★★；與 Grace 共用起步，第 4 支快扣後往左 |
+| Imagine | 6b+/c | 5.10d | 15 m | Music Wall | ★★；大 ledge 中間那條 |
+| Indi'Jan'a Jones | 6b+ | 5.10d | 25 m | Wild Child Wall | ★★★；必爬路線，可能再難一點；全鈦栓 |
+| Into the Mystic | 6b | 5.10c | 20 m | Music Wall | ★★；Steal Your Face 的第二段 |
+| Knob Job | 6b+ | 5.10d | 23 m | Machete Wall | ★★ |
+| Mad Skills | 6b | 5.10c | 16 m | The Ego Free Zone / Main face | ★；與 Zac Attack 共用確保點；5 支鈦栓 + 2 條吊帶 |
+| Make it Funky | 6c+ | 5.11c | 12 m | Hearth Cave | ★；Yellow Moon 右邊、Music Wall 左邊 4 公尺 |
+| McLovin | 6b+ | 5.10d | 34 m | The Ego Free Zone / Main face | ★★；10 支鈦栓 + 3 條吊帶 |
+| Midvale School for the Gifted | 6c | 5.11a/b | 18 m | The Far Side | ★★★ |
+| Momentum | 6b+ | 5.10d | 32 m | The Ego Free Zone / Main face | ★★；巨大 tufa 系統的第二條線；**第一條吊帶可能要 stick-clip** |
+| Pac Man | 6b | 5.10c | 15 m | The Cave / Hoi Cave | ★★；左橫切的路線，好玩而且保護友善 |
+| Pill Box | 6b+/c | 5.10d | 21 m | The Lounge / Main face | ★★；與 Kaeng Raeng 共用起步後往右 |
+| Rampage | 6c+ | 5.11c | 10 m | The Ego Free Zone / Main face | ★；沿 Hook Line Sinker 的 arete 上去，橫切右穿過大屋簷 |
+| Round the Bend | 6a+ | 5.10b | 26 m | The Ego Free Zone / Main face | ★★；與 Carbunkle 共用起步後往左；6 支鈦栓 + 2 條吊帶 |
+| Schmoopy Power | 6b+ | 5.10d | 18 m | The Lounge / Main face | ★★ |
+| Seesaw | 6c | 5.11a/b | 20 m | The Ego Free Zone / Main face | ★★；與 Buzzsaw 同起步後**走右手線**，薄而技術性的 slab 結束 |
+| Send Train | 6a+ | 5.10b | 15 m | Machete Wall | ★★；4 支岩栓 + 4 條吊帶，接上 Luna Cruise 的確保點 |
+| Shady | 6b | 5.10c | 9 m | Hearth Cave | ★★；短、陡起步；5 支鈦栓 |
+| Slim / Slim Shady | 6b+ | 5.10d | 12 m | Hearth Cave | ★★；Shady 右邊，紫色吊帶與鈦栓；3D 穿越底部 hueco |
+| Smoked Out | 6c+ | 5.11c | 25 m | Hearth Cave | ★★；與 Dude Abides 共用起步後往右直上 |
 | Something Darkside | 6c | 5.11a/b | 18 m | The Far Side | ★★ |
+| Spirit Mountain | 6a+ | 5.10b | 20 m | The Ego Free Zone / Main face | ★★；**超級經典**，從棕色梯子起步、在基座 ledge 結束 |
+| Steal Your Face | 6c | 5.11a/b | 22 m | Music Wall | ★★；Walking on the Moon 右邊，鈍 arete 起步 |
+| Sticky Rice | 6a+ | 5.10b | 22 m | The Mezzanine / Main face | ★★；Chutzpah 左邊第一條 |
+| Stone Rider | 6b+ | 5.10d | 20 m | Hearth Cave | ★★；最右的延伸；**確保點的快扣開得很緊** |
+| The General | 6b+ | 5.10d | 30 m | Machete Wall | ★★；與 Alpha Male 共用起步，第 2 支快扣後稍左 |
+| The Real Reason Dinosaurs Became Extinct | 6c+ | 5.11c | 18 m | The Far Side | ★★；大洞穴右邊起步 |
+| Tufa Test / Cutting the vines | 6b | 5.10c | 23 m | Machete Wall | ★★ |
+| Via Ferrata | 6c+ | 5.11c | 15 m | The Cave / Hoi Cave | theCrag 的描述只有「這條路線在哪裡？」 |
+| We’ll Eat Like Kings | 6a+ | 5.10b | 18 m | The Far Side | ★★ |
+| Wildling | 6a+ | 5.10b | 18 m | Machete Wall | ★★ |
 
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 
-**Chong Phli 的進階路線是全系列裡最密的之一。** 幾乎每個主牆都有 7a 到 7c+，而且有大量 7b 與 7b+。
-
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
 |---|---|---|---|---|---|
-| Piranha | 7a | 5.11d | 21 m | The Ego Free Zone | ★★；與 Red Herring 共用前三支快扣 |
-| Red Herring | 7b+ | 5.12c | 21 m | The Ego Free Zone | ★★★；從 Piranha 起步，平台處走左手線結束 |
-| Hidden Gem | 7a | 5.11d | 20 m | The Ego Free Zone | ★★；紅色固定快扣；**很漂亮的動作** |
-| Tetris | 7c | 5.12d | — | The Ego Free Zone | ★★；Buzzsaw／Seesaw 上方的延伸；「超讚！crimp 樂趣」 |
-| Slab Royal | 7c | 5.12d | 33 m | The Ego Free Zone | ★★；沿 Hook Line Sinker 的 arete 上去，**可以用 70 公尺繩爬** |
-| Mantally Ill | 7b | 5.12b | 25 m | The Ego Free Zone | ★★；7 支鈦栓 + 4 條吊帶 |
-| 8ish | 7b+ | 5.12c | 25 m | The Ego Free Zone | ★★★；全鈦栓 |
-| Superstition | 7a+ | 5.12a | 15 m | The Lounge | ★★★；全鈦栓；鈦栓確保環（2022） |
-| Man | 7b+ | 5.12c | 21 m | The Lounge | ★★★；好岩質，高處有技術性 crux |
-| Mouse | 7b | 5.12b | 21 m | The Lounge | ★★★；與 Man 同起步但往右橫切到大洞 |
-| Kaeng Raeng | 7b | 5.12b | 21 m | The Lounge | ★★★；與 Pill Box 共用起步 |
-| Pill Box | 6b+/c | 5.10d | 21 m | The Lounge | ★★；與 Kaeng Raeng 共用起步後往右 |
-| Big Underwear / Dobolina | 5+ | 約 5.9 | 25 m | Music Wall | ★；從地面右手邊起步，比看起來好爬 |
-| Baba Max | 6a | 5.10a | 14 m | Hearth Cave | ★★；沿洞穴左邊的綠色 thread 上去，爬出到自由垂掛的鐘乳石 |
-| Round the Outside | 6a | 5.10a | 16 m | Hearth Cave | ★；與 Smoked Out、Dude Abides 共用前半段後橫切到確保點 |
-| Yellow Moon / Tim's Big Smile | 6a | 5.10a | 15 m | Hearth Cave | ★★；Slim 右邊起步，穿過右側屋簷 |
-| Dude Abides | 6a+ | 5.10b | 24 m | Hearth Cave | ★；**確保點的快扣會張很開**；起步繩芯外露 |
-| Hell in a Bucket | 6a | 5.10a | 10 m | Music Wall | ★；短但有趣，爬上大 ledge，通往 Soulshine、Imagine 等 |
-| Shady | 6b | 5.10c | 9 m | Hearth Cave | ★★；短、陡起步；5 支鈦栓 |
-| Flying Snake | 6b | 5.10c | 18 m | Hearth Cave | ★★；Round the Outside 或 Chong Phli Posse 的中間延伸 |
-| Slim / Slim Shady | 6b+ | 5.10d | 12 m | Hearth Cave | ★★；Shady 右邊，紫色吊帶與鈦栓；3D 穿越底部 hueco |
-| Stone Rider | 6b+ | 5.10d | 20 m | Hearth Cave | ★★；最右的延伸；**確保點的快扣開得很緊** |
-| Chopped on the Guidebook | 6c | 5.11a/b | 22 m | Hearth Cave | ★★；洞穴左側、超級 jug 的仰角線 |
-| Chong Phli Posse | 6c | 5.11a/b | 11 m | Hearth Cave | ★★；與 Round the Outside 共用確保點 |
-| Make it Funky | 6c+ | 5.11c | 12 m | Hearth Cave | ★；Yellow Moon 右邊、Music Wall 左邊 4 公尺 |
-| Smoked Out | 6c+ | 5.11c | 25 m | Hearth Cave | ★★；與 Dude Abides 共用起步後往右直上 |
-| Into the Mystic | 6b | 5.10c | 20 m | Music Wall | ★★；Steal Your Face 的第二段 |
-| Dark Star | 6b | 5.10c | 15 m | Music Wall | ★★；大 ledge 右手邊那條 |
-| Steal Your Face | 6c | 5.11a/b | 22 m | Music Wall | ★★；Walking on the Moon 右邊，鈍 arete 起步 |
-| Imagine | 6b+/c | 5.10d | 15 m | Music Wall | ★★；大 ledge 中間那條 |
-| Indi'Jan'a Jones | 6b+ | 5.10d | 25 m | Wild Child Wall | ★★★；必爬路線，可能再難一點；全鈦栓 |
-| Old School | 7a+ | 5.12a | 18 m | Wild Child Wall | ★★★；3 支鈦栓 + 1 條吊帶 |
-| Scorpion | 7b | 5.12b | 33 m | The Lounge | ★★★；**確保點前有兩支岩栓，走左邊的線** |
-| Rex Kwan-Do | 7b | 5.12b | 17 m | The Lounge | ★★；全鈦栓 |
-| Grace | 7a | 5.11d | 22 m | The Mezzanine | ★★★；與 Hunting Shrooms 共用起步後往右 |
-| Hunting Shrooms | 6c+ | 5.11c | 24 m | The Mezzanine | ★★★；與 Grace 共用起步，第 4 支快扣後往左 |
-| Scarface | 7a+ | 5.12a | 35 m | The Mezzanine | ★★；Trippin' 或 Hunting Shrooms 的延伸 |
-| Hobbit Jump | 7b | 5.12b | 30 m | The Mezzanine | ★★★；Hobbit Hop 的延伸；全鈦栓 |
-| Renegades of Funk | 7c | 5.12d | 22 m | The Mezzanine | ★★★；全鈦栓 |
-| Middle Path | 7c | 5.12d | 32 m | The Lounge | ★★★；Kaeng Raeng 的延伸；**需要 70 公尺繩** |
+| 8ish | 7b+ | 5.12c | 25 m | The Ego Free Zone / Main face | ★★★；全鈦栓 |
+| 8ish P1 | 7a/a+ | 5.11d | 20 m | The Ego Free Zone / Main face | ★★ |
+| A Pinch Tu-far | 7c | 5.12d | 10 m | Hearth Cave | ★★★；陡牆、薄 tufa，又短又辣 |
 | Ain't Nobody Got Time | 7b | 5.12b | 25 m | Sweet Brown Wall | ★★★；全鈦栓 |
-| There's a Fire | 7c | 5.12d | 25 m | Sweet Brown Wall | ★★★；與 Lord Jesus 同起步後走右邊的岩栓線；全鈦栓 |
-| Bronchitis | 7b+ | 5.12c | 20 m | Sweet Brown Wall | ★★★；全鈦栓 |
+| Alien | 7b+ | 5.12c | 50 m | The Mezzanine / Main face | ★★★；Hobbit Hop 與 Hobbit Jump 的延伸，一路走薄黑 tufa；8 支鈦栓 |
 | Alpha Male | 7c | 5.12d | — | Machete Wall | ★★★；石階頂端、小樹後面；走 arete 右側 |
-| Yaba Youth | 7b+ | 5.12c | 23 m | Machete Wall | ★★★ |
+| Baby White Tiger | 7b+ | 5.12c | 35 m | The Mezzanine / Main face | ★★；Scarface 起步，第 5 支快扣後往右橫切上 slab |
+| Beached Whale | 7a | 5.11d | 15 m | The Cave / Hoi Cave | ★★；抱石起步配大 jug，通到 Beached Whale ledge 後接漂亮的屋簷 |
+| Beached Whale - Extension | 7a | 5.11d | — | The Cave / Hoi Cave | ★★；越過 Beached Whale 的確保點直上牆頂 |
+| Bronchitis | 7b+ | 5.12c | 20 m | Sweet Brown Wall | ★★★；全鈦栓 |
+| Burleigh But Sensitive | 7b | 5.12b | 25 m | The Ego Free Zone / Main face | ★★★；從 Finding Nemo 起步，繼續上 arete |
+| Captain Ahab | 7b+ | 5.12c | — | The Cave / Hoi Cave | ★★★；Moby-Dick 的延伸，靠左靠傲地穿過屋簷 |
+| Chasing Windmills | 7c+ | 5.13a | — | The Lounge / Main face | Pill Box 右邊 |
+| Cold Pop | 7a+ | 5.12a | 15 m | Sweet Brown Wall | ★★★；全鈦栓 |
 | Eagle Claw / Machete master | 7b | 5.12b | 24 m | Machete Wall | ★；Mike Weitzman 與朋友 |
+| Eminem | 7a | 5.11d | 10 m | Hearth Cave | ★★；「他的手心冒汗、膝蓋發軟、雙臂沉重⋯⋯」 |
+| Fin de Chalam | 7a | 5.11d | 20 m | Hearth Cave | ★★；Chong Phli Posse 最左的延伸，離地 31 m |
+| Free Blast | 7b+ | 5.12c | 40 m | The Mezzanine / Main face | ★★★；Hobbit Jump 的確保點後往左橫切到裂縫；**80 公尺繩才回得了地面** |
 | French Blow | 7b | 5.12b | 23 m | Machete Wall | ★★；Doctor Zeus 的延伸，正向 crimp 接 jug rails |
+| Grace | 7a | 5.11d | 22 m | The Mezzanine / Main face | ★★★；與 Hunting Shrooms 共用起步後往右 |
+| Hidden Gem | 7a | 5.11d | 20 m | The Ego Free Zone / Main face | ★★；紅色固定快扣；**很漂亮的動作** |
+| Hobbit Jump | 7b | 5.12b | 30 m | The Mezzanine / Main face | ★★★；Hobbit Hop 的延伸；全鈦栓 |
 | Hopeful Parents | 7c | 5.12d | 25 m | The Far Side | ★★★；最美的一區最左邊，約在主區左 15 公尺 |
+| I Am Ironman / Ironman | 7c+ | 5.13a | 34 m | The Mezzanine / Main face | ★★；Exposure 上方的延伸 |
+| Ice-9 | 7a+ | 5.12a | 33 m | The Lounge / Main face | Scorpion 但走兩條岩栓線中較右的一條 |
+| Ice-9 (Direct) | 7c+ | 5.13a | 33 m | The Lounge / Main face | 與 Ice-9 相同但不用四指加工的攀點 |
+| J-dog | 7b+ | 5.12c | — | The Lounge / Main face | ★★；與 Kaeng Raeng 同起步，第 3 支快扣後往右到 crimpy 角落 |
+| Kaeng Raeng | 7b | 5.12b | 21 m | The Lounge / Main face | ★★★；與 Pill Box 共用起步 |
+| Liam 'The Birdman' Byrne | 7a | 5.11d | 25 m | The Cave / Hoi Cave | ★★★；**可能是泰國同級距裡最陡的一條** |
+| Man | 7b+ | 5.12c | 21 m | The Lounge / Main face | ★★★；好岩質，高處有技術性 crux |
+| Mantally Ill P1 / Mentally Ill P1 | 7a/a+ | 5.11d | 20 m | The Ego Free Zone / Main face | ★★ |
+| Mantally iII / Mentally Ill | 7b | 5.12b | 25 m | The Ego Free Zone / Main face | ★★ |
+| Middle Path | 7c | 5.12d | 32 m | The Lounge / Main face | ★★★ |
+| Moby-Dick | 7b | 5.12b | 25 m | The Cave / Hoi Cave | ★★；穿過壯觀屋簷的大 jug；與 Captain Ahab 共用確保點 |
+| Mouse | 7b | 5.12b | 21 m | The Lounge / Main face | ★★★；與 Man 同起步但往右橫切到大洞 |
+| Old School | 7a+ | 5.12a | 18 m | Wild Child Wall | ★★★；3 支鈦栓 + 1 條吊帶 |
+| POP / Pussy on Pedestal | 7c | 5.12d | 10 m | The Cave / Hoi Cave | 2 支鈦栓 + 2 條吊帶；2013 年打栓？ |
+| Piranha | 7a | 5.11d | 21 m | The Ego Free Zone / Main face | ★★；與 Red Herring 共用前三支快扣 |
+| Rage Against The Machine | 7c+/8a | 5.13a | — | The Mezzanine / Main face | ★★★；Renegades of Funk 右邊；全鈦栓 |
+| Red Herring | 7b+ | 5.12c | 21 m | The Ego Free Zone / Main face | ★★★；從 Piranha 起步，平台處走左手線結束 |
+| Renegades of Funk | 7c | 5.12d | 22 m | The Mezzanine / Main face | ★★★；全鈦栓 |
+| Rex Kwan-Do | 7b | 5.12b | 17 m | The Lounge / Main face | ★★；全鈦栓 |
+| Right Hand Man | 7c+ | 5.13a | 55 m | The Mezzanine / Main face | Scarface 的右手延伸；全鈦栓 |
+| Roaring Kitty | 7c | 5.12d | 12 m | The Cave / Hoi Cave | ★★；短而抱石，/epic sloper、終點的 glory jug |
+| Scarface | 7a+ | 5.12a | 35 m | The Mezzanine / Main face | ★★；Trippin' 或 Hunting Shrooms 的延伸 |
+| Scorpion | 7b | 5.12b | 33 m | The Lounge / Main face | ★★★；**確保點前有兩支岩栓，走左邊的線** |
+| Shoes | 7c+ | 5.13a | 20 m | Sweet Brown Wall | ★★★；全鈦栓 |
+| Slab Royal | 7c | 5.12d | 33 m | The Ego Free Zone / Main face | ★★；沿 Hook Line Sinker 的 arete 上去，**可以用 70 公尺繩爬** |
+| Soulshine | 7a+ | 5.12a | 15 m | Music Wall | ★★；大 ledge 左手邊，細裂縫起步 |
+| Superstition | 7a+ | 5.12a | 15 m | The Lounge / Main face | ★★★；全鈦栓；鈦栓確保環（2022） |
+| Tetris | 7c | 5.12d | — | The Ego Free Zone / Main face | ★★；Buzzsaw／Seesaw 上方的延伸；「超讚！crimp 樂趣」 |
+| There's a Fire | 7c | 5.12d | 25 m | Sweet Brown Wall | ★★★；與 Lord Jesus 同起步後走右邊的岩栓線；全鈦栓 |
+| Trippin' | 7b | 5.12b | 20 m | The Mezzanine / Main face | ★★；4 支鈦栓 + 5 條吊帶 |
+| Walking on the Moon | 7c+ | 5.13a | 20 m | Music Wall | ★★；直接走左手邊角落，sloper、smear 與 pocket |
+| Yaba Youth | 7b+ | 5.12c | 23 m | Machete Wall | ★★★ |
 
 ### 高手：8a 以上（YDS 5.13b 以上）
 
-**Chong Phli 有本系列最密集的 8 字頭。** 而且其中幾條是「開放專案」——有人開了線、但級數還在確認中。
-
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
 |---|---|---|---|---|---|
-| Mainlander | 8a/a+ | 5.13b | 15 m | The Lounge | ★★；與 Babies in the Sky 共用確保點；全鈦栓 |
-| Singa-Paw | 8a | 5.13b | — | The Lounge | ★★★；Rex Kwan-Do 的延伸 |
-| Slap and Tickle | 8a | 5.13b | 26 m | The Lounge | ★★★；Superstition 的第二段；全鈦栓 |
-| Red Planet | 8a | 5.13b | 33 m | The Lounge | ★★★；Pill Box 的第二段；5 支鈦栓 |
-| Scorpion (Direct) | 8a | 5.13b | 33 m | The Lounge | ★；**不要用那個四指加工的攀點** |
-| Scorpion Queen 🦂 | 8b+/c | 5.14a | 40 m | The Lounge | ★★★；**開放專案**，70 公尺繩，末端打結 |
-| Mars Attacks (Red Planet Ext). | 8c/c+ | 5.14b | 40 m | The Lounge | ★★★；**開放專案**；**80 公尺繩，末端打結** |
-| Predator | 8a | 5.13b | 40 m | The Ego Free Zone | ★★★；Piranha 的延伸，漂亮的動態面攀接困難轉接 |
-| KGB Extreme | 8b | 5.13d | 30 m | The Ego Free Zone | ★★★；「酷炫的 bulge 起步，過 ledge 進入難的白 slab 屋簷，最後以超棒的角落結束」；DnD 與 #krabiboltingfund，2023-05-08 |
-| Kingpin | 8a | 5.13b | 55 m | The Mezzanine | ★★★；Scarface 的左手延伸；全鈦栓 |
-| Sumo King | 8a+ | 5.13c | 65 m | The Mezzanine | ★★★；Kingpin 的延伸，**這條爬到頂**；全鈦栓 |
-| Right Hand Man | 7c+ | 5.13a | 55 m | The Mezzanine | ★；Scarface 的右手延伸；全鈦栓 |
-| White Tiger (Direct) | 8a+ | 5.13c | 35 m | The Mezzanine | ★★★；全鈦栓 |
-| White Lion | 8b | 5.13d | 35 m | The Mezzanine | ★★★；與 Grace 同起步，確保點後上屋簷；全鈦栓 |
-| Snow Leopard | 8b | 5.13d | — | The Mezzanine | ★★★；「沿著薄橘色 tufa 鰭上頭牆，動作精采，megaclassic」 |
-| Iron Blast | 8a | 5.13b | — | The Mezzanine | ★★★；Ironman 接 Free Blast；Mickey Muscles，2026-03-03 |
-| I Am Ironman / Ironman | 7c+ | 5.13a | 34 m | The Mezzanine | ★★；Exposure 上方的延伸 |
-| Lord Jesus | 8a | 5.13b | 25 m | Sweet Brown Wall | ★；與 There's a Fire 共用起步後走左邊的岩栓線；全鈦栓 |
 | Frankenstein - Open Project | 8c/c+ | 5.14b | 30 m | Machete Wall | ★★★；**開放專案**；「史詩般的攀爬！絕對經典！請試試」；14 支鈦栓 |
-| Wild Child | 8a | 5.13b | 18 m | Wild Child Wall | 0 星；**級數未確認**；5 支鈦栓 + 1 條吊帶 |
+| Iron Blast | 8a | 5.13b | — | The Mezzanine / Main face | ★★★；Ironman 接 Free Blast |
+| KGB Extreme | 8b | 5.13d | 30 m | The Ego Free Zone / Main face | ★★★ |
+| Kingpin | 8a | 5.13b | 55 m | The Mezzanine / Main face | ★★★；Scarface 的左手延伸；全鈦栓 |
+| Lord Jesus | 8a | 5.13b | 25 m | Sweet Brown Wall | 與 There's a Fire 共用起步後走左邊的岩栓線；全鈦栓 |
+| Mainlander | 8a/a+ | 5.13b | 15 m | The Lounge / Main face | ★★；與 Babies in the Sky 共用確保點；全鈦栓 |
+| Mars Attacks (Red Planet Ext). | 8c/c+ | 5.14b | 40 m | The Lounge / Main face | ★★★；**開放專案**；**80 公尺繩，末端打結** |
+| Predator | 8a | 5.13b | 40 m | The Ego Free Zone / Main face | ★★★ |
 | RTT / Rubber Tapping Tranny | 8a | 5.13b | 20 m | Wild Child Wall | ★★★；級數由 fedor 與 tim 確認 |
-| A Pinch Tu-far | 7c | 5.12d | 10 m | Hearth Cave | ★★★；陡牆、薄 tufa，又短又辣 |
-| Fin de Chalam | 7a | 5.11d | 20 m | Hearth Cave | ★★；Chong Phli Posse 最左的延伸，離地 31 m |
-| Eminem | 7a | 5.11d | 10 m | Hearth Cave | ★★；「他的手心冒汗、膝蓋發軟、雙臂沉重⋯⋯」 |
-| Soulshine | 7a+ | 5.12a | 15 m | Music Wall | ★★；大 ledge 左手邊，細裂縫起步 |
-| Walking on the Moon | 7c+ | 5.13a | 20 m | Music Wall | ★★；直接走左手邊角落，sloper、smear 與 pocket |
+| Red Planet | 8a | 5.13b | 33 m | The Lounge / Main face | ★★★；Pill Box 的第二段；5 支鈦栓 |
+| Scorpion (Direct) | 8a | 5.13b | 33 m | The Lounge / Main face | **不要用那個四指加工的攀點** |
+| Scorpion Queen 🦂 | 8b+/c | 5.14a | 40 m | The Lounge / Main face | ★★★ |
+| Singa-Paw | 8a | 5.13b | — | The Lounge / Main face | ★★★；Rex Kwan-Do 的延伸 |
+| Singa-Paw Slap! | 8b | 5.13d | — | The Lounge / Main face | ★★★；Singa-Paw 結束處站起來橫切進 Slap & Tickle |
+| Slap and Tickle | 8a | 5.13b | 26 m | The Lounge / Main face | ★★★；Superstition 的第二段；全鈦栓 |
+| Sling Shot | — | — | — | The Cave / Hoi Cave | 從 Beached Whale 起步，第 2 支快扣後往右 |
+| Snow Leopard | 8b | 5.13d | — | The Mezzanine / Main face | ★★★；「沿著薄橘色 tufa 鰭上頭牆，動作精采，megaclassic」 |
+| Sumo King | 8a+ | 5.13c | 65 m | The Mezzanine / Main face | ★★★；Kingpin 的延伸，**這條爬到頂**；全鈦栓 |
+| White Lion | 8b | 5.13d | 35 m | The Mezzanine / Main face | ★★★；與 Grace 同起步，確保點後上屋簷；全鈦栓 |
+| White Tiger (Direct) | 8a+ | 5.13c | 35 m | The Mezzanine / Main face | ★★★；Grace 起步，確保點前往左過屋簷；全鈦栓 |
+| Wild Child | 8a | 5.13b | 18 m | Wild Child Wall | 0 星；**級數未確認**；5 支鈦栓 + 1 條吊帶 |
 
-**這裡的「開放專案」是特色，不是缺點。** Scorpion Queen、Mars Attacks 與 Frankenstein 三條 8 級線都是有人開了但級數還在確認中。**如果你想爬的是「全泰最難」而不是「已有共識級數最難」，這三條就是目標。**
+
 
 ## 查資料的入口
 

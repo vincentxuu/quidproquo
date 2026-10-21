@@ -14,8 +14,10 @@
 - 🟢 三條 8 級開放專案（Scorpion Queen 8b+/c、Mars Attacks 8c/c+、Frankenstein 8c/c+）：theCrag 描述原文標「OPEN PROJECT」「please try」，正文明寫「有人開了但級數還在確認中」。
 - 🟢 嵌岩栓：Shrek（6a+）8 條繩環、Rampage（6c+）4 支岩栓、Momentum（6b+）第一條吊帶可能要 stick-clip、Eightish 全鈦栓：逐條核對。
 
-- 🟢 **完整抓取後的規模**：theCrag 收 157 條，10 個子區（Ego Free Zone 32、The Lounge 25、The Mezzanine 25、Machete Wall 21、Hearth Cave 15、The Cave 11、The Far Side 10、Music Wall 8、Sweet Brown Wall 6、Wild Child Wall 4）合計 146 條，另 11 條在 theCrag 的子區頁未列出。
-- 🟢 Hearth Cave 15 條、Music Wall 8 條、Wild Child Wall 4 條逐條核對，含岩栓警告（Dude Abides「確保點快扣會張很開、起步繩芯外露」、Stone Rider「確保點快扣開得很緊」）與 Wild Child 8a「級數未確認」。
+- 🟢 **完整抓取後的規模**：theCrag 收 157 條，10 個子區（Ego Free Zone 32、The Lounge 25、The Mezzanine 25、Machete Wall 21、Hearth Cave 15、The Cave / Hoi Cave 11、The Far Side 10、Music Wall 8、Sweet Brown Wall 6、Wild Child Wall 4）合計 157 條，與 theCrag 頁面標題數一致。
+- 🟢 **路線表由資料重新生成**：`.work/research/thailand-crags/chong-phli-tables.mjs` 直接讀 `routes/chong-phli/_all.json` 產出四張級距表，YDS 換算邏輯與 `scripts/climbing-grade-convert.mjs` 的 `toYds()` 完全一致（同一張 FR 表、同一個複合級數取法、近似級加「約」）。**先前手寫的表把 Hearth Cave 與 Music Wall 的 6a、6b 級路線誤放進「進階」表，已改由腳本重產生修正。**
+- 🟢 中英兩版 157 列逐列比對：路線名集合相同、FR 級數／YDS／長度／子區 0 差異、星等數 0 差異。
+- 🟢 Hearth Cave、Music Wall、Wild Child Wall、The Cave / Hoi Cave 的岩栓警告逐條核對（Dude Abides「確保點快扣會張很開、起步繩芯外露」、Stone Rider「確保點快扣開得很緊」、Wild Child 8a「級數未確認」）、The Cave 的 Owl nest 警告。
 
 ## post-review
 

@@ -160,6 +160,17 @@
 - Wild Child Wall: 7a+ Old School 18 m ★3
 - Wild Child Wall: 8a RTT / Rubber Tapping Tranny 20 m ★3
 - Wild Child Wall: 6b+ Indi'Jan'a Jones 25 m ★3
+- The Cave / Hoi Cave: 5c Lady Bug 10 m ★1
+- The Cave / Hoi Cave: 7c POP / Pussy on Pedestal 10 m
+- The Cave / Hoi Cave: 6b Pac Man 15 m ★2
+- The Cave / Hoi Cave: 7b Moby-Dick 25 m ★2
+- The Cave / Hoi Cave: 7b+ Captain Ahab ★3
+- The Cave / Hoi Cave: 7a Beached Whale 15 m ★2
+- The Cave / Hoi Cave: 7a Beached Whale - Extension ★2
+- The Cave / Hoi Cave: Sling Shot
+- The Cave / Hoi Cave: 7c Roaring Kitty 12 m ★2
+- The Cave / Hoi Cave: 6c+ Via Ferrata 15 m
+- The Cave / Hoi Cave: 7a Liam 'The Birdman' Byrne 25 m ★3
 
 ## Dropped / not used
 
