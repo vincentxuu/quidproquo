@@ -211,6 +211,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'korea-crags',
+    category: 'climbing',
+    names: { 'zh-TW': '韓國岩場', en: 'Korea Climbing Crags' },
+    descriptions: {
+      'zh-TW': '從首爾花崗岩多段到地方運攀與濟州抱石，按風格、程度、季節與交通選目的地。每個岩場分開介紹路線、接近方式、在地規範與指南書。',
+      en: 'Choose Korean climbing destinations by style, grade, season and transport, from Seoul granite multipitch to regional sport climbing and Jeju bouldering. Each crag guide covers routes, approaches, local rules and guidebooks.',
+    },
+  },
+  {
     slug: 'climbing-gear-travel',
     category: 'climbing',
     names: { 'zh-TW': '出國攀岩裝備', en: 'Climbing Travel Gear' },

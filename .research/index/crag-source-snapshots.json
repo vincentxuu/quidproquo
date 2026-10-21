@@ -8459,5 +8459,88 @@
     "hash": "83d1864bf0fc21b0",
     "via": "jina",
     "bytes": 35060
+  },
+  "https://www.mountainproject.com/area/106798792/munsusan-ulsanbusan-area": {
+    "firstSeen": "2026-10-20",
+    "status": 200,
+    "checked": "2026-10-20",
+    "crags": [
+      "korea-crags-overview"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "9be0d9dbe1e55e0f",
+    "via": "direct",
+    "bytes": 139589
+  },
+  "https://climbonkorea.com/ganhyeon/": {
+    "firstSeen": "2026-10-20",
+    "status": 200,
+    "checked": "2026-10-20",
+    "crags": [
+      "korea-crags-overview"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "9188eaf9176d9cd7",
+    "via": "direct",
+    "bytes": 140146
+  },
+  "https://res.knps.or.kr/community/board/notice/boardDetail.do?seq=29026": {
+    "firstSeen": "2026-10-20",
+    "status": 200,
+    "checked": "2026-10-20",
+    "crags": [
+      "korea-crags-overview"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "435dbcd72f7c7f83",
+    "via": "direct",
+    "bytes": 24173
+  },
+  "https://english.visitseoul.net/seoul-hiking/Sweeping-views-of-Seoul-Baegundae%E2%80%93-Ui-Gugok-Trail/ENN042345": {
+    "firstSeen": "2026-10-20",
+    "status": 200,
+    "checked": "2026-10-20",
+    "crags": [
+      "korea-crag-insubong"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 2,
+    "missing": [
+      "2024-01-31",
+      "2026-10-21"
+    ],
+    "hash": "e0019e7365e5f56d",
+    "via": "direct",
+    "bytes": 161075
+  },
+  "http://www.cac.or.kr/eng/sub1/sub1_09.php": {
+    "firstSeen": "2026-10-20",
+    "status": 200,
+    "checked": "2026-10-20",
+    "crags": [
+      "korea-crag-insubong"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "f4f5817aee370f51",
+    "via": "direct",
+    "bytes": 25835
   }
 }
