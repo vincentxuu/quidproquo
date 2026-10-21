@@ -101,6 +101,13 @@ Tugu 的歷史高難線已有具名紀錄；先用當代 topo 核對起攀、延
 | Crazy Man／크레이지맨 | 5.13b | 5.13b | 16 m | Tugu／투구바위 | 2012 Climb p.106 |
 | Automatic／오토매틱 | 5.14a | 5.14a | 20 m | Tugu／투구바위 | 2012 Climb p.106 |
 
+## 看實際攀登
+
+```video-gallery
+key: seonunsan
+lang: zh-TW
+```
+
 ## 查資料的入口
 
 - [2020 高敞親訪](https://moredaysoff.wordpress.com/2020/07/01/the-south-korean-sport-climbing-of-seonusan-best-area-korea-and-halmae-bawi/)：比較三區風格；不採其舊價格與班號。

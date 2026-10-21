@@ -97,6 +97,13 @@ Ladder、Snake & Rat、Orcher Color 是可對照的具名目標；8 公尺的線
 
 2012 書本採用的具名表沒有這個級距。2020 親訪雖提更高上限，沒有足夠具名線位可在此補表；來源沒列，不硬湊。
 
+## 看實際攀登
+
+```video-gallery
+key: halmae-bawi
+lang: zh-TW
+```
+
 ## 查資料的入口
 
 - [高敞官方 Halmae 頁](https://www.gochang.go.kr/board/view.gochang?boardId=BBS_0000398&dataSid=772675&menuCd=DOM_000000401005000000)：確認高敞地址，避免同名混淆；細部停車與土地安排仍須詢問。

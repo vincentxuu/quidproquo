@@ -97,6 +97,13 @@ Ladder, Snake & Rat and Orcher Color provide named objectives. Eight metres does
 
 The adopted 2012 named table has no route in this band. A higher general limit in the 2020 account is insufficient to identify a route here; none is invented.
 
+## Watch the climbs
+
+```video-gallery
+key: halmae-bawi
+lang: en
+```
+
 ## Where to look things up
 
 - [Official Gochang Halmae page](https://www.gochang.go.kr/board/view.gochang?boardId=BBS_0000398&dataSid=772675&menuCd=DOM_000000401005000000): establish the correct location; ask separately about parking and land arrangements.

@@ -102,6 +102,13 @@ Seonam begins with a 5.12c pitch, rather than easing into a harder objective. Ob
 
 The sources used here provide no verified route to list in this band. If hard sport climbing is the trip's main purpose, do not infer the entire crag's distribution from this selection. Compare sport venues such as Seonunsan, then decide whether to reserve a separate granite multipitch day.
 
+## Watch the climbs
+
+```video-gallery
+key: seoninbong
+lang: en
+```
+
 ## Where to look things up
 
 - **Management and trails:** [KNPS live controls](https://www.knps.or.kr/front/portal/safe/acsCtrList.do?menuNo=8000340); identify the Bukhansan Dobong office and confirm named lines with management.

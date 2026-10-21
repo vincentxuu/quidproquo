@@ -93,6 +93,13 @@ Elida 與 Gold Medal 可用來比較同一岩場不同難度；若主要目標�
 
 本篇採用的可定位具名路線沒有達到此級距者；來源沒列，不補推測線。2024 導覽的上限描述不能代替一條具名 topo。
 
+## 看實際攀登
+
+```video-gallery
+key: ganhyeon
+lang: zh-TW
+```
+
 ## 查資料的入口
 
 - [FLASH 艮峴路線頁](https://flash.climblog.kr/routes?crag=간현암)：對照韓文路線名、拆開列的繩距與 beta。

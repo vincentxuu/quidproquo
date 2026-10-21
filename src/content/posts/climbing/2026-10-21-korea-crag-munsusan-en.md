@@ -97,6 +97,13 @@ Hyeongong OB and Union offer harder named objectives. Identify the sector as wel
 
 The adopted precisely graded selection contains no route here. Vision is recorded only as 5.13*, without a letter; it cannot be assigned to 5.13b or above.
 
+## Watch the climbs
+
+```video-gallery
+key: munsusan
+lang: en
+```
+
 ## Where to look things up
 
 - [MP Munsusan](https://www.mountainproject.com/area/106798792/munsusan-ulsanbusan-area): sectors, sunshine and approach photographs, not current fares or hardware assurances.

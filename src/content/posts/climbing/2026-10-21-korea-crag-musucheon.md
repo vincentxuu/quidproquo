@@ -100,6 +100,13 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 所用北區表沒有列出這個級距的具名線。要以更高難度為旅行主軸，先找目前的在地完整 topo；不能從「還有未定級路線」推論一定有合適專案。
 
+## 看實際攀登
+
+```video-gallery
+key: musucheon
+lang: zh-TW
+```
+
 ## 查資料的入口
 
 - **地理與旅遊**：[Visit Jeju 無水川](https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500196)，辨認溪谷位置；不當作攀岩通行證。

@@ -10,6 +10,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { remarkReadingTime } from './src/plugins/remarkReadingTime.ts';
 import { remarkYoutubeEmbed } from './src/plugins/remarkYoutubeEmbed.ts';
 import { remarkVideoPractice } from './src/plugins/remarkVideoPractice.ts';
+import { remarkVideoGallery } from './src/plugins/remarkVideoGallery.ts';
 import { remarkFlowDiagram } from './src/plugins/remarkFlowDiagram.ts';
 import { remarkDiagram } from './src/plugins/remarkDiagram.ts';
 import { remarkMathOptIn } from './src/plugins/remarkMathOptIn.ts';
@@ -398,7 +399,7 @@ export default defineConfig({
     processor: unified({
       smartypants: false,
       // remarkMathOptIn 必須排第一：它替 frontmatter 有 math: true 的文章重新解析，後面的 plugin 才看得到數學節點。
-      remarkPlugins: [remarkMathOptIn, remarkReadingTime, remarkYoutubeEmbed, remarkVideoPractice, remarkFlowDiagram, remarkDiagram],
+      remarkPlugins: [remarkMathOptIn, remarkReadingTime, remarkYoutubeEmbed, remarkVideoPractice, remarkVideoGallery, remarkFlowDiagram, remarkDiagram],
       rehypePlugins: [rehypeKatex, rehypeExternalLinks, rehypeLazyImages],
     }),
   },

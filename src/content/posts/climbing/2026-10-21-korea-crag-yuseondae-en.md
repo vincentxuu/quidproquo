@@ -94,6 +94,13 @@ The sources used here do not establish a route in the 5.11d–5.13a band. Do not
 
 The sources used here do not establish a route at 5.13b or above. If that is your main sport-climbing target, compare other areas and consider Yuseondae as a different kind of day.
 
+## Watch the climbs
+
+```video-gallery
+key: yuseondae
+lang: en
+```
+
 ## Where to look things up
 
 - **Transport:** [Sokcho's official timetable](https://bis.sokcho.go.kr/schedule) for the two operators' 7/7-1 services; select your boarding stop separately.

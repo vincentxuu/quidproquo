@@ -101,6 +101,13 @@ Short lower-wall routes also provide harder objectives: a taller wall is not aut
 
 The guide used here lists no named route in this band. If harder sport climbing is the main purpose of your trip, obtain the current local topo and establish enough objectives before allocating a full day to Daeryuk-bong.
 
+## Watch the climbs
+
+```video-gallery
+key: daeryukbong
+lang: en
+```
+
 ## Where to look things up
 
 - **Management:** [KNPS Geumjeongsan](https://juwang.knps.or.kr/front/portal/visit/visitCourseMain.do?menuNo=7020102&parkId=122800) for park notices and relevant cliff rules.

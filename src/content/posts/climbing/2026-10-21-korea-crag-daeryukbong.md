@@ -101,6 +101,13 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 所用指南沒有列出這一級距的具名線。如果旅行主要目標是更高難度運攀，先取得在地完整路線資料，確認有足夠目標再把整天排給大陸峰。
 
+## 看實際攀登
+
+```video-gallery
+key: daeryukbong
+lang: zh-TW
+```
+
 ## 查資料的入口
 
 - **管理資訊**：[KNPS 金井山](https://juwang.knps.or.kr/front/portal/visit/visitCourseMain.do?menuNo=7020102&parkId=122800)，找公園公告與適用岩壁規範。

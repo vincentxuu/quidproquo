@@ -97,6 +97,13 @@ Hyeongong OB 與 Union 提供更難的具名線；先確認子區，別只拿英
 
 採用的可明確分級具名線沒有這個級距。書中的 Vision 只寫 5.13*，缺abc，不能自行把它補成 5.13b以上；來源沒列，不硬湊。
 
+## 看實際攀登
+
+```video-gallery
+key: munsusan
+lang: zh-TW
+```
+
 ## 查資料的入口
 
 - [Mountain Project 文殊山頁](https://www.mountainproject.com/area/106798792/munsusan-ulsanbusan-area)：上下區、日照與接近照片線索；2020 車資與硬體資訊不當現況。

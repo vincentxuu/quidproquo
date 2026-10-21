@@ -7,6 +7,7 @@ import { ChatFloating } from '../components/Chat/ChatFloating';
 import '../styles/tokens.css';
 import '../styles/chat.css';
 import '../styles/videoPractice.css';
+import '../styles/videoGallery.css';
 import '../styles/flowDiagram.css';
 import '../styles/diagram.css';
 import 'katex/dist/katex.min.css';
@@ -1480,6 +1481,7 @@ const pageTitle =
 <script>
   import { initYoutubeClipLoops, disposeYoutubeClipLoops, handleYoutubeTimeLinkClick } from '../lib/youtubeClipLoop';
   import { initVideoPractice, disposeVideoPractice } from '../lib/videoPractice';
+  import { initVideoGallery, disposeVideoGallery } from '../lib/videoGallery';
   import { initFlowDiagrams, disposeFlowDiagrams } from '../lib/flowDiagram';
   initFlowDiagrams();
   document.addEventListener('astro:page-load', initFlowDiagrams);
@@ -1489,6 +1491,10 @@ const pageTitle =
   document.addEventListener('astro:page-load', initVideoPractice);
   document.addEventListener('astro:before-swap', disposeVideoPractice);
   window.addEventListener('pagehide', disposeVideoPractice);
+  initVideoGallery();
+  document.addEventListener('astro:page-load', initVideoGallery);
+  document.addEventListener('astro:before-swap', disposeVideoGallery);
+  window.addEventListener('pagehide', disposeVideoGallery);
   void initYoutubeClipLoops();
   document.addEventListener('click', handleYoutubeTimeLinkClick);
   document.addEventListener('astro:page-load', () => { void initYoutubeClipLoops(); });

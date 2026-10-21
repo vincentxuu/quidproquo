@@ -98,6 +98,13 @@ Venus warrants more preparation than its old 5.10c label suggests. The 2025 feat
 
 The sources used here do not establish a route at 5.13b or above. The full ridge also cannot be judged by its hardest move alone: repeated descents, navigation and endurance determine completion.
 
+## Watch the climbs
+
+```video-gallery
+key: ulsanbawi
+lang: en
+```
+
 ## Where to look things up
 
 - **Transport:** [Sokcho's official timetable](https://bis.sokcho.go.kr/schedule) for the two operators' 7/7-1 services; select your boarding stop separately.

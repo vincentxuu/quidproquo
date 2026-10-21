@@ -99,6 +99,13 @@ Tugu has historical named hard routes. Verify starts, extensions and hardware ag
 | Crazy Man／크레이지맨 | 5.13b | 5.13b | 16 m | Tugu／투구바위 | 2012 Climb p.106 |
 | Automatic／오토매틱 | 5.14a | 5.14a | 20 m | Tugu／투구바위 | 2012 Climb p.106 |
 
+## Watch the climbs
+
+```video-gallery
+key: seonunsan
+lang: en
+```
+
 ## Where to look things up
 
 - [2020 Gochang visit](https://moredaysoff.wordpress.com/2020/07/01/the-south-korean-sport-climbing-of-seonusan-best-area-korea-and-halmae-bawi/): sector styles; do not copy its prices or bus numbers.

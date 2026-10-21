@@ -93,6 +93,13 @@ Compare Wave, Green and Sintoburi, then locate the Korean names on a current top
 
 No precisely identified route in the adopted selection reaches this band. The source selection does not list one; a general 2024 upper-grade description is not a named topo.
 
+## Watch the climbs
+
+```video-gallery
+key: ganhyeon
+lang: en
+```
+
 ## Where to look things up
 
 - [FLASH Ganhyeon](https://flash.climblog.kr/routes?crag=간현암): Korean names, separately listed pitches and beta.

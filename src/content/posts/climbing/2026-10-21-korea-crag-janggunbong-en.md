@@ -98,6 +98,13 @@ The route named My Beloved One Born on October First has its 5.12a pitch second 
 
 The sources used here do not establish a route at 5.13b or above. If hard single-pitch climbing is the primary goal, the full-day multipitch logistics may not match the trip.
 
+## Watch the climbs
+
+```video-gallery
+key: janggunbong
+lang: en
+```
+
 ## Where to look things up
 
 - **Transport:** [Sokcho's official timetable](https://bis.sokcho.go.kr/schedule) for the two operators' 7/7-1 services; select your boarding stop separately.

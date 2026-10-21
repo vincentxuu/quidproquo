@@ -73,18 +73,22 @@ For an emergency, call **119**; the [National Fire Agency's EMS information](htt
 
 YDS and V-grade conversions follow the [Mountain Project international grade comparison chart](https://www.mountainproject.com/international-climbing-grades) and are approximate; "approx." marks grades the sources give without a/b/c (such as 4 or 5+). The original grade is the one that counts.
 
+**This table is a mixed collection, not an East Face route list.** The beginner band includes everything the 2012 guide and [theCrag's Insubong page](https://www.thecrag.com/en/climbing/south-korea/insubong) list, including lines that need aid (A0/A1) and lines that are not on the East Face. Above that band it keeps only routes the 2012 guide and the 2025 East Face topo both cover, because there is no second source to cross-check. A leading "2025 ✓/—" in Notes says whether the route appears on the 2025 East Face topo; "—" does not mean the route is missing, only that the topo covers the East Face alone.
+
 **These sources already use YDS, which is retained rather than reverse-converted to French grades; the YDS column repeats the original grade without a conversion.** A multipitch grade describes climbing difficulty; A0, A1 and A2 denote aid and must not be dropped. Lengths and pitch counts mainly come from the 2012 guide and identify that version, rather than supplying current pitch or descent instructions.
 
 ### Beginner: up to 6a (YDS 5.10a and below)
 
-For classic moderate granite multipitch, compare **Insu A and Chouinard B** first. Both sources give 5.8. The old guide's Insu A is shorter; the longer Chouinard B puts more weight on team efficiency. “Beginner” here is a grade band, not a recommendation for a first outdoor lead.
+For the easiest line, start with **Lonely Road**: theCrag calls it the easiest route on Insubong, 5.6 in six pitches. **Pigeon** is only a grade harder, but its third pitch is aid, so it is not a free route, and it is the main descent line. For classic moderate granite multipitch, compare **Insu A and Chouinard B** first. Both sources give 5.8. The old guide's Insu A is shorter; the longer Chouinard B puts more weight on team efficiency. "Beginner" here is a grade band, not a recommendation for a first outdoor lead.
 
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Insu A / 인수 A | 5.8 (hardest) | 5.8 | 115 m / 4 pitches | East Face | Length from 2012 guide; 2025 topo also gives 5.8. |
-| Chouinard B / 취나드 B | 5.8 (hardest) | 5.8 | 2012 version: 177 m / 5 pitches | East Face | 2025 topo names Chouinard B–Kwibawi C; confirm the linkup and endpoint. |
-| Insu B / 인수 B | 5.9 (hardest) | 5.9 | 97 m / 3 pitches | Locate using guide | Single 2012 guide source; do not combine pitch counts from differently linked versions. |
-| Chouinard A / 취나드 A | 5.10a (2025 topo, hardest) | 5.10a | Depends on selected topo linkup | East Face | 2025 names Chouinard A–Kwibawi D. The 2012 overall grade is 5.10c but its listed pitches top out at 5.10a; its length is not spliced into the newer line. |
+| Lonely Road / 고독의 길 | 5.6 | 5.6 | 350 m / 6 pitches | West face | 2025 —; theCrag only, not in the 2012 guide or the East Face topo. theCrag calls it the easiest route on Insubong. |
+| Pigeon / 비둘기 (Pigeon Route) | 5.7 A0 (theCrag); 5.6 A1 (2012) | 5.7, plus A0 | 89 m / 4 pitches | West face | 2025 —; both sources list it but disagree on the aid rating (A0/A1); the third pitch is aid. This is also the descent line. |
+| Insu A / 인수 A | 5.8 (hardest) | 5.8 | 115 m / 4 pitches | East Face | 2025 ✓; length from 2012 guide; 2025 topo also gives 5.8. |
+| Chouinard B / 취나드 B | 5.8 (hardest) | 5.8 | 2012 version: 177 m / 5 pitches | East Face | 2025 ✓; 2025 topo names Chouinard B–Kwibawi C; confirm the linkup and endpoint. |
+| Insu B / 인수 B | 5.9 (hardest) | 5.9 | 97 m / 3 pitches (2012); theCrag gives 6 | Locate using guide | 2025 —; single 2012 guide source; do not combine pitch counts from differently linked versions. |
+| Chouinard A / 취나드 A | 5.10a (2025 topo, hardest) | 5.10a | 181 m / 6 pitches (2012) | East Face | 2025 ✓; 2025 names Chouinard A–Kwibawi D. The 2012 overall grade is 5.10c but its listed pitches top out at 5.10a; its length is not spliced into the newer line. |
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
@@ -92,8 +96,8 @@ Consider **Wand** if slab difficulty is a priority. The versions differ by a gra
 
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Wand / 봔트 | 5.10b (2025); 5.10c (2012) | 5.10b / 5.10c | 2012 version: 162 m / 4 pitches | East Face | 2025 topo 5.10b versus 2012 guide 5.10c; length belongs to the old version. |
-| Maninbo / 만인보 | 5.11b | 5.11b | 15 m | East Face | Length from 2012 guide; 2025 topo also lists 5.11b. |
+| Wand / 봔트 | 5.10b (2025); 5.10c (2012) | 5.10b / 5.10c | 2012 version: 162 m / 4 pitches | East Face | 2025 ✓; 2025 topo 5.10b versus 2012 guide 5.10c; length belongs to the old version. |
+| Maninbo / 만인보 | 5.11b | 5.11b | 15 m | East Face | 2025 ✓; length from 2012 guide; 2025 topo also lists 5.11b. |
 
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 
@@ -101,11 +105,28 @@ The older guide's **Villa** illustrates another side of harder Insubong multipit
 
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Villa / 빌라길 | 5.12a (hardest), plus A2 | 5.12a, plus A2 | 165 m / 6 pitches | Locate using guide | Single 2012 guide source; the last pitch is listed as A2. Not a fully free route description. |
+| Villa / 빌라길 | 5.12a (hardest), plus A2 | 5.12a, plus A2 | 165 m / 6 pitches | Locate using guide | 2025 —; single 2012 guide source; the last pitch is listed as A2. Not a fully free route description. |
 
 ### Expert: 8a and up (YDS 5.13b and up)
 
 The guide tables and 2025 East Face topo used here do not provide a verified route in this band. Names from other crags or unverified entries are not used to fill it. If this is your main sport-climbing grade range, compare other areas in the series and decide whether to reserve a separate day for Insubong multipitch.
+
+### Getting down
+
+Insubong has more than one descent, and the wrong anchor costs you a rope length.
+
+- **After summiting:** walk to the south side, follow the chains to the furthest right anchor and rappel **Pigeon (비둘기)**. theCrag records two 30 m rappels to the ground and warns that the wrong anchor leaves you short.
+- **Lonely Road:** theCrag's description is to walk SE from the summit to find a rope, then west to a chain of roughly 10 m of bolts; the westernmost anchors reach the ground in 60 m.
+- **Rappelling the route:** people do it on both lines, but you have to check the fixed gear yourself. The 2012 guide gives no descent configuration, and the lengths in this article cannot be used to plan rope length.
+
+"Two 30 m rappels" means two rappels of 30 m each, not two 30 m ropes; one 60 m rope doubled covers a single 30 m rappel. The actual rope plan depends on the anchors you choose, team size and your retreat options.
+
+## Watch the climbs
+
+```video-gallery
+key: insubong
+lang: en
+```
 
 ## Where to look things up
 

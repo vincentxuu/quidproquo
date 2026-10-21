@@ -96,6 +96,13 @@ College of Education has a higher free grade in the old guide but still lists tw
 
 The sources used here do not establish a route at 5.13b or above. Difficulty at Jeokbyeok also lies in aid grades and steep-wall systems; there is no reason to invent a free-climbing example for this band.
 
+## Watch the climbs
+
+```video-gallery
+key: jeokbyeok
+lang: en
+```
+
 ## Where to look things up
 
 - **Transport:** [Sokcho's official timetable](https://bis.sokcho.go.kr/schedule) for the two operators' 7/7-1 services; select your boarding stop separately.
