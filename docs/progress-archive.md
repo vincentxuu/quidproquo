@@ -1169,3 +1169,14 @@ daily-digest-framework／daily-digest-tool／daily-digest-benchmark 三支 2026-
 ## 2026-10-21 封存：daily-digest-github 2026-10-20 條目（daily-digest-report 2026-10-21 commit 壓回 90 行上限）
 
 - **daily-digest-github 2026-10-20**：`gh api` 對非 attached repo 仍全部 403（session repo scope 僅鎖 `vincentxuu/quidproquo`／`lanefoundry/gatelane`），B2 watchlist 13 框架改用 `add_repo` 取得匿名 git 唯讀存取後，全程用 Groundlane `web_fetch` 直打各框架 `releases.atom` 與 `api.github.com/repos/*`（不受 session repo scope 限制），未落地任何完整 clone。48 小時窗內（cutoff 2026-10-17T18:40Z）唯一合格候選：**Agno v3.1.6**（2026-10-19T13:47，eval `Case` 新增 session_id／image 等 run arguments、OS Manager 改直查文件、`ParallelTools` 複製 bug 修復）；langgraph cli==0.4.37、pydantic-ai `clai2-bleeding`（非正式 release）、claude-code v2.1.303（純泛稱 bug fix）皆窗內但無實質變更或非正式 release，跳過；其餘窗外。Trending Repos 先後驗證 microsoft/agent-governance-toolkit（已於 10-17 日報寫過）、NousResearch/hermes-agent（已於 10-15 寫過）、yetone/magpie（已於 09-29 寫過）、perplexityai/SPACE（已於 10-18 寫過）、TerseAI/durable-actors（232★，低於 500★／+100 門檻）均排除後，選中 3 個未報導過、類別分散的候選：**tinyhumansai/openhuman**（42,159★，Rust 單行程 agent harness，公開 SWE-bench 自測比 Hermes 等六套工具快一倍以上、token 省 2.6 倍、記憶體/CPU 省 8 倍）、**tigerless-labs/agent-memory**（4,385★，長期記憶存成 Markdown＋可重建本機索引，Claude Code／Codex CLI 共用）、**jub0t/Concat**（9,417★，本地優先 CapCut 替代品，`concat --mcp` 內建 MCP server）。所有候選的 stars／license／language／created_at 皆用 `api.github.com/repos/{owner}/{repo}` 逐一核對（非只信搜尋 snippet 或部落格文宣稱），openhuman 的「上線一週連續九天 trending 第一」為 README 自稱未納入文章內文。series order 66（距 2026-08-16 天數＋1，與 10-19 的 65 連號）。中英雙版已建立並互相連結。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）、`check:lang-parity`（3071 組全過）、`check:tw`（初版 3 處 A 級「技術棧」已改為 tech stack，修正後 0 blocking）、`check:series-order`（66 無撞號，僅既有缺號 warning）皆 0 blocking；已將最舊 Recently completed 條目（10-16 daily-digest-funding）移至 `docs/progress-archive.md`；待 commit／push。
+
+## 2026-10-21 封存：韓國岩場系列 2026-10-21 條目（寮國岩場系列 2026-10-21 進度檔壓回 90 行上限）
+
+- **韓國岩場系列 2026-10-21**：goal範圍14組中英28檔齊，12新增主題已跨作者審稿、必修已修；168列級數／28本機頁通過，總覽13內鏈與研究索引齊。最新main基礎全站verify全綠；按使用者授權commit/push，隔離checkout驗證與範圍見 `.work/korea-crags/completion-plan.md`。後續加影片牆：13岩場中英26篇各一個 `video-gallery` fence，37支影片集中 `src/data/climbing-videos.ts`，新 remark 外掛＋橫向 scroll-snap 縮圖列（點圖換片、手機原生滑動），6支實測嵌入被 YouTube 擋改外部連結卡；仁壽峰路線表改「混合收」（加 Lonely Road 5.6、Pigeon 5.7 A0／5.6 A1，備註標 2025 東壁 topo ✓／—）並新增〈怎麼下來〉。verify／build 全綠；注意 Astro content cache 會沿用舊 remark 輸出，改資料檔後要先清 `.astro`、`node_modules/.astro` 再 build。
+
+---
+
+## 2026-10-21 封存：Q-021／Q-020 兩則 escalation-queue 指標（馬來西亞岩場系列加一條，壓回 90 行上限）
+
+- **Q-021（2026-09-05）**：daily-digest-benchmark 執行時 Groundlane 顯示 connected+enabledInChat 但查無工具，未產出當日 benchmark 文章，見 escalation-queue。
+- **Q-020（2026-09-06）**：同日 framework/funding/pricing/signals/report/arxiv/github 七支 routine 皆踩到「Groundlane connected+enabledInChat:true 但需認證、非互動 session 無法 OAuth」，均未產出，見 escalation-queue Q-020 尾端（github digest 額外確認 gh CLI 未裝、GitHub MCP scope 鎖死本 repo）。

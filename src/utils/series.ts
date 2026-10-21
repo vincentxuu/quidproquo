@@ -220,6 +220,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'laos-crags',
+    category: 'climbing',
+    names: { 'zh-TW': '寮國岩場', en: 'Laos Climbing Crags' },
+    descriptions: {
+      'zh-TW': '從他曲的 Pha Tam Kam 與 Tha Falang、萬榮的喀斯特岩壁到龍坡邦的河壁，按風格、級數、季節與交通選目的地。每篇分開介紹路線、接近方式、住宿、岩栓與醫療風險。',
+      en: 'Choose Lao climbing destinations by style, grade, season and transport, from Pha Tam Kam and Tha Falang in Thakhek to the karst walls of Vang Vieng and the river walls of Luang Prabang. Each guide covers routes, approaches, lodging, bolts and medical risk.',
+    },
+  },
+  {
     slug: 'climbing-gear-travel',
     category: 'climbing',
     names: { 'zh-TW': '出國攀岩裝備', en: 'Climbing Travel Gear' },
