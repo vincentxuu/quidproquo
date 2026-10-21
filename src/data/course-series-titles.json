@@ -104,6 +104,13 @@
       "source": "https://harvard-ml-courses.github.io/cs181-web/",
       "checkedAt": "2026-10-14"
     },
+    "harvard-cs2680": {
+      "zh": "Harvard CS2680 Modern AI Systems: Agents and System Optimizations",
+      "en": "Harvard CS2680 Modern AI Systems: Agents and System Optimizations",
+      "officialName": "Modern AI Systems: Agents and System Optimizations",
+      "source": "https://cs2680.com/",
+      "checkedAt": "2026-10-21"
+    },
     "harvard-cs2881r": {
       "zh": "Harvard CS2881R AI Safety",
       "en": "Harvard CS2881R AI Safety",

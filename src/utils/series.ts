@@ -930,6 +930,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'harvard-cs2680',
+    category: 'courses',
+    names: { 'zh-TW': 'Harvard CS2680 導讀', en: 'Reading Harvard CS2680' },
+    descriptions: {
+      'zh-TW': '逐堂讀 Harvard CS2680 Modern AI Systems: Agents and System Optimizations（Juncheng Yang，Fall 2026）Part I：從 agent 為什麼是系統問題、Claude Code 怎麼運作，到自己設計 loop、工具與 context，再到多 agent、記憶與可靠度、評估、成本與延遲優化，以及作業 1–3。依據公開投影片、課程筆記與作業規格。',
+      en: 'A lecture-by-lecture reading of Part I of Harvard CS2680 Modern AI Systems: Agents and System Optimizations (Juncheng Yang, Fall 2026). It goes from why agents are a systems problem and how Claude Code works, through designing your own loop, tools and context, to multi-agent systems, memory and reliability, evaluation, and cost and latency optimization, plus Assignments 1–3. It is based on the public slides, course notes and assignment specs.',
+    },
+  },
+  {
     slug: 'harvard-cs2881r',
     category: 'courses',
     names: { 'zh-TW': 'Harvard CS2881R 導讀', en: 'Reading Harvard CS2881R' },
