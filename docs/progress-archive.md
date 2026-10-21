@@ -1180,3 +1180,9 @@ daily-digest-framework／daily-digest-tool／daily-digest-benchmark 三支 2026-
 
 - **Q-021（2026-09-05）**：daily-digest-benchmark 執行時 Groundlane 顯示 connected+enabledInChat 但查無工具，未產出當日 benchmark 文章，見 escalation-queue。
 - **Q-020（2026-09-06）**：同日 framework/funding/pricing/signals/report/arxiv/github 七支 routine 皆踩到「Groundlane connected+enabledInChat:true 但需認證、非互動 session 無法 OAuth」，均未產出，見 escalation-queue Q-020 尾端（github digest 額外確認 gh CLI 未裝、GitHub MCP scope 鎖死本 repo）。
+
+## 2026-10-21 封存：寮國岩場系列 2026-10-21 條目（泰國岩場系列 2026-10-21 進度檔壓回 90 行上限）
+
+- **寮國岩場系列 2026-10-21**：goal 範圍 8 組中英 16 檔齊（總覽＋他曲基地＋Pha Tam Kam 營地／山谷＋Tha Falang＋萬榮＋Pha Tang＋龍坡邦），依 `crag-guide-contract` 的固定 H2 與「依程度挑路線」四級標題寫成，16 檔共 222 列級數換算，`climbing-grade-convert.mjs --check` 0 issues。來源為 GCH 官網（交通／簽證／住宿／裝備／事故／2026-27 季公告）、theCrag 寮國與各區逐線頁（Sleeping Wall 29 條含岩栓警示、Secret Canyon 17 條含 40,000 kip 門票與鐵絲網圍籬、Pha Tang 48 條但僅 23 次登錄、龍坡邦 19 條）、UKC 2020、The Crag Journal 2023、ClimbGrades 2026、Mountain Project、BOCA 寮國簽證；來源衝突全部並列（他曲路線數 500+/600+/636、多繩距 3/4 條、Big Smile 7c+ 對 8a、L4 One of the Best 7a 對 7a+、龍坡邦是否收在 GCH 指南書、台灣護照第三友誼大橋落地簽查無官方明文），農巧／Sala Hinboun／Xaysomboun 資料不足只寫進總覽的資料邊界、不單獨成篇。新登錄 `laos-crags` 系列（`src/utils/series.ts`），依 check:series-plan 規則補 `.work/series-plans/laos-crags.md`（含使用者確認行 2026-10-21）＋`.work/research/laos-crags/research-note.md`＋8 份 `.work/reviews/<slug>.md`（post-verify／post-review／post-polish 三節）。本系列 16 檔全過 check:post-quality、check:references、check:grades、check:tw、check:chat-style、check:glossary、check:lang-parity、check:series-plan；全站 `pnpm verify` 在並行 session（馬來西亞／泰國系列）補完審稿紀錄後轉綠；本系列 16 檔另在隔離 checkout（HEAD＋本系列變更集）跑過完整 verify 27 項全綠。已 commit（23f344771）／已 push origin/main。
+
+---

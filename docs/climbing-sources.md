@@ -63,6 +63,22 @@
 | 山岳會紀錄、個人部落格、ヤマレコ | 各站 | 個人紀錄 | 線索、歷史 | 不能單獨撐 | 轉貼的 JFA 通知要回原文確認仍有效 |
 | 気象庁等災害資訊 | https://www.jma.go.jp | 政府 | 地震、災害對岩場的影響背景 | 一手 | 岩場本身的落石狀況要另找在地回報 |
 
+## 越南
+
+| 來源 | 網址 | 類型 | 可撐 | 分級 | 已知陷阱 |
+|---|---|---|---|---|---|
+| theCrag 越南 | https://www.thecrag.com/en/climbing/vietnam | 群眾 DB | 路線、級數、長度、星等、子區的接近與停車座標、通行費、臨時警告 | 不能單獨撐 | 越南系列的主力來源。**各子區頁的逐條路線藏在 `data-route-tick` 的 JSON 屬性裡，抓一般 HTML 拿不到**，要逐區抓頁再解析；封閉與禁攀只當線索（Quốc Oai 禁運攀、Ben Beo 公告關閉都是 DB 敘述，沒有政府公告原文） |
+| VietClimb（Mao Homestay、Duc Bungalow、Outdoor Trips） | https://vietclimb.vn/ | 營運者 | homestay 房價與餐食、河內接駁與包車價格、嚮導行程、岩場協調角色 | 一手（限自家事實） | 房價頁與 FAQ 同頁，兩間 homestay 共用同一段交通 FAQ；2026-10 查到的 Mao 房價已與行程筆記所記不同，改版時要重查 |
+| Cat Ba Climbing | https://catbaclimbing.com/ | 營運者 | 行程與接駁價格（巴士 300,000、私人包車 2,000,000、含渡輪 2.5–3.5 小時）、租賃裝備、貓巴鎮的 2018 版指南書 | 一手（限自家事實） | 首頁是 WordPress 版面，價格在 HTML 裡順序不定，要逐段讀；Sea Face 的「低潮也能爬」說法只適用他們自己那一面崖 |
+| Langur's Adventures | https://langursadventures.com | 營運者 | DWS 與運動攀岩行程價格、Butterfly Valley 通行證辦理處 | 一手（限自家事實） | 沒有列獨立攀登者的通行證；官網的 "Coming soon" 行程不要當成現有產品 |
+| 外交部領事事務局：越南簽證及入境須知 | https://www.boca.gov.tw/sp-foof-countrycp-01-8-f4a19-1.html | 政府 | 電子簽效期、申請管道與天數、免簽範圍、入境申報 PAI、海關限量 | 一手 | 頁面不含電子簽費用；費用要另外看 evisa.gov.vn 的線上申請頁。evisa.gov.vn 在部分環境會有 TLS 憑證錯誤，費用改用官方站自述文字交叉確認 |
+| Vietnam e-Visa | https://evisa.gov.vn/ | 政府 | 電子簽費用（單次 25 美元、多次 50 美元）、效期 90 天 | 一手 | 本地 TLS 憑證驗證失敗時抓不到原頁；不要用第三方代辦站報的價 |
+| UK FCDO：Getting help in Vietnam | https://www.gov.uk/foreign-travel-advice/vietnam/getting-help | 政府 | 緊急電話（警察 113、火警 114、救護車 115、全國搜救 020 7008 5000 只用越南語） | 一手 | 沒有提到攀岩專線，岩場救護要自己安排 |
+| 《Vietnam Climbing》 | https://climb-europe.com/rockclimbingshop/vietnam-rock-climbing-guidebook.html | guidebook 出版社 | 路線、版次、收錄範圍 | 一手（書） | 2023 二版 230 頁 ISBN 9781727545128，**Hữu Lũng 只收 122 條**（theCrag 267 條），東側與 2023 年後的新牆全不在書裡；每本附 Vertical-Life app 兌換碼 |
+| 越南當地 2016／2018 版蘭夏灣指南 | 貓巴鎮 Cat Ba Climbing 店內 | guidebook | 蘭夏灣與吉婆島的運動與深水抱石 | 一手（書） | **版次說法不一致**：店舖商品頁寫 2018 年版，theCrag 蘭夏灣頁描述的是 2016 年 2 月出版、140 頁的同區指南；以現場實物為準 |
+| 越南氣候（Wikipedia Hanoi 氣候表） | https://en.wikipedia.org/wiki/Hanoi | 彙整 | 內陸氣溫、雨量、雨日、日照 | 二手 | 沒有 Hữu Lũng 或貓巴島的氣象站資料，當內陸代理用要寫清楚 |
+| Asia Outdoors（已關閉） | — | 營運者 | 歷史 | — | 蘭夏灣的 theCrag 頁面仍叫讀者去 Asia Outdoors 買通行證、並提 Slo Pony Adventures；貓巴島頁面與營運者自己的站已改寫。寫文章時以現行營運者為準，並指出舊頁未更新 |
+
 ## 台灣
 
 | 來源 | 網址 | 類型 | 可撐 | 分級 | 已知陷阱 |
