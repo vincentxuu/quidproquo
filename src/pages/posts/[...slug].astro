@@ -1070,7 +1070,7 @@ const breadcrumbLD = {
   }
 
   // Wrap tables in scrollable container for mobile
-  document.querySelectorAll('.content table').forEach(table => {
+  document.querySelectorAll('.content table:not(.route-videos__table)').forEach(table => {
     const wrapper = document.createElement('div');
     wrapper.className = 'table-scroll';
     table.parentNode!.insertBefore(wrapper, table);
