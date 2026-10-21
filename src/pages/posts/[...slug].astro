@@ -1025,8 +1025,10 @@ const breadcrumbLD = {
         fontFamily: "'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif",
       };
 
+      const narrowQuery = window.matchMedia('(max-width: 640px)');
       const renderAll = async () => {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const isNarrow = narrowQuery.matches;
         mermaid.initialize({
           startOnLoad: false,
           theme: 'base',
@@ -1035,7 +1037,11 @@ const breadcrumbLD = {
         });
         const containers = document.querySelectorAll<HTMLElement>('.mermaid-diagram');
         for (const [i, container] of Array.from(containers).entries()) {
-          const source = container.dataset.mermaidSource ?? '';
+          const rawSource = container.dataset.mermaidSource ?? '';
+          // 手機窄螢幕：橫向流程圖改由上往下排，才放得進寬度而不必縮小或橫滑
+          const source = isNarrow
+            ? rawSource.replace(/^(\s*(?:flowchart|graph))\s+(?:LR|RL)\b/, '$1 TD')
+            : rawSource;
           try {
             const { svg } = await mermaid.render(`mermaid-diagram-${i}`, source);
             container.innerHTML = svg;
@@ -1057,6 +1063,7 @@ const breadcrumbLD = {
       }
       await renderAll();
 
+      narrowQuery.addEventListener('change', () => { void renderAll(); });
       const themeObserver = new MutationObserver(() => { void renderAll(); });
       themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     })();
