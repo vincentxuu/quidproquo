@@ -8463,7 +8463,7 @@
   "https://www.mountainproject.com/area/106798792/munsusan-ulsanbusan-area": {
     "firstSeen": "2026-10-20",
     "status": 200,
-    "checked": "2026-10-20",
+    "checked": "2026-10-21",
     "crags": [
       "korea-crags-overview"
     ],
@@ -8479,14 +8479,15 @@
   "https://climbonkorea.com/ganhyeon/": {
     "firstSeen": "2026-10-20",
     "status": 200,
-    "checked": "2026-10-20",
+    "checked": "2026-10-21",
     "crags": [
+      "korea-crag-ganhyeon",
       "korea-crags-overview"
     ],
     "types": [
       "fee"
     ],
-    "anchors": 1,
+    "anchors": 2,
     "missing": [],
     "hash": "9188eaf9176d9cd7",
     "via": "direct",
@@ -8495,7 +8496,7 @@
   "https://res.knps.or.kr/community/board/notice/boardDetail.do?seq=29026": {
     "firstSeen": "2026-10-20",
     "status": 200,
-    "checked": "2026-10-20",
+    "checked": "2026-10-21",
     "crags": [
       "korea-crags-overview"
     ],
@@ -8504,14 +8505,14 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "435dbcd72f7c7f83",
+    "hash": "6dab4104483c53e9",
     "via": "direct",
     "bytes": 24173
   },
   "https://english.visitseoul.net/seoul-hiking/Sweeping-views-of-Seoul-Baegundae%E2%80%93-Ui-Gugok-Trail/ENN042345": {
     "firstSeen": "2026-10-20",
     "status": 200,
-    "checked": "2026-10-20",
+    "checked": "2026-10-21",
     "crags": [
       "korea-crag-insubong"
     ],
@@ -8530,7 +8531,7 @@
   "http://www.cac.or.kr/eng/sub1/sub1_09.php": {
     "firstSeen": "2026-10-20",
     "status": 200,
-    "checked": "2026-10-20",
+    "checked": "2026-10-21",
     "crags": [
       "korea-crag-insubong"
     ],
@@ -8542,5 +8543,284 @@
     "hash": "f4f5817aee370f51",
     "via": "direct",
     "bytes": 25835
+  },
+  "https://cms.wfmc.kr/web/lay1/S1T194C468/contents.do": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-ganhyeon"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 1,
+    "missing": [
+      "502"
+    ],
+    "hash": "d2c056976cbc368a",
+    "via": "direct",
+    "bytes": 188169
+  },
+  "https://www.gochang.go.kr/board/view.gochang?boardId=BBS_0000398&dataSid=772675&menuCd=DOM_000000401005000000": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-halmae-bawi"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "50f76949683d858b",
+    "via": "direct",
+    "bytes": 528119,
+    "finalUrl": "https://www.gochang.go.kr/tour/board/view.gochang?boardId=BBS_0000398&dataSid=772675&menuCd=DOM_000000401005000000"
+  },
+  "https://www.gochang.go.kr/tour/index.gochang?menuCd=DOM_000000404003002003": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-halmae-bawi"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "855ce33980310111",
+    "via": "direct",
+    "bytes": 45001
+  },
+  "https://moredaysoff.wordpress.com/2020/07/01/the-south-korean-sport-climbing-of-seonusan-best-area-korea-and-halmae-bawi/": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-halmae-bawi"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "287c69e1ea826cf6",
+    "via": "direct",
+    "bytes": 125549
+  },
+  "https://www.kma.go.kr/neng/biz/climate/climate-of-korea.do": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-halmae-bawi"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "e38ae5bd5d586a65",
+    "via": "direct",
+    "bytes": 62185
+  },
+  "https://product.kyobobook.co.kr/detail/S000001582823": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-janggunbong",
+      "korea-crag-jeokbyeok",
+      "korea-crag-ulsanbawi",
+      "korea-crag-yuseondae"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "2e3e07a9104599fb",
+    "via": "jina",
+    "bytes": 23142
+  },
+  "https://bis.sokcho.go.kr/schedule": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-janggunbong",
+      "korea-crag-jeokbyeok",
+      "korea-crag-ulsanbawi",
+      "korea-crag-yuseondae"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "5801e0a196127260",
+    "via": "direct",
+    "bytes": 90590
+  },
+  "https://www.nfa.go.kr/eng/ems/service/": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-janggunbong",
+      "korea-crag-jeokbyeok",
+      "korea-crag-ulsanbawi",
+      "korea-crag-yuseondae"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "52c42d681c7ca26a",
+    "via": "direct",
+    "bytes": 17152
+  },
+  "https://webzine.ulsan.go.kr/contents/view.do?bbsId=BBSMSTR_000000000180&nttId=15457": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-munsusan"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 3,
+    "missing": [
+      "2025-11-13"
+    ],
+    "hash": "2eba24bae2491707",
+    "via": "direct",
+    "bytes": 44167
+  },
+  "https://www.ulsan.go.kr/u/traffic/contents.ulsan?mId=001003002000000000": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-munsusan"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "91e26d7183761263",
+    "via": "direct",
+    "bytes": 28905
+  },
+  "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500196": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-musucheon"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 3,
+    "missing": [
+      "33.463337126.4466",
+      "33.463611126.446414",
+      "33.42974"
+    ],
+    "hash": "e1d6da70475b6531",
+    "via": "direct",
+    "bytes": 811034
+  },
+  "https://www.sansan.co.kr/news/articleView.html?idxno=9990": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "6d7f95f02be7f574",
+    "via": "direct",
+    "bytes": 135013
+  },
+  "https://san.chosun.com/news/articleView.html?idxno=24721": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "7191f1cff7150ce0",
+    "via": "direct",
+    "bytes": 117488
+  },
+  "https://www.gochang.go.kr/board/view.gochang?boardId=BBS_0000083&dataSid=136791": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-seonunsan"
+    ],
+    "types": [
+      "transport",
+      "fee"
+    ],
+    "anchors": 3,
+    "missing": [
+      "2019-01-28",
+      "2019-02-12",
+      "2026"
+    ],
+    "hash": "7a0d603101e4e776",
+    "via": "direct",
+    "bytes": 6629
+  },
+  "http://san.chosun.com/news/articleView.html?idxno=25033": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-ulsanbawi"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "1951631236893472",
+    "via": "direct",
+    "bytes": 128932
+  },
+  "https://english.visitkorea.or.kr/svc/whereToGo/locIntrdn/rgnContentsView.do?vcontsId=110952": {
+    "firstSeen": "2026-10-21",
+    "status": 200,
+    "checked": "2026-10-21",
+    "crags": [
+      "korea-crag-ulsanbawi"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "33391779400b6620",
+    "via": "direct",
+    "bytes": 222285
   }
 }

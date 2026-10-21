@@ -37,3 +37,22 @@ parent已統一Outdoor Global與英文說明附韓文名，slab與Georyong混拼
 四檔 post-quality 無阻擋；multi-pitch 中文標籤匹配警告經人工確認與多繩距主題相符。兩檔中文 check:tw 零阻擋；process-leak 與語言配對通過。仁壽峰中英14列 grade check 通過。Astro check：0 errors、0 warnings、82 hints（全站）。全站最終閘門輸出：`.work/korea-crags/write-verify-final.log`。
 
 外連機械檢查非全綠：兩家媒體與 VisitSeoul 的404已以CUA排除；theCrag 403依原研究頁讀取；NFA訪客驗證未突破，119由已存官方全文確認。不得稱所有URL無條件可自動抓取。
+
+### 13 篇回填後審稿（2026-10-21）
+
+審稿者曾撰寫第一批總覽初稿；本次是parent擴為13篇後的變更複核，不冒稱全篇與原作者獨立。兩語131行完整重讀，研究note全文讀取。未重做已有來源調查。
+
+post-verify補充：
+
+- 🟢 中英對照表各13個不同實際內鏈，對應order1–13，已逐個檢查本機檔存在，沒有把School冒充全島Jeju；Musucheon北區繩攀與School上游抱石分列。此為本機存在證據，非公開網址readback。
+- 🟢 三組源數據重新抽核：GIN002版權頁作者Ryou/Jeanneret及2012年11月初版；GIN056 Soksal西南、Tugu遮蔭／右陡左較溫和、Mun垂直；本輪作者階段直接重讀MP文殊山gneiss／south／winterpopularity。總覽正文均與原文一致。MontBlanc2025東壁版本也在原源全文已讀，沒有寫成全韓新版。
+- 🟢 更新表的新加入Daeryuk granite與Musucheon basalt，分別用GIN010與146核對；Seonin裂隙/多段用GIN124核對。雪嶽山四壁風格採各自已存研究與文章，這輪不聲稱逐條路線二次查完。
+- 🟢 KMA氣候只作背景，未在總覽當即時forecast；KOTR仍僅英語資訊網路／guide入口，不宣稱特定社群今天活躍。通用KNPS程序仍未擴為全韓統一許可。
+
+post-review補充：13格現在提供全系列導航，地區與風格覆蓋比原八格完整。讀者可依目的先選基地、再到單篇選線。沒有新增內容必修阻擋。5中文targetedtw無阻擋，10檔processleak無輸出；全站check和公開部署由parent另外報告。
+
+post-polish補充：英中開頭對系列先後略有語氣差（可以從/startingwith），不改事實。最後『13個選讀』與表數一致。可選擇更新研究note仍寫『只有仁壽峰本批配對』的歷史範圍註記，避免被當作當前文章狀態；不要覆寫既有閱讀歷史而稱所有13篇都由同一次研究完成。
+
+### Parent整合驗證
+
+本輪內容必修已修並回讀；機械與人工外連差異集中記錄於 `.work/korea-crags/completion-validation.md`。最終完整閘門見 `completion-verify.log`，提交條件為allgreen；不以單項grade或本機頁成功代替。

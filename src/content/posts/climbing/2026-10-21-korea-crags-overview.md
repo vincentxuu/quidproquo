@@ -17,7 +17,7 @@ draft: false
 
 想到韓國攀岩，很容易先想到首爾北邊的仁壽峰：花崗岩大岩壁、裂隙與摩擦板，爬高後身後就是城市。但如果你想每天拉快扣、在短路線上反覆試動作，高敞的仙雲山可能更接近你要的旅行。想抱石，又是另一張地圖。
 
-這個系列介紹南韓的天然岩場，包含運動攀登、傳統攀登、多繩距與抱石。一個岩場或明確岩區一篇，先從[仁壽峰](/posts/climbing/2026-10-21-korea-crag-insubong)開始。本篇幫你決定要帶哪種裝備、把住宿放在哪個地區，以及該去哪裡找下一步資料。
+這個系列介紹南韓的天然岩場，包含運動攀登、傳統攀登、多繩距與抱石。一個岩場或明確岩區一篇，可以從[仁壽峰](/posts/climbing/2026-10-21-korea-crag-insubong)開始。本篇幫你決定要帶哪種裝備、把住宿放在哪個地區，以及該去哪裡找下一步資料。
 
 ## 先選風格，再選基地
 
@@ -25,14 +25,19 @@ draft: false
 
 | 目的地 | 區域 | 主要吸引力 | 選擇前先想的事 |
 |---|---|---|---|
-| [仁壽峰 Insubong／인수봉](/posts/climbing/2026-10-21-korea-crag-insubong) | 首爾、北漢山 | 花崗岩裂隙、摩擦板、多繩距 | 需要選線、架站與下降能力；容易的攀登級數不等於簡單的一天 |
-| [仙人峰 Seoninbong／선인봉](https://www.sansan.co.kr/news/articleView.html?idxno=9990) | 道峰山 | 花崗岩路線與長期開拓、整修歷史 | 先確認是哪條線、哪個版本的 topo，別與仁壽峰混用 |
-| [雪嶽山 Seoraksan／설악산](https://res.knps.or.kr/community/board/notice/boardDetail.do?seq=29026) | 江原道 | 蔚山岩、將軍峰等山岳岩壁 | 接近、退出、季節管制與天氣都要按岩壁規劃 |
-| [艮峴 Ganhyeon／간현암장](https://climbonkorea.com/ganhyeon/) | 原州 | 摩擦板、直壁、洞穴，也有多繩距 | 在地導覽指出 5.11 路線較少；只看最高、最低難度容易選錯 |
-| [仙雲山 Seonunsan／선운산](https://moredaysoff.wordpress.com/2020/07/01/the-south-korean-sport-climbing-of-seonusan-best-area-korea-and-halmae-bawi/) | 高敞 | 陡峭石灰岩、指洞與運攀挑戰線 | 子區差異大，Tugu 右壁和 Mun 垂直壁不是同一種體驗 |
-| [Halmae-bawi／할매바위](https://moredaysoff.wordpress.com/2020/07/01/the-south-korean-sport-climbing-of-seonusan-best-area-korea-and-halmae-bawi/) | 高敞 | 垂直到微仰角的運攀，可與仙雲山比較 | 地名有同名岩場；查資料要加上高敞「고창」 |
-| [文殊山 Munsusan／문수산](https://www.mountainproject.com/area/106798792/munsusan-ulsanbusan-area) | 蔚山 | 片麻岩運攀、南向上區與下區 | 日照是冬季優勢，也會成為暖天的限制 |
-| [濟州 Jeju／제주](https://www.thecrag.com/en/climbing/south-korea/area/8378865285) | 濟州島 | 火山岩抱石；另有無水川等繩攀岩區 | 抱石墊與交通要先安排，海邊、溪谷、內陸岩區各有不同條件 |
+| [仁壽峰 Insubong／인수봉](/posts/climbing/2026-10-21-korea-crag-insubong) | 首爾、北漢山 | 花崗岩裂隙、摩擦板、多繩距 | 5.8 仍需傳攀與下降能力 |
+| [仙人峰 Seoninbong／선인봉](/posts/climbing/2026-10-21-korea-crag-seoninbong) | 首爾、道峰山 | 花崗岩多段與拳裂隙 | 核對具名路線、落石後公告與接近 |
+| [蔚山岩 Ulsanbawi／울산바위](/posts/climbing/2026-10-21-korea-crag-ulsanbawi) | 江原、雪嶽山 | 大型花崗岩岩壁與稜線 | 一天岩壁線和完整稜線分開安排 |
+| [將軍峰 Janggunbong／장군봉](/posts/climbing/2026-10-21-korea-crag-janggunbong) | 江原、雪嶽山 | 山谷上方的花崗岩長線 | 步道接近、繩隊速度與撤退都要規劃 |
+| [赤壁 Jeokbyeok／적벽](/posts/climbing/2026-10-21-korea-crag-jeokbyeok) | 江原、雪嶽山 | 陡壁與自由／人工攀登線 | 人工級數不能從總難度刪掉 |
+| [遊仙臺 Yuseondae／유선대](/posts/climbing/2026-10-21-korea-crag-yuseondae) | 江原、雪嶽山 | 較短的山岳花崗岩多段 | 段數較少仍須計入接近和下降 |
+| [艮峴 Ganhyeon／간현](/posts/climbing/2026-10-21-korea-crag-ganhyeon) | 江原、原州 | 河畔摩擦板、直壁與洞穴運攀 | 5.11 選擇較少，先列可爬目標線 |
+| [仙雲山 Seonunsan／선운산](/posts/climbing/2026-10-21-korea-crag-seonunsan) | 全羅、高敞 | 石灰岩指洞與陡壁運攀 | Mun、Soksal、Tugu 程度與日照不同 |
+| [Halmae-bawi／할매바위](/posts/climbing/2026-10-21-korea-crag-halmae-bawi) | 全羅、高敞 | 可搭配仙雲山的短線運攀 | 搜尋加高敞 고창，避免同名岩場 |
+| [文殊山 Munsusan／문수산](/posts/climbing/2026-10-21-korea-crag-munsusan) | 蔚山 | 南向片麻岩運攀 | 冬季日照也可能是暖天的限制 |
+| [大陸峰 Daeryukbong／대륙봉](/posts/climbing/2026-10-21-korea-crag-daeryukbong) | 釜山、金井山 | 花崗岩上下壁短線 | 分清山城入口、岩壁接近與公園公告 |
+| [無水川 Musucheon／무수천](/posts/climbing/2026-10-21-korea-crag-musucheon) | 濟州 | 玄武岩河谷繩攀 | 河水與豪雨條件會直接改變行程 |
+| [The School Crag 抱石](/posts/climbing/2026-10-21-korea-crag-jeju-bouldering) | 濟州、無水川上游 | 具名岩區的火山岩抱石 | 先解決墊、夥伴與逐題 topo，不代表全島 |
 
 岩質與風格以《Climb》的相應章節、上表連結的岩場資料交叉整理；表格不代表各處都可直接進入。釜山、忠清與其他抱石區也有豐富選擇，適合沿著韓文指南與地區目錄繼續找，不必把一次旅行塞成全國巡迴。
 
@@ -104,7 +109,11 @@ Naver Blog、Daum Cafe、Tistory 也能找到逐繩距照片。找有名字的�
 
 如果其實只想抱石，就把時間花在當地 topo、墊子與天氣上，不必帶著一套用不到的繩攀裝備跨區移動。選一個基地、留一天彈性，通常比四天排三個地區更能爬到想爬的東西。
 
-這份總覽幫你縮小目的地，不提供全韓逐線清單。各篇再處理具體接近、規範、依程度選線與資料入口；實際攀登仍需要匹配所選路線的 topo、天氣判斷和技術。
+這一版選讀 13 個岩場與具名岩區，涵蓋首爾、江原、全羅、東南與濟州，不是全韓逐線清單。各篇再處理具體接近、規範、依程度選線與資料入口；實際攀登仍需要匹配所選路線的 topo、天氣判斷和技術。
+
+## 更新紀錄
+
+- 2026-10-21：補齊仙人峰、雪嶽山四岩壁、地方運攀與濟州具名岩區的系列導覽，共 13 個選讀主題。
 
 ## 參考資料
 

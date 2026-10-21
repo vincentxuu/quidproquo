@@ -103,7 +103,7 @@ The older guide's **Villa** illustrates another side of harder Insubong multipit
 | --- | --- | --- | --- | --- | --- |
 | Villa / 빌라길 | 5.12a (hardest), plus A2 | 5.12a, plus A2 | 165 m / 6 pitches | Locate using guide | Single 2012 guide source; the last pitch is listed as A2. Not a fully free route description. |
 
-### Expert: 8a and above (YDS 5.13b and above)
+### Expert: 8a and up (YDS 5.13b and up)
 
 The guide tables and 2025 East Face topo used here do not provide a verified route in this band. Names from other crags or unverified entries are not used to fill it. If this is your main sport-climbing grade range, compare other areas in the series and decide whether to reserve a separate day for Insubong multipitch.
 

@@ -17,3 +17,11 @@
 ## 工具與限制
 
 完整 callable inventory 沒有 Groundlane。公開頁使用 Exa MCP，必要處平台 web，動態站點以 CUA 實際讀頁；這不是 Groundlane 驗證。私人 Drive 僅作研究輸入，不送公開搜尋，不直接轉載圖片。其餘候選尚未完成寫作所需管理與交通查核。
+
+## 完稿整合 2026-10-21
+
+本輪新增12個具名主題，各有獨立research note和跨作者review。雪嶽4篇、地方運攀4篇、釜山／濟州3篇由不同作者寫作，仙人峰由parent寫；交叉分組review回原GIN／原頁抽核至少3個數據。School僅2題，兩題全核。
+
+總覽回填13個目的地；完成範圍是總覽＋13個選讀主題，非全國名錄。親身／電話／現場固定點、最新海外身份申請流程等未實測，不作實測承諾。舊WFMC網站502，已另開管理公團新頁完整讀取與更新正文。
+
+驗收與可重跑檢查見 `.work/korea-crags/completion-plan.md`、`.work/korea-crags/audit-completion.py`；不提交受版權保護的原書全文、圖版或私人Drive檔。

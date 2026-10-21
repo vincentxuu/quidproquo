@@ -23,16 +23,21 @@ This series covers natural climbing areas in South Korea: sport, trad, multipitc
 
 These are representative destinations, not a national inventory. Jeju and Seoraksan contain distinct climbing areas; their names alone do not identify a crag.
 
-| Destination | Region | Main appeal | The question to settle first |
+| Destination | Region | Main attraction | Before choosing |
 |---|---|---|---|
-| [Insubong／인수봉](/posts/climbing/2026-10-21-korea-crag-insubong-en) | Seoul, Bukhansan | Granite cracks, slabs and multipitch routes | Can your team navigate, build belays and manage the descent? A modest grade can still make a serious day |
-| [Seoninbong／선인봉](https://www.sansan.co.kr/news/articleView.html?idxno=9990) | Dobongsan | Granite routes with a long history of development and restoration | Identify the exact route and topo version; do not mix its information with Insubong |
-| [Seoraksan／설악산](https://res.knps.or.kr/community/board/notice/boardDetail.do?seq=29026) | Gangwon | Mountain walls including Ulsanbawi and Janggunbong | Plan the approach, exit, seasonal restrictions and weather for the specific wall |
-| [Ganhyeon／간현암장](https://climbonkorea.com/ganhyeon/) | Wonju | Slabs, faces, a cave and some multipitch routes | The local guide describes a gap in the 5.11 range; a broad headline grade range can mislead |
-| [Seonunsan／선운산](https://moredaysoff.wordpress.com/2020/07/01/the-south-korean-sport-climbing-of-seonusan-best-area-korea-and-halmae-bawi/) | Gochang | Steep pocketed limestone and sport projects | Tugu’s right wall and Mun’s vertical routes offer different experiences |
-| [Halmae-bawi／할매바위](https://moredaysoff.wordpress.com/2020/07/01/the-south-korean-sport-climbing-of-seonusan-best-area-korea-and-halmae-bawi/) | Gochang | Vertical to gently overhanging sport routes | Include “고창” in searches; other crags share this name |
-| [Munsusan／문수산](https://www.mountainproject.com/area/106798792/munsusan-ulsanbusan-area) | Ulsan | South-facing gneiss sport climbing, upper and lower crags | Winter sunshine becomes a drawback on warm days |
-| [Jeju／제주](https://www.thecrag.com/en/climbing/south-korea/area/8378865285) | Jeju Island | Volcanic-rock bouldering, plus roped areas such as Musucheon | Arrange pads and transport; coastal, river-valley and inland venues have different conditions |
+| [Insubong / 인수봉](/posts/climbing/2026-10-21-korea-crag-insubong-en) | Seoul, Bukhansan | Granite cracks, slabs and multipitch | 5.8 still needs trad and descent skills |
+| [Seoninbong / 선인봉](/posts/climbing/2026-10-21-korea-crag-seoninbong-en) | Seoul, Dobongsan | Granite multipitch and fist cracks | Check named routes, rockfall notices and approach |
+| [Ulsanbawi / 울산바위](/posts/climbing/2026-10-21-korea-crag-ulsanbawi-en) | Gangwon, Seoraksan | Large granite walls and ridge climbing | A wall day and the complete ridge are different objectives |
+| [Janggunbong / 장군봉](/posts/climbing/2026-10-21-korea-crag-janggunbong-en) | Gangwon, Seoraksan | Granite long routes above the valley | Plan approach, team pace and retreat |
+| [Jeokbyeok / 적벽](/posts/climbing/2026-10-21-korea-crag-jeokbyeok-en) | Gangwon, Seoraksan | Steep free and aid lines | Do not drop aid grades from the description |
+| [Yuseondae / 유선대](/posts/climbing/2026-10-21-korea-crag-yuseondae-en) | Gangwon, Seoraksan | Shorter mountain granite multipitch | Fewer pitches still leave an approach and descent |
+| [Ganhyeon / 간현](/posts/climbing/2026-10-21-korea-crag-ganhyeon-en) | Gangwon, Wonju | Riverside slabs, vertical faces and cave sport routes | Fewer 5.11 options: identify objectives first |
+| [Seonunsan / 선운산](/posts/climbing/2026-10-21-korea-crag-seonunsan-en) | Jeolla, Gochang | Limestone pockets and steep sport climbing | Mun, Soksal and Tugu differ in grades and sun |
+| [Halmae-bawi / 할매바위](/posts/climbing/2026-10-21-korea-crag-halmae-bawi-en) | Jeolla, Gochang | Short sport routes to compare with Seonunsan | Add Gochang / 고창 to avoid namesakes |
+| [Munsusan / 문수산](/posts/climbing/2026-10-21-korea-crag-munsusan-en) | Ulsan | South-facing gneiss sport climbing | Winter sun can become a warm-weather drawback |
+| [Daeryukbong / 대륙봉](/posts/climbing/2026-10-21-korea-crag-daeryukbong-en) | Busan, Geumjeongsan | Short granite routes on two walls | Distinguish the fortress entrance, cliff approach and park notices |
+| [Musucheon / 무수천](/posts/climbing/2026-10-21-korea-crag-musucheon-en) | Jeju | Basalt river-valley roped climbing | Water levels and heavy rain can change the day |
+| [The School Crag bouldering](/posts/climbing/2026-10-21-korea-crag-jeju-bouldering-en) | Jeju, upper Musucheon | Volcanic bouldering in a named area | Arrange pads, partners and problem topos; this is not the whole island |
 
 Rock and style descriptions draw on the relevant chapters of *Climb* and the linked area sources. Inclusion does not establish current permission to climb. Busan, Chungcheong and other bouldering areas offer further options through Korean guides and regional directories; one trip does not need to become a national tour.
 
@@ -104,7 +109,11 @@ For the first, compare individual routes at Gochang’s Halmae, the more moderat
 
 If bouldering is the goal, spend the planning time on local topos, pads and conditions. There is little reason to carry a roped-climbing rack between regions you do not intend to use it in. One base and a flexible day usually give a short trip more climbing time than three distant regions.
 
-This overview narrows the destinations; it is not a national route list. Individual articles cover approaches, rules, routes by level and information sources. Actual climbing still needs a topo appropriate to the chosen route, weather judgement and suitable skills.
+This edition selects 13 crags and named areas across Seoul, Gangwon, Jeolla, the southeast and Jeju; it is not a national route list. Individual articles cover approaches, rules, routes by level and information sources. Actual climbing still needs a topo appropriate to the chosen route, weather judgement and suitable skills.
+
+## Update history
+
+- 2026-10-21: Added navigation to Seoninbong, four Seoraksan cliffs, regional sport climbing and named Jeju areas, for 13 selected destination guides.
 
 ## References
 

@@ -1,0 +1,398 @@
+> quidproquo@0.0.1 astro /private/tmp/quidproquo-korea-publish-20261021
+> astro check
+
+09:20:20 [@astrojs/cloudflare] Enabling image processing with Cloudflare Images for production with the "IMAGES" Images binding.
+09:20:20 [@astrojs/cloudflare] Enabling sessions with Cloudflare KV with the "SESSION" KV binding.
+09:20:20 [vite] Re-optimizing dependencies because vite config has changed
+09:20:20 [vite] Re-optimizing dependencies because vite config has changed
+09:20:22 [content] Syncing content
+09:20:27 [content] Synced content
+09:20:27 [types] Generated 7.26s
+09:20:27 [check] Getting diagnostics for Astro files in /private/tmp/quidproquo-korea-publish-20261021...
+scripts/generate-og-images.mjs:177:10 - warning ts(80006): This may be converted to an async function.
+
+177 function runWorkerPool(tasks, fontPath) {
+             ~~~~~~~~~~~~~
+
+src/components/ai-elements/prompt-input.tsx:978:61 - warning ts(6385): 'keyCode' is deprecated.
+
+978           if (isComposing || e.nativeEvent.isComposing || e.keyCode === 229) {
+                                                                ~~~~~~~
+src/components/ai-elements/prompt-input.tsx:845:23 - warning ts(6385): 'FormEventHandler' is deprecated.
+
+845   const handleSubmit: FormEventHandler<HTMLFormElement> = useCallback(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/components/ai-elements/prompt-input.tsx:511:12 - warning ts(6385): 'FormEvent' is deprecated.
+
+511     event: FormEvent<HTMLFormElement>
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/components/ai-elements/prompt-input.tsx:59:3 - warning ts(6385): 'FormEventHandler' is deprecated.
+
+59   FormEventHandler,
+     ~~~~~~~~~~~~~~~~
+src/components/ai-elements/prompt-input.tsx:58:3 - warning ts(6385): 'FormEvent' is deprecated.
+
+58   FormEvent,
+     ~~~~~~~~~
+
+src/components/assistant-ui/thread.tsx:72:29 - warning ts(6385): 'Empty' is deprecated.
+
+72           </ThreadPrimitive.Empty>
+                               ~~~~~
+src/components/assistant-ui/thread.tsx:70:28 - warning ts(6385): 'Empty' is deprecated.
+
+70           <ThreadPrimitive.Empty>
+                              ~~~~~
+
+src/lib/youtubeClipLoop.ts:114:10 - warning ts(80006): This may be converted to an async function.
+
+114 function loadAPI(): Promise<YoutubeAPI> {
+             ~~~~~~~
+
+src/lib/digest/arxiv.ts:184:52 - warning ts(6133): 'today' is declared but its value is never read.
+
+184 async function saveScreeningRecord(db: D1Database, today: string, decisions: ScreeningDecision[]): Promise<void> {
+                                                       ~~~~~
+
+src/lib/digest/benchmark.ts:145:3 - warning ts(6133): 'benchmarkId' is declared but its value is never read.
+
+145   benchmarkId: string,
+      ~~~~~~~~~~~
+
+src/lib/digest/region.ts:18:7 - warning ts(6133): '_COUNTRY_TO_REGION' is declared but its value is never read.
+
+18 const _COUNTRY_TO_REGION: Record<string, CanonicalRegion> = {
+         ~~~~~~~~~~~~~~~~~~
+
+src/lib/evidence/conflict.ts:27:22 - warning ts(6138): Property 'store' is declared but its value is never read.
+
+27     private readonly store: EvidenceStore,
+                        ~~~~~
+
+src/lib/flow/dsl/validate.ts:31:4 - warning ts(6385): '(): ZodObject<{ kind: ZodString; step: ZodString; }, $loose>' is deprecated.
+
+31 }).passthrough()
+      ~~~~~~~~~~~
+src/lib/flow/dsl/validate.ts:26:4 - warning ts(6385): '(): ZodObject<{ id: ZodString; type: ZodString; description: ZodOptional<ZodString>; }, $loose>' is deprecated.
+
+26 }).passthrough()
+      ~~~~~~~~~~~
+src/lib/flow/dsl/validate.ts:14:4 - warning ts(6385): '(): ZodObject<{ id: ZodString; type: ZodString; }, $loose>' is deprecated.
+
+14 }).passthrough()
+      ~~~~~~~~~~~
+src/lib/flow/dsl/validate.ts:9:4 - warning ts(6385): '(): ZodObject<{ name: ZodString; type: ZodString; required: ZodOptional<ZodBoolean>; default: ZodOptional<ZodUnknown>; }, $loose>' is deprecated.
+
+9 }).passthrough()
+     ~~~~~~~~~~~
+
+src/lib/pipeline/job-store.ts:235:9 - warning ts(6387): The signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+235   await updateJobStatus(db, id, 'dead_letter', {
+            ~~~~~~~~~~~~~~~
+
+src/lib/pipeline/redirector.ts:12:15 - warning ts(6387): The signature '(id: string): PipelineDefinition | undefined' of 'getPipelineDefinition' is deprecated.
+
+12   const def = getPipelineDefinition(pipelineId)
+                 ~~~~~~~~~~~~~~~~~~~~~
+src/lib/pipeline/redirector.ts:1:10 - warning ts(6385): 'getPipelineDefinition' is deprecated.
+
+1 import { getPipelineDefinition } from './registry'
+           ~~~~~~~~~~~~~~~~~~~~~
+
+src/lib/pipeline/runner.ts:1522:10 - warning ts(80006): This may be converted to an async function.
+
+1522 function withTimeout<T>(promise: Promise<T>, timeoutMs: number): Promise<T> {
+              ~~~~~~~~~~~
+src/lib/pipeline/runner.ts:1510:15 - warning ts(6387): The signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+1510         await updateJobStatus(db, jobId, 'failed', { error: message, failureReason: 'execution_failed' })
+                   ~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:1472:45 - warning ts(6385): 'getPipelineDefinition' is deprecated.
+
+1472   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+                                                 ~~~~~~~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:995:45 - warning ts(6385): 'getPipelineDefinition' is deprecated.
+
+995   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+                                                ~~~~~~~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:822:45 - warning ts(6385): 'getPipelineDefinition' is deprecated.
+
+822   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+                                                ~~~~~~~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:617:45 - warning ts(6385): 'getPipelineDefinition' is deprecated.
+
+617   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+                                                ~~~~~~~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:472:45 - warning ts(6385): 'getPipelineDefinition' is deprecated.
+
+472   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+                                                ~~~~~~~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:403:45 - warning ts(6385): 'getPipelineDefinition' is deprecated.
+
+403   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+                                                ~~~~~~~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:327:45 - warning ts(6385): 'getPipelineDefinition' is deprecated.
+
+327   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+                                                ~~~~~~~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:215:45 - warning ts(6385): 'getPipelineDefinition' is deprecated.
+
+215   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+                                                ~~~~~~~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:120:45 - warning ts(6385): 'getPipelineDefinition' is deprecated.
+
+120   definition: NonNullable<ReturnType<typeof getPipelineDefinition>>,
+                                                ~~~~~~~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:112:9 - warning ts(6387): The signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+112   await updateJobStatus(db, jobId, result.status, {
+            ~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:80:11 - warning ts(6387): The signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+80     await updateJobStatus(db, jobId, 'failed', { error: 'Input/runtime guard failed', failureReason: 'guard_failed' })
+             ~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:63:9 - warning ts(6387): The signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+63   await updateJobStatus(db, jobId, 'running')
+           ~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:62:23 - warning ts(6387): The signature '(db: D1Database, definition: PipelineDefinition, input: Record<string, unknown>, requestedBy: string): Promise<string>' of 'createJob' is deprecated.
+
+62   const jobId = await createJob(db, definition, request.input, request.requestedBy)
+                         ~~~~~~~~~
+src/lib/pipeline/runner.ts:57:22 - warning ts(6387): The signature '(id: string): PipelineDefinition | undefined' of 'getPipelineDefinition' is deprecated.
+
+57   const definition = getPipelineDefinition(request.pipelineId)
+                        ~~~~~~~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:37:10 - warning ts(6385): 'getPipelineDefinition' is deprecated.
+
+37 import { getPipelineDefinition } from './registry'
+            ~~~~~~~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:16:3 - warning ts(6385): 'updateJobStatus' is deprecated.
+
+16   updateJobStatus,
+     ~~~~~~~~~~~~~~~
+src/lib/pipeline/runner.ts:11:3 - warning ts(6385): 'createJob' is deprecated.
+
+11   createJob,
+     ~~~~~~~~~
+
+src/lib/pipeline/guards/input.ts:51:11 - warning ts(6133): '_normalized' is declared but its value is never read.
+
+51     const _normalized = normalizeSlug(value)
+             ~~~~~~~~~~~
+
+src/lib/providers/registry.ts:37:28 - warning ts(6133): 'db' is declared but its value is never read.
+
+37 export async function boot(db: D1Database, backends: ProviderBackends): Promise<void> {
+                              ~~
+
+src/lib/research/nodes/research.ts:50:13 - warning ts(6387): The signature '(): MessageType' of 'msg._getType' is deprecated.
+
+50     if (msg._getType() === 'tool') {
+               ~~~~~~~~
+src/lib/research/nodes/research.ts:38:17 - warning ts(6387): The signature '(params: CreateReactAgentParams<AnnotationRoot<{ messages: BaseChannel<BaseMessage<MessageStructure<MessageToolSet>, MessageType>[], OverwriteValue<BaseMessage<MessageStructure<MessageToolSet>, MessageType>[]> | Messages, unknown>; }>, Record<...>, AnyAnnotationRoot>): CompiledStateGraph<...>' of 'createReactAgent' is deprecated.
+
+38   const agent = createReactAgent({
+                   ~~~~~~~~~~~~~~~~
+src/lib/research/nodes/research.ts:1:10 - warning ts(6385): 'createReactAgent' is deprecated.
+
+1 import { createReactAgent } from '@langchain/langgraph/prebuilt'
+           ~~~~~~~~~~~~~~~~
+
+src/lib/tool-registry/definitions/external-search.ts:1085:10 - warning ts(80006): This may be converted to an async function.
+
+1085 function fetchWithTimeout(
+              ~~~~~~~~~~~~~~~~
+
+src/lib/tool-registry/definitions/knowledge-github.ts:75:19 - warning ts(6387): The signature '(string: string): string' of 'unescape' is deprecated.
+
+75     content: btoa(unescape(encodeURIComponent(content))),
+                     ~~~~~~~~
+
+src/pages/interview.astro:10:7 - warning ts(6133): 't' is declared but its value is never read.
+
+10 const t = useTranslations('zh-TW');
+         ~
+
+src/pages/login.astro:5:9 - warning ts(6133): 'next' is declared but its value is never read.
+
+5   const next = Astro.url.searchParams.get('next') || '/admin'
+          ~~~~
+
+src/pages/admin/flows/index.astro:229:9 - warning astro(4000): This script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+229 <script define:vars={{ archiveFailed: t('flows.archiveFailed') }}>
+            ~~~~~~~~~~~
+
+src/pages/admin/flows/new.astro:604:11 - warning ts(6385): 'returnValue' is deprecated.
+
+604     event.returnValue = '';
+              ~~~~~~~~~~~
+src/pages/admin/flows/new.astro:159:9 - warning astro(4000): This script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+159 <script define:vars={{
+            ~~~~~~~~~~~
+
+src/pages/admin/flows/[id]/index.astro:104:9 - warning astro(4000): This script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+104 <script define:vars={{ lang, archiveFailed: t('flows.archiveFailed') }}>
+            ~~~~~~~~~~~
+
+src/pages/admin/settings/models/[id].astro:42:5 - warning ts(6133): 'loadError' is declared but its value is never read.
+
+42 let loadError = false;
+       ~~~~~~~~~
+
+src/pages/admin/settings/models/cost.astro:643:11 - warning ts(6133): 'history' is declared but its value is never read.
+
+643     const history = document.getElementById('cost-backfill-history');
+              ~~~~~~~
+
+src/pages/admin/settings/permissions/[policyKey].astro:88:9 - warning astro(4000): This script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+88 <script define:vars={{
+           ~~~~~~~~~~~
+
+src/pages/admin/settings/permissions/index.astro:214:9 - warning astro(4000): This script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+214 <script define:vars={{
+            ~~~~~~~~~~~
+
+src/pages/admin/settings/site/rag.astro:5:1 - warning ts(6133): 'SUPPORTED_SEARCH_TOOL_PROVIDERS' is declared but its value is never read.
+
+5 import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '@/lib/search-tools';
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+src/pages/api/search.ts:392:10 - warning ts(80006): This may be converted to an async function.
+
+392 function withSourceTimeout<T>(promise: Promise<T>, timeoutMs: number): Promise<T> {
+             ~~~~~~~~~~~~~~~~~
+
+src/pages/api/admin/site/jobs/[id].ts:206:26 - warning ts(6387): The signature '(db: D1Database, request: PipelineRunRequest): Promise<{ jobId: string; status: string; }>' of 'runPipeline' is deprecated.
+
+206     const result = await runPipeline(db, {
+                             ~~~~~~~~~~~
+src/pages/api/admin/site/jobs/[id].ts:196:24 - warning ts(6387): The signature '(id: string): PipelineDefinition | undefined' of 'getPipelineDefinition' is deprecated.
+
+196     const definition = getPipelineDefinition(job.pipeline_id)
+                           ~~~~~~~~~~~~~~~~~~~~~
+src/pages/api/admin/site/jobs/[id].ts:186:11 - warning ts(6387): The signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+186     await updateJobStatus(db, id, 'cancelled', {
+              ~~~~~~~~~~~~~~~
+src/pages/api/admin/site/jobs/[id].ts:173:11 - warning ts(6387): The signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+173     await updateJobStatus(db, id, 'succeeded', {
+              ~~~~~~~~~~~~~~~
+src/pages/api/admin/site/jobs/[id].ts:165:11 - warning ts(6387): The signature '(db: D1Database, id: string, status: PipelineStatus, summary?: { output?: string | undefined; error?: string | undefined; failureReason?: string | undefined; } | undefined): Promise<...>' of 'updateJobStatus' is deprecated.
+
+165     await updateJobStatus(db, id, 'cancelled', { output: 'Cancelled by admin action', error: 'cancelled' })
+              ~~~~~~~~~~~~~~~
+src/pages/api/admin/site/jobs/[id].ts:12:10 - warning ts(6385): 'getPipelineDefinition' is deprecated.
+
+12 import { getPipelineDefinition } from '../../../../../lib/pipeline/registry'
+            ~~~~~~~~~~~~~~~~~~~~~
+src/pages/api/admin/site/jobs/[id].ts:11:10 - warning ts(6385): 'runPipeline' is deprecated.
+
+11 import { runPipeline } from '../../../../../lib/pipeline/runner'
+            ~~~~~~~~~~~
+src/pages/api/admin/site/jobs/[id].ts:10:10 - warning ts(6385): 'updateJobStatus' is deprecated.
+
+10 import { updateJobStatus } from '../../../../../lib/pipeline/job-store'
+            ~~~~~~~~~~~~~~~
+
+src/pages/api/admin/site/pipelines/index.ts:73:26 - warning ts(6387): The signature '(db: D1Database, request: PipelineRunRequest): Promise<{ jobId: string; status: string; }>' of 'runPipeline' is deprecated.
+
+73     const result = await runPipeline(db, {
+                            ~~~~~~~~~~~
+src/pages/api/admin/site/pipelines/index.ts:44:16 - warning ts(6387): The signature '(): PipelineDefinition[]' of 'listPipelines' is deprecated.
+
+44     pipelines: listPipelines(),
+                  ~~~~~~~~~~~~~
+src/pages/api/admin/site/pipelines/index.ts:8:28 - warning ts(6385): 'runPipeline' is deprecated.
+
+8 import { PipelineRunError, runPipeline } from '../../../../../lib/pipeline/runner'
+                             ~~~~~~~~~~~
+src/pages/api/admin/site/pipelines/index.ts:6:10 - warning ts(6385): 'listPipelines' is deprecated.
+
+6 import { listPipelines } from '../../../../../lib/pipeline/registry'
+           ~~~~~~~~~~~~~
+
+src/pages/api/admin/site/pipelines/run.ts:27:26 - warning ts(6387): The signature '(db: D1Database, request: PipelineRunRequest): Promise<{ jobId: string; status: string; }>' of 'runPipeline' is deprecated.
+
+27     const result = await runPipeline(db, {
+                            ~~~~~~~~~~~
+src/pages/api/admin/site/pipelines/run.ts:5:10 - warning ts(6385): 'runPipeline' is deprecated.
+
+5 import { runPipeline } from '../../../../../lib/pipeline/runner'
+           ~~~~~~~~~~~
+
+src/pages/api/admin/site/pipelines/scheduled.ts:43:26 - warning ts(6387): The signature '(db: D1Database, request: PipelineRunRequest): Promise<{ jobId: string; status: string; }>' of 'runPipeline' is deprecated.
+
+43     const result = await runPipeline(db, {
+                            ~~~~~~~~~~~
+src/pages/api/admin/site/pipelines/scheduled.ts:5:28 - warning ts(6385): 'runPipeline' is deprecated.
+
+5 import { PipelineRunError, runPipeline } from '../../../../../lib/pipeline/runner'
+                             ~~~~~~~~~~~
+
+src/pages/api/admin/webhooks/discord-interactions.ts:39:11 - warning ts(6133): '_sm' is declared but its value is never read.
+
+39     const _sm = createSessionManager(e.DB)
+             ~~~
+
+src/pages/daily/topics/[topic].astro:20:7 - warning ts(6133): 't' is declared but its value is never read.
+
+20 const t = useTranslations('zh-TW');
+         ~
+
+src/pages/daily/topics/index.astro:9:7 - warning ts(6133): 't' is declared but its value is never read.
+
+9 const t = useTranslations('zh-TW');
+        ~
+
+src/pages/en/interview.astro:10:7 - warning ts(6133): 't' is declared but its value is never read.
+
+10 const t = useTranslations('en');
+         ~
+
+src/pages/en/daily/topics/[topic].astro:20:7 - warning ts(6133): 't' is declared but its value is never read.
+
+20 const t = useTranslations('en');
+         ~
+
+src/pages/en/daily/topics/index.astro:9:7 - warning ts(6133): 't' is declared but its value is never read.
+
+9 const t = useTranslations('en');
+        ~
+
+src/server/agent-flow-workflow.ts:296:3 - warning ts(6133): 'input' is declared but its value is never read.
+
+296   input: Record<string, unknown>,
+      ~~~~~
+
+Result (990 files):
+- 0 errors
+- 0 warnings
+- 81 hints

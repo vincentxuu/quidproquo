@@ -1,0 +1,44 @@
+
+> quidproquo@0.0.1 check:links /private/tmp/quidproquo-korea-publish-20261021
+> node scripts/check-external-links.mjs src/content/posts/climbing/2026-10-21-korea-crag-daeryukbong-en.md src/content/posts/climbing/2026-10-21-korea-crag-daeryukbong.md src/content/posts/climbing/2026-10-21-korea-crag-ganhyeon-en.md src/content/posts/climbing/2026-10-21-korea-crag-ganhyeon.md src/content/posts/climbing/2026-10-21-korea-crag-halmae-bawi-en.md src/content/posts/climbing/2026-10-21-korea-crag-halmae-bawi.md src/content/posts/climbing/2026-10-21-korea-crag-insubong-en.md src/content/posts/climbing/2026-10-21-korea-crag-insubong.md src/content/posts/climbing/2026-10-21-korea-crag-janggunbong-en.md src/content/posts/climbing/2026-10-21-korea-crag-janggunbong.md src/content/posts/climbing/2026-10-21-korea-crag-jeju-bouldering-en.md src/content/posts/climbing/2026-10-21-korea-crag-jeju-bouldering.md src/content/posts/climbing/2026-10-21-korea-crag-jeokbyeok-en.md src/content/posts/climbing/2026-10-21-korea-crag-jeokbyeok.md src/content/posts/climbing/2026-10-21-korea-crag-munsusan-en.md src/content/posts/climbing/2026-10-21-korea-crag-munsusan.md src/content/posts/climbing/2026-10-21-korea-crag-musucheon-en.md src/content/posts/climbing/2026-10-21-korea-crag-musucheon.md src/content/posts/climbing/2026-10-21-korea-crag-seoninbong-en.md src/content/posts/climbing/2026-10-21-korea-crag-seoninbong.md src/content/posts/climbing/2026-10-21-korea-crag-seonunsan-en.md src/content/posts/climbing/2026-10-21-korea-crag-seonunsan.md src/content/posts/climbing/2026-10-21-korea-crag-ulsanbawi-en.md src/content/posts/climbing/2026-10-21-korea-crag-ulsanbawi.md src/content/posts/climbing/2026-10-21-korea-crag-yuseondae-en.md src/content/posts/climbing/2026-10-21-korea-crag-yuseondae.md src/content/posts/climbing/2026-10-21-korea-crags-overview-en.md src/content/posts/climbing/2026-10-21-korea-crags-overview.md
+
+Checking 61 external link(s) across 28 file(s)（預設只掃 14 天內改過的，加 --all 掃全站）...
+
+壞掉的連結：10
+  TypeError  https://bus.busan.go.kr/
+        src/content/posts/climbing/2026-10-21-korea-crag-daeryukbong-en.md
+        src/content/posts/climbing/2026-10-21-korea-crag-daeryukbong.md
+  404  https://english.visitseoul.net/seoul-hiking/Sweeping-views-of-Seoul-Baegundae%E2%80%93-Ui-Gugok-Trail/ENN042345
+        src/content/posts/climbing/2026-10-21-korea-crag-insubong-en.md
+        src/content/posts/climbing/2026-10-21-korea-crag-insubong.md
+  404  https://san.chosun.com/news/articleView.html?idxno=25147
+        src/content/posts/climbing/2026-10-21-korea-crag-insubong-en.md
+        src/content/posts/climbing/2026-10-21-korea-crag-insubong.md
+  TypeError  https://bus.jeju.go.kr/
+        src/content/posts/climbing/2026-10-21-korea-crag-jeju-bouldering-en.md
+        src/content/posts/climbing/2026-10-21-korea-crag-jeju-bouldering.md
+        src/content/posts/climbing/2026-10-21-korea-crag-musucheon-en.md
+        src/content/posts/climbing/2026-10-21-korea-crag-musucheon.md
+  404  https://www.sansan.co.kr/news/articleView.html?idxno=9990
+        src/content/posts/climbing/2026-10-21-korea-crag-seoninbong-en.md
+        src/content/posts/climbing/2026-10-21-korea-crag-seoninbong.md
+        src/content/posts/climbing/2026-10-21-korea-crags-overview-en.md
+        src/content/posts/climbing/2026-10-21-korea-crags-overview.md
+  TimeoutError  https://www.sisul.or.kr/open_content/parking/bbs/bbsMsgDetail.do?bcd=parking&msg_seq=35
+        src/content/posts/climbing/2026-10-21-korea-crag-seoninbong-en.md
+        src/content/posts/climbing/2026-10-21-korea-crag-seoninbong.md
+  404  https://san.chosun.com/news/articleView.html?idxno=24721
+        src/content/posts/climbing/2026-10-21-korea-crag-seoninbong-en.md
+        src/content/posts/climbing/2026-10-21-korea-crag-seoninbong.md
+  404  https://san.chosun.com/news/articleView.html?idxno=25056
+        src/content/posts/climbing/2026-10-21-korea-crag-ulsanbawi-en.md
+        src/content/posts/climbing/2026-10-21-korea-crag-ulsanbawi.md
+  404  https://san.chosun.com/news/articleView.html?idxno=25033
+        src/content/posts/climbing/2026-10-21-korea-crag-ulsanbawi-en.md
+        src/content/posts/climbing/2026-10-21-korea-crag-ulsanbawi.md
+  404  https://san.chosun.com/news/articleView.html?idxno=10118
+        src/content/posts/climbing/2026-10-21-korea-crags-overview-en.md
+        src/content/posts/climbing/2026-10-21-korea-crags-overview.md
+
+Summary: 10 broken / 0 needs-review / 61 checked.
+ ELIFECYCLE  Command failed with exit code 1.

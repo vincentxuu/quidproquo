@@ -50,3 +50,7 @@
 - 全站pnpm verify、系列登錄、review三節與索引整合交由parent完成；本worker只改assigned三檔。
 
 - `pnpm check:tw <中文總覽>` 初次發現網絡，已改網路；重跑通過。register-scan初次只有iGuideKorea一句65字，已拆句。
+
+## 完稿導覽回填
+
+2026-10-21僅回填13個具名目的地內鏈與比較行，不刷新全部外部事實；新增摘要事實各回 `.research/2026-10-21-korea-crag-<slug>.md`。School限具名區及兩道V5，無水川限北區繩攀。新增Daeryuk/Musu/Seorak等地域摘要由各篇查證支撐，不稱全韓完整覆蓋。
