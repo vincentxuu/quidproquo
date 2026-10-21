@@ -130,4 +130,70 @@ export const videoGalleries: Record<string, VideoGallery> = {
       { id: 'lnM21iYd4QU', title: '설악산 유선대 "이륙공천" 1P 5.10a', route: '同一岩壁其他線', routeEn: 'other lines on the buttress', note: '岩壁線 5.10a', noteEn: 'a 5.10a wall pitch', length: '13:09', channel: '유성Climb TV' },
     ],
   },
+
+  // Malaysia crags series. Every id, title, channel and runtime below was
+  // re-checked against the YouTube oEmbed endpoint and the watch page on
+  // 2026-10-21; grades are the theCrag French grades.
+  'bukit-keteri': {
+    videos: [
+      { id: 'PAExKArHBBU', title: 'MALAYSIA CLIMBING | Bukit Keteri', route: '岩場導覽', routeEn: 'crag overview', note: '玻璃市岩場與攀登', noteEn: 'the crag and the climbing', length: '6:47', channel: 'Nico Corradi' },
+      { id: 'HZzd4dE2XMo', title: 'POV: Dust in the Wind 6b | Rock Climbing Bukit Keteri, Perlis', route: 'Dust in the Wind 6b', routeEn: 'Dust in the Wind 6b', note: 'West 區的第一視角', noteEn: 'a first-person look at the West sector', length: '10:07', channel: 'Jack Wong' },
+      { id: 'zpVuAbt3wkw', title: 'Nettie sending “Zamboney” 7B+ (5.12c) in Perlis, Malaysia', route: 'Zamboney 7b+', routeEn: 'Zamboney 7b+', note: '完攀 7b+ 的片段', noteEn: 'the 7b+ send', length: '4:26', channel: 'The Climbing Backpackers' },
+      { id: 'X3aALOYtglc', title: 'Belly Button Window, 7c | Bukit Keteri, Perlis', route: 'Belly Button Window 7c', routeEn: 'Belly Button Window 7c', note: 'Belly Button 區的 7c', noteEn: 'a 7c in the Belly Button sector', length: '1:20', channel: 'SITI NURSARA' },
+      { id: 'WmfHwJB8mik', title: 'Bukit Keteri Perlis for rock climbing from Kuala Lumpur', route: '從吉隆坡前往', routeEn: 'getting there from KL', note: '交通與行程', noteEn: 'transport and the trip', length: '3:48', channel: 'HOBO CLIMBS' },
+      { id: '5OGktf5lseA', title: 'Bukit Keteri In Perlis Can Be Scaled! Just Looking At It Will Send Chills Down Your Spine.', route: '岩場空拍', routeEn: 'aerial view', note: '稻田中的石灰岩壁', noteEn: 'limestone above the paddy fields', length: '18:07', channel: 'Atok vlog YT' },
+    ],
+  },
+
+  'batu-caves-nyamuk': {
+    videos: [
+      { id: 'jv8PDYAix9c', title: 'Bada Bing (8b) - Rock Climbing in Malaysia, Nyamuk Wall, Batu Caves, Kuala Lumpur', route: 'Bada Bing 8b', routeEn: 'Bada Bing 8b', note: 'Nyamuk 最高級的線', noteEn: 'the hardest line listed for Nyamuk', length: '8:34', channel: 'Kang Climbing' },
+      { id: '4APPxaOauXI', title: 'Chess (7a) - Rock Climbing in Malaysia, Nyamuk Wall, Batu Caves, Kuala Lumpur', route: 'Chess 7a', routeEn: 'Chess 7a', note: 'Shieldtox 區的 7a', noteEn: 'a 7a in the Shieldtox sector', length: '10:03', channel: 'Kang Climbing' },
+      { id: 'huOhiFxoma4', title: 'Climbing POV: Bangsar Babe Backdrop (6a+) Nyamuk Wall, Batu Caves, Malaysia', route: 'Bangsar Babes Backdrop 6a+', routeEn: 'Bangsar Babes Backdrop 6a+', note: '第一視角攀登', noteEn: 'a first-person climb', length: '6:46', channel: 'Jack Wong' },
+      { id: 'mgnDRQM-MIk', title: "Nyamuk Wall - Love at 1st Bite 5.12c [7b+] Crux beta", route: 'Love at 1st Bite 7b+', routeEn: 'Love at 1st Bite 7b+', note: '關鍵動作 beta', noteEn: 'the crux beta', length: '1:24', channel: 'ClimberDavT' },
+      { id: 'jv6-lUpH_O0', title: 'EP 3 - Climbing at Nyamuk Wall | Batu Caves', route: '岩場紀錄', routeEn: 'crag session', note: '整段岩場紀錄', noteEn: 'a full session', length: '3:09', channel: 'Outside TV Channel' },
+    ],
+  },
+
+  'batu-caves-damai': {
+    videos: [
+      { id: 'Mzja4le8htk', title: 'Climbing at Batu Caves, Damai Wall', route: 'Damai Wall', routeEn: 'Damai Wall', note: '2008 年的岩場紀錄', noteEn: 'a 2008 session', length: '6:10', channel: 'sportsclimbingkakis' },
+      { id: 'tTwwURUjzi4', title: 'Rock Climbing at Batu Caves Damai', route: 'Damai Wall', routeEn: 'Damai Wall', note: '主牆攀登', noteEn: 'on the main wall', length: '8:32', channel: 'Vivian Goi' },
+      { id: 'f0E086pBRBY', title: 'GoPro | Climbing Batu Caves Damai Wall', route: 'Damai Wall', routeEn: 'Damai Wall', note: '第一視角', noteEn: 'first-person footage', length: '11:50', channel: 'Ryan Chua' },
+      { id: 'EGjjaUTaL0U', title: 'Sport climbing at Batu Caves Damai Wall - May 2019', route: 'Damai Wall', routeEn: 'Damai Wall', note: '2019 年的攀登', noteEn: 'a 2019 outing', length: '2:40', channel: 'Singapore Sends' },
+      { id: 'kKCcdSrLg3g', title: 'OUTDOOR ACTIVITIES IN MALAYSIA - Rock climbing Gua Damai Extreme Park Batu Caves Kuala Lumpur', route: '園區與動線', routeEn: 'the park', note: '園區設施與動線', noteEn: 'facilities and the approach', length: '7:21', channel: 'YOKL' },
+      { id: 'TJyl3yvherU', title: 'Rock Climbing - Damai Wall, Batu Caves', route: 'Damai Wall', routeEn: 'Damai Wall', note: '短線紀錄', noteEn: 'a short clip', length: '1:04', channel: 'Andy Saiden' },
+    ],
+  },
+
+  'batu-caves-other-walls': {
+    videos: [
+      { id: 'V1jOUH8Pn90', title: 'Matrix (7a) - Rock Climbing in Malaysia, Nanyang Wall, Batu Caves, Kuala Lumpur', route: 'Matrix 7a（Nanyang）', routeEn: 'Matrix 7a (Nanyang)', note: 'Nanyang 的 7a', noteEn: 'a 7a at Nanyang', length: '9:56', channel: 'Kang Climbing' },
+      { id: 'QhVu1TjeEgA', title: 'Lost Monkey (6c) - Rock Climbing in Malaysia, Kuala Lumpur, Batu Caves, Nanyang Wall', route: 'Lost Monkey 6c（Nanyang）', routeEn: 'Lost Monkey 6c (Nanyang)', note: 'Nanyang 的 6c', noteEn: 'a 6c at Nanyang', length: '5:18', channel: 'Kang Climbing' },
+      { id: 'cXyqd61DD74', title: 'Hard project lines at Batu caves, Malaysia', route: '黑風洞各壁', routeEn: 'several Batu Caves walls', note: '不同岩壁的難線', noteEn: 'hard lines across the walls', length: '3:52', channel: 'The Climbing Backpackers' },
+      { id: 'cgWm4kXx6jY', title: 'Rock Climbing Gua Damai - Near Batu Caves', route: 'Gua Damai 園區', routeEn: 'Gua Damai park', note: '園區裡的攀登', noteEn: 'climbing inside the park', length: '2:28', channel: 'Adha Studios' },
+    ],
+  },
+
+  'tioman-dragons-horns': {
+    videos: [
+      { id: '0Ihcsn74jms', title: "Naga (6b/+) - Dragon's Horns, Tioman - Malaysia Rock Climbing", route: 'Naga 6b+', routeEn: 'Naga 6b+', note: '南塔完整攀登', noteEn: 'the full South Tower route', length: '88:59', channel: 'Kang Climbing' },
+      { id: 'x6pg_SJhIfo', title: "Polish Princess (7b+) - Dragons Horns, Tioman - Malaysia Rock Climbing", route: 'Polish Princess 7b+', routeEn: 'Polish Princess 7b+', note: '岩場最難的線之一', noteEn: 'one of the hardest lines here', length: '94:03', channel: 'Kang Climbing' },
+      { id: '9C47iG75AGs', title: "Climbing the Dragons Horns on Tioman in Malaysia", route: 'Dragon Horns 岩壁', routeEn: 'the Dragon Horns wall', note: '大牆與地形', noteEn: 'the big wall and the terrain', length: '24:31', channel: 'Kang Climbing' },
+      { id: 'FVpQ7PZ5w8E', title: 'Naga, Dragon Horns - Tioman Climbing Trip 2023', route: 'Naga 6b+', routeEn: 'Naga 6b+', note: '另一支完整的 Naga', noteEn: 'another full ascent of Naga', length: '5:57', channel: 'Sng Shao Hao' },
+      { id: 'xc4-ggN2b04', title: "ROCK CLIMBING the DRAGON'S HORNS, TIOMAN ISLAND, Malaysia", route: 'Dragon Horns 岩壁', routeEn: 'the Dragon Horns wall', note: '岩壁與繩隊', noteEn: 'wall and rope team', length: '35:39', channel: 'Monster Climber' },
+      { id: 'r8PC1XSbxB0', title: "Climbing the Dragon Horns, Tioman Island, Malaysia - 2015", route: 'Dragon Horns 岩壁', routeEn: 'the Dragon Horns wall', note: '2015 年的攀爬', noteEn: 'a 2015 trip', length: '8:16', channel: "Grant 'Axe' Rawlinson" },
+      { id: 'wSG0RINsFow', title: 'Most dangerous in Malaysia, 700 meter hiking - Dragon Horns, Tioman', route: '叢林接近', routeEn: 'the jungle approach', note: '登島後的接近', noteEn: 'the approach after landing', length: '12:41', channel: 'WonHoHo' },
+    ],
+  },
+
+  'fairy-caves': {
+    videos: [
+      { id: 'RIB81rPScHQ', title: 'Kuching Rock Climbing【Fairy Cave】仙洞攀岩【古晋】', route: 'Fairy Caves 岩場', routeEn: 'the Fairy Caves crag', note: '古晉的岩場', noteEn: 'the crag near Kuching', length: '5:15', channel: 'Be MyBest Jessica' },
+      { id: 'lJuH3V2mRvo', title: 'Show pony 7C+, Fairy Cave, Kuching, Malaysia', route: 'Show Pony 7c+', routeEn: 'Show Pony 7c+', note: '洞穴岩壁的 7c+', noteEn: 'a 7c+ on the cave wall', length: '3:13', channel: 'LW-Ricarido' },
+      { id: '0hDtMaQjtTQ', title: 'Outdoor Climbing Batman Wall Fairy Cave 20250607 Top View', route: 'Batman Wall', routeEn: 'Batman Wall', note: '本地社團維護的牆', noteEn: 'the wall the local group maintains', length: '1:42', channel: 'C Hamzah' },
+      { id: '2j0pccR5I-c', title: 'Fairy Cave Rock Climbing. My first trial', route: 'Fairy Caves 岩場', routeEn: 'the Fairy Caves crag', note: '第一次嘗試', noteEn: 'a first attempt', length: '14:02', channel: 'Patrick Howel' },
+      { id: 'qI2-WxaXNFE', title: 'Outdoor Rock Climbing at Fairy Caves, Kuching', route: 'Fairy Caves 岩場', routeEn: 'the Fairy Caves crag', note: '戶外攀登紀錄', noteEn: 'an outdoor session', length: '5:49', channel: 'Alan Lee' },
+    ],
+  },
 };

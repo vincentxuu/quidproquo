@@ -229,6 +229,33 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'vietnam-crags',
+    category: 'climbing',
+    names: { 'zh-TW': '越南岩場', en: 'Vietnam Climbing Crags' },
+    descriptions: {
+      'zh-TW': '從諒山 Hữu Lũng 的 267 條果園石灰岩運攀，到吉婆島的海島屋頂與蘭夏灣的沙灘運動攀岩與深水抱石，按風格、級數、季節、潮汐與交通選目的地。每篇分開介紹路線、接近方式、通行費、封閉與在地規範。',
+      en: 'Choose Vietnamese climbing destinations by style, grade, season, tide and transport, from the 267 orchard limestone sport routes at Hữu Lũng to island roofs on Cat Ba and beach sport climbing plus deep water soloing in Lan Hạ Bay. Each guide covers routes, approaches, access fees, closures and local rules.',
+    },
+  },
+  {
+    slug: 'malaysia-crags',
+    category: 'climbing',
+    names: { 'zh-TW': '馬來西亞岩場', en: 'Malaysia Climbing Crags' },
+    descriptions: {
+      'zh-TW': '從玻璃市的石灰岩運攀、蘭卡威的私人岩場與深水抱石，到黑風洞、怡保、刁曼島多段與砂拉越洞穴。每個岩場分開介紹路線、接近方式、在地規範、岩栓狀態與指南書。',
+      en: 'From Perlis limestone sport climbing and Langkawi’s private crags and deep-water soloing to Batu Caves, Ipoh, Tioman multipitch and Sarawak caves. Each crag guide covers routes, approaches, local rules, bolt condition and guidebooks.',
+    },
+  },
+  {
+    slug: 'thailand-crags',
+    category: 'climbing',
+    names: { 'zh-TW': '泰國岩場', en: 'Thailand Climbing Crags' },
+    descriptions: {
+      'zh-TW': '從喀比半島的 Tonsai 與 Railay、Ao Nang 本島的 North Wall 與 Chong Phli，到清邁 Crazy Horse、清道、華富里、北標與龜島抱石，按風格、級數、季節與交通選目的地。每篇分開介紹具名路線、接近方式、進入規定、岩栓狀態與指南書。',
+      en: 'Choose Thai climbing destinations by style, grade, season and transport, from Tonsai and Railay on the Krabi peninsula and the Ao Nang mainland crags to Crazy Horse, Chiang Dao, Lopburi, Nam Pha Pa Yai and Koh Tao bouldering. Each guide covers named routes, approaches, access rules, bolt condition and guidebooks.',
+    },
+  },
+  {
     slug: 'climbing-gear-travel',
     category: 'climbing',
     names: { 'zh-TW': '出國攀岩裝備', en: 'Climbing Travel Gear' },
