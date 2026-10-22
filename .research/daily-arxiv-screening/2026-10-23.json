@@ -1,0 +1,594 @@
+{
+  "date": "2026-10-23",
+  "status": "published",
+  "selectedCount": 3,
+  "candidateSources": {
+    "layerA": "arXiv announcement batch: Thursday 22 October 2026 (cs.AI/new, cs.CL/new, cs.MA/new — the latest batch visible as of 2026-10-23 Asia/Taipei, since arXiv does not announce on Fri/Sat/Sun). Sampled cs.AI (25/63 new submissions read), cs.MA (all 3 new submissions + 13 cross-lists), cs.CL (16/89 new submissions read). Q1-Q3 Groundlane web_search supplementary queries also run.",
+    "layerB": [
+      "HuggingFace Daily Papers API (last 3 days)",
+      "Semantic Scholar search (partially rate-limited, 429)"
+    ],
+    "layerC": "lookback from 2026-10-10 to 2026-10-22, scanned 'watch' decisions across all files; 2026-10-22 alone carried ~150 watch candidates (same-day leftovers from a large batch), all logged with credibility not-assessed by the prior run. None elevated: today's Layer A/B pool already produced three candidates with full or partial primary-source verification and strong thematic coherence (agent trust/governance over persistent state and tool actions), outscoring the decayed/unassessed Layer C pool."
+  },
+  "generatedAt": "2026-10-23T03:00:00Z",
+  "candidates": [
+    {
+      "arxivId": "2610.28934",
+      "title": "Back Up Before You Regret: Measuring Backup Awareness and Automating Backup in Coding Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 3 days (preprint, Semantic Scholar)",
+      "institution": "Northeastern University + UC Berkeley + University of Chicago + UIUC",
+      "communitySignals": [
+        "Third-party coverage: unite.ai article published ~4h after submission",
+        "PyPI package agents-backupper published",
+        "GitHub repo + HuggingFace dataset + project page + demo video",
+        "HF Daily Papers: not listed"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "S3 RegretBench construction (205 tasks from X.com/GitHub/StackOverflow regret moments)",
+        "S4 Main Results across 6 frontier models (86.1% completion, 15.2% backup rate)",
+        "S5 BackUpper method + S5.2/5.3 method evaluation, efficiency, generalization, ablations"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Benchmark + multi-model evaluation + method efficiency/generalization/personalization ablations in body and appendix, though limited to a single 205-task benchmark",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "GitHub: CHATS-lab/BackUpper",
+        "HuggingFace dataset: CHATS-Lab/RegretBench",
+        "project page + demo video"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Core numbers supported by multi-model benchmark plus independent efficiency/generalization experiments; already drew independent press coverage",
+      "primaryLimitation": "205 tasks drawn entirely from publicly reported regret moments, which may carry selection bias toward dramatic/memorable cases",
+      "presentation": "clear",
+      "presentationReason": "Method, benchmark construction, and limitations clearly laid out with appendix detail",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "Selected: directly measures a concrete, underexplored agent-safety gap (backup awareness) with a reproducible benchmark and a deployable, harness-agnostic fix; strongest reproducibility signal of today's pool."
+    },
+    {
+      "arxivId": "2610.28989",
+      "title": "AgentPolicyForge: From Executable Environments to Policy Benchmarks and Adaptive Guards",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "Semantic Scholar query rate-limited (429) after repeated attempts",
+      "institution": "AWS AI Labs (author emails @amazon.com)",
+      "communitySignals": [
+        "HF Daily Papers: not listed",
+        "No independent GitHub/PyPI/press found in search"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "S2-S3 PolicyGym construction (698 training scenarios, 254 held-out human-reviewed test scenarios across 10 policy families)",
+        "S4.2-4.5 experiments: policy-prompting baseline, trained guard, fixed vs updating archive ablation, external validation on VIOLA and PolicyGuardBench, smaller-backbone (Qwen3-8B) replication"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Multiple ablations (archive update, verifier-derived labels, smaller backbone) plus two external benchmark cross-checks (VIOLA, PolicyGuardBench) support the core claim",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "PolicyGym construction and splits detailed in paper appendix; no public code/dataset link found at time of review"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "40-44% relative ASR reduction is supported by paired ablations and external benchmark validation, not a single isolated number",
+      "primaryLimitation": "Core evaluation is concentrated on the authors' own PolicyGym scenarios; generalization to real enterprise policy sets beyond VIOLA/PolicyGuardBench cross-checks is less established",
+      "presentation": "clear",
+      "presentationReason": "Framework, benchmark construction and experiment sections are clearly separated with explicit ablation questions",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "Selected: tackles the common and hard-to-catch case of policy-violating-but-tool-permitted calls with a trained, measurable guard rather than relying on prompt-level policy; complements BackUpper's 'preserve state' angle with 'prevent disallowed state changes'."
+    },
+    {
+      "arxivId": "2610.28987",
+      "title": "PerMIT: Securing Persistent Memory for LLM Agents via Machine-Checked Integrity Theorems and Scalable Community Trust",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 3 days (preprint, Semantic Scholar)",
+      "institution": "AWS AI Labs (shared authors Wanyu Du, Sandesh Swamy with AgentPolicyForge; author emails match AWS AI Labs pattern)",
+      "communitySignals": [
+        "HF Daily Papers: not listed",
+        "No independent GitHub/PyPI/press found in search"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract only: full HTML and PDF both exceeded the research tool's upstream byte limit (large embedded figures/Lean4 artifacts) and could not be fetched this round; abstract makes specific, falsifiable claims (two integrity theorems machine-checked in Lean 4, zero attack success on Trojan Hippo, up to 90-agent simulation on tau^2-bench) but body method/experiment/limitation sections were not independently read"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "Abstract-level claims are specific and the formal-verification claim (Lean 4) is inherently hard to fabricate, but full experimental setup, ablations and author-stated limitations could not be verified this round",
+      "reproducibility": "not-provided",
+      "reproducibilityEvidence": [
+        "No public code/proof-artifact link found within what was accessible"
+      ],
+      "editorialConfidence": "low",
+      "editorialConfidenceReason": "Claim strength in the abstract is high, but editorial confidence is capped because the body text could not be read to check scope and caveats",
+      "primaryLimitation": "Body text (HTML and PDF) could not be fetched within tool limits this round; article relies on abstract-level claims only and readers are told to treat this as preliminary",
+      "presentation": "not-assessed",
+      "presentationReason": "Body text inaccessible this round",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "selected",
+      "reason": "Selected with explicit hedging per skill Step 6 point 4 (body unreadable -> conditional pass at most): completes today's cluster on agent trust over persistent state (memory poisoning/injection defense) with a formally-verified approach distinct from BackUpper (reversibility) and AgentPolicyForge (policy enforcement); language kept to '略讀/preliminary' strength throughout the article."
+    },
+    {
+      "arxivId": "2610.28763",
+      "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild? (Agent4Sci)",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026 E&D Track (accepted)",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried (time budget)",
+      "institution": "Google DeepMind (Nicholas Carlini, Matthew Jagielski)",
+      "communitySignals": [
+        "GitHub + HuggingFace dataset released"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "Abstract-level only; not deep-read this round",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read this round",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Strong candidate (NeurIPS-accepted, concrete 10.4%->20.1% gain from plug-in skills) but sits on a different sub-theme (agent capability ceiling on ML-for-science) than today's chosen cluster on agent trust/governance over persistent state; not deep-read this round given time budget, so not elevated above three candidates whose bodies were already verified."
+    },
+    {
+      "arxivId": "2610.28815",
+      "title": "Forging More Tasks into Better Harnesses: Agentic Harness Evolution via Successive Scale Racing (SSR)",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "Michigan State University + Snap Research (inferred from author list)",
+      "communitySignals": [
+        "not checked"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Concrete numbers (pass rate 64.3%->68.3% as task pool scales 40->200, 60% fewer validation runs) but about harness-evolution scaling, a capability/efficiency sub-theme rather than today's trust/governance cluster; weaker thematic fit than the three selected."
+    },
+    {
+      "arxivId": "2610.28914",
+      "title": "D-Skill: Distilling Teacher Knowledge through Agent Skills",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "UC Berkeley (Joseph E. Gonzalez)",
+      "communitySignals": [
+        "not checked"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Relevant (black-box skill distillation closing 75-95% of teacher-student gap) but about capability transfer/cost reduction, not the persistent-state trust theme; weaker fit than selected trio."
+    },
+    {
+      "arxivId": "2610.28982",
+      "title": "Behavior Beyond Text: Evaluating Refusal Transfer Failure in LLM Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "not checked",
+      "communitySignals": [
+        "not checked"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Mechanistic finding (text refusal doesn't transfer to tool calls, AUC 0.76-0.86) is relevant to agent safety, but is an interpretability/diagnostic result with no deployed defense, weaker practical link than AgentPolicyForge's trained guard with measured ASR reduction on the same general problem class."
+    },
+    {
+      "arxivId": "2610.28891",
+      "title": "Fig: Automated Multiagent Behavior Elicitor",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "not checked",
+      "communitySignals": [
+        "GitHub repo released"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Multiagent behavior-elicitation testbed for research on cooperation/deception/sabotage is interesting but is an evaluation-methodology tool for eliciting behaviors, not directly about governing agent actions on persistent state; weaker fit and lower immediate practical link than selected trio."
+    },
+    {
+      "arxivId": "2610.28945",
+      "title": "Self-Improving Agents with World Model Predictive Paths",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "not checked",
+      "communitySignals": [
+        "not checked"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Test-time MPPI-style planning method on ALFWorld/ScienceWorld; capability-focused and benchmarked only on small simulated environments, weaker today-importance than the deployment-relevant trust/governance cluster chosen."
+    },
+    {
+      "arxivId": "2610.29023",
+      "title": "Inheritance as an Admission Test for LLM Prompt Merge Operators",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "not checked",
+      "communitySignals": [
+        "not checked"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "indirect",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "Single task (one negotiation game), single model (gemini-3.1-flash-lite), no fixed-oracle arm run — evaluation scope is narrow relative to the multi-model, multi-task benchmarks of selected candidates; conclusions risk overgeneralizing from one setting."
+    },
+    {
+      "arxivId": "2610.29292",
+      "title": "Credit Where Credit Is Due: Contrastive Attribution Topology Search for Multi-Agent Systems (CATS)",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (cs.CL/cs.MA cross-list)",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "not checked",
+      "communitySignals": [
+        "not checked"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Concrete numbers (BigCodeBench +5.3pp with 54% fewer tokens; excludes all adversarial agents in a HotpotQA prompt-poisoning stress test) make this a strong multi-agent-efficiency/credit-assignment candidate, but its core contribution is team topology optimization rather than governing persistent-state actions; good candidate for a future multi-agent-efficiency cluster."
+    },
+    {
+      "arxivId": "2610.29934",
+      "title": "ToM2Vec: Continuous Theory-of-Mind Tokens for Multi-Agent Coordination",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "UNC Chapel Hill (Mohit Bansal lab, inferred)",
+      "communitySignals": [
+        "GitHub repo released"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Generalizes to an unseen proprietary model family (GPT-5.4) across 5 environments, a strong coordination-capability result, but about theory-of-mind coordination rather than trust/governance over persistent state; weaker fit than selected trio."
+    },
+    {
+      "arxivId": "2610.30074",
+      "title": "Parallel AI Agent Collaboration as Graph-Structured Distributed Block Optimization",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "KAUST (Peter Richtarik)",
+      "communitySignals": [
+        "GitHub repo released"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "Mostly a theoretical guarantee (fractional chromatic number bound); empirical validation limited to code-repair experiments and three public road-network simulations, narrower than the multi-benchmark evidence behind selected candidates."
+    },
+    {
+      "arxivId": "2610.29276",
+      "title": "Design and Tuning of Multi-Agent Systems Using Bayesian Evolutionary Optimization",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "not checked",
+      "communitySignals": [
+        "not checked"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "Only two benchmarks (BigCodeBench, TabPFN preprocessing) with modest, mixed gains (improves on several tasks, merely competitive on IID datasets); evidence base narrower than selected candidates."
+    },
+    {
+      "arxivId": "2610.28887",
+      "title": "Building AI Research Teams for Autonomous Discovery of Linear Attention Architectures",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "UC Santa Barbara (inferred from author list)",
+      "communitySignals": [
+        "not checked"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Strong ablations (removing disciplinary diversity/private histories/adaptive allocation each clearly hurts) and a real capability win (beats GDN2 at 1.3B scale), but about multi-agent research-team design for self-improvement, a capability sub-theme distinct from today's trust/governance cluster."
+    },
+    {
+      "arxivId": "2610.28886",
+      "title": "SANE: Automated Scorer-Specific Metamorphic Testing for LLM Judges",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (NeurIPS 2026 TAE workshop, non-archival)",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "Google (Yu-Chung Hsiao, inferred)",
+      "communitySignals": [
+        "not checked"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Concrete evaluation-reliability result (3.7x validated test families vs JRH baseline, Spearman rho 0.852 vs 0.100 against human-labeled FaithBench), relevant to agent-toolchain evaluation infrastructure, but about LLM-judge reliability testing rather than agent actions on persistent/shared state; weaker fit than selected trio."
+    },
+    {
+      "arxivId": "2610.23344",
+      "title": "Language Models Learn to Improve Language Models (LM2LM)",
+      "source": [
+        "layerB"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 7,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "not checked",
+      "communitySignals": [
+        "HF Daily Papers: 4 upvotes"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Interesting recursive self-improvement result (Qwen3.8-27B outperforms GPT-6-sol given 300 in-context experimental records, at 33% lower data-generation cost), but 7 days old (submitted 2026-10-16) with meaningful decay, and sits on agent/LM self-improvement capability rather than today's persistent-state trust/governance cluster."
+    },
+    {
+      "arxivId": "2610.28679",
+      "title": "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents",
+      "source": [
+        "layerB"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": "not-assessed",
+      "citationVelocity": "not queried",
+      "institution": "not checked",
+      "communitySignals": [
+        "HF Daily Papers: 3 upvotes",
+        "GitHub repo: 3 stars",
+        "Project page: verifierbench.github.io"
+      ],
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "Not deep-read",
+      "presentation": "not-assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "watch",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "Agent-generated-verifier benchmark (222 tasks, 4993 hidden tests, balanced accuracy 10.6-62.1 across 19 models) is relevant to agent-toolchain evaluation infrastructure, close to today's governance theme but about correctness verification rather than trust over persistent/shared state actions; good candidate for a future evaluation-focused digest."
+    }
+  ]
+}
