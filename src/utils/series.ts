@@ -118,6 +118,15 @@ function inferSeriesCategory(slug: string, posts: SeriesPost[]): SeriesCategoryI
 // slug 是系列的身分：zh 與 en 版共用同一個 slug，只差 /en 前綴，中英切換才接得起來。
 const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
+    slug: 'ai-security',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI 資安實戰', en: 'AI Security in Practice' },
+    descriptions: {
+      'zh-TW': '共用資料流、身分與證據基礎，分成 AI 輔助攻擊、保護 AI 系統、AI 輔助調查與修補三條路線，最後以可重現的攻防演練會合。實作涵蓋靶場、自架雲端與明確授權的系統。',
+      en: 'A shared foundation in data flow, identity, and evidence, followed by three paths: AI-assisted attacks, securing AI systems, and AI-assisted investigation and remediation. The paths meet in a reproducible exercise across labs, self-hosted cloud environments, and explicitly authorized systems.',
+    },
+  },
+  {
     slug: 'statistics-ml-ai',
     category: 'exams-interviews',
     names: { 'zh-TW': '從考試到 ML/AI 的統計學導讀', en: 'Statistics from Exams to ML/AI' },

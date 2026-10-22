@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "matrix": {
+    "vulnerable": 6,
+    "tenant-patch": 10,
+    "owner-patch": 12,
+    "deny-all": 9
+  },
+  "timeline_events": 5,
+  "evaluation_cases": 8,
+  "response_attempts": 6,
+  "model_calls": 0
+}

@@ -16,6 +16,14 @@
 
 ---
 
+## Q-044 check:links 的 HEAD 404 與 GET 200 誤報
+- 登錄：2026-10-22（來源：AI資安第2批外鏈驗收）
+- 做什麼：評估 `scripts/check-external-links.mjs` 對 HEAD 404 是否需要 bounded GET 二次確認，並保留真正 GET 404 的失敗；不要簡單忽略404。
+- 為什麼現在不能做：文章任務只核對連結，不在本輪修改檢查／治理腳本（Tier 2）。目前18個外鏈中17正常，PortSwigger指定Lab在相同UA下HEAD404但GET200；已另讀完整正文，因此保留原連結與原失敗log，不偽稱外鏈命令全綠。
+- 接手第一步：讀 `.work/ai-security/batch-2/link-head-get-check.json`、`external-links.log`、`research/lab-live-fetch.json`；重驗 `https://portswigger.net/web-security/access-control/lab-user-id-controlled-by-request-parameter` 的兩種方法，再看腳本probe函式。取得使用者同意才改腳本及新增有意義回歸案例。
+- 全系列補證（2026-10-22）：48檔36個URL，3個PortSwigger HEAD404／同UA GET200，另含Academy入口與indirect prompt injection lab；保留原exit1，見 `.work/ai-security/full/external-links.log` 與 `link-head-get-metadata.json`。
+
+
 ## Q-001 把 `type` 改成 content schema 必填欄位
 - 登錄：2026-07-06（來源：progress.txt Next steps）
 - 做什麼：`src/content.config.ts` 的 `type` 欄位從 optional 改 required。

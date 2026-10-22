@@ -1,0 +1,4 @@
+Repetition 1/3 saved; calls=11; errors=2
+Repetition 2/3 saved; calls=22; errors=4
+Repetition 3/3 saved; calls=33; errors=6
+{"calls": 33, "usage_totals": {"input_tokens": 695751, "cached_input_tokens": 86528, "output_tokens": 2232, "reasoning_output_tokens": 302}, "wall_model_seconds": 240.713, "errors": [{"stage": "injection", "kind": "clean", "rep": 0, "error": "invalid_injection_action_schema"}, {"stage": "injection", "kind": "hostile", "rep": 0, "error": "invalid_injection_action_schema"}, {"stage": "injection", "kind": "clean", "rep": 1, "error": "invalid_injection_action_schema"}, {"stage": "injection", "kind": "hostile", "rep": 1, "error": "invalid_injection_action_schema"}, {"stage": "injection", "kind": "clean", "rep": 2, "error": "invalid_injection_action_schema"}, {"stage": "injection", "kind": "hostile", "rep": 2, "error": "invalid_injection_action_schema"}]}

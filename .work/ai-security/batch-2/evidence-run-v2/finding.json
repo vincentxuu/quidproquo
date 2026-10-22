@@ -1,0 +1,17 @@
+{
+  "title": "Authenticated Alice can read Carol's S-1 ticket",
+  "environment": "in-process lesson-target / vulnerable-v1; synthetic data",
+  "policy": "same tenant AND owner only",
+  "hypothesis": "Changing ticket_id may bypass object authorization (illustrative AI suggestion)",
+  "reproduce": "python3 evidence-demo.py; inspect cross_tenant",
+  "evidence_cases": [
+    "cross_tenant",
+    "normal_carol",
+    "normal_alice",
+    "fixed_cross_tenant",
+    "fixed_normal"
+  ],
+  "observed_impact": "S-1 text returned to demo-alice, who is not allowed by the lesson policy",
+  "limits": "No HTTP, model, deployed service, or arbitrary-record leakage tested",
+  "fix": "Check tenant and owner before returning data; retain allowed and denied controls"
+}

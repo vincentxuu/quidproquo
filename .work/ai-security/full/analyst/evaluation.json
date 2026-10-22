@@ -1,0 +1,152 @@
+{
+  "model_calls": 0,
+  "cost_assumptions": {
+    "FN": 50,
+    "FP": 2,
+    "human_review": 5
+  },
+  "results": [
+    {
+      "workflow": "status-baseline",
+      "TP": 2,
+      "FP": 2,
+      "TN": 2,
+      "FN": 2,
+      "abstain_malicious": 0,
+      "abstain_benign": 0,
+      "coverage": 1.0,
+      "conditional_accuracy": 0.5,
+      "cost_units": 104,
+      "predictions": [
+        {
+          "case_id": "C01",
+          "decision": "benign",
+          "event_ids": [
+            "E-002"
+          ]
+        },
+        {
+          "case_id": "C02",
+          "decision": "benign",
+          "event_ids": [
+            "E-102"
+          ]
+        },
+        {
+          "case_id": "C03",
+          "decision": "malicious",
+          "event_ids": [
+            "E-004"
+          ]
+        },
+        {
+          "case_id": "C04",
+          "decision": "malicious",
+          "event_ids": [
+            "E-104"
+          ]
+        },
+        {
+          "case_id": "C05",
+          "decision": "benign",
+          "event_ids": [
+            "E-001"
+          ]
+        },
+        {
+          "case_id": "C06",
+          "decision": "benign",
+          "event_ids": [
+            "E-202"
+          ]
+        },
+        {
+          "case_id": "C07",
+          "decision": "malicious",
+          "event_ids": [
+            "E-203"
+          ]
+        },
+        {
+          "case_id": "C08",
+          "decision": "malicious",
+          "event_ids": [
+            "E-204",
+            "E-205"
+          ]
+        }
+      ]
+    },
+    {
+      "workflow": "evidence-rules-replay",
+      "TP": 3,
+      "FP": 0,
+      "TN": 3,
+      "FN": 0,
+      "abstain_malicious": 1,
+      "abstain_benign": 1,
+      "coverage": 0.75,
+      "conditional_accuracy": 1.0,
+      "cost_units": 10,
+      "predictions": [
+        {
+          "case_id": "C01",
+          "decision": "malicious",
+          "event_ids": [
+            "E-002"
+          ]
+        },
+        {
+          "case_id": "C02",
+          "decision": "malicious",
+          "event_ids": [
+            "E-102"
+          ]
+        },
+        {
+          "case_id": "C03",
+          "decision": "malicious",
+          "event_ids": [
+            "E-004"
+          ]
+        },
+        {
+          "case_id": "C04",
+          "decision": "abstain",
+          "event_ids": [
+            "E-104"
+          ]
+        },
+        {
+          "case_id": "C05",
+          "decision": "benign",
+          "event_ids": [
+            "E-001"
+          ]
+        },
+        {
+          "case_id": "C06",
+          "decision": "benign",
+          "event_ids": [
+            "E-202"
+          ]
+        },
+        {
+          "case_id": "C07",
+          "decision": "abstain",
+          "event_ids": [
+            "E-203"
+          ]
+        },
+        {
+          "case_id": "C08",
+          "decision": "benign",
+          "event_ids": [
+            "E-204",
+            "E-205"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "action": "read_ticket",
+  "ticket_id": "N-1",
+  "verdict": "inconclusive",
+  "reason": "Establish Alice's authorized baseline. No exact response evidence is available yet; then test N-2 for owner enforcement and S-1 for cross-tenant access."
+}

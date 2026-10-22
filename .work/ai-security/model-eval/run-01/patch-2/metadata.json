@@ -1,0 +1,13 @@
+{
+  "label": "patch-2",
+  "requested_model": "gpt-6.1-sol",
+  "seconds": 6.577,
+  "exit": 0,
+  "usage": {
+    "input_tokens": 20605,
+    "cached_input_tokens": 11904,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 43,
+    "reasoning_output_tokens": 0
+  }
+}

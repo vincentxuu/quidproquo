@@ -1,0 +1,9 @@
+{
+  "status": 200,
+  "body": {
+    "build": "fixed-v1",
+    "fixture_revision": "tickets-v1",
+    "policy": "same-tenant-owner",
+    "target_id": "lesson-target"
+  }
+}

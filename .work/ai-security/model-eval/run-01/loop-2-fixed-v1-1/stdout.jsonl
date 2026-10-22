@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1637f-7e24-7d11-93e3-fa63fa9cecd5"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"action\":\"read_ticket\",\"ticket_id\":\"N-2\",\"verdict\":\"inconclusive\",\"reason\":\"N-1 provides a successful authorized baseline. Test Bob's N-2 as Alice to check owner authorization within the same tenant; an exact response is required before concluding vulnerability.\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20652,"cached_input_tokens":20480,"cache_write_input_tokens":0,"output_tokens":89,"reasoning_output_tokens":25}}

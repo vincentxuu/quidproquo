@@ -1,0 +1,6 @@
+{
+  "build": "vulnerable-v1",
+  "fixture_revision": "tickets-v1",
+  "policy": "same-tenant-owner",
+  "target_id": "live-model-lesson"
+}

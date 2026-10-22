@@ -1,0 +1,242 @@
+[
+  {
+    "order": 0,
+    "slug": "2026-10-22-ai-security-overview",
+    "title": "AI 資安怎麼學",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-overview.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-overview-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-overview",
+    "en_href": "/posts/ai/2026-10-22-ai-security-overview-en",
+    "owner": "root"
+  },
+  {
+    "order": 1,
+    "slug": "2026-10-22-ai-security-identity-and-authorization",
+    "title": "登入之後，誰能讀哪份資料",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-identity-and-authorization.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-identity-and-authorization-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-identity-and-authorization",
+    "en_href": "/posts/ai/2026-10-22-ai-security-identity-and-authorization-en",
+    "owner": "root"
+  },
+  {
+    "order": 2,
+    "slug": "2026-10-22-ai-security-vulnerability-evidence",
+    "title": "AI 說有漏洞，你要拿出什麼證據",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-vulnerability-evidence.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-vulnerability-evidence-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-vulnerability-evidence",
+    "en_href": "/posts/ai/2026-10-22-ai-security-vulnerability-evidence-en",
+    "owner": "root"
+  },
+  {
+    "order": 3,
+    "slug": "2026-10-22-ai-security-experiment-environments",
+    "title": "選你的 AI 資安練習環境",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-experiment-environments.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-experiment-environments-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-experiment-environments",
+    "en_href": "/posts/ai/2026-10-22-ai-security-experiment-environments-en",
+    "owner": "root"
+  },
+  {
+    "order": 4,
+    "slug": "2026-10-22-ai-security-attack-surface",
+    "title": "AI 如何讀懂目標與整理攻擊面",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-attack-surface.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-attack-surface-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-attack-surface",
+    "en_href": "/posts/ai/2026-10-22-ai-security-attack-surface-en",
+    "owner": "attack"
+  },
+  {
+    "order": 5,
+    "slug": "2026-10-22-ai-security-vulnerability-hypotheses",
+    "title": "讓 AI 找漏洞：從線索到測試假設",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-vulnerability-hypotheses.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-vulnerability-hypotheses-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-vulnerability-hypotheses",
+    "en_href": "/posts/ai/2026-10-22-ai-security-vulnerability-hypotheses-en",
+    "owner": "attack"
+  },
+  {
+    "order": 6,
+    "slug": "2026-10-22-ai-security-exploit-verification",
+    "title": "AI 產生利用測試，怎麼確認真的成功",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-exploit-verification.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-exploit-verification-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-exploit-verification",
+    "en_href": "/posts/ai/2026-10-22-ai-security-exploit-verification-en",
+    "owner": "attack"
+  },
+  {
+    "order": 7,
+    "slug": "2026-10-22-ai-security-prompt-injection-attacks",
+    "title": "AI 如何攻擊另一個 AI：間接注入與工具誤用",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-prompt-injection-attacks.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-prompt-injection-attacks-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-prompt-injection-attacks",
+    "en_href": "/posts/ai/2026-10-22-ai-security-prompt-injection-attacks-en",
+    "owner": "attack"
+  },
+  {
+    "order": 8,
+    "slug": "2026-10-22-ai-security-attack-agent-loop",
+    "title": "把工具接成攻擊 Agent：計畫、執行與回饋",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-attack-agent-loop.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-attack-agent-loop-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-attack-agent-loop",
+    "en_href": "/posts/ai/2026-10-22-ai-security-attack-agent-loop-en",
+    "owner": "attack"
+  },
+  {
+    "order": 9,
+    "slug": "2026-10-22-ai-security-attack-chains",
+    "title": "AI 能串起攻擊鏈嗎：從 CTF 到公開事件",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-attack-chains.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-attack-chains-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-attack-chains",
+    "en_href": "/posts/ai/2026-10-22-ai-security-attack-chains-en",
+    "owner": "attack"
+  },
+  {
+    "order": 10,
+    "slug": "2026-10-22-ai-security-injection-defenses",
+    "title": "Prompt Injection 的防線要放在哪裡",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-injection-defenses.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-injection-defenses-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-injection-defenses",
+    "en_href": "/posts/ai/2026-10-22-ai-security-injection-defenses-en",
+    "owner": "defense"
+  },
+  {
+    "order": 11,
+    "slug": "2026-10-22-ai-security-rag-permissions",
+    "title": "RAG 答對了，也可能洩漏別人的資料",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-rag-permissions.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-rag-permissions-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-rag-permissions",
+    "en_href": "/posts/ai/2026-10-22-ai-security-rag-permissions-en",
+    "owner": "defense"
+  },
+  {
+    "order": 12,
+    "slug": "2026-10-22-ai-security-tool-authorization",
+    "title": "工具能呼叫，不代表這次動作有權執行",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-tool-authorization.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-tool-authorization-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-tool-authorization",
+    "en_href": "/posts/ai/2026-10-22-ai-security-tool-authorization-en",
+    "owner": "defense"
+  },
+  {
+    "order": 13,
+    "slug": "2026-10-22-ai-security-mcp-trust",
+    "title": "MCP 的信任鏈：你到底信任了什麼",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-mcp-trust.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-mcp-trust-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-mcp-trust",
+    "en_href": "/posts/ai/2026-10-22-ai-security-mcp-trust-en",
+    "owner": "defense"
+  },
+  {
+    "order": 14,
+    "slug": "2026-10-22-ai-security-output-handling",
+    "title": "模型輸出如何變成 XSS、命令與資料外傳",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-output-handling.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-output-handling-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-output-handling",
+    "en_href": "/posts/ai/2026-10-22-ai-security-output-handling-en",
+    "owner": "defense"
+  },
+  {
+    "order": 15,
+    "slug": "2026-10-22-ai-security-sandbox-credentials",
+    "title": "Agent 的沙盒、憑證與網路邊界",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-sandbox-credentials",
+    "en_href": "/posts/ai/2026-10-22-ai-security-sandbox-credentials-en",
+    "owner": "defense"
+  },
+  {
+    "order": 16,
+    "slug": "2026-10-22-ai-security-security-regression",
+    "title": "如何知道防線有效：紅隊、回歸與運作監控",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-security-regression.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-security-regression-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-security-regression",
+    "en_href": "/posts/ai/2026-10-22-ai-security-security-regression-en",
+    "owner": "defense"
+  },
+  {
+    "order": 17,
+    "slug": "2026-10-22-ai-security-code-review",
+    "title": "AI Code Review：從可疑程式到待驗證發現",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-code-review.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-code-review-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-code-review",
+    "en_href": "/posts/ai/2026-10-22-ai-security-code-review-en",
+    "owner": "analyst"
+  },
+  {
+    "order": 18,
+    "slug": "2026-10-22-ai-security-patch-verification",
+    "title": "AI 寫好 Patch，還要驗證什麼",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-patch-verification.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-patch-verification-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-patch-verification",
+    "en_href": "/posts/ai/2026-10-22-ai-security-patch-verification-en",
+    "owner": "analyst"
+  },
+  {
+    "order": 19,
+    "slug": "2026-10-22-ai-security-incident-timeline",
+    "title": "讓 AI 整理事件時間線，別替缺失紀錄編故事",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-incident-timeline.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-incident-timeline-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-incident-timeline",
+    "en_href": "/posts/ai/2026-10-22-ai-security-incident-timeline-en",
+    "owner": "analyst"
+  },
+  {
+    "order": 20,
+    "slug": "2026-10-22-ai-security-alert-triage",
+    "title": "AI 說是誤報，能直接關掉嗎",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-alert-triage.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-alert-triage-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-alert-triage",
+    "en_href": "/posts/ai/2026-10-22-ai-security-alert-triage-en",
+    "owner": "analyst"
+  },
+  {
+    "order": 21,
+    "slug": "2026-10-22-ai-security-response-permissions",
+    "title": "讓資安助手接上工具：從唯讀調查到處置",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-response-permissions.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-response-permissions-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-response-permissions",
+    "en_href": "/posts/ai/2026-10-22-ai-security-response-permissions-en",
+    "owner": "analyst"
+  },
+  {
+    "order": 22,
+    "slug": "2026-10-22-ai-security-workflow-evaluation",
+    "title": "怎麼證明 AI 真的幫上資安工作",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-workflow-evaluation.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-workflow-evaluation-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-workflow-evaluation",
+    "en_href": "/posts/ai/2026-10-22-ai-security-workflow-evaluation-en",
+    "owner": "analyst"
+  },
+  {
+    "order": 23,
+    "slug": "2026-10-22-ai-security-integrated-exercise",
+    "title": "從攻擊到修補：完成一次可重現的 AI 資安演練",
+    "zh_path": "src/content/posts/ai/2026-10-22-ai-security-integrated-exercise.md",
+    "en_path": "src/content/posts/ai/2026-10-22-ai-security-integrated-exercise-en.md",
+    "zh_href": "/posts/ai/2026-10-22-ai-security-integrated-exercise",
+    "en_href": "/posts/ai/2026-10-22-ai-security-integrated-exercise-en",
+    "owner": "root"
+  }
+]

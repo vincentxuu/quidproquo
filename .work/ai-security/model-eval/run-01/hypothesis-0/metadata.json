@@ -1,0 +1,13 @@
+{
+  "label": "hypothesis-0",
+  "requested_model": "gpt-6.1-sol",
+  "seconds": 7.482,
+  "exit": 0,
+  "usage": {
+    "input_tokens": 23563,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 102,
+    "reasoning_output_tokens": 0
+  }
+}

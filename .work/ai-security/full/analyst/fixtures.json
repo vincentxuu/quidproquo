@@ -1,0 +1,268 @@
+{
+  "synthetic": true,
+  "events": [
+    {
+      "event_id": "E-003",
+      "timestamp": "2026-10-22T01:00:02Z",
+      "received_at": "2026-10-22T01:00:02Z",
+      "source": "assistant",
+      "request_id": "R-2",
+      "actor": "alice",
+      "action": "claim",
+      "resource": "S-1",
+      "claim": "All customer tickets exported"
+    },
+    {
+      "event_id": "E-001",
+      "timestamp": "2026-10-22T09:00:00+08:00",
+      "received_at": "2026-10-22T01:00:00Z",
+      "source": "ticket-api",
+      "request_id": "R-1",
+      "actor": "alice",
+      "action": "read_ticket",
+      "resource": "N-1",
+      "status": 200,
+      "returned_ticket_id": "N-1",
+      "build": "vulnerable-v1"
+    },
+    {
+      "event_id": "E-004",
+      "timestamp": "2026-10-22T01:05:00Z",
+      "received_at": "2026-10-22T01:05:00Z",
+      "source": "ticket-api",
+      "request_id": "R-3",
+      "actor": "alice",
+      "action": "read_ticket",
+      "resource": "S-1",
+      "status": 403,
+      "build": "fixed-v1"
+    },
+    {
+      "event_id": "E-002",
+      "timestamp": "2026-10-22T09:00:01+08:00",
+      "received_at": "2026-10-22T01:00:06Z",
+      "source": "ticket-api",
+      "request_id": "R-2",
+      "actor": "alice",
+      "action": "read_ticket",
+      "resource": "S-1",
+      "status": 200,
+      "returned_ticket_id": "S-1",
+      "build": "vulnerable-v1"
+    },
+    {
+      "event_id": "E-005",
+      "timestamp": "2026-10-22T01:06:00Z",
+      "received_at": "2026-10-22T01:06:00Z",
+      "source": "collector",
+      "request_id": null,
+      "actor": null,
+      "action": "coverage_gap",
+      "resource": "audit",
+      "gap_start": "2026-10-22T01:06:00Z",
+      "gap_end": "2026-10-22T01:07:00Z"
+    }
+  ],
+  "observations": [
+    {
+      "case_id": "C01",
+      "actor": "alice",
+      "resource": "S-1",
+      "status": 200,
+      "returned_ticket_id": "S-1",
+      "complete": true,
+      "event_ids": [
+        "E-002"
+      ]
+    },
+    {
+      "case_id": "C02",
+      "actor": "alice",
+      "resource": "N-2",
+      "status": 200,
+      "returned_ticket_id": "N-2",
+      "complete": true,
+      "event_ids": [
+        "E-102"
+      ]
+    },
+    {
+      "case_id": "C03",
+      "actor": "alice",
+      "resource": "S-1",
+      "status": 403,
+      "complete": true,
+      "event_ids": [
+        "E-004"
+      ]
+    },
+    {
+      "case_id": "C04",
+      "actor": "alice",
+      "resource": "S-1",
+      "status": 403,
+      "complete": false,
+      "event_ids": [
+        "E-104"
+      ]
+    },
+    {
+      "case_id": "C05",
+      "actor": "alice",
+      "resource": "N-1",
+      "status": 200,
+      "returned_ticket_id": "N-1",
+      "complete": true,
+      "event_ids": [
+        "E-001"
+      ]
+    },
+    {
+      "case_id": "C06",
+      "actor": "carol",
+      "resource": "S-1",
+      "status": 200,
+      "returned_ticket_id": "S-1",
+      "complete": true,
+      "event_ids": [
+        "E-202"
+      ]
+    },
+    {
+      "case_id": "C07",
+      "actor": "bob",
+      "resource": "N-2",
+      "status": 500,
+      "complete": true,
+      "event_ids": [
+        "E-203"
+      ]
+    },
+    {
+      "case_id": "C08",
+      "actor": "alice",
+      "resource": "N-2",
+      "status": 403,
+      "complete": true,
+      "verified_client_defect": true,
+      "event_ids": [
+        "E-204",
+        "E-205"
+      ]
+    }
+  ],
+  "triage_evidence": {
+    "E-003": {
+      "event_id": "E-003",
+      "timestamp": "2026-10-22T01:00:02Z",
+      "received_at": "2026-10-22T01:00:02Z",
+      "source": "assistant",
+      "request_id": "R-2",
+      "actor": "alice",
+      "action": "claim",
+      "resource": "S-1",
+      "claim": "All customer tickets exported"
+    },
+    "E-001": {
+      "event_id": "E-001",
+      "timestamp": "2026-10-22T09:00:00+08:00",
+      "received_at": "2026-10-22T01:00:00Z",
+      "source": "ticket-api",
+      "request_id": "R-1",
+      "actor": "alice",
+      "action": "read_ticket",
+      "resource": "N-1",
+      "status": 200,
+      "returned_ticket_id": "N-1",
+      "build": "vulnerable-v1"
+    },
+    "E-004": {
+      "event_id": "E-004",
+      "timestamp": "2026-10-22T01:05:00Z",
+      "received_at": "2026-10-22T01:05:00Z",
+      "source": "ticket-api",
+      "request_id": "R-3",
+      "actor": "alice",
+      "action": "read_ticket",
+      "resource": "S-1",
+      "status": 403,
+      "build": "fixed-v1"
+    },
+    "E-002": {
+      "event_id": "E-002",
+      "timestamp": "2026-10-22T09:00:01+08:00",
+      "received_at": "2026-10-22T01:00:06Z",
+      "source": "ticket-api",
+      "request_id": "R-2",
+      "actor": "alice",
+      "action": "read_ticket",
+      "resource": "S-1",
+      "status": 200,
+      "returned_ticket_id": "S-1",
+      "build": "vulnerable-v1"
+    },
+    "E-005": {
+      "event_id": "E-005",
+      "timestamp": "2026-10-22T01:06:00Z",
+      "received_at": "2026-10-22T01:06:00Z",
+      "source": "collector",
+      "request_id": null,
+      "actor": null,
+      "action": "coverage_gap",
+      "resource": "audit",
+      "gap_start": "2026-10-22T01:06:00Z",
+      "gap_end": "2026-10-22T01:07:00Z"
+    },
+    "E-102": {
+      "event_id": "E-102",
+      "source": "synthetic-ticket-api",
+      "actor": "alice",
+      "resource": "N-2",
+      "status": 200,
+      "complete": true,
+      "returned_ticket_id": "N-2"
+    },
+    "E-104": {
+      "event_id": "E-104",
+      "source": "synthetic-ticket-api",
+      "actor": "alice",
+      "resource": "S-1",
+      "status": 403,
+      "complete": false
+    },
+    "E-202": {
+      "event_id": "E-202",
+      "source": "synthetic-ticket-api",
+      "actor": "carol",
+      "resource": "S-1",
+      "status": 200,
+      "complete": true,
+      "returned_ticket_id": "S-1"
+    },
+    "E-203": {
+      "event_id": "E-203",
+      "source": "synthetic-ticket-api",
+      "actor": "bob",
+      "resource": "N-2",
+      "status": 500,
+      "complete": true
+    },
+    "E-204": {
+      "event_id": "E-204",
+      "source": "synthetic-ticket-api",
+      "actor": "alice",
+      "resource": "N-2",
+      "status": 403,
+      "complete": true
+    },
+    "E-205": {
+      "event_id": "E-205",
+      "source": "trusted-test-fixture",
+      "action": "reproduce_stale_client_link",
+      "client_revision": "web-17",
+      "observation": "Alice own-ticket link resolves to N-2; defect reproduced without malicious input",
+      "adjudication": "benign_client_defect",
+      "provenance": "scenario author fixture, not attacker supplied log consent"
+    }
+  }
+}

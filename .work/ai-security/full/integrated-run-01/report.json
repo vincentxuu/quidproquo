@@ -1,0 +1,28 @@
+{
+  "scope": "Self-started local synthetic HTTP target; no model or third-party test",
+  "policy": "same tenant AND owner; known demo bearer strings are not real authentication",
+  "finding": "Alice read N-2 and S-1 in vulnerable-v1; fixed-v1 denied both",
+  "evidence": [
+    "vulnerable-v1/transcript.jsonl",
+    "fixed-v1/transcript.jsonl"
+  ],
+  "summary": {
+    "vulnerable-v1": {
+      "requests": 5,
+      "passed": 5,
+      "unauthorized_reads": 2,
+      "allowed_controls": 3
+    },
+    "fixed-v1": {
+      "requests": 5,
+      "passed": 5,
+      "unauthorized_reads": 0,
+      "allowed_controls": 3
+    }
+  },
+  "limits": [
+    "Only five fixed cases per build",
+    "No model effectiveness measured",
+    "No production, cloud deployment, or whole-product security claim"
+  ]
+}

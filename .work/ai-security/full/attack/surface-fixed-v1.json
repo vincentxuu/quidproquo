@@ -1,0 +1,77 @@
+{
+  "mode": "surface",
+  "execution": "fixed-action HTTP replay; no model called",
+  "health": {
+    "build": "fixed-v1",
+    "fixture_revision": "tickets-v1",
+    "policy": "same-tenant-owner",
+    "target_id": "lesson-target"
+  },
+  "surface": [
+    {
+      "node": "target",
+      "source": "step:1",
+      "fact": {
+        "build": "fixed-v1",
+        "fixture_revision": "tickets-v1",
+        "policy": "same-tenant-owner",
+        "target_id": "lesson-target"
+      }
+    },
+    {
+      "node": "Alice reads N-1",
+      "source": "step:2",
+      "observed": "content_returned"
+    },
+    {
+      "node": "Alice reads N-2",
+      "source": "fixture specification; not yet tested",
+      "status": "hypothesis"
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "actor": "alice",
+      "path": "/health",
+      "request": null,
+      "status": 200,
+      "body": {
+        "build": "fixed-v1",
+        "fixture_revision": "tickets-v1",
+        "policy": "same-tenant-owner",
+        "target_id": "lesson-target"
+      }
+    },
+    {
+      "step": 2,
+      "actor": "alice",
+      "path": "/tools/read_ticket",
+      "request": {
+        "ticket_id": "N-1"
+      },
+      "status": 200,
+      "body": {
+        "text": "North: printer repair",
+        "ticket_id": "N-1"
+      }
+    }
+  ],
+  "requests": 2,
+  "server_audit": [
+    {
+      "action": "read_ticket",
+      "actor": "alice",
+      "build": "fixed-v1",
+      "decision": "allow",
+      "event_id": "evt-000001",
+      "reason": "object_policy_allowed",
+      "resource": "N-1",
+      "returned_ticket_id": "N-1",
+      "status": 200,
+      "target_id": "lesson-target",
+      "tenant": "north",
+      "timestamp": "2026-10-22T00:12:05.606861+00:00"
+    }
+  ]
+}
