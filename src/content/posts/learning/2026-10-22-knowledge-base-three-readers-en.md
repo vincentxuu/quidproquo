@@ -85,7 +85,7 @@ So every post keeps the two kinds of source apart and says so when they conflict
 |---|---|---|
 | Your own notes | Order 1, [What to Keep: Collecting Is Not a Knowledge Base](/posts/learning/2026-10-22-what-to-keep-collecting-is-not-knowledge-en) | What to keep, where to put it, how to link it, tools, maintenance (orders 1–5) |
 | A team wiki | Order 6, [Why Team Wikis Rot, and Which Kinds of Documents to Write](/posts/learning/2026-10-22-team-wiki-why-it-rots-en) | Information architecture, writing conventions, ownership, search (orders 6–10) |
-| A knowledge base for AI | Order 11, What's Different When AI Reads It: Write the Test Questions First (in progress) | Source inventory, parsing, security, metadata, chunking, permissions, updates, evaluation (orders 11–19) |
+| A knowledge base for AI | Order 11, [What's Different When AI Reads Your Knowledge Base: Write the Test Questions First](/posts/learning/2026-10-22-ai-knowledge-base-test-questions-first-en) | Source inventory, parsing, security, metadata, chunking, permissions, updates, evaluation (orders 11–19) |
 
 The series is being published in order, with the personal part first. The first post of each part assumes only this overview, so you can skip straight to the part you need. If you are building an AI assistant, read the team part too: what the model reads is mostly the documents in your team wiki, and if those are stale or unfindable, no amount of retrieval tuning will make up for it. For using an LLM to organize personal knowledge, see [Three Modes of LLM Knowledge Bases](/posts/ai/2026-04-03-llm-knowledge-vault-en).
 

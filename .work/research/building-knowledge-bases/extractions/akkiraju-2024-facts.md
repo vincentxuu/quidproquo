@@ -55,3 +55,6 @@ read_status=full（arXiv v1 PDF 全文 pdftotext；Figure 4 為圖片，另以 p
 
 - 支持「題庫要有代表性、人工驗證不能被 LLM 評審取代、每次改 prompt 要整套重跑」。
 - 支持自我檢查的「檢索沒排進前幾名」與「切塊失去上下文」：Figure 4 的 "Relevant document retrieved but not the relevant chunk"、"Arbitrary token-level splits impact retrieval quality"。
+
+## 行號與表格修正（2026-10-22，依 _spotcheck-batch8）
+- 引文正確，但行號偏移：§6 實為行 252–270（原記 262–289）；140–146 → 125–130；161–166 → 154–155；172–174 → 156；31–37 → 40。

@@ -118,7 +118,7 @@ After the edit, rerun a few tasks you've actually done recently, before and afte
 
 Each search study covers a single organization: each Cleverley paper studies one large multinational, Huurdeman's is one university library, and all come from the keyword-search era; NN/g's is a practical guide. The AGENTS.md research is all very recent and tests only Python or small tasks; Gloaguen and Lulla measure success and cost on programming tasks, and Chatlatanagulchai analyzes only the files themselves; none of it is internal Q&A over team docs. And the llms.txt specification page is still being revised.
 
-That's the end of the team part. Colleagues will increasingly skip the search box and ask an AI assistant instead; the documents the earlier posts helped you write, maintain and make findable are the best raw material for that kind of knowledge base, which is where the next part begins.
+That's the end of the team part. Colleagues will increasingly skip the search box and ask an AI assistant instead; the documents the earlier posts helped you write, maintain and make findable are the best raw material for that kind of knowledge base, which is where [the next part](/posts/learning/2026-10-22-ai-knowledge-base-test-questions-first-en) begins.
 
 ## What you can do tonight
 

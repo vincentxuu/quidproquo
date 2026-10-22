@@ -8,7 +8,7 @@ read_status=full（兩頁 curl 取 HTML → 取 <main> → pandoc 轉 Markdown�
 - RAG preparation phase：https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-preparation-phase （meta ms.date 2025-10-10；頁尾 Last updated on 2025-11-21）
 - Design and develop a RAG solution（總覽）：https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide （meta ms.date 2025-12-17；頁尾 Last updated on 2026-06-30）
 - 全文檔（scratchpad/fulltext/）：
-  - o11-azure-prep.md：473 行、29,342 bytes（含 HTML 殘留標記；正文在行 93–367），已讀 1–474 全部。
+  - o11-azure-prep.md：473 行、29,342 bytes（含 HTML 殘留標記；正文在行 93–367），已讀 1–473 全部。
   - o11-azure-overview.md：347 行、19,217 bytes；已用過濾標記後的版本讀完正文（標題到 Last updated）。
   - 原始 HTML：o11raw/azure-prep.html（70,291 bytes）、o11raw/azure-overview.html（59,201 bytes）。
 - 下文行號標「P」為 o11-azure-prep.md。

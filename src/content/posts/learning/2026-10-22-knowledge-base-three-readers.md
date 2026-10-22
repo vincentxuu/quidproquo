@@ -85,7 +85,7 @@ Deakin 大學的 [Barnett 等人](https://arxiv.org/abs/2401.05856)整理三個 
 |---|---|---|
 | 自己的筆記 | order 1〈[收什麼：收集不等於知識庫](/posts/learning/2026-10-22-what-to-keep-collecting-is-not-knowledge)〉 | 收什麼、放哪裡、怎麼連、工具、維護（order 1–5） |
 | 團隊 wiki | order 6〈[團隊知識庫為什麼會爛掉，以及要寫哪幾種文件](/posts/learning/2026-10-22-team-wiki-why-it-rots)〉 | 資訊架構、寫作規範、維護責任、搜尋（order 6–10） |
-| 給 AI 用的知識庫 | order 11〈給 AI 讀的知識庫差在哪：先寫測試題〉（撰寫中） | 盤點來源、解析、安全、metadata、切塊、權限、更新、評估（order 11–19） |
+| 給 AI 用的知識庫 | order 11〈[給 AI 讀的知識庫差在哪：動手前先寫測試題](/posts/learning/2026-10-22-ai-knowledge-base-test-questions-first)〉 | 盤點來源、解析、安全、metadata、切塊、權限、更新、評估（order 11–19） |
 
 系列依 order 順序陸續發布，個人段先寫完。每段的第一篇都只假設你讀過這篇總覽，可以直接跳段。要做 AI 助理的人，最好也讀團隊段：模型讀的多半就是團隊 wiki 裡那些文件，文件本身過時或找不到，檢索做得再好也救不回來。想先看用 LLM 整理個人知識的做法，可以讀〈[LLM 知識庫的三種模式](/posts/ai/2026-04-03-llm-knowledge-vault)〉。
 
