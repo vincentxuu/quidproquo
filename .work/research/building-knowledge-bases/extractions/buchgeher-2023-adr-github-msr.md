@@ -9,7 +9,7 @@ read_status=full（IEEE Access 開放取用 CC BY 版全文 HTML，經 Tavily ex
 - 作者：Georg Buchgeher、Stefan Schöberl、Verena Geist、Bernhard Dorninger（Software Competence Center Hagenberg）、Philipp Haindl、Rainer Weinreich（JKU Linz）
 - 刊物：IEEE Access 11 (2023), pp. 63725–63740；出版日 2023-06-19；DOI 10.1109/ACCESS.2023.3287654；Open Access（CC BY）
 - 資料集：https://github.com/software-competence-center-hagenberg/ADR-Study-Dataset（未開）
-- 全文文字檔：/private/tmp/claude-501/-Users-vincent-Work-study-quidproquo/970f061c-9dcb-4134-aaf8-624977a74263/scratchpad/fulltext/o8-buchgeher-2023.txt（380 行，71,393 bytes；本文在行 109–316，之後是參考文獻）
+- 全文文字檔：/private/tmp/claude-501/-Users-vincent-Work-study-quidproquo/970f061c-9dcb-4134-aaf8-624977a74263/scratchpad/fulltext/o8-buchgeher-2023.txt（380 行，71,393 bytes；本文在行 109–316；行 317–380 是 IEEE 網站外框，檔內沒有參考文獻清單（行 334 "References is not available for this document."））
 
 ## 設計、樣本、量了什麼
 
@@ -62,5 +62,5 @@ read_status=full（IEEE Access 開放取用 CC BY 版全文 HTML，經 Tavily ex
 
 ## 讀取紀錄
 
-- 試過：OpenAlex 給 OA PDF 網址 ieeexplore.ieee.org/ielx7/.../10155430.pdf → curl 回 HTTP 418（IEEE 擋非瀏覽器）；Tavily extract（advanced）https://ieeexplore.ieee.org/document/10155430 → 成功取得全文 HTML 文字（含 Section I–VII 與參考文獻）。
+- 試過：OpenAlex 給 OA PDF 網址 ieeexplore.ieee.org/ielx7/.../10155430.pdf → curl 回 HTTP 418（IEEE 擋非瀏覽器）；Tavily extract（advanced）https://ieeexplore.ieee.org/document/10155430 → 成功取得全文 HTML 文字（含 Section I–VII；參考文獻清單沒有抓到）。
 - 依序讀行 109–333（Introduction 到 Conclusion）。Table 1、Table 2 與 Figure 3–11 是圖片，只讀到圖說；文中數字都取自正文。
