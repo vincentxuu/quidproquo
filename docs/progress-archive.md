@@ -1313,3 +1313,15 @@ daily-digest-framework／daily-digest-tool／daily-digest-benchmark 三支 2026-
 - **Cloudflare 模型家族 2026-10-22**：使用者拍板先寫家族篇（跨供應商 System One 類別文暫緩），中英雙稿上線（draft:false，order 32）：src/content/posts/tech/2026-10-22-ai-model-family-cloudflare.md ＋ -en.md。矩陣 clef 27B／clef-flash 9B／clef-omni 30B-A3B／clairic（preview），四者只計 input token（$0.038–$0.24/1M），Clef 三顆 Apache-2.0、Clairic 權重未開。決策類贏 Jev、GPQA／BBH／MMLU-Pro 落後；官方 10-09 兩個延遲數字矛盾已寫成限制；Clairic 的 TSA 與 cascade 成本皆官方自報、無法覆現。check-model-family-format 2 篇 0 problems、check:lang-parity 3170 組 OK、check:series-order 無阻擋、check:tw／references／post-quality 新檔 0 命中、check:series-plan exit 0、完整 pnpm verify 全綠；審稿紀錄 .work/reviews/2026-10-22-ai-model-family-cloudflare.md、證據 .work/2026-10-22-ai-model-family-cloudflare/evidence.md；commit 9848337e8。
 
 ---
+
+## 2026-10-23 封存：daily-digest-pricing 2026-10-20 條目（併發 session 新增條目，壓回 90 行上限）
+
+- **daily-digest-pricing 2026-10-20**：週二輪值 Google／Mistral 官方定價頁＋三組 Groundlane `web_search`（定價變動／sunset／促銷）。命中訊號多為既有報導（Gemini 4 Argon、AWS Bedrock Claude Sonnet 5.5 快取降價、xAI The X Subscription 改版）或非核心模型 API（ElevenLabs 促銷），排除；選中唯一全新且雙重官方來源互相矛盾的事件：Google Cloud 於 2026-10-20（今天）在 Vertex AI／Gemini Enterprise Agent Platform 停用 `gemini-2.5-pro`／`-flash`／`-flash-lite`（官方 `docs.cloud.google.com` model-versions 頁證實），但 Gemini 開發者 API 官方 `deprecations` 頁同週仍列三者「No shutdown date announced」——同一模型 ID 兩份 Google 官方文件矛盾。價格比對用官方 `ai.google.dev/gemini-api/docs/pricing` 查 2.5 系列舊價，3.5 Flash／3.5 Flash-Lite／3.1 Flash-Lite 新價因該頁未見對應章節，改用 4+ 組第三方聚合站（OpenRouter／aipricing.guru／devtk.ai／apidog／evolink／pricepertoken／inworld／mem0／costgoat）交叉比對取多數共識值（3.5 Flash $1.50/$9.00、3.1 Flash-Lite $0.25/$1.50 皆 4+ 獨立來源一致）。成本試算顯示遷移方向不一致：2.5 Pro 遷移到 3.5 Flash 幾乎打平（↓1.8%），2.5 Flash 遷移到 3.5 Flash-Lite 零變化，但 2.5 Flash-Lite 遷移到 3.1 Flash-Lite 成本漲 221%。series order 25（接續 10-17 的 24）。中英雙版已建立並互相連結。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）、`check:lang-parity`（3074 組全過）、`check:tw`（初版 tldr／摘要 3 處 A 級「用戶」已改為「使用者」，修正後 0 blocking）、`check:series-order`（25 無撞號，僅既有缺號 warning）皆 0 blocking；已將最舊 Recently completed 條目（CS228 複查結論 2026-08-22）移至 `docs/progress-archive.md`；待 commit／push。
+
+---
+
+## 2026-10-23 封存：daily-digest-funding 2026-10-20 條目（壓回 90 行上限）
+
+- **daily-digest-funding 2026-10-20**：三組 Groundlane `web_search`＋後續交叉驗證查詢後，確認 Rein Security（$25M Series A，實際成交日 10-08，已於 10-09 報導過）排除；India AI startups 週報彙整（RapidCanvas／Clueso／Parallel Loop 等多筆均為舊聞重新打包或低於門檻的小額種子輪）均排除；選出唯一符合條件且有 5+ 獨立來源確認的新事件：**Town**（AI 工作助理，個人助理 Townie 擴展成跨員工互相交辦工作的助理網路，$108M Series B，Forerunner Ventures 與 Menlo Ventures 共同領投，估值 $1B 獨角獸；TechCrunch＋Yahoo Finance 轉載官方新聞稿＋TheNextWeb＋techtimes 多方確認）。上線僅 4 個月即拿下獨角獸估值，付費團隊數成長 9 倍快於付費客戶數 4 倍，顯示團隊內部正從個人試用擴散成整團隊採用。建議加入 watchlist section B3（Agent 平台／Builder，與 Lindy.ai／Dust 同組）。中英雙版已建立並互相連結，series order 96（接續 10-19 duvo 的 95）。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）皆 0 blocking；已將最舊 Recently completed 條目（10-16 daily-digest-arxiv）移至 `docs/progress-archive.md`；待跑剩餘 targeted verify 與 commit／push。
+
+---
