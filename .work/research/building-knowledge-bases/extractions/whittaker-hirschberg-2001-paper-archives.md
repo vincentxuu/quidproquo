@@ -1,6 +1,6 @@
 # Whittaker & Hirschberg 2001 — The Character, Value, and Management of Personal Paper Archives
 
-read_status=read（作者自存的**投稿前草稿**全文；ACM TOCHI 正式版只讀到摘要與第 1–2 頁）
+read_status=read（2026-10-22 補讀：**ACM TOCHI 正式版全文** pp. 150–170 讀完，見文末「正式版補讀」；另有作者自存的投稿前草稿全文。下方「可引用結果」各條原本依草稿，數字已逐條對過正式版，差異列在文末）
 
 ## 書目
 
@@ -123,3 +123,42 @@ read_status=read（作者自存的**投稿前草稿**全文；ACM TOCHI 正式�
 - 用 Read 依序讀：第 1–450 行（標題、摘要、Introduction、Method、3.1 Obsolescence、3.1.1、3.2 Uniqueness、3.2.1 開頭）→ 第 451–900 行（3.2.1 其餘、3.2.2、3.2.3、3.3.1 與 Table 1、F1–F3）→ 第 901–1350 行（F3 其餘、F4、F5、3.3.2、Table 2、Conclusions 前半）→ 第 1351–1695 行（Conclusions 後半、參考文獻、ResearchGate 附帶內容）。四段合計涵蓋第 1–1695 行，就是全文。
 - 另讀：Exa 抓到的 TOCHI 正式版 ePDF 第 1–2 頁（摘要、Introduction 到 filing hypothesis 開頭），用來核對兩版摘要。
 - 文字層的問題：PDF 轉文字後字中間常有空格（如「4 9%」「pape r」），已逐一判讀；χ² 的上標「2」被拆到下一行。
+
+## 正式版補讀（2026-10-22）
+
+### 取得過程
+
+- Playwright 開 `https://dl.acm.org/doi/10.1145/376929.376932`：頁面標「FREE ACCESS」。頁內 `fetch('/doi/pdf/10.1145/376929.376932')` → 200，`application/pdf`，137,500 bytes（`/doi/epdf/` 回 403）。以 base64 匯出後解碼 → `scratchpad/fulltext/dl/whittaker-tochi.pdf`（PDF 1.2，21 頁，即 TOCHI 8(2) pp. 150–170）。
+- `pdftotext -layout` → `/private/tmp/claude-501/-Users-vincent-Work-study-quidproquo/970f061c-9dcb-4134-aaf8-624977a74263/scratchpad/fulltext/fix-whittaker-hirschberg-2001-tochi.txt`（1,061 行，73,206 bytes）。
+- 依序讀完第 1–540 行（摘要、1 Introduction、2 Method、3.1 Obsolescence、3.1.1、3.2 Uniqueness、3.2.1–3.2.3、3.3.1 與 Table I、F1 開頭）與第 540–1061 行（F1–F5、Table II、3.3.2 F6–F7、4 Conclusions、參考文獻）。合計就是全文。
+- 下文「T 行」是這個檔的行號，「p.」是 TOCHI 頁碼。
+
+### 正文兩句在正式版的出處
+
+1. order 1 L27「15% 從來沒讀過」
+   - p.157，3.2.2（T 行 363–366）：「Only 49% of people's original archive was unique: 15% was unread, and 36% consisted of copies of publicly available documents.」與草稿相同（草稿寫 archives，正式版寫 archive）。
+   - 注意：這是問卷自陳估計（Method p.152，T 行 146–148：「their estimates of how much they discarded」；類型比例也來自問卷），不是研究者逐箱清點。
+2. order 1 L54「歸檔者保留約兩倍、過去一年翻閱比例較低」
+   - p.160，Table I（T 行 507–525）：Preserved archives（# boxes moved）Pilers 8.8 vs Filers 16.3（p < 0.01）→ 1.85 倍；Original archives 12.4 vs 20.5（p < 0.05）；% data accessed within last year 41.8 vs 31.3（p < 0.04）；# boxes accessed in last year 4.3 vs 4.1（No）。
+   - F1（p.160，T 行 536–540）：「pilers had smaller original archives than filers, (t(48) = 2.04, p < 0.05). They also had less preserved information after cleaning out their archives (t(48) = 2.55, p < 0.01).」
+   - F3（p.161，T 行 564–566）：「pilers accessed a greater percentage of documents (t(48) = 2.13, p < 0.04).」作者替代解釋（p.162，T 行 618–621）：「Filers have more data, and consequently access proportionally less. Indeed the absolute amounts accessed by both groups were very similar.」
+   - 過早歸檔：摘要（p.150，T 行 21–23）、F1（p.160，T 行 539–540）、Conclusions（p.165，T 行 798–802）。分類方式（p.159–160，T 行 497–504）：自陳 unread 或 working 超過 40% 為 piler；作者說兩者是程度之分，所有人都有歸檔也有堆放。
+
+### 正式版與草稿的差異
+
+- Method 人數：正式版「37 researchers, 9 managers, and 4 secretaries」（p.152，T 行 147）；草稿是 37／10／3。Table II 欄頭 N=37／N=9／N=4（T 行 670）。本紀錄「研究設計」一節的 10／3 應以正式版 9／4 為準。
+- Table II「% of filers」：正式版 70／67／75（T 行 683），與 Table I 的 35/50 = 70% 相容；草稿的 42／30／33 是草稿錯誤，已在正式版修正。上文「與摘要或常見轉述不一致的地方」第二點因此只適用草稿。
+- Table II「# reference boxes discarded」：正式版 5.8／11.9／6.1（三格，T 行 682），草稿多出一格的排版錯誤已修。
+- Table I 正式版多兩列：「Mean # preserved boxes per year in job」1.8 vs 3.8（p = 0.06）、「# boxes discarded」2.1 vs 4.9（No）。上文第 9 點寫「丟棄比例 18.9% vs 23.7%」在正式版 Table I 沒有這一列，改以正式版為準。
+- 「discarding about 25% of data」與「22%」的內部不一致在正式版仍在（T 行 296 與 234、748）。
+- 「While filers seem to find it easier to access information」與 F3 方向相反，正式版仍在（p.164，T 行 724–725）。
+- 78%、18 箱、近九小時、23% 丟棄物未讀、74%／84%、7.21／3.33 與 2.77／1.28 箱／年，正式版與草稿相同。
+- 草稿的「JUSTIFY」標記在正式版都已移除。
+
+### 核對 order 1
+
+| 正文位置 | 正文說法 | 正式版 | 判定 |
+|---|---|---|---|
+| L27 | AT&T 實驗室趁辦公室搬遷清點員工紙本檔案，發現 15% 從來沒讀過 | p.157：原始檔案中 15% 未讀；數據來自 50 人問卷自陳 | 數字吻合；「清點」不準，是員工自估 |
+| L54 | 歸檔型保留的紙本幾乎是堆放型的兩倍，過去一年翻閱比例較低 | p.160 Table I：16.3 vs 8.8 箱；31.3% vs 41.8% | 吻合（1.85 倍） |
+| L54 | 「過早歸檔」：還不知道價值就歸檔，事後沒用，又因為花了力氣分類捨不得丟 | p.150 摘要、p.160 F1、p.162 F4、p.165 | 吻合 |

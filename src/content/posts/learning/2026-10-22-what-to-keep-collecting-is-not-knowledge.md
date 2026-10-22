@@ -24,7 +24,7 @@ series:
 
 > Why fallacy? Because 'to know about something' isn't the same as 'knowing something'.
 
-他引用 Umberto Eco 在《如何撰寫論文》裡對影印的描述：學生影印了一疊文獻，就產生已經讀過的錯覺。書籤也一樣。這個說法有研究可以對照：AT&T 實驗室的 [Whittaker 和 Hirschberg](https://doi.org/10.1145/376929.376932) 趁一次辦公室搬遷清點員工的紙本檔案，發現其中 15% 從來沒讀過。
+他引用 Umberto Eco 在《如何撰寫論文》裡對影印的描述：學生影印了一疊文獻，就產生已經讀過的錯覺。書籤也一樣。這個說法有研究可以對照：AT&T 實驗室的 [Whittaker 和 Hirschberg](https://doi.org/10.1145/376929.376932) 趁一次辦公室搬遷調查員工的紙本檔案，員工估計其中 15% 從來沒讀過。
 
 ## 收不收，都可能犯錯
 
@@ -53,21 +53,21 @@ Jones 的同事 [Bruce](https://informationr.net/ir/10-3/paper232.html) 2005 年
 
 延後的前提是一定會回頭。[Malone](https://doi.org/10.1145/357423.357430) 1983 年觀察辦公桌上的文件堆就看到，沒人清的堆會自己壞掉：堆得越多越難找，原本用來提醒的東西被新的蓋住。太早分類也可能有代價：Whittaker 和 Hirschberg 發現，桌上很少堆東西、習慣把文件歸檔的人，保留的紙本幾乎是堆放型的兩倍，過去一年翻閱過的比例卻比較低。作者提出的一個解釋是「過早歸檔」：在還不知道價值之前就歸檔，事後發現沒用，又因為花了力氣分類而捨不得丟。所以清收件匣時只做去留的決定，不急著分類。
 
-清多快？方法書大多說一週一次。[GTD 每週回顧](https://gettingthingsdone.com/wp-content/uploads/2014/10/Weekly_Review_Checklist.pdf)的第二步是把收件匣清到零；[Tiago Forte](https://fortelabs.com/blog/basboverview/) 說他每週清一次，一次處理 10 到 20 則，只花幾分鐘；zettelkasten.de 的建議更短：收集一小時就停，處理完再收下一批。一週是這些作者的經驗，不是實驗比出來的，但可以當起點。
+清多快？方法書大多說一週一次。[GTD 每週回顧](https://gettingthingsdone.com/wp-content/uploads/2014/10/Weekly_Review_Checklist.pdf)的第二步是把收件匣清到零；[Tiago Forte](https://fortelabs.com/blog/basboverview/) 說他每週清一次，一次處理 10 到 20 則，只花幾分鐘；zettelkasten.de 的建議更短：剛開始時收集一小時就停，把收到的處理完再開始下一輪，之後依自己的情況調整時間。一週是這些作者的經驗，不是實驗比出來的，但可以當起點。
 
 這裡要分清兩個地方。**收件匣**放「還沒決定」的東西，每週清空。**待讀清單**放「決定要讀、但還沒讀」的東西，它不必清空，但要有上限，例如超過兩週沒讀就刪。讀完之後，寫得出那句話就移進知識庫，寫不出就刪。兩個混在一起，收件匣永遠清不空。
 
 ## 三步判準
 
-清收件匣時，每一則照順序問三句：第一步決定留不留，第二步決定原文怎麼留，第三步決定這則進知識庫還是待讀。也可以在存的當下就問；Forte 的做法是存的時候憑直覺，覺得有共鳴就先丟進收件匣，每週清的時候才判斷。
+清收件匣時，每一則照順序問三句：第一步決定留不留，第二步決定原文怎麼留，第三步決定這則進知識庫還是待讀。也可以在存的當下就問；Forte 的做法是存的時候憑直覺，覺得有共鳴就存；新東西先放進收件匣，每週一次再決定歸到哪裡。
 
-**第一步：說得出具體用途嗎？** 具體是指一個專案、一份手上的工作，或一個你正在想的問題。Forte 清收件匣時會依序問：這對哪個專案有用？對哪個長期負責的領域有用？屬於哪個感興趣的主題？三題都答不出才不收。這篇比 Forte 嚴格，只算前兩題：「這個主題很有趣」是好奇，不是用途，好奇的閱讀讀完就好。等你的知識庫已經養成每週清的習慣，再像 Forte 那樣放寬也不遲。**說不出用途，就不留。**
+**第一步：說得出具體用途嗎？** 具體是指一個專案、一份手上的工作，或一個你正在想的問題。Forte 清收件匣時會依序問：這對哪個專案有用？對哪個長期負責的領域有用？屬於哪個感興趣的主題？三題都答不出，就封存或乾脆不存。這篇比 Forte 嚴格，只算前兩題：「這個主題很有趣」是好奇，不是用途，好奇的閱讀讀完就好。等你的知識庫已經養成每週清的習慣，再像 Forte 那樣放寬也不遲。**說不出用途，就不留。**
 
 **第二步：之後搜得回來嗎？** Bruce、Jones 和 Dumais 請 12 位受試者在三到六個月後，回頭找自己預期會再去的網站。第一次就找到的情況裡，76% 用的方法根本不需要事先保存：直接打網址、用搜尋引擎、從別的網站連過去（[Bruce, Jones & Dumais 2004](https://informationr.net/ir/10-1/paper207.html)）。官方文件、維基百科條目這類穩定的頁面，**搜得回來，原文就只留連結**，不必另存一份。
 
 但網頁會消失。Pew 研究中心 2024 年從 2013 到 2023 年每年各抽約 9 萬個網頁檢查：2013 年那一批，十年後有 38% 已經打不開，而且這是用最保守的標準算的（[Pew Research Center 2024](https://www.pewresearch.org/data-labs/2024/05/17/when-online-content-disappears/)）。
 
-連稍後閱讀服務本身也會消失。[Omnivore](https://github.com/omnivore-app/omnivore) 2024 年 10 月底宣布關閉雲端服務，使用者只有約一個月可以匯出；[Pocket](https://support.mozilla.org/en-US/kb/future-of-pocket) 2025 年 5 月宣布停止服務，匯出功能在 11 月關閉。個人部落格、社群貼文、活動頁、付費牆後面的文章，**搜不回來，就存一份摘要或副本**，不要只留連結。
+連稍後閱讀服務本身也會消失。[Omnivore](https://web.archive.org/web/20250503155629/https://blog.omnivore.app/p/details-on-omnivore-shutting-down) 2024 年 10 月底宣布關閉雲端服務，匯出期限延了一次，使用者實際只有約一個月可以匯出；[Pocket](https://support.mozilla.org/en-US/kb/future-of-pocket) 2025 年 5 月宣布停止服務，匯出功能在 11 月關閉。個人部落格、社群貼文、活動頁、付費牆後面的文章，**搜不回來，就存一份摘要或副本**，不要只留連結。
 
 **第三步：寫得出一句自己的話嗎？** 這是收集者謬誤給的處方：讀完、寫下自己的理解，才算進到知識庫。那句話可以是看法（「他們的平行化測試做法可以套用在我們的 e2e」），也可以是用法（「部署失敗時先跑這個指令看 log」）。會過時的東西，例如 API 用法、價格、規定，那句話裡寫上日期或版本。一項 25 人的小型研究發現，筆記抓到的重點越多，事後記得越多，筆記寫了多少則卻和記憶無關（[Kalnikaite & Whittaker 2007](http://www.elisevandenhoven.com/publications/lalanne-hci07wp.pdf)）。它測的不是「用自己的話寫」，但至少說明筆記多不等於有用；所以我建議與其多存，不如每則多寫一句。**寫得出來，進知識庫；寫不出來，代表還沒讀，放進待讀清單。**原文已經在第二步留了連結或副本，兩週後刪掉待讀項目，就是你判斷它不值得讀，不是不小心弄丟。
 
@@ -131,6 +131,7 @@ Jones 的同事 [Bruce](https://informationr.net/ir/10-3/paper232.html) 2005 年
 - [Tiago Forte, Building a Second Brain: The Definitive Introductory Guide](https://fortelabs.com/blog/basboverview/)
 - [Bruce, Jones & Dumais 2004, Information behaviour that keeps found things found (Information Research 10(1))](https://informationr.net/ir/10-1/paper207.html)
 - [Pew Research Center 2024, When Online Content Disappears](https://www.pewresearch.org/data-labs/2024/05/17/when-online-content-disappears/)
+- [Omnivore 2024, Details on Omnivore shutting down（官方部落格，Wayback 快照）](https://web.archive.org/web/20250503155629/https://blog.omnivore.app/p/details-on-omnivore-shutting-down)
 - [Omnivore（GitHub README：雲端服務於 2024 年 11 月停止）](https://github.com/omnivore-app/omnivore)
 - [Mozilla Support, The future of Pocket](https://support.mozilla.org/en-US/kb/future-of-pocket)
 - [Kalnikaite & Whittaker 2007, Does Taking Notes Help You Remember Better? Exploring How Note Taking Relates to Memory (MeMos 2007 workshop proceedings)](http://www.elisevandenhoven.com/publications/lalanne-hci07wp.pdf)

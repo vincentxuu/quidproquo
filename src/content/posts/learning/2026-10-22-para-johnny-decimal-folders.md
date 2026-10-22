@@ -48,7 +48,7 @@ Bergman 2010 的資料也說明了資料夾該長什麼樣子。受試者要找�
 
 既然一則筆記可能同時屬於兩個主題，為什麼不用標籤？研究的答案是：大家都覺得標籤是好主意，但實際上很少用。Bergman 團隊 2013 年的一篇論文裡有兩項研究，一項在 Gmail、一項在 Windows 7，受試者都同時可以用資料夾和標籤。同一團隊的另一篇論文整理了結果：Gmail 裡只有約三分之一的已分類信件用標籤式，而且用標籤的人九成多的信只貼一個標籤；Windows 7 那組在可以自由選擇的五週裡，23 人中只有 6 人貼過標籤。同一篇論文問了 168 位學生，77% 覺得多重分類是好主意（[Bergman et al. 2013](https://doi.org/10.1002/meet.14505001029)）。作者的解釋是，「這則在 X 資料夾」比「這則可以用 X、Y、Z 標籤找到」好記。
 
-用標籤找，結果則有好有壞。Bergman 那篇論文裡，在控制好的找檔任務中，用標籤找的成功率較低、速度也較慢（[Bergman et al. 2013, JASIST](https://doi.org/10.1002/asi.22906)）。Civan 等人 2008 年讓 10 個人分別用資料夾和標籤整理文章五天，之後找回的速度則沒有差別（[Civan et al. 2008](https://doi.org/10.1002/meet.2008.1450450214)）。差別在取捨：選一個資料夾比選幾個標籤費心；但標籤彼此重疊，忘了放哪時沒辦法一個一個翻完。作者的結論是兩者都要一點。
+用標籤找，結果則有好有壞。Bergman 團隊在 Windows 7 那項研究裡做了控制好的找檔任務：受試者剛被要求用標籤兩週後，用標籤找顯著比較慢，找不到的次數也比較多，但後者只接近顯著（[Bergman et al. 2013, JASIST](https://doi.org/10.1002/asi.22906)）。Civan 等人 2008 年讓 10 個人分別用資料夾和標籤整理文章五天，之後找回的速度則沒有差別（[Civan et al. 2008](https://doi.org/10.1002/meet.2008.1450450214)）。差別在取捨：選一個資料夾比選幾個標籤費心；但標籤彼此重疊，忘了放哪時沒辦法一個一個翻完。作者的結論是兩者都要一點。
 
 Notion 這類工具沒有傳統的資料夾。依 Notion 說明中心的說法（2026 年 10 月），它用頁面裡放頁面取代資料夾，再用資料庫的屬性和不同的檢視方式，讓同一則頁面出現在好幾種分類裡（[Notion Help](https://www.notion.com/help/create-a-subpage)）。Obsidian 則同時有資料夾、標籤和連結。
 
@@ -165,7 +165,7 @@ Bergman 團隊的研究看的是電腦檔案，多半是 2000 年代後期收集
 - [Bergman, Beyth-Marom, Nachmias, Gradovitch & Whittaker 2008, Improved search engines and navigation preference in personal information management (ACM TOIS)](https://doi.org/10.1145/1402256.1402259)
 - [Bergman, Whittaker, Sanderson, Nachmias & Ramamoorthy 2010, The effect of folder structure on personal file navigation (JASIST)](https://doi.org/10.1002/asi.21415)
 - [Bergman & Dvir 2024, File hyper-searching explained (Human–Computer Interaction)](https://doi.org/10.1080/07370024.2024.2379838)
-- [Bergman, Gradovitch, Bar-Ilan & Beyth-Marom 2013, Folder versus tag preference in personal information management (JASIST)](https://doi.org/10.1002/asi.22906)
+- [Bergman, Gradovitch, Bar-Ilan & Beyth-Marom 2013, Folder versus tag preference in personal information management (JASIST)](https://doi.org/10.1002/asi.22906)（依作者接受稿）
 - [Bergman et al. 2013, Tagging personal information: A contrast between attitudes and behavior (ASIS&T 2013)](https://doi.org/10.1002/meet.14505001029)
 - [Civan, Jones, Klasnja & Bruce 2008, Better to organize personal information by folders or by tags?: The devil is in the details (ASIS&T 2008)](https://doi.org/10.1002/meet.2008.1450450214)
 - [Whittaker et al. 2011, Am I wasting my time organizing email? A study of email refinding (CHI 2011)](https://doi.org/10.1145/1978942.1979457)

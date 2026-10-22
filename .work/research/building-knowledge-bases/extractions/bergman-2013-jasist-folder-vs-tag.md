@@ -1,6 +1,8 @@
 # Bergman, Gradovitch, Bar-Ilan & Beyth-Marom 2013 — Folder versus tag preference in personal information management
 
-> 讀取狀態：**JASIST 正文 blocked（只讀到摘要＋參考文獻）**；正文數字改由同作者群的姊妹篇 ASIS&T 2013 全文轉述取得。下面每個數字都標明出處是哪一篇。
+> 讀取狀態（2026-10-22 補讀後）：**read＝作者接受稿（accepted preprint）全文**，Bar-Ilan 資訊科學系網站所存，頁首注明「preprint of an article accepted for publication in JASIST copyright © 2012」。Wiley 正式排版版仍未取得（付費牆），兩版是否有改字未核。補讀結果見文末「2026-10-22 補讀：接受稿全文」；原本「由姊妹篇轉述」的各項數字已逐條對過接受稿。
+>
+> （原狀態：JASIST 正文 blocked，只讀到摘要＋參考文獻；正文數字由姊妹篇 ASIS&T 2013 全文轉述。）
 
 ## 書目
 
@@ -73,4 +75,47 @@
 10. 作者頁：Bar-Ilan PIM Lab 與 Bergman 個人頁只列書目，無 PDF；tau.ac.il/education/muse 有 Bergman 早期 preprint，但沒找到本篇。
 11. 未嘗試：firecrawl（依指示點數已用完不使用）；向作者索取全文（ResearchGate request）需人工。
 - 替代來源：姊妹篇 ASIS&T 2013 全文經 exa web_fetch 取得（Wiley HTML），依序讀完：標題摘要 1–7、INTRODUCTION 8–56（含 Table 1 比較研究整理 32–46、Folder vs. Tag Preference 對 JASIST 的轉述 48–56）、METHOD 57–65、RESULTS 66–87（Table 2）、DISCUSSION 88–106、CONCLUSIONS 107–115。
+## 2026-10-22 補讀：接受稿全文
+
+### 取得過程
+
+1. curl `onlinelibrary.wiley.com/doi/pdfdirect/10.1002/asi.22906`、`asistdl…/doi/epdf/…` → 403（Cloudflare「Just a moment...」）。
+2. Semantic Scholar API：openAccessPdf CLOSED；OpenAlex 回應 200 但無 OA 位置；Unpaywall 需真實 email（422），未再試。
+3. Playwright 開 Wiley `/doi/full/` → 通過 Cloudflare 後被導向 `/doi/abs/`；頁內 fetch `/doi/pdfdirect/`、`/doi/pdf/`、`/doi/epdf/` 三個端點都回 403（付費牆 HTML，約 223 KB）。
+4. Playwright 開 Google Scholar「全部 12 個版本」：列出 is.biu.ac.il 兩個 preprint PDF 與 academia.edu 一份。
+5. academia.edu：curl 下載回 403；Playwright 開頁只顯示摘要、站方 AI 生成的「Key takeaways」（不算原文）與相關論文，下載需登入。未採用。
+6. is.biu.ac.il preprint：curl 兩個網址都連線逾時（HTTP 000，0 bytes）；Wayback availability API 回 429。
+7. **mcp__exa__web_fetch_exa** 抓 `https://is.biu.ac.il/files/is/Folders%20vs%20Tags%20-%20Preprint%20version.pdf`（maxCharacters 200000）→ 成功，取得完整文字。
+- 全文檔：`/private/tmp/claude-501/-Users-vincent-Work-study-quidproquo/970f061c-9dcb-4134-aaf8-624977a74263/scratchpad/fulltext/fix-bergman-2013-jasist-preprint.txt`（1,374 行，95,057 bytes）。
+- 依序讀完：1–47 標題、作者、摘要；48–74 引言；75–265 Theoretical Background（含 Table 1）；266–337 Research Questions；338–483 Method（Gmail 361–389、Windows 7 390–439、Table 2）；484–853 Results（RQ1–RQ8）；854–1016 Discussion；1017–1047 Conclusions、致謝；1048–1190 參考文獻；1191–1374 附錄 A（Gmail 問卷）、附錄 B（Windows 7 找回問卷）。
+- 下文行號是這個檔的行號。
+
+### 控制找回任務（RQ7，只在 Windows 7 研究做）
+
+- 設計（818–838）：強制貼標籤兩週後的第二次見面當場做。軟體替每人隨機挑 6 個已貼標籤的檔案，各配一個同時期建立／修改的檔案；前者要用標籤找、後者用標籤以外任何方法找；順序平衡、螢幕錄影。共 119 對（每人 5–6 對）。用標籤時多用搜尋（74%）；不用標籤時多用導覽（64%）。
+- 結果原句（839–844）：「Results show that the average retrieval time when using tags was 21.21 seconds (SD = 20.9), compared to 16.44 seconds for non-tag retrieval (SD = 12.59). A paired t test showed that non-tag retrieval was significantly faster than tag retrieval, t(118)=2.22, p<0.05. When using tags, participants failed to retrieve 6 of their files, compared to only one failure when not using tags. A Wilcoxon related-samples non-parametric test showed results on the verge of significance, W=1.89, p=0.059.」
+- 討論（990–992）：「it resulted in more retrieval failures and significantly slower retrievals.」
+- 要點：**速度差異顯著；失敗次數 6 比 1，只「接近顯著」（p=0.059）**。樣本是 23 位以色列學生、剛被強制用標籤兩週。
+
+### 與姊妹篇轉述逐條對照
+
+- Gmail 已分類信件 tag-labeling 比例：姊妹篇 36%／64%；接受稿 Results 寫 33%（SD 41%）／64%（SD 42%），t(59)=2.97（491–495）；Discussion 又寫 67%／33%（860–861）。接受稿內部 64 與 67 不一致，姊妹篇的 36 與接受稿的 33 也不同。「約三分之一」三種寫法都涵蓋。
+- Gmail 分析樣本：75 人中 60 人用過 labels，Results 只報這 60 人（489–490）。
+- 26 人用過 tag-labels：單一標籤 92%、多重 8%，t(25)=10.67（658–664）——與姊妹篇一致。
+- Gmail 找回估計 Table 5（597–606）：掃收件匣 53%、打開 label 16%、不用 label 的搜尋 27%、單一 label 搜尋 3%、多 label 搜尋 0.1%。Discussion 把「打開 label」寫成 12%（866–867），與 Table 5 的 16% 不一致。
+- Windows 7 自由期貼過標籤：「only 6 (26%)」（536）；Discussion 寫「6 participants (16%)」（864–865）。姊妹篇寫 23%。正確算法 6/23 = 26%，與接受稿 Results 一致；引用時寫「23 人中 6 人」。
+- Windows 7 強制期：71% 檔案貼標籤、其中 55% 多重分類（415–418）——一致。
+- 導覽 61%、標籤找回 5%（634–637）——一致。Table 6 導覽 SD 寫 7%，RQ6 段落寫 33%（800–801），接受稿內部不一致。
+- Gmail 受試者：26 男 49 女，20–58 歲（362–368）；Windows 7：12 男 11 女，21–38 歲（401–406）。均為以色列學生。
+- 作者自己列的介面限制（888–893）：Windows 7 不提供標籤清單，兩個環境的找回介面都沒有標籤雲與標籤勾選框，結果可能不能推到其他介面。
+
+### 核對 order 2
+
+| 正文位置 | 正文說法 | 接受稿原文 | 判定 |
+|---|---|---|---|
+| order 2 L51 | 控制好的找檔任務中，用標籤找的成功率較低、速度也較慢 | 839–844：速度 21.21 vs 16.44 秒，顯著；失敗 6 vs 1 次，p=0.059 接近顯著 | 方向吻合；「成功率較低」的統計強度只到接近顯著，正文沒交代。數字可補 |
+| order 2 L49 | Gmail 約三分之一已分類信件用標籤式；用標籤的人九成多只貼一個；Windows 7 23 人中 6 人；77% 覺得多重分類好（姊妹篇） | 491–495、658–664、536；77% 只在姊妹篇 | 吻合 |
+
+- 姊妹篇對 L51 的支撐：`bergman2013-asist-attitudes.txt` 第 99 行「In our own previous research retrievals with tags resulted in more failures to reach the target file and were significantly slower.」只有方向，沒有數字與 p 值。
+
 - 線索（未讀）：Gradovitch et al. 2012 "Tags vs. folders in Gmail – Preliminary findings"（Chais 2012，希伯來文，pp. 63–69）可能有 Gmail 研究的初步數字。

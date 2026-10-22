@@ -69,3 +69,16 @@ read_status=full（兩篇官方部落格公告各自整頁讀完，經 Wayback �
 - 依序讀過：omni-join.txt 1–59、omni-details.txt 1–60、README 1–30 全讀並 grep 其餘段落（其餘是功能清單、貢獻者、自架指令）、omnivore.app 現況頁全頁、ElevenLabs 公告搜尋摘錄
 - 失敗管道：blog.omnivore.app 以 exa web_fetch 回 CRAWL_HTTP_502；jina read_url（Wayback URL）回 HTTP 402 餘額不足；Wayback 第一次下載未解壓，gunzip 後成功。
 - 讀取日期：2026-10-22
+- 2026-10-22 補讀：README 第 31–180 行依序讀完（功能清單 20–35、自架說明 37–39、Discord 45–47、致謝 50–79、自架與本機開發指令 82–175、授權 AGPL-3.0 178–180），README 1–180 全文讀完。除第 14 行外，沒有任何關於關站日期、宣布日期或匯出期限的文字。
+
+## 核對 order 1 L70（2026-10-22）
+
+正文：「Omnivore 2024 年 10 月底宣布關閉雲端服務，使用者只有約一個月可以匯出」，連結指向 GitHub README；參考資料條目寫「GitHub README：雲端服務於 2024 年 11 月停止」。
+
+| 說法 | README（全文） | 官方公告（全文） | 判定 |
+|---|---|---|---|
+| 雲端服務 2024 年 11 月停止 | 第 14 行「The Cloud application was deprecated in November of 2024.」 | omni-details.txt 第 28 行：匯出到 2024-11-30 | README 能支撐 |
+| 10 月底宣布 | 沒有 | omni-join.txt 第 14 行 Oct 29, 2024；omni-details.txt 第 13 行 Oct 31, 2024 | README 不能支撐；公告能 |
+| 只有約一個月可以匯出 | 沒有 | 原定 11/15（omni-join.txt 第 30 行，宣布後 17 天），兩天後延到 11/30（omni-details.txt 第 28 行，宣布後 32 天） | README 不能支撐；公告能，但「約一個月」是延期後的長度 |
+
+結論：正文這句的兩個關鍵事實（宣布時間、匯出期限）只在官方公告裡，README 只支撐「11 月停止」。連結應改指公告（Wayback 20250503155629 快照），README 可保留為「現況：已改為自架」的佐證。
