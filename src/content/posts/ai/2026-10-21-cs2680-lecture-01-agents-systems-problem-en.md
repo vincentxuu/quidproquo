@@ -208,8 +208,8 @@ The slides map each trait of agent workloads to a systems problem the course stu
 | Dependencies between tools | Dependency-aware scheduling | Lectures 5, 8 |
 | Multiple models in use | routing | Lecture 8, Part II |
 | Variable tool latency | Asynchronous execution | Lecture 8 |
-| External side effects | Safety and isolation | Lecture 4 (shell risks) |
-| Multiple agents | Orchestration and communication | Lectures 3, 5 |
+| External side effects | Safety and isolation | [Lecture 4](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering-en) (shell risks) |
+| Multiple agents | Orchestration and communication | [Lecture 3](/posts/ai/2026-10-21-cs2680-lecture-03-scaling-yourself-multi-agent-en), Lecture 5 |
 | Long-running tasks | Checkpointing and fault tolerance | Lecture 6 |
 
 ### Walking through it: the problems an agent fixing a flaky test runs into
@@ -267,7 +267,7 @@ Going by the schedule, Part I mostly touches the harness side of questions 2, 5,
 
 ## Changelog
 
-- 2026-10-22: Added a link to the Lecture 2 post in Further reading.
+- 2026-10-22: Added a link to the Lecture 2 post in Further reading, and links to the Lecture 3 and 4 posts in the comparison table.
 
 ## References
 

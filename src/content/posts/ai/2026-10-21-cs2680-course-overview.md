@@ -135,12 +135,12 @@ Part I 另有三場沒有投影片的場次，本系列不另寫（Snowflake 客
 
 1. [第 1 堂](/posts/ai/2026-10-21-cs2680-lecture-01-agents-systems-problem)：先拿到整張地圖和「要最佳化什麼」。
 2. [第 2 堂](/posts/ai/2026-10-21-cs2680-lecture-02-how-claude-code-works)與[作業 1](/posts/ai/2026-10-21-cs2680-assignment-1-mads-lens)：看清楚一個成熟的 agent 每一步在做什麼。
-3. 第 3 堂：學會同時用多個 agent。
-4. 第 4 堂與作業 2：自己寫一個。
+3. [第 3 堂](/posts/ai/2026-10-21-cs2680-lecture-03-scaling-yourself-multi-agent)：學會同時用多個 agent。
+4. [第 4 堂](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering)與作業 2：自己寫一個。
 5. 第 5–6 堂：擴成多 agent、加上記憶與可靠度。
 6. 第 7–8 堂與作業 3：學會量，再學會省。
 
-只想解決手上問題的讀者可以跳讀：想自己寫 agent 從第 4 堂開始；agent 太貴看第 8 堂；不知道改動有沒有變好看第 7 堂。
+只想解決手上問題的讀者可以跳讀：想自己寫 agent 從[第 4 堂](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering)開始；agent 太貴看第 8 堂；不知道改動有沒有變好看第 7 堂。
 
 材料方面：課程不錄影，所以本系列的底本是投影片、課程網站的閱讀頁與兩份課程筆記（[agent evaluation](https://cs2680.com/notes/agent-evaluation)、[cost-effective agents](https://cs2680.com/notes/cost-effective-agents)）。投影片上只有一句話帶過的地方，文章會補上說明並標明是本站的說明。課程原本預告的「LLM 基礎」那堂延後了，所以第 2 堂導讀開頭會補一段 API 呼叫的最小範例；想看 LLM 內部的讀者，課程另有一份沒列在首頁的 [transformers 閱讀筆記](https://cs2680.com/notes/transformers)。投影片裡有不少 Claude Code 產品行為，各篇以撰寫當時的官方文件為準。
 
@@ -167,7 +167,7 @@ claude -p "讀 main.py，幫它加一個 --help 參數" --output-format stream-j
 
 ## 更新紀錄
 
-- 2026-10-22：閱讀順序補上第 2 堂與作業 1 的站內連結。
+- 2026-10-22：閱讀順序補上第 2、3、4 堂與作業 1 的站內連結。
 
 ## 參考資料
 

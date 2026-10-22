@@ -144,7 +144,7 @@ This is a teaching example with assumed numbers. The opening context is 10,000 t
 One request, six model calls, five tool runs. The last call reads 15,000 tokens of context, but the six together read 10,000 + 10,400 + 12,900 + 14,100 + 14,400 + 15,000 = 76,800 tokens. Each call starts with the same content as the one before, which is where the slides' point about cache reads dominating cost comes from. It also explains why `pytest` output or a large file read in directly affects cost and speed: once it's in the context, every later step carries it.
 
 > **Self-check**: If M₂ instead read a 20,000-token file, how much more would each of the later four calls read? How much more in total?
-> Answer: 17,500 more tokens each (20,000 minus the original 2,500). M₃, M₄, M₅, and M₆ all carry it, for 70,000 extra tokens in total. This is why Lecture 4 talks about keeping tool output lean on tokens.
+> Answer: 17,500 more tokens each (20,000 minus the original 2,500). M₃, M₄, M₅, and M₆ all carry it, for 70,000 extra tokens in total. This is why [Lecture 4](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering-en) talks about keeping tool output lean on tokens.
 
 ## Memory: turning instructions into conventions
 
@@ -299,6 +299,10 @@ The slides only cover this with a single table in this lecture; the next lecture
 - Source: [Lecture 2 slides](https://cs2680.com/slides/2_agent_use_1.pdf) (PDF pages p4–42), read on 2026-10-21. Page numbers always follow PDF page order.
 - Product behavior was checked against the [Claude Code docs](https://code.claude.com/docs/en/overview) as of 2026-10-21; places that differ from the slides are flagged in the text.
 - The API example in "First, a gap to fill" and the numbers in "fix test_login" are this site's additions, not lecture content.
+
+## Changelog
+
+- 2026-10-22: Added a link to the Lecture 4 post in a self-check answer.
 
 ## References
 
