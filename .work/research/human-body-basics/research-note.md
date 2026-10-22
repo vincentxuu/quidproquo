@@ -82,3 +82,20 @@
 - 骨與肌少症文獻很多（單是骨密度統合分析就有 48 筆），選讀時要避免只挑結論一致的。
 - 「肌肥大機制」的系統性回顧用這組關鍵字搜不到，需改關鍵字或改搜教科書／一手回顧。
 - 神經動作控制的候選偏冷門，未必適合給非專業讀者；需要再找較有代表性的回顧或教科書章節。
+
+## 補查（2026-10-22，第三輪）：權威書籍與共識聲明的版次核對
+
+只核對「書名、作者、版次是否存在」，不代表讀過內容；以下全部不是免費全文，讀取程度都是 🔎（出版社或書店頁面）。
+
+| 來源 | 查到的 | 備註 |
+|---|---|---|
+| Neumann《Kinesiology of the Musculoskeletal System》 | 第 4 版（Elsevier，ISBN 9780323718592） | 出版社頁面寫 2025 Texty 獎、2026 Doody's Core Titles |
+| Shumway-Cook 等人《Motor Control: Translating Research into Clinical Practice》 | 第 6 版，2023-04-05（Wolters Kluwer，ISBN 9781975209568） | 作者含 Woollacott、Rachwani、Santamaria |
+| Magill 與 Anderson《Motor Learning and Control: Concepts and Applications》 | 第 12 版（McGraw Hill，ISBN 9781264681938） | AccessPhysiotherapy 有線上訂閱版 |
+| McGill《Low Back Disorders》 | 第 4 版（Human Kinetics） | 另有 2007 年早期版本在 Internet Archive |
+| Moseley 與 Butler《Explain Pain Supercharged》 | 2017 年第 2 版（Noigroup） | 官方網站有章節預覽 PDF |
+| Kandel 等人《Principles of Neural Science》 | 查到第 6 版（2021，McGraw Hill） | **未確認有第 7 版**；先前我列的版次沒有依據 |
+| ACSM《Guidelines for Exercise Testing and Prescription》 | 第 12 版（ACSM 官網、LWW，ISBN 9781975219208） | 2024-11 的 ACSM 頁面已列；出版年待確認 |
+| IOC 2023 RED-S 共識聲明 | *BJSM* 2023;57(17):1073（PMID 37752011） | 可上 PubMed 與 BJSM 讀 |
+
+未核對：Gray's Anatomy、Netter、Guyton and Hall、McArdle、NSCA 立場聲明、Cochrane 運動相關回顧。
