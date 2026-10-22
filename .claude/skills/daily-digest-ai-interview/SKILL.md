@@ -58,10 +58,11 @@ cat src/data/interview-focus.json | 讀取 ai-engineer.weights
 # Step 6: 依「輸出格式」撰寫文章
 # Step 7: 提交（依 daily-digest-common 共用尾聲）
 # 見 .agents/skills/daily-digest-common/SKILL.md
+# E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 產英文版（invoke post-translate）
 # E2: 修 check:references WARN
 # E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + progress.txt 格式）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview + progress.txt 格式）
 # E5: git add / commit / push
 ```
 
@@ -264,4 +265,4 @@ series:
 - [ ] tags 包含 `ai-engineer-interview` + `daily` + 當日 topic tag
 - [ ] 文末有「## 參考資料」區段（`pnpm check:references` 會擋）
 - [ ] 星期日用特殊格式（STAR + 週回顧）
-- [ ] Commit Epilogue 五步完成（英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
