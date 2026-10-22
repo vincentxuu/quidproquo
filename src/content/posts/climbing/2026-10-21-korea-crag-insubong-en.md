@@ -1,6 +1,7 @@
 ---
 title: "Insubong: Granite Multipitch Above Seoul, from Insu A to Chouinard B | Korea Climbing Crags"
 date: 2026-10-21
+updated: 2026-10-22
 category: climbing
 type: guide
 tags: [climbing, south-korea, outdoor-climbing, trad-climbing, multi-pitch, seoul]
@@ -9,7 +10,7 @@ series:
   name: "Korea Climbing Crags"
   order: 1
 tldr: "Insubong offers granite cracks, friction slabs and chimneys in Bukhansan National Park. Insu A and Chouinard B are graded YDS 5.8, but still require trad, multipitch and descent skills. Take the Ui–Sinseol Line to Bukhansan Ui Station, then a taxi to the Baegundae trailhead to save the uphill road walk."
-description: "An Insubong climbing guide covering seasons, Bukhansan Ui Station access, national park rules, Insu A and Chouinard A/B, and grade differences between the 2012 guidebook and 2025 East Face topo."
+description: "An Insubong climbing guide covering seasons, Bukhansan Ui Station access, national park rules, Insu A and Chouinard A/B, East Face and south-face classics, and grade differences between the 2012 guidebook and 2025 East Face topo."
 draft: false
 ---
 
@@ -17,7 +18,7 @@ draft: false
 
 As you gain height on Insubong, Seoul gradually opens up behind the trees. This granite peak in Bukhansan National Park makes a city stay and a full day of multipitch climbing possible on the same trip. A subway connection to the foot of the mountain, however, does not make it an introductory outdoor lead venue.
 
-This guide helps you decide whether Insubong suits your team, when to go, how to approach without a car, and how Insu A, Chouinard B and harder slab routes compare.
+This guide helps you decide whether Insubong suits your team, when to go, how to approach without a car, and how Insu A, Chouinard B, the East Face classics and the south-face lines compare.
 
 ## What kind of crag
 
@@ -57,6 +58,17 @@ Locate **백운대탐방지원센터 / 도선광장** on the Ui side before sett
 
 The entrance is near Doseonsa Temple, but temple-area parking should not be assumed to be an unrestricted all-day climbers' car park. The official course page checked in October 2026 does not establish current capacity or climber parking conditions. Confirm those with the manager before driving. KNPS also warns of crowds during major temple events. For a climbing-focused visit, subway plus taxi is a straightforward starting plan.
 
+<details>
+<summary>Watch the west-face approach POV (Pigeon / Lonely Road)</summary>
+
+```video-gallery
+key: insubong
+lang: en
+ids: xrTd0dvMCIM
+```
+
+</details>
+
 ## Rules before you go
 
 **Check notices for the named cliff and approach trail.** The [KNPS Bukhansan control page](https://www.knps.or.kr/front/portal/safe/acsCtrDtl.do?menuNo=8000340&parkId=121500) identifies specific affected areas. The partial restriction checked in October 2026 concerned a trail around Gucheon Valley, not a blanket closure of Insubong. Equally, a park remaining partly open does not prove your particular approach and cliff are open.
@@ -73,9 +85,11 @@ For an emergency, call **119**; the [National Fire Agency's EMS information](htt
 
 YDS and V-grade conversions follow the [Mountain Project international grade comparison chart](https://www.mountainproject.com/international-climbing-grades) and are approximate; "approx." marks grades the sources give without a/b/c (such as 4 or 5+). The original grade is the one that counts.
 
-**This table is a mixed collection, not an East Face route list.** The beginner band includes everything the 2012 guide and [theCrag's Insubong page](https://www.thecrag.com/en/climbing/south-korea/insubong) list, including lines that need aid (A0/A1) and lines that are not on the East Face. Above that band it keeps only routes the 2012 guide and the 2025 East Face topo both cover, because there is no second source to cross-check. A leading "2025 ✓/—" in Notes says whether the route appears on the 2025 East Face topo; "—" does not mean the route is missing, only that the topo covers the East Face alone.
+**The grade tables above are a mixed collection, not an East Face route list.** The beginner band includes everything the 2012 guide and [theCrag's Insubong page](https://www.thecrag.com/en/climbing/south-korea/insubong) list, including lines that need aid (A0/A1) and lines that are not on the East Face. Above that band it keeps only routes the 2012 guide and the 2025 East Face topo both cover, because there is no second source to cross-check. A leading "2025 ✓/—" in Notes says whether the route appears on the 2025 East Face topo; "—" does not mean the route is missing, only that the topo covers the East Face alone. Classic routes sit in their own section below, under a separate source rule.
 
 **These sources already use YDS, which is retained rather than reverse-converted to French grades; the YDS column repeats the original grade without a conversion.** A multipitch grade describes climbing difficulty; A0, A1 and A2 denote aid and must not be dropped. Lengths and pitch counts mainly come from the 2012 guide and identify that version, rather than supplying current pitch or descent instructions.
+
+Videos sit with their routes in the tables; select a thumbnail to open that route's list. Watch for version differences: two of the Insu A clips climb the **인수A 변형 (variation)**, not the original four pitches in the 2012 guide; the Wand clip is a **three-pitch free version**, not the guide's four-pitch length; and the Maninbo clip is a solo ascent without a belayer, whose description says he often uses ascenders, rather than demonstrating a conventional lead. Grades and route names in a video title describe that video's version; use the source column in the table to choose the line.
 
 ### Beginner: up to 6a (YDS 5.10a and below)
 
@@ -94,7 +108,7 @@ For the easiest line, start with **Lonely Road**: theCrag calls it the easiest r
 key: insubong
 lang: en
 layout: routes
-ids: lYVPPcpjoo0, OFNWgS2YQN0, TMjYfUO2wQk, XQE74rkLVRs, HLiRmyV9aBc, 4UdmiJv42x8, HxdmcFZcFuU, Nd2mY65a6Is, 832EYL3GKNk, MQrD0McDfqQ
+ids: lYVPPcpjoo0, OFNWgS2YQN0, TMjYfUO2wQk, XQE74rkLVRs, HLiRmyV9aBc, 9HxSEJiCOAg, JE5_SYb_-1k, C8o_GAt7YW0, vgPPxd-jjM4, 4UdmiJv42x8, HxdmcFZcFuU, Nd2mY65a6Is, 832EYL3GKNk, MQrD0McDfqQ
 ```
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
@@ -106,17 +120,75 @@ Consider **Wand** if slab difficulty is a priority. The versions differ by a gra
 | Wand / 봔트 | 5.10b (2025); 5.10c (2012) | 5.10b / 5.10c | 2012 version: 162 m / 4 pitches | East Face | 2025 ✓; 2025 topo 5.10b versus 2012 guide 5.10c; length belongs to the old version. |
 | Maninbo / 만인보 | 5.11b | 5.11b | 15 m | East Face | 2025 ✓; length from 2012 guide; 2025 topo also lists 5.11b. |
 
+```video-gallery
+key: insubong
+lang: en
+layout: routes
+ids: 1ekZvEa443U, jORFOAVszw8, S4AsrxbDCuo
+```
+
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 
-The older guide's **Villa** illustrates another side of harder Insubong multipitch: a free-climbing grade alongside aid sections. If you want an entirely free route, its 5.12a number is not the whole description.
+The older guide's **Villa** illustrates another side of harder Insubong multipitch: a free-climbing grade alongside aid sections. If you want an entirely free route, its 5.12a number is not the whole description. NEPA's video labels the same line southwest face 5.12b; that is the video's own record, not the 2012 guide version used in this table.
 
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 | --- | --- | --- | --- | --- | --- |
 | Villa / 빌라길 | 5.12a (hardest), plus A2 | 5.12a, plus A2 | 165 m / 6 pitches | Locate using guide | 2025 —; single 2012 guide source; the last pitch is listed as A2. Not a fully free route description. |
 
+```video-gallery
+key: insubong
+lang: en
+layout: routes
+ids: gOR1u9IWFCQ, PJA9b7BfHSA, U7_sJeeFr1U
+```
+
 ### Expert: 8a and up (YDS 5.13b and up)
 
 The guide tables and 2025 East Face topo used here do not provide a verified route in this band. Names from other crags or unverified entries are not used to fill it. If this is your main sport-climbing grade range, compare other areas in the series and decide whether to reserve a separate day for Insubong multipitch.
+
+### Classic routes: East Face and south face
+
+The grade tables above choose routes by difficulty. This section adds ten lines that Korean climbers commonly treat as Insubong classics. **They do not all meet the two-source rule used above for the intermediate and harder bands**, so they sit here rather than in those tables. The seven East Face lines follow the 2025 East Face topo for numbering and grade; lengths, pitch counts and first-ascent notes are checked against the 2012 guide, *Monthly Mountain* and Korean climbing media. The three lines on the south and southeast faces are not on the East Face topo and rely mainly on *Monthly Mountain* route reports. The notes identify the source and any version conflict rather than presenting a single source as settled fact.
+
+Classic does not mean easy. This section includes a 5.9 ridge and a 5.12b crack; choose by your trad, multipitch and descent ability, not the overall grade alone.
+
+#### East Face classics
+
+The 2025 East Face topo gives each of these lines a fixed number; its grade takes precedence. Where a length or pitch count comes from an older guide or report, it describes that version, not a promise about the pitch lengths you will find.
+
+| Route | Grade | YDS | Length / pitches | Notes |
+| --- | --- | --- | --- | --- |
+| Crony / 크로니 | 5.9 | 5.9 | 237 m / 9 pitches | 2025 East Face #3; opened by Crony Mountaineering Club (크로니산악회) in 1970. Older sources sometimes give 5.10a; the topo uses 5.9. The pitch-5 crack is the line's signature. |
+| Insu Ridge / 인수리지 | 5.9 | 5.9 | about 215 m / 7 pitches | 2025 East Face #43; follows the north ridge from about 630 m to the summit, the only ridge route on Insubong. About 4 hours for a team of three; two 60 m ropes, five quickdraws and one set of cams. |
+| Amidong / 아미동 | 5.10a | 5.10a | 7 pitches | 2025 East Face #1; opened in 1963 by 이동일 of the Academy Mountaineering Club. No reliable total length was found, so only the pitch count is given. It starts on the left side of the East Face, between Crony and Insu B. |
+| Medical School / 의대 | 5.10a A0 | 5.10a, plus A0 | about 100–136 m / 5–6 pitches | 2025 East Face #27; opened in 1971 by the Seoul National University medical school club. Older route data gives 136 m / 6 pitches; a 2022 50th-anniversary report gives 5 pitches and about 100 m. Pitch 2 (5.10a) is the crux and pitch 3 includes aid. |
+| Rescuer / 구조대 | 5.10a A0 | 5.10a, plus A0 | 12 pitches / about 300–360 m | 2025 East Face #39; opened in 2010 by the Bukhansan police mountain rescue team, with 12 pitches of 25–30 m each. The topo gives 5.10a A0; the free version is about 5.11b. It has the most pitches, so time and retreat management matter more than the grade. |
+| PASI / 패시 | 5.10c | 5.10c | 139 m / 5 pitches | 2025 East Face #20; pitches 3 and 4 are back-to-back 5.10c, alternating cracks and slabs. An endurance test for East Face 5.10 multipitch. |
+| Sanchonji / 산천지 | 5.11a | 5.11a | 119 m / 5 pitches | 2025 East Face #21; pitch 2 is 5.10d and pitch 4 is 5.11a. The difficulties are concentrated on slabs and friction. |
+
+```video-gallery
+key: insubong
+lang: en
+layout: routes
+ids: 4f8aBMKVTZg, 3Fb6ECtneSw, rT0-cBQL4Ac, YbPcvy-DcOA, 8TWRzQEHoaQ, HIRaIU_oOH0, zl4q0vEWn0o
+```
+
+#### South and southeast face classics
+
+These three are not on the 2025 East Face topo. Their grades and lengths come mainly from *Monthly Mountain* route reports; they share this section because the East Face topo does not cover them, not because they belong to the same grade band.
+
+| Route | Grade | YDS | Length / pitches | Notes |
+| --- | --- | --- | --- | --- |
+| Dongyang-gil / 동양길 | 5.10b | 5.10b | 209 m / 8 pitches | Southeast face; opened by Dongyang Mountaineering Club in 1969. The first three pitches are 5.7–5.10b cracks, the middle switches to long 5.8 slabs, pitch 6 is aid and the last pitch is a 5.10a slab; it is not a fully free route. *Monthly Mountain* gives 8 pitches but describes only seven, so the pitch count has a version difference. |
+| Haneul-gil / 하늘길 | 5.10c | 5.10c | 190 m / 7 pitches | South face; opened by Ujeong Mountaineering Club in 1969. Pitches 1 and 2 are 5.10a cracks; pitches 5 and 7 are 5.10c. Pitch 1 is where most falls happen, not just the upper pitches. |
+| Georyong-gil / 거룡길 | 5.12b | 5.12b | originally 200 m / 9 pitches, now usually 7 | South face; opened in May 1972 by 장봉완, 김제훈, 전재운 and others. Pitch 1 is the 5.12b crux; pitches 3 and 4 are 5.11b and pitch 6 is 5.11a. Pitch 3 has a pendulum and pitch 6 has old bolts. |
+
+```video-gallery
+key: insubong
+lang: en
+layout: routes
+ids: lOQfMuHDyvY, P4bkKEszYXo, 0AkY0Vahzdo
+```
 
 ### Getting down
 
@@ -126,16 +198,16 @@ Insubong has more than one descent, and the wrong anchor costs you a rope length
 - **Lonely Road:** theCrag's description is to walk SE from the summit to find a rope, then west to a chain of roughly 10 m of bolts; the westernmost anchors reach the ground in 60 m.
 - **Rappelling the route:** people do it on both lines, but you have to check the fixed gear yourself. The 2012 guide gives no descent configuration, and the lengths in this article cannot be used to plan rope length.
 
-"Two 30 m rappels" means two rappels of 30 m each, not two 30 m ropes; one 60 m rope doubled covers a single 30 m rappel. The actual rope plan depends on the anchors you choose, team size and your retreat options.
+"Two 30 m rappels" means two rappels of 30 m each, not two 30 m ropes; one 60 m rope doubled covers a single 30 m rappel. The actual rope plan depends on the anchors you choose, team size and your retreat options. A 2026 summit-descent video demonstrates another setup: a 70 m double rope reaching the ground in one rappel from a specific anchor. With a 60 m rope you still need more than one; confirm the anchor on site and against the topo.
 
 
 <details>
-<summary>Watch the Pigeon descent</summary>
+<summary>Watch the descents (Pigeon and summit)</summary>
 
 ```video-gallery
 key: insubong
 lang: en
-ids: Id8LRtAsqlA
+ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 ```
 
 </details>
@@ -150,6 +222,8 @@ ids: Id8LRtAsqlA
 
 ## Update history
 
+- 2026-10-22: Added a classic-routes section with ten lines (Crony, Insu Ridge, Amidong, Medical School, Rescuer, PASI, Sanchonji, Dongyang-gil, Haneul-gil and Georyong-gil), with videos and notes on grade and pitch-count differences; Sanchonji and Georyong-gil now use full-route videos instead of the earlier first-four-pitch clips.
+- 2026-10-22: Added route videos for Insu A, Wand, Maninbo and Villa, and extended the intermediate and advanced tables with video columns; added a west-face approach POV and a 70 m double-rope summit descent, with notes on how those versions differ from the guidebook.
 - 2026-10-21: Keep the route comparison table intact with video thumbnails beside each route; open the selected route’s videos on demand in a vertical playlist with separate preview images and open buttons to avoid accidental activation while swiping; external video rows identify YouTube as the destination and indicate a new tab.
 
 ## References
@@ -163,6 +237,12 @@ ids: Id8LRtAsqlA
 - [Korean Alpine Club: Rick Ruffin, Insubong Climbing](http://www.cac.or.kr/eng/sub1/sub1_09.php)
 - [Climb: Rock Climbing in Korea book listing](https://product.kyobobook.co.kr/detail/S000001582823)
 - [Mont Blanc Lines: Insubong – East Face, 2025](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)
+- [Today News: Climbing Insubong's Amidong route, 2014](https://www.ntoday.co.kr/news/articleView.html?idxno=23637)
+- [Monthly Mountain: Insubong's Insu Ridge, 2009](http://san.chosun.com/news/articleView.html?idxno=4537)
+- [Monthly Mountain: Insubong's Haneul-gil, 2016](http://san.chosun.com/news/articleView.html?idxno=9987)
+- [Monthly Mountain: Insubong's Georyong-gil, 2016](http://san.chosun.com/news/articleView.html?idxno=10118)
+- [Monthly Mountain: 50 years since the Medical School route, 2022](http://san.chosun.com/news/articleView.html?idxno=21919)
+- [Imgok: Korean rock routes (1), Insubong Dongyang-gil, 2012](http://www.imgok.org/?document_srl=45490&l=en&mid=rc_info)
 - [National Fire Agency: Public EMS](https://www.nfa.go.kr/eng/ems/service/)
 - [BMC: 2025/26 Insurance Product Information Document](https://services.thebmc.co.uk/modules/insurance/r/downloads/BMC_IPID_2025_26_1225_Edition_1225.pdf)
 - [Mountain Project: International climbing grade comparison](https://www.mountainproject.com/international-climbing-grades)
