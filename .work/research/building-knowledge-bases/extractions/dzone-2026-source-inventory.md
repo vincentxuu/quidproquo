@@ -39,3 +39,9 @@ read_status=full（Exa web_fetch 取得全文，從標題讀到參考文獻）
 
 - 「處理方式」欄（收／即時查／只當篩選／排除）是決定第一批收錄範圍的直接工具，可借用並註明出處。
 - 「先選一個有 owner 的工作流程，不要一開始就全公司搜尋」對應「第一批收錄範圍」。
+
+## 2026-10-22 全文核對（依 _spotcheck-batch9）
+- 以 mcp__exa__web_fetch_exa 重抓全文（作者 Jubin Soni，2026-06-23，DZone 2026 Trend Report 摘錄），Step 1–8 與結論全讀。
+- 核對：Step 2 原句「For each one, record the owner, how often it changes, any sensitive fields, the permission rule, and a handling decision.」「The handling decision is the most important field.」「As a rule, index stable, widely readable content and fetch live anything that changes often.」Step 1「Do not start with a broad, company-wide search that has no clear owner」——皆一字不差。
+- 範例表：Help-center 索引、Ticket history 即時查＋metadata 過濾、Product spec wiki 索引但排除限制空間、Billing 排除只即時查。沒有「訂單狀態」例子（那是 Microsoft CAF 的 Order tracking → API）。
+- Step 6：建議 30–50 題真實問題起步，含受限與不可回答題、過時題要求「Latest version returned」。
