@@ -1,6 +1,18 @@
-## 2026-10-23 封存：英文口說練習系列 2026-10-19 條目（daily-digest-funding commit 壓回 90 行上限）
+## 2026-10-23 封存：英文口說練習系列 2026-10-19 條目（daily-digest-funding／daily-digest-tool 併發同時封存，壓回 90 行上限）
 
 - **英文口說練習系列 2026-10-19**：16篇中英32稿已改非草稿(draft:false)，官方/社群來源、三節審稿與非作者審查齊；使用者已授權commit push。總覽15導航、order0–15與雙語內鏈齊；最新origin/main隔離發布完整pnpm verify全綠，準備提交推送。未冒稱正式站已驗收，證據見`.work/english-speaking/`與系列規劃。
+
+---
+
+## 2026-10-23 封存：daily-digest-model-card 2026-10-19 條目（daily-digest-tool 2026-10-23 第四次 rebase 合併併發 session 後壓回 90 行上限）
+
+- **daily-digest-model-card 2026-10-19**：HF API 四組 trending 掃描（文字生成／多模態／文字轉圖／文字轉影片）＋兩組 Groundlane `web_search` 後，候選中 DeepSeek-V4.1-Flash-1017（既有家族例行 checkpoint）、LiquidAI LFM2.5-24B-A2B（10-14 已寫過）、Reflection Beam 1.0（10-18 已寫過）、tencent Hy-Memory-30B-A3B（10-16 已寫過）、各類 abliterated／量化重包裝（DeepSeek uncensored、Qwen3.8-27B 多個量化帳戶版本）均因既有排除規則跳過；選出唯一符合條件 A（新 base model、createdAt 7 天內、無 base_model tag，likes 113）且具體技術突破（條件 C）的新事件：**NVIDIA Nemotron Labs Dory 1.0**（4B looped／latent-recurrent normalized-GPT，20 層共享 Recurrent block 可重複套用 1/2/4 次彈性切換推理運算量，2026-10-16 無官方部落格悄悄上架 HF，OpenMDW-1.1 近似 MIT 授權，256K context）。SWE-bench Verified 1/2/4-loop 50.3/57.4/73.4%（4-loop 官方標註為引用分、非完整自測），2-loop 大致追平 Qwen3.5-4B／3.5-9B；IFBench 隨 loop 數增加反而從 74.29 掉到 57.44，表中唯一反例已於文中點出。官方 Nemotron 產品頁未列入 Dory（佐證悄悄上架），交叉 HuggingFace 模型卡＋explainx.ai＋AICoder 兩篇第三方報導確認。family tag 掛 `model-family-nemotron`（橋接既有家族文，Dory 是否需要獨立家族篇留給週回顧判斷）。series order 51（接續 10-18 reflection-beam 的 50）。中英雙版已建立並互相連結。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）、`check:lang-parity`（2928 組全過）、`check:tw`（0 blocking，新檔 0 命中）、`check:series-order`（51 無撞號，僅既有缺號 warning）、`pnpm lint`（0 warning/error）皆 0 blocking；已將最舊 Recently completed 條目（10-16 daily-digest-weekly）移至 `docs/progress-archive.md`；待 commit／push。
+
+---
+
+## 2026-10-23 封存：daily-digest-arxiv 2026-10-20 條目（daily-digest-tool 2026-10-23 第五次 rebase 合併併發 session 後壓回 90 行上限）
+
+- **daily-digest-arxiv 2026-10-20**：Layer A 爬 arXiv cs.AI(92 new＋cross-list)／cs.CL(104 new)／cs.MA(5 new＋replacements) 10-19 公告批次（週末無公告，10-16 後下一批為週一 10-19），web_fetch markdown 單次截斷約一半，改用 Groundlane web_extract CSS selector（div.list-title + dt>a[title=Abstract] href）繞過輸出上限，取得三類別合計約 190 筆完整標題＋ID；關鍵字初篩後剩 91 篇候選（已排除非本批次 replacement ID）。HF Daily Papers 全量 50 筆 id+upvote 交叉比對，與候選僅 1 篇重疊，另發現 LiveMACE（2610.09872，10-09 已列 watch，新增 110 upvotes 強社群訊號）與 PhysClosureBench（2610.21767，36 upvotes）。選中三篇組成「Agent 的控制權到底有多穩」主題：**Ignored, Not Refused**（2610.23254，BRAC University）稽核 33,000 條軌跡證明低攻擊成功率 76-80% 只是沒反應而非真拒絕，換系統提示詞 ASR 可從 0.2% 衝到 43%；**From Approval to Abuse**（2610.22987，NUS／NTU／Ant Group，含知名研究者 Bryan Hooi）在 Claude Code／Codex CLI 兩個生產平台示範誘導過寬授權規則，58% 得手、核准後 81% 能悄悄完成惡意目標；**GatewayBench**（2610.23449，Tsinghua／UChicago／UIUC，Bo Li 研究室）用 11,118 個真實工具證明 MCP 閘道扁平式在工具變多時 token 成本飆 28 倍、分層式則在弱模型下可能垂直攤。三篇皆讀完整正文方法／實驗／限制章節判定「通過」，Semantic Scholar 對 2610.23254 兩次 429 但同批論文一致顯示 0 引用。Structured/Provable Authority、When Can You Trust an Agent's Own Verifier、RECAP 等 4 篇列 rejected/watch 並附具體理由。series order 149（距 2026-05-25 天數＋1，10-19 當天無產出故跳號，非撞號）。中英雙版已建立並互相連結。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）、`check:lang-parity`（3071 組全過）、`check:tw`（0 blocking，新檔 0 命中）、`check:series-order`（149 無撞號，僅既有缺號 warning）、`pnpm lint`（0 warning/error）皆 0 blocking；已將最舊 Recently completed 條目（10-16 daily-digest-funding）移至 `docs/progress-archive.md`；待 commit／push。
 
 ---
 
