@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-10-23 封存：daily-digest-funding 2026-10-20 條目（daily-digest-product-interview 2026-10-23 加新條目，壓回 90 行上限）
+
+- **daily-digest-funding 2026-10-20**：三組 Groundlane `web_search`＋後續交叉驗證查詢後，確認 Rein Security（$25M Series A，實際成交日 10-08，已於 10-09 報導過）排除；India AI startups 週報彙整（RapidCanvas／Clueso／Parallel Loop 等多筆均為舊聞重新打包或低於門檻的小額種子輪）均排除；選出唯一符合條件且有 5+ 獨立來源確認的新事件：**Town**（AI 工作助理，個人助理 Townie 擴展成跨員工互相交辦工作的助理網路，$108M Series B，Forerunner Ventures 與 Menlo Ventures 共同領投，估值 $1B 獨角獸；TechCrunch＋Yahoo Finance 轉載官方新聞稿＋TheNextWeb＋techtimes 多方確認）。上線僅 4 個月即拿下獨角獸估值，付費團隊數成長 9 倍快於付費客戶數 4 倍，顯示團隊內部正從個人試用擴散成整團隊採用。建議加入 watchlist section B3（Agent 平台／Builder，與 Lindy.ai／Dust 同組）。中英雙版已建立並互相連結，series order 96（接續 10-19 duvo 的 95）。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）皆 0 blocking；已將最舊 Recently completed 條目（10-16 daily-digest-arxiv）移至 `docs/progress-archive.md`；待跑剩餘 targeted verify 與 commit／push。
+
+---
+
 ## 2026-10-23 封存：daily-digest-model-card 2026-10-19 條目（daily-digest-tool 2026-10-23 第四次 rebase 合併併發 session 後壓回 90 行上限）
 
 - **daily-digest-model-card 2026-10-19**：HF API 四組 trending 掃描（文字生成／多模態／文字轉圖／文字轉影片）＋兩組 Groundlane `web_search` 後，候選中 DeepSeek-V4.1-Flash-1017（既有家族例行 checkpoint）、LiquidAI LFM2.5-24B-A2B（10-14 已寫過）、Reflection Beam 1.0（10-18 已寫過）、tencent Hy-Memory-30B-A3B（10-16 已寫過）、各類 abliterated／量化重包裝（DeepSeek uncensored、Qwen3.8-27B 多個量化帳戶版本）均因既有排除規則跳過；選出唯一符合條件 A（新 base model、createdAt 7 天內、無 base_model tag，likes 113）且具體技術突破（條件 C）的新事件：**NVIDIA Nemotron Labs Dory 1.0**（4B looped／latent-recurrent normalized-GPT，20 層共享 Recurrent block 可重複套用 1/2/4 次彈性切換推理運算量，2026-10-16 無官方部落格悄悄上架 HF，OpenMDW-1.1 近似 MIT 授權，256K context）。SWE-bench Verified 1/2/4-loop 50.3/57.4/73.4%（4-loop 官方標註為引用分、非完整自測），2-loop 大致追平 Qwen3.5-4B／3.5-9B；IFBench 隨 loop 數增加反而從 74.29 掉到 57.44，表中唯一反例已於文中點出。官方 Nemotron 產品頁未列入 Dory（佐證悄悄上架），交叉 HuggingFace 模型卡＋explainx.ai＋AICoder 兩篇第三方報導確認。family tag 掛 `model-family-nemotron`（橋接既有家族文，Dory 是否需要獨立家族篇留給週回顧判斷）。series order 51（接續 10-18 reflection-beam 的 50）。中英雙版已建立並互相連結。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）、`check:lang-parity`（2928 組全過）、`check:tw`（0 blocking，新檔 0 命中）、`check:series-order`（51 無撞號，僅既有缺號 warning）、`pnpm lint`（0 warning/error）皆 0 blocking；已將最舊 Recently completed 條目（10-16 daily-digest-weekly）移至 `docs/progress-archive.md`；待 commit／push。
