@@ -8,5 +8,5 @@
   3. Table 2：「Adding meta-data improves retrieval. Adding the file name and chunk number into the retrieved context helped the reader extract the required information.」（AI Tutor）；「RAG systems require continuous calibration … requiring constant monitoring.」
   4. §1 對 RAG 的期待：「reducing development time no knowledge graph creation and limited data curation and cleaning」——作者描述的期待，不是結論；FP1 本身就是語料缺漏造成的失敗。
 - 作者列的限制：BioASQ 評審非領域專家（§4.3）；另兩個案例資料因保密未公開。
-- 與摘要不一致：摘要/§1 寫「15,000 documents」，§4.3 與 Table 1 寫下載 4017 份。引用文件數時用 4017（Table 1），或不引數字。
+- 與摘要不一致：摘要沒提文件數；§1 與 §7 Conclusion 寫「15,000 documents」，§4.3 與 Table 1 寫下載 4017 份。引用文件數時用 4017（Table 1），或不引數字。
 - 讀取紀錄：HTML 全文一次取回（約 3.3 萬字元），依序從標題讀到 References 結束。
