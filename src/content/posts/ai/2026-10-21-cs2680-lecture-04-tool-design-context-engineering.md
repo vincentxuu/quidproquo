@@ -73,7 +73,7 @@ def run_agent(user_request, tools, call_model, max_steps=20):
 對照第 2 堂，有三個地方值得注意：
 
 - **整段 `messages` 每次都重送。** `call_model` 收到的永遠是從頭到現在的全部歷史，這就是第 2 堂那張表裡，每次呼叫讀入的 token 一路變多的原因。
-- **工具結果的格式依 API 而定。** 投影片用 OpenAI 式的 `"role": "tool"` 加 `tool_call_id`；第 2 堂的 Anthropic Messages API 則把 `tool_result` 放在 role 為 user 的訊息裡。作業 2 用的是 OpenAI 相容端點，所以照投影片這種寫法。
+- **工具結果的格式依 API 而定。** 投影片用 OpenAI 式的 `"role": "tool"` 加 `tool_call_id`；第 2 堂的 Anthropic Messages API 則把 `tool_result` 放在 role 為 user 的訊息裡。[作業 2](/posts/ai/2026-10-21-cs2680-assignment-2-mads-loop)用的是 OpenAI 相容端點，所以照投影片這種寫法。
 - **一定要有停止條件。** `max_steps` 用完就丟例外，不然模型卡住時會一直燒錢。
 
 <details>
@@ -385,6 +385,10 @@ p52 引了 Sydney Lewis 的論文〈[Same Model, Different Harness](https://arxi
 - 底本：[第 4 堂投影片](https://cs2680.com/slides/4_agent_design_1.pdf)（PDF 頁序 p4–53），2026-10-22 讀取。頁碼一律用 PDF 頁序。
 - 投影片引用的論文數字回原文核對：SWE-agent（表 1、表 3）、Lost in the Middle（表 6）、Lewis（摘要與表 2）、Breunig 原文；與投影片不同之處已在正文標出。
 - loop 的可執行版本、假模型範例、「改 500 行檔案的一行」的 token 估算是本站補充，不是課堂內容（`retries` 的場景取自 p19）。
+
+## 更新紀錄
+
+- 2026-10-22：補上作業 2 的站內連結。
 
 ## 參考資料
 

@@ -214,7 +214,7 @@ claude -p "<任務>" --output-format stream-json --verbose > events.jsonl
 - 真的要放到雲端機器上給別的裝置連，前面要加一組隨機 token（例如 `openssl rand -hex 16`，不要放進 repo），沒有 token 的請求一律拒絕。
 - 讓 agent 對著練習用的資料夾工作，不要對著家目錄；你的頁面、截圖和 demo 會顯示它讀到的所有東西。
 
-作業頁也明說，不要用 agent 框架或自己重寫 agent loop，那是作業 2 的事。
+作業頁也明說，不要用 agent 框架或自己重寫 agent loop，那是[作業 2](/posts/ai/2026-10-21-cs2680-assignment-2-mads-loop)的事。
 
 > **自我檢查**：放上雲端時，為什麼 token 不能 commit 進 repo？
 > 答：repo 會分享給助教，也可能被推到別處；token 一外流，任何人都能用你的頁面在那台機器上讀檔、跑指令。
@@ -262,6 +262,10 @@ writeup 要自己寫，作業頁說完全由 AI 產生的 writeup 會被扣分�
 
 - 課程不錄影（[policy 頁](https://cs2680.com/policy)）。作業沒有錄影可對照。
 - 底本：[作業 1 頁面](https://cs2680.com/assignments/assignment1)與[作業總覽](https://cs2680.com/assignments/)，2026-10-21 讀取。文中的事件示意與 Python 程式是本站補充，欄位依作業頁與 [headless mode 文件](https://code.claude.com/docs/en/headless)整理；程式已用文中的 `events.jsonl`、一份截斷的串流與一份 `error_during_execution` 結尾的串流跑過。
+
+## 更新紀錄
+
+- 2026-10-22：補上作業 2 的站內連結。
 
 ## 參考資料
 

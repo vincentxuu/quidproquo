@@ -226,7 +226,7 @@ The slides group an agent's core tools into six categories (p28):
 
 That's the lecturer's grouping. The docs use five categories, file operations, search, execution, web, and code intelligence, with subagents filed separately under orchestration tools ([How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works)). The docs add code intelligence (seeing type errors, jumping to definitions, finding references), which the slides don't list.
 
-The slides say the model mostly decides which tool to use, so you don't need to worry much about it; in Assignment 2 you build these tools yourself.
+The slides say the model mostly decides which tool to use, so you don't need to worry much about it; in [Assignment 2](/posts/ai/2026-10-21-cs2680-assignment-2-mads-loop-en) you build these tools yourself.
 
 ### Skills, MCP, hooks, plugins: four different problems
 
@@ -302,7 +302,7 @@ The slides only cover this with a single table in this lecture; the next lecture
 
 ## Changelog
 
-- 2026-10-22: Added a link to the Lecture 4 post in a self-check answer.
+- 2026-10-22: Added a link to the Lecture 4 post in a self-check answer, and to the Assignment 2 post in the core tools section.
 
 ## References
 

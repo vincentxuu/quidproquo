@@ -72,7 +72,7 @@ def run_agent(user_request, tools, call_model, max_steps=20):
 Compared with Lecture 2, three things are worth noticing:
 
 - **The whole `messages` list is resent every time.** `call_model` always receives the full history from the start. That is why, in Lecture 2's table, the tokens read on each call keep growing.
-- **The format of tool results depends on the API.** The slides use the OpenAI-style `"role": "tool"` with a `tool_call_id`. The Anthropic Messages API from Lecture 2 instead puts a `tool_result` inside a message whose role is user. Assignment 2 uses an OpenAI-compatible endpoint, so it follows the slides' style.
+- **The format of tool results depends on the API.** The slides use the OpenAI-style `"role": "tool"` with a `tool_call_id`. The Anthropic Messages API from Lecture 2 instead puts a `tool_result` inside a message whose role is user. [Assignment 2](/posts/ai/2026-10-21-cs2680-assignment-2-mads-loop-en) uses an OpenAI-compatible endpoint, so it follows the slides' style.
 - **There has to be a stopping rule.** When `max_steps` runs out the loop raises an exception; otherwise a stuck model keeps burning money.
 
 <details>
@@ -384,6 +384,10 @@ The slides close with this: some apparent "model failures" are really failures o
 - Source: [Lecture 4 slides](https://cs2680.com/slides/4_agent_design_1.pdf) (PDF pages p4–53), read on 2026-10-22. Page numbers always follow PDF page order.
 - Numbers the slides cite from papers were checked against the originals: SWE-agent (Tables 1 and 3), Lost in the Middle (Table 6), Lewis (abstract and Table 2), and Breunig's original post; places that differ from the slides are flagged in the text.
 - The runnable loop, the fake-model example, and the token estimates for "change one line in a 500-line file" are this site's additions, not lecture content (the `retries` scenario comes from p19).
+
+## Changelog
+
+- 2026-10-22: Added a link to the Assignment 2 post.
 
 ## References
 

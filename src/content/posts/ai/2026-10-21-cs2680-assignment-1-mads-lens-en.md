@@ -214,7 +214,7 @@ This page is essentially a "remote control": it launches a program that can read
 - If you really put it on a cloud machine for other devices to reach, put a random token in front of it (for example from `openssl rand -hex 16`, kept out of the repo) and reject every request without it.
 - Point the agent at a practice folder, not your home directory; your page, screenshots, and demo will show everything it reads.
 
-The assignment page also says plainly not to use an agent framework or rewrite the agent loop yourself; that's Assignment 2.
+The assignment page also says plainly not to use an agent framework or rewrite the agent loop yourself; that's [Assignment 2](/posts/ai/2026-10-21-cs2680-assignment-2-mads-loop-en).
 
 > **Self-check**: When deploying to the cloud, why can't the token be committed to the repo?
 > Answer: The repo is shared with the TAs and may be pushed elsewhere. Once the token leaks, anyone can use your page to read files and run commands on that machine.
@@ -262,6 +262,10 @@ So during development, have two recorded streams ready: one that fails and one t
 
 - The course is not recorded ([policy page](https://cs2680.com/policy)). There's no recording to check the assignment against.
 - Source: the [Assignment 1 page](https://cs2680.com/assignments/assignment1) and the [assignments overview](https://cs2680.com/assignments/), read on 2026-10-21. The event illustrations and Python program are this site's additions, with fields based on the assignment page and the [headless mode docs](https://code.claude.com/docs/en/headless); the program has been run against the `events.jsonl` in this post, a truncated stream, and a stream ending in `error_during_execution`.
+
+## Changelog
+
+- 2026-10-22: Added a link to the Assignment 2 post.
 
 ## References
 

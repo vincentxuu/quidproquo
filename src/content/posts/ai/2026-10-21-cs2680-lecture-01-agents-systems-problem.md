@@ -205,11 +205,11 @@ A 還是便宜一點，但差距從 37.5% 縮到約 6%。改看「每次成功�
 | context 很大 | 記憶體階層與檢索 | 第 6 堂 |
 | 開頭重複出現 | prefix caching | 第 8 堂、Part II |
 | 推理會分岔 | speculative execution | 第 8 堂、Part II |
-| 工具之間有依賴 | 依賴感知的排程 | 第 5、8 堂 |
+| 工具之間有依賴 | 依賴感知的排程 | [第 5 堂](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture)、第 8 堂 |
 | 用到不同模型 | routing | 第 8 堂、Part II |
 | 工具延遲不固定 | 非同步執行 | 第 8 堂 |
 | 對外有副作用 | 安全與隔離 | [第 4 堂](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering)（shell 的風險） |
-| 多個 agent | 編排與通訊 | [第 3 堂](/posts/ai/2026-10-21-cs2680-lecture-03-scaling-yourself-multi-agent)、第 5 堂 |
+| 多個 agent | 編排與通訊 | [第 3 堂](/posts/ai/2026-10-21-cs2680-lecture-03-scaling-yourself-multi-agent)、[第 5 堂](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture) |
 | 任務跑很久 | checkpoint 與容錯 | 第 6 堂 |
 
 ### 走一次：一個修 flaky test 的 agent 會碰到哪些問題
@@ -267,7 +267,7 @@ A 還是便宜一點，但差距從 37.5% 縮到約 6%。改看「每次成功�
 
 ## 更新紀錄
 
-- 2026-10-22：延伸閱讀補上第 2 堂、對照表補上第 3、4 堂的站內連結。
+- 2026-10-22：延伸閱讀補上第 2 堂、對照表補上第 3、4、5 堂的站內連結。
 
 ## 參考資料
 

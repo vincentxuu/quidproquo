@@ -137,8 +137,8 @@ Read in the course's own order, because the course itself moves from "use" to "d
 1. [Lecture 1](/posts/ai/2026-10-21-cs2680-lecture-01-agents-systems-problem-en): get the full map and what you are optimizing for.
 2. [Lecture 2](/posts/ai/2026-10-21-cs2680-lecture-02-how-claude-code-works-en) and [Assignment 1](/posts/ai/2026-10-21-cs2680-assignment-1-mads-lens-en): see clearly what a mature agent does at each step.
 3. [Lecture 3](/posts/ai/2026-10-21-cs2680-lecture-03-scaling-yourself-multi-agent-en): learn to run several agents at once.
-4. [Lecture 4](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering-en) and Assignment 2: write one yourself.
-5. Lectures 5–6: grow it into multiple agents, and add memory and reliability.
+4. [Lecture 4](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering-en) and [Assignment 2](/posts/ai/2026-10-21-cs2680-assignment-2-mads-loop-en): write one yourself.
+5. [Lecture 5](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture-en) and Lecture 6: grow it into multiple agents, and add memory and reliability.
 6. Lectures 7–8 and Assignment 3: learn to measure, then learn to save.
 
 If you just want to solve the problem in front of you, skip around: to write your own agent, start at [Lecture 4](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering-en); if your agent is too expensive, read Lecture 8; if you can't tell whether a change made things better, read Lecture 7.
@@ -168,7 +168,7 @@ Each line of output is one event. Count the `assistant` events whose `content` c
 
 ## Changelog
 
-- 2026-10-22: Added links to the Lecture 2, 3, and 4 and Assignment 1 posts in the reading order.
+- 2026-10-22: Added links to the Lecture 2–5 and Assignment 1–2 posts in the reading order.
 
 ## References
 
