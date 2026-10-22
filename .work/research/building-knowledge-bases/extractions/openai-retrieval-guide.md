@@ -35,3 +35,6 @@ read_status=full（curl 取 HTML → 去 svg/script/img → pandoc plain，刪�
 - 「適用範圍單獨成欄才能過濾」：行 335 是直接根據（過濾在語意搜尋之前）。但要補一句：在 OpenAI 是**每個檔案**最多 16 個欄位，所以適用範圍不同的內容要拆成不同檔案。
 - 「日期欄位是處理過時文件的前提」：日期要存成數字（unix timestamp）才能用 gt/lt 做區間過濾。
 - 範例 schema 可參考行 1505–1507 的 region／category／date 三欄。
+
+## 行號更正（2026-10-22）
+- department 欄位範例在全文行 1158–1280。

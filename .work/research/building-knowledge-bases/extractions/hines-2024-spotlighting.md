@@ -52,3 +52,6 @@ read_status=full（arXiv v1 PDF 全文，含附錄 8.1–8.2）
 - 自我檢查的直接證據：行 303–308（只寫指示幾乎沒用）。
 - 「內容是資料不是指令」與「SOP 本身就是指令」的張力：行 131–134。
 - spotlighting 可以當回答階段的一道防線（入庫時加標記、回答時說明標記），但要和限制動作搭配。
+
+## 更正（2026-10-22，依 _spotcheck-batch10）
+- 第 47–48 行「spotlighting 在四個模型上都是 99%」不正確：Nasr 表 7 只有 Gemini-2.5 Pro、Llama-3.3 70B、MetaSecAlign 70B 為 99%，GPT-5 Mini 為 47%（見 nasr-2025-attacker-moves-second 附錄補讀）。

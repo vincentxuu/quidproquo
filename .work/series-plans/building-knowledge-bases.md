@@ -275,7 +275,7 @@ Order 13：解析與清洗：PDF、表格、掃描檔
 Order 14：安全：個資與藏在文件裡的指令（新增）
   聚焦問題：收進知識庫的文件，會不會洩漏個資或反過來指揮 AI？
   邊界：
-    - 講：兩起真實事件——Slack AI（2024，公開頻道藏指令偷私人頻道的 API key）、EchoLeak（2025，一封郵件零點擊讓 Copilot 外洩資料）；個資偵測與去識別（Presidio 為例，自動偵測不保證找全）；內容永遠是資料不是指令；把守規則寫在 prompt 裡不可靠（NVIDIA FACTS），要在前後處理把關；防禦有代價、效果依模型而異（CaMeL 可證安全時完成率 77% vs 84%；spotlighting 對小模型無效）；入庫前驗證來源、標記可疑文件
+    - 講：兩起真實事件——Slack AI（2024，公開頻道藏指令偷私人頻道的 API key）、EchoLeak（2025，一封郵件零點擊讓 Copilot 外洩資料）；個資偵測與去識別（Presidio 為例，自動偵測不保證找全）；內容永遠是資料不是指令；把守規則寫在 prompt 裡不可靠（NVIDIA FACTS 原文：not all LLMs follow these prompts consistently；另引 Hines 2024、OWASP LLM01），要在前後處理把關；防禦有代價、效果依模型而異（CaMeL 可證安全時完成率 77% vs 84%；spotlighting 對小模型無效）；入庫前驗證來源、標記可疑文件
     - 不講：誰能查哪份文件（order 17）
   讀完後讀者能：在入庫流程加上個資檢查與嵌入指令檢查兩道關卡
   例子：一份含白字指令的履歷進入知識庫後發生什麼

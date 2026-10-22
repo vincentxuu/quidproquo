@@ -58,3 +58,7 @@ read_status=full（arXiv v1 PDF 全文 pdftotext；Figure 4 為圖片，另以 p
 
 ## 行號與表格修正（2026-10-22，依 _spotcheck-batch8）
 - 引文正確，但行號偏移：§6 實為行 252–270（原記 262–289）；140–146 → 125–130；161–166 → 154–155；172–174 → 156；31–37 → 40。
+
+## 補記（2026-10-22）
+- §7.1 Enterprise Guardrailing（全文行 308–315 左欄）："In NVInfo bot, we implemented many guardrails in LLM prompts initially. However, later realized that not all LLMs follow these prompts consistently. Therefore, we implemented these guardrails during pre and post processing of queries and responses respectively using Nemo Guardrails"。order 14、17 用。
+- §7.1 Derivative Risks／Data Governance：上線前做文件敏感度分類並把敏感內容排除在聊天機器人外；檢索時用向量搜尋產品的敏感資料過濾。

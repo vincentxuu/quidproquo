@@ -1,6 +1,6 @@
 # 抽取紀錄：Nasr, Carlini et al. (2025) The Attacker Moves Second: Stronger Adaptive Attacks Bypass Defenses against LLM Jailbreaks and Prompt Injections
 
-read_status=partial（正文第 1–7 節全讀；附錄只讀表 7 與 utility 段、F 節人類紅隊比較段）
+read_status=full（正文第 1–7 節全讀；附錄 A–G 於 2026-10-22 補讀完並逐格核對表 2–7，見文末「附錄補讀」）
 
 ## 書目
 
@@ -46,3 +46,43 @@ read_status=partial（正文第 1–7 節全讀；附錄只讀表 7 與 utility 
 
 - 反證／限制段的主要來源：偵測器與提示式防禦都會被繞過（行 279–285、369–375）。
 - 為「限制動作」背書的間接證據：被繞過的全是「讓模型自己判斷」的防禦。
+
+## 附錄補讀（2026-10-22）
+
+### 讀了哪些行
+
+- o14-attacker-moves-second.txt 515–1,290：作者貢獻、參考文獻、附錄 A（梯度、RL、搜尋、人類紅隊四類攻擊的框架與本文實作）、B（實驗設定、表 1、各基準說明）、C（RL 攻擊評分與 reward hacking）、D（搜尋攻擊的 controller／mutator／scorer）、E（人類紅隊競賽設定、獎金、評分、表 2–6）、F.1–F.2 前半（人類與自動攻擊比較）。
+- 1,475–1,611：G.2 各防禦在 Gemini-2.5 Pro 與 GPT-5 Mini 上的成功觸發字串範例。
+- 加上原本已讀的 1–520、1,290–1,475，全文 1,611 行已讀完。
+- 全文檔刪過 3 字元以下的行，表 7 的「0%」「1%」等格子被刪掉、欄位錯位。為了逐格核對，另把 o14raw/attackermoves.pdf 用 pdftotext -layout 重轉成 /private/tmp/claude-501/-Users-vincent-Work-study-quidproquo/970f061c-9dcb-4134-aaf8-624977a74263/scratchpad/layout/attacker-layout.txt（1,887 行，不在 repo），表 2–7 的數字以這份為準。
+
+### 附錄裡的重點數字
+
+1. 表 7（AgentDojo 80 個情境，搜尋攻擊最多 800 次查詢；順序為 Gemini-2.5 Pro／GPT-5 Mini／Llama-3.3 70B／MetaSecAlign 70B）：
+   - 無外加防禦：搜尋攻擊 100／75／100／96%；靜態攻擊 30／0／35／5%。
+   - Spotlighting：99／**47**／99／99%。Prompt Sandwiching：95／69／100／99%。
+   - Protect AI：90／81／94／94%。PIGuard：71／49／61／64%。PromptGuard：94／75／99／95%。Model Armor：90／56／82／82%。MELON：89／71／95／84%。
+   - Utility：偵測器類明顯下降，例如 Gemini-2.5 Pro 無防禦 74.23%，加 Protect AI 或 PIGuard 剩 39.18%、Model Armor 58.76%；提示式防禦大致不降（Spotlighting 75.26%），但 Llama-3.3 70B 加 Spotlighting 剩 39.18%。
+   - 找到第一個成功觸發的中位查詢數 13–110 次。
+2. G.1：搜尋攻擊在多數「模型 × 防禦」組合 >80%；例外是 GPT-5 Mini（不論哪種防禦）與 PIGuard 搭較耐打的模型。作者「相信」加大預算也能打穿 GPT-5 Mini，但沒有實測。多數情境在 100–200 次查詢後就持平。
+3. G.1：明確跳過 Tool Filter、CaMeL、IPIGuard 等 plan-then-execute 防禦，理由是控制流不依賴資料時，攻擊在多數所選情境「保證失敗」；作者同時說這類防禦適用的任務有限、明顯降低 utility，建議另挑控制流會受資料影響的情境來評估。
+4. 表 2–6（人類紅隊；每種防禦只測一組情境；ASR = 判定成功的提交數 ÷ 全部提交數）：單次提交的成功率很低——MELON 0–2.4%、PromptGuard 1.0–23.8%、Prompt Sandwiching 0.2–12.0%、Spotlighting 0.4–43.7%、Protect AI 0–32.5%。好幾格加了防禦反而比無防禦高，例如 gemini-2.5-flash 加 PromptGuard 23.8%（無防禦 9.3%）、加 Spotlighting 43.7%（無防禦 28.8%）。
+5. F.2：29 個重疊情境中，人類集體（任一人成功即算）100% 成功；做完全部 29 題的最佳個人 75%，高於搜尋攻擊的 69%；另外兩位做完全部的參賽者低於搜尋攻擊。
+6. E：競賽獎金共 20,000 美元、40 個挑戰、10 個模型、5 種防禦。
+7. C.1：RL 攻擊出現 reward hacking（StruQ 上靠把目標字串重複 50 次拉高分數），作者提醒評分函數要貼近真實的成功標準。
+8. G.2：所有成功的觸發字串都偽裝成正常文件——「主辦人備註」「系統除錯協定」「資料完整性協定」「內部流程指令 BSP-AI-481」等，沒有一個寫「忽略先前指令」；G.1 也說搜尋攻擊用了編碼、多語言、JSON／YAML／詩等格式，但沒有發現文獻上沒有的新策略。
+
+### 和正文或本紀錄既有內容的矛盾
+
+1. **本紀錄「可引用結果 2」有一格寫錯**：原寫「Spotlighting 在 Gemini-2.5 Pro、GPT-5 Mini、Llama-3.3 70B、MetaSecAlign 70B 上搜尋攻擊 ASR 99%」。layout 版核對後，GPT-5 Mini 是 **47%**，其餘三個才是 99%。sources.jsonl 這筆 reason 欄的「spotlighting 99%」同樣不含 GPT-5 Mini。
+2. 偵測器「>90%」是正文行 369–371 明寫「以 Gemini-2.5 Pro 為底模」的數字；換成 GPT-5 Mini 是 49–81%。本紀錄「與範圍卡說法的核對」寫「ASR 71–>90%」要補上「以 Gemini-2.5 Pro 為底模」。
+3. 正文說人類紅隊「對 Spotlighting 產生 265 個成功攻擊」「最嚴格設定仍收集到 123 個」，是累計成功件數；附錄表 2–6 的 ASR 是每次提交的成功率（多數是個位數）。兩者不能混成「人類攻擊成功率很高」。正文「人類 100% 成功」是 F.2 的情境層級。
+4. 本紀錄最後一點寫「問題不在模型大小，而在攻擊是否針對防禦調整」：表 7 支持「Spotlighting 對 Gemini-2.5 Pro 與兩個 70B 模型都是 99%」，但 GPT-5 Mini 明顯較耐打（47%）。比較精確的說法是「和模型大小沒有明顯關係，但不同模型本身的抗性差很多」。
+5. MetaSecAlign：正文行 339–342 的「靜態 2%」是原論文數字；本文重現的表 7 靜態是 5%、搜尋攻擊 96%。兩者不是同一次實驗，不算矛盾，但引用時標清楚出處。
+6. 「沒有評估 CaMeL 這類系統層防禦」：附錄 G.1 證實並說明原因，和本紀錄一致。
+
+### 對結論的影響
+
+- 大方向不變：偵測器與提示式防禦在適應性攻擊下都被大幅繞過，偵測器還會拉低 utility；被繞過的全是「讓模型或分類器自己判斷」的防禦。
+- 要改的是兩處數字歸屬（Spotlighting 99% 不含 GPT-5 Mini；偵測器 >90% 是 Gemini-2.5 Pro）。有 GPT-5 Mini 的數字在，「全部被打穿」要說得保守一點：用「多數組合 >80%」比「>90%」安全。
+- G.1 的說明讓「為限制動作背書」更直接：作者自己承認 plan-then-execute 防禦在所選情境下攻擊會失敗，只是代價是適用範圍與 utility。
