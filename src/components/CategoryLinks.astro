@@ -1,7 +1,7 @@
 ---
 import type { Post } from '../utils/content';
 import type { Lang } from '../i18n/utils';
-import { categoryHref } from '../utils/pagination';
+import { categoryHref, homePageHref } from '../utils/pagination';
 
 interface Props {
   posts: Post[];
@@ -12,15 +12,19 @@ const counts = posts.reduce((acc, post) => acc.set(post.data.category, (acc.get(
 const categories = [...counts].sort((a, b) => b[1] - a[1]);
 ---
 <nav class="category-links" aria-label={lang === 'en' ? 'Browse by category' : '依分類瀏覽'}>
+  <a href={homePageHref(lang, 1)} aria-current="page">{lang === 'en' ? 'All' : '全部'}</a>
   {categories.map(([category, count]) => (
     <a href={categoryHref(lang, category)}>{category} <span>{count}</span></a>
   ))}
 </nav>
 
 <style>
-  .category-links { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
-  a { display: inline-flex; align-items: center; min-height: 36px; padding: 0.35rem 0.75rem; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-card); color: var(--text-secondary); font-size: 0.8rem; text-decoration: none; }
-  a:hover { border-color: var(--brand-500); color: var(--text-primary); }
-  a:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 3px; }
-  span { margin-left: 0.25rem; opacity: 0.7; font-variant-numeric: tabular-nums; }
+  /* 單列分類分頁：窄螢幕橫向捲動，不換行成一堆膠囊；明寫 nowrap/padding 蓋掉全站 header 的 nav 樣式 */
+  .category-links { position: static; display: flex; flex-wrap: nowrap; gap: 1.1rem; margin-bottom: 1rem; padding-bottom: 0; overflow-x: auto; border-bottom: 1px solid var(--border); scrollbar-width: none; mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent); }
+  .category-links::-webkit-scrollbar { display: none; }
+  .category-links a { flex-shrink: 0; display: inline-flex; align-items: center; min-height: 40px; margin-bottom: -1px; border-bottom: 2px solid transparent; color: var(--text-secondary); font-size: 0.85rem; text-decoration: none; white-space: nowrap; }
+  .category-links a:hover { color: var(--text-primary); }
+  .category-links a[aria-current="page"] { border-bottom-color: var(--brand-500); color: var(--text-primary); font-weight: 600; }
+  .category-links a:focus-visible { outline: 2px solid var(--brand-500); outline-offset: -2px; }
+  .category-links span { margin-left: 0.3rem; color: var(--text-muted); font-size: 0.72rem; font-variant-numeric: tabular-nums; }
 </style>
