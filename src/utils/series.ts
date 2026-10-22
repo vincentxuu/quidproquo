@@ -238,6 +238,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'building-knowledge-bases',
+    category: 'learning',
+    names: { 'zh-TW': '知識庫怎麼建', en: 'Building Knowledge Bases' },
+    descriptions: {
+      'zh-TW': '同一套問題走三遍：給未來的自己（個人筆記）、給同事（團隊 wiki）、給模型（RAG 用的 AI 知識庫）。每段都回答收什麼、怎麼整理、怎麼找到、誰來維護，方法作者的主張和實證研究分開寫。',
+      en: 'The same four questions asked three times: for your future self (personal notes), for colleagues (team wikis), and for a model (an AI knowledge base for RAG). Each part covers what to keep, how to organize it, how it gets found, and who maintains it, with method authors’ claims kept apart from empirical research.',
+    },
+  },
+  {
     slug: 'malaysia-crags',
     category: 'climbing',
     names: { 'zh-TW': '馬來西亞岩場', en: 'Malaysia Climbing Crags' },
