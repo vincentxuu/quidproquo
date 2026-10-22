@@ -126,7 +126,7 @@ Self-check:
 1. In the example above, if the agent takes 10 steps and each step still adds 1,000 tokens, how many tokens are read in total?
    Answer: add up the 10 values from 10,000 to 19,000: (10,000 + 19,000) × 10 ÷ 2 = 145,000. Going from 5 to 10 steps takes the total from 60,000 to 145,000, more than double.
 2. Your agent always finishes but costs too much. Which post should you read first?
-   Answer: Lecture 8 (the cost breakdown), with Assignment 3 for practice.
+   Answer: [Lecture 8](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness-en) (the cost breakdown), with [Assignment 3](/posts/ai/2026-10-21-cs2680-assignment-3-mads-opt-en) for practice.
 3. "If the model generates more tokens per second, the agent gets faster." True?
    What to look for: you should say not necessarily. An agent's time goes into a chain of steps that wait on each other, including tool execution; tokens per second only measures one part of that.
 
@@ -138,10 +138,10 @@ Read in the course's own order, because the course itself moves from "use" to "d
 2. [Lecture 2](/posts/ai/2026-10-21-cs2680-lecture-02-how-claude-code-works-en) and [Assignment 1](/posts/ai/2026-10-21-cs2680-assignment-1-mads-lens-en): see clearly what a mature agent does at each step.
 3. [Lecture 3](/posts/ai/2026-10-21-cs2680-lecture-03-scaling-yourself-multi-agent-en): learn to run several agents at once.
 4. [Lecture 4](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering-en) and [Assignment 2](/posts/ai/2026-10-21-cs2680-assignment-2-mads-loop-en): write one yourself.
-5. [Lecture 5](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture-en) and Lecture 6: grow it into multiple agents, and add memory and reliability.
-6. Lectures 7–8 and Assignment 3: learn to measure, then learn to save.
+5. [Lecture 5](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture-en) and [Lecture 6](/posts/ai/2026-10-21-cs2680-lecture-06-memory-reliability-en): grow it into multiple agents, and add memory and reliability.
+6. [Lecture 7](/posts/ai/2026-10-21-cs2680-lecture-07-agent-evaluation-en), [Lecture 8](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness-en), and [Assignment 3](/posts/ai/2026-10-21-cs2680-assignment-3-mads-opt-en): learn to measure, then learn to save.
 
-If you just want to solve the problem in front of you, skip around: to write your own agent, start at [Lecture 4](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering-en); if your agent is too expensive, read Lecture 8; if you can't tell whether a change made things better, read Lecture 7.
+If you just want to solve the problem in front of you, skip around: to write your own agent, start at [Lecture 4](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering-en); if your agent is too expensive, read [Lecture 8](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness-en); if you can't tell whether a change made things better, read [Lecture 7](/posts/ai/2026-10-21-cs2680-lecture-07-agent-evaluation-en).
 
 On materials: the course isn't recorded, so this series is built on the slides, the reading pages on the course website, and two course notes ([agent evaluation](https://cs2680.com/notes/agent-evaluation), [cost-effective agents](https://cs2680.com/notes/cost-effective-agents)). Where a slide covers something in a single line, the posts add an explanation and mark it as this site's. The "LLM basics" lecture originally on the schedule was postponed, so the Lecture 2 guide opens with a minimal API-call example; readers who want to look inside the LLM can use the course's [transformers reading notes](https://cs2680.com/notes/transformers), which aren't linked from the homepage. The slides describe a fair amount of Claude Code product behavior; each post goes by the official documentation at the time of writing.
 
@@ -168,6 +168,7 @@ Each line of output is one event. Count the `assistant` events whose `content` c
 
 ## Changelog
 
+- 2026-10-23: Added links to the Lecture 6, 7, and 8 and Assignment 3 posts in the reading order, the skip-ahead tips, and a self-check answer.
 - 2026-10-22: Added links to the Lecture 2–5 and Assignment 1–2 posts in the reading order.
 
 ## References

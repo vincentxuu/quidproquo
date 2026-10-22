@@ -30,7 +30,7 @@ Lecture 5 of [CS2680](https://cs2680.com/) met on September 23, 2026, under the 
 
 The lecture answers two questions: when should you split work across several agents, and once you do, who directs whom and how do messages move? By the end you should be able to use a granularity formula to judge whether a task is worth splitting, and to point out which part of the communication is most likely to break for the split you chose.
 
-The slides have three parts: architecture (p5–18), task decomposition (p19–25), and communication (p26–43), followed by four design principles (p44). The outline on p3 lists agent memory, but this deck doesn't cover it; memory moved to Lecture 6.
+The slides have three parts: architecture (p5–18), task decomposition (p19–25), and communication (p26–43), followed by four design principles (p44). The outline on p3 lists agent memory, but this deck doesn't cover it; memory moved to [Lecture 6](/posts/ai/2026-10-21-cs2680-lecture-06-memory-reliability-en).
 
 ## Why split, and how to describe a split
 
@@ -154,7 +154,7 @@ Every decomposition needs limits, and the dynamic, recursive, and opportunistic 
 | Lost global context | Every section is fine, but the report contradicts itself | Someone checks the whole when merging, or shared assumptions go into every subtask |
 | Straggler | Six agents finish in 20 seconds, one takes 4 minutes | Set deadlines; reassign or skip on timeout |
 
-The examples all come from p24–25; the "how to prevent it" column is this post's mapping onto the subtask spec on p21. This series files these six failures under the harness layer of Lecture 6's five-layer attribution, because the harness decides how work is split. The straggler is exactly the "blocking fan-out" that Lecture 6 lists under the harness layer. Overlap, gaps, and hidden dependencies can also be seen as subtask specs that weren't written clearly. For a fuller taxonomy of multi-agent failures, read [MAST](https://arxiv.org/abs/2503.13657): the authors analyzed execution traces from 7 multi-agent frameworks and identified 14 failure modes in three categories: system design, misalignment between agents, and verification.
+The examples all come from p24–25; the "how to prevent it" column is this post's mapping onto the subtask spec on p21. This series files these six failures under the harness layer of [Lecture 6](/posts/ai/2026-10-21-cs2680-lecture-06-memory-reliability-en)'s five-layer attribution, because the harness decides how work is split. The straggler is exactly the "blocking fan-out" that Lecture 6 lists under the harness layer. Overlap, gaps, and hidden dependencies can also be seen as subtask specs that weren't written clearly. For a fuller taxonomy of multi-agent failures, read [MAST](https://arxiv.org/abs/2503.13657): the authors analyzed execution traces from 7 multi-agent frameworks and identified 14 failure modes in three categories: system design, misalignment between agents, and verification.
 
 ## Communication
 
@@ -345,6 +345,10 @@ Taken together, these sources point to the same conditions: split only when the 
 - Source: [Lecture 5 slides](https://cs2680.com/slides/5_agent_design_2.pdf) (PDF pages p5–44) and the [9/23 reading page](https://cs2680.com/readings/sep-23), read on 2026-10-22. Page numbers always follow PDF page order.
 - Numbers cited in the readings and slides were checked against the originals: Anthropic's Research post, both Cognition posts, Kim et al. (arXiv 2512.08296 v3), the A2A 1.0.0 specification, and the MCP 2026-07-28 specification; places that differ from the slides are flagged in the text. The Tran and Kiela study, Cognition's 2026 post, and the Confluent documentation are sources this site added.
 - The 30/20/35-minute granularity example, the two-agents-editing-one-file example, and the answers to the self-checks are this site's additions, not lecture content.
+
+## Changelog
+
+- 2026-10-23: Added links to the Lecture 6 post.
 
 ## References
 

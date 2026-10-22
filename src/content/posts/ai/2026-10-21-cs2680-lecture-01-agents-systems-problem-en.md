@@ -184,7 +184,7 @@ Most serving systems today use continuous batching: instead of waiting to fill a
 A normal chat user just waits those extra 1.5 seconds once. An agent that calls the model 30 times waits every time: 30 × 1.5 = 45 seconds. All 45 seconds land on the critical path, because the next step can't start until the previous one returns. How continuous batching is scheduled to balance both sides is a Part II topic.
 
 > **Self-check**: In the example above, if each agent call generates only 20 tokens, how much extra waiting do 30 calls add?
-> Answer: 20 × 15 ms = 0.3 seconds per call, 9 seconds over 30 calls. The shorter the output, the smaller the latency cost of batching, which is why Lecture 8 later teaches you to cut output tokens per step.
+> Answer: 20 × 15 ms = 0.3 seconds per call, 9 seconds over 30 calls. The shorter the output, the smaller the latency cost of batching, which is why [Lecture 8](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness-en) later teaches you to cut output tokens per step.
 
 > **Self-check**: An agent switches to a more expensive model. Cost per task goes from \$0.40 to \$0.60, and the success rate from 50% to 80%. Does cost per success go up or down?
 > Answer: down. \$0.40 ÷ 0.5 = \$0.80, \$0.60 ÷ 0.8 = \$0.75.
@@ -202,15 +202,15 @@ The slides map each trait of agent workloads to a systems problem the course stu
 | Agent trait | Systems problem | Where this series covers it |
 |---|---|---|
 | Long trajectories | State and context management | Lectures 2, 4 |
-| Large contexts | Memory hierarchy and retrieval | Lecture 6 |
-| Repeated prefixes | prefix caching | Lecture 8, Part II |
-| Branching reasoning | speculative execution | Lecture 8, Part II |
-| Dependencies between tools | Dependency-aware scheduling | [Lecture 5](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture-en), Lecture 8 |
-| Multiple models in use | routing | Lecture 8, Part II |
-| Variable tool latency | Asynchronous execution | Lecture 8 |
+| Large contexts | Memory hierarchy and retrieval | [Lecture 6](/posts/ai/2026-10-21-cs2680-lecture-06-memory-reliability-en) |
+| Repeated prefixes | prefix caching | [Lecture 8](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness-en), Part II |
+| Branching reasoning | speculative execution | [Lecture 8](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness-en), Part II |
+| Dependencies between tools | Dependency-aware scheduling | [Lecture 5](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture-en), [Lecture 8](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness-en) |
+| Multiple models in use | routing | [Lecture 8](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness-en), Part II |
+| Variable tool latency | Asynchronous execution | [Lecture 8](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness-en) |
 | External side effects | Safety and isolation | [Lecture 4](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering-en) (shell risks) |
 | Multiple agents | Orchestration and communication | [Lecture 3](/posts/ai/2026-10-21-cs2680-lecture-03-scaling-yourself-multi-agent-en), [Lecture 5](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture-en) |
-| Long-running tasks | Checkpointing and fault tolerance | Lecture 6 |
+| Long-running tasks | Checkpointing and fault tolerance | [Lecture 6](/posts/ai/2026-10-21-cs2680-lecture-06-memory-reliability-en) |
 
 ### Walking through it: the problems an agent fixing a flaky test runs into
 
@@ -267,6 +267,7 @@ Going by the schedule, Part I mostly touches the harness side of questions 2, 5,
 
 ## Changelog
 
+- 2026-10-23: Added links to the Lecture 6 and 8 posts in the comparison table and a self-check answer.
 - 2026-10-22: Added a link to the Lecture 2 post in Further reading, and links to the Lecture 3, 4, and 5 posts in the comparison table.
 
 ## References
