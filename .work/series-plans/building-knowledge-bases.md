@@ -148,7 +148,7 @@ Order 4：工具落地：Obsidian 與選型
     - 講：選型判準（檔案格式可攜、連結、搜尋、同步、離線）；Obsidian 的 vault＝本機 Markdown 資料夾、內部連結兩種格式、改名自動更新連結、反向連結、properties；Obsidian 專屬語法（block reference）在外部失效；Notion 等資料庫型工具的取捨——Notion 官方匯出：Markdown＋CSV，callout 轉 HTML，匯出者沒權限的私人頁不會匯出；local-first 七個理想（Ink & Switch，動筆前讀原文）
     - 不講：外掛大全
   讀完後讀者能：用選型判準評一個筆記工具，並在 Obsidian 實作 order 2、3 的結構
-  例子：同一組筆記在 Obsidian 與 Notion 的樣子，以及各自匯出結果
+  例子：五個判準逐條比較 Obsidian 與 Notion，以及依官方說明各自匯出會掉什麼（2026-10-22 改：作者沒有 Notion 工作區可實測匯出，不貼實際匯出結果）
   自我檢查：工具停止服務時，你的筆記剩下什麼？→ 依匯出格式與專屬語法判斷
   前置：order 2、3
   連結：—

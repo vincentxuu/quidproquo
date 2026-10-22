@@ -26,7 +26,7 @@
    - 兩套都能關鍵字搜尋，但 10 人中 9 人只用瀏覽；1 人先搜，只有兩篇有標籤的文章搜不到才改瀏覽（行 289–291）。
 
 2. 多重分類是少數人在用（Parallels in the Evolution of Organizational Schemes，行 310–320）
-   - 平均每篇 1.4 個標籤；最後一天每個資料夾 6.2 篇、每個標籤 7.2 篇；每天標籤比資料夾多建 1 個。
+   - 平均每篇 1.4 個標籤；最後一天每個資料夾 6.2 篇、每個標籤 7.2 篇；每天比資料夾多用 1 個標籤（原文 applied one more label）。
    - 只有 5/10 人在標籤條件真的做了多對多對應，其中 4 人是每天用標籤的人。
    - 有人放棄多標籤：原句 "At first I liked that I could put each one [article] in more than one tag, but later as I organized the emails, I thought that maybe that would just be redundant information for me when I am looking for the information later. So I didn't end up putting more than one tag on emails."
    - 兩套都不支援階層，但 6 人（Hotmail）與 7 人（Gmail）用命名慣例（"General"、共同前綴 "Marathon…"）硬做出上下層。
