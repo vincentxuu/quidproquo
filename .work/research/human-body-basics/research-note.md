@@ -99,3 +99,22 @@
 | IOC 2023 RED-S 共識聲明 | *BJSM* 2023;57(17):1073（PMID 37752011） | 可上 PubMed 與 BJSM 讀 |
 
 未核對：Gray's Anatomy、Netter、Guyton and Hall、McArdle、NSCA 立場聲明、Cochrane 運動相關回顧。
+
+## 決定與取得管道（2026-10-22）
+
+使用者決定：**以免費可讀的來源為主**；付費書只當延伸閱讀，文章不引用讀不到的細節。
+
+### 全文取得管道（實測）
+
+| 管道 | 結果 |
+|---|---|
+| OpenStax 章節頁（`web_fetch`） | ✅ 可讀（10.1 節實測，頁面約 339 KB，需用 `maxOutputChars` 分段） |
+| PMC 網站（`pmc.ncbi.nlm.nih.gov`） | 🔴 直接抓回 403 或 reCAPTCHA，Groundlane 讀不到 |
+| **Europe PMC REST API**：先用 `search?query=EXT_ID:<PMID>` 查 PMCID，再抓 `/PMC<ID>/fullTextXML` | ✅ 可讀。實測 Lazarczuk 2022（PMC9474511，CC BY 4.0）回傳約 264 KB 全文 XML |
+| PubMed 搜尋頁 | ✅ 可用來掃候選，但只有標題與摘要開頭 |
+
+精讀論文一律走 Europe PMC 全文 XML。只有 `isOpenAccess: Y` 且 `inEPMC: Y` 的才能走這條；其餘標 🔴 並換管道。
+
+### 更正
+
+2026-10-22 測試時我先用了一個沒查證的 PMC 編號（PMC9388414），那次 403 的結果不能當證據；之後的測試都用 Europe PMC 查出來的編號。
