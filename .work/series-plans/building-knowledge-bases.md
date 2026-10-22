@@ -1,6 +1,6 @@
 # 系列規劃：知識庫怎麼建（building-knowledge-bases）
 
-使用者確認：待確認
+使用者確認：2026-10-21
 
 研究筆記：`.work/research/building-knowledge-bases/research-note.md`（母群、覆蓋矩陣、偏誤、來源讀取狀態）。本表「對應來源」只列讀過正文（✅）或明確標示只讀到摘要（🟡）的來源。
 
