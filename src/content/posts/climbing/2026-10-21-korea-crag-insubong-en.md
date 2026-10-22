@@ -90,6 +90,13 @@ For the easiest line, start with **Lonely Road**: theCrag calls it the easiest r
 | Insu B / 인수 B | 5.9 (hardest) | 5.9 | 97 m / 3 pitches (2012); theCrag gives 6 | Locate using guide | 2025 —; single 2012 guide source; do not combine pitch counts from differently linked versions. |
 | Chouinard A / 취나드 A | 5.10a (2025 topo, hardest) | 5.10a | 181 m / 6 pitches (2012) | East Face | 2025 ✓; 2025 names Chouinard A–Kwibawi D. The 2012 overall grade is 5.10c but its listed pitches top out at 5.10a; its length is not spliced into the newer line. |
 
+```video-gallery
+key: insubong
+lang: en
+layout: routes
+ids: lYVPPcpjoo0, OFNWgS2YQN0, TMjYfUO2wQk, XQE74rkLVRs, HLiRmyV9aBc, 4UdmiJv42x8, HxdmcFZcFuU, Nd2mY65a6Is, 832EYL3GKNk, MQrD0McDfqQ
+```
+
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
 Consider **Wand** if slab difficulty is a priority. The versions differ by a grade, so leave margin for the harder description. **Maninbo** is a 15 m short route in the old guide; plan it separately from a summit multipitch objective.
@@ -121,12 +128,17 @@ Insubong has more than one descent, and the wrong anchor costs you a rope length
 
 "Two 30 m rappels" means two rappels of 30 m each, not two 30 m ropes; one 60 m rope doubled covers a single 30 m rappel. The actual rope plan depends on the anchors you choose, team size and your retreat options.
 
-## Watch the climbs
+
+<details>
+<summary>Watch the Pigeon descent</summary>
 
 ```video-gallery
 key: insubong
 lang: en
+ids: Id8LRtAsqlA
 ```
+
+</details>
 
 ## Where to look things up
 
@@ -135,6 +147,10 @@ lang: en
 - **Guidebooks:** Grades and route counts here come mainly from online databases; the guidebook is the authority. This article also directly checks the following 2012 guide tables and preserves differences with the newer regional topo.
   - [*Climb: Rock Climbing in Korea*](https://product.kyobobook.co.kr/detail/S000001582823), Dong-il Ryou and Jonn Jeanneret, Outdoor Global (아웃도어글로벌), first edition 2012. English descriptions, with Korean place and route names; selected roped crags across Korea. Insubong occupies printed pages 230–237. It is not a source for present transport or access rules.
   - [*Insubong – East Face*](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face), produced and published by Mont Blanc Lines, initial version May 18, 2025. English description, Korean and romanized route names; a digital East Face topo, licensed for personal use, rather than a whole-crag guide.
+
+## Update history
+
+- 2026-10-21: Keep the route comparison table intact with video thumbnails beside each route; open the selected route’s videos on demand in a vertical playlist with separate preview images and open buttons to avoid accidental activation while swiping; external video rows identify YouTube as the destination and indicate a new tab.
 
 ## References
 

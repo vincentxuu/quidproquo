@@ -90,6 +90,13 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 | Insu B／인수 B | 5.9（最難） | 5.9 | 97 公尺／3 段（2012）；theCrag 記 6 段 | 依指南定位 | 2025 —；2012 指南單一來源，勿混用其他同名接線的段數。 |
 | Chouinard A／취나드 A | 5.10a（2025 topo 最難） | 5.10a | 181 公尺／6 段（2012） | 東面 | 2025 ✓；2025 名為 Chouinard A–Kwibawi D；2012 總欄列 5.10c、分段最高卻為 5.10a，未採其總級數與長度拼接。 |
 
+```video-gallery
+key: insubong
+lang: zh-TW
+layout: routes
+ids: lYVPPcpjoo0, OFNWgS2YQN0, TMjYfUO2wQk, XQE74rkLVRs, HLiRmyV9aBc, 4UdmiJv42x8, HxdmcFZcFuU, Nd2mY65a6Is, 832EYL3GKNk, MQrD0McDfqQ
+```
+
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
 想把重點放在岩板難度，可以看 **Wand**；兩個版本差一級，仍應為較難的情況留餘裕。**Maninbo** 在舊指南是 15 公尺短線，適合和整天的多段目標分開規劃，不要因同在仁壽峰就想成另一條登頂線。
@@ -121,12 +128,17 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 「2 段 30 公尺」是兩次各 30 公尺的垂降，不是帶兩條 30 公尺繩；一條 60 公尺繩對折剛好一段。實際繩長還是照你選的錨點、繩隊人數與撤退計畫決定。
 
-## 看實際攀登
+
+<details>
+<summary>觀看 Pigeon 下降影片</summary>
 
 ```video-gallery
 key: insubong
 lang: zh-TW
+ids: Id8LRtAsqlA
 ```
+
+</details>
 
 ## 查資料的入口
 
@@ -135,6 +147,10 @@ lang: zh-TW
 - **指南書**：路線難度與路線數主要來自線上資料庫，以指南書為準。本篇另外直接核對下列 2012 書中表格，並保留它與新版分區 topo 的差異。
   - [《Climb: Rock Climbing in Korea》](https://product.kyobobook.co.kr/detail/S000001582823)，Dong-il Ryou、Jonn Jeanneret，Outdoor Global（아웃도어글로벌），2012 初版，英文說明，附韓文地名／路線名，全韓繩攀選集；仁壽峰見印刷頁 230–237。它不是當前交通及開放規範的依據。
   - [《Insubong – East Face》](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)，Mont Blanc Lines 製作與發行，2025-05-18 初版，英文說明、韓文及羅馬字路線名，仁壽峰東壁數位 topo；只涵蓋指定岩面，個人用途授權。
+
+## 更新紀錄
+
+- 2026-10-21：保留完整路線比較表，在對應路線旁加入影片縮圖，點擊後展開該路線影片，使用直式影片清單，縮圖與開啟按鈕分開，避免滑動誤觸；外部影片以整列連結標示觀看目的地與另開分頁。
 
 ## 參考資料
 

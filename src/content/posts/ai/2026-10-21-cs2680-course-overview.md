@@ -134,7 +134,7 @@ Part I 另有三場沒有投影片的場次，本系列不另寫（Snowflake 客
 建議照原課順序讀，因為這門課本身就是從「用」走到「設計」再到「優化」：
 
 1. [第 1 堂](/posts/ai/2026-10-21-cs2680-lecture-01-agents-systems-problem)：先拿到整張地圖和「要最佳化什麼」。
-2. 第 2 堂與作業 1：看清楚一個成熟的 agent 每一步在做什麼。
+2. [第 2 堂](/posts/ai/2026-10-21-cs2680-lecture-02-how-claude-code-works)與[作業 1](/posts/ai/2026-10-21-cs2680-assignment-1-mads-lens)：看清楚一個成熟的 agent 每一步在做什麼。
 3. 第 3 堂：學會同時用多個 agent。
 4. 第 4 堂與作業 2：自己寫一個。
 5. 第 5–6 堂：擴成多 agent、加上記憶與可靠度。
@@ -164,6 +164,10 @@ claude -p "讀 main.py，幫它加一個 --help 參數" --output-format stream-j
 
 - 課程 policy 頁明寫「the lectures will not be recorded」，所以沒有錄影可嵌入（[policy 頁](https://cs2680.com/policy)）。
 - 本文底本：[課程首頁與課表](https://cs2680.com/)、第 1–8 堂投影片（見參考資料）、作業總覽與作業 1–3 頁面，2026-10-21 讀取。頁碼一律用 PDF 頁序。
+
+## 更新紀錄
+
+- 2026-10-22：閱讀順序補上第 2 堂與作業 1 的站內連結。
 
 ## 參考資料
 

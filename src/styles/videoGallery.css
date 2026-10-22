@@ -38,3 +38,91 @@
 @media (prefers-reduced-motion: reduce) {
   .video-gallery__rail { scroll-behavior: auto; }
 }
+
+/* Route comparisons keep their videos in the same row; one panel opens on demand. */
+.route-videos { margin-block: 1.25rem 2rem; min-width: 0; }
+.route-videos__scroll { min-width: 0; overflow-x: auto; border: 1px solid var(--border); border-radius: .5rem; }
+.content .route-videos__table { width: 100%; min-width: 48rem; table-layout: fixed; font-size: .8rem; line-height: 1.65; }
+.content .route-videos__table th, .content .route-videos__table td { white-space: normal; overflow-wrap: anywhere; padding: .7rem .6rem; vertical-align: top; }
+.route-videos__table th:nth-child(1) { width: 15%; }
+.route-videos__table th:nth-child(2) { width: 11%; }
+.route-videos__table th:nth-child(3) { width: 6%; }
+.route-videos__table th:nth-child(4) { width: 12%; }
+.route-videos__table th:nth-child(5) { width: 8%; }
+.route-videos__table th:nth-child(6) { width: 32%; }
+.route-videos__table th:nth-child(7) { width: 16%; }
+.route-videos__trigger { display: grid; gap: .4rem; width: 100%; min-width: 5.5rem; padding: 0; border: 0; background: none; color: var(--text-primary); text-align: left; font: inherit; font-weight: 600; cursor: pointer; }
+.route-videos__poster { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: .3rem; overflow: hidden; background: var(--bg-subtle); }
+.content .route-videos__poster img { display: block; margin: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+.route-videos__play { position: absolute; inset: 0; display: grid; place-items: center; color: white; font-size: 1rem; text-shadow: 0 1px 4px #000; background: rgb(0 0 0 / .15); }
+.route-videos__trigger[aria-expanded="true"] .route-videos__poster { outline: 2px solid var(--brand-700); outline-offset: 2px; }
+.route-videos__trigger:focus-visible, .route-videos__panel button:focus-visible { outline: 2px solid var(--brand-700); outline-offset: 3px; }
+.route-videos__panel { min-width: 0; border: 1px solid var(--border); border-radius: .5rem; background: var(--bg-card); overflow: hidden; }
+.route-videos__panel[hidden] { display: none; }
+.route-videos__panel > header { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .7rem .85rem; border-bottom: 1px solid var(--border); font-size: .9rem; }
+.route-videos__panel > header button { min-height: 2.25rem; padding: .25rem .55rem; border: 1px solid var(--border); border-radius: .3rem; color: var(--text-primary); background: var(--bg-subtle); font: inherit; cursor: pointer; }
+.route-videos__panel .video-gallery { margin: 0; border: 0; border-radius: 0; }
+.route-videos__panel .video-gallery__item { flex-basis: 9rem; }
+.content .route-videos__expanded-row > td { padding: .75rem; border: 0; }
+@media (min-width: 64rem) {
+  .route-videos--open { display: grid; grid-template-columns: minmax(0, 1fr) 22rem; align-items: start; gap: 1rem; }
+  .route-videos__panel { position: sticky; top: 1.5rem; }
+}
+@media (max-width: 63.99rem) {
+  .content .route-videos__table { min-width: 0; display: block; }
+  .route-videos__table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .route-videos__table tbody { display: block; }
+  .route-videos__table tr { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); }
+  .content .route-videos__table :is(td, th[scope="row"]) { border: 0; padding: .4rem .75rem; }
+  .route-videos__table :is(td, th[scope="row"])::before { content: attr(data-label); display: block; font-size: .7rem; color: var(--text-secondary); font-weight: 400; }
+  .route-videos__table :is(td, th[scope="row"]):first-child { grid-column: 1 / -1; font-size: 1rem; font-weight: 700; padding-top: .85rem; }
+  .route-videos__table :is(td, th[scope="row"]):first-child::before { display: none; }
+  .route-videos__table td:nth-child(6) { grid-column: 1 / -1; }
+  .route-videos__table td:last-child { grid-column: 1 / -1; padding-bottom: .85rem; }
+  .route-videos__table td:last-child::before { display: none; }
+  .route-videos__trigger { display: flex; align-items: center; gap: .75rem; min-height: 2.75rem; }
+  .route-videos__poster { width: 7rem; flex: 0 0 7rem; }
+  .route-videos__table .route-videos__expanded-row { display: block; }
+  .route-videos__expanded-row > td { display: block; }
+  .route-videos__expanded-row > td::before { display: none; }
+}
+@media (max-width: 63.99rem) {
+  .content .route-videos__table th[scope="row"] { width: auto; background: transparent; }
+}
+@media (min-width: 64rem) {
+  /* Use the existing TOC column for the selected video, keeping the comparison
+     table at its reading width instead of squeezing it into half a column. */
+  .post-grid:has(.route-videos--open) .post-sidebar { visibility: hidden; }
+  .route-videos--open { width: calc(100% + 380px); grid-template-columns: minmax(0, 1fr) 340px; gap: 40px; }
+}
+
+/* A short route playlist needs no carousel or hidden choices. */
+.video-gallery__playlist { display: grid; gap: .5rem; list-style: none; margin: 0; padding: .75rem; overflow: visible; }
+.content .video-gallery__playlist { margin: 0; padding: .75rem; list-style: none; }
+.video-gallery__playlist > li { margin: 0; min-width: 0; }
+.video-gallery__choice, .video-gallery__external-row { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: .7rem; align-items: start; width: 100%; box-sizing: border-box; padding: .5rem; border: 1px solid transparent; border-radius: .4rem; background: transparent; color: var(--text-primary); text-align: left; font: inherit; }
+.video-gallery__choice { cursor: pointer; }
+.video-gallery__choice:hover { background: var(--bg-subtle); }
+.video-gallery__choice[aria-current="true"] { border-color: var(--brand-700); background: var(--bg-subtle); }
+.video-gallery__choice:focus-visible, .video-gallery__external-link:focus-visible { outline: 2px solid var(--brand-700); outline-offset: 2px; }
+.video-gallery__choice .video-gallery__thumb, .video-gallery__external-row .video-gallery__thumb { width: 100%; }
+.content .video-gallery__playlist img { margin: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+.video-gallery__metadata { display: grid; gap: .2rem; min-width: 0; }
+.video-gallery__playlist .video-gallery__note { font-size: .8rem; font-weight: 600; line-height: 1.55; }
+.video-gallery__channel { font-size: .72rem; line-height: 1.5; color: var(--text-secondary); overflow-wrap: anywhere; }
+.video-gallery--playlist .video-gallery__now { font-size: .75rem; }
+.video-gallery__choice[aria-current="true"] .video-gallery__metadata::after { content: "已選擇"; font-size: .7rem; font-weight: 600; color: var(--brand-700); }
+[data-lang="en"] .video-gallery__choice[aria-current="true"] .video-gallery__metadata::after { content: "Selected"; }
+.route-videos__entry { display: grid; gap: .5rem; }
+.route-videos__entry .route-videos__trigger { display: inline-flex; align-items: center; justify-content: center; min-width: 0; min-height: 2.75rem; padding: .35rem .5rem; border: 1px solid var(--border); border-radius: .3rem; background: var(--bg-subtle); font-size: .75rem; }
+.route-videos__entry .route-videos__poster { pointer-events: none; }
+@media (max-width: 63.99rem) {
+  .route-videos__entry { display: flex; align-items: center; gap: .85rem; }
+  .route-videos__entry .route-videos__trigger { width: auto; padding-inline: .85rem; }
+}
+
+
+/* External videos stay one list item with one clear navigation destination. */
+.content .video-gallery__playlist .video-gallery__external-link { margin: 0; text-decoration: none; color: var(--text-primary); }
+.content .video-gallery__playlist .video-gallery__external-link:hover { background: var(--bg-subtle); border-color: var(--border); }
+.video-gallery__external-action { margin-top: .25rem; font-size: .75rem; line-height: 1.6; color: var(--text-primary); text-decoration: underline; text-underline-offset: .2em; }

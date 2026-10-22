@@ -1,18 +1,18 @@
 {
-  "date": "2026-10-21",
+  "date": "2026-10-22",
   "swebench_verified_top5": [
     { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
     { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
     { "rank": 3, "model": "TRAE + Doubao-Seed-Code", "org": "ByteDance", "score": 78.80 },
     { "rank": 4, "model": "live-SWE-agent + Gemini 3 Pro Preview", "org": "UIUC", "score": 77.40 },
-    { "rank": 5, "model": "Atlassian Rovo Dev（三方並列 76.80）", "org": "Atlassian", "score": 76.80 }
+    { "rank": 5, "model": "EPAM AI/Run Developer Agent + Atlassian Rovo Dev + Claude 4.5 Opus（三方並列 76.80）", "org": "EPAM／Atlassian／Anthropic", "score": 76.80 }
   ],
   "lmsys_agent_top5": [
-    { "rank": 1, "model": "Claude Opus 5.5 (Max)", "score": 20.35, "ci": "[17.79%, 22.91%]" },
-    { "rank": 2, "model": "GPT-6 Astra (Max)", "score": 15.15, "ci": "[12.91%, 17.39%]" },
-    { "rank": 3, "model": "Claude Fable 5.1 (Max)", "score": 14.33, "ci": "[12.34%, 16.31%]" },
-    { "rank": 4, "model": "GPT-6.1 Sol (Max)", "score": 13.72, "ci": "[11.95%, 15.49%]" },
-    { "rank": 5, "model": "Claude Sonnet 5.5 (Max)", "score": 12.75, "ci": "[9.71%, 15.79%]" }
+    { "rank": 1, "model": "Claude Opus 5.5 (Max)", "score": 20.92, "ci": "[18.42%, 23.42%]" },
+    { "rank": 2, "model": "GPT-6 Astra (Max)", "score": 14.70, "ci": "[12.53%, 16.86%]" },
+    { "rank": 3, "model": "Claude Fable 5.1 (Max)", "score": 14.17, "ci": "[12.22%, 16.12%]" },
+    { "rank": 4, "model": "GPT-6.1 Sol (Max)", "score": 13.55, "ci": "[11.84%, 15.26%]" },
+    { "rank": 5, "model": "Claude Sonnet 5.5 (Max)", "score": 12.67, "ci": "[9.68%, 15.65%]" }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59.2 },
@@ -27,5 +27,5 @@
     { "rank": 5, "model": "Sonnet 5.5 Extra High", "org": "Anthropic", "score": 53.1, "costPerTask": 2.81, "tokensPerTask": 100158 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-10-21：SWE-bench Verified 用 Bash curl 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json（python3 -I 解析，180 筆 Verified 結果），前 5 名與 10-20 逐位元相同（79.20／79.20／78.80／77.40／76.80 三方並列），未異動。Arena 這次 raw.githubusercontent.com 本身可連，但 datasets-server.huggingface.co 直連被 proxy 擋（connect_rejected，網域未在白名單），改用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，agent 子集 latest split，length=60），查到 leaderboard_publish_date 已從 10-20 記錄的 2026-10-16 推進到 2026-10-19（新批次）：前 4 名模型與名次不變，分數小漲（Opus 5.5 Max 18.88%→20.35%／+1.47pp，GPT-6 Astra 14.13%→15.15%／+1.02pp，Fable 5.1 Max 14.03%→14.33%／+0.30pp，GPT-6.1 Sol 13.60%→13.72%／+0.12pp，均未達 >2pp 門檻）；第 5 名由 Gemini 4 Argon High（13.23%）換成 Claude Sonnet 5.5 Max（12.75%，非首次上榜、非前三名新進），Gemini 4 Argon High 退到第 6（12.12%）——不符合「前三名新模型／第一名易主／>2pp」任一觸發條件。另外，10-20 筆記裡懷疧網頁版 arena.ai/leaderboard/agent 抽取錯誤（顯示 20.35% 與當時 HF 的 18.88% 對不上）：這次證實該 20.35% 其實是已經存在、只是 HF 資料集還沒同步的新批次分數，非抽取錯誤，10-20 的懷疑是誤判，留此記錄校正。cursor.com/cursorbench 前 5 名與官網 changelog 皆與 10-20 相同（最後一筆仍是 10-07 定價調整），未異動。morphllm.com/leaderboard 未再測（已知 429 阻塞）；artificialanalysis.ai/agents/coding-agents 改版後頁面仍是純圖表＋方法論文字，無排名數字表格可擷取，維持既有已知阻塞（Q-023）。另跑 Step 3b 兩組新聞信號查詢（SOTA 公告／具體 benchmark 結果），僅命中第三方聚合站（kilo.ai、greptile.com、llm-stats.com、benchlm.ai、swen.live、labs.scale.com 等互不一致的榜單），未見官方追蹤 benchmark 的排名變動公告。依 skill Step 4 判斷今日無 Benchmark 異動，不產出文章。"
+  "notes": "2026-10-22：SWE-bench Verified 用 Bash curl 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json（python3 -I 解析，180 筆 Verified 結果），前 4 名與 10-21 逐位元相同（79.20／79.20／78.80／77.40），第 5 名仍是 76.80 三方並列（EPAM／Atlassian／Claude 4.5 Opus 自身，與 10-21 記法一致，無新增或替換），未異動。LMArena Agent 子集改用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，config=agent，latest split），leaderboard_publish_date 從 10-21 記錄的 2026-10-19 推進到 2026-10-20（新批次）：前 5 名模型與名次不變，分數小幅波動（Opus 5.5 Max 20.35%→20.92%／+0.57pp，GPT-6 Astra 15.15%→14.70%／-0.45pp，Fable 5.1 Max 14.33%→14.17%／-0.16pp，GPT-6.1 Sol 13.72%→13.55%／-0.17pp，Sonnet 5.5 Max 12.75%→12.67%／-0.08pp），均未達 >2pp 門檻，無新模型進前三、無第一易主，不觸發。cursor.com/cursorbench 前 5 名與官網 changelog 皆與 10-21 相同（最後一筆仍是 10-07 定價調整），未異動。morphllm.com/leaderboard 直接 web_fetch 回 429（Vercel Security Checkpoint），維持既有已知阻塞；artificialanalysis.ai/agents/coding-agents 本次未再測（已知無排名數字表格可擷取，Q-023）。Step 3b 兩組新聞信號查詢（SOTA 公告／具體 benchmark 結果）命中結果仍以第三方聚合站為主（swfte.com、openlm.ai、iternal.ai、llm-stats.com、lmmarketcap.com、benchlm.ai、anotherwrapper.com）與 Gemini 4 Argon 自測 DeepSWE v1.1 77.9%／CWE-bench v1 68%（Google 官方宣稱，非本站追蹤榜單、As of 2026-10-17 DataCamp 指出尚無第三方獨立複現），皆非本站四個追蹤榜單的官方排名變動公告。依 skill Step 4 判斷今日無 Benchmark 異動，不產出文章。"
 }

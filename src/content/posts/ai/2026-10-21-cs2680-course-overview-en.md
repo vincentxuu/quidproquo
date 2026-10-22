@@ -135,7 +135,7 @@ Self-check:
 Read in the course's own order, because the course itself moves from "use" to "design" to "optimize":
 
 1. [Lecture 1](/posts/ai/2026-10-21-cs2680-lecture-01-agents-systems-problem-en): get the full map and what you are optimizing for.
-2. Lecture 2 and Assignment 1: see clearly what a mature agent does at each step.
+2. [Lecture 2](/posts/ai/2026-10-21-cs2680-lecture-02-how-claude-code-works-en) and [Assignment 1](/posts/ai/2026-10-21-cs2680-assignment-1-mads-lens-en): see clearly what a mature agent does at each step.
 3. Lecture 3: learn to run several agents at once.
 4. Lecture 4 and Assignment 2: write one yourself.
 5. Lectures 5–6: grow it into multiple agents, and add memory and reliability.
@@ -165,6 +165,10 @@ Each line of output is one event. Count the `assistant` events whose `content` c
 
 - The course policy page says plainly that "the lectures will not be recorded", so there is no recording to embed ([policy page](https://cs2680.com/policy)).
 - Sources for this post: [the course homepage and schedule](https://cs2680.com/), the slides for Lectures 1–8 (see References), and the assignments overview and Assignment 1–3 pages, read on 2026-10-21. Page numbers always follow the PDF page order.
+
+## Changelog
+
+- 2026-10-22: Added links to the Lecture 2 and Assignment 1 posts in the reading order.
 
 ## References
 
