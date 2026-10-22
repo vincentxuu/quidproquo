@@ -1,3 +1,9 @@
+## 2026-10-23 封存：英文口說練習系列 2026-10-19 條目（daily-digest-funding commit 壓回 90 行上限）
+
+- **英文口說練習系列 2026-10-19**：16篇中英32稿已改非草稿(draft:false)，官方/社群來源、三節審稿與非作者審查齊；使用者已授權commit push。總覽15導航、order0–15與雙語內鏈齊；最新origin/main隔離發布完整pnpm verify全綠，準備提交推送。未冒稱正式站已驗收，證據見`.work/english-speaking/`與系列規劃。
+
+---
+
 ## 2026-10-22 封存：daily-digest-github 2026-10-19 條目（Cloudflare 模型家族文章 commit 壓回 90 行上限）
 
 - **daily-digest-github 2026-10-19**：`gh auth` 仍回 `GH_TOKEN` 失效、`mcp__github__*` 對非 session repo scope（僅 `vincentxuu/quidproquo`／`lanefoundry/gatelane`）內的 repo 一律 `Access denied`，直連 `api.github.com` 也被 proxy 擋（非 repo 權限問題，是環境網域白名單）；B2 watchlist 13 框架改用 Groundlane `web_fetch` 打 `releases.atom`（完整 `/releases` 頁常破 token 上限，改用 atom feed 讀 `<updated>` 時間戳，部分仍過大）。48 小時窗內無合格候選：langgraph 1.2.16（10-16T22:11Z）與 claude-code 皆僅 patch bug fix、無 breaking changes，跳過；其餘（crewAI／mastra／composio／haystack／browser-use／dspy／smolagents／MCP spec）皆窗外或已於前幾日報導過，故「Notable Releases」寫「今日無重要框架更新」。Trending Repos 3 篇皆已逐一用 Groundlane `web_fetch` 讀原始 README 核對授權與描述（非只信候選清單）：**stablyai/orca**（96,374★，YC 背書的桌面 coding agent 艦隊 orchestrator，worktree 隔離＋手機隨行）、**agentscope-ai/AgentTeams**（5,772★，阿里 AgentScope 團隊的多 Agent OS，Manager-Workers 架構走 Matrix 聊天室協作，Worker 只拿消費者 token）、**wheresryan22/anatomy**（15,866★，Claude Code 相容 agent skill，把技術概念畫成會動的等角透視插圖，創 repo 10 天衝上 1.5 萬星）；三者皆未被 10-14～10-18 digest 報導過。首輪 fork 子代理 0 tool calls 直接回覆（疑似把我的訊息當成自己的回覆照抄），已用 SendMessage 要求重跑，第二輪 29 次工具呼叫拿到真實資料後才採用。series order 65（距 2026-08-16 天數＋1，與 10-18 的 64 連號）。中英雙版已建立並互相連結。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）、`check:tw`（0 blocking，新檔 0 命中）、`check:lang-parity`（2928 組全過）、`check:series-order`（65 無撞號，僅既有缺號 warning）皆 0 blocking；移除 progress.txt 裡與 `docs/progress-archive.md` 2026-10-18 封存條目逐字重複的「CI 修復／部署優化 2026-10-16」舊行（應是前次並行 session rebase 合併時誤把已封存內容留在原處），未重複封存；待 commit／push。
