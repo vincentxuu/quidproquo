@@ -91,6 +91,14 @@ Sheath slippage must also be no more than 20 mm. In the drop test the mass falls
 
 </details>
 
+For a sense of what real falls generate, HowNOT2 measured them. Ryan took lead falls at an outdoor climbing gym with a load cell on the climber, the belayer and the quickdraw. From 1:40, the peak on the climber stays under 3 kN across several sessions, because the belayer gets lifted and the body and rope soak up energy. It's a handful of falls that he himself calls backyard science. Near the end his figure for UIAA drop counts differs from the table above; go by the standard in the table. He also suggests that many real-world falls don't necessarily mean a new rope. That's his opinion: retire ropes according to the manufacturer's guidance, covered in post 4 of this series.
+
+```youtube
+url: https://www.youtube.com/watch?v=fZIj5HAV8xA
+title: Gym Climbing Forces - Climbing Science (HowNOT2)
+start: 100
+```
+
 ## Length: 60, 70 or 80 m
 
 [BD](https://blackdiamondequipment.com/blogs/stories/how-to-choose-a-climbing-rope):
@@ -115,9 +123,17 @@ By BD's split, thicker ropes buy durability and thinner ones save weight. Thin r
 
 Many ropes are labelled "dry", meaning water-repellent treatment. BD says dry treatment adds some durability and allows use in icy conditions. But "dry" on the label doesn't mean the rope passed a water-repellency standard.
 
-[The UIAA standard for water-repellent ropes, published in 2014](https://theuiaa.org/home/new-uiaa-standard-developed-for-water-repellant-ropes), works like this: the whole sample is lightly abraded, equivalent to a few days' use, then soaked for 15 minutes. To be labelled "UIAA Water Repellent", it must absorb no more than 5% of its weight in water. For comparison, an untreated rope absorbs around 50% in this test, and ropes labelled "dry" with inadequate treatment absorb 20–40%. The UIAA's announcement quotes rope maker Beal: ropes with surface treatment only can't pass.
+[The UIAA standard for water-repellent ropes, published in 2014](https://theuiaa.org/home/new-uiaa-standard-developed-for-water-repellant-ropes), works like this: the whole sample is lightly abraded, equivalent to a few days' use, then soaked for 15 minutes following a set procedure. To be labelled "UIAA Water Repellent", it must absorb no more than 5% of its weight in water. For comparison, an untreated rope absorbs around 50% in this test, and ropes labelled "dry" with inadequate treatment absorb 20–40%. The UIAA's announcement quotes rope maker Beal: ropes with surface treatment only can't pass.
 
 So if you need genuine water repellency (ice, alpine), look for "UIAA Water Repellent", not just "dry".
+
+Hard Is Easy ran this test start to finish in Mammut's lab; start at 27:23. The sample is first worked back and forth over bolts to fuzz it up, then water runs over it from above for 15 minutes before it's spun dry and weighed. The UIAA announcement says "soaked", while the lab demonstrates a steady pour with the rope not fully submerged; for the exact procedure, the standard itself is the authority, and the video simply shows what "abrade, then wet" looks like. Ben ends on the same point as this section: a treatment is not the same as passing UIAA Water Repellent. It's one sample, run by Mammut staff.
+
+```youtube
+url: https://www.youtube.com/watch?v=JnNA4mLqwtQ
+title: Every Test Climbing Ropes Have to Pass (Hard Is Easy)
+start: 1643
+```
 
 ## Belay devices: two families, compatibility in the manual
 
@@ -127,6 +143,14 @@ Belay devices fall into two broad families:
 - **Assisted braking**: pinches the rope by itself in a fall. As [gym top-rope belaying](/posts/climbing/2026-10-17-gym-top-rope-belay-en) explains, it assists rather than brakes automatically, and your brake hand stays on the rope.
 
 The UIAA's [first braking-device standard (UIAA 129), published in 2009](https://www.theuiaa.org/safety-standard-for-braking-devices-published/), covers four kinds: manual, locking-assisted, abseil devices, and abseil devices with a panic function. The European standard is EN 15151. [Petzl's GRIGRI manual](https://www.petzl.com/sfc/servlet.shepherd/version/download/068Tx000009YCjEIAW), for example, says "EN 15151-1 type 6: devices for belaying and rappelling without a panic blocking element." Which type a given device is, its manual will tell you.
+
+Hard Is Easy's belay-device guide starts with tube devices at 2:07 and moves on to assisted braking, which he splits into assisted tubers and cam devices like the GRIGRI. Mapped onto this post: tubes are manual, the rest are assisted braking. The part to watch is around 8:30: with the brake hand raised, an assisted tuber doesn't lock either, and the rope runs straight through his hand. That's what "assisted, not automatic" means. The description notes that every demo used a single 9.0 mm rope, so results will differ with other diameters and carabiners.
+
+```youtube
+url: https://www.youtube.com/watch?v=qx3x5MMqGUg
+title: Complete Guide into Belay Devices - Differences and Efficient Usage | Ep.6 (Hard Is Easy)
+start: 127
+```
 
 ### Compatibility: rope diameter must fall within the device's range
 
@@ -143,6 +167,14 @@ The manual adds two warnings:
 
 - **Diameters have a tolerance.** Commercial nominal diameters can vary by up to ±0.2 mm, so combinations near the limits need extra care.
 - **Some ropes are slippery.** Sheath-treated ropes, new ropes, and icy, wet or muddy ropes can reduce the GRIGRI's blocking. Whenever you use an unfamiliar rope, get used to the device's feel with it again.
+
+HowNOT2 put a GRIGRI on a slow-pull rig to see at what force the rope starts to slip. From 1:40: a thin rope near the GRIGRI's lower limit slips below 3 kN, while a 10 mm rope holds much more, which matches the manual's point that thinner ropes are harder to hold. The limits matter here. Each combination was pulled once, slowly rather than as a drop, and some rope sections had already been loaded; slipping also happens far above the force on the belayer's end in a normal catch. So it doesn't show that thin ropes slip through a GRIGRI in use. Nor does it show that thicker is always better: in the same video the 11 mm rope slipped before the 10 mm one. The GRIGRI is the 2021 model, so check the manual for the one you own.
+
+```youtube
+url: https://www.youtube.com/watch?v=UjYLsya1T9E
+title: What breaks first??? Petzl GriGri or the Ropes? + Beal Birdie Tests! (HowNOT2)
+start: 100
+```
 
 Back to the two ropes in the shop: find out what diameters your belay device suits first, then choose between 9.8 and 8.9.
 
@@ -170,6 +202,14 @@ The pictorial sets two more rules: gate opening at least 21 mm for Type K and 15
 A quickdraw is two carabiners joined by a sewn sling. [DAV's 2010 article](https://sac-hoherrohn.ch/wp-content/uploads/2019/02/dav_lebensdauer-von-alpinausruestung.pdf) noted that keylock gates without a nose had become standard on the bolt end and wiregates on the rope end, and that top-standard carabiners of the time had gate-open strengths above 9 kN.
 
 How many to carry depends on how many bolts your route has. How to clip and orient them is in [gym lead climbing](/posts/climbing/2026-10-17-gym-lead-climbing-en); preparing for your first outdoor lead is in [first outdoor sport lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en).
+
+The first three minutes of this HowNOT2 carabiner showdown explain what wiregates are good for: the gate is its own spring, there are few parts for sand and snow to jam, and the light gate is less prone to bouncing open when it hits rock (gate flutter). With the gate open, the carabiner in the video drops from its rated strength to about 8 kN. Gate-open strength is printed on every carabiner, so go by the marking on yours. The rest is a dozen carabiners, some of them used, pulled in a chain; the video calls itself entertainment rather than science, and which one breaks last tells you nothing. Stop around 3:20.
+
+```youtube
+url: https://www.youtube.com/watch?v=Ts5bK_luHl8
+title: Guess which carabiner breaks last 👉 CARABINER SHOWDOWN (HowNOT2)
+start: 60
+```
 
 ## Practice: four scenarios
 
@@ -210,6 +250,17 @@ This is exactly the UIAA's example: a device designed for 9–10 mm may not work
 ## Next
 
 You now have shoes, harness, helmet, rope, belay device and carabiners. The last task is using them until it's time to retire them: what a manufacturer's "10 years" means, what calls for immediate replacement, and what to do when manufacturers disagree. That's [post 4: Inspection, care and retirement](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en).
+
+## Further viewing: gear-testing and instruction channels
+
+The videos in this post come from the two channels below. They're a good place to keep digging; keep each channel's limits in mind.
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**: run by Ryan Jenks. It started in 2016 as highline safety instruction and grew into breaking climbing, caving and canyoneering gear, plus the Bolt Busters series that pulls bolts out of real rock. Its value is in the cases beyond the rated number: knots, wear, old gear, bad placements. Limits: most tests are slow pulls on a home-built rig with one to three samples, and Ryan himself calls it entertainment, not science; the channel is backed by an online gear shop, and some tested items are sold there.
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**: run solo by a climber who signs as Ben, a former software developer. After watching a hard catch slam a climber into the rock in Tonsai, Thailand, he designed his first experiment; the channel now focuses on experiments and physics explanations about belaying, ropes, carabiners and belay devices, with several recent episodes filmed in Mammut's lab. Limits: most experiments are his own design, not EN/UIAA standard tests.
+
+## Update Log
+
+- 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 
 ## References
 

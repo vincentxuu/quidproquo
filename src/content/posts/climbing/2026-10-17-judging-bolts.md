@@ -49,6 +49,14 @@ glossary:
 
 [英國登山協會（BMC）](https://www.thebmc.co.uk/en/spot-a-bad-bolt)的整理是：膨脹式一般只適合中硬到硬的岩石。現代黏膠式錨栓大多比膨脹式可靠，但早期的 U 形「釘書針」款可能非常弱。UIAA 給打 bolt 者的建議也是**海岸區優先選黏膠式**。
 
+**看影片**：HowNOT2 的 Ryan Jenks 從 2:00 開始講砂岩要夠硬才能用膨脹式，不夠硬就要改用黏膠式；4:40 再比較兩者怎麼抓住岩石：膨脹式只靠孔底撐開的金屬片，黏膠式黏住整段孔壁。這是 2018 年拍給打 bolt 的人看的概念講解，沒有測試數據。
+
+```youtube
+url: https://www.youtube.com/watch?v=5dhtNg6cCks
+title: Climbing bolts are only as good as the ROCKS you put them in（HowNOT2）
+start: 120
+```
+
 **今晚就能做的動作**：打開你想去的岩場照片或影片，找出一顆 bolt，判斷它是膨脹式（有螺帽和掛片）還是黏膠式（一體的環）。
 
 ## 標準數字：EN 959 與 UIAA 123
@@ -86,6 +94,15 @@ UIAA 123 以 EN 959:2018 為基礎，再加上幾項要求：
 最麻煩的一點：**SCC 不一定看得出來。** BMC 的說法更直接，它在實務上「幾乎不可能發現」。目視檢查能抓到鏽蝕、裂縫、鬆動，抓不到藏在金屬裡的裂紋。
 
 另外，UIAA 123 明講不同等級的不鏽鋼**不能混用**，例如掛片和螺栓用了不同的鋼種。兩種金屬接觸會產生電偶腐蝕，加快鏽蝕。
+
+**看影片**：這裡只放 0:48 到 1:15。葡萄牙海邊石灰岩岩場的開線者說，當地 304 的膨脹式和黏膠式都有幾十起登記在案的失效，316 撐得比較久但還是會鏽；他估計 304 在那裡「5 年或更短」就會腐蝕，這是現場經驗，不是測試結果。影片其餘部分在替當地沒有認證的鍍鋅 bolt 辯護，本文不採用這個說法；選材以 UIAA 的建議和下一節龍洞改用鈦合金的做法為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=SUrEqqMP9C8
+title: They broke the rules and are getting away with it（HowNOT2）
+start: 48
+end: 75
+```
 
 ## 龍洞：從 304、316 到鈦
 
@@ -147,7 +164,25 @@ TOCC 維護一份公開的 Google 試算表〈[龍洞岩場攀登路線資料庫
 
 Access Fund 也提醒，每個攀登者都有責任在使用前檢查固定點。BMC 的專家說得更白：一座岩場的 bolt 通常沒有人負責，不要因為是運攀路線就假設它安全。
 
+**看影片**：BMC 這支 2017 年在英國拍的短片，從 0:30 開始依序示範看位置（離岩角至少一個手掌寬）、看會不會動（掛快扣時拿快扣當槓桿試）、看損傷和鏽蝕。片中把鬆掉的掛片用扳手鎖緊後就繼續用，本文的做法不同：依 Access Fund 的說法，會轉的掛片已經降低強度，在龍洞就把它當成不可靠的保護點，下來後回報 TOCC。影片只示範看得見的問題，沒有提到 SCC 看不出來。
+
+```youtube
+url: https://www.youtube.com/watch?v=ckriqAAdOWs
+title: How to check an expansion bolt（BMC TV）
+start: 30
+end: 168
+```
+
 **看起來正常，只代表沒看到明顯問題。** SCC 和化學膠沒混勻都看不出來，所以出發前的資料庫查詢和現場檢查要一起做。
+
+**看影片**：從 10:13 開始約 50 秒，Ryan 說他曾經徒手拔出別人裝的黏膠式 bolt，原因是膠沒混勻，他認為這是黏膠式最大的風險。這是他的親身經驗，不是測試；影片前段的髒孔拉測是在混凝土裡做的，結論不能套到岩壁上的 bolt。
+
+```youtube
+url: https://www.youtube.com/watch?v=69xBmU-6QQU
+title: Are glue in bolts dangerous if the hole is dirty?（HowNOT2）
+start: 613
+end: 662
+```
 
 ```mermaid
 flowchart TB
@@ -224,6 +259,18 @@ BMC 的經驗法則是磨損超過三分之一就不要依賴那個零件。不�
 會判斷 bolt 之後，下一篇〈[頂繩架設](/posts/climbing/2026-10-17-top-rope-anchor-setup)〉會在雙 bolt 頂端架一組頂繩：用自己的快扣或有鎖鉤環，不讓主繩直接磨公共固定點。
 
 還沒看過系列總覽，可以從〈[運動攀登與傳統攀登總覽](/posts/climbing/2026-10-17-sport-vs-trad-overview)〉開始；想先複習確保，回到〈[岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay)〉。
+
+## 延伸觀看：器材實測與教學頻道
+
+本文嵌入的影片來自 HowNOT2 和 BMC TV；Hard Is Easy 專拍確保與繩子的實驗，這篇沒有用到，但想往下挖器材實驗也可以從它開始。看的時候記得每個頻道的限制。
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**：Ryan Jenks 經營，2016 年從走繩（highline）安全教學起家，後來把攀岩、洞穴、溪降器材拿去拉斷，還有在真岩上拉 bolt 的 Bolt Busters 系列。看點是「標示強度以外」的情況：打結、磨損、舊裝備、放錯位置。限制：多數是自製機器慢拉、每組 1–3 個樣本，他自己也說這是娛樂不是科學；頻道背後有網路器材店，部分受測品是店內商品。
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**：署名 Ben 的攀岩者獨自經營，以前是軟體工程師。一次在泰國 Tonsai 看到確保者接太硬、攀者撞上岩石，他回家設計實驗，從此專拍確保、繩子、鉤環與確保器的實驗與物理解說，近年多支在 Mammut 實驗室合拍。限制：實驗多是自己設計，不是 EN／UIAA 標準測試。
+- **[BMC TV](https://www.youtube.com/@teamBMCTV)**：英國登山協會（BMC）的頻道。2017 年拍的一系列 1–3 分鐘短片逐步示範怎麼檢查繩子、吊帶、頭盔、鉤環、bolt。限制：只示範、不測數字，是英國情境。
+
+## 更新紀錄
+
+- 2026-10-23：補充 HowNOT2、Hard Is Easy 等頻道的器材實測影片與頻道介紹
 
 ## 參考資料
 

@@ -48,6 +48,14 @@ glossary:
 
 岩楔沒有活動零件，便宜、輕、耐用，但它只認一種地形：裂隙要有內縮。AMGA 認證攀岩嚮導 [Elaina Arenz 在 Climbing 雜誌的教學](https://www.climbing.com/skills/gym-to-crag-trad-climbing-outdoor-research/)把分工講得很直接：**平行的裂隙放活動岩楔，內縮或 V 形的裂隙放岩楔。**
 
+**看影片**：HowNOT2 在夏威夷的花崗岩裂隙裡放了幾顆岩楔，用滑輪系統一路拉到斷。從 0:35 開始看第一顆 BD Micro Stopper：它卡在內縮處沒被拉出，最後是鋼索在約 9 kN 斷掉。每顆只拉一次，而且是慢拉、不是墜落衝擊；它示範的是放在好的內縮處時岩楔撐得住，不代表隨便塞進去的小號岩楔也一樣。
+
+```youtube
+url: https://www.youtube.com/watch?v=4t4rMCCPiTM
+title: You won't believe how strong micro stoppers are!  Climbing nuts tested in real rock（HowNOT2）
+start: 35
+```
+
 ### 活動岩楔：把往下的拉力轉成往外撐
 
 活動岩楔有兩到四片 cam 片裝在軸上。扣扳機，cam 片收攏；放進裂隙後鬆手，彈簧讓 cam 片張開、頂住兩側岩壁。
@@ -60,6 +68,14 @@ glossary:
 - [UKClimbing 對 BD Camalot C4 的評測](https://www.ukclimbing.com/gear/climbing/protection/black_diamond_camalot_c4-12331)寫 C4 是 14.5°，比「業界標準」13.75° 稍大：每顆的尺寸範圍大一點，但收縮太多或太少時撐的力略小。評測者也說這差異不大。
 
 對使用者來說，角度只要記得「大約 13–15°、各家不同」。真正要記的是後半句：**活動岩楔是把力推到岩壁上。** 岩石本身鬆、碎、濕或髒，放得再漂亮也可能把岩石撐破或整顆滑出來。維基百科和 Arenz 都把「只能放在堅固的岩石」列在第一條。
+
+**看影片**：HowNOT2 的〈What breaks first?〉把 camming angle 代進公式，算 cam 到底往岩壁推多大的力：常見角度下，往外撐的力大約是往下拉力的 2 倍。0:40–1:20 是故意講一串假術語的搞笑段落，可以跳過；後半段用自製夾具量到的比例也接近這個值，但樣本少、負載低，當成數量級來理解就好。
+
+```youtube
+url: https://www.youtube.com/watch?v=moobi2VKwmI
+title: What breaks first?（HowNOT2）
+start: 20
+```
 
 **今晚就能做的動作**：拿一顆 cam，扣扳機到底再慢慢放開，看 cam 片怎麼張開。再把它放進門縫或兩本書之間，往下拉 stem（桿身），感受 cam 片往外撐的方向。
 
@@ -76,6 +92,14 @@ glossary:
 
 標示的數字本身也是保守估計。[BD 另一篇 QC Lab](https://blackdiamondequipment.com/blogs/stories/qc-lab-the-beauty-and-limitations-of-big-cams) 說明，額定值是用大量破壞測試的平均值減三個標準差算出來的，99.7% 的樣本會在更高的力才壞。
 
+**看影片**：HowNOT2 到 Black Diamond 的實驗室訪問 cam 設計工程師。從 11:00 開始，工程師說 CE 強度測試只占他們 cam 測試計畫的一小部分，其餘多是反覆受力、高溫、冰水、繞過岩角這類疲勞與環境測試。這是廠商自己的說法；同一段也講到 cam 的有效期限是保守估計，高溫、泡水、鹽分的環境要更小心。影片前半段拉的舊 cam 有些經過火災泡水，每顆只測一兩次，不能拿來推論舊 cam 還能繼續用。
+
+```youtube
+url: https://www.youtube.com/watch?v=vQf0T-J2H44
+title: C4 vs Ultralights: Testing Climbing Cams AT BLACK DIAMOND'S LAB（HowNOT2）
+start: 660
+```
+
 那麼一次墜落到底有多大的力？Petzl 用真人做過[實測](https://petzl.com/us/en/sport/tech-tips/product-information-and-specifications/forces-at-work-in-a-real-fall/CORDES-chute-efforts_SPO_a77w0000000KywPAAS.html)：80 公斤的攀登者在多繩距剛離開確保站時墜落（墜落係數 1），轉向點受力約 6 kN。Petzl 的註解是：這對牢靠的固定點不是問題，但如果轉向點是一顆小號岩楔，就很危險。
 
 所以「需小號cam, nut」這幾個字是警告。小號器材標的強度可能低很多：BD 最小的 Z4 #0 標 5 kN，中號的 #1 Camalot 標 14 kN。越小的器材，放置越要精準。
@@ -90,6 +114,14 @@ glossary:
 
 先看岩石，再看器材。Arenz 列的警訊是鬆、碎、濕、髒：只要岩石是這樣，放置看起來再好，也可能把岩石撐破或整顆拉出來。活動岩楔會把力往外推到岩壁上，這一條對它特別重要。
 
+**看影片**：HowNOT2 在加州 Sierra 的花崗岩裂隙裡拉 Metolius TCU。從 5:25 的慢動作開始看：cam 本身沒有滑，被撐開、移動的是整塊岩石；說明欄記錄最弱的一次約 5.5 kN 就滑出。這是同一批舊 TCU 反覆測、人力慢拉，數字範圍很大，不能當成這款 cam 的強度；要看的是放置看起來不錯，岩石卻先動了。
+
+```youtube
+url: https://www.youtube.com/watch?v=cwxYA_qfRr4
+title: Metolius TCU climbing cams pulled until failure - Great Slow Motion!（HowNOT2）
+start: 325
+```
+
 ### 二、尺寸對嗎
 
 **活動岩楔**：Arenz 的建議是 cam 片收縮在 50–90% 之間。cam 片要能在裂隙裡繼續張開，才有足夠的撐力。
@@ -100,6 +132,14 @@ BD 的測試補了兩端的細節：
 - **收縮太多**（over-cammed）：BD 說「放得越接近 100% 收縮越強」是事實，常聽到的「收縮到底比較弱」不對。缺點是可能卡死、拿不出來。
 
 **岩楔**：楔子要能從寬處放進去、往下拉時卡在窄處。窄處比楔子寬，它就會被拉出來。
+
+**看影片**：HowNOT2 的〈Totem Cams TESTED!〉先故意做出只有兩片 cam 片吃到岩石的勉強放置，約 2 kN 就被拉出；同一款 cam 換到好的水平裂隙、正確受力，一路拉到扁帶斷掉才停。Totem 構造特殊，可以只用兩片 cam 片受力，結果不能直接套到一般 cam；每種放置只拉一兩次，也是慢拉。要看的是同一款器材，放置好壞的差距遠大於標示值能告訴你的。
+
+```youtube
+url: https://www.youtube.com/watch?v=gywfr4HygTk
+title: Totem Cams TESTED!（HowNOT2）
+start: 100
+```
 
 ### 三、方向對嗎
 
@@ -199,6 +239,17 @@ Arenz 的建議是由淺入深，每一步都不用承擔先鋒墜落的風險�
 會放單點保護之後，下一個問題是：爬到頂端沒有 bolt 時，怎麼把幾個保護點組成固定點，讓兩個人都能掛上去？下一篇[〈建立固定點〉](/posts/climbing/2026-10-17-building-anchors)會講冗餘、力量分配、不延伸，以及墜落時固定點到底受多大的力。
 
 還沒讀過系列總覽的話，可以從[〈運動攀登與傳統攀登差在哪〉](/posts/climbing/2026-10-17-sport-vs-trad-overview)開始。
+
+## 延伸觀看：器材實測與教學頻道
+
+本文嵌入的影片都來自 HowNOT2；Hard Is Easy 是另一個專拍器材與確保實驗的頻道。想自己往下挖，可以從這裡開始；看的時候記得每個頻道的限制。
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**：Ryan Jenks 經營，2016 年從走繩（highline）安全教學起家，後來把攀岩、洞穴、溪降器材拿去拉斷，還有在真岩上拉 bolt 的 Bolt Busters 系列。看點是「標示強度以外」的情況：打結、磨損、舊裝備、放錯位置。限制：多數是自製機器慢拉、每組 1–3 個樣本，他自己也說這是娛樂不是科學；頻道背後有網路器材店，部分受測品是店內商品。
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**：署名 Ben 的攀岩者獨自經營，以前是軟體工程師。一次在泰國 Tonsai 看到確保者接太硬、攀者撞上岩石，他回家設計實驗，從此專拍確保、繩子、鉤環與確保器的實驗與物理解說，近年多支在 Mammut 實驗室合拍。限制：實驗多是自己設計，不是 EN／UIAA 標準測試。
+
+## 更新紀錄
+
+- 2026-10-23：補充 HowNOT2、Hard Is Easy 等頻道的器材實測影片與頻道介紹
 
 ## 參考資料
 

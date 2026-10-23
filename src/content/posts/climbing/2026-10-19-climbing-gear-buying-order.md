@@ -64,6 +64,14 @@ glossary:
 
 頭盔是為戶外的落石準備的，〈[戶外確保](/posts/climbing/2026-10-17-outdoor-belay)〉說過確保者也要戴。繩子和快扣是你要自己帶隊去戶外先鋒時才需要的東西，在那之前跟有經驗的人一起爬，用他們的就好。
 
+北威爾斯教練 Jez 在下面這支影片攤開「跟朋友出去當跟攀者」要自備的東西：一條吊帶、頭盔、粉袋、入門岩鞋、確保器加有鎖鉤環，繩子和整組保護器材由朋友帶，跟本文「繩子、快扣先用別人的」一致。差別在頭盔：他的對象一開始就去英國戶外岩場，所以頭盔列在第一批；如果你還只在岩館，照上面的順序就好。影片是教練口述經驗，沒有測試，裡面的價格是英國行情；看到 7 分半左右就講完個人裝備，後面是傳攀器材。
+
+```youtube
+url: https://www.youtube.com/watch?v=jffVxP0Kjc0
+title: Climbing chat: Seconding kit for sport and trad, what to buy when starting out!（JB Mountain Skills）
+start: 25
+```
+
 **今晚就能做的動作**：把你下次去岩館會用到的裝備列出來，在每一項旁邊寫「租」或「自己的」。寫「自己的」那幾項，就是這個系列你要先讀的篇。
 
 ## 鞋子不是個人防護裝備，吊帶是
@@ -86,6 +94,14 @@ glossary:
 - **UIAA 安全標籤**：國際攀登與登山聯合會（UIAA）發的。[UIAA 的安全標準總表](https://www.theuiaa.org/safety/safety-standards/)說，它從 1960 年測繩子開始訂標準，現在涵蓋超過 25 種裝備；UIAA 和歐洲標準委員會（CEN）協調標準，有些項目會要求加測，所以比 CEN 的版本嚴。
 
 [UIAA 2026 年 2 月更新的購買建議](https://theuiaa.org/uiaa/uiaa-advice-ten-things-to-consider-when-buying-climbing-gear)要你只買有 UIAA 安全標籤或 CE 標示的裝備。標示通常刻在、縫在裝備上，或寫在說明書裡。對某個型號的標籤有疑問，可以到 [UIAA 認證裝備資料庫](https://www.theuiaa.org/safety-standards/certified-equipment/)查。
+
+HowNOT2 的 Ryan 拉斷一批 Amazon 上買的鉤環時，碰到一個實際例子：有一款商品頁寫「有 UIAA 認證」，到 UIAA 網站一查，認證早就過期了。從 10 分 40 秒看起，說明欄附了在資料庫勾選舊產品、查出過期認證的步驟。這是 2020 年的影片，自製機器慢拉、每款只拉幾個，不是標準測試；片中的仿品在這幾次都拉過了標示值，但樣本這麼少，不能拿來證明仿品可以用。Ryan 也在片中說自己不熟 CE 和 UIAA 的差別，說明欄裡的定義是觀眾留言，標籤怎麼讀以本節引用的 UIAA 資料為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=BQfKTx5T2WM
+title: Amazon Chinese Knockoff Climbing Carabiners TESTED（HowNOT2）
+start: 640
+```
 
 ### 常見裝備的標準編號
 
@@ -114,6 +130,14 @@ glossary:
 
 有些原廠把製造年藏在序號裡。Petzl 的保養說明舉例：序號「09 365 AB 1234」的前兩碼 09 是製造年，365 是那一年的第幾天；舊式吊帶可能寫成「99 289 A」，一樣是前兩碼代表年份。其他品牌的編碼方式不一定一樣，看說明書。
 
+繩子還有第二個地方印日期，只是平常看不到。Hard Is Easy 的 Ben 在繩子教學的開頭把繩子剖開：有些繩芯裡夾著一條塑膠帶，印著廠牌和製造季度；有些只有一條彩色細帶，原廠每年換顏色，要問原廠才知道是哪一年。從 1 分鐘開始看，大約 45 秒。這條帶子要切開繩子才看得到，買繩和日常檢查還是看繩端標籤。
+
+```youtube
+url: https://www.youtube.com/watch?v=ncUGR2JbefY
+title: Complete Guide to Climbing Ropes - How many falls they Hold? Why they Twist? | Ep.5（Hard Is Easy）
+start: 60
+```
+
 **今晚就能做的動作**：翻出你手上任何一件吊帶、頭盔或繩子，找到 CE 或 UIAA 標示，以及製造年。找不到製造年，把型號抄下來，去原廠網站查序號怎麼讀。
 
 ## 為什麼吊帶、頭盔、繩子不要買二手
@@ -133,6 +157,21 @@ UIAA 的購買建議裡還有三條跟「從哪裡買」有關：
 1. **提防仿冒品。** 看起來有認證、價格卻低得離譜的商品，就是警訊。
 2. **網購只在可信的通路買**，也就是知名品牌，原廠或有信譽的經銷商。
 3. **有疑問就查資料庫。** 上面提到的 UIAA 認證裝備資料庫可以查型號。
+
+下面兩支 HowNOT2 的影片是兩個反例，提醒這三條是降低風險，不是保證。第一支由當事人 Emily 自己說：她向 Black Diamond 的授權經銷商網購一條繩子，包裝看起來是正版，連批號和製造日期都印了，打開卻是 Black Diamond 確認不是自家產品的繩子，Ryan 推測是靜力繩。片名寫著「allegedly」，Ryan 只是轉述，沒有親眼看到購買過程。
+
+```youtube
+url: https://www.youtube.com/watch?v=XlL7XFm0-Q4
+title: Dicks sells a counterfeit Black Diamond climbing rope (allegedly)（HowNOT2）
+```
+
+第二支從 7 分 50 秒看起：觀眾 Chris 網購 CAMP 的鉤環，收到的是只有 16 kN、沒有 UIAA 也沒有 CE 的無名鉤環，價格卻跟正品一樣。所以「價格低得離譜」只是警訊之一，價格正常不代表是真貨。這個案例也是 Ryan 轉述觀眾來信，沒有其他來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=1uPSup3UpDQ
+title: Sketchy carabiners from Amazon, AliExpress, Ebay and Walmart tested!（HowNOT2）
+start: 470
+```
 
 ## 買到之後的第一件事：檢查和記錄
 
@@ -196,6 +235,18 @@ UIAA 明講繩子不該買二手；Petzl 的退役條件包括「不知道完整
 ## 下一步
 
 第一筆花費通常是鞋子。鞋子不是個人防護裝備，沒有標籤可看，只能靠合腳。多緊才對、要小幾號、什麼時候該換底，是[第 1 篇：攀岩鞋](/posts/climbing/2026-10-19-climbing-shoes)。
+
+## 延伸觀看：器材實測與教學頻道
+
+本文嵌入的影片來自下面幾個頻道。想自己往下挖，可以從這裡開始；看的時候記得每個頻道的限制。
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**：Ryan Jenks 經營，2016 年從走繩（highline）安全教學起家，後來把攀岩、洞穴、溪降器材拿去拉斷，還有在真岩上拉 bolt 的 Bolt Busters 系列。看點是「標示強度以外」的情況：打結、磨損、舊裝備、放錯位置。限制：多數是自製機器慢拉、每組 1–3 個樣本，他自己也說這是娛樂不是科學；頻道背後有網路器材店，部分受測品是店內商品。
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**：署名 Ben 的攀岩者獨自經營，以前是軟體工程師。一次在泰國 Tonsai 看到確保者接太硬、攀者撞上岩石，他回家設計實驗，從此專拍確保、繩子、鉤環與確保器的實驗與物理解說，近年多支在 Mammut 實驗室合拍。限制：實驗多是自己設計，不是 EN／UIAA 標準測試。
+- **[JB Mountain Skills](https://www.youtube.com/@JBMountainSkills)**：北威爾斯的攀岩與登山教練 Jez 經營，大量固定點、頂繩架設的實作教學。限制：教練個人經驗與英國作法，沒有實驗數據。
+
+## 更新紀錄
+
+- 2026-10-23：補充 HowNOT2、Hard Is Easy 等頻道的器材實測影片與頻道介紹
 
 ## 參考資料
 

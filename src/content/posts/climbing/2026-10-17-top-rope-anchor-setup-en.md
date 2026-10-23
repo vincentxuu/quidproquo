@@ -53,11 +53,27 @@ The [British Mountaineering Council (BMC)](https://www.thebmc.co.uk/en/spot-a-ba
 
 The American Alpine Club (AAC)'s [Cleaning Sport Routes](https://publications.americanalpineclub.org/articles/13201216058), REI and TOCC agree: the rope runs through your own gear, and your gear takes the wear. The shared hardware is saved for the last climber's descent.
 
+**Watch**: HowNOT2 pulls an aluminium rappel ring taken off a popular Yosemite route, worn thin by ropes, and it breaks at 1.5 kN (the figure is from the video description). Start at 9:06. It is a single slow-pull sample, useful for seeing how wear turns shared hardware dangerous, not as a test of new rings.
+
+```youtube
+url: https://www.youtube.com/watch?v=xrKzvWMyCmE
+title: This rappel ring could kill someone (HowNOT2)
+start: 546
+```
+
 **Something you can do tonight**: check whether two of your quickdraws can take locking carabiners, or set aside two locking quickdraws just for top-roping.
 
 ## Before rigging: look at the two bolts
 
 A top rope hands the whole system to the two bolts at the top, so repeat the previous post's checks up there: rust, cracks, spinning hangers, the surrounding rock, and wear on the rings.
+
+**Watch**: from 2:15 this three-minute BMC clip shows how to check the chains and rings on a lower-off: are they securely attached and done up, then how worn are they. The threshold spoken in the video is "more than about halfway through", looser than the one third on the BMC web page cited above; where the two differ, go with the more conservative third. The clip is UK-based and says nothing about materials or corrosion, so at Long Dong add TOCC's points below.
+
+```youtube
+url: https://www.youtube.com/watch?v=SpSOFhqEKgs
+title: How to check and preserve a lower off (BMC TV)
+start: 135
+```
 
 TOCC gives specific warnings about Long Dong anchor hardware:
 
@@ -87,6 +103,14 @@ This is the simplest rig. The points from AAC's Cleaning Sport Routes:
 
 One draw on each bolt gives you two **independent** points: if one bolt or one draw fails, the rope is still in the other. That matches REI's minimum for redundancy: at least two solid anchor points.
 
+**Watch**: this segment from Hard Is Easy, filmed in Mammut's lab, starts at 24:02 and looks at the pair of opposed carabiners often found at the top. When the rope runs through only one, its side wears an uneven groove; the takeaway is "there is two, clip two". It is about a minute of observation, not a break test, and the carabiners shown are the non-locking kind left on many anchors; for your own top rope, stick with AAC's advice and use locker draws.
+
+```youtube
+url: https://www.youtube.com/watch?v=7qEvvobz5YQ
+title: How Deep is too Deep? For a Rope (Hard Is Easy)
+start: 1442
+```
+
 **Something you can do tonight**: clip two quickdraws to two points at home, such as a door handle and a chair back. Practice setting the gates opposite each other, then run a length of rope through both.
 
 ## Rig two: a cordelette quad
@@ -108,6 +132,14 @@ Steps:
 5. Between the knots, clip two opposed locking carabiners into three of the four strands, leaving one strand free. These two carabiners are where the rope goes.
 
 Leaving one strand free means that if one side fails, the knot catches the carabiners instead of letting them slide off. REI checks the result with SERENE-A: solid, equalized, redundant, efficient, no extension, plus angles, keeping the angle between the two sides at 60 degrees or less. These principles are covered fully in [Building Anchors](/posts/climbing/2026-10-17-building-anchors-en).
+
+**Watch**: from 14:17 HowNOT2's Bobby builds the quad he uses for most top ropes, keeping the overhands loose so he can adjust them, and says it has 10 to 20 times the strength a top rope needs. He uses a 240 cm Dyneema sling rather than REI's 7 mm or thicker cordelette, and his rope-side clip is not REI's two opposed lockers through three strands with one left free. Watch it for the structure of a quad, and follow REI's steps when you build one.
+
+```youtube
+url: https://www.youtube.com/watch?v=Xzw9ZT-J71E
+title: 3 Ways to Build a Top Rope Climbing Anchor (HowNOT2)
+start: 857
+```
 
 ## Order of operations at the top
 
@@ -166,6 +198,14 @@ When everyone is done, the last climber removes the gear at the top. REI's seque
 
 REI also says never to lower yourself with the rope running directly through a bolt hanger, chain link or rappel ring, because those parts are not designed for rope friction. If you feel you have to lower, donate a locking carabiner to the crag.
 
+**Watch**: in HowNOT2's intro to sport climbing, made with Hard Is Easy, the cleaning demo starts at 58:06. The last climber clips in with a personal anchor, leaves a quickdraw below as a backup, threads a bight through the rings and clips it to the belay loop with a figure-eight and locker, so two things hold him the whole time, and only removes the personal anchor once the rope is confirmed holding. Note that the video ends by **lowering** through the fixed rings, the method REI advises against above; at Long Dong follow TOCC and rappel where possible, and see [Lower or Rappel](/posts/climbing/2026-10-17-lower-or-rappel-en) for the differences.
+
+```youtube
+url: https://www.youtube.com/watch?v=yxNYyCONYGo
+title: Intro to Sport Climbing ft. Hard is Easy (HowNOT2)
+start: 3486
+```
+
 **Something you can do tonight**: agree with your usual partner on the plan for your next outdoor day: who leads up to rig, which rig, who cleans last, and whether you lower or rappel.
 
 ## Practice: four scenarios
@@ -209,6 +249,18 @@ Not yet. Following REI's order, confirm every carabiner is locked, call for tens
 Once the top rope is up and everyone has climbed, the last person has to get down. The next post, [Lower or Rappel](/posts/climbing/2026-10-17-lower-or-rappel-en), covers the trade-offs and why Long Dong recommends rappelling. For tops with no bolts, see [Building Anchors](/posts/climbing/2026-10-17-building-anchors-en).
 
 To review belaying from the ground, go back to [Learning to Belay Top Rope in the Gym](/posts/climbing/2026-10-17-gym-top-rope-belay-en).
+
+## Further viewing: gear-testing and instruction channels
+
+The videos embedded above come from the channels below. They are a good place to keep digging; keep each channel's limits in mind as you watch.
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**: run by Ryan Jenks. It started in 2016 as highline safety instruction and grew into breaking climbing, caving and canyoneering gear, plus the Bolt Busters series that pulls bolts out of real rock. Its value is in the cases beyond the rated number: knots, wear, old gear, bad placements. Limits: most tests are slow pulls on a home-built rig with one to three samples, and Ryan himself calls it entertainment, not science; the channel is backed by an online gear shop, and some tested items are sold there.
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**: run solo by a climber who signs as Ben, a former software developer. After watching a hard catch slam a climber into the rock in Tonsai, Thailand, he designed his first experiment; the channel now focuses on experiments and physics explanations about belaying, ropes, carabiners and belay devices, with several recent episodes filmed in Mammut's lab. Limits: most experiments are his own design, not EN/UIAA standard tests.
+- **[BMC TV](https://www.youtube.com/@teamBMCTV)**: the British Mountaineering Council's channel. A 2017 series of one-to-three-minute clips walks through inspecting ropes, harnesses, helmets, carabiners and bolts. Limits: demonstration only, no measurements, UK context.
+
+## Update Log
+
+- 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 
 ## References
 

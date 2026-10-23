@@ -70,6 +70,14 @@ Trad courses in Taiwan use these too: [Adventure Taiwan's single-pitch trad cour
 
 With trad gear the number goes up. AMGA Certified Rock Guide [Elaina Arenz](https://www.climbing.com/skills/gym-to-crag-trad-climbing-outdoor-research/) asks for at least three pieces in a gear anchor. Her check is easy to remember: if someone cut any part of it with magic scissors, the whole thing should not fall apart.
 
+HowNOT2 actually ran the magic-scissors test. From 11:40, they cut one leg of a loaded Dyneema sling with a knife to mimic a rock edge or a failed piece: master points tied with a girth hitch or a clove hitch slipped all the way through the knot, and the girth hitch let go at about 4 kN. It is a backyard slow pull with one or two tries per setup, and Ryan calls it entertainment, not science. What it shows is that the master point itself has to survive the scissors check; it does not answer how many pieces you need.
+
+```youtube
+url: https://www.youtube.com/watch?v=-MmX8h4F0po
+title: Are climbing master points made with a girth hitch or clove hitch REDUNDANT??? (HowNOT2)
+start: 700
+```
+
 ### Equalization: never perfectly even
 
 Equalization sounds like each piece taking the same share of the load. In practice that is hard. [Karsten Delap writes in "Strong Anchors"](https://www.karstendelap.com/blog/strong-anchors) that true equalization is fairly unachievable even in lab settings. So the vocabulary is shifting from "equalized" toward "distribution of force": directing more of the load to the pieces you judge to be stronger.
@@ -79,6 +87,14 @@ Delap also argues that strength is the most important attribute, and that chasin
 ### Angle: the wider the legs, the more each piece takes
 
 The smaller the angle between the two legs running to the master point, the lower the load on each piece. Petzl suggests **90° as an upper limit**, easy to remember and to spot; Arenz says no more than 60 to 90°.
+
+In HowNOT2's "American Death Triangle is a Myth", start at the third test (7:23). Instructor Bobby explains that he teaches students to stay under Petzl's limit, then they spread the legs well past it and each bolt sees about 1.5 times the master-point load. Two people pull by hand and the angles are eyeballed with a protractor, so the loads are only a few kN. The "myth" in the title is that the forces were less dramatic than Ryan expected; he also says in the video that this rig is not redundant and should not be copied.
+
+```youtube
+url: https://www.youtube.com/watch?v=7sQNpjnJe40
+title: American Death Triangle is a Myth (HowNOT2)
+start: 443
+```
 
 **Something to do tonight**: hang a sling with two carabiners between two door handles (or chair backs), tie a knot for a master point and pull down. Move the two points farther apart and pull again. Watch how the angle between the legs changes.
 
@@ -103,6 +119,14 @@ In climbing the value ranges from 0 to 2. In reality, friction against the rock 
 
 This explains something counterintuitive: **a short fall just after leaving a multi-pitch belay is harsher than a longer fall halfway up a pitch.** With little rope out, the factor is high. Petzl's belay anchor tech tip says a lead fall is when the anchor sees the highest loads, and even more so at the start of a pitch: less rope, a high fall factor, and little quickdraw friction.
 
+Hard Is Easy comes at the same idea from another angle. From 11:22 the video compares a long whipper with a short fall just above a bolt where the belayer catches hard. Working out stopping distance from rope stretch by hand, the author concludes the big fall is about 2.5 times softer on the climber, which matches the idea that more rope absorbs more. But his video description says he deliberately skipped fall factor, which he thinks means almost nothing in lead climbing because the formula ignores whether the catch was soft or hard. The two views sit side by side: this post follows Petzl and uses fall factor to compare the effect of rope length, while the softness of the catch is a separate variable to look at on its own. The video's numbers are the author's estimate, not measured falls.
+
+```youtube
+url: https://www.youtube.com/watch?v=WyExE2qH4Fs
+title: Falling physics that Every Climber Needs to know (Hard Is Easy)
+start: 682
+```
+
 ### Real-person tests: the top piece takes the most
 
 The big numbers you see in specs mostly come from standard tests: metal masses, fixed points, harsh conditions. Petzl ran [a series of field falls with real people](https://petzl.com/us/en/sport/tech-tips/product-information-and-specifications/forces-at-work-in-a-real-fall/CORDES-chute-efforts_SPO_a77w0000000KywPAAS.html): an 80 kg climber, an 80 kg belayer, and a GRIGRI 2.
@@ -122,6 +146,14 @@ For the factor 1 test, Petzl's note is that 6 kN is no problem for a solid fixed
 The rope runs through the top piece and turns back down, with the climber on one side and the belayer on the other. In a fall both sides go tight, so the piece is pulled down by both. Petzl's belay anchor tech tip calls this overloading the redirect point and lists it as the first major risk in a lead fall: with a high fall factor, the force can exceed what a less reliable point can hold, especially the redirect.
 
 </details>
+
+In HowNOT2's "Gym Climbing Forces", from 1:40, Ryan puts three LineScale 3 load cells on the climber, the belayer and the quickdraw at the same time. The pattern matches Petzl's: the quickdraw takes the most, and in the gym falls he compiled it mostly landed in the high-3 to mid-4 kN range. The difference is that he often found the quickdraw reading higher than climber plus belayer, which he puts down to friction between rope and draw. These are a handful of gym falls at different body weights from Petzl's test, and the LineScale 3 is a device Ryan helped develop and sells in his shop. Go by Petzl's table for the numbers; the video is useful for seeing the top draw being pulled from both sides.
+
+```youtube
+url: https://www.youtube.com/watch?v=fZIj5HAV8xA
+title: Gym Climbing Forces - Climbing Science (HowNOT2)
+start: 100
+```
 
 **Something to do tonight**: next time you watch someone lead in the gym, find their highest quickdraw. If they fell now, that draw would be pulled by both the climber and the belayer.
 
@@ -158,6 +190,14 @@ Yes, but it is usually still enough. [Black Diamond's QC Lab](https://blackdiamo
 Two things to keep in mind. First, BD tested one sample per setup. Second, BD states that it is only comparing strength and **not addressing extension, shock loading, or how equalized each setup really is**. So the test tells you a knotted sling is strong enough; it does not tell you which anchor is safer.
 
 American Alpine Institute adds that a self-equalizing sliding X (the "Magic X") must have load-limiting knots, or it will extend if a piece fails. Petzl's semi-directional version likewise needs a twist in one strand so the sling captures the carabiner if a point fails.
+
+HowNOT2 has broken knotted slings too. From 6:20, they tie an overhand knot in the middle of a narrow Dyneema sling and pull it: every one breaks at the knot, and Ryan works out a loss of more than 60%. That is a bigger drop than BD's, possibly because narrow Dyneema is especially sensitive to knots, so the two are not directly comparable. Later in the video they pull a sliding X with limiter knots, and when a knot breaks the whole thing unravels, so it is not fully redundant. Each setup is two new and two old slings, all slow pulls; in the same video the slings that were several years old were clearly weaker than new ones even in a straight pull.
+
+```youtube
+url: https://www.youtube.com/watch?v=NwbMfh4FqT4
+title: Mammut Dyneema Climbing Slings Tested - Limiter Knots are NOT redundant!!! (HowNOT2)
+start: 380
+```
 
 **Something to do tonight**: with a 180 cm sling (the length Petzl uses for a quad), build a quad and then a sliding X between two door handles. Unclip one side each time and see how far the master point drops.
 
@@ -214,6 +254,17 @@ Serious. Fall factor is about the ratio of fall length to rope length, not how m
 That leg is not taking any load, so the anchor is really hanging on the other two pieces. Arenz's fix is to retie the figure 8 master point so all three legs are tight.
 
 </details>
+
+## Further viewing: gear-testing and instruction channels
+
+The videos embedded above come from the two channels below. They are a good place to keep digging; keep each channel's limits in mind.
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**: run by Ryan Jenks. It started in 2016 as highline safety instruction and grew into breaking climbing, caving and canyoneering gear, plus the Bolt Busters series that pulls bolts out of real rock. Its value is in the cases beyond the rated number: knots, wear, old gear, bad placements. Limits: most tests are slow pulls on a home-built rig with one to three samples, and Ryan himself calls it entertainment, not science; the channel is backed by an online gear shop, and some tested items are sold there.
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**: run solo by a climber who signs as Ben, a former software developer. After watching a hard catch slam a climber into the rock in Tonsai, Thailand, he designed his first experiment; the channel now focuses on experiments and physics explanations about belaying, ropes, carabiners and belay devices, with several recent episodes filmed in Mammut's lab. Limits: most experiments are his own design, not EN/UIAA standard tests.
+
+## Update Log
+
+- 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 
 ## References
 

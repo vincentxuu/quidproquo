@@ -91,6 +91,14 @@ glossary:
 
 </details>
 
+真人墜落的力量是多少，可以看 HowNOT2 的實測。Ryan 在一間戶外岩館做先鋒墜落，攀爬者、確保者和快扣上各掛一個測力計；從 1:40 開始，幾組測試裡攀爬者身上的峰值都不到 3 kN，因為確保者被拉起、身體和繩子一起吸收了能量。這是少數幾次墜落、他自己稱為「backyard science」的測量。片尾他對 UIAA 墜落次數的說法跟上表不同，標準的門檻以上表為準；他也說真實攀登摔過很多次不一定要換繩，那是個人看法，繩子什麼時候退役照原廠說明，見系列第 4 篇。
+
+```youtube
+url: https://www.youtube.com/watch?v=fZIj5HAV8xA
+title: Gym Climbing Forces - Climbing Science（HowNOT2）
+start: 100
+```
+
 ## 繩長：60、70 還是 80 公尺
 
 [BD](https://blackdiamondequipment.com/blogs/stories/how-to-choose-a-climbing-rope) 的建議：
@@ -115,9 +123,17 @@ BD 把單繩分成三段：
 
 很多繩子標著「dry」，表示有防水處理。BD 說防水處理會增加一些耐用度，也讓繩子能在結冰的環境使用。但標了 dry 不代表通過了防水標準。
 
-[UIAA 2014 年發布的防水繩標準](https://theuiaa.org/home/new-uiaa-standard-developed-for-water-repellant-ropes)這樣測：先讓整段繩樣品輕度磨損，相當於用了幾天；再泡水 15 分鐘。吸水量不得超過繩重的 5%，才能標「UIAA Water Repellent」。作為對照，未處理的繩在這個測試裡吸水約 50%；標著「dry」但處理不足的繩，吸水 20% 到 40%。UIAA 的公告引述繩廠 Beal 的說法：只做表面處理的繩，過不了這個測試。
+[UIAA 2014 年發布的防水繩標準](https://theuiaa.org/home/new-uiaa-standard-developed-for-water-repellant-ropes)這樣測：先讓整段繩樣品輕度磨損，相當於用了幾天；再照規定的程序泡水 15 分鐘。吸水量不得超過繩重的 5%，才能標「UIAA Water Repellent」。作為對照，未處理的繩在這個測試裡吸水約 50%；標著「dry」但處理不足的繩，吸水 20% 到 40%。UIAA 的公告引述繩廠 Beal 的說法：只做表面處理的繩，過不了這個測試。
 
 所以如果你要的是真的防水（例如冰攀、高山），找的是「UIAA Water Repellent」標示，不是只看 dry。
+
+Hard Is Easy 在 Mammut 的實驗室把這個測試從頭做了一次，從 27:23 開始看：繩樣先來回拉過螺栓磨毛，再讓水從上方持續淋 15 分鐘，最後甩乾秤重。UIAA 的公告寫的是「泡水」，實驗室示範的程序則是淋水、繩子沒有整條浸沒；程序細節以標準本文為準，影片可以幫你看懂「先磨損、再吃水」是什麼樣子。片尾 Ben 也講了跟本節一樣的結論：有防水處理，不等於通過 UIAA Water Repellent。這是單一樣品，由 Mammut 人員操作。
+
+```youtube
+url: https://www.youtube.com/watch?v=JnNA4mLqwtQ
+title: Every Test Climbing Ropes Have to Pass（Hard Is Easy）
+start: 1643
+```
 
 ## 確保器：兩大類，相容看說明書
 
@@ -127,6 +143,14 @@ BD 把單繩分成三段：
 - **輔助制動確保器**：墜落時會自己夾住繩子。〈[岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay)〉說過，它是「輔助」不是「自動」，制動手仍然不能離開繩子。
 
 UIAA 在 [2009 年發布的第一份制動器標準（UIAA 129）](https://www.theuiaa.org/safety-standard-for-braking-devices-published/)涵蓋四種：手動、輔助鎖定、垂降器，以及帶防恐慌功能的垂降器。歐洲標準是 EN 15151。以 [Petzl GRIGRI 的說明書](https://www.petzl.com/sfc/servlet.shepherd/version/download/068Tx000009YCjEIAW)為例，它寫的是「EN 15151-1 type 6：用於確保與垂降、沒有防恐慌鎖定元件的裝置」。不同確保器屬於哪一型，看它的說明書。
+
+Hard Is Easy 的確保器介紹從 2:07 的管狀確保器開始，接著講輔助制動。他把輔助制動再分成輔助管狀和凸輪式（例如 GRIGRI），對到本文的分法就是：管狀屬於手動，其餘屬於輔助制動。最值得看的是 8:30 左右：制動手往上抬時，輔助管狀確保器一樣不會鎖，繩子直接從手裡滑過，這就是「輔助不是自動」。說明欄註明所有示範都只用一條 9.0 mm 繩，換了繩徑和鉤環，結果會不同。
+
+```youtube
+url: https://www.youtube.com/watch?v=qx3x5MMqGUg
+title: Complete Guide into Belay Devices - Differences and Efficient Usage | Ep.6（Hard Is Easy）
+start: 127
+```
 
 ### 相容：繩徑要落在確保器的範圍內
 
@@ -143,6 +167,14 @@ UIAA 在 [2009 年發布的第一份制動器標準（UIAA 129）](https://www.t
 
 - **繩徑有誤差。** 市售繩子的標稱繩徑有最多 ±0.2 mm 的誤差，所以接近上下限的組合要特別小心。
 - **有些繩比較滑。** 有外皮處理的繩、全新的繩，以及結冰、濕、沾泥的繩，都可能降低 GRIGRI 的鎖定效果。換一條不熟悉的繩，就要重新熟悉確保器的手感。
+
+HowNOT2 用拉力機慢慢拉 GRIGRI，看繩子在多大的力下開始滑。從 1:40 開始：接近 GRIGRI 規格下限的細繩，不到 3 kN 就滑了，10 mm 繩撐得高很多，方向跟說明書「越細越難握」一致。限制要講清楚：每種組合只拉一次、是慢拉不是墜落，部分繩段之前已經拉過；滑動發生的力也遠高於正常確保時確保者那端受的力，所以不能讀成「細繩在 GRIGRI 上會滑掉」。也不能讀成越粗越好，同一支影片裡 11 mm 繩反而比 10 mm 早滑。片中是 2021 年當時的 GRIGRI，選繩照你手上那台的說明書。
+
+```youtube
+url: https://www.youtube.com/watch?v=UjYLsya1T9E
+title: What breaks first??? Petzl GriGri or the Ropes? + Beal Birdie Tests!（HowNOT2）
+start: 100
+```
 
 回到開頭那兩條繩：要先知道你的確保器適合什麼繩徑，再決定買 9.8 還是 8.9。
 
@@ -170,6 +202,14 @@ UIAA 在 [2009 年發布的第一份制動器標準（UIAA 129）](https://www.t
 快扣是兩個鉤環用一段縫合扁帶連起來。[DAV 2010 年的裝備壽命專文](https://sac-hoherrohn.ch/wp-content/uploads/2019/02/dav_lebensdauer-von-alpinausruestung.pdf)提到，當時掛 bolt 那一端已普遍用沒有鉤鼻的 keylock 門，掛繩那一端用鋼絲門（wiregate）。那時頂級鉤環的開門強度已超過 9 kN。
 
 要帶幾支，看你要爬的路線有幾個 bolt。快扣怎麼掛、方向怎麼對，在〈[岩館先鋒](/posts/climbing/2026-10-17-gym-lead-climbing)〉；第一次去戶外先鋒前要準備什麼，在〈[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)〉。
+
+鋼絲門好在哪，HowNOT2 這支鉤環對拉的前三分鐘講得很清楚：門本身就是彈簧，零件少，沙和雪不容易卡；門比較輕，撞到岩石時比較不會震開（gate flutter）。門一旦是開的，影片裡那顆鉤環的強度會從標示值掉到約 8 kN。每顆鉤環的開門強度印在本體上，以你手上那顆的標示為準。後段是十幾顆鉤環串聯對拉，其中有舊鉤環，影片自稱是娛樂不是科學，誰最後斷沒有參考價值，看到 3:20 左右就夠了。
+
+```youtube
+url: https://www.youtube.com/watch?v=Ts5bK_luHl8
+title: Guess which carabiner breaks last 👉 CARABINER SHOWDOWN（HowNOT2）
+start: 60
+```
 
 ## 練習題：四個情境
 
@@ -210,6 +250,17 @@ UIAA 的購買建議正好用這個例子：為 9–10 mm 設計的確保器配 
 ## 下一步
 
 到這裡，你已經買齊了鞋、吊帶、頭盔、繩、確保器和鉤環。最後一件事，是讓它們用到該退役的時候：原廠說的「10 年」到底是什麼意思、什麼狀況要立刻換、各家說法不一致時怎麼辦。這是[第 4 篇：檢查、保養與汰換](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement)。
+
+## 延伸觀看：器材實測與教學頻道
+
+本文嵌入的影片來自下面兩個頻道。想自己往下挖，可以從這裡開始；看的時候記得每個頻道的限制。
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**：Ryan Jenks 經營，2016 年從走繩（highline）安全教學起家，後來把攀岩、洞穴、溪降器材拿去拉斷，還有在真岩上拉 bolt 的 Bolt Busters 系列。看點是「標示強度以外」的情況：打結、磨損、舊裝備、放錯位置。限制：多數是自製機器慢拉、每組 1–3 個樣本，他自己也說這是娛樂不是科學；頻道背後有網路器材店，部分受測品是店內商品。
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**：署名 Ben 的攀岩者獨自經營，以前是軟體工程師。一次在泰國 Tonsai 看到確保者接太硬、攀者撞上岩石，他回家設計實驗，從此專拍確保、繩子、鉤環與確保器的實驗與物理解說，近年多支在 Mammut 實驗室合拍。限制：實驗多是自己設計，不是 EN／UIAA 標準測試。
+
+## 更新紀錄
+
+- 2026-10-23：補充 HowNOT2、Hard Is Easy 等頻道的器材實測影片與頻道介紹
 
 ## 參考資料
 

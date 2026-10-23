@@ -53,11 +53,27 @@ glossary:
 
 美國阿爾卑斯俱樂部（AAC）的〈[Cleaning Sport Routes](https://publications.americanalpineclub.org/articles/13201216058)〉、REI 和 TOCC 說法一致：主繩穿過你自己的裝備，磨損由你的裝備承擔。公共設備留給最後一個人下撤用。
 
+**看影片**：HowNOT2 把一個從 Yosemite 熱門路線拆下來、被繩子磨薄的鋁製垂降環拿去拉，結果 1.5 kN 就斷了（數字出自影片說明欄）。從 9:06 看起；這是單一樣本的慢拉，用來看磨損怎麼讓公共設備變危險，不是在測新環。
+
+```youtube
+url: https://www.youtube.com/watch?v=xrKzvWMyCmE
+title: This rappel ring could kill someone（HowNOT2）
+start: 546
+```
+
 **今晚就能做的動作**：檢查你的快扣裡有沒有兩條能換成有鎖鉤環的，或直接準備兩條有鎖快扣，專門留給頂繩用。
 
 ## 架之前：先看頂端的兩顆 bolt
 
 頂繩把整個系統交給頂端兩顆 bolt，所以上一篇的檢查要在頂端再做一次：鏽蝕、裂縫、會轉的掛片、周圍岩石、環的磨損。
+
+**看影片**：BMC 這支三分鐘短片從 2:15 起示範檢查頂端的鏈條和環：先看有沒有接牢、鎖好，再看磨損。片中口述的門檻是磨掉「大約一半」就考慮停用，比前面引的 BMC 網頁寫的三分之一寬鬆；兩種說法不同，以較保守的三分之一為準。影片是英國情境，沒有談材質和鏽蝕，龍洞還要加上 TOCC 下面這幾條。
+
+```youtube
+url: https://www.youtube.com/watch?v=SpSOFhqEKgs
+title: How to check and preserve a lower off（BMC TV）
+start: 135
+```
 
 TOCC 對龍洞頂端的配件有幾個具體提醒：
 
@@ -87,6 +103,14 @@ TOCC 也呼籲，任何固定點或自己架的系統，在真正使用前都要
 
 每顆 bolt 各掛一條快扣，就是兩個**獨立**的點：其中一顆或一條快扣出問題，繩子還掛在另一條上。這也是 REI 對冗餘的最低要求：至少兩個牢靠的固定點。
 
+**看影片**：Hard Is Easy 在 Mammut 實驗室拍的這段從 24:02 開始，講頂端兩個開口對向的鉤環：繩子只走其中一個時，鉤環側面會磨出不對稱的溝槽，結論是「有兩個，就扣兩個」。這只是約一分鐘的觀察，不是破斷測試，片中的鉤環也是頂端常見的無鎖款；架自己的頂繩，仍照上面 AAC 的要點用有鎖快扣。
+
+```youtube
+url: https://www.youtube.com/watch?v=7qEvvobz5YQ
+title: How Deep is too Deep? For a Rope（Hard Is Easy）
+start: 1442
+```
+
 **今晚就能做的動作**：在家把兩條快扣扣在門把或椅背的兩個點上，練習讓兩個開口朝相反方向，再把一段繩子同時穿過兩條。
 
 ## 架法二：用 cordelette 做 quad
@@ -108,6 +132,14 @@ TOCC 也呼籲，任何固定點或自己架的系統，在真正使用前都要
 5. 在兩個結之間的四股中，用兩個開口對向的有鎖鉤環扣住其中三股，留一股不扣。這兩個鉤環就是主繩要穿過的點。
 
 留一股不扣，是為了讓其中一側失效時，鉤環會被結擋住，不會整個滑掉。REI 用 SERENE-A 口訣檢查成品：牢靠、平均、冗餘、有效率、不延伸，再加上角度，兩側夾角保持在 60 度以內。這些原則在〈[建立固定點](/posts/climbing/2026-10-17-building-anchors)〉會完整講。
+
+**看影片**：HowNOT2 的 Bobby 從 14:17 起示範他最常用的 quad 頂繩固定點，兩個單結先不拉緊、方便調整，並說強度是頂繩需求的 10 到 20 倍。但他用的是 240 公分 dyneema 扁帶，不是 REI 的 7 mm 以上 cordelette，扣主繩的方式也不是上面 REI「兩個對向有鎖鉤環扣三股、留一股不扣」的做法。影片適合拿來看 quad 的結構，自己照做時以 REI 的步驟為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=Xzw9ZT-J71E
+title: 3 Ways to Build a Top Rope Climbing Anchor（HowNOT2）
+start: 857
+```
 
 ## 在頂端的操作順序
 
@@ -166,6 +198,14 @@ TOCC 在〈[龍洞的上方固定點](https://www.tocc-climbing.org/post/%E9%BE%
 
 REI 也寫，不要直接讓主繩穿過掛片、鏈環或垂降環下放自己，那些零件不是設計來承受繩子摩擦的。真的必須下放，就留一個有鎖鉤環在岩場上。
 
+**看影片**：HowNOT2 找 Hard Is Easy 合拍的運攀入門片，從 58:06 起示範最後一個人收固定點：先用 personal anchor 固定自己、下方留一條快扣當備份，用繩耳穿過頂端環、打八字結加有鎖鉤環掛上吊帶，全程都有兩個保護，確認是繩子在承重才拆 personal anchor。要注意影片最後是讓主繩穿過頂端環**下放**，也就是上面 REI 不建議的做法；在龍洞請依 TOCC 盡量垂降，兩種方式的差別見〈[下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel)〉。
+
+```youtube
+url: https://www.youtube.com/watch?v=yxNYyCONYGo
+title: Intro to Sport Climbing ft. Hard is Easy（HowNOT2）
+start: 3486
+```
+
 **今晚就能做的動作**：跟常一起爬的夥伴約好下次戶外的分工：誰先鋒上去架、架哪一種、最後誰清、用下放還是垂降。
 
 ## 練習題：四個情境
@@ -209,6 +249,18 @@ REI 也寫，不要直接讓主繩穿過掛片、鏈環或垂降環下放自己�
 架好頂繩、大家爬完之後，最後一個人要從頂端下來。下一篇〈[下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel)〉會講兩種方式的取捨，以及龍洞為什麼建議垂降。頂端沒有 bolt 時怎麼自己做固定點，在〈[建立固定點](/posts/climbing/2026-10-17-building-anchors)〉。
 
 想先複習地面的確保，可以回到〈[岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay)〉。
+
+## 延伸觀看：器材實測與教學頻道
+
+本文嵌入的影片來自下面幾個頻道。想自己往下挖，可以從這裡開始；看的時候記得每個頻道的限制。
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**：Ryan Jenks 經營，2016 年從走繩（highline）安全教學起家，後來把攀岩、洞穴、溪降器材拿去拉斷，還有在真岩上拉 bolt 的 Bolt Busters 系列。看點是「標示強度以外」的情況：打結、磨損、舊裝備、放錯位置。限制：多數是自製機器慢拉、每組 1–3 個樣本，他自己也說這是娛樂不是科學；頻道背後有網路器材店，部分受測品是店內商品。
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**：署名 Ben 的攀岩者獨自經營，以前是軟體工程師。一次在泰國 Tonsai 看到確保者接太硬、攀者撞上岩石，他回家設計實驗，從此專拍確保、繩子、鉤環與確保器的實驗與物理解說，近年多支在 Mammut 實驗室合拍。限制：實驗多是自己設計，不是 EN／UIAA 標準測試。
+- **[BMC TV](https://www.youtube.com/@teamBMCTV)**：英國登山協會（BMC）的頻道。2017 年拍的一系列 1–3 分鐘短片逐步示範怎麼檢查繩子、吊帶、頭盔、鉤環、bolt。限制：只示範、不測數字，是英國情境。
+
+## 更新紀錄
+
+- 2026-10-23：補充 HowNOT2、Hard Is Easy 等頻道的器材實測影片與頻道介紹
 
 ## 參考資料
 

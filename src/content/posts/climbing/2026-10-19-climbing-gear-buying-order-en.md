@@ -64,6 +64,14 @@ Once you top-rope regularly, you put on a harness and operate a belay device eve
 
 A helmet is for rockfall outdoors, and [outdoor belaying](/posts/climbing/2026-10-17-outdoor-belay-en) explains why belayers wear one too. A rope and quickdraws are what you need when you start leading your own outdoor trips; until then, climb with experienced people and use theirs.
 
+In the video below, North Wales instructor Jez lays out what to bring when a friend takes you out to second: one harness, a helmet, a chalk bag, beginner shoes, and a belay device with a locking carabiner, while the friend brings the rope and the rack. That matches this post's advice to borrow ropes and quickdraws at first. The difference is the helmet: his audience starts on UK crags, so it's in the first batch; if you're still in the gym, the order above stands. It's one instructor talking from experience with UK prices and no testing, and the personal-kit part ends around 7:30, after which he moves on to trad gear.
+
+```youtube
+url: https://www.youtube.com/watch?v=jffVxP0Kjc0
+title: Climbing chat: Seconding kit for sport and trad, what to buy when starting out! (JB Mountain Skills)
+start: 25
+```
+
 **Something you can do tonight**: list the gear you'll use on your next gym visit and write "rent" or "mine" next to each. The items marked "mine" are the posts in this series to read first.
 
 ## Shoes aren't PPE; harnesses are
@@ -86,6 +94,14 @@ You'll see two kinds of marking on gear.
 - **UIAA Safety Label**: issued by the International Climbing and Mountaineering Federation (UIAA). [The UIAA's safety standards page](https://www.theuiaa.org/safety/safety-standards/) says it began writing standards in 1960 with ropes and now covers more than 25 types of equipment; it works with the European Committee for Standardization (CEN) to harmonise them, and in some cases asks for additional tests, making its standard stricter than CEN's.
 
 [The UIAA's buying advice, updated in February 2026](https://theuiaa.org/uiaa/uiaa-advice-ten-things-to-consider-when-buying-climbing-gear), says to buy only gear bearing the UIAA Safety Label and/or the CE mark. It's usually engraved or stitched on the gear, or printed in the instructions. If you doubt a model's label, check the [UIAA Certified Equipment Database](https://www.theuiaa.org/safety-standards/certified-equipment/).
+
+While breaking a batch of carabiners bought on Amazon, HowNOT2's Ryan ran into a real case: one product page claimed UIAA certification, but the UIAA site showed it had expired. Start at 10:40; the description walks through ticking the extended search for old products to find the lapsed listing. The video is from 2020 and uses a home-built slow-pull rig with only a few samples per model, not a standard test. The knockoffs did beat their labels in those few pulls, but a sample that small says nothing about whether knockoffs are safe to climb on. Ryan also admits he doesn't know the difference between CE and UIAA, and the definitions in the description come from viewer comments, so go by the UIAA sources in this section for how to read a label.
+
+```youtube
+url: https://www.youtube.com/watch?v=BQfKTx5T2WM
+title: Amazon Chinese Knockoff Climbing Carabiners TESTED (HowNOT2)
+start: 640
+```
 
 ### Standard numbers for common gear
 
@@ -114,6 +130,14 @@ Why look for it? Because textiles and plastics in harnesses, ropes and helmets a
 
 Some manufacturers encode the year in the serial number. Petzl's care notes give the example "09 365 AB 1234": 09 is the year, 365 the day of that year. Older harnesses may read "99 289 A", again with the year first. Other brands encode differently, so check the manual.
 
+Ropes carry a date in a second place you normally can't see. At the start of his rope guide, Hard Is Easy's Ben cuts a rope open: some cores hold a plastic tape printed with the maker and the production quarter, while others have only a thin coloured strip whose colour the manufacturer changes each year, so you'd have to ask them which year it means. It's about 45 seconds from the one-minute mark. You only see that tape once the rope is cut, so for buying and routine checks, the end label is still what you read.
+
+```youtube
+url: https://www.youtube.com/watch?v=ncUGR2JbefY
+title: Complete Guide to Climbing Ropes - How many falls they Hold? Why they Twist? | Ep.5 (Hard Is Easy)
+start: 60
+```
+
 **Something you can do tonight**: take any harness, helmet or rope you own and find the CE or UIAA marking and the year of manufacture. If you can't find the year, copy down the model and look up on the manufacturer's site how to read the serial number.
 
 ## Why harnesses, helmets and ropes shouldn't be bought second-hand
@@ -133,6 +157,21 @@ Three more points in the UIAA advice are about where you buy:
 1. **Watch for counterfeits.** Seemingly certified products at very low prices are a warning sign.
 2. **Buy online only from trusted sources**: known brands, the manufacturer, or a reputable retailer.
 3. **Check the database when in doubt.** The UIAA Certified Equipment Database above lists models.
+
+Two HowNOT2 videos are counterexamples showing that these three points lower the risk rather than remove it. In the first, Emily tells her own story: she ordered a rope online from an authorized Black Diamond dealer, and it arrived in what looked like genuine packaging, batch number and manufacture date included. Inside was a rope Black Diamond confirmed wasn't theirs; Ryan suspects it was a static rope. The title says "allegedly", and Ryan is relaying her account rather than something he saw firsthand.
+
+```youtube
+url: https://www.youtube.com/watch?v=XlL7XFm0-Q4
+title: Dicks sells a counterfeit Black Diamond climbing rope (allegedly) (HowNOT2)
+```
+
+In the second, from 7:50, viewer Chris orders CAMP carabiners online and receives unbranded ones rated only 16 kN, with neither UIAA nor CE marking, at the same price as the real thing. A suspiciously low price is one warning sign, but a normal price doesn't make gear genuine. This case, too, is Ryan relaying a viewer's message, with no other source.
+
+```youtube
+url: https://www.youtube.com/watch?v=1uPSup3UpDQ
+title: Sketchy carabiners from Amazon, AliExpress, Ebay and Walmart tested! (HowNOT2)
+start: 470
+```
 
 ## The first thing after buying: inspect and record
 
@@ -196,6 +235,18 @@ The UIAA says ropes shouldn't be bought second-hand, and Petzl's retirement cond
 ## Next
 
 Your first purchase is usually shoes. Shoes aren't PPE, so there's no label to read; fit is all you have. How tight is right, how many sizes down, and when to resole: that's [post 1: Climbing shoes](/posts/climbing/2026-10-19-climbing-shoes-en).
+
+## Further viewing: gear-testing and instruction channels
+
+The videos embedded in this post come from the channels below. They're a good place to keep digging; keep each channel's limits in mind as you watch.
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**: run by Ryan Jenks. It started in 2016 as highline safety instruction and grew into breaking climbing, caving and canyoneering gear, plus the Bolt Busters series that pulls bolts out of real rock. Its value is in the cases beyond the rated number: knots, wear, old gear, bad placements. Limits: most tests are slow pulls on a home-built rig with one to three samples, and Ryan himself calls it entertainment, not science; the channel is backed by an online gear shop, and some tested items are sold there.
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**: run solo by a climber who signs as Ben, a former software developer. After watching a hard catch slam a climber into the rock in Tonsai, Thailand, he designed his first experiment; the channel now focuses on experiments and physics explanations about belaying, ropes, carabiners and belay devices, with several recent episodes filmed in Mammut's lab. Limits: most experiments are his own design, not EN/UIAA standard tests.
+- **[JB Mountain Skills](https://www.youtube.com/@JBMountainSkills)**: run by Jez, a climbing and mountaineering instructor in North Wales; lots of hands-on anchor and top-rope setup lessons. Limits: one instructor's experience and UK practice, no test data.
+
+## Update Log
+
+- 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 
 ## References
 

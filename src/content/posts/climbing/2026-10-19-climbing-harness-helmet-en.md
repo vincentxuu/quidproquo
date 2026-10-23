@@ -51,6 +51,14 @@ Names as used in [Petzl Taiwan's harness guide](https://www.petzltw.com/pages/�
 
 There are also **elastic leg-loop straps** at the back, which hold the leg loops in position on your thighs.
 
+To see it on a real harness, the sport-climbing intro that Ryan of HowNOT2 filmed with Ben of Hard Is Easy gets to harnesses at 6:34: a waistbelt and two leg loops meeting at the front in a single belay loop. Ryan's one warning is that some gym harnesses sew everything into a single master point; when you buy your own, get one with a real belay loop. The segment covers only the overall structure, so for how to use the tie-in points and gear loops, go by Petzl Taiwan and REI above. From 9:40 it's an ad for the HowNOT2 shop.
+
+```youtube
+url: https://www.youtube.com/watch?v=yxNYyCONYGo
+title: Intro to Sport Climbing ft. Hard is Easy (HowNOT2)
+start: 394
+```
+
 ## Harness types: choose by what you'll climb
 
 [REI](https://www.rei.com/learn/expert-advice/climbing-harness.html) sorts harnesses into several types:
@@ -90,11 +98,27 @@ REI says you can't know whether a harness is comfortable without hanging in it o
 - **Does the waistbelt shift?** If so, tighten until it stops. Before weighting it, also try pulling the waistbelt down over your hips; you shouldn't be able to. If the shop allows it, slowly invert to test for slippage.
 - **Any pressure points?** If so, consider another model.
 
+This Hard Is Easy episode demonstrates the fit from 0:35: waistbelt above the hip bones, then he hangs fully upside down to show that a belt you can't pull past your hips won't let you slide out. From 6:00 he turns to the elastic straps, letting them out completely and hanging again, which pulls him backwards; with the straps reset he sits noticeably more upright. He says you should fit a hand or two between leg and leg loop; that is about the leg loops, not the same thing as REI's two-finger check at the waistbelt. The episode is sponsored by Mammut and uses a Mammut harness.
+
+```youtube
+url: https://www.youtube.com/watch?v=uXhneYRiGqw
+title: Climbing Harnesses - Every part explained, incl Elastic Straps at the back | Ep.7 (Hard Is Easy)
+start: 35
+```
+
 ### Buckles: does yours need doubling back?
 
 Adventure Taiwan says newer harnesses usually don't need doubling back, but some do: the webbing is threaded through the buckle and then back again. To tell, look at the buckle's design, or for a word like **DANGER** printed on it; if it's there, double it back. REI's fitting steps also say to make sure every buckle is doubled back (not needed on self-locking buckles).
 
 A rental harness and your own may have different buckles, so the first thing with any new harness is to check how its buckle works. The partner-check routine is in [gym top-rope belaying](/posts/climbing/2026-10-17-gym-top-rope-belay-en).
+
+From 5:50 in this HowNOT2 try-on video, Ryan uses an aid-climbing harness that needs doubling back (the Misty Mountain Titan) to show what to look for: if you can see an "O" at the buckle it's open; once you can't see either side of the top buckle and only a "C" is left, it's closed. His point is that because most harnesses are self-locking now, the odd one that needs doubling back is easier to forget. It shows only one buckle design, so follow your own harness's manual; the harnesses in the video are also sold in the HowNOT2 shop.
+
+```youtube
+url: https://www.youtube.com/watch?v=auH3uSmXdUc
+title: I tried these on so you don't have to (HowNOT2)
+start: 350
+```
 
 **Something you can do tonight**: put on your harness (or your next rental), check the two-finger gap at the waistbelt, then try to pull the belt down over your hips. If it goes, it's too loose.
 
@@ -129,6 +153,14 @@ Which to choose? The two sources don't quite agree:
 - REI: for **multi-pitch trad and mountaineering**, where you carry a lot and wear the helmet for hours, low weight and ventilation matter, so consider foam; for cool-weather single-pitch sport, where you can take the helmet off between climbs, you can trade comfort for a cheaper, durable hardshell.
 
 They weigh different things: DAV the kind of impact, REI the burden of wearing it all day. DAV is writing about alpine settings; REI singles out single-pitch sport climbing on its own. Both are laid out here so you can match each to the terrain you're heading for.
+
+From 8:45 this Hard Is Easy episode splits helmets into the same two groups. Hardshells are extremely durable and much cheaper, good if you don't want to baby your helmet; mostly-foam helmets are light with big vents but dent and crack easily, and the one on screen, a friend's that had never taken a hit, cracked on a flight (how to judge a cracked helmet is in post 4). Ben prefers foam himself, which is a personal choice rather than a finding that overrides DAV or REI. The opening, where he drops a big rock on a watermelon, is what he calls "shitty science": one drop, no force measured, so don't treat it as an impact test. This episode is also sponsored by Mammut.
+
+```youtube
+url: https://www.youtube.com/watch?v=s5ZLd-kCCRs
+title: I Dropped a Massive Rock on the Most Advanced Helmet | Ep.8 (Hard Is Easy)
+start: 525
+```
 
 ### Fitting a helmet
 
@@ -199,6 +231,17 @@ Follow REI's steps: wear it squarely with the rim across your forehead, adjust u
 ## Next
 
 Harnesses and helmets can be tried on; you can see and feel them. The next post is more abstract: what the 1, ½ and ∞ on a rope end mean, why ropes need to stretch, and how to match a belay device to rope diameter. That's [post 3: Rope, belay device and carabiners](/posts/climbing/2026-10-19-climbing-rope-belay-device-en).
+
+## Further viewing: gear-testing and instruction channels
+
+The videos embedded above come from these two channels. If you want to dig further, start here, and keep each channel's limits in mind.
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**: run by Ryan Jenks. It started in 2016 as highline safety instruction and grew into breaking climbing, caving and canyoneering gear, plus the Bolt Busters series that pulls bolts out of real rock. Its value is in the cases beyond the rated number: knots, wear, old gear, bad placements. Limits: most tests are slow pulls on a home-built rig with one to three samples, and Ryan himself calls it entertainment, not science; the channel is backed by an online gear shop, and some tested items are sold there.
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**: run solo by a climber who signs as Ben, a former software developer. After watching a hard catch slam a climber into the rock in Tonsai, Thailand, he designed his first experiment; the channel now focuses on experiments and physics explanations about belaying, ropes, carabiners and belay devices, with several recent episodes filmed in Mammut's lab. Limits: most experiments are his own design, not EN/UIAA standard tests.
+
+## Update Log
+
+- 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 
 ## References
 

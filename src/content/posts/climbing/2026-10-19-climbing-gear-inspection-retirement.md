@@ -103,6 +103,14 @@ DAV 也說，產品不會在期限過了一天就突然壞掉，從新品到該�
 
 Petzl 也建議**至少每 12 個月**由合格人員做一次詳細檢查。退役的裝備，[BD](https://blackdiamondequipment.com/blogs/stories/qc-lab-worn-belay-loops-and-retiring-a-harness) 和 [Petzl 的吊帶檢查文](https://web.archive.org/web/20240127115431/https://www.petzl.com/INT/en/Sport/News/2018-1-24/How-to-inspect-your-climbing-harness)都要你破壞掉，避免別人撿去用。
 
+**看影片**：HowNOT2 把機油、防蚊液、防曬乳和混合酸塗在同一款繩子上慢拉，從酸那一段開始看。其他樣本都斷在繩結，只有塗酸的那段斷在塗酸處，強度只剩平常的一半左右。這是少量樣本的慢拉，不是落錘測試；另外幾種沒變弱只代表這一次的結果，酸的部分則和 Edelrid、DAV 說的一致：外表看不太出來，強度已經掉了。
+
+```youtube
+url: https://www.youtube.com/watch?v=yVnnyWZ8pVM
+title: Contaminated climbing ropes - oil, sunscreen, deet and acid（HowNOT2）
+start: 542
+```
+
 ## 繩子怎麼檢查
 
 **每次用前用後整條過手。** [Edelrid](https://edelrid.com/int-en/knowledge/knowledge-base/looking-after-your-climbing-rope) 要你一公尺一公尺讓繩子從手中滑過，摸出小的不規則或損傷；遇到落石、大墜落之後要特別仔細。
@@ -112,6 +120,14 @@ Petzl 也建議**至少每 12 個月**由合格人員做一次詳細檢查。退
 **外皮起毛不一定要換。** DAV 說外皮輕微起毛，只要繩芯沒壞，不必馬上淘汰，通常只是比較難操作。
 
 **繩端可以切掉。** DAV 說運攀用的繩子靠近兩端磨得特別兇，切掉之後還可以用在比較短的路線。Mammut 說損傷如果只在繩端，可以切掉。切完用打火機把切口的外皮和繩芯熔在一起，再重新量繩長、用 Edding 3000 標記新的中點，並在切口處的膠帶上寫下新的長度。繩子變短，下放時繩尾的風險就變大，〈[戶外確保](/posts/climbing/2026-10-17-outdoor-belay)〉的繩尾結更不能省。
+
+**看影片**：Hard Is Easy 在 Mammut 的實驗室請工程師回答「多軟算太軟、多毛算太毛」，從 17:15 開始。工程師的判斷法是拿同一條繩子來比：整條本來就軟、某處稍軟，不必慌；整條偏硬、某處特別軟，就有問題；繩端和中段差很多，就切掉繩端。影片前段讓一個軟點剛好落在快扣上，外皮只摔兩次就破了。這是一條舊繩、一個軟點，測法也不是標準方法。
+
+```youtube
+url: https://www.youtube.com/watch?v=UWy91q77zpw
+title: Lab Test - How Soft is too Soft? How Fuzzy is too Fuzzy?（Hard Is Easy）
+start: 1035
+```
 
 **今晚就能做的動作**：把你的繩子整條過手一次，在每個摸起來不一樣的地方做彎環測試。
 
@@ -131,6 +147,13 @@ DAV 補充兩點：
 - 繫繩點的耐磨保護層一旦**磨穿就退役**。**不要用膠帶補強**，膠帶黏膠的化學成分可能讓材料更弱。
 
 BD 也提醒：不要自己縫、不要用火燒線頭、不要銼扣具。
+
+**看影片**：HowNOT2 這支不到一分鐘的短片，從確保環拉一條 2002 年製和一條全新的同款 Petzl 吊帶。舊的那條看起來還好，只是毛毛的，結果確保環從腰帶處被拉出，說明欄寫的破斷強度大約只有新品的一半。單一樣本、慢拉，而且那條早就超過 Petzl 的最長壽命；它示範的是「看起來還好」代替不了檢查和年限。
+
+```youtube
+url: https://www.youtube.com/watch?v=RucMUdGuz20
+title: 23 year old harness（HowNOT2）
+```
 
 ## 頭盔怎麼檢查
 
@@ -165,6 +188,14 @@ Mammut 也說，頭盔是靠殼和內襯的部分破壞來吸收撞擊能量，�
 
 BMC 的做法：先掛**自己的快扣**，吊在自己的快扣上檢查常駐快扣；確認安全，再改掛常駐快扣。DAV 說，常駐快扣的扁帶顏色嚴重褪色，是明確的警訊，最好換成自己的裝備。
 
+**看影片**：Hard Is Easy 在 Mammut 的落錘塔測鉤環的磨痕，從 21:15 開始是結論和岩場實例：一條路線第 1 支快扣的鉤環，被繩子磨出一道平面邊，摸起來不像刀，繩子只摔 6 次外皮就破開。每種情況只有一個樣本。影片前半段拉斷有凹槽的鉤環，強度仍接近標示值；危險在繩子被割，所以 BMC 才要你先吊在自己的快扣上，用手摸過再決定。
+
+```youtube
+url: https://www.youtube.com/watch?v=7qEvvobz5YQ
+title: How Deep is too Deep? For a Rope（Hard Is Easy）
+start: 1275
+```
+
 怎麼判斷戶外 bolt 本身能不能信，見〈[掛片會壞](/posts/climbing/2026-10-17-judging-bolts)〉。
 
 ### 掉在地上的鉤環：兩種說法並列
@@ -176,6 +207,14 @@ BMC 的做法：先掛**自己的快扣**，吊在自己的快扣上檢查常駐
 - **Petzl**：退役條件包括「你對它的可靠性有任何疑慮」。
 
 這篇不替你選。DAV 的「看起來沒問題」不是不用看：要檢查門能不能完全關上、彈簧夠不夠力、鎖門正不正常、有沒有變形或銳邊。看完還是不放心，就照 BD 與 Petzl 的做法換掉。
+
+**看影片**：Hard Is Easy 把同一款 Mammut 鉤環從無人機丟到硬地、循環加載、做 CT 掃描，再到 Mammut 拉斷，從 13:35 的拉斷測試開始看。從 100 m 丟下的那組全部高於標示強度；Mammut 工程師的結論是強度不是問題，但掉落後的銳邊會傷繩，要檢查。這支影片支持 DAV 那一方，但只測一個型號，頻道也由 Mammut 贊助，推翻不了 BD 與 Petzl 的做法：上面的檢查照做，有疑慮照樣換。
+
+```youtube
+url: https://www.youtube.com/watch?v=EU90n-d4Txs
+title: Should You Retire Dropped Climbing Gear?（Hard Is Easy）
+start: 815
+```
 
 ## 保養與存放
 
@@ -263,6 +302,17 @@ DAV 說掉落本身不會產生髮絲裂紋，看起來沒事通常就沒事；B
 2. [吊帶與頭盔](/posts/climbing/2026-10-19-climbing-harness-helmet)：試穿、類型、EPS 與硬殼。
 3. [繩子、確保器與鉤環](/posts/climbing/2026-10-19-climbing-rope-belay-device)：繩端標示、繩徑、防水、相容性。
 4. 本篇：檢查、保養與汰換。
+
+## 延伸觀看：器材實測與教學頻道
+
+本文嵌入的影片來自下面兩個頻道。想自己往下挖，可以從這裡開始；看的時候記得每個頻道的限制。
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**：Ryan Jenks 經營，2016 年從走繩（highline）安全教學起家，後來把攀岩、洞穴、溪降器材拿去拉斷，還有在真岩上拉 bolt 的 Bolt Busters 系列。看點是「標示強度以外」的情況：打結、磨損、舊裝備、放錯位置。限制：多數是自製機器慢拉、每組 1–3 個樣本，他自己也說這是娛樂不是科學；頻道背後有網路器材店，部分受測品是店內商品。
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**：署名 Ben 的攀岩者獨自經營，以前是軟體工程師。一次在泰國 Tonsai 看到確保者接太硬、攀者撞上岩石，他回家設計實驗，從此專拍確保、繩子、鉤環與確保器的實驗與物理解說，近年多支在 Mammut 實驗室合拍。限制：實驗多是自己設計，不是 EN／UIAA 標準測試。
+
+## 更新紀錄
+
+- 2026-10-23：補充 HowNOT2、Hard Is Easy 等頻道的器材實測影片與頻道介紹
 
 ## 參考資料
 
