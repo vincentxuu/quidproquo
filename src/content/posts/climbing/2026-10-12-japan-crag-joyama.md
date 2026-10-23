@@ -201,6 +201,12 @@ ROCKTOPO（經由 [Wayback Machine 快照](https://web.archive.org/web/202605181
 | ジプシーマリー | 5.10a | 5.10a | — | 南壁 | 部落格寫「辛め」 |
 | Wild X／ワイルドX | 5.10a | 5.10a | — | ワイルドボア・右壁 | theCrag ★★ |
 
+```video-gallery
+key: joyama
+lang: zh-TW
+layout: routes
+```
+
 南壁的 5.8–5.9 有一個現象：同一個數字實際差很多。とんとん拍子 5.8 被寫成「辛め」，アナザステップ 5.9 反而更鬆；第一次來不要照級數排順序，先挑被寫「甘め」的熱身。
 
 第一次來、想把第一個半天留給多段的人，Battlerunner 比 Excursion 短、撤退點多；但它不會登頂，而且第 2 段需要處理老舊固定點。想先確認手感，南壁下方那幾條 5.8–5.9 的單段比較單純。
@@ -217,7 +223,7 @@ ROCKTOPO（經由 [Wayback Machine 快照](https://web.archive.org/web/202605181
 | School Zone／スクールゾーン | 5.10c | 5.10c | 20 公尺 | 南壁 | theCrag ★、7～8 個 bolt、5 次紀錄 |
 | タナバタのタナボタ | 5.10c | 5.10c | — | 南壁 | 部落格寫「比較好爬」 |
 | 仰げば尊し | 5.10d | 5.10d | — | 南壁 | 南壁右側的屋簷帶；部落格寫那一排「難しいルートばかり」 |
-| ハートルート | 5.11a | 5.11a | — | 東南壁（部落格）／theCrag 列南壁 | 部落格寫是人氣路線 |
+| Heart Route／ハートルート | 5.11a | 5.11a | — | 東南壁（部落格）／theCrag 列南壁 | 部落格寫是人氣路線 |
 | Long distance／ロングディスタンス | 5.10d | 5.10d | 32 公尺 | ワイルドボアゴージ | theCrag ★★、15 個 bolt、6 次紀錄 |
 | Calcutta／カルカッタ | 5.10c | 5.10c | 17 公尺 | ワイルドボアゴージ | ★★、8 個 bolt、4 次紀錄 |
 | Journey of Hope／ジャーニーオブホープ | 5.10c | 5.10c | 10 公尺 | ワイルドボアゴージ | ★、4 個 bolt、1 次紀錄 |
@@ -231,6 +237,12 @@ ROCKTOPO（經由 [Wayback Machine 快照](https://web.archive.org/web/202605181
 | Kon'nichiwa makoron／こんにちわマコロン | 5.11b | 5.11b | — | チューブロック | ★★、5 個 bolt |
 | Chandīrasa／チャンディーラサ | 5.11a | 5.11a | — | チューブロック | ★、4 個 bolt、1 次紀錄 |
 | Gracie／グレイシー | 5.11c | 5.11c | — | チューブロック | ★、2 個 bolt、2 次紀錄 |
+
+```video-gallery
+key: joyama
+lang: zh-TW
+layout: routes
+```
 
 Excursion 是這級唯一一條「長多段」：6 段、110 公尺，全程 bolt，難度最高 5.10c，但第 3 段之後要自己管繩索與確保站。想練多段節奏，它比 Battlerunner 更適合當第一個整天的目標。
 
@@ -257,6 +269,12 @@ theCrag 全區有 44 條落在這級：ワイルドボアゴージ 18 條、チ�
 | Koharubiyori／小春日和 | 5.12a | 5.12a | — | チューブロック | ★★、4 個 bolt、1 次紀錄 |
 | Doronpa／ドロンパ | 5.12a | 5.12a | — | チューブロック | ★★★、6 個 bolt |
 | Hakuhekinobika／白壁の微瑕 | 5.12d | 5.12d | — | チューブロック | ★★★、6 個 bolt；該區最難的一條 |
+
+```video-gallery
+key: joyama
+lang: zh-TW
+layout: routes
+```
 
 ROCKTOPO 的人氣路線另有 5.13a 的ケレンジ（2026-10-12 查詢）；本次沒查到它對應的子區與長度，所以沒放進表。
 
@@ -314,18 +332,27 @@ theCrag 全區只有 5 條在這個級距，全部在ワイルドボアゴージ
 
 ### 影片
 
-日文的城山影片比文章多。以下是查得到、標題與內容對得上的（2026-10-23 查詢）：
+前三張路線表的「影片」欄掛了路線影片（2026-10-23 逐支核對片名與頻道），點縮圖開該路線的清單。幾個和表格不同的地方：
 
-- [終わらない初日トレ「ホームボーイ&アミーゴス」城山 南壁｜伊豆大仁 外岩合宿 04](https://www.youtube.com/watch?v=GyP1ZEdZXGU)（ALPINE CLUB TOKYO）：南壁 5.8–5.9 的熱身日，看得到取付點的擁擠程度與岩壁規模。
-- [おっさん達と若者の叫び｜城山 南壁｜伊豆大仁 外岩合宿 01](https://www.youtube.com/watch?v=mg5MLPmZjvs)（ALPINE CLUB TOKYO）：同系列第一集，開頭約 5 分半是城山概要與攀登感想。
-- [リードで登れるまで帰れません 城山 クッキングワールド｜伊豆大仁 外岩合宿 05](https://www.youtube.com/watch?v=GLMZtR-dFak)（ALPINE CLUB TOKYO）：クッキングワールド 區的先鋒練習，看得到另一區的岩質與路線密度。
-- [城山 OVERDRIVE 5.11d](https://www.youtube.com/playlist?list=PLT5jRKglXyp0IPdK6GEfy3UlxmbdhFE__)（xioix jaja）：5.11d 經典線的攀登影片集合，含 154 公分女性完攀的紀錄。
-- [城山](https://www.youtube.com/playlist?list=PLHUxI2nv_tx8HD9nXxfsaZ_MtwqwPgrs8)（mitsuhiro akiu）：以城山為主題的播放清單，裡面有 Excursion 的「本番編」與核心段。
-- [20250104 城山南壁](https://www.youtube.com/watch?v=fq_UnZmYw_M)：フルハムロード、鎌形ハングルート、ジプシーマリー、タナバタのタナボタ、ロンググッドバイ、ブラウンシュガー、ハートルート；影片有目錄，是早回し。
-- [20250201 城山南壁](https://www.youtube.com/watch?v=epctb8lTIeg)：とんとん拍子、ブルースカイ、ジプシーマリー、タナバタのタナボタ、ロンググッドバイ、ボルサリーノ、仰げば尊し；影片有目錄，是早回し。
-- [20250309 城山南壁（プリクリ練習含む）](https://www.youtube.com/watch?v=8_ooJR_LEb8)：フルハムロード、鎌形ハングルート、ジプシーマリー、タナバタのタナボタ、ロンググッドバイ、ボルサリーノ、ブラウンシュガー；包含預爬練習。
+- **南壁三支合輯**（mikko KURATA，2025-01-04、02-01、03-09）一支拍了七條線，是早回し，片中有目錄；同一支會出現在多條路線的清單裡。片中寫的ロンググッドバイ就是表格的ロング・グットバイ。
+- **Heart Route**：machomomo 的影片標 5.10d，比表格低一級。
+- **Gigolo**：兩支都標 5.11b/c，表格採 theCrag 的 5.11c。
+- **Excursion 的核心段練習編**只拍核心段，不是全程。
 
-影片只能看風格與規模，不能當 topo。繩距、下降點與 bolt 位置還是要看指南書或 theCrag 的分段表。
+影片標題的級數與路線名只代表該片版本，選線仍以表格的來源欄為準。
+
+<details>
+<summary>看南壁概要、クッキングワールド、西南カンテ與東壁スタートレック的影片</summary>
+
+```video-gallery
+key: joyama
+lang: zh-TW
+ids: mg5MLPmZjvs, GLMZtR-dFak, ETrwK3RhBN0, hQX6qMxUlGc, C2OkVu5jGmE
+```
+
+</details>
+
+スタートレック 那支是穿溪降鞋獨攀（沢靴ソロ），不是一般繩隊可以照學的示範。
 
 ## 查資料的入口
 
@@ -387,3 +414,4 @@ theCrag 全區只有 5 條在這個級距，全部在ワイルドボアゴージ
 - 2026-10-23（第三版）：補上 13 個分區的路線數與攀登紀錄對照表，說明 theCrag 183 條、ROCKTOPO 362 條、CLIMBING-net 約 300 條的差額來源；四張級距表從 24 條擴到 51 條，加入チューブロック、二間バンド大ハング 與ワイルドボアゴージ 的完整路線資料。「爬過的人怎麼說」補入 nozakimakoto（2015）與好日山荘（2014）的野外紀錄，以及 theCrag Jambalaya 的品質評分。路線資料查核日 2026-10-23。
 - 2026-10-23（第四版）：補上經由 Wayback Machine 快照取得的 ROCKTOPO 資料（362 條：334 單段 + 28 多段），各分區 F／M 與難度 E／M／H 分佈，並說明現場 Cloudflare 403 無法直接開啟的情況。路線資料查核日 2026-10-23。
 - 2026-10-23（第五版）：補上更多路線心得與影片：gorotash（2025-11-24 西南カンテ變體線心得）、きい山歩（2026-01-06 OVERDRIVE 5.11d FL + ポコチン大魔王 5.12d 4便 RP），以及 3 個 2025 年的城山南壁 YouTube 影片（20250104、20250201、20250309）。
+- 2026-10-23（第六版）：路線影片改掛在前三張路線表的「影片」欄（15 條路線、21 支，含從兩個播放清單拆出的單支影片）；不屬於單一路線的影片收進「影片」一節的摺疊區。

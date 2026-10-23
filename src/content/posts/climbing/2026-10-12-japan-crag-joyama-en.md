@@ -201,6 +201,12 @@ Of the 29 routes on the South Face (Minami kabe), two are 5.8, seven are 5.9 and
 | ジプシーマリー | 5.10a | 5.10a | — | South Face | The blog calls it stiff |
 | Wild X | 5.10a | 5.10a | — | Wild Boar right wall | theCrag ★★ |
 
+```video-gallery
+key: joyama
+lang: en
+layout: routes
+```
+
 The 5.8–5.9 grades on the South Face are not consistent: とんとん拍子 5.8 is described as stiff while アナザステップ 5.9 is softer. Do not warm up in grade order on a first visit; start with the ones the reports call soft.
 
 For a first visit, Battlerunner is a shorter, easier-to-bail multi-pitch than Excursion, but it does not top out and pitch 2 needs care with the old fixed gear. The 5.8–5.9 single-pitch lines low on the South Face are the simpler way to check your feel for the rock first.
@@ -232,6 +238,12 @@ This band is the bulk of Joyama: 103 of the 183 routes theCrag lists fall betwee
 | Chandīrasa | 5.11a | 5.11a | — | Tube Rock | ★, 4 bolts, 1 ascent |
 | Gracie／グレイシー | 5.11c | 5.11c | — | Tube Rock | ★, 2 bolts, 2 ascents |
 
+```video-gallery
+key: joyama
+lang: en
+layout: routes
+```
+
 Excursion is the only long multi-pitch in this band: 6 pitches and 110 m, fully bolted, hardest pitch 5.10c, but from pitch 3 up you are managing ropes and belays yourself. To practise multi-pitch rhythm it is a better first full-day objective than Battlerunner.
 
 Tube Rock has 11 routes in this band but only 28 ascents across the whole sector; comparable grades on the South Face and in the gorge have more than twice that. The sector is not hard to reach, just farther in and sunny in summer, and in practice much quieter than the numbers suggest.
@@ -257,6 +269,12 @@ theCrag lists 44 routes in this band: 18 in the Wild Boar Gorge, 5 on Tube Rock,
 | Koharubiyori | 5.12a | 5.12a | — | Tube Rock | ★★, 4 bolts, 1 ascent |
 | Doronpa | 5.12a | 5.12a | — | Tube Rock | ★★★, 6 bolts |
 | Hakuhekinobika | 5.12d | 5.12d | — | Tube Rock | ★★★, 6 bolts; the sector's hardest |
+
+```video-gallery
+key: joyama
+lang: en
+layout: routes
+```
 
 ROCKTOPO's popular list also includes ケレンジ at 5.13a (checked 2026-10-12); this update could not match it to a sector or length, so it is not in the table.
 
@@ -314,18 +332,27 @@ No public topo exists yet, so the route is not in the tables above.
 
 ### Videos
 
-There are more Japanese videos of Joyama than written reports. These titles and contents match (checked 2026-10-23):
+The first three route tables carry a Videos column (each clip's title and channel re-checked on 2026-10-23); click a thumbnail to open that route's list. Where the videos differ from the tables:
 
-- [終わらない初日トレ「ホームボーイ&アミーゴス」城山 南壁｜伊豆大仁 外岩合宿 04](https://www.youtube.com/watch?v=GyP1ZEdZXGU) (ALPINE CLUB TOKYO): a warm-up day on South Face 5.8–5.9; shows how busy the base gets and the scale of the wall.
-- [おっさん達と若者の叫び｜城山 南壁｜伊豆大仁 外岩合宿 01](https://www.youtube.com/watch?v=mg5MLPmZjvs) (ALPINE CLUB TOKYO): the first episode of the same series, with about five and a half minutes of Joyama overview and impressions.
-- [リードで登れるまで帰れません 城山 クッキングワールド｜伊豆大仁 外岩合宿 05](https://www.youtube.com/watch?v=GLMZtR-dFak) (ALPINE CLUB TOKYO): lead practice in Cooking World, showing another sector's rock and route density.
-- [城山 OVERDRIVE 5.11d](https://www.youtube.com/playlist?list=PLT5jRKglXyp0IPdK6GEfy3UlxmbdhFE__) (xioix jaja): a playlist of ascents on the 5.11d classic, including a 154 cm climber.
-- [城山](https://www.youtube.com/playlist?list=PLHUxI2nv_tx8HD9nXxfsaZ_MtwqwPgrs8) (mitsuhiro akiu): a Joyama playlist that includes the full Excursion attempt and its crux pitch.
-- [20250104 Joyama South Face](https://www.youtube.com/watch?v=fq_UnZmYw_M): Fulham Road, 鎌形ハングルート, ジプシーマリー, タナバタのタナボタ, ロンググッドバイ, ブラウンシュガー, Heart Route; includes a table of contents, fast-forwarded.
-- [20250201 Joyama South Face](https://www.youtube.com/watch?v=epctb8lTIeg): とんとん拍子, ブルースカイ, ジプシーマリー, タナバタのタナボタ, ロンググッドバイ, ボルサリーノ, 仰げば尊し; includes a table of contents, fast-forwarded.
-- [20250309 Joyama South Face (with pre-climb practice)](https://www.youtube.com/watch?v=8_ooJR_LEb8): フルハムロード, 鎌形ハングルート, ジプシーマリー, タナバタのタナボタ, ロンググッドバイ, ボルサリーノ, ブラウンシュガー; includes pre-climb practice.
+- **The three South Face compilations** (mikko KURATA, 2025-01-04, 02-01 and 03-09) each cover seven routes, sped up, with chapters; the same clip appears under several routes. ロンググッドバイ in the videos is the table's ロング・グットバイ.
+- **Heart Route**: machomomo's clip labels it 5.10d, a grade below the table.
+- **Gigolo**: both clips say 5.11b/c; the table uses theCrag's 5.11c.
+- **Excursion's crux-practice episode** covers the crux pitch only, not the whole route.
 
-Videos show style and scale, not beta. For pitch lengths, descents and bolt positions, go back to the guidebook or theCrag's pitch tables.
+Grades and route names in video titles describe that video's version only; pick routes from the source column in the tables.
+
+<details>
+<summary>Videos of the South Face overview, Cooking World, Seinan Kante and the East Face スタートレック</summary>
+
+```video-gallery
+key: joyama
+lang: en
+ids: mg5MLPmZjvs, GLMZtR-dFak, ETrwK3RhBN0, hQX6qMxUlGc, C2OkVu5jGmE
+```
+
+</details>
+
+The スタートレック clip is a rope-solo in canyoning shoes, not something a normal team should copy.
 
 ## Where to look things up
 
@@ -385,3 +412,4 @@ Videos show style and scale, not beta. For pitch lengths, descents and bolt posi
 - 2026-10-23 (third version): added field notes from nozakimakoto (Jan 2015) and Kojitusanso staff (April 2014), plus theCrag's quality rating for Jambalaya, under "What people who have climbed here say".
 - 2026-10-23 (fourth version): added ROCKTOPO data via the Wayback Machine snapshot (362 routes: 334 single-pitch, 28 multi-pitch), with per-sector F/M counts and E/M/H difficulty distribution, plus a note that the live site returns a Cloudflare 403. Route data checked 2026-10-23.
 - 2026-10-23 (fifth version): added more first-hand reports (gorotash on the 西南カンテ variation, 2025-11-24; きい山歩 on OVERDRIVE 5.11d flash and ポコチン大魔王 5.12d redpoint, 2026-01-06) plus three 2025 Joyama South Face YouTube videos (20250104, 20250201, 20250309).
+- 2026-10-23 (sixth version): moved route videos into a Videos column on the first three route tables (15 routes, 21 clips, including single videos taken out of the two playlists); clips not tied to one route sit in a collapsible block under "Videos".
