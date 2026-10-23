@@ -561,8 +561,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS329Z 導讀', en: 'Reading Stanford CS329Z' },
     descriptions: {
-      'zh-TW': '追蹤 Stanford CS329Z Fall 2026：前九堂官方投影片、HW1 起始碼與 Terminal-Bench 客座閱讀；第 4–5 週補入 context、記憶、協調與優化導讀。',
-      en: 'Following Stanford CS329Z Fall 2026: nine official slide decks, the HW1 starter, and Terminal-Bench guest readings; Weeks 4–5 cover context, memory, coordination, and optimization.',
+      'zh-TW': 'Stanford CS329Z Fall 2026 自學導讀：前九堂投影片附頁碼對照，各週指定閱讀分篇深讀，從 agent 迴圈、記憶與協調走到評估、安全及主動式助理。',
+      en: 'A self-study guide to Stanford CS329Z Fall 2026: page-linked guides to nine slide decks and individual reading digests, from agent loops, memory and coordination to evaluation, safety and proactive assistants.',
     },
   },
   {

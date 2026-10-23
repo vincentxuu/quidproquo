@@ -24,7 +24,48 @@ The data flywheel is one sentence: every production output is training material 
 
 Shankar splits the loop into three stations: evaluation, monitoring, and continual improvement. Evaluation defines what success looks like; monitoring keeps the metrics honest against reality; improvement feeds what was learned back into the system. All three eat the same production data, for different purposes. The post ships no new model and no new algorithm. It is engineering discipline: how to squeeze every drop out of production data.
 
-## Terminal-Bench: verify the environment, not a claim of completion
+## Trace backward from the final state: evidence for a data flywheel
+
+In a customer-support or internal assistant, a plausible answer and a completed task are different outcomes. The [official schedule](https://cs329z.stanford.edu/) places the Terminal-Bench guest lecture on October 26 and agent data on October 28. As of October 23, 2026, these classes are still upcoming and no slide links have been released. This is a preparation guide based on assigned materials, rather than a transcript or page-by-page lecture account.
+
+### Step 1: specify the required change in the environment
+
+Imagine aggregating paid orders by city into a CSV. Verification reads the artifact, checks its columns, excludes canceled orders, and compares each city's totals. A completion message, a successful command, and the existence of a file are each insufficient evidence. Terminal-Bench places tasks in an executable environment and checks outcomes with tests; see the [paper's task definition](https://arxiv.org/html/2601.11868). The order example is original teaching material, not a benchmark task.
+
+### Step 2: turn failure into inspectable data
+
+A missing city could mean missing input or an incorrect filter. A single failure score cannot distinguish them. Preserve input versions, tool arguments, observations, artifacts, and grader versions so the run can be replayed. Record the reason for a human correction, such as excluding canceled orders. The [flywheel article](https://www.sh-reya.com/blog/ai-engineering-flywheel/) connects evaluation, monitoring, and continual improvement; this record design is an implementation recommendation derived from that framing.
+
+### Step 3: separate improvement examples from acceptance examples
+
+A failed case can become development material for changing a prompt, or remain unseen acceptance material. Once used to select versions, it no longer provides independent acceptance evidence. Record provenance, correction rationale, and purpose beside each example; evaluate the changed system on frozen tests.
+
+**Check your understanding:** the CSV is well formed but includes canceled orders. Should you add a model judge? **Answer criteria:** first add an executable business-rule check and inspect the filtering step. A model judge for open-ended quality does not replace this deterministic rule.
+
+
+
+## Reading 1 | Terminal-Bench
+
+Source: [Terminal-Bench](https://arxiv.org/html/2601.11868)
+
+### TL;DR
+
+Tasks combine instructions, Docker environments, time limits, tests, and reference solutions and score resulting state.
+
+### Editorial judgment
+
+| Dimension | Reading judgment |
+| --- | --- |
+| Central question | How can a terminal agent's completion claim be verified? |
+| Evidence and scope | This guide follows the paper's task definition and version, rather than treating a current leaderboard as course performance. |
+
+### Domain background
+
+A terminal can modify extensive state; a successful exit can still leave wrong artifacts or incomplete configuration.
+
+### Intermediate guide
+
+**Method.** The harness starts an isolated environment, supplies instructions and a terminal, and checks resulting state after execution.
 
 The [official schedule](https://cs329z.stanford.edu/) now lists the October 26 guest session as Terminal-Bench with Ryan Marten and Alex Shaw. The session is still upcoming. This section reads the assigned [Terminal-Bench paper](https://arxiv.org/html/2601.11868), rather than reconstructing a talk that has not happened. You need to understand tool calls and terminal output; the goal is to write a success condition your agent cannot satisfy merely by saying it is done.
 
@@ -53,43 +94,43 @@ A verifier could read the CSV back, compare the city-to-count mapping, and compa
 
 **Check your understanding**: one agent uses Python and another uses shell commands to reach the same valid state. Which should pass? Both: the request did not prescribe a language. What if the verifier only checks that the output file exists? It catches the missing-file case but misses wrong counts and input corruption. Add outcome and constraint checks.
 
-## Split the path from failed verification to a data flywheel
+**Evidence and result.** The paper packages complex command-line work as tasks with environments and tests, enabling outcome scoring beyond agent self-report.
 
-Terminal-Bench supplies a verifiable task structure; Shankar's flywheel supplies a way to improve over time. The following is this guide's teaching design connecting them: log tool traces and final state, use a verifier to locate failures, and have a person confirm the cause before a corrected case enters the demonstration pool. Keep separate tasks out of prompt tuning and demonstration selection to test generalization. **Do not use one case as both a prompt demonstration and independent test evidence.**
+### Deeper points
 
-```diagram
-title: From outcomes to improvement
-desc: Execution produces traces; verification and human review feed development examples, while held-out tasks test the changed agent.
-caption: Original teaching design; development examples and held-out tests remain separate.
----
-<svg viewBox="0 0 440 504">
-<path class="dg-line" d="M220 80V108" marker-end="url(#arrow)"/>
-<path class="dg-line" d="M220 176V204" marker-end="url(#arrow)"/>
-<path class="dg-line" d="M220 272V300" marker-end="url(#arrow)"/>
-<path class="dg-line" d="M220 368V396" marker-end="url(#arrow)"/>
-<rect class="dg-box" x="92" y="16" width="256" height="64" rx="6"/>
-<text class="dg-label" x="220" y="40" text-anchor="middle" dominant-baseline="central">Run task</text>
-<text class="dg-sub" x="220" y="60" text-anchor="middle" dominant-baseline="central">Trace + files</text>
-<rect class="dg-box" x="92" y="112" width="256" height="64" rx="6"/>
-<text class="dg-label" x="220" y="136" text-anchor="middle" dominant-baseline="central">Verify result</text>
-<text class="dg-sub" x="220" y="156" text-anchor="middle" dominant-baseline="central">Failure label</text>
-<rect class="dg-box dg-box--accent" x="92" y="208" width="256" height="64" rx="6"/>
-<text class="dg-label" x="220" y="232" text-anchor="middle" dominant-baseline="central">Human review</text>
-<text class="dg-sub" x="220" y="252" text-anchor="middle" dominant-baseline="central">Corrected case</text>
-<rect class="dg-box" x="92" y="304" width="256" height="64" rx="6"/>
-<text class="dg-label" x="220" y="328" text-anchor="middle" dominant-baseline="central">Improve agent</text>
-<text class="dg-sub" x="220" y="348" text-anchor="middle" dominant-baseline="central">Dev examples</text>
-<rect class="dg-box" x="92" y="400" width="256" height="64" rx="6"/>
-<text class="dg-label" x="220" y="424" text-anchor="middle" dominant-baseline="central">Held-out test</text>
-<text class="dg-sub" x="220" y="444" text-anchor="middle" dominant-baseline="central">Unseen tasks</text>
-</svg>
-```
+- A reference solution establishes solvability without requiring the agent to follow identical commands.
+- Reset state and time limits belong to the task; reusing previous artifacts changes the problem.
 
-In the CSV example, counting Taipei as 3 reveals a missed status filter. Add cancelled registrations to development cases, teach the agent to inspect field definitions, and try again. The held-out tests should vary the cities, row order, and proportion of cancellations. Passing the same CSV after inserting its answer into the prompt shows success on that case, not general understanding of the filter.
+### Reviewer’s one-line verdict
 
-**Check your understanding**: after pasting the failed CSV and its answer into the prompt, the same task passes. Can you claim better generalization? No. Compare on tasks that did not participate in the change, holding the model, harness, and execution budget fixed. If the verifier also changed, explain that separately: the scores no longer use the same ruler.
+Outcome verification is closer to task capability than completion claims.
 
-## Evaluation: read real outputs before setting metrics
+### Your take-away
+
+Write a test that inspects the actual artifact and does not accept the final message as proof.
+
+## Reading 2 | Data Flywheels for LLM Applications
+
+Source: [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/)
+
+### TL;DR
+
+The article links evaluation, monitoring, and improvement, using human labels and corrections to align metrics and reusable examples.
+
+### Editorial judgment
+
+| Dimension | Reading judgment |
+| --- | --- |
+| Central question | How can production failures become useful improvement data? |
+| Evidence and scope | This is a practice framework; some automation ideas are explicitly exploratory rather than validated product capabilities. |
+
+### Domain background
+
+Production LLM applications encounter unanticipated inputs; an error rate alone does not tell a team how to improve.
+
+### Intermediate guide
+
+**Method.** Inspect outputs to define metrics, periodically align implementations with human labels, and use failures to revise prompts or pipelines.
 
 Metrics cannot come from armchair theorizing. The advice is to read a batch of real outputs first, then decide what to validate. The example is vivid: filler words like "delve" and "crucial" reek of model authorship, and you only think to ban them after seeing them in the wild. There is no shortcut here — reading data is the job.
 
@@ -97,21 +138,15 @@ Metrics come in two flavors. Simple ones get hardcoded — character counts for 
 
 For more evaluation craft, see [Hamel Husain](https://hamel.dev/)'s [evaluation guide](https://hamel.dev/blog/posts/evals/), recommended by the author herself.
 
-## Multi-step pipelines: place probes on the graph
-
 Single calls are easy to validate; graphs of calls are not. Errors from an early step get amplified downstream, so validation should work like probes in software observability — inserted at every node. Nodes come in three types, a taxonomy credited to [Han Lee](https://leehanchung.github.io/): classifiers (diamonds, handling state transitions), writers (rectangles, generating content), and compilers (hexagons, generating code). A customer-support chatbot shows how the three divide the labor.
 
 Each type gets validated differently. Classifiers take the classic metrics — accuracy, precision, recall. Writers are the hardest, with bespoke standards per task and custom validators to match. Code-generating nodes have it best: linters, test suites, and executing the SQL to inspect the result — the full software-engineering toolkit applies.
 
 With many probes in place, the next question is what to fix first. The answer: label every validator output and compute per-step accuracy, so the compounding becomes visible. The author concedes that full validation of multi-step pipelines remains an open research question — an appetizer for next week's evaluation theme.
 
-## Validate inputs too: strict in, liberal out
-
 The field mostly validates outputs; the author insists on inputs as well. Rejecting queries the pipeline was never built for is robustness in itself. The motto is borrowed from [Brendan Dolan-Gavitt](https://moyix.net/): be strict in what you send to the model, liberal in what you accept back.
 
 The checks are concrete: does the query touch only the requester's own data, is the topic in scope, does semantic similarity clear a threshold (0.7 is the worked example), is the language supported, is there smuggled personal data or an injection attempt. Each check is small. Skip any of them and it becomes a section in a future incident review.
-
-## Monitoring: the metric set is not carved in stone
 
 A metric set never stays done. Model vendors ship silent updates, user tastes drift, and production always surfaces failures nobody anticipated. The fix is a model agent that periodically reads labeled production data and proposes adding, editing, or retiring metrics. [Alta](https://www.altadaily.com/), a startup working with the author, already does this — a dedicated metric set per end user.
 
@@ -119,31 +154,77 @@ Metric implementations have to grow up too. Sample regularly, label by hand, sto
 
 Labeling labor cannot be eliminated, but it can get smarter. [LangChain](https://www.langchain.com/)'s approach is model-labels-first, human-edits-second: every item ships with a default label, and people override only when they care. The failure mode is stated honestly: if people get lazy and stop checking, alignment silently drifts. That is exactly the problem next week's [Who Validates the Validators](https://arxiv.org/abs/2404.12272) (UIST 2024) takes on.
 
-## Continual improvement: put the fixed outputs back
-
 The first two stations exist for this one: a system that gets stronger as it runs. The prerequisite is complete logs — what the output was, what each metric scored — which is what tools like [LangSmith](https://www.langchain.com/langsmith) are for. Then walk on two legs, human and automatic.
 
 The human leg is fundamentals: review score distributions regularly, find the low-scoring clusters, analyze input drift, A/B test prompt variants. The automatic leg is the flywheel's essence: fix a batch of low-scoring outputs daily or weekly, store the fixed versions with their scores, and at inference time retrieve the most similar fixed cases as few-shot demonstrations. At least 5 practitioners do this already, the author reports, and [Dosu](https://blog.langchain.dev/dosu-langsmith-no-prompt-eng/)'s bot runs on exactly this architecture.
 
 The architecture has a lovely side effect: prompt engineering turns into a retrieval problem. The question shifts from how to write the prompt to how to fetch the right examples — the most instructive for the model, the closest to what the user wants. One more tip from the author: scoring quality along separate dimensions beats one holistic grade. Labels get more consistent, validators align more easily, and the weak spot shows itself.
 
-## Same data, two jobs
-
 The lecture title names three data kinds — traces, demonstrations, and feedback — and the flywheel post divides their labor. Fixed traces are demonstrations, for optimization; scored traces are test items, for evaluation. Both uses may originate in one label store, but assign cases to development or held-out evaluation before tuning; a case used in demonstrations cannot also provide independent test evidence.
 
 That also explains why HW2 follows HW1 so closely. HW2 (released Oct 26) asks you to build a full evaluation suite for a ready-made agent: hardcoded graders, at least one model judge, test tasks built on the 4-tuple (request, environment, stopping criteria, scorer), plus error analysis. Week 5 taught optimization, this week teaches production data, and evaluation completes the triangle — the course's deliberate sequencing.
 
-## Synthetic data: without aligned validators, synthesis is photocopying hallucinations
+Whether the flywheel spins ultimately depends on humans willing to label. The author's first observation says it plainly: people must stay in the loop regularly, because human preferences over outputs shift over time. Model-first, human-edits-second saves effort, but legal teams wanting prompt sign-off and adversarial queries poisoning the demonstration pool are real-world friction. In the post's footnotes, Han names both risks.
+
+For students this lands close to home: you are your own cheapest labeler. Every question you run through your HW1 email assistant and every answer you fix is the flywheel's first batch of fuel.
+
+**Evidence and result.** The article proposes a path from outputs and labels through monitoring to improvement and identifies graph-level validation as an open problem.
+
+### Deeper points
+
+- Changing metric definitions and drifting implementations are different: one changes the objective and the other mismeasures it.
+- Corrected traces can supply few-shot examples, but should retain correction reasons rather than only polished answers.
+
+### Reviewer’s one-line verdict
+
+A working flywheel depends on turning failures into reliable labels.
+
+### Your take-away
+
+Keep reasons and corrections for each failure and isolate acceptance data from development.
+
+## Reading 3 | LLMs for Data Annotation and Synthesis: A Survey
+
+Source: [LLMs for Data Annotation and Synthesis: A Survey](https://aclanthology.org/2024.emnlp-main.54/)
+
+### TL;DR
+
+The survey organizes LLM annotation and generation methods, applications, and challenges; scale still needs quality and bias checks.
+
+### Editorial judgment
+
+| Dimension | Reading judgment |
+| --- | --- |
+| Central question | When are model-generated labels and synthetic data useful? |
+| Evidence and scope | A survey combines different setups; their best numbers cannot be added or treated as one experiment. |
+
+### Domain background
+
+Generation can reduce some collection costs while reproducing model blind spots; labels and synthetic examples both need validation.
+
+### Intermediate guide
+
+**Method.** Organize methods by annotation and generation purpose, application tasks, evaluation, and open challenges.
 
 The main post barely discusses purely synthetic data, and that silence is itself the answer. The flywheel burns fixed real outputs, not model-dreamed ones. Whether model rewrites and model labels are usable depends on how well validators align with humans — which the author flags as an open problem. Next-token probabilities from instruction-tuned models are poorly calibrated, and asking models for confidence scores does not work well either.
 
 To fill the gap, read this week's additional reading, [Tan et al.'s survey](https://arxiv.org/abs/2402.13446) (EMNLP 2024): how models serve as annotators, how synthetic labels get accepted, and what to watch when training on synthetic data. It covers exactly the pages the flywheel leaves blank.
 
-## Collecting data from human-agent interaction: labels come from people
+**Evidence and result.** The survey maps annotation and synthesis methods and highlights tradeoffs among cost, quality, and bias.
 
-Whether the flywheel spins ultimately depends on humans willing to label. The author's first observation says it plainly: people must stay in the loop regularly, because human preferences over outputs shift over time. Model-first, human-edits-second saves effort, but legal teams wanting prompt sign-off and adversarial queries poisoning the demonstration pool are real-world friction. In the post's footnotes, Han names both risks.
+### Deeper points
 
-For students this lands close to home: you are your own cheapest labeler. Every question you run through your HW1 email assistant and every answer you fix is the flywheel's first batch of fuel.
+- Agreement between generators and validators with shared blind spots does not establish correctness.
+- Synthetic data should retain provenance and generation conditions so recurring learned errors can be traced.
+
+### Reviewer’s one-line verdict
+
+Data volume and trustworthiness require separate judgments.
+
+### Your take-away
+
+Check synthetic data against a small human-labeled sample before scaling selected failure categories.
+
 
 ## What to do: make traces exist before the deadline
 
@@ -153,7 +234,19 @@ For students this lands close to home: you are your own cheapest labeler. Every 
 
 This week is the watershed. HW1 (due Oct 30) wraps up a full harness written from scratch with no frameworks; HW2 (released Oct 26) moves the battle to evaluation. Next week (Week 7) doubles down: Monday reads [SWE-smith](https://arxiv.org/abs/2504.21798) (NeurIPS 2025) on mass-producing task data for software-engineering agents, plus Who Validates the Validators on validator alignment, and Wednesday is all evaluation design. The midpoint demo is now a recorded video rather than an in-class presentation, due Nov 4 at 11:59 p.m.; the midway report lands on Nov 6 — you need a running prototype before there is anything to record.
 
+## This week's course material
+
+The [official schedule](https://cs329z.stanford.edu/) assigns these materials; both classes are upcoming as of October23,2026.
+
+| Scheduled class | Required readings | Additional reading |
+| --- | --- | --- |
+| Oct26: Terminal-Bench guest lecture | [Terminal-Bench project](https://www.tbench.ai/) and [paper](https://arxiv.org/html/2601.11868) | No additional assigned item listed |
+| Oct28: Data for Agentic Systems | [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/) | [LLMs for Data Annotation and Synthesis: A Survey](https://aclanthology.org/2024.emnlp-main.54/) |
+
+
 ## Update log
+
+- 2026-10-23: Rebuilt the guide around source status, mechanisms, a worked scenario, and answer criteria; separated detailed assigned readings from lecture preparation.
 
 - 2026-10-23: Added the announced Terminal-Bench guest readings, an original outcome-verification example, a bilingual diagram, and development/test separation. The guest session is upcoming; this is a reading guide, not a talk transcript.
 

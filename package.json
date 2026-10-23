@@ -96,6 +96,7 @@
     "motion": "^13.2.0",
     "nanoid": "^6.0.1",
     "opencc-js": "^1.4.1",
+    "pdfjs-dist": "6.4.299",
     "playwright-extra": "^4.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "radix-ui": "^1.6.7",
