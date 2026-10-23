@@ -21,7 +21,9 @@ async function openSidebar(page: Page) {
   await expect(trigger).toBeVisible();
   await trigger.click();
   // 面板滑入動畫 0.3s，等它出現再截圖
-  await expect(page.getByRole('region', { name: /目前文章/ })).toBeVisible({ timeout: 5000 });
+  const sidebar = page.getByRole('complementary', { name: '關於這篇文章', exact: true });
+  await expect(sidebar).toBeVisible({ timeout: 5000 });
+  await expect(sidebar.getByText('可以這樣問', { exact: true })).toBeVisible();
 }
 
 // 斷言：本文右緣與面板左緣之間不得有超過 gutter（24px）的空隙。

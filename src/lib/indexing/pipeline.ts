@@ -4,6 +4,10 @@ import { buildContextualChunk } from './contextual'
 import { EMBED_BATCH_SIZE, embedDocuments } from '../retrieval/embedding'
 import type { Env } from '@/lib/config/env'
 
+// Conservative request budgets, independent of model batch capacity.
+const MAX_POST_EMBED_CHUNKS = 20
+const MAX_POST_EMBED_INPUT_CHARS = 24000
+
 interface EmbedResult {
   source: string
   vectors: number
@@ -88,7 +92,8 @@ export async function embedPosts(limit = EMBED_BATCH_SIZE, full = false): Promis
 
   if (full) await resetPostEmbeddingCheckpoints(DB)
 
-  const deleted = await drainVectorDeleteQueue(DB, VECTORIZE_INDEX, limit)
+  const requestLimit = Math.min(limit, MAX_POST_EMBED_CHUNKS)
+  const deleted = await drainVectorDeleteQueue(DB, VECTORIZE_INDEX, requestLimit)
   if (await hasQueuedVectorDeletes(DB)) {
     return { source: 'posts', vectors: 0, deleted, errors, hasMore: true }
   }
@@ -102,19 +107,29 @@ export async function embedPosts(limit = EMBED_BATCH_SIZE, full = false): Promis
        AND (pc.embedded_hash IS NULL OR pc.embedded_hash != pc.desired_embedding_hash)
      ORDER BY pc.id
      LIMIT ?`
-  ).bind(limit).all<PendingPostChunk>()
+  ).bind(requestLimit).all<PendingPostChunk>()
 
   let vectorCount = 0
+  const selected: PendingPostChunk[] = []
+  const contextualInput: string[] = []
+  let inputChars = 0
+  for (const row of posts.results) {
+    const text = buildContextualChunk(row.content, {
+      type: 'post', title: row.title, category: row.category, date: row.created_at.slice(0, 10),
+    })
+    if (inputChars + text.length > MAX_POST_EMBED_INPUT_CHARS) {
+      if (selected.length === 0) errors.push(`post chunk ${row.chunk_id}: contextual input exceeds ${MAX_POST_EMBED_INPUT_CHARS} characters; re-chunk before retrying`)
+      break
+    }
+    selected.push(row)
+    contextualInput.push(text)
+    inputChars += text.length
+  }
 
-  for (const batch of chunkArray(posts.results, EMBED_BATCH_SIZE)) {
+  for (const batch of chunkArray(selected, EMBED_BATCH_SIZE)) {
     try {
-      const contextualBatch = batch.map(row => buildContextualChunk(row.content, {
-        type: 'post',
-        title: row.title,
-        category: row.category,
-        date: row.created_at.slice(0, 10),
-      }))
-
+      const offset = selected.indexOf(batch[0])
+      const contextualBatch = contextualInput.slice(offset, offset + batch.length)
       const embeddedBatch = await embedKnowledgeDocuments(contextualBatch)
 
       const vectors: VectorizeVector[] = []
