@@ -101,4 +101,6 @@ Format: `<type>(<scope>): <summary>` — types: `post` (scope = category), `feat
 
 **多 session 同開時**：`git add` 與 pre-commit 之間的空窗會被別的 session 的 commit 掃走你暫存的檔案。一律 `git commit -- <明確路徑>`，commit 後用 `git log --oneline -1` 確認是自己那筆，push 被拒就 `git pull --rebase`。細節見 `docs/governance/operating-charter.md` §8.1。
 
+**要隔離改動時**（改程式、跑完整驗證、發布）從 origin/main 開 worktree 做；共用 node_modules、外掛輸出被快取、收尾方式見 `docs/worktree-runbook.md`。
+
 If a user-level `format-commit` skill (`~/.claude/skills/format-commit.md`) is installed, use it; otherwise the convention above is self-sufficient — do not go looking for the skill.
