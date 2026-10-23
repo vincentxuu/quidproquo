@@ -1,0 +1,16 @@
+/* This control lives in ChatHeader's action slot, never in the message flow. */
+.chat-cloud-menu { position: relative; flex-shrink: 0; font-size: 13px; line-height: 1.5; }
+.chat-history-trigger { appearance: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; margin: 0; padding: 8px; border: 1px solid transparent; border-radius: 7px; background: transparent; color: var(--text-primary); font: inherit; cursor: pointer; white-space: nowrap; }
+.chat-history-trigger:hover, .chat-history-trigger[aria-expanded="true"] { background: var(--bg-subtle); border-color: var(--border); }
+.chat-history-trigger:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 2px; }
+.chat-cloud.chat-history-panel { position: fixed; right: auto; z-index: 1101; width: min(340px, calc(100vw - 24px)); max-height: min(480px, calc(100dvh - 140px)); overflow-y: auto; box-sizing: border-box; margin: 0; padding: 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-card); color: var(--text-primary); box-shadow: 0 10px 32px #0002; text-align: left; }
+.chat-history-panel .chat-history-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--text-primary); }
+.chat-history-panel .chat-history-heading strong { font-size: 13px; font-weight: 600; }
+.chat-history-panel .chat-history-heading .chat-cloud-action { min-width: 44px; font-size: 22px; font-weight: 400; }
+.chat-history-panel .chat-history-save { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 8px 0; }
+.chat-history-panel .chat-cloud-history { max-height: none; margin-top: 8px; padding-top: 8px; }
+.chat-history-panel .chat-cloud-help { margin-top: 8px; }
+.chat-history-panel .chat-cloud-help summary { min-height: 44px; }
+.chat-history-feedback { position: fixed; z-index: 1102; width: max-content; max-width: min(320px, calc(100vw - 48px)); margin: 0; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-card); color: var(--text-primary); font-size: 13px; font-weight: 400; line-height: 1.5; box-shadow: 0 5px 20px #0002; }
+.chat-history-panel .chat-history-inline-status { margin: 8px 0 0; color: var(--text-primary); font-size: 13px; font-weight: 400; line-height: 1.5; }
+@media(max-width: 480px) { .chat-history-trigger { gap: 4px; padding-inline: 6px; font-size: 12px; } }

@@ -39,15 +39,15 @@ const en = lang === 'en';
   #vocabulary-save-feedback a { display: inline-block; }
   #vocabulary-selection-save {
     position: fixed; z-index: 79; max-width: calc(100vw - 24px);
-    padding: .4rem .75rem; min-height: 38px; border-radius: 999px;
+    padding: .4rem .75rem; min-height: 44px; border-radius: 8px;
     font-size: .82rem; line-height: 1.35; white-space: nowrap;
     box-shadow: var(--shadow-floating); background: var(--bg-card);
   }
   @media (pointer: coarse) { #vocabulary-selection-save { min-height: 44px; } }
-  .vocabulary-capture { margin: 1.5rem 0; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; }
-  .vocabulary-capture p { margin: 0 0 .6rem; }
-  .vocabulary-hint { font-size: .8rem; color: var(--text-muted); margin-top: .65rem !important; }
-  button { font: inherit; padding: .55rem .8rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-subtle); color: var(--text-primary); cursor: pointer; }
+  .vocabulary-capture { margin: 2rem 0; padding: 1rem 0; border-block: 1px solid var(--border); font-size: .875rem; line-height: 1.6; }
+  .vocabulary-capture p { margin: 0 0 .6rem; color: var(--text-primary); font-size: .875rem; font-weight: 400; }
+  .vocabulary-capture .vocabulary-hint { font-size: .8rem; color: color-mix(in srgb, var(--text-primary) 72%, var(--bg-page)); margin-top: .65rem !important; }
+  button { min-height: 44px; font: inherit; padding: .55rem .8rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-subtle); color: var(--text-primary); cursor: pointer; }
   a { margin-left: .8rem; color: var(--brand-500); }
   dialog { width: min(680px, calc(100vw - 2rem)); max-height: 85dvh; overflow-y: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-card); color: var(--text-primary); padding: 1.25rem; }
   dialog::backdrop { background: rgb(0 0 0 / .5); }
@@ -61,5 +61,5 @@ const en = lang === 'en';
 <style>
   .vocabulary-dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .75rem; }
   .vocabulary-dialog-heading h2 { margin: 0; }
-  #vocabulary-cancel { padding: .25rem .65rem; font-size: 1.5rem; line-height: 1; min-height: 40px; min-width: 40px; }
+  #vocabulary-cancel { padding: .25rem .65rem; font-size: 1.5rem; line-height: 1; min-height: 44px; min-width: 44px; }
 </style>

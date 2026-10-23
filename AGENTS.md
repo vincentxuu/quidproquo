@@ -30,6 +30,12 @@ description: 說清楚何時使用、何時不要使用
 
 Codex 主要靠 `name` 與 `description` 決定是否觸發 skill；body 只會在 skill 觸發後讀取。詳細流程放在 `SKILL.md`，大量規則或範例放 `references/`，模板放 `templates/`。
 
+## UI 交付流程
+
+修改互動 UI、登入、同步、表單或共用控制項時，必須先讀 `.agents/skills/ui-delivery/SKILL.md` 與 `ui-delivery.config.md`，盤點所有受影響頁面和適用狀態，並在 `.work/ui-delivery/` 留下任務紀錄。
+
+程式檢查、操作驗收、視覺驗收、部署確認必須分開回報。必要驗收未完成時，不得宣稱 UI 已驗收。禁止使用瀏覽器時，仍完成來源與行為檢查，但將無法執行的畫面與操作驗收標為待驗；不得以 build 成功代替。這些規則不授權額外 commit、push、部署或修改 CI。
+
 ## 寫文章
 
 ### 存放位置與檔名

@@ -116,25 +116,26 @@ export class PersonalProgressRepository {
     throw new Response("Concurrent progress update. Retry.", { status: 409 });
   }
 }
+export class PersonalProgressError extends Error {
+  constructor(public status: number, message: string) { super(message); this.name = "PersonalProgressError"; }
+}
 export async function fetchPersonalProgress(
   domain: ProgressDomain,
   action?: Record<string, unknown>,
 ): Promise<Record<string, unknown>> {
-  const response = await fetch(
-    `/api/personal/progress?domain=${domain}`,
-    action
-      ? {
-          method: "POST",
-          credentials: "same-origin",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...action, domain }),
-        }
-      : { credentials: "same-origin", cache: "no-store" },
-  );
-  if (response.status === 401) throw new Error("請先登入，再連接雲端進度。");
-  if (!response.ok) throw new Error("雲端進度尚未儲存，請重試。");
-  const payload = (await response.json()) as { items?: unknown };
-  return validateProgress(domain, payload.items);
+  const response = await fetch(`/api/personal/progress?domain=${domain}`, {
+    credentials: "same-origin", redirect: "manual", cache: "no-store", signal: AbortSignal.timeout(15_000),
+    ...(action ? { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...action, domain }) } : {}),
+  });
+  if (response.status === 401 || response.status === 403 || response.type === "opaqueredirect" || (response.status >= 300 && response.status < 400))
+    throw new PersonalProgressError(401, "登入已到期，請重新登入。");
+  if (!response.ok) throw new PersonalProgressError(response.status, "雲端進度暫時無法連線，請重試；原有進度仍保留。");
+  try {
+    const payload = (await response.json()) as { items?: unknown };
+    return validateProgress(domain, payload.items);
+  } catch {
+    throw new PersonalProgressError(502, "雲端回傳的進度無法讀取，請重試。");
+  }
 }
 
 /** Shared by both interview languages. Local data is imported only by explicit action. */
@@ -153,31 +154,50 @@ export function initInterviewProgress() {
   } catch {
     /* Invalid local state starts empty. */
   }
+  let hasLocalProgress = Object.keys(saved).length > 0;
   const panel = document.createElement("div");
-  panel.className = "progress-sync";
+  panel.className = "personal-sync";
+  panel.setAttribute("aria-label", t("進度儲存", "Progress storage"));
   const note = document.createElement("p");
+  note.className = "personal-sync-status";
   note.setAttribute("role", "status");
   note.textContent = t(
-    "目前進度只存在這個瀏覽器。登入後可連接雲端；舊進度需自行選擇匯入。",
-    "Progress is stored in this browser. Sign in to connect cloud progress; importing old progress is optional.",
+    "正在確認儲存位置…",
+    "Checking progress storage…",
   );
   const login = document.createElement("a");
   login.href = `/auth/login?returnTo=${encodeURIComponent(location.pathname)}`;
-  login.textContent = t("登入", "Sign in");
+  login.textContent = t("登入同步進度", "Sign in to sync");
+  login.className = "personal-sync-action";
+  login.hidden = true;
   const connect = document.createElement("button");
   connect.type = "button";
+  connect.className = "personal-sync-action";
+  connect.hidden = true;
   connect.textContent = t(
-    "連接／重新載入雲端進度",
-    "Connect / reload cloud progress",
+    "重新連線",
+    "Retry connection",
   );
   const upload = document.createElement("button");
   upload.type = "button";
+  upload.className = "personal-sync-action";
   upload.textContent = t(
     "匯入這個瀏覽器的進度",
     "Import progress from this browser",
   );
   upload.hidden = true;
-  for (const child of [note, login, connect, upload]) panel.appendChild(child);
+  const actions = document.createElement("div");
+  actions.className = "personal-sync-actions";
+  for (const child of [login, connect]) actions.appendChild(child);
+  const help = document.createElement("details");
+  help.className = "personal-sync-help";
+  help.hidden = true;
+  const summary = document.createElement("summary");
+  summary.textContent = t("匯入舊進度", "Import browser progress");
+  const explanation = document.createElement("p");
+  explanation.textContent = t("這個瀏覽器還有一份舊進度。匯入會補上缺少的項目，保留雲端既有進度。", "This browser has older progress. Import adds missing items and preserves existing cloud progress.");
+  for (const child of [summary, explanation, upload]) help.appendChild(child);
+  for (const child of [note, actions, help]) panel.appendChild(child);
   const tracker = document.querySelector("#progress-tracker");
   if (tracker) tracker.insertBefore(panel, tracker.firstChild);
   const boxes = [
@@ -202,12 +222,28 @@ export function initInterviewProgress() {
     for (const box of boxes) box.disabled = value;
     connect.disabled = value;
     upload.disabled = value;
+    panel.setAttribute("aria-busy", String(value));
+    if (!value && (panel.dataset.state === "error" || (cloud && panel.dataset.state === "guest"))) for (const box of boxes) box.disabled = true;
   }
-  connect.onclick = async () => {
+  function showError(error: unknown) {
+    const guest = error instanceof PersonalProgressError && error.status === 401;
+    login.hidden = !guest;
+    connect.hidden = guest;
+    help.hidden = true;
+    note.textContent = guest
+      ? cloud ? t("登入已到期，重新登入後繼續儲存。", "Your session expired. Sign in to keep saving.") : t("進度儲存在這個瀏覽器", "Progress saved in this browser")
+      : t("雲端暫時無法連線，原有進度仍保留。", "Cloud unavailable. Existing progress is preserved.");
+    panel.dataset.state = guest ? "guest" : "error";
+  }
+  const connectCloud = async () => {
     disabled(true);
     try {
       saved = await fetchPersonalProgress("interview");
       cloud = true;
+      panel.dataset.state = "cloud";
+      login.hidden = true;
+      connect.hidden = true;
+      help.hidden = !hasLocalProgress;
       upload.hidden = false;
       note.textContent = t(
         "已連接帳號的雲端進度。",
@@ -215,11 +251,13 @@ export function initInterviewProgress() {
       );
       render();
     } catch (error) {
-      note.textContent = (error as Error).message;
+      showError(error);
     } finally {
       disabled(false);
+      if (panel.dataset.state === "error" && !cloud) for (const box of boxes) box.disabled = true;
     }
   };
+  connect.onclick = connectCloud;
   upload.onclick = async () => {
     disabled(true);
     try {
@@ -235,16 +273,19 @@ export function initInterviewProgress() {
         "已匯入；雲端既有進度已保留。",
         "Imported; existing cloud progress was preserved.",
       );
+      hasLocalProgress = false;
+      help.hidden = true;
+      help.open = false;
       render();
     } catch (error) {
-      note.textContent = (error as Error).message;
+      showError(error);
     } finally {
       disabled(false);
     }
   };
   for (const box of boxes)
     box.onchange = async () => {
-      if (busy) return;
+      if (busy || panel.dataset.state === "error" || (cloud && panel.dataset.state === "guest")) { render(); return; }
       const key = box.dataset.check!;
       const value = box.checked;
       if (!cloud) {
@@ -269,11 +310,12 @@ export function initInterviewProgress() {
         });
         note.textContent = t("已儲存至雲端。", "Saved to cloud.");
       } catch (error) {
-        note.textContent = (error as Error).message;
+        showError(error);
       } finally {
         render();
         disabled(false);
       }
     };
   render();
+  void connectCloud();
 }

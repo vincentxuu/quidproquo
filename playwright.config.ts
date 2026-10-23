@@ -14,6 +14,9 @@ export default defineConfig({
   globalSetup: './tests/visual/global-setup.ts',
   snapshotPathTemplate: '{testDir}/{testFileName}-snapshots/{arg}-{projectName}-{platform}{ext}',
   fullyParallel: true,
+  // Missing baselines must fail without silently creating candidates in source.
+  // The explicit --update-snapshots command remains available for reviewed updates.
+  updateSnapshots: 'none',
   reporter: 'list',
   use: {
     baseURL: 'http://localhost:4321',

@@ -91,3 +91,8 @@
 .vocabulary-detail { border-top: 1px solid var(--border); padding: 1.25rem; background: var(--bg-subtle); }
 .vocabulary-library .vocabulary-personal-note { margin-top: 1.1rem; }
 .vocabulary-library .vocabulary-storage-note { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); line-height: 1.7; }
+
+.vocabulary-library .vocabulary-import { background: var(--bg-subtle); border-radius: 8px; padding: 1rem; }
+.vocabulary-library .vocabulary-import p { font-size: .875rem; line-height: 1.65; color: var(--text-primary); font-weight: 400; max-width: 65ch; }
+.vocabulary-library .vocabulary-import button { background: var(--bg-page); }
+.vocabulary-library .vocabulary-storage-note { color: color-mix(in srgb, var(--text-primary) 72%, var(--bg-page)); opacity: 1; }

@@ -11,7 +11,7 @@ export function ChatFloating({ lang = defaultLang, page }: { lang?: Lang; page?:
   return (
     <>
       {open && (
-        <div style={{
+        <div className={`chat-floating-panel${expanded ? ' is-expanded' : ''}`} style={{
           position: 'fixed',
           ...(expanded
             ? { inset: '1rem', bottom: '1rem', width: 'auto', height: 'auto' }

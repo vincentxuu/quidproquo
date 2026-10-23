@@ -55,12 +55,9 @@ export function ChatHeader({
     >
       {/* Left: Title & Status */}
       <div className="flex min-w-0 flex-1 items-center gap-2.5 overflow-hidden">
-        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--brand-500)] text-white">
-          <SparkleIcon className="size-3.5" />
-        </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
-            <h2 style={{ margin: 0 }} className="truncate text-sm leading-5 font-semibold text-primary">{resolvedTitle}</h2>
+            <h2 style={{ margin: 0 }} className="truncate text-sm leading-5 font-semibold text-foreground">{resolvedTitle}</h2>
             {showStatus && (
               <span role="status" className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium tabular-nums"
                 style={{
@@ -198,18 +195,6 @@ export function ChatHeaderToolbar({
 
 /* ------------------------------------------------------------------ */
 /* Inline icons (thin stroke, close to the original lucide aesthetic) */
-
-function SparkleIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" />
-      <path d="M5 3v4" />
-      <path d="M19 17v4" />
-      <path d="M3 5h4" />
-      <path d="M17 19h4" />
-    </svg>
-  )
-}
 
 function CloseIcon({ className }: { className?: string }) {
   return (

@@ -21,25 +21,26 @@ async function openSidebar(page: Page) {
   await expect(trigger).toBeVisible();
   await trigger.click();
   // 面板滑入動畫 0.3s，等它出現再截圖
-  const sidebar = page.getByRole('complementary', { name: '關於這篇文章', exact: true });
-  await expect(sidebar).toBeVisible({ timeout: 5000 });
-  await expect(sidebar.getByText('可以這樣問', { exact: true })).toBeVisible();
+  await expect(page.getByRole('region', { name: /目前文章/ })).toBeVisible({ timeout: 5000 });
 }
 
-// 斷言：本文右緣與面板左緣之間不得有超過 gutter（24px）的空隙。
+// Reserved desktop layout: the rightmost visible editorial column must meet
+// the AI panel with the 24px gutter. At >=1520 the TOC sits between prose and
+// AI, so measuring prose alone incorrectly counts the TOC as an empty gap.
 async function assertNoGapBetweenMainAndSidebar(page: Page) {
-  await page.waitForTimeout(400); // 讓 padding-right 與 fixed 定位穩定
+  await page.waitForTimeout(400);
   const gap = await page.evaluate(() => {
+    if (innerWidth < 1140) return null; // Smaller layouts intentionally overlay.
     const main = document.querySelector('.post-main');
     const sidebar = document.querySelector('.chat-sidebar-panel');
-    if (!main || !sidebar) return null;
-    const mainRect = main.getBoundingClientRect();
-    const sidebarRect = sidebar.getBoundingClientRect();
-    // 本文右緣（含 padding 讓位後）與面板左緣之間的空隙
-    return sidebarRect.left - mainRect.right;
+    if (!main || !sidebar) throw new Error('Missing article or AI panel');
+    const toc = document.querySelector('.post-sidebar');
+    const tocRight = toc && getComputedStyle(toc).display !== 'none' ? toc.getBoundingClientRect().right : 0;
+    const editorialRight = Math.max(main.getBoundingClientRect().right, tocRight);
+    return sidebar.getBoundingClientRect().left - editorialRight;
   });
   if (gap === null) return;
-  // gutter = 24px，允許 2px 抗鋸齒誤差
+  expect(gap).toBeGreaterThanOrEqual(22); // Also reject overlap, not only gaps.
   expect(gap).toBeLessThanOrEqual(26);
 }
 

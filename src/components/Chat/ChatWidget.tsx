@@ -5,7 +5,6 @@ import { ChatThread } from './ChatThread'
 import { CloudChatHistory } from './CloudChatHistory'
 import { QuotaIndicator } from './QuotaIndicator'
 import { ChatHeader, ChatHeaderToolbar } from './ChatHeader'
-import { Suggestion } from '@/components/ai-elements/suggestion'
 import { chatT, SUGGESTED_QUESTIONS_EN } from '@/i18n/chat'
 import { buildVisibleSuggestions } from './suggestions'
 import { defaultLang, type Lang } from '@/i18n/ui'
@@ -138,6 +137,27 @@ const ChatWidget = forwardRef<{ focusInput: () => void }, ChatWidgetProps>(({
   page,
 }, ref) => {
   const t = useMemo(() => chatT(lang), [lang])
+  // Mobile keyboards can shrink visualViewport without changing layout vh (iOS).
+  useEffect(() => {
+    const viewport = window.visualViewport;
+    const root = document.documentElement;
+    const update = () => {
+      root.style.setProperty('--chat-viewport-height', `${viewport?.height ?? window.innerHeight}px`);
+      root.style.setProperty('--chat-viewport-top', `${viewport?.offsetTop ?? 0}px`);
+    };
+    update();
+    viewport?.addEventListener('resize', update);
+    viewport?.addEventListener('scroll', update);
+    window.addEventListener('resize', update);
+    return () => {
+      viewport?.removeEventListener('resize', update);
+      viewport?.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+      root.style.removeProperty('--chat-viewport-height');
+      root.style.removeProperty('--chat-viewport-top');
+    };
+  }, []);
+
   const welcome = useMemo<Message>(() => ({ id: WELCOME_ID, role: 'assistant', content: t('chat.welcome') }), [t])
   const suggestionPool = lang === 'en' ? SUGGESTED_QUESTIONS_EN : SUGGESTED_QUESTIONS
   const [messages, setMessages] = useState<Message[]>(() => [welcome])
@@ -395,38 +415,34 @@ const ChatWidget = forwardRef<{ focusInput: () => void }, ChatWidgetProps>(({
     : []
   const visibleSuggestions = buildVisibleSuggestions(pageQuestions, suggestionPool, suggestionPage)
 
-  // 建議問題貼在輸入框正上方、直列（窄面板慣例），開始對話就收起
+  // Suggested questions are a compact set of prompts, not full-width pill controls.
   const suggestions = messages.length === 1 && !loading ? (
-    <div className="px-4 pt-2 pb-3" style={{ background: 'var(--bg-subtle)' }}>
-      <div className="mb-1.5 flex items-center justify-between gap-2">
-        <span className="text-sm font-bold" style={{ color: 'var(--text-secondary)' }}>{t('chat.suggestions.title')}</span>
+    <section className="chat-suggestions" aria-label={t('chat.suggestions.title')}>
+      <div className="chat-suggestions-heading">
+        <span>{t('chat.suggestions.title')}</span>
         <button
           type="button"
           onClick={() => setSuggestionPage(page => page + 1)}
-          className="inline-flex shrink-0 cursor-pointer items-center gap-1 rounded-lg border-none bg-transparent px-2 py-1 text-sm font-bold transition-colors hover:bg-accent"
-          style={{ color: 'var(--text-secondary)' }}
+          className="chat-suggestions-refresh"
           aria-label={t('chat.suggestions.refreshAria')}
         >
-          <RefreshCwIcon className="size-3.5" />
+          <RefreshCwIcon className="chat-suggestions-refresh-icon" />
           {t('chat.suggestions.refresh')}
         </button>
       </div>
-      <div className="flex flex-col gap-1.5">
+      <div className="chat-suggestions-list">
         {visibleSuggestions.map((question) => (
-          <Suggestion
-            key={question}
-            suggestion={question}
-            onClick={(q) => void sendMessage(q)}
-            className="chat-suggestion h-auto justify-start whitespace-normal text-left text-sm leading-relaxed"
-          />
+          <button key={question} type="button" onClick={() => void sendMessage(question)} className="chat-suggestion">
+            <span>{question}</span><span className="chat-suggestion-arrow" aria-hidden="true">↗</span>
+          </button>
         ))}
       </div>
-    </div>
+    </section>
   ) : null
 
   // chip 整段對話都留著（不只空狀態），讀者隨時看得到 AI 以哪篇為脈絡、也隨時能拿掉
   const pageChip = activePage ? (
-    <div className="flex items-center gap-1.5 px-4 pt-2 pb-1 text-sm" style={{ background: 'var(--bg-card)', color: 'var(--text-secondary)' }}>
+    <div role="region" aria-label={`${t('chat.page.chip')} ${activePage.title}`} className="flex items-center gap-1.5 px-4 pt-2 pb-1 text-sm" style={{ background: 'var(--bg-card)', color: 'var(--text-secondary)' }}>
       <span className="shrink-0 font-bold">{t('chat.page.chip')}</span>
       <span className="min-w-0 truncate" title={activePage.title}>{activePage.title}</span>
       <button
@@ -444,7 +460,7 @@ const ChatWidget = forwardRef<{ focusInput: () => void }, ChatWidgetProps>(({
 
   return (
     <ChatLocaleProvider lang={lang} pageSlug={activePage?.slug}>
-    <div style={containerStyle}>
+    <div className={`chat-widget${embedded ? ' is-embedded' : ''}`} style={containerStyle}>
       <ChatHeader
         title={page?.title}
         status={loading ? 'streaming' : 'idle'}
@@ -452,19 +468,20 @@ const ChatWidget = forwardRef<{ focusInput: () => void }, ChatWidgetProps>(({
         onExpandToggle={onExpandToggle}
         isExpanded={isExpanded}
         onClose={onClose}
-        extraActions={
+        extraActions={<>
           <ChatHeaderToolbar
             messages={messages}
             onNewChat={handleNewChat}
           />
-        }
-      />
-      <CloudChatHistory messages={messages} threadId={threadId.current} loading={loading} lang={lang} onLoad={transcript => {
+          <CloudChatHistory messages={messages} threadId={threadId.current} loading={loading} lang={lang} onLoad={transcript => {
         abortRef.current?.abort(); abortRef.current = null;
         threadId.current = transcript.threadId;
         try { browserStorage()?.setItem('chat_thread_id', transcript.threadId); } catch { /* local storage unavailable */ }
         setMessages([welcome, ...transcript.messages]); setRemaining(null); setPageDismissed(true);
       }} />
+        </>
+        }
+      />
       <ChatThread
         messages={messages}
         loading={loading}

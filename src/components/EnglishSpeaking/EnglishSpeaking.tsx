@@ -1,8 +1,9 @@
-import { fetchPersonalProgress } from '../../lib/personalProgress';
+import { fetchPersonalProgress, PersonalProgressError } from '../../lib/personalProgress';
 import { useEffect, useRef, useState } from 'react';
 import { canRecord, canReplay, clipUrl, dialoguesFor, fixOptions, fluencyOriginalMinutes, fluencyRounds, fluencyTopicsFor, formatClock, formatDuration, freeTalkFor, groupCheatSheet, interviewQuestionGroups, parseAutoRead, parseProgress, parseVoice, pickSession, pickTopic, questionsFor, recordingFileName, requeue, resolveDialogue, scheduleReview, secondsLeft, selectSession, shadowRates, shuffleQuestions, speakingCards, speakingEvidence, speakingScenarios, speakingVoices, SESSION_SIZE, SPEAKING_AUTOREAD_KEY, SPEAKING_STORAGE_KEY, SPEAKING_VOICE_KEY, type Rating, type SpeakingProgress, type SpeakingScenario, type SpeakingVoice } from '../../lib/english-speaking';
 import { speakingClips } from '../../lib/english-speaking-clips';
 import './EnglishSpeaking.css';
+import '../../styles/personal-sync.css';
 
 // Feature switches for the practice tools. Set one to false to remove that tool; everything else behaves as before.
 const tools: { recording: boolean; cheatSheet: boolean; replay: boolean; dialogue: boolean; questions: boolean; fluency: boolean; freeTalk: boolean; fixOne: boolean; shadow: boolean; clips: boolean; compactCard: boolean; sessionCap: boolean; requeue: boolean; shortcuts: boolean; autoRead: boolean; compactHome: boolean; clearCorner: boolean } = { recording: true, cheatSheet: true, replay: true, dialogue: true, questions: true, fluency: true, freeTalk: true, fixOne: true, shadow: true, clips: true, compactCard: true, sessionCap: true, requeue: true, shortcuts: true, autoRead: true, compactHome: true, clearCorner: true };
@@ -40,15 +41,28 @@ export function EnglishSpeaking() {
   const [ready, setReady] = useState(false);
   const [storageNote, setStorageNote] = useState('');
   const [cloud, setCloud] = useState(false);
+  const [syncState, setSyncState] = useState<'checking' | 'guest' | 'cloud' | 'error'>('checking');
+  const [syncNote, setSyncNote] = useState('');
+  const [hasLocalProgress, setHasLocalProgress] = useState(false);
+  const syncStateRef = useRef(syncState);
   const [syncBusy, setSyncBusy] = useState(false);
   const cloudRef = useRef(false);
   const busyRef = useRef(false);
   async function connectProgress(importLocal = false) {
-    if (busyRef.current) return; busyRef.current = true; setSyncBusy(true);
-    try { const local = importLocal ? parseProgress(localStorage.getItem(SPEAKING_STORAGE_KEY)) : undefined;
+    if (busyRef.current) return;
+    busyRef.current = true; setSyncBusy(true);
+    try {
+      const local = importLocal ? parseProgress(localStorage.getItem(SPEAKING_STORAGE_KEY)) : undefined;
       const items = await fetchPersonalProgress('speaking', importLocal ? { action: 'import', items: local } : undefined);
-      setProgress(parseProgress(JSON.stringify(items))); cloudRef.current = true; setCloud(true); setStorageNote(importLocal ? '已匯入；雲端既有進度已保留。' : '已連接帳號的雲端進度。');
-    } catch (error) { setStorageNote((error as Error).message); } finally { busyRef.current = false; setSyncBusy(false); }
+      setProgress(parseProgress(JSON.stringify(items))); cloudRef.current = true; setCloud(true);
+      syncStateRef.current = 'cloud'; setSyncState('cloud');
+      setSyncNote(importLocal ? '已匯入舊進度，雲端既有進度已保留。' : '雲端進度已連接');
+      if (importLocal) setHasLocalProgress(false);
+    } catch (error) {
+      const guest = error instanceof PersonalProgressError && error.status === 401;
+      syncStateRef.current = guest ? 'guest' : 'error'; setSyncState(guest ? 'guest' : 'error');
+      setSyncNote(guest ? cloudRef.current ? '登入已到期，重新登入後繼續儲存。' : '進度儲存在這個瀏覽器' : '雲端暫時無法連線，原有進度仍保留。');
+    } finally { busyRef.current = false; setSyncBusy(false); }
   }
   const [session, setSession] = useState<string[]>([]);
   const [index, setIndex] = useState(0);
@@ -246,6 +260,8 @@ export function EnglishSpeaking() {
     try { initial = parseProgress(window.localStorage.getItem(SPEAKING_STORAGE_KEY)); }
     catch { setStorageNote('瀏覽器無法儲存進度，這次練習仍可繼續。'); }
     setProgress(initial);
+    setHasLocalProgress(Object.keys(initial).length > 0);
+    void connectProgress();
     setSpeechSupported('speechSynthesis' in window && 'SpeechSynthesisUtterance' in window);
     try { setVoice(parseVoice(window.localStorage.getItem(SPEAKING_VOICE_KEY))); } catch { /* Keep the default voice when storage is blocked. */ }
     try { setAutoRead(parseAutoRead(window.localStorage.getItem(SPEAKING_AUTOREAD_KEY))); } catch { /* Keep auto-read on when storage is blocked. */ }
@@ -329,11 +345,11 @@ export function EnglishSpeaking() {
     try { window.localStorage.setItem(SPEAKING_AUTOREAD_KEY, next ? 'on' : 'off'); } catch { /* The choice still holds for this visit. */ }
   }
   async function rate(rating: Rating) {
-    const id = session[index]; if (!id || !revealed || replay || busyRef.current) return;
+    const id = session[index]; if (!id || !revealed || replay || busyRef.current || syncStateRef.current === 'error' || syncStateRef.current === 'checking' || (cloudRef.current && syncStateRef.current === 'guest')) return;
     if (cloudRef.current) {
       busyRef.current = true; setSyncBusy(true);
-      try { const items = await fetchPersonalProgress('speaking', { action: 'review', key: id, rating }); setProgress(parseProgress(JSON.stringify(items))); setNow(Date.now()); setStorageNote('已儲存至雲端。'); setSession(value => requeue(tools.requeue, value, index, rating)); nextCard(); }
-      catch (error) { setStorageNote((error as Error).message); } finally { busyRef.current = false; setSyncBusy(false); } return;
+      try { const items = await fetchPersonalProgress('speaking', { action: 'review', key: id, rating }); setProgress(parseProgress(JSON.stringify(items))); setNow(Date.now()); setSyncNote('進度已儲存至雲端'); setSession(value => requeue(tools.requeue, value, index, rating)); nextCard(); }
+      catch (error) { const guest = error instanceof PersonalProgressError && error.status === 401; syncStateRef.current = guest ? 'guest' : 'error'; setSyncState(guest ? 'guest' : 'error'); setSyncNote(guest ? '登入已到期，重新登入後繼續儲存。' : '這次尚未儲存，請重新連線後再試。'); } finally { busyRef.current = false; setSyncBusy(false); } return;
     }
     let latest = progress;
     try { latest = { ...progress, ...parseProgress(window.localStorage.getItem(SPEAKING_STORAGE_KEY)) }; } catch { /* Keep this session usable when storage is blocked. */ }
@@ -408,11 +424,18 @@ export function EnglishSpeaking() {
   // Optional and never stored: it sits beside the self-rating and changes nothing about it.
   const fixStep = tools.fixOne && <div className="es-fix" role="group" aria-label="挑一個地方再說一次"><p>這次要修哪一個地方？<span>{tools.compactCard ? '可以跳過。' : '可以跳過，直接往下自評。'}</span></p><div className="es-actions">{fixOptions.map(item => <button key={item.id} aria-pressed={fix === item.id} onClick={() => setFix(fix === item.id ? '' : item.id)}>{item.label}</button>)}</div><div role="status">{fixTip && <><p className="es-fix-tip">只注意這一點，再說一次。{fixTip}</p>{canKeepRounds && <div className="es-actions">{recordState === 'recording' ? <button className="es-recording" onClick={stopRecording}>停止錄音</button> : <button disabled={recordState === 'asking'} onClick={() => startRecording()}>只注意這一點，再錄一次</button>}</div>}</>}</div></div>;
   const stopOrPlay = (key: string, label: string) => <button onClick={() => playingTake === key ? stopMine() : playTake(key)}>{playingTake === key ? '停止播放錄音' : label}</button>;
-  const verdict = replay ? <><p>這一輪是立刻再練一次，重點在說得更順，不會改變複習安排。</p><button className="es-primary" onClick={nextCard}>{index + 1 < session.length ? '下一句 →' : '完成這一輪'}</button></> : <><p>這句你說得如何？</p><div className="es-ratings"><button disabled={syncBusy} onClick={() => rate(0)}>還說不出來<span>{comesBack ? '這一輪最後再練一次' : '10 分鐘後再練'}</span></button><button disabled={syncBusy} onClick={() => rate(1)}>有點卡<span>明天再練</span></button><button className="es-primary" disabled={syncBusy} onClick={() => rate(2)}>說得順<span>至少 3 天後再練</span></button></div></>;
+  const verdict = replay ? <><p>這一輪是立刻再練一次，重點在說得更順，不會改變複習安排。</p><button className="es-primary" onClick={nextCard}>{index + 1 < session.length ? '下一句 →' : '完成這一輪'}</button></> : <><p>這句你說得如何？</p><div className="es-ratings"><button disabled={syncBusy || syncState === 'checking' || syncState === 'error' || (cloud && syncState === 'guest')} onClick={() => rate(0)}>還說不出來<span>{comesBack ? '這一輪最後再練一次' : '10 分鐘後再練'}</span></button><button disabled={syncBusy || syncState === 'checking' || syncState === 'error' || (cloud && syncState === 'guest')} onClick={() => rate(1)}>有點卡<span>明天再練</span></button><button className="es-primary" disabled={syncBusy || syncState === 'checking' || syncState === 'error' || (cloud && syncState === 'guest')} onClick={() => rate(2)}>說得順<span>至少 3 天後再練</span></button></div></>;
   return <div className={tools.clearCorner ? 'es-app es-clear-corner' : 'es-app'}>
     <div className="es-topline"><span>口說筆記 · POC</span><span>先試著說，再看答案</span></div>
     {view !== 'home' && <button className="es-back" onClick={() => open('home')}>← 回口說專區</button>}
-    <div className="es-progress-sync"><p>{cloud ? '目前使用帳號的雲端複習進度。' : '目前進度只存在這個瀏覽器；可登入後連接雲端。'}</p><a href="/auth/login?returnTo=%2Fenglish">登入</a>{' '}<button disabled={syncBusy} onClick={() => connectProgress()}>連接／重新載入雲端進度</button>{cloud && <button disabled={syncBusy} onClick={() => connectProgress(true)}>匯入這個瀏覽器的舊進度</button>}</div>
+    <aside className="personal-sync" aria-label="進度儲存" aria-busy={syncBusy} data-state={syncState}>
+      <p className="personal-sync-status" role="status">{syncState === 'checking' ? '正在確認儲存位置…' : syncNote}</p>
+      <div className="personal-sync-actions">
+        {syncState === 'guest' && <a className="personal-sync-action" href="/auth/login?returnTo=%2Fenglish">登入同步進度</a>}
+        {syncState === 'error' && <button className="personal-sync-action" disabled={syncBusy} onClick={() => void connectProgress()}>重新連線</button>}
+      </div>
+      {syncState === 'cloud' && hasLocalProgress && <details className="personal-sync-help"><summary>匯入舊進度</summary><p>這個瀏覽器還有一份舊進度。匯入會補上缺少的項目，保留雲端既有進度。</p><button className="personal-sync-action" disabled={syncBusy} onClick={() => void connectProgress(true)}>匯入這個瀏覽器的進度</button></details>}
+    </aside>
     {storageNote && <p role="status" className="es-notice">{storageNote}</p>}
     {view === 'home' && <>
       <header className="es-intro"><p className="es-eyebrow">把想說的意思，練成說得出口的英文</p><h1 ref={heading} tabIndex={-1}>英文口說</h1><p>從你常卡住的情境開始。讀懂一句，說出一句，再回來練一次。</p></header>
@@ -424,7 +447,7 @@ export function EnglishSpeaking() {
         <div className="es-dialogue-entry es-tool-group" role="group" aria-label="練句子"><p className="es-eyebrow">練句子 · 讀懂、聽熟，練到說得出口</p><div className="es-actions"><button className="es-primary" onClick={() => open('topic')}>{scenario === 'travel' ? '閱讀情境文章' : '看情境筆記'}</button><button onClick={() => start('all')}>{practiceLabel}</button>{tools.cheatSheet && <button onClick={() => open('sheet')}>行前小抄</button>}{tools.shadow && <button onClick={() => openTool('shadow')}>跟讀與回音</button>}</div></div>
         {(scenarioDialogues.length > 0 || scenarioQuestions.length > 0 || scenarioTalk.length > 0 || fluencyTopics.length > 0) && <div className="es-dialogue-entry es-tool-group" role="group" aria-label="開口練習"><p className="es-eyebrow">開口練習 · 把句子用出來，或自己組織內容講；都不計分，也不計入複習進度</p><div className="es-actions">{scenarioDialogues.map(item => <button key={item.id} onClick={() => playDialogue(item.id, false)}>對話扮演：{item.title}</button>)}{scenarioQuestions.length > 0 && <button onClick={startQuestions}>面試題目問答（{scenarioQuestions.length} 題）</button>}{scenarioTalk.length > 0 && <button onClick={() => openTool('freetalk')}>自由說話（{scenarioTalk.length} 題）</button>}{fluencyTopics.length > 0 && <button onClick={() => openTool('fluency')}>流暢度練習（同一題講三輪）</button>}</div></div>}
       </> : <><div className="es-actions"><button className="es-primary" onClick={() => open('topic')}>{scenario === 'travel' ? '閱讀情境文章' : '看情境筆記'}</button><button onClick={() => start('all')}>{practiceLabel}</button>{tools.cheatSheet && <button onClick={() => open('sheet')}>行前小抄</button>}</div>{scenarioDialogues.length > 0 && <div className="es-dialogue-entry" role="group" aria-label="對話扮演"><p className="es-eyebrow">對話扮演 · 把句子放進一段對話裡演一次，不計入複習進度</p><div className="es-actions">{scenarioDialogues.map(item => <button key={item.id} onClick={() => playDialogue(item.id, false)}>對話扮演：{item.title}</button>)}</div></div>}{scenarioQuestions.length > 0 && <div className="es-dialogue-entry" role="group" aria-label="面試題目問答"><p className="es-eyebrow">面試題目問答 · 聽面試官的問題，自己開口回答，不計分，也不計入複習進度</p><div className="es-actions"><button onClick={startQuestions}>面試題目問答（{scenarioQuestions.length} 題）</button></div></div>}</>}</section>
-      <p className="es-footnote">進度只存在這個瀏覽器。自評安排：還說不出來 10 分鐘後、有點卡隔天、說得順至少 3 天後。</p>
+      <p className="es-footnote">自評安排：還說不出來 10 分鐘後、有點卡隔天、說得順至少 3 天後。</p>
     </>}
     {view === 'topic' && scenario !== 'travel' && <article className="es-article"><p className="es-eyebrow">{currentScenario.title} · 情境筆記示範</p><h1 ref={heading} tabIndex={-1}>{currentScenario.subtitle}</h1><p className="es-lead">先想像自己在這個情境裡，再讀英文。這裡提供的是參考說法，你可以換成自己的細節。</p>{scenarioCards.map(item => <section className="es-example" key={item.id}><p>{item.context}</p><h2>{item.zh}</h2><div className="es-english">{item.en} {audio(item.en)}</div><p>{item.swap}</p><Evidence id={item.id} /></section>)}<button className="es-primary" onClick={() => start('all')}>{practiceLabel} →</button></article>}
     {view === 'topic' && scenario === 'travel' && <article className="es-article"><p className="es-eyebrow">情境 01 · 口說筆記</p><h1 ref={heading} tabIndex={-1}>這裡有什麼，<br />怎麼去那裡？</h1><p className="es-lead">先分清楚你想說的是「我有」、「出示東西」、「某個地方有」，還是「怎麼到達」。再依情境選擇說法。</p>

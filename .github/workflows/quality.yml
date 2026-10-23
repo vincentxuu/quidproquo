@@ -4,6 +4,27 @@ on:
   workflow_call:
 
 jobs:
+  ui-scope:
+    name: Detect UI changes
+    runs-on: ubuntu-latest
+    outputs:
+      required: ${{ steps.scope.outputs.required }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Test UI scope detection
+        run: node --test scripts/ui-change-scope.test.mjs
+      - id: scope
+        name: Detect affected UI
+        env:
+          UI_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          UI_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: node scripts/ui-change-scope.mjs >> "$GITHUB_OUTPUT"
+
   verify:
     name: Verify
     runs-on: ubuntu-latest
@@ -48,8 +69,9 @@ jobs:
           if-no-files-found: warn
 
   visual:
-    name: Visual regression (non-blocking)
-    continue-on-error: true
+    name: Visual regression (required for UI changes)
+    needs: ui-scope
+    if: needs.ui-scope.outputs.required == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

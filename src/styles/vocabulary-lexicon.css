@@ -38,7 +38,7 @@
 .vlex-save { display: grid; gap: .5rem; border-top: 1px solid var(--border); padding-top: .8rem; }
 .vlex-save > button { justify-self: start; }
 .vlex-save > p[role="status"] { display: flex; gap: .4rem; align-items: center; color: var(--text-secondary); }
-.vlex-lookup .vlex-primary { background: var(--text-secondary); color: var(--bg-primary, var(--bg-card)); border-color: var(--text-secondary); font-weight: 600; }
+.vlex-lookup .vlex-primary, .vlex-lookup .vlex-primary:hover:not(:disabled) { background: var(--text-primary); color: var(--bg-page); border-color: var(--text-primary); font-weight: 600; }
 .vlex-loading { display: flex; align-items: center; gap: .65rem; padding: 1rem 0; font-size: .8rem; }
 .vlex-loading svg { flex-shrink: 0; }
 /* Keep lookup failures secondary to the word and the reader's saved notes. */
@@ -50,3 +50,9 @@
 .vlex-error[role="alert"] > button:focus-visible { outline: 2px solid var(--text-secondary); outline-offset: 2px; }
 @media (max-width: 480px) { .vlex-error[role="alert"] { gap: .4rem .5rem; padding: .6rem .7rem; } .vlex-error[role="alert"] > p { flex-basis: calc(100% - 28px); } .vlex-error[role="alert"] > button { margin-left: 23px; } }
 @media (max-width: 480px) { .vlex-example-line { flex-wrap: wrap; } .vlex-example-line > p { flex-basis: calc(100% - 56px); } .vlex-example-line > .vlex-badge { margin-left: 48px; } }
+
+/* Keep article typography from turning dictionary help into large green prose. */
+.vlex-lookup p, .vlex-entry p { font-size: inherit; line-height: 1.65; color: inherit; font-weight: 400; }
+.vlex-lookup .vlex-muted, .vlex-entry .vlex-muted { color: color-mix(in srgb, var(--text-primary) 72%, var(--bg-page)); font-size: .8125rem; }
+.vlex-lookup .vlex-save { padding-top: 1rem; margin-top: .25rem; }
+.vlex-lookup .vlex-voice { flex-wrap: wrap; }

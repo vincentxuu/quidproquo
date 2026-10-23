@@ -3,6 +3,7 @@ import {
   PersonalProgressRepository,
   validateProgress,
   fetchPersonalProgress,
+  PersonalProgressError,
 } from "../personalProgress";
 import { speakingCards } from "../english-speaking";
 import { vi } from "vitest";
@@ -92,7 +93,31 @@ describe("personal progress", () => {
       "fetch",
       vi.fn(async () => new Response("", { status: 503 })),
     );
-    await expect(fetchPersonalProgress("speaking")).rejects.toThrow("尚未儲存");
+    await expect(fetchPersonalProgress("speaking")).rejects.toMatchObject({ status: 503 });
     vi.unstubAllGlobals();
   });
+  it("does not follow Access redirects or turn a login page into empty progress", async () => {
+    const request = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => new Response(null, { status: 302, headers: { location: 'https://example.cloudflareaccess.com/' } }));
+    vi.stubGlobal("fetch", request);
+    await expect(fetchPersonalProgress("interview")).rejects.toMatchObject({ status: 401 });
+    expect(request.mock.calls[0][1]).toMatchObject({ redirect: 'manual', credentials: 'same-origin', signal: expect.any(AbortSignal) });
+    vi.unstubAllGlobals();
+  });
+  it("distinguishes authenticated empty progress from malformed or HTML responses", async () => {
+    const request = vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({items: {}})))
+      .mockResolvedValueOnce(new Response(JSON.stringify({})))
+      .mockResolvedValueOnce(new Response('<html>Sign in</html>'));
+    vi.stubGlobal("fetch", request);
+    expect(await fetchPersonalProgress("interview")).toEqual({});
+    await expect(fetchPersonalProgress("interview")).rejects.toBeInstanceOf(PersonalProgressError);
+    await expect(fetchPersonalProgress("interview")).rejects.toMatchObject({status: 502});
+    vi.unstubAllGlobals();
+  });
+  it.each([401, 403])("classifies authentication status %s without returning local or fake data", async status => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response('', {status})));
+    await expect(fetchPersonalProgress("interview")).rejects.toMatchObject({status: 401});
+    vi.unstubAllGlobals();
+  });
+
 });

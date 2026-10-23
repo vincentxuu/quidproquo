@@ -16,9 +16,14 @@ const isAdmin = (await requireAdmin(Astro.cookies, Astro.request)).ok
     * { box-sizing: border-box; }
     body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg-page); color: var(--text-primary); min-height: 100vh; }
     .page { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
-    nav { margin-bottom: 1.5rem; font-size: 0.9rem; display: flex; justify-content: space-between; }
+    nav { align-items: center; gap: 1rem; margin-bottom: 1.5rem; font-size: 0.9rem; display: flex; justify-content: space-between; }
     nav a { color: var(--text-secondary); text-decoration: none; }
-    nav a:hover { color: var(--brand-900); }
+    nav a:hover { color: var(--text-primary); }
+    nav a { display: inline-flex; align-items: center; min-height: 44px; }
+    nav form { margin: 0; }
+    nav button { appearance: none; min-height: 44px; padding: 0 14px; border: 1px solid var(--border); border-radius: 8px; background: transparent; color: var(--text-primary); font: inherit; cursor: pointer; }
+    nav button:hover { background: var(--bg-subtle); }
+    nav :is(a,button):focus-visible { outline: 2px solid var(--brand-500); outline-offset: 3px; }
   </style>
   <script is:inline>
     const stored = localStorage.getItem('theme');
@@ -28,7 +33,7 @@ const isAdmin = (await requireAdmin(Astro.cookies, Astro.request)).ok
     }
   </script>
 </head>
-<body>
+<body class="chat-page">
   <div class="page">
     <nav>
       <a href="/">← 首頁</a>
