@@ -31,6 +31,8 @@ Review changed interactive controls for an explicit styling source, valid tokens
 
 If the project has automated UI checks, run them within authorization. When introducing a checker, tie it to the actual framework/design system, test representative valid and invalid cases, and separate heuristic warnings from deterministic failures. Never add a fake generic scanner and claim UI quality is enforced.
 
+Deploy gates should assert layout and behavior (contrast, controls inside the viewport, no horizontal overflow, measured gaps), not pixels. Pixel baselines break on every intended change and are often platform-specific, so treat them as review material. When a project pushes its default branch straight to production, ship UI changes through a pull request: let CI run there, regenerate platform baselines with the project's baseline job, review every changed image, then merge. Never make a check blocking in the same change that lacks the baselines or inputs it needs to pass.
+
 Required checks failing means the change is not ready for the corresponding delivery stage. Do not bypass hooks, weaken assertions, or bless new screenshot baselines to obtain a green result. Distinguish existing failures from new failures using evidence.
 
 ## Verify interaction and appearance
