@@ -1,5 +1,6 @@
 ---
 import PostLayout from '../layouts/PostLayout.astro';
+import Icons from '../components/Icons.astro';
 import { requireAccessIdentity } from '../lib/auth/access';
 export const prerender = false;
 let email = '';
@@ -9,34 +10,92 @@ catch (error) {
   return error instanceof Response ? error : new Response('登入服務暫時無法使用。', { status: 503 });
 }
 const links = [
-  { href: '/vocabulary', title: '單字庫', description: '收藏詞條、筆記與間隔複習。' },
-  { href: '/english', title: '英文口說', description: '連接雲端，接續你的口說複習進度。' },
-  { href: '/interview', title: '面試準備', description: '同步準備清單，保留已完成項目。' },
-  { href: '/chat', title: 'AI 對話', description: '查看、儲存與接續私人對話。' },
-  { href: '/admin', title: '管理後台', description: '管理內容、研究任務與站台設定。' },
+  { href: '/english', icon: 'activity' as const, title: '英文口說', description: '聽原句、跟著說，接續口說練習。' },
+  { href: '/interview', icon: 'list-checks' as const, title: '面試準備', description: '整理準備清單，逐項完成練習。' },
+  { href: '/chat', icon: 'brain-circuit' as const, title: 'AI 對話', description: '帶著問題開始，或接續已保存的對話。' },
 ];
 ---
-<PostLayout title="私人空間" description="你的收藏、學習進度與私人工作空間。" lang="zh-TW">
-  <section class="account-space">
-    <p class="account-eyebrow">我的帳號</p>
-    <div class="account-heading"><div><h1>私人空間</h1><p class="account-email">{email}</p></div><form method="POST" action="/api/auth/logout"><button type="submit">登出</button></form></div>
-    <p class="account-intro">同一個帳號，接續你的收藏、學習與對話。舊的本機紀錄可在各功能中選擇匯入。</p>
-    <ul class="account-links">{links.map(link => <li><a href={link.href}><h2>{link.title}<span aria-hidden="true">↗</span></h2><p>{link.description}</p></a></li>)}</ul>
-  </section>
+<PostLayout title="私人空間" description="你的單字收藏、學習進度與私人對話。" lang="zh-TW">
+  <div class="account-space">
+    <header class="account-page-heading">
+      <h1>私人空間</h1>
+      <p>回到你的收藏，接著練習。</p>
+    </header>
+    <div class="account-workspace">
+      <section class="account-learning" aria-label="個人學習">
+        <section class="account-vocabulary" aria-labelledby="account-vocabulary-title">
+          <span class="account-feature-icon" aria-hidden="true"><Icons name="book-open" size={30} /></span>
+          <div>
+            <h2 id="account-vocabulary-title">單字庫與複習</h2>
+            <p>查看收藏的詞義、例句與原文出處，<br class="account-wide-break" />接續你的單字複習。</p>
+            <div class="account-feature-actions">
+              <a class="account-primary" href="/vocabulary">前往單字庫<span aria-hidden="true"><Icons name="chevron-right" size={16} /></span></a>
+              <a class="account-reading-link" href="/">閱讀文章</a>
+            </div>
+          </div>
+        </section>
+        <section class="account-practice" aria-labelledby="account-practice-title">
+          <h2 id="account-practice-title">其他練習</h2>
+          <ul>{links.map(link => <li><a href={link.href}>
+            <span class="account-practice-icon" aria-hidden="true"><Icons name={link.icon} size={22} /></span>
+            <span class="account-practice-copy"><strong>{link.title}</strong><span>{link.description}</span></span>
+            <span class="account-row-arrow" aria-hidden="true"><Icons name="chevron-right" size={16} /></span>
+          </a></li>)}</ul>
+        </section>
+      </section>
+      <aside class="account-utilities" aria-label="帳號與管理">
+        <section class="account-identity" aria-labelledby="account-identity-title">
+          <h2 id="account-identity-title"><span class="account-status-dot" aria-hidden="true"></span>已登入</h2>
+          <p class="account-email">{email}</p>
+          <p class="account-sync-note">收藏與學習紀錄跟著帳號走。</p>
+          <form method="POST" action="/api/auth/logout"><button type="submit">登出帳號</button></form>
+        </section>
+        <a class="account-admin" href="/admin"><span><strong>管理後台</strong><span>內容、研究任務與站台設定</span></span><span aria-hidden="true"><Icons name="chevron-right" size={16} /></span></a>
+      </aside>
+    </div>
+  </div>
 </PostLayout>
 <style>
-  .account-space { max-width: 820px; margin: 3.5rem auto 6rem; padding: 0 1.25rem; }
-  .account-eyebrow { color: var(--brand-600); font-size: .85rem; letter-spacing: .1em; }
-  .account-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-  .account-heading h1 { margin: .25rem 0; font-size: clamp(1.8rem, 5vw, 2.5rem); }
-  .account-email { color: var(--text-secondary); overflow-wrap: anywhere; }
-  .account-heading button { border: 1px solid var(--border-color); border-radius: .5rem; background: var(--bg-secondary); color: var(--text-primary); padding: .5rem .9rem; cursor: pointer; }
-  .account-intro { line-height: 1.8; margin: 2rem 0; color: var(--text-secondary); }
-  .account-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; padding: 0; list-style: none; }
-  .account-links a { display: block; height: 100%; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: .75rem; text-decoration: none; color: var(--text-primary); background: var(--bg-secondary); }
-  .account-links a:hover { border-color: var(--brand-600); }
-  .account-links a:focus-visible, .account-heading button:focus-visible { outline: 2px solid var(--brand-600); outline-offset: 4px; }
-  .account-links h2 { font-size: 1.1rem; margin: 0 0 .65rem; display: flex; justify-content: space-between; }
-  .account-links p { margin: 0; color: var(--text-secondary); line-height: 1.6; font-size: .95rem; }
-  @media (max-width: 540px) { .account-links { grid-template-columns: 1fr; } }
+  .account-space { --account-muted: color-mix(in srgb, var(--text-primary) 72%, var(--bg-page)); max-width: 1000px; margin: clamp(2rem, 5vw, 4rem) auto 5rem; padding: 0 1.25rem; }
+  .account-space, .account-space * { box-sizing: border-box; }
+  .account-page-heading { margin-bottom: 2rem; }
+  .account-page-heading h1 { margin: 0; color: var(--text-primary); font-size: clamp(1.8rem, 4vw, 2.25rem); font-weight: 650; line-height: 1.3; letter-spacing: -.035em; }
+  .account-page-heading p { margin: .6rem 0 0; color: var(--account-muted); font-size: .95rem; line-height: 1.7; }
+  .account-workspace { display: grid; grid-template-columns: minmax(0, 1fr) 260px; align-items: start; gap: 2rem; }
+  .account-learning { min-width: 0; }
+  .account-vocabulary { display: flex; align-items: flex-start; gap: 1.25rem; border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; background: var(--bg-subtle); }
+  .account-feature-icon { color: var(--text-secondary); flex: 0 0 auto; padding-top: .15rem; }
+  .account-vocabulary h2 { margin: 0; max-width: 18em; color: var(--text-primary); font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 650; line-height: 1.55; letter-spacing: -.025em; }
+  .account-vocabulary p { margin: .85rem 0 1.35rem; color: var(--account-muted); font-size: .9rem; line-height: 1.85; }
+  .account-feature-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1.25rem; }
+  .account-primary { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 44px; padding: .6rem 1rem; border: 1px solid var(--text-primary); border-radius: 8px; color: var(--bg-page); background: var(--text-primary); text-decoration: none; font-size: .875rem; font-weight: 600; }
+  .account-primary:hover { opacity: .85; }
+  .account-reading-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--text-secondary); font-size: .875rem; text-underline-offset: 4px; }
+  .account-practice { margin-top: 2rem; }
+  .account-practice h2 { margin: 0 0 .75rem; font-size: .875rem; font-weight: 600; color: var(--account-muted); }
+  .account-practice ul { list-style: none; padding: 0; margin: 0; }
+  .account-practice li + li { border-top: 1px solid var(--border); }
+  .account-practice li > a { display: flex; align-items: center; gap: 1rem; padding: 1.1rem .5rem; color: var(--text-primary); text-decoration: none; border-radius: 6px; }
+  .account-practice li > a:hover { background: var(--bg-subtle); }
+  .account-practice-icon { display: inline-flex; flex-shrink: 0; color: var(--account-muted); }
+  .account-practice-copy { display: grid; gap: .35rem; min-width: 0; }
+  .account-practice-copy strong { font-size: .95rem; font-weight: 600; }
+  .account-practice-copy > span { color: var(--account-muted); font-size: .8125rem; line-height: 1.6; }
+  .account-row-arrow { margin-left: auto; flex-shrink: 0; color: var(--account-muted); }
+  .account-identity { padding: 1.25rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); }
+  .account-identity h2 { display: flex; align-items: center; gap: .45rem; margin: 0; font-size: .75rem; font-weight: 500; color: var(--account-muted); }
+  .account-status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand-500); }
+  .account-email { margin: .75rem 0 .5rem; font-size: .875rem; line-height: 1.65; color: var(--text-primary); overflow-wrap: anywhere; }
+  .account-sync-note { margin: 0; font-size: .75rem; line-height: 1.7; color: var(--account-muted); }
+  .account-identity form { margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  .account-identity button { min-height: 44px; width: 100%; font: inherit; font-size: .8125rem; color: var(--text-primary); border: 1px solid var(--border); border-radius: 7px; padding: .5rem; background: var(--bg-subtle); cursor: pointer; }
+  .account-identity button:hover { background: var(--bg-page); }
+  .account-admin { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.2rem .3rem; color: var(--account-muted); text-decoration: none; }
+  .account-admin > span { display: grid; gap: .3rem; }
+  .account-admin strong { font-size: .8125rem; font-weight: 500; }
+  .account-admin span span { font-size: .75rem; line-height: 1.6; }
+  .account-admin:hover { color: var(--text-primary); }
+  .account-space :is(a, button):focus-visible { outline: 2px solid var(--text-secondary); outline-offset: 4px; }
+  @media (max-width: 760px) { .account-workspace { grid-template-columns: minmax(0, 1fr); gap: 2rem; } .account-utilities { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 1.25rem; } .account-wide-break { display: none; } }
+  @media (max-width: 480px) { .account-space { padding: 0 1rem; } .account-vocabulary { padding: 1.25rem; gap: .85rem; } .account-feature-icon { display: none; } .account-utilities { grid-template-columns: minmax(0, 1fr); gap: 0; } .account-page-heading { margin-bottom: 1.5rem; } }
 </style>

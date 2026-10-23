@@ -80,3 +80,14 @@
 .vocabulary-import { margin-block: 1.5rem; padding: 1rem 1.25rem; border: 1px solid var(--border, #334155); border-radius: .75rem; }
 .vocabulary-import p { margin-block: 0 .75rem; }
 .vocabulary-error a { text-decoration: underline; }
+
+/* Match the personal workspace: quiet surfaces, one clear primary action. */
+.vocabulary-library:not(.vocabulary-review-mode) { max-width: 880px; margin-block: clamp(2rem, 5vw, 4rem); }
+.vocabulary-header { padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+.vocabulary-library .vocabulary-primary, .vocabulary-library .vocabulary-primary:hover:not(:disabled) { background: var(--text-primary); border-color: var(--text-primary); color: var(--bg-page); border-radius: 8px; }
+.vocabulary-card-row { border-radius: 10px; background: var(--bg-page); }
+.vocabulary-library .vocabulary-expand { padding-block: 1rem; }
+.vocabulary-library .vocabulary-term { font-size: 1rem; font-weight: 600; }
+.vocabulary-detail { border-top: 1px solid var(--border); padding: 1.25rem; background: var(--bg-subtle); }
+.vocabulary-library .vocabulary-personal-note { margin-top: 1.1rem; }
+.vocabulary-library .vocabulary-storage-note { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); line-height: 1.7; }
