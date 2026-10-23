@@ -117,6 +117,25 @@ describe('route table layout', () => {
     expect(html).toContain('data-label="Notes"');
     expect(html).toContain('<noscript><a draggable="false" href="https://www.youtube.com/watch?v=HLiRmyV9aBc"');
   });
+
+  it('sizes columns by header so notes stay wide when a table has no sector column', () => {
+    const cell = (value: string) => ({ type: 'tableCell', children: [{ type: 'text', value }] });
+    const row = (values: string[]) => ({ type: 'tableRow', children: values.map(cell) });
+    const render = (header: string[], values: string[]) => {
+      const tree = { type: 'root', children: [
+        { type: 'table', children: [row(header), row(values)] },
+        { type: 'code', lang: 'video-gallery', value: 'key: insubong\nlang: zh-TW\nlayout: routes' },
+      ] };
+      remarkVideoGallery()(tree as Root);
+      return (tree.children[0] as unknown as { value: string }).value;
+    };
+    const widths = (html: string) => [...html.matchAll(/<col style="width:(\d+)%">/g)].map(match => Number(match[1]));
+    const withSector = render(['路線', '難度', 'YDS', '長度／段數', '子區', '備註'], ['Insu A', '5.8', '5.8', '115 公尺', '東面', '備註文字']);
+    expect(widths(withSector)).toEqual([15, 11, 8, 12, 8, 30, 16]);
+    const withoutSector = render(['路線', '難度', 'YDS', '長度／段數', '備註'], ['Insu A', '5.8', '5.8', '115 公尺', '備註文字']);
+    expect(widths(withoutSector)).toEqual([15, 11, 8, 12, 38, 16]);
+    expect(withoutSector).toContain('<td class="route-videos__notes" data-label="備註">備註文字</td>');
+  });
 });
 
 
