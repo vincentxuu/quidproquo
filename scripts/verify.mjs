@@ -163,6 +163,9 @@ const FULL_STEPS = [
   ['check:grades', 'pnpm check:grades'],
   ['check:course-videos', 'pnpm check:course-videos'],
   ['check:seo-smoke', 'pnpm check:seo-smoke'],
+  // 截圖比對不擋部署，但每個 compareScreenshot() 至少要有 -linux 基線，否則那組比對永遠紅、等於沒在審。
+  ['visual baselines regression tests', 'node scripts/check-visual-baselines.mjs --self-test'],
+  ['visual baselines (-linux)', 'node scripts/check-visual-baselines.mjs'],
   ['skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs'],
   ['skill-anchors (章節連結)', 'node scripts/check-skill-anchors.mjs'],
 ];
