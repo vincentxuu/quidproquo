@@ -57,3 +57,19 @@
 }
 /* Keep the canvas width stable when a short viewport needs vertical scrolling. */
 .slide-reader-panel{scrollbar-gutter:stable}
+/* The toolbar stays in place while the document itself scrolls continuously. */
+.slide-reader-viewport{position:relative;flex:1 1 0;min-height:120px;min-width:0;overflow:hidden}
+.slide-reader-viewport>.slide-reader-canvas{position:absolute;inset:0;width:auto;min-height:0;overflow:auto;overscroll-behavior:contain;background:#e5e7eb;scrollbar-gutter:stable}
+.slide-reader-canvas canvas{max-width:none}
+.slide-reader-canvas:focus-visible{outline:3px solid var(--brand-500,#176d4b);outline-offset:-3px}
+
+/* The official PDF.js viewer owns all document controls and scrolling. */
+.slide-reader-panel{z-index:110;padding:0;gap:0!important;overflow:hidden;border:0;border-radius:12px;box-shadow:0 16px 60px rgb(0 0 0 / .18);scrollbar-gutter:auto}
+.slide-reader-bar{flex:0 0 auto;min-height:56px;padding:0 16px;border-bottom:1px solid var(--border,#dfe2e5);background:var(--bg-page,#fff);gap:12px}
+.slide-reader-bar strong{font-size:14px;font-weight:600;letter-spacing:0}
+.slide-reader-bar button{border:0;background:transparent;font-size:13px;color:var(--text-secondary,#555);padding:0 8px;display:flex;align-items:center;gap:12px}
+.slide-reader-bar button:hover{background:var(--bg-subtle,#f1f3f5)}
+.slide-reader-bar button span{font-size:23px;font-weight:400}
+.slide-reader-frame{display:block;flex:1 1 0;min-height:0;width:100%;border:0;background:#e5e7eb}
+@media(min-width:1100px){.slide-reader-panel{inset:12px 12px 12px auto;height:calc(100dvh - 24px);width:calc(48vw - 18px)}}
+@media(max-width:600px){.slide-reader-panel{inset:0;width:100%;height:100dvh;border-radius:0}.slide-reader-bar{padding:env(safe-area-inset-top,0px) 12px 0;min-height:52px}}

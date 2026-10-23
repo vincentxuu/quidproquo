@@ -1,4 +1,3 @@
-import { SlideCanvasRenderer } from './slides/canvasRenderer';
 import { cachedSlideUrl } from './slides/catalog';
 /** A single PDF comparison panel shared by all page links in an article. */
 export function slidePageUrl(source: string, page: number, total: number): string {
@@ -72,42 +71,30 @@ function setupSlideReader(root: HTMLElement, index: number) {
   const lecture = /lecture(\d+)\.pdf$/i.exec(new URL(source).pathname)?.[1];
   const panelTitle = lecture ? (en ? `Lecture ${Number(lecture)} slides` : `第 ${Number(lecture)} 堂投影片`) : (en ? 'Lecture slides' : '投影片對照');
   panel.setAttribute('aria-label', panelTitle);
-  panel.innerHTML = `<div class="slide-reader-bar"><strong>${panelTitle}</strong><button type="button" data-slide-close>${en ? 'Back to article' : '回到導讀'}</button></div><form class="slide-reader-nav"><button type="button" data-slide-prev aria-label="${en ? 'Previous PDF page' : '上一頁投影片'}">←</button><label>${en ? 'Go to page' : '前往頁碼'} <input type="number" min="1" max="${total}" value="1" required inputmode="numeric" /></label><span>/ ${total}</span><button type="submit">${en ? 'Go' : '前往'}</button><button type="button" data-slide-next aria-label="${en ? 'Next PDF page' : '下一頁投影片'}">→</button></form><p class="slide-reader-help">${en ? 'PDF page order. Slides load when opened; use the original PDF link if loading fails.' : '依 PDF 頁序標示，開啟時載入。載入失敗可重試或開啟下方原檔。'}</p><div class="slide-reader-canvas" aria-busy="false"></div><p class="slide-reader-message" role="status"></p><button type="button" data-slide-retry hidden>${en ? 'Retry' : '重新載入'}</button><a class="slide-reader-original" target="_blank" rel="noopener noreferrer">${en ? 'Open original PDF in a new tab' : '另開分頁看原始 PDF'}</a>`;
+  panel.innerHTML = `<header class="slide-reader-bar"><strong>${panelTitle}</strong><button type="button" data-slide-close>${en ? 'Back to article' : '返回導讀'} <span aria-hidden="true">×</span></button></header><iframe class="slide-reader-frame" title="${panelTitle}" allow="fullscreen"></iframe>`;
   document.body.appendChild(panel);
-  const input = panel.querySelector('input')!;
-  const host = panel.querySelector<HTMLElement>('.slide-reader-canvas')!;
-  const message = panel.querySelector<HTMLElement>('.slide-reader-message')!;
-  const retry = panel.querySelector<HTMLButtonElement>('[data-slide-retry]')!;
-  const renderer = new SlideCanvasRenderer(cachedSlideUrl(source) ?? source, host);
-  let revision = 0;
-  const original = panel.querySelector<HTMLAnchorElement>('.slide-reader-original')!;
-  const previous = panel.querySelector<HTMLButtonElement>('[data-slide-prev]')!;
-  const next = panel.querySelector<HTMLButtonElement>('[data-slide-next]')!;
-  const status = document.createElement('span');
-  status.className = 'slide-reader-status'; status.setAttribute('role', 'status');
-  panel.querySelector('.slide-reader-nav')!.appendChild(status);
+  const frame = panel.querySelector<HTMLIFrameElement>('iframe')!;
+  const pdf = cachedSlideUrl(source);
+  if (!pdf) { panel.remove(); return; }
   let page = 1;
   let returnFocus: HTMLElement | null = null;
   const triggers = root.querySelectorAll<HTMLElement>('[data-slide-open]');
   triggers.forEach(el => { el.setAttribute('aria-controls', panel.id); el.setAttribute('aria-expanded', 'false'); });
   const navigate = (value: number) => {
-    const target = slidePageUrl(source, value, total);
-    page = value; input.value = String(page);
-    original.href = target;
-    previous.disabled = page === 1; next.disabled = page === total;
-    const request = ++revision;
-    host.setAttribute('aria-busy', 'true'); host.replaceChildren(); retry.hidden = true;
-    message.textContent = en ? `Loading page ${page}…` : `正在載入第 ${page} 頁…`;
-    void renderer.show(value).then(rendered => {
-      if (!rendered || request !== revision) return;
-      host.setAttribute('aria-busy', 'false'); message.textContent = '';
-      status.textContent = en ? `Page ${value} loaded` : `已顯示第 ${value} 頁`;
-    }).catch(() => {
-      if (request !== revision) return;
-      host.setAttribute('aria-busy', 'false'); retry.hidden = false;
-      message.textContent = en ? 'Could not load slides. Retry or open the original PDF.' : '投影片載入失敗，請重試或開啟原始 PDF。';
-    });
+    page = value;
+    if (!frame.getAttribute('src')) {
+      frame.src = `/pdfjs/web/viewer.html?lang=${en ? 'en-US' : 'zh-TW'}&file=${encodeURIComponent(pdf)}#page=${page}&zoom=page-width`;
+    } else {
+      frame.contentWindow?.postMessage({ type: 'qp-pdf-jump', page }, location.origin);
+    }
   };
+  const onMessage = (event: MessageEvent) => {
+    if (event.origin !== location.origin || event.source !== frame.contentWindow || event.data?.type !== 'qp-pdf-page') return;
+    if (Number.isInteger(event.data.page) && event.data.page > 0 && event.data.page <= total) page = event.data.page;
+  };
+  const onFrameLoad = () => frame.contentWindow?.postMessage({ type: 'qp-pdf-jump', page }, location.origin);
+  frame.addEventListener('load', onFrameLoad);
+  window.addEventListener('message', onMessage);
   const open = (value: number, trigger: HTMLElement) => {
     document.querySelectorAll<HTMLDialogElement>('.slide-reader-panel[open]').forEach(other => { if (other !== panel) other.close(); });
     returnFocus = trigger;
@@ -135,26 +122,12 @@ function setupSlideReader(root: HTMLElement, index: number) {
   };
   const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape' && panel.open) panel.close(); };
   const onResize = () => { if (panel.open) { panel.close(); if (media.matches) panel.show(); else panel.showModal(); document.body.classList.toggle('has-slide-reader', media.matches); triggers.forEach(el => el.setAttribute('aria-expanded', 'true')); } };
-  retry.addEventListener('click', () => navigate(page));
-  let lastWidth = 0;
-  let resizeFrame = 0;
-  const observer = new ResizeObserver(() => {
-    const width = host.clientWidth;
-    if (width === lastWidth || width === 0) return;
-    lastWidth = width;
-    cancelAnimationFrame(resizeFrame);
-    resizeFrame = requestAnimationFrame(() => { if (panel.open) navigate(page); });
-  });
-  observer.observe(host);
   panel.querySelector('[data-slide-close]')!.addEventListener('click', () => panel.close());
-  panel.querySelector('form')!.addEventListener('submit', event => { event.preventDefault(); if (input.reportValidity()) navigate(Number(input.value)); });
-  previous.addEventListener('click', () => { if (page > 1) navigate(page - 1); });
-  next.addEventListener('click', () => { if (page < total) navigate(page + 1); });
   panel.addEventListener('close', onClose);
   document.addEventListener('click', onClick);
   document.addEventListener('keydown', onKey);
   media.addEventListener('change', onResize);
-  return () => { revision++; cancelAnimationFrame(resizeFrame); observer.disconnect(); renderer.destroy(); route.remove(); content?.classList.remove('course-longread'); sections.forEach(h => h.classList.remove('course-reading-section')); checks.forEach(p => p.classList.remove('course-reading-check')); document.removeEventListener('click', onClick); document.removeEventListener('keydown', onKey); media.removeEventListener('change', onResize); panel.removeEventListener('close', onClose); panel.remove(); document.body.classList.remove('has-slide-reader'); };
+  return () => { window.removeEventListener('message', onMessage); frame.removeEventListener('load', onFrameLoad); route.remove(); content?.classList.remove('course-longread'); sections.forEach(h => h.classList.remove('course-reading-section')); checks.forEach(p => p.classList.remove('course-reading-check')); document.removeEventListener('click', onClick); document.removeEventListener('keydown', onKey); media.removeEventListener('change', onResize); panel.removeEventListener('close', onClose); panel.remove(); document.body.classList.remove('has-slide-reader'); };
 }
 
 function setupStandaloneGuide(content: HTMLElement) {

@@ -6,8 +6,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "ASTRO_DEV_BACKGROUND=0 astro dev",
-    "build": "node scripts/create-cron-stub.mjs && astro build && node scripts/create-cron-entry.mjs && node scripts/generate-og-images.mjs",
+    "dev": "node scripts/prepare-pdf-viewer.mjs && ASTRO_DEV_BACKGROUND=0 astro dev",
+    "build": "node scripts/prepare-pdf-viewer.mjs && node scripts/create-cron-stub.mjs && astro build && node scripts/create-cron-entry.mjs && node scripts/generate-og-images.mjs",
     "deploy": "wrangler d1 migrations apply quidproquo-db --remote && pnpm build && wrangler deploy --config dist/server/wrangler.json",
     "preview": "astro preview",
     "astro": "astro",
