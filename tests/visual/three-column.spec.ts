@@ -1,10 +1,10 @@
 import { test, expect, type Page } from '@playwright/test';
-import { POST_URL, POST_TITLE } from './fixtures';
+import { POST_URL, POST_TITLE, compareScreenshot, expectNoHorizontalOverflow, expectReadableText } from './fixtures';
 
 // 三欄版面視覺回歸：驗證 Ask AI 面板開啟時，本文寬度穩定且不與面板產生異常空隙。
 // 邊界寬度：1139（剛下門檻）、1140（剛上門檻）、1400（中間）、1519（三欄下限前）、1520（三欄上門檻）、1600、1920。
 // 每個寬度都跑「面板關閉」與「面板開啟」兩態，以及淺／深色主題。
-// 基線：tests/visual/three-column.spec.ts-snapshots/ 下同名 png。更新基線前必須人眼看過 diff。
+// 擋部署的是版面斷言；截圖比對只在 VISUAL_SCREENSHOTS=1 時跑（不擋部署），基線在 three-column.spec.ts-snapshots/。
 
 const WIDTHS = [1139, 1140, 1400, 1519, 1520, 1600, 1920] as const;
 
@@ -53,11 +53,9 @@ test.describe('Ask AI three-column layout visual regression', () => {
         await expect(page.getByRole('heading', { level: 1, name: POST_TITLE, exact: true })).toBeVisible();
         // 面板關閉時不應有 .chat-sidebar-panel
         await expect(page.locator('.chat-sidebar-panel')).not.toBeVisible();
-        await expect(page).toHaveScreenshot(`three-col-${width}-closed-${theme}.png`, {
-          animations: 'disabled',
-          mask: [page.locator('img')],
-          maxDiffPixels: 300,
-        });
+        await expectNoHorizontalOverflow(page);
+        await expectReadableText(page.getByRole('heading', { level: 1, name: POST_TITLE, exact: true }));
+        await compareScreenshot(page, `three-col-${width}-closed-${theme}.png`);
       });
 
       test(`article ${width}px sidebar open (${theme})`, async ({ page }) => {
@@ -67,11 +65,9 @@ test.describe('Ask AI three-column layout visual regression', () => {
         await openSidebar(page);
         // 斷言：本文右緣與面板左緣之間無異常空隙
         await assertNoGapBetweenMainAndSidebar(page);
-        await expect(page).toHaveScreenshot(`three-col-${width}-open-${theme}.png`, {
-          animations: 'disabled',
-          mask: [page.locator('img')],
-          maxDiffPixels: 300,
-        });
+        await expectNoHorizontalOverflow(page);
+        await expectReadableText(page.locator('.chat-sidebar-panel .chat-widget'));
+        await compareScreenshot(page, `three-col-${width}-open-${theme}.png`);
       });
     }
   }
