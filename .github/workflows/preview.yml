@@ -26,14 +26,18 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      # node_modules/.astro 存的是 Markdown 渲染結果；文章沒改就沿用。前綴要涵蓋
+      # 渲染管線本身（remark/rehype 外掛、外掛 import 的資料檔、套件版本），否則
+      # 改了外掛但文章沒動，部署出去仍是舊 HTML（2026-10-23 路線影片表 colgroup 事件）。
+      # 外掛新增 import 的資料檔時，一併加進下面的 hashFiles。
+      # 不留跨前綴的 restore-key：渲染管線變了就整份重建，不拿舊管線的結果。
       - name: Restore Astro build cache
         uses: actions/cache@v6
         with:
           path: node_modules/.astro
-          key: ${{ runner.os }}-astro-${{ hashFiles('astro.config.mjs') }}-${{ hashFiles('src/content/**/*.md') }}
+          key: ${{ runner.os }}-astro-v2-${{ hashFiles('astro.config.mjs', 'pnpm-lock.yaml', 'src/plugins/**', 'src/data/climbing-videos.ts') }}-${{ hashFiles('src/content/**/*.md') }}
           restore-keys: |
-            ${{ runner.os }}-astro-${{ hashFiles('astro.config.mjs') }}-
-            ${{ runner.os }}-astro-
+            ${{ runner.os }}-astro-v2-${{ hashFiles('astro.config.mjs', 'pnpm-lock.yaml', 'src/plugins/**', 'src/data/climbing-videos.ts') }}-
       - name: Restore OG image cache
         uses: actions/cache@v6
         with:
