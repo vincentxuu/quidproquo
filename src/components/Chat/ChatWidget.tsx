@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useMemo, forwardRef, useImperativeHandle }
 import type { Message, StepEvent } from './types'
 import { applyStepEvent } from './steps-reducer'
 import { ChatThread } from './ChatThread'
+import { CloudChatHistory } from './CloudChatHistory'
 import { QuotaIndicator } from './QuotaIndicator'
 import { ChatHeader, ChatHeaderToolbar } from './ChatHeader'
 import { Suggestion } from '@/components/ai-elements/suggestion'
@@ -458,6 +459,12 @@ const ChatWidget = forwardRef<{ focusInput: () => void }, ChatWidgetProps>(({
           />
         }
       />
+      <CloudChatHistory messages={messages} threadId={threadId.current} loading={loading} lang={lang} onLoad={transcript => {
+        abortRef.current?.abort(); abortRef.current = null;
+        threadId.current = transcript.threadId;
+        try { browserStorage()?.setItem('chat_thread_id', transcript.threadId); } catch { /* local storage unavailable */ }
+        setMessages([welcome, ...transcript.messages]); setRemaining(null); setPageDismissed(true);
+      }} />
       <ChatThread
         messages={messages}
         loading={loading}

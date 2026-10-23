@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Volume2, Square, LoaderCircle, Check, CircleAlert, RotateCw } from 'lucide-react';
 import VocabularyEntry from './VocabularyEntry';
 import { useVocabularyAudio } from '../hooks/useVocabularyAudio';
-import { saveVocabularyEntry } from '../lib/vocabulary';
+import { mutateCloudVocabulary, VocabularyCloudError, vocabularyLoginUrl } from '../lib/vocabularyCloudClient';
 import { lookupVocabularyEntry } from '../lib/vocabularyLexiconClient';
 import type { LexiconEntry } from '../lib/vocabularyLexicon';
 import type { SpeakingVoice } from '../lib/english-speaking';
@@ -19,6 +19,7 @@ export default function VocabularyLookupPanel({ lang, initialTerm = '', context 
   const [state, setState] = useState<Result>({ status: 'idle' });
   const [saved, setSaved] = useState(false);
   const [saveError, setSaveError] = useState('');
+  const [needsLogin, setNeedsLogin] = useState(false);
   const [saving, setSaving] = useState(false);
   const source = useRef<Source>({ term: initialTerm, context, sourcePath, sourceTitle });
   const pending = useRef<AbortController | null>(null);
@@ -66,13 +67,13 @@ export default function VocabularyLookupPanel({ lang, initialTerm = '', context 
 
   async function save() {
     if (state.status !== 'done' || saveLock.current || saved) return;
-    saveLock.current = true; setSaving(true); setSaveError('');
+    saveLock.current = true; setSaving(true); setSaveError(''); setNeedsLogin(false);
     try {
-      const result = saveVocabularyEntry(state.entry, { originalTerm: source.current.term, context: source.current.context, sourcePath: source.current.sourcePath || location.pathname, sourceTitle: source.current.sourceTitle, lang });
+      const result = await mutateCloudVocabulary({ action: 'save', entry: state.entry, source: { originalTerm: source.current.term, context: source.current.context, sourcePath: source.current.sourcePath || location.pathname, sourceTitle: source.current.sourceTitle, lang } });
       setSaved(true); audio.stop();
       window.dispatchEvent(new CustomEvent('qp:vocabulary-saved', { detail: { alreadySaved: result.alreadySaved, term: state.entry.headword } }));
       onSaved?.();
-    } catch { setSaveError(en ? 'Unable to save. Your existing collection is unchanged. Check browser storage settings and try again.' : '無法儲存，既有單字庫未變動。請檢查瀏覽器儲存設定後再試一次。'); }
+    } catch (error) { setNeedsLogin(error instanceof VocabularyCloudError && error.status === 401); setSaveError(en ? 'Could not save to your account. Sign in or try again; your collection is unchanged.' : error instanceof Error ? error.message : '無法儲存到雲端，請稍後再試。'); }
     finally { saveLock.current = false; setSaving(false); }
   }
 
@@ -90,6 +91,6 @@ export default function VocabularyLookupPanel({ lang, initialTerm = '', context 
     {state.status === 'loading' && <div className="vlex-loading" role="status"><LoaderCircle size={20} aria-hidden="true" /><p>{state.generating ? (en ? 'Preparing the full entry… This can take a few seconds.' : '正在整理完整詞條，第一次查詢需要幾秒鐘…') : (en ? 'Looking up the entry…' : '正在查詢詞條…')}</p></div>}
     {state.status === 'error' && <div className="vlex-error" role="alert"><CircleAlert className="vlex-error-icon" size={18} aria-hidden="true" /><p>{state.message}</p><button type="button" onClick={() => { void lookup(query); }}><RotateCw size={14} aria-hidden="true" />{en ? 'Try again' : '重新載入'}</button></div>}
     {state.status === 'done' && <><VocabularyEntry entry={state.entry} lang={lang} pronunciation={pronunciation} /><footer className="vlex-save">{saved ? <p role="status"><Check size={16} aria-hidden="true" />{en ? 'In your vocabulary' : '已在單字庫'}</p> : <button type="button" className="vlex-primary" disabled={saving} onClick={() => { void save(); }}>{saving ? (en ? 'Saving…' : '儲存中…') : (en ? 'Add to vocabulary' : '加入單字庫')}</button>}<p className="vlex-muted">{en ? 'AI-generated dictionary content. Check important meanings against the article.' : '詞條由 AI 整理，重要詞義請對照文章脈絡。'}</p></footer></>}
-    {saveError && <p role="alert" className="vlex-error">{saveError}</p>}
+    {saveError && <p role="alert" className="vlex-error">{saveError}{needsLogin && <> <a href={vocabularyLoginUrl()}>{en ? 'Sign in' : '登入單字庫'}</a></>}</p>}
   </div>;
 }

@@ -237,32 +237,7 @@ const seriesPosts = posts.filter(p => p.data.category !== 'daily');
   }
 </style>
 
-<script is:inline>
-  (() => {
-    const STORAGE_KEY = 'interview-prep-progress';
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-
-    document.querySelectorAll('[data-check]').forEach(cb => {
-      const key = cb.dataset.check;
-      cb.checked = !!saved[key];
-      cb.addEventListener('change', () => {
-        saved[key] = cb.checked;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
-        updateBars();
-      });
-    });
-
-    function updateBars() {
-      ['ai-engineer', 'product-builder'].forEach(track => {
-        const prefix = track === 'ai-engineer' ? 'ai-' : 'pb-';
-        let done = 0;
-        for (let i = 0; i < 10; i++) if (saved[prefix + i]) done++;
-        const bar = document.querySelector(`[data-progress-bar="${track}"]`);
-        const label = document.querySelector(`[data-progress-label="${track}"]`);
-        if (bar) bar.style.width = (done / 10 * 100) + '%';
-        if (label) label.textContent = `${done} / 10`;
-      });
-    }
-    updateBars();
-  })();
+<script>
+  import { initInterviewProgress } from '../../lib/personalProgress';
+  initInterviewProgress();
 </script>

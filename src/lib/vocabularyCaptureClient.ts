@@ -75,19 +75,28 @@ export function initializeVocabularyCapture() {
   function dispatchLookup() {
     if (pendingLookup && dialog?.open) window.dispatchEvent(new CustomEvent('qp:vocabulary-lookup', { detail: pendingLookup }));
   }
-  function openCapture(event: Event) {
+  function showCapture(detail: NonNullable<typeof pendingLookup>, trigger: HTMLElement | null) {
     if (!dialog) return;
-    captureTrigger = event.currentTarget as HTMLElement;
+    captureTrigger = trigger;
     if (feedback) feedback.hidden = true;
     clearTimeout(feedbackTimer);
-    pendingLookup = {
-      term: captureTrigger === selectionSave ? selectionText : '', context: selectionContext,
-      sourcePath: location.pathname, sourceTitle: root?.dataset.title ?? '',
-    };
-    dialog.showModal();
+    pendingLookup = detail;
+    if (!dialog.open) dialog.showModal();
     if (selectionSave) selectionSave.hidden = true;
     dispatchLookup();
   }
+  function openCapture(event: Event) {
+    const trigger = event.currentTarget as HTMLElement;
+    showCapture({
+      term: trigger === selectionSave ? selectionText : '', context: selectionContext,
+      sourcePath: location.pathname, sourceTitle: root?.dataset.title ?? '',
+    }, trigger);
+  }
+  window.addEventListener('qp:vocabulary-open', event => {
+    const detail = (event as CustomEvent<NonNullable<typeof pendingLookup>>).detail;
+    if (!detail || typeof detail.term !== 'string' || typeof detail.context !== 'string' || typeof detail.sourcePath !== 'string' || typeof detail.sourceTitle !== 'string') return;
+    showCapture(detail, document.activeElement instanceof HTMLElement ? document.activeElement : null);
+  });
   document.getElementById('vocabulary-add')?.addEventListener('click', openCapture);
   selectionSave?.addEventListener('click', openCapture);
   window.addEventListener('qp:vocabulary-lookup-ready', dispatchLookup);

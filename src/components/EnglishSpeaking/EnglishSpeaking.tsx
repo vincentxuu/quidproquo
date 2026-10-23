@@ -1,3 +1,4 @@
+import { fetchPersonalProgress } from '../../lib/personalProgress';
 import { useEffect, useRef, useState } from 'react';
 import { canRecord, canReplay, clipUrl, dialoguesFor, fixOptions, fluencyOriginalMinutes, fluencyRounds, fluencyTopicsFor, formatClock, formatDuration, freeTalkFor, groupCheatSheet, interviewQuestionGroups, parseAutoRead, parseProgress, parseVoice, pickSession, pickTopic, questionsFor, recordingFileName, requeue, resolveDialogue, scheduleReview, secondsLeft, selectSession, shadowRates, shuffleQuestions, speakingCards, speakingEvidence, speakingScenarios, speakingVoices, SESSION_SIZE, SPEAKING_AUTOREAD_KEY, SPEAKING_STORAGE_KEY, SPEAKING_VOICE_KEY, type Rating, type SpeakingProgress, type SpeakingScenario, type SpeakingVoice } from '../../lib/english-speaking';
 import { speakingClips } from '../../lib/english-speaking-clips';
@@ -38,6 +39,17 @@ export function EnglishSpeaking() {
   const [now, setNow] = useState(0);
   const [ready, setReady] = useState(false);
   const [storageNote, setStorageNote] = useState('');
+  const [cloud, setCloud] = useState(false);
+  const [syncBusy, setSyncBusy] = useState(false);
+  const cloudRef = useRef(false);
+  const busyRef = useRef(false);
+  async function connectProgress(importLocal = false) {
+    if (busyRef.current) return; busyRef.current = true; setSyncBusy(true);
+    try { const local = importLocal ? parseProgress(localStorage.getItem(SPEAKING_STORAGE_KEY)) : undefined;
+      const items = await fetchPersonalProgress('speaking', importLocal ? { action: 'import', items: local } : undefined);
+      setProgress(parseProgress(JSON.stringify(items))); cloudRef.current = true; setCloud(true); setStorageNote(importLocal ? '已匯入；雲端既有進度已保留。' : '已連接帳號的雲端進度。');
+    } catch (error) { setStorageNote((error as Error).message); } finally { busyRef.current = false; setSyncBusy(false); }
+  }
   const [session, setSession] = useState<string[]>([]);
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
@@ -268,7 +280,7 @@ export function EnglishSpeaking() {
     syncHash(); setReady(true); setNow(Date.now());
     const refresh = () => setNow(Date.now());
     const timer = window.setInterval(refresh, 30_000);
-    const syncStorage = (event: StorageEvent) => { if (event.key === SPEAKING_STORAGE_KEY) setProgress(parseProgress(event.newValue)); };
+    const syncStorage = (event: StorageEvent) => { if (!cloudRef.current && event.key === SPEAKING_STORAGE_KEY) setProgress(parseProgress(event.newValue)); };
     window.addEventListener('focus', refresh);
     window.addEventListener('storage', syncStorage);
     window.addEventListener('hashchange', syncHash);
@@ -316,8 +328,13 @@ export function EnglishSpeaking() {
     setAutoRead(next); if (!next) stopSpeech();
     try { window.localStorage.setItem(SPEAKING_AUTOREAD_KEY, next ? 'on' : 'off'); } catch { /* The choice still holds for this visit. */ }
   }
-  function rate(rating: Rating) {
-    const id = session[index]; if (!id || !revealed || replay) return;
+  async function rate(rating: Rating) {
+    const id = session[index]; if (!id || !revealed || replay || busyRef.current) return;
+    if (cloudRef.current) {
+      busyRef.current = true; setSyncBusy(true);
+      try { const items = await fetchPersonalProgress('speaking', { action: 'review', key: id, rating }); setProgress(parseProgress(JSON.stringify(items))); setNow(Date.now()); setStorageNote('已儲存至雲端。'); setSession(value => requeue(tools.requeue, value, index, rating)); nextCard(); }
+      catch (error) { setStorageNote((error as Error).message); } finally { busyRef.current = false; setSyncBusy(false); } return;
+    }
     let latest = progress;
     try { latest = { ...progress, ...parseProgress(window.localStorage.getItem(SPEAKING_STORAGE_KEY)) }; } catch { /* Keep this session usable when storage is blocked. */ }
     const next = { ...latest, [id]: scheduleReview(latest[id], rating, Date.now()) };
@@ -391,10 +408,11 @@ export function EnglishSpeaking() {
   // Optional and never stored: it sits beside the self-rating and changes nothing about it.
   const fixStep = tools.fixOne && <div className="es-fix" role="group" aria-label="挑一個地方再說一次"><p>這次要修哪一個地方？<span>{tools.compactCard ? '可以跳過。' : '可以跳過，直接往下自評。'}</span></p><div className="es-actions">{fixOptions.map(item => <button key={item.id} aria-pressed={fix === item.id} onClick={() => setFix(fix === item.id ? '' : item.id)}>{item.label}</button>)}</div><div role="status">{fixTip && <><p className="es-fix-tip">只注意這一點，再說一次。{fixTip}</p>{canKeepRounds && <div className="es-actions">{recordState === 'recording' ? <button className="es-recording" onClick={stopRecording}>停止錄音</button> : <button disabled={recordState === 'asking'} onClick={() => startRecording()}>只注意這一點，再錄一次</button>}</div>}</>}</div></div>;
   const stopOrPlay = (key: string, label: string) => <button onClick={() => playingTake === key ? stopMine() : playTake(key)}>{playingTake === key ? '停止播放錄音' : label}</button>;
-  const verdict = replay ? <><p>這一輪是立刻再練一次，重點在說得更順，不會改變複習安排。</p><button className="es-primary" onClick={nextCard}>{index + 1 < session.length ? '下一句 →' : '完成這一輪'}</button></> : <><p>這句你說得如何？</p><div className="es-ratings"><button onClick={() => rate(0)}>還說不出來<span>{comesBack ? '這一輪最後再練一次' : '10 分鐘後再練'}</span></button><button onClick={() => rate(1)}>有點卡<span>明天再練</span></button><button className="es-primary" onClick={() => rate(2)}>說得順<span>至少 3 天後再練</span></button></div></>;
+  const verdict = replay ? <><p>這一輪是立刻再練一次，重點在說得更順，不會改變複習安排。</p><button className="es-primary" onClick={nextCard}>{index + 1 < session.length ? '下一句 →' : '完成這一輪'}</button></> : <><p>這句你說得如何？</p><div className="es-ratings"><button disabled={syncBusy} onClick={() => rate(0)}>還說不出來<span>{comesBack ? '這一輪最後再練一次' : '10 分鐘後再練'}</span></button><button disabled={syncBusy} onClick={() => rate(1)}>有點卡<span>明天再練</span></button><button className="es-primary" disabled={syncBusy} onClick={() => rate(2)}>說得順<span>至少 3 天後再練</span></button></div></>;
   return <div className={tools.clearCorner ? 'es-app es-clear-corner' : 'es-app'}>
     <div className="es-topline"><span>口說筆記 · POC</span><span>先試著說，再看答案</span></div>
     {view !== 'home' && <button className="es-back" onClick={() => open('home')}>← 回口說專區</button>}
+    <div className="es-progress-sync"><p>{cloud ? '目前使用帳號的雲端複習進度。' : '目前進度只存在這個瀏覽器；可登入後連接雲端。'}</p><a href="/auth/login?returnTo=%2Fenglish">登入</a>{' '}<button disabled={syncBusy} onClick={() => connectProgress()}>連接／重新載入雲端進度</button>{cloud && <button disabled={syncBusy} onClick={() => connectProgress(true)}>匯入這個瀏覽器的舊進度</button>}</div>
     {storageNote && <p role="status" className="es-notice">{storageNote}</p>}
     {view === 'home' && <>
       <header className="es-intro"><p className="es-eyebrow">把想說的意思，練成說得出口的英文</p><h1 ref={heading} tabIndex={-1}>英文口說</h1><p>從你常卡住的情境開始。讀懂一句，說出一句，再回來練一次。</p></header>

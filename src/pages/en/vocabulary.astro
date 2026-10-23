@@ -3,7 +3,7 @@ import PostLayout from '../../layouts/PostLayout.astro';
 import VocabularyLibrary from '../../components/VocabularyLibrary';
 ---
 <PostLayout title="My vocabulary" description="Save unfamiliar article vocabulary and remember it with spaced review." lang="en" switchHref="/vocabulary/" hasTranslation={true} hreflangZh="https://quidproquo.cc/vocabulary/" hreflangEn="https://quidproquo.cc/en/vocabulary/">
-  <!-- Saved words live in localStorage; no server-rendered card state exists. -->
+  <!-- Personal vocabulary is loaded from the authenticated cloud API. -->
   <VocabularyLibrary lang="en" client:only="react">
     <section slot="fallback" class="vocabulary-loading" aria-labelledby="vocabulary-loading-title">
       <h1 id="vocabulary-loading-title">My vocabulary</h1>

@@ -1,0 +1,42 @@
+---
+import PostLayout from '../layouts/PostLayout.astro';
+import { requireAccessIdentity } from '../lib/auth/access';
+export const prerender = false;
+let email = '';
+try { email = (await requireAccessIdentity(Astro.request)).email; }
+catch (error) {
+  if (error instanceof Response && error.status === 401) return Astro.redirect('/auth/login?returnTo=%2Faccount');
+  return error instanceof Response ? error : new Response('登入服務暫時無法使用。', { status: 503 });
+}
+const links = [
+  { href: '/vocabulary', title: '單字庫', description: '收藏詞條、筆記與間隔複習。' },
+  { href: '/english', title: '英文口說', description: '連接雲端，接續你的口說複習進度。' },
+  { href: '/interview', title: '面試準備', description: '同步準備清單，保留已完成項目。' },
+  { href: '/chat', title: 'AI 對話', description: '查看、儲存與接續私人對話。' },
+  { href: '/admin', title: '管理後台', description: '管理內容、研究任務與站台設定。' },
+];
+---
+<PostLayout title="私人空間" description="你的收藏、學習進度與私人工作空間。" lang="zh-TW">
+  <section class="account-space">
+    <p class="account-eyebrow">我的帳號</p>
+    <div class="account-heading"><div><h1>私人空間</h1><p class="account-email">{email}</p></div><form method="POST" action="/api/auth/logout"><button type="submit">登出</button></form></div>
+    <p class="account-intro">同一個帳號，接續你的收藏、學習與對話。舊的本機紀錄可在各功能中選擇匯入。</p>
+    <ul class="account-links">{links.map(link => <li><a href={link.href}><h2>{link.title}<span aria-hidden="true">↗</span></h2><p>{link.description}</p></a></li>)}</ul>
+  </section>
+</PostLayout>
+<style>
+  .account-space { max-width: 820px; margin: 3.5rem auto 6rem; padding: 0 1.25rem; }
+  .account-eyebrow { color: var(--brand-600); font-size: .85rem; letter-spacing: .1em; }
+  .account-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .account-heading h1 { margin: .25rem 0; font-size: clamp(1.8rem, 5vw, 2.5rem); }
+  .account-email { color: var(--text-secondary); overflow-wrap: anywhere; }
+  .account-heading button { border: 1px solid var(--border-color); border-radius: .5rem; background: var(--bg-secondary); color: var(--text-primary); padding: .5rem .9rem; cursor: pointer; }
+  .account-intro { line-height: 1.8; margin: 2rem 0; color: var(--text-secondary); }
+  .account-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; padding: 0; list-style: none; }
+  .account-links a { display: block; height: 100%; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: .75rem; text-decoration: none; color: var(--text-primary); background: var(--bg-secondary); }
+  .account-links a:hover { border-color: var(--brand-600); }
+  .account-links a:focus-visible, .account-heading button:focus-visible { outline: 2px solid var(--brand-600); outline-offset: 4px; }
+  .account-links h2 { font-size: 1.1rem; margin: 0 0 .65rem; display: flex; justify-content: space-between; }
+  .account-links p { margin: 0; color: var(--text-secondary); line-height: 1.6; font-size: .95rem; }
+  @media (max-width: 540px) { .account-links { grid-template-columns: 1fr; } }
+</style>

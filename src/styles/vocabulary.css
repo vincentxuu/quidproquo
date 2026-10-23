@@ -77,3 +77,6 @@
 .vocabulary-personal-note { margin: .8rem 0; font-size: .85rem; }
 .vocabulary-personal-note summary { color: var(--text-muted); cursor: pointer; }
 .vlex-disclaimer { margin: .8rem 0; font-size: .75rem; }
+.vocabulary-import { margin-block: 1.5rem; padding: 1rem 1.25rem; border: 1px solid var(--border, #334155); border-radius: .75rem; }
+.vocabulary-import p { margin-block: 0 .75rem; }
+.vocabulary-error a { text-decoration: underline; }

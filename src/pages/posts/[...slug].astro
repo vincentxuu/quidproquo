@@ -360,7 +360,7 @@ const breadcrumbLD = {
       <p class="glossary-context" id="glossary-context"></p>
       <div class="glossary-reading" id="glossary-reading"></div>
       <div class="glossary-save-actions">
-        <button type="button" id="glossary-save" disabled>{lang === 'en' ? 'Save word' : '加入單字庫'}</button>
+        <button type="button" id="glossary-save" disabled>{lang === 'en' ? 'Look up & save' : '查詞與收藏'}</button>
         <a href={lang === 'en' ? '/en/vocabulary' : '/vocabulary'}>{lang === 'en' ? 'Review words' : '前往複習'}</a>
       </div>
       <p id="glossary-save-status" role="status"></p>
@@ -1103,7 +1103,6 @@ const breadcrumbLD = {
   });
 
   // Fetch the shared dictionary; keep full terms.ts out of the browser bundle.
-  import { addVocabulary, readVocabulary, writeVocabulary } from '../../lib/vocabulary';
   import { loadGlossaryEntries } from '../../lib/glossary/client';
   import { markGlossaryTerms, resetGlossaryTerms } from '../../lib/glossary/mark';
   const glossaryData = document.getElementById('glossary-data') as HTMLScriptElement | null;
@@ -1335,16 +1334,18 @@ const breadcrumbLD = {
   window.addEventListener('focus', () => { void initializeGlossary(); });
   glossarySave?.addEventListener('click', () => {
     if (!saveResponse) return;
-    try {
-      writeVocabulary(addVocabulary(readVocabulary(), {
-        term: saveResponse.term, definition: saveResponse.definition,
-        context: activeGlossaryButton ? sentenceAround(activeGlossaryButton) : saveResponse.context, sourcePath: location.pathname,
-        sourceTitle: document.querySelector('h1')?.textContent?.trim() ?? '', lang: glossaryLang,
-      }));
-      if (glossarySaveStatus) glossarySaveStatus.textContent = glossaryLang === 'en' ? 'Saved to your vocabulary.' : '已加入單字庫。';
-    } catch {
-      if (glossarySaveStatus) glossarySaveStatus.textContent = glossaryLang === 'en' ? 'Unable to save. Check browser storage settings.' : '無法儲存，請檢查瀏覽器儲存設定。';
-    }
+    const detail = {
+      term: saveResponse.term,
+      context: activeGlossaryButton ? sentenceAround(activeGlossaryButton) : saveResponse.context,
+      sourcePath: location.pathname,
+      sourceTitle: document.querySelector('h1')?.textContent?.trim() ?? '',
+    };
+    window.clearTimeout(glossaryHideTimer);
+    // Restore focus to the article term before opening the native dialog, so
+    // closing it can return to the same word rather than a hidden popover.
+    activeGlossaryButton?.focus({ preventScroll: true });
+    if (glossaryPopover) glossaryPopover.hidden = true;
+    window.dispatchEvent(new CustomEvent('qp:vocabulary-open', { detail }));
   });
   glossaryPopover?.addEventListener('focusin', () => window.clearTimeout(glossaryHideTimer));
   glossaryPopover?.addEventListener('focusout', hideGlossarySoon);

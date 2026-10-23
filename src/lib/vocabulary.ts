@@ -1,6 +1,6 @@
 import { lexiconEntrySchema, type LexiconEntry } from './vocabularyLexicon';
 
-/** Vocabulary stays in this browser; no account or server upload is involved. */
+/** Legacy local collection key; cloud import preserves this original browser copy. */
 export const STORAGE_KEY = 'qp-vocabulary-v1';
 export type VocabularyStorage = Pick<Storage, 'getItem' | 'setItem'>;
 export type ReviewRating = 'again' | 'hard' | 'good' | 'easy';

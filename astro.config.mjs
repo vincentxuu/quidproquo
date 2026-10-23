@@ -7,6 +7,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
+import { devCacheIsolation } from './src/plugins/viteDevCache.ts';
 import { remarkReadingTime } from './src/plugins/remarkReadingTime.ts';
 import { remarkYoutubeEmbed } from './src/plugins/remarkYoutubeEmbed.ts';
 import { remarkVideoPractice } from './src/plugins/remarkVideoPractice.ts';
@@ -347,12 +348,12 @@ export default defineConfig({
   },
   adapter: cloudflare({
     platformProxy: { enabled: true },
-    remoteBindings: false,
+    remoteBindings: true,
     inspectorPort: false,
     prerenderEnvironment: 'node',
   }),
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [devCacheIsolation(), tailwindcss()],
     ssr: {
       external: ['@lanefoundry/gatelane-sdk'],
       // Vite's SSR dep optimizer periodically re-bundles this module (imported by
