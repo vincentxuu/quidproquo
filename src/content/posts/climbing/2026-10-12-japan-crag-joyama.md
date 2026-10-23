@@ -9,7 +9,7 @@ series:
   name: "日本岩場"
   order: 2202
 tldr: "靜岡縣伊豆の国市的凝灰岩岩場，ROCKTOPO 收 362 條（334 條單段、28 條多段），CLIMBING-net 寫約 300 條，5.10–5.11 台占多數。季節 ROCKTOPO 列 11–3 月、CLIMBING-net 列 9 月下旬到 6 月上旬；從伊豆箱根鉄道大仁駅走約 25 分鐘到登山口。"
-description: "介紹伊豆半島北部的城山岩場：岩質與地質、路線規模與 18 個分區、適合季節、電車與開車方式、登山口停車位，以及川の駅停車場的使用限制。"
+description: "介紹伊豆半島北部的城山岩場：岩質與地質、路線規模與 18 個分區、適合季節、電車與開車方式、登山口停車位與川の駅停車場限制、依程度挑路線，以及指南書。"
 draft: false
 ---
 
@@ -18,6 +18,8 @@ draft: false
 城山（じょうやま，Joyama；theCrag 寫作 Jo-yama）是靜岡縣伊豆の国市、狩野川畔的一座岩山，標高 342 公尺（[伊豆の国市](https://www.city.izunokuni.shizuoka.jp/kankou/documents/shizen_keikan.pdf)）。面對河的岩壁從 1960 年就有人攀登，現在是以 bolt 運動攀登為主、兼有多段路線的大型岩場：[ROCKTOPO](https://www.rocktopo.net/areas/10) 收 362 條，分成 18 個區域。
 
 岩場離伊豆箱根鉄道大仁駅不遠，走路就到得了登山口。開車的難處在停車：登山口路邊只有幾個車位，岩場旁的河濱公園停車場又有營業時間與使用對象限制（見「怎麼去」）。
+
+這篇幫你判斷城山適不適合自己的程度、哪幾個月去、沒開車怎麼到、車要停哪裡，以及四個難度級距分別該從哪一區開始。
 
 ## 這是什麼樣的岩場
 
@@ -93,22 +95,34 @@ ROCKTOPO 把城山分成 18 個區域。條數較多的幾區（F＝單段，M�
 
 ## 怎麼去
 
+| | 大眾運輸 | 開車 |
+|---|---|---|
+| 起點 | 伊豆箱根鉄道大仁駅 | 沼津交流道約 40 分鐘（日本ジオパークネットワーク） |
+| 停車 | — | 城山登山口路肩約 3 台；葛城山登山口約 10 台（與登山客共用） |
+| 到登山口 | 步行 20～25 分鐘（依來源），計程車 5 分鐘 | — |
+| 到南壁 | 登山口再走約 10 分鐘 | 同左 |
+| 注意 | — | 川の駅停車場 17:00 上鎖、只給公園訪客 |
+
 ### 大眾運輸
 
 1. 搭伊豆箱根鉄道駿豆線到 **大仁駅**。[伊豆の国市](https://www.city.izunokuni.shizuoka.jp/kankou/documents/shizen_keikan.pdf) 的文件寫三島駅到大仁駅約 30 分鐘。
 2. 從大仁駅走到登山口：[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E5%9F%8E%E5%B1%B1/) 寫「徒歩25分(タクシー5分)で登山道入口」，[theCrag](https://www.thecrag.com/en/climbing/japan/joyama) 也寫 25 分鐘；[日本ジオパークネットワーク](https://geopark.jp/geopark/izu_hantou/) 的城山・葛城山ジオサイト寫「城山は大仁駅より徒歩約20分」。
 3. 從登山口到岩壁：
    - **南壁**：CLIMBING-net 寫從登山口再走 10 分鐘；[ROCKTOPO 的南壁接近說明](https://www.rocktopo.net/approach_informations/5) 寫「駐車場から登山道を道なりに十分ほど登る。クライミングルートの看板を右に入ると到着する」。
-   - **ワイルドボアゴージ（猪谷）**：CLIMBING-net 寫走健行步道 40 分鐘到南壁頂端，再往下 5 分鐘。
+   - **ワイルドボアゴージ（猪谷）**：CLIMBING-net 寫走健行步道 40 分鐘到南壁頂端，再往下 5 分鐘；[theCrag](https://www.thecrag.com/en/climbing/japan/joyama/area/299848596) 寫從山頂停車場沿登山步道 20～30 分鐘，看到右手邊的木牌就是入口。
 
 ### 開車
 
 - 車程：theCrag 寫「40 min drive from Mishima Inter-change」；日本ジオパークネットワーク寫從東名高速道路沼津交流道（沼津IC）約 40 分鐘。
-- **城山登山口的路肩車位，約 3 台**（[ROCKTOPO 停車頁](https://www.rocktopo.net/parking_spots/332)）：「登山口の路肩に駐車可能なスペースがある。少ない台数しか駐車できないので注意。」去南壁從這裡上。
-- **葛城山登山口的停車場，約 10 台**（[ROCKTOPO 停車頁](https://www.rocktopo.net/parking_spots/270)）：「城山の上部エリアにアクセスする際は葛城山登山口に駐車します。駐車スペースは少なく、一般の登山者も利用します。」[上部區域的接近說明](https://www.rocktopo.net/approach_informations/6) 是從這裡往城山山頂方向走。
 - **開車去ワイルドボア**：CLIMBING-net 寫過上島橋，在民家前的彎道後走 T 字路直行（去南壁則順著路左轉），沿林道 2、3 公里到峠，峠與稍前方可以停車；再走 7、8 分鐘到另一個峠，左轉 10 分鐘到南壁頂端，往下 5 分鐘。
 
-### 川の駅 伊豆城山的停車場
+### 停車
+
+- **城山登山口的路肩車位，約 3 台**（[ROCKTOPO 停車頁](https://www.rocktopo.net/parking_spots/332)）：「登山口の路肩に駐車可能なスペースがある。少ない台数しか駐車できないので注意。」去南壁從這裡上。
+- **葛城山登山口的停車場，約 10 台**（[ROCKTOPO 停車頁](https://www.rocktopo.net/parking_spots/270)）：「城山の上部エリアにアクセスする際は葛城山登山口に駐車します。駐車スペースは少なく、一般の登山者も利用します。」[上部區域的接近說明](https://www.rocktopo.net/approach_informations/6) 是從這裡往城山山頂方向走，ワイルドボアゴージ也是從這條上山。
+- 兩個停車點加起來十幾台，週末上午很容易滿。滿了不要路邊亂停，這是住宅與寺院参道共用的一帶。
+
+#### 川の駅 伊豆城山（河濱公園）不是攀岩者停車場
 
 岩場下方狩野川河濱的「狩野川神島公園（川の駅 伊豆城山）」有停車場，[walkerplus](https://summer.walkerplus.com/odekake/detail_e/ar0622e602157/map.html) 寫「123台 駐車無料」、伊豆中央道「大仁中央」交流道約 3 分鐘。不過它是公園停車場，[官方網站](https://kanogawakamishima.com/enjoy/) 的注意事項寫：
 
@@ -117,15 +131,7 @@ ROCKTOPO 把城山分成 18 個區域。條數較多的幾區（F＝單段，M�
 - 「増水等が予想される場合には、利用時間内でも駐車場の閉鎖や、車の移動をお願いすることがあります」。
 - 川の駅 2025-08-22 的[公告](https://kanogawakamishima.com/news/detail.php?p=1953)另寫「路肩駐車はご遠慮ください」。
 
-本次讀到的攀岩來源（ROCKTOPO、CLIMBING-net、theCrag）都沒有把這裡列為攀岩者停車場。
-
-| | 大眾運輸 | 開車 |
-|---|---|---|
-| 起點 | 伊豆箱根鉄道大仁駅 | 沼津交流道約 40 分鐘（日本ジオパークネットワーク） |
-| 停車 | — | 城山登山口路肩約 3 台；葛城山登山口約 10 台（與登山客共用） |
-| 到登山口 | 步行 20～25 分鐘（依來源），計程車 5 分鐘 | — |
-| 到南壁 | 登山口再走約 10 分鐘 | 同左 |
-| 注意 | — | 川の駅停車場 17:00 上鎖、只給公園訪客 |
+本次讀到的攀岩來源（ROCKTOPO、theCrag、guidebook）都沒有把這裡列為攀岩者停車場。爬完南壁通常超過 17:00，停這裡等於要提早收繩。
 
 ## 去之前要知道的規範
 
@@ -135,32 +141,206 @@ ROCKTOPO 把城山分成 18 個區域。條數較多的幾區（F＝單段，M�
 - **沒有公共廁所**：CLIMBING-net 的公衆トイレ欄寫「無」。
 - **過夜與如廁**：CLIMBING-net 寫「墓地があるので登山道入口周辺より、車であれば狩野川対岸のグラウンド脇が快適」，去ワイルドボア的人在峠過夜也可以，但「用便には十分に注意されたい」。這段資料沒有標日期，過夜前先確認現行規定。
 - **在地消費**：CLIMBING-net 寫「観光地の中の岩場であることを考慮し、地元の食堂など積極的に利用したい」。
+- **緊急電話**：救護與消防 **119**、警察 **110**、海上保安廳 **118**（[横浜市：Calling emergency services](https://www.city.yokohama.lg.jp/lang/residents/en/emergencies/20200221091958448.html)）。城山在住宅後山，通報時講清楚是哪個岩區（南壁、ワイルドボアゴージ、上部）比只說「城山」有用。
+- **保險**：向自己的承保公司確認運攀、多段攀登、搜救、醫療與送返是否在保障內。不能只看「旅平險」名稱；日本的山岳搜救費用原則上由當事人負擔，實際仍依各自保單與當地規定。
 - **在地規矩**：theCrag 對日本岩場的通用提醒是「please ensure you follow the recommendations of local climbers and behave responsibly」。
 
-## 代表性路線
+## 依程度挑路線
 
-ROCKTOPO 的人氣路線（[城山頁](https://www.rocktopo.net/areas/10)，2026-10-12）：
+城山到底有幾條路線，三個來源差很多：theCrag 登錄 **183 條**（每條都有名字與級數），ROCKTOPO 收 **362 條**（334 單段、28 多段），CLIMBING-net 寫「約 300 本」。差額有兩個來源：ROCKTOPO 把同一面牆的變體與不同 topo 版本算成獨立路線；theCrag 的四個內壁區（39 條）幾乎沒人補資料，但 ROCKTOPO 照算。
 
-- バトルランナー（最高グレード 5.10a）
-- ストーンフリー（5.10c）
-- ミウラー（5.11a）
-- 生と死の分岐点（5.12a/b）
-- ケレンジ（5.13a）
+先看規模，再按級距挑：
 
-[Mountain Project 的 Classic Climbs](https://www.mountainproject.com/area/classics/107001457/joyama) 三條都在南壁（S Face 南壁）：Homeboy（5.8）、Battle Runner（5.10a，4 段）、Excursion（5.10c，6 段）。Battle Runner 就是 ROCKTOPO 的バトルランナー，兩站都列為人氣路線。
+| 區 | 路線數 | 攀登紀錄 | 岩壁高度 | 級數範圍 | 特色與接近 |
+| --- | --- | --- | --- | --- | --- |
+| 南壁 Minami kabe | 29 | 59 | 39 公尺 | 5.8–5.11c | slab 與小口袋；多段都在這區；登山口走 10–15 分 |
+| 東南壁 South East Face | 0（theCrag 未登錄） | 0 | — | — | 部落格把スクールゾーン、フレンチ・カンカン、ハートルート 歸在這裡 |
+| 二間バンド大ハング | 6 | 5 | 12 公尺 | 以 5.12a 為主 | 短外傾；Fate 5.12a ★★ |
+| チューブロック Tube Rock | 18 | 28 | 12 公尺 | 5.8–5.12d | 短、全外傾、整天曬；上停車場走 20–30 分 |
+| インナーウオール 1–4 | 9／9／14／7 | 0 | — | — | 四區合計 39 條，站上沒有攀登紀錄 |
+| ワイルドボアゴージ | 35 | 61 | 15 公尺 | 5.10a–5.14c | 主場；外傾屋簷，春秋最擠，夏天熱、冬天冷 |
+| ワイルドボア・右壁 | 6 | 0 | — | 5.10a 起 | 豬谷旁邊的一面 |
+| ウェーウォール（玉子岩） | 17 | 0 | — | — | 站上沒有紀錄 |
+| ライオンボトム | 17 | 0 | — | — | 站上沒有紀錄 |
+| クッキングワールド | 16 | 0 | — | — | 影片裡的先鋒練習區 |
+
+13 個區加起來 183 條，但南壁、ワイルドボアゴージ、チューブロック 三區就佔 82 條，也幾乎是所有攀登紀錄所在；其餘 101 條在站上接近空白。下面的表會集中在這三區，原因不是城山只有這些路線，而是有評語、有紀錄的路線集中在這裡。
+
+ROCKTOPO（經由 [Wayback Machine 快照](https://web.archive.org/web/20260518161144/https://www.rocktopo.net/areas/10) 查得；現場因 Cloudflare 防護回 403，無法直接開啟）登錄 **362 條**：334 條單段、28 條多段。單段中 5.10a 以上有 124 本、5.11a 以上 112 本、5.12a 以上 54 本、5.14a 以上 3 本；多段中 5.10a 以上 17 本、5.11a 以上 6 本、5.12a 以上 2 本。各分區路線數（F＝單段／M＝多段）如下：
+
+- 南壁：F36 M16，難度 E22 M29 H1（多段 16 條，是城山多段路線集中地）
+- 東南壁：F22 M5，難度 E13 M14
+- ワイルドボアゴージ：F34，難度 E2 M13 H19（硬路線集中，夏天熱、冬天冷）
+- チューブロック：F18，難度 E3 M10 H5
+- クッキングワールド：F17，難度 E9 M8
+- ワイルドキャットゴージ：F37，難度 E9 M24 H4
+- インナーウォール 1–4：合共 F34 M8，四區合計 39 條，站上幾乎沒攀登紀錄
+- ウェーブロック・エンドレスウォール：F14，難度 E1 M10 H3
+- ライオンボトム、ライオンサミット：F15，難度 E3 M8 H4
+- 二間バンド大ハング：F6，難度 M3 H3
+- ミッドウェーウォール（玉子岩）：F13 M2，難度 E5 M9 H1
+
+難度欄保留原級數（來源本來就是 YDS），YDS 欄填同一級數，不反推法國級數。級距標題的換算照 [Mountain Project 國際難度對照表](https://www.mountainproject.com/international-climbing-grades)，只是近似值。長度、bolt 數與攀登紀錄次數採 theCrag 路線表（2026-10-23 查詢）；標「—」的是該頁沒填。多段的難度欄寫出分段，只寫一個數字的是單段。
+
+### 入門：6a 以下（YDS 5.10a 以下）
+
+南壁（Minami kabe）29 條裡，5.8 有 2 條、5.9 有 7 條、5.10a 有 5 條，是這個級距最集中的一區（[theCrag 南壁](https://www.thecrag.com/en/climbing/japan/joyama/area/284553159)）。チューブロック 另有兩條外傾短牆可以熱身；ROCKTOPO 的頭兩個人氣路線バトルランナー（5.10a）與ストーンフリー（5.10c）也在這兩區。南壁同時是健行步道會經過的一面，岩壁下會有登山客。
+
+| 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
+| --- | --- | --- | --- | --- | --- |
+| Homeboy／ホームボーイ | 5.8 | 5.8 | 20 公尺 | 南壁 | [theCrag](https://www.thecrag.com/en/climbing/japan/joyama/route/284554458) ★、7 個 bolt、7 次紀錄；[Mountain Project](https://www.mountainproject.com/route/107074562/homeboy) 列經典（★★½），寫是 slab 入門線。部落格寫是南壁最簡單的一條，第 1 個 bolt 下方有 RCC 舊 bolt，不好直上就從左邊的窪處繞；上面那段站立的牆會讓人怕。也常被當成西南カンテ的第 1 段 |
+| とんとん拍子 | 5.8 | 5.8 | — | 南壁 | 辛め的 5.8；也是 Battlerunner 的第 1 段。單段在屋簷下的終點下降，50 公尺繩夠；若爬到左邊有樹的平台才下降，50 公尺不夠 |
+| アミーゴス | 5.9 | 5.9 | — | 南壁 | 部落格寫「辛め」，核心好幾處，會一路緊張 |
+| グラシアス | 5.9+ | 5.9+ | — | 南壁 | アミーゴス 左邊一條，同一篇寫「比アミーゴス更辛」 |
+| アナザステップ | 5.9 | 5.9 | — | 南壁 | 反而鬆，部落格說可能比とんとん拍子 5.8 簡單 |
+| ブルースカイ | 5.9 | 5.9 | — | 南壁 | 難在翻屋簷，手點看不出來，onsight 不容易 |
+| Istanbul／イスタンブール | 5.8 | 5.8 | — | チューブロック | theCrag ★★、5 個 bolt、2 次紀錄；短外傾，熱身用 |
+| 椿の森の中で | 5.9 | 5.9 | — | チューブロック | theCrag ★、4 個 bolt、4 次紀錄；頁面評語寫「腳法不好會覺得比級數難」 |
+| Battlerunner／バトルランナー | 5.10a | 5.10a | 100 公尺／4 段（5.8、5.10a、5.7、5.9） | 南壁 | theCrag ★★、12 次紀錄；MP 經典 ★★½；部落格寫 5.10b。第 2 段穿屋簷是難點，該段部分 bolt 與吊環老舊；60 公尺單繩可 rappel 下撤，帶第二條繩快很多 |
+| Crossroads／クロスロード | 5.10a | 5.10a | 15 公尺 | ワイルドボアゴージ | theCrag ★、7 個 bolt、9 次紀錄；頁面寫「Zig-Zag your way up following the line of least resistance」 |
+| ジプシーマリー | 5.10a | 5.10a | — | 南壁 | 部落格寫「辛め」 |
+| Wild X／ワイルドX | 5.10a | 5.10a | — | ワイルドボア・右壁 | theCrag ★★ |
+
+南壁的 5.8–5.9 有一個現象：同一個數字實際差很多。とんとん拍子 5.8 被寫成「辛め」，アナザステップ 5.9 反而更鬆；第一次來不要照級數排順序，先挑被寫「甘め」的熱身。
+
+第一次來、想把第一個半天留給多段的人，Battlerunner 比 Excursion 短、撤退點多；但它不會登頂，而且第 2 段需要處理老舊固定點。想先確認手感，南壁下方那幾條 5.8–5.9 的單段比較單純。
+
+### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
+
+這級是城山的主體：theCrag 登錄的 183 條裡，5.10b–5.11c 合計 103 條。南壁是摩擦與小口袋，多段選擇都在這裡；ワイルドボアゴージ 與チューブロック 則是外傾單段，同一個數字在兩區是兩種完全不同的爬法。
+
+| 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
+| --- | --- | --- | --- | --- | --- |
+| Excursion／エキスカーシヨン | 5.10c | 5.10c | 110 公尺／6 段（5.10a、5.10a、5.10c、5.10a、5.10a、5.9） | 南壁 | [theCrag](https://www.thecrag.com/en/climbing/japan/joyama/route/299838534) ★★★、8 次紀錄；[MP](https://www.mountainproject.com/route/107074556/excursion) 經典 ★★★½。南壁最長的經典多段，全程 bolt |
+| ロング・グットバイ | 5.10b | 5.10b | — | 南壁 | 部落格寫「比較好爬」 |
+| フレンチ・カンカン | 5.10b | 5.10b | — | 東南壁（部落格）／theCrag 列南壁 | 部落格把它和スクールゾーン、ハートルート 一起歸在東南壁 |
+| School Zone／スクールゾーン | 5.10c | 5.10c | 20 公尺 | 南壁 | theCrag ★、7～8 個 bolt、5 次紀錄 |
+| タナバタのタナボタ | 5.10c | 5.10c | — | 南壁 | 部落格寫「比較好爬」 |
+| 仰げば尊し | 5.10d | 5.10d | — | 南壁 | 南壁右側的屋簷帶；部落格寫那一排「難しいルートばかり」 |
+| ハートルート | 5.11a | 5.11a | — | 東南壁（部落格）／theCrag 列南壁 | 部落格寫是人氣路線 |
+| Long distance／ロングディスタンス | 5.10d | 5.10d | 32 公尺 | ワイルドボアゴージ | theCrag ★★、15 個 bolt、6 次紀錄 |
+| Calcutta／カルカッタ | 5.10c | 5.10c | 17 公尺 | ワイルドボアゴージ | ★★、8 個 bolt、4 次紀錄 |
+| Journey of Hope／ジャーニーオブホープ | 5.10c | 5.10c | 10 公尺 | ワイルドボアゴージ | ★、4 個 bolt、1 次紀錄 |
+| Dokajan／ドカジャ | 5.11b | 5.11b | 25 公尺／2 段（5.11b、5.10a） | ワイルドボアゴージ | theCrag ★、12 個 bolt；兩段就到頂的短多段 |
+| Drive Me Nuts／ドライブミーナッツ | 5.11b | 5.11b | 17 公尺 | ワイルドボアゴージ | ★★、10 個 bolt；路線橫切 Crossroads |
+| Gigolo／ジゴロ | 5.11c | 5.11c | 13 公尺 | ワイルドボアゴージ | ★★、7 個 bolt、7 次紀錄 |
+| Jambalaya／ジャンバラヤ | 5.11c | 5.11c | 14 公尺 | ワイルドボアゴージ | [theCrag](https://www.thecrag.com/en/climbing/japan/joyama/route/299849199) ★★★、7 個 bolt、12 次紀錄，該區紀錄最多的一條 |
+| Stone Free／ストーンフリー | 5.10c | 5.10c | — | チューブロック | ★★、5 次紀錄；ROCKTOPO 人氣第二，短外傾 |
+| Rain Man／レインマン | 5.10b | 5.10b | — | チューブロック | ★、4 個 bolt、2 次紀錄 |
+| Miurā／ミウラー | 5.11a | 5.11a | — | チューブロック | ★、4 個 bolt、5 次紀錄；ROCKTOPO 人氣第三 |
+| Kon'nichiwa makoron／こんにちわマコロン | 5.11b | 5.11b | — | チューブロック | ★★、5 個 bolt |
+| Chandīrasa／チャンディーラサ | 5.11a | 5.11a | — | チューブロック | ★、4 個 bolt、1 次紀錄 |
+| Gracie／グレイシー | 5.11c | 5.11c | — | チューブロック | ★、2 個 bolt、2 次紀錄 |
+
+Excursion 是這級唯一一條「長多段」：6 段、110 公尺，全程 bolt，難度最高 5.10c，但第 3 段之後要自己管繩索與確保站。想練多段節奏，它比 Battlerunner 更適合當第一個整天的目標。
+
+チューブロック 的 18 條裡有 11 條落在這級，卻只累積 28 次紀錄；南壁與豬谷同級數的路線紀錄是它的兩倍以上。這區不難到，只是比較遠、夏天又曬，實際上比數字冷門。
+
+### 進階：7a 到 7c+（YDS 5.11d–5.13a）
+
+theCrag 全區有 44 條落在這級：ワイルドボアゴージ 18 條、チューブロック 5 條，其餘散在二間バンド大ハング 與其他區；南壁最高只到 5.11c。豬谷外傾、屋簷多，夏天很熱、冬天風沿坡往下吹，theCrag 也提醒坡面「There is a lot of unstable rock」，接近與下撤都要注意腳下。
+
+| 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
+| --- | --- | --- | --- | --- | --- |
+| Overdrive／オーバードライブ | 5.11d | 5.11d | 17 公尺 | ワイルドボアゴージ | [theCrag](https://www.thecrag.com/en/climbing/japan/joyama/route/403184589) ★★★、8 個 bolt、10 次紀錄；頁面寫「Classic Jo-Yama climb」 |
+| Dovy／ドバイス | 5.11d | 5.11d | 7 公尺 | ワイルドボアゴージ | theCrag ★★、3 個 bolt |
+| Twelve Monkey／トゥウェルブモンキー | 5.12b | 5.12b | 14 公尺 | ワイルドボアゴージ | theCrag ★★、6 個 bolt |
+| Child's Play | 5.12b | 5.12b | 8 公尺 | ワイルドボアゴージ | theCrag ★★、7 個 bolt |
+| Oregon Soul／オレゴン魂 | 5.12b/c | 5.12b/c | 17 公尺 | ワイルドボアゴージ | 8 個 bolt |
+| Wind Whispers／風の囁き | 5.12b | 5.12b | 17 公尺 | ワイルドボアゴージ | 9 個 bolt |
+| Dasukin Tama／ダスキン多摩 | 5.12c | 5.12c | 14 公尺 | ワイルドボアゴージ | theCrag ★★、7 個 bolt |
+| Monkey Cry／モンキークライ | 5.12c | 5.12c | 14 公尺 | ワイルドボアゴージ | 7 個 bolt |
+| Top of the World／トップ・オブ・ザ・ワールド | 5.12d | 5.12d | 12 公尺 | ワイルドボアゴージ | theCrag、7 個 bolt |
+| Super Cheese Day／スーパーチューズデイ | 5.12d | 5.12d | 6 公尺 | ワイルドボアゴージ | 5 個 bolt；一面短牆 |
+| Fate | 5.12a | 5.12a | — | 二間バンド大ハング | ★★；theCrag 把它列為城山的 nearby icon 之一 |
+| Seitoshi no bunkiten／生と死の分岐点 | 5.12b | 5.12b | 12 公尺 | チューブロック | ★★、6 個 bolt、4 次紀錄 |
+| Koharubiyori／小春日和 | 5.12a | 5.12a | — | チューブロック | ★★、4 個 bolt、1 次紀錄 |
+| Doronpa／ドロンパ | 5.12a | 5.12a | — | チューブロック | ★★★、6 個 bolt |
+| Hakuhekinobika／白壁の微瑕 | 5.12d | 5.12d | — | チューブロック | ★★★、6 個 bolt；該區最難的一條 |
+
+ROCKTOPO 的人氣路線另有 5.13a 的ケレンジ（2026-10-12 查詢）；本次沒查到它對應的子區與長度，所以沒放進表。
+
+### 高手：8a 以上（YDS 5.13b 以上）
+
+theCrag 全區只有 5 條在這個級距，全部在ワイルドボアゴージ後段：5.13d 一條、5.14a 兩條、5.14b 與 5.14c 各一條。除了 Logical Progression 有 2 次攀登紀錄，其餘四條在站上都沒人記錄。
+
+| 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
+| --- | --- | --- | --- | --- | --- |
+| Liquid Finger／リキッドフィンガー | 5.13d | 5.13d | — | ワイルドボアゴージ | theCrag、7 個 bolt |
+| Liquid Room／リキッドルーム | 5.14a | 5.14a | — | ワイルドボアゴージ | theCrag、6 個 bolt |
+| Poka Progresión／ポカ・プログレシオーン | 5.14a | 5.14a | — | ワイルドボアゴージ | theCrag、7 個 bolt |
+| Logical Progression／ロジカルプログレッション | 5.14b/c | 5.14b/c | — | ワイルドボアゴージ | theCrag、8 個 bolt、2 次紀錄 |
+
+這個級距的資訊在中文圈幾乎沒有，路線名與級數都只靠 theCrag 一條來源；guidebook 有新版的級數就以書為準。
+
+### 爬過的人怎麼說
+
+日文圈寫到單一路線評語的紀錄不多，目前找得到、內容對得上的是 MuRa 的兩篇（[2025-05-09 南壁](https://blog.muraq.com/post/mt/free_climbing/1641)、[2025-12-08 東壁新線](https://blog.muraq.com/post/mt/free_climbing/2454)），加上 theCrag 與 Mountain Project 的短評。中文圈幾乎沒有城山的路線心得。
+
+**南壁的岩況（MuRa，2025-05-09）**
+
+- bolt 位置好，大半已換成化學錨栓，終點也牢固；但有些終點沒有殘留鉤環，要用 rappel ring 重新穿繩，多段的終點甚至有完全沒有 rappel ring 的，作者寫「念のため捨て縄があった方がいい」。
+- 取付點在樹蔭下，夏天「壁が熱したフライパンのよう」，他自己把適期放在秋天到梅雨前。
+- 停車場滿的時候，當地人會停到墓園後面的斑馬區。這是個人部落格寫的在地習慣，不是正式車位，也不代表可以照做。
+- 從登山口到南壁他寫 15 分（CLIMBING-net 寫 10 分），沿途有分岔看板，往クライミングルート 的方向走。
+
+**東壁新多段（MuRa，2025-12-08）**
+
+2025 年 12 月有人完攀東壁的 **スタートレック**：6 段、最高 5.8，作者強調級數與長度是他的體感，正式 topo 會在ロクスノ 發表。
+
+- 1–3 段是 5.6–5.7 的 slab；第 4 段（5.8，左上的逆層 slab 接垂壁）與第 6 段（5.8，小屋簷接 slab）是核心。
+- 第 5 段數字最簡單（5.7），實際上整段是砂，作者寫「まるで砂漠の岩を登ってる気分」，比數字難。
+- 裝備 10 個快扣加 2 個 alpine 快扣、50 公尺單繩；下撤走東南稜 3 次 rappel（2 條 50 公尺），或經クッキングワールド 上山頂走步道。
+- 取付點窄，建議在南壁或ラズベリーフェイス 先穿好吊帶；取付前一段有固定繩的橫渡。
+
+這條還沒有公開 topo，所以沒放進上面的表。
+
+**資料庫的短評**
+
+- Overdrive 的 theCrag 頁面自己寫「Classic Jo-Yama climb」，是ワイルドボアゴージ 的指標線。
+- Battlerunner 在 Mountain Project 的評論集中在第 2 段的老舊 bolt 與吊環。
+- Excursion 的評論集中在「6 段、全程 bolt」，被當成南壁第一次長多段的標準答案。
+
+**其他心得文章**
+
+- [gorotash：こだわりの城山クライミング（2025-11-24）](https://gorotamaru.hatenablog.com/entry/2025/11/24/130417)：11 月的南壁，西南カンテ的變體線（從黎明ルート往右偏的スラブラ）。作者寫オリジナルライン 2P 目以後「ボロって、浮石まるけ」，這條變體線反而較易且乾淨，最近走這條的人變多；二間バンド大ハング 也能看到有人在爬「かさぶた」。
+- [きい山歩：【城山】2026年初登り！ポコチン大魔王RP（2026-01-06）](https://kiisampo.com/joyama-pokochin-rp/)：2026 年 1 月 4 日，OVERDRIVE 5.11d FL（城山イレブン三部作的最後一本，作者體感 Soft 5.11d），以及ポコチン大魔王 5.12d 4 便 RP。作者體感 Soft 5.12d，比ケレンジ 5.13a 明確簡單，但持久要素較高。正月明け岩場很擠（ポコチン 6 人回し），平日 1/3 整個岩場才約 10 人。
+
+**ワイルドボアゴージ與右壁（外岩紀錄）**
+
+- [nozakimakoto，2015-01（城山へ初クライミングしてきた）](https://nozakimakoto.hatenablog.com/entry/2015/01/05/180123)：1 月的南壁是 slab，傾斜約 60°、幾乎全是カンチ（貼牆）手點，「5.8 でも無理だろ」的感覺；OS 了とんとん拍子 5.8 與アナザステップ 5.9；東南壁 ステアウェイ 5.10b 試爬 △。冬天有風時南壁即使曬太陽也很冷。
+- [好日山荘スタッフ，2014-04（城山・ワイルドボアゴージ）](https://www.kojitusanso.jp/tozan-report/detail/?fm=10787)：平日去了只有自己們兩個人，但土日這季節可能有排隊等路線；『ポコチン大魔王・5.12d』「這個區域最有人氣的線路不為過」，握點好、傾斜與級數（5.10–5.14）多樣。補充：Liquid Finger 的第 4 個掛環（hanger）已脫落。
+- theCrag Jambalaya 頁面：6 個評論給出品質 78 分，標籤關鍵字「perfect、nice、crux」。
+
+### 影片
+
+日文的城山影片比文章多。以下是查得到、標題與內容對得上的（2026-10-23 查詢）：
+
+- [終わらない初日トレ「ホームボーイ&アミーゴス」城山 南壁｜伊豆大仁 外岩合宿 04](https://www.youtube.com/watch?v=GyP1ZEdZXGU)（ALPINE CLUB TOKYO）：南壁 5.8–5.9 的熱身日，看得到取付點的擁擠程度與岩壁規模。
+- [おっさん達と若者の叫び｜城山 南壁｜伊豆大仁 外岩合宿 01](https://www.youtube.com/watch?v=mg5MLPmZjvs)（ALPINE CLUB TOKYO）：同系列第一集，開頭約 5 分半是城山概要與攀登感想。
+- [リードで登れるまで帰れません 城山 クッキングワールド｜伊豆大仁 外岩合宿 05](https://www.youtube.com/watch?v=GLMZtR-dFak)（ALPINE CLUB TOKYO）：クッキングワールド 區的先鋒練習，看得到另一區的岩質與路線密度。
+- [城山 OVERDRIVE 5.11d](https://www.youtube.com/playlist?list=PLT5jRKglXyp0IPdK6GEfy3UlxmbdhFE__)（xioix jaja）：5.11d 經典線的攀登影片集合，含 154 公分女性完攀的紀錄。
+- [城山](https://www.youtube.com/playlist?list=PLHUxI2nv_tx8HD9nXxfsaZ_MtwqwPgrs8)（mitsuhiro akiu）：以城山為主題的播放清單，裡面有 Excursion 的「本番編」與核心段。
+- [20250104 城山南壁](https://www.youtube.com/watch?v=fq_UnZmYw_M)：フルハムロード、鎌形ハングルート、ジプシーマリー、タナバタのタナボタ、ロンググッドバイ、ブラウンシュガー、ハートルート；影片有目錄，是早回し。
+- [20250201 城山南壁](https://www.youtube.com/watch?v=epctb8lTIeg)：とんとん拍子、ブルースカイ、ジプシーマリー、タナバタのタナボタ、ロンググッドバイ、ボルサリーノ、仰げば尊し；影片有目錄，是早回し。
+- [20250309 城山南壁（プリクリ練習含む）](https://www.youtube.com/watch?v=8_ooJR_LEb8)：フルハムロード、鎌形ハングルート、ジプシーマリー、タナバタのタナボタ、ロンググッドバイ、ボルサリーノ、ブラウンシュガー；包含預爬練習。
+
+影片只能看風格與規模，不能當 topo。繩距、下降點與 bolt 位置還是要看指南書或 theCrag 的分段表。
 
 ## 查資料的入口
 
 - **[ROCKTOPO 城山](https://www.rocktopo.net/areas/10)**：18 區的路線表、等級分布、人氣路線、使用者紀錄；停車頁 [332](https://www.rocktopo.net/parking_spots/332)、[270](https://www.rocktopo.net/parking_spots/270) 與接近說明 [5](https://www.rocktopo.net/approach_informations/5)、[6](https://www.rocktopo.net/approach_informations/6)。離線下載要登入。
-- **[CLIMBING-net 城山](https://www.climbing-net.com/iwaba_detail/%E5%9F%8E%E5%B1%B1/)**：山と溪谷社的岩場資料，有開拓史、各區接近方式；「掲載書籍」欄列「伊豆・甲信」，完整 topo 在這本指南書。
-- **[theCrag Jo-yama](https://www.thecrag.com/en/climbing/japan/joyama)**：英文概要、分區列表（含各區高度）。
+- **[CLIMBING-net 城山](https://www.climbing-net.com/iwaba_detail/%E5%9F%8E%E5%B1%B1/)**：山と溪谷社的岩場資料，有開拓史、各區接近方式。2026-10-23 查詢時全站維護中，本文的 CLIMBING-net 敘述來自 2026-10-12 的查閱。
+- **[theCrag Jo-yama](https://www.thecrag.com/en/climbing/japan/joyama)**：183 條路線與級數分布；分區頁（[南壁](https://www.thecrag.com/en/climbing/japan/joyama/area/284553159)、[ワイルドボアゴージ](https://www.thecrag.com/en/climbing/japan/joyama/area/299848596)、[ワイルドボア・右壁](https://www.thecrag.com/en/climbing/japan/joyama/area/1017816588)）另有長度、bolt 數、分段級數與攀登紀錄。英文界面，級數用 YDS。
 - **[Mountain Project Joyama](https://www.mountainproject.com/area/107001457/joyama)**：英文概要，登錄路線少，主要看南壁經典多段。
+- **指南書**：路線難度與路線數主要來自線上資料庫，以指南書為準。
+  - [《フリークライミング 日本100岩場 3 伊豆・甲信 増補改訂新版》](https://www.yamakei.co.jp/products/2812180860%20.html)（北山真 編，山と溪谷社，2012-04-20，208 頁，日文）：伊豆・甲信一帶的選集，城山是其中一站，分「南壁」「東南壁」等區給 topo。2012 年之後沒有新版紙本；ワイルドボア後段的 5.13、5.14 路線比書新，出發前對照線上資料庫。
 - **[JFA 全国のアクセス問題エリア一覧](https://freeclimb.jp/activities/deal-with/issue-list/)**：出發前確認有沒有新增限制。
 - **[川の駅 伊豆城山](https://kanogawakamishima.com/)**：河濱公園的停車時間、增水封閉公告。
 
 ## 參考資料
 
-- [ROCKTOPO：城山](https://www.rocktopo.net/areas/10)
+- [ROCKTOPO：城山（Wayback Machine 快照，2026-05-18；現場因 Cloudflare 防護回 403，無法直接開啟）](https://web.archive.org/web/20260518161144/https://www.rocktopo.net/areas/10)
 - [ROCKTOPO：城山登山口の駐車スペース](https://www.rocktopo.net/parking_spots/332)
 - [ROCKTOPO：葛城山登山口の駐車場](https://www.rocktopo.net/parking_spots/270)
 - [ROCKTOPO：城山南壁アプローチ](https://www.rocktopo.net/approach_informations/5)
@@ -177,3 +357,33 @@ ROCKTOPO 的人氣路線（[城山頁](https://www.rocktopo.net/areas/10)，2026
 - [狩野川神島公園「川の駅 伊豆城山」：遊ぶ（停車注意事項）](https://kanogawakamishima.com/enjoy/)
 - [川の駅 伊豆城山：川の駅伊豆城山からのお願い（2025-08-22）](https://kanogawakamishima.com/news/detail.php?p=1953)
 - [walkerplus：川の駅 伊豆城山 地図・アクセス](https://summer.walkerplus.com/odekake/detail_e/ar0622e602157/map.html)
+- [theCrag：Minami kabe（南壁）](https://www.thecrag.com/en/climbing/japan/joyama/area/284553159)
+- [theCrag：Wild Boar Gorge（ワイルドボアゴージ）](https://www.thecrag.com/en/climbing/japan/joyama/area/299848596)
+- [theCrag：Wild Boar right wall（ワイルドボア・右壁）](https://www.thecrag.com/en/climbing/japan/joyama/area/1017816588)
+- [Mountain Project：Homeboy](https://www.mountainproject.com/route/107074562/homeboy)
+- [Mountain Project：Battle Runner](https://www.mountainproject.com/route/107074536/battle-runner)
+- [Mountain Project：Excursion](https://www.mountainproject.com/route/107074556/excursion)
+- [山と溪谷社：フリークライミング 日本100岩場 3 伊豆・甲信 増補改訂新版](https://www.yamakei.co.jp/products/2812180860%20.html)
+- [横浜市：Calling emergency services（緊急通報）](https://www.city.yokohama.lg.jp/lang/residents/en/emergencies/20200221091958448.html)
+- [MuRaの山ブログ：伊豆 城山 南壁 クライミング（2025-05-09）](https://blog.muraq.com/post/mt/free_climbing/1641)
+- [MuRaの山ブログ：城山 新ルート スタートレック【マルチピッチ クライミング】（2025-12-08）](https://blog.muraq.com/post/mt/free_climbing/2454)
+- [gorotash：こだわりの城山クライミング（2025-11-24）](https://gorotamaru.hatenablog.com/entry/2025/11/24/130417)
+- [きい山歩：【城山】2026年初登り！ポコチン大魔王RP（2026-01-06）](https://kiisampo.com/joyama-pokochin-rp/)
+- [nozakimakoto：城山へ初クライミングしてきた（2015-01）](https://nozakimakoto.hatenablog.com/entry/2015/01/05/180123)
+- [好日山荘スタッフ：城山・ワイルドボアゴージ（2014-04）](https://www.kojitusanso.jp/tozan-report/detail/?fm=10787)
+- [YouTube：終わらない初日トレ「ホームボーイ&アミーゴス」城山 南壁（ALPINE CLUB TOKYO）](https://www.youtube.com/watch?v=GyP1ZEdZXGU)
+- [YouTube：おっさん達と若者の叫び｜城山 南壁（ALPINE CLUB TOKYO）](https://www.youtube.com/watch?v=mg5MLPmZjvs)
+- [YouTube：リードで登れるまで帰れません 城山 クッキングワールド（ALPINE CLUB TOKYO）](https://www.youtube.com/watch?v=GLMZtR-dFak)
+- [YouTube：城山 OVERDRIVE 5.11d（播放清單）](https://www.youtube.com/playlist?list=PLT5jRKglXyp0IPdK6GEfy3UlxmbdhFE__)
+- [YouTube：城山（播放清單）](https://www.youtube.com/playlist?list=PLHUxI2nv_tx8HD9nXxfsaZ_MtwqwPgrs8)
+- [YouTube：20250104 城山南壁](https://www.youtube.com/watch?v=fq_UnZmYw_M)
+- [YouTube：20250201 城山南壁](https://www.youtube.com/watch?v=epctb8lTIeg)
+- [YouTube：20250309 城山南壁（プリクリ練習含む）](https://www.youtube.com/watch?v=8_ooJR_LEb8)
+
+## 更新紀錄
+
+- 2026-10-23：把「代表性路線」改成「依程度挑路線」，依 theCrag 各分區路線表補入門／中級／進階／高手四張表與 YDS 欄；「怎麼去」拆出「停車」一節並把交通對照表移到開頭；補指南書、緊急電話與保險說明。
+- 2026-10-23（第二版）：南壁補入 MuRa 部落格有評語的 5.8–5.11a 路線，新增「爬過的人怎麼說」（岩況、錨栓、東壁新線スタートレック）與「影片」兩節。
+- 2026-10-23（第三版）：補上 13 個分區的路線數與攀登紀錄對照表，說明 theCrag 183 條、ROCKTOPO 362 條、CLIMBING-net 約 300 條的差額來源；四張級距表從 24 條擴到 51 條，加入チューブロック、二間バンド大ハング 與ワイルドボアゴージ 的完整路線資料。「爬過的人怎麼說」補入 nozakimakoto（2015）與好日山荘（2014）的野外紀錄，以及 theCrag Jambalaya 的品質評分。路線資料查核日 2026-10-23。
+- 2026-10-23（第四版）：補上經由 Wayback Machine 快照取得的 ROCKTOPO 資料（362 條：334 單段 + 28 多段），各分區 F／M 與難度 E／M／H 分佈，並說明現場 Cloudflare 403 無法直接開啟的情況。路線資料查核日 2026-10-23。
+- 2026-10-23（第五版）：補上更多路線心得與影片：gorotash（2025-11-24 西南カンテ變體線心得）、きい山歩（2026-01-06 OVERDRIVE 5.11d FL + ポコチン大魔王 5.12d 4便 RP），以及 3 個 2025 年的城山南壁 YouTube 影片（20250104、20250201、20250309）。
