@@ -92,6 +92,45 @@ Petzl names two risks in this fall: overloading the redirect point, and the bela
 
 **Something you can do tonight**: practice looping a rope over your feet. Sit on a chair, drape the rope over your feet in loops, each a little shorter than the last, then pull it out from the top loop and see if it tangles.
 
+## Two schools: belaying off the anchor or off the harness
+
+There are two ways to belay someone from a stance:
+
+- **Direct belay**: the device or a Munter (Italian) hitch goes on the anchor's master point, and the anchor takes the force of a fall. Guide mode, covered in the next section, is one of these.
+- **Indirect belay**: the belayer is tethered to the anchor with the rope or a sling, and the device is on their harness. The force of a fall goes through the belayer's body first.
+
+Neither is simply right or wrong. Every national curriculum teaches both; they differ in which is the default and when to switch. The answer also differs between belaying the second and belaying the leader.
+
+### Belaying the second: most curricula default to a direct belay
+
+| System | Default | Exception or condition |
+|---|---|---|
+| Petzl (France) | REVERSO on the anchor | None |
+| UIAA Training Panel | Bombproof anchors such as sound bolts or a strong tree: direct belay | Anchors built from nuts or cams: device on the harness |
+| DAV (Germany) | Device on the anchor's master point, not on the body | None |
+| American Alpine Club (written by an AMGA guide) | Where falls are likely and consequential, a direct belay is the most prudent way | The anchor's integrity must not be in question |
+| ACMG (Canada) | Auto-blocking devices are usually attached directly to the anchor | None |
+| Italian Mountain Guides Association (AGAI) | Plate device or Munter on the anchor | None |
+| BMC beginner booklet (UK) | Indirect: get tight on the anchors, device on the harness | The booklet does not teach guide mode |
+
+The AAC lists what a direct belay gains: the belayer isn't trapped in the system, has hands free to help the second, and the anchor sees less force. The DAV names the catch with an indirect belay: when the second weights the rope, their whole weight pulls the belayer down.
+
+### Belaying the leader: where the defaults split
+
+For the next pitch's leader, the systems disagree:
+
+- **Off the harness, with a directional on the anchor**: Petzl's default is the device on the harness and a quickdraw on the anchor as a directional. The Italian guides mark "device on the harness, first quickdraw on the anchor" as the recommended method. The AAC also says belaying off the harness is the most common way to belay a leader.
+- **Off the anchor (fixed-point belay)**: the DAV calls the fixed-point belay "the solid basic method" and allows a body belay only when every condition is met, for example the leader isn't much heavier than the belayer, the tether is long enough, and there is a first runner above the stance.
+- **Switch by situation**: the ACMG recommends a fixed-point belay when a leader fall is likely, a high fall factor is possible, a long fall is possible on slabs or alpine ice, or the belay is compromised by an inexperienced belayer or a poor stance, and says the Munter is often the most versatile option. Italy's CAI teaches beginner courses a Munter on the anchor, because the student isn't pulled into the leader's fall and holds it better.
+
+The shared reason to belay off the anchor is that the belayer can't be thrown into the rock or a roof; Petzl calls this the belayer being "projected". The cost is less fluid rope handling and harder dynamic belaying, and Petzl limits it to anchors that are "irreproachable".
+
+The changeover sequence in this article uses Petzl's combination: a direct belay for the second and a harness belay with a directional for the leader.
+
+**Where this summary is biased**: the sources are public materials from national alpine clubs, guides' associations and Petzl (checked 2026-10-23), weighted toward Europe and English. The full guidance from Mountain Training UK, the DAV's teaching manual, the SAC (Switzerland) and CAI's new manual is print only and wasn't read. The Japan Mountain Guides Association's exam list names "belaying the second" without saying how. Adventure Taiwan's course lists both Classic and Guide top belays without naming a default.
+
+**Two questions to ask your instructor**: for the second and for the leader, which method do you teach? When do you switch to the other?
+
 ## Guide mode: belaying the second from the anchor
 
 Once at the stance, the leader brings the second up. A common method is to install a device with an assisted-braking function (such as a Petzl REVERSO or Black Diamond ATC Guide) directly on the anchor, often called guide mode or plaquette. If the second falls, the device pinches the rope.
@@ -139,6 +178,66 @@ What each step protects against:
 Petzl opens these tech tips with two reminders: the techniques require specific training, so confirm with a professional that you can do them safely and independently; and they are examples, so other techniques exist. Adventure Taiwan's multi-pitch course also teaches Co-Leading and Full Leading as two separate team modes. What matters is that the two of you agree in advance and follow the same order every time, so nobody improvises at the stance.
 
 **Something you can do tonight**: on a sheet of paper, draw the nine steps without looking, then compare with the diagram. Whatever you missed is what to ask your instructor about.
+
+### Watch it: what one changeover looks like
+
+The nine steps are easier to follow on video. This four-minute clip runs through the whole sequence at a two-bolt belay:
+
+```youtube
+url: https://www.youtube.com/watch?v=ZS-W-UIiQ-M
+title: Multi pitch Belay Station management (Chris Lawrence Guiding)
+```
+
+Guide Chris Lawrence follows almost the same order as Petzl. At the stance he clips a quickdraw to the bolt on the side the next pitch goes, and that draw becomes the first piece of the next lead. He builds a master point with a 120 cm sling and clove-hitches in, stacks the rope at his feet, belays the second in guide mode on an ATC Guide, and clove-hitches the second in when they arrive. He opens with the arithmetic: 10 minutes at each stance on an 18-pitch route is 3 hours of not climbing.
+
+One step differs from the sequence above: for the swap, he moves the device straight to his harness and never mentions a knot in the brake strand. Petzl keeps that knot in until the new leader has clipped the directional.
+
+For more ways to do it, these videos come from climbing associations, gear makers or qualified instructors (links checked 2026-10-23):
+
+**Multi-pitch climbing: set up a belay at a stance** (BMC TV): made by the British Mountaineering Council with AMI and DMM. Builds a belay on nuts, clove-hitches both ropes to one large HMS carabiner, and stacks the rope neatly.
+
+```youtube
+url: https://www.youtube.com/watch?v=DYTCun48TKs
+title: Multi-pitch climbing: set up a belay at a stance (BMC TV)
+```
+**Multi-pitch climbing: how to swap leads and climb through** (BMC TV): how the rack changes hands when swapping leads, and why the new leader should place a runner early: without one, a fall is a factor-2 fall straight onto the belayer.
+
+```youtube
+url: https://www.youtube.com/watch?v=JExSAtFjWTQ
+title: Multi-pitch climbing: how to swap leads and climb through (BMC TV)
+```
+**#PetzlTips - Rope Management at the Belay** (Petzl): under two minutes on making each rope loop shorter than the last so the rope feeds cleanly when the second leads on.
+
+```youtube
+url: https://www.youtube.com/watch?v=xZOsbxrnpwo
+title: #PetzlTips - Rope Management at the Belay (Petzl)
+```
+**HOW TO Belaying a second with the REVERSO** (Petzl): the official demonstration of belaying a second on a REVERSO; watch it alongside the guide mode section above.
+
+```youtube
+url: https://www.youtube.com/watch?v=AZ4MYLCsSSs
+title: HOW TO Belaying a second with the REVERSO (Petzl)
+```
+**Learning to Trad Climb: Part 6 - How to lead multipitch** (DMM Wales): about 22 minutes of an AMI instructor taking a beginner up a route, covering block leading, stance management and swapping leads, with clear chapters.
+
+```youtube
+url: https://www.youtube.com/watch?v=iT0qYd9E6Nw
+title: Learning to Trad Climb: Part 6 - How to lead multipitch (DMM Wales)
+```
+**Seilschaftsablauf: Mehrseillängen effizient klettern** (Austrian Alpine Club, ÖAV): in German, one episode of its safety series, walking through the whole team routine from the start of the route to the changeover. YouTube's auto-translated captions help.
+
+```youtube
+url: https://www.youtube.com/watch?v=ckZlA0jp9r8
+title: Seilschaftsablauf: Mehrseillängen effizient klettern (Austrian Alpine Club, ÖAV)
+```
+**Multi-Pitch Belaying - Potentially Fatal Errors to Avoid** (SIET): dedicated to potentially fatal mistakes when belaying at the stance; worth watching once you have learned guide mode.
+
+```youtube
+url: https://www.youtube.com/watch?v=s9np7B1Zao4
+title: Multi-Pitch Belaying - Potentially Fatal Errors to Avoid (SIET)
+```
+
+The three BMC and DMM videos follow British trad habits: double ropes and belaying the second off the harness, not in guide mode. Watch them for how the stance is laid out and the rope handled, and belay the way your course taught you.
 
 ## Retreating mid-route: multi-pitch rappels
 
@@ -219,6 +318,10 @@ A standard device rigged like that **does not lock**, and a weighted second is v
 
 Multi-pitch takes you further from the ground, which also means fewer people can help if something goes wrong. The next post, [Self-Rescue Basics](/posts/climbing/2026-10-17-self-rescue-basics-en), covers the options you have when something goes wrong on a multi-pitch route and when to use each. After that, [Learning Path and Common Accidents](/posts/climbing/2026-10-17-sport-to-trad-learning-path-en) puts the whole series into a practice sequence.
 
+## Changelog
+
+- 2026-10-23: added a "Two schools" section comparing how Petzl, the UIAA, DAV, AAC, ACMG, BMC, the Italian guides (AGAI) and CAI choose between direct and indirect belays; added a "Watch it" subsection after the changeover sequence, embedding changeover videos from Chris Lawrence, BMC, Petzl, DMM, ÖAV and SIET.
+
 ## References
 
 - [Top tips for your first multi-pitch adventure (BMC)](https://services.thebmc.co.uk/top-tips-for-your-first-multipitch-adventure)
@@ -226,6 +329,14 @@ Multi-pitch takes you further from the ground, which also means fewer people can
 - [Climbing with alternate leaders (Petzl Tech Tips)](https://www.petzl.com/us/en/sport/tech-tips/basic-techniques/climbing-with-alternate-leaders/escalade-grde-voie-grimpe-reversible_SPO_a77w0000000KypsAAC.html)
 - [Building a belay anchor and belaying on a bolted multi-pitch route (Petzl Tech Tips)](https://www.petzl.com/us/en/sport/tech-tips/basic-techniques/building-a-belay-anchor-and-belaying-on-a-bolted-multi-pitch-route/Relais-grande-voie_SPO_a77Tx000000E3MEIA0.html)
 - [REVERSO Instructions for Use (Petzl, PDF; section 7 covers assisted-braking belaying of seconds, often called guide mode)](https://www.petzl.com/on/demandware.static/-/Sites-petzl-master-catalog/default/dw3ddbef35/media/product/technical-notice-REVERSO-5_068bK00000nDYPVQA4.pdf)
+- [Construction du relais et assurage en grande voie équipée (Petzl Tech Tips, in French)](https://www.petzl.com/ca/fr/sport/conseils-techniques/les-basiques/construction-du-relais-et-assurage-en-grande-voie-equipee/Relais-grande-voie_SPO_a77Tx000000E3MEIA0.html)
+- [Advisory video: Climb safe – how to belay with the ATC (UIAA Training Panel)](https://www.theuiaa.org/advisory-video-climb-safe-how-to-belay-with-the-atc/)
+- [Sichern am Stand: Fixpunkt- oder Körpersicherung? (DAV Sicherheitsforschung, in German)](https://www.alpenverein.de/artikel/sichern-am-stand-fixpunkt-oder-koerpersicherung_37cea8bc-b7b8-4d38-bde6-e31605c1d8d7)
+- [Know the Ropes: Belaying (American Alpine Club, Ron Funderburke)](https://americanalpineclub.org/news/2020/4/2/belaying)
+- [TechFiles Vol. 1 No. 1 (ACMG, 2012, Wayback Machine archive)](http://web.archive.org/web/20220402105149/https://www.acmg.ca/05pdf/TechFiles/TechFiles_Vol1_No1.pdf)
+- [New Rock Climbers (BMC, PDF)](https://www.mountain-training.org/media/whphm1kv/bmc_new_rock_climbers.pdf)
+- [Sportivo Multi-pitch (Associazione Guide Alpine Italiane, in Italian)](https://www.guidealpine.it/multi-pitch/)
+- [Soste per alpinismo: didattica (CAI national alpinism schools commission, 2016, Italian PDF)](https://organizzazione.cai.it/commissione-nazionale-scuole-alpinismo-scialpinismo-arrampicata-libera-vfg/wp-content/uploads/sites/107/2025/01/2016-03-29-Soste-per-Alpinismo-Didattica.pdf)
 - [QC Lab: Autoblock Misuse (Black Diamond, Kolin Powick)](https://eu.blackdiamondequipment.com/blogs/stories/qc-lab-autoblock-misuse)
 - [Know the Ropes: Lowering in Single Pitch and Multi-Pitch Climbing (American Alpine Club)](https://americanalpineclub.org/news/2023/6/21/lowering)
 - [Long Dong route database (TOCC, Taiwan Outdoor Climbers' Coalition)](https://docs.google.com/spreadsheets/d/1QHFNQSPgKgQrTNnYn246wfotOYqOkzHjLltZ26keBgg/htmlview)
