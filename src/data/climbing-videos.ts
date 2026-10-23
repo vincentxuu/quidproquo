@@ -259,9 +259,10 @@ export const videoGalleries: Record<string, VideoGallery> = {
       { id: 'OdBGE0PWQPM', title: '2022/04/11 城山 オーバードライブ5.11d 健', route: 'Overdrive 5.11d（ワイルドボアゴージ）', routeEn: 'Overdrive 5.11d (Wild Boar Gorge)', note: '攀登紀錄', noteEn: 'ascent footage', length: '7:28', channel: 'SEKI' },
       { id: 'mg5MLPmZjvs', title: 'おっさん達と若者の叫び｜城山 南壁｜伊豆大仁 外岩合宿 01 [ ALPINE CLUB TOKYO 公式チャンネル ]', route: '南壁概要', routeEn: 'South Face overview', note: '開頭約 5 分半是城山概要與攀登感想', noteEn: 'the first five and a half minutes cover the crag and first impressions', length: '29:11', channel: 'ALPINE CLUB TOKYO' },
       { id: 'GLMZtR-dFak', title: 'リードで登れるまで帰れません 城山 クッキングワールド｜伊豆大仁 外岩合宿 05 [ ALPINE CLUB TOKYO 公式チャンネル ]', route: 'クッキングワールド 區', routeEn: 'Cooking World sector', note: '先鋒練習，看得到這區的岩質與路線密度', noteEn: 'lead practice; shows the rock and route density in this sector', length: '38:47', channel: 'ALPINE CLUB TOKYO' },
-      { id: 'ETrwK3RhBN0', title: '伊豆　城山・西南カンテ マルチピッチクライミング 2023/12/3', route: '西南カンテ（南壁多段）', routeEn: 'Seinan Kante (South Face multi-pitch)', note: '多段全程；第 1 段常接 Homeboy', noteEn: 'the full multi-pitch; often started via Homeboy', length: '31:36', channel: 'べーきゃんA' },
-      { id: 'hQX6qMxUlGc', title: '城山・西南カンテ', route: '西南カンテ（南壁多段）', routeEn: 'Seinan Kante (South Face multi-pitch)', note: '攀登紀錄', noteEn: 'ascent footage', length: '12:52', channel: 'そして、幼少期。' },
+      { id: 'ETrwK3RhBN0', title: '伊豆　城山・西南カンテ マルチピッチクライミング 2023/12/3', route: 'Seinan Kante 5.9（南壁）', routeEn: 'Seinan Kante 5.9 (south face)', note: '多段全程；第 1 段常接 Homeboy', noteEn: 'the full multi-pitch; often started via Homeboy', length: '31:36', channel: 'べーきゃんA' },
+      { id: 'hQX6qMxUlGc', title: '城山・西南カンテ', route: 'Seinan Kante 5.9（南壁）', routeEn: 'Seinan Kante 5.9 (south face)', note: '攀登紀錄', noteEn: 'ascent footage', length: '12:52', channel: 'そして、幼少期。' },
       { id: 'C2OkVu5jGmE', title: '伊豆　城山東壁　スタートレック（5.8）沢靴ソロ登攀　マルチピッチクライミング', route: 'スタートレック 5.8（東壁）', routeEn: 'スタートレック 5.8 (East Face)', note: '穿溪降鞋獨攀，不是一般繩隊的示範', noteEn: 'a rope-solo in canyoning shoes, not a model for a normal team', length: '40:00', channel: 'そして、幼少期。' },
+      { id: 'f2HYExPQwUo', title: '城山西南カンテ', route: 'Seinan Kante 5.9（南壁）', routeEn: 'Seinan Kante 5.9 (south face)', note: '攀登短片', noteEn: 'a short ascent clip', length: '5:41', channel: 'hiro YoidoreYamaOyaji' },
     ],
   },
 };

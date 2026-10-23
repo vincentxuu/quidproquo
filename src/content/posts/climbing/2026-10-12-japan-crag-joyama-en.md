@@ -291,6 +291,56 @@ theCrag lists only five routes at this level for the whole crag, all in the back
 
 Information at this level is thin outside Japan, and both names and grades rest on theCrag alone; if the guidebook gives a newer grade, go with the book.
 
+### Multi-pitch routes
+
+[ROCKTOPO's full route list](https://www.rocktopo.net/areas/10/routes) has **28 multi-pitch routes**: 16 on the South Face, 5 on the Southeast Face, 2 on the Midway Wall (玉子岩), 2 on Inner Wall 2 and 3 on Inner Wall 3. The four grade tables above only include Battlerunner, Excursion and Dokajan; all 28 are listed here in two tables: the 11 with a pitch count or pitch grades, and the 17 with only a top grade.
+
+**Grades in these two tables are the route's hardest pitch (ROCKTOPO), not per-pitch grades.** Pitch counts and pitch grades come from theCrag, Wayback snapshots of ROCKTOPO, guide websites and club trip reports; where they disagree, both are given. Reports on Seinan Kante, 黎明ルート, 中央壁左ルート and 三日月ハング all mention the lower ramp (斜上バンド), and starts and rappel anchors overlap, so check the line on a guidebook topo before you go up.
+
+| Route | Grade | YDS | Length / pitches | Sector | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Seinan Kante／西南カンテ・ルート | 5.9 | 5.9 | 6 pitches ([Yusuke Sato](https://essential-line.com/free-climbing/multi-pitch); the route book cited by [Tokyo Midori AC](http://www.tokyomidori-ac.org/?p=972)) | South Face | The most popular South Face route on [ROCKTOPO](https://web.archive.org/web/20260520201149/https://www.rocktopo.net/routes/852), RCC grade VI; Sato gives 5.7 and calls it the South Face's introductory route. You reach the start by climbing Homeboy or ハーフムーン and traversing; Tokyo Midori AC and Nihon University AC both rappelled after three pitches |
+| 中央壁左ルート (Left Route) | 5.9 (ROCKTOPO); 5.10a (Sato, gorotash) | 5.9 / 5.10a | 4 pitches (Sato) | South Face | [gorotash, 2023](https://gorotamaru.hatenablog.com/entry/2023/03/13/204424): pitch 1 is ラーニング・トゥ・クロール 5.9, pitch 3 is short with two 5.10a moves; rappel with 50 m doubles from the 三日月ハング anchor, which comes up about 2 m short straight down, so bear right. The bolts are still old |
+| Battlerunner／バトルランナー | 5.10a | 5.10a | 100 m / 4 pitches (5.8, 5.10a, 5.7, 5.9) | South Face | See the beginner table; ROCKTOPO lists 10 bolts. Pitch 2 crosses the "sickle roof" (鎌形ハング) |
+| Excursion／エキスカーシヨン | 5.10c | 5.10c | 110 m / 6 pitches | South Face | See the intermediate table; theCrag gives pitch 1 as 5.10a, [ROCKTOPO](https://web.archive.org/web/20230528065330/https://www.rocktopo.net/routes/47) as 5.9. ROCKTOPO warns the bolts are far apart; take about ten quickdraws |
+| 三日月ハング (Crescent Roof) | 5.10d (ROCKTOPO); original line on the left 5.8 | 5.10d | 5 pitches ([Dakekanba Club, 2007](http://dakekanba-club.com/2007/05/post_232.php)) | South Face | CLIMBING-net says it was first climbed as early as 1960; JFA has replaced the bolts with stainless glue-ins (CLIMBING-net). Dakekanba Club: straight through the middle of the roof is 5.10d; the original line on the left is lined with old pitons and graded 5.8, though the writer said it felt nothing like 5.8; three 50 m rappels to the base. [climber-shio](https://climber-shio.jugem.jp/?eid=850): pitch 1 (10c, 10d on another topo) is the real crux, and the final roof pitch is the easiest |
+| 中央壁ダイレクト (Central Wall Direct) | 5.10d | 5.10d | — | South Face | ROCKTOPO only gives the top grade. CLIMBING-net says JFA rebolted the "Direct Route"; [Bunanokai, 2022](https://www.bunanokai.jp/archives/21699) took falls on pitches 2 and 3 of the "Direct Route". These are probably the same line (an inference; no source gives the alias) |
+| 黎明ルート (Dawn Route) | 5.10a | 5.10a | 3+ pitches | South Face | [Nihon University AC, 2018](https://nualpine.com/archives/1675) linked in from Seinan Kante pitch 1 (5.7): pitch 2 5.9, pitch 3 5.10a is the crux, and the regular line skirts the small roof under the anchor; they rappelled the route to the ramp |
+| 鎌形ハング・ルート (Sickle Roof Route) | 5.10a | 5.10a | — | South Face | ROCKTOPO lists 戸田直樹 as first ascensionist; theCrag has it as a single pitch, "Silver Root／銀形ハング・ルート" 5.10a. [Tokyo Midori AC, 2012](http://www.tokyomidori-ac.org/?p=972) climbed pitch 1 (5.10a) on its own |
+| スタートレック | 5.8 | 5.8 | about 140 m / 6 pitches (5.7, 5.6, 5.7, 5.8, 5.7, 5.8) | Southeast Face (ROCKTOPO) / East Face (MuRa, Sato) | Published in ROCK&SNOW no. 109, December 2025 ([ALPINE CLUB TOKYO](https://www.alpineclub.tokyo/vlog/1810/)). Pitch lengths and grades are [MuRa's](https://blog.muraq.com/post/mt/free_climbing/2454) own estimates; Sato lists 5 pitches. Walk about 10 minutes east along the base of the South Face, past a fixed rope; MuRa rappelled the route but recommends the southeast ridge instead (three 50 m double-rope rappels) or walking off via the summit trail, so you do not knock rocks onto parties below |
+| マッドマックス (Mad Max) | 5.10b | 5.10b | 5 pitches (Sato) | Southeast Face | Sato calls it a good new route on the East Face with fine views; it starts beside スタートレック, where a sign on the fixed rope reads "MAD MAX: 30 m up and right" (MuRa) |
+| ブレードランナー (Blade Runner) | 5.10c | 5.10c | 5 pitches | Southeast Face | Put up by Sato and partners ([guide page](https://essential-line.com/joyama-bleadrunner)), which he says is a bit more sustained than Mad Max; best November–April, about 30 minutes up from the trailhead |
+
+```video-gallery
+key: joyama
+lang: en
+layout: routes
+```
+
+The 17 routes below have only a name, top grade and bolt count on ROCKTOPO, with 0–2 logged ascents and no pitch count or description found.
+
+| Route | Grade | YDS | Length / pitches | Sector | Notes |
+| --- | --- | --- | --- | --- | --- |
+| 中央壁右ルート | 5.10a | 5.10a | — | South Face | ROCKTOPO only |
+| Bルート | 5.10a | 5.10a | — | South Face | ROCKTOPO only |
+| 静岡北嶺ルート | 5.10a | 5.10a | — | South Face | ROCKTOPO only |
+| Aルート | 5.10c | 5.10c | — | South Face | ROCKTOPO only; climber-shio thinks they strayed onto the neighbouring A` route while on 三日月ハング |
+| Cルート | 5.10c | 5.10c | — | South Face | ROCKTOPO only |
+| 友峰ルート | 5.10c | 5.10c | — | South Face | ROCKTOPO only |
+| いなずまルート | 5.10d | 5.10d | — | South Face | ROCKTOPO; theCrag lists it as a single pitch, "Route of Issamu" 5.10d |
+| トワイライトゾーン | 5.11a/b | 5.11a/b | — | South Face | ROCKTOPO only; the South Face's only 5.11 multi-pitch |
+| JNCCルート | 5.10b | 5.10b | — | Midway Wall | ROCKTOPO: put up by 小林由佳, 11 bolts |
+| ボン・ボヤージュ | 5.10d | 5.10d | — | Midway Wall | ROCKTOPO: put up by 宮崎秀夫, 9 bolts |
+| STEAM BOY | 5.11b | 5.11b | — | Southeast Face | ROCKTOPO only |
+| Le Grand Bleu | 5.11c | 5.11c | — | Southeast Face | ROCKTOPO only |
+| ゴー・トゥ・へヴン | 5.11c | 5.11c | — | Inner Wall 2 | ROCKTOPO: put up by 國分誠, 6 bolts |
+| クレイジージョー | 5.11b/c | 5.11b/c | — | Inner Wall 3 | ROCKTOPO: put up by 國分誠, 9 bolts |
+| ロックアップ | 5.11c | 5.11c | — | Inner Wall 3 | ROCKTOPO: put up by 國分誠, 7 bolts |
+| ホライズン | 5.12a | 5.12a | — | Inner Wall 2 | ROCKTOPO: put up by 國分誠, 10 bolts |
+| スキャンティー | 5.12a | 5.12a | — | Inner Wall 3 | ROCKTOPO: put up by 國分誠, 7 bolts |
+
+How to choose: for a first multi-pitch at Joyama, Seinan Kante and スタートレック have the lowest grades, but the first needs a lead-in pitch to reach and the second is new, with sand still on the rock. Battlerunner and Excursion are fully bolted and the easiest lines to follow. 三日月ハング is the historic line; its grade depends on which variation you take, so bring a topo.
+
 ### What people who have climbed here say
 
 Written notes on individual Joyama routes are scarce. The usable first-hand reports are MuRa's two posts ([South Face, 2025-05-09](https://blog.muraq.com/post/mt/free_climbing/1641); [new East Face line, 2025-12-08](https://blog.muraq.com/post/mt/free_climbing/2454)) plus short comments on theCrag and Mountain Project. There is almost nothing in Chinese.
@@ -332,27 +382,26 @@ No public topo exists yet, so the route is not in the tables above.
 
 ### Videos
 
-The first three route tables carry a Videos column (each clip's title and channel re-checked on 2026-10-23); click a thumbnail to open that route's list. Where the videos differ from the tables:
+The first three grade tables and the first multi-pitch table carry a Videos column (each clip's title and channel re-checked on 2026-10-23); click a thumbnail to open that route's list. Where the videos differ from the tables:
 
 - **The three South Face compilations** (mikko KURATA, 2025-01-04, 02-01 and 03-09) each cover seven routes, sped up, with chapters; the same clip appears under several routes. ロンググッドバイ in the videos is the table's ロング・グットバイ.
 - **Heart Route**: machomomo's clip labels it 5.10d, a grade below the table.
 - **Gigolo**: both clips say 5.11b/c; the table uses theCrag's 5.11c.
 - **Excursion's crux-practice episode** covers the crux pitch only, not the whole route.
+- **スタートレック**: the clip is a rope-solo in canyoning shoes, not something a normal team should copy.
 
 Grades and route names in video titles describe that video's version only; pick routes from the source column in the tables.
 
 <details>
-<summary>Videos of the South Face overview, Cooking World, Seinan Kante and the East Face スタートレック</summary>
+<summary>Videos of the South Face overview and Cooking World</summary>
 
 ```video-gallery
 key: joyama
 lang: en
-ids: mg5MLPmZjvs, GLMZtR-dFak, ETrwK3RhBN0, hQX6qMxUlGc, C2OkVu5jGmE
+ids: mg5MLPmZjvs, GLMZtR-dFak
 ```
 
 </details>
-
-The スタートレック clip is a rope-solo in canyoning shoes, not something a normal team should copy.
 
 ## Where to look things up
 
@@ -404,6 +453,19 @@ The スタートレック clip is a rope-solo in canyoning shoes, not something 
 - [YouTube: 20250104 Joyama South Face](https://www.youtube.com/watch?v=fq_UnZmYw_M)
 - [YouTube: 20250201 Joyama South Face](https://www.youtube.com/watch?v=epctb8lTIeg)
 - [YouTube: 20250309 Joyama South Face with pre-climb practice](https://www.youtube.com/watch?v=8_ooJR_LEb8)
+- [ROCKTOPO: Joyama route list (in Japanese)](https://www.rocktopo.net/areas/10/routes)
+- [ROCKTOPO: Excursion (Wayback, 2023-05-28)](https://web.archive.org/web/20230528065330/https://www.rocktopo.net/routes/47)
+- [ROCKTOPO: Seinan Kante (Wayback, 2026-05-20)](https://web.archive.org/web/20260520201149/https://www.rocktopo.net/routes/852)
+- [Yusuke Sato (mountain guide): multi-pitch routes (in Japanese)](https://essential-line.com/free-climbing/multi-pitch)
+- [Yusuke Sato: Joyama East Face, Blade Runner (in Japanese)](https://essential-line.com/joyama-bleadrunner)
+- [ALPINE CLUB TOKYO: Star Trek part 2 (2026-01-05, in Japanese)](https://www.alpineclub.tokyo/vlog/1810/)
+- [gorotash: At Joyama (2023-03-13, in Japanese)](https://gorotamaru.hatenablog.com/entry/2023/03/13/204424)
+- [Dakekanba Club: Joyama South Face, 三日月ハング (2007-05-27, in Japanese)](http://dakekanba-club.com/2007/05/post_232.php)
+- [climber-shio: Joyama South Face (in Japanese)](https://climber-shio.jugem.jp/?eid=850)
+- [Nihon University Alpine Club: Joyama (2018-11-25, in Japanese)](https://nualpine.com/archives/1675)
+- [Tokyo Midori Alpine Club: Joyama (2012-01-17, in Japanese)](http://www.tokyomidori-ac.org/?p=972)
+- [Bunanokai: Joyama South Face multi-pitch (2022-12-17–18, in Japanese)](https://www.bunanokai.jp/archives/21699)
+- [YouTube: 城山西南カンテ](https://www.youtube.com/watch?v=f2HYExPQwUo)
 
 ## Changelog
 
@@ -413,3 +475,4 @@ The スタートレック clip is a rope-solo in canyoning shoes, not something 
 - 2026-10-23 (fourth version): added ROCKTOPO data via the Wayback Machine snapshot (362 routes: 334 single-pitch, 28 multi-pitch), with per-sector F/M counts and E/M/H difficulty distribution, plus a note that the live site returns a Cloudflare 403. Route data checked 2026-10-23.
 - 2026-10-23 (fifth version): added more first-hand reports (gorotash on the 西南カンテ variation, 2025-11-24; きい山歩 on OVERDRIVE 5.11d flash and ポコチン大魔王 5.12d redpoint, 2026-01-06) plus three 2025 Joyama South Face YouTube videos (20250104, 20250201, 20250309).
 - 2026-10-23 (sixth version): moved route videos into a Videos column on the first three route tables (15 routes, 21 clips, including single videos taken out of the two playlists); clips not tied to one route sit in a collapsible block under "Videos".
+- 2026-10-23 (seventh version): added a "Multi-pitch routes" section listing all 28 multi-pitch routes from ROCKTOPO's route list; 11 with pitch counts or pitch grades (theCrag, ROCKTOPO snapshots, Yusuke Sato, MuRa, gorotash, Dakekanba Club, Nihon University AC and others) and 17 with a top grade only. Seinan Kante and スタートレック videos now sit in the multi-pitch table.

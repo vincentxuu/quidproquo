@@ -291,6 +291,56 @@ theCrag 全區只有 5 條在這個級距，全部在ワイルドボアゴージ
 
 這個級距的資訊在中文圈幾乎沒有，路線名與級數都只靠 theCrag 一條來源；guidebook 有新版的級數就以書為準。
 
+### 多段路線
+
+[ROCKTOPO 的全區路線表](https://www.rocktopo.net/areas/10/routes) 列了 **28 條多段**：南壁 16 條、東南壁 5 條、ミッドウェーウォール（玉子岩）2 條、インナーウォール 2 有 2 條、インナーウォール 3 有 3 條。上面四張級距表只放了 Battlerunner、Excursion 與 Dokajan；這裡把 28 條全部列出，分成兩張表：查得到段數或分段級數的 11 條，以及只查到最高級數的 17 條。
+
+**這兩張表的級數是全線最高級數（ROCKTOPO），不是單段級數。** 段數與分段級數來自 theCrag、ROCKTOPO 的 Wayback 快照、嚮導網站與山岳會紀錄，來源間不一致就並列。西南カンテ、黎明ルート、中央壁左ルート、三日月ハング 的紀錄都提到下段的斜上バンド（斜上的岩階），取付和下降點會互相借用，上去前先在指南書的 topo 上把線認清楚。
+
+| 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
+| --- | --- | --- | --- | --- | --- |
+| Seinan Kante／西南カンテ・ルート | 5.9 | 5.9 | 6 段（[佐藤勇介](https://essential-line.com/free-climbing/multi-pitch)、[東京緑山岳会](http://www.tokyomidori-ac.org/?p=972) 引的ルート集） | 南壁 | [ROCKTOPO](https://web.archive.org/web/20260520201149/https://www.rocktopo.net/routes/852) 南壁人氣第一、RCC Ⅵ級；佐藤勇介標 5.7、稱「城山南壁入門ルート」。取付要先爬 Homeboy 或ハーフムーン 再橫渡；東京緑山岳会與日大山岳部都只爬 3 段就下降 |
+| 中央壁左ルート（左ルート） | 5.9（ROCKTOPO）；5.10a（佐藤勇介、gorotash） | 5.9／5.10a | 4 段（佐藤勇介） | 南壁 | [gorotash 2023](https://gorotamaru.hatenablog.com/entry/2023/03/13/204424)：第 1 段是ラーニング・トゥ・クロール 5.9，第 3 段短但有兩手 5.10a；從三日月ハング 的下降點用 50 公尺雙繩下降，正下方差約 2 公尺，要偏右。bolt 仍是舊的 |
+| Battlerunner／バトルランナー | 5.10a | 5.10a | 100 公尺／4 段（5.8、5.10a、5.7、5.9） | 南壁 | 見入門表；ROCKTOPO 記 10 個 bolt。第 2 段翻的是「鎌形ハング」 |
+| Excursion／エキスカーシヨン | 5.10c | 5.10c | 110 公尺／6 段 | 南壁 | 見中級表；第 1 段 theCrag 標 5.10a、[ROCKTOPO](https://web.archive.org/web/20230528065330/https://www.rocktopo.net/routes/47) 標 5.9。ROCKTOPO 注意事項寫「ピン間隔が遠いので恐ろしい」，帶 10 支左右快扣 |
+| 三日月ハング | 5.10d（ROCKTOPO）；左側原始線 5.8 | 5.10d | 5 段（[岳樺クラブ 2007](http://dakekanba-club.com/2007/05/post_232.php)） | 南壁 | CLIMBING-net 寫 1960 年就已初登；JFA 已換不鏽鋼化學錨栓（CLIMBING-net）。岳樺クラブ：大ハング 中央是 5.10d，左側原始線打滿舊 piton，標 5.8 但「とても5.8とは思えなかった」；50 公尺繩懸垂 3 次回取付。[climber-shio](https://climber-shio.jugem.jp/?eid=850)：第 1 段 10c（另有 topo 標 10d）才是全線核心，最後翻ハング 反而最好爬 |
+| 中央壁ダイレクト | 5.10d | 5.10d | — | 南壁 | ROCKTOPO 只有最高級數。CLIMBING-net 說 JFA 換過「ダイレクトルート」的 bolt；[ぶなの会 2022](https://www.bunanokai.jp/archives/21699) 的「ダイレクトルート」第 2、3 段都掛了 tension。兩者應是同一條（推測，來源沒寫別名） |
+| 黎明ルート | 5.10a | 5.10a | 3 段以上 | 南壁 | [日本大学山岳部 2018](https://nualpine.com/archives/1675) 從西南カンテ 第 1 段（5.7）接過來：第 2 段 5.9、第 3 段 5.10a 是核心，終點下方的小ハング 正規線是繞過去；沿這條線懸垂回斜上バンド |
+| 鎌形ハング・ルート | 5.10a | 5.10a | — | 南壁 | ROCKTOPO 初登者欄寫戸田直樹；theCrag 列成單段「Silver Root／銀形ハング・ルート」5.10a。[東京緑山岳会 2012](http://www.tokyomidori-ac.org/?p=972) 拿第 1 段（5.10a）當單段爬 |
+| スタートレック | 5.8 | 5.8 | 約 140 公尺／6 段（5.7、5.6、5.7、5.8、5.7、5.8） | 東南壁（ROCKTOPO）／東壁（MuRa、佐藤勇介） | 2025 年 12 月《ROCK&SNOW》109 號發表（[ALPINE CLUB TOKYO](https://www.alpineclub.tokyo/vlog/1810/)）。段長與分段級數是 [MuRa](https://blog.muraq.com/post/mt/free_climbing/2454) 的體感，佐藤勇介寫 5 段。從南壁沿壁往東走約 10 分、過固定繩；MuRa 沿原路懸垂，但建議改走東南稜（50 公尺雙繩懸垂 3 次）或走到山頂接步道，避免落石打到後面的隊伍 |
+| マッドマックス | 5.10b | 5.10b | 5 段（佐藤勇介） | 東南壁 | 佐藤勇介稱「東壁に新たに拓かれた展望の良い好ルート」；取付就在スタートレック 旁，固定繩上掛著「MAD MAXは右上へ30m行くべし」的牌子（MuRa） |
+| ブレードランナー | 5.10c | 5.10c | 5 段 | 東南壁 | 佐藤勇介與同伴開拓（[嚮導頁](https://essential-line.com/joyama-bleadrunner)），寫「マッドマックスよりもやや登りごたえ」；適期 11–4 月，登山口上去約 30 分 |
+
+```video-gallery
+key: joyama
+lang: zh-TW
+layout: routes
+```
+
+下面 17 條在 ROCKTOPO 只有名字、最高級數與 bolt 數，攀登紀錄 0–2 筆，沒有找到段數或路線描述。
+
+| 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
+| --- | --- | --- | --- | --- | --- |
+| 中央壁右ルート | 5.10a | 5.10a | — | 南壁 | ROCKTOPO 單一來源 |
+| Bルート | 5.10a | 5.10a | — | 南壁 | ROCKTOPO 單一來源 |
+| 静岡北嶺ルート | 5.10a | 5.10a | — | 南壁 | ROCKTOPO 單一來源 |
+| Aルート | 5.10c | 5.10c | — | 南壁 | ROCKTOPO 單一來源；climber-shio 爬三日月ハング 時推測自己誤入了旁邊的 A` ルート |
+| Cルート | 5.10c | 5.10c | — | 南壁 | ROCKTOPO 單一來源 |
+| 友峰ルート | 5.10c | 5.10c | — | 南壁 | ROCKTOPO 單一來源 |
+| いなずまルート | 5.10d | 5.10d | — | 南壁 | ROCKTOPO；theCrag 列成單段「Route of Issamu」5.10d |
+| トワイライトゾーン | 5.11a/b | 5.11a/b | — | 南壁 | ROCKTOPO 單一來源；南壁唯一 5.11 台的多段 |
+| JNCCルート | 5.10b | 5.10b | — | ミッドウェーウォール | ROCKTOPO：小林由佳開拓、11 個 bolt |
+| ボン・ボヤージュ | 5.10d | 5.10d | — | ミッドウェーウォール | ROCKTOPO：宮崎秀夫開拓、9 個 bolt |
+| STEAM BOY | 5.11b | 5.11b | — | 東南壁 | ROCKTOPO 單一來源 |
+| Le Grand Bleu | 5.11c | 5.11c | — | 東南壁 | ROCKTOPO 單一來源 |
+| ゴー・トゥ・へヴン | 5.11c | 5.11c | — | インナーウォール 2 | ROCKTOPO：國分誠開拓、6 個 bolt |
+| クレイジージョー | 5.11b/c | 5.11b/c | — | インナーウォール 3 | ROCKTOPO：國分誠開拓、9 個 bolt |
+| ロックアップ | 5.11c | 5.11c | — | インナーウォール 3 | ROCKTOPO：國分誠開拓、7 個 bolt |
+| ホライズン | 5.12a | 5.12a | — | インナーウォール 2 | ROCKTOPO：國分誠開拓、10 個 bolt |
+| スキャンティー | 5.12a | 5.12a | — | インナーウォール 3 | ROCKTOPO：國分誠開拓、7 個 bolt |
+
+怎麼挑：第一次在城山爬多段，西南カンテ 和スタートレック 級數最低，但前者取付要先爬一段、後者是新線，岩面還有砂；全程 bolt、最好認線的是 Battlerunner 與 Excursion。三日月ハング 是歷史線，級數看哪一條變化線而定，帶上 topo 再去。
+
 ### 爬過的人怎麼說
 
 日文圈寫到單一路線評語的紀錄不多，目前找得到、內容對得上的是 MuRa 的兩篇（[2025-05-09 南壁](https://blog.muraq.com/post/mt/free_climbing/1641)、[2025-12-08 東壁新線](https://blog.muraq.com/post/mt/free_climbing/2454)），加上 theCrag 與 Mountain Project 的短評。中文圈幾乎沒有城山的路線心得。
@@ -332,27 +382,26 @@ theCrag 全區只有 5 條在這個級距，全部在ワイルドボアゴージ
 
 ### 影片
 
-前三張路線表的「影片」欄掛了路線影片（2026-10-23 逐支核對片名與頻道），點縮圖開該路線的清單。幾個和表格不同的地方：
+前三張級距表與第一張多段路線表的「影片」欄掛了路線影片（2026-10-23 逐支核對片名與頻道），點縮圖開該路線的清單。幾個和表格不同的地方：
 
 - **南壁三支合輯**（mikko KURATA，2025-01-04、02-01、03-09）一支拍了七條線，是早回し，片中有目錄；同一支會出現在多條路線的清單裡。片中寫的ロンググッドバイ就是表格的ロング・グットバイ。
 - **Heart Route**：machomomo 的影片標 5.10d，比表格低一級。
 - **Gigolo**：兩支都標 5.11b/c，表格採 theCrag 的 5.11c。
 - **Excursion 的核心段練習編**只拍核心段，不是全程。
+- **スタートレック** 那支是穿溪降鞋獨攀（沢靴ソロ），不是一般繩隊可以照學的示範。
 
 影片標題的級數與路線名只代表該片版本，選線仍以表格的來源欄為準。
 
 <details>
-<summary>看南壁概要、クッキングワールド、西南カンテ與東壁スタートレック的影片</summary>
+<summary>看南壁概要與クッキングワールド 的影片</summary>
 
 ```video-gallery
 key: joyama
 lang: zh-TW
-ids: mg5MLPmZjvs, GLMZtR-dFak, ETrwK3RhBN0, hQX6qMxUlGc, C2OkVu5jGmE
+ids: mg5MLPmZjvs, GLMZtR-dFak
 ```
 
 </details>
-
-スタートレック 那支是穿溪降鞋獨攀（沢靴ソロ），不是一般繩隊可以照學的示範。
 
 ## 查資料的入口
 
@@ -406,6 +455,19 @@ ids: mg5MLPmZjvs, GLMZtR-dFak, ETrwK3RhBN0, hQX6qMxUlGc, C2OkVu5jGmE
 - [YouTube：20250104 城山南壁](https://www.youtube.com/watch?v=fq_UnZmYw_M)
 - [YouTube：20250201 城山南壁](https://www.youtube.com/watch?v=epctb8lTIeg)
 - [YouTube：20250309 城山南壁（プリクリ練習含む）](https://www.youtube.com/watch?v=8_ooJR_LEb8)
+- [ROCKTOPO：城山ルート一覧](https://www.rocktopo.net/areas/10/routes)
+- [ROCKTOPO：エキスカーション（Wayback 2023-05-28）](https://web.archive.org/web/20230528065330/https://www.rocktopo.net/routes/47)
+- [ROCKTOPO：西南カンテ・ルート（Wayback 2026-05-20）](https://web.archive.org/web/20260520201149/https://www.rocktopo.net/routes/852)
+- [山岳ガイド佐藤勇介：マルチピッチ](https://essential-line.com/free-climbing/multi-pitch)
+- [山岳ガイド佐藤勇介：城山東壁・ブレードランナー](https://essential-line.com/joyama-bleadrunner)
+- [ALPINE CLUB TOKYO：スター・トレック後編（2026-01-05）](https://www.alpineclub.tokyo/vlog/1810/)
+- [gorotash：城山にて（2023-03-13）](https://gorotamaru.hatenablog.com/entry/2023/03/13/204424)
+- [岳樺クラブ：城山南壁・三日月ハングルート（2007-05-27）](http://dakekanba-club.com/2007/05/post_232.php)
+- [あてのない手紙：城山南壁](https://climber-shio.jugem.jp/?eid=850)
+- [日本大学山岳部：伊豆 城山 クライミング（2018-11-25）](https://nualpine.com/archives/1675)
+- [東京緑山岳会：城山（2012-01-17）](http://www.tokyomidori-ac.org/?p=972)
+- [ぶなの会：伊豆 城山南壁 マルチピッチ（2022-12-17–18）](https://www.bunanokai.jp/archives/21699)
+- [YouTube：城山西南カンテ](https://www.youtube.com/watch?v=f2HYExPQwUo)
 
 ## 更新紀錄
 
@@ -414,4 +476,5 @@ ids: mg5MLPmZjvs, GLMZtR-dFak, ETrwK3RhBN0, hQX6qMxUlGc, C2OkVu5jGmE
 - 2026-10-23（第三版）：補上 13 個分區的路線數與攀登紀錄對照表，說明 theCrag 183 條、ROCKTOPO 362 條、CLIMBING-net 約 300 條的差額來源；四張級距表從 24 條擴到 51 條，加入チューブロック、二間バンド大ハング 與ワイルドボアゴージ 的完整路線資料。「爬過的人怎麼說」補入 nozakimakoto（2015）與好日山荘（2014）的野外紀錄，以及 theCrag Jambalaya 的品質評分。路線資料查核日 2026-10-23。
 - 2026-10-23（第四版）：補上經由 Wayback Machine 快照取得的 ROCKTOPO 資料（362 條：334 單段 + 28 多段），各分區 F／M 與難度 E／M／H 分佈，並說明現場 Cloudflare 403 無法直接開啟的情況。路線資料查核日 2026-10-23。
 - 2026-10-23（第五版）：補上更多路線心得與影片：gorotash（2025-11-24 西南カンテ變體線心得）、きい山歩（2026-01-06 OVERDRIVE 5.11d FL + ポコチン大魔王 5.12d 4便 RP），以及 3 個 2025 年的城山南壁 YouTube 影片（20250104、20250201、20250309）。
-- 2026-10-23（第六版）：路線影片改掛在前三張路線表的「影片」欄（15 條路線、21 支，含從兩個播放清單拆出的單支影片）；不屬於單一路線的影片收進「影片」一節的摺疊區。
+- 2026-10-23（第六版）：路線影片改掛在前三張級距表與第一張多段路線表的「影片」欄（15 條路線、21 支，含從兩個播放清單拆出的單支影片）；不屬於單一路線的影片收進「影片」一節的摺疊區。
+- 2026-10-23（第七版）：新增「多段路線」一節，依 ROCKTOPO 全區路線表列出 28 條多段；其中 11 條附段數或分段級數（theCrag、ROCKTOPO 快照、佐藤勇介、MuRa、gorotash、岳樺クラブ、日大山岳部等），另 17 條只有最高級數。西南カンテ、スタートレック 的影片改掛在多段路線表。
