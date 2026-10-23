@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "練習向同事描述感冒與喉嚨痛，並從今天的午餐聊到飲食習慣、自己煮飯。附短對話與中文回想題。"
 tldr: "喉嚨痛可說 I have a sore throat；快失聲可用 losing my voice。午餐先問今天吃什麼，再問平常習慣；從家裡帶不等於親手煮。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-10-23-colleague-health-lunch-english-en)
@@ -64,15 +64,17 @@ draft: true
 
 ## 兩段短對話，練習接下一句
 
-以下是自寫練習示例，不是教材實錄；同事的回答是虛構情境。
+以下是自寫練習示例，不是教材實錄；同事的回答是虛構情境。第一段裡，同事已知道你喉嚨不舒服。
 
 **同事：** What's wrong?（怎麼了？）
 
-**你：** I have a sore throat.（我喉嚨痛。）
+**你：** I have a cold.（我感冒了。）
 
-**同事：** Is it a cold?（是感冒嗎？）
+**同事：** How’s your throat?（你的喉嚨怎麼樣？）
 
-**你：** I have a cold and I think I'm losing my voice.（我感冒了，覺得自己快失聲了。）
+**你：** My throat really hurts.（我的喉嚨真的很痛。）
+
+**你：** I can barely speak.（我幾乎講不出話。）
 
 **你：** What have you got for lunch today?（你今天午餐吃什麼？）
 
@@ -125,3 +127,7 @@ Can you recommend something that is very easy to cook?
 - [BBC：Talking about lunch](https://www.bbc.co.uk/learningenglish/features/real-easy-english/250801)：今天的午餐、習慣與剩菜。
 - [ELLLO 625：What's for Lunch?](https://www.elllo.org/english/0601/T625-Tom-Lunch.htm)：從家裡帶午餐、聊晚餐。
 - [ELLLO 474：Cooking Tips](https://elllo.org/english/0451/474-Akane-Cooking.htm)：請人推薦簡單料理。
+
+## 更新紀錄
+
+- 2026-10-23：接入英文口說專區的日常聊天卡片與兩段角色對話。

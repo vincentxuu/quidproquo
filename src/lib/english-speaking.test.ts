@@ -25,13 +25,13 @@ describe('speaking practice', () => {
   it('includes new cards and only due reviews, without mutating a selected session', () => {
     const progress = { map: scheduleReview(undefined, 2, 1000) };
     const selected = selectSession(progress, 1000, 'due');
-    expect(selected).toHaveLength(164);
+    expect(selected).toHaveLength(178);
     expect(selectSession(progress, 1000, 'all', 'surf')).toEqual(['surf-waves', 'surf-entry']);
     expect(selected).not.toContain('map');
     progress.map = scheduleReview(undefined, 0, 0);
     expect(selected).not.toContain('map');
-    expect(selectSession(progress, 600_000, 'due')).toHaveLength(165);
-    expect(selectSession(progress, 0, 'all')).toHaveLength(165);
+    expect(selectSession(progress, 600_000, 'due')).toHaveLength(179);
+    expect(selectSession(progress, 0, 'all')).toHaveLength(179);
   });
   it('keeps evidence aligned with cards and article links on-site', () => {
     expect(Object.keys(speakingEvidence).sort()).toEqual(speakingCards.map(card => card.id).sort());

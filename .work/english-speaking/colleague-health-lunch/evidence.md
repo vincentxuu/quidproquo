@@ -46,8 +46,10 @@
 
 ## 交付範圍
 
-雙語文章為 draft:true；十四張卡是完整草稿契約，尚未接入 speakingCards。現有網站支援來源、替代說法與文章入口；為避免卡片連到未發佈的文章，本次將文章與卡片保留成同一批可審閱成果。沒有新增網站朗讀句子，也沒有生成新語音；這十四張草稿卡尚無預製音檔。未 commit/push/deploy。
+初版 9027d30e 只提交雙語草稿與十四張卡。後續依使用者要求接入 speakingCards／speakingEvidence 與兩段角色對話；文章改為非草稿，保留來源與原文入口。預製語音、瀏覽器及最終檢查狀態見 plan.md／review.md；本段不代表已上線。
 
 ## 獨立審閱與午餐補查
 
 獨立 agent 發現原稿只教從家裡帶，沒有直接問誰做；主 session 補讀第六份教材 All Ears English: American Culture and Food at Work，全文 6117 字元，署名 Aubrey Carter。原句 That looks delicious! Did you make it? 逐字比對符合，原情境正是同事午餐，故新增 daily-lunch-made-it 的 expression/context 皆 direct。自寫短對話仍為 adapted。來源限定看起來像自己做的午餐，不把外帶午餐也套進來。原需求「很痛、講不出話、同事自己做午餐」均已有對應卡。
+
+網站接入審閱：AEE 同頁 follow-up questions 有 Do you cook a lot?，已將替換提示一併映射到該來源；健康對話角色補明同事已知喉嚨不舒服。網站與文章的健康對話以感冒／很痛／幾乎無法說話為同一練習。

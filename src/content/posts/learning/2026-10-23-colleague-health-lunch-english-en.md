@@ -7,7 +7,7 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "Practise describing a cold and throat discomfort, then ask about lunch habits and cooking. Includes short dialogues and Chinese recall prompts."
 tldr: "Use I have a sore throat for throat discomfort and losing my voice for a fading voice. Ask about today’s lunch before usual habits; bringing food from home does not mean cooking it yourself."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-23-colleague-health-lunch-english)
@@ -64,15 +64,17 @@ Choose a sentence that matches what you mean:
 
 ## Two short practice conversations
 
-These are original practice examples, rather than transcripts from the sources. The colleague's answers are fictional.
+These are original practice examples, rather than transcripts from the sources. The colleague's answers are fictional. In the first example, the colleague already knows your throat is bothering you.
 
 **Colleague:** What's wrong?
 
-**You:** I have a sore throat.
+**You:** I have a cold.
 
-**Colleague:** Is it a cold?
+**Colleague:** How’s your throat?
 
-**You:** I have a cold and I think I'm losing my voice.
+**You:** My throat really hurts.
+
+**You:** I can barely speak.
 
 **You:** What have you got for lunch today?
 
@@ -125,3 +127,7 @@ Can you recommend something that is very easy to cook?
 - [BBC: Talking about lunch](https://www.bbc.co.uk/learningenglish/features/real-easy-english/250801): today's meal, habits, and leftovers.
 - [ELLLO 625: What's for Lunch?](https://www.elllo.org/english/0601/T625-Tom-Lunch.htm): bringing lunch from home and talking about dinner.
 - [ELLLO 474: Cooking Tips](https://elllo.org/english/0451/474-Akane-Cooking.htm): asking for an easy dish to cook.
+
+## Changelog
+
+- 2026-10-23: Connect the daily conversation cards and two role-plays to the speaking practice area.
