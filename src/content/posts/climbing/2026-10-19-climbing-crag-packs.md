@@ -10,7 +10,7 @@ tldr: "單繩距岩場包挑三件事：背板或側邊能整面打開、有繩�
 draft: false
 series:
   name: "出國攀岩裝備"
-  order: 5
+  order: 6
 ---
 
 > 🌏 [English version](/posts/climbing/2026-10-19-climbing-crag-packs-en)

@@ -9,7 +9,7 @@ tldr: "Shoes, harness and helmet in the cabin, rope in the hold: that is the mos
 draft: false
 series:
   name: "Climbing Travel Gear"
-  order: 3
+  order: 4
 ---
 
 > 🌏 [中文版](/posts/climbing/2026-10-19-climbing-travel-packing-examples)

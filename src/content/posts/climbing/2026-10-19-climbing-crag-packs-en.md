@@ -10,7 +10,7 @@ tldr: "For single-pitch days, a crag pack needs three things: a back panel or si
 draft: false
 series:
   name: "Climbing Travel Gear"
-  order: 5
+  order: 6
 ---
 
 > 🌏 [中文版](/posts/climbing/2026-10-19-climbing-crag-packs)

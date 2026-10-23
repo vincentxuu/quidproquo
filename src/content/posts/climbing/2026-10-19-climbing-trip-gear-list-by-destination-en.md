@@ -80,7 +80,7 @@ Most climbers flying abroad bring one single rope. In a 2021 [UKC thread](https:
 
 The most direct result of a rope that is too short is the end running through the belay device while lowering. Whatever length you bring, knot the ends.
 
-**Diameter.** Tropical and Mediterranean limestone is often polished smooth and sharp in places. The official Kalymnos site recommends a single rope of [9–10.5 mm](https://climbkalymnos.com/climbing). For two weeks of lowering every day, a durable rope around 9.5 mm is the safer choice; check diameter against your belay device's range in the Climbing Gear article.
+**Diameter.** Tropical and Mediterranean limestone is often polished smooth and sharp in places. The official Kalymnos site recommends a single rope of [9–10.5 mm](https://climbkalymnos.com/climbing). For two weeks of lowering every day, a durable rope around 9.5 mm is the safer choice. Weights, sheath proportions and 80 m availability for current models are in [Choosing a Rope for a Climbing Trip Abroad](/posts/climbing/2026-10-23-climbing-travel-rope-en); check diameter against your belay device's range in the Climbing Gear article.
 
 **Dry treatment.** Dry treatment mostly matters for ice and alpine climbing. All six destinations here are rock crags, so there is no need to buy a dry rope just for the trip. Wetness is the real concern: [Edelrid](https://edelrid.com/us-en/knowledge/knowledge-base/dangers-for-climbing-ropes) says a wet rope absorbs energy less well, so in humid places dry it out, as described in the last section.
 
@@ -196,7 +196,7 @@ Back home, inspect any rope that took a lot of falls, was used by the sea or was
 3. Look up the local shops' rental prices and compare "days of rope rental × daily rate" with "the baggage fee for bringing your own rope".
 4. Put shoes, harness, belay device and helmet on the cabin list, and everything else on the checked list.
 
-Once the list is written and the total weight known, the next step is getting it through the airport: [Flying with Climbing Gear](/posts/climbing/2026-10-19-flying-with-climbing-gear-en).
+If you are buying or replacing a rope for the trip, the next article, [Choosing a Rope for a Climbing Trip Abroad](/posts/climbing/2026-10-23-climbing-travel-rope-en), compares weight per meter, 80 m availability, sheath proportion and middle marks. Once the list is written and the total weight known, the next step is getting it through the airport: [Flying with Climbing Gear](/posts/climbing/2026-10-19-flying-with-climbing-gear-en).
 
 ## References
 

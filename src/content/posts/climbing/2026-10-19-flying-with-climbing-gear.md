@@ -9,12 +9,12 @@ tldr: "鉤環、快扣、活動岩楔不在任何官方禁止清單上，能不�
 draft: false
 series:
   name: "出國攀岩裝備"
-  order: 2
+  order: 3
 ---
 
 > 🌏 [English version](/posts/climbing/2026-10-19-flying-with-climbing-gear-en)
 
-[上一篇](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination)把要帶的東西列成清單、算出總重之後，下一個問題是這堆東西怎麼過機場。哪些可以背上飛機？哪些一定要托運？托運和登機的重量又怎麼算？
+〈[依目的地列裝備清單](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination)〉把要帶的東西列成清單、算出總重之後，下一個問題是這堆東西怎麼過機場。哪些可以背上飛機？哪些一定要托運？托運和登機的重量又怎麼算？
 
 這篇分兩半。前半是安檢：各國的手提禁止清單怎麼寫，哪些攀岩裝備被點名、哪些沒有。後半是航空公司：台灣常飛的全服務航空、亞洲廉航和歐洲廉航，托運額度、運動器材規定和登機行李重量。最後一張表把每件裝備該放哪邊列出來，並分清楚哪些是規定、哪些只是攀岩者的經驗。
 

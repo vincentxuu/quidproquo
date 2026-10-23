@@ -9,7 +9,7 @@ tldr: "多繩距包通常由跟攀者背，先鋒不背。容量從兩人的水�
 draft: false
 series:
   name: "出國攀岩裝備"
-  order: 6
+  order: 7
 ---
 
 > 🌏 [English version](/posts/climbing/2026-10-19-multipitch-climbing-backpacks-en)

@@ -9,7 +9,7 @@ tldr: "On a multipitch route the follower usually carries the pack and the leade
 draft: false
 series:
   name: "Climbing Travel Gear"
-  order: 6
+  order: 7
 ---
 
 > 🌏 [中文版](/posts/climbing/2026-10-19-multipitch-climbing-backpacks)
