@@ -162,7 +162,13 @@ Start with the scale, then pick by grade:
 | Wild Boar right wall | 6 | 0 | — | from 5.10a | The wall beside the gorge |
 | Midway Wall (Egg Rock) | 17 | 0 | — | — | No ascents logged |
 | Lion Bottom | 17 | 0 | — | — | No ascents logged |
-| Cooking World | 16 | 0 | — | — | The lead-practice sector in the videos |
+| Cooking World | 16 | 0 | — | — | Lead-practice sector |
+
+```video-gallery
+key: joyama
+lang: en
+layout: routes
+```
 
 That is 183 routes across 13 sectors, but three of them — the South Face, the Wild Boar Gorge and Tube Rock — account for 82 routes and almost every ascent; the other 101 are near-blank on the site. The tables below concentrate on those three sectors not because Joyama ends there, but because that is where the comments and ascents are.
 
@@ -180,7 +186,7 @@ ROCKTOPO (retrieved via the [Wayback Machine snapshot](https://web.archive.org/w
 - Futama bando dai hang: F6, difficulty M3 H3
 - Midway Wall (Egg Rock): F13 M2, difficulty E5 M9 H1
 
-The grade column keeps the original YDS grade and the YDS column repeats it rather than converting back to French. The band headings follow the [Mountain Project international grade comparison chart](https://www.mountainproject.com/international-climbing-grades) and are approximate. Lengths, bolt counts and ascent counts come from theCrag's route lists (checked 2026-10-23); "—" means the page leaves it blank. For multi-pitch routes the grade column gives the pitches.
+The grade column keeps the original YDS grade and the YDS column repeats it rather than converting back to French. The band headings follow the [Mountain Project international grade comparison chart](https://www.mountainproject.com/international-climbing-grades) and are approximate. Lengths, bolt counts and ascent counts come from theCrag's route lists (checked 2026-10-23); "—" means the page leaves it blank. For multi-pitch routes the grade column gives the pitches. The last column holds videos (titles and channels checked 2026-10-23); grades and route names in a video's title describe that video only, and where they differ the table's sources win.
 
 ### Beginner: up to 6a (YDS 5.10a and below)
 
@@ -380,29 +386,6 @@ No public topo exists yet, so the route is not in the tables above.
 - [Kojitusanso staff, April 2014 (Joyama · Wild Boar Gorge)](https://www.kojitusanso.jp/tozan-report/detail/?fm=10787): on a weekday they had the place to themselves, but weekends in this season can mean waiting in line. 『ポコチン大魔王・5.12d』is described as "probably the most popular route in this area" — good holds, varied angles and grades from 5.10 to 5.14. Also: the hanger on the 4th bolt of Liquid Finger is missing.
 - theCrag's Jambalaya page: 6 ratings averaging 78/100, with comment keywords "perfect", "nice", "crux".
 
-### Videos
-
-The first three grade tables and the first multi-pitch table carry a Videos column (each clip's title and channel re-checked on 2026-10-23); click a thumbnail to open that route's list. Where the videos differ from the tables:
-
-- **The three South Face compilations** (mikko KURATA, 2025-01-04, 02-01 and 03-09) each cover seven routes, sped up, with chapters; the same clip appears under several routes. ロンググッドバイ in the videos is the table's ロング・グットバイ.
-- **Heart Route**: machomomo's clip labels it 5.10d, a grade below the table.
-- **Gigolo**: both clips say 5.11b/c; the table uses theCrag's 5.11c.
-- **Excursion's crux-practice episode** covers the crux pitch only, not the whole route.
-- **スタートレック**: the clip is a rope-solo in canyoning shoes, not something a normal team should copy.
-
-Grades and route names in video titles describe that video's version only; pick routes from the source column in the tables.
-
-<details>
-<summary>Videos of the South Face overview and Cooking World</summary>
-
-```video-gallery
-key: joyama
-lang: en
-ids: mg5MLPmZjvs, GLMZtR-dFak
-```
-
-</details>
-
 ## Where to look things up
 
 - **[ROCKTOPO Joyama](https://web.archive.org/web/20260518161144/https://www.rocktopo.net/areas/10)** (in Japanese; live site returns Cloudflare 403, so this links to the Wayback Machine snapshot from 2026-05-18): route lists for all 18 sectors, grade distribution, popular routes and user logs; parking pages [332](https://www.rocktopo.net/parking_spots/332) and [270](https://www.rocktopo.net/parking_spots/270), approach pages [5](https://www.rocktopo.net/approach_informations/5) and [6](https://www.rocktopo.net/approach_informations/6). Offline download requires login.
@@ -476,3 +459,4 @@ ids: mg5MLPmZjvs, GLMZtR-dFak
 - 2026-10-23 (fifth version): added more first-hand reports (gorotash on the 西南カンテ variation, 2025-11-24; きい山歩 on OVERDRIVE 5.11d flash and ポコチン大魔王 5.12d redpoint, 2026-01-06) plus three 2025 Joyama South Face YouTube videos (20250104, 20250201, 20250309).
 - 2026-10-23 (sixth version): moved route videos into a Videos column on the first three route tables (15 routes, 21 clips, including single videos taken out of the two playlists); clips not tied to one route sit in a collapsible block under "Videos".
 - 2026-10-23 (seventh version): added a "Multi-pitch routes" section listing all 28 multi-pitch routes from ROCKTOPO's route list; 11 with pitch counts or pitch grades (theCrag, ROCKTOPO snapshots, Yusuke Sato, MuRa, gorotash, Dakekanba Club, Nihon University AC and others) and 17 with a top grade only. Seinan Kante and スタートレック videos now sit in the multi-pitch table.
+- 2026-10-24 (eighth version): removed the standalone "Videos" section so every video sits in a route table; the South Face overview and Cooking World clips now hang off their rows in the sector table, and differences from the tables are noted on each clip.
