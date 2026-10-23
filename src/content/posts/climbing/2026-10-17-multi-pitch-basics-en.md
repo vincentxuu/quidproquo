@@ -121,7 +121,7 @@ For the next pitch's leader, the systems disagree:
 
 - **Off the harness, with a directional on the anchor**: Petzl's default is the device on the harness and a quickdraw on the anchor as a directional. The Italian guides mark "device on the harness, first quickdraw on the anchor" as the recommended method. The AAC also says belaying off the harness is the most common way to belay a leader.
 - **Off the anchor (fixed-point belay)**: the DAV calls the fixed-point belay "the solid basic method" and allows a body belay only when every condition is met, for example the leader isn't much heavier than the belayer, the tether is long enough, and there is a first runner above the stance.
-- **Switch by situation**: the ACMG recommends a fixed-point belay when a leader fall is likely, a high fall factor is possible, a long fall is possible on slabs or alpine ice, or the belay is compromised by an inexperienced belayer or a poor stance, and says the Munter is often the most versatile option. Italy's CAI teaches beginner courses a Munter on the anchor, because the student isn't pulled into the leader's fall and holds it better.
+- **Switch by situation**: the ACMG recommends a fixed-point belay when a leader fall is likely, a high fall factor is possible, a long fall is possible on slabs or alpine ice, or the belay is compromised by an inexperienced belayer or a poor stance, and says the Munter is often the most versatile option. Italy's CAI teaches beginner courses a Munter on the anchor, because the student isn't pulled into the leader's fall and holds it better. How strong the anchor must be for a fixed-point belay, and how much extra load each of CAI's three methods puts on it, is covered in [Building Anchors](/posts/climbing/2026-10-17-building-anchors-en#multi-pitch-how-the-belay-method-changes-what-the-anchor-must-hold).
 
 The shared reason to belay off the anchor is that the belayer can't be thrown into the rock or a roof; Petzl calls this the belayer being "projected". The cost is less fluid rope handling and harder dynamic belaying, and Petzl limits it to anchors that are "irreproachable".
 
@@ -320,7 +320,7 @@ Multi-pitch takes you further from the ground, which also means fewer people can
 
 ## Changelog
 
-- 2026-10-23: added a "Two schools" section comparing how Petzl, the UIAA, DAV, AAC, ACMG, BMC, the Italian guides (AGAI) and CAI choose between direct and indirect belays; added a "Watch it" subsection after the changeover sequence, embedding changeover videos from Chris Lawrence, BMC, Petzl, DMM, ÖAV and SIET.
+- 2026-10-23: added a "Two schools" section comparing how Petzl, the UIAA, DAV, AAC, ACMG, BMC, the Italian guides (AGAI) and CAI choose between direct and indirect belays, linking to Building Anchors for the anchor requirements; added a "Watch it" subsection after the changeover sequence, embedding changeover videos from Chris Lawrence, BMC, Petzl, DMM, ÖAV and SIET.
 
 ## References
 

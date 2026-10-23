@@ -201,6 +201,39 @@ start: 380
 
 **Something to do tonight**: with a 180 cm sling (the length Petzl uses for a quad), build a quad and then a sliding X between two door handles. Unclip one side each time and see how far the master point drops.
 
+## Multi-pitch: how the belay method changes what the anchor must hold
+
+A single-pitch anchor only has to hold a top rope. On a multi-pitch route the belay also has to hold a leader fall, and how the leader is belayed changes the direction and size of the force on it. [Multi-Pitch Basics](/posts/climbing/2026-10-17-multi-pitch-basics-en#two-schools-belaying-off-the-anchor-or-off-the-harness) compares each country's default for belaying the leader; this section covers only what that means for the anchor.
+
+### ACMG: when to switch to a fixed-point belay, and how strong the anchor must be
+
+The Association of Canadian Mountain Guides' [TechFiles](http://web.archive.org/web/20220402105149/https://www.acmg.ca/05pdf/TechFiles/TechFiles_Vol1_No1.pdf) defines a fixed-point belay as belaying the leader with a device or Munter hitch attached directly to a fixed point on the anchor: the force of a fall goes straight to the anchor, and the belayer only provides braking. It lists four situations to consider one:
+
+- A leader fall is likely: a hard grade or wet rock.
+- A high fall factor is possible.
+- A long fall is possible: slab routes or alpine ice.
+- The belay itself is compromised: an inexperienced belayer, icy ropes, a poor stance.
+
+A fixed-point belay raises the bar for the anchor:
+
+- **At least two good multi-directional pieces**: two bolts, horizontally placed cams, ice screws. A leader fall can pull upward, so pieces that only hold a downward pull don't count.
+- **The fixed point itself must be anchor strength**: about 20 kN, says the ACMG. With common webbing or cord, the fixed point may need a doubled strand.
+- **The fixed point at about chest height**, so rope handling stays efficient.
+- **Device choice**: the Munter is often the most versatile. With a tube device, redirect the brake strand, or have reliable leader protection near the belay.
+
+### CAI: three belay methods, three different anchor loads
+
+The Italian Alpine Club's national schools commission, in its [2016 teaching paper on belay stations](https://organizzazione.cai.it/commissione-nazionale-scuole-alpinismo-scialpinismo-arrampicata-libera-vfg/wp-content/uploads/sites/107/2025/01/2016-03-29-Soste-per-Alpinismo-Didattica.pdf), has students learn three ways to belay a leader:
+
+- **Classic** (classica): a Munter hitch on the anchor. Beginner courses teach this first, because the student isn't drawn directly into the leader's fall and holds it more effectively.
+- **Balanced** (bilanciata) and **ventral** (ventrale): the belayer hangs from the anchor's master point and becomes part of the system when the leader falls. In the ventral method the device is on the harness, and a "false runner" must be clipped to the master point as a directional.
+
+The ventral method is a trade-off. The false runner acts like a pulley, so the anchor takes more force than with the other two methods: about 1–1.5 kN more in CAI's tests. But the load on the leader's last runner drops a lot, which is why it's used. CAI's conclusion: the leader should place the first runner right after leaving the belay, so the anchor doesn't carry that extra load for long.
+
+When the belayer hangs from the master point, CAI asks for two more things: a fixed anchor (master point locked with a knot) rather than a sliding one, and the belayer's tether on the master point. That way, if one piece fails, the belayer doesn't drop with it. On adventure terrain where you build your own belays, CAI recommends the ventral method to reduce the load on runners, combined with a fixed anchor and a false runner on the master point.
+
+**Something you can do tonight**: lay out the gear you usually build belays with. Picture which way the pull goes if the leader falls just after leaving the stance, then ask: can every piece hold an upward pull?
+
 ## Checking someone else's anchor
 
 When you arrive at a belay as the second, or see someone's anchor at the crag, check it in this order:
@@ -264,11 +297,14 @@ The videos embedded above come from the two channels below. They are a good plac
 
 ## Update Log
 
+- 2026-10-23: Added "Multi-pitch: how the belay method changes what the anchor must hold", covering the ACMG's fixed-point belay conditions and anchor requirements and how CAI's three belay methods change anchor loads
 - 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 
 ## References
 
 - [TOCC Long Dong chronicle: the May 16, 2019 accident on #313 (in Mandarin and English)](https://www.tocc-climbing.org/chronicle-of-events)
+- [Fixed-point belays and auto-braking devices: TechFiles Vol. 1 No. 1 (ACMG, 2012, Wayback Machine archive)](http://web.archive.org/web/20220402105149/https://www.acmg.ca/05pdf/TechFiles/TechFiles_Vol1_No1.pdf)
+- [Belay methods and anchor loads: Soste per alpinismo: didattica (CAI national alpinism schools commission, 2016, Italian PDF)](https://organizzazione.cai.it/commissione-nazionale-scuole-alpinismo-scialpinismo-arrampicata-libera-vfg/wp-content/uploads/sites/107/2025/01/2016-03-29-Soste-per-Alpinismo-Didattica.pdf)
 - [Building a belay anchor and belaying on a bolted multi-pitch route (Petzl)](https://petzl.com/us/en/sport/tech-tips/basic-techniques/building-a-belay-anchor-and-belaying-on-a-bolted-multi-pitch-route/Relais-grande-voie_SPO_a77Tx000000E3MEIA0.html)
 - [Fall factor and impact force – theory (Petzl)](https://petzl.com/us/en/sport/tech-tips/basic-techniques/fall-factor-and-impact-force---theory/CORDES-chute-theorie_SPO_a77w0000000KywUAAS.html)
 - [Forces at work in a real fall (Petzl)](https://petzl.com/us/en/sport/tech-tips/product-information-and-specifications/forces-at-work-in-a-real-fall/CORDES-chute-efforts_SPO_a77w0000000KywPAAS.html)

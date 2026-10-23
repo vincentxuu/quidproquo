@@ -201,6 +201,39 @@ start: 380
 
 **今晚就能做的動作**：用一條 180 公分扁帶（Petzl 做 Quad 用的長度），在兩個門把之間分別做一次 Quad 和一次 Sliding X。做完後拔掉其中一邊，看主點往下掉了多遠。
 
+## 多繩距：確保方式決定確保站要扛什麼
+
+單繩距的固定點只要吃得住頂繩的重量。到了多繩距，確保站還要扛先鋒的墜落，而先鋒怎麼被確保，會改變確保站受力的方向和大小。[〈多繩距入門〉](/posts/climbing/2026-10-17-multi-pitch-basics#確保的兩派站上確保與身上確保)比較了各國確保先鋒的預設，這裡只看對確保站的要求。
+
+### ACMG：什麼時候改用固定點確保，確保站要多強
+
+加拿大山岳嚮導協會（ACMG）的 [TechFiles](http://web.archive.org/web/20220402105149/https://www.acmg.ca/05pdf/TechFiles/TechFiles_Vol1_No1.pdf) 把「固定點確保」定義為：確保器或義大利半扣直接裝在確保站的固定點上確保先鋒。墜落的力直接傳到確保站，確保者只負責制動。它列了四種該考慮這樣做的狀況：
+
+- 先鋒容易掉：難度高、岩石濕滑。
+- 可能出現高係數墜落。
+- 可能掉很長：例如平板或高山冰攀。
+- 確保本身不穩：確保者經驗不足、繩子結冰、站位差。
+
+改用固定點確保，確保站的要求跟著變高：
+
+- **至少兩個能承受各方向拉力的好點**：例如兩根 bolt、水平放的 cam、冰螺栓。先鋒墜落時拉力可能朝上，只能承受向下拉力的點不算。
+- **固定點本身要有確保站等級的強度**：ACMG 寫約 20 kN。常見的扁帶或輔繩，可能要在固定點用雙股才夠。
+- **固定點大約在胸口高度**：收放繩才順手。
+- **確保器的選擇**：義大利半扣通常最好用。用管狀確保器的話，制動端要先轉向，或確保站附近已經有可靠的先鋒保護點。
+
+### CAI：三種確保法，確保站受力不同
+
+義大利登山協會（CAI）全國登山學校委員會 [2016 年的確保站教學文件](https://organizzazione.cai.it/commissione-nazionale-scuole-alpinismo-scialpinismo-arrampicata-libera-vfg/wp-content/uploads/sites/107/2025/01/2016-03-29-Soste-per-Alpinismo-Didattica.pdf)要學員認識三種確保先鋒的方法：
+
+- **經典式**（classica）：義大利半扣裝在確保站上。基礎課程優先教這個，理由是學員不會直接被捲進先鋒的墜落，也比較拉得住。
+- **平衡式**（bilanciata）與**腹部式**（ventrale）：確保者掛在確保站的主點上，先鋒墜落時確保者也是系統的一部分。腹部式是確保器掛在吊帶上，主點要先掛一個「假快扣」當方向點。
+
+腹部式有一個取捨。主點上的假快扣像滑輪，會讓確保站受的力比其他兩種多，CAI 實驗測到多出約 1–1.5 kN。但先鋒最後一個保護點的受力會小很多，這正是選它的理由。CAI 的結論是：先鋒離開確保站後要馬上放第一個保護點，讓確保站不必長時間承受這個放大的力。
+
+確保者掛在主點上時，CAI 還要求兩件事：確保站用固定式（主點打結鎖住）而不是滑動式，自我連結也連在主點上。這樣即使其中一個點失效，確保者也不會跟著往下掉。在要自己架確保站的冒險路線上，CAI 建議用腹部式來減輕保護點的負擔，並且搭配固定式確保站與主點上的假快扣。
+
+**今晚就能做的動作**：拿出你常用的確保站器材，想一遍先鋒剛離站就掉時拉力朝哪個方向，再問自己：每個點都承受得了向上的拉力嗎？
+
 ## 檢查別人架好的固定點
 
 跟攀到確保站，或在岩場看到別人的固定點，用這個順序檢查：
@@ -264,6 +297,7 @@ Petzl 的說法是：兩個結之間距離越大，可以側移的範圍越大�
 
 ## 更新紀錄
 
+- 2026-10-23：新增「多繩距：確保方式決定確保站要扛什麼」一節，整理 ACMG 的固定點確保條件與確保站要求，以及 CAI 三種確保法對確保站受力的影響
 - 2026-10-23：補充 HowNOT2、Hard Is Easy 等頻道的器材實測影片與頻道介紹
 
 ## 參考資料
@@ -272,6 +306,8 @@ Petzl 的說法是：兩個結之間距離越大，可以側移的範圍越大�
 - [建立確保站固定點（含 Quad）：Building a belay anchor and belaying on a bolted multi-pitch route（Petzl）](https://petzl.com/us/en/sport/tech-tips/basic-techniques/building-a-belay-anchor-and-belaying-on-a-bolted-multi-pitch-route/Relais-grande-voie_SPO_a77Tx000000E3MEIA0.html)
 - [墜落係數與衝擊力：Fall factor and impact force – theory（Petzl）](https://petzl.com/us/en/sport/tech-tips/basic-techniques/fall-factor-and-impact-force---theory/CORDES-chute-theorie_SPO_a77w0000000KywUAAS.html)
 - [Forces at work in a real fall（Petzl）](https://petzl.com/us/en/sport/tech-tips/product-information-and-specifications/forces-at-work-in-a-real-fall/CORDES-chute-efforts_SPO_a77w0000000KywPAAS.html)
+- [固定點確保與自動制動確保器：TechFiles Vol. 1 No. 1（ACMG，2012，Wayback Machine 存檔）](http://web.archive.org/web/20220402105149/https://www.acmg.ca/05pdf/TechFiles/TechFiles_Vol1_No1.pdf)
+- [三種確保法與確保站受力：Soste per alpinismo: didattica（CAI 全國登山學校委員會，2016，義大利文 PDF）](https://organizzazione.cai.it/commissione-nazionale-scuole-alpinismo-scialpinismo-arrampicata-libera-vfg/wp-content/uploads/sites/107/2025/01/2016-03-29-Soste-per-Alpinismo-Didattica.pdf)
 - [固定點口訣：SERENE and ERNEST Anchors（American Alpine Institute）](https://alpineinstitute.com/serene-and-ernest-anchors)
 - [Gym to Crag: Trad Climbing（Elaina Arenz，Climbing，2019）](https://www.climbing.com/skills/gym-to-crag-trad-climbing-outdoor-research/)
 - [Strong Anchors（Karsten Delap，2020）](https://www.karstendelap.com/blog/strong-anchors)
