@@ -20,6 +20,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 | 「寫成文章」「記錄一下」「write post」 | `templates/tech-post.md` | 踩坑 / 問題解決 |
 | 「寫成介紹文」「寫成深入介紹」「deep dive」 | `templates/tech-deep-dive.md` | 工具 / 技術 / 架構介紹 |
 | 「模型家族介紹」「新增模型家族」 | `templates/model-family.md` | 家族主篇（先讀專用規格） |
+| 「岩場介紹」「寫一個岩場」 | `templates/crag-guide.md`（英文 `crag-guide-en.md`） | 單一岩場／岩區導覽（先讀專用規格） |
 | 其他分類 | `templates/general-post.md` | 自由結構 |
 
 ## 支援的分類
@@ -69,7 +70,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 課程總覽、單堂／跨堂、作業、週次文章，動筆前直接讀 `references/course-guide-contract.md`，把範圍卡存到 `.work/`。按文章角色對齊學習目標、正文例子與自我檢查；中文完整標題採「主題｜課程 第 N 堂」，英文用 Lecture N，不從 series.order 推原課堂次。教學重寫完成前依規格列正文證據，無例子／無判準則修正文，不靠 verify 綠宣稱教學完成。
 
-岩場／岩區導覽（〈日本岩場〉〈義大利岩場〉這類單篇與總覽）動筆前讀 `references/crag-guide-contract.md`：固定 H2、依程度分級路線表、`scripts/climbing-grade-convert.mjs --check` 換算、封閉類事實的一手來源要求。
+岩場／岩區導覽（〈日本岩場〉〈義大利岩場〉這類單篇與總覽）動筆前讀 `references/crag-guide-contract.md`，單篇用 `templates/crag-guide.md`、英文版用 `templates/crag-guide-en.md`（以仁壽峰中英兩篇為範本）：固定 H2、依程度分級路線表、`scripts/climbing-grade-convert.mjs --check` 換算、封閉類事實的一手來源要求。
 
 ### 1b. 多來源導讀與英文練習
 
@@ -184,4 +185,4 @@ git commit -m "post(<category>): <title summary>"
 - 寫作風格：`references/writing-guide.md`
 - frontmatter schema：`references/frontmatter-schema.md`
 - 反合理化清單：`references/anti-shortcuts.md`
-- 模板：`templates/tech-post.md`、`templates/tech-deep-dive.md`、`templates/general-post.md`
+- 模板：`templates/tech-post.md`、`templates/tech-deep-dive.md`、`templates/general-post.md`、`templates/crag-guide.md`、`templates/crag-guide-en.md`

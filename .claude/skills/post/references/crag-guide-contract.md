@@ -2,6 +2,8 @@
 
 適用：單一岩場／岩區的介紹文（〈日本岩場〉〈義大利岩場〉這類系列的單篇）與該系列的總覽。不適用技術教學（確保、放繩、結繩）、器材評測或 IFMGA 這類制度介紹。只改一個事實（封閉、時刻表）時走 `post-update`，只驗那個範圍；本規格的結構缺口另外回報，不自行擴成重寫。
 
+單篇骨架：`../templates/crag-guide.md`、英文 `../templates/crag-guide-en.md`（範本是 `src/content/posts/climbing/2026-10-21-korea-crag-insubong.md` 與其 `-en` 版）。
+
 來源清單、分級與每個來源的陷阱：`docs/climbing-sources.md`（machine-readable 版 `scripts/config/climbing-source-tiers.json`）。
 
 ## 結構（單篇）
