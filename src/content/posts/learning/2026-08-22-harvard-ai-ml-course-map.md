@@ -21,7 +21,7 @@ draft: false
 
 CSCI S-80 Summer 2026 確實是 Harvard Summer School 的正式 2026 班次，但這不代表底層教材也在 2026 年重錄。Lecture 0 仍指向 2020 Spring 的錄影、投影片與 transcript，正式班的 Degrees project 也下載 2020 Spring distribution。
 
-另一邊，沒有學期標籤的 [CS50 AI OpenCourseWare](https://cs50.harvard.edu/ai/) 已把同一題換成 2023 distribution，並使用 2024 的 `check50` slug。以下公開狀態均以 **2026 年 8 月 22 日**的查核結果為準。
+另一邊，沒有學期標籤的 [CS50 AI OpenCourseWare](https://cs50.harvard.edu/ai/) 已把同一題換成 2023 distribution，並使用 2024 的 `check50` slug。以下公開狀態以 **2026 年 8 月 22 日**的查核結果為準；後續僅於 **2026-10-10** 補核對影片狀態，未再重查 Fall 2026 各課的實際教材發布情況。
 
 所以這篇不會把畫面年份當教材版本。我會把 **正式開課、講授資產、作業資產與回饋系統**拆開，再回答 Harvard 的校內 AI／ML 主幹如何接起來。
 
@@ -50,7 +50,7 @@ CS50／CS32 → CS51／CS61
 | **CS1810, Spring 2026** | **A3** | 當期 syllabus、七份 homework tree、course notes、section materials | 官方明寫 all learning in-person；無當期完整公開錄影，Gradescope／Ed 受限 |
 | **CS1820, Fall 2026** | **A0** | catalog、主題範圍、教師與課程預覽站 | 9 月 2 日才開課，尚無 syllabus 或實際教材 |
 | **CS182, Fall 2022 archive** | **A2** | 多份 lecture／section notes、exam 等歷史材料 | 非現行版本，沒有完整公開影音與一致的 starter／grader 鏈 |
-| **CS1840 RL, Fall 2026** | **A0** | catalog 與主題描述 | 當期課尚未完成，不能預先判 A3 |
+| **CS1840 RL, Fall 2026** | **A0** | catalog 與主題描述 | 已列在 Fall 2026 課表（Kiante Brantley 授課），但公開教材狀態未知，不能預先判 A3 |
 | **CS2831 Advanced Computer Vision, Fall 2026** | **A0** | catalog、教師與主題描述 | 當期教材尚未形成可稽核的公開課 |
 | **CS 2881R AI Safety, Fall 2025** | **A3**（研討課標準） | 12 講閱讀清單、11 講 YouTube 錄影、可自己跑的 HW0 GitHub repo、期中與期末規格和評分表、學生專題論文與海報 | 沒有傳統習題；投影片只公開約一半講次；L5 沒有講課錄影、L8 只有開場 |
 
@@ -76,9 +76,9 @@ A0–A3 沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-glo
 
 ## CS1820：最新班次還沒完成，歷史 notes 只能當替代品
 
-[Harvard SEAS course listing](https://seas.harvard.edu/computer-science/courses)顯示 CS1820 將於 Fall 2026 由 Stephanie Gil 授課，範圍包含 search and planning、optimization and games、uncertainty and learning，另處理 AI ethics 與社會應用。這是最新正式課程，但在本文查核日距離 9 月 2 日開課還有十一天。
+[Harvard SEAS course listing](https://seas.harvard.edu/computer-science/courses)顯示 CS1820 Fall 2026 已開課，由 Stephanie Gil 授課，範圍包含 search and planning、optimization and games、uncertainty and learning，另處理 AI ethics 與社會應用。
 
-目前能看到 catalog 和預覽站，不足以判斷整學期影片、作業、starter 與解答是否公開，所以只能列 **A0**（[Locator 2026 Fall](https://locator.tlt.harvard.edu/course/colgsas-110661/2026/fall/14315) 明載 `This Canvas course site has not been published yet`；[Locator 2025 Spring](https://locator.tlt.harvard.edu/course/colgsas-110661) 僅課號條目，無公開 syllabus/hw repo）。Ariel Procaccia 的 [Fall 2022 archive](https://procaccia.info/courses/CS182-F22/)保留 **22 lectures + pset0–4 + section1–12 + midterm/final** 等 60+ PDF（可補 CS50 AI 沒展開的 classical AI），[Fall 2018 syllabus](https://www.haifeng-xu.com/files/cs182_syllabus_fall18.pdf)（Ariel Procaccia / Goran Radanovic / Haifeng Xu）與 `Harvard-CS182-F18/psets`（P0–P5）亦為同系譜；**它們是歷史 A2，不是 Fall 2026 的替身**。2023/2024 當期同樣無公開 pset repo（僅 `Embedded EthiCS` 快照與 `Berkeley CS182` 同號課程易混淆，勿混用）。
+目前能看到 catalog 和課表，但課程網站仍指向 Fall 2022 歸檔（`https://sites.google.com/view/cs182-f22`），Locator 2026 Fall Canvas 站點發布狀態未知，不足以判斷整學期影片、作業、starter 與解答是否公開，所以只能列 **A0**（[Locator 2026 Fall](https://locator.tlt.harvard.edu/course/colgsas-110661/2026/fall/14315)）。Ariel Procaccia 的 [Fall 2022 archive](https://procaccia.info/courses/CS182-F22/)保留 **22 lectures + pset0–4 + section1–12 + midterm/final** 等 60+ PDF（可補 CS50 AI 沒展開的 classical AI），[Fall 2018 syllabus](https://www.haifeng-xu.com/files/cs182_syllabus_fall18.pdf)（Ariel Procaccia / Goran Radanovic / Haifeng Xu）與 `Harvard-CS182-F18/psets`（P0–P5）亦為同系譜；**它們是歷史 A2，不是 Fall 2026 的替身**。2023/2024 當期同樣無公開 pset repo（僅 `Embedded EthiCS` 快照與 `Berkeley CS182` 同號課程易混淆，勿混用）。
 
 > **系列免責邊界**：本站若寫 CS182 逐週導讀，2026/2025 當期將標 **A0 不可承諾**，僅以 **Fall 2022（或 Fall 2018）歷史版 A2** 為主並標年份；Fall 2026 發布後再發當期對照篇。[CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)以 **2026 hw0–6 七份作業 A3** 為主線（`all learning will be in-person`，無當期錄影，`Google Sheet schedule` 已刪，以 hw 編號為節拍），外加期中、期末兩篇檢查點。
 
