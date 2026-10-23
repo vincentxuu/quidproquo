@@ -53,7 +53,7 @@ export async function verifyAccessToken(token: string, config: AccessConfig, opt
     const cached = options.fetch ? undefined : cachedKeys.get(config.teamDomain);
     if (cached && cached.expires > now && (cached.keys.some(key => key.kid === header.kid) || cached.expires - 4 * 60_000 > now)) keys = cached.keys;
     else {
-      const response = await (options.fetch ?? fetch)(`${config.teamDomain}/cdn-cgi/access/certs`, { signal: AbortSignal.timeout(5000), redirect: 'error' });
+      const response = await (options.fetch ?? fetch)(`${config.teamDomain}/cdn-cgi/access/certs`, { signal: AbortSignal.timeout(5000), redirect: 'manual' });
       if (!response.ok) throw new Error('keys');
       const body = await response.text();
       if (body.length > 100_000) throw new Error('size');

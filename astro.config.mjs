@@ -348,7 +348,8 @@ export default defineConfig({
   },
   adapter: cloudflare({
     platformProxy: { enabled: true },
-    remoteBindings: true,
+    // CI visual checks run without Cloudflare credentials; production bindings are unchanged.
+    remoteBindings: !process.env.CI,
     inspectorPort: false,
     prerenderEnvironment: 'node',
   }),

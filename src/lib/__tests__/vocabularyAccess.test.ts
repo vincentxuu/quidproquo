@@ -104,3 +104,18 @@ describe('unified Access allowlist', () => {
     delete (env as Record<string, unknown>).ACCESS_TEAM_DOMAIN; delete (env as Record<string, unknown>).ACCESS_AUD;
   });
 });
+
+describe('Workers-compatible signing-key fetch', () => {
+  it('verifies identity using manual redirect mode supported by workerd', async () => {
+    const fetcher = vi.fn(async (_input: unknown, init?: RequestInit) => {
+      if (init?.redirect !== 'manual') throw new TypeError('Invalid redirect value, must be one of follow or manual');
+      return new Response(JSON.stringify({ keys: [{ ...jwk, kid: 'key1', alg: 'RS256', use: 'sig' }] }));
+    });
+    expect((await verifyVocabularyAccessToken(await token(), config, { fetch: fetcher as typeof fetch })).sub).toBe('user1');
+  });
+  it('rejects a signing-key redirect rather than following an untrusted host', async () => {
+    const fetcher = vi.fn(async () => new Response(null, { status: 302, headers: { Location: 'https://evil.example/keys' } }));
+    await expect(verifyVocabularyAccessToken(await token(), config, { fetch: fetcher })).rejects.toMatchObject({ status: 503 });
+    expect(fetcher).toHaveBeenCalledOnce();
+  });
+});
