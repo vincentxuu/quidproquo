@@ -1,0 +1,268 @@
+[
+  {
+    "id": "daily-health-cold",
+    "scenario": "daily",
+    "context": "同事問你怎麼了，你要說自己感冒。",
+    "zh": "我感冒了。",
+    "en": "I have a cold.",
+    "alternatives": [],
+    "usageNote": "只描述感冒；不要用 I am cold 表達這個意思。",
+    "swap": "換成同事問你是否感冒，先回答 Yes，再說主句。",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://dictionary.cambridge.org/dictionary/english/voice",
+        "supports": "I have a cold and I think I'm losing my voice (= becoming unable to speak).",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-health-throat",
+    "scenario": "daily",
+    "context": "同事問哪裡不舒服，你要說喉嚨痛。",
+    "zh": "我喉嚨痛。",
+    "en": "I have a sore throat.",
+    "alternatives": [],
+    "usageNote": "sore throat 是喉嚨痛；並不表示已經失聲。",
+    "swap": "換成問對方：Do you have a sore throat?",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://dictionary.cambridge.org/dictionary/english/throat",
+        "supports": "I have a sore throat.",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-health-hurts",
+    "scenario": "daily",
+    "context": "同事聽見你的聲音不對，你指出不舒服的位置。",
+    "zh": "我的喉嚨會痛。",
+    "en": "My throat hurts.",
+    "alternatives": [],
+    "usageNote": "依 My head hurts 換部位；這一句沒有額外表達「很痛」的程度。",
+    "swap": "把喉嚨換成頭：My head hurts.",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://dictionary.cambridge.org/dictionary/english/hurt",
+        "supports": "My head hurts.",
+        "evidenceType": "adapted",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-health-losing-voice",
+    "scenario": "daily",
+    "context": "你感冒後聲音越來越出不來，向同事解釋。",
+    "zh": "我感冒了，覺得自己快失聲了。",
+    "en": "I have a cold and I think I'm losing my voice.",
+    "alternatives": [],
+    "usageNote": "正在失去聲音；用在聲音快出不來，不是只因為忙而不能聊天。",
+    "swap": "先只說前半句 I have a cold，再接完整句。",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://dictionary.cambridge.org/dictionary/english/voice",
+        "supports": "I have a cold and I think I'm losing my voice (= becoming unable to speak).",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-lunch-today",
+    "scenario": "daily",
+    "context": "午餐時間，你想問同事今天準備吃什麼。",
+    "zh": "你今天午餐吃什麼？",
+    "en": "What have you got for lunch today?",
+    "alternatives": [],
+    "usageNote": "問今天這一餐，不是平常的習慣。",
+    "swap": "改問習慣：What do you usually have for lunch?",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://www.bbc.co.uk/learningenglish/features/real-easy-english/250801",
+        "supports": "What have you got for lunch today?",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-lunch-home",
+    "scenario": "daily",
+    "context": "同事剛說了午餐的內容，你確認是從家裡帶來的。",
+    "zh": "你從家裡帶來的？",
+    "en": "You brought it from home?",
+    "alternatives": [],
+    "usageNote": "回應前面已提到的午餐；從家裡帶不代表一定親手做。",
+    "swap": "把 from home 說清楚，句尾用確認的語氣。",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://www.elllo.org/english/0601/T625-Tom-Lunch.htm",
+        "supports": "You brought it from home?",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-lunch-usually",
+    "scenario": "daily",
+    "context": "聊完今天的午餐，你想問同事平常的習慣。",
+    "zh": "你平常午餐吃什麼？",
+    "en": "What do you usually have for lunch?",
+    "alternatives": [],
+    "usageNote": "usually 問習慣；不要求對方回答今天的菜色。",
+    "swap": "先問今天，再用這句延伸到習慣。",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://www.bbc.co.uk/learningenglish/features/real-easy-english/250801",
+        "supports": "What do you usually have for lunch?",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-lunch-leftovers",
+    "scenario": "daily",
+    "context": "同事問你會不會帶午餐，你說有時會帶剩菜。",
+    "zh": "我有時會帶剩菜來吃。",
+    "en": "Sometimes I have leftovers that I bring in.",
+    "alternatives": [],
+    "usageNote": "leftovers 指前一餐剩下的食物；沒有說一定是昨天或一定親手煮。",
+    "swap": "先想像自己帶了前一餐的食物，再說完整句。",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://www.bbc.co.uk/learningenglish/features/real-easy-english/250801",
+        "supports": "Sometimes I have leftovers that I bring in.",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-lunch-cook-dinner",
+    "scenario": "daily",
+    "context": "聊到同事的午餐，你想延伸問他晚餐會不會自己煮。",
+    "zh": "你晚餐怎麼解決，會自己煮嗎？",
+    "en": "What do you do for dinner, do you cook?",
+    "alternatives": [],
+    "usageNote": "這一句已把話題轉到晚餐；不是問今天的午餐誰煮。",
+    "swap": "晚餐是新話題，說到 dinner 時稍微停一下。",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://www.elllo.org/english/0601/T625-Tom-Lunch.htm",
+        "supports": "What do you do for dinner, do you cook?",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-lunch-easy-cook",
+    "scenario": "daily",
+    "context": "同事說他會自己煮，你想請他推薦入門料理。",
+    "zh": "可以推薦非常容易做的料理嗎？",
+    "en": "Can you recommend something that is very easy to cook?",
+    "alternatives": [],
+    "usageNote": "刪除教材重複的 very；something 讓對方自己推薦料理。",
+    "swap": "先只說 Can you recommend something，再接 that is very easy to cook。",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://elllo.org/english/0451/474-Akane-Cooking.htm",
+        "supports": "Can you recommend something that is very, very easy to cook?",
+        "evidenceType": "adapted",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-health-really-hurts",
+    "scenario": "daily",
+    "context": "同事問你喉嚨的狀況，你要強調很痛。",
+    "zh": "我的喉嚨真的很痛。",
+    "en": "My throat really hurts.",
+    "alternatives": [],
+    "usageNote": "really 加強痛的程度，不等於失聲。",
+    "swap": "先想自己是「很痛」、「快失聲」還是「已失聲」，再選對應句子。",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://www.b-cafe.net/newsletter/2026/08/sore-throat-english.php",
+        "supports": "My throat really hurts.",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-health-lost-voice",
+    "scenario": "daily",
+    "context": "你因為感冒幾乎出不了聲，用訊息解釋。",
+    "zh": "我失聲了。",
+    "en": "I’ve lost my voice.",
+    "alternatives": [],
+    "usageNote": "描述已經出現的失聲，和正在變啞的 losing my voice 分開。",
+    "swap": "先想自己是「很痛」、「快失聲」還是「已失聲」，再選對應句子。",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://www.b-cafe.net/newsletter/2026/08/sore-throat-english.php",
+        "supports": "I’ve lost my voice.",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-health-barely-speak",
+    "scenario": "daily",
+    "context": "你還能勉強出聲，但講話很吃力。",
+    "zh": "我幾乎講不出話。",
+    "en": "I can barely speak.",
+    "alternatives": [],
+    "usageNote": "barely 表示勉強能，不等於完全不能出聲。",
+    "swap": "先想自己是「很痛」、「快失聲」還是「已失聲」，再選對應句子。",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://www.b-cafe.net/newsletter/2026/08/sore-throat-english.php",
+        "supports": "I can barely speak.",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "daily-lunch-made-it",
+    "scenario": "daily",
+    "context": "同事的午餐看起來像家常料理，你想稱讚並問是不是他做的。",
+    "zh": "看起來好好吃！是你做的嗎？",
+    "en": "That looks delicious! Did you make it?",
+    "alternatives": [],
+    "usageNote": "適用於看起來像自己做的午餐；如果明顯是外帶餐盒，不用這句猜對方親手做。",
+    "swap": "對方說是之後，再問：Do you cook a lot?",
+    "articlePath": "/posts/learning/2026-10-23-colleague-health-lunch-english",
+    "sources": [
+      {
+        "url": "https://www.allearsenglish.com/american-culture-and-food-at-work/",
+        "supports": "That looks delicious! Did you make it?",
+        "evidenceType": "direct",
+        "contextEvidenceType": "direct"
+      }
+    ]
+  }
+]
