@@ -1,7 +1,7 @@
 ---
 title: "(Finale): From Waiting for Orders to Acting First — Proactive Agents and Demo Day | Stanford CS329Z Week 11"
 date: 2026-09-10
-updated: 2026-09-12
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]
@@ -22,6 +22,13 @@ Picture two assistants. The first waits for your orders and never moves until to
 
 The difference is not model size but who moves first. A reactive agent's loop starts with your instruction; a proactive agent's loop starts with its observations of you. Observation takes a pair of eyes, inference takes a user model, and acting takes rules for when to interrupt. Those three are exactly the three protagonists of this week's main reading.
 
+| Comparison | Reactive | Proactive |
+|---|---|---|
+| Starting point | User instruction | Observation of the user |
+| Context | Request; may include a user model | User model for candidate suggestions |
+| When assistance appears | Response to a request | Usefulness weighed against interruption cost |
+| Question in this guide | Can it complete the task? | Are observation, memory and interruption appropriate? |
+
 Week 11 is arranged like a closing act. Monday (Proactive Agents) assigns Shaikh et al.'s [General User Models](https://arxiv.org/abs/2505.10831), with a follow-up paper on Next Action Prediction plus privacy-and-trust discussion. Wednesday (Open Problems & Final Demos) has no single assigned reading: the course lays out multimodal agents, web and computer use, science agents, long-running architectures, and production observability, converging on three open directions. My Wednesday write-up below is framed as the course's view, not any one paper's claim. Paper-video peer reviews are also due Monday, and Demo Day lands in finals week under the theme Making Life at Stanford Better with Agents.
 
 ## GUM: turning screen traces into a user model
@@ -41,6 +48,14 @@ One set of numbers is worth remembering. In an email-based evaluation, propositi
 To stop suggestion floods, a rate limiter caps interruptions at one per minute. Suggestions that pass the bar get executed as far as possible — searching, running code, organizing files — before anything is shown. Thumbs up or down feed straight back into the GUM as new observations. The paper is honest about boundaries too: computer use stayed disabled during evaluation because it was too slow and buggy.
 
 Next Action Prediction on the schedule points at something concrete. A follow-up by Shaikh et al. formalizes predicting the next action from multimodal computer-use traces — exactly the capability Gumbo's pipeline points at. See the Course Material box at the end for the full mini-review.
+
+```diagram
+title: Proactivity needs an interruption gate
+desc: Observations and a user model produce suggestions, whose expected usefulness and interruption cost determine presentation.
+caption: Simplified from the Gumbo discussion; GUM internals and rate limiting are omitted.
+---
+<svg viewBox="0 0 440 544"><path class="dg-line" d="M220 88V128" marker-end="url(#arrow)"/><path class="dg-line" d="M220 192V232" marker-end="url(#arrow)"/><path class="dg-line" d="M220 328V372Q220 380 212 380H120Q112 380 112 388V448" marker-end="url(#arrow)"/><path class="dg-line" d="M380 280H400Q408 280 408 288V404Q408 412 400 412H340Q332 412 332 420V448" marker-end="url(#arrow)"/><rect class="dg-box" x="20" y="16" width="400" height="72" rx="6"/><text class="dg-label" x="220.0" y="52.0" text-anchor="middle" dominant-baseline="central">Observation + user model</text><rect class="dg-box" x="40" y="128" width="360" height="64" rx="6"/><text class="dg-label" x="220.0" y="160.0" text-anchor="middle" dominant-baseline="central">Generate a suggestion</text><path class="dg-box" d="M220 232L380 280L220 328L60 280Z"/><text class="dg-label" x="220" y="280" text-anchor="middle" dominant-baseline="central">Worth interrupting?</text><rect class="dg-box dg-box--accent" x="16" y="452" width="192" height="72" rx="6"/><text class="dg-label" x="112.0" y="488.0" text-anchor="middle" dominant-baseline="central">Present assistance</text><rect class="dg-box" x="240" y="452" width="184" height="72" rx="6"/><text class="dg-label" x="332.0" y="488.0" text-anchor="middle" dominant-baseline="central">Do not interrupt</text><text class="dg-edge" x="164" y="356" text-anchor="middle" dominant-baseline="central">Yes</text><text class="dg-edge" x="376" y="352" text-anchor="middle" dominant-baseline="central">No</text></svg>
+```
 
 ## Privacy and trust: stronger powers, costlier mistakes
 
@@ -83,6 +98,8 @@ Production observability is Wednesday's other half. Tracing, monitoring, and cos
 - Schedule source: [CS329Z schedule, Week 11](https://cs329z.stanford.edu/)
 
 ## Update log
+
+- 2026-10-23: Added diagrams and comparison tables where useful for the existing explanation; this visual update does not reverify numerical results, schedules or research claims.
 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.

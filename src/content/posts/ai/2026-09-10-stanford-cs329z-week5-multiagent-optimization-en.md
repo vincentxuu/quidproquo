@@ -1,6 +1,7 @@
 ---
 title: "One Agent or a Meeting — Multi-Agent Systems and the Three Optimization Axes | Stanford CS329Z Week 5"
 date: 2026-09-10
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, compound-ai-systems]
@@ -8,7 +9,7 @@ lang: en
 series:
   name: "Reading Stanford CS329Z"
   order: 6
-tldr: "Week 5 turns multi-agent collaboration into programmable conversation with AutoGen on Monday, then lays out the three optimization axes — prompts, weights, inference compute — with GEPA and the test-time compute paper on Wednesday. HW1 is due 10/30, the last full week before the deadline, so this installment helps you decide which axis deserves your effort."
+tldr: "Lecture 08 explains orchestration, communication, task ledgers and worktree isolation. Lecture 09 starts with data and evaluation, then compares context optimization, SFT, RL and distillation. Use a traceable email example to decide whether collaboration or optimization addresses the actual bottleneck."
 description: "A guided reading of Stanford CS329Z Week 5: AutoGen's conversable agents and conversation programming, GEPA's reflective prompt evolution and difficulty-aware test-time compute, converging on a three-way choice for finishing HW1."
 draft: false
 ---
@@ -17,11 +18,13 @@ draft: false
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
+This update uses the full Lecture 08–09 slide text, alongside the assigned papers. Prerequisite: the agent loop and memory model in [Week 4](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en).
+
 When one model cannot crack a problem, the instinct is to bring more models and split the work. One writes code, one runs it, one checks it — like holding a meeting. That is what the multi-agent debate is about: when is one worker enough, and when is the meeting worth it.
 
 But anyone who has sat through meetings knows the meeting itself costs something. Who speaks first, who writes the conclusion, who owns the mistake — none of it is free. Model meetings work the same way, except quieter: the upstream agent's hallucination becomes the downstream agent's trusted fact. Monday (Oct 19, Multi-Agent Systems) assigns Wu et al.'s [AutoGen](https://arxiv.org/abs/2308.08155) (COLM 2024): a framework that turns meeting rules into programs.
 
-Wednesday (Oct 21, Optimization) asks a different question: solo or meeting, a system improves in exactly three places. Prompts (the instructions), weights (the brain), inference compute (thinking longer). The anchors are Snell et al.'s [test-time compute paper](https://arxiv.org/abs/2408.03314) (ICLR 2025) and Agrawal et al.'s [GEPA](https://arxiv.org/abs/2507.19457). The timing is practical: [HW1 is due 10/30](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), and this is the last full week before it. This installment helps you decide which axis deserves your effort.
+Wednesday (Oct 21, Optimization) turns to improving the system, whether it uses one agent or a team: three useful places to examine are prompts (the instructions), weights (the brain), and inference compute (thinking longer). The anchors are Snell et al.'s [test-time compute paper](https://arxiv.org/abs/2408.03314) (ICLR 2025) and Agrawal et al.'s [GEPA](https://arxiv.org/abs/2507.19457). The timing is practical: [HW1 is due 10/30](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), and this is the last full week before it. This installment helps you decide which axis deserves your effort.
 
 ## Solo versus team: AutoGen writes the division of labor as conversation
 
@@ -49,25 +52,89 @@ The third is the process itself: who picks the next speaker. AutoGen's built-in 
 
 Wednesday's positioning line is when to optimize prompts vs. weights vs. inference compute. This week's two anchors each guard one axis; the schedule lists further prompt optimizers alongside, but this installment stays with the anchors.
 
-GEPA guards the prompt axis. It watches trajectories a system produces (reasoning, tool calls, tool outputs), reflects in natural language on what broke and which prompt line to change, then merges complementary lessons from its Pareto frontier of attempts. One line to remember: against [GRPO](https://arxiv.org/abs/2402.03300)-style RL tuning it uses as little as one thirty-fifth of the rollouts. It also beats [MIPROv2](https://arxiv.org/abs/2406.11695), then the leading prompt optimizer, by over ten percent. The [open-source implementation](https://github.com/gepa-ai/gepa) is public. One course aside: co-author Michael Ryan teaches this course and co-first-authored MIPRO (with Krista Opsahl-Ong). On the prompt-optimization thread, the teacher wrote the code.
+GEPA guards the prompt axis. It watches trajectories a system produces (reasoning, tool calls, tool outputs), reflects in natural language on what broke and which prompt line to change, then merges complementary lessons from its Pareto frontier of attempts. Its [open-source implementation](https://github.com/gepa-ai/gepa) makes the loop concrete: propose a prompt change, run it, inspect feedback, and retain useful candidates. Lecture 09 places GEPA alongside MIPROv2 and TextGrad, not as a guarantee that any particular prompt search wins on your workload.
 
-Snell et al. guard the inference-compute axis. They split test-time compute into two moves: searching against a process verifier, and letting the model iteratively revise its own answers. The finding that matters is that which move wins depends entirely on question difficulty: easy questions reward patient revision, hard ones reward broad sampling. Difficulty bins come from the model's own pass rate, not the dataset's labels. Allocating compute-optimally — picking the move per question by difficulty — matches best-of-N scores at a quarter of the compute, measured on [MATH](https://arxiv.org/abs/2103.03874).
+Snell et al. guard the inference-compute axis. They split test-time compute into two moves: searching against a process verifier, and letting the model iteratively revise its own answers. The paper studies how the usefulness of revision and search changes with task difficulty and compute budget. Its experiments on [MATH](https://arxiv.org/abs/2103.03874) motivate allocating compute selectively; they do not prove that an email assistant's persistent failures require new weights. Missing retrieval results, invalid tools, or a misleading evaluator can produce the same symptom. Read the trace before choosing an optimization axis.
 
-Pushing further, they pit saved compute against simply scaling the model: a smaller model plus inference compute beats a model 14x its size, with one precondition — the small model already solves the question occasionally. On the hardest questions extra inference compute barely helps, and pretraining wins instead. That sentence matters for HW1: grade your misses before spending compute on them.
+Lecture 09 goes substantially further than the reading list: weights occupy a full section. Supervised fine-tuning (SFT) trains a student on teacher-completed trajectories; filtering for successful outputs avoids treating every rollout as a demonstration. Reinforcement learning instead samples the student's own attempts and uses task rewards. The lecture contrasts PPO and GRPO: GRPO derives relative advantages from a group of outputs, reducing dependence on a separate value model. On-policy distillation also starts from student-generated trajectories, but a teacher supplies token-level distribution feedback. These are different feedback mechanisms, not interchangeable names for training.
 
-The weight axis has no anchor this week; LoRA, distillation, and RLHF directions appear as schedule bullets only. That absence is itself a signal: on HW1's timescale, weights are usually off the table.
+**Check your understanding:** you have a strong teacher's successful task traces, but cannot execute new student attempts in the environment. Which route is directly supported? **Answer criterion:** identify SFT on those traces; explain that RL needs student rollouts and reward feedback, while on-policy distillation requires feedback on trajectories sampled from the student.
 
-**What to do**: grade twenty validation questions first: solved first try, solved after retries, never solved however tuned. Spend prompt edits (GEPA-style: read the trajectory, change one line, rerun) on the first group. Spend inference compute (more samples plus verifier reranking) on the second. Stop on the third — that is a retrieval or weights problem, not a prompt fire to burn. One line per group becomes the optimization log in your HW1 report.
+## From conversation to coordination: Lecture 08's three layers
+
+[Lecture 08](https://web.stanford.edu/class/cs329z/slides/lecture08.pdf) separates orchestration, communication, and coordination. Orchestration divides work; communication moves information; coordination manages dependencies, commitments, and shared resources. Being able to exchange messages establishes only the second layer.
+
+| Pattern | Intermediate information | A useful condition to test | Main cost |
+|---|---|---|---|
+| Independent | Separate work, final aggregation | Independent sources or candidate solutions | Cannot use intermediate findings from peers |
+| Centralized | Orchestrator delegates and collects | One owner must integrate results | Central bottleneck |
+| Decentralized | Direct peer exchange | Broad exploration and self-selected tasks | Commitments and conflicts become harder to track |
+| Hybrid | Central integration, limited peer exchange | Global goals with local dependencies | Rules for direct coordination are necessary |
+
+Communication also distinguishes handoff from agent-as-tool. A handoff transfers control to a specialist who owns subsequent steps. An agent-as-tool handles a bounded request and returns a result while its caller retains control. This determines who owns the final answer; counting model calls does not tell you that.
+
+Coordination needs inspectable state. A task ledger records goals, ownership, dependencies, progress, and blockers. Shared memory preserves experience across tasks. Worktree isolation gives coding agents separate checkouts and branches. Isolation reduces interference during execution; completed changes still need conflict resolution and tests of the combined result. Separate green tests do not establish successful integration.
+
+**Check your understanding:** two agents read the same chat but implement incompatible versions of one interface. Why can integration still fail? **Answer criterion:** distinguish the information channel from resource ownership and interface commitments. Add explicit owners in the ledger, an interface agreement, isolated workspaces, and integration checks.
+
+The lecture groups failures around system design, inter-agent behavior, and verification, and also warns about conformity and incompatible goals. Agreement does not establish stronger evidence; individual success does not establish a shared outcome. A reviewer should inspect original tool results and tests instead of endorsing another agent's summary alone.
+
+## Let data choose the intervention: Lecture 09
+
+[Lecture 09](https://web.stanford.edu/class/cs329z/slides/lecture09.pdf) begins with three requirements: data, an executable system, and evaluation with metrics. An optimizer cannot clarify an undefined notion of success. Track cost and latency alongside success rate. Separate development examples from held-out acceptance examples so that learning a familiar question set is not mistaken for generalization.
+
+Context optimization includes more than editing a system instruction. Few-shot methods collect successful trajectories and search for useful combinations. MIPROv2 proposes both instructions and demonstrations, using minibatch evaluations to guide search. Reflective methods examine traces and feedback to propose changes. Saving only final scores loses the tool evidence that could identify which module needs revision.
+
+| Available conditions | Intervention to test first | What to establish |
+|---|---|---|
+| API-only models, frequent task changes, expensive interaction | Context / prompt optimization | Evaluation covers real failures |
+| A capable teacher and a cheaper target student | SFT / distillation | Quality and diversity of teacher trajectories |
+| Student interaction and verifiable task completion | RL | Rewards reflect actual completion |
+| Retries help some questions and a verifier is reliable | More inference compute | Benefit justifies cost and latency |
+
+This table is a starting point synthesized from the lecture, not an exclusive menu. BetterTogether illustrates alternating prompts, weights, then prompts again. The lecture also considers agents that modify harnesses, run experiments, and retain improvements. More autonomous exploration makes evaluator integrity more important: keep acceptance checks outside the optimizer's editable scope and reserve unseen examples.
+
+## Worked example: two agents organize email
+
+This is an original teaching example. Its numbers are illustrative, not official homework results. The task is to answer, “Which emails support delaying delivery this week?” Claims must be traceable to original messages. A retrieval agent finds evidence; a synthesis agent writes the answer. If the retrieval summary turns “might delay” into “delay confirmed,” fluent synthesis only propagates the error.
+
+Define a handoff contract: every claim includes an email ID, source text, and uncertainty. The task ledger records who completed retrieval and whether counterevidence remains missing. The synthesizer may not promote a tentative claim to a confirmed fact. Final verification checks citations and wording against original emails.
+
+```diagram
+title: Evidence survives the handoff
+desc: Retrieval passes source evidence and uncertainty to synthesis, then verification checks original emails.
+caption: Original teaching example; arrows show artifact flow.
+---
+<svg viewBox="0 0 440 440">
+<path class="dg-line" d="M220 88V128" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 200V240" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 312V352" marker-end="url(#arrow)"/>
+<rect class="dg-box" x="40" y="16" width="360" height="72" rx="6"/>
+<text class="dg-label" x="220" y="52" text-anchor="middle" dominant-baseline="central">Retrieve original emails</text>
+<rect class="dg-box dg-box--accent" x="40" y="128" width="360" height="72" rx="6"/>
+<text class="dg-label" x="220" y="164" text-anchor="middle" dominant-baseline="central">Handoff: ID, text, uncertainty</text>
+<rect class="dg-box" x="40" y="240" width="360" height="72" rx="6"/>
+<text class="dg-label" x="220" y="276" text-anchor="middle" dominant-baseline="central">Synthesize within evidence</text>
+<rect class="dg-box" x="40" y="352" width="360" height="72" rx="6"/>
+<text class="dg-label" x="220" y="388" text-anchor="middle" dominant-baseline="central">Verify against original emails</text>
+</svg>
+```
+
+Suppose a frozen baseline succeeds on twelve of twenty held-out questions. Inspecting separate development examples reveals that most failures discard uncertainty at the handoff. First change the handoff prompt and add one successful demonstration. A rerun on the held-out set succeeds on sixteen questions: success increases from 60% to 80%, or twenty percentage points. This is a comparison on illustrative data; a small sample does not guarantee the same future gain. Once those questions have been repeatedly used to choose versions, reserve another unseen set for final acceptance.
+
+Next examine cost and remaining traces. If the search tool never returned the relevant email, another reviewer cannot invent missing evidence: inspect queries and indexing first. If a correct candidate exists but selection fails, test more candidates with a verifier. Splitting agents, editing prompts, and training weights should each target an identified bottleneck through a controlled comparison.
+
+**Synthesis check:** after expanding to three agents, each reports success but the final answer remains wrong. What should you check before adding agents? **Answer criterion:** compare the end-to-end answer with original emails and locate the handoff where information changed. Inspect the ledger, contract, and evaluator. Expand only after identifying a separable bottleneck and measuring benefits against coordination costs. A failure alone cannot establish a need for fine-tuning.
 
 ## Closing HW1: three things before submission
 
 First, freeze the skeleton. Once [Week 4](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en) fixed the [ReAct](https://arxiv.org/abs/2210.03629) loop's shape and the memory tiers, stop touching them — a frozen runnable version is your control group. Second, complete the harness: HW1 wants more than a pipeline that searches email — it wants tools, a terminal, memory, and a human in the loop. Fill whichever piece is missing first, and after each one rerun the same email question set against the frozen version. Third, write three lines of error analysis: which kinds of questions fail most, whether failures land in retrieval or reasoning, and where the human checkpoint caught a mistake.
 
-**What to do**: budget the last ten days — two to freeze the skeleton, five to complete the harness piece by piece with comparisons, three for error analysis and cleanup. Move one axis per day: prompts today, compute tomorrow, splitting agents only the day after. Failures from mixed tuning cannot be written up.
+**What to do**: budget the remaining time in proportion to what is missing: freeze the skeleton, complete the harness piece by piece with comparisons, and reserve time for error analysis and cleanup. Move one axis per day: prompts today, compute tomorrow, splitting agents only the day after. Failures from mixed tuning cannot be written up.
 
 ## Where it sits in the course
 
-One week remains after Week 5: a guest lecture plus Data for Agentic Systems in Week 6, [HW2 out on 10/26](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), HW1 due 10/30. Multi-agent error propagation returns in Week 8's safety and guardrails — injection attacks and sandboxes are the same bill. The three axes feed straight into the quarter project: every iteration before demo day is the same three-way choice. Week 4 fixed the loop's shape, Week 5 decides how many copies of it run and where effort goes. Read in order, HW1 is the final exam covering these five weeks.
+Week 6 follows with a guest lecture plus Data for Agentic Systems, [HW2 out on 10/26](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), HW1 due 10/30. Multi-agent error propagation returns in Week 8's safety and guardrails — injection attacks and sandboxes are the same bill. The three axes feed straight into the quarter project: every iteration before demo day is the same three-way choice. Week 4 fixed the loop's shape, Week 5 decides how many copies of it run and where effort goes. Read in order, HW1 is the final exam covering these five weeks.
 
 ## This week's course material
 
@@ -76,6 +143,8 @@ One week remains after Week 5: a guest lecture plus Data for Agentic Systems in 
 - Schedule: [CS329Z site, Week 5](https://cs329z.stanford.edu/)
 
 ## Update log
+
+- 2026-10-23: Added Lecture 08–09 material on coordination, worktrees, weight optimization and evaluation-based choices; added an original worked example, diagram and answer criteria.
 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
@@ -96,6 +165,7 @@ Checked: 2026-10-10.
 ## References
 
 - On this site: [Week 4: ReAct and memory](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en), [Week 3: tools and DSPy](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en), [Stanford CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- Slides: [Lecture 08: Multi-Agent Systems](https://web.stanford.edu/class/cs329z/slides/lecture08.pdf)、[Lecture 09: Optimization](https://web.stanford.edu/class/cs329z/slides/lecture09.pdf)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
 - Sources: [Wu et al., AutoGen, COLM 2024](https://arxiv.org/abs/2308.08155), [Snell et al., Scaling LLM Test-Time Compute Optimally, ICLR 2025](https://arxiv.org/abs/2408.03314), [Agrawal et al., GEPA, arXiv 2025 (ICLR 2026 Oral)](https://arxiv.org/abs/2507.19457)
 - Tools: [AutoGen](https://github.com/microsoft/autogen), [GEPA](https://github.com/gepa-ai/gepa)

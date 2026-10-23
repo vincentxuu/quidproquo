@@ -1,6 +1,7 @@
 ---
 title: "先學會邊想邊做，再學會記住——ReAct 與 MemGPT｜Stanford CS329Z 第 4 週"
 date: 2026-09-10
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
@@ -8,7 +9,7 @@ lang: zh-TW
 series:
   name: "Stanford CS329Z 導讀"
   order: 5
-tldr: "Week 4 週一用 ReAct 論文把 agent 迴圈定型為想—做—看的交錯序列，週三用 MemGPT 論文把記憶做成作業系統式的分層記憶體；同一週 HW1 正從 email 檢索 pipeline 長成完整 harness，記憶本來就是作業要求的一塊，迴圈形狀與記憶設計就是這週要定案的兩件事。"
+tldr: "Week 4 從 ReAct 迴圈與 MemGPT 分層記憶出發，接上 Lecture 06／07 的設計模式、context 管理與記憶評測。透過一個 email 助理例子，學會區分原始紀錄與模型輸入，並檢查摘要後是否仍遵守使用者限制。"
 description: "帶讀 Stanford CS329Z Week 4 兩篇主讀物：Yao 等人的 ReAct 如何交錯推理與行動，Packer 等人的 MemGPT 如何用虛擬記憶體管理突破 context 上限，以及它們如何對應 HW1 的 agent harness。"
 draft: false
 ---
@@ -19,9 +20,11 @@ draft: false
 
 想像你請一個助理查資料：他要嘛坐在位子上憑記憶硬答，要嘛悶頭一直點連結卻從不說明在找什麼。前者答錯時你無從除錯，後者失控時你不知他要去哪。這個兩難，就是 Week 4 兩篇主讀物要解決的事。
 
-週一（10/12，Agent Patterns）的主讀物是 Yao 等人的 [ReAct](https://arxiv.org/abs/2210.03629)（ICLR 2023）。它讓模型把「想」（Thought）和「做」（Action）交錯寫出來，每做一步都回頭看環境回了什麼（Observation）。週三（10/14，Memory & Multi-Agent）的主讀物是 Packer 等人的 [MemGPT](https://arxiv.org/abs/2310.08560)（ICLR 2024）。它把作業系統的分層記憶體搬進 LLM，用 function call 在有限視窗和外部儲存之間分頁。這一週 [HW1](https://cs329z.stanford.edu/) 正好走到中段：迴圈長什麼樣、記憶放哪裡，就是 harness 要往上長之前得先定案的兩件事。
+週一（10/12，Agent Patterns）的主讀物是 Yao 等人的 [ReAct](https://arxiv.org/abs/2210.03629)（ICLR 2023）。它讓模型把「想」（Thought）和「做」（Action）交錯寫出來，每做一步都回頭看環境回了什麼（Observation）。週三（10/14，Agent Memory Architectures）的主讀物是 Packer 等人的 [MemGPT](https://arxiv.org/abs/2310.08560)（ICLR 2024）。它把作業系統的分層記憶體搬進 LLM，用 function call 在有限視窗和外部儲存之間分頁。這一週 [HW1](https://cs329z.stanford.edu/) 正好走到中段：迴圈長什麼樣、記憶放哪裡，就是 harness 要往上長之前得先定案的兩件事。
 
 先把位置說清楚：[Week 3](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy) 發了 HW1：替一家公司做內部 AI 助理。不准用任何 agent 框架，只有一個 chat completion 呼叫和你自己寫的程式。先做在真實企業 email 封存上檢索、推理的 pipeline，再長成帶工具、terminal、記憶和人類介入的完整 harness。Week 4 給你兩篇論文當施工藍圖。[總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)把整門課定位成「工程學」，而這週就是工程圖攤開的那一週。
+
+本文依已公開的 Lecture 06／07 完整投影片與指定論文整理，涵蓋兩份投影片的主題結構；沒有取得的課堂口述不另行補造。
 
 ## ReAct：想、做、看的交錯迴圈
 
@@ -53,9 +56,79 @@ ReAct 最值得細讀的不是分數，是 Table 2 的人工錯誤分析。作�
 
 **怎麼做**：把你的 agent 記憶拆成兩本帳——HW1 本來就要求 harness 有記憶，這一步躲不掉。工作區只放「沒了它下一動就做錯」的東西（使用者目標、已確認的約束），其他一律寫外部儲存、用檢索拿回。再寫一條逐出規則：佇列超過幾則訊息就摘要，摘要只留事實不留寒暄。HW1 評分看的是設計取捨，這條規則和它的理由可以直接寫進報告。
 
+## Lecture 06：迴圈之外，還要設計 context
+
+[Lecture 06：Agent Design Patterns and Scaffolds](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf) 把本週從 ReAct 延伸到整個 harness。先問控制流由誰決定：程式預先排好步驟的是 workflow；模型依觀察選下一步的是 agent。真實系統可以混用，例如固定執行信件分類，再讓 agent 調查分類後仍不確定的案例。
+
+投影片先整理 prompt chaining、routing、parallelization、orchestrator-workers 與 evaluator-optimizer。差別不只在有幾個模型：平行處理可以事先切好獨立工作，orchestrator 則動態決定子任務；評估再改寫的迴圈，還需要可說清楚、生成器能據以改善的回饋。推理與動作的選擇也不只 ReAct：Reflexion 將外部回饋整理成下一次可用的反思，CodeAct 用程式碼表達動作，ReWOO／LLMCompiler 則把規劃和執行分開。這些都是可組合的設計選項。
+
+Context 設計同時追求兩件事：只留下目前任務需要的資訊，以及維持目標、約束與進度的連續性。把全部歷史塞回去會失焦；全部清空又會讓下一步重新犯錯。投影片列出可並用的做法：
+
+| 做法 | 保留什麼、改變什麼 |
+|---|---|
+| Persistent event log | 原始事件照實追加保存，每次呼叫再重建模型輸入；歷史不等於 prompt。 |
+| Memory offloading | 將知識移到檔案或記憶儲存，再從 context 移除可回查的內容。 |
+| Compaction | 用較短的摘要取代舊軌跡；摘要需要保留未完成事項與約束。 |
+| Observation masking | 截短或隱藏舊工具輸出，避免長輸出持續佔據視窗。 |
+| Context isolation | 讓子任務只取得必要資訊；工具與 skill 也可按需揭露。 |
+
+課末用 Pi 示範「工具很少，context 管理仍要完整」：投影片中的預設工具是 read、bash、edit、write，搭配事件紀錄、skill 的漸進揭露與 compaction。這是該份教材的案例描述，不表示工具越少就必然越可靠。
+
+**自我檢查**：把舊工具輸出遮掉，是否等於刪除紀錄？答案是否定的。事件紀錄可以完整保留，送進模型的視圖則只留下目前需要的片段；若找不到原始證據，才是真的失去可回查性。
+
+## Lecture 07：先問記什麼，再選怎麼存
+
+[Lecture 07：Agent Memory Architectures](https://web.stanford.edu/class/cs329z/slides/lecture07.pdf) 將記憶拆成用途與實作兩個維度。Working memory 是模型此刻看到的工作內容；episodic memory 是過往對話或行動軌跡；semantic memory 是事實、偏好與知識；procedural memory 是完成任務的方法。模型權重裡的知識與技能屬於 parametric memory，從外部取回後放入視窗的資料則屬於 context memory。選了向量資料庫，仍然沒有回答「要記什麼」。
+
+設計時依序寫下 what、when、how：要存事實、程序還是進度？由工具呼叫、事件還是背景工作觸發？最後才選檔案系統、資料庫或知識圖譜。檔案可用目錄與 grep 找資料，資料庫可結合向量、精確詞與 metadata 查詢，圖則明示實體關係。它們是儲存與檢索的選項，不是記憶用途的分類。
+
+投影片再用四種模式整理架構。Voyager／AWM 把成功經驗整理成可重用程序；MemGPT／MemoryOS 把短期與長期資訊分層；Generative Agents 把經歷反思成高層資訊；sleep-time compute、A-Mem、Mem0 則提醒我們，記憶需要整理、更新與刪除。尤其新偏好與舊偏好衝突時，不能只追加一條，還得決定舊條目是否仍有效。
+
+**自我檢查**：「使用者昨天說改用週五寄報告」與「報告寄送步驟」各是哪種記憶？前者的對話原文是 episodic，萃取出的目前偏好是 semantic；寄送方法是 procedural。同一事件可以產生多種記憶，分類看它的用途。
+
+## 本文教學例子：摘要後，還能遵守舊限制嗎？
+
+以下是本文自擬例子，不是講者口述或官方作業解答。假設 email 助理收到：「整理供應商報價，只做草稿，等我確認再寄。」它查完多封信後視窗開始擁擠；下一次對話，使用者又說：「預算改成八萬元，繼續剛才的比較。」
+
+先把兩次要求與工具結果寫入事件紀錄，讓原始證據可回查。工作記憶保留「比較報價、預算八萬元、只草稿、寄出需確認」及尚未補齊的供應商；舊信正文另存並保留來源 ID。摘要只需承接進度，過去冗長的工具輸出可以遮掉。等比較時再取回相關報價，而非每回合重放全部信件。
+
+```diagram
+title: 歷史不等於本次輸入
+desc: 事件紀錄與記憶透過 context manager 組成本次輸入，原始證據仍可保留。
+caption: 本文例子的簡化架構，省略寫入與維護路徑。
+---
+<svg viewBox="0 0 440 360">
+  <path class="dg-line" d="M112 80V112Q112 120 120 120H172V156" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M328 80V112Q328 120 320 120H268V156" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M220 224V276" marker-end="url(#arrow)"/>
+  <rect class="dg-box" x="16" y="16" width="192" height="64" rx="6"/>
+  <text class="dg-label" x="112" y="40" text-anchor="middle" dominant-baseline="central">完整事件紀錄</text>
+  <text class="dg-sub" x="112" y="60" text-anchor="middle" dominant-baseline="central">要求與工具結果</text>
+  <rect class="dg-box" x="232" y="16" width="192" height="64" rx="6"/>
+  <text class="dg-label" x="328" y="40" text-anchor="middle" dominant-baseline="central">記憶儲存</text>
+  <text class="dg-sub" x="328" y="60" text-anchor="middle" dominant-baseline="central">事實、程序、來源</text>
+  <rect class="dg-box dg-box--accent" x="80" y="160" width="280" height="64" rx="6"/>
+  <text class="dg-label" x="220" y="184" text-anchor="middle" dominant-baseline="central">Context manager</text>
+  <text class="dg-sub" x="220" y="204" text-anchor="middle" dominant-baseline="central">篩選、摘要、取回</text>
+  <rect class="dg-box" x="80" y="280" width="280" height="64" rx="6"/>
+  <text class="dg-label" x="220" y="304" text-anchor="middle" dominant-baseline="central">本次模型輸入</text>
+  <text class="dg-sub" x="220" y="324" text-anchor="middle" dominant-baseline="central">目標、限制、相關證據</text>
+</svg>
+```
+
+跨 session 的 semantic memory 可把預算由舊值更新成八萬元；episodic log 仍保留改動經過。寄信程序則應在執行前檢查確認狀態。結果是：助理可以完成比較草稿，卻不能把「繼續」解讀為寄出授權。這個結果說明記憶的價值在於下一個動作是否正確，不在於資料存了多少。
+
+**變式與判準**：若摘要只寫「已讀完報價，繼續比較」，漏掉「只做草稿」，測試是否通過？不通過。合格系統應取回或保留該限制，更新預算並引用報價來源，最後停在草稿。可以另外測偏好更新、找不到證據時不瞎猜，以及收到刪除要求後的記憶維護。這些是本文建議的測試，不是官方 HW1 評分細則。
+
+## 評記憶，要看它能不能被正確使用
+
+Lecture 07 要求評測兼具真實性、長 context、挑戰性與可驗證性。LoCoMo 測長對話的問答等能力，PersonaMem 加入會變動的使用者偏好，LongMemEval-v2 轉向 agent 軌跡細節，MemoryArena 再往實際任務完成推進。不要只比「檢索有沒有命中」：投影片指出，拿到對的記憶也可能用錯；完整任務失敗又未必全是記憶造成。
+
+對上面的例子，應分開記錄：有沒有保存限制、找不找得到限制、模型有沒有遵守限制。若直接寄出，即使檢索成功，任務仍失敗。投影片也提醒未來用途難預測、記憶可能遭污染、隱私與使用者控制，以及過度個人化。對應的工程問題是：來源可否追溯、舊偏好可否更新、使用者可否刪除，以及不相關的記憶能否不使用。
+
 ## 它在課程裡的位置
 
-Week 4 是承先啟後的一週。往前，它給 [Week 2](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag) 的 workflow/agent 之辨補上可運轉的形狀：agent 就是 ReAct 迴圈加上記憶分層。往後，週三下半場的多智慧體協作（分工、通訊、 emergent 行為）是 Week 5 的主菜。ReAct 論文結尾那句「人類可以直接改 Thought 來即時糾正 agent」，正是人類介入協作的起點，也是 HW1 要你在 harness 裡留給人類的那個接口。
+Week 4 是承先啟後的一週。往前，它給 [Week 2](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag) 的 workflow/agent 之辨補上可運轉的形狀：ReAct 與記憶分層提供了一組可組合的 agent 設計。往後，多智慧體協作（分工、通訊與湧現行為）是 Week 5 的主菜。ReAct 論文結尾那句「人類可以直接改 Thought 來即時糾正 agent」，正是人類介入協作的起點，也是 HW1 要你在 harness 裡留給人類的那個接口。
 
 時間線上，HW1（10/30 截止）這週該把骨架定下來：迴圈形狀和記憶設計都定案。接下來兩週才有空間接 terminal、補人類介入、跑分和寫錯誤分析。作業全程不准用框架，[Week 3](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy) 的 DSPy 留在課堂上讀，看它把你手寫的這些零件抽象成什麼樣。記住 Week 1 的論點：系統贏過模型——這週的兩篇論文就是那句話的施工圖。
 
@@ -81,12 +154,17 @@ Week 4 是承先啟後的一週。往前，它給 [Week 2](/posts/ai/2026-09-10-
 
 ## 更新紀錄
 
+- 2026-10-23：依完整 Lecture 06／07 補入設計模式、context 管理、記憶分類與架構、評測及原創例題。
+
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、語料換成企業 email、記憶與人類介入納入作業要求），同步改寫開頭、ReAct／MemGPT 的「怎麼做」與課程位置段落
 - 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。
 
 ## 參考資料
+
+- [Lecture 06: Agent Design Patterns and Scaffolds](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf)
+- [Lecture 07: Agent Memory Architectures](https://web.stanford.edu/class/cs329z/slides/lecture07.pdf)
 
 - 站內：[Week 3：工具接進來，框架換上去](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)、[Week 2：先分清 workflow 和 agent](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 - 課程：[CS329Z 官網課表](https://cs329z.stanford.edu/)

@@ -1,7 +1,7 @@
 ---
 title: "先分清 workflow 和 agent，再手刻第一個 RAG｜Stanford CS329Z 第 2 週"
 date: 2026-09-10
-updated: 2026-09-12
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, rag, compound-ai-systems]
@@ -23,6 +23,12 @@ Week 2 的兩堂課是刻意排成先後手的。週一主讀物是 Anthropic �
 ## 先分清：workflow 不是 agent
 
 Anthropic 的第一刀切在定義上。Workflow 是 LLM 和工具照**預先寫好的路徑**走；agent 則是 LLM 自己決定流程和工具怎麼用。名字都叫 agentic systems，選型邏輯完全不同。任務切得開、用固定路徑就夠穩，選 workflow。步驟數預測不了、要模型臨場判斷，agent 才划算。而且多數應用其實連這兩者都不需要——單次 LLM 呼叫加檢索和範例通常就夠了。這段話是整篇的煞車皮，後面每個 pattern 都要回來對它。
+
+| 設計問題 | Workflow | Agent |
+|---|---|---|
+| 誰決定下一步？ | 程式預先安排的路徑 | 模型依觀察決定 |
+| 何時適合？ | 可重複、切得開的任務 | 步驟難以事先預測 |
+| 要檢查什麼？ | 分支、輸入與輸出 | 工具決策、回饋與停止條件 |
 
 ## 五個 pattern：選型工具箱
 
@@ -68,6 +74,34 @@ Anthropic 的 [Effective Context Engineering for AI Agents](https://www.anthropi
 
 對課程的意義：RAG 是最便宜的複合系統範本。 Week 1 的三個設計問題（控制邏輯、資源分配、端到端優化）第一次有了可以動手的具體形狀。
 
+```diagram
+title: RAG 把兩種知識來源接在一起
+desc: 問題與檢索段落進入生成，模型權重中的知識也參與回答。
+caption: 依正文整理的概念圖；省略編碼器內部與 Sequence／Token 的邊際化差異。
+---
+<svg viewBox="0 0 440 448">
+<path class="dg-line" d="M200 48H212Q220 48 220 56V260" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M108 80V116" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M108 184V216Q108 224 116 224H172V260" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M332 184V216Q332 224 324 224H268V260" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 328V364" marker-end="url(#arrow)"/>
+<rect class="dg-box" x="16" y="16" width="184" height="64" rx="6"/>
+<text class="dg-label" x="108" y="40" text-anchor="middle" dominant-baseline="central">問題</text>
+<text class="dg-sub" x="108" y="60" text-anchor="middle" dominant-baseline="central">查詢輸入</text>
+<rect class="dg-box" x="16" y="120" width="184" height="64" rx="6"/>
+<text class="dg-label" x="108" y="144" text-anchor="middle" dominant-baseline="central">檢索</text>
+<text class="dg-sub" x="108" y="164" text-anchor="middle" dominant-baseline="central">外部文件索引</text>
+<rect class="dg-box" x="240" y="120" width="184" height="64" rx="6"/>
+<text class="dg-label" x="332" y="144" text-anchor="middle" dominant-baseline="central">模型權重</text>
+<text class="dg-sub" x="332" y="164" text-anchor="middle" dominant-baseline="central">參數記憶</text>
+<rect class="dg-box dg-box--accent" x="80" y="264" width="280" height="64" rx="6"/>
+<text class="dg-label" x="220" y="288" text-anchor="middle" dominant-baseline="central">結合兩者生成</text>
+<text class="dg-sub" x="220" y="308" text-anchor="middle" dominant-baseline="central">問題與檢索段落</text>
+<rect class="dg-box" x="80" y="368" width="280" height="64" rx="6"/>
+<text class="dg-label" x="220" y="400" text-anchor="middle" dominant-baseline="central">答案</text>
+</svg>
+```
+
 ## 延伸閱讀：ColBERT 把細粒度比對留到最後
 
 [ColBERT](https://arxiv.org/abs/2004.12832) 卡在兩種檢索器中間。Bi-encoder 把 query 與 passage 各壓成一個向量，方便離線建索引，卻丟掉細粒度對應。Cross-encoder 把每一組 query–passage 一起送進 BERT，保留完整互動，但每個候選都得重跑模型。ColBERT 分開編碼兩邊，卻保留每個 token 的 contextualized vector。打分時，每個 query token 去找文件 token 中最高的相似度，再把這些 MaxSim 分數加總。
@@ -105,6 +139,8 @@ Week 2 是 HW1 的備料週：作業下週一才發，但週三 hands-on 的 RAG
 查核日期：2026-10-10。
 
 ## 更新紀錄
+
+- 2026-10-23：補入workflow／agent 對照表與 RAG 架構圖，只將既有解說視覺化，未重新查核事實。
 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。

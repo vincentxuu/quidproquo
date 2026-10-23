@@ -1,6 +1,7 @@
 ---
 title: "工具接進來，框架拆開看——HW1 開工｜Stanford CS329Z 第 3 週"
 date: 2026-09-10
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]
@@ -27,11 +28,43 @@ Server 端三種能力各有控制者：Prompts 是使用者觸發的模板，Re
 
 安全章節值得單獨讀。工具就是任意程式碼執行，規範開宗明義這麼處理。工具 annotations 一律視為不可信，除非來自可信 server。呼叫要留人類否決權，敏感操作先經使用者確認，參數送出前先攤開看。sampling 的請求與回應都要能攤開給人審，roots 暴露前也要先問過使用者。協議管格式，同意流是實作者的責任——這句話在 HW1 幫助理接上 terminal、設計人類把關那一步時會回來。
 
+```diagram
+title: MCP：一個 Host，分開的連線
+desc: Host 中每個 Client 各連一台 Server，context 與同意政策由 Host 管理。
+caption: 依既有 MCP 段落整理；線表示連線，省略 sampling、roots 與 elicitation 往返。
+---
+<svg viewBox="0 0 440 384">
+<rect class="dg-zone dg-zone--solid" x="16" y="16" width="408" height="216" rx="6"/>
+<text class="dg-label" x="220" y="44" text-anchor="middle" dominant-baseline="central">Host：LLM 應用</text>
+<text class="dg-sub" x="220" y="68" text-anchor="middle" dominant-baseline="central">彙整 context、執行同意政策</text>
+<path class="dg-line" d="M116 200V292" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M324 200V292" marker-end="url(#arrow)"/>
+<rect class="dg-box" x="36" y="136" width="160" height="64" rx="6"/>
+<text class="dg-label" x="116" y="160" text-anchor="middle" dominant-baseline="central">Client A</text>
+<text class="dg-sub" x="116" y="180" text-anchor="middle" dominant-baseline="central">一對一連線</text>
+<rect class="dg-box" x="244" y="136" width="160" height="64" rx="6"/>
+<text class="dg-label" x="324" y="160" text-anchor="middle" dominant-baseline="central">Client B</text>
+<text class="dg-sub" x="324" y="180" text-anchor="middle" dominant-baseline="central">一對一連線</text>
+<rect class="dg-box" x="36" y="296" width="160" height="64" rx="6"/>
+<text class="dg-label" x="116" y="320" text-anchor="middle" dominant-baseline="central">Server A</text>
+<text class="dg-sub" x="116" y="340" text-anchor="middle" dominant-baseline="central">提供能力</text>
+<rect class="dg-box" x="244" y="296" width="160" height="64" rx="6"/>
+<text class="dg-label" x="324" y="320" text-anchor="middle" dominant-baseline="central">Server B</text>
+<text class="dg-sub" x="324" y="340" text-anchor="middle" dominant-baseline="central">提供能力</text>
+</svg>
+```
+
 ## DSPy：prompt 模板的終結
 
 DSPy 論文的開場白很嗆：現在的模型管線全是硬編碼提示模板，靠反覆試誤攢出來的長字串。它要的是系統化方法：把管線抽象成文字轉換圖，模型經由**宣告式模組**呼叫。機制有三層。signature 是自然語言的輸入輸出宣告（例如 `user_question -> search_query`），只說要什麼、不說怎麼哄模型。module 是帶參數的簽名實現：內建 ChainOfThought 其實就是在輸出前插一個 rationale 欄位再交給 Predict，論文只用十餘行寫完。teleprompter 是優化器，拿訓練輸入與驗證指標回填每個模組的示範。模組是帶參數的，會自己學——自己造示範、收集示範，把提示、微調、擴增、推理技巧組起來用。
 
 寫法上，使用者只寫 signature 加一個目標指標，編譯器分三階段調校。先產生候選示範：跑管線、只留下通過指標的軌跡。再用隨機搜尋或 Optuna 挑示範組合，必要時改寫程式結構，例如把多份編譯結果 ensemble 投票。兩個案例研究的數字都可重現。[GSM8K](https://arxiv.org/abs/2110.14168) 上幾行 DSPy 讓 GPT-3.5 衝上八成二正確率。[HotPotQA](https://arxiv.org/abs/1809.09600) 的兩跳檢索管線 ensemble 後，在測試集答對四成五六（論文註明該格只評一半測試集）。只用 200 條標註、外加無標註問題蒸餾出的 770M T5，在開發集拿下近四成正確率。小模型加好系統，打大模型加爛系統——[Week 1](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems) 的論點在這裡有了可重現的數字。
+
+| 層次 | 你描述什麼 | 它負責什麼 |
+|---|---|---|
+| Signature | 輸入與輸出欄位 | 宣告需要的文字轉換 |
+| Module | Signature 的實作 | 組織模型呼叫與參數 |
+| Teleprompter／優化器 | 訓練輸入與驗證指標 | 挑選示範以改善管線 |
 
 ## 兩篇的關係：抽象層級的選擇題
 
@@ -64,6 +97,8 @@ Week 3 發 HW1（10/30 截止），先做 email 檢索管線，再一路加上�
 查核日期：2026-10-10。
 
 ## 更新紀錄
+
+- 2026-10-23：補入MCP 連線圖與 DSPy 層次對照表，只將既有解說視覺化，未重新查核事實。
 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。

@@ -10,6 +10,7 @@ import '../styles/videoPractice.css';
 import '../styles/videoGallery.css';
 import '../styles/flowDiagram.css';
 import '../styles/diagram.css';
+import '../styles/slideReader.css';
 import 'katex/dist/katex.min.css';
 
 interface Props {
@@ -1484,6 +1485,12 @@ const pageTitle =
   import { initVideoPractice, disposeVideoPractice } from '../lib/videoPractice';
   import { initVideoGallery, disposeVideoGallery } from '../lib/videoGallery';
   import { initFlowDiagrams, disposeFlowDiagrams } from '../lib/flowDiagram';
+  import { initSlideReader, disposeSlideReader } from '../lib/slideReader';
+  initSlideReader();
+  document.addEventListener('astro:page-load', initSlideReader);
+  document.addEventListener('astro:before-swap', disposeSlideReader);
+  window.addEventListener('pagehide', disposeSlideReader);
+  window.addEventListener('pageshow', (event) => { if (event.persisted) initSlideReader(); });
   initFlowDiagrams();
   document.addEventListener('astro:page-load', initFlowDiagrams);
   document.addEventListener('astro:before-swap', disposeFlowDiagrams);

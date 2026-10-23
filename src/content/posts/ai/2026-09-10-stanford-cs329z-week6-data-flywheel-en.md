@@ -1,6 +1,7 @@
 ---
 title: "Spin Up the Data Flywheel — Submission Week | Stanford CS329Z Week 6"
 date: 2026-09-10
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, compound-ai-systems]
@@ -8,8 +9,8 @@ lang: en
 series:
   name: "Reading Stanford CS329Z"
   order: 7
-tldr: "Week 6 assigns Shankar's data flywheel on Wednesday — evaluation, monitoring, and continual improvement feeding on the same production data — while HW1 comes due, HW2 drops, and the midpoint demo video and midway report loom in early November."
-description: "A guided reading of the Stanford CS329Z Week 6 anchor, Shankar's Data Flywheels: traces, demonstrations, and feedback, data for optimization versus evaluation, plus a minimal trace-logging move for HW1 submission week."
+tldr: "Week 6 connects Terminal-Bench outcome verification with Shankar’s data flywheel: check what the agent actually changed, turn reviewed failures into development examples, and keep independent test tasks separate. HW1 is due October 30."
+description: "Read the Terminal-Bench task formulation alongside Shankar’s data flywheel for CS329Z Week 6, with a CSV verification example, a trace-to-improvement diagram, and checks against evaluation leakage."
 draft: false
 ---
 
@@ -17,11 +18,76 @@ draft: false
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
-Week 6 is submission week. Monday (Oct 26) holds a guest lecture, topic still TBA, and [HW2](https://cs329z.stanford.edu/) drops the same day. Wednesday (Oct 28, Data for Agentic Systems) assigns [Shreya Shankar](https://www.sh-reya.com/)'s [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/) (2024). HW1 is due Friday (Oct 30). Then the recorded midpoint demo video is due Nov 4 at 11:59 p.m., and the midway report follows on Nov 6.
+Week 6 is submission week. Monday (Oct 26) has the scheduled Terminal-Bench guest lecture with Ryan Marten and Alex Shaw, and [HW2](https://cs329z.stanford.edu/) drops the same day. Wednesday (Oct 28, Data for Agentic Systems) assigns [Shreya Shankar](https://www.sh-reya.com/)'s [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/) (2024). HW1 is due Friday (Oct 30). Then the recorded midpoint demo video is due Nov 4 at 11:59 p.m., and the midway report follows on Nov 6.
 
 The data flywheel is one sentence: every production output is training material for the next round. Each answer an agent gives leaves a trace — what the user asked, which steps the system took, where it went wrong. Save the traces, score them, put the good ones back into the prompt as demonstrations, and put the fixed bad ones back too. One full turn means better demonstrations and higher scores, and the next turn produces even better data.
 
 Shankar splits the loop into three stations: evaluation, monitoring, and continual improvement. Evaluation defines what success looks like; monitoring keeps the metrics honest against reality; improvement feeds what was learned back into the system. All three eat the same production data, for different purposes. The post ships no new model and no new algorithm. It is engineering discipline: how to squeeze every drop out of production data.
+
+## Terminal-Bench: verify the environment, not a claim of completion
+
+The [official schedule](https://cs329z.stanford.edu/) now lists the October 26 guest session as Terminal-Bench with Ryan Marten and Alex Shaw. The session is still upcoming. This section reads the assigned [Terminal-Bench paper](https://arxiv.org/html/2601.11868), rather than reconstructing a talk that has not happened. You need to understand tool calls and terminal output; the goal is to write a success condition your agent cannot satisfy merely by saying it is done.
+
+The paper defines tasks through instructions, an isolated Docker environment, tests, a reference solution, and a time limit. The agent chooses its commands. Tests check whether the **final container state satisfies the requested outcomes**; they do not require the reference command sequence or grade the final chat reply. Bring that distinction back to HW1: using a terminal is an action capability; checking whether the action met the request is an evaluation capability.
+
+Here is an original teaching example, not an official benchmark task or homework solution. Suppose a team asks you to summarize event registrations from this CSV:
+
+```csv
+city,status
+Taipei,confirmed
+Taipei,cancelled
+Taichung,confirmed
+Taipei,confirmed
+```
+
+The request is to count only `confirmed` registrations by city in `summary.csv`, without changing the input. Walk through the rows: exclude the cancelled Taipei entry, leaving two Taipei entries and one Taichung entry. The expected output is therefore Taipei 2 and Taichung 1, regardless of row order.
+
+| State after the run | Verdict | Reason |
+|---|---|---|
+| Says “done,” but creates no output file | Fail | A reply cannot substitute for a file |
+| Creates a file, but counts Taipei as 3 | Fail | Cancelled registrations were included |
+| Counts Taipei 2 and Taichung 1, but alters the input | Fail | Correct output still violates the input-preservation constraint |
+| Correct columns, cities, counts, and unchanged input | Passes this example's conditions | Both the outcome and constraint hold |
+
+A verifier could read the CSV back, compare the city-to-count mapping, and compare the input file's hash before and after execution. This describes a verifier design; it is not a claim that the official harness has been run, or that these checks ensure safety for arbitrary tasks.
+
+**Check your understanding**: one agent uses Python and another uses shell commands to reach the same valid state. Which should pass? Both: the request did not prescribe a language. What if the verifier only checks that the output file exists? It catches the missing-file case but misses wrong counts and input corruption. Add outcome and constraint checks.
+
+## Split the path from failed verification to a data flywheel
+
+Terminal-Bench supplies a verifiable task structure; Shankar's flywheel supplies a way to improve over time. The following is this guide's teaching design connecting them: log tool traces and final state, use a verifier to locate failures, and have a person confirm the cause before a corrected case enters the demonstration pool. Keep separate tasks out of prompt tuning and demonstration selection to test generalization. **Do not use one case as both a prompt demonstration and independent test evidence.**
+
+```diagram
+title: From outcomes to improvement
+desc: Execution produces traces; verification and human review feed development examples, while held-out tasks test the changed agent.
+caption: Original teaching design; development examples and held-out tests remain separate.
+---
+<svg viewBox="0 0 440 504">
+<path class="dg-line" d="M220 80V108" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 176V204" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 272V300" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 368V396" marker-end="url(#arrow)"/>
+<rect class="dg-box" x="92" y="16" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="40" text-anchor="middle" dominant-baseline="central">Run task</text>
+<text class="dg-sub" x="220" y="60" text-anchor="middle" dominant-baseline="central">Trace + files</text>
+<rect class="dg-box" x="92" y="112" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="136" text-anchor="middle" dominant-baseline="central">Verify result</text>
+<text class="dg-sub" x="220" y="156" text-anchor="middle" dominant-baseline="central">Failure label</text>
+<rect class="dg-box dg-box--accent" x="92" y="208" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="232" text-anchor="middle" dominant-baseline="central">Human review</text>
+<text class="dg-sub" x="220" y="252" text-anchor="middle" dominant-baseline="central">Corrected case</text>
+<rect class="dg-box" x="92" y="304" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="328" text-anchor="middle" dominant-baseline="central">Improve agent</text>
+<text class="dg-sub" x="220" y="348" text-anchor="middle" dominant-baseline="central">Dev examples</text>
+<rect class="dg-box" x="92" y="400" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="424" text-anchor="middle" dominant-baseline="central">Held-out test</text>
+<text class="dg-sub" x="220" y="444" text-anchor="middle" dominant-baseline="central">Unseen tasks</text>
+</svg>
+```
+
+In the CSV example, counting Taipei as 3 reveals a missed status filter. Add cancelled registrations to development cases, teach the agent to inspect field definitions, and try again. The held-out tests should vary the cities, row order, and proportion of cancellations. Passing the same CSV after inserting its answer into the prompt shows success on that case, not general understanding of the filter.
+
+**Check your understanding**: after pasting the failed CSV and its answer into the prompt, the same task passes. Can you claim better generalization? No. Compare on tasks that did not participate in the change, holding the model, harness, and execution budget fixed. If the verifier also changed, explain that separately: the scores no longer use the same ruler.
 
 ## Evaluation: read real outputs before setting metrics
 
@@ -63,7 +129,7 @@ The architecture has a lovely side effect: prompt engineering turns into a retri
 
 ## Same data, two jobs
 
-The lecture title names three data kinds — traces, demonstrations, and feedback — and the flywheel post divides their labor. Fixed traces are demonstrations, for optimization; scored traces are test items, for evaluation. Both sides read from the same label store and ask different questions.
+The lecture title names three data kinds — traces, demonstrations, and feedback — and the flywheel post divides their labor. Fixed traces are demonstrations, for optimization; scored traces are test items, for evaluation. Both uses may originate in one label store, but assign cases to development or held-out evaluation before tuning; a case used in demonstrations cannot also provide independent test evidence.
 
 That also explains why HW2 follows HW1 so closely. HW2 (released Oct 26) asks you to build a full evaluation suite for a ready-made agent: hardcoded graders, at least one model judge, test tasks built on the 4-tuple (request, environment, stopping criteria, scorer), plus error analysis. Week 5 taught optimization, this week teaches production data, and evaluation completes the triangle — the course's deliberate sequencing.
 
@@ -89,6 +155,8 @@ This week is the watershed. HW1 (due Oct 30) wraps up a full harness written fro
 
 ## Update log
 
+- 2026-10-23: Added the announced Terminal-Bench guest readings, an original outcome-verification example, a bilingual diagram, and development/test separation. The guest session is upcoming; this is a reading guide, not a talk transcript.
+
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-29: HW1 was restructured (no more from-scratch / framework split, the corpus is now a corporate email archive) and the midpoint demo became a recorded video due Nov 4 at 11:59 p.m.; rewrote the timeline, trace-logging, and course-position passages to match
@@ -96,19 +164,24 @@ This week is the watershed. HW1 (due Oct 30) wraps up a full harness written fro
 
 ## Course video sources
 
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+The [official recording policy](https://cs329z.stanford.edu/logistics.html) provides lecture recordings through the course Canvas site. Access requires sign-in. The new sections here use the public paper and readings, not a recording or transcript.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs329z.stanford.edu/)
 - [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
 
-Checked: 2026-10-10.
+Checked: 2026-10-23.
 
 ## References
 
 - On this site: [Week 5: multi-agent systems and optimization](/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization-en), [CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
+- Course material (Mon Oct 26): Terminal-Bench guest session; assigned project site and paper are covered in the new sections above.
 - Course material (Wed Oct 28, What Data Do Agents Need?): the anchor reading is Shankar's flywheel, guided above. The additional reading is [Tan et al.'s survey](https://aclanthology.org/2024.emnlp-main.54/) (EMNLP 2024), which splits model-as-annotator work into annotation generation, annotation assessment, and training on synthetic annotations, with a data-type taxonomy and a learning-strategy review. The synthetic-data section above follows that three-part map.
 - Sources: [Shankar, Data Flywheels for LLM Applications (2024)](https://www.sh-reya.com/blog/ai-engineering-flywheel/), [Tan et al., Large Language Models for Data Annotation and Synthesis, EMNLP 2024](https://arxiv.org/abs/2402.13446), [Shankar et al., Who Validates the Validators, UIST 2024](https://arxiv.org/abs/2404.12272)
 - Further: [Hamel's evaluation guide](https://hamel.dev/blog/posts/evals/), [LangChain: aligning model judges with human preferences](https://blog.langchain.dev/aligning-llm-as-a-judge-with-human-preferences/), [Dosu: turning prompt engineering into retrieval](https://blog.langchain.dev/dosu-langsmith-no-prompt-eng/), [SWE-smith: mass-producing data for software-engineering agents](https://arxiv.org/abs/2504.21798)
+
+- [Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces](https://arxiv.org/html/2601.11868) — task formulation; the paper describes Terminal-Bench 2.0, not a live leaderboard snapshot.
+- [Terminal-Bench — ICLR 2026 proceedings](https://proceedings.iclr.cc/paper_files/paper/2026/hash/444a3737adaee10d86ad2ef5f74468e6-Abstract-Conference.html)
+- [Terminal-Bench project site](https://www.tbench.ai/)

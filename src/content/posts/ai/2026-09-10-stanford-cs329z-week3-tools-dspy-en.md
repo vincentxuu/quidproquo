@@ -1,6 +1,7 @@
 ---
 title: "Plug Tools In, Take Frameworks Apart — HW1 Begins | Stanford CS329Z Week 3"
 date: 2026-09-10
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]
@@ -27,11 +28,43 @@ Servers offer three capabilities, each with a controller: Prompts are user-invok
 
 The security chapter deserves its own read. Tools are arbitrary code execution, and the spec says so up front: tool annotations count as untrusted unless from a trusted server; invocations keep a human in the loop with veto power, sensitive operations need prior user confirmation, and tool inputs should be shown before the call leaves. Sampling requests and responses must be reviewable; roots need user consent before exposure. The protocol governs format; consent flows are the implementor's homework — a line that comes back when HW1 gives the assistant a terminal and a human in the loop.
 
+```diagram
+title: MCP separates the host and its connections
+desc: Each client inside the host connects to one server; the host manages context and consent.
+caption: Architecture from the existing MCP section. Lines show connections; omits sampling, roots and elicitation exchanges.
+---
+<svg viewBox="0 0 440 384">
+<rect class="dg-zone dg-zone--solid" x="16" y="16" width="408" height="216" rx="6"/>
+<text class="dg-label" x="220" y="44" text-anchor="middle" dominant-baseline="central">Host: LLM application</text>
+<text class="dg-sub" x="220" y="68" text-anchor="middle" dominant-baseline="central">Context and consent policy</text>
+<path class="dg-line" d="M116 200V292" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M324 200V292" marker-end="url(#arrow)"/>
+<rect class="dg-box" x="36" y="136" width="160" height="64" rx="6"/>
+<text class="dg-label" x="116" y="160" text-anchor="middle" dominant-baseline="central">Client A</text>
+<text class="dg-sub" x="116" y="180" text-anchor="middle" dominant-baseline="central">One connection</text>
+<rect class="dg-box" x="244" y="136" width="160" height="64" rx="6"/>
+<text class="dg-label" x="324" y="160" text-anchor="middle" dominant-baseline="central">Client B</text>
+<text class="dg-sub" x="324" y="180" text-anchor="middle" dominant-baseline="central">One connection</text>
+<rect class="dg-box" x="36" y="296" width="160" height="64" rx="6"/>
+<text class="dg-label" x="116" y="320" text-anchor="middle" dominant-baseline="central">Server A</text>
+<text class="dg-sub" x="116" y="340" text-anchor="middle" dominant-baseline="central">Capabilities</text>
+<rect class="dg-box" x="244" y="296" width="160" height="64" rx="6"/>
+<text class="dg-label" x="324" y="320" text-anchor="middle" dominant-baseline="central">Server B</text>
+<text class="dg-sub" x="324" y="340" text-anchor="middle" dominant-baseline="central">Capabilities</text>
+</svg>
+```
+
 ## DSPy: the end of prompt templates
 
 The DSPy paper opens with a provocation: today's LM pipelines are hard-coded prompt templates, long strings accumulated through trial and error. It wants a systematic method instead: abstract pipelines as text-transformation graphs, with LMs invoked through **declarative modules**. Three moving parts: a signature declares inputs and outputs in natural language (e.g. `user_question -> search_query`) without saying how to coax the model; a module implements a signature with learnable parameters — the built-in ChainOfThought just prepends a rationale field and delegates to Predict, sketched in about a dozen lines; a teleprompter optimizes by filling each module with bootstrapped demonstrations. Modules carry parameters and teach themselves — generating and collecting demonstrations, composing prompting, finetuning, augmentation, and reasoning techniques.
 
 In practice you write a signature plus a target metric, and the compiler tunes in three stages: generate candidate demonstrations (run the pipeline, keep traces that pass the metric), pick demonstration sets with random search or Optuna, and optionally rewrite program structure (e.g. ensembling compiled copies behind a majority vote). Both case studies reproduce: a few lines of DSPy lift GPT-3.5 to 82% accuracy on [GSM8K](https://arxiv.org/abs/2110.14168); the two-hop retrieval program's ensemble answers 45.6% of the [HotPotQA](https://arxiv.org/abs/1809.09600) test set (that cell covers half the test set, per the paper's cost note); and a 770M-parameter T5 distilled from just 200 labeled questions plus unlabeled ones scores nearly 40% exact match on dev. Small models with good systems beating big models with bad ones — [Week 1](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en)'s thesis with reproducible numbers.
+
+| Layer | What you describe | What it contributes |
+|---|---|---|
+| Signature | Input and output fields | Declares the transformation needed |
+| Module | An implementation of the signature | Arranges model calls and parameters |
+| Teleprompter / optimizer | Training inputs and a validation metric | Selects demonstrations to improve the pipeline |
 
 ## How the two readings relate: the abstraction-level question
 
@@ -64,6 +97,8 @@ Course and recording entries:
 Checked: 2026-10-10.
 
 ## Update Log
+
+- 2026-10-23: Added an MCP connection diagram and DSPy layer comparison to visualize existing explanations; no factual refresh.
 
 - 2026-10-10: Added direct links to this week's official lecture slides, alongside the existing course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.

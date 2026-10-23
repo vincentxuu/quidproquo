@@ -1,6 +1,7 @@
 ---
 title: "寫程式的智慧體，先替它造一把順手的 IDE｜Stanford CS329Z 第 9 週"
 date: 2026-09-10
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, rag]
@@ -45,6 +46,14 @@ OpenHands 把支架做成平台。前身叫 OpenDevin，後來長成社群共建
 
 智慧體的典型軌跡分兩段。開場先重現或定位：建檔寫重現腳本，或用搜尋命令縮小包圍圈。中段之後幾乎全是編輯加執行的迴圈：改完就跑，跑出新資訊再定位。
 
+```diagram
+title: 測試回饋如何進入下一次編輯
+desc: 先重現與定位，再編輯並測試；失敗回饋回到編輯，通過後提交 patch。
+caption: 整理上文的開發回饋流程；隱藏評分測試另行執行，提交不等於 benchmark 成功。
+---
+<svg viewBox="0 0 440 592"><path class="dg-line" d="M220 88V128" marker-end="url(#arrow)"/><path class="dg-line" d="M220 192V248" marker-end="url(#arrow)"/><path class="dg-line" d="M220 344V392Q220 400 212 400H120Q112 400 112 408V496" marker-end="url(#arrow)"/><path class="dg-line" d="M380 296H400Q408 296 408 304V456Q408 464 400 464H340Q332 464 332 472V496" marker-end="url(#arrow)"/><path class="dg-line dg-line--dashed" d="M424 536H428Q432 536 432 532V168Q432 160 424 160H400" marker-end="url(#arrow)"/><rect class="dg-box" x="20" y="16" width="400" height="72" rx="6"/><text class="dg-label" x="220.0" y="52.0" text-anchor="middle" dominant-baseline="central">重現問題／定位程式碼</text><rect class="dg-box" x="40" y="128" width="360" height="64" rx="6"/><text class="dg-label" x="220.0" y="160.0" text-anchor="middle" dominant-baseline="central">編輯程式碼</text><path class="dg-box" d="M220 248L380 296L220 344L60 296Z"/><text class="dg-label" x="220" y="296" text-anchor="middle" dominant-baseline="central">開發檢查通過？</text><rect class="dg-box dg-box--accent" x="16" y="500" width="192" height="72" rx="6"/><text class="dg-label" x="112.0" y="536.0" text-anchor="middle" dominant-baseline="central">交出 patch</text><rect class="dg-box" x="240" y="500" width="184" height="72" rx="6"/><text class="dg-label" x="332.0" y="536.0" text-anchor="middle" dominant-baseline="central">讀錯誤回饋</text><text class="dg-edge" x="164" y="372" text-anchor="middle" dominant-baseline="central">通過</text><text class="dg-edge" x="376" y="392" text-anchor="middle" dominant-baseline="central">失敗</text></svg>
+```
+
 成功有個時間特徵：交得早的容易對。解出的案例中位數約十二步。卡住的平均步數是二十一步。解出一題的 API 花費約一點六美元。每題預算四美元，超支就自動送出當下進度。
 
 失敗也有肖像。約五成是實作錯誤：patch 看似合理，功能就是不對。另有兩成多是連鎖壞編輯：一次手滑沒救回來，後面全跟著歪。一半以上的軌跡都吞過至少一次壞編輯，救回機率隨次數遞減。
@@ -83,6 +92,8 @@ OpenHands 把支架做成平台。前身叫 OpenDevin，後來長成社群共建
 查核日期：2026-10-10。
 
 ## 更新紀錄
+
+- 2026-10-23：將既有教學內容補成圖解與必要對照表；本次未重新查證數據、課表或研究結果。
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。

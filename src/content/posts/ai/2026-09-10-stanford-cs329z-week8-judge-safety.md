@@ -1,7 +1,7 @@
 ---
 title: "請模型當裁判，再幫 agent 上護欄｜Stanford CS329Z 第 8 週"
 date: 2026-09-10
-updated: 2026-09-12
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy]
@@ -31,6 +31,12 @@ Week 8 是裁判週加安全週。週一（11/9）談 LLM-as-Judge 與評測基�
 Anthropic 把 grader 分成三種。Code-based 看確定性證據：字串比對、單元測試、靜態分析、工具呼叫紀錄。Model-based 看開放性品質：照 rubric 打分、自然語言斷言、兩兩比對、參考答案比對、多裁判共識。Human 當黃金標準：專家審查、群眾外包、抽查採樣。
 
 選擇原則務實：能用確定性檢查就不用模型。模型裁判留給非用它不可的地方，人力留給校準模型裁判與定期抽查。一個客服任務可以同時掛三種 grader：票單狀態是否寫入資料庫、關鍵工具是否照規矩呼叫、語氣是否有同理心。前兩項是 code-based，最後一項才請模型出手。
+
+| Grader | 主要證據 | 本文客服例子 | 人類的角色 |
+|---|---|---|---|
+| Code-based | 狀態、測試、工具紀錄 | 票單狀態與工具使用 | 決定檢查什麼 |
+| Model-based | 回答與 rubric | 語氣是否有同理心 | 校準與抽查 |
+| Human | 專家或使用者判斷 | 校準模型裁判 | 提供對齊依據 |
 
 結論先記下：judge 只是 model-based 那一格，不是評測的全部。選錯 grader，再強的裁判都救不回來。
 
@@ -71,6 +77,14 @@ Anthropic 把 grader 分成三種。Code-based 看確定性證據：字串比對
 結果是當頭棒喝。即使加了隱私強化提示，GPT-4 仍在四分之一強的案例中洩漏敏感資訊。[Llama-3-70B](https://arxiv.org/abs/2407.21783) 的洩漏比例接近四成。會答題不等於會做事，這句話有了可重現的證據。
 
 評測是考前模擬，護欄是考場監考，實務上常見四件。第一件防提示注入：工具輸出與檢索內容一律視為不可信輸入，這條呼應 [Week 3 讀過的 MCP 規範](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)。第二件是紅隊演練：同一顆種子長出多條軌跡，主動找最會洩漏的走法。第三件是沙箱：每次試驗從乾淨環境起步，試錯不傷本體。第四件是許可：不可逆的工具呼叫先要明確同意。
+
+```diagram
+title: 高後果動作前的許可邊界
+desc: 外部資料只能提供資訊；上文的不可逆工具動作須有明確許可，否則先詢問。
+caption: 上文許可護欄的簡化示意；沙箱、權限隔離與其他防線仍需另設。
+---
+<svg viewBox="0 0 440 544"><path class="dg-line" d="M220 88V128" marker-end="url(#arrow)"/><path class="dg-line" d="M220 192V232" marker-end="url(#arrow)"/><path class="dg-line" d="M220 328V372Q220 380 212 380H120Q112 380 112 388V448" marker-end="url(#arrow)"/><path class="dg-line" d="M380 280H400Q408 280 408 288V404Q408 412 400 412H340Q332 412 332 420V448" marker-end="url(#arrow)"/><rect class="dg-box" x="20" y="16" width="400" height="72" rx="6"/><text class="dg-label" x="220.0" y="52.0" text-anchor="middle" dominant-baseline="central">外部文字／工具輸出：不可信資料</text><rect class="dg-box" x="40" y="128" width="360" height="64" rx="6"/><text class="dg-label" x="220.0" y="160.0" text-anchor="middle" dominant-baseline="central">形成候選工具動作</text><path class="dg-box" d="M220 232L380 280L220 328L60 280Z"/><text class="dg-label" x="220" y="280" text-anchor="middle" dominant-baseline="central">有明確許可？</text><rect class="dg-box dg-box--accent" x="16" y="452" width="192" height="72" rx="6"/><text class="dg-label" x="112.0" y="488.0" text-anchor="middle" dominant-baseline="central">執行獲准動作</text><rect class="dg-box" x="240" y="452" width="184" height="72" rx="6"/><text class="dg-label" x="332.0" y="488.0" text-anchor="middle" dominant-baseline="central">停下來詢問</text><text class="dg-edge" x="164" y="356" text-anchor="middle" dominant-baseline="central">有</text><text class="dg-edge" x="376" y="352" text-anchor="middle" dominant-baseline="central">沒有</text></svg>
+```
 
 ## 攻擊會進化：模擬裡的隱私攻防
 
@@ -128,6 +142,8 @@ OpenAI 的 [Understanding Prompt Injections](https://openai.com/index/prompt-inj
 查核日期：2026-10-10。
 
 ## 更新紀錄
+
+- 2026-10-23：將既有教學內容補成圖解與必要對照表；本次未重新查證數據、課表或研究結果。
 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。

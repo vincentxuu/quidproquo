@@ -1,6 +1,7 @@
 ---
 title: "Score Honestly, Scale Data — Midterm Checkpoint | Stanford CS329Z Week 7"
 date: 2026-09-10
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, rag]
@@ -22,6 +23,14 @@ Week 7 is midterm checkpoint week. Monday (Nov 2) covers data selection and qual
 A framework first, for newcomers. The course defines an agent evaluation as a 4-tuple: the request states the task, the environment is the world the agent can act in, the stopping criteria say when it is done, and the scorer decides the grade. Drop any one of the four and the number means nothing.
 
 Take bug-fixing as the running example. The request is "fix this issue," the environment is the repo plus a terminal, the stopping criterion is submitting a patch, and the scorer runs the tests. The three anchor readings divide the labor: [Zhu et al.'s best practices](https://arxiv.org/abs/2507.02825) show how easily scorers go wrong, [Shankar et al.'s validators study](https://arxiv.org/abs/2404.12272) shows how to align LLM-assisted grading with humans, and [Yang et al.'s SWE-smith](https://arxiv.org/abs/2504.21798) shows how to scale up task data.
+
+```diagram
+title: Four fields define an evaluation
+desc: Request, environment, stopping criteria and scorer jointly specify a bug-fix evaluation.
+caption: The grouped fields define one specification, not execution order; stopping and success are separate.
+---
+<svg viewBox="0 0 440 456"><rect class="dg-zone dg-zone--solid" x="8" y="8" width="424" height="440" rx="6"/><text class="dg-heading" x="220" y="40" text-anchor="middle" dominant-baseline="central">One evaluation specification</text><rect class="dg-box" x="32" y="72" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="96" text-anchor="middle" dominant-baseline="central">Request</text><text class="dg-sub" x="220" y="124" text-anchor="middle" dominant-baseline="central">Fix this issue</text><rect class="dg-box" x="32" y="164" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="188" text-anchor="middle" dominant-baseline="central">Environment</text><text class="dg-sub" x="220" y="216" text-anchor="middle" dominant-baseline="central">Repo + terminal</text><rect class="dg-box" x="32" y="256" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="280" text-anchor="middle" dominant-baseline="central">Stopping criteria</text><text class="dg-sub" x="220" y="308" text-anchor="middle" dominant-baseline="central">Submit a patch</text><rect class="dg-box dg-box--accent" x="32" y="348" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="372" text-anchor="middle" dominant-baseline="central">Scorer</text><text class="dg-sub" x="220" y="400" text-anchor="middle" dominant-baseline="central">Run tests to grade</text></svg>
+```
 
 ## Scoring is more fragile than it looks
 
@@ -57,6 +66,8 @@ After Week 7 comes judgment: Wednesday's demo video argues with scores, Friday's
 - Wednesday Nov 4, Evaluation Fundamentals & Benchmark Design: anchor Zhu et al.'s best practices (covered above). Further reading: [Press on building good LM benchmarks](https://ofir.io/How-to-Build-Good-Language-Modeling-Benchmarks/) asks for natural, automatically evaluable, and challenging tasks, and warns against letting one LM be both solver and judge. His closing defines a task as a request–environment–stopping-criteria–scorer 4-tuple — the source of this week's frame. Further reading: [Polo et al., tinyBenchmarks](https://arxiv.org/abs/2402.14992) shows MMLU's 14,000 examples need not all run. A 100-example curated subset reproduces the ranking reliably. Evaluation buys representativeness, not volume.
 
 ## Update log
+
+- 2026-10-23: Added diagrams and comparison tables where useful for the existing explanation; this visual update does not reverify numerical results, schedules or research claims.
 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.

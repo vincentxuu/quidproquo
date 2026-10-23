@@ -1,7 +1,7 @@
 ---
 title: "Let a Model Judge, Then Guardrail the Agent | Stanford CS329Z Week 8"
 date: 2026-09-10
-updated: 2026-09-12
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
@@ -31,6 +31,12 @@ Of the three anchor readings, this guide reads the Anthropic eval guide and MT-B
 Anthropic sorts graders into three kinds. Code-based graders check deterministic evidence: string matching, unit tests, static analysis, tool-call records. Model-based graders check open-ended quality: rubric scoring, natural-language assertions, pairwise comparison, reference-based grading, multi-judge consensus. Humans serve as the gold standard: expert review, crowdsourcing, spot-check sampling.
 
 The selection rule is pragmatic: wherever a deterministic check works, use it. Reserve model judges for places only they can reach, and reserve humans for calibrating model judges plus periodic sampling. One support task can carry all three grader types: whether the ticket landed resolved in the database, whether the key tools were called by the book, and whether the tone showed empathy. The first two are code-based; only the last one calls a model.
+
+| Grader | Main evidence | Support example above | Human role |
+|---|---|---|---|
+| Code-based | State, tests, tool logs | Ticket state and tool use | Decide what to check |
+| Model-based | Answer and rubric | Empathetic tone | Calibrate and sample |
+| Human | Expert or user judgment | Calibration of model judges | Supply alignment evidence |
 
 Note the conclusion early: the judge is just one cell in the model-based column, not the whole eval. The wrong grader choice is beyond any judge's rescue.
 
@@ -71,6 +77,14 @@ Method-wise, the authors collect four hundred ninety-three privacy-sensitive see
 The result is a cold splash. Even with privacy-enhancing prompts, GPT-4 leaks sensitive information in just over a quarter of cases. [Llama-3-70B](https://arxiv.org/abs/2407.21783) leaks in nearly four cases in ten. Answering well is not acting well, now with reproducible evidence.
 
 Evals are the mock exam and guardrails are the exam proctors, with four standard pieces in practice. First, injection defense: treat tool outputs and retrieved content as untrusted input, echoing the [MCP spec from Week 3](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en). Second, red-teaming: grow many trajectories from one seed and actively hunt the leakiest path. Third, sandboxing: start every trial from a clean environment so experiments cannot wound the host. Fourth, permission: ask explicit consent before irreversible tool calls.
+
+```diagram
+title: Consent before consequential actions
+desc: External material supplies information; the irreversible tool actions discussed above require explicit consent or a pause to ask.
+caption: Simplified permission guardrail from the text; sandboxing, privilege separation and other defenses remain separate.
+---
+<svg viewBox="0 0 440 544"><path class="dg-line" d="M220 88V128" marker-end="url(#arrow)"/><path class="dg-line" d="M220 192V232" marker-end="url(#arrow)"/><path class="dg-line" d="M220 328V372Q220 380 212 380H120Q112 380 112 388V448" marker-end="url(#arrow)"/><path class="dg-line" d="M380 280H400Q408 280 408 288V404Q408 412 400 412H340Q332 412 332 420V448" marker-end="url(#arrow)"/><rect class="dg-box" x="20" y="16" width="400" height="72" rx="6"/><text class="dg-label" x="220.0" y="52.0" text-anchor="middle" dominant-baseline="central">External text / tool output: untrusted</text><rect class="dg-box" x="40" y="128" width="360" height="64" rx="6"/><text class="dg-label" x="220.0" y="160.0" text-anchor="middle" dominant-baseline="central">Propose a tool action</text><path class="dg-box" d="M220 232L380 280L220 328L60 280Z"/><text class="dg-label" x="220" y="280" text-anchor="middle" dominant-baseline="central">Explicit consent?</text><rect class="dg-box dg-box--accent" x="16" y="452" width="192" height="72" rx="6"/><text class="dg-label" x="112.0" y="488.0" text-anchor="middle" dominant-baseline="central">Execute action</text><rect class="dg-box" x="240" y="452" width="184" height="72" rx="6"/><text class="dg-label" x="332.0" y="488.0" text-anchor="middle" dominant-baseline="central">Pause and ask</text><text class="dg-edge" x="164" y="356" text-anchor="middle" dominant-baseline="central">Yes</text><text class="dg-edge" x="376" y="352" text-anchor="middle" dominant-baseline="central">No</text></svg>
+```
 
 ## Attacks evolve: privacy offense and defense in simulation
 
@@ -113,6 +127,8 @@ This is a voluntary, revisable company policy, and the assigned reading is histo
 - Course schedule: [CS329Z site](https://cs329z.stanford.edu/)
 
 ## Update log
+
+- 2026-10-23: Added diagrams and comparison tables where useful for the existing explanation; this visual update does not reverify numerical results, schedules or research claims.
 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.

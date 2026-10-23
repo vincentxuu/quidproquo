@@ -1,6 +1,7 @@
 ---
 title: "Learn to Think While Doing, Then Learn to Remember — ReAct and MemGPT | Stanford CS329Z Week 4"
 date: 2026-09-10
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
@@ -8,7 +9,7 @@ lang: en
 series:
   name: "Reading Stanford CS329Z"
   order: 5
-tldr: "Week 4 pins the agent loop down as an interleaved think-act-observe sequence with the ReAct paper on Monday, then turns memory into OS-style tiered storage with the MemGPT paper on Wednesday. The same week, HW1 is growing from an email-retrieval pipeline into a full harness where memory is an explicit requirement, so the loop shape and the memory design are the two things to settle now."
+tldr: "Week 4 connects the ReAct loop and MemGPT memory hierarchy to Lecture 06/07: composing design patterns, keeping context focused without losing commitments, choosing memory architectures, and evaluating correct use. An original email-assistant example tests whether compaction preserves an approval constraint."
 description: "A guided reading of the Stanford CS329Z Week 4 anchors: how Yao et al.'s ReAct interleaves reasoning with acting, how Packer et al.'s MemGPT manages memory past context limits, and how both map to the HW1 agent harness."
 draft: false
 ---
@@ -19,9 +20,11 @@ draft: false
 
 Picture hiring a research assistant with two failure modes: one sits at the desk answering from memory and going wrong where you cannot debug it, the other clicks links endlessly without ever saying what it is looking for. You cannot steer either of them. That dilemma is what Week 4's two anchor papers set out to fix.
 
-Monday (Oct 12, Agent Patterns) assigns Yao et al.'s [ReAct](https://arxiv.org/abs/2210.03629) (ICLR 2023): let the model interleave "thinking" (Thought) with "doing" (Action), checking the environment's reply (Observation) after every step. Wednesday (Oct 14, Memory & Multi-Agent) assigns Packer et al.'s [MemGPT](https://arxiv.org/abs/2310.08560) (ICLR 2024): borrow hierarchical memory from operating systems and page information between a finite window and external storage through function calls. The same week lands mid-way through [HW1](https://cs329z.stanford.edu/), where the loop's shape and the memory layout are the two decisions to lock in before the harness grows further.
+Monday (Oct 12, Agent Patterns) assigns Yao et al.'s [ReAct](https://arxiv.org/abs/2210.03629) (ICLR 2023): let the model interleave "thinking" (Thought) with "doing" (Action), checking the environment's reply (Observation) after every step. Wednesday (Oct 14, Agent Memory Architectures) assigns Packer et al.'s [MemGPT](https://arxiv.org/abs/2310.08560) (ICLR 2024): borrow hierarchical memory from operating systems and page information between a finite window and external storage through function calls. The same week lands mid-way through [HW1](https://cs329z.stanford.edu/), where the loop's shape and the memory layout are the two decisions to lock in before the harness grows further.
 
 For orientation: [Week 3](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en) released HW1 — build a company's internal AI assistant with no agent frameworks, just a chat-completion call and your own code, starting from pipelines that retrieve and reason over a real corporate email archive and growing into a harness with tools, a terminal, memory, and a human in the loop. Week 4 hands you two papers as construction blueprints, and the [course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) frames the whole course as engineering — this is the week the drawings get unrolled.
+
+This update uses the published Lecture 06/07 slides alongside the assigned papers. It covers the full topic structure of both decks; no unavailable classroom speech is reconstructed.
 
 ## ReAct: the think-act-observe loop
 
@@ -53,9 +56,79 @@ Each experiment targets one pain point. In multi-session dialogue, baseline GPT-
 
 **What to do**: HW1 requires memory in the harness anyway, so split your agent's memory into two ledgers — working context holds only what would break the next move if lost (user goals, confirmed constraints), everything else lives in external storage behind retrieval. Then write one eviction rule: past how many queued messages you summarize, and that summaries keep facts, not small talk. Graders reward design trade-offs; that rule plus its rationale goes straight into the report.
 
+## Lecture 06: design context as well as the loop
+
+[Lecture 06: Agent Design Patterns and Scaffolds](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf) expands the week from ReAct to the whole harness. Start with who chooses control flow: a workflow has steps arranged by code; an agent lets the model choose its next step from observations. A system can combine them, for example by classifying emails through fixed steps and letting an agent investigate uncertain cases.
+
+The slides organize workflows into prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer. The distinction is more than model count. Parallel work can be divided beforehand; an orchestrator determines subtasks dynamically. Evaluation-and-revision loops need feedback that can be articulated and used to improve the output. Reasoning/action designs also extend beyond ReAct: Reflexion turns external feedback into reflections for later attempts, CodeAct expresses actions as code, and ReWOO/LLMCompiler separate planning from execution. These are composable choices.
+
+Context design pursues two goals together: focus on what the current task needs and preserve continuity of goals, constraints, and progress. Replaying everything creates bloat; clearing everything loses commitments. The slides describe compatible patterns:
+
+| Pattern | What it preserves or changes |
+|---|---|
+| Persistent event log | Append original events, then reconstruct model input for each call. History and prompt are different objects. |
+| Memory offloading | Store knowledge in files or memory, allowing recoverable material to leave context. |
+| Compaction | Replace old trajectories with a shorter summary, preserving unfinished work and constraints. |
+| Observation masking | Hide or truncate old tool output so long observations stop occupying the window. |
+| Context isolation | Give subtasks only the context they need; disclose tools and skills as needed. |
+
+The Pi case study illustrates a small tool surface with deliberate context management: the slides describe read, bash, edit, and write as default tools, alongside event logs, progressive disclosure through skills, and compaction. This describes the course's example; fewer tools do not by themselves establish greater reliability.
+
+**Check your understanding**: does masking old tool output delete the record? No. The event log can preserve the original while the model sees a selected view. Recoverability is lost only if the original evidence cannot be retrieved.
+
+## Lecture 07: decide what to remember before choosing storage
+
+[Lecture 07: Agent Memory Architectures](https://web.stanford.edu/class/cs329z/slides/lecture07.pdf) separates memory's purpose from its implementation. Working memory is what the model currently sees; episodic memory contains past conversations or trajectories; semantic memory holds facts, preferences, and knowledge; procedural memory describes how to perform tasks. Knowledge and skills in model weights are parametric memory; retrieved information supplied in the window is context memory. Selecting a vector database does not decide what deserves remembering.
+
+Write down what, when, and how in that order. Are you storing facts, procedures, or progress? Do tools, events, or background workers trigger storage and retrieval? Then choose a filesystem, database, or knowledge graph. Files offer hierarchy and grep; databases can combine vector retrieval, exact terms, and metadata queries; graphs represent entity relationships. These describe storage and retrieval options rather than categories of memory purpose.
+
+The slides group architectures into four patterns. Voyager/AWM turn successful experience into reusable procedures; MemGPT/MemoryOS organize short- and long-term information in tiers; Generative Agents consolidate experiences through reflection; sleep-time compute, A-Mem, and Mem0 illustrate maintenance, updates, and removal. When a new preference contradicts an old one, appending another item is insufficient: the system must decide whether the old item remains valid.
+
+**Check your understanding**: how do you classify “the user said yesterday to send reports on Friday” and “the steps for sending a report”? The original conversation is episodic; the extracted current preference is semantic; the method is procedural. One event can yield multiple kinds of memory, depending on their purpose.
+
+## Original worked example: can a summary preserve a prior constraint?
+
+This is an original teaching example, not a lecturer's account or an official assignment solution. An email assistant receives: “Compare supplier quotes. Draft only; wait for my approval before sending.” After reading several emails, its window gets crowded. In the next conversation the user says: “Change the budget to eighty thousand and continue the comparison.”
+
+Append both requests and tool results to the event log so original evidence stays recoverable. Keep the comparison goal, the new budget, the draft-only constraint, the approval requirement, and unfinished suppliers in working memory. Store email bodies separately with source IDs. A summary carries progress forward; old verbose observations can be masked. Retrieve relevant quotes when comparing them instead of replaying the entire archive every turn.
+
+```diagram
+title: History is not the current input
+desc: A context manager selects from logs and memory while preserving recoverable evidence.
+caption: Simplified architecture for this example; writes and maintenance omitted.
+---
+<svg viewBox="0 0 440 360">
+  <path class="dg-line" d="M112 80V112Q112 120 120 120H172V156" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M328 80V112Q328 120 320 120H268V156" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M220 224V276" marker-end="url(#arrow)"/>
+  <rect class="dg-box" x="16" y="16" width="192" height="64" rx="6"/>
+  <text class="dg-label" x="112" y="40" text-anchor="middle" dominant-baseline="central">Event log</text>
+  <text class="dg-sub" x="112" y="60" text-anchor="middle" dominant-baseline="central">Requests and results</text>
+  <rect class="dg-box" x="232" y="16" width="192" height="64" rx="6"/>
+  <text class="dg-label" x="328" y="40" text-anchor="middle" dominant-baseline="central">Memory store</text>
+  <text class="dg-sub" x="328" y="60" text-anchor="middle" dominant-baseline="central">Facts, skills, sources</text>
+  <rect class="dg-box dg-box--accent" x="80" y="160" width="280" height="64" rx="6"/>
+  <text class="dg-label" x="220" y="184" text-anchor="middle" dominant-baseline="central">Context manager</text>
+  <text class="dg-sub" x="220" y="204" text-anchor="middle" dominant-baseline="central">Select, summarize, retrieve</text>
+  <rect class="dg-box" x="80" y="280" width="280" height="64" rx="6"/>
+  <text class="dg-label" x="220" y="304" text-anchor="middle" dominant-baseline="central">Model input</text>
+  <text class="dg-sub" x="220" y="324" text-anchor="middle" dominant-baseline="central">Goal, limits, evidence</text>
+</svg>
+```
+
+Across sessions, semantic memory can replace the old budget with the new one while the episodic log preserves the change. The sending procedure checks approval before execution. The assistant may complete a comparison draft, but “continue” does not authorize sending. Memory earns its value through the next correct action, rather than the volume stored.
+
+**Variation and answer criteria**: a summary says only “quotes reviewed; continue comparing” and drops “draft only.” Does it pass? No. A passing system preserves or retrieves that constraint, updates the budget, cites quote sources, and stops at a draft. Additional tests can cover changing preferences, abstaining when evidence is absent, and maintaining memory after a deletion request. These are suggested tests for this example, not official HW1 grading rules.
+
+## Evaluate whether memory is used correctly
+
+Lecture 07 asks for realistic, long-context, challenging, and verifiable evaluations. LoCoMo tests capabilities over long conversations; PersonaMem adds evolving preferences; LongMemEval-v2 asks about agent trajectory details; MemoryArena moves toward actual task completion. Retrieval hits alone are insufficient: the slides note that a model can receive the right memory and still misuse it, while a complex task failure cannot always be attributed entirely to memory.
+
+For the worked example, separately record whether the constraint was stored, retrieved, and obeyed. Sending the email fails the task even if retrieval succeeded. The slides also raise uncertain future relevance, poisoned memories, privacy and user control, and over-personalization. Concrete engineering questions follow: can evidence be traced, can old preferences be updated, can users delete memories, and can irrelevant memories be ignored?
+
 ## Where it sits in the course
 
-Week 4 bridges both directions. Looking back, it gives [Week 2](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)'s workflow-versus-agent distinction a runnable shape: an agent is a ReAct loop plus tiered memory. Looking ahead, Wednesday's second half on multi-agent collaboration (roles, communication, emergent behavior) previews Week 5 — and the ReAct paper's closing note, that humans can steer an agent live by editing its Thoughts, is exactly where human-in-the-loop collaboration begins, and it is the hook HW1 asks you to leave open for a human.
+Week 4 bridges both directions. Looking back, it gives [Week 2](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)'s workflow-versus-agent distinction a runnable shape: ReAct and tiered memory offer composable agent designs. Looking ahead, multi-agent collaboration (roles, communication, emergent behavior) is the focus of Week 5 — and the ReAct paper's closing note, that humans can steer an agent live by editing its Thoughts, is exactly where human-in-the-loop collaboration begins, and it is the hook HW1 asks you to leave open for a human.
 
 On the calendar, HW1 (due Oct 30) should get its skeleton settled this week: loop shape fixed, memory design fixed, which leaves the next two weeks for wiring in the terminal, adding the human-in-the-loop step, running evaluations, and writing error analysis. The assignment bans frameworks throughout, so [Week 3](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en)'s DSPy stays in lecture, where you can see how it abstracts the parts you are writing by hand. Recall the Week 1 thesis — systems beat models. This week's two papers are that sentence as working drawings.
 
@@ -69,6 +142,8 @@ On the calendar, HW1 (due Oct 30) should get its skeleton settled this week: loo
 - Full schedule: [CS329Z site, Week 4](https://cs329z.stanford.edu/)
 
 ## Update log
+
+- 2026-10-23: Expanded from the full Lecture 06/07 slides with design patterns, context management, memory architectures, evaluation, and an original worked example.
 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
@@ -87,6 +162,9 @@ Course and recording entries:
 Checked: 2026-10-10.
 
 ## References
+
+- [Lecture 06: Agent Design Patterns and Scaffolds](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf)
+- [Lecture 07: Agent Memory Architectures](https://web.stanford.edu/class/cs329z/slides/lecture07.pdf)
 
 - On this site: [Week 3: plug tools in, swap frameworks up](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en), [Week 2: workflows versus agents](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), [Stanford CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)

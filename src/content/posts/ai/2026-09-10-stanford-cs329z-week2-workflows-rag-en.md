@@ -1,7 +1,7 @@
 ---
 title: "Tell Workflows from Agents Apart, Then Hand-Build Your First RAG | Stanford CS329Z Week 2"
 date: 2026-09-10
-updated: 2026-09-12
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, rag, compound-ai-systems]
@@ -23,6 +23,12 @@ Week 2 is deliberately sequenced. Monday (Sep 28, LLMs for Builders) assigns Ant
 ## First, the split: workflows are not agents
 
 Anthropic's first cut is definitional. Workflows run LLMs and tools along **predefined code paths**; agents let the LLM direct its own process and tool use. Both are agentic systems, but the selection logic differs completely: predictable tasks on fixed paths call for workflows, unpredictable step counts with model judgment call for agents. And most applications need neither — a single LLM call with retrieval and examples is usually enough. That paragraph is the post's brake pedal; every pattern below must answer to it.
+
+| Design question | Workflow | Agent |
+|---|---|---|
+| Who chooses the next step? | Prewritten program paths | The model, based on observations |
+| When does it fit? | Repeatable, separable tasks | Steps cannot be fully predicted |
+| What do you inspect? | Branches, inputs, outputs | Tool decisions, feedback, stopping conditions |
 
 ## Five patterns: the selection toolkit
 
@@ -68,6 +74,34 @@ Knowledge updates are equally direct: swap the index file. The authors indexed t
 
 For the course, RAG is the cheapest compound-system template — Week 1's three design questions (control logic, resource allocation, end-to-end optimization) finally take a buildable shape.
 
+```diagram
+title: RAG combines two sources of knowledge
+desc: The question and retrieved passages enter generation alongside knowledge in model weights.
+caption: Conceptual diagram of the existing explanation; omits encoder internals and the Sequence/Token marginalization distinction.
+---
+<svg viewBox="0 0 440 448">
+<path class="dg-line" d="M200 48H212Q220 48 220 56V260" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M108 80V116" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M108 184V216Q108 224 116 224H172V260" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M332 184V216Q332 224 324 224H268V260" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 328V364" marker-end="url(#arrow)"/>
+<rect class="dg-box" x="16" y="16" width="184" height="64" rx="6"/>
+<text class="dg-label" x="108" y="40" text-anchor="middle" dominant-baseline="central">Question</text>
+<text class="dg-sub" x="108" y="60" text-anchor="middle" dominant-baseline="central">Query input</text>
+<rect class="dg-box" x="16" y="120" width="184" height="64" rx="6"/>
+<text class="dg-label" x="108" y="144" text-anchor="middle" dominant-baseline="central">Retrieve</text>
+<text class="dg-sub" x="108" y="164" text-anchor="middle" dominant-baseline="central">External index</text>
+<rect class="dg-box" x="240" y="120" width="184" height="64" rx="6"/>
+<text class="dg-label" x="332" y="144" text-anchor="middle" dominant-baseline="central">Model weights</text>
+<text class="dg-sub" x="332" y="164" text-anchor="middle" dominant-baseline="central">Parametric memory</text>
+<rect class="dg-box dg-box--accent" x="80" y="264" width="280" height="64" rx="6"/>
+<text class="dg-label" x="220" y="288" text-anchor="middle" dominant-baseline="central">Generate from both</text>
+<text class="dg-sub" x="220" y="308" text-anchor="middle" dominant-baseline="central">Question + passages</text>
+<rect class="dg-box" x="80" y="368" width="280" height="64" rx="6"/>
+<text class="dg-label" x="220" y="400" text-anchor="middle" dominant-baseline="central">Answer</text>
+</svg>
+```
+
 ## Further reading: ColBERT keeps fine-grained matching until the end
 
 [ColBERT](https://arxiv.org/abs/2004.12832) targets the gap between two retrieval extremes. A bi-encoder compresses each query and passage into one vector, making offline indexing easy but discarding fine-grained matches. A cross-encoder jointly processes every query–passage pair, preserving full interaction but paying a Transformer forward pass per candidate. ColBERT encodes query and document separately while retaining a contextualized vector per token. At scoring time, each query token takes its maximum similarity to any document token, and those MaxSim values are summed.
@@ -103,6 +137,8 @@ Course and recording entries:
 Checked: 2026-10-10.
 
 ## Update Log
+
+- 2026-10-23: Added a workflow/agent comparison and RAG architecture diagram to visualize existing explanations; no factual refresh.
 
 - 2026-10-10: Added direct links to this week's official lecture slides, alongside the existing course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.

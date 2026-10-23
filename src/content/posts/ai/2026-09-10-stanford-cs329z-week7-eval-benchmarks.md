@@ -1,6 +1,7 @@
 ---
 title: "分數別騙自己，資料再做大——期中驗收週｜Stanford CS329Z 第 7 週"
 date: 2026-09-10
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent]
@@ -22,6 +23,14 @@ Week 7 是期中驗收週。週一（11/2）談資料選擇與品質，週三（
 先給新手一個框架。課程把一次 agent 評估拆成 4-tuple。request 是你交辦的事，environment 是 agent 能動的世界。stopping criteria 管何時收工，scorer 負責判分。四個少一個，分數就站不住。
 
 拿修 bug 當例子。request 是「修好這個 issue」，environment 是程式碼庫加終端機，stopping criteria 是交出 patch，scorer 是跑測試。後面三篇主讀物正好分工：[Zhu 等人的最佳實踐](https://arxiv.org/abs/2507.02825)在講 scorer 多容易寫錯，[Shankar 等人的驗證者研究](https://arxiv.org/abs/2404.12272)在講 LLM 幫忙打分要怎麼對齊人類，[Yang 等人的 SWE-smith](https://arxiv.org/abs/2504.21798)在講任務資料怎麼做大。
+
+```diagram
+title: 四元組是評估規格，不是四個步驟
+desc: Request、environment、stopping criteria 與 scorer 共同定義一次修 bug 評估。
+caption: 同框表示四項共同組成規格，不表示執行順序；停止與成功分開定義。
+---
+<svg viewBox="0 0 440 456"><rect class="dg-zone dg-zone--solid" x="8" y="8" width="424" height="440" rx="6"/><text class="dg-heading" x="220" y="40" text-anchor="middle" dominant-baseline="central">一次評估的規格</text><rect class="dg-box" x="32" y="72" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="96" text-anchor="middle" dominant-baseline="central">Request</text><text class="dg-sub" x="220" y="124" text-anchor="middle" dominant-baseline="central">修好這個 issue</text><rect class="dg-box" x="32" y="164" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="188" text-anchor="middle" dominant-baseline="central">Environment</text><text class="dg-sub" x="220" y="216" text-anchor="middle" dominant-baseline="central">程式庫與終端機</text><rect class="dg-box" x="32" y="256" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="280" text-anchor="middle" dominant-baseline="central">Stopping criteria</text><text class="dg-sub" x="220" y="308" text-anchor="middle" dominant-baseline="central">交出 patch</text><rect class="dg-box dg-box--accent" x="32" y="348" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="372" text-anchor="middle" dominant-baseline="central">Scorer</text><text class="dg-sub" x="220" y="400" text-anchor="middle" dominant-baseline="central">跑測試判分</text></svg>
+```
 
 ## 評分比你想的脆弱
 
@@ -69,6 +78,8 @@ Week 7 之後就是驗收：週三交的 demo 錄影拿分數說話，週五報�
 查核日期：2026-10-10。
 
 ## 更新紀錄
+
+- 2026-10-23：將既有教學內容補成圖解與必要對照表；本次未重新查證數據、課表或研究結果。
 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。

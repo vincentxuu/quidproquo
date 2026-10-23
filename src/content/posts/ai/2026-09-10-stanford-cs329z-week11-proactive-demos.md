@@ -1,7 +1,7 @@
 ---
 title: "（最終回）：從等指令到先出手——proactive agent 與 Demo Day｜Stanford CS329Z 第 11 週"
 date: 2026-09-10
-updated: 2026-09-12
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]
@@ -22,6 +22,13 @@ draft: false
 
 差別不在模型大小，在誰先出手。reactive agent 的迴圈起點是你的指令，proactive agent 的迴圈起點是它對你的觀察。觀察需要一雙眼睛，推測需要一個使用者模型，出手需要一套何時該打斷的規矩。這三件東西，剛好就是本週主讀物的三個主角。
 
+| 比較 | Reactive | Proactive |
+|---|---|---|
+| 起點 | 使用者指令 | 對使用者的觀察 |
+| 需要的脈絡 | 當下請求，也可使用使用者模型 | 使用者模型用來產生候選建議 |
+| 何時出現 | 回應請求 | 評估有用程度與打擾成本 |
+| 本文追問 | 任務能否完成 | 觀察、記憶與打斷是否合宜 |
+
 Week 11 的安排很像收官。週一（Proactive Agents）的主讀物是 Shaikh 等人的 [General User Models](https://arxiv.org/abs/2505.10831)，另有 Next Action Prediction 延伸論文與隱私信任的討論。週三（Open Problems & Final Demos）沒有單一讀物。課程把 multimodal、web 與 computer-use、science agent、long-running 架構、production observability 攤開，收斂成三個開放方向。以下對週三的整理標示為課程視角，而非某篇論文的主張。paper video 的 peer review 也在週一截止，Demo Day 排在 finals week，主題是 Making Life at Stanford Better with Agents。
 
 ## GUM：把螢幕痕跡變成使用者模型
@@ -41,6 +48,14 @@ Week 11 的安排很像收官。週一（Proactive Agents）的主讀物是 Shai
 怕建議一次湧入，另有節流機制，每分鐘最多出現一則。通過門檻的建議，能做的自己先做：查資料、跑程式、整理檔案，做到不能再做為止才呈現。做完接受按讚或倒讚，回饋直接餵回 GUM，變成新的觀察。論文也老實寫下邊界：評估時 computer use 功能保持關閉，因為太慢且多 bug。
 
 課表上的 Next Action Prediction 有具體所指。Shaikh 等人的後續工作把「從多模態電腦使用痕跡預測下一步行動」形式化成任務，正是 Gumbo 這條 pipeline 指向的能力。完整小評見文末 Course Material 對照。
+
+```diagram
+title: Proactive 多了一道打斷判斷
+desc: 從觀察與使用者模型產生建議，再以有用程度與打擾成本判斷是否呈現協助。
+caption: 依上文 Gumbo 機制簡化；圖中省略 GUM 內部模組與節流機制。
+---
+<svg viewBox="0 0 440 544"><path class="dg-line" d="M220 88V128" marker-end="url(#arrow)"/><path class="dg-line" d="M220 192V232" marker-end="url(#arrow)"/><path class="dg-line" d="M220 328V372Q220 380 212 380H120Q112 380 112 388V448" marker-end="url(#arrow)"/><path class="dg-line" d="M380 280H400Q408 280 408 288V404Q408 412 400 412H340Q332 412 332 420V448" marker-end="url(#arrow)"/><rect class="dg-box" x="20" y="16" width="400" height="72" rx="6"/><text class="dg-label" x="220.0" y="52.0" text-anchor="middle" dominant-baseline="central">觀察與使用者模型</text><rect class="dg-box" x="40" y="128" width="360" height="64" rx="6"/><text class="dg-label" x="220.0" y="160.0" text-anchor="middle" dominant-baseline="central">產生候選建議</text><path class="dg-box" d="M220 232L380 280L220 328L60 280Z"/><text class="dg-label" x="220" y="280" text-anchor="middle" dominant-baseline="central">值得打斷？</text><rect class="dg-box dg-box--accent" x="16" y="452" width="192" height="72" rx="6"/><text class="dg-label" x="112.0" y="488.0" text-anchor="middle" dominant-baseline="central">呈現已準備協助</text><rect class="dg-box" x="240" y="452" width="184" height="72" rx="6"/><text class="dg-label" x="332.0" y="488.0" text-anchor="middle" dominant-baseline="central">暫不打斷</text><text class="dg-edge" x="164" y="356" text-anchor="middle" dominant-baseline="central">值得</text><text class="dg-edge" x="376" y="352" text-anchor="middle" dominant-baseline="central">否</text></svg>
+```
 
 ## 隱私與信任：能力越強，犯錯越貴
 
@@ -94,6 +109,8 @@ production observability 是同一週的另一半。tracing、monitoring、cost 
 查核日期：2026-10-10。
 
 ## 更新紀錄
+
+- 2026-10-23：將既有教學內容補成圖解與必要對照表；本次未重新查證數據、課表或研究結果。
 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。

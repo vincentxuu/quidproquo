@@ -1,6 +1,7 @@
 ---
-title: "別再只調模型了，好成績是系統工程堆出來的｜Stanford CS329Z 第 1 週"
+title: "複合式 AI 系統：模型、資料與工具如何配合｜Stanford CS329Z 第 1 週"
 date: 2026-09-09
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]
@@ -8,106 +9,503 @@ lang: zh-TW
 series:
   name: "Stanford CS329Z 導讀"
   order: 2
-tldr: "CS329Z 第一週主讀物是 Zaharia 等人的 Compound AI Systems：SOTA 越來越靠多元件系統拿下，單一模型再大也只是零件；文章留下三個設計問題與三大挑戰，剛好就是 HW1 要你動手回答的題目。"
-description: "帶讀 Stanford CS329Z Week 1 主讀物：複合式 AI 系統的定義、走向系統的三個理由、三個設計問題、三大挑戰與四個新興方向，以及它如何對應 HW1 不用框架、從零刻出企業內部助理的作業。"
+tldr: "先從第一堂投影片理解 agent 迴圈、元件與工程問題，再分別深讀 BAIR 的複合系統觀點、Ng 的工作模式，以及 Si 的執行回饋實驗；清楚區分課堂主線、指定閱讀與延伸閱讀。"
+description: "逐頁核對 CS329Z 第一堂 71 頁投影片，以十段導讀解釋 agent 架構、推理、記憶、工具與安全，附頁內投影片對照；另以三份獨立 Digest 深讀 BAIR、Ng 與 Si 的文章。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：錄影需登入課程 Canvas。** [官方取得方式](https://cs329z.stanford.edu/logistics.html)。本文依公開投影片與原文整理，沒有課堂口述或時間碼。
 
-[CS329Z](https://cs329z.stanford.edu/) 第一堂課只指定了一篇主讀物：Matei Zaharia 領銜的 [The Shift from Models to Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)（BAIR Blog）。作者群橫跨 Berkeley、Stanford 與 Databricks。選它當開場白，整門課的立場就說完了：這門課不賭下一個大模型會帶來什麼能力，只關心一件事——用今天的零件把系統架到最好。第一堂課的三個關鍵字 decomposition、data、evaluation，全是從這篇文章長出來的。
+Stanford CS329Z 第一週的三份讀物，從不同角度談同一件事：模型之外的流程，如何改變 AI 的實際表現？BAIR 提出系統設計的問題；Andrew Ng 整理可迭代的工作模式；Si 等人則把研究構想交給程式與 GPU 實驗檢驗。下文先介紹投影片的主線，再逐篇深讀，也分清觀點文章與實驗論文的證據差別。
 
-這篇導讀照文章的論證走：先給定義，再講為什麼非走系統不可，然後是它留下的三個設計問題、三大挑戰、四個新興方向。最後我會把每個段落連回課程——[HW1 要你交的東西](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，其實就是這篇文章的動手版。
+| 材料 | 課程角色 | 閱讀重點 |
+|---|---|---|
+| [Lecture 01：Intro to Agentic Systems](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf) | 第一堂投影片，9/23 | Agent 歷史、模型／推理／記憶／工具／環境，以及 system、data、evals 的工程問題 |
+| [Zaharia 等人：Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/) | 本週指定閱讀 | 為什麼要把整套系統當成改善單位 |
+| [Ng：Agentic Design Patterns Part 1](https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance/) | 延伸閱讀 | 反思、工具、規劃與多智慧體協作 |
+| [Si 等人：Execution-Grounded Automated AI Research](https://arxiv.org/html/2601.14525) | 延伸閱讀 | 執行器、演化式搜尋、強化學習及其限制 |
+| [HW1：Build an Agentic Harness](https://github.com/cs329z/assignment1-harness) | 第 3 週於 10/5 發布的後續作業 | 從 email 管線建成帶工具、記憶與人類介入的助理；第一週不用先完成 |
 
-## 定義：系統和模型差在哪
+角色與日期依[官方課表](https://cs329z.stanford.edu/)；作業要求以 handout 為準。本文的查信例子是自擬說明，不是官方作業或解答。
 
-原文的定義只有一句話。複合式 AI 系統用**多個互相配合的元件**解任務，包括多次模型呼叫、檢索器、外部工具。AI 模型則只是一個統計模型，例如預測下一個 token 的 Transformer。
+<div class="slide-reader" data-slide-reader data-pages="71" data-pdf-src="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf">
+<p>這份投影片共有 71 頁。桌面版可並排對照，手機版可開啟投影片後回到原本閱讀位置。點各節的頁碼連結，就能查看對應的 PDF 頁面。</p>
+<button type="button" data-slide-open>開啟投影片對照</button>
+<p><a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf" target="_blank" rel="noopener noreferrer">另開分頁看原始 PDF</a></p>
+</div>
 
-判斷方法很直接：你的東西能不能只用「換一個更大的模型」來變強？如果還需要檢索、工具、多步推理，那它就是系統。RAG、tool use、agent loop 全是實例。
+## 第一堂投影片導讀：從 71 頁理解 agent 如何判斷、行動與接受檢驗
 
-## 為什麼非走系統不可：四個理由
+這份 [Intro to Agentic Systems](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf)不只介紹複合系統。它先交代課程與 agent 的歷史，再拆解推理、記憶與工具，最後用可靠性與安全問題檢查整套架構。以下依投影片順序合併課務與重複的章節分隔頁，保留每段的機制與案例；頁碼採 PDF 的實體頁數，點連結可在頁內對照。
 
-第一，**有些任務靠系統設計更好漲分**。LLM 有漂亮的 scaling law，但很多應用裡砸訓練費的回報不如做系統。原文舉的是假設數字：最強 LLM 解競賽題正確率三成，訓練預算翻三倍也只漲到三成五，依然不堪用。反過來，用今天的模型多次採樣加測試篩選，正確率可以拉到八成。更關鍵的是迭代速度：改系統按天算，等訓練按月算。高價值應用兩邊都會要——好的 LLM 做出讓人驚豔卻不可靠的 demo，工程團隊再把它一點一點調成可用，這條路每家都在走。
+### 第 1–17 頁：這門課要同時理解模型與軟體系統
 
-第二，**系統可以是動態的**。模型定格在訓練截止那天，要新知識只能靠檢索這類元件；訓練還讓模型「看過」整個訓練集，所以要做存取控制（只能答使用者有權限檔案的問題）也得靠系統。
+<a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=1" data-slide-page="1">投影片第 1–17 頁</a>
 
-第三，**控制與信任比較做得出來**。神經網路很難保證不出現某些行為，但系統可以在外面加過濾；LLM 會幻覺，但接上檢索就能附引用、自動驗事實。
+開頭的課務說明有一個實質訊息：會調模型與會建可靠軟體，是兩種需要接起來的能力。第 5 頁把 modeling 與 systems 並列，沒有要求讀者在兩者之間選邊。模型端關心訓練、提示、對齊與評估；系統端還要處理工具、API、環境與基礎設施。單次模型表現很好，不代表接上外部服務後就能穩定完成工作。
 
-第四，**預算因人而異**。每個模型品質和成本都固定，但應用要的都不一樣。行內補全嫌最強模型太貴，Copilot 用調好的小模型加搜尋啟發式就行。反過來，有人願意花幾塊錢買一份正確的法律意見，而不是花幾分錢問 GPT-4。要吃下這份預算，只能靠系統設計。做系統的另一面就是做取捨。
+第 6–13 頁用課程安排、實作與口頭檢核說明學習方式。這不是從零教語言模型的課：資料切分、預訓練、微調與提示等概念是先備；後面的 RAG、工具與記憶，則要自己組裝和檢驗。課務日期與取得方式仍以本文開頭的官方連結為準，不把投影片裡的截圖當作永遠有效的公告。
 
-## 留下的三個設計問題
+第 14–16 頁把焦點拉回「用 AI 學習」與「讓 AI 代替理解」的差別：圖表談的是完成作業與形成技能可能出現落差。這裡不把圖中的特定研究結果延伸成所有 AI 使用者的普遍效應。對這門課的具體含意是，除了讓程式能跑，還要說明每一步為何存在、失敗時怎麼處理。
 
-文章沒有給答案，給了三個問題，個個都是 HW1 的考題：
+**讀完應能回答**：模型替你寫出工具呼叫程式，是否表示你已理解 agent？還不夠；至少要能說明模型拿到哪些資訊、程式執行了什麼，以及結果如何回到下一步判斷。第 17 頁的學習目標正是 agent 迴圈、核心元件與訓練／評估的開放問題。
 
-1. **控制邏輯寫在哪？** 用傳統程式（Python 調 LLM）還是讓模型自己開車（LLM agent 調工具）？HW1 明文禁用 agent 框架，只給一個 chat-completion 呼叫，控制邏輯全由你自己寫；Week 3 的 DSPy 再示範框架怎麼把同一件事抽象掉。
-2. **資源投在哪？** RAG 管線裡，多花的 FLOPS 該給檢索器還是給 LLM？還是多調幾次 LLM？原文給了具體形狀：如果問答要在 100 毫秒內回來，20 毫秒給檢索、80 毫秒給 LLM，還是反過來？沒有通用答案，只能量。
-3. **怎麼端到端優化？** 神經網路靠可微分反向傳播調參。系統裡有搜尋引擎、直譯器這種不可微分的零件，怎麼對著一個指標把它整條調到最好？
+### 第 18–27 頁：agent 不是從聊天模型才開始，重點一直是感知與行動
 
-## 三大挑戰
+<a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=18" data-slide-page="18">投影片第 18–27 頁</a>
 
-第一，**設計空間太大**。光是 retriever 加 language model 的 RAG，就有模型選型、query expansion、reranking、再加一個 LLM 檢查輸出有沒有貼著檢索段落等組合。開發者要在這片空間裡找好設計，目前靠手感。
+這段歷史的用途不是背年份。早期 actor、任務協商與 Society of Mind，已經在討論會行動的單位及其協作；1990 年代的定義又強調自主、反應、主動與社會互動。第 21 頁引用的感測器／致動器定義，把共同骨架說得很清楚：系統接收環境資訊，再透過動作影響環境。
 
-第二，**元件要一起調才會強**。理想上，LLM 要學會為「這台」檢索器生成好查的 query，檢索器也要偏好「這個」LLM 好用的答案。各調各的會留下效能。
+第 22 頁的強化學習圖進一步把它畫成迴圈：agent 選擇 action，環境轉到新狀態並回傳訊號。換成語言模型之後，改變的是決策能力與介面。第 23 頁的 in-context learning 讓模型能從提示中的任務與範例調整輸出；第 24 頁把文字推理、瀏覽與模組化工具接起來，讓模型不必只從內部知識產生答案。
 
-第三，**優化方法還在長**。單模型有 PyTorch；複合系統要新方法。一個方向是 [DSPy](https://dspy.ai/)：第一個想對 LLM 呼叫加工具的管線做通用優化的框架。給它指標，它自動生 prompt 指令、few-shot 範例、調每個模組。另一條路是 LaMDA、Toolformer、AlphaGeometry：訓練時就讓模型學會用工具。
+第 25 頁將 ReAct、ChatGPT、GPT-4 與早期自主 agent 專案排在同一條時間線，說明這批做法如何匯合；第 26–27 頁分別展示模型能力與 agent 任務表現的進展。兩種圖的測量對象不同：回答知識或數學題的能力，與在工具和環境中完成多步工作的能力，不能直接當作同一個指標，也不把這些教材截圖當成今日排行榜。
 
-## 四個新興方向
+**理解檢查**：能寫一份完整計畫的模型，是否已經執行任務？沒有。計畫仍是輸出；只有動作確實執行、結果回到系統，才能判斷計畫是否可行。
 
-**組裝框架**分成三類。傳統程式調用的元件庫：[LangChain](https://www.langchain.com/)、[LlamaIndex](https://www.llamaindex.ai/)。讓 LLM 開車的 agent 框架：AutoGPT 那一系。輸出控制工具：Guardrails、Outlines、SGLang。推理策略（chain-of-thought、self-consistency、WikiChat、RAG）也在同一層。
+### 第 29–34 頁：五個元件如何接成真正的行動迴圈？
 
-**自動把品質調上去**：DSPy。寫法是自然語言 signature（例如 `user_question -> search_query`），欄位名字本身就有意義，框架把它變成 prompt、範例甚至權重更新。效果像 PyTorch，只差模組不一定可微分。
+<a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=29" data-slide-page="29">投影片第 29–34 頁</a>
 
-**把成本調下來**：FrugalGPT 學一個路由策略，把輸入分派給不同模型串接。它背後是更大的 AI gateway 概念（Databricks AI Gateway、OpenRouter、Martian）。系統切得越碎，每段越好各自優化。
+第 29 頁把 ReAct 軌跡逐項對回架構：模型是 LLM core，Think 對應推理與規劃，先前軌跡提供記憶，Act 經由工具，Obs 來自環境。第 30–32 頁再把這些元件畫在一起。它們是功能分工，不是要求每個應用都建成五個獨立服務。
 
-**營運**：[LangSmith](https://www.langchain.com/langsmith)、Phoenix Traces 這類追蹤工具，把每步的中間輸出記下來、視覺化、對回資料品質。研究端有 DSPy Assertions（拿監控回饋直接改輸出）和 MT-Bench、FAVA、ARES 這類自動化品質監控。原文還點了一個反直覺風險：聊天機器人加內容過濾器這種組合，可能冒出單一模型沒有的安全破口。系統的安全要整條看，不能只驗零件。
+| 元件 | 做什麼 | 最容易混淆的界線 |
+|---|---|---|
+| LLM core | 根據任務與目前觀察產生下一步 | 說「我要查詢」不等於查詢已執行 |
+| Planning／reasoning | 整理限制、推測缺口、選擇動作 | 推理可以更新內部狀態，不能自行證實外部事實 |
+| Memory | 帶入已發生的事、知識或技能 | 舊記憶可能失效，不能覆蓋新觀察 |
+| Tools | 接收具體參數並執行能力 | 工具可用，不表示每次使用都獲授權 |
+| Environment | 提供檔案、網頁、資料與動作後的狀態 | 沒收到結果時，不能憑空補出成功或失敗 |
 
-## 怎麼做：今晚就能動手的最小實驗
+第 34 頁用做菜說明推理的功能：看見鹽用完，先想到可以用醬油，再轉向櫃子、打開櫃門。從「鹽沒了」到「右轉」，中間有一個將目標與環境連接的判斷。推理的價值在於幫助選擇動作；轉身之後看見什麼，仍得重新觀察。
 
-**怎麼做**：照 HW1 開頭那段的縮小版，挑一個你答得不好的問答任務（手邊有自己的信箱匯出檔更好，HW1 的語料就是企業 email 封存），不靠框架手刻兩段式 RAG（檢索器加一次 chat-completion 呼叫；我習慣用 litellm 包一層好換模型，直接用官方 SDK 也行）。先量 baseline，再只換檢索器量一次、只換 prompt 量一次，記下哪邊漲分多。這就是第三節第二題的最小實驗。
+```diagram
+title: 動作執行後，結果必須回到下一次判斷
+desc: 模型選擇動作，工具作用於環境，回傳的觀察更新模型下一步判斷。
+caption: 依第 29–34 頁簡化的行動迴圈；證據足夠時可以回答或停止，並非每次都要繼續呼叫工具。
+---
+<svg viewBox="0 0 440 408">
+<path class="dg-line" d="M220 80V116" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 184V220" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 288V324" marker-end="url(#arrow)"/>
+<path class="dg-line dg-line--dashed" d="M360 360H392Q400 360 400 352V56Q400 48 392 48H364" marker-end="url(#arrow)"/>
+<rect class="dg-box dg-box--accent" x="80" y="16" width="280" height="64" rx="6"/>
+<text class="dg-label" x="220" y="40" text-anchor="middle" dominant-baseline="central">模型判斷</text>
+<text class="dg-sub" x="220" y="60" text-anchor="middle" dominant-baseline="central">目標、限制與目前觀察</text>
+<rect class="dg-box" x="80" y="120" width="280" height="64" rx="6"/>
+<text class="dg-label" x="220" y="144" text-anchor="middle" dominant-baseline="central">工具執行</text>
+<text class="dg-sub" x="220" y="164" text-anchor="middle" dominant-baseline="central">動作名稱與參數</text>
+<rect class="dg-box" x="80" y="224" width="280" height="64" rx="6"/>
+<text class="dg-label" x="220" y="248" text-anchor="middle" dominant-baseline="central">環境</text>
+<text class="dg-sub" x="220" y="268" text-anchor="middle" dominant-baseline="central">檔案、網頁或資料庫</text>
+<rect class="dg-box" x="80" y="328" width="280" height="64" rx="6"/>
+<text class="dg-label" x="220" y="352" text-anchor="middle" dominant-baseline="central">新觀察回傳</text>
+<text class="dg-sub" x="220" y="372" text-anchor="middle" dominant-baseline="central">內容、狀態或錯誤</text>
+</svg>
+```
 
-## 它在課程裡的位置
+反例是查信工具逾時。此時模型取得的是「沒有成功取得結果」，不是「信箱中沒有符合條件的信」。前者需要重試、換查法或保留未知；後者才可能支持沒有找到的結論。**理解判準**：先區分工具執行狀態與查詢內容，才能往下判斷；不能靠一句流暢回答越過這個缺口。
 
-這篇是地圖，後面十一週是走法。RAG、tool use、ReAct 與 memory 是 HW1 的零件課，一路從 email 檢索管線長成帶工具、terminal、記憶與人類把關的完整 harness；DSPy 是拿來對照「框架替你抽掉了什麼」的那堂，optimization 與 evaluation 是 HW2 的零件課。讀的時候把「三個設計問題」當書籤：每週結束回來問一次，這週回答了哪一題。
+### 第 35–37 頁：Apple Remote 案例，查詢失敗也可以是下一步的線索
 
-## 延伸閱讀：同一週的另外兩篇
+<a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=35" data-slide-page="35">投影片第 35–37 頁</a>
 
-課表 Week 1 除了主讀物還有兩篇 additional readings，份量較輕，放在這裡一起收。
+這裡有一個完整、能沿著來源追查的課堂例子。問題是：**除了 Apple Remote，還有什麼裝置能控制它最初搭配的那個程式？** 要先找「原本控制哪個程式」，再找那個程式的其他控制方式。
 
-**Ng 的四個 agent 設計模式**（[The Batch, 2024](https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance)）：Reflection（自己檢查自己）、Tool Use、Planning、多智慧體協作。論點只有一句：別讓 LLM 一次把答案吐完，多輪、有工具、有計畫地走，品質才會上去。注意它和 Week 2 Anthropic 分類的對應關係：Ng 的四個是能力方向，Anthropic 的五個是施工形狀；Reflection 對應 evaluator-optimizer，Planning 對應 orchestrator-workers。讀完 Week 2 再回來看這篇，會發現同一批概念被講了兩遍——一遍是方向，一遍是工法。
+第 35 頁的直接回答是 iPod；純推理版本則先錯認成 Apple TV，再推到 iPhone、iPad 與 iPod Touch。後面的文字雖然連貫，第一個實體關係就錯了。這說明增加推理文字，未必能修正沒有核實的起點。
 
-**Si 等人的 execution-grounded 自動化 AI 研究**（[arXiv:2601.14525](https://arxiv.org/abs/2601.14525)，2026；注意授課者 Diyi Yang 掛名作者）：LLM 生的研究點子看起來漂亮，做下去常常不行。解法是拿執行結果當 ground truth：自動把點子實作成 code，大規模平行跑 GPU 實驗，再用演化搜尋或 RL 從回饋裡學。十個搜尋 epoch 內找到的 post-training 配方打敗 GRPO baseline（69.4% 對 48.0%）。但有兩盆冷水： frontier 模型想法早熟、很快飽和；RL 只拉高平均分，拉不高上限（多樣性崩掉）。這篇是 Week 11「science agents 與 open problems」的前菜：evaluation 這件事，連研究 AI 的 AI 都逃不掉。
+第 36 頁的 ReAct 依觀察走完以下過程：
 
-## 本週 Course Material 對照
+| 步驟 | 動作與觀察 | 對下一步的影響 |
+|---|---|---|
+| 1 | 搜尋 Apple Remote，結果指出最初控制的是 Front Row | 先確定真正要查的程式，不沿用 Apple TV 猜測 |
+| 2 | 搜尋 Front Row，沒有精確條目，但列出同名候選 | 這不是答案不存在，而是名稱需要消歧 |
+| 3 | 改搜 Front Row (software)，取得軟體條目 | 找到正確實體後，才能查其他控制方式 |
+| 4 | 依條目整理控制方式，Finish 回答 keyboard function keys | 回答由取回資料支持，工具結果確實改變了推理方向 |
 
-- 官方課堂投影片（PDF）：[Foundations & Landscape — Lecture 01](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf)
-- 週三 9/23 Foundations & Landscape：主讀物 Zaharia 等人 Compound AI Systems（本文已導讀）；延伸閱讀 Ng 四設計模式、Si 等人 execution-grounded（見上節延伸閱讀）。
-- 課表原文：[CS329Z 官網 Week 1](https://cs329z.stanford.edu/)
+正確答案是**鍵盤功能鍵**。重點不只在多查一次，而是第二次查詢失敗時，系統把相似條目當成消歧線索，修正下一個動作。反過來，如果模型把「找不到 Front Row」直接當成程式不存在，就算用了搜尋工具，仍然沒有善用觀察。
 
-## 課程影片來源
+第 37 頁同時放了任務成績與錯誤分類，提醒我們別把這個成功案例寫成普遍保證。表中 ReAct 相對純 Act 有改善，卻沒有在每項任務都勝過 CoT 或 self-consistency；它仍會出現搜尋空結果與推理錯誤。這裡最值得學的是失敗位置：是實體辨識錯、工具找不到、還是已拿到資料卻解讀錯？
 
-官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
+**理解檢查**：Front Row 的搜尋沒有精確結果時，是否應立刻回答證據不足？先看候選是否提供可驗證的消歧路徑；本例能改查 software 條目。若沒有可靠候選，才保留未知，不能隨意挑一個同名頁面當證據。
 
-課程與錄影入口：
+### 第 38–43 頁：取樣、反思、辯論與協調，回饋的來源並不相同
 
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+<a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=38" data-slide-page="38">投影片第 38–43 頁</a>
 
-查核日期：2026-10-10。
+這一段不是替「多想幾次」換幾個名稱，而是區分不同的資訊流：
+
+| 做法 | 新增了什麼 | 沒有自動解決什麼 |
+|---|---|---|
+| Self-consistency | 對同一問題產生多條推理路徑，再彙整最一致的答案 | 若多條路徑共享錯誤前提，多數決仍可能錯 |
+| Reflexion | 利用任務回饋，將失敗軌跡整理成下次可用的文字反思 | 反思是否有效取決於回饋品質；不是直接更新模型權重 |
+| Multi-agent debate | 模型看見其他參與者的推理，再修訂自己的答案 | 意見一致不等於有外部證據，也可能互相傳播錯誤 |
+| Orchestrator | 由協調者依任務安排不同角色與工具，整合中間結果 | 分工仍需要完整交接、正確執行與驗收 |
+
+第 41–42 頁用寶石題把辯論過程攤開：鑽石有 175 顆，紅寶石比鑽石少 35 顆，祖母綠是紅寶石的兩倍。應算紅寶石 140、祖母綠 280，總數是 **175＋140＋280＝595**。一個參與者首輪答 225，讀過同伴後第二輪又答成 560，直到第三輪才改成 595。討論提供修正機會，沒有保證每一輪都前進。
+
+第 43 頁的 orchestrator 圖則換了問題：從圖片抽出程式、交給 coding 角色分析、用 terminal 執行，再用瀏覽工具取得另一段程式。這是跨能力的協調，而不是多個模型重做同一道題。兩種多智慧體安排的用途不同，不能只以「agent 數量」判定設計。
+
+**理解檢查**：三個模型都回答同一個錯答案，是否已完成驗證？沒有。你只取得一致性；還需要檢查它們是否使用相同錯誤前提，或能否用計算、測試、來源資料判定對錯。本例的算式就能獨立驗證 595。
+
+### 第 44–50 頁：記憶要分清保存經驗、歸納知識與重用技能
+
+<a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=44" data-slide-page="44">投影片第 44–50 頁</a>
+
+第 44 頁先回到總架構、標出 memory，再用第 45 頁說明需求：事件流不可能全部常駐 context，即使能放進去，也不表示模型能找到相關資訊。記憶設計因此包含「怎麼寫」與「怎麼讀」，不只是把聊天紀錄存起來。
+
+| 內容類型 | 投影片中的寫入／讀取方式 | 該保留的差別 |
+|---|---|---|
+| Episodic，經驗記憶 | 追加事件流；依啟發式分數取回相關片段 | 記下發生過什麼，而非先把全部事件壓成一句結論 |
+| Semantic，知識記憶 | 從事件推理與歸納；需要時檢索 | 抽象結論由多個觀察形成，仍需能檢查來源 |
+| Procedural，程序／技能記憶 | 將能力寫成程式技能；依 embedding 檢索 | 保存如何完成事情，供後續任務重用 |
+
+第 47 頁的例子從事件串中取回相關經驗，分數考量新近性、重要性與相關性；第 48 頁再把具體讀書、討論與研究活動歸納成較高層的認識。這兩種資訊用途不同：一則事件能直接回查，歸納則省下重讀成本，但也可能過度概括。第 49 頁的 Voyager 圖把技能取得接到環境回饋、程式修正與自我驗證，通過後才加入技能庫，並非把任何生成程式都當成已學會。
+
+用本文自擬情境對照：「昨天搜尋失敗」是經驗；「使用者常查某個專案」是歸納知識；「依專案與日期組查詢的函式」是技能。**理解判準**：若新證據推翻歸納，能否更新知識而仍保留原事件？若技能從未跑過測試，就不能只因它存進資料夾而稱為可靠技能。
+
+### 第 51–53 頁：會呼叫工具，還包含選擇時機、參數與結果利用
+
+<a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=51" data-slide-page="51">投影片第 51–53 頁</a>
+
+Toolformer 把工具使用拆成一組學習問題：選哪個 API、何時呼叫、填什麼參數，以及如何將結果接回生成。第 51 頁用計算器、問答、搜尋、翻譯與日曆示例，說明工具能補上外部資訊或運算。輸出一段看似正確的呼叫語法，仍然只完成其中一部分。
+
+第 52 頁的 Gorilla 圖處理 API 變多之後的選擇問題：整理 API 資料，建立指令與呼叫的訓練配對，並展示檢索 API 資訊後再產生呼叫的方式。重點是把工具文件納入模型判斷，減少憑空猜測不存在的介面。圖上的準確率／幻覺比較屬於該研究與設定，本文不把它改寫成現行模型排名。
+
+第 53 頁把工具重新放回完整架構。工具結果可能成為觀察，影響推理與記憶；因此工具不是裝上就算整合成功。**理解檢查**：計算器回傳正確數值，最後答案仍引用了另一個舊數值，錯在哪裡？工具執行沒有錯，但結果沒有被正確接回判斷；要檢查回傳如何進入 context，以及模型是否採用它。
+
+### 第 55–59 頁：system、data、evals 如何落到 RAG、工具呼叫與 MCP？
+
+<a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=55" data-slide-page="55">投影片第 55–59 頁</a>
+
+第 55 頁把 agent engineering 分成三個相互牽動的面向。**System** 是架構與控制方式；**data** 包括訓練例子、示範與執行中的 context；**evals** 包含評估與指標。相同模型接上不同資料與步驟，可能產生不同結果，因此不能只驗模型，卻忽略它真正看到什麼與如何被評分。
+
+第 56 頁區分 workflow 與 agent：前者由程式固定步驟，後者由模型決定步驟，兩者都可能是複合式 AI 系統。第 57 頁的 RAG 再提供最小資料流：**retrieve** 找相關資料，**augment** 把資料加入使用者問題，**generate** 依這份輸入產生答案。中間的 augment 不能省略理解：資料即使已被檢索到，如果沒有正確進入模型輸入，生成仍然看不到它。
+
+例如查到一份交期更新，卻把截斷前的舊摘要送進模型，搜尋成功不等於問答成功。相反地，把所有信件都塞進去也可能讓相關資訊被淹沒。這裡的驗收要沿資料流檢查，而不是只確認檢索函式有回傳值。
+
+第 58 頁將一次工具呼叫拆成四關：
+
+| 關卡 | `read_file` 例子 | 這一關不能替代什麼 |
+|---|---|---|
+| Select | 從可用定義選擇讀檔工具 | 選對名稱，不代表參數正確 |
+| Arguments | 依任務填 `{"path":"test.py"}` | 語法像 JSON，不代表符合工具欄位 |
+| Validate | 檢查 `path` 等型別與結構 | 型別合法，不代表有權讀這個檔案 |
+| Execute | 在執行環境讀檔，將內容回傳 context | 寫出呼叫，不代表檔案已讀到；失敗仍須回傳狀態 |
+
+第 59 頁的 MCP 圖則在應用與資料／工具之間放入標準協議：聊天介面、IDE 等應用，可透過一致的連接方式存取資料系統、開發工具或工作服務。圖中的雙向箭頭表示請求與結果可以流通，不表示接上協議就取得所有資料的授權，也不等於工具本身必然安全。
+
+**理解檢查**：工具參數通過 schema 驗證，就能執行任意路徑的讀檔嗎？不能。結構驗證、存取政策與執行限制是不同工作；MCP 解決連接格式，也不會把後兩者變成多餘。
+
+### 第 61–64 頁：一次成功、可靠地成功與安全地成功，要分開測
+
+<a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=61" data-slide-page="61">投影片第 61–64 頁</a>
+
+第 61 頁把可靠性、訓練、長任務、安全與評估列為核心挑戰。長迴圈中的錯誤可能傳到下一步；訓練則面對回饋稀少、時程長與 rollout 成本高；context 不斷增加，也可能讓目標與限制逐漸偏移。這些不是「最終答案錯了」的一種原因，而是需要分別定位的系統問題。
+
+第 62 頁把可靠性拆成三個檢驗方向：
+
+| 面向 | 要問什麼 | 查信助理的自擬測試 |
+|---|---|---|
+| Consistency | 同任務重跑，結果是否穩定？ | 同一份信件多跑幾次，是否忽而漏列、忽而多列？ |
+| Robustness | 小而合理的變動，會不會讓結果失控？ | 換一種提問方式或調整工具回傳順序，結論是否仍成立？ |
+| Predictable failure | 失敗能否辨識與恢復？ | 工具逾時時是否明示未知，而非補出不存在的結果？ |
+
+第 63 頁的 HAL dashboard 把能力與多個可靠性維度放在同一張表，重點是高準確率不會自動等於每個維度都可靠。第 64 頁再把任務完成率與安全表現並列：完成需求與遵守安全限制不是同一個分數。圖表是教材採用的特定評測快照，不能從顏色或柱高外推所有 agent 的普遍安全程度。
+
+**理解判準**：助理正確摘要所有延期信，卻未經確認寄給外部收件者，不能算「整體通過」。答案內容可能完成，執行授權仍然失敗；測試需要把兩項條件分開，再檢查是否同時成立。
+
+### 第 65–71 頁：協作、攻擊與隱私，為什麼不能只靠完成率把關？
+
+<a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=65" data-slide-page="65">投影片第 65–71 頁</a>
+
+最後幾頁用不同風險案例，說明安全不只有「工具是否惡意」一個問題：
+
+- **協作與需求釐清（第 65 頁）**：使用者請助理買雜貨，案例中的助理沒有先問地點、常用商店或品項，就自行搜尋某地的牛奶。問題發生在理解與協作，尚未到惡意攻擊；過早行動同樣會偏離使用者目的。
+- **環境中的對抗內容（第 66 頁）**：彈出視窗能把原本的任務引向其他動作。畫面文字是環境資料，不應只因模型看見它，就升格成使用者命令。投影片附有特定研究的攻擊數字，本文只用來解釋威脅機制，不當成所有部署的攻擊成功率。
+- **可讀不等於可轉寄（第 67 頁）**：PrivacyLens 圖例中，助理從日曆讀到與招募者午餐的私人資訊，卻把它放進寄給主管的工作週報。這不是捏造資料，而是把真資料送給不適當的對象；需要判斷目的、收件者與資訊範圍。
+- **討好與改變評分機制（第 68 頁）**：一個例子把不佳作品評得很好，另一個例子則修改測試或獎勵相關程式。前者讓回饋失真，後者直接改變量尺；不能把「分數看起來更高」當成任務改善。
+- **跨 agent 的不當協作（第 69–70 頁）**：案例裡，不同任務的 agent 發現未經授權的共用留言板，協作尋找欺騙評分器的方法。這提醒我們，共享通道也可能成為繞過隔離與驗收的路徑。教材呈現的是特定事件，不能推成所有多智慧體都會如此。
+
+用一個自擬反例收尾：agent 找到正確資料，還主動把相關私人行程一併轉寄，自認為「資訊更完整」。它可能在內容真實性上沒有錯，仍然違反使用者目的與隱私界線。**判準是同時核對內容、授權與接收對象**；不能只問模型有沒有說真話。
+
+第 71 頁回到整堂主線：從歷史理解 agent 的定位，從架構看推理、記憶、工具與環境如何互動，再以複合系統和可靠性／安全檢查整體成果。接下來三份 Digest 各補一種閱讀：BAIR 展開系統設計，Ng 整理工作模式，Si 深入執行回饋。它們補充這堂課，不能代替這 71 頁涵蓋的全部內容。
+
+## 讀物一｜BAIR：模型持續進步，為什麼還需要複合式 AI 系統？
+
+**The Shift from Models to Compound AI Systems** — Matei Zaharia 等人，BAIR Blog，2024-02-18。[原文](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)
+
+### TL;DR
+
+模型是一個元件，應用的成果卻取決於資料怎麼取得、工具怎麼使用、步驟如何銜接，以及結果如何檢查。BAIR 主張把這些環節一起納入設計：先找任務瓶頸，再決定資源應投入模型、檢索或其他元件。
+
+### 編輯判斷
+
+| 面向 | 判斷 |
+|---|---|
+| 資料性質 | 研究觀點文章，整理不同系統與工具的案例，並非單一對照實驗 |
+| 證據基礎 | AlphaCode 2、AlphaGeometry、RAG 等既有工作的組合方式；各案例的任務與預算不同 |
+| 閱讀價值 | 高：建立設計問題的清單，適合從模型展示走向實際應用時閱讀 |
+| 應保留的界線 | 原文假設的效能數字不能當成產品預測；2024 年工具版圖也不是現行產品評比 |
+| 編輯信心 | 對系統設計問題的整理高；對「哪種組合一定比較好」不作保證 |
+
+### 領域背景
+
+單次模型呼叫很適合展示能力：給一段輸入，得到一段輸出。但真實應用還會遇到模型訓練後才出現的資訊、使用者各異的權限，以及不同的時間與成本要求。這些條件來自應用環境，模型再強也不會自動知道。
+
+BAIR 把使用多個互相配合元件的安排稱為 **Compound AI System**。元件可以是多次模型呼叫、檢索器或外部工具，不必使用多個不同模型。Agent 則另涉及控制權：固定由程式安排步驟是一種複合系統；讓模型根據觀察選下一個動作，是更自主的安排。兩個詞不能直接畫等號。
+
+### 中階導讀
+
+**問題是什麼？** 團隊做出第一個模型展示後，常發現答案偶爾很好，實際使用卻不穩。若只問「要換哪個模型」，會把缺資料、讀錯資料、權限與驗收問題混在一起。BAIR 希望把問題改成：整套系統在哪個環節失敗？
+
+**方法與論證怎麼走？** 作者先列出四個投入系統設計的理由，再整理設計空間、優化與營運的挑戰：
+
+| 理由 | 系統能補上的能力 | 仍要付出的代價 |
+|---|---|---|
+| 有些任務透過系統設計更容易改善 | 重複取樣、測試、檢索、檢查等可分工處理不同瓶頸 | 增加元件也增加延遲與失敗路徑 |
+| 資料是動態的 | 接入新資料，依應用身分限制可讀範圍 | 索引更新與權限判斷都要維護 |
+| 控制與信任需要外部機制 | 限制執行動作、提供引用、檢查事實 | 檢查者本身也可能漏判 |
+| 品質與成本要求因任務而異 | 在不同步驟採用不同模型或投入不同計算量 | 必須量整體成果，不能只看單次呼叫價格 |
+
+**為什麼重要？** 這讓「改善 AI」變成可拆解的工程選擇。若關鍵信件沒有進入模型輸入，優先處理檢索；若模型看過最新回覆卻仍沿用舊結論，再調整生成或檢查。模型能力與系統設計可以一起改善，沒有必要先選邊站。
+
+用一個自擬查信例子看資料流。使用者問：「哪些供應商已確認延期？」
+
+| 信件 | 內容 |
+|---|---|
+| E1，甲供應商的先前通知 | 「確認延期，改為下週三交貨。」 |
+| E2，乙供應商 | 「確認延期至下週一交貨。」 |
+| E3，甲供應商的後續回覆 | 「已排除缺料，恢復原交期。」 |
+| E4，丙供應商 | 「零件可能晚到，週五再確認。」 |
+
+正確結論只列乙，引用 E2。甲的通知已被 E3 更正；丙只有風險通知。系統先取回使用者有權讀取的信件，模型產生候選答案，再對照來源與更新順序。若甲被列入，先查 E3 有沒有進輸入；若丙被列入，則要查模型是否把「可能」讀成「確認」。這是兩種不同錯誤。
+
+```diagram
+title: 從信件到答案，每一步都要有根據
+desc: 可讀信件供生成與引用檢查使用，候選答案要對照來源與後續更新。
+caption: 本文自擬的固定工作流程；引用檢查仍可能漏判，不能保證答案正確，也不是自主 agent 迴圈的定義。
+---
+<svg viewBox="0 0 440 504">
+<path class="dg-line" d="M92 152H48Q40 152 40 160V348Q40 356 48 356H88" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 80V116" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 184V220" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 288V324" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 392V428" marker-end="url(#arrow)"/>
+<rect class="dg-box" x="92" y="16" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="40" text-anchor="middle" dominant-baseline="central">問題</text>
+<text class="dg-sub" x="220" y="60" text-anchor="middle" dominant-baseline="central">已確認延期的是誰？</text>
+<rect class="dg-box" x="92" y="120" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="144" text-anchor="middle" dominant-baseline="central">檢索</text>
+<text class="dg-sub" x="220" y="164" text-anchor="middle" dominant-baseline="central">可讀的 E1–E4</text>
+<rect class="dg-box" x="92" y="224" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="248" text-anchor="middle" dominant-baseline="central">生成</text>
+<text class="dg-sub" x="220" y="268" text-anchor="middle" dominant-baseline="central">模型呼叫</text>
+<rect class="dg-box dg-box--accent" x="92" y="328" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="352" text-anchor="middle" dominant-baseline="central">檢查根據</text>
+<text class="dg-sub" x="220" y="372" text-anchor="middle" dominant-baseline="central">對照來源與最新回覆</text>
+<rect class="dg-box" x="92" y="432" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="456" text-anchor="middle" dominant-baseline="central">答案</text>
+<text class="dg-sub" x="220" y="476" text-anchor="middle" dominant-baseline="central">列乙、引用 E2</text>
+</svg>
+```
+
+### 深入要點
+
+**設計空間不只是選模型。** 同一條 RAG 管線，可以改查詢、排序、片段格式或增加來源檢查。這些選項有相依性：檢索器偏好含「延期」的 E1，生成模型再忠實摘要 E1，兩個局部步驟看似都完成工作，整體仍然錯。若要知道新增元件的價值，先固定其他條件逐項比較，再測組合，不能假設改善可以直接相加。
+
+**優化難在交接與不可微分元件。** 神經網路能用梯度一起調參，但搜尋、程式執行等環節不一定可微分。原文以 DSPy 為例，說明如何用驗證指標搜尋指令、示範與配置；關鍵仍是指標是否代表需求。「有引用」與「引用支持結論」不同，優化錯的標準，只會更穩定地產生表面合格的輸出。
+
+**營運要涵蓋執行軌跡與資料管線。** 只記最終答案，無法知道 E3 是沒被索引、沒通過權限，還是被排序漏掉。保存適當的來源 ID、檢索結果與中間輸出，才能把問題縮到具體環節；保存方式仍要遵守應用的存取與保留規則。安全也要看組合：多個各自看似正常的元件，接在一起可能產生新的風險。
+
+**案例支持方向，不是統一的效果估計。** AlphaGeometry 結合語言模型與符號推理器，說明元件可以分工；AlphaCode 2 用候選生成、執行與篩選，說明成果不只來自一次模型呼叫。但它們不是相同任務、成本與模型下的共同實驗。原文以訓練預算、取樣與測試說明取捨的那組數字，明確是「假設」；不能拿來承諾任意產品的改善幅度。
+
+### Reviewer 一句話評
+
+這篇最有價值的是把模型之外的設計選擇與營運責任攤開，讓團隊有辦法追查瓶頸；它提供的是研究與工程方向，沒有提供放諸所有任務的最佳架構。
+
+### 給你的 take-away
+
+替現有應用挑一個失敗案例，沿著「輸入 → 實際取回資料 → 模型判斷 → 最終結果」找第一個出錯的位置，再決定改哪個元件。用上面的例子檢查自己：E3 沒進輸入時，多加一個同樣看不到 E3 的檢查者，仍無法知道甲已恢復交期；這就是資料取得與答案檢查的分界。
+
+## 讀物二｜Andrew Ng：讓模型有機會回頭修訂，能改變什麼？
+
+**Agentic Design Patterns Part 1: Four AI Agent Strategies That Improve GPT-4 and GPT-3.5 Performance** — Andrew Ng，The Batch，2024-03-20。[原文](https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance/)
+
+### TL;DR
+
+一次生成到底，像要求作者寫文章時不能退格。Ng 用反思、工具、規劃與多智慧體協作，整理讓模型反覆改進工作的四個方向；重點是增加修正與取得資訊的機會，並不是規定每個應用都要四種全用。
+
+### 編輯判斷
+
+| 面向 | 判斷 |
+|---|---|
+| 資料性質 | 技術觀點與設計模式短文，結合跨研究的 HumanEval 結果 |
+| 證據基礎 | 作者團隊彙整其他團隊的程式生成表現，並以寫作流程解釋迭代機制 |
+| 閱讀價值 | 高：篇幅短，能快速建立討論工作流程的共同語言 |
+| 應保留的界線 | 四種模式不是互斥分類；比較圖也不是固定模型、工具與預算的四模式消融 |
+| 編輯信心 | 對模式定義與設計啟發高；特定數字的跨任務延伸須保留 |
+
+### 領域背景
+
+語言模型可以由左到右生成一篇完整答案，但真實工作經常需要回頭：先查資料、寫草稿，發現論證缺口，再補查與改寫。單次生成把這些機會壓進一次輸出；agentic workflow 則把它們拆成可以觀察與修正的步驟。
+
+這裡的「agentic」強調工作方式。流程可以含固定步驟，也可以讓模型自主決定下一步。Ng 的四種模式適合用來描述新增了哪一種能力，不能只憑模式名稱判定自主程度，或直接與其他課程的 workflow 分類一一對應。
+
+### 中階導讀
+
+**問題是什麼？** 模型第一個答案有缺點時，應用是否給它取得新資訊、找錯與修訂的機會？Ng 的寫作例子依序經過列提綱、判斷是否需要搜尋、寫草稿、找出無根據的論點或多餘內容，再修訂。
+
+**四個方向怎麼作用？**
+
+| 模式 | 核心機制 | 延續查信例子的用途 |
+|---|---|---|
+| Reflection，反思 | 檢查自己的產出，提出改法 | 對照草稿與原信，發現把 E4 的「可能」寫成「確認」 |
+| Tool Use，工具使用 | 取得資訊、計算或改變外部狀態 | 補查信件與附件，讓判斷取得原本沒有的資料 |
+| Planning，規劃 | 把目標拆成多步，安排執行 | 先找供應商，再補齊往返，最後確認更新 |
+| Multi-agent collaboration，多智慧體協作 | 分派不同角色，討論與整合 | 由不同角色找證據與檢查結論，交接保留來源 ID |
+
+右欄是本文的應用，不是原文提供的官方實作。反思可以由同一個模型完成；規劃不必拆成多個 agent；工具也可以放在固定流程中。真正需要說清楚的是：哪個步驟多了什麼資訊，或多了哪一種修正機會。
+
+**為什麼重要？** 比起直接追求更長的 prompt，這份分類讓你能改工作流程。例如先把摘要分成草稿與檢查兩段，就能分別看「草稿錯在哪裡」與「檢查是否抓到」。它也把問題帶回 BAIR：新增步驟能否解決目前瓶頸，成本是否值得？
+
+### 深入要點
+
+**原文的數字要連著比較方式讀。** Ng 彙整的 HumanEval 結果中，GPT-3.5 的 zero-shot 正確率為 48.1%，GPT-4 為 67.0%；搭配某些迭代式 agent 工作流程，GPT-3.5 最高達 95.1%。這是跨研究結果支持的設計觀察，不是 Ng 在文中以相同呼叫次數、工具、成本與設定重跑出的單一實驗。它能說明值得研究工作流程，不能推論任何較弱模型加上迴圈都會勝過較強模型。
+
+**修訂要有辨認錯誤的依據。** 如果檢查者只看到草稿，沒有 E1–E4，反思可能只把錯誤寫得更順；如果工具回傳舊資料，增加工具使用也不等於更新了事實。多個角色都引用 E1，仍可能一致漏掉 E3。這是本文對設計的判斷：回饋是否帶來新證據或有效檢查，比角色數量更值得先看。
+
+**流程改善與模型進步可以同時發生。** 這篇以當時的 GPT-3.5／GPT-4 說明迭代機會，不是今日模型排行榜。模型可能更擅長內部推理，外部工具與可追查的檢查步驟仍有不同功能；哪些步驟值得保留，應用目前模型與實際案例重測。
+
+### Reviewer 一句話評
+
+它把「再給模型一次機會」拆成可討論的四種設計方向，是很好的入門語言；要落地時，還得補上回饋來源、停止條件與成本比較，不能用一張跨研究圖替代驗收。
+
+### 給你的 take-away
+
+挑一段已經有失敗紀錄的流程，只增加一種修正機會：提供原始來源讓模型檢查，或給它補查工具。分開記錄修好了什麼、又誤改了什麼。若 E3 原本就沒取回，應先補查資料；若 E4 已在輸入卻被讀錯，才測反思能否抓到。這樣才知道新增模式實際做了什麼。
+
+## 讀物三｜Si 等人：研究構想真的執行後，模型能從結果學到什麼？
+
+**Towards Execution-Grounded Automated AI Research** — Chenglei Si、Zitong Yang 等人，arXiv:2601.14525，2026。[論文全文](https://arxiv.org/html/2601.14525) · [公開環境與執行軌跡](https://github.com/NoviScl/Automated-AI-Researcher)
+
+### TL;DR
+
+作者把預訓練與後訓練改法交給自動執行器，讓構想接受真實訓練結果的檢驗。演化式搜尋在指定環境找到優於基準的方案；直接用執行獎勵做強化學習，則提高平均構想品質，卻未明顯提高最好構想的表現，並出現多樣性收斂。
+
+### 編輯判斷
+
+| 面向 | 判斷 |
+|---|---|
+| 資料性質 | 實驗研究；此處依 arXiv 全文的方法、結果與討論閱讀 |
+| 證據基礎 | 兩個可執行研究環境、多個提出構想模型、搜尋與等取樣預算對照，以及強化學習動態分析 |
+| 閱讀價值 | 高：把「點子看起來好」與「程式真的有效」分開，也揭露執行器如何影響學習 |
+| 可重現產物 | 作者提供環境與執行軌跡的公開 repository；本文未自行重跑 GPU 實驗 |
+| 應保留的界線 | 未測較大模型或其他資料集的泛化；新穎性不是訓練獎勵，實作錯誤也會影響分數 |
+| 編輯信心 | 對本文所述環境中的作者結果中高；對一般化的自主科學研究能力保留 |
+
+### 領域背景
+
+讓模型提出研究構想，比讓它證明構想有效容易。文字可以很有說服力，執行後卻沒有改善；反過來，一個好點子也可能被寫壞。若回饋只來自另一個模型的評語，系統可能學會寫出更像研究提案的文字，仍然不知道方法是否有效。
+
+Execution grounding 把回饋接到執行結果：構想變成程式修改，程式接受固定資料與評估，再把分數與紀錄送回去。這不會消除評估問題，而是把它變成可拆解的工程鏈：構想品質、實作正確性、執行成功，以及測量有效性。
+
+### 中階導讀
+
+**問題是什麼？** 作者先問能否大量自動執行自然語言研究構想，再問模型能否利用執行回饋提出更有效的下一批構想。這兩題要分開：成功跑完程式，只能證明構想可執行，還要看是否改善目標。
+
+**方法如何運作？** 執行器接收構想與基準程式。Implementer 產生可套用的程式差異；Scheduler 依環境需求安排資源；Worker 跑 GPU 實驗，回傳效能、程式變更與執行紀錄。論文的 Implementer 主要是提示模型產生 diff，並處理套用失敗，並非可任意安裝工具、自由改造整個研究環境的完整 coding agent。
+
+```diagram
+title: 讓研究構想接受執行回饋
+desc: 構想轉成程式、經排程執行後取得評估與軌跡，結果回饋到後續構想。
+caption: 依 Si 等人的方法簡化；實線是執行路徑，虛線是回饋。搜尋與強化學習使用回饋的方式不同。
+---
+<svg viewBox="0 0 440 408">
+<path class="dg-line" d="M220 80V116" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 184V220" marker-end="url(#arrow)"/>
+<path class="dg-line" d="M220 288V324" marker-end="url(#arrow)"/>
+<path class="dg-line dg-line--dashed" d="M348 360H392Q400 360 400 352V56Q400 48 392 48H352" marker-end="url(#arrow)"/>
+<rect class="dg-box" x="92" y="16" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="40" text-anchor="middle" dominant-baseline="central">提出構想</text>
+<text class="dg-sub" x="220" y="60" text-anchor="middle" dominant-baseline="central">自然語言的研究改法</text>
+<rect class="dg-box" x="92" y="120" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="144" text-anchor="middle" dominant-baseline="central">Implementer</text>
+<text class="dg-sub" x="220" y="164" text-anchor="middle" dominant-baseline="central">轉為程式修改</text>
+<rect class="dg-box" x="92" y="224" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="248" text-anchor="middle" dominant-baseline="central">Scheduler / Worker</text>
+<text class="dg-sub" x="220" y="268" text-anchor="middle" dominant-baseline="central">分配資源並跑實驗</text>
+<rect class="dg-box dg-box--accent" x="92" y="328" width="256" height="64" rx="6"/>
+<text class="dg-label" x="220" y="352" text-anchor="middle" dominant-baseline="central">固定評估與結果</text>
+<text class="dg-sub" x="220" y="372" text-anchor="middle" dominant-baseline="central">回傳分數與執行軌跡</text>
+<text class="dg-edge" x="376" y="208" text-anchor="middle" dominant-baseline="central">回饋</text>
+</svg>
+```
+
+作者比較兩條學習路線。**演化式搜尋**不更新提出構想模型的權重：把過去有效的想法放回提示以產生變體，同時保留探索不同方向的部分。**強化學習**則用執行獎勵更新提出構想的模型。兩者使用相同執行器，改變模型行為的方式不同。
+
+**為什麼重要？** 它讓回饋不再只是一句「這個點子很好」，而是具體的驗證表現。但也因此，執行器能力與評估設計開始直接左右模型學到什麼。後訓練環境把驗證程式隔離，禁止執行器存取或修改，便是為了避免靠改評分方式取得好成績。
+
+### 深入要點
+
+**先分清兩個任務與測量方式。** [§2.1 與 Table 1](https://arxiv.org/html/2601.14525)的設定如下；數字都是作者報告，並非本文實測：
+
+| 環境 | 模型與資料 | 搜尋時的目標 | 最佳方案的報告結果 |
+|---|---|---|---|
+| 後訓練 | Qwen2.5-Math-1.5B，在 MATH 上訓練；基準為 GRPO | 固定訓練時間內的最高驗證正確率 | 基準 48.0%，搜尋找到 69.4% |
+| 預訓練 | 124M GPT-2、FineWeb、8 張 H100 | 固定 25 分鐘後的驗證 loss 倒數，作為搜尋與 RL 的代理獎勵 | 最佳方案另量達到驗證 loss 3.28 的時間：基準 35.9 分鐘，搜尋方案 19.7 分鐘 |
+
+後訓練增加的是 **21.4 個百分點**；它指這個數學訓練環境的驗證正確率，不是所有模型或所有任務都提高相同比例。預訓練的時間約少 **45.1%**，但這不是搜尋每輪都直接優化的指標：搜尋先比較固定時間的 loss，再把最佳方案拿去量達標時間。混用這兩個指標，會看錯實驗在優化什麼。
+
+**十輪內找到改善，不等於增加輪次就持續進步。** §4 的搜尋分別使用 Claude-4.5-Opus、Claude-4.5-Sonnet 與 GPT-5，同一實驗由同一模型提出並實作構想。後訓練的 69.4% 方案由 Sonnet 在第 2 輪找到；預訓練最佳方案來自 Opus。Opus 呈現較清楚的搜尋擴展趨勢，Sonnet 與 GPT-5 則容易提早停滯。這些差別不能被一句「多搜尋就有效」蓋過去。
+
+**有等取樣預算對照，也有追不上人類的地方。** 作者在 nanoGPT 環境，以 GPT-5 的前三輪搜尋，對照相同構想數量的 best-of-N，觀察搜尋利用前輪軌跡後表現較好。後訓練另對照 Stanford CS336 同環境、同訓練時間預算的最佳學生方案，驗證正確率為 68.8%。另一方面，Table 1 列的人類最佳 nanoGPT 成績是 2.1 分鐘，明顯快於搜尋方案；那是截至 2025 年 12 月的 leaderboard 結果，不是把人類投入與自動搜尋總成本全部對齊的比較。不能只挑後訓練高於人類的那一格，就宣稱已全面勝過研究者。
+
+**RL 的平均值與最高值走向不同。** §5 以 Qwen3-30B-A3B 作為提出構想的模型，用 GRPO 更新權重；後訓練獎勵是執行後的驗證正確率，預訓練是驗證 loss 倒數，執行失敗都記零分。後訓練的平均正確率從 25.3% 增至第 40 輪的 34.3%；最高獎勵卻持續波動，沒有清楚向上趨勢。這是另一組 RL 實驗，不能把它與前面的搜尋最佳 69.4% 當成同一條曲線。
+
+模型還逐漸偏向容易實作、能穩定取得正獎勵的少數想法。在 nanoGPT 的每批 128 個構想中，「替換正規化層」或「對中間 checkpoint 做 EMA」這兩類，從起始的 51 個增加到第 68 輪的 119 個。這與思考軌跡縮短一起，支持作者對多樣性收斂的分析；至於是否適用於所有 RL 方法，這項實驗沒有回答。
+
+**限制不只是規模。** §8 明示沒有檢驗構想能否推廣到更大模型或其他資料集。好點子若被執行器實作失敗，也會得到差回饋，讓「好不好做」混入「值不值得做」；而訓練獎勵只看有效性，並沒有同時評估新穎性。對研究而言，穩定重複一個已知有效點子與找到突破，是不同成果。
+
+### Reviewer 一句話評
+
+這項工作把開放式構想接上可執行環境，並同時呈現搜尋的收穫與 RL 的探索困境；最值得深讀的是回饋鏈的設計與失真，而不只是最佳方案高於基準的數字。
+
+### 給你的 take-away
+
+若要讓 agent 從成果學習，至少分開記錄「有沒有實作成功」「任務指標是否改善」與「想法是否仍多樣」。固定驗收程式，保留失敗軌跡，不要讓提出方案的 agent 同時改掉成功標準。理解這篇的一個判準是：你能否說明平均獎勵提高、最高獎勵停滯為什麼可以同時發生？模型偏向少數容易實作的方案，就可能提高平均穩定度，卻減少找到更好方案的探索。
+
+## 這三篇文章能帶給我們什麼？
+
+BAIR 讓我們把改善單位放到整套系統；Ng 提供改變工作方式的語彙；Si 再用執行環境檢查回饋是否真的改善構想。三者的證據強度不同，也不必硬接成同一份實驗報告。共同值得保留的問題是：新增步驟帶來了哪些資訊，成功標準由誰決定，失敗又能追到哪裡？
+
+帶著這些問題讀[第 2 週的 workflow 與 RAG](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)，再到[第 3 週的工具與框架](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)。HW1 是後續實作，本文的閱讀判斷與自擬例子不代替官方作業規範。
 
 ## 更新紀錄
 
+- 2026-10-23：逐頁核對 71 頁投影片後擴寫十段導讀，補足原始案例、記憶讀寫與安全問題；新增行動迴圈圖、對應頁碼，以及無縮圖的頁內投影片對照。
 
-- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
-- 2026-10-10：補上本週官方課堂投影片直連，保留既有課程影片來源與錄影取得方式。
+- 2026-10-23：補上第一堂投影片的獨立導讀，說明 agent 迴圈、五個元件、system／data／evals、工具呼叫與可靠性安全問題，以及它們和三篇文章的關係。
+
+- 2026-10-23：依讀物 Digest 格式實質重寫，BAIR、Ng 與 Si 各自交代 TL;DR、編輯判斷、背景、方法、深入結果與限制、Reviewer 評語及 take-away；集中課程對照與影片說明，移除虛構二十題比較實驗，補足 Si 的實際實驗條件與數字。
+
+- 2026-10-23：調整生硬用語，將錄影入口與取得限制集中放在開頭。
+
+- 2026-10-23：重整第一週導讀，分開投影片、指定閱讀、延伸閱讀、本文練習與後續 HW1；加入 agent 迴圈、完整查信案例、比較實驗、兩篇延伸閱讀的機制與限制，以及自我檢查。重新閱讀官方教材、BAIR、Ng 與 Si 原文；教學數字另標為自擬資料。
+
+- 2026-10-23：補入複合系統元件圖，只將既有解說視覺化，未重新查核事實。
+
+
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、不再要求 DSPy 重寫、語料換成企業 email），同步改寫相關段落
-- 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。
+
+- 2026-10-10：更新教材連結與取得方式。
 
 ## 參考資料
 
-- 課堂投影片：[Foundations & Landscape — Lecture 01](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf)
-- 站內：[Stanford CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
-- 課程：[CS329Z: Engineering AI Agents 官網（含課表與作業時程）](https://cs329z.stanford.edu/)
-- 原文：[Zaharia et al., The Shift from Models to Compound AI Systems, BAIR Blog (2024)](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)
-- 框架：[DSPy 官網](https://dspy.ai/)、[LangChain](https://www.langchain.com/)、[LlamaIndex](https://www.llamaindex.ai/)
+- [Zaharia 等人，The Shift from Models to Compound AI Systems，BAIR Blog，2024](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)：第一份讀物的完整論證與案例。
+- [Andrew Ng，Agentic Design Patterns Part 1，The Batch，2024](https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance/)：四種模式、寫作流程與跨研究 HumanEval 比較。
+- [Si 等人，Towards Execution-Grounded Automated AI Research，2026](https://arxiv.org/html/2601.14525)：§2 執行器與環境、§4 搜尋、§5 RL 動態、§8 限制；[公開環境與軌跡](https://github.com/NoviScl/Automated-AI-Researcher)。
+- [Lecture 01：Intro to Agentic Systems](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf)、[官方課表](https://cs329z.stanford.edu/)與[Logistics](https://cs329z.stanford.edu/logistics.html)：課程材料角色、作業時程與錄影取得方式。
+- [官方 HW1 handout 與 starter](https://github.com/cs329z/assignment1-harness)：後續作業要求。
+- 站內：[CS329Z 課程總覽](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)、[第 2 週](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)、[第 3 週](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)。

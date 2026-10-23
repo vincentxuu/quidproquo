@@ -1,6 +1,7 @@
 ---
 title: "Coding Agents Need Their Own IDE First | Stanford CS329Z Week 9"
 date: 2026-09-10
+updated: 2026-10-23
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, rag]
@@ -45,6 +46,14 @@ One generalist agent, prompt unchanged, runs software, browsing, and QA tasks al
 
 A typical trajectory splits in two. It opens with reproduction or localization: create a script that triggers the bug, or sweep the search commands to narrow the ground. From the middle onward it is nearly all edit-and-run loops: change code, execute, and localize again on fresh evidence.
 
+```diagram
+title: Tests guide the next edit
+desc: Reproduce and locate first, then edit and test; failures inform another edit, while passing tests lead to patch submission.
+caption: Development feedback from the text; hidden scoring tests run separately, and submission does not establish benchmark success.
+---
+<svg viewBox="0 0 440 592"><path class="dg-line" d="M220 88V128" marker-end="url(#arrow)"/><path class="dg-line" d="M220 192V248" marker-end="url(#arrow)"/><path class="dg-line" d="M220 344V392Q220 400 212 400H120Q112 400 112 408V496" marker-end="url(#arrow)"/><path class="dg-line" d="M380 296H400Q408 296 408 304V456Q408 464 400 464H340Q332 464 332 472V496" marker-end="url(#arrow)"/><path class="dg-line dg-line--dashed" d="M424 536H428Q432 536 432 532V168Q432 160 424 160H400" marker-end="url(#arrow)"/><rect class="dg-box" x="20" y="16" width="400" height="72" rx="6"/><text class="dg-label" x="220.0" y="52.0" text-anchor="middle" dominant-baseline="central">Reproduce / locate the bug</text><rect class="dg-box" x="40" y="128" width="360" height="64" rx="6"/><text class="dg-label" x="220.0" y="160.0" text-anchor="middle" dominant-baseline="central">Edit the code</text><path class="dg-box" d="M220 248L380 296L220 344L60 296Z"/><text class="dg-label" x="220" y="296" text-anchor="middle" dominant-baseline="central">Local checks pass?</text><rect class="dg-box dg-box--accent" x="16" y="500" width="192" height="72" rx="6"/><text class="dg-label" x="112.0" y="536.0" text-anchor="middle" dominant-baseline="central">Submit the patch</text><rect class="dg-box" x="240" y="500" width="184" height="72" rx="6"/><text class="dg-label" x="332.0" y="536.0" text-anchor="middle" dominant-baseline="central">Read failures</text><text class="dg-edge" x="164" y="372" text-anchor="middle" dominant-baseline="central">Pass</text><text class="dg-edge" x="376" y="392" text-anchor="middle" dominant-baseline="central">Fail</text></svg>
+```
+
 Success has a timing signature: early submissions tend to be right. Resolved cases finish in a median of about twelve steps. Stuck cases average twenty-one steps. A solved instance costs roughly a dollar sixty in API spend. Each instance carries a four-dollar budget, and overruns auto-submit whatever exists.
 
 Failure has a portrait too. About half the failures are wrong implementations: plausible patches that simply do not work. Over twenty percent more are cascading bad edits: one slip never recovered, everything after it skewed. More than half of all trajectories swallow at least one failed edit, and recovery odds shrink with each repeat.
@@ -83,6 +92,8 @@ Course and recording entries:
 Checked: 2026-10-10.
 
 ## Update Log
+
+- 2026-10-23: Added diagrams and comparison tables where useful for the existing explanation; this visual update does not reverify numerical results, schedules or research claims.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
