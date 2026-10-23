@@ -1,0 +1,18 @@
+---
+import PostLayout from '../layouts/PostLayout.astro';
+import VocabularyLibrary from '../components/VocabularyLibrary';
+---
+<PostLayout title="我的單字庫" description="收藏文章中不熟的詞彙，透過間隔複習加深記憶。" lang="zh-TW" switchHref="/en/vocabulary/" hasTranslation={true} hreflangZh="https://quidproquo.cc/vocabulary/" hreflangEn="https://quidproquo.cc/en/vocabulary/">
+  <!-- Saved words live in localStorage; no server-rendered card state exists. -->
+  <VocabularyLibrary lang="zh-TW" client:only="react">
+    <section slot="fallback" class="vocabulary-loading" aria-labelledby="vocabulary-loading-title">
+      <h1 id="vocabulary-loading-title">我的單字庫</h1>
+      <p role="status">正在載入單字庫…</p>
+      <noscript>請啟用 JavaScript 以讀取儲存在此瀏覽器的單字庫。</noscript>
+    </section>
+  </VocabularyLibrary>
+</PostLayout>
+
+<style>
+  .vocabulary-loading { max-width: 760px; margin: 3rem auto; padding: 0 1.25rem; min-height: 16rem; }
+</style>

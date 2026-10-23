@@ -37,7 +37,7 @@ export interface ChatModelResponse {
  * surface we actually call.
  */
 export interface ChatModel {
-  invoke(input: BaseMessageLike[]): Promise<ChatModelResponse>
+  invoke(input: BaseMessageLike[], options?: { signal?: AbortSignal }): Promise<ChatModelResponse>
 }
 
 type Env = {
@@ -92,7 +92,7 @@ function resolveRoute(
 type InvokableModel = { invoke: (...args: any[]) => Promise<unknown>; bindTools?: (...args: any[]) => unknown }
 function adapt(model: InvokableModel): ChatModel {
   const adapted: ChatModel & Record<string, unknown> = {
-    invoke: (input) => (model.invoke as (i: BaseMessageLike[]) => Promise<ChatModelResponse>).call(model, input),
+    invoke: (input, options) => (model.invoke as (i: BaseMessageLike[], options?: { signal?: AbortSignal }) => Promise<ChatModelResponse>).call(model, input, options),
   }
   if (typeof model.bindTools === 'function') {
     // [skip-harness] langchain's bindTools returns a model with the same shape

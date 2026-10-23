@@ -37,6 +37,12 @@ describe('speaking practice', () => {
     expect(Object.keys(speakingEvidence).sort()).toEqual(speakingCards.map(card => card.id).sort());
     for (const evidence of Object.values(speakingEvidence)) if (evidence.article) expect(evidence.article).toMatch(/^\/posts\/[a-z0-9-]+(\/[a-z0-9-]+)*\/?$/);
   });
+  it('keeps colleague health and lunch practice independent of article pages', () => {
+    const cards = speakingCards.filter(card => card.id.startsWith('daily-health-') || card.id.startsWith('daily-lunch-'));
+    expect(cards).toHaveLength(14);
+    for (const card of cards) expect(speakingEvidence[card.id].article).toBeUndefined();
+    expect(speakingDialogues.filter(dialogue => dialogue.id.startsWith('daily-colleague-'))).toHaveLength(2);
+  });
   it('groups a cheat sheet by family in the given order without losing cards', () => {
     const order = ['go', 'have'];
     const groups = groupCheatSheet('travel', order);

@@ -14,6 +14,7 @@ import { getSeriesHref, getSeriesTitle } from '../../utils/series';
 import { normalizeGlossaryTerms, resolveGlossaryForLang } from '../../lib/glossary/entries';
 import { getSharedGlossaryAsset } from '../../lib/glossary/assets';
 import RelatedPosts from '../../components/RelatedPosts';
+import VocabularyCapture from '../../components/VocabularyCapture.astro';
 
 import { getYouTubeEmbedId } from '../../utils/youtube';
 
@@ -315,6 +316,8 @@ const breadcrumbLD = {
       </div>
     ))}
 
+    <VocabularyCapture lang={lang} title={post.data.title} />
+
     <!-- Content -->
     <div class="content">
       <Content />
@@ -342,7 +345,7 @@ const breadcrumbLD = {
       set:html={JSON.stringify(glossaryOverrides).replace(/</g, '\\u003c')}
     />
 
-    <div class="glossary-popover" id="glossary-popover" role="dialog" aria-live="polite" hidden>
+    <div class="glossary-popover" id="glossary-popover" role="dialog" aria-labelledby="glossary-title" aria-live="polite" hidden>
       <div class="glossary-popover-head">
         <div>
           <div class="glossary-eyebrow">Glossary</div>
@@ -356,6 +359,11 @@ const breadcrumbLD = {
       <p class="glossary-definition" id="glossary-definition">Loading...</p>
       <p class="glossary-context" id="glossary-context"></p>
       <div class="glossary-reading" id="glossary-reading"></div>
+      <div class="glossary-save-actions">
+        <button type="button" id="glossary-save" disabled>{lang === 'en' ? 'Save word' : '加入單字庫'}</button>
+        <a href={lang === 'en' ? '/en/vocabulary' : '/vocabulary'}>{lang === 'en' ? 'Review words' : '前往複習'}</a>
+      </div>
+      <p id="glossary-save-status" role="status"></p>
     </div>
 
     <!-- Prev / Next -->
@@ -1095,6 +1103,7 @@ const breadcrumbLD = {
   });
 
   // Fetch the shared dictionary; keep full terms.ts out of the browser bundle.
+  import { addVocabulary, readVocabulary, writeVocabulary } from '../../lib/vocabulary';
   import { loadGlossaryEntries } from '../../lib/glossary/client';
   import { markGlossaryTerms, resetGlossaryTerms } from '../../lib/glossary/mark';
   const glossaryData = document.getElementById('glossary-data') as HTMLScriptElement | null;
@@ -1132,6 +1141,10 @@ const breadcrumbLD = {
   const glossaryBoundButtons = new WeakSet<HTMLElement>();
   const glossarySlug = glossaryData?.dataset.postSlug ?? '';
   const glossaryLang = glossaryData?.dataset.lang ?? 'zh-TW';
+  const glossarySave = document.getElementById('glossary-save') as HTMLButtonElement | null;
+  const glossarySaveStatus = document.getElementById('glossary-save-status');
+  let saveResponse: GlossaryResponse | null = null;
+  let glossaryRequest = 0;
   const glossaryCache = new Map<string, GlossaryResponse>();
   const glossaryPending = new Map<string, Promise<GlossaryResponse>>();
   let glossaryLevel = (localStorage.getItem('glossary-level') === 'advanced' ? 'advanced' : 'beginner') as 'beginner' | 'advanced';
@@ -1169,11 +1182,14 @@ const breadcrumbLD = {
       ? Math.max(16, rect.top - gap - 220)
       : rect.bottom + gap;
     glossaryPopover.style.left = `${left}px`;
-    glossaryPopover.style.top = `${top}px`;
+    glossaryPopover.style.top = `${Math.max(16, Math.min(top, window.innerHeight - glossaryPopover.offsetHeight - 16))}px`;
   }
 
   function renderGlossary(data: GlossaryResponse) {
     if (!glossaryTitle || !glossaryDefinition || !glossaryContext || !glossaryReading) return;
+    saveResponse = data.definition === 'Loading...' ? null : data;
+    if (glossarySave) glossarySave.disabled = !saveResponse;
+    if (glossarySaveStatus) glossarySaveStatus.textContent = '';
     glossaryTitle.textContent = data.term;
     glossaryDefinition.textContent = data.definition;
     glossaryContext.textContent = data.context;
@@ -1210,6 +1226,7 @@ const breadcrumbLD = {
     if (!glossaryPopover) return;
     window.clearTimeout(glossaryHideTimer);
     activeGlossaryButton = button;
+    const request = ++glossaryRequest;
     const term = button.dataset.term ?? button.textContent?.trim() ?? '';
     const seed = glossaryEntryFor(term);
     const context = sentenceAround(button);
@@ -1248,7 +1265,7 @@ const breadcrumbLD = {
     const response = await pending;
     glossaryPending.delete(cacheKey);
     glossaryCache.set(cacheKey, response);
-    if (activeGlossaryButton === button) {
+    if (activeGlossaryButton === button && request === glossaryRequest) {
       renderGlossary(response);
       positionGlossaryPopover(button);
     }
@@ -1256,8 +1273,10 @@ const breadcrumbLD = {
 
   function hideGlossarySoon() {
     glossaryHideTimer = window.setTimeout(() => {
+      if (glossaryPopover?.contains(document.activeElement)) return;
       if (glossaryPopover) glossaryPopover.hidden = true;
       activeGlossaryButton = null;
+      ++glossaryRequest;
     }, 180);
   }
 
@@ -1273,6 +1292,20 @@ const breadcrumbLD = {
       button.addEventListener('mouseleave', hideGlossarySoon);
       button.addEventListener('blur', hideGlossarySoon);
       button.addEventListener('click', () => loadGlossary(button));
+      button.setAttribute('aria-controls', 'glossary-popover');
+      button.setAttribute('aria-haspopup', 'dialog');
+      button.addEventListener('keydown', event => {
+        if (event.key === 'ArrowDown') {
+          event.preventDefault();
+          void loadGlossary(button);
+          glossaryPopover?.querySelector<HTMLButtonElement>('button')?.focus();
+        }
+        if (event.key === 'Escape') {
+          if (glossaryPopover) glossaryPopover.hidden = true;
+          activeGlossaryButton = null;
+          ++glossaryRequest;
+        }
+      });
     });
   }
   async function initializeGlossary() {
@@ -1300,6 +1333,28 @@ const breadcrumbLD = {
   // A transient asset failure keeps custom entries usable and can recover later.
   window.addEventListener('online', () => { void initializeGlossary(); });
   window.addEventListener('focus', () => { void initializeGlossary(); });
+  glossarySave?.addEventListener('click', () => {
+    if (!saveResponse) return;
+    try {
+      writeVocabulary(addVocabulary(readVocabulary(), {
+        term: saveResponse.term, definition: saveResponse.definition,
+        context: activeGlossaryButton ? sentenceAround(activeGlossaryButton) : saveResponse.context, sourcePath: location.pathname,
+        sourceTitle: document.querySelector('h1')?.textContent?.trim() ?? '', lang: glossaryLang,
+      }));
+      if (glossarySaveStatus) glossarySaveStatus.textContent = glossaryLang === 'en' ? 'Saved to your vocabulary.' : '已加入單字庫。';
+    } catch {
+      if (glossarySaveStatus) glossarySaveStatus.textContent = glossaryLang === 'en' ? 'Unable to save. Check browser storage settings.' : '無法儲存，請檢查瀏覽器儲存設定。';
+    }
+  });
+  glossaryPopover?.addEventListener('focusin', () => window.clearTimeout(glossaryHideTimer));
+  glossaryPopover?.addEventListener('focusout', hideGlossarySoon);
+  glossaryPopover?.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    activeGlossaryButton?.focus();
+    if (glossaryPopover) glossaryPopover.hidden = true;
+    activeGlossaryButton = null;
+    ++glossaryRequest;
+  });
   glossaryPopover?.addEventListener('mouseenter', () => window.clearTimeout(glossaryHideTimer));
   glossaryPopover?.addEventListener('mouseleave', hideGlossarySoon);
   glossaryPopover?.querySelectorAll<HTMLButtonElement>('[data-glossary-level]').forEach(button => {
@@ -1315,6 +1370,8 @@ const breadcrumbLD = {
   /* ── Glossary popover (must be global — content is JS-injected) ── */
   .glossary-popover {
     position: fixed;
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
     z-index: 80;
     width: min(360px, calc(100vw - 2rem));
     border: 1px solid var(--border);
@@ -1326,6 +1383,11 @@ const breadcrumbLD = {
     font-size: 0.86rem;
     line-height: 1.6;
   }
+  .glossary-save-actions { display: flex; gap: .7rem; align-items: center; margin-top: .7rem; }
+  .glossary-save-actions button { font: inherit; padding: .45rem .6rem; border: 1px solid var(--border); border-radius: 5px; background: var(--bg-subtle); color: var(--text-primary); cursor: pointer; }
+  .glossary-save-actions a { color: var(--brand-500); }
+  .glossary-save-actions :focus-visible { outline: 2px solid var(--brand-500); outline-offset: 3px; }
+  #glossary-save-status { margin: .4rem 0 0; }
   .glossary-popover-head {
     display: flex;
     justify-content: space-between;

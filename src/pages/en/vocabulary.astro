@@ -1,0 +1,18 @@
+---
+import PostLayout from '../../layouts/PostLayout.astro';
+import VocabularyLibrary from '../../components/VocabularyLibrary';
+---
+<PostLayout title="My vocabulary" description="Save unfamiliar article vocabulary and remember it with spaced review." lang="en" switchHref="/vocabulary/" hasTranslation={true} hreflangZh="https://quidproquo.cc/vocabulary/" hreflangEn="https://quidproquo.cc/en/vocabulary/">
+  <!-- Saved words live in localStorage; no server-rendered card state exists. -->
+  <VocabularyLibrary lang="en" client:only="react">
+    <section slot="fallback" class="vocabulary-loading" aria-labelledby="vocabulary-loading-title">
+      <h1 id="vocabulary-loading-title">My vocabulary</h1>
+      <p role="status">Loading vocabulary…</p>
+      <noscript>Enable JavaScript to read the vocabulary saved in this browser.</noscript>
+    </section>
+  </VocabularyLibrary>
+</PostLayout>
+
+<style>
+  .vocabulary-loading { max-width: 760px; margin: 3rem auto; padding: 0 1.25rem; min-height: 16rem; }
+</style>
