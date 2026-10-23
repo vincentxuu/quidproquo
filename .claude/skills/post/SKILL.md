@@ -74,6 +74,8 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 攀岩器材與保護系統文章（繩子、確保器、鉤環、吊帶、頭盔、岩楔／cam、固定點、bolt、確保、檢查汰換）預設補實測影片：先找 HowNOT2 與 Hard Is Easy，每篇 3–5 支嵌在對應段落、文末加頻道介紹。挑片、查證、限制寫法與標準稿見 `references/climbing-gear-videos.md`。
 
+攀岩器材與保護系統文章（繩子、確保器、鉤環、吊帶、頭盔、岩楔／cam、固定點、bolt、確保、檢查汰換）預設補實測影片：先找 HowNOT2 與 Hard Is Easy，每篇 3–5 支嵌在對應段落、文末加頻道介紹。挑片、查證、限制寫法與標準稿見 `references/climbing-gear-videos.md`。
+
 ### 1b. 多來源導讀與英文練習
 
 來源是 YouTube、podcast、影音檔或逐字稿時，先跑 `../media-to-post/SKILL.md`，取得來源紀錄、校正版、主題地圖、主張定位與覆蓋報告，再寫本文。只補嵌入不用跑整套。已處理材料可重用，但先確認來源版本、取得範圍與未解決疑點；不能拿 show notes 或他人摘要冒充整集內容。
