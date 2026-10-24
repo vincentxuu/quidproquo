@@ -9,8 +9,9 @@
 
 - 回答的是「**單次最大強度運動**，不同持續時間，無氧與有氧各佔多少」。
 - 納入限定成人（≥18 歲）、單次最大運動；**排除**間歇運動、重複衝刺、團隊球類、次最大強度運動（"Studies that measured ... intermittent exercise and repeated intervals, intermittent team sport, or involved sub-maximal exercise bouts were excluded."）。
-- 受試者：78% 男性、12% 女性、11% 混合；主要是跑步與腳踏車（"no differences between running and cycling"）。**沒有攀岩。**
-- 所以它**不能直接回答攀岩一條路線的能量來源**：攀岩是間歇、非最大強度、上肢為主。能用的是機制與「兩個系統同時運作、沒有單一系統負責」。
+- 受試者（研究樣本組成）：78% 男性、12% 女性、11% 混合（加總 101%，是納入研究的樣本類別，不是人數比例）；運動以腳踏車與跑步居多（post-verify 子代理依表 2–4 計數：106 列中腳踏車 46、跑步 31，非作者結論）。
+- **更正（2026-10-24，經 post-verify）：** 我原寫「沒有攀岩」是錯的。納入研究中有 Bertuzzi 等人 2007 的室內攀岩研究（Energy system contributions in indoor rock climbing，Eur J Appl Physiol，N=6，表 3 一列 73.8–83.9 秒，無氧 51.5–58.4%）。回顧沒有單獨分析攀岩，只有這一項、6 人，所以不能據以回答攀岩的能量比例。
+- 所以它**不能直接回答攀岩一條路線的能量來源**：攀岩是間歇、非最大強度、上肢為主；回顧只納入一項 6 人的室內攀岩研究。能用的是機制與「兩個系統同時運作、沒有單一系統負責」。
 
 ## 可用陳述
 
