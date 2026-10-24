@@ -6,7 +6,7 @@ tags: [human-body, systematic-review, who-guidelines]
 lang: en
 difficulty: 入門
 description: "Series overview: one line from nerve to muscle to tendon to bone that shows how the body works, and four questions for judging how reliable a fitness or body claim is."
-tldr: "For adults with no sports-science background: this series follows one line of how the body works, taking apart one part or mechanism at a time and saying how reliable the evidence is. This overview first teaches four questions for judging evidence, using the grading WHO published with its 2020 guidelines."
+tldr: "For adults with no sports-science background: the series splits the body into seven units, takes one part or mechanism at a time, and says how strong the evidence is. This overview first teaches four questions for judging evidence."
 draft: true
 series:
   name: "Understanding the Human Body"
@@ -36,13 +36,13 @@ After this overview you can do three things: say what single line the body's wor
 
 ## A map of how the body works
 
-When you pick up a glass of water, the sequence is this: a nerve sends a signal, because skeletal muscle [depends completely on signals from the nervous system](https://openstax.org/books/anatomy-and-physiology-2e/pages/10-1-overview-of-muscle-tissues); the muscle's force [passes through a tendon to the bone, the bone is pulled, and the body moves](https://openstax.org/books/anatomy-and-physiology-2e/pages/10-2-skeletal-muscle); contraction costs energy, and the muscle relies on blood vessels to bring oxygen and carry away waste.
+When you pick up a glass of water, these things happen in order. A nerve sends a signal first, because skeletal muscle [depends completely on signals from the nervous system](https://openstax.org/books/anatomy-and-physiology-2e/pages/10-1-overview-of-muscle-tissues). Once the muscle produces force, [that force passes through the tendon to the bone, the bone is pulled, and the body moves](https://openstax.org/books/anatomy-and-physiology-2e/pages/10-2-skeletal-muscle). All this contraction costs energy, and the muscle relies on [blood vessels to bring nutrients and oxygen and carry away waste](https://openstax.org/books/anatomy-and-physiology-2e/pages/10-2-skeletal-muscle).
 
 The series follows that line, from the parts you can see toward mechanisms you cannot:
 
-| Section | Question it answers |
+| Unit | Question it answers |
 |---|---|
-| Parts | What bones, muscles and tendons are, and how they adapt to load |
+| Parts | What muscles, tendons and bones are, and how they adapt to load |
 | Energy | Where energy comes from, and what the heart and lungs do |
 | Adaptation | What happens to strength, the nervous system and recovery after you train |
 | Movement and balance | How skills are learned, how balance is trained |
@@ -50,7 +50,9 @@ The series follows that line, from the parts you can see toward mechanisms you c
 | Age and differences | Aging, joints, sex, body composition |
 | Claims without evidence | Things you often hear but cannot trace to reliable studies, and where each one stalls |
 
-Sections and their topics may be added or dropped later, depending on what reliable evidence can be found. If you want to start with one question: to see how muscles get stronger, start at Adaptation; to see whether common methods work, start at Pain and posture; to see whether age or sex changes the rules, start at Age and differences. The three questions at the top fall in Adaptation and in Pain and posture.
+The first four units follow that line; the last three are off the line and use what came before to examine claims you often hear. Units and their topics may be added or dropped later, depending on what reliable evidence can be found.
+
+If you want to start with one question: to see how muscles get stronger, start at Adaptation; to see whether common methods work, start at Pain and posture; to see whether age or sex changes the rules, start at Age and differences. The three questions at the top fall in Adaptation and in Pain and posture.
 
 The site also has a climbing series. If you would rather start from climbing, begin with [Plateaued in Climbing, Should You Start Training?](/posts/climbing/2026-10-18-climbing-training-diagnosis-en).
 
@@ -58,7 +60,7 @@ The site also has a climbing series. If you would rather start from climbing, be
 
 The [WHO 2020 guidelines on physical activity and sedentary behaviour](https://doi.org/10.1136/bjsports-2020-102955) publish how they graded their evidence, which makes a good template. When you meet any claim about fitness or the body, ask these four questions.
 
-**1. Is it one study, or many pooled?** The WHO guidelines rest mainly on systematic reviews: collect the studies on one question and look at them together. Pooling is usually steadier than a single study, because a single study, however neat, can be a coincidence. But how good the pooling is depends on how the studies behind it were designed: whether there was a control group, and how many people. Also, many findings come from observational studies that follow a group of people, and what they see is two things appearing together, which does not mean one causes the other.
+**1. Is it one study, or many pooled?** The WHO guidelines rest mainly on systematic reviews: collect the studies on one question and look at them together. Pooling is usually steadier than a single study, because a single study, however neat, can be a coincidence. But how good the pooling is depends on how the studies behind it were designed: whether there was a control group, and how many people each study had. The meta-analysis in question 4 below compared before and after training, with no control-group data included, and each study was small; that is this kind of example. Also, the evidence WHO assessed includes cohort studies that follow a group of people, and what they see is physical activity and health outcomes appearing together, which does not mean one causes the other.
 
 **2. How certain is the evidence?** WHO uses a method called GRADE to rate certainty in four levels: high, moderate, low, very low. High means very confident in the effect the studies estimate; very low means very little confidence, and the true effect is likely to be far from the estimate.
 
@@ -70,12 +72,12 @@ Whether the studies are biased, whether results are consistent, whether the esti
 
 **3. Strength of recommendation and certainty of evidence are two different things.** WHO sorts recommendations into strong and conditional, decided by the balance of benefits and harms, the certainty of evidence, and other factors together. So a strong recommendation does not mean hard evidence: WHO rated its sedentary-behaviour recommendation for children and adolescents as strong, yet the certainty of evidence was low. When you read "experts recommend", ask what level of evidence it stands on.
 
-**4. Do the people studied resemble you?** Two examples. WHO's guidelines say outright that they do not address the training athletes do to improve competition performance. The other is [a meta-analysis pooling 61 studies](https://doi.org/10.1007/s40279-022-01695-y), which found that healthy adults' lower-limb tendons get stiffer after resistance training. But those studies compared before and after training, with no control-group data included; all but one study had 15 participants or fewer, and most participants were untrained; three studies recruited well-trained people, and those showed no change in tendon stiffness. It also covers only lower-limb tendons, so it cannot be applied directly to the finger pulleys or the shoulder.
+**4. Do the people studied resemble you?** Two examples. First, WHO's guidelines state in their scope that they do not address the training athletes do to improve competition performance. Second, [the meta-analysis pooling 61 studies](https://doi.org/10.1007/s40279-022-01695-y) studied healthy people's lower-limb tendons and found that they get stiffer after resistance training. But most participants had no consistent history of resistance training, and in the three studies that recruited well-trained people, the authors say none showed a change in patellar-tendon stiffness. It also covers only lower-limb tendons; tendons in the fingers and shoulder are outside its scope.
 
 ## Two things to try tonight
 
-1. **Take a claim apart.** Pick a fitness or body claim you saw recently and write four things on a sheet of paper: what it says its basis is; whether that is a single study or a pooled one; whether the people studied resemble you; and whether anyone says how certain the evidence is. Wherever you cannot answer, hold the claim loosely; if you cannot find a source, that is also an answer, so write "not found".
-2. **Look at a grading table once.** Open the WHO paper above, find Table 2, and copy out the definitions of the four levels of certainty. Next time you see "strong recommendation", you will know to ask one more thing: which level of evidence?
+1. **Take a claim apart.** Pick a fitness or body claim you saw recently and write four things on a sheet of paper: whether it cites a single study or a pooled one (look in the abstract for the words "systematic review" or "meta-analysis"); whether anyone says how certain the evidence is; whether it is an expert's recommendation or a study's result, and if a recommendation, which level of evidence it rests on; and whether the people studied resemble you. Wherever you cannot answer, hold the claim loosely; if you cannot find a source, that is also an answer, so write "not found".
+2. **Read one strong recommendation on low-certainty evidence.** Open the WHO paper above, find the section on children and adolescents, read up to the sentence "rated as strong based on low certainty evidence", then read the two sentences before it to see why it was rated that way.
 
 ## References
 
