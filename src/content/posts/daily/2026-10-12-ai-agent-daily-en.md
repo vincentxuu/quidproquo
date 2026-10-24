@@ -46,7 +46,7 @@ What this means for practitioners: if your team is evaluating whether to adopt a
 
 ### Tools & Ecosystem
 
-Today's four trending repos in the Stage 1 GitHub Digest share a theme: agents are no longer confined to chat windows — they're reaching into real systems. rea lets agents reverse-engineer real binaries and jumped to #1 trending with 25,585 new stars in a day; ARTEX lets agents run autonomous penetration tests against real network assets; iPhone-use lets agents control a real iPhone over USB; talorys runs a personal agent directly on your own Cloudflare account. See the full [GitHub Digest](/posts/daily/2026-10-12-ai-agent-github-digest-en).
+Today's four trending repos in the Stage 1 GitHub Digest share a theme: agents are no longer confined to chat windows — they're reaching into real systems. rea lets agents reverse-engineer real binaries and jumped to #1 trending with 25,585 new stars in a day; ARTEX lets agents run autonomous penetration tests against real network assets (CrowdStrike's Oct 7 report says attackers have already abused it, the author took it closed-source on Oct 8, and the mirrors are third-party backup copies; listed to explain the risk, not to encourage installing or using it); iPhone-use lets agents control a real iPhone over USB; talorys runs a personal agent directly on your own Cloudflare account. See the full [GitHub Digest](/posts/daily/2026-10-12-ai-agent-github-digest-en).
 
 **Qwen Code v0.25.1-preview.2**: fixed an issue where agents lost their binding configuration when switching remote hosts. ([agents-radar](https://github.com/yaojiejia/agents-radar/issues/285))
 
@@ -151,6 +151,10 @@ Egyptian agritech startup SmartCrop closed a $25M Series A led by Middle Eastern
 ## Today's Takeaway
 
 I used to think agent security mainly meant defending against external attackers' prompt injection. Today, the Personal Agent Protocol launching the same day as AgentCorruption showed me how easily an industry's attention gets pulled toward "the legible, PR-friendly, alliance-building problem" (external identity standards) instead of "the boring but actually lethal problem" (internal execution-role design) — that's not about technical difficulty, it's a choice about where to allocate resources.
+
+## Update Log
+
+- 2026-10-24: Added a provenance and misuse-risk warning to the ARTEX sentence (CrowdStrike's Oct 7 report, the author's Oct 8 move to closed source, mirrors being third-party backup copies, and misuse reported by several vendors), and noted that we do not encourage installing or using it.
 
 ## References
 
