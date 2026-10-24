@@ -295,6 +295,12 @@ theCrag lists only five routes at this level for the whole crag, all in the back
 | Poka Progresión | 5.14a | 5.14a | — | Wild Boar Gorge | theCrag, 7 bolts |
 | Logical Progression | 5.14b/c | 5.14b/c | — | Wild Boar Gorge | theCrag, 8 bolts, 2 ascents |
 
+```video-gallery
+key: joyama
+lang: en
+layout: routes
+```
+
 Information at this level is thin outside Japan, and both names and grades rest on theCrag alone; if the guidebook gives a newer grade, go with the book.
 
 ### Multi-pitch routes
@@ -344,6 +350,12 @@ The 17 routes below have only a name, top grade and bolt count on ROCKTOPO, with
 | ロックアップ | 5.11c | 5.11c | — | Inner Wall 3 | ROCKTOPO: put up by 國分誠, 7 bolts |
 | ホライズン | 5.12a | 5.12a | — | Inner Wall 2 | ROCKTOPO: put up by 國分誠, 10 bolts |
 | スキャンティー | 5.12a | 5.12a | — | Inner Wall 3 | ROCKTOPO: put up by 國分誠, 7 bolts |
+
+```video-gallery
+key: joyama
+lang: en
+layout: routes
+```
 
 How to choose: for a first multi-pitch at Joyama, Seinan Kante and スタートレック have the lowest grades, but the first needs a lead-in pitch to reach and the second is new, with sand still on the rock. Battlerunner and Excursion are fully bolted and the easiest lines to follow. 三日月ハング is the historic line; its grade depends on which variation you take, so bring a topo.
 
@@ -450,7 +462,20 @@ No public topo exists yet, so the route is not in the tables above.
 - [Bunanokai: Joyama South Face multi-pitch (2022-12-17–18, in Japanese)](https://www.bunanokai.jp/archives/21699)
 - [YouTube: 城山西南カンテ](https://www.youtube.com/watch?v=f2HYExPQwUo)
 
+- [YouTube：城山「スタートレック」/マルチピッチクライミング（Okaji Movie）](https://www.youtube.com/watch?v=zCYhFu-EqjI)
+- [YouTube：伊豆・城山のマルチピッチクライミングルート『スター☆トレック 』（5p/5.8）をご紹介！（TAKEMOVIE（タケムービー））](https://www.youtube.com/watch?v=l68_-amCZl4)
+- [YouTube：【リードクライミング】 伊豆　城山　チューブロック　ミウラー 11a 完登動画（tatsuo555-560）](https://www.youtube.com/watch?v=DBOMvwRa0Us)
+- [YouTube：伊豆城山 チューブロック ストーンフリー 5.10c（The Climb）](https://www.youtube.com/watch?v=wQlNz5PxFl0)
+- [YouTube：城山 チューブロック【チャンディーラサ】5.11a（2nd_723）](https://www.youtube.com/watch?v=3BfuLotNB2I)
+- [YouTube：【ジャンバラヤ 5.11c】城山  166㎝ クライミング climbing joyama Japan（Galapagos-Climber）](https://www.youtube.com/watch?v=lFbxN3meUNo)
+- [YouTube：城山 リキッドフィンガー 5.13d, Liquid Finger 8b, Jyoyama（のぼコン太田裕樹）](https://www.youtube.com/watch?v=CV3NdlACOG8)
+- [YouTube：2018年3月12日城山　「ロジカルプログレッション」5.14b/c（shu2rock）](https://www.youtube.com/watch?v=lhtDrrCgTm8)
+- [YouTube：城山「スチームボーイ」/マルチピッチクライミング（Okaji Movie）](https://www.youtube.com/watch?v=oE6hekYgVJw)
+- [YouTube：20260213 城山東壁 ブレードランナー 6p,5 10c（下見）＋マッドマックス5-6P（再登）（mikko KURATA）](https://www.youtube.com/watch?v=O0CvQcPrR2g)
+
 ## Changelog
+
+- 2026-10-24: Added ten videos from nine channels to the matching route tables, including Star Trek, Tube Rock routes, Liquid Finger, Logical Progression, Steam Boy and Blade Runner / Mad Max. Titles, channels, runtimes, embed eligibility and author descriptions were checked; the footage has not been reviewed in full. Pitch counts, grades and descent instructions in the tables were not changed.
 
 - 2026-10-23: replaced "Notable routes" with "Routes by level", adding beginner, intermediate, advanced and expert tables and a YDS column from theCrag's per-sector route lists; split "Parking" out of "Getting there" and moved the transport comparison table to the top; added the guidebook, emergency numbers and insurance notes. Route data checked 2026-10-23.
 - 2026-10-23 (second version): added the 13-sector route count and ascent comparison table, explaining the gap between theCrag's 183 routes, ROCKTOPO's 362 and CLIMBING-net's "about 300"; expanded the grade tables from 24 to 51 routes, now covering Tube Rock, Futama bando dai hang and the Wild Boar Gorge alongside the South Face.

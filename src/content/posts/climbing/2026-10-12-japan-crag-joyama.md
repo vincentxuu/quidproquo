@@ -295,6 +295,12 @@ theCrag 全區只有 5 條在這個級距，全部在ワイルドボアゴージ
 | Poka Progresión／ポカ・プログレシオーン | 5.14a | 5.14a | — | ワイルドボアゴージ | theCrag、7 個 bolt |
 | Logical Progression／ロジカルプログレッション | 5.14b/c | 5.14b/c | — | ワイルドボアゴージ | theCrag、8 個 bolt、2 次紀錄 |
 
+```video-gallery
+key: joyama
+lang: zh-TW
+layout: routes
+```
+
 這個級距的資訊在中文圈幾乎沒有，路線名與級數都只靠 theCrag 一條來源；guidebook 有新版的級數就以書為準。
 
 ### 多段路線
@@ -344,6 +350,12 @@ layout: routes
 | ロックアップ | 5.11c | 5.11c | — | インナーウォール 3 | ROCKTOPO：國分誠開拓、7 個 bolt |
 | ホライズン | 5.12a | 5.12a | — | インナーウォール 2 | ROCKTOPO：國分誠開拓、10 個 bolt |
 | スキャンティー | 5.12a | 5.12a | — | インナーウォール 3 | ROCKTOPO：國分誠開拓、7 個 bolt |
+
+```video-gallery
+key: joyama
+lang: zh-TW
+layout: routes
+```
 
 怎麼挑：第一次在城山爬多段，西南カンテ 和スタートレック 級數最低，但前者取付要先爬一段、後者是新線，岩面還有砂；全程 bolt、最好認線的是 Battlerunner 與 Excursion。三日月ハング 是歷史線，級數看哪一條變化線而定，帶上 topo 再去。
 
@@ -452,7 +464,20 @@ layout: routes
 - [ぶなの会：伊豆 城山南壁 マルチピッチ（2022-12-17–18）](https://www.bunanokai.jp/archives/21699)
 - [YouTube：城山西南カンテ](https://www.youtube.com/watch?v=f2HYExPQwUo)
 
+- [YouTube：城山「スタートレック」/マルチピッチクライミング（Okaji Movie）](https://www.youtube.com/watch?v=zCYhFu-EqjI)
+- [YouTube：伊豆・城山のマルチピッチクライミングルート『スター☆トレック 』（5p/5.8）をご紹介！（TAKEMOVIE（タケムービー））](https://www.youtube.com/watch?v=l68_-amCZl4)
+- [YouTube：【リードクライミング】 伊豆　城山　チューブロック　ミウラー 11a 完登動画（tatsuo555-560）](https://www.youtube.com/watch?v=DBOMvwRa0Us)
+- [YouTube：伊豆城山 チューブロック ストーンフリー 5.10c（The Climb）](https://www.youtube.com/watch?v=wQlNz5PxFl0)
+- [YouTube：城山 チューブロック【チャンディーラサ】5.11a（2nd_723）](https://www.youtube.com/watch?v=3BfuLotNB2I)
+- [YouTube：【ジャンバラヤ 5.11c】城山  166㎝ クライミング climbing joyama Japan（Galapagos-Climber）](https://www.youtube.com/watch?v=lFbxN3meUNo)
+- [YouTube：城山 リキッドフィンガー 5.13d, Liquid Finger 8b, Jyoyama（のぼコン太田裕樹）](https://www.youtube.com/watch?v=CV3NdlACOG8)
+- [YouTube：2018年3月12日城山　「ロジカルプログレッション」5.14b/c（shu2rock）](https://www.youtube.com/watch?v=lhtDrrCgTm8)
+- [YouTube：城山「スチームボーイ」/マルチピッチクライミング（Okaji Movie）](https://www.youtube.com/watch?v=oE6hekYgVJw)
+- [YouTube：20260213 城山東壁 ブレードランナー 6p,5 10c（下見）＋マッドマックス5-6P（再登）（mikko KURATA）](https://www.youtube.com/watch?v=O0CvQcPrR2g)
+
 ## 更新紀錄
+
+- 2026-10-24：路線表新增 9 個頻道的 10 支影片，包含スタートレック、チューブロック、Liquid Finger、Logical Progression、STEAM BOY 與ブレードランナー／マッドマックス；已核對片名、頻道、片長、嵌入資格與作者描述，尚未逐段觀看。表格原有段數、級數與下降資訊不因影片而更動。
 
 - 2026-10-23：把「代表性路線」改成「依程度挑路線」，依 theCrag 各分區路線表補入門／中級／進階／高手四張表與 YDS 欄；「怎麼去」拆出「停車」一節並把交通對照表移到開頭；補指南書、緊急電話與保險說明。
 - 2026-10-23（第二版）：南壁補入 MuRa 部落格有評語的 5.8–5.11a 路線，新增「爬過的人怎麼說」（岩況、錨栓、東壁新線スタートレック）與「影片」兩節。
