@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "auto_pool_topics": true,
+  "source_limit": 4,
+  "query_limit": 2,
+  "disabled_topics": []
+}

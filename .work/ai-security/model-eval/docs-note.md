@@ -1,0 +1,2 @@
+Official Codex CLI noninteractive docs read via Exa fallback, Groundlane inventory not mounted. https://developers.openai.com/codex/noninteractive.md
+Scope: codex exec, ephemeral, ignore-user-config, JSONL events and usage, explicit sandbox. Model efficacy and fees not inferred from documentation. Raw fetch remains local; runtime behavior also checked with local CLI --help/features and saved traces.

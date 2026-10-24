@@ -53,6 +53,14 @@ glossary:
 
 上攀時也一樣適用。有一個例外：攀爬者到頂端、正在架設下放或垂降的時候。Poborsky 的做法是確保者**暫時**往後退，好看到頂端的攀爬者、聽清楚口令。攀爬者準備好要下放，確保者再回到起攀點。
 
+**看影片**：Hard Is Easy 的 Ben 在戶外岩場找了一位比他重的攀爬者，在第一顆 bolt 墜落，比較確保者站近和站遠的差別（從 12:45 開始）。站遠時他被拉向岩壁、幾乎控制不了，攀爬者也掉得更低；站近則沒有被甩飛，還能自己選擇接硬或接軟。這是先鋒情境、幾次體感比較，沒有測力；片尾他說某些情況會跳過第一顆 bolt，那是他個人的做法，本文不這樣建議。
+
+```youtube
+url: https://www.youtube.com/watch?v=9bPrcjTtKpk
+title: Sketchy Low Falls | Ep.13（Hard Is Easy）
+start: 765
+```
+
 **今晚就能做的動作**：下次在岩館確保時，刻意站在第一個快扣正下方、往旁邊一步的位置，感受一下攀爬者坐繩時你被往哪個方向拉。
 
 ## 落石：確保者也要戴頭盔
@@ -81,6 +89,14 @@ AAC 編輯在這期指出一個矛盾。運攀岩場裡戴頭盔的，多半是�
 - **用 GriGri 上攀確保、體重差很大**：Petzl 的[技術說明](https://www.petzl.com/int/en/sport/tech-tips/basic-techniques/top-rope-belaying-with-the-grigri-anchored-to-the-ground./GRIGRI---Assurer-avec-le-GRIGRI-fixe-au-sol_SPO_a77w0000000KyxNAAS.html)建議 GriGri 仍然掛在確保者身上，再把確保者連到 1–2 公尺外的地錨。它**強烈不建議**直接把 GriGri 用扁帶掛在地錨上。高度不對時，確保者可能無意間卡住凸輪，讓它無法制動。確保者也感覺不到攀爬者的重量，下放更難控制。這個做法只適用於上攀，因為確保者被固定住，沒辦法做動態確保。
 
 反過來說，地錨也不是越多越好。開頭提到的 [Climbing 文章](https://www.climbing.com/skills/sport-climbing/common-gym-crag-mistakes-need-avoid/)提醒：除非起攀點是窄岩階、或攀爬者重你很多，單繩距確保最好保持能移動。能移動，才閃得開小落石。
+
+**看影片**：HowNOT2 這支請一位體型很大的攀爬者在岩館先鋒墜落，確保者有輕有重，最後一次乾脆把確保者栓死在牆上、身體完全沒有緩衝（從 0:37 的測試說明開始）。被拉起來的確保者，其實幫系統吸收了一部分衝擊；栓死在牆上的那一次，頂端保護點受力約 7 kN，是這個頻道實測過最高的。每種條件只摔一次，而且「栓死在牆上」不是上面 Petzl 那種長度可調的地錨連接，這支看的是把確保者完全固定住的代價，不是示範地錨怎麼架。輕確保者那幾次，系統裡還多掛了一個摩擦裝置（Edelrid Ohm），本文沒有討論這類裝置。
+
+```youtube
+url: https://www.youtube.com/watch?v=Tnk4Ky-D9Bg
+title: BIG climber lead falls for science. You won't believe the forces!（HowNOT2）
+start: 37
+```
 
 **今晚就能做的動作**：跟你的固定攀岩夥伴量一次體重差。差很多的話，先問教練或岩館：上攀時要不要地錨、怎麼掛。
 
@@ -132,6 +148,14 @@ flowchart TB
 
 - 互檢的四點（吊帶、繩結、確保器與鉤環、繩尾）同岩館，見[岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay)。
 - 戶外多出的兩項是頭盔，以及到頂後的共識。
+
+**看影片**：Hard Is Easy 的先鋒確保集數，在戶外岩場把開爬前的準備走一遍（從 3:26 開始）：清掉腳邊會絆到的東西、看粉筆痕避開墜落區、從自己的吊帶順著繩子一路檢查到攀爬者的繩結，最後提醒繩尾要打結。雖然是先鋒集數，這些準備上攀一樣適用。片中說繩尾沒打結「統計上最常造成事故」，沒有附來源，比例請以前面 AAC 的統計為準。他也建議確保者穿鞋、戴頭盔，不過他講的戴頭盔理由是收住長髮、免得捲進確保器，跟前面的落石是兩件事。
+
+```youtube
+url: https://www.youtube.com/watch?v=aHI8kIXNH5M
+title: Lead Belaying - Slack Management, Efficient Taking & More | Ep.11（Hard Is Easy）
+start: 206
+```
 
 ## 在龍洞要多想的事
 
@@ -192,6 +216,17 @@ flowchart TB
 會在戶外確保上攀之後，系列下一篇是[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)：確保者要開始給繩、spot 第一個保護點之前的攀爬者。還沒在岩館練過先鋒的話，先讀[岩館先鋒](/posts/climbing/2026-10-17-gym-lead-climbing)。
 
 爬到頂之後怎麼下來，見[下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel)。
+
+## 延伸觀看：器材實測與教學頻道
+
+本文嵌入的影片來自下面兩個頻道。想自己往下挖，可以從這裡開始；看的時候記得每個頻道的限制。
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**：Ryan Jenks 經營，2016 年從走繩（highline）安全教學起家，後來把攀岩、洞穴、溪降器材拿去拉斷，還有在真岩上拉 bolt 的 Bolt Busters 系列。看點是「標示強度以外」的情況：打結、磨損、舊裝備、放錯位置。限制：多數是自製機器慢拉、每組 1–3 個樣本，他自己也說這是娛樂不是科學；頻道背後有網路器材店，部分受測品是店內商品。
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**：署名 Ben 的攀岩者獨自經營，以前是軟體工程師。一次在泰國 Tonsai 看到確保者接太硬、攀者撞上岩石，他回家設計實驗，從此專拍確保、繩子、鉤環與確保器的實驗與物理解說，近年多支在 Mammut 實驗室合拍。限制：實驗多是自己設計，不是 EN／UIAA 標準測試。
+
+## 更新紀錄
+
+- 2026-10-23：補充 HowNOT2、Hard Is Easy 等頻道的器材實測影片與頻道介紹
 
 ## 參考資料
 

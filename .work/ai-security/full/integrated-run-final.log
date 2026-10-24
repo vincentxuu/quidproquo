@@ -1,0 +1,2 @@
+{"fixed-v1": {"allowed_controls": 3, "passed": 5, "requests": 5, "unauthorized_reads": 0}, "vulnerable-v1": {"allowed_controls": 3, "passed": 5, "requests": 5, "unauthorized_reads": 2}}
+PASS: 10 HTTP cases; two unauthorized reads blocked after the fix; three normal controls pass in each build

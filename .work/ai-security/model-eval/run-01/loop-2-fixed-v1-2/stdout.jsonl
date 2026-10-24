@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1637f-a314-7900-a95f-79112c00e44f"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"action\":\"read_ticket\",\"ticket_id\":\"S-1\",\"verdict\":\"inconclusive\",\"reason\":\"N-1 returned 200 as the authorized baseline; N-2 returned 403, enforcing the owner restriction in that case. Use the final request to test cross-tenant access to S-1; no response evidence exists yet for that case.\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20678,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":106,"reasoning_output_tokens":27}}

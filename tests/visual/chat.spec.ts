@@ -1,8 +1,11 @@
 import { test, expect, type Page } from '@playwright/test';
-import { POST_URL, POST_TITLE, FLOATING_URL, FLOATING_TITLE } from './fixtures';
+import {
+  POST_URL, POST_TITLE, FLOATING_URL, FLOATING_TITLE,
+  compareScreenshot, expectInsideViewport, expectNoHorizontalOverflow, expectReadableText,
+} from './fixtures';
 
-// 基線：tests/visual/baselines/ 下同名 png。更新基線前必須人眼看過 diff，
-// 不准為了變綠而放寬（maxDiffPixels 只吃跨平台抗鋸齒噪音）。
+// 擋部署的是下面的版面與對比斷言；截圖比對只在 VISUAL_SCREENSHOTS=1 時跑（不擋部署的 CI job），
+// 基線在 tests/visual/chat.spec.ts-snapshots/。更新基線前必須人眼看過 diff。
 
 async function gotoWithTheme(page: Page, url: string, theme: 'light' | 'dark') {
   // 各頁都在 head 同步讀 localStorage 決定 data-theme，必須在載入前寫入。
@@ -21,11 +24,11 @@ test.describe('Ask AI visual', () => {
     test(`chat page (${theme})`, async ({ page }) => {
       await gotoWithTheme(page, '/chat', theme);
       await expect(page.getByText('可以這樣問')).toBeVisible();
-      await expect(page).toHaveScreenshot(`chat-${theme}.png`, {
-        animations: 'disabled',
-        mask: [page.locator('img')],
-        maxDiffPixels: 300,
-      });
+      const widget = page.locator('.chat-widget');
+      await expectReadableText(widget);
+      await expectInsideViewport(widget.getByRole('textbox'), 'Chat input');
+      await expectNoHorizontalOverflow(page);
+      await compareScreenshot(page, `chat-${theme}.png`);
     });
 
     test(`floating widget open (${theme})`, async ({ page }) => {
@@ -35,11 +38,11 @@ test.describe('Ask AI visual', () => {
       await expect(launcher).toBeVisible();
       await launcher.click();
       await expect(page.getByText('可以這樣問')).toBeVisible();
-      await expect(page).toHaveScreenshot(`floating-${theme}.png`, {
-        animations: 'disabled',
-        mask: [page.locator('img')],
-        maxDiffPixels: 300,
-      });
+      const widget = page.locator('.chat-widget');
+      await expectReadableText(widget);
+      await expectInsideViewport(widget.getByRole('textbox'), 'Chat input');
+      await expectNoHorizontalOverflow(page);
+      await compareScreenshot(page, `floating-${theme}.png`);
     });
 
     // 6fe73f0a: published articles use the companion sidebar; generic pages keep ChatFloating.
@@ -58,11 +61,11 @@ test.describe('Ask AI visual', () => {
       await launcher.click();
       await expect(sidebar).toBeVisible();
       await expect(sidebar.getByText('可以這樣問', { exact: true })).toBeVisible();
-      await expect(page).toHaveScreenshot(`sidebar-${theme}.png`, {
-        animations: 'disabled',
-        mask: [page.locator('img')],
-        maxDiffPixels: 300,
-      });
+      const widget = sidebar.locator('.chat-widget');
+      await expectReadableText(widget);
+      await expectInsideViewport(widget.getByRole('textbox'), 'Chat input');
+      await expectNoHorizontalOverflow(page);
+      await compareScreenshot(page, `sidebar-${theme}.png`);
     });
   }
 });

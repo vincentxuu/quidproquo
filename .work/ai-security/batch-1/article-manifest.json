@@ -1,0 +1,18 @@
+[
+  {
+    "path": "src/content/posts/ai/2026-10-22-ai-security-overview.md",
+    "sha256": "0bb399d46746e25b61cdc9a92e417217d5af2ea47f72cc5456261569abf3cd9c"
+  },
+  {
+    "path": "src/content/posts/ai/2026-10-22-ai-security-overview-en.md",
+    "sha256": "e1fa92b920148796eff3e7d48270a2c0238656fd58e9ef403968cb8e590715db"
+  },
+  {
+    "path": "src/content/posts/ai/2026-10-22-ai-security-identity-and-authorization.md",
+    "sha256": "16b7769081d0a5fc8945b12f73f87426b1a17673a7ab04f0bf2185481fac31a3"
+  },
+  {
+    "path": "src/content/posts/ai/2026-10-22-ai-security-identity-and-authorization-en.md",
+    "sha256": "5489d34baaf145307ecf6d20014fdd0a04a69c1016ea2e955e0a980a07dae6de"
+  }
+]

@@ -94,6 +94,9 @@
 		]
 	},
 	"vars": {
+		"ACCESS_ALLOWED_EMAILS": "vincent.xu.work@gmail.com",
+		"ACCESS_AUD": "846b1252c532e2a7b52fbb8097b40b65eaa0c34203fb1d8188d754b5fd44d0fa",
+		"ACCESS_TEAM_DOMAIN": "https://nobodyclimb.cloudflareaccess.com",
 		"LLM_PROVIDER": "groq",
 		"AGENT_OS_ENABLED": "true",
 		"AGENT_OS_PLANNER": "true",

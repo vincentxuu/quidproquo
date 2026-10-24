@@ -15,9 +15,9 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands-en)
 
-**影片狀態：官方公開頁未列錄影。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-> **本篇依投影片撰寫，影片上架後補充。** 截至 2026-10-10，[官方課表](https://www.cmu-agents.com/#/schedule)上第 14 講（10/8）只有[投影片](https://www.cmu-agents.com/slides/lecture-14-openhands.pdf)，沒有錄影。下文只根據投影片，沒有講者口述；投影片沒寫的，我會標成我的解讀。
+> **本篇依投影片撰寫。** 官方錄影（約 69 分鐘，2026-10-19 上架）已附在[文末](#課程影片來源)；內文還沒有依錄影補上講者口述。下文的說明與推論都根據投影片；投影片沒說的，我會標成我的解讀。
 
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 的框架模組有兩堂，第一堂是 [Graham Neubig](https://www.phontron.com/) 講他自己主導的 [OpenHands](https://github.com/OpenHands/OpenHands)，第二堂（10/20）是 LangGraph。Neubig 在[第 1 講](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)自介時就說他在做 OpenHands；這一講等於是作者本人講框架的設計理由。
 
@@ -182,17 +182,25 @@ flowchart LR
 
 ## 課程影片來源
 
-本篇依投影片撰寫。已查官方課表，第 14 講只列投影片，未列錄影連結；這只代表公開頁沒有，不代表校內沒有錄影。
+已核對 CMU 11-768 Fall 2026 第 14 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，標題與講次對應本課程。本篇內文依投影片撰寫，尚未依錄影內容核對或補充。
+
+```youtube
+url: https://www.youtube.com/watch?v=VAzZkT68h2Q
+title: CMU AI Agents 2026: 14. Lessons from Building OpenHands
+```
+
+原始影片：[CMU AI Agents 2026: 14. Lessons from Building OpenHands](https://www.youtube.com/watch?v=VAzZkT68h2Q)
 
 官方來源：
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
-查核日期：2026-10-10。
+查核日期：2026-10-24。
 
 ## 更新紀錄
 
 - 2026-10-10：新增本篇。依第 14 講投影片撰寫，官方公開頁尚未列錄影。
+- 2026-10-24：第 14 講錄影已在官方播放清單上架（2026-10-19），更新影片狀態並嵌入影片；內文仍依投影片。
 
 ## 參考資料
 

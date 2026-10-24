@@ -101,11 +101,13 @@ start: 91
 - 課程文章有嵌入就要把開頭「影片狀態」標成「已附影片」；`pnpm check:course-videos` 對所有課程系列檢查嵌入、狀態行、中英一致與查核日期（已逐講查證的系列另登錄在 `scripts/config/course-videos.json`）。
 - 實作在 `src/plugins/remarkYoutubeEmbed.ts`，輸出 `youtube-nocookie.com`、`loading="lazy"`。
 
-## 圖解（mermaid）
+## 圖解
 
-> 新圖先看 `../../diagram/SKILL.md` 選圖型：大多數圖用 ```` ```diagram ```` 手寫 SVG（顏色跟著深淺色、可逐步播放）。mermaid 留給節點超過 9 個、手排不划算的依賴圖或關係圖。
+多步驟流程、分支決策、元件關係、定位比較、層級或時間順序，畫成圖，不要全塞成文字段落。**一律先跑 `../../diagram/SKILL.md` 選圖型並照它的流程畫**：預設用 ```` ```diagram ```` 手寫 SVG（顏色跟著深淺色、可逐步播放、有 `diagram-preview.ts` 自動檢查）。
 
-多步驟流程、分支決策、元件之間的依賴關係，優先用 mermaid 畫，不要全塞成文字段落。用 `mermaid` fence：
+### mermaid（只留給大型依賴圖）
+
+節點超過 9 個、手排不划算的依賴圖或關係圖才用 mermaid；其他情況用 `diagram`。用 `mermaid` fence：
 
 ````markdown
 ```mermaid
@@ -143,7 +145,7 @@ flowchart TB
 
 > 只有方框和箭頭的逐步請求流程用這個（JSON 自動排線，寫起來最快）。其他圖型，或需要逐步播放但不只方框箭頭的圖，用 `../../diagram/SKILL.md` 的 `diagram` 區塊加 `step:`。驗證一律可用 `pnpm exec tsx scripts/diagram-preview.ts <文章.md>`。
 
-讀者要「跟著資料走一遍」才看得懂的流程（請求怎麼流過各元件、迴圈在哪裡回頭、兩種架構的控制流差在哪），用 `flow-diagram` fence 畫成逐步亮起的 SVG。結構關係、分類、依賴圖仍用 mermaid；flow-diagram 只用在**步驟順序本身就是重點**的地方，一篇一到兩張就夠。
+讀者要「跟著資料走一遍」才看得懂的流程（請求怎麼流過各元件、迴圈在哪裡回頭、兩種架構的控制流差在哪），用 `flow-diagram` fence 畫成逐步亮起的 SVG。結構關係、分類、依賴圖用 `diagram`（節點超過 9 個的依賴圖才用 mermaid）；flow-diagram 只用在**步驟順序本身就是重點**的地方，一篇一到兩張就夠。
 
 範例：`src/content/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution.md` 的「三個世代之後：Agentic RAG」（RAG vs Agentic RAG 並排兩張）。
 
@@ -502,7 +504,9 @@ bash .agents/skills/writing-phrase-ledger/scripts/scan-ledger.sh <post.md>
 - [ ] 標題與 tldr 沒有放工作量數字；評測發現合併一節、約 15–20%
 - [ ] 引用的外部資源都在 `## 參考資料` 列出
 - [ ] 論文 / 工具名稱**第一次出現**時是可點擊連結（inline，不是只在文末）；比較表第一欄的名稱都有連結
-- [ ] 有 mermaid 圖：已渲染檢視過，節點文字短、沒有自訂顏色、每條實線都有來源
+- [ ] 逐節問過「這段畫成圖會不會更快懂」；有流程、分支、元件關係、定位比較、層級或時間順序的段落已依 `diagram` skill 畫圖（1–3 張，圖型配合內容）
+- [ ] 有 `diagram`／`flow-diagram` 圖：中英兩版 `diagram-preview.ts` 全 ✓，淺色、深色、手機三張截圖看過；圖上沒有正文沒寫的主張
+- [ ] 有 mermaid 圖：節點超過 9 個才用、已渲染檢視過，節點文字短、沒有自訂顏色、每條實線都有來源
 - [ ] `pnpm check:references` 全綠
 - [ ] `pnpm lint` 全綠
 - [ ] `pnpm astro check` 全綠

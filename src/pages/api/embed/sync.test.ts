@@ -3,6 +3,11 @@ import { env } from 'cloudflare:workers'
 import { runEmbedPipeline } from '../../../lib/indexing/pipeline'
 import { POST } from './sync'
 
+vi.mock('../../../lib/auth/access', () => ({ accessConfigured: vi.fn(() => false), requireAccessIdentity: vi.fn() }))
+vi.mock('../../../lib/auth/session', () => ({ verifySession: vi.fn() }))
+import { accessConfigured, requireAccessIdentity } from '../../../lib/auth/access'
+import { verifySession } from '../../../lib/auth/session'
+
 vi.mock('../../../lib/indexing/pipeline', () => ({
   runEmbedPipeline: vi.fn(async () => []),
 }))
@@ -26,6 +31,9 @@ describe('POST /api/embed/sync', () => {
     for (const key of Object.keys(workerEnv)) delete workerEnv[key]
     workerEnv.INDEX_SYNC_SECRET = 'test-secret'
     vi.mocked(runEmbedPipeline).mockClear()
+    vi.mocked(accessConfigured).mockReturnValue(false)
+    vi.mocked(requireAccessIdentity).mockReset()
+    vi.mocked(verifySession).mockReset()
   })
 
   it('rejects unbounded limits and legacy offsets', async () => {
@@ -59,4 +67,35 @@ describe('POST /api/embed/sync', () => {
 
     expect(response.status).toBe(401)
   })
+  it('rejects old human sessions when Access is configured', async () => {
+    vi.mocked(accessConfigured).mockReturnValue(true);
+    vi.mocked(requireAccessIdentity).mockRejectedValue(new Response('denied',{status:401}));
+    vi.mocked(verifySession).mockResolvedValue(true);
+    const req = request({sources:['posts']}); req.headers.delete('X-Index-Sync-Secret');
+    const response = await POST({request:req,cookies:{get:()=>({value:'old-session'})}} as never);
+    expect(response.status).toBe(401); expect(verifySession).not.toHaveBeenCalled();
+  });
+  it('keeps index machine-secret authorization after Access rollout', async () => {
+    vi.mocked(accessConfigured).mockReturnValue(true);
+    vi.mocked(requireAccessIdentity).mockRejectedValue(new Response('denied',{status:401}));
+    const response = await POST({request:request({sources:['posts']}),cookies} as never);
+    expect(response.status).toBe(200);
+  });
+
+  it.each([undefined, 'https://attacker.example'])('rejects Access-cookie POST without a matching Origin %s', async origin => {
+    vi.mocked(accessConfigured).mockReturnValue(true);
+    vi.mocked(requireAccessIdentity).mockResolvedValue({sub:'owner',email:'owner@example.test'});
+    const req = request({sources:['posts']}); req.headers.delete('X-Index-Sync-Secret'); if(origin) req.headers.set('Origin',origin);
+    expect((await POST({request:req,cookies} as never)).status).toBe(401);
+    expect(runEmbedPipeline).not.toHaveBeenCalled();
+  });
+  it('accepts same-origin Access POST and rejects conflicting cross-site metadata', async () => {
+    vi.mocked(accessConfigured).mockReturnValue(true);
+    vi.mocked(requireAccessIdentity).mockResolvedValue({sub:'owner',email:'owner@example.test'});
+    const req = request({sources:['posts']}); req.headers.delete('X-Index-Sync-Secret'); req.headers.set('Origin','https://quidproquo.cc');
+    expect((await POST({request:req,cookies} as never)).status).toBe(200);
+    req.headers.set('Sec-Fetch-Site','cross-site');
+    expect((await POST({request:req,cookies} as never)).status).toBe(401);
+  });
+
 })

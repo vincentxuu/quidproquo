@@ -6,8 +6,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "ASTRO_DEV_BACKGROUND=0 astro dev",
-    "build": "node scripts/create-cron-stub.mjs && astro build && node scripts/create-cron-entry.mjs && node scripts/generate-og-images.mjs",
+    "dev": "node scripts/prepare-pdf-viewer.mjs && ASTRO_DEV_BACKGROUND=0 astro dev",
+    "build": "node scripts/prepare-pdf-viewer.mjs && node scripts/create-cron-stub.mjs && astro build && node scripts/create-cron-entry.mjs && node scripts/generate-og-images.mjs",
     "deploy": "wrangler d1 migrations apply quidproquo-db --remote && pnpm build && wrangler deploy --config dist/server/wrangler.json",
     "preview": "astro preview",
     "astro": "astro",
@@ -28,6 +28,7 @@
     "check:process-leak": "node scripts/check-process-leak.mjs",
     "check:series-plan": "node scripts/check-series-plan.mjs",
     "check:grades": "node scripts/climbing-grade-convert.mjs --check",
+    "check:crag-coverage": "node scripts/check-crag-coverage.mjs",
     "check:links": "node scripts/check-external-links.mjs",
     "check:seo-smoke": "node scripts/check-seo-smoke.mjs",
     "check:glossary": "node scripts/check-glossary-coverage.mjs",
@@ -42,7 +43,8 @@
     "prepare": "simple-git-hooks",
     "test": "vitest run",
     "test:visual": "playwright test",
-    "test:visual:update": "playwright test --update-snapshots",
+    "test:visual:update": "VISUAL_SCREENSHOTS=1 playwright test tests/visual/chat.spec.ts tests/visual/three-column.spec.ts --update-snapshots",
+    "test:visual:screenshots": "VISUAL_SCREENSHOTS=1 playwright test tests/visual/chat.spec.ts tests/visual/three-column.spec.ts",
     "test:admin-session-thread": "node scripts/admin-session-thread-smoke.mjs",
     "test:watch": "vitest",
     "eval:rag": "node scripts/eval-rag-baseline.mjs",
@@ -66,7 +68,7 @@
     "@astrojs/react": "^6.0.5",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
-    "@lanefoundry/gatelane-sdk": "github:lanefoundry/gatelane#path:packages/gatelane-sdk",
+    "@lanefoundry/gatelane-sdk": "^0.1.0",
     "@langchain/core": "^1.1.41",
     "@langchain/google-genai": "^2.1.28",
     "@langchain/groq": "^1.2.0",
@@ -96,6 +98,7 @@
     "motion": "^13.2.0",
     "nanoid": "^6.0.1",
     "opencc-js": "^1.4.1",
+    "pdfjs-dist": "6.4.299",
     "playwright-extra": "^4.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "radix-ui": "^1.6.7",
@@ -144,7 +147,6 @@
       "picomatch": "4.0.3"
     },
     "onlyBuiltDependencies": [
-      "@lanefoundry/gatelane-sdk",
       "simple-git-hooks"
     ]
   }

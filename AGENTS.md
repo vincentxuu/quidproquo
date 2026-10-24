@@ -11,6 +11,14 @@
 - 需要人拍板或做不動的事 → 登錄 `docs/governance/escalation-queue.md`，不要硬做。
 - `progress.txt` 是 working memory（≤ 90 行），狀態變了就更新；完成條目歸檔到 `docs/progress-archive.md`。
 
+## 共用研究與搜尋資料
+
+只要進行有重用價值的公開研究或搜尋，先讀 `docs/research-pool.md`，依 `.research/pool/taxonomy.json` 選主題類別與子題，先查共用pool再補搜。主題分類與來源類型分開：例如「攀岩／岩場與路線」底下可以有影片、頻道、網站、指南書；不要按工具或單次session各自建孤島。
+
+每輪將可共用的新來源、實際搜尋範圍、閱讀程度、日期、採用／淘汰理由與研究／文章用途寫回同一pool：`scripts/research-pool.mjs`提供 `search`、`ingest`、`record-search`與 `check`；兩種寫入先dry-run，核對後加 `--write`。這項流程也適用於未觸發deep-research的單次公開搜尋；純修字、翻譯或本機程式除錯沒有新外部研究時不必造紀錄。
+
+既有來源只作找資料的入口，不繼承成當次已查證；可變事實回原始來源重新核對。metadata、搜尋片段、全文閱讀、原音與畫面核對分開記；保留未採用及衝突，不只存最後引用的來源。pool不放私有內容、認證或大段第三方全文，也不取代專門的主張／證據索引。規格與決策見 `docs/research-pool.md`、`docs/adr/0006-classified-research-pool.md`。
+
 ## Agent Skills
 
 `.agents/skills/` 是**唯一**編輯處。新增或修改 skill 時，改 `.agents/skills/<skill>/SKILL.md` 與同資料夾下的 `references/`、`templates/`、`scripts/`。
@@ -29,6 +37,12 @@ description: 說清楚何時使用、何時不要使用
 ```
 
 Codex 主要靠 `name` 與 `description` 決定是否觸發 skill；body 只會在 skill 觸發後讀取。詳細流程放在 `SKILL.md`，大量規則或範例放 `references/`，模板放 `templates/`。
+
+## UI 交付流程
+
+修改互動 UI、登入、同步、表單或共用控制項時，必須先讀 `.agents/skills/ui-delivery/SKILL.md` 與 `ui-delivery.config.md`，盤點所有受影響頁面和適用狀態，並在 `.work/ui-delivery/` 留下任務紀錄。
+
+程式檢查、操作驗收、視覺驗收、部署確認必須分開回報。必要驗收未完成時，不得宣稱 UI 已驗收。禁止使用瀏覽器時，仍完成來源與行為檢查，但將無法執行的畫面與操作驗收標為待驗；不得以 build 成功代替。這些規則不授權額外 commit、push、部署或修改 CI。
 
 ## 寫文章
 

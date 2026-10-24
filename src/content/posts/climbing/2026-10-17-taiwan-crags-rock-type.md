@@ -10,7 +10,7 @@ tldr: "砂岩有裂隙可以放保護，龍洞傳攀 325 條、運攀 209 條；
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 14
+  order: 15
 glossary:
   - term: "四稜砂岩"
     aliases: ["Szeleng Sandstone"]

@@ -1,0 +1,6 @@
+{
+  "action": "finish",
+  "ticket_id": null,
+  "verdict": "blocked",
+  "reason": "Normal baseline N-1 returned 200 with ticket_id N-1. Same-tenant non-owned N-2 and cross-tenant S-1 each returned 403 forbidden. These responses show unauthorized reads were blocked; no missing object authorization was demonstrated."
+}

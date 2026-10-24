@@ -54,7 +54,7 @@ series:
 運攀清單再加：
 
 - 4–6 條長扁帶，降低繩子摩擦；卡林諾斯官方說 Grande Grotta 的大路線要 [5–6 條](https://climbkalymnos.com/climbing)
-- 確保站用的有鎖鉤環與垂降用具，怎麼搭配見〈[繩子、確保器與鉤環怎麼搭](/posts/climbing/2026-10-19-climbing-rope-belay-device)〉
+- 確保站用的有鎖鉤環與垂降用具，怎麼挑見〈[確保用的有鎖鉤環怎麼挑](/posts/climbing/2026-10-24-climbing-carabiners)〉和〈[第一個確保器怎麼挑](/posts/climbing/2026-10-24-climbing-belay-device)〉
 - 頭燈、一件防風外套
 - 第二條繩：只有垂降段超過單繩對折長度時才需要，見下面〈例外〉一節
 
@@ -76,11 +76,11 @@ Tonsai 的多繩距[全部是運動路線](https://bigwall.eu/?cat=70)，不用�
 
 出國攀岩多數人只帶一條單繩。2021 年一則 [UKC 討論串](https://www.ukclimbing.com/forums/destinations/climbing_gear_on_a_plane-740523)裡有人說「Rope is the critical weight」：繩通常是整袋最重的一件，長度直接影響托運重量。
 
-**長度。** 泰國 Tonsai、陽朔、卡林諾斯、西班牙都以 70 m 起跳。卡林諾斯、Chulilla、陽朔的長線多，帶 80 m 比較從容。韓國仙雲山和日本多數岩場 60 m 就夠，但小川山有[些地方要 60 m 繩才下得來](https://www.akatsuki-climbing.com/%E3%83%AB%E3%83%BC%E3%83%88%E7%B4%B9%E4%BB%8B%E5%B0%8F%E5%B7%9D%E5%B1%B1/)。60、70、80 m 的一般用途，見〈[繩子、確保器與鉤環怎麼搭](/posts/climbing/2026-10-19-climbing-rope-belay-device)〉。
+**長度。** 泰國 Tonsai、陽朔、卡林諾斯、西班牙都以 70 m 起跳。卡林諾斯、Chulilla、陽朔的長線多，帶 80 m 比較從容。韓國仙雲山和日本多數岩場 60 m 就夠，但小川山有[些地方要 60 m 繩才下得來](https://www.akatsuki-climbing.com/%E3%83%AB%E3%83%BC%E3%83%88%E7%B4%B9%E4%BB%8B%E5%B0%8F%E5%B7%9D%E5%B1%B1/)。60、70、80 m 的一般用途，見〈[繩子怎麼挑](/posts/climbing/2026-10-24-climbing-rope)〉。
 
 繩不夠長，最直接的後果是下放時繩尾從確保器滑出。不管帶多長，繩尾都要打結。
 
-**粗細。** 熱帶和地中海的石灰岩常被磨得光滑，局部又利。卡林諾斯官方建議的單繩粗細是 [9–10.5 mm](https://climbkalymnos.com/climbing)。一趟兩週每天上下放的旅行，偏耐用的 9.5 mm 前後比較放心；粗細和確保器的相容範圍，回到攀岩裝備系列那篇核對。
+**粗細。** 熱帶和地中海的石灰岩常被磨得光滑，局部又利。卡林諾斯官方建議的單繩粗細是 [9–10.5 mm](https://climbkalymnos.com/climbing)。一趟兩週每天上下放的旅行，偏耐用的 9.5 mm 前後比較放心；各款的重量、外皮比例和 80 m 有無，見〈[出國攀岩的繩怎麼挑](/posts/climbing/2026-10-23-climbing-travel-rope)〉，粗細和確保器的相容範圍，回到攀岩裝備系列那篇核對。
 
 **防水處理。** 防水處理主要影響冰雪與高山攀登，本篇六個目的地都是岩場，不必為了出國特別換一條防水繩。真正要注意的是濕：[Edelrid](https://edelrid.com/us-en/knowledge/knowledge-base/dangers-for-climbing-ropes) 說濕繩吸收衝擊的能力比較差，所以在濕熱地區要把繩晾乾，見最後一節。
 
@@ -94,7 +94,7 @@ Tonsai 的多繩距[全部是運動路線](https://bigwall.eu/?cat=70)，不用�
 - **卡林諾斯 3 Stripes**：從 Grande Grotta 中段垂降下來，官方網站寫[要兩條 80 m 繩](https://climbkalymnos.com/3-stripes-a-nice-easy-new-multipitch-on-kalymnos)。
 - **韓國仁壽峰**：南側 Pigeon Road [兩段 30 m 垂降](https://thecrag.com/en/climbing/south-korea/insubong/route/272137737)就能到底，一條 60 m 單繩夠用。
 
-第二條可以是另一條單繩、一組半繩，或一條只用來回收的細拉繩。拉繩比較輕，只能用來回收，不能拿來攀登；半繩要兩條一起用。繩端標示怎麼分辨，見〈[繩子、確保器與鉤環怎麼搭](/posts/climbing/2026-10-19-climbing-rope-belay-device)〉。
+第二條可以是另一條單繩、一組半繩，或一條只用來回收的細拉繩。拉繩比較輕，只能用來回收，不能拿來攀登；半繩要兩條一起用。繩端標示怎麼分辨，見〈[繩子怎麼挑](/posts/climbing/2026-10-24-climbing-rope)〉。
 
 ## 六個目的地怎麼準備
 
@@ -196,7 +196,7 @@ Railay 半島幾乎全是[有掛片的運動路線](https://www.mountainproject.
 3. 查目的地的攀岩店租借價目表，比較「租繩天數 × 日租」與「自己帶繩的托運費」。
 4. 鞋、吊帶、確保器、頭盔放隨身行李清單，其餘放托運清單。
 
-清單寫好、總重算出來，下一步就是這些東西怎麼過機場：〈[攀岩裝備上飛機：安檢與行李規定](/posts/climbing/2026-10-19-flying-with-climbing-gear)〉。
+要買或換一條繩帶出國，下一篇〈[出國攀岩的繩怎麼挑](/posts/climbing/2026-10-23-climbing-travel-rope)〉比較每公尺重量、80 m、外皮比例和中點標記。清單寫好、總重算出來之後，再看這些東西怎麼過機場：〈[攀岩裝備上飛機：安檢與行李規定](/posts/climbing/2026-10-19-flying-with-climbing-gear)〉。
 
 ## 參考資料
 
@@ -205,7 +205,9 @@ Railay 半島幾乎全是[有掛片的運動路線](https://www.mountainproject.
 - [出國攀岩裝備導讀](/posts/climbing/2026-10-19-climbing-gear-travel-overview)
 - [攀岩裝備上飛機：安檢與行李規定](/posts/climbing/2026-10-19-flying-with-climbing-gear)
 - [攀岩者怎麼打包出國](/posts/climbing/2026-10-19-climbing-travel-packing-examples)
-- [繩子、確保器與鉤環怎麼搭](/posts/climbing/2026-10-19-climbing-rope-belay-device)
+- [繩子怎麼挑](/posts/climbing/2026-10-24-climbing-rope)
+- [第一個確保器怎麼挑](/posts/climbing/2026-10-24-climbing-belay-device)
+- [確保用的有鎖鉤環怎麼挑](/posts/climbing/2026-10-24-climbing-carabiners)
 - [攀岩裝備檢查與汰換](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement)
 - [日本岩場總覽](/posts/climbing/2026-10-12-japan-crags-overview)
 - [小川山](/posts/climbing/2026-10-12-japan-crag-ogawayama)

@@ -1,0 +1,25 @@
+
+> quidproquo@0.0.1 check:links /Users/xiaoxu/Projects/quidproquo
+> node scripts/check-external-links.mjs src/content/posts/ai/2026-10-22-ai-security-overview.md src/content/posts/ai/2026-10-22-ai-security-overview-en.md src/content/posts/ai/2026-10-22-ai-security-identity-and-authorization.md src/content/posts/ai/2026-10-22-ai-security-identity-and-authorization-en.md src/content/posts/ai/2026-10-22-ai-security-vulnerability-evidence.md src/content/posts/ai/2026-10-22-ai-security-vulnerability-evidence-en.md src/content/posts/ai/2026-10-22-ai-security-experiment-environments.md src/content/posts/ai/2026-10-22-ai-security-experiment-environments-en.md src/content/posts/ai/2026-10-22-ai-security-attack-surface.md src/content/posts/ai/2026-10-22-ai-security-attack-surface-en.md src/content/posts/ai/2026-10-22-ai-security-vulnerability-hypotheses.md src/content/posts/ai/2026-10-22-ai-security-vulnerability-hypotheses-en.md src/content/posts/ai/2026-10-22-ai-security-exploit-verification.md src/content/posts/ai/2026-10-22-ai-security-exploit-verification-en.md src/content/posts/ai/2026-10-22-ai-security-prompt-injection-attacks.md src/content/posts/ai/2026-10-22-ai-security-prompt-injection-attacks-en.md src/content/posts/ai/2026-10-22-ai-security-attack-agent-loop.md src/content/posts/ai/2026-10-22-ai-security-attack-agent-loop-en.md src/content/posts/ai/2026-10-22-ai-security-attack-chains.md src/content/posts/ai/2026-10-22-ai-security-attack-chains-en.md src/content/posts/ai/2026-10-22-ai-security-injection-defenses.md src/content/posts/ai/2026-10-22-ai-security-injection-defenses-en.md src/content/posts/ai/2026-10-22-ai-security-rag-permissions.md src/content/posts/ai/2026-10-22-ai-security-rag-permissions-en.md src/content/posts/ai/2026-10-22-ai-security-tool-authorization.md src/content/posts/ai/2026-10-22-ai-security-tool-authorization-en.md src/content/posts/ai/2026-10-22-ai-security-mcp-trust.md src/content/posts/ai/2026-10-22-ai-security-mcp-trust-en.md src/content/posts/ai/2026-10-22-ai-security-output-handling.md src/content/posts/ai/2026-10-22-ai-security-output-handling-en.md src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials.md src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials-en.md src/content/posts/ai/2026-10-22-ai-security-security-regression.md src/content/posts/ai/2026-10-22-ai-security-security-regression-en.md src/content/posts/ai/2026-10-22-ai-security-code-review.md src/content/posts/ai/2026-10-22-ai-security-code-review-en.md src/content/posts/ai/2026-10-22-ai-security-patch-verification.md src/content/posts/ai/2026-10-22-ai-security-patch-verification-en.md src/content/posts/ai/2026-10-22-ai-security-incident-timeline.md src/content/posts/ai/2026-10-22-ai-security-incident-timeline-en.md src/content/posts/ai/2026-10-22-ai-security-alert-triage.md src/content/posts/ai/2026-10-22-ai-security-alert-triage-en.md src/content/posts/ai/2026-10-22-ai-security-response-permissions.md src/content/posts/ai/2026-10-22-ai-security-response-permissions-en.md src/content/posts/ai/2026-10-22-ai-security-workflow-evaluation.md src/content/posts/ai/2026-10-22-ai-security-workflow-evaluation-en.md src/content/posts/ai/2026-10-22-ai-security-integrated-exercise.md src/content/posts/ai/2026-10-22-ai-security-integrated-exercise-en.md
+
+Checking 36 external link(s) across 48 file(s)（預設只掃 14 天內改過的，加 --all 掃全站）...
+
+壞掉的連結：3
+  404  https://portswigger.net/web-security
+        src/content/posts/ai/2026-10-22-ai-security-experiment-environments.md
+        src/content/posts/ai/2026-10-22-ai-security-experiment-environments-en.md
+  404  https://portswigger.net/web-security/access-control/lab-user-id-controlled-by-request-parameter
+        src/content/posts/ai/2026-10-22-ai-security-experiment-environments.md
+        src/content/posts/ai/2026-10-22-ai-security-experiment-environments-en.md
+        src/content/posts/ai/2026-10-22-ai-security-attack-surface.md
+        src/content/posts/ai/2026-10-22-ai-security-attack-surface-en.md
+        src/content/posts/ai/2026-10-22-ai-security-vulnerability-hypotheses.md
+        src/content/posts/ai/2026-10-22-ai-security-vulnerability-hypotheses-en.md
+        src/content/posts/ai/2026-10-22-ai-security-exploit-verification.md
+        src/content/posts/ai/2026-10-22-ai-security-exploit-verification-en.md
+  404  https://portswigger.net/web-security/llm-attacks/lab-indirect-prompt-injection
+        src/content/posts/ai/2026-10-22-ai-security-prompt-injection-attacks.md
+        src/content/posts/ai/2026-10-22-ai-security-prompt-injection-attacks-en.md
+
+Summary: 3 broken / 0 needs-review / 36 checked.
+ ELIFECYCLE  Command failed with exit code 1.

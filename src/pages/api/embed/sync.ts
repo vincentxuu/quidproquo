@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import { runEmbedPipeline } from '../../../lib/indexing/pipeline'
 import { EMBED_BATCH_SIZE } from '../../../lib/retrieval/tools/hybrid-search'
-import { verifySession } from '../../../lib/auth/session'
+import { requireAdmin } from '../../../lib/auth/admin'
 import { z } from 'zod'
 
 export const prerender = false
@@ -39,8 +39,13 @@ async function isAuthorized(
   request: Request,
   cookies: { get(name: string): { value: string } | undefined },
 ): Promise<boolean> {
-  const session = cookies.get('session')?.value
-  if (session && await verifySession(session)) return true
+  // This machine endpoint is outside browser middleware; its cookie branch
+  // must still enforce same-origin mutations. Secret-auth callers stay independent.
+  if (request.headers.get('Origin') === new URL(request.url).origin
+    && request.headers.get('Sec-Fetch-Site') !== 'cross-site') {
+    const auth = await requireAdmin(cookies, request)
+    if (auth.ok) return true
+  }
 
   const secret = (env as unknown as { INDEX_SYNC_SECRET?: string }).INDEX_SYNC_SECRET
   return Boolean(secret) && request.headers.get(INDEX_SYNC_SECRET_HEADER) === secret

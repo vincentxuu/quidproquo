@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Delivery"
+  short_description: "Evidence-based UI delivery gates across projects"
+  default_prompt: "Use $ui-delivery to implement and verify this UI change across all affected screens."

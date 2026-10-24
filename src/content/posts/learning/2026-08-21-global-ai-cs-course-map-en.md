@@ -21,6 +21,8 @@ Search for Stanford CS229, Berkeley CS188, or MIT deep learning and you will qui
 
 This map covers Stanford, Carnegie Mellon University (CMU), MIT, UC Berkeley, Harvard, and National Taiwan University (NTU), spanning **2025–2026**. A complete 2026 edition takes priority. If the new semester has only a schedule or keeps video inside an LMS while an official 2025 edition is materially more complete, the 2025 edition can be the main version. Every course guide names its semester; it will not quietly combine 2025 video with 2026 assignments.
 
+This overview's last substantive update was **2026-10-10** (recording source checks and the AI security courses section). Each individual school map states its own information cutoff date—see that article's opening or changelog. Fall 2026 courses release materials week by week; this series does not sync every weekly update, so confirm anonymous access on the official course site before you start self-study.
+
 This is not a university ranking. It answers two narrower questions: how each school organizes AI and CS, and how much of that structure an outsider can actually use.
 
 ## Public is not yes or no
@@ -149,7 +151,7 @@ Six school maps are done: [Stanford](/posts/learning/2026-08-20-stanford-cs-cour
 - [Berkeley CS189 guide](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en): the overview starts from Spring 2025, while the lecture guides and HW1–5 follow the Spring 2026 course site now back online, compared against the Fall 2026 (eecs189.org/fa26) calendar
 - [CMU 07-380 guide](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en): first offered in Fall 2026; the published lectures 1–10 and HW1–3 each have their own post, and the second half of the semester will be added as the course site progresses; compared with [07-280](/posts/ai/2026-08-22-cmu-07280-course-overview-en)
 
-On the Harvard side, the [CS50 AI guide](/posts/ai/2026-08-26-harvard-cs50-ai-guide-en) and the [weekly CS181 guide](/posts/tech/2026-08-27-harvard-cs181-overview-en) (all assignments, HW0–HW6) are both live. Only CS182 remains unwritten: it appears on the SEAS schedule for Fall 2026, but no public course site can be found yet, so it waits until materials appear.
+On the Harvard side, the [CS50 AI guide](/posts/ai/2026-08-26-harvard-cs50-ai-guide-en) and the [weekly CS181 guide](/posts/tech/2026-08-27-harvard-cs181-overview-en) (all assignments, HW0–HW6) are both live. CS182 Fall 2026 had no public course site as of this article's audit date (2026-08-22); whether materials became public after the term started was not re-confirmed here (see the [Harvard AI/ML course guide](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en) for its audit date).
 
 If you want one course to start tonight, run a small test: open MIT 6.S191's first lab or Berkeley CS188's first project and give yourself ninety minutes. If you can still state what the environment is missing and what you would do next, the course belongs on your learning plan. Saving a playlist is not a start.
 

@@ -94,38 +94,42 @@ textarea[data-slot="input-group-control"]::placeholder {
   outline-offset: 1px;
 }
 
-/* 建議題目卡：扁平 tag，帶綠色調；深色另給一組保留綠意的值。
-   配色從 ChatWidget inline style 搬到這裡，深色才能覆寫。 */
-.chat-suggestion {
-  box-shadow: none;
-  background: var(--brand-100);
-  color: var(--brand-700);
-  border-color: var(--border);
-}
-.chat-suggestion:hover {
-  border-color: var(--brand-500);
-  background: var(--brand-50);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .chat-suggestion {
-    background: color-mix(in srgb, var(--brand-500) 12%, var(--bg-card));
-    color: var(--text-primary);
-    border-color: color-mix(in srgb, var(--brand-500) 22%, var(--border));
-  }
-  :root:not([data-theme="light"]) .chat-suggestion:hover {
-    background: color-mix(in srgb, var(--brand-500) 20%, var(--bg-card));
-    border-color: var(--brand-500);
-  }
-}
-:root[data-theme="dark"] .chat-suggestion {
-  background: color-mix(in srgb, var(--brand-500) 12%, var(--bg-card));
-  color: var(--text-primary);
-  border-color: color-mix(in srgb, var(--brand-500) 22%, var(--border));
-}
-:root[data-theme="dark"] .chat-suggestion:hover {
-  background: color-mix(in srgb, var(--brand-500) 20%, var(--bg-card));
-  border-color: var(--brand-500);
-}
+.chat-cloud, .chat-suggestions { --chat-ui-muted: color-mix(in srgb, var(--text-primary) 72%, var(--bg-card)); }
+
+/* Prompt controls use ordinary rounded rows, with spacing independent of Tailwind/preflight. */
+.chat-suggestions { padding: 12px 16px 16px; background: var(--bg-card); border-top: 1px solid var(--border); }
+.chat-suggestions-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; color: var(--chat-ui-muted); font-size: 12px; font-weight: 500; }
+.chat-suggestions-refresh { appearance: none; display: inline-flex; align-items: center; gap: 5px; min-height: 44px; padding: 0 8px; border: 0; border-radius: 6px; background: transparent; color: var(--text-primary); font: inherit; cursor: pointer; }
+.chat-suggestions-refresh-icon { width: 14px; height: 14px; }
+.chat-suggestions-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.chat-suggestion { appearance: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; min-height: 44px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-subtle); color: var(--text-primary); font-family: inherit; font-size: 13px; font-weight: 400; line-height: 1.5; text-align: left; white-space: normal; overflow-wrap: anywhere; box-shadow: none; cursor: pointer; }
+.chat-suggestion:hover { background: var(--bg-card); border-color: var(--brand-500); }
+.chat-suggestion-arrow { flex-shrink: 0; color: var(--chat-ui-muted); }
+.chat-suggestions :is(button):focus-visible, .chat-cloud :is(button,a,summary):focus-visible { outline: 2px solid var(--brand-500); outline-offset: 3px; }
+/* Container queries cover the narrow floating/sidebar chat inside wide desktop pages. */
+.chat-suggestions { container-type: inline-size; }
+@container (max-width: 400px) { .chat-suggestions-list { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) { .chat-suggestions-list { grid-template-columns: minmax(0, 1fr); } }
+
+/* Cloud controls share a complete reset: public article pages intentionally omit preflight. */
+.chat-cloud { padding: 10px 16px; border-top: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); font-size: 13px; line-height: 1.5; }
+.chat-cloud-toolbar, .chat-cloud-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.chat-cloud-toolbar { justify-content: space-between; gap: 6px 12px; }
+.chat-cloud .chat-cloud-action { appearance: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; max-width: 100%; margin: 0; padding: 8px 12px; border: 1px solid transparent; border-radius: 7px; background: transparent; color: var(--text-primary); font-family: inherit; font-size: 13px; font-weight: 500; line-height: 1.4; text-decoration: none; cursor: pointer; }
+.chat-cloud .chat-cloud-action:hover:not(:disabled) { background: var(--bg-subtle); border-color: var(--border); }
+.chat-cloud .chat-cloud-action-primary { border-color: var(--border); background: var(--bg-subtle); }
+.chat-cloud .chat-cloud-action:disabled { opacity: .55; cursor: default; }
+.chat-cloud .chat-cloud-sync { color: var(--chat-ui-muted); font-size: 12px; font-weight: 400; }
+.chat-cloud .chat-cloud-status { margin: 6px 0 0; color: var(--text-primary); font-size: 13px; font-weight: 400; line-height: 1.5; }
+.chat-cloud .chat-cloud-help { margin: 0; color: var(--chat-ui-muted); font-size: 12px; font-weight: 400; }
+.chat-cloud .chat-cloud-help[open] { flex-basis: 100%; }
+.chat-cloud .chat-cloud-help summary { display: list-item; width: fit-content; min-height: 44px; align-content: center; cursor: pointer; }
+.chat-cloud .chat-cloud-help p, .chat-cloud .chat-cloud-hint, .chat-cloud .chat-cloud-empty { margin: 0 0 10px; color: var(--chat-ui-muted); font-size: 12px; font-weight: 400; line-height: 1.6; }
+.chat-cloud-history { max-height: 240px; overflow: auto; padding-top: 12px; border-top: 1px solid var(--border); }
+.chat-cloud-history-row { display: flex; align-items: center; gap: 8px; border-top: 1px solid var(--border); }
+.chat-cloud .chat-cloud-thread { flex: 1; min-width: 0; justify-content: flex-start; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chat-cloud .chat-cloud-delete { flex-shrink: 0; color: var(--chat-ui-muted); }
+.chat-cloud .chat-cloud-delete:hover:not(:disabled) { color: var(--danger, #b42318); }
 
 /* 送出鍵：跟站內圓形 launcher 同語言（深綠圓＋白圖示），hover 用亮度避免 inline 背景蓋掉偽類 */
 .chat-send-btn {
@@ -392,9 +396,17 @@ body.has-chat-sidebar {
   transition: padding-right 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 @media (min-width: 1140px) {
+  body.is-article.has-chat-sidebar { max-width: none; }
   body.has-chat-sidebar {
     padding-right: calc(var(--ask-ai-sidebar-width) + var(--page-gutter, 1.5rem));
   }
+}
+
+/* Reset named grid areas as well as columns when the TOC is hidden. Keeping
+   "main sidebar" creates an implicit second column and lets long prose overlap AI. */
+@media (min-width: 1140px) and (max-width: 1519px) {
+  body.is-article.has-chat-sidebar .post-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "main"; gap: 0; }
+  body.is-article.has-chat-sidebar .post-main { width: 100%; margin-inline: auto 0; }
 }
 
 /* Trigger button — capsule style, fixed bottom-right.
@@ -551,4 +563,21 @@ body.has-chat-sidebar {
 }
 @media (max-width: 1139px) {
   body.has-chat-sidebar .scroll-top { display: none; }
+}
+
+/* Mobile composer: the scrollable message region yields space, never the input. */
+.chat-widget, .chat-thread-root, .chat-thread-log { min-height: 0; min-width: 0; }
+.chat-thread-root > :not(.chat-thread-log) { flex-shrink: 0; }
+.chat-widget .chat-send-btn, .chat-widget .chat-scroll-button { min-width: 44px; min-height: 44px; }
+@media (max-width: 640px) {
+  html body.chat-page { height: var(--chat-viewport-height, 100dvh); min-height: 0; overflow: hidden; }
+  body.chat-page .page { height: 100%; min-height: 0; box-sizing: border-box; display: flex; flex-direction: column; padding: calc(8px + env(safe-area-inset-top)) 8px calc(8px + env(safe-area-inset-bottom)); }
+  .chat-page .page nav { flex-shrink: 0; margin-bottom: 8px; }
+  .chat-page .chat-widget { height: auto !important; min-height: 0 !important; flex: 1; width: 100%; }
+  .chat-widget .chat-icon-btn { min-width: 44px; min-height: 44px; }
+  .chat-widget textarea { font-size: 16px; }
+  .chat-widget:has(textarea:focus) .chat-suggestions { display: none; }
+  .chat-floating-panel { top: calc(var(--chat-viewport-top, 0px) + 8px) !important; bottom: auto !important; left: 8px !important; right: 8px !important; width: auto !important; height: calc(var(--chat-viewport-height, 100dvh) - 16px) !important; max-height: calc(var(--chat-viewport-height, 100dvh) - 16px); }
+  .chat-floating-panel:has(textarea:focus) ~ .chat-float-button { display: none !important; }
+  .chat-sidebar-panel { top: auto; bottom: max(0px, calc(100dvh - var(--chat-viewport-height, 100dvh) - var(--chat-viewport-top, 0px))); height: min(80dvh, var(--chat-viewport-height, 100dvh)); max-height: var(--chat-viewport-height, 100dvh); }
 }

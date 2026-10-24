@@ -31,10 +31,11 @@ cat src/data/agent-watchlist.json | jq '.companies | length'
 # Step 5: 彙整內容，依「輸出格式」撰寫日報
 # Step 6: 提交（依 daily-digest-common 共用尾聲）
 # 見 .agents/skills/daily-digest-common/SKILL.md
+# E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 跳過（本 skill 已在 Step 5 同時產出中英雙版）
 # E2: 修 check:references WARN
 # E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + progress.txt 格式）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview + progress.txt 格式）
 # E5: git add / commit / push
 ```
 
@@ -489,4 +490,4 @@ zh-TW 版至少在「一句話判斷」「深度分析」「今日收穫」「�
 - [ ] `draft: false` 已明確寫出
 - [ ] `description` 是一句判斷（不是事件列表）
 - [ ] 文末有「## 參考資料」區段，格式 `- [標題](URL)`（`pnpm check:references` 會擋）
-- [ ] Commit Epilogue 五步完成（英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`

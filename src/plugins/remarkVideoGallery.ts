@@ -192,6 +192,23 @@ function renderInline(node: MdNode): string {
   }
 }
 
+// Column widths follow the header text, not the column position, so tables with or without a
+// sector column keep the notes wide. Notes (the last source column) takes whatever is left.
+const ROUTE_COLUMN_WIDTHS: [RegExp, number][] = [
+  [/^YDS$/i, 8], [/^(難度|Grade)/i, 11], [/^(長度|Length)/i, 12], [/^(子區|Sector)/i, 8],
+];
+const ROUTE_NAME_WIDTH = 15;
+const ROUTE_VIDEO_WIDTH = 16;
+
+function routeColumnWidths(labels: string[]): number[] {
+  const widths = labels.map((label, index) => index === 0 ? ROUTE_NAME_WIDTH
+    : index === labels.length - 1 ? 0
+    : ROUTE_COLUMN_WIDTHS.find(([pattern]) => pattern.test(label))?.[1] ?? 10);
+  const used = widths.reduce((sum, width) => sum + width, ROUTE_VIDEO_WIDTH);
+  if (widths.length > 1) widths[widths.length - 1] = Math.max(20, 100 - used);
+  return [...widths, ROUTE_VIDEO_WIDTH];
+}
+
 export function renderRouteVideoTable(table: MdNode, spec: VideoGallerySpec): string {
   const rows = table.children ?? [];
   const en = spec.lang === 'en';
@@ -207,7 +224,8 @@ export function renderRouteVideoTable(table: MdNode, spec: VideoGallerySpec): st
       const tag = index === 0 || cellIndex === 0 ? 'th' : 'td';
       const scope = tag === 'th' ? ` scope="${index === 0 ? 'col' : 'row'}"` : '';
       const label = index > 0 ? ` data-label="${escapeHtml(labels[cellIndex] ?? '')}"` : '';
-      return `<${tag}${scope}${label}>${renderInline(cell)}</${tag}>`;
+      const notes = cellIndex > 0 && cellIndex === labels.length - 1 ? ' class="route-videos__notes"' : '';
+      return `<${tag}${scope}${notes}${label}>${renderInline(cell)}</${tag}>`;
     }).join('');
     if (index === 0) return `<thead><tr>${original}<th scope="col">${videoHeading}</th></tr></thead>`;
     const thumb = matched.find(video => video.embed !== false) ?? matched[0];
@@ -216,7 +234,8 @@ export function renderRouteVideoTable(table: MdNode, spec: VideoGallerySpec): st
     const trigger = thumb ? `<div class="route-videos__entry"><span class="route-videos__poster"><img src="https://i.ytimg.com/vi/${thumb.id}/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async" draggable="false"></span><button type="button" class="route-videos__trigger" data-route-open aria-expanded="false" aria-label="${escapeHtml(en ? `Watch ${base}: ${matched.length} videos` : `觀看 ${base}：${matched.length} 支影片`)}">${en ? `View videos (${matched.length})` : `查看影片（${matched.length}）`}</button></div><noscript><a draggable="false" href="${escapeHtml(watchHref(thumb.id))}" target="_blank" rel="noopener noreferrer">${en ? 'Watch on YouTube' : '在 YouTube 觀看'}</a></noscript><template data-route-gallery>${gallery}</template>` : '—';
     return `<tr data-route-row data-route-name="${escapeHtml(base)}">${original}<td class="route-videos__video-cell" data-label="${videoHeading}">${trigger}</td></tr>`;
   });
-  return `<div class="route-videos" data-route-videos data-lang="${spec.lang}"><div class="route-videos__scroll"><table class="route-videos__table">${body[0] ?? ''}<tbody>${body.slice(1).join('')}</tbody></table></div><aside class="route-videos__panel" data-route-panel hidden aria-label="${en ? 'Route videos' : '路線影片'}"><header><strong data-route-heading></strong><button type="button" data-route-close>${en ? 'Close' : '關閉'}</button></header><div data-route-content></div></aside></div>`;
+  const colgroup = `<colgroup>${routeColumnWidths(labels).map(width => `<col style="width:${width}%">`).join('')}</colgroup>`;
+  return `<div class="route-videos" data-route-videos data-lang="${spec.lang}"><div class="route-videos__scroll"><table class="route-videos__table">${colgroup}${body[0] ?? ''}<tbody>${body.slice(1).join('')}</tbody></table></div><aside class="route-videos__panel" data-route-panel hidden aria-label="${en ? 'Route videos' : '路線影片'}"><header><strong data-route-heading></strong><button type="button" data-route-close>${en ? 'Close' : '關閉'}</button></header><div data-route-content></div></aside></div>`;
 }
 
 export function remarkVideoGallery() {

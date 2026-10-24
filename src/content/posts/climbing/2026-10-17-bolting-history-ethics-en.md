@@ -10,7 +10,7 @@ tldr: "A bolt is a permanent hole in the rock, so most climbing communities give
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 15
+  order: 16
 glossary:
   - term: "Clean climbing"
     definition: "Climbing with protection that does not damage the rock and can be fully removed (nuts, cams, slings) instead of hammered pitons. It became the norm in North America in the early 1970s."

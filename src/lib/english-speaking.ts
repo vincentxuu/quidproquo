@@ -3,11 +3,25 @@ export const speakingScenarios = [
   { id: 'surf', title: '衝浪', subtitle: '看浪況、問下水位置' },
   { id: 'climbing', title: '攀岩', subtitle: '問岩場、租裝備、找繩伴' },
   { id: 'work', title: '工作', subtitle: '軟體與 AI 開發協作' },
-  { id: 'daily', title: '日常聊天', subtitle: '近況、求職與約見面' },
+  { id: 'daily', title: '日常聊天', subtitle: '感冒、午餐、求職與約見面' },
   { id: 'interview', title: '面試', subtitle: '介紹工程經驗' },
 ] as const;
 export type SpeakingScenario = typeof speakingScenarios[number]['id'];
 export const speakingCards = [
+  {"id": "daily-health-cold", "scenario": "daily", "context": "同事問你怎麼了，你要說自己感冒。", "zh": "我感冒了。", "en": "I have a cold.", "swap": "換成同事問你是否感冒，先回答 Yes，再說主句。", "family": "daily"},
+  {"id": "daily-health-throat", "scenario": "daily", "context": "同事問哪裡不舒服，你要說喉嚨痛。", "zh": "我喉嚨痛。", "en": "I have a sore throat.", "swap": "換成問對方：Do you have a sore throat?", "family": "daily"},
+  {"id": "daily-health-hurts", "scenario": "daily", "context": "同事聽見你的聲音不對，你指出不舒服的位置。", "zh": "我的喉嚨會痛。", "en": "My throat hurts.", "swap": "把喉嚨換成頭：My head hurts.", "family": "daily"},
+  {"id": "daily-health-losing-voice", "scenario": "daily", "context": "你感冒後聲音越來越出不來，向同事解釋。", "zh": "我感冒了，覺得自己快失聲了。", "en": "I have a cold and I think I’m losing my voice.", "swap": "先只說前半句 I have a cold，再接完整句。", "family": "daily"},
+  {"id": "daily-lunch-today", "scenario": "daily", "context": "午餐時間，你想問同事今天準備吃什麼。", "zh": "你今天午餐吃什麼？", "en": "What have you got for lunch today?", "swap": "改問習慣：What do you usually have for lunch?", "family": "daily"},
+  {"id": "daily-lunch-home", "scenario": "daily", "context": "同事剛說了午餐的內容，你確認是從家裡帶來的。", "zh": "你從家裡帶來的？", "en": "You brought it from home?", "swap": "把 from home 說清楚，句尾用確認的語氣。", "family": "daily"},
+  {"id": "daily-lunch-usually", "scenario": "daily", "context": "聊完今天的午餐，你想問同事平常的習慣。", "zh": "你平常午餐吃什麼？", "en": "What do you usually have for lunch?", "swap": "先問今天，再用這句延伸到習慣。", "family": "daily"},
+  {"id": "daily-lunch-leftovers", "scenario": "daily", "context": "同事問你會不會帶午餐，你說有時會帶剩菜。", "zh": "我有時會帶剩菜來吃。", "en": "Sometimes I have leftovers that I bring in.", "swap": "先想像自己帶了前一餐的食物，再說完整句。", "family": "daily"},
+  {"id": "daily-lunch-cook-dinner", "scenario": "daily", "context": "聊到同事的午餐，你想延伸問他晚餐會不會自己煮。", "zh": "你晚餐怎麼解決，會自己煮嗎？", "en": "What do you do for dinner, do you cook?", "swap": "晚餐是新話題，說到 dinner 時稍微停一下。", "family": "daily"},
+  {"id": "daily-lunch-easy-cook", "scenario": "daily", "context": "同事說他會自己煮，你想請他推薦入門料理。", "zh": "可以推薦非常容易做的料理嗎？", "en": "Can you recommend something that is very easy to cook?", "swap": "先只說 Can you recommend something，再接 that is very easy to cook。", "family": "daily"},
+  {"id": "daily-health-really-hurts", "scenario": "daily", "context": "同事問你喉嚨的狀況，你要強調很痛。", "zh": "我的喉嚨真的很痛。", "en": "My throat really hurts.", "swap": "先想自己是「很痛」、「快失聲」還是「已失聲」，再選對應句子。", "family": "daily"},
+  {"id": "daily-health-lost-voice", "scenario": "daily", "context": "你因為感冒幾乎出不了聲，用訊息解釋。", "zh": "我失聲了。", "en": "I’ve lost my voice.", "swap": "先想自己是「很痛」、「快失聲」還是「已失聲」，再選對應句子。", "family": "daily"},
+  {"id": "daily-health-barely-speak", "scenario": "daily", "context": "你還能勉強出聲，但講話很吃力。", "zh": "我幾乎講不出話。", "en": "I can barely speak.", "swap": "先想自己是「很痛」、「快失聲」還是「已失聲」，再選對應句子。", "family": "daily"},
+  {"id": "daily-lunch-made-it", "scenario": "daily", "context": "同事的午餐看起來像家常料理，你想稱讚並問是不是他做的。", "zh": "看起來好好吃！是你做的嗎？", "en": "That looks delicious! Did you make it?", "swap": "對方說是之後，再問：Do you cook a lot?", "family": "daily"},
   { id: 'map', scenario: 'travel', family: 'have', context: '你手上有地圖，想告訴朋友。', zh: '我這裡有一份地圖。', en: 'I’ve got a map.', swap: '把「地圖」換成「一支筆」：I’ve got a pen.' },
   { id: 'ticket-present', scenario: 'travel', family: 'present', context: '進站時，你向站務人員出示自己的票。', zh: '這是我的票。', en: 'Here’s my ticket.', swap: '換成護照：Here’s my passport.' },
   { id: 'charger', scenario: 'travel', family: 'have', context: '朋友手機快沒電，你可以幫忙。', zh: '我這裡有充電器。', en: 'I’ve got a charger.', swap: '換成行動電源：I’ve got a power bank.' },
@@ -266,6 +280,20 @@ const captionNote = '來源是影片的自動字幕，沒有標點，也保留�
 const coding = (evidence: SpeakingEvidence): SpeakingEvidence => ({ ...evidence, article: codingPost });
 const britishNote = 'BBC 主持人說明，這類委婉的說法是英國職場的習慣，各地不同；要做決定或交辦事情時，直接一點比較清楚。';
 export const speakingEvidence: Record<typeof speakingCards[number]['id'], SpeakingEvidence> = {
+  "daily-health-cold": {"expression": "direct", "support": "I have a cold and I think I'm losing my voice (= becoming unable to speak).", "usageNote": "只描述感冒；不要用 I am cold 表達這個意思。 情境依來源例句改寫。", "sources": [{"title": "dictionary.cambridge.org", "url": "https://dictionary.cambridge.org/dictionary/english/voice"}]},
+  "daily-health-throat": {"expression": "direct", "support": "I have a sore throat.", "usageNote": "sore throat 是喉嚨痛；並不表示已經失聲。 情境依來源例句改寫。", "sources": [{"title": "dictionary.cambridge.org", "url": "https://dictionary.cambridge.org/dictionary/english/throat"}]},
+  "daily-health-hurts": {"expression": "adapted", "support": "My head hurts.", "usageNote": "依 My head hurts 換部位；這一句沒有額外表達「很痛」的程度。 情境依來源例句改寫。", "sources": [{"title": "dictionary.cambridge.org", "url": "https://dictionary.cambridge.org/dictionary/english/hurt"}]},
+  "daily-health-losing-voice": {"expression": "direct", "support": "I have a cold and I think I'm losing my voice (= becoming unable to speak).", "usageNote": "正在失去聲音；用在聲音快出不來，不是只因為忙而不能聊天。 情境依來源例句改寫。", "sources": [{"title": "dictionary.cambridge.org", "url": "https://dictionary.cambridge.org/dictionary/english/voice"}]},
+  "daily-lunch-today": {"expression": "direct", "support": "What have you got for lunch today?", "usageNote": "問今天這一餐，不是平常的習慣。 情境依來源例句改寫。", "sources": [{"title": "www.bbc.co.uk", "url": "https://www.bbc.co.uk/learningenglish/features/real-easy-english/250801"}]},
+  "daily-lunch-home": {"expression": "direct", "support": "You brought it from home?", "usageNote": "回應前面已提到的午餐；從家裡帶不代表一定親手做。 情境依來源例句改寫。", "sources": [{"title": "www.elllo.org", "url": "https://www.elllo.org/english/0601/T625-Tom-Lunch.htm"}]},
+  "daily-lunch-usually": {"expression": "direct", "support": "What do you usually have for lunch?", "usageNote": "usually 問習慣；不要求對方回答今天的菜色。 情境依來源例句改寫。", "sources": [{"title": "www.bbc.co.uk", "url": "https://www.bbc.co.uk/learningenglish/features/real-easy-english/250801"}]},
+  "daily-lunch-leftovers": {"expression": "direct", "support": "Sometimes I have leftovers that I bring in.", "usageNote": "leftovers 指前一餐剩下的食物；沒有說一定是昨天或一定親手煮。 情境依來源例句改寫。", "sources": [{"title": "www.bbc.co.uk", "url": "https://www.bbc.co.uk/learningenglish/features/real-easy-english/250801"}]},
+  "daily-lunch-cook-dinner": {"expression": "direct", "support": "What do you do for dinner, do you cook?", "usageNote": "這一句已把話題轉到晚餐；不是問今天的午餐誰煮。 情境依來源例句改寫。", "sources": [{"title": "www.elllo.org", "url": "https://www.elllo.org/english/0601/T625-Tom-Lunch.htm"}]},
+  "daily-lunch-easy-cook": {"expression": "adapted", "support": "Can you recommend something that is very, very easy to cook?", "usageNote": "刪除教材重複的 very；something 讓對方自己推薦料理。 情境依來源例句改寫。", "sources": [{"title": "elllo.org", "url": "https://elllo.org/english/0451/474-Akane-Cooking.htm"}]},
+  "daily-health-really-hurts": {"expression": "direct", "support": "My throat really hurts.", "usageNote": "really 加強痛的程度，不等於失聲。 情境依來源例句改寫。", "sources": [{"title": "www.b-cafe.net", "url": "https://www.b-cafe.net/newsletter/2026/08/sore-throat-english.php"}]},
+  "daily-health-lost-voice": {"expression": "direct", "support": "I’ve lost my voice.", "usageNote": "描述已經出現的失聲，和正在變啞的 losing my voice 分開。 情境依來源例句改寫。", "sources": [{"title": "www.b-cafe.net", "url": "https://www.b-cafe.net/newsletter/2026/08/sore-throat-english.php"}]},
+  "daily-health-barely-speak": {"expression": "direct", "support": "I can barely speak.", "usageNote": "barely 表示勉強能，不等於完全不能出聲。 情境依來源例句改寫。", "sources": [{"title": "www.b-cafe.net", "url": "https://www.b-cafe.net/newsletter/2026/08/sore-throat-english.php"}]},
+  "daily-lunch-made-it": {"expression": "direct", "support": "That looks delicious! Did you make it? 後續問題原句：Do you cook a lot?", "usageNote": "適用於看起來像自己做的午餐；如果明顯是外帶餐盒，不用這句猜對方親手做。 來源直接示範同事午餐情境。", "sources": [{"title": "www.allearsenglish.com", "url": "https://www.allearsenglish.com/american-culture-and-food-at-work/"}]},
   map: { ...adapted([haveSource, hereSource], 'Cambridge 用 have (got) 講持有，例句 Have you got a drill?／They haven’t got a car，並說 have got 比較不正式；地圖與筆是依這個句型改寫。', '中文的「我這裡有」是說東西在自己手上，英文用 I’ve got 就說完了；來源講持有的例句都沒有加 here。要把東西遞給對方時說 Here you are。'), alternatives: [{ en: 'I have a map.', when: '同一情境；Cambridge 標為比較正式' }] },
   'ticket-present': adapted([hereSource, haveSource], '來源示範 Here’s + 物品，以及找到物品時的 Here it is；票與護照是改寫例句。', '這裡是在出示票，可以說 Here’s my ticket / Here is my ticket。剛找到票時可說 Here it is!；交給對方時可說 Here you are。My ticket is here 強調位置，I have my ticket here 強調自己持有票。'),
   charger: { ...adapted([haveSource, hereSource], 'Cambridge 用 have (got) 講持有，例句 Have you got a drill?／They haven’t got a car；充電器與行動電源是依這個句型改寫。', '「我這裡有」不用翻成 here。要把充電器遞給對方時說 Here you are。'), alternatives: [{ en: 'I have a charger.', when: '同一情境；Cambridge 標為比較正式' }] },
@@ -491,6 +519,8 @@ export type DialogueTurn = { who: 'them'; en: string } | { who: 'you'; zh: strin
 export type SpeakingDialogue = { id: string; scenario: SpeakingScenario; title: string; role: string; note: string; turns: readonly DialogueTurn[] };
 /** Role-plays copied from the "一段短對話" section of the posts. `cardId` names the card a line is built on (first one when a line combines two); it only drives the evidence shown after reveal. Role-play is never scored. */
 export const speakingDialogues: readonly SpeakingDialogue[] = [
+  {"id": "daily-colleague-health", "scenario": "daily", "title": "和同事聊感冒與失聲", "role": "同事已知道你喉嚨不舒服，問起近況；你說明感冒、疼痛與說話困難。", "note": "自己寫的練習示例，不是教材實錄；依實際狀況回答。", "turns": [{"who": "them", "en": "What’s wrong?"}, {"who": "you", "cardId": "daily-health-cold", "zh": "我感冒了。", "en": "I have a cold."}, {"who": "them", "en": "How’s your throat?"}, {"who": "you", "cardId": "daily-health-really-hurts", "zh": "我的喉嚨真的很痛。", "en": "My throat really hurts."}, {"who": "you", "cardId": "daily-health-barely-speak", "zh": "我幾乎講不出話。", "en": "I can barely speak."}]},
+  {"id": "daily-colleague-lunch", "scenario": "daily", "title": "問同事是不是自己做午餐", "role": "午餐時間，同事的便當看起來像自己做的。", "note": "自己寫的練習示例，不是教材實錄；同事的回答是虛構情境。", "turns": [{"who": "you", "cardId": "daily-lunch-today", "zh": "你今天午餐吃什麼？", "en": "What have you got for lunch today?"}, {"who": "them", "en": "Rice and vegetables."}, {"who": "you", "cardId": "daily-lunch-made-it", "zh": "看起來好好吃！是你做的嗎？", "en": "That looks delicious! Did you make it?"}, {"who": "them", "en": "Yes."}, {"who": "you", "cardId": "daily-lunch-usually", "zh": "你平常午餐吃什麼？", "en": "What do you usually have for lunch?"}, {"who": "them", "en": "Usually rice or noodles."}]},
   { id: 'travel-restaurant', scenario: 'travel', title: '在餐廳點餐', role: '你是客人，對方是服務生。', note: '自己寫的練習示例，不是教材的對話。', turns: [
     { who: 'them', en: 'Good evening. Are you ready to order?' },
     { who: 'you', cardId: 'travel-comes-with', zh: '回答準備好了，再問這道咖哩有附什麼。', en: 'Yes. What does the curry come with?' },

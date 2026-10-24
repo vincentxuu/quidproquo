@@ -14,45 +14,47 @@ const isEn = lang === 'en';
 const practiceTag = 'english-video-practice';
 const archiveHref = `${isEn ? '/en' : ''}/tags/${practiceTag}`;
 const featured = [
-  { slug: 'career/2026-10-12-dan-koe-multiple-interests-ai-skill-stack', seconds: 168, captions: isEn ? '3 clips · sentence-aligned captions' : '3 片段・依句意中英對照', speaker: 'Dan Koe', title: isEn ? 'Explain what a good AI result looks like' : '說清楚你期待 AI 做出什麼成果' },
-  { slug: 'ai/2026-10-07-poteto-trust-ladder-verification-first', seconds: 157, captions: isEn ? '3 clips · sentence-aligned captions' : '3 片段・依句意中英對照', speaker: 'Matt Pocock × Poteto', title: isEn ? 'Follow a bilingual passage: give agents hands and eyes' : '中英段落跟讀：讓 agent 有手有眼' },
+  { slug: 'career/2026-10-12-dan-koe-multiple-interests-ai-skill-stack', seconds: 168, clips: 3, speaker: 'Dan Koe', title: isEn ? 'Explain what a good AI result looks like' : '說清楚你期待 AI 做出什麼成果' },
+  { slug: 'ai/2026-10-07-poteto-trust-ladder-verification-first', seconds: 157, clips: 3, speaker: 'Matt Pocock × Poteto', title: isEn ? 'Follow a bilingual passage: give agents hands and eyes' : '中英段落跟讀：讓 agent 有手有眼' },
 ].filter(item => posts.some(post => post.id === `${item.slug}${isEn ? '-en' : ''}`));
 ---
 <section class="practice-feature" aria-labelledby="home-practice-title">
   <div class="practice-heading">
-    <div>
-      <p class="practice-kicker">{isEn ? 'ENGLISH VIDEO PRACTICE' : '英文影音練習'}</p>
-      <h2 id="home-practice-title">{isEn ? 'Practice English with real videos' : '用真實影片練英文'}</h2>
-    </div>
+    <h2 id="home-practice-title">{isEn ? 'English video practice' : '英文影音練習'}</h2>
     <a class="practice-archive" href={archiveHref}>{isEn ? 'All practice →' : '全部練習 →'}</a>
   </div>
-  <p class="practice-flow">{isEn ? '① Listen to the clip　② Answer a question　③ Say it in your own words' : '① 聽一段原音　② 回答理解題　③ 換成自己的英文說'}</p>
-  <div class="practice-picks">
+  <p class="practice-flow">{isEn ? 'Listen to a real clip → answer a question → say it in your own words (bilingual captions)' : '聽真實影片原音 → 回答理解題 → 換成自己的英文說（中英對照字幕）'}</p>
+  <ul class="practice-picks">
     {featured.map(item => (
-      <a class="practice-pick" href={`/posts/${item.slug}${isEn ? '-en' : ''}?practice=1#video-practice-0`}>
-        <span class="practice-meta">{item.speaker}<span>{item.seconds} {isEn ? 'sec clip' : '秒原音'}</span></span>
-        <strong>{item.title}</strong>
-        <span class="practice-caption-state">{item.captions}</span>
-        <span class="practice-cta">{isEn ? 'Start practicing →' : '開始聽與練 →'}</span>
-      </a>
+      <li>
+        <a class="practice-pick" href={`/posts/${item.slug}${isEn ? '-en' : ''}?practice=1#video-practice-0`}>
+          <span class="practice-play" aria-hidden="true">▶</span>
+          <span class="practice-text">
+            <strong>{item.title}</strong>
+            <span class="practice-meta">{item.speaker} · {item.clips} {isEn ? 'clips' : '個片段'} · {item.seconds} {isEn ? 'sec' : '秒'}</span>
+          </span>
+        </a>
+      </li>
     ))}
-  </div>
+  </ul>
 </section>
 <CategoryLinks posts={posts} lang={lang} />
 <PostList page={getPage(posts, 1)} hrefFor={page => homePageHref(lang, page)} lang={lang} />
 
 <style>
-  .practice-feature { margin-bottom: 1.25rem; padding: 1.1rem; border: 2px solid var(--brand-500); border-radius: 10px; background: var(--bg-card); }
-  .practice-heading { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
-  .practice-kicker { margin: 0 0 0.3rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; color: var(--brand-500); }
-  .practice-heading h2 { margin: 0; font-size: 1.3rem; line-height: 1.35; color: var(--text-primary); }
-  .practice-archive { flex-shrink: 0; font-size: 0.8rem; color: var(--brand-500); }
-  .practice-flow { margin: 0.7rem 0; font-size: 0.82rem; line-height: 1.8; color: var(--text-secondary); }
-  .practice-picks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
-  .practice-pick { display: flex; flex-direction: column; gap: 0.6rem; padding: 0.85rem; border: 1px solid var(--border); border-radius: 7px; text-decoration: none; background: var(--bg-page); color: var(--text-primary); }
+  .practice-feature { margin-bottom: 1.5rem; padding: 0.9rem 1rem; border-radius: 10px; background: var(--brand-50); }
+  .practice-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; }
+  .practice-heading h2 { margin: 0; font-size: 0.95rem; line-height: 1.4; color: var(--text-primary); }
+  .practice-archive { flex-shrink: 0; font-size: 0.8rem; color: var(--brand-500); text-decoration: none; }
+  .practice-archive:hover { text-decoration: underline; }
+  .practice-flow { margin: 0.2rem 0 0.6rem; font-size: 0.78rem; line-height: 1.6; color: var(--text-muted); }
+  .practice-picks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+  .practice-pick { display: flex; align-items: flex-start; gap: 0.6rem; height: 100%; box-sizing: border-box; padding: 0.6rem 0.7rem; border: 1px solid transparent; border-radius: 8px; background: var(--bg-card); color: var(--text-primary); text-decoration: none; }
   .practice-pick:hover { border-color: var(--brand-500); }
-  .practice-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.3rem; color: var(--text-muted); font-size: 0.72rem; }
-  .practice-pick strong { font-size: 0.95rem; line-height: 1.5; }
-  .practice-cta { margin-top: auto; font-size: 0.82rem; font-weight: 700; color: var(--brand-500); }
-  @media (max-width: 540px) { .practice-picks { grid-template-columns: 1fr; } .practice-heading { align-items: flex-start; } .practice-heading h2 { font-size: 1.15rem; } }
+  .practice-pick:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 2px; }
+  .practice-play { flex-shrink: 0; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--brand-500); color: var(--bg-card); font-size: 0.6rem; }
+  .practice-text { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+  .practice-text strong { font-size: 0.88rem; font-weight: 600; line-height: 1.45; }
+  .practice-meta { color: var(--text-muted); font-size: 0.72rem; line-height: 1.5; }
+  @media (max-width: 540px) { .practice-picks { grid-template-columns: 1fr; } }
 </style>

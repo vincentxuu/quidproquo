@@ -1,9 +1,12 @@
 # 手動重產 Linux 視覺基線並 commit 回來。
 #
+# 像素比對不擋部署（quality.yml 的 screenshots job 是 continue-on-error），但基線過時
+# 它就永遠紅、失去審稿價值；新增 compareScreenshot() 時 pnpm verify 也會要求 -linux 基線。
+#
 # 為什麼要有這個 job：`-linux` 基線只能由 ubuntu runner 產。mac 本機即使用官方
 # Playwright Docker image 也不行——arm64 與 amd64 的算圖結果本來就不同
 # （microsoft/playwright#13873，維護者明講是預期行為），差幾百像素就超過
-# maxDiffPixels 300。沒有這個 job 的話流程是：讓 quality.yml 的 visual job 紅一次
+# maxDiffPixels 300。沒有這個 job 的話流程是：讓 quality.yml 的 screenshots job 紅一次
 # → `gh run download <run-id> -n visual-diff` → 人眼看 diff → 手動覆蓋 → commit。
 #
 # 用法：Actions → Update visual baselines (linux) → Run workflow → 選分支。

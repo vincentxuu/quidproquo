@@ -89,7 +89,7 @@ describe('route table layout', () => {
     const cell = (value: string) => ({ type: 'tableCell', children: [{ type: 'text', value }] });
     const row = (values: string[]) => ({ type: 'tableRow', children: values.map(cell) });
     const tree = { type: 'root', children: [
-      { type: 'table', children: [row(['Route', 'Grade', 'Free grade', 'Length', 'Face', 'Notes']), row(['Pigeon / 비둘기', '5.7 A0', '5.7', '89 m', 'West', 'Preserve the aid-rating disagreement.']), row(['Insu A', '5.8', '5.8', '115 m', 'East', 'Guide only'])] },
+      { type: 'table', children: [row(['Route', 'Grade', 'Free grade', 'Length', 'Face', 'Notes']), row(['Pigeon / 비둘기', '5.7 A0', '5.7', '89 m', 'West', 'Preserve the aid-rating disagreement.']), row(['Insu A', '5.8', '5.8', '115 m', 'East', 'Guide only']), row(['Mystery Route', '5.12', '5.12', '100 m', 'East', 'No clips on file'])] },
       { type: 'code', lang: 'video-gallery', value: 'key: insubong\nlang: en\nlayout: routes' },
     ] };
     remarkVideoGallery()(tree as Root);
@@ -97,7 +97,10 @@ describe('route table layout', () => {
     const html = (tree.children[0] as unknown as { value: string }).value;
     expect(html).toContain('Preserve the aid-rating disagreement.');
     expect(html).toContain('data-route-name="Pigeon"');
-    expect(html).toContain('View videos (2)');
+    expect(html).toContain('View videos (3)');
+    expect(html).toContain('data-route-name="Insu A"');
+    expect(html).toContain('Watch Insu A: 3 videos');
+    expect(html).toContain('data-src="https://www.youtube-nocookie.com/embed/JE5_SYb_-1k');
     expect(html).toContain('watch?v=XQE74rkLVRs');
     expect(html).toContain('data-src="https://www.youtube-nocookie.com/embed/HLiRmyV9aBc');
     expect(html).not.toMatch(/<iframe[^>]*\ssrc=/);
@@ -108,11 +111,30 @@ describe('route table layout', () => {
     expect(html).toContain('class="route-videos__poster"');
     expect(html).toMatch(/<div class="route-videos__entry"><span class="route-videos__poster"><img[^>]*><\/span><button/);
     const routeButton = html.match(/<button[^>]*data-route-open[^>]*>[\s\S]*?<\/button>/)?.[0];
-    expect(routeButton).toContain('View videos (2)');
+    expect(routeButton).toContain('View videos (3)');
     expect(routeButton).not.toContain('<img');
     expect(html).not.toContain('route-videos__play');
     expect(html).toContain('data-label="Notes"');
     expect(html).toContain('<noscript><a draggable="false" href="https://www.youtube.com/watch?v=HLiRmyV9aBc"');
+  });
+
+  it('sizes columns by header so notes stay wide when a table has no sector column', () => {
+    const cell = (value: string) => ({ type: 'tableCell', children: [{ type: 'text', value }] });
+    const row = (values: string[]) => ({ type: 'tableRow', children: values.map(cell) });
+    const render = (header: string[], values: string[]) => {
+      const tree = { type: 'root', children: [
+        { type: 'table', children: [row(header), row(values)] },
+        { type: 'code', lang: 'video-gallery', value: 'key: insubong\nlang: zh-TW\nlayout: routes' },
+      ] };
+      remarkVideoGallery()(tree as Root);
+      return (tree.children[0] as unknown as { value: string }).value;
+    };
+    const widths = (html: string) => [...html.matchAll(/<col style="width:(\d+)%">/g)].map(match => Number(match[1]));
+    const withSector = render(['路線', '難度', 'YDS', '長度／段數', '子區', '備註'], ['Insu A', '5.8', '5.8', '115 公尺', '東面', '備註文字']);
+    expect(widths(withSector)).toEqual([15, 11, 8, 12, 8, 30, 16]);
+    const withoutSector = render(['路線', '難度', 'YDS', '長度／段數', '備註'], ['Insu A', '5.8', '5.8', '115 公尺', '備註文字']);
+    expect(widths(withoutSector)).toEqual([15, 11, 8, 12, 38, 16]);
+    expect(withoutSector).toContain('<td class="route-videos__notes" data-label="備註">備註文字</td>');
   });
 });
 
@@ -132,7 +154,7 @@ describe('route video playlist', () => {
   });
 
   it('makes external viewing a separate explicit action and retains every clip', () => {
-    expect(spec.videos).toHaveLength(11);
+    expect(spec.videos).toHaveLength(33);
     for (const video of spec.videos) expect(html).toContain(video.id);
     expect(html).toContain('<a class="video-gallery__external-row video-gallery__external-link"');
     expect(html).toContain('target="_blank" rel="noopener noreferrer"');

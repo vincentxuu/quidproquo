@@ -16,6 +16,14 @@
 
 ---
 
+## Q-044 check:links 的 HEAD 404 與 GET 200 誤報
+- 登錄：2026-10-22（來源：AI資安第2批外鏈驗收）
+- 做什麼：評估 `scripts/check-external-links.mjs` 對 HEAD 404 是否需要 bounded GET 二次確認，並保留真正 GET 404 的失敗；不要簡單忽略404。
+- 為什麼現在不能做：文章任務只核對連結，不在本輪修改檢查／治理腳本（Tier 2）。目前18個外鏈中17正常，PortSwigger指定Lab在相同UA下HEAD404但GET200；已另讀完整正文，因此保留原連結與原失敗log，不偽稱外鏈命令全綠。
+- 接手第一步：讀 `.work/ai-security/batch-2/link-head-get-check.json`、`external-links.log`、`research/lab-live-fetch.json`；重驗 `https://portswigger.net/web-security/access-control/lab-user-id-controlled-by-request-parameter` 的兩種方法，再看腳本probe函式。取得使用者同意才改腳本及新增有意義回歸案例。
+- 全系列補證（2026-10-22）：48檔36個URL，3個PortSwigger HEAD404／同UA GET200，另含Academy入口與indirect prompt injection lab；保留原exit1，見 `.work/ai-security/full/external-links.log` 與 `link-head-get-metadata.json`。
+
+
 ## Q-001 把 `type` 改成 content schema 必填欄位
 - 登錄：2026-07-06（來源：progress.txt Next steps）
 - 做什麼：`src/content.config.ts` 的 `type` 欄位從 optional 改 required。
@@ -497,3 +505,10 @@
 - 依 Q-015／Q-016 已確立的原則（搜尋管道健康但結果品質不足時，寧可不產出也不要放寬門檢湊數字），本次**沒有產出 `src/data/daily-signals/2026-10-19.json`**，`seen-signal-urls.txt` 也未追加任何 URL（避免把這 15 則之外、其實還有效的候選誤標成「已處理」）。
 - 為什麼現在不能做：這不是單一工具故障（Tavily／WebFetch 皆正常），是來源品質問題——AI 新聞聚合生態系這幾天明顯被大量 SEO 回收站／「每日彙整」站稀釋，光靠 `web_search` 的 `timeRange: day` 或結果裡的相對時間戳完全不可信，必須對每個候選都往回查「原始公告／primary source 的實際日期」才能判斷真偽，這個驗證成本遠超單次 routine 預算，且是否要調整 skill 的時效判定方法（例如強制要求候選附上 primary source URL 而非只接受聚合站連結）屬於改 skill 核心邏輯的決定，需要人拍板。
 - 接手第一步：若要直接補今天的信號檔，可從本次已核實為真正新鮮（Oct 17-18 primary source）的候選清單重新開始（Claude Code v2.1.302 Mods／n8n CVE-2026-86074／ARTEX 韓國銀行入侵／Anthropic 律師事務所談判規範／Alibaba OpenGCUA／Gemini 4 Argon 打通 Minecraft／台灣晶片出口限制／ByteDance-MediaTek／Hurotics 韓國／Hex-Rays 以色列／Stripe 收購 OpenRouter／美國資料中心延宕／TechCabal 非洲 AI 新創／世銀泰國小型 AI／Sarvam AI 融資，共 15 則），再補足另外 15-35 則；若要治本，考慮在 `.agents/skills/daily-digest-signals/SKILL.md` 加一條規則：聚合站／彙整頁候選必須點進去找到其引用的 primary source 並以 primary source 的發佈日期為準，聚合站自己標的相對時間戳不可信。
+
+
+## Q-041 ✅ 已更正（2026-10-24）：早期UI畫面不足以判定雲端研究空跑
+
+原先根據初始化畫面及Succeeded狀態，過早判定新排程沒有執行並暫停。後來同一session_012mxBRhPWJATRztESp5Dgvt實際以Groundlane補查，提交`9fa83756`（9新來源、25觀察、6搜尋）；PR #206已於2026-10-24合併，證明該次工作確有執行。原「宿主失效」判斷不成立，不能再以它阻擋通用排程。
+
+通用任務入口為docs/research-watch.md與.research/watch-config.json，從pool的非空category/topic自動產生主題；城山專用設定停用，歷史資料保留。後續驗收須等待實際查詢、集中證據、pool回填與提交，不以UI早期畫面或Succeeded單獨判定成功／失敗。沒有改動其他既有排程，也沒有擴大私有資料或連接器權限。

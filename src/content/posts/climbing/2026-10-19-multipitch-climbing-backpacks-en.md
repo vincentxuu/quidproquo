@@ -9,7 +9,7 @@ tldr: "On a multipitch route the follower usually carries the pack and the leade
 draft: false
 series:
   name: "Climbing Travel Gear"
-  order: 6
+  order: 7
 ---
 
 > 🌏 [中文版](/posts/climbing/2026-10-19-multipitch-climbing-backpacks)
@@ -48,7 +48,7 @@ The wider the pack, the more your arms and shoulders brush its sides when you re
 
 ### 2. Helmet and harness clearance
 
-A pack that is too long causes trouble at both ends. The top edge hits the back of your helmet, so looking up at the next pitch pushes your neck forward. The bottom edge sits on your harness waistbelt and rear gear loops, so you can't reach your gear. Back length matters more than volume; if a model comes in two sizes, try both. Choosing the harness itself is covered in [Harness and Helmet](/posts/climbing/2026-10-19-climbing-harness-helmet-en).
+A pack that is too long causes trouble at both ends. The top edge hits the back of your helmet, so looking up at the next pitch pushes your neck forward. The bottom edge sits on your harness waistbelt and rear gear loops, so you can't reach your gear. Back length matters more than volume; if a model comes in two sizes, try both. Choosing the harness itself is covered in [Choosing Your First Climbing Harness](/posts/climbing/2026-10-24-climbing-harness-en).
 
 A removable hipbelt helps. Buckle it on the approach, then remove or stow it before you climb so it doesn't stack on top of your harness. The webbing belt on the [Wadi 15](https://us.blueice.com/products/wadi-15-pack) and the belt on the [Petzl BUG](https://www.petzl.com/us/en/sport/products/climbing-packs-rope-bags/bug/BUG_SPO_a2mTx000003PXGnIAO.html) both come off, as do the belts on larger packs such as the [Rab Latok 28](https://rab.equipment/us/rab-latok-28l-mountain-pack) and [Hyperlite Summit 30](https://www.hyperlitemountaingear.com/products/summit-30).
 
@@ -62,7 +62,7 @@ There are two ways to carry water. A bladder lets you drink while climbing, but 
 
 Clipping the pack to the anchor at a belay lets you get things out without wearing it. The rope strap on the [Wadi 15](https://us.blueice.com/products/wadi-15-pack) doubles as a tether with a 2 kN carabiner. That carabiner is for hanging the pack and is not for protecting people. The [Osprey Mutant 22](https://www.osprey.com/mutant-22-mutant22f22-376) has a three-point haul system, the [Edelrid Rubi](https://edelrid.com/eu-en/sport/backpacks-and-rope-bags-shop/rubi) has haul loops, and according to Gripped's review and Climbing's roundup, the BUG and the Patagonia Ascensionist 35L have them too.
 
-When you need to haul the pack through a hard section, use only a loop the brand says is for hauling. An ordinary grab handle is made for lifting by hand; if the brand doesn't say it can be hauled, treat it as a hand-carry handle only. Climbing's roundup also says the Wadi is fine for occasional hauling through cruxes, but they wouldn't use it as a daily haulbag. If you plan to haul the whole route, get a haulbag, which is outside the scope of this article.
+When you need to haul the pack through a hard section, use only a loop the brand says is for hauling. An ordinary grab handle is made for lifting by hand; if the brand doesn't say it can be hauled, treat it as a hand-carry handle only. Climbing's roundup also says the Wadi is fine for occasional hauling through cruxes, but they wouldn't use it as a daily haulbag. If you plan to haul the whole route, get a haulbag; for the gear and technique, see [Hauling on Multi-Pitch Routes](/posts/climbing/2026-10-24-multipitch-hauling-en).
 
 ### 5. Fabric that stands up to abrasion
 
@@ -168,6 +168,7 @@ This is the last article in the Climbing Travel Gear series. Go back to the [ser
 
 ## Update log
 
+- 2026-10-24: Linked the hauling paragraph to Hauling on Multi-Pitch Routes.
 - 2026-10-19: Expanded the comparison tables from 16 models across 14 brands to 30 models across 20 brands, adding brands such as Grivel, La Sportiva, C.A.M.P., Simond and Wild Country, plus the BD Speed packs, Rab Latok 20, Blue Ice Warthog 30, Ortovox Trad 22 Dry and Arc'teryx Alpha FL 20. Models from the same brand are now grouped, the Patagonia Ascensionist 35L moved into the 28–30 L table, and links to the new official pages and reviews were added. Checked specs against brand data and fixed 4 items, and added the Rab Ascendor 27L to the 28–30 L table, for 31 models.
 
 ## References

@@ -25,7 +25,9 @@ That does not mean MIT publishes a seamless online path from a first Python less
 2. **The 2025–2026 course sites** show what was recently taught, but the material may sit behind Canvas, Piazza, Panopto, or Gradescope.
 3. **OCW, Open Learning Library, and archived course sites** are often the most usable for self-study, but may use an old subject number or an earlier syllabus.
 
-This guide keeps those layers separate. It does not pretend that an outside learner can “take an MIT degree online.” It builds a path whose links open and whose missing pieces are explicit. The site already has a detailed [guide to MIT 6.S191](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en); this article places that short course inside the larger MIT structure.
+This guide keeps those layers separate. It does not pretend that an outside learner can "take an MIT degree online." It builds a path whose links open and whose missing pieces are explicit. The site already has a detailed [guide to MIT 6.S191](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en); this article places that short course inside the larger MIT structure.
+
+This guide's access judgments were last substantively updated on **2026-10-01** (6.5940 Fall 2026 moved from A0 to A2, with the Fall 2024 archive added) and **2026-10-10** (video status re-check). Figures marked "as of September 30, 2026" (such as 6.5940 L1–L6 and Lab 0–1) reflect that day's snapshot—later lectures may already have been released.
 
 ## Two numbering systems: Course 6-4 is not subject 6.4
 

@@ -53,6 +53,14 @@ Once you're set, stack the rope neatly on your brake-hand side, right next to yo
 
 The same applies on top-rope, with one exception: while the climber is at the top rigging to lower or rappel. Poborsky has the belayer step back **temporarily** to see the climber and hear calls clearly, then move back to the base once the climber is ready to lower.
 
+**Watch**: Ben from Hard Is Easy finds a climber heavier than himself at an outdoor crag and has him fall at the first bolt while Ben belays from close in and from farther back (from 12:45). Standing far, he gets yanked toward the wall with almost no control, and the climber drops lower; standing close, he stays put and can choose a harder or softer catch. It's a lead scenario and a handful of by-feel comparisons with no force measurements. Near the end he mentions sometimes skipping the first bolt; that's his own habit, not something this post recommends.
+
+```youtube
+url: https://www.youtube.com/watch?v=9bPrcjTtKpk
+title: Sketchy Low Falls | Ep.13 (Hard Is Easy)
+start: 765
+```
+
 **Something to try tonight**: Next time you belay at the gym, stand under the first quickdraw and one step to the side. Notice which way you get pulled when the climber sits on the rope.
 
 ## Rockfall: the belayer needs a helmet too
@@ -81,6 +89,14 @@ Three situations to think through in advance:
 - **Top-roping with a GriGri and a big weight difference**: Petzl's [tech tip](https://www.petzl.com/int/en/sport/tech-tips/basic-techniques/top-rope-belaying-with-the-grigri-anchored-to-the-ground./GRIGRI---Assurer-avec-le-GRIGRI-fixe-au-sol_SPO_a77w0000000KyxNAAS.html) keeps the GriGri on the belayer and anchors the belayer to a point 1–2 m away. It **strongly discourages** clipping the GriGri directly to a ground anchor with a sling. At the wrong height, the belayer can accidentally block the cam so it can't brake, and descent is harder to control because the belayer can't feel the climber's weight. Use this only for top-rope, since an anchored belayer can't give a dynamic belay.
 
 On the other hand, more anchoring isn't always better. The [Climbing article](https://www.climbing.com/skills/sport-climbing/common-gym-crag-mistakes-need-avoid/) says that unless the route starts off a narrow ledge or your climber massively outweighs you, it's better to stay mobile on single-pitch routes. Being mobile is how you dodge small falling rocks.
+
+**Watch**: In this HowNOT2 episode, a very big climber takes lead falls in a gym on light and heavy belayers, and for the last test the belayer is bolted to the wall so their body absorbs nothing (from the 0:37 test overview). A belayer who gets lifted is soaking up part of the impact; with the belayer bolted down, the top piece saw about 7 kN, the highest real-world anchor load the channel had recorded. Each condition was fallen on once, and a belayer bolted to the wall is not the adjustable ground-anchor tether Petzl describes above: the video shows the cost of fixing a belayer rigidly in place, not how to rig a ground anchor. The light-belayer tests also had a friction device (Edelrid Ohm) clipped into the system, which this post doesn't cover.
+
+```youtube
+url: https://www.youtube.com/watch?v=Tnk4Ky-D9Bg
+title: BIG climber lead falls for science. You won't believe the forces! (HowNOT2)
+start: 37
+```
 
 **Something to try tonight**: Compare weights with your regular partner. If the gap is large, ask an instructor or your gym whether and how to use a ground anchor for top-roping.
 
@@ -132,6 +148,14 @@ flowchart TB
 
 - The four-point partner check (harness, knot, device and carabiner, rope end) is the same as in the gym; see [Learning to Top-Rope Belay at the Gym](/posts/climbing/2026-10-17-gym-top-rope-belay-en).
 - The two outdoor additions are the helmet and the agreed plan for the top.
+
+**Watch**: Hard Is Easy's lead-belay episode walks through the prep at an outdoor crag (from 3:26): clear what you could trip on, read the chalk to stay out of the fall zone, trace the rope from your own harness to the climber's knot, and check the rope end is knotted. It's a lead episode, but the prep is the same for top-rope. He says an unknotted rope end "statistically" causes the most accidents without citing a source; rely on the AAC figure above for the actual share. He also recommends shoes and a helmet for the belayer, though his helmet reason is keeping long hair out of the device, which is a separate point from rockfall.
+
+```youtube
+url: https://www.youtube.com/watch?v=aHI8kIXNH5M
+title: Lead Belaying - Slack Management, Efficient Taking & More | Ep.11 (Hard Is Easy)
+start: 206
+```
 
 ## What to think about at Long Dong
 
@@ -192,6 +216,17 @@ Decide whether to anchor yourself so you can't be pulled off the ledge. For top-
 Once you can belay top-rope outdoors, the next post in the series is [Your First Outdoor Sport Lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en), where the belayer starts paying out rope and spotting before the first clip. If you haven't led in the gym yet, start with [Learning to Lead at the Gym](/posts/climbing/2026-10-17-gym-lead-climbing-en).
 
 For getting down from the top, see [Lower or Rappel?](/posts/climbing/2026-10-17-lower-or-rappel-en)
+
+## Further viewing: gear-testing and instruction channels
+
+The videos embedded in this post come from the two channels below. They're a good place to dig further; keep each channel's limits in mind.
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**: run by Ryan Jenks. It started in 2016 as highline safety instruction and grew into breaking climbing, caving and canyoneering gear, plus the Bolt Busters series that pulls bolts out of real rock. Its value is in the cases beyond the rated number: knots, wear, old gear, bad placements. Limits: most tests are slow pulls on a home-built rig with one to three samples, and Ryan himself calls it entertainment, not science; the channel is backed by an online gear shop, and some tested items are sold there.
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**: run solo by a climber who signs as Ben, a former software developer. After watching a hard catch slam a climber into the rock in Tonsai, Thailand, he designed his first experiment; the channel now focuses on experiments and physics explanations about belaying, ropes, carabiners and belay devices, with several recent episodes filmed in Mammut's lab. Limits: most experiments are his own design, not EN/UIAA standard tests.
+
+## Update Log
+
+- 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 
 ## References
 

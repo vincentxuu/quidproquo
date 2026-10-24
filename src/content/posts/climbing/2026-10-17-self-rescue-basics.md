@@ -10,7 +10,7 @@ tldr: "自我救援先從最簡單的選項想起：溝通、下放、打 119（
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 12
+  order: 13
 glossary:
   - term: "確保脫離"
     aliases: ["escaping the belay", "belay escape", "確保脫出"]

@@ -71,6 +71,7 @@
 | [agent-console-runbook.md](./agent-console-runbook.md) | Web UI 管理操作 |
 | [agent-episodic-memory-runbook.md](./admin-episodic-memory.md) | Memory 管理 |
 | [agent-os-runbook.md](./agent-os-runbook.md) | 平台級運維 |
+| [worktree-runbook.md](./worktree-runbook.md) | 隔離 worktree、共用 node_modules、外掛輸出快取、收尾 |
 
 ---
 

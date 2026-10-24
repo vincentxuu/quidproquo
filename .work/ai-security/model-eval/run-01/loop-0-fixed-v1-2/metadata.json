@@ -1,0 +1,13 @@
+{
+  "label": "loop-0-fixed-v1-2",
+  "requested_model": "gpt-6.1-sol",
+  "seconds": 9.334,
+  "exit": 0,
+  "usage": {
+    "input_tokens": 20678,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 121,
+    "reasoning_output_tokens": 43
+  }
+}

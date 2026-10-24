@@ -1,0 +1,79 @@
+{
+  "mode": "hypotheses",
+  "execution": "fixed-action HTTP replay; no model called",
+  "health": {
+    "build": "fixed-v1",
+    "fixture_revision": "tickets-v1",
+    "policy": "same-tenant-owner",
+    "target_id": "lesson-target"
+  },
+  "same_tenant": "denied_without_content",
+  "other_tenant": "denied_without_content",
+  "stop": "minimal_evidence_collected",
+  "trace": [
+    {
+      "step": 1,
+      "actor": "alice",
+      "path": "/health",
+      "request": null,
+      "status": 200,
+      "body": {
+        "build": "fixed-v1",
+        "fixture_revision": "tickets-v1",
+        "policy": "same-tenant-owner",
+        "target_id": "lesson-target"
+      }
+    },
+    {
+      "step": 2,
+      "actor": "alice",
+      "path": "/tools/read_ticket",
+      "request": {
+        "ticket_id": "N-1"
+      },
+      "status": 200,
+      "body": {
+        "text": "North: printer repair",
+        "ticket_id": "N-1"
+      }
+    },
+    {
+      "step": 3,
+      "actor": "alice",
+      "path": "/tools/read_ticket",
+      "request": {
+        "ticket_id": "N-2"
+      },
+      "status": 403,
+      "body": {
+        "error": "forbidden"
+      }
+    },
+    {
+      "step": 4,
+      "actor": "alice",
+      "path": "/tools/read_ticket",
+      "request": {
+        "ticket_id": "S-1"
+      },
+      "status": 403,
+      "body": {
+        "error": "forbidden"
+      }
+    },
+    {
+      "step": 5,
+      "actor": "bob",
+      "path": "/tools/read_ticket",
+      "request": {
+        "ticket_id": "N-2"
+      },
+      "status": 200,
+      "body": {
+        "text": "North: laptop repair",
+        "ticket_id": "N-2"
+      }
+    }
+  ],
+  "requests": 5
+}

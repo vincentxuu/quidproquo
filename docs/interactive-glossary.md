@@ -150,3 +150,20 @@ pnpm build
 
 - `pnpm astro check` 目前會被既有全專案型別問題擋住，包含 React type declaration、Cloudflare Worker global types、RAG graph typing。互動詞彙表目前以 `pnpm lint`、`pnpm build` 與瀏覽器互動檢查作為驗證。
 - 本地 dev 若沒有 LLM key 或模型呼叫失敗，會回傳 local fallback。
+
+## 個人單字庫與複習
+
+- 詞彙卡的「加入單字庫」會保存詞義、原文句子與文章出處。也可在文章選取英文單字／片語後，以「查詞與收藏」取得完整詞條再收藏。
+- 導覽列「單字庫」連到 `/vocabulary`（英文 `/en/vocabulary`）。預設顯示可展開的精簡單字列，支援搜尋、到期篩選、移除；複習會切換為獨立單卡，先回想，再顯示答案並評「不會／普通／熟悉」。
+- 收藏、筆記、完整詞條與複習進度改經 `/api/vocabulary` 存入 D1，按已驗證的 Access `sub` 隔離；Access 尚未設定時不退回本機假報成功。舊 `localStorage.qp-vocabulary-v1` 提供明確的匯入按鈕，原副本保留，重複匯入不覆寫雲端進度。正式啟用前仍需完成 [Access 設定](./vocabulary-cloud-access.md)、遠端 migration 與部署。
+- 同一使用者、同語言同詞（忽略大小寫及連續空白）去重，保留第一次收藏的筆記、出處與排程；複習時間由伺服器決定，逐筆修改而非整份覆蓋。
+- 新詞立即到期；選「不會」後 1 分鐘重試；「普通」從 1 天、6 天起逐次延長，「熟悉」至少隔 4 天。每輪只複習開始時到期的單字。
+- 核心邏輯：`src/lib/vocabulary.ts`；測試：`src/lib/__tests__/vocabulary.test.ts`；收藏表單：`VocabularyCapture.astro`；複習介面：`VocabularyLibrary.tsx`。
+
+### 發音與收藏完成狀態
+
+- 發音沿用英文口說專區的 `speakingVoices` 四聲（thalia、arcas、pandora、draco），共用 `quidproquo-speaking-voice` 偏好。
+- `POST /api/tts` 呼叫現有 Workers AI 的 Deepgram Aura-2，回傳 MP3；音訊按聲音與文字雜湊快取，不使用瀏覽器語音合成。支援英文單字與英文原句，服務失敗顯示錯誤。
+- 本機 Workers AI 沒有模擬器，adapter 的 `remoteBindings` 啟用後才可使用既有 AI binding；未進行部署或變更資料庫。
+- 單次收藏成功立即關閉表單並顯示「已加入單字庫」與查看連結；重複收藏顯示已在庫內，儲存失敗保留填寫內容。
+- 對照來源為 grad-exam-prep 的 lookup/page.tsx、flashcards/page.tsx 與 lookup-panel.tsx。採用先查詞、再收藏的流程：完整詞條包含中英義項、可用音標、至少三句翻譯例句、搭配詞、片語、易混淆字、同反義詞及用法。查詞先讀快取，未命中才產生；AI 產生內容有標示，失敗時可重試，不用假資料替代。收藏與複習共用同一份詞條，舊收藏展開時補查並保留原筆記、出處與排程。

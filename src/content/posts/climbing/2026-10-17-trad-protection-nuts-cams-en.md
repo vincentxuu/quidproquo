@@ -7,7 +7,7 @@ lang: en
 type: guide
 series:
   name: "Sport and Trad Climbing"
-  order: 9
+  order: 10
 description: "For sport leaders getting ready to learn trad: what holds a nut and a cam in place, the EN 12270 and EN 12276 strength minimums, the three conditions of a good placement, walking and extension, and how to read a route note like \"needs small cams, nuts\" at Defulan."
 tldr: "A nut wedges into a constriction; a cam turns a downward pull into outward pressure and friction. Standard minimums: 5 kN for cams, 2 kN for nuts, but read the rating on the unit. A good placement needs solid rock, the right size (cam lobes about 50–90% retracted), and alignment with the direction of pull. At Defulan, Miruku (5.11b) lists \"small cams, nuts\" and Genesis (5.9+) lists \"single rack to #2\"."
 draft: false
@@ -48,6 +48,14 @@ A nut is a metal wedge, wider at the top than the bottom, on a wire cable. You f
 
 Nuts have no moving parts. They are cheap, light and durable, but they only work in one kind of terrain: the crack has to constrict. AMGA Certified Rock Guide [Elaina Arenz, writing in Climbing](https://www.climbing.com/skills/gym-to-crag-trad-climbing-outdoor-research/), puts the division plainly: **cams in parallel-sided cracks, passive gear in constrictions and V-shaped cracks.**
 
+Watch it: HowNOT2 placed a handful of nuts in Hawaiian granite and hauled on them with a pulley system until something broke. Start at 0:35 with a BD Micro Stopper: it stayed locked in its constriction, and the wire finally snapped at about 9 kN. Each nut was pulled once, slowly, not shock-loaded by a fall; what it shows is that a nut seated in a good constriction holds, not that any small nut jammed in anywhere will.
+
+```youtube
+url: https://www.youtube.com/watch?v=4t4rMCCPiTM
+title: You won't believe how strong micro stoppers are!  Climbing nuts tested in real rock (HowNOT2)
+start: 35
+```
+
 ### Cams: turning a downward pull into outward pressure
 
 A cam has two to four lobes on an axle. Pull the trigger and the lobes retract; put it in a crack, let go, and the springs open the lobes against both walls.
@@ -60,6 +68,14 @@ That angle is the camming angle, and it differs by design:
 - [UKClimbing's review of the BD Camalot C4](https://www.ukclimbing.com/gear/climbing/protection/black_diamond_camalot_c4-12331) gives the C4 as 14.5°, slightly above the "industry standard" 13.75°: a bit more range per unit, but marginally less camming force when over-cammed or tipped out. The reviewer adds that neither effect is worth getting excited about.
 
 As a climber, remember the angle as "roughly 13–15°, varies by brand." What matters more is the other half: **a cam pushes force into the rock.** If the rock is loose, chossy, wet or dirty, even a textbook-looking placement can break the rock or rip out. Both Wikipedia and Arenz put "solid rock only" first.
+
+Watch it: in What breaks first?, HowNOT2 plugs the camming angle into a formula to work out how hard a cam pushes on the rock. At common angles, the outward force comes to roughly twice the downward pull. The stretch from 0:40 to 1:20 is a deliberate parody of academic jargon and safe to skip; the later home-built rig gets ratios close to the same figure, but with few samples at low loads, so treat it as an order of magnitude.
+
+```youtube
+url: https://www.youtube.com/watch?v=moobi2VKwmI
+title: What breaks first? (HowNOT2)
+start: 20
+```
 
 **Something to do tonight**: take a cam, pull the trigger all the way, then let it open slowly and watch how the lobes move. Put it in a door gap or between two books and pull down on the stem. Feel which way the lobes push.
 
@@ -76,6 +92,14 @@ Both standards require the manufacturer to mark the guaranteed minimum strength 
 
 The marked rating is itself conservative. [Another BD QC Lab](https://blackdiamondequipment.com/blogs/stories/qc-lab-the-beauty-and-limitations-of-big-cams) explains that ratings start from a three-sigma calculation: the mean of many break tests minus three standard deviations, so 99.7% of failures happen at a higher load.
 
+Watch it: HowNOT2 visits Black Diamond's lab and talks to the cam design engineers. From 11:00, they explain that CE strength testing is only a small part of their cam test plan; most of it is fatigue and environmental testing, such as cyclic loading, heat, ice water and pulls over edges. That is the manufacturer's own account. The same stretch calls the expiry date on a cam a conservative estimate and says heat, water and salt deserve extra caution. Some of the old cams pulled in the first half had been through a house fire and were tested only once or twice each, so they say nothing about whether old cams are still fit to use.
+
+```youtube
+url: https://www.youtube.com/watch?v=vQf0T-J2H44
+title: C4 vs Ultralights: Testing Climbing Cams AT BLACK DIAMOND'S LAB (HowNOT2)
+start: 660
+```
+
 So how much force does a real fall produce? Petzl [tested with real people](https://petzl.com/us/en/sport/tech-tips/product-information-and-specifications/forces-at-work-in-a-real-fall/CORDES-chute-efforts_SPO_a77w0000000KywPAAS.html): an 80 kg climber falling just after leaving a multi-pitch belay (fall factor 1) put about 6 kN on the redirect point. Petzl's note: no problem for a solid fixed anchor, but critical on a dubious point such as a small wire.
 
 That makes "needs small cams, nuts" a warning. Small pieces can be rated much lower: BD's smallest Z4 #0 is rated 5 kN, while a mid-size #1 Camalot is rated 14 kN. The smaller the piece, the more precise the placement has to be.
@@ -90,6 +114,14 @@ After placing a piece, ask three questions.
 
 Check the rock before the gear. Arenz's warning signs are loose, chossy, wet and dirty: in rock like that, a good-looking placement can still break the rock or pull out. A cam pushes force outward into the walls, so this matters even more for cams.
 
+Watch it: HowNOT2 pulls Metolius TCUs out of granite cracks in California's Sierra. Start at the 5:25 slow-motion clip: the cam doesn't slip at all; the whole block of rock is what moves. The video description records the weakest pull slipping at about 5.5 kN. These were the same worn TCUs pulled repeatedly by hand, and the numbers vary widely, so they are not a strength figure for the cam. The point is a placement that looked fine while the rock gave way first.
+
+```youtube
+url: https://www.youtube.com/watch?v=cwxYA_qfRr4
+title: Metolius TCU climbing cams pulled until failure - Great Slow Motion! (HowNOT2)
+start: 325
+```
+
 ### 2. Is it the right size?
 
 **Cams**: Arenz recommends lobes retracted between 50 and 90%. The lobes need room to keep expanding in the crack to give the most holding power.
@@ -100,6 +132,14 @@ BD's testing fills in both ends:
 - **Too much retraction** ("over-cammed"): BD says the closer a cam is to 100% retraction, the stronger it is; the common belief that a fully retracted cam is weaker is not true. The downside is that it may get stuck.
 
 **Nuts**: the nut has to go in at the wide part and lock in the narrow part when pulled down. If the narrow part is wider than the nut, it pulls through.
+
+Watch it: in Totem Cams TESTED!, HowNOT2 first sets up a deliberately marginal placement with only two lobes touching rock; it pulls out at about 2 kN. The same model in a good horizontal crack, loaded correctly, holds until the sling breaks. Totems are built differently and can hold on two lobes, so the results don't transfer directly to ordinary cams, and each placement was pulled only once or twice, slowly. The takeaway: with the same piece, the gap between a good and a bad placement dwarfs anything the rating tells you.
+
+```youtube
+url: https://www.youtube.com/watch?v=gywfr4HygTk
+title: Totem Cams TESTED! (HowNOT2)
+start: 100
+```
 
 ### 3. Is it aligned with the pull?
 
@@ -199,6 +239,17 @@ You are missing #3, and there may be a section that only takes a large cam. Borr
 Once you can place single pieces, the next question is: at the top of a route without bolts, how do you combine several pieces into an anchor that two people can hang on? The next post, [Building Anchors](/posts/climbing/2026-10-17-building-anchors-en), covers redundancy, load distribution, no extension, and how much force an anchor actually sees in a fall.
 
 If you have not read the series overview, start with [Sport vs Trad Climbing](/posts/climbing/2026-10-17-sport-vs-trad-overview-en).
+
+## Further viewing: gear-testing and instruction channels
+
+Every video embedded above comes from HowNOT2; Hard Is Easy is another channel built around gear and belay experiments. Both are good places to keep digging, as long as you keep each channel's limits in mind.
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**: run by Ryan Jenks. It started in 2016 as highline safety instruction and grew into breaking climbing, caving and canyoneering gear, plus the Bolt Busters series that pulls bolts out of real rock. Its value is in the cases beyond the rated number: knots, wear, old gear, bad placements. Limits: most tests are slow pulls on a home-built rig with one to three samples, and Ryan himself calls it entertainment, not science; the channel is backed by an online gear shop, and some tested items are sold there.
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**: run solo by a climber who signs as Ben, a former software developer. After watching a hard catch slam a climber into the rock in Tonsai, Thailand, he designed his first experiment; the channel now focuses on experiments and physics explanations about belaying, ropes, carabiners and belay devices, with several recent episodes filmed in Mammut's lab. Limits: most experiments are his own design, not EN/UIAA standard tests.
+
+## Update Log
+
+- 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 
 ## References
 

@@ -9,7 +9,7 @@ tldr: "租車用大型裝備袋，搭大眾運輸選有背帶的裝備袋或大�
 draft: false
 series:
   name: "出國攀岩裝備"
-  order: 4
+  order: 5
 ---
 
 > 🌏 [English version](/posts/climbing/2026-10-19-climbing-travel-luggage-en)

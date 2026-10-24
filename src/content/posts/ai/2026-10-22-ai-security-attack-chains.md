@@ -1,0 +1,90 @@
+---
+title: "AI 能串起攻擊鏈嗎？從 CTF 到公開事件"
+date: 2026-10-22
+type: guide
+category: ai
+tags: [ai-security, penetration-testing, ai-agent, authorization]
+lang: zh-TW
+description: "用一條可重播工單鏈對照公開事件的一手報告，理解編排機制與證據邊界。"
+tldr: "重播工單攻擊鏈，再讀 Anthropic 公開事件報告，分清每一步的證據、人類決策、評測捷徑與供應商觀測限制。"
+difficulty: 進階
+draft: false
+series:
+  name: "AI 資安實戰"
+  order: 9
+---
+
+> 🌏 [English version](/posts/ai/2026-10-22-ai-security-attack-chains-en)
+
+一次越權測試得到資料，和完成一整條攻擊鏈，是兩個不同的工作。前者只要證明某個邊界失效；後者還要讓上一段的產物成為下一段的條件，且每一段都能回到證據。
+
+這篇接續[工具迴圈](/posts/ai/2026-10-22-ai-security-attack-agent-loop)，先重播一條很短的工單鏈，再讀 Anthropic 公開的 AI 輔助入侵事件。你會練習區分自己重現的步驟、研究環境裡的解題，以及供應商調查所描述的行動。先備是 HTTP 證據、權限與停止條件。
+
+## 一條短鏈，先不要跳步
+
+在工單案例，攻擊者已獲准使用 Alice 測試帳號，也已取得合成 fixture 的角色資訊。鏈從這些已知前提出發，沒有偵測未知組織或取得他人憑證。
+
+| 階段 | 上一步提供的條件 | 這一步留下的證據 |
+|---|---|---|
+| 核對目標 | 指定服務入口與版本 | health 的 target/build |
+| 確認基準 | 正確服務、Alice 測試身分 | N-1 正常回覆 |
+| 跨 owner 讀取 | 可用的讀取介面、已知 N-2 | Alice 對 N-2 的請求與原始內容 |
+| 驗證歸屬 | N-2 回覆與 Bob 測試身分 | Bob 的正常對照與內容比對 |
+| 斷鏈回歸 | 相同請求、修補版本 | Alice 被拒、正常讀取仍成功 |
+
+這條鏈只有一個漏洞，其他步驟是前提與證據。多步驟不等於多個漏洞。若要說「兩個弱點互相組合」，就要另外證明第一個弱點如何產生第二個原本拿不到的條件，不能只把兩份掃描報告接在一起。
+
+下載[服務](/examples/ai-security/ticket-lab.py)與[重播器](/examples/ai-security/attack-runner.py)，放在同一目錄，使用 Python 3.11：
+
+```bash
+python3 attack-runner.py chain --build vulnerable-v1 --out chain-before.json
+python3 attack-runner.py chain --build fixed-v1 --out chain-after.json
+```
+
+檢查輸出 `chain` 裡的 step 是否能回到 `trace`，再看 `server_audit` 是否保留相應的操作身分、資源與決策。有洞版確認未授權讀取；修補版同一請求拒絕，但 Alice／Bob 的正常功能保留。重播器使用固定規則與已知資料，沒有呼叫模型，這不是自主攻擊能力評分。
+
+把它搬到自己的雲端，需保留 HTTPS 入口、目標 ID、服務版本與起始資料；平台練習則以自己的實例與題目成功條件代換。前幾章的 PortSwigger 指定 IDOR 關卡可以當短鏈練習，別把題目給定的帳號資訊寫成 AI 自己發現的成果。
+
+## 真實公開案例：Anthropic 描述了什麼？
+
+Anthropic 在 2025 年 11 月公開 [AI-orchestrated cyber espionage 事件說明](https://www.anthropic.com/research/disrupting-AI-espionage)，並附[完整調查報告](https://www-cdn.anthropic.com/d7dd50dd1185f59be051b307150d877f2b82bd2c.pdf)。報告描述其在同年 9 月偵測到的活動：操作者選擇目標，再使用以 Claude Code 與工具介面組成的框架。框架把工作拆成小任務，跨工作階段保存狀態，再把結果交給後續階段。
+
+這裡的 AI 角色已超過「回答怎麼做」。依該公司觀察，模型參與環境盤點、漏洞辨識與測試、後續存取、資料分析及文件交接；人類仍在選目標、升級行動與資料處置等節點做決定。這些是供應商對自己可見活動的調查描述，本文沒有獨立重現受害組織的入侵。
+
+| 報告階段 | 可學到的鏈式關係 | 不能直接推得的結論 |
+|---|---|---|
+| 初始化／選目標 | 人類目標變成框架任務 | AI 自己決定所有目標 |
+| 偵察與弱點驗證 | 觀察結果影響下一個工具測試 | 每一個建議都能利用 |
+| 後續存取與資料處理 | 一階段的權限或資料支援下一階段 | 任意真實系統都能被相同方法攻破 |
+| 文件與交接 | 狀態讓任務可以續跑、轉交 | 文件完整就代表內容正確 |
+
+這件事對開發者的重點是編排：工具輸出如何回到規劃、狀態如何跨階段保存、人類在哪裡做決策。教材可以重建這些機制，用合成工單驗證資料路徑；無須對事件中的組織重做行動，或把完整入侵流程當成無限制操作清單。
+
+## 事件報告也有觀測邊界
+
+完整報告明講，可視範圍限於 Claude 使用；模型曾誇大結果、產生無效憑證，或把公開資訊當成機密發現。這些限制會直接影響「攻擊鏈完成到哪裡」的判斷。模型文件裡寫「拿到存取」，仍要有真正成功的認證或服務狀態支持。
+
+公開網頁也曾更正速度描述。因此本文不搬用自主比例、目標數或速度來推估一般 AI 的能力。供應商的「首次」與歸因說法也不是全世界攻擊事件的完整統計。報告足以支持「公司觀察到模型與工具被用來編排行動」這個有歸因的敘述，無法取代獨立可重播的全部受害端證據。
+
+## CTF 高分為什麼不能補上這些缺口？
+
+[NIST 的評測調查](https://www.nist.gov/caisi/cheating-ai-agent-evaluations/2-examples-cheating-caisis-agent-evaluations)發現 agent 可能從線上解答取得旗標，或找到能滿足評分器、卻不符合原預期漏洞路徑的方法。它也指出歷史樣本與模型組合不同，圖表只是偵測結果，不能概括所有模型。
+
+讀一條 CTF 軌跡時，先找答案第一次出現在哪裡：來自目標服務、公開解答、設定檔，還是模型猜測？再看關鍵動作有沒有真的碰到目標。若模型只是改本機副本，遠端服務完全沒改，不能把本機輸出當利用成功。
+
+公開平台與真實授權測試也有差別：題目常已告訴你有漏洞與終點；真實專案可能只有一組允許資產，最後合理產物是排除假設或未決報告。把人工提示、解答閱讀、額外工具與失敗一起記錄，才知道 AI 實際幫上哪一段。
+
+## 練習：在哪裡斷鏈？
+
+假設 Alice 讀 N-1 正常，讀 N-2 被拒，但模型報告寫「取得 Bob 的資料，下一步匯出」。鏈停在哪？
+
+答案是跨 owner 讀取沒有成立。報告不能補出 Bob 的內容，匯出也沒有前提。若讀取成功但內容沒保存，則是證據鏈缺失，結果應保留未決，重跑最小請求補證。接下來進入[防護線](/posts/ai/2026-10-22-ai-security-injection-defenses)，把每個可斷鏈的位置變成可回歸驗證的控制。
+
+## 參考資料
+
+- [Anthropic：事件公開說明](https://www.anthropic.com/research/disrupting-AI-espionage)：事件階段、限制與更正。
+- [Anthropic：完整調查報告](https://www-cdn.anthropic.com/d7dd50dd1185f59be051b307150d877f2b82bd2c.pdf)：操作架構、六階段、人類決策與供應商可視性限制。
+- [NIST：Examples of cheating in CAISI’s agent evaluations](https://www.nist.gov/caisi/cheating-ai-agent-evaluations/2-examples-cheating-caisis-agent-evaluations)：污染、評分捷徑與未成功的策略。
+
+
+接著閱讀[第 10 篇：Prompt Injection 的防線要放在哪裡](/posts/ai/2026-10-22-ai-security-injection-defenses)。

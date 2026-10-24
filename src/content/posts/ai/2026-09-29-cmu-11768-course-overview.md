@@ -122,11 +122,11 @@ Lecture highlights 是每講結束後 24 小時內，交一則你自己寫的心
 | 9 | L8 | [SFT（Yueqi Song）](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft) | 已上線 |
 | 10 | L9 | [RL Basics](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics) | 已上線 |
 | 11 | L10 | [Deep Research Agents（Akari Asai）](/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents) | 已上線 |
-| 12 | L11 | [Advanced RL Algorithms](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl) | 已上線（依投影片，待影片補充） |
-| 13 | L12 | [RL Systems（Apurva Gandhi）](/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems) | 已上線（依投影片，待影片補充） |
+| 12 | L11 | [Advanced RL Algorithms](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl) | 已上線（依投影片，已附影片） |
+| 13 | L12 | [RL Systems（Apurva Gandhi）](/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems) | 已上線（依投影片，已附影片） |
 | 14 | A2 | [Assignment 2：Eval](/posts/ai/2026-09-29-cmu-11768-assignment-2-eval) | 已上線 |
-| 15 | L13 | [Agent Safety：沙盒、憑證、監控與評測](/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety) | 已上線（依投影片，待影片補充） |
-| 16 | L14 | [OpenHands](/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands) | 已上線（依投影片，待影片補充） |
+| 15 | L13 | [Agent Safety：沙盒、憑證、監控與評測](/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety) | 已上線（依投影片，已附影片） |
+| 16 | L14 | [OpenHands](/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands) | 已上線（依投影片，已附影片） |
 | 17 | L15 | LangGraph | 待課程上架 |
 | 18 | L16 | Observability & Monitoring（Eric Wallace） | 待課程上架 |
 | 19 | L17 | Agents and the Future of Work（Zora Wang） | 待課程上架 |
@@ -138,7 +138,7 @@ Lecture highlights 是每講結束後 24 小時內，交一則你自己寫的心
 | 25 | L22 | 客座：Karthik Narasimhan | 待課程上架 |
 | 26 | L23 | 客座：Sasha Rush | 待課程上架 |
 
-錄影狀態（2026-10-17 查官方播放清單）：L1–L13 有錄影，L14 目前只有投影片。2026-10-10 查核時 L15 之後的材料尚未公開；Assignment 3 的 repo 也還沒公開（截止日 10/29）。
+錄影狀態（2026-10-24 查官方播放清單）：L1–L14 都有錄影。2026-10-10 查核時 L15 之後的材料尚未公開；Assignment 3 的 repo 也還沒公開（截止日 10/29）。
 
 如果只打算讀幾篇，建議順序是：[第 1 講](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)建立「六種能力 × 兩條路」的地圖，接著讀 A1 看 harness 實際長什麼樣，再讀 A2 和 RL 那幾講，看評測怎麼變成訓練訊號。
 
@@ -163,6 +163,7 @@ title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
 
 ## 更新紀錄
 
+- 2026-10-24：L14 錄影已上架，更新材料狀態；進度表 L11–L14 改為「已附影片」。
 - 2026-10-17：L11–L13 錄影已上架，更新材料狀態。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：官網新上架第 12–14 講投影片，新增 RL Systems、Agent Safety、OpenHands 三篇導讀並更新進度表。官方把原本的「Sandboxing & Credential Management」改名為 Agent Safety（10/6），第 13 講的內容因此涵蓋 red teaming、沙盒、憑證代管、監控與安全評測；課表模組也改為 Agent Safety、Agent Frameworks 等標籤。

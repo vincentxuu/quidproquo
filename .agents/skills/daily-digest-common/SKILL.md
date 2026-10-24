@@ -1,6 +1,6 @@
 ---
 name: daily-digest-common
-description: "Shared commit epilogue for all daily-digest skills: en translation, progress.txt update, targeted verify, then commit/push."
+description: "Shared commit epilogue for all daily-digest skills: diagram pass, en translation, progress.txt update, targeted verify, then commit/push."
 ---
 
 # daily-digest-common — 共用提交尾聲
@@ -10,6 +10,15 @@ description: "Shared commit epilogue for all daily-digest skills: en translation
 ---
 
 ## Commit Epilogue（取代各 skill 原本的 git add/commit/push）
+
+### E0：圖解（依 diagram skill 補圖）
+
+文章寫完、翻譯之前，逐節問一次：**讀者看圖會不會比讀這段文字更快懂？** 有多步驟流程、分支判斷、元件或架構關係、選項定位比較、層級、時間順序的段落，就讀 `../diagram/SKILL.md` 選圖型，照它的流程用 ```` ```diagram ```` 區塊畫（每篇 0–3 張；圖型配合內容，不要每張都是方框箭頭）。
+
+- 常見對應：論文方法／系統架構 → 架構圖或流程圖；框架新版的控制流改變 → 前後對照；多個工具／模型／方案比較 → 比較矩陣或象限圖；資安事件的攻擊鏈、發布時程 → 循序圖或時間軸；定價前後 → 前後對照或長條圖。
+- 圖只能畫正文已寫、有來源的內容；不確定的關係不畫實線。
+- 純新聞條列、沒有結構可畫的段落不硬畫。真的整篇都沒有適合的段落，在 progress.txt 本次條目寫「圖解：無適合段落」，不用另外說明。
+- 已同時產出中英雙版的 skill（daily-digest-report、daily-digest-arxiv），兩版都要放同一張圖（座標相同，只換文字）；其他 skill 先畫在中文版，E1 的 `post-translate` 會把圖一起翻過去。
 
 ### E1：產英文版
 
@@ -67,11 +76,15 @@ pnpm check:references
 pnpm check:lang-parity
 pnpm check:tw            # A 級用語（用戶→使用者、技術棧→tech stack、對標、賦能、品類…）擋 commit，每次必跑
 pnpm check:series-order  # series order 撞號擋 commit
+# 有 diagram／flow-diagram 區塊的新檔，中英各跑一次（沒有區塊的檔案不要跑，腳本會回 exit 2）
+grep -lE '^```(diagram|flow-diagram)$' src/content/posts/daily/${TODAY}-*.md | while read f; do
+  pnpm exec tsx scripts/diagram-preview.ts "$f" --out "/tmp/diagram-preview/$(basename "$f" .md)" --skip-if-no-browser
+done
 # progress.txt 格式
 grep -q "^Last updated: [0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}" progress.txt || echo "FAIL: progress.txt missing Last updated line"
 ```
 
-五項都必須 0 error／0 blocking 才繼續。有 error 就修，不准 `--no-verify` 繞過。`check:tw` 的 `[WARN]` 是 B 級看語境，`[ERROR]` 才擋。
+五項加 diagram-preview 都必須 0 error／0 blocking 才繼續（diagram-preview 有 ✗ 就修圖；環境沒有瀏覽器而被 skip 時，在 progress.txt 本次條目註明「diagram-preview 未跑：無瀏覽器」）。有 error 就修，不准 `--no-verify` 繞過。`check:tw` 的 `[WARN]` 是 B 級看語境，`[ERROR]` 才擋。
 
 ### E5：commit + push
 

@@ -21,7 +21,7 @@ CMU differs from the previous stops in this series. It has a formal [Bachelor of
 
 That produces an apparent contradiction with a useful answer: **look at 07-280/380 to understand what CMU now believes an AI undergraduate should study, but use the completed Spring 2026 remains of 07-280 or the continuing 10-301/601 course if you want something executable outside CMU today.** A future Fall 2026 page is not yet a completed public course.
 
-This guide therefore does not turn a list of the newest course numbers into a self-study plan. It first reconstructs the new BSAI core, then tests each 2025–2026 site as an anonymous visitor. The audit date is **August 21, 2026**. Fall 2026 classes have not started, so a published future schedule does not count as delivered material.
+This guide therefore does not turn a list of the newest course numbers into a self-study plan. It first reconstructs the new BSAI core, then tests each 2025–2026 site as an anonymous visitor. The original audit date is **August 21, 2026**; Fall 2026 courses were re-audited after classes started on **September 29, 2026**, and video status was re-checked on **October 10, 2026**. 07-280 and 07-380 are in-session courses that release materials lecture by lecture; the "first N lectures, HW1–M" figures in this article reflect the September 29 snapshot—check the official course site for current progress.
 
 ## The new BSAI core is broader than model training
 

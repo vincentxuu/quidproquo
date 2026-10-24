@@ -118,6 +118,24 @@ function inferSeriesCategory(slug: string, posts: SeriesPost[]): SeriesCategoryI
 // slug 是系列的身分：zh 與 en 版共用同一個 slug，只差 /en 前綴，中英切換才接得起來。
 const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
+    slug: 'ai-security',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI 資安實戰', en: 'AI Security in Practice' },
+    descriptions: {
+      'zh-TW': '共用資料流、身分與證據基礎，分成 AI 輔助攻擊、保護 AI 系統、AI 輔助調查與修補三條路線，最後以可重現的攻防演練會合。實作涵蓋靶場、自架雲端與明確授權的系統。',
+      en: 'A shared foundation in data flow, identity, and evidence, followed by three paths: AI-assisted attacks, securing AI systems, and AI-assisted investigation and remediation. The paths meet in a reproducible exercise across labs, self-hosted cloud environments, and explicitly authorized systems.',
+    },
+  },
+  {
+    slug: 'agent-isolation',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'Agent 隔離邊界', en: 'Agent Isolation Boundaries' },
+    descriptions: {
+      'zh-TW': '從容器、gVisor、microVM 到共用硬體上的隱蔽通道：拆開「在隔離環境中執行」這句話，看 AI agent 的程式碼被哪幾層擋住、哪些資源仍然共用、出口怎麼被找到，並以 OpenAI 2026 年的紅隊文章為案例。',
+      en: 'From containers, gVisor, and microVMs to covert channels on shared hardware: unpack "runs in an isolated environment" for AI agents, covering which layers contain the code, what is still shared, how exits get found, with OpenAI\'s 2026 red-team write-up as the case study.',
+    },
+  },
+  {
     slug: 'statistics-ml-ai',
     category: 'exams-interviews',
     names: { 'zh-TW': '從考試到 ML/AI 的統計學導讀', en: 'Statistics from Exams to ML/AI' },
@@ -238,6 +256,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'building-knowledge-bases',
+    category: 'learning',
+    names: { 'zh-TW': '知識庫怎麼建', en: 'Building Knowledge Bases' },
+    descriptions: {
+      'zh-TW': '同一套問題走三遍：給未來的自己（個人筆記）、給同事（團隊 wiki）、給模型（RAG 用的 AI 知識庫）。每段都回答收什麼、怎麼整理、怎麼找到、誰來維護，方法作者的主張和實證研究分開寫。',
+      en: 'The same four questions asked three times: for your future self (personal notes), for colleagues (team wikis), and for a model (an AI knowledge base for RAG). Each part covers what to keep, how to organize it, how it gets found, and who maintains it, with method authors’ claims kept apart from empirical research.',
+    },
+  },
+  {
     slug: 'malaysia-crags',
     category: 'climbing',
     names: { 'zh-TW': '馬來西亞岩場', en: 'Malaysia Climbing Crags' },
@@ -260,8 +287,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'climbing',
     names: { 'zh-TW': '出國攀岩裝備', en: 'Climbing Travel Gear' },
     descriptions: {
-      'zh-TW': '帶裝備出國攀岩時讀：依目的地決定帶什麼、繩要多長，攀岩裝備怎麼過安檢與航司行李規定，2020 年後攀岩者實際怎麼分托運與登機，再挑托運主袋、岩場包和多繩距攀登包。裝備本身怎麼挑與保養，交給「攀岩裝備」系列。',
-      en: 'For climbers flying abroad with their gear: what to bring for each destination and how long a rope you need, how climbing gear fares at airport security and under airline baggage rules, how climbers actually split checked and cabin luggage (examples from 2020 on), then choosing a checked bag, crag pack and multipitch pack. How to choose and care for each piece of gear is covered in the Climbing Gear series.',
+      'zh-TW': '帶裝備出國攀岩時讀：依目的地決定帶什麼、繩要多長、挑哪一條繩，攀岩裝備怎麼過安檢與航司行李規定，2020 年後攀岩者實際怎麼分托運與登機，再挑托運主袋、岩場包和多繩距攀登包。裝備本身怎麼挑與保養，交給「攀岩裝備」系列。',
+      en: 'For climbers flying abroad with their gear: what to bring for each destination, how long a rope you need and which one to buy, how climbing gear fares at airport security and under airline baggage rules, how climbers actually split checked and cabin luggage (examples from 2020 on), then choosing a checked bag, crag pack and multipitch pack. How to choose and care for each piece of gear is covered in the Climbing Gear series.',
     },
   },
   {
@@ -552,8 +579,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS329Z 導讀', en: 'Reading Stanford CS329Z' },
     descriptions: {
-      'zh-TW': '追蹤 Stanford CS329Z Fall 2026：前五堂官方投影片與 HW1 起始碼、資料及公開測試已釋出；各週指定閱讀另附導讀。',
-      en: 'Following Stanford CS329Z Fall 2026: the first five official slide decks and the HW1 starter, datasets, and public tests are available, alongside weekly reading guides.',
+      'zh-TW': 'Stanford CS329Z Fall 2026 自學導讀：前九堂投影片附頁碼對照，各週指定閱讀分篇深讀，從 agent 迴圈、記憶與協調走到評估、安全及主動式助理。',
+      en: 'A self-study guide to Stanford CS329Z Fall 2026: page-linked guides to nine slide decks and individual reading digests, from agent loops, memory and coordination to evaluation, safety and proactive assistants.',
     },
   },
   {
@@ -1261,8 +1288,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'climbing',
     names: { 'zh-TW': '攀岩裝備', en: 'Climbing Gear' },
     descriptions: {
-      'zh-TW': '從買第一雙攀岩鞋開始：先租還是先買、鞋子多緊才對、吊帶與頭盔怎麼試穿、繩子與確保器怎麼搭配，以及原廠怎麼規定檢查與汰換。只講選購判準、標準數字與退役規則，不推薦型號。',
-      en: 'Starting from your first pair of climbing shoes: what to rent and what to buy, how tight shoes should be, how to fit a harness and helmet, how ropes and belay devices go together, and what manufacturers say about inspection and retirement. Selection criteria, standards, and retirement rules only, no model picks.',
+      'zh-TW': '一個裝備一篇，照花錢的順序走：先租還是先買，接著是攀岩鞋、粉袋、吊帶、確保器、鉤環、頭盔、快扣、繩子、普魯士繩、岩楔與活動岩楔，最後是原廠怎麼規定檢查與汰換。每篇先講選購判準，再比較現行型號，附 2024 年後的評測與心得影片。',
+      en: 'One piece of gear per guide, in the order you spend money: what to rent and what to buy, then shoes, chalk bag, harness, belay device, carabiners, helmet, quickdraws, rope, prusik cord, nuts and cams, ending with what manufacturers say about inspection and retirement. Each guide covers the buying criteria first, then compares current models, with reviews and hands-on videos from 2024 on.',
     },
   },
   {

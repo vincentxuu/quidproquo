@@ -1,0 +1,19 @@
+{
+  "cases": [
+    {
+      "ticket_id": "N-1",
+      "expected_status": 200,
+      "reason": "Alice/north owns N-1; tenant and owner match."
+    },
+    {
+      "ticket_id": "N-2",
+      "expected_status": 403,
+      "reason": "Same tenant, but Bob owns N-2; implementation incorrectly allows Alice."
+    },
+    {
+      "ticket_id": "S-1",
+      "expected_status": 403,
+      "reason": "Carol/south owns S-1; tenant and owner differ from Alice; implementation incorrectly allows Alice."
+    }
+  ]
+}

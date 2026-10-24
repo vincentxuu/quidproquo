@@ -1,0 +1,6 @@
+{
+  "action": "finish",
+  "ticket_id": null,
+  "verdict": "vulnerable",
+  "reason": "N-1 returned 200 with Alice's ticket, establishing the normal baseline. N-2 returned 200 with Bob's ticket text, proving Alice can read another owner's ticket despite the ownership requirement. No further request is needed."
+}

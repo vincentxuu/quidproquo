@@ -7,6 +7,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
+import { devCacheIsolation } from './src/plugins/viteDevCache.ts';
 import { remarkReadingTime } from './src/plugins/remarkReadingTime.ts';
 import { remarkYoutubeEmbed } from './src/plugins/remarkYoutubeEmbed.ts';
 import { remarkVideoPractice } from './src/plugins/remarkVideoPractice.ts';
@@ -73,12 +74,17 @@ export default defineConfig({
     '/posts/climbing/2026-10-19-multipitch-rope-systems-en': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en',
     '/posts/climbing/2026-10-19-climbing-travel-packing': '/posts/climbing/2026-10-19-climbing-travel-luggage',
     '/posts/climbing/2026-10-19-climbing-travel-packing-en': '/posts/climbing/2026-10-19-climbing-travel-luggage-en',
-    '/posts/climbing/2026-10-19-climbing-shoes-harness-helmet': '/posts/climbing/2026-10-19-climbing-harness-helmet',
-    '/posts/climbing/2026-10-19-climbing-shoes-harness-helmet-en': '/posts/climbing/2026-10-19-climbing-harness-helmet-en',
-    '/posts/climbing/2026-10-19-climbing-belay-hardware': '/posts/climbing/2026-10-19-climbing-rope-belay-device',
-    '/posts/climbing/2026-10-19-climbing-belay-hardware-en': '/posts/climbing/2026-10-19-climbing-rope-belay-device-en',
+    '/posts/climbing/2026-10-19-climbing-shoes-harness-helmet': '/posts/climbing/2026-10-24-climbing-harness',
+    '/posts/climbing/2026-10-19-climbing-shoes-harness-helmet-en': '/posts/climbing/2026-10-24-climbing-harness-en',
+    '/posts/climbing/2026-10-19-climbing-belay-hardware': '/posts/climbing/2026-10-24-climbing-belay-device',
+    '/posts/climbing/2026-10-19-climbing-belay-hardware-en': '/posts/climbing/2026-10-24-climbing-belay-device-en',
     '/posts/climbing/2026-10-19-climbing-gear-care-retirement': '/posts/climbing/2026-10-19-climbing-gear-inspection-retirement',
     '/posts/climbing/2026-10-19-climbing-gear-care-retirement-en': '/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en',
+    // 攀岩裝備：一個裝備一篇，合併篇拆開（2026-10-24）。
+    '/posts/climbing/2026-10-19-climbing-harness-helmet': '/posts/climbing/2026-10-24-climbing-harness',
+    '/posts/climbing/2026-10-19-climbing-harness-helmet-en': '/posts/climbing/2026-10-24-climbing-harness-en',
+    '/posts/climbing/2026-10-19-climbing-rope-belay-device': '/posts/climbing/2026-10-24-climbing-rope',
+    '/posts/climbing/2026-10-19-climbing-rope-belay-device-en': '/posts/climbing/2026-10-24-climbing-rope-en',
     // Bug Bounty: consolidate duplicate rewrite paths into topic-correct original URLs.
     '/posts/tech/2026-10-15-bug-bounty-zero-01-rules-and-scope': '/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope',
     '/posts/tech/2026-10-15-bug-bounty-zero-01-rules-and-scope-en': '/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en',
@@ -347,12 +353,13 @@ export default defineConfig({
   },
   adapter: cloudflare({
     platformProxy: { enabled: true },
-    remoteBindings: false,
+    // CI visual checks run without Cloudflare credentials; production bindings are unchanged.
+    remoteBindings: !process.env.CI,
     inspectorPort: false,
     prerenderEnvironment: 'node',
   }),
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [devCacheIsolation(), tailwindcss()],
     ssr: {
       external: ['@lanefoundry/gatelane-sdk'],
       // Vite's SSR dep optimizer periodically re-bundles this module (imported by

@@ -1,0 +1,65 @@
+---
+import VocabularyLookupPanel from './VocabularyLookupPanel';
+interface Props { lang: 'zh-TW' | 'en'; title: string }
+const { lang, title } = Astro.props;
+const en = lang === 'en';
+---
+<aside class="vocabulary-capture" data-lang={lang} data-title={title}>
+  <p>{en ? 'Keep unfamiliar words and review them later.' : '把不熟悉的單字留下來，之後再複習。'}</p>
+  <button type="button" id="vocabulary-add">{en ? 'Look up & save a word' : '查詞與收藏'}</button>
+  <a href={en ? '/en/vocabulary' : '/vocabulary'}>{en ? 'My vocabulary & review' : '我的單字庫與複習'}</a>
+  <p class="vocabulary-hint">{en ? 'Select an English word to see meanings, examples and pronunciation, then save it.' : '選取英文單字或片語，查看詞義、例句與發音後直接收藏。'}</p>
+</aside>
+<button type="button" id="vocabulary-selection-save" aria-haspopup="dialog" aria-controls="vocabulary-capture-dialog" hidden>{en ? "Look up word" : "查詞與收藏"}</button>
+<div id="vocabulary-save-feedback" role="status" hidden>
+  <span id="vocabulary-save-message"></span>
+  <a href={en ? '/en/vocabulary' : '/vocabulary'}>{en ? 'View vocabulary' : '查看單字庫'}</a>
+</div>
+<dialog id="vocabulary-capture-dialog" aria-labelledby="vocabulary-capture-title">
+  <div class="vocabulary-dialog-heading">
+    <h2 id="vocabulary-capture-title">{en ? 'Look up & save' : '查詞與收藏'}</h2>
+    <button type="button" id="vocabulary-cancel" aria-label={en ? 'Close lookup' : '關閉查詞'}>×</button>
+  </div>
+  <VocabularyLookupPanel lang={lang} sourceTitle={title} client:only="react">
+    <p slot="fallback" role="status">{en ? 'Loading dictionary…' : '正在載入查詞工具…'}</p>
+  </VocabularyLookupPanel>
+</dialog>
+<script>
+  import { initializeVocabularyCapture } from '../lib/vocabularyCaptureClient';
+  initializeVocabularyCapture();
+</script>
+<style>
+  #vocabulary-save-feedback {
+    position: fixed; z-index: 85; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
+    width: max-content; max-width: calc(100vw - 2rem); box-sizing: border-box;
+    border: 1px solid var(--border); border-radius: 8px; padding: .75rem 1rem;
+    background: var(--bg-card); color: var(--text-primary); box-shadow: var(--shadow-floating);
+    font-size: .86rem; line-height: 1.5;
+  }
+  #vocabulary-save-feedback a { display: inline-block; }
+  #vocabulary-selection-save {
+    position: fixed; z-index: 79; max-width: calc(100vw - 24px);
+    padding: .4rem .75rem; min-height: 44px; border-radius: 8px;
+    font-size: .82rem; line-height: 1.35; white-space: nowrap;
+    box-shadow: var(--shadow-floating); background: var(--bg-card);
+  }
+  @media (pointer: coarse) { #vocabulary-selection-save { min-height: 44px; } }
+  .vocabulary-capture { margin: 2rem 0; padding: 1rem 0; border-block: 1px solid var(--border); font-size: .875rem; line-height: 1.6; }
+  .vocabulary-capture p { margin: 0 0 .6rem; color: var(--text-primary); font-size: .875rem; font-weight: 400; }
+  .vocabulary-capture .vocabulary-hint { font-size: .8rem; color: color-mix(in srgb, var(--text-primary) 72%, var(--bg-page)); margin-top: .65rem !important; }
+  button { min-height: 44px; font: inherit; padding: .55rem .8rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-subtle); color: var(--text-primary); cursor: pointer; }
+  a { margin-left: .8rem; color: var(--brand-500); }
+  dialog { width: min(680px, calc(100vw - 2rem)); max-height: 85dvh; overflow-y: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-card); color: var(--text-primary); padding: 1.25rem; }
+  dialog::backdrop { background: rgb(0 0 0 / .5); }
+  h2 { margin: 0 0 1rem; font-size: 1.2rem; }
+  label { display: block; margin: .8rem 0 .35rem; }
+  input, textarea { box-sizing: border-box; width: 100%; padding: .6rem; font: inherit; color: var(--text-primary); background: var(--bg-page); border: 1px solid var(--border); border-radius: 4px; }
+  .vocabulary-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+  :is(button, a, input, textarea):focus-visible { outline: 2px solid var(--brand-500); outline-offset: 3px; }
+</style>
+
+<style>
+  .vocabulary-dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .75rem; }
+  .vocabulary-dialog-heading h2 { margin: 0; }
+  #vocabulary-cancel { padding: .25rem .65rem; font-size: 1.5rem; line-height: 1; min-height: 44px; min-width: 44px; }
+</style>

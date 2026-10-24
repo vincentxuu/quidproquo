@@ -70,3 +70,6 @@ playwright-report/
 
 # 英文口說：逐句修正表保留使用者原句，不進版控
 .work/english-speaking/*/corrections.md
+
+# Generated from pinned PDF.js sources by prepare-pdf-viewer.mjs
+/public/pdfjs/

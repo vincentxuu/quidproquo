@@ -29,7 +29,7 @@ glossary:
 
 After a while in the gym, or a few trips to sport routes at Long Dong, you have probably seen these clips: someone dropping off a sea arch into the water, someone sleeping in a portaledge halfway up El Capitan, someone swinging two ice tools up a frozen waterfall, someone climbing Taipei 101 without a rope in January 2026.
 
-All of these are climbing, yet they are very different from what you do in the gym. This series has six posts and this one is the map. It places the five disciplines on three axes, gives each a paragraph on what it is, what you need first and whether you can practise it in Taiwan, and then suggests which post to read first.
+All of these are climbing, yet they are very different from what you do in the gym. This series has seven posts and this one is the map. It places the five disciplines on three axes, gives each a paragraph on what it is, what you need first and whether you can practise it in Taiwan, and then suggests which post to read first.
 
 ## Three axes: what stops a fall, what you climb on, how long you are committed
 
@@ -90,7 +90,7 @@ Free soloing means no rope and no protection at all, just shoes and chalk. The e
 
 - **What you need first**: this series does not teach it and does not recommend it.
 - **In Taiwan**: not applicable.
-- **More**: [Part 5: Free soloing and rope soloing](/posts/climbing/2026-10-19-free-solo-rope-solo-en) covers only the accident record, the ethics debate and why climbing alone on a rope carries its own risks.
+- **More**: [Part 5: Free soloing and rope soloing](/posts/climbing/2026-10-19-free-solo-rope-solo-en) covers only the accident record, the ethics debate and why climbing alone on a rope carries its own risks; [Part 6: How to Rope Solo](/posts/climbing/2026-10-24-rope-solo-how-to-en) covers the gear and pre-climb checks for top-rope soloing, single-pitch lead soloing and multipitch soloing.
 
 ## Prerequisites at a glance
 
@@ -119,6 +119,7 @@ So whenever a post in this series discusses risk, it says what has happened and 
 | Comfortable on top-rope belay, planning a winter trip | [Ice, mixed and dry tooling](/posts/climbing/2026-10-19-ice-mixed-climbing-en) |
 | A hiker of Taiwan's high peaks with snow training, eyeing technical routes | [Alpine climbing](/posts/climbing/2026-10-19-alpine-climbing-en) |
 | Just watched the Taipei 101 stream and wondering how dangerous soloing is | [Free soloing and rope soloing](/posts/climbing/2026-10-19-free-solo-rope-solo-en) |
+| Can rig a top rope and rappel, but can't find a partner | [How to Rope Solo](/posts/climbing/2026-10-24-rope-solo-how-to-en) |
 
 If you have not climbed outdoors yet, start with [Sport vs trad climbing](/posts/climbing/2026-10-17-sport-vs-trad-overview-en). For books on big walls and soloing, see the [climbing books knowledge map](/posts/climbing/2026-06-20-climbing-books-knowledge-map-en). If you want to make snow, ice and alpine your profession, read [What is an IFMGA mountain guide](/posts/climbing/2026-10-17-ifmga-mountain-guide-overview-en).
 
@@ -149,6 +150,10 @@ That treats totals as rates. 71 and 9 are accident counts, not divided by partic
 VI is the NCCS commitment grade: an average team needs two or more days. 5.9 is the hardest free climbing, and C2 is the grade of the aid sections. Three grades side by side is the usual big wall notation, unpacked in Part 2.
 
 </details>
+
+## Update Log
+
+- 2026-10-24: the series gained part 6, How to Rope Solo; the post count is now seven, and the soloing section and "which post first" table link to it. Facts in this post were not re-checked.
 
 ## References
 

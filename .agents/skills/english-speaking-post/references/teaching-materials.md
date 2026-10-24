@@ -351,3 +351,20 @@
 做完新的情境對照後，在這張表加一列，並把新讀的來源補進對應的表。
 
 **用 subagent 做對照時：** 它的報告只當線索。做成卡片的每一句引文，主 session 都要重抓原頁、用完整字串比對過，才能標成原句；沒核對的要在 evidence 寫明。2026-10-08 這兩批共核對 50 多句，全部吻合。
+
+## 同事聊感冒與午餐（2026-10-23）
+
+本次 Groundlane 未掛載，Exa 完整讀取以下教材正文；主 session 回讀採用句並逐字核對。不是頻率或母語者測試。
+
+| 來源 | 讀取範圍 | 用途與限制 |
+| --- | --- | --- |
+| [Oxford Online English: Talk About Illness and Medicine](https://www.oxfordonlineenglish.com/talk-about-illness-medicine) | 完整教材與對話 | sore throat、症狀持續時間；原為醫病情境 |
+| [BBC Real Easy English: Talking about lunch](https://www.bbc.co.uk/learningenglish/features/real-easy-english/250801) | 完整逐字稿 | 今天午餐、平常習慣、帶剩菜；原為主持人對話 |
+| [ELLLO 625: What's for Lunch?](https://www.elllo.org/english/0601/T625-Tom-Lunch.htm) | 完整逐字稿與詞彙 | 從家裡帶來、晚餐自己煮；校園改同事情境須標 adapted |
+| [ELLLO 474: Cooking Tips](https://elllo.org/english/0451/474-Akane-Cooking.htm) | 完整逐字稿與詞彙 | 請推薦簡單料理；採用句來自詞彙例句區 |
+
+既有 daily 卡未涵蓋感冒與午餐。功能對照、十四張草稿卡與補查的「很痛／失聲」在 `.work/english-speaking/colleague-health-lunch/`。Cambridge voice/throat/hurt 補語義與句型，沒有用字典推論職場頻率。
+
+補讀 [b わたしの英会話：喉嚨症狀英文](https://www.b-cafe.net/newsletter/2026/08/sore-throat-english.php) 全文，含作者署名與完整教學例句；補 My throat really hurts、I can barely speak、I’ve lost my voice 三卡。僅採用句子與語義，不採用頻率排名或醫療建議；Oxford voice 補失聲語義。
+
+補讀 [All Ears English: American Culture and Food at Work](https://www.allearsenglish.com/american-culture-and-food-at-work/) 全文，署名 Aubrey Carter。直接教同事午餐場景 That looks delicious! Did you make it?，限制為看起來像自製的午餐；補一張原句／原情境卡。

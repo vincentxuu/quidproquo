@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1637c-4c21-7340-a919-0b56c0cdac25"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"cases\":[{\"ticket_id\":\"N-1\",\"expected_status\":200,\"reason\":\"Alice/north owns N-1; tenant and owner match.\"},{\"ticket_id\":\"N-2\",\"expected_status\":403,\"reason\":\"Same tenant, but Bob owns N-2; implementation incorrectly allows Alice.\"},{\"ticket_id\":\"S-1\",\"expected_status\":403,\"reason\":\"Carol/south owns S-1; tenant and owner differ from Alice; implementation incorrectly allows Alice.\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":23563,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":102,"reasoning_output_tokens":0}}

@@ -1,0 +1,24 @@
+{
+  "scope": "synthetic local copy only; canonical ticket-lab.py unchanged",
+  "before": {
+    "wrong_resource_assertion": true,
+    "exit": 1,
+    "out_exists": false
+  },
+  "after_loopback_origin": {
+    "wrong_resource_assertion": true,
+    "exit": 1,
+    "out_exists": true,
+    "status": "inconclusive",
+    "trace_steps": 5
+  },
+  "after_local_child": {
+    "wrong_resource_assertion": true,
+    "exit": 1,
+    "out_exists": true,
+    "status": "inconclusive",
+    "trace_steps": 5,
+    "server_audit_events": 4
+  },
+  "note": "Values transcribed from actual tool stdout in this review; not claimed raw response dump."
+}

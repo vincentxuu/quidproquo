@@ -1,18 +1,15 @@
 import type { APIRoute } from 'astro'
 import { env as cloudflareEnv } from 'cloudflare:workers'
-import { verifySession } from '../../../lib/auth/session'
+import { requireAdmin } from '../../../lib/auth/admin'
 import type { Env } from '@/lib/config/env'
 type DeepResearchStorageMode = 'auto' | 'd1' | 'deep_research_kv' | 'session'
 
 export const GET: APIRoute = async (context) => {
-  const { params, cookies } = context
+  const { params, cookies, request } = context
   const routeEnv = (context as unknown as { env?: Env }).env
   const runtimeEnv = ((routeEnv as unknown as Env | undefined) ?? (cloudflareEnv as unknown as Env))
-  const sessionToken = cookies.get('session')?.value
-  const isAdmin = sessionToken ? await verifySession(sessionToken) : false
-  if (!isAdmin) {
-    return new Response('Unauthorized', { status: 401 })
-  }
+  const auth = await requireAdmin(cookies, request)
+  if (!auth.ok) return auth.response
 
   const reportId = params.reportId?.trim()
   if (!reportId) {

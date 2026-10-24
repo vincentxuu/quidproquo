@@ -184,7 +184,7 @@ A 還是便宜一點，但差距從 37.5% 縮到約 6%。改看「每次成功�
 一般聊天只多等這 1.5 秒。一個要呼叫模型 30 次的 agent，每一次都要多等：30 × 1.5 ＝ 45 秒。這 45 秒全落在關鍵路徑上，因為下一步得等上一步的結果才能開始。continuous batching 怎麼排程、怎麼兼顧兩邊，Part II 才講。
 
 > **自我檢查**：上面的例子裡，agent 每次呼叫只產生 20 個 token，30 次呼叫一共多等多久？
-> 答：每次 20 × 15 毫秒 ＝ 0.3 秒，30 次共 9 秒。輸出越短，batching 的延遲代價越小；所以後面第 8 堂會教你減少每步的輸出 token。
+> 答：每次 20 × 15 毫秒 ＝ 0.3 秒，30 次共 9 秒。輸出越短，batching 的延遲代價越小；所以後面[第 8 堂](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness)會教你減少每步的輸出 token。
 
 > **自我檢查**：一個 agent 換了更貴的模型，每任務花費從 \$0.40 變 \$0.60，成功率從 50% 變 80%。每次成功的花費變高還是變低？
 > 答：變低。\$0.40 ÷ 0.5 ＝ \$0.80，\$0.60 ÷ 0.8 ＝ \$0.75。
@@ -202,15 +202,15 @@ A 還是便宜一點，但差距從 37.5% 縮到約 6%。改看「每次成功�
 | Agent 的特性 | 系統問題 | 本系列在哪裡碰到 |
 |---|---|---|
 | 軌跡很長 | 狀態與 context 管理 | 第 2、4 堂 |
-| context 很大 | 記憶體階層與檢索 | 第 6 堂 |
-| 開頭重複出現 | prefix caching | 第 8 堂、Part II |
-| 推理會分岔 | speculative execution | 第 8 堂、Part II |
-| 工具之間有依賴 | 依賴感知的排程 | 第 5、8 堂 |
-| 用到不同模型 | routing | 第 8 堂、Part II |
-| 工具延遲不固定 | 非同步執行 | 第 8 堂 |
-| 對外有副作用 | 安全與隔離 | 第 4 堂（shell 的風險） |
-| 多個 agent | 編排與通訊 | 第 3、5 堂 |
-| 任務跑很久 | checkpoint 與容錯 | 第 6 堂 |
+| context 很大 | 記憶體階層與檢索 | [第 6 堂](/posts/ai/2026-10-21-cs2680-lecture-06-memory-reliability) |
+| 開頭重複出現 | prefix caching | [第 8 堂](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness)、Part II |
+| 推理會分岔 | speculative execution | [第 8 堂](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness)、Part II |
+| 工具之間有依賴 | 依賴感知的排程 | [第 5 堂](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture)、[第 8 堂](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness) |
+| 用到不同模型 | routing | [第 8 堂](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness)、Part II |
+| 工具延遲不固定 | 非同步執行 | [第 8 堂](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness) |
+| 對外有副作用 | 安全與隔離 | [第 4 堂](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering)（shell 的風險） |
+| 多個 agent | 編排與通訊 | [第 3 堂](/posts/ai/2026-10-21-cs2680-lecture-03-scaling-yourself-multi-agent)、[第 5 堂](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture) |
+| 任務跑很久 | checkpoint 與容錯 | [第 6 堂](/posts/ai/2026-10-21-cs2680-lecture-06-memory-reliability) |
 
 ### 走一次：一個修 flaky test 的 agent 會碰到哪些問題
 
@@ -257,13 +257,18 @@ A 還是便宜一點，但差距從 37.5% 縮到約 6%。改看「每次成功�
 - [CMU 11-768 第 1 堂：什麼是 agent](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)：從研究角度定義 agent，和本堂的系統角度互補。
 - [CMU 11-868：為什麼需要 LLM 系統](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems)：和本堂第一節同一個問題，從另一門課的角度講。
 - [CMU 11-868：用 SGLang 與 vLLM 做 LLM serving](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm)：continuous batching 的實際做法。
-- [coding agent 的內部構造](/posts/ai/2026-08-16-cs146s-agent-internals)：先看 agent loop 的程式長相，再讀第 2 堂。
+- [coding agent 的內部構造](/posts/ai/2026-08-16-cs146s-agent-internals)：先看 agent loop 的程式長相，再讀[第 2 堂](/posts/ai/2026-10-21-cs2680-lecture-02-how-claude-code-works)。
 
 ## 課程影片來源
 
 - 課程不錄影（[policy 頁](https://cs2680.com/policy)：「the lectures will not be recorded」）。
 - 底本：[第 1 堂投影片](https://cs2680.com/slides/1_intro.pdf)（PDF 頁序 p27–45），2026-10-21 讀取。投影片右下角印的頁碼比 PDF 頁序多 1，本文引用一律用 PDF 頁序。
 - 本文的兩個帳目例子與 batching 例子是本站補充，不是課堂內容。
+
+## 更新紀錄
+
+- 2026-10-23：對照表與自我檢查答案補上第 6、8 堂的站內連結。
+- 2026-10-22：延伸閱讀補上第 2 堂、對照表補上第 3、4、5 堂的站內連結。
 
 ## 參考資料
 

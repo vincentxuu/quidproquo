@@ -200,9 +200,13 @@ Stop; your backup may already have stopped working. The AAC notes that an autobl
 
 ## What's next
 
-That wraps up sport-route anchor work. Next is [Grades and Protection Ratings](/posts/climbing/2026-10-17-grades-and-protection-ratings-en): what 5.10a, 6a, E1 5b and R/X each mean, before the series moves into trad climbing.
+Next is [How to Rappel](/posts/climbing/2026-10-24-how-to-rappel-en): a rappel broken into eight steps, from clipping in at the anchor, friction hitch before the extended device, and the load test and partner check, through to pulling your ropes.
 
 To plan your learning order and the courses to take, see [Learning Path and Common Accidents](/posts/climbing/2026-10-17-sport-to-trad-learning-path-en).
+
+## Update Log
+
+- 2026-10-24: "What's next" now points to the new post 8, "How to Rappel"
 
 ## References
 

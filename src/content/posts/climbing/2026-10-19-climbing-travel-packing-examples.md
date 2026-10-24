@@ -9,7 +9,7 @@ tldr: "鞋、吊帶、頭盔放登機，繩子放托運，是 45 個社群實例
 draft: false
 series:
   name: "出國攀岩裝備"
-  order: 3
+  order: 4
 ---
 
 > 🌏 [English version](/posts/climbing/2026-10-19-climbing-travel-packing-examples-en)

@@ -10,7 +10,7 @@ tldr: "多繩距就是把單繩距的事在半空中重複做：先鋒到站、�
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 11
+  order: 12
 glossary:
   - term: "繩距"
     aliases: ["pitch"]
@@ -92,6 +92,45 @@ Petzl 把這種墜落的風險歸成兩個：方向點受力過大，以及確�
 
 **今晚就能做的動作**：在家用一條繩練「繩圈掛腳上」：坐在椅子上，把繩子一圈一圈掛在腳背，每圈比前一圈短一點，再從最上面一圈開始拉出，看會不會打結。
 
+## 確保的兩派：站上確保與身上確保
+
+在確保站上確保人，有兩種裝法：
+
+- **站上確保**（direct belay）：確保器或義大利半扣（Munter／HMS）裝在確保站的主固定點上，墜落的力由確保站承受。下一節的 guide mode 屬於這一派。
+- **身上確保**（indirect belay）：確保者用繩或扁帶連在確保站，確保器掛在自己吊帶上。墜落的力先經過確保者的身體。
+
+這不是對錯之爭。各國教材兩種都教，差在預設用哪一種、什麼條件下換另一種。確保跟攀者和確保先鋒的答案也不一樣。
+
+### 確保跟攀者：多數教材預設站上確保
+
+| 體系 | 預設 | 例外或前提 |
+|---|---|---|
+| Petzl（法國） | REVERSO 裝在確保站上 | 無 |
+| UIAA 訓練小組 | 膨脹螺栓或大樹這類牢靠的確保站：站上確保 | 確保站是自己放的岩楔、cam：確保器改掛吊帶 |
+| 德國 DAV | 確保器掛在確保站中心點，不掛身上 | 無 |
+| 美國 AAC（AMGA 嚮導撰文） | 會掉、掉了後果嚴重的路段，站上確保最穩妥 | 確保站本身不能有疑慮 |
+| 加拿大 ACMG | 自動制動確保器通常直接裝在確保站上 | 無 |
+| 義大利嚮導協會 AGAI | 板式確保器或義大利半扣裝在確保站 | 無 |
+| 英國 BMC 入門手冊 | 身上確保：先把自己綁緊在確保站，確保器掛吊帶 | 手冊沒有教 guide mode |
+
+AAC 列出站上確保的好處：確保者不會被困在系統裡，騰得出手協助跟攀者，確保站受的力也比較小。DAV 則點出身上確保的麻煩：跟攀者一吃重，整個重量都往下拉確保者。
+
+### 確保先鋒：各家預設分歧最大
+
+換成確保下一段的先鋒，各家就不一致了：
+
+- **身上確保，確保站掛方向點**：Petzl 的預設是確保器掛吊帶、確保站上掛一條快扣當方向點。義大利嚮導協會把「確保器掛吊帶、第一個快扣掛在確保站」標為建議做法。AAC 也說，確保先鋒最常用的是身上確保。
+- **站上確保（固定點確保）**：德國 DAV 稱固定點確保是「穩當的基本方法」。身上確保要條件全部符合才用，例如先鋒不能比確保者重太多、自我連結夠長、確保站上方有第一個保護點。
+- **看狀況切換**：加拿大 ACMG 列了四種該改用固定點確保的狀況：先鋒容易掉、可能出現高係數墜落、平板或冰壁可能掉很長、確保者經驗不足或站位差。這時常用義大利半扣。義大利 CAI 的基礎課程直接教義大利半扣裝在確保站上，理由是學員不會被先鋒的墜落拉走，也比較拉得住。改用固定點確保時確保站要多強、CAI 三種確保法各讓確保站多扛多少力，整理在[〈建立固定點〉](/posts/climbing/2026-10-17-building-anchors#多繩距確保方式決定確保站要扛什麼)。
+
+改用站上確保的共同理由，是確保者不會被墜落拉飛、撞上岩壁或屋簷，Petzl 稱為「確保者被拋出」。代價是放繩不順、不好做動態確保，而且 Petzl 限定只能用在固定點「無可挑剔」的確保站。
+
+本文換段流程用的是 Petzl 的組合：跟攀者用站上確保，先鋒用身上確保加方向點。
+
+**這份整理偏在哪裡**：來源是各國登山協會、嚮導協會與 Petzl 的公開教材（2026-10-23 查詢），歐洲和英語圈的資料最多。英國 Mountain Training、德國 DAV 教學手冊、瑞士 SAC 與義大利 CAI 新版手冊的完整內容只有紙本，沒讀到。日本山岳ガイド協会的考試項目只列「確保跟攀者」，沒寫用哪種方法。台灣艾格的課程列了 Classic 與 Guide 兩種上方確保，但沒寫預設。
+
+**上課時可以問教練的兩個問題**：確保跟攀者和確保先鋒，你們各教哪一種？什麼情況會換成另一種？
+
 ## Guide mode：在確保站上確保跟攀者
 
 先鋒到站後要把跟攀者拉上來。常見做法是把有輔助制動功能的確保器（例如 Petzl REVERSO、Black Diamond ATC Guide）直接裝在確保站上，俗稱 guide mode 或 plaquette。跟攀者墜落時，確保器會把繩子夾住。
@@ -140,6 +179,66 @@ Petzl 在這類技術說明的開頭都會提醒兩件事：這些技術需要�
 
 **今晚就能做的動作**：拿一張紙，不看本文把換段的九個步驟畫出來，再跟上面的圖對照，看漏了哪一步。漏掉的那一步，就是你上課時要特別問教練的。
 
+### 看影片：一次換段實際長什麼樣
+
+九個步驟用看的比較快懂。這支 4 分鐘的影片在兩根膨脹螺栓的確保站上，把整套做一次：
+
+```youtube
+url: https://www.youtube.com/watch?v=ZS-W-UIiQ-M
+title: Multi pitch Belay Station management（Chris Lawrence Guiding）
+```
+
+嚮導 Chris Lawrence 的順序跟 Petzl 幾乎一樣：到站先在下一段要去的那側螺栓扣快扣，這條快扣之後就是下一段的第一個保護點；用 120 公分扁帶做主固定點、雙套結連上，繩子疊在腳邊，用 ATC Guide 以 guide mode 確保跟攀者，跟攀者到站也用雙套結連上。他開頭算了一筆帳：18 段的路線每站耗 10 分鐘，就是 3 小時沒在爬。
+
+有一步跟上面的順序不同：換人先鋒時，他把確保器直接移到自己吊帶上，沒提到制動端先打結。照 Petzl 的做法，結要留到新先鋒扣好方向點才拆。
+
+想多看幾種做法，下面幾支是登山協會、器材品牌或持證教練拍的（2026-10-23 確認連結有效）：
+
+**Multi-pitch climbing: set up a belay at a stance**（BMC TV）：英國登山協會與 AMI、DMM 合拍。用岩楔架確保站，兩條繩用雙套結掛在同一個大 HMS 鉤環上，再把繩整齊堆好。
+
+```youtube
+url: https://www.youtube.com/watch?v=DYTCun48TKs
+title: Multi-pitch climbing: set up a belay at a stance（BMC TV）
+```
+**Multi-pitch climbing: how to swap leads and climb through**（BMC TV）：換領攀時器材怎麼交接，以及新先鋒為什麼要盡早放第一個保護點：不放的話，一掉就是直接打在確保者身上的係數 2 墜落。
+
+```youtube
+url: https://www.youtube.com/watch?v=JExSAtFjWTQ
+title: Multi-pitch climbing: how to swap leads and climb through（BMC TV）
+```
+**#PetzlTips - Rope Management at the Belay**（Petzl）：不到兩分鐘，示範繩圈一圈比一圈短，換人先鋒時繩才放得順。
+
+```youtube
+url: https://www.youtube.com/watch?v=xZOsbxrnpwo
+title: #PetzlTips - Rope Management at the Belay（Petzl）
+```
+**HOW TO Belaying a second with the REVERSO**（Petzl）：官方示範用 REVERSO 確保跟攀者，對照本文 guide mode 那一節看。
+
+```youtube
+url: https://www.youtube.com/watch?v=AZ4MYLCsSSs
+title: HOW TO Belaying a second with the REVERSO（Petzl）
+```
+**Learning to Trad Climb: Part 6 - How to lead multipitch**（DMM Wales）：約 22 分鐘，AMI 教練帶新手實爬，連續領攀、確保站管理、換領攀都有，章節分得清楚。
+
+```youtube
+url: https://www.youtube.com/watch?v=iT0qYd9E6Nw
+title: Learning to Trad Climb: Part 6 - How to lead multipitch（DMM Wales）
+```
+**Seilschaftsablauf: Mehrseillängen effizient klettern**（奧地利登山協會 ÖAV）：德語，安全教學系列的一集，從出發到換段把整套繩隊流程走一遍，可以開 YouTube 自動翻譯字幕。
+
+```youtube
+url: https://www.youtube.com/watch?v=ckZlA0jp9r8
+title: Seilschaftsablauf: Mehrseillängen effizient klettern（奧地利登山協會 ÖAV）
+```
+**Multi-Pitch Belaying - Potentially Fatal Errors to Avoid**（SIET）：專講在確保站確保時可能致命的錯誤，適合學完 guide mode 後看。
+
+```youtube
+url: https://www.youtube.com/watch?v=s9np7B1Zao4
+title: Multi-Pitch Belaying - Potentially Fatal Errors to Avoid（SIET）
+```
+
+BMC 和 DMM 這三支是英國傳攀的習慣：雙繩、從吊帶確保跟攀者，不用 guide mode。看的時候把重點放在確保站怎麼排、繩怎麼收，確保方式以你上課學的為準。
+
 ## 爬到一半要撤退：多段垂降
 
 BMC 把會垂降叫作多繩距的「出獄卡」：天氣變壞、有人受傷、路線比預期難，最謹慎的做法常常是下撤。它對多段垂降的基本要求：
@@ -150,7 +249,7 @@ BMC 把會垂降叫作多繩距的「出獄卡」：天氣變壞、有人受傷�
 
 美國山岳協會（AAC）的 [Know the Ropes: Lowering](https://americanalpineclub.org/news/2023/6/21/lowering) 把這件事叫作「封閉系統」。多繩距下放時，繩尾要綁在確保者、固定點或別的東西上。垂降時，在兩條繩尾打結，讓人不可能垂降出繩尾。單繩距時地面會幫你封閉系統，多繩距時沒有地面，只能靠自己。
 
-還有一件常被搞混的事：「繩距不能超過半條繩」是單繩距要**下放或垂降回地面**時的限制。多繩距的跟攀者是從上方確保，不受這個限制；但撤退時用單繩對折垂降，每一段最多只能下到繩長的一半。所以出發前要知道路線的撤退點在哪裡、間距多長。下放與垂降的細節在[下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel)那篇。
+還有一件常被搞混的事：「繩距不能超過半條繩」是單繩距要**下放或垂降回地面**時的限制。多繩距的跟攀者是從上方確保，不受這個限制；但撤退時用單繩對折垂降，每一段最多只能下到繩長的一半。所以出發前要知道路線的撤退點在哪裡、間距多長。下放與垂降怎麼選，見[下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel)；多段垂降每一步怎麼做，見[垂降怎麼做](/posts/climbing/2026-10-24-how-to-rappel)。
 
 **今晚就能做的動作**：看看你的繩子有沒有中點標記，量一下總長。對折後的一半，就是你單繩垂降每一段的上限。
 
@@ -219,6 +318,11 @@ BMC 把會垂降叫作多繩距的「出獄卡」：天氣變壞、有人受傷�
 
 多繩距讓你離地面更遠，也代表出事時能幫你的人更少。下一篇[自我救援基礎](/posts/climbing/2026-10-17-self-rescue-basics)講的是：在多繩距上出狀況時有哪些選項、什麼時候該用哪一個。之後的[學習路徑與常見事故](/posts/climbing/2026-10-17-sport-to-trad-learning-path)會把整個系列串成一條練習順序。
 
+## 更新紀錄
+
+- 2026-10-24：多段垂降一節加連到〈垂降怎麼做〉
+- 2026-10-23：新增「確保的兩派」一節，整理 Petzl、UIAA、DAV、AAC、ACMG、BMC、義大利 AGAI 與 CAI 對站上確保、身上確保的預設與切換條件，並連到〈建立固定點〉的確保站要求；在換段流程後補「看影片」小節，嵌入 Chris Lawrence、BMC、Petzl、DMM、ÖAV、SIET 的換段相關影片。
+
 ## 參考資料
 
 - [Top tips for your first multi-pitch adventure（BMC）](https://services.thebmc.co.uk/top-tips-for-your-first-multipitch-adventure)
@@ -226,6 +330,14 @@ BMC 把會垂降叫作多繩距的「出獄卡」：天氣變壞、有人受傷�
 - [Climbing with alternate leaders（Petzl Tech Tips）](https://www.petzl.com/us/en/sport/tech-tips/basic-techniques/climbing-with-alternate-leaders/escalade-grde-voie-grimpe-reversible_SPO_a77w0000000KypsAAC.html)
 - [Building a belay anchor and belaying on a bolted multi-pitch route（Petzl Tech Tips）](https://www.petzl.com/us/en/sport/tech-tips/basic-techniques/building-a-belay-anchor-and-belaying-on-a-bolted-multi-pitch-route/Relais-grande-voie_SPO_a77Tx000000E3MEIA0.html)
 - [REVERSO 技術說明書（Petzl，PDF；第 7 節為確保跟攀者的輔助制動模式，俗稱 guide mode）](https://www.petzl.com/on/demandware.static/-/Sites-petzl-master-catalog/default/dw3ddbef35/media/product/technical-notice-REVERSO-5_068bK00000nDYPVQA4.pdf)
+- [Construction du relais et assurage en grande voie équipée（Petzl Tech Tips，法文）](https://www.petzl.com/ca/fr/sport/conseils-techniques/les-basiques/construction-du-relais-et-assurage-en-grande-voie-equipee/Relais-grande-voie_SPO_a77Tx000000E3MEIA0.html)
+- [Advisory video: Climb safe – how to belay with the ATC（UIAA Training Panel）](https://www.theuiaa.org/advisory-video-climb-safe-how-to-belay-with-the-atc/)
+- [Sichern am Stand: Fixpunkt- oder Körpersicherung?（DAV Sicherheitsforschung，德文）](https://www.alpenverein.de/artikel/sichern-am-stand-fixpunkt-oder-koerpersicherung_37cea8bc-b7b8-4d38-bde6-e31605c1d8d7)
+- [Know the Ropes: Belaying（American Alpine Club，Ron Funderburke）](https://americanalpineclub.org/news/2020/4/2/belaying)
+- [TechFiles Vol. 1 No. 1（ACMG，2012，Wayback Machine 存檔）](http://web.archive.org/web/20220402105149/https://www.acmg.ca/05pdf/TechFiles/TechFiles_Vol1_No1.pdf)
+- [New Rock Climbers（BMC，PDF）](https://www.mountain-training.org/media/whphm1kv/bmc_new_rock_climbers.pdf)
+- [Sportivo Multi-pitch（Associazione Guide Alpine Italiane，義大利文）](https://www.guidealpine.it/multi-pitch/)
+- [Soste per alpinismo: didattica（CAI 全國登山學校委員會，2016，義大利文 PDF）](https://organizzazione.cai.it/commissione-nazionale-scuole-alpinismo-scialpinismo-arrampicata-libera-vfg/wp-content/uploads/sites/107/2025/01/2016-03-29-Soste-per-Alpinismo-Didattica.pdf)
 - [QC Lab: Autoblock Misuse（Black Diamond，Kolin Powick）](https://eu.blackdiamondequipment.com/blogs/stories/qc-lab-autoblock-misuse)
 - [Know the Ropes: Lowering in Single Pitch and Multi-Pitch Climbing（American Alpine Club）](https://americanalpineclub.org/news/2023/6/21/lowering)
 - [龍洞岩場攀登路線資料庫（TOCC 臺灣戶外攀岩協會）](https://docs.google.com/spreadsheets/d/1QHFNQSPgKgQrTNnYn246wfotOYqOkzHjLltZ26keBgg/htmlview)

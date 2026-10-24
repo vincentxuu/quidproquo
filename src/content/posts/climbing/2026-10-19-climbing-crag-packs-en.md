@@ -10,7 +10,7 @@ tldr: "For single-pitch days, a crag pack needs three things: a back panel or si
 draft: false
 series:
   name: "Climbing Travel Gear"
-  order: 5
+  order: 6
 ---
 
 > 🌏 [中文版](/posts/climbing/2026-10-19-climbing-crag-packs)
@@ -154,7 +154,7 @@ Climbers often use a crag pack as their cabin bag. The three conditions (size, t
 2. **Lay both climbers' gear on the floor in two piles.** Hardware in one pile, water and layers in the other, then see whether the hardware pile needs 45 L or 50 L. If you already own a 35–40 L everyday pack, you only need to add one crag pack for the hardware.
 3. **Decide whether it doubles as a cabin bag.** If so, choose from packs under 1 kg empty with stowable straps. If not, pick the most durable pack for your approach and pack it inside your checked bag to protect the straps.
 
-For choosing shoes, harnesses, and helmets themselves, see [Climbing Shoes](/posts/climbing/2026-10-19-climbing-shoes-en) and [Harnesses and Helmets](/posts/climbing/2026-10-19-climbing-harness-helmet-en) in the Climbing Gear series. For multi-pitch routes, the next article covers [Multi-Pitch Climbing Backpacks](/posts/climbing/2026-10-19-multipitch-climbing-backpacks-en).
+For choosing shoes, harnesses, and helmets themselves, see [Climbing Shoes](/posts/climbing/2026-10-19-climbing-shoes-en) and [Harnesses](/posts/climbing/2026-10-24-climbing-harness-en), [Helmets](/posts/climbing/2026-10-24-climbing-helmet-en) in the Climbing Gear series. For multi-pitch routes, the next article covers [Multi-Pitch Climbing Backpacks](/posts/climbing/2026-10-19-multipitch-climbing-backpacks-en).
 
 ## Update Log
 

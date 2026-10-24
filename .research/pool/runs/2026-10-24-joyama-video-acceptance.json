@@ -1,0 +1,59 @@
+{
+  "id": "2026-10-24-joyama-video-acceptance",
+  "categories": [
+    "climbing"
+  ],
+  "topics": [
+    "crags"
+  ],
+  "checked_at": "2026-10-24",
+  "scope": "Resolve saved channel identities, fill explicitly searched sector gaps, and append sampled-footage acceptance without upgrading to continuous full viewing.",
+  "previous_run_id": "2026-10-24-joyama-videos",
+  "source_count": 226,
+  "observation_count": 80,
+  "search_count": 6,
+  "added_source_count": 60,
+  "added_channel_count": 52,
+  "resolved_channel_count": 61,
+  "linked_original_video_count": 154,
+  "added_video_candidates": 8,
+  "sampled_video_count": 11,
+  "selected_video_count": 10,
+  "rejected_video_ids": [
+    "wQlNz5PxFl0"
+  ],
+  "replacement_video_id": "sF3qQbuP8xc",
+  "unresolved_entities": [],
+  "unrecorded_search_evidence": [
+    {
+      "tool": "Exa",
+      "result_batches": 2,
+      "query": null,
+      "reason": "Original query strings unavailable; not reconstructed from result text or counted as formal searches.",
+      "original_path": ".work/joyama-addition/gap-refine-searches.json",
+      "evidence_ref": "docs/research/2026-10-24-joyama-video-acceptance.md"
+    }
+  ],
+  "limitations": [
+    "No continuous full-video viewing or original-audio listening.",
+    "Signed-in native-search ranks may be personalized.",
+    "Eight new sector candidates were not footage-reviewed.",
+    "creator_source_id links inherit saved card author-name matching; not independent UC metadata verification for every original video.",
+    "Liquid Finger date conflict remains unresolved.",
+    "Two Exa query strings unavailable; result-only evidence not counted as formal searches."
+  ],
+  "used_in": [
+    "src/content/posts/climbing/2026-10-12-japan-crag-joyama.md",
+    "src/content/posts/climbing/2026-10-12-japan-crag-joyama-en.md"
+  ],
+  "evidence": [
+    {
+      "path": "docs/research/2026-10-24-joyama-video-acceptance.md",
+      "availability": "versioned"
+    },
+    {
+      "path": "/tmp/joyama-footage-review-20261024/",
+      "availability": "local temporary media and sampled frames; not committed"
+    }
+  ]
+}

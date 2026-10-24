@@ -25,17 +25,23 @@ describe('speaking practice', () => {
   it('includes new cards and only due reviews, without mutating a selected session', () => {
     const progress = { map: scheduleReview(undefined, 2, 1000) };
     const selected = selectSession(progress, 1000, 'due');
-    expect(selected).toHaveLength(164);
+    expect(selected).toHaveLength(178);
     expect(selectSession(progress, 1000, 'all', 'surf')).toEqual(['surf-waves', 'surf-entry']);
     expect(selected).not.toContain('map');
     progress.map = scheduleReview(undefined, 0, 0);
     expect(selected).not.toContain('map');
-    expect(selectSession(progress, 600_000, 'due')).toHaveLength(165);
-    expect(selectSession(progress, 0, 'all')).toHaveLength(165);
+    expect(selectSession(progress, 600_000, 'due')).toHaveLength(179);
+    expect(selectSession(progress, 0, 'all')).toHaveLength(179);
   });
   it('keeps evidence aligned with cards and article links on-site', () => {
     expect(Object.keys(speakingEvidence).sort()).toEqual(speakingCards.map(card => card.id).sort());
     for (const evidence of Object.values(speakingEvidence)) if (evidence.article) expect(evidence.article).toMatch(/^\/posts\/[a-z0-9-]+(\/[a-z0-9-]+)*\/?$/);
+  });
+  it('keeps colleague health and lunch practice independent of article pages', () => {
+    const cards = speakingCards.filter(card => card.id.startsWith('daily-health-') || card.id.startsWith('daily-lunch-'));
+    expect(cards).toHaveLength(14);
+    for (const card of cards) expect(speakingEvidence[card.id].article).toBeUndefined();
+    expect(speakingDialogues.filter(dialogue => dialogue.id.startsWith('daily-colleague-'))).toHaveLength(2);
   });
   it('groups a cheat sheet by family in the given order without losing cards', () => {
     const order = ['go', 'have'];

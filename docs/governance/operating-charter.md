@@ -20,6 +20,7 @@
 - **任何 commit**：pre-commit 會跑 `pnpm verify:staged`（只檢查暫存檔；暫存區含程式碼、設定、腳本，或刪除／改名文章時退回完整 `pnpm verify`），紅了就修，不准繞過（`--no-verify` 視同違規）。完整 `pnpm verify` 由 CI 在 deploy 前跑。
 - **發佈內容**：走對應 skill（post / post-update / post-translate），跑完 skill 要求的驗證
 - **修改 skill**：只改 `.agents/skills/`，改完跑 `pnpm skills:sync` 再 `pnpm verify`
+- **改 UI**（`scripts/ui-change-scope.mjs` 判定的範圍）：走 feature branch＋PR，不直接 push main。截圖比對紅了，用 `visual-baselines.yml` 在 PR 分支產 `-linux` 基線，逐張看過再 merge；擋部署的是版面斷言，不是像素。細節見 `ui-delivery.config.md`（ADR 0005）。
 
 ### Tier 2 — 先問使用者，拿到明確同意才做
 

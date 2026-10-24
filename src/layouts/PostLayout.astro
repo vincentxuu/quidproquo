@@ -10,6 +10,7 @@ import '../styles/videoPractice.css';
 import '../styles/videoGallery.css';
 import '../styles/flowDiagram.css';
 import '../styles/diagram.css';
+import '../styles/slideReader.css';
 import 'katex/dist/katex.min.css';
 
 interface Props {
@@ -120,6 +121,8 @@ const pageTitle =
       <a href={tagsHref} class="nav-link">{t('nav.tags')}</a>
       <a href={lang === 'en' ? '/en/interview' : '/interview'} class="nav-link">{t('nav.interview')}</a>
       <a href="/english" class="nav-link">{t('nav.english')}</a>
+      <a href={lang === 'en' ? '/en/vocabulary' : '/vocabulary'} class="nav-link">{lang === 'en' ? 'Vocabulary' : '單字庫'}</a>
+      <a href="/account" class="nav-link">{lang === 'en' ? 'My space' : '私人空間'}</a>
       <div class="nav-right">
         <a href={lang === 'en' ? '/en/search' : '/search'} class="nav-search-link" aria-label={t('nav.search')}>
           <Icons name="search" size={15} />
@@ -1483,6 +1486,12 @@ const pageTitle =
   import { initVideoPractice, disposeVideoPractice } from '../lib/videoPractice';
   import { initVideoGallery, disposeVideoGallery } from '../lib/videoGallery';
   import { initFlowDiagrams, disposeFlowDiagrams } from '../lib/flowDiagram';
+  import { initSlideReader, disposeSlideReader } from '../lib/slideReader';
+  initSlideReader();
+  document.addEventListener('astro:page-load', initSlideReader);
+  document.addEventListener('astro:before-swap', disposeSlideReader);
+  window.addEventListener('pagehide', disposeSlideReader);
+  window.addEventListener('pageshow', (event) => { if (event.persisted) initSlideReader(); });
   initFlowDiagrams();
   document.addEventListener('astro:page-load', initFlowDiagrams);
   document.addEventListener('astro:before-swap', disposeFlowDiagrams);
@@ -1532,7 +1541,30 @@ const pageTitle =
     }
   }
 
-  window.addEventListener('scroll', updateScroll, { passive: true });
+  // 記住每篇讀到哪（只增不減），列表卡片據此顯示已讀進度條（見 PostCard.astro）
+  const READ_KEY = 'qpq:read-progress';
+  const readPath = location.pathname.replace(/^\/en(?=\/)/, '').replace(/\/$/, '');
+  const isPostPage = /^\/posts\/[^/]+$/.test(readPath);
+  let readStore: Record<string, number> = {};
+  let readSaved = 0;
+  try {
+    readStore = JSON.parse(localStorage.getItem(READ_KEY) || '{}') || {};
+    readSaved = readStore[readPath] || 0;
+  } catch {}
+
+  function saveReadProgress() {
+    if (!isPostPage) return;
+    const max = document.body.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    const pct = Math.min(100, Math.round((window.scrollY / max) * 100));
+    if (pct < readSaved + 3 && pct < 100) return;
+    if (pct <= readSaved) return;
+    readSaved = pct;
+    readStore[readPath] = pct;
+    try { localStorage.setItem(READ_KEY, JSON.stringify(readStore)); } catch {}
+  }
+
+  window.addEventListener('scroll', () => { updateScroll(); saveReadProgress(); }, { passive: true });
   updateScroll();
 
   scrollBtn?.addEventListener('click', () => {

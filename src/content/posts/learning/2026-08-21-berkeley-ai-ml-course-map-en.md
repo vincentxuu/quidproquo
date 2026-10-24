@@ -23,6 +23,8 @@ That differs sharply from MIT's Course 6-4. MIT defines a formal degree in Artif
 
 Course numbers and public access both make that network harder to read. CS185 and CS285 are undergraduate and graduate counterparts, as are CS180 and CS280A, but CS C280 is a separate graduate vision course. A site that was public during one semester may later return 404. This guide therefore checks official prerequisites, actual 2025–2026 course sites, and what an anonymous visitor can currently obtain: notes, assignments, code, video, and solutions.
 
+This guide's access judgments were last substantively updated on **2026-10-10** (video status re-check) and **2026-09-30** (CS189 Spring 2026 moved to A3 after its site came back online). Course access levels change as the term progresses—confirm anonymous access on the official course site before self-study.
+
 ## Build the foundation: 61A, 61B, 70, and mathematics
 
 The lower-division requirements for the CS BA include CS61A, CS61B or 61BL, CS61C, CS70, calculus, and linear algebra. If the goal is to expose the direct prerequisites for the AI/ML courses in this guide, the structure becomes:

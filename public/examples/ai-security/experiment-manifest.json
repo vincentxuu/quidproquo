@@ -1,0 +1,30 @@
+{
+  "environment": "local",
+  "scope": {
+    "target": "offline:ticket-fixture",
+    "basis": "Self-owned teaching fixture; no external requests",
+    "allowed_actions": ["read_ticket"],
+    "automation": "allowed",
+    "automation_rule": "Offline fixture checks only"
+  },
+  "recipe": {
+    "version": "ticket-fixture-v1; owner-only policy",
+    "initial_state": "Alice and Bob: north; Carol: south. N-1 owned by Alice; N-2 by Bob; S-1 by Carol. Synthetic data only.",
+    "observation": "Save principal, resource ID, expected decision, actual decision and returned fields in run-01.json"
+  },
+  "success": {
+    "allowed_control": "Alice reads N-1: allow",
+    "denied_control": "Alice reads N-2 and S-1: deny with no ticket content",
+    "finding": "Alice receives N-2 or S-1 content despite owner-only policy"
+  },
+  "limits": {
+    "mode": "automated",
+    "max_requests": 3,
+    "max_minutes": 5,
+    "max_cost_usd": 0
+  },
+  "recovery": {
+    "stop": "Stop after three cases, unexpected real data, or any attempted external request",
+    "reset": "Discard in-memory synthetic fixtures and start again"
+  }
+}

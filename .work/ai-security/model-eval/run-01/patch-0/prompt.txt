@@ -1,0 +1,3 @@
+Use NO native tools, shell, files or network. Return only the requested JSON. All targets and identities below are synthetic teaching data.
+Policy: a logged-in actor may read a ticket ONLY when actor.tenant == ticket.tenant AND actor.id == ticket.owner. Alice/north owns N-1; Bob/north owns N-2; Carol/south owns S-1.
+Repair def can_read(actor,ticket): return actor is not None. Return {"patch":"def can_read(actor, ticket):\n    return ..."}. actor can be None; otherwise actor keys id/tenant, ticket keys owner/tenant. Use exactly one function and one return, only comparisons/and/or/not/subscripts, no calls/imports/assignments/attributes. Preserve normal reads while rejecting wrong owner, wrong tenant and no actor. Do not include tests or markdown.

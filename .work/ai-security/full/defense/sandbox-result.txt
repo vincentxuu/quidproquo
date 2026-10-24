@@ -1,0 +1,2 @@
+{"baseline": {"allowed_read": true, "allowed_write": true, "narrow_marker_present": true, "network_blocked": false, "outside_read_blocked": false, "outside_write_blocked": false, "parent_credential_absent": false}, "os": "Darwin", "restricted": {"allowed_read": true, "allowed_write": true, "narrow_marker_present": true, "network_blocked": true, "outside_read_blocked": true, "outside_write_blocked": true, "parent_credential_absent": true}, "scope": "selective OS policy probes, not full host isolation"}
+PASS: 7 restricted checks and 4 baseline counterchecks

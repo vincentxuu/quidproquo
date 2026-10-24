@@ -10,7 +10,7 @@ tldr: "A manufacturer's 10 years is a maximum lifetime: the most a product can l
 draft: false
 series:
   name: "Climbing Gear"
-  order: 4
+  order: 12
 glossary:
   - term: "maximum lifetime"
     aliases: ["Lebensdauer", "lifespan"]
@@ -36,7 +36,7 @@ The label on your harness says it was made five years ago. You look it up: Petzl
 
 This is the last post in the Climbing Gear series. The earlier posts got the gear bought; this one covers using it until it should be retired: how to read the manufacturers' numbers, what calls for immediate replacement, and how to inspect each item. Where manufacturers disagree, this post sets their figures side by side without picking one; what they share is that **you judge by inspection, not by age**.
 
-Climbing shoes aren't PPE; when to resole them is in [post 1](/posts/climbing/2026-10-19-climbing-shoes-en). Inspecting trad protection is outside this post.
+Climbing shoes aren't PPE; when to resole them is in [post 1](/posts/climbing/2026-10-19-climbing-shoes-en). Inspecting trad protection is outside this post: what to check on nuts and cams is in [post 10: Nuts](/posts/climbing/2026-10-24-climbing-nuts-en) and [post 11: Cams](/posts/climbing/2026-10-24-climbing-cams-en). The prusik cord and chalk bag have their own posts too, with inspection and retirement covered in [post 9](/posts/climbing/2026-10-24-prusik-cord-en) and [post 2](/posts/climbing/2026-10-24-climbing-chalk-bag-en).
 
 ## Two kinds of "lifetime": maximum lifetime and service life
 
@@ -103,6 +103,14 @@ Whatever the age, retire gear after these. Compiled from [Petzl's instructions (
 
 Petzl also recommends an in-depth inspection by a competent person **at least every 12 months**. [BD](https://blackdiamondequipment.com/blogs/stories/qc-lab-worn-belay-loops-and-retiring-a-harness) and [Petzl's harness-inspection article](https://web.archive.org/web/20240127115431/https://www.petzl.com/INT/en/Sport/News/2018-1-24/How-to-inspect-your-climbing-harness) both say to destroy retired gear so nobody else uses it.
 
+**Watch**: HowNOT2 smeared oil, DEET, sunscreen and an acid mix onto the same rope and slow-pulled each sample; start at the acid section. Every other sample broke at the knot, but the acid one failed at the contaminated spot, at roughly half the usual strength. These are a few slow pulls, not drop tests, and the "no effect" results for the other substances only describe this one session. The acid result matches what Edelrid and DAV say: you can barely see it, and the strength is already gone.
+
+```youtube
+url: https://www.youtube.com/watch?v=yVnnyWZ8pVM
+title: Contaminated climbing ropes - oil, sunscreen, deet and acid (HowNOT2)
+start: 542
+```
+
 ## Inspecting a rope
 
 **Run the whole rope through your hands before and after each use.** [Edelrid](https://edelrid.com/int-en/knowledge/knowledge-base/looking-after-your-climbing-rope) says go metre by metre to feel small irregularities or damage, paying particular attention after stonefall or a big fall.
@@ -113,6 +121,14 @@ Petzl also recommends an in-depth inspection by a competent person **at least ev
 
 **Ends can be cut off.** DAV says sport ropes wear hardest near the ends, and with those cut off the rope can still serve for shorter routes. Mammut says if damage is only at the end, cut it off; then melt the sheath and core together at the cut with a lighter, re-measure, mark the new middle with an Edding 3000, and write the new length on the tape at the cut. A shorter rope raises the risk of the end running through while lowering, so the stopper knot from [outdoor belaying](/posts/climbing/2026-10-17-outdoor-belay-en) matters even more.
 
+**Watch**: in Mammut's lab, Hard Is Easy asks an engineer how soft is too soft and how fuzzy is too fuzzy; start at 17:15. The engineer's rule is to compare against the same rope: a soft rope with a slightly softer spot is no cause for panic, a stiff rope with one very soft spot is; if the ends feel very different from the middle, cut the ends. Earlier in the video, a soft spot placed right over the quickdraw had its sheath burst after just two falls. That is one old rope and one soft spot, tested with a non-standard method.
+
+```youtube
+url: https://www.youtube.com/watch?v=UWy91q77zpw
+title: Lab Test - How Soft is too Soft? How Fuzzy is too Fuzzy? (Hard Is Easy)
+start: 1035
+```
+
 **Something you can do tonight**: run your whole rope through your hands and do the kink test anywhere that feels different.
 
 ## Inspecting a harness: Petzl's 14 points
@@ -120,7 +136,7 @@ Petzl also recommends an in-depth inspection by a competent person **at least ev
 [Petzl's harness-inspection article](https://web.archive.org/web/20240127115431/https://www.petzl.com/INT/en/Sport/News/2018-1-24/How-to-inspect-your-climbing-harness) lists 14 steps, which fall into five groups:
 
 1. **History and markings**: know how it's been used and any exceptional events (falls, extreme temperatures, modifications); the serial number and CE mark are still legible; it isn't past 10 years; compare with a new harness for modifications or missing parts.
-2. **Webbing**: waistbelt and leg loops free of cuts, swelling, damage, wear from use, heat or chemicals, including under the buckles; safety stitching on both sides free of loose, worn or cut threads. Safety stitching is the thread in a different colour from the webbing; [post 2](/posts/climbing/2026-10-19-climbing-harness-helmet-en) explained that the standard requires the contrast for exactly this step.
+2. **Webbing**: waistbelt and leg loops free of cuts, swelling, damage, wear from use, heat or chemicals, including under the buckles; safety stitching on both sides free of loose, worn or cut threads. Safety stitching is the thread in a different colour from the webbing; [post 3: Harness](/posts/climbing/2026-10-24-climbing-harness-en) explained that the standard requires the contrast for exactly this step.
 3. **Belay loop and tie-in points**: no cuts, swelling or wear on the belay loop; no cuts, swelling, damage or wear on the protective webbing of the tie-in points.
 4. **Buckles**: no marks, cracks, wear, deformation or corrosion; straps correctly threaded with no twists; buckles working properly.
 5. **Comfort parts**: foams, elastic keepers, leg-loop elastics and gear loops free of cuts or wear.
@@ -131,6 +147,13 @@ DAV adds two points:
 - Once the abrasion protection at the tie-in points is **worn through, retire the harness**. **Don't reinforce it with tape**; chemicals in the adhesive can weaken the material further.
 
 BD also warns: don't sew it yourself, don't burn off loose threads, don't file the buckles.
+
+**Watch**: in this sub-one-minute short, HowNOT2 pulls on the belay loops of a 2002 Petzl harness and a brand-new one of the same model. The old one looked fine, just fuzzy, yet the belay loop tore out of the waistbelt; the description puts its breaking strength at about half the new one's. A single slow-pulled sample, and a harness long past Petzl's maximum lifetime, but it shows that "looks fine" is no substitute for inspection and age limits.
+
+```youtube
+url: https://www.youtube.com/watch?v=RucMUdGuz20
+title: 23 year old harness (HowNOT2)
+```
 
 ## Inspecting a helmet
 
@@ -165,6 +188,14 @@ Belay devices also need checking for braking. DAV says when the brake grooves of
 
 The BMC's method: clip **your own quickdraw** first, hang from it and inspect the perma-draw; if you're satisfied, clip the perma-draw instead. DAV says badly faded slings on fixed draws are a clear warning sign and a reason to replace them with your own gear.
 
+**Watch**: Hard Is Easy tested worn carabiners on Mammut's drop tower; from 21:15 come the conclusions and a crag example. A carabiner from the first bolt of a route had a flat edge worn in by the rope. It didn't feel knife-sharp, yet the rope's sheath split open after only 6 falls. Each case is a single sample. Earlier in the video, grooved carabiners still broke close to their rated strength; the danger is the rope getting cut, which is why the BMC has you hang on your own draw and feel the fixed one before trusting it.
+
+```youtube
+url: https://www.youtube.com/watch?v=7qEvvobz5YQ
+title: How Deep is too Deep? For a Rope (Hard Is Easy)
+start: 1275
+```
+
 Whether a bolt itself can be trusted is in [judging bolts](/posts/climbing/2026-10-17-judging-bolts-en).
 
 ### A dropped carabiner: two views side by side
@@ -176,6 +207,14 @@ A carabiner slides off your harness and hits the ground. Replace it?
 - **Petzl**: its retirement conditions include "you have any doubt as to its reliability."
 
 This post doesn't pick. DAV's "looks fine" still means looking: check the gate closes fully, the spring is strong, the lock works, and there's no deformation or sharp edge. If you're still uneasy afterwards, follow BD and Petzl and replace it.
+
+**Watch**: Hard Is Easy dropped one Mammut carabiner model from a drone onto hard ground, cycle-loaded the samples, CT-scanned them, then broke them at Mammut; start at the break tests at 13:35. The group dropped from 100 m all broke above their rated strength, and the Mammut engineer concludes strength isn't the problem but sharp edges from the drop can damage the rope, so inspect. The video supports the DAV side, but it covers a single model and the channel is sponsored by Mammut, so it doesn't overturn BD and Petzl: do the checks above, and replace it if you still have doubts.
+
+```youtube
+url: https://www.youtube.com/watch?v=EU90n-d4Txs
+title: Should You Retire Dropped Climbing Gear? (Hard Is Easy)
+start: 815
+```
 
 ## Care and storage
 
@@ -259,10 +298,32 @@ Do what the BMC says: clip your own quickdraw first, hang from it, and check whe
 This series followed the order in which you spend money:
 
 0. [Rent or buy](/posts/climbing/2026-10-19-climbing-gear-buying-order-en): buying order, CE and UIAA, manufacture year, why not second-hand.
-1. [Climbing shoes](/posts/climbing/2026-10-19-climbing-shoes-en): shape, fit, stretch, resoling.
-2. [Harness and helmet](/posts/climbing/2026-10-19-climbing-harness-helmet-en): fitting, types, foam versus hardshell.
-3. [Rope, belay device and carabiners](/posts/climbing/2026-10-19-climbing-rope-belay-device-en): end markings, diameter, dry treatment, compatibility.
-4. This post: inspection, care and retirement.
+1. [Climbing shoes](/posts/climbing/2026-10-19-climbing-shoes-en): shape, fit, stretch, current models, resoling.
+2. [Chalk bag](/posts/climbing/2026-10-24-climbing-chalk-bag-en): waist bag or bucket, opening and closure, belt or harness clip.
+3. [Harness](/posts/climbing/2026-10-24-climbing-harness-en): gear loops, adjustable or fixed leg loops, fitting.
+4. [Belay device](/posts/climbing/2026-10-24-climbing-belay-device-en): tube, assisted tube or cam device, rope range.
+5. [Carabiners](/posts/climbing/2026-10-24-climbing-carabiners-en): Type H and pear shape, screwgate or auto-lock, anti-cross-loading.
+6. [Helmet](/posts/climbing/2026-10-24-climbing-helmet-en): hard shell, foam or hybrid, fitting.
+7. [Quickdraws](/posts/climbing/2026-10-24-climbing-quickdraws-en): solid or wire gates, sling length and width.
+8. [Rope](/posts/climbing/2026-10-24-climbing-rope-en): end markings, diameter, length, dry treatment.
+9. [Prusik cord](/posts/climbing/2026-10-24-prusik-cord-en): tie your own or buy sewn, nylon or aramid.
+10. [Nuts](/posts/climbing/2026-10-24-climbing-nuts-en): curved or offset, which sizes first.
+11. [Cams](/posts/climbing/2026-10-24-climbing-cams-en): how far your first rack goes, matching sizes across brands.
+12. This post: inspection, care and retirement.
+
+Posts 1 to 11 each compare a handful of current models, with reviews and test and first-hand videos.
+
+## Further viewing: gear-testing and instruction channels
+
+The videos embedded in this post come from the two channels below. They're a good starting point if you want to dig further; keep each channel's limits in mind while you watch.
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**: run by Ryan Jenks. It started in 2016 as highline safety instruction and grew into breaking climbing, caving and canyoneering gear, plus the Bolt Busters series that pulls bolts out of real rock. Its value is in the cases beyond the rated number: knots, wear, old gear, bad placements. Limits: most tests are slow pulls on a home-built rig with one to three samples, and Ryan himself calls it entertainment, not science; the channel is backed by an online gear shop, and some tested items are sold there.
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**: run solo by a climber who signs as Ben, a former software developer. After watching a hard catch slam a climber into the rock in Tonsai, Thailand, he designed his first experiment; the channel now focuses on experiments and physics explanations about belaying, ropes, carabiners and belay devices, with several recent episodes filmed in Mammut's lab. Limits: most experiments are his own design, not EN/UIAA standard tests.
+
+## Update Log
+
+- 2026-10-24: The series now gives each piece of gear its own post, making this post 12; the harness-stitching cross-reference now points to the harness post, the series recap lists all 13 posts, and the intro points to the inspection sections of the nuts, cams, prusik cord and chalk bag posts
+- 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 
 ## References
 

@@ -4,10 +4,17 @@
 
 - 系列 slug：`climbing-gear`
 - 名稱：攀岩裝備／Climbing Gear
-- 說明（zh）：從買第一雙攀岩鞋開始：先租還是先買、鞋子多緊才對、吊帶與頭盔怎麼試穿、繩子與確保器怎麼搭配，以及原廠怎麼規定檢查與汰換。只講選購判準、標準數字與退役規則，不推薦型號。
+- 說明（zh）：一個裝備一篇，照花錢的順序走：先租還是先買，接著是攀岩鞋、粉袋、吊帶、確保器、鉤環、頭盔、快扣、繩子、普魯士繩、岩楔與活動岩楔，最後是原廠怎麼規定檢查與汰換。每篇先講選購判準，再比較現行型號，附 2024 年後的評測與心得影片。（2026-10-24 改；評測與影片只收 2024 年以後）
 - 說明（en）：Starting from your first pair of climbing shoes: what to rent and what to buy, how tight shoes should be, how to fit a harness and helmet, how ropes and belay devices go together, and what manufacturers say about inspection and retirement. Selection criteria, standards, and retirement rules only, no model picks.
 
 來源：`.research/2026-10-18-climbing-gear-research.md`（UIAA 標準圖解、Petzl／Black Diamond／Mammut／Edelrid 原廠說明、DAV 安全研究、BMC、4 篇鞋子研究、台灣用語表、7 個衝突、待解問題）、`.research/2026-10-17-climbing-full-curriculum.md`（L 模組）、`.research/2026-10-17-climbing-curriculum-audit.md`（12 份課綱涵蓋「裝備挑選與合身」、5 份涵蓋「檢查、保養、汰換」）。
+
+## 使用者決定（2026-10-24，取代 2026-10-19 的「不推薦品牌型號」）
+
+- 取消「不推薦型號」規則：要推薦型號，尤其是評測或心得分享的 YouTube 影片。
+- 一個裝備一篇；拆開〈吊帶與頭盔〉〈繩子、確保器與鉤環〉，舊網址 301 到吊帶篇、繩子篇。
+- 裝備：鞋子、粉袋、吊帶、確保器、鉤環、頭盔、快扣、繩子、普魯士繩、岩楔、活動岩楔（鉤環／快扣、岩楔／活動岩楔各拆一篇是執行解讀，看稿時確認）。
+- 新順序與檔名見 `.work/climbing-gear-models/plan.md`；研究在 `.work/climbing-gear-models/R-*.md`、`.work/prusik-cord/`。
 
 ## 使用者決定（2026-10-19）
 
@@ -15,7 +22,7 @@
 - 原廠之間的矛盾（繩子壽命、掉地的鉤環）並列，不選邊。
 - 抱石墊（crash pad）由戶外抱石系列處理，本系列只以純文字提及，不展開、不連結。
 - 鞋子篇寫前補讀西班牙 2025、土耳其 2025 兩篇研究；讀不到就不引用。
-- 不推薦品牌型號。
+- ~~不推薦品牌型號。~~（2026-10-24 取消）
 
 ## 目標讀者
 

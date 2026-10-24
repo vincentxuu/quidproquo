@@ -9,12 +9,12 @@ tldr: "Carabiners, quickdraws, and cams appear on no official prohibited list, s
 draft: false
 series:
   name: "Climbing Travel Gear"
-  order: 2
+  order: 3
 ---
 
 > 🌏 [中文版](/posts/climbing/2026-10-19-flying-with-climbing-gear)
 
-The [previous article](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en) turned the trip into a packing list and a total weight. The next question is how that pile gets through the airport. What can go in the cabin? What has to be checked? How are checked and cabin weights counted?
+[What to Bring on a Climbing Trip Abroad](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en) turned the trip into a packing list and a total weight. The next question is how that pile gets through the airport. What can go in the cabin? What has to be checked? How are checked and cabin weights counted?
 
 This article has two halves. The first covers security screening: how each country's carry-on prohibited list is written, and which climbing items it names. The second covers airlines: Taiwan's full-service carriers, Asian low-cost carriers, and European low-cost carriers, with their checked allowances, sports equipment rules, and cabin weight limits. A final table says where each piece of gear goes, and marks which entries are rules and which are just climbers' experience.
 
@@ -206,7 +206,7 @@ Check in this order before you fly:
 3. Decide whether hardware goes in the cabin. If it does, arrive early enough to go back to the counter and check it if you're stopped. If you don't want the risk, check the whole set and keep only shoes, harness, and helmet with you.
 4. Put power banks and spare headlamp batteries in your carry-on, and leave gas canisters at home.
 
-For choosing the shoes, harness, and helmet themselves, see [Climbing Shoes](/posts/climbing/2026-10-19-climbing-shoes-en) and [Harness and Helmet](/posts/climbing/2026-10-19-climbing-harness-helmet-en). For choosing a checked duffel and cabin bag, see [Climbing Travel Luggage](/posts/climbing/2026-10-19-climbing-travel-luggage-en).
+For choosing the shoes, harness, and helmet themselves, see [Climbing Shoes](/posts/climbing/2026-10-19-climbing-shoes-en) and [Harness](/posts/climbing/2026-10-24-climbing-harness-en), [Helmet](/posts/climbing/2026-10-24-climbing-helmet-en). For choosing a checked duffel and cabin bag, see [Climbing Travel Luggage](/posts/climbing/2026-10-19-climbing-travel-luggage-en).
 
 ## References
 

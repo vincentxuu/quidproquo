@@ -1,324 +1,392 @@
 ---
-title: "Crazy Horse 清邁：北泰第一岩場，但開放狀態至今沒有官方公告｜泰國岩場"
+title: "Crazy Horse（หน้าผาม้าพยศ）：清邁東郊石灰岩運動攀登，路線最齊但開放狀態沒有官方公告｜泰國岩場"
 date: 2026-10-21
 category: climbing
 type: guide
-tags: [climbing, thailand, outdoor-climbing, sport-climbing, chiang-mai, crazy-horse]
+tags: [climbing, thailand, outdoor-climbing, sport-climbing, multi-pitch, chiang-mai, crazy-horse]
 lang: zh-TW
 series:
   name: "泰國岩場"
   order: 8
-tldr: "Crazy Horse 在清邁市區外 45 分鐘車程的 Mae On 山谷，是北泰開發最完整的岩場，theCrag 收 289 條、4a 到 8b，分 22 個子區。但它是唯一一個「有大量在爬的跡象、卻沒有官方重開公告」的岩場：2018 年封閉、2022 年重開、2024 年又出現禁止告示。2027 年要去，先跟 CMRCA 確認。"
-description: "Crazy Horse 清邁攀岩指南：22 個子區與 289 條路線、Heart Wall 與 Reunion Buttress 等區的具名路線與級數、多段路線、CMRCA 接駁與自駕的差別、封閉重開史與沒有官方公告這件事、住宿與季節安排。"
+tldr: "Crazy Horse 是清邁東邊 Mae On 山谷的石灰岩運動攀登場，theCrag 收 289 條、22 個子區，岩栓密、5 到 6 字頭最多，洞穴裡還有 4、5 段的多段線，是北泰最適合從入門爬到 6c 的岩場。它 2018 年因地方政府間的刑事案封閉，之後幾度重開又出現禁止告示，到 2026 年 10 月仍找不到官方重開公告；出發前一晚到清邁的 CMRCA 訂接駁時，順便當面問清楚現在能不能爬。"
+description: "Crazy Horse（หน้าผาม้าพยศ）清邁攀岩指南：22 個子區與四個級距的路線表、洞穴多段線、11–2 月與燒山季、CMRCA 紅色雙條車接駁與自駕停車、2018 年封閉公告與至今沒有官方重開公告、鳥巢與鬆動岩栓警告、緊急電話與指南書。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/climbing/2026-10-21-thailand-crag-crazy-horse-en)
 
-Crazy Horse 在清邁市區外 45 分鐘車程的 Mae On 山谷裡，是**北泰開發最完整的岩場**。theCrag 在 2026 年 10 月 21 日收錄 289 條路線、8,408 次攀登、52 張照片，級數 4a 到 8b，分成 22 個子區。
+從停車場抬頭，最先看到的是主區上方一塊像馬頭的石灰岩，Crazy Horse 的名字就從這裡來。岩栓密、步道有人維護、多數子區走幾分鐘就到，很容易讓人以為這是一個隨時可以去的成熟岩場；**真正要先確認的，是它現在到底開沒開。**
 
-**但這篇最重要的一段不在路線，在開放狀態。** Crazy Horse 是本系列裡唯一一個「有很多人在爬的實際跡象，卻找不到任何官方重開公告」的岩場。**規劃行程前，這是必須先解決的事。**
+這篇幫你判斷 Crazy Horse 適不適合你的程度、11 月到 2 月之外的月份怎麼安排、沒開車怎麼到，以及出發前要向誰確認開放狀態。
 
 ## 這是什麼樣的岩場
 
-石灰岩。theCrag 的摘要寫：
+泰文名是 **หน้าผาม้าพยศ**（「不馴之馬的岩壁」），CMRCA 的泰文頁就用這個名字；英文常寫 Crazy Horse Buttress，theCrag 另記別名 Mae On（行政區名）。岩場在 **Tham Muang On（ถ้ำเมืองออน）** 這座洞穴寺院附近，跟洞穴在同一座山的兩側；導航設 Google Maps 上標好的 Crazy Horse 停車場（theCrag）。
 
-> **Crazy horse 是北泰主要的運動攀登區。** 從技術型 slab 到陡峭 tufa 攀爬的所有風格，環境漂亮。
-> 提供的是技術型、力量型路線的混合，分布在 slab、垂直面與陡峭的石灰岩上。
+岩質是石灰岩，theCrag 的摘要說它是「北泰主要的運動攀登區」，從技術型 slab、垂直面到陡峭的 tufa 都有。**這裡幾乎全是 bolt 保護的運動攀登**，但洞穴裡的長線要垂降、要處理鬆石，帶的東西和單段路線不一樣（見〈去之前要知道的規範〉）。
 
-**theCrag 的描述與摘要互相矛盾**：摘要說 289 條，但描述裡寫「『Crazy Horse Buttress』位於清邁附近，是北泰開發最完整的岩場，**約有 150 條路線**」。**這是資料庫收錄範圍與岩場實際規模的差距，不是數字錯誤。** 兩者都寫出來，讀者才知道 289 這個數字包含什麼。
+規模有兩個數字：theCrag 摘要寫 **289 條、22 個子區**（2026-10-21 讀取），同一頁的描述卻寫「約 150 條路線」，那段描述沒有標年份，應該是早年寫的，之後一直沒更新；climbgrades 2026 年版的清邁指南寫「超過 200 條」。這幾個數字收錄的時間點不同，不能互相換算。
 
-**這篇文章的路線表覆蓋 16 個子區的 233 條。** 另外 6 個子區（The Evening Terraces 3 條、The Furnace 11 條、Vision Wall 10 條、Naam Prik Wall 7 條、The Ant Hill 13 條、Brah Wall 12 條）**在 2026-10-21 讀取時 theCrag 全部回 403**，該區正在重建索引。**這 56 條的級數與長度本篇沒有引用**，theCrag 上可以自己查。**其中 The Ant Hill 是有警告標記的子區，去之前要看清楚。**
+**本篇路線表只涵蓋其中 16 個子區、233 條。** 另外 6 個子區（The Evening Terraces、The Furnace、Vision Wall、Naam Prik Wall、The Ant Hill、Brah Wall，共 56 條）在 2026-10-21 讀取時 theCrag 回 403，這些路線本篇沒有引用。The Ant Hill 在 theCrag 上帶警告標記，去之前自己打開看。
 
-### 22 個子區
+| 子區 | 路線數 | 特色 |
+|---|---|---|
+| Heart Wall | 36 | 路線最多、6 字頭最集中；路線名幾乎都是泰語的「Jai（心）」；**從停車場走 15 分鐘** |
+| Crazy Horse Area | 33 | 主區（climbgrades 稱 Main Area），馬頭岩下方；多條線從別條線的確保點接續，岩場唯一的 8a+ 在這裡 |
+| Reunion Buttress | 29 | 洞穴與 ledge 上的短線，3 段的 Reunion |
+| Little Monkey Cove | 25 | 4、5 字頭的短線多 |
+| Anxiety State Crisis Cave | 24 | 大洞穴，4、5 段的長線從洞底爬出洞頂 |
+| The Aircon Wall | 19 | 洞口陡壁，7b 到 8a 集中在這裡；1998 年第一條路線 Show Off the Police 也在此 |
+| Tamarind Village | 15 | 短線多，2 段的 Makham Wan |
+| The Gatekeeper Buttress | 12 | 6b 到 7a 的三星線最密 |
+| The Archway | 7 | 穿過岩拱往馬頭岩頂 |
+| The Horse Shoe、The Rooftop、Sentinel Buttress | 7、6、6 | Sentinel 有 4 段 74 m 的 5a |
+| The Hanging Gardens、The Junkyard、Buddha Buttress、Windy Cave | 4、4、3、3 | Windy Cave 有 3 段的 Trojan Horse |
+| 本篇未讀到的 6 區 | 56 | 見上段 |
 
-| 子區 | 路線數 | 高度 | 特色 |
-|---|---|---|---|
-| Heart Wall | 36 | 20 m | **主牆，但從停車場要走 15 分鐘**；1,430 次攀登 |
-| Crazy Horse Area | 33 | 21 m | 1,452 次攀登，最熱門的一區 |
-| Reunion Buttress | 29 | 18 m | 有多段路線 Reunion（6a+，3 段 52 公尺） |
-| Little Monkey Cove | 25 | 15 m | 路線級距最低的一區，4 字頭到 7a |
-| Anxiety State Crisis Cave | 24 | 31 m | **大洞穴多段**，最高 5 段 |
-| The Aircon Wall | 19 | 14 m | |
-| Tamarind Village | 15 | 16 m | |
-| The Gatekeeper Buttress | 12 | 25 m | 鑰匙主題的路線群 |
-| The Archway | 7 | 18 m | |
-| The Horse Shoe | 7 | 15 m | |
-| The Rooftop | 6 | 22 m | |
-| The Hanging Gardens | 4 | 14 m | |
-| The Junkyard | 4 | 17 m | |
-| Buddha Buttress | 3 | 20 m | |
-| Windy Cave | 3 | 37 m | |
-| The Evening Terraces | 3 | 24 m | |
-| Naam Prik Wall | 7 | 20 m | |
-| The Ant Hill | 13 | 23 m | **theCrag 標了警告** |
-| Brah Wall | 12 | 12 m | |
-| Vision Wall | 10 | 21 m | |
-| Sentinel Buttress | 6 | 27 m | |
-| Little Monkey Cove 之外的 The Furnace | 11 | 24 m | |
+**吸引力在於密度。** climbgrades 寫初階路線的岩栓約 1 到 1.5 公尺一支、runout 罕見；同一份指南也說得直接：大部分路線在 5 到 7a+，7b 以上很少。**會在室內先鋒 6a，和能在洞穴裡帶完一條 4 段線再垂降出來，是兩件不同的事。** 第一次來，先在 Little Monkey Cove 或 Tamarind Village 爬幾條短線熟悉岩性，再決定要不要進洞。
 
-**most of the sectors require just a few minutes walk on well maintained trails from the parking, but the biggest wall (Heart Wall) is 15 mins walk.** 這是 theCrag 的原話——**「最大的一面牆要走 15 分鐘」**，而 Heart Wall 恰好也是路線最多的一區（36 條）。第一次去要把這段步行算進來。
+<details><summary>看岩場整體的影片（vlog、新手第一次、打栓）</summary>
 
-### Heart Wall 是主牆
+```video-gallery
+key: crazy-horse
+lang: zh-TW
+ids: 8Cb4L-e58ew, WDCKUqbbl7M, 0cY0NBVw2Ow, p5hV1EE5vpw, u4Sx-uQpW9E, YcUNcyneGOA
+```
 
-**Heart Wall 的 36 條路線名幾乎都是泰語**，這是當地開發者 Francis Haden 那一批人的特色。整個岩場的高難度路線也集中在這裡：
-
-- **Jai Glah Reu Plao / Are You Courageous?（7a+）**：theCrag 寫「**一路到確保點都是讓人驚豔的攀爬。真的沒有比這更享受的了。上吧！**」
-- **Jai Teung Jai / Heart to Heart（6c+，35 公尺）**：★★★。
-- **Ruam Jai / Together（6a+，36 公尺）**：theCrag 寫「**這是這個級距裡最好的路線。全程簡直是 stunning 的攀爬。路線可以被⋯⋯**」。
-- **Jai Yen Yen / Patient / The Proposal / Calm（6c+，21 公尺）**：★★★。
-- **Jai Det / Fearless（7a+，13 公尺）**：「**又短又難，結尾平衡且必須-commit。runout 很少但有跌落的可能。**」
-- **Jai Kwang / Unknown / Open-Minded（6c/c+，26 公尺）**：「抱石型且力量的起步，之後是一段很棒的薄 slab。稍微有點擠⋯⋯」
-
-### 多段集中在兩個洞穴區
-
-**Anxiety State Crisis Cave（24 條，31 公尺）** 是一個真正的洞穴岩場：
-
-- **In Deep Space（5c，80 公尺，4 段）**：theCrag 寫「**一條四段的攀爬，從走進下方入口後洞穴的左面牆開始。全部⋯⋯**」
-- **The Darkness Beckons（6a+，70 公尺，5 段）**：從 In Deep Space 第一段的確保點往左橫切三支岩栓。
-- **Anxiety State Crisis（7a，42 公尺，2 段）**：「沿著洞穴中央的柱狀岩質走一條線⋯⋯」
-- **Space Manoeuvers（6c 起，三段）**、**Spaceman（6c／7b+，兩段）**、**Sunseeker（6c+／6b+，兩段）**。
-
-**Reunion Buttress（29 條，18 公尺）**：
-
-- **Reunion（6a+，52 公尺，3 段）**。
-- **Walk the Plank（7a+，15 公尺）**：★★★；**從 Reunion 第三段的中途進入，確保點在洞穴裡**。
-- **Northern Exposure Ext（6b，35 公尺）**：可以合併成 6b 的單段。
-- **Total Biscuits（6a+）**、**Sweet Harmony（5c）**、**Happiness Happening（6b）** 都在洞穴裡的 ledge 上。
+</details>
 
 ## 什麼季節去
 
-**這裡的季節問題不只是天氣，還有空氣品質。**
+清邁的旺季在 11 月到 2 月，乾、涼。chiangmai.net 的氣候資料顯示這段時間白天約 28–33°C、夜間約 15–16°C。
+
+**這裡最會改變行程的不是雨，是燒山季的空氣。** 北泰的燒山季大約落在 1 到 4 月、3 月最嚴重；IQAir 報導 2026-03-04 清邁 AQI 超過 150，已經是一般人都該減少戶外活動的等級。
+
+蜂也有季節。climbgrades 把清邁的季節再切細：煙霧季 2 到 4 月、蜜蜂季 10 月到 1 月、黃蜂季 4 到 10 月；這是單一指南的整理，但跟 theCrag 路線備註裡的蜂巢警告對得上（見〈去之前要知道的規範〉）。
 
 | 時間 | 狀況 | 安排建議 |
 |---|---|---|
-| 11 月–2 月 | 乾、涼 | 最好的窗口。清邁白天 28–33°C、夜間 15–16°C |
-| 3 月 | 燒山季高峰 | **2026-03-04 清邁 AQI 超過 150**，敏感族群應避開 |
-| 4–5 月 | 熱 | 只爬早晚 |
-| 6–10 月 | 雨季 | 雷雨影響午後攀爬 |
+| 11 月–2 月 | 乾、涼 | 最好的窗口；1 月底起留意空氣品質 |
+| 3 月–4 月 | 燒山季高峰、熱 | 出發前看當天 AQI，敏感族群避開 |
+| 5 月 | 熱 | 只爬早晚 |
+| 6 月–10 月 | 雨季 | 陣雨之間可爬，雨後石灰岩會滲水、變滑 |
 
-**燒山季通常落在 1 月到 4 月，3 月最嚴重。** 這跟喀比的旺季重疊，但跟清邁的旺季是同一段。**如果你兩個都要去，行程要嘛往前挪到 11 月，要嘛往後推到 4 月之後。**
+**朝向與日照**：theCrag 和 CMRCA 都沒有逐區標朝向，能找到的是 The Wandering Climber 2019 年的整理（二手）：
+
+| 子區 | 日照 |
+|---|---|
+| Crazy Horse Area（主壁） | 朝南，約 11 點起曬太陽 |
+| The Aircon Wall | 中午有陰影，洞口有風；Vertical Life 也說它是熱季（3–5 月）的去處 |
+| The Hanging Gardens、The Junkyard | 下午有陰影 |
+| Heart Wall | 整天有陰影，部分路線下雨也能爬 |
+
+洞穴類子區（Anxiety State Crisis Cave、Windy Cave）天然有頂；Vertical Life 另寫 The Furnace 遮陰穩定。熱天的排法是：早上先爬主壁，中午移到 Aircon Wall 或洞穴，下午再去 Heart Wall 或 Junkyard。
+
+**擁擠**：週末早上旺季人多，climbgrades 建議沒有繩伴的人週末 9:30 左右到停車場或主區、Tamarind Village 找人併隊；平日可能整個岩場沒人，自己去要有完整的繩隊。Vertical Life 提醒 11 月到 2 月常有學校團體擠在 Tamarind Village。
 
 ## 怎麼去
 
 ### 大眾運輸
 
-**沒有班車。** CMRCA 提供接駁車，是目前最省事的辦法：
+**沒有直達的公車。** 最實際的辦法是 CMRCA 的紅色雙條車（songthaew）接駁，2026 年 10 月查 [CMRCA 交通頁](https://www.thailandclimbing.com/climber-info/getting-to-crazy-horse)：
 
-- **08:30 出發、16:30 回程。**
-- **至少 4 人成行。**
-- **來回 495 THB。**
+- 從清邁的 **Progression Vertical 攀岩館**出發，早上 08:30 開、16:30 從岩場回程。
+- **當天至少 4 人才開**；前一晚 19:30 前到店裡或線上訂位。
+- 岩場提供飲水，午餐可另訂；費用以交通頁為準。
 
-theCrag 的接近說明寫：「到清邁市區的 CMRCA 辦公室問資訊並買本指南（500 泰銖）。**他們也提供往返岩場的接駁。**」
+理論上也可以搭經過 Mae On 的雙條車或小巴，在 Crazy Horse 那條路口下車，但 climbgrades 說回程要在路邊攔、不一定攔得到。Grab 通常不跑這麼遠。
+
+叫計程車的話，給司機看 **หน้าผาม้าพยศ แม่ออน**（Mae On 的 Crazy Horse 岩壁）。theCrag 提醒：最後一段是土路，司機可能不願意開上去，只放你在主路，**從主路走上坡 10 到 15 分鐘**才到主停車場。這段和停車場到岩壁的步行要分開算。
 
 ### 開車
 
-從清邁市區走 107 號公路往南到 Mae On，約 45 分鐘車程（theCrag：「位於清邁市 Mae On 的行政區，從清邁開車 45 分鐘」）。
+theCrag 寫從清邁開車約 45 分鐘。路線是往東經 San Kamphaeng 走 1006 號公路，再轉 1317 號往 Tham Muang On 方向（traave 2015 年的旅遊介紹，二手），導航直接設 Google Maps 上的 Crazy Horse 停車場。最後一段土路下雨後要慢。
 
-**但停車場是土路。** theCrag 說得很實際：「Google Maps 有 Crazy Horse 停車場的位置。**那是一條土路，所以你可能會發現計程車不願意開上來。** 他們可以把你放在主路，然後**你得步行上坡 10 到 15 分鐘**到主要的停車場。」
+租機車是很多人的選擇，但 CMRCA 交通頁提醒，警察會對沒有機車駕照的外國人開罰；也要自己確認保險在無照或沒戴安全帽時是否還理賠。
 
 ### 停車
 
-停車場本身有維護好的小徑通往各子區。**多數子區走幾分鐘，Heart Wall 走 15 分鐘。**
+主停車場在土路盡頭，旁邊有廁所與小屋（climbgrades）。查閱的官方頁沒有寫停車容量或收費。從停車場出發，**多數子區走幾分鐘，Heart Wall 要 15 分鐘**（theCrag）；climbgrades 提醒 Heart Wall、Gatekeeper Buttress 與 The Rooftop 要走陡坡，穿登山鞋。
 
 ## 去之前要知道的規範
 
-### 開放狀態：這是最大的未知
-
-**把時間線攤開看：**
+**第一條：出發前直接問 CMRCA 現在能不能爬。** 開放狀態是這裡最大的未知，時間線如下：
 
 | 時間 | 事件 | 來源 |
 |---|---|---|
-| 2018-07 | 因地方政府間的刑事調查而封閉 | CMRCA 封閉公告頁 |
+| 2018 | 岩場因 Mae On 縣署與 Ban Sahakorn 2 分區之間的刑事調查暫停開放；府尹要求維持封閉，CMRCA 建議攀岩者也避開北泰其他岩場 | [CMRCA 封閉公告](https://www.thailandclimbing.com/crazy-horse-closure)（一手） |
 | 2022-09 | 重開 | 重開請願書內文 |
-| 2024-06 | **又出現禁止告示**；泰國攀岩發展協會發起請願要求清邁府尹重開 | 同上、CMRCA 2024-08 呼籲 |
-| 2024-08 | CMRCA 官網相關分類的最後一篇是連署呼籲 | CMRCA |
-| 2026 | **沒有官方重開公告**，但有多個實際在爬的跡象 | 見下 |
+| 2024-06 | 又出現禁止告示；Thaiger 報導社區仍在等地方行政單位核准重開 | 重開請願書內文；Thaiger（二手） |
+| 2024-08 | CMRCA 轉發泰國攀岩發展協會的連署，請求重開 | [CMRCA 2024-08](https://www.thailandclimbing.com/blog/help-re-open-crazy-horse-buttress)（一手） |
+| 2025–2026 | 有人照常在爬，但沒有官方重開公告 | 見下 |
 
-**2026 年有哪些「有人在爬」的跡象？**
+CMRCA 的 2018 公告說得很重：在調查期間進去攀爬算是**侵入政府管理的土地**，若有人出事動用當地救護與醫院，**村長會被追究責任**。這份公告至今仍掛在 CMRCA 網站上，沒有標更新日期。
 
-- CMRCA 照常賣接駁車（[CMRCA 交通頁](https://www.thailandclimbing.com/climber-info/getting-to-crazy-horse)）。
-- UKC 的岩場頁寫「據 CMRCA 表示已重開」。
-- 2026-01 有人上傳在此攀岩的短片。
-- 2027-01 有帶團公告。
+2025 到 2026 年「有人在爬」的跡象：
 
-**但沒有任何一份官方的重開公告。** 這是本系列所有「閉合／禁攀」事實裡唯一一個**連一手來源都沒有**的案例。
+- CMRCA 的交通頁照常列著接駁，訂位系統也列著 Crazy Horse 半日帶爬行程（2026-10 查）。
+- Vertical Life 2025 年春季號的報導寫，岩場入口立著大大的「Do not climb」牌子，但每天都有人爬、沒有執法人員趕人，帶團照常出發。
+- climbgrades（2026-08 更新）與 Ada House（2026-07）都寫「目前可以爬」，但都沒有附上任何公告。
+- UKC 岩場頁寫「據 CMRCA 表示已重開」。
+- YouTube 上 2024 到 2025 年持續有人上傳在這裡攀登的影片，最近的是 2025-12 的 Sunseeker、Trojan Horse 與 Reunion（見下方路線表的影片欄）。
 
-**所以正確的寫法是：「有多個實際在爬的跡象，但沒有官方重開公告。」** 不是「已重開」，也不是「還封著」。
+<details><summary>看 CMRCA 2024 年談封閉影響的影片</summary>
 
-**出發前一定要做的**：直接問清邁的 CMRCA。theCrag 自己就建議「到清邁市區的 CMRCA 辦公室問資訊」——**而那個辦公室正是發布封閉公告與發起重開請願的同一個單位。** 這是這個系列裡最該用面對面確認的一件事。
+```video-gallery
+key: crazy-horse
+lang: zh-TW
+ids: Z35VDZMsSi8
+```
 
-### 管理權可能正在轉移
+</details>
 
-另一篇當地文章說 Crazy Horse **關過不只一次，管理權正移向當地社區**，建議先確認。**這條是二手報導，正文只作提示，不當成定論。**
+**所以準確的說法是：「有很多人在爬，但沒有官方重開公告。」** 不是「已重開」，也不是「還封著」。最快的確認方式，是前一晚到 Progression Vertical 訂接駁時當面問：發布封閉公告、轉發重開連署、經營接駁的都是同一個單位。
 
-### 岩栓與裝備
+**管理權正在轉移。** 2018 年的公告寫，依泰國土地法私人公司不能承租這塊地，CMRCA 決定把 15 年來在岩場的建物與設施交給 Mae On 社區，社區也已向縣、府與中央的土地管理單位申請管理權（一手）。Ada House 2026 年的文章也說管理正移向社區（二手）。所以現場若有社區收費或登記，以現場為準。
 
-行程筆記記的是：**70 公尺繩最合適（60 公尺可以爬約九成路線）、14 到 18 支快扣。岩栓很密，初階路線約 1 到 1.5 公尺一支。**
+**季節性避爬：鳥巢與蜂巢。** theCrag 的路線警告（2026-10-21 讀取）：Heart Wall 的 Mar Jark Jai、Deung Duut Jai 因附近鳥巢「請避開兩個月」，Tang Jai 的大岩片後面有正在孵蛋的貓頭鷹巢；Reunion Buttress 的 Sweet Harmony 有黃蜂巢；唯一的 8a+ 備註只有一句「小心蜜蜂」。這些警告沒有標日期，到現場先看。Vertical Life 的說法更直接：涼季時大型的亞洲蜜蜂會在路線頂端築帆狀巢，看到蜂群像波浪一樣同步晃動就**立刻下降**，曾有人被叮上百次；雨季則是黃蜂躲在裂縫裡。
 
-**theCrag 沒有為 Crazy Horse 的逐條路線標註岩栓材質。** 這跟喀比不同——內陸岩場在材料研究中被歸為腐蝕風險較低的「良性」岩場（[Crag Chemistry 2024-09](https://cragchemistry.com/2024/09/23/thailand-crags-1/)），但**沒有資料不等於沒問題**。
+**固定點與裝備。** Vertical Life 報導當地每年巡檢、用不鏽鋼更換岩栓；theCrag 沒有逐條標岩栓材質，但 Crazy Horse Area 的 **The Beehouse（6c+）被標了「很多岩栓鬆動」**。climbgrades 建議 **70 公尺繩（60 公尺可爬約九成路線，少數延伸段要 80 公尺）、14 到 18 支快扣、頭盔**。In Deep Space 的備註寫「鬆石很多，拉之前先檢查，戴頭盔」；洞穴的多段線要垂降回洞底，先確認繩長和下降路線。洞頂的橫移線（Anxiety State Crisis、Sunseeker、Space Manoeuvres）墜落後可能懸空、回不到岩面，UKC 2011 年的介紹建議帶 prusik，Vertical Life 也說只適合有經驗的繩隊、要會用繩上攀。
 
-### 一個關於猴子的提醒
+<details><summary>看洞穴裡攀登的影片</summary>
 
-Heart Wall 的 **Peaun Jai Rai / My Friend is Mean（5a）** 備註裡有一句：「**超好玩、超簡單，而且一路到頂。有時候你甚至會在確保點遇到猴子想偷你的東西。**」
+```video-gallery
+key: crazy-horse
+lang: zh-TW
+ids: sRX3mNIFFTM, mGog7jqO_Qw
+```
 
-這是 theCrag 唯一的猴子警告，但它是真的。
+</details>Heart Wall 的 Peaun Jai Rai 備註還提醒：**確保點有時會有猴子想偷東西**。
+
+緊急狀況撥 **1669**（衛生部的緊急醫療專線，免費，會轉送最近的醫院）；需要英語協助可撥觀光警察 **1155**（GOV.UK 醫療指引；泰國政府公關局 2025-11 公告）。出發前存好泰文岩場名 หน้าผาม้าพยศ、子區名與離線地圖。保險則向自己的承保公司確認**運動攀登、多段、搜救、醫療和送返**是否在保障內；CMRCA 帶爬行程含攀岩保險，自己去就沒有。
 
 ## 依程度挑路線
 
 YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mountainproject.com/international-climbing-grades)，只是近似值；標「約」的是來源只寫 4、5+ 這類不分 abc 的級數。難度以原始級數為準。
 
-**下表來自 theCrag 的 Heart Wall、Crazy Horse Area、Reunion Buttress、Anxiety State Crisis Cave、Tamarind Village、The Gatekeeper Buttress 等子區頁面（2026-10-21 讀取）**，共 208 條逐條資料。
+**這些表全部取自 theCrag 16 個子區的逐條路線頁（2026-10-21 讀取）**，每級挑星等高、或有具體描述的路線，不是全部列出。備註的 ★ 是 theCrag 的星等；沒寫星的是 theCrag 沒有評星。多段線的難度欄寫最難的一段，長度欄寫總長與段數。theCrag 另有 2 條抱石（V4、V5），資料太少，本篇不列。
+
+有影片的路線，表格最右邊會多一欄「影片」，點縮圖開這條路線的影片清單。這些影片只核對過標題、頻道、上傳日期與作者描述，**沒有逐支看完**，備註只寫 metadata 撐得住的內容。有幾支和表格不同：Dee Jai Tee Dai Geud 的影片片名寫成 Happy to Be Alive、5.11a；The Tree Surgeon 有兩支片名標 6c，theCrag 是 6c+；Sport Satay 和 Sandbag 各有一支是頂繩；Jai Glah Reu Plao 有兩支只拍到前半段；Mun Jai 那支是 2011 年剛打好時的片，描述寫成 Muan Jai。影片標題的級數與路線名只代表該片版本，選線仍以表格的來源欄為準。
 
 ### 入門：6a 以下（YDS 5.10a 以下）
 
-**Little Monkey Cove 是最容易的一區**，有 4 字頭的短線。Heart Wall 最低到 5a。
+4 到 5 字頭集中在 **Little Monkey Cove、Tamarind Village 與 The Hanging Gardens**，Heart Wall 也有幾條 5 字頭。**「入門」是級數分組，不是第一次戶外的建議**：In Deep Space 和 Sentinel 雖然只有 5 字頭，卻是 4 段的長線。第一天先比較同在 Tamarind Village 的兩條：**4500**（5a，20 m 單段，三星）用來熟悉岩性和先鋒，**Makham Wan**（5c+，兩段 45 m）用來第一次練多段的換手與垂降；Vertical Life 也把 Makham Wan 稱為入門多段的好選擇。
 
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
-|---|---|---|---|---|---|
-| Another Snake In A Break | 4 | 約 5.4–5.5 | 15 m | Little Monkey Cove | theCrag 註記此線可能與 Tamarind Wall 混淆 |
-| Call The Police | 4 | 約 5.4–5.5 | 12 m | Little Monkey Cove | 北向角落的兩條路線中較右的一條 |
-| Hey | 4 | 約 5.4–5.5 | 15 m | Little Monkey Cove | |
-| Choices | 4 | 約 5.4–5.5 | 15 m | Little Monkey Cove | |
-| Rear View | 4 | 約 5.4–5.5 | 10 m | Reunion Buttress | |
-| Left To My Own Devices | 4 | 約 5.4–5.5 | 12 m | Reunion Buttress | 通往 ledge 的接近路線 |
-| Building Playgrounds | 4 | 約 5.4–5.5 | 20 m | Reunion Buttress | |
-| Playtime | 4 | 約 5.4–5.5 | 20 m | Reunion Buttress | |
-| People Like Us | 4 | 約 5.4–5.5 | 22 m | The Rooftop | Francis Haden，2017-02 |
-| Peaun Jai Rai / My Friend is Mean | 5a | 5.7 | 18 m | Heart Wall | ★；超好玩、超簡單；**有時候會在確保點遇到猴子想偷東西** |
-| Jai Tuud / Wimp | 5c | 5.9 | 18 m | Heart Wall | ★；**這個級距很獨特的攀爬**，在一大團岩質上 |
-| Jai Rag / I Love My Heart | 5c | 5.9 | 16 m | Heart Wall | |
-| Song Jit Song Jai / I'm Torn | 5c | 5.9 | 16 m | Heart Wall | ★；「對這個級距來說很好玩」 |
-| Kuu Jai / Twin Heart | 5c | 5.9 | 15 m | Heart Wall | ★；變化多樣，確保點有快扣 |
-| Horse's Heart | 5c | 5.9 | 11 m | Anxiety State Crisis Cave | |
-| The Underworld | 5c | 5.9 | 15 m | Anxiety State Crisis Cave | |
+| --- | --- | --- | --- | --- | --- |
 | Botanical | 5a | 5.7 | 17 m | Little Monkey Cove | ★★ |
-| Arrested Development | 5a | 5.7 | 10 m | Little Monkey Cove | |
-| Names And Number Plates | 5a | 5.7 | 13 m | Little Monkey Cove | |
-| Monkey Around | 5b | 5.8 | 13 m | Little Monkey Cove | |
-| Aom Sim | 5b | 5.8 | 12 m | Little Monkey Cove | |
-| Miya Arom Siya / My Girlfriend Is In A Bad Mood | 5b | 5.8 | 14 m | Little Monkey Cove | ★★ |
-| Rock Climbing 101 | 5b | 5.8 | 12 m | The Hanging Gardens | Josh Morris |
+| Miya Arom Siya / My Girlfriend Is In A Bad Mood | 5b | 5.8 | 14 m | Little Monkey Cove | ★★；Josh Morris |
+| 4500 | 5a | 5.7 | 20 m | Tamarind Village | ★★★；巨石、小溝再上岩面，動作多變 |
+| Makhaam Bpriaao | 5a | 5.7 | 13 m | Tamarind Village | ★★；煙囪口右側，起步較硬，岩栓密 |
+| Makham Wan / Tamarind Leaves | 5c+ | 約 5.9+ | 45 m／2 段 | Tamarind Village | ★★；5a、5c+；單條 70 m 繩可垂降回地面（繩尾打結） |
 | Tarzan | 5b | 5.8 | 14 m | The Hanging Gardens | ★★ |
-| Flapper | 5c | 5.9 | 15 m | The Hanging Gardens | |
-| Rock Climbing 102 | 5c | 5.9 | 14 m | The Hanging Gardens | Josh Morris |
-| A Horse with No Name | 5 | 約 5.7–5.8 | 37 m／2 段 | Crazy Horse Area | ★★；第一段是橫切 |
-| Rope and Rock | 5a | 5.7 | 24 m | Crazy Horse Area | Uthit（Son）Yodkhaman |
-| The Muppet Show | 5b | 5.8 | 27 m | Crazy Horse Area | Francis Haden 與 Josh Morris |
-| Ding Dong | 5b | 5.8 | 24 m | Crazy Horse Area | Francis Haden 與 Josh Morris |
+| First Flight | 5a | 5.7 | 17 m | Reunion Buttress | ★★★ |
+| Sweet Harmony | 5c | 5.9 | 17 m | Reunion Buttress | ★★★；**theCrag 標黃蜂巢** |
+| Rising Above Bedlam | 5c | 5.9 | 20 m | The Rooftop | ★★★；Francis Haden，2017-02 |
+| Peaun Jai Rai / My Friend is Mean | 5a | 5.7 | 18 m | Heart Wall | ★；確保點有時有猴子想偷東西 |
+| Jai Ngai / Gullible | 6a | 5.10a | 12 m | Heart Wall | ★★；技術性 crux，結尾很舒服 |
+| A Horse with No Name | 5 | 約 5.7–5.8 | 37 m／2 段 | Crazy Horse Area | ★★；從 Ding Dong 頂端起步，5a 那段是橫移 |
+| In Deep Space | 5c | 5.9 | 80 m／4 段 | Anxiety State Crisis Cave | ★★；從洞底爬到洞頂、看得到 Mae On 平原；**鬆石多，要戴頭盔** |
+| Sentinel | 5a | 5.7 | 74 m／4 段 | Sentinel Buttress | theCrag 沒有描述與星等 |
+
+```video-gallery
+key: crazy-horse
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
-**這是 Crazy Horse 路線最厚的級距。** theCrag 對整個岩場的評價是「大多是很好的 6 字頭與 7 字頭」。
+**這是 Crazy Horse 路線最厚的級距**，233 條裡約一半在這裡。Heart Wall 的泰語「Jai」系列、Gatekeeper Buttress 的鑰匙系列幾乎全是 6a+ 到 6c+ 的二、三星線；想一天爬滿同一級，就整天待在其中一面。這級先比較 **Ruam Jai**（6a+，36 m，20 m 處有中途確保點）和 **The Gatekeeper**（6b，25 m）：同樣是三星，差在長度和繩長，帶 60 m 繩的人 Ruam Jai 只能爬到中途確保點。洞穴多段線也落在這一級，難度不高但耗時，和短線分開排。
 
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
-|---|---|---|---|---|---|
-| Mar Jark Jai / Heartfelt | 6a+ | 5.10b | 25 m | Heart Wall | ★★★；**這個級距很棒的線**，從中段開始是精采的 pump fest |
-| Tang Jai / Intentions | 6a+ | 5.10b | 25 m | Heart Wall | ★★；好岩質上的漂亮攀爬；**那個大岩片是很好的特色，膝卡友好** |
-| Rang Lai Jai / Hesitate | 6a+ | 5.10b | 16 m | Heart Wall | ★★；「爬起來還行，蠻好玩的」 |
-| Jai Ngai / Gullible | 6a | 5.10a | 12 m | Heart Wall | ★★；技術性 crux，結尾很愉快 |
-| Pun Jai / Proud | 6b | 5.10c | 13 m | Heart Wall | ★★ |
-| Dtat Sin Jai / Decide | 6c | 5.11a/b | 14 m | Heart Wall | ★★；陡地形上的力量攀爬 |
-| Muun Jai / Confident | 6c | 5.11a/b | 19 m | Heart Wall | ★★★ |
-| Jai Yen Yen / Patient / The Proposal / Calm | 6c+ | 5.11c | 21 m | Heart Wall | ★★★ |
+| --- | --- | --- | --- | --- | --- |
+| Ruam Jai / Together | 6a+ | 5.10b | 36 m | Heart Wall | ★★★；theCrag：「這一區這個級數最好的線」；20 m 處有確保點，60 m 繩可爬 |
+| Mar Jark Jai / Heartfelt | 6a+ | 5.10b | 25 m | Heart Wall | ★★★；後半段一路 pump；**鳥巢季請避開** |
+| Jai Rawn / Hot Headed | 6b | 5.10c | 27 m | Heart Wall | ★★；「以這個級數來說非常漂亮」 |
 | Dee Jai Tee Dai Geud / It's Great to be Alive | 6b+ | 5.10d | 19 m | Heart Wall | ★★★ |
-| Bratup Jai / Impressed | 6b+ | 5.10d | 22 m | Heart Wall | ★★；技術性擠壓起步，之後就跑起來了 |
-| Jai Rawn / Hot Headed | 6b+ | 5.10d | 27 m | Heart Wall | ★★；「對這個級距來說絕對 stunning」 |
-| Ruam Jai / Together | 6a+ | 5.10b | 36 m | Heart Wall | ★★★；**這個級距裡最好的路線** |
-| Pak Jai / Rest Your Heart | 6a+ | 5.10b | 20 m | Heart Wall | ★★；「東西都在，你只要把它們找出來」 |
-| Dtok Jai / Startled | 6a+ | 5.10b | 17 m | Heart Wall | ★★；有趣但尾段有刺激 |
-| Jai Glah Reu Plao / Are You Courageous? | 7a+ | 5.12a | 22 m | Heart Wall | ★★★；「一路到確保點都是讓人驚豔的攀爬」 |
-| Jai Loy / Spaced-Out | 7a+ | 5.12a | 23 m | Heart Wall | ★★；穿過 tufa 的睡眠式攀爬，lip 上方有力量拉出 |
-| Jai Det / Fearless | 7a+ | 5.12a | 13 m | Heart Wall | ★★；又短又難 |
-| Reunion | 6a+ | 5.10b | 52 m／3 段 | Reunion Buttress | ★★ |
-| Total Biscuits | 6a+ | 5.10b | 17 m | Reunion Buttress | ★★★ |
-| Sweet Harmony | 5c | 5.9 | 17 m | Reunion Buttress | ★★★ |
-| Happiness Happening | 6b | 5.10c | 25 m | Reunion Buttress | ★★★ |
-| Northern Exposure Ext | 6b | 5.10c | 35 m | Reunion Buttress | ★★★；可合併成 6b 的單段 |
-| Loneliness of the Long Distance Driller | 6c | 5.11a/b | 28 m | Reunion Buttress | ★★ |
-| White Mischief | 6c | 5.11a/b | 8 m | Reunion Buttress | ★★ |
-| Magic Drop | 6b | 5.10c | 18 m | Crazy Horse Area | ★★；Kraisak（Tom）Boonthip |
-| The Bamboo Finders | 6b | 5.10c | 21 m | Crazy Horse Area | ★★ |
-| Ayah! | 6a | 5.10a | 21 m | Crazy Horse Area | ★；Kraisak（Tom）Boonthip |
-| Reindeer Request | 6a+ | 5.10b | 22 m | Crazy Horse Area | ★★；Kraisak（Tom）Boonthip |
-| The Beehouse | 6c+ | 5.11c | 27 m | Crazy Horse Area | ★★★；Kraisak（Tom）Boonthip |
-| Blood, Love and Steel Pitch 1 | 6c | 5.11a/b | 26 m | Crazy Horse Area | ★★；Francis Haden |
-| Dangerous Joy | 6c | 5.11a/b | 20 m | Crazy Horse Area | ★★；Kraisak（Tom）Boonthip |
-| Some Like it Hot | 6b | 5.10c | 25 m | Crazy Horse Area | ★ |
+| Mun Jai / Confident | 6c | 5.11a/b | 19 m | Heart Wall | ★★★ |
+| Jai Kwang / Unknown / Open-Minded | 6c/c+ | 5.11a/b | 26 m | Heart Wall | ★★★；抱石式有力的起步，接一段很好的薄 slab |
+| Jai Yen Yen / Patient / The Proposal / Calm | 6c+ | 5.11c | 21 m | Heart Wall | ★★★ |
+| Jai Teung Jai / Heart to Heart | 6c+ | 5.11c | 35 m | Heart Wall | ★★★ |
+| Dtang Jai / Conscious | 6c | 5.11a/b | 25 m | Heart Wall | ★★；「漂亮岩質上的好攀爬，去拚 onsight」 |
+| Hua Jai Wai / Heart Attack | 6c+ | 5.11c | 10 m | Heart Wall | ★★；從地面到確保點都是抱石式的硬擠動作 |
+| Dtat Sin Jai / Decide | 6c+ | 5.11c | 14 m | Heart Wall | ★★；陡地形上的力量攀爬 |
+| Angel's Gate | 6a+ | 5.10b | 21 m | The Gatekeeper Buttress | ★★★ |
 | The Gatekeeper | 6b | 5.10c | 25 m | The Gatekeeper Buttress | ★★★ |
 | Picking the Lock | 6b+ | 5.10d | 26 m | The Gatekeeper Buttress | ★★★ |
-| Stargate | 6b+ | 5.10d | 25 m | The Gatekeeper Buttress | ★★★ |
-| Angel's Gate | 6a+ | 5.10b | 21 m | The Gatekeeper Buttress | ★★★ |
-| Gruntfest | 6c | 5.11a/b | 19 m | The Archway | ★★★ |
-| Crazy Hot | 6b | 5.10c | 19 m | The Archway | ★★★；**第 4、5、6 支岩栓用長掛扣** |
-| The Tree Surgeon | 6c+ | 5.11c | 18 m | The Archway | ★★★ |
-| The Chimney Sweep | 6a | 5.10a | 12 m | Tamarind Village | ★★ |
-| Happy Birthday | 6b | 5.10c | 13 m | Tamarind Village | ★★★ |
+| The Keymaster | 6c | 5.11a/b | 25 m | The Gatekeeper Buttress | ★★★ |
+| Skyscraper | 6a+ | 5.10b | 29 m | The Rooftop | ★★★ |
+| Total Biscuits | 6a+ | 5.10b | 17 m | Reunion Buttress | ★★★ |
+| Northern Exposure Ext | 6b | 5.10c | 35 m | Reunion Buttress | ★★★；一段爬完算 6b |
+| Reunion | 6a+ | 5.10b | 52 m／3 段 | Reunion Buttress | ★★；Francis Haden 與 Khaetthaleeya Uppakham |
 | Morning Glory | 6a+ | 5.10b | 31 m | Windy Cave | ★★★ |
-| 4500 | 5a | 5.7 | 20 m | Tamarind Village | ★★★ |
+| Trojan Horse | 6a+ | 5.10b | 55 m／3 段 | Windy Cave | ★★；5c、6a+、5a；第二段頂端有垂降環可直接下 |
+| The Darkness Beckons | 6a+ | 5.10b | 70 m／5 段 | Anxiety State Crisis Cave | ★★；從 In Deep Space 第一段確保點往左橫移三支岩栓再上；沿原線垂降 |
+| Show Off the Police | 6b | 5.10c | 20 m | The Aircon Wall | ★★；Kraisak Boonthip，1998，theCrag 記為 Crazy Horse 第一條路線 |
+| Crazy Hot | 6b | 5.10c | 19 m | The Archway | ★★★；第 4、5、6 支岩栓用長快扣 |
+| Gruntfest | 6c | 5.11a/b | 19 m | The Archway | ★★★ |
+| The Tree Surgeon | 6c+ | 5.11c | 18 m | The Archway | ★★★ |
+| Sandbag | 6c | 5.11a/b | 20 m | The Archway | ★★ |
+| Happy Birthday | 6b | 5.10c | 13 m | Tamarind Village | ★★★ |
+| The Beehouse | 6c+ | 5.11c | 27 m | Crazy Horse Area | ★★★；**theCrag 標「很多岩栓鬆動」** |
+| Blood, Love and Steel Pitch 1 | 6c | 5.11a/b | 26 m | Crazy Horse Area | ★★★；Francis Haden；Headhunters、Baby Rock 從它頂端接上 |
+| Sunseeker Pitch 1 | 6c+ | 5.11c | 22 m | Anxiety State Crisis Cave | ★★；Francis Haden 與 Donna Kwok，2011；第二段 6b+ |
+
+```video-gallery
+key: crazy-horse
+lang: zh-TW
+layout: routes
+```
 
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 
-**Crazy Horse 的 7 字頭集中在 Heart Wall 與 Crazy Horse Area。**
+7 字頭集中在三處：**The Aircon Wall 的洞口陡壁（7a 到 7c+）、Crazy Horse Area 的接續線、Heart Wall 的三條 7a+**。很多線不是從地面起步，而是從另一條線的確保點接上去，先看清楚要爬哪幾段才到起點。第一條 7a 先比較 **Sport Satay**（13 m，Aircon Wall，短而陡）和 **Inferno**（29 m，Gatekeeper Buttress，長而耐力）：同一個級數，一條考爆發、一條考 pump。
 
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
-|---|---|---|---|---|---|
-| Walk the Plank | 7a+ | 5.12a | 15 m | Reunion Buttress | ★★★；**從 Reunion 第三段的中途進入，確保點在洞穴裡** |
-| Shadow Cranking | 7a | 5.11d | 10 m | Reunion Buttress | ★★ |
-| Tunnel Vision | 7a+ | 5.12a | 8 m | Reunion Buttress | |
-| Inferno | 7a | 5.11d | 29 m | The Gatekeeper Buttress | ★★★；9 支岩栓 + 1 個 thread |
-| Unleash the Phat Physique | 7a | 5.11d | 28 m | The Gatekeeper Buttress | ★★★ |
-| All Quiet on the Eastern Front | 7a | 5.11d | 24 m | The Gatekeeper Buttress | ★★★；8 支岩栓 + 1 個 thread |
+| --- | --- | --- | --- | --- | --- |
+| Jai Glah Reu Plao / Are You Courageous? | 7a+ | 5.12a | 22 m | Heart Wall | ★★★；「一路到確保點都是讓人驚豔的攀爬」 |
+| Jai Loy / Spaced-Out | 7a+ | 5.12a | 23 m | Heart Wall | ★★；穿過 tufa，lip 上方用力拉過 |
+| Jai Det / Fearless | 7a+ | 5.12a | 13 m | Heart Wall | ★★；短而難，結尾要平衡又要 commit，有一處可能摔不好 |
+| Inferno | 7a | 5.11d | 29 m | The Gatekeeper Buttress | ★★★；9 支岩栓加 1 個 thread |
+| All Quiet on the Eastern Front | 7a | 5.11d | 24 m | The Gatekeeper Buttress | ★★★；8 支岩栓加 1 個 thread |
+| Walk the Plank | 7a+ | 5.12a | 15 m | Reunion Buttress | ★★★；從 Reunion 第三段中途進入，確保點在洞裡 |
+| Shadow Cranking | 7a | 5.11d | 10 m | Reunion Buttress | ★★★ |
 | Earthquake | 7a | 5.11d | 25 m | Windy Cave | ★★；Paul Collis，2007 |
-| Trojan Horse | 6a+ | 5.10b | 55 m／3 段 | Windy Cave | ★★；第一段 5c、第二段 6a+、第三段 6a+ |
-| Headhunters Pitch 3 | 7a | 5.11d | 20 m | Crazy Horse Area | ★★；從 Headhunters Pitch 2 頂端起步 |
-| The Horse Knows the Way | 7b | 5.12b | 18 m | Crazy Horse Area | ★★；**原本評 7c**；要抓大洞底部右邊的 jug 才是 7c |
-| Don't Look a Gifthorse in the Mouth Pitch 2 | 6b+ | 5.10d | 16 m | Crazy Horse Area | ★★★ |
-| Fatherhood | 6b+ | 5.10d | 35 m | Crazy Horse Area | ★★ |
+| Anxiety State Crisis | 7a | 5.11d | 42 m／2 段 | Anxiety State Crisis Cave | ★★；Francis Haden 與 Diana Jew，2002；沿洞中央的岩柱上 |
+| Stranger At The Gate | 7a+ | 5.12a | 95 m／4 段 | Anxiety State Crisis Cave | ★；從 In Deep Space 第一段往左橫移；本篇讀到的路線裡最長 |
 | Heavy Drilling | 7a | 5.11d | 16 m | Little Monkey Cove | ★★；爬進大裂縫 |
-| In Deep Space | 5c | 5.9 | 80 m／4 段 | Anxiety State Crisis Cave | ★★；洞穴左面牆的四段路線 |
-| Innocence Lost | 6b | 5.10c | 40 m／2 段 | Anxiety State Crisis Cave | ★★ |
-| The Darkness Beckons | 6a+ | 5.10b | 70 m／5 段 | Anxiety State Crisis Cave | ★★ |
-| Spaceman Pitch 2 | 7b+ | 5.12c | 30 m | Anxiety State Crisis Cave | |
-| Space Manoeuvers Pitch 2 | 7b | 5.12b | 15 m | Anxiety State Crisis Cave | |
-| Space Manoeuvers Pitch 3 | 7b | 5.12b | 25 m | Anxiety State Crisis Cave | |
-| Sunseeker Pitch 2 | 6b+ | 5.10d | 25 m | Anxiety State Crisis Cave | |
-| Anxiety State Crisis Pitch 2 | 7a | 5.11d | 42 m／2 段 | Anxiety State Crisis Cave | ★★ |
-| Makeham Wan / Tamarind Leaves | 5c+ | 約 5.9+ | 45 m／2 段 | Tamarind Village | ★★ |
+| Unnamed Japanese Route | 7a+ | 5.12a | 9 m | The Aircon Wall | ★★★；進洞左手邊，Cool and Funky 前方 |
+| Sport Satay | 7a | 5.11d | 13 m | The Aircon Wall | ★★ |
+| Freeblast | 7b | 5.12b | 13 m | The Aircon Wall | ★★ |
+| The Wild Pumpus | 7b+ | 5.12c | 12 m | The Aircon Wall | ★★ |
+| The Foaming Pumpus | 7c | 5.12d | 13 m | The Aircon Wall | Phairat Kaewkan，2005；前三支岩栓同 Wild Pumpus 再往左 |
+| Wild & Free | 7c+ | 5.13a | 15 m | The Aircon Wall | ★★；Kang，2024-01；前四支岩栓同 Wild Pumpus，再橫移接 Freeblast |
+| The Horse Knows the Way | 7b | 5.12b | 18 m | Crazy Horse Area | ★★；原評 7c；第三支岩栓右邊大洞底部的 jug 不用才是 7c |
+| Free the Spirit | 7b+ | 5.12c | 20 m | Crazy Horse Area | ★★★；從 Headhunters 第二段頂端起步 |
+| Baby Rock | 7b+ | 5.12c | 30 m | Crazy Horse Area | ★★；從 Blood, Love and Steel 第一段頂端起步 |
+
+```video-gallery
+key: crazy-horse
+lang: zh-TW
+layout: routes
+```
 
 ### 高手：8a 以上（YDS 5.13b 以上）
 
-**Crazy Horse 有一條 8a+，但只有 1 次攀登紀錄，而且描述只有一句「小心蜜蜂」。**
+本篇讀到的 16 個子區裡只有兩條 8 字頭。theCrag 岩場頁的級數範圍寫到 8b，那條線應該在本篇沒讀到的 6 個子區裡，這裡不列。想爬 8 字頭的人，Crazy Horse 不是主要目標，可以看系列裡的 [Tonsai](/posts/climbing/2026-10-21-thailand-crag-tonsai) 或 [Chong Phli](/posts/climbing/2026-10-21-thailand-crag-chong-phli)。
 
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
-|---|---|---|---|---|---|
-| A Wild Ride on a Crazy Horse | 8a+ | 5.13c | 18 m | Crazy Horse Area | ★；**0 次攀登**；備註只有「Watch for the bees.」 |
-| Free the Spirit | 7b+ | 5.12c | 20 m | Crazy Horse Area | ★★★；從 Headhunters Pitch 2 頂端起步 |
-| Baby Rock | 7b+ | 5.12c | 30 m | Crazy Horse Area | ★★；從 Blood, Love and Steel Pitch 1 頂端起步 |
-| Headhunters Pitch 2 | 7a+ | 5.12a | 20 m | Crazy Horse Area | ★★；從 Blood, Love and Steel Pitch 1 頂端起步 |
+| --- | --- | --- | --- | --- | --- |
+| Aircon Direct | 8a | 5.13b | 14 m | The Aircon Wall | ★★ |
+| A Wild Ride on a Crazy Horse | 8a+ | 5.13c | 18 m | Crazy Horse Area | theCrag 沒有星等；備註只有「Watch for the bees.」；2024-02 的影片作者聽說是第 3 次完攀 |
 
-**8a+ 級距的現況是「有線、幾乎沒人爬過、只有一句警告」。** 這就是北泰第一岩場的頂端。
+```video-gallery
+key: crazy-horse
+lang: zh-TW
+layout: routes
+```
+
+### 經典線：多段與單段
+
+上面的分級表是依難度選線；這一節再補 13 條 CMRCA 與幾份攀岩媒體常拿來當「Crazy Horse 經典」的路線。**這些線不是全都有兩個以上來源點名**，所以獨立成一節：多段以 CMRCA 的多段帶爬頁為主，單段以 CMRCA 2015 年的經典線影片、UKC 2011 年介紹與 Vertical Life 2025 年報導為主；級數與長度一律用 theCrag，來源寫法不同就在備註並列。
+
+經典也不等於簡單。多段那組從 5 字頭的 In Deep Space 跨到 7b 的 Space Manoeuvres，而洞頂橫移的那幾條，難的是墜落後能不能自救，不是級數。
+
+#### 多段經典線
+
+CMRCA 的多段帶爬頁把 Trojan Horse、In Deep Space、A Horse With No Name、Into the Sun 列為初階多段，Anxiety State Crisis、Sunseeker、Headhunters 列為進階。分段級數和長度取自 theCrag 各段的路線頁。
+
+| 路線 | 難度 | YDS | 長度／段數 | 備註 |
+| --- | --- | --- | --- | --- |
+| In Deep Space | 5b、5b、5c、5c | 最難 5.9 | 80 m／4 段 | theCrag 64 次攀登；洞外垂降 2 次或洞內 3 次（70 m 繩）；CMRCA 列初階 |
+| A Horse with No Name | 5 | 約 5.7–5.8 | 37 m／2 段 | 從 Ding Dong 頂端接上；CMRCA 寫 5c |
+| Into The Sun | 6a、6b | 最難 5.10c | 34 m／2 段 | Francis Haden 與 Josh Morris；CMRCA 寫 6a |
+| Trojan Horse | 5c、6a+、5a | 最難 5.10b | 55 m／3 段 | CMRCA 列初階；Vertical Life：結尾垂降進主區，下降前先看有沒有蜂 |
+| Sunseeker | 6c+、6b+ | 最難 5.11c | 47 m／2 段 | 與 Anxiety State Crisis 共用第一段前半，再沿巨大岩鰭懸空橫移（UKC）；UKC 與 CMRCA 寫 6c |
+| Anxiety State Crisis | 7a、7a | 最難 5.11d | 42 m／2 段 | 洞頂原始線，Francis Haden 與 Diana Jew，2002；Vertical Life 的作者說這是自己爬過最嚇人的路線 |
+| Headhunters（接 Blood, Love and Steel 第一段） | 6c、7a+、7a | 最難 5.12a | 66 m／3 段 | Vertical Life：三段爬到馬頭岩頂；CMRCA 寫 7a |
+| Space Manoeuvres | 6c、7b、7b | 最難 5.12b | 70 m／3 段 | 從洞內陰影一路沿稜爬到岩場頂（UKC）；Francis Haden，2002 |
+
+```video-gallery
+key: crazy-horse
+lang: zh-TW
+layout: routes
+```
+
+#### 單段經典線
+
+這組不在 CMRCA 的多段頁上，主要來自 CMRCA 自己的經典線影片與攀岩媒體；和上面分開，是因為來源不同，不是因為級數相近。
+
+| 路線 | 難度 | YDS | 長度／段數 | 備註 |
+| --- | --- | --- | --- | --- |
+| Blood, Love and Steel Pitch 1 | 6c | 5.11a/b | 26 m | theCrag ★★★；UKC 2011 稱為 super-classic；CMRCA 2015 經典線影片 |
+| The Tree Surgeon | 6c+ | 5.11c | 18 m | theCrag ★★★；CMRCA 2015 經典線影片寫 6c；UKC 照片是膝卡休息 |
+| The Wild Pumpus | 7b+ | 5.12c | 12 m | theCrag ★★；CMRCA 2015 經典線影片寫 Wild Pumpest |
+| Happy Birthday | 6b | 5.10c | 13 m | theCrag ★★★；Vertical Life：Tamarind Village「難但經典」的一條 |
+| A Route with a View | 5c+ | 約 5.9+ | 22 m | theCrag ★★；Southern Oscillations 2015 與 Ramon Fadli 2016 都推薦在 The Rooftop 看夕陽收尾 |
+
+```video-gallery
+key: crazy-horse
+lang: zh-TW
+layout: routes
+```
+
+### 網路上的路線紀錄
+
+指南與 theCrag 之外，攀登者的部落格和攀岩媒體留下一批現場紀錄。它們補的是走法、時間與現場感；級數與段數仍以上表為準。這些紀錄多數是 2015 到 2019 年寫的，現場設施和開放狀態以現在為準。
+
+| 路線 | 可以讀到的紀錄 | 那份紀錄多給了什麼 |
+| --- | --- | --- |
+| In Deep Space | theCrag 的[路線頁](https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/1049642385) | 逐段長度與岩栓數；第二段往右橫移三支岩栓後有兩次分岔，直上是 6a，要往右下橫移才到下一個確保站；兩種垂降方式 |
+| Anxiety State Crisis、Trojan Horse | Vincent Chen 在 Vertical Life 的 [2025 年報導](https://verticallifemag.com/articles/climbing-in-chiang-mai-thailand/) | Anxiety State Crisis 要先爬下再垂降到岩柱上的懸吊確保站，再橫越洞頂、下方 50 m 落差；體重輕的確保者可能讓先鋒墜落後卡在半空；Trojan Horse 結尾垂降進主區 |
+| Anxiety State Crisis、Sunseeker、Space Manoeuvres | UKC 2011 年的[北泰介紹](https://www.ukclimbing.com/articles/destinations/climbing_in_northern_thailand-3677) | 三條洞頂線的分段級數與走向；墜落後可能回不到岩面，建議帶 prusik；當時的打栓標準（鈦或船用不鏽鋼黏著式岩栓） |
+| A Route with a View、Skyscraper | Southern Oscillations 的 [2015 年紀錄](https://southernoscillations.wordpress.com/2015/01/15/crazy-horse-buttress-north-of-thailand/) | 第 3 版指南推薦在 The Rooftop 收尾看夕陽；**指南寫的岩栓數常比牆上少**，作者帶的快扣不夠，接近頂端只好拉長距離不掛；Skyscraper 作者記為 6a（theCrag 6a+） |
+| Heun Fah、A Route with a View | Ramon Fadli 的 [2016 年紀錄](https://ramonfadli.com/crazy-horse/2/) | 從 Jira Homestay 走約 1 公里到停車場的路；主壁塞車時繞過 The Archway 上 The Rooftop 的走法；兩條暖身線的動作描述 |
 
 ## 查資料的入口
 
-- **線上資料庫**：[theCrag Crazy Horse 頁](https://www.thecrag.com/en/climbing/thailand/chaing-mai) 有 289 條路線、22 個子區的分布、接近方式、住宿與指南書資訊；每個子區頁面有逐條路線、級數、星等與長度。
-- **指南書**：路線難度與路線數主要來自線上資料庫，以指南書為準。收 Crazy Horse 的是 **[A Guide to Rock Climbing in Northern Thailand](https://www.thailandclimbing.com/climber-info)**（CMRCA Press，第 3 版，220 頁，500 泰銖，涵蓋北泰 18 個分區、150 段以上）。**到清邁的 CMRCA 辦公室買這本，同時問清楚岩場的開放狀況——這是這篇最該做的一件事。**
-- **接駁與在地資訊**：**[CMRCA 的 Crazy Horse 交通頁](https://www.thailandclimbing.com/climber-info/getting-to-crazy-horse)**有接駁時間、費用與成行人數。這也是問「現在能不能爬」最快得到答案的管道。
-- **實際重打清單**：**在線上查不到。** 這是內陸岩場的通例，指南書與 CMRCA 店裡的清單是實際來源。
+- **開放狀態與接駁**：[CMRCA 交通頁](https://www.thailandclimbing.com/climber-info/getting-to-crazy-horse)查接駁時間、成行人數與訂位方式；[封閉公告頁](https://www.thailandclimbing.com/crazy-horse-closure)與 [Crazy Horse Updates 分類](https://www.thailandclimbing.com/blog/help-re-open-crazy-horse-buttress)是官方說法所在，但最新狀態仍要當面或來信問 CMRCA（+66 86 911 1470、info@thailandclimbing.com）。
+- **線上資料庫**：[theCrag Crazy Horse 頁](https://www.thecrag.com/en/climbing/thailand/chaing-mai)查 22 個子區與逐條路線、星等、長度和路線警告（鳥巢、蜂巢、鬆動岩栓）；[UKC 岩場頁](https://www.ukclimbing.com/logbook/crags/crazy_horse_buttress-3036)有攀登者留言。
+- **綜合指南**：[climbgrades 的清邁攀岩指南](https://climbgrades.com/blog/chiangmaiguide)（2026-08 更新）整理季節、裝備、找繩伴與交通，但開放狀態的說法沒有附來源。
+- **緊急電話**：[泰國政府公關局的旅客求助電話](https://thailand.prd.go.th/en/content/category/detail/id/2078/iid/447104)。
+- **指南書**：路線難度與路線數主要來自線上資料庫，以指南書為準。本篇沒有直接核對指南書的路線表。
+  - [A Guide to Rock Climbing in Northern Thailand](https://www.thailandclimbing.com/climber-info)，CMRCA Press，第 3 版，英文，220 頁，收北泰 18 個分區、150 段以上。CMRCA 泰文頁說第一版在 2001 年出版；第 3 版的出版年份未查到，Southern Oscillations 2015 年已在用，The Wandering Climber 記為 2016 年印刷、約 200 條。Southern Oscillations 提醒書上的岩栓數常比牆上少。在清邁的 CMRCA 店裡買得到；2018 年後新開的路線不在書裡。
+  - 數位版：Vertical Life 2025 年報導說最新的指南已改成 Crag Finder app 上的數位版；CMRCA 2016 年推出的 Climbing in Northern Thailand app 是否還在更新未確認。本篇兩者都沒有安裝核對。
+
+## 更新紀錄
+
+- 2026-10-24：依新的岩場介紹模板改寫，補上 29 支路線影片與 9 支岩場整體／洞穴／封閉影片（只核對 metadata）、「經典線」與「網路上的路線紀錄」兩節，以及逐區日照、蜂巢與洞頂橫移的自救提醒。路線表改從 theCrag 逐條資料重建，修正分錯級距的路線（7a+ 放在中級、5c 放在進階、7b+ 放在高手）與 Jai Rawn、Trojan Horse 第三段的級數，補上 Aircon Wall 的 7b 到 8a；補泰文名、緊急電話 1669／1155、鳥巢／蜂巢／鬆動岩栓警告、2018 封閉公告的侵入與管理權移交內容、2025–2026 有人在爬的跡象；接駁改寫成從 Progression Vertical 出發、前一晚訂位，不再寫票價；修正自駕路線（原寫 107 號公路）。
 
 ## 參考資料
 
 - [theCrag: Crazy Horse](https://www.thecrag.com/en/climbing/thailand/chaing-mai)
 - [theCrag: Heart Wall](https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/218311449)
+- [theCrag: Crazy Horse Area](https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13950673)
 - [theCrag: Anxiety State Crisis Cave](https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13950625)
 - [theCrag: Reunion Buttress](https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/257550789)
+- [theCrag: Little Monkey Cove](https://www.thecrag.com/en/climbing/thailand/chaing-mai/area/13950457)
 - [CMRCA: Getting to Crazy Horse](https://www.thailandclimbing.com/climber-info/getting-to-crazy-horse)
-- [CMRCA: Crazy Horse 封閉公告頁](https://www.thailandclimbing.com/crazy-horse-closure)
-- [CMRCA: 2024-08 連署呼籲重開](https://www.thailandclimbing.com/blog/help-re-open-crazy-horse-buttress)
-- [UKC: Crazy Horse Buttress 岩場頁](https://www.ukclimbing.com/logbook/crags/crazy_horse_buttress-3036)
+- [CMRCA: Crazy Horse Closure](https://www.thailandclimbing.com/crazy-horse-closure)
+- [CMRCA: Help Re-Open Crazy Horse Buttress（2024-08）](https://www.thailandclimbing.com/blog/help-re-open-crazy-horse-buttress)
+- [CMRCA 泰文頁：ข้อมูลสำหรับนักปีน](https://www.thailandclimbing.com/th/climber-info)
+- [CMRCA 泰文頁：คู่มือหน้าผาม้าพยศ](https://www.thailandclimbing.com/th/climber-info/crazy-horse-guidebook)
+- [CMRCA 訂位頁：Half-Day Climb Crazy Horse](https://thailandclimbing.rezdy.com/717225/half-day-climb-crazy-horse)
 - [重開請願書（2022-09）](https://www.change.org/p/petition-to-reopen-crazy-horse-buttress-for-climbing-and-outdoor-activities)
-- [The Crag Journal: Climbing in Thailand（2023，記錄 Crazy Horse 現場）](https://thecragjournal.com/2023/02/01/climbing-in-thailand-a-journey-through-south-east-asia/)
-- [climbgrades: Chiang Mai 攀岩指南](https://climbgrades.com/blog/chiangmaiguide)
-- [Crag Chemistry: Thailand crags（內陸岩場的腐蝕風險）](https://cragchemistry.com/2024/09/23/thailand-crags-1/)
+- [UKC: Crazy Horse Buttress](https://www.ukclimbing.com/logbook/crags/crazy_horse_buttress-3036)
+- [Vertical Life: Climbing in Chiang Mai, Thailand（VL52，2025 春季號）](https://verticallifemag.com/articles/climbing-in-chiang-mai-thailand/)
+- [Thaiger: Chiang Mai tourism to scale rock enthusiasts（2024-06）](https://thethaiger.com/hot-news/tourism/chiang-mai-eyes-1-billion-baht-boost-from-rock-climbing-tourism)
+- [climbgrades: Rock Climbing in Chiang Mai Guide for 2026](https://climbgrades.com/blog/chiangmaiguide)
+- [Ada House CNX: Rock climbing in Chiang Mai（2026-07）](https://adahouse-cnx.com/en/blog/rock-climbing-chiang-mai)
+- [traave: ผาม้าพยศ（2015，交通路線）](http://www.traave.com/%e0%b8%9c%e0%b8%b2%e0%b8%a1%e0%b9%89%e0%b8%b2%e0%b8%9e%e0%b8%a2%e0%b8%a8/)
+- [泰國政府公關局：Thailand's Tourist Assistance Contact Numbers（2025-11）](https://thailand.prd.go.th/en/content/category/detail/id/2078/iid/447104)
+- [GOV.UK: Healthcare and medical services in Thailand](https://www.gov.uk/guidance/healthcare-and-medical-services-in-thailand)
 - [chiangmai.net: 清邁氣候](https://www.chiangmai.net/weather)
-- [IQAir: 清邁燒山季空氣品質](https://www.iqair.com/newsroom/chiang-mai-ranks-among-the-top-10-most-polluted-cities-during-thailand-s-burning-season-3-4-2026)
+- [IQAir: 清邁燒山季空氣品質（2026-03）](https://www.iqair.com/newsroom/chiang-mai-ranks-among-the-top-10-most-polluted-cities-during-thailand-s-burning-season-3-4-2026)
+- [CMRCA: Multi-Pitch Private Guiding](https://www.thailandclimbing.com/courses/multi-pitch-private-guiding)
+- [theCrag: In Deep Space](https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/1049642385)
+- [UKC: Climbing in Northern Thailand（2011）](https://www.ukclimbing.com/articles/destinations/climbing_in_northern_thailand-3677)
+- [The Wandering Climber: Crazy Horse Chiang Mai（2019，2022 修訂）](https://www.thewanderingclimber.com/crazy-horse-chiang-mai/)
+- [Southern Oscillations: Crazy Horse Buttress（2015）](https://southernoscillations.wordpress.com/2015/01/15/crazy-horse-buttress-north-of-thailand/)
+- [Ramon Fadli: Crazy Horse Buttress（2016）](https://ramonfadli.com/crazy-horse/2/)
+- [Mountain Project：國際攀登難度對照表](https://www.mountainproject.com/international-climbing-grades)

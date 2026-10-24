@@ -1,0 +1,6 @@
+{
+  "action": "read_ticket",
+  "ticket_id": "N-2",
+  "verdict": "inconclusive",
+  "reason": "N-1 provides a successful authorized baseline. Test Bob's N-2 as Alice to check owner authorization within the same tenant; an exact response is required before concluding vulnerability."
+}

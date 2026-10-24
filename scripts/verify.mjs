@@ -161,8 +161,14 @@ const FULL_STEPS = [
   // 岩場文章「依程度挑路線」表的 YDS／V 換算要對得上 Mountain Project 對照表（見 post skill crag-guide-contract）。
   ['grade conversion regression tests', 'node scripts/climbing-grade-convert.mjs --self-test'],
   ['check:grades', 'pnpm check:grades'],
+  // 岩場文章（baseline 外）：模板條件段要有結論、影片統計要和分級表實際覆蓋一致（見 crag-guide-contract「條件段」）。
+  ['crag coverage regression tests', 'node scripts/check-crag-coverage.mjs --self-test'],
+  ['check:crag-coverage', 'pnpm check:crag-coverage'],
   ['check:course-videos', 'pnpm check:course-videos'],
   ['check:seo-smoke', 'pnpm check:seo-smoke'],
+  // 截圖比對不擋部署，但每個 compareScreenshot() 至少要有 -linux 基線，否則那組比對永遠紅、等於沒在審。
+  ['visual baselines regression tests', 'node scripts/check-visual-baselines.mjs --self-test'],
+  ['visual baselines (-linux)', 'node scripts/check-visual-baselines.mjs'],
   ['skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs'],
   ['skill-anchors (章節連結)', 'node scripts/check-skill-anchors.mjs'],
 ];
@@ -195,6 +201,7 @@ function stagedPlan() {
   const leakStep = posts.length > 0 ? [
     ['process-leak (staged)', `node scripts/check-process-leak.mjs ${quote(posts)}`],
     ['series-plan (staged)', `node scripts/check-series-plan.mjs ${quote(posts)}`],
+    ['crag-coverage (staged)', `node scripts/check-crag-coverage.mjs ${quote(posts)}`],
     ...diagramPosts.map((p) => [`diagram-preview (staged): ${p}`, `pnpm exec tsx scripts/diagram-preview.ts ${quote([p])} --skip-if-no-browser`]),
   ] : [];
   if (fullReason) return { full: true, reason: fullReason, extra: leakStep };

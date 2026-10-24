@@ -1,0 +1,75 @@
+.slide-reader{padding:1rem;border:1px solid var(--border,#ccc);border-radius:8px;background:var(--bg-subtle,#f6f6f6);margin:1.5rem 0}
+.slide-reader button,.slide-reader-panel button{font:inherit;cursor:pointer;min-height:44px;padding:.35rem .7rem;border:1px solid var(--border,#aaa);border-radius:5px;background:var(--bg-page,#fff);color:var(--text-primary,#222)}
+.slide-reader-panel button:disabled{opacity:.45;cursor:default}
+.slide-reader-panel{position:fixed;z-index:80;box-sizing:border-box;color:var(--text-primary,#222);background:var(--bg-page,#fff);border:1px solid var(--border,#ccc);padding:1rem;max-width:none;max-height:none;inset:1rem;margin:0;width:calc(100% - 2rem);height:calc(100dvh - 2rem);border-radius:10px}
+.slide-reader-panel[open]{display:flex;flex-direction:column;gap:.65rem}
+.slide-reader-panel::backdrop{background:rgb(0 0 0 / .6)}
+.slide-reader-bar,.slide-reader-nav{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.slide-reader-bar{justify-content:space-between}.slide-reader-nav{font-size:.9rem}
+.slide-reader-nav input{width:4.5rem;min-height:44px;box-sizing:border-box;font:inherit;background:var(--bg-page,#fff);color:var(--text-primary,#222);border:1px solid var(--border,#aaa);border-radius:4px;padding:.3rem}
+.slide-reader-help{font-size:.85rem;margin:0}.slide-reader-original{font-size:.9rem;color:var(--brand-500,#176d4b)}
+.slide-reader-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.slide-reader-panel :focus-visible,.slide-reader :focus-visible{outline:3px solid var(--brand-500,#176d4b);outline-offset:3px}
+@media(min-width:1100px){
+ body.has-slide-reader{box-sizing:border-box;max-width:none!important;width:calc(100% - 48vw);margin-left:0!important;margin-right:48vw!important}
+ body.has-slide-reader .post-grid{display:block!important}body.has-slide-reader .post-sidebar{position:static!important}body.has-slide-reader .post-sidebar .video-card{display:none}
+ .slide-reader-panel{inset:1rem 1rem 1rem auto;width:calc(48vw - 1.5rem);height:calc(100dvh - 2rem)}
+}
+/* Editorial blocks are scoped to articles with an explicit slide reader. */
+.course-longread{font-size:18px;line-height:1.9}
+.course-longread>p,.course-longread>ul,.course-longread>ol{max-inline-size:38em;margin-inline:auto}
+.course-longread>h2{line-height:1.45;margin-block:3.5rem 1.3rem;padding-block-start:1.6rem;scroll-margin-top:1.5rem}
+.course-longread>h3{font-size:1.18em;line-height:1.55;margin-block:2.5rem 1rem;scroll-margin-top:1.5rem}
+.course-longread .course-reading-section{border-block-start:2px solid var(--text-primary,#202020)}
+.course-reading-nav{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;padding-block:1rem;margin-block:1.5rem 2rem;border-block:1px solid var(--border,#ccc);font-size:.9rem;line-height:1.6}
+.course-reading-nav strong{flex-basis:100%;color:var(--text-secondary,#555)}
+.course-reading-nav a{color:var(--brand-500,#176d4b);text-underline-offset:4px}
+.course-longread .course-reading-check{box-sizing:border-box;margin-block:1.5rem;padding:1rem 1.2rem;border-inline-start:3px solid var(--brand-500,#176d4b);background:var(--bg-subtle,#f6f6f6);font-size:.95em}
+.course-longread table{border-collapse:collapse;width:100%;font-size:.9em;line-height:1.7;margin-block:1.5rem 2rem}
+.course-longread table th,.course-longread table td{border:0;border-block-end:1px solid var(--border,#ccc);padding:.8rem .75rem;vertical-align:top;text-align:start}
+.course-longread table th{background:var(--bg-subtle,#f6f6f6);font-weight:650;color:var(--text-primary,#222)}
+.course-longread .dg{max-width:640px;margin:2rem auto}
+@media(min-width:1100px){body.has-slide-reader .post-sidebar{display:none!important}}
+@media(max-width:600px){.course-longread{font-size:17px}.course-longread>h2{font-size:1.4em}.course-longread table{display:block;overflow-x:auto}.course-reading-nav{gap:.7rem 1rem}.course-reading-nav a{min-height:32px;display:inline-flex;align-items:center}}
+/* Keep prose and tables on one reading axis; diagrams retain their own width. */
+.course-longread{--course-prose-width:684px}
+.course-longread>p,.course-longread>ul,.course-longread>ol,.course-longread>h2,.course-longread>h3{max-inline-size:var(--course-prose-width);margin-inline:auto}
+.course-reading-outline{flex-basis:100%;margin-top:.4rem}
+.course-reading-outline summary{cursor:pointer;padding:.4rem 0;min-height:32px;font-weight:600}
+.course-reading-outline ol{margin:.5rem 0 .25rem;padding-inline-start:1.5rem;line-height:1.8}
+.course-reading-outline li{padding-block:.3rem}.course-reading-outline a{display:inline;min-height:0}
+
+/* The production wrapper and standalone preview must share the prose width. */
+.course-longread>.table-scroll,.course-longread>table{box-sizing:border-box;inline-size:100%;max-inline-size:var(--course-prose-width);margin-inline:auto;overflow-x:auto}
+.course-longread table{inline-size:100%;min-inline-size:0;max-inline-size:min(100%,var(--course-prose-width));overflow-wrap:anywhere}
+.course-longread th,.course-longread td{white-space:normal}
+.slide-reader-canvas{width:100%;min-height:8rem;overflow:auto;background:#fff;flex:0 0 auto}
+.slide-reader-canvas canvas{display:block;max-width:100%}
+.slide-reader-message{font-size:.9rem;margin:0}.slide-reader-message:empty{display:none}
+.slide-reader-panel{overflow:auto}.slide-reader-panel [hidden]{display:none!important}
+@media(max-width:600px){
+ .slide-reader-nav{display:grid;grid-template-columns:44px minmax(0,1fr) auto 44px;gap:.4rem;width:100%}
+ .slide-reader-nav label{display:flex;align-items:center;gap:.35rem;white-space:nowrap}
+ .slide-reader-nav input{width:3.6rem;min-width:0}
+ .slide-reader-nav button[type=submit]{grid-column:2/4;grid-row:2}
+ .slide-reader-nav [data-slide-next]{grid-column:4;grid-row:1}
+ .slide-reader-nav [data-slide-prev]{grid-column:1;grid-row:1}
+}
+/* Keep the canvas width stable when a short viewport needs vertical scrolling. */
+.slide-reader-panel{scrollbar-gutter:stable}
+/* The toolbar stays in place while the document itself scrolls continuously. */
+.slide-reader-viewport{position:relative;flex:1 1 0;min-height:120px;min-width:0;overflow:hidden}
+.slide-reader-viewport>.slide-reader-canvas{position:absolute;inset:0;width:auto;min-height:0;overflow:auto;overscroll-behavior:contain;background:#e5e7eb;scrollbar-gutter:stable}
+.slide-reader-canvas canvas{max-width:none}
+.slide-reader-canvas:focus-visible{outline:3px solid var(--brand-500,#176d4b);outline-offset:-3px}
+
+/* The official PDF.js viewer owns all document controls and scrolling. */
+.slide-reader-panel{z-index:110;padding:0;gap:0!important;overflow:hidden;border:0;border-radius:12px;box-shadow:0 16px 60px rgb(0 0 0 / .18);scrollbar-gutter:auto}
+.slide-reader-bar{flex:0 0 auto;min-height:56px;padding:0 16px;border-bottom:1px solid var(--border,#dfe2e5);background:var(--bg-page,#fff);gap:12px}
+.slide-reader-bar strong{font-size:14px;font-weight:600;letter-spacing:0}
+.slide-reader-bar button{border:0;background:transparent;font-size:13px;color:var(--text-secondary,#555);padding:0 8px;display:flex;align-items:center;gap:12px}
+.slide-reader-bar button:hover{background:var(--bg-subtle,#f1f3f5)}
+.slide-reader-bar button span{font-size:23px;font-weight:400}
+.slide-reader-frame{display:block;flex:1 1 0;min-height:0;width:100%;border:0;background:#e5e7eb}
+@media(min-width:1100px){.slide-reader-panel{inset:12px 12px 12px auto;height:calc(100dvh - 24px);width:calc(48vw - 18px)}}
+@media(max-width:600px){.slide-reader-panel{inset:0;width:100%;height:100dvh;border-radius:0}.slide-reader-bar{padding:env(safe-area-inset-top,0px) 12px 0;min-height:52px}}

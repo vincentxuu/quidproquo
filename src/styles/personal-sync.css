@@ -1,0 +1,26 @@
+/* Global on purpose: interview controls are created after Astro renders. */
+.personal-sync {
+  --sync-muted: color-mix(in srgb, var(--text-primary) 72%, var(--bg-page));
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px;
+  padding: 12px 0; margin: 0 0 24px; border-bottom: 1px solid var(--border);
+  color: var(--text-primary); font-size: .875rem; line-height: 1.5;
+}
+.personal-sync .personal-sync-status { margin: 0; font: inherit; font-weight: 400; color: var(--sync-muted); flex: 1 1 220px; }
+.personal-sync-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.personal-sync .personal-sync-action {
+  appearance: none; display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; max-width: 100%; padding: 8px 14px; margin: 0;
+  border: 1px solid var(--border); border-radius: 7px;
+  background: var(--bg-page); color: var(--text-primary); font: inherit;
+  font-weight: 500; text-decoration: none; text-align: center; cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.personal-sync .personal-sync-action:hover:not(:disabled) { background: var(--bg-subtle); border-color: var(--brand-500); }
+.personal-sync .personal-sync-action:focus-visible, .personal-sync-help summary:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 3px; }
+.personal-sync .personal-sync-action:disabled { opacity: .55; cursor: wait; }
+.personal-sync [hidden] { display: none !important; }
+.personal-sync-help { flex: 1 0 100%; color: var(--sync-muted); font-size: .8125rem; }
+.personal-sync-help summary { width: fit-content; min-height: 44px; align-content: center; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.personal-sync .personal-sync-help p { margin: 0 0 12px; max-width: 60ch; font: inherit; color: var(--sync-muted); }
+.personal-sync[data-state="error"] .personal-sync-status { color: var(--text-primary); }
+@media (max-width: 480px) { .personal-sync { gap: 8px; } .personal-sync .personal-sync-status { flex-basis: 100%; } }

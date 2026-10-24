@@ -9,7 +9,7 @@ tldr: "Take a gear duffel if you are renting a car, a duffel with backpack strap
 draft: false
 series:
   name: "Climbing Travel Gear"
-  order: 4
+  order: 5
 ---
 
 > 🌏 [中文版](/posts/climbing/2026-10-19-climbing-travel-luggage)

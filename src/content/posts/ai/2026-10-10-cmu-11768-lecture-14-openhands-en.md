@@ -15,9 +15,9 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands)
 
-**Video status: the official public page lists no recording.** [Video sources and notes](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
-> **This post is written from the slides; I'll add the video when it's published.** As of 2026-10-10, the [official schedule](https://www.cmu-agents.com/#/schedule) lists only [slides](https://www.cmu-agents.com/slides/lecture-14-openhands.pdf) for Lecture 14 (Oct 8), with no recording. Everything below comes from the slides, not from what the lecturer said; where I'm interpreting, I say so.
+> **This post is written from the slides.** The official recording (about 69 min, posted 2026-10-19) is embedded [at the end](#course-video-sources); the text has not yet been revised with the lecturer's spoken explanation. Everything below is based on the slides; where I go beyond them, I say so.
 
 The framework module of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) has two lectures. The first is [Graham Neubig](https://www.phontron.com/) on [OpenHands](https://github.com/OpenHands/OpenHands), which he leads; the second (Oct 20) is LangGraph. Neubig said in [Lecture 1](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) that he works on OpenHands, so this is the author explaining a framework's design.
 
@@ -183,16 +183,24 @@ I couldn't check this paper against public sources: the link on the slides is an
 ## Changelog
 
 - 2026-10-10: Added this post, written from the Lecture 14 slides; no recording on the official public page yet.
+- 2026-10-24: The Lecture 14 recording is now on the official playlist (posted 2026-10-19); updated the video status and embedded the video. The text is still based on the slides.
 
 ## Course video sources
 
-This post is written from the slides. I checked the official schedule: Lecture 14 lists slides only, with no recording link. That means the public page has none, not that none exists internally.
+Checked the public recording of CMU 11-768 Fall 2026 Lecture 14; it is published on instructor Graham Neubig's channel, and the title and lecture number match this course. The text is still based on the slides and has not been checked against the recording's content.
+
+```youtube
+url: https://www.youtube.com/watch?v=VAzZkT68h2Q
+title: CMU AI Agents 2026: 14. Lessons from Building OpenHands
+```
+
+Original video: [CMU AI Agents 2026: 14. Lessons from Building OpenHands](https://www.youtube.com/watch?v=VAzZkT68h2Q)
 
 Official source:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
-Checked: 2026-10-10.
+Checked: 2026-10-24.
 
 ## References
 

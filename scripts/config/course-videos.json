@@ -75,9 +75,9 @@
       "checkedAt": "2026-10-17"
     },
     "2026-10-10-cmu-11768-lecture-14-openhands": {
-      "video": null,
+      "video": "VAzZkT68h2Q",
       "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
-      "checkedAt": "2026-10-17"
+      "checkedAt": "2026-10-24"
     },
     "2026-08-20-stanford-cs329a-self-improving-agents": {
       "video": "6YnLB0XbTnI",
@@ -138,6 +138,56 @@
       "video": null,
       "source": "https://cs2680.com/policy",
       "checkedAt": "2026-10-21"
+    },
+    "2026-10-21-cs2680-lecture-02-how-claude-code-works": {
+      "video": null,
+      "source": "https://cs2680.com/policy",
+      "checkedAt": "2026-10-21"
+    },
+    "2026-10-21-cs2680-assignment-1-mads-lens": {
+      "video": null,
+      "source": "https://cs2680.com/policy",
+      "checkedAt": "2026-10-21"
+    },
+    "2026-10-21-cs2680-lecture-03-scaling-yourself-multi-agent": {
+      "video": null,
+      "source": "https://cs2680.com/policy",
+      "checkedAt": "2026-10-22"
+    },
+    "2026-10-21-cs2680-lecture-04-tool-design-context-engineering": {
+      "video": null,
+      "source": "https://cs2680.com/policy",
+      "checkedAt": "2026-10-22"
+    },
+    "2026-10-21-cs2680-assignment-2-mads-loop": {
+      "video": null,
+      "source": "https://cs2680.com/policy",
+      "checkedAt": "2026-10-22"
+    },
+    "2026-10-21-cs2680-lecture-05-multi-agent-architecture": {
+      "video": null,
+      "source": "https://cs2680.com/policy",
+      "checkedAt": "2026-10-22"
+    },
+    "2026-10-21-cs2680-lecture-06-memory-reliability": {
+      "video": null,
+      "source": "https://cs2680.com/policy",
+      "checkedAt": "2026-10-23"
+    },
+    "2026-10-21-cs2680-lecture-07-agent-evaluation": {
+      "video": null,
+      "source": "https://cs2680.com/policy",
+      "checkedAt": "2026-10-23"
+    },
+    "2026-10-21-cs2680-lecture-08-cost-latency-harness": {
+      "video": null,
+      "source": "https://cs2680.com/policy",
+      "checkedAt": "2026-10-23"
+    },
+    "2026-10-21-cs2680-assignment-3-mads-opt": {
+      "video": null,
+      "source": "https://cs2680.com/policy",
+      "checkedAt": "2026-10-23"
     }
   }
 }

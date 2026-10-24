@@ -49,6 +49,14 @@ The [UIAA 123 rock anchor standard](https://www.theuiaa.org/documents/safety-sta
 
 The [British Mountaineering Council (BMC)](https://www.thebmc.co.uk/en/spot-a-bad-bolt) notes that expansion bolts are generally only suitable for medium to hard rock. Modern resin anchors are far superior to most mechanical bolts, but some older U-shaped "staples" can be dangerously weak. UIAA's advice to bolters is also to **prefer glue-in anchors in coastal areas**.
 
+**Watch**: from 2:00, HowNOT2's Ryan Jenks explains that sandstone has to be hard enough for an expansion bolt, and that softer rock calls for glue-ins; at 4:40 he compares how each one holds: an expansion bolt grips only with the plates spread at the bottom of the hole, while a glue-in bonds along the whole hole. It is a 2018 concept talk aimed at people placing bolts, with no test data.
+
+```youtube
+url: https://www.youtube.com/watch?v=5dhtNg6cCks
+title: Climbing bolts are only as good as the ROCKS you put them in (HowNOT2)
+start: 120
+```
+
 **Something you can do tonight**: open photos or video of a crag you want to visit, find a bolt, and decide whether it is an expansion bolt (nut and hanger) or glued-in (one-piece eye).
 
 ## The standard numbers: EN 959 and UIAA 123
@@ -86,6 +94,15 @@ Long Dong ticks every box. UIAA's [Watch Your Anchor](https://www.theuiaa.org/do
 The worst part: **SCC is not always visible.** BMC puts it more bluntly: in practice it is almost impossible to spot. A visual check catches rust, cracks and movement, but not cracks hidden inside the metal.
 
 UIAA 123 also states that different stainless grades **must not be combined**, for example a hanger and bolt made of different steels. Galvanic coupling between them accelerates corrosion.
+
+**Watch**: this clip is limited to 0:48–1:15. A route developer from Portugal's coastal limestone crags says dozens of failures have been recorded there for both 304 expansion and 304 glue-in bolts, and that 316 lasts longer but still rusts. His estimate that 304 corrodes in "5 years or less" there is field experience, not a test result. The rest of the video argues for the uncertified galvanized bolts used locally; this post does not adopt that view, and for materials it follows UIAA's guidance and Long Dong's move to titanium described in the next section.
+
+```youtube
+url: https://www.youtube.com/watch?v=SUrEqqMP9C8
+title: They broke the rules and are getting away with it (HowNOT2)
+start: 48
+end: 75
+```
 
 ## Long Dong: from 304 to 316 to titanium
 
@@ -147,7 +164,25 @@ The database only tells you what was installed. At the base of the wall, use you
 
 Access Fund adds that every climber is responsible for inspecting fixed anchors before trusting them. BMC's expert is blunter: in general nobody is responsible for the bolts at a crag, so never assume a route is safe just because it is a sport route.
 
+**Watch**: this short 2017 BMC clip, filmed in the UK, walks through the checks in order from 0:30: position (at least a hand's width from an edge), movement (use the quickdraw as a lever when you clip), and damage and rust. In the video a loose hanger is tightened with a spanner and then trusted. This post takes a different line: per Access Fund, a spinner has already lost strength, so at Long Dong treat it as unreliable protection and report it to TOCC once you are down. The clip only covers visible problems and does not mention that SCC cannot be seen.
+
+```youtube
+url: https://www.youtube.com/watch?v=ckriqAAdOWs
+title: How to check an expansion bolt (BMC TV)
+start: 30
+end: 168
+```
+
 **Looking fine only means you saw no obvious problem.** SCC and badly mixed glue are invisible, so checking the database and inspecting on site go together.
+
+**Watch**: for about 50 seconds from 10:13, Ryan describes pulling someone else's glue-in bolts out by hand because the epoxy had not mixed, and calls bad mixing the biggest risk with glue-ins. That is his own experience, not a test; the dirty-hole pull tests earlier in the video were done in concrete and do not carry over to bolts in rock.
+
+```youtube
+url: https://www.youtube.com/watch?v=69xBmU-6QQU
+title: Are glue in bolts dangerous if the hole is dirty? (HowNOT2)
+start: 613
+end: 662
+```
 
 ```mermaid
 flowchart TB
@@ -224,6 +259,18 @@ BMC's rule of thumb is not to rely on a part worn more than a third through. Do 
 Once you can judge a bolt, the next post, [Setting Up a Top Rope](/posts/climbing/2026-10-17-top-rope-anchor-setup-en), rigs a top rope on a two-bolt anchor using your own quickdraws or locking carabiners, so the rope never wears the shared hardware.
 
 If you have not read the series overview, start with [Sport vs Trad Climbing](/posts/climbing/2026-10-17-sport-vs-trad-overview-en); to review belaying, go back to [Learning to Belay Top Rope in the Gym](/posts/climbing/2026-10-17-gym-top-rope-belay-en).
+
+## Further viewing: gear-testing and instruction channels
+
+The videos embedded in this post come from HowNOT2 and BMC TV. Hard Is Easy focuses on belaying and rope experiments and is not used here, but it is another good place to dig into gear testing. Keep each channel's limits in mind.
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**: run by Ryan Jenks. It started in 2016 as highline safety instruction and grew into breaking climbing, caving and canyoneering gear, plus the Bolt Busters series that pulls bolts out of real rock. Its value is in the cases beyond the rated number: knots, wear, old gear, bad placements. Limits: most tests are slow pulls on a home-built rig with one to three samples, and Ryan himself calls it entertainment, not science; the channel is backed by an online gear shop, and some tested items are sold there.
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**: run solo by a climber who signs as Ben, a former software developer. After watching a hard catch slam a climber into the rock in Tonsai, Thailand, he designed his first experiment; the channel now focuses on experiments and physics explanations about belaying, ropes, carabiners and belay devices, with several recent episodes filmed in Mammut's lab. Limits: most experiments are his own design, not EN/UIAA standard tests.
+- **[BMC TV](https://www.youtube.com/@teamBMCTV)**: the British Mountaineering Council's channel. A 2017 series of one-to-three-minute clips walks through inspecting ropes, harnesses, helmets, carabiners and bolts. Limits: demonstration only, no measurements, UK context.
+
+## Update Log
+
+- 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 
 ## References
 

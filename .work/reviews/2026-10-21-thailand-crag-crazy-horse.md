@@ -48,3 +48,66 @@ Heart Wall 的 36 條表特別呈現泰文路線名與備註（帶著攀岩者�
 猴子警告放在「岩栓與裝備」之後的小節，帶著 theCrag 原文的語氣（「有時候你甚至會在確保點遇到猴子想偷你的東西」）。
 
 中英對照：英文版同樣的段落切分與 99 行路線表，標題數與行數一致（check:lang-parity 通過）。
+
+## 2026-10-24 模板改寫
+
+依 `templates/crag-guide.md` 重寫中英兩版。
+
+### post-verify
+
+- 🔵 路線表改由 `.work/research/thailand-crags/routes/crazy-horse/_all.json` 重建，59 列逐列比對名稱、級數、長度、段數、子區、星等，0 差異（中英同）。原表的錯誤：7a+ 三條放在中級、5c／6a+／6b+ 放在進階、7b+／7a+ 放在高手；Jai Rawn 原寫 6b+（應 6b）、Trojan Horse 第三段原寫 6a+（應 5a）；原寫 8a+ 為「唯一 8 字頭」，漏了 Aircon Wall 的 Aircon Direct 8a；8a+「0 次攀登／1 次攀登」前後矛盾，JSON 只有星等欄，改寫「沒有星等」。
+- 🔵 自駕：原寫「107 號公路往南」無來源且方向不對，改為 1006 轉 1317（traave 2015，標二手）。
+- 🔵 接駁：改為從 Progression Vertical 出發、前一晚 19:30 前訂位（CMRCA 交通頁 2026-10-24 重讀）；依規格移除票價與指南書售價。
+- 🟢 泰文名 หน้าผาม้าพยศ：CMRCA 泰文頁。
+- 🟢 1669／1155：泰國政府公關局 2025-11、GOV.UK。
+- 🟢 2018 封閉公告的侵入、村長責任、設施移交社區：CMRCA 封閉公告原文（一手），「管理權轉移」由二手提示升級為一手。
+- 🟢 鳥巢／貓頭鷹巢／黃蜂巢／The Beehouse 鬆動岩栓／In Deep Space 鬆石：theCrag JSON warnings 與 desc 欄。
+- 🟢 2025–2026 有人在爬：Vertical Life VL52、climbgrades 2026-08、Ada House 2026-07、CMRCA 訂位頁；三者都不是官方公告，正文維持「沒有官方重開公告」。
+- 🟢 朝向：查無逐區資料，正文明寫查不到。
+
+### post-review
+
+H2 與四級 H3 照規格；導言末句交代讀者決定；tldr 先講岩場再講開放狀態的動作；指南書條目第一句照固定句。子區表移除無法逐一核對的高度欄，修掉「Little Monkey Cove 之外的 The Furnace」錯列。
+
+### post-polish
+
+register-scan：燒山季段數字 13 個，拆成兩段；未翻譯的 theCrag 英文原句改成中文轉述；刪除「⋯⋯」截斷引文。
+
+## 模板覆蓋
+
+2026-10-24 第二輪（使用者指出第一輪只做必備段）。對照 `templates/crag-guide.md` 逐項：
+
+| 模板段落 | 結論 |
+|---|---|
+| 開場＋導言末句 | 已做 |
+| 這是什麼樣的岩場（名字辨識、岩質、規模、吸引力與門檻） | 已做 |
+| 什麼季節去（月份、朝向與日照、雨季、擁擠） | 已做；朝向用 The Wandering Climber 2019（二手）＋Vertical Life |
+| 怎麼去：大眾運輸／開車／停車 | 已做 |
+| 去之前要知道的規範（管制、許可、季節避爬、固定點、救援、保險） | 已做 |
+| 依程度挑路線：NOTE、收錄規則、影片說明段 | 已做 |
+| 四級 H3，各級「先比較哪兩條」 | 已做（4500／Makham Wan、Ruam Jai／The Gatekeeper、Sport Satay／Inferno；高手級只有兩條，直接列） |
+| 路線影片（條件段） | 已做：yt-dlp 搜 18 組查詢（岩場英文名、泰文名、10 條路線名、子區名），295 筆結果；收 17 支路線影片＋1 支封閉影片，只核對 metadata，未看片 |
+| 經典線（條件段） | 已做：多段 8 條（CMRCA 多段帶爬頁＋UKC 2011＋Vertical Life）、單段 5 條（CMRCA 2015 經典影片、UKC、Vertical Life、Southern Oscillations、Ramon Fadli） |
+| 網路上的路線紀錄（條件段） | 已做：打開 6 個全文（Vertical Life、UKC 2011、The Wandering Climber、Southern Oscillations、Ramon Fadli、theCrag In Deep Space 頁），另 1 個（Lost Earth Adventures 2016）只讀到搜尋摘要；列入 5 份，The Wandering Climber 沒有具名路線的走法，改用於日照段 |
+| 查資料的入口（含指南書固定句） | 已做；補 Crag Finder app 數位版 |
+| 參考資料 | 已做 |
+
+### post-verify（第二輪新增）
+
+- 🟢 新增 8 列分級表路線（Dtang Jai、Hua Jai Wai、The Tree Surgeon、Sandbag、Blood, Love and Steel P1、Sunseeker P1、Sport Satay）與 JSON 逐列比對 0 差異（`chk.py`，66 列）。
+- 🟢 多段經典線分段：In Deep Space 5b/5b/5c/5c 與 64 次攀登（theCrag 路線頁）；Sunseeker 22+25 m、Headhunters 26+20+20 m、Space Manoeuvres 30+15+25 m、Into The Sun 18+16 m（JSON）。
+- 🟢 影片 metadata：yt-dlp -j 逐支讀 upload_date、playable_in_embed（18 支皆 True）、description。
+- 🟢 Vertical Life：Main wall 由左到右 5b→8a+、Headhunters 三段到馬頭岩頂、Tamarind 學校團體 11–2 月、Air Con Wall 熱季、蜜蜂帆狀巢與立即下降、Crag Finder app。
+- 🟢 The Wandering Climber 日照：主壁朝南 11 點起曬、Aircon 中午陰、Hanging Gardens／Junkyard 下午陰、Heart Wall 整天陰（curl 原頁核對）。
+
+## 2026-10-24 影片第二輪（使用者：「影片好少」）
+
+- 查找範圍擴大：表格 70 個路線名各搜一次（`ytsearch10:"<路線名>" Crazy Horse climbing`）；泰、日、韓、中文與年份、子區名 28 組查詢（ytsearch25）；已收影片的 12 個頻道全部上傳列表（659 支）。去重後 960 支候選。
+- 篩選：標題或描述能對上表格具名路線才進路線表；岩場整體、洞穴、打栓類放 `<details>`。排除同名非攀岩影片（Crazy Horse Memorial、樂團、遊戲等）與無描述、無法判定內容的片。
+- 新增 12 支路線影片（In Deep Space、Trojan Horse、Dtat Sin Jai、Jai Yen Yen、Dtang Jai、Mun Jai、Jai Glah Reu Plao ×2、All Quiet、Freeblast ×2、A Wild Ride）與 8 支整體／洞穴影片；合計路線影片 29 支、非路線 9 支。分級表加回 Dtat Sin Jai（6c+、14 m、★★，JSON 核對）。
+- build 後逐列確認：中英各 28 列掛上影片，合計 41 個影片位置（同一支片可掛多列）。
+- 只核對 metadata（yt-dlp -j：上傳日期、可嵌入、描述），未看片。
+
+影片統計：查詢 116 組；候選 960 支；收錄 38 支；有影片的路線 22／67 列
+
+（查詢 = 第一輪 18 組＋路線名 70 組＋多語／子區 28 組，另掃 12 個頻道上傳列表；收錄 = 路線影片 29 支＋整體／洞穴／封閉 9 支。沒有影片的 45 列以入門與中級短線為主，逐條路線名搜過，沒有標題或描述對得上的影片。）

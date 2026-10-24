@@ -37,7 +37,7 @@ glossary:
 
 The El Capitan that Alex Honnold climbed without a rope in the documentary *Free Solo* is mostly climbed on Grade VI routes, which take an average team two or more days. Those teams haul 3–4 liters of water per person per day up the wall, sleep in portaledges hanging in space, and carry their waste down in tubes.
 
-That is big wall climbing. This is Part 2 of the [Other Climbing Disciplines](/posts/climbing/2026-10-19-climbing-disciplines-overview-en) series. It explains how a big wall team works, what aid climbing is, how to read route grades, and what you need to add to your skills before a first big wall. How to rig a haul system or set up a portaledge is outside this guide; take a course or use a dedicated manual.
+That is big wall climbing. This is Part 2 of the [Other Climbing Disciplines](/posts/climbing/2026-10-19-climbing-disciplines-overview-en) series. It explains how a big wall team works, what aid climbing is, how to read route grades, and what you need to add to your skills before a first big wall. For rigging a haul system, see [Hauling on Multi-Pitch Routes](/posts/climbing/2026-10-24-multipitch-hauling-en); setting up a portaledge is outside this guide, so take a course or use a dedicated manual.
 
 ## Before you start: what you need first
 
@@ -74,7 +74,7 @@ Climbing.com lays out the basic procedure in four steps:
 
 1. **The leader climbs a pitch**, free and/or with aid, trailing a second rope, the haul line.
 2. **At the anchor**, the leader ties in and fixes the lead rope to the anchor.
-3. **The leader sets up a haul system and hauls the bag.** Meanwhile the second ascends the fixed lead rope with ascenders, removing the gear on the way.
+3. **The leader sets up a haul system and hauls the bag** (see [Hauling on Multi-Pitch Routes](/posts/climbing/2026-10-24-multipitch-hauling-en)). Meanwhile the second ascends the fixed lead rope with ascenders, removing the gear on the way.
 4. **When the second arrives**, the team sorts ropes and gear for the next pitch, and repeats until the night's bivy.
 
 The biggest difference from multi-pitch at Long Dong is that the second usually doesn't climb but jugs the rope. [Taiwanese climber Hsiao Po explains why in her column (in Chinese)](https://www.don1don.com/archives/59390/): while the second jugs, the leader can haul instead of belaying, which makes the team more efficient.
@@ -84,6 +84,8 @@ What goes in the haul bag? Wikipedia lists portaledges, sleeping bags, poop tube
 ## What is aid climbing, and is it cheating?
 
 Aid climbing means standing on gear. The leader places a cam in a crack, clips an aider to it, bounce-tests it hard, and if it holds, steps up and places the next piece from higher up. Climbing.com puts the bounce test bluntly: you try to rip out the piece by shock-loading it with your bodyweight before you fully commit; if you can't rip it out, you move onto it with confidence.
+
+For how to operate and choose aiders, daisies, fifi hooks, ascenders and progress-capture pulleys, see [How to use aid climbing gear](/posts/climbing/2026-10-24-aid-climbing-gear-en).
 
 The opposite is free climbing: gear only catches falls, and you move up by holding the rock. Sport and trad are both free climbing.
 
@@ -196,6 +198,11 @@ You are a long way off. Climbing.com suggests being comfortable leading at least
 
 Big walls stretch out multi-pitch; the next post changes the medium entirely, to ice. Read [Part 3: Ice, mixed and dry tooling](/posts/climbing/2026-10-19-ice-mixed-climbing-en), or go back to the [series overview](/posts/climbing/2026-10-19-climbing-disciplines-overview-en).
 
+## Update log
+
+- 2026-10-24: The haul system now links to Hauling on Multi-Pitch Routes.
+- 2026-10-24: Added a link to How to use aid climbing gear.
+
 ## References
 
 - [How to Climb a Big Wall (Climbing.com)](https://www.climbing.com/skills/how-to-climb-a-big-wall/)
@@ -214,3 +221,4 @@ Big walls stretch out multi-pitch; the next post changes the medium entirely, to
 - [Self-rescue basics](/posts/climbing/2026-10-17-self-rescue-basics-en)
 - [Crack climbing](/posts/climbing/2026-10-18-crack-climbing-technique-en)
 - [Climbing books knowledge map](/posts/climbing/2026-06-20-climbing-books-knowledge-map-en)
+- [How to use aid climbing gear](/posts/climbing/2026-10-24-aid-climbing-gear-en)

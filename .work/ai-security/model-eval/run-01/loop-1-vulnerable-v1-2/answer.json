@@ -1,0 +1,6 @@
+{
+  "action": "finish",
+  "ticket_id": null,
+  "verdict": "vulnerable",
+  "reason": "Baseline: Alice read her own N-1 with status 200. Unauthorized access: Alice read Bob's N-2 with status 200 and body {\"text\":\"North: laptop repair\",\"ticket_id\":\"N-2\"}. This violates the owner requirement and demonstrates missing object authorization; no further request is needed."
+}

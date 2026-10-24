@@ -5,8 +5,8 @@ category: climbing
 tags: [climbing, climbing-gear, beginner, indoor-climbing]
 lang: en
 type: guide
-description: "For gym climbers about to start buying their own gear: the order to buy shoes, chalk bag, harness, belay device, helmet, rope and quickdraws; what personal protective equipment (PPE) is; how CE marking and the UIAA Safety Label differ; which EN and UIAA standard numbers go with which gear; where the manufacture year is printed; and why harnesses, helmets and ropes should not be bought second-hand."
-tldr: "Buy in the order you'll use things: shoes first (you need them in the gym, and fit and hygiene depend on having your own), then a harness, belay device and locking carabiner once you top-rope regularly, and a helmet, rope and quickdraws when you head outdoors. Climbing shoes are not PPE and have no safety standard; harnesses, helmets, ropes, carabiners and belay devices are, so look for the CE mark or UIAA Safety Label, then the year of manufacture. The UIAA's 2026 buying advice says plainly that harnesses, helmets and ropes should not be acquired second-hand."
+description: "For gym climbers about to start buying their own gear: the order to buy shoes, chalk bag, harness, belay device, carabiner, helmet, quickdraws and rope, then a prusik cord and trad nuts and cams; what personal protective equipment (PPE) is; how CE marking and the UIAA Safety Label differ; which EN and UIAA standard numbers go with which gear; where the manufacture year is printed; and why harnesses, helmets and ropes should not be bought second-hand."
+tldr: "Buy in the order you'll use things: shoes first (you need them in the gym, and fit and hygiene depend on having your own), then a harness, belay device and locking carabiner once you top-rope regularly, and a helmet, rope and quickdraws when you head outdoors; a prusik cord once you rappel on your own outdoors, and nuts and cams once you start trad (most multi-pitch routes at Longdong are trad, so trad comes first). Climbing shoes are not PPE and have no safety standard; harnesses, helmets, ropes, carabiners and belay devices are, so look for the CE mark or UIAA Safety Label, then the year of manufacture. The UIAA's 2026 buying advice says plainly that harnesses, helmets and ropes should not be acquired second-hand."
 draft: false
 series:
   name: "Climbing Gear"
@@ -30,7 +30,7 @@ glossary:
 
 On your first gym visit you rented shoes, and the front desk handed you a chalk bag. A few months later you start wondering: is it time to buy my own shoes? What about a harness? A friend offers to sell you a rope he's used for a few years, cheap. Should you take it?
 
-This is post 0 of the Climbing Gear series. The series covers selection criteria, standards and manufacturers' retirement rules only, **with no brand or model recommendations**; any model mentioned is an example of how a standard or a manual is written. This post answers two questions: what to buy first and what to keep renting, and how to read the CE, UIAA, EN numbers and manufacture year on a label. How to choose and inspect each item is left to the next four posts.
+This is post 0 of the Climbing Gear series. The series gives each piece of gear its own post: the buying criteria and standard numbers first, then a comparison of current models, with written reviews and YouTube test and first-hand videos. This post doesn't compare models itself; the GRIGRI below is just an example of how a manual is written. It answers two questions: what to buy first and what to keep renting, and how to read the CE, UIAA, EN numbers and manufacture year on a label. How to choose each item and which models to consider are in posts 1 to 11; how to inspect and when to retire gear is the final post, post 12.
 
 If you haven't been to a gym yet, start with the [climbing beginner's guide](/posts/climbing/2026-10-08-climbing-beginner-guide-en).
 
@@ -40,11 +40,13 @@ The series follows the order in which you'll spend money. The rule: **buy things
 
 | Stage | What to buy | Why now | Post in this series |
 |---|---|---|---|
-| Going to the gym regularly | Climbing shoes, chalk bag | You use them in the gym; a good fit only comes with your own shoes | [Post 1: Climbing shoes](/posts/climbing/2026-10-19-climbing-shoes-en) |
-| Top-roping regularly, taking a belay test | Harness, belay device, locking carabiner | You put them on and operate them every session; knowing your own gear is safer | [Post 2: Harness and helmet](/posts/climbing/2026-10-19-climbing-harness-helmet-en), [Post 3: Rope, belay device and carabiners](/posts/climbing/2026-10-19-climbing-rope-belay-device-en) |
-| About to climb outdoors | Helmet | Crags have rockfall, and belayers wear helmets too | [Post 2](/posts/climbing/2026-10-19-climbing-harness-helmet-en) |
-| Leading your own outdoor sport trips | Dynamic rope, quickdraws | The gym supplies ropes; outdoors you bring your own | [Post 3](/posts/climbing/2026-10-19-climbing-rope-belay-device-en) |
-| From then on | Inspection, care, retirement | Every item above ages | [Post 4: Inspection, care and retirement](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en) |
+| Going to the gym regularly | Climbing shoes, chalk bag | You use them in the gym; a good fit only comes with your own shoes | [Post 1: Climbing shoes](/posts/climbing/2026-10-19-climbing-shoes-en), [Post 2: Chalk bag](/posts/climbing/2026-10-24-climbing-chalk-bag-en) |
+| Top-roping regularly, taking a belay test | Harness, belay device, locking carabiner | You put them on and operate them every session; knowing your own gear is safer | [Post 3: Harness](/posts/climbing/2026-10-24-climbing-harness-en), [Post 4: Belay device](/posts/climbing/2026-10-24-climbing-belay-device-en), [Post 5: Carabiners](/posts/climbing/2026-10-24-climbing-carabiners-en) |
+| About to climb outdoors | Helmet | Crags have rockfall, and belayers wear helmets too | [Post 6: Helmet](/posts/climbing/2026-10-24-climbing-helmet-en) |
+| Leading your own outdoor sport trips | Quickdraws, dynamic rope | The gym supplies ropes; outdoors you bring your own | [Post 7: Quickdraws](/posts/climbing/2026-10-24-climbing-quickdraws-en), [Post 8: Rope](/posts/climbing/2026-10-24-climbing-rope-en) |
+| Rappelling on your own outdoors | Prusik cord | A backup when rappelling, and needed for self-rescue | [Post 9: Prusik cord](/posts/climbing/2026-10-24-prusik-cord-en) |
+| Starting trad | Nuts, cams | You place your own protection in cracks instead of clipping bolts | [Post 10: Nuts](/posts/climbing/2026-10-24-climbing-nuts-en), [Post 11: Cams](/posts/climbing/2026-10-24-climbing-cams-en) |
+| From then on | Inspection, care, retirement | Every item above ages | [Post 12: Inspection, care and retirement](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en) |
 
 Outdoor bouldering also needs a crash pad; that belongs to outdoor bouldering, and this series doesn't cover it.
 
@@ -60,9 +62,17 @@ Two reasons: fit and hygiene.
 
 Once you top-rope regularly, you put on a harness and operate a belay device every session. With your own gear, you know its history and its feel. How to operate a belay device is covered in [gym top-rope belaying](/posts/climbing/2026-10-17-gym-top-rope-belay-en); this series only covers how to choose one.
 
-### Helmet, rope and quickdraws come last
+### Helmet, rope and quickdraws wait until you go outdoors
 
-A helmet is for rockfall outdoors, and [outdoor belaying](/posts/climbing/2026-10-17-outdoor-belay-en) explains why belayers wear one too. A rope and quickdraws are what you need when you start leading your own outdoor trips; until then, climb with experienced people and use theirs.
+A helmet is for rockfall outdoors, and [outdoor belaying](/posts/climbing/2026-10-17-outdoor-belay-en) explains why belayers wear one too. A rope and quickdraws are what you need when you start leading your own outdoor trips; until then, climb with experienced people and use theirs. A prusik cord, nuts and cams come later still: you need them once you rappel on your own outdoors, or start trad. Multi-pitch usually comes after trad: as [Multi-pitch basics](/posts/climbing/2026-10-17-multi-pitch-basics-en) found, most Longdong routes marked with two or more pitches are trad, and Taiwan's multi-pitch courses require single-pitch trad leading first.
+
+In the video below, North Wales instructor Jez lays out what to bring when a friend takes you out to second: one harness, a helmet, a chalk bag, beginner shoes, and a belay device with a locking carabiner, while the friend brings the rope and the rack. That matches this post's advice to borrow ropes and quickdraws at first. The difference is the helmet: his audience starts on UK crags, so it's in the first batch; if you're still in the gym, the order above stands. It's one instructor talking from experience with UK prices and no testing, and the personal-kit part ends around 7:30, after which he moves on to trad gear.
+
+```youtube
+url: https://www.youtube.com/watch?v=jffVxP0Kjc0
+title: Climbing chat: Seconding kit for sport and trad, what to buy when starting out! (JB Mountain Skills)
+start: 25
+```
 
 **Something you can do tonight**: list the gear you'll use on your next gym visit and write "rent" or "mine" next to each. The items marked "mine" are the posts in this series to read first.
 
@@ -91,15 +101,17 @@ You'll see two kinds of marking on gear.
 
 | Gear | EN standard | UIAA standard | Post in this series |
 |---|---|---|---|
-| Dynamic rope | EN 892 | UIAA 101 | Post 3 |
-| Harness | EN 12277 | UIAA 105 | Post 2 |
-| Helmet | EN 12492 | UIAA 106 | Post 2 |
-| Carabiner | EN 12275 | UIAA 121 | Post 3 |
-| Belay (braking) device | EN 15151 | UIAA 129 | Post 3 |
+| Dynamic rope | EN 892 | UIAA 101 | [Post 8](/posts/climbing/2026-10-24-climbing-rope-en) |
+| Harness | EN 12277 | UIAA 105 | [Post 3](/posts/climbing/2026-10-24-climbing-harness-en) |
+| Helmet | EN 12492 | UIAA 106 | [Post 6](/posts/climbing/2026-10-24-climbing-helmet-en) |
+| Carabiner | EN 12275 | UIAA 121 | [Post 5](/posts/climbing/2026-10-24-climbing-carabiners-en) |
+| Belay (braking) device | EN 15151 | UIAA 129 | [Post 4](/posts/climbing/2026-10-24-climbing-belay-device-en) |
+
+The standards for quickdraw slings and prusik cord are in [post 7](/posts/climbing/2026-10-24-climbing-quickdraws-en) and [post 9](/posts/climbing/2026-10-24-prusik-cord-en).
 
 For example, [Petzl's GRIGRI technical notice](https://www.petzl.com/sfc/servlet.shepherd/version/download/068Tx000009YCjEIAW) (November 2024 edition) classifies it as "EN 15151-1 type 6", a belay and rappel device without an anti-panic function, and states it meets the EU PPE Regulation (EU) 2016/425.
 
-**What does passing a standard mean?** That samples of this model passed the standard's lab tests. It doesn't mean the one in your hands is still good: it may have sat too long, met acid or been dropped. That's the subject of post 4.
+**What does passing a standard mean?** That samples of this model passed the standard's lab tests. It doesn't mean the one in your hands is still good: it may have sat too long, met acid or been dropped. That's the subject of [post 12](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en).
 
 ## Where the manufacture year is printed
 
@@ -113,6 +125,8 @@ Why look for it? Because textiles and plastics in harnesses, ropes and helmets a
 - **Metal gear**: not always marked. DAV notes that metal doesn't age with time, so metal items aren't required to show a manufacture year; when they do, it's usually encoded in the engraved serial number.
 
 Some manufacturers encode the year in the serial number. Petzl's care notes give the example "09 365 AB 1234": 09 is the year, 365 the day of that year. Older harnesses may read "99 289 A", again with the year first. Other brands encode differently, so check the manual.
+
+Ropes carry a date in a second place you normally can't see. [Petzl's rope inspection procedure](https://www.petzl.com/on/demandware.static/-/Sites-petzl-master-catalog/default/dwf2c4f0de/media/product/verif-EPI-cordes-procedure-EN_068bK00000uzxirQAA.pdf) says Petzl dynamic ropes have a marking thread in the core whose colour shows the year of manufacture: ten colours map to the last digit of the year, 0 to 9, so 0 is black and 5 is green, for example. Low-stretch ropes instead have a marking tape in the core printed with the year. That colour table is Petzl's own; for other brands, check their documentation. The thread sits inside the core, so you only see it once the rope end is cut; for buying and routine checks, the end label is still what you read.
 
 **Something you can do tonight**: take any harness, helmet or rope you own and find the CE or UIAA marking and the year of manufacture. If you can't find the year, copy down the model and look up on the manufacturer's site how to read the serial number.
 
@@ -141,7 +155,7 @@ The UIAA's final group, "Record and Review", is the one most people skip. Two of
 - **Inspect on arrival.** Look for damage, deformation, incomplete stitching or corrosion; make sure it's new, clearly labelled and **not close to the end of its recommended service life**. If anything looks questionable, don't use it and contact the retailer. Maximum lifetime runs from the manufacture date, so even a brand-new harness needs a look at its year.
 - **Keep a record.** Note brand, model, serial number, purchase date, inspection dates and usage to track wear and replacement.
 
-A record-sheet template is in [post 4](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en).
+A record-sheet template is in [post 12](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en).
 
 **Something you can do tonight**: start a spreadsheet with those six columns and add a row for every piece of PPE you own.
 
@@ -150,12 +164,16 @@ A record-sheet template is in [post 4](/posts/climbing/2026-10-19-climbing-gear-
 | Item | When to buy | Read first |
 |---|---|---|
 | Climbing shoes | Climbing at least once a week | [Post 1](/posts/climbing/2026-10-19-climbing-shoes-en) |
-| Chalk bag | With your shoes | This post |
-| Harness | Top-roping regularly | [Post 2](/posts/climbing/2026-10-19-climbing-harness-helmet-en) |
-| Belay device + locking carabiner | Passed a belay test, belaying regularly | [Post 3](/posts/climbing/2026-10-19-climbing-rope-belay-device-en) |
-| Helmet | Before your first outdoor trip | [Post 2](/posts/climbing/2026-10-19-climbing-harness-helmet-en) |
-| Dynamic rope | Leading your own outdoor trips | [Post 3](/posts/climbing/2026-10-19-climbing-rope-belay-device-en) |
-| Quickdraws | Leading outdoors yourself | [Post 3](/posts/climbing/2026-10-19-climbing-rope-belay-device-en) |
+| Chalk bag | With your shoes | [Post 2](/posts/climbing/2026-10-24-climbing-chalk-bag-en) |
+| Harness | Top-roping regularly | [Post 3](/posts/climbing/2026-10-24-climbing-harness-en) |
+| Belay device | Passed a belay test, belaying regularly | [Post 4](/posts/climbing/2026-10-24-climbing-belay-device-en) |
+| Locking carabiner | With your belay device | [Post 5](/posts/climbing/2026-10-24-climbing-carabiners-en) |
+| Helmet | Before your first outdoor trip | [Post 6](/posts/climbing/2026-10-24-climbing-helmet-en) |
+| Quickdraws | Leading outdoors yourself | [Post 7](/posts/climbing/2026-10-24-climbing-quickdraws-en) |
+| Dynamic rope | Leading your own outdoor trips | [Post 8](/posts/climbing/2026-10-24-climbing-rope-en) |
+| Prusik cord | Before you rappel on your own outdoors | [Post 9](/posts/climbing/2026-10-24-prusik-cord-en) |
+| Nuts | Starting trad | [Post 10](/posts/climbing/2026-10-24-climbing-nuts-en) |
+| Cams | Starting trad | [Post 11](/posts/climbing/2026-10-24-climbing-cams-en) |
 
 ## Practice: four scenarios
 
@@ -197,6 +215,19 @@ The UIAA says ropes shouldn't be bought second-hand, and Petzl's retirement cond
 
 Your first purchase is usually shoes. Shoes aren't PPE, so there's no label to read; fit is all you have. How tight is right, how many sizes down, and when to resole: that's [post 1: Climbing shoes](/posts/climbing/2026-10-19-climbing-shoes-en).
 
+## Further viewing: gear-testing and instruction channels
+
+The video embedded in this post comes from JB Mountain Skills. The other two channels below specialize in gear testing. They're a good place to keep digging; keep each channel's limits in mind as you watch.
+
+- **[HowNOT2](https://www.youtube.com/@HowNOT2)**: run by Ryan Jenks. It started in 2016 as highline safety instruction and grew into breaking climbing, caving and canyoneering gear, plus the Bolt Busters series that pulls bolts out of real rock. Its value is in the cases beyond the rated number: knots, wear, old gear, bad placements. Limits: most tests are slow pulls on a home-built rig with one to three samples, and Ryan himself calls it entertainment, not science; the channel is backed by an online gear shop, and some tested items are sold there.
+- **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**: run solo by a climber who signs as Ben, a former software developer. After watching a hard catch slam a climber into the rock in Tonsai, Thailand, he designed his first experiment; the channel now focuses on experiments and physics explanations about belaying, ropes, carabiners and belay devices, with several recent episodes filmed in Mammut's lab. Limits: most experiments are his own design, not EN/UIAA standard tests.
+- **[JB Mountain Skills](https://www.youtube.com/@JBMountainSkills)**: run by Jez, a climbing and mountaineering instructor in North Wales; lots of hands-on anchor and top-rope setup lessons. Limits: one instructor's experience and UK practice, no test data.
+
+## Update Log
+
+- 2026-10-24: The series now gives each piece of gear its own post and compares current models; rewrote the series description in the intro; the stage table, standards table and shopping list now link to the new posts (chalk bag, belay device, carabiners, quickdraws and rope each get their own), and add the prusik cord, nuts and cams; videos are now limited to uploads from 2024 or later, so three HowNOT2 videos and one Hard Is Easy video from 2020 to 2022 were removed, and the rope-core date marking now cites Petzl's rope inspection procedure
+- 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
+
 ## References
 
 - [UIAA Advice: Ten things to consider when buying climbing gear (UIAA Safety Commission, February 2026)](https://theuiaa.org/uiaa/uiaa-advice-ten-things-to-consider-when-buying-climbing-gear)
@@ -207,6 +238,7 @@ Your first purchase is usually shoes. Shoes aren't PPE, so there's no label to r
 - [Ausrüstung aussortieren oder weiter verwenden? (DAV Sicherheitsforschung, in German)](https://www.alpenverein.de/artikel/nutzungsdauer-karabiner-seile-helme-klettersteigsets_a1acb469-ec21-4718-a487-9facc2f821d7)
 - [Lebensdauer von Alpinausrüstung (DAV Panorama 5/2010, in German)](https://sac-hoherrohn.ch/wp-content/uploads/2019/02/dav_lebensdauer-von-alpinausruestung.pdf)
 - [Tips for protecting your equipment: Belay devices, descenders (Petzl)](https://products.papertrail.io/downloads/petzl/d08231b_entretien-assureurs-descendeurs_EN.pdf)
+- [Inspection procedure: Ropes (Petzl)](https://www.petzl.com/on/demandware.static/-/Sites-petzl-master-catalog/default/dwf2c4f0de/media/product/verif-EPI-cordes-procedure-EN_068bK00000uzxirQAA.pdf)
 - [Technical Notice GRIGRI (Petzl, D0015500K, 2024-11)](https://www.petzl.com/sfc/servlet.shepherd/version/download/068Tx000009YCjEIAW)
 - [Price list: Wanhua (Tup Climbing, in Chinese)](https://tupclimbing.tw/pricing/84)
 - [How to choose climbing shoe size (Climbing Ninjette, 2026, in Chinese)](https://climbingninjette.com/2026/08/29/climbing-shoes-size/)

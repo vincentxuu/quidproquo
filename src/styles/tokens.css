@@ -73,7 +73,7 @@
   --border:    #2a3545;
   --text-primary:    #d1d5db;
   --text-secondary:  #5cb87a;
-  --text-muted:      #6b7280;
+  --text-muted:      #8b929e; /* ≥4.5:1 on --bg-page and --bg-card (WCAG AA) */
   --bg-page:   #0f1419;
   --bg-subtle: #151d26;
   --bg-card:   #1a2332;
