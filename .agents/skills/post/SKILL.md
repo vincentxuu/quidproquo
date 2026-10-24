@@ -74,7 +74,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 攀岩器材與保護系統文章（繩子、確保器、鉤環、吊帶、頭盔、岩楔／cam、固定點、bolt、確保、檢查汰換）預設補實測影片：先找 HowNOT2 與 Hard Is Easy，每篇 3–5 支嵌在對應段落、文末加頻道介紹。挑片、查證、限制寫法與標準稿見 `references/climbing-gear-videos.md`。
 
-攀岩器材與保護系統文章（繩子、確保器、鉤環、吊帶、頭盔、岩楔／cam、固定點、bolt、確保、檢查汰換）預設補實測影片：先找 HowNOT2 與 Hard Is Easy，每篇 3–5 支嵌在對應段落、文末加頻道介紹。挑片、查證、限制寫法與標準稿見 `references/climbing-gear-videos.md`。
+攀岩器材與保護系統文章（繩子、確保器、鉤環、吊帶、頭盔、岩楔／cam、固定點、bolt、確保、檢查汰換）預設補實測影片：先找 HowNOT2 與 Hard Is Easy，每篇 3–5 支嵌在對應段落、文末加頻道介紹。研究前先定日期門檻（評測、影片、價格預設只收 2024 年以後）、先用 `scripts/yt-candidates.mjs` 掃頻道清單再用關鍵字補漏；挑片、查證、雜訊排除、限制寫法與標準稿見 `references/climbing-gear-videos.md`。
 
 ### 1b. 多來源導讀與英文練習
 

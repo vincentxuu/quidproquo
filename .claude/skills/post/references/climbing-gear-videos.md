@@ -4,9 +4,28 @@
 
 範例：`2026-10-17-building-anchors`（中英）。2026-10-23 九篇器材文章的研究紀錄與候選清單在 `.work/climbing-gear-videos-20261023/`，同主題可先 grep 那裡的 `hownot2.md`、`others.md`。
 
+## 研究前先定三件事
+
+1. **日期門檻寫進 brief**：評測、影片、心得、評比清單、價格只收 2024-01-01 以後（使用者另有指定照指定）。標準與標準圖解、召回公告、法規、研究論文、原廠說明書、協會技術教學照留。舊的找 2024+ 替代，找不到就刪，不留無出處的句子。中途才改門檻會整批返工（2026-10-24 攀岩裝備系列 12 篇、63 支影片）。
+2. **先掃頻道清單，關鍵字只補漏**：頻道與層級在 `scripts/config/climbing-gear-channels.json`。第 1 層（獨立測試、評測、教練）可當評價來源；第 2 層（器材店）只用在多款並列與選購判準；第 3 層（原廠）只用在用法、原理、規格。用腳本一次掃完、標日期：
+
+   ```bash
+   node scripts/yt-candidates.mjs --match "quick ?draw|クイックドロー|快扣|퀵드로우" \
+     --search "climbing quickdraws review;クライミング ヌンチャク" --verify --out <scratchpad>/quickdraws.md
+   ```
+
+   頻道列表的日期是從「N 年前」換算，誤差可達半年以上；沒跑 `--verify` 的候選，用之前要逐支查確切 upload_date。
+3. **排除雜訊**（腳本內建，手動搜尋也照這套）：AI 購物排行（韓文「추천／판매순위／쇼핑」、英文「Top 10」「Check price」）、同字異義（日文「ヌンチャク」也是雙節棍、REP QuickDraw 是啞鈴、遊戲）、90 秒以下短片。關鍵字一律加 climbing／攀岩／クライミング／클라이밍。
+
+文字評測的日期陷阱：
+
+- OutdoorGearLab 看頁首 Updated 與 Editor's Note；Treeline 只寫更新日，首發與測試季節看內文或 Wayback。
+- 搜尋工具給的 published 可能錯（例：Climbing.com 快扣頁 Exa 標 2025，頁面實為 2022-07）；99Boulders 標題寫當年、內容多為 2021–2022 測；UKClimbing 群測多是 2014–2016。
+- 不收作者、測試地點不明的「Best X of 2026」聯盟行銷站。
+
 ## 預設要做
 
-1. **先找這兩個頻道**：[HowNOT2](https://www.youtube.com/@HowNOT2) 與 [Hard Is Easy](https://www.youtube.com/@HardIsEasy)。用 `yt-dlp --flat-playlist --print "%(id)s|%(title)s|%(duration)s" <頻道>/videos` 抓清單、依段落主題 grep。
+1. **先找這兩個頻道**：[HowNOT2](https://www.youtube.com/@HowNOT2) 與 [Hard Is Easy](https://www.youtube.com/@HardIsEasy)（上面的腳本會一起掃）。
 2. **兩者沒拍到的主題才補其他頻道**：EDELRID Knowledge Base（實驗室 kN 數字）、BMC TV（檢查示範）、DMM（檢查與放置教學）、JB Mountain Skills（架設教學）。
 3. **全篇 3–5 支**，放在最貼切段落的結尾，不是每節都要有；同一支影片一篇只嵌一次。找不到合適的就不放，不硬塞。
 4. **每支配 1–3 句**：示範了什麼、從哪一秒看、最多一個關鍵數字，加半句限制。`youtube` fence 的 `title` 用「原標題（頻道名）」，英文版用半形括號；有可靠秒數才加 `start`。
@@ -45,4 +64,4 @@
 - **[DMM](https://www.youtube.com/@dmmclimbing81)**: the Llanberis, Wales manufacturer. Mostly product videos, but it has its own inspection guides for carabiners, cams, slings and ropes, and trad placement lessons.
 - **[JB Mountain Skills](https://www.youtube.com/@JBMountainSkills)**: run by Jez, a climbing and mountaineering instructor in North Wales; lots of hands-on anchor and top-rope setup lessons. Limits: one instructor's experience and UK practice, no test data.
 
-頻道事實查於 2026-10-23；經營者、合作廠商有變動時更新本檔。
+頻道事實查於 2026-10-23；研究流程與頻道設定 2026-10-24 補。經營者、合作廠商有變動時更新本檔與 `scripts/config/climbing-gear-channels.json`。
