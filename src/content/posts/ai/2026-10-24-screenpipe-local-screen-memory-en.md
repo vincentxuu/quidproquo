@@ -61,7 +61,7 @@ curl -H "Authorization: Bearer $SCREENPIPE_LOCAL_API_KEY" \
   "http://localhost:3030/search?q=budget&content_type=audio&limit=10"
 ```
 
-Next, a scheduled task. This `pipe.md` is adapted from the official standup and time-report examples; it drafts a daily summary with read-only access:
+Next, a scheduled task. This `pipe.md` is adapted from the official standup and time-report examples; it drafts a daily summary with permissions set to `reader` (which restricts the Screenpipe API calls it can make; see Limits):
 
 ```markdown
 ---
@@ -81,15 +81,15 @@ Write it to ./output/<date>.md. Do not send it or update any external service.
 
 **The license is not open source.** The README calls it source-available, and the LICENSE is the Screenpipe Commercial License. Personal non-commercial use, non-profit, educational, and research use are free, plus a 7-day evaluation period. The commercial rule is direct:
 
-> Any Commercial Use of the Licensed Work, including source code you modify and binaries you or a third party compile from source, requires a paid Screenpipe Enterprise plan.
+> Any Commercial Use of the Licensed Work, including source code you modify and binaries you or a third party compile from source, requires a paid Screenpipe Enterprise plan and a commercial license from the Licensor expressly covering that use.
 
-Official builds fall under a separate terms of service: up to four individual licenses per company, and five or more users need a Team or Enterprise plan. The end of the LICENSE notes that earlier versions released under MIT stay under MIT. Before adopting it at work, read LICENSE.md and the terms of service rather than relying on repo stars.
+The project moved its source from MIT to this license on 2026-06-09; earlier versions released under MIT stay under MIT. Official builds fall under a separate terms of service: up to four individual licenses per company, and five or more users need a Team or Enterprise plan. Before adopting it at work, read LICENSE.md and the terms of service rather than relying on repo stars.
 
-**"Local-first" does not mean nothing leaves the machine.** Screenshots, audio, transcripts, and the index stay local by default, but the README FAQ says the desktop app has PostHog analytics and Sentry error reporting enabled by default; cloud transcription, cloud AI, sync, and integrations send the data each feature needs to the corresponding service. To stay fully local, turn off Analytics under Settings → Privacy → Analytics and choose local transcription plus a local model such as Ollama.
+**"Local-first" does not mean nothing leaves the machine.** Screenshots, audio, transcripts, and the index stay local by default, but the README FAQ says the desktop app has PostHog analytics and Sentry error reporting enabled by default; cloud transcription, cloud AI, sync, and integrations send the data each feature needs to the corresponding service. To stay fully local, turn off the analytics (telemetry) option under Settings → Privacy, choose local transcription plus a local model such as Ollama, and turn off cloud media analysis. The official docs call local capture, local search, and local Ollama the safest setup.
 
-**Permissions only cover Screenpipe's own API.** Pipes have full API access by default. Adding `permissions: reader` or custom `allow` and `deny` rules (apps, windows, content types, API paths; deny wins) narrows that, but the docs state it does not sandbox the agent's other tools. The field names in the README (`allow-apps`, `deny-windows`, and so on) also differ from the `permissions` syntax on the docs page, so follow the docs for the version you installed.
+**Permissions only cover Screenpipe's own API.** Pipes have full API access by default. Adding `permissions: reader` or custom `allow` and `deny` rules (apps, windows, content types, API paths; deny wins) narrows that, but the docs state it does not sandbox the agent's shell, files, or external tools. `reader` is also not read-only: it blocks deletion and raw SQL, yet still allows notifications, output submissions, and reading credentials for connected services. The field names in the README (`allow-apps`, `deny-windows`, and so on) also differ from the `permissions` syntax on the docs page, so follow the docs for the version you installed.
 
-**On-screen content becomes agent input.** Malicious instructions in a web page, message, or document could influence a pipe that has write access. Use `reader` for anything that only needs to read, and review write actions separately. For authorization design, see the [tool authorization](/posts/ai/2026-10-22-ai-security-tool-authorization) and [MCP trust](/posts/ai/2026-10-22-ai-security-mcp-trust) posts in the AI security series (in Chinese).
+**On-screen content becomes agent input.** Malicious instructions in a web page, message, or document could influence a pipe that has write access. For tasks that only read, start at `reader`, then use `allow` to narrow it to the endpoints actually needed, such as `GET /search`, and review write actions separately. The docs also advise trusting only scheduled tasks from the official library, or auditing custom ones before installing. For authorization design, see the [tool authorization](/posts/ai/2026-10-22-ai-security-tool-authorization) and [MCP trust](/posts/ai/2026-10-22-ai-security-mcp-trust) posts in the AI security series (in Chinese).
 
 **The main branch moves fast.** The README says outright that main is "moving fast and breaking things"; use releases for stability, and some features of the production app are in paid plans.
 
@@ -97,10 +97,10 @@ Official builds fall under a separate terms of service: up to four individual li
 
 ## How to use it
 
-1. **Decide where data may go.** Turn off Analytics in Settings and pick local transcription and a local model. If you need a cloud feature, enable one and confirm what it sends.
-2. **Narrow capture first.** The README lists app and window filters; exclude password managers, banking, and private messaging before you start recording.
+1. **Decide where data may go.** Turn off analytics under Settings → Privacy and pick local transcription and a local model. If you need a cloud feature, enable one and confirm what it sends.
+2. **Narrow capture first.** Under Settings → Recording, add password managers, banking, and private messaging to the ignored windows before you start recording. The docs advise testing the rule with harmless content, and checking already-recorded content and other data sources separately.
 3. **Check value through MCP.** Connect Claude Code and ask "what did I do yesterday in X" for three days. If the answers do not help you, you do not need Pipes.
-4. **Start Pipes at `reader`.** Run once by hand, read the output, then enable the schedule; raise permissions separately when a task must write files or call external services.
+4. **Start Pipes at `reader`.** Run once by hand, check what it accessed with `pipe logs <name>`, then enable the schedule; raise permissions separately when a task must write files or call external services.
 5. **Measure your own day.** Note CPU, RAM, and the size of `~/.screenpipe`, and use them to decide retention.
 6. **At work, read the license first.** Beyond personal non-commercial use, contact the vendor before installing.
 
@@ -110,6 +110,9 @@ Official builds fall under a separate terms of service: up to four individual li
 - [LICENSE.md: Screenpipe Commercial License](https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md)
 - [Screenpipe architecture (official docs)](https://docs.screenpi.pe/architecture)
 - [Build and manage scheduled tasks (official docs)](https://docs.screenpi.pe/pipes)
+- [Scheduled task permissions (official docs)](https://docs.screenpipe.com/task-permissions.md)
+- [Privacy data flow (official docs)](https://docs.screenpipe.com/privacy-data-flow.md)
+- [An update to screenpipe's license (official blog, 2026-06-09)](https://screenpipe.com/blog/screenpipe-license-update)
 - [Agent Memory Engineering series intro](/posts/ai/2026-09-19-agent-memory-engineering-series-intro) (in Chinese)
 - [AI security: tool authorization](/posts/ai/2026-10-22-ai-security-tool-authorization) (in Chinese)
 - [AI security: MCP trust](/posts/ai/2026-10-22-ai-security-mcp-trust) (in Chinese)
