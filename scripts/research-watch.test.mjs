@@ -243,3 +243,87 @@ test('paper watch report does not impose climbing route framing', () => {
   assert.match(built.report, /主題脈絡／待查理由/);
   assert.equal(built.sources[0].source_type, 'paper');
 });
+
+function settings(root, overrides = {}) {
+  writeFileSync(join(root, '.research/watch-config.json'), JSON.stringify({ enabled: true, auto_pool_topics: true, source_limit: 4, query_limit: 2, disabled_topics: [], ...overrides }));
+}
+
+test('automatic watches follow populated pool topics across categories and grow with new research', t => {
+  const rows = [source('https://example.com/crag'), source('https://example.com/agent-paper', { categories: ['ai'], topics: ['agents'], source_type: 'paper', tags: [] })];
+  const root = fixture(t, snapshot(rows));
+  settings(root);
+  const watches = listWatchlists(root, true);
+  assert.deepEqual(watches.map(watch => watch.id), ['ai-agents', 'climbing-crags']);
+  assert.ok(watches.every(watch => watch.origin === 'pool-topic' && watch.enabled && watch.source_limit === 4 && watch.query_limit === 2));
+  assert.ok(watches.every(watch => watch.article_paths.length === 0 && watch.tags.length === 0));
+  assert.ok(watches.every(watch => watch.known_source_types.length === taxonomy.sourceTypes.length && watch.queries.length === 2));
+  assert.ok(watches.every(watch => !/2026|城山|joyama/i.test(watch.queries.map(query => query.query).join(' '))));
+  const aiPlan = createPlan(watches[0], '2026-10-24', loadSnapshot(root));
+  assert.equal(aiPlan.requests[0].source_type, 'paper');
+  assert.equal(aiPlan.requests[0].kind, 'source');
+  assert.equal(aiPlan.requests.filter(request => request.kind === 'query').length, 2);
+  writeFileSync(join(root, '.research/pool/tech/sources.jsonl'), JSON.stringify(source('https://example.com/tool-docs', { categories: ['tech'], topics: ['devtools'], source_type: 'documentation', tags: [] })) + '\n');
+  assert.deepEqual(listWatchlists(root, true).map(watch => watch.id), ['ai-agents', 'climbing-crags', 'tech-devtools']);
+});
+
+test('a disabled place watch does not suppress automatic category/topic research', t => {
+  const root = fixture(t, snapshot([source('https://example.com/crag')]));
+  settings(root);
+  mkdirSync(join(root, '.research/watchlists'));
+  writeFileSync(join(root, '.research/watchlists/joyama.json'), JSON.stringify({ ...config, enabled: false }));
+  assert.deepEqual(listWatchlists(root, true).map(watch => watch.id), ['climbing-crags']);
+  const all = listWatchlists(root);
+  assert.equal(all.find(watch => watch.id === 'joyama').origin, 'watchlist');
+  assert.equal(all.find(watch => watch.id === 'joyama').enabled, false);
+});
+
+test('enabled explicit topic settings override automatic defaults without duplicate coverage', t => {
+  const root = fixture(t, snapshot([source('https://example.com/crag')]));
+  settings(root);
+  mkdirSync(join(root, '.research/watchlists'));
+  writeFileSync(join(root, '.research/watchlists/joyama.json'), JSON.stringify({ ...config, enabled: true, source_limit: 1 }));
+  const active = listWatchlists(root, true);
+  assert.equal(active.length, 1);
+  assert.equal(active[0].id, 'joyama');
+  assert.equal(active[0].origin, 'watchlist');
+  assert.equal(active[0].source_limit, 1);
+  assert.equal(active[0].queries[0].query, config.queries[0].query);
+});
+
+test('automatic topic exclusions and global controls do not fabricate empty watches', t => {
+  const root = fixture(t, snapshot([source('https://example.com/crag'), source('https://example.com/paper', { categories: ['ai'], topics: ['agents'], source_type: 'paper', tags: [] })]));
+  settings(root, { disabled_topics: ['climbing/crags'] });
+  assert.deepEqual(listWatchlists(root, true).map(watch => watch.id), ['ai-agents']);
+  settings(root, { auto_pool_topics: false });
+  assert.deepEqual(listWatchlists(root, true), []);
+  mkdirSync(join(root, '.research/watchlists'));
+  writeFileSync(join(root, '.research/watchlists/joyama.json'), JSON.stringify({ ...config, enabled: true }));
+  settings(root, { enabled: false });
+  assert.deepEqual(listWatchlists(root, true), []);
+  assert.equal(listWatchlists(root)[0].enabled, false);
+});
+
+test('automatic settings reject malformed controls, limits and taxonomy exclusions', t => {
+  const root = fixture(t);
+  for (const invalid of [
+    { enabled: 'yes' }, { auto_pool_topics: 1 }, { source_limit: 0 }, { source_limit: 21 },
+    { query_limit: 0 }, { query_limit: 3 }, { source_limit: null }, { query_limit: '2' }, { disabled_topics: null }, { disabled_topics: 'ai/agents' },
+    { disabled_topics: ['ai/agents', 'ai/agents'] }, { disabled_topics: ['unknown/agents'] },
+    { disabled_topics: ['ai/unknown'] }, { disabled_topics: ['ai/agents/'] },
+  ]) {
+    settings(root, invalid);
+    assert.throws(() => listWatchlists(root, true), /watch-config|disabled topic/);
+  }
+});
+
+test('a disabled explicit watch with the generated topic id yields to automatic research', t => {
+  const root = fixture(t, snapshot([source('https://example.com/crag')]));
+  settings(root);
+  mkdirSync(join(root, '.research/watchlists'));
+  writeFileSync(join(root, '.research/watchlists/climbing-crags.json'), JSON.stringify({ ...config, id: 'climbing-crags', enabled: false }));
+  const watches = listWatchlists(root);
+  assert.equal(watches.length, 1);
+  assert.equal(watches[0].id, 'climbing-crags');
+  assert.equal(watches[0].origin, 'pool-topic');
+  assert.equal(watches[0].enabled, true);
+});

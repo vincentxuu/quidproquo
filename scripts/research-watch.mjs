@@ -54,16 +54,64 @@ export function validateConfig(config, snapshot) {
   if (config.covered_routes !== undefined) assert(list(config.covered_routes), 'covered_routes must be a string array');
 }
 
+function readWatchSettings(root, snapshot) {
+  const path = join(root, '.research/watch-config.json');
+  if (!existsSync(path)) return null;
+  const settings = json(path);
+  assert(settings && typeof settings === 'object' && !Array.isArray(settings), 'watch-config must be an object');
+  for (const key of ['enabled', 'auto_pool_topics']) assert(typeof settings[key] === 'boolean', `watch-config ${key} must be boolean`);
+  for (const [key, fallback, max] of [['source_limit', 4, 20], ['query_limit', 2, 2]]) {
+    const value = settings[key] === undefined ? fallback : settings[key];
+    assert(Number.isInteger(value) && value >= 1 && value <= max, `watch-config ${key} out of bounds`);
+  }
+  const disabled = settings.disabled_topics === undefined ? [] : settings.disabled_topics;
+  assert(list(disabled) && new Set(disabled).size === disabled.length, 'watch-config disabled_topics must be a unique string array');
+  for (const pair of disabled) {
+    const parts = pair.split('/'), [categoryId, topicId] = parts;
+    assert(parts.length === 2 && snapshot.taxonomy.categories.some(c => c.id === categoryId && c.topics.some(t => t.id === topicId)), `Unknown disabled topic: ${pair}`);
+  }
+  return { ...settings, source_limit: settings.source_limit ?? 4, query_limit: settings.query_limit ?? 2, disabled_topics: disabled };
+}
+
 export function listWatchlists(root, enabledOnly = false) {
   const snapshot = loadSnapshot(root), directory = join(root, '.research/watchlists');
-  if (!existsSync(directory)) return [];
-  const watches = readdirSync(directory).filter(name => name.endsWith('.json')).map(name => {
+  const settings = readWatchSettings(root, snapshot);
+  const explicit = (existsSync(directory) ? readdirSync(directory).filter(name => name.endsWith('.json')) : []).map(name => {
     const config = json(join(directory, name));
     validateConfig(config, snapshot);
     assert(name === `${config.id}.json`, `Watch filename must match id: ${name}`);
-    return { ...config, enabled: config.enabled === true, known_source_types: config.known_source_types ?? snapshot.taxonomy.sourceTypes,
+    return { ...config, enabled: config.enabled === true && settings?.enabled !== false, origin: 'watchlist',
+      known_source_types: config.known_source_types ?? snapshot.taxonomy.sourceTypes,
       source_limit: config.source_limit ?? config.channel_limit ?? 8 };
   });
+  const watches = [...explicit];
+  if (settings?.enabled && settings.auto_pool_topics) {
+    const overridden = new Set(explicit.filter(watch => watch.enabled).map(watch => `${watch.category}/${watch.topic}`));
+    for (const category of snapshot.taxonomy.categories) {
+      for (const topic of category.topics) {
+        const pair = `${category.id}/${topic.id}`;
+        if (settings.disabled_topics.includes(pair) || overridden.has(pair)) continue;
+        if (!snapshot.sources.some(source => source.categories.includes(category.id) && source.topics.includes(topic.id))) continue;
+        const watch = { id: `${category.id}-${topic.id}`, title: `${category.label}／${topic.label}研究追蹤`,
+          category: category.id, topic: topic.id, enabled: true, origin: 'pool-topic', tags: [], article_paths: [],
+          context_terms: [`${category.label} ${topic.label}`], known_source_types: [...snapshot.taxonomy.sourceTypes],
+          source_limit: settings.source_limit, query_limit: settings.query_limit,
+          queries: [
+            { id: 'primary-zh', query: `${category.label} ${topic.label} 官方 一手資料 研究與實務更新` },
+            { id: 'primary-en', query: `Find official primary sources and recent research or practical guides about ${category.id} ${topic.id}.` },
+          ] };
+        validateConfig(watch, snapshot);
+        const collision = watches.findIndex(existing => existing.id === watch.id);
+        if (collision >= 0) {
+          const existing = watches[collision];
+          assert(!existing.enabled && existing.category === watch.category && existing.topic === watch.topic, `Automatic watch id conflicts with explicit watch: ${watch.id}`);
+          // A disabled specialization does not opt its entire pool topic out.
+          watches.splice(collision, 1);
+        }
+        watches.push(watch);
+      }
+    }
+  }
   return watches.filter(watch => !enabledOnly || watch.enabled).sort((a, b) => a.category.localeCompare(b.category) || a.topic.localeCompare(b.topic) || a.id.localeCompare(b.id));
 }
 

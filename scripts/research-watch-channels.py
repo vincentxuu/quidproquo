@@ -42,11 +42,13 @@ def scan(request, terms, executable):
             title, video_id = entry.get('title', ''), entry.get('id', '')
             if not isinstance(title, str) or not isinstance(video_id, str) or not re.fullmatch(r'[A-Za-z0-9_-]{11}', video_id):
                 raise ValueError('Malformed upload entry')
-            if any(term.casefold() in title.casefold() for term in terms):
+            if not terms or any(term.casefold() in title.casefold() for term in terms):
                 rows.append({'url': f'https://www.youtube.com/watch?v={video_id}', 'title': title, 'source_type': 'video',
                              'creator_source_id': request['source_id'],
-                             'reason': 'Upload-list title matches a configured place term; footage, exact location and publication date need review.'})
-        result.update(status='ok', coverage=f'Inspected {len(entries)} newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.', results=rows)
+                             'reason': ('Upload-list title matches a configured title term; topic relevance, footage and publication date need review.' if terms else
+                                        'Public upload metadata retained without a title filter; topic relevance, footage and publication date need review.')})
+        filtering = 'retained configured title-term matches only' if terms else 'no title/location filter applied; topic relevance unconfirmed'
+        result.update(status='ok', coverage=f'Inspected {len(entries)} newest upload titles (limit12); {filtering}. Older uploads, footage and audio not covered.', results=rows)
     except (subprocess.TimeoutExpired, ValueError, OSError, TypeError) as error:
         result['error'] = f'Metadata adapter {type(error).__name__}; request incomplete, no result inferred.'
     return result
@@ -61,9 +63,12 @@ def main():
     requests = [r for r in plan['requests'] if r['kind'] == 'channel']
     if len(requests) > 20 or len({r['id'] for r in requests}) != len(requests):
         raise ValueError('Invalid channel request bound or duplicate identity')
-    terms = plan['watch'].get('title_terms', plan['watch']['place_terms'])
-    if not terms or not all(isinstance(t, str) and t.strip() for t in terms):
-        raise ValueError('Place title terms must be nonempty strings')
+    watch = plan['watch']
+    # Explicit title_terms takes precedence, including [] to disable filtering.
+    # General research topics need no geographic fields.
+    terms = watch['title_terms'] if 'title_terms' in watch else watch.get('place_terms', [])
+    if not isinstance(terms, list) or not all(isinstance(t, str) and t.strip() for t in terms):
+        raise ValueError('Optional title terms must be an array of nonempty strings')
     executable = shutil.which('yt-dlp')
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
         rows = list(pool.map(lambda r: scan(r, terms, executable), requests))

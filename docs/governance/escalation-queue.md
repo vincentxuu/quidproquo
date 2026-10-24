@@ -507,10 +507,8 @@
 - 接手第一步：若要直接補今天的信號檔，可從本次已核實為真正新鮮（Oct 17-18 primary source）的候選清單重新開始（Claude Code v2.1.302 Mods／n8n CVE-2026-86074／ARTEX 韓國銀行入侵／Anthropic 律師事務所談判規範／Alibaba OpenGCUA／Gemini 4 Argon 打通 Minecraft／台灣晶片出口限制／ByteDance-MediaTek／Hurotics 韓國／Hex-Rays 以色列／Stripe 收購 OpenRouter／美國資料中心延宕／TechCabal 非洲 AI 新創／世銀泰國小型 AI／Sarvam AI 融資，共 15 則），再補足另外 15-35 則；若要治本，考慮在 `.agents/skills/daily-digest-signals/SKILL.md` 加一條規則：聚合站／彙整頁候選必須點進去找到其引用的 primary source 並以 primary source 的發佈日期為準，聚合站自己標的相對時間戳不可信。
 
 
-## Q-041 通用研究追蹤：Claude cloud任務只初始化便回報Succeeded，未產出研究
+## Q-041 ✅ 已更正（2026-10-24）：早期UI畫面不足以判定雲端研究空跑
 
-- 日期：2026-10-24。範圍是新建的「每週分類研究候選（共用 pool）」；沒有改動其他既有排程。
-- 任務：https://claude.ai/code/routines/trig_01N4BTTqJPK268yLNXgNK2rb 。已保存通用enabled-watchlist批次指令、每週日09:00GMT+8、repo quidproquo、僅Groundlane/Exa。因驗收未通過，目前Enabled=0且All triggers are paused。
-- 已試兩次手動觸發：session_012mxBRhPWJATRztESp5Dgvt、session_01765Rt3BBcNvpnCWFJi5upq。頁面均有完整任務指令、Completed container setup/clone/start Claude Code，但其後沒有assistant回覆、tool執行、報告或repo提交；平台卻標Completed/Succeeded。第二次另送唯讀pwd/git status診斷亦未回應，已停止該診斷。不能據此宣稱排程可用。
-- 原因未確認；不可直接歸因帳號限額（雖與Q-029的「假成功」現象相似），也不能用本機成功代替雲端。重新啟用前需要可正常執行的雲端宿主／平台診斷，或明確決定改用其他宿主。不要為此擴大連接器或私有資料權限。
-- 本機的通用engine、batch driver與pool回填已可驗證；城山首輪14計畫請求已實跑，17個新來源、2個已知、1頁fetch失敗，資料留在研究分支。第一步讀docs/research-watch.md、scripts/research-watch-batch.mjs及上方task/run頁；先驗證一個唯讀工具呼叫真正執行，再測整輪產物、commit與Draft PR，最後才開Enabled。
+原先根據初始化畫面及Succeeded狀態，過早判定新排程沒有執行並暫停。後來同一session_012mxBRhPWJATRztESp5Dgvt實際以Groundlane補查，提交`9fa83756`（9新來源、25觀察、6搜尋）；PR #206已於2026-10-24合併，證明該次工作確有執行。原「宿主失效」判斷不成立，不能再以它阻擋通用排程。
+
+通用任務入口為docs/research-watch.md與.research/watch-config.json，從pool的非空category/topic自動產生主題；城山專用設定停用，歷史資料保留。後續驗收須等待實際查詢、集中證據、pool回填與提交，不以UI早期畫面或Succeeded單獨判定成功／失敗。沒有改動其他既有排程，也沒有擴大私有資料或連接器權限。

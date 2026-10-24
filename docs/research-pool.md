@@ -104,4 +104,4 @@ node scripts/research-pool.mjs check
 
 ## 定期發現新來源
 
-[通用分類研究追蹤](research-watch.md)會讀取所有明確啟用的watchlist，依分類輪查各類來源並補搜池外資料；共用批次預算、跨週輪替、去重與pool回填。YouTube只是可選adapter，城山只是第一個真實案例。候選報告留在持續研究分支與Draft PR，人工查核後才更新文章。新增主題只需設定，不複製流程；目前雲端宿主空跑問題待處理，排程暫停。
+[通用分類研究追蹤](research-watch.md)會從pool已有資料的category/topic自動產生追蹤主題，依分類輪查各類來源並補搜池外資料；共用批次預算、跨週輪替、去重與pool回填。YouTube只是可選adapter，城山只是第一個真實案例。候選報告留在持續研究分支與Draft PR，人工查核後才更新文章。新主題有來源即加入，不必另建專用流程；個別watchlist只作覆寫，城山設定已停用。雲端session後續實際完成，先前空跑判斷已更正。

@@ -2,7 +2,17 @@
 
 一份watchlist代表一個要持續追蹤的研究主題，不代表一種媒體或一個頻道。主題依`.research/pool/taxonomy.json`的category/topic分類；來源可以是網站、文件、論文、repository、書籍入口、課程、影音等。
 
-`enabled: true`才加入每週批次。未啟用設定不會偷偷跑；沒有實際追蹤需求的類別不建空任務。目前只有`joyama.json`啟用，作為第一個驗證案例。
+預設使用`../watch-config.json`的`auto_pool_topics`：從pool已存在資料的category/topic自動建立追蹤，新類別有資料即加入。全域`enabled`控制整個入口，`disabled_topics`可排除主題；空主題不跑。
+
+全域設定範例（實際入口是`../watch-config.json`）：
+
+```json
+{"enabled":true,"auto_pool_topics":true,"source_limit":4,"query_limit":2,"disabled_topics":[]}
+```
+
+自動主題每輪4個已知來源、2個池外查詢，全批仍受32請求預算限制。單獨設定仍可覆寫來源類型或查詢，不需要複製研究流程。
+
+本資料夾的個別設定只有`enabled: true`才覆寫同分類／子題的自動設定；未啟用設定不抑制自動分類。`joyama.json`已停用，僅留作歷史案例。新增一般主題不用再建立地名或頻道設定。
 
 必要欄位：`id`、`title`、合法`category/topic`、`tags`、`article_paths`、`queries`。`context_terms`供搜尋脈絡，不限定地點；`place_terms`僅相容舊設定。`article_paths`可以為空，不代表任何來源已採用。
 

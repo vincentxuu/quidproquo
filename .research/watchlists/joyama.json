@@ -45,7 +45,7 @@
     "城山",
     "Joyama"
   ],
-  "enabled": true,
+  "enabled": false,
   "known_source_types": [
     "channel"
   ],
