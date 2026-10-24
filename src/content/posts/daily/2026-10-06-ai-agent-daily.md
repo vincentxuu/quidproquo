@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "Agent 生態系統真正的必要互補資產不是模型，是身分驗證層——這層正在三天內被連續攻破，從開源工具到雲端代管服務無一倖免"
-tldr: "ZITADEL／Zimbra／Bouncy Castle／MCP OAuth 三天內疊出 15 個 CVE，AWS 同步修補 Bedrock AgentCore 的身分驗證繞過漏洞；開源 AI agent 工具 ARTEX 入侵南韓七家銀行、外洩 6.5 萬筆資料；偽裝 VS Code 主題的 GlassWorm 供應鏈攻擊鎖定開發機上的 AI coding agent 金鑰；Meta 與 Microsoft 大砍內部 Claude／Claude Code 用量轉投自家工具；Cloudflare 一口氣發布 46 項 agent 基礎設施公告，DeepSeek V4.1 Flash 把美中 benchmark 差距縮到 3%；OneByZero（$20M）與 Valon（$150M）兩筆企業 AI agent 融資同日浮現。"
+tldr: "ZITADEL／Zimbra／Bouncy Castle／MCP OAuth 三天內疊出 15 個 CVE，AWS 同步修補 Bedrock AgentCore 的身分驗證繞過漏洞；開源 AI agent 工具 據 10/05 報導 ARTEX 被用於入侵南韓七家銀行、外洩 6.5 萬筆資料；偽裝 VS Code 主題的 GlassWorm 供應鏈攻擊鎖定開發機上的 AI coding agent 金鑰；Meta 與 Microsoft 大砍內部 Claude／Claude Code 用量轉投自家工具；Cloudflare 一口氣發布 46 項 agent 基礎設施公告，DeepSeek V4.1 Flash 把美中 benchmark 差距縮到 3%；OneByZero（$20M）與 Valon（$150M）兩筆企業 AI agent 融資同日浮現。"
 draft: false
 series:
   name: "AI 日報"
@@ -24,7 +24,7 @@ series:
 
 證據 A：2026 年 10 月 2 日至 5 日短短三天內，ZITADEL（單一叢集就有 10 個 CVE）、Zimbra、Bouncy Castle 與 MCP OAuth 相繼曝出憑證竊取漏洞，四家身分供應商的信任錨同時出事；AWS 同步修補三個 Bedrock AgentCore 相關漏洞，其中 Loom 在未設身分提供者時，任何網路使用者都能取得代理控制台完整權限。這不是單一廠商的程式碼品質問題，而是整條 agent 供應鏈共用的身分驗證層本身就是最薄的一環。
 
-證據 B：這層資產一旦被攻破，傷害不會停在供應商自己身上，而是直接擴散到依賴它、卻完全不知情的下游。開源 AI agent 工具 ARTEX 被用來入侵南韓七家金融機構、外洩逾 6.5 萬筆客戶資料，南韓政府得啟動全天候資安應變；同一週偽裝成 VS Code 主題的 GlassWorm 供應鏈攻擊，鎖定的正是開發機上 Claude Code、Cursor 等 AI coding agent 的 API 金鑰與雲端憑證。兩個案例的攻擊對象完全不同，但打的是同一個互補資產——驗證「誰有資格叫 agent 做什麼事」的那一層。
+證據 B：這層資產一旦被攻破，傷害不會停在供應商自己身上，而是直接擴散到依賴它、卻完全不知情的下游。開源 AI agent 工具 ARTEX 被用來入侵南韓七家金融機構、外洩逾 6.5 萬筆客戶資料（至 10/05 techtimes 報導；數字其後有變動），南韓政府得啟動全天候資安應變；同一週偽裝成 VS Code 主題的 GlassWorm 供應鏈攻擊，鎖定的正是開發機上 Claude Code、Cursor 等 AI coding agent 的 API 金鑰與雲端憑證。兩個案例的攻擊對象完全不同，但打的是同一個互補資產——驗證「誰有資格叫 agent 做什麼事」的那一層。
 
 對從業者的意義：如果你在評估要不要把 agent 導入正式系統，別只看 demo 裡它多聽話，要看它依賴的身分驗證層出過幾次事、修補速度多快。台灣金融業同樣高度受監管，ARTEX 入侵南韓銀行是直接可比的先例——評估開源 agent 工具或 MCP 整合時，CVE 揭露紀錄與修補時效該被列進採購查核項目，而不是等出事才發現，自己依賴的那層資產從來沒人把關過。
 
@@ -66,7 +66,7 @@ Mastra 1.74 讓工具執行當下能直接讀到完整對話狀態（含已記�
 
 **身分驗證層遭集中攻擊**：ZITADEL、Zimbra、Bouncy Castle、MCP OAuth 三天內疊出 15 個 CVE，AWS 同步修補 Bedrock AgentCore 的身分驗證繞過與 MCP/A2A 連線重導向漏洞（見深度分析）。（[forkast](https://forkast.news/four-providers-15-cves-three-days-the-agent-identity-stack-is-under-coordinated-attack)、[gbhackers](https://gbhackers.com/aws-fixes-ai-agent-flaws)）
 
-**ARTEX 入侵南韓七家銀行**：開源 AI agent 攻擊工具被用來連續入侵七家南韓金融機構，外洩逾 6.5 萬筆客戶資料，政府已啟動全天候資安應變（見深度分析）。（[techtimes](https://www.techtimes.com/articles/328541/20261005/open-source-ai-agent-hacked-seven-south-korean-banks-exposing-65000-records.htm)）
+**ARTEX 入侵南韓七家銀行**：開源 AI agent 攻擊工具被用來連續入侵七家南韓金融機構，外洩逾 6.5 萬筆客戶資料（至 10/05 techtimes 報導；數字其後有變動），政府已啟動全天候資安應變（見深度分析）。（[techtimes](https://www.techtimes.com/articles/328541/20261005/open-source-ai-agent-hacked-seven-south-korean-banks-exposing-65000-records.htm)）
 
 **GlassWorm 捲土重來**：偽裝 VS Code 主題的惡意 extension 經 Marketplace／Open VSX 散布，技術指紋與今年 5 月遭下架的供應鏈攻擊完全吻合，鎖定開發機上 AI coding agent 的 API 金鑰與雲端憑證，完整攻擊鏈與防禦建議見[資安警報](/posts/daily/2026-10-06-security-glassworm-vscode-theme-supply-chain)。
 
@@ -111,7 +111,7 @@ OpenAI 公布因應 EU AI Act 的文字浮水印方案，數週內將對歐盟�
 | 項目 | 數字 | 來源 |
 |------|------|------|
 | 身分供應商 CVE 數量 | 15 個／3 天（4 家 IdP） | [forkast](https://forkast.news/four-providers-15-cves-three-days-the-agent-identity-stack-is-under-coordinated-attack) |
-| ARTEX 入侵南韓銀行外洩筆數 | 65,000 筆（7 家機構） | [techtimes](https://www.techtimes.com/articles/328541/20261005/open-source-ai-agent-hacked-seven-south-korean-banks-exposing-65000-records.htm) |
+| ARTEX 入侵南韓銀行外洩筆數 | 65,000 筆（7 家機構；至 10/05 techtimes 報導） | [techtimes](https://www.techtimes.com/articles/328541/20261005/open-source-ai-agent-hacked-seven-south-korean-banks-exposing-65000-records.htm) |
 | Meta Claude Code 使用人數降幅 | 6 萬 → 3 萬人（-50%） | [the-decoder](https://the-decoder.com/meta-and-microsoft-pull-back-from-claude-as-anthropic-transforms-from-partner-into-competitor/) |
 | 美中頂尖模型 benchmark 差距 | 3%（5 月約 9%） | [straitstimes](https://www.straitstimes.com/world/united-states/us-lead-in-ai-over-china-narrows-after-deepseek-gains-bloomberg-intelligence-says) |
 | 2026 Q3 AI 創投佔全球比重 | 64%（$102B） | [crunchbase-news](https://news.crunchbase.com/venture/q3-2026-global-startup-funding-ai-billion-dollar-rounds-exits-data) |
@@ -138,6 +138,10 @@ OpenAI 公布因應 EU AI Act 的文字浮水印方案，數週內將對歐盟�
 ## 今日收穫
 
 之前以為開源 AI agent 工具的風險主要是「功能可不可靠」，今天看到 ARTEX 被用來入侵南韓七家銀行後才意識到，開源工具一旦被接進受監管產業（銀行、政府）的正式系統，它的安全外部性會直接轉嫁給整個產業的客戶，而不是停留在使用者自己的開發機上——這跟供應鏈攻擊的邏輯是一樣的，只是攻擊者這次换成了防守方自己選用的工具。
+
+## 更新紀錄
+
+- 2026-10-24：外洩筆數標明為至 10/05 的 techtimes 報導數字（後續報導與官方統計不同）。ARTEX 與各家銀行入侵的連結，當時的來源為二手報導；CrowdStrike 10/07 的報告不點名銀行，也說受影響機構總數尚未確認。
 
 ## 參考資料
 
