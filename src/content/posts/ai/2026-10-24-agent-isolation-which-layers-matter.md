@@ -8,7 +8,7 @@ lang: zh-TW
 description: "把這個系列的五層隔離對到三種使用情境：個人、團隊內部、多租戶平台，說明各層的擔心程度，並為每種情境列出三條先做、三條可以先不做的事。"
 tldr: "依我的判斷，OpenAI 談的是訓練前沿模型的研究環境；個人 agent 最該先做的是限制憑證與出口，旁路通道要到有第二個需要被隔離的租戶時才變成主要風險。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "Agent 隔離邊界"
   order: 6

@@ -8,7 +8,7 @@ lang: zh-TW
 description: "把一則流傳的中文轉述，逐句對照 OpenAI 2026 年 10 月 23 日的原文，標出吻合、過度推論、原文沒寫與語氣相反的地方，並整理查任何轉述的五個步驟。"
 tldr: "這則轉述的事實大多對得上原文，出入集中在三處：把「被指定」寫成「自行摸索」、補上原文沒有的細節、加上原文沒有的悲觀語氣。"
 difficulty: 入門
-draft: true
+draft: false
 series:
   name: "Agent 隔離邊界"
   order: 7

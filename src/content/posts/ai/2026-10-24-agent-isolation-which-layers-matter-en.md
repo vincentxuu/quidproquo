@@ -8,7 +8,7 @@ lang: en
 description: "Map the series' five isolation layers onto three situations, personal, team-internal, and multi-tenant platform, say how much each layer matters, and list three things to do first and three that can wait for each."
 tldr: "In my judgment, OpenAI wrote about a research environment for training frontier models; for a personal agent, limiting credentials and exits comes first, and covert channels become a main risk only once there is a second tenant that must be isolated."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "Agent Isolation Boundaries"
   order: 6

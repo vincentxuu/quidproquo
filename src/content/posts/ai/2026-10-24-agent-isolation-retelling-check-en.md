@@ -8,7 +8,7 @@ lang: en
 description: "Compare a circulating Chinese-language retelling line by line with OpenAI's October 23, 2026 original, mark what matches, what overreaches, what the original does not say, and what reverses its tone, and a five-step method for checking any retelling."
 tldr: "Most of this retelling's facts match the original; the differences cluster in three places: turning \"directed\" into \"worked out on their own,\" adding details the original does not have, and adding a pessimistic tone the original lacks."
 difficulty: 入門
-draft: true
+draft: false
 series:
   name: "Agent Isolation Boundaries"
   order: 7
