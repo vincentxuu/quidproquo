@@ -172,7 +172,16 @@ Josh Wharton 不建議在大外傾或大橫移的路線頂繩獨攀，他在這�
 
 教訓：器材脫離繩子時，在它下方的結也救不了你。買二手或用舊器材前，去廠商官網看最新說明書。
 
-HowNOT2 這集從一個雙 bolt 固定點開始，示範架固定繩、垂降，再用兩個止退器材往上爬（10:24 起）。主講人 Brent 經營 Avant，片中部分器材是 Avant 和 HowNOT2 店裡賣的商品。
+**頂繩獨攀從架設到中途轉換，看這一集。** HowNOT2 這集約一小時，主講是 Avant 的 Brent Barghahn。播放器從 10:24 的實地架設開始：從雙 bolt 固定點把繩子固定好、垂降，途中在岩角下方放一顆 cam 重新固定繩子，讓反覆墜落時繩子的彈跳不會傳到岩角磨繩。接下來可以照這幾段看：
+
+- **15:42 起，最危險的時刻：** 快到固定點時急著登頂，繩子在器材上方垂成一個肚，這時墜落就是係數 1，甚至係數 2。
+- **23:46 起，備份結的落錘測試：** 上一節引用的就是這段。
+- **33:03 起，CAMP Lift：** 很多人拿它搭配 Micro Traxion。測試顯示 Lift 如果裝在另一個器材下方，上面的器材滑下來會把它頂開，等於沒有備份。
+- **37:48 起，Brent 自己怎麼配：** Micro Traxion 在上、Spoc 在下。用手拉繩往上後從下方收緊，會把上面那個器材的凸輪頂在打開的位置，要從兩個器材中間收。
+- **49:38 起，中途轉成垂降再轉回去：** 52:04 起他提醒，爬到重新固定的繩結時要停下來，不要把器材一路推上去撞結。
+- **54:54 起，GriGri：** 不會自動送繩，爬的時候得一直用手拉繩，等於多了掉在鬆繩上的風險。
+
+40:57–42:25 是商店廣告，45:31 起的 5.13d 攀爬畫面幾乎沒有講解，趕時間可以跳過。Brent 經營 Avant，片中說這集是和 Avant 合作拍的，部分器材是 Avant 和 HowNOT2 店裡的商品；他自己剪掉了 Spoc 上用來撐開凸輪的拉繩，這是他個人的改裝。
 
 ```youtube
 url: https://www.youtube.com/watch?v=DHgozZxLbyo
@@ -223,7 +232,16 @@ Kirkpatrick 說，沒有一個能同時擋往上和往下拉力的固定點，�
 
 在台灣，龍洞的 bolt 大多已換成 316 或鈦，但還有少數舊的 304 不鏽鋼 bolt，集中在第一洞。出發前先到 TOCC 路線資料庫查錨栓材質，地面固定點避開舊 bolt，見〈[掛片會壞](/posts/climbing/2026-10-17-judging-bolts)〉。
 
-HowNOT2 先鋒獨攀集從 46:18 起講地面固定點：「我要把命交給一個 bolt 嗎？」接著示範用 stick clip 把兩個 bolt 串成直線。這支片的說明欄自己寫了，它不是教學。
+**先鋒獨攀的系統怎麼組，看 HowNOT2 的第二集。** 同一位 Brent，這集將近一個半小時，沒有官方章節。播放器從 46:18 的地面固定點開始：他問「我要把命交給一個 bolt 嗎？」，接著示範用長的 stick clip 從地面把兩個 bolt 串成一直線。其他段落：
+
+- **16:56 起，GriGri+ 的兩種模式：** Brent 用頂繩模式，因為先鋒模式的彈簧較硬，慢慢滑下去的墜落可能不會咬住。
+- **27:42 起，倒栽墜落測試：** 用假人頭下腳上摔，比較 GriGri+、改裝過的 GriGri、Pinch 和 NEOX，沒改裝的 NEOX 直接撞地。36:36 他們自己補了一句：任何器材倒栽都可能讓你落地，只是假人剛好沒摔出來。
+- **38:29 起，cache loop 怎麼做：** 在吊帶上用扁帶做一個能承重的器材環，用雙套結一圈一圈掛上去，由短到長，最後一圈一直不拆。
+- **44:02 起，繩子回送：** 確保器送繩太順時，繩子會被拉回地面固定點堆成一大圈。他用自家的 Soft Cinch 每隔一段把繩子夾住。
+- **57:34 起，到 Index 的花崗岩實地爬：** 看掛快扣的節奏、cache loop 纏到腳、橫移時確保器不送繩要用手拍。
+- **1:17:25 起，到頂怎麼下來。**
+
+31:51–32:51 是商店廣告。片中直說這些器材都是在原廠規格外使用，Brent 自己的 GriGri+ 用砂輪機改過，片中也出現好幾樣 Avant 自家產品。說明欄寫得很清楚：這支片不是教學。
 
 ```youtube
 url: https://www.youtube.com/watch?v=9NxGPzFSHPU
@@ -244,7 +262,16 @@ start: 2778
 
 Silent Partner 的說明書給了具體數字：確保器和備份結之間最多 40–50 英尺繩子，而且同時保持至少兩個備份結。Kirkpatrick 補充：先打好、扣好新的結，再拆舊的；他說備份結是整套系統裡永遠不能省的東西。
 
-鬆繩要定期收。[Barghahn](https://bergundsteigen.com/en/artikel/lead-rope-solo-howto) 建議每過幾個保護點，或大約每 6 公尺，把繩子拉緊一次。[EDELRID 的風險分析影片](https://www.youtube.com/watch?v=Q6N1Fav4MaI)從繩子被拉回確保器開始，逐項講了衝擊力、確保器功能、掛法、地面固定點、沒人救援和獨自一人的對策。
+鬆繩要定期收。[Barghahn](https://bergundsteigen.com/en/artikel/lead-rope-solo-howto) 建議每過幾個保護點，或大約每 6 公尺，把繩子拉緊一次。
+
+**原廠怎麼看先鋒獨攀。** [EDELRID 的風險分析影片](https://www.youtube.com/watch?v=Q6N1Fav4MaI)約 22 分鐘，照風險評估的格式，把先鋒獨攀比雙人先鋒多出來的七項風險由小排到大，每項講會發生什麼、對策是什麼、做了之後還剩多少風險。全片是講解和示意畫面，沒有實際攀爬。值得停下來看的四段：
+
+- **4:40 起，防繩子回送：** 在中間保護點打雙套結、用彈性 prusik、在鉤環上套彈性小圈、買小廠商做、裝在鉤環裡的夾繩配件，四種作法各有優缺點。
+- **6:02 起，衝擊力：** 少了確保者被拉動的緩衝，靠近地面固定點墜落會很硬。對策是在繩尾和地面固定點之間、以及前幾個保護點掛緩衝扁帶（screamer）。
+- **10:20 起，確保器功能：** 半自動確保器在標準裡的名稱是「需要手輔助鎖定的制動器材」。先鋒獨攀沒有制動手，cache loop 又跟著你一起往下掉，所以他們測試時常常是整段 cache loop 被拉進確保器才鎖住。這一項影片沒有給對策。
+- **15:58 起，地面固定點：** 鎖門鉤環掛在 bolt 掛片上，繩子一鬆就會側傾，再受力時鎖門可能被壓壞。建議把繩子直接綁進固定點，或用有定位元件的 quick link。
+
+最後的結論說，先鋒獨攀事故少，是因為用的人少、多半在簡單的路線上慢慢來，不代表這件事安全。
 
 ```youtube
 url: https://www.youtube.com/watch?v=Q6N1Fav4MaI
@@ -314,9 +341,15 @@ caption: 上升系統裝好、坐上去測過，才拆下方確保站；上升�
 
 每爬完一段，在頂端架一個能同時擋往上和往下拉力的確保站，把繩子固定，垂降回去拆保護，裝好上升系統後才拆掉下方確保站，再爬回頂端（上升或頂繩獨攀）。[Kirkpatrick](https://andy-kirkpatrick.com/blog/view/rope_soloing_101_part_2) 的說法是：每一段爬兩次、垂降一次，同一段地形你要走三次，而且「沒有繩伴檢查你的系統」。他在艾格峰嘗試獨攀時，架確保站常常一站就要一個多小時。
 
-在日本，TAKEMOVIE 爬伊豆城山〈スター☆トレック〉就是這套流程。5:43 起他解釋爬完第一段為什麼要先下到地面拿背包、再沿繩爬回來；後面他也碰到一段終點沒有固定點，用樹和下一段的 bolt 自己架了確保站。這支片重點在介紹路線，沒有講用了哪些器材。
+**一個人爬日本的五段路線，哪裡斷段都要自己決定。** 在日本，TAKEMOVIE 爬伊豆城山〈スター☆トレック〉就是這套流程。影片約 18 分鐘，前 4 分鐘是岩場介紹和接近，停車場走到起攀點不到半小時。播放器從 5:43 開始：他解釋爬完第一段為什麼要先下到地面拿背包，再沿繩子爬回來。接著：
 
-片中他在上方隊伍垂降時照爬，還被小石頭打到頭盔。一個人爬時，要不要等上方隊伍下來，只能自己判斷。
+- **7:57 起，提早斷段：** 第二段中途有平台和兩顆 bolt，他就在那裡斷段，事後看路線圖才發現還沒到第二段終點。他自己說這是失誤。
+- **10:39 起，自己架確保站：** 第三段終點沒有固定點，他用樹和下一段的 bolt 架確保站。
+- **13:17 起，連爬：** 覺得爬得完，就把第四、五段連在一起爬。
+- **13:29 起，上方有隊伍：** 一組四人從上方垂降，他判斷對方要很久，照樣往上爬；13:53 起他說被小石頭打到頭盔，這段浮石多要小心。
+- **15:45 起，下山：** 可以往上一點從左側垂降，或到山頂走登山步道，他這次用走的。
+
+一個人爬時，要不要等上方隊伍下來，只能自己判斷。這支片重點在介紹路線，旁白沒講用了哪些器材，16:00 起是食物乾燥機的業配。頻道 2021 年的[系統解說片](https://www.youtube.com/watch?v=O41Rnq4o6cs)用的是 GriGri 加 Micro Traxion，說明欄自己寫著 GriGri 不是為獨攀設計的器材、這套技術不推薦給所有人；2026 年這支是否沿用同一套，影片裡沒有說。
 
 ```youtube
 url: https://www.youtube.com/watch?v=l68_-amCZl4
@@ -332,7 +365,31 @@ start: 343
 - **上升時要保持備援。** 兩個上升器之外，再加備份結，或像 [Avant 的多繩距影片](https://www.youtube.com/watch?v=lx0iwchriQ0&t=279s)那樣多掛一個止退滑輪，拿掉一個去過保護點時還剩兩個；Avant 不在下方打結，因為容易卡住。上升的細節見〈[人工攀登器材怎麼用](/posts/climbing/2026-10-24-aid-climbing-gear)〉。
 - **橫移段另外處理。** 路線大幅橫移時，Kirkpatrick 改用另一條垂直垂下的繩子下降，避免盪出去。
 
-挪威 Molladalen 的這支影片，是 Øystein Dahl 第一次做多繩距先鋒獨攀：選了一條約 200 公尺、對他來說簡單、爬過好幾次的傳攀稜線，用 Wild Country Revo 確保。3:51 起他在第二段頂端用傳攀保護架好確保站、固定繩子，準備垂降回去拆保護。小頻道、旁白偏 vlog，看的是實際流程長什麼樣。
+**有 bolt 的多繩距怎麼一個人爬，看 Avant 這支。** Brent Barghahn 在亞利桑那 Sedona 爬 Golden Dog（5.13a），影片約 11 分鐘，畫面是大約三年前的完整攀登，旁白是事後補的講解；開頭的危險度排序就是前面引用的那段。播放器從 0:53 開始：兩個 bolt 串成直線的地面固定點先掛在吊帶上，爬過時順手掛上去。他說這樣的風險是沒辦法先坐上去測系統。接著：
+
+- **1:41 起，連爬兩段：** 第一段很短，他到固定點用 PAS 掛上休息、兩手重整 cache loop，但不固定繩子，直接爬到第二段頂端。他說先鋒獨攀時繩子固定在哪裡相對隨意，系統裡的繩子多一點，墜落反而比較軟。
+- **2:27 起，Soft Cinch 帶幾個：** 他只帶五個裝了 Soft Cinch 的快扣，大約每 3–5 公尺放一個，其他用普通快扣。
+- **2:54 起，垂降回去：** 在第二段頂端固定繩子，垂降途中在幾個快扣重新固定，讓等一下上升比較順。他現在會把繩尾拉上來和繩子綁在一起，少一個垂降時下錯那股繩的機會。
+- **4:22 起，上升：** 兩個上升器加一個止退滑輪，前面「上升時要保持備援」講的就是這段。
+- **5:43 起，第三段變難：** 繩子改在中點固定，一半垂著不用、一半掛在身上，繩尾打結；離開確保站到第一個 bolt 之間是「不能掉」的區段。離開前先把 GriGri 收緊、坐上去測，才解開 PAS。
+- **9:24 起，垂降下山：** 沒人幫他檢查，所以繩尾打結、先讓垂降系統受力再解 PAS，身上多帶上升器材，萬一垂降途中卡住還能爬回去。
+
+這是 Avant 自家頻道，片中的 Comfort Catch 緩衝器和 Soft Cinch 都是自家產品，說明欄附購買連結。傳攀的多繩距先鋒獨攀他沒有示範，只說要先是很進階的傳攀者才該考慮。
+
+```youtube
+url: https://www.youtube.com/watch?v=lx0iwchriQ0
+title: Multipitch Climbing Without a Partner（Avant Climbing Innovations）
+start: 53
+```
+
+**第一次在高山做多繩距先鋒獨攀。** 挪威 Molladalen 的這支影片約 15 分鐘，是 Øystein Dahl 第一次做多繩距先鋒獨攀。Wild Country Revo 他買了一年才敢拿出來用。時間是 4 月初，雪地走了 45 分鐘才到起攀點，路線上還有冰。他刻意選了一條約 200 公尺、對他來說簡單、爬過好幾次的傳攀稜線。播放器從 3:51 開始：他在第二段頂端用傳攀保護架好確保站、固定繩子，準備垂降回去拆保護。接著：
+
+- **4:21 起，直升機：** 一架救援直升機飛進山谷。那是別人的事故，和他無關。
+- **5:15 起，第三段鑽煙囪。**
+- **9:05 起，確保站長什麼樣：** 一顆 Alien、一個岩楔和另一個保護點；接著他要垂降 50 多公尺回去收器材。他原以為要爬五段，結果每段都拉得比較長，四段就到頂。
+- **11:30，他說這套系統「其實很好用」。**
+
+小頻道、旁白偏 vlog，看的是實際流程長什麼樣。旁白沒講 Revo 怎麼掛、有沒有打備份結、上升用什麼器材，系統細節只能自己看畫面。
 
 ```youtube
 url: https://www.youtube.com/watch?v=h_AE3LKLg2w
@@ -414,6 +471,10 @@ start: 231
 - **[TAKEMOVIE](https://www.youtube.com/@TAKEMOVIE)**：日本的登山攀岩頻道，拍大岩壁、壁上露營、瑞牆和城山的多繩距獨攀。限制：片子以介紹路線與登山形式為主，不是技術教學。
 - **[Avant Climbing Innovations](https://www.youtube.com/@AvantClimbingInnovations)**：Brent Barghahn 經營的器材公司頻道，專做傳攀、多繩距與帶繩獨攀器材。限制：片中器材多是自家產品。
 
+## 更新紀錄
+
+- 2026-10-24：擴充五支嵌入影片的介紹，補上各段時間點、可以跳過的段落與限制；新增 TAKEMOVIE 2021 年的系統解說片；多繩距一節嵌入 Avant 的多繩距影片並附分段介紹。
+
 ## 參考資料
 
 - [Self-belaying is not authorized for GRIGRI, GRIGRI + and NEOX（Petzl）](https://petzl.com/US/en/Sport/Self-belaying-is-not-authorized-for-GRIGRI--GRIGRI-Plus-and-NEOX)
@@ -444,6 +505,7 @@ start: 231
 - [Protection Pulled Out, Inadequate Self-Belay (Slack in Rope)（Accidents in North American Climbing，1993）](http://publications.americanalpineclub.org/articles/13199305000/Protection-Pulled-Out-Fall-on-Rock-Inadequate-Self-Belay-Slack-in-Rope-California-Yosemite-Valley-El-Capitan)
 - [Fall on Rock—Roped Soloing, Inadequate Protection — Manure Pile Buttress（Accidents in North American Climbing，2022）](https://publications.americanalpineclub.org/articles/13201216225)
 - [伊豆・城山のマルチピッチクライミングルート『スター☆トレック 』（TAKEMOVIE，2026-03，日文）](https://www.youtube.com/watch?v=l68_-amCZl4)
+- [ロープソロ技術を考える -Rope Solo System- ②「実践編」（TAKEMOVIE，2021-01，日文）](https://www.youtube.com/watch?v=O41Rnq4o6cs)
 - [How do you climb by yourself... SAFELY???（HowNOT2，2024-07）](https://www.youtube.com/watch?v=DHgozZxLbyo)
 - [Send without friends: Lead Rope Solo（HowNOT2，2024-07）](https://www.youtube.com/watch?v=9NxGPzFSHPU)
 - [Lead Rope Solo from a manufacturer's point of view（EDELRID Knowledge Base，2025-03）](https://www.youtube.com/watch?v=Q6N1Fav4MaI)

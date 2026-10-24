@@ -172,7 +172,16 @@ In September 2021, Craig Faulhaber was top-rope soloing in Colorado on a Petzl S
 
 The lesson: if the device leaves the rope, the knots below it can't save you. Before using second-hand or older gear, read the current instructions on the maker's site.
 
-In this HowNOT2 episode, starting at 10:24, Brent rigs a fixed line from a two-bolt anchor, rappels, and climbs back up on two progress capture devices. Brent runs Avant, and some of the gear shown is sold by Avant and the HowNOT2 shop.
+**For top-rope soloing from rigging to mid-pitch transitions, watch this episode.** This HowNOT2 episode runs about an hour, with Brent Barghahn of Avant as the main guide. The player starts at 10:24 with the real-world setup: he fixes the rope to a two-bolt anchor, rappels, and on the way down places a cam below an edge to re-fix the rope, so the rope's bounce from repeated falls doesn't saw over the edge. After that, these segments are worth watching:
+
+- **From 15:42, the most dangerous moment:** rushing to top out near the anchor, the rope sags into a belly above the devices, and a fall there is factor 1, or even factor 2.
+- **From 23:46, the backup-knot drop tests:** the ones cited in the previous section.
+- **From 33:03, the CAMP Lift:** many people pair it with a Micro Traxion. The test shows that if the Lift sits below another device, the upper device sliding down knocks it open, so it is no backup at all.
+- **From 37:48, Brent's own setup:** Micro Traxion on top, Spoc below. If you pull rope up by hand and then cinch from below, you hold the upper device's cam open; cinch from between the two devices instead.
+- **From 49:38, switching to rappel mid-pitch and back:** from 52:04 he warns that when you reach a re-fix knot you should stop, not shove the devices up into it.
+- **From 54:54, the GriGri:** it doesn't auto-feed, so you keep pulling rope through by hand, which adds the risk of falling on slack.
+
+40:57–42:25 is a shop ad, and the 5.13d climbing from 45:31 has almost no commentary; skip them if you're short on time. Brent runs Avant, the episode says it was made with Avant, and some of the gear is sold by Avant and the HowNOT2 shop. He has also cut off the cord on his Spoc that holds the cam open, which is his own modification.
 
 ```youtube
 url: https://www.youtube.com/watch?v=DHgozZxLbyo
@@ -223,7 +232,16 @@ March 2015, Owens River Gorge, California. A climber was stick-clipping bolt to 
 
 In Taiwan, most bolts at Longdong have been replaced with 316 stainless or titanium, but a few old 304 bolts remain, mostly in the First Cave. Check the anchor material in the TOCC route database before you go and keep old bolts out of your ground anchor; see [Bolts Fail](/posts/climbing/2026-10-17-judging-bolts-en).
 
-From 46:18 in HowNOT2's lead solo episode, Brent asks "do I trust my life to one bolt?" and shows how to stick-clip two bolts into an inline anchor. The video description itself says it is not a tutorial.
+**For how a lead rope solo system goes together, watch HowNOT2's second episode.** Same Brent, nearly an hour and a half, with no official chapters. The player starts at 46:18 with the ground anchor: he asks "do I trust my life to one bolt?" and then uses a long stick clip to link two bolts in line from the ground. Other segments:
+
+- **From 16:56, the GriGri+'s two modes:** Brent uses top-rope mode, because lead mode's stiffer spring may not catch a slow, sliding fall.
+- **From 27:42, upside-down drop tests:** a dummy falls head-down onto a GriGri+, a modified GriGri, a Pinch and a NEOX; the unmodified NEOX hits the ground. At 36:36 they add that any of these devices could drop you to the ground when inverted; the dummy just didn't happen to produce it.
+- **From 38:29, building cache loops:** a webbing loop on the harness makes a load-bearing gear loop, and clove hitches go on it one by one, short to long, with the last one never removed.
+- **From 44:02, backfeed:** when the device feeds too well, rope slides back to the ground anchor and piles up. He clamps it every so often with Avant's own Soft Cinch.
+- **From 57:34, climbing at Index:** the clipping rhythm, a cache loop tangled around a leg, and smacking the device to free slack when it stops feeding on a traverse.
+- **From 1:17:25, getting down from the top.**
+
+31:51–32:51 is a shop ad. The video says outright that all these devices are used outside the manufacturer's spec, Brent's own GriGri+ has been modified with an angle grinder, and several Avant products appear. The description says plainly: this is not a tutorial.
 
 ```youtube
 url: https://www.youtube.com/watch?v=9NxGPzFSHPU
@@ -244,7 +262,16 @@ Attach the device with two carabiners, or a steel maillon to avoid cross-loading
 
 The Silent Partner manual gives concrete numbers: no more than 40–50 feet of rope between the device and a backup knot, and at least two backup knots at a time. Kirkpatrick adds: tie and clip the new knot before removing the old one, and calls the backup knot the one component you should never omit.
 
-Take in slack regularly. [Barghahn](https://bergundsteigen.com/en/artikel/lead-rope-solo-howto) suggests cinching the rope every few protection points, or every six meters or so. [EDELRID's risk-analysis video](https://www.youtube.com/watch?v=Q6N1Fav4MaI) starts with backfeed and works through impact forces, device function, harness attachment, the ground anchor, the lack of rescue and being alone, each with countermeasures.
+Take in slack regularly. [Barghahn](https://bergundsteigen.com/en/artikel/lead-rope-solo-howto) suggests cinching the rope every few protection points, or every six meters or so.
+
+**How a manufacturer sees lead rope soloing.** [EDELRID's risk-analysis video](https://www.youtube.com/watch?v=Q6N1Fav4MaI) runs about 22 minutes. It follows a risk-assessment format, ranking from smallest to largest the seven risks that lead rope soloing adds to partnered leading, and for each one covers what can happen, the countermeasures, and how much risk remains. It is all explanation and diagrams, with no actual climbing. Four segments are worth pausing on:
+
+- **From 4:40, preventing backfeed:** clove hitches on intermediate protection, an elastic prusik, a small elastic loop on the carabiner, or a carabiner insert sold by small makers; each has trade-offs.
+- **From 6:02, impact forces:** without a belayer being pulled along to soften the catch, falls near the ground anchor are hard. The countermeasure is shock-absorbing slings (screamers) between the rope end and the ground anchor and on the first few pieces.
+- **From 10:20, device function:** in the standard, assisted-braking devices are "braking devices with manually assisted locking." Lead rope soloing has no brake hand, and the cache loop falls along with you, so in their tests the whole cache loop was often pulled through before the device locked. The video gives no countermeasure for this one.
+- **From 15:58, the ground anchor:** a locker clipped to a bolt hanger tilts when the rope goes slack, and under load again the gate can be crushed. They recommend tying the rope directly into the anchor, or using a quick link with a positioning element.
+
+The conclusion says lead rope solo accidents are rare because few people do it, mostly on easy routes and slowly, not because it is safe.
 
 ```youtube
 url: https://www.youtube.com/watch?v=Q6N1Fav4MaI
@@ -314,9 +341,15 @@ caption: Rig and sit-test the ascending system before stripping the lower anchor
 
 After each pitch, build an anchor at the top that holds both upward and downward pulls, fix the rope, rappel to clean the gear, rig your ascending system and only then strip the lower anchor, then climb back to the top by ascending or top-rope soloing. [Kirkpatrick](https://andy-kirkpatrick.com/blog/view/rope_soloing_101_part_2) puts it this way: each pitch is climbed twice and rappelled once, so the same ground is covered three times, and "there is no partner to check your work." On his Eiger solo attempt, building suitable belays often took over an hour per stance.
 
-In Japan, TAKEMOVIE runs this cycle on *Star Trek* at Jōyama. From 5:43 he explains why, after the first pitch, he goes back down to the ground for his pack and climbs back up the rope; later, one pitch ends without an anchor and he builds his own from a tree and the next pitch's bolt. The video is a route introduction and doesn't name his devices.
+**Alone on a five-pitch route in Japan, every decision about where to end a pitch is yours.** In Japan, TAKEMOVIE runs this cycle on *Star Trek* at Jōyama. The video is about 18 minutes; the first four cover the crag and the approach, which takes under half an hour from the parking lot. The player starts at 5:43, where he explains why, after the first pitch, he goes back down to the ground for his pack and climbs back up the rope. Then:
 
-He also keeps climbing while a party above is rappelling, and small stones hit his helmet. When you're alone, whether to wait for the party above is your call alone.
+- **From 7:57, ending a pitch early:** partway up pitch two there is a ledge with two bolts, and he stops there, only to find from the topo afterward that he hadn't reached the end of the pitch. He calls it a mistake.
+- **From 10:39, building his own anchor:** pitch three ends without an anchor, so he builds one from a tree and the next pitch's bolt.
+- **From 13:17, linking pitches:** feeling good, he links pitches four and five.
+- **From 13:29, a party above:** a group of four is rappelling from above; he decides they'll take a long time and keeps climbing. From 13:53 he says small stones hit his helmet and warns that this pitch has loose rock.
+- **From 15:45, the descent:** you can rappel from a bit higher on the left or walk the hiking trail from the summit; this time he walks.
+
+When you're alone, whether to wait for the party above is your call alone. The video is a route introduction, the narration never names his devices, and from 16:00 it's a sponsored segment about a food dehydrator. The channel's 2021 [system explainer](https://www.youtube.com/watch?v=O41Rnq4o6cs) uses a GriGri plus a Micro Traxion, and its description says the GriGri was not designed for soloing and that the technique isn't recommended for everyone; whether the 2026 video uses the same setup, it doesn't say.
 
 ```youtube
 url: https://www.youtube.com/watch?v=l68_-amCZl4
@@ -332,7 +365,31 @@ start: 343
 - **Keep redundancy while you ascend.** Use two ascenders plus either backup knots or, as in [Avant's multipitch video](https://www.youtube.com/watch?v=lx0iwchriQ0&t=279s), a third device (a progress capture pulley), so taking one off to pass a piece still leaves two; Avant skips knots below because they snag. For jugging details see [How to Use Aid Climbing Gear](/posts/climbing/2026-10-24-aid-climbing-gear-en).
 - **Treat traverses differently.** If the pitch traverses, Kirkpatrick rappels a separate free-hanging rope instead, to avoid a swing.
 
-In this video from Molladalen, Norway, Øystein Dahl does his first multipitch lead rope solo: a trad ridge of about 200 m that he found easy and had climbed several times, belayed on a Wild Country Revo. From 3:51 he has built a trad anchor at the top of pitch two and fixed the rope, ready to rappel and clean. It is a small vlog channel; watch it for what the process actually looks like.
+**For a bolted multipitch alone, watch this one from Avant.** Brent Barghahn climbs Golden Dog (5.13a) in Sedona, Arizona. The video is about 11 minutes: footage of a complete ascent from about three years ago, with narration added afterward; the danger ranking at the start is the one quoted earlier. The player starts at 0:53: a two-bolt inline ground anchor rides on his harness, and he clips it as he climbs past. The risk, he says, is that you can't weight the system to test it first. Then:
+
+- **From 1:41, linking two pitches:** pitch one is short, so at its anchor he hangs on his PAS and resets his cache loops with both hands, but doesn't fix the rope, and climbs on to the top of pitch two. He says that when lead rope soloing, where the rope is fixed is fairly arbitrary, and more rope in the system actually gives a softer catch.
+- **From 2:27, how many Soft Cinches:** he brings only five quickdraws fitted with a Soft Cinch, placing one about every 3–5 m, and uses plain draws for the rest.
+- **From 2:54, rappelling back:** he fixes the rope at the top of pitch two and, on the way down, re-fixes it at a few draws so the jugging goes more smoothly. These days he pulls the rope tail up and ties it to the rope, one less chance of rappelling on the wrong strand.
+- **From 4:22, ascending:** two ascenders plus a progress capture pulley, the setup described under "Keep redundancy while you ascend" above.
+- **From 5:43, pitch three gets harder:** he fixes the rope at its midpoint, leaving half hanging unused and carrying the other half, with a knot in the end; from the belay to the first bolt is a "do not fall" zone. Before leaving, he cinches the GriGri and weights it as a test, and only then unclips his PAS.
+- **From 9:24, rappelling off:** with no one to check him, he knots the rope ends, weights the rappel before unclipping his PAS, and carries extra ascending gear in case he dead-ends partway down.
+
+This is Avant's own channel; the Comfort Catch absorber and Soft Cinch in the video are its products, and the description links to buy them. He doesn't demonstrate trad multipitch lead rope soloing, only saying you should already be a very advanced trad climber before considering it.
+
+```youtube
+url: https://www.youtube.com/watch?v=lx0iwchriQ0
+title: Multipitch Climbing Without a Partner (Avant Climbing Innovations)
+start: 53
+```
+
+**A first multipitch lead rope solo in the mountains.** This video from Molladalen, Norway, about 15 minutes long, is Øystein Dahl's first multipitch lead rope solo. He had owned his Wild Country Revo for a year before daring to use it. It is early April, the approach is 45 minutes through snow, and there is ice on the route. He deliberately picked a trad ridge of about 200 m that he found easy and had climbed several times. The player starts at 3:51: he has built a trad anchor at the top of pitch two and fixed the rope, ready to rappel and clean. Then:
+
+- **From 4:21, a helicopter:** a rescue helicopter flies into the valley. It is someone else's accident, not his.
+- **From 5:15, pitch three goes up a chimney.**
+- **From 9:05, what his anchor looks like:** an Alien, a nut and one more piece; next he has to rappel more than 50 m to collect his gear. He expected five pitches, but each one ran longer and he topped out in four.
+- **At 11:30, he says the system "actually works really well."**
+
+It is a small vlog channel; watch it for what the process actually looks like. The narration doesn't say how the Revo is attached, whether he ties backup knots, or what he ascends on, so the system details are only in the footage.
 
 ```youtube
 url: https://www.youtube.com/watch?v=h_AE3LKLg2w
@@ -414,6 +471,10 @@ The series started with the [overview](/posts/climbing/2026-10-19-climbing-disci
 - **[TAKEMOVIE](https://www.youtube.com/@TAKEMOVIE)**: a Japanese climbing and mountaineering channel covering big walls, portaledge camping and multipitch rope soloing at Mizugaki and Jōyama. Limits: the videos introduce routes and styles of climbing; they are not technique lessons.
 - **[Avant Climbing Innovations](https://www.youtube.com/@AvantClimbingInnovations)**: the channel of Brent Barghahn's gear company, which makes trad, multipitch and rope solo equipment. Limits: most of the gear shown is its own.
 
+## Update Log
+
+- 2026-10-24: expanded the introductions to all five embedded videos with timestamps, skippable segments and limitations; added TAKEMOVIE's 2021 system explainer; embedded Avant's multipitch video in the multipitch section with a segment guide.
+
 ## References
 
 - [Self-belaying is not authorized for GRIGRI, GRIGRI + and NEOX (Petzl)](https://petzl.com/US/en/Sport/Self-belaying-is-not-authorized-for-GRIGRI--GRIGRI-Plus-and-NEOX)
@@ -444,6 +505,7 @@ The series started with the [overview](/posts/climbing/2026-10-19-climbing-disci
 - [Protection Pulled Out, Inadequate Self-Belay (Slack in Rope) (Accidents in North American Climbing, 1993)](http://publications.americanalpineclub.org/articles/13199305000/Protection-Pulled-Out-Fall-on-Rock-Inadequate-Self-Belay-Slack-in-Rope-California-Yosemite-Valley-El-Capitan)
 - [Fall on Rock—Roped Soloing, Inadequate Protection — Manure Pile Buttress (Accidents in North American Climbing, 2022)](https://publications.americanalpineclub.org/articles/13201216225)
 - [伊豆・城山のマルチピッチクライミングルート『スター☆トレック 』 (TAKEMOVIE, 2026-03, in Japanese)](https://www.youtube.com/watch?v=l68_-amCZl4)
+- [ロープソロ技術を考える -Rope Solo System- ②「実践編」 (TAKEMOVIE, 2021-01, in Japanese)](https://www.youtube.com/watch?v=O41Rnq4o6cs)
 - [How do you climb by yourself... SAFELY??? (HowNOT2, 2024-07)](https://www.youtube.com/watch?v=DHgozZxLbyo)
 - [Send without friends: Lead Rope Solo (HowNOT2, 2024-07)](https://www.youtube.com/watch?v=9NxGPzFSHPU)
 - [Lead Rope Solo from a manufacturer's point of view (EDELRID Knowledge Base, 2025-03)](https://www.youtube.com/watch?v=Q6N1Fav4MaI)
