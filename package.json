@@ -67,7 +67,7 @@
     "@astrojs/react": "^6.0.5",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
-    "@lanefoundry/gatelane-sdk": "github:lanefoundry/gatelane#path:packages/gatelane-sdk",
+    "@lanefoundry/gatelane-sdk": "^0.1.0",
     "@langchain/core": "^1.1.41",
     "@langchain/google-genai": "^2.1.28",
     "@langchain/groq": "^1.2.0",
@@ -146,7 +146,6 @@
       "picomatch": "4.0.3"
     },
     "onlyBuiltDependencies": [
-      "@lanefoundry/gatelane-sdk",
       "simple-git-hooks"
     ]
   }
