@@ -1,0 +1,53 @@
+{
+  "id": "joyama",
+  "title": "城山每週研究",
+  "category": "climbing",
+  "topic": "crags",
+  "tags": [
+    "joyama",
+    "japan"
+  ],
+  "article_paths": [
+    "src/content/posts/climbing/2026-10-12-japan-crag-joyama.md",
+    "src/content/posts/climbing/2026-10-12-japan-crag-joyama-en.md"
+  ],
+  "place_terms": [
+    "城山",
+    "伊豆",
+    "Joyama"
+  ],
+  "query_limit": 4,
+  "known_pages": [
+    "https://blog.hohta.com/archives/4870",
+    "https://blog.muraq.com/post/mt/free_climbing/2454"
+  ],
+  "queries": [
+    {
+      "id": "new-creators",
+      "query": "城山 伊豆 クライミング ルート紹介 新しい動画 Joyama climbing route guide"
+    },
+    {
+      "id": "wildcat",
+      "query": "城山 ワイルドキャットゴージ 地上の星 クライミング ルート 動画",
+      "route": "地上の星"
+    },
+    {
+      "id": "inner-wall",
+      "query": "城山 インナーウォール リバイアサン クライミング ルート 動画",
+      "route": "リバイアサン"
+    },
+    {
+      "id": "access-updates",
+      "query": "城山 伊豆 クライミング 入山 規制 駐車場 アプローチ 最新"
+    }
+  ],
+  "title_terms": [
+    "城山",
+    "Joyama"
+  ],
+  "enabled": true,
+  "known_source_types": [
+    "channel"
+  ],
+  "source_limit": 8
+}

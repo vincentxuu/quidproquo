@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "watch": {
+    "id": "joyama",
+    "title": "城山每週研究",
+    "category": "climbing",
+    "topic": "crags",
+    "tags": [
+      "joyama",
+      "japan"
+    ],
+    "article_paths": [
+      "src/content/posts/climbing/2026-10-12-japan-crag-joyama.md",
+      "src/content/posts/climbing/2026-10-12-japan-crag-joyama-en.md"
+    ],
+    "place_terms": [
+      "城山",
+      "伊豆",
+      "Joyama"
+    ],
+    "channel_limit": 8,
+    "query_limit": 4,
+    "known_pages": [
+      "https://blog.hohta.com/archives/4870",
+      "https://blog.muraq.com/post/mt/free_climbing/2454"
+    ],
+    "queries": [
+      {
+        "id": "new-creators",
+        "query": "城山 伊豆 クライミング ルート紹介 新しい動画 2026 Joyama climbing route guide"
+      },
+      {
+        "id": "wildcat",
+        "query": "城山 ワイルドキャットゴージ 地上の星 クライミング ルート 動画",
+        "route": "地上の星"
+      },
+      {
+        "id": "inner-wall",
+        "query": "城山 インナーウォール リバイアサン クライミング ルート 動画",
+        "route": "リバイアサン"
+      },
+      {
+        "id": "access-updates",
+        "query": "城山 伊豆 クライミング 入山 規制 駐車場 アプローチ 最新 2026"
+      }
+    ],
+    "title_terms": [
+      "城山",
+      "Joyama"
+    ]
+  },
+  "date": "2026-10-24",
+  "run_id": "2026-10-24-joyama-watch",
+  "rotation_week": 2963,
+  "known_channel_count": 61,
+  "selected_channel_count": 8,
+  "requests": [
+    {
+      "id": "channel-src_962940642c98892efbc7",
+      "kind": "channel",
+      "source_id": "src_962940642c98892efbc7",
+      "url": "https://www.youtube.com/channel/UC_ujkeIBtfa036cG75rxaiw",
+      "query": "城山 のぼるきょじん",
+      "title": "のぼるきょじん"
+    },
+    {
+      "id": "channel-src_a5f3919f8e40a361269c",
+      "kind": "channel",
+      "source_id": "src_a5f3919f8e40a361269c",
+      "url": "https://www.youtube.com/channel/UCSJQJUt6eksJjSAZSPQ4XCw",
+      "query": "城山 ちょっとずつ登る",
+      "title": "ちょっとずつ登る"
+    },
+    {
+      "id": "channel-src_a8c3e2641b33c6f7435b",
+      "kind": "channel",
+      "source_id": "src_a8c3e2641b33c6f7435b",
+      "url": "https://www.youtube.com/@mikkokurata3506",
+      "query": "城山 mikko KURATA",
+      "title": "mikko KURATA"
+    },
+    {
+      "id": "channel-src_a9103198c32ef56cba4a",
+      "kind": "channel",
+      "source_id": "src_a9103198c32ef56cba4a",
+      "url": "https://www.youtube.com/channel/UCJcbtaetzJseAjG_wumrIpw",
+      "query": "城山 湯川高之",
+      "title": "湯川高之"
+    },
+    {
+      "id": "channel-src_af62e14f18ca83ee28f5",
+      "kind": "channel",
+      "source_id": "src_af62e14f18ca83ee28f5",
+      "url": "https://www.youtube.com/channel/UCIN9YYiRsGO6R8cjMLNhcmA",
+      "query": "城山 Couzy Nakamura",
+      "title": "Couzy Nakamura"
+    },
+    {
+      "id": "channel-src_b13a646f22293a4b0cf3",
+      "kind": "channel",
+      "source_id": "src_b13a646f22293a4b0cf3",
+      "url": "https://www.youtube.com/channel/UCFjcrY-QhSpHb2HsmMlTOQQ",
+      "query": "城山 Yu Tomio",
+      "title": "Yu Tomio"
+    },
+    {
+      "id": "channel-src_bdd4a8f00f39f0120f7c",
+      "kind": "channel",
+      "source_id": "src_bdd4a8f00f39f0120f7c",
+      "url": "https://www.youtube.com/channel/UCUMb8YzVPO6KPjFlWSAlKHQ",
+      "query": "城山 tagayasuflat",
+      "title": "tagayasuflat"
+    },
+    {
+      "id": "channel-src_be1397cf597fc06da536",
+      "kind": "channel",
+      "source_id": "src_be1397cf597fc06da536",
+      "url": "https://www.youtube.com/channel/UCzQPmLmu9WkW4DDlrF-TQMA",
+      "query": "城山 Climbing Channel (クライミングチャンネル)",
+      "title": "Climbing Channel (クライミングチャンネル)"
+    },
+    {
+      "id": "page-1",
+      "kind": "page",
+      "url": "https://blog.hohta.com/archives/4870",
+      "query": "https://blog.hohta.com/archives/4870"
+    },
+    {
+      "id": "page-2",
+      "kind": "page",
+      "url": "https://blog.muraq.com/post/mt/free_climbing/2454",
+      "query": "https://blog.muraq.com/post/mt/free_climbing/2454"
+    },
+    {
+      "id": "query-new-creators",
+      "kind": "query",
+      "query": "城山 伊豆 クライミング ルート紹介 新しい動画 2026 Joyama climbing route guide"
+    },
+    {
+      "id": "query-wildcat",
+      "kind": "query",
+      "query": "城山 ワイルドキャットゴージ 地上の星 クライミング ルート 動画",
+      "route": "地上の星"
+    },
+    {
+      "id": "query-inner-wall",
+      "kind": "query",
+      "query": "城山 インナーウォール リバイアサン クライミング ルート 動画",
+      "route": "リバイアサン"
+    },
+    {
+      "id": "query-access-updates",
+      "kind": "query",
+      "query": "城山 伊豆 クライミング 入山 規制 駐車場 アプローチ 最新 2026"
+    }
+  ]
+}
