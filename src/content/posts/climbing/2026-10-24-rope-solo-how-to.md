@@ -5,7 +5,7 @@ category: climbing
 tags: [climbing, rope-solo, top-rope, multi-pitch, climbing-gear, outdoor-climbing]
 lang: zh-TW
 type: guide
-description: "一個人帶繩子爬，從頂繩獨攀、單段先鋒獨攀到多繩距獨攀，三層各自的系統長什麼樣、器材怎麼選、廠商准不准你這樣用、AAC 事故報告裡常見的失效方式，以及每層出發前要檢查什麼。搭配 HowNOT2、EDELRID 的示範，以及 El Capitan、Zion、Red Rock、挪威、日本伊豆城山的實地影片。"
+description: "一個人帶繩子爬，從頂繩獨攀、單段先鋒獨攀到多繩距獨攀，三層各自的系統長什麼樣、器材怎麼選、廠商准不准你這樣用、AAC 事故報告裡常見的失效方式，以及每層出發前要檢查什麼。搭配 HowNOT2、EDELRID 的示範，以及 El Capitan、Zion、Red Rock、挪威，以及日本瑞牆山、小川山、伊豆城山等地的實地影片。"
 tldr: "帶繩獨攀分三層，由簡到難：頂繩獨攀（繩子固定在上方，兩個器材跟著你往上）、單段先鋒獨攀（繩尾固定在地面，自己放繩、自己接墜落）、多繩距獨攀（每段爬一次、垂降一次、再爬一次）。多數器材的廠商不支援自我確保：Petzl 明說 GriGri 不是自我確保器材、改裝也不准；有廠商標明可用的只有少數幾款。三層共同的底線是兩套系統、備份結、地面先測，以及不因為趕時間改掉平常的做法。"
 draft: false
 series:
@@ -80,7 +80,8 @@ Brent Barghahn（帶繩獨攀器材商 Avant 的創辦人）這樣排三層：�
 | Petzl Shunt／Rescucender | 繩夾 | 「永遠不要用來自我確保」 | 被身體壓住或被手抓住就不會鎖 |
 | [Edelrid SPOC](https://avs.edelrid.com/images/attribut/54477_GAL_SPOC_ANSICHT.pdf) | 帶齒止退滑輪 | 說明書提到頂繩獨攀，但寫「單一個繩夾不夠安全」 | 動態負載下可能切斷繩子 |
 | [CAMP Lift](https://www.camp.it/api/GetSystemResource/210/1175) | 無齒繩夾 | 用途列繩索作業、樹攀、救援，[說明書](https://manualzz.com/doc/82299935/c.a.m.p.-lift-rope-clamp-owner-s-manual)寫它不適合擋墜落 | 屬於廠商用途以外的用法；有人拿來當上方器材，下方仍要另一個器材 |
-| [Climbing Technology RollNLock](https://www.climbingtechnology.com/en/outdoor-en/pulleys-and-ascenders/pulleys-ascenders/rollnlock) | 帶齒滑輪 | 明寫「不能用於攀登時的自我確保」 | 廠商立場最明確的一款 |
+| [Trango Vergo](https://cdn.shopify.com/s/files/1/0282/7557/2841/files/VERGO_INSTRUCTIONS_updated_address.pdf?v=1614357800) | 輔助制動確保器 | 說明書寫「永遠不要用來帶繩獨攀或自我確保」，也禁止改裝 | 有人拿來先鋒獨攀，屬於廠商明令禁止的用法 |
+| [Climbing Technology RollNLock](https://www.climbingtechnology.com/en/outdoor-en/pulleys-and-ascenders/pulleys-ascenders/rollnlock) | 帶齒滑輪 | 明寫「不能用於攀登時的自我確保」 | 廠商明文禁止 |
 | [AlternativeCurrent SULU GO](https://alternativecurrent.it/en/sulu/) | 繩夾兼確保器 | 標明可用於頂繩獨攀，用的是一般繩夾與確保器標準 | 目前沒有專門給獨攀的標準；用靜力繩時要加 EN 355 緩衝器 |
 | [Stonecrag El Mudo](https://stonecrag.com/products/el-mudo) | 獨攀專用器材 | 為頂繩和先鋒獨攀設計，風險自負 | 繩徑 9.4–10.5 mm |
 | [Roc Amadeus Roc Solo](https://roc-amadeus.fr) | 先鋒獨攀專用確保器 | 第一款有 CE 認證的先鋒獨攀確保器，只限先鋒獨攀 | 廠商仍要求後面要有備份系統 |
@@ -307,6 +308,21 @@ title: Roc Solo vs Silent Partner - I Was NOT Expecting This!（Yann Camus）
 start: 613
 ```
 
+**韓國的例子：用 Trango Vergo 先鋒獨攀，原廠明令禁止。** 韓國職業攀登者 김종식 在首爾佛岩山拍的[這支](https://www.youtube.com/watch?v=UTBvZU8JXNk)約 13 分鐘、韓文，系統解說段有韓英雙語字卡。前 5 分鐘是佛岩山的戶外實攀，5:14 起在室內岩館講系統。播放器從 5:14 開始，他說自己偏好用 Vergo。接著：
+
+- **5:30 起，地面固定點：** 繩尾固定在起點的 bolt，沒有 bolt 就綁樹；6:06 起他說不能只信確保器，第一個 bolt 再用雙套結固定一次。
+- **7:10 起，讓確保器直立：** Vergo 要把握把往上抬才吐得出繩，所以他拆掉握把上的黑色蓋子，穿細繩綁在胸前。
+- **9:39 起，墜落測試：** 10:03 起他提醒，怕了急著扣繩、往上猛拉繩子，確保器就會卡住，要從下面抽繩。
+- **10:26 起，繩重：** 爬到 10 公尺左右，身後的繩子重量會讓吐繩不順；每過兩三個 bolt 就固定一次。
+
+[Trango 的說明書](https://cdn.shopify.com/s/files/1/0282/7557/2841/files/VERGO_INSTRUCTIONS_updated_address.pdf?v=1614357800)寫明「永遠不要用 Vergo 帶繩獨攀或自我確保」，也禁止改裝；他拆蓋子的作法，兩條都犯了。說明欄連到他的攀岩學校課程，也寫了獨攀風險很大、一定要先熟練系統。
+
+```youtube
+url: https://www.youtube.com/watch?v=UTBvZU8JXNk
+title: 나홀로 암벽등반 시스템: 로프 솔로 리드 클라이밍, Vergo와 함께（K Climbing Company）
+start: 314
+```
+
 ### 備份結與鬆繩
 
 Silent Partner 的說明書給了具體數字：確保器和備份結之間最多 40–50 英尺繩子，而且同時保持至少兩個備份結。Kirkpatrick 補充：先打好、扣好新的結，再拆舊的；他說備份結是整套系統裡永遠不能省的東西。
@@ -448,7 +464,7 @@ start: 231
 
 ### 知名路線的獨攀實錄
 
-下面五支都是 2024 年以後，在知名岩壁上一個人帶繩爬的紀錄，旁白都講到系統或出錯的地方。看的時候留意，每一支都有攀登者自己承認的冒險或失誤。四支在美國：亞洲和歐洲的知名岩場也有獨攀影片，但多半只有音樂、沒有旁白，沒辦法核對內容，這次沒有收。
+下面八支都是 2024 年以後，在知名岩壁上一個人帶繩爬的紀錄，旁白或畫面字卡都講到系統或出錯的地方。看的時候留意，每一支都有攀登者自己承認的冒險或失誤。前五支在美國和挪威，後三支在日本。中國、台灣、東南亞 2024 年以後沒有找到能核對內容的帶繩獨攀影片；歐洲的幾支只有音樂、沒有旁白，這次也沒有收。
 
 **El Capitan〈Salathé Wall〉，一天內爬完。** [Brant Hysell](https://www.youtube.com/watch?v=YupCttU7AKY) 一個人爬這條約 35 段的經典大岩壁，用 Silent Partner 確保。影片約 52 分鐘，穿插 Avant 的 Brent Barghahn 講解。Brant 說，在這次之前，他總共大約只獨攀過 20 段。播放器從 1:22 開始，Brent 解釋為什麼一段要走三次。接著：
 
@@ -527,6 +543,50 @@ start: 57
 url: https://www.youtube.com/watch?v=IiJ5R71FT_k
 title: Soloing the North Wall of Kjerag in under 24hrs（Wide Boyz）
 start: 44
+```
+
+**日本：瑞牆山〈調和の幻想〉，花崗岩多繩距經典。** 日本頻道 [Carving My Way](https://www.youtube.com/watch?v=IsiPMGIL4T4) 一個人爬瑞牆山十一面岩末端壁這條 5 段、5.10a 的熱門經典路線。影片約 23 分鐘、日文，畫面字卡標出每一段在做什麼，不懂日文也看得懂流程。他說這是開始做傳攀多繩距獨攀以後的第一個大目標。播放器從 4:09 開始：第一段爬完，他先下到底拿背包，再一邊回收保護點一邊沿繩爬回去。接著：
+
+- **1:13 起，起步沒放保護：** 第一段下方沒有好位置放保護，他先不放保護爬到上面的樹。
+- **2:08 起，確保站：** 他說這裡的固定點是 cut anchor，不太能信任。
+- **9:59 起，爬回去還是上升：** 他說有些地方直接爬回去，說不定比用上升器沿繩上升還輕鬆。
+- **15:55 起，寬裂隙：** 一路推著大 cam 往上爬。
+- **20:21 起，最後一段：** 繩距太長，繩子用掉一半以上，沒辦法直接垂降到底回收，要分兩次。結尾他說這條最辛苦的是沿繩爬回去。
+
+旁白沒講用哪個確保器，說明欄沒有業配。
+
+```youtube
+url: https://www.youtube.com/watch?v=IsiPMGIL4T4
+title: 【瑞牆山マルチ】調和の幻想 ソロクライミング（Carving My Way）
+start: 249
+```
+
+**日本：錫杖岳〈左方カンテ〉，北阿爾卑斯的高山岩壁。** [同一個頻道](https://www.youtube.com/watch?v=crheWP7HqEQ)，影片約 10 分鐘。錫杖岳前衛壁這條熱門路線全程可以自己放保護點；他爬到第 7 段結束，片中說很多人都在這裡收。播放器從 1:15 開始：第一段的確保站，回收後沿繩爬回去。接著：
+
+- **2:57 起，固定點會晃：** 確保站的固定點搖搖晃晃，他慶幸多帶了器材補強。
+- **3:59 起，連爬兩段：** 用掉 60 公尺繩的一半。
+- **5:39 起，保護點很少：** 舊岩釘掛了也沒什麼用，最後只能相信一個不太可靠的保護點往上爬。
+- **7:44 起，越來越累：** 他說沿繩上升越來越吃力。
+
+器材片中沒講；說明欄的指南書是 Amazon 聯盟連結。
+
+```youtube
+url: https://www.youtube.com/watch?v=crheWP7HqEQ
+title: 左方カンテ | 7Pまで | 錫杖岳 | ソロ（Carving My Way）
+start: 75
+```
+
+**日本：小川山〈烏帽子岩左稜線〉，一開始沒上繩的反例。** [同一個頻道](https://www.youtube.com/watch?v=DaMPe6UQBW8)，影片約 20 分鐘。這條長路線照指南書分成 18 段，受高山取向的攀登者歡迎。旁白很少，主要看畫面字卡。播放器從 1:55 開始：第一段他穿著登山鞋、沒上繩就爬；爬到一半變陡，換了攀岩鞋，再往上覺得掉下去就糟了，才決定架確保。他自己說「失敗了」，字卡寫「好像有點太急了，這種時候要刻意多放保護點」。接著：
+
+- **5:20 起，回收後沿繩爬回去：** 畫面拍到繩上的確保器。
+- **15:32 起，繩子卡住：** 繩子卡進岩縫，得回頭處理。
+
+長路線上，容易的段落很容易讓人想乾脆不上繩。這支片把這個念頭和它的後果都拍了下來。
+
+```youtube
+url: https://www.youtube.com/watch?v=DaMPe6UQBW8
+title: 烏帽子岩左稜線 ソロクライミング 【全18ピッチ完登】（Carving My Way）
+start: 115
 ```
 
 ### 多繩距的事故
@@ -620,6 +680,7 @@ start: 340
 
 ## 更新紀錄
 
+- 2026-10-24：〈知名路線的獨攀實錄〉補上日本瑞牆山、錫杖岳、小川山三支；確保器一節加入韓國佛岩山的 Vergo 先鋒獨攀影片，器材表補上 Trango Vergo 的廠商立場。
 - 2026-10-24：新增〈知名路線的獨攀實錄〉一節（El Capitan 兩條、Zion、Red Rock、挪威 Kjerag），並在架固定繩、兩個器材、確保器的選擇、從哪裡開始各節補上 4 支技術影片。
 - 2026-10-24：擴充五支嵌入影片的介紹，補上各段時間點、可以跳過的段落與限制；新增 TAKEMOVIE 2021 年的系統解說片；多繩距一節嵌入 Avant 的多繩距影片並附分段介紹。
 
@@ -668,6 +729,11 @@ start: 340
 - [Petzl’s New Top Rope Solo Method | Sketchy?（Yann Camus，2026-03）](https://www.youtube.com/watch?v=l7EwFS4F20Y)
 - [Roc Solo vs Silent Partner - I Was NOT Expecting This!（Yann Camus，2026-09）](https://www.youtube.com/watch?v=Y1w1HtsWLLo)
 - [Mock Lead Rope Solo at Home // How the System Works（Nitant，2026-05）](https://www.youtube.com/watch?v=peg-HXbh0as)
+- [【瑞牆山マルチ】調和の幻想 ソロクライミング（Carving My Way，2024-06，日文）](https://www.youtube.com/watch?v=IsiPMGIL4T4)
+- [左方カンテ | 7Pまで | 錫杖岳 | ソロ（Carving My Way，2026-06，日文）](https://www.youtube.com/watch?v=crheWP7HqEQ)
+- [烏帽子岩左稜線 ソロクライミング 【全18ピッチ完登】（Carving My Way，2024-04，日文）](https://www.youtube.com/watch?v=DaMPe6UQBW8)
+- [나홀로 암벽등반 시스템: 로프 솔로 리드 클라이밍, Vergo와 함께（K Climbing Company，2024-04，韓文）](https://www.youtube.com/watch?v=UTBvZU8JXNk)
+- [VERGO 使用說明書（Trango，PDF）](https://cdn.shopify.com/s/files/1/0282/7557/2841/files/VERGO_INSTRUCTIONS_updated_address.pdf?v=1614357800)
 - [LOV3 產品頁（TAZ）](https://taz3d.fr/product/lov3/?lang=en)
 - [LOV3 說明書（TAZ，PDF）](https://taz3d.fr/wp-content/uploads/2023/12/NT-taz_lov3_fr_eng-231017.pdf)
 - [無繩獨攀與帶繩獨攀](/posts/climbing/2026-10-19-free-solo-rope-solo)

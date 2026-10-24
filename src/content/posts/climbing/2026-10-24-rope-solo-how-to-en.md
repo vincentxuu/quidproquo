@@ -5,7 +5,7 @@ category: climbing
 tags: [climbing, rope-solo, top-rope, multi-pitch, climbing-gear, outdoor-climbing]
 lang: en
 type: guide
-description: "Climbing alone on a rope, from top-rope soloing to single-pitch lead rope soloing to multipitch: what each system looks like, how to choose the gear, whether the manufacturer allows that use, the failure modes that show up in AAC accident reports, and what to check before you leave the ground. With HowNOT2 and EDELRID demonstrations and field videos from El Capitan, Zion, Red Rock, Norway and Jōyama on Japan's Izu Peninsula."
+description: "Climbing alone on a rope, from top-rope soloing to single-pitch lead rope soloing to multipitch: what each system looks like, how to choose the gear, whether the manufacturer allows that use, the failure modes that show up in AAC accident reports, and what to check before you leave the ground. With HowNOT2 and EDELRID demonstrations and field videos from El Capitan, Zion, Red Rock, Norway, and Japan's Mizugaki, Ogawayama and Izu Jōyama."
 tldr: "Rope soloing comes in three tiers, from simplest to hardest: top-rope soloing (the rope is fixed above you and two devices ride up with you), single-pitch lead rope soloing (the tail is anchored at the base and you feed your own rope and catch your own falls), and multipitch rope soloing (every pitch is climbed once, rappelled once and climbed again). Most devices' makers do not support self-belay: Petzl says the GriGri is not a self-belay device and forbids modifying it, and only a handful of devices are labelled for solo use. The baseline across all three tiers: two systems, backup knots, a test on the ground, and never changing your usual routine because you are in a hurry."
 draft: false
 series:
@@ -80,7 +80,8 @@ First, the uncomfortable part: **most of the devices in your hand were not desig
 | Petzl Shunt / Rescucender | Rope clamp | "Never use for self-belaying" | Won't lock if your body presses on it or you grab it |
 | [Edelrid SPOC](https://avs.edelrid.com/images/attribut/54477_GAL_SPOC_ANSICHT.pdf) | Toothed progress capture pulley | The instructions show top-rope solo but say a single rope clamp "does not provide sufficient safety" | Can cut the rope under dynamic load |
 | [CAMP Lift](https://www.camp.it/api/GetSystemResource/210/1175) | Toothless rope clamp | Sold for rope access, tree climbing and rescue; [the manual](https://manualzz.com/doc/82299935/c.a.m.p.-lift-rope-clamp-owner-s-manual) says it is not suitable to arrest falls | Outside the maker's listed uses; some climbers run it as the top device, always with a second device below |
-| [Climbing Technology RollNLock](https://www.climbingtechnology.com/en/outdoor-en/pulleys-and-ascenders/pulleys-ascenders/rollnlock) | Toothed pulley | States it "cannot be used for self-belaying while climbing" | The most explicit "no" of any maker |
+| [Trango Vergo](https://cdn.shopify.com/s/files/1/0282/7557/2841/files/VERGO_INSTRUCTIONS_updated_address.pdf?v=1614357800) | Assisted-braking belay device | Instructions say "NEVER use the VERGO for rope soloing or self-belaying" and forbid modification | Some people lead solo on it anyway, a use the maker explicitly forbids |
+| [Climbing Technology RollNLock](https://www.climbingtechnology.com/en/outdoor-en/pulleys-and-ascenders/pulleys-ascenders/rollnlock) | Toothed pulley | States it "cannot be used for self-belaying while climbing" | An explicit "no" from the maker |
 | [AlternativeCurrent SULU GO](https://alternativecurrent.it/en/sulu/) | Rope clamp and belay device | Labelled for top-rope solo, certified under the general rope-clamp and belay-device standards | No standard exists for solo use itself; a static rope needs an EN 355 energy absorber |
 | [Stonecrag El Mudo](https://stonecrag.com/products/el-mudo) | Purpose-built solo device | Designed for top-rope and lead soloing; use at your own risk | Rope range 9.4–10.5 mm |
 | [Roc Amadeus Roc Solo](https://roc-amadeus.fr) | Purpose-built lead-solo belay device | The first CE-certified lead-solo belay device; for lead soloing only | The maker still requires a backup system behind it |
@@ -307,6 +308,21 @@ title: Roc Solo vs Silent Partner - I Was NOT Expecting This! (Yann Camus)
 start: 613
 ```
 
+**A Korean example: lead soloing on a Trango Vergo, which the maker forbids.** [This video](https://www.youtube.com/watch?v=UTBvZU8JXNk) by Korean professional climber 김종식 at Seoul's Bulamsan runs about 13 minutes, in Korean, with Korean-English captions during the system explanation. The first five minutes are outdoor climbing at Bulamsan; from 5:14 he explains the system in an indoor gym. The player starts at 5:14, where he says the Vergo is his preferred device. Then:
+
+- **From 5:30, the ground anchor:** the rope end is tied to a bolt at the start, or to a tree if there isn't one; from 6:06 he says you can't trust the device alone, so he also clove-hitches the rope at the first bolt.
+- **From 7:10, keeping the device upright:** the Vergo only pays out rope when its handle is lifted, so he removes the black cap from the handle and ties it to his chest with thin cord.
+- **From 9:39, a test fall:** from 10:03 he warns that if fear makes you yank rope upward to clip in a hurry, the device locks; pull slack from below instead.
+- **From 10:26, rope weight:** about 10 m up, the weight of the rope behind you makes it pay out poorly; he fixes the rope every two or three bolts.
+
+[Trango's instructions](https://cdn.shopify.com/s/files/1/0282/7557/2841/files/VERGO_INSTRUCTIONS_updated_address.pdf?v=1614357800) say "NEVER use the VERGO for rope soloing or self-belaying" and forbid modification; removing the cap breaks both rules. The description links to his climbing school's courses and says soloing is very risky and you must master the system first.
+
+```youtube
+url: https://www.youtube.com/watch?v=UTBvZU8JXNk
+title: 나홀로 암벽등반 시스템: 로프 솔로 리드 클라이밍, Vergo와 함께 (K Climbing Company)
+start: 314
+```
+
 ### Backup knots and slack
 
 The Silent Partner manual gives concrete numbers: no more than 40–50 feet of rope between the device and a backup knot, and at least two backup knots at a time. Kirkpatrick adds: tie and clip the new knot before removing the old one, and calls the backup knot the one component you should never omit.
@@ -448,7 +464,7 @@ start: 231
 
 ### Rope solos on famous routes
 
-The five videos below are all from 2024 or later: one person roped-soloing a well-known wall, with narration that covers the system or what went wrong. Watch for the risks and mistakes each climber admits to. Four are in the US: famous crags in Asia and Europe have rope-solo videos too, but most have only music and no narration, so their content couldn't be checked and they aren't included.
+The eight videos below are all from 2024 or later: one person roped-soloing a well-known wall, with narration or on-screen captions that cover the system or what went wrong. Watch for the risks and mistakes each climber admits to. The first five are in the US and Norway, the last three in Japan. No checkable rope-solo videos from 2024 on turned up for China, Taiwan or Southeast Asia, and the European ones found have only music and no narration, so they aren't included.
 
 **El Capitan, *Salathé Wall*, in a day.** [Brant Hysell](https://www.youtube.com/watch?v=YupCttU7AKY) rope-solos this classic big wall of about 35 pitches on a Silent Partner. The video is about 52 minutes, with commentary from Avant's Brent Barghahn. Brant says that before this he had rope-soloed only about 20 pitches in total. The player starts at 1:22, where Brent explains why each pitch is covered three times. Then:
 
@@ -527,6 +543,50 @@ He doesn't name his devices. The channel belongs to Pete Whittaker and Tom Randa
 url: https://www.youtube.com/watch?v=IiJ5R71FT_k
 title: Soloing the North Wall of Kjerag in under 24hrs (Wide Boyz)
 start: 44
+```
+
+**Japan: Mizugaki, *Chōwa no Gensō*, a granite multipitch classic.** The Japanese channel [Carving My Way](https://www.youtube.com/watch?v=IsiPMGIL4T4) solos this popular 5-pitch 5.10a classic on Mizugaki's Jūichimen-iwa. The video is about 23 minutes, in Japanese, with on-screen captions labeling each step, so the flow is easy to follow without Japanese. He says it was his first big goal after starting trad multipitch soloing. The player starts at 4:09: after pitch one he goes down for his pack, then jugs back up the rope while cleaning the gear. Then:
+
+- **From 1:13, no protection at the start:** there's nowhere good for gear low on pitch one, so he climbs unprotected up to a tree before placing anything.
+- **From 2:08, the anchor:** he says it's a cut anchor and he doesn't really trust it.
+- **From 9:59, climb or jug:** he says in places it may be easier to just climb back up than to ascend the rope.
+- **From 15:55, the wide crack:** he pushes a big cam up the whole way.
+- **From 20:21, the last pitch:** it's so long that more than half the rope is out, so he can't rappel straight to the bottom to clean and has to do it in two goes. At the end he says the hardest part of the route was jugging back up.
+
+He doesn't name his belay device, and the description has no sponsored links.
+
+```youtube
+url: https://www.youtube.com/watch?v=IsiPMGIL4T4
+title: 【瑞牆山マルチ】調和の幻想 ソロクライミング (Carving My Way)
+start: 249
+```
+
+**Japan: Shakujō-dake, *Sahō Kante*, an alpine wall in the Northern Alps.** [The same channel](https://www.youtube.com/watch?v=crheWP7HqEQ), about 10 minutes. This popular route on Shakujō-dake's Zen'ei-heki takes gear the whole way; he stops after pitch 7, where he says many parties finish. The player starts at 1:15: the first anchor, then cleaning and jugging back up. Then:
+
+- **From 2:57, a wobbly anchor:** the anchor pieces wobble, and he's glad he brought extra gear to back them up.
+- **From 3:59, linking two pitches:** using half of a 60 m rope.
+- **From 5:39, sparse protection:** an old piton seems pointless to clip, and in the end he has to trust one dubious placement and climb on.
+- **From 7:44, getting tired:** he says the jugging is getting much harder.
+
+He doesn't name his gear; the guidebook in the description is an Amazon affiliate link.
+
+```youtube
+url: https://www.youtube.com/watch?v=crheWP7HqEQ
+title: 左方カンテ | 7Pまで | 錫杖岳 | ソロ (Carving My Way)
+start: 75
+```
+
+**Japan: Ogawayama, *Eboshi-iwa Left Ridge*, starting without the rope.** [The same channel](https://www.youtube.com/watch?v=DaMPe6UQBW8), about 20 minutes. The guidebook splits this long route into 18 pitches, and it's popular with alpine-minded climbers. There's little narration; the on-screen captions carry it. The player starts at 1:55: he starts pitch one in approach boots with no rope; partway up it steepens, he switches to climbing shoes, and further up decides a fall would be bad and only then ropes up. He calls it a mistake, and a caption says he seems to have rushed and should deliberately place protection at moments like this. Then:
+
+- **From 5:20, jugging back up after cleaning:** the device is visible on the rope.
+- **From 15:32, a stuck rope:** the rope jams in a crack and he has to go back for it.
+
+On a long route, the easy stretches tempt you to skip the rope. This video captures both the temptation and what follows.
+
+```youtube
+url: https://www.youtube.com/watch?v=DaMPe6UQBW8
+title: 烏帽子岩左稜線 ソロクライミング 【全18ピッチ完登】 (Carving My Way)
+start: 115
 ```
 
 ### Multipitch accidents
@@ -620,6 +680,7 @@ The series started with the [overview](/posts/climbing/2026-10-19-climbing-disci
 
 ## Update Log
 
+- 2026-10-24: added three Japanese videos (Mizugaki, Shakujō-dake, Ogawayama) to "Rope solos on famous routes"; added a Korean Vergo lead-solo video at Bulamsan to the device section, and Trango Vergo's position to the gear table.
 - 2026-10-24: added a "Rope solos on famous routes" section (two El Capitan routes, Zion, Red Rock and Kjerag in Norway), plus four technique videos in the fixed-rope, two-devices, device-choice and where-to-start sections.
 - 2026-10-24: expanded the introductions to all five embedded videos with timestamps, skippable segments and limitations; added TAKEMOVIE's 2021 system explainer; embedded Avant's multipitch video in the multipitch section with a segment guide.
 
@@ -668,6 +729,11 @@ The series started with the [overview](/posts/climbing/2026-10-19-climbing-disci
 - [Petzl’s New Top Rope Solo Method | Sketchy? (Yann Camus, 2026-03)](https://www.youtube.com/watch?v=l7EwFS4F20Y)
 - [Roc Solo vs Silent Partner - I Was NOT Expecting This! (Yann Camus, 2026-09)](https://www.youtube.com/watch?v=Y1w1HtsWLLo)
 - [Mock Lead Rope Solo at Home // How the System Works (Nitant, 2026-05)](https://www.youtube.com/watch?v=peg-HXbh0as)
+- [【瑞牆山マルチ】調和の幻想 ソロクライミング (Carving My Way, 2024-06, in Japanese)](https://www.youtube.com/watch?v=IsiPMGIL4T4)
+- [左方カンテ | 7Pまで | 錫杖岳 | ソロ (Carving My Way, 2026-06, in Japanese)](https://www.youtube.com/watch?v=crheWP7HqEQ)
+- [烏帽子岩左稜線 ソロクライミング 【全18ピッチ完登】 (Carving My Way, 2024-04, in Japanese)](https://www.youtube.com/watch?v=DaMPe6UQBW8)
+- [나홀로 암벽등반 시스템: 로프 솔로 리드 클라이밍, Vergo와 함께 (K Climbing Company, 2024-04, in Korean)](https://www.youtube.com/watch?v=UTBvZU8JXNk)
+- [VERGO instructions (Trango, PDF)](https://cdn.shopify.com/s/files/1/0282/7557/2841/files/VERGO_INSTRUCTIONS_updated_address.pdf?v=1614357800)
 - [LOV3 product page (TAZ)](https://taz3d.fr/product/lov3/?lang=en)
 - [LOV3 instructions (TAZ, PDF)](https://taz3d.fr/wp-content/uploads/2023/12/NT-taz_lov3_fr_eng-231017.pdf)
 - [Free Solo and Rope Solo](/posts/climbing/2026-10-19-free-solo-rope-solo-en)
