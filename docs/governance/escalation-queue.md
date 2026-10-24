@@ -497,3 +497,9 @@
 - 依 Q-015／Q-016 已確立的原則（搜尋管道健康但結果品質不足時，寧可不產出也不要放寬門檢湊數字），本次**沒有產出 `src/data/daily-signals/2026-10-19.json`**，`seen-signal-urls.txt` 也未追加任何 URL（避免把這 15 則之外、其實還有效的候選誤標成「已處理」）。
 - 為什麼現在不能做：這不是單一工具故障（Tavily／WebFetch 皆正常），是來源品質問題——AI 新聞聚合生態系這幾天明顯被大量 SEO 回收站／「每日彙整」站稀釋，光靠 `web_search` 的 `timeRange: day` 或結果裡的相對時間戳完全不可信，必須對每個候選都往回查「原始公告／primary source 的實際日期」才能判斷真偽，這個驗證成本遠超單次 routine 預算，且是否要調整 skill 的時效判定方法（例如強制要求候選附上 primary source URL 而非只接受聚合站連結）屬於改 skill 核心邏輯的決定，需要人拍板。
 - 接手第一步：若要直接補今天的信號檔，可從本次已核實為真正新鮮（Oct 17-18 primary source）的候選清單重新開始（Claude Code v2.1.302 Mods／n8n CVE-2026-86074／ARTEX 韓國銀行入侵／Anthropic 律師事務所談判規範／Alibaba OpenGCUA／Gemini 4 Argon 打通 Minecraft／台灣晶片出口限制／ByteDance-MediaTek／Hurotics 韓國／Hex-Rays 以色列／Stripe 收購 OpenRouter／美國資料中心延宕／TechCabal 非洲 AI 新創／世銀泰國小型 AI／Sarvam AI 融資，共 15 則），再補足另外 15-35 則；若要治本，考慮在 `.agents/skills/daily-digest-signals/SKILL.md` 加一條規則：聚合站／彙整頁候選必須點進去找到其引用的 primary source 並以 primary source 的發佈日期為準，聚合站自己標的相對時間戳不可信。
+
+## Q-041 「認識人體」系列：OpenStax 授權（CC BY-NC-SA）與系列登錄
+- 登錄：2026-10-24（來源：對話，order 2〈肌肉怎麼收縮〉審稿）
+- 做什麼：（1）決定本站是否可以改寫 OpenStax《Anatomy and Physiology 2e》這類 CC BY-NC-SA 4.0 教科書內容：NC（非商業）對本站有廣告、聯盟連結或付費內容時是否適用，SA（相同方式分享）是否要求衍生作品標同授權，以及頁面是否要附 "Access for free at …"。（2）核准在 `src/utils/series.ts` 登錄「認識人體」（slug `human-body-basics`）。
+- 為什麼現在不能做：（1）是授權與法務判斷，不是 agent 能下的結論；目前草稿用「改寫」並附授權說明，`draft: true`。（2）登錄系列會改動全站系列清單與 `check:series-plan` 閘門，且 order 0／1 尚未寫，先登錄會讓系列導覽成孤兒。
+- 接手第一步：讀 `.work/series-plans/human-body-basics.md` 與 `.work/how-muscles-contract/review-reports/post-verify.md`（§5 授權）。使用者決定後：授權若不適用，改用自己的例子或換成 CC BY／公領域來源；若適用，補衍生作品授權聲明；再登錄系列並把 `draft` 改 false。
