@@ -138,7 +138,7 @@ The target reader is an engineer who uses LLM APIs and has built or is building 
 | 25 | L22 | Guest: Karthik Narasimhan | Awaiting course release |
 | 26 | L23 | Guest: Sasha Rush | Awaiting course release |
 
-Recording status (official playlist, checked 2026-10-17): L1–L13 have recordings and L14 has slides only. As of the 2026-10-10 check, nothing from L15 on was public yet, and the Assignment 3 repo was not public either (due Oct 29).
+Recording status (official playlist, checked 2026-10-24): L1–L14 all have recordings. As of the 2026-10-10 check, nothing from L15 on was public yet, and the Assignment 3 repo was not public either (due Oct 29).
 
 If you only plan to read a few, start with [lecture 1](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) to get the "six capabilities × two paths" map, then A1 to see what a harness actually looks like, then A2 and the RL lectures to see how evaluation becomes a training signal.
 
@@ -163,6 +163,7 @@ Content check: verified against the video transcript (2026-10-10): This overview
 
 ## Update Log
 
+- 2026-10-24: The Lecture 14 recording is now posted; updated the material status.
 - 2026-10-17: Lectures 11–13 recordings are now posted; updated the material status.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: The official site added slides for lectures 12–14, so this series gains guides to RL Systems, Agent Safety and OpenHands, and the progress table is updated. The official schedule renamed "Sandboxing & Credential Management" to Agent Safety (Oct 6); lecture 13 now covers red teaming, sandboxes, credential brokering, monitoring and safety evaluation, and the schedule's module labels changed to Agent Safety, Agent Frameworks and so on.
