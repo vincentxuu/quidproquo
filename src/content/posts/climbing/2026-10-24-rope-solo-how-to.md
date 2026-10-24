@@ -67,7 +67,7 @@ Brent Barghahn（帶繩獨攀器材商 Avant 的創辦人）這樣排三層：�
 3. **在地面先坐上去測一次。** 器材裝反、凸輪鎖在打開位置，在地面一坐就知道。
 4. **今天想改做法，就不爬。** [第 5 篇整理的三個 AAC 頂繩獨攀案例](/posts/climbing/2026-10-19-free-solo-rope-solo)，都是熟練的人因為風大、趕時間或忘了東西，臨時改了平常的做法。例如 2021 年 Donner Summit 那位用同一套系統爬了十年的攀登者，因為風大、想早點回家，把兩個器材改成一個，結果自由落下約 50 英尺。
 5. **身上帶下降和上升的工具。** [Petzl](https://petzl.com/us/en/sport/tech-tips/expert-techniques/self-belay--solo-climbing-with-one-or-two-fixed-ropes/auto-assurage-2023_SPO_a77Tx00000000KzIAI.html) 建議一定帶一個下降器（例如 GriGri）和一組上升器加繩環，卡在半空時才下得來、上得去。
-6. **戴頭盔。** 2021 年 [Donner Summit 那起墜落](/posts/climbing/2026-10-19-free-solo-rope-solo)的攀登者沒戴。
+6. **戴頭盔。** 2021 年 [Donner Summit 那起墜落](/posts/climbing/2026-10-19-free-solo-rope-solo)的攀登者沒戴，頭盔怎麼挑見〈[第一頂攀岩頭盔怎麼挑](/posts/climbing/2026-10-24-climbing-helmet)〉。
 
 ## 器材：先看廠商准你做什麼
 
@@ -92,7 +92,7 @@ Brent Barghahn（帶繩獨攀器材商 Avant 的創辦人）這樣排三層：�
 - **單段先鋒獨攀：** 一個確保器（專用器材，或你和教練談過的 GriGri 類作法）、胸式吊帶、鋼製鉤環或快扣環（maillon）、架地面固定點的器材、stick clip、繩袋。
 - **多繩距獨攀：** 先鋒那套，加上兩個上升器（或一個上升器加止退器材）、繩梯或腳環、一整套建確保站的器材、一條備用繩。上升器的用法見〈[人工攀登器材怎麼用](/posts/climbing/2026-10-24-aid-climbing-gear)〉。
 
-繩子：先鋒獨攀與多繩距一定用單繩動力繩。頂繩獨攀可以用靜力繩，靜力繩較耐岩角磨損，但要看你的器材說明書：SULU GO 用靜力繩時必須加 EN 355 緩衝器，Silent Partner 禁止用靜力繩。
+繩子：先鋒獨攀與多繩距一定用單繩動力繩。頂繩獨攀可以用靜力繩，靜力繩較耐岩角磨損，但要看你的器材說明書：SULU GO 用靜力繩時必須加 EN 355 緩衝器，Silent Partner 禁止用靜力繩。動力繩怎麼挑見〈[繩子怎麼挑](/posts/climbing/2026-10-24-climbing-rope)〉。
 
 ## 第一層：頂繩獨攀
 
