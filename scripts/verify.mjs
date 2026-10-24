@@ -15,6 +15,7 @@ import { exec, execSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { promisify } from 'node:util';
+import { formatFailure } from './lib/verify-format.mjs';
 
 const ROOT = resolve('.');
 const results = [];
@@ -254,9 +255,8 @@ for (const r of results) {
   process.stdout.write(`${r.ok ? '✅' : '🔴'} ${r.name}\n`);
   if (!r.ok) {
     failed += 1;
-    const indented = r.detail
-      .split('\n')
-      .slice(0, 30)
+    // 只印前 30 行會把 astro check 的錯誤截掉（警告先佔滿），改成錯誤行優先。
+    const indented = formatFailure(r.detail)
       .map((l) => `     ${l}`)
       .join('\n');
     process.stdout.write(`${indented}\n`);
