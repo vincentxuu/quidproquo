@@ -8,7 +8,7 @@ lang: "zh-TW"
 description: "沿著工單讀取路徑檢查 AI 審碼建議，用固定授權矩陣區分缺檢查、部分修補與安全反例，交出可重跑的發現。"
 tldr: "先追身分、物件與回傳路徑，再驗證正常和越權案例。審碼評論只提出假說，實際回覆與獨立政策才決定漏洞是否成立。"
 difficulty: "進階"
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 17

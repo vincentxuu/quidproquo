@@ -8,7 +8,7 @@ lang: "en"
 description: "Preserve original timestamps, collection times, source identity, and event IDs while turning real HTTP audits and a separate synthetic gap fixture into traceable timelines."
 tldr: "Normalize time without discarding provenance. One ticket read establishes that read; an assistant claim, missing logs, and a later denial cannot substitute for the underlying evidence."
 difficulty: "進階"
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 19

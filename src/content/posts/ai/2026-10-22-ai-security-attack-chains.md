@@ -8,7 +8,7 @@ lang: zh-TW
 description: "用一條可重播工單鏈對照公開事件的一手報告，理解編排機制與證據邊界。"
 tldr: "重播工單攻擊鏈，再讀 Anthropic 公開事件報告，分清每一步的證據、人類決策、評測捷徑與供應商觀測限制。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 9

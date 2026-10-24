@@ -8,7 +8,7 @@ lang: "en"
 description: "Trace a ticket read from identity to response, test partial authorization fixes against an independent policy matrix, and produce a reproducible F-17 finding."
 tldr: "Trace identity, object selection, and the return path before testing allowed and forbidden pairs. Review comments propose hypotheses; an independent policy and observed output establish the finding."
 difficulty: "進階"
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 17

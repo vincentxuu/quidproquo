@@ -8,7 +8,7 @@ lang: zh-TW
 description: "用定義變更與不變描述下的行為替換，理解 MCP 各層信任及版本差異。"
 tldr: "分開驗證工具來源、完整定義、權杖受眾與下游動作；雜湊能發現描述變動，無法證明遠端程式維持相同行為。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 13

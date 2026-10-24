@@ -8,7 +8,7 @@ lang: en
 description: "Map a ticket service from two HTTP observations, then adapt the method to a designated training instance or self-hosted cloud lab."
 tldr: "Turn ticket-service documentation and HTTP observations into a source-linked attack surface and choose the next minimal test."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 4

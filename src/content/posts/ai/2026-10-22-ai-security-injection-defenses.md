@@ -8,7 +8,7 @@ lang: zh-TW
 description: "重播同一個跨租戶工具提案，理解外部資料標記、執行授權與輸出通道各自守住什麼。"
 tldr: "把同一筆惡意工具提案交給不同執行路徑，分開檢查模型被帶偏與未授權副作用；提示標記、資料權限與動作批准各有不同工作。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 10

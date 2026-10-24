@@ -8,7 +8,7 @@ lang: "zh-TW"
 description: "把資安助手的查詢、提案、核准與停權分開，用無副作用模擬驗證提案綁定、版本條件與核准重放，再遷移到授權產品。"
 tldr: "調查權限不應自動包含處置權。讓可信執行端核對角色、事件、精確提案與當前狀態，再執行並留下可回查結果。"
 difficulty: "進階"
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 21

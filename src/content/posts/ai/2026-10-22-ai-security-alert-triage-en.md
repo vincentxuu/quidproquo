@@ -8,7 +8,7 @@ lang: "en"
 description: "Use ticket disclosures, blocked attempts, and incomplete observations to practice alert triage with explicit abstention and escalation instead of treating no observed leak as no attack."
 tldr: "Define what the alert detects before separating benign triggers, blocked attacks, and insufficient evidence. An assistant can propose evidence-linked triage; closure requires predefined criteria."
 difficulty: "進階"
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 20

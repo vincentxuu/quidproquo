@@ -8,7 +8,7 @@ lang: en
 description: "Run a bounded response-dependent HTTP loop and inspect planning, execution, verification, and stop conditions."
 tldr: "Build a bounded HTTP testing loop with explicit planner, executor, verifier, trace, and stop conditions."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 8

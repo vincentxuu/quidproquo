@@ -8,7 +8,7 @@ lang: en
 description: "Compare definition drift and changed behavior behind unchanged metadata, with versioned MCP guidance."
 tldr: "Verify tool provenance, complete definitions, token audience, and downstream actions separately. A manifest hash detects metadata changes, not hidden remote behavior changes."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 13

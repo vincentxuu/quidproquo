@@ -8,7 +8,7 @@ lang: zh-TW
 description: "透過 HTML 文字、收件網址與報表操作案例，拆開模型輸出的不同解讀邊界。"
 tldr: "先確認誰解讀模型輸出，再按 HTML、URL 與操作參數各自處理；JSON 合法、文字轉義與資源授權不能互相取代。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 14

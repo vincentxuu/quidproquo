@@ -8,7 +8,7 @@ lang: en
 description: "Run an independent policy matrix against two ticket-service builds and correlate HTTP, audit, and evaluator disagreements."
 tldr: "Replay an independent authorization matrix against real HTTP responses before and after a fix, correlate audit events, and report model behavior, enforcement, and production monitoring separately."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 16

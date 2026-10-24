@@ -8,7 +8,7 @@ lang: en
 description: "Run macOS file and network probes and distinguish environment hygiene, API authority, and full isolation."
 tldr: "Probe OS-enforced file and network denials separately from scoped, expiring authorization. Application allowlists are not OS sandboxes, and transport choices do not restrict process capabilities."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 15

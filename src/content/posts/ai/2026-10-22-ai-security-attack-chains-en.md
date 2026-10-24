@@ -8,7 +8,7 @@ lang: en
 description: "Compare a reproducible ticket chain with a primary incident report to examine orchestration and evidence boundaries."
 tldr: "Replay a ticket attack chain and analyze Anthropic’s public incident report, separating evidence, human decisions, evaluation shortcuts, and visibility limits."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 9

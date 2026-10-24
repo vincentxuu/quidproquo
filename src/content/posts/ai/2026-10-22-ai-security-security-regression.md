@@ -8,7 +8,7 @@ lang: zh-TW
 description: "執行兩版本工單服務的獨立權限矩陣，核對真 HTTP 回應、稽核與評分器分歧。"
 tldr: "用獨立權限矩陣重播修補前後的真 HTTP，核對回應與稽核，再將模型評估、執行邊界與正式監控分開報告。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 16

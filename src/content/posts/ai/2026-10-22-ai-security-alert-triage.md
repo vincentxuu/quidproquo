@@ -8,7 +8,7 @@ lang: "zh-TW"
 description: "用工單越權、遭攔截嘗試與缺失證據案例練習告警分流，保留未判定與人工升級，避免把沒有外洩誤當沒有攻擊。"
 tldr: "先固定告警在偵測什麼，再區分誤報、已擋住的攻擊和證據不足。讓助手提出帶事件依據的分流建議，關單需要符合事先定義的條件。"
 difficulty: "進階"
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 20

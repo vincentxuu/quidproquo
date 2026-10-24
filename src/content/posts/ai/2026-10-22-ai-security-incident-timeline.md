@@ -8,7 +8,7 @@ lang: "zh-TW"
 description: "把同一工單事件的原始時間、收集時間、事件 ID 與來源留下來，從真 HTTP audit 與合成缺口案例產出可回查時間線。"
 tldr: "先保留來源與時區，再排序與關聯請求。工具讀到一張工單只能證明那次讀取；摘要、缺失日誌與修補後拒絕，都不能替代原始證據。"
 difficulty: "進階"
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 19

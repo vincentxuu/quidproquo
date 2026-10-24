@@ -8,7 +8,7 @@ lang: zh-TW
 description: "用雙租戶工單與可直接執行的 Python 範例，釐清身分、租戶、擁有者與後端授權，驗證換 ID 和偽造欄位為何拿不到資料。"
 tldr: "後端從可信認證取得操作身分，再依資源與動作判斷權限。用同租戶且本人擁有的工單政策，驗證允許、跨租戶與同租戶越權。"
 difficulty: 入門
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 1

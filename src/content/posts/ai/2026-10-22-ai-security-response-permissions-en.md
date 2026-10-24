@@ -8,7 +8,7 @@ lang: "en"
 description: "Separate investigation, proposals, approval, and execution with an in-memory account-response simulation that tests exact proposal binding, state revisions, and approval replay."
 tldr: "Investigation access does not imply response authority. A trusted executor must verify role, incident, exact proposal, and current state before applying a change and recording its result."
 difficulty: "進階"
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 21

@@ -11,7 +11,7 @@ series:
   order: 0
 tldr: "Follow one support assistant through AI-assisted vulnerability discovery, protection of AI data and tools, and AI-assisted investigation and remediation. Each path produces reproducible evidence."
 description: "A roadmap for AI Security in Practice: shared foundations in data flow and authorization, three practical paths, and exercises spanning CTFs, self-hosted cloud environments, and authorized systems."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-10-22-ai-security-overview)

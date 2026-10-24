@@ -8,7 +8,7 @@ lang: zh-TW
 description: "實跑 macOS 檔案與網路拒絕探測，並區分環境繼承、API 能力與完整隔離。"
 tldr: "用作業系統限制實測合成檔案與網路，再獨立檢查短效、限資源的授權；程式內允許清單不是 OS 沙盒，通訊方式也不會限制程序能力。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 15

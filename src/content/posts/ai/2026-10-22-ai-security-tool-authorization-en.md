@@ -8,7 +8,7 @@ lang: en
 description: "Use an executable export fixture to examine caller binding, arguments, expiry, and approval replay."
 tldr: "Bind a ticket export to its caller, resource, action, destination, and approval. Test substituted arguments, revocation, expiry, and replay."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 12

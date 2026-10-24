@@ -8,7 +8,7 @@ lang: en
 description: "Follow a hostile attachment and a live-LLM training task to separate untrusted content, tool proposals, and backend effects."
 tldr: "Trace hostile attachments into tool requests and separate model susceptibility from backend data exposure using a live-LLM training lab and HTTP replay."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 7
