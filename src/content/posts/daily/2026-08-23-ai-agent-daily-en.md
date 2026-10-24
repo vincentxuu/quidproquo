@@ -6,7 +6,7 @@ type: digest
 tags: [ai-agent, daily]
 lang: en
 description: "The open-source ecosystem is outpacing official offerings at scale, but the same expanding pool of skills and MCP servers is becoming the new attack surface security scanners are targeting"
-tldr: "Omnigent, AWS Strands Agent Tools, and MLflow all disclosed CVEs rooted in the same cause — trusting tenant-supplied configs and parameters — as the cost of agent ecosystem scaling comes due all at once; opencode's star count (~199k) has overtaken Anthropic's own Claude Code (~142k), and Bruno's community MCP server shipped two months ahead of the official version, proving community iteration speed now outpaces brand authority; NVIDIA open-sourced SkillSpector and found 26.1% of public skills contain vulnerabilities with 5.2% suspected malicious — 'which skill to install' is shifting from a trust decision to a security verification decision; OpenAI officially cut GPT-5.6 Sol standard rates by 20–33% to counter competitive pressure from Anthropic and Chinese models"
+tldr: "Omnigent, AWS Strands Agent Tools, and MLflow all disclosed CVEs rooted in the same cause — trusting tenant-supplied configs and parameters — as the cost of agent ecosystem scaling comes due all at once; opencode's star count (~199k) has overtaken Anthropic's own Claude Code (~142k), and Bruno's community MCP server shipped two months ahead of the official version, proving community iteration speed now outpaces brand authority; NVIDIA open-sourced SkillSpector, a pre-install skill scanner, and its README cites an arXiv study (SkillScan, 31,132 skills) finding 26.1% contain at least one vulnerability and 5.2% show high-severity patterns strongly suggesting malicious intent — 'which skill to install' is shifting from a trust decision to a security verification decision; OpenAI officially cut GPT-5.6 Sol standard rates by 20–33% to counter competitive pressure from Anthropic and Chinese models"
 draft: false
 series:
   name: "AI Daily"
@@ -25,7 +25,7 @@ I believe today's events, read together, point to a clear but underestimated inf
 
 Evidence A: opencode, now under Anomaly, has surpassed Anthropic's own Claude Code in stars (~199k vs ~142k); Bruno's community MCP server (`bruno-mcp-studio`) shipped a "no CLI required, feature-parity" version two months before the official one. This is classic network effects — more contributors, faster release cadence — letting community forks out-iterate the brand itself. Users no longer grant extra trust just because something says "official."
 
-Evidence B: But the flip side of those same network effects is that rapid scaling creates unvalidated attack surfaces. Omnigent reached 9,100+ stars within about two months of launch, and all three critical CVEs share the same root cause: over-trusting content uploaded by tenants — the classic cost of "grow fast, audit later." AWS Strands Agents Tools collected four independent CVEs in 23 days, with the same consistent root cause: security-sensitive parameters exposed as LLM-controllable tool schema inputs. NVIDIA then open-sourced SkillSpector to scan public skills for Claude Code, Codex, and Gemini CLI, finding 26.1% contain vulnerabilities and 5.2% are suspected malicious — a direct quantification of "ecosystem scaling speed far outpacing verification speed."
+Evidence B: But the flip side of those same network effects is that rapid scaling creates unvalidated attack surfaces. Omnigent reached 9,100+ stars within about two months of launch, and all three critical CVEs share the same root cause: over-trusting content uploaded by tenants — the classic cost of "grow fast, audit later." AWS Strands Agents Tools collected four independent CVEs in 23 days, with the same consistent root cause: security-sensitive parameters exposed as LLM-controllable tool schema inputs. NVIDIA then open-sourced SkillSpector, which scans skills used by Claude Code, Codex, and Gemini CLI before installation. Its README cites the empirical study arXiv:2601.10338 (the researchers ran their own SkillScan over 31,132 skills from two marketplaces): 26.1% contain at least one vulnerability, and 5.2% show high-severity patterns strongly suggesting malicious intent. Those figures come from that study, not from SkillSpector's own scan results, but they still support the point that ecosystem scaling speed is outpacing verification speed.
 
 What this means for practitioners: You can no longer use "high star count" or "looks widely adopted" as a quality proxy when choosing MCP servers or skills. The faster a project grows, the more likely it hasn't been caught up to by security audits. Active scanning (SkillSpector, Check Point/Lakera's b3 benchmark) is shifting from a nice-to-have to a mandatory pre-deployment step in production environments.
 
@@ -108,7 +108,7 @@ Shin Cheng Industrial shared a four-phase Agentic AI transformation playbook —
 | Item | Number | Source |
 |------|--------|--------|
 | opencode vs Claude Code stars | ~199k vs ~142k | [AI Agent GitHub Digest](/posts/daily/2026-08-23-ai-agent-github-digest) |
-| SkillSpector scan results | 26.1% vulnerable, 5.2% suspected malicious | [GitHub](https://github.com/nvidia/skillspector) |
+| arXiv:2601.10338 study results (cited in SkillSpector README) | 26.1% vulnerable, 5.2% high-severity and strongly suggesting malicious intent | [arXiv](https://arxiv.org/abs/2601.10338) |
 | Omnigent highest CVE severity | CVSS 9.0 | [Security alert](/posts/daily/2026-08-23-security-omnigent-agent-bundle-rce) |
 | GPT-5.6 Sol official rate cut | Input ↓20%, Output ↓33% | [Pricing tracker](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut) |
 | BPS skill selection token savings | ↓28% (success rate 0.73 vs rivals 0.20–0.52) | [AI Agent Arxiv Digest](/posts/daily/2026-08-23-ai-agent-arxiv-digest-en) |
@@ -125,13 +125,17 @@ Shin Cheng Industrial shared a four-phase Agentic AI transformation playbook —
 
 ## Tomorrow's Watch
 
-- After SkillSpector's open-source release, will more public skill registries (PulseMCP, Glama) follow up with batch scanning to validate the "26.1% vulnerable" figure across a larger sample?
+- After SkillSpector's open-source release, will more public skill registries (PulseMCP, Glama) follow up with batch scanning to validate the arXiv study's "26.1% vulnerable" figure across a larger sample?
 - Now that opencode has overtaken Claude Code in stars, will Anthropic respond with changes to Claude Code's extensibility or ecosystem strategy?
 - After OpenAI's GPT-5.6 Sol price cut, will Anthropic and Chinese model camps (DeepSeek, Qwen) make corresponding price moves?
 
 ## Today's Takeaway
 
 I previously assumed AI governance would clearly lag behind technical evolution, requiring new legislation before meaningful regulation could happen. Today's observations — Reka AI's risk governance framework and the insight that data center regulation has existing templates to follow without new laws — made me realize that in at least some domains, regulators can bridge the gap by applying existing regulatory toolboxes (consumer protection, environmental review, energy regulations) rather than waiting for AI-specific legislation.
+
+## Update Log
+
+- 2026-10-24: Corrected the attribution of "26.1% vulnerable, 5.2% suspected malicious." The figures come from arXiv:2601.10338 (SkillScan over 31,132 skills); SkillSpector's README only cites them, and they are not SkillSpector scan results. "Suspected malicious" now follows the paper's wording: high-severity patterns strongly suggesting malicious intent.
 
 ## References
 
@@ -147,6 +151,7 @@ I previously assumed AI governance would clearly lag behind technical evolution,
 - [Sourcegraph Blog: Claude Code File Picker](https://sourcegraph.com/blog)
 - [TrueFoundry: Graph Engineering](https://www.truefoundry.com/blog/graph-engineering-ai-agent-governance)
 - [NVIDIA SkillSpector](https://github.com/nvidia/skillspector)
+- [Agent Skills in the Wild: An Empirical Study of Security Vulnerabilities at Scale (arXiv:2601.10338)](https://arxiv.org/abs/2601.10338)
 - [SenseTime SenseNova U1.5 Lite](https://www.sensetime.com/cn/news)
 - [Shin Cheng Industrial Agentic AI Transformation — iThome](https://www.ithome.com.tw)
 - [Reka AI Responsible AI Governance Framework](https://www.reka.ai)
