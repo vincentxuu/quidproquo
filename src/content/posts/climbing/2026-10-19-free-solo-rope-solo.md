@@ -34,7 +34,7 @@ glossary:
 
 2026 年 1 月 25 日早上 9 點，Alex Honnold 開始不帶繩爬台北 101，1 小時 31 分後站上塔尖。Netflix 全球直播，畫面延遲 10 秒，萬一他掉下來，可以在觀眾看到之前切掉（[維基百科 Skyscraper Live 條目](https://en.wikipedia.org/wiki/Skyscraper_Live_(2026))）。
 
-這是很多台灣人第一次認真看無繩獨攀（free solo）。這篇是「[其他攀登類型](/posts/climbing/2026-10-19-climbing-disciplines-overview)」系列最後一篇，放在最後是因為它不是「下一步」。這篇不教怎麼開始無繩獨攀，也不教帶繩獨攀怎麼架設；只講事故資料、倫理爭議，以及為什麼一個人帶著繩子也有自己的風險。
+這是很多台灣人第一次認真看無繩獨攀（free solo）。這篇是「[其他攀登類型](/posts/climbing/2026-10-19-climbing-disciplines-overview)」系列第 5 篇，放在後面是因為它不是「下一步」。這篇不教怎麼開始無繩獨攀，只講事故資料、倫理爭議，以及為什麼一個人帶著繩子也有自己的風險；帶繩獨攀怎麼做，見[第 6 篇〈帶繩獨攀怎麼做〉](/posts/climbing/2026-10-24-rope-solo-how-to)。
 
 ## 它是什麼、邊界在哪
 
@@ -96,7 +96,7 @@ Honnold 和 Netflix 宣稱台北 101 是史上最大的城市無繩獨攀，[Out
 
 帶繩獨攀（rope solo）是沒有確保者、一個人用繩子和器材替自己做保護。最常見的是頂繩獨攀（top-rope solo，TRS）：先在路線上方架好固定的繩子，用器材夾在繩上，爬的時候器材跟著往上，墜落時鎖住。
 
-[AAC 2025 年 2 月的事故專欄](https://americanalpineclub.org/news/2025/2/11/the-prescription)說，頂繩獨攀讓人在沒有繩伴時也能自我確保，或讓繩隊分頭練習路線的片段；[2023 年 2 月那篇](https://americanalpineclub.org/news/2023/2/27/the-prescriptiontoprope-soloingfebruary-2023)則說相關事故似乎在增加，2019 到 2021 年《Accidents》收錄了四起。這篇不講怎麼架；如果你想做，請找會的人當面學。這裡只講 AAC 記錄的事故有什麼共同點。
+[AAC 2025 年 2 月的事故專欄](https://americanalpineclub.org/news/2025/2/11/the-prescription)說，頂繩獨攀讓人在沒有繩伴時也能自我確保，或讓繩隊分頭練習路線的片段；[2023 年 2 月那篇](https://americanalpineclub.org/news/2023/2/27/the-prescriptiontoprope-soloingfebruary-2023)則說相關事故似乎在增加，2019 到 2021 年《Accidents》收錄了四起。系統怎麼架、器材怎麼選，見〈[帶繩獨攀怎麼做](/posts/climbing/2026-10-24-rope-solo-how-to)〉；第一次做之前，請找會的人當面學。這裡只講 AAC 記錄的事故有什麼共同點。
 
 **案例一：2023 年加州 Sierra 的 Valkyrie。** 一名攀登者沿固定繩往上，只用了一個器材，頂繩獨攀用的一條吊帶被捲進器材、卡住齒輪，器材沒有咬住繩子，她墜落約 30 英尺到地面。AAC 的分析：錯在只用一個器材、沒打備份結。她自己說，那是她第一次只用一個器材。
 
@@ -148,7 +148,11 @@ AAC 的資料顯示，無繩獨攀死亡常發生在熟練者熟悉的中等路�
 
 ## 系列回顧
 
-這個系列從[總覽](/posts/climbing/2026-10-19-climbing-disciplines-overview)開始，依序是[深水獨攀](/posts/climbing/2026-10-19-deep-water-soloing)、[大岩壁與人工攀登](/posts/climbing/2026-10-19-big-wall-aid-climbing)、[冰攀](/posts/climbing/2026-10-19-ice-mixed-climbing)、[高山攀登](/posts/climbing/2026-10-19-alpine-climbing)，最後是這篇。前四篇是「下一個可以練的方向」，這篇是一道讀完前面才看得懂的風險題：保護方式越少，留給失誤的空間就越小。
+這個系列從[總覽](/posts/climbing/2026-10-19-climbing-disciplines-overview)開始，依序是[深水獨攀](/posts/climbing/2026-10-19-deep-water-soloing)、[大岩壁與人工攀登](/posts/climbing/2026-10-19-big-wall-aid-climbing)、[冰攀](/posts/climbing/2026-10-19-ice-mixed-climbing)、[高山攀登](/posts/climbing/2026-10-19-alpine-climbing)，接著是這篇，最後是[帶繩獨攀怎麼做](/posts/climbing/2026-10-24-rope-solo-how-to)。前四篇是「下一個可以練的方向」，這篇是一道讀完前面才看得懂的風險題：保護方式越少，留給失誤的空間就越小。下一篇把帶繩獨攀的失效方式，對應到三種做法各自的器材與出發前檢查。
+
+## 更新紀錄
+
+- 2026-10-24：新增第 6 篇〈帶繩獨攀怎麼做〉，開頭、帶繩獨攀段落與系列回顧改為連到新篇；本篇事實未重新核對
 
 ## 參考資料
 

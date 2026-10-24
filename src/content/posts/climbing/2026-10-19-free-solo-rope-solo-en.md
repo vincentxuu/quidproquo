@@ -34,7 +34,7 @@ glossary:
 
 At 9 a.m. on 25 January 2026, Alex Honnold started climbing Taipei 101 without a rope. An hour and 31 minutes later he stood on the spire. Netflix streamed it live worldwide on a 10-second delay, so that if he fell, the feed could be cut before viewers saw it ([Wikipedia: Skyscraper Live](https://en.wikipedia.org/wiki/Skyscraper_Live_(2026))).
 
-For many people in Taiwan, this was the first time they watched free soloing closely. This is the last post in the [Other Climbing Disciplines](/posts/climbing/2026-10-19-climbing-disciplines-overview-en) series, and it comes last because it is not a "next step". It does not teach you how to start free soloing, and it does not explain how to rig a rope solo. It covers accident data, the ethics debate, and why climbing alone on a rope has its own risks.
+For many people in Taiwan, this was the first time they watched free soloing closely. This is part 5 of the [Other Climbing Disciplines](/posts/climbing/2026-10-19-climbing-disciplines-overview-en) series, and it comes late because it is not a "next step". It does not teach you how to start free soloing. It covers accident data, the ethics debate, and why climbing alone on a rope has its own risks; for how to rope solo, see [part 6, How to Rope Solo](/posts/climbing/2026-10-24-rope-solo-how-to-en).
 
 ## What it is, and where the edges are
 
@@ -96,7 +96,7 @@ Honnold and Netflix claimed Taipei 101 was the biggest urban free solo in histor
 
 Rope soloing means climbing without a belayer, protecting yourself with a rope and devices. The most common form is top-rope soloing (TRS): you rig a fixed rope above the route, attach devices to it that slide up as you climb, and the devices lock the rope if you fall.
 
-[The AAC's February 2025 accident column](https://americanalpineclub.org/news/2025/2/11/the-prescription) says top-rope soloing lets people self-belay when they have no partner, or lets a team split up to rehearse sections of a route. [The February 2023 column](https://americanalpineclub.org/news/2023/2/27/the-prescriptiontoprope-soloingfebruary-2023) says top-rope solo mishaps seem to be on the rise: *Accidents* recorded four from 2019 through 2021. This post doesn't explain how to rig it. If you want to do it, learn in person from someone who knows how. Here we look only at what the AAC's recorded accidents have in common.
+[The AAC's February 2025 accident column](https://americanalpineclub.org/news/2025/2/11/the-prescription) says top-rope soloing lets people self-belay when they have no partner, or lets a team split up to rehearse sections of a route. [The February 2023 column](https://americanalpineclub.org/news/2023/2/27/the-prescriptiontoprope-soloingfebruary-2023) says top-rope solo mishaps seem to be on the rise: *Accidents* recorded four from 2019 through 2021. For how to rig the systems and choose the gear, see [How to Rope Solo](/posts/climbing/2026-10-24-rope-solo-how-to-en); before your first time, learn in person from someone who knows how. Here we look only at what the AAC's recorded accidents have in common.
 
 **Case 1: Valkyrie, California Sierra, 2023.** A climber was ascending a fixed rope with only one device. A sling from her top-rope solo setup got pulled into the device and jammed its cam, so the device never gripped the rope. She fell about 30 feet to the ground. The AAC's analysis: the error was using one device with no backup knot. She said it was the first time she had used only one device.
 
@@ -148,7 +148,11 @@ This is almost a replay of the AAC's 2023 case: a familiar system, wind and a ru
 
 ## Series recap
 
-This series started with the [overview](/posts/climbing/2026-10-19-climbing-disciplines-overview-en), then covered [deep water soloing](/posts/climbing/2026-10-19-deep-water-soloing-en), [big wall and aid climbing](/posts/climbing/2026-10-19-big-wall-aid-climbing-en), [ice climbing](/posts/climbing/2026-10-19-ice-mixed-climbing-en), [alpine climbing](/posts/climbing/2026-10-19-alpine-climbing-en), and finally this post. The first four are directions you can train toward next. This one is a risk lesson that only makes sense after the others: the less protection you use, the less room you leave for mistakes.
+This series started with the [overview](/posts/climbing/2026-10-19-climbing-disciplines-overview-en), then covered [deep water soloing](/posts/climbing/2026-10-19-deep-water-soloing-en), [big wall and aid climbing](/posts/climbing/2026-10-19-big-wall-aid-climbing-en), [ice climbing](/posts/climbing/2026-10-19-ice-mixed-climbing-en), [alpine climbing](/posts/climbing/2026-10-19-alpine-climbing-en), then this post, and finally [How to Rope Solo](/posts/climbing/2026-10-24-rope-solo-how-to-en). The first four are directions you can train toward next. This one is a risk lesson that only makes sense after the others: the less protection you use, the less room you leave for mistakes. The next post maps the rope-solo failure modes onto the gear and pre-climb checks for each of the three approaches.
+
+## Update Log
+
+- 2026-10-24: added part 6, How to Rope Solo; the opening, the rope-solo section and the series recap now link to it. Facts in this post were not re-checked.
 
 ## References
 
