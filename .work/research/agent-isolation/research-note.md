@@ -10,7 +10,9 @@
 |---|---|---|---|
 | S1 | OpenAI〈Securing our frontier model training environment〉2026-10-23 https://openai.com/index/securing-our-frontier-model-training-environment/ | ✅ 全文（Groundlane web_content，you＋keenable 兩個擷取互相一致） | 系列主案例 |
 | S2 | OpenAI Alignment〈An agent used DNS to reach an external chatbot〉2026-09-20 事件、09-25 更新 https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/ | ✅ 全文 | order 4 |
-| S3 | OpenAI〈The Hugging Face incident and the road ahead〉2026-07 事件 https://openai.com/index/hugging-face-incident-and-the-road-ahead/ | 🟡 部落格前半（約 14k／57k 字元）；完整技術報告與 METR／Redwood 獨立報告未讀 | order 4 |
+| S3 | OpenAI 7/21 事件說明（含 7/28、7/29 更新）與 8/26〈The Hugging Face incident and the road ahead〉 | ✅ 7/21 全文；8/26 部落格全文（技術報告 PDF 與 METR／Redwood 獨立報告未讀） | order 4、5 |
+| S16 | Hugging Face 技術時間線 huggingface.co/blog/agent-intrusion-technical-timeline | 🟡 TL;DR 與 Stage 1／Stage 2（前約 12k／60k 字元），order 4 查證者另讀 | order 4 |
+| S17 | Linux 核心 hw-vuln：core-scheduling、attack_vector_controls | ✅ 兩頁全文 | order 5 |
 | S4 | Kata Containers 安全公告 GHSA-wwj6-vghv-5p64（CVE-2026-24834） | ✅ 全文 | order 1：容器→guest microVM，公告明寫不影響 host 與其他 VM |
 | S5 | arXiv 2607.17518〈Isolation Failure From Shared Storage: … Page-Cache SCA Leakage Across Containers and VMs〉2026-07-20 | ✅ HTML v2 全文（含威脅模型、實驗 1–4、結論），order 2 查證者另全文重讀 | order 2、5：共用 host page cache 的訊號跨 Docker／gVisor／Kata／Firecracker 持續；direct I/O 與專用 block device 大幅衰減或消除 |
 | S6 | Firecracker `docs/prod-host-setup.md` | ✅ 全文（raw.githubusercontent.com 直接下載），含 side channel、SMT、KSM、Rowhammer 小節 | order 1、5：Firecracker 自述「無法緩解 host 硬體弱點」「建議每個 Firecracker 行程只服務單一租戶」「noisy-neighbour page cache 會拖慢其他 guest」 |
