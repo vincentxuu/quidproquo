@@ -99,3 +99,11 @@ register-scan：燒山季段數字 13 個，拆成兩段；未翻譯的 theCrag 
 - 🟢 影片 metadata：yt-dlp -j 逐支讀 upload_date、playable_in_embed（18 支皆 True）、description。
 - 🟢 Vertical Life：Main wall 由左到右 5b→8a+、Headhunters 三段到馬頭岩頂、Tamarind 學校團體 11–2 月、Air Con Wall 熱季、蜜蜂帆狀巢與立即下降、Crag Finder app。
 - 🟢 The Wandering Climber 日照：主壁朝南 11 點起曬、Aircon 中午陰、Hanging Gardens／Junkyard 下午陰、Heart Wall 整天陰（curl 原頁核對）。
+
+## 2026-10-24 影片第二輪（使用者：「影片好少」）
+
+- 查找範圍擴大：表格 70 個路線名各搜一次（`ytsearch10:"<路線名>" Crazy Horse climbing`）；泰、日、韓、中文與年份、子區名 28 組查詢（ytsearch25）；已收影片的 12 個頻道全部上傳列表（659 支）。去重後 960 支候選。
+- 篩選：標題或描述能對上表格具名路線才進路線表；岩場整體、洞穴、打栓類放 `<details>`。排除同名非攀岩影片（Crazy Horse Memorial、樂團、遊戲等）與無描述、無法判定內容的片。
+- 新增 12 支路線影片（In Deep Space、Trojan Horse、Dtat Sin Jai、Jai Yen Yen、Dtang Jai、Mun Jai、Jai Glah Reu Plao ×2、All Quiet、Freeblast ×2、A Wild Ride）與 8 支整體／洞穴影片；合計路線影片 29 支、非路線 9 支。分級表加回 Dtat Sin Jai（6c+、14 m、★★，JSON 核對）。
+- build 後逐列確認：中英各 28 列掛上影片，合計 41 個影片位置（同一支片可掛多列）。
+- 只核對 metadata（yt-dlp -j：上傳日期、可嵌入、描述），未看片。

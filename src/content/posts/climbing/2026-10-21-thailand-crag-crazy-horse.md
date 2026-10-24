@@ -46,6 +46,16 @@ draft: false
 
 **吸引力在於密度。** climbgrades 寫初階路線的岩栓約 1 到 1.5 公尺一支、runout 罕見；同一份指南也說得直接：大部分路線在 5 到 7a+，7b 以上很少。**會在室內先鋒 6a，和能在洞穴裡帶完一條 4 段線再垂降出來，是兩件不同的事。** 第一次來，先在 Little Monkey Cove 或 Tamarind Village 爬幾條短線熟悉岩性，再決定要不要進洞。
 
+<details><summary>看岩場整體的影片（vlog、新手第一次、打栓）</summary>
+
+```video-gallery
+key: crazy-horse
+lang: zh-TW
+ids: 8Cb4L-e58ew, WDCKUqbbl7M, 0cY0NBVw2Ow, p5hV1EE5vpw, u4Sx-uQpW9E, YcUNcyneGOA
+```
+
+</details>
+
 ## 什麼季節去
 
 清邁的旺季在 11 月到 2 月，乾、涼。chiangmai.net 的氣候資料顯示這段時間白天約 28–33°C、夜間約 15–16°C。
@@ -136,7 +146,17 @@ ids: Z35VDZMsSi8
 
 **季節性避爬：鳥巢與蜂巢。** theCrag 的路線警告（2026-10-21 讀取）：Heart Wall 的 Mar Jark Jai、Deung Duut Jai 因附近鳥巢「請避開兩個月」，Tang Jai 的大岩片後面有正在孵蛋的貓頭鷹巢；Reunion Buttress 的 Sweet Harmony 有黃蜂巢；唯一的 8a+ 備註只有一句「小心蜜蜂」。這些警告沒有標日期，到現場先看。Vertical Life 的說法更直接：涼季時大型的亞洲蜜蜂會在路線頂端築帆狀巢，看到蜂群像波浪一樣同步晃動就**立刻下降**，曾有人被叮上百次；雨季則是黃蜂躲在裂縫裡。
 
-**固定點與裝備。** Vertical Life 報導當地每年巡檢、用不鏽鋼更換岩栓；theCrag 沒有逐條標岩栓材質，但 Crazy Horse Area 的 **The Beehouse（6c+）被標了「很多岩栓鬆動」**。climbgrades 建議 **70 公尺繩（60 公尺可爬約九成路線，少數延伸段要 80 公尺）、14 到 18 支快扣、頭盔**。In Deep Space 的備註寫「鬆石很多，拉之前先檢查，戴頭盔」；洞穴的多段線要垂降回洞底，先確認繩長和下降路線。洞頂的橫移線（Anxiety State Crisis、Sunseeker、Space Manoeuvres）墜落後可能懸空、回不到岩面，UKC 2011 年的介紹建議帶 prusik，Vertical Life 也說只適合有經驗的繩隊、要會用繩上攀。Heart Wall 的 Peaun Jai Rai 備註還提醒：**確保點有時會有猴子想偷東西**。
+**固定點與裝備。** Vertical Life 報導當地每年巡檢、用不鏽鋼更換岩栓；theCrag 沒有逐條標岩栓材質，但 Crazy Horse Area 的 **The Beehouse（6c+）被標了「很多岩栓鬆動」**。climbgrades 建議 **70 公尺繩（60 公尺可爬約九成路線，少數延伸段要 80 公尺）、14 到 18 支快扣、頭盔**。In Deep Space 的備註寫「鬆石很多，拉之前先檢查，戴頭盔」；洞穴的多段線要垂降回洞底，先確認繩長和下降路線。洞頂的橫移線（Anxiety State Crisis、Sunseeker、Space Manoeuvres）墜落後可能懸空、回不到岩面，UKC 2011 年的介紹建議帶 prusik，Vertical Life 也說只適合有經驗的繩隊、要會用繩上攀。
+
+<details><summary>看洞穴裡攀登的影片</summary>
+
+```video-gallery
+key: crazy-horse
+lang: zh-TW
+ids: sRX3mNIFFTM, mGog7jqO_Qw
+```
+
+</details>Heart Wall 的 Peaun Jai Rai 備註還提醒：**確保點有時會有猴子想偷東西**。
 
 緊急狀況撥 **1669**（衛生部的緊急醫療專線，免費，會轉送最近的醫院）；需要英語協助可撥觀光警察 **1155**（GOV.UK 醫療指引；泰國政府公關局 2025-11 公告）。出發前存好泰文岩場名 หน้าผาม้าพยศ、子區名與離線地圖。保險則向自己的承保公司確認**運動攀登、多段、搜救、醫療和送返**是否在保障內；CMRCA 帶爬行程含攀岩保險，自己去就沒有。
 
@@ -146,7 +166,7 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 **這些表全部取自 theCrag 16 個子區的逐條路線頁（2026-10-21 讀取）**，每級挑星等高、或有具體描述的路線，不是全部列出。備註的 ★ 是 theCrag 的星等；沒寫星的是 theCrag 沒有評星。多段線的難度欄寫最難的一段，長度欄寫總長與段數。theCrag 另有 2 條抱石（V4、V5），資料太少，本篇不列。
 
-有影片的路線，表格最右邊會多一欄「影片」，點縮圖開這條路線的影片清單。這些影片只核對過標題、頻道、上傳日期與作者描述，**沒有逐支看完**，備註只寫 metadata 撐得住的內容。有幾支和表格不同：Dee Jai Tee Dai Geud 的影片片名寫成 Happy to Be Alive、5.11a；The Tree Surgeon 有兩支片名標 6c，theCrag 是 6c+；Sport Satay 和 Sandbag 各有一支是頂繩。影片標題的級數與路線名只代表該片版本，選線仍以表格的來源欄為準。
+有影片的路線，表格最右邊會多一欄「影片」，點縮圖開這條路線的影片清單。這些影片只核對過標題、頻道、上傳日期與作者描述，**沒有逐支看完**，備註只寫 metadata 撐得住的內容。有幾支和表格不同：Dee Jai Tee Dai Geud 的影片片名寫成 Happy to Be Alive、5.11a；The Tree Surgeon 有兩支片名標 6c，theCrag 是 6c+；Sport Satay 和 Sandbag 各有一支是頂繩；Jai Glah Reu Plao 有兩支只拍到前半段；Mun Jai 那支是 2011 年剛打好時的片，描述寫成 Muan Jai。影片標題的級數與路線名只代表該片版本，選線仍以表格的來源欄為準。
 
 ### 入門：6a 以下（YDS 5.10a 以下）
 
@@ -169,6 +189,12 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 | In Deep Space | 5c | 5.9 | 80 m／4 段 | Anxiety State Crisis Cave | ★★；從洞底爬到洞頂、看得到 Mae On 平原；**鬆石多，要戴頭盔** |
 | Sentinel | 5a | 5.7 | 74 m／4 段 | Sentinel Buttress | theCrag 沒有描述與星等 |
 
+```video-gallery
+key: crazy-horse
+lang: zh-TW
+layout: routes
+```
+
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
 **這是 Crazy Horse 路線最厚的級距**，233 條裡約一半在這裡。Heart Wall 的泰語「Jai」系列、Gatekeeper Buttress 的鑰匙系列幾乎全是 6a+ 到 6c+ 的二、三星線；想一天爬滿同一級，就整天待在其中一面。這級先比較 **Ruam Jai**（6a+，36 m，20 m 處有中途確保點）和 **The Gatekeeper**（6b，25 m）：同樣是三星，差在長度和繩長，帶 60 m 繩的人 Ruam Jai 只能爬到中途確保點。洞穴多段線也落在這一級，難度不高但耗時，和短線分開排。
@@ -185,6 +211,7 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 | Jai Teung Jai / Heart to Heart | 6c+ | 5.11c | 35 m | Heart Wall | ★★★ |
 | Dtang Jai / Conscious | 6c | 5.11a/b | 25 m | Heart Wall | ★★；「漂亮岩質上的好攀爬，去拚 onsight」 |
 | Hua Jai Wai / Heart Attack | 6c+ | 5.11c | 10 m | Heart Wall | ★★；從地面到確保點都是抱石式的硬擠動作 |
+| Dtat Sin Jai / Decide | 6c+ | 5.11c | 14 m | Heart Wall | ★★；陡地形上的力量攀爬 |
 | Angel's Gate | 6a+ | 5.10b | 21 m | The Gatekeeper Buttress | ★★★ |
 | The Gatekeeper | 6b | 5.10c | 25 m | The Gatekeeper Buttress | ★★★ |
 | Picking the Lock | 6b+ | 5.10d | 26 m | The Gatekeeper Buttress | ★★★ |
@@ -329,7 +356,7 @@ layout: routes
 
 ## 更新紀錄
 
-- 2026-10-24：依新的岩場介紹模板改寫，補上 17 支路線影片與 1 支封閉影響影片（只核對 metadata）、「經典線」與「網路上的路線紀錄」兩節，以及逐區日照、蜂巢與洞頂橫移的自救提醒。路線表改從 theCrag 逐條資料重建，修正分錯級距的路線（7a+ 放在中級、5c 放在進階、7b+ 放在高手）與 Jai Rawn、Trojan Horse 第三段的級數，補上 Aircon Wall 的 7b 到 8a；補泰文名、緊急電話 1669／1155、鳥巢／蜂巢／鬆動岩栓警告、2018 封閉公告的侵入與管理權移交內容、2025–2026 有人在爬的跡象；接駁改寫成從 Progression Vertical 出發、前一晚訂位，不再寫票價；修正自駕路線（原寫 107 號公路）。
+- 2026-10-24：依新的岩場介紹模板改寫，補上 29 支路線影片與 9 支岩場整體／洞穴／封閉影片（只核對 metadata）、「經典線」與「網路上的路線紀錄」兩節，以及逐區日照、蜂巢與洞頂橫移的自救提醒。路線表改從 theCrag 逐條資料重建，修正分錯級距的路線（7a+ 放在中級、5c 放在進階、7b+ 放在高手）與 Jai Rawn、Trojan Horse 第三段的級數，補上 Aircon Wall 的 7b 到 8a；補泰文名、緊急電話 1669／1155、鳥巢／蜂巢／鬆動岩栓警告、2018 封閉公告的侵入與管理權移交內容、2025–2026 有人在爬的跡象；接駁改寫成從 Progression Vertical 出發、前一晚訂位，不再寫票價；修正自駕路線（原寫 107 號公路）。
 
 ## 參考資料
 

@@ -46,6 +46,16 @@ There are two counts. theCrag's summary gives **289 routes in 22 sectors** (read
 
 **The draw is the bolting.** climbgrades puts bolts on the easier routes about 1 to 1.5 m apart and says runouts are rare. The same guide is just as direct that most routes fall between 5 and 7a+, with few above 7b. **Leading 6a indoors and leading a 4-pitch cave route then abseiling back out are two different things.** On a first visit, do a few short routes at Little Monkey Cove or Tamarind Village to get used to the rock before deciding whether to go into the caves.
 
+<details><summary>Watch videos of the crag as a whole (vlogs, a first time outdoors, bolting)</summary>
+
+```video-gallery
+key: crazy-horse
+lang: en
+ids: 8Cb4L-e58ew, WDCKUqbbl7M, 0cY0NBVw2Ow, p5hV1EE5vpw, u4Sx-uQpW9E, YcUNcyneGOA
+```
+
+</details>
+
 ## When to go
 
 Chiang Mai's high season runs November to February, dry and cool. chiangmai.net's climate data puts daytime highs at about 28–33°C and nights at about 15–16°C over that period.
@@ -136,7 +146,17 @@ ids: Z35VDZMsSi8
 
 **Seasonal avoidance: nests.** theCrag's route warnings (read 21 October 2026): Mar Jark Jai and Deung Duut Jai on Heart Wall ask climbers to "avoid this route for 2 months" because of a nearby bird's nest, and Tang Jai has an active owl nest with two eggs behind the big flake; Sweet Harmony on Reunion Buttress has a wasp nest; and the only 8a+ has a one-line note, "Watch for the bees." None of these warnings is dated, so check on site. Vertical Life is blunter: in cooler weather giant Asian honey bees build sail-shaped nests at the top of climbs, and when the swarm shimmers in unison like a Mexican wave you should **lower off immediately**; people have been stung hundreds of times. In the rainy season, wasps nest in sheltered cracks.
 
-**Fixed gear and kit.** Vertical Life reports that the crag is inspected every year and rebolted with stainless steel. theCrag doesn't record bolt material route by route, but **The Beehouse (6c+) in Crazy Horse Area is flagged "Many loose bolts"**. climbgrades recommends **a 70 m rope (60 m covers about 90% of routes, and a handful of extensions need 80 m), 14 to 18 quickdraws, and a helmet**. In Deep Space's note says "lots of loose rock so check everything before pulling on it and wear a helmet". The cave multipitches abseil back to the cave floor, so check your rope length and descent first. On the cave-roof traverses (Anxiety State Crisis, Sunseeker, Space Manoeuvres), a fall can leave you hanging in space, unable to get back on the rock: UKC's 2011 guide recommends carrying prusiks, and Vertical Life says they are for experienced pairs who know how to ascend a rope. The note on Peaun Jai Rai at Heart Wall also warns that **monkeys sometimes turn up at the anchors trying to steal your things**.
+**Fixed gear and kit.** Vertical Life reports that the crag is inspected every year and rebolted with stainless steel. theCrag doesn't record bolt material route by route, but **The Beehouse (6c+) in Crazy Horse Area is flagged "Many loose bolts"**. climbgrades recommends **a 70 m rope (60 m covers about 90% of routes, and a handful of extensions need 80 m), 14 to 18 quickdraws, and a helmet**. In Deep Space's note says "lots of loose rock so check everything before pulling on it and wear a helmet". The cave multipitches abseil back to the cave floor, so check your rope length and descent first. On the cave-roof traverses (Anxiety State Crisis, Sunseeker, Space Manoeuvres), a fall can leave you hanging in space, unable to get back on the rock: UKC's 2011 guide recommends carrying prusiks, and Vertical Life says they are for experienced pairs who know how to ascend a rope.
+
+<details><summary>Watch videos of climbing inside the caves</summary>
+
+```video-gallery
+key: crazy-horse
+lang: en
+ids: sRX3mNIFFTM, mGog7jqO_Qw
+```
+
+</details> The note on Peaun Jai Rai at Heart Wall also warns that **monkeys sometimes turn up at the anchors trying to steal your things**.
 
 In an emergency, call **1669** (the Ministry of Public Health's free medical emergency line, which routes you to the nearest hospital); for English-language help, call the tourist police on **1155** (GOV.UK healthcare guidance; Thai Government Public Relations Department, November 2025). Before you go, save the Thai crag name หน้าผาม้าพยศ, the sector names and an offline map. Check with your insurer that **sport climbing, multipitch, search and rescue, medical treatment and repatriation** are covered; CMRCA's guided trips include climbing insurance, but going on your own does not.
 
@@ -146,7 +166,7 @@ YDS and V-grade conversions follow the [Mountain Project international grade com
 
 **All of these tables come from theCrag's route-by-route pages for 16 sectors (read 21 October 2026).** Each band picks routes with high star ratings or specific descriptions; it is not a complete list. The ★ in the notes are theCrag stars, and routes without stars have no rating on theCrag. For multipitch routes, the grade column gives the hardest pitch and the length column gives the total length and pitch count. theCrag also lists 2 boulder problems (V4, V5), but there is too little data and they are not included.
 
-Routes with videos get an extra Videos column on the right of the table; click the thumbnail to open that route's videos. These clips were checked only by title, channel, upload date and the author's description, **not watched through**, so the notes say only what that metadata supports. A few differ from the table: the Dee Jai Tee Dai Geud clip is titled Happy to Be Alive, 5.11a; two clips of The Tree Surgeon give 6c against 6c+ on theCrag; and one clip each of Sport Satay and Sandbag is on top rope. A video's grade and route name describe that clip only; choose routes from the table's sources.
+Routes with videos get an extra Videos column on the right of the table; click the thumbnail to open that route's videos. These clips were checked only by title, channel, upload date and the author's description, **not watched through**, so the notes say only what that metadata supports. A few differ from the table: the Dee Jai Tee Dai Geud clip is titled Happy to Be Alive, 5.11a; two clips of The Tree Surgeon give 6c against 6c+ on theCrag; one clip each of Sport Satay and Sandbag is on top rope; two of the Jai Glah Reu Plao clips cover only the first half; and the Mun Jai clip dates from 2011, just after bolting, with the description spelling it Muan Jai. A video's grade and route name describe that clip only; choose routes from the table's sources.
 
 ### Beginner: up to 6a (YDS 5.10a and below)
 
@@ -169,6 +189,12 @@ The 4s and 5s are concentrated at **Little Monkey Cove, Tamarind Village and The
 | In Deep Space | 5c | 5.9 | 80 m / 4 pitches | Anxiety State Crisis Cave | ★★; from the cave floor to the top, with views of the Mae On countryside; **lots of loose rock, wear a helmet** |
 | Sentinel | 5a | 5.7 | 74 m / 4 pitches | Sentinel Buttress | No description or stars on theCrag |
 
+```video-gallery
+key: crazy-horse
+lang: en
+layout: routes
+```
+
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
 **This is Crazy Horse's deepest band**, with about half of the 233 routes. Heart Wall's Thai "Jai" series and Gatekeeper Buttress's key-themed routes are almost all two- and three-star 6a+ to 6c+ lines; to fill a day at one grade, stay on one of those walls. In this band, compare **Ruam Jai** (6a+, 36 m, with a mid-height anchor at 20 m) and **The Gatekeeper** (6b, 25 m): both are three stars, but they differ in length and rope needs, and with a 60 m rope you can only take Ruam Jai to the mid-height anchor. The cave multipitches also fall in this band. They aren't hard but they take time, so plan them separately from the short routes.
@@ -185,6 +211,7 @@ The 4s and 5s are concentrated at **Little Monkey Cove, Tamarind Village and The
 | Jai Teung Jai / Heart to Heart | 6c+ | 5.11c | 35 m | Heart Wall | ★★★ |
 | Dtang Jai / Conscious | 6c | 5.11a/b | 25 m | Heart Wall | ★★; "great climbing on beautiful rock, go for the onsight" |
 | Hua Jai Wai / Heart Attack | 6c+ | 5.11c | 10 m | Heart Wall | ★★; super bouldery and thrutchy from the ground to the anchors |
+| Dtat Sin Jai / Decide | 6c+ | 5.11c | 14 m | Heart Wall | ★★; powerful climbing on steep terrain |
 | Angel's Gate | 6a+ | 5.10b | 21 m | The Gatekeeper Buttress | ★★★ |
 | The Gatekeeper | 6b | 5.10c | 25 m | The Gatekeeper Buttress | ★★★ |
 | Picking the Lock | 6b+ | 5.10d | 26 m | The Gatekeeper Buttress | ★★★ |
@@ -329,7 +356,7 @@ Beyond the guidebook and theCrag, climbers' blogs and the climbing press keep a 
 
 ## Update history
 
-- 2026-10-24: Rewritten to the new crag-guide template, adding 17 route videos and 1 video on the closure's impact (metadata checked only), the Classic routes and Route logs online sections, per-sector sun, bee-nest warnings and self-rescue notes for the cave-roof traverses. Route tables rebuilt from theCrag's route-by-route data, fixing routes placed in the wrong band (7a+ under intermediate, 5c under advanced, 7b+ under expert) and the grades of Jai Rawn and Trojan Horse pitch 3, and adding Aircon Wall's 7b to 8a lines. Added the Thai name, emergency numbers 1669/1155, the bird-nest, wasp and loose-bolt warnings, the trespass and handover content of the 2018 closure notice, and the 2025–2026 signs of climbing. The shuttle section now says it leaves from Progression Vertical and must be booked the evening before, and no longer gives a fare; corrected the driving route (previously given as Highway 107).
+- 2026-10-24: Rewritten to the new crag-guide template, adding 29 route videos and 9 crag, cave and closure videos (metadata checked only), the Classic routes and Route logs online sections, per-sector sun, bee-nest warnings and self-rescue notes for the cave-roof traverses. Route tables rebuilt from theCrag's route-by-route data, fixing routes placed in the wrong band (7a+ under intermediate, 5c under advanced, 7b+ under expert) and the grades of Jai Rawn and Trojan Horse pitch 3, and adding Aircon Wall's 7b to 8a lines. Added the Thai name, emergency numbers 1669/1155, the bird-nest, wasp and loose-bolt warnings, the trespass and handover content of the 2018 closure notice, and the 2025–2026 signs of climbing. The shuttle section now says it leaves from Progression Vertical and must be booked the evening before, and no longer gives a fare; corrected the driving route (previously given as Highway 107).
 
 ## References
 

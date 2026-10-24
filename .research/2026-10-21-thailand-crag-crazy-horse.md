@@ -38,6 +38,7 @@
 - Ramon Fadli（2016） https://ramonfadli.com/crazy-horse/2/: Jira Homestay 到停車場約 1 km；主壁塞車時經 The Archway 上 The Rooftop；Heun Fah 5b、A Route with a View 5c+
 - Vertical Life VL52 全文 https://verticallifemag.com/articles/climbing-in-chiang-mai-thailand/: 1998 Kraisak Boonthip 首批；主壁 5b→8a+；Headhunters 3 段到馬頭岩頂；Tamarind 學校團體 11–2 月、Happy Birthday、Makham Wan 入門多段；Air Con Wall 熱季；The Furnace 遮陰；Trojan Horse 結尾垂降進主區先看蜂；Anxiety State Crisis 懸吊確保、50 m 落差、要會繩上攀；亞洲蜜蜂帆狀巢立即下降；60–70 m 繩、12–15 快扣；Crag Finder app 數位指南
 - YouTube 搜尋（yt-dlp，2026-10-24） ytsearch20 x18 查詢: 17 支路線影片＋1 支 CMRCA 封閉影響影片；清單與 metadata 見 src/data/climbing-videos.ts 的 crazy-horse
+- YouTube 第二輪（yt-dlp，2026-10-24） 70 個路線名＋28 組多語查詢＋12 個頻道上傳列表: 960 支去重候選；新增 12 支路線影片與 8 支整體／洞穴影片
 
 ## Exact route rows
 
