@@ -67,7 +67,7 @@ These apply to every tier and are not repeated below:
 3. **Sit on it on the ground first.** A device on backwards or a cam locked open shows up as soon as you weight it.
 4. **If you want to change your routine today, don't climb.** In all three [AAC top-rope solo cases covered in part 5](/posts/climbing/2026-10-19-free-solo-rope-solo-en), an experienced climber changed their usual setup because of wind, a rush, or a forgotten item. At Donner Summit in 2021, for example, a climber who had used the same system for ten years went from two devices to one because it was windy and he wanted to get home, and free-fell about 50 feet.
 5. **Carry tools to get down and to get up.** [Petzl](https://petzl.com/us/en/sport/tech-tips/expert-techniques/self-belay--solo-climbing-with-one-or-two-fixed-ropes/auto-assurage-2023_SPO_a77Tx00000000KzIAI.html) recommends always carrying a descender (such as a GriGri) and an ascender with a foot loop, so you can get out of trouble mid-route.
-6. **Wear a helmet.** The climber in the [2021 Donner Summit fall](/posts/climbing/2026-10-19-free-solo-rope-solo-en) wasn't wearing one. See [Climbing Helmets](/posts/climbing/2026-10-24-climbing-helmet-en).
+6. **Wear a helmet.** The climber in the [2021 Donner Summit fall](/posts/climbing/2026-10-19-free-solo-rope-solo-en) wasn't wearing one.
 
 ## Gear: start with what the maker allows
 
@@ -92,7 +92,7 @@ First, the uncomfortable part: **most of the devices in your hand were not desig
 - **Single-pitch lead solo:** a belay device (a purpose-built one, or a GriGri-style method you have discussed with an instructor), a chest harness, steel carabiners or a maillon, gear for the ground anchor, a stick clip and a rope bag.
 - **Multipitch solo:** the lead kit plus two ascenders (or one ascender and a progress capture device), aiders or foot loops, a full anchor-building rack and a spare rope. For jugging technique see [How to Use Aid Climbing Gear](/posts/climbing/2026-10-24-aid-climbing-gear-en).
 
-Rope: lead and multipitch soloing always use a dynamic single rope. Top-rope soloing can use a static rope, which handles edge wear better, but check your device's instructions: the SULU GO allows a static rope only with an EN 355 energy absorber, and the Silent Partner forbids static rope. For choosing a rope see [Choosing a Climbing Rope](/posts/climbing/2026-10-24-climbing-rope-en).
+Rope: lead and multipitch soloing always use a dynamic single rope. Top-rope soloing can use a static rope, which handles edge wear better, but check your device's instructions: the SULU GO allows a static rope only with an EN 355 energy absorber, and the Silent Partner forbids static rope.
 
 ## Tier 1: top-rope solo
 
