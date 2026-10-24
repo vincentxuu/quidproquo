@@ -100,7 +100,7 @@ caption: 簡化示意：每個新問題都從空的記憶開始。
 
 **通用的程式代理不會自動變好。** 同樣用 GPT-6 Luna、中等推理強度，沒有工具是 45.8，[Codex](https://github.com/openai/codex) 是 43.8，OpenVLHarness 是 56.5，[Visual Sketchpad](https://arxiv.org/abs/2406.09403) 則和沒有工具差不多。附錄顯示 Codex 在多數題目幾乎不執行程式，等於在它自己的流程裡直接回答；拉到最高強度，它才略高於不用工具。論文的結論是通用的程式代理不會自動改善多模態推理，工具的輸出得為視覺任務設計。比較時要注意，Codex 與 Visual Sketchpad 都沒有網路搜尋（Codex 的搜尋被刻意關閉，避免直接搜到基準答案），搜尋類題目的差距有一部分來自多了搜尋工具；不用搜尋的計數與定位題，差距一樣明顯。
 
-**不微調也能贏過微調。** Qwen2.5-VL-7B 用原本的權重配上這套框架得 33.5，三個需要微調模型的方法最高只有 28.0。這組設定不在公開釋出的程式碼裡。
+**不微調也能贏過微調。** Qwen2.5-VL-7B 用原本的權重配上這套框架得 33.5，三個需要微調模型的方法最高只有 28.0，這三個方法同樣沒有搜尋工具。這組設定不在公開釋出的程式碼裡。
 
 **多想幾步取代不了工具。** 同樣是 GPT-6 Luna，把推理強度拉到最高，沒有工具的版本也只升到 48.0。OpenVLHarness 在中等強度就有 56.5，模型 token 的費用最多是對手最高強度版本的 37%。費用不含搜尋 API 與 GPU 服務。它每題送出的 token 其實比不用工具多，因為每個回合都帶著工具輸出；對手的費用，則被最高強度的大量推理輸出拉高。
 
@@ -118,11 +118,11 @@ caption: 簡化示意：每個新問題都從空的記憶開始。
 
 ## 限制：失敗長什麼樣
 
-論文請 [Kimi K3](https://arxiv.org/abs/2607.24653) 檢討 Qwen3-VL-8B 的近一萬條失敗軌跡，並抽樣和人工標註對照。以下是 8B 模型的結果，因領域而異：
+論文請 [Kimi K3](https://arxiv.org/abs/2607.24653) 檢討 Qwen3-VL-8B 的近一萬條失敗軌跡，並抽樣和人工標註對照。以下前兩項是 8B 模型的結果，因領域而異：
 
 - **計數與定位**：物件超過 25 個的擁擠畫面，定位會漏抓或把相鄰物件合併，「工具輸出錯誤」占這個領域失敗的 75%。如果你的任務是密集計數，框和遮罩要抽驗，不能只看最後的數字。
 - **視覺搜尋**：失敗近半（49%）是該查的時候沒有呼叫工具。補法可能是把提示寫得更清楚，也可能要換一種工具組合。
-- **簡單題別硬上**：一般 VQA 和空間理解在最低推理強度下，OpenVLHarness 略低於不用工具的版本，到中等強度才全面超前。
+- **簡單題別硬上**：用 GPT-6 Luna 測，一般 VQA 和空間理解在最低推理強度下，OpenVLHarness 略低於不用工具的版本，到中等強度才全面超前。
 
 論文也試了兩種針對自家資料調整的做法。以文字修補為主的資料集，改系統提示和工具描述（harness search）進步約 4 分，寫專用新工具幾乎沒有幫助；缺少專用運算的資料集，例如要算度量 3D 關係的 SparBench，寫新工具進步約 8 分，改文字反而略為退步。挑哪一種，看你的失敗是沒呼叫工具，還是缺一個專用計算。這兩種做法在論文裡都由另一個程式代理（Codex 搭配 GPT-5.5）操作，並反覆跑評測，不是改一行提示就完成。
 
@@ -141,7 +141,7 @@ caption: 簡化示意：每個新問題都從空的記憶開始。
 - 主模型端點收到問題文字、圖片與工具證據；輔助模型收到搜尋結果、網頁文字與被搜尋的圖片；Serper 收到查詢和被造訪的網址。
 - 反向圖片搜尋要讓 Serper 抓得到圖片：可以用內建的圖片主機加 tunnel，或把圖上傳到你的 S3 或 GCS bucket。走 bucket 時，圖用一小時有效的簽名網址交給 Serper，物件不會自動刪除，需要自己設生命週期規則。
 
-圖片不能離開你的環境時，先從設定的 `capabilities.tools` 移除 `image_search`。查詢文字與網址仍會送給 Serper，連這個也不行，就把 `text_search`、`image_search`、`web_visit` 一起移除，只留下縮放、定位這類在自己機器上跑的工具。
+圖片不能離開你的環境時，主模型與輔助模型都要自架，託管的端點一樣會收到圖片；再從設定的 `capabilities.tools` 移除 `image_search`。查詢文字與網址仍會送給 Serper，連這個也不行，就把 `text_search`、`image_search`、`web_visit` 一起移除，只留下縮放、定位這類在自己機器上跑的工具。
 
 執行風險有三項，官方的[安全說明](https://github.com/uclanlp/OpenVLHarness/blob/main/SECURITY.md)寫得很直接：
 
@@ -160,7 +160,7 @@ caption: 簡化示意：每個新問題都從空的記憶開始。
 ## 怎麼開始試
 
 1. **先挑一批你的模型反覆答錯的圖，連同正確答案。** 十來張就看得出方向，不夠再加；圖裡有繁體中文文字的要放一部分，因為論文沒有量過。只用自己的題目比較，22 項基準的平均分數不代表你的任務。
-2. **從最小設定起步。** 官方範例 `examples/local_tools.yaml` 只開縮放和 Python 程式工具，主模型接託管的 GPT 端點，不需要 GPU 工作站、Serper 或雲端儲存。設好 `MODEL_BASE_URL`、`MODEL_API_KEY`、`TOOL_SERVER_URL` 後：
+2. **從最小設定起步。** 官方範例 `examples/local_tools.yaml` 只開縮放和 Python 程式工具，主模型接託管的 GPT 端點（圖片會送到那個端點），不需要 GPU 工作站、Serper 或雲端儲存。設好 `MODEL_BASE_URL`、`MODEL_API_KEY`、`TOOL_SERVER_URL` 後：
 
    ```bash
    python -m openvlharness.services.server --config examples/local_tools.yaml
@@ -179,12 +179,12 @@ caption: 簡化示意：每個新問題都從空的記憶開始。
    ```
 
 3. **每一題都看軌跡。** `trajectory` 記錄每一回合的工具呼叫與證據。先看框對不對，再看計算對不對，錯的起點在哪一步一目了然。論文附錄的十七條範例軌跡是作者手選的，不是隨機樣本，別拿它們估計成功率。
-4. **缺什麼再開什麼。** 要定位、OCR、深度才起 GPU 服務；搜尋最後開。圖片不能外送，就從設定的 `capabilities.tools` 移除 `image_search`。
+4. **缺什麼再開什麼。** 要定位、OCR、深度才起 GPU 服務；搜尋最後開。圖片不能外送，主模型要自架，並從設定的 `capabilities.tools` 移除 `image_search`（見〈部署要準備什麼，資料會去哪〉）。
 5. **在隔離的環境跑。** 用容器或虛擬機，不放重要資料，也不把 router 開到公開網路。上線前用 router 的 `/backend-status` 看 `degradations`：搜尋摘要逾時、圖片網址抓不到、Serper 額度用完都會在這裡累計。
 
 ## 整體來說
 
-這套框架的取捨很清楚：用多個服務、多回合的模型呼叫，換一條可以逐步回查的證據鏈。它適合已經有看圖產品、而且知道自己錯在「看不清、數不準、不認識」的團隊，不適合想找現成 App 的人，也不適合只要描述一張簡單圖片的任務。圖片不能外送、又沒有自架能力的情況，先從只開縮放和計算的最小設定看有沒有效果，比一次把九種工具全接上更容易判斷哪個改動有用。
+這套框架的取捨很清楚：用多個服務、多回合的模型呼叫，換一條可以逐步回查的證據鏈。它適合已經有看圖產品、而且知道自己錯在「看不清、數不準、不認識」的團隊，不適合想找現成 App 的人，也不適合只要描述一張簡單圖片的任務。圖片不能外送、又沒有自架能力，這套框架目前不適合你。能外送的話，先從只開縮放和計算的最小設定看有沒有效果，比一次把九種工具全接上更容易判斷哪個改動有用。
 
 ## 參考資料
 
@@ -192,5 +192,8 @@ caption: 簡化示意：每個新問題都從空的記憶開始。
 - [OpenVLHarness 專案頁](https://openvlharness.github.io/)：作者、逐步軌跡、各基準結果
 - [uclanlp/OpenVLHarness](https://github.com/uclanlp/OpenVLHarness)：程式碼、README、安裝與設定範例
 - [OpenVLHarness SECURITY.md](https://github.com/uclanlp/OpenVLHarness/blob/main/SECURITY.md)：執行位置與資料外送說明
+- [Multi-TW: Benchmarking Multimodal Models on Traditional Chinese Question Answering in Taiwan](https://arxiv.org/abs/2508.01274)（arXiv:2508.01274）：繁體中文多模態評測
+- [PaddleOCR-VL: Boosting Multilingual Document Parsing via a 0.9B Ultra-Compact Vision-Language Model](https://arxiv.org/abs/2510.14528)（arXiv:2510.14528）：OCR 後端的技術報告
+- [個人資料保護法（全國法規資料庫）](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0050021)：第 2、4、21 條與修正條文的生效狀態，2026-10-24 查詢
 - [OpenVLHarness 視覺代理框架：不重訓模型，工具與多模態記憶能改善哪些看圖工作？](https://www.aiposthub.com/openvlharness-visual-agent-multimodal-memory-tools)（AI 郵報，中文導讀，內容回查至上述原始來源）
 - [Agent 記憶系統的設計](/posts/ai/2026-03-19-agent-memory-systems)（本站：跨對話記憶的做法）

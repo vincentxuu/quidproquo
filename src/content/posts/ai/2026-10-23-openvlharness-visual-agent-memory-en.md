@@ -100,7 +100,7 @@ The 22 benchmarks fall into four groups: counting and grounding, visual search a
 
 **A general coding agent does not automatically help.** With GPT-6 Luna at medium reasoning effort, no tools scores 45.8, [Codex](https://github.com/openai/codex) 43.8, and OpenVLHarness 56.5, while [Visual Sketchpad](https://arxiv.org/abs/2406.09403) is about level with no tools. The appendix shows Codex rarely executes code on these questions, so it mostly answers directly inside its own loop; at the highest effort it edges slightly above no tools. The paper's conclusion is that a general coding agent does not automatically improve multimodal reasoning, and tool outputs need to be designed for vision tasks. One caveat in the comparison: Codex and Visual Sketchpad have no web search (Codex's search was deliberately turned off so it cannot find benchmark answers directly), so part of the gap on search questions comes from OpenVLHarness simply having a search tool; on counting and grounding questions, which need no search, the gap is just as clear.
 
-**No fine-tuning can still beat fine-tuning.** Qwen2.5-VL-7B with its original weights and this framework scores 33.5, while the best of three methods that fine-tune the model reaches 28.0. That configuration is not in the public release.
+**No fine-tuning can still beat fine-tuning.** Qwen2.5-VL-7B with its original weights and this framework scores 33.5, while the best of three methods that fine-tune the model reaches 28.0, and those three methods also have no search tool. That configuration is not in the public release.
 
 **More thinking does not replace the tools.** With the same GPT-6 Luna, raising reasoning effort to the highest setting lifts the no-tool version only to 48.0. OpenVLHarness reaches 56.5 at medium effort with a model-token cost of at most 37% of what the baselines spend at their highest effort. The cost excludes search APIs and GPU services. It sends more tokens per question than the no-tool model, since every turn carries tool output; the baselines' cost is driven up by the heavy reasoning output at the highest effort.
 
@@ -118,11 +118,11 @@ Handing the model raw tools helps only a little. Rendering tool output into read
 
 ## Limits: how it fails
 
-The paper had [Kimi K3](https://arxiv.org/abs/2607.24653) critique nearly ten thousand failed Qwen3-VL-8B trajectories and checked a sample against human labels. The results below are for the 8B model and differ by domain:
+The paper had [Kimi K3](https://arxiv.org/abs/2607.24653) critique nearly ten thousand failed Qwen3-VL-8B trajectories and checked a sample against human labels. The first two items below are for the 8B model and differ by domain:
 
 - **Counting and grounding**: in crowded scenes with more than 25 objects, grounding misses or merges instances, and incorrect tool output accounts for 75% of failures in this domain. For dense counting, spot-check the boxes and masks instead of trusting the final number.
 - **Visual search**: nearly half of failures (49%) are cases where the model should have called a tool and did not. The fix may be clearer prompts or a different tool composition.
-- **Easy questions**: on general VQA and spatial understanding at the lowest reasoning effort, OpenVLHarness scores slightly below the no-tool model; it leads across the board only from medium effort up.
+- **Easy questions**: with GPT-6 Luna, on general VQA and spatial understanding at the lowest reasoning effort, OpenVLHarness scores slightly below the no-tool model; it leads across the board only from medium effort up.
 
 The paper also tried two ways to adapt the harness to your own data. On datasets where fixes are mostly textual, editing system prompts and tool descriptions (harness search) gains about 4 points, while writing new tools barely helps. On datasets that lack a dedicated computation, such as SparBench, which needs metric 3D relations, a new tool gains about 8 points and editing text slightly hurts. Which to pick depends on whether your failures are missed tool calls or a missing specialized computation. In the paper both approaches are operated by another coding agent (Codex with GPT-5.5) and rerun evaluations repeatedly, so this is not a one-line prompt change.
 
@@ -141,7 +141,7 @@ Data leaves the machine at several points, so trace each tool instead of looking
 - The main model endpoint receives the question, images, and tool evidence; the auxiliary model receives search results, page text, and the images being searched; Serper receives queries and the URLs of visited pages.
 - Reverse image search needs Serper to fetch the image. You can use the built-in image host behind a tunnel, or upload the image to your S3 or GCS bucket. With a bucket, the image is handed over as a signed URL valid for one hour, and the objects are not deleted automatically, so add a lifecycle rule.
 
-If images cannot leave your environment, start by removing `image_search` from `capabilities.tools`. Queries and visited URLs still go to Serper; if that is not acceptable either, remove `text_search`, `image_search`, and `web_visit` together and keep only tools that run on your own machines, such as zoom and grounding.
+If images cannot leave your environment, both the main model and the auxiliary model must be self-hosted, since a hosted endpoint receives the images too; then remove `image_search` from `capabilities.tools`. Queries and visited URLs still go to Serper; if that is not acceptable either, remove `text_search`, `image_search`, and `web_visit` together and keep only tools that run on your own machines, such as zoom and grounding.
 
 The official [security notes](https://github.com/uclanlp/OpenVLHarness/blob/main/SECURITY.md) are direct about three execution risks:
 
@@ -160,7 +160,7 @@ The paper and project page do not answer these, so you have to fill them in your
 ## How to start
 
 1. **Collect a batch of images your model keeps getting wrong, with correct answers.** A dozen or so is enough to see a direction; add more if it is not, and include some images with Traditional Chinese text, since the paper did not measure that. Compare on your own questions; the 22-benchmark average does not describe your task.
-2. **Start from the smallest setup.** The official `examples/local_tools.yaml` enables only zoom and the Python coding agent, with the main model on a hosted GPT endpoint, so you need no GPU workstation, Serper, or cloud storage. After setting `MODEL_BASE_URL`, `MODEL_API_KEY`, and `TOOL_SERVER_URL`:
+2. **Start from the smallest setup.** The official `examples/local_tools.yaml` enables only zoom and the Python coding agent, with the main model on a hosted GPT endpoint (images go to that endpoint), so you need no GPU workstation, Serper, or cloud storage. After setting `MODEL_BASE_URL`, `MODEL_API_KEY`, and `TOOL_SERVER_URL`:
 
    ```bash
    python -m openvlharness.services.server --config examples/local_tools.yaml
@@ -179,12 +179,12 @@ The paper and project page do not answer these, so you have to fill them in your
    ```
 
 3. **Read the trajectory for every question.** It records each turn's tool calls and evidence. Check whether the boxes are right first, then whether the computation is right; the first wrong step is easy to find. The seventeen example trajectories in the paper's appendix were hand-picked, not randomly sampled, so do not use them to estimate success rates.
-4. **Add capabilities only when you need them.** Start GPU services when you need grounding, OCR, or depth; enable search last. If images cannot leave your environment, remove `image_search` from `capabilities.tools`.
+4. **Add capabilities only when you need them.** Start GPU services when you need grounding, OCR, or depth; enable search last. If images cannot leave your environment, self-host the main model and remove `image_search` from `capabilities.tools` (see the deployment section above).
 5. **Run in isolation.** Use a container or VM, keep important data off it, and do not expose the router to a public network. Before going live, check `degradations` at the router's `/backend-status`: search summaries that timed out, image URLs that could not be fetched, and exhausted Serper credits all accumulate there.
 
 ## Bottom line
 
-The trade-off is clear: more services and more model calls per question, in exchange for an evidence chain you can inspect step by step. It suits teams that already ship an image product and know their errors are "can't see it, can't count it, can't recognize it". It does not suit someone looking for a ready-made app, or a task that only describes a simple picture. If images cannot leave your environment and you cannot self-host, start with just zoom and computation and see whether that helps; that makes it easier to tell which change worked than connecting all nine tools at once.
+The trade-off is clear: more services and more model calls per question, in exchange for an evidence chain you can inspect step by step. It suits teams that already ship an image product and know their errors are "can't see it, can't count it, can't recognize it". It does not suit someone looking for a ready-made app, or a task that only describes a simple picture. If images cannot leave your environment and you cannot self-host, this framework is not a fit for you right now. If they can, start with just zoom and computation and see whether that helps; that makes it easier to tell which change worked than connecting all nine tools at once.
 
 ## References
 
@@ -192,5 +192,8 @@ The trade-off is clear: more services and more model calls per question, in exch
 - [OpenVLHarness project page](https://openvlharness.github.io/): authors, step-by-step trajectories, per-benchmark results
 - [uclanlp/OpenVLHarness](https://github.com/uclanlp/OpenVLHarness): code, README, install and configuration examples
 - [OpenVLHarness SECURITY.md](https://github.com/uclanlp/OpenVLHarness/blob/main/SECURITY.md): where things run and what data leaves your machine
+- [Multi-TW: Benchmarking Multimodal Models on Traditional Chinese Question Answering in Taiwan](https://arxiv.org/abs/2508.01274) (arXiv:2508.01274): Traditional Chinese multimodal benchmark
+- [PaddleOCR-VL: Boosting Multilingual Document Parsing via a 0.9B Ultra-Compact Vision-Language Model](https://arxiv.org/abs/2510.14528) (arXiv:2510.14528): technical report for the OCR backend
+- [Personal Data Protection Act (National Laws and Regulations Database, in Chinese)](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0050021): Articles 2, 4, 21 and the effective status of the amendments, checked 2026-10-24
 - [OpenVLHarness 視覺代理框架：不重訓模型，工具與多模態記憶能改善哪些看圖工作？](https://www.aiposthub.com/openvlharness-visual-agent-multimodal-memory-tools) (AI Post Hub, in Chinese; secondary summary tracing back to the sources above)
 - [Agent memory systems](/posts/ai/2026-03-19-agent-memory-systems) (this site: approaches to cross-conversation memory)
