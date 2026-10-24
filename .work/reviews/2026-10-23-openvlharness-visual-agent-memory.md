@@ -83,3 +83,26 @@
 保護片段：未改動任何數字、引述、程式碼、連結與立場強度。
 
 下一步：由作者決定採納項目；要改文章走 `post-update`。
+
+## 補充查證（2026-10-24，補上先前列為「未驗」的項目）
+
+已完整讀取（非搜尋摘要）：論文附錄 B.6（表 13、14、15 與說明）；Visual Sketchpad（arXiv:2406.09403，NeurIPS 2024）、Kimi K3（arXiv:2607.24653）、Grounding DINO（arXiv:2303.05499）、DeepSeek-OCR（arXiv:2510.18234）、openai/codex 的 GitHub 頁、serper.dev 首頁。皆與論文參考文獻的條目一致。
+
+🔴 Contradicted → 已修（中英）
+- 「模型 token 最多是對手最高強度版本的 37%」。附錄 B.6 的 37% 是**模型 token 費用**（標準價）：OpenVLHarness 中等強度 0.92 美元／千題，對 Codex 最高強度 2.52 = 36.5%。**token 用量**反而較高：OpenVLHarness 中等強度每題輸入約 1.7 萬 token，Codex 最高強度約 1.2 萬、不用工具最高強度約 1,800。已改成「費用」，並補上輸入 token 較多的事實。
+
+🔵 Misframed → 已修（中英）
+- 「Codex 比不用工具還低」只在中等強度成立（43.8 對 45.8）。附錄指出 Codex 在 low 到 max 之間，只有 0.16%–6.17% 的題目真的執行程式，多數題目等於在 Codex 流程裡直接回答；max 強度時 Codex 高出不用工具 0.5 分，low 強度低 7.4 分。已補強度條件與機制。
+
+🟡 → 已修（中英）
+- 「第八個 Qwen2.5-VL-7B 只用在比較」→ 改為「結果放在附錄，用來和需要微調的方法比較」。
+- 反向圖片搜尋補上內建圖片主機加 tunnel 的選項。
+- 成績段落開頭註明數字皆為作者自報。
+- tldr 改為「完整部署要…」。
+- 補上 inline 連結：README、論文、專案頁、Codex、Visual Sketchpad、Kimi K3、Grounding DINO、DeepSeek-OCR。
+
+仍未修（等作者決定）：「句柄」「託管」「沙箱」台灣用語；「挑一批圖」的起步數量；資料外送一節的結論句；是否補台灣讀者的使用脈絡。
+
+外部連結檢查：`check-external-links` 對 arxiv.org、openvlharness.github.io、serper.dev、aiposthub.com 回 `TypeError`（腳本沒走代理，網路層失敗，不是 HTTP 狀態）；github.com 的 6 條通過。四個網址改用 MCP 讀頁驗證，皆可開啟且內容符合引用。
+
+未驗：openai.com/index/introducing-gpt-6-sol-and-luna（論文引用的 GPT-6 發表頁，代理回「上游中斷」，文章未引用故未使用）；論文附錄其餘各表；`pnpm verify`、`astro check` 因依賴安裝失敗未跑。
