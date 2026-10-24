@@ -1,7 +1,7 @@
 # 篩選紀錄：Pastor 等人 2022，攀岩一生對手指的後遺症
 
 - 書目：Pastor T et al. "A Life Dedicated to Climbing and Its Sequelae in the Fingers - A Review of the Literature." *Int J Environ Res Public Health* 19(24):17050, 2022（PMID 36554928，PMC9778768，CC BY）。
-- **讀取範圍：只讀 Europe PMC 的書目與摘要，全文沒讀。** 所以不能引用內文，只能引用摘要，且不算「精讀」。
+- **讀取範圍：我只讀了 Europe PMC 的書目與摘要。** 事實查證子代理之後讀了全文，回報它另整理了其他橫斷式研究（未經我核對，本檔其餘判斷仍以摘要為準）。文章只引用摘要內容。
 - 設計（摘要）：對**一位** 52 歲頂尖攀岩者做超音波、X 光、理學檢查（個案），加上文獻回顧。
 - 摘要結論："elite sport climbing results in soft tissue and bone adaptations in the fingers"；晚期中指可見骨關節炎的影像與臨床徵象，但"may not be symptomatic"。
 
