@@ -85,14 +85,13 @@ For an emergency, call **{{number}}**; {{rescue authority's own page, and whethe
 {{If there are route videos, one paragraph: videos sit in the table's Videos column, and a thumbnail opens that route's list; name each place where a clip differs from the table (a variation, a different pitch count, a solo or other demo not to copy). End with: a video's grade and route name describe that clip only; choose routes from the table's sources.}}
 
 <!--
-路線影片（選用）：
+路線影片（條件段：有來源就必做；查過沒有才省略，並在審稿紀錄 `## 模板覆蓋` 寫查詢與日期。查找範圍見 crag-guide-contract.md「條件段」）：
 - 影片資料寫在 src/data/climbing-videos.ts 的 videoGalleries.<岩場 key>，中英文共用一份；英文版只換 fence 的 lang。routeEn 開頭要和英文表格第一欄的路線名一致。
-- 表格正下方緊接 layout: routes 區塊，影片欄（Videos）由外掛自動加，不要在 Markdown 表格手寫：
+- 表格正下方緊接 layout: routes 區塊，影片欄（Videos）由外掛自動加，不要在 Markdown 表格手寫。不要加 ids：外掛用 routeEn 在第一個「 5.」之前的字串比對表格第一欄；ids 會去重，同一支影片涵蓋兩條路線時第二條會掛不到。routeEn 寫成「Route name 5.xx (original grade, sector)」，法國級數的岩場也要帶 YDS。改完 `pnpm build` 確認每支影片都掛上列：
   ```video-gallery
   key: {{crag key}}
   lang: en
   layout: routes
-  ids: {{id1}}, {{id2}}
   ```
 - 欄寬依表頭文字決定，表頭照寫（Route / Grade / YDS / Length / pitches / Sector / Notes），最後一欄必須是 Notes。Notes 控制在兩三句，長內容放到表格前後的段落。
 - 接近 POV、下降等非單一路線的影片放 <details><summary>Watch the {{what}}</summary> … </details>，不加 layout。
@@ -128,7 +127,7 @@ For an emergency, call **{{number}}**; {{rescue authority's own page, and whethe
 
 ### Classic routes: {{faces or areas}}
 
-<!-- 選用：社群公認的經典線不全符合分級表的來源規則時，獨立成這一節。 -->
+<!-- 條件段：有來源就必做，查過沒有才省略並在審稿紀錄寫查詢與日期。社群公認的經典線不全符合分級表的來源規則時，獨立成這一節，不混進分級表。 -->
 
 The grade tables above choose routes by difficulty. This section adds {{N}} lines that {{local}} climbers commonly treat as {{crag}} classics. **They do not all meet the {{which}} source rule used above**, so they sit here rather than in those tables. {{Which topo / guide each group follows, and which sources check lengths, pitch counts and first-ascent notes.}} Notes give the source and any version differences; a single source is not presented as settled fact.
 
@@ -154,7 +153,7 @@ Classic does not mean easy. {{Name the grade spread of these classics.}} Choose 
 
 ### Route logs online
 
-<!-- 選用：只收實際打開讀過的頁面；沒讀到的不列。 -->
+<!-- 條件段：有來源就必做，至少打開 5 個候選；只收實際打開讀過的頁面，沒讀到的不列。查過沒有才省略並在審稿紀錄寫查詢與日期。 -->
 
 Beyond the guides, the topo and the magazine reports, {{local}} climbers' {{blogs / forums}} keep a batch of firsthand route logs. {{The most common entry point (author, year, link) and its reposts or same-family versions.}} These are versions of one compilation, not independent confirmation. The table below lists logs worth reading by route; they add approach details, timing and on-the-ground feel, while grades and pitch counts still follow the tables above.
 
