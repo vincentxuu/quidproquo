@@ -10,7 +10,7 @@ tldr: "傳攀的標準進程是：會頂繩與先鋒確保、有運攀先鋒經�
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 13
+  order: 14
 glossary:
   - term: "模擬先鋒"
     aliases: ["mock lead"]
@@ -46,7 +46,7 @@ glossary:
 | L2 | 先鋒確保員 | 先鋒確保，戶外第一條運攀先鋒 | [第 1](/posts/climbing/2026-10-17-gym-lead-climbing)、[4 篇](/posts/climbing/2026-10-17-first-outdoor-sport-lead) |
 | L3 | 戶外攀岩者 | 判斷 bolt、架頂繩、下放或垂降 | [第 5](/posts/climbing/2026-10-17-judging-bolts)、[6](/posts/climbing/2026-10-17-top-rope-anchor-setup)、[7 篇](/posts/climbing/2026-10-17-lower-or-rappel) |
 | L4 | 多繩距跟攀者 | 放保護、固定點、跟攀多繩距 | [第 9](/posts/climbing/2026-10-17-trad-protection-nuts-cams)、[10](/posts/climbing/2026-10-17-building-anchors)、[11 篇](/posts/climbing/2026-10-17-multi-pitch-basics) |
-| L5 | 多繩距先鋒 | 領攀多繩距，知道出事怎麼辦 | [第 12 篇](/posts/climbing/2026-10-17-self-rescue-basics) |
+| L5 | 多繩距先鋒 | 領攀多繩距，知道出事怎麼辦 | [第 13 篇](/posts/climbing/2026-10-17-self-rescue-basics) |
 
 L3 和 L4 中間有一座橋：[難度與保護評等](/posts/climbing/2026-10-17-grades-and-protection-ratings)。傳攀路線的評等多了一層保護好不好，先看懂再去學放保護。
 
@@ -246,6 +246,10 @@ AAC 的資料顯示，自 1948 年以來的事故有 43% 發生在有經驗的�
 ## 下一步
 
 想先確認台灣有哪些岩場能爬、各自是運攀還是傳攀，讀[台灣岩場：岩質決定爬法](/posts/climbing/2026-10-17-taiwan-crags-rock-type)。想知道龍洞為什麼不能自己打 bolt，讀[歷史與倫理](/posts/climbing/2026-10-17-bolting-history-ethics)。
+
+## 更新紀錄
+
+- 2026-10-24：新增〈垂降怎麼做〉為系列第 8 篇，原第 8–15 篇順移為 9–16
 
 ## 參考資料
 

@@ -7,7 +7,7 @@ lang: en
 type: guide
 series:
   name: "Sport and Trad Climbing"
-  order: 9
+  order: 10
 description: "For sport leaders getting ready to learn trad: what holds a nut and a cam in place, the EN 12270 and EN 12276 strength minimums, the three conditions of a good placement, walking and extension, and how to read a route note like \"needs small cams, nuts\" at Defulan."
 tldr: "A nut wedges into a constriction; a cam turns a downward pull into outward pressure and friction. Standard minimums: 5 kN for cams, 2 kN for nuts, but read the rating on the unit. A good placement needs solid rock, the right size (cam lobes about 50–90% retracted), and alignment with the direction of pull. At Defulan, Miruku (5.11b) lists \"small cams, nuts\" and Genesis (5.9+) lists \"single rack to #2\"."
 draft: false

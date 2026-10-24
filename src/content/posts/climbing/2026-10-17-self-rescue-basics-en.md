@@ -10,7 +10,7 @@ tldr: "Start with the simplest option: communicate, lower, call 119 in Taiwan (n
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 12
+  order: 13
 glossary:
   - term: "Escaping the belay"
     aliases: ["belay escape", "確保脫離", "確保脫出"]

@@ -10,7 +10,7 @@ tldr: "Multi-pitch means repeating single-pitch tasks in mid-air: the leader rea
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 11
+  order: 12
 glossary:
   - term: "Pitch"
     aliases: ["繩距"]
@@ -249,7 +249,7 @@ The BMC calls rappelling your get-out-of-jail card on multi-pitch: the weather t
 
 The American Alpine Club's [Know the Ropes: Lowering](https://americanalpineclub.org/news/2023/6/21/lowering) calls this closing the system. When lowering on multi-pitch terrain, tie the free end to the belayer, the anchor or something else. When rappelling, knot the ends so you cannot rappel off them. On single pitch the ground closes the system for you; on multi-pitch there is no ground, only you.
 
-One common mix-up: "a pitch must be shorter than half the rope" is a limit for **lowering or rappelling back to the ground** on single pitch. On multi-pitch the second is belayed from above, so that limit does not apply to the pitch; but when you retreat on a single rope doubled for rappelling, each rappel can be at most half the rope's length. Know where the retreat anchors are and how far apart before you set off. Details on lowering and rappelling are in [Lower or Rappel](/posts/climbing/2026-10-17-lower-or-rappel-en).
+One common mix-up: "a pitch must be shorter than half the rope" is a limit for **lowering or rappelling back to the ground** on single pitch. On multi-pitch the second is belayed from above, so that limit does not apply to the pitch; but when you retreat on a single rope doubled for rappelling, each rappel can be at most half the rope's length. Know where the retreat anchors are and how far apart before you set off. For choosing between lowering and rappelling, see [Lower or Rappel](/posts/climbing/2026-10-17-lower-or-rappel-en); for each step of a multi-pitch rappel, see [How to Rappel](/posts/climbing/2026-10-24-how-to-rappel-en).
 
 **Something you can do tonight**: check whether your rope has a middle mark and measure its total length. Half of it is your limit for each rappel on a single rope.
 
@@ -321,6 +321,10 @@ Multi-pitch takes you further from the ground, which also means fewer people can
 ## Changelog
 
 - 2026-10-23: added a "Two schools" section comparing how Petzl, the UIAA, DAV, AAC, ACMG, BMC, the Italian guides (AGAI) and CAI choose between direct and indirect belays, linking to Building Anchors for the anchor requirements; added a "Watch it" subsection after the changeover sequence, embedding changeover videos from Chris Lawrence, BMC, Petzl, DMM, ÖAV and SIET.
+
+## Update Log
+
+- 2026-10-24: The multi-pitch rappel section now links to "How to Rappel"
 
 ## References
 

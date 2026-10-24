@@ -10,7 +10,7 @@ tldr: "The standard trad progression: be a competent top-rope climber and lead b
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 13
+  order: 14
 glossary:
   - term: "Mock lead"
     aliases: ["模擬先鋒"]
@@ -46,7 +46,7 @@ This series follows the five levels planned for [nobodyclimb's rope-system pract
 | L2 | Lead belayer | Lead belaying, your first outdoor sport lead | Posts [1](/posts/climbing/2026-10-17-gym-lead-climbing-en), [4](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en) |
 | L3 | Outdoor climber | Judging bolts, rigging top-ropes, lowering or rappelling | Posts [5](/posts/climbing/2026-10-17-judging-bolts-en), [6](/posts/climbing/2026-10-17-top-rope-anchor-setup-en), [7](/posts/climbing/2026-10-17-lower-or-rappel-en) |
 | L4 | Multi-pitch second | Placing gear, anchors, following multi-pitch | Posts [9](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en), [10](/posts/climbing/2026-10-17-building-anchors-en), [11](/posts/climbing/2026-10-17-multi-pitch-basics-en) |
-| L5 | Multi-pitch leader | Leading multi-pitch, knowing what to do when things go wrong | [Post 12](/posts/climbing/2026-10-17-self-rescue-basics-en) |
+| L5 | Multi-pitch leader | Leading multi-pitch, knowing what to do when things go wrong | [Post 13](/posts/climbing/2026-10-17-self-rescue-basics-en) |
 
 Between L3 and L4 there is a bridge: [grades and protection ratings](/posts/climbing/2026-10-17-grades-and-protection-ratings-en). Trad grades add a layer about protection quality; understand that before you learn to place gear.
 
@@ -246,6 +246,10 @@ Build experience first. Adventure Taiwan's rock guide training requires 10 outdo
 ## What's next
 
 To see which crags in Taiwan you can climb and whether each is sport or trad, read [Taiwan's crags: rock type decides the style](/posts/climbing/2026-10-17-taiwan-crags-rock-type-en). To learn why you should not place bolts yourself at Long Dong, read [history and ethics](/posts/climbing/2026-10-17-bolting-history-ethics-en).
+
+## Update Log
+
+- 2026-10-24: Added "How to Rappel" as post 8 in the series; former posts 8–15 are now 9–16
 
 ## References
 

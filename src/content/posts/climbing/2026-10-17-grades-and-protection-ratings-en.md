@@ -10,7 +10,7 @@ tldr: "YDS, French, and UIAA grades measure only how hard the climbing is, not h
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 8
+  order: 9
 glossary:
   - term: "Protection rating"
     aliases: ["G/PG/R/X", "R/X"]
