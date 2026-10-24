@@ -1541,7 +1541,30 @@ const pageTitle =
     }
   }
 
-  window.addEventListener('scroll', updateScroll, { passive: true });
+  // 記住每篇讀到哪（只增不減），列表卡片據此顯示已讀進度條（見 PostCard.astro）
+  const READ_KEY = 'qpq:read-progress';
+  const readPath = location.pathname.replace(/^\/en(?=\/)/, '').replace(/\/$/, '');
+  const isPostPage = /^\/posts\/[^/]+$/.test(readPath);
+  let readStore = {};
+  let readSaved = 0;
+  try {
+    readStore = JSON.parse(localStorage.getItem(READ_KEY) || '{}') || {};
+    readSaved = readStore[readPath] || 0;
+  } catch {}
+
+  function saveReadProgress() {
+    if (!isPostPage) return;
+    const max = document.body.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    const pct = Math.min(100, Math.round((window.scrollY / max) * 100));
+    if (pct < readSaved + 3 && pct < 100) return;
+    if (pct <= readSaved) return;
+    readSaved = pct;
+    readStore[readPath] = pct;
+    try { localStorage.setItem(READ_KEY, JSON.stringify(readStore)); } catch {}
+  }
+
+  window.addEventListener('scroll', () => { updateScroll(); saveReadProgress(); }, { passive: true });
   updateScroll();
 
   scrollBtn?.addEventListener('click', () => {
