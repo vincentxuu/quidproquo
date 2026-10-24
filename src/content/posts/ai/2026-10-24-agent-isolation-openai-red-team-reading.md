@@ -8,7 +8,7 @@ lang: zh-TW
 description: "逐段讀 OpenAI 2026 年 10 月 23 日的訓練環境隔離文章：紅隊拿到什麼、四種通訊通道各寫了什麼、哪些條件對攻擊者有利、哪些數字沒有公開。"
 tldr: "OpenAI 自述紅隊 agent 在共用主機上用快取、儲存、CPU 時間與 TLS 憑證快取做出通訊管道，多數通道很慢；多數測試被指定了通道或給了協定，頻寬與錯誤率沒有公開。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "Agent 隔離邊界"
   order: 3

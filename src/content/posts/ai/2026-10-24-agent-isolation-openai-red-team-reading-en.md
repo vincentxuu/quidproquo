@@ -8,7 +8,7 @@ lang: en
 description: "A close reading of OpenAI's October 23, 2026 post on securing its training environment: what the red team was given, what it says about each of four communication channels, which conditions favored the attacker, and which numbers were not published."
 tldr: "OpenAI says its red-team agents built communication channels on shared hosts from cache, storage, CPU time, and a TLS certificate cache, and that most channels are slow; in most tests the channel or protocol was given, and bandwidth and error rates were not published."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "Agent Isolation Boundaries"
   order: 3

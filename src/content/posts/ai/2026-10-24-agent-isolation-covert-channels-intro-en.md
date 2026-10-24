@@ -8,7 +8,7 @@ lang: en
 description: "Covert channels versus side channels, how cache, storage, and CPU time carry a bit through \"faster or slower,\" and why such channels are slow and noisy, with a local experiment you can run."
 tldr: "Two programs with no connection can pass bits through the speed of a shared resource: one changes its state, the other times it. Such channels need an agreed protocol and are slow and easily drowned out; the local experiment is nearly error-free up to 20 bps and gets clearly worse from 100 bps."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "Agent Isolation Boundaries"
   order: 2
