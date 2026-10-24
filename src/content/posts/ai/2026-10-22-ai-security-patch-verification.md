@@ -8,7 +8,7 @@ lang: "zh-TW"
 description: "用同一工單漏洞比較租戶修補、owner 修補與全部拒絕，建立攻擊、功能、掃描與目標版本四層驗收。"
 tldr: "修補要同時擋住越權、保留正常功能，並在實際目標重跑。告警消失和本機副本通過，各自只能證明其中一部分。"
 difficulty: "進階"
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 18

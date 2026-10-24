@@ -8,7 +8,7 @@ lang: "zh-TW"
 description: "用八個固定真值案例重算分流混淆矩陣、未判定與假設成本，區分規則基準、工作流重播與真正模型評估。"
 tldr: "固定獨立真值，先算誤報、漏報及未判定，再量人工時間與操作風險。快速結案不會自動證明結案正確，規則重播也不能當成模型成效。"
 difficulty: "進階"
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 22

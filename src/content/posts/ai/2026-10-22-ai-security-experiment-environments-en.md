@@ -8,7 +8,7 @@ lang: en
 description: "Choose a local fixture, CTF instance, self-hosted cloud copy, or authorized system based on your experiment. Record versions, initial state, and outcome criteria with an offline checker."
 tldr: "Use a resettable copy to examine application logic, preserve cloud conditions to examine deployment boundaries, and follow the agreed scope for real systems. Keep the question and outcome criteria when changing environments, and record what changed."
 difficulty: 入門
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 3

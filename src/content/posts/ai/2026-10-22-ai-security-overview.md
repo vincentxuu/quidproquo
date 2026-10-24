@@ -11,7 +11,7 @@ series:
   order: 0
 tldr: "從同一套客服助理出發，學 AI 如何協助找漏洞、AI 系統如何守住資料與工具權限，以及如何用 AI 調查、修補。每條路線都交出可重現的證據。"
 description: "AI 資安實戰系列總覽：共用資料流與授權基礎，分成 AI 輔助攻擊、保護 AI、調查修補三線，串接 CTF、自架雲端與授權環境的練習。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-10-22-ai-security-overview-en)

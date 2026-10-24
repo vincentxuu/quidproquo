@@ -8,7 +8,7 @@ lang: zh-TW
 description: "以可執行工單匯出案例，檢查單次批准的身分、參數、時限與重播風險。"
 tldr: "用一次工單匯出綁定使用者、資源、動作、目的地與批准，並測試參數替換、撤權、過期與重播。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 12

@@ -8,7 +8,7 @@ lang: en
 description: "Replay a cross-tenant tool proposal to examine content labels, execution policy, and output controls."
 tldr: "Replay one malicious tool proposal through different execution paths and distinguish model manipulation from unauthorized effects. Labels, data permissions, and action approvals serve different purposes."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 10

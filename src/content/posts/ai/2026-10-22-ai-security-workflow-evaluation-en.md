@@ -8,7 +8,7 @@ lang: "en"
 description: "Recompute confusion matrices, abstention, coverage, and assumed costs on eight fixed cases while distinguishing a status baseline, rule replay, and a real model evaluation."
 tldr: "Freeze independent labels before measuring false positives, false negatives, abstention, human effort, and unsafe actions. Faster closure does not establish correct closure, and rule replay is not model evidence."
 difficulty: "進階"
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 22

@@ -8,7 +8,7 @@ lang: "en"
 description: "Compare tenant-only, owner-aware, and deny-all fixes for one ticket vulnerability, then separate attack regression, functional tests, scanning, and target-build verification."
 tldr: "A patch must block unauthorized access, preserve legitimate behavior, and pass against the actual target. A cleared alert and a passing local copy each establish only part of that result."
 difficulty: "進階"
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 18

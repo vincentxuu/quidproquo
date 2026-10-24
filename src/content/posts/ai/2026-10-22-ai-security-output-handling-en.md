@@ -8,7 +8,7 @@ lang: en
 description: "Examine model-output consumers through HTML text, destination URLs, and narrow report operations."
 tldr: "Identify the consumer before validating output. HTML, URLs, and operation arguments require different controls; valid JSON, escaping, and authorization are separate properties."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 14

@@ -8,7 +8,7 @@ lang: en
 description: "Test retrieval isolation, policy epochs, cache dependencies, and queries after revocation."
 tldr: "Authorize every retrieval before data reaches the model. Cache hits and post-revocation responses must also respect current access to their source data."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 11

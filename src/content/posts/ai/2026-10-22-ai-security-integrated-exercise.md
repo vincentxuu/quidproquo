@@ -11,7 +11,7 @@ series:
   order: 23
 tldr: "用同一組 HTTP 請求比較有洞版與修補版，保存工單讀取證據、稽核事件與時間線。越權讀取要被擋住，正常使用者也要繼續讀得到自己的資料。"
 description: "AI 資安實戰最後一篇：附可直接執行的 HTTP 教學服務與整合腳本，把攻擊、防護、事件調查和回歸測試串成可重跑的演練包。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-10-22-ai-security-integrated-exercise-en)

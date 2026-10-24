@@ -8,7 +8,7 @@ lang: zh-TW
 description: "依實驗問題選擇本機、CTF、自架雲端或授權系統，用工單案例學會保留版本、初始狀態與判準，附離線環境紀錄檢查程式。"
 tldr: "想查程式判斷就用可重設的副本，想查部署邊界就保留雲端條件，想驗真實系統就對齊專案範圍。換環境時保留問題與判準，重新記錄改變的條件。"
 difficulty: 入門
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 3

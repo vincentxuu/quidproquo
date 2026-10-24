@@ -8,7 +8,7 @@ lang: zh-TW
 description: "實跑依 HTTP 回應分支的有限測試迴圈，檢查規劃、執行、驗證與停止條件。"
 tldr: "用有步數、目標與逾時限制的 HTTP 測試迴圈，理解規劃器、執行器與驗證器如何交接，以及何時停止。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 8

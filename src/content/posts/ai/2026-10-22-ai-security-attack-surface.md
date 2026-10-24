@@ -8,7 +8,7 @@ lang: zh-TW
 description: "以工單服務的兩筆 HTTP 觀察建立攻擊面，再把同一方法搬到公開訓練平台與自架雲端。"
 tldr: "把工單服務的文件與 HTTP 觀察整理成有來源的攻擊面，區分已確認功能、權限假設與下一個最小測試。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 4

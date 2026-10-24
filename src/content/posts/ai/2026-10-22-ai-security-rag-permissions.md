@@ -8,7 +8,7 @@ lang: zh-TW
 description: "用三個工單驗證檢索隔離、權限版本與快取依賴，練習撤權後再次查詢。"
 tldr: "每次檢索都帶可信使用者權限，在資料進入模型前過濾；快取命中與撤權後也要重新驗證資料依賴。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 11

@@ -8,7 +8,7 @@ lang: zh-TW
 description: "從惡意工單附件到 live LLM 實驗平台，逐步拆開低信任文字與工具副作用的交接。"
 tldr: "拆解惡意附件如何變成錯誤工具請求，對照真實 LLM 訓練平台與固定動作重播，分開驗證模型偏移與資料外洩。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "AI 資安實戰"
   order: 7

@@ -11,7 +11,7 @@ series:
   order: 23
 tldr: "Compare vulnerable and fixed builds with the same HTTP requests, retaining ticket responses, audit events, and a timeline. Block unauthorized reads while preserving legitimate access."
 description: "The final AI Security in Practice exercise includes a runnable HTTP teaching target and integration script, connecting attack evidence, controls, investigation, and regression tests."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-10-22-ai-security-integrated-exercise)

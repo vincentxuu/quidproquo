@@ -8,7 +8,7 @@ lang: en
 description: "Use a two-tenant ticket service and a runnable Python example to distinguish identity, tenancy, ownership, and backend authorization, then test ID substitution and forged identity fields."
 tldr: "The backend derives the acting identity from trusted authentication, then checks the requested action against the resource. Test an explicit same-tenant, owner-only policy with allowed and denied reads."
 difficulty: 入門
-draft: true
+draft: false
 series:
   name: "AI Security in Practice"
   order: 1
