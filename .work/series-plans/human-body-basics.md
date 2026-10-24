@@ -1,6 +1,8 @@
-# 系列規劃：認識人體（human-body-basics）— 草案，待使用者確認弧線
+# 系列規劃：認識人體（human-body-basics）
 
-狀態：**草案**。尚無「使用者確認」行；確認前不寫任何一篇。slug 尚未登錄 `src/utils/series.ts`。
+使用者確認：2026-10-24（使用者回覆「好」，回應「弧線是否確認」與「是否加 openstax.org 到允許網域」兩題；以弧線 21 篇確認處理。完整範圍卡尚未全部寫完，先行 order 2，其餘動筆前補。）
+
+狀態：弧線已確認，**尚未開寫**。slug 尚未登錄 `src/utils/series.ts`。每篇動筆前仍須對該篇過五關，且標 🔴 的 order 10、12 尚未決定補來源或降級。
 
 來源：`.work/research/human-body-basics/research-note.md`、`.work/research/human-body-basics/scan/00-summary.md`（七組掃描與缺口）、`.work/research/human-body-basics/extractions/lazarczuk-2022-tendon-loading.md`（唯一已精讀）。
 
