@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "AI Agent 資安工具地圖"
   order: 2
-tldr: "我把 agent 沙箱分成四種：共用核心的作業系統隔離、容器編排、本機 microVM、遠端 microVM。Claude Code 的沙箱預設關閉、只包 shell 指令；Codex CLI 本機預設開啟。公開的逃逸案例多半繞過邊界旁邊的設定檔或檢查腳本，不是打穿核心；沙箱回答的是被騙之後能走多遠，不是會不會被騙。用 Claude Code 的話，先開沙箱，再把 ~/.ssh、~/.aws 列進拒絕清單，並另外擋住 Read 工具。"
+tldr: "我把 agent 沙箱分成四種：共用核心的作業系統隔離、容器編排、本機 microVM（輕量虛擬機）、遠端 microVM。Claude Code 的沙箱預設關閉、只包 shell 指令；Codex CLI 本機預設開啟。公開的逃逸案例多半繞過邊界旁邊的設定檔或檢查腳本，不是打穿核心；沙箱回答的是被騙之後能走多遠，不是會不會被騙。用 Claude Code 的話，先開沙箱，再把 ~/.ssh、~/.aws 列進拒絕清單，並另外擋住 Read 工具。"
 description: "說明 agent 沙箱的四種隔離層級，比較 Claude Code 與 Codex CLI 的預設範圍與已知繞過，指出沙箱管得到什麼、管不到什麼，並給 Claude Code 使用者可直接照做的設定。"
 draft: true
 ---
@@ -30,7 +30,7 @@ draft: true
 - **本機 microVM（輕量虛擬機）。** [smolvm](https://github.com/smol-machines/smolvm) 之類的工具在本機開一台有獨立 guest kernel 的小型虛擬機，邊界比共用核心強，代價是需要 KVM 這類硬體虛擬化支援。
 - **遠端 microVM。** [E2B](https://github.com/e2b-dev/E2B) 是雲端代管的 Firecracker microVM，每個沙箱與其他沙箱和主機隔離（見 [E2B 文件](https://docs.e2b.dev/faq/security-and-compliance)），用來跑 LLM 產生或使用者提供的程式碼，不是給本機開發者包住 Claude Code 用的。
 
-共用核心的隔離和有獨立核心的虛擬機，防的東西不一樣，所以不能放在同一張表比強弱。目前也沒有獨立研究量過這些沙箱實際擋得住多少，這篇只比範圍，不排名。
+共用核心的隔離和有獨立核心的虛擬機，防的東西不一樣，所以不能放在同一張表比強弱。在我查到的範圍內，沒有人用同一把尺量過這些沙箱實際擋得住多少：現有的是針對容器逃逸的基準（[SandboxEscapeBench](https://arxiv.org/abs/2603.02277)）、對各家預設設定暴露面的探測（[ControlPlane sandbox-probe](https://control-plane.io/publications/sandbox-probe-reports/)），以及對九個沙箱專案的程式碼審計（[Nebula SandboxGym](https://sandboxgym.io/)），都不是強度排名。這篇也只比範圍，不排名。
 
 沙箱工具也會有維護風險。代管沙箱服務 Daytona 的公開 repo 在 2026 年 6 月起凍結，最後版本是 v0.190.0，核心搬到私有碼庫，官方宣布[轉為閉源](https://www.daytona.io/dotfiles/updates/daytona-is-going-closed-source)（repo 的 [README](https://github.com/daytonaio/daytona) 有說明）。選沙箱前，先看 repo 最近一次發版的日期和授權有沒有變。
 
@@ -65,7 +65,7 @@ Pillar Security 把這類案例概括成：agent 能波及的，是它寫得進�
 
 ## 沙箱答的是「被騙之後走多遠」
 
-沙箱不防止 agent 被說服，它只決定被騙之後能走多遠。Baldur Security 的研究者讓 AI 滲透工具 Strix 去掃一個放了 prompt injection 的網頁，Strix 被騙去執行指令，研究者拿到有 sudo 的 shell。作者寫 Strix 把掃描放在沙箱容器內，這 significantly lowers the impact（大幅降低了影響），文章也沒有示範逃出沙箱。這個案例說明的是：agent 在邊界內仍擁有被授權的一切（這裡至少包括 sudo 和對外連線），沙箱限制的是這些東西以外的世界。
+沙箱不防止 agent 被說服，它只決定被騙之後能走多遠。Baldur Security 的研究者讓 AI 滲透工具 Strix 去掃一個放了 prompt injection 的網頁，Strix 被騙去執行指令，研究者拿到有 sudo 的 shell。作者提到 Strix 把掃描放在沙箱容器內，認為這大幅降低了影響，文章也沒有示範逃出沙箱。這個案例說明的是：agent 在邊界內仍擁有被授權的一切（這裡至少包括 sudo 和對外連線），沙箱限制的是這些東西以外的世界。
 
 Claude Code 與 nono 都寫得很直接。Claude Code 的文件說沙箱能降低風險，但不是完整的隔離邊界；允許 `github.com` 這類廣泛網域，仍然是一條資料外洩的路。nono 的[安全模型文件](https://nono.sh/docs/cli/internals/security-model)說它不是防逃逸的沙箱，專案的安全說明也寫目前不建議用在正式環境。
 
@@ -93,7 +93,7 @@ Claude Code 與 nono 都寫得很直接。Claude Code 的文件說沙箱能降�
    }
    ```
 
-   兩個但書。`sandbox.credentials` 只管沙箱內的 Bash 指令，擋不了 Read 工具，所以才要另外用 `permissions.deny` 的 `Read(...)` 規則。另外，專案與本機設定檔裡的 `credentials` 條目 Claude Code 不採用，要寫在使用者（或管理員）設定檔。
+   兩個但書。`sandbox.credentials` 只管沙箱內的 Bash 指令，擋不了 Read 工具，所以才要另外用 `permissions.deny` 的 `Read(...)` 規則。另外，`deny` 條目寫在使用者、專案或本機哪一層設定檔都會生效，而且別層撤不掉；只有 `mask`（改成給沙箱內指令一個佔位值）這類條目，專案與本機設定檔裡的會被忽略，本文用不到。
 2. **驗證有生效。** 官方文件的做法：請 Claude 跑 `touch ~/sandbox-probe`，在沙箱裡它應該失敗；如果它問你要不要在沙箱外重試，拒絕。
 3. **嚴格模式。** 上面的 `allowUnsandboxedCommands: false` 關掉無沙箱重試（官方稱為 Strict sandbox mode）；`failIfUnavailable: true` 再加上沙箱起不來就拒絕啟動，不會悄悄退回沒有沙箱。
 4. **別為了讓 `docker`、`gh` 能跑就丟進 `excludedCommands`。** 官方文件自己警告，被排除的指令用你的完整權限執行。
@@ -136,6 +136,9 @@ Claude Code 與 nono 都寫得很直接。Claude Code 的文件說沙箱能降�
 - [NVD：CVE-2025-59532](https://nvd.nist.gov/vuln/detail/CVE-2025-59532)
 - [NVD：CVE-2025-66479](https://nvd.nist.gov/vuln/detail/CVE-2025-66479)
 - [Pillar Security：The Week of Sandbox Escapes](https://www.pillar.security/blog/the-week-of-sandbox-escapes)
+- [SandboxEscapeBench（arXiv）](https://arxiv.org/abs/2603.02277)
+- [ControlPlane：sandbox-probe](https://control-plane.io/publications/sandbox-probe-reports/)
+- [Nebula Security：SandboxGym](https://sandboxgym.io/)
 - [Baldur Security：RCE in Strix Agent](https://baldur.dk/blog/strix-ai-pentester-rce/)
 - [clawkwork/clawk](https://github.com/clawkwork/clawk)
 - [上一篇：裝 skill 與 MCP 前怎麼掃](/posts/ai/2026-10-24-skill-mcp-pre-install-scanners)

@@ -60,3 +60,14 @@
 | 增量歸因 | 憑證保護只對 Bash 成立、Read 工具走權限規則：已在步驟 1 與自我檢查切開 |
 | 作者推論寫成事實 | 「逃逸多半發生在邊界旁邊」現標為「我的判斷」，已修 |
 | 機械檢查 | 審稿者跑 check-process-leak、check-tw-terms、scan-ledger 皆無命中；`pnpm check:references` 當時環境失敗未驗。我這次沒有重跑任何檢查 |
+
+## 後續查證（2026-10-24，審稿者未驗的新增句，已修）
+
+| 問題 | 處理結果 |
+|---|---|
+| `/sandbox`、`claude --version`、`Read(~/.ssh/**)` 語法、JSON 範例整體、`~/.srt-settings.json` 預設拒絕網路 | 已驗，無須改。來源：https://code.claude.com/docs/en/sandboxing 、 https://code.claude.com/docs/en/settings-reference 、 https://code.claude.com/docs/en/permissions 、 https://code.claude.com/docs/en/sandbox-environments |
+| `credentials` 條目在專案／本機設定檔不生效（審稿後新加的但書） | 已修（原文錯）。`deny` 條目任何一層都生效；只有 `mask` 類在 repo 設定檔被忽略。zh、en 都改。來源：https://code.claude.com/docs/en/sandboxing#protect-credentials |
+| 「目前沒有獨立研究量過」 | 已修。反證搜尋找到 SandboxEscapeBench、ControlPlane sandbox-probe、Nebula SandboxGym，改成「在我查到的範圍內，沒有人用同一把尺量過…」並列三者、說明皆非強度排名；zh、en 都加參考資料。來源：https://arxiv.org/abs/2603.02277 、 https://control-plane.io/publications/sandbox-probe-reports/ 、 https://sandboxgym.io/ |
+| microVM 首次出現未加白話（部分修） | 已修。tldr 首次出現加「（輕量虛擬機）」，en 同 |
+| 中英混用（S-18） | 已修。改成轉述，zh、en 都改 |
+| 機械檢查 | `scripts/check-tw-terms.mjs` 兩篇無命中；`scripts/check-process-leak.mjs` 指定四個檔案 exit 0 |

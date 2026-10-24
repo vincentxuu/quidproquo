@@ -43,7 +43,7 @@
 | 5-12 成本段主詞切換 | 已修（zh 第 61 行拆成公開 skill 與內部 harness 兩句） |
 | 5-13 譯文放引號 | 已修（見 H4／H7；en 第 38、52 行引號為英文原句，一致） |
 | 5-14 開頭加流程圖（可選） | 不修（可選；第 26 行已把六步拆成分號句，可讀） |
-| 範圍卡缺口：「Validator 不能自己提 finding」「PoC 對原始碼驗證」兩個細節 | 未修（目前 zh／en 全文沒有這兩點，只有「獨立驗證者試著推翻」；審稿者要求補或確認刻意略，尚未回覆，交使用者決定） |
+| 範圍卡缺口：「Validator 不能自己提 finding」「PoC 對原始碼驗證」兩個細節 | 已修（2026-10-24 對 https://github.com/cloudflare/security-audit-skill/blob/HEAD/skills/security-audit/VALIDATION-AND-REPORTING.md 核實：Phase 3 驗證者是沒獵捕過的新 agent，只憑原始碼與沙箱內有限本機重現反駁、不碰部署端點；Phase 5 驗證者若發現不同根因須另編指紋、交新的獨立驗證者，不能直接收進報告。原文沒有「PoC」一詞，稿上不用該詞；zh／en 第 26 行已補一句） |
 | 英文版：標題雙 "How"、"the reader's goal"、"stop halfway"、"nobody has published" | 已修（en 標題只有一個 "How"；第 18 行 "your goal changes"；第 84 行已重寫） |
 
 ## post-polish

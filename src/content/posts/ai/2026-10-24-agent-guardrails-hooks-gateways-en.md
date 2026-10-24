@@ -8,7 +8,7 @@ lang: en
 series:
   name: "AI Agent Security Tooling Map"
   order: 3
-tldr: "Guardrails intercept an action before the agent carries it out. On Claude Code the main attachment point is the hook, and the official docs say that on most events a hook that errors or times out lets the action go ahead; blocking needs onFailure: block. Other tools have their own failure behavior and defaults: Agent Governance Toolkit allows everything when no policy is loaded, NeMo Guardrails lets requests through when its jailbreak detector is down, and llm-guard and rebuff are archived. Ask three things of any guardrail: where it intercepts, what happens when it fails, and who can change its rules."
+tldr: "Guardrails intercept an action before the agent carries it out. On Claude Code the main attachment point is the hook, and the official docs say that on most events a hook that errors or times out lets the action go ahead; blocking needs onFailure: block. Other tools have their own failure behavior and defaults: the Agent Governance Toolkit library allows everything when no policy is loaded, NeMo Guardrails lets requests through when its jailbreak detector is down, and llm-guard and rebuff are archived. Ask three things of any guardrail: where it intercepts, what happens when it fails, and who can change its rules."
 description: "The default failure behavior of Claude Code hooks, where Agent Governance Toolkit, pipelock, cc-safety-net, NeMo Guardrails and Docker MCP Gateway intercept, who can change their rules and what limits them, and what to do when a guardrail tool is archived or changes model."
 draft: true
 ---
@@ -49,19 +49,25 @@ Self-check: if a hook script's path is wrong, will a Bash command be blocked? No
 
 Where the rules live and who can write to them decides whether a guardrail can stop an agent that has already been fooled.
 
-**Claude Code hooks.** Hook configuration can sit in your user-level `~/.claude/settings.json`, the project's `.claude/settings.json`, `.claude/settings.local.json`, a plugin's `hooks/hooks.json`, or an administrator's managed settings. Administrators can use `allowManagedHooksOnly` to restrict which hooks run, and managed hooks cannot be switched off from user, project or local settings. A script under the project's `.claude/hooks/` is a file the agent itself can write: Claude Code asks before writing into `.claude/` by default, but not in `bypassPermissions` mode. So a fooled agent running with permissions skipped may be able to rewrite its own check script. In practice: put the key rules in user-level or managed settings, list the hook directory as non-editable with an `Edit(...)` deny rule, and for edits made through Bash commands, rely on the sandbox's `denyWrite` from the last post.
+**Claude Code hooks.** Hook configuration can sit in your user-level `~/.claude/settings.json`, the project's `.claude/settings.json`, `.claude/settings.local.json`, a plugin's `hooks/hooks.json`, or an administrator's managed settings. Once an administrator sets `allowManagedHooksOnly`, user, project, local and plugin hooks do not run (plugins force-enabled by the administrator are exempt); without it, `disableAllHooks` in user, project or local settings still cannot switch off managed hooks. A script under the project's `.claude/hooks/` is a file the agent itself can write. The official docs list what happens on a write into `.claude/` in each permission mode: default and acceptEdits modes ask you first, auto mode routes it to the classifier, dontAsk mode denies it, and `bypassPermissions` mode allows it. So a fooled agent running with permissions skipped may be able to rewrite its own check script. In practice there are two layers. First, put the key rules in user-level or managed settings, and add an `Edit(...)` deny rule for the project's hook directory; the docs state that deny rules apply in every mode, `bypassPermissions` included. Second, edits made through Bash commands: an `Edit` deny rule only covers the file commands Claude Code recognizes (`sed`, `tee`, redirects) and cannot stop a Python or Node script that opens the file itself. While the sandbox is on, it already refuses Bash writes to the `.claude` settings files and the `.claude/hooks` directory by default; add other paths with `sandbox.filesystem.denyWrite` from the last post.
 
-**AGT.** The policy engine runs in the same process as the agent, with no boundary independent of the agent, which is why the project recommends one container per agent in production.
+**AGT.** The policy engine runs in the same process as the agent, with no boundary independent of the agent, which is why the project recommends one container per agent in production. Its Claude Code plugin loads policy from `AGT_CLAUDE_POLICY_PATH`, then `~/.claude/agt/policy.json`, then the plugin's bundled default, in that order; that is, a JSON file under your home directory.
 
-**pipelock.** The proxy is a separate process and its rules live in its own configuration, which the agent does not handle. But its documentation also says it is not a sandbox: if the agent can run arbitrary processes, those processes can bypass the proxy. Where the rules file lives and whether it is protected from the agent depends on how you deploy it.
+**pipelock.** Its rules live in its own configuration file (`pipelock.yaml`), reloaded through a file watcher or SIGHUP. The README describes "capability separation": in an enforced deployment the agent process has secrets but no direct network access, while pipelock has network access but none of the agent's secrets, so even a prompt-injected agent cannot reach the firewall's controls. That is a condition you have to build in your deployment, not something you get by installing it. Its documentation also says it is not a sandbox: if the agent can run arbitrary processes, those processes can bypass the proxy.
 
-**NeMo Guardrails.** The rules live in the configuration of the application you write, set by the application's developer. User input cannot change them, but it guards the space between your application and the model, not Claude Code.
+**NeMo Guardrails.** The rules live in the configuration folder the application loads (`config.yml` and Colang files), set by the application's developer. User input cannot change them, but it guards the space between your application and the model, not Claude Code.
+
+**Docker MCP Gateway.** Its rules come from your local Docker MCP configuration (catalogs, profiles, network-blocking options). The official security document lists the local OS user, the Docker daemon and the local Docker MCP configuration files as trusted; whoever can modify those is outside its protection boundary. Catalog files must sit under `~/.docker/mcp/catalogs/`, and an image label may not carry runtime fields such as commands, mounts or environment values.
+
+**cc-safety-net.** Settings sit in the user-level `~/.cc-safety-net/policy.json`, and a project may commit its own `.cc-safety-net/policy.json` layered on top. The official docs state that the agent cannot change `policy.json` in either scope; you edit it yourself or through its dashboard. The project file can relax the user's settings, but the tool reports each relaxed field, and setting the environment variable `CC_SAFETY_NET_PROJECT_TIGHTEN_ONLY=1` refuses every relaxation.
+
+**hol-guard.** Local settings, project overrides and remembered allow or deny decisions are stored on this machine. Its docs say saved local decisions are verified against Guard-maintained integrity key material before they take effect again, and `hol-guard policies verify` can find unsigned or tampered decisions.
 
 ## How strong the rules are
 
 **AGT: claim versus self-assessment.** Microsoft's open-source toolkit, officially in Public Preview, with possible breaking changes before GA and support limited to GitHub Issues and Discussions. The repo description says "Covers 10/10 OWASP Agentic Top 10". OWASP is a security community organization, and the Agentic Top 10 is its list of the ten main risk categories for AI agents (the full list is in post 8). But AGT's own mapping document says 7 full and 3 partial, and notes this is an internal self-assessment, not a certification.
 
-**AGT: defaults and detection.** With no policy loaded, it allows. Its MCP gateway detection is heuristic, with no LLM; the "semantic intent classifier" its documentation mentions is described in a source comment as a keyword-weighted heuristic classifier with no machine-learning dependency.
+**AGT: defaults and detection.** When the policy engine has no policy loaded, its default action is allow (AGT's own LIMITATIONS document says so); the Claude Code plugin instead falls back to its bundled default policy, which marks Bash, Edit and similar tools for review. Its MCP gateway detection is heuristic, with no LLM; the "semantic intent classifier" its documentation mentions is described in a source comment as a keyword-weighted heuristic classifier with no machine-learning dependency.
 
 **pipelock.** Detection as documented is all rules: regular expressions for data exfiltration, injection patterns and entropy analysis, with no classifier model mentioned. The author concedes that injection detection is syntactic rather than semantic, so an LLM-rewritten injection that matches no known pattern will pass. Its benchmark was built and run by the authors. Newer versions also offer optional `pipelock sandbox` and `contain` modes to cover the sandbox gap; this post does not assess how strong they are.
 
@@ -77,7 +83,7 @@ My view is that a detection-based guardrail that stops being updated gets steadi
 
 - **llm-guard**: archived on 9 July 2026. Its README says the project and its models on Hugging Face are no longer under active development or maintained; it gives no reason and no successor or migration guidance. The last PyPI release is from May 2025 with no deprecation marker.
 - **rebuff**: archived in May 2025 with no notice in its README; what it says about itself is that it is still a prototype and cannot provide 100% protection.
-- **Guardrails AI**: not archived, but it announced a cutoff of 25 August 2026 after which the Hub install mechanism and hosted inference stop. Validators moved to install directly from PyPI, and anyone using the hosted models has to run them locally or on their own endpoint. The reasons given are that Hub pip installs were unreliable and that free hosted inference is expensive to run. This is a migration, not the tool disappearing.
+- **Guardrails AI**: not archived, but a July 2026 announcement ([issue #1560](https://github.com/guardrails-ai/guardrails/issues/1560)) set two dates: hosted inference servers stop on 6 August, and `guardrails hub install` and the private registry stop on 25 August. One passage in the announcement also gives 25 August for the inference servers, while the official docs say 6 August; this post follows the docs. Both dates have now passed. Validators install from PyPI (`pip install guardrails-ai-<name>`, with imports moved to `guardrails_ai`), and anyone using the hosted models has to run them locally (`use_local=True`) or on their own endpoint. The reasons given are that Hub pip installs were unreliable and that free hosted inference is expensive to run. This is a migration, not the tool disappearing. On 9 September Harvey announced it was acquiring Guardrails AI, with the founders and team joining Harvey; the announcement does not say who will maintain the open-source framework.
 
 ## How to use them
 
@@ -121,7 +127,7 @@ My view is that a detection-based guardrail that stops being updated gets steadi
 3. **Pair guardrails with a sandbox.** cc-safety-net's README says outright that it is not a sandbox; pipelock's limitations note says its proxy is not one either (newer versions have an optional sandbox mode). If you have turned on only the guardrail and not the sandbox, follow the last post and turn the sandbox on; the same the other way round. A guardrail blocks the actions you anticipated; a sandbox limits the ones you did not.
 4. **Measure false positives yourself.** Rules can be read and tuned, and you can expect them to be bypassed by rewording; for classifier and LLM judgments, do not take a vendor's number. One way: take 20 normal commands you actually ran in the past week, feed them through the guardrail one by one and count how many get blocked. If more than one or two do, you will soon want to turn it off.
 5. **Check whether it has been frozen before you adopt it.** Look for an Archived banner at the top of the GitHub page and the date of the latest release; then write one line in your project docs: "if this stops being maintained, I switch to X".
-6. **If you use AGT, confirm a policy is actually loaded.** With no policy loaded it allows by default. Load a policy following its README, then deliberately send a command that should be blocked and confirm it is.
+6. **If you use AGT, confirm a policy is actually loaded.** With the plugin, run `/agt-governance:agt-status` to see which path the active policy came from; with the library (SDK), no loaded policy means allow by default, so load one yourself. Then deliberately send a command that should be blocked and confirm it is.
 
 ## Where this leaves you
 
@@ -131,6 +137,8 @@ A guardrail's position decides what it can see, and its failure behavior decides
 
 - [Claude Code docs: Hooks](https://code.claude.com/docs/en/hooks)
 - [Claude Code docs: Permissions](https://code.claude.com/docs/en/permissions)
+- [Claude Code docs: Permission modes (Protected paths)](https://code.claude.com/docs/en/permission-modes#protected-paths)
+- [Claude Code docs: Sandboxing (Protected paths)](https://code.claude.com/docs/en/sandboxing#protected-paths)
 - [microsoft/agent-governance-toolkit](https://github.com/microsoft/agent-governance-toolkit)
 - [pipelab-org/pipelock](https://github.com/pipelab-org/pipelock)
 - [hashgraph-online/hol-guard](https://github.com/hashgraph-online/hol-guard)
@@ -138,6 +146,11 @@ A guardrail's position decides what it can see, and its failure behavior decides
 - [NVIDIA-NeMo/Guardrails](https://github.com/NVIDIA-NeMo/Guardrails)
 - [NeMo Guardrails docs: Jailbreak Protection](https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/jailbreak-protection)
 - [docker/mcp-gateway](https://github.com/docker/mcp-gateway)
+- [cc-safety-net docs: Policy file](https://ccsafetynet.com/docs/configuration/policy)
+- [HOL Guard docs: Local vs. Cloud](https://github.com/hashgraph-online/hol-guard/blob/main/docs/guard/local-vs-cloud.md)
+- [AGT docs: LIMITATIONS](https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/LIMITATIONS.md)
+- [Guardrails AI docs: Remote Validation Inference](https://www.guardrailsai.com/docs/concepts/remote_validation_inference)
+- [Harvey: Guardrails AI Joins Harvey](https://www.harvey.ai/blog/guardrails-ai-joins-harvey)
 - [IBM/mcp-context-forge](https://github.com/IBM/mcp-context-forge)
 - [protectai/llm-guard](https://github.com/protectai/llm-guard)
 - [protectai/rebuff](https://github.com/protectai/rebuff)

@@ -21,7 +21,7 @@
 | 🟡 D3／D7：OTEL 預設內容遮蔽；原文「因為內容裡有機密」是替文件推動機 | 已修（zh 第 86 行改成「預設會把 prompt 內容遮成 `<REDACTED>`」，`OTEL_LOG_TOOL_CONTENT` 只作用於 tracing（beta）；「機密」只當作者的提醒，不當文件原因） |
 | 🟡 D5：repo 設定被忽略的範圍 | 已修（zh 第 72 行含 `.claude/settings.local.json`，並註明使用者層與 shell 仍有效） |
 | 🟡 D1：補 transcript 明文、30 天清理 | 已修（zh 第 70 行）；`CLAUDE_CONFIG_DIR` 沒補（可選，不修） |
-| 🟡 D4：managed settings 鎖端點，開關要一併鎖 | 未修（zh 第 72、85 行只寫 managed settings 送另一台 collector，沒補「exporter selector 也要放進 managed settings」；報告列為補充，非錯誤） |
+| 🟡 D4：managed settings 鎖端點，開關要一併鎖 | 已修（2026-10-24 對 https://code.claude.com/docs/en/monitoring-usage#how-managed-settings-lock-the-otlp-destination 核實：`OTEL_LOGS_EXPORTER` 等 selector 走一般優先序，開發者設定仍可關掉訊號；zh 怎麼用 #3 與第 72 行已補「連 exporter 一起放」） |
 | 🟡 E1：grep pattern 太鬆且輸出會把明文機密顯示在終端機 | 已修（zh 第 79–83 行改為 `find … -mtime -7` 加收緊 pattern，註明誤報、明文警語） |
 | 🟡 簡報作為出處：數字出自簡報而非論文，參考資料缺簡報連結 | 已修（zh 第 42 行與第 99 行已加簡報連結） |
 | 🟡 歸因標籤過多（A2／A10 建議合併） | 已修（zh 第 42 行合為一句「…都是作者…自述，沒有第三方驗證」） |
@@ -46,12 +46,12 @@
 | 4-11 「兩個問題」數量不符；AGT 段落位置 | 已修（zh 第 66 行改「還有三個問題，前兩個…最後一個…」；AGT 段移到第 60 行並加「上一篇看到的」） |
 | 4-12 光譜畫成軸線圖（可選） | 不修（可選；光譜各點位置只有 ADR 與 numbat 以外的未逐一核對，維持三項清單） |
 | 4-13 怎麼用 #1 指令雜訊 | 已修（見 E1） |
-| 4-14 怎麼用 #3 沒有動作 | 已修（zh 第 85 行給出環境變數與 endpoint 設法）；但「個人機器沒有 managed settings 這條路」與 managed settings 檔案位置未經 post-verify 核實，稿上用「請管理員放進 managed settings」措辭回避，列為部分修 |
+| 4-14 怎麼用 #3 沒有動作 | 已修（三個變數名對 https://code.claude.com/docs/en/monitoring-usage 設定表核實；managed settings 檔位置對 https://code.claude.com/docs/en/managed-settings 核實：macOS `/Library/Application Support/ClaudeCode/`、Linux/WSL `/etc/claude-code/`、Windows `C:\Program Files\ClaudeCode\`；文件是給管理員部署寫的，沒排除單機，稿上註明「沒有實測」；文件另寫本機管理員可直接改檔、WSL 的 /etc/claude-code 使用者可寫，稿上已寫） |
 | 4-15 #4 替來源推測動機 | 已修（見 D7） |
 | 4-16 #2、#5 補具體做法 | 已修（zh 第 84 行「我的建議是…一次改一條」；第 87 行 `echo canary-12345`）；canary 做法是作者建議，稿上沒另外標註，但上下文是動作指示，可接受 |
 | 系列銜接：召回率補第 1 篇連結 | 已修（zh 第 42 行） |
 | 系列銜接：tamper-evident 中英並列 | 已修（zh 第 54 行首次並列） |
-| 參考資料：具體行為句補 inline 連結到文件頁（8.5） | 部分修（numbat enforcement、Prismor audit-trail、AGT LIMITATIONS 已連；DefenseClaw 7 天保存、numbat `hook status`、Adrian reliability 等仍只連 repo 首頁或沒連） |
+| 參考資料：具體行為句補 inline 連結到文件頁（8.5） | 已修（2026-10-24 補：DefenseClaw 7 天保存與 judge bodies → https://cisco-ai-defense.github.io/defenseclaw/docs/observability/#local-history；numbat `hook status` → https://github.com/perplexityai/numbat/blob/HEAD/docs/deployment.md#what-status-proves；Adrian → https://docs.adrian.secureagentics.ai/how-it-works 、/reliability 、/reference/claude-code；failproofai → README#install；clawdstrike → README#receipts／#quick-start／#design-principles；transcript 30 天 → https://code.claude.com/docs/en/claude-directory） |
 
 ## post-polish
 

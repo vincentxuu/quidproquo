@@ -57,3 +57,13 @@
 | 作者推論寫成事實 | 「護欄會隨時間退化」已改為單一一句「我的看法是」。已修 |
 | 新增段落的篇幅 | 「誰能改規則」整節與兩段程式碼是審稿後新加，篇幅增加，讀順度沒有重新量測 |
 | 機械檢查 | 審稿者跑 check-process-leak、check-tw-terms、scan-ledger 皆無命中；`pnpm check:references` 當時環境失敗未驗。我這次沒有重跑任何檢查 |
+
+## 後續查證（2026-10-24，審稿者未驗的新增句，已修）
+
+| 問題 | 處理結果 |
+|---|---|
+| B3-1「誰能改規則」Docker MCP Gateway、cc-safety-net、hol-guard 沒回答（部分修） | 已修。三者各補一段，皆有一手出處：https://github.com/docker/mcp-gateway/blob/main/docs/security.md 、 https://ccsafetynet.com/docs/configuration/policy 、 https://github.com/hashgraph-online/hol-guard/blob/main/docs/guard/local-vs-cloud.md |
+| B3-4 Guardrails AI 截止日時態與 8/6 vs 8/25 矛盾（部分修） | 已修。改成已過去的日期、兩個日期分述（推論伺服器 8/6 照官方文件，Hub 與 registry 8/25），補 9/9 Harvey 收購。來源：https://github.com/guardrails-ai/guardrails/issues/1560 、 https://www.guardrailsai.com/docs/concepts/remote_validation_inference 、 https://www.harvey.ai/blog/guardrails-ai-joins-harvey 。唯一未能直接驗證：hub install 是否真的已失效（環境連不到其伺服器，只有第三方報導） |
+| 「未核對」六句（`.claude/` 寫入、`Edit(...)` deny、沙箱 denyWrite、`args`、pipelock、NeMo） | 已修。逐句對照官方文件／README，其中沙箱 denyWrite 一句更正為「沙箱預設已擋 `.claude` 設定檔與 hooks 目錄」，`Edit` deny 補上「只涵蓋認得的檔案指令」，`.claude/` 寫入補全各模式。來源見 evidence.md |
+| B3-2 第 6 點沒給政策位置 | 已修。外掛政策路徑與 `/agt-governance:agt-status`；並更正「沒載入政策預設放行」只適用函式庫，外掛退回隨附預設 |
+| 機械檢查 | `scripts/check-tw-terms.mjs` 兩篇無命中；`scripts/check-process-leak.mjs` 指定四個檔案 exit 0 |

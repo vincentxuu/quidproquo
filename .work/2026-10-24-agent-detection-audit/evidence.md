@@ -43,3 +43,15 @@ uber/ADR、numbat、Adrian、DefenseClaw、clawdstrike、failproofai、Prismor �
 
 ## 沒驗到的範圍
 Claude Code monitoring-usage 後半、各 event 的 hook schema、clawdstrike Spine 實作、DefenseClaw judge 實作行為；Uber 數字全為作者自述，沒有第三方驗證。
+
+## 2026-10-24 補查（原標未驗證／部分修的項目）
+- OTEL 三個變數與 `OTEL_LOG_USER_PROMPTS`／`OTEL_LOG_TOOL_DETAILS`／`OTEL_LOG_TOOL_CONTENT`：對 https://code.claude.com/docs/en/monitoring-usage 全文核實，名稱與預設（disabled）成立；`OTEL_LOG_TOOL_CONTENT` 需 tracing（beta）。
+- exporter selector 不被端點鎖定：https://code.claude.com/docs/en/monitoring-usage#how-managed-settings-lock-the-otlp-destination 寫明 `OTEL_LOGS_EXPORTER` 走一般優先序，開發者可關訊號，要鎖須一併放進 managed settings。已修稿。
+- managed settings 位置與單機可用性：https://code.claude.com/docs/en/managed-settings 「Place the file on each machine」；文件面向管理員，未排除單機，未實測；本機管理員可改檔、WSL `/etc/claude-code` 使用者可寫。已寫入稿並標註未實測。
+- transcript 明文、預設 30 天：https://code.claude.com/docs/en/claude-directory 成立。
+- `find … | xargs -0 grep -lE` 新 pattern：2026-10-24 在假資料目錄實跑（含 subagents 子目錄、`.env.example`、`\n` 結尾、30 天前舊檔）；命中與預期一致。額外發現相對路徑 `cat .env`（前面沒有 `/`）不會中，已在稿上註明。
+- Adrian：https://docs.adrian.secureagentics.ai/how-it-works 寫 Audit 為「default for most deployments」，三種模式 Audit／Human Review／Block；/reference/claude-code 寫模式由後端政策決定、`ADRIAN_CC_FAIL_OPEN` 預設 true、逾時預設 15 秒；/reliability 寫預設 fail-open。稿已改為三種模式並補 fail-open。
+- DefenseClaw：https://cisco-ai-defense.github.io/defenseclaw/docs/observability/ 「Local history」`retention_days: 7`、`judge_bodies_path`、`guardrail.retain_judge_bodies` 預設 true 且遮蔽設定不適用。成立。
+- numbat `hook status`：docs/deployment.md「What status proves」成立。
+- failproofai「picks no policies」：README Install 段。clawdstrike：README Receipts（Spine 為 Enterprise）、Quick Start（`init --keygen`）、Design principles（Fail closed）。
+- 仍未驗：clawdstrike Spine 實作本身、DefenseClaw judge 實作行為。

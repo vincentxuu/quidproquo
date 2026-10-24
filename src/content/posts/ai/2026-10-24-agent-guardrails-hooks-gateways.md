@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "AI Agent 資安工具地圖"
   order: 3
-tldr: "護欄在 agent 動作之前攔截。Claude Code 上的主要接點 hook，官方文件寫明大多數事件上出錯或逾時會照常執行，要擋得設 onFailure: block。別的工具各有各的出錯行為與預設：Agent Governance Toolkit 沒載入政策時放行，NeMo 的偵測器連不上時放行，llm-guard 與 rebuff 已封存。選護欄先問三件事：攔在哪、掛了怎樣、誰能改規則。"
+tldr: "護欄在 agent 動作之前攔截。Claude Code 上的主要接點 hook，官方文件寫明大多數事件上出錯或逾時會照常執行，要擋得設 onFailure: block。別的工具各有各的出錯行為與預設：Agent Governance Toolkit 的函式庫沒載入政策時放行，NeMo 的偵測器連不上時放行，llm-guard 與 rebuff 已封存。選護欄先問三件事：攔在哪、掛了怎樣、誰能改規則。"
 description: "說明 Claude Code hook 的預設失敗行為，比較 Agent Governance Toolkit、pipelock、cc-safety-net、NeMo Guardrails 與 Docker MCP Gateway 的攔截位置、誰能改規則與限制，以及護欄工具被封存或改制後該怎麼辦。"
 draft: true
 ---
@@ -49,19 +49,25 @@ Claude Code 的官方文件寫得很清楚：大多數事件上，hook 失敗或
 
 規則放在哪、誰寫得進去，決定護欄擋不擋得住一個已經被騙的 agent。
 
-**Claude Code 的 hook。** hook 的設定可以放在使用者層的 `~/.claude/settings.json`、專案的 `.claude/settings.json`、`.claude/settings.local.json`、外掛的 `hooks/hooks.json`，或管理員的 managed settings。管理員可以用 `allowManagedHooksOnly` 限制只跑 managed hooks；從使用者、專案或本機設定檔也關不掉 managed hooks。專案內的 `.claude/hooks/*.sh` 腳本，則是 agent 自己寫得到的檔案：Claude Code 對寫入 `.claude/` 預設會先問你，但在 `bypassPermissions` 模式下不問。所以被騙的 agent 若跑在跳過權限的模式下，就有機會改掉自己的檢查腳本。實際的做法：把關鍵規則放使用者層或管理員層設定，並用 `Edit(...)` 拒絕規則把 hook 目錄列為不可編輯；Bash 指令改檔的路徑，則靠上一篇的沙箱 `denyWrite` 擋。
+**Claude Code 的 hook。** hook 的設定可以放在使用者層的 `~/.claude/settings.json`、專案的 `.claude/settings.json`、`.claude/settings.local.json`、外掛的 `hooks/hooks.json`，或管理員的 managed settings。管理員設了 `allowManagedHooksOnly`，使用者、專案、本機和外掛的 hook 就不會跑（管理員強制啟用的外掛除外）；沒設的話，使用者、專案或本機設定檔裡的 `disableAllHooks` 也關不掉 managed hooks。專案內的 `.claude/hooks/*.sh` 腳本，則是 agent 自己寫得到的檔案。官方文件列出寫入 `.claude/` 在各權限模式下的結果：預設和 acceptEdits 模式會先問你，auto 模式交給分類器，dontAsk 模式直接拒絕，`bypassPermissions` 模式放行。所以跑在跳過權限模式下的 agent，有機會改掉自己的檢查腳本。實際的做法有兩層。第一，把關鍵規則放使用者層或管理員層設定，並對專案內的 hook 目錄加 `Edit(...)` 拒絕規則；官方文件寫明拒絕規則在每個模式都生效，包含 `bypassPermissions`。第二，Bash 指令改檔的路徑：`Edit` 拒絕規則只涵蓋 Claude Code 認得的檔案指令（`sed`、`tee`、重新導向），擋不了 Python 或 Node 腳本自己開檔寫入。沙箱開著的時候，沙箱預設就不讓 Bash 指令寫入 `.claude` 設定檔和 `.claude/hooks` 等目錄，其他路徑再用上一篇的 `sandbox.filesystem.denyWrite` 補。
 
-**AGT。** 政策引擎和 agent 跑在同一個程序裡，沒有獨立於 agent 的邊界，所以官方建議正式環境每個 agent 放在獨立容器。
+**AGT。** 政策引擎和 agent 跑在同一個程序裡，沒有獨立於 agent 的邊界，所以官方建議正式環境每個 agent 放在獨立容器。它的 Claude Code 外掛依序從 `AGT_CLAUDE_POLICY_PATH`、`~/.claude/agt/policy.json`、外掛隨附的預設政策載入，也就是你家目錄下的一個 JSON 檔。
 
-**pipelock。** 代理是獨立的程序，規則在它自己的設定裡，agent 不經手。但它的文件也寫，它不是沙箱，agent 若能執行任意程序，那些程序可以繞過代理。規則檔放哪、有沒有防 agent 改寫，要看你怎麼部署。
+**pipelock。** 規則寫在它自己的設定檔（`pipelock.yaml`），執行時以檔案監看或 SIGHUP 重新載入。README 說它採用「能力分離」：在強制部署下，agent 程序有祕密但沒有直接的網路，pipelock 有網路但沒有 agent 的祕密，所以 agent 即使被注入也碰不到防火牆的控制。這是你要自己部署出來的條件，不是裝上就有。它的文件也寫，它不是沙箱，agent 若能執行任意程序，那些程序可以繞過代理。
 
-**NeMo Guardrails。** 規則在你自己寫的應用程式的設定裡，由應用的開發者決定。使用者輸入改不到它，但它守的是你的應用與模型之間，守不到 Claude Code。
+**NeMo Guardrails。** 規則在應用程式載入的設定資料夾裡（`config.yml` 和 Colang 檔），由應用的開發者決定。使用者輸入改不到它，但它守的是你的應用與模型之間，守不到 Claude Code。
+
+**Docker MCP Gateway。** 規則來自你本機的 Docker MCP 設定（目錄、profile、封鎖網路等選項）。官方安全文件把本機作業系統使用者、Docker daemon 和本機 Docker MCP 設定檔列為可信，能改動這些檔案的人，本來就在它的防護範圍之外。目錄檔必須放在 `~/.docker/mcp/catalogs/` 底下，映像標籤也不能夾帶啟動指令、掛載或環境變數這類執行期欄位。
+
+**cc-safety-net。** 設定在使用者層的 `~/.cc-safety-net/policy.json`，專案可以另外提交一份 `.cc-safety-net/policy.json` 疊在上面。官方文件寫明 agent 不能改任何一層的 `policy.json`，要自己改，或用它的儀表板改。專案那份可以放寬使用者的設定，但它會逐項報告被放寬的欄位；想一律拒絕放寬，設環境變數 `CC_SAFETY_NET_PROJECT_TIGHTEN_ONLY=1`。
+
+**hol-guard。** 本機設定、專案覆寫和記住的允許或拒絕決定都存在這台機器上。官方文件說，已儲存的本機決定在重新生效前會用 Guard 維護的完整性金鑰驗證，`hol-guard policies verify` 可以找出未簽章或被竄改的決定。
 
 ## 規則有多強
 
 **AGT：宣稱與自評。** 微軟的開源工具包，官方稱為 Public Preview，GA 前可能有破壞性變更，支援僅限 GitHub Issues 與 Discussions。repo 描述寫「Covers 10/10 OWASP Agentic Top 10」。OWASP 是資安社群組織，Agentic Top 10 是它針對 AI agent 列的十大風險類別（完整清單在第 8 篇）。但 AGT 自己的對照文件寫的是 7 項完整、3 項部分，並註明這是內部自評，不是認證。
 
-**AGT：預設與偵測。** 沒有載入任何政策時，預設是放行。它的 MCP 閘道偵測是啟發式，沒有用 LLM；文件裡的「語意意圖分類器」，原始碼註解寫明那是關鍵字加權的啟發式分類器，沒有機器學習依賴。
+**AGT：預設與偵測。** 政策引擎沒有載入任何政策時，預設動作是放行（AGT 自己的 LIMITATIONS 文件這樣寫）；Claude Code 外掛則會退回隨附的預設政策，把 Bash、Edit 等工具列為需要審查。它的 MCP 閘道偵測是啟發式，沒有用 LLM；文件裡的「語意意圖分類器」，原始碼註解寫明那是關鍵字加權的啟發式分類器，沒有機器學習依賴。
 
 **pipelock。** 文件描述的偵測都是規則：資料外洩的正規表示式、注入模式、熵分析，沒有提到分類模型。作者在文件中承認，注入偵測是語法層級而非語意層級，一個不符合已知模式、由 LLM 改寫過的注入會通過。它的基準測試是自己做、自己跑的。較新的版本另提供選用的 `pipelock sandbox` 和 `contain` 模式補足沙箱這一塊，本文沒有評估它們的強度。
 
@@ -77,7 +83,7 @@ Claude Code 的官方文件寫得很清楚：大多數事件上，hook 失敗或
 
 - **llm-guard**：2026 年 7 月 9 日封存。README 寫專案及其 Hugging Face 上的模型不再積極開發或維護，沒有說明原因，也沒有繼任者或遷移指引。PyPI 上最後一版是 2025 年 5 月，沒有棄用標記。
 - **rebuff**：2025 年 5 月封存，README 沒有封存通知，它自己寫的是仍是原型，不能提供 100% 的保護。
-- **Guardrails AI**：沒有封存，但公告 2026 年 8 月 25 日為截止日，Hub 安裝機制與代管的推論服務停止提供。驗證器改成直接從 PyPI 安裝，要用代管模型的得改成本機執行或自架端點。官方給的理由是 Hub 的 pip 安裝不順，以及免費代管推論的成本高。這是遷移，不是工具消失。
+- **Guardrails AI**：沒有封存，但 2026 年 7 月的公告（[issue #1560](https://github.com/guardrails-ai/guardrails/issues/1560)）定了兩個日期：代管的推論伺服器 8 月 6 日停止，`guardrails hub install` 和私有 registry 8 月 25 日停止。公告內文有一處把推論伺服器也寫成 8 月 25 日，官方文件則寫 8 月 6 日，這裡照官方文件。這兩個日期現在都過了，驗證器要從 PyPI 裝（`pip install guardrails-ai-<名稱>`，匯入路徑改成 `guardrails_ai`），要用代管模型的得改成本機執行（`use_local=True`）或自架端點。官方給的理由是 Hub 的 pip 安裝不順，以及免費代管推論的成本高。這是遷移，不是工具消失。9 月 9 日 Harvey 宣布收購 Guardrails AI，創辦人和團隊併入 Harvey，公告沒有提開源框架之後由誰維護。
 
 ## 怎麼用
 
@@ -121,7 +127,7 @@ Claude Code 的官方文件寫得很清楚：大多數事件上，hook 失敗或
 3. **護欄和沙箱要搭配。** cc-safety-net 的 README 明寫它不是沙箱；pipelock 的限制說明也寫它的代理不是沙箱（較新版另有選用的沙箱模式）。如果你只開了護欄、沒開沙箱，先照上一篇把沙箱打開；反過來也一樣。護欄擋的是你預想到的動作，沙箱限制的是沒預想到的動作。
 4. **自己量誤報。** 規則可以讀、可以調，也可以預期會被改寫繞過；分類模型和 LLM 判斷的誤報，不要直接採用廠商的數字。示意做法：拿你最近一週實際跑過的 20 條正常指令，一條一條丟給護欄，數被擋了幾條。擋掉超過一兩條，你很快就會想把它關掉。
 5. **採用前先查有沒有被凍結。** 看 GitHub 頁面頂端有沒有 Archived 標記、最近一次 release 的日期；然後在專案文件記一行「若它停止維護，我換成 X」。
-6. **用 AGT 的話，先確認政策真的載入了。** 沒有載入政策時它預設放行。照它的 README 載入政策後，故意送一條該被擋的指令，確認真的被擋，再相信它。
+6. **用 AGT 的話，先確認政策真的載入了。** 外掛版執行 `/agt-governance:agt-status` 看目前生效的政策來自哪個路徑；用函式庫（SDK）的話，沒載入政策時預設放行，要自己載入。然後故意送一條該被擋的指令，確認真的被擋，再相信它。
 
 ## 整體來說
 
@@ -131,6 +137,8 @@ Claude Code 的官方文件寫得很清楚：大多數事件上，hook 失敗或
 
 - [Claude Code 文件：Hooks](https://code.claude.com/docs/en/hooks)
 - [Claude Code 文件：Permissions](https://code.claude.com/docs/en/permissions)
+- [Claude Code 文件：Permission modes（Protected paths）](https://code.claude.com/docs/en/permission-modes#protected-paths)
+- [Claude Code 文件：Sandboxing（Protected paths）](https://code.claude.com/docs/en/sandboxing#protected-paths)
 - [microsoft/agent-governance-toolkit](https://github.com/microsoft/agent-governance-toolkit)
 - [pipelab-org/pipelock](https://github.com/pipelab-org/pipelock)
 - [hashgraph-online/hol-guard](https://github.com/hashgraph-online/hol-guard)
@@ -138,6 +146,11 @@ Claude Code 的官方文件寫得很清楚：大多數事件上，hook 失敗或
 - [NVIDIA-NeMo/Guardrails](https://github.com/NVIDIA-NeMo/Guardrails)
 - [NeMo Guardrails 文件：Jailbreak Protection](https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/jailbreak-protection)
 - [docker/mcp-gateway](https://github.com/docker/mcp-gateway)
+- [cc-safety-net 文件：Policy file](https://ccsafetynet.com/docs/configuration/policy)
+- [HOL Guard 文件：Local vs. Cloud](https://github.com/hashgraph-online/hol-guard/blob/main/docs/guard/local-vs-cloud.md)
+- [AGT 文件：LIMITATIONS](https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/LIMITATIONS.md)
+- [Guardrails AI 文件：Remote Validation Inference](https://www.guardrailsai.com/docs/concepts/remote_validation_inference)
+- [Harvey：Guardrails AI Joins Harvey](https://www.harvey.ai/blog/guardrails-ai-joins-harvey)
 - [IBM/mcp-context-forge](https://github.com/IBM/mcp-context-forge)
 - [protectai/llm-guard](https://github.com/protectai/llm-guard)
 - [protectai/rebuff](https://github.com/protectai/rebuff)

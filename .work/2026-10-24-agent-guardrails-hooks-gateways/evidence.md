@@ -36,3 +36,21 @@
 | rebuff：2025-05-16 封存；README 沒有封存通知；自稱仍是原型、不能提供 100% 保護 | https://github.com/protectai/rebuff（API `archived: true`）、README 行 40 | 讀 | 已驗 |
 | Guardrails AI：沒封存；硬性截止 2026-08-25，Hub 安裝、私有 registry、託管推論停止；驗證器改 PyPI；理由為 pip 安裝不順與免費託管成本高 | https://github.com/guardrails-ai/guardrails/issues/1560 | issue 全文 | 已驗公告內容。**未驗證：截止日是否已實際執行**；issue 內另一處寫託管推論「August 6, 2026」，與 8/25 自相矛盾 |
 | 「偵測型護欄停止更新後，對新攻擊只會越來越不準」 | 無 | 無 | 作者判斷，已在稿中標「我的看法」，沒有來源 |
+
+## 後續查證（審稿後新增句，2026-10-24，已修）
+
+| 正文主張 | 結果 | 來源 |
+|---|---|---|
+| Guardrails AI 截止日 | 已修：issue #1560（2026-07-06，zsimjee）寫 8/25 為 hard cutoff，停 `guardrails hub install` 與私有 registry；代管推論伺服器，官方文件寫 8/6 停止，issue 內文自己有一處寫 8/25 一處寫 8/6。稿中改為兩個日期分述並註明照官方文件。日期已過；**實際停掉與否我連不到 pypi.guardrailsai.com／hub.api（環境擋），僅有第三方（beri.net、tooldirectory.ai）稱 8/25 起 hub install 失效**，稿中只寫「日期現在都過了」，沒寫已驗證失效。另補 9/9 Harvey 宣布收購（Harvey 官方公告，公告未提開源框架維護） | https://github.com/guardrails-ai/guardrails/issues/1560 、 https://www.guardrailsai.com/docs/concepts/remote_validation_inference 、 https://www.harvey.ai/blog/guardrails-ai-joins-harvey 、 https://github.com/guardrails-ai/guardrails/releases/tag/v0.11.0 |
+| `.claude/` 寫入在各權限模式的行為 | 已修：default／acceptEdits 詢問、auto 交分類器、dontAsk 拒絕、bypassPermissions 放行；plan 模式較複雜，稿中略 | https://code.claude.com/docs/en/permission-modes#protected-paths |
+| `Edit(...)` deny 保護 hook 目錄 | 已驗：deny 規則每個模式都生效（含 bypassPermissions）；但只涵蓋 Claude Code 認得的檔案指令（sed、tee、重新導向），擋不了腳本自己開檔，已補進稿 | https://code.claude.com/docs/en/permission-modes 、 https://code.claude.com/docs/en/permissions |
+| 沙箱 denyWrite 擋 Bash 改檔 | 已修：沙箱預設就禁止 Bash 寫 `.claude` 設定檔與 `.claude/hooks`（protected paths），denyWrite 用於補其他路徑 | https://code.claude.com/docs/en/sandboxing#protected-paths |
+| `"args": []` 欄位 | 已驗：官方 hooks 範例 block-rm.sh 即如此寫；`onFailure: block` 可與 args 並用 | https://code.claude.com/docs/en/hooks |
+| managed hooks／`allowManagedHooksOnly` | 已驗：該設定下使用者、專案、本機、外掛 hook 不跑（管理員強制啟用的外掛除外）；`disableAllHooks` 關不掉 managed hooks | https://code.claude.com/docs/en/hooks 、 https://code.claude.com/docs/en/settings-reference#allowmanagedhooksonly |
+| pipelock 規則位置 | 已修：`pipelock.yaml`，檔案監看或 SIGHUP 重載；README 的「能力分離」是強制部署下才成立的條件 | https://github.com/pipelab-org/pipelock README |
+| NeMo 規則位置 | 已修：`RailsConfig.from_path` 載入的設定資料夾（config.yml、Colang） | https://github.com/NVIDIA-NeMo/Guardrails README |
+| Docker MCP Gateway 誰能改規則 | 已補：官方 security.md 把本機 Docker MCP 設定檔列為可信，能改它們的人在防護範圍外；catalog 必須在 `~/.docker/mcp/catalogs/` | https://github.com/docker/mcp-gateway/blob/main/docs/security.md |
+| cc-safety-net 誰能改規則 | 已補：`~/.cc-safety-net/policy.json`＋專案 `.cc-safety-net/policy.json`；官方寫 agent 不能改任一層；專案可放寬但會被報告；`CC_SAFETY_NET_PROJECT_TIGHTEN_ONLY=1` | https://ccsafetynet.com/docs/configuration/policy |
+| hol-guard 誰能改規則 | 已補（僅官方文件描述的完整性驗證）：本機決定以完整性金鑰驗證，`policies verify` 偵測竄改 | https://github.com/hashgraph-online/hol-guard/blob/main/docs/guard/local-vs-cloud.md |
+| AGT 政策檔位置 | 已修：外掛依序 `AGT_CLAUDE_POLICY_PATH`、`~/.claude/agt/policy.json`、隨附 default-policy.json | microsoft/agent-governance-toolkit `agent-governance-claude-code/README.md`（HEAD 9c85646） |
+| AGT「沒載入政策預設放行」 | 已修（範圍更正）：出處 docs/LIMITATIONS.md，指政策評估器（函式庫）沒載入任何政策；Claude Code 外掛則退回隨附預設，`defaultEffect: review`。稿中 tldr、規則強度段、怎麼用第 6 點都改成區分外掛與函式庫 | https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/LIMITATIONS.md |

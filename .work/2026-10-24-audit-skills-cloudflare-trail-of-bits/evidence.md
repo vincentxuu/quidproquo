@@ -44,3 +44,9 @@ cloudflare/security-audit-skill、blog.cloudflare.com/build-your-own-vulnerabili
 
 ## 沒驗到的範圍
 `collect.py` 兩份鎖檔並存行為只讀未跑；`validate-*.cjs` 只讀開頭與 fs 呼叫；ToB 各 plugin evals 結果；所有 skill 的實際審計準確度（兩邊都沒有公開資料，本篇也沒試跑）。
+
+## 2026-10-24 補查
+- 審計器讀的鎖檔：https://github.com/trailofbits/skills/blob/HEAD/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/SKILL.md 與 README：npm 讀 `package-lock.json`／`npm-shrinkwrap.json`，另讀 `uv.lock` 與 Go 1.17+ `go.mod`；不讀 `yarn.lock`、`pnpm-lock.yaml`、`poetry.lock`（報告註明 present but not read，直接依賴版本退回 manifest 釘選或最新版，間接依賴掃描做不了）。已改稿字面（原稿只寫 npm 系列）。
+- 只有 pnpm-lock 時的影響：README 寫直接依賴仍有完整準則、版本退回 manifest；稿原「這項審計是空的」過頭，已改為「拿不到實際版本、掃不了間接依賴，其他準則照 package.json」。`pnpm audit` 與審計器互不衝突（pnpm 自己的指令，pnpm.io/cli/audit：檢查已安裝套件）。
+- 兩份鎖檔並存：讀 `scripts/collect.py`（`_npm_locked_versions`、`_npm_all_locked`）：依序找 `package-lock.json`、`npm-shrinkwrap.json`，用第一個存在的，沒有比較檔案新舊的程式。可確定，仍標「讀程式碼、沒實跑」。
+- `grep -rilw -e astro -e vectorize -e wrangler .`：假資料實跑正確（-w 排除 astrology）；clone 後會掃到 .git，已加 `--exclude-dir=.git`。`ls … 2>/dev/null`、`git log -1 --format=%cs -- <file>`（git 2.43）實跑可用。

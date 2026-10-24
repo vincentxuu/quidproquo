@@ -23,7 +23,7 @@ draft: true
 
 ## 兩種相反的做法
 
-**Cloudflare：純 LLM 的多階段流程。** 這個 skill 把審計拆成六步：先偵察，再依覆蓋台帳（入口、信任邊界、攻擊類別）分派獵捕，並由覆蓋審查補漏；接著另開一個獨立的驗證者（verifier）試著推翻每個候選，檢查輸出格式，再換一個新的 agent 複驗一次，最後才出報告。它不呼叫 Semgrep 或 CodeQL。
+**Cloudflare：純 LLM 的多階段流程。** 這個 skill 把審計拆成六步：先偵察，再依覆蓋台帳（入口、信任邊界、攻擊類別）分派獵捕，並由覆蓋審查補漏；接著另開一個獨立的驗證者（verifier）試著推翻每個候選，檢查輸出格式，再換一個新的 agent 複驗一次，最後才出報告。驗證者是沒參與獵捕的新 agent，只憑儲存庫原始碼和沙箱內有限的本機重現去反駁候選，不碰已部署的端點；它若發現另一個根因，不能直接收進報告，要另編指紋、交給新的獨立驗證者重驗（見[流程原文](https://github.com/cloudflare/security-audit-skill/blob/HEAD/skills/security-audit/VALIDATION-AND-REPORTING.md)）。它不呼叫 Semgrep 或 CodeQL。
 
 Cloudflare 在[介紹內部 harness（內部的執行框架）的文章](https://blog.cloudflare.com/build-your-own-vulnerability-harness)裡寫，他們把 Semgrep 接進整條流程，獵捕用的 agent 一個月內一次都沒呼叫過，因為它們寧可自己讀程式碼、跑程式碼。官方也說，單次執行只找得到多次執行總和的約一半，找到的又偏向較簡單、不細緻的漏洞，並且不宣稱假陰性率。
 
@@ -50,9 +50,9 @@ repo 裡有兩支腳本，只檢查輸出的 JSON 結構與台帳是否一致，
 - Trail of Bits 的 Semgrep 規則集是依副檔名對應的：`.js`、`.jsx`、`.ts`、`.tsx` 對到 JavaScript、TypeScript、React、Node.js、Express、Next.js、Angular，`.astro` 不在表內。
 - Cloudflare 的 skill 要求不能假設原始碼以外的部署控制存在或不存在，沒有證據的線索標成 `needs_validation`。Secrets 的實際值，以及帳號端的實際資源設定（Vectorize 索引、D1 資料與存取權、Workers AI 開關），都不在原始碼裡，所以這類線索會停在 `needs_validation`。binding 的宣告寫在 `wrangler.jsonc`，那是看得到的。
 - Cloudflare 的 AI 與 LLM 附檔有 RAG 間接注入、embedding 跨租戶、記憶污染這些檢查，也寫明 “Prompt injection alone is not a finding”（單獨的 prompt injection 不算一個發現）。它沒有針對 Vectorize 這類特定向量資料庫產品的條目，只有通用的 embedding 與檢索租戶隔離檢查。
-- Trail of Bits 的 supply-chain 審計器只讀 `package-lock.json`、`npm-shrinkwrap.json` 這類 npm 系列的鎖檔，說明明寫不讀 `pnpm-lock.yaml` 和 `yarn.lock`。偵測到時，報告會註明 present but not read，版本退回 manifest 的釘選或最新版。所以只有 `pnpm-lock.yaml` 的專案，這項審計沒有鎖定的版本可比對，比對出來的不是你實際安裝的版本。兩份鎖檔並存時，從它收集資料的程式碼看，只要 `package-lock.json` 存在就用它解析版本，不會檢查它是不是過期；我讀了程式碼，沒有實跑。
+- Trail of Bits 的 supply-chain 審計器能讀的鎖檔有限：npm 只讀 `package-lock.json` 和 `npm-shrinkwrap.json`，另外讀 Python 的 `uv.lock` 與 Go 1.17 以上的 `go.mod`；[說明](https://github.com/trailofbits/skills/blob/HEAD/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/SKILL.md)明寫不讀 `pnpm-lock.yaml`、`yarn.lock`、`poetry.lock`。偵測到時，報告會註明 present but not read，直接依賴的版本退回 manifest 的釘選或最新版，間接依賴的漏洞掃描也因為沒有鎖檔而做不了。所以只有 `pnpm-lock.yaml` 的專案，比對的不是你實際安裝的版本。兩份鎖檔並存時，[collect.py](https://github.com/trailofbits/skills/blob/HEAD/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/scripts/collect.py) 依序找 `package-lock.json`、`npm-shrinkwrap.json`，用第一個存在的，程式裡沒有比較檔案新舊的地方，所以過期的 `package-lock.json` 會照樣被採用。這是我讀程式碼的結論，沒有實跑。
 
-檢查自己的堆疊有沒有被涵蓋：clone 兩個 repo，在規則與附檔目錄搜尋你的框架與平台名稱，例如 `grep -rilw -e astro -e vectorize -e wrangler .`。零命中，就表示只有通用規則。
+檢查自己的堆疊有沒有被涵蓋：clone 兩個 repo，在規則與附檔目錄搜尋你的框架與平台名稱，例如 `grep -rilw --exclude-dir=.git -e astro -e vectorize -e wrangler .`（`-w` 只比對整個單字，`-l` 只列檔名）。零命中，就表示只有通用規則。
 
 ## 用起來花多少、準不準
 
@@ -71,7 +71,7 @@ Cloudflare 的 skill 是 MIT。Trail of Bits 的 skills 是 CC-BY-SA-4.0（非�
 1. **先決定審什麼範圍。** 全專案做一次基準審計，用 Cloudflare 的流程；每次 PR 的差異審查，用 Trail of Bits 的 `differential-review`。範圍越小，花費越可控，別拿大範圍掃描當每次提交的檢查。Cloudflare 的 skill 預設是指引模式，只有你明確要求整份審計，才會跑完整六步。
 2. **第一次只跑最小範圍，並設預算上限。** 我建議選一支你熟悉的 SSR 路由或一個已合併的 PR，用 `quick` profile 並設 budget 跑一次。記下花了多少 token、報出幾項、你打開程式碼確認後真的成立的有幾項。成立的比例太低，或花費超出你願意為每個 PR 付的數目，就不要擴大。想知道它們在你的專案上有沒有用，只能這樣自己跑一次。
 3. **先備好沙箱，或接受降級。** 沒有作業系統層級的隔離時，需要執行目標程式碼才能確認的線索會停在 `needs_validation`；光靠原始碼就能追完的，仍可能判為已確認。沙箱怎麼選見[第 2 篇](/posts/ai/2026-10-24-agent-sandboxes)。
-4. **先確認審計器讀得到你的鎖檔。** 執行 `ls package-lock.json pnpm-lock.yaml yarn.lock`。只有 `pnpm-lock.yaml` 時，Trail of Bits 的 supply-chain 審計對你的實際版本是空的，這一項先跳過，依賴弱點改用 `pnpm audit`。兩份並存時，用 `git log -1 --format=%cs -- package-lock.json` 看哪份比較新，過期的那份先移出專案。
+4. **先確認審計器讀得到你的鎖檔。** 執行 `ls package-lock.json pnpm-lock.yaml yarn.lock 2>/dev/null`，列出來的就是存在的。只有 `pnpm-lock.yaml` 時，Trail of Bits 的 supply-chain 審計拿不到你實際安裝的版本，也掃不了間接依賴（直接依賴的廢棄、維護者集中、安裝腳本等準則仍照 `package.json` 跑），所以依賴弱點改用 `pnpm audit`；它是 pnpm 自己的指令，和審計器各做各的，不會衝突。兩份並存時，對兩個檔各跑一次 `git log -1 --format=%cs -- <檔名>` 看最後修改日，審計器只會讀 `package-lock.json`，它若比 `pnpm-lock.yaml` 舊，就先把它移出專案。
 5. **自己補專案背景。** 工具不認得 Workers 與 Astro，所以在你下給 agent 的審計指令開頭，直接貼一段背景。以本站為例：
 
    > 專案背景：Astro SSR，部署在 Cloudflare Workers。D1 用 binding `DB`，查詢集中在 `src/lib/db.ts`，請檢查是否都用參數綁定。Vectorize 與 KV 的 binding 宣告在 `wrangler.jsonc`。`draft: true` 的文章不應出現在 RSS、搜尋索引或 sitemap。
@@ -90,6 +90,8 @@ Cloudflare 的 skill 是 MIT。Trail of Bits 的 skills 是 CC-BY-SA-4.0（非�
 - [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill)
 - [Cloudflare：Build your own vulnerability harness](https://blog.cloudflare.com/build-your-own-vulnerability-harness)
 - [trailofbits/skills](https://github.com/trailofbits/skills)
+- [Trail of Bits：supply-chain-risk-auditor 的 SKILL.md](https://github.com/trailofbits/skills/blob/HEAD/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/SKILL.md)
+- [Cloudflare：驗證與報告階段原文](https://github.com/cloudflare/security-audit-skill/blob/HEAD/skills/security-audit/VALIDATION-AND-REPORTING.md)
 - [Hacker News 討論：Cloudflare security-audit skill](https://news.ycombinator.com/item?id=49736466)
 - [上一篇：事後怎麼看見 agent 做過什麼](/posts/ai/2026-10-24-agent-detection-audit)
 - [第 2 篇：沙箱怎麼選](/posts/ai/2026-10-24-agent-sandboxes)

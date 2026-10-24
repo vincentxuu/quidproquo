@@ -8,7 +8,7 @@ lang: en
 series:
   name: "AI Agent Security Tooling Map"
   order: 2
-tldr: "I sort agent sandboxes into four kinds: shared-kernel OS isolation, container orchestration, local microVMs and remote microVMs. Claude Code's sandbox is off by default and wraps only shell commands; Codex CLI's is on by default locally. Most public escapes go around the boundary through config files or check scripts rather than through its core, and a sandbox answers how far a fooled agent can get, not whether it gets fooled. On Claude Code, turn the sandbox on, put ~/.ssh and ~/.aws on the deny list, and block the Read tool separately."
+tldr: "I sort agent sandboxes into four kinds: shared-kernel OS isolation, container orchestration, local microVMs (lightweight virtual machines) and remote microVMs. Claude Code's sandbox is off by default and wraps only shell commands; Codex CLI's is on by default locally. Most public escapes go around the boundary through config files or check scripts rather than through its core, and a sandbox answers how far a fooled agent can get, not whether it gets fooled. On Claude Code, turn the sandbox on, put ~/.ssh and ~/.aws on the deny list, and block the Read tool separately."
 description: "The four kinds of agent sandbox, how Claude Code's and Codex CLI's defaults and known bypasses differ, what a sandbox can and cannot cover, and settings Claude Code users can copy."
 draft: true
 ---
@@ -30,7 +30,7 @@ On the [series map](/posts/ai/2026-10-24-ai-agent-security-tooling-map-en), this
 - **Local microVMs (lightweight virtual machines).** Tools such as [smolvm](https://github.com/smol-machines/smolvm) start a small virtual machine with its own guest kernel on your machine. The boundary is stronger than shared-kernel isolation, at the cost of needing hardware virtualization such as KVM.
 - **Remote microVMs.** [E2B](https://github.com/e2b-dev/E2B) is a cloud-hosted Firecracker microVM; each sandbox is isolated from the other sandboxes and from the host (see [E2B's docs](https://docs.e2b.dev/faq/security-and-compliance)). It is for running LLM-generated or user-supplied code, not for a developer wrapping Claude Code locally.
 
-Shared-kernel isolation and a virtual machine with its own kernel guard against different things, so they cannot be ranked on one table. No independent study has measured how much each of these sandboxes actually stops, so this post compares scope and does not rank.
+Shared-kernel isolation and a virtual machine with its own kernel guard against different things, so they cannot be ranked on one table. As far as I could find, nobody has measured how much each of these sandboxes actually stops on a common yardstick. What exists is a benchmark for container escapes ([SandboxEscapeBench](https://arxiv.org/abs/2603.02277)), probes of each tool's default exposure ([ControlPlane sandbox-probe](https://control-plane.io/publications/sandbox-probe-reports/)) and a code audit of nine sandbox projects ([Nebula SandboxGym](https://sandboxgym.io/)); none of them is a strength ranking. This post also compares scope and does not rank.
 
 Sandbox tools also carry maintenance risk. The hosted-sandbox service Daytona froze its public repo from June 2026 at v0.190.0, moved its core into a private codebase and announced it was [going closed source](https://www.daytona.io/dotfiles/updates/daytona-is-going-closed-source) (the repo's [README](https://github.com/daytonaio/daytona) says so too). Before choosing a sandbox, check the date of the last release and whether the license has changed.
 
@@ -65,7 +65,7 @@ In the public Claude Code and Codex cases so far, what gets bypassed is the conf
 
 ## A sandbox answers "how far after being fooled"
 
-A sandbox does not stop an agent from being persuaded; it only decides how far a fooled agent can go. Researchers at Baldur Security had the AI penetration-testing tool Strix scan a page carrying a prompt injection. Strix was tricked into running commands, and the researchers got a shell with sudo. The author writes that Strix runs its scanning inside a sandboxed container, which "significantly lowers the impact", and does not demonstrate an escape. What the case shows is that inside the boundary the agent still holds everything it was authorized for (here at least sudo and outbound connections); the sandbox limits the world beyond those.
+A sandbox does not stop an agent from being persuaded; it only decides how far a fooled agent can go. Researchers at Baldur Security had the AI penetration-testing tool Strix scan a page carrying a prompt injection. Strix was tricked into running commands, and the researchers got a shell with sudo. The author writes that Strix runs its scanning inside a sandboxed container, which greatly reduces the impact, and does not demonstrate an escape. What the case shows is that inside the boundary the agent still holds everything it was authorized for (here at least sudo and outbound connections); the sandbox limits the world beyond those.
 
 Claude Code and nono are both direct about this. Claude Code's documentation says the sandbox reduces risk but is not a complete isolation boundary, and that allowing a broad domain such as `github.com` is still a path for data to leave. nono's [security model](https://nono.sh/docs/cli/internals/security-model) says it is not an escape-proof sandbox, and its security notes say production use is not currently recommended.
 
@@ -93,7 +93,7 @@ Claude Code and nono are both direct about this. Claude Code's documentation say
    }
    ```
 
-   Two caveats. `sandbox.credentials` covers only Bash commands inside the sandbox and does not stop the Read tool, which is why the `Read(...)` rules under `permissions.deny` are there. And Claude Code ignores `credentials` entries in project and local settings files; put them in your user (or managed) settings.
+   Two caveats. `sandbox.credentials` covers only Bash commands inside the sandbox and does not stop the Read tool, which is why the `Read(...)` rules under `permissions.deny` are there. Also, a `deny` entry takes effect from the user, project or local settings file, and no other layer can remove it; only `mask` entries (which give sandboxed commands a placeholder value instead) are ignored when they sit in project or local settings, and this post does not use them.
 2. **Verify it took effect.** The official docs' method: ask Claude to run `touch ~/sandbox-probe`; inside the sandbox it should fail. If it offers to retry outside the sandbox, decline.
 3. **Strict mode.** `allowUnsandboxedCommands: false` above closes the un-sandboxed retry (the docs call this Strict sandbox mode); `failIfUnavailable: true` adds that a sandbox which cannot start refuses to launch instead of quietly falling back to no sandbox.
 4. **Do not put `docker` or `gh` in `excludedCommands` just to make them run.** The documentation itself warns that an excluded command runs with your full access.
@@ -136,6 +136,9 @@ A sandbox does not stop an agent from being fooled; it decides how far it gets a
 - [NVD: CVE-2025-59532](https://nvd.nist.gov/vuln/detail/CVE-2025-59532)
 - [NVD: CVE-2025-66479](https://nvd.nist.gov/vuln/detail/CVE-2025-66479)
 - [Pillar Security: The Week of Sandbox Escapes](https://www.pillar.security/blog/the-week-of-sandbox-escapes)
+- [SandboxEscapeBench (arXiv)](https://arxiv.org/abs/2603.02277)
+- [ControlPlane: sandbox-probe](https://control-plane.io/publications/sandbox-probe-reports/)
+- [Nebula Security: SandboxGym](https://sandboxgym.io/)
 - [Baldur Security: RCE in Strix Agent](https://baldur.dk/blog/strix-ai-pentester-rce/)
 - [clawkwork/clawk](https://github.com/clawkwork/clawk)
 - [Previous: Scanning skills and MCP servers before you install them](/posts/ai/2026-10-24-skill-mcp-pre-install-scanners-en)
