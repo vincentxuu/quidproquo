@@ -98,7 +98,7 @@ The 22 benchmarks fall into four groups: counting and grounding, visual search a
 
 **Adding the framework to the same model raises the average every time.** For the seven main models listed in the [README](https://github.com/uclanlp/OpenVLHarness), the average gain is between 9.7 and 12.6 points. GPT-6 Astra improves on all 22 benchmarks. The paper tests eight models in total; the eighth, Qwen2.5-VL-7B, is reported in the appendix for the comparison with fine-tuned methods.
 
-**A general coding agent does not automatically help.** With GPT-6 Luna at medium reasoning effort, no tools scores 45.8, [Codex](https://github.com/openai/codex) 43.8, and OpenVLHarness 56.5, while [Visual Sketchpad](https://arxiv.org/abs/2406.09403) is about level with no tools. The appendix shows Codex rarely executes code on these questions, so it mostly answers directly inside its own loop; at the highest effort it edges slightly above no tools. The paper's conclusion is that a general coding agent does not automatically improve multimodal reasoning, and tool outputs need to be designed for vision tasks.
+**A general coding agent does not automatically help.** With GPT-6 Luna at medium reasoning effort, no tools scores 45.8, [Codex](https://github.com/openai/codex) 43.8, and OpenVLHarness 56.5, while [Visual Sketchpad](https://arxiv.org/abs/2406.09403) is about level with no tools. The appendix shows Codex rarely executes code on these questions, so it mostly answers directly inside its own loop; at the highest effort it edges slightly above no tools. The paper's conclusion is that a general coding agent does not automatically improve multimodal reasoning, and tool outputs need to be designed for vision tasks. One caveat in the comparison: Codex and Visual Sketchpad have no web search (Codex's search was deliberately turned off so it cannot find benchmark answers directly), so part of the gap on search questions comes from OpenVLHarness simply having a search tool; on counting and grounding questions, which need no search, the gap is just as clear.
 
 **No fine-tuning can still beat fine-tuning.** Qwen2.5-VL-7B with its original weights and this framework scores 33.5, while the best of three methods that fine-tune the model reaches 28.0. That configuration is not in the public release.
 
@@ -114,7 +114,7 @@ The 22 benchmarks fall into four groups: counting and grounding, visual search a
 | + Textual memory | 44.9 |
 | + Multimodal memory (image handles) | 47.1 |
 
-Handing the model raw tools helps only a little. Rendering tool output into readable observations adds more. The last step, letting earlier images be referenced again, gains the most in visual search. Textual memory, which only describes tool-generated images and has no reusable image handles, adds almost nothing.
+Handing the model raw tools helps only a little. Rendering tool output into readable observations adds more. The last step, letting earlier images be referenced again, gains the most in visual search. Textual memory, which only describes tool-generated images and has no reusable image handles, adds about as much as run-to-run noise.
 
 ## Limits: how it fails
 
@@ -124,9 +124,9 @@ The paper had [Kimi K3](https://arxiv.org/abs/2607.24653) critique nearly ten th
 - **Visual search**: nearly half of failures (49%) are cases where the model should have called a tool and did not. The fix may be clearer prompts or a different tool composition.
 - **Easy questions**: on general VQA and spatial understanding at the lowest reasoning effort, OpenVLHarness scores slightly below the no-tool model; it leads across the board only from medium effort up.
 
-The paper also tried two ways to adapt the harness to your own data. On datasets where fixes are mostly textual, editing system prompts and tool descriptions (harness search) gains about 4 points, while writing new tools barely helps. On datasets that lack a dedicated computation, such as SparBench, which needs metric 3D relations, a new tool gains about 8 points and editing text slightly hurts. Which to pick depends on whether your failures are missed tool calls or a missing specialized computation.
+The paper also tried two ways to adapt the harness to your own data. On datasets where fixes are mostly textual, editing system prompts and tool descriptions (harness search) gains about 4 points, while writing new tools barely helps. On datasets that lack a dedicated computation, such as SparBench, which needs metric 3D relations, a new tool gains about 8 points and editing text slightly hurts. Which to pick depends on whether your failures are missed tool calls or a missing specialized computation. In the paper both approaches are operated by another coding agent (Codex with GPT-5.5) and rerun evaluations repeatedly, so this is not a one-line prompt change.
 
-Two more notes on reliability: Qwen3-VL results are averages of three runs, while GPT and Kimi were run once because of API cost; and search and deep-research scoring uses GPT-4o as the judge.
+A few more notes on reliability: Qwen3-VL results are averages of three runs, and the standard deviation of the average score is at most 0.35 points, far below the gains; GPT and Kimi were run once because of API cost. Search and deep-research questions are scored by GPT-4o, and other open-ended questions by Qwen3-VL-8B. GPT models refuse questions such as "who is the person in this photo", which are scored as wrong, so GPT scores on some benchmarks are lower than they would otherwise be.
 
 ## Deployment: what to prepare and where data goes
 
@@ -178,7 +178,7 @@ The paper and project page do not answer these, so you have to fill them in your
    trajectory = result["extra_records"]["trajectory"]
    ```
 
-3. **Read the trajectory for every question.** It records each turn's tool calls and evidence. Check whether the boxes are right first, then whether the computation is right; the first wrong step is easy to find.
+3. **Read the trajectory for every question.** It records each turn's tool calls and evidence. Check whether the boxes are right first, then whether the computation is right; the first wrong step is easy to find. The seventeen example trajectories in the paper's appendix were hand-picked, not randomly sampled, so do not use them to estimate success rates.
 4. **Add capabilities only when you need them.** Start GPU services when you need grounding, OCR, or depth; enable search last. If images cannot leave your environment, remove `image_search` from `capabilities.tools`.
 5. **Run in isolation.** Use a container or VM, keep important data off it, and do not expose the router to a public network. Before going live, check `degradations` at the router's `/backend-status`: search summaries that timed out, image URLs that could not be fetched, and exhausted Serper credits all accumulate there.
 

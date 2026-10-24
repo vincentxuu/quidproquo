@@ -5,7 +5,8 @@
 
 ## 來源與讀取範圍
 - 起點：aiposthub 中文導讀（全文讀完，二手整理；內容逐項回查到下列一手來源）
-- 論文 arXiv:2610.26860：摘要頁讀完；全文以 Exa web_fetch 取得 arxiv.org/html/2610.26860（約 12 萬字元，存 scratchpad）。讀過 §1–2（設計）、§3.1–3.6（設定、主結果、推理強度、消融、失敗分析、harness 優化）、§5 結論；附錄 B.2、B.6 只讀標題與表格說明（未逐表核對）。
+- 論文 arXiv:2610.26860：摘要頁讀完。第一次用 Exa 抓 HTML 時字元上限設 12 萬，輸出在附錄 B.6 被截斷，**先前紀錄寫「全文」不實**（2026-10-24 更正）。
+  - 重抓完整版（5,254 行，至附錄 H）後，實際讀取範圍：§1–5 全部；附錄 B（含 B.6、B.7）、C、D、E.1／E.3、G、H 全部逐段讀；E.2 只讀說明文字與通道定義（逐資料集表格未逐列核對）；F 只讀導言與選例說明（17 條軌跡原文未讀）；I 相關研究只掃過。
 - 專案頁 openvlharness.github.io：全文讀完（作者、結果摘要、與其他 harness 比較數字）。
 - GitHub README：全文讀完；SECURITY.md 全文讀完。docs/ 與 services README 未讀。
 
@@ -32,3 +33,12 @@
 
 ## 環境限制
 - pnpm install 失敗：codeload.github.com 取 lanefoundry/gatelane 回 403（疑似私有 repo），整個安裝回滾，未能跑 pnpm verify / astro check / diagram-preview。
+
+## 附錄 C–H 補讀後新增的核對（2026-10-24）
+- 表 25／G.1：Codex、Visual Sketchpad、OctoTools 皆無網路搜尋（Codex 搜尋刻意關閉，避免搜到基準答案）；OpenVLHarness 有。表 2／表 13 的 Grounding 領域（不用搜尋）OpenVLHarness 中等強度 43.66，對 Base 25.36、Codex 25.62、Sketchpad 28.31。
+- B.7／表 17：Codex 搭 Qwen3-VL 也低於 Base（31.42 對 34.24；36.46 對 38.30）；該組 Codex 沙盒無法啟動 shell，只能算簡單運算式。
+- 表 15／B.6：Codex 執行程式的題目比例，low 0.16%、max 6.17%。
+- D：非搜尋類開放式題目的評審是 Qwen3-VL-8B；GPT 模型對人物辨識類問題拒答、被算錯。
+- E.3：harness search／tool generation 由 Codex（GPT-5.5）操作；harness search 設定 N=4、M=4、K=4、S=3、三輪；tool generation D≤5、T=5。
+- H：Qwen3-VL 的 22 項平均標準差至多 0.35；增益為合併標準差的約 29 與 44 倍；文字版記憶 +0.7／+0.3 與執行間波動相當；MMSearch 單項標準差最高約 4.9。
+- F：17 條軌跡為手選，非隨機樣本。
