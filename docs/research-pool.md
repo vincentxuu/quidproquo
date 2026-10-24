@@ -104,4 +104,4 @@ node scripts/research-pool.mjs check
 
 ## 定期發現新來源
 
-[每週候選研究流程](research-watch.md)先以城山試跑：輪查已知來源，另搜池外來源，保存失敗與零結果，再以同一pool回填。候選報告留在持續研究分支與Draft PR，人工查核後才更新文章。其他類別可使用同一watchlist格式，但不會自動開啟排程。
+[通用分類研究追蹤](research-watch.md)會讀取所有明確啟用的watchlist，依分類輪查各類來源並補搜池外資料；共用批次預算、跨週輪替、去重與pool回填。YouTube只是可選adapter，城山只是第一個真實案例。候選報告留在持續研究分支與Draft PR，人工查核後才更新文章。新增主題只需設定，不複製流程；目前雲端宿主空跑問題待處理，排程暫停。

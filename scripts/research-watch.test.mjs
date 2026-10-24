@@ -2,12 +2,14 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import test from 'node:test';
 import { sourceId } from './research-pool.mjs';
-import { createPlan, buildReport, writeReport, loadSnapshot } from './research-watch.mjs';
+import { createPlan, buildReport, writeReport, loadSnapshot, listWatchlists, validateConfig } from './research-watch.mjs';
 
 const config = { id: 'joyama', title: '城山', category: 'climbing', topic: 'crags', tags: ['joyama'], article_paths: ['article.md'], place_terms: ['城山'], queries: [{ id: 'open', query: '城山 クライミング', route: 'Missing' }], known_pages: [], channel_limit: 8, query_limit: 4 };
-const taxonomy = { categories: [{ id: 'climbing', label: '攀岩', topics: [{ id: 'crags', label: '岩場' }] }, { id: 'ai', label: 'AI', topics: [{ id: 'agents', label: 'Agents' }] }], sourceTypes: ['channel', 'video', 'web-page', 'paper'] };
+const taxonomy = { categories: [{ id: 'climbing', label: '攀岩', topics: [{ id: 'crags', label: '岩場' }] }, { id: 'ai', label: 'AI', topics: [{ id: 'agents', label: 'Agents' }] }, { id: 'tech', label: '技術', topics: [{ id: 'devtools', label: '開發工具' }] }], sourceTypes: ['channel', 'video', 'web-page', 'paper', 'organization', 'repository', 'documentation'] };
 const source = (url, extra = {}) => ({ id: sourceId(url), canonical_url: url, url, title: 'Saved', source_type: 'video', categories: ['climbing'], topics: ['crags'], tags: ['joyama'], aliases: [], metadata: {}, ...extra });
 const snapshot = (sources = [], observations = []) => ({ taxonomy, sources, observations });
 const plan = snap => createPlan(config, '2026-10-24', snap);
@@ -42,6 +44,69 @@ test('weekly stable rotation covers every channel without duplicates, year bound
   const a = createPlan(config, '2026-12-28', snap), b = createPlan(config, '2027-01-04', snap);
   assert.equal(b.rotation_week, a.rotation_week + 1);
   assert.throws(() => createPlan(config, '2026-02-30', snap), /calendar/);
+});
+
+test('generic tech watch rotates repositories and documentation using a shared source budget', () => {
+  const types = ['repository', 'documentation', 'repository', 'documentation'];
+  const snap = snapshot(types.map((type, i) => source(`https://example.com/tech/${i}`, { source_type: type, categories: ['tech'], topics: ['devtools'], tags: ['runtime'] })));
+  const watch = { ...config, id: 'runtime-tools', category: 'tech', topic: 'devtools', tags: ['runtime'], context_terms: ['runtime'], place_terms: undefined, queries: [], known_source_types: ['repository', 'documentation'], source_limit: 2 };
+  const first = createPlan(watch, '2026-10-24', snap), next = createPlan(watch, '2026-10-31', snap);
+  assert.equal(first.known_source_count, 4);
+  assert.equal(first.selected_source_count, 2);
+  assert.equal(first.source_limit, 2);
+  assert.ok(first.requests.every(r => r.kind === 'source' && types.includes(r.source_type)));
+  assert.equal(new Set([...first.requests, ...next.requests].map(r => r.source_id)).size, 4);
+  assert.equal(first.selected_channel_count, 0);
+});
+
+test('AI watch defaults to every taxonomy source type and papers are new sources, not inferred authors', () => {
+  const snap = snapshot([
+    source('https://example.com/paper', { source_type: 'paper', categories: ['ai'], topics: ['agents'], tags: [] }),
+    source('https://example.com/lab', { source_type: 'organization', categories: ['ai'], topics: ['agents'], tags: [] }),
+  ]);
+  const watch = { ...config, id: 'ai-agents', category: 'ai', topic: 'agents', tags: [], place_terms: undefined, channel_limit: undefined, queries: [{ id: 'open', query: 'agent research papers' }] };
+  const p = createPlan(watch, '2026-10-24', snap);
+  assert.deepEqual(p.requests.filter(r => r.kind === 'source').map(r => r.source_type).sort(), ['organization', 'paper']);
+  assert.equal(p.source_limit, 8);
+  const built = buildReport(p, evidence(p, [{ url: 'https://example.com/new-paper', title: 'New paper', source_type: 'paper' }]), snap);
+  assert.equal(built.summary.new_sources, 1);
+  assert.equal(built.summary.candidates[0].creator_source_id, undefined);
+  assert.doesNotMatch(built.report, /新作者|new author|new creator/i);
+  assert.match(built.report, /新增 1 個來源/);
+});
+
+test('source_limit takes precedence over legacy channel_limit while channel-only configuration remains compatible', () => {
+  const snap = snapshot(Array.from({ length: 10 }, (_, i) => source(`https://example.com/ch/${i}`, { source_type: 'channel' })));
+  const legacy = createPlan({ ...config, channel_limit: 3 }, '2026-10-24', snap);
+  assert.equal(legacy.selected_source_count, 3);
+  assert.equal(legacy.selected_channel_count, 3);
+  assert.ok(legacy.requests.filter(r => r.kind === 'channel').every(r => r.source_type === 'channel' && r.id.startsWith('channel-src_')));
+  const generic = createPlan({ ...config, source_limit: 2, channel_limit: 3, known_source_types: ['channel'] }, '2026-10-24', snap);
+  assert.equal(generic.selected_source_count, 2);
+  assert.throws(() => validateConfig({ ...config, source_limit: 21 }, snap), /source_limit/);
+  assert.throws(() => validateConfig({ ...config, known_source_types: ['unknown'] }, snap), /source_types/);
+  assert.throws(() => validateConfig({ ...config, enabled: 'yes' }, snap), /enabled/);
+});
+
+test('list validates every watch and only explicitly enabled watches enter batch output', t => {
+  const root = fixture(t), directory = join(root, '.research/watchlists');
+  mkdirSync(directory, { recursive: true });
+  const configs = [
+    { ...config, id: 'z-climbing', enabled: true },
+    { ...config, id: 'a-ai', category: 'ai', topic: 'agents', enabled: false },
+    { ...config, id: 'b-ai', category: 'ai', topic: 'agents' },
+  ];
+  for (const watch of configs) writeFileSync(join(directory, `${watch.id}.json`), JSON.stringify(watch));
+  const all = listWatchlists(root);
+  assert.deepEqual(all.map(w => w.id), ['a-ai', 'b-ai', 'z-climbing']);
+  assert.equal(all.find(w => w.id === 'b-ai').enabled, false);
+  assert.deepEqual(listWatchlists(root, true).map(w => w.id), ['z-climbing']);
+  const script = fileURLToPath(new URL('./research-watch.mjs', import.meta.url));
+  const cli = spawnSync(process.execPath, [script, 'list', '--enabled', '--root', root, '--json'], { encoding: 'utf8' });
+  assert.equal(cli.status, 0, cli.stderr);
+  assert.deepEqual(JSON.parse(cli.stdout).map(w => w.id), ['z-climbing']);
+  writeFileSync(join(directory, 'bad-disabled.json'), JSON.stringify({ ...config, id: 'bad-disabled', category: 'unknown', enabled: false }));
+  assert.throws(() => listWatchlists(root, true), /category\/topic/);
 });
 
 test('canonical and saved aliases deduplicate across requests; markdown and status stay honest', () => {
@@ -110,8 +175,8 @@ test('route-targeted query cannot label a general index as a route source or unc
   assert.equal(built.sources[0].metadata.source_route, undefined);
   assert.equal(built.sources[0].metadata.route, undefined);
   assert.deepEqual(built.sources[0].metadata.query_routes, ['Missing']);
-  assert.match(built.report, /來源路線未確認/);
-  assert.match(built.report, /查詢脈絡（非來源路線）：Missing/);
+  assert.match(built.report, /來源涵蓋未確認/);
+  assert.match(built.report, /查詢脈絡（不代表來源涵蓋）：Missing/);
 });
 
 test('actual fallback query is preserved instead of the planned search text', () => {
@@ -168,4 +233,13 @@ test('report output I/O failure leaves all real pool files unchanged', t => {
   assert.throws(() => writeReport(root, join(outputParent, 'report'), p, input, true));
   assert.equal(loadSnapshot(root).sources.length, 0);
   assert.equal(loadSnapshot(root).observations.length, 0);
+});
+
+test('paper watch report does not impose climbing route framing', () => {
+  const snap = snapshot();
+  const p = createPlan({ ...config, title: 'Agent paper watch', category: 'ai', topic: 'agents', place_terms: undefined, context_terms: ['agents'], queries: [{ id: 'papers', query: 'agent papers' }] }, '2026-10-24', snap);
+  const built = buildReport(p, evidence(p, [{ ...result(), source_type: 'paper' }]), snap);
+  assert.doesNotMatch(built.report, /來源路線|路線／理由/);
+  assert.match(built.report, /主題脈絡／待查理由/);
+  assert.equal(built.sources[0].source_type, 'paper');
 });

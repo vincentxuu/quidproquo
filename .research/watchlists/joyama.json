@@ -16,7 +16,6 @@
     "伊豆",
     "Joyama"
   ],
-  "channel_limit": 8,
   "query_limit": 4,
   "known_pages": [
     "https://blog.hohta.com/archives/4870",
@@ -45,5 +44,10 @@
   "title_terms": [
     "城山",
     "Joyama"
-  ]
+  ],
+  "enabled": true,
+  "known_source_types": [
+    "channel"
+  ],
+  "source_limit": 8
 }

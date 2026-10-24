@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /** Offline watch planning/reporting. A research agent supplies real tool results. */
-import { existsSync, readFileSync, mkdirSync, writeFileSync, mkdtempSync, cpSync, rmSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, mkdirSync, writeFileSync, mkdtempSync, cpSync, rmSync } from 'node:fs';
 import { dirname, join, resolve, relative } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { tmpdir } from 'node:os';
@@ -32,8 +32,13 @@ export function validateConfig(config, snapshot) {
   assert(str(config.title), 'Watch title is required');
   const category = snapshot.taxonomy.categories.find(c => c.id === config.category);
   assert(category?.topics.some(t => t.id === config.topic), 'Unknown watch category/topic');
-  for (const key of ['tags', 'article_paths', 'place_terms']) assert(list(config[key]), `${key} must be a string array`);
-  assert(config.place_terms.length, 'place_terms cannot be empty');
+  for (const key of ['tags', 'article_paths']) assert(list(config[key]), `${key} must be a string array`);
+  for (const key of ['context_terms', 'place_terms']) if (config[key] !== undefined) assert(list(config[key]), `${key} must be a string array`);
+  if (config.enabled !== undefined) assert(typeof config.enabled === 'boolean', 'enabled must be boolean');
+  if (config.known_source_types !== undefined) {
+    assert(list(config.known_source_types) && new Set(config.known_source_types).size === config.known_source_types.length, 'known_source_types must be a unique string array');
+    assert(config.known_source_types.every(type => snapshot.taxonomy.sourceTypes.includes(type)), 'Unknown known_source_types entry');
+  }
   assert(Array.isArray(config.queries), 'queries must be an array');
   const ids = new Set();
   for (const q of config.queries) {
@@ -43,10 +48,23 @@ export function validateConfig(config, snapshot) {
   }
   assert(list(config.known_pages ?? []), 'known_pages must be a URL array');
   for (const url of config.known_pages ?? []) canonicalizeUrl(url);
-  for (const [key, fallback, max] of [['channel_limit', 8, 20], ['query_limit', 4, 12]]) {
+  for (const [key, fallback, max] of [['source_limit', 8, 20], ['channel_limit', 8, 20], ['query_limit', 4, 12]]) {
     assert(Number.isInteger(config[key] ?? fallback) && (config[key] ?? fallback) >= 1 && (config[key] ?? fallback) <= max, `${key} out of bounds`);
   }
   if (config.covered_routes !== undefined) assert(list(config.covered_routes), 'covered_routes must be a string array');
+}
+
+export function listWatchlists(root, enabledOnly = false) {
+  const snapshot = loadSnapshot(root), directory = join(root, '.research/watchlists');
+  if (!existsSync(directory)) return [];
+  const watches = readdirSync(directory).filter(name => name.endsWith('.json')).map(name => {
+    const config = json(join(directory, name));
+    validateConfig(config, snapshot);
+    assert(name === `${config.id}.json`, `Watch filename must match id: ${name}`);
+    return { ...config, enabled: config.enabled === true, known_source_types: config.known_source_types ?? snapshot.taxonomy.sourceTypes,
+      source_limit: config.source_limit ?? config.channel_limit ?? 8 };
+  });
+  return watches.filter(watch => !enabledOnly || watch.enabled).sort((a, b) => a.category.localeCompare(b.category) || a.topic.localeCompare(b.topic) || a.id.localeCompare(b.id));
 }
 
 export function createPlan(config, date, snapshot) {
@@ -56,18 +74,23 @@ export function createPlan(config, date, snapshot) {
   // Monday-based contiguous week index, not day-of-year (which repeats rotations in January).
   const week = Math.floor((+parsed - Date.UTC(1970, 0, 5)) / 604800000);
   const matches = snapshot.sources.filter(s => s.categories.includes(config.category) && s.topics.includes(config.topic) && config.tags.every(tag => s.tags.includes(tag)));
-  const channels = matches.filter(s => s.source_type === 'channel').sort((a, b) => a.id.localeCompare(b.id));
-  const limit = Math.min(config.channel_limit ?? 8, channels.length);
-  const selected = Array.from({ length: limit }, (_, i) => channels[(week * (config.channel_limit ?? 8) + i) % channels.length]);
+  const allowedTypes = new Set(config.known_source_types ?? snapshot.taxonomy.sourceTypes);
+  const sources = matches.filter(s => allowedTypes.has(s.source_type)).sort((a, b) => a.id.localeCompare(b.id));
+  const sourceLimit = config.source_limit ?? config.channel_limit ?? 8;
+  const limit = Math.min(sourceLimit, sources.length);
+  const selected = Array.from({ length: limit }, (_, i) => sources[(week * sourceLimit + i) % sources.length]);
+  const context = config.context_terms?.[0] ?? config.place_terms?.[0] ?? config.title;
   const queries = config.queries;
   const queryLimit = Math.min(config.query_limit ?? 4, queries.length);
   const selectedQueries = Array.from({ length: queryLimit }, (_, i) => queries[(week * (config.query_limit ?? 4) + i) % queries.length]);
   const requests = [
-    ...selected.map(s => ({ id: `channel-${s.id}`, kind: 'channel', source_id: s.id, url: s.canonical_url, query: `${config.place_terms[0]} ${s.title}`, title: s.title })),
+    ...selected.map(s => ({ id: `${s.source_type === 'channel' ? 'channel' : 'source'}-${s.id}`, kind: s.source_type === 'channel' ? 'channel' : 'source', source_type: s.source_type, source_id: s.id, url: s.canonical_url, query: `${context} ${s.title}`, title: s.title })),
     ...(config.known_pages ?? []).slice(0, 4).map((url, i) => ({ id: `page-${i + 1}`, kind: 'page', url: canonicalizeUrl(url), query: url })),
     ...selectedQueries.map(q => ({ id: `query-${q.id}`, kind: 'query', query: q.query, ...(q.route ? { route: q.route } : {}) })),
   ];
-  return { version: 1, watch: config, date, run_id: `${date}-${config.id}-watch`, rotation_week: week, known_channel_count: channels.length, selected_channel_count: selected.length, requests };
+  return { version: 1, watch: config, date, run_id: `${date}-${config.id}-watch`, rotation_week: week,
+    known_source_count: sources.length, selected_source_count: selected.length, source_limit: sourceLimit,
+    known_channel_count: sources.filter(s => s.source_type === 'channel').length, selected_channel_count: selected.filter(s => s.source_type === 'channel').length, requests };
 }
 
 export function buildReport(plan, evidence, snapshot) {
@@ -112,7 +135,9 @@ export function buildReport(plan, evidence, snapshot) {
       // A route-targeted query may return a general index or unrelated route.
       // Only explicit result evidence can identify the source's route.
       const route = result.route;
-      const outsider = !result.creator_source_id || !snapshot.sources.some(s => s.id === result.creator_source_id && s.categories.includes(plan.watch.category) && s.topics.includes(plan.watch.topic) && plan.watch.tags.every(t => s.tags.includes(t)));
+      // Generic discovery is about new sources. Missing channel metadata on a
+      // paper/documentation page does not establish a previously unknown author.
+      const outsider = !known;
       const uncovered = Boolean(route && Array.isArray(plan.watch.covered_routes) && !plan.watch.covered_routes.includes(route));
       const priority = known ? 3 : uncovered ? 0 : outsider ? 1 : 2;
       const existing = candidates.get(id);
@@ -147,8 +172,8 @@ export function buildReport(plan, evidence, snapshot) {
     `範圍：${attempts.length}/${plan.requests.length} 次已嘗試，失敗 ${summary.failed_requests} 次，未執行 ${missing.length} 次。${summary.complete ? '本次計畫均已嘗試成功。' : '覆蓋不完整，不得解讀為沒有新來源。'}`,
     `新增 ${summary.new_sources} 個來源；已知 ${summary.known_sources} 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。`, '',
     `建議文章：${plan.watch.article_paths.map(md).join('、')}（尚未採用，不寫入 used_in）`, '',
-    '| 優先 | 來源 | 狀態 | 路線／理由 |', '| --- | --- | --- | --- |',
-    ...items.map(i => `| ${i.priority} | [${md(i.title)}](<${i.url.replace(/>/g, '%3E')}>) | ${i.known ? `已知／${md(i.previous_decision ?? '未判定')}` : '新候選'} | ${md([i.source_route ? `來源路線：${i.source_route}` : '來源路線未確認', i.query_routes.length ? `查詢脈絡（非來源路線）：${i.query_routes.join('、')}` : '', ...i.reasons].filter(Boolean).join('；'))} |`), '',
+    '| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |', '| --- | --- | --- | --- |',
+    ...items.map(i => `| ${i.priority} | [${md(i.title)}](<${i.url.replace(/>/g, '%3E')}>) | ${i.known ? `已知／${md(i.previous_decision ?? '未判定')}` : '新候選'} | ${md([i.source_route ? `來源路線：${i.source_route}` : i.query_routes.length ? '來源涵蓋未確認' : '', i.query_routes.length ? `查詢脈絡（不代表來源涵蓋）：${i.query_routes.join('、')}` : '', ...i.reasons].filter(Boolean).join('；'))} |`), '',
     '## 搜尋覆蓋', '', ...attempts.map(a => `- ${md(a.request_id)}：${a.status}；${md(a.tool)}；${md(a.coverage)}；${a.count} 筆${a.error ? `；${md(a.error)}` : ''}`),
     ...missing.map(id => `- ${md(id)}：未執行`), '', '零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。', ''].join('\n');
   return { summary, report, sources: rows, searches };
@@ -197,20 +222,26 @@ export function main(args = process.argv.slice(2)) {
   try {
     const command = args.shift();
     if (!command || command === '--help') {
-      console.log('research-watch plan --watch ID --date YYYY-MM-DD --output DIR [--root ROOT]\nresearch-watch report --plan FILE --input RESULTS.json --output DIR [--root ROOT] [--write-pool]\nOffline: a research agent executes planned requests using available research tools.'); return 0;
+      console.log('research-watch list [--enabled] [--root ROOT] [--json]\nresearch-watch plan --watch ID --date YYYY-MM-DD --output DIR [--root ROOT]\nresearch-watch report --plan FILE --input RESULTS.json --output DIR [--root ROOT] [--write-pool]\nOffline: a research agent executes planned requests using available research tools.'); return 0;
     }
-    assert(['plan', 'report'].includes(command), 'Unknown command');
+    assert(['list', 'plan', 'report'].includes(command), 'Unknown command');
     const options = { root: ROOT }, seen = new Set();
-    const allowed = command === 'plan' ? ['watch', 'date', 'output', 'root'] : ['plan', 'input', 'output', 'root', 'write-pool'];
+    const allowed = command === 'list' ? ['enabled', 'root', 'json'] : command === 'plan' ? ['watch', 'date', 'output', 'root'] : ['plan', 'input', 'output', 'root', 'write-pool'];
     for (let i = 0; i < args.length; i++) {
       const key = args[i].replace(/^--/, '');
       assert(args[i].startsWith('--') && allowed.includes(key) && !seen.has(key), `Invalid/repeated argument ${args[i]}`);
       seen.add(key);
-      if (key === 'write-pool') options[key] = true;
+      if (['write-pool', 'enabled', 'json'].includes(key)) options[key] = true;
       else { assert(str(args[i + 1]) && !args[i + 1].startsWith('--'), `Missing ${key}`); options[key] = args[++i]; }
     }
-    assert(str(options.output), '--output is required');
     options.root = resolve(options.root);
+    if (command === 'list') {
+      const watches = listWatchlists(options.root, Boolean(options.enabled));
+      if (options.json) console.log(JSON.stringify(watches, null, 2));
+      else console.log(watches.map(watch => `${watch.category}/${watch.topic}\t${watch.id}\t${watch.enabled ? 'enabled' : 'disabled'}\t${watch.title}`).join('\n'));
+      return 0;
+    }
+    assert(str(options.output), '--output is required');
     if (command === 'plan') {
       assert(/^[a-z][a-z0-9-]*$/.test(options.watch ?? ''), '--watch must be a safe id');
       const plan = createPlan(json(join(options.root, '.research/watchlists', `${options.watch}.json`)), options.date, loadSnapshot(options.root));
