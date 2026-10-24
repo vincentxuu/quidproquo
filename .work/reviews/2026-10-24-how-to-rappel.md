@@ -37,3 +37,34 @@
 - phrase ledger：模板化轉折 0、台灣高風險用詞 0。
 - 用語：「這十年變最多」無來源 → 改「各家做法差最多」；台灣口令句原寫「我們沒找到 TOCC 或協會的正式版本」屬查證過程 → 改成「口令各家不同，開爬前跟夥伴講好」；「研究近年 AAC 事故報告時也沒找到…」屬查證過程且是反面宣稱 → 刪除，只留 AAC 對 Stanley Headwall 的結論。
 - 器材用語照台灣岩友口語：autoblock、prusik、GRIGRI、ATC 保留英文；flat overhand 首次出現附中文說明。
+
+---
+
+# 2026-10-24 更新：七種垂降方式（post-update）
+
+使用者要求：三種垂降方式「都要附影片分開好好說明清楚」，再追加「其他常見垂降方式都要加、都要附影片跟相關資料」。研究筆記：`.work/rappel-how-to/videos-{single,double,grigri}.md`、`method-{tagline,munter,fixed,rescue}.md`。
+
+## post-verify（更新段落）
+
+獨立查核 agent 重開一手來源與字幕，完整報告 `.work/rappel-how-to/post-verify-methods.md`。68 條新外部連結 66 條 200、1 條 403（mountaineers.org 擋機器人，可讀）、1 條死鏈已換。中英數字、時間點、年份一致。
+
+- 🔴→已修：方式一「先解開要拉那一端的止滑結」邏輯相反 → 改為解開**不拉**的那端（會往上穿過鍊環的那端）；Mike Vert 19:46 改為第二人離繩之後才開始。
+- 🔴→已修：Beal Back Up Line 是 5.5 mm、器材是 AIRFORCE 3、5 mm 是 Machard。
+- 🔴→已修：Smile Mountain Guides 不在 AMGA 認證公司名單 → 改「開設 AMGA SPI 課程、嚮導持 AMGA 認證」。
+- 🔴→已修：Dale Remsberg 現非 AMGA 技術總監 → 改「AMGA 講師團」；AAI 片中「不要做」是講者本人意見，改寫歸屬。
+- 🔴→已修：Red River Gorge autoblock 有作用但部分鬆脫。
+- 🔴→已修：Petzl 短片嵌在單繩多繩距技術頁，不是 GRIGRI 頁；解開自我確保約 1:02、1:08 出發。
+- 🟡→已修：Palisades 不是裝錯股 → 標題改「裝錯股，或那一股根本沒擋住」，並標明只有 Red Rock 致死；Auburn 改為目擊者推測；REVERSO 現行說明書只寫備份裝置或摩擦套結（不再點名 SHUNT）；BD 換 rev D、改「建議」；Edelrid 換官方連結並寫明沒特別講單股；GRIGRI 第 2 步鉤環是「萬一穿過時擋住」；「不能兩股」歸屬到單繩頁；Munter 制動手改「往上摩擦最大」並補 Alpine Savvy 約少 25%；SAC 1994 只引它有寫的部分；同時垂降「多數專業來源建議」；bergundsteigen「建議」非「要求」；glossary 繩結移位補「結在粗繩側」條件；Ascentionism 等救援在 6:11；Haley 兩股進器材出自說明欄；JB 的 Outside 支持寫在網站；Mike Vert「沒有提到嚮導認證」、刪「只有這支」、補完整標題；Ladiges 理由改照影片 0:37 並加連結；Petzl 鎖環摩擦、DMM Belay Master、Pit Schubert 補連結。
+- 範圍外但順手修：Stanley Headwall 原因改「看起來是」；「AAC 確認對接結不是原因」改為 AAC 引述夥伴說法；Devils Tower 中點標記改為 Mountain Project 留言的說法；Climbing 挪威報導標題改用現行標題。
+
+## post-review（更新段落）
+
+- 結構：總覽表（7 種方式＋救援類）放在八步之前，表內錨點連到各節；八步標明以雙股垂降為準；每種方式一節：什麼時候用、跟八步差在哪、最常見致命錯誤、影片（時間點＋講者資格＋商業關係）、今晚就能做的動作。救援類只寫定義、分界與轉手〈自我救援基礎〉。
+- 影片：每種方式至少一支嵌入，中英各 21 支；本機 dev server 實測兩頁 200、21 支嵌入、41／33 個頁內錨點全部對得到。
+- 練習題增為六題（GRIGRI 裝哪股、細拉繩結放哪側）；glossary 增擋繩垂降、繩結移位、同時垂降。
+- 機械檢查：check:tw 0／0、process-leak 通過、lint 0、diagram-preview 中英全 ✓、phrase ledger 0。
+
+## post-polish（更新段落）
+
+- register-scan：長句 23 → 6（剩下多為含長 URL 的句子）；模板化轉折 0；但書 5%。
+- 新段落拆長句、把影片段落改成「誰、哪一年、幾分幾秒起看什麼、商業關係」的固定寫法。

@@ -5,8 +5,8 @@ category: climbing
 tags: [climbing, outdoor-climbing, multi-pitch, sport-climbing, trad-climbing]
 lang: zh-TW
 type: guide
-description: "垂降的完整操作順序：到站先扣上自己、檢查固定點、穿繩與對接、繩尾結、先裝摩擦套結再延伸垂降器、負重測試與夥伴互檢、到下一站與拉繩。每一步附上 Petzl、UIAA、AAC、BMC、DAV、SAC 等專業來源的做法，以及各家意見不一致的地方。"
-tldr: "垂降事故的致死比例比一般攀登事故高，最常見的是垂降出繩尾、固定點失效、沒有備份，近年 AAC 收錄的致死案例又多了垂降器只穿到一股繩。對策是同一套順序每次照做：到站先扣上自己、繩尾打結、先裝摩擦套結再延伸垂降器、解開自我確保前先坐上去負重測試並請夥伴檢查、繩卡住絕不垂降越過它。"
+description: "垂降的完整操作順序，加上七種垂降方式各自怎麼做：單繩對折、兩條繩對接、單繩加細拉繩、GRIGRI 單股擋繩、固定單繩、沒有垂降器時的 Munter 與鉤環制動、八字環，以及同時垂降與救援用垂降的分界。每一種都附專業來源、事故與示範影片。"
+tldr: "垂降事故的致死比例比一般攀登事故高，最常見的是垂降出繩尾、固定點失效、沒有備份，近年 AAC 收錄的致死案例又多了垂降器只穿到一股或裝錯股。對策是同一套順序每次照做：到站先扣上自己、繩尾打結、先裝摩擦套結再延伸垂降器、解開自我確保前先坐上去負重測試並請夥伴檢查。單股垂降（GRIGRI、細拉繩、固定繩）最怕裝錯股，同時垂降與共用垂降器屬於救援技術，不要自己臨場試。"
 draft: false
 series:
   name: "運動攀登與傳統攀登"
@@ -24,6 +24,18 @@ glossary:
     aliases: ["stacked rappel", "pre-rigged rappel"]
     definition: "兩人都在固定點上先把垂降器架好，再依序出發。兩人可以互相檢查；上面那個人的垂降器也會鎖住兩股繩。"
     context: "AAC 分析 2024 年 Stanley Headwall 垂降死亡事故後，建議更廣泛採用疊式垂降。"
+  - term: "擋繩垂降"
+    aliases: ["blocked rappel", "knot block", "Reepschnur"]
+    definition: "在垂降環一側打一個比環大的結、加有鎖鉤環備援，把繩子擋住，只垂降在另一股上。GRIGRI 垂降與單繩加細拉繩都會用到。"
+    context: "AAC 收錄的 2025 年 Red Rock 死亡事故，就是 GRIGRI 裝在沒被擋住的拉繩那股。"
+  - term: "繩結移位"
+    aliases: ["knot migration"]
+    definition: "粗細不同的兩條繩一起放進垂降器、對接結又在粗繩那一側時，細繩跑得比較快，結會慢慢被拉離垂降環，細繩那端越來越短，最後可能從垂降器滑出。結放在細繩側、抵住環就不會發生。"
+    context: "2026 年 7 月挪威一起死亡事故，就是單繩加細拉繩兩股垂降時發生繩結移位。"
+  - term: "同時垂降"
+    aliases: ["simul-rappel", "simul-rappelling"]
+    definition: "兩人各在穿過固定點的繩子一端同時垂降，互相當配重。一人卸力或滑出繩尾，另一人就跟著掉。"
+    context: "AAC 指出，同時垂降讓兩人互相依賴，任一方出錯，兩人都會承擔後果。"
   - term: "消防員確保"
     aliases: ["fireman's belay", "bottom belay"]
     definition: "先下到底的人雙手握住兩股垂降繩，上面的人一失控就往下拉緊，增加摩擦讓他停住。"
@@ -34,13 +46,13 @@ glossary:
 
 垂降看起來很單純：把繩子穿過固定點，掛上垂降器，自己滑下來。真正的風險在細節。一股繩沒穿進垂降器、繩尾沒打結、摩擦套結太長碰到垂降器，任何一個漏掉，都可能直接墜落。
 
-上一篇[下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel)講的是「要不要垂降」：AAC 與龍洞 TOCC 各自的建議，以及垂降最致命的三種錯誤。這篇接著講「怎麼垂降」，把一次垂降拆成八個步驟，從到站扣上自己，一路到把繩子拉下來。單繩距清路線與[多繩距](/posts/climbing/2026-10-17-multi-pitch-basics)撤退都用得到。
+上一篇[下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel)講的是「要不要垂降」：AAC 與龍洞 TOCC 各自的建議，以及垂降最致命的三種錯誤。這篇接著講「怎麼垂降」：先把一次垂降拆成八個步驟，從到站扣上自己，一路到把繩子拉下來；再分開說明七種垂降方式各自怎麼做、哪裡最容易出事。單繩距清路線與[多繩距](/posts/climbing/2026-10-17-multi-pitch-basics)撤退都用得到。
 
 這篇是〈運動攀登與傳統攀登〉系列的第 8 篇。前置是[下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel)；固定點怎麼看，見[掛片會壞：怎麼判斷一顆 bolt](/posts/climbing/2026-10-17-judging-bolts)與[建立固定點](/posts/climbing/2026-10-17-building-anchors)。
 
 先講清楚：**每一步都要先在地面或岩館，在教練面前做到正確。** 台灣的多繩距課程都包含多段垂降，課程列表見[多繩距入門](/posts/climbing/2026-10-17-multi-pitch-basics)。 這篇讓你知道每一步在防什麼、各家專業機構怎麼做，不是取代課程的操作手冊。
 
-主要參考的影片是 [Charlie Centa 的〈How to rappel/abseil - safely AND efficiently〉](https://www.youtube.com/watch?v=fMlxmDCie0s)（2026 年 8 月，15 分鐘）。Centa 自述是在西班牙加泰隆尼亞帶課的[西班牙登山嚮導協會（AEGM）](https://www.aegm.org/)攀岩嚮導。片中從「舊做法為什麼不夠」講起，一路示範到下降的手法。以下各步驟會標出影片對應的時間，再對照 [Petzl](https://petzl.com/int/en/sport/tech-tips/basic-techniques/rappelling/escalade-grde-voie-rappel_SPO_a77w0000000KypxAAC.html)、[UIAA](https://theuiaa.org/mountaineering/alpine-skills-which-knot-to-use-to-join-two-ropes)、[AAC](https://publications.americanalpineclub.org/articles/13201200200/Know-the-Ropes-Rappelling-Fundamentals-to-Save-Your-Life)、[BMC](https://thebmc.co.uk/en/climb-skills-abseiling)、[德國阿爾卑斯協會（DAV）](https://alpenverein.de/artikel/klettern-abseilen_c1137d30-6bc6-436a-9c7c-d7660a300a6d)等專業來源。
+主要參考的影片是 [Charlie Centa 的〈How to rappel/abseil - safely AND efficiently〉](https://www.youtube.com/watch?v=fMlxmDCie0s)（2026 年 8 月，15 分鐘）。Centa 自述是在西班牙加泰隆尼亞帶課的[西班牙登山嚮導協會（AEGM）](https://www.aegm.org/)攀岩嚮導。他示範的是兩條繩對接的多繩距垂降，從「舊做法為什麼不夠」講起，一路示範到下降的手法。以下各步驟會標出影片對應的時間，再對照 [Petzl](https://petzl.com/int/en/sport/tech-tips/basic-techniques/rappelling/escalade-grde-voie-rappel_SPO_a77w0000000KypxAAC.html)、[UIAA](https://theuiaa.org/mountaineering/alpine-skills-which-knot-to-use-to-join-two-ropes)、[AAC](https://publications.americanalpineclub.org/articles/13201200200/Know-the-Ropes-Rappelling-Fundamentals-to-Save-Your-Life)、[BMC](https://thebmc.co.uk/en/climb-skills-abseiling)、[德國阿爾卑斯協會（DAV）](https://alpenverein.de/artikel/klettern-abseilen_c1137d30-6bc6-436a-9c7c-d7660a300a6d)等專業來源。
 
 ```youtube
 url: https://www.youtube.com/watch?v=fMlxmDCie0s
@@ -57,11 +69,29 @@ start: 36
 - **垂降出繩尾**：繩尾沒打結、兩邊繩長不一樣、中點標記不準。
 - **固定點失效**：舊扁帶、單一岩釘。一個垂降點常有好幾個人共用：2022 年 Tahquitz Rock 兩人死亡，2025 年 North Early Winter Spire 一根舊岩釘拔出，[三人死亡](https://publications.americanalpineclub.org/articles/13201217683)。
 - **沒有備份**：沒有摩擦套結，手一鬆就失控。
-- **垂降器只穿到一股繩，或穿錯那一股**：例如 2024 年加拿大 Stanley Headwall 的死亡事故。AAC 在[〈The Prescription—The Stacked Rappel〉](https://americanalpineclub.org/news/2026/1/20/the-prescriptionthe-stacked-rappel)分析，原因就是垂降器只扣到一股繩。
+- **垂降器只穿到一股繩，或穿錯那一股**：例如 2024 年加拿大 Stanley Headwall 的死亡事故。AAC 在[〈The Prescription—The Stacked Rappel〉](https://americanalpineclub.org/news/2026/1/20/the-prescriptionthe-stacked-rappel)分析，原因看起來是垂降器只扣到一股繩。
 
 背後常有同一組背景：天快黑、很累、趕時間。AAC 的事故報告是自願通報，算的是件數，不是發生率；但它足以說明，垂降不是爬完之後的休息時間。
 
 **今晚就能做的動作**：回想你上一次垂降，把八個步驟裡你沒做到的，記在手機備忘錄裡。
+
+## 垂降有哪幾種方式
+
+先認得你要用的是哪一種。下面八步以最常見的雙股垂降為準，也就是方式一和方式二；其他方式跟八步不一樣的地方，各自寫在後面的段落。
+
+| 方式 | 什麼時候用 | 一段能下多長 | 垂降器 | 最常見的致命錯誤 |
+|---|---|---|---|---|
+| [一、單繩對折雙股](#方式一單繩對折雙股垂降) | 單繩距清路線、短的多繩距撤退 | 半條繩長 | 管狀垂降器 | 中點不準、繩尾沒打結 |
+| [二、兩條繩對接](#方式二兩條繩對接垂降) | 多繩距撤退 | 一條繩長 | 管狀垂降器 | 只扣到一股、把長尾巴當主繩 |
+| [三、單繩加細拉繩](#方式三單繩加細拉繩) | 只帶一條主繩的多繩距 | 一條繩長 | 管狀垂降器或 GRIGRI | 繩結移位、裝錯股、卡繩時只剩細繩 |
+| [四、GRIGRI 單股擋繩](#方式四grigri-單股垂降擋繩) | 用輔助制動器垂降 | 擋繩時看拉繩長度 | GRIGRI 等輔助制動器 | 裝在沒被擋住的那股 |
+| [五、固定單繩](#方式五固定單繩垂降管狀垂降器) | 架工作繩、頂繩自我確保後下來 | 繩子固定那段 | 管狀垂降器（高摩擦）或 GRIGRI | 以為繩子固定了其實沒有 |
+| [六、Munter 與鉤環制動](#方式六沒有垂降器munter-與鉤環制動) | 垂降器掉了 | 同雙股垂降 | 只用鉤環 | 鎖被繩子轉開、沒加備份 |
+| [七、八字環](#方式七八字環) | 溪降、救援，或手上只有八字環 | 同雙股垂降 | 八字環 | 八字環撬開鉤環 |
+
+還有同時垂降、兩人共用垂降器、配重垂降這幾種「兩個人一起下」的方式，都屬於救援或緊急狀況，見最後的[認得就好，不要自己試](#認得就好不要自己試同時垂降與救援用的垂降)。
+
+**今晚就能做的動作**：在表上圈出你最常用的那一種，先讀那一節。
 
 ## 先備器材
 
@@ -80,7 +110,7 @@ start: 36
 
 ## 整體順序：兩人多段垂降
 
-下面八步是一個人的順序。兩個人一起撤退時，誰先誰後、在哪裡交接，看這張圖：
+下面八步是一個人的順序，以雙股垂降為準。兩個人一起撤退時，誰先誰後、在哪裡交接，看這張圖：
 
 ```diagram
 title: 兩人多段垂降：誰做什麼、在哪裡交接
@@ -194,7 +224,7 @@ title: Which is the real DEATH knot?（HowNOT2，2026）
 start: 469
 ```
 
-反過來，AAC 確認 Stanley Headwall 那起事故用的是 flat overhand，而**對接結不是事故原因**，垂降器只扣到一股繩才是。比起換哪一種結，更重要的是每次都拉緊、留夠尾巴。
+反過來，Stanley Headwall 那起事故用的是 flat overhand。AAC 的報告引述同行夥伴的說法，**對接結不是事故原因**，看起來是垂降器只扣到一股繩。比起換哪一種結，更重要的是每次都拉緊、留夠尾巴。
 
 尾巴也不要太長。[bergundsteigen〈Fehler beim Abseilen: 20 Tipps〉](https://bergundsteigen.com/artikel/fehler-beim-abseilen-20-tipps)收錄過一次險情：有人把約 1.5 m 長的尾巴當成主繩，扣進了垂降器。
 
@@ -339,15 +369,337 @@ Shokoples 要求每一項都用手摸過、念出來。AAC 2025 那篇用的 BRA
 
 **今晚就能做的動作**：下次在岩場拉繩前，先停兩秒，念一次「結解開了、拉這股、那端扣好了」。
 
-## 特殊情況：單繩加拉繩、GRIGRI
+## 方式一：單繩對折雙股垂降
 
-**單繩加一條細拉繩**：垂降距離超過半條繩時，有人只帶一條主繩，加一條 5–6 mm 的細繩當拉繩。[Petzl〈Multi-pitch rappelling with a single rope〉](https://petzl.com/INT/en/Sport/Multi-pitch-rappelling-with-a-single-rope)的做法是用結加有鎖鉤環把主繩擋在垂降環上，只垂降在主繩上，絕不垂降在拉繩上。bergundsteigen 2025 不同意：用鉤環擋住的做法難拉、容易纏，它建議兩股一起垂降、垂降器加一個鉤環增加摩擦，並拉細繩讓粗繩自己落下。兩種做法差異很大，**一定要在課程中學會其中一種，不要現場混用。**
+一條繩穿過固定點、對折，兩股一起放進管狀垂降器。這是單繩距最常見的垂降方式，八步就是以它和方式二為準寫的。[Petzl](https://petzl.com/INT/en/Sport/Multi-pitch-rappelling-with-a-single-rope)的說法是：垂降距離不超過繩長一半，單繩對折就夠；超過就要改用方式二或方式三。
 
-**GRIGRI 垂降**：Petzl 說明 GRIGRI 只能垂降在單股繩上，要搭配擋住的單股或固定繩，不能用在一般的雙股垂降。控制速度的仍是握住制動端的手，不是把手。
+**什麼時候用**：清完運攀路線下來、多繩距撤退但每段不超過半條繩。運攀頂端要不要垂降，先看在地規範。AMGA 講師團的 Dale Remsberg 在 [AMGA 2025 年的影片](https://www.youtube.com/watch?v=MKfPKYSW7iE&t=104s)說，AMGA 和 AAC 都建議運攀固定點用下放。龍洞 TOCC 則請大家盡量垂降。兩邊的理由在[下放還是垂降](/posts/climbing/2026-10-17-lower-or-rappel)。
 
-**今晚就能做的動作**：看看你的垂降器說明書，找出它允許的繩徑範圍，以及它能不能用在單股繩上。
+**跟八步不一樣的地方**：
 
-## 練習題：四個情境
+- **爬到頂、要從繩結改成穿環時，先防掉繩**：AMGA 認證岩攀與高山嚮導 Travis Weil 先扣自我確保，再拉一段繩打結扣在吊帶上，最後才解開原本的繩結。這樣繩子不可能掉下去。
+- **中點要對準固定點**：拉到中點標記，或確認兩端都到地。Weil 建議用雙色（bi-pattern）繩，中點不會像標記一樣褪色。中點標記會因為繩子縮短、剪過而跑掉；AAC 收錄的 [2024 年 Devils Tower 死亡事故](https://publications.americanalpineclub.org/articles/13201217342)，據 Mountain Project 上的留言，當事人把繩子剪短過，似乎沒有重新做中點標記，最後兩端不等長。
+- **兩端各打止滑結**：Weil 在[另一支影片的 0:35](https://www.youtube.com/watch?v=qkbxXGYfGMk&t=35s)兩端都打桶結，還提到它能防止繩子從鍊環滑回去。
+- **拉繩前，先解開不拉的那一端的止滑結**：拉其中一端時，另一端會往上穿過鍊環，那一端的結會卡住。單繩沒有對接結提醒你拉哪一邊，要自己記住。
+
+**最常見的致命錯誤**：中點不準、繩尾沒打結，垂降出比較短的那一端。
+
+Weil 這支 2025 年的影片從 1:29 起示範穿過鍊環、繩尾打結、拉到中點，2:16 起兩股進垂降器並加 autoblock。要注意 4:01 那段：他只用眼睛由上往下檢查，就解開自我確保，沒有先坐上去做負重測試；照第五步，負重測試要補上。說明欄有相機的聯盟連結，沒有攀岩器材贊助。
+
+```youtube
+url: https://www.youtube.com/watch?v=w6a0SCc3iAI
+title: Rappelling: Learn the Basics（Travis Weil，2025）
+start: 89
+```
+
+拉繩這一步，Mike Vert 這支多繩距垂降教學拍得很清楚。19:46 起，第二個人也下到站、離開繩子之後，他解開會被拉上去那一端的止滑結，免得它卡在上面的鍊環，再開始拉另一端；繩尾穿進下一站後再重新打結。Mike Vert 自述攀岩 11 年、有戶外冒險文憑，沒有提到嚮導認證，說明欄推廣他的付費課程。片中 18:24–19:02 有一段是同伴還掛在繩上時就先解開止滑結，這一段不要學。
+
+```youtube
+url: https://www.youtube.com/watch?v=_C0HXDiGbls
+title: Full Masterclass: Multi Pitch Rappelling for Outdoor Rock Climbing - Bolted Anchors（Mike Vert，2026）
+start: 1186
+```
+
+Weil 在 [3:32](https://www.youtube.com/watch?v=qkbxXGYfGMk&t=212s) 說，上面的夥伴不需要自己的備份，因為他可以在地面拉繩保護；這跟 SAC 的立場相反，見第七步〈下方拉繩保護〉。
+
+**今晚就能做的動作**：攤開繩子，從兩端往回找真正的中點，跟中點標記比一比差多少。
+
+## 方式二：兩條繩對接垂降
+
+兩條繩用對接結接起來，結靠在固定點一側，兩股一起放進垂降器。多繩距撤退、垂降距離超過半條繩時用。開頭那支 Charlie Centa 的影片示範的就是這種：他身上綁著兩條不同顏色的繩，到站後把兩條繩接起來垂降。
+
+**Centa 的順序**（影片時間點）：
+
+1. 用可調式自我確保繩扣上固定點（[3:26](https://www.youtube.com/watch?v=fMlxmDCie0s&t=206s)）。
+2. 先解開、先穿**領攀者那條繩**的繩尾（[3:45](https://www.youtube.com/watch?v=fMlxmDCie0s&t=225s)）。理由是跟攀者的繩尾在繩堆最上面，丟繩時繩子比較順，不會亂成一團。
+3. 繩子穿在固定點鉤環的**後方**，最後一人才能邊坐在垂降上邊拆鉤環（[4:36](https://www.youtube.com/watch?v=fMlxmDCie0s&t=276s)）。
+4. 用 double overhand 對接，確認兩種顏色交錯，把結拉到固定點（[5:10](https://www.youtube.com/watch?v=fMlxmDCie0s&t=310s)）。
+5. 先裝 autoblock、再延伸垂降器（第四步）。
+6. 兩端各打止滑結、喊「Rope」、兩股分開丟（[9:58](https://www.youtube.com/watch?v=fMlxmDCie0s&t=598s)）。
+7. 負重測試，自我確保的鉤環扣在要拉的那一股當記號（第五步）。
+
+**跟方式一不一樣的地方**：
+
+- **對接結**：四股分別拉緊、尾巴至少 30 cm，各家分歧見第二步。
+- **拉結所在的那一側**：拉錯邊，結會被拉向垂降環而卡住。
+- **兩條繩粗細不同**：Petzl 建議 flat overhand 再加一個止滑結，UIAA 改用 double fisherman；差很多時，見方式三的「繩結移位」。
+
+**最常見的致命錯誤**：垂降器只扣到一股，例如 Stanley Headwall 那起；把對接結的長尾巴當成主繩扣進垂降器。
+
+IFMGA 國際高山嚮導 Dave Searle 這支 2024 年的影片，從 7:52 起示範 flat overhand 怎麼打。兩條繩平行、整理乾淨、四股分別拉緊，再用手腕到手肘的長度量出約 30 cm 的尾巴。他在 10:42 說加了第二個結尾巴可以短一點，這跟 Petzl、UIAA 的要求不同，不要照做。片頭推廣他自己開發的 app，他也是 Rab 的贊助運動員。
+
+```youtube
+url: https://www.youtube.com/watch?v=ykzmVwFrVLM
+title: Connecting Ropes for Climbing and Mountaineering（Dave Searle，2024）
+start: 472
+```
+
+AAC 2026 年這支短片接著 Stanley Headwall 事故講對策：IFMGA／AMGA 嚮導 Jason Antin 從 0:35 起示範疊式垂降。兩人都先在固定點架好垂降器，出發前用 HAD 互檢：吊帶（Harness）、固定點（Anchor）、垂降器（Device）。重點是兩股繩都穿過垂降器、鉤環已鎖。
+
+```youtube
+url: https://www.youtube.com/watch?v=dkPNdMKzlSg
+title: The Prescription | Stacked Rappel（American Alpine Club，2026）
+start: 35
+```
+
+補充兩支：JB Mountain Skills 2025 年的影片 [0:18](https://www.youtube.com/watch?v=1SGEoyW2aR8&t=18s) 起故意示範錯誤做法，尾巴留太長、把垂降器扣在尾巴上，[1:54](https://www.youtube.com/watch?v=1SGEoyW2aR8&t=114s) 起才講正確的尾巴長度。DMM 2022 年的影片由英國登山教練協會（AMI）教練 Alice Kerr 示範，[4:35](https://www.youtube.com/watch?v=p6uJIg4fL5k&t=275s) 起是疊式垂降；片中尾巴留約 60 cm，比本文的 30 cm 長。
+
+**今晚就能做的動作**：拿兩條不同顏色的繩子打一次 flat overhand，確認顏色平行不交叉，再決定要拉哪一側，用鉤環在那股上做記號。
+
+## 方式三：單繩加細拉繩
+
+只帶一條主繩，又要下超過半條繩長時，加一條 5–6 mm 的細繩接在主繩上，到底後用細繩把主繩拉下來。省重量，但做法分好幾派，而且 2026 年發生過一起死亡事故。
+
+**擋繩派：只垂降在主繩上**。[Petzl〈Multi-pitch rappelling with a single rope〉](https://petzl.com/INT/en/Sport/Multi-pitch-rappelling-with-a-single-rope)的做法：
+
+1. 主繩穿過垂降環，在環的一側打一個比環大的結，把主繩擋住。
+2. 用有鎖鉤環把結扣回受力的那股主繩。Petzl 寫明一律要加，因為就算看起來卡住了，結還是可能穿過環。
+3. 細繩接在擋繩那一側，只用來拉，**絕不垂降在細繩上**。
+4. 垂降器只裝在結對面那股主繩。用 REVERSO 時，細繩穿過第二個繩槽，目的是把它帶在身上。
+
+Petzl 也列出缺點。擋繩的結和鉤環比較容易卡繩。主繩卡在搆不到的地方時，手上只剩細繩，沒辦法拿來確保自己爬回去。每一段都要把整條繩重新穿過，不適合連續很多段。[紐西蘭 Alpine Team 2013 年](https://alpineteam.co.nz/post/abseiling-with-a-single-rope-plus-tag-line)也這樣教，理由是 6 mm 細繩太細，不適合直接垂降。
+
+**兩股派：兩股都進管狀垂降器**。山岳嚮導 Chris Semmel 在 [bergundsteigen](https://www.bergundsteigen.com/en/artikel/alpinhacks-abseilen-mit-hilfsleinen-rad-line-co/)寫的做法：
+
+1. 主繩和細繩用一個 flat overhand 接起來，尾巴 30 cm，不要連打兩個。
+2. **結放在細繩那一側，抵住垂降環**。
+3. 兩股都放進管狀垂降器，下方多扣一個鉤環增加摩擦。
+4. 到底後拉細繩，粗繩會自己掉下來，比較不容易卡。
+
+[Beal 2026 年的 Back Up Line 說明書](https://www.beal-planet.com/cdn/shop/files/BEAL_-_XNOTICE.BACK_UP_202607_-_Notice_livret_100x100.pdf)也允許主繩和 5.5 mm 的 Back Up Line 兩股一起垂降，搭配 Beal 的 AIRFORCE 3 垂降器與 5 mm 的 Machard 摩擦套結。
+
+**為什麼結要放在細繩那一側：繩結移位**。細繩在垂降器裡的摩擦比粗繩小，下降時細繩跑得比較快，對接結會慢慢被拉離垂降環，細繩那一端越來越短。[Climbing 2026 年 9 月的報導](https://climbing.com/videos/death-of-27-year-old-climber-exposes-danger-of-knot-migration-during-rappel)記錄了同年 7 月在挪威的一起死亡事故：兩人都用 ATC 兩股一起垂降，結一路移位，細繩尾端穿出垂降器，攀登者墜落身亡。報導指出，如果中點放在粗繩那側，結很可能會被固定點擋住。
+
+**拉粗繩派是少數做法**。紐西蘭 Alpine Team 的 IFMGA 嚮導 Kim Ladiges 在[影片 0:37 起](https://www.youtube.com/watch?v=lC1PIOGWsZM&t=37s)說，難拉的時候他會拉粗繩，出問題時手上才有動力繩可以處理。前提是第二人先把垂降器預掛在兩股上，第一人到底後垂降器留在繩上，或把繩尾固定在站上。同一篇 Climbing 報導裡，英國 IFMGA 嚮導 Calum Muskett 把「中點放在細繩、拉粗繩」稱為本質上不安全，建議一律固定粗繩、用細繩回收。
+
+**卡繩的代價比較高**：[Climbing 報導的 2026 年 Pingora 事件](https://climbing.com/news/a-climber-and-his-rescuer-share-takeaways-after-getting-benighted-on-pingora-peak)，攀登者用 4 mm 細繩拉主繩，主繩卡住了。手上只剩靜力細繩，不能拿來先鋒爬回去，最後在岩壁上過夜等救援。
+
+職業阿爾卑斯式攀登者 Colin Haley 這支 2026 年的影片，2:52 起解釋繩結移位怎麼發生，3:53 起說他幾乎都拉細繩。4:58 起是他的混合做法：在粗繩上用雙套結扣一個有鎖鉤環，擋在環上；說明欄補充，他照樣把兩股都放進垂降器。他打兩個對接結，這點 bergundsteigen 明確反對。Haley 不是認證嚮導；他網站上列 Petzl 為主要贊助商，片中用的細繩是 Petzl 的，影片沒有揭露這層關係。
+
+```youtube
+url: https://www.youtube.com/watch?v=xQWcuY6lv0o
+title: Rappelling with Ropes of Very Different Diameters（Colin Haley，2026）
+start: 172
+```
+
+紐西蘭 Alpine Team 這支 2026 年的影片是拉粗繩派的完整示範，從 0:22 看起。一定要看到 2:26–2:50：第一人到底後要讓垂降器留在繩上，或把繩尾固定在站上，不然第二人那股會滑。只看前半段會漏掉這個前提。
+
+```youtube
+url: https://www.youtube.com/watch?v=lC1PIOGWsZM
+title: How to rappel with a tagline（New Zealand Alpine Team，2026）
+start: 22
+```
+
+**選哪一派**：預設照擋繩派或兩股派，結放在細繩側、拉細繩；拉粗繩只在兩人都熟練、能做到預掛與鎖住繩尾時用。不管哪一派，都要先在地面或練習場練過，不要現場混用。
+
+**今晚就能做的動作**：拿你的主繩和細繩比一比粗細，查兩者的說明書允不允許一起垂降。
+
+## 方式四：GRIGRI 單股垂降（擋繩）
+
+GRIGRI 這類輔助制動器只能垂降單股。[Petzl〈Rappelling with GRIGRI and NEOX〉](https://petzl.com/US/en/Sport/Rappelling-with-GRIGRI-and-NEOX?ProductName=GRIGRI)寫得很清楚：可以在擋住一股的可回收系統上垂降，也可以在固定繩上垂降。[單繩多繩距垂降那篇](https://petzl.com/INT/en/Sport/Multi-pitch-rappelling-with-a-single-rope)則寫明，GRIGRI 不能像管狀垂降器那樣兩股一起下。單股垂降的好處是半條繩長以上也能一次下完，壞處是只要裝錯股就會直接墜落。
+
+**步驟**（依 Petzl 技術頁與 2024 年 11 月版 GRIGRI 說明書）：
+
+1. 繩子穿過垂降環，在**不垂降的那一股**打擋繩結，結要比環大。
+2. 用有鎖鉤環把結扣回垂降的那股。萬一結穿過環，鉤環會把繩子擋住。
+3. 超過半條繩長時接上細拉繩（方式三），兩端繩尾都打結。
+4. GRIGRI 只裝在**擋繩結對面的那股**，也就是被擋住、固定的那股；照機身標示確認方向，裝反了制動不會作用。拉繩用快扣扣在確保環上。
+5. 還連著自我確保時，全身坐上 GRIGRI，確認鎖得住、裝在對的那股，才解開自我確保。
+6. 下降時**制動手一直握住制動端**，另一手慢慢拉把手。Petzl 的原話是：把手幫忙調整摩擦，控制下降的是握住制動端的那隻手。需要空出雙手時，在制動端靠近 GRIGRI 的地方打一個結。
+7. 到底後拉另一股收繩。
+
+GRIGRI 的適用繩徑是 8.5–11 mm；Petzl 提醒 8.9 mm 以下的細繩垂降時比較難控制。
+
+**最常見的致命錯誤：裝錯股，或那一股根本沒擋住**。AAC 2026 年版事故報告收了三起，其中 Red Rock 那起致死：
+
+- **[Red Rock 死亡事故（2025）](https://publications.americanalpineclub.org/articles/13201217659)**：GRIGRI 裝在拉繩那一股，一受力，繩子直接從固定點被拉過去，她從夥伴身旁墜落。當時日落後、天冷、趕時間。AAC 的結論是條件變差、壓力變大時，正確的反應是放慢。
+- **[Psycho Tower 險情（2025）](https://publications.americanalpineclub.org/articles/13201217645)**：當事人自述把拉繩那股裝進 GRIGRI+，只用手拉了一下，覺得有阻力就解開自我確保。他往後一倒就墜落，抓住垂著的繩尾才停下。他的教訓是：拉一下不算測試，要全身坐上去；固定點在腰的高度、下面有平台時，最容易偷懶跳過。
+- **[Palisades 事故（2024）](https://publications.americanalpineclub.org/articles/13201217622)**：一名約 11 歲的孩子用 ATC 單股垂降，那一股根本沒固定，下方的消防員確保也擋不住整條繩被拉過固定點。AAC 說，只要一個結直接扣在固定點上就能避免。
+
+Petzl 另外提醒兩件事：下方用力拉制動端，可能讓 GRIGRI 解鎖；排隊時預先裝在繩上的 GRIGRI，可能被下面垂降者的重量翻轉而解鎖。
+
+Petzl 官方 2025 年這支短片沒有旁白，要看畫面。0:22 起打擋繩結，0:30 起用有鎖鉤環扣回主繩，0:38 起裝 GRIGRI，1:02 前後解開自我確保，1:08 起出發。1:28 前後可以看到結和鉤環擋在垂降環上。這支片也嵌在 [Petzl〈Multi-pitch rappelling with a single rope〉](https://petzl.com/INT/en/Sport/Multi-pitch-rappelling-with-a-single-rope)技術頁裡。
+
+```youtube
+url: https://www.youtube.com/watch?v=UUrPgAP1mfw
+title: #Petzltips - Rappelling with a single rope and a pull cord（Petzl，2025）
+start: 22
+```
+
+Edelrid 這支 2025 年的單繩多繩距教學用的是自家的輔助制動器 PINCH，不是 GRIGRI，但擋繩做法相同。7:19 起示範八字結擋在環上、鉤環扣回受力股，坐上去檢查後才解開自我確保。9:45 起是個好提醒：垂降環太大時，八字結會直接穿過環，他們改用雙套結加有鎖鉤環。這是廠商頻道，說明欄列的都是自家產品。
+
+```youtube
+url: https://www.youtube.com/watch?v=aDVjeWyhXpE
+title: Single Rope Multi-Pitch Climbing – Our Favorite Setup & Tips（EDELRID，2025）
+start: 439
+```
+
+目前沒有找到清楚拍出「一手拉把手、一手握制動端」的影片，這一點以 Petzl 說明書的文字為準。
+
+**今晚就能做的動作**：在家用 GRIGRI 和一段繩子，練習先指出「哪一股被擋住」，再把 GRIGRI 裝上那股，大聲念一次。
+
+## 方式五：固定單繩垂降（管狀垂降器）
+
+繩子一端直接綁死在固定點，只垂降那一股，繩子不回收。架工作繩、從上方下到海崖起攀點、頂繩自我確保之後下來，都會用到。
+
+**廠商怎麼說**：三家都沒有禁止管狀垂降器單股垂降，但都要求加摩擦或備份。
+
+- [Black Diamond ATC-Guide 說明書](https://s3.us-west-2.amazonaws.com/catsy.865/M10798_D_ATC-Guide_IS-WEB.pdf)：單股垂降時建議用高摩擦模式。
+- [Petzl](https://petzl.com/INT/en/Sport/Multi-pitch-rappelling-with-a-single-rope)：REVERSO 可以單股垂降，但要加備份（備份裝置或摩擦套結）。
+- [Edelrid GIGA JUL 說明書](https://avs.edelrid.com/images/attribut/5XXXX_GAL_GIGAJUL_ANSICHT.pdf)：沒有特別講單股；所有垂降都要繩尾打結，並加摩擦套結備份。
+
+**摩擦會越來越小**：單股的摩擦本來就比雙股小。AAC 收錄的 [1986 年 Sedona 事故](https://publications.americanalpineclub.org/articles/13198703202)指出，下方垂著的繩子越短，摩擦越小：一開始覺得太緊，接近底部時就太快。增加摩擦的方法由弱到強是：再並排扣一個鉤環、用鉤環扣住垂降器的 guide 孔往後壓、在垂降器下方繞成 Z 字再扣回去。全部都要先在地面試，加太多會卡死。
+
+**最常見的致命錯誤：以為繩子固定了，其實沒有**：
+
+- [2022 年 Auburn 死亡事故](https://publications.americanalpineclub.org/articles/13201216604)：頂繩自我確保之後改成垂降。繩子已經從固定點解開，她只穿了一股就下去；目擊者認為，她可能以為繩子還綁著。
+- [2023 年 Vermont 事故](https://publications.americanalpineclub.org/articles/13201217172)：垂降器扣在固定繩八字結的長尾上，滑墜約 30 m。
+- [2019 年 Red River Gorge 事故](https://publications.americanalpineclub.org/articles/13201215612)：垂降器被裝成低摩擦那一面，autoblock 有作用但部分鬆脫，可能是被制動手抓住了。AAC 的結論是：單股垂降比雙股需要更多摩擦，也更要注意備份。
+
+Short Guys Beta Works 這支 2026 年的影片示範三種加摩擦的方法，由強到弱。0:57 起是垂降器下方的 Z 字繞繩，2:40 起用鉤環扣住 guide 孔把垂降器往後壓，3:26 起並排第二個鉤環。1:37 起他提醒，Z 字繞繩不要扣在腿環上，人翻過去時會失效。主講者 Jason 在科羅拉多登山會教了多年，沒有查到嚮導認證，說明欄聲明可能有聯盟連結。
+
+```youtube
+url: https://www.youtube.com/watch?v=yAUSU27gvTc
+title: Heavy Load or Icy- or Thin-Line Rappels Need This Friction Hack（Short Guys Beta Works，2026）
+start: 57
+```
+
+HowNOT2 2025 年這支主題是 5 mm 細繩，5:50 起有一段用 ATC 單股垂降，在腿環上繞 Z 字增加摩擦，並量出固定點的受力。它把 Z 字扣在腿環上，正好跟上一支的提醒相反；兩支對照看，就知道這個做法有爭議。HowNOT2 自營器材店，片中測試的繩子在店裡有賣。
+
+```youtube
+url: https://www.youtube.com/watch?v=TuqUlkAQvBI
+title: Rappelling on 5mm?（HowNOT2，2025）
+start: 350
+```
+
+**今晚就能做的動作**：翻出你的垂降器說明書，找到「單股」或「single rope」那一段，記下它要求的模式與備份。
+
+## 方式六：沒有垂降器：Munter 與鉤環制動
+
+垂降器掉了，或忘了帶，還有兩個辦法：Munter（義大利半扣），或用幾個鉤環組成制動。兩者都是備案，不是平常的垂降方式。
+
+### Munter（義大利半扣）垂降
+
+- **鉤環**：大型梨形（HMS）有鎖鉤環，**直接掛確保環，不要延伸**。[The Mountaineers 整理的 AMGA 單繩距教練課程做法](https://mountaineers.org/blog/extended-rappel-and-updated-belay-techniques)寫明，延伸垂降不適用 Munter。
+- **制動端放在鉤環背脊那一側**：放在開口那側，繩子會磨到鎖環，可能把鎖轉開。
+- **制動手往上摩擦最大**：Munter 在兩股平行時摩擦最大，跟 ATC 的制動手往下相反。制動端放到腰側，摩擦約少 25%，多數情況仍夠用（[Alpine Savvy](https://alpinesavvy.com/bonus-articles/munter-hitch-brake-strand-does-it-need-to-be-parallel)）。[HowNOT2 2021 年的影片 4:02](https://www.youtube.com/watch?v=BshgXXn4UEk&t=242s)特別點出這個差別。
+- **一定加摩擦套結備份**。
+- **會扭繩**：扭過的繩子拉繩時可能卡在固定點。[bergundsteigen 2022 年](https://www.bergundsteigen.com/artikel/alpinhacks-abseilgeraet-runtergefallen-3-0/)介紹瑞士阿爾卑斯協會教材裡的防扭做法，並建議課程採用。
+
+**事故**：[AAC 收錄的 2024 年 Ouray 事故](https://publications.americanalpineclub.org/articles/13201217271)，當事人選擇不加 prusik，讓下方夥伴拉繩保護。下降中他轉身看腳下，Munter 往鉤環開口那側移，繩子滾過開口、把鎖轉開，從鉤環脫出。他自由墜落約 24 m，因為一直沒放開制動端才停住。他事後的結論是：再用 Munter 垂降，就換雙重開口或自動鎖的鉤環。[Petzl](https://petzl.com/US/en/Sport/Examples-of-dangerous-carabiner-loading-) 也指出，繩子或岩石摩擦可能轉開鎖環、推開鉤環開口。
+
+JB Mountain Skills 這支 2024 年的影片從 13:45 起示範兩股 Munter 垂降，並在制動端加 prusik。他認為扭繩問題沒有網路上說的那麼嚴重，但連續多段垂降時，他寧可用鉤環制動。主講者 Jez 是北威爾斯的合格攀岩與登山教練，他的網站列器材店 Outside 為支持者。
+
+```youtube
+url: https://www.youtube.com/watch?v=mfIJVgtFsKM
+title: Munter Hitch / Italian Hitch（JB Mountain Skills，2024）
+start: 825
+```
+
+另一支可以對照的是 [Short Guys Beta Works 2026 年的 Munter 深入介紹 11:14 起](https://www.youtube.com/watch?v=hbJ1kS0avX4&t=674s)，講為什麼不延伸，以及制動端放在開口側為什麼會轉開鎖。
+
+### 鉤環制動
+
+用三個有鎖鉤環組成制動（做法照 [Alpine Savvy](https://alpinesavvy.com/blog/a-slick-carabiner-rappel-brake) 與 [bergundsteigen 2021 年](https://www.bergundsteigen.com/artikel/alpinhack-abseilen-ohne-abseilgeraet/)）：
+
+1. 第一個有鎖鉤環扣在延伸扁帶上。
+2. 第二個有鎖鉤環扣在第一個上。
+3. 兩股繩對折成一個繩圈，穿過第二個鉤環。
+4. 第三個有鎖鉤環扣進這個繩圈，再扣到往上通往固定點的那兩股繩上，當作制動桿。
+5. 全部上鎖，加摩擦套結備份。
+
+扭繩比 Munter 少得多，但有三個風險。bergundsteigen 提醒，系統卸力時鉤環可能滑動、轉向，制動力大減，例如腳踩到平台時。Alpine Savvy 說它的摩擦比垂降器小，適合不太陡的地形。拆的時候也很容易掉鉤環。
+
+奧地利 AlpenAcademy 2024 年這支德文影片從 9:27 起示範三個鉤環的制動，邊下邊推 prusik，也直說這比用管狀垂降器顛簸很多。說明欄有贊助平台與購物聯盟連結。英文版可以看 [Outdoor Research 2018 年由 AMGA 教練示範的影片 3:24 起](https://www.youtube.com/watch?v=VjWzxRJ9vtk&t=204s)，同一支片 2:27 起也有 Munter 的制動端放法。
+
+```youtube
+url: https://www.youtube.com/watch?v=zql0JvL3sAI
+title: Vom Standplatz zum Abseilen（AlpenAcademy，2024）
+start: 567
+```
+
+### 不要用：身體垂降
+
+不用任何器材，把繩子繞過臀部和肩膀，靠身體摩擦下降。這種方法一直用到 1970 年代。[SAC 1994 年的文章](https://www.sac-cas.ch/de/die-alpen/abseilen-kein-problem-12767/)形容它操作棘手、容易出錯，因為坐姿和制動全靠繞在臀部和肩膀上的繩子跟身體的摩擦。它還會磨破褲子、燒傷皮膚，制動手一鬆就墜落。
+
+下面這支 2020 年的影片，主講者一開頭就說這些方法嚴重過時、會痛，也不太安全；6:11 起他說，真的沒器材時寧可原地等救援。放這支是讓你認得它，不是要你學。
+
+```youtube
+url: https://www.youtube.com/watch?v=CLQ0IltdYd0
+title: Two Methods to Rappel with ONLY a Rope（Ascentionism，2020）
+start: 26
+```
+
+**今晚就能做的動作**：檢查你的吊帶上有沒有一個大的梨形有鎖鉤環。沒有的話，下次多帶一個，它就是你掉了垂降器時的備案。
+
+## 方式七：八字環
+
+八字環是管狀垂降器普及前的標準垂降器，現在攀岩課程大多已改教管狀垂降器，溪降與救援還在用。[bergundsteigen 2012 年](https://www.bergundsteigen.com/magazinartikel/abgeseilt/)寫道，八字環優點少、缺點多，已經從教學和教科書裡消失。
+
+**最大的風險：撬開鉤環**。八字環可能橫卡在鉤環開口上，一受力就把鎖好的鉤環撬開。[BMC](https://www.thebmc.co.uk/en/abseiling-do-you-know-the-risks)說這已造成至少一起死亡和多起重傷。[UIAA 2000 年的分析](http://theuiaa.org/documents/safety/Karabiner_Breakings_when_using_a_Figure-of-eight.pdf)記錄了 1996 年英國一名學員從 40 m 高的橋上垂降，八字環撬開鉤環致死，並指出鎖環本來就不是設計來抵抗這種槓桿力。對策是每次受力前，確認八字環沒有卡在開口上。DMM 的[垂降器說明書](https://assets.dmmwales.com/download/73/)建議搭配 Belay Master 這類能固定方向的鉤環；德國阿爾卑斯協會安全研究的 Pit Schubert [1997 年](https://www.sac-cas.ch/de/die-alpen/schwachstelle-bei-karabinern-mit-verschluss-sicherung-14092/)則建議用兩個並排、開口反向的鉤環。
+
+**其他缺點**：摩擦要出發前就決定好，下到一半很難再加（[Petzl HUIT 技術頁](https://petzl.com/US/en/Sport/Friction-modes-and-tie-offs-for-the-HUIT?ActivityName=canyoning)）；兩股一起穿時容易扭繩，扭轉進到八字環會卡住，拉繩也比較難。
+
+這支 2022 年的溪降教學示範八字環的幾種穿法，1:08 起是攀岩傳統的穿法，接著示範怎麼加鉤環增加摩擦。主講者自述是法國阿爾卑斯的專業溪降嚮導，沒有查到認證機構。HowNOT2 的溪降入門片也談到這段歷史：[15:05 起](https://www.youtube.com/watch?v=JwSJrWQnNrA&t=905s)講溪降垂降器是從八字環演變來的，八字環下到一半沒辦法加摩擦。
+
+```youtube
+url: https://www.youtube.com/watch?v=EM2XS8x0VKo
+title: 6 ways to rappel like a pro using the figure 8（Sven Van Cleemput，2022）
+start: 68
+```
+
+**今晚就能做的動作**：如果你家裡有八字環，把它扣上鉤環，故意讓它卡在開口上，看清楚錯誤的樣子長什麼樣，以後一眼就認得出來。
+
+## 認得就好，不要自己試：同時垂降與救援用的垂降
+
+下面這幾種都是「兩個人一起下」，名稱又常被混用，先分清楚：
+
+| 名稱 | 怎麼掛 | 誰控制速度 | 用途 |
+|---|---|---|---|
+| 同時垂降（simul-rappel） | 兩人各在穿過固定點的繩子一端，互相當配重 | 各自控制 | 想省時間；多數專業來源建議只在緊急時用 |
+| 兩人共用垂降器（tandem） | 救援者和傷者用延伸扁帶掛在同一個垂降器上 | 只有救援者 | 帶受傷的夥伴下去 |
+| 配重垂降（counterbalance rappel） | 救援者垂降一股，傷者掛在另一股當配重 | 只有救援者 | 從確保站下到傷者身邊 |
+| 配重上升 | 救援者往上，傷者在另一端被當配重 | 救援者 | 先鋒墜落後要上去接近傷者 |
+
+有些文章和影片把同時垂降也叫 counterbalance rappel。AMGA 嚮導 Ryan Tilley 則只把「一人控制、另一端是傷者」稱為配重垂降，本文採用他的分法。
+
+### 同時垂降
+
+一人卸力或垂降出繩尾，另一人就跟著掉。[AAC 的說法](https://americanalpineclub.org/news/2018/11/30/simul-rappelling)是：兩人互相依賴，任何一方失控、架錯，或任一股繩被割斷，兩人都會承擔後果。[2019 年 Brad Gobright 在墨西哥 El Potrero Chico 身亡](https://publications.americanalpineclub.org/articles/13201215647)，就是同時垂降時他那端的繩子太短、沒打繩尾結，從繩尾滑出。AAC 認為如果有打止滑結，這起事故很可能不會發生。[Gripped 2020 年](https://gripped.com/profiles/simul-rappelling-is-dangerous-go-one-at-a-time/)的立場是只在緊急狀況使用，而且兩人同時到站其實更慢。American Alpine Institute 的影片 [3:04 起](https://www.youtube.com/watch?v=ricHt4aPJVk&t=184s)提到，AMGA 技術總監大致的意思是不要教；講者自己的建議是不要做，也不要教。
+
+Outdoor Research 2018 年這支由 IFMGA 嚮導 Dale Remsberg 和 Olivia Race 示範，就是 Gripped 文章附的影片。2:13 起 Race 說明：只要對方垂降出繩尾，她就失去配重，兩人一起掉下去。整支片也讓你看到，要把同時垂降做得安全有多麻煩。
+
+```youtube
+url: https://www.youtube.com/watch?v=y_bHtt9iWPA
+title: How to Set Up a Simul-Rappel（Outdoor Research，2018）
+start: 133
+```
+
+### 兩人共用垂降器、配重垂降與配重上升
+
+這三種都是救援技術：夥伴受傷、需要把人帶下去時才用。[Climbing 2023 年的〈Buddy Rappel〉](https://www.climbing.com/skills/rappel-with-injured-partner/)提醒，共用垂降器下降時不要錯過下一站，因為掛著兩個人沒辦法爬回去。它也說，當下最安全的決定可能是求援、原地等待。[bergundsteigen 2025 年的嚮導救援系列](https://www.bergundsteigen.com/artikel/bergfuehrerserie-behelfsmaessige-kameradenrettung/)建議先在接近地面、有可靠固定點（例如錨栓）的地方反覆練習。配重上升會讓救援者和傷者的體重同時壓在最後一個接住墜落的保護點上；[Climbing 2019 年](https://www.climbing.com/skills/multi-pitch-911-escape-the-belay)的建議是，那個保護點不可靠，就考慮等待救援。
+
+IFMGA 嚮導、AMGA 董事 Eddie Schoen 這支 2025 年的影片，情境是夥伴昏迷、掛在中間站上。3:36 起示範怎麼把傷者的重量慢慢轉移到共用垂降器上。
+
+```youtube
+url: https://www.youtube.com/watch?v=oUIGGHazDFM
+title: Transition To Tandem Rappel（Eddie Schoen，2025）
+start: 1
+```
+
+開設 AMGA 單繩距教練課程、嚮導持 AMGA 認證的 Smile Mountain Guides，這支 2025 年的影片，0:18 起示範從確保站轉成配重垂降，開頭就說先加保護、再拆保護。片中主講者也承認這套流程很複雜。配重上升的風險，可以看 AMGA 攀岩嚮導 Glen Young 2024 年影片的 [5:58 起](https://www.youtube.com/watch?v=CCSczBIY63U&t=358s)，他說會盡一切可能避免配重上升。
+
+```youtube
+url: https://www.youtube.com/watch?v=V7LWnJEPgPU
+title: Counter-Balanced Rappel Transition（Smile Mountain Guides，2025）
+start: 18
+```
+
+這些技術怎麼判斷、該不該用，見[自我救援基礎](/posts/climbing/2026-10-17-self-rescue-basics)；操作要在課程裡學。
+
+**今晚就能做的動作**：跟你的固定繩伴約好：任何人提議同時垂降，另一個人都可以直接說不。
+
+## 練習題：六個情境
 
 答案在每題下方，先自己想再看。想練更多題，可以玩 [nobodyclimb 的繩索系統練習：垂降](https://nobodyclimb.cc/games/rope-system/learn/sport-rappel)。
 
@@ -383,11 +735,31 @@ Shokoples 要求每一項都用手摸過、念出來。AAC 2025 那篇用的 BRA
 
 </details>
 
+**5. 你用 GRIGRI 單股垂降。繩子穿過垂降環，一側打了擋繩結、扣好鉤環。GRIGRI 要裝在哪一股？**
+
+<details><summary>答案</summary>
+
+裝在擋繩結**對面**那股，也就是被擋住、固定的那股。另一股是拉繩，裝在那股上，一受力繩子就會整條從環裡被拉過去。AAC 收錄的 2025 年 Red Rock 死亡事故就是這樣。裝好之後還連著自我確保，全身坐上去測試，拉一下不算。
+
+</details>
+
+**6. 你帶一條 9.5 mm 主繩和一條 6 mm 細繩，打算兩股一起放進 ATC 垂降。對接結要放在哪一側、拉哪一條？**
+
+<details><summary>答案</summary>
+
+照 bergundsteigen 的做法，結放在細繩那一側、抵住垂降環，到底後拉細繩。細繩在垂降器裡跑得比較快，結如果在粗繩那側，就會慢慢被拉離垂降環，細繩那端越來越短，最後可能從垂降器滑出。2026 年挪威的死亡事故就是這樣發生的。垂降器下方再多扣一個鉤環，補細繩不足的摩擦。
+
+</details>
+
 ## 下一步
 
 運攀與傳攀的下降方式到這裡講完。下一篇是[難度與保護評等](/posts/climbing/2026-10-17-grades-and-protection-ratings)：5.10a、6a、E1 5b、R／X 各在說什麼，接著進入傳統攀登。
 
 多繩距的完整流程，見[多繩距入門](/posts/climbing/2026-10-17-multi-pitch-basics)；出狀況時的選項，見[自我救援基礎](/posts/climbing/2026-10-17-self-rescue-basics)。
+
+## 更新紀錄
+
+- 2026-10-24：新增「垂降有哪幾種方式」總覽表與七種方式各自的段落，加上同時垂降與救援用垂降的分界。每種方式都附示範影片、專業來源與事故；練習題增為六題
 
 ## 參考資料
 
@@ -399,6 +771,32 @@ Shokoples 要求每一項都用手摸過、念出來。AAC 2025 那篇用的 BRA
 - [Which is the real DEATH knot?（HowNOT2，與 IFMGA 嚮導 Ian Nicholson，2026-04）](https://www.youtube.com/watch?v=rDkLXs-vfuI)
 - [Would you rappel on this?（HowNOT2，2024-03）](https://www.youtube.com/watch?v=IpJtTRmg7Og)
 - [Rappelling Wizards - Intro to Canyoning（HowNOT2，2024-01）](https://www.youtube.com/watch?v=JwSJrWQnNrA)
+- [Rappelling: Learn the Basics（Travis Weil，AMGA 認證嚮導，2025-10）](https://www.youtube.com/watch?v=w6a0SCc3iAI)
+- [5 Rappelling Best Practices to Keep You Safe（Travis Weil，2025-09）](https://www.youtube.com/watch?v=qkbxXGYfGMk)
+- [Full Masterclass: Multi Pitch Rappelling（Mike Vert，2026-08）](https://www.youtube.com/watch?v=_C0HXDiGbls)
+- [Cleaning Top Rope Anchors（AMGA，Dale Remsberg，2025-06）](https://www.youtube.com/watch?v=MKfPKYSW7iE)
+- [Connecting Ropes for Climbing and Mountaineering（Dave Searle，IFMGA，2024-08）](https://www.youtube.com/watch?v=ykzmVwFrVLM)
+- [The Prescription | Stacked Rappel（American Alpine Club，2026-01）](https://www.youtube.com/watch?v=dkPNdMKzlSg)
+- [How to join two ropes the right way（JB Mountain Skills，2025-07）](https://www.youtube.com/watch?v=1SGEoyW2aR8)
+- [Learning to Trad Climb: Part 5 - How to abseil/rappel（DMM，2022-08）](https://www.youtube.com/watch?v=p6uJIg4fL5k)
+- [Rappelling with Ropes of Very Different Diameters（Colin Haley，2026-08）](https://www.youtube.com/watch?v=xQWcuY6lv0o)
+- [How to rappel with a tagline（New Zealand Alpine Team，IFMGA 嚮導 Kim Ladiges，2026-10）](https://www.youtube.com/watch?v=lC1PIOGWsZM)
+- [#Petzltips - Rappelling with a single rope and a pull cord（Petzl，2025-08）](https://www.youtube.com/watch?v=UUrPgAP1mfw)
+- [Single Rope Multi-Pitch Climbing（EDELRID，2025-09）](https://www.youtube.com/watch?v=aDVjeWyhXpE)
+- [Heavy Load or Icy- or Thin-Line Rappels Need This Friction Hack（Short Guys Beta Works，2026-08）](https://www.youtube.com/watch?v=yAUSU27gvTc)
+- [Rappelling on 5mm?（HowNOT2，2025-01）](https://www.youtube.com/watch?v=TuqUlkAQvBI)
+- [Munter Hitch / Italian Hitch（JB Mountain Skills，2024-04）](https://www.youtube.com/watch?v=mfIJVgtFsKM)
+- [Munter Hitch Deep Dive（Short Guys Beta Works，2026-01）](https://www.youtube.com/watch?v=hbJ1kS0avX4)
+- [Rappelling Hacks（HowNOT2，2021-12）](https://www.youtube.com/watch?v=BshgXXn4UEk)
+- [Vom Standplatz zum Abseilen（AlpenAcademy，2024-10）](https://www.youtube.com/watch?v=zql0JvL3sAI)（德文）
+- [How to Set Up an Improvised Rappel（Outdoor Research，AMGA 教練，2018-04）](https://www.youtube.com/watch?v=VjWzxRJ9vtk)
+- [Two Methods to Rappel with ONLY a Rope（Ascentionism，2020-07）](https://www.youtube.com/watch?v=CLQ0IltdYd0)
+- [6 ways to rappel like a pro using the figure 8（Sven Van Cleemput，2022-11）](https://www.youtube.com/watch?v=EM2XS8x0VKo)
+- [How to Set Up a Simul-Rappel（Outdoor Research，IFMGA 嚮導 Dale Remsberg、Olivia Race，2018-05）](https://www.youtube.com/watch?v=y_bHtt9iWPA)
+- [Simul-Rappel Technique（American Alpine Institute，2022-10）](https://www.youtube.com/watch?v=ricHt4aPJVk)
+- [Transition To Tandem Rappel（Eddie Schoen，IFMGA，2025-10）](https://www.youtube.com/watch?v=oUIGGHazDFM)
+- [Counter-Balanced Rappel Transition（Smile Mountain Guides，2025-09）](https://www.youtube.com/watch?v=V7LWnJEPgPU)
+- [Leader Rescue for Rock Climbing（Glen Young，AMGA 攀岩嚮導，2024-04）](https://www.youtube.com/watch?v=CCSczBIY63U)
 
 **器材廠商**
 
@@ -407,6 +805,10 @@ Shokoples 要求每一項都用手摸過、念出來。AAC 2025 那篇用的 BRA
 - [Petzl：Multi-pitch rappelling with a single rope](https://petzl.com/INT/en/Sport/Multi-pitch-rappelling-with-a-single-rope)
 - [Petzl：Rappelling with GRIGRI and NEOX](https://petzl.com/US/en/Sport/Rappelling-with-GRIGRI-and-NEOX?ProductName=GRIGRI)
 - [Edelrid：Knots for connecting ropes when rappelling – a comparison](https://edelrid.com/int-en/knowledge/knowledge-base/knots-for-connecting-ropes-when-rappelling-comparison)
+- [Edelrid：GIGA JUL 使用說明書](https://avs.edelrid.com/images/attribut/5XXXX_GAL_GIGAJUL_ANSICHT.pdf)
+- [Black Diamond：ATC-Guide 使用說明書](https://s3.us-west-2.amazonaws.com/catsy.865/M10798_D_ATC-Guide_IS-WEB.pdf)
+- [Beal：Back Up Line 使用說明書（2026）](https://www.beal-planet.com/cdn/shop/files/BEAL_-_XNOTICE.BACK_UP_202607_-_Notice_livret_100x100.pdf)
+- [Petzl：Friction modes and tie-offs for the HUIT](https://petzl.com/US/en/Sport/Friction-modes-and-tie-offs-for-the-HUIT?ActivityName=canyoning)
 
 **國際與各國登山組織**
 
@@ -418,8 +820,15 @@ Shokoples 要求每一項都用手摸過、念出來。AAC 2025 那篇用的 BRA
 - [DAV：Abseilen beim Klettern: Tipps & Tricks（2020）](https://www.alpenverein.de/artikel/abseilen-klettern-tipps_a8187791-6f13-4d2e-a5c6-9d979859eaed)（德文）
 - [bergundsteigen：Fehler beim Abseilen: 20 Tipps（Andi Dick，2024）](https://bergundsteigen.com/artikel/fehler-beim-abseilen-20-tipps)（德文）
 - [bergundsteigen：Kurzprusik a.D.（Kieselmann、Reinhard，2008）](https://assets.bergundsteigen.com/2021/08/38-41-kurzprusik-ad.pdf)（德文）
-- [bergundsteigen：Rappelling with aid lines (Rad Line & Co)（2025）](https://www.bergundsteigen.com/en/artikel/alpinhacks-abseilen-mit-hilfsleinen-rad-line-co/)
+- [bergundsteigen：Rappelling with aid lines (Rad Line & Co)（Chris Semmel，2025）](https://www.bergundsteigen.com/en/artikel/alpinhacks-abseilen-mit-hilfsleinen-rad-line-co/)
 - [SAC：Abseilen mit oder ohne Selbstsicherung?（2019）](https://www.sac-cas.ch/de/die-alpen/abseilen-mit-oder-ohne-selbstsicherung-15417/)（德文）
+- [SAC：Abseilen – kein Problem?（Ueli Mosimann，1994）](https://www.sac-cas.ch/de/die-alpen/abseilen-kein-problem-12767/)（德文）
+- [bergundsteigen：Abseilgerät runtergefallen 3.0（2022）](https://www.bergundsteigen.com/artikel/alpinhacks-abseilgeraet-runtergefallen-3-0/)（德文）
+- [bergundsteigen：Abseilen ohne Abseilgerät（2021）](https://www.bergundsteigen.com/artikel/alpinhack-abseilen-ohne-abseilgeraet/)（德文）
+- [bergundsteigen：abgeseilt（Pit Schubert，2012）](https://www.bergundsteigen.com/magazinartikel/abgeseilt/)（德文）
+- [bergundsteigen：Bergführerserie: behelfsmäßige Kameradenrettung（Martin Schmidt，2025）](https://www.bergundsteigen.com/artikel/bergfuehrerserie-behelfsmaessige-kameradenrettung/)（德文）
+- [UIAA：Karabiner Breakings when Using a Figure-of-Eight（Neville McMillan，2000）](http://theuiaa.org/documents/safety/Karabiner_Breakings_when_using_a_Figure-of-eight.pdf)
+- [Alpine Team NZ：Abseiling with a single rope plus tag line（2013）](https://alpineteam.co.nz/post/abseiling-with-a-single-rope-plus-tag-line)
 - [TOCC：龍洞的上方固定點](https://www.tocc-climbing.org/post/%E9%BE%8D%E6%B4%9E%E7%9A%84%E4%B8%8A%E6%96%B9%E5%9B%BA%E5%AE%9A%E9%BB%9E)
 
 **AAC 與事故分析**
@@ -428,6 +837,11 @@ Shokoples 要求每一項都用手摸過、念出來。AAC 2025 那篇用的 BRA
 - [AAC：Know the Ropes: Crafty Rappel Techniques（John Godino，2025）](http://publications.americanalpineclub.org/articles/13201217362)
 - [AAC：The Prescription—The Stacked Rappel（2026）](https://americanalpineclub.org/news/2026/1/20/the-prescriptionthe-stacked-rappel)
 - [Rock and Ice：30 Years of Climbing Accident Data（Eliot Caroom，2020）](https://rockandice.com/climbing-accidents/30-years-of-climbing-accident-data-an-investigative-report)
+- [AAC：Simul-Rappelling（2018）](https://americanalpineclub.org/news/2018/11/30/simul-rappelling)
+- AAC《Accidents in North American Climbing》事故報告：[Devils Tower（2024）](https://publications.americanalpineclub.org/articles/13201217342)、[Red Rock（2025）](https://publications.americanalpineclub.org/articles/13201217659)、[Psycho Tower（2025）](https://publications.americanalpineclub.org/articles/13201217645)、[Palisades（2024）](https://publications.americanalpineclub.org/articles/13201217622)、[Ouray Munter（2024）](https://publications.americanalpineclub.org/articles/13201217271)、[Auburn（2022）](https://publications.americanalpineclub.org/articles/13201216604)、[Vermont（2023）](https://publications.americanalpineclub.org/articles/13201217172)、[Red River Gorge（2019）](https://publications.americanalpineclub.org/articles/13201215612)、[Sedona（1986）](https://publications.americanalpineclub.org/articles/13198703202)、[El Potrero Chico（2019）](https://publications.americanalpineclub.org/articles/13201215647)
+- [Climbing：This Rappel Mistake Can Be Fatal. Why Don't More Climbers Know About It?（2026）](https://climbing.com/videos/death-of-27-year-old-climber-exposes-danger-of-knot-migration-during-rappel)
+- [Climbing：A climber and his rescuer share takeaways after getting benighted on Pingora Peak（2026）](https://climbing.com/news/a-climber-and-his-rescuer-share-takeaways-after-getting-benighted-on-pingora-peak)
+- [Gripped：Simul-Rappelling is Dangerous, Go One at a Time（2020）](https://gripped.com/profiles/simul-rappelling-is-dangerous-go-one-at-a-time/)
 
 **嚮導撰寫的技術文章**
 
@@ -435,6 +849,9 @@ Shokoples 要求每一項都用手摸過、念出來。AAC 2025 那篇用的 BRA
 - [Climbing：5 Steps for Safer Rappelling（American Alpine Institute 嚮導）](https://climbing.com/skills/5-steps-for-safer-rappelling)
 - [Climbing：Six Tips For Safer, More Efficient, Rappelling（Mark Synnott，2022）](https://climbing.com/skills/how-to-rappel-safety-techniques)
 - [Climbing：ENSA 測試 Euro Death Knot 與 offset figure-8（2021）](https://climbing.com/skills/how-to-rappel-safely-with-euro-death-knot-offset-figure-8/)
+- [Climbing：The Buddy Rappel: Rap Safely With an Injured Partner（2023）](https://www.climbing.com/skills/rappel-with-injured-partner/)
+- [Climbing：Multi-Pitch 911: How to Escape the Belay（2019）](https://www.climbing.com/skills/multi-pitch-911-escape-the-belay)
+- [Alpine Savvy：A slick carabiner rappel brake](https://alpinesavvy.com/blog/a-slick-carabiner-rappel-brake)
 - [The Mountaineers：Extended Rappel and Updated Belay Techniques（AMGA 單繩距教練課程）](https://mountaineers.org/blog/extended-rappel-and-updated-belay-techniques)
 - [Rescue Dynamics：BRAKES rappel safety check（Cyril Shokoples，ACMG／IFMGA）](http://rescuedynamics.ca/articles/pdfs/BRAKESRappelAcronym.pdf)
 
