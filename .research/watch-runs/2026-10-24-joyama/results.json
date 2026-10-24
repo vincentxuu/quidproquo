@@ -89,10 +89,36 @@
     },
     {
       "request_id": "query-new-creators",
-      "tool": "Exa web_search_exa (Groundlane unavailable)",
+      "tool": "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)",
       "status": "ok",
-      "coverage": "Top 4 returned search-result titles, URLs and highlights only; no full reading or video viewing. Publication dates are provider labels, not independently verified. Broad search is not restricted to known channels.",
+      "coverage": "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. ",
       "results": [
+        {
+          "url": "https://www.climbing-net.com/iwaba_detail/%E5%9F%8E%E5%B1%B1/",
+          "title": "城山 | 山と溪谷社のクライミング・ボルダリング総合サイト CLIMBING-net",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.akatsuki-climbing.com/%E3%83%AB%E3%83%BC%E3%83%88%E7%B4%B9%E4%BB%8B%E5%9F%8E%E5%B1%B1/",
+          "title": "ルート紹介:城山 | あかつきクライミングスクール",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2025-12-09"
+        },
+        {
+          "url": "https://www.yamareco.com/modules/yamareco/detail-5107670.html",
+          "title": "山行記録: 城山クライミング♪伊豆の攀子",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2023-01-19"
+        },
+        {
+          "url": "https://pump-climbing.com/areaguidedata/japan08.html",
+          "title": "エリアガイド | クライミングジム & ボルダリング（pump-climbing）",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
         {
           "url": "https://www.alpineclub.tokyo/vlog/1810/",
           "title": "遂に公開！スター・トレック 後編｜伊豆 城山東壁｜マルチピッチクライミング [ ALPINE CLUB TOKYO 公式チャンネル ] - ALPINE CLUB TOKYO",
@@ -125,10 +151,36 @@
     },
     {
       "request_id": "query-wildcat",
-      "tool": "Exa web_search_exa (Groundlane unavailable)",
+      "tool": "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)",
       "status": "ok",
-      "coverage": "Top 4 returned search-result titles, URLs and highlights only; no full reading or video viewing. Publication dates are provider labels, not independently verified. Broad search is not restricted to known channels.",
+      "coverage": "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. ",
       "results": [
+        {
+          "url": "https://www.rocktopo.net/areas/10",
+          "title": "城山 | ROCKTOPO 日本のクライミング、ボルダリングの岩場情報・トポ",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.climbing-net.com/iwaba_detail/%E5%9F%8E%E5%B1%B1/",
+          "title": "城山 | 山と溪谷社のクライミング・ボルダリング総合サイト CLIMBING-net",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.akatsuki-climbing.com/%E3%83%AB%E3%83%BC%E3%83%88%E7%B4%B9%E4%BB%8B%E5%9F%8E%E5%B1%B1/",
+          "title": "ルート紹介:城山 | あかつきクライミングスクール",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2025-12-09"
+        },
+        {
+          "url": "https://m.youtube.com/watch?v=HJJgorK6MF4",
+          "title": "\"Challengers\" 城山クライミング1Day",
+          "source_type": "video",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2022-12-18"
+        },
         {
           "url": "https://www.rocktopo.net/tw/routes/9705",
           "title": "地上の星 | ROCKTOPO - 日本攀岩 & 抱石資訊",
@@ -157,10 +209,35 @@
     },
     {
       "request_id": "query-inner-wall",
-      "tool": "Exa web_search_exa (Groundlane unavailable)",
+      "tool": "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)",
       "status": "ok",
-      "coverage": "Top 4 returned search-result titles, URLs and highlights only; no full reading or video viewing. Publication dates are provider labels, not independently verified. Broad search is not restricted to known channels.",
+      "coverage": "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. ",
       "results": [
+        {
+          "url": "https://www.rocktopo.net/areas/10",
+          "title": "城山 | ROCKTOPO 日本のクライミング、ボルダリング...",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.rocktopo.net/rocks/396",
+          "title": "インナーウォール 3 | ROCKTOPO",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.climbing-net.com/iwaba_detail/%E5%9F%8E%E5%B1%B1/",
+          "title": "城山 | 山と溪谷社のクライミング・ボルダリング総合サイト CLIMBING-net",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.akatsuki-climbing.com/%E3%83%AB%E3%83%BC%E3%83%88%E7%B4%B9%E4%BB%8B%E5%9F%8E%E5%B1%B1/",
+          "title": "ルート紹介:城山 | あかつきクライミングスクール",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2025-12-09"
+        },
         {
           "url": "https://www.rocktopo.net/en/routes/5743",
           "title": "リバイアサン | ROCKTOPO - Japan Climbing & Bouldering Guide",
@@ -190,10 +267,36 @@
     },
     {
       "request_id": "query-access-updates",
-      "tool": "Exa web_search_exa (Groundlane unavailable)",
+      "tool": "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)",
       "status": "ok",
-      "coverage": "Top 4 returned search-result titles, URLs and highlights only; no full reading or video viewing. Publication dates are provider labels, not independently verified. Broad search is not restricted to known channels.",
+      "coverage": "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. ",
       "results": [
+        {
+          "url": "https://www.climbing-net.com/general/%E5%9F%8E%E5%B1%B1/",
+          "title": "城山 | 山と溪谷社のクライミング・ボルダリング総合サイト CLIMBING-net（注意点）",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://tozanguchinavi.com/trailhead/trailhead-5364",
+          "title": "城山、葛城山、発端丈山の登山口、城山林道峠広場駐車スペース",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://tozanguchi-p.com/joyama/",
+          "title": "【伊豆の国市】 城山登山口駐車場 | 登山口P",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2023-01-12"
+        },
+        {
+          "url": "https://eightdoor-equip.com/%E3%80%90%E5%BA%97%E4%B8%BB%E3%81%AE%E4%BC%91%E6%97%A5%E3%80%91%E4%BC%8A%E8%B1%86%E5%9F%8E%E5%B1%B1%E3%83%9E%E3%83%AB%E3%83%81%E3%83%94%E3%83%83%E3%83%81%E3%82%AF%E3%83%A9%E3%82%A4%E3%83%9F%E3%83%B3/",
+          "title": "【店主の休日】伊豆城山マルチピッチクライミング",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2026-03-23"
+        },
         {
           "url": "https://tozanguchinavi.com/trailhead/trailhead-5367",
           "title": "城山、葛城山、発端丈山の登山口、城山登山口の駐車場情報",
@@ -225,25 +328,25 @@
     {
       "request_id": "page-1",
       "query": "https://blog.hohta.com/archives/4870",
-      "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+      "tool": "Groundlane web_fetch (DEADLINE_EXCEEDED, then 60s client timeout on retry) + Exa web_fetch_exa (earlier same-day run, no content)",
       "status": "failed",
-      "coverage": "Bounded two-URL fetch, max2400 characters per page; this URL was omitted from returned content.",
-      "error": "No content returned for this requested URL; cause not provided.",
+      "coverage": "Two Groundlane attempts and one Exa attempt, all failed; nothing was read.",
+      "error": "Groundlane web_fetch: DEADLINE_EXCEEDED at connect, retry timed out after 60s; Exa web_fetch_exa returned no content. Page not read this run.",
       "results": []
     },
     {
       "request_id": "page-2",
       "query": "https://blog.muraq.com/post/mt/free_climbing/2454",
-      "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+      "tool": "Groundlane web_fetch (maxOutputChars 3000, output truncated)",
       "status": "ok",
-      "coverage": "Fetched bounded text, max2400 characters; inspected returned heading/metadata and route-report excerpt, not a full reading.",
+      "coverage": "Fetched bounded markdown; inspected title/author/publishedAt and the first pitches of the route report, truncated, not a full reading.",
       "results": [
         {
           "url": "https://blog.muraq.com/post/mt/free_climbing/2454",
           "title": "城山 新ルート スタートレック【マルチピッチ クライミング】 - MuRaの山ブログ",
           "source_type": "web-page",
           "published_at": "2025-12-08",
-          "reason": "Known author page re-observed via partial extract; not evidence that route conditions are current."
+          "reason": "Known author page re-observed via Groundlane fetch; page dated 2025-12-08, not evidence that conditions are current."
         }
       ]
     }
