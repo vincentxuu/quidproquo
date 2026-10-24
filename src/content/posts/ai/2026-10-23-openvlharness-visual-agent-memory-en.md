@@ -96,7 +96,7 @@ Memory lives for one question only. The framework states that each new question 
 
 The 22 benchmarks fall into four groups: counting and grounding, visual search and deep research, general VQA and hallucination, and spatial understanding. All numbers below are results the authors report in the [paper](https://arxiv.org/abs/2610.26860) and on the [project page](https://openvlharness.github.io/). The results a reader can act on:
 
-**Adding the framework to the same model raises the average every time.** For the seven main models listed in the [README](https://github.com/uclanlp/OpenVLHarness), the average gain is between 9.7 and 12.6 points. Qwen3-VL-8B, for example, goes from 34.2 to 45.4, and GPT-6 Astra improves on all 22 benchmarks. The paper tests eight models in total; the eighth, Qwen2.5-VL-7B, is reported in the appendix for the comparison with fine-tuned methods.
+**Adding the framework to the same model raises the average every time.** For the seven main models listed in the [README](https://github.com/uclanlp/OpenVLHarness), the average gain is between 9.7 and 12.6 points. GPT-6 Astra improves on all 22 benchmarks. The paper tests eight models in total; the eighth, Qwen2.5-VL-7B, is reported in the appendix for the comparison with fine-tuned methods.
 
 **A general coding agent does not automatically help.** With GPT-6 Luna at medium reasoning effort, no tools scores 45.8, [Codex](https://github.com/openai/codex) 43.8, and OpenVLHarness 56.5, while [Visual Sketchpad](https://arxiv.org/abs/2406.09403) is about level with no tools. The appendix shows Codex rarely executes code on these questions, so it mostly answers directly inside its own loop; at the highest effort it edges slightly above no tools. The paper's conclusion is that a general coding agent does not automatically improve multimodal reasoning, and tool outputs need to be designed for vision tasks.
 
@@ -141,6 +141,8 @@ Data leaves the machine at several points, so trace each tool instead of looking
 - The main model endpoint receives the question, images, and tool evidence; the auxiliary model receives search results, page text, and the images being searched; Serper receives queries and the URLs of visited pages.
 - Reverse image search needs Serper to fetch the image. You can use the built-in image host behind a tunnel, or upload the image to your S3 or GCS bucket. With a bucket, the image is handed over as a signed URL valid for one hour, and the objects are not deleted automatically, so add a lifecycle rule.
 
+If images cannot leave your environment, start by removing `image_search` from `capabilities.tools`. Queries and visited URLs still go to Serper; if that is not acceptable either, remove `text_search`, `image_search`, and `web_visit` together and keep only tools that run on your own machines, such as zoom and grounding.
+
 The official [security notes](https://github.com/uclanlp/OpenVLHarness/blob/main/SECURITY.md) are direct about three execution risks:
 
 - Model-written Python runs as your user in a subprocess on the host, with network and filesystem access; the timeout is not a sandbox.
@@ -149,7 +151,7 @@ The official [security notes](https://github.com/uclanlp/OpenVLHarness/blob/main
 
 ## How to start
 
-1. **Collect a batch of images your model keeps getting wrong, with correct answers.** Compare on your own questions; the 22-benchmark average does not describe your task.
+1. **Collect a batch of images your model keeps getting wrong, with correct answers.** A dozen or so is enough to see a direction; add more if it is not. Compare on your own questions; the 22-benchmark average does not describe your task.
 2. **Start from the smallest setup.** The official `examples/local_tools.yaml` enables only zoom and the Python coding agent, with the main model on a hosted GPT endpoint, so you need no GPU workstation, Serper, or cloud storage. After setting `MODEL_BASE_URL`, `MODEL_API_KEY`, and `TOOL_SERVER_URL`:
 
    ```bash

@@ -106,3 +106,19 @@
 外部連結檢查：`check-external-links` 對 arxiv.org、openvlharness.github.io、serper.dev、aiposthub.com 回 `TypeError`（腳本沒走代理，網路層失敗，不是 HTTP 狀態）；github.com 的 6 條通過。四個網址改用 MCP 讀頁驗證，皆可開啟且內容符合引用。
 
 未驗：openai.com/index/introducing-gpt-6-sol-and-luna（論文引用的 GPT-6 發表頁，代理回「上游中斷」，文章未引用故未使用）；論文附錄其餘各表；`pnpm verify`、`astro check` 因依賴安裝失敗未跑。
+
+## 台灣用語查證與修正（2026-10-24）
+
+依 writing-guide「用語不憑語感裁決」，查權威來源。樂詞網（terms.naer.edu.tw）搜尋頁需要互動，Groundlane 渲染後只回預設的舞蹈名詞列表，沒有取得 handle／sandbox／hosted 的條目；以下結論依次級來源，**不是樂詞網的結論**。
+
+| 詞 | 結論 | 依據 |
+|---|---|---|
+| 句柄（handle） | 改為「控制代碼」，首次出現附 handle | 維基百科 zh-tw 條目明寫「控制代碼（handle）」，「句柄」為頁面標題的中國寫法；HackMD〈台灣與中國的計算機術語對照表〉列 Handle：台閩「控制代碼」、中國大陸「句柄」。微軟繁中文件的 Control.Handle 頁為機器翻譯（用「把手」「柄」），不能當證據 |
+| 沙箱（sandbox） | **不改**（收回先前「改沙盒」的建議） | 微軟繁中文件（Windows Sandbox）用「沙箱」；維基 zh-tw 用「沙盒（又譯沙箱）」，兩者台灣都通行；站上 179 篇用沙箱、74 篇用沙盒 |
+| 託管（hosted） | **不改**（收回先前「改代管」的建議） | 站上託管 169 篇、代管 85 篇；微軟繁中 Foundry 頁同頁並用「代管」與「託管」，Azure DNS 頁用「代管」；兩者台灣都在用 |
+
+其他建議的處理：
+- 「挑一批圖」補起步量（十來張）；資料外送一節補結論（移除 `image_search`，不行再連 `text_search`、`web_visit` 一起移除，依 README）。
+- 「router」首次補「路由服務」；「agent 會執行…」改「代理程式」；刪除「Qwen3-VL-8B 34.2→45.4」降低數字密度。
+- 圖上標籤改成「存成控制代碼」「可用控制代碼」，圖解預覽中英全 ✓。
+- 未處理：台灣讀者使用脈絡（需作者提供）。

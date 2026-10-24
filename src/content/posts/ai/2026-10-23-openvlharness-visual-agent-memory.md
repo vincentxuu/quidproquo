@@ -36,15 +36,15 @@ draft: false
 
 兩個設計細節值得先知道。第一，每個工具都包成「做什麼」層級的介面，所以「定位」可以換成 [Grounding DINO](https://arxiv.org/abs/2303.05499)，「OCR」可以換成 [DeepSeek-OCR](https://arxiv.org/abs/2510.18234)，模型的呼叫方式不變。第二，工具的輸出會先轉成模型讀得懂的觀察：遮罩不會把一長串 RLE 編碼塞進對話，而是回一張標好編號的疊圖、一句描述和正規化後的框；深度估計回一張上色的圖，原始陣列另外留著。論文的說法是，模型看到的是證據，原始數值留給後面的計算用。
 
-## 記憶存的是句柄，不是摘要
+## 記憶存的是控制代碼，不是摘要
 
 每個問題開始時，框架會建一份登錄表，工具產生的東西都會註冊進去，分三類：
 
-- **圖片**：輸入圖、工具產生的圖、搜尋到的圖，句柄像 `input_image_3`、`tool_generated_image_6`。重複的圖共用一筆。
+- **圖片**：輸入圖、工具產生的圖、搜尋到的圖，控制代碼（handle）像 `input_image_3`、`tool_generated_image_6`。重複的圖共用一筆。
 - **結構化資料**：框、分數、遮罩、深度陣列、相機參數、OCR 結果，每筆附欄位與形狀的描述。
-- **網頁**：搜尋到的網址，句柄像 `webpage_url_1`，之後要開頁面不用模型重抄一次網址。
+- **網頁**：搜尋到的網址，控制代碼像 `webpage_url_1`，之後要開頁面不用模型重抄一次網址。
 
-每個工具回合結束，框架會用一則 Environment Update 告訴模型現在有哪些句柄。模型之後的呼叫只要寫句柄，框架負責換回實際內容。
+每個工具回合結束，框架會用一則 Environment Update 告訴模型現在有哪些控制代碼。模型之後的呼叫只要寫控制代碼，框架負責換回實際內容。
 
 看一個論文裡的例子：問「每個櫃子離鏡頭多遠」。
 
@@ -56,7 +56,7 @@ draft: false
 
 ```diagram
 title: 一個問題裡證據怎麼流動
-desc: 協調模型呼叫能力層的工具，工具結果存進每題記憶，Python 程式工具從記憶讀資料運算，記憶把可用的句柄回報給協調模型。
+desc: 協調模型呼叫能力層的工具，工具結果存進每題記憶，Python 程式工具從記憶讀資料運算，記憶把可用的控制代碼回報給協調模型。
 caption: 簡化示意：每個新問題都從空的記憶開始。
 ---
 <svg viewBox="0 0 640 376">
@@ -84,9 +84,9 @@ caption: 簡化示意：每個新問題都從空的記憶開始。
 
   <text class="dg-edge" x="384" y="64" text-anchor="middle" dominant-baseline="central">呼叫工具</text>
   <text class="dg-edge" x="384" y="288" text-anchor="middle" dominant-baseline="central">交代要算什麼</text>
-  <text class="dg-edge" x="548" y="131" text-anchor="start" dominant-baseline="central">存成句柄</text>
+  <text class="dg-edge" x="548" y="131" text-anchor="start" dominant-baseline="central">存成控制代碼</text>
   <text class="dg-edge" x="548" y="245" text-anchor="start" dominant-baseline="central">讀取資料</text>
-  <text class="dg-edge" x="384" y="176" text-anchor="middle" dominant-baseline="central">目前有哪些句柄</text>
+  <text class="dg-edge" x="384" y="176" text-anchor="middle" dominant-baseline="central">可用控制代碼</text>
 </svg>
 ```
 
@@ -96,7 +96,7 @@ caption: 簡化示意：每個新問題都從空的記憶開始。
 
 22 項基準分四類：計數與定位、視覺搜尋與深度研究、一般 VQA 與幻覺、空間理解。以下數字都是作者在[論文](https://arxiv.org/abs/2610.26860)與[專案頁](https://openvlharness.github.io/)自己報告的評測結果。幾個讀者會拿來做判斷的結果：
 
-**同一個模型加上框架，平均都進步。** [README](https://github.com/uclanlp/OpenVLHarness) 列出的七個主模型，平均進步在 9.7 到 12.6 分之間。以 Qwen3-VL-8B 為例，平均從 34.2 升到 45.4。GPT-6 Astra 的 22 項基準全數進步。論文共測八個模型，第八個是 Qwen2.5-VL-7B，結果放在附錄，用來和需要微調的方法比較。
+**同一個模型加上框架，平均都進步。** [README](https://github.com/uclanlp/OpenVLHarness) 列出的七個主模型，平均進步在 9.7 到 12.6 分之間。GPT-6 Astra 的 22 項基準全數進步。論文共測八個模型，第八個是 Qwen2.5-VL-7B，結果放在附錄，用來和需要微調的方法比較。
 
 **通用的程式代理不會自動變好。** 同樣用 GPT-6 Luna、中等推理強度，沒有工具是 45.8，[Codex](https://github.com/openai/codex) 是 43.8，OpenVLHarness 是 56.5，[Visual Sketchpad](https://arxiv.org/abs/2406.09403) 則和沒有工具差不多。附錄顯示 Codex 在多數題目幾乎不執行程式，等於在它自己的流程裡直接回答；拉到最高強度，它才略高於不用工具。論文的結論是通用的程式代理不會自動改善多模態推理，工具的輸出得為視覺任務設計。
 
@@ -112,9 +112,9 @@ caption: 簡化示意：每個新問題都從空的記憶開始。
 | 直接給工具 | 40.8 |
 | 加能力層（介面與證據渲染） | 44.2 |
 | 加文字版記憶 | 44.9 |
-| 加多模態記憶（圖片句柄） | 47.1 |
+| 加多模態記憶（圖片控制代碼） | 47.1 |
 
-只是把工具交給模型，進步有限；把工具輸出整理成讀得懂的觀察，再多了一截；最後一步讓之前的圖可以被引用，在視覺搜尋領域進步最大。文字版記憶只描述工具產生的圖，沒有可重用的圖片句柄，幾乎沒有加分。
+只是把工具交給模型，進步有限；把工具輸出整理成讀得懂的觀察，再多了一截；最後一步讓之前的圖可以被引用，在視覺搜尋領域進步最大。文字版記憶只描述工具產生的圖，沒有可重用的圖片控制代碼，幾乎沒有加分。
 
 ## 限制：失敗長什麼樣
 
@@ -133,7 +133,7 @@ caption: 簡化示意：每個新問題都從空的記憶開始。
 完整跑九種工具，要自己準備：
 
 - **模型**：主模型之外，搜尋摘要與網頁擷取預設使用另一個 Qwen3-VL-8B。主模型即使用託管的 GPT 或 Kimi，只要開搜尋，仍然需要這個輔助模型。
-- **感知服務**：SAM 3、PaddleOCR-VL、Depth Anything 3 各自是獨立的 GPU 服務，透過一個 router 接進來。
+- **感知服務**：SAM 3、PaddleOCR-VL、Depth Anything 3 各自是獨立的 GPU 服務，透過一個路由服務（router）接進來。
 - **搜尋**：三種搜尋工具走 Serper，這是付費的 Google 搜尋 API，有免費起始額度。
 
 資料離開機器的地方，要沿著每個工具檢查，不能只看主模型放哪裡：
@@ -141,15 +141,17 @@ caption: 簡化示意：每個新問題都從空的記憶開始。
 - 主模型端點收到問題文字、圖片與工具證據；輔助模型收到搜尋結果、網頁文字與被搜尋的圖片；Serper 收到查詢和被造訪的網址。
 - 反向圖片搜尋要讓 Serper 抓得到圖片：可以用內建的圖片主機加 tunnel，或把圖上傳到你的 S3 或 GCS bucket。走 bucket 時，圖用一小時有效的簽名網址交給 Serper，物件不會自動刪除，需要自己設生命週期規則。
 
+圖片不能離開你的環境時，先從設定的 `capabilities.tools` 移除 `image_search`。查詢文字與網址仍會送給 Serper，連這個也不行，就把 `text_search`、`image_search`、`web_visit` 一起移除，只留下縮放、定位這類在自己機器上跑的工具。
+
 執行風險有三項，官方的[安全說明](https://github.com/uclanlp/OpenVLHarness/blob/main/SECURITY.md)寫得很直接：
 
 - 模型寫的 Python 以你的使用者權限在主機的子行程執行，有網路和檔案存取，逾時限制不是沙箱。
 - router 和 GPU 工作服務沒有驗證，預設只綁 `127.0.0.1`；能連到它們的人就能用你的 GPU、模型端點和 Serper 金鑰。
-- agent 會執行 `TOOL_SERVER_URL` 那端回傳的 Python，所以只能指向自己架的 router。
+- 代理程式會執行 `TOOL_SERVER_URL` 那端回傳的 Python，所以只能指向自己架的 router。
 
 ## 怎麼開始試
 
-1. **先挑一批你的模型反覆答錯的圖，連同正確答案。** 只用自己的題目比較，22 項基準的平均分數不代表你的任務。
+1. **先挑一批你的模型反覆答錯的圖，連同正確答案。** 十來張就看得出方向，不夠再加。只用自己的題目比較，22 項基準的平均分數不代表你的任務。
 2. **從最小設定起步。** 官方範例 `examples/local_tools.yaml` 只開縮放和 Python 程式工具，主模型接託管的 GPT 端點，不需要 GPU 工作站、Serper 或雲端儲存。設好 `MODEL_BASE_URL`、`MODEL_API_KEY`、`TOOL_SERVER_URL` 後：
 
    ```bash
