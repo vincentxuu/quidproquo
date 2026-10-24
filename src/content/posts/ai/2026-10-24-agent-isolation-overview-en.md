@@ -8,7 +8,7 @@ lang: en
 description: "Unpack \"runs in an isolated environment\" into five layers: container, kernel boundary, shared host and hardware, network and cloud perimeter, and monitoring, and what each one does and does not promise."
 tldr: "A piece of agent code passes through five layers on its way from execution to a network connection: container, kernel boundary, shared host, network perimeter, monitoring. Each layer promises one thing, and the shared host layer promises almost nothing."
 difficulty: 入門
-draft: true
+draft: false
 series:
   name: "Agent Isolation Boundaries"
   order: 0

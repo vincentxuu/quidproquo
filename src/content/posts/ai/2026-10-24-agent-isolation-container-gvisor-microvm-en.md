@@ -8,7 +8,7 @@ lang: en
 description: "Compares containers, gVisor, and microVMs (Kata, Firecracker) by which kernel each puts between an agent's code and the host, and what hardware and storage state all three still share."
 tldr: "Containers share the host kernel, gVisor inserts a user-space kernel, and a microVM adds a guest kernel plus a hypervisor; all three still share the same host's CPU caches and storage."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "Agent Isolation Boundaries"
   order: 1

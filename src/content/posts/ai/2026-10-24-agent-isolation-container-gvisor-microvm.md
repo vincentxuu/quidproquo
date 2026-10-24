@@ -8,7 +8,7 @@ lang: zh-TW
 description: "比較容器、gVisor 和 microVM（Kata、Firecracker）各自把 agent 的程式擋在哪個核心之外，以及三者還共用哪些硬體與儲存狀態。"
 tldr: "容器共用 host 核心，gVisor 在中間插一個使用者空間核心，microVM 多一個 guest 核心加 hypervisor；三種都還共用同一台 host 的 CPU 快取與儲存。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "Agent 隔離邊界"
   order: 1

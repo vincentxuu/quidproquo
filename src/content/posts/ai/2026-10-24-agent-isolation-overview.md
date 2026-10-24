@@ -8,7 +8,7 @@ lang: zh-TW
 description: "把「在隔離環境中執行」拆成五層：容器、核心邊界、共用主機與硬體、網路與雲端邊界、監控，逐層說明承諾什麼、不承諾什麼。"
 tldr: "一段 agent 程式碼從執行到連線會穿過五層：容器、核心邊界、共用主機、網路邊界、監控。每層只承諾一件事，共用主機這層幾乎沒有承諾。"
 difficulty: 入門
-draft: true
+draft: false
 series:
   name: "Agent 隔離邊界"
   order: 0
