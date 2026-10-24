@@ -85,6 +85,8 @@ What goes in the haul bag? Wikipedia lists portaledges, sleeping bags, poop tube
 
 Aid climbing means standing on gear. The leader places a cam in a crack, clips an aider to it, bounce-tests it hard, and if it holds, steps up and places the next piece from higher up. Climbing.com puts the bounce test bluntly: you try to rip out the piece by shock-loading it with your bodyweight before you fully commit; if you can't rip it out, you move onto it with confidence.
 
+For how to operate and choose aiders, daisies, fifi hooks, ascenders and progress-capture pulleys, see [How to use aid climbing gear](/posts/climbing/2026-10-24-aid-climbing-gear-en).
+
 The opposite is free climbing: gear only catches falls, and you move up by holding the rock. Sport and trad are both free climbing.
 
 Is aid climbing cheating? It depends on what you are trying to do. The [Wikipedia article on aid climbing](https://en.wikipedia.org/wiki/Aid_climbing) notes that aid has waned on single pitches as free climbing grew, but on big wall and alpine routes, aid is accepted for sections far harder than the rest of the route.
@@ -196,6 +198,10 @@ You are a long way off. Climbing.com suggests being comfortable leading at least
 
 Big walls stretch out multi-pitch; the next post changes the medium entirely, to ice. Read [Part 3: Ice, mixed and dry tooling](/posts/climbing/2026-10-19-ice-mixed-climbing-en), or go back to the [series overview](/posts/climbing/2026-10-19-climbing-disciplines-overview-en).
 
+## Update log
+
+- 2026-10-24: Added a link to How to use aid climbing gear.
+
 ## References
 
 - [How to Climb a Big Wall (Climbing.com)](https://www.climbing.com/skills/how-to-climb-a-big-wall/)
@@ -214,3 +220,4 @@ Big walls stretch out multi-pitch; the next post changes the medium entirely, to
 - [Self-rescue basics](/posts/climbing/2026-10-17-self-rescue-basics-en)
 - [Crack climbing](/posts/climbing/2026-10-18-crack-climbing-technique-en)
 - [Climbing books knowledge map](/posts/climbing/2026-06-20-climbing-books-knowledge-map-en)
+- [How to use aid climbing gear](/posts/climbing/2026-10-24-aid-climbing-gear-en)

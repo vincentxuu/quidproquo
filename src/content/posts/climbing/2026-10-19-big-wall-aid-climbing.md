@@ -86,6 +86,8 @@ Climbing.com 把基本流程寫成四步：
 
 人工攀登（aid climbing）就是踩在裝備上往上。先鋒者在裂隙裡放一個活動岩楔，扣上繩梯，用力彈跳測試它撐不撐得住，撐得住就踩上去，從更高的位置放下一個。Climbing.com 把這個彈跳測試（bounce test）講得很直白：你是在你完全信任它之前，故意用體重衝擊它、想把它拔出來；拔不出來，才放心踩上去。
 
+繩梯、daisy、fifi hook、上升器和帶齒滑輪各怎麼操作、怎麼挑，見〈[人工攀登器材怎麼用](/posts/climbing/2026-10-24-aid-climbing-gear)〉。
+
 跟它相對的是自由攀登（free climbing）：裝備只用來擋墜落，往上靠的是手腳抓岩壁。運攀和傳攀都是自由攀登。
 
 人工攀登是作弊嗎？看你在比什麼。[維基百科的人工攀登條目](https://en.wikipedia.org/wiki/Aid_climbing)說，隨著自由攀登興起，單段路線已經很少人用人工攀登；但在大岩壁和高山路線上，遇到難度遠高於整條路線其他部分的段落，用人工攀登過去是被接受的。
@@ -197,6 +199,10 @@ Climbing.com 給了一個具體的入門動作：先在短裂隙上練不用槌�
 
 大岩壁把多繩距拉長，下一篇換一種介質：拿冰斧爬冰。讀[第 3 篇：冰攀、混合攀與乾攀](/posts/climbing/2026-10-19-ice-mixed-climbing)，或回到[系列總覽](/posts/climbing/2026-10-19-climbing-disciplines-overview)。
 
+## 更新紀錄
+
+- 2026-10-24：加上〈人工攀登器材怎麼用〉的連結。
+
 ## 參考資料
 
 - [How to Climb a Big Wall（Climbing.com）](https://www.climbing.com/skills/how-to-climb-a-big-wall/)
@@ -215,3 +221,4 @@ Climbing.com 給了一個具體的入門動作：先在短裂隙上練不用槌�
 - [自我救援基礎](/posts/climbing/2026-10-17-self-rescue-basics)
 - [裂隙怎麼爬](/posts/climbing/2026-10-18-crack-climbing-technique)
 - [攀岩書籍知識版圖](/posts/climbing/2026-06-20-climbing-books-knowledge-map)
+- [人工攀登器材怎麼用](/posts/climbing/2026-10-24-aid-climbing-gear)
