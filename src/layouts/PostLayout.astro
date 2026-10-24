@@ -1545,7 +1545,7 @@ const pageTitle =
   const READ_KEY = 'qpq:read-progress';
   const readPath = location.pathname.replace(/^\/en(?=\/)/, '').replace(/\/$/, '');
   const isPostPage = /^\/posts\/[^/]+$/.test(readPath);
-  let readStore = {};
+  let readStore: Record<string, number> = {};
   let readSaved = 0;
   try {
     readStore = JSON.parse(localStorage.getItem(READ_KEY) || '{}') || {};
