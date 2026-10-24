@@ -16,7 +16,7 @@ Multimodal models tend to fail on images in three ways: they miscount in crowded
 
 The paper comes from researchers at UCLA and Apple, was posted to arXiv on 19 October 2026, and the [code](https://github.com/uclanlp/OpenVLHarness) is released under the MIT license. The authors also host a [live demo](https://openvlharness.github.io/) that connects to your own model. It is a research framework, not an Apple product announcement.
 
-This post answers three questions: which tools the model gets, what "multimodal memory" actually stores, and whether the results and deployment costs together justify a trial on your own image tasks.
+This post answers three questions: which tools the model gets, what "multimodal memory" actually stores, and whether the results and deployment costs together justify a trial on your own image tasks. Teams in Taiwan have two more things to check: how it performs on Traditional Chinese images, and whether images can leave Taiwan; a dedicated section covers both.
 
 ## Nine tools: what the model can call
 
@@ -149,9 +149,17 @@ The official [security notes](https://github.com/uclanlp/OpenVLHarness/blob/main
 - The router and GPU workers are unauthenticated and bind to `127.0.0.1` by default. Anyone who can reach them can use your GPUs, model endpoints, and Serper key.
 - The agent executes Python returned from whatever `TOOL_SERVER_URL` points at, so point it only at a router you run.
 
+## Two extra checks for teams in Taiwan: Traditional Chinese images and personal data
+
+The paper and project page do not answer these, so you have to fill them in yourself.
+
+**Nobody has measured this framework on Traditional Chinese images.** The OpenVLHarness paper and its appendices contain no Chinese-language results. The closest public reference is [Multi-TW](https://arxiv.org/abs/2508.01274) from a National Taiwan University of Science and Technology team: 900 Traditional Chinese questions drawn from the Test of Proficiency-Huayu, half image-text and half audio-text. Closed-source models lead overall, with the gap widest on image-text questions; among vision-language models, Qwen2.5-VL-7B and UI-TARS-1.5-7B are in the leading group. The models tested date from early 2025 and do not include Qwen3-VL, the framework's default. On the OCR side, the [PaddleOCR-VL technical report](https://arxiv.org/abs/2510.14528) lists a Traditional Chinese category in its in-house evaluation set, with an edit distance of 0.048 (lower is better), which is the authors' own evaluation. Traditional Chinese performance can only be measured on your own images: check whether the OCR tool read the characters correctly first, then the final answer.
+
+**Whether images can leave Taiwan.** The data flow is in the previous section: images go to the main model endpoint and the auxiliary model, and query text and URLs go to Serper. Taiwan's [Personal Data Protection Act](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0050021) does not prohibit international transfer: Article 21 lists four situations in which the competent authority may restrict it, including a receiving country without adequate data protection rules that could harm data subjects. But Article 2 defines personal data to include "characteristics" and data that can identify a person directly or indirectly, and a face or an ID in an image may fall within that; if it does, the requirements for collection and use still apply, and under Article 4 a party entrusted with processing is treated as the entrusting party. The amendments published in November 2025 are not yet in force: their effective date is left to the Executive Yuan, and the national law database (checked 2026-10-24) shows the last effective date as undetermined. If you process images that contain personal data, have legal review it first, then decide whether to enable `image_search`.
+
 ## How to start
 
-1. **Collect a batch of images your model keeps getting wrong, with correct answers.** A dozen or so is enough to see a direction; add more if it is not. Compare on your own questions; the 22-benchmark average does not describe your task.
+1. **Collect a batch of images your model keeps getting wrong, with correct answers.** A dozen or so is enough to see a direction; add more if it is not, and include some images with Traditional Chinese text, since the paper did not measure that. Compare on your own questions; the 22-benchmark average does not describe your task.
 2. **Start from the smallest setup.** The official `examples/local_tools.yaml` enables only zoom and the Python coding agent, with the main model on a hosted GPT endpoint, so you need no GPU workstation, Serper, or cloud storage. After setting `MODEL_BASE_URL`, `MODEL_API_KEY`, and `TOOL_SERVER_URL`:
 
    ```bash
