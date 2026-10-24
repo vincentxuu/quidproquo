@@ -467,7 +467,7 @@ layout: routes
 - [YouTube：城山「スタートレック」/マルチピッチクライミング（Okaji Movie）](https://www.youtube.com/watch?v=zCYhFu-EqjI)
 - [YouTube：伊豆・城山のマルチピッチクライミングルート『スター☆トレック 』（5p/5.8）をご紹介！（TAKEMOVIE（タケムービー））](https://www.youtube.com/watch?v=l68_-amCZl4)
 - [YouTube：【リードクライミング】 伊豆　城山　チューブロック　ミウラー 11a 完登動画（tatsuo555-560）](https://www.youtube.com/watch?v=DBOMvwRa0Us)
-- [YouTube：伊豆城山 チューブロック ストーンフリー 5.10c（The Climb）](https://www.youtube.com/watch?v=wQlNz5PxFl0)
+- [YouTube：ストーンフリー@城山チューブロック (5.10c)（Couzy Nakamura）](https://www.youtube.com/watch?v=sF3qQbuP8xc)
 - [YouTube：城山 チューブロック【チャンディーラサ】5.11a（2nd_723）](https://www.youtube.com/watch?v=3BfuLotNB2I)
 - [YouTube：【ジャンバラヤ 5.11c】城山  166㎝ クライミング climbing joyama Japan（Galapagos-Climber）](https://www.youtube.com/watch?v=lFbxN3meUNo)
 - [YouTube：城山 リキッドフィンガー 5.13d, Liquid Finger 8b, Jyoyama（のぼコン太田裕樹）](https://www.youtube.com/watch?v=CV3NdlACOG8)
@@ -476,6 +476,8 @@ layout: routes
 - [YouTube：20260213 城山東壁 ブレードランナー 6p,5 10c（下見）＋マッドマックス5-6P（再登）（mikko KURATA）](https://www.youtube.com/watch?v=O0CvQcPrR2g)
 
 ## 更新紀錄
+
+- 2026-10-24：新增影片已以實際媒體抽幀核對完整時間軸，這是離散畫面抽查，並非連續全片觀看或原音驗證。Stone Free 改用 Couzy Nakamura 涵蓋下部到上部的影片；Miurā 保留作者對預掛保護與完攀的說法，STEAM BOY 補註上升器輔助登繩，Logical Progression 補註上段攀登者出框。路線原有級數、段數與下降資料未更動。
 
 - 2026-10-24：路線表新增 9 個頻道的 10 支影片，包含スタートレック、チューブロック、Liquid Finger、Logical Progression、STEAM BOY 與ブレードランナー／マッドマックス；已核對片名、頻道、片長、嵌入資格與作者描述，尚未逐段觀看。表格原有段數、級數與下降資訊不因影片而更動。
 

@@ -465,7 +465,7 @@ No public topo exists yet, so the route is not in the tables above.
 - [YouTube：城山「スタートレック」/マルチピッチクライミング（Okaji Movie）](https://www.youtube.com/watch?v=zCYhFu-EqjI)
 - [YouTube：伊豆・城山のマルチピッチクライミングルート『スター☆トレック 』（5p/5.8）をご紹介！（TAKEMOVIE（タケムービー））](https://www.youtube.com/watch?v=l68_-amCZl4)
 - [YouTube：【リードクライミング】 伊豆　城山　チューブロック　ミウラー 11a 完登動画（tatsuo555-560）](https://www.youtube.com/watch?v=DBOMvwRa0Us)
-- [YouTube：伊豆城山 チューブロック ストーンフリー 5.10c（The Climb）](https://www.youtube.com/watch?v=wQlNz5PxFl0)
+- [YouTube：ストーンフリー@城山チューブロック (5.10c)（Couzy Nakamura）](https://www.youtube.com/watch?v=sF3qQbuP8xc)
 - [YouTube：城山 チューブロック【チャンディーラサ】5.11a（2nd_723）](https://www.youtube.com/watch?v=3BfuLotNB2I)
 - [YouTube：【ジャンバラヤ 5.11c】城山  166㎝ クライミング climbing joyama Japan（Galapagos-Climber）](https://www.youtube.com/watch?v=lFbxN3meUNo)
 - [YouTube：城山 リキッドフィンガー 5.13d, Liquid Finger 8b, Jyoyama（のぼコン太田裕樹）](https://www.youtube.com/watch?v=CV3NdlACOG8)
@@ -474,6 +474,8 @@ No public topo exists yet, so the route is not in the tables above.
 - [YouTube：20260213 城山東壁 ブレードランナー 6p,5 10c（下見）＋マッドマックス5-6P（再登）（mikko KURATA）](https://www.youtube.com/watch?v=O0CvQcPrR2g)
 
 ## Changelog
+
+- 2026-10-24: Sampled actual video frames across the full timelines; this was not continuous full-video viewing or original-audio verification. Replaced the Stone Free clip with Couzy Nakamura’s view covering the lower and upper sections; clarified the author-attributed pre-clipping note for Miurā, ascender-assisted rope climbing in Steam Boy, and the upper section moving out of frame in Logical Progression. Existing route grades, pitch counts and descent information remain unchanged.
 
 - 2026-10-24: Added ten videos from nine channels to the matching route tables, including Star Trek, Tube Rock routes, Liquid Finger, Logical Progression, Steam Boy and Blade Runner / Mad Max. Titles, channels, runtimes, embed eligibility and author descriptions were checked; the footage has not been reviewed in full. Pitch counts, grades and descent instructions in the tables were not changed.
 
