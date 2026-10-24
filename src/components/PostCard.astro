@@ -26,7 +26,7 @@ const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
 const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
-<article data-type={type}>
+<article data-type={type} data-read-path={`/posts/${slug}`}>
   {pinned && <div class="pin-bar"><Icons name="pin" size={14} /> 置頂</div>}
   <div class="meta">
     <a href={`${categoriesBase}/${category}`} class={`cat-badge cat-${category}`}>{category}</a>
@@ -63,6 +63,22 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
   article:hover {
     border-color: var(--brand-500);
     box-shadow: var(--shadow-card-hover);
+  }
+  /* 已讀進度：文章頁把讀到的百分比存進 localStorage，這裡讀出來畫成卡片底部細條 */
+  article[data-seen]::after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    bottom: 0;
+    height: 3px;
+    width: calc(var(--seen, 0) * (100% - 2px));
+    background: var(--brand-500);
+    border-radius: 0 0 0 8px;
+    pointer-events: none;
+  }
+  article[data-seen='done']::after {
+    border-radius: 0 0 8px 8px;
+    background: var(--brand-300);
   }
   .pin-bar {
     display: inline-flex;
@@ -190,3 +206,16 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
     text-decoration: none;
   }
 </style>
+
+<script>
+  // 讀 PostLayout 存的閱讀進度（localStorage 不可用時整段略過，卡片照常顯示）
+  try {
+    const store = JSON.parse(localStorage.getItem('qpq:read-progress') || '{}') || {};
+    document.querySelectorAll<HTMLElement>('article[data-read-path]').forEach((card) => {
+      const pct = Number(store[card.dataset.readPath ?? '']);
+      if (!pct || pct < 5) return;
+      card.style.setProperty('--seen', String(Math.min(pct, 100) / 100));
+      card.dataset.seen = pct >= 95 ? 'done' : 'part';
+    });
+  } catch {}
+</script>
