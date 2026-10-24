@@ -122,11 +122,11 @@ The target reader is an engineer who uses LLM APIs and has built or is building 
 | 9 | L8 | [SFT (Yueqi Song)](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft-en) | Published |
 | 10 | L9 | [RL Basics](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en) | Published |
 | 11 | L10 | [Deep Research Agents (Akari Asai)](/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents-en) | Published |
-| 12 | L11 | [Advanced RL Algorithms](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en) | Published (from slides; video pending) |
-| 13 | L12 | [RL Systems (Apurva Gandhi)](/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems-en) | Published (from slides; video pending) |
+| 12 | L11 | [Advanced RL Algorithms](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en) | Published (from slides; video attached) |
+| 13 | L12 | [RL Systems (Apurva Gandhi)](/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems-en) | Published (from slides; video attached) |
 | 14 | A2 | [Assignment 2: Eval](/posts/ai/2026-09-29-cmu-11768-assignment-2-eval-en) | Published |
-| 15 | L13 | [Agent Safety: sandboxes, credentials, monitoring, evaluation](/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety-en) | Published (from slides; video pending) |
-| 16 | L14 | [OpenHands](/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands-en) | Published (from slides; video pending) |
+| 15 | L13 | [Agent Safety: sandboxes, credentials, monitoring, evaluation](/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety-en) | Published (from slides; video attached) |
+| 16 | L14 | [OpenHands](/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands-en) | Published (from slides; video attached) |
 | 17 | L15 | LangGraph | Awaiting course release |
 | 18 | L16 | Observability & Monitoring (Eric Wallace) | Awaiting course release |
 | 19 | L17 | Agents and the Future of Work (Zora Wang) | Awaiting course release |
@@ -163,7 +163,7 @@ Content check: verified against the video transcript (2026-10-10): This overview
 
 ## Update Log
 
-- 2026-10-24: The Lecture 14 recording is now posted; updated the material status.
+- 2026-10-24: The Lecture 14 recording is now posted; updated the material status, and the progress table now shows L11–L14 as video attached.
 - 2026-10-17: Lectures 11–13 recordings are now posted; updated the material status.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: The official site added slides for lectures 12–14, so this series gains guides to RL Systems, Agent Safety and OpenHands, and the progress table is updated. The official schedule renamed "Sandboxing & Credential Management" to Agent Safety (Oct 6); lecture 13 now covers red teaming, sandboxes, credential brokering, monitoring and safety evaluation, and the schedule's module labels changed to Agent Safety, Agent Frameworks and so on.
