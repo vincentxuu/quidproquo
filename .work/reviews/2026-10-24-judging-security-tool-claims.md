@@ -51,3 +51,14 @@
 | P8-5 英文自然度 | 部分修。"samples it has never seen" 已改；小節標題 "Practice: run the earlier claims through it" 沒改成 "through the checklist" |
 
 機械檢查（審稿者回報，我未重跑）：check-tw-terms 0 blocking；長句 1（61 字，已拆）。
+
+## 第二輪處理（逐項回頭補查，已讀稿確認；zh 與 en 同步）
+
+- 8-4 LLM Top 10 v1.0：已修（確認）。OWASP 資源頁 https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/ 的封面圖標題為「2026 OWASP GenAI LLM Top 10 v1.0」（2026/08 上傳）；稿上保留 v1.0 並連到該頁。
+- 8-19 Agent Security Bench：已修（確認）。回 arXiv 2410.02644 全文：表 4 列七個指標（ASR、RR、PNA、BP、FNR、FPR、NRP）；表 2 只有 PPL 偵測與 LLM-based detection 兩個偵測型防禦，對應攻擊都是 Memory Poisoning。稿上改成註明表 4／表 2 的寫法。
+- 8-12 SkillEvaluator：已修。官方 repo https://github.com/NVIDIA/SkillEvaluator 與文件 https://docs.nvidia.com/skills/skillevaluator 存在；文件載明屬 NVIDIA Verified Skills 流程、第一層用 SkillSpector 安全掃描。原句「審自家 skill 目錄的流程」改成「開源評估框架、自家發布流程的品質關卡」，加連結與參考資料。
+- 8-24／新發現 ADR：已修。練習表該列補釋義（Uber 的 agent 行為偵測系統）與第 4 篇連結，並註明 Uber 實際在跑的是另一份；參考資料加 uber/ADR。ADR 全名展開沒有寫（第 4 篇也沒有展開，未另查）。
+- S8-3 judge、靜態規則：已修。judge 首次出現（第 3 題）加釋義；「靜態分析」「靜態攻擊」加釋義（稿上原無「靜態規則」字樣）。
+- S8-4 OWASP LLM 清單：已修，改成兩欄表。
+- S8-6 第一人稱：已修。「我查的幾處」「我找到的」「我讀的是…」「我查到的」全改成被動或中性（zh 與 en）。
+- P8-5 en 小節標題：已修，改 "Practice: apply the checklist to the earlier claims"。

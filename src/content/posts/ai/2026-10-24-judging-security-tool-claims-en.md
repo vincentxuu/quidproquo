@@ -8,7 +8,7 @@ lang: en
 series:
   name: "AI Agent Security Tooling Map"
   order: 8
-tldr: "When you see 'covers OWASP 10 of 10', 'merged into Microsoft and Cisco' or '9X% detection', ask five things: who said it, what the term means, who set the questions, what is being measured, and where the primary source is. The earlier posts and a few cases added here each happen to show one: Microsoft's toolkit itself says 7 full and 3 partial; of ATR's (an open-source set of agent threat-detection rules) merged PRs into Microsoft and Cisco, the ones I checked were all opened by its author; Cisco's own detection rate and an independent study's differ several-fold; common benchmarks score models or agents, not tools."
+tldr: "When you see 'covers OWASP 10 of 10', 'merged into Microsoft and Cisco' or '9X% detection', ask five things: who said it, what the term means, who set the questions, what is being measured, and where the primary source is. The earlier posts and a few cases added here each happen to show one: Microsoft's toolkit itself says 7 full and 3 partial; of ATR's (an open-source set of agent threat-detection rules) merged PRs into Microsoft and Cisco, the three checked were all opened by its author; Cisco's own detection rate and an independent study's differ several-fold; common benchmarks score models or agents, not tools."
 description: "Using the OWASP Agentic Top 10 and LLM Top 10 2026 as shared vocabulary, this post separates standards, tools and benchmarks and walks through a five-question checklist, with examples from the earlier posts and a few added cases, for taking apart claims of coverage, merging and detection rate."
 draft: true
 ---
@@ -38,7 +38,22 @@ Security tool READMEs often carry labels like `ASI03` or `LLM01:2026`. They come
 
 The official list has only ASI01 to ASI10. If a tool shows ASI16, it is not on the official list.
 
-**OWASP Top 10 for LLM Applications 2026 (v1.0, published August 2026), for applications that use a model as a component.** Per the PDF's table of contents: LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM03 Excessive Agency, LLM04 Supply Chain, LLM05 Data and Model Poisoning, LLM06 Unbounded Consumption, LLM07 Misinformation, LLM08 Hidden Context Exposure, LLM09 Vector and Embedding Weaknesses, LLM10 Improper Output Handling. This section cites only the PDF's table of contents, mapping appendix and the passage on the boundary between the two lists, not the text of each entry.
+**[OWASP Top 10 for LLM Applications 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) (v1.0, published August 2026), for applications that use a model as a component.** Per the PDF's table of contents:
+
+| ID | Name |
+|---|---|
+| LLM01 | Prompt Injection |
+| LLM02 | Sensitive Information Disclosure |
+| LLM03 | Excessive Agency |
+| LLM04 | Supply Chain |
+| LLM05 | Data and Model Poisoning |
+| LLM06 | Unbounded Consumption |
+| LLM07 | Misinformation |
+| LLM08 | Hidden Context Exposure |
+| LLM09 | Vector and Embedding Weaknesses |
+| LLM10 | Improper Output Handling |
+
+This section cites only the PDF's table of contents, mapping appendix and the passage on the boundary between the two lists, not the text of each entry.
 
 Read the ID together with its year: LLM03 in the 2025 edition is Supply Chain, and in 2026 it is Excessive Agency. An older article or tool that keeps the 2025 numbering makes the same ID point at a different risk.
 
@@ -62,7 +77,7 @@ Two terms are used below: recall is how many of a hundred bad samples get caught
 
 - ATR (Agent Threat Rules, an open-source set of agent threat-detection rules) says in its README that its rules were merged into Microsoft, Cisco and others. The PRs to Microsoft (AGT and PyRIT) and Cisco were all merged, all were opened by ATR's own author, and the other project's maintainers merged them; the other projects it lists were not individually checked. That shows the proposals were accepted, not that these companies treat it as a standard; Microsoft's toolkit itself says it takes no dependency on it and keeps it only in an examples directory. Action: open the project making the claim, filter its Pull requests tab with `author:` to see who proposed it, then search the host project's README for a mention.
 - The [governance file](https://raw.githubusercontent.com/aveproject/ave/main/GOVERNANCE.md) of AVE (an agent vulnerability database) says it is currently maintained by a single vendor's founder, and its reference implementation is that vendor's own scanner.
-- SkillEvaluator is NVIDIA's process for vetting its own skill catalogue; according to its public documentation it uses NVIDIA's own scanner, so it is an internal process, not a benchmark of scanners.
+- SkillEvaluator is NVIDIA's open-source framework for evaluating skills ([repo](https://github.com/NVIDIA/SkillEvaluator)), part of the NVIDIA Verified Skills publishing pipeline; per its [documentation](https://docs.nvidia.com/skills/skillevaluator), its first tier runs security scanning with NVIDIA's own SkillSpector. So it is a quality gate inside NVIDIA's own process, not a benchmark of scanners.
 
 A stake does not mean lying, but disclose it first, then see whether others can check it.
 
@@ -75,21 +90,21 @@ A stake does not mean lying, but disclose it first, then see whether others can 
 
 ### 3. Who set the questions, and what is the denominator
 
-- Cisco's own measure of its rules (alerts at HIGH and above) is 7.7%, at a 4.0% false-positive rate. An independent study on a split of the same size (839 malicious, 545 benign, sources kept disjoint) re-ran it and got 2.5%, with a confidence interval (the range results would mostly fall in if repeated) that excludes 7.7%, so the gap is not sampling noise. But that study used static analysis in a local compatibility environment, whose settings may not match Cisco's exactly, so the two numbers should not be quoted against each other.
+- Cisco's own measure of its rules (alerts at HIGH and above) is 7.7%, at a 4.0% false-positive rate. An independent study on a split of the same size (839 malicious, 545 benign, sources kept disjoint) re-ran it and got 2.5%, with a confidence interval (the range results would mostly fall in if repeated) that excludes 7.7%, so the gap is not sampling noise. But that study used static analysis (reading code and configuration without running it) in a local compatibility environment, whose settings may not match Cisco's exactly, so the two numbers should not be quoted against each other.
 - Cisco also says its rule pack was tuned on the development part of that dataset: at the looser MEDIUM-and-above setting, about 31% on the development part against about 8% on sources never seen. That is a different threshold from the 7.7% above; do not treat them as one quantity. So ask whether a detection rate was measured on the samples used in development or on samples the tool has never seen.
 - ATR reports 92.3% on 650 prompts of in-the-wild jailbreaks from the garak corpus in hunt (permissive) mode, but only 0.9% in enforce mode; 130 of its rules reference that corpus, and without them the hunt-mode rate falls to 65.4%. ATR publishes these limits itself, but remember that 92.3% is the permissive-mode figure.
-- Post 6's attack success rate has the same problem: [the attacker model, the judge and the denominator must match first](/posts/ai/2026-10-24-ai-red-teaming-llm-tools-en).
+- Post 6's attack success rate has the same problem: [the attacker model, the judge (the model or rule that decides whether an attack worked) and the denominator must match first](/posts/ai/2026-10-24-ai-red-teaming-llm-tools-en).
 - Action: when you find a number, find its dataset page and see whether development and test sets are split and where the false-positive rate is stated.
 
 ### 4. What is being measured
 
 Frequently cited benchmarks mostly score models or agents, not scanners or guardrails. Action: read the benchmark paper's metrics section and see whether it measures attack success rate or detection recall.
 
-- AgentDojo scores how well an agent (model plus pipeline) resists prompt injection. Defenses are put in as pipeline parts, with no independent detection recall. When CAISI (the US NIST's Center for AI Standards and Innovation) used it on an upgraded Claude 3.5 Sonnet in the Workspace environment, the strongest new attack lifted the success rate from 11% for the strongest baseline attack to 81%, so static attacks alone understate the risk.
-- Agent Security Bench has false-positive and false-negative rates among its seven metrics, but uses them for only two detection-type defenses and only for memory poisoning.
-- The independent studies I found that measure detection tools directly come in two kinds. The first is about skill detection and has two parts: MalSkillBench's abstract says the strongest detector collapses on prompt injection, yet its body tables show the detectors that drop are other ones and the strongest still reaches 97.6%; scoring on wild samples alone shifts a single tool's recall by up to 66 percentage points. MaliciousSkillBench is the independent re-run of Cisco in the previous question.
+- AgentDojo scores how well an agent (model plus pipeline) resists prompt injection. Defenses are put in as pipeline parts, with no independent detection recall. When CAISI (the US NIST's Center for AI Standards and Innovation) used it on an upgraded Claude 3.5 Sonnet in the Workspace environment, the strongest new attack lifted the success rate from 11% for the strongest baseline attack to 81%, so static attacks (fixed in advance, not adapting to the defense) alone understate the risk.
+- Agent Security Bench's seven metrics (Table 4 of the paper) include a false-positive rate (FPR) and a false-negative rate (FNR) for detection, but the paper has only two detection-type defenses (perplexity detection and LLM-based detection, Table 2), and both target only memory poisoning.
+- The independent studies on record that measure detection tools directly come in two kinds. The first is about skill detection and has two parts: MalSkillBench's abstract says the strongest detector collapses on prompt injection, yet its body tables show the detectors that drop are other ones and the strongest still reaches 97.6%; scoring on wild samples alone shifts a single tool's recall by up to 66 percentage points. MaliciousSkillBench is the independent re-run of Cisco in the previous question.
 - The second is about prompt-injection classifiers: rankings barely carry over to another benchmark. The best detector on one dataset, at a 1% false-positive rate, catches only 2% of AgentDojo's injections.
-- I read the abstracts and parts of the text of these, so treat the conclusions as direction.
+- Only the abstracts and parts of the text of these were checked, so treat the conclusions as direction.
 
 So for "9X% detection", ask: on which samples, with how many false positives, and whether the samples and the tool were developed by the same people.
 
@@ -97,7 +112,7 @@ So for "9X% detection", ask: on which samples, with how many false positives, an
 
 Go back to the text of the list, the paper, the host project's README and its PR history, not an explainer. Many of the third-party reports around this series' topics are in fact relaying one source (ARTEX and HexStrike in [post 7](/posts/ai/2026-10-24-ai-pentest-agents-dual-use-en) are the examples). Action: follow the source link in a claim three layers, from news to vendor report to raw data, and stop at the layer where the link breaks.
 
-## Practice: run the earlier claims through it
+## Practice: apply the checklist to the earlier claims
 
 | Claim | What to check | What turned up |
 |---|---|---|
@@ -106,7 +121,7 @@ Go back to the text of the list, the paper, the host project's README and its PR
 | "Rules detect X%" | Who set the questions; which alert level | Own measure 7.7%, independent re-run 2.5% |
 | "Lots of GitHub stars" | How the stars arose; whether traffic was redirected | Stars reflect exposure, not accuracy; Strix's and Shannon's self-reported results differ enormously from a competitor's experiment (post 7) |
 | "First on a benchmark" | What the benchmark measures | Mostly models, not tools |
-| "Deployed in production" | Whether the open-source and internal versions are the same | ADR's open-source release lacks the blocking component |
+| "Deployed in production" | Whether the open-source and internal versions are the same | ADR (Uber's agent behavior-detection system, see [post 4](/posts/ai/2026-10-24-agent-detection-audit-en)) has an open-source release that lacks the blocking component; what Uber runs is a different build |
 
 ## Self-check
 
@@ -116,12 +131,12 @@ Question: "this project has been merged into Microsoft and Cisco": how do you co
 
 ## Where this leaves you
 
-One conclusion from the whole series: no single tool is enough as the only defense. The independent studies I found that measure detection tools come in the two kinds above, and their datasets and rankings do not line up, so none of them vouches for your environment. What you can do is put every claim through the same checklist, trust what has a traceable source, and treat the rest as unverified. The checklist has a limit of its own: it tells you whether a claim stands up, not whether a tool works well in your environment, and that needs a trial of your own.
+One conclusion from the whole series: no single tool is enough as the only defense. The independent studies on record that measure detection tools come in the two kinds above, and their datasets and rankings do not line up, so none of them vouches for your environment. What you can do is put every claim through the same checklist, trust what has a traceable source, and treat the rest as unverified. The checklist has a limit of its own: it tells you whether a claim stands up, not whether a tool works well in your environment, and that needs a trial of your own.
 
 ## References
 
 - [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
-- [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/)
+- [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/); [2026 edition (v1.0)](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
 - [AgentDojo (arXiv:2406.13352)](https://arxiv.org/abs/2406.13352)
 - [NIST CAISI: Strengthening AI Agent Hijacking Evaluations](https://www.nist.gov/news-events/news/2025/01/technical-blog-strengthening-ai-agent-hijacking-evaluations)
 - [Agent Security Bench (arXiv:2410.02644)](https://arxiv.org/abs/2410.02644)
@@ -132,5 +147,7 @@ One conclusion from the whole series: no single tool is enough as the only defen
 - [microsoft/agent-governance-toolkit](https://github.com/microsoft/agent-governance-toolkit); [mapping document](https://microsoft.github.io/agent-governance-toolkit/compliance/owasp-agentic-top10-architecture/)
 - [cisco-ai-defense/skill-scanner](https://github.com/cisco-ai-defense/skill-scanner)
 - [aveproject/ave](https://github.com/aveproject/ave)
+- [NVIDIA/SkillEvaluator](https://github.com/NVIDIA/SkillEvaluator); [documentation](https://docs.nvidia.com/skills/skillevaluator)
+- [uber/ADR](https://github.com/uber/ADR)
 - [Series start: AI Agent Security Tooling Map](/posts/ai/2026-10-24-ai-agent-security-tooling-map-en)
 - [Previous: AI tools that attack others and their dual-use risk](/posts/ai/2026-10-24-ai-pentest-agents-dual-use-en)

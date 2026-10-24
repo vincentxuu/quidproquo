@@ -6,7 +6,7 @@
 
 | 正文主張 | 一手來源 | 查證依據 | 備註 |
 |---|---|---|---|
-| HackAgent 標題數字是「五個 judge 至少四個判有害」，來自 TAP+PAP 配對子集，每個目標 15,652 次嘗試 | HA §3.5、Table 4 | 子代理逐格核對 | Confirmed |
+| HackAgent 標題數字是「五個 judge 至少四個判有害」，來自 TAP+PAP 配對子集，每個目標 15,652 次嘗試 | HA §3.5、Table 4 | 子代理逐格核對；第二輪補 2/5（9.91／4.13／9.75）與 3/5（8.68／3.53／9.35）兩列，已對 arXiv 2606.18193v2 表 4 | Confirmed |
 | 表：≥1/5 為 Opus 4.8 10.39%、Fable 5 4.45%、Fable 5.1 9.91%；≥4/5 為 5.76%、2.72%、8.19% | HA Table 4 | 子代理逐格核對 | Confirmed |
 | 最寬鬆門檻（≥1/5、≥2/5）Opus 4.8 比 Fable 5.1 脆弱；≥3/5 起順序翻轉；Fable 5 在每個門檻都最穩；先後 "bar-dependent" | HA §3.5 | 子代理核對原文 | 稿上正文提到 3/5，但表只列 1/5 與 4/5，3/5 的數字在稿上讀者無法驗證 |
 | Fable 5 有回應 56%、Opus 4.8 91%；TAP 下差距大半是拒答，PAP 下排除拒答差距不變（3.07/0.69/9.50%） | HA §3.5 | 子代理核對原文 | PAP 的三個數字沒放進稿，只放結論 |
@@ -18,7 +18,7 @@
 | garak FAQ：結果沒有科學效度、各 probe 分數無共同標準化尺度、不是 benchmark、別依賴超過六個月的分數；另有 Z-score 校準 | https://raw.githubusercontent.com/NVIDIA/garak/main/FAQ.md | 子代理逐點核對 | Confirmed |
 | FAQ：完整跑可能花上數小時，相依套件約 9GB | 同上 | 子代理核對 | 「數天」無來源，已從稿上刪除 |
 | Fujitsu 2024：測 garak v0.9，某些類別錯誤率最高約 37%（MOE 26%）；「unethical」被當成拒絕 | FJ（Table IV Example 1） | 子代理核對 | 37% 是最大值，稿上已標明 |
-| 現行 garak 為 v0.17 | https://github.com/NVIDIA/garak/releases | 子代理核對（最新 v0.17.1） | 稿上沒加日期 |
+| 現行 garak 為 v0.17 | https://github.com/NVIDIA/garak/releases | 子代理核對（最新 v0.17.1） | 第二輪已加日期：PyPI 上傳 v0.17.0 = 2026-09-09、v0.17.1 = 2026-10-16 |
 | garak 論文：像 Metasploit，會影響正式環境，須授權使用 | https://arxiv.org/abs/2406.11036 | 子代理核對原句 | Confirmed |
 | promptfoo 的 LLM judge 預設 gpt-5 | https://www.promptfoo.dev/docs/red-team/troubleshooting/false-positives/ | 子代理核對 | Confirmed |
 | 2026 年 3 月 OpenAI 公告同意收購 promptfoo，成交須滿足一般條件；README 寫 "Promptfoo is now part of OpenAI"；沒找到成交公告 | https://openai.com/index/openai-to-acquire-promptfoo/ 與 promptfoo 部落格（2026-03-09）；promptfoo README | 子代理核對 | 「沒找到成交公告」是缺席證據 |

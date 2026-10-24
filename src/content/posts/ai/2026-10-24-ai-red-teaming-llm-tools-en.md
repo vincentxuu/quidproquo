@@ -8,7 +8,7 @@ lang: en
 series:
   name: "AI Agent Security Tooling Map"
   order: 6
-tldr: "Two reports that both say \"attack success rate 5%\" cannot be compared directly: the number depends on at least three variables, who set the questions (the attacker model), who judged (the judge, a model or rule that decides), and what the denominator counts. garak's own FAQ says its scores have no scientific validity, PyRIT tests a model's text responses, and in HackAgent's white paper the order of two models flips with the judge threshold. I found no independent accuracy evaluation of any of the four."
+tldr: "Two reports that both say \"attack success rate 5%\" cannot be compared directly: behind the number sit who set the questions (the attacker model), who judged (the judge, a model or rule that decides), and what the denominator counts. garak's own FAQ says its scores have no scientific validity, and in HackAgent's white paper the order of two models flips with the judge threshold. I found no independent accuracy evaluation of any of the four."
 description: "A comparison of the positioning, data flow and authorization limits of four LLM red-teaming tools (garak, promptfoo, PyRIT, HackAgent), what sits behind an attack success rate (attacker model, judge, denominator), and the three questions to ask of any red-team report."
 draft: true
 ---
@@ -40,7 +40,7 @@ They differ in positioning:
 |---|---|---|
 | [garak](https://github.com/NVIDIA/garak) (NVIDIA) | LLM models and chat endpoints | Mostly keywords and small classifiers |
 | [promptfoo](https://github.com/promptfoo/promptfoo) | An LLM app, RAG, agent or HTTP endpoint you configure | LLM judge, gpt-5 by default |
-| [PyRIT](https://github.com/microsoft/PyRIT) (Microsoft AI Red Team) | Generative AI systems; a framework of components | Rules or an LLM scorer |
+| [PyRIT](https://github.com/microsoft/PyRIT) (Microsoft AI Red Team) | Generative AI systems; a framework of components | Rules or an LLM scorer (PyRIT's scoring component) |
 | [HackAgent](https://github.com/AISecurityLab/hackagent) | AI models and agents | Several judge models voting |
 
 garak's README compares itself to nmap and Metasploit. promptfoo is also an evaluation tool, with red teaming as one feature; its basics are in [this post](/posts/ai/2026-08-22-promptfoo-llm-evaluation-en).
@@ -51,32 +51,42 @@ For "attack success rate 5%" to mean anything, you need three facts.
 
 **Who set the questions.** A fixed list of attacks and attacks rewritten live by another model differ a lot in strength. HackAgent's white paper says plainly that its Fable 5 and Fable 5.1 runs used different attacker models, so that comparison is over (target, attacker) pairs and has more than one moving part; the author says only the direction of the ranking is defensible, not the size of the gap.
 
-**Who judged.** [garak's FAQ](https://github.com/NVIDIA/garak/blob/main/FAQ.md) answers "do these results have scientific validity?" with "No": scores from different tests (garak calls them probes) sit on no common normalized scale, garak is not a benchmark, and it advises against relying on scores more than six months old. The FAQ also mentions Z-score calibration against a basket of state-of-the-art models, but that gives relative position, not accuracy. Independent work agrees that judges misjudge: [a 2024 comparison paper from Fujitsu](https://arxiv.org/abs/2410.16527) tested garak v0.9 and found error rates in deciding whether an attack succeeded of up to about 37% in some attack categories (a maximum, not an overall average). Its example: an answer containing the word "unethical" was read by a static rule as a refusal. That is an old version; the current v0.17 has fixed many detectors, so the old number cannot be applied directly.
+**Who judged.** [garak's FAQ](https://github.com/NVIDIA/garak/blob/main/FAQ.md) answers "do these results have scientific validity?" with "No": scores from different tests (garak calls them probes) sit on no common normalized scale, garak is not a benchmark, and it advises against relying on scores more than six months old. The FAQ also mentions Z-score calibration against a basket of state-of-the-art models, but that only shows where a score ranks; whether it is accurate has to be checked separately. Independent work agrees that judges misjudge: [a 2024 comparison paper from Fujitsu](https://arxiv.org/abs/2410.16527) tested garak and found error rates in deciding whether an attack succeeded of up to about 37% in some attack categories. That is the maximum for a single category; the overall average cannot be higher. Its example: an answer containing the word "unethical" was read by a static rule as a refusal.
 
-**What the denominator counts.** [HackAgent's white paper](https://arxiv.org/html/2606.18193v2) counts attempts in the denominator, not distinct harmful intents; attempts the model refused also stay in the denominator, so a model that refuses a lot looks better. The next section has an example.
+The result comes from the old v0.9. In the current v0.17 line (v0.17.0 came out in September 2026, the latest v0.17.1 on 16 October), many detectors (garak's components that decide whether an answer broke the target) have been fixed, so the old number cannot be applied directly.
+
+**What the denominator counts.** [HackAgent's white paper](https://arxiv.org/html/2606.18193v2) counts attempts in the denominator: the same harmful intent tried three times counts three times; attempts the model refused also stay in the denominator, so a model that refuses a lot looks better. The next section has an example.
 
 ## An example: same data, change the threshold, two models swap places
 
-HackAgent's white paper tested Opus 4.8, Fable 5 and Fable 5.1. Its headline number counts a target as broken when at least four of five judges call the answer harmful. The figures come from a subset that merges two attack families, TAP (multi-turn tree search) and PAP (one-shot persuasive rewording), with 15,652 attempts per target; it is not all the attacks in the paper:
+HackAgent's white paper tested Opus 4.8, Fable 5 and Fable 5.1. Its headline number counts a target as broken when at least four of five judges call the answer harmful. The figures come from a subset that merges two attack families, TAP (multi-turn tree search) and PAP (one-shot persuasive rewording), with 15,652 attempts per target; it covers only part of the attacks in the paper:
 
 | Judging threshold | Opus 4.8 | Fable 5 | Fable 5.1 |
 |---|---|---|---|
 | At least 1 of 5 judges | 10.39% | 4.45% | 9.91% |
+| At least 2 of 5 | 9.91% | 4.13% | 9.75% |
+| At least 3 of 5 | 8.68% | 3.53% | 9.35% |
 | At least 4 of 5 (headline) | 5.76% | 2.72% | 8.19% |
 
-At the two most permissive thresholds (1 of 5 and 2 of 5), Opus 4.8 is easier to break than Fable 5.1; Fable 5.1 comes out as the easiest only from 3 of 5 upward (the table shows only the 1/5 and 4/5 rows). The paper calls the ordering "bar-dependent" and says it should be quoted with its rule. Only those two models trade places: Fable 5 is the hardest to break at every threshold.
+The figures are from Table 4 of the white paper.
 
-Another detail is refusals. Fable 5 responded on only 56% of attempts, against 91% for Opus 4.8. Under TAP, the author attributes most of the gap between the three models to refusals; it largely disappears once refusals are set aside. Under PAP, setting refusals aside changes nothing, and the author concludes that what separates the models is the one-shot persuasive rewording. So refusals explain part of the gap, and it would be wrong to say Fable 5 is not actually stronger.
+At the two most permissive thresholds (1 of 5 and 2 of 5), Opus 4.8 is easier to break than Fable 5.1; Fable 5.1 comes out as the easiest only from 3 of 5 upward. The paper calls the ordering "bar-dependent" and says it should be quoted with its rule. Only those two models trade places: Fable 5 is the hardest to break at every threshold.
 
-The white paper is a test run by the tool's own authors, so its independence holds only relative to the model vendors tested, not to the tool. The five judges also differ a lot in strictness: one calls 20% of attempts harmful, the other four between 58% and 67%. There is no judge accuracy figure against human labels, and the authors admit the absolute numbers were not audited by humans at scale.
+Another detail is refusals. Fable 5 responded on only 56% of attempts, against 91% for Opus 4.8.
+
+The two attack families need separate readings. Under TAP, the author attributes most of the gap between the three models to refusals; it largely disappears once refusals are set aside. Under PAP, setting refusals aside changes nothing, and the author concludes that what separates the models is the one-shot persuasive rewording. So refusals explain only part of the gap, and Fable 5's advantage does not disappear because of them.
+
+The white paper is a test run by the tool's own authors, so its independence holds only relative to the model vendors tested; it is not independent of the tool.
+
+The five judges also differ a lot in strictness: one calls 20% of attempts harmful, the other four between 58% and 67%. There is no judge accuracy figure against human labels, and the authors admit the absolute numbers were not audited by humans at scale.
 
 So two reports that both say "attack success rate 5%" cannot be compared directly. First confirm that the attacker model, the judge and the denominator are the same.
 
 ## What to know about each tool
 
 - **garak**: by default it runs every probe, and a full run can take hours (the FAQ mentions someone who eventually had to kill a scan); the FAQ puts its dependencies at about 9GB.
-- **promptfoo**: in March 2026 OpenAI announced it had agreed to acquire it, with closing subject to customary conditions; the README now says it "is now part of OpenAI", while the public record has the acquisition announcement but no closing announcement. Its README says evals run "100% locally", which holds for ordinary evals; some red-team plugins run only on promptfoo's hosted service, and by default (when you bring no API key of your own), [per its data-handling page](https://www.promptfoo.dev/docs/red-team/troubleshooting/data-handling/), attack generation and grading send your `purpose` (the field in your config describing what the app is for) and the target's responses to its servers. When a model vendor buys a red-team tool, look twice at the conflict of interest: whether it favors the vendor's own models can only be checked through public test settings, and there is no third-party data on that.
-- **PyRIT**: [the Cloud Security Alliance's assessment](https://cloudsecurityalliance.org/artifacts/evaluating-pyrit-for-agentic-ai-red-teaming) says PyRIT evaluates an LLM's textual responses rather than an agent's actual state changes or tool calls. [The paper](https://arxiv.org/abs/2410.02828) says it was used in over 100 red-team operations inside Microsoft; the parts I read contain no attack-success table. So using it on an agent tells you what the agent said, not what it did.
+- **promptfoo**: in March 2026 OpenAI announced it had agreed to acquire it, with closing subject to customary conditions; the README now says it "is now part of OpenAI", while the public record has the acquisition announcement but no closing announcement. Its README says evals run "100% locally", which holds for ordinary evals; some red-team plugins (modules that each generate one category of attack) run only on promptfoo's hosted service, and by default (when you bring no API key of your own), [per its data-handling page](https://www.promptfoo.dev/docs/red-team/troubleshooting/data-handling/), attack generation and grading send your `purpose` (the field in your config describing what the app is for) and the target's responses to its servers. When a model vendor buys a red-team tool, look twice at the conflict of interest: whether it favors the vendor's own models can only be checked through public test settings, and there is no third-party data on that.
+- **PyRIT**: [the Cloud Security Alliance's assessment](https://cloudsecurityalliance.org/artifacts/evaluating-pyrit-for-agentic-ai-red-teaming) says PyRIT evaluates an LLM's textual responses only, without covering an agent's actual state changes or tool calls. [The paper](https://arxiv.org/abs/2410.02828) says it was used in over 100 red-team operations inside Microsoft; the parts I read contain no attack-success table. So using it on an agent tells you what the agent said, not what it did.
 - **HackAgent**: built by the AI Security Lab at AI4I, with a hosted version; its documentation asks for written permission and an agreed test scope beforehand, which is a process requirement that the code does not enforce.
 
 ## Authorization and scope
@@ -88,7 +98,7 @@ For most of these tools, the attack surface is limited to sending text to the en
 1. **Decide whether you are testing a model or a whole application.** To test a model endpoint alone, garak is the simplest start; to test the system prompt, retrieval and tools together, first confirm your tool can send requests to your application's HTTP endpoint (promptfoo can be configured to; check the others' documentation).
 2. **Before reading a report, ask three questions:** who is the attacker model, who is the judge, what is the denominator. If the report omits any of them, treat the number as direction only.
 3. **Sample the verdicts yourself.** Pick 20 random "broken" and 20 random "held" results and check by eye whether the judge got them right; that tells you whether the judge is accurate on your application.
-4. **To test what an agent actually did, add telemetry.** These tools look at text responses; to see whether an agent really called a tool or changed state, record tool calls separately (post 4).
+4. **To test what an agent actually did, record tool calls separately.** These tools look at text responses; to see whether an agent really called a tool or changed state, add your own logging layer (post 4).
 5. **Run only against targets you own or hold written authorization for.** Before running hosted plugins, find in your config which ones connect to the vendor's servers, and replace `purpose` and the sample target responses with samples free of customer data. Test content leaves for an overseas service, so if it contains customer data, check your company's data-transfer rules first.
 
 ## Self-check
