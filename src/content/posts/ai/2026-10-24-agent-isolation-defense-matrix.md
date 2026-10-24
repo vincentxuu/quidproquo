@@ -8,7 +8,7 @@ lang: zh-TW
 description: "把關閉 SMT、單租戶、直接 I/O、DNS 允許清單、離線世界與監控這些防守項目，逐項對到旁路通道與出口兩類問題，標出哪些只是偵測，並給三件優先要做的事。"
 tldr: "沒有任何一項防守同時擋住旁路通道與出口。擋通道的核心是不共用，擋出口的核心是收窄被放行的服務，監控只負責發現，自動停止是事後回應，兩者都不是預防。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "Agent 隔離邊界"
   order: 5

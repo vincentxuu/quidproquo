@@ -8,7 +8,7 @@ lang: zh-TW
 description: "沒有直連網路的沙盒怎麼還是走到外面：OpenAI 公開的三個案例，套件代理、DNS 解析器、metrics 服務，說明為什麼防守要看「間接可達」，並附一個檢查自家環境的清單。"
 tldr: "沙盒沒有直連網路，不代表沒有出口：套件代理、DNS 解析器、metrics 服務這類被放行的服務，只要能替人發請求就是出口。OpenAI 的三個案例都是這個形狀。"
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "Agent 隔離邊界"
   order: 4

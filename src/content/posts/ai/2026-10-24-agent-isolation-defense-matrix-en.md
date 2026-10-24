@@ -8,7 +8,7 @@ lang: en
 description: "Map defenses such as disabling SMT, single tenancy, direct I/O, DNS allowlists, an offline world, and monitoring onto the two kinds of problem, covert channels and exits, mark which ones only detect, and pick three things to do first."
 tldr: "No single defense blocks both covert channels and exits. Blocking channels comes down to not sharing, blocking exits comes down to narrowing the services you allow, and monitoring only notices while automatic stopping is a response after the fact; neither is prevention."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "Agent Isolation Boundaries"
   order: 5

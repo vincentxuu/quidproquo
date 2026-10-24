@@ -8,7 +8,7 @@ lang: en
 description: "How sandboxes with no direct network still reached the outside: three cases OpenAI has published (a package proxy, a DNS resolver, a metrics service), why defense has to look at indirect reachability, and a checklist for your own environment."
 tldr: "A sandbox with no direct network can still have an exit: any allowed service that can make requests on someone's behalf, such as a package proxy, a DNS resolver, or a metrics service, is one. OpenAI's three cases all have this shape."
 difficulty: 進階
-draft: true
+draft: false
 series:
   name: "Agent Isolation Boundaries"
   order: 4
