@@ -96,7 +96,7 @@
 | Moseley 與 Butler《Explain Pain Supercharged》 | 2017 年第 2 版（Noigroup） | 官方網站有章節預覽 PDF |
 | Kandel 等人《Principles of Neural Science》 | 查到第 6 版（2021，McGraw Hill） | **未確認有第 7 版**；先前我列的版次沒有依據 |
 | ACSM《Guidelines for Exercise Testing and Prescription》 | 第 12 版（ACSM 官網、LWW，ISBN 9781975219208） | 2024-11 的 ACSM 頁面已列；出版年待確認 |
-| IOC 2023 RED-S 共識聲明 | *BJSM* 2023;57(17):1073（PMID 37752011） | 可上 PubMed 與 BJSM 讀 |
+| IOC 2023 RED-S 共識聲明 | *BJSM* 2023;57(17):1073（PMID 37752011） | **更正（2026-10-24）：** Europe PMC 標非開放取用；olympics.com 有 PDF 但這個環境抓不到，免費全文可讀性未確認。先前寫「可免費讀」沒有依據 |
 
 未核對：Gray's Anatomy、Netter、Guyton and Hall、McArdle、NSCA 立場聲明、Cochrane 運動相關回顧。
 
