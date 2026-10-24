@@ -27,8 +27,6 @@ Sources disagree on the rock. [ROCKTOPO](https://www.rocktopo.net/areas/9) and [
 
 CLIMBING-net's overview explains the crag's character. Development only began in 1981, and from the start it was treated as a free-climbing venue (「初めからフリークライミングの岩場として扱われた」). Along more than ten kilometres of cliff, every corner in the columnar jointing hid a crack, and early climbers climbed them one after another. After JAO held the Seaside Cup in 1987, face routes followed, and the Seaside sector became the most popular area. CLIMBING-net gives the angle as 90 to 110 degrees.
 
-### Size
-
 Route counts vary a lot by site (all checked 2026-10-12):
 
 | Source | Count | Breakdown |
@@ -38,8 +36,6 @@ Route counts vary a lot by site (all checked 2026-10-12):
 | [theCrag](https://www.thecrag.com/en/climbing/japan/jogasaki) | 180 | "180 routes in crag" |
 | [Mountain Project](https://www.mountainproject.com/area/107001454/jogasaki) | 44 | "44 Total Climbs" |
 | [Jogasaki Boulder Guide](https://jogasaki.bouldering-guide.com/) | 170 boulder problems | 「7 エリア 79 岩 170 課題」 |
-
-### Grade spread and who it suits
 
 ROCKTOPO's grade chart shows the cracks lean easy to moderate. Of 255 cracks, 76 are 5.2–5.9, 94 are 5.10, 44 are 5.11, 30 are 5.12, 10 are 5.13 and 1 is 5.14. The 105 sport routes cluster at 5.10–5.12, with 5.11 the largest band (36 routes). Among the 128 boulders, 29 are around 1-dan (shodan), 14 around 2-dan and 5 are 3-dan or harder.
 
@@ -141,16 +137,17 @@ Recent JFA notices for Jogasaki:
 
 [Mountain Project's Family Crack Area page](https://www.mountainproject.com/area/118010500/family-crack-area) adds that tourists cross the suspension bridge above, and "any violations of local ethics or disruptive behavior could easily result in a ban on climbing." Hiking trails run above the crag and rockfall is frequent, so wear a helmet.
 
-- **Emergency numbers:** ambulance and fire **119**, police **110** ([City of Yokohama: Calling emergency services](https://www.city.yokohama.lg.jp/lang/residents/en/emergencies/20200221091958448.html)). For a fall into the sea or any accident at sea, call the Japan Coast Guard on **118** ([Japan Coast Guard: 118](https://www.kaiho.mlit.go.jp/doc/tel118.html)) and say when, where and what happened (「いつ・どこで・何があった」). The Jogasaki coast is long, so give the sector name (Seaside, Funamushi Rock, Family Crack) and the nearest car park rather than just "Jogasaki".
-- **Insurance:** check with your insurer that trad climbing, search and rescue, medical treatment and repatriation are covered. A generic travel policy name is not enough; in Japan mountain rescue costs are in principle borne by the party rescued, subject to your policy and local rules.
-
-## Seaside hazards
+**Seaside hazards.** The Jogasaki cliffs sit within reach of the waves, and these points decide what you carry and when you leave:
 
 - **Corroded bolts and anchors.** CLIMBING-net says never trust everything to a single bolt (「ボルト1本にすべてを託すようなことは絶対にしないこと」). Outside Seaside, bolts and fixed pitons are almost untrustworthy (「ほとんど信用できない」), and even Seaside has some original bolts. theCrag notes the gear is "very exposed to the salt of the sea." A [Kojitsu Sanso report from March 2014](https://www.kojitusanso.jp/tozan-report/detail/?fm=10884) includes a photo of an anchor carabiner destroyed by salt and suggests carrying spares.
 - **Rappelling in and climbing out.** Seaside is reached by rappel (ROCKTOPO has a [Seaside rappel point](https://www.rocktopo.net/approach_informations/105)), and theCrag warns some sectors need a rappel down to the beach. CLIMBING-net says falls happen almost every year on the climb back out of Seaside (「特にシーサイドの登り返しでは、毎年のように墜落が起きている」). The way out follows bolts and metal staples, moving a self-belay up as you go. [kubo (January 2025)](https://kuboclimbingta.com/2025/01/19/climbing_at_jyougasaki_seaside/) warns that the tree used for the self-belay at the rappel point is dead and rotten (「既に枯れており、かなり腐っていた」), and [genter (February 2026)](https://www.yamareco.com/modules/yamareco/detail-9255164.html) found the entrance looser than the year before (「去年よりザレていて」). If you cannot rappel, you cannot get in; this is not a place to learn on the way down.
 - **Waves and falling into the sea.** The Jogasaki Boulder Guide asks climbers to take great care not to fall into the sea (「海への転落に十分な注意をお願いします」). CLIMBING-net selected sectors where the base is on the rocky shore rather than over the water, which means some sectors do start above the sea. For tides, use the [Japan Meteorological Agency tide table for Ito](https://www.data.jma.go.jp/kaiyou/db/tide/suisan/suisan.php?stn=Z3): the station is in Futo, the same village as Funamushi Rock and Isaribi. The table is a prediction of astronomical tide, so it does not show big waves from typhoons or low-pressure systems. Sources say some problems and routes, such as the Akuma no Shita boulder and Nakashio Crack at Shiriidashi, get waves at high tide or can only be started at low tide.
 - **Rockfall.** The Izu Peninsula Geopark [Kadowakizaki page](https://izugeopark.org/geosites/kadowakizaki/) warns that the cliffs collapse and rocks fall below them. [Mitsumine Sangaku-kai (February 2020)](https://www.mitsumine.gr.jp/kaiho/363/jogasaki.html) wrote that the top of Seaside is breaking up and rockfall is frequent (「上部の崩壊が進んでおり、落石が頻繁にある」). Tourist paths run along the cliff top; wear a helmet.
 - **Approach footing.** The Isaribi approach is a steep descent that is especially slippery after rain; Hashidate has a section where you descend with a rope, which conflicts with Mountain Project's no-fixed-ropes rule, so go by what you find on site ([Isaribi](https://jogasaki.bouldering-guide.com/area/isaribi/), [Hashidate](https://jogasaki.bouldering-guide.com/area/hashidate/)).
+
+In an emergency, call **119** for ambulance and fire or **110** for police ([City of Yokohama: Calling emergency services](https://www.city.yokohama.lg.jp/lang/residents/en/emergencies/20200221091958448.html)). For a fall into the sea or any accident at sea, call the Japan Coast Guard on **118** ([Japan Coast Guard: 118](https://www.kaiho.mlit.go.jp/doc/tel118.html)) and say when, where and what happened (「いつ・どこで・何があった」). The Jogasaki coast is long, so give the sector name (Seaside, Funamushi Rock, Family Crack) and the nearest car park rather than just "Jogasaki".
+
+Also check with your insurer that **trad climbing, search and rescue, medical treatment and repatriation** are covered. A generic travel policy name is not enough; in Japan mountain rescue costs are in principle borne by the party rescued, subject to your policy and local rules.
 
 ## Routes by level
 
@@ -175,7 +172,13 @@ The main sectors at a glance (all checked 2026-10-24). ROCKTOPO's types and E/M/
 
 Mountain Project's Jogasaki page says "In the last few years many routes are now TR only," but none of the nine route pages opened for this guide is marked top-rope only. ROCKTOPO marks four Seaside routes as not climbable (「登攀不可」): Dynamite Bonbon, Roller Coaster, Okosama Lunch and Cadillac Ranch. Check on site and in the guidebook.
 
-Grades stay as given (all three databases use YDS), and the YDS column repeats them rather than back-converting to French grades. The grade-band headings follow the [Mountain Project international grade comparison chart](https://www.mountainproject.com/international-climbing-grades) and are approximate. Length and stars come from theCrag; ascent counts are ROCKTOPO's "climbed" counts (登った人数), checked 2026-10-24. "—" means the page gives no value. Where sources disagree on grade, the notes say so.
+YDS and V-grade conversions follow the [Mountain Project international grade comparison chart](https://www.mountainproject.com/international-climbing-grades) and are approximate; "approx." marks grades the sources give without a/b/c (such as 4 or 5+). The original grade is the one that counts.
+
+**These tables include routes that at least one database lists and that have stars, ascent counts or first-hand comments; they are not every route at Jogasaki.** Lines that appear only in videos or blogs and in none of the three databases (MARS, for example) are left out.
+
+**All three databases already use YDS, so the grade column keeps the original grade and the YDS column repeats it rather than back-converting to French grades.** Length and stars come from theCrag; ascent counts are ROCKTOPO's "climbed" counts (登った人数), checked 2026-10-24. "—" means the page gives no value, and "(MP)" is Mountain Project's length in feet converted to metres. Where sources disagree on grade, the notes say so.
+
+Videos are attached to the routes in the tables; click a thumbnail to open that route's list. Watch for version differences: two Father Crack videos are labelled 5.10c; ALPINE CLUB TOKYO's Purple Shadow video names a different wall in its title and its description; the Captain Hook video is a flash by a 160 cm climber; and each of mikko KURATA's two long day compilations is attached to several routes, with start times for each in the description. Grades and route names in video titles describe only that video's version; choose routes from the source columns in the tables.
 
 ### Beginner: up to 6a (YDS 5.10a and below)
 
@@ -203,6 +206,12 @@ This band is almost all crack. Of ROCKTOPO's 105 sport routes, only 4 are below 
 | Flash Dance フラッシュダンス | 5.10a | 5.10a | 18 m (MP) | Funamushi Rock | Crack; ROCKTOPO 5.10a, MP and *Nihon 100 Iwaba* 5.9. nicecats found the thin-hands start hard to protect; 5G Climbing felt 5.10b–c |
 | Mumei Roof Crack 無名ルーフクラック | 5.10a | 5.10a | — | Funamushi Rock | Crack; ROCKTOPO 1. The Mezase 500 Eleven+ video could not find 5.10a moves; Miroku Yama-no-kai says veterans pull on the jug above the roof instead of the crack |
 
+```video-gallery
+key: jogasaki
+lang: en
+layout: routes
+```
+
 Funamushi Rock and Family Crack are where clubs practise crack climbing, so ropes go up early at weekends. The hardest-feeling routes in this band are Flash Dance and Mumei Roof Crack. On a first visit, start on Purple Shadow (nicecats: the hand jams lock well, 「ハンドジャムがよく効いて気持ちのいい」) or Baby Crack (Dakekanba Club's pick for a first lead).
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
@@ -223,6 +232,7 @@ There are two styles in this band. Seaside Sunset is bolted sport: theCrag has 4
 | White Shark ホワイトシャーク | 5.11c | 5.11c | 15 m | Seaside Sunset | Sport, 5 bolts; theCrag ★★, ROCKTOPO 23, MP 3.0★. Mitsumine Sangaku-kai calls it one of the easier routes here (「簡単な部類」) |
 | Sekido Roof 赤道ルーフ | 5.10c, 5.11b | hardest 5.11b | 2 pitches (15 + 10 m) | Seaside Sunset | theCrag lists two sport pitches; ROCKTOPO lists it as multi-pitch needing gear |
 | Early Times アーリータイムス | 5.10b | 5.10b | 16 m | Seaside Sunrise | Crack; theCrag ★★; [MP](https://www.mountainproject.com/route/109919367/early-times) classic at 5.10b/c, "the crux felt distinctly harder"; cams to #3 |
+| White Christmas ホワイトクリスマス | 5.10c | 5.10c | 16 m | Seaside Sunrise | Crack; theCrag rates it R ★★, and ROCKTOPO also gives 5.10c; R means a ground fall or long fall is possible on the gear |
 | Pressure プレッシャー | 5.11b | 5.11b | — | Seaside Sunrise | Roof crack; theCrag ★★; ROCKTOPO's most popular in the sector, 6 |
 | Father Crack ファザー・クラック | 5.10b | 5.10b | 18 m (MP) | Family Crack | Crack; ROCKTOPO popular, 11; MP 3.0★. The iwadanoboru video gives 5.10c and wore a helmet after hearing cams pull easily at the crux |
 | Brother Crack ブラザークラック | 5.10b | 5.10b | — | Family Crack | Crack; ROCKTOPO 4; 5G Climbing calls it the next step after Funamushi Rock |
@@ -232,6 +242,12 @@ There are two styles in this band. Seaside Sunset is bolted sport: theCrag has 4
 | Super Serious Jam スーパーシリアスジャム | 5.10c | 5.10c | 10 m | Nichirenzaki south face | Crack; theCrag ★★★; ROCKTOPO 5.11a |
 | Indian Doll インデェアンドール | 5.10d | 5.10d | 10 m | Nichirenzaki south face | Crack; theCrag ★★★, ROCKTOPO 4; hangers replaced by JFA in December 2007 |
 | Trouble Chance トラベルチャンス | 5.10d | 5.10d | — | Ukiyamabashi | Crack; theCrag ★★★; ROCKTOPO flags protection risk (PD). Musaniki (January 2025) top-roped it to check placements before leading; mostly face climbing with one jam |
+
+```video-gallery
+key: jogasaki
+lang: en
+layout: routes
+```
 
 Several reports call the Seaside 5.10s stiff. tkd0831 concluded that "the 5.10s were hard" (「5.10は辛めだった」) and felt Peter Pan, Captain Hook and Chesha Neko half a grade to a full grade harder. The databases also differ by a grade on some routes (Tinker Bell, Super Serious Jam). On a first visit, assume every route feels half a grade harder than its number and warm up on routes with many ascents (Peter Pan, Captain Hook and Tight Boy each have more than 20 on ROCKTOPO).
 
@@ -257,6 +273,12 @@ This band is almost entirely at Seaside, Ukiyamabashi and Astrodome. Seaside Sun
 | Talampion タランピオン | 5.13a | 5.13a | — | Ukiyamabashi | Crack; theCrag ★★. genter (February 2026): Tarantula linked into Scorpion |
 | Tako タコ | 5.12a | 5.12a | — | Namidachi | Crack; theCrag ★★★. Mickipedia (2019): first climbed by Seiji Horichi in 1984 as Japan's first 5.12 crack; the author felt 5.12b+ |
 
+```video-gallery
+key: jogasaki
+lang: en
+layout: routes
+```
+
 At Seaside, the holds on hard routes were already too slick (「ぬめりすぎて」) for one climber in January, so mornings and overcast days are better. Ukiyamabashi is gear only, and theCrag says "There is no real top rope potential," so you cannot top-rope it first.
 
 ### Expert: 8a and up (YDS 5.13b and up)
@@ -273,6 +295,17 @@ theCrag lists only six routes here, four at Astrodome and two at Seaside, with o
 | Pure Breath ピュアブレス | 5.14b | 5.14b | — | Astrodome | Sport; theCrag ★★, grade given as "5.14b?" |
 
 Route data in this band comes mainly from theCrag, and ROCKTOPO's Astrodome page stops in 2020. A video uploaded in December 2024, "[【城ヶ崎 Jogasaki Coast 】MARS 5.13d](https://www.youtube.com/watch?v=tGPbCAM0joM)", describes a trad line first climbed by Kazumasa Yoshida in 1989 but does not say which sector it is in.
+
+<details>
+<summary>Watch the MARS 5.13d video</summary>
+
+```video-gallery
+key: jogasaki
+lang: en
+ids: tGPbCAM0joM
+```
+
+</details>
 
 ### Bouldering
 
@@ -299,54 +332,40 @@ The [Jogasaki Boulder Guide](https://jogasaki.bouldering-guide.com/) covers 7 ar
 | Umibozu 海坊主 | 四段− | Funamushi Rock / Monster-iwa | No. 8 in the ranking |
 | Satyagraha サティアグラハ | 四段 | Nichirenzaki / Harou-iwa | The hardest on the site, No. 4 in the ranking. kameclimb (January 2026): 29 moves to the lip, with the crux where it joins Harou; if you cannot warm up on Harou you are not ready for it (「波浪がアップで登れないとサティアは戦えない」) |
 
+```video-gallery
+key: jogasaki
+lang: en
+layout: routes
+```
+
 The site notes that Nichirenzaki and Hashidate have many easy problems. Problems change after typhoons: Stone Love (February 2024) reported that the main slab at Kosaitsuna had shattered (「粉々に砕け散りました」), probably in the October 2019 typhoon.
 
-### What people who have climbed here say
+### Route records online
 
-There are plenty of Japanese trip reports: club meets, personal blogs and YouTube. The ones below are from 2023–2026 and name specific routes and conditions.
+Beyond the guidebook and databases, Japanese climbers' blogs and club reports add a body of first-hand records. They are personal accounts, not independent checks on each other; they add beta, felt grades, crowds and conditions, and the grades in the tables above still stand. The ones below are from 2019–2026 and name specific routes.
 
-**Seaside (sport, rappel approach)**
-
-- [tkd0831, 2025-01-27 (felt-grade notes)](http://tkd0831.blog.fc2.com/blog-entry-597.html?sp): expected the grades to be dead average but found the 5.10s hard (「5.10は辛めだった」), and listed a felt grade for each route (see the intermediate table). Called Cinderella Boy "hard 8a / soft 13b".
-- [nicecats, 2023-02-21](https://nicecats.sakura.ne.jp/mountains/2023/230221.html): a cold weekday after snow, with the whole sector to themselves; Kaze ni Fukarete is 5.10c, 5.11a or 5.11b depending on the line.
-- [H.Tohsaki, 2023-03-28 (first visit to Seaside)](https://note.com/htohsaki/n/nafb43bfa496a): climbed over a fence, then rappelled. On the climb out, clipping slings or quickdraws from the harness to the bolts made approach shoes fine; the group's mentor said climbing shoes slip on the metal staples. The rock felt gritty and slippery (「なんかざらついてて滑る気がして怖さを少し感じる」).
-- [kubo, 2025-01-19](https://kuboclimbingta.com/2025/01/19/climbing_at_jyougasaki_seaside/): used the paid lot at Yawatano; no convenience store nearby; the self-belay tree at the rappel is dead; the climb out comes at the end of the day when you are tired, so take care (「最後の疲れたタイミングで登るので、事故には十分注意」).
-- [Sugiyann, 2026-02-12](https://note.com/sugiyann/n/n2d5cfd456171): without rappel skills you cannot even reach the crag (「スキルのない人は岩場にたどり着くことすら出来ない」); the salty edges feel untrustworthy but are surprisingly not slippery; so much chalk on popular routes that it takes time to read the holds.
-- [Mitsumine Sangaku-kai, 2020-02-19](https://www.mitsumine.gr.jp/kaiho/363/jogasaki.html): five parties even on a weekday; rappel quickly when busy, and dawdling on the exit gets you shouted at (「モタモタしていると罵声が飛ぶので要注意」).
-- [Shuho Toko-kai, 2025-03-01](https://syuho.but.jp/?p=6556): Colossus took 18 days and 49 tries from January 2023 to 2025; when nobody has climbed it, salt builds up on the holds.
-
-**Crack sectors**
-
-- [Mumei Sanjuku, 2026-02-14/15](https://www.sanjc-gijutsu.com/site/log/20260214_jougasaki/): Funamushi Rock was so busy they only got on Jun; on day two at Akane-no-hama, regulars rigged ropes from the top and the 5.7 they wanted was taken in moments.
-- [Dakekanba Club, 2025-11-22/23](https://dakekanba-club.com/2025/11/25/%E5%9F%8E%E3%82%B1%E5%B4%8E-%E3%82%AF%E3%83%A9%E3%83%83%E3%82%AF%E5%BC%B7%E5%8C%96%E5%90%88%E5%AE%BF%EF%BD%9E-2025-11-22-23%EF%BD%9E/): "even when you think it's set, it slips — that's Jogasaki" (「決まったと思っても滑るのが城ヶ崎」); practised cam falls on Baby Crack.
-- [Miroku Yama-no-kai, 2024-12-07](https://npo.mirokuyamanokai.org/2024/12/25/73906): left Futo station at 9:10 and reached the rock at 9:30; one photo is captioned "the waves are coming!" (「波が迫っている！」).
-- [Omiya Rozan, 2025-01-11](https://oomiya-rozan.rdy.jp/blog/2025/01/11/jyougasaki/): glad they had booked the Funamushi parking, because it was already full.
-- [MuRa, 2025-02-08 (Shiriidashi)](https://blog.muraq.com/post/mt/crack_climbing/1408): 30 minutes from the Igaigane car park, with a fixed rope down the last 4 m (Mountain Project says all fixed ropes have been removed and none are allowed, so check on site); the tree by the anchor wobbles; Nakashio Crack can only be started at low tide.
-- [MuRa, 2025-02-16 (Abunane)](https://blog.muraq.com/post/mt/crack_climbing/1448): Denko Crack (5.7) needs micro cams plus #5/#6 but is almost face climbing (「ほぼフェイス登り」).
-
-**Bouldering**
-
-- [syathi, 2024-03-01 (Tanakaiso)](https://syathi-climbing.hatenablog.jp/entry/2024/03/01/002637): at 9:30 only the last few spaces were left at the Igaigane car park, perhaps because anglers use it; Koyasu-iwa has a bad landing and a crumbling lip.
-- [kameclimb, 2026-01-31 (Satyagraha)](https://kameclimb.blog/satyagraha-v12/): see the bouldering table.
-
-### Videos
-
-The content of these videos was confirmed from their titles and descriptions (checked 2026-10-24); not every video was watched in full:
-
-- [城ケ崎 ファミリークラック マザークラック 5.10c](https://www.youtube.com/watch?v=7tCRMGuRZnM) (5Gクライミング): in July 2026 the channel uploaded Father, Brother, Uncle, Shinjin, Samu, Flash Dance, Oni Goroshi and Isaribi Crack Right together, each with the climb date, cam list and crux in the description.
-- [城ヶ崎 ファミリークラック ファザークラック 5.10b](https://www.youtube.com/watch?v=r83lHqG4UEg) (5Gクライミング)
-- [城ヶ崎 フナムシ・ロック 鬼ごろし 5.7](https://www.youtube.com/watch?v=lO9A1GAiLiM) (5Gクライミング): the description calls Funamushi Rock good for crack beginners.
-- [20251219 ファミリークラックエリア（シーズン初の城ケ崎）](https://www.youtube.com/watch?v=u30nIMy2KTs) (mikko KURATA): about 57 minutes, sped up; a full club day with chapters for building anchors, seven routes from Baby to Mother, and cleaning.
-- [無名ルーフクラック 5.10a（城ヶ崎 フナムシロック）](https://www.youtube.com/watch?v=3ACg6wXaqJs) (めざせ500イレブン+)
-- [パープルシャドウ 5.8｜城ヶ崎 フナムシ・ロック](https://www.youtube.com/watch?v=N48zGxbAKOc) (ALPINE CLUB TOKYO)
-- [シーサイドに通ったらコテンパンにされた｜城ヶ崎シーサイドエリア](https://www.youtube.com/watch?v=SYhiqLPeL18) (のぼるきょじん): a 21-minute vlog with Cinderella Boy, Pumping Iron II and Southern Cross.
-- [城ヶ崎、エアーダンス (5.12a)](https://www.youtube.com/watch?v=PP5X0jjDGzg) (萩原悟のクライミング映像)
-- [城ヶ崎 赤道ルーフ（5.10c-5.11b）](https://www.youtube.com/watch?v=ElX2dKrRKzg) (ちくごん): both pitches linked; the same channel also has [Cinderella Boy](https://www.youtube.com/watch?v=lAPrIRlSAqY), White Christmas and Introduction.
-- [虎の穴(5.13a) 城ヶ崎 Toranoana, Jogasaki](https://www.youtube.com/watch?v=G5D0xRy3L4s) (きい山歩): filmed 2025-01-18.
-- [1泊2日で城ヶ崎ボルダーに行ってきた【外岩遠征】](https://www.youtube.com/watch?v=BnO5aB1HQzA) (らんどクライミングR&O): Nichirenzaki, Tanakaiso and Hashidate.
-- [城ヶ崎　サティアグラハ　四段/V12](https://www.youtube.com/watch?v=zsSQ2bo3VzA) (KameClimb)
-
-Videos show the style and scale, not a topo. For gear placements, anchors and exit routes, use the guidebook and the databases.
+| Route | Record you can read | What that record adds |
+| --- | --- | --- |
+| Peter Pan ピーターパン, Captain Hook 海賊フック, Tight Boy タイトボーイ, Chesha Neko チェシャネコ | tkd0831's [2025 felt-grade notes](http://tkd0831.blog.fc2.com/blog-entry-597.html?sp) | Felt grades route by route: Peter Pan and Captain Hook about 5.10c, Tight Boy and Chesha Neko about 5.11a, concluding that "the 5.10s were hard" (「5.10は辛めだった」); Cinderella Boy is "hard 8a / soft 13b" |
+| Kaze ni Fukarete 風に吹かれて | nicecats's [2023 record](https://nicecats.sakura.ne.jp/mountains/2023/230221.html) | Three grades depending on the line: 5.10c, 5.11a or 5.11b; on a cold weekday after snow, the author's party had the sector to itself |
+| Seaside rappel and climb out | H.Tohsaki's [2023 record](https://note.com/htohsaki/n/nafb43bfa496a), kubo's [2025 record](https://kuboclimbingta.com/2025/01/19/climbing_at_jyougasaki_seaside/), Sugiyann's [2026 record](https://note.com/sugiyann/n/n2d5cfd456171) | 10–15 minutes from the Yawatano car park, then over a fence and rappel; on the way out, move a self-belay up the bolts and metal staples, and the group's mentor recommends approach shoes; the self-belay tree at the rappel point is dead and rotten; Sugiyann: without rappel skills you cannot even reach the crag |
+| Loose Girl ルーズガール | kubo's [2025 record](https://kuboclimbingta.com/2025/01/19/climbing_at_jyougasaki_seaside/) | The opening crack has no bolts, so bring cams; a loose hold on the left at the exit, sometimes marked with an "×" |
+| Iron Head アイロンヘッド, Cinderella Boy シンデレラボーイ, Talampion タランピオン | genter's [2026 record](https://www.yamareco.com/modules/yamareco/detail-9255164.html) | The Seaside entrance was looser than the year before (「去年よりザレていて」); Talampion links Tarantula into Scorpion, with a seven-move crux low down protected by micro cams; Cinderella Boy looks brutal to link (「繋げるのは超キツそう」) |
+| Toranoana 虎の穴, Pumping Iron I パンピングアイアンⅠ | Kii Sampo's [2025 record](https://kiisampo.com/jogasaki-toranoana-rp/) | Sent after 13 tries over 3 days; Seaside before the coldest week got little north wind (「あまり北風も入らない」); some say Pumping Iron I is closer to 5.12b |
+| Colossus コロッサス | Shuho Toko-kai's [2025 record](https://syuho.but.jp/?p=6556) | 49 tries over 18 days from 2023 to 2025; the lower part is R-rated trad around 5.11b, and someone reportedly needed a helicopter after a ground fall; too slick by early April (「ヌメヌメで勝負にならなかった」) |
+| White Shark ホワイトシャーク | Mitsumine Sangaku-kai's [2020 club report](https://www.mitsumine.gr.jp/kaiho/363/jogasaki.html) | Called one of the easier routes here (「簡単な部類」); five parties even on a weekday, so rappel quickly and don't dawdle on the exit (「モタモタしていると罵声が飛ぶ」); frequent rockfall from the top |
+| Splash スプラッシュ | Sugiyann's [2026 record](https://note.com/sugiyann/n/n2d5cfd456171) | Waves reach the belay (「ビレイ点は波が来ていて」), with a runout above |
+| Jun 純, Light Rain ライト・レイン | Mumei Sanjuku's [2026 record](https://www.sanjc-gijutsu.com/site/log/20260214_jougasaki/) | Funamushi Rock was so busy they only got on Jun; at Akane-no-hama regulars rigged ropes from the top, and the 5.7 they wanted was taken in moments |
+| Purple Shadow パープルシャドウ, Nessie ネッシー, Flash Dance フラッシュダンス | nicecats's [2025 record](https://nicecats.sakura.ne.jp/mountains/2025/250218.html) | In a once-in-a-decade cold wave the rock was not that cold (「岩はそれほど冷たくなく」); Purple Shadow looks nothing like a 5.8; Flash Dance's thin-hands start is hard to protect |
+| Baby Crack ベイビークラック | Dakekanba Club's [2025 record](https://dakekanba-club.com/2025/11/25/%E5%9F%8E%E3%82%B1%E5%B4%8E-%E3%82%AF%E3%83%A9%E3%83%83%E3%82%AF%E5%BC%B7%E5%8C%96%E5%90%88%E5%AE%BF%EF%BD%9E-2025-11-22-23%EF%BD%9E/) | Recommended as a first lead and used for cam fall practice; "even when you think it's set, it slips — that's Jogasaki" (「決まったと思っても滑るのが城ヶ崎」) |
+| Mumei Roof Crack 無名ルーフクラック | Miroku Yama-no-kai's [2024 record](https://npo.mirokuyamanokai.org/2024/12/25/73906) | Veterans pull on the jug above the roof instead of the crack; left Futo station at 9:10 and reached the rock at 9:30 |
+| Hattari Crack はったりクラック (Shiriidashi) | MuRa's [2025 record](https://blog.muraq.com/post/mt/crack_climbing/1408) | Clipped all three bolts because of corrosion; the tree by the anchor wobbles; Nakashio Crack can only be started at low tide; 30 minutes from the Igaigane car park, with a fixed rope on the last 4 m (at odds with the MP rule) |
+| Denko Crack 電光クラック (Abunane) | MuRa's [2025 record](https://blog.muraq.com/post/mt/crack_climbing/1448) | 5.7; needs micro cams plus #5/#6, but is almost face climbing (「ほぼフェイス登り」) |
+| Trouble Chance トラベルチャンス | Musaniki's [2025 record](https://note.com/o_musashi1984/n/n3fdb7c7dadd6) | Top-roped it to check placements before leading; mostly face climbing with one jam |
+| Tako タコ | Mickipedia's [2019 record](https://micki-pedia.com/jogasaki-tako.html) | First climbed by Seiji Horichi in 1984 as Japan's first 5.12 crack; the author felt 5.12b+, harder than Marionette and Scorpion |
+| Deisui 泥酔 | syathi's [2024 record](https://syathi-climbing.hatenablog.jp/entry/2024/03/01/002637) | Felt like an easy 2級 (「易しめ2級くらい」); only the last few spaces were left at the Igaigane car park at 9:30 |
+| Satyagraha サティアグラハ | kameclimb's [2026 record](https://kameclimb.blog/satyagraha-v12/) | 29 moves to the lip, with the crux where it joins Harou: if you can't warm up on Harou you're not ready for it |
+| Kosaitsuna boulders | Stone Love's [2024 record](https://stone-love.net/blog-entry-860/) | The main slab shattered (「粉々に砕け散りました」), probably in the October 2019 typhoon |
 
 ## Where to look things up
 
@@ -362,6 +381,11 @@ Videos show the style and scale, not a topo. For gear placements, anchors and ex
   - [*Free Climbing Nihon 100 Iwaba 3: Izu & Koshin* (enlarged revised new edition)](https://www.yamakei.co.jp/products/2812180860%20.html) (ed. Makoto Kitayama, Yama-kei Publishers, 2012-04-20, 208 pp, Japanese): includes "51 East Izu Jogasaki", and the publisher calls Jogasaki Japan's representative sea cliff (「日本を代表するシークリフ・城ヶ崎」). An [ebook edition](https://www.yamakei.co.jp/products/2815120448.html) came out in 2016. There has been no new print edition since 2012.
   - [*Nihon Bouldering Area, vol. 2*](https://www.yamakei.co.jp/products/2814160170.html) (ed. Makoto Kitayama, Yama-kei Publishers, 2014-10-17, Japanese): a bouldering selection; the publisher says it newly adds the Jogasaki boulders (「新たに城ヶ崎のボルダーを追加」).
   - No dedicated printed Jogasaki topo turned up. For bouldering, the Jogasaki Boulder Guide website is the most current.
+
+## Changelog
+
+- 2026-10-24 (second revision): Switched to the crag-guide template (Insubong): route videos now sit in a video column in each grade table (51 entries, 40 videos), the standalone "Videos" section is gone, and MARS is in a collapsible block; "What people who have climbed here say" became the "Route records online" table; "Seaside hazards" moved into the rules section; White Christmas was added to the intermediate table.
+- 2026-10-24: Reworked to follow the Joyama guide. "Notable sectors and routes" became "Routes by level", with a table of the main sectors, four route tables for beginner, intermediate, advanced and expert (YDS column, length, stars, ascent counts) and a bouldering table. Added "What people who have climbed here say" and "Videos". "Getting there" now opens with a summary table, "Parking by sector" became "Parking", and the Seaside walking time was added. The rules section adds Ito City's 2022 position, recent JFA notices, emergency numbers and insurance; the hazards section adds the tide table, the climb out and rockfall; "When to go" adds trip-report conditions; "Where to look things up" adds guidebooks. Route data checked 2026-10-24.
 
 ## References
 
@@ -473,7 +497,4 @@ Videos show the style and scale, not a topo. For gear placements, anchors and ex
 - [YouTube: MARS 5.13d (ユウキミヤシタ)](https://www.youtube.com/watch?v=tGPbCAM0joM)
 - [YouTube: Two-day Jogasaki bouldering trip (らんどクライミングR&O)](https://www.youtube.com/watch?v=BnO5aB1HQzA)
 - [YouTube: Satyagraha 四段/V12 (KameClimb)](https://www.youtube.com/watch?v=zsSQ2bo3VzA)
-
-## Changelog
-
-- 2026-10-24: Reworked to follow the Joyama guide. "Notable sectors and routes" became "Routes by level", with a table of the main sectors, four route tables for beginner, intermediate, advanced and expert (YDS column, length, stars, ascent counts) and a bouldering table. Added "What people who have climbed here say" and "Videos". "Getting there" now opens with a summary table, "Parking by sector" became "Parking", and the Seaside walking time was added. The rules section adds Ito City's 2022 position, recent JFA notices, emergency numbers and insurance; the hazards section adds the tide table, the climb out and rockfall; "When to go" adds trip-report conditions; "Where to look things up" adds guidebooks. Route data checked 2026-10-24.
+- [Mountain Project: International climbing grade comparison chart](https://www.mountainproject.com/international-climbing-grades)
