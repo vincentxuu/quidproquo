@@ -127,6 +127,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'agent-isolation',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'Agent 隔離邊界', en: 'Agent Isolation Boundaries' },
+    descriptions: {
+      'zh-TW': '從容器、gVisor、microVM 到共用硬體上的隱蔽通道：拆開「在隔離環境中執行」這句話，看 AI agent 的程式碼被哪幾層擋住、哪些資源仍然共用、出口怎麼被找到，並以 OpenAI 2026 年的紅隊文章為案例。',
+      en: 'From containers, gVisor, and microVMs to covert channels on shared hardware: unpack "runs in an isolated environment" for AI agents, covering which layers contain the code, what is still shared, how exits get found, with OpenAI\'s 2026 red-team write-up as the case study.',
+    },
+  },
+  {
     slug: 'statistics-ml-ai',
     category: 'exams-interviews',
     names: { 'zh-TW': '從考試到 ML/AI 的統計學導讀', en: 'Statistics from Exams to ML/AI' },
