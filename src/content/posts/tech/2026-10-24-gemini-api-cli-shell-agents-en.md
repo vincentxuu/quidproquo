@@ -16,6 +16,10 @@ The Gemini API CLI (command name `gemini-api`) is an [experimental preview](http
 
 The easiest thing to get wrong: it is **not** a coding agent, and it is not the successor to Gemini CLI. That successor is [Antigravity CLI](/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent) (`agy`); on June 18, 2026, Google stopped serving Gemini CLI to Google AI Pro, Ultra, and free individual users. `gemini-api` does one thing: your program, script, or another agent calls it once and gets a result back.
 
+After the release, a forum [thread](https://linux.do/t/topic/3067134) opened with the obvious complaint: Gemini CLI was shut down in favor of agy, and now there is another one. Philipp Schmid of Google DeepMind, one of the authors of the announcement post, put the positioning plainly in his [AI Engineer talk](https://www.youtube.com/watch?v=oWTEiYpxl80&t=739s):
+
+> It's not a coding agent. It's not Gemini CLI. It's really a CLI that your agent can use to call the Gemini API.
+
 Whether to use it depends on who decides the next step:
 
 - Your code already knows what to ask and what it needs back: use `gemini-api`.
@@ -148,7 +152,7 @@ gemini-api generate "Hello from my agent" --dry-run
 ## Limits
 
 - **Still beta.** Google says it evolves alongside the [Interactions API](https://ai.google.dev/gemini-api/docs/interactions), breaking changes can land between versions, and you should pin a [release version](https://github.com/google-gemini/gemini-api-cli/releases) in CI and automation. The installer is `curl ... | bash`; to pin a version, download the prebuilt archive for that release instead. The project isn't accepting external pull requests, so feedback goes through issues.
-- **You need an API key.** It uses an [API key](https://ai.google.dev/gemini-api/docs/api-key) created in Google AI Studio; check quota and billing there.
+- **Built around API keys.** The documented setup uses an [API key](https://ai.google.dev/gemini-api/docs/api-key) created in Google AI Studio; check quota and billing there, and run `gemini-api --help-global` to see what other authentication options your version offers.
 - **Data does persist server-side.** The CLI stores no conversation locally, but server-side interactions and uploaded files have their own retention. Files uploaded through the Files API are kept for 48 hours. The README's example sets `"store": false` in the request body to turn off server-side storage of the interaction. If your tool handles customer data, run `gemini-api generate --schema` to see which fields your version accepts, then pass that setting with `--body`.
 - **No agent capabilities.** It doesn't read your project, decide its own next step, or sandbox anything locally (`environments` manages a managed agent's server-side environment). If you need those, go back to the split above.
 
@@ -176,6 +180,8 @@ If you already run an agent, treating it as one of that agent's tools is the nat
 
 - [Introducing the Gemini API CLI (Google AI Studio, 2026-10-19)](https://aistudio.google.com/learn/introducing-the-gemini-api-cli)
 - [google-gemini/gemini-api-cli (GitHub)](https://github.com/google-gemini/gemini-api-cli)
+- [Why AI Agents Should Have Their Own Sandbox (Philipp Schmid, AI Engineer talk)](https://www.youtube.com/watch?v=oWTEiYpxl80)
+- [Forum thread: Google released another gemini-api-cli (Linux.do, 2026-10-23, in Chinese)](https://linux.do/t/topic/3067134)
 - [An important update: Transitioning Gemini CLI to Antigravity CLI (Google Developers Blog, 2026-05-19)](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli)
 - [Antigravity CLI: How Google Folded Gemini CLI Into a Unified Terminal Agent Harness](/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent-en)
 - [Antigravity CLI: Google Replaces a 100K-Star Open-Source Tool with a Closed-Source Go Binary](/posts/tech/2026-08-24-antigravity-cli-gemini-replacement-google-en)

@@ -16,6 +16,12 @@ Gemini API CLI（指令名稱 `gemini-api`）是 Google 在 2026 年 10 月 19 �
 
 最容易搞混的一點：它**不是** coding agent，也不是 Gemini CLI 的接班人。Gemini CLI 的接班人是 [Antigravity CLI](/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent)（`agy`），Google 在 2026 年 6 月 18 日讓 Gemini CLI 對 Google AI Pro、Ultra 和免費個人使用者停止服務。`gemini-api` 只做一件事：被你的程式、腳本或另一個 agent 呼叫一次，回傳結果。
 
+發布後，論壇上有一則[討論串](https://linux.do/t/topic/3067134)，首則貼文的意思是：之前停了 gemini-cli、改用 agy，現在又出這個。官方發表文的作者之一、Google DeepMind 的 Philipp Schmid，在 [AI Engineer 的演講](https://www.youtube.com/watch?v=oWTEiYpxl80&t=739s)裡把定位說得很清楚：
+
+> It's not a coding agent. It's not Gemini CLI. It's really a CLI that your agent can use to call the Gemini API.
+
+意思是：它不是 coding agent，也不是 Gemini CLI，而是讓你的 agent 去呼叫 Gemini API 的命令列。
+
 要不要用它，看「下一步由誰決定」：
 
 - 你的程式已經知道要問什麼、要拿什麼回來：用 `gemini-api`。
@@ -148,7 +154,7 @@ gemini-api generate "Hello from my agent" --dry-run
 ## 限制
 
 - **還是 beta。** 官方標示它隨 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions) 一起演進，版本之間可能有破壞性變更，建議在 CI 與自動化裡釘住 [release 版本](https://github.com/google-gemini/gemini-api-cli/releases)。安裝腳本是 `curl ... | bash`，要釘版本就改下載指定版本的預編譯檔。專案目前不接受外部 pull request，意見只能開 issue。
-- **需要 API key。** 它用的是在 Google AI Studio 建立的 [API 金鑰](https://ai.google.dev/gemini-api/docs/api-key)，額度與計費到 AI Studio 查看。
+- **以 API 金鑰為主。** 官方的設定流程用的是在 Google AI Studio 建立的 [API 金鑰](https://ai.google.dev/gemini-api/docs/api-key)，額度與計費到 AI Studio 查看；其他認證方式用 `gemini-api --help-global` 查你安裝的版本。
 - **資料會留在伺服器端。** CLI 本身不存對話，但伺服器端的 interaction 與上傳的檔案各有保留規則：Files API 的檔案保留 48 小時。README 的範例用請求本文裡的 `"store": false` 關掉 interaction 的伺服器端儲存。處理客戶資料的工具，用 `gemini-api generate --schema` 確認你的版本接受哪些欄位，再用 `--body` 帶這個設定。
 - **沒有 agent 的能力。** 它不會讀你的專案、不會自己決定下一步，也不提供本機的沙箱（`environments` 管的是 managed agent 在伺服器端的環境）。需要這些，就回到上面的分工表。
 
@@ -176,6 +182,8 @@ gemini-api generate "Hello from my agent" --dry-run
 
 - [Introducing the Gemini API CLI（Google AI Studio，2026-10-19）](https://aistudio.google.com/learn/introducing-the-gemini-api-cli)
 - [google-gemini/gemini-api-cli（GitHub）](https://github.com/google-gemini/gemini-api-cli)
+- [Why AI Agents Should Have Their Own Sandbox（Philipp Schmid，AI Engineer 演講）](https://www.youtube.com/watch?v=oWTEiYpxl80)
+- [論壇討論串：Google 又出了 gemini-api-cli（Linux.do，2026-10-23）](https://linux.do/t/topic/3067134)
 - [An important update: Transitioning Gemini CLI to Antigravity CLI（Google Developers Blog，2026-05-19）](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli)
 - [Antigravity CLI：Google 用一套 agent harness 收編 Gemini CLI 的終端機介面](/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent)
 - [Antigravity CLI：Google 用閉源 Go binary 取代十萬星開源 Gemini CLI](/posts/tech/2026-08-24-antigravity-cli-gemini-replacement-google)
