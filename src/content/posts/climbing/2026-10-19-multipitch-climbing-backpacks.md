@@ -48,7 +48,7 @@ flowchart TD
 
 ### 2. 頭盔與吊帶腰帶不能互相干涉
 
-包太長會兩頭出事：上緣頂到頭盔後緣，抬頭看下一段時脖子被逼著往前；下緣壓在吊帶腰帶和後方裝備環上，伸手拿裝備時摸不到。所以背長比容量重要，同一款有分尺寸就兩個都試。吊帶本身怎麼選見[吊帶與頭盔](/posts/climbing/2026-10-19-climbing-harness-helmet)。
+包太長會兩頭出事：上緣頂到頭盔後緣，抬頭看下一段時脖子被逼著往前；下緣壓在吊帶腰帶和後方裝備環上，伸手拿裝備時摸不到。所以背長比容量重要，同一款有分尺寸就兩個都試。吊帶本身怎麼選見[第一條吊帶怎麼挑](/posts/climbing/2026-10-24-climbing-harness)。
 
 腰帶最好能拆。走接近路時扣上，上岩壁前拆掉或收起，免得跟吊帶腰帶疊在一起。[Wadi 15](https://us.blueice.com/products/wadi-15-pack) 的織帶腰帶、[Petzl BUG](https://www.petzl.com/us/en/sport/products/climbing-packs-rope-bags/bug/BUG_SPO_a2mTx000003PXGnIAO.html) 的腰帶都可以拆，[Rab Latok 28](https://rab.equipment/us/rab-latok-28l-mountain-pack)、[Hyperlite Summit 30](https://www.hyperlitemountaingear.com/products/summit-30) 這類較大的包也一樣。
 

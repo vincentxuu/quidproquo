@@ -10,7 +10,7 @@ tldr: "原廠寫的 10 年是「最長壽命」：存放良好、從沒損傷也
 draft: false
 series:
   name: "攀岩裝備"
-  order: 4
+  order: 12
 glossary:
   - term: "最長壽命"
     aliases: ["Lebensdauer", "maximum lifetime", "lifespan"]
@@ -36,7 +36,7 @@ glossary:
 
 這是「攀岩裝備」系列的最後一篇。前面幾篇把裝備買齊了，這篇講怎麼讓它們用到該退役的時候：原廠的數字怎麼讀、什麼狀況要立刻換、每一件怎麼檢查。各家原廠的數字彼此不一致時，這篇會並列，不替你選邊；共同點是，**判斷靠檢查，不靠年數**。
 
-攀岩鞋不是個人防護裝備，什麼時候換底在[第 1 篇](/posts/climbing/2026-10-19-climbing-shoes)。傳攀保護器材的檢查不在這篇範圍。
+攀岩鞋不是個人防護裝備，什麼時候換底在[第 1 篇](/posts/climbing/2026-10-19-climbing-shoes)。傳攀保護器材的檢查不在這篇範圍：岩楔和活動岩楔的檢查重點，在[第 10 篇：岩楔](/posts/climbing/2026-10-24-climbing-nuts)和[第 11 篇：活動岩楔](/posts/climbing/2026-10-24-climbing-cams)。普魯士繩和粉袋也各有一篇，檢查與汰換寫在[第 9 篇](/posts/climbing/2026-10-24-prusik-cord)和[第 2 篇](/posts/climbing/2026-10-24-climbing-chalk-bag)裡。
 
 ## 兩個「壽命」：最長壽命與使用壽命
 
@@ -136,7 +136,7 @@ start: 1035
 [Petzl 的吊帶檢查文](https://web.archive.org/web/20240127115431/https://www.petzl.com/INT/en/Sport/News/2018-1-24/How-to-inspect-your-climbing-harness)列出 14 個步驟，可以分成五組：
 
 1. **歷史與標示**：知道它的使用狀況與特殊事件（墜落、極端溫度、私自改裝）；序號和 CE 標示還看得清楚；沒有超過 10 年；和新品比對，沒有被改裝或缺零件。
-2. **織帶**：腰帶、腿環有沒有割痕、膨脹、損傷、過度使用、高溫或化學品造成的磨損，扣具遮住的地方也要看；兩面的安全縫線有沒有鬆脫、磨損或斷線。安全縫線是和織帶顏色不同的那些線，[第 2 篇](/posts/climbing/2026-10-19-climbing-harness-helmet)提到標準要求它做對比色，就是為了這一步。
+2. **織帶**：腰帶、腿環有沒有割痕、膨脹、損傷、過度使用、高溫或化學品造成的磨損，扣具遮住的地方也要看；兩面的安全縫線有沒有鬆脫、磨損或斷線。安全縫線是和織帶顏色不同的那些線，[第 3 篇：吊帶](/posts/climbing/2026-10-24-climbing-harness)提到標準要求它做對比色，就是為了這一步。
 3. **確保環與繫繩點**：確保環有沒有割痕、膨脹、磨損；繫繩點的保護層有沒有割痕、膨脹、損傷或磨損。
 4. **扣具**：有沒有刻痕、裂紋、磨損、變形、鏽蝕；織帶穿法正確、沒有扭轉；扣具運作正常。
 5. **舒適部件**：泡棉、彈性帶、腿環彈性帶、裝備環有沒有割裂或磨損。
@@ -298,10 +298,20 @@ DAV 說掉落本身不會產生髮絲裂紋，看起來沒事通常就沒事；B
 這個系列照你花錢的順序走了一遍：
 
 0. [先租還是先買](/posts/climbing/2026-10-19-climbing-gear-buying-order)：購買順序、CE 與 UIAA、製造年、為什麼不買二手。
-1. [攀岩鞋](/posts/climbing/2026-10-19-climbing-shoes)：鞋型、合腳、材質延展、換底。
-2. [吊帶與頭盔](/posts/climbing/2026-10-19-climbing-harness-helmet)：試穿、類型、EPS 與硬殼。
-3. [繩子、確保器與鉤環](/posts/climbing/2026-10-19-climbing-rope-belay-device)：繩端標示、繩徑、防水、相容性。
-4. 本篇：檢查、保養與汰換。
+1. [攀岩鞋](/posts/climbing/2026-10-19-climbing-shoes)：鞋型、合腳、材質延展、現行型號、換底。
+2. [粉袋](/posts/climbing/2026-10-24-climbing-chalk-bag)：腰掛粉袋還是粉桶、開口與收口、掛腰帶還是扣吊帶。
+3. [吊帶](/posts/climbing/2026-10-24-climbing-harness)：裝備環、腿環可調或固定、試穿。
+4. [確保器](/posts/climbing/2026-10-24-climbing-belay-device)：管狀、輔助管狀、凸輪式，相容繩徑。
+5. [鉤環](/posts/climbing/2026-10-24-climbing-carabiners)：H 型與梨形、螺旋鎖或自動鎖、防橫向。
+6. [頭盔](/posts/climbing/2026-10-24-climbing-helmet)：硬殼、發泡殼、混合殼，試戴。
+7. [快扣](/posts/climbing/2026-10-24-climbing-quickdraws)：實心門或鋼絲門、扁帶長短粗細。
+8. [繩子](/posts/climbing/2026-10-24-climbing-rope)：繩端標示、繩徑、長度、防水處理。
+9. [普魯士繩](/posts/climbing/2026-10-24-prusik-cord)：自己打結或買縫好的、尼龍或芳綸。
+10. [岩楔](/posts/climbing/2026-10-24-climbing-nuts)：彎曲或 offset、第一套買幾號。
+11. [活動岩楔](/posts/climbing/2026-10-24-climbing-cams)：第一套帶到幾號、跨品牌號碼對照。
+12. 本篇：檢查、保養與汰換。
+
+第 1 到 11 篇每篇都比較了幾款現行型號，附評測與實測、心得影片。
 
 ## 延伸觀看：器材實測與教學頻道
 
@@ -312,6 +322,7 @@ DAV 說掉落本身不會產生髮絲裂紋，看起來沒事通常就沒事；B
 
 ## 更新紀錄
 
+- 2026-10-24：系列改成一個裝備一篇，本篇改為第 12 篇；吊帶縫線的轉手連結改指向吊帶篇，系列回顧改成完整的 13 篇清單，並指向岩楔、活動岩楔、普魯士繩、粉袋各篇的檢查段落
 - 2026-10-23：補充 HowNOT2、Hard Is Easy 等頻道的器材實測影片與頻道介紹
 
 ## 參考資料

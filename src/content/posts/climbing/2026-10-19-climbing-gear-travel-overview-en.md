@@ -61,8 +61,11 @@ This series doesn't cover how to choose, fit, or care for each piece of gear. Th
 
 - [Rent or buy first: buying order and labels](/posts/climbing/2026-10-19-climbing-gear-buying-order-en)
 - [Choosing your first climbing shoes](/posts/climbing/2026-10-19-climbing-shoes-en)
-- [Fitting a harness and helmet](/posts/climbing/2026-10-19-climbing-harness-helmet-en)
-- [Matching ropes, belay devices, and carabiners](/posts/climbing/2026-10-19-climbing-rope-belay-device-en): the 1, ½, and ∞ rope-end symbols are explained here
+- [Choosing your first harness](/posts/climbing/2026-10-24-climbing-harness-en)
+- [Choosing a helmet](/posts/climbing/2026-10-24-climbing-helmet-en)
+- [Choosing your first belay device](/posts/climbing/2026-10-24-climbing-belay-device-en)
+- [Choosing a locking belay carabiner](/posts/climbing/2026-10-24-climbing-carabiners-en)
+- [Choosing a rope](/posts/climbing/2026-10-24-climbing-rope-en): the 1, ½, and ∞ rope-end symbols are explained here
 - [Inspecting, caring for, and retiring gear](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en)
 
 Also, having the gear is not the same as knowing how to use it. Multipitch belaying, rappelling, and retreat need instruction and practice; you can't learn them from articles.

@@ -48,7 +48,7 @@ The wider the pack, the more your arms and shoulders brush its sides when you re
 
 ### 2. Helmet and harness clearance
 
-A pack that is too long causes trouble at both ends. The top edge hits the back of your helmet, so looking up at the next pitch pushes your neck forward. The bottom edge sits on your harness waistbelt and rear gear loops, so you can't reach your gear. Back length matters more than volume; if a model comes in two sizes, try both. Choosing the harness itself is covered in [Harness and Helmet](/posts/climbing/2026-10-19-climbing-harness-helmet-en).
+A pack that is too long causes trouble at both ends. The top edge hits the back of your helmet, so looking up at the next pitch pushes your neck forward. The bottom edge sits on your harness waistbelt and rear gear loops, so you can't reach your gear. Back length matters more than volume; if a model comes in two sizes, try both. Choosing the harness itself is covered in [Choosing Your First Climbing Harness](/posts/climbing/2026-10-24-climbing-harness-en).
 
 A removable hipbelt helps. Buckle it on the approach, then remove or stow it before you climb so it doesn't stack on top of your harness. The webbing belt on the [Wadi 15](https://us.blueice.com/products/wadi-15-pack) and the belt on the [Petzl BUG](https://www.petzl.com/us/en/sport/products/climbing-packs-rope-bags/bug/BUG_SPO_a2mTx000003PXGnIAO.html) both come off, as do the belts on larger packs such as the [Rab Latok 28](https://rab.equipment/us/rab-latok-28l-mountain-pack) and [Hyperlite Summit 30](https://www.hyperlitemountaingear.com/products/summit-30).
 

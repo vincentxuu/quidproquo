@@ -61,8 +61,11 @@ series:
 
 - [先租還是先買：購買順序與標籤](/posts/climbing/2026-10-19-climbing-gear-buying-order)
 - [第一雙攀岩鞋怎麼挑](/posts/climbing/2026-10-19-climbing-shoes)
-- [吊帶與頭盔怎麼試穿](/posts/climbing/2026-10-19-climbing-harness-helmet)
-- [繩子、確保器與鉤環怎麼搭](/posts/climbing/2026-10-19-climbing-rope-belay-device)：繩端的 1、½、∞ 標誌在這篇
+- [第一條吊帶怎麼挑](/posts/climbing/2026-10-24-climbing-harness)
+- [頭盔怎麼挑](/posts/climbing/2026-10-24-climbing-helmet)
+- [第一個確保器怎麼挑](/posts/climbing/2026-10-24-climbing-belay-device)
+- [確保用的有鎖鉤環怎麼挑](/posts/climbing/2026-10-24-climbing-carabiners)
+- [繩子怎麼挑](/posts/climbing/2026-10-24-climbing-rope)：繩端的 1、½、∞ 標誌在這篇
 - [裝備的檢查、保養與汰換](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement)
 
 另外，裝備帶齊不代表會用。多繩距的確保、垂降和撤退，都要另外上課練習，不能靠讀文章學會。

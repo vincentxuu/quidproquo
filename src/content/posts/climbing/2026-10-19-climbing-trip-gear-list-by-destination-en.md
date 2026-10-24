@@ -54,7 +54,7 @@ Base the quickdraw count on the bolt count of the longest route. Without a topo,
 Add to the sport list:
 
 - 4–6 long slings to cut rope drag; the official Kalymnos site says the big Grande Grotta routes need [5–6](https://climbkalymnos.com/climbing)
-- Locking carabiners for belays and a rappel setup; how to match them is in [Matching Rope, Belay Device and Carabiners](/posts/climbing/2026-10-19-climbing-rope-belay-device-en)
+- Locking carabiners for belays and a rappel setup; how to choose them is in [Choosing a Locking Belay Carabiner](/posts/climbing/2026-10-24-climbing-carabiners-en) and [Choosing Your First Belay Device](/posts/climbing/2026-10-24-climbing-belay-device-en)
 - A headlamp and a windproof jacket
 - A second rope: only when a rappel is longer than your rope doubled; see the exception section below
 
@@ -76,7 +76,7 @@ A checked crash pad is charged as oversized baggage or sports equipment. A 2026 
 
 Most climbers flying abroad bring one single rope. In a 2021 [UKC thread](https://www.ukclimbing.com/forums/destinations/climbing_gear_on_a_plane-740523), one poster put it plainly: "Rope is the critical weight." It is usually the heaviest item in the bag, and its length directly affects your checked weight.
 
-**Length.** Tonsai, Yangshuo, Kalymnos and Spain all start at 70 m. Kalymnos, Chulilla and Yangshuo have many long lines, so 80 m is more comfortable there. At Seonunsan in Korea and at most Japanese crags 60 m is enough, though at Ogawayama [some spots need a 60 m rope to get down](https://www.akatsuki-climbing.com/%E3%83%AB%E3%83%BC%E3%83%88%E7%B4%B9%E4%BB%8B%E5%B0%8F%E5%B7%9D%E5%B1%B1/). What 60, 70 and 80 m ropes are generally for is covered in [Matching Rope, Belay Device and Carabiners](/posts/climbing/2026-10-19-climbing-rope-belay-device-en).
+**Length.** Tonsai, Yangshuo, Kalymnos and Spain all start at 70 m. Kalymnos, Chulilla and Yangshuo have many long lines, so 80 m is more comfortable there. At Seonunsan in Korea and at most Japanese crags 60 m is enough, though at Ogawayama [some spots need a 60 m rope to get down](https://www.akatsuki-climbing.com/%E3%83%AB%E3%83%BC%E3%83%88%E7%B4%B9%E4%BB%8B%E5%B0%8F%E5%B7%9D%E5%B1%B1/). What 60, 70 and 80 m ropes are generally for is covered in [Choosing a Rope](/posts/climbing/2026-10-24-climbing-rope-en).
 
 The most direct result of a rope that is too short is the end running through the belay device while lowering. Whatever length you bring, knot the ends.
 
@@ -94,7 +94,7 @@ Real examples:
 - **3 Stripes on Kalymnos**: to rappel down through the middle of Grande Grotta, the official site says you need [two 80 m ropes](https://climbkalymnos.com/3-stripes-a-nice-easy-new-multipitch-on-kalymnos).
 - **Insubong, Korea**: [two 30 m rappels](https://thecrag.com/en/climbing/south-korea/insubong/route/272137737) down Pigeon Road on the south side reach the ground, so one 60 m single rope is enough.
 
-The second rope can be another single rope, a pair of half ropes, or a thin tag line used only for retrieval. A tag line is lighter but only retrieves the rope and cannot be climbed on; half ropes are used as a pair. How to read the rope-end markings is in [Matching Rope, Belay Device and Carabiners](/posts/climbing/2026-10-19-climbing-rope-belay-device-en).
+The second rope can be another single rope, a pair of half ropes, or a thin tag line used only for retrieval. A tag line is lighter but only retrieves the rope and cannot be climbed on; half ropes are used as a pair. How to read the rope-end markings is in [Choosing a Rope](/posts/climbing/2026-10-24-climbing-rope-en).
 
 ## Six destinations
 
@@ -205,7 +205,9 @@ If you are buying or replacing a rope for the trip, the next article, [Choosing 
 - [Climbing Travel Gear overview](/posts/climbing/2026-10-19-climbing-gear-travel-overview-en)
 - [Flying with Climbing Gear](/posts/climbing/2026-10-19-flying-with-climbing-gear-en)
 - [How Climbers Pack for Fly-In Trips](/posts/climbing/2026-10-19-climbing-travel-packing-examples-en)
-- [Matching Rope, Belay Device and Carabiners](/posts/climbing/2026-10-19-climbing-rope-belay-device-en)
+- [Choosing a Rope](/posts/climbing/2026-10-24-climbing-rope-en)
+- [Choosing Your First Belay Device](/posts/climbing/2026-10-24-climbing-belay-device-en)
+- [Choosing a Locking Belay Carabiner](/posts/climbing/2026-10-24-climbing-carabiners-en)
 - [Inspecting, Caring For and Retiring Climbing Gear](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en)
 - [Japan Climbing Crags overview](/posts/climbing/2026-10-12-japan-crags-overview-en)
 - [Ogawayama](/posts/climbing/2026-10-12-japan-crag-ogawayama-en)

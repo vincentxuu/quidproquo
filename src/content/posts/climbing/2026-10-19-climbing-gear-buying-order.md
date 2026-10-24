@@ -5,8 +5,8 @@ category: climbing
 tags: [climbing, climbing-gear, beginner, indoor-climbing]
 lang: zh-TW
 type: guide
-description: "給在岩館爬了一陣子、準備開始買自己裝備的人：鞋、粉袋、吊帶、確保器、頭盔、繩子與快扣該照什麼順序買；什麼是個人防護裝備（PPE）；CE 與 UIAA 安全標籤差在哪；EN 與 UIAA 標準編號對照；製造年印在哪裡；為什麼吊帶、頭盔、繩子不要買二手。"
-tldr: "照花錢的順序：先買鞋（岩館就用得到，合腳與衛生都靠自己的鞋），開始固定爬繩索再買吊帶、確保器與有鎖鉤環，要去戶外才買頭盔、繩子和快扣。攀岩鞋不是個人防護裝備，沒有安全標準；吊帶、頭盔、繩子、鉤環、確保器是，買的時候找 CE 或 UIAA 安全標籤，再找製造年。UIAA 2026 年的購買建議明講：吊帶、頭盔、繩子不該買二手。"
+description: "給在岩館爬了一陣子、準備開始買自己裝備的人：鞋、粉袋、吊帶、確保器、鉤環、頭盔、快扣、繩子，到普魯士繩與傳攀的岩楔、活動岩楔，該照什麼順序買；什麼是個人防護裝備（PPE）；CE 與 UIAA 安全標籤差在哪；EN 與 UIAA 標準編號對照；製造年印在哪裡；為什麼吊帶、頭盔、繩子不要買二手。"
+tldr: "照花錢的順序：先買鞋（岩館就用得到，合腳與衛生都靠自己的鞋），開始固定爬繩索再買吊帶、確保器與有鎖鉤環，要去戶外才買頭盔、繩子和快扣；開始在戶外自己垂降再買普魯士繩，學傳攀再買岩楔與活動岩楔（龍洞的多繩距多半是傳攀，要先會傳攀）。攀岩鞋不是個人防護裝備，沒有安全標準；吊帶、頭盔、繩子、鉤環、確保器是，買的時候找 CE 或 UIAA 安全標籤，再找製造年。UIAA 2026 年的購買建議明講：吊帶、頭盔、繩子不該買二手。"
 draft: false
 series:
   name: "攀岩裝備"
@@ -30,7 +30,7 @@ glossary:
 
 第一次去岩館，你租了一雙鞋，櫃台順手給你一個粉袋。爬了幾個月，你開始想：是不是該買自己的鞋了？吊帶要不要也買？朋友說他有一條用了幾年的繩子可以便宜賣你，要嗎？
 
-這是「攀岩裝備」系列的第 0 篇。這個系列只講選購判準、標準數字和原廠的汰換規則，**不推薦品牌型號**；文中出現的型號，都只是拿來說明標準或說明書寫法的例子。這篇先回答兩個問題：什麼該先買、什麼繼續租；以及拿到一件裝備時，標籤上的 CE、UIAA、EN 編號和製造年怎麼看。各件裝備怎麼挑、怎麼檢查，留給後面四篇。
+這是「攀岩裝備」系列的第 0 篇。這個系列一個裝備一篇：每篇先講選購判準和標準數字，再比較幾款現行型號，附評測文章和 YouTube 上的實測、心得影片。這篇本身不比型號，文中的 GRIGRI 只是拿來說明說明書寫法的例子。這篇先回答兩個問題：什麼該先買、什麼繼續租；以及拿到一件裝備時，標籤上的 CE、UIAA、EN 編號和製造年怎麼看。各件裝備怎麼挑、有哪些型號可以選，在第 1 到 11 篇；怎麼檢查、什麼時候汰換，是最後的第 12 篇。
 
 如果你還沒去過岩館，先看〈[攀岩入門](/posts/climbing/2026-10-08-climbing-beginner-guide)〉。
 
@@ -40,11 +40,13 @@ glossary:
 
 | 階段 | 買什麼 | 為什麼是這時候 | 本系列哪一篇 |
 |---|---|---|---|
-| 開始固定去岩館 | 攀岩鞋、粉袋 | 岩館就用得到；鞋子合腳只能靠自己的鞋 | [第 1 篇：攀岩鞋](/posts/climbing/2026-10-19-climbing-shoes) |
-| 開始固定爬上攀、考確保 | 吊帶、確保器、有鎖鉤環 | 每次都要穿、要操作，熟悉自己的裝備比較安全 | [第 2 篇：吊帶與頭盔](/posts/climbing/2026-10-19-climbing-harness-helmet)、[第 3 篇：繩子、確保器與鉤環](/posts/climbing/2026-10-19-climbing-rope-belay-device) |
-| 準備去戶外 | 頭盔 | 岩場有落石，確保者也要戴 | [第 2 篇](/posts/climbing/2026-10-19-climbing-harness-helmet) |
-| 自己帶隊去戶外運攀 | 動力繩、快扣 | 岩館提供繩子，戶外要自己帶 | [第 3 篇](/posts/climbing/2026-10-19-climbing-rope-belay-device) |
-| 一直在用 | 檢查、保養、汰換 | 上面每一件都會老 | [第 4 篇：檢查、保養與汰換](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement) |
+| 開始固定去岩館 | 攀岩鞋、粉袋 | 岩館就用得到；鞋子合腳只能靠自己的鞋 | [第 1 篇：攀岩鞋](/posts/climbing/2026-10-19-climbing-shoes)、[第 2 篇：粉袋](/posts/climbing/2026-10-24-climbing-chalk-bag) |
+| 開始固定爬上攀、考確保 | 吊帶、確保器、有鎖鉤環 | 每次都要穿、要操作，熟悉自己的裝備比較安全 | [第 3 篇：吊帶](/posts/climbing/2026-10-24-climbing-harness)、[第 4 篇：確保器](/posts/climbing/2026-10-24-climbing-belay-device)、[第 5 篇：鉤環](/posts/climbing/2026-10-24-climbing-carabiners) |
+| 準備去戶外 | 頭盔 | 岩場有落石，確保者也要戴 | [第 6 篇：頭盔](/posts/climbing/2026-10-24-climbing-helmet) |
+| 自己帶隊去戶外運攀 | 快扣、動力繩 | 岩館提供繩子，戶外要自己帶 | [第 7 篇：快扣](/posts/climbing/2026-10-24-climbing-quickdraws)、[第 8 篇：繩子](/posts/climbing/2026-10-24-climbing-rope) |
+| 開始在戶外自己垂降 | 普魯士繩 | 垂降時當備份，自我救援也要用 | [第 9 篇：普魯士繩](/posts/climbing/2026-10-24-prusik-cord) |
+| 開始學傳攀 | 岩楔、活動岩楔 | 保護要自己放進裂隙，不是掛在 bolt 上 | [第 10 篇：岩楔](/posts/climbing/2026-10-24-climbing-nuts)、[第 11 篇：活動岩楔](/posts/climbing/2026-10-24-climbing-cams) |
+| 一直在用 | 檢查、保養、汰換 | 上面每一件都會老 | [第 12 篇：檢查、保養與汰換](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement) |
 
 戶外抱石還需要抱石墊，那屬於戶外抱石的範圍，這個系列不展開。
 
@@ -60,9 +62,9 @@ glossary:
 
 開始固定爬上攀之後，吊帶每次都要穿、確保器每次都要操作。用自己的裝備，你知道它的歷史，也熟悉它的手感。確保器的操作在〈[岩館上攀確保](/posts/climbing/2026-10-17-gym-top-rope-belay)〉，這個系列只講怎麼選。
 
-### 頭盔、繩子、快扣排最後
+### 頭盔、繩子、快扣等到要去戶外
 
-頭盔是為戶外的落石準備的，〈[戶外確保](/posts/climbing/2026-10-17-outdoor-belay)〉說過確保者也要戴。繩子和快扣是你要自己帶隊去戶外先鋒時才需要的東西，在那之前跟有經驗的人一起爬，用他們的就好。
+頭盔是為戶外的落石準備的，〈[戶外確保](/posts/climbing/2026-10-17-outdoor-belay)〉說過確保者也要戴。繩子和快扣是你要自己帶隊去戶外先鋒時才需要的東西，在那之前跟有經驗的人一起爬，用他們的就好。普魯士繩、岩楔和活動岩楔又更後面：開始在戶外自己垂降，或開始學傳攀，才用得到。多繩距通常排在傳攀之後：〈[多繩距入門](/posts/climbing/2026-10-17-multi-pitch-basics)〉查過，龍洞標了兩段以上的路線多數是傳攀，台灣的多繩距課程也要求先會單繩距傳攀先鋒。
 
 北威爾斯教練 Jez 在下面這支影片攤開「跟朋友出去當跟攀者」要自備的東西：一條吊帶、頭盔、粉袋、入門岩鞋、確保器加有鎖鉤環，繩子和整組保護器材由朋友帶，跟本文「繩子、快扣先用別人的」一致。差別在頭盔：他的對象一開始就去英國戶外岩場，所以頭盔列在第一批；如果你還只在岩館，照上面的順序就好。影片是教練口述經驗，沒有測試，裡面的價格是英國行情；看到 7 分半左右就講完個人裝備，後面是傳攀器材。
 
@@ -95,27 +97,21 @@ start: 25
 
 [UIAA 2026 年 2 月更新的購買建議](https://theuiaa.org/uiaa/uiaa-advice-ten-things-to-consider-when-buying-climbing-gear)要你只買有 UIAA 安全標籤或 CE 標示的裝備。標示通常刻在、縫在裝備上，或寫在說明書裡。對某個型號的標籤有疑問，可以到 [UIAA 認證裝備資料庫](https://www.theuiaa.org/safety-standards/certified-equipment/)查。
 
-HowNOT2 的 Ryan 拉斷一批 Amazon 上買的鉤環時，碰到一個實際例子：有一款商品頁寫「有 UIAA 認證」，到 UIAA 網站一查，認證早就過期了。從 10 分 40 秒看起，說明欄附了在資料庫勾選舊產品、查出過期認證的步驟。這是 2020 年的影片，自製機器慢拉、每款只拉幾個，不是標準測試；片中的仿品在這幾次都拉過了標示值，但樣本這麼少，不能拿來證明仿品可以用。Ryan 也在片中說自己不熟 CE 和 UIAA 的差別，說明欄裡的定義是觀眾留言，標籤怎麼讀以本節引用的 UIAA 資料為準。
-
-```youtube
-url: https://www.youtube.com/watch?v=BQfKTx5T2WM
-title: Amazon Chinese Knockoff Climbing Carabiners TESTED（HowNOT2）
-start: 640
-```
-
 ### 常見裝備的標準編號
 
 | 裝備 | EN 標準 | UIAA 標準 | 本系列哪一篇 |
 |---|---|---|---|
-| 動力繩 | EN 892 | UIAA 101 | 第 3 篇 |
-| 吊帶 | EN 12277 | UIAA 105 | 第 2 篇 |
-| 頭盔 | EN 12492 | UIAA 106 | 第 2 篇 |
-| 鉤環 | EN 12275 | UIAA 121 | 第 3 篇 |
-| 確保器（制動器） | EN 15151 | UIAA 129 | 第 3 篇 |
+| 動力繩 | EN 892 | UIAA 101 | [第 8 篇](/posts/climbing/2026-10-24-climbing-rope) |
+| 吊帶 | EN 12277 | UIAA 105 | [第 3 篇](/posts/climbing/2026-10-24-climbing-harness) |
+| 頭盔 | EN 12492 | UIAA 106 | [第 6 篇](/posts/climbing/2026-10-24-climbing-helmet) |
+| 鉤環 | EN 12275 | UIAA 121 | [第 5 篇](/posts/climbing/2026-10-24-climbing-carabiners) |
+| 確保器（制動器） | EN 15151 | UIAA 129 | [第 4 篇](/posts/climbing/2026-10-24-climbing-belay-device) |
+
+快扣的扁帶和普魯士繩用的標準，分別在[第 7 篇](/posts/climbing/2026-10-24-climbing-quickdraws)和[第 9 篇](/posts/climbing/2026-10-24-prusik-cord)。
 
 例如 [Petzl GRIGRI 的使用說明](https://www.petzl.com/sfc/servlet.shepherd/version/download/068Tx000009YCjEIAW)（2024 年 11 月版）寫明它屬於「EN 15151-1 type 6」，也就是不帶防恐慌功能的確保兼垂降器。說明書也寫明它符合歐盟個人防護裝備法規 (EU) 2016/425。
 
-**通過標準代表什麼？** 代表這個型號的樣品在實驗室通過了那份標準的測試。不代表你手上這一件現在還是好的：它可能放太久、泡過酸、被摔過。這是第 4 篇的主題。
+**通過標準代表什麼？** 代表這個型號的樣品在實驗室通過了那份標準的測試。不代表你手上這一件現在還是好的：它可能放太久、泡過酸、被摔過。這是[第 12 篇](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement)的主題。
 
 ## 製造年印在哪裡
 
@@ -130,13 +126,7 @@ start: 640
 
 有些原廠把製造年藏在序號裡。Petzl 的保養說明舉例：序號「09 365 AB 1234」的前兩碼 09 是製造年，365 是那一年的第幾天；舊式吊帶可能寫成「99 289 A」，一樣是前兩碼代表年份。其他品牌的編碼方式不一定一樣，看說明書。
 
-繩子還有第二個地方印日期，只是平常看不到。Hard Is Easy 的 Ben 在繩子教學的開頭把繩子剖開：有些繩芯裡夾著一條塑膠帶，印著廠牌和製造季度；有些只有一條彩色細帶，原廠每年換顏色，要問原廠才知道是哪一年。從 1 分鐘開始看，大約 45 秒。這條帶子要切開繩子才看得到，買繩和日常檢查還是看繩端標籤。
-
-```youtube
-url: https://www.youtube.com/watch?v=ncUGR2JbefY
-title: Complete Guide to Climbing Ropes - How many falls they Hold? Why they Twist? | Ep.5（Hard Is Easy）
-start: 60
-```
+繩子還有第二個地方印日期，只是平常看不到。[Petzl 的繩索檢查程序](https://www.petzl.com/on/demandware.static/-/Sites-petzl-master-catalog/default/dwf2c4f0de/media/product/verif-EPI-cordes-procedure-EN_068bK00000uzxirQAA.pdf)說，Petzl 動力繩的繩芯裡有一條標示線，線的顏色代表製造年：十種顏色對應年份尾數 0 到 9，例如 0 是黑、5 是綠；低延展繩則是繩芯裡夾一條印著製造年的標示帶。這張顏色表是 Petzl 自己的，其他品牌要看各自的說明。標示線藏在繩芯裡，要切開繩端才看得到，買繩和日常檢查還是看繩端標籤。
 
 **今晚就能做的動作**：翻出你手上任何一件吊帶、頭盔或繩子，找到 CE 或 UIAA 標示，以及製造年。找不到製造年，把型號抄下來，去原廠網站查序號怎麼讀。
 
@@ -158,21 +148,6 @@ UIAA 的購買建議裡還有三條跟「從哪裡買」有關：
 2. **網購只在可信的通路買**，也就是知名品牌，原廠或有信譽的經銷商。
 3. **有疑問就查資料庫。** 上面提到的 UIAA 認證裝備資料庫可以查型號。
 
-下面兩支 HowNOT2 的影片是兩個反例，提醒這三條是降低風險，不是保證。第一支由當事人 Emily 自己說：她向 Black Diamond 的授權經銷商網購一條繩子，包裝看起來是正版，連批號和製造日期都印了，打開卻是 Black Diamond 確認不是自家產品的繩子，Ryan 推測是靜力繩。片名寫著「allegedly」，Ryan 只是轉述，沒有親眼看到購買過程。
-
-```youtube
-url: https://www.youtube.com/watch?v=XlL7XFm0-Q4
-title: Dicks sells a counterfeit Black Diamond climbing rope (allegedly)（HowNOT2）
-```
-
-第二支從 7 分 50 秒看起：觀眾 Chris 網購 CAMP 的鉤環，收到的是只有 16 kN、沒有 UIAA 也沒有 CE 的無名鉤環，價格卻跟正品一樣。所以「價格低得離譜」只是警訊之一，價格正常不代表是真貨。這個案例也是 Ryan 轉述觀眾來信，沒有其他來源。
-
-```youtube
-url: https://www.youtube.com/watch?v=1uPSup3UpDQ
-title: Sketchy carabiners from Amazon, AliExpress, Ebay and Walmart tested!（HowNOT2）
-start: 470
-```
-
 ## 買到之後的第一件事：檢查和記錄
 
 UIAA 建議的最後一組「記錄與檢視」，是大部分人會跳過的。其中兩條是：
@@ -180,7 +155,7 @@ UIAA 建議的最後一組「記錄與檢視」，是大部分人會跳過的。
 - **拿到就檢查。** 看有沒有損傷、變形、縫線不完整或鏽蝕；確認是新品、標示清楚，而且**離建議使用年限還很遠**。有問題就不要用，直接聯絡賣家。最長壽命從製造日起算，所以新買的吊帶也要看製造年。
 - **建立紀錄。** 記下品牌、型號、序號、購買日、檢查日和使用情形，用來追蹤磨耗和汰換時間。
 
-紀錄表的格式，在[第 4 篇](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement)會給一份範本。
+紀錄表的格式，在[第 12 篇](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement)會給一份範本。
 
 **今晚就能做的動作**：開一個試算表，欄位就是上面那六項。把你現在擁有的每一件 PPE 各寫一列。
 
@@ -189,12 +164,16 @@ UIAA 建議的最後一組「記錄與檢視」，是大部分人會跳過的。
 | 項目 | 什麼時候買 | 買之前讀 |
 |---|---|---|
 | 攀岩鞋 | 開始一週爬一次以上 | [第 1 篇](/posts/climbing/2026-10-19-climbing-shoes) |
-| 粉袋 | 和鞋子一起 | 本篇 |
-| 吊帶 | 固定爬上攀 | [第 2 篇](/posts/climbing/2026-10-19-climbing-harness-helmet) |
-| 確保器＋有鎖鉤環 | 考完確保、固定幫人確保 | [第 3 篇](/posts/climbing/2026-10-19-climbing-rope-belay-device) |
-| 頭盔 | 第一次去戶外前 | [第 2 篇](/posts/climbing/2026-10-19-climbing-harness-helmet) |
-| 動力繩 | 自己帶隊去戶外 | [第 3 篇](/posts/climbing/2026-10-19-climbing-rope-belay-device) |
-| 快扣 | 自己帶隊去戶外先鋒 | [第 3 篇](/posts/climbing/2026-10-19-climbing-rope-belay-device) |
+| 粉袋 | 和鞋子一起 | [第 2 篇](/posts/climbing/2026-10-24-climbing-chalk-bag) |
+| 吊帶 | 固定爬上攀 | [第 3 篇](/posts/climbing/2026-10-24-climbing-harness) |
+| 確保器 | 考完確保、固定幫人確保 | [第 4 篇](/posts/climbing/2026-10-24-climbing-belay-device) |
+| 有鎖鉤環 | 和確保器一起 | [第 5 篇](/posts/climbing/2026-10-24-climbing-carabiners) |
+| 頭盔 | 第一次去戶外前 | [第 6 篇](/posts/climbing/2026-10-24-climbing-helmet) |
+| 快扣 | 自己帶隊去戶外先鋒 | [第 7 篇](/posts/climbing/2026-10-24-climbing-quickdraws) |
+| 動力繩 | 自己帶隊去戶外 | [第 8 篇](/posts/climbing/2026-10-24-climbing-rope) |
+| 普魯士繩 | 開始在戶外自己垂降前 | [第 9 篇](/posts/climbing/2026-10-24-prusik-cord) |
+| 岩楔 | 開始學傳攀 | [第 10 篇](/posts/climbing/2026-10-24-climbing-nuts) |
+| 活動岩楔 | 開始學傳攀 | [第 11 篇](/posts/climbing/2026-10-24-climbing-cams) |
 
 ## 練習題：四個情境
 
@@ -238,7 +217,7 @@ UIAA 明講繩子不該買二手；Petzl 的退役條件包括「不知道完整
 
 ## 延伸觀看：器材實測與教學頻道
 
-本文嵌入的影片來自下面幾個頻道。想自己往下挖，可以從這裡開始；看的時候記得每個頻道的限制。
+本文嵌入的影片來自 JB Mountain Skills。另外兩個是專做器材實測的頻道，想自己往下挖可以從這裡開始；看的時候記得每個頻道的限制。
 
 - **[HowNOT2](https://www.youtube.com/@HowNOT2)**：Ryan Jenks 經營，2016 年從走繩（highline）安全教學起家，後來把攀岩、洞穴、溪降器材拿去拉斷，還有在真岩上拉 bolt 的 Bolt Busters 系列。看點是「標示強度以外」的情況：打結、磨損、舊裝備、放錯位置。限制：多數是自製機器慢拉、每組 1–3 個樣本，他自己也說這是娛樂不是科學；頻道背後有網路器材店，部分受測品是店內商品。
 - **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**：署名 Ben 的攀岩者獨自經營，以前是軟體工程師。一次在泰國 Tonsai 看到確保者接太硬、攀者撞上岩石，他回家設計實驗，從此專拍確保、繩子、鉤環與確保器的實驗與物理解說，近年多支在 Mammut 實驗室合拍。限制：實驗多是自己設計，不是 EN／UIAA 標準測試。
@@ -246,6 +225,7 @@ UIAA 明講繩子不該買二手；Petzl 的退役條件包括「不知道完整
 
 ## 更新紀錄
 
+- 2026-10-24：系列改成一個裝備一篇、並比較現行型號，改寫開頭的系列說明；購買階段表、標準編號表與購物清單改連到新的各篇（粉袋、確保器、鉤環、快扣、繩子各自一篇），加入普魯士繩、岩楔、活動岩楔；影片改成只收 2024 年以後上傳的，拿掉 2020 到 2022 年的 HowNOT2 三支、Hard Is Easy 一支，繩芯的製造年標示改引 Petzl 的繩索檢查程序
 - 2026-10-23：補充 HowNOT2、Hard Is Easy 等頻道的器材實測影片與頻道介紹
 
 ## 參考資料
@@ -258,6 +238,7 @@ UIAA 明講繩子不該買二手；Petzl 的退役條件包括「不知道完整
 - [Ausrüstung aussortieren oder weiter verwenden?（DAV Sicherheitsforschung）](https://www.alpenverein.de/artikel/nutzungsdauer-karabiner-seile-helme-klettersteigsets_a1acb469-ec21-4718-a487-9facc2f821d7)
 - [Lebensdauer von Alpinausrüstung（DAV Panorama 5/2010）](https://sac-hoherrohn.ch/wp-content/uploads/2019/02/dav_lebensdauer-von-alpinausruestung.pdf)
 - [Tips for protecting your equipment: Belay devices, descenders（Petzl）](https://products.papertrail.io/downloads/petzl/d08231b_entretien-assureurs-descendeurs_EN.pdf)
+- [Inspection procedure: Ropes（Petzl）](https://www.petzl.com/on/demandware.static/-/Sites-petzl-master-catalog/default/dwf2c4f0de/media/product/verif-EPI-cordes-procedure-EN_068bK00000uzxirQAA.pdf)
 - [Technical Notice GRIGRI（Petzl，D0015500K，2024-11）](https://www.petzl.com/sfc/servlet.shepherd/version/download/068Tx000009YCjEIAW)
 - [價目表：萬華店（原岩攀岩館）](https://tupclimbing.tw/pricing/84)
 - [攀岩鞋尺寸怎麼選？（Climbing Ninjette 攀岩小妞，2026）](https://climbingninjette.com/2026/08/29/climbing-shoes-size/)

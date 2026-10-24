@@ -10,7 +10,7 @@ tldr: "A manufacturer's 10 years is a maximum lifetime: the most a product can l
 draft: false
 series:
   name: "Climbing Gear"
-  order: 4
+  order: 12
 glossary:
   - term: "maximum lifetime"
     aliases: ["Lebensdauer", "lifespan"]
@@ -36,7 +36,7 @@ The label on your harness says it was made five years ago. You look it up: Petzl
 
 This is the last post in the Climbing Gear series. The earlier posts got the gear bought; this one covers using it until it should be retired: how to read the manufacturers' numbers, what calls for immediate replacement, and how to inspect each item. Where manufacturers disagree, this post sets their figures side by side without picking one; what they share is that **you judge by inspection, not by age**.
 
-Climbing shoes aren't PPE; when to resole them is in [post 1](/posts/climbing/2026-10-19-climbing-shoes-en). Inspecting trad protection is outside this post.
+Climbing shoes aren't PPE; when to resole them is in [post 1](/posts/climbing/2026-10-19-climbing-shoes-en). Inspecting trad protection is outside this post: what to check on nuts and cams is in [post 10: Nuts](/posts/climbing/2026-10-24-climbing-nuts-en) and [post 11: Cams](/posts/climbing/2026-10-24-climbing-cams-en). The prusik cord and chalk bag have their own posts too, with inspection and retirement covered in [post 9](/posts/climbing/2026-10-24-prusik-cord-en) and [post 2](/posts/climbing/2026-10-24-climbing-chalk-bag-en).
 
 ## Two kinds of "lifetime": maximum lifetime and service life
 
@@ -136,7 +136,7 @@ start: 1035
 [Petzl's harness-inspection article](https://web.archive.org/web/20240127115431/https://www.petzl.com/INT/en/Sport/News/2018-1-24/How-to-inspect-your-climbing-harness) lists 14 steps, which fall into five groups:
 
 1. **History and markings**: know how it's been used and any exceptional events (falls, extreme temperatures, modifications); the serial number and CE mark are still legible; it isn't past 10 years; compare with a new harness for modifications or missing parts.
-2. **Webbing**: waistbelt and leg loops free of cuts, swelling, damage, wear from use, heat or chemicals, including under the buckles; safety stitching on both sides free of loose, worn or cut threads. Safety stitching is the thread in a different colour from the webbing; [post 2](/posts/climbing/2026-10-19-climbing-harness-helmet-en) explained that the standard requires the contrast for exactly this step.
+2. **Webbing**: waistbelt and leg loops free of cuts, swelling, damage, wear from use, heat or chemicals, including under the buckles; safety stitching on both sides free of loose, worn or cut threads. Safety stitching is the thread in a different colour from the webbing; [post 3: Harness](/posts/climbing/2026-10-24-climbing-harness-en) explained that the standard requires the contrast for exactly this step.
 3. **Belay loop and tie-in points**: no cuts, swelling or wear on the belay loop; no cuts, swelling, damage or wear on the protective webbing of the tie-in points.
 4. **Buckles**: no marks, cracks, wear, deformation or corrosion; straps correctly threaded with no twists; buckles working properly.
 5. **Comfort parts**: foams, elastic keepers, leg-loop elastics and gear loops free of cuts or wear.
@@ -298,10 +298,20 @@ Do what the BMC says: clip your own quickdraw first, hang from it, and check whe
 This series followed the order in which you spend money:
 
 0. [Rent or buy](/posts/climbing/2026-10-19-climbing-gear-buying-order-en): buying order, CE and UIAA, manufacture year, why not second-hand.
-1. [Climbing shoes](/posts/climbing/2026-10-19-climbing-shoes-en): shape, fit, stretch, resoling.
-2. [Harness and helmet](/posts/climbing/2026-10-19-climbing-harness-helmet-en): fitting, types, foam versus hardshell.
-3. [Rope, belay device and carabiners](/posts/climbing/2026-10-19-climbing-rope-belay-device-en): end markings, diameter, dry treatment, compatibility.
-4. This post: inspection, care and retirement.
+1. [Climbing shoes](/posts/climbing/2026-10-19-climbing-shoes-en): shape, fit, stretch, current models, resoling.
+2. [Chalk bag](/posts/climbing/2026-10-24-climbing-chalk-bag-en): waist bag or bucket, opening and closure, belt or harness clip.
+3. [Harness](/posts/climbing/2026-10-24-climbing-harness-en): gear loops, adjustable or fixed leg loops, fitting.
+4. [Belay device](/posts/climbing/2026-10-24-climbing-belay-device-en): tube, assisted tube or cam device, rope range.
+5. [Carabiners](/posts/climbing/2026-10-24-climbing-carabiners-en): Type H and pear shape, screwgate or auto-lock, anti-cross-loading.
+6. [Helmet](/posts/climbing/2026-10-24-climbing-helmet-en): hard shell, foam or hybrid, fitting.
+7. [Quickdraws](/posts/climbing/2026-10-24-climbing-quickdraws-en): solid or wire gates, sling length and width.
+8. [Rope](/posts/climbing/2026-10-24-climbing-rope-en): end markings, diameter, length, dry treatment.
+9. [Prusik cord](/posts/climbing/2026-10-24-prusik-cord-en): tie your own or buy sewn, nylon or aramid.
+10. [Nuts](/posts/climbing/2026-10-24-climbing-nuts-en): curved or offset, which sizes first.
+11. [Cams](/posts/climbing/2026-10-24-climbing-cams-en): how far your first rack goes, matching sizes across brands.
+12. This post: inspection, care and retirement.
+
+Posts 1 to 11 each compare a handful of current models, with reviews and test and first-hand videos.
 
 ## Further viewing: gear-testing and instruction channels
 
@@ -312,6 +322,7 @@ The videos embedded in this post come from the two channels below. They're a goo
 
 ## Update Log
 
+- 2026-10-24: The series now gives each piece of gear its own post, making this post 12; the harness-stitching cross-reference now points to the harness post, the series recap lists all 13 posts, and the intro points to the inspection sections of the nuts, cams, prusik cord and chalk bag posts
 - 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 
 ## References

@@ -1270,8 +1270,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'climbing',
     names: { 'zh-TW': '攀岩裝備', en: 'Climbing Gear' },
     descriptions: {
-      'zh-TW': '從買第一雙攀岩鞋開始：先租還是先買、鞋子多緊才對、吊帶與頭盔怎麼試穿、繩子與確保器怎麼搭配，以及原廠怎麼規定檢查與汰換。只講選購判準、標準數字與退役規則，不推薦型號。',
-      en: 'Starting from your first pair of climbing shoes: what to rent and what to buy, how tight shoes should be, how to fit a harness and helmet, how ropes and belay devices go together, and what manufacturers say about inspection and retirement. Selection criteria, standards, and retirement rules only, no model picks.',
+      'zh-TW': '一個裝備一篇，照花錢的順序走：先租還是先買，接著是攀岩鞋、粉袋、吊帶、確保器、鉤環、頭盔、快扣、繩子、普魯士繩、岩楔與活動岩楔，最後是原廠怎麼規定檢查與汰換。每篇先講選購判準，再比較現行型號，附 2024 年後的評測與心得影片。',
+      en: 'One piece of gear per guide, in the order you spend money: what to rent and what to buy, then shoes, chalk bag, harness, belay device, carabiners, helmet, quickdraws, rope, prusik cord, nuts and cams, ending with what manufacturers say about inspection and retirement. Each guide covers the buying criteria first, then compares current models, with reviews and hands-on videos from 2024 on.',
     },
   },
   {

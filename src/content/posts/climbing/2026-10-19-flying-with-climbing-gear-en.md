@@ -206,7 +206,7 @@ Check in this order before you fly:
 3. Decide whether hardware goes in the cabin. If it does, arrive early enough to go back to the counter and check it if you're stopped. If you don't want the risk, check the whole set and keep only shoes, harness, and helmet with you.
 4. Put power banks and spare headlamp batteries in your carry-on, and leave gas canisters at home.
 
-For choosing the shoes, harness, and helmet themselves, see [Climbing Shoes](/posts/climbing/2026-10-19-climbing-shoes-en) and [Harness and Helmet](/posts/climbing/2026-10-19-climbing-harness-helmet-en). For choosing a checked duffel and cabin bag, see [Climbing Travel Luggage](/posts/climbing/2026-10-19-climbing-travel-luggage-en).
+For choosing the shoes, harness, and helmet themselves, see [Climbing Shoes](/posts/climbing/2026-10-19-climbing-shoes-en) and [Harness](/posts/climbing/2026-10-24-climbing-harness-en), [Helmet](/posts/climbing/2026-10-24-climbing-helmet-en). For choosing a checked duffel and cabin bag, see [Climbing Travel Luggage](/posts/climbing/2026-10-19-climbing-travel-luggage-en).
 
 ## References
 

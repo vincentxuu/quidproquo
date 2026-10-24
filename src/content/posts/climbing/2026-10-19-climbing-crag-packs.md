@@ -154,7 +154,7 @@ flowchart TB
 2. **把兩人的裝備攤在地上分成兩堆。** 硬體一堆、水和衣服一堆，看硬體那堆需要 45 L 還是 50 L。手上已經有 35–40 L 的日常背包，就只要再補一個裝硬體的岩場包。
 3. **決定要不要兼登機包。** 要的話，從空重 1 kg 以下、背帶能收的款式裡挑；不要的話，就照接近方式選最耐用的那個，塞進托運主袋裡保護背帶。
 
-鞋、吊帶、頭盔本身怎麼挑，交給「攀岩裝備」系列的[攀岩鞋](/posts/climbing/2026-10-19-climbing-shoes)與[吊帶和頭盔](/posts/climbing/2026-10-19-climbing-harness-helmet)。要上多繩距，下一篇講[多繩距攀登包](/posts/climbing/2026-10-19-multipitch-climbing-backpacks)。
+鞋、吊帶、頭盔本身怎麼挑，交給「攀岩裝備」系列的[攀岩鞋](/posts/climbing/2026-10-19-climbing-shoes)與[吊帶](/posts/climbing/2026-10-24-climbing-harness)、[頭盔](/posts/climbing/2026-10-24-climbing-helmet)。要上多繩距，下一篇講[多繩距攀登包](/posts/climbing/2026-10-19-multipitch-climbing-backpacks)。
 
 ## 更新紀錄
 

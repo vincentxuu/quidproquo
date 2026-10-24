@@ -34,7 +34,7 @@ glossary:
 
 在台灣，很多人第一條繩是 60 m，在龍洞和岩館都夠用。帶出國就不一樣了。卡林諾斯官方攀岩網站把 70 m 當最低標準，長線多的地方帶 80 m 比較從容。兩週下來，同一條繩每天要在被磨光、局部又銳利的石灰岩上下放好幾次。搭廉航時，繩子可能是整袋最重的一件。
 
-[上一篇](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination)依目的地決定了要帶多長的繩、要不要第二條。這篇接著回答：如果要買一條新繩出國，或判斷手上那條適不適合帶，要看哪幾個數字。繩端的 1、½、雙子繩符號、EN 892 的測試、確保器的兩大類，這篇不重講，見攀岩裝備系列的〈[繩子、確保器與鉤環怎麼搭](/posts/climbing/2026-10-19-climbing-rope-belay-device)〉。讀完你應該能從後面那張表挑出兩三條候選，或確定手上那條就夠用。
+[上一篇](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination)依目的地決定了要帶多長的繩、要不要第二條。這篇接著回答：如果要買一條新繩出國，或判斷手上那條適不適合帶，要看哪幾個數字。繩端的 1、½、雙子繩符號、EN 892 的測試、確保器的兩大類，這篇不重講，見攀岩裝備系列的〈[繩子怎麼挑](/posts/climbing/2026-10-24-climbing-rope)〉和〈[第一個確保器怎麼挑](/posts/climbing/2026-10-24-climbing-belay-device)〉。讀完你應該能從後面那張表挑出兩三條候選，或確定手上那條就夠用。
 
 ## 先決定要不要帶繩
 
@@ -99,7 +99,7 @@ Petzl 的建議是帶比預估需求長約 5 m 的繩，而且單繩距攀登一
 
 細繩比較輕，但比較難握，確保器也要支援。以 [GRIGRI](https://media.petzl.com/sfc/servlet.shepherd/version/download/068Tx000009YCjEIAW) 來說，相容 8.5–11 mm 的單繩，8.9–10.5 mm 運作最好；8.5 到 8.9 mm 之間，Petzl 要求確保者更警覺、經驗更豐富。Edelrid 的 [OHM II](https://avs.edelrid.com/images/attribut/54738_GAL_OHM_II_ANSICHT.pdf) 只接受 8.9 mm 以上。
 
-出國的麻煩在於確保器不只是你的。UKClimbing 那篇 Siskin 評測裡，評者在西班牙時，繩伴的 Edelrid Eddy 不支援 8.6 mm。出發前，把你和繩伴的確保器說明書都翻出來，抄下相容繩徑，再去看繩。相容怎麼看，見〈[繩子、確保器與鉤環怎麼搭](/posts/climbing/2026-10-19-climbing-rope-belay-device)〉。
+出國的麻煩在於確保器不只是你的。UKClimbing 那篇 Siskin 評測裡，評者在西班牙時，繩伴的 Edelrid Eddy 不支援 8.6 mm。出發前，把你和繩伴的確保器說明書都翻出來，抄下相容繩徑，再去看繩。相容怎麼看，見〈[第一個確保器怎麼挑](/posts/climbing/2026-10-24-climbing-belay-device)〉。
 
 新繩和有防水處理的繩比較滑。Edelrid Tommy Caldwell DT 9.6 的評者說，新繩很滑，大約一個月後才趨緩（[Climbing Gear Reviews，2023](https://climbinggearreviews.com/2023/09/07/edelrid-tommy-caldwell-eco-dry-dt-9-6-review/)）。出發前一個月買的繩，先在岩館或龍洞用幾次再帶出去。
 

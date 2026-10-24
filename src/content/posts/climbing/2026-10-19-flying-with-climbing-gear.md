@@ -206,7 +206,7 @@ Nut tool 沒有被任何清單點名，但它長得像工具，各國的工具�
 3. 決定五金要不要手提。手提就提早到機場，留下被擋時回櫃檯托運的時間；不想冒險就整組放托運，只把鞋、吊帶、頭盔帶在身上。
 4. 行動電源、頭燈備用電池放進隨身包，瓦斯罐留在家。
 
-鞋、吊帶、頭盔本身怎麼挑，見[攀岩鞋](/posts/climbing/2026-10-19-climbing-shoes)與[吊帶和頭盔](/posts/climbing/2026-10-19-climbing-harness-helmet)；托運主袋和登機包怎麼選，見[托運主袋與登機包](/posts/climbing/2026-10-19-climbing-travel-luggage)。
+鞋、吊帶、頭盔本身怎麼挑，見[攀岩鞋](/posts/climbing/2026-10-19-climbing-shoes)與[吊帶](/posts/climbing/2026-10-24-climbing-harness)、[頭盔](/posts/climbing/2026-10-24-climbing-helmet)；托運主袋和登機包怎麼選，見[托運主袋與登機包](/posts/climbing/2026-10-19-climbing-travel-luggage)。
 
 ## 參考資料
 
