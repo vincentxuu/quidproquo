@@ -107,3 +107,7 @@ register-scan：燒山季段數字 13 個，拆成兩段；未翻譯的 theCrag 
 - 新增 12 支路線影片（In Deep Space、Trojan Horse、Dtat Sin Jai、Jai Yen Yen、Dtang Jai、Mun Jai、Jai Glah Reu Plao ×2、All Quiet、Freeblast ×2、A Wild Ride）與 8 支整體／洞穴影片；合計路線影片 29 支、非路線 9 支。分級表加回 Dtat Sin Jai（6c+、14 m、★★，JSON 核對）。
 - build 後逐列確認：中英各 28 列掛上影片，合計 41 個影片位置（同一支片可掛多列）。
 - 只核對 metadata（yt-dlp -j：上傳日期、可嵌入、描述），未看片。
+
+影片統計：查詢 116 組；候選 960 支；收錄 38 支；有影片的路線 22／67 列
+
+（查詢 = 第一輪 18 組＋路線名 70 組＋多語／子區 28 組，另掃 12 個頻道上傳列表；收錄 = 路線影片 29 支＋整體／洞穴／封閉 9 支。沒有影片的 45 列以入門與中級短線為主，逐條路線名搜過，沒有標題或描述對得上的影片。）

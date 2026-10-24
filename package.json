@@ -28,6 +28,7 @@
     "check:process-leak": "node scripts/check-process-leak.mjs",
     "check:series-plan": "node scripts/check-series-plan.mjs",
     "check:grades": "node scripts/climbing-grade-convert.mjs --check",
+    "check:crag-coverage": "node scripts/check-crag-coverage.mjs",
     "check:links": "node scripts/check-external-links.mjs",
     "check:seo-smoke": "node scripts/check-seo-smoke.mjs",
     "check:glossary": "node scripts/check-glossary-coverage.mjs",
