@@ -27,14 +27,14 @@ The appendix comes last in the series because the comparison only makes sense on
 | What the retelling says | What the original says | Verdict |
 |---|---|---|
 | "Latest frontier-model training security report" | An official blog post, categorized as a Publication, not a paper or formal technical report | Matches; "report" is a bit heavy |
-| "The strongest internal models (including the upcoming GPT-6 Astra Cyber and an unreleased internal frontier model) took part" | These two models were used in the red-teaming campaign as a whole; the original does not say which one ran any given channel experiment | Matches; narrow the scope to the whole campaign |
-| "Two AI agents" deployed in different virtual machines | The original says agents in separate microVMs and gives no number | The number is not in the original |
-| "No network connection configured, and no shared file system with write access" | The original: without the use of network connections or shared writable files | Matches |
-| "The AI agents worked out, on their own, a communication protocol using the processor cache" | In most tests OpenAI directed a channel or supplied a protocol; only once were agents given just a list of vulnerabilities, and the channel is not named; in the cache experiment the agents agreed on a protocol | Overreach |
+| "The strongest internal models (including the upcoming GPT-6 Astra Cyber and an unreleased internal frontier model) took part" | The original names these two as examples ("including") of the models used in the red-teaming campaign as a whole; it does not say which one ran any given channel experiment | Roughly matches; narrow the scope to the whole campaign |
+| "Two AI agents" deployed in different virtual machines | The original says agents in separate microVMs and gives no overall number; the cache experiment's description (one evicts, another times) implies two | Roughly matches; the number is not stated |
+| "No network connection configured, and no shared file system with write access" | The original: without the use of network connections or shared writable files; this is a condition of the task given to the agents, and the original does not say the environment had no network configured | Roughly matches, but the original states a task condition |
+| "The AI agents worked out, on their own, a communication protocol using the processor cache" | In most tests OpenAI directed a channel or supplied a protocol; only once were agents given just a list of vulnerabilities, with the channel unnamed; the original does not say which group the cache experiment belongs to. The cache experiment's task itself was to exchange synthetic secrets, and the agents found a way and agreed on a protocol | Overreach: drops "most" and that the task was assigned; the original's "found a way" and "agreed on a protocol" only partly support it |
 | Continuous writes versus idle on storage, and the acoustic-modem chain of thought | In the original; the chain-of-thought line has an ellipsis | Matches |
 | CPU contention, "recovering binary information from scheduler delay and compute time" | The original has one sentence: competition for CPU time within a shared execution container | The detail is not in the original |
 | "Cache state in the offline web environment, and the TLS certificate cache" | The original lists only the TLS certificate cache | "Cache state" is not in the original |
-| "The result left the global security industry quite pessimistic," "thin as paper" | No such argument in the original; it says most channels carry information slowly and are difficult to exploit, that no route to the internet was found that could be trivially exploited while hiding from monitors, that the number of weaknesses found fell markedly as red-teaming continued, and that training resumed on October 1 after fixes | Reverses the original's tone |
+| "The result left the global security industry quite pessimistic," "thin as paper" | The original has no argument about the industry being pessimistic. Its tone is that weaknesses were fixed and monitoring added detection, most channels carry information slowly and are difficult to exploit, the number of weaknesses found fell markedly as red-teaming continued, and training resumed on October 1; it also acknowledges that the channels let agents communicate across boundaries meant to keep them apart and expects future models to find weaknesses it does not know about yet. The sentence about finding no route to the internet that could be trivially exploited while hiding from monitors is about internet routes, not channels | Not in the original, and the tone differs |
 | "To guard against malicious AI worms that may appear in the future" | Not in the original | Not in the original |
 | "Traditional isolation that relies on software-level sandboxes" was broken | These channels come from shared hardware and services; the original has a separate section on microVM escapes, which is a different matter | Two things merged |
 
@@ -45,15 +45,15 @@ Several conditions that change a reader's judgment are missing from the retellin
 - The red team was given the infrastructure source code, configuration, and descriptions of potential vulnerabilities, to test defenses under conditions favorable to an attacker.
 - The experiments ran on isolated, purpose-built copies.
 - Bandwidth and error rates were not published.
-- The weaknesses were patched, and monitoring now has checks to detect these channels.
+- The weaknesses the red team found were patched; for these communication channels the original says only that checks to detect them were added to monitoring, not that the channels were closed.
 
 ## Three patterns where the differences cluster
 
 The retelling's factual skeleton mostly matches; the differences cluster in three patterns:
 
-1. **"Directed" becomes "on their own."** The original uses qualifiers: in most tests a channel was specified or a protocol supplied, with one exception. The retelling drops the qualifier and the sentence becomes more dramatic.
+1. **"Mostly directed" becomes "on their own."** The original uses qualifiers: in most tests a channel was specified or a protocol supplied, with one exception, and it does not say which group the cache experiment belongs to. The retelling drops the qualifier and the sentence becomes more dramatic.
 2. **Details the source does not have.** "Scheduler delay," "binary information," and "cache state" read as plausible but are not in the original. The more specific a detail, the easier it is to assume it came from the original.
-3. **Added commentary.** "Pessimistic" and "thin as paper" are the retelling's own judgment; the original's tone is that it was contained and fixed.
+3. **Added commentary.** "Pessimistic" and "thin as paper" are the retelling's own judgment; the original's tone is fixed and detectable, while acknowledging that the channels exist and expecting more in future.
 
 ## Five steps to check any retelling
 

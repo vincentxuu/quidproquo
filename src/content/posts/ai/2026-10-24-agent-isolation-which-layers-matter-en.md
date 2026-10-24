@@ -6,7 +6,7 @@ category: ai
 tags: [ai-agent, sandbox, ai-security, threat-model, isolation]
 lang: en
 description: "Map the series' five isolation layers onto three situations, personal, team-internal, and multi-tenant platform, say how much each layer matters, and list three things to do first and three that can wait for each."
-tldr: "OpenAI wrote about a research environment for training frontier models; for a personal agent, limiting credentials and exits comes first, and covert channels become a main risk only once there is a second tenant that must be isolated."
+tldr: "In my judgment, OpenAI wrote about a research environment for training frontier models; for a personal agent, limiting credentials and exits comes first, and covert channels become a main risk only once there is a second tenant that must be isolated."
 difficulty: 進階
 draft: true
 series:
@@ -20,7 +20,7 @@ This series covered five layers of isolation and two kinds of problem, with case
 
 First, the scope. OpenAI's October 23 post says at the start that it describes the environments used to train and evaluate frontier models, which differ from those in which customers use released models: models in development may not yet have completed safety and alignment training, and OpenAI deliberately tests them under adversarial conditions. So the red-team agents in the post were set up to find holes; that does not mean the coding agent you use is doing these things every day.
 
-Afterwards you should be able to write down three things to do first and three that can wait for your own situation. The ranking here is my judgment, assembled from the previous five posts and the Linux kernel documentation, not any vendor's standard.
+Afterwards you should be able to write down three things to do first and three that can wait for your own situation. The ranking here is my judgment, assembled from the previous six posts and the Linux kernel documentation, not any vendor's standard.
 
 ## Three situations
 
@@ -38,15 +38,15 @@ The Linux kernel's [attack vector controls document](https://docs.kernel.org/adm
 |---|---|---|---|
 | L1 Container | High: your files and credentials are right there | High | High, but not enough alone |
 | L2 Kernel boundary | Low to medium: no second party to defend against; a kernel bug takes someone deliberately exploiting it | Medium | High: use microVMs or gVisor |
-| L3 Shared host and hardware | Low: a channel needs two sandboxes that must be isolated sharing a machine | Medium: depends on trust between users | High: one process per tenant, SMT off |
-| L4 Network and exits | High: the cheapest and most direct layer | High | High |
-| L5 Monitoring and stopping | Medium: at least keep records | Medium to high: someone has to watch | High: stop automatically and test regularly |
+| L3 Shared host and hardware | Low: a channel needs two sandboxes that must be isolated sharing hardware or services | Medium: depends on trust between users | High: one process per tenant, SMT off |
+| L4 Network and cloud perimeter (exits) | High: the cheapest and most direct layer | High | High |
+| L5 Monitoring (including automatic stopping) | Medium: at least keep records | Medium to high: someone has to watch | High: stop automatically and test regularly |
 
 This table is judgment, not measurement. Some reasons:
 
 - **L4 is high in every situation.** An exit needs no second tenant; as long as the program in the sandbox can reach credentials, it is worth limiting where it can connect. This is also the cheapest layer to act on: allowlists and DNS restrictions, covered in [More Than One Way Out](/posts/ai/2026-10-24-agent-isolation-indirect-exits-en).
-- **L3 is low for a personal setup.** A covert channel needs two programs that must not communicate sharing hardware, and a single user usually has no second party. That is the premise of the whole of [Talking Without a Network](/posts/ai/2026-10-24-agent-isolation-covert-channels-intro-en).
-- **L1 is high for a personal setup.** If a tool program can read your whole home directory and inherit deployment keys, one bug can get past the tool's own authorization checks. That layer is already tested hands-on in [Agent Sandboxes, Credentials, and Network Boundaries](/posts/ai/2026-10-22-ai-security-sandbox-credentials-en).
+- **L3 is low for a personal setup.** A covert channel needs two programs that must not communicate sharing hardware or services, and a single user usually has no second party. That is the premise of the whole of [Talking Without a Network](/posts/ai/2026-10-24-agent-isolation-covert-channels-intro-en).
+- **L1 is high for a personal setup.** If a tool program can read your whole home directory and inherit deployment keys, one bug can get past the tool's own authorization checks. That post, [Agent Sandboxes, Credentials, and Network Boundaries](/posts/ai/2026-10-22-ai-security-sandbox-credentials-en), tested file and network denial and environment inheritance on macOS with synthetic secrets; it did not test vulnerability escapes or containers.
 
 ## Three to do and three that can wait, per situation
 
@@ -78,7 +78,7 @@ This table is judgment, not measurement. Some reasons:
   1. MicroVMs, one process per tenant, different trust levels on different hosts, and SMT off.
   2. Storage through direct I/O or dedicated block devices, avoiding the shared host page cache.
   3. Exit restrictions, monitoring, and automatic stopping, with the whole pipeline checked using test events.
-- Can wait: nothing. In this situation every item in the previous five posts is relevant, and the priority depends on threat and cost, not on whether to do it.
+- Can wait: nothing. In this situation every item in the previous six posts is relevant, and the priority depends on threat and cost, not on whether to do it.
 
 ## When to move up a level
 
