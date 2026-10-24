@@ -5,7 +5,7 @@ category: climbing
 tags: [climbing, rope-solo, top-rope, multi-pitch, climbing-gear, outdoor-climbing]
 lang: en
 type: guide
-description: "Climbing alone on a rope, from top-rope soloing to single-pitch lead rope soloing to multipitch: what each system looks like, how to choose the gear, whether the manufacturer allows that use, the failure modes that show up in AAC accident reports, and what to check before you leave the ground. With HowNOT2 demonstrations and field videos from Molladalen in Norway and Jōyama on Japan's Izu Peninsula."
+description: "Climbing alone on a rope, from top-rope soloing to single-pitch lead rope soloing to multipitch: what each system looks like, how to choose the gear, whether the manufacturer allows that use, the failure modes that show up in AAC accident reports, and what to check before you leave the ground. With HowNOT2 and EDELRID demonstrations and field videos from El Capitan, Zion, Red Rock, Norway and Jōyama on Japan's Izu Peninsula."
 tldr: "Rope soloing comes in three tiers, from simplest to hardest: top-rope soloing (the rope is fixed above you and two devices ride up with you), single-pitch lead rope soloing (the tail is anchored at the base and you feed your own rope and catch your own falls), and multipitch rope soloing (every pitch is climbed once, rappelled once and climbed again). Most devices' makers do not support self-belay: Petzl says the GriGri is not a self-belay device and forbids modifying it, and only a handful of devices are labelled for solo use. The baseline across all three tiers: two systems, backup knots, a test on the ground, and never changing your usual routine because you are in a hurry."
 draft: false
 series:
@@ -150,11 +150,45 @@ Build the anchor itself (two equalized points, edges padded) as for any top rope
 - **Weight the tail.** With nothing pulling the rope down, the devices won't slide up by themselves; you have to keep pulling rope through and your falls get longer. AAI suggests coiling the leftover rope and tying it off a few feet above the ground as a weight; with little rope left, [Josh Wharton](https://climbing.com/skills/how-to-toprope-solo) clips on a water bottle.
 - **The first few meters carry a ground-fall risk.** Petzl notes that rope stretches about 10% under load, so on a 50 m fixed line a fall in the first 5 m may reach the ground. Treat the first few meters as unprotected and skip routes with a low crux.
 
+**Petzl's two-rope method, done once for real.** Besides AAI's two-strand setup above, [Petzl's tech tip](https://petzl.com/us/en/sport/tech-tips/expert-techniques/self-belay--solo-climbing-with-one-or-two-fixed-ropes/auto-assurage-2023_SPO_a77Tx00000000KzIAI.html) has a version too: two ropes, one device on each, sharing a single carabiner. [In this video](https://www.youtube.com/watch?v=l7EwFS4F20Y), about 10 minutes long, Yann Camus follows it and critiques each step. The player starts at 0:26: the rope's midpoint is tied off at the top so each strand is anchored on its own. Then:
+
+- **From 1:38, bumpers on the single carabiner:** with anti-rotation bumpers fitted, the carabiner loads correctly.
+- **From 2:19, the device pair:** he uses a Micro Traxion and a Spoc, and has removed the Spoc's cord that holds its cam open. Petzl allows only the Micro or Nano Traxion for this method, so his setup is outside what Petzl covers.
+- **From 2:40, the chest harness:** Petzl says a sit harness alone is enough; he adds a chest harness anyway so the rope runs more smoothly.
+- **From 4:30, switching to rappel:** he calls this part "a little bit sketchy," because he unclips both devices at the same time and relies on a backup knot tied beforehand to cover the gap.
+- **From 5:10, the rope:** use dynamic rope for two strands. Both strands take the fall together, and low-stretch rope makes the catch too hard.
+
+Yann runs Bliss Climbing's solo courses and sells bumpers, and plugs his own products throughout.
+
+```youtube
+url: https://www.youtube.com/watch?v=l7EwFS4F20Y
+title: Petzl’s New Top Rope Solo Method | Sketchy? (Yann Camus)
+start: 26
+```
+
 ### Two devices, ideally different models
 
 The top device gets the most debate. CAMP doesn't list fall arrest as a use for the Lift, yet many climbers use it there: Josh Wharton writes in [Climbing](https://climbing.com/skills/how-to-toprope-solo) that it won't go up the rope if rigged upside down, has no button that locks it open, and its toothless lever is easier on the sheath. The Micro Traxion's risk is that with the cam locked open it is just a pulley.
 
 If the chest harness goes around your neck, use thin cord or a breakaway clip. HowNOT2's [TRS guide](https://hownot2.com/trs-guide) says to make sure whatever you use will break before it strangles you.
+
+**A pro climber's complete top-rope solo setup.** Australian pro climber [Tom O'Halloran's guide](https://www.youtube.com/watch?v=8vfLCYvZ-q8) runs about 49 minutes. He doesn't sell solo gear, and the description says "this is just how I like my setup. Not a safety course." The player starts at 1:35 with his main device, the TAZ LOV3: it works both up and down, so he can lower himself to rehearse a crux. [TAZ sells it as work-at-height gear](https://taz3d.fr/product/lov3/?lang=en), and [its manual](https://taz3d.fr/wp-content/uploads/2023/12/NT-taz_lov3_fr_eng-231017.pdf) warns against progressing while the device moves downward, so his use is beyond what the maker intends. Then:
+
+- **From 2:24, Micro Traxion and GriGri:** the Micro Traxion works well but can't go down; from 4:14 he advises against a GriGri as the main device, since you spend all day pulling rope by hand.
+- **From 9:48, anchors:** several knots; from 13:48, a bad example with a figure eight on each of two points and no load sharing.
+- **From 19:00, rappelling in:** first check that the LOV3's safety button is engaged; then re-fix the rope at an anchor on the route, weighting the new system before taking the old one apart.
+- **From 30:39, the backup device's extension:** too long and a main-device failure means a long drop that shock-loads a toothed device; he shortened it and keeps the device held in the right orientation.
+- **From 35:11, dynamic rope stretch:** on a 70 m dynamic rope he ties a few slip knots down the route so the whole length isn't stretching below him.
+- **From 39:22, going down on a Micro Traxion:** he shows the switch to a GriGri, and calls it "safe, it's just a faff."
+- **From 44:21, before you go:** practice first on a belayed top rope, and tell someone where you're going and when you'll be back.
+
+The description lists sponsors (The North Face Australia, Black Diamond Australia and others) and discount codes; the neck lanyard and carabiner keeper in the video are Avant products he bought himself.
+
+```youtube
+url: https://www.youtube.com/watch?v=8vfLCYvZ-q8
+title: How I Top Rope Solo - a fairly complete guide (Tom O'Halloran)
+start: 95
+```
 
 ### A backup knot is the last line, not a second device
 
@@ -257,6 +291,21 @@ start: 2778
 - **Don't lead on progress capture devices.** Kirkpatrick says ascenders, including Traxions, can badly damage the rope in a fall. [Edelrid's tests](https://edelrid.com/int-en/knowledge/knowledge-base/impact-dynamic-loads-self-locking-pulley-spoc) show that a toothed pulley taking a factor-1 fall near the anchor can sever the rope completely.
 
 Attach the device with two carabiners, or a steel maillon to avoid cross-loading. In a Half Dome fatality the AAC published in 2006, the GriGri was found rigged for a rappel from the top anchor and never engaged; the AAC could not say whether he rigged it backwards or re-rigged it to rappel before clipping in, but either way the device was no use ([AAC report](https://publications.americanalpineclub.org/articles/13200604200)). Once rigged, sit back on it on the ground.
+
+**Roc Solo vs Silent Partner, compared for real.** [In this video](https://www.youtube.com/watch?v=Y1w1HtsWLLo), about 13 minutes long, Yann Camus takes real falls on a new Roc Solo and a discontinued Silent Partner and measures friction with a range of ropes. The player starts at 10:13 with his conclusion: with the right rope he'd pick the Roc Solo every time; on a fat 10.5 mm rope the Silent Partner may be better, since it was designed for thicker ropes. Other segments:
+
+- **From 1:19, a defect in a new device:** when his Roc Solo arrived, it wouldn't release once he sat on the rope, so he couldn't rappel; it went back to the factory in France for repair. Sitting on it once on the ground is how you catch this kind of problem.
+- **From 4:05, falls on old rope:** two real falls on a very old, thin rope that feels "just like shoelace."
+- **From 5:16, friction tests:** with some ropes the Roc Solo pulls so stiffly that he calls it unacceptable.
+- **From 11:09, how to choose:** a GriGri when he expects to fall a lot and work moves; the Roc Solo for routes with downclimbing, traverses and roofs. He says the Roc Solo will catch an upside-down fall, but you still need a backup.
+
+Yann runs solo courses and a gear brand. From 12:39 he suggests a GriGri if money is tight, a use Petzl does not allow.
+
+```youtube
+url: https://www.youtube.com/watch?v=Y1w1HtsWLLo
+title: Roc Solo vs Silent Partner - I Was NOT Expecting This! (Yann Camus)
+start: 613
+```
 
 ### Backup knots and slack
 
@@ -397,6 +446,89 @@ title: My first Lead Rope Solo multi pitch - Molladalen Series (Øystein Dahl)
 start: 231
 ```
 
+### Rope solos on famous routes
+
+The five videos below are all from 2024 or later: one person roped-soloing a well-known wall, with narration that covers the system or what went wrong. Watch for the risks and mistakes each climber admits to. Four are in the US: famous crags in Asia and Europe have rope-solo videos too, but most have only music and no narration, so their content couldn't be checked and they aren't included.
+
+**El Capitan, *Salathé Wall*, in a day.** [Brant Hysell](https://www.youtube.com/watch?v=YupCttU7AKY) rope-solos this classic big wall of about 35 pitches on a Silent Partner. The video is about 52 minutes, with commentary from Avant's Brent Barghahn. Brant says that before this he had rope-soloed only about 20 pitches in total. The player starts at 1:22, where Brent explains why each pitch is covered three times. Then:
+
+- **From 12:55, the system on the route:** Brant says the rope fixed below is your belayer; all told, it's like climbing El Cap twice.
+- **From 17:00, cache loops:** pre-feed a loop of about 6 m of slack and stop to feed again every so often; what really takes time is going back down to clean and jugging up.
+- **From 27:02, the Hollow Flake:** one piece of protection between him and a very long fall, with a long loop of slack, and he still has to remove that one piece to keep climbing.
+- **From 32:09, long pitches:** very long pitches to minimize changeovers, while guarding against backfeed; this is where Avant's Soft Cinch comes in.
+- **From 44:43, a fall:** on the headwall several aid placements pop in a row, and he falls about 9 m; luckily he had clipped a bolt. He says he trusted the gear too much.
+
+The Soft Cinch is Brent's company's product, and the description promotes Bliss Climbing's paid course. The video never states his finishing time; only the title says under 24 hours.
+
+```youtube
+url: https://www.youtube.com/watch?v=YupCttU7AKY
+title: Climbing EL CAPITAN ALONE in under 24 hours (The Gravity Lab - Brant Hysell)
+start: 82
+```
+
+**El Capitan, *Lurking Fear*, aid climbing that ends in a retreat.** [TAKEMOVIE](https://www.youtube.com/watch?v=NcZIACmt4OI) aid-solos this 19-pitch route, sleeping on the wall in a portaledge. The video is about 33 minutes, in Japanese. The player starts at 9:24, where he explains the system for non-climbers: fix the rope at the bottom, climb up, lower down cleaning the cams, then jug back up; repeat 19 times and you reach the top. Then:
+
+- **From 6:20, a disclaimer:** he says plainly that his system uses the gear in ways the manufacturer doesn't recommend.
+- **From 17:32, hauling:** go down for the gear, come back up, haul, and repeat.
+- **From 19:34, a traverse:** climb across normally, then hang on a rope tied to the previous piece and jug back, sending the pack right the same way.
+- **From 28:34, the retreat:** he brought only two days of water; from 29:07 he gets dizzy every time he stands up, judges that continuing invites mistakes, and rappels from pitch 9.
+
+The narration never names his devices; the description lists a GriGri, a Micro Traxion and more, all as Amazon affiliate links. He describes himself as an amateur, not an expert, with no certification.
+
+```youtube
+url: https://www.youtube.com/watch?v=NcZIACmt4OI
+title: 世界一有名な巨岩『エルキャピタン』に一人で登りたい男の挑戦 _Lurking Fear (TAKEMOVIE)
+start: 564
+```
+
+**Zion, the first four pitches of *Spaceshot*: free and aid, with hauling.** [Daniel Bell's video](https://www.youtube.com/watch?v=3f8c2wcd3_E), about 43 minutes long, explains its gear more clearly than any other in this batch. The player starts at 2:00 with his kit: a GriGri+ in top-rope mode, facing out and held upright, with Avant's lead rope solo harness and Flex Link, a knot in the end of the rope, and a buddy check he does on himself before leaving. Then:
+
+- **From 10:11, hauling:** he recommends clipping a quickdraw to another piece, so something still catches the load if the whole haul system fails.
+- **From 12:37, the anchor:** he builds a four-piece trad anchor.
+- **From 16:17, a snagged cache loop:** caught behind the lead line; at 17:03 it happens again, and he says it's bad when you don't notice and keep climbing.
+- **From 25:20, someone else's webbing:** he won't trust webbing left at an anchor without first clipping his own carabiner.
+- **From 37:34, aid on pitch four:** a bounce test rips a nut out: "that's why we bounce tested it."
+
+The first line of the description is a link to buy Avant gear, and most of his gear is Avant's; self-belaying on a GriGri is outside what Petzl allows. The first two minutes are the bike approach.
+
+```youtube
+url: https://www.youtube.com/watch?v=3f8c2wcd3_E
+title: Spaceshot Rope Solo P 1-4 | Zion (Daniel Bell)
+start: 120
+```
+
+**Red Rock's Mount Wilson, a two-day trad climb.** [Eli Catanz](https://www.youtube.com/watch?v=r0mZu2y7jYY) rope-solos *Inti Watana* into *Resolution Arête* to the top of Red Rock's tallest mountain, sleeping on a ledge partway. The video is about 24 minutes, and he doesn't name his belay device. The player starts at 0:57, where he explains rope soloing in plain terms: every pitch is covered three times. Then:
+
+- **From 3:02, it's harder alone:** managing the rope between moves means holding positions much longer; at 3:50 he falls at the crux.
+- **From 7:01, a stuck rope:** the rope wedges in a crack below, so he lowers to free it and climbs that pitch two extra times; on day two it jams again.
+- **From 7:40, fixing on the way down:** every so often he clove-hitches the rope to a bolt or piece while rappelling to clean, because even in sandstone the edges worry him.
+- **From 8:59, the ledge bivy:** he stays tied in while he sleeps.
+- **From 16:07, an unprotected stretch:** on soft, crumbly rock he can't find anywhere to anchor the rope and climbs on unprotected until he can build an anchor and rope up again at 16:54. That stretch is effectively unroped; don't copy it.
+
+The description has no sponsored links.
+
+```youtube
+url: https://www.youtube.com/watch?v=r0mZu2y7jYY
+title: Solo Climbing the Tallest Mountain in Red Rocks NV (Eli Catanz)
+start: 57
+```
+
+**Norway, the north wall of Kjerag, in under 24 hours.** [This Wide Boyz video](https://www.youtube.com/watch?v=IiJ5R71FT_k), about 35 minutes long, sets out to free an A2 aid route that hasn't been freed yet; it's about 1,000 m from the fjord to the summit. The player starts at 0:44: he says he's alone but has a rope, and this is not free soloing. Then:
+
+- **From 9:49, two ropes:** he trails a lead line and a spare; the key is long pitches and fewer changeovers, and on ledges he restacks the rope.
+- **From 12:07, the first changeover:** rappel back down, then jug back up.
+- **From 18:33, a closed system:** he never leaves a loose rope end; every end is clipped to something, forming a loop, so he can't rappel off the end.
+- **From 20:35, rockfall:** two big rockfalls at the mid-height ledge, and debris hits him; after that he moves through the grassy section fast without the rope.
+- **From 28:23, a device stops working:** grass clogs his ascender.
+
+He doesn't name his devices. The channel belongs to Pete Whittaker and Tom Randall, and the video doesn't say which of them this is; the description advertises their own crack-climbing course and gloves.
+
+```youtube
+url: https://www.youtube.com/watch?v=IiJ5R71FT_k
+title: Soloing the North Wall of Kjerag in under 24hrs (Wide Boyz)
+start: 44
+```
+
 ### Multipitch accidents
 
 - **Zodiac, pitch 1, Yosemite, 2017:** a climber aid-soloing on a Silent Partner had a nut blow about 10 feet below the anchor; in all, six placements pulled or failed, and he fell about 110 feet and stopped level with the first bolt. He later noted that because he was soloing he hadn't extended placements with quickdraws, which may have made a cam more likely to pull ([AAC report](https://publications.americanalpineclub.org/articles/13201214846)).
@@ -430,6 +562,21 @@ In all three, nobody was there to say "you haven't taken in that slack" or "put 
 1. **Practice each tier with a belay backing you up.** For top-rope soloing, have a partner belay you on a second rope alongside, with a little slack so your solo system takes the load first; for lead soloing, rig a separate top rope above you.
 2. **Move to the next tier only when the current one is solid.** Do many clean top-rope solo sessions before thinking about lead.
 3. **Learn from someone who does it.** This site's [Self-Rescue Basics](/posts/climbing/2026-10-17-self-rescue-basics-en) and [Multi-Pitch Basics](/posts/climbing/2026-10-17-multi-pitch-basics-en) are prerequisites, not a replacement for hands-on teaching.
+
+**Walk through the system at home first.** [Nitant's video](https://www.youtube.com/watch?v=peg-HXbh0as), about 11 minutes long, uses a small backyard tree as the anchor to simulate a whole single-pitch lead rope solo, from rigging the ground anchor to lowering and stripping it. The description says it is not a tutorial but how he prepares before going out. The player starts at 5:40 with cache loops: the rope next to the device must carry no weight, or the rope hanging below will pull the GriGri into locking; size them so you can drop one loop at each clipping stance. He shows three ways: a slip knot, a clove hitch, and a progress capture pulley with a knot behind it. Other segments:
+
+- **From 0:21, handing the belayer's jobs to the system:** catching the fall, feeding and taking in rope, and a device that reliably locks.
+- **From 4:15, rigging the ground anchor:** clipped with a stick clip, and the rule is "no unnecessary, unattended, unaware slack."
+- **From 8:18, an upside-down fall:** the GriGri feeds out the whole cache loop and stops only at the backup knot.
+- **From 8:37, lowering off:** how to strip a two-bolt inline ground anchor. Clip your PAS to the quick link before unclipping the bolt carabiner, or you'll slide all the way down.
+
+His GriGri+ hangs upside down on his chest, held by thin cord; Petzl allows neither self-belaying nor the modification. Most of the gear is Avant's, and the description has no sponsored links.
+
+```youtube
+url: https://www.youtube.com/watch?v=peg-HXbh0as
+title: Mock Lead Rope Solo at Home // How the System Works (Nitant)
+start: 340
+```
 
 ## Practice: three scenarios
 
@@ -473,6 +620,7 @@ The series started with the [overview](/posts/climbing/2026-10-19-climbing-disci
 
 ## Update Log
 
+- 2026-10-24: added a "Rope solos on famous routes" section (two El Capitan routes, Zion, Red Rock and Kjerag in Norway), plus four technique videos in the fixed-rope, two-devices, device-choice and where-to-start sections.
 - 2026-10-24: expanded the introductions to all five embedded videos with timestamps, skippable segments and limitations; added TAKEMOVIE's 2021 system explainer; embedded Avant's multipitch video in the multipitch section with a segment guide.
 
 ## References
@@ -511,6 +659,17 @@ The series started with the [overview](/posts/climbing/2026-10-19-climbing-disci
 - [Lead Rope Solo from a manufacturer's point of view (EDELRID Knowledge Base, 2025-03)](https://www.youtube.com/watch?v=Q6N1Fav4MaI)
 - [My first Lead Rope Solo multi pitch - Molladalen Series (Øystein Dahl, 2025-04)](https://www.youtube.com/watch?v=h_AE3LKLg2w)
 - [Multipitch Climbing Without a Partner (Avant Climbing Innovations, 2026-06)](https://www.youtube.com/watch?v=lx0iwchriQ0)
+- [Climbing EL CAPITAN ALONE in under 24 hours (The Gravity Lab - Brant Hysell, 2024-07)](https://www.youtube.com/watch?v=YupCttU7AKY)
+- [世界一有名な巨岩『エルキャピタン』に一人で登りたい男の挑戦 _Lurking Fear (TAKEMOVIE, 2024-05, in Japanese)](https://www.youtube.com/watch?v=NcZIACmt4OI)
+- [Spaceshot Rope Solo P 1-4 | Zion (Daniel Bell, 2026-06)](https://www.youtube.com/watch?v=3f8c2wcd3_E)
+- [Solo Climbing the Tallest Mountain in Red Rocks NV (Eli Catanz, 2026-02)](https://www.youtube.com/watch?v=r0mZu2y7jYY)
+- [Soloing the North Wall of Kjerag in under 24hrs (Wide Boyz, 2026-08)](https://www.youtube.com/watch?v=IiJ5R71FT_k)
+- [How I Top Rope Solo - a fairly complete guide (Tom O'Halloran, 2025-12)](https://www.youtube.com/watch?v=8vfLCYvZ-q8)
+- [Petzl’s New Top Rope Solo Method | Sketchy? (Yann Camus, 2026-03)](https://www.youtube.com/watch?v=l7EwFS4F20Y)
+- [Roc Solo vs Silent Partner - I Was NOT Expecting This! (Yann Camus, 2026-09)](https://www.youtube.com/watch?v=Y1w1HtsWLLo)
+- [Mock Lead Rope Solo at Home // How the System Works (Nitant, 2026-05)](https://www.youtube.com/watch?v=peg-HXbh0as)
+- [LOV3 product page (TAZ)](https://taz3d.fr/product/lov3/?lang=en)
+- [LOV3 instructions (TAZ, PDF)](https://taz3d.fr/wp-content/uploads/2023/12/NT-taz_lov3_fr_eng-231017.pdf)
 - [Free Solo and Rope Solo](/posts/climbing/2026-10-19-free-solo-rope-solo-en)
 - [How to Use Aid Climbing Gear](/posts/climbing/2026-10-24-aid-climbing-gear-en)
 - [Setting Up a Top-Rope Anchor](/posts/climbing/2026-10-17-top-rope-anchor-setup-en)

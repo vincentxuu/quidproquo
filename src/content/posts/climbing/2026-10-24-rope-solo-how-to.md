@@ -5,7 +5,7 @@ category: climbing
 tags: [climbing, rope-solo, top-rope, multi-pitch, climbing-gear, outdoor-climbing]
 lang: zh-TW
 type: guide
-description: "一個人帶繩子爬，從頂繩獨攀、單段先鋒獨攀到多繩距獨攀，三層各自的系統長什麼樣、器材怎麼選、廠商准不准你這樣用、AAC 事故報告裡常見的失效方式，以及每層出發前要檢查什麼。搭配 HowNOT2 的示範，以及挪威 Molladalen、日本伊豆城山的實地影片。"
+description: "一個人帶繩子爬，從頂繩獨攀、單段先鋒獨攀到多繩距獨攀，三層各自的系統長什麼樣、器材怎麼選、廠商准不准你這樣用、AAC 事故報告裡常見的失效方式，以及每層出發前要檢查什麼。搭配 HowNOT2、EDELRID 的示範，以及 El Capitan、Zion、Red Rock、挪威、日本伊豆城山的實地影片。"
 tldr: "帶繩獨攀分三層，由簡到難：頂繩獨攀（繩子固定在上方，兩個器材跟著你往上）、單段先鋒獨攀（繩尾固定在地面，自己放繩、自己接墜落）、多繩距獨攀（每段爬一次、垂降一次、再爬一次）。多數器材的廠商不支援自我確保：Petzl 明說 GriGri 不是自我確保器材、改裝也不准；有廠商標明可用的只有少數幾款。三層共同的底線是兩套系統、備份結、地面先測，以及不因為趕時間改掉平常的做法。"
 draft: false
 series:
@@ -150,11 +150,45 @@ caption: 簡化示意。另一種作法是用兩條繩，每條繩各掛一個�
 - **繩尾要掛重物。** 繩子下方沒有重量時，器材不會自己往上滑，你得一直伸手拉，墜落距離也會變長。AAI 建議把剩下的繩子盤起來，綁在離地幾英尺的地方當重物；繩子短的時候，[Josh Wharton](https://climbing.com/skills/how-to-toprope-solo) 會掛一瓶水。
 - **前幾公尺有撞地風險。** Petzl 提醒繩子受力會延展約 10%，50 公尺的固定繩，前 5 公尺掉下來可能碰地。把前幾公尺當成沒有保護的區段，低處有難點的路線先不要選。
 
+**Petzl 的雙繩作法，實際做一次。** 上面 AAI 的雙股作法，[Petzl 的技術說明](https://petzl.com/us/en/sport/tech-tips/expert-techniques/self-belay--solo-climbing-with-one-or-two-fixed-ropes/auto-assurage-2023_SPO_a77Tx00000000KzIAI.html)也有一個版本：兩條繩各掛一個器材，共用一個鉤環。[Yann Camus 這支](https://www.youtube.com/watch?v=l7EwFS4F20Y)約 10 分鐘，照著做一次並逐項評論。播放器從 0:26 開始：繩子中點在頂端打結，兩股各自固定。接著：
+
+- **1:38 起，單一鉤環要加 bumper：** 加了防翻轉的 bumper，鉤環才會正確受力。
+- **2:19 起，器材組合：** 他配的是 Micro Traxion 和 Spoc，還拆掉了 Spoc 用來撐開凸輪的拉繩。Petzl 這個作法只允許 Micro 或 Nano Traxion，所以他這套已經不在 Petzl 的範圍內。
+- **2:40 起，胸式吊帶：** Petzl 說只穿坐式吊帶就可以，他還是加了胸式吊帶，讓繩子更順。
+- **4:30 起，轉成垂降：** 他自己說這段「有點危險」，因為兩個器材是同時拆下來的，靠事先打好的備份結補這個空檔。
+- **5:10 起，繩子：** 雙繩要用動力繩。墜落時兩股一起受力，低延展的繩子衝擊太硬。
+
+Yann 經營 Bliss Climbing 的獨攀課程，也賣 bumper，片中會穿插推銷自家產品。
+
+```youtube
+url: https://www.youtube.com/watch?v=l7EwFS4F20Y
+title: Petzl’s New Top Rope Solo Method | Sketchy?（Yann Camus）
+start: 26
+```
+
 ### 兩個器材，最好不同型號
 
 上方器材的選擇最多人討論。CAMP Lift 的廠商用途裡沒有擋墜落，但很多人仍拿它當上方器材：Josh Wharton 在 [Climbing 的教學](https://climbing.com/skills/how-to-toprope-solo)說，它裝反就上不去、沒有可以鎖開凸輪的按鈕，無齒凸輪對繩皮也比較溫和。Micro Traxion 的風險是凸輪鎖在打開位置時，它就只是一個滑輪。
 
 胸式吊帶如果繞過脖子，要用受力會斷的細繩或專用扣具。HowNOT2 的 [TRS 指南](https://hownot2.com/trs-guide)寫：不管用什麼，都要確定它會在勒住你之前斷掉。
+
+**一位職業攀岩者的完整頂繩獨攀配置。** 澳洲職業攀岩者 [Tom O'Halloran 這支](https://www.youtube.com/watch?v=8vfLCYvZ-q8)約 49 分鐘。他不賣獨攀器材，說明欄寫明「這是我喜歡的作法，不是安全課程」。播放器從 1:35 開始介紹他的主器材 TAZ LOV3：上下都能用，可以自己降回去重練難點。[TAZ 把它當高空作業器材賣](https://taz3d.fr/product/lov3/?lang=en)，[說明書](https://taz3d.fr/wp-content/uploads/2023/12/NT-taz_lov3_fr_eng-231017.pdf)警告不要在器材往下移動時攀爬，所以他這樣用已經超出廠商用途。接著：
+
+- **2:24 起，Micro Traxion 和 GriGri：** Micro Traxion 好用，但不能往下；4:14 起他說不推薦拿 GriGri 當主器材，因為整天都得用手拉繩。
+- **9:48 起，固定點：** 幾種打結法；13:48 起是一個反例：兩點各打一個 8 字結，沒有平均分力。
+- **19:00 起，實地垂降進場：** 先確認 LOV3 的安全按鈕扣好；接著在路線上的固定點重新固定繩子，原則是先讓新系統受力，再拆舊的。
+- **30:39 起，備份器材的延長：** 延長太長，主器材失效時會掉很遠，等於讓帶齒器材吃衝擊；他改成縮短，並把器材固定在正確方向。
+- **35:11 起，動力繩的延展：** 用 70 公尺動力繩時，他沿途打幾個活結，讓下方不會整條繩子都在延展。
+- **39:22 起，用 Micro Traxion 時要往下：** 示範換成 GriGri 的流程，他說「安全，只是麻煩」。
+- **44:21 起，出門前：** 先在有人確保的頂繩下練；出發前告訴別人去哪裡、幾點回來。
+
+說明欄列了贊助商（The North Face Australia、Black Diamond Australia 等）和折扣碼；片中的頸繩和鉤環固定件是他自己買的 Avant 產品。
+
+```youtube
+url: https://www.youtube.com/watch?v=8vfLCYvZ-q8
+title: How I Top Rope Solo - a fairly complete guide（Tom O'Halloran）
+start: 95
+```
 
 ### 備份結是最後一道，不是第二個器材
 
@@ -257,6 +291,21 @@ start: 2778
 - **不要用止退器材先鋒。** Kirkpatrick 說上升器（包括 Traxion）墜落時可能嚴重傷到繩子。[Edelrid 的實驗](https://edelrid.com/int-en/knowledge/knowledge-base/impact-dynamic-loads-self-locking-pulley-spoc)顯示，帶齒滑輪在接近固定點的地方承受係數 1 墜落，繩子可能整條斷掉。
 
 器材要用兩個鉤環接吊帶，或用鋼製快扣環避免橫向受力。AAC 2006 年收錄的一起 Half Dome 死亡事故，GriGri 被發現是從上方垂降的方向，整段都沒咬住；AAC 無法確定他是一開始就裝反，還是到頂後改成垂降卻還沒扣上固定點，但兩種情況器材都沒有作用（[AAC 事故報告](https://publications.americanalpineclub.org/articles/13200604200)）。裝好以後，在地面往下坐一次。
+
+**Roc Solo 和 Silent Partner，實際比一次。** [Yann Camus 這支](https://www.youtube.com/watch?v=Y1w1HtsWLLo)約 13 分鐘，拿新的 Roc Solo 和停產的 Silent Partner 實際墜落，並用多種繩子量摩擦力。播放器從 10:13 的結論開始：繩子選對的話，他每次都選 Roc Solo；用 10.5 mm 的粗繩時，Silent Partner 可能比較好，因為它原本就是為較粗的繩子設計的。其他段落：
+
+- **1:19 起，新器材的瑕疵：** 他的 Roc Solo 剛到貨時，坐在繩上就鬆不開、沒辦法垂降，寄回法國原廠修好。在地面坐一次，抓的就是這種問題。
+- **4:05 起，舊繩實摔：** 用一條很舊、摸起來像鞋帶的細繩真摔兩次。
+- **5:16 起，摩擦力測試：** 有些繩子配 Roc Solo 拉起來太緊，他認為不能接受。
+- **11:09 起，怎麼選：** 預計常摔、反覆練難點時用 GriGri；有下攀、橫移、屋簷的路線用 Roc Solo。他說 Roc Solo 接得住倒栽墜落，但一樣要有備份。
+
+Yann 經營獨攀課程和器材品牌。12:39 起他建議預算不夠就先買 GriGri，這是 Petzl 不允許的用法。
+
+```youtube
+url: https://www.youtube.com/watch?v=Y1w1HtsWLLo
+title: Roc Solo vs Silent Partner - I Was NOT Expecting This!（Yann Camus）
+start: 613
+```
 
 ### 備份結與鬆繩
 
@@ -397,6 +446,89 @@ title: My first Lead Rope Solo multi pitch - Molladalen Series（Øystein Dahl�
 start: 231
 ```
 
+### 知名路線的獨攀實錄
+
+下面五支都是 2024 年以後，在知名岩壁上一個人帶繩爬的紀錄，旁白都講到系統或出錯的地方。看的時候留意，每一支都有攀登者自己承認的冒險或失誤。四支在美國：亞洲和歐洲的知名岩場也有獨攀影片，但多半只有音樂、沒有旁白，沒辦法核對內容，這次沒有收。
+
+**El Capitan〈Salathé Wall〉，一天內爬完。** [Brant Hysell](https://www.youtube.com/watch?v=YupCttU7AKY) 一個人爬這條約 35 段的經典大岩壁，用 Silent Partner 確保。影片約 52 分鐘，穿插 Avant 的 Brent Barghahn 講解。Brant 說，在這次之前，他總共大約只獨攀過 20 段。播放器從 1:22 開始，Brent 解釋為什麼一段要走三次。接著：
+
+- **12:55 起，在路線上講系統：** Brant 說繩子固定在下面，那就是你的確保者；換算下來，等於把 El Cap 爬了兩次。
+- **17:00 起，cache loop：** 預先放一段約 6 公尺的鬆繩，爬一段就得停下來再放；真正花時間的是下降拆保護和上升。
+- **27:02 起，Hollow Flake：** 只有一個保護點擋在他和一次很長的墜落之間，身上還留著很長的鬆繩，最後還得把那唯一的點拆掉繼續爬。
+- **32:09 起，拉長繩距：** 用很長的繩距減少轉換；同時要防繩子回送，這裡介紹 Avant 的 Soft Cinch。
+- **44:43 起，墜落：** 頂端岩壁連續幾個人工攀登保護點脫出，他摔了約 9 公尺，幸好先掛了一顆 bolt。他說自己太信任那些點。
+
+Soft Cinch 是 Brent 公司的產品，說明欄也推廣 Bliss Climbing 的付費課程。片中沒講完成時間，只有標題寫 24 小時內。
+
+```youtube
+url: https://www.youtube.com/watch?v=YupCttU7AKY
+title: Climbing EL CAPITAN ALONE in under 24 hours（The Gravity Lab - Brant Hysell）
+start: 82
+```
+
+**El Capitan〈Lurking Fear〉，人工攀登，最後撤退。** [TAKEMOVIE](https://www.youtube.com/watch?v=NcZIACmt4OI) 一個人用人工攀登爬這條 19 段的路線，在壁上用吊帳過夜。影片約 33 分鐘，日文。播放器從 9:24 開始，他向不攀岩的觀眾解釋系統：繩子固定在最下面，爬上去，回收 cam 降到底，再用上升器爬回去，重複 19 次就到頂。接著：
+
+- **6:20 起，免責：** 他直接說這套系統的器材用法是廠商不推薦的。
+- **17:32 起，拖包：** 下去拿東西、上來、再拖包，一直重複。
+- **19:34 起，橫移段：** 先照常爬過去，再吊在綁在前一個點上的繩子爬回去，背包也用同樣的方法往右送。
+- **28:34 起，撤退：** 水只帶了兩天份；29:07 起他一站起來就頭暈，判斷再往上容易出錯，從第 9 段垂降撤退。
+
+旁白沒講器材名稱，說明欄列了 GriGri、Micro Traxion 等，都是 Amazon 聯盟連結。他自己說是業餘愛好者，不是專家，也沒有證照。
+
+```youtube
+url: https://www.youtube.com/watch?v=NcZIACmt4OI
+title: 世界一有名な巨岩『エルキャピタン』に一人で登りたい男の挑戦 _Lurking Fear（TAKEMOVIE）
+start: 564
+```
+
+**Zion〈Spaceshot〉前四段，自由攀加人工、有拖包。** [Daniel Bell 這支](https://www.youtube.com/watch?v=3f8c2wcd3_E)約 43 分鐘，是這批影片裡器材講得最清楚的一支。播放器從 2:00 開始介紹裝備：GriGri+ 調在頂繩模式、朝外直立，搭配 Avant 的獨攀吊帶和 Flex Link，繩尾打一個結，出發前自己做一次夥伴檢查。接著：
+
+- **10:11 起，拖包：** 他建議再用一條快扣扣到另一個點，萬一整套拖包系統失效，還有東西接住。
+- **12:37 起，確保站：** 自己用四個傳攀保護點架確保站。
+- **16:17 起，cache loop 卡住：** 卡在主繩後面；17:03 他又犯一次，說沒發現就繼續爬的話很糟。
+- **25:20 起，別人的扁帶：** 他不直接相信別人留在確保站的扁帶，先扣上自己的鉤環。
+- **37:34 起，第四段人工攀登：** 彈跳測試把一個岩楔拉了出來，他說「這就是為什麼要測」。
+
+說明欄第一行是 Avant 的購買連結，片中器材多是 Avant 的；GriGri 自我確保不在 Petzl 允許的範圍內。前兩分鐘是騎車接近。
+
+```youtube
+url: https://www.youtube.com/watch?v=3f8c2wcd3_E
+title: Spaceshot Rope Solo P 1-4 | Zion（Daniel Bell）
+start: 120
+```
+
+**Red Rock 的 Mount Wilson，兩天的長傳攀。** [Eli Catanz](https://www.youtube.com/watch?v=r0mZu2y7jYY) 一個人沿〈Inti Watana〉接〈Resolution Arête〉爬上 Red Rock 最高的山，中途在岩階上過夜。影片約 24 分鐘，他沒講用什麼確保器。播放器從 0:57 開始，他用一般人聽得懂的話講一次帶繩獨攀：每一段都要走三次。接著：
+
+- **3:02 起，一個人爬比較累：** 每個動作之間都要管繩子，姿勢要撐比較久；3:50 他在難點墜落。
+- **7:01 起，繩子卡住：** 繩子卡進下方的裂縫，他得放下去處理，這段因此多爬兩次；第二天又卡一次。
+- **7:40 起，垂降時中途固定：** 不時用雙套結把繩子掛在 bolt 或保護點上，他說就算是砂岩，稜角還是會磨繩。
+- **8:59 起，岩階過夜：** 睡覺時人仍然綁在繩上。
+- **16:07 起，沒有保護的一段：** 一段鬆軟的岩石找不到地方固定繩子，他就這樣往上爬，到 16:54 才架好固定點、重新上繩。這段等於沒有繩子保護，不要學。
+
+說明欄沒有贊助連結。
+
+```youtube
+url: https://www.youtube.com/watch?v=r0mZu2y7jYY
+title: Solo Climbing the Tallest Mountain in Red Rocks NV（Eli Catanz）
+start: 57
+```
+
+**挪威 Kjerag 北壁，24 小時內爬完。** [Wide Boyz 這支](https://www.youtube.com/watch?v=IiJ5R71FT_k)約 35 分鐘，目標是把一條人工攀登等級 A2、還沒被自由攀完的路線自由爬完；從峽灣到山頂約 1,000 公尺。播放器從 0:44 開始：他說自己是一個人，但有繩子，不是無繩獨攀。接著：
+
+- **9:49 起，兩條繩：** 拖一條主繩、一條備用繩；重點是拉長繩距、減少轉換，到了岩階就把繩子重新盤好。
+- **12:07 起，第一段的轉換：** 垂降回去，再用上升器爬回來。
+- **18:33 起，封閉系統：** 他從不留鬆的繩尾，每一端都扣在東西上形成一個迴圈，免得垂降時垂出繩尾。
+- **20:35 起，落石：** 中段岩階兩次大落石，他被碎石打到；之後沒上繩，快速爬過草坡。
+- **28:23 起，器材失靈：** 草卡進上升器。
+
+器材名稱沒講。頻道是 Pete Whittaker 和 Tom Randall 的，片中沒說這是誰；說明欄是自家裂縫攀登課程和手套的廣告。
+
+```youtube
+url: https://www.youtube.com/watch?v=IiJ5R71FT_k
+title: Soloing the North Wall of Kjerag in under 24hrs（Wide Boyz）
+start: 44
+```
+
 ### 多繩距的事故
 
 - **2017 年優勝美地 Zodiac 第一段：** 一名攀登者用 Silent Partner 獨攀人工攀登，離確保站約 10 英尺時一個岩楔脫出，前後共六個保護點脫出或失效，他墜落約 110 英尺，最後停在第一個 bolt 的高度。他事後分析，因為獨攀沒用快扣延長保護點，可能讓 cam 更容易被扯出（[AAC 事故報告](https://publications.americanalpineclub.org/articles/13201214846)）。
@@ -430,6 +562,21 @@ start: 231
 1. **先在有人確保的情況下練每一層。** 頂繩獨攀時，請繩伴用另一條繩子在旁邊幫你確保，留一點鬆繩，讓你的獨攀系統先受力；先鋒獨攀可以在上方另架一條頂繩保護你。
 2. **一層熟了再往下一層。** 頂繩獨攀沒有失誤地做過很多次，再談先鋒獨攀。
 3. **找做過的人帶你。** 本站的〈[自救概念](/posts/climbing/2026-10-17-self-rescue-basics)〉和〈[多繩距入門](/posts/climbing/2026-10-17-multi-pitch-basics)〉是前置知識，不能取代當面教學。
+
+**先在家裡把系統走一遍。** [Nitant 這支](https://www.youtube.com/watch?v=peg-HXbh0as)約 11 分鐘，在後院用一棵小樹當固定點，把單段先鋒獨攀從架地面固定點到下降拆站整套模擬一次。說明欄寫明這不是教學，是他出門前的準備方式。播放器從 5:40 開始講 cache loop：靠近確保器的那段繩子要沒有重量，不然下面整段繩子會把 GriGri 拉到鎖死；長度抓「每個能掛快扣的位置都能放掉一圈」。他示範三種作法：活結、雙套結、止退滑輪加後面打結。其他段落：
+
+- **0:21 起，確保者的工作交給系統：** 接住墜落、送繩收繩、確保器要鎖得住。
+- **4:15 起，架地面固定點：** 用 stick clip 掛上，口訣是「不要有不必要、沒人管、沒察覺的鬆繩」。
+- **8:18 起，倒栽墜落：** GriGri 會把 cache loop 整段送光，撞到備份結才停。
+- **8:37 起，到頂下降：** 怎麼拆兩個 bolt 串成的地面固定點。要先用 PAS 扣上 quick link，再拆 bolt 上的鉤環，否則會一路滑下去。
+
+他的 GriGri+ 倒掛在胸前、用細繩吊住，自我確保和改裝 Petzl 都不允許；片中器材多是 Avant 的產品，說明欄沒有業配連結。
+
+```youtube
+url: https://www.youtube.com/watch?v=peg-HXbh0as
+title: Mock Lead Rope Solo at Home // How the System Works（Nitant）
+start: 340
+```
 
 ## 練習題：三個情境
 
@@ -473,6 +620,7 @@ start: 231
 
 ## 更新紀錄
 
+- 2026-10-24：新增〈知名路線的獨攀實錄〉一節（El Capitan 兩條、Zion、Red Rock、挪威 Kjerag），並在架固定繩、兩個器材、確保器的選擇、從哪裡開始各節補上 4 支技術影片。
 - 2026-10-24：擴充五支嵌入影片的介紹，補上各段時間點、可以跳過的段落與限制；新增 TAKEMOVIE 2021 年的系統解說片；多繩距一節嵌入 Avant 的多繩距影片並附分段介紹。
 
 ## 參考資料
@@ -511,6 +659,17 @@ start: 231
 - [Lead Rope Solo from a manufacturer's point of view（EDELRID Knowledge Base，2025-03）](https://www.youtube.com/watch?v=Q6N1Fav4MaI)
 - [My first Lead Rope Solo multi pitch - Molladalen Series（Øystein Dahl，2025-04）](https://www.youtube.com/watch?v=h_AE3LKLg2w)
 - [Multipitch Climbing Without a Partner（Avant Climbing Innovations，2026-06）](https://www.youtube.com/watch?v=lx0iwchriQ0)
+- [Climbing EL CAPITAN ALONE in under 24 hours（The Gravity Lab - Brant Hysell，2024-07）](https://www.youtube.com/watch?v=YupCttU7AKY)
+- [世界一有名な巨岩『エルキャピタン』に一人で登りたい男の挑戦 _Lurking Fear（TAKEMOVIE，2024-05，日文）](https://www.youtube.com/watch?v=NcZIACmt4OI)
+- [Spaceshot Rope Solo P 1-4 | Zion（Daniel Bell，2026-06）](https://www.youtube.com/watch?v=3f8c2wcd3_E)
+- [Solo Climbing the Tallest Mountain in Red Rocks NV（Eli Catanz，2026-02）](https://www.youtube.com/watch?v=r0mZu2y7jYY)
+- [Soloing the North Wall of Kjerag in under 24hrs（Wide Boyz，2026-08）](https://www.youtube.com/watch?v=IiJ5R71FT_k)
+- [How I Top Rope Solo - a fairly complete guide（Tom O'Halloran，2025-12）](https://www.youtube.com/watch?v=8vfLCYvZ-q8)
+- [Petzl’s New Top Rope Solo Method | Sketchy?（Yann Camus，2026-03）](https://www.youtube.com/watch?v=l7EwFS4F20Y)
+- [Roc Solo vs Silent Partner - I Was NOT Expecting This!（Yann Camus，2026-09）](https://www.youtube.com/watch?v=Y1w1HtsWLLo)
+- [Mock Lead Rope Solo at Home // How the System Works（Nitant，2026-05）](https://www.youtube.com/watch?v=peg-HXbh0as)
+- [LOV3 產品頁（TAZ）](https://taz3d.fr/product/lov3/?lang=en)
+- [LOV3 說明書（TAZ，PDF）](https://taz3d.fr/wp-content/uploads/2023/12/NT-taz_lov3_fr_eng-231017.pdf)
 - [無繩獨攀與帶繩獨攀](/posts/climbing/2026-10-19-free-solo-rope-solo)
 - [人工攀登器材怎麼用](/posts/climbing/2026-10-24-aid-climbing-gear)
 - [頂繩固定點怎麼架](/posts/climbing/2026-10-17-top-rope-anchor-setup)
