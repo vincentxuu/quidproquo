@@ -1,6 +1,6 @@
 # 攀岩技術文章的來源清單
 
-給寫確保、固定點、多繩距、傳攀、救援、人工攀登與大岩壁、器材怎麼用這類技術文章的人：先從這份清單找來源，再用關鍵字補漏，不要每篇從零搜。岩場導覽的來源另見 `docs/climbing-sources.md`；器材實測影片頻道見 `scripts/config/climbing-gear-channels.json` 與 `.agents/skills/post/references/climbing-gear-videos.md`。
+給寫確保、固定點、多繩距、傳攀、救援、人工攀登與大岩壁、器材怎麼用這類技術文章的人：先從這份清單找來源，再用關鍵字補漏，不要每篇從零搜。每個來源的逐筆紀錄（讀到哪裡、哪篇文章用過、為什麼淘汰）存在[分類共用研究池](research-pool.md) `.research/pool/climbing/` 的 `technique`、`gear` 子題，先用 `node scripts/research-pool.mjs search --category climbing --topic technique --query '<主題>'` 查；這份文件記的是分級、擅長主題與已知陷阱。岩場導覽的來源另見 `docs/climbing-sources.md`；器材實測影片頻道見 `scripts/config/climbing-gear-channels.json` 與 `.agents/skills/post/references/climbing-gear-videos.md`。
 
 建立方式（2026-10-24）：用腳本抽出站上 90 份技術類中文文章與研究筆記（`.research/2026-10-1*` 的 sport-trad、technique、gear、disciplines 筆記，`.work/aid-climbing-gear/`、`.work/multipitch-hauling/`）的全部網址，依網域計次（結果存在 `.work/multipitch-hauling/source-domain-counts.txt`），再加上拖包文章兩輪研究的協會盤點。表中「引用」是網域出現在幾個檔案，只當作常用程度的參考。
 

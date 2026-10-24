@@ -74,9 +74,9 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 岩場／岩區導覽（〈日本岩場〉〈義大利岩場〉這類單篇與總覽）動筆前讀 `references/crag-guide-contract.md`，單篇用 `templates/crag-guide.md`、英文版用 `templates/crag-guide-en.md`（以仁壽峰中英兩篇為範本）：固定 H2、依程度分級路線表、`scripts/climbing-grade-convert.mjs --check` 換算、封閉類事實的一手來源要求。
 
-攀岩器材與保護系統文章（繩子、確保器、鉤環、吊帶、頭盔、岩楔／cam、固定點、bolt、確保、檢查汰換）預設補實測影片：先找 HowNOT2 與 Hard Is Easy，每篇 3–5 支嵌在對應段落、文末加頻道介紹。挑片、查證、限制寫法與標準稿見 `references/climbing-gear-videos.md`。
-
 攀岩器材與保護系統文章（繩子、確保器、鉤環、吊帶、頭盔、岩楔／cam、固定點、bolt、確保、檢查汰換）預設補實測影片：先找 HowNOT2 與 Hard Is Easy，每篇 3–5 支嵌在對應段落、文末加頻道介紹。研究前先定日期門檻（評測、影片、價格預設只收 2024 年以後）、先用 `scripts/yt-candidates.mjs` 掃頻道清單再用關鍵字補漏；挑片、查證、雜訊排除、限制寫法與標準稿見 `references/climbing-gear-videos.md`。
+
+攀岩技術文章（確保、固定點、多繩距、拖包、救援、人工攀登與大岩壁、器材怎麼用）研究前先讀 `docs/climbing-technique-sources.md`：哪些來源算一手、各自擅長什麼、已知陷阱（下架網址、付費牆、舊文年份）與多語搜尋關鍵字。它補的是來源分級與陷阱；查來源與寫回仍照上面的研究池流程。
 
 ### 1b. 多來源導讀與英文練習
 
