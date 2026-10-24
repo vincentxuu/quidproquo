@@ -45,7 +45,7 @@ There are two local models: Qwen 3.6, and PPLX Pro, Perplexity's post-trained ve
 | Memory recommendation | 36GB | 32GB |
 | Perplexity's example | Private holdings plus downloaded market data for a portfolio review | Confidential financials plus fresh market research for a deal review |
 
-The two examples draw the line. If everything the task needs is already on your Mac, pick fully local. If it needs fresh outside information and you don't want confidential files leaving as they are, pick Hybrid. Perplexity also said on X that local tasks don't consume Computer credits; only the steps that reach the cloud do.
+The two examples draw the line. If everything the task needs is already on your Mac, pick fully local. If it needs fresh outside information and you don't want confidential files leaving as they are, pick Hybrid. Perplexity also said in an [X post](https://x.com/perplexity_ai/status/2112571609693523990) that local tasks don't consume Computer credits; only the steps that reach the cloud do.
 
 ## An example: a Monday-morning to-do list
 
@@ -113,6 +113,7 @@ caption: Based on Perplexity's announcement and product page; dashed lines leave
 - **The cloud is a door you open.** Live information, the browser and connected apps need your authorization. The local agent can also call 15 or more frontier models, and that step sends content to the cloud.
 - **Whether it runs offline depends on the task.** 9to5Mac and MacStories both report that tasks complete without a connection; Perplexity's own announcement stresses that data isn't sent to the cloud and doesn't use the word "offline."
 - **36GB is a recommendation, not a floor.** Perplexity doesn't explain where the number comes from, and it hasn't published a capability comparison between the local and cloud models.
+- **The base model version is stated two ways.** The announcement lists Qwen 3.6 as a local option, while the X post calls PPLX Pro a post-trained version of Qwen 3.8.
 - **Permission details are thin.** The sandbox and access controls get one paragraph; whether macOS permissions such as Full Disk Access are needed isn't spelled out, as [Particle's write-up](https://particle.news/story/perplexitys-computer-can-run-fully-locally-on-apple-silicon-macs) points out.
 
 ## How to use it: try first, then decide on hardware
@@ -124,7 +125,7 @@ caption: Based on Perplexity's announcement and product page; dashed lines leave
    - **Under 24GB**: below even Hybrid's minimum, so stay on the cloud version of Computer.
 3. Pick a first task that only uses Notes, turn on airplane mode, and run it once. If it finishes, that kind of task doesn't depend on the cloud.
 4. Start with one app and one folder, and widen the scope once it behaves.
-5. Whether to buy a Mac for it: don't replace one for this feature alone. If you were upgrading anyway, pick at least the 36GB tier. [AppleInsider](https://appleinsider.com/articles/26/10/20/perplexity-computer-can-run-completely-local-on-mac-with-a-big-caveat) lays out the configurations: the M6 Mac mini tops out at 32GB, short of the recommendation; the M5 Pro Mac mini needs the 48GB or 64GB option; the M5 Max Mac Studio starts at 36GB.
+5. Whether to buy a Mac for it: don't replace one for this feature alone. If you were upgrading anyway, pick at least the 36GB tier. Per Apple's spec pages, the [M6 Mac mini](https://www.apple.com/mac-mini/specs/) tops out at 32GB, short of the recommendation; the M5 Pro Mac mini needs the 48GB or 64GB option; the [M5 Max Mac Studio](https://www.apple.com/mac-studio/specs/) starts at 36GB. [AppleInsider](https://appleinsider.com/articles/26/10/20/perplexity-computer-can-run-completely-local-on-mac-with-a-big-caveat) lists the same configurations.
 
 ## References
 
@@ -133,6 +134,7 @@ caption: Based on Perplexity's announcement and product page; dashed lines leave
 - [Introducing Hybrid Compute on Mac](https://www.perplexity.ai/hub/blog/introducing-hybrid-compute-on-mac): Hybrid announcement, 2026-09-01
 - [Perplexity's Computer can now run entirely on your Mac, even offline](https://9to5mac.com/2026/10/20/perplexitys-computer-can-now-run-entirely-on-your-mac-even-offline/): 9to5Mac
 - [Perplexity Computer's Local-First Approach to Agents](https://www.macstories.net/news/perplexity-computers-local-first-approach-to-agents/): MacStories
-- [Perplexity computer now runs on Mac with 36GB memory catch](https://appleinsider.com/articles/26/10/20/perplexity-computer-can-run-completely-local-on-mac-with-a-big-caveat): AppleInsider, Mac memory configurations
-- [Perplexity Adds Fully Local Computer Agent for Apple Silicon Macs](https://www.tao.media/perplexity-adds-fully-local-computer-agent-for-apple-silicon-macs/): summarizes Perplexity's X thread (local tasks don't consume credits)
+- [Perplexity computer now runs on Mac with 36GB memory catch](https://appleinsider.com/articles/26/10/20/perplexity-computer-can-run-completely-local-on-mac-with-a-big-caveat): AppleInsider
+- [Perplexity's X post](https://x.com/perplexity_ai/status/2112571609693523990): local tasks don't consume credits, PPLX Pro base model
+- [Mac mini specs](https://www.apple.com/mac-mini/specs/), [Mac Studio specs](https://www.apple.com/mac-studio/specs/): Apple, memory configurations
 - [Perplexity's Computer can run fully locally on Apple silicon Macs](https://particle.news/story/perplexitys-computer-can-run-fully-locally-on-apple-silicon-macs): Particle

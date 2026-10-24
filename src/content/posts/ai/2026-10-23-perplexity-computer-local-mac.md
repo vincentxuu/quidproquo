@@ -45,7 +45,7 @@ Perplexity Computer 是會自己規劃、呼叫工具、做完多步驟任務的
 | 記憶體建議 | 36GB | 32GB |
 | 官方舉的例子 | 私人持股加下載好的行情資料，做投組檢查 | 機密財報加最新市場研究，做交易審查 |
 
-兩個例子畫出了分界：任務需要的資料都已經在你的 Mac 上，選完全本地；需要最新的外部資訊，又不想讓機密檔案原樣出門，選 Hybrid。另外，Perplexity 在 X 上說本地任務不消耗 Computer credits，走到雲端的步驟才會算。
+兩個例子畫出了分界：任務需要的資料都已經在你的 Mac 上，選完全本地；需要最新的外部資訊，又不想讓機密檔案原樣出門，選 Hybrid。另外，Perplexity 在 [X 貼文](https://x.com/perplexity_ai/status/2112571609693523990)裡說本地任務不消耗 Computer credits，走到雲端的步驟才會算。
 
 ## 一個範例：週一早上的待辦清單
 
@@ -113,6 +113,7 @@ caption: 依 Perplexity 官方公告與產品頁整理；虛線是離開 Mac 的
 - **雲端是你授權後才開的門。** 即時資訊、瀏覽器、連線 app 需要授權；本地 agent 也能呼叫 15 個以上的前沿模型，那一步的內容會送到雲端。
 - **離線能不能跑，看任務。** 9to5Mac 和 MacStories 都報導無網路也能完成任務；Perplexity 自己的公告強調的是資料不送雲端，沒有用「離線」一詞。
 - **36GB 是建議，不是下限。** 官方沒有說明這個數字怎麼來的，也沒有公布本地模型與雲端模型的能力比較。
+- **基底模型的版本兩處寫法不同。** 公告把 Qwen 3.6 列為本地選項，X 貼文則說 PPLX Pro 是 Qwen 3.8 的 post-trained 版本。
 - **權限細節沒有展開。** 沙盒與存取控制，官方只用一段話描述；macOS 的完整磁碟存取之類是否需要，[Particle 的整理](https://particle.news/story/perplexitys-computer-can-run-fully-locally-on-apple-silicon-macs)提到官方沒有說清楚。
 
 ## 怎麼用：先試，再決定要不要換機
@@ -124,7 +125,7 @@ caption: 依 Perplexity 官方公告與產品頁整理；虛線是離開 Mac 的
    - **低於 24GB**：連 Hybrid 的最低門檻都沒到，繼續用雲端版 Computer。
 3. 第一個任務挑只用 Notes 的，開飛航模式跑一次。能做完，代表這類任務不靠雲端。
 4. 授權範圍從單一 app、單一資料夾開始，用得順再放大。
-5. 要不要為它換機：不必為這一個功能單獨換。本來就要換的話，記憶體至少挑 36GB 那一檔。[AppleInsider](https://appleinsider.com/articles/26/10/20/perplexity-computer-can-run-completely-local-on-mac-with-a-big-caveat) 整理的配置是：M6 Mac mini 最高 32GB，達不到建議值；M5 Pro Mac mini 要選 48GB 或 64GB；M5 Max Mac Studio 起跳就是 36GB。
+5. 要不要為它換機：不必為這一個功能單獨換。本來就要換的話，記憶體至少挑 36GB 那一檔。依 Apple 規格頁，[M6 Mac mini](https://www.apple.com/mac-mini/specs/) 最高 32GB，達不到建議值；M5 Pro Mac mini 要選 48GB 或 64GB；[M5 Max Mac Studio](https://www.apple.com/mac-studio/specs/) 起跳就是 36GB。AppleInsider 也有[同樣的整理](https://appleinsider.com/articles/26/10/20/perplexity-computer-can-run-completely-local-on-mac-with-a-big-caveat)。
 
 ## 參考資料
 
@@ -133,6 +134,7 @@ caption: 依 Perplexity 官方公告與產品頁整理；虛線是離開 Mac 的
 - [Introducing Hybrid Compute on Mac](https://www.perplexity.ai/hub/blog/introducing-hybrid-compute-on-mac)：Hybrid 公告，2026-09-01
 - [Perplexity's Computer can now run entirely on your Mac, even offline](https://9to5mac.com/2026/10/20/perplexitys-computer-can-now-run-entirely-on-your-mac-even-offline/)：9to5Mac
 - [Perplexity Computer's Local-First Approach to Agents](https://www.macstories.net/news/perplexity-computers-local-first-approach-to-agents/)：MacStories
-- [Perplexity computer now runs on Mac with 36GB memory catch](https://appleinsider.com/articles/26/10/20/perplexity-computer-can-run-completely-local-on-mac-with-a-big-caveat)：AppleInsider，Mac 記憶體配置
-- [Perplexity Adds Fully Local Computer Agent for Apple Silicon Macs](https://www.tao.media/perplexity-adds-fully-local-computer-agent-for-apple-silicon-macs/)：整理 Perplexity 的 X 串文（本地任務不消耗 credits）
+- [Perplexity computer now runs on Mac with 36GB memory catch](https://appleinsider.com/articles/26/10/20/perplexity-computer-can-run-completely-local-on-mac-with-a-big-caveat)：AppleInsider
+- [Perplexity 的 X 貼文](https://x.com/perplexity_ai/status/2112571609693523990)：本地任務不消耗 credits、PPLX Pro 基底
+- [Mac mini 規格](https://www.apple.com/mac-mini/specs/)、[Mac Studio 規格](https://www.apple.com/mac-studio/specs/)：Apple，記憶體配置
 - [Perplexity's Computer can run fully locally on Apple silicon Macs](https://particle.news/story/perplexitys-computer-can-run-fully-locally-on-apple-silicon-macs)：Particle

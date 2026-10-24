@@ -17,3 +17,8 @@
 - PPLX Pro 基底：官方部落格寫 Qwen 3.6；FourWeekMBA 稱 X 貼文寫 Qwen 3.8。文章採官方部落格寫法。
 - Personal Computer 發布月份：官方寫 May，AppleInsider 寫 April；文章未寫日期。
 - 「不會被拿去微調模型」：來源皆未提及，文章未採用。
+
+## 2026-10-24 補查（Groundlane 恢復後）
+- Perplexity X 貼文原文（web_fetch 讀到 meta description，內文被登入牆遮住）：「Local tasks use PPLX Pro, our post-trained version of Qwen 3.8, and don't consume Computer credits.」→ credits 說法確認；Qwen 3.8 與公告的 3.6 不一致，已寫進文章限制段。
+- Apple 規格頁（web_fetch 全文）：Mac mini M6 最高 32GB、M5 Pro 48/64GB；Mac Studio M5 Max 起跳 36GB、M5 Ultra 起跳 96GB。→ 記憶體配置已改引 Apple。
+- 仍未解：Personal Computer 發布月份（文章未寫日期）；X 串文只讀到兩則 meta description，第三則（36GB）未讀。
