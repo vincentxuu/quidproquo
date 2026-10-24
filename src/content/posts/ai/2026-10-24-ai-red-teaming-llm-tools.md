@@ -10,7 +10,7 @@ series:
   order: 6
 tldr: "兩份都寫「攻擊成功率 5%」的報告不能直接比：數字背後有誰出題（攻擊者模型）、誰判定（judge，負責判定的模型或規則）、分母算什麼三個變數。garak 官方 FAQ 說自己的分數沒有科學效度，HackAgent 白皮書裡兩個模型的先後會隨 judge 門檻翻轉。我查到的資料裡，四個工具都沒有獨立的準確度評測。"
 description: "比較 garak、promptfoo、PyRIT、HackAgent 四種 LLM 紅隊工具的定位、資料流與授權邊界，說明攻擊成功率背後的攻擊者模型、judge 與分母，以及讀紅隊報告時該問的三個問題。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-10-24-ai-red-teaming-llm-tools-en)

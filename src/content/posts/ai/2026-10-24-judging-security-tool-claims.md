@@ -10,7 +10,7 @@ series:
   order: 8
 tldr: "看到『涵蓋 OWASP 10/10』『已併入 Microsoft 與 Cisco』『偵測率 9X%』時，問五題：誰說的、這個詞指什麼、誰出的題、量的是什麼、一手來源在哪。前面幾篇與這篇補的幾個案例，剛好各示範一題：微軟 toolkit 自己寫 7 項完整、3 項部分；ATR（一套開源的 agent 威脅偵測規則）併入 Microsoft 與 Cisco 的 PR，查過的三處都是作者本人提的；Cisco 自己量的偵測率和獨立研究量的差好幾倍；常見的 benchmark 評的是模型或 agent，不是掃描工具。"
 description: "用 OWASP Agentic Top 10 與 LLM Top 10 2026 當共同詞彙，整理標準、工具與 benchmark 的差別，並用前面幾篇的案例與幾個補充案例示範一份五題檢查表，拆解資安工具的涵蓋率、併入、偵測率等宣稱。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-10-24-judging-security-tool-claims-en)

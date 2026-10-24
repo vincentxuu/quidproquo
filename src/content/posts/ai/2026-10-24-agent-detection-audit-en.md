@@ -10,7 +10,7 @@ series:
   order: 4
 tldr: "Detection and audit tools run along a spectrum: the open-source release of Uber ADR reads records purely after the fact, numbat only monitors by default, and for most of the rest the selling point is that they can block before an action, yet they start out observing only. Whether a record can serve as evidence depends on who can change it: when the signing key sits on the same machine and user as the audited agent, tampering can be noticed but not prevented."
 description: "How agent detection and audit tools such as Uber ADR, Perplexity numbat, Adrian and Cisco DefenseClaw work, what they do by default and when they fail, why an audit record may not stand as evidence, and what Claude Code itself can provide."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-10-24-agent-detection-audit)

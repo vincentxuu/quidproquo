@@ -10,7 +10,7 @@ series:
   order: 3
 tldr: "Guardrails intercept an action before the agent carries it out. On Claude Code the main attachment point is the hook, and the official docs say that on most events a hook that errors or times out lets the action go ahead; blocking needs onFailure: block. Other tools have their own failure behavior and defaults: the Agent Governance Toolkit library allows everything when no policy is loaded, NeMo Guardrails lets requests through when its jailbreak detector is down, and llm-guard and rebuff are archived. Ask three things of any guardrail: where it intercepts, what happens when it fails, and who can change its rules."
 description: "The default failure behavior of Claude Code hooks, where Agent Governance Toolkit, pipelock, cc-safety-net, NeMo Guardrails and Docker MCP Gateway intercept, who can change their rules and what limits them, and what to do when a guardrail tool is archived or changes model."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-10-24-agent-guardrails-hooks-gateways)

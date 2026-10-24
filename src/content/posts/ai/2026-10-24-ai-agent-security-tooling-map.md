@@ -10,7 +10,7 @@ series:
   order: 0
 tldr: "裝 skill、接 MCP、讓 agent 跑指令時，風險可以看成從四個入口進來。我把相關的開源防護工具依介入的時間點分成七類，從安裝前掃描、沙箱、護欄到稽核與紅隊測試。這一篇先看每一類管哪一段，以及三個反覆出現的限制：沒有單一工具能獨當防線、預設值常常對你不利、公開的偵測數字缺少獨立評測。"
 description: "用一張地圖看 skill、MCP 與 coding agent 周邊的資安工具：風險從哪四個入口進來、七類工具各管哪一段，以及反覆出現的三個限制。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-10-24-ai-agent-security-tooling-map-en)

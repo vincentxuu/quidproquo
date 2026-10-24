@@ -10,7 +10,7 @@ series:
   order: 0
 tldr: "When you install a skill, connect an MCP server or let an agent run commands, risk can be seen as coming in through four entry points. I sort the open-source tools around them into seven kinds by when they step in, from pre-install scanning and sandboxes to guardrails, audit and red teaming. This post covers what each kind handles and three limits that keep recurring: no single tool works as the only defense, defaults often work against you, and published detection numbers lack independent evaluation."
 description: "One map of the security tools around skills, MCP and coding agents: the four entry points risk comes through, what each of the seven kinds of tool covers, and the three limits that keep recurring."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-10-24-ai-agent-security-tooling-map)

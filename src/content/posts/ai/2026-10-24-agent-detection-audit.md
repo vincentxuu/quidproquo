@@ -10,7 +10,7 @@ series:
   order: 4
 tldr: "偵測與稽核工具是一條光譜：Uber ADR 的開源版純事後讀紀錄，numbat 預設只監控，其餘多半賣點是能在動作前擋，預設卻先只觀察。紀錄能不能當證據，取決於誰能改它：簽章金鑰和被稽核的 agent 同機同使用者時，只能發現竄改，不能防止竄改。"
 description: "比較 Uber ADR、Perplexity numbat、Adrian、Cisco DefenseClaw 等 agent 偵測與稽核工具的做法、預設行為與失敗行為，說明稽核紀錄為什麼未必能當證據，以及 Claude Code 自己能提供哪些紀錄。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-10-24-agent-detection-audit-en)

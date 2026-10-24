@@ -10,7 +10,7 @@ series:
   order: 6
 tldr: "Two reports that both say \"attack success rate 5%\" cannot be compared directly: behind the number sit who set the questions (the attacker model), who judged (the judge, a model or rule that decides), and what the denominator counts. garak's own FAQ says its scores have no scientific validity, and in HackAgent's white paper the order of two models flips with the judge threshold. I found no independent accuracy evaluation of any of the four."
 description: "A comparison of the positioning, data flow and authorization limits of four LLM red-teaming tools (garak, promptfoo, PyRIT, HackAgent), what sits behind an attack success rate (attacker model, judge, denominator), and the three questions to ask of any red-team report."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-10-24-ai-red-teaming-llm-tools)

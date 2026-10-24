@@ -10,7 +10,7 @@ series:
   order: 3
 tldr: "護欄在 agent 動作之前攔截。Claude Code 上的主要接點 hook，官方文件寫明大多數事件上出錯或逾時會照常執行，要擋得設 onFailure: block。別的工具各有各的出錯行為與預設：Agent Governance Toolkit 的函式庫沒載入政策時放行，NeMo 的偵測器連不上時放行，llm-guard 與 rebuff 已封存。選護欄先問三件事：攔在哪、掛了怎樣、誰能改規則。"
 description: "說明 Claude Code hook 的預設失敗行為，比較 Agent Governance Toolkit、pipelock、cc-safety-net、NeMo Guardrails 與 Docker MCP Gateway 的攔截位置、誰能改規則與限制，以及護欄工具被封存或改制後該怎麼辦。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-10-24-agent-guardrails-hooks-gateways-en)

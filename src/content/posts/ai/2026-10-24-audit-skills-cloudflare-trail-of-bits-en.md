@@ -10,7 +10,7 @@ series:
   order: 5
 tldr: "The two representatives take opposite approaches: Cloudflare's security-audit skill is a pure-LLM multi-stage process, and Cloudflare says that when its internal harness wired in Semgrep, the hunting agents did not call it once in a month; Trail of Bits combines Semgrep and CodeQL scripts with LLM judgment. I found no checks specific to Workers, D1, KV or Astro in the rules or supporting files of either, and neither publishes accuracy figures from real projects. This post is based on documentation only and was not run against any project."
 description: "A comparison of the audit approach, verification design, cost and license of Cloudflare's security-audit skill and Trail of Bits' skills, what they lack for an Astro plus Cloudflare Workers project as an example, and what to prepare before running an audit."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-10-24-audit-skills-cloudflare-trail-of-bits)

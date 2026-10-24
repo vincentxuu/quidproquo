@@ -10,7 +10,7 @@ series:
   order: 2
 tldr: "I sort agent sandboxes into four kinds: shared-kernel OS isolation, container orchestration, local microVMs (lightweight virtual machines) and remote microVMs. Claude Code's sandbox is off by default and wraps only shell commands; Codex CLI's is on by default locally. Most public escapes go around the boundary through config files or check scripts rather than through its core, and a sandbox answers how far a fooled agent can get, not whether it gets fooled. On Claude Code, turn the sandbox on, put ~/.ssh and ~/.aws on the deny list, and block the Read tool separately."
 description: "The four kinds of agent sandbox, how Claude Code's and Codex CLI's defaults and known bypasses differ, what a sandbox can and cannot cover, and settings Claude Code users can copy."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-10-24-agent-sandboxes)

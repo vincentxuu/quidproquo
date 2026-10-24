@@ -10,7 +10,7 @@ series:
   order: 5
 tldr: "兩個代表的做法相反：Cloudflare 的 security-audit skill 是純 LLM 的多階段流程，Cloudflare 說他們內部的 harness 接了 Semgrep 之後，獵捕用的 agent 一個月都沒呼叫；Trail of Bits 則是 Semgrep、CodeQL 腳本加 LLM 判斷。我在兩者的規則與附檔裡都找不到 Workers、D1、KV 或 Astro 的專屬檢查，兩者也都沒有公開在真實專案上的準確率。這篇只讀了文件，沒有對任何專案試跑。"
 description: "比較 Cloudflare security-audit skill 與 Trail of Bits skills 的審計做法、驗證設計、成本與授權，並以 Astro 加 Cloudflare Workers 專案為例，說明它們缺什麼、審計前要先準備什麼。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-10-24-audit-skills-cloudflare-trail-of-bits-en)

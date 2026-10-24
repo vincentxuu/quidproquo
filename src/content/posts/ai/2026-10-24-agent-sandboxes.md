@@ -10,7 +10,7 @@ series:
   order: 2
 tldr: "我把 agent 沙箱分成四種：共用核心的作業系統隔離、容器編排、本機 microVM（輕量虛擬機）、遠端 microVM。Claude Code 的沙箱預設關閉、只包 shell 指令；Codex CLI 本機預設開啟。公開的逃逸案例多半繞過邊界旁邊的設定檔或檢查腳本，不是打穿核心；沙箱回答的是被騙之後能走多遠，不是會不會被騙。用 Claude Code 的話，先開沙箱，再把 ~/.ssh、~/.aws 列進拒絕清單，並另外擋住 Read 工具。"
 description: "說明 agent 沙箱的四種隔離層級，比較 Claude Code 與 Codex CLI 的預設範圍與已知繞過，指出沙箱管得到什麼、管不到什麼，並給 Claude Code 使用者可直接照做的設定。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-10-24-agent-sandboxes-en)

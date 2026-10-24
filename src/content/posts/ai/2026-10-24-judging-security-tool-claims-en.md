@@ -10,7 +10,7 @@ series:
   order: 8
 tldr: "When you see 'covers OWASP 10 of 10', 'merged into Microsoft and Cisco' or '9X% detection', ask five things: who said it, what the term means, who set the questions, what is being measured, and where the primary source is. The earlier posts and a few cases added here each happen to show one: Microsoft's toolkit itself says 7 full and 3 partial; of ATR's (an open-source set of agent threat-detection rules) merged PRs into Microsoft and Cisco, the three checked were all opened by its author; Cisco's own detection rate and an independent study's differ several-fold; common benchmarks score models or agents, not tools."
 description: "Using the OWASP Agentic Top 10 and LLM Top 10 2026 as shared vocabulary, this post separates standards, tools and benchmarks and walks through a five-question checklist, with examples from the earlier posts and a few added cases, for taking apart claims of coverage, merging and detection rate."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-10-24-judging-security-tool-claims)

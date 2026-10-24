@@ -10,7 +10,7 @@ series:
   order: 1
 tldr: "這四個安裝前掃描器的做法可以分成靜態規則、LLM 判斷、實際連線讀 MCP server 三種，多數同時用兩種以上。Cisco 自己的文件顯示，只靠規則時，面對沒見過的惡意樣本只抓到約 8%；第三方測試也顯示，換一批樣本數字就大幅改變。掃描器適合當輔助篩選，「沒有發現」不等於安全。"
 description: "比較四個公開原始碼的 skill 與 MCP 安裝前掃描器的做法、資料外送與執行風險，說明報告怎麼讀、公開的偵測數字為什麼不能直接比較，以及實際怎麼用。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-10-24-skill-mcp-pre-install-scanners-en)

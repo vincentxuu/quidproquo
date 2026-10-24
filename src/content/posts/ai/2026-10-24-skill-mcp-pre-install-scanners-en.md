@@ -10,7 +10,7 @@ series:
   order: 1
 tldr: "These four pre-install scanners work in one of three ways, usually combining two: static rules, LLM judgment, or actually connecting to the MCP server. Cisco's own documentation shows rules alone catch about 8% of malicious samples they have not seen, and third-party tests show the numbers shift a lot when the sample mix changes. Use scanners as a first filter; \"no findings\" does not mean safe."
 description: "How four source-available pre-install scanners for skills and MCP servers differ in method, data egress and execution risk, how to read a scan report, why published detection numbers cannot be compared directly, and how to use them in practice."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-10-24-skill-mcp-pre-install-scanners)
