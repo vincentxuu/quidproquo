@@ -62,7 +62,7 @@ There are two ways to carry water. A bladder lets you drink while climbing, but 
 
 Clipping the pack to the anchor at a belay lets you get things out without wearing it. The rope strap on the [Wadi 15](https://us.blueice.com/products/wadi-15-pack) doubles as a tether with a 2 kN carabiner. That carabiner is for hanging the pack and is not for protecting people. The [Osprey Mutant 22](https://www.osprey.com/mutant-22-mutant22f22-376) has a three-point haul system, the [Edelrid Rubi](https://edelrid.com/eu-en/sport/backpacks-and-rope-bags-shop/rubi) has haul loops, and according to Gripped's review and Climbing's roundup, the BUG and the Patagonia Ascensionist 35L have them too.
 
-When you need to haul the pack through a hard section, use only a loop the brand says is for hauling. An ordinary grab handle is made for lifting by hand; if the brand doesn't say it can be hauled, treat it as a hand-carry handle only. Climbing's roundup also says the Wadi is fine for occasional hauling through cruxes, but they wouldn't use it as a daily haulbag. If you plan to haul the whole route, get a haulbag, which is outside the scope of this article.
+When you need to haul the pack through a hard section, use only a loop the brand says is for hauling. An ordinary grab handle is made for lifting by hand; if the brand doesn't say it can be hauled, treat it as a hand-carry handle only. Climbing's roundup also says the Wadi is fine for occasional hauling through cruxes, but they wouldn't use it as a daily haulbag. If you plan to haul the whole route, get a haulbag; for the gear and technique, see [Hauling on Multi-Pitch Routes](/posts/climbing/2026-10-24-multipitch-hauling-en).
 
 ### 5. Fabric that stands up to abrasion
 
@@ -168,6 +168,7 @@ This is the last article in the Climbing Travel Gear series. Go back to the [ser
 
 ## Update log
 
+- 2026-10-24: Linked the hauling paragraph to Hauling on Multi-Pitch Routes.
 - 2026-10-19: Expanded the comparison tables from 16 models across 14 brands to 30 models across 20 brands, adding brands such as Grivel, La Sportiva, C.A.M.P., Simond and Wild Country, plus the BD Speed packs, Rab Latok 20, Blue Ice Warthog 30, Ortovox Trad 22 Dry and Arc'teryx Alpha FL 20. Models from the same brand are now grouped, the Patagonia Ascensionist 35L moved into the 28–30 L table, and links to the new official pages and reviews were added. Checked specs against brand data and fixed 4 items, and added the Rab Ascendor 27L to the 28–30 L table, for 31 models.
 
 ## References

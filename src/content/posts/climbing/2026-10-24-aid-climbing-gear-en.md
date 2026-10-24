@@ -44,7 +44,7 @@ glossary:
 
 Aid climbing means moving up by standing on gear you place yourself. [Big wall and aid climbing](/posts/climbing/2026-10-19-big-wall-aid-climbing-en) covered what it is, how to read A and C grades, and how a team splits the work. This post is about the gear in your hands: aiders, daisies, fifi hooks, ascenders, pulleys and progress-capture pulleys. For each one: what it is, how to use it, where it most often goes wrong, and which models are on sale now.
 
-Hauling systems are out of scope. Pulleys are covered only for uses other than hauling.
+Hauling systems have their own post, [Hauling on Multi-Pitch Routes](/posts/climbing/2026-10-24-multipitch-hauling-en); here pulleys are covered only for uses other than hauling.
 
 Before reading, you should be able to lead on trad gear and build anchors, and you should have read [Multi-pitch basics](/posts/climbing/2026-10-17-multi-pitch-basics-en) and [Self-rescue basics](/posts/climbing/2026-10-17-self-rescue-basics-en). By the end you should be able to practise a round of aid leading and a stretch of jugging on two ascenders close to the ground, and know which pieces to buy first. Taiwan has no big walls, but every one of these moves can be drilled close to the ground at Long Dong, and the gear is on sale in Taiwan.
 
@@ -284,7 +284,7 @@ This tests a pulley-type toothed device, not a handled ascender, but the teeth b
 
 ## Pulleys: uses other than hauling
 
-Pulleys redirect rope and cut friction. Hauling uses them, but that's not covered here; the first place you're likely to need one is rescue. [Self-rescue basics](/posts/climbing/2026-10-17-self-rescue-basics-en) covers when you'd need to raise someone; this section only covers the pulley side.
+Pulleys redirect rope and cut friction. Hauling uses them, covered in [Hauling on Multi-Pitch Routes](/posts/climbing/2026-10-24-multipitch-hauling-en); the first place you're likely to need one is rescue. [Self-rescue basics](/posts/climbing/2026-10-17-self-rescue-basics-en) covers when you'd need to raise someone; this section only covers the pulley side.
 
 [Petzl's mechanical advantage page](https://m.petzl.com/US/en/Professional/How-to-calculate-mechanical-advantage?ActivityName=Technical-rescue) gives the example: if you can pull 20 kg at most with bare hands, a 3:1 system lets you raise 60 kg, but to raise it 1 m you pull 3 m of rope. That's the ideal; real pulleys range from about 50% to 98% efficiency. The lower the efficiency, the more of your pull goes into fighting friction.
 
@@ -312,7 +312,7 @@ A progress-capture pulley is a pulley plus a toothed cam: rope runs freely one w
 | [Petzl PRO TRAXION](https://www.petzl.com/us/en/operators/products/progress-capture-pulleys/pro-traxion/PRO-TRAXION_OPE_a2m68000000PBIuAAO.html) | 295 g | 95% | 8–13 mm | 4 kN | — |
 | [Edelrid SPOC](https://edelrid.de/en/sports/pulleys/spoc.html) | 60 g | 92% | 7–11 mm | — | — |
 
-The Micro's cam can be locked open to turn it into a plain pulley ([HowNOT2's TRS guide](https://hownot2.com/trs-guide)). The PRO TRAXION is bigger and heavier, mainly for hauling.
+The Micro's cam can be locked open to turn it into a plain pulley ([HowNOT2's TRS guide](https://hownot2.com/trs-guide)). The PRO TRAXION is bigger and heavier, mainly for [big-wall hauling](/posts/climbing/2026-10-24-multipitch-hauling-en).
 
 ### What Petzl says you may use it for
 

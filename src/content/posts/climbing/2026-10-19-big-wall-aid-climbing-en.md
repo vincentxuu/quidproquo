@@ -37,7 +37,7 @@ glossary:
 
 The El Capitan that Alex Honnold climbed without a rope in the documentary *Free Solo* is mostly climbed on Grade VI routes, which take an average team two or more days. Those teams haul 3–4 liters of water per person per day up the wall, sleep in portaledges hanging in space, and carry their waste down in tubes.
 
-That is big wall climbing. This is Part 2 of the [Other Climbing Disciplines](/posts/climbing/2026-10-19-climbing-disciplines-overview-en) series. It explains how a big wall team works, what aid climbing is, how to read route grades, and what you need to add to your skills before a first big wall. How to rig a haul system or set up a portaledge is outside this guide; take a course or use a dedicated manual.
+That is big wall climbing. This is Part 2 of the [Other Climbing Disciplines](/posts/climbing/2026-10-19-climbing-disciplines-overview-en) series. It explains how a big wall team works, what aid climbing is, how to read route grades, and what you need to add to your skills before a first big wall. For rigging a haul system, see [Hauling on Multi-Pitch Routes](/posts/climbing/2026-10-24-multipitch-hauling-en); setting up a portaledge is outside this guide, so take a course or use a dedicated manual.
 
 ## Before you start: what you need first
 
@@ -74,7 +74,7 @@ Climbing.com lays out the basic procedure in four steps:
 
 1. **The leader climbs a pitch**, free and/or with aid, trailing a second rope, the haul line.
 2. **At the anchor**, the leader ties in and fixes the lead rope to the anchor.
-3. **The leader sets up a haul system and hauls the bag.** Meanwhile the second ascends the fixed lead rope with ascenders, removing the gear on the way.
+3. **The leader sets up a haul system and hauls the bag** (see [Hauling on Multi-Pitch Routes](/posts/climbing/2026-10-24-multipitch-hauling-en)). Meanwhile the second ascends the fixed lead rope with ascenders, removing the gear on the way.
 4. **When the second arrives**, the team sorts ropes and gear for the next pitch, and repeats until the night's bivy.
 
 The biggest difference from multi-pitch at Long Dong is that the second usually doesn't climb but jugs the rope. [Taiwanese climber Hsiao Po explains why in her column (in Chinese)](https://www.don1don.com/archives/59390/): while the second jugs, the leader can haul instead of belaying, which makes the team more efficient.
@@ -200,6 +200,7 @@ Big walls stretch out multi-pitch; the next post changes the medium entirely, to
 
 ## Update log
 
+- 2026-10-24: The haul system now links to Hauling on Multi-Pitch Routes.
 - 2026-10-24: Added a link to How to use aid climbing gear.
 
 ## References

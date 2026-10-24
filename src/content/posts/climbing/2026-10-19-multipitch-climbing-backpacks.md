@@ -62,7 +62,7 @@ flowchart TD
 
 在確保站把包掛到固定點上，取物時才不用一直背著。[Wadi 15](https://us.blueice.com/products/wadi-15-pack) 的繩帶兼掛包帶，附一個 2 kN 的鉤環；那是掛包用的，不能拿來確保人。[Osprey Mutant 22](https://www.osprey.com/mutant-22-mutant22f22-376) 有三點式拖拉系統，[Edelrid Rubi](https://edelrid.com/eu-en/sport/backpacks-and-rope-bags-shop/rubi) 有拖拉環，BUG 依 Gripped 評測、Patagonia Ascensionist 35L 依 Climbing 評比也都有拖拉環。
 
-遇到難段要把包拖上去（hauling）時，只用原廠標明可拖拉的環。一般提把是給手提的，原廠沒寫可拖拉，就當它只能手提。Climbing 的評比也說，Wadi 偶爾在難段拖一下沒問題，但不會拿它當每天用的拖包。需要整條路線一直拖，另選拖包，不在這篇範圍。
+遇到難段要把包拖上去（hauling）時，只用原廠標明可拖拉的環。一般提把是給手提的，原廠沒寫可拖拉，就當它只能手提。Climbing 的評比也說，Wadi 偶爾在難段拖一下沒問題，但不會拿它當每天用的拖包。需要整條路線一直拖，另選拖包；拖包的器材和操作見〈[多繩距怎麼拖包](/posts/climbing/2026-10-24-multipitch-hauling)〉。
 
 ### 5. 布料夠耐磨
 
@@ -168,6 +168,7 @@ flowchart TD
 
 ## 更新紀錄
 
+- 2026-10-24：拖包段落加上〈多繩距怎麼拖包〉的連結。
 - 2026-10-19：比較表從 14 個品牌 16 款擴充為 20 個品牌 30 款，新增 Grivel、La Sportiva、C.A.M.P.、Simond、Wild Country 等品牌與 BD Speed、Rab Latok 20、Blue Ice Warthog 30、Ortovox Trad 22 Dry、Arc'teryx Alpha FL 20；同品牌改排在一起，Patagonia Ascensionist 35L 移進 28–30 L 表；補上新款的原廠頁與評測連結。依原廠資料核對規格，修正 4 處，28–30 L 表新增 Rab Ascendor 27L，共 31 款。
 
 ## 參考資料

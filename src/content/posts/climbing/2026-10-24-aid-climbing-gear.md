@@ -44,7 +44,7 @@ glossary:
 
 人工攀登（aid climbing）是踩在自己放的裝備上往上爬。〈[大岩壁與人工攀登](/posts/climbing/2026-10-19-big-wall-aid-climbing)〉講了它是什麼、A／C 等級怎麼讀、一個繩隊怎麼分工。這篇接著講手上的東西：繩梯、daisy、fifi hook、上升器、滑輪與帶齒滑輪，每一件是什麼、怎麼操作、最常在哪裡出事，以及現在買得到哪些型號。
 
-拖包系統（haul）不在這篇的範圍，滑輪只講拖包以外的用途。
+拖包系統（haul）另有一篇〈[多繩距怎麼拖包](/posts/climbing/2026-10-24-multipitch-hauling)〉，這篇的滑輪只講拖包以外的用途。
 
 讀之前，你應該已經能用傳攀保護先鋒、架固定點，也讀過〈[多繩距入門](/posts/climbing/2026-10-17-multi-pitch-basics)〉和〈[自我救援基礎](/posts/climbing/2026-10-17-self-rescue-basics)〉。讀完你應該能在離地不高的地方，自己練一輪人工先鋒和一段雙上升器爬繩，也知道第一套該先買哪幾件。台灣沒有大岩壁，但這些動作都能在龍洞離地不高的地方練熟，器材在台灣也買得到。
 
@@ -284,7 +284,7 @@ start: 40
 
 ## 滑輪：拖包以外的用途
 
-滑輪讓繩子轉向、減少摩擦。拖包會用到，但這篇不講；你最可能先用到滑輪的地方是救援。〈[自我救援基礎](/posts/climbing/2026-10-17-self-rescue-basics)〉講了什麼情況要拉人；這裡只講滑輪的部分。
+滑輪讓繩子轉向、減少摩擦。拖包會用到，見〈[多繩距怎麼拖包](/posts/climbing/2026-10-24-multipitch-hauling)〉；你最可能先用到滑輪的地方是救援。〈[自我救援基礎](/posts/climbing/2026-10-17-self-rescue-basics)〉講了什麼情況要拉人；這裡只講滑輪的部分。
 
 [Petzl 的機械效益說明](https://m.petzl.com/US/en/Professional/How-to-calculate-mechanical-advantage?ActivityName=Technical-rescue)舉的例子是：你徒手最多拉得動 20 kg，用 3:1 系統可以拉起 60 kg，代價是要把物體拉高 1 公尺，你得拉 3 公尺的繩。這是理想值，真實滑輪的效率大約 50–98%。效率越低，你拉的力越多是在對抗摩擦。
 
@@ -312,7 +312,7 @@ start: 40
 | [Petzl PRO TRAXION](https://www.petzl.com/us/en/operators/products/progress-capture-pulleys/pro-traxion/PRO-TRAXION_OPE_a2m68000000PBIuAAO.html) | 295 g | 95% | 8–13 mm | 4 kN | — |
 | [Edelrid SPOC](https://edelrid.de/en/sports/pulleys/spoc.html) | 60 g | 92% | 7–11 mm | — | — |
 
-Micro 的凸輪可以鎖在打開的位置，變成一般滑輪（[HowNOT2 的 TRS 指南](https://hownot2.com/trs-guide)）。PRO TRAXION 比較大、比較重，主要是拖包用。
+Micro 的凸輪可以鎖在打開的位置，變成一般滑輪（[HowNOT2 的 TRS 指南](https://hownot2.com/trs-guide)）。PRO TRAXION 比較大、比較重，主要是[大岩壁拖包](/posts/climbing/2026-10-24-multipitch-hauling)用。
 
 ### Petzl 准你拿它做什麼
 
