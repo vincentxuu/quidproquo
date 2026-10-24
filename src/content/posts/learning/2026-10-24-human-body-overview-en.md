@@ -1,12 +1,12 @@
 ---
-title: "Understanding the Human Body: How It Works, How to Read the Evidence, How Much to Move Each Week"
+title: "Understanding the Human Body: A Map of How It Works, and Four Questions for Judging Fitness Claims"
 date: 2026-10-24
 category: learning
-tags: [physical-activity, who-guidelines, evidence]
+tags: [human-body, systematic-review, who-guidelines]
 lang: en
 difficulty: 入門
-description: "Series overview: a map of how the body works, a way to judge how reliable fitness claims are, and the WHO 2020 weekly activity baseline to check your own week against."
-tldr: "The WHO 2020 guidelines recommend adults do 150–300 minutes of moderate-intensity aerobic activity a week plus muscle-strengthening on at least 2 days, and activity of any length counts. This series uses the same way of grading evidence to take the body apart one piece at a time."
+description: "Series overview: one line from nerve to muscle to tendon to bone that shows how the body works, and four questions for judging how reliable a fitness or body claim is."
+tldr: "For adults with no sports-science background: this series follows one line of how the body works, taking apart one part or mechanism at a time and saying how reliable the evidence is. This overview first teaches four questions for judging evidence, using the grading WHO published with its 2020 guidelines."
 draft: true
 series:
   name: "Understanding the Human Body"
@@ -14,66 +14,72 @@ series:
 glossary:
   - term: "certainty of evidence"
     aliases: ["證據確定性", "GRADE"]
-    definition: "How confident we are that the effect found in studies is close to the true effect, rated high, moderate, low or very low."
+    definition: "How confident we are that the effect found in studies is close to the true effect, rated high, moderate, low or very low. GRADE is the method used to assign the rating."
     context: "Used here to show that different recommendations in the same WHO guideline rest on evidence of different strength."
+  - term: "systematic review"
+    aliases: ["系統性回顧"]
+    definition: "A review that collects, screens and combines all studies on one question using methods set in advance, instead of picking a single study."
+    context: "Used here to explain that WHO's guidelines rest mainly on systematic reviews."
+  - term: "meta-analysis"
+    aliases: ["統合分析"]
+    definition: "A way of doing a systematic review in which the numbers from several studies are pooled into one overall estimate."
+    context: "Used here with a meta-analysis of 61 studies to show the limits of evidence."
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-24-human-body-overview)
 
-Ask the same question and you get different answers: how heavy should you lift? How much should you move each week? Should you stretch a lot? The answers often all sound reasonable, and each comes with someone saying there is research behind it.
+How heavy should you lift? Should you stretch a lot? Is back pain a posture problem? Ask the same question and different people give different answers. Each sounds reasonable, and each comes with someone saying there is research behind it.
 
-This series takes the body apart one piece or one mechanism at a time, and says how reliable the evidence behind each claim is. After this overview you will have three things: a map of the body, a set of questions for judging evidence, and a weekly activity baseline you can check yourself against.
+This series is written for adults who want to understand how the body works, with no sports-science background needed, and with examples leaning toward climbing and everyday activity. Each post covers one part or one mechanism and says how reliable the evidence behind each claim is. It does not diagnose and does not write programs; if something is wrong with your body, see a doctor or physical therapist.
 
-## The map of the series
+After this overview you can do three things: say what single line the body's workings can be strung along, know which stretch your own question falls in, and put four questions to any claim you read elsewhere.
 
-The series starts with the parts you can see and moves toward mechanisms you cannot:
+## A map of how the body works
+
+When you pick up a glass of water, the sequence is this: a nerve sends a signal, because skeletal muscle [depends completely on signals from the nervous system](https://openstax.org/books/anatomy-and-physiology-2e/pages/10-1-overview-of-muscle-tissues); the muscle's force [passes through a tendon to the bone, the bone is pulled, and the body moves](https://openstax.org/books/anatomy-and-physiology-2e/pages/10-2-skeletal-muscle); contraction costs energy, and the muscle relies on blood vessels to bring oxygen and carry away waste.
+
+The series follows that line, from the parts you can see toward mechanisms you cannot:
 
 | Section | Question it answers |
 |---|---|
 | Parts | What bones, muscles and tendons are, and how they adapt to load |
-| Drive | What energy the body runs on, what the heart and lungs do, whether daily activity is enough |
+| Energy | Where energy comes from, and what the heart and lungs do |
 | Adaptation | What happens to strength, the nervous system and recovery after you train |
-| Movement | How skills are learned, how balance is trained |
-| Pain and posture | What pain is, how posture relates to back pain, how much evidence common methods have |
-| Age and differences | Aging, joints, women, body composition |
+| Movement and balance | How skills are learned, how balance is trained |
+| Pain and posture | What pain is, and how much evidence common methods have |
+| Age and differences | Aging, joints, sex, body composition |
 | Claims without evidence | Things you often hear but cannot trace to reliable studies, and where each one stalls |
 
-Order and titles may change. If you want climbing applications, the site already has three related series to read next: [Plateaued in Climbing, Should You Start Training? Technique, Head, or Fitness, and a Nine-Post Reading Order](/posts/climbing/2026-10-18-climbing-training-diagnosis-en), [Stuck at a Grade: Strength or Movement? A Map of Climbing Technique, a Self-Check, and a Ten-Post Reading Order](/posts/climbing/2026-10-18-climbing-movement-overview-en), and [Climbing Injuries Overview: Where Climbers Get Hurt, What to Do in the Moment, and Which Doctor to See in Taiwan](/posts/climbing/2026-10-18-climbing-injury-overview-en).
+Sections and their topics may be added or dropped later, depending on what reliable evidence can be found. If you want to start with one question: to see how muscles get stronger, start at Adaptation; to see whether common methods work, start at Pain and posture; to see whether age or sex changes the rules, start at Age and differences. The three questions at the top fall in Adaptation and in Pain and posture.
+
+The site also has a climbing series. If you would rather start from climbing, begin with [Plateaued in Climbing, Should You Start Training?](/posts/climbing/2026-10-18-climbing-training-diagnosis-en).
 
 ## Reading evidence: four questions
 
 The [WHO 2020 guidelines on physical activity and sedentary behaviour](https://doi.org/10.1136/bjsports-2020-102955) publish how they graded their evidence, which makes a good template. When you meet any claim about fitness or the body, ask these four questions.
 
-**1. Is it one study, or many studies pooled?** The WHO guidelines rely mainly on systematic reviews: collect the studies on one question and look at them together, instead of picking a single one. A single study, however neat, can be a coincidence.
+**1. Is it one study, or many pooled?** The WHO guidelines rest mainly on systematic reviews: collect the studies on one question and look at them together. Pooling is usually steadier than a single study, because a single study, however neat, can be a coincidence. But how good the pooling is depends on how the studies behind it were designed: whether there was a control group, and how many people. Also, many findings come from observational studies that follow a group of people, and what they see is two things appearing together, which does not mean one causes the other.
 
-**2. How certain is the evidence?** WHO grades certainty in four levels: high, moderate, low, very low. High means "very confident" in the effect estimate; very low means "very little confidence", and the true effect is likely to be far from the estimate. Five things are weighed: risk of bias, inconsistency, imprecision, indirectness, and publication bias.
+**2. How certain is the evidence?** WHO uses a method called GRADE to rate certainty in four levels: high, moderate, low, very low. High means very confident in the effect the studies estimate; very low means very little confidence, and the true effect is likely to be far from the estimate.
 
-**3. Strength of recommendation and certainty of evidence are two different things.** A strong recommendation does not mean hard evidence. WHO rated its sedentary-behaviour recommendation for children and adolescents as strong, yet the certainty of evidence was low. For adults, doing more than 300 minutes of moderate activity a week brings extra benefit but is only a conditional recommendation, because it is not possible to say where the returns begin to diminish. When you read "experts recommend", ask what level of evidence it stands on.
+<details><summary>The five things weighed in a rating</summary>
 
-**4. Do the people studied resemble you?** This is the easiest question to skip. One example: [a meta-analysis pooling 61 studies](https://doi.org/10.1007/s40279-022-01695-y) found that resistance training makes healthy lower-limb tendons stiffer. But nearly every study had only a dozen or so participants, and most participants were untrained, so the finding may not apply to people who have trained for years.
+Whether the studies are biased, whether results are consistent, whether the estimate is precise, whether the evidence answers this exact question, and whether only favorable results got published.
 
-## How much to move each week
+</details>
 
-For general adults, the WHO 2020 baseline is:
+**3. Strength of recommendation and certainty of evidence are two different things.** WHO sorts recommendations into strong and conditional, decided by the balance of benefits and harms, the certainty of evidence, and other factors together. So a strong recommendation does not mean hard evidence: WHO rated its sedentary-behaviour recommendation for children and adolescents as strong, yet the certainty of evidence was low. When you read "experts recommend", ask what level of evidence it stands on.
 
-- **Aerobic activity:** 150 to 300 minutes of moderate intensity, or 75 to 150 minutes of vigorous intensity, or an equivalent mix, each week. A strong recommendation.
-- **Muscle-strengthening:** on 2 or more days a week, at moderate or greater intensity, involving all major muscle groups. Also a strong recommendation.
-- **Any length counts.** The old rule of at least 10 minutes per bout was dropped. Activity at work, in leisure, at home and in transport all counts.
-- **Age 65 and over:** in addition, varied multicomponent activity including balance and strength on 3 or more days a week, to prevent falls.
-- **Some is better than none.** If you are not there yet, start small and build up. For people without contraindications, starting light-to-moderate activity that does not exceed brisk walking or everyday living generally needs no prior medical clearance; if new symptoms appear as you increase, see a doctor.
-
-One important limit on this baseline: it is meant for general health, and it does not address the training athletes do to improve competition performance. If performance is your goal, this baseline is a floor, not a training prescription.
+**4. Do the people studied resemble you?** Two examples. WHO's guidelines say outright that they do not address the training athletes do to improve competition performance. The other is [a meta-analysis pooling 61 studies](https://doi.org/10.1007/s40279-022-01695-y), which found that healthy adults' lower-limb tendons get stiffer after resistance training. But those studies compared before and after training, with no control-group data included; all but one study had 15 participants or fewer, and most participants were untrained; three studies recruited well-trained people, and those showed no change in tendon stiffness. It also covers only lower-limb tendons, so it cannot be applied directly to the finger pulleys or the shoulder.
 
 ## Two things to try tonight
 
-1. **Measure your intensity.** Use a 0 to 10 effort scale (0 is sitting still, 10 is all-out). Pick an activity you do often and rate it while you do it. WHO defines 5 to 6 as moderate and 7 to 8 as vigorous. Write down the score for each activity you do regularly.
-2. **Add up your week.** Think back over the last seven days and add up the time spent on activity you would rate 5 or above, including commuting, stairs and housework. Compare it to 150 to 300 minutes. Then count the days with muscle-strengthening. The days and minutes you are short are your gap for the week.
-
-## What this series does not do
-
-This series does not diagnose, prescribe, or recommend individual programs. If something is wrong with your body, see a doctor or physical therapist. What it does is lay out the mechanisms and the evidence so you can judge the next step yourself.
+1. **Take a claim apart.** Pick a fitness or body claim you saw recently and write four things on a sheet of paper: what it says its basis is; whether that is a single study or a pooled one; whether the people studied resemble you; and whether anyone says how certain the evidence is. Wherever you cannot answer, hold the claim loosely; if you cannot find a source, that is also an answer, so write "not found".
+2. **Look at a grading table once.** Open the WHO paper above, find Table 2, and copy out the definitions of the four levels of certainty. Next time you see "strong recommendation", you will know to ask one more thing: which level of evidence?
 
 ## References
 
 - [World Health Organization 2020 guidelines on physical activity and sedentary behaviour, British Journal of Sports Medicine, 2020](https://doi.org/10.1136/bjsports-2020-102955)
 - [Mechanical, Material and Morphological Adaptations of Healthy Lower Limb Tendons to Mechanical Loading: A Systematic Review and Meta-Analysis, Sports Medicine, 2022](https://doi.org/10.1007/s40279-022-01695-y)
+- [OpenStax Anatomy and Physiology 2e, 10.1 Overview of Muscle Tissues](https://openstax.org/books/anatomy-and-physiology-2e/pages/10-1-overview-of-muscle-tissues)
+- [OpenStax Anatomy and Physiology 2e, 10.2 Skeletal Muscle](https://openstax.org/books/anatomy-and-physiology-2e/pages/10-2-skeletal-muscle)
