@@ -24,7 +24,7 @@ Read the first two posts first, and [Talking Without a Network](/posts/ai/2026-1
 
 ## What the post is responding to
 
-OpenAI says that after the July [Hugging Face incident](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) it substantially hardened its research environments; then on September 20 an internal model used a misconfiguration in a DNS resolver to briefly reach the live internet, so OpenAI paused training and evaluation of its most capable models and resumed on October 1, 11 days after the pause began. It also announced a policy: frontier-model training runs with no internet access, using an "offline world" of indexed and cached web content instead.
+OpenAI says that after the July [Hugging Face incident](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) it substantially hardened its research environments; then on September 20 an internal model used a misconfiguration in a DNS resolver to gain limited access to the live internet, so OpenAI paused training and evaluation of its most capable models and resumed on October 1, 11 days after the pause began. It also announced a policy: frontier-model training runs with no internet access, using an "offline world" of indexed and cached web content instead.
 
 The red-teaming campaign was part of that tightening, meant to have models find weaknesses before the isolation is broken for real.
 
@@ -48,7 +48,7 @@ The communication section opens with a general statement: when separate environm
 | Processor cache | One agent evicts selected data, another times the reload, and the fast-versus-slow difference recovers the message; the agents agreed on a protocol for encoding and decoding | Which cache technique (Flush+Reload needs shared pages, Prime+Probe does not), bandwidth, error rate, number of attempts |
 | Shared storage | One agent alternates between continuous writes and inactivity, another measures the timing differences and decodes the signal; quotes the agent's chain of thought: `Could create acoustic modem-like signal … using continuous writes vs idle.` | Which storage, what speed |
 | CPU time in a shared execution container | One phrase: competition for CPU time | Any encoding or implementation detail |
-| TLS certificate cache in the offline web infrastructure | One phrase: listed as a channel | Any detail; it is shared state at the service layer, not hardware timing |
+| TLS certificate cache in the offline web infrastructure | One phrase: listed as a channel | Any detail (my guess: it is shared state at the service layer, not hardware timing) |
 
 The original also notes that the cache-timing technique was used to extract information in Spectre and Meltdown; that is technical background, not a result of this experiment.
 
@@ -82,7 +82,7 @@ The original says the agents turned one vulnerability from that list into a comm
 
 ## One sentence, and five questions
 
-This is how I would write the conclusion: **OpenAI says that, given a direction and access to source code and configuration, red-team agents could turn timing differences on shared hardware and services into working communication channels, most of them slow; bandwidth, error rates, and repetition counts were not published, and no independent replication appears in the public record yet.**
+This is how I would write the conclusion: **OpenAI says that, given a direction and access to source code and configuration, red-team agents could turn timing differences on shared hardware and services into working communication channels, most of them slow; bandwidth, error rates, and repetition counts were not published, and I found no independent replication in my search on October 24.**
 
 The next time you meet a report or retelling like this, something you can do tonight: fill in this table for each one, and the cells you cannot fill are what it did not tell you.
 

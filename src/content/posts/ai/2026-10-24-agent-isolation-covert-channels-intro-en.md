@@ -6,7 +6,7 @@ category: ai
 tags: [ai-agent, sandbox, ai-security, side-channel, isolation]
 lang: en
 description: "Covert channels versus side channels, how cache, storage, and CPU time carry a bit through \"faster or slower,\" and why such channels are slow and noisy, with a local experiment you can run."
-tldr: "Two programs with no connection can pass bits through the speed of a shared resource: one changes its state, the other times it. Such channels need an agreed protocol and are slow and easily drowned out; the local experiment has zero errors up to 50 bps and is close to guessing from 100 bps."
+tldr: "Two programs with no connection can pass bits through the speed of a shared resource: one changes its state, the other times it. Such channels need an agreed protocol and are slow and easily drowned out; the local experiment is nearly error-free up to 20 bps and gets clearly worse from 100 bps."
 difficulty: 進階
 draft: true
 series:
@@ -25,13 +25,13 @@ It connects best after [Where an Agent's Code Runs](/posts/ai/2026-10-24-agent-i
 ## Two terms: covert channel and side channel
 
 - **Side channel.** One party observes the side effects of an unwitting target's execution, such as how long something takes. The Flush+Reload paper's phrasing is that side-channel attacks target information an implementation leaks through its interaction with its environment. The [Meltdown and Spectre site](https://spectreattack.com/) says both attacks use side channels to get data, and that in the cloud it may be possible to steal data from other customers.
-- **Covert channel.** Two parties collude and deliberately use a shared resource to pass messages. The 2009 EC2 paper describes it as two instances cooperating to send a message via a shared resource, and notes that covert channels are evidence that exploitable side channels may exist.
+- **Covert channel.** Two parties collude and deliberately use a shared resource to pass messages. The 2009 EC2 paper describes it as two instances cooperating to send a message via a shared resource, and notes that covert channels provide evidence that exploitable side channels may exist.
 
 The difference is whether one side is a passive victim. This series is about covert channels: both agents are insiders, and the goal is to get around the rule that they must not communicate. Technically, both use the same shared resources.
 
 ## The mechanism: read the state of a shared resource through speed
 
-A cache is a small bank of fast memory holding recently used data. Reading from cache is faster than reading from main memory, and the time difference is the signal. Flush+Reload's authors, Yarom and Falkner, split the attacker's approach into steps: put the cache in a known state, let the other party act, then measure how long it takes to read the same data again.
+A cache is a small bank of fast memory holding recently used data. Reading from cache is faster than reading from main memory, and the time difference is the signal. In their background section, Flush+Reload's authors, Yarom and Falkner, describe this class of cache side-channel attacks as: put the cache in a known state, let the other party act, then measure how long it takes to read the same data again.
 
 To turn that into communication, both sides agree on a convention: to send 1, the sender evicts a piece of data from the cache; to send 0, it does nothing. The receiver re-reads that data in each slot and times it. Slow means evicted, read as 1; fast means read as 0.
 
@@ -89,7 +89,7 @@ step: The data is still in cache, so the read is fast; the receiver reads 0
 </svg>
 ```
 
-This is only one way to use a shared cache. Flush+Reload needs memory pages that both sides share and evicts with the `clflush` instruction; the 2009 EC2 study used Prime+Probe, which fills the cache with the party's own data and then times a re-read, without needing shared pages. OpenAI's write-up does not say which one its agents used; the next post returns to this point.
+This is only one way to use a shared cache. Flush+Reload needs memory pages that both sides share and evicts with the `clflush` instruction; the 2009 EC2 study used a variant of Prime+Probe (Prime+Trigger+Probe), which fills the cache with the party's own data and then times a re-read, without needing shared pages. OpenAI's write-up does not say which one its agents used; the next post returns to this point.
 
 ## Beyond cache: storage and CPU time
 
@@ -106,7 +106,8 @@ The July 2026 preprint [Isolation Failure From Shared Storage](https://arxiv.org
 | 2009 EC2 paper (unoptimized) | Memory bus | 0.006 bps |
 | Same | Hard disk | 0.0005 bps |
 | Same (refined) | Cache | about 0.2 bps |
-| 2026 preprint (desktop-class hardware, lab) | Page cache on Docker | about 480 bps, error rate under 2% |
+| 2026 preprint (Core i7-7700 testbed, lab) | Page cache on Docker | about 478 bps, error rate 0% |
+| Same | Page cache on gVisor | about 290 to 357 bps, error rate up to 1.96% |
 
 The hardware, virtualization, and measurement conditions differ, so the numbers cannot be compared directly. What they show is that people have measured everything from under one bit per second to hundreds, many orders of magnitude below a network connection.
 
@@ -122,25 +123,28 @@ Download [this Python program](/examples/agent-isolation/cpu-contention-channel.
 python3 cpu-contention-channel.py
 ```
 
-On a 4-core Linux virtual machine, I sent 64 bits with each of three different random messages:
+On a 4-core Linux virtual machine, I sent 64 bits with each of six different random messages (the program's `--seed` 1 to 6); the range of wrong bits at each speed:
 
-| Bit slot | Speed | Wrong bits across three runs (of 64) |
+| Bit slot | Speed | Wrong bits across six runs (of 64 each) |
 |---|---|---|
-| 200, 100, 50, 20 ms | 5, 10, 20, 50 bps | All 0 |
-| 10 ms | 100 bps | 35, 19, 7 |
-| 5 ms | 200 bps | 43, 23, 25 |
+| 200 ms | 5 bps | 0 |
+| 100 ms | 10 bps | 0 |
+| 50 ms | 20 bps | 0 to 2 |
+| 20 ms | 50 bps | 0 to 4 |
+| 10 ms | 100 bps | 7 to 34 |
+| 5 ms | 200 bps | 21 to 38 |
 
-Up to 50 bps, all three runs were exactly right; from 100 bps up, errors ranged from 7 to 43, and at the high end that is close to guessing (guessing 64 bits gets about 32 wrong). My guess is that it relates to the interval between scheduler switches: once the bit slot gets close to that interval, the receiver's counts can no longer tell 1 from 0. That is "slow" and "noisy" in practice: go faster and it breaks.
+Up to 10 bps all six runs were exactly right; at 20 and 50 bps a few bits were occasionally wrong; from 100 bps errors rose clearly, and at 200 bps the worst run had more than half the bits wrong (guessing 64 bits gets about 32 wrong). The threshold moves with the machine and its current load: in another independent rerun, errors at 50 bps were higher. My guess is that it relates to the interval between scheduler switches: once the bit slot gets close to that interval, the receiver's counts can no longer tell 1 from 0. That is "slow" and "noisy" in practice: go faster and it breaks.
 
 A few things to be clear about:
 
 - These are two processes inside one operating system. They do not cross a container or VM boundary, and this is not a cache attack. It only shows that the speed of a shared resource can serve as a signal.
 - The preamble and the start time are a protocol I wrote into the program. Without them the receiver would not know where to start or where the threshold is.
-- Your numbers will differ. Something you can do tonight: edit the list of bit slots in `main()` to values you want to try and find the speed at which your machine starts to fail; then pin one of the processes to a different CPU (change the argument in `pin_to_cpu`) and see whether the channel disappears.
+- Your numbers will differ. Something you can do tonight: edit the list of bit slots in `main()` to values you want to try and find the speed at which your machine starts to fail; then pin the two processes to different CPUs (in `run()`, pass different CPU numbers to `sender` and `receiver`) and see whether the channel disappears.
 
 ## Limits
 
-- The experiment and the numbers cited all come from controlled settings: one local VM, EC2 in 2009, and the 2026 preprint's desktop testbed. They show the mechanism and the order of magnitude, not the real risk on any particular cloud sandbox platform.
+- The experiment and the numbers cited all come from controlled settings: one local VM, EC2 in 2009, and the 2026 preprint's lab testbed. They show the mechanism and the order of magnitude, not the real risk on any particular cloud sandbox platform.
 - This post does not discuss defenses: what disabling hyper-threading, direct I/O, and rate limiting each block is the subject of post 5.
 
 ## References

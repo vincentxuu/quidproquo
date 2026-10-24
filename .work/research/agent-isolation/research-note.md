@@ -12,14 +12,15 @@
 | S2 | OpenAI Alignment〈An agent used DNS to reach an external chatbot〉2026-09-20 事件、09-25 更新 https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/ | ✅ 全文 | order 4 |
 | S3 | OpenAI〈The Hugging Face incident and the road ahead〉2026-07 事件 https://openai.com/index/hugging-face-incident-and-the-road-ahead/ | 🟡 部落格前半（約 14k／57k 字元）；完整技術報告與 METR／Redwood 獨立報告未讀 | order 4 |
 | S4 | Kata Containers 安全公告 GHSA-wwj6-vghv-5p64（CVE-2026-24834） | ✅ 全文 | order 1：容器→guest microVM，公告明寫不影響 host 與其他 VM |
-| S5 | arXiv 2607.17518〈Isolation Failure From Shared Storage: … Page-Cache SCA Leakage Across Containers and VMs〉2026-07-20 | 🟡 摘要、引言、背景（HTML v2 前約 30k／80k 字元）；威脅模型、結果與結論章節 order 2、5 動筆前讀 | order 2、5：共用 host page cache 的訊號跨 Docker／gVisor／Kata／Firecracker 持續；direct I/O 與專用 block device 大幅衰減或消除 |
+| S5 | arXiv 2607.17518〈Isolation Failure From Shared Storage: … Page-Cache SCA Leakage Across Containers and VMs〉2026-07-20 | ✅ HTML v2 全文（含威脅模型、實驗 1–4、結論），order 2 查證者另全文重讀 | order 2、5：共用 host page cache 的訊號跨 Docker／gVisor／Kata／Firecracker 持續；direct I/O 與專用 block device 大幅衰減或消除 |
 | S6 | Firecracker `docs/prod-host-setup.md` | ✅ 全文（raw.githubusercontent.com 直接下載），含 side channel、SMT、KSM、Rowhammer 小節 | order 1、5：Firecracker 自述「無法緩解 host 硬體弱點」「建議每個 Firecracker 行程只服務單一租戶」「noisy-neighbour page cache 會拖慢其他 guest」 |
-| S7 | Ristenpart et al.〈Hey, You, Get Off of My Cloud〉CCS 2009 | 🟡 摘要與搜尋片段（含「以 cross-VM covert channel 驗證 co-residence」） | order 2 歷史前例；2009 年資料，時效靠 S5 補 |
+| S7 | Ristenpart et al.〈Hey, You, Get Off of My Cloud〉CCS 2009 | ✅ 全文（jina read_url，order 2 查證者另重讀）（含「以 cross-VM covert channel 驗證 co-residence」） | order 2 歷史前例；2009 年資料，時效靠 S5 補 |
 | S11 | gVisor Introduction 與 Security Model（gvisor.dev/docs/architecture_guide/） | 🟡 Intro 前半、Security Model 至「What can a sandbox do?」；FAQ（VM 比較、硬體側信道）未讀 | order 0、1 |
 | S12 | Firecracker `docs/design.md` | ✅ 全文 | order 0、1 |
 | S13 | Kata `docs/design/architecture/README.md` | 🟡 概觀、環境、容器建立流程（輸出截斷） | order 0、1 |
 | S14 | Docker Engine security | 🟡 前半（namespace、cgroup、daemon 攻擊面），capabilities 之後未讀 | order 0、1 |
-| S8 | Spectre／Meltdown 官方頁 https://spectreattack.com/ | ❌ 未讀（只讀到 S1 對它的引用） | 動筆 order 2 前必讀 |
+| S8 | Spectre／Meltdown 官方頁 https://spectreattack.com/ | ✅ 全文 | 動筆 order 2 前必讀 |
+| S15 | Yarom & Falkner〈Flush+Reload〉USENIX Security 2014 | 🟡 摘要、引言、背景（前 330／1124 行）；order 2 查證者另讀 | order 2 |
 | S9 | PandaStack 部落格（SMT 與 microVM 隔離）2026-08/09 | 🟡 搜尋摘要；廠商文章，只當線索 | 不作為主張依據 |
 | S10 | 二手報導（Startup Fortune、AlphaSignal、Unite.AI、daily.dev、wccftech 等） | 🟡 僅搜尋摘要 | 只用來比對轉述偏差，不當來源 |
 
