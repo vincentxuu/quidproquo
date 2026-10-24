@@ -42,23 +42,25 @@ Recall is how many of a hundred bad skills the scanner catches; the false-positi
 
 ## How to read a scan report
 
-SkillSpector outputs a risk score and labels anything above a threshold "do not install". The score is a severity-weighted sum of the findings.
+SkillSpector outputs a risk score from 0 to 100 plus a recommendation mapped from severity: safe, caution, or do not install.
 
-A user reported in [issue #644](https://github.com/NVIDIA/SkillSpector/issues/644) that, scanning a batch of public skills with the LLM off, several rule families produced nothing but false positives, for example reading the invisible byte-order mark (BOM) at the start of a file as a hidden instruction; that kind of false positive has since been fixed. They also pointed out that the highest-scoring kind of finding was "file exceeds the parsing limit", rated high severity and reported once per referencing line, so skills with no real problem were marked "do not install". The maintainers have not addressed that one yet.
+A user reported in [issue #644](https://github.com/NVIDIA/SkillSpector/issues/644) that, scanning a batch of public skills with the LLM off, several rule families produced nothing but false positives, for example reading the invisible byte-order mark (BOM) at the start of a file as a hidden instruction; those were handled in a fix merged in late September. They also pointed out that, in the batch they scanned, the highest-scoring kind of finding was "file exceeds the parsing limit", rated high severity and reported once per referencing line, so skills with no real problem were marked "do not install". Several later fixes reduced false triggers of that limit, but I could not find out whether the high rating and the per-line repetition have changed.
 
 In the other direction: if a scanner reports no findings, can you just install? No. No findings only means nothing matched a pattern it knows; Cisco's README says outright that it does not guarantee a skill is safe.
 
 ## Can the numbers be trusted
 
-Cisco's [measured-results document](https://github.com/cisco-ai-defense/skill-scanner/blob/main/docs/reference/measured-results.md) is clear that the rules were tuned on the development data, where recall is about 31%, and on data they had not seen it drops to about 8%.
+Cisco's [measured-results document](https://github.com/cisco-ai-defense/skill-scanner/blob/main/docs/reference/measured-results.md) is clear that the rules were tuned on the development data. Counting medium risk and above as a catch, recall on the development part of that dataset is about 31%, and on the test part with sources the rules had not seen it drops to about 8%; counting high risk and above, it is 7.7% with a 4.0% false-positive rate.
 
 With the LLM judge added, about 67% of malicious samples reach the human review queue (medium risk and above, with about 15% false positives); counting only those blocked outright at high risk and above, it is about 34% with about 6% false positives. The price is being slower and more expensive.
 
+Those figures are Cisco's own. The authors of a dataset called [MaliciousSkillBench](https://arxiv.org/abs/2608.19901) re-ran Cisco's scanner on the same test part with sources it had not seen (839 malicious, 545 benign), using a fixed local configuration and counting only high risk and above, and recall was 2.5%; SkillSpector with the LLM off scored 0%. Their environment differed slightly from the official one (a dependency version deviation), so the number cannot be subtracted directly from 7.7%, but it shows that a scanner's score depends on who measured it and under what settings.
+
 Third-party tests show scanners are easy to bypass. In [its June 2026 post](https://blog.trailofbits.com/2026/06/03/the-sorry-state-of-skill-distribution/), Trail of Bits got past Cisco's scanner by putting malicious code in `.pyc` bytecode, smuggling scripts inside a `.docx`, or persuading the LLM with wording that looked like corporate configuration; a separate trick, a hundred thousand newlines placed before the malicious code, made ClawHub's scanner truncate the file before it saw anything. The post does not state which version was tested, so check the current state yourself.
 
-[Adversa's test](https://adversa.ai/blog/agent-skill-scanners-bypass-eight-tested/) covered eight scanners: seven were run offline with LLM judgment off, and the one that relies purely on LLM judgment was tested with a local model. Every one let at least one malicious skill through. SkillSpector held up against encoding wrappers and newline padding, and was bypassed by look-alike characters, paraphrased injection instructions and text inside images; its own README lists non-English content, image attacks and encrypted or binary code among its limits. Adversa builds a scanner of its own, which is worth remembering when reading its conclusions.
+[Adversa's test](https://adversa.ai/blog/agent-skill-scanners-bypass-eight-tested/) covered eight scanners: seven were run offline with LLM judgment off, and the one that relies purely on LLM judgment was tested with a local model. Every one let at least one malicious skill through. SkillSpector held up against encoding wrappers and newline padding (Adversa thinks the encoding wrappers were caught only because of a trailing pipe-to-shell), and was bypassed by look-alike characters, paraphrased injection instructions and text inside images. Adversa's copy of SkillSpector was restored from `__pycache__` bytecode, which the authors say was validated more weakly than the others. Its own README lists non-English content, image attacks and encrypted or binary code among its limits. Adversa builds a scanner of its own, which is worth remembering when reading its conclusions.
 
-The numbers also shift with the dataset. [MalSkillBench](https://arxiv.org/abs/2606.07131) is an evaluation dataset built by independent researchers: VirusTotal's recall is 21.6% over all samples and 87.9% on the subset collected in the wild. The authors explain that more than eight in ten of the wild samples are one kind of behavior, so the high recall is carried by that one behavior and does not mean broad coverage. Adversa adds that in the copy of the dataset it downloaded, roughly 13% of the malicious samples are empty directories, which caps the recall anyone could reach.
+The numbers also shift with the dataset. The similarly named [MalSkillBench](https://arxiv.org/abs/2606.07131) is an evaluation dataset from a different group of independent researchers: VirusTotal's recall is 21.6% over all samples and 87.9% on the subset collected in the wild. The authors explain that more than eight in ten of the wild samples are one kind of behavior, so the high recall is carried by that one behavior and does not mean broad coverage. Adversa adds that in the copy of the dataset it downloaded, roughly 13% of the malicious samples are empty directories, which caps the recall anyone could reach.
 
 No neutral evaluation everyone accepts tells you which scanner is more accurate. The numbers vendors publish come from data the vendor picked, while independent datasets show the numbers change when the sample mix changes. For you, these numbers are good for deciding which to look at first, not for deciding what to let through.
 
@@ -72,7 +74,7 @@ No neutral evaluation everyone accepts tells you which scanner is more accurate.
 
 ## Where this leaves you
 
-A scanner's value is picking out, before anything has run, the places worth a human look. Published detection numbers all come from the tool's authors or from vendors of similar products, and independent datasets show the results change with the sample mix, so treat a scanner as a first filter, not as grounds for letting something through. Post 2 covers the second one: if the agent has already been fooled, what a sandbox limits it to.
+A scanner's value is picking out, before anything has run, the places worth a human look. Published detection numbers all come from the tool's authors or from vendors of similar products, and independent datasets show the results change with the sample mix, so treat a scanner as a first filter, not as grounds for letting something through. [Post 2](/posts/ai/2026-10-24-agent-sandboxes-en) covers the second one: if the agent has already been fooled, what a sandbox limits it to.
 
 ## References
 
@@ -84,5 +86,6 @@ A scanner's value is picking out, before anything has run, the places worth a hu
 - [getagentseal/agentseal](https://github.com/getagentseal/agentseal)
 - [Trail of Bits: The sorry state of skill distribution](https://blog.trailofbits.com/2026/06/03/the-sorry-state-of-skill-distribution/)
 - [Adversa AI: eight agent skill scanners tested for bypasses](https://adversa.ai/blog/agent-skill-scanners-bypass-eight-tested/)
+- [MaliciousSkillBench (arXiv:2608.19901)](https://arxiv.org/abs/2608.19901)
 - [MalSkillBench (arXiv:2606.07131)](https://arxiv.org/abs/2606.07131)
 - [How AI agent security tools fit together: four entry points, seven kinds of tool, three recurring limits](/posts/ai/2026-10-24-ai-agent-security-tooling-map-en)

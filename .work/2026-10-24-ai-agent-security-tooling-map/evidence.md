@@ -16,3 +16,6 @@
 ## 寫作紀律
 - 不放可複製的攻擊步驟；不放個人歸因。
 - 「沒有逐一安裝實測」為會影響讀者判斷的限制，已在開頭交代一句。
+
+## 2026-10-24 重新核對
+所有主張已回一手來源逐句重讀（hooks／sandboxing／permissions 官方頁、Adversa 全文、baldur.dk 全文、MalSkillBench §4.5、AgentDojo 摘要）。差異與來源網址見 `.work/reviews/2026-10-24-ai-agent-security-tooling-map.md` 同名段。更正：Adversa 分類（六被繞過／一幾乎不檢查／一純 LLM 被檔案左右）；hook 「大多數事件」；Strix 歸屬 Baldur Security，日期 2026-05-27。

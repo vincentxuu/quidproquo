@@ -36,6 +36,8 @@ That mapping is this series' own grouping, not any standard's wording. Why the s
 
 ## Seven kinds of tool, in time order
 
+First the baseline: by default Claude Code asks before running most Bash commands and before modifying files. That built-in permission prompt is the layer underneath; the tools below sit on top of it and cover what it does not.
+
 The first four are ordered by when they act on a skill, from arriving on your machine to being used, and all protect your development environment. The last three change the target: the first two test what you build, and the seventh is an extension of the same idea whose active attacks can be aimed at others, so it comes last and is the most sensitive.
 
 ```mermaid
@@ -50,15 +52,15 @@ flowchart LR
   end
 ```
 
-1. **Pre-install scanning** (post 1): before you add a skill or MCP server, check it for malicious patterns with rules or a model.
-2. **Sandbox** (post 2): assume the agent has already been fooled, and limit which files and network it can reach.
-3. **Guardrails and gateways** (post 3): intercept an action before the agent carries it out.
-4. **Detection and audit** (post 4): see afterwards what the agent did, and keep a record you can query.
-5. **Code auditing** (post 5): use AI to read your source code for vulnerabilities.
-6. **Testing AI systems** (post 6): send attack prompts at your LLM application and see whether it holds.
-7. **AI that attacks others** (post 7): autonomous penetration-testing agents, which are a tool for defenders and a tool for attackers at once.
+1. **[Pre-install scanning](/posts/ai/2026-10-24-skill-mcp-pre-install-scanners-en)** (post 1): before you add a skill or MCP server, check it for malicious patterns with rules or a model.
+2. **[Sandbox](/posts/ai/2026-10-24-agent-sandboxes-en)** (post 2): assume the agent has already been fooled, and limit which files and network it can reach.
+3. **[Guardrails and gateways](/posts/ai/2026-10-24-agent-guardrails-hooks-gateways-en)** (post 3): intercept an action before the agent carries it out.
+4. **[Detection and audit](/posts/ai/2026-10-24-agent-detection-audit-en)** (post 4): see afterwards what the agent did, and keep a record you can query.
+5. **[Code auditing](/posts/ai/2026-10-24-audit-skills-cloudflare-trail-of-bits-en)** (post 5): use AI to read your source code for vulnerabilities.
+6. **[Testing AI systems](/posts/ai/2026-10-24-ai-red-teaming-llm-tools-en)** (post 6): send attack prompts at your LLM application and see whether it holds.
+7. **[AI that attacks others](/posts/ai/2026-10-24-ai-pentest-agents-dual-use-en)** (post 7): autonomous penetration-testing agents, which are a tool for defenders and a tool for attackers at once.
 
-Post 8 builds a checklist for taking vendor claims apart.
+[Post 8](/posts/ai/2026-10-24-judging-security-tool-claims-en) builds a checklist for taking vendor claims apart.
 
 ## A weekend example
 
@@ -70,7 +72,7 @@ A guardrail should stop it first, because it can intercept the command before it
 
 ## Three limits that keep recurring
 
-**First, no single tool works as the only line of defense.** Bypasses are on record for both pre-install scanners and sandboxes. Adversa tested eight open-source skill scanners, and every one let at least one malicious skill through: some were bypassed, and some barely inspect content. Adversa builds a scanner of its own, which is worth remembering when reading its conclusions. Sandboxes are no different: researchers got the AI penetration-testing tool Strix to run arbitrary commands inside its own sandbox, through a prompt injection placed on a web page. The sandbox did not stop that from happening; it only limited how far it could reach.
+**First, no single tool works as the only line of defense.** Pre-install scanners have been bypassed on record, and a sandbox does not address being fooled in the first place. Adversa tested eight open-source skill scanners, and every one let at least one malicious skill through: six were bypassed, one barely inspects content, and the pure-LLM one can be swayed by the text inside the skill file. Adversa builds a scanner of its own, which is worth remembering when reading its conclusions. For sandboxes, the example is the AI penetration-testing tool Strix: researchers at Baldur Security used a prompt injection placed on a web page to make it run arbitrary commands inside its own sandbox container. The sandbox did not stop that; it only limited how far it could reach (details in [post 2](/posts/ai/2026-10-24-agent-sandboxes-en) and [post 7](/posts/ai/2026-10-24-ai-pentest-agents-dual-use-en)).
 
 **Second, defaults often work against you.** Claude Code can run a check script you write before each action (called a hook). Its documentation says that on most events, if that script errors or times out, the action still goes ahead; to make it block on failure you must configure that separately. Claude Code's sandbox is also off by default, and when it is on it wraps only shell commands.
 
