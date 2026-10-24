@@ -36,11 +36,11 @@ caption: "Simplified: only the decision from item k+1 onward is shown; the first
 <svg viewBox="0 0 640 440">
   <path class="dg-line" d="M280 34V60" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M280 116V172" marker-end="url(#arrow)"/>
-  <path class="dg-line dg-line--accent" d="M376 216H432" marker-end="url(#arrow-accent)"/>
+  <path class="dg-line dg-line--accent" d="M376 216H420" marker-end="url(#arrow-accent)"/>
   <path class="dg-line" d="M280 260V312" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M280 360V408"/>
   <path class="dg-line" d="M512 240V400Q512 408 504 408H280"/>
-  <path class="dg-line dg-line--warn dg-line--dashed" d="M280 408H100Q92 408 92 400V96Q92 88 100 88H200" marker-end="url(#arrow-warn)"/>
+  <path class="dg-line dg-line--warn dg-line--dashed" d="M280 408H100Q92 408 92 400V96Q92 88 100 88H196" marker-end="url(#arrow-warn)"/>
 
   <circle class="dg-dot" cx="280" cy="28" r="6"/>
   <circle class="dg-dot" cx="280" cy="408" r="4"/>
