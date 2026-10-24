@@ -20,18 +20,20 @@ draft: false
 |---|---|---|---|
 | [Claude Duet](https://claude.com/resources/articles/claude-duet) | Anthropic | iOS、Android、claude.ai | 研究預覽，限美國 Pro／Max 候補，含在訂閱內 |
 | [Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) | Meta | App、WhatsApp | 有免費層與付費方案，目前以美國為主 |
-| [Dots](https://openai.com/index/introducing-dots/) | OpenAI | ChatGPT、Slack | Pro（每月 100 美元起）與 Business Premium（20 美元）；第一個 Dot 含在方案內 |
+| [Dots](https://openai.com/index/introducing-dots/) | OpenAI | ChatGPT、Slack | Pro 與 Business Premium 方案（[CBS](https://www.cbsnews.com/news/sam-altman-openai-dots-chatgpt-agents-safety/) 報導每月 100 美元起、20 美元）；第一個 Dot 含在方案內 |
 | [Grok Bot](https://x.ai/bot) | xAI | 桌面、手機 | Premium 30、Super 100、Ultra 200 美元／月 |
 | [OpenClaw](https://github.com/openclaw/openclaw) | 獨立基金會，MIT | 你自己的電腦，接 20 多個聊天頻道 | 軟體免費，模型 API 與主機自付 |
 | [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Nous Research，MIT | 終端機，接 Telegram、Discord 等 | 軟體免費，可選 Nous Portal 訂閱 |
 
 前四個是代管型：你拿到 app，電腦、模型和審批都在廠商那邊。後兩個是自架型：程式在你手上，你決定它跑在哪。OpenClaw 和 Hermes 在站上各有一篇導讀，見〈[OpenClaw 文件導讀](/posts/ai/2026-03-28-openclaw-overview)〉和〈[Hermes Agent 導讀](/posts/ai/2026-08-18-hermes-agent-intro)〉。
 
+對台灣讀者，第一個問題是用不用得到。Duet 目前限美國 Pro／Max 候補，Muse 以美國為主，Dots 只開放給官方所說的「合格市場」，註冊前先到各家說明頁確認你所在的地區有沒有開放。OpenClaw 和 Hermes 用安裝指令就能裝，沒有候補或地區名單。
+
 ## 五個該問的問題
 
 ### 1. 它在哪台電腦上跑
 
-四個代管型都給你一台廠商的雲端電腦，你關機它照跑。Duet 是帶瀏覽器的虛擬機；Muse 是每人一台隔離的 Linux VM；Dots 有自己的雲端電腦，要用你的筆電得另外授權；Grok Bot 的電腦由 Cursor 營運，文件寫明不支援地端部署。
+四個代管型都給你一台廠商的雲端電腦，你關機它照跑。Duet 是帶瀏覽器的虛擬機；Muse 是每人一台隔離的 Linux VM；Dots 有自己的雲端電腦，要用你的筆電得另外授權；Grok Bot 的電腦由 Cursor 營運，[安全文件](https://docs.x.ai/grok-bot/security)寫明不支援地端部署。
 
 OpenClaw 和 Hermes 跑在你指定的機器。OpenClaw 的 Gateway 裝在筆電或常開主機上，狀態、記憶和憑證都留在那台。Hermes 的終端後端有本機、Docker、SSH、Modal 等六種，README 說一台 5 美元的 VPS 就能跑，內建排程，也能常駐。
 
@@ -41,7 +43,7 @@ OpenClaw 和 Hermes 跑在你指定的機器。OpenClaw 的 Gateway 裝在筆電
 
 代管型的共同做法是讓模型看不到密碼。Duet 照 [Managed Agents](https://www.anthropic.com/engineering/managed-agents) 的設計處理憑證；Muse 讓 agent 只拿到替身 token，真的憑證在網路出口才換上去；Dots 登入時暫停，由你在安全表單輸入；Grok Bot 的連接器 token 留在後端，登入、雙因素和付款時把電腦交還給你。
 
-這些保護有範圍。Dots 的 FAQ 寫明，不涵蓋你自己貼在對話或文件裡的密碼。
+這些保護有範圍。Dots 的 [FAQ](https://help.openai.com/en/articles/20001529-dots-privacy-security-and-safety-faqs) 寫明，不涵蓋你自己貼在對話或文件裡的密碼。
 
 OpenClaw 的憑證放在你自己的機器上，受保護的秘密值用 handle 和出口代換處理。但主 session 的工具預設直接在主機上跑，要自己設沙盒才有隔離。
 
@@ -55,10 +57,10 @@ OpenClaw 的憑證放在你自己的機器上，受保護的秘密值用 handle 
 
 代管型的資料政策由廠商訂。
 
-- **Muse**：Meta 說不把對話交給廣告系統，但互動軌跡去識別化後預設拿去訓練，要自己在設定關掉。目前的架構也不阻止 Meta 在必要時存取你的 VM，完全加密的 Confidential VM 預計今年稍後推出。
-- **Dots**：個人方案由「Improve the model for everyone」開關決定是否用於改善模型；關掉之後，安全相關情況仍可能有人工審閱。你不能檢視或修改個別記憶，只能整個 Dot 刪掉。
-- **Duet**：沿用你 Claude 帳號的記憶、技能和連接器，也能搜尋過去的對話，由「搜尋與參照對話」設定控制。
-- **Grok Bot**：隱私模式開啟時不拿資料訓練；模型由 Cursor 挑選，可能包含第三方模型。
+- **Muse**：Meta 在[安全設計文章](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse)說不把對話交給廣告系統，但瀏覽行為仍可能間接影響你看到的廣告；互動軌跡去識別化後預設拿去訓練，要自己在設定關掉。目前的架構也不阻止 Meta 在必要時存取你的 VM，完全加密的 Confidential VM 預計今年稍後推出。
+- **Dots**：依 [FAQ](https://help.openai.com/en/articles/20001529-dots-privacy-security-and-safety-faqs)，個人方案由「Improve the model for everyone」開關決定是否用於改善模型；關掉之後，安全相關情況仍可能有人工審閱。你不能檢視或修改個別記憶，只能整個 Dot 刪掉。
+- **Duet**：依[說明頁](https://support.claude.com/en/articles/17631495-get-started-with-claude-duet)，沿用你 Claude 帳號的記憶、技能和連接器，也能搜尋過去的對話，由「搜尋與參照對話」設定控制。
+- **Grok Bot**：[文件](https://docs.x.ai/grok-bot/security)說隱私模式開啟時不拿資料訓練；模型由 Cursor 挑選，可能包含第三方模型。
 
 OpenClaw 預設除了每日一次的版本檢查，不對外連線，提示詞只送給你設定的模型供應商。
 
@@ -72,25 +74,25 @@ OpenClaw 和 Hermes 都能換模型供應商。OpenClaw 還能把 Codex、Claude
 
 安全承諾本身驗證不了，能驗證的是對方公開了什麼。
 
-Dots 的[系統卡附錄](https://deploymentsafety.openai.com/gpt-6-astra/sec:appendix-dots-2)寫出測試設計和結果：批次攻擊的 16,600 封攻擊信沒有計分的成功；任務進行到一半被撤掉權限的測試，49 次通過 45 次。同一份文件也承認有中等程度的越界，並說已知漏洞仍在處理。
+OpenAI 在 Dots 的[系統卡附錄](https://deploymentsafety.openai.com/gpt-6-astra/sec:appendix-dots-2)寫出自己做的測試設計和結果：批次攻擊的 16,600 封攻擊信沒有計分的成功；任務進行到一半被撤掉權限的測試，49 次通過 45 次。同一份文件也承認有中等程度的越界，並說已知漏洞仍在處理。
 
-Meta 公開的架構最詳細：隔離容器、Sentinel、替身 token。它沒有給攻擊成功率，但 bug bounty 對所有人開放，最高 30 萬美元。
+Meta 的[安全設計文章](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse)公開的架構最詳細：隔離容器、Sentinel、替身 token。它沒有給攻擊成功率，但 bug bounty 對所有人開放，最高 30 萬美元。
 
-Duet 的公告表示之後會再公布安全設計細節。目前能參考的是 Claude Code 的 auto mode 工程文，它在 Claude Code 的測試裡，對真實的過度積極行為漏放 17%。這是 Claude Code 的數字，Duet 的實際表現要等它自己的資料。
+Duet 的[公告](https://claude.com/resources/articles/claude-duet)表示之後會再公布安全設計細節。目前能參考的是 Claude Code 的 [auto mode 工程文](https://www.anthropic.com/engineering/claude-code-auto-mode)，Anthropic 在 Claude Code 的測試裡，對真實的過度積極行為漏放 17%。這是 Claude Code 的數字，Duet 的實際表現要等它自己的資料。
 
-Grok Bot 的文件逐層列出控制項，並說 Cursor 的母公司 Anysphere 持有 ISO/IEC 27001 和 42001，Grok Bot 在範圍內。這些控制多數只給 Enterprise。
+Grok Bot 的[安全文件](https://docs.x.ai/grok-bot/security)逐層列出控制項，並說 Cursor 的母公司 Anysphere 持有 ISO/IEC 27001 和 42001，Grok Bot 在範圍內。這些控制多數只給 Enterprise。
 
-自架型最大的差別是原始碼你自己看得到。OpenClaw 和 Hermes 都是 MIT 授權，OpenClaw 另有公開的信任模型和安全公告。程式碼公開不等於被審過，你得自己審，或信任審過的人。
+自架型最大的差別是原始碼你自己看得到。OpenClaw 和 Hermes 都是 MIT 授權，OpenClaw 另有公開的[信任模型和安全公告](https://docs.openclaw.ai/start/why-openclaw)。程式碼公開不等於被審過，你得自己審，或信任審過的人。
 
 ## 限制：已經發生的事
 
-OpenAI、Meta、Anthropic 的文件都明寫，提示注入只能降低風險，沒有一家說防得住。已經發生的事：
+OpenAI、Meta、Anthropic、xAI 的文件都明寫，提示注入只能降低風險，沒有一家說防得住。已經發生的事：
 
-- **Muse**：分享對話的連結可以被列舉，研究者用被動 DNS 找到 6,800 個，樣本裡有貸款申請和未公開的營收檢討，Meta 暫停了分享功能。Amazon 以服務條款封鎖 Muse，理由是它不表明身分、似乎儲存客戶憑證，這是 Amazon 的說法。404 Media 取得的內部文件顯示，Meta 在內部測試由真人代打電話，測試者事後才知道，Meta 說公開上線時會附揭露。
-- **Dots**：在連續任務的測試裡，任務數加倍，被標記的越界比例也約加倍。官方歸為中等越界，例如把資訊帶到不相關的任務。
-- **Grok Bot**：同一帳號的 Bot 共用一台電腦，瀏覽器登入和檔案是共享的，Bot 之間沒有隔離。
-- **OpenClaw**：高風險的一鍵遠端執行漏洞 CVE-2026-25253，在 2026.1.29 版修復。
-- **Duet**：公告自述可能誤判郵件串與急迫性，也只每隔幾小時檢查一次帳號。
+- **Muse**：分享對話的連結可以被列舉，研究者用被動 DNS 找到 6,800 個，樣本裡有貸款申請和未公開的營收檢討，Meta 暫停了分享功能（[Ars Technica](https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/)）。Amazon 以服務條款封鎖 Muse，理由是它不表明身分、似乎儲存客戶憑證，這是 Amazon 的說法（[GeekWire](https://www.geekwire.com/2026/amazon-blocks-metas-muse-ai-assistant-in-new-standoff-over-agentic-shopping/)）。[404 Media](https://www.404media.co/meta-tests-muse-ai-agent-calls-that-are-actually-made-by-humans-in-a-call-center/) 取得的內部文件顯示，Meta 在內部測試由真人代打電話，測試者事後才知道，Meta 說公開上線時會附揭露。
+- **Dots**：[系統卡附錄](https://deploymentsafety.openai.com/gpt-6-astra/sec:appendix-dots-2)的連續任務測試裡，任務數加倍，被標記的越界比例也約加倍。官方歸為中等越界，例如把資訊帶到不相關的任務。
+- **Grok Bot**：[文件](https://docs.x.ai/grok-bot/bots)寫明同一帳號的 Bot 共用一台電腦，瀏覽器登入和檔案是共享的，Bot 之間沒有隔離。
+- **OpenClaw**：高風險的一鍵遠端執行漏洞 CVE-2026-25253（[runZero](https://www.runzero.com/blog/openclaw/)），2026.1.29 版起修補，之後又加了來源驗證（[SonicWall](https://www.sonicwall.com/blog/openclaw-auth-token-theft-leading-to-rce-cve-2026-25253)）。
+- **Duet**：[公告](https://claude.com/resources/articles/claude-duet)自述可能誤判郵件串與急迫性，也只每隔幾小時檢查一次帳號。
 
 ## 怎麼選，今晚能做的事
 
@@ -128,7 +130,7 @@ OpenAI、Meta、Anthropic 的文件都明寫，提示注入只能降低風險，
 **自架型**
 - [openclaw/openclaw](https://github.com/openclaw/openclaw)、[Why OpenClaw](https://docs.openclaw.ai/start/why-openclaw)
 - [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)
-- [OpenClaw RCE vulnerability: CVE-2026-25253](https://www.runzero.com/blog/openclaw/)（runZero）
+- [OpenClaw RCE vulnerability: CVE-2026-25253](https://www.runzero.com/blog/openclaw/)（runZero）、[OpenClaw Auth Token Theft Leading to RCE](https://www.sonicwall.com/blog/openclaw-auth-token-theft-leading-to-rce-cve-2026-25253)（SonicWall）
 
 **事件報導**
 - [Meta Muse exposes users' personal and business secrets when they share conversations](https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/)（Ars Technica）

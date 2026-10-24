@@ -20,18 +20,20 @@ Between August and October 2026, xAI, Meta, OpenAI and Anthropic each launched t
 |---|---|---|---|
 | [Claude Duet](https://claude.com/resources/articles/claude-duet) | Anthropic | iOS, Android, claude.ai | Research preview, US Pro/Max waitlist, included in the plan |
 | [Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) | Meta | App, WhatsApp | Free tier plus paid plans, mainly US for now |
-| [Dots](https://openai.com/index/introducing-dots/) | OpenAI | ChatGPT, Slack | Pro (from $100/month) and Business Premium ($20); the first dot is included |
+| [Dots](https://openai.com/index/introducing-dots/) | OpenAI | ChatGPT, Slack | Pro and Business Premium plans ([CBS](https://www.cbsnews.com/news/sam-altman-openai-dots-chatgpt-agents-safety/) reports from $100/month and $20); the first dot is included |
 | [Grok Bot](https://x.ai/bot) | xAI | Desktop, mobile | Premium $30, Super $100, Ultra $200 per month |
 | [OpenClaw](https://github.com/openclaw/openclaw) | Independent foundation, MIT | Your own computer, 20+ chat channels | Free software; you pay for model APIs and hosting |
 | [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Nous Research, MIT | Terminal, Telegram, Discord and more | Free software; optional Nous Portal subscription |
 
 The first four are hosted: you get an app, and the computer, model and approvals all sit with the vendor. The last two are self-hosted: the code is in your hands and you decide where it runs. This site has a guide to each, in Chinese: [OpenClaw docs guide](/posts/ai/2026-03-28-openclaw-overview) and [Hermes Agent guide](/posts/ai/2026-08-18-hermes-agent-intro).
 
+For readers in Taiwan, the first question is whether you can use them at all. Duet is a US-only Pro/Max waitlist, Muse is mainly US, and Dots is limited to what OpenAI calls eligible markets, so check on each vendor's help page whether your region is open before signing up. OpenClaw and Hermes install with a single command and have no waitlist or region list.
+
 ## Five questions to ask
 
 ### 1. Which computer does it run on?
 
-All four hosted agents give you a vendor cloud computer that keeps running when yours is off. Duet uses a virtual machine with a browser. Muse gives each user an isolated Linux VM. Dots has its own cloud computer and needs separate permission to use your laptop. Grok Bot's computers are operated by Cursor, and its docs say on-premises deployment is not supported.
+All four hosted agents give you a vendor cloud computer that keeps running when yours is off. Duet uses a virtual machine with a browser. Muse gives each user an isolated Linux VM. Dots has its own cloud computer and needs separate permission to use your laptop. Grok Bot's computers are operated by Cursor, and its [security docs](https://docs.x.ai/grok-bot/security) say on-premises deployment is not supported.
 
 OpenClaw and Hermes run on a machine you choose. OpenClaw's Gateway sits on a laptop or an always-on host, and state, memory and credentials stay there. Hermes has six terminal backends, including local, Docker, SSH and Modal; its README says a $5 VPS is enough, and it has a built-in scheduler, so it can also stay resident.
 
@@ -41,7 +43,7 @@ So "always running in the background" is not something only hosted agents offer.
 
 The shared hosted-agent pattern is that the model never sees your passwords. Duet handles credentials following the [Managed Agents](https://www.anthropic.com/engineering/managed-agents) design. Muse gives the agent only surrogate tokens and swaps in the real credential at the network boundary. Dots pauses at a login and has you type into a secure form. Grok Bot keeps connector tokens on its backend and hands the computer back to you for logins, two-factor and payment.
 
-These protections have limits. The Dots FAQ says they do not cover passwords you paste into a chat or document yourself.
+These protections have limits. The Dots [FAQ](https://help.openai.com/en/articles/20001529-dots-privacy-security-and-safety-faqs) says they do not cover passwords you paste into a chat or document yourself.
 
 OpenClaw keeps credentials on your own machine and handles protected secrets with handles and egress substitution. But tools in the main session run directly on the host by default, so you have to configure a sandbox to get isolation.
 
@@ -55,10 +57,10 @@ On the self-hosted side you carry this layer. OpenClaw enforces tool policy in c
 
 For hosted agents, the data policy is the vendor's.
 
-- **Muse**: Meta says conversations are not shared with its ad systems, but de-identified interaction trajectories are used for training by default and you have to opt out in settings. The current architecture also does not stop Meta from accessing your VM when needed; a fully encrypted Confidential VM is planned for later this year.
-- **Dots**: On personal plans, "Improve the model for everyone" controls whether your dots' work is used to improve models; even with it off, human review may occur in safety-related cases. You cannot view or edit individual memories, only delete the whole dot.
-- **Duet**: It reuses your Claude account's memory, skills and connectors and can search past chats, governed by the "Search and reference chats" setting.
-- **Grok Bot**: With Privacy Mode on, data is not used for training. Cursor picks the models, which may include third-party ones.
+- **Muse**: In its [safety write-up](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse) Meta says conversations are not shared with its ad systems, though browsing can still indirectly influence the ads you see; de-identified interaction trajectories are used for training by default and you have to opt out in settings. The current architecture also does not stop Meta from accessing your VM when needed; a fully encrypted Confidential VM is planned for later this year.
+- **Dots**: Per the [FAQ](https://help.openai.com/en/articles/20001529-dots-privacy-security-and-safety-faqs), on personal plans "Improve the model for everyone" controls whether your dots' work is used to improve models; even with it off, human review may occur in safety-related cases. You cannot view or edit individual memories, only delete the whole dot.
+- **Duet**: Per its [help page](https://support.claude.com/en/articles/17631495-get-started-with-claude-duet), it reuses your Claude account's memory, skills and connectors and can search past chats, governed by the "Search and reference chats" setting.
+- **Grok Bot**: The [docs](https://docs.x.ai/grok-bot/security) say that with Privacy Mode on, data is not used for training. Cursor picks the models, which may include third-party ones.
 
 OpenClaw, by default, contacts nothing except a daily version check; your prompts go only to the model provider you configure.
 
@@ -72,25 +74,25 @@ OpenClaw and Hermes both let you change model provider. OpenClaw can even plug i
 
 A safety promise can't be verified; what you can check is what the vendor publishes.
 
-The [Dots system card appendix](https://deploymentsafety.openai.com/gpt-6-astra/sec:appendix-dots-2) gives test designs and results: 16,600 attack emails in the bulk test produced no scored success, and in the test where permissions were revoked mid-task, dots passed 45 of 49 episodes. The same document admits moderate scope violations and says known vulnerabilities are still being worked on.
+OpenAI's [Dots system card appendix](https://deploymentsafety.openai.com/gpt-6-astra/sec:appendix-dots-2) gives the designs and results of its own tests: 16,600 attack emails in the bulk test produced no scored success, and in the test where permissions were revoked mid-task, dots passed 45 of 49 episodes. The same document admits moderate scope violations and says known vulnerabilities are still being worked on.
 
-Meta publishes the most detailed architecture: isolated container, Sentinel, surrogate tokens. It gives no attack success rate, but its bug bounty is open to everyone, up to $300,000.
+Meta's [safety write-up](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse) publishes the most detailed architecture: isolated container, Sentinel, surrogate tokens. It gives no attack success rate, but its bug bounty is open to everyone, up to $300,000.
 
-Anthropic says it will publish more on Duet's safety design. What can be referenced today is the Claude Code auto mode write-up, which reports that in Claude Code's own tests the classifier let through 17% of real overeager actions. That is a Claude Code number; Duet's own performance will need its own data.
+Anthropic's [announcement](https://claude.com/resources/articles/claude-duet) says it will publish more on Duet's safety design. What can be referenced today is the Claude Code [auto mode write-up](https://www.anthropic.com/engineering/claude-code-auto-mode), which reports that in Anthropic's own Claude Code tests the classifier let through 17% of real overeager actions. That is a Claude Code number; Duet's own performance will need its own data.
 
-Grok Bot's docs list controls layer by layer and say Cursor's parent company Anysphere holds ISO/IEC 27001 and 42001, with Grok Bot in scope. Most of those controls are Enterprise-only.
+Grok Bot's [security docs](https://docs.x.ai/grok-bot/security) list controls layer by layer and say Cursor's parent company Anysphere holds ISO/IEC 27001 and 42001, with Grok Bot in scope. Most of those controls are Enterprise-only.
 
-The biggest difference on the self-hosted side is that you can read the source. OpenClaw and Hermes are both MIT-licensed, and OpenClaw also publishes a trust model and security advisories. Open code is not audited code: you have to review it yourself or trust someone who did.
+The biggest difference on the self-hosted side is that you can read the source. OpenClaw and Hermes are both MIT-licensed, and OpenClaw also publishes a [trust model and security advisories](https://docs.openclaw.ai/start/why-openclaw). Open code is not audited code: you have to review it yourself or trust someone who did.
 
 ## Limits: what has already happened
 
-The documents from OpenAI, Meta and Anthropic all say prompt injection can only be reduced, and none claims to prevent it. What has happened so far:
+The documents from OpenAI, Meta, Anthropic and xAI all say prompt injection can only be reduced, and none claims to prevent it. What has happened so far:
 
-- **Muse**: Shared-conversation links could be enumerated; researchers found 6,800 through passive DNS, and the sample included a loan application and an unreleased revenue review. Meta paused sharing. Amazon blocked Muse under its terms of use, saying the agent does not identify itself and appears to store customer credentials; that is Amazon's account. Internal documents obtained by 404 Media show Meta testing human agents placing calls, with testers told only afterwards; Meta says public launch will come with disclosures.
-- **Dots**: In the chained-task test, doubling the number of tasks roughly doubled the share of flagged scope violations. OpenAI classes them as moderate, such as carrying information into an unrelated task.
-- **Grok Bot**: Bots on one account share a single computer, including browser logins and files, so there is no isolation between Bots.
-- **OpenClaw**: CVE-2026-25253, a high-severity one-click remote code execution bug, fixed in version 2026.1.29.
-- **Duet**: The announcement itself says it may misread a thread or misjudge urgency, and it checks accounts only every few hours.
+- **Muse**: Shared-conversation links could be enumerated; researchers found 6,800 through passive DNS, and the sample included a loan application and an unreleased revenue review. Meta paused sharing ([Ars Technica](https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/)). Amazon blocked Muse under its terms of use, saying the agent does not identify itself and appears to store customer credentials; that is Amazon's account ([GeekWire](https://www.geekwire.com/2026/amazon-blocks-metas-muse-ai-assistant-in-new-standoff-over-agentic-shopping/)). Internal documents obtained by [404 Media](https://www.404media.co/meta-tests-muse-ai-agent-calls-that-are-actually-made-by-humans-in-a-call-center/) show Meta testing human agents placing calls, with testers told only afterwards; Meta says public launch will come with disclosures.
+- **Dots**: In the [system card appendix](https://deploymentsafety.openai.com/gpt-6-astra/sec:appendix-dots-2)'s chained-task test, doubling the number of tasks roughly doubled the share of flagged scope violations. OpenAI classes them as moderate, such as carrying information into an unrelated task.
+- **Grok Bot**: The [docs](https://docs.x.ai/grok-bot/bots) say Bots on one account share a single computer, including browser logins and files, so there is no isolation between Bots.
+- **OpenClaw**: CVE-2026-25253, a high-severity one-click remote code execution bug ([runZero](https://www.runzero.com/blog/openclaw/)), patched starting in version 2026.1.29, with stricter origin validation added later ([SonicWall](https://www.sonicwall.com/blog/openclaw-auth-token-theft-leading-to-rce-cve-2026-25253)).
+- **Duet**: The [announcement](https://claude.com/resources/articles/claude-duet) itself says it may misread a thread or misjudge urgency, and it checks accounts only every few hours.
 
 ## Choosing: what to do tonight
 
@@ -128,7 +130,7 @@ Hosted agents give you vendor-built isolation and approvals with little setup, a
 **Self-hosted**
 - [openclaw/openclaw](https://github.com/openclaw/openclaw), [Why OpenClaw](https://docs.openclaw.ai/start/why-openclaw)
 - [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)
-- [OpenClaw RCE vulnerability: CVE-2026-25253](https://www.runzero.com/blog/openclaw/) (runZero)
+- [OpenClaw RCE vulnerability: CVE-2026-25253](https://www.runzero.com/blog/openclaw/) (runZero), [OpenClaw Auth Token Theft Leading to RCE](https://www.sonicwall.com/blog/openclaw-auth-token-theft-leading-to-rce-cve-2026-25253) (SonicWall)
 
 **Incident reports**
 - [Meta Muse exposes users' personal and business secrets when they share conversations](https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/) (Ars Technica)
