@@ -83,7 +83,7 @@ start: 110
 |---|---|---|
 | 拖繩 | 60–65 m、6–8 mm 靜力細繩，例如 [Petzl PUR LINE 6 mm](https://www.petzl.com/us/en/sport/products/cords/pur-line-6-mm/PUR-LINE-6-mm_SPO_a2m1r000002bfKZAAY.html)、[Maxim 7 mm](https://shop.maximropes.com/products/personal-escape-rope)、[Sterling 6 mm TRC](https://sterlingrope.com/6-mm-trc)、[Edelrid Rap Line 6 mm](https://edelrid.com/eu-en/sport/ropes/rap-line-protect-pro-dry-6mm)、[Beal Back Up Line](https://beal-planet.com/en/products/back-up-line-5mm) | 都是低延伸繩，不能拿來確保或先鋒 |
 | 帶齒滑輪 | [Petzl MICRO TRAXION](https://www.petzl.com/int/en/sport/products/progress-capture-pulleys/micro-traxion/MICRO-TRAXION_SPO_a2mw0000000HePgAAK.html)、NANO TRAXION、[EDELRID SPOC](https://edelrid.de/en/sports/pulleys/spoc.html)；包很輕可以只用手拉 | 腳踩拖吊要兩顆 |
-| 包 | 小拖包（[BD Wall Hauler 40](https://www.blackdiamondequipment.com/products/wall-hauler-40-haul-bag)、[Metolius Sentinel](https://metoliusclimbing.com/products/haul-bag)）或原廠標明可拖拉的攀登包 | 一般背包用一兩趟就磨爛 |
+| 包 | 小拖包（[BD Wall Hauler 40](https://www.blackdiamondequipment.com/products/wall-hauler-40-haul-bag)、[Metolius Sentinel](https://metoliusclimbing.com/products/haul-bag)）或原廠標明可拖拉的攀登包 | 一般背包用一兩趟就磨爛；推薦款見〈[拖包怎麼挑](#拖包怎麼挑小拖包與大岩壁拖包推薦)〉 |
 | 連接 | 兩個有鎖鉤環，或兩個開口相反的鉤環 | 拖繩接包不用單一無鎖鉤環 |
 | 掛包扁帶 | 60 cm 扁帶 | 到站後把包掛在固定點上 |
 
@@ -283,6 +283,60 @@ title: How to haul a climbing haul bag with a one to one hauling system（New Ze
 
 最後一條是法規：[優勝美地](https://home.nps.gov/yose/planyourvisit/climbing_regulations.htm)禁止從岩壁上丟任何東西，國家公園說從岩壁丟下來的拖包差點砸中地面的攀岩者，也好幾次被誤認成墜落的人。
 
+## 拖包怎麼挑：小拖包與大岩壁拖包推薦
+
+前面講的是怎麼拖，這一節講拖什麼。先分清楚三種包：
+
+- **原廠標明有拖拉環的攀登包**：只在一兩段難段拖一下，其餘背著爬。怎麼挑見〈[多繩距攀登包怎麼挑](/posts/climbing/2026-10-19-multipitch-climbing-backpacks)〉。
+- **小拖包**（約 25–55 L）：自由攀登多繩距要整條路線拖，或大岩壁上掛在大包下面當副包（sub-bag）。
+- **大岩壁拖包**（約 70–160 L）：裝好幾天的水、食物和睡袋。
+
+### 怎麼挑：六個判準
+
+1. **布料**。[OutdoorGearLab 的選購指南](https://www.outdoorgearlab.com/topics/climbing/best-haul-bag/buying-advice)偏好聚氨酯（PU、Metolius 叫 Durathane）塗層：比較耐磨，放久了也不像乙烯基（PVC）塗層那樣變脆；乙烯基的好處是便宜、輕。[bergundsteigen](https://www.bergundsteigen.com/artikel/how-to-bigwall-2-3-richtig-haulen/) 也建議不要買便宜版本。
+2. **兩條拖帶、長度不同**。拖的時候只掛一條，另一條留著，打開包取物時包仍然掛在繩上。Metolius、BD、Edelrid、Climbing Technology 的現行款都是這種設計。
+3. **背負系統能收或能拆**。Achey 說肩帶和腰帶會卡，拖之前要收好或拆掉；包旁邊不要掛任何東西。
+4. **縫線**。OutdoorGearLab 說他們測壞的拖包，先爆的永遠是縫線；Metolius 的主縫是熱熔接。
+5. **開口**。大包太深時，要整個人探進去才拿得到底部；捲頂或寬開口比較好拿。正面全長拉鍊在平台上好用，懸空時用不上（[Vertical Life 的 Edelrid KURT 評測](https://verticallifemag.com/articles/edelrid-kurt-55l/)）。
+6. **排水孔與底部掛點**。下雨時水會積在包底，Metolius Half Dome、Fish Grade V 有排水孔；底部掛點用來掛副包或排泄物筒（poop tube）。
+
+**容量怎麼抓**：OutdoorGearLab 說 The Nose 這種低角度、橫渡多的路線，一個大包比較好拖；Zodiac 這種外傾路線，兩個中包比較好輪替。bergundsteigen 的估算是兩人爬五天、每人每天 4 公升水，包會到 60–70 kg，所以照 Petzl 的建議拆成幾個 30–40 kg 的包。
+
+### 小拖包
+
+| 型號 | 容量 | 空重 | 特色 | 原廠價格 | 評測 | 適合 |
+|---|---|---|---|---|---|---|
+| [Metolius Mescalito Haul Pack](https://www.metoliusclimbing.com/products/haul-packs) | 24 L | 0.85 kg | 輕版 Durathane、肩帶可收、腰帶可拆 | USD 119.95 | — | 一日多繩距，只拖水和外套 |
+| [Metolius Express Haul Pack](https://www.metoliusclimbing.com/products/haul-packs) | 39 L | 1.2 kg | 同上，容量較大 | USD 139.95 | — | 一日多繩距、要拖接近鞋和大 cam |
+| [Edelrid KURT HAULBAG 55](https://edelrid.com/eu-en/sport/backpacks-and-rope-bags-shop/kurt-haulbag-55) | 55 L | 約 1.4 kg | 帆布、背負系統整組可拆、兩條不同長度拖環；PRO 版加正面全長拉鍊 | EUR 140 | [Vertical Life 2024](https://verticallifemag.com/articles/edelrid-kurt-55l/)：重量約 BD Wall Hauler 40 的一半 | 要大一點又要背得舒服 |
+| [BD Wall Hauler 40](https://www.blackdiamondequipment.com/products/wall-hauler-40-haul-bag) | 40 L | 1.99 kg | TPU 塗層、偏置提把、捲頂 | USD 219.95 | [OutdoorGearLab 2024](https://www.outdoorgearlab.com/topics/climbing/best-haul-bag)：72 分，底部不好掛東西 | 耐操、不在意重量 |
+| [Metolius Sentinel](https://metoliusclimbing.com/products/haul-bag) | 46 L | 2.1 kg | Durathane、主縫熔接、背負可收；原廠定位短岩壁或副包 | USD 189.95 | OutdoorGearLab 2024：85 分，但認為多數人買大一號或背包更合適 | 大岩壁副包、短岩壁 |
+| [Climbing Technology AZIMUT](https://www.climbingtechnology.com/en/outdoor-en/bags-and-backpacks/haul-bags2/azimut)／[CRAGGY](https://www.climbingtechnology.com/en/outdoor-en/bags-and-backpacks/haul-bags2/craggy) | 25–35 L／40–50 L | 1.2／1.9 kg | PVC 塗層、兩種長度拖帶、背負可拆 | 官網未標 | — | 歐洲通路好買 |
+| [Grivel Grand Cap 40](https://grivel.com/products/grand-cap-40) | 40 L | 1.5 kg | 帆布、捲頂加正面全長開口 | EUR 170（歐洲官網缺貨） | — | 想要正面開口 |
+
+**輕，但不耐拖**：[Blue Ice Alpine Hauler](https://blueice.com/products/alpine-hauler) 只有 575 g，原廠也寫它以背著爬為主、難段才拖。[Climbing.com 2026 年的評測](https://www.climbing.com/gear/blue-ice-alpine-hauler-backpack-review)在低角度路段拖了兩段就破了六個洞，結論是「它是背包，不是拖包」。
+
+### 大岩壁拖包
+
+| 型號 | 容量 | 空重 | 特色 | 原廠價格 | 評測 |
+|---|---|---|---|---|---|
+| [Metolius Quarter Dome](https://metoliusclimbing.com/products/haul-bag) | 69 L | 2.3 kg | Sentinel 的放大版 | USD 219.95 | OutdoorGearLab 2024：81 分 |
+| [Metolius Half Dome](https://metoliusclimbing.com/products/haul-bag) | 125 L | 3.4 kg | Durathane、主縫熔接、排水孔、頂蓋內袋 | USD 279.95 | OutdoorGearLab 2024 綜合最佳（87 分），說它是酋長岩上最常見的拖包 |
+| [Metolius El Capitan](https://metoliusclimbing.com/products/haul-bag) | 157 L | 3.6 kg | Half Dome 的放大版 | USD 299.95 | OutdoorGearLab 2024：84 分，嫌長圓筒太大 |
+| [BD Wall Hauler 70](https://www.blackdiamondequipment.com/products/wall-hauler-70-haul-bag) | 70 L | 2.46 kg | TPU 塗層、偏置提把、捲頂 | USD 259.95 | OutdoorGearLab 2024 最佳性價比（83 分）；金屬扣下山時會一直鬆 |
+| [BD Wall Hauler 140](https://www.blackdiamondequipment.com/products/wall-hauler-140-haul-bag) | 140 L | 3.11 kg | 同系列，原廠定位遠征 | USD 319.95 | OutdoorGearLab 2024：78 分 |
+| [Climbing Technology ZENITH](https://www.climbingtechnology.com/en/outdoor-en/bags-and-backpacks/haul-bags2/zenith) | 70–85 L | 2.7 kg | PVC 塗層、背負可拆、底部交叉織帶可掛副包 | 官網未標 | — |
+| [Edelrid LYNN HAULBAG 95](https://edelrid.com/int-en/professional/transport/lynn-haulbag-95) | 95 L | 約 2.5 kg | 帆布、內襯泡棉防穿刺；原廠歸在專業線 | EUR 240 | — |
+
+價格是 2026-10-24 各原廠官網標價，未換算。2024 年以後的拖包群測只有 OutdoorGearLab 一篇，而且只比了 Metolius 和 BD，其他品牌只有原廠資料。
+
+### 怎麼選
+
+- **自由攀登多繩距、只拖一兩段**：用原廠標明有拖拉環的攀登包，不用另外買。
+- **整條路線都要拖**：Metolius Express 39 L 最輕；要更大、背得舒服，選 Edelrid KURT 55。
+- **第一面大岩壁、一兩晚**：BD Wall Hauler 70 或 Metolius Quarter Dome；要用很多次，Metolius Half Dome 是最多人用的那一個。
+- **台灣怎麼買**：2026-10 台灣只找到 KONG Genius II（30 L，偏洞穴與繩索作業）在 [Concordia](https://concordia.com.tw/index.php?route=product/product&product_id=3869) 預購，Metolius、BD Wall Hauler、Edelrid、Climbing Technology 的拖包都沒找到台灣現貨，實際上要國外網購或代購。
+
 ## 國外路線影片：看別人在真的路線上怎麼拖
 
 下面四支各對應一種情境。它們都是個人紀錄片，不是教學片，看的是「什麼時候拖、拖的時候發生了什麼」，系統細節以上面的原廠與教學來源為準。
@@ -356,6 +410,10 @@ start: 606
 - **[HowNOT2](https://www.youtube.com/@HowNOT2)**：Ryan Jenks 經營，2016 年從走繩（highline）安全教學起家，後來把攀岩、洞穴、溪降器材拿去拉斷，還有在真岩上拉 bolt 的 Bolt Busters 系列。看點是「標示強度以外」的情況：打結、磨損、舊裝備、放錯位置。限制：多數是自製機器慢拉、每組 1–3 個樣本，他自己也說這是娛樂不是科學；頻道背後有網路器材店，部分受測品是店內商品。
 - **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**：署名 Ben 的攀岩者獨自經營，以前是軟體工程師。一次在泰國 Tonsai 看到確保者接太硬、攀者撞上岩石，他回家設計實驗，從此專拍確保、繩子、鉤環與確保器的實驗與物理解說，近年多支在 Mammut 實驗室合拍。限制：實驗多是自己設計，不是 EN／UIAA 標準測試。這個頻道目前沒有拖包或帶齒滑輪的片。
 
+## 更新紀錄
+
+- 2026-10-24：新增〈拖包怎麼挑〉一節：六個判準、小拖包與大岩壁拖包的現行款比較與台灣購買現況。
+
 ## 參考資料
 
 - [How to Haul a Pack for Climbing（Climbing.com，Jeff Achey，2023）](https://www.climbing.com/skills/how-to-haul-pack-climbing/)
@@ -369,6 +427,10 @@ start: 606
 - [SPOC（EDELRID）](https://edelrid.de/en/sports/pulleys/spoc.html)、[Rap Line Protect Pro Dry 6 mm（EDELRID）](https://edelrid.com/eu-en/sport/ropes/rap-line-protect-pro-dry-6mm)
 - [Personal Escape Rope 7 mm（Maxim）](https://shop.maximropes.com/products/personal-escape-rope)、[6 mm TRC（Sterling）](https://sterlingrope.com/6-mm-trc)、[Back Up Line（Beal）](https://beal-planet.com/en/products/back-up-line-5mm)
 - [Wall Hauler 40](https://www.blackdiamondequipment.com/products/wall-hauler-40-haul-bag)、[Wall Hauler 70](https://www.blackdiamondequipment.com/products/wall-hauler-70-haul-bag)、[Rotor](https://www.blackdiamondequipment.com/products/rotor)、[QC Lab: Full Strength Haul Loops](https://blackdiamondequipment.com/blogs/stories/qc-lab-full-strength-haul-loops)（Black Diamond）
+- [Best Haul Bags for Big Wall Climbing](https://www.outdoorgearlab.com/topics/climbing/best-haul-bag)與[選購指南](https://www.outdoorgearlab.com/topics/climbing/best-haul-bag/buying-advice)（OutdoorGearLab，2024-10 更新）
+- [The Ultimate Edelrid Kurt 55L Haulbag Review（Vertical Life，2024）](https://verticallifemag.com/articles/edelrid-kurt-55l/)
+- [The Alpine Hauler Is One of the Best Packs I've Used (With One Major Caveat)（Climbing.com，2026）](https://www.climbing.com/gear/blue-ice-alpine-hauler-backpack-review)
+- [Haul Packs（Metolius）](https://www.metoliusclimbing.com/products/haul-packs)、[KURT HAULBAG 55](https://edelrid.com/eu-en/sport/backpacks-and-rope-bags-shop/kurt-haulbag-55)、[LYNN HAULBAG 95](https://edelrid.com/int-en/professional/transport/lynn-haulbag-95)（Edelrid）、[AZIMUT](https://www.climbingtechnology.com/en/outdoor-en/bags-and-backpacks/haul-bags2/azimut)、[CRAGGY](https://www.climbingtechnology.com/en/outdoor-en/bags-and-backpacks/haul-bags2/craggy)、[ZENITH](https://www.climbingtechnology.com/en/outdoor-en/bags-and-backpacks/haul-bags2/zenith)（Climbing Technology）、[Grand Cap 40（Grivel）](https://grivel.com/products/grand-cap-40)、[Alpine Hauler（Blue Ice）](https://blueice.com/products/alpine-hauler)
 - [Haul Bags（Metolius）](https://metoliusclimbing.com/products/haul-bag)、[Dancer（Kong）](https://kongusa.com/products/dancer)
 - [Important Safety Notice: Product Recall DMM Compact Swivel Units（DMM）](https://dmmwales.com/pages/important-safety-notice-product-recall-dmm-compact-swivel-units)
 - [Hauling – not just for big walls](https://alpinesavvy.com/blog/hauling-not-just-for-big-walls)、[Foot haul your pack on a multi-pitch](https://alpinesavvy.com/blog/foot-haul-your-pack-on-a-multi-pitch)、[Drop-proof your pack](https://alpinesavvy.com/bonus-articles/drop-proof-your-pack)、[Haul bag rigging 101](https://alpinesavvy.com/blog/haul-bag-rigging-101)、[The 2 to 1 "Z pull" haul, explained](https://alpinesavvy.com/blog/the-2-to-1-z-pull-haul-explained)（Alpinesavvy）

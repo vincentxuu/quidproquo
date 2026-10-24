@@ -83,7 +83,7 @@ If your pack holds only a litre or two of water and a jacket, there is a third o
 |---|---|---|
 | Tagline | 60–65 m, 6–8 mm static cord, e.g. [Petzl PUR LINE 6 mm](https://www.petzl.com/us/en/sport/products/cords/pur-line-6-mm/PUR-LINE-6-mm_SPO_a2m1r000002bfKZAAY.html), [Maxim 7 mm](https://shop.maximropes.com/products/personal-escape-rope), [Sterling 6 mm TRC](https://sterlingrope.com/6-mm-trc), [Edelrid Rap Line 6 mm](https://edelrid.com/eu-en/sport/ropes/rap-line-protect-pro-dry-6mm), [Beal Back Up Line](https://beal-planet.com/en/products/back-up-line-5mm) | All low-stretch; never belay or lead on them |
 | Progress-capture pulley | [Petzl MICRO TRAXION](https://www.petzl.com/int/en/sport/products/progress-capture-pulleys/micro-traxion/MICRO-TRAXION_SPO_a2mw0000000HePgAAK.html), NANO TRAXION, [EDELRID SPOC](https://edelrid.de/en/sports/pulleys/spoc.html); a very light bag can go hand over hand | A foot haul needs two |
-| Bag | A small haul bag ([BD Wall Hauler 40](https://www.blackdiamondequipment.com/products/wall-hauler-40-haul-bag), [Metolius Sentinel](https://metoliusclimbing.com/products/haul-bag)) or a climbing pack with a maker-rated haul loop | A regular pack gets shredded in one or two outings |
+| Bag | A small haul bag ([BD Wall Hauler 40](https://www.blackdiamondequipment.com/products/wall-hauler-40-haul-bag), [Metolius Sentinel](https://metoliusclimbing.com/products/haul-bag)) or a climbing pack with a maker-rated haul loop | A regular pack gets shredded in one or two outings; see [Choosing a haul bag](#choosing-a-haul-bag-small-bags-and-big-wall-bags) |
 | Connection | Two lockers, or two opposed carabiners | Never a single non-locker between line and bag |
 | Docking sling | 60 cm sling | Hangs the bag on the anchor when it arrives |
 
@@ -283,6 +283,60 @@ So the counterweight climber must always be tied into a separate rope, ideally t
 
 Last, a regulation: [Yosemite](https://home.nps.gov/yose/planyourvisit/climbing_regulations.htm) prohibits throwing anything off a cliff, and the park says haul bags thrown from walls have nearly struck climbers on the ground and have been mistaken for falling climbers several times.
 
+## Choosing a haul bag: small bags and big-wall bags
+
+Everything above is about how to haul; this section is about what to haul. First, three kinds of bag:
+
+- **A climbing pack with a maker-rated haul loop**: haul it through one or two hard pitches and carry it the rest of the way. See [Multi-Pitch Climbing Backpacks](/posts/climbing/2026-10-19-multipitch-climbing-backpacks-en).
+- **A small haul bag** (about 25–55 L): for hauling the whole of a free multi-pitch route, or hanging under the main bag on a big wall as a sub-bag.
+- **A big-wall haul bag** (about 70–160 L): days of water, food and sleeping bags.
+
+### What to look for: six criteria
+
+1. **Fabric.** [OutdoorGearLab's buying advice](https://www.outdoorgearlab.com/topics/climbing/best-haul-bag/buying-advice) prefers polyurethane coatings (Metolius calls theirs Durathane): more abrasion resistant, and they don't get crackly with age the way vinyl (PVC) coatings do; vinyl is cheaper and lighter. [bergundsteigen](https://www.bergundsteigen.com/artikel/how-to-bigwall-2-3-richtig-haulen/) also advises against the cheaper versions.
+2. **Two haul straps of different lengths.** Haul on one and keep the other free, so you can open the bag while it stays on the rope. Current Metolius, BD, Edelrid and Climbing Technology bags all work this way.
+3. **A carry system that stows or comes off.** Achey says shoulder straps and waist belts snag, so tuck them away or remove them before hauling, and hang nothing off the sides.
+4. **Seams.** OutdoorGearLab says that in every haul bag failure they've seen, the sewn seams blew out first; Metolius welds its main seams.
+5. **Opening.** In a deep bag you have to climb half inside to reach the bottom; a roll-top or wide mouth helps. A full-length front zip is handy on a ledge and useless when the bag is hanging ([Vertical Life's Edelrid KURT review](https://verticallifemag.com/articles/edelrid-kurt-55l/)).
+6. **Drain hole and bottom attachment points.** Rain collects in the bottom; the Metolius Half Dome and Fish Grade V have drain holes. Bottom points carry a sub-bag or a poop tube.
+
+**Sizing**: OutdoorGearLab says one big bag hauls better on low-angle, traversing routes like The Nose, while two medium bags are easier to rotate on overhanging routes like Zodiac. bergundsteigen estimates that two people on a five-day route, at 4 litres of water each per day, end up with 60–70 kg, which is why Petzl suggests splitting it into several 30–40 kg bags.
+
+### Small haul bags
+
+| Model | Volume | Empty weight | Features | Maker price | Reviews | Best for |
+|---|---|---|---|---|---|---|
+| [Metolius Mescalito Haul Pack](https://www.metoliusclimbing.com/products/haul-packs) | 24 L | 0.85 kg | Lighter Durathane, stowable shoulder straps, removable waist belt | USD 119.95 | — | A day route, hauling water and a jacket |
+| [Metolius Express Haul Pack](https://www.metoliusclimbing.com/products/haul-packs) | 39 L | 1.2 kg | Same, larger | USD 139.95 | — | A day route with approach shoes and big cams |
+| [Edelrid KURT HAULBAG 55](https://edelrid.com/eu-en/sport/backpacks-and-rope-bags-shop/kurt-haulbag-55) | 55 L | about 1.4 kg | Tarpaulin, whole carry system detaches, two haul loops of different lengths; PRO version adds a full-length front zip | EUR 140 | [Vertical Life 2024](https://verticallifemag.com/articles/edelrid-kurt-55l/): about half the weight of the BD Wall Hauler 40 | Bigger, and comfortable to carry |
+| [BD Wall Hauler 40](https://www.blackdiamondequipment.com/products/wall-hauler-40-haul-bag) | 40 L | 1.99 kg | TPU coating, offset handles, roll-top | USD 219.95 | [OutdoorGearLab 2024](https://www.outdoorgearlab.com/topics/climbing/best-haul-bag): 72, hard to clip things underneath | Tough, weight not a concern |
+| [Metolius Sentinel](https://metoliusclimbing.com/products/haul-bag) | 46 L | 2.1 kg | Durathane, welded main seams, stowable carry system; sold for short walls or as a sub-bag | USD 189.95 | OutdoorGearLab 2024: 85, but most people are better served by a bigger bag or a pack | Big-wall sub-bag, short walls |
+| [Climbing Technology AZIMUT](https://www.climbingtechnology.com/en/outdoor-en/bags-and-backpacks/haul-bags2/azimut) / [CRAGGY](https://www.climbingtechnology.com/en/outdoor-en/bags-and-backpacks/haul-bags2/craggy) | 25–35 L / 40–50 L | 1.2 / 1.9 kg | PVC coating, two strap lengths, removable carry system | Not listed | — | Easy to find in Europe |
+| [Grivel Grand Cap 40](https://grivel.com/products/grand-cap-40) | 40 L | 1.5 kg | Tarpaulin, roll-top plus full-length front opening | EUR 170 (out of stock in Europe) | — | If you want front access |
+
+**Light, but not built for hauling**: the [Blue Ice Alpine Hauler](https://blueice.com/products/alpine-hauler) weighs only 575 g, and Blue Ice itself says it is mainly for climbing with, hauled only through hard passages. [Climbing.com's 2026 review](https://www.climbing.com/gear/blue-ice-alpine-hauler-backpack-review) counted six new holes after two low-angle pitches and concluded, "It's a backpack, not a haulbag."
+
+### Big-wall haul bags
+
+| Model | Volume | Empty weight | Features | Maker price | Reviews |
+|---|---|---|---|---|---|
+| [Metolius Quarter Dome](https://metoliusclimbing.com/products/haul-bag) | 69 L | 2.3 kg | A larger Sentinel | USD 219.95 | OutdoorGearLab 2024: 81 |
+| [Metolius Half Dome](https://metoliusclimbing.com/products/haul-bag) | 125 L | 3.4 kg | Durathane, welded main seams, drain hole, lid pocket | USD 279.95 | OutdoorGearLab 2024 Best Overall (87), "the most common haul bag that you'll see on El Capitan" |
+| [Metolius El Capitan](https://metoliusclimbing.com/products/haul-bag) | 157 L | 3.6 kg | A larger Half Dome | USD 299.95 | OutdoorGearLab 2024: 84, found the long tube too big |
+| [BD Wall Hauler 70](https://www.blackdiamondequipment.com/products/wall-hauler-70-haul-bag) | 70 L | 2.46 kg | TPU coating, offset handles, roll-top | USD 259.95 | OutdoorGearLab 2024 Best Buy (83); metal buckles kept loosening on the descent |
+| [BD Wall Hauler 140](https://www.blackdiamondequipment.com/products/wall-hauler-140-haul-bag) | 140 L | 3.11 kg | Same line, sold for expeditions | USD 319.95 | OutdoorGearLab 2024: 78 |
+| [Climbing Technology ZENITH](https://www.climbingtechnology.com/en/outdoor-en/bags-and-backpacks/haul-bags2/zenith) | 70–85 L | 2.7 kg | PVC coating, removable carry system, bottom cross-webbing for a sub-bag | Not listed | — |
+| [Edelrid LYNN HAULBAG 95](https://edelrid.com/int-en/professional/transport/lynn-haulbag-95) | 95 L | about 2.5 kg | Tarpaulin, foam lining against punctures; in Edelrid's professional line | EUR 240 | — |
+
+Prices are list prices on each maker's site on 2026-10-24, not converted. The only haul bag group test from 2024 onwards is OutdoorGearLab's, and it covers only Metolius and BD; for other brands there is only maker data.
+
+### Which one
+
+- **Free multi-pitch, hauling one or two pitches**: a climbing pack with a maker-rated haul loop; no need to buy anything else.
+- **Hauling a whole route**: the Metolius Express 39 L is the lightest; for something bigger and comfortable to carry, the Edelrid KURT 55.
+- **A first big wall, one or two nights**: BD Wall Hauler 70 or Metolius Quarter Dome; if you'll use it a lot, the Metolius Half Dome is the one most people use.
+- **Buying in Taiwan**: in October 2026 the only listing found was the KONG Genius II (30 L, aimed at caving and rope access), on pre-order at [Concordia](https://concordia.com.tw/index.php?route=product/product&product_id=3869). No Taiwan stock was found for Metolius, BD Wall Hauler, Edelrid or Climbing Technology haul bags, so in practice you order from abroad.
+
 ## Route videos: hauling on real routes
 
 Each of these four shows one situation. They are personal films, not tutorials: watch for when people haul and what happens; take system details from the manufacturer and instruction sources above.
@@ -356,6 +410,10 @@ Taiwan has no big walls, but every move in light hauling can be practised on the
 - **[HowNOT2](https://www.youtube.com/@HowNOT2)**: run by Ryan Jenks. It started in 2016 as highline safety instruction and grew into breaking climbing, caving and canyoneering gear, plus the Bolt Busters series that pulls bolts out of real rock. Its value is in the cases beyond the rated number: knots, wear, old gear, bad placements. Limits: most tests are slow pulls on a home-built rig with one to three samples, and Ryan himself calls it entertainment, not science; the channel is backed by an online gear shop, and some tested items are sold there.
 - **[Hard Is Easy](https://www.youtube.com/@HardIsEasy)**: run solo by a climber who signs as Ben, a former software developer. After watching a hard catch slam a climber into the rock in Tonsai, Thailand, he designed his first experiment; the channel now focuses on experiments and physics explanations about belaying, ropes, carabiners and belay devices, with several recent episodes filmed in Mammut's lab. Limits: most experiments are his own design, not EN/UIAA standard tests. The channel has no videos on hauling or progress-capture pulleys yet.
 
+## Update log
+
+- 2026-10-24: Added a section on choosing a haul bag: six criteria, current small and big-wall models compared, and buying in Taiwan.
+
 ## References
 
 - [How to Haul a Pack for Climbing (Climbing.com, Jeff Achey, 2023)](https://www.climbing.com/skills/how-to-haul-pack-climbing/)
@@ -369,6 +427,10 @@ Taiwan has no big walls, but every move in light hauling can be practised on the
 - [SPOC (EDELRID)](https://edelrid.de/en/sports/pulleys/spoc.html), [Rap Line Protect Pro Dry 6 mm (EDELRID)](https://edelrid.com/eu-en/sport/ropes/rap-line-protect-pro-dry-6mm)
 - [Personal Escape Rope 7 mm (Maxim)](https://shop.maximropes.com/products/personal-escape-rope), [6 mm TRC (Sterling)](https://sterlingrope.com/6-mm-trc), [Back Up Line (Beal)](https://beal-planet.com/en/products/back-up-line-5mm)
 - [Wall Hauler 40](https://www.blackdiamondequipment.com/products/wall-hauler-40-haul-bag), [Wall Hauler 70](https://www.blackdiamondequipment.com/products/wall-hauler-70-haul-bag), [Rotor](https://www.blackdiamondequipment.com/products/rotor), [QC Lab: Full Strength Haul Loops](https://blackdiamondequipment.com/blogs/stories/qc-lab-full-strength-haul-loops) (Black Diamond)
+- [Best Haul Bags for Big Wall Climbing](https://www.outdoorgearlab.com/topics/climbing/best-haul-bag) and [buying advice](https://www.outdoorgearlab.com/topics/climbing/best-haul-bag/buying-advice) (OutdoorGearLab, updated 2024-10)
+- [The Ultimate Edelrid Kurt 55L Haulbag Review (Vertical Life, 2024)](https://verticallifemag.com/articles/edelrid-kurt-55l/)
+- [The Alpine Hauler Is One of the Best Packs I've Used (With One Major Caveat) (Climbing.com, 2026)](https://www.climbing.com/gear/blue-ice-alpine-hauler-backpack-review)
+- [Haul Packs (Metolius)](https://www.metoliusclimbing.com/products/haul-packs), [KURT HAULBAG 55](https://edelrid.com/eu-en/sport/backpacks-and-rope-bags-shop/kurt-haulbag-55), [LYNN HAULBAG 95](https://edelrid.com/int-en/professional/transport/lynn-haulbag-95) (Edelrid), [AZIMUT](https://www.climbingtechnology.com/en/outdoor-en/bags-and-backpacks/haul-bags2/azimut), [CRAGGY](https://www.climbingtechnology.com/en/outdoor-en/bags-and-backpacks/haul-bags2/craggy), [ZENITH](https://www.climbingtechnology.com/en/outdoor-en/bags-and-backpacks/haul-bags2/zenith) (Climbing Technology), [Grand Cap 40 (Grivel)](https://grivel.com/products/grand-cap-40), [Alpine Hauler (Blue Ice)](https://blueice.com/products/alpine-hauler)
 - [Haul Bags (Metolius)](https://metoliusclimbing.com/products/haul-bag), [Dancer (Kong)](https://kongusa.com/products/dancer)
 - [Important Safety Notice: Product Recall DMM Compact Swivel Units (DMM)](https://dmmwales.com/pages/important-safety-notice-product-recall-dmm-compact-swivel-units)
 - [Hauling – not just for big walls](https://alpinesavvy.com/blog/hauling-not-just-for-big-walls), [Foot haul your pack on a multi-pitch](https://alpinesavvy.com/blog/foot-haul-your-pack-on-a-multi-pitch), [Drop-proof your pack](https://alpinesavvy.com/bonus-articles/drop-proof-your-pack), [Haul bag rigging 101](https://alpinesavvy.com/blog/haul-bag-rigging-101), [The 2 to 1 "Z pull" haul, explained](https://alpinesavvy.com/blog/the-2-to-1-z-pull-haul-explained) (Alpinesavvy)
