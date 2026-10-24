@@ -9193,26 +9193,27 @@
   "https://www.thailandclimbing.com/crazy-horse-closure": {
     "firstSeen": "2026-10-21",
     "status": 200,
-    "checked": "2026-10-21",
+    "checked": "2026-10-24",
     "crags": [
-      "thailand-crag-crazy-horse",
-      "thailand-crags-overview"
+      "thailand-crag-crazy-horse"
     ],
     "types": [
       "closure"
     ],
-    "anchors": 1,
+    "anchors": 2,
     "missing": [
-      "2018-07"
+      "2018-07",
+      "2026-10-24"
     ],
     "hash": "8eb87c9321b77a72",
     "via": "direct",
-    "bytes": 62890
+    "bytes": 62890,
+    "lastChanged": "2026-10-24"
   },
   "https://www.thailandclimbing.com/blog/help-re-open-crazy-horse-buttress": {
     "firstSeen": "2026-10-21",
     "status": 200,
-    "checked": "2026-10-21",
+    "checked": "2026-10-24",
     "crags": [
       "thailand-crag-crazy-horse"
     ],
@@ -9433,5 +9434,21 @@
     "hash": "91733f592d7c27af",
     "via": "direct",
     "bytes": 186058
+  },
+  "https://verticallifemag.com/articles/climbing-in-chiang-mai-thailand/": {
+    "firstSeen": "2026-10-24",
+    "status": 200,
+    "checked": "2026-10-24",
+    "crags": [
+      "thailand-crag-crazy-horse"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "9749b28c848287ee",
+    "via": "direct",
+    "bytes": 152141
   }
 }

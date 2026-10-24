@@ -16,6 +16,28 @@
 - UKC: Crazy Horse Buttress https://www.ukclimbing.com/logbook/crags/crazy_horse_buttress-3036: 「據 CMRCA 表示已重開」的轉述（二手，非官方公告）
 - The Crag Journal: Climbing in Thailand（2023） https://thecragjournal.com/2023/02/01/climbing-in-thailand-a-journey-through-south-east-asia/: 2023 年到當地的現場記錄；Crazy Horse 現場狀況
 - A Guide to Rock Climbing in Northern Thailand https://www.thailandclimbing.com/climber-info: CMRCA Press 第 3 版、220 頁、500 THB、北泰 18 個分區 150 段以上；**出版年份未查到**
+- CMRCA: Crazy Horse 封閉公告全文（2026-10-24 重讀） https://www.thailandclimbing.com/crazy-horse-closure: Mae On 縣署與 Ban Sahakorn 2 分區間的刑事調查；調查期間攀爬視為侵入政府土地；出事動用救護時村長受罰；府尹要求維持封閉；CMRCA 建議避開北泰其他岩場；依土地法私人公司不能承租，CMRCA 把 15 年設施交給 Mae On 社區，社區已向縣／府／中央申請管理
+- CMRCA: Getting to Crazy Horse（2026-10-24 重讀） https://www.thailandclimbing.com/climber-info/getting-to-crazy-horse: 從 Progression Vertical Climbing Gym 出發 08:30、岩場 16:30 回程；當天至少 4 人；前一晚 19:30 前訂位；岩場供水、午餐可選；無照騎機車會被罰
+- CMRCA 泰文頁 https://www.thailandclimbing.com/th/climber-info: 泰文名 หน้าผาม้าพยศ
+- CMRCA 泰文指南頁 https://www.thailandclimbing.com/th/climber-info/crazy-horse-guidebook: 指南第一版 2544（2001）出版；2016（2559）推出 Climbing in Northern Thailand app，自動更新
+- CMRCA 訂位頁 https://thailandclimbing.rezdy.com/717225/half-day-climb-crazy-horse: Crazy Horse 半日帶爬行程仍可訂；含攀岩保險
+- theCrag: Crazy Horse（2026-10-24 重讀） https://www.thecrag.com/en/climbing/thailand/chaing-mai: Aka Mae On；Gatekeeper Buttress 高 23 m；Google Maps 標有停車場
+- climbgrades: Rock Climbing in Chiang Mai Guide for 2026 https://climbgrades.com/blog/chiangmaiguide: 2026-08-05 更新；超過 200 條；岩栓 1–1.5 m；多數 5 到 7a+；整天都有遮陰區、部分可避雨；煙霧季 2–4 月、蜜蜂季 10–1 月、黃蜂季 4–10 月；週末 9:30 找繩伴；70 m 繩、60 m 約九成、少數 80 m；14–18 快扣；頭盔；Heart Wall／Gatekeeper／Rooftop 要走陡坡；停車場有廁所；公車回程要路邊攔；「2026 可以爬」無來源
+- Vertical Life: Climbing in Chiang Mai（VL52 2025 春） https://verticallifemag.com/articles/climbing-in-chiang-mai-thailand/: 入口有 Do not climb 牌但每天有人爬、無執法、帶團照常；每年巡檢、不鏽鋼重打
+- Thaiger 2024-06 https://thethaiger.com/hot-news/tourism/chiang-mai-eyes-1-billion-baht-boost-from-rock-climbing-tourism: 社區等待地方行政核准重開；2000 年開放、2018 年因官員不當行為的法律爭議關閉
+- Ada House CNX 2026-07 https://adahouse-cnx.com/en/blog/rock-climbing-chiang-mai: 「撰文時可以爬」；管理移向社區（二手）
+- traave 2015 http://www.traave.com/%e0%b8%9c%e0%b8%b2%e0%b8%a1%e0%b9%89%e0%b8%b2%e0%b8%9e%e0%b8%a2%e0%b8%a8/: 1006 號公路轉 1317 往 Tham Muang On；馬頭岩是名字由來
+- 泰國政府公關局 2025-11 https://thailand.prd.go.th/en/content/category/detail/id/2078/iid/447104: 1669 緊急醫療、1155 觀光警察、191 警察
+- GOV.UK Healthcare in Thailand https://www.gov.uk/guidance/healthcare-and-medical-services-in-thailand: 1669 衛生部、免費、轉最近醫院
+
+- CMRCA: Multi-Pitch Private Guiding https://www.thailandclimbing.com/courses/multi-pitch-private-guiding: 初階多段 Trojan Horse 6a+、Deep Space 5c、A Horse With No Name 5c、Into the Sun 6a；進階 Anxiety State Crisis 7a、Sunseeker 6c、Head Hunters 7a；多段 5c 到 7b+
+- theCrag: In Deep Space https://www.thecrag.com/en/climbing/thailand/chaing-mai/route/1049642385: 分段 5b/5b/5c/5c、25/25/30/10 m、64 次攀登；第二段分岔走法；洞外垂降 2 次或洞內 3 次（70 m 繩）；2017 Francis Haden & Donna Kwok 首攀
+- UKC: Climbing in Northern Thailand（2011） https://www.ukclimbing.com/articles/destinations/climbing_in_northern_thailand-3677: 1998 Kraisak Boonthip 首批路線；Blood Love and Steel 6c super-classic；super classics 多在 6a–6c；Anxiety State Crisis 7a,7a、Sun Seeker 6c,6b+、Space Manoeuvres 6c,7b,7b；墜落可能回不到岩面、建議 prusik；鈦或船用不鏽鋼黏著式岩栓、Hilti RE 500；60 m 繩可下每段
+- The Wandering Climber（2019，2022 修訂） https://www.thewanderingclimber.com/crazy-horse-chiang-mai/: 指南 2016 印刷約 200 條；主壁朝南 11 點起曬；Aircon 中午陰有風；Hanging Gardens、Junkyard 下午陰；Heart Wall 整天陰、部分雨天可爬、接近約 25 分鐘；Ant Hill 的 Intensify 5.12b
+- Southern Oscillations（2015） https://southernoscillations.wordpress.com/2015/01/15/crazy-horse-buttress-north-of-thailand/: 第 3 版指南只收 Crazy Horse；指南岩栓數常比牆上少；指南推薦在 The Rooftop 收尾，A Route with a View 5c+、Skyscraper 6a；岩場禁止露營
+- Ramon Fadli（2016） https://ramonfadli.com/crazy-horse/2/: Jira Homestay 到停車場約 1 km；主壁塞車時經 The Archway 上 The Rooftop；Heun Fah 5b、A Route with a View 5c+
+- Vertical Life VL52 全文 https://verticallifemag.com/articles/climbing-in-chiang-mai-thailand/: 1998 Kraisak Boonthip 首批；主壁 5b→8a+；Headhunters 3 段到馬頭岩頂；Tamarind 學校團體 11–2 月、Happy Birthday、Makham Wan 入門多段；Air Con Wall 熱季；The Furnace 遮陰；Trojan Horse 結尾垂降進主區先看蜂；Anxiety State Crisis 懸吊確保、50 m 落差、要會繩上攀；亞洲蜜蜂帆狀巢立即下降；60–70 m 繩、12–15 快扣；Crag Finder app 數位指南
+- YouTube 搜尋（yt-dlp，2026-10-24） ytsearch20 x18 查詢: 17 支路線影片＋1 支 CMRCA 封閉影響影片；清單與 metadata 見 src/data/climbing-videos.ts 的 crazy-horse
 
 ## Exact route rows
 
@@ -254,5 +276,7 @@
 - The Aircon Wall: 6b+ A Taste for Disorder 23 m
 
 ## Dropped / not used
+
+- Lost Earth Adventures（2016） https://www.lostearthadventures.co.uk/blog/climbing-crazy-horse-and-the-anxiety-state-cave/: 只讀到搜尋摘要（未開全文）；摘要只有 60 m 垂降進洞的概述，無具名路線走法
 
 - change.org 以外的 2026 年重開傳聞 https://www.instagram.com/p/DdT4H4xGmb-/: 單一社群貼文，無官方文件佐證
