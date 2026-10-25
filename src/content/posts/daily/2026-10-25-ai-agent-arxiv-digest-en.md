@@ -22,56 +22,46 @@ title: Memory that looks accurate can still fail in two invisible places
 desc: A user's interaction preferences and a memory's governance state are two hidden dimensions beyond memory content itself — MemPABench exposes preferences that are remembered but never acted on, Governance-State Corruption exposes content that's correct but still gets used after its governance state is corrupted; on the right, DoorDash shows that once a task is narrowed to a scope covered by validation gates, agent automation is already shipping.
 caption: Simplified: the two papers on the left expose two different failure points on the same memory pipeline; the case on the right shows that narrowing task scope lets validation gates absorb the remaining uncertainty by themselves.
 ---
-<svg viewBox="0 0 800 464">
+<svg viewBox="0 0 640 420">
+  <path class="dg-line" d="M160 90H176" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M160 190H176" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M332 90H348" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M332 190H348" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M468 140H484" marker-end="url(#arrow)"/>
 
-  <path class="dg-line" d="M184 114H216" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M184 258H216" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M408 114H420Q428 114 428 122V144Q428 152 436 152H448" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M408 258H420Q428 258 428 250V232Q428 224 436 224H448" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M592 188H632" marker-end="url(#arrow)"/>
+  <rect class="dg-box dg-box--link" x="16" y="46" width="144" height="88" rx="6"/>
+  <text class="dg-label" x="88" y="81" text-anchor="middle" dominant-baseline="central">Memory content</text>
+  <text class="dg-sub" x="88" y="103" text-anchor="middle" dominant-baseline="central">facts, preferences</text>
 
-  <rect class="dg-box dg-box--link" x="16" y="64" width="168" height="100" rx="6"/>
-  <text class="dg-label" x="100" y="100" text-anchor="middle" dominant-baseline="central">Memory content</text>
-  <text class="dg-sub" x="100" y="124" text-anchor="middle" dominant-baseline="central">facts / preferences</text>
+  <rect class="dg-box dg-box--link" x="16" y="146" width="144" height="88" rx="6"/>
+  <text class="dg-label" x="88" y="181" text-anchor="middle" dominant-baseline="central">Governance</text>
+  <text class="dg-sub" x="88" y="203" text-anchor="middle" dominant-baseline="central">state: still valid?</text>
 
-  <rect class="dg-box dg-box--link" x="16" y="208" width="168" height="100" rx="6"/>
-  <text class="dg-label" x="100" y="244" text-anchor="middle" dominant-baseline="central">Governance state</text>
-  <text class="dg-sub" x="100" y="268" text-anchor="middle" dominant-baseline="central">still valid?</text>
+  <rect class="dg-box dg-box--accent" x="176" y="46" width="156" height="88" rx="6"/>
+  <text class="dg-label" x="254" y="71" text-anchor="middle" dominant-baseline="central">MemPABench</text>
+  <text class="dg-sub" x="254" y="93" text-anchor="middle" dominant-baseline="central">remembered,</text>
+  <text class="dg-sub" x="254" y="111" text-anchor="middle" dominant-baseline="central">never acted on</text>
 
-  <rect class="dg-box dg-box--accent" x="216" y="64" width="192" height="100" rx="6"/>
-  <text class="dg-label" x="312" y="92" text-anchor="middle" dominant-baseline="central">MemPABench</text>
-  <text class="dg-sub" x="312" y="116" text-anchor="middle" dominant-baseline="central">remembered,</text>
-  <text class="dg-sub" x="312" y="138" text-anchor="middle" dominant-baseline="central">never acted on</text>
+  <rect class="dg-box dg-box--accent" x="176" y="146" width="156" height="88" rx="6"/>
+  <text class="dg-label" x="254" y="171" text-anchor="middle" dominant-baseline="central">State corruption</text>
+  <text class="dg-sub" x="254" y="193" text-anchor="middle" dominant-baseline="central">content fine,</text>
+  <text class="dg-sub" x="254" y="211" text-anchor="middle" dominant-baseline="central">used anyway</text>
 
-  <rect class="dg-box dg-box--accent" x="216" y="208" width="192" height="100" rx="6"/>
-  <text class="dg-label" x="312" y="236" text-anchor="middle" dominant-baseline="central">Governance-State</text>
-  <text class="dg-sub" x="312" y="260" text-anchor="middle" dominant-baseline="central">content fine,</text>
-  <text class="dg-sub" x="312" y="282" text-anchor="middle" dominant-baseline="central">used anyway</text>
+  <rect class="dg-box" x="348" y="46" width="120" height="188" rx="6"/>
+  <text class="dg-label" x="408" y="121" text-anchor="middle" dominant-baseline="central">Looks fine</text>
+  <text class="dg-sub" x="408" y="143" text-anchor="middle" dominant-baseline="central">from outside:</text>
+  <text class="dg-sub" x="408" y="161" text-anchor="middle" dominant-baseline="central">metrics normal</text>
 
-  <rect class="dg-box" x="448" y="116" width="144" height="144" rx="6"/>
-  <text class="dg-label" x="520" y="148" text-anchor="middle" dominant-baseline="central">Looks the</text>
-  <text class="dg-label" x="520" y="168" text-anchor="middle" dominant-baseline="central">same</text>
-  <text class="dg-sub" x="520" y="196" text-anchor="middle" dominant-baseline="central">from outside</text>
-  <text class="dg-sub" x="520" y="220" text-anchor="middle" dominant-baseline="central">metrics look fine</text>
+  <rect class="dg-box dg-box--store" x="484" y="80" width="140" height="120" rx="6"/>
+  <text class="dg-label" x="554" y="112" text-anchor="middle" dominant-baseline="central">DoorDash case</text>
+  <text class="dg-sub" x="554" y="134" text-anchor="middle" dominant-baseline="central">narrow scope +</text>
+  <text class="dg-sub" x="554" y="152" text-anchor="middle" dominant-baseline="central">CI, coverage gates</text>
+  <text class="dg-sub" x="554" y="170" text-anchor="middle" dominant-baseline="central">= shippable</text>
 
-  <rect class="dg-box dg-box--store" x="632" y="116" width="152" height="144" rx="6"/>
-  <text class="dg-label" x="708" y="148" text-anchor="middle" dominant-baseline="central">DoorDash case</text>
-  <text class="dg-sub" x="708" y="176" text-anchor="middle" dominant-baseline="central">narrow scope + CI /</text>
-  <text class="dg-sub" x="708" y="200" text-anchor="middle" dominant-baseline="central">coverage gates</text>
-  <text class="dg-sub" x="708" y="224" text-anchor="middle" dominant-baseline="central">= shippable</text>
-
-  <line class="dg-rule" x1="16" y1="332" x2="784" y2="332"/>
-
-  <text class="dg-tag" x="16" y="352" text-anchor="start" dominant-baseline="central">Legend</text>
-
-  <text class="dg-small" x="16" y="376" text-anchor="start" dominant-baseline="central">Left two rows: two hidden failure dimensions of memory,</text>
-
-  <text class="dg-small" x="16" y="394" text-anchor="start" dominant-baseline="central">both invisible to surface-level metrics</text>
-
-  <text class="dg-small" x="16" y="422" text-anchor="start" dominant-baseline="central">Right: once the task fits inside what the validation gates can fully cover,</text>
-
-  <text class="dg-small" x="16" y="440" text-anchor="start" dominant-baseline="central">the uncertainty is boxed in</text>
-
+  <line class="dg-rule" x1="16" y1="320" x2="624" y2="320"/>
+  <text class="dg-tag" x="16" y="344" dominant-baseline="central">Legend</text>
+  <text class="dg-small" x="16" y="368" dominant-baseline="central">Left two rows: two hidden failure dimensions of memory, both invisible to surface-level metrics</text>
+  <text class="dg-small" x="16" y="390" dominant-baseline="central">Right: once the task fits inside what the validation gates can fully cover, the uncertainty is boxed in</text>
 </svg>
 ```
 
