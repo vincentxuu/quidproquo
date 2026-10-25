@@ -23,37 +23,40 @@ desc: 使用者的互動偏好與記憶治理狀態是記憶內容之外的兩�
 caption: 簡化示意：左側兩篇論文揭露同一條記憶管線上的兩種不同失效點，右側案例說明收窄任務範圍後,驗證閥本身就能撐起可上線的可靠度。
 ---
 <svg viewBox="0 0 640 420">
-  <path class="dg-line" d="M156 90H172" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M156 180H172" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M296 90H312" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M296 180H312" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M454 135H470" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M160 90H176" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M160 190H176" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M332 90H348" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M332 190H348" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M468 140H484" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box dg-box--link" x="16" y="58" width="140" height="64" rx="6"/>
-  <text class="dg-label" x="86" y="81" text-anchor="middle" dominant-baseline="central">記憶內容</text>
-  <text class="dg-sub" x="86" y="101" text-anchor="middle" dominant-baseline="central">事實／偏好</text>
+  <rect class="dg-box dg-box--link" x="16" y="46" width="144" height="88" rx="6"/>
+  <text class="dg-label" x="88" y="81" text-anchor="middle" dominant-baseline="central">記憶內容</text>
+  <text class="dg-sub" x="88" y="103" text-anchor="middle" dominant-baseline="central">事實／偏好</text>
 
-  <rect class="dg-box dg-box--link" x="16" y="148" width="140" height="64" rx="6"/>
-  <text class="dg-label" x="86" y="171" text-anchor="middle" dominant-baseline="central">記憶治理狀態</text>
-  <text class="dg-sub" x="86" y="191" text-anchor="middle" dominant-baseline="central">還有效嗎？</text>
+  <rect class="dg-box dg-box--link" x="16" y="146" width="144" height="88" rx="6"/>
+  <text class="dg-label" x="88" y="181" text-anchor="middle" dominant-baseline="central">記憶治理狀態</text>
+  <text class="dg-sub" x="88" y="203" text-anchor="middle" dominant-baseline="central">還有效嗎？</text>
 
-  <rect class="dg-box dg-box--accent" x="172" y="58" width="124" height="64" rx="6"/>
-  <text class="dg-label" x="234" y="81" text-anchor="middle" dominant-baseline="central">MemPABench</text>
-  <text class="dg-sub" x="234" y="101" text-anchor="middle" dominant-baseline="central">偏好記得住卻用不上</text>
+  <rect class="dg-box dg-box--accent" x="176" y="46" width="156" height="88" rx="6"/>
+  <text class="dg-label" x="254" y="71" text-anchor="middle" dominant-baseline="central">MemPABench</text>
+  <text class="dg-sub" x="254" y="93" text-anchor="middle" dominant-baseline="central">偏好記得住</text>
+  <text class="dg-sub" x="254" y="111" text-anchor="middle" dominant-baseline="central">卻用不上</text>
 
-  <rect class="dg-box dg-box--accent" x="172" y="148" width="124" height="64" rx="6"/>
-  <text class="dg-label" x="234" y="171" text-anchor="middle" dominant-baseline="central">Governance-State</text>
-  <text class="dg-sub" x="234" y="191" text-anchor="middle" dominant-baseline="central">內容對、狀態錯仍照用</text>
+  <rect class="dg-box dg-box--accent" x="176" y="146" width="156" height="88" rx="6"/>
+  <text class="dg-label" x="254" y="171" text-anchor="middle" dominant-baseline="central">治理狀態損壞</text>
+  <text class="dg-sub" x="254" y="193" text-anchor="middle" dominant-baseline="central">內容對、狀態錯</text>
+  <text class="dg-sub" x="254" y="211" text-anchor="middle" dominant-baseline="central">仍照用</text>
 
-  <rect class="dg-box" x="312" y="90" width="142" height="100" rx="6"/>
-  <text class="dg-label" x="383" y="118" text-anchor="middle" dominant-baseline="central">看起來一樣</text>
-  <text class="dg-sub" x="383" y="140" text-anchor="middle" dominant-baseline="central">記憶系統外部</text>
-  <text class="dg-sub" x="383" y="160" text-anchor="middle" dominant-baseline="central">指標都正常</text>
+  <rect class="dg-box" x="348" y="46" width="120" height="188" rx="6"/>
+  <text class="dg-label" x="408" y="121" text-anchor="middle" dominant-baseline="central">看起來一樣</text>
+  <text class="dg-sub" x="408" y="143" text-anchor="middle" dominant-baseline="central">外部指標</text>
+  <text class="dg-sub" x="408" y="161" text-anchor="middle" dominant-baseline="central">都正常</text>
 
-  <rect class="dg-box dg-box--store" x="470" y="90" width="150" height="100" rx="6"/>
-  <text class="dg-label" x="545" y="118" text-anchor="middle" dominant-baseline="central">DoorDash 案例</text>
-  <text class="dg-sub" x="545" y="140" text-anchor="middle" dominant-baseline="central">任務收窄＋CI／覆蓋率</text>
-  <text class="dg-sub" x="545" y="160" text-anchor="middle" dominant-baseline="central">驗證閥＝可上線</text>
+  <rect class="dg-box dg-box--store" x="484" y="80" width="140" height="120" rx="6"/>
+  <text class="dg-label" x="554" y="112" text-anchor="middle" dominant-baseline="central">DoorDash 案例</text>
+  <text class="dg-sub" x="554" y="134" text-anchor="middle" dominant-baseline="central">任務收窄</text>
+  <text class="dg-sub" x="554" y="152" text-anchor="middle" dominant-baseline="central">CI＋覆蓋率驗證閥</text>
+  <text class="dg-sub" x="554" y="170" text-anchor="middle" dominant-baseline="central">＝可上線</text>
 
   <line class="dg-rule" x1="16" y1="320" x2="624" y2="320"/>
   <text class="dg-tag" x="16" y="344" dominant-baseline="central">圖例</text>
