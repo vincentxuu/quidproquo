@@ -10,7 +10,7 @@ tldr: "ACSM 2026 pooled 137 systematic reviews: the higher the load, the more st
 draft: true
 series:
   name: "Understanding the Human Body"
-  order: 6
+  order: 7
 glossary:
   - term: "hypertrophy"
     aliases: ["肌肥大", "muscle hypertrophy"]

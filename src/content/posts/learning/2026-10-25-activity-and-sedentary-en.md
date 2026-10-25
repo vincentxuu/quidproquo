@@ -98,7 +98,7 @@ On muscle-strengthening, WHO's conclusion is that there is no evidence that high
 
 ## Questions this post cannot answer
 
-The physiology of cardiorespiratory fitness (how the heart pumps blood and the lungs exchange oxygen), and recommendations for people 65 and over, children, pregnancy and chronic conditions, are not covered. Whether different kinds of activity are equivalent, and whether steps can be converted to minutes, I did not read evidence on and draw no conclusion. How to plan training or improve sports performance is outside this post.
+The physiology of cardiorespiratory fitness is in [How the Heart and Lungs Get Oxygen to Muscle](/posts/learning/2026-10-25-heart-lungs-oxygen-en). Recommendations for people 65 and over, children, pregnancy and chronic conditions, are not covered. Whether different kinds of activity are equivalent, and whether steps can be converted to minutes, I did not read evidence on and draw no conclusion. How to plan training or improve sports performance is outside this post.
 
 ## References
 

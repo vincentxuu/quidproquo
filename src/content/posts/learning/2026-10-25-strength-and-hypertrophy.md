@@ -10,7 +10,7 @@ tldr: "ACSM 2026 整合 137 篇系統性回顧：負荷越高，力量進步越�
 draft: true
 series:
   name: "認識人體"
-  order: 6
+  order: 7
 glossary:
   - term: "肌肥大"
     aliases: ["hypertrophy", "muscle hypertrophy"]

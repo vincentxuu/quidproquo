@@ -43,7 +43,7 @@ The series follows that line, from the parts you can see toward mechanisms you c
 | Unit | Question it answers |
 |---|---|
 | Parts | What muscles, tendons and bones are, and how they adapt to load |
-| Energy | Where energy comes from, and how much activity is recommended |
+| Energy | Where energy comes from, how the heart and lungs deliver oxygen, and how much activity is recommended |
 | Adaptation | What happens to strength, the nervous system and recovery after you train |
 | Movement and balance | How skills are learned, how balance is trained |
 | Pain and posture | What pain is, and how much evidence common methods have |
