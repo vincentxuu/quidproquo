@@ -17,7 +17,7 @@ draft: false
 
 [仁壽峰的選線文](/posts/climbing/2026-10-21-korea-crag-insubong)告訴你哪條線適合自己的繩隊，但站在北漢山（首爾）的岩壁底下，你還需要知道：這條線從哪裡起攀、每一段多長、難關在第幾段、爬完怎麼下來。這篇補的就是這些，範圍是仁壽峰的多段（多繩距）路線。
 
-**這不是 topo。** 內容整理自韓國攀登社群 2006 到 2024 年的文字紀錄，沒有岩壁照片，也沒有路線編號。東壁一帶的線，現場找線仍要以 [Mont Blanc Lines 的東壁數位 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)為準（付費的單張圖檔，列 43 條路線，各線小節標了它的編號），這篇當作出發前的預習和現場的對照。**南面的 Dongyang-gil、Haneul-gil、Georyong-gil、Villa 不在那 43 條裡**，這四條線只能靠這篇和下面引用的概念圖。
+**這不是 topo。** 內容整理自韓國攀登社群 2006 到 2024 年的文字紀錄，沒有岩壁照片，也沒有路線編號。東壁一帶的線，現場找線仍要以 [Mont Blanc Lines 的東壁數位 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)為準（一張東面照片疊上路線，底下列 43 條路線；商品頁提供中解析度的個人用途下載，也賣印刷海報。各線小節標了它的編號），這篇當作出發前的預習和現場的對照。**南面的 Dongyang-gil、Haneul-gil、Georyong-gil、Villa 不在那 43 條裡**，這四條線只能靠這篇和下面引用的概念圖。
 
 ## 怎麼用這篇
 
@@ -410,7 +410,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 - **位置**：起攀位置多用「往左或往右走幾十公尺」描述，是目測，不是量測。
 - **缺口**：Haneul-gil、Rescuer、PASI 沒有找到明確的起攀位置描述，上面都標明了。
 
-這篇補不了一張好 topo。東壁的線，出發前請買 [Mont Blanc Lines 的東壁 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)，再用這篇對照每段的長度和難關；南面那四條線沒有對應的 topo，請看[걸리 的頁面](https://han5256.tistory.com/7667232)連到的前面與西南面概念圖（圖是圖片，這篇沒能讀到內容，不確定有涵蓋這四條），並找熟悉那一側的繩伴。
+這篇補不了一張好 topo。東壁的線，出發前請下載（或買海報）[Mont Blanc Lines 的東壁 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)，再用這篇對照每段的長度和難關；南面那四條線沒有對應的 topo，請看[걸리 的頁面](https://han5256.tistory.com/7667232)連到的前面與西南面概念圖（圖是圖片，這篇沒能讀到內容，不確定有涵蓋這四條），並找熟悉那一側的繩伴。
 
 ## 參考資料
 

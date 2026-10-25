@@ -17,7 +17,7 @@ draft: false
 
 The [Insubong crag guide](/posts/climbing/2026-10-21-korea-crag-insubong-en) helps you pick a route for your team. At the foot of the wall in Bukhansan, Seoul, you need more: where does this route start, how long is each pitch, which pitch is the crux, and how do you get down afterwards? This page fills that gap.
 
-**This is not a topo.** It is compiled from Korean climbing-community write-ups dated 2006 to 2024, with no wall photos and no route numbers. On the day, route-finding for the east-face routes should rely on the [Mont Blanc Lines East Face digital topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face) (a paid single image listing 43 routes; each route's section gives its number there). **The south-face routes Dongyang-gil, Haneul-gil, Georyong-gil and Villa are not among those 43**, so for those four this page and the concept maps cited below are all there is. Use this page as preparation before the trip and as a cross-check at the base.
+**This is not a topo.** It is compiled from Korean climbing-community write-ups dated 2006 to 2024, with no wall photos and no route numbers. On the day, route-finding for the east-face routes should rely on the [Mont Blanc Lines East Face digital topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face) (an east-face photo overlaid with routes and a list of 43 routes beneath it; the product page offers a medium-resolution download for personal use and also sells printed posters; each route's section gives its number there). **The south-face routes Dongyang-gil, Haneul-gil, Georyong-gil and Villa are not among those 43**, so for those four this page and the concept maps cited below are all there is. Use this page as preparation before the trip and as a cross-check at the base.
 
 ## How to use this page
 
@@ -410,7 +410,7 @@ The descent setups on this page are each source's own wording. Rappel points and
 - **Positions**: starts are described as "a few dozen metres left or right" and are estimates, not measurements.
 - **Gaps**: no clear start description was found for Haneul-gil, Rescuer or PASI, and each says so above.
 
-This page is no substitute for a good topo. For east-face routes, buy the [Mont Blanc Lines East Face topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face) before you go, then use this page to cross-check each pitch's length and crux; for the four south-face routes there is no matching topo, so look at the front-face and southwest-face concept maps linked from [Girly's page](https://han5256.tistory.com/7667232) (they are images, so their content could not be read here and it is unclear whether they cover these four), and find a partner who knows that side.
+This page is no substitute for a good topo. For east-face routes, download (or buy the poster of) the [Mont Blanc Lines East Face topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face) before you go, then use this page to cross-check each pitch's length and crux; for the four south-face routes there is no matching topo, so look at the front-face and southwest-face concept maps linked from [Girly's page](https://han5256.tistory.com/7667232) (they are images, so their content could not be read here and it is unclear whether they cover these four), and find a partner who knows that side.
 
 ## References
 
