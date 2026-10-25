@@ -118,7 +118,7 @@ None of the four studies is about climbers. The Ibounig review includes studies 
 
 ## What this post does not cover
 
-How common imaging abnormalities are in the knee, hip and neck is not covered, because I did not read a sufficiently reliable source. Whether to get imaging, when, and how to interpret a particular term on a report are also out of scope, and so are treatment choices and prognosis. I read only the abstracts of both Brinjikji papers; if you want to quote their numbers, please read the full text.
+How common imaging abnormalities are in the knee, hip and neck is not covered, because I did not read a sufficiently reliable source. For how knee X-ray findings relate to symptoms, see [the joints and cartilage post](/posts/learning/2026-10-25-joints-and-cartilage-en). Whether to get imaging, when, and how to interpret a particular term on a report are also out of scope, and so are treatment choices and prognosis. I read only the abstracts of both Brinjikji papers; if you want to quote their numbers, please read the full text.
 
 ## References
 

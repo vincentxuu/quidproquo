@@ -96,3 +96,27 @@ order 0 是總覽：身體運作地圖、本系列怎麼讀證據（系統性回
 2. 22 篇是否太多、太少？有沒有哪篇該拆或併？
 3. 斷崖處理的橋接方式可以嗎？
 4. 標 🔴 的篇章（order 11、13）要先補來源再排，還是先降級成選讀？
+
+## 草稿階段實際來源與修正（2026-10-25，審稿修稿後；以此節為準，上表來源欄為規劃時狀態）
+
+全部 22 篇皆為 `draft: true`，尚未登錄 `src/utils/series.ts`（Q-041 未獲同意）。
+
+| order | 實際用到的來源與讀取程度 | 與規劃表不同處 |
+|---|---|---|
+| 1 骨骼與關節 | 見該篇 evidence.md | 骨適應的免費主力來源仍偏弱 |
+| 8 神經適應 | 三份系統性回顧，另 Altheyab 2026、Elgueta-Cancino 2022；Li & Hu 2026 只讀摘要、未納入 | 範圍縮為「新手前幾週」並明講來源不是針對新手 |
+| 9 恢復與睡眠 | 另有 Berjisian 2026、Jin 2026；Kong 有利益揭露 | 睡眠措辭改「少睡」 |
+| 10 暖身與訓練負荷 | Herman 全文只讀、未存檔、數字未程式比對；Soligard 2008 只讀摘要 | 「表現」與「防傷」分開 |
+| 11 動作學習 | 降級成只談「練習怎麼排」；Ammar 2023 未讀原文、Hassar 2026 只讀摘要 | 題目縮小；實讀 Ericsson & Harwell 2019、Macnamara & Maitra 2019 |
+| 12 平衡與跌倒 | Cochrane 全文**未讀**（Europe PMC 有免費全文連結，非「非開放」）；ESSA 聲明未讀 | WHO 老年人＝65 歲以上；Cochrane 社區居住者 |
+| 13 疼痛是什麼 | IASP 已讀官網；PNE 英文定義引文已從文章刪除（精讀紀錄未同步） | 範圍縮為慢性下背痛 |
+| 14 姿勢與背痛 | 全文：Sadler 2017、Liu 2026、Valenciano 2020；讀到討論：Igwesi-Chidobe 2025；只讀摘要：Swain、Chun、Mahmoud、Rani | 0.73 的參考組方向依作者換算文字判斷，森林圖未讀 |
+| 15 影像異常與疼痛 | Teraguchi 為**橫斷式**（用 ROAD 資料），非世代研究；只涵蓋脊椎與肩，膝另列缺口 | 紅旗清單無外部來源連結 |
+| 16 核心／伸展／滾筒 | 缺的是伸展對痠痛與傷害的免費近年回顧（已有 Warneke 2024、Santos 2024） | Warneke 2024 急性摘要與內文數字不一致 |
+| 17 老化肌肉與骨 | Yan、Ran、Shur、Mohebbi 已讀；Lu 2026 只讀摘要；骨只有骨密度、無骨折結果；缺反證 | 標題與 tldr 已降級 |
+| 18 關節與軟骨 | Voinier、Dhillon、Cui、Yan，加 Coburn 摘要 | 以膝為主；Cui 摘要比資料強 |
+| 19 月經週期與訓練 | 🟡；McNulty 2020 揭露段未讀；Elliott-Sale 為轉述；D'Souza 2023 非完整系統性回顧 | 42% 為低品質研究比例，整體證據「低」 |
+| 20 身體組成與局部減脂 | Ramírez-Campillo 2022 只讀摘要＋Paoli 2021（14 人 RCT，非統合分析）＋Brobakken | 腹部只有兩個小試驗 |
+| 21 找不到證據的說法 | Meixner 數字取自 post-verify 全文讀取，未自行重讀 | 刪除「PubMed zone 2 全文＝0」 |
+
+跨篇待辦（主代理處理）：older posts 回連新文章；order 12 與 17 的 WHO 老年人用語對齊（WHO＝65+、Cochrane／Khan＝60+）；bones-and-joints 連回 joints-and-cartilage 並改掉「留給本篇」的說法；imaging-findings-and-pain 的「膝蓋沒讀到」可連 joints-and-cartilage；order 12 的 tldr 寫 60 歲以上只對 Cochrane 成立。

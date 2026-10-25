@@ -109,7 +109,7 @@ Not directly. The results are general measures such as strength and hypertrophy,
 
 ## What this post leaves out
 
-How to build a program, how to choose exercises, and how to train with an injury or a chronic condition are not covered. Why muscle gets bigger and how much of strength gain comes from the nervous system are also outside these two sources, and later posts will decide whether to write them depending on the evidence.
+How to build a program, how to choose exercises, and how to train with an injury or a chronic condition are not covered. Why muscle gets bigger is also outside these two sources, and the series has no dedicated post on it yet. For how much of strength gain comes from the nervous system, see [the neural adaptation post](/posts/learning/2026-10-25-neural-adaptation-en).
 
 ## References
 
