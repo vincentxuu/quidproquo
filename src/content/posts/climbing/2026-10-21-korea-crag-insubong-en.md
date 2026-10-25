@@ -99,7 +99,7 @@ For the easiest line, start with **Lonely Road**: theCrag calls it the easiest r
 
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Lonely Road / 고독의 길 | 5.6 | 5.6 | 350 m / 6 pitches | West face | 2025 —; theCrag only, not in the 2012 guide or the East Face topo. theCrag calls it the easiest route on Insubong. |
+| Lonely Road / 고독의 길 | 5.6 | 5.6 | 350 m / 6 pitches | West face | 2025 ✓; listed in the 2025 topo as #38, also 5.6; not in the 2012 guide, and the 350 m / 6 pitches come only from theCrag. theCrag calls it the easiest route on Insubong. |
 | Pigeon / 비둘기 (Pigeon Route) | 5.7 A0 (theCrag); 5.6 A1 (2012) | 5.7, plus A0 | 89 m / 4 pitches | West face | 2025 —; both sources list it but disagree on the aid rating (A0/A1); the third pitch is aid. This is also the descent line. |
 | Insu A / 인수 A | 5.8 (hardest) | 5.8 | 115 m / 4 pitches | East Face | 2025 ✓; length from 2012 guide; 2025 topo also gives 5.8. |
 | Chouinard B / 취나드 B | 5.8 (hardest) | 5.8 | 2012 version: 177 m / 5 pitches | East Face | 2025 ✓; 2025 topo names Chouinard B–Kwibawi C; confirm the linkup and endpoint. |
@@ -241,6 +241,7 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 
 ## Update history
 
+- 2026-10-25: corrected the 2025-topo column for Lonely Road (the topo does include it, as #38 at 5.6); its length and pitch count are still only from theCrag.
 - 2026-10-25: added a link to the pitch-by-pitch route notes (starts, pitch lengths and descents) and stated that this guide is not a topo.
 - 2026-10-22: Added a community-route-logs section with a 10-row comparison table (Crony, Insu Ridge, Amidong, Medical School, Rescuer, PASI, Sanchonji, Dongyang-gil, Haneul-gil, Georyong-gil), noting that the loop-table pair (걸리 2018 / 도랫굽이 2012) and the Daum repost are the same source family, not independent confirmations; fixed Crony pitch-6 crack, Georyong founder surname “고 전재운”, and moved Dongyang-gil’s 8-pitch table attribution to Imgok plus community tables. Added 16 reference links.
 - 2026-10-22: Added route videos for Insu A, Wand, Maninbo and Villa, and extended the intermediate and advanced tables with video columns; added a west-face approach POV and a 70 m double-rope summit descent, with notes on how those versions differ from the guidebook.
