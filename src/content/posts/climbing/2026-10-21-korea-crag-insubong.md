@@ -1,7 +1,7 @@
 ---
 title: "仁壽峰（Insubong）：首爾北漢山的花崗岩多段，先選對路線再想登頂｜韓國岩場"
 date: 2026-10-21
-updated: 2026-10-22
+updated: 2026-10-25
 category: climbing
 type: guide
 tags: [climbing, south-korea, outdoor-climbing, trad-climbing, multi-pitch, seoul]
@@ -19,6 +19,8 @@ draft: false
 從仁壽峰上方的繩距回頭看，首爾會從樹梢後面慢慢展開。這座位於北漢山國立公園的花崗岩岩峰，讓城市旅行和多繩距（多段）攀登可以排在同一趟；但地鐵到得了山腳，不代表岩壁適合第一次戶外先鋒。
 
 這篇幫你判斷仁壽峰適不適合自己的繩隊、春秋怎麼安排、沒開車怎麼到，以及 Insu A、Chouinard B、東壁與南面的經典多段該怎麼選。
+
+這篇是選線文，不是 topo。挑好路線後，要找起攀位置、看每一段多長、難在哪一段，請接著讀[仁壽峰逐段路線筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes)。
 
 ## 這是什麼樣的岩場
 
@@ -85,7 +87,7 @@ ids: xrTd0dvMCIM
 
 YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mountainproject.com/international-climbing-grades)，只是近似值；標「約」的是來源只寫 4、5+ 這類不分 abc 的級數。難度以原始級數為準。
 
-**上面的分級表是混合收，不是東壁路線表。** 入門級距把 2012 指南與 [theCrag 仁壽峰頁](https://www.thecrag.com/en/climbing/south-korea/insubong)查得到的路線都收，包含要靠人工攀登段才上得去的線（A0／A1），也包含不在東壁的路線。中級以上只收 2012 指南與 2025 東壁 topo 對得上的線，因為那個級距沒有第二個來源可以交叉檢查。備註開頭的「2025 ✓／—」表示這條線有沒有出現在 2025 東壁 topo；「—」不代表路線不存在，只代表 topo 只畫東壁。經典線另外放在下面的「經典線：東壁與南面」，那節的來源規則和上面的分級表分開。
+**上面的分級表是混合收，不是東壁路線表。** 入門級距把 2012 指南與 [theCrag 仁壽峰頁](https://www.thecrag.com/en/climbing/south-korea/insubong)查得到的路線都收，包含要靠人工攀登段才上得去的線（A0／A1），也包含不在東壁的路線。中級以上只收 2012 指南與 2025 東壁 topo 對得上的線，因為那個級距沒有第二個來源可以交叉檢查。備註開頭的「2025 ✓／—」表示這條線有沒有出現在 2025 東壁 topo；「—」不代表路線不存在，只代表那份 topo 的路線表沒有以這個名稱收錄：Pigeon、Villa 在東壁以外；Insu B 在東壁，但 topo 沒有同名條目，它被拆在 Crony（#3）、Sanggongsa（#4）、Yongam Slab（#6）這幾個名稱裡。經典線另外放在下面的「經典線：東壁與南面」，那節的來源規則和上面的分級表分開。
 
 **下表來源原本就用 YDS，保留原級數，不反推法國級數；YDS 欄保留同一原始級數。** 多段的級數只描述攀登難度；A0、A1、A2 是人工攀登標記，不是可以省略的尾碼。長度與段數主要採 2012 指南，僅供辨識版本，不作現場繩距或下降規劃。
 
@@ -97,12 +99,12 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
 | --- | --- | --- | --- | --- | --- |
-| Lonely Road／고독의 길 | 5.6 | 5.6 | 350 公尺／6 段 | 西面 | 2025 —；theCrag 單一來源，2012 指南未收，不會出現在東壁 topo。theCrag 稱其為仁壽峰最簡單的路線。 |
-| Pigeon／비둘기（Pigeon Route） | 5.7 A0（theCrag）；5.6 A1（2012） | 5.7，另含 A0 | 89 公尺／4 段 | 西面 | 2025 —；兩個來源都收，但 aid 等級記法不同（A0／A1）；第三段是人工攀登。下降時走的就是這條線。 |
-| Insu A／인수 A | 5.8（最難） | 5.8 | 115 公尺／4 段 | 東面 | 2025 ✓；2012 指南長度；2025 topo 同列 5.8。 |
-| Chouinard B／취나드 B | 5.8（最難） | 5.8 | 舊指南版本 177 公尺／5 段 | 東面 | 2025 ✓；2012 指南；2025 topo 標 Chouinard B–Kwibawi C，先核對接線與終點。 |
-| Insu B／인수 B | 5.9（最難） | 5.9 | 97 公尺／3 段（2012）；theCrag 記 6 段 | 依指南定位 | 2025 —；2012 指南單一來源，勿混用其他同名接線的段數。 |
-| Chouinard A／취나드 A | 5.10a（2025 topo 最難） | 5.10a | 181 公尺／6 段（2012） | 東面 | 2025 ✓；2025 名為 Chouinard A–Kwibawi D；2012 總欄列 5.10c、分段最高卻為 5.10a，未採其總級數與長度拼接。 |
+| Lonely Road／고독의 길 | 5.6 | 5.6 | 350 公尺／6 段 | 東面最右端（Chouinard A 之後） | 2025 ✓；2025 topo 編號 #38，同列 5.6；2012 指南未收，350 公尺／6 段只有 theCrag 記載。theCrag 稱其為仁壽峰最簡單的路線。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#lonely-road고독의-길) |
+| Pigeon／비둘기（Pigeon Route） | 5.7 A0（theCrag）；5.6 A1（2012） | 5.7，另含 A0 | 89 公尺／4 段 | 南側（下降點旁） | 2025 —；兩個來源都收，但 aid 等級記法不同（A0／A1）；第三段是人工攀登。下降時走的就是這條線。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#pigeon비둘기길) |
+| Insu A／인수 A | 5.8（最難） | 5.8 | 115 公尺／4 段 | 東面 | 2025 ✓；2012 指南長度；2025 topo 同列 5.8。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#insu-a인수-a) |
+| Chouinard B／취나드 B | 5.8（最難） | 5.8 | 舊指南版本 177 公尺／5 段 | 東面 | 2025 ✓；2012 指南；2025 topo 標 Chouinard B–Kwibawi C，先核對接線與終點。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#chouinard-b취나드-b) |
+| Insu B／인수 B | 5.9（最難） | 5.9 | 97 公尺／3 段（2012，只含下段）；[MP](https://www.mountainproject.com/route/108367078/insu-b) 5 段／136 公尺；多篇心得 6 到 8 段 | 大斜板左側 | 2025 —；topo 路線表沒有同名條目：心得寫它與 Crony（#3）共用起攀點、上段與 Sanggongsa（#4）會合，現行常從 Yongam Slab（#6）進入，所以是被拆在這幾個編號裡（文字推論，topo 照片沒有逐條編號可核對）。2012 指南與 걸리 表格的 3 段只是下段，勿當全線；逐段見[路線筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#insu-b인수-b)。與背面的 설교벽不是同一條。 |
+| Chouinard A／취나드 A | 5.10a（2025 topo 最難） | 5.10a | 181 公尺／6 段（2012） | 東面 | 2025 ✓；2025 名為 Chouinard A–Kwibawi D；2012 總欄列 5.10c、分段最高卻為 5.10a，未採其總級數與長度拼接。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#chouinard-a취나드-a) |
 
 ```video-gallery
 key: insubong
@@ -117,7 +119,7 @@ ids: lYVPPcpjoo0, OFNWgS2YQN0, TMjYfUO2wQk, XQE74rkLVRs, HLiRmyV9aBc, 9HxSEJiCOA
 
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
 | --- | --- | --- | --- | --- | --- |
-| Wand／봔트 | 5.10b（2025）；5.10c（2012） | 5.10b／5.10c | 舊指南版本 162 公尺／4 段 | 東面 | 2025 ✓；2025 topo 5.10b；2012 指南 5.10c，長度也只採舊版。 |
+| Wand／봔트 | 5.10b（2025）；5.10c（2012） | 5.10b／5.10c | 舊指南版本 162 公尺／4 段 | 東面 | 2025 ✓；2025 topo 5.10b；2012 指南 5.10c，長度也只採舊版。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#wand봔트길) |
 | Maninbo／만인보 | 5.11b | 5.11b | 15 公尺 | 東面 | 2025 ✓；2012 指南長度；2025 topo 同列 5.11b。 |
 
 ```video-gallery
@@ -133,7 +135,7 @@ ids: 1ekZvEa443U, jORFOAVszw8, S4AsrxbDCuo
 
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
 | --- | --- | --- | --- | --- | --- |
-| Villa／빌라길 | 5.12a（最難），另含 A2 | 5.12a，另含 A2 | 165 公尺／6 段 | 依指南定位 | 2025 —；2012 指南單一來源，末段列 A2；非整線自由攀登承諾。 |
+| Villa／빌라길 | 5.12a（最難），另含 A2 | 5.12a，另含 A2 | 165 公尺／6 段 | 依指南定位 | 2025 —；2012 指南單一來源，末段列 A2；非整線自由攀登承諾。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#villa빌라길) |
 
 ```video-gallery
 key: insubong
@@ -158,13 +160,13 @@ ids: gOR1u9IWFCQ, PJA9b7BfHSA, U7_sJeeFr1U
 
 | 路線 | 難度 | YDS | 長度／段數 | 備註 |
 | --- | --- | --- | --- | --- |
-| Crony／크로니 | 5.9 | 5.9 | 237 公尺／9 段 | 2025 東壁 #3；1970 年 Crony 山岳會（크로니산악회）開拓。舊資料有時記 5.10a，topo 採 5.9；第 6 段的裂隙（約 21 公尺，舊說明稱「크로니의 백미」，Crony 之最）是整條線的招牌，第 5 段則是岩板加擺盪。 |
-| Insu Ridge／인수리지 | 5.9 | 5.9 | 約 215 公尺／7 段 | 2025 東壁 #43；從海拔約 630 公尺的北稜接上峰頂，是仁壽峰唯一的稜線路線。3 人 1 組約 4 小時；60 公尺繩 2 條、快扣 5 個、Friend（凸輪）1 組。 |
-| Amidong／아미동 | 5.10a | 5.10a | 7 段 | 2025 東壁 #1；1963 年 아카데미산악회 的 이동일 隊長開拓。總長未見可靠數字，只列段數；起攀在東壁左側，兩側分別是 Crony 與 Insu B。 |
-| Medical School／의대 | 5.10a A0 | 5.10a，另含 A0 | 約 100–136 公尺／5–6 段 | 2025 東壁 #27；1971 年首爾大學醫學院山岳部開拓。舊路線資料記 136 公尺／6 段，2022 年五十週年報導記 5 段、約 100 公尺；第 2 段 5.10a 是難關，第 3 段含人工攀登。 |
-| Rescuer／구조대 | 5.10a A0 | 5.10a，另含 A0 | 12 段／約 300–360 公尺 | 2025 東壁 #39；2010 年北漢山警察山岳救助隊開拓，每段 25–30 公尺。topo 記 5.10a A0，自由攀登約 5.11b；段數最多，時間與撤退管理比難度更關鍵。 |
-| PASI／패시 | 5.10c | 5.10c | 139 公尺／5 段 | 2025 東壁 #20；第 3、4 段連續 5.10c，裂隙與岩板交替，是東壁 5.10 多段的耐力檢查。 |
-| Sanchonji／산천지 | 5.11a | 5.11a | 119 公尺／5 段 | 2025 東壁 #21；第 2 段 5.10d、第 4 段 5.11a，難關集中在岩板與摩擦面。 |
+| Crony／크로니 | 5.9 | 5.9 | 237 公尺／9 段 | 2025 東壁 #3；1970 年 Crony 山岳會（크로니산악회）開拓。舊資料有時記 5.10a，topo 採 5.9；第 6 段的裂隙（約 21 公尺，舊說明稱「크로니의 백미」，Crony 之最）是整條線的招牌，第 5 段則是岩板加擺盪。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#crony크로니길) |
+| Insu Ridge／인수리지 | 5.9 | 5.9 | 約 215 公尺／7 段 | 2025 東壁 #43；從海拔約 630 公尺的北稜接上峰頂，是仁壽峰唯一的稜線路線。3 人 1 組約 4 小時；60 公尺繩 2 條、快扣 5 個、Friend（凸輪）1 組。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#insu-ridge인수리지後面) |
+| Amidong／아미동 | 5.10a | 5.10a | 7 段 | 2025 東壁 #1；1963 年 아카데미산악회 的 이동일 隊長開拓。總長未見可靠數字，只列段數；起攀在東壁左側，兩側分別是 Crony 與 Insu B。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#amidong아미동길) |
+| Medical School／의대 | 5.10a A0 | 5.10a，另含 A0 | 約 100–136 公尺／5–6 段 | 2025 東壁 #27；1971 年首爾大學醫學院山岳部開拓。舊路線資料記 136 公尺／6 段，2022 年五十週年報導記 5 段、約 100 公尺；第 2 段 5.10a 是難關，第 3 段含人工攀登。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#medical-school의대길) |
+| Rescuer／구조대 | 5.10a A0 | 5.10a，另含 A0 | 12 段／約 300–360 公尺 | 2025 東壁 #39；2010 年北漢山警察山岳救助隊開拓，每段 25–30 公尺。topo 記 5.10a A0，自由攀登約 5.11b；段數最多，時間與撤退管理比難度更關鍵。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#rescuer구조대길) |
+| PASI／패시 | 5.10c | 5.10c | 139 公尺／5 段 | 2025 東壁 #20；第 3、4 段連續 5.10c，裂隙與岩板交替，是東壁 5.10 多段的耐力檢查。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#pasi패시길) |
+| Sanchonji／산천지 | 5.11a | 5.11a | 119 公尺／5 段 | 2025 東壁 #21；第 2 段 5.10d、第 4 段 5.11a，難關集中在岩板與摩擦面。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#sanchonji산천지길) |
 
 ```video-gallery
 key: insubong
@@ -179,9 +181,9 @@ ids: 4f8aBMKVTZg, 3Fb6ECtneSw, rT0-cBQL4Ac, YbPcvy-DcOA, 8TWRzQEHoaQ, HIRaIU_oOH
 
 | 路線 | 難度 | YDS | 長度／段數 | 備註 |
 | --- | --- | --- | --- | --- |
-| Dongyang-gil／동양길 | 5.10b | 5.10b | 209 公尺／8 段 | 東南面；1969 年 10 月東洋山岳會（동양산악회）開拓，首攀者利用대。第 1 段 5.7 起步，第 2、3 段 5.10b 岩板，第 4 段 35 公尺 5.8 裂隙，第 6 段是人工攀登，末段 5.10a 岩板；不是全自由路線。《한국의 바윗길을 가다(1)》（Imgok 站刊，2012，조윤성）記 8 段／209 公尺，逐段走法只寫到第 7 段，社群路線表則完整列出 8 段分配；段數敘述在各來源間略有出入。 |
-| Haneul-gil／하늘길 | 5.10c | 5.10c | 190 公尺／7 段 | 南面；1969 年 우정산악회 開拓。第 1、2 段 5.10a 裂隙，第 5、7 段 5.10c；第 1 段是最常發生墜落的地方，不是只有後段難。 |
-| Georyong-gil／거룡길 | 5.12b | 5.12b | 原 200 公尺／9 段，現多爬 7 段 | 南面；1972 年 5 月，장봉완、김제훈、고 전재운（月刊山原文作「고 전재운씨」）等人開拓。第 1 段 5.12b 是難關，第 3、4 段 5.11b，第 6 段 5.11a；第 3 段有擺盪，第 6 段有舊 bolt。 |
+| Dongyang-gil／동양길 | 5.10b | 5.10b | 209 公尺／8 段 | 東南面；1969 年 10 月東洋山岳會（동양산악회）開拓，首攀者利用대。第 1 段 5.7 起步，第 2、3 段 5.10b 岩板，第 4 段 35 公尺 5.8 裂隙，第 6 段是人工攀登，末段 5.10a 岩板；不是全自由路線。《한국의 바윗길을 가다(1)》（Imgok 站刊，2012，조윤성）記 8 段／209 公尺，逐段走法只寫到第 7 段，社群路線表則完整列出 8 段分配；段數敘述在各來源間略有出入。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#dongyang-gil동양길) |
+| Haneul-gil／하늘길 | 5.10c | 5.10c | 190 公尺／7 段 | 南面；1969 年 우정산악회 開拓。第 1、2 段 5.10a 裂隙，第 5、7 段 5.10c；第 1 段是最常發生墜落的地方，不是只有後段難。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#haneul-gil하늘길) |
+| Georyong-gil／거룡길 | 5.12b | 5.12b | 原 200 公尺／9 段，現多爬 7 段 | 南面；1972 年 5 月，장봉완、김제훈、고 전재운（月刊山原文作「고 전재운씨」）等人開拓。第 1 段 5.12b 是難關，第 3、4 段 5.11b，第 6 段 5.11a；第 3 段有擺盪，第 6 段有舊 bolt。 [逐段筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#georyong-gil거룡길) |
 
 ```video-gallery
 key: insubong
@@ -239,6 +241,10 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 
 ## 更新紀錄
 
+- 2026-10-25：更正 Lonely Road 與 Pigeon 的子區（Lonely Road 在東面最右端、Chouinard A 之後；Pigeon 在南側下降點旁，原寫西面有誤）。
+- 2026-10-25：補 Insu B 的來源與位置（Mountain Project 5 段／136 公尺、多篇心得 6 到 8 段、現行走法從 Yongam Slab 起攀），指出 2012 指南的 3 段／97 公尺只是下段，並說明它與 설교벽不同；修正「—」的解釋。
+- 2026-10-25：更正 Lonely Road 的 2025 topo 欄（topo 有收，編號 #38、5.6），長度與段數仍只有 theCrag 記載。
+- 2026-10-25：新增逐段路線筆記連結（起攀位置、每段長度與下降），並說明本文不是 topo。
 - 2026-10-22：新增「網路上的路線紀錄」小節，補十條經典線的社群第一手紀錄（部落格、咖啡廳轉貼、概念圖）與逐段表格；修正 Crony 招牌裂隙為第 6 段、거룡길開拓者補姓「고」、동양길段數差異改歸 Imgok 書文與社群路線表；新增 16 條參考資料。
 - 2026-10-22：補上 Insu A、Wand、Maninbo、Villa 的路線影片，中級與進階表也加入影片欄；新增西面接近與 70 公尺雙繩下降影片，並標註影片版本與指南記法的差異。
 - 2026-10-21：保留完整路線比較表，在對應路線旁加入影片縮圖，點擊後展開該路線影片，使用直式影片清單，縮圖與開啟按鈕分開，避免滑動誤觸；外部影片以整列連結標示觀看目的地與另開分頁。
@@ -263,6 +269,7 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 - [韓國消防廳：Public EMS](https://www.nfa.go.kr/eng/ems/service/)
 - [BMC：2025/26 保險產品資訊摘要](https://services.thebmc.co.uk/modules/insurance/r/downloads/BMC_IPID_2025_26_1225_Edition_1225.pdf)
 - [Mountain Project：國際攀登難度對照表](https://www.mountainproject.com/international-climbing-grades)
+- [Mountain Project：Insu B](https://www.mountainproject.com/route/108367078/insu-b)
 - [산지니：인수봉 크로니길，2010](https://wind1230.tistory.com/15852536)
 - [청아（김종만）：인수봉 인수리지，2006](https://kjcjkj.tistory.com/7182584)
 - [도랫굽이：인수봉 인수리지 루트개념도，2013](https://ami41.tistory.com/538)
