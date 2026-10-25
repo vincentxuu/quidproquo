@@ -93,7 +93,7 @@ Afterwards, clench your fist once more and think of the motor units being called
 
 ## What this post leaves out
 
-This post covers the mechanism only. How heavy to lift, how many sets, and why muscles grow come in later posts. What you have now is a map of contraction: the nerve signal flips the switch, calcium exposes the binding sites, and ATP lets the cycle repeat. Some of the known causes of fatigue relate to ATP, and some to how calcium is released.
+This post covers the mechanism only. How heavy to lift and how many sets are covered in [How Heavy, How Many Sets, To Failure or Not](/posts/learning/2026-10-25-strength-and-hypertrophy-en); why muscles grow does not yet have its own post in this series. What you have now is a map of contraction: the nerve signal flips the switch, calcium exposes the binding sites, and ATP lets the cycle repeat. Some of the known causes of fatigue relate to ATP, and some to how calcium is released.
 
 ## References
 

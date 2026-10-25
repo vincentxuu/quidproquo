@@ -5,7 +5,7 @@
 - 書目：Currier BS et al. *Med Sci Sports Exerc* 58(4):851–872, 2026（PMID 41843416，PMC12965823）。取代 ACSM 2009 版。
 - 取得：Europe PMC `fullTextXML`，擷取文字 54,683 字元，`truncated: false`，從簡介讀到聲明結尾（含結果各表、討論、限制、利益衝突）。**沒讀到：** 方法段、補充附錄（逐篇回顧的 AMSTAR 分數、QoE、逐篇結果）、圖。
 - 引文核對：下列英文引文已用程式比對擷取文字，全部吻合（一句因細空白字元顯示差異，內容吻合）。
-- 設計：**overview of reviews（回顧的回顧）**，納入 137 篇系統性回顧，只談**健康成人**；AMSTAR 分數 1–9（滿分 11）；證據品質用自訂的 QoE（平均品質除以最高可能品質的百分比），**不是 GRADE**。
+- 設計：**overview of reviews（回顧的回顧）**，納入 137 篇系統性回顧，只談**健康成人**；AMSTAR 分數 1–9（滿分 11）；證據品質用 QoE（平均品質除以最高可能品質的百分比；post-verify 回報方法段寫它依 GRADE 概念改編，我未讀方法段）。作者說各篇回顧的 GRADE 評級無法合併。
 
 ## 可用陳述
 
@@ -32,7 +32,7 @@
 
 ## 要小心的
 
-1. **建議的文字多半是作者的立場，不是研究結果。** 例如「每週至少兩次」是 "primary recommendation"，表 6 的 "≥80% 1RM"、"2–3 sets/session" 是作者從回顧整理的條件，並非嚴格的劑量反應。作者也寫："in the view of the authors" 才給出四到六個身體區域的建議。
+1. **建議的文字多半是作者的立場，不是研究結果。** 例如「每週至少兩次」是 "primary recommendation"，表 6 的 "≥80% 1RM"、"2–3 sets/session" 是作者從回顧整理的條件；表 6 把 "≥80% 1RM" 與 "≥10 sets/wk" 都標為 (dose-response)（2026-10-24 更正：先前誤寫「並非嚴格劑量反應」）。討論另引用 [187] 的迴歸：約每週 18–20 組後報酬遞減（未讀 [187]）。作者也寫："in the view of the authors" 才給出四到六個身體區域的建議。
 2. **表 4「力量：負荷」有明確的 ✔，「肌肥大：負荷」是 ✖（無差別）**；但作者在討論再補："RT frequency was found to impact strength; however... the impact is diminished when volume is equated"。引用時要把「在總量相同時」帶上。
 3. **「超過約 2–3 組／每週 18–20 組報酬遞減」** 來自引用的另一篇統合迴歸 [187]，不是本聲明自己的結果；聲明接著說「建議至少兩組」，是作者建議。
 4. **利益揭露：** "B. J. S. formerly served on the scientific advisory board for Tonal Corporation, a manufacturer of fitness equipment." 其餘作者聲明無相關衝突。
