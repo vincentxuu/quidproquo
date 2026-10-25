@@ -5,7 +5,7 @@ type: deep-dive
 category: ai
 tags: [llm, gemini, claude, chatgpt, grok, multimodal, coding-agent]
 lang: zh-TW
-tldr: "兩小時的課程影片約 72 萬 token，Gemini 的 API 收得下，Claude 與 ChatGPT 的文件沒有列影片輸入；程式碼這條線 Claude 與 GPT 只差 0.8 分，該比的是速度與成本；X 輿情與代填結帳找 Grok，現成 App 與語音找 ChatGPT。"
+tldr: "兩小時的課程影片約 72 萬 token，Gemini 的 API 收得下，Claude 與 ChatGPT 的 API 文件沒有列影片輸入；程式碼這條線 Claude 與 GPT 在 Vals 榜上只差 0.8 分，該比的是速度與成本；X 輿情與代填結帳找 Grok，現成 App 與語音找 ChatGPT。"
 description: "依任務比較 Gemini、Claude、ChatGPT、Grok：長影音理解、程式碼、X 即時搜尋與代辦結帳、App 平台與語音，每項附官方文件出處和一個今晚能做的測試。"
 draft: false
 ---
@@ -18,17 +18,17 @@ Gemini、Claude、ChatGPT、Grok 是現在最常被放在一起比的四個 AI �
 
 | 你手上的任務 | 先開哪一家 | 依據 | 先別假設的事 |
 |---|---|---|---|
-| 1–3 小時的影片或課程，要帶時間戳的筆記 | Gemini | API 文件：音訊與畫面一起處理，可用 `MM:SS` 指定時間點 | Claude 與 ChatGPT 的文件沒有列影片輸入 |
+| 1–3 小時的影片或課程，要帶時間戳的筆記 | Gemini | API 文件：音訊與畫面一起處理，可用 `MM:SS` 指定時間點 | Claude 與 ChatGPT 的 API 文件沒有列影片輸入 |
 | 修 bug、重構整個 repo | Claude 與 ChatGPT（Codex）各跑一次 | Vals AI 榜上 97.00% 對 96.20% | 分數差距小，耗時與成本差得多 |
 | 查 X 上的輿情、某個帳號最近說了什麼 | Grok | `x_search` 工具：關鍵字、語意、使用者搜尋 | 只涵蓋 X |
-| 讓 AI 代填登入資料與信用卡去結帳 | Grok Bot | 2026-10-23 加入的 Vault | 才上線兩天，先用有額度上限的卡 |
-| 串現成 App、做語音客服 | ChatGPT | Apps SDK 與 Realtime API | 對話內購物已改走零售商 App |
+| 讓 AI 代填登入資料與信用卡去結帳 | Grok Bot | 2026-10-23 加入的 Vault | 剛上線，先用有額度上限的卡 |
+| 串現成 App、做語音客服 | ChatGPT | Apps SDK 與 Realtime API | 對話內結帳已縮編，改由商家自己的流程或 App 處理 |
 
 ## 長影音：Gemini 把音訊與畫面一起讀
 
 [Gemini API 的影片文件](https://ai.google.dev/gemini-api/docs/video-understanding)寫得很具體：模型同時處理音訊與畫面，每秒影片在預設解析度下約 100 個 token。兩小時的課程約 72 萬 token。文件寫明，百萬 token 級 context 的模型，預設解析度下最長可處理 3 小時，改用高解析度會縮短。
 
-公開的 YouTube 網址可以直接貼，不用先下載。要問某個時間點的內容，用 `MM:SS` 的格式寫進提示。文件的範例把文字提示放在影片之後：
+公開的 YouTube 網址可以直接貼，不用先下載。要問某個時間點的內容，用 `MM:SS` 的格式寫進提示。文件建議把文字提示放在影片之後：
 
 ```python
 from google import genai
@@ -49,9 +49,9 @@ print(interaction.output_text)
 
 超過 5 到 10 分鐘的長影片，文件建議在影片那一項加上 `"processing": "agentic"`。這個[模式](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/)讓模型先看逐字稿，只載入需要的畫面，token 最多省 88%，準確度也略高；短片反而可能更慢、更耗 token。只有部分新型號支援，名單見文件。這個模式處理時間較長，文件建議同時設 `background=True`。預設每秒取一幀，會漏掉快速動作，需要逐格檢查時可以用 `fps` 自訂取樣率。
 
-Claude 與 ChatGPT 這邊，[Claude 的 Vision 文件](https://platform.claude.com/docs/en/build-with-claude/vision)列出的格式是 JPEG、PNG、GIF、WebP，GIF 動畫只取第一幀；[功能總覽](https://platform.claude.com/docs/en/build-with-claude/overview)裡的 Files API 也只寫支援 PDF、圖片與文字檔。[OpenAI 的模型頁](https://developers.openai.com/api/docs/models)寫最新模型支援文字與圖片輸入、文字輸出。openai-node 上有人[要求加入影片輸入](https://github.com/openai/openai-node/issues/1778)，OpenAI 維護者在 2026 年 8 月的回覆是：現行做法是把影片抽幀當圖片送，音訊另外處理。
+Claude 與 ChatGPT 這邊，[Claude 的 Vision 文件](https://platform.claude.com/docs/en/build-with-claude/vision)列出的格式是 JPEG、PNG、GIF、WebP，GIF 動畫只取第一幀；[功能總覽](https://platform.claude.com/docs/en/build-with-claude/overview)裡的 Files API 也只寫支援 PDF、圖片與文字檔。[OpenAI 的模型頁](https://developers.openai.com/api/docs/models)寫最新模型支援文字與圖片輸入、文字輸出。openai-node 上有人[要求加入影片輸入](https://github.com/openai/openai-node/issues/1778)，OpenAI 的貢獻者在 2026 年 8 月的回覆是：現行做法是把影片抽幀當圖片送，音訊另外處理。
 
-所以同一部課程在這兩家都得自己先處理：每隔幾秒抽一張投影片截圖，加上逐字稿一起送。
+所以同一部課程在這兩家都得自己先處理：每隔幾秒抽一張投影片截圖，加上逐字稿一起送。這裡說的是 API；各家 App 內的檔案上傳與語音功能不在比較範圍。
 
 所以「長影音是 Gemini 專屬」只對一半。長影片基準 [Video-MME](https://github.com/MME-Benchmarks/Video-MME) 的做法是把影片抽幀再餵給模型，OpenAI 自己的發布文也列了影片成績：[GPT-4.1](https://openai.com/index/gpt-4-1/) 公布 Video-MME 長影片組的分數，[GPT-5](https://openai.com/index/introducing-gpt-5-for-developers/) 的附錄則列 VideoMME 與 VideoMMMU，後者同樣以抽幀評測。Gemini 的差異在流程：整支影片檔連音訊一次送進 API，其他兩家要先自己抽幀、轉逐字稿。
 
@@ -61,18 +61,20 @@ Claude 與 ChatGPT 這邊，[Claude 的 Vision 文件](https://platform.claude.c
 
 ## 程式碼：Claude 與 ChatGPT 差的是耗時與成本
 
-[Vals AI 的 SWE-bench Verified 榜](https://www.vals.ai/benchmarks/swebench)用同一套最簡 harness（mini-swe-agent，只給 bash 一個工具）測所有模型。Claude 與 GPT 的旗艦分數貼得很近，Vals 已經把這個榜封存，理由是分數飽和，新模型不再跑。
+[Vals AI 的 SWE-bench Verified 榜](https://www.vals.ai/benchmarks/swebench)主體用同一套最簡 harness（mini-swe-agent，只給 bash 一個工具）測所有模型，另有少數列改用各家的 CLI。榜上 Claude 與 GPT 的最高分貼得很近，Vals 已經把這個榜封存，理由是分數飽和，新模型不再跑。
 
 | 模型 | SWE-bench Verified | 每題平均耗時 | 每題成本 |
 |---|---|---|---|
 | Claude Opus 5 | 97.00% | 約 9 分 37 秒 | 1.29 美元 |
 | GPT-5.6 Sol | 96.20% | 約 3 分 2 秒 | 1.15 美元 |
 
-差距只有 0.8 分，耗時卻差了三倍，這兩欄對決定的影響比分數大。
+差距只有 0.8 分，耗時卻差了三倍，我會把這兩欄看得比分數重。
 
 榜上第四名是 Grok 4.6，程式碼這條線 Grok 不是弱角。
 
-Gemini 在榜上是 Flash 系列與較早的 Pro 預覽版，分數都在八十上下。榜單停在九月初，Gemini 4 Argon 與 Grok 4.7 都不在上面，這張榜判斷不了這兩個新型號。
+Gemini 在榜上是 Flash 系列與較早的 Pro 預覽版，分數都在八十上下。
+
+榜單停在九月初，Claude、GPT、Gemini、Grok 之後的新型號都不在上面，例如 Gemini 4 Argon 與 Grok 4.7，所以這張榜判斷不了它們。
 
 分數也跟 harness 綁在一起。同樣是 Claude Opus 4.8，換成 Claude Code 之後比 mini-swe-agent 低了近 3 分。榜單只能告訴你模型大概在哪一級，不能預測你換成 [Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code) 或 [Codex](/posts/ai/2026-04-02-agent-cli-openai-codex) 之後的結果。
 
@@ -92,11 +94,11 @@ Vault 需要 Grok Bot 0.75.2 以上。前一天的版本已加上 Shop Pay，商
 
 這個 Vault 和 [Grok Enterprise 的 Vault](https://x.ai/news/grok-business)是兩件事。後者是企業版的加購項目，提供獨立的資料平面與客戶自管的加密金鑰（CMEK），和代填結帳無關。
 
-iPhone 上，RoutineHub 的熱門 [Grok 捷徑](https://routinehub.co/shortcut/21828/)說明了兩條路：走免費 Grok App 的「Ask Grok」動作只能純文字，作者自己註明可靠度較低；填入 xAI API 金鑰才有對話保存與圖片、影片生成。要靠捷徑做自動化，走 API 金鑰那條。
+iPhone 上，RoutineHub 上的 [Grok 捷徑](https://routinehub.co/shortcut/21828/)說明了兩條路：走免費 Grok App 的「Ask Grok」動作只能純文字，作者自己註明可靠度較低；填入 xAI API 金鑰才有對話保存與圖片、影片生成。要靠捷徑做自動化，我會走 API 金鑰那條。
 
 ## 平台與語音：ChatGPT
 
-OpenAI 在 2026 年二月公布 ChatGPT 的[週活躍使用者達 9 億](https://techcrunch.com/2026/02/27/chatgpt-reaches-900m-weekly-active-users/)。這個規模是它對開發者最大的賣點：[Apps SDK 的發布文](https://openai.com/index/introducing-apps-in-chatgpt/)直接寫「reach over 800 million ChatGPT users」。
+OpenAI 在 2026 年二月公布 ChatGPT 的[週活躍使用者達 9 億](https://techcrunch.com/2026/02/27/chatgpt-reaches-900m-weekly-active-users/)。這個規模是 Apps SDK 發布文主打的賣點：[Apps SDK 的發布文](https://openai.com/index/introducing-apps-in-chatgpt/)直接寫「reach over 800 million ChatGPT users」。
 
 Apps SDK 建在 MCP 上，再往上加一層：開發者可以定義 App 在對話裡的互動介面。工具連接本身不需要 ChatGPT，[MCP](/posts/ai/2026-03-22-mcp-model-context-protocol) 是開放標準，同一個 MCP server 其他客戶端也能用。ChatGPT 多出來的是兩樣東西，一個是對話裡的互動介面，一個是它的使用者。
 
@@ -104,7 +106,9 @@ Apps SDK 建在 MCP 上，再往上加一層：開發者可以定義 App 在對�
 
 購物的路線變過一次。[Instant Checkout](https://openai.com/index/buy-it-in-chatgpt/) 在 2025-09-29 上線，美國使用者可直接在對話裡向 Etsy 賣家買單品，背後是和 Stripe 共同制定的 Agentic Commerce Protocol。
 
-據結帳基礎設施公司 [Rye 在 2026-03 的整理](https://rye.com/blog/openai-chatgpt-checkout-agentic-commerce)，OpenAI 已從搜尋結果直接結帳，轉向 Instacart、Target 等零售商 App 內結帳。和 Grok Bot 對照：ChatGPT 的結帳要商家先接上協定，Grok Bot 則由 Bot 用自己的電腦在網站上代填。
+[CNBC 在 2026 年三月的報導](https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html)指出，OpenAI 已把重心移到商品探索，結帳交給商家自己的流程：商家提供商品 feed，要更深的整合就做 ChatGPT 內的 App，Shopify 商家則用 in-app browser 完成購買。OpenAI 的說法是，最初版本的 Instant Checkout 沒有提供它想要的彈性。
+
+和 Grok Bot 對照：ChatGPT 現在把結帳留給商家，Grok Bot 則由 Bot 用自己的電腦在網站上代填。
 
 **今晚能做的測試：**想知道值不值得做 ChatGPT App，先看你的服務有沒有現成的 MCP server。有的話，Apps SDK 只是在上面加一層介面；沒有，先做 MCP server，其他客戶端也用得上。
 
@@ -112,7 +116,7 @@ Apps SDK 建在 MCP 上，再往上加一層：開發者可以定義 App 在對�
 
 四家各有一條能用官方文件講清楚的主線：Gemini 的影片檔流程，Claude 與 GPT 在程式碼上的拉鋸，Grok 的 X 搜尋與代填結帳，ChatGPT 的 App 平台與語音。沒有一家通吃，比較實際的做法是按任務路由，就像多模態那篇的結論。
 
-這篇的型號、分數與版本都是 2026-10-25 的狀態，Vault 和 Instant Checkout 這類功能一個月內就可能再變。每次要把任務交給某一家之前，用上面的小測試跑一次，比相信任何一張榜單可靠。
+文中的程式碼分數取自九月初封存的榜單，其餘功能與版本是 2026-10-25 的狀態，Vault 和購物這類功能一個月內就可能再變。每次要把任務交給某一家之前，用上面的小測試跑一次，比相信任何一張榜單可靠。
 
 ## 參考資料
 
@@ -134,4 +138,4 @@ Apps SDK 建在 MCP 上，再往上加一層：開發者可以定義 App 在對�
 - [Introducing apps in ChatGPT and the new Apps SDK - OpenAI](https://openai.com/index/introducing-apps-in-chatgpt/)
 - [Introducing gpt-realtime and Realtime API updates - OpenAI](https://openai.com/index/introducing-gpt-realtime/)
 - [Buy it in ChatGPT: Instant Checkout and the Agentic Commerce Protocol - OpenAI](https://openai.com/index/buy-it-in-chatgpt/)
-- [OpenAI Scales Back ChatGPT Checkout - Rye](https://rye.com/blog/openai-chatgpt-checkout-agentic-commerce)
+- [OpenAI revamps shopping experience in ChatGPT after struggling with Instant Checkout offering - CNBC](https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html)
