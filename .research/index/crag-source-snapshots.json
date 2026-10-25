@@ -9598,5 +9598,66 @@
     "hash": "1e20b6107b842d65",
     "via": "direct",
     "bytes": 61349
+  },
+  "https://www.climbing-net.com/iwaba_detail/%E5%A4%A7%E5%A0%82%E6%B5%B7%E5%B2%B8/": {
+    "firstSeen": "2026-10-25",
+    "status": 404,
+    "checked": "2026-10-25",
+    "crags": [
+      "japan-crag-odo-kaigan"
+    ],
+    "types": [
+      "bolt_condition",
+      "closure"
+    ],
+    "error": "HTTP 404"
+  },
+  "https://www.rocktopo.net/parking_spots/312": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "japan-crag-odo-kaigan"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "830f7edfc2b7e2f7",
+    "via": "jina",
+    "bytes": 477
+  },
+  "https://www.rocktopo.net/parking_spots/1411": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "japan-crag-odo-kaigan"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "0d2b153bfea85348",
+    "via": "jina",
+    "bytes": 478
+  },
+  "https://kochi-seinan.co.jp/local/": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "japan-crag-odo-kaigan"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "acc5777c6bf787c8",
+    "via": "direct",
+    "bytes": 12626
   }
 }
