@@ -22,7 +22,7 @@ The data model has [three layers: trace, span, and thread](https://www.comet.com
 
 ## Who it is for and prerequisites
 
-It fits teams that already have an agent or RAG application and want to see what happens at each step. You need Python or TypeScript (the only official SDKs), or the ability to configure an [OpenTelemetry](https://www.comet.com/docs/opik/integrations/opentelemetry) exporter. Self-hosting requires Docker Compose, and production requires Kubernetes and Helm experience.
+It fits teams that already have an agent or RAG application and want to see what happens at each step. You need Python or TypeScript, or the ability to configure an [OpenTelemetry](https://www.comet.com/docs/opik/integrations/opentelemetry) exporter. Self-hosting requires Docker Compose, and production requires Kubernetes and Helm experience.
 
 If you are still doing single-prompt experiments with no multi-step flow, most of it will go unused. The site's [post on agent observability](/posts/ai/2026-06-04-agent-observability-failure-detection-en) covers which failure modes to look for and is worth reading first.
 
@@ -89,6 +89,8 @@ evaluate(
 
 `experiment_config` records which prompt template, model, and parameters a run used; the docs recommend [storing this information](https://www.comet.com/docs/opik/evaluation/advanced/evaluate_your_llm) so you can tell what differed when you compare experiments later.
 
+`Hallucination` is an LLM judge: per the [official metric docs](https://www.comet.com/docs/opik/evaluation/metrics/hallucination) it defaults to `gpt-4o` and can be switched to any model LiteLLM supports, so have the matching key ready before running the example. It needs input and output, with context optional; `evaluate` merges the dataset item and the task output before passing them to the metric, and when field names do not match you map them with [`scoring_key_mapping`](https://www.comet.com/docs/opik/evaluation/advanced/evaluate_your_llm).
+
 ## Self-hosting and cloud
 
 For local trials, use [Docker Compose](https://www.comet.com/docs/opik/self-host/local_deployment): clone the repo, run `./opik.sh`, open `localhost:5173`, and point the SDK at it with `opik configure --use_local`. Data lives in `~/opik`, so stopping and restarting does not lose it. The docs say this setup is not meant for production; for production use the [Helm chart on Kubernetes](https://www.comet.com/docs/opik/self-host/kubernetes).
@@ -116,8 +118,6 @@ The site has introductions to the alternatives for a side-by-side read: [Langfus
 
 **Production operations are on you.** The Kubernetes docs have several cautions: ClickHouse replication [must be enabled only after Opik is already running](https://www.comet.com/docs/opik/self-host/kubernetes) or it may error. The [SDK version must match the server version](https://www.comet.com/docs/opik/self-host/kubernetes), so upgrade both together. Deleted traces and spans are first masked and only physically removed when ClickHouse merges data parts, with the chart [leaving force-merge off by default](https://www.comet.com/docs/opik/self-host/kubernetes), which you should weigh if you delete a lot of data.
 
-**Some features exist only on the cloud.** In the pricing page's feature table, the Ollie assistant and Opik Connect are empty in the open-source column, and on the cloud Free and Pro plans they are [a trial followed by purchased tokens](https://www.comet.com/site/pricing/). Teams hoping to lean on them for debugging will not find them listed for the self-hosted version.
-
 **Span pricing is amplified by agent loops.** Cloud quotas count spans, and every tool call and LLM call in an agent is a span, so one interaction produces many. Measure a week of real traffic and compute monthly volume before picking a plan.
 
 **OTel accepts HTTP only.** The [docs](https://www.comet.com/docs/opik/integrations/opentelemetry) say the exporter must use HTTP, and gRPC produces errors. Each trace must have one root span with no parent, otherwise the spans are stored but the Traces tab stays empty. If your agent runs in an environment that injects an external trace context (an API gateway, for example), create a new root span at the start of each invocation yourself.
@@ -143,6 +143,7 @@ The site has introductions to the alternatives for a side-by-side read: [Langfus
 - [Evaluation Overview](https://www.comet.com/docs/opik/evaluation/overview)
 - [Evaluation Concepts](https://www.comet.com/docs/opik/evaluation/concepts)
 - [Evaluate your agent](https://www.comet.com/docs/opik/evaluation/advanced/evaluate_your_llm)
+- [Hallucination metric](https://www.comet.com/docs/opik/evaluation/metrics/hallucination)
 - [Online Evaluation rules](https://www.comet.com/docs/opik/production/online-evaluation/rules)
 - [Prompt Library: Getting started](https://www.comet.com/docs/opik/development/prompt-library/getting-started)
 - [Observability for LangGraph with Opik](https://www.comet.com/docs/opik/integrations/langgraph)

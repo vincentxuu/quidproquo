@@ -22,7 +22,7 @@ Opik 是 Comet 開發的開源平台，[README 的定位](https://github.com/com
 
 ## 給誰、先備知識
 
-適合已經有 agent 或 RAG 應用、想知道每一步發生什麼事的團隊。需要會用 Python 或 TypeScript（官方 SDK 只有這兩種），或能設定 [OpenTelemetry](https://www.comet.com/docs/opik/integrations/opentelemetry) 匯出器；要自架的話，還需要會用 Docker Compose，正式環境則要有 Kubernetes 與 Helm 的經驗。
+適合已經有 agent 或 RAG 應用、想知道每一步發生什麼事的團隊。需要會用 Python 或 TypeScript，或能設定 [OpenTelemetry](https://www.comet.com/docs/opik/integrations/opentelemetry) 匯出器；要自架的話，還需要會用 Docker Compose，正式環境則要有 Kubernetes 與 Helm 的經驗。
 
 還在做單次 prompt 實驗、沒有多步驟流程的人，用不到太多功能。站內[Agent 可觀測性那一篇](/posts/ai/2026-06-04-agent-observability-failure-detection)講的是該觀察哪些失敗型態，可以先讀。
 
@@ -89,6 +89,8 @@ evaluate(
 
 `experiment_config` 用來記錄這次實驗用了哪個 prompt 模板、模型與參數，官方建議[存下這些資訊](https://www.comet.com/docs/opik/evaluation/advanced/evaluate_your_llm)，之後比較實驗才知道差在哪。
 
+`Hallucination` 是 LLM 評審：依[官方指標文件](https://www.comet.com/docs/opik/evaluation/metrics/hallucination)，它預設用 `gpt-4o`，可改成 LiteLLM 支援的其他模型，所以照範例跑之前要先備好對應的金鑰。它需要 input 與 output，context 是可選的；`evaluate` 會把資料集項目與 task 的回傳合併後交給指標，欄位名稱對不上時，用[`scoring_key_mapping`](https://www.comet.com/docs/opik/evaluation/advanced/evaluate_your_llm)指定對應。
+
 ## 自架與雲端
 
 本機試用用 [Docker Compose](https://www.comet.com/docs/opik/self-host/local_deployment)：clone 專案後執行 `./opik.sh`，在 `localhost:5173` 開啟，SDK 用 `opik configure --use_local` 指向它。資料存在 `~/opik`，停止再啟動不會遺失。這個方式依官方說法不適合正式環境，正式環境請走 [Helm chart 的 Kubernetes 部署](https://www.comet.com/docs/opik/self-host/kubernetes)。
@@ -116,8 +118,6 @@ Opik 的賣點是授權與自架：完整平台是 Apache-2.0，自架不需要�
 
 **正式環境的維運在你身上。** Kubernetes 文件有幾個要注意的地方：ClickHouse [要先讓 Opik 跑起來再啟用複寫](https://www.comet.com/docs/opik/self-host/kubernetes)，否則可能出錯。[SDK 版本要和伺服器版本一致](https://www.comet.com/docs/opik/self-host/kubernetes)，升級時兩邊要一起動。已刪除的 trace 與 span 先被遮蔽，等 ClickHouse 合併資料片段才會實際移除，chart 預設[不啟用 force-merge](https://www.comet.com/docs/opik/self-host/kubernetes)，大量刪除資料的環境要自己評估。
 
-**部分功能只在雲端。** 定價頁的功能對照表中，Ollie 助理與 Opik Connect 在開源欄是空的，雲端的免費與 Pro 方案是[試用後購買 token](https://www.comet.com/site/pricing/)。想靠它們輔助除錯的團隊，自架版的功能表沒有列入這兩項。
-
 **span 計價會被 agent 迴圈放大。** 雲端額度以 span 計，而 agent 每一次工具呼叫與 LLM 呼叫都是一個 span，一次互動會產生多個 span。上線前先用一週的真實流量算出每月用量，再選方案。
 
 **OTel 只收 HTTP。** [官方文件](https://www.comet.com/docs/opik/integrations/opentelemetry)說明匯出器必須用 HTTP，用 gRPC 會出錯；每條 trace 必須有一個沒有 parent 的 root span，否則 span 會存下來，但 Traces 分頁是空的。如果 agent 跑在會帶入外部 trace context 的執行環境（例如 API 閘道），要自己在每次呼叫開頭建立新的 root span。
@@ -143,6 +143,7 @@ Opik 的賣點是授權與自架：完整平台是 Apache-2.0，自架不需要�
 - [Evaluation Overview](https://www.comet.com/docs/opik/evaluation/overview)
 - [Evaluation Concepts](https://www.comet.com/docs/opik/evaluation/concepts)
 - [Evaluate your agent](https://www.comet.com/docs/opik/evaluation/advanced/evaluate_your_llm)
+- [Hallucination 指標](https://www.comet.com/docs/opik/evaluation/metrics/hallucination)
 - [Online Evaluation rules](https://www.comet.com/docs/opik/production/online-evaluation/rules)
 - [Prompt Library：Getting started](https://www.comet.com/docs/opik/development/prompt-library/getting-started)
 - [Observability for LangGraph with Opik](https://www.comet.com/docs/opik/integrations/langgraph)
