@@ -8781,7 +8781,7 @@
   "https://www.sansan.co.kr/news/articleView.html?idxno=9990": {
     "firstSeen": "2026-10-21",
     "status": 200,
-    "checked": "2026-10-21",
+    "checked": "2026-10-25",
     "crags": [
       "korea-crag-seoninbong"
     ],
@@ -8790,14 +8790,14 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "6d7f95f02be7f574",
+    "hash": "3a13cc15d66098f4",
     "via": "direct",
-    "bytes": 135013
+    "bytes": 134592
   },
   "https://san.chosun.com/news/articleView.html?idxno=24721": {
     "firstSeen": "2026-10-21",
     "status": 200,
-    "checked": "2026-10-21",
+    "checked": "2026-10-25",
     "crags": [
       "korea-crag-seoninbong"
     ],
@@ -8806,9 +8806,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "7191f1cff7150ce0",
+    "hash": "c7964d8281691910",
     "via": "direct",
-    "bytes": 117442
+    "bytes": 117556
   },
   "https://www.gochang.go.kr/board/view.gochang?boardId=BBS_0000083&dataSid=136791": {
     "firstSeen": "2026-10-21",
@@ -9450,5 +9450,153 @@
     "hash": "9749b28c848287ee",
     "via": "direct",
     "bytes": 152141
+  },
+  "https://www.thecrag.com/en/climbing/south-korea/dobongsan/area/272350515": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "transport",
+      "bolt_condition"
+    ],
+    "anchors": 17,
+    "missing": [
+      "5.9",
+      "5.11",
+      "240",
+      "33",
+      "36",
+      "5.10",
+      "26",
+      "5.8",
+      "38",
+      "22",
+      "140",
+      "190",
+      "30",
+      "many routes converge at the top of p3"
+    ],
+    "hash": "7df6ae2d6ed2c3fb",
+    "via": "jina",
+    "bytes": 327
+  },
+  "https://www.mountainproject.com/route/204020467/bat-route": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "2351c4d4fd66faf2",
+    "via": "direct",
+    "bytes": 110809
+  },
+  "https://www.mountainproject.com/route/200914746/yodel-buttress": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "transport",
+      "bolt_condition"
+    ],
+    "anchors": 4,
+    "missing": [],
+    "hash": "f3186aedd7c14e33",
+    "via": "direct",
+    "bytes": 98149
+  },
+  "https://gaussmt.tistory.com/1910": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "dbf24198ba32ddcc",
+    "via": "direct",
+    "bytes": 91384
+  },
+  "https://m.blog.naver.com/jjunmh/221672777865": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "360d6b9d3658e5f5",
+    "via": "direct",
+    "bytes": 95376
+  },
+  "https://mountain-climber.tistory.com/21": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "cdb1957172956d61",
+    "via": "direct",
+    "bytes": 65334
+  },
+  "https://kim664.tistory.com/14340399": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 3,
+    "missing": [
+      "1–4",
+      "6 段中 1–4 段，最難 5.11d a0"
+    ],
+    "hash": "d2df6cca7c13b639",
+    "via": "direct",
+    "bytes": 59745
+  },
+  "https://seounwoo.tistory.com/entry/%EB%8F%84%EB%B4%89%EC%82%B0-%EC%84%A0%EC%9D%B8%EB%B4%89-%EB%A3%A8%ED%8A%B8-%EA%B0%9C%EB%85%90%EB%8F%84": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "1e20b6107b842d65",
+    "via": "direct",
+    "bytes": 61349
   }
 }
