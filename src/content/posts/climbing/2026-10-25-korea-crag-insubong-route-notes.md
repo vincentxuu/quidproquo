@@ -17,7 +17,7 @@ draft: false
 
 [仁壽峰的選線文](/posts/climbing/2026-10-21-korea-crag-insubong)告訴你哪條線適合自己的繩隊，但站在北漢山（首爾）的岩壁底下，你還需要知道：這條線從哪裡起攀、每一段多長、難關在第幾段、爬完怎麼下來。這篇補的就是這些，範圍是仁壽峰的多段（多繩距）路線。
 
-**這不是 topo。** 內容整理自韓國攀登社群 2006 到 2024 年的文字紀錄，沒有岩壁照片，也沒有路線編號。現場找線仍要以 [Mont Blanc Lines 的東壁數位 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)為準，這篇當作出發前的預習和現場的對照。
+**這不是 topo。** 內容整理自韓國攀登社群 2006 到 2024 年的文字紀錄，沒有岩壁照片，也沒有路線編號。東壁一帶的線，現場找線仍要以 [Mont Blanc Lines 的東壁數位 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)為準（付費的單張圖檔，列 43 條路線，各線小節標了它的編號），這篇當作出發前的預習和現場的對照。**南面的 Dongyang-gil、Haneul-gil、Georyong-gil、Villa 不在那 43 條裡**，這四條線只能靠這篇和下面引用的概念圖。
 
 ## 怎麼用這篇
 
@@ -151,6 +151,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Insu A／인수 A
 
+- **Mont Blanc 東壁 topo 編號**：#26。
 - **起攀位置**：Oasis。先經大斜板到 Oasis，再從那裡起攀。
 - **段數與長度**：4 段、115 公尺，全程裂隙與煙囪。
 - **裝備**：活動岩楔一組、快扣 8 個。
@@ -172,6 +173,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Medical School／의대길
 
+- **Mont Blanc 東壁 topo 編號**：#27。
 - **起攀位置**：Oasis 正中央（[머루랑](https://hsun-100hsun-100.tistory.com/7984297)：「의대길은 중앙 오아시스에서부터 시작한다」）。
 - **段數與長度**：5 到 6 段，約 100 到 136 公尺，各來源的分法不同。
 
@@ -188,6 +190,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Sanchonji／산천지길
 
+- **Mont Blanc 東壁 topo 編號**：#21。
 - **起攀位置**：Oasis。
 - **段數與長度**：5 段、119 公尺，[2024 年的紀錄](https://m.blog.naver.com/PostView.naver?blogId=r9600495&logNo=223445895731)的長度與 걸리 的表格一致。
 
@@ -210,6 +213,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Chouinard B／취나드 B
 
+- **Mont Blanc 東壁 topo 編號**：#29（topo 上寫成 Chouinard B – Kwibawi C）。
 - **起攀位置**：從大斜板往右沿坡面走，到一個有石碑的小坡，背對石碑往上看，帶台階的裂隙就是起點。從大斜板到石碑的距離，[걸리 頁面的兩段文字](https://han5256.tistory.com/7667232)分別寫約 50 公尺和約 70 公尺，現場以看到石碑為準。
 - **段數與長度**：5 段、177 公尺，兩人一組約 2 小時，一條 50 公尺繩、活動岩楔一組。
 - **難關**：第 2 段的細底裂隙（undercrack）和第 4 段的雙裂隙。
@@ -226,6 +230,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Chouinard A／취나드 A
 
+- **Mont Blanc 東壁 topo 編號**：#36（topo 上寫成 Chouinard A – Kwibawi D）。
 - **起攀位置**：沿著 Chouinard B 的石碑再往右走約 50 公尺，會看到從耳岩下方垂直劈開的裂隙，就是這條線。第 1 段爬到的平台上，右邊的裂隙是 심우길（Simu-gil），正中直上的是 Chouinard A，左邊的岩板是 벗길（Beot-gil）。
 - **段數與長度**：6 段、181 公尺；2 人一組約 2 到 3 小時，活動岩楔一組、快扣 7 個、50 公尺繩 1 條。
 - **難關**：第 4 段的懸垂裂隙。
@@ -243,10 +248,11 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ## 大斜板左側
 
-這一側的線擠在同一片岩壁上，位置靠相對關係描述。把 [걸리 頁面](https://han5256.tistory.com/7667232)裡幾段文字拼起來，由下而上的順序是：청맥길（Cheongmaek-gil）→ Dongyang-gil（距大斜板約 120 公尺）→ Haneul-gil → Georyong-gil（約 180 公尺）→ Villa（約 200 公尺）；Georyong 下方還有一條單段的미련（Miryeon）。距離都是「從大斜板往左上走」，不是精確量測。
+這一側的線擠在同一片岩壁上，位置靠相對關係描述。Dongyang-gil、Haneul-gil、Georyong-gil、Villa 都不在 Mont Blanc 東壁 topo 上，沒有現成的編號圖可以對照。把 [걸리 頁面](https://han5256.tistory.com/7667232)裡幾段文字拼起來，由下而上的順序是：청맥길（Cheongmaek-gil）→ Dongyang-gil（距大斜板約 120 公尺）→ Haneul-gil → Georyong-gil（約 180 公尺）→ Villa（約 200 公尺）；Georyong 下方還有一條單段的미련（Miryeon）。距離都是「從大斜板往左上走」，不是精確量測。
 
 ### Crony／크로니길
 
+- **Mont Blanc 東壁 topo 編號**：#3。
 - **起攀位置**：大斜板左側有泉水，從泉水直上約 20 公尺、接到平整岩板的是건양길（Geonyang-gil）；右邊從裂隙起頭的，才是 Crony。
 - **段數與長度**：9 段、237 公尺，[파워的整理](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)說 Rescuer 開拓之前，它是仁壽峰最長的線；兩人一組約 3 小時，活動岩楔一組、50 公尺繩 1 條。
 
@@ -266,6 +272,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Dongyang-gil／동양길
 
+- **Mont Blanc 東壁 topo 編號**：無，這條線不在那 43 條裡。
 - **起攀位置**：在 Crony 左邊，約從大斜板往左 120 公尺。文字版說 Haneul-gil 在它上方、청맥길在它下方；爬到上段，多條線會交錯。
 - **段數與長度**：8 段、209 公尺（文字版各段相加是 204 公尺）；兩人一組約 2 到 3 小時；活動岩楔一組、快扣 15 個。
 - **版本差異**：第 1 段的級數，文字版寫 5.10a，月刊山報導與[主文](/posts/climbing/2026-10-21-korea-crag-insubong)用 5.7。
@@ -285,6 +292,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Haneul-gil／하늘길
 
+- **Mont Blanc 東壁 topo 編號**：無，這條線不在那 43 條裡。
 - **起攀位置**：沒有一份逐段文字寫明起攀點。位置只能從上面「由下而上」的順序推：Dongyang 的上方、Georyong 的下方。
 - **段數與長度**：7 段、187 公尺。
 - **第 1 段的做法**（[2022 年的紀錄](https://m.blog.naver.com/PostView.naver?blogId=wooltraveler&logNo=222924647461)）：前段到有裂隙的窄台階都很簡單，但第一顆 bolt 要爬到裂隙才有，掉下去就是空；在窄台階處往右橫移，手抓著台階移到有裂隙的位置再站上去，會比一開始就站起來輕鬆。裂隙可以用腳卡法或側拉；之後往右的長裂隙狀況好。
@@ -301,6 +309,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Georyong-gil／거룡길
 
+- **Mont Blanc 東壁 topo 編號**：無，這條線不在那 43 條裡。
 - **版本警語**：下面是 걸리 頁面的**舊版 6 段**，文字標題寫最難 5.11b，逐段表最高是 5.11a。現行資料多記 7 段、5.12b，兩者不能混用，見[主文的經典線表](/posts/climbing/2026-10-21-korea-crag-insubong#南面與東南面經典線)。
 - **起攀位置**：從大斜板往左上約 180 公尺的南面。從下往上看，約 30 公尺高處有一條往右上拉的大橫帶；上方是 Villa，下方有單段的미련，再下面是 Haneul-gil。
 - **裝備**：活動岩楔一組、快扣 10 個、50 公尺繩 1 條；兩人一組 2 到 3 小時。
@@ -316,6 +325,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Villa／빌라길
 
+- **Mont Blanc 東壁 topo 編號**：無，這條線不在那 43 條裡。
 - **起攀位置**：從大斜板往上約 200 公尺。Georyong 就在它正下方；從下面看，第 1 段的完整一整段裂隙都看得到。
 - **段數與長度**：6 段、165 公尺；活動岩楔一組、快扣 12 個、50 公尺繩 1 條；兩人一組約 2 小時。
 - **版本差異**：[걸리 的逐段文字](https://han5256.tistory.com/7667232)只寫到 5 段，表格列 6 段，最後一段是 A2。難關的 bolt 這些年被拔過，級數可能已調整。[파워的整理](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)說後攀者至少要有 5.10 的程度才好收尾。
@@ -335,6 +345,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Insu Ridge／인수리지（後面）
 
+- **Mont Blanc 東壁 topo 編號**：#43。
 - **起攀位置**：山的後面，從仁壽山莊（인수산장）後的溪谷泉水過去，走一條橫過山坡的小徑，翻幾個短支稜後貼上左邊稜線，會遇到第一段的 5 公尺岩板。[청아的 2006 年紀錄](https://kjcjkj.tistory.com/7182584)另提到一條走法：從밤골（Bamgol）上來，沿숨은벽（隱壁）走，再從바람골溪谷下切到 설교벽稜線的起點。
 - **段數**：這份是 8 段版。[파워的整理](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)記 10 段；청아說各份資料的段數不同，是因為切段位置不同。[主文](/posts/climbing/2026-10-21-korea-crag-insubong)用 7 段。
 
@@ -353,6 +364,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Rescuer／구조대길
 
+- **Mont Blanc 東壁 topo 編號**：#39。
 - **起攀位置**：沒有一份文字寫明。[2013 年的 12 段全程紀錄](https://killerwasan.tistory.com/439)只寫「第 1 段起攀」。
 - **段數與長度**：12 段、約 300 到 360 公尺，每段 25 到 30 公尺；據說兩人一組約 5 小時；那次的隊伍前面有 5 人一組，每段至少等約 20 分鐘，實際用了約 10 小時。
 - **裝備**：60 公尺繩 2 條、第 6 段要快扣 12 個；他們帶了活動岩楔但沒用，bolt 的位置夠。
@@ -361,6 +373,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### PASI／패시길
 
+- **Mont Blanc 東壁 topo 編號**：#20。
 - **起攀位置**：沒有一份文字寫明。
 - **段數與長度**：5 段、139 公尺。
 - [2010 年的紀錄](https://killerwasan.tistory.com/169)帶了 60 公尺繩 3 條、Camalot 0.5／0.75／1／2。
@@ -375,6 +388,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Amidong／아미동길
 
+- **Mont Blanc 東壁 topo 編號**：#1。
 - **起攀位置**：[2018 年的紀錄](https://tksdkrwjs.tistory.com/1272)：搭計程車到道詵寺，走到하루재（Harujae），再從仁壽庵（인수암）後面往上約 30 分鐘。
 - **段數**：걸리 的表格記 3 段、90 公尺（40 公尺 5.6 岩板、40 公尺 5.10a 裂隙／岩板、10 公尺）；主文用開拓時的 7 段，兩種並存。
 - 那份紀錄爬到第 5 段：第 3 段近垂直、手點少，是難關；第 4 段的裂隙比想像中容易；第 5 段一出發就往下摔了約 5 公尺，因為左腳點滑掉。
@@ -396,7 +410,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 - **位置**：起攀位置多用「往左或往右走幾十公尺」描述，是目測，不是量測。
 - **缺口**：Haneul-gil、Rescuer、PASI 沒有找到明確的起攀位置描述，上面都標明了。
 
-這篇補不了一張好 topo。出發前請買 [Mont Blanc Lines 的東壁 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)，再用這篇對照每段的長度和難關。
+這篇補不了一張好 topo。東壁的線，出發前請買 [Mont Blanc Lines 的東壁 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)，再用這篇對照每段的長度和難關；南面那四條線沒有對應的 topo，請看[걸리 的頁面](https://han5256.tistory.com/7667232)連到的前面與西南面概念圖（圖是圖片，這篇沒能讀到內容，不確定有涵蓋這四條），並找熟悉那一側的繩伴。
 
 ## 參考資料
 

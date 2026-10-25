@@ -17,7 +17,7 @@ draft: false
 
 The [Insubong crag guide](/posts/climbing/2026-10-21-korea-crag-insubong-en) helps you pick a route for your team. At the foot of the wall in Bukhansan, Seoul, you need more: where does this route start, how long is each pitch, which pitch is the crux, and how do you get down afterwards? This page fills that gap.
 
-**This is not a topo.** It is compiled from Korean climbing-community write-ups dated 2006 to 2024, with no wall photos and no route numbers. On the day, route-finding should rely on the [Mont Blanc Lines East Face digital topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face). Use this page as preparation before the trip and as a cross-check at the base.
+**This is not a topo.** It is compiled from Korean climbing-community write-ups dated 2006 to 2024, with no wall photos and no route numbers. On the day, route-finding for the east-face routes should rely on the [Mont Blanc Lines East Face digital topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face) (a paid single image listing 43 routes; each route's section gives its number there). **The south-face routes Dongyang-gil, Haneul-gil, Georyong-gil and Villa are not among those 43**, so for those four this page and the concept maps cited below are all there is. Use this page as preparation before the trip and as a cross-check at the base.
 
 ## How to use this page
 
@@ -151,6 +151,7 @@ All three routes start from Oasis. Taking Insu A as the centre, [Power's 2013 su
 
 ### Insu A (인수 A)
 
+- **Mont Blanc East Face topo number**: #26.
 - **Start**: Oasis. Reach Oasis via the Great Slab, then start from there.
 - **Pitches and length**: 4 pitches, 115 m, cracks and chimneys throughout.
 - **Gear**: one set of cams, 8 quickdraws.
@@ -172,6 +173,7 @@ Sources: [Girly's 2018 concept-map page](https://han5256.tistory.com/7667232), [
 
 ### Medical School (의대길)
 
+- **Mont Blanc East Face topo number**: #27.
 - **Start**: the middle of Oasis ([Meruraeng](https://hsun-100hsun-100.tistory.com/7984297): "Uidae-gil starts from the central Oasis").
 - **Pitches and length**: 5 to 6 pitches, about 100 to 136 m; sources split it differently.
 
@@ -188,6 +190,7 @@ Most parties stop at pitch 5 and go down to Oasis, which is easier than climbing
 
 ### Sanchonji (산천지길)
 
+- **Mont Blanc East Face topo number**: #21.
 - **Start**: Oasis.
 - **Pitches and length**: 5 pitches, 119 m. The [2024 report](https://m.blog.naver.com/PostView.naver?blogId=r9600495&logNo=223445895731) matches Girly's table.
 
@@ -210,6 +213,7 @@ The 2024 party of six reported:
 
 ### Chouinard B (취나드 B)
 
+- **Mont Blanc East Face topo number**: #29 (listed there as Chouinard B – Kwibawi C).
 - **Start**: walk right across the slope from the Great Slab to a small rise with a stone monument. With your back to the monument, look up: the crack with a stepped ledge is the start. [Girly's page](https://han5256.tistory.com/7667232) gives about 50 m in one passage and about 70 m in another for the walk from the Great Slab to the monument, so go by seeing the monument.
 - **Pitches and length**: 5 pitches, 177 m, about 2 hours for a pair, one 50 m rope and one set of cams.
 - **Cruxes**: the thin undercrack on pitch 2 and the double crack on pitch 4.
@@ -226,6 +230,7 @@ Reaching Ear Rock counts as the end. To top out, climb the roughly 20 m Ear Rock
 
 ### Chouinard A (취나드 A)
 
+- **Mont Blanc East Face topo number**: #36 (listed there as Chouinard A – Kwibawi D).
 - **Start**: from the Chouinard B monument, walk about 50 m further right to a vertical crack splitting the wall below Ear Rock. On the pitch-1 terrace, the crack on the right is Simu-gil (심우길), the one straight up the middle is Chouinard A, and the slab on the left is Beot-gil (벗길).
 - **Pitches and length**: 6 pitches, 181 m; 2 to 3 hours for a pair, one set of cams, 7 quickdraws, one 50 m rope.
 - **Crux**: the overhanging crack on pitch 4.
@@ -243,10 +248,11 @@ Reaching Ear Rock counts as the end. To top out, climb the roughly 20 m Ear Rock
 
 ## Left of the Great Slab
 
-Routes on this side are packed onto the same wall, so positions are given relative to each other. Putting several passages of [Girly's page](https://han5256.tistory.com/7667232) together, the order from bottom to top is: Cheongmaek-gil (청맥길), then Dongyang-gil (about 120 m from the Great Slab), Haneul-gil, Georyong-gil (about 180 m) and Villa (about 200 m); below Georyong there is also the single-pitch Miryeon (미련). All distances are "left and up from the Great Slab," estimated rather than measured.
+Routes on this side are packed onto the same wall, so positions are given relative to each other. Dongyang-gil, Haneul-gil, Georyong-gil and Villa are not on the Mont Blanc East Face topo, so there is no ready-made numbered diagram to check against. Putting several passages of [Girly's page](https://han5256.tistory.com/7667232) together, the order from bottom to top is: Cheongmaek-gil (청맥길), then Dongyang-gil (about 120 m from the Great Slab), Haneul-gil, Georyong-gil (about 180 m) and Villa (about 200 m); below Georyong there is also the single-pitch Miryeon (미련). All distances are "left and up from the Great Slab," estimated rather than measured.
 
 ### Crony (크로니길)
 
+- **Mont Blanc East Face topo number**: #3.
 - **Start**: there is a spring on the left of the Great Slab. About 20 m straight up from the spring and onto a flat slab is Geonyang-gil (건양길); the route that starts in the crack on the right is Crony.
 - **Pitches and length**: 9 pitches, 237 m. [Power's summary](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819) says it was the longest line on Insubong before Rescuer was opened. About 3 hours for a pair, one set of cams and one 50 m rope.
 
@@ -266,6 +272,7 @@ Routes on this side are packed onto the same wall, so positions are given relati
 
 ### Dongyang-gil (동양길)
 
+- **Mont Blanc East Face topo number**: none; this route is not among its 43.
 - **Start**: left of Crony, about 120 m left of the Great Slab. The text version puts Haneul-gil above it and Cheongmaek-gil below it; higher up, several lines cross.
 - **Pitches and length**: 8 pitches, 209 m (the text version's pitches add up to 204 m); about 2 to 3 hours for a pair, one set of cams and 15 quickdraws.
 - **Version difference**: the text version grades pitch 1 at 5.10a, while the Wolgan San report and the [main guide](/posts/climbing/2026-10-21-korea-crag-insubong-en) use 5.7.
@@ -285,6 +292,7 @@ The west-side descent point is close after topping out. From Girly's page.
 
 ### Haneul-gil (하늘길)
 
+- **Mont Blanc East Face topo number**: none; this route is not among its 43.
 - **Start**: no pitch-by-pitch text states the start. The position can only be inferred from the order above: above Dongyang and below Georyong.
 - **Pitches and length**: 7 pitches, 187 m.
 - **Pitch 1** (from a [2022 report](https://m.blog.naver.com/PostView.naver?blogId=wooltraveler&logNo=222924647461)): easy up to the narrow ledge with a crack, but the first bolt is only at the crack and a fall means a long drop. At the narrow ledge, hold the ledge with your hands and move right to where the crack is before standing up, which is easier than standing straight away. The crack can be foot-jammed or laybacked, and the long crack going right afterwards is in good condition.
@@ -301,6 +309,7 @@ The west-side descent point is close after topping out. From Girly's page.
 
 ### Georyong-gil (거룡길)
 
+- **Mont Blanc East Face topo number**: none; this route is not among its 43.
 - **Version warning**: the table below is the **old 6-pitch version** on Girly's page. Its text heading says the hardest grade is 5.11b, while the pitch table tops out at 5.11a. Current sources mostly give 7 pitches and 5.12b, and the two must not be mixed; see the [main guide's classics table](/posts/climbing/2026-10-21-korea-crag-insubong-en).
 - **Start**: the south face about 180 m left and up from the Great Slab. Looking up from below, there is a large band rising to the right about 30 m up; Villa is above, the single-pitch Miryeon below, and Haneul-gil below that.
 - **Gear**: one set of cams, 10 quickdraws, one 50 m rope; 2 to 3 hours for a pair.
@@ -316,6 +325,7 @@ The west-side descent point is close after topping out. From Girly's page.
 
 ### Villa (빌라길)
 
+- **Mont Blanc East Face topo number**: none; this route is not among its 43.
 - **Start**: about 200 m up from the Great Slab. Georyong starts directly below it; from underneath, the whole of pitch 1's crack is visible.
 - **Pitches and length**: 6 pitches, 165 m; one set of cams, 12 quickdraws, one 50 m rope; about 2 hours for a pair.
 - **Version differences**: [Girly's text](https://han5256.tistory.com/7667232) describes only 5 pitches while its table lists 6, the last being A2. Two bolts at the crux have been removed over the years, so the grade may have been revised. [Power's summary](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819) says a second needs to be at least 5.10 standard to finish comfortably.
@@ -335,6 +345,7 @@ After topping out, move slightly left to the west-side rappel point.
 
 ### Insu Ridge (인수리지, the back side)
 
+- **Mont Blanc East Face topo number**: #43.
 - **Start**: on the back of the mountain. Go past the spring in the valley behind Insu Hut (인수산장), take a side path across the slope, cross a few short spurs and join the left ridge; soon you reach a 5 m slab, the start of the ridge. [Cheong-a's 2006 report](https://kjcjkj.tistory.com/7182584) also mentions another way: up from Bamgol (밤골), along Sumeunbyeok (the Hidden Wall), then down the Baramgol valley to the start of the Seolgyobyeok ridge.
 - **Pitch count**: this is an 8-pitch version. [Power's summary](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819) gives 10; Cheong-a says the pitch counts differ between sources because they break the climb in different places. The [main guide](/posts/climbing/2026-10-21-korea-crag-insubong-en) uses 7.
 
@@ -353,6 +364,7 @@ After topping out, the fastest descent is the Pigeon rappel point on the south s
 
 ### Rescuer (구조대길)
 
+- **Mont Blanc East Face topo number**: #39.
 - **Start**: no text states it. The [2013 full-length report](https://killerwasan.tistory.com/439) only says "pitch 1 start."
 - **Pitches and length**: 12 pitches, about 300 to 360 m, 25 to 30 m each. It is said to take about 5 hours for a pair; that party had a group of five ahead who waited at least 20 minutes per pitch, and took about 10 hours.
 - **Gear**: two 60 m ropes, and pitch 6 needs 12 quickdraws; they carried cams but did not use them, as the bolts are well placed.
@@ -361,6 +373,7 @@ After topping out, the fastest descent is the Pigeon rappel point on the south s
 
 ### PASI (패시길)
 
+- **Mont Blanc East Face topo number**: #20.
 - **Start**: no text states it.
 - **Pitches and length**: 5 pitches, 139 m.
 - The [2010 report](https://killerwasan.tistory.com/169) carried three 60 m ropes and Camalot 0.5, 0.75, 1 and 2.
@@ -375,6 +388,7 @@ After topping out, the fastest descent is the Pigeon rappel point on the south s
 
 ### Amidong (아미동길)
 
+- **Mont Blanc East Face topo number**: #1.
 - **Start**: from a [2018 report](https://tksdkrwjs.tistory.com/1272): take a taxi to Doseonsa, walk to Harujae (하루재), then about 30 minutes uphill behind Insu Hermitage (인수암).
 - **Pitch count**: Girly's table records 3 pitches and 90 m (40 m 5.6 slab, 40 m 5.10a crack / slab, 10 m); the [main guide](/posts/climbing/2026-10-21-korea-crag-insubong-en) uses the 7 pitches of the original opening. Both versions exist side by side.
 - That report climbed up to pitch 5: pitch 3 is nearly vertical with poor holds and is the crux; the pitch-4 crack is easier than expected; on pitch 5 the climber fell about 5 m right at the start when the left foothold blew.
@@ -396,7 +410,7 @@ The descent setups on this page are each source's own wording. Rappel points and
 - **Positions**: starts are described as "a few dozen metres left or right" and are estimates, not measurements.
 - **Gaps**: no clear start description was found for Haneul-gil, Rescuer or PASI, and each says so above.
 
-This page is no substitute for a good topo. Buy the [Mont Blanc Lines East Face topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face) before you go, then use this page to cross-check each pitch's length and crux.
+This page is no substitute for a good topo. For east-face routes, buy the [Mont Blanc Lines East Face topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face) before you go, then use this page to cross-check each pitch's length and crux; for the four south-face routes there is no matching topo, so look at the front-face and southwest-face concept maps linked from [Girly's page](https://han5256.tistory.com/7667232) (they are images, so their content could not be read here and it is unclear whether they cover these four), and find a partner who knows that side.
 
 ## References
 

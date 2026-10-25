@@ -17,7 +17,7 @@
 
 ## 沒讀到／沒採用
 
-- Mont Blanc Lines 東壁 topo：付費，沒有取得內容，只作為「現場請買」的連結。
+- Mont Blanc Lines 東壁 topo：付費圖檔，沒有取得圖，只讀了商品頁的路線表（43 條，2026-10-25 讀取），用來標編號與判斷哪些線不在其中。
 - tksdkrwjs 1626（Dongyang 全線）、imgok 45490、ami41 351/538、daum PNtD/70：本次沒讀，不採用其內容。
 - Haneul-gil、Rescuer、PASI：來源沒有起攀位置描述，文章明寫缺口。
 

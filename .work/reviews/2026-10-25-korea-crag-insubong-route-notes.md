@@ -9,6 +9,7 @@
 - 🔵 已修（寫錯）：Insu A 的「時間」其實是 파워 的體感評語；Sanchonji 第 1 段「站太窄」其實是大斜板第 1 段；Chouinard A 第 2 段「有大石頭卡住」原文是深處卡著一顆友；Amidong 的地名誤寫成「下裕岾」，應為 하루재；Insu Ridge 的另一條接近路誤把隱壁側大岩板寫成仁壽大斜板；Chouinard B 第 1 段「先爬 20 公尺再斜上 7 公尺」與原文不符。
 - 🔵 已修（寫太滿）：Medical School 的位置原寫「Insu A 右側」，來源只說 Oasis 正中央，改成引 머루랑 原句；Rescuer 時間改成「據說」；Crony「最長」加上「Rescuer 開拓之前」；Georyong 標題 5.11b 與逐段表 5.11a 並列。
 - 🟢 圖：十列資料的各段長度相加對回來源總長（Insu A 115、Sanchonji 119、Medical 136、PASI 139、Villa 165、Georyong 176（採文字版 P5 15 公尺）、Chouinard B 177、A 181、Haneul 187、Dongyang 204（文字版，書面 209））。
+- 🔵 已修（使用者追問「topo 只有東壁？」後重讀商品頁）：Mont Blanc 東壁 topo 是付費單張圖檔、列 43 條；Dongyang、Haneul、Georyong、Villa 不在其中，原文寫成「現場以它為準」是錯的，已改並在每條線標編號（#1 Amidong、#3 Crony、#20 PASI、#21 Sanchonji、#26 Insu A、#27 Medical、#29 Chouinard B、#36 Chouinard A、#39 Rescuer、#43 Insu Ridge）。
 - 🟡 未驗證：Sanchonji 的 Naver 頁面輸出被截斷，只讀到前段；Mont Blanc Lines topo 為付費內容，沒有取得，無法對照文章裡的任何位置描述；所有位置、長度都是社群自述，不是量測。
 - 🟡 未驗證：左側五條線「由下而上」的順序是拼三段原文（Dongyang、Georyong、Villa）的推論，文中已標為推論與目測。
 
