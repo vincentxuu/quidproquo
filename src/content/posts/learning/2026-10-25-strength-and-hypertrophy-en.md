@@ -95,6 +95,7 @@ Questions this evidence does not answer:
 
 - **Specific body parts.** ACSM did not compare different body regions or muscle groups, so this evidence cannot answer for fingers or shoulders.
 - **Age and sex.** Lopez's participants averaged about 23 years old, and neither source gives conclusions split by age or sex.
+- **How it relates to the WHO benchmark.** [How Much to Move Each Week](/posts/learning/2026-10-25-activity-and-sedentary-en) cites WHO as finding no evidence that higher amounts of muscle-strengthening bring more health benefit. The ACSM statement here looks at muscle function and hypertrophy; the two ask about different outcomes.
 - **Detail on closeness to failure.** I did not read the 2023 meta-analysis devoted to this question, so the failure section rests on ACSM alone.
 
 ## Does this apply to climbing

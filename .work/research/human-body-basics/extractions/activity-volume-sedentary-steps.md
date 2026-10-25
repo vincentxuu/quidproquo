@@ -48,7 +48,7 @@
   - 每日步數與全因死亡、心血管事件為負相關；
   - 引用 Paluch 等人：全因死亡風險最低的步數，60 歲以下約 8,000–10,000 步，60 歲以上約 6,000–8,000 步，之後不再明顯下降（"did not decrease further when a certain number of daily steps were reached"）；
   - **10,000 步與半月板病變風險上升 52%（OR 1.52）只來自一項研究**，作者自己標明；
-  - 方法品質：納入的回顧為中等或高。
+  - 方法品質：納入的回顧 AMSTAR-2 為高、中、低都有（表 1 有三篇低品質：Cordova-Rivera、Miguel-Berges、Gordia；2026-10-25 經 post-verify 更正先前誤寫的「中等或高」）。
 - 作者自己的限制："we did not grade the evidence for the meta-analysis"；只含英文；只含觀察性研究；異質性。
 - **警訊：**
   1. 結論是「相關」，且全是觀察性研究，不能說多走路「造成」降低死亡；
