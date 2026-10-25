@@ -1,7 +1,7 @@
 ---
 title: "Insubong: Granite Multipitch Above Seoul, from Insu A to Chouinard B | Korea Climbing Crags"
 date: 2026-10-21
-updated: 2026-10-22
+updated: 2026-10-25
 category: climbing
 type: guide
 tags: [climbing, south-korea, outdoor-climbing, trad-climbing, multi-pitch, seoul]
@@ -19,6 +19,8 @@ draft: false
 As you gain height on Insubong, Seoul gradually opens up behind the trees. This granite peak in Bukhansan National Park makes a city stay and a full day of multipitch climbing possible on the same trip. A subway connection to the foot of the mountain, however, does not make it an introductory outdoor lead venue.
 
 This guide helps you decide whether Insubong suits your team, when to go, how to approach without a car, and how Insu A, Chouinard B, the East Face classics and the south-face lines compare.
+
+This is a route-selection guide, not a topo. Once you have chosen a route, read the [Insubong pitch-by-pitch route notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en) for where it starts, how long each pitch is and which pitch is the crux.
 
 ## What kind of crag
 
@@ -239,6 +241,7 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 
 ## Update history
 
+- 2026-10-25: added a link to the pitch-by-pitch route notes (starts, pitch lengths and descents) and stated that this guide is not a topo.
 - 2026-10-22: Added a community-route-logs section with a 10-row comparison table (Crony, Insu Ridge, Amidong, Medical School, Rescuer, PASI, Sanchonji, Dongyang-gil, Haneul-gil, Georyong-gil), noting that the loop-table pair (걸리 2018 / 도랫굽이 2012) and the Daum repost are the same source family, not independent confirmations; fixed Crony pitch-6 crack, Georyong founder surname “고 전재운”, and moved Dongyang-gil’s 8-pitch table attribution to Imgok plus community tables. Added 16 reference links.
 - 2026-10-22: Added route videos for Insu A, Wand, Maninbo and Villa, and extended the intermediate and advanced tables with video columns; added a west-face approach POV and a 70 m double-rope summit descent, with notes on how those versions differ from the guidebook.
 - 2026-10-21: Keep the route comparison table intact with video thumbnails beside each route; open the selected route’s videos on demand in a vertical playlist with separate preview images and open buttons to avoid accidental activation while swiping; external video rows identify YouTube as the destination and indicate a new tab.
