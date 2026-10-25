@@ -8,8 +8,8 @@ lang: en
 series:
   name: "Korea Climbing Crags"
   order: 14
-tldr: "Where 14 Insubong routes start, how long each pitch is, which pitch is the crux and how to get down, including Insu A, Chouinard A/B, Crony and Dongyang, compiled from Korean climbing-community write-ups dated 2006 to 2024. This is not a topo: there are no wall photos or route numbers, so carry the Mont Blanc Lines East Face topo on the day."
-description: "Pitch-by-pitch notes for 14 Insubong routes: the Great Slab, Oasis and Ear Rock landmarks, then starts, pitch lengths and grades, cruxes and descents for Insu A, Medical School, Sanchonji, Chouinard A/B, Crony, Dongyang, Georyong, Villa and more, with the date and version differences of each source."
+tldr: "Where 18 Insubong routes start, how long each pitch is, which pitch is the crux and how to get down, including Insu A, Insu B, Lonely Road, Chouinard A/B, Crony and Dongyang, compiled from Korean climbing-community write-ups dated 2006 to 2024. This is not a topo: there are no wall photos or route numbers, so carry the Mont Blanc Lines East Face topo on the day."
+description: "Pitch-by-pitch notes for 18 Insubong routes: the Great Slab, Oasis and Ear Rock landmarks, then starts, pitch lengths and grades, cruxes and descents for Lonely Road, Pigeon, Insu A, Insu B, Medical School, Sanchonji, Chouinard A/B, Crony, Dongyang, Georyong, Villa, Wand and more, with the date and version differences of each source."
 draft: false
 ---
 
@@ -250,6 +250,37 @@ Reaching Ear Rock counts as the end. To top out, climb the roughly 20 m Ear Rock
 
 Routes on this side are packed onto the same wall, so positions are given relative to each other. Dongyang-gil, Haneul-gil, Georyong-gil and Villa are not on the Mont Blanc East Face topo, so there is no ready-made numbered diagram to check against. Putting several passages of [Girly's page](https://han5256.tistory.com/7667232) together, the order from bottom to top is: Cheongmaek-gil (청맥길), then Dongyang-gil (about 120 m from the Great Slab), Haneul-gil, Georyong-gil (about 180 m) and Villa (about 200 m); below Georyong there is also the single-pitch Miryeon (미련). All distances are "left and up from the Great Slab," estimated rather than measured.
 
+### Insu B (인수 B)
+
+- **Mont Blanc East Face topo number**: no entry of that name. Several reports say the usual way in is two pitches up Yongam Slab (#6, 5.9) to Insu B's Oasis, so the topo may draw only the lower part.
+- **Start**: left of the Great Slab. [Mountain Project](https://www.mountainproject.com/route/108367078/insu-b) says it is on the left (south) side of the big slab near the crack system where Crony is, reached by walking up the river bed along the base, about 5 minutes from the sign with the map.
+  - **Current way**: start up the 용암슬랩 (Yongam Slab) left of the Great Slab and reach Insu B's Oasis in 2 pitches (reports from [2024](https://gaussmt.tistory.com/1836) and [2015](https://ami41.tistory.com/746)).
+  - **Old way**: a straight crack about 30 m up on the left, or the Great Slab itself, about 100 m cut into roughly three pitches ([route description on a Daum cafe](https://m.cafe.daum.net/hyedoji71/GqbR/109)).
+- **Pitch count**: 5 to 8 depending on the source. MP gives 5 pitches and 136 m; the Daum description gives 6; the 2024 report climbed 8 (including 2 on Yongam Slab, each 40 to 60 m). The 3 pitches and 97 m in the 2012 guide and Girly's table are only the lower part, not the whole route.
+- **Crux**: the pitch-3 crack. The Daum description grades it 5.8 and says the crack narrows as you go up, so foot jams hurt.
+- **History**: [Hankyoreh 2012](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html) calls it the "eldest brother" of Insubong's routes, first climbed by Koreans in 1935; the Daum description says the first ascensionists did not use the Great Slab for the first pitch but the straight crack on the left.
+
+The table below is MP's five-pitch version; the grades are MP users' estimates.
+
+| Pitch | Grade | Description |
+| --- | --- | --- |
+| 1 | 5.6? | Up between two obvious grooves, one move out of the crack, then right to a slabby finish; the last move onto the slab is the harder one. |
+| 2 | 5.8 | A few metres of slab, then follow the line between the large block on the right and the tree on the left into a crack, to the station below the off-width. |
+| 3 | 5.8 | The obvious off-width with bolts on the right; a physical jam. Finishes near a tree. |
+| 4 | 5.7 | The obvious crack straight up above the tree, exiting left past an interesting rock formation. |
+| 5 | 5.6 | A low-angle crack, then a careful scramble to the top. |
+
+**MP's warning**: after the pitch-4 station, followers should walk up and left to a ledge, then scramble back right to near a fallen tree (10 to 15 m) to reach the start of pitch 5; starting pitch 5 from the pitch-4 station runs you short of rope.
+
+**More detail from Korean reports:**
+
+- **Pitch 2**: [Hankyoreh](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html) calls it the "jar crack" (항아리 크랙), worn smooth, so place cams. A [2021 report](https://m.blog.naver.com/wooltraveler/222329258441) says the last move is up a jar-shaped block and is not easy.
+- **Pitch 4**: Hankyoreh describes a crack about 15 m long that takes half your body, then a band to the left called the "dragon footprint"; a fall there is risky, so clip a quickdraw before crossing.
+- **Variations**: a [2026 report](https://gaussmt.tistory.com/2003) climbed pitch 3 on the "splitter crack" between the Amidong crack and Insu B's jar crack; at the lying-pine station the standard line follows the band left, but they took the straight crack, whose upper part overlaps Sanggongsa. The 2021 party said the crack on the right is the original Insu B crack, climbed the thin crack in the middle of three, and merged into Ujŏng A near the end.
+- **Near the top**: finish up the fixed rope on Chamgireum Rock (참기름바위, "sesame-oil rock," polished smooth); there is now a last station on top.
+
+**Descent:** MP says to rappel the south side from the right-most stations, one rappel with two 60 m ropes tied together; the 2024 report used the west-side rappel point in two rappels of 30 m.
+
 ### Crony (크로니길)
 
 - **Mont Blanc East Face topo number**: #3.
@@ -343,6 +374,50 @@ After topping out, move slightly left to the west-side rappel point.
 
 ## Other locations
 
+### Lonely Road (고독의 길)
+
+- **Mont Blanc East Face topo number**: #38 (5.6).
+- **Start** ([Power's summary](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)): from Harujae go past the Insu campground and the Pigeon Spring (비둘기샘), walk under the Great Slab all the way to its right end, and that is the start.
+- **Pitches**: [Hankyoreh 2012](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html) gives 8 pitches, hardest 5.8, widely considered the easiest route on Insubong and the one most beginners climb. It is very crowded at weekends, so go on a weekday, and do not skimp on protection just because it is easy.
+
+| Pitch | Length | Grade | Rock | Notes |
+| --- | --- | --- | --- | --- |
+| 1 | about 15 m | 5.6 | Crack | Three ways; take the left crack, with good holds. |
+| 2 | about 30 m | 5.6 | Crack | Place one cam; you reach a cave afterwards. |
+| 3 | about 30 m | 5.8 | Layback crack | There is also a 5.6 gully crack on the left. |
+| 4 | about 10 m | 5.6 | Crack | The view opens and Seolgyobyeok appears. |
+| 5 | about 40 m | 5.6 | Gully crack | Climb right and pass through the "dog hole" (개구멍) to the right of Ear Rock. |
+| 6 | about 5 m | n/a | Short steps | Step up like stairs, then cross the left foot to the rock on the left; this is where it joins Insu A, at the end of Insu A pitch 4. |
+
+After that come Yeongja Crack (pitch 7) and Chamgireum Rock (pitch 8, polished smooth, so most people slip once or twice), then the summit. After Rescuer pitch 6 you can traverse over to pitch 3 of this route to bail.
+
+### Pigeon (비둘기길)
+
+- **Mont Blanc East Face topo number**: none; this route is not among its 43.
+- **Start**: [Hankyoreh](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html) says the start is the saddle where Baegundae meets Insubong, "the descent route climbed in reverse"; from just before Rescuer, take the path to the right towards the campground and walk about 100 m towards Insubong to reach Pigeon Spring.
+- **Pitches and grade**: 4 pitches, about 89 m, 5.6 to 5.7, with only pitch 3 being aid.
+- **Warning**: do not climb it when many people are rappelling the south side. Rappellers' ropes tangle, and a leader's fall can be hit by falling rope ([Power's summary](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)).
+
+| Pitch | Length | Grade | Rock | Notes |
+| --- | --- | --- | --- | --- |
+| 1 | 35 m | 5.7 | Crack | Two cams needed. |
+| 2 | 17 m | 5.6 | Crack | Past the "scorched-rice rock" (누룽지바위) and a dihedral, climbed with layback. |
+| 3 | 17 m | A1 | Slab | Aid, passed by stepping up in slings (꺾기); not hard, but very exposed. |
+| 4 | 20 m | 5.7 | Slab / crack | Follow the crack with layback. The pitch-4 station is the rappel point, and about 50 m more leads to the summit. |
+
+### Wand (봔트길)
+
+- **Mont Blanc East Face topo number**: #17 (5.10b).
+- **Start**: no text states it. [Power's summary](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819) only says it is on the same side as Sanchonji and PASI, in the order, going left from Insu A: Sanchonji, PASI, Wand.
+- **Pitches and length**: 4 pitches, 162 m ([Girly's table](https://han5256.tistory.com/7667232)).
+
+| Pitch | Length | Grade | Rock |
+| --- | --- | --- | --- |
+| 1 | 40 m | 5.9 | Slab |
+| 2 | 40 m | 5.10c | Slab, overhang |
+| 3 | 40 m | 5.10a | Slab |
+| 4 | 42 m | 5.10a | Slab |
+
 ### Insu Ridge (인수리지, the back side)
 
 - **Mont Blanc East Face topo number**: #43.
@@ -426,3 +501,10 @@ This page is no substitute for a good topo. For east-face routes, download (or b
 - [Taesan Junryeong: Insubong Amidong-gil, 2018](https://tksdkrwjs.tistory.com/1272) (in Korean)
 - [Dalbit Nageune: Bukhansan Insubong Sanchonji-gil climb, 2024](https://m.blog.naver.com/PostView.naver?blogId=r9600495&logNo=223445895731) (in Korean)
 - [Wooltraveler (Chaeul): Insubong single-pitch session, 2022](https://m.blog.naver.com/PostView.naver?blogId=wooltraveler&logNo=222924647461) (in Korean)
+- [Hankyoreh: Beginners start with Lonely Road (Insubong's representative routes), 2012](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html) (in Korean)
+- [Mountain Project: Insu B, 2013 onwards](https://www.mountainproject.com/route/108367078/insu-b)
+- [Buldeuchi's daily life: Insubong Insu B, 2024](https://gaussmt.tistory.com/1836) (in Korean)
+- [Buldeuchi's daily life: Insubong Insu B crack course, 2026](https://gaussmt.tistory.com/2003) (in Korean)
+- [Dorae Gubi: Insubong Insu B-gil, 2015](https://ami41.tistory.com/746) (in Korean)
+- [Daum cafe: Insubong B course description](https://m.cafe.daum.net/hyedoji71/GqbR/109) (in Korean)
+- [Wooltraveler (Chaeul): Insubong Insu B route, 2021](https://m.blog.naver.com/wooltraveler/222329258441) (in Korean)

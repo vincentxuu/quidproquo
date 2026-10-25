@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "韓國岩場"
   order: 14
-tldr: "Insu A、Chouinard A/B、Crony、Dongyang 等 14 條仁壽峰線，從哪裡起攀、每段多長、難在第幾段、怎麼下來，整理自 2006 到 2024 年的韓國社群文字紀錄。這不是 topo：沒有岩壁照片和路線編號，到現場仍要帶 Mont Blanc Lines 的東壁 topo。"
-description: "仁壽峰 14 條路線的逐段筆記：大斜板、Oasis、耳岩等定位點，Insu A、Medical School、Sanchonji、Chouinard A/B、Crony、Dongyang、Georyong、Villa 等的起攀位置、分段長度與級數、難關和下降方式，並標明各來源的年份與版本差異。"
+tldr: "Insu A、Insu B、Lonely Road、Chouinard A/B、Crony、Dongyang 等 18 條仁壽峰線，從哪裡起攀、每段多長、難在第幾段、怎麼下來，整理自 2006 到 2024 年的韓國社群文字紀錄。這不是 topo：沒有岩壁照片和路線編號，到現場仍要帶 Mont Blanc Lines 的東壁 topo。"
+description: "仁壽峰 18 條路線的逐段筆記：大斜板、Oasis、耳岩等定位點，Lonely Road、Pigeon、Insu A、Insu B、Medical School、Sanchonji、Chouinard A/B、Crony、Dongyang、Georyong、Villa、Wand 等的起攀位置、分段長度與級數、難關和下降方式，並標明各來源的年份與版本差異。"
 draft: false
 ---
 
@@ -250,6 +250,37 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 這一側的線擠在同一片岩壁上，位置靠相對關係描述。Dongyang-gil、Haneul-gil、Georyong-gil、Villa 都不在 Mont Blanc 東壁 topo 上，沒有現成的編號圖可以對照。把 [걸리 頁面](https://han5256.tistory.com/7667232)裡幾段文字拼起來，由下而上的順序是：청맥길（Cheongmaek-gil）→ Dongyang-gil（距大斜板約 120 公尺）→ Haneul-gil → Georyong-gil（約 180 公尺）→ Villa（約 200 公尺）；Georyong 下方還有一條單段的미련（Miryeon）。距離都是「從大斜板往左上走」，不是精確量測。
 
+### Insu B／인수 B
+
+- **Mont Blanc 東壁 topo 編號**：沒有同名條目。多篇心得寫現行走法是從 Yongam Slab（#6，5.9）起攀 2 段到 Insu B 的 Oasis，所以 topo 可能只畫到下段。
+- **起攀位置**：大斜板左側。[Mountain Project](https://www.mountainproject.com/route/108367078/insu-b)寫「在大斜板左（南）邊、靠近 Crony 所在的裂隙系統，從溪床沿岩壁底部走，從有地圖的告示牌起算約 5 分鐘」。
+  - **現行走法**：從大斜板左邊的 용암슬랩（Yongam Slab）起攀，2 段到 Insu B 的 Oasis（[2024 年紀錄](https://gaussmt.tistory.com/1836)、[2015 年紀錄](https://ami41.tistory.com/746)）。
+  - **老走法**：左邊一條約 30 公尺的直上裂隙，或爬大斜板，大斜板約 100 公尺、分三次左右切段（[Daum 咖啡廳的路線說明](https://m.cafe.daum.net/hyedoji71/GqbR/109)）。
+- **段數**：各來源 5 到 8 段。MP 記 5 段、136 公尺；Daum 的說明記 6 段；2024 年的紀錄爬了 8 段（含 Yongam Slab 2 段，每段 40 到 60 公尺）。2012 指南與 걸리 表格的 3 段、97 公尺只是下段，不是全線。
+- **難關**：第 3 段裂隙。Daum 的說明標 5.8，說裂隙越往上越窄，腳卡會痛。
+- **歷史**：[한겨레 2012](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html)稱它是仁壽峰的「老大哥路線」，1935 年由韓國人首攀；Daum 的說明說首攀時第一段沒走大斜板，走左邊的直上裂隙。
+
+下表是 MP 的 5 段記法，級數是 MP 使用者的標示。
+
+| 段 | 級數 | 內容 |
+| --- | --- | --- |
+| 1 | 5.6? | 在兩條明顯的凹溝之間往上，從裂隙爬出一步，再往右到岩板收尾；最後上岩板那一步比較難。 |
+| 2 | 5.8 | 岩板起步幾公尺，沿右邊大岩塊與左邊樹之間的線進裂隙，到寬裂隙下方的站。 |
+| 3 | 5.8 | 明顯的寬裂隙（off-width），右側有 bolt，要用力卡；終點在樹附近。 |
+| 4 | 5.7 | 樹上方明顯的直上裂隙，從左邊一塊有趣的岩形出來。 |
+| 5 | 5.6 | 低角度裂隙，之後小心爬上山頂。 |
+
+**MP 的提醒**：第 4 段站之後，後攀者要先往左上走到一個台階，再往右爬到倒木附近（10 到 15 公尺）才是第 5 段起點；直接從第 4 段站起第 5 段，繩子會不夠。
+
+**韓國心得補的細節：**
+
+- **第 2 段**：[한겨레](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html)寫是「甕形裂隙（항아리 크랙）」，路徑已被磨滑，建議放活動岩楔。[2021 年的紀錄](https://m.blog.naver.com/wooltraveler/222329258441)說最後要爬一塊甕形岩，不好爬。
+- **第 4 段**：한겨레寫要爬過約 15 公尺、半個身體進得去的裂隙，往左有一條叫「龍腳印」的橫帶，掉下去有風險，橫渡前先掛快扣。
+- **變化路線**：[2026 年的紀錄](https://gaussmt.tistory.com/2003)從 Amidong 的裂隙與 Insu B 甕形裂隙之間的「劈裂裂隙（splitter crack）」爬第 3 段；在倒木站，標準走法是沿橫帶往左，他們改走直上裂隙，後半與 Sanggongsa 重疊。2021 年那支隊伍說，原本右邊的裂隙才是 Insu B 的裂隙，他們爬了三條裂隙中間的細裂隙，結尾混入 Ujŏng A。
+- **山頂前**：爬完沿참기름바위（芝麻油岩，岩面磨得很滑）的固定繩上頂；那裡現在有最後一個確保站。
+
+**下降：** MP 寫從南面最右邊的垂降站，用 2 條 60 公尺繩接起來可一次到地面；2024 年的紀錄走西面下降點，分 2 次、每次 30 公尺。
+
 ### Crony／크로니길
 
 - **Mont Blanc 東壁 topo 編號**：#3。
@@ -343,6 +374,50 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ## 其他位置
 
+### Lonely Road／고독의 길
+
+- **Mont Blanc 東壁 topo 編號**：#38（5.6）。
+- **起攀位置**（[파워的整理](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)）：從 하루재 經仁壽營地、비둘기샘（鴿子泉），走到大斜板底下，一路往右走到盡頭，就是起點。
+- **段數**：[한겨레 2012](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html)記 8 段，最高 5.8，是仁壽峰公認最容易、初學者最常爬的線，週末非常擁擠，建議平日去，不要因為容易就少放保護。
+
+| 段 | 長度 | 級數 | 岩型 | 備註 |
+| --- | --- | --- | --- | --- |
+| 1 | 約 15 公尺 | 5.6 | 裂隙 | 有三種走法，走左邊裂隙，手點好。 |
+| 2 | 約 30 公尺 | 5.6 | 裂隙 | 放 1 顆活動岩楔；爬完會到一個洞。 |
+| 3 | 約 30 公尺 | 5.8 | 側拉裂隙 | 左邊另有 5.6 的水溝裂隙可走。 |
+| 4 | 約 10 公尺 | 5.6 | 裂隙 | 視野打開，能看到 설교벽。 |
+| 5 | 約 40 公尺 | 5.6 | 水溝裂隙 | 往右爬，從耳岩右邊的「狗洞（개구멍）」穿過去。 |
+| 6 | 約 5 公尺 | — | 短台階 | 往上跨幾階，再把左腳跨到左邊的岩塊；這裡與 Insu A 會合，是 Insu A 第 4 段結束的位置。 |
+
+之後是永子裂隙（第 7 段）和 참기름바위（第 8 段，磨得很滑，多半滑一兩次），然後到山頂。Rescuer 第 6 段之後可橫渡到這條線第 3 段撤退。
+
+### Pigeon／비둘기길
+
+- **Mont Blanc 東壁 topo 編號**：無，這條線不在那 43 條裡。
+- **起攀位置**：[한겨레](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html)寫起點是白雲臺與仁壽峰相接的鞍部，「下降路線倒過來爬」；從 구조대 之前往右進營地方向，朝仁壽峰走約 100 公尺就是鴿子泉。
+- **段數與級數**：4 段、約 89 公尺，5.6 到 5.7，只有第 3 段是人工攀登。
+- **提醒**：南面下降的人多時不要爬。下降者的繩子會纏在一起，先鋒墜落時也可能被落下的繩子打到（[파워的整理](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)）。
+
+| 段 | 長度 | 級數 | 岩型 | 備註 |
+| --- | --- | --- | --- | --- |
+| 1 | 35 公尺 | 5.7 | 裂隙 | 要放 2 顆活動岩楔。 |
+| 2 | 17 公尺 | 5.6 | 裂隙 | 經過「鍋巴岩」（누룽지바위）和開書角，用側拉爬。 |
+| 3 | 17 公尺 | A1 | 岩板 | 人工攀登，用「撐起」（꺾기）過去；不難，但高度感很強。 |
+| 4 | 20 公尺 | 5.7 | 岩板／裂隙 | 沿裂隙，用側拉爬。第 4 段的站就是下降點，再往上約 50 公尺是山頂。 |
+
+### Wand／봔트길
+
+- **Mont Blanc 東壁 topo 編號**：#17（5.10b）。
+- **起攀位置**：沒有一份文字寫明。[파워的整理](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)只寫它在 Sanchonji、PASI 的同一側，順序是 Insu A 往左：…、Sanchonji、PASI、Wand。
+- **段數與長度**：4 段、162 公尺（[걸리的表格](https://han5256.tistory.com/7667232)）。
+
+| 段 | 長度 | 級數 | 岩型 |
+| --- | --- | --- | --- |
+| 1 | 40 公尺 | 5.9 | 岩板 |
+| 2 | 40 公尺 | 5.10c | 岩板、懸垂 |
+| 3 | 40 公尺 | 5.10a | 岩板 |
+| 4 | 42 公尺 | 5.10a | 岩板 |
+
 ### Insu Ridge／인수리지（後面）
 
 - **Mont Blanc 東壁 topo 編號**：#43。
@@ -426,3 +501,10 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 - [泰山峻嶺：인수봉 아미동길，2018](https://tksdkrwjs.tistory.com/1272)
 - [달빛나그네：북한산 인수봉 산천지길 등반，2024](https://m.blog.naver.com/PostView.naver?blogId=r9600495&logNo=223445895731)
 - [울트래블러（채울）：인수봉 단피치 뿌시기，2022](https://m.blog.naver.com/PostView.naver?blogId=wooltraveler&logNo=222924647461)
+- [한겨레：초보자는 고독의 길부터（仁壽峰代表路線），2012](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html)
+- [Mountain Project：Insu B，2013 起](https://www.mountainproject.com/route/108367078/insu-b)
+- [버들치의 일상：인수봉 인수B，2024](https://gaussmt.tistory.com/1836)
+- [버들치의 일상：인수봉 인수B 크랙 코스，2026](https://gaussmt.tistory.com/2003)
+- [도랫굽이：인수봉 인수B길，2015](https://ami41.tistory.com/746)
+- [Daum 咖啡廳：인수봉 B코스 路線說明](https://m.cafe.daum.net/hyedoji71/GqbR/109)
+- [울트래블러（채울）：인수봉 인수B 루트，2021](https://m.blog.naver.com/wooltraveler/222329258441)

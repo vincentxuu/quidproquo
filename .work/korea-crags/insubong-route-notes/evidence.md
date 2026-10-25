@@ -15,6 +15,13 @@
 | naver r9600495 | 2024 | 內文前段（輸出被截斷，沒讀到文末） | Sanchonji 分段與時間、Oasis 接近 |
 | naver wooltraveler | 2022 | 全文 | Haneul-gil 第 1 段動作 |
 
+| mountainproject.com/route/108367078 (Insu B) | 2013 起 | 全文 | Insu B 5 段、起攀位置、下降 |
+| hani.co.kr 553495（한겨레） | 2012 | 全文 | Insu B 歷史與第 2、4 段；Lonely Road 8 段；Pigeon 起點與配置 |
+| m.cafe.daum.net/hyedoji71/GqbR/109 | 無年份 | 全文 | Insu B 6 段說明、老走法與首攀 |
+| gaussmt 1836 / 2003（버들치） | 2024 / 2026 | 全文（2003 輸出截斷，讀到第 5 段） | Insu B 現行走法經 Yongam Slab、8 段、變化路線 |
+| ami41 746（도랫굽이） | 2015 | 文字部分（內容以圖為主） | 「용암슬랩→인수B 2P→3P」 |
+| wooltraveler 222329258441 | 2021 | 全文 | Insu B 第 1–3 段、與 Ujŏng A 混走 |
+
 ## 沒讀到／沒採用
 
 - Mont Blanc Lines 東壁 topo：商品頁（2026-10-25 讀取，含 .json）列 43 條路線，說明欄附個人用途中解析度下載，另賣印刷海報（60×90 cm、A0、裱框）。容器出口代理擋 cdn.shopify.com，改用雲端瀏覽器工具截圖看過縮小版：只有路線表可讀，照片上的路線編號看不清。
