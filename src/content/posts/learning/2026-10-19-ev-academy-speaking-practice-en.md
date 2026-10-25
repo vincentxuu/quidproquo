@@ -9,7 +9,7 @@ description: "Compare EV Academy’s adult ESL and Power Speaking 6/8, accommoda
 tldr: "EV offers residential study with a high proportion of private lessons. Choose a sustainable workload, then obtain a written quote for the exact campus, course, room, and dates."
 series:
   name: "English Speaking Practice"
-  order: 12
+  order: 30
 draft: false
 ---
 

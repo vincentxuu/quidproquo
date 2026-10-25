@@ -7,6 +7,9 @@ tags: [english, speaking, self-learning, ai-and-learning, language-learning]
 lang: en
 tldr: "30 minutes a day for 12 weeks — combine shadowing, scenario practice, and AI apps to go from 'I understand but can't speak' to holding your own in meetings."
 description: "A synthesis of 6 online articles on short-term English speaking improvement: four practice methods, a time-management plan for busy workers, 7 AI speaking app comparisons, and 40+ meeting phrases."
+series:
+  name: "English Speaking Practice"
+  order: 1
 draft: false
 ---
 

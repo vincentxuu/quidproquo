@@ -512,3 +512,12 @@
 原先根據初始化畫面及Succeeded狀態，過早判定新排程沒有執行並暫停。後來同一session_012mxBRhPWJATRztESp5Dgvt實際以Groundlane補查，提交`9fa83756`（9新來源、25觀察、6搜尋）；PR #206已於2026-10-24合併，證明該次工作確有執行。原「宿主失效」判斷不成立，不能再以它阻擋通用排程。
 
 通用任務入口為docs/research-watch.md與.research/watch-config.json，從pool的非空category/topic自動產生主題；城山專用設定停用，歷史資料保留。後續驗收須等待實際查詢、集中證據、pool回填與提交，不以UI早期畫面或Succeeded單獨判定成功／失敗。沒有改動其他既有排程，也沒有擴大私有資料或連接器權限。
+
+## Q-045 ✅ 已核准修正（2026-10-25）：口說教材的 My guess 例句被誤判為作者但書（2026-10-25）
+
+- 要做什麼：修正 `scripts/check-process-leak.mjs`，只辨識 `learning`＋`english-speaking` 文章裡已標記的表格、角色台詞及強調例句；不放寬作者敘述或其他查證檢查。
+- 為何不能直接做：營運憲章 Tier 2 要求修改品質／治理檢查前取得使用者明確同意。口說文章本來就在教 My guess；刪掉例句或加整篇豁免會掩蓋真正問題。
+- 可 review 結果：`.work/english-relationship-audit/checker-fix.patch` 與 `check-process-leak-proposed.mjs`。原回歸測試全保留，新增教學例句、作者但書仍擋、非口說不豁免、待辦章節仍擋九項（另含字界與近似tag負例）；提案對本輪68稿通過。實際治理腳本尚未改。
+- 下一步：使用者同意後套用補丁，跑完整 verify 與真正 pre-commit，才 commit/push；目前僅此誤判阻擋。
+
+- 使用者核准：2026-10-25，使用者回覆「好」，同意套用已備妥的窄範圍誤判修正並完成 commit/push。已保留門檻與舊斷言，新增9項負例與教學回歸；原治理腳本不再等待核准。

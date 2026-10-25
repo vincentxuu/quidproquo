@@ -7,6 +7,9 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "Fifteen English sentences for climbing trips to Southeast Asia, Korea, and Japan: asking about bolts and sun, checking access and registration, renting a rope and quickdraws, finding a partner, asking for route recommendations, and the commands Slack, Up rope, and Take. Each one comes with support from a dictionary or a climbing source."
 tldr: "Ask about sun with Does this wall get the sun…; drying time with How long does it take to dry…; rules with Do I need to register…; rentals with I'd like to rent…; length with long enough; partners with I'm looking for a climbing partner; routes with Can you recommend…. More rope is Slack!, less rope is Up rope!, and in a gym, asking the belayer to hold you and lower you from the top is Take!."
+series:
+  name: "English Speaking Practice"
+  order: 5
 draft: false
 ---
 
@@ -15,6 +18,8 @@ draft: false
 The "climbing" scenario in my English speaking practice area only had two sentences. I have two climbing trips coming up, one to the limestone coast of Southeast Asia and one around Seoul and Tokyo. On both I am bringing a rope and quickdraws, mostly for sport climbing and multi-pitch. This post adds fifteen sentences for situations those trips will actually involve.
 
 A limit first: this post practices how to ask. The answer you get and what a guidebook says can both be out of date. Bolts, access, and belay safety are things to check yourself on site.
+
+The commands here follow REI’s American material rather than a universal set of calls. Agree on your calls with your partner before climbing; sentence practice does not replace that conversation.
 
 ## What I was trying to say
 
@@ -172,19 +177,13 @@ Rate yourself on whether you got the meaning across, not on matching the words e
 | 攀登中：收繩！ | Up rope! | agree on commands with your partner first |
 | 岩館到頂：撐住我，放我下來！ | Take! | REI says not used in traditional climbing |
 
-## Still to verify
-
-I have not found a suitable source for these, so they are not in the practice set:
-
-- How to say "lower me" on its own: REI's glossary defines lower, but the commands article does not list a matching command
-- Commands actually used at crags in the UK, Europe, and Asia: I only checked REI's American usage
-- How to ask "do you need one more person?"
-- The word for a single-day ticket at a gym
-- Which version is more common: that needs a corpus query, which I did not run
-
 ## Overall
 
 Of the fifteen, the two sentences about rules and the three commands have wording from climbing sources. The rest apply dictionary patterns to climbing situations. The ones worth practicing first are *get the sun*, *long enough*, and *I'd like to rent*, because every new crag calls for them. There was no native-speaker testing and no frequency comparison, so this post only says "works in this situation". Language practice does not replace checking safety on site.
+
+## Updates
+
+- 2026-10-25: Joined the unified speaking series; moved research to-dos into working notes and retained the lesson’s source and use limitations.
 
 ## References
 

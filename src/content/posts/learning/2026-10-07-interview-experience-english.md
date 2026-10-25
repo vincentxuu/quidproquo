@@ -7,6 +7,9 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "把軟體工程師英文面試會講的四段內容整理成十句：自我介紹、講一個專案、講一次失敗或意見不同、反問面試官。每句都附 Oxford 學習字典的句型依據。其中五句是我自己的真實內容，已去掉公司與產品名，練習時要換成自己的經歷。"
 tldr: "專長領域用 I have experience in／as；現職用 I currently work for a company that…；負責的事用 I was responsible for + V-ing；成果用 reduced … from A to B；難處用 The hardest part was + V-ing；檢討用 I underestimated how…；改變用 Since then, I've always…。反問可以問團隊怎麼分工、前三個月的目標。"
+series:
+  name: "英文口說練習"
+  order: 9
 draft: false
 ---
 
@@ -15,6 +18,8 @@ draft: false
 英文口說練習區的「面試」情境原本只有兩句。這篇補上十句，範圍是面試裡最常被問到的四段內容。
 
 先說清楚一件事：這篇的句子原本有幾句是為了示範句型放的範例值，現在已經換成我自己的真實內容，並去掉公司與產品名。練習時要換成你自己的經歷，面試才用得上。
+
+這篇先練表達經驗的句型，不代替整套面試回答結構。例句請換成自己的經歷；字典支持詞義與句型，不代表某個版本在職場更常用。
 
 ## 我當時想說什麼
 
@@ -160,19 +165,13 @@ draft: false
 | 反問：團隊平常是怎麼分工的？ | How does the team divide up the work? | divide up the work |
 | 反問：這個職位前三個月最重要的目標是什麼？ | What are the most important goals for this role in the first three months? | goals for this role |
 
-## 仍待核對
-
-這些還沒找到合適來源，先不放進練習：
-
-- *implement a feature* 在軟體團隊的口語裡是否通用：字典只有政策、決策的例句
-- 面試回答的整體結構（例如先講情境、再講行動與結果）：這次只查句型，沒有查面試教材
-- 哪一句比較常用：這需要語料庫查詢，這次沒有做
-
 ## 整體來說
 
 十句裡，*experience in／as*、*responsible for + V-ing*、*since then* 搭現在完成式這三個最值得先練，因為每場面試都會用到。來源幾乎都是學習字典，支持的是字義與句型；只有反問面試官那一組有求職網站的情境示範。沒有母語者測試，也沒有頻率比較，所以文中只寫「這個情境可用」。其中五句是我自己的真實內容，已去掉公司與產品名；練習時請換成你自己的經歷。
 
 ## 更新紀錄
+
+- 2026-10-25：納入統一口說系列；查證待辦移至研究紀錄，保留教材來源與使用範圍。
 
 - 2026-10-08：五句範例值換成我自己的真實內容（去掉公司與產品名），說明文字、短對話與參考資料跟著調整
 

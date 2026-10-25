@@ -9,7 +9,7 @@ description: "A guide to British Council adult English courses in Taiwan, coveri
 tldr: "Consider the modular course if you want regular speaking practice with familiar classmates and a teacher. Check your level, ten-week attendance and actual speaking opportunities before buying."
 series:
   name: "English Speaking Practice"
-  order: 4
+  order: 22
 draft: false
 ---
 

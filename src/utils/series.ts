@@ -1315,8 +1315,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'learning',
     names: { 'zh-TW': '英文口說練習', en: 'English Speaking Practice' },
     descriptions: {
-      'zh-TW': '從具體溝通任務出發，逐家介紹線上真人平台、AI 工具與語言學校，搭配課前準備、課中回饋與課後重說。',
-      en: 'Task-based speaking practice with individual guides to live tutoring platforms, AI tools, and language schools, connecting preparation, feedback, and repetition.',
+      'zh-TW': '從練習方法與跟讀研究出發，接到日常、旅遊、衝浪、攀岩、工作與面試教材，再選擇真人平台、AI 工具或語言學校，安排回饋與複習。',
+      en: 'A complete speaking practice path: methods and shadowing research, everyday and specialist scenarios, tutoring platforms, AI tools, language schools, feedback and review.',
     },
   },
 ];

@@ -9,7 +9,7 @@ description: "介紹 EV Academy 宿霧成人 ESL 與 Power Speaking 6／8，拆�
 tldr: "EV 的特色是住宿型密集課與高比例一對一；先確認自己能承受的課量，再用指定校區、課型、房型與日期取得完整書面報價，別把舊心得當現在總價。"
 series:
   name: "英文口說練習"
-  order: 12
+  order: 30
 draft: false
 ---
 

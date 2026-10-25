@@ -73,10 +73,33 @@ function bodyOf(text) {
   return { frontmatter, body };
 }
 
+// A quoted target expression in a speaking lesson is teaching material, not an
+// author hedging a claim. Keep ordinary prose and all other checks unchanged.
+function isSpeakingExample(frontmatter, body, match) {
+  const tagList = /^tags:\s*\[([^\]\n]*)\]\s*$/m.exec(frontmatter);
+  const tags = tagList?.[1].split(',').map(tag => tag.trim().replace(/^(['"])(.*)\1$/, '$2')) ?? [];
+  if (!/^category:\s*learning\s*$/m.test(frontmatter) || !tags.includes('english-speaking')) return false;
+  if (!/^my guess$/i.test(match[0])) return false;
+  const lineStart = body.lastIndexOf('\n', match.index - 1) + 1;
+  const nextLine = body.indexOf('\n', match.index);
+  const line = body.slice(lineStart, nextLine < 0 ? body.length : nextLine);
+  const offset = match.index - lineStart;
+  if (/^\s*\|/.test(line) || /^\s*>\s*(?:[A-Z]|You|Staff|Interviewer):\s/.test(line)) return true;
+  const headings = [...body.slice(0, match.index).matchAll(/^## (.+)$/gm)];
+  const inExercise = /換內容|回想|練習|再說|say.*again|practi[cs]e|recall/i.test(headings.at(-1)?.[1] ?? '');
+  return [...line.matchAll(/\*{1,2}[^*\n]+\*{1,2}/g)].some(span => {
+    if (offset < span.index || offset + match[0].length > span.index + span[0].length) return false;
+    // Emphasis alone is not enough: an author's italicized guess still counts.
+    const labelled = /\b(?:example|phrase|pattern|practi[cs]e|say|try)\b|例句|說法|句型|練|表達|參考/i.test(line.slice(0, span.index));
+    const exerciseItem = inExercise && /^\s*-\s*$/.test(line.slice(0, span.index));
+    return labelled || exerciseItem;
+  });
+}
+
 export function analyze(text) {
   if (/<!--\s*process-leak:\s*topic\s*-->/.test(text)) return { exempt: true, sentences: [], processH2: [], auditH2: [], hedges: [] };
   const { frontmatter, body } = bodyOf(text);
-  const hedges = HEDGE_PATTERNS.flatMap((re) => [...body.matchAll(re)].map((m) => m[0]));
+  const hedges = HEDGE_PATTERNS.flatMap((re) => [...body.matchAll(re)].filter(m => !isSpeakingExample(frontmatter, body, m)).map((m) => m[0]));
   const sentences = [];
   for (const re of SENTENCE_PATTERNS) {
     for (const m of body.matchAll(re)) {
@@ -128,6 +151,21 @@ function selfTest() {
   assert(problems(analyze(`${fm}我的判斷是 A。這是我的推論，不是 Red Hat 的說法。頁面沒有寫。我的推測是 B。`)).length === 1, '四處歸因但書會擋');
   assert(problems(analyze(`${fm}我的判斷是 A。頁面沒有解釋定價理由。`)).length === 0, '兩處歸因但書可以');
   assert(problems(analyze(`${fm}My judgment is A. This is my inference, not Red Hat's claim. The page does not say why. My guess is B.`)).length === 1, '英文歸因但書會擋');
+  const speaking = '---\ncategory: learning\ntags: [english-speaking, speaking]\n---\n';
+  const lesson = '| 中文 | My guess is that it is a cache issue. |\n> B: My guess is that it is a cache issue.\nThe phrase *My guess is that…* is useful.\nTry **My guess is that it is temporary.**';
+  assert(problems(analyze(speaking + lesson)).length === 0, '口說教材的表格、角色台詞與標記例句不是作者但書');
+  assert(problems(analyze(speaking + 'My guess is A. My guess is B. My guess is C. My guess is D.')).length === 1, '口說文章的作者敘述仍受但書門檻限制');
+  assert(problems(analyze(speaking + 'Status: *My guess is A*. Status: *My guess is B*. Status: *My guess is C*. Status: *My guess is D*.')).length === 1, '作者但書不因斜體而略過');
+  for (const prefix of ['In this essay, ', 'In this country, ']) {
+    assert(problems(analyze(speaking + Array.from({ length: 4 }, () => `${prefix}*My guess is A*.`).join(' '))).length === 1, `${prefix}不能誤當 say/try 教學標記`);
+  }
+  for (const nearTag of ['not-english-speaking', 'english-speaking-extra']) {
+    assert(problems(analyze(speaking.replace('english-speaking, speaking', nearTag) + Array.from({ length: 4 }, () => '| My guess is A. |').join('\n'))).length === 1, `${nearTag}不是口說教材精確 tag`);
+  }
+
+  assert(problems(analyze(fm + lesson)).length === 1, '非口說文章不套用教材例句辨識');
+  assert(problems(analyze(speaking + '## 仍待核對\n\n- a')).length === 1, '口說文章仍擋查證待辦章節');
+
   assert(problems(analyze(`${fm}We checked it on 2026-09-30. The page returns 404. We could not verify it. Still unverified.`)).length === 1, '英文句型會擋');
 }
 

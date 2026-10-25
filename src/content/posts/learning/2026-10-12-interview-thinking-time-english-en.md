@@ -7,12 +7,17 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "What to say when an interviewer keeps digging into your answer and your mind goes blank. This post collects nine sentences: five for buying thinking time, one for offering a guess, one for admitting you have not used a tool, one for admitting a design is not elegant, and one for checking whether the interviewer wants more detail. They come from IDP's IELTS speaking advice, the official interview pages of Google and Amazon, a university interview guide, the Oxford dictionary, and Google's example interview."
 tldr: "When you need time: Let me think about that for a minute, or I'd like a few moments to collect my thoughts. When you can only guess: My guess is that… When you have not used something: I haven't worked with that library before, but I'd approach it by… After an answer you can ask Would you like more context? Google's interview prep page says plainly that asking for a few moments to collect your thoughts is okay."
+series:
+  name: "English Speaking Practice"
+  order: 13
 draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-12-interview-thinking-time-english)
 
 The [previous post](/posts/learning/2026-10-12-coding-interview-english-en) practiced what I say on my own initiative in a coding interview. This one deals with a different situation: the interviewer keeps following my answer further down, into places I did not prepare for.
+
+Job-interview guidance supports taking time to gather your thoughts; some example sentences here come from IELTS speaking material. Use them to rehearse pausing and responding, not as a transcript of an actual job interview or evidence of British–American differences.
 
 ## What I was trying to say
 
@@ -154,19 +159,15 @@ The standard for rating yourself is whether you can get the meaning across, not 
 | 承認做法不漂亮 | It's not very elegant, but it's workable. |
 | 確認要不要更多 | Would you like more context? |
 
-## Still to verify
-
-- **Whether the time-buying sentences work well in a job interview.** The four quoted sentences come from advice for a language test. The job interview sources only say that asking for time is fine and give no example sentence.
-- **How to say that I have not verified something.** I wanted a sentence that separates what I have confirmed from what I am guessing. This time I only found the pattern for offering a guess.
-- **How to ask when I lack information.** Amazon says you can ask for more information and gives no sentence.
-- **The Cambridge exam handbook.** Many articles online quote *That's a good question* and *Well, let me think* and attribute them to a Cambridge exam handbook. I read the full text of the current B2 First handbook for teachers and the passage is not in it, so I did not cite it.
-- **British and American differences.** No source explains any.
-
 ## Overall
 
 Of the nine sentences, three are quoted from a source and six are adapted. The two to practice first are *Let me think about that for a minute* and *My guess is that…*: one buys time, and the other lets me keep going when I am not sure.
 
 The evidence for this batch is thinner than for the earlier posts. The employers' official pages confirm that you may ask for time, ask questions, and admit what you do not know, but the sentences themselves come from language test advice and a dictionary. The only one actually said in an interview setting is *it's not very elegant but it's workable*, from Google's example interview.
+
+## Updates
+
+- 2026-10-25: Joined the unified speaking series; moved research to-dos into working notes and retained the lesson’s source and use limitations.
 
 ## References
 

@@ -7,12 +7,17 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "A coding interview means solving a problem and explaining it in English at the same time. This post collects fourteen sentences from Google's example interview video, Meta's official preparation guide, a university careers guide to technical interviews, and the Tech Interview Handbook: how to check the question, how to state the simplest solution and its complexity, how to compare two approaches, and how to test your own code. Six are quoted from the sources and eight are adapted from source sentences."
 tldr: "After hearing the question, say So you're looking for…? and ask Is the input array sorted? Start with The simplest solution is just…, then I think that would be quadratic. For two options: I could do this with…, or… When the code is written: Let me go through some examples to make sure this is correct. For asking for a hint when stuck, the sources give advice but no example sentence."
+series:
+  name: "English Speaking Practice"
+  order: 12
 draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-12-coding-interview-english)
 
 My three earlier interview posts ([general patterns](/posts/learning/2026-10-07-interview-experience-english-en), [my own stories](/posts/learning/2026-10-07-interview-agent-stories-english-en), and [what the teaching materials cover](/posts/learning/2026-10-08-interview-english-from-teaching-materials-en)) all dealt with behavioral interviews: introducing myself, describing projects, asking questions. A large part of an engineering interview is writing code on the spot, and I had not practiced a single sentence for that part.
+
+The Google mock-interview quotations use automatic captions, which may misrecognise individual words. Treat them as expression examples rather than an audio-checked verbatim record. This lesson does not teach how to pronounce O notation or compare British and American speech. Continue with [thinking time](/posts/learning/2026-10-12-interview-thinking-time-english-en) and [system design interviews](/posts/learning/2026-10-12-system-design-interview-english-en) for other situations.
 
 ## What I was trying to say
 
@@ -186,15 +191,6 @@ The standard for rating yourself is whether you can get the meaning across, not 
 | 寫完先自己驗 | Let me go through some examples to make sure this is correct. |
 | 檢查空輸入 | If the input is empty, what happens? |
 
-## Still to verify
-
-- **How to ask for a hint when stuck.** Meta's guide says *If you are stuck, ask questions*, and the Tech Interview Handbook notes that when interviewers speak they are usually giving a hint, but none of these sources shows how to ask. I did not make a card for this.
-- **How to read O notation aloud.** The engineer in the example interview gets by with words like *quadratic* and *linear*. I did not find a source for how to say O(n) when you do need to read it out.
-- **Accuracy of the automatic captions.** The quotations from the Google video come from automatic captions, which have no punctuation and may misrecognize individual words. I did not check each sentence against the audio.
-- **British and American differences.** Three of the sources are American companies and a university, and the Tech Interview Handbook is a community resource by an individual author. There is no British source, and no source explains regional differences in usage.
-- **Transcripts of real interviews.** interviewing.io publishes transcripts of mock interviews. I only read fragments in search results, not the full pages, so I did not use them as evidence.
-- **What is not done yet.** How to respond to follow-up questions and how to ask for time to think are in [the next post](/posts/learning/2026-10-12-interview-thinking-time-english-en), and system design interviews are in [the one after that](/posts/learning/2026-10-12-system-design-interview-english-en).
-
 ## Overall
 
 Of the fourteen sentences, six are quoted from the sources and eight are source sentences that I tidied or filled with different content. The five for checking the question are the ones to practice first, because every question needs them, and because they are questions: once you say one, the other person replies, and you do not have to carry the whole stretch alone.
@@ -202,6 +198,10 @@ Of the fourteen sentences, six are quoted from the sources and eight are source 
 The biggest difference from the earlier posts is that the sources include one complete example interview. It showed me something the written materials do not say: the engineer in the demonstration does not speak fluently. The candidate often restarts a sentence halfway through and admits on the spot to having forgotten the syntax, yet says what they are thinking at every step. What needs practice is saying the thinking out loud, not making each sentence polished.
 
 As for evidence, there are no language teaching materials this time, no testing with native speakers, and no frequency comparison. Whether these sentences work rests on one official example interview, one university guide, and one community handbook.
+
+## Updates
+
+- 2026-10-25: Joined the unified speaking series; moved research to-dos into working notes and retained the lesson’s source and use limitations.
 
 ## References
 
