@@ -16,7 +16,7 @@ draft: false
 
 ## 是什麼
 
-ADK 是 Google 開源的 agent 開發框架，[授權為 Apache-2.0](https://github.com/google/adk-python/blob/main/LICENSE)，有 [Python、TypeScript、Go、Java、Kotlin 五個語言版本](https://adk.dev/)。[README](https://github.com/google/adk-python) 的定位是針對 Gemini 最佳化，但與模型和部署環境無關。Python 版需要 Python 3.11 以上，[約兩週發一版](https://github.com/google/adk-python)。
+ADK 是 Google 開源的 agent 開發框架，[授權為 Apache-2.0](https://github.com/google/adk-python/blob/main/LICENSE)，有 [Python、TypeScript、Go、Java、Kotlin 五個語言版本](https://adk.dev/)。[README](https://github.com/google/adk-python) 的定位是針對 Gemini 最佳化，但與模型和部署環境無關。Python 版的 README 要求 Python 3.11 以上（[quickstart](https://adk.dev/get-started/python/) 寫 3.10 以上），[約兩週發一版](https://github.com/google/adk-python)。
 
 2.0 是這篇最需要先知道的背景。[Python 版 2.0 在今年 5 月正式發布](https://adk.dev/2.0/)，執行引擎從階層式的 agent 執行器改成圖狀的 Workflow Runtime，agent、工具和一般函式都變成圖上的節點。
 
@@ -67,7 +67,7 @@ Python 函式放進 `tools` 會[自動包成 FunctionTool](https://adk.dev/agent
 | 模型 | 可以。Gemini 直連，Claude、OpenAI、Ollama、vLLM 等走連接器或 LiteLLM | [模型頁](https://adk.dev/agents/models/) |
 | Session | 可以。記憶體內或 `DatabaseSessionService`；`VertexAiSessionService` 才要 GCP | [Session 頁](https://adk.dev/sessions/session/) |
 | Memory | 內建的免 GCP 選項是記憶體內版，以及 2.13.0 新增的[實驗性 MongoDB 版](https://github.com/google/adk-python/releases/tag/v2.13.0)；Memory Bank 與 RAG 版需要 GCP | [Memory 頁](https://adk.dev/sessions/memory/) |
-| 評估 | 軌跡比對與 ROUGE 這類本地判分可以；safety、多輪任務成功等判分委派給 Google 的評估服務 | [判分標準頁](https://adk.dev/evaluate/criteria/) |
+| 評估 | 部分判分不行：`safety_v1`、多輪任務成功率等委派給 Google 的評估服務，需要 Google Cloud 專案 | [判分標準頁](https://adk.dev/evaluate/criteria/) |
 | 部署 | 可以，打包成容器自己跑；託管選項集中在 Google Cloud | [部署頁](https://adk.dev/deploy/) |
 | 追蹤 | 可以，OTLP 通用 | [Traces 頁](https://adk.dev/observability/traces/) |
 
@@ -170,7 +170,7 @@ adk eval \
 
 **功能在各語言與各模式之間不齊。** [協作模式只標 Python 與 Go 的 2.0](https://adk.dev/workflows/collaboration/)，`task` 模式的 agent 必須是葉節點，文件目前仍寫 Python v2.0.0 在圖工作流中停用 `task` 模式，要用的話先在你的版本上試。[圖工作流與部分第三方整合不相容](https://adk.dev/graphs/)。實驗性的 tool confirmation 在文件的[已知限制](https://adk.dev/tools-custom/confirmation/)裡，不支援 `DatabaseSessionService` 與 `VertexAiSessionService`，也就是兩種持久化 session 都用不了。另外 `output_schema` 搭配 `tools` 同時使用，只有特定模型（如 Gemini 3.0）原生支援，[其他模型會退回 `set_model_response` 工具，文件自己說可能不可靠](https://adk.dev/agents/llm-agents/)。
 
-**評估只有 Python，部分判分要 Google 的服務。** [評估頁標示支援 Python](https://adk.dev/evaluate/)；`safety_v1` 和多輪任務成功率這類判分[委派給 Agent Platform Eval SDK，需要 Google Cloud 專案](https://adk.dev/evaluate/criteria/)。預設的 `tool_trajectory_avg_score` 要求軌跡完全一致，模型換條合理的路徑就算失敗，通常得改成 `IN_ORDER` 或 `ANY_ORDER`。搭配使用者模擬時，需要參照答案的判分不能用。把 `adk eval` 接進 CI 的話，要確認版本至少 2.13.0：[release notes 把「結束碼反映通過與否」列為這一版的修正](https://github.com/google/adk-python/releases/tag/v2.13.0)。
+**評估只有 Python，部分判分要 Google 的服務。** [評估頁標示支援 Python](https://adk.dev/evaluate/)；`safety_v1` 和多輪任務成功率這類判分[委派給 Agent Platform Eval SDK，需要 Google Cloud 專案](https://adk.dev/evaluate/criteria/)。預設的 `tool_trajectory_avg_score` 要求軌跡完全一致，模型換條合理的路徑就算失敗，通常得改成 `IN_ORDER` 或 `ANY_ORDER`。搭配使用者模擬時，需要參照答案的判分不能用。
 
 **雲端綁定集中在託管層。** 模型可以換，但走 LiteLLM 要留意 [2026-03 的供應鏈事件](https://adk.dev/agents/models/litellm/)，官方建議用到 `eval` 或 `extensions` extras 的人立即更新。Agent Runtime 是[付費服務，有免費額度](https://adk.dev/deploy/agent-runtime/)。Cloud Run 部署若沒設 `--session_service_uri` 與 `--artifact_service_uri`，[容器會退回記憶體內服務，instance 重啟資料就沒了](https://adk.dev/deploy/cloud-run/)。不在 Google Cloud 的團隊，容器、資料庫與記憶層都要自己接。
 
@@ -178,7 +178,7 @@ adk eval \
 
 1. **先決定哪些步驟要寫死。** 順序固定、出錯代價高的流程（核准、扣款、寫資料庫）用 `Workflow`，讓模型只做分類或生成；開放式、子任務需要判斷的才用協調者加 `sub_agents`。
 2. **本機起步。** `pip install google-adk`，用 `adk create my_agent` 建專案，把 `GOOGLE_API_KEY` 寫進 `.env`，在上層目錄執行 `adk web`，在 Web UI 裡跑幾輪對話。
-3. **把滿意的對話存成 eval case。** 在 Eval 分頁加入目前 session，再用 `adk eval` 與設定檔重跑；軌跡判分先用 `IN_ORDER`，確認 CI 用的版本至少 2.13.0。
+3. **把滿意的對話存成 eval case。** 在 Eval 分頁加入目前 session，再用 `adk eval` 與設定檔重跑；軌跡判分先用 `IN_ORDER`。
 4. **部署前先選 session 與 memory 的後端。** 自己管就用 `DatabaseSessionService`；Cloud Run 要記得設 `--session_service_uri`。需要人工核准的工具，先確認它與你選的 session 服務相容。
 5. **鎖版本，每次升版重跑 eval。** 版本約兩週一次，把 release notes 與 eval 結果一起看，再決定要不要跟。
 
