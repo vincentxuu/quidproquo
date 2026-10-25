@@ -1473,3 +1473,7 @@ daily-digest-framework／daily-digest-tool／daily-digest-benchmark 三支 2026-
 ## 2026-10-26 scoped release archive
 
 - **AI 模型家族 order 19 Thinking Machines Lab／Inkling（2026-09-05）**：中英雙版已 commit；另修掉擋 verify 的真問題（tw A 級 30 處、quality 6 ERROR、references 3 ERROR、parity 4 draft 標記，詳 Q-021），全在別人 session 草稿上，只修未代 commit。
+
+## 2026-10-26 封存：攀岩裝備改一裝備一篇（2026-10-24）條目（daily-digest-benchmark 新增條目，壓回 90 行上限）
+
+- **攀岩裝備改一裝備一篇（2026-10-24）**：取消「不推薦型號」，拆2篇（301）、新增10篇中英＋鞋子補型號；使用者後續要求：無可靠評測型號拿掉、評測與影片只收2024+（標準/召回/論文/說明書照留），6 agent 換片＋主 session 字幕複核；verify、build（NODE_OPTIONS=--max-old-space-size=8192）通過；已 commit 並 push（post 66d8c91a 系列、feat yt-candidates、skill post）。.work/climbing-gear-models/{plan,review-todo}.md、2024-refresh/
