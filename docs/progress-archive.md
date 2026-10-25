@@ -1473,6 +1473,8 @@ daily-digest-framework／daily-digest-tool／daily-digest-benchmark 三支 2026-
 ## 2026-10-26 scoped release archive
 
 - **AI 模型家族 order 19 Thinking Machines Lab／Inkling（2026-09-05）**：中英雙版已 commit；另修掉擋 verify 的真問題（tw A 級 30 處、quality 6 ERROR、references 3 ERROR、parity 4 draft 標記，詳 Q-021），全在別人 session 草稿上，只修未代 commit。
+- **OMP 深度導讀系列（2026-08-31，order 1–15 已完成，擴至 22 篇進行中）**：15 篇中英雙語（30 檔）已 commit；追加 order 16–22 與 Codex 同級（streaming internals、rulebook/TTSR、slash/custom tools、memory、task hub/advisor、blob/secrets/config、OMP 2 crate 全景），規劃見 `.work/omp-deep-dive-series-plan.md`。待 order 16–22 並行撰寫與全量抽檢。
+- **CI 修復（2026-09-17，待遠端驗證）**：Deploy run 35224971270 卡在 quality／tw；已修 4 篇 9/17 日報缺 lang 與 A 級用語，全量 `pnpm verify` 全綠。未改檢查／workflow；使用者已同意 commit/push，後續確認新 Deploy run 結果。
 
 ## 2026-10-26 封存：攀岩裝備改一裝備一篇（2026-10-24）條目（daily-digest-benchmark 新增條目，壓回 90 行上限）
 
