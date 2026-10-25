@@ -41,3 +41,10 @@
 
 ## post-polish
 register-scan：長句 0、但書 7%、引述 0、模板化轉折 0、姓名當主詞 0（公司名），ledger 無命中。無須潤稿。數字密度 1 處為 CVE／版本號，屬識別字。
+
+## 2026-10-25 改寫（使用者回饋：籠統、沒善用圖表）
+- 重抓一手來源 35+ 頁（存於 .work/personal-agents-rewrite-20261025/sources/），抽逐字引文 facts-*.md；關鍵數字與引文主 session 抽查 grep 通過。
+- 加 3 張 diagram（五層分層、Muse 核准泳道、Dots 系統卡長條）＋4 張對照表；diagram-preview 中英全 ✓、淺深色與手機截圖目視過。
+- 獨立事實複審（review-facts.md）：4 Contradicted、8 Overstated、4 Unsupported → 全部修正（tldr 不再泛化「核准視窗不經對話」、Hermes 預設 smart 核准、圖一不泛化訓練/地端/模型選擇器、Muse 一次性卡移出「絕對禁止」欄、Grok Auto Review 改「開啟時」、OpenClaw 秘密出口代換改為需存成受保護 secret、Hermes 整程序容器改引 SECURITY.md、OpenClaw 無付費漏洞獎勵）。
+- 修正舊稿錯誤：Dots 企業版「自訂規則預設關閉」無來源 → 改為管理員可關閉。
+- pnpm verify 全綠、astro check 0 errors；dev server 中英頁 200，各 3 圖 5 表。
