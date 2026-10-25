@@ -5,8 +5,8 @@ category: ai
 type: deep-dive
 tags: [opik, ai-agent, observability, evaluation, open-source, self-hosting]
 lang: en
-tldr: "Opik is an Apache-2.0 platform from Comet that puts agent tracing, offline evaluation, prompt versioning, and online scoring in one place. Self-hosting is free but has no user management, production means running ClickHouse on Kubernetes with Helm, and paid cloud plans are priced by span count."
-description: "A guide to Opik's trace data model, the two evaluation styles (Test Suites and Datasets), online evaluation rules, the Prompt Library, the LangGraph setup, and the self-hosting and cloud differences and limits to know before adopting it."
+tldr: "Opik is an Apache-2.0 platform from Comet that puts agent tracing, two styles of offline evaluation (Test Suites and Datasets), prompt versioning, and online scoring in one place. Self-hosting is free but has no user management, production means running ClickHouse on Kubernetes with Helm, and the cloud is priced by span count."
+description: "A guide to Opik's trace data model, the two evaluation styles (Test Suites and Datasets), online evaluation rules, the LangGraph setup, and the self-hosting and cloud differences and limits to know before adopting it."
 draft: false
 ---
 
@@ -24,7 +24,7 @@ The data model has [three layers: trace, span, and thread](https://www.comet.com
 
 It fits teams that already have an agent or RAG application and want to see what happens at each step. You need Python or TypeScript, or the ability to configure an [OpenTelemetry](https://www.comet.com/docs/opik/integrations/opentelemetry) exporter. Self-hosting requires Docker Compose, and production requires Kubernetes and Helm experience.
 
-If you are still doing single-prompt experiments with no multi-step flow, most of it will go unused. The site's [post on agent observability](/posts/ai/2026-06-04-agent-observability-failure-detection-en) covers which failure modes to look for and is worth reading first.
+If you are still doing single-prompt experiments with no multi-step flow, most of it will go unused. The site's [post on agent observability](/posts/ai/2026-06-04-agent-observability-failure-detection-en) covers which failure modes to look for and is worth reading first. To compare similar tools side by side, the site has introductions to [Langfuse](/posts/ai/2026-03-26-langfuse-llm-observability-guide-en), [Arize Phoenix](/posts/ai/2026-08-22-arize-phoenix-observability-evaluation-en), [LangSmith](/posts/ai/2026-08-22-langsmith-observability-evaluation-en), and [Braintrust](/posts/ai/2026-08-22-braintrust-llm-evaluation-en); if you want evaluation inside a local test loop rather than a platform to operate, see [Promptfoo](/posts/ai/2026-08-22-promptfoo-llm-evaluation-en).
 
 ## Content map
 
@@ -32,7 +32,7 @@ If you are still doing single-prompt experiments with no multi-step flow, most o
 |---|---|---|
 | Tracing | Records traces, spans, threads | Via the [`@track` decorator or framework integrations](https://github.com/comet-ml/opik), or the [OTel HTTP endpoint](https://www.comet.com/docs/opik/integrations/opentelemetry) |
 | Offline evaluation | [Test Suites and Datasets + Metrics](https://www.comet.com/docs/opik/evaluation/concepts) | Test Suites use natural-language assertions checked by an LLM judge; Datasets use numeric metrics, and each run becomes an Experiment |
-| Online evaluation | [Scores new traces, threads, or spans automatically](https://www.comet.com/docs/opik/production/online-evaluation/rules) | Filters and a sampling rate; the scorer can be an LLM judge, a decision model, or Python code |
+| Online evaluation | [Scores new traces, threads, or spans automatically](https://www.comet.com/docs/opik/production/online-evaluation/rules) | Filters and a sampling rate; the scorer can be an LLM judge, a decision model (a classifier that answers yes/no questions and returns probabilities; it needs OpenRouter), or Python code |
 | Prompt Library | [Versioned prompts linked to traces](https://www.comet.com/docs/opik/development/prompt-library/getting-started) | `environment="production"` fetches the version deployed to production |
 | Coding-agent hookup | [`uvx opik mcp configure`](https://www.comet.com/docs/opik/mcp-server) | Detects clients such as Claude Code and Cursor, then installs the MCP server and Opik skills |
 
@@ -45,7 +45,7 @@ A few details worth knowing up front:
 
 ## A concrete example: LangGraph tracing plus an offline evaluation
 
-The two snippets below are adapted from the official [LangGraph integration](https://www.comet.com/docs/opik/integrations/langgraph) and [Evaluate your agent](https://www.comet.com/docs/opik/evaluation/advanced/evaluate_your_llm) docs. I did not run them, so treat the official docs as authoritative.
+The two snippets below are adapted from the official [LangGraph integration](https://www.comet.com/docs/opik/integrations/langgraph) and [Evaluate your agent](https://www.comet.com/docs/opik/evaluation/advanced/evaluate_your_llm) docs. They have not been run, so treat the official docs as authoritative. The second reuses the compiled `app` from the first.
 
 The first snippet is tracing. Compile the graph as usual, wrap it once with `track_langgraph`, and every later call is logged automatically:
 
@@ -61,7 +61,7 @@ result = app.invoke({"question": "Hello, how are you?"})
 
 Per the official docs, the UI then shows [the full execution path through the graph, including the classification decision and the branch taken](https://www.comet.com/docs/opik/integrations/langgraph). If a node calls a function decorated with `@track`, it nests under that node's span, and LangGraph's `thread_id` is [used as the Opik thread_id](https://www.comet.com/docs/opik/integrations/langgraph).
 
-The second snippet is an offline evaluation. A dataset holds the test cases, a task returns the agent's output, metrics score it, and the result becomes an Experiment you can compare side by side with other versions:
+The second snippet is an offline evaluation. It takes the Dataset-plus-metrics route; for how to write a Test Suite, see the [official evaluation concepts page](https://www.comet.com/docs/opik/evaluation/concepts). A dataset holds the test cases, a task returns the agent's output, metrics score it, and the result becomes an Experiment you can compare side by side with other versions:
 
 ```python
 from opik import Opik
@@ -97,7 +97,7 @@ For local trials, use [Docker Compose](https://www.comet.com/docs/opik/self-host
 
 The backend depends on [MySQL, Redis, ClickHouse, ZooKeeper, and MinIO](https://www.comet.com/docs/opik/self-host/local_deployment). The Helm chart deploys MinIO by default, and there are [settings for switching to S3 or an external ClickHouse](https://www.comet.com/docs/opik/self-host/kubernetes).
 
-Cloud plans are on the [pricing page](https://www.comet.com/site/pricing/) (read on 2026-10-25):
+Cloud plans are on the [pricing page](https://www.comet.com/site/pricing/) (as of 2026-10-25):
 
 | Plan | Price | Spans included (per month) | Overage and retention |
 |---|---|---|---|
@@ -106,25 +106,19 @@ Cloud plans are on the [pricing page](https://www.comet.com/site/pricing/) (read
 
 A span is [one tracked operation](https://www.comet.com/site/pricing/), such as an LLM call, a tool call, or a tracked function.
 
-## Trade-offs against similar tools
-
-Opik's selling points are license and self-hosting: the whole platform is Apache-2.0, and self-hosting needs no commercial license. The README has [a comparison table against LangSmith, Phoenix, Langfuse, Braintrust, and others](https://github.com/comet-ml/opik) that labels Phoenix as source-available under the Elastic License 2.0 and Langfuse as an MIT core with commercial enterprise modules. That table is Opik's own summary, so check each vendor's current license page before choosing.
-
-The site has introductions to the alternatives for a side-by-side read: [Langfuse](/posts/ai/2026-03-26-langfuse-llm-observability-guide-en), [Arize Phoenix](/posts/ai/2026-08-22-arize-phoenix-observability-evaluation-en), [LangSmith](/posts/ai/2026-08-22-langsmith-observability-evaluation-en), and [Braintrust](/posts/ai/2026-08-22-braintrust-llm-evaluation-en). If your goal is to put evaluation into a local test loop rather than operate a platform, [Promptfoo](/posts/ai/2026-08-22-promptfoo-llm-evaluation-en) is a different route.
-
 ## Limits
 
 **Self-hosted Opik has no user management.** The [self-hosting docs](https://www.comet.com/docs/opik/self-host/overview) say you get all tracing and evaluation features but without user management, and the [pricing page](https://www.comet.com/site/pricing/) lists SSO, service accounts, and view-only users only under Enterprise. Teams that share an instance and need permission tiers should count that cost.
 
 **Production operations are on you.** The Kubernetes docs have several cautions: ClickHouse replication [must be enabled only after Opik is already running](https://www.comet.com/docs/opik/self-host/kubernetes) or it may error. The [SDK version must match the server version](https://www.comet.com/docs/opik/self-host/kubernetes), so upgrade both together. Deleted traces and spans are first masked and only physically removed when ClickHouse merges data parts, with the chart [leaving force-merge off by default](https://www.comet.com/docs/opik/self-host/kubernetes), which you should weigh if you delete a lot of data.
 
-**Span pricing is amplified by agent loops.** Cloud quotas count spans, and every tool call and LLM call in an agent is a span, so one interaction produces many. Measure a week of real traffic and compute monthly volume before picking a plan.
+**Span pricing is amplified by agent loops.** Cloud quotas [count spans](https://www.comet.com/site/pricing/), and every tool call and LLM call in an agent is a span, so one interaction produces many. If one interaction produced 10 spans, the free plan's 25k would cover only about 2,500 interactions; your real number depends on your agent. Measure a week of real traffic and compute monthly volume before picking a plan.
 
-**OTel accepts HTTP only.** The [docs](https://www.comet.com/docs/opik/integrations/opentelemetry) say the exporter must use HTTP, and gRPC produces errors. Each trace must have one root span with no parent, otherwise the spans are stored but the Traces tab stays empty. If your agent runs in an environment that injects an external trace context (an API gateway, for example), create a new root span at the start of each invocation yourself.
+**OTel accepts HTTP only.** The [docs](https://www.comet.com/docs/opik/integrations/opentelemetry) say the exporter must use HTTP, and gRPC produces errors. Each trace must have one root span with no parent, otherwise the spans are stored but the Traces tab stays empty. If your agent runs in an environment that continues an incoming external trace, its first span carries a parent, and the official approach is to create a new root span at the start of each agent invocation.
 
 **The scorer itself needs validation.** The built-in Hallucination and Answer relevance metrics are an LLM making a judgment, and online evaluation adds model spend, which is why a [cost limit and sampling rate](https://www.comet.com/docs/opik/production/online-evaluation/rules) exist. Whether the judging standard matches your needs should be checked by sampling against [human annotation queues](https://www.comet.com/docs/opik/evaluation/overview), not treated as ground truth. Also, the Code evaluator type only appears when [Python evaluators are enabled on the deployment](https://www.comet.com/docs/opik/production/online-evaluation/rules), so confirm that setting when self-hosting.
 
-**Docs and APIs change quickly.** The evaluation docs note that [from Opik 2.0, Experiments and Evaluation Suites are project-scoped](https://www.comet.com/docs/opik/evaluation/advanced/evaluate_your_llm), so creating a dataset needs a `project_name`. Code written from older tutorials may need adjusting after a version change.
+**Docs and APIs change quickly.** The evaluation docs note that [from Opik 2.0, Experiments are project-scoped](https://www.comet.com/docs/opik/evaluation/advanced/evaluate_your_llm), so creating a dataset needs a `project_name`. Code written from older tutorials may need adjusting after a version change.
 
 ## How to adopt it
 
