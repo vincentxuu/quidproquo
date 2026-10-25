@@ -402,6 +402,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'ai-agent-security-tooling',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI Agent 資安工具地圖', en: 'AI Agent Security Tooling Map' },
+    descriptions: {
+      'zh-TW': '把 skill、MCP 與 coding agent 周邊的開源資安工具分成七類：安裝前掃描、沙箱、護欄與閘道、偵測與稽核、程式碼審計、測試 AI 系統，以及用 AI 打別人的滲透測試，逐類看它們做了什麼、沒做什麼，以及公開的數字能不能信。',
+      en: 'The open-source security tools around skills, MCP and coding agents, sorted into seven kinds: pre-install scanning, sandboxes, guardrails and gateways, detection and audit, code auditing, testing AI systems, and AI that attacks others. What each does, what it does not, and whether the published numbers hold up.',
+    },
+  },
+  {
     slug: 'drone-industry',
     category: 'business',
     names: { 'zh-TW': '無人機產業拆解', en: "Taiwan's Drone Industry, Taken Apart" },

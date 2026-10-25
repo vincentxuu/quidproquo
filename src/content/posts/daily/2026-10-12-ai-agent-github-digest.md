@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, github, open-source, daily, reverse-engineering, agent-security, computer-use]
 lang: zh-TW
 description: "rea 一天狂漲 2.5 萬顆星衝上 GitHub trending 第一；agent 逆向工程、自主滲透測試、操控真實 iPhone 同天上榜"
-tldr: "morluto/rea（96,754★，今日 +25,585）一天衝上 GitHub trending 第一，讓 agent 透過 MCP 呼叫 Hopper／Ghidra／IDA 逆向原生二進位、JS/Electron App；mhtsec/ARTEX（3,121★）是百度「agent+」攻防挑戰賽冠軍項目，讓 LLM agent 自主做滲透測試；zhongerxin/iPhone-use（2,983★）讓 Codex 透過 USB 操作真實 iPhone；rociiu/talorys（719★）一行指令在自己的 Cloudflare 帳號裡跑私人 agent。pydantic-ai v2.55.0 丟棄 Python 3.10 支援。"
+tldr: "morluto/rea（96,754★，今日 +25,585）一天衝上 GitHub trending 第一，讓 agent 透過 MCP 呼叫 Hopper／Ghidra／IDA 逆向原生二進位、JS/Electron App；mhtsec/ARTEX（3,121★）是百度「agent+」攻防挑戰賽綜合評分第一的項目的第三方備份，讓 LLM agent 自主做滲透測試，但 10/07 起多家廠商報告有人濫用，本文僅供認識風險，不建議安裝或使用；zhongerxin/iPhone-use（2,983★）讓 Codex 透過 USB 操作真實 iPhone；rociiu/talorys（719★）一行指令在自己的 Cloudflare 帳號裡跑私人 agent。pydantic-ai v2.55.0 丟棄 Python 3.10 支援。"
 series:
   name: "AI Agent GitHub Digest"
   order: 58
@@ -15,7 +15,7 @@ series:
 
 ## 今日亮點
 
-今天四個上榜 repo 有個共通點：agent 不再只活在聊天視窗裡動嘴，而是直接伸手碰真實系統——rea 讓 agent 逆向真實二進位檔，一天漲 2.5 萬顆星衝上 GitHub trending 第一；ARTEX 讓 agent 自主滲透測試真實網路資產；iPhone-use 讓 agent 透過 USB 操作你自己的真實 iPhone；talorys 則讓你的私人 agent 直接跑在自己的 Cloudflare 帳號裡。基礎設施是你的，agent 動手的對象也是真的。
+今天四個上榜 repo 有個共通點：agent 不再只活在聊天視窗裡動嘴，而是直接伸手碰真實系統——rea 讓 agent 逆向真實二進位檔，一天漲 2.5 萬顆星衝上 GitHub trending 第一；ARTEX 讓 agent 自主滲透測試真實網路資產（也因此出現濫用風險，見該項說明）；iPhone-use 讓 agent 透過 USB 操作你自己的真實 iPhone；talorys 則讓你的私人 agent 直接跑在自己的 Cloudflare 帳號裡。基礎設施是你的，agent 動手的對象也是真的。
 
 ## Trending Repos
 
@@ -34,10 +34,11 @@ series:
 
 [GitHub](https://github.com/mhtsec/ARTEX)　·　Go　·　AGPL-3.0
 
-- **是什麼**：Go 後端＋Next.js 前端的 AI 自主滲透測試系統，agent 自己做資產探索、漏洞發現、流量錄製，並支援人在環路的攔截審批；是百度「agent+」攻防挑戰賽冠軍項目的原始碼備份。
-- **為什麼值得看**：它示範了「agent 做資安測試」已經走到可以贏比賽的成熟度，而不只是 demo——內建 ScopeSentry 資產同步、資產覆蓋圖、審批記錄詳情，整套流程比單純丟一個 prompt 叫 agent 去打靶要完整得多。要注意原始 Docker image 來源 `autumn27/artex` 已從 Docker Hub 下架，現在靠社群自維護映像 `mianhuatang11/artex`。
+- **是什麼**：Go 後端＋Next.js 前端的 AI 自主滲透測試系統，agent 自己做資產探索、漏洞發現、流量錄製，並支援人在環路的攔截審批；是百度「agent+」攻防挑戰賽綜合評分第一（靶場實跑第 7）的項目，本 repo 是第三方的原始碼備份複本，不是作者官方版本。
+- **來源與濫用風險（請先讀）**：2026-10-07 CrowdStrike 報告指出，有攻擊者以 ARTEX 搭配多個 LLM 鎖定南韓金融機構（詳見[資安警報](/posts/daily/2026-10-08-security-artex-ai-pentest-korea-banks)）；作者 10/08 宣布公開版轉閉源，之後 Microsoft、Recorded Future、Zscaler、AhnLab 等也報告有人濫用，鏡像與分叉仍在流通且出處無法驗證。本站收錄它是為了說明風險，不鼓勵安裝或使用。
+- **為什麼值得看**：它顯示「agent 做資安測試」在比賽評分上已有成果，而不只是 demo——內建 ScopeSentry 資產同步、資產覆蓋圖、審批記錄詳情，整套流程比單純丟一個 prompt 叫 agent 去打靶要完整得多。原始 Docker image 來源 `autumn27/artex` 已從 Docker Hub 下架，現在流通的是無法驗證出處的社群映像，這正是供應鏈風險所在。
 - **Tech stack**：Go（單二進位內嵌前端）+ Next.js + PostgreSQL + Anthropic/OpenAI API 驅動探索
-- **上手難度**：中——一鍵安裝腳本處理 Docker 或本機編譯，但要讓 agent 真正探索還需要自己填 LLM API key。
+- **上手難度**：不評估。此專案有濫用紀錄、官方版已下架，本站不提供安裝或使用建議；若是資安團隊，建議把重點放在對外系統的存取控制與異常行為偵測。
 
 ---
 
@@ -74,6 +75,10 @@ series:
 ## 今日收穫
 
 之前以為「agent 操控實體裝置」還停在瀏覽器自動化那個階段，但 iPhone-use 直接接 WebDriverAgent 操作真實 iPhone、rea 一天漲 2.5 萬顆星衝上 GitHub 榜首的理由是「幫我逆向這個 App 怎麼做的」，讓我意識到 agent 的下一個戰場不是更會聊天，而是有沒有本事直接伸手碰到電腦之外的真實系統。
+
+## 更新紀錄
+
+- 2026-10-24：依 CrowdStrike、Microsoft、AhnLab 等一手報告補上 ARTEX 的來源與濫用風險警語：10/07 CrowdStrike 報告、作者 10/08 轉閉源、本 repo 為第三方備份複本；「冠軍」改為「綜合評分第一」；刪除安裝方式的描述，不鼓勵安裝或使用。
 
 ## 參考資料
 
