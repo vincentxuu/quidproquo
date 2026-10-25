@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [serena, mcp, coding-agent, lsp, claude-code, open-source]
 lang: en
-tldr: "Serena is an MCP server that uses language servers so a coding agent can find, rename, and rewrite code by symbol instead of by grep and line numbers. The free LSP backend covers 40-plus languages; move and inline refactors need the paid JetBrains plugin, and v2 moved the license to GPL."
+tldr: "Serena is an MCP server that uses language servers so a coding agent can find, rename, and rewrite code by symbol instead of by grep and line numbers. The free LSP backend covers 40-plus languages; move and inline refactors need the paid JetBrains plugin, and v2 moved the license to GPL. On Claude Code the agent often does not use it unprompted, so plan on hooks or a system prompt override."
 description: "A guide to Serena's symbol-level tools, the differences between its LSP and JetBrains backends, Claude Code installation and hooks, and the license and agent-adoption problems to know first."
 draft: false
 ---
@@ -43,7 +43,7 @@ The second compares the two backends. Serena's semantic ability comes from one o
 | | Language server (default) | JetBrains plugin |
 |---|---|---|
 | Cost | Free | Paid, with a trial |
-| Languages | 40-plus | Whatever the JetBrains IDEs support (not Rider or CLion) |
+| Languages | [40-plus](https://github.com/oraios/serena) | Whatever the JetBrains IDEs support (not Rider or CLion) |
 | Rename | Symbols | Symbols, files, directories |
 | Move, inline, propagate deletions | Not available | Available |
 | Type hierarchy, debugging | Not available | Available |
@@ -81,16 +81,16 @@ Check the connection with `/mcp`; if Serena starts too slowly, raise `MCP_TIMEOU
 
 **The free backend has fewer refactors.** Per the [README capability tables](https://github.com/oraios/serena), the language server backend renames symbols only, with no move, inline, or propagated deletion; those need the paid JetBrains plugin. Language coverage also depends on each language server's quality, and some languages need extra dependencies.
 
-**The evidence for effectiveness is agent self-report.** The README and the [evaluation page](https://oraios.github.io/serena/04-evaluation/000_evaluation-intro.html) cite one-sentence verdicts from agents after about 20 routine tasks. The docs say plainly that the agent evaluating itself is deliberate, and that results where Serena adds nothing or is out of scope are recorded too. The same page concludes that its strength is collapsing cross-file, semantics-dependent operations into single calls, while built-in tools remain better for small local text edits, text search, config files, and shell work. This is the project's own evaluation, not an independent benchmark; for a third-party comparison, see the [CodeGraph post's comparison with Serena](/posts/ai/2026-05-23-codegraph-code-knowledge-graph-mcp) (in Chinese).
+**The evidence for effectiveness is agent self-report.** The README and the [evaluation page](https://oraios.github.io/serena/04-evaluation/000_evaluation-intro.html) cite one-sentence verdicts from agents after about 20 routine tasks. The docs say plainly that the agent evaluating itself is deliberate, and that results where Serena adds nothing or is out of scope are recorded too. The same page concludes that its strength is collapsing cross-file, semantics-dependent operations into single calls, while built-in tools remain better for small local text edits, text search, config files, and shell work. This is the project's own evaluation, not an independent benchmark. A more independent comparison is ManoMano's [Project AEGIS](https://medium.com/manomano-tech/project-aegis-benchmarking-ai-agents-and-why-serena-is-our-new-must-have-311673db35dd), a manual test on a Java payment service with Sonnet 4.5 across three setups (2026-02-02). For quick read-only queries, plain Claude was the better deal, with Serena costing nearly four times as much and taking 60% longer; for a large refactor, only Serena produced a project that built and passed every test, while the other two setups did not finish. That is one team, one project, run by hand, so it is not a general rule; the [CodeGraph post](/posts/ai/2026-05-23-codegraph-code-knowledge-graph-mcp) (in Chinese) separately compares Serena from CodeGraph's side.
 
 **The license changed in v2.** The [LICENSE overview](https://github.com/oraios/serena/blob/main/LICENSE) states that SolidLSP, the language-server client library, stays MIT, while the Serena application moved to GPL-3.0-or-later starting with v2; the last MIT release is v1.7.0. Using it as a tool is fine; before embedding Serena's code in a product you distribute, read the full LICENSE.
 
 ## How to use it
 
-1. **Confirm the bottleneck really is grep.** Pick a real task such as a cross-file rename or "who calls this function," run it once without Serena, and note the step count and token use as a baseline.
+1. **Confirm the bottleneck really is grep.** Pick a real task such as a cross-file rename or "who calls this function," run it once without Serena, and note the step count and the token use your client shows as a baseline.
 2. **Install on one project only.** Use `--project "$(pwd)"` for a single project rather than enabling it globally at first.
 3. **Confirm with `/mcp`, then assign a semantic task.** Watch whether the agent actually calls `find_referencing_symbols` or `rename_symbol`. If not, set up hooks first; if hooks still do not help, consider the system prompt override.
-4. **For large projects, consider the JetBrains backend.** Pay only when you need move and inline; run the free backend for two weeks to see if it is enough.
+4. **For large projects, consider the JetBrains backend.** Pay only when you need move and inline; stay on the free backend until a task needs a move or inline that `rename_symbol` cannot do, then try the JetBrains trial.
 5. **Compare on the same task.** After installing, rerun the task from step 1 and compare steps and tokens; if there is no clear improvement, turn it off.
 
 For how Serena's LSP route trades off against a pre-built index, read the [CodeGraph overview](/posts/ai/2026-05-23-codegraph-code-knowledge-graph-mcp) (in Chinese); for how coding agents handle LSP diagnostics internally, see the [LSP integration post](/posts/ai/2026-08-30-coding-agent-lsp-integration) (in Chinese).
@@ -102,6 +102,7 @@ For how Serena's LSP route trades off against a pre-built index, read the [CodeG
 - [Tools and APIs (official docs)](https://oraios.github.io/serena/01-about/035_tools.html)
 - [Connecting Your MCP Client (official docs)](https://oraios.github.io/serena/02-usage/030_clients.html)
 - [Evaluation (official docs)](https://oraios.github.io/serena/04-evaluation/000_evaluation-intro.html)
+- [Project AEGIS: Benchmarking AI Agents and Why Serena is Our New Must-Have (ManoMano)](https://medium.com/manomano-tech/project-aegis-benchmarking-ai-agents-and-why-serena-is-our-new-must-have-311673db35dd)
 - [uv installation](https://docs.astral.sh/uv/getting-started/installation/)
 - [MCP overview](/posts/ai/2026-03-22-mcp-model-context-protocol) (in Chinese)
 - [CodeGraph: code knowledge graph MCP](/posts/ai/2026-05-23-codegraph-code-knowledge-graph-mcp) (in Chinese)
