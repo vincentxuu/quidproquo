@@ -131,6 +131,10 @@ For an emergency, call **{{number}}**; {{rescue authority's own page, and whethe
 
 The grade tables above choose routes by difficulty. This section adds {{N}} lines that {{local}} climbers commonly treat as {{crag}} classics. **They do not all meet the {{which}} source rule used above**, so they sit here rather than in those tables. {{Which topo / guide each group follows, and which sources check lengths, pitch counts and first-ascent notes.}} Notes give the source and any version differences; a single source is not presented as settled fact.
 
+<!-- 網路上的路線紀錄是條件段，但不另開一節：至少打開 5 個候選，只收實際讀過的頁面，寫進該路線備註最後的「Route logs:」；表格已寫的事實不重寫。查過沒有在審稿紀錄寫查詢與日期。 -->
+
+The "Route logs" at the end of each note are firsthand {{blog / forum}} reports from {{local}} climbers. They add moves, time and field texture; grades and pitch counts stay with the rest of the row. {{The most common entry point (author, year, link) and its reposts or same-family versions.}} These are versions of one compilation, not independent confirmations.
+
 Classic does not mean easy. {{Name the grade spread of these classics.}} Choose by your trad, multipitch and descent skills, not by the overall grade alone.
 
 #### {{Face A}} classics
@@ -139,7 +143,7 @@ Classic does not mean easy. {{Name the grade spread of these classics.}} Choose 
 
 | Route | Grade | YDS | Length / pitches | Notes |
 | --- | --- | --- | --- | --- |
-| {{Route name / local script}} | {{}} | {{}} | {{}} | {{topo number; first-ascent year and party; signature pitch; source differences}} |
+| {{Route name / local script}} | {{}} | {{}} | {{}} | {{topo number; first-ascent year and party; signature pitch; source differences; moves, timing and retreat a log adds. Route logs: {{author or site}}'s [{{year}} log]({{full URL}})}} |
 
 {{If there are videos, follow with a layout: routes fence as above.}}
 
@@ -150,16 +154,6 @@ Classic does not mean easy. {{Name the grade spread of these classics.}} Choose 
 | Route | Grade | YDS | Length / pitches | Notes |
 | --- | --- | --- | --- | --- |
 | {{}} | {{}} | {{}} | {{}} | {{}} |
-
-### Route logs online
-
-<!-- 條件段：有來源就必做，至少打開 5 個候選；只收實際打開讀過的頁面，沒讀到的不列。查過沒有才省略並在審稿紀錄寫查詢與日期。 -->
-
-Beyond the guides, the topo and the magazine reports, {{local}} climbers' {{blogs / forums}} keep a batch of firsthand route logs. {{The most common entry point (author, year, link) and its reposts or same-family versions.}} These are versions of one compilation, not independent confirmation. The table below lists logs worth reading by route; they add approach details, timing and on-the-ground feel, while grades and pitch counts still follow the tables above.
-
-| Route | Logs you can read | What each log adds |
-| --- | --- | --- |
-| {{Route name / local script}} | {{author or site}}'s [{{year}} log]({{full URL}}) | {{What it adds: pitch-by-pitch beta, real times, queues, rack, lessons from going off route; if its grade or pitch count differs from the tables, give both and say it is that log's count}} |
 
 <!-- 傳攀（UIAA／E 級）與抱石的表格欄位、抱石的 Font 分級 H3，見規格「依程度挑路線」。 -->
 
