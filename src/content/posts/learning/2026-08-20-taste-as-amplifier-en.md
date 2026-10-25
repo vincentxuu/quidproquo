@@ -29,7 +29,7 @@ Japanese creative director Manabu Mizuno, who designed Kumamon, defines taste as
 
 Paul Graham's 2002 essay [Taste for Makers](https://paulgraham.com/taste.html) listed fourteen properties of good design: simplicity, solving the right problem, and looking easy despite being difficult. In 2021, [Is There Such a Thing as Good Taste?](https://paulgraham.com/goodtaste.html) argued by contradiction: if taste does not exist, good art does not exist and artists cannot be good at their work—an obviously false conclusion.
 
-[Manager Today](https://www.managertoday.com.tw/articles/view/71976) makes the idea more operational: taste combines **pattern recognition**—exposure that builds an ordinary-versus-excellent baseline—with **creating and defending criteria**. Explain why, accept objections, and update the standard. Taste is not preference itself. It is sensitivity to quality differences and a willingness to revise judgment.
+Vincent Cheng-Wen Yu makes the idea more operational in [an essay on what taste means in the AI era](https://vincentcwyu.substack.com/p/ai-e06) (in Chinese): taste combines **pattern recognition**—exposure that builds an ordinary-versus-excellent baseline—with **creating and defending criteria**. Explain why, accept objections, and update the standard. Taste is not preference itself. It is sensitivity to quality differences and a willingness to revise judgment.
 
 If you are willing to be contradicted, your taste improves. If you are not, you are performing taste.
 
@@ -139,9 +139,14 @@ Every essay practices the same thing: see an object, form a clear judgment, stat
 
 ---
 
+## Update Log
+
+- 2026-10-25: The taste framework now cites Vincent Cheng-Wen Yu's original Substack essay; the Manager Today version cited before was a repost.
+
 ## References
 
 **Taste methodology**
+- [Vincent Cheng-Wen Yu — 判斷的重量：AI 時代的「品味」是什麼？ (2026, in Chinese)](https://vincentcwyu.substack.com/p/ai-e06)
 - [Paul Graham — Taste for Makers (2002)](https://paulgraham.com/taste.html)
 - [Paul Graham — Is There Such a Thing as Good Taste? (2021)](https://paulgraham.com/goodtaste.html)
 - [Dieter Rams — Ten Principles for Good Design](https://www.vitsoe.com/us/about/good-design)

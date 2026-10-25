@@ -29,7 +29,7 @@ draft: false
 
 Paul Graham 在 2002 年寫了 [Taste for Makers](https://paulgraham.com/taste.html)，列出好設計的 14 個特徵——簡潔、解決對的問題、看起來容易但其實很難。2021 年他又寫了 [Is There Such a Thing as Good Taste?](https://paulgraham.com/goodtaste.html)，用反證法：如果品味不存在，那好的藝術就不存在，那藝術家就不可能擅長自己的工作——這顯然是錯的。
 
-[經理人雜誌](https://www.managertoday.com.tw/articles/view/71976)的框架更操作化：品味是**模式辨識**（大量接觸建立「普通 vs 出色」的基線）加上**判斷準則的建立與辯護**（說出 WHY，接受反駁，更新準則）。關鍵在後半：品味不是偏好本身，而是對品質差異的感知，以及讓判斷接受修正的能力。
+余鎮文在〈[判斷的重量：AI 時代的「品味」是什麼？](https://vincentcwyu.substack.com/p/ai-e06)〉裡給的框架更操作化：品味是**模式辨識**（大量接觸建立「普通 vs 出色」的基線）加上**判斷準則的建立與辯護**（說出 WHY，接受反駁，更新準則）。關鍵在後半：品味不是偏好本身，而是對品質差異的感知，以及讓判斷接受修正的能力。
 
 如果你願意被反駁，你的品味就會進步。如果你不願意，你只是在表演品味。
 
@@ -139,9 +139,14 @@ Rory Sutherland 在[《Alchemy》](https://www.harriman-house.com/alchemy)裡的
 
 ---
 
+## 更新紀錄
+
+- 2026-10-25：品味框架的引用改為余鎮文 Substack 原文（原先引用的經理人雜誌版本是轉載）。
+
 ## 參考資料
 
 **品味方法論**
+- [余鎮文 — 判斷的重量：AI 時代的「品味」是什麼？（2026）](https://vincentcwyu.substack.com/p/ai-e06)
 - [Paul Graham — Taste for Makers (2002)](https://paulgraham.com/taste.html)
 - [Paul Graham — Is There Such a Thing as Good Taste? (2021)](https://paulgraham.com/goodtaste.html)
 - [Dieter Rams — Ten Principles for Good Design](https://www.vitsoe.com/us/about/good-design)
