@@ -49,9 +49,11 @@ print(interaction.output_text)
 
 超過 5 到 10 分鐘的長影片，文件建議在影片那一項加上 `"processing": "agentic"`。這個[模式](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/)讓模型先看逐字稿，只載入需要的畫面，token 最多省 88%，準確度也略高；短片反而可能更慢、更耗 token。只有部分新型號支援，名單見文件。這個模式處理時間較長，文件建議同時設 `background=True`。預設每秒取一幀，會漏掉快速動作，需要逐格檢查時可以用 `fps` 自訂取樣率。
 
-Claude 與 ChatGPT 這邊，[Claude 的 Vision 文件](https://platform.claude.com/docs/en/build-with-claude/vision)列出的格式是 JPEG、PNG、GIF、WebP，GIF 動畫只取第一幀；[OpenAI 的模型頁](https://developers.openai.com/api/docs/models)寫最新模型支援文字與圖片輸入、文字輸出。兩家的文件都沒有影片輸入，同一部課程得自己先處理：每隔幾秒抽一張投影片截圖，加上逐字稿一起送。
+Claude 與 ChatGPT 這邊，[Claude 的 Vision 文件](https://platform.claude.com/docs/en/build-with-claude/vision)列出的格式是 JPEG、PNG、GIF、WebP，GIF 動畫只取第一幀；[功能總覽](https://platform.claude.com/docs/en/build-with-claude/overview)裡的 Files API 也只寫支援 PDF、圖片與文字檔。[OpenAI 的模型頁](https://developers.openai.com/api/docs/models)寫最新模型支援文字與圖片輸入、文字輸出。openai-node 上有人[要求加入影片輸入](https://github.com/openai/openai-node/issues/1778)，OpenAI 維護者在 2026 年 8 月的回覆是：現行做法是把影片抽幀當圖片送，音訊另外處理。
 
-所以「長影音是 Gemini 專屬」只對一半。長影片基準 [Video-MME](https://github.com/MME-Benchmarks/Video-MME) 的做法是把影片抽幀再餵給模型，OpenAI 在 GPT-4.1 與 GPT-5 的發布文裡也拿它當成績單。Gemini 的差異在流程：整支影片檔連音訊一次送進 API，其他兩家要先自己抽幀、轉逐字稿。
+所以同一部課程在這兩家都得自己先處理：每隔幾秒抽一張投影片截圖，加上逐字稿一起送。
+
+所以「長影音是 Gemini 專屬」只對一半。長影片基準 [Video-MME](https://github.com/MME-Benchmarks/Video-MME) 的做法是把影片抽幀再餵給模型，OpenAI 自己的發布文也列了影片成績：[GPT-4.1](https://openai.com/index/gpt-4-1/) 公布 Video-MME 長影片組的分數，[GPT-5](https://openai.com/index/introducing-gpt-5-for-developers/) 的附錄則列 VideoMME 與 VideoMMMU，後者同樣以抽幀評測。Gemini 的差異在流程：整支影片檔連音訊一次送進 API，其他兩家要先自己抽幀、轉逐字稿。
 
 各家榜單怎麼互相打臉，見[多模態模型盤點](/posts/ai/2026-08-18-multimodal-models-2026-landscape)。
 
@@ -68,7 +70,9 @@ Claude 與 ChatGPT 這邊，[Claude 的 Vision 文件](https://platform.claude.c
 
 差距只有 0.8 分，耗時卻差了三倍，這兩欄對決定的影響比分數大。
 
-榜上第四名是 Grok 4.6，Gemini 3.7 Flash 則落在 80.80%。程式碼這條線 Grok 不是弱角，Gemini 的 Flash 系列落後一截。
+榜上第四名是 Grok 4.6，程式碼這條線 Grok 不是弱角。
+
+Gemini 在榜上是 Flash 系列與較早的 Pro 預覽版，分數都在八十上下。榜單停在九月初，Gemini 4 Argon 與 Grok 4.7 都不在上面，這張榜判斷不了這兩個新型號。
 
 分數也跟 harness 綁在一起。同樣是 Claude Opus 4.8，換成 Claude Code 之後比 mini-swe-agent 低了近 3 分。榜單只能告訴你模型大概在哪一級，不能預測你換成 [Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code) 或 [Codex](/posts/ai/2026-04-02-agent-cli-openai-codex) 之後的結果。
 
@@ -116,6 +120,10 @@ Apps SDK 建在 MCP 上，再往上加一層：開發者可以定義 App 在對�
 - [Introducing agentic video understanding with Gemini - Google Blog](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/)
 - [Video-MME - GitHub](https://github.com/MME-Benchmarks/Video-MME)
 - [Vision - Claude Platform Docs](https://platform.claude.com/docs/en/build-with-claude/vision)
+- [Features overview - Claude Platform Docs](https://platform.claude.com/docs/en/build-with-claude/overview)
+- [Feature Request: Native video file input support in Responses API - openai-node](https://github.com/openai/openai-node/issues/1778)
+- [Introducing GPT-4.1 in the API - OpenAI](https://openai.com/index/gpt-4-1/)
+- [Introducing GPT-5 for developers - OpenAI](https://openai.com/index/introducing-gpt-5-for-developers/)
 - [Models - OpenAI API](https://developers.openai.com/api/docs/models)
 - [SWE-bench Verified Leaderboard and Methodology - Vals AI](https://www.vals.ai/benchmarks/swebench)
 - [X Search - xAI Docs](https://docs.x.ai/developers/tools/x-search)

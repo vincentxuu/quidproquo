@@ -49,9 +49,11 @@ print(interaction.output_text)
 
 For videos longer than 5 to 10 minutes, the docs recommend adding `"processing": "agentic"` to the video part. In this [mode](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/) the model reads the transcript first and loads only the frames it needs, using up to 88% fewer tokens with slightly better accuracy. Short clips can get slower and cost more tokens. Only some newer models support it; the list is in the docs. The mode takes longer to run, so the docs suggest also setting `background=True`. The default of one frame per second misses fast motion; use a custom `fps` when you need frame-level inspection.
 
-On the Claude and ChatGPT side, [Claude's Vision docs](https://platform.claude.com/docs/en/build-with-claude/vision) list JPEG, PNG, GIF, and WebP, and for GIF animations only the first frame is used. [OpenAI's models page](https://developers.openai.com/api/docs/models) says the latest models take text and image input and produce text output. Neither lists video input, so the same lecture needs preprocessing: pull a slide screenshot every few seconds and send it alongside the transcript.
+On the Claude and ChatGPT side, [Claude's Vision docs](https://platform.claude.com/docs/en/build-with-claude/vision) list JPEG, PNG, GIF, and WebP, and for GIF animations only the first frame is used. The Files API in its [features overview](https://platform.claude.com/docs/en/build-with-claude/overview) is likewise listed as supporting PDFs, images, and text files. [OpenAI's models page](https://developers.openai.com/api/docs/models) says the latest models take text and image input and produce text output. Someone [asked openai-node to add video input](https://github.com/openai/openai-node/issues/1778), and an OpenAI maintainer replied in August 2026 that the current approach is to extract frames and send them as images, handling audio separately.
 
-So "long video is Gemini-only" is half right. The long-video benchmark [Video-MME](https://github.com/MME-Benchmarks/Video-MME) works by sampling frames and feeding them to the model, and OpenAI used it as a scorecard in the GPT-4.1 and GPT-5 launch posts. Gemini's difference is the workflow: the whole video file, audio included, goes into one API call, while the other two need you to extract frames and a transcript first.
+So the same lecture needs preprocessing on both: pull a slide screenshot every few seconds and send it alongside the transcript.
+
+So "long video is Gemini-only" is half right. The long-video benchmark [Video-MME](https://github.com/MME-Benchmarks/Video-MME) works by sampling frames and feeding them to the model, and OpenAI's own launch posts report video results: [GPT-4.1](https://openai.com/index/gpt-4-1/) publishes a Video-MME long-video score, while the appendix of [GPT-5](https://openai.com/index/introducing-gpt-5-for-developers/) lists VideoMME and VideoMMMU, the latter also evaluated by sampling frames. Gemini's difference is the workflow: the whole video file, audio included, goes into one API call, while the other two need you to extract frames and a transcript first.
 
 For how the leaderboards contradict each other, see the [multimodal landscape post](/posts/ai/2026-08-18-multimodal-models-2026-landscape-en).
 
@@ -68,7 +70,9 @@ For how the leaderboards contradict each other, see the [multimodal landscape po
 
 The gap is 0.8 points, while the time differs by about three times. Those two columns matter more to a decision than the score.
 
-Fourth on the board is Grok 4.6, while Gemini 3.7 Flash lands at 80.80%. On code Grok is not a weak player, and Gemini's Flash line trails.
+Fourth on the board is Grok 4.6, so on code Grok is not a weak player.
+
+Gemini appears only as the Flash line and an earlier Pro preview, all around eighty percent. The board stops in early September and neither Gemini 4 Argon nor Grok 4.7 is on it, so it can't judge those two newer models.
 
 Scores are also tied to the harness. Claude Opus 4.8 drops by nearly 3 points under Claude Code compared with mini-swe-agent. A leaderboard tells you roughly what tier a model is in; it can't predict how it will do inside [Claude Code](/posts/ai/2026-04-02-agent-cli-claude-code-en) or [Codex](/posts/ai/2026-04-02-agent-cli-openai-codex-en).
 
@@ -116,6 +120,10 @@ Model names, scores, and versions here are a snapshot from 2026-10-25, and featu
 - [Introducing agentic video understanding with Gemini - Google Blog](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/)
 - [Video-MME - GitHub](https://github.com/MME-Benchmarks/Video-MME)
 - [Vision - Claude Platform Docs](https://platform.claude.com/docs/en/build-with-claude/vision)
+- [Features overview - Claude Platform Docs](https://platform.claude.com/docs/en/build-with-claude/overview)
+- [Feature Request: Native video file input support in Responses API - openai-node](https://github.com/openai/openai-node/issues/1778)
+- [Introducing GPT-4.1 in the API - OpenAI](https://openai.com/index/gpt-4-1/)
+- [Introducing GPT-5 for developers - OpenAI](https://openai.com/index/introducing-gpt-5-for-developers/)
 - [Models - OpenAI API](https://developers.openai.com/api/docs/models)
 - [SWE-bench Verified Leaderboard and Methodology - Vals AI](https://www.vals.ai/benchmarks/swebench)
 - [X Search - xAI Docs](https://docs.x.ai/developers/tools/x-search)
