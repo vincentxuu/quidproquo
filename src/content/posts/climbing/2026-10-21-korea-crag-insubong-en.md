@@ -20,7 +20,7 @@ As you gain height on Insubong, Seoul gradually opens up behind the trees. This 
 
 This guide helps you decide whether Insubong suits your team, when to go, how to approach without a car, and how Insu A, Chouinard B, the East Face classics and the south-face lines compare.
 
-This is a route-selection guide, not a topo. Once you have chosen a route, read the [Insubong pitch-by-pitch route notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en) for where it starts, how long each pitch is and which pitch is the crux.
+This is a route-selection guide, not a topo. Once you have chosen a route, read the [Insubong pitch-by-pitch route notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en) for where it starts, how long each pitch is and which pitch is the crux. That page also [lists where to find the Korean community's hand-drawn topos and photo topos](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#where-to-find-the-korean-topo-drawings).
 
 ## What kind of crag
 
@@ -80,6 +80,8 @@ Recheck thaw notices before a spring trip. A [2026 notice reproduced by the Seou
 **Ask the Bukhansan office about the current declaration process.** KNPS has a [general rock-use application service](https://www.knps.or.kr/smartsafe/permission/list.do), but its generic procedure does not establish how Insubong is currently handled. A [2025 *Monthly Mountain* report](https://san.chosun.com/news/articleView.html?idxno=25147) quoted KNPS describing the Bukhansan system at that time as voluntary reporting. Confirm the current named-rock requirements and how visitors without Korean mobile verification can comply. Do not transplant another national park's permit rules.
 
 Fixed hardware also needs a current assessment. The [2012 guide](https://product.kyobobook.co.kr/detail/S000001582823) warns about old bolts and runouts, while the [2025 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face) records newer chained anchors. Neither guarantees every station you will encounter. Bring protection for the selected route and establish the ascent, rope configuration, descent and retreat options before leaving the ground. The route lengths below are not rappel-rope instructions.
+
+At about 11 a.m. on 4 October 2026, a woman in her sixties fell about 30 m while climbing near Insubong; she was flown to hospital by a fire-service helicopter and died ([KBS](https://news.kbs.co.kr/news/view.do?ncd=8677720), [Yonhap](https://www.yna.co.kr/view/AKR20261005009200060)). The reports do not name the route, and police are still investigating the cause.
 
 For an emergency, call **119**; the [National Fire Agency's EMS information](https://www.nfa.go.kr/eng/ems/service/) explicitly includes foreigners. Save the Korean crag and route names and offline maps, and preserve phone battery. Ask your own insurer whether **trad climbing, multipitch climbing, search and rescue, medical treatment and repatriation** are covered. A general travel-insurance label is insufficient: the [BMC product summary](https://services.thebmc.co.uk/modules/insurance/r/downloads/BMC_IPID_2025_26_1225_Edition_1225.pdf), for example, specifies activity eligibility and exclusions. Your own policy controls your coverage.
 
@@ -241,6 +243,7 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 
 ## Update history
 
+- 2026-10-25: added the fatal fall of 4 October 2026 to "Rules before you go"; the introduction now links to the new list of Korean topo drawings in the route notes.
 - 2026-10-25: corrected the sub-area of Lonely Road and Pigeon (Lonely Road is on the far right of the East Face, past Chouinard A; Pigeon is on the south side by the descent point; "West face" was wrong).
 - 2026-10-25: added sources and location for Insu B (Mountain Project: 5 pitches / 136 m; several reports 6 to 8; the current way starts up Yongam Slab), noted that the 2012 guide's 3 pitches / 97 m are only the lower part and that it is not Seolgyobyeok; fixed the explanation of "—".
 - 2026-10-25: corrected the 2025-topo column for Lonely Road (the topo does include it, as #38 at 5.6); its length and pitch count are still only from theCrag.
@@ -267,6 +270,8 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 - [Monthly Mountain: 50 years since the Medical School route, 2022](http://san.chosun.com/news/articleView.html?idxno=21919)
 - [Imgok: Korean rock routes (1), Insubong Dongyang-gil, 2012](http://www.imgok.org/?document_srl=45490&l=en&mid=rc_info)
 - [National Fire Agency: Public EMS](https://www.nfa.go.kr/eng/ems/service/)
+- [KBS: Woman in her 60s dies after fall while climbing Insubong, 2026-10-05 (Korean)](https://news.kbs.co.kr/news/view.do?ncd=8677720)
+- [Yonhap: Woman in her 60s dies in Insubong climbing fall, 2026-10-05 (Korean)](https://www.yna.co.kr/view/AKR20261005009200060)
 - [BMC: 2025/26 Insurance Product Information Document](https://services.thebmc.co.uk/modules/insurance/r/downloads/BMC_IPID_2025_26_1225_Edition_1225.pdf)
 - [Mountain Project: International climbing grade comparison](https://www.mountainproject.com/international-climbing-grades)
 - [Mountain Project: Insu B](https://www.mountainproject.com/route/108367078/insu-b)

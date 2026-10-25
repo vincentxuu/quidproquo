@@ -20,7 +20,7 @@ draft: false
 
 這篇幫你判斷仁壽峰適不適合自己的繩隊、春秋怎麼安排、沒開車怎麼到，以及 Insu A、Chouinard B、東壁與南面的經典多段該怎麼選。
 
-這篇是選線文，不是 topo。挑好路線後，要找起攀位置、看每一段多長、難在哪一段，請接著讀[仁壽峰逐段路線筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes)。
+這篇是選線文，不是 topo。挑好路線後，要找起攀位置、看每一段多長、難在哪一段，請接著讀[仁壽峰逐段路線筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes)；韓國岩友流傳的手繪概念圖和照片 topo，那篇也[整理了出處連結](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes#去哪裡看概念圖)。
 
 ## 這是什麼樣的岩場
 
@@ -80,6 +80,8 @@ ids: xrTd0dvMCIM
 **申報方式先問北漢山事務所。** KNPS 有[通用岩壁使用申請頁](https://www.knps.or.kr/smartsafe/permission/list.do)，但頁面的通用程序不足以判定仁壽峰現行適用方式。2025 年[《月刊山》的北漢山申報爭議報導](https://san.chosun.com/news/articleView.html?idxno=25147)引述公團稱當時是自律申報。出發前應確認當年的仁壽峰要求，以及外國人沒有韓國手機時如何辦理；不要直接把別座公園的許可流程套過來。
 
 固定點也不能只憑舊書判斷。[2012 指南](https://product.kyobobook.co.kr/detail/S000001582823)提醒舊固定點與保護間距；[2025 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)則記錄新增的鏈式確保站。兩者都不等於你當天每一站的狀況保證。帶符合所選路線的傳攀保護，並在離地前確認上攀和下降要用的 topo、繩索配置與撤退選項。本文的路線長度不是下降繩長指示。
+
+2026 年 10 月 4 日上午約 11 點，一位 60 多歲的女性在仁壽峰一帶攀登時墜落約 30 公尺，由消防直升機送醫後不治（[KBS](https://news.kbs.co.kr/news/view.do?ncd=8677720)、[韓聯社](https://www.yna.co.kr/view/AKR20261005009200060)）；報導沒有寫是哪條路線，事故原因警方仍在調查。
 
 緊急狀況撥 **119**；[韓國消防廳](https://www.nfa.go.kr/eng/ems/service/)的服務說明包含外國人。出發前把韓文岩場名、路線名與離線地圖存進手機，保留電力。保險則向自己的承保公司確認**傳攀、多段攀登、搜救、醫療和送返**是否在保障內。不能只看「旅平險」名稱；例如 [BMC 的保險摘要](https://services.thebmc.co.uk/modules/insurance/r/downloads/BMC_IPID_2025_26_1225_Edition_1225.pdf)就明列活動資格與除外條件，實際仍依各自保單。
 
@@ -241,6 +243,7 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 
 ## 更新紀錄
 
+- 2026-10-25：「去之前要知道的規範」補 2026 年 10 月 4 日的墜落死亡事故；開頭連到逐段筆記新增的概念圖出處整理。
 - 2026-10-25：更正 Lonely Road 與 Pigeon 的子區（Lonely Road 在東面最右端、Chouinard A 之後；Pigeon 在南側下降點旁，原寫西面有誤）。
 - 2026-10-25：補 Insu B 的來源與位置（Mountain Project 5 段／136 公尺、多篇心得 6 到 8 段、現行走法從 Yongam Slab 起攀），指出 2012 指南的 3 段／97 公尺只是下段，並說明它與 설교벽不同；修正「—」的解釋。
 - 2026-10-25：更正 Lonely Road 的 2025 topo 欄（topo 有收，編號 #38、5.6），長度與段數仍只有 theCrag 記載。
@@ -267,6 +270,8 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 - [《月刊山》：인수봉 의대길 개척 50주년，2022](http://san.chosun.com/news/articleView.html?idxno=21919)
 - [Imgok：한국의 바윗길을 가다(1) 인수봉 동양길，2012](http://www.imgok.org/?document_srl=45490&l=en&mid=rc_info)
 - [韓國消防廳：Public EMS](https://www.nfa.go.kr/eng/ems/service/)
+- [KBS：북한산 인수봉서 암벽 등반하던 60대 여성 추락해 숨져，2026-10-05](https://news.kbs.co.kr/news/view.do?ncd=8677720)
+- [韓聯社：북한산 인수봉서 암벽 등반하던 60대 여성 추락사，2026-10-05](https://www.yna.co.kr/view/AKR20261005009200060)
 - [BMC：2025/26 保險產品資訊摘要](https://services.thebmc.co.uk/modules/insurance/r/downloads/BMC_IPID_2025_26_1225_Edition_1225.pdf)
 - [Mountain Project：國際攀登難度對照表](https://www.mountainproject.com/international-climbing-grades)
 - [Mountain Project：Insu B](https://www.mountainproject.com/route/108367078/insu-b)

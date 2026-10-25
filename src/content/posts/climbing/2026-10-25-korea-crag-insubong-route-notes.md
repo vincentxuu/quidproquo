@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "韓國岩場"
   order: 14
-tldr: "Insu A、Insu B、Lonely Road、Chouinard A/B、Crony、Dongyang 等 18 條仁壽峰線，從哪裡起攀、每段多長、難在第幾段、怎麼下來，整理自 2006 到 2024 年的韓國社群文字紀錄。這不是 topo：沒有岩壁照片和路線編號，到現場仍要帶 Mont Blanc Lines 的東壁 topo。"
-description: "仁壽峰 18 條路線的逐段筆記：大斜板、Oasis、耳岩等定位點，Lonely Road、Pigeon、Insu A、Insu B、Medical School、Sanchonji、Chouinard A/B、Crony、Dongyang、Georyong、Villa、Wand 等的起攀位置、分段長度與級數、難關和下降方式，並標明各來源的年份與版本差異。"
+tldr: "Insu A、Insu B、Lonely Road、Chouinard A/B、Biwon、Yangji、Crony、Dongyang 等 20 條仁壽峰線，從哪裡起攀、每段多長、難在第幾段、怎麼下來，整理自 2006 到 2024 年的韓國社群文字紀錄。這不是 topo：沒有岩壁照片和路線編號，到現場仍要帶 Mont Blanc Lines 的東壁 topo；韓國社群流傳的概念圖，本篇整理了出處連結。"
+description: "仁壽峰 20 條路線的逐段筆記：大斜板、Oasis、耳岩等定位點，Lonely Road、Pigeon、Insu A、Insu B、Medical School、Sanchonji、Chouinard A/B、Biwon、Yangji、Crony、Dongyang、Georyong、Villa、Wand 等的起攀位置、分段長度與級數、難關和下降方式，標明各來源的年份與版本差異，並附各線概念圖的原始出處。"
 draft: false
 ---
 
@@ -17,7 +17,7 @@ draft: false
 
 [仁壽峰的選線文](/posts/climbing/2026-10-21-korea-crag-insubong)告訴你哪條線適合自己的繩隊，但站在北漢山（首爾）的岩壁底下，你還需要知道：這條線從哪裡起攀、每一段多長、難關在第幾段、爬完怎麼下來。這篇補的就是這些，範圍是仁壽峰的多段（多繩距）路線。它是選線文的附錄：先用選線文決定要爬哪一條，再回到這裡找起攀位置和逐段資料；選線文的路線表裡，每條有資料的路線都連到這裡對應的小節。
 
-**這不是 topo。** 內容整理自韓國攀登社群 2006 到 2024 年的文字紀錄，沒有岩壁照片，也沒有路線編號。東壁一帶的線，現場找線仍要以 [Mont Blanc Lines 的東壁數位 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)為準（一張東面照片疊上路線，底下列 43 條路線；商品頁提供中解析度的個人用途下載，也賣印刷海報。各線小節標了它的編號），這篇當作出發前的預習和現場的對照。**南面的 Dongyang-gil、Haneul-gil、Georyong-gil、Villa 不在那 43 條裡**，這四條線只能靠這篇和下面引用的概念圖。
+**這不是 topo。** 內容整理自韓國攀登社群 2006 到 2024 年的文字紀錄，沒有岩壁照片，也沒有路線編號。東壁一帶的線，現場找線仍要以 [Mont Blanc Lines 的東壁數位 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)為準（一張東面照片疊上路線，底下列 43 條路線；商品頁提供中解析度的個人用途下載，也賣印刷海報。各線小節標了它的編號），這篇當作出發前的預習和現場的對照。**南面的 Dongyang-gil、Haneul-gil、Georyong-gil、Villa 不在那 43 條裡**，這四條線只能靠這篇和下面引用的概念圖。想看韓國社群流傳的手繪概念圖和照片 topo，見[去哪裡看概念圖](#去哪裡看概念圖)。
 
 ## 怎麼用這篇
 
@@ -35,6 +35,20 @@ draft: false
 - **Oasis（오아시스，綠洲平台）**：大斜板上方的平台，Insu A、Medical School、Sanchonji 從這裡起攀。2024 年的[Sanchonji 紀錄](https://m.blog.naver.com/PostView.naver?blogId=r9600495&logNo=223445895731)從大斜板分兩段爬上去，第一個雙 bolt 約在 50 公尺處。Oasis 沒有泉水，名字只是形容。
 - **耳岩（귀바위）**：頂部右側耳朵形狀的岩石，Chouinard A/B 和 Medical School 的終點。
 - **泉水（샘터）**：大斜板左側的水源，Crony 的起攀位置以它為參考。
+
+## 去哪裡看概念圖
+
+韓國攀岩者口中的「개념도」（概念圖）就是手繪或照片疊線的 topo。下面這幾份在網路上流傳最廣，圖的版權屬原作者，本站不轉貼，點連結到原頁看。圖上的數字和本篇逐段表對過一遍，一致的就不另外寫；不一致的寫進該線小節。
+
+| 路線 | 概念圖 | 年份與出處 | 圖上的資料 |
+| --- | --- | --- | --- |
+| 全面編號圖 | [도랫굽이：인수봉 전면 개념도](https://ami41.tistory.com/351) | 2012 年部落格 | 東面與西南面約 38 條線的編號總圖，附 Chouinard A/B 的逐段文字。 |
+| Chouinard A | [Daum 咖啡廳억센드림팀：취나드A 개념도](https://m.cafe.daum.net/eccen/n71/96) | 2010 年貼文 | 手繪「귀바위 D（취나드 A）」圖加一張照片 topo（照片標「네파 제공」，由登山品牌 Nepa 提供）。6 段 181 公尺，最高 5.10a；器材寫 Friend 2–5 號、岩楔 2–5 號。同一系列的 Nepa 照片 topo 還有 Chouinard B、Medical School 等線的版本，2011 到 2012 年間在韓國部落格轉貼。 |
+| Chouinard B、Biwon、Yangji、Moseol | [jangdayena：북한산 인수봉](https://blog.naver.com/jangdayena/221090402685)；[2020 年轉貼](https://m.blog.naver.com/genie102517/221913128241) | 2017 年部落格；轉貼者註明是「路線重整後」的版本 | 同一張圖畫四條線，各附長度、最高級數和器材。 |
+| Insu B | [도랫굽이：인수봉 인수B길](https://ami41.tistory.com/746) | 2015 年部落格；圖上註明出自《사람과 산》2008 年 5 月攀岩指南，2012 年由 산빛산악회 양규욱 重繪 | 「북한산 인수봉 동면 2」：3 段 37／30／30 公尺，最高 5.8。 |
+| Pigeon | [leisurely-climber：비둘기길 개념도](https://leisurely-climber.tistory.com/entry/%EB%B9%84%EB%91%98%EA%B8%B0%EA%B8%B8-%EB%93%B1%EB%B0%98-%EC%B2%AB-%EC%83%88%EB%82%B4%EA%B8%B0%EC%9D%98-%EB%93%B1%EB%B0%98%EA%B8%B0%EB%A1%9D-%EB%B9%84%EB%91%98%EA%B8%B0%EA%B8%B8-%EA%B0%9C%EB%85%90%EB%8F%84-%EC%9D%B8%EC%88%98%EB%B4%89-%EC%A0%95%EC%83%81) | 2023 年部落格；和 Insu B 那張是同一套重繪圖（圖例與出處註記格式相同） | 「북한산 인수봉 서면」：4 段 35／17／17／20 公尺，5.7 A0。 |
+
+這些圖年代不同，bolt 和站都可能換過。Biwon 那張是路線重整後的版本，2020 年的紀錄也說重新打 bolt 之後，第 1 段的線和以前不一樣了。圖上的數字用來對照，不保證是現場現況。
 
 ## 長度與級數一覽
 
@@ -246,6 +260,37 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 **下降：** 爬完第 4 段，往右繞到 심우길 最後一段的怪樹下，那裡有雙 bolt，從這裡垂降；也可以用穿過岩下的繩圈。**不要從 Chouinard A 本身垂降**，繩子很常卡在裂隙裡拉不下來。文字版的配置是：先從 심우길 垂降到 Chouinard A 第 3 段，再用 2 條 50 公尺繩一口氣到第 1 段的平台。
 
+### Yangji／양지길
+
+- **Mont Blanc 東壁 topo 編號**：#30，5.11a。
+- **起攀位置**：Chouinard B 第 1 段的站。[2023 年的紀錄](https://ijhwanny.tistory.com/58)說它在 Medical School 和 Chouinard B 之間；有些概念圖把和 Chouinard B 第 1 段平行、右邊那條線畫成 Yangji 第 1 段，紀錄者把 Chouinard B 第 1 段的站當成起點。
+- **段數與長度**：3 段、102 公尺。2017 年的概念圖記最高 5.11a、快扣 10 個。
+- **時間**：2023 年的紀錄 2 小時 30 分。
+
+| 段 | 長度 | 級數 | 備註 |
+| --- | --- | --- | --- |
+| 1 | 35 公尺 | 5.9 | |
+| 2 | 37 公尺 | 5.11a | 全線標得最難的一段，實際只有上方小懸垂那一步難：由右往左短橫渡，手是淺的反撐點（undercling），要顧好平衡。概念圖畫的是從懸垂右側直上，但那裡沒有 bolt，先鋒壓力大。 |
+| 3 | 30 公尺 | 5.10a A0 | 紀錄者覺得這段才是難關，體感 5.10c 到 5.11a。踩黑點站上去、抓好裂隙，側拉往左扣第一顆 bolt；**扣到之前墜落，會撞上第 2 段站上的人**。懸垂上有 bolt，紀錄者最後兩顆用人工通過，經 Medical School 第 4 段的站，再往右上 3 公尺到終點站。 |
+
+**下降：** 2023 年的紀錄從 Medical School 第 4 段的站，60 公尺單繩一次垂降到 Oasis，下降花了 1 小時 30 分。
+
+### Biwon／비원길
+
+- **Mont Blanc 東壁 topo 編號**：#31，5.11c A0。
+- **起攀位置**：大斜板右側（2017 年概念圖）。[2020 年的紀錄](https://gaussmt.tistory.com/1399)說起攀點有水流下，非常滑。
+- **段數與長度**：2017 年概念圖記 5 段、152 公尺（35／35／35／12／35），最高 5.11b/c A0，快扣 10 個。2020 年的紀錄記成 6 段，兩份的切段方式不同。
+
+2020 年那支 5 人隊伍的紀錄：
+
+- **第 1 段**：重新打 bolt 之後，攀登線和以前不同。
+- **第 2 段**：要翻過一個懸垂台階。
+- **第 3、4 段**：第 3 段和 Chouinard B 交叉，第 4 段併入 Medical School，走的是 Medical School 的人工攀登段。他們把第 3、4 段一次爬完。
+- **第 5 段**：5.11b，Medical School 左邊的岩面，紀錄者說相當難。
+- **終點**：第 5、6 段一次爬完，到耳岩下方的平台。
+
+**下降：** 2020 年的紀錄沒寫垂降配置，終點和 Chouinard A/B 一樣在耳岩一帶，見[下降](#下降)。
+
 ## 大斜板左側
 
 這一側的線擠在同一片岩壁上，位置靠相對關係描述。Dongyang-gil、Haneul-gil、Georyong-gil、Villa 都不在 Mont Blanc 東壁 topo 上，沒有現成的編號圖可以對照。把 [걸리 頁面](https://han5256.tistory.com/7667232)裡幾段文字拼起來，由下而上的順序是：청맥길（Cheongmaek-gil）→ Dongyang-gil（距大斜板約 120 公尺）→ Haneul-gil → Georyong-gil（約 180 公尺）→ Villa（約 200 公尺）；Georyong 下方還有一條單段的미련（Miryeon）。距離都是「從大斜板往左上走」，不是精確量測。
@@ -260,7 +305,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 - **起攀位置**：大斜板左側。[Mountain Project](https://www.mountainproject.com/route/108367078/insu-b)寫「在大斜板左（南）邊、靠近 Crony 所在的裂隙系統，從溪床沿岩壁底部走，從有地圖的告示牌起算約 5 分鐘」。
   - **現行走法**：從大斜板左邊的 용암슬랩（Yongam Slab）起攀，2 段到 Insu B 的 Oasis（[2024 年紀錄](https://gaussmt.tistory.com/1836)、[2015 年紀錄](https://ami41.tistory.com/746)）。
   - **老走法**：左邊一條約 30 公尺的直上裂隙，或爬大斜板，大斜板約 100 公尺、分三次左右切段（[Daum 咖啡廳的路線說明](https://m.cafe.daum.net/hyedoji71/GqbR/109)）。
-- **段數**：各來源 5 到 8 段。MP 記 5 段、136 公尺；Daum 的說明記 6 段；2024 年的紀錄爬了 8 段（含 Yongam Slab 2 段，每段 40 到 60 公尺）。2012 指南與 걸리 表格的 3 段、97 公尺只是下段，不是全線。
+- **段數**：各來源 5 到 8 段。MP 記 5 段、136 公尺；Daum 的說明記 6 段；2024 年的紀錄爬了 8 段（含 Yongam Slab 2 段，每段 40 到 60 公尺）。2012 指南與 걸리 表格的 3 段、97 公尺只是下段，不是全線。《사람과 산》2008 年指南的重繪概念圖（[2015 年轉貼](https://ami41.tistory.com/746)）也是這個 3 段版本：37／30／30 公尺，最高 5.8，器材寫快扣 10 個、中大型 cam，起點標在「大斜板左側上部」。
 - **難關**：第 3 段裂隙。Daum 的說明標 5.8，說裂隙越往上越窄，腳卡會痛。
 - **歷史**：[한겨레 2012](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html)稱它是仁壽峰的「老大哥路線」，1935 年由韓國人首攀；Daum 的說明說首攀時第一段沒走大斜板，走左邊的直上裂隙。
 
@@ -405,7 +450,7 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 - **Mont Blanc 東壁 topo 編號**：無，這條線不在那 43 條裡。
 - **起攀位置**：[한겨레](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html)寫起點是白雲臺與仁壽峰相接的鞍部，「下降路線倒過來爬」；從 구조대 之前往右進營地方向，朝仁壽峰走約 100 公尺就是鴿子泉。
-- **段數與級數**：4 段、約 89 公尺，5.6 到 5.7，只有第 3 段是人工攀登。
+- **段數與級數**：4 段、約 89 公尺，5.6 到 5.7，只有第 3 段是人工攀登。第 3 段的人工攀登級數，下表記 A1；《사람과 산》指南的重繪概念圖記 A0，器材寫快扣 10 個、中小型 cam。
 - **提醒**：南面下降的人多時不要爬。下降者的繩子會纏在一起，先鋒墜落時也可能被落下的繩子打到（[파워的整理](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)）。
 
 | 段 | 長度 | 級數 | 岩型 | 備註 |
@@ -483,19 +528,24 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 這篇各線的下降配置，都是各來源自己的寫法。下降點與繩長請以 topo 和現場為準，詳細見[主文的下降節](/posts/climbing/2026-10-21-korea-crag-insubong#怎麼下來)。幾個共通的事實：
 
 - **西面下降點**：[걸리 頁面](https://han5256.tistory.com/7667232)寫 50 公尺單繩 4 次、雙繩 2 次到地面。
-- **耳岩一帶**（Chouinard A/B、Medical School）：沿 Medical School 垂降，2 條 50 公尺繩；爬到第 4 段就收的隊伍，改從 심우길 最後一段的雙 bolt 垂降。
+- **耳岩一帶**（Chouinard A/B、Biwon、Medical School）：沿 Medical School 垂降，2 條 50 公尺繩；爬到第 4 段就收的隊伍，改從 심우길 最後一段的雙 bolt 垂降。
+- **Yangji**：2023 年的紀錄從 Medical School 第 4 段的站，60 公尺單繩一次到 Oasis。
 - **不要從 Chouinard A 直接垂降**，繩子會卡在裂隙。
 - **垂降時看底下**：Oasis 一帶常有隊伍在準備起攀，從上面垂降、回收裝備時，要先確認下方有沒有人。
 
 ## 這些資料可以信到哪裡
 
-- **年份**：資料從 2006 年到 2024 年，多數是 2010 年代。固定點、站和 bolt 都可能換過，例如 Crony 第 6 段以前是岩釘，現在有 bolt；Villa 的兩顆 bolt 被拔掉過。
+- **年份**：資料從 2006 年到 2024 年，多數是 2010 年代；概念圖的年份見[去哪裡看概念圖](#去哪裡看概念圖)。固定點、站和 bolt 都可能換過，例如 Crony 第 6 段以前是岩釘，現在有 bolt；Villa 的兩顆 bolt 被拔掉過。
 - **同源**：걸리 頁面的逐段文字，與 산지니頁面標示的金龍基登山學校說明同文（Crony 一段已對照），多篇部落格在轉貼同一套整理，不是彼此獨立的驗證。
 - **版本**：段數、長度與級數常有兩種記法，備註已列出。遇到兩個數字時，以現場 topo 為準。
 - **位置**：起攀位置多用「往左或往右走幾十公尺」描述，是目測，不是量測。
 - **缺口**：Haneul-gil、Rescuer、PASI 沒有找到明確的起攀位置描述，上面都標明了。
 
-這篇補不了一張好 topo。東壁的線，出發前請下載（或買海報）[Mont Blanc Lines 的東壁 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)，再用這篇對照每段的長度和難關；南面那四條線沒有對應的 topo，請看[걸리 的頁面](https://han5256.tistory.com/7667232)連到的前面與西南面概念圖（圖是圖片，這篇沒能讀到內容，不確定有涵蓋這四條），並找熟悉那一側的繩伴。
+這篇補不了一張好 topo。東壁的線，出發前請下載（或買海報）[Mont Blanc Lines 的東壁 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)，再用這篇對照每段的長度和難關；南面那四條線沒有對應的 topo；[도랫굽이的全面編號圖](https://ami41.tistory.com/351)把 Dongyang、Haneul、Georyong、Villa 都編了號，可以拿來對位置，並找熟悉那一側的繩伴。
+
+## 更新紀錄
+
+- 2026-10-25：新增「去哪裡看概念圖」，列出 Chouinard A、Chouinard B、Insu B、Pigeon 等線韓國社群概念圖的原始出處，並把圖上數字與逐段表對過一遍；新增 Yangji、Biwon 兩條線；Insu B、Pigeon 補上《사람과 산》指南重繪圖的記法。
 
 ## 參考資料
 
@@ -524,3 +574,10 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 - [울트래블러（채울）：인수봉 크로니길, 비둘기길，2022](https://m.blog.naver.com/wooltraveler/222900749975)
 - [《月刊山》：북한산 인수봉에 생공사길 개척，2003](http://san.chosun.com/site/data/html_dir/2003/08/13/2003081378029.html)
 - [버들치의 일상：인수봉 인수B，2025](https://gaussmt.tistory.com/1927)
+- [도랫굽이：북한산 인수봉 전면 개념도，2012](https://ami41.tistory.com/351)
+- [Daum 咖啡廳억센드림팀：취나드A 개념도，2010](https://m.cafe.daum.net/eccen/n71/96)
+- [jangdayena：북한산 인수봉（모설·양지·취나드B·비원 개념도），2017](https://blog.naver.com/jangdayena/221090402685)
+- [genie102517：북한산 인수봉 모설길, 양지길, 취나드B, 비원 루트개념도，2020](https://m.blog.naver.com/genie102517/221913128241)
+- [leisurely-climber：비둘기길 등반과 개념도，2023](https://leisurely-climber.tistory.com/entry/%EB%B9%84%EB%91%98%EA%B8%B0%EA%B8%B8-%EB%93%B1%EB%B0%98-%EC%B2%AB-%EC%83%88%EB%82%B4%EA%B8%B0%EC%9D%98-%EB%93%B1%EB%B0%98%EA%B8%B0%EB%A1%9D-%EB%B9%84%EB%91%98%EA%B8%B0%EA%B8%B8-%EA%B0%9C%EB%85%90%EB%8F%84-%EC%9D%B8%EC%88%98%EB%B4%89-%EC%A0%95%EC%83%81)
+- [ijhwanny：인수봉, 양지길，2023](https://ijhwanny.tistory.com/58)
+- [버들치의 일상：인수봉 비원길，2020](https://gaussmt.tistory.com/1399)

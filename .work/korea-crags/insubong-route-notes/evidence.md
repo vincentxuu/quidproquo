@@ -47,3 +47,24 @@
 - Villa：文字 5 段／表格 6 段（A2）。
 - Insu Ridge：8 段（청아）／10 段（파워）／7 段（主文）。
 - Amidong：3 段 90 公尺（表格）／7 段（主文）。
+
+## 2026-10-25 補：概念圖出處、Yangji、Biwon、事故
+
+使用者貼了 5 張概念圖截圖。用 Keenable 韓文搜尋找候選頁、下載頁內圖片，以 dHash 比對再目視確認：
+
+| 截圖 | 原頁 | 比對結果 |
+|---|---|---|
+| 귀바위D 手繪＋취나드A 照片 topo（네파제공） | m.cafe.daum.net/eccen/n71/96（2010-03-31） | 兩張皆為原圖 |
+| 비원／취나드B／양지 書頁 | m.blog.naver.com/genie102517/221913128241（2020），轉自 blog.naver.com/jangdayena/221090402685（2017-09-06） | dHash 距離 11/144 |
+| 북한산 인수봉 동면 2（인수B，사람과산 2008 → 산빛산악회 양규욱 2012 重繪） | ami41.tistory.com/746 | dHash 距離 10/144 |
+| 북한산 인수봉 서면（비둘기） | leisurely-climber.tistory.com 비둘기길（2023-10-31） | 目視一致 |
+| 1P–8P 照片 topo＋인수A 示意圖、취나드B 照片 topo、인수B 起攀照、비둘기 屋簷照 | 未找到原頁 | 文章未引用 |
+
+文字來源：ami41 351（2012，全文讀過 Chouinard A/B 段）、ijhwanny 58（2023 Yangji 全文）、gaussmt 1399（2020 Biwon 圖說全文）、Mont Blanc Lines 商品 .json（#30 Yangji 5.11a、#31 Piwŏn 5.11c A0）、KBS 8677720 與韓聯社 AKR20261005009200060（2026-10-04 墜落事故，未載路線）。圖上數字與既有逐段表對照：Chouinard A 21/33/22/40/40/25 一致；Chouinard B 35/37/25/40/40 一致；Insu B 重繪圖 37/30/30＝97 m 與 2012 指南 3 段版一致、級數 5.8 vs 指南 5.9；Pigeon 重繪圖第 3 段 A0 vs 表內 A1。
+
+### 第二輪：重抓圖片＋以圖搜圖（2026-10-25）
+
+- 重抓 kakaocdn／daumcdn 圖片（先前帶錯 Referer 回錯誤頁），候選圖增至 359 張；剩餘 6 張子圖 dHash 最近距離皆 ≥47／144，無匹配。
+- Yandex 以圖搜圖：服務維護中。Bing Visual Search：辨識為「북한산」後轉一般文字搜尋，無同圖網頁。Google Lens：跳 /sorry 機器人驗證，未繞過、停止。
+- TinEye：6 張中只有 취나드B 照片 topo（截圖 3 右）命中 5 筆；第二次查詢被 Cloudflare 判為機器人，停止。命中圖為同系列 Nepa 照片 topo（簽名「신lb^^&」）：의대 5.10a [네파제공]（cfile29.uf.tistory.com/image/1128B2484F65D7BC272F72，檔名時間戳 2012-03-18，原貼文 sanejoa70.tistory.com 인수봉分類已無文章）、「북한산 인수봉 동면 안내도」（cfile8…4F3F26C1，2012-02-18）、취나드A 版（cfile204.uf.daum.net…4EFC01FB，2011-12-29）。koreadaily 部落格命中頁已無法連線。截圖 3 右的 취나드B 原圖本身未找到。
+- 仍未找到：截圖 1（1P–8P 照片 topo、인수A 示意圖）、截圖 4 右、截圖 5 右兩張照片。

@@ -8,8 +8,8 @@ lang: en
 series:
   name: "Korea Climbing Crags"
   order: 14
-tldr: "Where 18 Insubong routes start, how long each pitch is, which pitch is the crux and how to get down, including Insu A, Insu B, Lonely Road, Chouinard A/B, Crony and Dongyang, compiled from Korean climbing-community write-ups dated 2006 to 2024. This is not a topo: there are no wall photos or route numbers, so carry the Mont Blanc Lines East Face topo on the day."
-description: "Pitch-by-pitch notes for 18 Insubong routes: the Great Slab, Oasis and Ear Rock landmarks, then starts, pitch lengths and grades, cruxes and descents for Lonely Road, Pigeon, Insu A, Insu B, Medical School, Sanchonji, Chouinard A/B, Crony, Dongyang, Georyong, Villa, Wand and more, with the date and version differences of each source."
+tldr: "Where 20 Insubong routes start, how long each pitch is, which pitch is the crux and how to get down, including Insu A, Insu B, Lonely Road, Chouinard A/B, Biwon, Yangji, Crony and Dongyang, compiled from Korean climbing-community write-ups dated 2006 to 2024. This is not a topo: there are no wall photos or route numbers, so carry the Mont Blanc Lines East Face topo on the day; the page also lists where to find the Korean community's topo drawings."
+description: "Pitch-by-pitch notes for 20 Insubong routes: the Great Slab, Oasis and Ear Rock landmarks, then starts, pitch lengths and grades, cruxes and descents for Lonely Road, Pigeon, Insu A, Insu B, Medical School, Sanchonji, Chouinard A/B, Biwon, Yangji, Crony, Dongyang, Georyong, Villa, Wand and more, with the date and version differences of each source and links to the original topo drawings."
 draft: false
 ---
 
@@ -17,7 +17,7 @@ draft: false
 
 The [Insubong crag guide](/posts/climbing/2026-10-21-korea-crag-insubong-en) helps you pick a route for your team. At the foot of the wall in Bukhansan, Seoul, you need more: where does this route start, how long is each pitch, which pitch is the crux, and how do you get down afterwards? This page fills that gap, for the multipitch routes of Insubong. It is an appendix to the guide: use the guide to decide which route to climb, then come back here for the start and the pitches; every route in the guide's tables that has notes links to its section here.
 
-**This is not a topo.** It is compiled from Korean climbing-community write-ups dated 2006 to 2024, with no wall photos and no route numbers. On the day, route-finding for the east-face routes should rely on the [Mont Blanc Lines East Face digital topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face) (an east-face photo overlaid with routes and a list of 43 routes beneath it; the product page offers a medium-resolution download for personal use and also sells printed posters; each route's section gives its number there). **The south-face routes Dongyang-gil, Haneul-gil, Georyong-gil and Villa are not among those 43**, so for those four this page and the concept maps cited below are all there is. Use this page as preparation before the trip and as a cross-check at the base.
+**This is not a topo.** It is compiled from Korean climbing-community write-ups dated 2006 to 2024, with no wall photos and no route numbers. On the day, route-finding for the east-face routes should rely on the [Mont Blanc Lines East Face digital topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face) (an east-face photo overlaid with routes and a list of 43 routes beneath it; the product page offers a medium-resolution download for personal use and also sells printed posters; each route's section gives its number there). **The south-face routes Dongyang-gil, Haneul-gil, Georyong-gil and Villa are not among those 43**, so for those four this page and the concept maps cited below are all there is. For the hand-drawn and photo topos that circulate among Korean climbers, see [Where to find the Korean topo drawings](#where-to-find-the-korean-topo-drawings). Use this page as preparation before the trip and as a cross-check at the base.
 
 ## How to use this page
 
@@ -35,6 +35,20 @@ The sources keep coming back to these four landmarks when they describe a start:
 - **Oasis (오아시스)**: the platform above the Great Slab. Insu A, Medical School and Sanchonji start here. A [2024 Sanchonji report](https://m.blog.naver.com/PostView.naver?blogId=r9600495&logNo=223445895731) reaches it in two pitches from the Great Slab, with the first double-bolt station about 50 m up. Despite the name there is no spring.
 - **Ear Rock (귀바위)**: the ear-shaped block at the top right, where Chouinard A/B and Medical School end.
 - **Spring (샘터)**: the water source on the left side of the Great Slab, used as the reference point for Crony's start.
+
+## Where to find the Korean topo drawings
+
+Korean climbers call a topo a "개념도" (concept map): a hand drawing, or lines drawn over a photo. These are the ones most widely shared online. The images belong to their authors and are not reproduced here; follow the links to see them on the original pages. The figures on each drawing were checked against the pitch tables on this page; where they agree, nothing more is said, and where they differ, the difference is noted in that route's section.
+
+| Route | Drawing | Date and origin | What the drawing gives |
+| --- | --- | --- | --- |
+| Whole-face numbered map | [Doraetgubi: Insubong front-face concept map](https://ami41.tistory.com/351) | 2012 blog post | A numbered overview of about 38 routes on the east and southwest faces, with pitch-by-pitch text for Chouinard A/B. |
+| Chouinard A | [Daum café Eoksen Dream Team: Chouinard A concept map](https://m.cafe.daum.net/eccen/n71/96) | 2010 post | A hand drawing of "Kwibawi D (Chouinard A)" plus a photo topo (marked "provided by Nepa", an outdoor brand). 6 pitches, 181 m, max 5.10a; gear listed as Friends 2–5 and nuts 2–5. The same Nepa photo-topo series also has versions for Chouinard B, Medical School and other routes, reposted on Korean blogs in 2011–2012. |
+| Chouinard B, Biwon, Yangji, Moseol | [jangdayena: Bukhansan Insubong](https://blog.naver.com/jangdayena/221090402685); [2020 repost](https://m.blog.naver.com/genie102517/221913128241) | 2017 blog post; the reposter notes it is the version "after the routes were reorganised" | One drawing of four routes, each with lengths, top grade and gear. |
+| Insu B | [Doraetgubi: Insubong Insu B-gil](https://ami41.tistory.com/746) | 2015 blog post; the drawing credits the May 2008 rock-climbing guide in *Saramgwa San* (사람과 산), redrawn in 2012 by Yang Gyu-uk of Sanbit Alpine Club | "Bukhansan Insubong East Face 2": 3 pitches of 37 / 30 / 30 m, max 5.8. |
+| Pigeon | [leisurely-climber: Pigeon-gil concept map](https://leisurely-climber.tistory.com/entry/%EB%B9%84%EB%91%98%EA%B8%B0%EA%B8%B8-%EB%93%B1%EB%B0%98-%EC%B2%AB-%EC%83%88%EB%82%B4%EA%B8%B0%EC%9D%98-%EB%93%B1%EB%B0%98%EA%B8%B0%EB%A1%9D-%EB%B9%84%EB%91%98%EA%B8%B0%EA%B8%B8-%EA%B0%9C%EB%85%90%EB%8F%84-%EC%9D%B8%EC%88%98%EB%B4%89-%EC%A0%95%EC%83%81) | 2023 blog post; the same redrawn series as the Insu B drawing (same legend and source note) | "Bukhansan Insubong West Face": 4 pitches of 35 / 17 / 17 / 20 m, 5.7 A0. |
+
+These drawings come from different years, and bolts and stations may have changed since. The Biwon drawing is the post-reorganisation version, and a 2020 report says pitch 1 follows a different line since rebolting. Use the figures to cross-check, not as a guarantee of current conditions.
 
 ## Length and grade overview
 
@@ -246,6 +260,37 @@ Reaching Ear Rock counts as the end. To top out, climb the roughly 20 m Ear Rock
 
 **Descent:** after pitch 4, go right to the gnarled tree under the last Simu-gil pitch, where there are double bolts, and rappel from there; a sling threaded under the rock also works. **Do not rappel Chouinard A itself**: ropes often jam in the crack. The text version's setup is to rappel Simu-gil to Chouinard A pitch 3 first, then use two 50 m ropes in one rappel to the pitch-1 terrace.
 
+### Yangji (양지길)
+
+- **Mont Blanc East Face topo number**: #30, 5.11a.
+- **Start**: the Chouinard B pitch-1 station. A [2023 report](https://ijhwanny.tistory.com/58) places it between Medical School and Chouinard B; some drawings show Yangji pitch 1 as a separate line to the right of, and parallel with, Chouinard B pitch 1, but the writer treats the Chouinard B pitch-1 station as the start.
+- **Pitches and length**: 3 pitches, 102 m. The 2017 drawing gives a top grade of 5.11a and 10 quickdraws.
+- **Time**: 2 hours 30 minutes in the 2023 report.
+
+| Pitch | Length | Grade | Notes |
+| --- | --- | --- | --- |
+| 1 | 35 m | 5.9 | |
+| 2 | 37 m | 5.11a | The pitch with the highest listed grade, though only the small overhang near the top is hard: a short traverse from right to left on shallow underclings, where balance matters. The drawing shows a line straight up the right side of the overhang, but there are no bolts there, which makes it a serious lead. |
+| 3 | 30 m | 5.10a A0 | The writer found this the real crux, about 5.10c to 5.11a in feel. Step up on a dark spot, find good hands in the crack, then layback left to clip the first bolt; **a fall before that clip lands on the people at the pitch-2 station**. The overhang has bolts; the writer aided the last two, passed the Medical School pitch-4 station and finished at the Yangji station 3 m up and to the right. |
+
+**Descent:** in the 2023 report, one rappel on a single 60 m rope from the Medical School pitch-4 station reached Oasis; the descent took 1 hour 30 minutes.
+
+### Biwon (비원길)
+
+- **Mont Blanc East Face topo number**: #31, 5.11c A0.
+- **Start**: right side of the Great Slab (2017 drawing). A [2020 report](https://gaussmt.tistory.com/1399) says water runs over the start, which makes it very slippery.
+- **Pitches and length**: the 2017 drawing gives 5 pitches and 152 m (35 / 35 / 35 / 12 / 35), max 5.11b/c A0, 10 quickdraws. The 2020 report counts 6 pitches; the two split the route differently.
+
+From the 2020 report by a party of five:
+
+- **Pitch 1**: since rebolting, the line differs from the old one.
+- **Pitch 2**: climbs over an overhanging ledge.
+- **Pitches 3 and 4**: pitch 3 crosses Chouinard B, and pitch 4 joins Medical School and follows its aid section. The party climbed pitches 3 and 4 as one.
+- **Pitch 5**: 5.11b, the face left of Medical School; the writer found it quite hard.
+- **Finish**: pitches 5 and 6 climbed as one, ending on the terrace below Ear Rock.
+
+**Descent:** the 2020 report gives no rappel setup; it finishes near Ear Rock like Chouinard A/B, so see [Descent](#descent).
+
 ## Left of the Great Slab
 
 Routes on this side are packed onto the same wall, so positions are given relative to each other. Dongyang-gil, Haneul-gil, Georyong-gil and Villa are not on the Mont Blanc East Face topo, so there is no ready-made numbered diagram to check against. Putting several passages of [Girly's page](https://han5256.tistory.com/7667232) together, the order from bottom to top is: Cheongmaek-gil (청맥길), then Dongyang-gil (about 120 m from the Great Slab), Haneul-gil, Georyong-gil (about 180 m) and Villa (about 200 m); below Georyong there is also the single-pitch Miryeon (미련). All distances are "left and up from the Great Slab," estimated rather than measured.
@@ -260,7 +305,7 @@ Routes on this side are packed onto the same wall, so positions are given relati
 - **Start**: left of the Great Slab. [Mountain Project](https://www.mountainproject.com/route/108367078/insu-b) says it is on the left (south) side of the big slab near the crack system where Crony is, reached by walking up the river bed along the base, about 5 minutes from the sign with the map.
   - **Current way**: start up the 용암슬랩 (Yongam Slab) left of the Great Slab and reach Insu B's Oasis in 2 pitches (reports from [2024](https://gaussmt.tistory.com/1836) and [2015](https://ami41.tistory.com/746)).
   - **Old way**: a straight crack about 30 m up on the left, or the Great Slab itself, about 100 m cut into roughly three pitches ([route description on a Daum cafe](https://m.cafe.daum.net/hyedoji71/GqbR/109)).
-- **Pitch count**: 5 to 8 depending on the source. MP gives 5 pitches and 136 m; the Daum description gives 6; the 2024 report climbed 8 (including 2 on Yongam Slab, each 40 to 60 m). The 3 pitches and 97 m in the 2012 guide and Girly's table are only the lower part, not the whole route.
+- **Pitch count**: 5 to 8 depending on the source. MP gives 5 pitches and 136 m; the Daum description gives 6; the 2024 report climbed 8 (including 2 on Yongam Slab, each 40 to 60 m). The 3 pitches and 97 m in the 2012 guide and Girly's table are only the lower part, not the whole route. The redrawn *Saramgwa San* 2008 guide drawing ([2015 repost](https://ami41.tistory.com/746)) shows the same 3-pitch version: 37 / 30 / 30 m, max 5.8, with 10 quickdraws and medium-to-large cams, starting at "the upper left of the Great Slab".
 - **Crux**: the pitch-3 crack. The Daum description grades it 5.8 and says the crack narrows as you go up, so foot jams hurt.
 - **History**: [Hankyoreh 2012](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html) calls it the "eldest brother" of Insubong's routes, first climbed by Koreans in 1935; the Daum description says the first ascensionists did not use the Great Slab for the first pitch but the straight crack on the left.
 
@@ -405,7 +450,7 @@ After that come Yeongja Crack (pitch 7) and Chamgireum Rock (pitch 8). **MP says
 
 - **Mont Blanc East Face topo number**: none; this route is not among its 43.
 - **Start**: [Hankyoreh](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html) says the start is the saddle where Baegundae meets Insubong, "the descent route climbed in reverse"; from just before Rescuer, take the path to the right towards the campground and walk about 100 m towards Insubong to reach Pigeon Spring.
-- **Pitches and grade**: 4 pitches, about 89 m, 5.6 to 5.7, with only pitch 3 being aid.
+- **Pitches and grade**: 4 pitches, about 89 m, 5.6 to 5.7, with only pitch 3 being aid. The table below rates that aid pitch A1; the redrawn *Saramgwa San* guide drawing gives A0, with 10 quickdraws and small-to-medium cams.
 - **Warning**: do not climb it when many people are rappelling the south side. Rappellers' ropes tangle, and a leader's fall can be hit by falling rope ([Power's summary](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)).
 
 | Pitch | Length | Grade | Rock | Notes |
@@ -483,19 +528,24 @@ After topping out, the fastest descent is the Pigeon rappel point on the south s
 The descent setups on this page are each source's own wording. Rappel points and rope lengths should follow the topo and the situation on the day; see the [main guide's descent section](/posts/climbing/2026-10-21-korea-crag-insubong-en) for details. A few shared facts:
 
 - **West-side rappel point**: [Girly's page](https://han5256.tistory.com/7667232) says four rappels with a single 50 m rope or two with double ropes to reach the ground.
-- **Around Ear Rock** (Chouinard A/B, Medical School): rappel Medical School with two 50 m ropes; parties who stop after pitch 4 rappel from the double bolts on the last Simu-gil pitch.
+- **Around Ear Rock** (Chouinard A/B, Biwon, Medical School): rappel Medical School with two 50 m ropes; parties who stop after pitch 4 rappel from the double bolts on the last Simu-gil pitch.
+- **Yangji**: the 2023 report made one rappel on a single 60 m rope from the Medical School pitch-4 station to Oasis.
 - **Do not rappel straight down Chouinard A**: the ropes jam in the crack.
 - **Look below when you rappel**: parties are often getting ready to start around Oasis, so check that nobody is below before retrieving gear from above.
 
 ## How far to trust these notes
 
-- **Dates**: the sources run from 2006 to 2024, mostly the 2010s. Fixed gear, stations and bolts may have changed; Crony pitch 6 used to have pitons and now has a bolt, and two bolts on Villa have been removed.
+- **Dates**: the sources run from 2006 to 2024, mostly the 2010s; for the dates of the drawings, see [Where to find the Korean topo drawings](#where-to-find-the-korean-topo-drawings). Fixed gear, stations and bolts may have changed; Crony pitch 6 used to have pitons and now has a bolt, and two bolts on Villa have been removed.
 - **Shared origin**: the pitch-by-pitch text on Girly's page matches the Kim Yong-gi Mountaineering School description reposted on Sanjini's page (checked for the Crony section), and several blogs repost the same compilation, so they are not independent confirmation.
 - **Versions**: pitch counts, lengths and grades often have two versions, and the notes list both. When you meet two numbers, go with the topo on the day.
 - **Positions**: starts are described as "a few dozen metres left or right" and are estimates, not measurements.
 - **Gaps**: no clear start description was found for Haneul-gil, Rescuer or PASI, and each says so above.
 
-This page is no substitute for a good topo. For east-face routes, download (or buy the poster of) the [Mont Blanc Lines East Face topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face) before you go, then use this page to cross-check each pitch's length and crux; for the four south-face routes there is no matching topo, so look at the front-face and southwest-face concept maps linked from [Girly's page](https://han5256.tistory.com/7667232) (they are images, so their content could not be read here and it is unclear whether they cover these four), and find a partner who knows that side.
+This page is no substitute for a good topo. For east-face routes, download (or buy the poster of) the [Mont Blanc Lines East Face topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face) before you go, then use this page to cross-check each pitch's length and crux; for the four south-face routes there is no matching topo, but [Doraetgubi's numbered whole-face map](https://ami41.tistory.com/351) numbers Dongyang, Haneul, Georyong and Villa, so use it to locate them, and find a partner who knows that side.
+
+## Update history
+
+- 2026-10-25: added "Where to find the Korean topo drawings", listing the original sources of the Korean community topos for Chouinard A, Chouinard B, Insu B, Pigeon and others, with their figures checked against the pitch tables; added Yangji and Biwon; added the redrawn *Saramgwa San* guide figures to Insu B and Pigeon.
 
 ## References
 
@@ -524,3 +574,10 @@ This page is no substitute for a good topo. For east-face routes, download (or b
 - [Wooltraveler (Chaeul): Insubong Crony-gil and Pigeon-gil, 2022](https://m.blog.naver.com/wooltraveler/222900749975) (in Korean)
 - [Wolgan San: Sanggongsa-gil opened on Bukhansan Insubong, 2003](http://san.chosun.com/site/data/html_dir/2003/08/13/2003081378029.html) (in Korean)
 - [Buldeuchi's daily life: Insubong Insu B, 2025](https://gaussmt.tistory.com/1927) (in Korean)
+- [Doraetgubi: Bukhansan Insubong front-face concept map, 2012](https://ami41.tistory.com/351) (in Korean)
+- [Daum café Eoksen Dream Team: Chouinard A concept map, 2010](https://m.cafe.daum.net/eccen/n71/96) (in Korean)
+- [jangdayena: Bukhansan Insubong (Moseol, Yangji, Chouinard B, Biwon concept map), 2017](https://blog.naver.com/jangdayena/221090402685) (in Korean)
+- [genie102517: Bukhansan Insubong Moseol, Yangji, Chouinard B, Biwon route concept map, 2020](https://m.blog.naver.com/genie102517/221913128241) (in Korean)
+- [leisurely-climber: Pigeon-gil climb and concept map, 2023](https://leisurely-climber.tistory.com/entry/%EB%B9%84%EB%91%98%EA%B8%B0%EA%B8%B8-%EB%93%B1%EB%B0%98-%EC%B2%AB-%EC%83%88%EB%82%B4%EA%B8%B0%EC%9D%98-%EB%93%B1%EB%B0%98%EA%B8%B0%EB%A1%9D-%EB%B9%84%EB%91%98%EA%B8%B0%EA%B8%B8-%EA%B0%9C%EB%85%90%EB%8F%84-%EC%9D%B8%EC%88%98%EB%B4%89-%EC%A0%95%EC%83%81) (in Korean)
+- [ijhwanny: Insubong Yangji-gil, 2023](https://ijhwanny.tistory.com/58) (in Korean)
+- [Buldeuchi's daily life: Insubong Biwon-gil, 2020](https://gaussmt.tistory.com/1399) (in Korean)
