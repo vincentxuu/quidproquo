@@ -99,12 +99,12 @@ For the easiest line, start with **Lonely Road**: theCrag calls it the easiest r
 
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Lonely Road / 고독의 길 | 5.6 | 5.6 | 350 m / 6 pitches | Far right of the East Face (past Chouinard A) | 2025 ✓; listed in the 2025 topo as #38, also 5.6; not in the 2012 guide, and the 350 m / 6 pitches come only from theCrag. theCrag calls it the easiest route on Insubong. |
-| Pigeon / 비둘기 (Pigeon Route) | 5.7 A0 (theCrag); 5.6 A1 (2012) | 5.7, plus A0 | 89 m / 4 pitches | South side (by the descent point) | 2025 —; both sources list it but disagree on the aid rating (A0/A1); the third pitch is aid. This is also the descent line. |
-| Insu A / 인수 A | 5.8 (hardest) | 5.8 | 115 m / 4 pitches | East Face | 2025 ✓; length from 2012 guide; 2025 topo also gives 5.8. |
-| Chouinard B / 취나드 B | 5.8 (hardest) | 5.8 | 2012 version: 177 m / 5 pitches | East Face | 2025 ✓; 2025 topo names Chouinard B–Kwibawi C; confirm the linkup and endpoint. |
-| Insu B / 인수 B | 5.9 (hardest) | 5.9 | 97 m / 3 pitches (2012, lower part only); [MP](https://www.mountainproject.com/route/108367078/insu-b) 5 pitches / 136 m; several reports 6 to 8 | Left of the Great Slab | 2025 —; the topo's route list has no entry of that name: reports say it shares its start with Crony (#3), meets Sanggongsa (#4) higher up, and is now often entered via Yongam Slab (#6), so it is split across those numbers (inferred from text; the topo photo has no per-line numbers to check). The 3 pitches in the 2012 guide and Girly's table are only the lower part, not the whole route; see the [route notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en) for the pitches. It is not the same route as the back-face Seolgyobyeok. |
-| Chouinard A / 취나드 A | 5.10a (2025 topo, hardest) | 5.10a | 181 m / 6 pitches (2012) | East Face | 2025 ✓; 2025 names Chouinard A–Kwibawi D. The 2012 overall grade is 5.10c but its listed pitches top out at 5.10a; its length is not spliced into the newer line. |
+| Lonely Road / 고독의 길 | 5.6 | 5.6 | 350 m / 6 pitches | Far right of the East Face (past Chouinard A) | 2025 ✓; listed in the 2025 topo as #38, also 5.6; not in the 2012 guide, and the 350 m / 6 pitches come only from theCrag. theCrag calls it the easiest route on Insubong. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#lonely-road-고독의-길) |
+| Pigeon / 비둘기 (Pigeon Route) | 5.7 A0 (theCrag); 5.6 A1 (2012) | 5.7, plus A0 | 89 m / 4 pitches | South side (by the descent point) | 2025 —; both sources list it but disagree on the aid rating (A0/A1); the third pitch is aid. This is also the descent line. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#pigeon-비둘기길) |
+| Insu A / 인수 A | 5.8 (hardest) | 5.8 | 115 m / 4 pitches | East Face | 2025 ✓; length from 2012 guide; 2025 topo also gives 5.8. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#insu-a-인수-a) |
+| Chouinard B / 취나드 B | 5.8 (hardest) | 5.8 | 2012 version: 177 m / 5 pitches | East Face | 2025 ✓; 2025 topo names Chouinard B–Kwibawi C; confirm the linkup and endpoint. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#chouinard-b-취나드-b) |
+| Insu B / 인수 B | 5.9 (hardest) | 5.9 | 97 m / 3 pitches (2012, lower part only); [MP](https://www.mountainproject.com/route/108367078/insu-b) 5 pitches / 136 m; several reports 6 to 8 | Left of the Great Slab | 2025 —; the topo's route list has no entry of that name: reports say it shares its start with Crony (#3), meets Sanggongsa (#4) higher up, and is now often entered via Yongam Slab (#6), so it is split across those numbers (inferred from text; the topo photo has no per-line numbers to check). The 3 pitches in the 2012 guide and Girly's table are only the lower part, not the whole route; see the [route notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#insu-b-인수-b) for the pitches. It is not the same route as the back-face Seolgyobyeok. |
+| Chouinard A / 취나드 A | 5.10a (2025 topo, hardest) | 5.10a | 181 m / 6 pitches (2012) | East Face | 2025 ✓; 2025 names Chouinard A–Kwibawi D. The 2012 overall grade is 5.10c but its listed pitches top out at 5.10a; its length is not spliced into the newer line. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#chouinard-a-취나드-a) |
 
 ```video-gallery
 key: insubong
@@ -119,7 +119,7 @@ Consider **Wand** if slab difficulty is a priority. The versions differ by a gra
 
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Wand / 봔트 | 5.10b (2025); 5.10c (2012) | 5.10b / 5.10c | 2012 version: 162 m / 4 pitches | East Face | 2025 ✓; 2025 topo 5.10b versus 2012 guide 5.10c; length belongs to the old version. |
+| Wand / 봔트 | 5.10b (2025); 5.10c (2012) | 5.10b / 5.10c | 2012 version: 162 m / 4 pitches | East Face | 2025 ✓; 2025 topo 5.10b versus 2012 guide 5.10c; length belongs to the old version. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#wand-봔트길) |
 | Maninbo / 만인보 | 5.11b | 5.11b | 15 m | East Face | 2025 ✓; length from 2012 guide; 2025 topo also lists 5.11b. |
 
 ```video-gallery
@@ -135,7 +135,7 @@ The older guide's **Villa** illustrates another side of harder Insubong multipit
 
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Villa / 빌라길 | 5.12a (hardest), plus A2 | 5.12a, plus A2 | 165 m / 6 pitches | Locate using guide | 2025 —; single 2012 guide source; the last pitch is listed as A2. Not a fully free route description. |
+| Villa / 빌라길 | 5.12a (hardest), plus A2 | 5.12a, plus A2 | 165 m / 6 pitches | Locate using guide | 2025 —; single 2012 guide source; the last pitch is listed as A2. Not a fully free route description. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#villa-빌라길) |
 
 ```video-gallery
 key: insubong
@@ -160,13 +160,13 @@ The 2025 East Face topo gives each of these lines a fixed number; its grade take
 
 | Route | Grade | YDS | Length / pitches | Notes |
 | --- | --- | --- | --- | --- |
-| Crony / 크로니 | 5.9 | 5.9 | 237 m / 9 pitches | 2025 East Face #3; opened by Crony Mountaineering Club (크로니산악회) in 1970. Older sources sometimes give 5.10a; the topo uses 5.9. The pitch-6 crack (about 21 m, the old write-up calls it "크로니의 백미", Crony’s finest) is the line’s signature; pitch 5 is the slab-pendulum. |
-| Insu Ridge / 인수리지 | 5.9 | 5.9 | about 215 m / 7 pitches | 2025 East Face #43; follows the north ridge from about 630 m to the summit, the only ridge route on Insubong. About 4 hours for a team of three; two 60 m ropes, five quickdraws and one set of cams. |
-| Amidong / 아미동 | 5.10a | 5.10a | 7 pitches | 2025 East Face #1; opened in 1963 by 이동일 of the Academy Mountaineering Club. No reliable total length was found, so only the pitch count is given. It starts on the left side of the East Face, between Crony and Insu B. |
-| Medical School / 의대 | 5.10a A0 | 5.10a, plus A0 | about 100–136 m / 5–6 pitches | 2025 East Face #27; opened in 1971 by the Seoul National University medical school club. Older route data gives 136 m / 6 pitches; a 2022 50th-anniversary report gives 5 pitches and about 100 m. Pitch 2 (5.10a) is the crux and pitch 3 includes aid. |
-| Rescuer / 구조대 | 5.10a A0 | 5.10a, plus A0 | 12 pitches / about 300–360 m | 2025 East Face #39; opened in 2010 by the Bukhansan police mountain rescue team, with 12 pitches of 25–30 m each. The topo gives 5.10a A0; the free version is about 5.11b. It has the most pitches, so time and retreat management matter more than the grade. |
-| PASI / 패시 | 5.10c | 5.10c | 139 m / 5 pitches | 2025 East Face #20; pitches 3 and 4 are back-to-back 5.10c, alternating cracks and slabs. An endurance test for East Face 5.10 multipitch. |
-| Sanchonji / 산천지 | 5.11a | 5.11a | 119 m / 5 pitches | 2025 East Face #21; pitch 2 is 5.10d and pitch 4 is 5.11a. The difficulties are concentrated on slabs and friction. |
+| Crony / 크로니 | 5.9 | 5.9 | 237 m / 9 pitches | 2025 East Face #3; opened by Crony Mountaineering Club (크로니산악회) in 1970. Older sources sometimes give 5.10a; the topo uses 5.9. The pitch-6 crack (about 21 m, the old write-up calls it "크로니의 백미", Crony’s finest) is the line’s signature; pitch 5 is the slab-pendulum. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#crony-크로니길) |
+| Insu Ridge / 인수리지 | 5.9 | 5.9 | about 215 m / 7 pitches | 2025 East Face #43; follows the north ridge from about 630 m to the summit, the only ridge route on Insubong. About 4 hours for a team of three; two 60 m ropes, five quickdraws and one set of cams. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#insu-ridge-인수리지-the-back-side) |
+| Amidong / 아미동 | 5.10a | 5.10a | 7 pitches | 2025 East Face #1; opened in 1963 by 이동일 of the Academy Mountaineering Club. No reliable total length was found, so only the pitch count is given. It starts on the left side of the East Face, between Crony and Insu B. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#amidong-아미동길) |
+| Medical School / 의대 | 5.10a A0 | 5.10a, plus A0 | about 100–136 m / 5–6 pitches | 2025 East Face #27; opened in 1971 by the Seoul National University medical school club. Older route data gives 136 m / 6 pitches; a 2022 50th-anniversary report gives 5 pitches and about 100 m. Pitch 2 (5.10a) is the crux and pitch 3 includes aid. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#medical-school-의대길) |
+| Rescuer / 구조대 | 5.10a A0 | 5.10a, plus A0 | 12 pitches / about 300–360 m | 2025 East Face #39; opened in 2010 by the Bukhansan police mountain rescue team, with 12 pitches of 25–30 m each. The topo gives 5.10a A0; the free version is about 5.11b. It has the most pitches, so time and retreat management matter more than the grade. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#rescuer-구조대길) |
+| PASI / 패시 | 5.10c | 5.10c | 139 m / 5 pitches | 2025 East Face #20; pitches 3 and 4 are back-to-back 5.10c, alternating cracks and slabs. An endurance test for East Face 5.10 multipitch. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#pasi-패시길) |
+| Sanchonji / 산천지 | 5.11a | 5.11a | 119 m / 5 pitches | 2025 East Face #21; pitch 2 is 5.10d and pitch 4 is 5.11a. The difficulties are concentrated on slabs and friction. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#sanchonji-산천지길) |
 
 ```video-gallery
 key: insubong
@@ -181,9 +181,9 @@ These three are not on the 2025 East Face topo. Their grades and lengths come ma
 
 | Route | Grade | YDS | Length / pitches | Notes |
 | --- | --- | --- | --- | --- |
-| Dongyang-gil / 동양길 | 5.10b | 5.10b | 209 m / 8 pitches | Southeast face; opened by Dongyang Mountaineering Club (동양산악회) in October 1969, first ascent by 이용대. Pitch 1 starts at 5.7, pitches 2 and 3 are 5.10b slabs, pitch 4 is a 35 m 5.8 crack, pitch 6 is aid and the last pitch is a 5.10a slab; it is not a fully free route. The Imgok book piece (*Korean Rock Routes (1)*, 2012, 조윤성) announces 8 pitches / 209 m but describes only seven; community route tables list the full 8-pitch breakdown. The pitch-count description differs by source. |
-| Haneul-gil / 하늘길 | 5.10c | 5.10c | 190 m / 7 pitches | South face; opened by Ujeong Mountaineering Club in 1969. Pitches 1 and 2 are 5.10a cracks; pitches 5 and 7 are 5.10c. Pitch 1 is where most falls happen, not just the upper pitches. |
-| Georyong-gil / 거룡길 | 5.12b | 5.12b | originally 200 m / 9 pitches, now usually 7 | South face; opened in May 1972 by 장봉완, 김제훈, 고 전재운 (Monthly Mountain spells it "고 전재운씨") and others. Pitch 1 is the 5.12b crux; pitches 3 and 4 are 5.11b and pitch 6 is 5.11a. Pitch 3 has a pendulum and pitch 6 has old bolts. |
+| Dongyang-gil / 동양길 | 5.10b | 5.10b | 209 m / 8 pitches | Southeast face; opened by Dongyang Mountaineering Club (동양산악회) in October 1969, first ascent by 이용대. Pitch 1 starts at 5.7, pitches 2 and 3 are 5.10b slabs, pitch 4 is a 35 m 5.8 crack, pitch 6 is aid and the last pitch is a 5.10a slab; it is not a fully free route. The Imgok book piece (*Korean Rock Routes (1)*, 2012, 조윤성) announces 8 pitches / 209 m but describes only seven; community route tables list the full 8-pitch breakdown. The pitch-count description differs by source. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#dongyang-gil-동양길) |
+| Haneul-gil / 하늘길 | 5.10c | 5.10c | 190 m / 7 pitches | South face; opened by Ujeong Mountaineering Club in 1969. Pitches 1 and 2 are 5.10a cracks; pitches 5 and 7 are 5.10c. Pitch 1 is where most falls happen, not just the upper pitches. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#haneul-gil-하늘길) |
+| Georyong-gil / 거룡길 | 5.12b | 5.12b | originally 200 m / 9 pitches, now usually 7 | South face; opened in May 1972 by 장봉완, 김제훈, 고 전재운 (Monthly Mountain spells it "고 전재운씨") and others. Pitch 1 is the 5.12b crux; pitches 3 and 4 are 5.11b and pitch 6 is 5.11a. Pitch 3 has a pendulum and pitch 6 has old bolts. [pitch notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en#georyong-gil-거룡길) |
 
 ```video-gallery
 key: insubong

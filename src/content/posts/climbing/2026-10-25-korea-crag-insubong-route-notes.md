@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en)
 
-[仁壽峰的選線文](/posts/climbing/2026-10-21-korea-crag-insubong)告訴你哪條線適合自己的繩隊，但站在北漢山（首爾）的岩壁底下，你還需要知道：這條線從哪裡起攀、每一段多長、難關在第幾段、爬完怎麼下來。這篇補的就是這些，範圍是仁壽峰的多段（多繩距）路線。
+[仁壽峰的選線文](/posts/climbing/2026-10-21-korea-crag-insubong)告訴你哪條線適合自己的繩隊，但站在北漢山（首爾）的岩壁底下，你還需要知道：這條線從哪裡起攀、每一段多長、難關在第幾段、爬完怎麼下來。這篇補的就是這些，範圍是仁壽峰的多段（多繩距）路線。它是選線文的附錄：先用選線文決定要爬哪一條，再回到這裡找起攀位置和逐段資料；選線文的路線表裡，每條有資料的路線都連到這裡對應的小節。
 
 **這不是 topo。** 內容整理自韓國攀登社群 2006 到 2024 年的文字紀錄，沒有岩壁照片，也沒有路線編號。東壁一帶的線，現場找線仍要以 [Mont Blanc Lines 的東壁數位 topo](https://www.montblanclines.com/products/%ec%9d%b8%ec%88%98%eb%b4%89-insubong-east-face)為準（一張東面照片疊上路線，底下列 43 條路線；商品頁提供中解析度的個人用途下載，也賣印刷海報。各線小節標了它的編號），這篇當作出發前的預習和現場的對照。**南面的 Dongyang-gil、Haneul-gil、Georyong-gil、Villa 不在那 43 條裡**，這四條線只能靠這篇和下面引用的概念圖。
 
