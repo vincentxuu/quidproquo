@@ -99,8 +99,8 @@ For the easiest line, start with **Lonely Road**: theCrag calls it the easiest r
 
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Lonely Road / 고독의 길 | 5.6 | 5.6 | 350 m / 6 pitches | West face | 2025 ✓; listed in the 2025 topo as #38, also 5.6; not in the 2012 guide, and the 350 m / 6 pitches come only from theCrag. theCrag calls it the easiest route on Insubong. |
-| Pigeon / 비둘기 (Pigeon Route) | 5.7 A0 (theCrag); 5.6 A1 (2012) | 5.7, plus A0 | 89 m / 4 pitches | West face | 2025 —; both sources list it but disagree on the aid rating (A0/A1); the third pitch is aid. This is also the descent line. |
+| Lonely Road / 고독의 길 | 5.6 | 5.6 | 350 m / 6 pitches | Far right of the East Face (past Chouinard A) | 2025 ✓; listed in the 2025 topo as #38, also 5.6; not in the 2012 guide, and the 350 m / 6 pitches come only from theCrag. theCrag calls it the easiest route on Insubong. |
+| Pigeon / 비둘기 (Pigeon Route) | 5.7 A0 (theCrag); 5.6 A1 (2012) | 5.7, plus A0 | 89 m / 4 pitches | South side (by the descent point) | 2025 —; both sources list it but disagree on the aid rating (A0/A1); the third pitch is aid. This is also the descent line. |
 | Insu A / 인수 A | 5.8 (hardest) | 5.8 | 115 m / 4 pitches | East Face | 2025 ✓; length from 2012 guide; 2025 topo also gives 5.8. |
 | Chouinard B / 취나드 B | 5.8 (hardest) | 5.8 | 2012 version: 177 m / 5 pitches | East Face | 2025 ✓; 2025 topo names Chouinard B–Kwibawi C; confirm the linkup and endpoint. |
 | Insu B / 인수 B | 5.9 (hardest) | 5.9 | 97 m / 3 pitches (2012, lower part only); [MP](https://www.mountainproject.com/route/108367078/insu-b) 5 pitches / 136 m; several reports 6 to 8 | Left of the Great Slab | 2025 —; the topo's route list has no entry of that name, but reports say the current way starts up Yongam Slab (#6) for 2 pitches, so the topo may draw only the lower part. The 3 pitches in the 2012 guide and Girly's table are only the lower part, not the whole route; see the [route notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en) for the pitches. It is not the same route as the back-face Seolgyobyeok. |
@@ -241,6 +241,7 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 
 ## Update history
 
+- 2026-10-25: corrected the sub-area of Lonely Road and Pigeon (Lonely Road is on the far right of the East Face, past Chouinard A; Pigeon is on the south side by the descent point; "West face" was wrong).
 - 2026-10-25: added sources and location for Insu B (Mountain Project: 5 pitches / 136 m; several reports 6 to 8; the current way starts up Yongam Slab), noted that the 2012 guide's 3 pitches / 97 m are only the lower part and that it is not Seolgyobyeok; fixed the explanation of "—".
 - 2026-10-25: corrected the 2025-topo column for Lonely Road (the topo does include it, as #38 at 5.6); its length and pitch count are still only from theCrag.
 - 2026-10-25: added a link to the pitch-by-pitch route notes (starts, pitch lengths and descents) and stated that this guide is not a topo.

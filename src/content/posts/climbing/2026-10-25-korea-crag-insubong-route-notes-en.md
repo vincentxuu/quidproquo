@@ -377,8 +377,12 @@ After topping out, move slightly left to the west-side rappel point.
 ### Lonely Road (고독의 길)
 
 - **Mont Blanc East Face topo number**: #38 (5.6).
-- **Start** ([Power's summary](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)): from Harujae go past the Insu campground and the Pigeon Spring (비둘기샘), walk under the Great Slab all the way to its right end, and that is the start.
-- **Pitches**: [Hankyoreh 2012](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html) gives 8 pitches, hardest 5.8, widely considered the easiest route on Insubong and the one most beginners climb. It is very crowded at weekends, so go on a weekday, and do not skimp on protection just because it is easy.
+- **Start**: on the far right of the East Face.
+  - [Power's summary](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819): from Harujae go past the Insu campground and the Pigeon Spring (비둘기샘), walk under the Great Slab all the way to its right end.
+  - [theCrag](https://www.thecrag.com/en/climbing/south-korea/insubong/route/1016936403): the far right, on a ledge with some trees, just past Chouinard A.
+  - [Mountain Project](https://www.mountainproject.com/route/112120315/go-deok-wei-gil): trace the base to the right until you are below the obvious crack of Chouinard A, scramble a few metres further right and go up some class 3/4 terrain to the start; it is hard to find.
+  - [2017 report](https://blog.naver.com/PostView.nhn?blogId=sigint&logNo=221114366546): the official pitch-1 start is a big pine; climb the chimney gap on the left, or go slightly right and climb a short section first. Their party of seven moved right and started from "pitch 0".
+- **Pitches**: MP gives 8 pitches and about 152 m, saying every pitch is around 5.6 with some walking in between; theCrag gives 6 pitches and 350 m. [Hankyoreh 2012](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html) gives 8 pitches, hardest 5.8, widely considered the easiest route on Insubong and the one most beginners climb. It is very crowded at weekends, so go on a weekday, and do not skimp on protection just because it is easy.
 
 | Pitch | Length | Grade | Rock | Notes |
 | --- | --- | --- | --- | --- |
@@ -389,7 +393,9 @@ After topping out, move slightly left to the west-side rappel point.
 | 5 | about 40 m | 5.6 | Gully crack | Climb right and pass through the "dog hole" (개구멍) to the right of Ear Rock. |
 | 6 | about 5 m | n/a | Short steps | Step up like stairs, then cross the left foot to the rock on the left; this is where it joins Insu A, at the end of Insu A pitch 4. |
 
-After that come Yeongja Crack (pitch 7) and Chamgireum Rock (pitch 8, polished smooth, so most people slip once or twice), then the summit. After Rescuer pitch 6 you can traverse over to pitch 3 of this route to bail.
+After that come Yeongja Crack (pitch 7) and Chamgireum Rock (pitch 8). **MP says the hardest part of the route is the 10 to 15 ft slab just below the summit**: no anchors, no bolts, nowhere for gear, so you solo it; the rock is polished and greasy from the traffic, and a fall means scraping down to uneven rocks below, so have a partner spot you. There is now a fixed rope there. Above pitch 2 there is a cave with awkward boulders that are hard to pass with a pack, and it also serves as an informal toilet, so it smells strongly (see the [2017 report](https://blog.naver.com/PostView.nhn?blogId=sigint&logNo=221114366546)). After Rescuer pitch 6 you can traverse over to pitch 3 of this route to bail.
+
+**Descent:** MP says to follow the fixed rope down the back of the summit to a single rappel station, use the right-most station, and one rappel with two 60 m ropes reaches the ground; from the left station two 60 m ropes may be too short. theCrag's version is to walk southeast to find a rope, then west to a horizontal chain of roughly 10 m of bolts, and use the western-most anchors for a 60 m rappel to the ground.
 
 ### Pigeon (비둘기길)
 
@@ -508,3 +514,6 @@ This page is no substitute for a good topo. For east-face routes, download (or b
 - [Dorae Gubi: Insubong Insu B-gil, 2015](https://ami41.tistory.com/746) (in Korean)
 - [Daum cafe: Insubong B course description](https://m.cafe.daum.net/hyedoji71/GqbR/109) (in Korean)
 - [Wooltraveler (Chaeul): Insubong Insu B route, 2021](https://m.blog.naver.com/wooltraveler/222329258441) (in Korean)
+- [Mountain Project: Go-Deok Wei Gil (Lonely Road)](https://www.mountainproject.com/route/112120315/go-deok-wei-gil)
+- [theCrag: 고독의 길 (Lonely Road)](https://www.thecrag.com/en/climbing/south-korea/insubong/route/1016936403)
+- [28 Cheongchun: Insubong Lonely Road concept map and report, 2017](https://blog.naver.com/PostView.nhn?blogId=sigint&logNo=221114366546) (in Korean)

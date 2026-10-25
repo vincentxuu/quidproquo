@@ -377,8 +377,12 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 ### Lonely Road／고독의 길
 
 - **Mont Blanc 東壁 topo 編號**：#38（5.6）。
-- **起攀位置**（[파워的整理](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)）：從 하루재 經仁壽營地、비둘기샘（鴿子泉），走到大斜板底下，一路往右走到盡頭，就是起點。
-- **段數**：[한겨레 2012](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html)記 8 段，最高 5.8，是仁壽峰公認最容易、初學者最常爬的線，週末非常擁擠，建議平日去，不要因為容易就少放保護。
+- **起攀位置**：在東面最右端。
+  - [파워的整理](https://m.blog.naver.com/PostView.naver?blogId=jsm626&logNo=70175592819)：從 하루재 經仁壽營地、비둘기샘（鴿子泉），走到大斜板底下，一路往右走到盡頭。
+  - [theCrag](https://www.thecrag.com/en/climbing/south-korea/insubong/route/1016936403)：最右邊、有樹的台階，剛過 Chouinard A。
+  - [Mountain Project](https://www.mountainproject.com/route/112120315/go-deok-wei-gil)：沿岩壁底部往右走到 Chouinard A 那道明顯的裂隙下面，再往右幾公尺，爬一小段 3 到 4 級的地形到起點，不好找。
+  - [2017 年的紀錄](https://blog.naver.com/PostView.nhn?blogId=sigint&logNo=221114366546)：官方第 1 段起點是一棵大松樹；從左邊的煙囪縫爬上去，或稍微右轉先爬一小段。他們 7 人往右移，從「第 0 段」開始。
+- **段數**：MP 記 8 段、約 152 公尺，說每段都是 5.6 左右，段與段之間有走路；theCrag 記 6 段、350 公尺。[한겨레 2012](https://www.hani.co.kr/arti/specialsection/esc_section/553495.html)記 8 段，最高 5.8，是仁壽峰公認最容易、初學者最常爬的線，週末非常擁擠，建議平日去，不要因為容易就少放保護。
 
 | 段 | 長度 | 級數 | 岩型 | 備註 |
 | --- | --- | --- | --- | --- |
@@ -389,7 +393,9 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 | 5 | 約 40 公尺 | 5.6 | 水溝裂隙 | 往右爬，從耳岩右邊的「狗洞（개구멍）」穿過去。 |
 | 6 | 約 5 公尺 | — | 短台階 | 往上跨幾階，再把左腳跨到左邊的岩塊；這裡與 Insu A 會合，是 Insu A 第 4 段結束的位置。 |
 
-之後是永子裂隙（第 7 段）和 참기름바위（第 8 段，磨得很滑，多半滑一兩次），然後到山頂。Rescuer 第 6 段之後可橫渡到這條線第 3 段撤退。
+之後是永子裂隙（第 7 段）和 참기름바위（第 8 段）。**MP 說全線最難的是山頂下方 10 到 15 英尺的岩板**：沒有站、沒有 bolt、放不了保護，要徒手爬，岩面被大量人潮磨得像上了油，摔下去會一路擦到下面不平的岩石，建議請同伴在下面保護。現在山頂前有固定繩。第 2 段上方有個洞，裡面有幾顆礙事的大石頭，背著包不好過，也有人當臨時廁所，味道很重（見[2017 年的紀錄](https://blog.naver.com/PostView.nhn?blogId=sigint&logNo=221114366546)）。Rescuer 第 6 段之後可橫渡到這條線第 3 段撤退。
+
+**下降：** MP 說沿山頂背面的固定繩走到單一垂降站，用最右邊的站，2 條 60 公尺繩接起來一次到地面；走左邊的站，2 條 60 公尺可能不夠。theCrag 的說法是往東南找繩，再往西找一段約 10 公尺的水平 bolt 鏈，用最西邊的錨點，60 公尺垂降到地面。
 
 ### Pigeon／비둘기길
 
@@ -508,3 +514,6 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 - [도랫굽이：인수봉 인수B길，2015](https://ami41.tistory.com/746)
 - [Daum 咖啡廳：인수봉 B코스 路線說明](https://m.cafe.daum.net/hyedoji71/GqbR/109)
 - [울트래블러（채울）：인수봉 인수B 루트，2021](https://m.blog.naver.com/wooltraveler/222329258441)
+- [Mountain Project：Go-Deok Wei Gil（Lonely Road）](https://www.mountainproject.com/route/112120315/go-deok-wei-gil)
+- [theCrag：고독의 길（Lonely Road）](https://www.thecrag.com/en/climbing/south-korea/insubong/route/1016936403)
+- [28청춘：인수봉 고독길 개념도＋후기，2017](https://blog.naver.com/PostView.nhn?blogId=sigint&logNo=221114366546)
