@@ -22,43 +22,56 @@ title: 看起來準的記憶，可能錯在兩個看不見的地方
 desc: 使用者的互動偏好與記憶治理狀態是記憶內容之外的兩個隱藏面向，MemPABench 揭露偏好記得住卻用不上，Governance-State Corruption 揭露內容對但治理狀態被破壞後仍照用；右側 DoorDash 展示把任務收窄到有驗證閥時，agent 自動化已經可以穩定上線。
 caption: 簡化示意：左側兩篇論文揭露同一條記憶管線上的兩種不同失效點，右側案例說明收窄任務範圍後,驗證閥本身就能撐起可上線的可靠度。
 ---
-<svg viewBox="0 0 640 420">
-  <path class="dg-line" d="M156 90H172" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M156 180H172" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M296 90H312" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M296 180H312" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M454 135H470" marker-end="url(#arrow)"/>
+<svg viewBox="0 0 800 464">
 
-  <rect class="dg-box dg-box--link" x="16" y="58" width="140" height="64" rx="6"/>
-  <text class="dg-label" x="86" y="81" text-anchor="middle" dominant-baseline="central">記憶內容</text>
-  <text class="dg-sub" x="86" y="101" text-anchor="middle" dominant-baseline="central">事實／偏好</text>
+  <path class="dg-line" d="M184 114H216" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M184 258H216" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M408 114H420Q428 114 428 122V144Q428 152 436 152H448" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M408 258H420Q428 258 428 250V232Q428 224 436 224H448" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M592 188H632" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box dg-box--link" x="16" y="148" width="140" height="64" rx="6"/>
-  <text class="dg-label" x="86" y="171" text-anchor="middle" dominant-baseline="central">記憶治理狀態</text>
-  <text class="dg-sub" x="86" y="191" text-anchor="middle" dominant-baseline="central">還有效嗎？</text>
+  <rect class="dg-box dg-box--link" x="16" y="64" width="168" height="100" rx="6"/>
+  <text class="dg-label" x="100" y="100" text-anchor="middle" dominant-baseline="central">記憶內容</text>
+  <text class="dg-sub" x="100" y="124" text-anchor="middle" dominant-baseline="central">事實／偏好</text>
 
-  <rect class="dg-box dg-box--accent" x="172" y="58" width="124" height="64" rx="6"/>
-  <text class="dg-label" x="234" y="81" text-anchor="middle" dominant-baseline="central">MemPABench</text>
-  <text class="dg-sub" x="234" y="101" text-anchor="middle" dominant-baseline="central">偏好記得住卻用不上</text>
+  <rect class="dg-box dg-box--link" x="16" y="208" width="168" height="100" rx="6"/>
+  <text class="dg-label" x="100" y="244" text-anchor="middle" dominant-baseline="central">記憶治理狀態</text>
+  <text class="dg-sub" x="100" y="268" text-anchor="middle" dominant-baseline="central">還有效嗎？</text>
 
-  <rect class="dg-box dg-box--accent" x="172" y="148" width="124" height="64" rx="6"/>
-  <text class="dg-label" x="234" y="171" text-anchor="middle" dominant-baseline="central">Governance-State</text>
-  <text class="dg-sub" x="234" y="191" text-anchor="middle" dominant-baseline="central">內容對、狀態錯仍照用</text>
+  <rect class="dg-box dg-box--accent" x="216" y="64" width="192" height="100" rx="6"/>
+  <text class="dg-label" x="312" y="92" text-anchor="middle" dominant-baseline="central">MemPABench</text>
+  <text class="dg-sub" x="312" y="116" text-anchor="middle" dominant-baseline="central">偏好記得住</text>
+  <text class="dg-sub" x="312" y="138" text-anchor="middle" dominant-baseline="central">卻用不上</text>
 
-  <rect class="dg-box" x="312" y="90" width="142" height="100" rx="6"/>
-  <text class="dg-label" x="383" y="118" text-anchor="middle" dominant-baseline="central">看起來一樣</text>
-  <text class="dg-sub" x="383" y="140" text-anchor="middle" dominant-baseline="central">記憶系統外部</text>
-  <text class="dg-sub" x="383" y="160" text-anchor="middle" dominant-baseline="central">指標都正常</text>
+  <rect class="dg-box dg-box--accent" x="216" y="208" width="192" height="100" rx="6"/>
+  <text class="dg-label" x="312" y="236" text-anchor="middle" dominant-baseline="central">Governance-State</text>
+  <text class="dg-sub" x="312" y="260" text-anchor="middle" dominant-baseline="central">內容對、狀態錯</text>
+  <text class="dg-sub" x="312" y="282" text-anchor="middle" dominant-baseline="central">仍照用</text>
 
-  <rect class="dg-box dg-box--store" x="470" y="90" width="150" height="100" rx="6"/>
-  <text class="dg-label" x="545" y="118" text-anchor="middle" dominant-baseline="central">DoorDash 案例</text>
-  <text class="dg-sub" x="545" y="140" text-anchor="middle" dominant-baseline="central">任務收窄＋CI／覆蓋率</text>
-  <text class="dg-sub" x="545" y="160" text-anchor="middle" dominant-baseline="central">驗證閥＝可上線</text>
+  <rect class="dg-box" x="448" y="116" width="144" height="144" rx="6"/>
+  <text class="dg-label" x="520" y="148" text-anchor="middle" dominant-baseline="central">看起來</text>
+  <text class="dg-label" x="520" y="168" text-anchor="middle" dominant-baseline="central">一樣</text>
+  <text class="dg-sub" x="520" y="196" text-anchor="middle" dominant-baseline="central">記憶系統外部</text>
+  <text class="dg-sub" x="520" y="220" text-anchor="middle" dominant-baseline="central">指標都正常</text>
 
-  <line class="dg-rule" x1="16" y1="320" x2="624" y2="320"/>
-  <text class="dg-tag" x="16" y="344" dominant-baseline="central">圖例</text>
-  <text class="dg-small" x="16" y="368" dominant-baseline="central">左兩排：記憶的兩種隱藏失效面向，都讓外部指標看起來正常但實際已經出錯</text>
-  <text class="dg-small" x="16" y="390" dominant-baseline="central">右側：把任務範圍收到驗證閥能完全覆蓋的大小，不確定性就被框住了</text>
+  <rect class="dg-box dg-box--store" x="632" y="116" width="152" height="144" rx="6"/>
+  <text class="dg-label" x="708" y="148" text-anchor="middle" dominant-baseline="central">DoorDash 案例</text>
+  <text class="dg-sub" x="708" y="176" text-anchor="middle" dominant-baseline="central">任務收窄＋CI／</text>
+  <text class="dg-sub" x="708" y="200" text-anchor="middle" dominant-baseline="central">覆蓋率</text>
+  <text class="dg-sub" x="708" y="224" text-anchor="middle" dominant-baseline="central">驗證閥＝可上線</text>
+
+  <line class="dg-rule" x1="16" y1="332" x2="784" y2="332"/>
+
+  <text class="dg-tag" x="16" y="352" text-anchor="start" dominant-baseline="central">圖例</text>
+
+  <text class="dg-small" x="16" y="376" text-anchor="start" dominant-baseline="central">左兩排：記憶的兩種隱藏失效面向，</text>
+
+  <text class="dg-small" x="16" y="394" text-anchor="start" dominant-baseline="central">都讓外部指標看起來正常但實際已經出錯</text>
+
+  <text class="dg-small" x="16" y="422" text-anchor="start" dominant-baseline="central">右側：把任務範圍收到驗證閥能完全覆蓋的大小，</text>
+
+  <text class="dg-small" x="16" y="440" text-anchor="start" dominant-baseline="central">不確定性就被框住了</text>
+
 </svg>
 ```
 
