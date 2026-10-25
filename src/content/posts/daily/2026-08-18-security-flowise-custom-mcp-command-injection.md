@@ -49,7 +49,7 @@ Flowise 的 Custom MCP 節點讓使用者連接自訂的 MCP server，底層透�
 **長期架構**
 - 不要對使用者可控的 command／args／env 用 deny-list 驗證——黑名單只能擋已知手法，白名單能執行的整個 MCP server 定義（而非只白名單指令名稱）才是可持續的做法
 - 讓 Custom MCP／任何「使用者自訂 stdio 子行程」類功能都跑在隔離的沙箱或容器內，限制檔案系統存取與對外連線（egress allowlist），即使繞過驗證也不會直接拿到主機層級的執行權
-- 導入 watchlist B7 中聚焦 MCP／Agent 執行期治理的工具（如 **Invariant Labs** 的 MCP 掃描與可視性工具、**Lasso Security** 的 Agent 執行期監控）協助偵測異常的 MCP tool 呼叫模式，補上「修補永遠慢半拍」這段空窗期的偵測能力
+- 導入 watchlist B7 中聚焦 MCP／Agent 執行期治理的工具（如 **Invariant Labs**（2025-06-24 起併入 Snyk）的 MCP 掃描與可視性工具、**Lasso Security** 的 Agent 執行期監控）協助偵測異常的 MCP tool 呼叫模式，補上「修補永遠慢半拍」這段空窗期的偵測能力
 
 ## 影響範圍
 
