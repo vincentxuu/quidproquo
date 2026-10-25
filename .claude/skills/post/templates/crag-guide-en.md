@@ -78,7 +78,13 @@ For an emergency, call **{{number}}**; {{rescue authority's own page, and whethe
 
 {{NOTE_EN: paste the fixed conversion note from scripts/climbing-grade-convert.mjs verbatim.}}
 
-{{Inclusion rule (required when the grade tables mix sources): one bold sentence on what these tables include and leave out (e.g. the beginner band takes guide + database lines, intermediate and up only lines both sources agree on); if Notes start with a marker such as "2025 ✓ / —", say what it means and what it does not.}}
+<!-- 路線全部放在下面四級分級表，不另開「Classic routes」小節（規則同中文模板）。 -->
+
+{{Inclusion rule (required): one bold sentence on how many routes the tables hold and from which sources; which source's grade leads when both cover a route and how a different grade is shown; how single-source lines are marked; what the Sector numbers mean; which lines are left out and why (e.g. ungraded variations).}}
+
+<!-- 網路上的路線紀錄是條件段，但不另開一節：寫進該路線備註最後的「Route logs:」。 -->
+
+{{If there are route logs: the "Route logs" at the end of some notes are firsthand {{blog / forum}} reports from {{local}} climbers. They add moves, time and field texture; grades and pitch counts stay with the rest of the row. {{The most common entry point (author, year, link) and its reposts or same-family versions.}} These are versions of one compilation, not independent confirmations.}}
 
 {{Optional grading note: if the sources use YDS / UIAA / E grades, say the original is retained and not reverse-converted; A0–A2 denote aid; lengths and pitch counts come from which edition and are not descent instructions.}}
 
@@ -103,7 +109,7 @@ For an emergency, call **{{number}}**; {{rescue authority's own page, and whethe
 
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 | --- | --- | --- | --- | --- | --- |
-| {{Route name / local script}} | {{original grade, "(hardest)" or per pitch for multipitch}} | {{fill with --write}} | {{length / pitches, and which edition}} | {{sector; "Locate using guide" if unsure}} | {{source; list both when sources disagree, and note link-up differences}} |
+| {{Route name / local script}} | {{original grade, "(hardest)" or per pitch for multipitch}} | {{fill with --write}} | {{length / pitches, and which edition}} | {{sector; "Locate using guide" if unsure}} | Sources: [{{source A}}]({{URL}}), [{{guide p.N}}]({{URL}}). {{list both when sources disagree, and note link-up differences}} |
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
@@ -124,36 +130,6 @@ For an emergency, call **{{number}}**; {{rescue authority's own page, and whethe
 ### Expert: 8a and up (YDS 5.13b and up)
 
 {{Table as above if verifiable routes exist. Otherwise: "The {{sources}} used here do not provide a verified route in this band." Do not fill it with names from other crags or unverified entries; point readers to other crags in the series.}}
-
-### Classic routes: {{faces or areas}}
-
-<!-- 條件段：有來源就必做，查過沒有才省略並在審稿紀錄寫查詢與日期。社群公認的經典線不全符合分級表的來源規則時，獨立成這一節，不混進分級表。 -->
-
-The grade tables above choose routes by difficulty. This section adds {{N}} lines that {{local}} climbers commonly treat as {{crag}} classics. **They do not all meet the {{which}} source rule used above**, so they sit here rather than in those tables. {{Which topo / guide each group follows, and which sources check lengths, pitch counts and first-ascent notes.}} Notes give the source and any version differences; a single source is not presented as settled fact.
-
-<!-- 網路上的路線紀錄是條件段，但不另開一節：至少打開 5 個候選，只收實際讀過的頁面，寫進該路線備註最後的「Route logs:」；表格已寫的事實不重寫。查過沒有在審稿紀錄寫查詢與日期。 -->
-
-The "Route logs" at the end of each note are firsthand {{blog / forum}} reports from {{local}} climbers. They add moves, time and field texture; grades and pitch counts stay with the rest of the row. {{The most common entry point (author, year, link) and its reposts or same-family versions.}} These are versions of one compilation, not independent confirmations.
-
-Classic does not mean easy. {{Name the grade spread of these classics.}} Choose by your trad, multipitch and descent skills, not by the overall grade alone.
-
-#### {{Face A}} classics
-
-{{One or two sentences: which source sets the grade, and which edition the lengths and pitch counts describe.}}
-
-| Route | Grade | YDS | Length / pitches | Notes |
-| --- | --- | --- | --- | --- |
-| {{Route name / local script}} | {{}} | {{}} | {{}} | {{topo number; first-ascent year and party; signature pitch; source differences; moves, timing and retreat a log adds. Route logs: {{author or site}}'s [{{year}} log]({{full URL}})}} |
-
-{{If there are videos, follow with a layout: routes fence as above.}}
-
-#### {{Face B}} classics
-
-{{One or two sentences: why this group is separate (e.g. not on the East Face topo; mainly from which report), and that it is not because of a shared grade band.}}
-
-| Route | Grade | YDS | Length / pitches | Notes |
-| --- | --- | --- | --- | --- |
-| {{}} | {{}} | {{}} | {{}} | {{}} |
 
 <!-- 傳攀（UIAA／E 級）與抱石的表格欄位、抱石的 Font 分級 H3，見規格「依程度挑路線」。 -->
 
