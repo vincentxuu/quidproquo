@@ -252,7 +252,11 @@ Routes on this side are packed onto the same wall, so positions are given relati
 
 ### Insu B (인수 B)
 
-- **Mont Blanc East Face topo number**: no entry of that name. Several reports say the usual way in is two pitches up Yongam Slab (#6, 5.9) to Insu B's Oasis, so the topo may draw only the lower part.
+- **Mont Blanc East Face topo number**: no entry of that name; it is split across several routes under other names:
+  - **#3 Crony**: a [2022 report](https://m.blog.naver.com/wooltraveler/222900749975) says "Crony's start is the same as Insu B's start"; Insu B takes the right-most of that row of cracks, while the original Crony takes the second (or third) from the right.
+  - **#4 Sanggongsa**: a [2003 Wolgan San report](http://san.chosun.com/site/data/html_dir/2003/08/13/2003081378029.html) says it starts between Kŏnyang and Maninbo and that its pitch 4 reaches "the forested terrace where it meets Insu B."
+  - **#6 Yongam Slab (5.9)**: reports from 2015, 2024 and 2025 climb "용암슬랩 → Insu B" as one line (the [2025 one](https://gaussmt.tistory.com/1927)).
+  - This mapping is inferred from the text; the topo photo has no numbers on the individual lines, so it cannot confirm which part is drawn under which number.
 - **Start**: left of the Great Slab. [Mountain Project](https://www.mountainproject.com/route/108367078/insu-b) says it is on the left (south) side of the big slab near the crack system where Crony is, reached by walking up the river bed along the base, about 5 minutes from the sign with the map.
   - **Current way**: start up the 용암슬랩 (Yongam Slab) left of the Great Slab and reach Insu B's Oasis in 2 pitches (reports from [2024](https://gaussmt.tistory.com/1836) and [2015](https://ami41.tistory.com/746)).
   - **Old way**: a straight crack about 30 m up on the left, or the Great Slab itself, about 100 m cut into roughly three pitches ([route description on a Daum cafe](https://m.cafe.daum.net/hyedoji71/GqbR/109)).
@@ -517,3 +521,6 @@ This page is no substitute for a good topo. For east-face routes, download (or b
 - [Mountain Project: Go-Deok Wei Gil (Lonely Road)](https://www.mountainproject.com/route/112120315/go-deok-wei-gil)
 - [theCrag: 고독의 길 (Lonely Road)](https://www.thecrag.com/en/climbing/south-korea/insubong/route/1016936403)
 - [28 Cheongchun: Insubong Lonely Road concept map and report, 2017](https://blog.naver.com/PostView.nhn?blogId=sigint&logNo=221114366546) (in Korean)
+- [Wooltraveler (Chaeul): Insubong Crony-gil and Pigeon-gil, 2022](https://m.blog.naver.com/wooltraveler/222900749975) (in Korean)
+- [Wolgan San: Sanggongsa-gil opened on Bukhansan Insubong, 2003](http://san.chosun.com/site/data/html_dir/2003/08/13/2003081378029.html) (in Korean)
+- [Buldeuchi's daily life: Insubong Insu B, 2025](https://gaussmt.tistory.com/1927) (in Korean)

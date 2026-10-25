@@ -252,7 +252,11 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 
 ### Insu B／인수 B
 
-- **Mont Blanc 東壁 topo 編號**：沒有同名條目。多篇心得寫現行走法是從 Yongam Slab（#6，5.9）起攀 2 段到 Insu B 的 Oasis，所以 topo 可能只畫到下段。
+- **Mont Blanc 東壁 topo 編號**：沒有同名條目，它被拆在幾條別名的線裡：
+  - **#3 Crony**：[2022 年的紀錄](https://m.blog.naver.com/wooltraveler/222900749975)寫「Crony 的起攀點與 Insu B 的起攀點相同」，Insu B 走那一排裂隙中最右邊的一條，Crony 原版走右邊數來第二（或第三）條。
+  - **#4 Sanggongsa**：[2003 年的月刊山報導](http://san.chosun.com/site/data/html_dir/2003/08/13/2003081378029.html)寫它從 Kŏnyang 與 Maninbo 之間起攀，第 4 段爬到「與 Insu B 會合的樹林台階」。
+  - **#6 Yongam Slab（5.9）**：2015、2024、2025 年的心得都把「용암슬랩 → Insu B」連著爬（[2025 年](https://gaussmt.tistory.com/1927)）。
+  - 這是從文字推出來的對應；topo 照片上沒有逐條編號，沒辦法確認哪一段畫在哪個編號。
 - **起攀位置**：大斜板左側。[Mountain Project](https://www.mountainproject.com/route/108367078/insu-b)寫「在大斜板左（南）邊、靠近 Crony 所在的裂隙系統，從溪床沿岩壁底部走，從有地圖的告示牌起算約 5 分鐘」。
   - **現行走法**：從大斜板左邊的 용암슬랩（Yongam Slab）起攀，2 段到 Insu B 的 Oasis（[2024 年紀錄](https://gaussmt.tistory.com/1836)、[2015 年紀錄](https://ami41.tistory.com/746)）。
   - **老走法**：左邊一條約 30 公尺的直上裂隙，或爬大斜板，大斜板約 100 公尺、分三次左右切段（[Daum 咖啡廳的路線說明](https://m.cafe.daum.net/hyedoji71/GqbR/109)）。
@@ -517,3 +521,6 @@ caption: 資料為社群表格的分段長度與級數，不是現行 topo。Geo
 - [Mountain Project：Go-Deok Wei Gil（Lonely Road）](https://www.mountainproject.com/route/112120315/go-deok-wei-gil)
 - [theCrag：고독의 길（Lonely Road）](https://www.thecrag.com/en/climbing/south-korea/insubong/route/1016936403)
 - [28청춘：인수봉 고독길 개념도＋후기，2017](https://blog.naver.com/PostView.nhn?blogId=sigint&logNo=221114366546)
+- [울트래블러（채울）：인수봉 크로니길, 비둘기길，2022](https://m.blog.naver.com/wooltraveler/222900749975)
+- [《月刊山》：북한산 인수봉에 생공사길 개척，2003](http://san.chosun.com/site/data/html_dir/2003/08/13/2003081378029.html)
+- [버들치의 일상：인수봉 인수B，2025](https://gaussmt.tistory.com/1927)

@@ -87,7 +87,7 @@ ids: xrTd0dvMCIM
 
 YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mountainproject.com/international-climbing-grades)，只是近似值；標「約」的是來源只寫 4、5+ 這類不分 abc 的級數。難度以原始級數為準。
 
-**上面的分級表是混合收，不是東壁路線表。** 入門級距把 2012 指南與 [theCrag 仁壽峰頁](https://www.thecrag.com/en/climbing/south-korea/insubong)查得到的路線都收，包含要靠人工攀登段才上得去的線（A0／A1），也包含不在東壁的路線。中級以上只收 2012 指南與 2025 東壁 topo 對得上的線，因為那個級距沒有第二個來源可以交叉檢查。備註開頭的「2025 ✓／—」表示這條線有沒有出現在 2025 東壁 topo；「—」不代表路線不存在，只代表那份 topo 的路線表沒有以這個名稱收錄：Pigeon、Villa 在東壁以外；Insu B 在東壁，但 topo 以 Yongam Slab（#6）之類的名稱畫它的下段，沒有同名條目。經典線另外放在下面的「經典線：東壁與南面」，那節的來源規則和上面的分級表分開。
+**上面的分級表是混合收，不是東壁路線表。** 入門級距把 2012 指南與 [theCrag 仁壽峰頁](https://www.thecrag.com/en/climbing/south-korea/insubong)查得到的路線都收，包含要靠人工攀登段才上得去的線（A0／A1），也包含不在東壁的路線。中級以上只收 2012 指南與 2025 東壁 topo 對得上的線，因為那個級距沒有第二個來源可以交叉檢查。備註開頭的「2025 ✓／—」表示這條線有沒有出現在 2025 東壁 topo；「—」不代表路線不存在，只代表那份 topo 的路線表沒有以這個名稱收錄：Pigeon、Villa 在東壁以外；Insu B 在東壁，但 topo 沒有同名條目，它被拆在 Crony（#3）、Sanggongsa（#4）、Yongam Slab（#6）這幾個名稱裡。經典線另外放在下面的「經典線：東壁與南面」，那節的來源規則和上面的分級表分開。
 
 **下表來源原本就用 YDS，保留原級數，不反推法國級數；YDS 欄保留同一原始級數。** 多段的級數只描述攀登難度；A0、A1、A2 是人工攀登標記，不是可以省略的尾碼。長度與段數主要採 2012 指南，僅供辨識版本，不作現場繩距或下降規劃。
 
@@ -103,7 +103,7 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 | Pigeon／비둘기（Pigeon Route） | 5.7 A0（theCrag）；5.6 A1（2012） | 5.7，另含 A0 | 89 公尺／4 段 | 南側（下降點旁） | 2025 —；兩個來源都收，但 aid 等級記法不同（A0／A1）；第三段是人工攀登。下降時走的就是這條線。 |
 | Insu A／인수 A | 5.8（最難） | 5.8 | 115 公尺／4 段 | 東面 | 2025 ✓；2012 指南長度；2025 topo 同列 5.8。 |
 | Chouinard B／취나드 B | 5.8（最難） | 5.8 | 舊指南版本 177 公尺／5 段 | 東面 | 2025 ✓；2012 指南；2025 topo 標 Chouinard B–Kwibawi C，先核對接線與終點。 |
-| Insu B／인수 B | 5.9（最難） | 5.9 | 97 公尺／3 段（2012，只含下段）；[MP](https://www.mountainproject.com/route/108367078/insu-b) 5 段／136 公尺；多篇心得 6 到 8 段 | 大斜板左側 | 2025 —；topo 路線表沒有同名條目，但心得多寫現行走法從 Yongam Slab（#6）起攀 2 段，topo 可能只畫到下段。2012 指南與 걸리 表格的 3 段只是下段，勿當全線；逐段見[路線筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes)。與背面的 설교벽不是同一條。 |
+| Insu B／인수 B | 5.9（最難） | 5.9 | 97 公尺／3 段（2012，只含下段）；[MP](https://www.mountainproject.com/route/108367078/insu-b) 5 段／136 公尺；多篇心得 6 到 8 段 | 大斜板左側 | 2025 —；topo 路線表沒有同名條目：心得寫它與 Crony（#3）共用起攀點、上段與 Sanggongsa（#4）會合，現行常從 Yongam Slab（#6）進入，所以是被拆在這幾個編號裡（文字推論，topo 照片沒有逐條編號可核對）。2012 指南與 걸리 表格的 3 段只是下段，勿當全線；逐段見[路線筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes)。與背面的 설교벽不是同一條。 |
 | Chouinard A／취나드 A | 5.10a（2025 topo 最難） | 5.10a | 181 公尺／6 段（2012） | 東面 | 2025 ✓；2025 名為 Chouinard A–Kwibawi D；2012 總欄列 5.10c、分段最高卻為 5.10a，未採其總級數與長度拼接。 |
 
 ```video-gallery

@@ -26,6 +26,11 @@
 | thecrag.com route/1016936403 (고독의 길) | 2024 起 | 全文（輸出截斷） | 6 段／350 公尺、「最右邊、剛過 Chouinard A」、下降 |
 | blog.naver.com sigint 221114366546 | 2017 | 前半（輸出截斷，讀到第 2 段） | 起攀位置、第 1–2 段、洞、時間 |
 
+| wooltraveler 222900749975 | 2022 | 搜尋摘錄（未讀全文） | Crony 與 Insu B 同起攀點、Insu B 為最右邊裂隙 |
+| san.chosun.com 2003081378029 | 2003 | 搜尋摘錄（未讀全文） | Sanggongsa 在 Kŏnyang 與 Maninbo 之間起攀，第 4 段與 Insu B 會合 |
+| m.cafe.daum.net/hyedoji71/GqbR/91 | 無年份 | 搜尋摘錄（未讀全文） | Crony 起點在 Insu B 左邊 |
+| gaussmt 1927 | 2025 | 搜尋摘錄（未讀全文） | 「용암슬랩 → Insu B」連爬 |
+
 ## 沒讀到／沒採用
 
 - Mont Blanc Lines 東壁 topo：商品頁（2026-10-25 讀取，含 .json）列 43 條路線，說明欄附個人用途中解析度下載，另賣印刷海報（60×90 cm、A0、裱框）。容器出口代理擋 cdn.shopify.com，改用雲端瀏覽器工具截圖看過縮小版：只有路線表可讀，照片上的路線編號看不清。
