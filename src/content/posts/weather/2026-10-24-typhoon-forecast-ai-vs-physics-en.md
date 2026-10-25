@@ -6,7 +6,7 @@ tags: [typhoon, ai-weather-models, ecmwf, google-deepmind, ensemble-forecast, ta
 lang: en
 tldr: "In 2025 evaluations, AI models such as AIFS had smaller typhoon track errors than traditional models such as ECMWF's IFS, while intensity and wind-and-rain forecasts remain weak. When reading a forecast map, first separate a single track from an ensemble proportion, and track from intensity. Treat disagreement more than three days out as undecided."
 description: "Typhoons Champi, Bavi, and Saudel all drew conflicting track forecasts from AI models and traditional European models. This post explains how the two kinds of model differ, where AI is strong and weak, and three questions for reading a forecast map."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/weather/2026-10-24-typhoon-forecast-ai-vs-physics)

@@ -88,3 +88,6 @@ UDN 的 50/39、1,000/31、1,151、6.3%；AIFS Single 2025 年 2 月底、AIFS E
 策略：改寫。檔案 `2026-10-24-typhoon-forecast-ai-vs-physics-en.md`，lang: en，draft: true，date 與 tags 沿用中文版。中文版開頭加 🌏 連結。台灣機構第一次出現時補全名與縮寫（CWA、NCDR、PTS、JMA），中文來源在參考資料與內文標 (in Mandarin)，颱風名稱附中文（薔琵、巴威、沙德爾）方便讀者回查台灣新聞。
 中英對照自動比對：外部連結 16 對 16 完全一致；H2 6、H3 2、表格列數相同；數字差異只在月份與百分比的寫法（七月、八月；六成、近八成、近九成 ↔ about 60%、nearly 80%、nearly 90%）。英文長句 2 處已斷開。英文版未另做事實查證，內容是中文版已查證句子的對應翻寫，沒有新增宣稱；中文版日後修改時兩版要一起改。
 未做：pnpm verify、check:lang-parity、check:references、astro check（環境缺相依套件）。
+
+### 發布（2026-10-25）
+使用者指示轉正式發布：兩版 draft 改 false。順序：先推到 PR 讓預覽站建出，確認 CI 全綠並目視檢查分類頁與徽章，再合併（合併會觸發 deploy.yml）。薔琵的事後路徑仍待補寫，文中以「寫稿的 10 月 24 日」限定。

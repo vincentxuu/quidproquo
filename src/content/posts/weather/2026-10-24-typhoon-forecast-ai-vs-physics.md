@@ -6,7 +6,7 @@ tags: [typhoon, ai-weather-models, ecmwf, google-deepmind, ensemble-forecast, ta
 lang: zh-TW
 tldr: "2025 年的評估顯示，AIFS 等 AI 模式的颱風路徑誤差小於 IFS 等傳統模式，強度與風雨仍偏弱。看預報圖先分清單一路徑或系集比例、路徑或強度，三天以外的分歧先當成還沒決定。"
 description: "薔琵、巴威、沙德爾都出現過 AI 模式與歐洲傳統模式的路徑分歧。說明兩類模式的差別、AI 的強項和弱項，以及看預報圖的三個判讀問題。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/weather/2026-10-24-typhoon-forecast-ai-vs-physics-en)
