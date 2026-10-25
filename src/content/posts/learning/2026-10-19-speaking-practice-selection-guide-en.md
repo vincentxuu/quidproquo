@@ -9,7 +9,7 @@ description: "Choose between tutors, local classes, overseas schools, AI and lan
 tldr: "Identify the conversation and time you can sustain, then choose suitable feedback and payment arrangements. Test options with the same task rather than buying every service."
 series:
   name: "English Speaking Practice"
-  order: 15
+  order: 33
 draft: false
 ---
 

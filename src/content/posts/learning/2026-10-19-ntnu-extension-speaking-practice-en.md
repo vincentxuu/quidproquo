@@ -9,7 +9,7 @@ description: "Compare three adult English classes at NTNU continuing education, 
 tldr: "NTNU extension classes suit learners who can attend regularly and enjoy peer interaction. Choose the level and teacher, then check class size, materials, and every date before paying."
 series:
   name: "English Speaking Practice"
-  order: 5
+  order: 23
 draft: false
 ---
 

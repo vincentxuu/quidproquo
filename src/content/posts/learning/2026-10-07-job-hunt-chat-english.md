@@ -7,6 +7,9 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "把一段和朋友用英文聊求職、面試、大公司與新創的訊息對話，整理成六個反覆出現的修正：Have you 問經驗、apply 與 interview 的介系詞、other 與 others、because 與 because of、漏掉的 be 動詞和主詞、第三人稱與冠詞。每一項都附 Cambridge 的依據與回想練習。"
 tldr: "對方聽得懂，但同樣的六個地方一直重複：問「到目前為止有沒有」用 Have you + 過去分詞；apply to 公司、apply for 職缺；interview 後面直接接人是你在面試別人；other 後面接複數名詞、others 單獨用；because 接句子、because of 接名詞；形容詞前面要有 be，句子要有主詞。"
+series:
+  name: "英文口說練習"
+  order: 8
 draft: false
 ---
 
@@ -15,6 +18,8 @@ draft: false
 和也在找工作的朋友用英文傳訊息，聊面試進度、大公司和新創的差別、朋友在外商的工作狀況。整段聊得下去，對方也都懂，但回頭看自己打的句子，同樣的地方一直重複出錯。
 
 這篇把那段對話裡我自己的句子整理成六種修正。重點不放在逐句改錯，而是找出「同一個原因」造成的一整批句子，這樣下次開口時只要記六件事。對話內容已經改寫成一般情境，不含對方的訊息。
+
+這篇聚焦求職進度、應徵、面試與轉述，不涵蓋薪資制度或各種團隊歸屬的完整說法。字典例句支持句型與意思，不用來替同義說法排常見度。
 
 ## 我當時想說什麼
 
@@ -210,17 +215,13 @@ Cambridge：present simple 用原形動詞，第三人稱單數加 -s；have、g
 
 British Council 那一頁同時給了情境層的依據：它直接問學習者 *Have you had a job interview in English?*，正是第一節的 Have you 句型用在求職話題上。
 
-## 仍待核對
-
-這些還沒找到合適來源，先不放進練習：
-
-- 「薪資制度不同」：Cambridge 例句裡出現過 *pay system*、*base salary*、*starting salary*，但還沒有比較 pay structure 與 salary structure 的依據
-- 「他在韌體團隊」用 on the team 還是 in the team
-- 哪一種說法比較常用：這需要語料庫查詢，這次沒有做
-
 ## 整體來說
 
 六項裡面，前兩項（Have you、apply／interview 的介系詞）影響意思最多，值得優先練。後四項對方多半猜得到，但修好之後句子會順很多。這次的修正大多只查到「字義與句型」這一層，來源是學習字典與文法書；只有「用英文面試」一句有 British Council 教材的情境示範。沒有母語者測試，也沒有頻率比較，所以文中只寫「這個情境可用」，不寫「最自然」。
+
+## 更新紀錄
+
+- 2026-10-25：納入統一口說系列；查證待辦移至研究紀錄，保留教材來源與使用範圍。
 
 ## 參考資料
 

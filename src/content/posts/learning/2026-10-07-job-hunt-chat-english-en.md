@@ -7,6 +7,9 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "A text conversation with a friend about job hunting, interviews, big companies, and startups, turned into six recurring fixes: Have you for experience, prepositions after apply and interview, other vs. others, because vs. because of, missing be verbs and subjects, and third-person -s with articles. Each fix comes with Cambridge references and recall practice."
 tldr: "My friend understood me, but the same six things kept going wrong: use Have you + past participle for 'so far' questions; apply to a company, apply for a job; interview + a person means you are the interviewer; other takes a plural noun while others stands alone; because takes a clause and because of takes a noun; adjectives need be, and sentences need a subject."
+series:
+  name: "English Speaking Practice"
+  order: 8
 draft: false
 ---
 
@@ -15,6 +18,8 @@ draft: false
 I was texting in English with a friend who is also looking for a job. We talked about interview progress, how big companies differ from startups, and what a friend's job at a multinational is like. The conversation worked and my friend understood everything, but when I reread my own messages, the same mistakes kept showing up.
 
 This post sorts my own sentences from that chat into six fixes. The goal is to find the batches of sentences that share one cause, so there are only six things to remember next time. The content has been rewritten into general situations and does not include my friend's messages.
+
+This lesson focuses on job-hunting progress, applications, interviews and reported speech, not a complete vocabulary for pay systems or team membership. Dictionary examples support structures and meanings, not a frequency ranking of alternatives.
 
 ## What I was trying to say
 
@@ -210,17 +215,13 @@ A few more sentences in the chat were guesses at the time. I later found support
 
 The British Council page also gives support at the level of the situation: it asks learners directly, *Have you had a job interview in English?*, which is the Have you pattern from section 1 applied to job hunting.
 
-## Still to check
-
-I have not found a suitable source for these yet, so they stay out of the practice set:
-
-- "The pay system is different": Cambridge examples include *pay system*, *base salary*, and *starting salary*, but nothing that compares pay structure with salary structure
-- Whether "he is on the firmware team" takes on the team or in the team
-- Which wording is more common: that needs a corpus query, which I did not run
-
 ## Overall
 
 Of the six, the first two (Have you, and the prepositions after apply and interview) change the meaning the most and deserve practice first. With the other four, the listener can usually guess, but fixing them makes the sentences much smoother. Most fixes here were checked only at the level of word meaning and sentence pattern, against learner's dictionaries and a grammar reference; only the "interview in English" sentence has a situational example from British Council material. There was no native-speaker test and no frequency comparison, so the post says "works in this situation" and never "most natural."
+
+## Updates
+
+- 2026-10-25: Joined the unified speaking series; moved research to-dos into working notes and retained the lesson’s source and use limitations.
 
 ## References
 

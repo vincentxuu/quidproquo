@@ -7,14 +7,19 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "把自己準備 AI agent 工程師面試的中文素材，挑出十二句最常要講的話，逐句找英文句型的字典依據：一句話定位、需求改了五次的專案、沒有錯誤訊息的 bug、兩條設計原則、一次失誤，以及誠實承認還沒做好的部分。"
 tldr: "定位用 I work on improving…、My work covers…；需求變動用 changed five times in four months；用資料說服用 that convinced the team to…；實測結果用 took 29 minutes；失誤用 I changed … but didn't update …、We only found out … after …；承認缺口用 To be honest, we don't have … yet。"
+series:
+  name: "英文口說練習"
+  order: 10
 draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-10-07-interview-agent-stories-english-en)
 
-[上一篇面試口說](/posts/learning/2026-10-07-interview-experience-english)整理的是通用句型，裡面的數字是範例。這篇換成我自己準備面試的素材：先有中文版的故事和追問答案，再挑出十二句我最常要講、但用英文會卡住的話。
+[上一篇面試口說](/posts/learning/2026-10-07-interview-experience-english)整理了自我介紹、專案、失敗與反問的說法。這篇換成我自己準備面試的素材：先有中文版的故事和追問答案，再挑出十二句我最常要講、但用英文會卡住的話。
 
 公司和產品名稱在這篇都拿掉了，只留下工作內容和實測數字。
+
+這篇把工作經驗放進可練習的句型，不把字典例句當成工程團隊的口語紀錄。術語的職場搭配、個別介系詞與同義說法的頻率不作全面比較；練習時換成自己的實際經驗。
 
 ## 我當時想說什麼
 
@@ -156,18 +161,13 @@ draft: false
 | 講失誤：我們在合併兩個月後才發現。 | We only found out two months after the merge. | find out |
 | 承認缺口：老實說，這部分我們還沒有系統性的評估。 | To be honest, we don't have a systematic evaluation for this yet. | yet 放句尾 |
 
-## 仍待核對
-
-這些還沒找到合適來源，先不寫成定論：
-
-- runtime、flag、log、merge、error tracking 這些詞在軟體團隊口語裡的用法：學習字典沒有收，這次也沒有查技術文件
-- *set the limit at* + 數字 的介系詞
-- *instead of going* 與 *is not a guarantee* 的直接例句
-- 哪一句比較常用：這需要語料庫查詢，這次沒有做
-
 ## 整體來說
 
 十二句裡，最值得先練的是定位那兩句，因為每場面試開頭都會用到，而且 *improve* 和 *build* 用錯會直接講錯自己的角色。其次是 *convinced the team to* 和 *To be honest … yet*。來源都是學習字典，支持的是字義與句型，軟體用語的部分字典沒有涵蓋。沒有母語者測試，也沒有頻率比較，所以文中只寫「這個情境可用」。
+
+## 更新紀錄
+
+- 2026-10-25：納入統一口說系列；查證待辦移至研究紀錄，保留教材來源與使用範圍。
 
 ## 參考資料
 
