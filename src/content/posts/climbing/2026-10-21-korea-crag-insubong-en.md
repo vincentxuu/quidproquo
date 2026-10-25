@@ -87,7 +87,7 @@ For an emergency, call **119**; the [National Fire Agency's EMS information](htt
 
 YDS and V-grade conversions follow the [Mountain Project international grade comparison chart](https://www.mountainproject.com/international-climbing-grades) and are approximate; "approx." marks grades the sources give without a/b/c (such as 4 or 5+). The original grade is the one that counts.
 
-**The grade tables above are a mixed collection, not an East Face route list.** The beginner band includes everything the 2012 guide and [theCrag's Insubong page](https://www.thecrag.com/en/climbing/south-korea/insubong) list, including lines that need aid (A0/A1) and lines that are not on the East Face. Above that band it keeps only routes the 2012 guide and the 2025 East Face topo both cover, because there is no second source to cross-check. A leading "2025 ✓/—" in Notes says whether the route appears on the 2025 East Face topo; "—" does not mean the route is missing, only that the topo covers the East Face alone. Classic routes sit in their own section below, under a separate source rule.
+**The grade tables above are a mixed collection, not an East Face route list.** The beginner band includes everything the 2012 guide and [theCrag's Insubong page](https://www.thecrag.com/en/climbing/south-korea/insubong) list, including lines that need aid (A0/A1) and lines that are not on the East Face. Above that band it keeps only routes the 2012 guide and the 2025 East Face topo both cover, because there is no second source to cross-check. A leading "2025 ✓/—" in Notes says whether the route appears on the 2025 East Face topo; "—" does not mean the route is missing, only that the topo's route list has no entry under that name: Pigeon and Villa lie off the East Face, while Insu B is on it but has no entry of that name, and whether it appears under another name cannot be confirmed. Classic routes sit in their own section below, under a separate source rule.
 
 **These sources already use YDS, which is retained rather than reverse-converted to French grades; the YDS column repeats the original grade without a conversion.** A multipitch grade describes climbing difficulty; A0, A1 and A2 denote aid and must not be dropped. Lengths and pitch counts mainly come from the 2012 guide and identify that version, rather than supplying current pitch or descent instructions.
 
@@ -103,7 +103,7 @@ For the easiest line, start with **Lonely Road**: theCrag calls it the easiest r
 | Pigeon / 비둘기 (Pigeon Route) | 5.7 A0 (theCrag); 5.6 A1 (2012) | 5.7, plus A0 | 89 m / 4 pitches | West face | 2025 —; both sources list it but disagree on the aid rating (A0/A1); the third pitch is aid. This is also the descent line. |
 | Insu A / 인수 A | 5.8 (hardest) | 5.8 | 115 m / 4 pitches | East Face | 2025 ✓; length from 2012 guide; 2025 topo also gives 5.8. |
 | Chouinard B / 취나드 B | 5.8 (hardest) | 5.8 | 2012 version: 177 m / 5 pitches | East Face | 2025 ✓; 2025 topo names Chouinard B–Kwibawi C; confirm the linkup and endpoint. |
-| Insu B / 인수 B | 5.9 (hardest) | 5.9 | 97 m / 3 pitches (2012); theCrag gives 6 | Locate using guide | 2025 —; single 2012 guide source; do not combine pitch counts from differently linked versions. |
+| Insu B / 인수 B | 5.9 (hardest) | 5.9 | 97 m / 3 pitches (2012); theCrag gives 6 | Locate using guide | 2025 —; the topo's route list has no entry named Insu B, and whether it appears under another name cannot be confirmed. The 2012 guide gives 3 pitches / 97 m; [Mountain Project](https://www.mountainproject.com/route/108367078/insu-b) gives 5 pitches / 136 m and says it starts left of the Great Slab near Crony's crack system. It is an old Insubong line and is not the same route as the back-face Seolgyobyeok. |
 | Chouinard A / 취나드 A | 5.10a (2025 topo, hardest) | 5.10a | 181 m / 6 pitches (2012) | East Face | 2025 ✓; 2025 names Chouinard A–Kwibawi D. The 2012 overall grade is 5.10c but its listed pitches top out at 5.10a; its length is not spliced into the newer line. |
 
 ```video-gallery
@@ -241,6 +241,7 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 
 ## Update history
 
+- 2026-10-25: added sources and location for Insu B (Mountain Project: 5 pitches / 136 m, start left of the Great Slab) and noted that it is not Seolgyobyeok; fixed the explanation of "—".
 - 2026-10-25: corrected the 2025-topo column for Lonely Road (the topo does include it, as #38 at 5.6); its length and pitch count are still only from theCrag.
 - 2026-10-25: added a link to the pitch-by-pitch route notes (starts, pitch lengths and descents) and stated that this guide is not a topo.
 - 2026-10-22: Added a community-route-logs section with a 10-row comparison table (Crony, Insu Ridge, Amidong, Medical School, Rescuer, PASI, Sanchonji, Dongyang-gil, Haneul-gil, Georyong-gil), noting that the loop-table pair (걸리 2018 / 도랫굽이 2012) and the Daum repost are the same source family, not independent confirmations; fixed Crony pitch-6 crack, Georyong founder surname “고 전재운”, and moved Dongyang-gil’s 8-pitch table attribution to Imgok plus community tables. Added 16 reference links.
@@ -267,6 +268,7 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 - [National Fire Agency: Public EMS](https://www.nfa.go.kr/eng/ems/service/)
 - [BMC: 2025/26 Insurance Product Information Document](https://services.thebmc.co.uk/modules/insurance/r/downloads/BMC_IPID_2025_26_1225_Edition_1225.pdf)
 - [Mountain Project: International climbing grade comparison](https://www.mountainproject.com/international-climbing-grades)
+- [Mountain Project: Insu B](https://www.mountainproject.com/route/108367078/insu-b)
 - [산지니: Insubong Crony-gil, 2010](https://wind1230.tistory.com/15852536)
 - [청아 (김종만): Insubong Insu Ridge, 2006](https://kjcjkj.tistory.com/7182584)
 - [도랫굽이: Insubong Insu Ridge concept, 2013](https://ami41.tistory.com/538)
