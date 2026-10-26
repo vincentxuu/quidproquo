@@ -9,7 +9,7 @@ description: "介紹 Tandem 語言交換的配對與互惠方式、免費和 Pro
 tldr: "Tandem 適合願意幫對方練中文、也能投入找語伴時間的人；先確認目標、時段與互惠，再決定是否需要付費通話或搜尋工具。"
 series:
   name: "英文口說練習"
-  order: 13
+  order: 31
 draft: false
 ---
 

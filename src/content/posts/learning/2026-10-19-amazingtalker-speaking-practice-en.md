@@ -9,7 +9,7 @@ description: "Choose an AmazingTalker English tutor and understand individual pr
 tldr: "AmazingTalker lets you choose a tutor and buy a small number of lessons. Test the regular teaching, then check booking deadlines and refund calculations before buying a larger package."
 series:
   name: "English Speaking Practice"
-  order: 8
+  order: 26
 draft: false
 ---
 

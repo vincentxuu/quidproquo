@@ -7,12 +7,17 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "面試官順著回答往下問，腦袋一片空白時要說什麼。這篇整理九句：爭取思考時間的五句、說推測、承認沒用過某個工具、承認設計不漂亮、確認對方要不要更多細節。句子來自 IDP 的 IELTS 口說建議、Google 與 Amazon 的官方面試頁、一份大學面試指引、Oxford 字典與 Google 的示範面試。"
 tldr: "需要時間就說 Let me think about that for a minute 或 I'd like a few moments to collect my thoughts；只能推測時說 My guess is that…；沒用過就說 I haven't worked with that library before, but I'd approach it by…；講完一段可以問 Would you like more context?。Google 的面試準備頁寫明，要一點時間整理想法是可以的。"
+series:
+  name: "英文口說練習"
+  order: 13
 draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-10-12-interview-thinking-time-english-en)
 
 [上一篇](/posts/learning/2026-10-12-coding-interview-english)練的是寫程式面試裡自己主動要講的話。這篇處理另一種狀況：面試官順著我的回答一直往下問，問到我沒準備的地方。
+
+求職面試指南支持先整理想法再回答；這篇部分示範句則來自 IELTS 口說教材。練習時可用來演練停頓與接話，但不把語言測驗的例句當成真實求職面試逐字稿，也不據此比較英美用法。
 
 ## 我當時想說什麼
 
@@ -154,19 +159,15 @@ Amazon 的面試頁建議：*A good tip: Pause after your answer and ask if your
 | 承認做法不漂亮 | It's not very elegant, but it's workable. |
 | 確認要不要更多 | Would you like more context? |
 
-## 仍待核對
-
-- **爭取時間的句子在求職面試裡好不好用。** 四句原句來自語言測驗的建議。求職面試的來源只說可以要時間，沒有示範句。
-- **「這部分我沒有驗證過」怎麼說。** 我想要一句能區分「我確認過」和「我推測」的話，這次只找到講推測的句型。
-- **資訊不夠時怎麼問。** Amazon 說可以要更多資訊，沒有給句子。
-- **劍橋英檢手冊。** 網路上很多文章引用「That's a good question／Well, let me think」並說出自劍橋的考試手冊。我讀了現行的 B2 First 教師手冊全文，裡面沒有這段話，所以沒有引用。
-- **英美差異。** 沒有一個來源說明。
-
 ## 整體來說
 
 九句裡三句是來源原句，六句是改寫。最值得先練的是 *Let me think about that for a minute* 和 *My guess is that…*，一句換時間，一句讓我在不確定的時候還能往下講。
 
 這一批的依據比前幾篇薄。雇主的官方頁面確認了「可以要時間、可以問、可以承認不知道」，但句子本身來自語言測驗的建議和字典。面試現場實際有人這樣說的，只有 Google 示範面試裡那一句 *it's not very elegant but it's workable*。
+
+## 更新紀錄
+
+- 2026-10-25：納入統一口說系列；查證待辦移至研究紀錄，保留教材來源與使用範圍。
 
 ## 參考資料
 

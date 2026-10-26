@@ -15,6 +15,7 @@ import { normalizeGlossaryTerms, resolveGlossaryForLang } from '../../lib/glossa
 import { getSharedGlossaryAsset } from '../../lib/glossary/assets';
 import RelatedPosts from '../../components/RelatedPosts';
 import VocabularyCapture from '../../components/VocabularyCapture.astro';
+import EnglishPostNav from '../../components/EnglishPostNav.astro';
 
 import { getYouTubeEmbedId } from '../../utils/youtube';
 
@@ -315,6 +316,8 @@ const breadcrumbLD = {
         </div>
       </div>
     ))}
+
+    <EnglishPostNav postId={post.id} lang={lang} />
 
     <VocabularyCapture lang={lang} title={post.data.title} />
 

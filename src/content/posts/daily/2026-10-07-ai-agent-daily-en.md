@@ -60,7 +60,7 @@ None of today's trending GitHub repos compete on model intelligence — they all
 
 **Protocol Pivoting cross-protocol attack**: a researcher spent five months proving that the SSRF flaw common in MCP servers is a structural problem baked into the protocol itself, not a one-off mistake — Google, JPMorgan, the French government, Weaviate and the Indonesian city of Tangerang each independently made the same error; six weeks after disclosure, US federal systems (including veterans' benefits systems) remain unpatched. Full attack-surface analysis and mitigations in the [security alert](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf-en).
 
-**Artex AI breaches South Korean banks**: attackers used the Chinese-developed AI agent tool Artex AI to breach at least seven South Korean financial institutions, stealing personal data on 68,000 people; South Korean police have opened an investigation, in one of the first cases of an AI agent being used to breach a country's financial system. ([wsj](https://www.wsj.com/world/asia/hackers-use-chinese-ai-tool-to-hit-south-korean-banks-exposing-new-risk-5d4d3885))
+**Artex AI breaches South Korean banks**: attackers used the Chinese-developed AI agent tool Artex AI to breach at least seven South Korean financial institutions, stealing personal data on 68,000 people (WSJ as of Oct 7; the figure has since shifted); South Korean police have opened an investigation, in one of the first cases of an AI agent being used to breach a country's financial system. ([wsj](https://www.wsj.com/world/asia/hackers-use-chinese-ai-tool-to-hit-south-korean-banks-exposing-new-risk-5d4d3885))
 
 **Progress Software**: patched a command-injection flaw (CVE-2026-91140) in its Autonomous REST Connector AI Model Generator agent definitions, where a malicious OpenAPI/Swagger file could execute arbitrary commands in dev and CI environments. ([securityonline](https://securityonline.info/progress-datadirect-vulnerability-cve-2026-91140))
 
@@ -102,7 +102,7 @@ Three vertical AI agent funding rounds also landed the same day: Dutch pentestin
 | DeepSeek's new funding round | over $12B | [the-decoder](https://the-decoder.com/catl-and-tencent-back-deepseeks-ballooning-funding-round-as-the-ai-startup-eyes-a-2027-ipo) |
 | Moonshot AI (Kimi) valuation | $50B (up from $31.5B this summer) | [euronews](https://www.euronews.com/2026/10/06/moonshot-ai-eyes-hong-kong-ipo-after-50-billion-valuation-as-deepseek-raises-capital) |
 | Lambda valuation | $14.5B | [wsj](https://www.wsj.com/tech/ai/ai-neocloud-lambda-is-raising-4-billion-in-final-round-before-planned-ipo-568182f9) |
-| Artex AI breach: people affected | 68,000 (7 institutions) | [wsj](https://www.wsj.com/world/asia/hackers-use-chinese-ai-tool-to-hit-south-korean-banks-exposing-new-risk-5d4d3885) |
+| Artex AI breach: people affected | 68,000 (7 institutions; WSJ as of Oct 7) | [wsj](https://www.wsj.com/world/asia/hackers-use-chinese-ai-tool-to-hit-south-korean-banks-exposing-new-risk-5d4d3885) |
 
 ## Today's Digest Roundup
 
@@ -127,6 +127,10 @@ Three vertical AI agent funding rounds also landed the same day: Dutch pentestin
 ## Today's Takeaway
 
 I used to think "sovereign AI" was mostly a reactive compliance box — keeping data in-country just to pass an audit. Today, seeing Anthropic and OpenAI move inference into Mumbai and Hyderabad via AWS, and Yotta launch a sovereign agentic platform with IBM, all on the same day, in India, I realized model vendors are already packaging "keep inference in-country" as a product they sell proactively, without waiting to be told to. The takeaway for Taiwanese enterprises: when evaluating self-hosted or vendor AI agents, it's worth actively asking about local-inference options rather than assuming that only exists in markets the size of the US, Europe or India.
+
+## Update Log
+
+- 2026-10-24: Labeled the 68,000 figure as WSJ's number as of Oct 7. CrowdStrike's report the same day names no banks and says the affected total is unconfirmed; whether every bank was breached with ARTEX awaits official findings.
 
 ## References
 

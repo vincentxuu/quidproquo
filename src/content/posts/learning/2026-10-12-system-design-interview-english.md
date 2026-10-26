@@ -7,12 +7,17 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "系統設計面試沒有程式碼，四十五分鐘幾乎都在講話。這篇整理十二句：開場怎麼問使用者數、流量與讀寫比，怎麼劃範圍、說出假設、把細節先放著，怎麼講一個做法的代價、怎麼下決定、怎麼指出瓶頸與當場改口。句子來自 System Design Primer、Google 官方的面試說明，以及 interviewing.io 三場模擬面試的逐字稿。"
 tldr: "開場問 How many users are there? 和 What is the expected read to write ratio?；先放著的細節說 I'm going to put a pin in that；講代價用 …but it will come at the cost of latency；比較完要下決定：I'm going to go with an event queue because I'd rather…；講完一段問 Do you think that makes sense?。"
+series:
+  name: "英文口說練習"
+  order: 14
 draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-10-12-system-design-interview-english-en)
 
 這是面試口說的第三塊。[寫程式面試](/posts/learning/2026-10-12-coding-interview-english)和[被追問時怎麼接](/posts/learning/2026-10-12-interview-thinking-time-english)之後，剩下系統設計面試。
+
+這篇例句取自模擬面試逐字稿的選取片段，不是真實徵才面試的完整紀錄。文字轉錄可能有辨識誤差，也沒有逐句對照原音；可用來練需求、取捨與追問，不用來判定術語語域、英美差異或容量數字的唸法。
 
 ## 我當時想說什麼
 
@@ -185,20 +190,15 @@ Google 的說明也是這個要求：*We're looking for systems designers that c
 | 當場改口 | It may actually make more sense, now that I'm thinking about this, to use a NoSQL database. |
 | 確認對方同意 | Do you think that makes sense? |
 
-## 仍待核對
-
-- **逐字稿沒有從頭讀到尾。** 三場我都是依功能搜尋後讀前後段落，可能漏掉更好的說法。
-- **逐字稿是語音轉文字。** 個別的字可能辨識錯，我沒有對照錄音。
-- **模擬面試不是真正的徵才面試。** 應徵者是來練習的人，表現有好有壞；我挑的句子盡量選面試官事後有稱讚的段落，但不是每一句都有。
-- **put a pin in 這個說法。** 逐字稿裡有人這樣用，面試官也稱讚那個做法，但我沒有查到字典條目來確認它的語域。
-- **估算容量時怎麼把數字講出口。** Google 的說明要求數字估計，這次沒有做成卡片。
-- **英美差異。** 來源都是美國的公司與平台，沒有一個說明用法的地區差異。
-
 ## 整體來說
 
 十二句裡六句是來源原句，六句是改寫。最值得先練的是開場那三個問規模的問題，還有 *I'm going to go with … because I'd rather…*。前者每一題都用得到，後者是三個來源都在強調、卻最容易漏掉的一步：比較完要下決定。
 
 這一批和前兩篇不同的地方，是依據裡有實際的對話，而且對話後面附了面試官的回饋，所以看得到哪些說法被當成優點。限制也在這裡：那是模擬面試，不是語言教材，沒有人保證那些句子的文法都對；我只挑了文法上站得住、而且另一個來源也有同樣說法或要求的句子。
+
+## 更新紀錄
+
+- 2026-10-25：納入統一口說系列；查證待辦移至研究紀錄，保留教材來源與使用範圍。
 
 ## 參考資料
 

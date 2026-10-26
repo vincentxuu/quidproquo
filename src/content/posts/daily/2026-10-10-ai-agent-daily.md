@@ -68,7 +68,7 @@ series:
 
 **OpenAI 揪出俄伊資訊操弄**：俄羅斯「Dark Clark」用虛構智庫在拉美媒體散布抹黑烏克蘭內容，引發官方駁斥（Breakout Scale 五級，兩年半來首例）；伊朗「Bogus Bylines」用七個假記者身分在全球投放近百篇親伊朗文章。（[the-decoder](https://the-decoder.com/openai-uncovers-russian-and-iranian-influence-ops-that-planted-fake-stories-in-real-news-outlets/)）
 
-**ARTEX AI agent 轉閉源**：被資安公司認定與南韓銀行攻擊事件有關後，一名中國開發者將原本開源的滲透測試 agent「ARTEX」轉為閉源並下架 GitHub 頁面；南韓、日本監管機關已要求金融業完成資安自評（見區域動態．日韓）。（[reuters](https://www.reuters.com/world/china/chinese-developer-makes-artex-ai-agent-closed-source-after-korean-bank-hack-2026-10-09)）
+**ARTEX AI agent 轉閉源**：CrowdStrike 10/07 發布報告，指出一名不明攻擊者使用開源 agentic 滲透測試工具「ARTEX」（[報告](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)）；作者 10/08 宣布公開版不再更新、轉為閉源並下架 GitHub 頁面（作者聲明未直接提及南韓事件）；南韓、日本監管機關已要求金融業完成資安自評（見區域動態．日韓）。（[reuters](https://www.reuters.com/world/china/chinese-developer-makes-artex-ai-agent-closed-source-after-korean-bank-hack-2026-10-09)）
 
 **Tensorlake npm 供應鏈攻擊**：AI agent sandbox SDK 官方 npm 套件遭植入 Shai-Hulud 蠕蟲變種，竊取 GitHub／npm／AWS／Vault 憑證與 Claude／Cursor／Kiro 等 AI 工具設定，並寫入 `.claude/settings.json` 做跨工具持久化——下次受害者打開專案就會再次觸發；防禦須先斷網隔離清除憑證監控器，否則撤銷 token 會觸發清空家目錄，詳見本站[資安警報](/posts/daily/2026-10-10-security-tensorlake-npm-shai-hulud-supply-chain)。
 
@@ -94,7 +94,7 @@ series:
 
 **日韓**
 
-被資安公司認定與南韓銀行攻擊事件有關後，一名中國開發者把原本開源的滲透測試 agent「ARTEX」轉為閉源並下架 GitHub 頁面，強調反對非法使用；南韓、日本監管機關已要求金融業完成資安自評（見資安事件段）。（[technology.org](https://www.technology.org/2026/10/09/artex-ai-agent-closed-source-korea-bank-hacks)）
+CrowdStrike 10/07 發布報告後（[報告](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)），ARTEX 作者 10/08 宣布開源的滲透測試 agent 公開版轉為閉源並下架 GitHub 頁面，強調反對非法使用，聲明未直接提及南韓事件；南韓、日本監管機關已要求金融業完成資安自評（見資安事件段）。（[technology.org](https://www.technology.org/2026/10/09/artex-ai-agent-closed-source-korea-bank-hacks)）
 
 **東南亞**
 
@@ -164,6 +164,10 @@ Bengaluru 新創 Soket AI（獲 IndiaAI Mission 認定）推出開源 agent harn
 
 之前以為 npm 供應鏈攻擊的風險就是「憑證被偷」，處理方式是事後輪替金鑰；今天看到 Tensorlake 事件把惡意設定寫進 `.claude/settings.json`，才意識到對 AI coding agent 開發者來說，真正該稽核的範圍已經擴大到「我的 repo 裡有沒有被偷偷塞進會在我打開專案時自動執行的設定」——這跟補救帳密外洩是完全不同層級的清理工作。
 
+## 更新紀錄
+
+- 2026-10-24：更正 ARTEX 閉源一事的因果與歸屬寫法。(1) 原文「被資安公司認定與南韓銀行攻擊事件有關後……轉為閉源」把閉源的原因與「認定」說得比來源強；改為時序陳述：CrowdStrike 10/07 發布報告，作者 10/08 宣布公開版轉閉源，作者聲明未直接提及南韓事件，並移除對作者的國籍描述。(2) 補充後續：ThreatBook 10/15 稱開源版為其員工的個人專案並推出閉源商用版 ARTEX Pro（此為利害關係方的自述）；公開版閉源後，分叉與鏡像仍在流通。細節見 [資安警報｜ARTEX](/posts/daily/2026-10-08-security-artex-ai-pentest-korea-banks)。
+
 ## 參考資料
 
 - [Benchmark 異動｜Arena Agent 排行榜：Claude Opus 5.5 登頂](/posts/daily/2026-10-10-benchmark-arena-agent-opus-5-5)
@@ -201,3 +205,4 @@ Bengaluru 新創 Soket AI（獲 IndiaAI Mission 認定）推出開源 agent harn
 - [TII releases Falcon ASR speech recognition model — huggingface.co](https://huggingface.co/blog/tiiuae/falcon-asr)
 
 （今日沒有 Arxiv／GitHub Digest，上方站內連結皆為其他 Stage 1 digest 文章，完整清單見「今日 Digest 一覽」。）
+- [Unknown Threat Actor Uses AI-Driven ARTEX to Target South Korean Finance — CrowdStrike](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)
