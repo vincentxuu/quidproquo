@@ -1283,6 +1283,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'Task-based speaking practice with individual guides to live tutoring platforms, AI tools, and language schools, connecting preparation, feedback, and repetition.',
     },
   },
+  {
+    slug: 'human-body-basics',
+    category: 'learning',
+    names: { 'zh-TW': '認識人體', en: 'Understanding the Human Body' },
+    descriptions: {
+      'zh-TW': '從肌肉、骨骼、能量到疼痛與老化，用系統性回顧和教科書認識人體怎麼運作，並標明每個說法的證據確定性。不給訓練處方，只說哪些有證據、哪些只是關聯、哪些查不到。',
+      en: 'How the body works, from muscle, bone and energy to pain and ageing, read through systematic reviews and textbooks, with the certainty of evidence marked for each claim. No training prescriptions: what has evidence, what is only association, and what could not be found.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(

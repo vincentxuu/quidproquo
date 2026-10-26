@@ -499,6 +499,7 @@
 - 接手第一步：若要直接補今天的信號檔，可從本次已核實為真正新鮮（Oct 17-18 primary source）的候選清單重新開始（Claude Code v2.1.302 Mods／n8n CVE-2026-86074／ARTEX 韓國銀行入侵／Anthropic 律師事務所談判規範／Alibaba OpenGCUA／Gemini 4 Argon 打通 Minecraft／台灣晶片出口限制／ByteDance-MediaTek／Hurotics 韓國／Hex-Rays 以色列／Stripe 收購 OpenRouter／美國資料中心延宕／TechCabal 非洲 AI 新創／世銀泰國小型 AI／Sarvam AI 融資，共 15 則），再補足另外 15-35 則；若要治本，考慮在 `.agents/skills/daily-digest-signals/SKILL.md` 加一條規則：聚合站／彙整頁候選必須點進去找到其引用的 primary source 並以 primary source 的發佈日期為準，聚合站自己標的相對時間戳不可信。
 
 ## Q-041 「認識人體」系列：OpenStax 授權（CC BY-NC-SA）與系列登錄
+- 狀態：使用者於 2026-10-26 回覆「同意」（同意 OpenStax CC BY-NC-SA 4.0 改寫並附授權說明、同意在 `src/utils/series.ts` 登錄）。已登錄系列；22 篇仍為 `draft: true`，上線（改 false）與 deploy 另案。
 - 登錄：2026-10-24（來源：對話，order 2〈肌肉怎麼收縮〉審稿）
 - 做什麼：（1）決定本站是否可以改寫 OpenStax《Anatomy and Physiology 2e》這類 CC BY-NC-SA 4.0 教科書內容：NC（非商業）對本站有廣告、聯盟連結或付費內容時是否適用，SA（相同方式分享）是否要求衍生作品標同授權，以及頁面是否要附 "Access for free at …"。（2）核准在 `src/utils/series.ts` 登錄「認識人體」（slug `human-body-basics`）。
 - 為什麼現在不能做：（1）是授權與法務判斷，不是 agent 能下的結論；目前草稿用「改寫」並附授權說明，`draft: true`。（2）登錄系列會改動全站系列清單與 `check:series-plan` 閘門，且 order 0／1 尚未寫，先登錄會讓系列導覽成孤兒。
