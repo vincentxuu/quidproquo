@@ -1494,6 +1494,10 @@ daily-digest-framework／daily-digest-tool／daily-digest-benchmark 三支 2026-
 
 - **daily-digest-benchmark 2026-10-22**：四個追蹤榜單逐一查證，對照基準是 10-21 快照。SWE-bench Verified 用 Bash `curl` 直連 `raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json`（`python3 -I` 解析 180 筆 Verified 結果），前 4 名與 10-21 逐位元相同（79.20／79.20／78.80／77.40），第 5 名仍是 76.80 三方並列，未異動。LMArena Agent 子集改用 Groundlane `web_fetch` 打 HF datasets-server（lmarena-ai/leaderboard-dataset，config=agent，latest split），`leaderboard_publish_date` 從 10-21 記錄的 2026-10-19 推進到 2026-10-20（新批次）：前 5 名模型名次不變、分數小幅波動（Opus 5.5 Max +0.57pp，GPT-6 Astra -0.45pp，Fable 5.1 Max -0.16pp，GPT-6.1 Sol -0.17pp，Sonnet 5.5 Max -0.08pp），均未達 >2pp 門檻，無新模型進前三、無第一易主。CursorBench 前 5 名與官網 changelog 皆與 10-21 相同（最後一筆仍 10-07 定價調整），未異動；morphllm.com/leaderboard 仍回 429（Vercel Security Checkpoint，已知阻塞）；artificialanalysis.ai/agents/coding-agents 本次未再測（已知無排名數字表格可擷取，Q-023）。Step 3b 兩組新聞信號查詢僅命中第三方聚合站（swfte.com、openlm.ai、iternal.ai、llm-stats.com、lmmarketcap.com、benchlm.ai、anotherwrapper.com）與 Google 官方自測的 Gemini 4 Argon DeepSWE v1.1 77.9%（非本站追蹤榜單、DataCamp 指出尚無第三方獨立複現），皆非官方排名變動公告。依 skill Step 4 判斷今日無 Benchmark 異動，不產出文章，僅更新 `benchmark-snapshot.json`；待跑剩餘 targeted verify 與 commit／push。
 
+## 2026-10-27 封存：英文口說專區 PoC 2026-10-05 條目（daily-digest-security 2026-10-27 壓回 90 行上限）
+
+- **英文口說專區 PoC（2026-10-05，待使用者確認）**：nav／`/english`、六情境 19 句、文章／筆記、翻卡朗讀、自評本機排程完成；播放圖示依回饋改為喇叭＋「播放英文／停止播放」；參考連結補用專案主題 token（含 visited／focus），瀏覽器確認深色為 #5cb87a，修後 verify 全綠。4 個測試通過、最後 pnpm verify 全綠；瀏覽器驗證揭示、自評、完成／無到期、重新整理進度、390px 手機。可看 http://127.0.0.1:4323/english；輕量預覽啟動方式與限制見 `.work/english-speaking-plan.md`。使用者已授權本次 commit／push；未 deploy。
+
 ## 2026-10-26 封存：內容販售商業模式系列群 2026-09-17 條目（daily-digest-product-interview 2026-10-26 壓回 90 行上限）
 
 - **內容販售商業模式系列群（2026-09-17）**：母系列總覽已重寫；B2B orders 0–6、創作者平台 orders 1–7、免費內容 orders 1–8、AI 搜尋 orders 0–6 及三個子系列導讀，合計 66 個中英文章檔（33 組）均完成。交叉審稿必修已修；完成度稽核確認雙向語言連結、References、Mermaid、表格、orders 與內鏈無 blocking gap。`pnpm verify` 於整合後全綠；待使用者 review 才依 scoped paths commit／push，CUA 無可用 browser，Mermaid／手機視覺仍未取得瀏覽器證據。SSOT：`.work/content-business-series-plan.md`。
