@@ -70,7 +70,7 @@ For Taiwanese readers: Chunghwa Telecom president Lin Jung-tsai made the same po
 Chunghwa Telecom president Lin Jung-tsai said the shift from conversational AI to autonomous agents is reshaping enterprise adoption, with data governance, access control and accountability now key to scaling deployment ([source](https://www.digitimes.com/news/a20261016PD239/cht-president-data-infrastructure-governance.html)).
 
 **Japan & South Korea**
-Both countries are facing a surge in AI-powered cyberattacks: Japan's ruling-party cybersecurity chair Masaaki Taira called it a "national cyberspace emergency" on Oct 9, with over 600 corporate incidents reported by early October — already surpassing all of 2025. SOURCENEXT (22.51 million records) and Park24's Times Car (1.6 million driver's-license photos sold on the dark web for 20 yen each) were among the hardest hit. South Korean President Lee Jae Myung warned AI is sharply lowering the bar for attackers, and CrowdStrike traced intrusions at Shinhan Bank, KB Kookmin Bank and at least 14 other financial institutions to a Chinese-speaking actor using ARTEX, an open-source AI-driven penetration tool ([source](https://www.straitstimes.com/asia/east-asia/millions-of-personal-records-in-japan-south-korea-exposed-amid-surge-in-ai-powered-cyberattacks)).
+Both countries are facing a surge in AI-powered cyberattacks: Japan's ruling-party cybersecurity chair Masaaki Taira called it a "national cyberspace emergency" on Oct 9, with over 600 corporate incidents reported by early October — already surpassing all of 2025. SOURCENEXT (22.51 million records) and Park24's Times Car (1.6 million driver's-license photos sold on the dark web for 20 yen each) were among the hardest hit. South Korean President Lee Jae Myung warned AI is sharply lowering the bar for attackers, and South Korean financial authorities counted at least 16 financial institutions hit, including Shinhan Bank and KB Kookmin Bank, with roughly 100,000 customer contact and borrowing records exposed (figures relayed by The Straits Times). CrowdStrike separately assessed, with moderate confidence, that the related activity came from a Chinese-speaking, financially motivated actor using ARTEX, an open-source AI-driven penetration tool developed in China; its report names no banks and says the total number of affected organizations is unconfirmed ([source](https://www.straitstimes.com/asia/east-asia/millions-of-personal-records-in-japan-south-korea-exposed-amid-surge-in-ai-powered-cyberattacks)).
 
 **Southeast Asia**
 Singapore's Minister for Digital Development Josephine Teo said the city-state has become the first government to publish a dedicated AI agent governance framework, focused on defining risk and human accountability ([source](https://www.netnewsledger.com/2026/10/15/singapore-wants-to-be-southeast-asias-front-door-for-ai/)).
@@ -144,6 +144,10 @@ Also today: NVIDIA open-sourced a 2.8-trillion-token Indic pretraining data pipe
 
 I used to think the "AI widens the attacker's edge" story only applied to agent prototypes still in development. Japan and South Korea's cybersecurity crisis shows it's now a production-grade problem — South Korea's president said plainly that "amateur attackers can now breach systems with AI," and the tool traced in the bank intrusions, ARTEX, is itself an open-source AI-driven penetration framework. AI is lowering both the attacker's and the defender's bar at the same time; whoever closes that gap first wins not on technical sophistication, but on how fast they move on governance.
 
+## Update Log
+
+- 2026-10-24: Corrected attribution. "At least 16 financial institutions" and the roughly 100,000 exposed records are South Korean financial authorities' figures, not CrowdStrike's findings; CrowdStrike's report names no banks and says the affected total is unconfirmed. The sentence now separates the two and the CrowdStrike report is linked in References.
+
 ## References
 
 - [AI Agent Arxiv Digest — 2026-10-17](/posts/daily/2026-10-17-ai-agent-arxiv-digest-en)
@@ -163,6 +167,7 @@ I used to think the "AI widens the attacker's edge" story only applied to agent 
 - [China proposes export controls — Bloomberg](https://www.bloomberg.com/news/articles/2026-10-16/china-proposes-export-controls-on-ai-models-chips-and-agents)
 - [Chunghwa Telecom on data governance — Digitimes](https://www.digitimes.com/news/a20261016PD239/cht-president-data-infrastructure-governance.html)
 - [Japan, South Korea AI-powered cyberattacks — The Straits Times](https://www.straitstimes.com/asia/east-asia/millions-of-personal-records-in-japan-south-korea-exposed-amid-surge-in-ai-powered-cyberattacks)
+- [Unknown Threat Actor Uses AI-Driven ARTEX to Target South Korean Finance — CrowdStrike](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)
 - [Singapore AI gateway — NetNewsLedger](https://www.netnewsledger.com/2026/10/15/singapore-wants-to-be-southeast-asias-front-door-for-ai/)
 - [CERT-In warns AI agents accessed sensitive data — The Hacker News](https://thehackernews.com/2026/10/cert-in-warns-ai-agents-accessed.html)
 - [Pakistan lacks AI safety law — TechX.pk](https://techx.pk/ai-worms-autonomous-agent-safety-global-regulation-pakistan/)

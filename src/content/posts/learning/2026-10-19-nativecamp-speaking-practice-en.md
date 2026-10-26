@@ -9,7 +9,7 @@ description: "A guide to NativeCamp's Taiwan plans, on-demand and reserved lesso
 tldr: "NativeCamp may suit learners who want frequent live practice in spare moments. Separate on-demand access from paid reservations, then test the service with a concrete speaking task."
 series:
   name: "English Speaking Practice"
-  order: 1
+  order: 19
 draft: false
 ---
 

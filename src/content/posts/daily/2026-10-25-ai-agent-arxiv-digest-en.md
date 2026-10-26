@@ -23,37 +23,40 @@ desc: A user's interaction preferences and a memory's governance state are two h
 caption: Simplified: the two papers on the left expose two different failure points on the same memory pipeline; the case on the right shows that narrowing task scope lets validation gates absorb the remaining uncertainty by themselves.
 ---
 <svg viewBox="0 0 640 420">
-  <path class="dg-line" d="M156 90H172" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M156 180H172" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M296 90H312" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M296 180H312" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M454 135H470" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M160 90H176" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M160 190H176" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M332 90H348" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M332 190H348" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M468 140H484" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box dg-box--link" x="16" y="58" width="140" height="64" rx="6"/>
-  <text class="dg-label" x="86" y="81" text-anchor="middle" dominant-baseline="central">Memory content</text>
-  <text class="dg-sub" x="86" y="101" text-anchor="middle" dominant-baseline="central">facts / preferences</text>
+  <rect class="dg-box dg-box--link" x="16" y="46" width="144" height="88" rx="6"/>
+  <text class="dg-label" x="88" y="81" text-anchor="middle" dominant-baseline="central">Memory content</text>
+  <text class="dg-sub" x="88" y="103" text-anchor="middle" dominant-baseline="central">facts, preferences</text>
 
-  <rect class="dg-box dg-box--link" x="16" y="148" width="140" height="64" rx="6"/>
-  <text class="dg-label" x="86" y="171" text-anchor="middle" dominant-baseline="central">Governance state</text>
-  <text class="dg-sub" x="86" y="191" text-anchor="middle" dominant-baseline="central">still valid?</text>
+  <rect class="dg-box dg-box--link" x="16" y="146" width="144" height="88" rx="6"/>
+  <text class="dg-label" x="88" y="181" text-anchor="middle" dominant-baseline="central">Governance</text>
+  <text class="dg-sub" x="88" y="203" text-anchor="middle" dominant-baseline="central">state: still valid?</text>
 
-  <rect class="dg-box dg-box--accent" x="172" y="58" width="124" height="64" rx="6"/>
-  <text class="dg-label" x="234" y="81" text-anchor="middle" dominant-baseline="central">MemPABench</text>
-  <text class="dg-sub" x="234" y="101" text-anchor="middle" dominant-baseline="central">remembered, never acted on</text>
+  <rect class="dg-box dg-box--accent" x="176" y="46" width="156" height="88" rx="6"/>
+  <text class="dg-label" x="254" y="71" text-anchor="middle" dominant-baseline="central">MemPABench</text>
+  <text class="dg-sub" x="254" y="93" text-anchor="middle" dominant-baseline="central">remembered,</text>
+  <text class="dg-sub" x="254" y="111" text-anchor="middle" dominant-baseline="central">never acted on</text>
 
-  <rect class="dg-box dg-box--accent" x="172" y="148" width="124" height="64" rx="6"/>
-  <text class="dg-label" x="234" y="171" text-anchor="middle" dominant-baseline="central">Governance-State</text>
-  <text class="dg-sub" x="234" y="191" text-anchor="middle" dominant-baseline="central">content fine, used anyway</text>
+  <rect class="dg-box dg-box--accent" x="176" y="146" width="156" height="88" rx="6"/>
+  <text class="dg-label" x="254" y="171" text-anchor="middle" dominant-baseline="central">State corruption</text>
+  <text class="dg-sub" x="254" y="193" text-anchor="middle" dominant-baseline="central">content fine,</text>
+  <text class="dg-sub" x="254" y="211" text-anchor="middle" dominant-baseline="central">used anyway</text>
 
-  <rect class="dg-box" x="312" y="90" width="142" height="100" rx="6"/>
-  <text class="dg-label" x="383" y="118" text-anchor="middle" dominant-baseline="central">Looks the same</text>
-  <text class="dg-sub" x="383" y="140" text-anchor="middle" dominant-baseline="central">from outside</text>
-  <text class="dg-sub" x="383" y="160" text-anchor="middle" dominant-baseline="central">metrics look fine</text>
+  <rect class="dg-box" x="348" y="46" width="120" height="188" rx="6"/>
+  <text class="dg-label" x="408" y="121" text-anchor="middle" dominant-baseline="central">Looks fine</text>
+  <text class="dg-sub" x="408" y="143" text-anchor="middle" dominant-baseline="central">from outside:</text>
+  <text class="dg-sub" x="408" y="161" text-anchor="middle" dominant-baseline="central">metrics normal</text>
 
-  <rect class="dg-box dg-box--store" x="470" y="90" width="150" height="100" rx="6"/>
-  <text class="dg-label" x="545" y="118" text-anchor="middle" dominant-baseline="central">DoorDash case</text>
-  <text class="dg-sub" x="545" y="140" text-anchor="middle" dominant-baseline="central">narrow scope + CI /</text>
-  <text class="dg-sub" x="545" y="160" text-anchor="middle" dominant-baseline="central">coverage gates = shippable</text>
+  <rect class="dg-box dg-box--store" x="484" y="80" width="140" height="120" rx="6"/>
+  <text class="dg-label" x="554" y="112" text-anchor="middle" dominant-baseline="central">DoorDash case</text>
+  <text class="dg-sub" x="554" y="134" text-anchor="middle" dominant-baseline="central">narrow scope +</text>
+  <text class="dg-sub" x="554" y="152" text-anchor="middle" dominant-baseline="central">CI, coverage gates</text>
+  <text class="dg-sub" x="554" y="170" text-anchor="middle" dominant-baseline="central">= shippable</text>
 
   <line class="dg-rule" x1="16" y1="320" x2="624" y2="320"/>
   <text class="dg-tag" x="16" y="344" dominant-baseline="central">Legend</text>

@@ -60,7 +60,7 @@ Inngest v1.46.0 讓本機開發環境可以直接接上 Cloud sandbox 跑 agent 
 
 **Protocol Pivoting 跨協定攻擊**：研究者花五個月證明 MCP server 常見的 SSRF 漏洞是協定本身缺乏規範性安全要求造成的結構性問題，Google、JPMorgan、法國政府、Weaviate、印尼坦格朗各自獨立犯了同一個錯；美國聯邦系統（含退伍軍人福利系統）通報六週後仍未修補。完整攻擊面分析與防禦做法見[資安警報](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf)。
 
-**Artex AI 入侵南韓銀行**：攻擊者使用中國開發的 AI agent 工具 Artex AI 入侵南韓至少 7 家金融機構，竊取 6.8 萬人個資，南韓警方已展開調查，是首批 AI agent 入侵全球金融系統的案例之一。（[wsj](https://www.wsj.com/world/asia/hackers-use-chinese-ai-tool-to-hit-south-korean-banks-exposing-new-risk-5d4d3885)）
+**Artex AI 入侵南韓銀行**：攻擊者使用中國開發的 AI agent 工具 Artex AI 入侵南韓至少 7 家金融機構，竊取 6.8 萬人個資（至 10/07 WSJ 報導；數字其後有變動），南韓警方已展開調查，是首批 AI agent 入侵全球金融系統的案例之一。（[wsj](https://www.wsj.com/world/asia/hackers-use-chinese-ai-tool-to-hit-south-korean-banks-exposing-new-risk-5d4d3885)）
 
 **Progress Software**：修補其 Autonomous REST Connector AI Model Generator agent 定義中的指令注入漏洞（CVE-2026-91140），惡意 OpenAPI/Swagger 檔可在開發與 CI 環境中執行任意指令。（[securityonline](https://securityonline.info/progress-datadirect-vulnerability-cve-2026-91140)）
 
@@ -102,7 +102,7 @@ Inngest v1.46.0 讓本機開發環境可以直接接上 Cloud sandbox 跑 agent 
 | DeepSeek 新一輪融資 | 逾 $120 億 | [the-decoder](https://the-decoder.com/catl-and-tencent-back-deepseeks-ballooning-funding-round-as-the-ai-startup-eyes-a-2027-ipo) |
 | Moonshot AI（Kimi）估值 | $500 億（較夏季 $315 億跳升） | [euronews](https://www.euronews.com/2026/10/06/moonshot-ai-eyes-hong-kong-ipo-after-50-billion-valuation-as-deepseek-raises-capital) |
 | Lambda 估值 | $145 億 | [wsj](https://www.wsj.com/tech/ai/ai-neocloud-lambda-is-raising-4-billion-in-final-round-before-planned-ipo-568182f9) |
-| Artex AI 入侵南韓銀行外洩人數 | 6.8 萬人（7 家機構） | [wsj](https://www.wsj.com/world/asia/hackers-use-chinese-ai-tool-to-hit-south-korean-banks-exposing-new-risk-5d4d3885) |
+| Artex AI 入侵南韓銀行外洩人數 | 6.8 萬人（7 家機構；至 10/07 WSJ 報導） | [wsj](https://www.wsj.com/world/asia/hackers-use-chinese-ai-tool-to-hit-south-korean-banks-exposing-new-risk-5d4d3885) |
 
 ## 今日 Digest 一覽
 
@@ -127,6 +127,10 @@ Inngest v1.46.0 讓本機開發環境可以直接接上 Cloud sandbox 跑 agent 
 ## 今日收穫
 
 之前以為「主權 AI」主要是法規壓出來的被動合規議題——把資料留在境內只是為了應付稽核。今天看到印度同一天出現 Anthropic／OpenAI 透過 AWS 把推理搬進孟買與海德拉巴、Yotta 又跟 IBM 合推境內 agentic 平台，才意識到模型供應商自己已經把「推理留在境內」做成主動銷售的產品層，不等政府要求就先推出——這對台灣企業是個提醒：評估自架或導入 AI agent 時，可以主動問供應商有沒有本地推理選項，而不是假設這只存在於歐美印度等大市場。
+
+## 更新紀錄
+
+- 2026-10-24：6.8 萬人標明為至 10/07 的 WSJ 報導數字。CrowdStrike 當日報告不點名銀行，也說受影響機構總數尚未確認，各家銀行是否都由 ARTEX 入侵尚待官方調查。
 
 ## 參考資料
 

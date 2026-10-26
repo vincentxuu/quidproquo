@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, github, open-source, daily, reverse-engineering, agent-security, computer-use]
 lang: en
 description: "rea gains 25,585 stars in a day to top GitHub trending; agent-driven reverse engineering, autonomous pentesting, and real-iPhone control all surface the same day"
-tldr: "morluto/rea (96,754★, +25,585 today) tops GitHub trending after a one-day surge, wiring agents through MCP into Hopper/Ghidra/IDA to reverse-engineer native binaries and JS/Electron apps with evidence instead of guesswork. mhtsec/ARTEX (3,121★) is the source backup of a champion project from Baidu's \"agent+\" red-vs-blue competition, letting an LLM agent run penetration tests autonomously. zhongerxin/iPhone-use (2,983★) lets Codex drive a real iPhone over USB. rociiu/talorys (719★) deploys a personal agent into your own Cloudflare account with one command. Pydantic AI v2.55.0 drops Python 3.10 support."
+tldr: "morluto/rea (96,754★, +25,585 today) tops GitHub trending after a one-day surge, wiring agents through MCP into Hopper/Ghidra/IDA to reverse-engineer native binaries and JS/Electron apps with evidence instead of guesswork. mhtsec/ARTEX (3,121★) is a third-party backup of the project that placed first on overall score in Baidu's \"agent+\" red-vs-blue competition, letting an LLM agent run penetration tests autonomously; since Oct 7 several vendors have reported misuse, so it is covered here only to explain the risk, and we do not recommend installing or using it. zhongerxin/iPhone-use (2,983★) lets Codex drive a real iPhone over USB. rociiu/talorys (719★) deploys a personal agent into your own Cloudflare account with one command. Pydantic AI v2.55.0 drops Python 3.10 support."
 series:
   name: "AI Agent GitHub Digest"
   order: 58
@@ -15,7 +15,7 @@ series:
 
 ## Today's Highlight
 
-Today's four repos share a pattern: agents aren't staying inside the chat window anymore — they're reaching out to touch real systems. rea lets an agent reverse-engineer real binaries, and gained 25,585 stars in a single day to take the #1 spot on GitHub trending. ARTEX lets an agent run penetration tests against real network assets. iPhone-use lets an agent drive your actual iPhone over USB. And talorys runs your personal agent directly inside your own Cloudflare account. The infrastructure is yours, and so is whatever the agent touches.
+Today's four repos share a pattern: agents aren't staying inside the chat window anymore — they're reaching out to touch real systems. rea lets an agent reverse-engineer real binaries, and gained 25,585 stars in a single day to take the #1 spot on GitHub trending. ARTEX lets an agent run penetration tests against real network assets (which is also why it has been abused; see its entry). iPhone-use lets an agent drive your actual iPhone over USB. And talorys runs your personal agent directly inside your own Cloudflare account. The infrastructure is yours, and so is whatever the agent touches.
 
 ## Trending Repos
 
@@ -34,10 +34,11 @@ Today's four repos share a pattern: agents aren't staying inside the chat window
 
 [GitHub](https://github.com/mhtsec/ARTEX)　·　Go　·　AGPL-3.0
 
-- **What it is**: An AI autonomous penetration-testing system (Go backend, Next.js frontend) where an agent runs asset discovery, vulnerability hunting, and traffic recording on its own, with human-in-the-loop interception and approval; it's a source-code backup of the champion project from Baidu's "agent+" red-vs-blue competition.
-- **Why it matters**: It shows "agents doing security testing" has matured past demo stage to competition-winning — built-in ScopeSentry asset sync, an asset coverage graph, and detailed approval records make for a far more complete pipeline than just pointing an agent at a target with a prompt. Worth noting: the original Docker image source, `autumn27/artex`, was pulled from Docker Hub, and the project now relies on a community-maintained image, `mianhuatang11/artex`.
+- **What it is**: An AI autonomous penetration-testing system (Go backend, Next.js frontend) where an agent runs asset discovery, vulnerability hunting, and traffic recording on its own, with human-in-the-loop interception and approval; the project placed first on overall score (7th on the live range) in Baidu's "agent+" red-vs-blue competition, and this repo is a third-party source-code backup, not the author's official release.
+- **Provenance and misuse risk (read first)**: CrowdStrike's Oct 7 report says an attacker used ARTEX with multiple LLMs against South Korean financial institutions (see the [security alert](/posts/daily/2026-10-08-security-artex-ai-pentest-korea-banks-en)); the author announced on Oct 8 that the public version went closed-source, and Microsoft, Recorded Future, Zscaler and AhnLab have since reported further misuse, while mirrors and forks of unverifiable provenance keep circulating. It is listed here to explain the risk, not to encourage installing or using it.
+- **Why it matters**: It shows "agents doing security testing" scoring well in a competition, not just demos — built-in ScopeSentry asset sync, an asset coverage graph, and detailed approval records make for a far more complete pipeline than just pointing an agent at a target with a prompt. The original Docker image source, `autumn27/artex`, was pulled from Docker Hub, and what circulates now is community images of unverifiable origin, which is exactly the supply-chain risk.
 - **Tech stack**: Go (single binary with embedded frontend) + Next.js + PostgreSQL + Anthropic/OpenAI API-driven exploration
-- **Setup difficulty**: Medium — a one-shot install script handles Docker or a local build, but getting the agent to actually explore still requires supplying your own LLM API key.
+- **Setup difficulty**: Not assessed. The project has a record of misuse and its official version is gone, so this site gives no install or usage advice; security teams should focus on access control for exposed systems and behavioral anomaly detection.
 
 ---
 
@@ -74,6 +75,10 @@ Today's four repos share a pattern: agents aren't staying inside the chat window
 ## Today's Takeaway
 
 I used to think "agents controlling physical devices" was still stuck at browser automation. But iPhone-use wires straight into WebDriverAgent to drive a real iPhone, and the reason rea gained 25,585 stars in a day to top GitHub is "help me figure out how this app's feature works" — which made me realize the agent frontier isn't about chatting better, it's about whether an agent can actually reach past your computer into a real system.
+
+## Update Log
+
+- 2026-10-24: Added provenance and misuse-risk warnings for ARTEX based on primary reports from CrowdStrike, Microsoft, AhnLab and others: CrowdStrike's Oct 7 report, the author's Oct 8 move to closed source, and that this repo is a third-party backup. "Champion" is now "first on overall score", and the description of how to install it was removed so the entry no longer encourages installing or using it.
 
 ## References
 

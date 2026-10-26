@@ -1,0 +1,366 @@
+# Ena Kasagiyama research
+
+Checked 2026-10-26. Reader decision: Ena Kasagiyama bouldering: seasonal conditions, registration, designated parking, original Japanese grades and official topo access.
+
+## Sources opened
+
+- Kasagiyama rules https://www.kasagiclimbing.com/rule : Entrance contribution and log required; designated roads and parking only; paraglider takeoff vicinity no parking; temporary instructions apply.
+- Kasagiyama access https://www.kasagiclimbing.com/access : Registrationpoint and designated roads shown; no public shuttle stated.
+- Gifu tourism https://www.kankou-gifu.jp/spot/detail_8406.html : March–May and October–December best; summer insects and winter snow; EnaIC via Route68 toward Shirakawa.
+- Kasagiyama topo2022 https://www.kasagiclimbing.com/post/topo2022 : 2022 upper-area revised topo; InomachiWest added; separate authors not enumerated.
+- Kasagiyama sales https://www.kasagiclimbing.com/post/topo-place : Topo sold at FamilyMart EnaKusumi and KasagiCommunityCenter; pads and shoes require reservation.
+- CN Kasagiyama https://www.climbing-net.com/iwaba_detail/%E7%AC%A0%E7%BD%AE%E5%B1%B1/ : Hardtuff; mainly bouldering plus boltedroutes.
+- RT Ena routes https://www.rocktopo.net/areas/128/routes : Japanese grades and exactbouldernames as route extraction below; Font/V not supplied for chosen rows.
+
+## Public route inventory
+
+ROCKTOPO full public table extracted by external script, graded rows retained. Current merged table has 321 rows; original database grade, style and sector fields preserved. Other public lists and same-name variants are source-linked per row. Paid guidebook interiors were not available; this is not a claim of exhaustive guidebook or all unpublished routes.
+
+- パラ / パラ / 2級 / length -
+- イルンカ / イルガ / 7級 / length -
+- イルカ / イルガ / 1級 / length -
+- イルルカ / イルガ / 初段+ / length -
+- イルガ / イルガ / 三段 / length -
+- イルカルガ / イルガ / 三段+ / length -
+- モアイノーズ / モアイ / 8級 / length -
+- ムカンテ / ムカンテ / 二段 / length -
+- ドレッド / レッドブル / 3級 / length -
+- ナドナド / レッドブル / 1級 / length -
+- エキドナ / レッドブル / 初段 / length -
+- ドナドナ / レッドブル / 初段+ / length -
+- レッドブル / レッドブル / 二段 / length -
+- エキドナ右 / レッドブル / 二段 / length -
+- 赤牛 / レッドブル / 二段+ / length -
+- アルデバラン / レッドブル / 三段+ / length -
+- アカドナ / レッドブル / 三段+ / length -
+- 無名 / エグゾディア / 8級 / length -
+- 無名 / エグゾディア / 5級 / length -
+- ワラシ / エグゾディア / 2級 / length -
+- ヤマワラ / エグゾディア / 2級 / length -
+- ヤマワラダイレクト / エグゾディア / 1級 / length -
+- グール / エグゾディア / 三段- / length -
+- エモーション / エグゾディア / 五段 / length -
+- レッドケイブ / レッドケイブ / 2級 / length -
+- レッドケイブ(SD) / レッドケイブ / 三段- / length -
+- フォボス / レッドケイブ / 三段+ / length -
+- 無名 / ウォールフワラ / 7級 / length -
+- ウォールフワラ / ウォールフワラ / 3級 / length -
+- ブライル / ウォールフワラ / 2級 / length -
+- ウォールブライル / ウォールフワラ / 1級 / length -
+- ナイフのようなカンテ / ウォールフワラ / 初段 / length -
+- タルト / プレジャーロック / 5.9 / length -
+- チョコクロワッサン / プレジャーロック / 5.9 / length -
+- YDOプレゼンツ / プレジャーロック / 5.11a / length -
+- イブニンブライト / プレジャーロック / 5.11a / length -
+- ヒミカ / プレジャーロック / 5.11a / length -
+- キャットパワー / プレジャーロック / 5.11a / length -
+- フライテンドラピッド / プレジャーロック / 5.11b / length -
+- クロックムッシュ / プレジャーロック / 5.11c / length -
+- カンパーニュ / プレジャーロック / 5.11d / length -
+- 無名 / シャクヤク・デストルドー / 5級 / length -
+- 無名 / シャクヤク・デストルドー / 4級 / length -
+- ボーコーエン / シャクヤク・デストルドー / 2級 / length -
+- クシャクシャ / シャクヤク・デストルドー / 二段 / length -
+- デストルドー / シャクヤク・デストルドー / 二段 / length -
+- ペシミスト / シャクヤク・デストルドー / 三段+ / length -
+- シャクヤク / シャクヤク・デストルドー / 三段+ / length -
+- スイートニコル / ペネロペ・スイートニコル / 4級 / length -
+- ペネロペ / ペネロペ・スイートニコル / 4級 / length -
+- ペネロープ / ペネロペ・スイートニコル / 4級 / length -
+- ペネペネ / ペネロペ・スイートニコル / 3級 / length -
+- ペネ / ペネロペ・スイートニコル / 3級 / length -
+- ペネトラ / ペネロペ・スイートニコル / 3級 / length -
+- ニコル / ペネロペ・スイートニコル / 1級 / length -
+- DMA / DHAの岩 / 4級 / length -
+- DNA / DHAの岩 / 4級 / length -
+- DHA / DHAの岩 / 3級 / length -
+- イトウアイランド / 保科課題の岩 / 3級 / length -
+- 少年 / 全力岩 / 8級 / length -
+- パンダの戯れ / 分岐岩 / 6級 / length -
+- さくさくパンダ / 分岐岩 / 3級 / length -
+- テンプテーション / テンプテーション・アルケミア周辺 / 3級 / length -
+- アルケミア / テンプテーション・アルケミア周辺 / 初段 / length -
+- オンモラキ / テンプテーション・アルケミア周辺 / 初段+ / length -
+- レアック / テンプテーション・アルケミア周辺 / 二段 / length -
+- モスカン / モスブリッジ周辺 / 6級 / length -
+- スローパーからクラック / モスブリッジ周辺 / 6級 / length -
+- スローパーから左上 / モスブリッジ周辺 / 6級 / length -
+- 東風 / モスブリッジ周辺 / 6級 / length -
+- イザナギ / モスブリッジ周辺 / 3級 / length -
+- モストラ / モスブリッジ周辺 / 2級 / length -
+- ゲオ / モスブリッジ周辺 / 2級 / length -
+- オモダル / モスブリッジ周辺 / 1級 / length -
+- カグツチ / モスブリッジ周辺 / 1級 / length -
+- モスモス / モスブリッジ周辺 / 初段 / length -
+- ゴールデンルーフ / モスブリッジ周辺 / 初段 / length -
+- 五平餅 / モスブリッジ周辺 / 初段 / length -
+- ひぐらし / モスブリッジ周辺 / 初段 / length -
+- 栗きんとん / モスブリッジ周辺 / 初段+ / length -
+- シマヘビクラック / 大岩展望の岩 / 5.7 / length -
+- ゆず祭り / 大岩展望の岩 / 5.7 / length -
+- 岩茸三昧 / 大岩展望の岩 / 5.7 / length -
+- 笠置山賛歌 / 大岩展望の岩 / 5.8 / length -
+- BBQ / 大岩展望の岩 / 5.8 / length -
+- BBG / 大岩展望の岩 / 5.8 / length -
+- ゆきんこ / 大岩展望の岩 / 5.10a / length -
+- 無名ルート / 大岩展望の岩 / 5.10a / length -
+- 岩茸スラブ / 大岩展望の岩 / 5.10b / length -
+- ズクナシ / 大岩展望の岩 / 5.10b / length -
+- 知足 / 大岩展望の岩 / 5.10b / length -
+- こっそりどう / 大岩展望の岩 / 5.10c / length -
+- カロリ / 大岩展望の岩 / 5.10d / length -
+- MOL / 大岩展望の岩 / 5.11a / length -
+- 自由人 / 大岩展望の岩 / 5.11a / length -
+- ボンクラージュ / 大岩展望の岩 / 5.11a/b / length -
+- あかねクラック / 大岩展望の岩 / 5.11b / length -
+- ズクアリ / 大岩展望の岩 / 5.11b / length -
+- ハリオ / 大岩展望の岩 / 5.11b/c / length -
+- 無名ルート / 大岩展望の岩 / 5.11c / length -
+- 天命反転地 / 大岩展望の岩 / 5.11d / length -
+- ダチカンテ / 大岩展望の岩 / 5.12a / length -
+- Mr.ベン / 大岩展望の岩 / 5.12b / length -
+- ノーズ / 大岩展望の岩 / 5.12c / length -
+- 無名ルート / 大岩展望の岩 / 5.12c / length -
+- 破門 / 大岩展望の岩 / 5.12d / length -
+- Anonymous / 大岩展望の岩 / 5.13a / length -
+- 亜門 / 大岩展望の岩 / 5.13a / length -
+- 激門 / 大岩展望の岩 / 5.13b / length -
+- 運否天賦 / 大岩展望の岩 / 5.13c / length -
+- 曼珠沙華 / 大岩展望の岩 / 5.13d / length -
+- 鬼門 / 大岩展望の岩 / 5.13d/14a / length -
+- クラックジョイ / 大岩展望の岩 / 5.6 / length -
+- 笠置山レイバック / 大岩展望の岩 / 5.10a / length -
+- 左往 / 大岩展望の岩 / 5.10b / length -
+- 右往 / 大岩展望の岩 / 5.10b / length -
+- 破天荒 / 大岩展望の岩 / 5.11a/b / length -
+- 天狐 / マジムン・天狐の岩 / 三段- / length -
+- マジムン / マジムン・天狐の岩 / 三段 / length -
+- トラバース / 孔雀岩 / 5級 / length -
+- 孔雀2 / 孔雀岩 / 3級 / length -
+- 孔雀 / 孔雀岩 / 3級 / length -
+- 孔雀王 / 孔雀岩 / 初段 / length -
+- シュクラン / シュランシュクラン岩 / 1級 / length -
+- シュラン / シュランシュクラン岩 / 1級+ / length -
+- シュシュ / シュランシュクラン岩 / 初段 / length -
+- 春雪 / ピクニックテーブル岩 / 7級 / length -
+- 霧雨 / ピクニックテーブル岩 / 5級 / length -
+- 終雪 / ピクニックテーブル岩 / 5級 / length -
+- 氷雨 / ピクニックテーブル岩 / 5級 / length -
+- 春雨 / ピクニックテーブル岩 / 4級 / length -
+- ホンノイッテ / ピクニックテーブル岩 / 4級 / length -
+- ゴキ / ルーフルール・ニキ岩 / 8級 / length -
+- トーマ / ルーフルール・ニキ岩 / 5級 / length -
+- マクロ / ルーフルール・ニキ岩 / 1級 / length -
+- ノムール(SD) / ルーフルール・ニキ岩 / 1級 / length -
+- ニキ / ルーフルール・ニキ岩 / 1級 / length -
+- オンラ / ルーフルール・ニキ岩 / 二段 / length -
+- パキピド / ルーフルール・ニキ岩 / 二段 / length -
+- ニキミギ / ルーフルール・ニキ岩 / 三段 / length -
+- パキタ / ルーフルール・ニキ岩 / 三段 / length -
+- 無名 / しなだれ岩 / 5級 / length -
+- アトム / しなだれ岩 / 初段+ / length -
+- ウラン / しなだれ岩 / 二段 / length -
+- シナダレ / しなだれ岩 / 三段 / length -
+- ウラダレ / しなだれ岩 / 三段+ / length -
+- 十字クラック / はまぐり岩 / 6級 / length -
+- 七五三 / はまぐり岩 / 4級 / length -
+- アノン / アノンの岩 / 4級 / length -
+- サラシア / サラシア岩 / 二段 / length -
+- アメノクラド3 / テーブル岩 / 3級 / length -
+- アメノクラド2 / テーブル岩 / 2級 / length -
+- アメノクラド / テーブル岩 / 1級 / length -
+- ナメクジ / ナナメジ岩 / 6級 / length -
+- バム / ナナメジ岩 / 4級 / length -
+- バムズ / ナナメジ岩 / 3級 / length -
+- ナナメジ / ナナメジ岩 / 初段 / length -
+- ミミ / ナナメジ岩 / 二段 / length -
+- ナナメジロング / ナナメジ岩 / 二段+ / length -
+- 異端者 / ナナメジ岩 / 三段 / length -
+- アノマリー / ナナメジ岩 / 四段 / length -
+- Cooped Up / ナナメジ岩 / 四段 / length -
+- 皇帝ペンギン / ペンギン岩 / 初段 / length -
+- ランジ / ランジの岩 / 4級 / length -
+- カタール / トンネル岩・カタール・ジャンボスラブ / 7級 / length -
+- 無名 / トンネル岩・カタール・ジャンボスラブ / 6級 / length -
+- つづり / トンネル岩・カタール・ジャンボスラブ / 4級 / length -
+- ドーハトラバース / トンネル岩・カタール・ジャンボスラブ / 4級 / length -
+- クリスカンテ / トンネル岩・カタール・ジャンボスラブ / 3級 / length -
+- wabisabi / トンネル岩・カタール・ジャンボスラブ / 2級 / length -
+- ムササビ / トンネル岩・カタール・ジャンボスラブ / 1級 / length -
+- サビ / トンネル岩・カタール・ジャンボスラブ / 1級 / length -
+- アカサビ / トンネル岩・カタール・ジャンボスラブ / 初段 / length -
+- パコダ / トンネル岩・カタール・ジャンボスラブ / 二段 / length -
+- ニゲラ / トンネル岩・カタール・ジャンボスラブ / 二段 / length -
+- アホダ / トンネル岩・カタール・ジャンボスラブ / 二段+ / length -
+- クウコ / トンネル岩・カタール・ジャンボスラブ / 三段+ / length -
+- ジャスラ / トンネル岩・カタール・ジャンボスラブ / 三段+ / length -
+- シンフォニー / トンネル岩・カタール・ジャンボスラブ / 四段+ / length -
+- カルム / トンネル岩・カタール・ジャンボスラブ / 五段- / length -
+- フォアヘッド / おでこ岩 / 1級 / length -
+- あなご / アナゴ岩 / 4級 / length -
+- あねご / アナゴ岩 / 4級 / length -
+- ビンゴ / アナゴ岩 / 初段+ / length -
+- ビンタ / アナゴ岩 / 二段+ / length -
+- テイクゥ / アナゴ岩 / 三段- / length -
+- 救命ボート / ウテナ岩 / 8級 / length -
+- 処女航海 / ウテナ岩 / 6級 / length -
+- マーシトロン / ウテナ岩 / 1級 / length -
+- タナトロン / ウテナ岩 / 三段- / length -
+- ウテナ / ウテナ岩 / 三段- / length -
+- ふるさと一番 / エルの岩 / 10級 / length -
+- 無名 / エルの岩 / 10級 / length -
+- エルトラ / エルの岩 / 8級 / length -
+- もりた / エルの岩 / 4級 / length -
+- エルル / エルの岩 / 3級 / length -
+- エル / エルの岩 / 3級 / length -
+- エルエル / エルの岩 / 2級 / length -
+- エルム / エルの岩 / 2級 / length -
+- ウミコ / エルの岩 / 1級 / length -
+- インディアンサマー / ナバホ岩 / 5.10a/b / length -
+- ランニングムーン / ナバホ岩 / 5.10b / length -
+- イニシエーション / ナバホ岩 / 5.11c / length -
+- ポトラッチ / ナバホ岩 / 5.12a / length -
+- ボカンテ / ツチグモ岩周辺 / 7級 / length -
+- こけこけ / ツチグモ岩周辺 / 6級 / length -
+- こけこっこー / ツチグモ岩周辺 / 6級 / length -
+- ドドメキ / ツチグモ岩周辺 / 3級 / length -
+- モコイ / ツチグモ岩周辺 / 1級 / length -
+- ツチグモ / ツチグモ岩周辺 / 三段- / length -
+- ルルベ / ポワント岩周辺 / 3級 / length -
+- グリーンルーム / グリーンルームの岩・おしるこの岩 / 3級 / length -
+- ポタージュ / グリーンルームの岩・おしるこの岩 / 2級 / length -
+- おしるこ / グリーンルームの岩・おしるこの岩 / 2級 / length -
+- おむすび / トケビ岩・ムジナ岩・天むす岩 / 10級 / length -
+- 天むす / トケビ岩・ムジナ岩・天むす岩 / 10級 / length -
+- にぎりめし / トケビ岩・ムジナ岩・天むす岩 / 8級 / length -
+- 無名 / トケビ岩・ムジナ岩・天むす岩 / 6級 / length -
+- 無名 / トケビ岩・ムジナ岩・天むす岩 / 3級 / length -
+- スパム / トケビ岩・ムジナ岩・天むす岩 / 3級 / length -
+- トケビ / トケビ岩・ムジナ岩・天むす岩 / 3級 / length -
+- ハクタク / トケビ岩・ムジナ岩・天むす岩 / 2級 / length -
+- ノズチ / トケビ岩・ムジナ岩・天むす岩 / 1級 / length -
+- ユズキ / トケビ岩・ムジナ岩・天むす岩 / 1級 / length -
+- ダイハク / トケビ岩・ムジナ岩・天むす岩 / 初段 / length -
+- ムジナ / トケビ岩・ムジナ岩・天むす岩 / 初段 / length -
+- オンビ / トケビ岩・ムジナ岩・天むす岩 / 初段 / length -
+- ダイダラボッチ / トケビ岩・ムジナ岩・天むす岩 / 初段+ / length -
+- ユズハ / トケビ岩・ムジナ岩・天むす岩 / 二段 / length -
+- ケトビ / トケビ岩・ムジナ岩・天むす岩 / 二段 / length -
+- トグロ / トケビ岩・ムジナ岩・天むす岩 / 三段+ / length -
+- ステア / キャベツ岩・プラット岩・ペンキ岩 / 8級 / length -
+- トラバース / キャベツ岩・プラット岩・ペンキ岩 / 4級 / length -
+- トラバース / キャベツ岩・プラット岩・ペンキ岩 / 4級 / length -
+- 松風 / キャベツ岩・プラット岩・ペンキ岩 / 2級 / length -
+- コールスロー / キャベツ岩・プラット岩・ペンキ岩 / 2級 / length -
+- 牛タン / ハツ岩・牛タン岩 / 10級 / length -
+- タレ / ハツ岩・牛タン岩 / 8級 / length -
+- 塩 / ハツ岩・牛タン岩 / 6級 / length -
+- 柚子こしょう / ハツ岩・牛タン岩 / 4級 / length -
+- 常世 / 川エリア / 五段 / length -
+- 無名 / 時計塔・見晴らし岩林道側 / 5級 / length -
+- 時計 / 時計塔・見晴らし岩林道側 / 4級 / length -
+- トヨタッコ / 時計塔・見晴らし岩林道側 / 4級 / length -
+- 無名 / 時計塔・見晴らし岩林道側 / 1級 / length -
+- 玉手箱 / 深海岩 / 5.10a / length -
+- 深海物語 / 深海岩 / 5.10b / length -
+- 竜宮城 / 深海岩 / 5.11a/b / length -
+- 深海クラック / 深海岩 / 5.7 / length -
+- 深海魚 / 深海岩 / 5.10d / length -
+- キングライオン / 王者岩 / 4級 / length -
+- 略奪 / クラッククラック・略奪岩 / 8級 / length -
+- 収奪 / クラッククラック・略奪岩 / 7級 / length -
+- クラッククラック / クラッククラック・略奪岩 / 4級 / length -
+- 大略奪 / クラッククラック・略奪岩 / 4級 / length -
+- アップアップ / クラッククラック・略奪岩 / 4級 / length -
+- ACTY / クラッククラック・略奪岩 / 3級 / length -
+- シティリバー / クラッククラック・略奪岩 / 3級 / length -
+- ストーンリバー / クラッククラック・略奪岩 / 2級 / length -
+- おちゃんこ座り / 石盤岩 / 5.10a / length -
+- キャプテンフック / 石盤岩 / 5.10b / length -
+- イエローオーカー / 石盤岩 / 5.10c / length -
+- アイサマ / 石盤岩 / 5.9 / length -
+- 石盤クラック / 石盤岩 / 5.10c / length -
+- イニムニ / 石盤岩 / 5.10c / length -
+- カンテ / 石神岩・扇岩・モモ岩 / 7級 / length -
+- スラブ / 石神岩・扇岩・モモ岩 / 4級 / length -
+- シャクジスタンド / 石神岩・扇岩・モモ岩 / 4級 / length -
+- 凹角 / 石神岩・扇岩・モモ岩 / 3級 / length -
+- 扇 / 石神岩・扇岩・モモ岩 / 2級 / length -
+- シャクジ / 石神岩・扇岩・モモ岩 / 2級 / length -
+- モモ / 石神岩・扇岩・モモ岩 / 2級 / length -
+- サクジ / 石神岩・扇岩・モモ岩 / 1級 / length -
+- スノートップ / 石神岩・扇岩・モモ岩 / 1級 / length -
+- サゴジ / 石神岩・扇岩・モモ岩 / 初段 / length -
+- アンボス / 石神岩・扇岩・モモ岩 / 初段 / length -
+- サスピション / 石神岩・扇岩・モモ岩 / 四段- / length -
+- モルワイデ / 縮尺岩 / 8級 / length -
+- メルカトル / 縮尺岩 / 4級 / length -
+- 薫風 / 薫風岩と周辺 / 4級 / length -
+- ウーパー / 薫風岩と周辺 / 3級 / length -
+- ノムシン / 薫風岩と周辺 / 1級 / length -
+- ピラミッド / 薫風岩と周辺 / 1級 / length -
+- ケール / 薫風岩と周辺 / 初段 / length -
+- エクストラ / 薫風岩と周辺 / 二段 / length -
+- 無名 / つくる返しの岩・カハクの岩 / 8級 / length -
+- 無名 / つくる返しの岩・カハクの岩 / 7級 / length -
+- 無名 / つくる返しの岩・カハクの岩 / 6級 / length -
+- ピプト / つくる返しの岩・カハクの岩 / 3級 / length -
+- つくる返し / つくる返しの岩・カハクの岩 / 3級 / length -
+- モアブ / つくる返しの岩・カハクの岩 / 2級 / length -
+- 無名 / つくる返しの岩・カハクの岩 / 1級 / length -
+- 無名 / つくる返しの岩・カハクの岩 / 1級 / length -
+- ミアマイ / つくる返しの岩・カハクの岩 / 1級 / length -
+- アベンヌ / つくる返しの岩・カハクの岩 / 1級 / length -
+- ヤマジイ / つくる返しの岩・カハクの岩 / 初段 / length -
+- セアトコ / つくる返しの岩・カハクの岩 / 初段 / length -
+- 無名 / つくる返しの岩・カハクの岩 / 初段 / length -
+- ボラーチョ / つくる返しの岩・カハクの岩 / 初段 / length -
+- つくる無念 / つくる返しの岩・カハクの岩 / 初段+ / length -
+- マッチョ / つくる返しの岩・カハクの岩 / 二段 / length -
+- ムアンバ / つくる返しの岩・カハクの岩 / 二段+ / length -
+- カマイタチ / つくる返しの岩・カハクの岩 / 三段 / length -
+- カハク / つくる返しの岩・カハクの岩 / 三段+ / length -
+- いつか来た道 / この道岩 / 初段 / length -
+- 飛行石 / 飛行石 / 4級 / length -
+- EL EL / イルガ / Font 6B+ / length -
+- ひだまり / イルガ / Font 7B+ / length -
+- まどろみ / イルガ / Font 4+ / length -
+- 積木 / イルガ / Font 7A / length -
+- 老騎士 / イルガ / Font 6C / length -
+- 時差 / イルガ / Font 6C / length -
+- おぼろげ / イルガ / Font 6A+ / length -
+- 雨宿り / イルガ / Font 6A / length -
+- アスディワル / 上部（公式改訂案内） / 1級 / length -
+- 天橋立 / 上部（公式改訂案内） / 二段 / length -
+- デジタルパフォーマンス / 上部（公式改訂案内） / 1級 / length -
+- トリックスター / 上部（公式改訂案内） / 初二段 / length -
+- 白夜 / 上部（公式改訂案内） / 5.12a / length -
+- ブックマンステム / 上部（公式改訂案内） / 5.12a/b / length -
+- あきん亭 / 上部（公式改訂案内） / 5.10a / length -
+
+## Online record reading
+
+Opened five candidates via Exa fetch, at most6500characters per candidate; source extracts read for route-specific observations. Not all photographs or complete long pages were inspected. Useful dated facts are paraphrased only in route Notes.
+
+- Candidate https://www.yamareco.com/modules/yamareco/detail-8577955.html : Public trip-report candidate opened; dated climbing observations checked, not current permission.
+- Candidate https://climberhey317.fc2.net/blog-entry-10.html : Public trip-report candidate opened; dated climbing observations checked, not current permission.
+- Candidate https://traverse.hatenablog.com/entry/2021/03/20/000000 : Public trip-report candidate opened; dated climbing observations checked, not current permission.
+- Candidate https://jclimbing.com/archives/1770908.html : Public trip-report candidate opened; dated climbing observations checked, not current permission.
+- Candidate https://wakakoma-alpine.club/archives/34414 : Public trip-report candidate opened; dated climbing observations checked, not current permission.
+
+## Research path
+
+Groundlane absent from full callable inventory. Exa MCP search/fetch used for public sources. Platform web used to recover manager/sector links absent from Exa extracts; theCrag returned402or generic-homepage responses for some route/sector requests, which are not counted as inventories read. Shared research pool: category climbing, topic crags, exact assigned Japanese destination queried using relativeCLI in the isolated origin worktree; all 11 queries returned total 0. No shared pool writes. No authentication, cookies or private source access.
+
+## Limits and exclusions
+
+No invented French conversions, route length, rope size, anchor inspection or general opening guarantee. Old prices and past single-day closures excluded. Historic self-restraint notices stay dated and unresolved permission requires local confirmation. Video evidence and actual query counts are recorded in the review after metadata processing.
+
+## Conditional coverage and tool record
+
+Public yt-dlp --flat-playlist ytsearch10 requests: 305 distinct route/area queries. Selected-channel /videos complete upload lists: 4 associations. Individual yt-dlp -j public metadata only; sign-in/bot-challenged results excluded without authentication. Full source excerpts and tool JSON are kept only in temporary working caches, not these publish artifacts.
+
+- Classic candidate https://www.kasagiclimbing.com/post/topo2022 : Opened recommendation/rating source; attributed facts appear in route Notes.
+- Classic candidate https://thetopo.com/crags/ena-kasagi/routelist : Opened recommendation/rating source; attributed facts appear in route Notes.
+
+Inventory counts: ROCKTOPO public total table: 306 graded rows; thetopo readable public routelist:10 graded rows (including overlaps); official2022topo announcement:9 graded recommendations (overlaps retained as source citations); Paid guidebook interior: 0 rows accessed; listing establishes title/author/publisher/edition/language/region only.

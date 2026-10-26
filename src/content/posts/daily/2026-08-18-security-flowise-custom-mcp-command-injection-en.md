@@ -49,7 +49,7 @@ Mapped to the OWASP LLM Top 10, this falls under **LLM06 Excessive Agency** (the
 **Long-term Architecture**
 - Do not use deny-list validation on user-controllable command/args/env — blacklists can only block known techniques; whitelisting the entire MCP server definition (not just the command name) is the sustainable approach
 - Run Custom MCP and any "user-defined stdio child process" features inside an isolated sandbox or container, restricting filesystem access and outbound connections (egress allowlist), so that even a validation bypass does not yield host-level execution privileges
-- Adopt tools from watchlist B7 focused on MCP/Agent runtime governance (such as **Invariant Labs**' MCP scanning and visibility tools, **Lasso Security**'s Agent runtime monitoring) to detect anomalous MCP tool call patterns, covering the detection gap during the window when "patches are always one step behind"
+- Adopt tools from watchlist B7 focused on MCP/Agent runtime governance (such as **Invariant Labs** (part of Snyk since 2025-06-24)'s MCP scanning and visibility tools, **Lasso Security**'s Agent runtime monitoring) to detect anomalous MCP tool call patterns, covering the detection gap during the window when "patches are always one step behind"
 
 ## Impact Assessment
 

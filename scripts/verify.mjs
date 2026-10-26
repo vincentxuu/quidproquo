@@ -15,6 +15,7 @@ import { exec, execSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { promisify } from 'node:util';
+import { formatFailure } from './lib/verify-format.mjs';
 
 const ROOT = resolve('.');
 const results = [];
@@ -164,6 +165,10 @@ const FULL_STEPS = [
   // 岩場文章（baseline 外）：模板條件段要有結論、影片統計要和分級表實際覆蓋一致（見 crag-guide-contract「條件段」）。
   ['crag coverage regression tests', 'node scripts/check-crag-coverage.mjs --self-test'],
   ['check:crag-coverage', 'pnpm check:crag-coverage'],
+  // ```diagram 的連線幾何：箭頭尖端不可縮進框裡、不穿框、不交叉不跳線、只用直角（diagram skill primitives.md 連線規則）。
+  // diagram-preview 只看文字，不看線；純 Node、全站不到 1 秒，所以全站與 --staged 都跑。
+  ['diagram geometry regression tests', 'node scripts/check-diagram-geometry.mjs --self-test'],
+  ['check:diagram-geometry', 'pnpm check:diagram-geometry'],
   ['check:course-videos', 'pnpm check:course-videos'],
   ['check:seo-smoke', 'pnpm check:seo-smoke'],
   // 截圖比對不擋部署，但每個 compareScreenshot() 至少要有 -linux 基線，否則那組比對永遠紅、等於沒在審。
@@ -219,7 +224,7 @@ function stagedPlan() {
     if (zhPosts.length > 0) steps.push(['check:tw (staged)', `node scripts/check-tw-terms.mjs ${quote(zhPosts)}`]);
     // 這些看的是文章之間的關係（系列編號、中英成對、課程標題與版面），本來就要全站看；實測每項 2 秒內。
     steps.push(...pick('check:chat-style', 'check:series-order', 'course title gate', 'course source layout gate',
-      'check:lang-parity', 'check:grades', 'check:course-videos', 'check:seo-smoke'));
+      'check:lang-parity', 'check:grades', 'check:course-videos', 'check:seo-smoke', 'check:diagram-geometry'));
   }
   if (entries.some((e) => /^(\.agents|\.claude)\/skills\//.test(e.path))) {
     steps.push(...pick('skills-sync (.agents ↔ .claude)', 'skill-anchors (章節連結)'));
@@ -254,9 +259,8 @@ for (const r of results) {
   process.stdout.write(`${r.ok ? '✅' : '🔴'} ${r.name}\n`);
   if (!r.ok) {
     failed += 1;
-    const indented = r.detail
-      .split('\n')
-      .slice(0, 30)
+    // 只印前 30 行會把 astro check 的錯誤截掉（警告先佔滿），改成錯誤行優先。
+    const indented = formatFailure(r.detail)
       .map((l) => `     ${l}`)
       .join('\n');
     process.stdout.write(`${indented}\n`);

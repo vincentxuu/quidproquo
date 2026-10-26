@@ -1,0 +1,428 @@
+{
+  "rendered_new_articles": 70,
+  "expected": 70,
+  "missing": [],
+  "sample_render": [
+    {
+      "slug": "nabari",
+      "details": 5,
+      "iframes": 18,
+      "external_only_video": 18
+    },
+    {
+      "slug": "nabari-en",
+      "details": 5,
+      "iframes": 18,
+      "external_only_video": 18
+    },
+    {
+      "slug": "horai",
+      "details": 6,
+      "iframes": 138,
+      "external_only_video": 138
+    },
+    {
+      "slug": "horai-en",
+      "details": 6,
+      "iframes": 138,
+      "external_only_video": 138
+    },
+    {
+      "slug": "otaru-akaiwa",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "otaru-akaiwa-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "kamuiiwa",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "kamuiiwa-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "asahikawa-boulders",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "asahikawa-boulders-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "ishigakiyama",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "ishigakiyama-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "yoshitsune-iwa",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "yoshitsune-iwa-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "yamadera",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "yamadera-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "hyotan-cave",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "hyotan-cave-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "okura-boulders",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "okura-boulders-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "shiobara",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "shiobara-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "kogashiyama",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "kogashiyama-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "kasama",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "kasama-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "ena-kasagiyama",
+      "details": 1,
+      "iframes": 72,
+      "external_only_video": 72
+    },
+    {
+      "slug": "ena-kasagiyama-en",
+      "details": 1,
+      "iframes": 72,
+      "external_only_video": 72
+    },
+    {
+      "slug": "fukube",
+      "details": 1,
+      "iframes": 92,
+      "external_only_video": 92
+    },
+    {
+      "slug": "fukube-en",
+      "details": 1,
+      "iframes": 92,
+      "external_only_video": 92
+    },
+    {
+      "slug": "mizunami-byobuiwa",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "mizunami-byobuiwa-en",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "gozeniwa",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "gozeniwa-en",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "mitsutoge",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "mitsutoge-en",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "kofu-makuiwa",
+      "details": 1,
+      "iframes": 58,
+      "external_only_video": 58
+    },
+    {
+      "slug": "kofu-makuiwa-en",
+      "details": 1,
+      "iframes": 58,
+      "external_only_video": 58
+    },
+    {
+      "slug": "tachiookayama",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "tachiookayama-en",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "arigasayama",
+      "details": 1,
+      "iframes": 21,
+      "external_only_video": 21
+    },
+    {
+      "slug": "arigasayama-en",
+      "details": 1,
+      "iframes": 21,
+      "external_only_video": 21
+    },
+    {
+      "slug": "shiromyo-bashi",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "shiromyo-bashi-en",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "kawamata",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "kawamata-en",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "koshizawa-buttress",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "koshizawa-buttress-en",
+      "details": 1,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "mikuradake",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "mikuradake-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "hieizan",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "hieizan-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "gushichan",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "gushichan-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "ojigatake",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "ojigatake-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "honjo",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "honjo-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "hachimensan",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "hachimensan-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "horuiiwa",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "horuiiwa-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "hiwasa",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "hiwasa-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "nodake",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "nodake-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "shimane-peninsula",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "shimane-peninsula-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "washizuyama",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    },
+    {
+      "slug": "washizuyama-en",
+      "details": 0,
+      "iframes": 0,
+      "external_only_video": 0
+    }
+  ],
+  "acceptance_scope": "Generated HTML structure only; no browser visual or remote video playback acceptance."
+}

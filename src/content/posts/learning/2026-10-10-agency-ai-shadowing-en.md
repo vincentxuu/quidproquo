@@ -6,6 +6,9 @@ tags: [podcast, self-learning, skill-development]
 lang: en
 description: "Explore agency through Max Schoening’s Lenny’s Podcast interview, with three clips for shadowing using source-player captions, short excerpts, paraphrased comprehension notes, and workplace practice sentences."
 tldr: "Agency means believing you can change things and taking action. Read the guide, practice three continuous clips with original audio and source-player English captions, and describe a change you could make at work."
+series:
+  name: "English Speaking Practice"
+  order: 3
 draft: false
 glossary:
   - term: "agency"

@@ -46,7 +46,7 @@ series:
 
 ### 工具與生態
 
-今天 Stage 1 GitHub Digest 看到的四個 trending repo 有個共通點：agent 不再只活在聊天視窗裡動嘴，而是直接伸手碰真實系統——rea 讓 agent 逆向真實二進位檔，一天漲 2.5 萬顆星衝上 trending 第一；ARTEX 讓 agent 自主滲透測試真實網路資產；iPhone-use 讓 agent 透過 USB 操作真實 iPhone；talorys 讓私人 agent 直接跑在自己的 Cloudflare 帳號裡，詳見本站[GitHub Digest](/posts/daily/2026-10-12-ai-agent-github-digest)。
+今天 Stage 1 GitHub Digest 看到的四個 trending repo 有個共通點：agent 不再只活在聊天視窗裡動嘴，而是直接伸手碰真實系統——rea 讓 agent 逆向真實二進位檔，一天漲 2.5 萬顆星衝上 trending 第一；ARTEX 讓 agent 自主滲透測試真實網路資產（10/07 CrowdStrike 報告指出已有攻擊者濫用，作者 10/08 轉閉源，鏡像為第三方備份複本；僅供認識風險，不建議安裝或使用）；iPhone-use 讓 agent 透過 USB 操作真實 iPhone；talorys 讓私人 agent 直接跑在自己的 Cloudflare 帳號裡，詳見本站[GitHub Digest](/posts/daily/2026-10-12-ai-agent-github-digest)。
 
 **Qwen Code v0.25.1-preview.2**：修正 agent 替換遠端主機時會遺失綁定設定的問題。（[agents-radar](https://github.com/yaojiejia/agents-radar/issues/285)）
 
@@ -151,6 +151,10 @@ Mistral Large 4 公測版細節曝光，1 兆參數、520 億啟用參數的 MoE
 ## 今日收穫
 
 之前以為 agent 安全防禦的重點是防堵外部攻擊者的 prompt injection，今天意識到同一天出現的 Personal Agent Protocol，恰好示範了產業的注意力資源有多容易被拉往「解決好懂、能公關、能拉盟友的問題」（外部身分標準），而不是「無聊但真正致命的問題」（內部執行角色設計）——這跟技術難度無關，是資源分配的選擇。
+
+## 更新紀錄
+
+- 2026-10-24：ARTEX 一句補上來源與濫用風險警語（10/07 CrowdStrike 報告、作者 10/08 轉閉源、鏡像為第三方備份複本、多家廠商報告有人濫用），並註明不鼓勵安裝或使用。
 
 ## 參考資料
 
