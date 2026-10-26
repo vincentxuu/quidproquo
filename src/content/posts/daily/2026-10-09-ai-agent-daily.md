@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "Google 把 agent 的審批流程降到趨近於零的同一天，AWS Bedrock 與南韓銀行的資安事件證明攻擊者拿到的是同一份折扣——企業導入前該問的是「權限被盜用時誰來攔」，不是「能省多少人力」"
-tldr: "Google Cloud 發佈可跨 Gmail/Drive/Docs/Calendar 運作、具獨立信箱權限的通用型 Gemini agent；Zenity 揭露單一提示就能劫持 AWS Bedrock AgentCore 帳戶內所有 agent，同日南韓新韓銀行遭 ARTEX＋Claude Code 入侵逾 2.5 萬筆資料外洩；Manus 母公司封殺 Meta 收購案後首輪獨立募資逾 $500M，Nous Research 與 Rein Security 同日分別募得 $90M、$25M；Claude Haiku 5.5 模型卡、Claude Max/Team API 額度定價同步發佈。"
+tldr: "Google Cloud 發佈可跨 Gmail/Drive/Docs/Calendar 運作、具獨立信箱權限的通用型 Gemini agent；Zenity 揭露單一提示就能劫持 AWS Bedrock AgentCore 帳戶內所有 agent，同日南韓傳出新韓銀行逾 2.5 萬筆資料外洩，攻擊者被指使用 ARTEX＋Claude Code（該行與 ARTEX 的連結尚屬報導推測）；Manus 母公司封殺 Meta 收購案後首輪獨立募資逾 $500M，Nous Research 與 Rein Security 同日分別募得 $90M、$25M；Claude Haiku 5.5 模型卡、Claude Max/Team API 額度定價同步發佈。"
 draft: false
 series:
   name: "AI 日報"
@@ -24,7 +24,7 @@ series:
 
 證據 A：Google Cloud 發佈通用型「Gemini agent」，能跨 Gmail、Drive、Docs、Calendar 運作，可以建立具備獨立信箱與權限的「coworker agent」，金融與法務版本已進入預覽。這本質上是把一連串原本要人工核准的跨系統操作，直接變成 agent 背景自動執行——交易成本被壓到趨近於零。
 
-證據 B：但同一天，Zenity Labs 研究團隊發現，一個公開可存取的 AWS Bedrock AgentCore agent，就能透過內部暫時憑證介面接管同一帳戶與區域內所有其他 agent；南韓的案例更直接——攻擊者用開源滲透工具 ARTEX 搭配 Claude Code，入侵多家南韓銀行，新韓銀行逾 2.5 萬筆客戶資料外洩。兩起事件的共同點：一旦 agent 被賦予的「免審批」權限遭到劫持，攻擊者拿到的就是同一份免審批折扣，而且中間沒有人力閘門可以攔。
+證據 B：但同一天，Zenity Labs 研究團隊發現，一個公開可存取的 AWS Bedrock AgentCore agent，就能透過內部暫時憑證介面接管同一帳戶與區域內所有其他 agent；南韓的案例同樣是工具被反用——CrowdStrike 從攻擊者暴露的工件判斷，有行為者用開源滲透工具 ARTEX 搭配多個 LLM（含 Claude Code 工作階段）攻擊南韓金融機構；報導稱新韓銀行逾 2.5 萬筆客戶資料外洩，但 CrowdStrike 的報告不點名銀行。兩起事件的共同點：一旦 agent 被賦予的「免審批」權限遭到劫持，攻擊者拿到的就是同一份免審批折扣，而且中間沒有人力閘門可以攔。
 
 對從業者的意義：Rein Security 同日募得 $25M A 輪，做的正是把「被省掉的審批動作」用 runtime 層的即時監控補回來——這說明市場已經確定，agent 自主帶來的省力和它打開的攻擊面，從來不是能分開賣的兩件事。對台灣企業而言，若打算複製金融機構導入 agent 的案例，開放 agent 動用理專系統或客戶資料前，該先問「這個 agent 的權限被盜用時誰來攔」，而不是只問「這個 agent 能替我省多少人力」。
 
@@ -72,7 +72,7 @@ series:
 
 ### 資安事件與防禦技術
 
-**ARTEX ＋ Claude Code 入侵南韓銀行**：CrowdStrike 報告指出，一名疑似中國廣東省的 26 歲攻擊者使用開源滲透測試工具 ARTEX（結合 DeepSeek、GLM、Grok）與 Claude Code，入侵多家南韓銀行，新韓銀行逾 2.5 萬筆客戶資料外洩，南韓金融監管機關已召開緊急會議（見深度分析）。（[reuters](https://www.reuters.com/world/suspect-behind-south-korea-bank-hacks-may-be-26-year-old-china-cybersecurity-2026-10-08)）
+**ARTEX ＋ Claude Code 入侵南韓銀行**：CrowdStrike 報告指出，一名中文使用者、財務動機（中等信心）的行為者使用開源滲透測試工具 ARTEX（結合 DeepSeek、GLM、Grok）與 Claude Code 工作階段，攻擊南韓金融機構；報告不點名銀行，並說受影響機構總數尚未確認。報導稱新韓銀行逾 2.5 萬筆客戶資料外洩，南韓金融監管機關已召開緊急會議（見深度分析）。（[CrowdStrike](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)）
 
 **AWS Bedrock AgentCore 單一提示劫持漏洞**：Zenity Labs 研究團隊發現，一個公開可存取的 Bedrock AgentCore agent 就能透過內部暫時憑證介面，接管同一帳戶與區域內所有其他 agent，AWS 已修補並大幅收緊 agent 預設權限（見深度分析）。（[the-decoder](https://the-decoder.com/a-single-prompt-was-enough-to-hijack-every-ai-agent-in-an-aws-account-zenity-researchers-found/)）
 
@@ -100,7 +100,7 @@ Manus 母公司 Butterfly Effect 完成超過 5 億美元新一輪融資，由 B
 
 **日韓**
 
-南韓新韓銀行遭 ARTEX＋Claude Code 入侵，逾 2.5 萬筆客戶資料外洩，詳見資安事件段。
+南韓傳出新韓銀行逾 2.5 萬筆客戶資料外洩，攻擊者被指使用 ARTEX＋Claude Code，詳見資安事件段。
 
 Anthropic 在日本大量採購書籍作為訓練資料的做法，引發當地出版業者反彈，成為日本對 AI 訓練資料合法性爭議的最新案例。（[asia.nikkei.com](https://asia.nikkei.com/business/technology/artificial-intelligence/anthropic-s-mass-book-buying-in-japan-stirs-publisher-backlash)）
 
@@ -178,6 +178,10 @@ Cisco／Omdia 2026 AI Readiness Index 調查顯示，東非地區僅 39% 的組�
 ## 今日收穫
 
 之前以為「agent 的商業賣點」和「agent 的攻擊面」是兩個可以分開討論、分開補強的問題——先做好產品再補資安。今天看到 Google 的 coworker agent 權限設計和 AWS Bedrock AgentCore 漏洞幾乎同時出現，才意識到兩者其實是同一個設計決定的正反面：你讓 agent 省掉多少審批動作，攻擊者劫持後就拿到多少免審批空間，沒有辦法只買其中一半。
+
+## 更新紀錄
+
+- 2026-10-24：依 CrowdStrike 原文修正。報告不點名任何銀行，也說受影響機構總數尚未確認；新韓銀行與 ARTEX 的連結來自報導對攻擊者伺服器頁面出現 ARTEX 字串的推測，不是 CrowdStrike 的結論。tldr、深度分析、資安段與其他提及處的相關句子改為「報導稱」「被指」，並刪去報告未寫的攻擊者年齡與所在地。
 
 ## 參考資料
 

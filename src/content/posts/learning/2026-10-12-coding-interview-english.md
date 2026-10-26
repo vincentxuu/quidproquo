@@ -7,12 +7,17 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "寫程式面試要一邊解題一邊用英文說明。這篇從 Google 的示範面試影片、Meta 的官方準備指南、大學就業輔導的面試指引與 Tech Interview Handbook 整理出十四句：聽完題目怎麼確認、怎麼講最簡單的解法與複雜度、怎麼比較兩種做法、寫完怎麼自己測。六句是來源原句，八句依來源的句子改寫。"
 tldr: "聽完題目先說 So you're looking for…? 再問 Is the input array sorted?；先講 The simplest solution is just…，接著說 I think that would be quadratic；兩種做法用 I could do this with…, or…；寫完說 Let me go through some examples to make sure this is correct。卡住時怎麼開口要提示，來源只有建議，沒有示範句。"
+series:
+  name: "英文口說練習"
+  order: 12
 draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-10-12-coding-interview-english-en)
 
 前三篇面試口說（[通用句型](/posts/learning/2026-10-07-interview-experience-english)、[我自己的故事](/posts/learning/2026-10-07-interview-agent-stories-english)、[教材教了什麼](/posts/learning/2026-10-08-interview-english-from-teaching-materials)）處理的都是行為面試：自我介紹、講專案、反問。工程師面試還有一大段是當場寫程式，這一段我一句都沒練過。
+
+Google 示範面試的引句以自動字幕為文字依據，個別詞可能辨識有誤；請把它們當表達範例，不當逐字原音紀錄。這篇不教 O 記號的唸法，也不比較英美口語。接著可讀[爭取思考時間](/posts/learning/2026-10-12-interview-thinking-time-english)與[系統設計面試](/posts/learning/2026-10-12-system-design-interview-english)，練其他問答場合。
 
 ## 我當時想說什麼
 
@@ -186,15 +191,6 @@ Meta 的指南也有同樣的要求：*Find and fix the bugs by yourself. Don't 
 | 寫完先自己驗 | Let me go through some examples to make sure this is correct. |
 | 檢查空輸入 | If the input is empty, what happens? |
 
-## 仍待核對
-
-- **卡住時怎麼開口要提示。** Meta 的指南寫 *If you are stuck, ask questions*，Tech Interview Handbook 提醒面試官開口多半是在給提示，但這幾個來源都沒有示範要怎麼問。這次沒有做成卡片。
-- **O 記號怎麼唸。** 示範面試裡的工程師用 *quadratic*、*linear* 這些字帶過。需要唸出 O(n) 的時候怎麼唸，我沒有找到來源。
-- **自動字幕的準確度。** Google 影片的引句來自自動字幕，沒有標點，個別的字可能辨識錯。我沒有逐句對照影片的聲音。
-- **英美差異。** 三個來源是美國的公司與大學，Tech Interview Handbook 是個人作者的社群資源；沒有英國的來源，也沒有一個來源說明用法的地區差異。
-- **真實面試的逐字稿。** interviewing.io 有公開的模擬面試逐字稿，我只讀到搜尋結果裡的片段，沒有讀整頁，所以這次沒有拿來當依據。
-- **還沒做的部分。** 被追問時怎麼接、怎麼爭取思考時間，寫在[下一篇](/posts/learning/2026-10-12-interview-thinking-time-english)；系統設計面試寫在[再下一篇](/posts/learning/2026-10-12-system-design-interview-english)。
-
 ## 整體來說
 
 十四句裡六句是來源原句，八句是把來源的句子整理或換掉內容。最值得先練的是「確認題目」那五句，因為每一題都會用到，而且它們是問句，說出口之後對方會接話，不需要自己撐住整段。
@@ -202,6 +198,10 @@ Meta 的指南也有同樣的要求：*Find and fix the bugs by yourself. Don't 
 這次和前幾篇最大的不同，是來源裡有一場完整的示範面試。它讓我看到一件教材沒寫的事：示範的那位工程師講話並不流暢，句子常常講到一半就重來，也當場承認忘了語法，但每一步在想什麼都說出來了。要練的是把想法說出口，不是把每一句說得漂亮。
 
 依據方面，這次沒有任何語言教材，也沒有母語者測試或頻率比較。句子能不能用，根據的是一場官方示範面試、一份大學指引和一份社群手冊。
+
+## 更新紀錄
+
+- 2026-10-25：納入統一口說系列；查證待辦移至研究紀錄，保留教材來源與使用範圍。
 
 ## 參考資料
 

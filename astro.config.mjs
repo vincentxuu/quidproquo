@@ -67,6 +67,9 @@ export default defineConfig({
   output: 'server',
   // 已發佈文章換檔名時，舊網址一律留一條 301，外站連過來才不會 404。
   redirects: {
+    // Agent 隔離邊界：移除重複附錄，保留原文導讀（2026-10-26）。
+    '/posts/ai/2026-10-24-agent-isolation-retelling-check': { destination: '/posts/ai/2026-10-24-agent-isolation-openai-red-team-reading', status: 301 },
+    '/posts/ai/2026-10-24-agent-isolation-retelling-check-en': { destination: '/posts/ai/2026-10-24-agent-isolation-openai-red-team-reading-en', status: 301 },
     // 出國攀岩裝備 v2：重疊篇併入新篇或「攀岩裝備」系列（2026-10-19）。
     '/posts/climbing/2026-10-19-dynamic-rope-triple-rating': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination',
     '/posts/climbing/2026-10-19-dynamic-rope-triple-rating-en': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en',

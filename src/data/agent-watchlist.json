@@ -1355,7 +1355,8 @@
         "Agent 安全研究",
         "formal verification"
       ],
-      "region": "US"
+      "region": "US",
+      "note": "(now part of Snyk) 2025-06-24 被 Snyk 收購（來源：https://snyk.io/news/snyk-acquires-invariant-labs-to-accelerate-agentic-ai-security-innovation/）；mcp-scan 現為 snyk/agent-scan。引用時寫「Snyk（前 Invariant Labs）的 Agent Scan」，不要當獨立廠商。Snyk 本身目前不在 watchlist。"
     },
     {
       "name": "Hidden Layer",

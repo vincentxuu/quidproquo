@@ -9,7 +9,7 @@ description: "A guide to italki teacher types, trials, individual pricing, credi
 tldr: "italki suits learners who want to choose their own teacher and lessons; test a specific task before committing to a teacher, schedule, or package."
 series:
   name: "English Speaking Practice"
-  order: 3
+  order: 21
 draft: false
 ---
 

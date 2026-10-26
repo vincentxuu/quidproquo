@@ -9,7 +9,7 @@ description: "介紹 italki 的老師類型、試課、單堂與套課費用、�
 tldr: "italki 適合想自己挑老師與課程的人；先用具體任務試課，再評估固定老師的回饋、時段與套課期限。"
 series:
   name: "英文口說練習"
-  order: 3
+  order: 21
 draft: false
 ---
 

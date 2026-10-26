@@ -6,7 +6,7 @@ type: digest
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "開源生態的規模正在快速反超官方，但同一批擴張中的 skill 與 MCP server，也正在變成資安掃描工具鎖定的新攻擊面"
-tldr: "Omnigent、AWS Strands Agent Tools、MLflow 同期爆出的 CVE，共通根因都是『信任租戶自帶的設定檔／參數』——agent 生態規模化的代價正在集中兌現；opencode 星數（約19.9萬）反超 Anthropic 自家 Claude Code（約14.2萬），Bruno 社群版 MCP server 也比官方版早兩個月上線，社群迭代速度已經超車官方光環；NVIDIA 開源 SkillSpector 掃描發現公開 skill 中 26.1% 含漏洞、5.2% 疑似惡意，『裝哪個 skill』正在從信任決策變成需要主動驗證的安全決策；OpenAI 官方將 GPT-5.6 Sol 標準費率砍 20-33%，應對 Anthropic 與中國模型的競爭壓力"
+tldr: "Omnigent、AWS Strands Agent Tools、MLflow 同期爆出的 CVE，共通根因都是『信任租戶自帶的設定檔／參數』——agent 生態規模化的代價正在集中兌現；opencode 星數（約19.9萬）反超 Anthropic 自家 Claude Code（約14.2萬），Bruno 社群版 MCP server 也比官方版早兩個月上線，社群迭代速度已經超車官方光環；NVIDIA 開源 SkillSpector（安裝前掃描 skill 的工具），其 README 引用的 arXiv 研究（SkillScan 分析 31,132 個 skill）指出 26.1% 含至少一項漏洞、5.2% 呈現強烈暗示惡意意圖的高嚴重度樣態，『裝哪個 skill』正在從信任決策變成需要主動驗證的安全決策；OpenAI 官方將 GPT-5.6 Sol 標準費率砍 20-33%，應對 Anthropic 與中國模型的競爭壓力"
 draft: false
 series:
   name: "AI 日報"
@@ -25,7 +25,7 @@ series:
 
 證據 A：搬到 Anomaly 底下的 opencode，星數（約 19.9 萬）已經超過 Anthropic 自家的 Claude Code（約 14.2 萬）；Bruno 的社群版 MCP server（`bruno-mcp-studio`）比官方版早兩個月做出「不需要 CLI、行為對等」的版本。這是典型的網路效應——更多貢獻者、更快的發布節奏，讓社群分支的迭代速度反超品牌本身，使用者不再因為「官方」兩個字而多信任一分。
 
-證據 B：但同一份網路效應的另一面，是規模擴張帶來沒被驗證過的攻擊面。Omnigent 上線兩個多月衝上 9,100+ 星，三個嚴重 CVE 的共通根因都是「對租戶自己上傳的內容信任過頭」——這正是「快速成長、來不及做安全審查」的規模化代價。AWS Strands Agents Tools 在 23 天內連爆四個 CVE，根因同樣一致：安全敏感參數被暴露成 LLM 可控的工具 schema 輸入。NVIDIA 這時候開源 SkillSpector 掃描 Claude Code、Codex、Gemini CLI 的公開 skill，結果是 26.1% 含漏洞、5.2% 疑似惡意——這個數字本身就是「生態規模化速度遠超驗證速度」的直接量化。
+證據 B：但同一份網路效應的另一面，是規模擴張帶來沒被驗證過的攻擊面。Omnigent 上線兩個多月衝上 9,100+ 星，三個嚴重 CVE 的共通根因都是「對租戶自己上傳的內容信任過頭」——這正是「快速成長、來不及做安全審查」的規模化代價。AWS Strands Agents Tools 在 23 天內連爆四個 CVE，根因同樣一致：安全敏感參數被暴露成 LLM 可控的工具 schema 輸入。NVIDIA 這時候開源 SkillSpector，用來在安裝前掃描 Claude Code、Codex、Gemini CLI 等使用的 skill。它的 README 引用 arXiv:2601.10338 的實證研究（研究團隊用自己的 SkillScan 分析兩大市集的 31,132 個 skill）：26.1% 含至少一項漏洞，5.2% 呈現強烈暗示惡意意圖的高嚴重度樣態。這組數字出自該研究，不是 SkillSpector 的掃描結果，但仍支持「生態規模化速度遠超驗證速度」的判斷。
 
 對從業者的意義：選 MCP server 或 skill 不能再用「star 數高」「看起來很多人在用」當作品質代理指標，規模成長越快的專案，反而越可能是還沒被安全審查跟上的專案；主動掃描（SkillSpector、Check Point/Lakera 的 b3 benchmark）正在從「加分項」變成生產環境部署前的必要步驟。
 
@@ -108,7 +108,7 @@ Omnigent 的三個嚴重 CVE 詳見今天的[資安警報文章](/posts/daily/20
 | 項目 | 數字 | 來源 |
 |------|------|------|
 | opencode vs Claude Code 星數 | 約19.9萬 vs 約14.2萬 | [AI Agent GitHub Digest](/posts/daily/2026-08-23-ai-agent-github-digest) |
-| SkillSpector 掃描結果 | 26.1% 含漏洞、5.2% 疑似惡意 | [GitHub](https://github.com/nvidia/skillspector) |
+| arXiv:2601.10338 研究結果（SkillSpector README 引用） | 26.1% 含漏洞、5.2% 高嚴重度且強烈暗示惡意意圖 | [arXiv](https://arxiv.org/abs/2601.10338) |
 | Omnigent 最高 CVE 嚴重度 | CVSS 9.0 | [資安警報文章](/posts/daily/2026-08-23-security-omnigent-agent-bundle-rce) |
 | GPT-5.6 Sol 官方費率調降 | Input ↓20%、Output ↓33% | [定價追蹤文章](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut) |
 | BPS 技能選擇省下 token | ↓28%（成功率 0.73 vs 對手 0.20–0.52） | [AI Agent Arxiv Digest](/posts/daily/2026-08-23-ai-agent-arxiv-digest) |
@@ -125,13 +125,17 @@ Omnigent 的三個嚴重 CVE 詳見今天的[資安警報文章](/posts/daily/20
 
 ## 明日關注
 
-- SkillSpector 開源後，會不會有更多公開 skill registry（如 PulseMCP、Glama）跟進做批次掃描，把「26.1% 含漏洞」這個數字擴大驗證到更大樣本？
+- SkillSpector 開源後，會不會有更多公開 skill registry（如 PulseMCP、Glama）跟進做批次掃描，把 arXiv 研究的「26.1% 含漏洞」擴大驗證到更大樣本？
 - opencode 反超 Claude Code 星數後，Anthropic 官方是否會對 Claude Code 的擴充性/生態策略做出回應？
 - OpenAI GPT-5.6 Sol 降價後，Anthropic 與中國模型陣營（DeepSeek、Qwen）是否會有對應降價動作？
 
 ## 今日收穫
 
 之前以為 AI 治理會明顯跟不上技術演進速度，需要等新法通過才能規範；今天看到 Reka AI 的風險治理框架跟「資料中心監管有既有範本可循、不必新立法」的觀察，意識到至少在部分場景，監管其實是靠套用既有法規工具箱（既有消費者保護法、環評、能源法規）就能先頂上，而不是全部卡在等待專屬 AI 新法。
+
+## 更新紀錄
+
+- 2026-10-24：更正「26.1% 含漏洞、5.2% 疑似惡意」的歸屬。這組數字出自 arXiv:2601.10338（SkillScan 分析 31,132 個 skill），SkillSpector 的 README 只是引用，並非 SkillSpector 的掃描結果；「疑似惡意」依論文原文改為「強烈暗示惡意意圖的高嚴重度樣態」。
 
 ## 參考資料
 
@@ -147,6 +151,7 @@ Omnigent 的三個嚴重 CVE 詳見今天的[資安警報文章](/posts/daily/20
 - [Sourcegraph Blog：Claude Code 檔案選取器](https://sourcegraph.com/blog)
 - [TrueFoundry：Graph Engineering](https://www.truefoundry.com/blog/graph-engineering-ai-agent-governance)
 - [NVIDIA SkillSpector](https://github.com/nvidia/skillspector)
+- [Agent Skills in the Wild: An Empirical Study of Security Vulnerabilities at Scale（arXiv:2601.10338）](https://arxiv.org/abs/2601.10338)
 - [商湯 SenseNova U1.5 Lite](https://www.sensetime.com/cn/news)
 - [新呈工業 Agentic AI 轉型 — iThome](https://www.ithome.com.tw)
 - [Reka AI 責任 AI 治理框架](https://www.reka.ai)

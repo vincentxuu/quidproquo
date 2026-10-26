@@ -9,7 +9,7 @@ description: "介紹 AmazingTalker 成人英文一對一的選師、個別價格
 tldr: "AmazingTalker 可以少量買課、自選老師；先確認正式課怎麼教，再看課程包的預約期限與退課結算，避免折扣讓你買超過需要的堂數。"
 series:
   name: "英文口說練習"
-  order: 8
+  order: 26
 draft: false
 ---
 

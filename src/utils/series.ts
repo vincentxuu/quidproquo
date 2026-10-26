@@ -215,8 +215,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'climbing',
     names: { 'zh-TW': '日本岩場', en: 'Japan Climbing Crags' },
     descriptions: {
-      'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭電車與開車怎麼去、在地規範。母群取自 ROCKTOPO 與 CLIMBING-net（《日本100岩場》），依都道府縣排序，從本州中部開始逐步補滿全日本。',
-      en: 'One crag per guide: rock type and climbing style, the best seasons and why, how to get there by train or car, and local rules. Crags are drawn from ROCKTOPO and CLIMBING-net (the Japan 100 Crags guidebooks), ordered by prefecture, starting in central Honshu and expanding to cover all of Japan.',
+      'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭電車與開車怎麼去、在地規範。母群取自 ROCKTOPO 與 CLIMBING-net（《日本100岩場》），依都道府縣排序，優先補齊知名的獨立目的地；分區留在母岩場指南。',
+      en: 'One crag per guide: rock type and climbing style, the best seasons and why, how to get there by train or car, and local rules. Crags are drawn from ROCKTOPO and CLIMBING-net (the Japan 100 Crags guidebooks), ordered by prefecture, prioritizing notable independent destinations, with sectors kept in their parent guides.',
     },
   },
   {
@@ -399,6 +399,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '把 agent 當成一條生產線來看：概念界線、模型與 harness 的分工、context 與記憶、企業案例、安全、協定層，以及 RAG 的三種形態。',
       en: 'Reading agents as a production line: where the concept ends, how model and harness divide the work, context and memory, enterprise cases, security, the protocol layer, and the three shapes of RAG.',
+    },
+  },
+  {
+    slug: 'ai-agent-security-tooling',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI Agent 資安工具地圖', en: 'AI Agent Security Tooling Map' },
+    descriptions: {
+      'zh-TW': '把 skill、MCP 與 coding agent 周邊的開源資安工具分成七類：安裝前掃描、沙箱、護欄與閘道、偵測與稽核、程式碼審計、測試 AI 系統，以及用 AI 打別人的滲透測試，逐類看它們做了什麼、沒做什麼，以及公開的數字能不能信。',
+      en: 'The open-source security tools around skills, MCP and coding agents, sorted into seven kinds: pre-install scanning, sandboxes, guardrails and gateways, detection and audit, code auditing, testing AI systems, and AI that attacks others. What each does, what it does not, and whether the published numbers hold up.',
     },
   },
   {
@@ -1306,8 +1315,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'learning',
     names: { 'zh-TW': '英文口說練習', en: 'English Speaking Practice' },
     descriptions: {
-      'zh-TW': '從具體溝通任務出發，逐家介紹線上真人平台、AI 工具與語言學校，搭配課前準備、課中回饋與課後重說。',
-      en: 'Task-based speaking practice with individual guides to live tutoring platforms, AI tools, and language schools, connecting preparation, feedback, and repetition.',
+      'zh-TW': '從練習方法與跟讀研究出發，接到日常、旅遊、衝浪、攀岩、工作與面試教材，再選擇真人平台、AI 工具或語言學校，安排回饋與複習。',
+      en: 'A complete speaking practice path: methods and shadowing research, everyday and specialist scenarios, tutoring platforms, AI tools, language schools, feedback and review.',
     },
   },
 ];

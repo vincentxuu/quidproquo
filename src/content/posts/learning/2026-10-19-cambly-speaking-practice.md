@@ -9,7 +9,7 @@ description: "介紹 Cambly 成人課程的 Small Groups、Private+ 與 Pro，�
 tldr: "選 Cambly 先分清聊天練習與需要教學計畫的課型，再確認每週分鐘能否用完；試課要看老師會不會追問、修正並讓你重說。"
 series:
   name: "英文口說練習"
-  order: 2
+  order: 20
 draft: false
 ---
 

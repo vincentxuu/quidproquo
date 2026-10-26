@@ -1,0 +1,252 @@
+{
+  "complete_pairs": 35,
+  "expected_pairs": 35,
+  "problems": [],
+  "pairs": [
+    {
+      "slug": "nabari",
+      "order": 2402,
+      "zh_chars": 25117,
+      "en_chars": 34892,
+      "external_sources": 21
+    },
+    {
+      "slug": "horai",
+      "order": 2302,
+      "zh_chars": 44123,
+      "en_chars": 55069,
+      "external_sources": 17
+    },
+    {
+      "slug": "otaru-akaiwa",
+      "order": 102,
+      "zh_chars": 16403,
+      "en_chars": 22048,
+      "external_sources": 14
+    },
+    {
+      "slug": "kamuiiwa",
+      "order": 103,
+      "zh_chars": 7362,
+      "en_chars": 11199,
+      "external_sources": 8
+    },
+    {
+      "slug": "asahikawa-boulders",
+      "order": 104,
+      "zh_chars": 13627,
+      "en_chars": 17686,
+      "external_sources": 9
+    },
+    {
+      "slug": "ishigakiyama",
+      "order": 105,
+      "zh_chars": 12597,
+      "en_chars": 17591,
+      "external_sources": 11
+    },
+    {
+      "slug": "yoshitsune-iwa",
+      "order": 106,
+      "zh_chars": 7171,
+      "en_chars": 10707,
+      "external_sources": 9
+    },
+    {
+      "slug": "yamadera",
+      "order": 601,
+      "zh_chars": 10322,
+      "en_chars": 14345,
+      "external_sources": 9
+    },
+    {
+      "slug": "hyotan-cave",
+      "order": 302,
+      "zh_chars": 11408,
+      "en_chars": 15528,
+      "external_sources": 9
+    },
+    {
+      "slug": "okura-boulders",
+      "order": 401,
+      "zh_chars": 8409,
+      "en_chars": 12000,
+      "external_sources": 8
+    },
+    {
+      "slug": "shiobara",
+      "order": 901,
+      "zh_chars": 14060,
+      "en_chars": 18589,
+      "external_sources": 10
+    },
+    {
+      "slug": "kogashiyama",
+      "order": 902,
+      "zh_chars": 25647,
+      "en_chars": 34320,
+      "external_sources": 15
+    },
+    {
+      "slug": "kasama",
+      "order": 801,
+      "zh_chars": 20495,
+      "en_chars": 24872,
+      "external_sources": 11
+    },
+    {
+      "slug": "ena-kasagiyama",
+      "order": 2101,
+      "zh_chars": 41405,
+      "en_chars": 52791,
+      "external_sources": 13
+    },
+    {
+      "slug": "fukube",
+      "order": 2102,
+      "zh_chars": 51915,
+      "en_chars": 65660,
+      "external_sources": 11
+    },
+    {
+      "slug": "mizunami-byobuiwa",
+      "order": 2103,
+      "zh_chars": 13326,
+      "en_chars": 17699,
+      "external_sources": 9
+    },
+    {
+      "slug": "gozeniwa",
+      "order": 1303,
+      "zh_chars": 11570,
+      "en_chars": 16029,
+      "external_sources": 14
+    },
+    {
+      "slug": "mitsutoge",
+      "order": 1902,
+      "zh_chars": 12720,
+      "en_chars": 17711,
+      "external_sources": 11
+    },
+    {
+      "slug": "kofu-makuiwa",
+      "order": 1903,
+      "zh_chars": 29909,
+      "en_chars": 36456,
+      "external_sources": 11
+    },
+    {
+      "slug": "tachiookayama",
+      "order": 1904,
+      "zh_chars": 13287,
+      "en_chars": 17823,
+      "external_sources": 12
+    },
+    {
+      "slug": "arigasayama",
+      "order": 1001,
+      "zh_chars": 29222,
+      "en_chars": 35706,
+      "external_sources": 12
+    },
+    {
+      "slug": "shiromyo-bashi",
+      "order": 1304,
+      "zh_chars": 12510,
+      "en_chars": 17215,
+      "external_sources": 12
+    },
+    {
+      "slug": "kawamata",
+      "order": 1102,
+      "zh_chars": 18320,
+      "en_chars": 24644,
+      "external_sources": 13
+    },
+    {
+      "slug": "koshizawa-buttress",
+      "order": 1305,
+      "zh_chars": 5093,
+      "en_chars": 9015,
+      "external_sources": 13
+    },
+    {
+      "slug": "mikuradake",
+      "order": 3401,
+      "zh_chars": 30373,
+      "en_chars": 38289,
+      "external_sources": 13
+    },
+    {
+      "slug": "hieizan",
+      "order": 4501,
+      "zh_chars": 9539,
+      "en_chars": 14910,
+      "external_sources": 13
+    },
+    {
+      "slug": "gushichan",
+      "order": 4702,
+      "zh_chars": 17132,
+      "en_chars": 24300,
+      "external_sources": 11
+    },
+    {
+      "slug": "ojigatake",
+      "order": 3302,
+      "zh_chars": 15473,
+      "en_chars": 23192,
+      "external_sources": 11
+    },
+    {
+      "slug": "honjo",
+      "order": 4401,
+      "zh_chars": 22932,
+      "en_chars": 30061,
+      "external_sources": 11
+    },
+    {
+      "slug": "hachimensan",
+      "order": 4402,
+      "zh_chars": 24971,
+      "en_chars": 31751,
+      "external_sources": 11
+    },
+    {
+      "slug": "horuiiwa",
+      "order": 2803,
+      "zh_chars": 10547,
+      "en_chars": 15108,
+      "external_sources": 10
+    },
+    {
+      "slug": "hiwasa",
+      "order": 3601,
+      "zh_chars": 6920,
+      "en_chars": 11024,
+      "external_sources": 10
+    },
+    {
+      "slug": "nodake",
+      "order": 4201,
+      "zh_chars": 14194,
+      "en_chars": 19316,
+      "external_sources": 11
+    },
+    {
+      "slug": "shimane-peninsula",
+      "order": 3201,
+      "zh_chars": 12473,
+      "en_chars": 17808,
+      "external_sources": 11
+    },
+    {
+      "slug": "washizuyama",
+      "order": 2203,
+      "zh_chars": 12352,
+      "en_chars": 18322,
+      "external_sources": 10
+    }
+  ]
+}

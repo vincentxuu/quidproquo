@@ -42,8 +42,8 @@ caption: 簡化示意；省略 collection 信任分層與分頁片段清單模�
 <svg viewBox="0 0 800 320">
   <path class="dg-line" d="M140 158H162Q170 158 170 150V56Q170 48 178 48H280" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M140 170H186Q194 170 194 162V136Q194 128 202 128H280" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M140 182H210Q218 182 218 190V200Q218 208 226 208H280" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M140 194H234Q242 194 242 202V280Q242 288 250 288H280" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M140 182H226Q234 182 234 190V200Q234 208 242 208H280" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M140 194H202Q210 194 210 202V280Q210 288 218 288H280" marker-end="url(#arrow)"/>
 
   <path class="dg-line" d="M440 48H492Q500 48 500 56V104Q500 112 508 112H560" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M440 128H560" marker-end="url(#arrow)"/>

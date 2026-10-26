@@ -8781,7 +8781,7 @@
   "https://www.sansan.co.kr/news/articleView.html?idxno=9990": {
     "firstSeen": "2026-10-21",
     "status": 200,
-    "checked": "2026-10-21",
+    "checked": "2026-10-25",
     "crags": [
       "korea-crag-seoninbong"
     ],
@@ -8790,14 +8790,14 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "6d7f95f02be7f574",
+    "hash": "3a13cc15d66098f4",
     "via": "direct",
-    "bytes": 135013
+    "bytes": 134592
   },
   "https://san.chosun.com/news/articleView.html?idxno=24721": {
     "firstSeen": "2026-10-21",
     "status": 200,
-    "checked": "2026-10-21",
+    "checked": "2026-10-25",
     "crags": [
       "korea-crag-seoninbong"
     ],
@@ -8806,9 +8806,9 @@
     ],
     "anchors": 0,
     "missing": [],
-    "hash": "7191f1cff7150ce0",
+    "hash": "c7964d8281691910",
     "via": "direct",
-    "bytes": 117442
+    "bytes": 117556
   },
   "https://www.gochang.go.kr/board/view.gochang?boardId=BBS_0000083&dataSid=136791": {
     "firstSeen": "2026-10-21",
@@ -9450,5 +9450,649 @@
     "hash": "9749b28c848287ee",
     "via": "direct",
     "bytes": 152141
+  },
+  "https://www.thecrag.com/en/climbing/south-korea/dobongsan/area/272350515": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "transport",
+      "bolt_condition"
+    ],
+    "anchors": 17,
+    "missing": [
+      "5.9",
+      "5.11",
+      "240",
+      "33",
+      "36",
+      "5.10",
+      "26",
+      "5.8",
+      "38",
+      "22",
+      "140",
+      "190",
+      "30",
+      "many routes converge at the top of p3"
+    ],
+    "hash": "7df6ae2d6ed2c3fb",
+    "via": "jina",
+    "bytes": 327
+  },
+  "https://www.mountainproject.com/route/204020467/bat-route": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "2351c4d4fd66faf2",
+    "via": "direct",
+    "bytes": 110809
+  },
+  "https://www.mountainproject.com/route/200914746/yodel-buttress": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "transport",
+      "bolt_condition"
+    ],
+    "anchors": 4,
+    "missing": [],
+    "hash": "f3186aedd7c14e33",
+    "via": "direct",
+    "bytes": 98149
+  },
+  "https://gaussmt.tistory.com/1910": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "dbf24198ba32ddcc",
+    "via": "direct",
+    "bytes": 91384
+  },
+  "https://m.blog.naver.com/jjunmh/221672777865": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "360d6b9d3658e5f5",
+    "via": "direct",
+    "bytes": 95376
+  },
+  "https://mountain-climber.tistory.com/21": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "cdb1957172956d61",
+    "via": "direct",
+    "bytes": 65334
+  },
+  "https://kim664.tistory.com/14340399": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 3,
+    "missing": [
+      "1–4",
+      "6 段中 1–4 段，最難 5.11d a0"
+    ],
+    "hash": "d2df6cca7c13b639",
+    "via": "direct",
+    "bytes": 59745
+  },
+  "https://seounwoo.tistory.com/entry/%EB%8F%84%EB%B4%89%EC%82%B0-%EC%84%A0%EC%9D%B8%EB%B4%89-%EB%A3%A8%ED%8A%B8-%EA%B0%9C%EB%85%90%EB%8F%84": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "korea-crag-seoninbong"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "1e20b6107b842d65",
+    "via": "direct",
+    "bytes": 61349
+  },
+  "https://www.climbing-net.com/iwaba_detail/%E5%A4%A7%E5%A0%82%E6%B5%B7%E5%B2%B8/": {
+    "firstSeen": "2026-10-25",
+    "status": 404,
+    "checked": "2026-10-25",
+    "crags": [
+      "japan-crag-odo-kaigan"
+    ],
+    "types": [
+      "bolt_condition",
+      "closure"
+    ],
+    "error": "HTTP 404"
+  },
+  "https://www.rocktopo.net/parking_spots/312": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "japan-crag-odo-kaigan"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "830f7edfc2b7e2f7",
+    "via": "jina",
+    "bytes": 477
+  },
+  "https://www.rocktopo.net/parking_spots/1411": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "japan-crag-odo-kaigan"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "0d2b153bfea85348",
+    "via": "jina",
+    "bytes": 478
+  },
+  "https://kochi-seinan.co.jp/local/": {
+    "firstSeen": "2026-10-25",
+    "status": 200,
+    "checked": "2026-10-25",
+    "crags": [
+      "japan-crag-odo-kaigan"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "acc5777c6bf787c8",
+    "via": "direct",
+    "bytes": 12626
+  },
+  "https://kan-etsu.net/publics/index/25/": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-arigasayama"
+    ],
+    "types": [
+      "transport"
+    ],
+    "error": "empty or bot-check page; reader: empty or bot-check page",
+    "manualCheck": {
+      "checked": "2026-10-26",
+      "tool": "Exa web_fetch_exa",
+      "coverage": "Exa returned official page title for Shima/Sawatari/Nakanojo/Higashiagatsuma, but no substantive timetable. Portal identity only; timetable and pickup must be confirmed by reader.",
+      "evidence": ".work/japan-crags-expansion/source-recheck.md"
+    }
+  },
+  "https://www.kasagiclimbing.com/access": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-ena-kasagiyama"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "8af9dfd9f0bfb4ac",
+    "via": "direct",
+    "bytes": 620972
+  },
+  "https://www.nisitokyobus.co.jp/rosen/": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-gozeniwa",
+      "japan-crag-shiromyo-bashi"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "7abe120b27746498",
+    "via": "direct",
+    "bytes": 204936,
+    "finalUrl": "https://www.nisitokyobus.co.jp/rosen"
+  },
+  "https://www.mountainproject.com/area/126308652/hachimenzan-chubo-area": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-hachimensan"
+    ],
+    "types": [
+      "bolt_condition"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "139873f89b8cb354",
+    "via": "direct",
+    "bytes": 123371
+  },
+  "https://www.climbing-net.com/iwaba_detail/%E9%B3%B3%E6%9D%A5/": {
+    "firstSeen": "2026-10-26",
+    "status": 404,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-horai"
+    ],
+    "types": [
+      "fee"
+    ],
+    "error": "HTTP 404",
+    "manualCheck": {
+      "checked": "2026-10-26",
+      "tool": "Exa web_fetch_exa",
+      "coverage": "Exa returned substantive publisher body: historical parking guidance, nylon brushes/chalk removal, restricted sectors and season; current parking is taken from newer municipal notice, not this historical page.",
+      "evidence": ".work/japan-crags-expansion/source-recheck.md"
+    }
+  },
+  "https://www.city.shinshiro.lg.jp/kanko/kanko/kisei.html": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-horai"
+    ],
+    "types": [
+      "transport",
+      "fee"
+    ],
+    "anchors": 2,
+    "missing": [
+      "2021-05-14"
+    ],
+    "hash": "ff4b8049fab513ee",
+    "via": "direct",
+    "bytes": 41584
+  },
+  "https://freeclimb.jp/access/6862/": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-horai"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "77e06d7a898e4315",
+    "via": "direct",
+    "bytes": 80575
+  },
+  "https://freeclimb.jp/activities/deal-with/issue-list/": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-horai",
+      "japan-crag-kasama",
+      "japan-crag-kogashiyama",
+      "japan-crag-nabari"
+    ],
+    "types": [
+      "closure",
+      "transport"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "d0afbd30781abcb0",
+    "via": "direct",
+    "bytes": 131944
+  },
+  "https://railway.jr-central.co.jp/time-schedule/search/": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-horai"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "8a8dda571bad78b0",
+    "via": "direct",
+    "bytes": 9964
+  },
+  "https://www.dohokubus.com/rosen_bus.html": {
+    "firstSeen": "2026-10-26",
+    "status": 0,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-ishigakiyama"
+    ],
+    "types": [
+      "transport"
+    ],
+    "error": "UND_ERR_CONNECT_TIMEOUT",
+    "manualCheck": {
+      "checked": "2026-10-26",
+      "tool": "Exa web_fetch_exa",
+      "coverage": "Exa returned operator direction/timetable index including Kamui and regional routes. No departure-time or current cliff parking permission claim.",
+      "evidence": ".work/japan-crags-expansion/source-recheck.md"
+    }
+  },
+  "http://lowfatclibmer.blogspot.com/2012/11/2.html": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-kasama"
+    ],
+    "types": [
+      "fee"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "2ecd9fce7807f7b3",
+    "via": "direct",
+    "bytes": 106232
+  },
+  "https://5931bus.com/": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-kawamata"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "d8fcdd51191afcaa",
+    "via": "direct",
+    "bytes": 41350
+  },
+  "https://www.pref.yamanashi.jp/rindoujyouhou/kisei.php?id=16": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-kofu-makuiwa"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 1,
+    "missing": [
+      "6–8"
+    ],
+    "hash": "5529c1f124d00d85",
+    "via": "direct",
+    "bytes": 6530
+  },
+  "https://www.climbing-net.com/news/koizawa_191017/": {
+    "firstSeen": "2026-10-26",
+    "status": 404,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-koshizawa-buttress"
+    ],
+    "types": [
+      "closure"
+    ],
+    "error": "HTTP 404",
+    "manualCheck": {
+      "checked": "2026-10-26",
+      "tool": "Exa web_fetch_exa",
+      "coverage": "Exa returned dated 2019-10-17 typhoon19 entry-restraint text. Historical notice only; not evidence of a current blanket closure or later permission.",
+      "evidence": ".work/japan-crags-expansion/source-recheck.md"
+    }
+  },
+  "https://timetables.jreast.co.jp/timetable/list1237.html": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-koshizawa-buttress"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "56acaf66c6f4f23d",
+    "via": "direct",
+    "bytes": 16658
+  },
+  "https://shikirakuen.com/map.html": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-mitsutoge"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "8bb609aa49006f5b",
+    "via": "direct",
+    "bytes": 19029
+  },
+  "https://www.fujikyubus.co.jp/rosen/": {
+    "firstSeen": "2026-10-26",
+    "status": 404,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-mitsutoge"
+    ],
+    "types": [
+      "transport"
+    ],
+    "error": "HTTP 404",
+    "usage": "Retired during this research after direct404 and Exa CRAWL_NOT_FOUND. Current article references use official /regular and Mitsutogeyama hiking-bus page; not an active source."
+  },
+  "https://www.sanco.co.jp/krs/stops/5319/poles?week=1": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-nabari"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "b974b779c91bd0b5",
+    "via": "direct",
+    "bytes": 135270
+  },
+  "https://www.sanco.co.jp/timetables.php?code=5436": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-nabari"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "bd146400b85c9dd8",
+    "via": "direct",
+    "bytes": 475822
+  },
+  "https://www.sanco.co.jp/krs/stops/5436": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-nabari"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 2,
+    "missing": [],
+    "hash": "02068a6ed7529f84",
+    "via": "direct",
+    "bytes": 209207
+  },
+  "https://www.kotsu.city.sendai.jp/shibus/noriba/sendai/": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-okura-boulders"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 1,
+    "missing": [],
+    "hash": "5d152aa546e67b51",
+    "via": "direct",
+    "bytes": 68802
+  },
+  "https://hcwaf.jwaf.club/sangaku11.html": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-otaru-akaiwa",
+      "japan-crag-yoshitsune-iwa"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 4,
+    "missing": [],
+    "hash": "846f05a443aa4754",
+    "via": "direct",
+    "bytes": 23238
+  },
+  "https://www.city.kai.yamanashi.jp/page/3823.html": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-tachiookayama"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 1,
+    "missing": [
+      "2026-03-10"
+    ],
+    "hash": "6191b852d757a846",
+    "via": "direct",
+    "bytes": 29314
+  },
+  "https://freeclimb.jp/access/10249/": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-yamadera"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 3,
+    "missing": [],
+    "hash": "b9813052e0c69d9e",
+    "via": "direct",
+    "bytes": 90699
+  },
+  "http://caramba-02.sakura.ne.jp/okutama/area/": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-gozeniwa"
+    ],
+    "types": [
+      "closure"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "f930c8dafde5ed54",
+    "via": "direct",
+    "bytes": 19618
+  },
+  "https://www.fujikyubus.co.jp/hiking-bus/fujikyu-hiking/mitsutogeyama": {
+    "firstSeen": "2026-10-26",
+    "status": 200,
+    "checked": "2026-10-26",
+    "crags": [
+      "japan-crag-mitsutoge"
+    ],
+    "types": [
+      "transport"
+    ],
+    "anchors": 0,
+    "missing": [],
+    "hash": "490204e6d0bf4a3a",
+    "via": "direct",
+    "bytes": 51524
   }
 }

@@ -9,7 +9,7 @@ description: "介紹 Wimbledon School of English 一般英語班、總課時與�
 tldr: "WSE 適合能安排海外時間、願意在團班與生活中主動開口的人；四週預算要把住宿與生活支出一起算，取消規則則要取得對應訂單的書面版本。"
 series:
   name: "英文口說練習"
-  order: 11
+  order: 29
 draft: false
 ---
 

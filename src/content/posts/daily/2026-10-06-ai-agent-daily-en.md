@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: en
 description: "The real complementary asset of the agent ecosystem isn't the model, it's the identity layer — and that layer is being broken systematically within a single three-day window, from open-source tools to managed cloud services"
-tldr: "ZITADEL, Zimbra, Bouncy Castle and MCP OAuth racked up 15 CVEs in three days while AWS patched auth-bypass flaws in Bedrock AgentCore; the open-source AI agent tool ARTEX hit seven South Korean banks, leaking 65,000 records; the GlassWorm supply-chain attack, disguised as VS Code themes, targets AI coding agent credentials on dev machines; Meta and Microsoft slashed internal Claude/Claude Code usage in favor of their own tools; Cloudflare shipped 46 agent-infrastructure announcements, DeepSeek's V4.1 Flash narrowed the US-China benchmark gap to 3%; and two enterprise agent funding rounds — OneByZero ($20M) and Valon ($150M) — landed the same day."
+tldr: "ZITADEL, Zimbra, Bouncy Castle and MCP OAuth racked up 15 CVEs in three days while AWS patched auth-bypass flaws in Bedrock AgentCore; per Oct 5 reports, the open-source AI agent tool ARTEX was linked to breaches at seven South Korean banks, leaking 65,000 records; the GlassWorm supply-chain attack, disguised as VS Code themes, targets AI coding agent credentials on dev machines; Meta and Microsoft slashed internal Claude/Claude Code usage in favor of their own tools; Cloudflare shipped 46 agent-infrastructure announcements, DeepSeek's V4.1 Flash narrowed the US-China benchmark gap to 3%; and two enterprise agent funding rounds — OneByZero ($20M) and Valon ($150M) — landed the same day."
 draft: false
 series:
   name: "AI 日報"
@@ -24,7 +24,7 @@ I think today's signals are best read through a complementary-assets lens: every
 
 Evidence A: between October 2 and 5, 2026, ZITADEL (ten CVEs in a single cluster alone), Zimbra, Bouncy Castle and MCP OAuth all disclosed credential-theft vulnerabilities within three days — four identity providers' trust anchors compromised at once. AWS simultaneously patched three Bedrock AgentCore-related flaws; one of them, Loom, let any network user claim full control of the agent console when no identity provider had been configured. This isn't a code-quality problem at a single vendor — it's that the identity layer shared across the whole agent supply chain is its thinnest link.
 
-Evidence B: once that asset breaks, the damage doesn't stop at the vendor — it propagates straight to downstream parties who had no idea they depended on it. The open-source AI agent tool ARTEX was used to breach seven South Korean financial institutions, leaking more than 65,000 customer records and forcing the government into round-the-clock incident response. The same week, the GlassWorm supply-chain attack, disguised as VS Code themes, targeted exactly the API keys and cloud credentials that Claude Code, Cursor and other AI coding agents leave sitting on developer machines. Two completely different targets, but the same complementary asset under attack — the layer that verifies who is allowed to tell an agent to do what.
+Evidence B: once that asset breaks, the damage doesn't stop at the vendor — it propagates straight to downstream parties who had no idea they depended on it. The open-source AI agent tool ARTEX was used to breach seven South Korean financial institutions, leaking more than 65,000 customer records (per techtimes as of Oct 5; the figure has since shifted) and forcing the government into round-the-clock incident response. The same week, the GlassWorm supply-chain attack, disguised as VS Code themes, targeted exactly the API keys and cloud credentials that Claude Code, Cursor and other AI coding agents leave sitting on developer machines. Two completely different targets, but the same complementary asset under attack — the layer that verifies who is allowed to tell an agent to do what.
 
 What this means for practitioners: if you're evaluating whether to put an agent into a production system, don't just watch how obedient it looks in a demo — check how many incidents its underlying identity layer has had and how fast they get patched. Taiwan's financial sector is similarly heavily regulated, and ARTEX's breach of South Korean banks is a directly comparable precedent — when evaluating open-source agent tools or MCP integrations, CVE disclosure history and patch turnaround should be on the procurement checklist, not something you discover only after the asset you never vetted finally fails.
 
@@ -66,7 +66,7 @@ Today's trending GitHub repos span wildly different scenarios: replica-skill (46
 
 **Coordinated attack on the agent identity stack**: ZITADEL, Zimbra, Bouncy Castle and MCP OAuth racked up 15 CVEs in three days, while AWS patched Bedrock AgentCore auth-bypass and MCP/A2A redirection flaws (see deep dive). ([forkast](https://forkast.news/four-providers-15-cves-three-days-the-agent-identity-stack-is-under-coordinated-attack), [gbhackers](https://gbhackers.com/aws-fixes-ai-agent-flaws))
 
-**ARTEX breaches seven South Korean banks**: an open-source AI agent attack tool was used to repeatedly breach seven South Korean financial institutions, leaking more than 65,000 customer records and triggering round-the-clock government incident response (see deep dive). ([techtimes](https://www.techtimes.com/articles/328541/20261005/open-source-ai-agent-hacked-seven-south-korean-banks-exposing-65000-records.htm))
+**ARTEX breaches seven South Korean banks**: an open-source AI agent attack tool was used to repeatedly breach seven South Korean financial institutions, leaking more than 65,000 customer records (per techtimes as of Oct 5; the figure has since shifted) and triggering round-the-clock government incident response (see deep dive). ([techtimes](https://www.techtimes.com/articles/328541/20261005/open-source-ai-agent-hacked-seven-south-korean-banks-exposing-65000-records.htm))
 
 **GlassWorm returns**: malicious VS Code theme extensions distributed via Marketplace and Open VSX share a technical fingerprint with the supply-chain campaign taken down last May, and target the API keys and cloud credentials of AI coding agents on developer machines — full attack chain and defenses in the [security alert](/posts/daily/2026-10-06-security-glassworm-vscode-theme-supply-chain-en).
 
@@ -111,7 +111,7 @@ Several smaller rounds also surfaced the same day: financial RL-agent-training i
 | Item | Number | Source |
 |------|--------|--------|
 | Identity-provider CVEs | 15 in 3 days (4 IdPs) | [forkast](https://forkast.news/four-providers-15-cves-three-days-the-agent-identity-stack-is-under-coordinated-attack) |
-| Records leaked in ARTEX breach of South Korean banks | 65,000 (7 institutions) | [techtimes](https://www.techtimes.com/articles/328541/20261005/open-source-ai-agent-hacked-seven-south-korean-banks-exposing-65000-records.htm) |
+| Records leaked in ARTEX breach of South Korean banks | 65,000 (7 institutions; techtimes as of Oct 5) | [techtimes](https://www.techtimes.com/articles/328541/20261005/open-source-ai-agent-hacked-seven-south-korean-banks-exposing-65000-records.htm) |
 | Meta's Claude Code user drop | 60,000 → 30,000 (-50%) | [the-decoder](https://the-decoder.com/meta-and-microsoft-pull-back-from-claude-as-anthropic-transforms-from-partner-into-competitor/) |
 | US-China top-model benchmark gap | 3% (vs. ~9% in May) | [straitstimes](https://www.straitstimes.com/world/united-states/us-lead-in-ai-over-china-narrows-after-deepseek-gains-bloomberg-intelligence-says) |
 | AI share of global VC in Q3 2026 | 64% ($102B) | [crunchbase-news](https://news.crunchbase.com/venture/q3-2026-global-startup-funding-ai-billion-dollar-rounds-exits-data) |
@@ -138,6 +138,10 @@ Several smaller rounds also surfaced the same day: financial RL-agent-training i
 ## Today's Takeaway
 
 I used to think the main risk with open-source AI agent tools was whether they worked reliably. Seeing ARTEX used to breach seven South Korean banks today, I realized that once an open-source tool gets wired into a regulated industry's production systems — a bank, a government agency — its security externalities land directly on that industry's customers, not just on the developer who installed it. It's the same logic as a supply-chain attack, except this time it's the defender's own tool choice that opened the door.
+
+## Update Log
+
+- 2026-10-24: Labeled the record count as the techtimes figure as of Oct 5 (later reports and official tallies differ). The link between ARTEX and each bank rested on secondary reporting at the time; CrowdStrike's Oct 7 report names no banks and says the affected total is unconfirmed.
 
 ## References
 
