@@ -8,8 +8,8 @@ lang: en
 series:
   name: "Japan Climbing Crags"
   order: 0
-tldr: "One guide per crag, 22 so far, from Shimukappu in Hokkaido to Cape Hedo in Okinawa. In winter (December–March) go to the south-facing walls of Izu and Yugawara or to Okinawa; in summer head for Ogawayama and Mizugakiyama at around 1,600 m, or Hokkaido. Look up routes and rules on ROCKTOPO and CLIMBING-net; find partners through Meetup, Facebook groups, and Jimoty."
-description: "Overview of the Japan Climbing Crags series: a season, rock type, and style table for the 22 crags covered so far, the sources to check (ROCKTOPO, CLIMBING-net, JFA, local associations), and where to find climbing partners (Meetup, Facebook groups, Jimoty)."
+tldr: "One guide per crag, 57 so far, from Shimukappu in Hokkaido to Cape Hedo in Okinawa. In winter (December–March) go to the south-facing walls of Izu and Yugawara or to Okinawa; in summer head for Ogawayama and Mizugakiyama at around 1,600 m, or Hokkaido. Look up routes and rules on ROCKTOPO and CLIMBING-net; find partners through Meetup, Facebook groups, and Jimoty."
+description: "Overview of the Japan Climbing Crags series: a season, rock type, and style table for the 57 crags covered so far, the sources to check (ROCKTOPO, CLIMBING-net, JFA, local associations), and where to find climbing partners (Meetup, Facebook groups, Jimoty)."
 draft: false
 ---
 
@@ -17,7 +17,9 @@ draft: false
 
 Each guide in this series covers one Japanese crag: rock type and style, the best seasons and why, how to get there by train or by car, and the local rules to know before you go. It does not cover itineraries, flights, or how to fit a trip into a holiday, because that goes out of date fast. A crag's seasons and rules change much more slowly.
 
-Twenty-two crags are covered so far, across Hokkaido, Tohoku, Kanto, Koshin, Hokuriku, Izu, Tokai, Kinki, Chugoku, Shikoku, Kyushu, and Okinawa. Japan has far more than that: the prefecture pages on the crag database [ROCKTOPO](https://www.rocktopo.net/) list well over two hundred areas between them, and the series will fill in prefecture by prefecture.
+Fifty-seven crags are covered so far, across Hokkaido, Tohoku, Kanto, Koshin, Hokuriku, Izu, Tokai, Kinki, Chugoku, Shikoku, Kyushu, and Okinawa. Japan has far more than that: the prefecture pages on the crag database [ROCKTOPO](https://www.rocktopo.net/) list well over two hundred areas between them, and the series will fill in prefecture by prefecture.
+
+Sectors stay in their parent crag guide: Kasameri-sawa is covered under Mizugakiyama and Hayama under Bitchu. Nabari and Horai each have a separate destination guide.
 
 ## Picking a crag by season
 
@@ -32,29 +34,66 @@ The seasons below follow the sources quoted in each guide. Where sources disagre
 | Crag | Location | Style | Rock | Season (per source) |
 |---|---|---|---|---|
 | [Akaiwa Seigankyo](/posts/climbing/2026-10-12-japan-crag-akaiwa-seigankyo-en) | Shimukappu, Hokkaido | Sport, many 5.12–5.13 | Chert | May–October |
+| [Otaru Akaiwa](/posts/climbing/2026-10-26-japan-crag-otaru-akaiwa-en) | Hokkaido | roped climbing | andesitic agglomerate | April–November |
+| [Kamuiiwa](/posts/climbing/2026-10-26-japan-crag-kamuiiwa-en) | Hokkaido | roped climbing | limestone | April–November |
+| [Asahikawa Boulders](/posts/climbing/2026-10-26-japan-crag-asahikawa-boulders-en) | Hokkaido | bouldering | varied rock | spring and autumn; forest sectors late May–early November |
+| [Ishigakiyama](/posts/climbing/2026-10-26-japan-crag-ishigakiyama-en) | Hokkaido | roped climbing | andesite | late May–early October |
+| [Yoshitsune Iwa](/posts/climbing/2026-10-26-japan-crag-yoshitsune-iwa-en) | Hokkaido | roped climbing | tuff | spring and autumn; published range March–December |
 | [Samuraihama](/posts/climbing/2026-10-12-japan-crag-samuraihama-en) | Kuji, Iwate | Sea-cliff bouldering, sport | Granite | Late March–late November |
+| [Hyotan Cave](/posts/climbing/2026-10-26-japan-crag-hyotan-cave-en) | Iwate | roped climbing | limestone | March–December; seepage dependent |
+| [Okura Boulders](/posts/climbing/2026-10-26-japan-crag-okura-boulders-en) | Miyagi | bouldering | river boulders; rock type unspecified | spring and autumn; published range April–December |
+| [Yamadera](/posts/climbing/2026-10-26-japan-crag-yamadera-en) | Yamagata | roped climbing | andesite | April–October |
 | [Aoba](/posts/climbing/2026-10-12-japan-crag-aoba-en) | Iwaki, Fukushima | Sport | Sandstone | September–May |
+| [Kasama Boulders](/posts/climbing/2026-10-26-japan-crag-kasama-en) | Ibaraki | bouldering | granite | year-round; summer heat and mosquitoes |
+| [Shiobara Boulders](/posts/climbing/2026-10-26-japan-crag-shiobara-en) | Tochigi | bouldering | tuff (Oya stone) | potentially year-round; check snow and water |
+| [Kogashiyama](/posts/climbing/2026-10-26-japan-crag-kogashiyama-en) | Tochigi | roped climbing | chert | year-round; conditions dependent |
+| [Arigasayama](/posts/climbing/2026-10-26-japan-crag-arigasayama-en) | Gunma | Sport climbing | Rhyolite | Spring–autumn |
 | [Futagoyama](/posts/climbing/2026-10-12-japan-crag-futagoyama-en) | Ogano, Saitama | Steep sport | Limestone | Year-round; seepage in rainy season and summer |
+| [Kawamata](/posts/climbing/2026-10-26-japan-crag-kawamata-en) | Saitama | Sport climbing | Limestone | March–June, September–December |
 | [Mitake Boulder](/posts/climbing/2026-10-12-japan-crag-mitake-boulder-en) | Ome, Tokyo | Bouldering | Chert | October–May |
 | [Tenno-iwa](/posts/climbing/2026-10-12-japan-crag-tennoiwa-en) | Akiruno, Tokyo | Sport, mostly 5.10–5.11 | Chert | Year-round; cold in winter |
+| [Gozen Iwa](/posts/climbing/2026-10-26-japan-crag-gozeniwa-en) | Tokyo | Sport climbing | Limestone | Mainly autumn–spring |
+| [Shirotaebashi](/posts/climbing/2026-10-26-japan-crag-shiromyo-bashi-en) | Tokyo | Sport climbing | Limestone | Prefer spring and autumn |
+| [Koshizawa Buttress](/posts/climbing/2026-10-26-japan-crag-koshizawa-buttress-en) | Tokyo | Multipitch trad | Chert | Prefer spring and autumn |
 | [Yugawara Makuiwa](/posts/climbing/2026-10-12-japan-crag-yugawara-en) | Yugawara, Kanagawa | Short sport, bouldering | Tuff / andesite | December–March |
 | [Zakkokudani](/posts/climbing/2026-10-12-japan-crag-zakkokudani-en) | Tateyama, Toyama | Sport, cracks | Granite | Early April–late November (while the Shomyo road is open) |
 | [Mizugakiyama](/posts/climbing/2026-10-12-japan-crag-mizugakiyama-en) | Hokuto, Yamanashi | Cracks, multi-pitch, highballs | Granite | April–November |
+| [Mitsutoge](/posts/climbing/2026-10-26-japan-crag-mitsutoge-en) | Yamanashi | Multipitch trad and face | Agglomerate | April–October |
+| [Kofu Makuiwa](/posts/climbing/2026-10-26-japan-crag-kofu-makuiwa-en) | Yamanashi | Sport climbing | Tuff | April–June, October–November |
+| [Tachiokayama](/posts/climbing/2026-10-26-japan-crag-tachiookayama-en) | Yamanashi | Sport and multipitch | Andesite | April–June, September–November |
 | [Ogawayama](/posts/climbing/2026-10-12-japan-crag-ogawayama-en) | Kawakami, Nagano | Cracks, sport, multi-pitch, bouldering | Granite | April–November |
+| [Ena Kasagiyama](/posts/climbing/2026-10-26-japan-crag-ena-kasagiyama-en) | Gifu | Mainly bouldering, some routes | Hard tuff | March–May, October–December |
+| [Fukube](/posts/climbing/2026-10-26-japan-crag-fukube-en) | Gifu | Bouldering | Hard tuff | March–June, September–December |
+| [Mizunami Byobuiwa](/posts/climbing/2026-10-26-japan-crag-mizunami-byobuiwa-en) | Gifu | Trad and face climbing | Granite | October–April |
 | [Jogasaki](/posts/climbing/2026-10-12-japan-crag-jogasaki-en) | Ito, Shizuoka | Sea-cliff cracks, sport, bouldering | Andesite | December–April |
 | [Joyama](/posts/climbing/2026-10-12-japan-crag-joyama-en) | Izunokuni, Shizuoka | Sport, multi-pitch | Tuff | November–March |
+| [Washizuyama](/posts/climbing/2026-10-26-japan-crag-washizuyama-en) | Shizuoka | Tuff face and crack climbing | Tuff | September–June |
 | [Toyota](/posts/climbing/2026-10-12-japan-crag-toyota-en) | Toyota, Aichi | Mostly bouldering | Granite | Autumn to spring |
+| [Horai](/posts/climbing/2026-10-26-japan-crag-horai-en) | Shinshiro, Aichi | Steep sport, bouldering | Tuff | ROCKTOPO: April–June, September–November; varies by sector |
 | [Gozaisho](/posts/climbing/2026-10-12-japan-crag-gozaisho-en) | Komono, Mie | Mountain multi-pitch | Granite | April–November |
+| [Nabari / Kaochidani](/posts/climbing/2026-10-26-japan-crag-nabari-en) | Around Nabari, Mie | Trad cracks | Welded tuff | ROCKTOPO: March–June, September–November; river crossing on approach |
 | [Kasagi Boulder](/posts/climbing/2026-10-12-japan-crag-kasagi-boulder-en) | Kasagi, Kyoto | Bouldering | Granite | Year-round; cold in midwinter |
 | [Konpirayama](/posts/climbing/2026-10-12-japan-crag-konpirasan-en) | Sakyo, Kyoto | Sport, multi-pitch | Chert | Year-round |
 | [Kitayama Park](/posts/climbing/2026-10-12-japan-crag-kitayama-park-en) | Nishinomiya, Hyogo | Bouldering | Granite | Year-round; poor in midsummer |
 | [Fudoiwa](/posts/climbing/2026-10-12-japan-crag-fudoiwa-en) | Kobe, Hyogo | Sport | Tuff | Year-round |
+| [Horuiiwa](/posts/climbing/2026-10-26-japan-crag-horuiiwa-en) | Hyogo | Granite cracks and faces above Kobe | Granite | Year-round; check mountain weather |
+| [Shimane Peninsula](/posts/climbing/2026-10-26-japan-crag-shimane-peninsula-en) | Shimane | Dispersed sea-cliff faces and cracks | Varied coastal rock | April–November (older information) |
 | [Bitchu](/posts/climbing/2026-10-12-japan-crag-bitchu-en) | Around Takahashi, Okayama | Overhanging sport | Limestone | Year-round; pick the sector |
+| [Ojigatake](/posts/climbing/2026-10-26-japan-crag-ojigatake-en) | Okayama | Granite bouldering above the Seto Inland Sea | Granite | Autumn through spring |
+| [Mikuradake](/posts/climbing/2026-10-26-japan-crag-mikuradake-en) | Hiroshima | Trad cracks, slabs, multipitch | Granite | March–May, September–November (ROCKTOPO) |
+| [Hiwasa](/posts/climbing/2026-10-26-japan-crag-hiwasa-en) | Tokushima | Overhanging sea-cliff and cave climbing | Sandstone | Mid-September to early May |
 | [Odo Coast](/posts/climbing/2026-10-12-japan-crag-odo-kaigan-en) | Otsuki, Kochi | Sea-cliff cracks, multi-pitch | Granite | November–March |
 | [Hyugami](/posts/climbing/2026-10-12-japan-crag-hyugami-en) | Yame, Fukuoka | Sport, mostly 5.10–5.11 | Andesite | Year-round; avoid the rainy season |
+| [Nodake](/posts/climbing/2026-10-26-japan-crag-nodake-en) | Nagasaki | Vertical and gently overhanging sport climbing | Andesite | Year-round; check actual rock conditions |
+| [Honjo](/posts/climbing/2026-10-26-japan-crag-honjo-en) | Oita | River-valley limestone sport climbing | Limestone | Year-round; choose sector exposure |
+| [Hachimensan](/posts/climbing/2026-10-26-japan-crag-hachimensan-en) | Oita | Sport climbing and bouldering | Andesite | Year-round; upper south-facing and lower north-facing walls differ |
+| [Hieizan](/posts/climbing/2026-10-26-japan-crag-hieizan-en) | Miyazaki | Granite multipitch, cracks, slabs | Granite porphyry / granite | April–November (CLIMBING-net) |
 | [Cape Hedo / Usa Beach](/posts/climbing/2026-10-12-japan-crag-hedo-usahama-en) | Kunigami, Okinawa | Sea-cliff sport | Limestone | November–March |
+| [Gushichan](/posts/climbing/2026-10-26-japan-crag-gushichan-en) | Okinawa | Coastal bouldering and some roped lines | Ryukyu limestone | Year-round; seek shade and ventilation in summer |
 
 By access: Mitake Boulder (JR Ome Line, Mitake Station), Jogasaki (three Izukyu stations), Joyama (Izuhakone Railway, Ohito Station), Kasagi Boulder (JR Kansai Line, Kasagi Station), Fudoiwa (JR Fukuchiyama Line, Dojo Station), and Kitayama Park (Hankyu Koyoen Station) are reachable by train and a walk. Tenno-iwa, Yugawara, Ogawayama, Toyota, Gozaisho, Bitchu, and Hyugami need a bus as well. Akaiwa Seigankyo, Samuraihama, Aoba, Zakkokudani, Futagoyama, Mizugakiyama, the Odo Coast, and Cape Hedo effectively need a car, or have very few buses; see each guide.
+
+Nabari requires a river crossing, so check water levels and local rules first. Parking arrangements on Horai’s Chi-iwa Gorge side have changed; read each guide’s transport and access sections before choosing how to travel.
 
 ## Where to look things up
 
@@ -99,10 +138,14 @@ All three currently schedule gym sessions, which makes them a good place to meet
 
 ## Limits of this series
 
-- Everything was checked on 2026-10-12. Bus timetables, campground seasons, parking fees, and forest-road closures change from year to year; each guide links the notice pages, so check again before you go.
+- The original 22 crag guides were checked on 2026-10-12; the 35 new destination guides were checked on 2026-10-26. Bus timetables, campground seasons, parking fees, and forest-road closures change from year to year; each guide links the notice pages, so check again before you go.
 - The author has not climbed at these crags. The guides compile public sources and contain no first-hand experience.
 - Route counts vary a lot between sources (Ogawayama: 1,055 on ROCKTOPO, 365 on theCrag). That reflects different coverage, not that one source is wrong.
-- Crags where climbing is prohibited are not included in this series.
+- Destinations under a continuing blanket climbing ban are excluded. Local closures, historical restraint notices, and unresolved permission are stated in each guide; inclusion does not guarantee access.
+
+## Update log
+
+- 2026-10-26: Added 35 independent destination guides in both languages, taking the total from 22 to 57, including Nabari, Horai, Hokkaido crags, destinations near Tokyo, Mikuradake, Hieizan, and Gushichan. Sectors stay in their parent guides. The original 22 crag guides and partner-finding information were not reverified.
 
 ## References
 
