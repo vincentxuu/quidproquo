@@ -1556,7 +1556,7 @@ daily-digest-framework／daily-digest-tool／daily-digest-benchmark 三支 2026-
 
 - **daily-digest-report 2026-10-27**：讀 signals JSON（35 筆）＋6 篇 Stage1 產出（arxiv／github／funding-nous／security-inc-gentlemen／interview／product-interview）彙整日報。深度分析用五力分析框架串「白宮簽署 Super Intelligence Accord 改用企業自願監督框架」＋「Anthropic 支持的 AEGIS Act 想凍結加州 SB 53 等州法改由廠商自付稽核」＋「Meta 計畫 $95B 股票募資擴建 AI 基建」，論點：規管環境正往「自願自我監督」鬆動，同時削弱第三方規管者議價力，跟資本門檻一起把新進者擋在外面；台灣讀者位置落在深度分析末段（採購團隊需自建不依賴廠商自我聲明的驗證流程）。relevance≥0.8 三則信號（GPT-6.1 Terra／Devin Security／Super Intelligence Accord）全部提及；signals 12 個 category 全覆蓋或有意識排除（community-signal 三則：Reddit 禁 AI 開源專案、Schmidt AI 帝國論、ChatGPT 誤導使用者，時效性與衍生推論性質高、對台灣 builder 決策參考價值低而排除；Toyota 機器人資本支出非 agent 直接相關，relevance 0.5 排除）。Groundlane `web_search` 補掃拉丁美洲／非洲兩組查詢，非洲命中英國-奈及利亞 AI 治理合作（sig-035）納入區域段，拉丁美洲未命中合格事件，區域段寫一句交代已檢索。series order 73（距 2026-08-16 天數＋1，已用 python date diff 驗證，與 10-26 的 72 連號）。中英雙版已建立並互相連結，全文 CJK 字數 2906（<3000）、深度分析 508 字（400–600 區間）；依 diagram skill 判斷全文以新聞條列與敘述分析為主，無分支流程／多維度比較／時間序列結構適合入圖，圖解：無適合段落。已將最舊 Recently completed 條目（10-22 daily-digest-tool）移至 `docs/progress-archive.md` 壓回 90 行上限；待 verify／commit／push。
 
-## 2026-10-28 封存：Ask AI 連結灰底框修復 2026-09-18 條目（daily-digest-tool 2026-10-28 壓回 90 行上限）
+## 2026-10-28 封存：Ask AI 連結灰底框修復 2026-09-18 條目（daily-digest-tool／daily-digest-funding 2026-10-28 併發各自壓回 90 行上限）
 
 - **Ask AI 連結灰底框修復（2026-09-18，未 commit）**：Streamdown 把回答內連結渲染成 `<button>`，其 `appearance-none` 等 class 只存在於 node_modules 打包檔、Tailwind 掃不到，故掉回瀏覽器原生按鈕外觀。已在 `chat.css` 加 `@source` 掃 streamdown dist＋`button[data-streamdown=link]` 保底樣式；`pnpm build` 產物確認兩層皆生效。
 
