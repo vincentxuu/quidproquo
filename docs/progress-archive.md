@@ -1,3 +1,7 @@
+## 2026-10-28 封存：仁壽峰社群路線紀錄 2026-10-22 條目（daily-digest-report 2026-10-28 壓回 90 行上限）
+
+- **仁壽峰社群路線紀錄 2026-10-22**：中英 Insubong 新增「網路上的路線紀錄」十條對照表（社群部落格/概念圖/咖啡廳轉貼），三處事實修正（Crony P6 裂隙、거룡길「高 전재운」、Dongyang Imgok 歸屬），16 條新參考，index 64 行重建，verify／test／lang-parity／process-leak 全綠，已 commit／push（使用者已授權）。
+
 ## 2026-10-28 封存：Ask AI 舊外觀合併 2026-09-18 條目（daily-digest-framework 2026-10-28 壓回 90 行上限）
 
 - **Ask AI 舊外觀合併（2026-09-18，已 commit／push 6618b36c，待 CI Deploy）**：決定 pills＋ChainOfThought＋Reasoning 三層。後端：`extractReasoningText` 從 additional_kwargs／content blocks 取思考文字（3000 字截斷）→ planner／writer／critic 經 `model_usage` 攜帶 → 兩 engine 在 stage 完成時送 `reasoning` SSE；前端 ChatWidget 按 stage 累積，ChatMessageRow 用 AI Elements Reasoning 渲染（跑時自動展開、結束自動收）。research 的 hyde／改寫屬中間過程未收錄。87 tests pass＋lint＋astro check 全綠。待 commit／push／CI deploy。
