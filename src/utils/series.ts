@@ -1311,6 +1311,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'crack-climbing',
+    category: 'climbing',
+    names: { 'zh-TW': '裂隙攀登技術', en: 'Crack Climbing Technique' },
+    descriptions: {
+      'zh-TW': '讀完〈裂隙怎麼爬〉之後，按尺寸把每種塞法練到能用：手掌、腳塞、指裂、薄手、拳、寬裂、擠身縫與煙囪，再到 layback、斜裂與屋簷，最後是膠帶手套、訓練，以及日本與韓國的裂隙岩場。每種技巧都附 2020 年以後、不同岩場與不同攀岩者的教學和攀爬影片，也講手大小怎麼改變答案。',
+      en: 'After the crack-climbing primer, work through each size until it holds: hands, feet, fingers, off-fingers, fists, offwidths, squeezes and chimneys, then laybacks, leaning cracks and roofs, and finally tape gloves, training, and the crack crags of Japan and Korea. Every technique comes with 2020-or-later lessons and ascent videos from different crags and climbers, and each post covers how hand size changes the answer.',
+    },
+  },
+  {
     slug: 'english-speaking-practice',
     category: 'learning',
     names: { 'zh-TW': '英文口說練習', en: 'English Speaking Practice' },
