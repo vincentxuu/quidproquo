@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "A look at a meta-analysis of one-sided limb training and two small randomized trials on the abdomen and trunk, to see what evidence exists on whether exercising one area reduces fat there more, how it was measured, and where it falls short."
 tldr: "A meta-analysis comparing a trained limb with the untrained one did not see spot reduction, but it tested limbs only, not the abdomen. For the abdomen and trunk there are only two small randomized trials; both saw less fat there, only one reported a difference between groups, and that one had 16 men with overweight. I found no recent, freely readable review on how much exercise and diet each contribute, so I do not answer that. This post gives no weight or body-fat targets and no diet advice."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 20

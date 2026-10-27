@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "A look at a 2020 meta-analysis, a 2023 physiology review and a 2026 randomized trial, to see how much evidence exists on cycle phase, performance and muscle gains, how good it is, and what it cannot yet answer."
 tldr: "For women with regular cycles, a 2020 meta-analysis found performance may be slightly lower in the first days after a period starts, but the difference is tiny and the evidence quality is low. A 2026 randomized trial of 24 women, which concentrated training in the first or second half of the cycle, found no difference in muscle or strength gains, though whether strength is exactly the same cannot be settled. These results do not apply to everyone, and they do not cover injury, irregular cycles or severe symptoms."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 19

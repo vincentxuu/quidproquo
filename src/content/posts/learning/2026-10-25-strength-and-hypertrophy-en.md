@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "A look at the 2026 ACSM resistance-training position stand and a network meta-analysis of load, to see what evidence exists on load, sets and training to failure, and which parts are study results and which are only the authors' recommendations."
 tldr: "ACSM 2026 pooled 137 systematic reviews: the higher the load, the more strength improves; muscle growth shows no clear difference by load. One set beats none and two beat one, but the best number is unknown; training to failure is not necessary. These come from studies of healthy adults, are not a personal prescription, and include no data on fingers or climbing."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 7

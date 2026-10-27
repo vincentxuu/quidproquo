@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "Starting from a systematic review that followed people for 12 months, plus several reviews I could read only in abstract, this post looks at what links standing posture, lumbar curve and head-neck posture to back and neck pain, what stays unclear, and whether 'correcting posture' has evidence."
 tldr: "The evidence I read supports an association only: a review that followed mostly children and young adults for 12 months found that people with a smaller lumbar curve while standing had somewhat higher odds of later low back pain, but the result is shaky, with the top of its range almost touching 'no difference'. A larger curve was not analyzed. Studies define and measure posture differently, and these observational studies cannot rule out that pain came first. Within what I searched I found no readable full-text review testing whether posture correction relieves pain; not finding evidence is not proof it does not work. This post does not diagnose or prescribe."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 14

@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "Warm-ups split into two questions, performance today and injury prevention over time, then the story of the acute:chronic workload ratio, a training-load index that was proposed and then criticised. A review of climbers found no association between warming up and overuse injury; trials in young players link a structured warm-up programme to fewer injuries."
 tldr: "Warm-ups raise two questions. Performance: I read one very mixed review that points to a possible short-term benefit. Injury: a review of observational studies in climbers saw no association; in trials of young players, a structured programme that replaced the usual warm-up was linked to fewer injuries, almost all in young women. Training too much: the acute:chronic workload ratio was proposed and then criticised on methodological grounds, and one randomised trial saw no benefit from that specific approach; I read only the abstracts of the critiques. This post gives no warm-up routine."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 10

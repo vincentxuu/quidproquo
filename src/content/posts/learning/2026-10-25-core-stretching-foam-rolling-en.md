@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "A look at systematic reviews from 2019 to 2025 on stretching, foam rolling and core training: what they show for range of motion, soreness and low back pain, with the immediate effects and the effects of weeks of training kept apart."
 tldr: "After weeks of stretching, joint range of motion is larger; right after a session, stretching and foam rolling look about the same as other warm-ups, which does not mean useless or harmful. In adults with eligible chronic low back pain, core training eased pain more than control groups did, but only once 10 widely differing studies were excluded, and the three approaches did not differ significantly."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 16

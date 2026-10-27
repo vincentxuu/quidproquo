@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "'Exercise wears out your joints' is a common claim. This post covers the knee only, reading several reviews of knee osteoarthritis to see how walking, running, activity level, injury and body weight each relate to risk, and separating risk factor from diagnosis and association from cause."
 tldr: "Knee only. In the reviews I read, walking and recreational running did not appear alongside more structural worsening of knee osteoarthritis, and runners had less knee pain; people with higher activity had higher risk than people with moderate activity, but no clear difference from people with low activity. Past injury and higher body weight also appeared alongside higher risk. Most of this is observational, so it shows association only. For people already diagnosed, randomised trials found exercise therapy improved pain and function, but safety data are thin. Nothing I read directly answers the hip, squats or stairs."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 18

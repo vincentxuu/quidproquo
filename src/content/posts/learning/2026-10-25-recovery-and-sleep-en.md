@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "Two meta-analyses on sleep loss and exercise performance (one with an author employed by a sleep-related company), then reviews of massage, cold-water immersion and other recovery methods, with attention to which findings rest on small studies or subjective ratings."
 tldr: "Both meta-analyses found that, under experimental conditions, losing a night of sleep or having sleep cut short lowers exercise performance, but these are mostly short-term, mostly male, laboratory studies. For recovery, the massage review found no evidence that it directly improves performance, only small gains in flexibility and soreness; the cold-water immersion umbrella review rates its evidence low to very low; and a network meta-analysis in endurance athletes found no method shown to beat passive recovery. One sleep review has an author employed by a sleep-related company, and the post explains how that is handled."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 9

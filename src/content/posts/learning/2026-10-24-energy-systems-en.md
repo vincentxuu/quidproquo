@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "Muscle has three ways to resupply ATP, and they run together. This post sums up how much comes from anaerobic and aerobic sources in a single maximal effort, and why those numbers cannot simply be applied to climbing."
 tldr: "Muscle has three ways to resupply ATP, and beyond a few contractions no single one does the job alone. A systematic review estimates that in a single maximal effort lasting about 75 to 80 seconds, anaerobic and aerobic supply each account for half; but its prediction error is about 12 to 14%, most of its data are running and cycling, and it includes just one 6-person climbing study."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 4

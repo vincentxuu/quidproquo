@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "Reads the abstract of a 2019 Cochrane review and a 2025 meta-analysis of dual-task training, looking separately at the evidence on exercise and the number of falls and on balance test scores, and how certain each is."
 tldr: "The abstract of a 2019 Cochrane review says exercise lowers the number of falls in community-dwelling older adults; balance and functional exercises cut the rate by about 24%, with high-certainty evidence. A 2025 meta-analysis of dual-task training found that the average gains on a balance scale and a timed walking test did not reach the clinical-importance thresholds its authors cite, with very low to low certainty. Fewer falls and better test scores are different outcomes, and one cannot stand in for the other. This evidence is about people aged 60 and over who mostly walk on their own."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 12

@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "If an MRI or X-ray report says degeneration, bulge or calcification, is that the cause of the pain? This post covers only the spine and shoulder, using four studies on how common imaging findings are without symptoms, which findings are more common with pain, and how certain each study is. Knee, hip and neck are not covered."
 tldr: "Four studies (two on the spine, one Japanese community study, one on the shoulder) show that degeneration-type spine findings are common in people without symptoms and rise with age; the shoulder review found that shoulders with and without symptoms often look alike, with very low certainty of evidence. On the other hand, in adults aged 50 or younger some findings are more common in people with low back pain and others show no difference. Read a report together with symptoms and an examination, and let a clinician judge. This post covers only the spine and shoulder, not the knee, hip or neck."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 15

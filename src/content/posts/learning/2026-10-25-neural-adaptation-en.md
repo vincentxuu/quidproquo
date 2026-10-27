@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "A look at a cross-education meta-analysis and a systematic review of motor units, to see what evidence exists for the common claim that beginners' early gains come from the nervous system, and which parts rest only on a narrative review."
 tldr: "\"Beginners get stronger in the first weeks mainly through the nervous system\" is a common claim. None of the three sources I read is specifically about beginners' first weeks: one meta-analysis shows that when one lower limb is trained, the untrained limb also gets stronger, while muscle thickness, measured in only 3 studies, showed no detectable difference. The systematic review that measured motor units directly found just 7 small studies, all in men, and its authors say high-quality evidence is lacking. For now these are leads."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 8

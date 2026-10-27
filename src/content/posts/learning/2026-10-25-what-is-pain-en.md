@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "Using the definition and notes of the International Association for the Study of Pain (IASP), this post looks at how pain relates to tissue damage; then reads a 2025 meta-analysis of pain neuroscience education for adults with chronic low back pain, with its limits."
 tldr: "IASP defines pain as an experience, and its notes say pain and nociception (the nervous system responding to harmful stimuli) are different phenomena, so how much it hurts cannot be read directly as how injured you are; but that does not mean pain can be ignored, and severe pain, pain after an injury or pain that will not go away should go to a doctor first. A 2025 meta-analysis found that in trials of adults with chronic low back pain, groups that added pain education scored lower for pain, disability and fear of movement than groups given physiotherapy alone; but the trials were few, bias was a risk, and no GRADE rating appears in the full text, so this cannot be read as education alone removing pain."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 13

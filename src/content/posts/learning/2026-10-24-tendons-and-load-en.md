@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "A tendon is the stretch that carries force between muscle and bone. This post sums up what was measured in healthy lower-limb tendons after load, and why those results cannot simply be applied to the fingers."
 tldr: "A meta-analysis pooling 61 studies measured stiffer lower-limb tendons in healthy people after resistance training, and the authors' analysis points to the tissue itself getting stiffer. But it compares only before and after, with no control-group data; the studies are mostly small, mostly in untrained people, and did not measure fingers. Within what I searched, I found no study tracking finger tendons before and after training."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 3

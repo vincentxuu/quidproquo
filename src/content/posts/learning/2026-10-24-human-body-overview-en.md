@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "Series overview: one line from nerve to muscle to tendon to bone that shows how the body works, and four questions for judging how reliable a fitness or body claim is."
 tldr: "For adults with no sports-science background: the series splits the body into seven units, takes one part or mechanism at a time, and says how strong the evidence is. This overview first teaches four questions for judging evidence."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 0

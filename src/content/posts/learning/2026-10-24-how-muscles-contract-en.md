@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "A clenched fist, step by step: how a skeletal muscle goes from a nerve signal to force, why it tires, and how force gets graded."
 tldr: "A skeletal muscle only contracts when a nerve tells it to: the signal releases calcium, myosin pulls on actin, and each round of pulling and releasing needs ATP. How hard you pull depends on how many motor units the nervous system recruits and how densely it sends signals."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 2

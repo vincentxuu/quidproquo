@@ -7,7 +7,7 @@ lang: zh-TW
 difficulty: 入門
 description: "系列總覽：用神經、肌肉、肌腱、骨頭串成一條身體運作的主線，並學會用四個問題判斷健身與身體說法有多可靠。"
 tldr: "給沒有運動科學背景的成人：系列把身體拆成七個單元，一次講一個部位或機制，並附上證據強度。本篇先教判斷證據的四個問題。"
-draft: true
+draft: false
 series:
   name: "認識人體"
   order: 0

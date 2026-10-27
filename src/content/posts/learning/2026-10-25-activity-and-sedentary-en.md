@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "A look at the activity benchmarks WHO's 2020 guidelines set for adults, how sitting relates to mortality, and the research on daily steps, marking item by item which recommendations are strong, how certain the evidence is, and which are only associations."
 tldr: "WHO 2020 recommends adults aged 18 to 64 do 150 to 300 minutes of moderate-intensity activity a week plus muscle-strengthening on at least 2 days, both strong recommendations; going beyond 300 minutes is only a conditional recommendation. The link between sitting and mortality changes with activity level, but there is not enough evidence to set a daily sitting limit; the step-count research is all observational, and 10,000 steps is not a threshold that research summary sets."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 5

@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "A look at two 2024 meta-analyses and one 2021 systematic review on whether the order of practice (blocked or random) affects results tested some time later, and how far claims such as 10,000 hours and muscle memory can be checked in the sources I read. This post does not explain how a skill forms inside the body."
 tldr: "This post asks one narrow question: how to order practice. Classic studies report that mixing variations in random order looks worse during practice but better afterward; two 2024 meta-analyses (from the same research group) test the afterward part. Pooled, they favor random order, but the difference sits mainly in lab studies, real sport settings show no firm difference, and age is tangled with setting. Study quality is mostly low and none involves climbing. The post does not explain how a skill forms in the body, and does not tell you how to order your practice."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 11

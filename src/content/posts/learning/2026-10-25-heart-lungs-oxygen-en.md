@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "From the air sacs to the blood and from the heart to the muscle, this post traces the path oxygen takes to muscle; then looks at how a review of 26 meta-analyses links cardiorespiratory fitness to mortality, and how it rates its own certainty of evidence."
 tldr: "Oxygen diffuses from the air sacs into the blood, is pumped around the body by the heart, and diffuses into muscle tissue. A 2024 review found that people with higher cardiorespiratory fitness have lower mortality risk, and its title calls fitness a strong and consistent predictor; but 'strong' describes the size of the association, and its own GRADE assessment puts the certainty of evidence mostly at low to very low. That is association, not proof that raising fitness lowers risk."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 6

@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "A look at two meta-analyses of resistance training in sarcopenia and a review on ageing and inactivity, to see how muscle changes with age and how much exercise improves it; for bone, only a meta-analysis of bone density in postmenopausal women and the abstract of one newer study could be read."
 tldr: "Muscle mass and strength fall with age, but current studies cannot separate how much comes from age and how much from becoming less active. Two meta-analyses in older adults with sarcopenia found that resistance-training groups beat control groups on grip strength and walking speed, yet the average gains mostly stayed below the threshold people can clinically notice and muscle mass did not clearly rise; one review rated the certainty of most outcomes moderate to high, the other rated it low overall. For bone, I could read only a meta-analysis of bone density in postmenopausal women (a small-to-moderate increase, with the outcome being density, not fracture) and the abstract of one other study; there is no usable source on how ageing bone itself changes."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 17

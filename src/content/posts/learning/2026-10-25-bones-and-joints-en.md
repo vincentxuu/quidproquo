@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "A textbook tour of how bones and joints are built, then two freely readable meta-analyses on exercise and bone mass: what they measured in premenopausal women aged 18 to 45 and in children and teenagers, and where the gaps are."
 tldr: "Bone is living tissue that is constantly broken down and rebuilt, and movable joints work through a capsule, cartilage, joint fluid, and ligaments. Textbooks are more confident that load makes bone stronger than the evidence I read: one meta-analysis found no overall difference in premenopausal women aged 18 to 45, only in a subgroup of about age 30 and under (the authors' subgroup analysis); another found larger gains in bone mineral content with jumping-type exercise in children and teenagers. For men and for middle-aged and older adults, I found no readable recent review in the range I searched."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 1

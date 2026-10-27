@@ -7,7 +7,7 @@ lang: en
 difficulty: 入門
 description: "Zone 2 training and hanging from a bar to decompress the spine are two claims people hear often but can hardly match to research. This post lists the closest studies, shows where each claim and its research part ways, and re-reads both with the overview's four questions."
 tldr: "Within what I searched, I found no study that directly tests either claim: that zone 2 is the best intensity, or that hanging from a bar decompresses the spine. The closest studies ask different questions. That means no conclusion can be drawn yet; it does not mean the claims are wrong."
-draft: true
+draft: false
 series:
   name: "Understanding the Human Body"
   order: 21
