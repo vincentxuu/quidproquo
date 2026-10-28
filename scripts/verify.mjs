@@ -153,6 +153,7 @@ const FULL_STEPS = [
   ['course layout regression tests', 'node .agents/skills/post/scripts/check-course-guide-layout.mjs --self-test'],
   ['course source layout gate', 'node .agents/skills/post/scripts/check-course-guide-layout.mjs'],
   ['process-leak regression tests', 'node scripts/check-process-leak.mjs --self-test'],
+  ['dev wrapper regression tests', 'node scripts/dev.mjs --self-test'],
   // 全站只計數（既有文章回填中）；被暫存的文章在 --staged 逐篇阻擋，含退回完整 verify 的情況。
   ['process-leak (全站計數)', 'node scripts/check-process-leak.mjs'],
   ['series-plan regression tests', 'node scripts/check-series-plan.mjs --self-test'],

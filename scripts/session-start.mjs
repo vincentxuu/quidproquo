@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { execSync } from 'node:child_process';
+import { findRepoDevServers } from './dev.mjs';
 
 const ROOT = resolve('.');
 const PROGRESS_PATH = resolve(ROOT, 'progress.txt');
@@ -37,6 +38,17 @@ if (existsSync(PROGRESS_PATH)) {
   printSection('progress.txt', progress || '(empty progress.txt)');
 } else {
   printSection('progress.txt', '(missing progress.txt)');
+}
+
+// 被遺棄的 astro dev 會拖慢所有 session 的 astro check；開工時先列出來。
+const staleDev = findRepoDevServers().filter(({ seconds, ppid }) => seconds > 3 * 3600 || ppid === 1);
+if (staleDev.length > 0) {
+  printSection(
+    'stale astro dev',
+    staleDev
+      .map(({ pid, ppid, seconds }) => `PID ${pid}：已跑 ${Math.round(seconds / 3600)} 小時${ppid === 1 ? '，啟動它的 session 已結束' : ''}。不用了就 kill ${pid}`)
+      .join('\n'),
+  );
 }
 
 const verifyOk = runCommand('pnpm verify', 'pnpm verify');
