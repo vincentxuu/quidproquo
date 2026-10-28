@@ -179,6 +179,35 @@ function getTagConsistencyFindings(data, content) {
   return findings;
 }
 
+// tldr 要寫答案（資訊型摘要），不寫預告或論點；規則見 .agents/skills/post/references/writing-guide.md。
+// 這些詞偶爾是正常用法，所以只警告不擋。
+const TLDR_FILLER_PATTERNS = {
+  'zh-TW': [
+    ['自指／指示型', /本篇|這篇|本文|整理了|帶你/],
+    ['否定式對比', /不是[^，。；,]{1,20}[，,]?而?是|不只[^，。；]{1,20}[，,]?(?:更|還)/],
+    ['意義抬高', /真正|關鍵在|重點是|本質上/],
+  ],
+  en: [
+    ['self-reference / indicative', /\bthis (?:post|article|guide|piece)\b|\bwe (?:explore|look at|walk through)\b/i],
+    ['negative parallelism', /\b(?:is|are|it'?s|they'?re) not (?:just |only )?[^.;]{1,40}[,;.—–]\s*(?:but|it'?s|they'?re|it is|they are)\b|\bnot just\b/i],
+    ['significance inflation', /\bthe real (?:question|point|story)\b|\bthe key is\b|\bat its core\b/i],
+  ],
+};
+
+function getTldrFindings(data) {
+  if (typeof data.tldr !== 'string' || !data.tldr.trim()) {
+    return [];
+  }
+
+  const patterns = TLDR_FILLER_PATTERNS[data.lang ?? 'zh-TW'] ?? [];
+  return patterns.flatMap(([label, pattern]) => {
+    const match = data.tldr.match(pattern);
+    return match
+      ? [{ severity: 'warn', message: `tldr 有「${label}」寫法（「${match[0]}」）——tldr 要直接寫答案，見 writing-guide §tldr / description 原則` }]
+      : [];
+  });
+}
+
 function getHeadingStructureFindings(data, content) {
   const findings = [];
   const headingLines = getContentOutsideCodeFences(content)
@@ -228,6 +257,7 @@ function lintPost(file, knownRoutes) {
     ...getFrontmatterFindings(file, data),
     ...getInternalLinkFindings(content, knownRoutes),
     ...getTagConsistencyFindings(data, content),
+    ...getTldrFindings(data),
     ...getHeadingStructureFindings(data, content),
   ];
 
