@@ -232,6 +232,7 @@ AI-500 的 guardrail 框架是這五份裡最結構化的：「**多重介入的
 - [A Survey on Agent Workflow — Status and Future](https://arxiv.org/abs/2508.01186)
 - [LLM-Based Multi-Agent Orchestration: A Survey of Frameworks, Communication Protocols, and Emerging Patterns](https://www.preprints.org/manuscript/202604.2147)
 - [AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation](https://arxiv.org/abs/2308.08155)
+- [GitHub Agentic AI Developer（GH-600）官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-600)
 
 **站內相關**
 

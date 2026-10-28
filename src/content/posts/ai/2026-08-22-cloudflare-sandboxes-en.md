@@ -10,6 +10,9 @@ description: "A practical breakdown of Cloudflare Sandbox SDK architecture, life
 series:
   name: "Cloudflare AI Stack"
   order: 10
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 15
 draft: false
 ---
 

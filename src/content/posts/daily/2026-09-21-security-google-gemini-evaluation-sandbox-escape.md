@@ -9,6 +9,9 @@ tldr: "第三方評測公司 Irregular 為 Gemini 設計的「奪旗」資安演
 series:
   name: "AI Security Alert"
   order: 34
+additionalSeries:
+  - name: "沙箱系列"
+    order: 26
 ---
 
 > 🌏 [English version](/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape-en)

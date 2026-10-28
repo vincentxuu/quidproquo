@@ -7,6 +7,9 @@ lang: zh-TW
 type: deep-dive
 tldr: "Daytona 把 sandbox 設計成可啟動、暫停、快照與 fork 的長生命週期電腦；2026 年完成 2,400 萬美元 A 輪，Laude Institute 案例一週建立 3.7 萬個 sandbox。它適合平行評測與 coding agent，但核心開源 repo 已停止維護，不能再把託管版與可自架版視為同一件事。"
 description: "從架構與選型拆解 Daytona agent sandbox：control/compute plane、snapshot、fork、秘密注入、網路邊界、最小 SDK 用法、價格與開源策略轉折。"
+series:
+  name: "沙箱系列"
+  order: 9
 draft: false
 ---
 

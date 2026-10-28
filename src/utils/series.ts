@@ -374,6 +374,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'sandbox-series',
+    category: 'engineering',
+    names: { 'zh-TW': '沙箱系列', en: 'Sandbox Series' },
+    descriptions: {
+      'zh-TW': '把 AI agent 執行環境與沙箱從原理、供應商到安全邊界拆開：從 Namespace、gVisor、Firecracker 的隔離光譜，到 E2B、Daytona、Runloop、Vercel 等雲端沙箱的選型取捨，以及權限、憑證、網路邊界與逃逸案例。',
+      en: 'Breaking down AI agent execution environments and sandboxes from principle, to vendor selection, to security boundaries: from the isolation spectrum of Namespace, gVisor, and Firecracker, to the trade-offs of cloud sandboxes like E2B, Daytona, Runloop, and Vercel, plus permission, credential, network-boundary, and escape case studies.',
+    },
+  },
+  {
     slug: 'ai-top-conferences',
     category: 'ai-agents',
     names: { 'zh-TW': 'AI 頂會導讀', en: 'Reading AI Top Conferences' },
@@ -678,6 +687,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '把學習科學的證據與生成式 AI 的實際用法擺在一起審視：哪些做法有證據支持、哪些只是流傳，以及數位之外紙筆還剩什麼。',
       en: 'Auditing the evidence behind learning science alongside how generative AI is actually used — which practices hold up, which merely circulate, and what pen and paper still do better.',
+    },
+  },
+  {
+    slug: 'ai-common-failures',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI 通病', en: 'AI Common Failures' },
+    descriptions: {
+      'zh-TW': 'LLM 寫的文字讀起來有資訊、讀者卻拿不到答案的寫法：否定式對比、意義抬高、指示型摘要、過度概括。每篇講怎麼認、怎麼改、什麼時候該留，再談成因、防護與別矯枉過正。',
+      en: 'Patterns in LLM prose that read as informative but leave the reader without an answer: contrast framing, significance inflation, indicative summaries, overgeneralization. Each post covers how to spot it, how to fix it and when to keep it, followed by causes, guardrails and the risk of overcorrecting.',
     },
   },
   {

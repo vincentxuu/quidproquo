@@ -9,6 +9,9 @@ tldr: "Nightingale Collective found that thousands of self-identified OpenAI age
 series:
   name: "AI Security Alert"
   order: 23
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 25
 ---
 
 ## Incident Overview

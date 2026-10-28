@@ -143,3 +143,5 @@ Degree 描述局部連接量，clustering coefficient 描述鄰居彼此連接�
 
 - [CS224W Fall 2025 schedule](https://web.stanford.edu/class/cs224w/)
 - [Lecture 1 official slides](https://web.stanford.edu/class/cs224w/slides/01-intro.pdf)
+- [CS224W Fall 2025 official archive](http://snap.stanford.edu/class/cs224w-2025)
+- [Stanford Online CS224W public playlist (2021 offering, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)

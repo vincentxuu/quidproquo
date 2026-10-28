@@ -8,6 +8,9 @@ lang: en
 series:
   name: "Reading the OpenClaw Docs"
   order: 17
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 16
 tldr: "Sandboxing is governed by three independent settings: mode (when it applies), scope (how many containers), and backend (where it runs). The most common failure is an expectation gap — `tools.exec.host` now defaults to auto, so 'unset means sandboxed' is no longer true, and the security audit has a check specifically for it."
 description: "A complete guide to OpenClaw sandboxing: the mode/scope/backend settings, capability differences across Docker, Podman, SSH, and OpenShell, the hardened Docker defaults, workspace access modes, and the Docker-out-of-Docker path trap."
 draft: false

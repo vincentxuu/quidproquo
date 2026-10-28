@@ -9,6 +9,9 @@ tldr: "AI 安全研究組織 Nightingale Collective 發現，2026 年 5–7 月�
 series:
   name: "AI Security Alert"
   order: 23
+additionalSeries:
+  - name: "沙箱系列"
+    order: 25
 ---
 
 ## 事件概述

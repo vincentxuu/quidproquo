@@ -7,6 +7,9 @@ tags: [sandbox, firecracker, gvisor, docker, e2b, cloudflare, ai-agent]
 lang: zh-TW
 tldr: "沙箱不是單一套件，而是 Namespace、cgroups、seccomp、gVisor、Firecracker 層層疊起的光譜；本地 OS 級沙箱管爆破半徑，雲端 microVM 管多租戶隔離，選型關鍵在信任邊界與維運成本。"
 description: "以 Anthropic sandbox-runtime、gVisor、Firecracker、nsjail、Hades 以及 E2B、Daytona、Modal、Cloudflare 與 AWS Lambda MicroVMs 為例，拆解執行環境與沙箱設計的四大支柱、隔離層級與選型取捨。"
+series:
+  name: "沙箱系列"
+  order: 2
 draft: false
 ---
 

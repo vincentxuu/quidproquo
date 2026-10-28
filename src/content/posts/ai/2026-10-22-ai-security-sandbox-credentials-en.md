@@ -12,6 +12,9 @@ draft: false
 series:
   name: "AI Security in Practice"
   order: 15
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 22
 ---
 
 > 🌏 [中文版](/posts/ai/2026-10-22-ai-security-sandbox-credentials)

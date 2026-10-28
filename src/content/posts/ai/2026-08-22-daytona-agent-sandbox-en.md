@@ -7,6 +7,9 @@ lang: en
 type: deep-dive
 tldr: "Daytona treats a sandbox as a long-lived computer that can start, pause, snapshot, and fork. It raised a $24 million Series A in 2026, while a Laude Institute case study reports 37,000 sandboxes in one week. It fits parallel evaluations and coding agents, but its core open-source repository is no longer maintained."
 description: "An architecture and selection-focused guide to Daytona agent sandboxes: control and compute planes, snapshots, forks, secret injection, network boundaries, minimal SDK usage, pricing, and the shift away from an open-source core."
+series:
+  name: "Sandbox Series"
+  order: 9
 draft: false
 ---
 

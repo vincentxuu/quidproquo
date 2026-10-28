@@ -61,7 +61,7 @@ It was never the language that was slow; it was the lifecycle design. And the be
 
 ## References
 
-- [hyperfine — command-line benchmarking tool](https://github.com/sharkdp/hyperfine): source of the paired-benchmark, warmup, and statistical methodology
+- [hyperfine — CLI benchmarking tool for startup performance measurement](https://github.com/sharkdp/hyperfine): source of the paired-benchmark, warmup, and statistical methodology
 - [openai/codex](https://github.com/openai/codex): daemon reuse in `codex-rs/tui/src/lib.rs`, skill snapshot cache in `codex-rs/skills/src/loading.rs`
 - [anthropics/claude-code](https://github.com/anthropics/claude-code): analysis based on decompiled v2.1.88 source; see also the official [Agent SDK docs](https://docs.anthropic.com/en/docs/agents-and-tools/claude-agent-sdk/overview)
 - [sst/opencode](https://github.com/sst/opencode): `util/lazy.ts` and per-subcommand dynamic imports

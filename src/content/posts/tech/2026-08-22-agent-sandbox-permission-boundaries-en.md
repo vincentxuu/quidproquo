@@ -10,6 +10,9 @@ description: "AI agent sandbox threat models, container, VM, and isolate boundar
 series:
   name: "Technology Choices in the AI Era"
   order: 121
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 21
 draft: false
 ---
 

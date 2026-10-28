@@ -10,6 +10,9 @@ description: "追蹤 Looplane verification sandbox profile 如何解析成 macOS
 series:
   name: "Looplane 架構拆解"
   order: 10
+additionalSeries:
+  - name: "沙箱系列"
+    order: 3
 draft: false
 ---
 
