@@ -84,7 +84,7 @@ title: Pro Climber Coaches Gym Climber to Learn Crack Climbing in 35 Days (Geek 
 start: 30
 ```
 
-From 5:00 he also says his feet hurt twice as much as his hands, and Pete tells him to drop his heel; the next post picks that up.
+From 5:00 he also says his feet hurt twice as much as his hands, and Pete tells him to drop his heel; the [next post on foot jams](/posts/climbing/2026-10-27-foot-jams-en) picks that up.
 
 **Something you can do tonight**: on a gym crack or your book gap, ask a friend to watch three things: whether the crack edge is at your wrist; whether your fingers are grabbing the edge; whether the jam is too low, making your elbow flare.
 
@@ -253,7 +253,7 @@ The typical hand size there is #2–#3, which for a 0.75 hand may mean cups, and
 
 ## Next
 
-Now that your hands can jam, it's your feet's turn. Most of the work in crack climbing is in the feet, and the next post covers how to place them, how deep, and how to keep them from hurting or getting stuck. If you don't have a crack wall nearby, the series' crack-training post covers building your own practice crack. The [series overview](/posts/climbing/2026-10-26-crack-climbing-size-map-en) shows where the other sizes fit. To lead hand cracks at Long Dong you also need to place protection; see the [trad protection guide](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en).
+Now that your hands can jam, it's your feet's turn. Most of the work in crack climbing is in the feet, and the [next post](/posts/climbing/2026-10-27-foot-jams-en) covers how to place them, how deep, and how to keep them from hurting or getting stuck. If you don't have a crack wall nearby, the series' crack-training post covers building your own practice crack. The [series overview](/posts/climbing/2026-10-26-crack-climbing-size-map-en) shows where the other sizes fit. To lead hand cracks at Long Dong you also need to place protection; see the [trad protection guide](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en).
 
 ## References
 
@@ -289,3 +289,7 @@ Now that your hands can jam, it's your feet's turn. Most of the work in crack cl
 - [Ogawayama | Japan Climbing Crags](/posts/climbing/2026-10-12-japan-crag-ogawayama-en)
 - [Insubong | Korea Climbing Crags](/posts/climbing/2026-10-21-korea-crag-insubong-en)
 - [Trad protection: nuts, cams and the three conditions of a good placement](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en)
+
+## Update Log
+
+- 2026-10-27: Foot jams is published; "the next post" now links to it.

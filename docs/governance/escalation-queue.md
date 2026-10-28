@@ -521,3 +521,11 @@
 - 下一步：使用者同意後套用補丁，跑完整 verify 與真正 pre-commit，才 commit/push；目前僅此誤判阻擋。
 
 - 使用者核准：2026-10-25，使用者回覆「好」，同意套用已備妥的窄範圍誤判修正並完成 commit/push。已保留門檻與舊斷言，新增9項負例與教學回歸；原治理腳本不再等待核准。
+
+## Q-047 正式站部署時好時壞：Worker 啟動 CPU 逼近上限（10021）
+
+- 登錄：2026-10-28（來源：裂隙攀登技術系列對話）
+- 現象：e310824b 起多次 `wrangler deploy` 回「Script startup exceeded CPU time limit」（10021），重跑也失敗；同一大小的 bundle（約 46,845 KiB）在 f0c28962 失敗、d1ac0b18 成功。CI 印出的 Startup Time 在 bundle 幾乎不變時從 326 ms 跳到 494 ms，浮動來自 Cloudflare 驗證端。文章內容不在 Worker bundle 裡，不是新文章造成的。
+- 已做（短期）：`src/lib/retrieval/language.ts` 的 opencc Converter 改成第一次呼叫才建，本機量約省 39 ms 頂層執行。
+- 為什麼不能直接做（中期）：`scripts/create-cron-entry.mjs:228-229` 讓 wrangler 把 1,020 個 chunk 和 198 個動態 import 內嵌成單一約 48 MB 模組，每次啟動整包 parse（本機約 235 ms）。根本解有兩條，都屬 Tier 2：(B) SSR 不帶 shiki 全語言與 mermaid（`ai-elements/message.tsx`、`code-block.tsx`），是 UI 改動，要跑視覺回歸；(C) 改打包管線讓動態 chunk 保持分檔（`find_additional_modules` 的 dry-run 尚未成功）。
+- 接手第一步：讀 `.work/worker-startup-diagnosis-2026-10-27.md`，請使用者在 B／C 之間決定。

@@ -38,8 +38,8 @@ From narrow to wide, cracks fall into roughly eight sizes. Each uses a different
 
 | Size | What you jam | Rough cam size | What it feels like | In this series |
 |---|---|---|---|---|
-| Tips | Only fingertips or the first joint fit | Below 0.3 | The most painful and hardest; often needs feet and laybacking | Finger cracks |
-| Fingers | Fingers to the second or third knuckle, twisted to lock | 0.3–0.5 | Very sensitive to finger size; one millimetre changes everything | Finger cracks |
+| Tips | Only fingertips or the first joint fit | Below 0.3 | The most painful and hardest; often needs feet and laybacking | [Finger cracks](/posts/climbing/2026-10-27-finger-cracks-en) |
+| Fingers | Fingers to the second or third knuckle, twisted to lock | 0.3–0.5 | Very sensitive to finger size; one millimetre changes everything | [Finger cracks](/posts/climbing/2026-10-27-finger-cracks-en) |
 | Off-fingers | Ring locks, fingers and thumb stacked | 0.5–0.75 | The awkward size: fingers rattle, the hand won't go in | Off-fingers |
 | Hands | The whole hand to the wrist, thumb tucked to expand | 0.75–2 | The most secure; most people learn it first | Hand cracks |
 | Fists | A clenched fist | 3–4 | Little room to expand, often feels insecure | Fist cracks |
@@ -157,8 +157,8 @@ The series starts with hand cracks, the most secure and easiest to learn, and wo
 |---|---|---|
 | 0 | The crack size map (this post) | How wide is it, and which post do I read? |
 | 1 | [Hand cracks](/posts/climbing/2026-10-26-hand-jams-en) | How do I get a hand jam to hold my body weight? |
-| 2 | Foot jams (in progress) | How do I place my feet, how deep, and how do I make it hurt less? |
-| 3 | Finger cracks (in progress) | How do thumb-down finger locks and pin scars work? |
+| 2 | [Foot jams](/posts/climbing/2026-10-27-foot-jams-en) | How do I place my feet, how deep, and how do I make it hurt less? |
+| 3 | [Finger cracks](/posts/climbing/2026-10-27-finger-cracks-en) | How do thumb-down finger locks and pin scars work? |
 | 4 | Off-fingers and ring locks (in progress) | What do I do when fingers rattle and a hand won't fit? |
 | 5 | Fist cracks (in progress) | How do I jam a fist so it doesn't rotate? |
 | 6 | Offwidths (in progress) | When do I use arm bars, chicken wings and stacks? |
@@ -169,7 +169,7 @@ The series starts with hand cracks, the most secure and easiest to learn, and wo
 | 11 | Crack training and learning paths (in progress) | How can I train without cracks nearby? |
 | 12 | Crack crags and videos of Japan and Korea (in progress) | Where should I go in Japan and Korea, and whose videos should I watch? |
 
-At a minimum, read the hand and foot posts, then pick sizes based on the crag you're heading to. Placing protection isn't part of this series; for that, read the [trad protection guide](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en) in the Sport and Trad Climbing series.
+At a minimum, read the [hand](/posts/climbing/2026-10-26-hand-jams-en) and [foot](/posts/climbing/2026-10-27-foot-jams-en) posts, then pick sizes based on the crag you're heading to. Placing protection isn't part of this series; for that, read the [trad protection guide](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en) in the Sport and Trad Climbing series.
 
 ## Practice questions: five scenarios
 
@@ -249,3 +249,7 @@ Start with [hand cracks](/posts/climbing/2026-10-26-hand-jams-en). It's the size
 - [Seoninbong | Korea Climbing Crags](/posts/climbing/2026-10-21-korea-crag-seoninbong-en)
 - [Choosing a crag in Taiwan](/posts/climbing/2026-10-17-taiwan-crags-rock-type-en)
 - [Trad protection: nuts, cams and the three conditions of a good placement](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en)
+
+## Update Log
+
+- 2026-10-27: Foot jams and Finger cracks are published; the series table, the size table and the "at a minimum" line now link to them.
