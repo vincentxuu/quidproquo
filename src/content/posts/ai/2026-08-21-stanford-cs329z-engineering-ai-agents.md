@@ -1,7 +1,7 @@
 ---
 title: "AI Agent 工程：不靠框架，從一個 chat-completion 呼叫做出 agent harness｜Stanford CS329Z 課程總覽"
 date: 2026-08-21
-updated: 2026-10-23
+updated: 2026-10-29
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
@@ -12,8 +12,8 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 16
-tldr: "CS329Z 是 Stanford 的 AI agent 工程課：先不靠框架手刻 RAG、工具呼叫與 agent 迴圈，再看 DSPy 這類框架抽掉了什麼，兩份作業分別是做 agent harness 與設計 agent 評估。課綱、指定閱讀、前九堂投影片與第一份作業的起始碼、資料和公開測試都拿得到；錄影要以選課身分登入 Canvas。"
-description: "Stanford CS329Z Engineering AI Agents 自學路線：從 RAG、工具與迴圈走到 context、記憶、多智慧體協調與優化，整理前九堂官方投影片、HW1 起始碼及 Terminal-Bench 客座指定閱讀。"
+tldr: "CS329Z 是 Stanford 的 AI agent 工程課：先不靠框架手刻 RAG、工具呼叫與 agent 迴圈，再看 DSPy 這類框架抽掉了什麼，兩份作業分別是做 agent harness 與設計 agent 評估。課綱、指定閱讀、前十一堂投影片與第一份作業的起始碼、資料和公開測試都拿得到；錄影要以選課身分登入 Canvas。"
+description: "Stanford CS329Z Engineering AI Agents 自學路線：從 RAG、工具與迴圈走到 context、記憶、多智慧體協調與優化，整理前十一堂官方投影片（含 Terminal-Bench 客座與 agent 資料）及 HW1 起始碼。"
 draft: false
 ---
 
@@ -25,7 +25,7 @@ draft: false
 
 課程官網開宗明義給的框架是「compound AI systems」：由 LLM、檢索器、工具、優化器多個元件組成、彼此互動的系統。官網說這代表 AI 應用建構方式的一次根本改變。整學期的三條軸線寫在第一堂的描述裡——拆解（decomposition）、資料（data）、評估（evaluation）。
 
-自學這門課，可以沿著「先做出來，再讓它可靠」讀下去：前段手刻檢索與工具，中段管理 context、記憶與多智慧體，接著用資料和評估決定如何優化。本文整理材料入口與起步方式；第 4、5 週導讀已補入實際投影片，第 6 週接上 Terminal-Bench 指定閱讀。錄影仍須課程 Canvas 權限。
+自學這門課，可以沿著「先做出來，再讓它可靠」讀下去：前段手刻檢索與工具，中段管理 context、記憶與多智慧體，接著用資料和評估決定如何優化。本文整理材料入口與起步方式；第 1～6 週導讀都已依實際投影片逐段帶讀，涵蓋到第 11 堂。錄影仍須課程 Canvas 權限。
 
 ## 把系列讀成一次接得起來的工程練習
 
@@ -41,7 +41,7 @@ draft: false
 
 ### 先讀材料狀態，再決定怎麼使用導讀
 
-截至 2026-10-23，官網連出 Lecture 01–09。後續週次目前是依課表與指定閱讀寫的預習，不能當成尚未發生的課堂紀錄；閱讀 Digest 也與主線解釋分開。自學者可用公開投影片與論文，[錄影則需課程 Canvas 權限](https://cs329z.stanford.edu/logistics.html)。有文章導讀，不表示有公開影片。
+截至 2026-10-29，官網連出 Lecture 01–11（到 10/28 的 Data for Agentic Systems）。第 7 週以後目前是依課表與指定閱讀寫的預習，不能當成尚未發生的課堂紀錄；閱讀 Digest 也與主線解釋分開。自學者可用公開投影片與論文，[錄影則需課程 Canvas 權限](https://cs329z.stanford.edu/logistics.html)。有文章導讀，不表示有公開影片。
 
 **理解檢查**：助理找到正確信件，寫出合理解釋，並說已寄信，還缺什麼證據？**答案判準**：先確認解釋有保留原信的不確定性；寄送則要有實際工具結果與對應授權。「已完成」一句話無法證明這兩件事。
 
@@ -124,7 +124,7 @@ DSPy 出自 Stanford NLP。[Omar Khattab](https://omarkhattab.com/) 在 Stanford
 
 > **HW2: Data for Agents** (Weeks 6–8). Given a staff-provided agent, collect and curate data to optimize its performance — data selection, quality filtering, finding maximally informative examples, synthetic data generation, and building optimization data (SFT or preference pairs). Deliverable: a curated dataset, a data card, and an analysis.
 
-課程沒有說明為什麼刪。可以確認的只有兩件事：資料那兩堂課還在課表上（第 11、12 堂，Data for Agentic Systems），現在沒有作業掛在它們後面；以及論文影片與同儕互評是在同一個 commit 裡補進來的。
+課程沒有說明為什麼刪。可以確認的只有兩件事：資料那兩堂課還在課表上（第 11 堂 Data for Agentic Systems、第 12 堂 Data Selection & Quality），現在沒有作業掛在它們後面；以及論文影片與同儕互評是在同一個 commit 裡補進來的。
 
 接下來三十小時內，評分表被連改四次，專案的比重一路加到一半。原本叫 oral exam 的那兩場也在這輪改名成 HW-based quiz。
 
@@ -146,7 +146,7 @@ DSPy 出自 Stanford NLP。[Omar Khattab](https://omarkhattab.com/) 在 Stanford
 
 先講結論：**拿得到課綱、閱讀清單，以及一堂一堂放出來的投影片；HW1 起始碼與測試也已公開；錄影仍需登入 Canvas。**
 
-**拿得到：前九堂投影片，而且不用登入。** 截至 2026-10-23，[官方課表](https://cs329z.stanford.edu/)已連到 10/21 的 Optimization。自學可以照下面的順序讀：
+**拿得到：前十一堂投影片，而且不用登入。** 截至 2026-10-29，[官方課表](https://cs329z.stanford.edu/)已連到 10/28 的 Data for Agentic Systems。自學可以照下面的順序讀：
 
 | 日期 | 講次 | 官方投影片 |
 |---|---|---|
@@ -159,17 +159,19 @@ DSPy 出自 Stanford NLP。[Omar Khattab](https://omarkhattab.com/) 在 Stanford
 | 10/14 | Lecture 7: Agent Memory Architectures | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture07.pdf) |
 | 10/19 | Lecture 8: Multi-Agent Systems | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture08.pdf) |
 | 10/21 | Lecture 9: Optimization | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture09.pdf) |
+| 10/26 | Lecture 10: Guest Lecture — Terminal-Bench | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf) |
+| 10/28 | Lecture 11: Data for Agentic Systems | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture11.pdf) |
 
-第二堂實際講的是給開發者的模型內部知識；同週指定的 Anthropic workflow 分類是另一份閱讀。第三到第五堂接著走 RAG、工具與框架。新公開的第六、七堂把迴圈延伸成 context 與記憶設計，第八、九堂再回答要不要分工、該優化哪一層。
+第二堂實際講的是給開發者的模型內部知識；同週指定的 Anthropic workflow 分類是另一份閱讀。第三到第五堂接著走 RAG、工具與框架。新公開的第六、七堂把迴圈延伸成 context 與記憶設計，第八、九堂再回答要不要分工、該優化哪一層。第十堂由 Terminal-Bench 作者講怎麼寫評估任務、驗證器與任務版本，第十一堂整理 agent 資料的兩種形式、五種來源，以及資料會意外教會模型的捷徑。
 
 | 自學階段 | 要回答的工程問題 | 本站導讀 |
 |---|---|---|
 | 做出元件：Lecture 1–5 | 哪一步是檢索、模型判斷或程式控制？ | [第 1 週](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)、[第 2 週](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)、[第 3 週](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy) |
 | 留住進度：Lecture 6–7 | 工具輸出太長時保留什麼？跨 session 記住什麼？ | [第 4 週：context 與記憶](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory) |
 | 分工與改善：Lecture 8–9 | 平行收益能否抵過協調成本？資料與評估足以支持優化嗎？ | [第 5 週：協調與優化](/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization) |
-| 驗收成果：Week 6 指定閱讀 | agent 說完成之後，環境真的符合要求嗎？ | [第 6 週：Terminal-Bench 與資料飛輪](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel) |
+| 驗收與資料：Lecture 10–11 | agent 說完成之後，環境真的符合要求嗎？訓練資料會意外教會它什麼？ | [第 6 週：Terminal-Bench 與資料飛輪](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel) |
 
-這張表是本文安排的閱讀路線。第 6 週客座尚未開講，該週新增內容依公開論文與指定閱讀撰寫；第 7 週以後仍以課表指定閱讀導讀為主，不當作已取得的課堂口述。
+這張表是本文安排的閱讀路線。第 7 週以後還沒有投影片，仍以課表指定閱讀導讀為主，不當作已取得的課堂口述。
 
 **拿得到：整份閱讀清單，而且每一條都是可點的連結。** 指定閱讀與補充閱讀，大半指向 arXiv，其餘指向 [BAIR 那篇 compound AI systems 部落格文](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)、[MCP 規格](https://modelcontextprotocol.io/specification/2025-06-18)、[Anthropic 的 Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) 等公開頁面。沒有一條鎖在 Canvas 後面。
 
@@ -179,9 +181,9 @@ DSPy 出自 Stanford NLP。[Omar Khattab](https://omarkhattab.com/) 在 Stanford
 
 **拿不到（至少現在）：錄影。** 課堂有錄，但官網寫的是錄影放在 Canvas，要用選課生身分登入。第一堂投影片則寫「Lecture slides and videos will be posted online」。兩個說法還沒對上，公開錄影會不會出現，要再等等看。
 
-**拿得到：HW1 起始碼、資料與公開測試。** 官網 Logistics 頁已連到[官方 starter repo](https://github.com/cs329z/assignment1-harness)，裡面有作業講義、壓縮的企業郵件封存、Cardinal Energy 文件、待實作的 adapter、確定性與 live 測試，以及模擬使用者評估。Cardinal Energy 是虛構公司；講義把另一份 email archive 說明為真實企業郵件。這已足夠讓自學者照正式介面開工，但 starter 並不是完成的解答。
+**拿得到：HW1 起始碼、資料與公開測試。** 官網 Logistics 頁已連到[官方 starter repo](https://github.com/cs329z/assignment1-harness)，裡面有作業講義、壓縮的企業郵件封存、Cardinal Energy 文件、待實作的 adapter、確定性與 live 測試，以及模擬使用者評估。Cardinal Energy 是虛構公司；講義把另一份 email archive 說明為真實企業郵件。這已足夠讓自學者照正式介面開工，但 starter 並不是完成的解答。HW2 已在 10/26 發布，不過官網截止日期表沒有連出公開檔案，cs329z 的 GitHub 組織也還沒有 HW2 repo（2026-10-29 查）。
 
-**客座閱讀：10/26 主題已確定為 Terminal-Bench。** [官方課表](https://cs329z.stanford.edu/)已列講者 Ryan Marten、Alex Shaw，指定閱讀為專案站與論文；11/16 仍標 TBA。10/26 尚未開講，公開論文可先讀，但不能當作客座錄影或講授紀錄。
+**拿得到：10/26 Terminal-Bench 客座的投影片。** [官方課表](https://cs329z.stanford.edu/)列出講者 Ryan Marten、Alex Shaw，[投影片](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf)、專案站與論文都能讀；11/16 的另一場客座仍標 TBA。投影片之外的口述，仍要 Canvas 錄影。
 
 還有一件跟教材無關但值得看的東西：這門課的誠信條款花了一整段講怎麼用 AI 工具，語氣跟大多數學校的禁令很不一樣。
 
@@ -292,16 +294,18 @@ Agent展示容易隱藏選題、失敗與安裝條件。專案規格要求把這
 
 ## 課程影片來源
 
-[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)說明錄影由課程 Canvas 提供，需登入取得。本次投影片地圖與週導讀更新依公開教材撰寫，未取得需認證的錄影或逐字稿。
+[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)說明錄影由課程 Canvas 提供，需登入取得。投影片地圖與週導讀依公開教材撰寫，未取得需認證的錄影或逐字稿。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs329z.stanford.edu/)
 - [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
 
-查核日期：2026-10-23。
+查核日期：2026-10-29。
 
 ## 更新紀錄
+
+- 2026-10-29：投影片地圖擴充到 Lecture 11（Terminal-Bench 客座、Data for Agentic Systems），改寫閱讀路線與客座段落中「尚未開講」的說法，補 HW2 起始檔尚未公開的現況，並重查錄影取得方式。
 
 - 2026-10-23：將上課資訊與截止日期併回相關段落，歷史統計與查證紀錄移入研究筆記。
 

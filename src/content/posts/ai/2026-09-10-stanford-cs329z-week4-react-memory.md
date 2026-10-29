@@ -1,7 +1,7 @@
 ---
 title: "先學會邊想邊做，再學會記住——ReAct 與 MemGPT｜Stanford CS329Z 第 4 週"
 date: 2026-09-10
-updated: 2026-10-23
+updated: 2026-10-29
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
@@ -80,9 +80,9 @@ CodeAct 把行動改成可執行程式，課堂用跨國手機價格比較示範
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=76" data-slide-page="76">投影片第 76–86 頁</a>
 
-投影片中的 Pi 以 read、write、edit、bash 為基本工具，使用 ReAct 風格迴圈、樹狀歷史、skill 按需載入與 compaction。這是本次課堂版本的案例，不應把它當作未來版本的固定功能清單。少量工具降低定義負擔，卻沒有自動限制 bash 能做什麼。
+投影片中的 Pi 以 read、write、edit、bash 為基本工具，使用 ReAct 風格迴圈、樹狀歷史、skill 按需載入與 compaction。這是本次課堂版本的案例，不應把它當作未來版本的固定功能清單。少量工具降低定義負擔，卻沒有自動限制 bash 能做什麼。[第 78 頁](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=78)直接列出它刻意不做的事：沒有 subagent、沒有權限檢查、沒有 plan mode、沒有待辦清單，也不能在背景跑 bash；其他主流 harness 的功能，交給社群擴充補上。
 
-課堂特別指出其執行權限沿用程序權限。評估 harness 時，除了工具數，也要問狀態如何保存、失敗如何停止，以及使用者限制由哪一層執行。最後回顧 workflow、reasoning 與 context 三組設計，銜接週三 memory。
+[第 82 頁](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=82)特別指出，它以啟動程序的權限執行、不跳出確認視窗，等於一直開著自動模式。評估 harness 時，除了工具數，也要問狀態如何保存、失敗如何停止，以及使用者限制由哪一層執行。最後回顧 workflow、reasoning 與 context 三組設計，銜接週三 memory。
 
 ## Lecture 07 投影片導讀
 
@@ -431,6 +431,8 @@ Week 4 是承先啟後的一週。往前，它給 [Week 2](/posts/ai/2026-09-10-
 [官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)寫明，課堂錄影須登入課程 Canvas 取得。本文依公開 PDF 與指定讀物帶讀，沒有把受限錄影當作已觀看材料。錄影取得方式於 2026-10-23 依官方頁面核對。
 
 ## 更新紀錄
+
+- 2026-10-29：對照 Lecture 06／07 投影片重核各節頁碼；Pi 案例補上投影片列出的刻意缺席功能與權限說明（L06 第 78、82 頁）。
 
 - 2026-10-23：依兩堂官方 PDF 補成逐段投影片導讀，加入頁碼對照、機制與自測，保留並分開指定讀物解說。
 

@@ -1,7 +1,7 @@
 ---
 title: "Plug Tools In, Take Frameworks Apart — HW1 Begins | Stanford CS329Z Week 3"
 date: 2026-09-10
-updated: 2026-10-23
+updated: 2026-10-29
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]
@@ -76,7 +76,9 @@ Inbound authorization governs agent access to the MCP server; outbound authoriza
 
 BFCL tests function choice, arguments, and abstention when no tool applies. ToolBench composes tasks over real APIs; τ-bench adds user interaction and policies. The add/mult example makes abstention concrete: an addition-only tool should not be forced into a multiplication request.
 
-pass@k asks whether at least one attempt succeeds; pass^k asks whether all sampled attempts succeed. Include missing arguments, sequencing errors, tool failures, and revised user constraints, then inspect final environment state.
+pass@k asks whether at least one attempt succeeds; [pass^k](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=64) asks whether all sampled attempts succeed. For an internal assistant, succeeding once and corrupting data on the second run is not reliable. τ-bench itself keeps changing: [page 66](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=66) lists τ²-bench, which adds a telecom domain where the user must also act, followed by task audits, knowledge retrieval, and voice variants. Name the version whenever you cite a score.
+
+[Page 67](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=67) sorts tool failures into three levels, which translate directly into test cases. A single call can pick the wrong tool or call one when none is needed, invent fields or use wrong types and units, or call an API that does not exist. A multi-step chain can skip a prerequisite call or run steps out of order, and can retry the same failing call instead of backing off. A conversation can act where policy forbids it, assume instead of asking the user, or pass once and fail on the retry, which is exactly what pass^k measures. Put at least one case at each level and inspect the final environment state, not just the reply.
 
 ## Lecture 05 slide guide
 
@@ -116,13 +118,15 @@ As an original exercise, separate email retrieval, drafting, and confirmation in
 
 Mini-SWE-agent, OpenHands, Pi, and OpenClaw illustrate choices in tools, linear/event/tree history, independent subprocesses versus persistent terminals, and scheduled memory work. These are lecture snapshots; use them to identify design dimensions rather than current product specifications.
 
+These choices show up in scores. [Page 86](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=86) cites an arena.ai comparison on Terminal-Bench 2: the same Claude Haiku 4.5 succeeds 31.1% of the time in Codex and 47.8% in Pi. Hold the harness fixed before comparing models, or you cannot tell where an improvement came from. [Pages 87–88](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=87) go further with Meta-Harness, where an agent reads earlier candidates' code, traces, and scores, proposes a new harness, and evaluates it, treating the harness itself as the object of optimization. Lecture 09 returns to this idea.
+
 A persistent shell can retain a directory and environment variables; independent subprocesses cannot be assumed to do so. Two commands with a state dependency provide a simple check of the harness’s actual execution model.
 
 ### Pages 90–122: Durable orchestration and telemetry support recovery
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=90" data-slide-page="90">Slides 90–122</a>
 
-Temporal separates workflows from fallible activities, with a server retaining execution history, queues, and state while workers perform tasks. Backup demo pages cover retries and server-managed timing. MLflow, LangSmith, and Langfuse appear as observability tools for investigating calls and state.
+[Pages 92–93](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=92) first explain why this layer is needed: agents now work for long stretches, and a crash or API timeout halfway through wastes every completed step, while missing logs leave nothing to debug. These are old software-engineering lessons that carry over to agents. Temporal separates workflows from fallible activities, with a server retaining execution history, queues, and state while workers perform tasks. Backup demo pages cover retries and server-managed timing. MLflow, LangSmith, and Langfuse appear as observability tools for investigating calls and state.
 
 Retries still require side-effect design. In an original email example, a service may accept a message while its response is lost. Repeating the operation can send twice. Record operation identity and outcome before deciding whether a retry is safe; durable orchestration does not automatically make arbitrary external effects occur once.
 
@@ -272,6 +276,8 @@ Week 3 releases HW1 (due Oct 30): start with the email retrieval pipeline, then 
 The [official Logistics page](https://cs329z.stanford.edu/logistics.html) states that lecture recordings are accessed by logging into the course Canvas site. This article uses publicly available PDFs and readings; it does not claim to have watched the restricted recordings. The recording-access statement was checked against the official page on 2026-10-23.
 
 ## Update Log
+
+- 2026-10-29: Rechecked every section's page range against the Lecture 04/05 PDFs; added the three-level tool-failure taxonomy and τ-bench version history (L04 pp. 64–67), the same-model harness gap and Meta-Harness (L05 pp. 86–88), and the motivation for durable orchestration (L05 pp. 92–93).
 
 - 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.
 

@@ -1,7 +1,7 @@
 ---
 title: "工具接進來，框架拆開看——HW1 開工｜Stanford CS329Z 第 3 週"
 date: 2026-09-10
-updated: 2026-10-23
+updated: 2026-10-29
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]
@@ -76,7 +76,9 @@ REST 暴露服務端點，function calling 用 schema 描述模型可選的名�
 
 BFCL 檢查函式選擇、參數與不該呼叫時能否拒絕；ToolBench 把真實 API 串成任務；τ-bench 加入使用者互動與政策限制。課堂的 add／mult 例子很直接：只有加法工具時，不能為了回應乘法問題就硬叫它。
 
-pass@k 關心多次嘗試至少成功一次，pass^k 關心多次都成功。對內部助理，第一次成功、第二次誤改資料並不可靠。測試要包含缺參數、順序錯誤、工具失敗與使用者中途修正限制，並記錄最後環境狀態。
+pass@k 關心多次嘗試至少成功一次，[pass^k](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=64) 關心多次都成功。對內部助理，第一次成功、第二次誤改資料並不可靠。τ-bench 本身也在演進：[第 66 頁](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=66)列出 τ²-bench 加入使用者也要動手的電信情境，之後還有任務稽核修正、知識檢索與語音版本，引用分數時要寫明是哪一版。
+
+[第 67 頁](https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=67)把工具失敗分成三層，很適合直接拿來設計測例。單次呼叫：選錯工具或不該呼叫時硬叫、編造欄位或弄錯型別與單位、呼叫根本不存在的 API。多步串接：跳過前置呼叫或順序錯、失敗後一再重送同一個呼叫而不退一步。對話層：做了政策不允許的事、該問使用者時自行假設，以及這次過、重試就失敗的不穩定，pass^k 量的正是最後這種。每層至少放一題，並記錄最後環境狀態，而非只看回覆文字。
 
 ## Lecture 05 投影片導讀
 
@@ -116,13 +118,15 @@ State 是節點共同讀寫的工作區，node 是讀寫 state 的函式，edge 
 
 Mini-SWE-agent、OpenHands、Pi 與 OpenClaw 展示不同取捨。投影片比較只有 bash 與多種工具、線性歷史與事件紀錄或樹狀歷史、獨立 subprocess 與持續 terminal，以及排程與記憶工作。這些是課堂採用的版本快照；重點是辨認設計維度，不是把清單當今日產品規格。
 
+這些取捨會反映在分數上。[第 86 頁](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=86)引用 arena.ai 在 Terminal-Bench 2 的比較：同一個 Claude Haiku 4.5，套 Codex 的成功率是 31.1%，套 Pi 是 47.8%。比較模型之前先固定 harness，否則分不出進步來自哪一邊。[第 87–88 頁](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=87)的 Meta-Harness 更進一步，讓 agent 讀過往候選的程式碼、軌跡與分數，提出新 harness 再評估，把 harness 本身當成優化對象；Lecture 09 會回到這個做法。
+
 例如持續 shell 會保留 cd 與環境變數，獨立執行則不能假設上次 shell 狀態還在。測 harness 時，連續執行兩個有狀態依賴的命令，就能確認你的心智模型是否符合實際執行方式。
 
 ### 第 90–122 頁：Temporal 與 telemetry：失敗後怎麼繼續
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=90" data-slide-page="90">投影片第 90–122 頁</a>
 
-Temporal 把 workflow 與會失敗的 activity 分開，由 server 保存執行歷史、佇列與狀態，worker 執行工作。備用 demo 畫面接著示範 retry 與 server 管理的時間。MLflow、LangSmith 與 Langfuse 則放在觀測端，用來追查呼叫與狀態。
+[第 92–93 頁](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=92)先交代為什麼需要這一層：agent 能連續工作的時間越來越長，跑到一半當機或 API 逾時，前面做完的步驟就白費；沒有紀錄，也無從除錯。這些是軟體工程早就學過的教訓，搬到 agent 上同樣成立。Temporal 把 workflow 與會失敗的 activity 分開，由 server 保存執行歷史、佇列與狀態，worker 執行工作。備用 demo 畫面接著示範 retry 與 server 管理的時間。MLflow、LangSmith 與 Langfuse 則放在觀測端，用來追查呼叫與狀態。
 
 可靠重試仍要考慮副作用。本文自擬的寄信流程如果 API 已收件但回應遺失，直接重跑可能重複寄出；應保存操作識別與執行結果，確認可否安全重試。這是從課堂機制延伸的工程檢查，不是 Temporal 自動保證任何外部操作只發生一次。
 
@@ -272,6 +276,8 @@ Week 3 發 HW1（10/30 截止），先做 email 檢索管線，再一路加上�
 [官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)寫明，課堂錄影須登入課程 Canvas 取得。本文依公開 PDF 與指定讀物帶讀，沒有把受限錄影當作已觀看材料。錄影取得方式於 2026-10-23 依官方頁面核對。
 
 ## 更新紀錄
+
+- 2026-10-29：對照 Lecture 04／05 投影片重核各節頁碼；補上工具失敗三層分類與 τ-bench 版本演進（L04 第 64–67 頁）、同模型換 harness 的成功率差距與 Meta-Harness（L05 第 86–88 頁），以及需要 durable orchestration 的理由（L05 第 92–93 頁）。
 
 - 2026-10-23：依兩堂官方 PDF 補成逐段投影片導讀，加入頁碼對照、機制與自測，保留並分開指定讀物解說。
 

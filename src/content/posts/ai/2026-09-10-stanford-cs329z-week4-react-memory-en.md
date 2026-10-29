@@ -1,7 +1,7 @@
 ---
 title: "Learn to Think While Doing, Then Learn to Remember — ReAct and MemGPT | Stanford CS329Z Week 4"
 date: 2026-09-10
-updated: 2026-10-23
+updated: 2026-10-29
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
@@ -80,9 +80,9 @@ These methods can coexist. After removing lengthy test output, preserve the comm
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=76" data-slide-page="76">Slides 76–86</a>
 
-The lecture’s Pi snapshot uses read, write, edit, and bash; a ReAct-style loop; tree-shaped history; progressive disclosure through skills; and compaction. Treat it as a course snapshot rather than a permanent feature list. Fewer tool definitions do not automatically constrain bash.
+The lecture’s Pi snapshot uses read, write, edit, and bash; a ReAct-style loop; tree-shaped history; progressive disclosure through skills; and compaction. Treat it as a course snapshot rather than a permanent feature list. Fewer tool definitions do not automatically constrain bash. [Page 78](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=78) lists what Pi deliberately leaves out: no subagents, no permission checks, no plan mode, no agent to-do lists, and no background bash. Features found in mainstream harnesses come from community extensions.
 
-The slides emphasize inherited process permissions. Assess state retention, stopping behavior, and enforcement of user constraints alongside tool count. The final recap connects workflow, reasoning, and context choices to Wednesday’s memory lecture.
+[Page 82](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=82) stresses that Pi runs with the launching process's permissions and never pops up a confirmation, so it is effectively always in auto mode. Assess state retention, stopping behavior, and enforcement of user constraints alongside tool count. The final recap connects workflow, reasoning, and context choices to Wednesday’s memory lecture.
 
 ## Lecture 07 slide guide
 
@@ -427,6 +427,8 @@ On the calendar, HW1 (due Oct 30) should get its skeleton settled this week: loo
 - [Official schedule](https://cs329z.stanford.edu/).
 
 ## Update log
+
+- 2026-10-29: Rechecked every section's page range against the Lecture 06/07 PDFs; the Pi case now lists the features the slides say it deliberately omits and its permission model (L06 pp. 78, 82).
 
 - 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.
 
