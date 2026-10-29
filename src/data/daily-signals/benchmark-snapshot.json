@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "swebench_verified_top5": [
     { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
     { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
@@ -8,11 +8,11 @@
     { "rank": 5, "model": "EPAM AI/Run Developer Agent + Atlassian Rovo Dev + Claude 4.5 Opus（三方並列 76.80）", "org": "EPAM／Atlassian／Anthropic", "score": 76.80 }
   ],
   "lmsys_agent_top5": [
-    { "rank": 1, "model": "Claude Opus 5.5 (Max)", "score": 20.77, "ci": "[18.39%, 23.15%]" },
-    { "rank": 2, "model": "Claude Sonnet 5.5 (Max)", "score": 13.99, "ci": "[10.95%, 17.02%]" },
-    { "rank": 3, "model": "GPT-6 Astra (Max)", "score": 13.96, "ci": "[11.88%, 16.04%]" },
-    { "rank": 4, "model": "Claude Fable 5.1 (Max)", "score": 13.94, "ci": "[12.01%, 15.88%]" },
-    { "rank": 5, "model": "GPT-6.1 Sol (Max)", "score": 13.64, "ci": "[12.01%, 15.27%]" }
+    { "rank": 1, "model": "Claude Opus 5.5 (Max)", "score": 20.94, "ci": "[18.79%, 23.09%]" },
+    { "rank": 2, "model": "Gemini 4 Carbon (High)", "score": 16.04, "ci": "[15.04%, 17.04%]" },
+    { "rank": 3, "model": "Claude Sonnet 5.5 (Max)", "score": 13.84, "ci": "[11.19%, 16.49%]" },
+    { "rank": 4, "model": "Claude Fable 5.1 (Max)", "score": 13.35, "ci": "[11.46%, 15.25%]" },
+    { "rank": 5, "model": "GPT-6 Astra (Max)", "score": 12.96, "ci": "[10.94%, 14.98%]" }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59.2 },
@@ -27,5 +27,5 @@
     { "rank": 5, "model": "Sonnet 5.5 Extra High", "org": "Anthropic", "score": 53.1, "costPerTask": 2.81, "tokensPerTask": 100158 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-10-29：SWE-bench Verified 用 Bash curl 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json（python3 -I 解析，180 筆 Verified 結果），前 5 名與 10-28 逐位元相同（79.20／79.20／78.80／77.40，第 5 名仍是 76.80 三方並列：EPAM／Atlassian Rovo Dev／Claude 4.5 Opus 自身），未異動。LMArena Agent 子集用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，config=agent，latest split，length=12），leaderboard_publish_date 仍停在 10-23（連續第 7 天同一批，未推進新批次），前 12 名模型、名次與分數逐位元相同（Opus 5.5 Max 20.77%／Sonnet 5.5 Max 13.99%／GPT-6 Astra 13.96%／Fable 5.1 Max 13.94%／GPT-6.1 Sol 13.64%），無新模型進前三、無第一易主，不觸發。cursor.com/cursorbench 前 5 名與官網 changelog 皆與 10-28 相同（最後一筆仍是 10-07 定價調整），未異動；morphllm.com/leaderboard 直接 web_fetch 仍回 429（Vercel Security Checkpoint），維持既有已知阻塞；artificialanalysis.ai/agents/coding-agents 本次 web_fetch 回 200 但內容抽取仍只剩章節標題、無排名數字表格可擷取（已知阻塞 Q-023，本次未發現新路徑，aa_agentic_index_top3 延用上次確認值，本次未重新驗證）。Step 3b 兩組新聞信號查詢（SOTA 公告／具體 benchmark 結果）命中結果以第三方聚合站為主：Kilo leaderboard、cleverhack.com、Kimi K3.1 Pro 技術部落格、llmbenchmark.ai、swfte.com、iternal.ai、openlm.ai、benchlm.ai、llm-stats.com、demandsphere.com、llmlearner.com；另見 Gemini 4 Argon 自稱 DeepSWE v1.1 新 SOTA 77.9%（10-21 已報導過同一自測事件）、Kimi K3.1 Pro（Terminal-Bench 4.0／SWE-Marathon 自測數字，10-24/26/28 已見過）——皆非本站四個追蹤榜單的官方排名變動公告，亦非 watchlist A1/A2 廠商模型首次上榜，均非觸發條件。依 skill Step 4 判斷今日無 Benchmark 異動，不產出文章。"
+  "notes": "2026-10-30：SWE-bench Verified 用 Bash curl 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json（python3 -I 解析，180 筆 Verified 結果），前 5 名與 10-29 逐位元相同（79.20／79.20／78.80／77.40，第 5 名仍是 76.80 三方並列），未異動。LMArena Agent 子集用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，config=agent，latest split，length=12），leaderboard_publish_date 從卡住 7 天的 10-23 推進到 10-28：Google 10-28 當天發布、目前僅開放 cyber defender 測試的 Gemini 4 Carbon（High）首次上榜即拿下第二（16.04%，CI [15.04%,17.04%]），把原第二 Claude Sonnet 5.5（Max）擠到第三（13.99%→13.84%，CI 重疊），原第三 GPT-6 Astra（Max）跌到第五（13.96%→12.96%，CI 重疊），Claude Fable 5.1（Max）名次不變仍第四但分數降幅較小（13.94%→13.35%）反超 Astra；第一名 Claude Opus 5.5（Max）不變，20.77%→20.94%。符合 skill Step 4「前 3 名有新模型進入」觸發條件，已產出文章 2026-10-30-benchmark-arena-agent-gemini-carbon(.md/-en.md)。cursor.com/cursorbench 前 5 名與官網 changelog 皆與 10-29 相同（最後一筆仍是 10-07 定價調整），未異動；artificialanalysis.ai/agents/coding-agents 本次仍以圖表渲染、無可擷取文字表格（已知阻塞 Q-023），aa_agentic_index_top3 延用上次確認值，本次未重新驗證；morphllm.com/leaderboard 本次未重新嘗試（上次已知回 429 Vercel Security Checkpoint）。"
 }
