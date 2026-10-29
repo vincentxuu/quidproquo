@@ -1688,3 +1688,7 @@ daily-digest-framework／daily-digest-tool／daily-digest-benchmark 三支 2026-
 ## 2026-10-30 封存：AI 模型家族 order 4 Gemini 主篇補 3.8 Flash 條目（daily-digest-funding 2026-10-30 壓回 90 行上限）
 
 - **AI 模型家族 order 4 Gemini 主篇補 3.8 Flash（2026-09-19，中文已 commit 5bebeb1a）**：時間線+1 列（13 里程碑）、選型表換 3.8 Flash 欄＋effort levels 列、新增 agentic coding 段（DeepSWE 73.7%／TB2.1 89.4%／TB4.0 19.1%／HLE 54.9%，以 Model Card 為準）、子線表加 Cyber＋Omni 行、修正「GPT 在 Terminal-Bench 更強」過時判斷、三代同價＋結尾更新；`check:references`（本檔 0 issue，全站 0 error）與 lint 通過，astro check 未跑（md 改動＋Q-024 既有 blocker）。en 版在 5bebeb1a 只補了更新紀錄，3.8 Flash 正文（時間線／選型表／agentic coding 段／子線表）尚未同步，待翻譯。
+
+## 2026-10-30 封存：Obscura 專文條目（daily-digest-product-interview 2026-10-30 壓回 90 行上限，本條目在 progress.txt 裡是日期最舊的 Recently completed 項目）
+
+- **Obscura 專文（2026-09-28，fa3945e，使用者已確認內容）**：`ai/2026-09-28-obscura-rust-headless-browser`（中英）＋glossary 補 CDP／SSRF。`check:references`／`lint`（scratch 繞法）與 `check:tw` 過；`astro check` 在 scratch 回 4 errors 未看明細（疑為拔掉 gatelane-sdk 所致，同 Q-024），正式 repo `pnpm verify` 未跑，待可裝 gatelane 的環境補驗。
