@@ -211,7 +211,7 @@ starter 已經幫你做好一件事：工具輸出超過 10,000 字元時，保�
 ## 延伸閱讀
 
 - 系列前一篇：[L6 Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents)
-- 站內：[Stanford CS329Z Week 4：ReAct 與記憶](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory)（ReAct 原論文與 MemGPT 導讀）
+- 站內：[Stanford CS329Z 第 6 堂：ReAct](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)與[第 7 堂：記憶](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory)（ReAct 原論文與 MemGPT 導讀）
 - 站內：[Coding agent 的上下文壓縮](/posts/ai/2026-08-30-coding-agent-context-compaction)
 - 站內：[Coding agent 的 code mode](/posts/ai/2026-08-30-coding-agent-code-mode)（程式化工具呼叫的設計取捨）
 - 站內：[Coding agent 的 hooks、skills 與 plugins](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins)

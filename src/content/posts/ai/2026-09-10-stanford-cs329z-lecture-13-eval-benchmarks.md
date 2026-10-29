@@ -1,28 +1,26 @@
 ---
-title: "分數別騙自己，資料再做大——期中驗收週｜Stanford CS329Z 第 7 週"
+title: "分數別騙自己：用四元組把評估寫完整｜Stanford CS329Z 第 13 堂"
 date: 2026-09-10
-updated: 2026-10-23
+updated: 2026-10-29
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent]
 lang: zh-TW
 series:
   name: "Stanford CS329Z 導讀"
-  order: 8
-tldr: "Week 7 是期中驗收週：週一談資料選擇，週三談評分與 benchmark 設計；Zhu 等人教你別被自己的分數騙，SWE-smith 把軟體工程任務資料做到 5 萬題，讀完為 HW2 寫下第一版 4-tuple。"
-description: "帶讀 Stanford CS329Z Week 7 三篇主讀物：agentic benchmark 最佳實踐檢查表、LLM 評審的人類對齊、SWE-smith 資料規模化管線，以及課程的 4-tuple 評估框架。"
+  order: 14
+tldr: "第 13 堂依課表談評估為什麼難、request／environment／stopping criteria／scorer 四元組、好 benchmark 的性質、貼近實際的 scaffold 與可靠度。讀物有 agentic benchmark 最佳實踐檢查表、Press 的 benchmark 指南與 tinyBenchmarks。"
+description: "依課表與指定閱讀預習 Stanford CS329Z 第 13 堂 Evaluation Fundamentals & Benchmark Design：以 4-tuple 框架拆解評估規格，深讀 agentic benchmark 檢查表、Press 的 benchmark 指南與 tinyBenchmarks。"
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks-en)
+> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-13-eval-benchmarks-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
-Week 7 是期中驗收週。週一（11/2）談資料選擇與品質，週三（11/4）談評分基礎與 benchmark 設計。同一週週三晚上 11:59 要交 midpoint demo 的錄影（不在課堂上發表），週五要交 midway report。分數和資料同一週登場不是巧合：demo 影片要拿分數說話，報告要交代資料從哪來。
+第 13 堂（11/4，Evaluation Fundamentals & Benchmark Design）把評估拆成 4-tuple。request 是你交辦的事，environment 是 agent 能動的世界。stopping criteria 管何時收工，scorer 負責判分。四個少一個，分數就站不住。同一天晚上 11:59 要交期中 demo 錄影（不在課堂上發表），週五交期中報告。
 
-先給新手一個框架。課程把一次 agent 評估拆成 4-tuple。request 是你交辦的事，environment 是 agent 能動的世界。stopping criteria 管何時收工，scorer 負責判分。四個少一個，分數就站不住。
-
-拿修 bug 當例子。request 是「修好這個 issue」，environment 是程式碼庫加終端機，stopping criteria 是交出 patch，scorer 是跑測試。後面三篇主讀物正好分工：[Zhu 等人的最佳實踐](https://arxiv.org/abs/2507.02825)在講 scorer 多容易寫錯，[Shankar 等人的驗證者研究](https://arxiv.org/abs/2404.12272)在講 LLM 幫忙打分要怎麼對齊人類，[Yang 等人的 SWE-smith](https://arxiv.org/abs/2504.21798)在講任務資料怎麼做大。
+拿修 bug 當例子。request 是「修好這個 issue」，environment 是程式碼庫加終端機，stopping criteria 是交出 patch，scorer 是跑測試。指定讀物是 Zhu 等人的 [agentic benchmark 最佳實踐](https://arxiv.org/abs/2507.02825)，講 scorer 多容易寫錯；延伸閱讀 Press 的 benchmark 指南與 tinyBenchmarks 分別談四元組怎麼寫清楚、用多少題就夠。截至 2026-10-29，這堂還沒有公開投影片，本文是依官方課表與指定閱讀寫的預習，不代表講師在課堂上說過的內容。第 11 堂以後的堂次編號依課表順序推算，官網目前只列日期與主題。
 
 ```diagram
 title: 四元組是評估規格，不是四個步驟
@@ -34,7 +32,7 @@ caption: 同框表示四項共同組成規格，不表示執行順序；停止�
 
 ## 先把考題寫完整，再相信分數
 
-本週要把資料品質與評分器連起來。[官方課表](https://cs329z.stanford.edu/)將資料選擇排在 11/2、benchmark 設計排在 11/4。截至 2026-10-23 尚無公開投影片，因此本節按課表問題導讀指定閱讀，不杜撰未上課的內容。對要做繁中內部助理的讀者，最有用的起點是一個可重播、可判分的任務，而非先追排行榜。
+這堂要把評分器寫完整，並接回第 12 堂的資料品質。[官方課表](https://cs329z.stanford.edu/)將資料選擇排在 11/2、benchmark 設計排在 11/4。截至 2026-10-23 尚無公開投影片，因此本節按課表問題導讀指定閱讀，不杜撰未上課的內容。對要做繁中內部助理的讀者，最有用的起點是一個可重播、可判分的任務，而非先追排行榜。
 
 ### Request 與 environment：同一句話怎麼變成不同考題
 
@@ -50,93 +48,7 @@ caption: 同框表示四項共同組成規格，不表示執行順序；停止�
 
 **理解檢查**：修好 scorer 後成功率下降，代表 agent 退步嗎？**答案判準**：不能直接比較。先用同一版本 scorer 重評舊系統和新系統，再檢查新規則是否更符合任務。
 
-
-
-## 讀物 1｜SWE-smith
-
-原文：[SWE-smith](https://arxiv.org/abs/2504.21798)
-
-### TL;DR
-
-流程先建立執行環境，再合成會使現有測試失敗的變更，產生可驗證任務與訓練軌跡。
-
-### 編輯判斷
-
-| 面向 | 閱讀判斷 |
-| --- | --- |
-| 核心問題 | 軟體工程 agent 的訓練任務，如何從少量人工整理擴大？ |
-| 證據與邊界 | 5 萬題、128 個 repo 與 40.2% Pass@1 都是作者當時的資料與模型結果；不是現今排行榜宣稱。 |
-
-### 領域背景
-
-真實 issue 整理、環境安裝與測試驗證都會限制訓練資料規模，單純生成題目文字還不夠。
-
-### 中階導讀
-
-**方法。** 先挑repo並安裝環境，再用不同破壞策略產生候選、跑測試篩選，最後收集解題軌跡。
-
-換邊看資料。[SWE-smith](https://arxiv.org/abs/2504.21798) 處理的痛點很具體：早期部分軟體工程訓練資料的repo覆蓋有限，整理流程還要大量人工。這不是所有資料集都少於某個repo數的現況宣稱。做法是反過來：給定任意 Python 程式碼庫，先建好執行環境，再自動合成會弄壞現有測試的任務。
-
-用這條管線造出的資料集橫跨 128 個 GitHub repo。總題數來到 5 萬。拿它訓出的 SWE-agent-LM-32B 在 SWE-bench Verified 的一次解題率達到 40.2%，這是作者當時的受測結果，不作現今排名宣稱。
-
-**證據與結果。** 作者以管線建立超過5萬個任務，並展示用這些資料訓練軟體agent的效果；資料生成與模型評估是兩個階段。
-
-### 深入要點
-
-- 「使測試失敗」提供可執行訊號，仍要避免把不合理的破壞當成有價值bug。
-- 環境安裝與驗證成本會影響哪些repo能進資料集，因此repo數不等於真實開發全貌。
-
-### Reviewer 一句話評
-
-可執行的驗證把合成任務變成較可檢查的訓練材料。
-
-### 給你的 take-away
-
-先確認現有測試真能抓到任務失敗，再擴增資料；用獨立 repo 或題集測轉移。
-
-## 讀物 2｜Who Validates the Validators?
-
-原文：[Who Validates the Validators?](https://arxiv.org/abs/2404.12272)
-
-### TL;DR
-
-EvalGen 讓系統提出評分標準與實作，人類標註少量輸出，再選與人類判斷對齊的 validator。
-
-### 編輯判斷
-
-| 面向 | 閱讀判斷 |
-| --- | --- |
-| 核心問題 | 評分標準會隨看過的答案改變，LLM grader 怎麼跟上？ |
-| 證據與邊界 | Criteria drift 表示標準也在改，不能把不同 rubric 下的分數直接視為趨勢。 |
-
-### 領域背景
-
-開放式品質沒有單一標準答案，人類往往看過實際輸出後，才知道規則還缺什麼。
-
-### 中階導讀
-
-**方法。** 讓人先定義或選擇criteria，系統產生候選validator，再用人工標記的輸出回選實作。
-
-同屬週一的第三篇主讀物換了主角：[Shankar 等人問，LLM 幫忙打的分，要怎麼對齊人類](https://arxiv.org/abs/2404.12272)（UIST 2024）。人工評太貴、程式評太窄，所以大家拿 LLM 當評審；但評審模型繼承了被評模型的所有毛病，還得再驗一次。他們的做法叫 EvalGen，混合主動：系統自動生評分標準和實作（Python 函式或 grader prompt），過程中請人類為一小批輸出打分；這些回饋拿來挑跟人類最合的實作。
-
-最值得記的是 criteria drift：你要先有標準才能打分，但打著打著才發現標準該長什麼樣；有些標準甚至依附在看過的輸出上，根本沒法事先寫下來。這對「評分獨立於觀察」的假設是正面一擊。HW2 寫 LLM-as-judge 之前，先讀這篇再動手。
-
-**證據與結果。** 研究發現使用者在看過輸出後會修訂標準，並展示互動式工具如何協助形成與對齊validator。
-
-### 深入要點
-
-- Criterion是想量的品質，validator是其程式或prompt實作，兩者不應混為一談。
-- 有爭議案例不只是雜訊，也可能揭露原標準沒有說清楚的價值選擇。
-
-### Reviewer 一句話評
-
-先校準評分者，再用評分者優化系統。
-
-### 給你的 take-away
-
-每次標準修改都版本化，重評固定案例，並留下人機分歧理由。
-
-## 讀物 3｜Agentic Benchmark Checklist
+## 讀物 1｜Agentic Benchmark Checklist
 
 原文：[Agentic Benchmark Checklist](https://arxiv.org/abs/2507.02825)
 
@@ -178,45 +90,7 @@ Zhu 等人的論文開門見山：很多 agentic benchmark 的題目設定或獎
 
 先用空答案、錯誤證據與部分完成的反例攻擊自己的 scorer。
 
-## 讀物 4｜LIMA
-
-原文：[LIMA](https://arxiv.org/abs/2305.11206)
-
-### TL;DR
-
-LIMA 用 1000 組精選示範進行 supervised fine-tuning，研究對齊資料品質而非單純擴量。
-
-### 編輯判斷
-
-| 面向 | 閱讀判斷 |
-| --- | --- |
-| 核心問題 | 少量精選示範能否教會已預訓練模型回應格式？ |
-| 證據與邊界 | 43% 是特定人工偏好比較中與 GPT-4 相當或更被偏好的比例，不是通用能力超越。 |
-
-### 領域背景
-
-預訓練能力與指令對齊是不同階段，少量資料能研究後者，卻不代表知識可以憑空產生。
-
-### 中階導讀
-
-**方法。** 以精選prompt-response資料微調預訓練模型，再用未見題的人類偏好比較驗證。
-
-**證據與結果。** 在受控人工偏好評估中，少量精選SFT資料得到有競爭力回覆；作者據此提出對齊主要教格式的假說。
-
-### 深入要點
-
-- 這個假說依賴強預訓練底座；拿掉既有能力，不能期待相同少樣本效果。
-- 偏好中的平手與勝出合計，不能翻譯成單獨勝率或事實正確率。
-
-### Reviewer 一句話評
-
-精選示範的價值不能被誤讀成所有任務都只需要少量資料。
-
-### 給你的 take-away
-
-先整理代表真實失敗的高品質示範，再比較增加數量是否帶來額外價值。
-
-## 讀物 5｜How to Build Good Language Modeling Benchmarks
+## 讀物 2｜How to Build Good Language Modeling Benchmarks
 
 原文：[How to Build Good Language Modeling Benchmarks](https://ofir.io/How-to-Build-Good-Language-Modeling-Benchmarks/)
 
@@ -254,7 +128,7 @@ LIMA 用 1000 組精選示範進行 supervised fine-tuning，研究對齊資料�
 
 把一題寫成完整四元組，請另一個人只看規格重播與判分。
 
-## 讀物 6｜tinyBenchmarks
+## 讀物 3｜tinyBenchmarks
 
 原文：[tinyBenchmarks](https://arxiv.org/abs/2402.14992)
 
@@ -292,20 +166,20 @@ LIMA 用 1000 組精選示範進行 supervised fine-tuning，研究對齊資料�
 
 先用完整評測校準子集誤差，再把小測用於迭代，最後保留完整驗收。
 
-
 ## 怎麼做：為 HW2 寫下你的 4-tuple
 
 **怎麼做**：為 HW2 暖身，給自己的 agent 寫下 4-tuple。request 用一句話寫交辦事項，environment 列出它能碰的工具與資料，stopping criteria 寫明什麼算做完，scorer 先寫一個最陽春的版本。寫完拿 Zhu 等人的案例反問自己：我的 scorer 會不會把空回應算過關。這張紙就是 midway report 評估章節的草稿。
 
 ## 它在課程裡的位置
 
-Week 7 之後就是驗收：週三交的 demo 錄影拿分數說話，週五報告交代資料與方法。[Week 6](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel) 談資料飛輪，Week 7 補上另一半：分數怎麼寫才不會騙自己。把 4-tuple 寫好，HW2 的題目定義就完成一半。
+第 13 堂把評估規格寫完整，下一週[第 14 堂](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge)處理沒有標準答案時怎麼請模型當裁判。HW2 要依四元組建 benchmark 任務，本堂的檢查表可以直接拿來自我審查。
 
-## 本週 Course Material 對照
+## 本堂 Course Material 對照
 
-- 週一 11/2 Data Selection & Quality：主讀物 SWE-smith、Who Validates the Validators?（本文已導讀）。延伸閱讀 [Zhou 等人 LIMA](https://arxiv.org/abs/2305.11206)：只用 1,000 條精心篩選的問答做 supervised fine-tune，不做 RLHF；人類評測裡 43% 的回覆不輸 GPT-4。論點是知識都在預訓練學完，對齊重質不重量。
-- 週三 11/4 Evaluation Fundamentals & Benchmark Design：主讀物 Zhu 等人最佳實踐（本文已導讀）。延伸閱讀 [Press 談怎麼做好的 LM benchmark](https://ofir.io/How-to-Build-Good-Language-Modeling-Benchmarks/)：好 benchmark 要 natural、automatically evaluable、challenging；他還警告別讓同一個 LM 又當選手又當裁判。文末把單一任務寫成 request–environment–stopping criteria–scorer 的 4-tuple，正是本週框架的出處。延伸閱讀 [Polo 等人 tinyBenchmarks](https://arxiv.org/abs/2402.14992)：MMLU 的 1.4 萬題不必全跑。作者用約 100 題的精選子集估計完整 MMLU 表現；這依賴選題與估計方法，不能保證任意 100 題都維持排名。評測貴在具代表性，不在題海。
-- 課表原文：[CS329Z 官網 Week 7](https://cs329z.stanford.edu/)
+- 官方投影片：尚未公開（截至 2026-10-29）
+- 指定閱讀：Zhu 等人〈Establishing Best Practices for Building Rigorous Agentic Benchmarks〉（本文深讀）
+- 延伸閱讀：Press〈How to Build Good Language Modeling Benchmarks〉（本文深讀）、Polo 等人〈tinyBenchmarks〉（本文深讀）
+- 課表原文：[CS329Z 官網](https://cs329z.stanford.edu/)
 
 ## 課程影片來源
 
@@ -320,17 +194,15 @@ Week 7 之後就是驗收：週三交的 demo 錄影拿分數說話，週五報�
 
 ## 更新紀錄
 
+- 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 13（11/4 週三）的內容，原屬「第 7 週：分數別騙自己，資料再做大」導讀；以下保留拆分前的紀錄。
 - 2026-10-23：依第一堂模板重整材料狀態、機制、情境與理解檢查；將指定閱讀深讀與課堂預習分開。
-
 - 2026-10-23：將既有教學內容補成圖解與必要對照表；本次未重新查證數據、課表或研究結果。
-
-
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-09-29：期中 demo 改為錄影繳交（週三 11/4 晚上 11:59 截止，不在課堂發表），同步改寫開頭與課程位置段落
 - 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。
 
 ## 參考資料
 
-- 站內：[Week 6：資料飛輪](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
+- 站內：[第 12 堂：Data Selection & Quality](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection)、[第 14 堂：LLM-as-Judge & Evaluation Infrastructure](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 - 課程：[CS329Z 官網課表](https://cs329z.stanford.edu/)
-- 原文：[Yang et al., SWE-smith](https://arxiv.org/abs/2504.21798)、[Shankar et al., Who Validates the Validators?](https://arxiv.org/abs/2404.12272)、[Zhu et al., Establishing Best Practices for Building Rigorous Agentic Benchmarks](https://arxiv.org/abs/2507.02825)
+- 原文：[Shankar et al., Who Validates the Validators?](https://arxiv.org/abs/2404.12272)、[Zhu et al., Establishing Best Practices for Building Rigorous Agentic Benchmarks](https://arxiv.org/abs/2507.02825)

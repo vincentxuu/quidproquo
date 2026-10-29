@@ -1,88 +1,26 @@
 ---
-title: "先學會邊想邊做，再學會記住——ReAct 與 MemGPT｜Stanford CS329Z 第 4 週"
+title: "讓 agent 記住該記的事：MemGPT、Letta、Mem0 與 Generative Agents｜Stanford CS329Z 第 7 堂"
 date: 2026-09-10
 updated: 2026-10-29
 category: ai
 type: deep-dive
-tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
+tags: [cs329z, ai-course, stanford, ai-agent, rag]
 lang: zh-TW
 series:
   name: "Stanford CS329Z 導讀"
-  order: 5
-tldr: "Week 4 從 ReAct 迴圈與 MemGPT 分層記憶出發，接上 Lecture 06／07 的設計模式、context 管理與記憶評測。透過一個 email 助理例子，學會區分原始紀錄與模型輸入，並檢查摘要後是否仍遵守使用者限制。"
-description: "帶讀 Stanford CS329Z Week 4 兩篇主讀物：Yao 等人的 ReAct 如何交錯推理與行動，Packer 等人的 MemGPT 如何用虛擬記憶體管理突破 context 上限，以及它們如何對應 HW1 的 agent harness。"
+  order: 8
+tldr: "Lecture 07 把 agent 記憶分成 working、episodic、semantic、procedural 四類，比較技能庫、MemGPT 式分層、反思整併與記憶維護四種架構，並談記憶評測與遺忘、隱私、過度個人化。讀物從 MemGPT 的虛擬記憶體，延伸到 Letta、Mem0 與 Generative Agents。"
+description: "依實體頁碼帶讀 CS329Z Lecture 07 Agent Memory Architectures 投影片，再深讀 MemGPT、Letta、Mem0 與 Generative Agents，並用一個摘要後是否還守得住舊限制的例子檢查記憶設計。"
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en)
+> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
-想像你請一個助理查資料：他要嘛坐在位子上憑記憶硬答，要嘛悶頭一直點連結卻從不說明在找什麼。前者答錯時你無從除錯，後者失控時你不知他要去哪。這個兩難，就是 Week 4 兩篇主讀物要解決的事。
+第 7 堂（10/14，Agent Memory Architectures）問的是：context 有上限，跨 session 又會清空，agent 要怎麼記住真正有用的狀態？投影片把記憶分成四類，比較四種架構模式，最後談記憶評測，以及遺忘、隱私與過度個人化這些尚未解決的問題。
 
-週一（10/12，Agent Patterns）的主讀物是 Yao 等人的 [ReAct](https://arxiv.org/abs/2210.03629)（ICLR 2023）。它讓模型把「想」（Thought）和「做」（Action）交錯寫出來，每做一步都回頭看環境回了什麼（Observation）。週三（10/14，Agent Memory Architectures）的主讀物是 Packer 等人的 [MemGPT](https://arxiv.org/abs/2310.08560)（ICLR 2024）。它把作業系統的分層記憶體搬進 LLM，用 function call 在有限視窗和外部儲存之間分頁。這一週 [HW1](https://cs329z.stanford.edu/) 正好走到中段：迴圈長什麼樣、記憶放哪裡，就是 harness 要往上長之前得先定案的兩件事。
-
-先把位置說清楚：[Week 3](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy) 發了 HW1：替一家公司做內部 AI 助理。不准用任何 agent 框架，只有一個 chat completion 呼叫和你自己寫的程式。先做在真實企業 email 封存上檢索、推理的 pipeline，再長成帶工具、terminal、記憶和人類介入的完整 harness。Week 4 給你兩篇論文當施工藍圖。[總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)把整門課定位成「工程學」，而這週就是工程圖攤開的那一週。
-
-本文依已公開的 Lecture 06／07 完整投影片與指定論文整理，涵蓋兩份投影片的主題結構；沒有取得的課堂口述不另行補造。
-
-官方投影片與指定讀物分工不同。以下先依實體頁碼帶讀兩堂課，再保留主讀物與延伸閱讀的深入解說。本文提出的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
-
-## Lecture 06 投影片導讀
-
-<div class="slide-reader" data-slide-reader data-pages="86" data-pdf-src="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf">
-<p>共 86 頁，以 PDF 實體頁碼對照。點各節頁碼可查看相應投影片。</p>
-<button type="button" data-slide-open>開啟投影片對照</button>
-<p><a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf" target="_blank" rel="noopener noreferrer">另開分頁看原始 PDF</a></p>
-</div>
-
-### 第 1–12 頁：設計模式要依任務補完
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=1" data-slide-page="1">投影片第 1–12 頁</a>
-
-課堂先提醒 design pattern 需要依環境補完，再以控制流程的位置區分 workflow 與 agent。固定分類、檢索、擬稿可以由程式控制；需要探索問題與依回饋決定下一步時，才把決策交給模型。實際系統常把兩者組合。
-
-自測題是把客服流程的每個分支寫出來：哪條是業務規則，哪條需要模型判斷？如果全部都能事先列出，先做可重現的 workflow 就能建立比較基線。
-
-### 第 13–30 頁：五種 workflow 如何組成完整系統
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=13" data-slide-page="13">投影片第 13–30 頁</a>
-
-串接、分流、並行、orchestrator-workers 與 evaluator-optimizer 先各自說明，再用 STORM 與 Archon 展示組合。STORM 的寫作流程同時有拆解、搜尋、整合與批改；圖上的區塊要對照誰決定子任務，不能只因多個呼叫同時執行就稱為動態發包。Archon 則把推論技巧組合本身當搜尋對象。
-
-這堂把 Week 2 的 Anthropic 讀物變成系統設計練習。可畫一條自己的研究流程，標出各 pattern，量出最慢與最常出錯的階段，再決定是否增加一輪評審。
-
-### 第 31–42 頁：ReAct 與 Reflexion：行動回饋如何改變下一步
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=31" data-slide-page="31">投影片第 31–42 頁</a>
-
-ReAct 交錯推理、行動與觀察；Reflexion 再把評估與失敗反思存成下次可讀的文字。課堂接著指出，自評如果缺乏外部依據，可能只是重複原來的錯誤；CRITIC 把工具接進 verifier，補上可以核對的訊號。這些研究圖表屬於各自實驗設定，不是任何模型加上反思都會提升的保證。
-
-檢查軌跡時，把「知道工具失敗」與「根據失敗改變策略」分開。下方 ReAct 論文導讀再拆 HotpotQA 與互動環境實驗，避免把課堂總覽當成完整實驗結論。
-
-### 第 43–54 頁：CodeAct、ReWOO 與 LLMCompiler
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=43" data-slide-page="43">投影片第 43–54 頁</a>
-
-CodeAct 把行動改成可執行程式，課堂用跨國手機價格比較示範迴圈與資料處理，比逐項 JSON 呼叫更容易表達組合操作；代價是程式執行環境與權限必須設計清楚。ReWOO 先產生計畫與工具依賴，LLMCompiler 再強調並行執行與動態重規劃。
-
-自擬測試可以讓其中一家價格 API 失敗：哪些步驟可繼續平行跑，哪些必須等待？程式把過期價格算得完全正確，仍可能得到錯誤購買建議，所以驗收要包含資料時間與缺漏狀態。
-
-### 第 55–75 頁：完整事件與當前 context 分開管理
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=55" data-slide-page="55">投影片第 55–75 頁</a>
-
-這段的兩個原則是聚焦與延續：context 只保留當下需要的資訊，同時不能丟掉目標、限制與進度。OpenHands 的 event log 保存原始事件，每次再建模型輸入；offloading 把內容移到外部，compaction 壓縮文字，observation masking 隱藏舊工具輸出，isolation 讓子任務只回傳所需結果。Progressive disclosure 則等需要時才讀工具或 skill 細節。
-
-這些可以組合，不必選一個通吃。若刪掉長測試輸出，可保留指令、exit code、結論與原檔路徑；如果摘要後遺失「先別寄出」的限制，就算省了很多 token 仍算失敗。這個約束檢查銜接下一堂 memory。
-
-### 第 76–86 頁：Pi 案例：簡單工具仍有 harness 決策
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=76" data-slide-page="76">投影片第 76–86 頁</a>
-
-投影片中的 Pi 以 read、write、edit、bash 為基本工具，使用 ReAct 風格迴圈、樹狀歷史、skill 按需載入與 compaction。這是本次課堂版本的案例，不應把它當作未來版本的固定功能清單。少量工具降低定義負擔，卻沒有自動限制 bash 能做什麼。[第 78 頁](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=78)直接列出它刻意不做的事：沒有 subagent、沒有權限檢查、沒有 plan mode、沒有待辦清單，也不能在背景跑 bash；其他主流 harness 的功能，交給社群擴充補上。
-
-[第 82 頁](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=82)特別指出，它以啟動程序的權限執行、不跳出確認視窗，等於一直開著自動模式。評估 harness 時，除了工具數，也要問狀態如何保存、失敗如何停止，以及使用者限制由哪一層執行。最後回顧 workflow、reasoning 與 context 三組設計，銜接週三 memory。
+指定讀物是 Sumers 等人的 CoALA、Packer 等人的 [MemGPT](https://arxiv.org/abs/2310.08560) 與 Park 等人的 [Generative Agents](https://arxiv.org/abs/2304.03442)。本文深讀 MemGPT 與 Generative Agents，另讀 Letta 與 Mem0 兩個實作。MemGPT 把作業系統的分層記憶體搬進 LLM，用 function call 在有限視窗與外部儲存之間分頁。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
 
 ## Lecture 07 投影片導讀
 
@@ -152,67 +90,13 @@ Reflexion 與 Generative Agents 展示從事件形成較高層反思的路徑；
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=95" data-slide-page="95">投影片第 95–103 頁</a>
 
-未來相關性在寫入時未知，所以全部保留與過早刪除都有成本。記憶也可能被污染，或讓系統在不必要時揭露個資、過度套用偏好。最後的總結把類型、架構與評估接回這些未解問題，再銜接下週 multi-agent systems。
+未來相關性在寫入時未知，所以全部保留與過早刪除都有成本。記憶也可能被污染，或讓系統在不必要時揭露個資、過度套用偏好。最後的總結把類型、架構與評估接回這些未解問題，再銜接下一堂的 multi-agent systems。
 
 一個可做的檢查是拿無關問題測試：記憶裡有使用者的私人行程，回答一般程式問題時是否能完全不使用它？另外測使用者更正與刪除要求能否反映到後續取用。記得多，必須和知道何時不取用一起驗收。
 
-## 讀物｜ReAct：交錯推理與環境行動
-
-[週一主讀物](https://arxiv.org/abs/2210.03629)
-
-### TL;DR
-
-ReAct 讓模型交錯產生推理與工具動作，再用觀察更新下一步；它在問答與互動環境的取捨不同，與 CoT 組合也要依任務測試。
-
-### 編輯判斷
-
-| 面向 | 判斷 |
-|---|---|
-| 證據基礎 | ICLR 2023 研究，涵蓋 HotpotQA、FEVER、ALFWorld、WebShop 與人工軌跡分析。 |
-| 應保留的界線 | 少量人工分析中的零幻覺分類不是普遍零幻覺率；步數上限與 fallback 是研究設定，不是通用產品規則。 |
-| 閱讀價值 | 適合學會分析工具迴圈與環境回饋。 |
-
-### 領域背景
-
-只靠內部推理可能編出事實，只做動作又可能重複失敗。ReAct 將環境觀察帶回決策，讓下一步可以依新證據調整。
-
-### 中階導讀
-
-**ReAct：想、做、看的交錯迴圈**
-
-ReAct 的定義只有一句話：把語言空間併進動作空間。模型原本只能輸出動作，現在還可以輸出「想法」——想法不碰外部環境，只負責整理目前為止的脈絡，幫下一步的行動做決策。任務軌跡於是長成 Thought → Action → Observation 的重複序列，推理用來決定查什麼，行動用來把外部資訊餵回推理。
-
-為什麼需要這個？此前的兩條路各有絕症。純推理（[Chain-of-Thought](https://arxiv.org/abs/2202.03629)）是靜態黑箱：模型只用內部表徵生成想法，不接地氣，錯了就一路錯下去。純行動（直接生成動作）則沒有工作記憶：論文裡的 Act 基線會忘記水槽裡沒有胡椒罐，原地重複幻覺動作。ReAct 的論點是，人類做菜時本來就這樣：切完菜想一下該燒水了，缺鹽就換醬油，食譜忘了就翻書——想與做本來就是互相服務的。
-
-做法上，問答任務用的是陽春 [Wikipedia](https://www.wikipedia.org/) API，只有三種動作：search 查條目、lookup 在頁內找字串、finish 交答案。刻意做得這麼弱，是為了逼模型用顯式語言推理來檢索，而不是靠強檢索器作弊。決策任務（[ALFWorld](https://alfworld.github.io/) 文字遊戲、[WebShop](https://webshop-pnlp.github.io/) 網購導航）則反過來：想法只稀疏出現，什麼時候想、什麼時候做，讓模型自己決定。
-
-**怎麼做**：今晚就把你的 HW1 迴圈凍結成這個形狀。每次迭代只做三件事：寫一行 Thought（為什麼選這個行動）、發一個 Action（調工具）、記一筆 Observation（工具回了什麼）。再加兩條護欄：步數上限（HotpotQA 取 7 步、FEVER 取 5 步，超限退回 CoT-SC），以及 finish 動作必須附答案。交卷前檢查每一條失敗軌跡屬於哪一種：推理錯、檢索空、還是鬼打牆重複——這個分類表論文附錄有現成的。
-
-**對照實驗：幻覺去哪了**
-
-ReAct 最值得細讀的不是分數，是 Table 2 的人工錯誤分析。作者在 HotpotQA 的兩種方法中，各抽 50 條正確與 50 條錯誤軌跡，合計 200 條人工分析。結果發現 [CoT](https://arxiv.org/abs/2202.03629) 答錯的案例裡，幻覺佔了 56%。同一套抽查下，ReAct 在抽查失敗軌跡中的幻覺分類是 0%；這不代表所有情境的幻覺率都是零。代價是結構限制換來的僵硬：ReAct 的推理錯誤率比 CoT 高，常見死法是同一組想法和動作無限重播，跳不出迴圈。
-
-分數上兩邊互有勝負：在 [FEVER](https://fever.ai/) 事實查核任務，ReAct 以 60.9 對 56.3 贏過 CoT；在 [HotpotQA](https://hotpotqa.github.io/) 多跳問答，ReAct 以 27.4 對 29.4 小輸。最強的是混血版。HotpotQA 由 ReAct 先答、失敗再退回 CoT-SC，衝到 35.1。FEVER 則反過來，由 CoT-SC 先答、共識不足再退回 ReAct，拿到 64.6。內部知識負責結構，外部檢索負責事實——分工寫在這裡，後面 multi-agent 還會回來。
-
-決策任務的分數更乾脆：只用一兩個 in-context 範例，ReAct 在 ALFWorld贏過模仿學習基線 34 個百分點。在 WebShop 贏過當時最佳方法 10 個百分點。微調實驗則給小模型一條活路：只用 3000 條正確軌跡微調，8B 模型的 ReAct 反超所有 62B 的 prompting 成果。教模型「如何查」，比教它「背答案」更通用——翻到 email 助理上，就是與其把整批信塞進 prompt，不如讓它學會怎麼查信。
-
-**怎麼做**：給你的 agent 加一個 CoT 退路。ReAct 走到步數上限還沒答案，就退回純 CoT 答一次；反之 CoT 多次採樣共識太低，就切去 ReAct 查外部資料。記錄兩種路徑各救回幾題，作為自己的錯誤分析；這是自選實驗，不是官方指定的 fallback。
-
-### 深入要點
-
-可讀軌跡不等於完整解釋模型內部原因。驗收要看動作是否真的改變環境、觀察是否正確回傳，以及停止條件能否避免無限循環。
-
-### Reviewer 一句話評
-
-它把 agent 的可檢查單位從單次答案改成一條會接收回饋的軌跡。
-
-### 給你的 take-away
-
-保存一條失敗軌跡，標出第一個缺證據、選錯工具或重複動作的位置，再改一個環節做比較。
-
 ## 讀物｜MemGPT：有限 context 的記憶分層
 
-[週三主讀物](https://arxiv.org/abs/2310.08560)
+[主讀物](https://arxiv.org/abs/2310.08560)
 
 ### TL;DR
 
@@ -256,7 +140,7 @@ MemGPT 把工作 context、對話 recall 與 archival storage 分層，讓模型
 
 ## 讀物｜Letta：把 agent memory 拆成可建置的 context 元件
 
-[週三延伸閱讀](https://www.letta.com/blog/agent-memory)
+[延伸閱讀](https://www.letta.com/blog/agent-memory)
 
 ### TL;DR
 
@@ -296,7 +180,7 @@ Pinned core blocks 會持續消耗視窗；外部記憶則增加檢索決策。�
 
 ## 讀物｜Mem0：抽取、更新與檢索長期事實
 
-[週三延伸閱讀](https://arxiv.org/abs/2504.19413)
+[延伸閱讀](https://arxiv.org/abs/2504.19413)
 
 ### TL;DR
 
@@ -336,7 +220,7 @@ Graph 版本提供關係表示，卻也增加維護與查詢成本。回答短�
 
 ## 讀物｜Generative Agents：事件如何變成反思與計畫
 
-[週三延伸閱讀](https://arxiv.org/abs/2304.03442)
+[延伸閱讀](https://arxiv.org/abs/2304.03442)
 
 ### TL;DR
 
@@ -416,15 +300,13 @@ Lecture 07 要求評測兼具真實性、長 context、挑戰性與可驗證性�
 
 ## 它在課程裡的位置
 
-Week 4 是承先啟後的一週。往前，它給 [Week 2](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag) 的 workflow/agent 之辨補上可運轉的形狀：ReAct 與記憶分層提供了一組可組合的 agent 設計。往後，多智慧體協作（分工、通訊與湧現行為）是 Week 5 的主菜。ReAct 論文結尾那句「人類可以直接改 Thought 來即時糾正 agent」，正是人類介入協作的起點，也是 HW1 要你在 harness 裡留給人類的那個接口。
+第 7 堂補上 HW1 harness 的記憶層。下一週轉向分工與改善：[第 8 堂](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent)問要不要拆成多個 agent，共享記憶也是其中的協調基礎。
 
-時間線上，HW1（10/30 截止）這週該把骨架定下來：迴圈形狀和記憶設計都定案。接下來兩週才有空間接 terminal、補人類介入、跑分和寫錯誤分析。作業全程不准用框架，[Week 3](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy) 的 DSPy 留在課堂上讀，看它把你手寫的這些零件抽象成什麼樣。回到 Week 1 的問題：除了模型，哪些系統設計能改善任務？這週的論文提供了迴圈與記憶兩種可測的方向。
+## 本堂 Course Material 對照
 
-## 本週 Course Material 對照
-
-- 週一：Lecture 06 與主讀物 ReAct，本文分開帶讀。
-- 週三：Lecture 07 與主讀物 MemGPT；Letta、Mem0、Generative Agents 為延伸閱讀，本文各有獨立導讀。
-- [官方課表](https://cs329z.stanford.edu/)。
+- 官方投影片（PDF）：[Agent Memory Architectures — Lecture 07](https://web.stanford.edu/class/cs329z/slides/lecture07.pdf)
+- 指定閱讀：Sumers 等人〈Cognitive Architectures for Language Agents〉、Packer 等人〈MemGPT〉（本文深讀）、Park 等人〈Generative Agents〉（本文深讀）
+- 課表原文：[CS329Z 官網](https://cs329z.stanford.edu/)
 
 ## 課程影片來源
 
@@ -432,26 +314,16 @@ Week 4 是承先啟後的一週。往前，它給 [Week 2](/posts/ai/2026-09-10-
 
 ## 更新紀錄
 
+- 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 7（10/14 週三）的內容，原屬「第 4 週：先學會邊想邊做，再學會記住」導讀；以下保留拆分前的紀錄。
 - 2026-10-29：對照 Lecture 06／07 投影片重核各節頁碼；Pi 案例補上投影片列出的刻意缺席功能與權限說明（L06 第 78、82 頁）。
-
 - 2026-10-23：依兩堂官方 PDF 補成逐段投影片導讀，加入頁碼對照、機制與自測，保留並分開指定讀物解說。
-
 - 2026-10-23：依完整 Lecture 06／07 補入設計模式、context 管理、記憶分類與架構、評測及原創例題。
-
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、語料換成企業 email、記憶與人類介入納入作業要求），同步改寫開頭、ReAct／MemGPT 的「怎麼做」與課程位置段落
 - 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。
 
 ## 參考資料
 
-- [Letta: Agent Memory](https://www.letta.com/blog/agent-memory)
-- [Chhikara et al.: Mem0](https://arxiv.org/abs/2504.19413)
-- [Park et al.: Generative Agents](https://arxiv.org/abs/2304.03442)
-
-- [Lecture 06: Agent Design Patterns and Scaffolds](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf)
-- [Lecture 07: Agent Memory Architectures](https://web.stanford.edu/class/cs329z/slides/lecture07.pdf)
-
-- 站內：[Week 3：工具接進來，框架換上去](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)、[Week 2：先分清 workflow 和 agent](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
+- 站內：[第 6 堂：Agent Design Patterns & Scaffolds](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)、[第 8 堂：Multi-Agent Systems](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 - 課程：[CS329Z 官網課表](https://cs329z.stanford.edu/)
-- 原文：[Yao et al., ReAct, ICLR 2023](https://arxiv.org/abs/2210.03629)、[Packer et al., MemGPT, ICLR 2024](https://arxiv.org/abs/2310.08560)、[Wei et al., Chain-of-Thought](https://arxiv.org/abs/2202.03629)
-- 專案與資料：[ReAct 專案頁](https://react-lm.github.io/)、[MemGPT 研究站](https://research.memgpt.ai/)、[ALFWorld](https://alfworld.github.io/)、[WebShop](https://webshop-pnlp.github.io/)、[FEVER](https://fever.ai/)、[HotpotQA](https://hotpotqa.github.io/)
+- 原文：[Packer et al., MemGPT, ICLR 2024](https://arxiv.org/abs/2310.08560)

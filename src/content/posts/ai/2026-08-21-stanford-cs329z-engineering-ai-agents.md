@@ -25,15 +25,15 @@ draft: false
 
 課程官網開宗明義給的框架是「compound AI systems」：由 LLM、檢索器、工具、優化器多個元件組成、彼此互動的系統。官網說這代表 AI 應用建構方式的一次根本改變。整學期的三條軸線寫在第一堂的描述裡——拆解（decomposition）、資料（data）、評估（evaluation）。
 
-自學這門課，可以沿著「先做出來，再讓它可靠」讀下去：前段手刻檢索與工具，中段管理 context、記憶與多智慧體，接著用資料和評估決定如何優化。本文整理材料入口與起步方式；第 1～6 週導讀都已依實際投影片逐段帶讀，涵蓋到第 11 堂。錄影仍須課程 Canvas 權限。
+自學這門課，可以沿著「先做出來，再讓它可靠」讀下去：前段手刻檢索與工具，中段管理 context、記憶與多智慧體，接著用資料和評估決定如何優化。本文整理材料入口與起步方式；系列改為一堂一篇：第 1～11 堂已依實際投影片逐頁帶讀，第 12 堂以後依課表與指定閱讀預習。錄影仍須課程 Canvas 權限。
 
 ## 把系列讀成一次接得起來的工程練習
 
-[官方課程](https://cs329z.stanford.edu/)的路徑很清楚：先做核心元件，再組 agent harness，接著用資料改善，最後證明它真的有效。本系列依第一堂導讀的方式重整：分清官方材料與本文解釋，沿機制展開，以例子連起來，再給出有答案判準的理解檢查。對要做繁中公司助理的讀者，每週都可以接回同一個工作問題。
+[官方課程](https://cs329z.stanford.edu/)的路徑很清楚：先做核心元件，再組 agent harness，接著用資料改善，最後證明它真的有效。本系列依第一堂導讀的方式重整：分清官方材料與本文解釋，沿機制展開，以例子連起來，再給出有答案判準的理解檢查。對要做繁中公司助理的讀者，每一堂都可以接回同一個工作問題。
 
 ### 從請求開始，把證據一路留下來
 
-先用本文自擬任務：「從公司信件說明為什麼交付延期。」檢索要找支持與反例，工具要回傳實際結果，記憶要保存有用狀態，不能把猜測變成事實。從[第一堂](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)開始，沿系列順序讀後續週次。每增加一個元件，都問下一次模型呼叫看得到什麼，以及哪項證據證明動作確實發生。
+先用本文自擬任務：「從公司信件說明為什麼交付延期。」檢索要找支持與反例，工具要回傳實際結果，記憶要保存有用狀態，不能把猜測變成事實。從[第一堂](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems)開始，沿系列順序一堂一堂讀下去。每增加一個元件，都問下一次模型呼叫看得到什麼，以及哪項證據證明動作確實發生。
 
 ### 找到失敗位置，再決定改哪一層
 
@@ -41,7 +41,7 @@ draft: false
 
 ### 先讀材料狀態，再決定怎麼使用導讀
 
-截至 2026-10-29，官網連出 Lecture 01–11（到 10/28 的 Data for Agentic Systems）。第 7 週以後目前是依課表與指定閱讀寫的預習，不能當成尚未發生的課堂紀錄；閱讀 Digest 也與主線解釋分開。自學者可用公開投影片與論文，[錄影則需課程 Canvas 權限](https://cs329z.stanford.edu/logistics.html)。有文章導讀，不表示有公開影片。
+截至 2026-10-29，官網連出 Lecture 01–11（到 10/28 的 Data for Agentic Systems）。第 12 堂以後目前是依課表與指定閱讀寫的預習，不能當成尚未發生的課堂紀錄；閱讀 Digest 也與主線解釋分開。自學者可用公開投影片與論文，[錄影則需課程 Canvas 權限](https://cs329z.stanford.edu/logistics.html)。有文章導讀，不表示有公開影片。
 
 **理解檢查**：助理找到正確信件，寫出合理解釋，並說已寄信，還缺什麼證據？**答案判準**：先確認解釋有保留原信的不確定性；寄送則要有實際工具結果與對應授權。「已完成」一句話無法證明這兩件事。
 
@@ -162,16 +162,18 @@ DSPy 出自 Stanford NLP。[Omar Khattab](https://omarkhattab.com/) 在 Stanford
 | 10/26 | Lecture 10: Guest Lecture — Terminal-Bench | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf) |
 | 10/28 | Lecture 11: Data for Agentic Systems | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture11.pdf) |
 
-第二堂實際講的是給開發者的模型內部知識；同週指定的 Anthropic workflow 分類是另一份閱讀。第三到第五堂接著走 RAG、工具與框架。新公開的第六、七堂把迴圈延伸成 context 與記憶設計，第八、九堂再回答要不要分工、該優化哪一層。第十堂由 Terminal-Bench 作者講怎麼寫評估任務、驗證器與任務版本，第十一堂整理 agent 資料的兩種形式、五種來源，以及資料會意外教會模型的捷徑。
+第二堂實際講的是給開發者的模型內部知識；Anthropic 的 workflow 分類則是第六堂的指定閱讀。第三到第五堂接著走 RAG、工具與框架。新公開的第六、七堂把迴圈延伸成 context 與記憶設計，第八、九堂再回答要不要分工、該優化哪一層。第十堂由 Terminal-Bench 作者講怎麼寫評估任務、驗證器與任務版本，第十一堂整理 agent 資料的兩種形式、五種來源，以及資料會意外教會模型的捷徑。
 
 | 自學階段 | 要回答的工程問題 | 本站導讀 |
 |---|---|---|
-| 做出元件：Lecture 1–5 | 哪一步是檢索、模型判斷或程式控制？ | [第 1 週](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)、[第 2 週](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)、[第 3 週](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy) |
-| 留住進度：Lecture 6–7 | 工具輸出太長時保留什麼？跨 session 記住什麼？ | [第 4 週：context 與記憶](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory) |
-| 分工與改善：Lecture 8–9 | 平行收益能否抵過協調成本？資料與評估足以支持優化嗎？ | [第 5 週：協調與優化](/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization) |
-| 驗收與資料：Lecture 10–11 | agent 說完成之後，環境真的符合要求嗎？訓練資料會意外教會它什麼？ | [第 6 週：Terminal-Bench 與資料飛輪](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel) |
+| 做出元件：Lecture 1–5 | 哪一步是檢索、模型判斷或程式控制？ | [第 1 堂](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems)、[第 2 堂](/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders)、[第 3 堂](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag)、[第 4 堂](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use)、[第 5 堂](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks) |
+| 留住進度：Lecture 6–7 | 工具輸出太長時保留什麼？跨 session 記住什麼？ | [第 6 堂：context](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)與[第 7 堂：記憶](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory) |
+| 分工與改善：Lecture 8–9 | 平行收益能否抵過協調成本？資料與評估足以支持優化嗎？ | [第 8 堂：協調](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent)與[第 9 堂：優化](/posts/ai/2026-09-10-stanford-cs329z-lecture-09-optimization) |
+| 驗收與資料：Lecture 10–11 | agent 說完成之後，環境真的符合要求嗎？訓練資料會意外教會它什麼？ | [第 10 堂：Terminal-Bench](/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench)與[第 11 堂：資料飛輪](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents) |
+| 資料與評估：Lecture 12–14 | 哪些資料值得留？四元組寫完整了，才能相信裁判嗎？ | [第 12 堂：資料選擇](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection)、[第 13 堂：benchmark](/posts/ai/2026-09-10-stanford-cs329z-lecture-13-eval-benchmarks)、[第 14 堂：LLM 裁判](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge) |
+| 安全與應用：Lecture 15–19 | agent 可以做什麼？在程式碼、桌面與網頁上能走多遠？ | [第 15 堂：安全](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety)、[第 17 堂：coding agent](/posts/ai/2026-09-10-stanford-cs329z-lecture-17-coding-agents)、[第 18 堂：主動式 agent](/posts/ai/2026-09-10-stanford-cs329z-lecture-18-proactive-agents)、[第 19 堂：開放問題](/posts/ai/2026-09-10-stanford-cs329z-lecture-19-frontiers-demo-day) |
 
-這張表是本文安排的閱讀路線。第 7 週以後還沒有投影片，仍以課表指定閱讀導讀為主，不當作已取得的課堂口述。
+這張表是本文安排的閱讀路線。第 12 堂以後還沒有投影片，仍以課表指定閱讀導讀為主，不當作已取得的課堂口述；第 16 堂客座主題公布後再補。
 
 **拿得到：整份閱讀清單，而且每一條都是可點的連結。** 指定閱讀與補充閱讀，大半指向 arXiv，其餘指向 [BAIR 那篇 compound AI systems 部落格文](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)、[MCP 規格](https://modelcontextprotocol.io/specification/2025-06-18)、[Anthropic 的 Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) 等公開頁面。沒有一條鎖在 Canvas 後面。
 
@@ -237,7 +239,7 @@ Part 1 先做 email 優先級分類、每日摘要、從零寫 BM25，以及多�
 
 歡迎詞先把agent放進複合系統，再要求學生手刻RAG、工具與迴圈，之後回看框架抽象。HW1把元件接成harness；HW2則用不同grader與四元組規格評估既有agent。口試要求學生說明自己交出的程式；Logistics允許經驗證的AI生成程式碼，但不允許AI代寫專案報告。
 
-課表也是材料發布地圖：投影片發布後才掛連結。未來主題描述證明的是計畫範圍，不能當作講師已說過的內容。因此，後續週次會明示目前是指定閱讀預習。
+課表也是材料發布地圖：投影片發布後才掛連結。未來主題描述證明的是計畫範圍，不能當作講師已說過的內容。因此，後續各堂會明示目前是指定閱讀預習。
 
 ### 深入要點
 
@@ -250,7 +252,7 @@ Part 1 先做 email 優先級分類、每日摘要、從零寫 BM25，以及多�
 
 ### 給你的 take-away
 
-挑一週的學習目標，做出一個能證明理解的最小產物，並準備解釋它有效的證據。
+挑一堂的學習目標，做出一個能證明理解的最小產物，並準備解釋它有效的證據。
 
 ## 讀物 2｜官方專案要求
 
@@ -294,7 +296,7 @@ Agent展示容易隱藏選題、失敗與安裝條件。專案規格要求把這
 
 ## 課程影片來源
 
-[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)說明錄影由課程 Canvas 提供，需登入取得。投影片地圖與週導讀依公開教材撰寫，未取得需認證的錄影或逐字稿。
+[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)說明錄影由課程 Canvas 提供，需登入取得。投影片地圖與各堂導讀依公開教材撰寫，未取得需認證的錄影或逐字稿。
 
 課程與錄影入口：
 
@@ -305,6 +307,7 @@ Agent展示容易隱藏選題、失敗與安裝條件。專案規格要求把這
 
 ## 更新紀錄
 
+- 2026-10-29：系列由一週一篇改為一堂一篇（第 1–19 堂，第 16 堂客座待公布），閱讀路線表補到第 19 堂，舊週文網址轉到對應堂次。
 - 2026-10-29：投影片地圖擴充到 Lecture 11（Terminal-Bench 客座、Data for Agentic Systems），改寫閱讀路線與客座段落中「尚未開講」的說法，補 HW2 起始檔尚未公開的現況，並重查錄影取得方式。
 
 - 2026-10-23：將上課資訊與截止日期併回相關段落，歷史統計與查證紀錄移入研究筆記。

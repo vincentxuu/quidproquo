@@ -25,7 +25,7 @@ draft: false
 
 The frame the course site opens with is "compound AI systems": systems assembled from LLMs, retrievers, tools and optimizers that interact with each other. The site calls this a fundamental shift in how AI applications get built. The three threads that run through the quarter are named in the very first session description — decomposition, data, evaluation.
 
-For self-study, follow the path from building a working system to making it reliable: retrieval and tools first, then context, memory and coordination, followed by data-driven optimization and evaluation. This overview maps the entry points. The Week 1–6 guides now walk through the released decks page by page, through Lecture 11. Recordings still require course Canvas access.
+For self-study, follow the path from building a working system to making it reliable: retrieval and tools first, then context, memory and coordination, followed by data-driven optimization and evaluation. This overview maps the entry points. The series now has one post per lecture: Lectures 1–11 walk through the released decks page by page, and Lecture 12 onward are previews from the schedule and readings. Recordings still require course Canvas access.
 
 ## Read the series as a connected engineering exercise
 
@@ -33,7 +33,7 @@ The [official course](https://cs329z.stanford.edu/) follows an applied progressi
 
 ### Start from a request and preserve the evidence path
 
-Use a small original task: explain a delivery delay from an email archive. Retrieval must find supporting and contrary messages; tools must return observable results; memory must preserve useful state without turning guesses into facts. Follow [the first lecture](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en), then the weekly guides in series order. At each stage ask what information reaches the next model call and what proves an action happened.
+Use a small original task: explain a delivery delay from an email archive. Retrieval must find supporting and contrary messages; tools must return observable results; memory must preserve useful state without turning guesses into facts. Follow [the first lecture](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems-en), then the lecture guides in series order. At each stage ask what information reaches the next model call and what proves an action happened.
 
 ### Change the system only after locating a failure
 
@@ -41,7 +41,7 @@ A missing source suggests retrieval or indexing work; a distorted handoff sugges
 
 ### Read the source status before treating a guide as a lecture
 
-As of October 29, 2026, the official site links Lectures 01–11 (through the October 28 Data for Agentic Systems lecture). Week 7 onward is still preparation based on the schedule and assigned readings; they are not accounts of classes that have not occurred. Their reading Digests are separated from the central explanation. Public slides and papers are available to self-learners; [recordings require course Canvas access](https://cs329z.stanford.edu/logistics.html). A reading guide does not imply public video availability.
+As of October 29, 2026, the official site links Lectures 01–11 (through the October 28 Data for Agentic Systems lecture). Lecture 12 onward is still preparation based on the schedule and assigned readings; they are not accounts of classes that have not occurred. Their reading Digests are separated from the central explanation. Public slides and papers are available to self-learners; [recordings require course Canvas access](https://cs329z.stanford.edu/logistics.html). A reading guide does not imply public video availability.
 
 **Check:** an assistant finds the right email, writes a plausible explanation, and says it sent the message. What remains unproven? **Answer criteria:** the explanation must preserve source uncertainty, and sending requires actual tool evidence plus the relevant authorization. A completion sentence alone establishes neither.
 
@@ -163,16 +163,18 @@ The conclusion first: **you get the syllabus, the reading list, and slides poste
 | 10/26 | Lecture 10: Guest Lecture — Terminal-Bench | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf) |
 | 10/28 | Lecture 11: Data for Agentic Systems | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture11.pdf) |
 
-Lecture 2 covers model internals for builders; its assigned Anthropic workflow taxonomy is a separate reading. Lectures 3–5 introduce retrieval, tools, and frameworks. Lectures 6–7 extend the loop into context and memory design; Lectures 8–9 ask when to divide work and which layer to optimize. In Lecture 10 the Terminal-Bench authors explain how to write evaluation tasks, verifiers, and task versions; Lecture 11 covers the two forms of agent data, five sources, and the shortcuts data teaches by accident.
+Lecture 2 covers model internals for builders; Anthropic's workflow taxonomy is a Lecture 6 reading. Lectures 3–5 introduce retrieval, tools, and frameworks. Lectures 6–7 extend the loop into context and memory design; Lectures 8–9 ask when to divide work and which layer to optimize. In Lecture 10 the Terminal-Bench authors explain how to write evaluation tasks, verifiers, and task versions; Lecture 11 covers the two forms of agent data, five sources, and the shortcuts data teaches by accident.
 
 | Self-study stage | Engineering question | Guide |
 |---|---|---|
-| Build components: Lectures 1–5 | Which steps are retrieval, model decisions, or program control? | [Week 1](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en), [Week 2](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), [Week 3](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en) |
-| Preserve progress: Lectures 6–7 | What survives a long tool result or a session boundary? | [Week 4: context and memory](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en) |
-| Coordinate and improve: Lectures 8–9 | Does parallelism justify coordination cost, and do data and evals support optimization? | [Week 5: coordination and optimization](/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization-en) |
-| Verify outcomes and data: Lectures 10–11 | Does the environment satisfy the request after the agent says it is done? What does training data teach by accident? | [Week 6: Terminal-Bench and data flywheels](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel-en) |
+| Build components: Lectures 1–5 | Which steps are retrieval, model decisions, or program control? | [Lecture 1](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems-en), [Lecture 2](/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders-en), [Lecture 3](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag-en), [Lecture 4](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use-en), [Lecture 5](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks-en) |
+| Preserve progress: Lectures 6–7 | What survives a long tool result or a session boundary? | [Lecture 6: context](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en) and [Lecture 7: memory](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory-en) |
+| Coordinate and improve: Lectures 8–9 | Does parallelism justify coordination cost, and do data and evals support optimization? | [Lecture 8: coordination](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent-en) and [Lecture 9: optimization](/posts/ai/2026-09-10-stanford-cs329z-lecture-09-optimization-en) |
+| Verify outcomes and data: Lectures 10–11 | Does the environment satisfy the request after the agent says it is done? What does training data teach by accident? | [Lecture 10: Terminal-Bench](/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench-en) and [Lecture 11: data flywheels](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents-en) |
+| Data and evaluation: Lectures 12–14 | Which data is worth keeping, and is the 4-tuple fully specified before trusting a judge? | [Lecture 12: data selection](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection-en), [Lecture 13: benchmarks](/posts/ai/2026-09-10-stanford-cs329z-lecture-13-eval-benchmarks-en), [Lecture 14: LLM judges](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge-en) |
+| Safety and applications: Lectures 15–19 | What may the agent do, and how far does it get on code, the desktop and the web? | [Lecture 15: safety](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety-en), [Lecture 17: coding agents](/posts/ai/2026-09-10-stanford-cs329z-lecture-17-coding-agents-en), [Lecture 18: proactive agents](/posts/ai/2026-09-10-stanford-cs329z-lecture-18-proactive-agents-en), [Lecture 19: open problems](/posts/ai/2026-09-10-stanford-cs329z-lecture-19-frontiers-demo-day-en) |
 
-This is the article's suggested reading route. Week 7 onward has no slides yet and remains primarily a guide to scheduled readings, rather than a record of classroom speech.
+This is the article's suggested reading route. Lecture 12 onward has no slides yet and remains primarily a guide to scheduled readings, rather than a record of classroom speech; the Lecture 16 guest session will be added once its topic is announced.
 
 **Available: the entire reading list, every entry a clickable link.** Assigned and supplementary readings are public, most pointing at arXiv and the rest at public pages — the [BAIR compound AI systems post](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/), the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18), [Anthropic's Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) and others. Not one item is locked behind Canvas.
 
@@ -238,7 +240,7 @@ Research papers explain individual methods. A course also needs a sequence of pr
 
 The welcome page first frames agents within compound systems, then says students build RAG, tools, and loops before examining framework abstractions. HW1 turns those components into a harness; HW2 evaluates a supplied agent with different graders and a four-tuple task specification. Oral quizzes ask students to explain the code they submit. Logistics permits validated AI-generated code while disallowing AI-written project reports.
 
-The schedule is also a release map: it links slides as they become available. A future topic description establishes planned scope, not what an instructor has already said. This distinction is why later weekly guides identify their reading-based preparation status.
+The schedule is also a release map: it links slides as they become available. A future topic description establishes planned scope, not what an instructor has already said. This distinction is why later lecture guides identify their reading-based preparation status.
 
 ### Deeper points
 
@@ -251,7 +253,7 @@ Use the official pages as the learning contract and release map, with dates chec
 
 ### Your take-away
 
-Choose one weekly outcome, build a small artifact demonstrating it, and prepare to explain the evidence that the artifact works.
+Choose one lecture outcome, build a small artifact demonstrating it, and prepare to explain the evidence that the artifact works.
 
 ## Reading 2 | Official project requirements
 
@@ -295,7 +297,7 @@ Before implementation, write the task, baseline, acceptance measure, and one com
 
 ## Course video sources
 
-The [official Logistics page](https://cs329z.stanford.edu/logistics.html) provides lecture recordings through the course Canvas site, which requires sign-in. The slide map and weekly guides use public materials, not an authenticated recording or transcript.
+The [official Logistics page](https://cs329z.stanford.edu/logistics.html) provides lecture recordings through the course Canvas site, which requires sign-in. The slide map and lecture guides use public materials, not an authenticated recording or transcript.
 
 Course and recording entries:
 
@@ -306,6 +308,7 @@ Checked: 2026-10-29.
 
 ## Update Log
 
+- 2026-10-29: The series moved from one post per week to one post per lecture (Lectures 1–19, with the Lecture 16 guest session still to be announced); the reading-route table now runs through Lecture 19, and old weekly URLs redirect to the matching lecture.
 - 2026-10-29: Extended the slide map through Lecture 11 (Terminal-Bench guest lecture, Data for Agentic Systems), rewrote the reading route and guest-session passages that called the lecture upcoming, noted that HW2 files are not yet public, and rechecked recording access.
 
 - 2026-10-23: Kept enrollment details and deadlines with their relevant sections; moved historical counts and verification records to research notes.

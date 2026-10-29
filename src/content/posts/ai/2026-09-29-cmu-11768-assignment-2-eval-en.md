@@ -168,8 +168,8 @@ Put differently, A2's macro-MCC measures how much noise your validator would inj
 
 For the series overview, see [the course overview post](/posts/ai/2026-09-29-cmu-11768-course-overview-en).
 
-- [Reading Stanford CS329Z Week 7: Score Honestly, Scale Data — Midterm Checkpoint](/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks-en)
-- [Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en)
+- [Reading Stanford CS329Z Lecture 13: don't let the score fool you](/posts/ai/2026-09-10-stanford-cs329z-lecture-13-eval-benchmarks-en) and [Lecture 12: data selection](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection-en)
+- [Reading Stanford CS329Z Lecture 14: let a model judge](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge-en) and [Lecture 15: guardrail the agent](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety-en)
 - [How to Rigorously Compare Before and After Agent Changes: From Golden Sets to Statistical Testing](/posts/ai/2026-06-04-agent-change-rigorous-evaluation-en)
 - [Self-Reflection + LLM-as-Judge: Having AI Evaluate Its Own Answers](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
 - [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards, but GRPO Is Not Free PPO](/posts/ai/2026-08-22-cs336-rlvr-en)

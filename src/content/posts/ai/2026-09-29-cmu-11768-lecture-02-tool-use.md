@@ -212,7 +212,7 @@ Neubig 提了一個現在 agent 圈的怪現象：**更貴的模型按任務計�
 ## 延伸閱讀
 
 - [CMU 11-768 導讀系列總覽](/posts/ai/2026-09-29-cmu-11768-course-overview)：整門課的地圖與各篇索引
-- [Stanford CS329Z 導讀 Week 3：工具接進來，框架拆開看](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)：另一門課從系統設計角度談工具與 DSPy
+- [Stanford CS329Z 第 4 堂：工具](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use)與[第 5 堂：框架](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks)：另一門課從系統設計角度談工具與 DSPy
 - [MCP（Model Context Protocol）：AI Agent 工具呼叫的標準化協定](/posts/ai/2026-03-22-mcp-model-context-protocol)
 - [MCP vs CLI vs API：Agent 工具介面的真實分界](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface)：和本講 REST vs MCP 一節互補
 - [Code Mode：把 tool definition 從 context 搬進 code](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern)：CodeAct 想法在 MCP 上的實作

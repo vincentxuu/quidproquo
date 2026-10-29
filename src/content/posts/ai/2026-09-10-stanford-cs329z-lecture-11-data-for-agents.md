@@ -1,5 +1,5 @@
 ---
-title: "資料飛輪轉起來——HW1 繳交週｜Stanford CS329Z 第 6 週"
+title: "agent 需要什麼資料：軌跡、示範、回饋與資料飛輪｜Stanford CS329Z 第 11 堂"
 date: 2026-09-10
 updated: 2026-10-29
 category: ai
@@ -8,71 +8,19 @@ tags: [cs329z, ai-course, stanford, ai-agent, compound-ai-systems]
 lang: zh-TW
 series:
   name: "Stanford CS329Z 導讀"
-  order: 7
-tldr: "第 6 週兩堂都有投影片：Lecture 10 由 Terminal-Bench 作者講怎麼寫任務、驗證器與任務版本，Lecture 11 整理 agent 資料的兩種形式、五種來源，以及資料會意外教會模型的捷徑。再接 Shankar 資料飛輪：把人工複核的失敗變成開發示範，另外保留測試題。HW1 於 10/30 截止。"
-description: "依實體頁碼帶讀 CS329Z Lecture 10（Terminal-Bench 與 Harbor 客座）與 Lecture 11（agent 需要什麼資料），再讀 Terminal-Bench 論文與 Shankar 資料飛輪：用 CSV 例子設計成果驗收，並區分開發示範與保留測試。"
+  order: 12
+tldr: "Lecture 11 整理 agent 資料的形式與來源：軌跡、示範與回饋，優化用與評估用資料的區分，資料飛輪、合成資料，以及從人機互動收集資料，也提醒資料會意外教會模型捷徑。讀物是 Shankar 的資料飛輪與 LLM 資料標註合成綜述。"
+description: "依實體頁碼帶讀 CS329Z Lecture 11 Data for Agentic Systems 投影片，再深讀 Shankar 的資料飛輪與 LLM 資料標註合成綜述，用 CSV 例子設計成果驗收並區分開發示範與保留測試。"
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel-en)
+> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
-Week 6 是繳交週。週一（10/26）由 Terminal-Bench 共同作者 Ryan Marten、Alex Shaw 客座（Lecture 10），同一天 [HW2](https://cs329z.stanford.edu/) 發布。週三（10/28）的 Lecture 11 談 agent 需要什麼資料，主讀物是 [Shreya Shankar](https://www.sh-reya.com/) 的 [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/)（2024）。週五（10/30）HW1 截止。緊接著 11/4 晚上 11:59 前要交期中 demo 錄影，期中報告在 11/6 到期。
+第 11 堂（10/28，What Data Do Agents Need?）談的是資料：軌跡、示範與回饋，優化用和評估用的資料要怎麼分，資料飛輪怎麼轉，合成資料與人機互動資料怎麼收。週五（10/30）HW1 截止，11/4 晚上要交期中 demo 錄影。
 
-資料飛輪只有一句話：上線後的每一次輸出，都是下一次變強的教材。智慧體每回答一題，就留下一條軌跡：使用者問了什麼、系統走了哪幾步、最後答對還是答錯。把軌跡收好、打上分數，挑好的放回提示當示範，修好的壞例子也放回去。轉完一圈，示範變好、分數變高，下一圈又產出更好的資料。
-
-Shankar 把這一圈拆成三站：評估、監控、持續改進。評估決定成功長什麼樣子，監控確保指標沒有跟現實脫鉤，改進負責把學到的東西放回系統。三站吃的是同一批生產資料，只是用途不同。這篇文章沒有新模型也沒有新演算法，談的是工程紀律：怎麼把每一筆生產資料用到極致。
-
-## Lecture 10 投影片導讀
-
-<div class="slide-reader" data-slide-reader data-pages="64" data-pdf-src="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf">
-<p>共 64 頁，以 PDF 實體頁碼對照。點各節頁碼可查看相應投影片。</p>
-<button type="button" data-slide-open>開啟投影片對照</button>
-<p><a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf" target="_blank" rel="noopener noreferrer">另開分頁看原始 PDF</a></p>
-</div>
-
-這堂是 Terminal-Bench 共同作者 Alex Shaw 與 Ryan Marten 的客座，投影片標題是 Evaluating Agents: Terminal-Bench and Harbor。前半講為什麼評估變成 agent 開發的核心，後半是他們寫任務、維護 benchmark 的實務經驗。
-
-### 第 1–28 頁：規則不再是唯一的真相來源
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=1" data-slide-page="1">投影片第 1–28 頁</a>
-
-講者先走一遍軟體史：從直接寫機器碼、組合語言到高階語言，人寫規則、程式把規則套到新輸入，這是演繹式的開發。機器學習把方向倒過來：人給輸入與輸出的範例，訓練推出規則。投影片接著主張所有數位技術都在變成歸納式：模型從資料學、agent 靠評估來開發、軟體則由 agent 產生。
-
-這帶出全場的問題：過去寫規格的人是軟體工程師，那現在負責「評估」的是誰？當行為是學出來而不是寫出來的，你能檢查的只剩輸出。這也是 HW2 要你親手設計評估的原因。
-
-**理解檢查**：為什麼講者說 agent 是「靠評估開發」？**答案判準**：agent 的行為沒有一份能逐行審查的規則，只能用一組任務與評分去觀察它做出什麼，再依結果改動；評估因此取代規格，成為判斷對錯的依據。
-
-### 第 29–39 頁：一個 Terminal-Bench 任務長什麼樣
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=29" data-slide-page="29">投影片第 29–39 頁</a>
-
-Terminal-Bench 的出發點是「bash 一個工具就能做大部分事」，所以任務都在終端機裡完成。[第 38 頁](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=38)的範例把一個任務拆成三份檔案：指令要 agent 依 `/app/schematic.png` 的 2D 圖輸出一個 STEP 立體檔；Dockerfile 只準備好 Python 與那張圖；測試則逐項檢查檔案合法、封閉、體積、表面積、慣性矩與拓撲。測試讀的是產物，不管 agent 用了哪些指令。
-
-講者也列出專案規模（[第 36 頁](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=36)寫累計超過 700 萬次 benchmark 執行），並在第 39 頁把重點從「我們做一個評估」轉成「讓你做自己的評估」：Harbor 是他們為此做的工具。
-
-**理解檢查**：STEP 範例為什麼要檢查體積與慣性矩，而不只檢查檔案能否開啟？**答案判準**：能開啟只代表格式合法；體積、表面積、慣性矩與拓撲才對應「做出圖上那個物體」這項需求。
-
-### 第 40–55 頁：寫任務的三件事：指令、環境、驗證器
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=40" data-slide-page="40">投影片第 40–55 頁</a>
-
-[第 42 頁](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=42)沿用 Anthropic 的評估名詞：task 是一題、trial 是一次嘗試、verifier 打分數、trajectory 是完整紀錄；評估 harness 負責跑整套評估，agent harness 則讓模型能當 agent 行動，兩者別混為一談。[第 43 頁](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=43)是 Harbor 的任務目錄：`instruction.md`、`task.toml`、`environment/Dockerfile`、`solution/solve.sh`、`tests/test.sh`，與 agent 無關、可攜帶。
-
-寫任務的核心問題是「你在量什麼、量得對不對」。指令要完整、精簡、自然；[第 46 頁](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=46)把一份冗長指令修成短版做對照。環境要盡量用真的軟體與服務而不是 mock，必要的網路依賴先裝進映像以減少不穩定。驗證器是讀環境終態的分類器，要用混淆矩陣想 false positive 與 false negative，並與指令裡的需求一一對應；可以是程式檢查，也可以是 agent 或模型評審。防 reward hacking 的做法是把 agent 環境與驗證環境隔離，只把產物交給測試；[第 52 頁](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=52)展示模型上網找 Lean 核心的已知漏洞來通過評分的例子。參考解法則要模仿 agent 會做的動作，不能把答案寫死，否則測不出環境與驗證器的錯。
-
-**理解檢查**：指令寫「輸出 summary.csv」，驗證器卻另外檢查欄位順序，會出什麼問題？**答案判準**：驗證器要求了指令沒寫的條件，正確完成的 agent 會被判失敗，屬於 false negative；修法是讓指令與驗證器一一對應，補寫需求或放寬檢查。
-
-### 第 56–64 頁：評估基礎設施與任務版本
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=56" data-slide-page="56">投影片第 56–64 頁</a>
-
-評估基礎設施要可靠、可重現、能平行跑獨立的 trial，並能在本機與雲端沙盒間搬移；同一套 rollout 設施可同時服務測試、訓練與上線。任務本身也要 QA：[第 59 頁](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=59)列出靜態檢查、agent 評審、跑參考解法的 oracle agent、前沿模型 agent，以及專門找漏洞的作弊 agent，再讓評審讀這些軌跡。
-
-講者的態度是「任務就是軟體」：會有 bug、會被使用者回報、新模型會帶出新行為。[第 61 頁](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=61)用三段式版本號決定舊結果怎麼辦：改到 agent 看得到的指令、環境或工具，升主版號並重跑；只改驗證器（修過嚴的檢查、堵 reward hack、調評審），升次版號並對舊軌跡重新評分；只改文件、釘依賴、修錯字，升修訂號並沿用結果。最後每一列結果都要附完整收據：軌跡、日誌、產物與分數。
-
-**理解檢查**：你發現驗證器漏抓「改壞輸入檔」，補上檢查後，上週的 50 次執行要全部重跑嗎？**答案判準**：只改了驗證器，屬於次版號變動；保留的軌跡與產物足以重新評分，不必重跑。前提是每次 trial 都留下了產物。
+資料飛輪只有一句話：上線後的每一次輸出，都是下一次變強的教材。指定讀物 [Shreya Shankar](https://www.sh-reya.com/) 的 [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/) 把這一圈拆成評估、監控、持續改進三站；延伸閱讀是 Tan 等人的 LLM 資料標註與合成綜述，本文兩篇都深讀。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
 
 ## Lecture 11 投影片導讀
 
@@ -82,7 +30,7 @@ Terminal-Bench 的出發點是「bash 一個工具就能做大部分事」，所
 <p><a href="https://web.stanford.edu/class/cs329z/slides/lecture11.pdf" target="_blank" rel="noopener noreferrer">另開分頁看原始 PDF</a></p>
 </div>
 
-Lecture 09 在模型權重不動的前提下優化周邊系統；這堂改談怎麼讓模型本身變成更好的 agent，而主要槓桿是資料。下週的 Data Selection 再談該挑哪些資料來訓練。
+Lecture 09 在模型權重不動的前提下優化周邊系統；這堂改談怎麼讓模型本身變成更好的 agent，而主要槓桿是資料。下一堂（11/2）的 Data Selection 再談該挑哪些資料來訓練。
 
 ### 第 1–18 頁：agent 資料只有兩種：軌跡與環境
 
@@ -124,7 +72,7 @@ RL 的獎勵從哪來？[第 16 頁](https://web.stanford.edu/class/cs329z/slide
 
 ## 從終態往回追：資料飛輪怎麼產生可用證據
 
-在繁中客服或公司內部助理裡，「回答看起來合理」與「事情完成」常常不同。這週先把兩者拆開。上面兩堂投影片講的是怎麼寫評估任務、資料從哪裡來；這一節用本文自擬的例子，把驗收、失敗紀錄與資料分流串成三步。
+在繁中客服或公司內部助理裡，「回答看起來合理」與「事情完成」常常不同。這裡先把兩者拆開。第 10 堂與本堂投影片講的是怎麼寫評估任務、資料從哪裡來；這一節用本文自擬的例子，把驗收、失敗紀錄與資料分流串成三步。
 
 ### 第一步：先寫出環境應有的變化
 
@@ -140,74 +88,7 @@ RL 的獎勵從哪來？[第 16 頁](https://web.stanford.edu/class/cs329z/slide
 
 **理解檢查**：檔案格式正確，但把取消訂單也加進總額，應該多加一個模型裁判嗎？**答案判準**：先補可執行的業務規則檢查，再追到過濾那一步；模型裁判適合開放式品質，不能取代這個確定性規則。
 
-
-
-## 讀物 1｜Terminal-Bench
-
-原文：[Terminal-Bench](https://arxiv.org/html/2601.11868)
-
-### TL;DR
-
-任務把指令、Docker 環境、時間限制、測試與參考解法放在一起，依環境終態評分。
-
-### 編輯判斷
-
-| 面向 | 閱讀判斷 |
-| --- | --- |
-| 核心問題 | 終端機 agent 說完成後，如何驗證它真的完成？ |
-| 證據與邊界 | 本文讀的是論文中的版本與任務定義；沒有把專案最新排行榜當成課程表現。 |
-
-### 領域背景
-
-終端機能操作大量環境狀態；命令成功退出仍可能留下錯誤檔案或未完成設定。
-
-### 中階導讀
-
-**方法。** Harness啟動隔離環境，交給agent指令與終端機；結束後由測試讀容器狀態判定。
-
-客座本身講了什麼，見上方 Lecture 10 投影片導讀；本節讀指定的 [Terminal-Bench 論文](https://arxiv.org/html/2601.11868)，看任務定義在論文裡怎麼寫。先備是能看懂工具呼叫與終端機輸出；讀完要能替自己的 agent 寫出一個「它無法靠嘴巴通過」的驗收條件。
-
-論文的任務定義把指令、隔離的 Docker 環境、測試、參考解法與時間限制放在一起。Agent 可以自行決定要下哪些命令；評分測的是**最後容器狀態是否符合指令要求**，不要求它照參考解法走，也不靠最後一段回覆判分。這個分界很適合帶回 HW1：會用 terminal 是動作能力，知道動作有沒有達成需求才是評估能力。
-
-以下是本文自擬的教學例子，並非官方 benchmark 題目或作業答案。假設你替團隊整理活動報名 CSV，輸入是：
-
-```csv
-city,status
-台北,confirmed
-台北,cancelled
-台中,confirmed
-台北,confirmed
-```
-
-任務要求只計入 `confirmed`，依城市產生 `summary.csv`，且不能改動輸入檔。先逐列看條件：取消的台北那列排除，剩下台北兩列、台中一列。因此預期輸出是台北 2、台中 1；行序不影響結果。
-
-| 跑完後的狀態 | 驗收結果 | 為什麼 |
-|---|---|---|
-| 回覆「完成了」，沒有輸出檔 | 不通過 | 文字不能替代檔案 |
-| 有檔案，台北計為 3 | 不通過 | 把取消者算進去了 |
-| 台北 2、台中 1，但改掉輸入檔 | 不通過 | 產出正確仍違反保留輸入的要求 |
-| 輸出欄位、城市與數量正確，輸入不變 | 通過本例條件 | 檔案狀態與限制都符合要求 |
-
-你可以把驗收器拆成讀回 CSV、比較城市到數量的對應表，以及比較輸入檔執行前後的雜湊。這裡是在說明驗收設計，沒有宣稱已跑過官方 harness；也不代表這些檢查能保證任意任務安全。
-
-**理解檢查**：兩個 agent 分別用 Python 和 shell 完成相同結果，該只讓哪一個通過？本例兩個都可通過，因為需求沒有指定語言。再問：如果測試只檢查輸出檔存在，能抓到哪個錯誤？只能抓到第一列的缺檔，抓不到數錯或改壞輸入，必須補結果與限制檢查。
-
-**證據與結果。** 論文將複雜命令列工作整理成有執行環境與測試的題目，使成果判分不必依賴agent自述。
-
-### 深入要點
-
-- 參考解法證明題目可解，不要求agent採取相同命令順序。
-- 環境重設與時間限制是題目定義的一部分；沿用上次產物會改變考題。
-
-### Reviewer 一句話評
-
-結果驗收比完成自述更接近真實能力。
-
-### 給你的 take-away
-
-替自己的任務寫一個讀實際產物的測試，不接受最後一句自述作證。
-
-## 讀物 2｜Data Flywheels for LLM Applications
+## 讀物 1｜Data Flywheels for LLM Applications
 
 原文：[Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/)
 
@@ -274,7 +155,7 @@ caption: 本文教學設計；開發示範與保留測試分開，不把示範�
 
 三種節點的驗法各不相同。分類器看準確率、精確率、召回率這類老指標。寫手最麻煩，標準因任務而異，得寫專屬的驗證器。生程式的節點最幸福： lint、測試、直接執行 SQL 看結果，軟體工程的老工具全都能用。
 
-探針插多了，下一個問題是先修哪裡。做法是幫每個驗證器打標籤，算出每一步的準確率，錯誤在哪裡放大一目了然。作者也承認，多步管線的完整驗證仍是開放問題，這正是下週評估主題的前菜。
+探針插多了，下一個問題是先修哪裡。做法是幫每個驗證器打標籤，算出每一步的準確率，錯誤在哪裡放大一目了然。作者也承認，多步管線的完整驗證仍是開放問題，這正是第 13 堂評估主題的前菜。
 
 業界多半只驗輸出，作者堅持輸入也要驗。擋掉不該進管線的查詢，本身就是強健性。她的座右銘借自 [Brendan Dolan-Gavitt](https://moyix.net/)：對送進模型的輸入嚴格，對拿到的回應寬容。
 
@@ -284,7 +165,7 @@ caption: 本文教學設計；開發示範與保留測試分開，不把示範�
 
 指標實作也要跟著長大。定期抽樣、人工標註、連時間戳一起入庫，這是整套飛輪最花人力的一步。標註庫養起來後，驗證提示不再寫死：每次按語義相似度撈相關範例，優先撈人和模型曾經意見不一致的，再按新舊加權。新資料權重高是作者的直覺，她也坦承還沒看到有人這樣做。
 
-標註人力省不得，但可以變聰明。[LangChain](https://www.langchain.com/) 的做法是模型先標、人工只改：預設每筆資料都有標籤，人想改再改。缺點作者也很誠實：人一偷懶不檢查，對齊度會默默漂掉。這正是下週讀物 [Who Validates the Validators](https://arxiv.org/abs/2404.12272)（UIST 2024）要處理的問題。
+標註人力省不得，但可以變聰明。[LangChain](https://www.langchain.com/) 的做法是模型先標、人工只改：預設每筆資料都有標籤，人想改再改。缺點作者也很誠實：人一偷懶不檢查，對齊度會默默漂掉。這正是第 12 堂讀物 [Who Validates the Validators](https://arxiv.org/abs/2404.12272)（UIST 2024）要處理的問題。
 
 前面兩站都是為了這一站：讓系統越跑越強。前提是日誌要全：輸出是什麼、各項分數是多少，全部留下來，[LangSmith](https://www.langchain.com/langsmith) 這類工具負責的就是這件事。接著分人力與自動兩條腿走路。
 
@@ -294,7 +175,7 @@ caption: 本文教學設計；開發示範與保留測試分開，不把示範�
 
 課題名稱就點出三種資料：軌跡、示範與回饋。飛輪文章幫它們分了工：修好的軌跡是示範，拿去優化；打過分的軌跡是考題，拿來評估。兩種用途可以來自同一座標註庫，但調整前就要分開開發案例與保留測試；已放進示範的案例不能再當獨立測驗證據。
 
-這也解釋了 HW2 為何緊接著 HW1。HW2（10/26 發布）要你為現成智慧體打造整套評估：程式寫死的評分器、至少一個模型評判，外加錯誤分析。考題用四元組（請求、環境、停止條件、評分器）打造。Week 5 學優化，本週學生產資料，下一步就是評，這是課程的刻意安排。
+這也解釋了 HW2 為何緊接著 HW1。HW2（10/26 發布）要你為現成智慧體打造整套評估：程式寫死的評分器、至少一個模型評判，外加錯誤分析。考題用四元組（請求、環境、停止條件、評分器）打造。第 9 堂學優化，本堂學生產資料，下一步就是評，這是課程的刻意安排。
 
 飛輪轉不轉，最終看人願不願意標。作者的觀察第一條就是：人必須定期留在迴圈裡，因為人對輸出的偏好會變。模型先標、人只改的流程省力，但法務想先審提示、惡意查詢可能污染示範庫，這些都是真實世界的摩擦。部落格註腳裡，Han 就點了這兩個風險。
 
@@ -315,7 +196,7 @@ caption: 本文教學設計；開發示範與保留測試分開，不把示範�
 
 對每筆失敗保留原因與修正版，另外隔離不參與調整的驗收資料。
 
-## 讀物 3｜LLMs for Data Annotation and Synthesis: A Survey
+## 讀物 2｜LLMs for Data Annotation and Synthesis: A Survey
 
 原文：[LLMs for Data Annotation and Synthesis: A Survey](https://aclanthology.org/2024.emnlp-main.54/)
 
@@ -340,7 +221,7 @@ Survey 整理 LLM 用於資料標註與生成的方法、應用與挑戰；資�
 
 主文幾乎不談純合成資料，這句話本身就是答案。飛輪的燃料是被修好的真實輸出，不是模型憑空生的。模型自己改寫、自己標註能不能用，取決於驗證器跟人有多對齊。而這正是作者點名的開放問題：指令調校模型的 token 機率校準很差，直接問模型要信心分數，效果也不好。
 
-想補這塊拼圖，可以讀本週延伸讀物 [Tan 等人的綜述](https://arxiv.org/abs/2402.13446)（EMNLP 2024）：模型如何當標註員，合成的標註怎麼驗收，用合成資料訓練要注意什麼。三塊內容正好是飛輪缺的那幾頁。
+想補這塊拼圖，可以讀本堂延伸讀物 [Tan 等人的綜述](https://arxiv.org/abs/2402.13446)（EMNLP 2024）：模型如何當標註員，合成的標註怎麼驗收，用合成資料訓練要注意什麼。三塊內容正好是飛輪缺的那幾頁。
 
 **證據與結果。** 綜述把標註與合成方法放在同一地圖，說明應用同時需要成本、品質與偏誤的取捨。
 
@@ -357,20 +238,20 @@ Survey 整理 LLM 用於資料標註與生成的方法、應用與挑戰；資�
 
 先用人工標註的小樣本驗證合成資料，再決定哪些失敗類型值得擴增。
 
-
 ## 怎麼做：繳交週先讓軌跡留下來
 
 **怎麼做**：給你的 HW1 智慧體加上最小軌跡紀錄：每題存下查詢、檢索到的信件、最終答案，再加你親手打的一個好壞標記。每週留半小時回顧：修好壞例子收進示範庫，常錯的類型寫成下一版指標。HW1 截止前跑完一輪，期中報告的 Environment & Data 與進度摘要兩節就有現成素材：評估資料怎麼來、目前卡在哪些失敗。
 
 ## 它在課程裡的位置
 
-本週是分水嶺。HW1（10/30 截止）交出不靠框架、從零寫成的完整 harness，HW2（10/26 發布）把戰場換到評估。下週（Week 7）繼續加碼。週一讀 [SWE-smith](https://arxiv.org/abs/2504.21798)（NeurIPS 2025）談如何為軟體工程智慧體量產任務資料，外加 Who Validates the Validators 談驗證器對齊。週三整堂談評估設計。期中 demo 是錄影繳交，不在課堂上發表，11/4 截止；11/6 期中報告到期。原型得先跑起來，才錄得出東西。
+第 11 堂把軌跡變成資料，下一週接著談資料品質與評估：[第 12 堂](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection)談怎麼挑出最有資訊量的資料，第 13 堂談 benchmark 設計。
 
-## 本週 Course Material 對照
+## 本堂 Course Material 對照
 
-- 週一 10/26 Lecture 10 Terminal-Bench：Ryan Marten、Alex Shaw 客座，[投影片](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf)（本文已逐段導讀）；指定閱讀為 [Terminal-Bench 專案站](https://www.tbench.ai/)與[論文](https://arxiv.org/html/2601.11868)。
-- 週三 10/28 Lecture 11 What Data Do Agents Need?：[投影片](https://web.stanford.edu/class/cs329z/slides/lecture11.pdf)（本文已逐段導讀）；主讀物 Shankar 資料飛輪（本文已導讀）；延伸閱讀 [Tan 等人資料標註與合成綜述](https://aclanthology.org/2024.emnlp-main.54/)（EMNLP 2024）。該綜述把模型當標註員的工作分成三塊：標註怎麼生成、合成標註怎麼驗收、拿合成標註訓練要注意什麼。另附資料型別的分類與既有學習策略的回顧。本文合成資料一節對應的正是這三分法。
-- 課表原文：[CS329Z 官網 Week 6](https://cs329z.stanford.edu/)
+- 官方投影片（PDF）：[What Data Do Agents Need? — Lecture 11](https://web.stanford.edu/class/cs329z/slides/lecture11.pdf)
+- 指定閱讀：Shankar〈Data Flywheels for LLM Applications〉（本文深讀）
+- 延伸閱讀：Tan 等人〈Large Language Models for Data Annotation and Synthesis: A Survey〉（本文深讀）
+- 課表原文：[CS329Z 官網](https://cs329z.stanford.edu/)
 
 ## 課程影片來源
 
@@ -385,24 +266,17 @@ Survey 整理 LLM 用於資料標註與生成的方法、應用與挑戰；資�
 
 ## 更新紀錄
 
+- 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 11（10/28 週三）的內容，原屬「第 6 週：資料飛輪轉起來」導讀；以下保留拆分前的紀錄。
 - 2026-10-29：Lecture 10、11 投影片公開後，依實體頁碼補上兩堂的逐段導讀與各節理解檢查（寫任務與驗證器、任務版本、agent 資料的兩種形式與五種來源、資料意外教會的捷徑），並改寫開頭、課程材料對照與 Terminal-Bench 讀物中「尚未開講」的說法；修正 Shankar 的代名詞。
-
 - 2026-10-23：依第一堂模板重整材料狀態、機制、情境與理解檢查；將指定閱讀深讀與課堂預習分開。
-
 - 2026-10-23：補入已公布的 Terminal-Bench 客座閱讀、自擬成果驗收例子、雙語流程圖與開發／測試分流。客座尚未開講，本文是閱讀導讀，不是講授逐字稿。
-
-
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-09-29：HW1 改版（不再分手刻／框架兩部分、語料換成企業 email）、期中 demo 改為錄影繳交（11/4 晚上 11:59 截止），同步改寫時程、軌跡紀錄與課程位置段落
 - 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。
 
 ## 參考資料
 
-- 站內：[Week 5：多智慧體與優化](/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
+- 站內：[第 10 堂：Terminal-Bench 客座](/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench)、[第 12 堂：Data Selection & Quality](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 - 課程：[CS329Z 官網課表](https://cs329z.stanford.edu/)
 - 原文：[Shankar, Data Flywheels for LLM Applications (2024)](https://www.sh-reya.com/blog/ai-engineering-flywheel/)、[Tan et al., Large Language Models for Data Annotation and Synthesis, EMNLP 2024](https://arxiv.org/abs/2402.13446)、[Shankar et al., Who Validates the Validators, UIST 2024](https://arxiv.org/abs/2404.12272)
-- 延伸：[Hamel 的評估指南](https://hamel.dev/blog/posts/evals/)、[LangChain：對齊模型評判與人類偏好](https://blog.langchain.dev/aligning-llm-as-a-judge-with-human-preferences/)、[Dosu：把提示工程變成檢索問題](https://blog.langchain.dev/dosu-langsmith-no-prompt-eng/)、[SWE-smith：為軟體工程 agent 量產資料](https://arxiv.org/abs/2504.21798)
-
-- [Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces](https://arxiv.org/html/2601.11868) — task formulation; the paper describes Terminal-Bench 2.0, not a live leaderboard snapshot.
-- [Terminal-Bench — ICLR 2026 proceedings](https://proceedings.iclr.cc/paper_files/paper/2026/hash/444a3737adaee10d86ad2ef5f74468e6-Abstract-Conference.html)
-- [Terminal-Bench project site](https://www.tbench.ai/)
+- 延伸：[Hamel 的評估指南](https://hamel.dev/blog/posts/evals/)、[Dosu：把提示工程變成檢索問題](https://blog.langchain.dev/dosu-langsmith-no-prompt-eng/)

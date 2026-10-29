@@ -1,28 +1,26 @@
 ---
-title: "Coding Agents Need Their Own IDE First | Stanford CS329Z Week 9"
+title: "For a Coding Agent, Build a Good IDE First | Stanford CS329Z Lecture 17"
 date: 2026-09-10
-updated: 2026-10-23
+updated: 2026-10-29
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, rag]
 lang: en
 series:
   name: "Reading Stanford CS329Z"
-  order: 10
-tldr: "Week nine turns to coding agents: SWE-agent shows interface is performance, OpenHands packs sandbox plus benchmarks into one general base, and the second homework is due Friday — ship one working bug-fix exam this week."
-description: "A guided reading of Stanford CS329Z Week 9: SWE-agent's ACI design and ablation evidence, OpenHands' event-stream sandbox and multi-benchmark eval, the SWE-bench 4-tuple, and one hands-on packaging exercise."
+  order: 18
+tldr: "Per the schedule, Lecture 17 covers how coding agents work end to end: the SWE-agent, Claude Code and OpenHands architectures, scaffolds as design decisions, SWE-bench and the 4-tuple framework in practice, and the future of software development. The readings cover SWE-agent's ACI, OpenHands's event-stream sandbox, Claude Code practice, long-running harnesses and SWE-bench."
+description: "A preview of Stanford CS329Z Lecture 17, Coding & Software Agents: digests of SWE-agent's ACI design, OpenHands's event-stream sandbox, Claude Code practice, long-running harnesses and SWE-bench's task structure."
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week9-coding-agents)
+> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-17-coding-agents)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
-Week nine is coding week. Monday the sixteenth brings a guest session. Wednesday the eighteenth covers Coding and Software Agents. The second homework is due Friday the twentieth.
+Give an agent a GitHub issue: can it fix it on its own? That is where Lecture 17 (Nov 18, Coding & Software Agents) begins. The end-to-end flow has five steps: understand the request, find the relevant code, write a reproduction script, change the code, and run the tests. The deliverable is a patch plus a passing test suite. HW2 is due Friday, Nov 20.
 
-The week's question is simple: hand an agent a GitHub issue and see if it can fix the bug on its own. The end-to-end loop has five steps: read the request, find the relevant code, write a reproduction script, edit the code, and run the tests. What comes out is a patch plus a green test suite.
-
-Think of the coding agent as an apprentice engineer with a computer: give it a task and tools, and let it fail and recover inside a sandbox. Two anchor readings carry the week. [SWE-agent](https://arxiv.org/abs/2405.15793) asks the interface question: what tools does an agent need before it can change code at all? [OpenHands](https://arxiv.org/abs/2407.16741) asks the platform question: how do sandboxes, tool libraries, and benchmarks snap into one general base? The guest lecture lists no required reading, so this guide skips it.
+Think of it as an apprentice engineer who can use a computer: give it a task and tools, and it makes progress by trial and error in a sandbox. The assigned [SWE-agent](https://arxiv.org/abs/2405.15793) answers the interface question, what tools an agent needs to edit code effectively; [OpenHands](https://arxiv.org/abs/2407.16741) answers the platform question, how sandboxes, tool libraries and evaluation combine into a general base. The additional readings are Claude Code best practices, long-running harnesses and SWE-bench, all digested here. The Monday (Nov 16) guest lecture of the same week has no announced topic or readings; this series will add it once the course site does. As of 2026-10-29 this lecture has no public slides, so this post is a preview built from the official schedule and assigned readings, not a record of what was said in class. Lecture numbers after 11 follow schedule order; the course site currently lists only dates and topics.
 
 ## Follow one repair through interface, environment, patch, and verification
 
@@ -41,8 +39,6 @@ Imagine a bug that corrupts Traditional Chinese filenames during export. Have th
 Run a failing reproduction that captures the original behavior. After changing code, make it pass and check neighboring behavior instead of hard-coding a single input. Verify the patch in a clean environment. Separate the agent's development checks from independent harness tests. The [long-running harness guide](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) adds durable progress records and resumption across contexts.
 
 **Check:** the agent changed the test until it passed. Is the bug fixed? **Answer criteria:** inspect the original requirement and whether the test was wrong. Acceptance checks observable behavior and protects independent conditions; deleting a failing case does not prove a repair.
-
-
 
 ## Reading 1 | SWE-agent
 
@@ -249,7 +245,7 @@ A repair must solve a new problem and preserve existing behavior; real issues an
 
 The benchmark is a design act of its own. Each exam item is a four-tuple: the issue text, a repository snapshot at one commit, new tests that fail before the fix, and old tests that must pass throughout. The first pair is called `FAIL_TO_PASS`, the second `PASS_TO_PASS`. The agent sees the first two items and never the last two; only passing both suites counts as solved.
 
-The full set mines over two thousand real issues. They come from twelve Python repositories. The [SWE-bench](https://arxiv.org/abs/2310.06770) Lite subset keeps three hundred instances to save money and time. SWE-agent on the [GPT-4](https://arxiv.org/abs/2303.08774) of its day resolves just over twelve percent of the full set. Lite lands near eighteen percent. A retrieval-only [RAG](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en) baseline that never touches code stays under three percent on Lite.
+The full set mines over two thousand real issues. They come from twelve Python repositories. The [SWE-bench](https://arxiv.org/abs/2310.06770) Lite subset keeps three hundred instances to save money and time. SWE-agent on the [GPT-4](https://arxiv.org/abs/2303.08774) of its day resolves just over twelve percent of the full set. Lite lands near eighteen percent. A retrieval-only [RAG](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag-en) baseline that never touches code stays under three percent on Lite.
 
 **Evidence and result.** The dataset exposes models to real issues and repositories; early low results show that context, localization, and edits exceed single-turn generation.
 
@@ -266,22 +262,20 @@ Behavior and tests determine whether a patch works.
 
 Fix the base commit and clean environment and separately test the repair and behaviors that must not regress.
 
-
 ## What to do: set one exam for your own repo
 
 **What to do**: take an already-fixed issue from your own repo and wrap it as a four-tuple: the issue text, the pinned commit, and the verification tests. The agent may see only the first two items and must redo the fix inside an isolated sandbox. A full green suite or it does not count; on failure, archive the trajectory as next round's lesson.
 
 ## Where it sits in the course
 
-[Week 8's judges and guardrails](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en) shipped the tooling; this week writes code with it: ACI for feel, sandbox for safety, tests for correctness. The second homework lands Friday, and project demos are near. A bug-fix agent makes a fine project: ready-made exams, automatic grading, and a demo anyone can read.
+Coding agents tie the earlier lectures together: tools (Lecture 4), loops and context (Lecture 6), the evaluation 4-tuple (Lecture 13), and sandboxes and permissions (Lecture 15). The following week is the Thanksgiving recess, and then [Lecture 18](/posts/ai/2026-09-10-stanford-cs329z-lecture-18-proactive-agents-en) asks when an agent should act first.
 
-## Course material
+## Course material for this lecture
 
-Three further readings round out the week. [Anthropic's Claude Code best practices](https://www.anthropic.com/engineering/claude-code-best-practices) treats the context window as the scarcest resource and asks for an executable check before any edit. Next, [Young on harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) has an initializer agent lay out the environment, then each session advances in small steps while leaving progress notes behind. Finally, the [SWE-bench paper](https://arxiv.org/abs/2310.06770) is the source of the week's exam, with the strongest model at publication solving only about two percent.
-
-- Monday 11/16 guest lecture: no required reading.
-- Wednesday 11/18 Coding & Software Agents: anchors SWE-agent and OpenHands (covered above); further reading Anthropic's Claude Code best practices, Young on harnesses for long-running agents, Jimenez et al. on SWE-bench.
-- Schedule: [CS329Z Week 9](https://cs329z.stanford.edu/)
+- Official slides: not yet public (as of 2026-10-29)
+- Assigned readings: Yang et al., "SWE-agent" (digested here); Wang et al., "OpenHands" (digested here)
+- Additional readings: Anthropic, "Claude Code: Best Practices for Agentic Coding"; Young, "Effective Harnesses for Long-Running Agents"; Jimenez et al., "SWE-bench" (all digested here)
+- Schedule: [CS329Z site](https://cs329z.stanford.edu/)
 
 ## Course video sources
 
@@ -294,18 +288,17 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
-## Update Log
+## Update log
 
+- 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 17 (Wed Nov 18), previously part of the "Week 9: build the coding agent a good IDE first" guide; earlier entries below predate the split.
 - 2026-10-23: Rebuilt the guide around source status, mechanisms, a worked scenario, and answer criteria; separated detailed assigned readings from lecture preparation.
-
 - 2026-10-23: Added diagrams and comparison tables where useful for the existing explanation; this visual update does not reverify numerical results, schedules or research claims.
-
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
 
 ## References
 
-- On this site: [Week 8: model judges and safety guardrails](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en), [Week 2: workflows and RAG](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), [Stanford CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Lecture 15: Agent Safety & Guardrails](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety-en), [Lecture 18: Proactive Agents](/posts/ai/2026-09-10-stanford-cs329z-lecture-18-proactive-agents-en), [Stanford CS329Z course overview](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
 - Sources: [Yang et al., SWE-agent](https://arxiv.org/abs/2405.15793), [Wang et al., OpenHands, ICLR 2025](https://arxiv.org/abs/2407.16741), [Jimenez et al., SWE-bench, ICLR 2024](https://arxiv.org/abs/2310.06770), [Wang et al., CodeAct, ICML 2024](https://arxiv.org/abs/2402.01030), [Muennighoff et al., OctoPack and HumanEvalPack](https://arxiv.org/abs/2308.07124)
-- Tools: [SWE-agent](https://swe-agent.com), [OpenHands](https://github.com/OpenHands/openhands)
+- Tools: [OpenHands](https://github.com/OpenHands/openhands)

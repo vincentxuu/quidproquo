@@ -1,7 +1,7 @@
 ---
-title: "Compound AI Systems: How Models, Data, and Tools Work Together | Stanford CS329Z Week 1"
+title: "Compound AI Systems: How Models, Data, and Tools Work Together | Stanford CS329Z Lecture 1"
 date: 2026-09-09
-updated: 2026-10-23
+updated: 2026-10-29
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]
@@ -14,19 +14,19 @@ description: "A page-linked guide to all 71 CS329Z opening slides, from agent hi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)
+> 🌏 [中文版](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems)
 
 **Video status: Recordings require the course Canvas login.** [Official access information](https://cs329z.stanford.edu/logistics.html). This guide uses public slides and original readings, without classroom speech or timestamps.
 
-The three readings for Stanford CS329Z Week 1 approach one question from different directions: how do processes beyond the model change AI's actual performance? BAIR frames the system-design problem. Andrew Ng organizes iterative work patterns. Si and colleagues subject research ideas to code implementation and GPU experiments. The guide first explains the lecture slides, then presents independent reading digests that distinguish perspective articles from experimental evidence.
+The three readings for Stanford CS329Z Lecture 1 approach one question from different directions: how do processes beyond the model change AI's actual performance? BAIR frames the system-design problem. Andrew Ng organizes iterative work patterns. Si and colleagues subject research ideas to code implementation and GPU experiments. The guide first explains the lecture slides, then presents independent reading digests that distinguish perspective articles from experimental evidence.
 
 | Material | Course role | Reading focus |
 |---|---|---|
 | [Lecture 01: Intro to Agentic Systems](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf) | Opening slides, September 23 | Agent history; models, reasoning, memory, tools, and environments; engineering questions about system, data, and evals |
-| [Zaharia et al.: Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/) | Required reading this week | Why treat the whole system as the unit of improvement? |
+| [Zaharia et al.: Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/) | Required reading for this lecture | Why treat the whole system as the unit of improvement? |
 | [Ng: Agentic Design Patterns Part 1](https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance/) | Additional reading | Reflection, tool use, planning, and multi-agent collaboration |
 | [Si et al.: Execution-Grounded Automated AI Research](https://arxiv.org/html/2601.14525) | Additional reading | Executors, evolutionary search, reinforcement learning, and their limitations |
-| [HW1: Build an Agentic Harness](https://github.com/cs329z/assignment1-harness) | Later assignment, released October 5 in Week 3 | Grow email pipelines into an assistant with tools, memory, and human involvement; it need not be completed in Week 1 |
+| [HW1: Build an Agentic Harness](https://github.com/cs329z/assignment1-harness) | Later assignment, released October 5 with Lecture 4 | Grow email pipelines into an assistant with tools, memory, and human involvement; it need not be completed after Lecture 1 |
 
 Roles and dates follow the [official schedule](https://cs329z.stanford.edu/); the handout defines assignment requirements. The email example here is an original illustration, not an official assignment or solution.
 
@@ -480,10 +480,11 @@ For an agent learning from results, separately record implementation success, im
 
 BAIR makes the whole system the unit of improvement. Ng supplies language for changing how work proceeds. Si uses an execution environment to test whether feedback improves ideas. Their evidence differs in strength; they need not be forced into one experimental narrative. Keep asking what information a new step adds, who defines success, and how far a failure can be traced.
 
-Carry these questions into [Week 2's workflows and RAG](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), then [Week 3's tools and frameworks](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en). HW1 is a later implementation assignment. The editorial judgments and original examples here do not replace its official requirements.
+Carry these questions into [Lecture 6's workflows](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en) and [Lecture 3's RAG](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag-en), then [Lecture 4's tools](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use-en) and [Lecture 5's frameworks](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks-en). HW1 is a later implementation assignment. The editorial judgments and original examples here do not replace its official requirements.
 
 ## Update Log
 
+- 2026-10-29: The series moved from one post per week to one post per lecture; this post is now "Lecture 1" at a new URL, and the old URL redirects here.
 - 2026-10-23: Expanded the lecture guide across all 71 physical PDF pages, adding page links, the complete Apple Remote trace, comparisons of reasoning and memory mechanisms, tool-call stages, safety cases, and an action-loop diagram. Preserved the three independent reading digests.
 
 - 2026-10-23: Added an independent opening-slide guide covering the agent loop, five components, system/data/evals, tool calls, reliability and safety, and their relationship to the three readings.
@@ -507,4 +508,4 @@ Carry these questions into [Week 2's workflows and RAG](/posts/ai/2026-09-10-sta
 - [Si et al., Towards Execution-Grounded Automated AI Research, 2026](https://arxiv.org/html/2601.14525): §2 executor and environments, §4 search, §5 RL dynamics, §8 limitations; [public environments and traces](https://github.com/NoviScl/Automated-AI-Researcher).
 - [Lecture 01: Intro to Agentic Systems](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf), [official schedule](https://cs329z.stanford.edu/), and [Logistics](https://cs329z.stanford.edu/logistics.html): roles of course materials, assignment dates, and recording access.
 - [Official HW1 handout and starter](https://github.com/cs329z/assignment1-harness): requirements for the later assignment.
-- On this site: [CS329Z course overview](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), [Week 2](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), [Week 3](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en).
+- On this site: [CS329Z course overview](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), [Lecture 2: LLMs for Builders](/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders-en), [Lecture 3: RAG](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag-en).

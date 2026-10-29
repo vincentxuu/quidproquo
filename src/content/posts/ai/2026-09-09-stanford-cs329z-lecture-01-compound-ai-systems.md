@@ -1,7 +1,7 @@
 ---
-title: "複合式 AI 系統：模型、資料與工具如何配合｜Stanford CS329Z 第 1 週"
+title: "複合式 AI 系統：模型、資料與工具如何配合｜Stanford CS329Z 第 1 堂"
 date: 2026-09-09
-updated: 2026-10-23
+updated: 2026-10-29
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag, compound-ai-systems]
@@ -14,19 +14,19 @@ description: "逐頁核對 CS329Z 第一堂 71 頁投影片，以十段導讀解
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en)
+> 🌏 [English version](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems-en)
 
 **影片狀態：錄影需登入課程 Canvas。** [官方取得方式](https://cs329z.stanford.edu/logistics.html)。本文依公開投影片與原文整理，沒有課堂口述或時間碼。
 
-Stanford CS329Z 第一週的三份讀物，從不同角度談同一件事：模型之外的流程，如何改變 AI 的實際表現？BAIR 提出系統設計的問題；Andrew Ng 整理可迭代的工作模式；Si 等人則把研究構想交給程式與 GPU 實驗檢驗。下文先介紹投影片的主線，再逐篇深讀，也分清觀點文章與實驗論文的證據差別。
+Stanford CS329Z 第一堂的三份讀物，從不同角度談同一件事：模型之外的流程，如何改變 AI 的實際表現？BAIR 提出系統設計的問題；Andrew Ng 整理可迭代的工作模式；Si 等人則把研究構想交給程式與 GPU 實驗檢驗。下文先介紹投影片的主線，再逐篇深讀，也分清觀點文章與實驗論文的證據差別。
 
 | 材料 | 課程角色 | 閱讀重點 |
 |---|---|---|
 | [Lecture 01：Intro to Agentic Systems](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf) | 第一堂投影片，9/23 | Agent 歷史、模型／推理／記憶／工具／環境，以及 system、data、evals 的工程問題 |
-| [Zaharia 等人：Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/) | 本週指定閱讀 | 為什麼要把整套系統當成改善單位 |
+| [Zaharia 等人：Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/) | 本堂指定閱讀 | 為什麼要把整套系統當成改善單位 |
 | [Ng：Agentic Design Patterns Part 1](https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance/) | 延伸閱讀 | 反思、工具、規劃與多智慧體協作 |
 | [Si 等人：Execution-Grounded Automated AI Research](https://arxiv.org/html/2601.14525) | 延伸閱讀 | 執行器、演化式搜尋、強化學習及其限制 |
-| [HW1：Build an Agentic Harness](https://github.com/cs329z/assignment1-harness) | 第 3 週於 10/5 發布的後續作業 | 從 email 管線建成帶工具、記憶與人類介入的助理；第一週不用先完成 |
+| [HW1：Build an Agentic Harness](https://github.com/cs329z/assignment1-harness) | 第 4 堂（10/5）發布的後續作業 | 從 email 管線建成帶工具、記憶與人類介入的助理；第一堂不用先完成 |
 
 角色與日期依[官方課表](https://cs329z.stanford.edu/)；作業要求以 handout 為準。本文的查信例子是自擬說明，不是官方作業或解答。
 
@@ -480,10 +480,11 @@ caption: 依 Si 等人的方法簡化；實線是執行路徑，虛線是回饋�
 
 BAIR 讓我們把改善單位放到整套系統；Ng 提供改變工作方式的語彙；Si 再用執行環境檢查回饋是否真的改善構想。三者的證據強度不同，也不必硬接成同一份實驗報告。共同值得保留的問題是：新增步驟帶來了哪些資訊，成功標準由誰決定，失敗又能追到哪裡？
 
-帶著這些問題讀[第 2 週的 workflow 與 RAG](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)，再到[第 3 週的工具與框架](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)。HW1 是後續實作，本文的閱讀判斷與自擬例子不代替官方作業規範。
+帶著這些問題讀[第 6 堂的 workflow](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)與[第 3 堂的 RAG](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag)，再到[第 4 堂的工具](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use)與[第 5 堂的框架](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks)。HW1 是後續實作，本文的閱讀判斷與自擬例子不代替官方作業規範。
 
 ## 更新紀錄
 
+- 2026-10-29：系列由一週一篇改為一堂一篇，本篇改為「第 1 堂」並換用新網址，舊網址自動轉到這裡。
 - 2026-10-23：逐頁核對 71 頁投影片後擴寫十段導讀，補足原始案例、記憶讀寫與安全問題；新增行動迴圈圖、對應頁碼，以及無縮圖的頁內投影片對照。
 
 - 2026-10-23：補上第一堂投影片的獨立導讀，說明 agent 迴圈、五個元件、system／data／evals、工具呼叫與可靠性安全問題，以及它們和三篇文章的關係。
@@ -508,4 +509,4 @@ BAIR 讓我們把改善單位放到整套系統；Ng 提供改變工作方式的
 - [Si 等人，Towards Execution-Grounded Automated AI Research，2026](https://arxiv.org/html/2601.14525)：§2 執行器與環境、§4 搜尋、§5 RL 動態、§8 限制；[公開環境與軌跡](https://github.com/NoviScl/Automated-AI-Researcher)。
 - [Lecture 01：Intro to Agentic Systems](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf)、[官方課表](https://cs329z.stanford.edu/)與[Logistics](https://cs329z.stanford.edu/logistics.html)：課程材料角色、作業時程與錄影取得方式。
 - [官方 HW1 handout 與 starter](https://github.com/cs329z/assignment1-harness)：後續作業要求。
-- 站內：[CS329Z 課程總覽](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)、[第 2 週](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)、[第 3 週](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)。
+- 站內：[CS329Z 課程總覽](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)、[第 2 堂：LLMs for Builders](/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders)、[第 3 堂：RAG](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag)。

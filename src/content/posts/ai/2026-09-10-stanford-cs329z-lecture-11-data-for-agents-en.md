@@ -1,5 +1,5 @@
 ---
-title: "Spin Up the Data Flywheel — Submission Week | Stanford CS329Z Week 6"
+title: "What Data Do Agents Need? Traces, Demonstrations, Feedback, and the Data Flywheel | Stanford CS329Z Lecture 11"
 date: 2026-09-10
 updated: 2026-10-29
 category: ai
@@ -8,71 +8,19 @@ tags: [cs329z, ai-course, stanford, ai-agent, compound-ai-systems]
 lang: en
 series:
   name: "Reading Stanford CS329Z"
-  order: 7
-tldr: "Both Week 6 lectures now have slides: in Lecture 10 the Terminal-Bench authors explain how to write tasks, verifiers, and task versions; Lecture 11 covers the two forms of agent data, five sources, and the shortcuts data teaches by accident. Shankar’s data flywheel then turns reviewed failures into development examples while independent test tasks stay separate. HW1 is due October 30."
-description: "A page-referenced guide to CS329Z Lecture 10 (Terminal-Bench and Harbor guest lecture) and Lecture 11 (what data agents need), followed by the Terminal-Bench paper and Shankar’s data flywheel, with a CSV verification example and checks against evaluation leakage."
+  order: 12
+tldr: "Lecture 11 lays out the forms and sources of agent data: traces, demonstrations and feedback, data for optimization versus evaluation, data flywheels, synthetic data and data from human-agent interaction, with a warning that data can teach models unintended shortcuts. The readings are Shankar's data flywheel essay and a survey of LLMs for data annotation and synthesis."
+description: "A page-linked guide to the CS329Z Lecture 11 Data for Agentic Systems slides, digests of Shankar's data flywheel and the LLM annotation-and-synthesis survey, and a CSV example for designing outcome checks and separating development demos from held-out tests."
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel)
+> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
-Week 6 is submission week. Monday (Oct 26) brought a guest lecture from Terminal-Bench co-creators Ryan Marten and Alex Shaw (Lecture 10), and [HW2](https://cs329z.stanford.edu/) drops the same day. Wednesday's Lecture 11 (Oct 28) asks what data agents need and assigns [Shreya Shankar](https://www.sh-reya.com/)'s [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/) (2024). HW1 is due Friday (Oct 30). Then the recorded midpoint demo video is due Nov 4 at 11:59 p.m., and the midway report follows on Nov 6.
+Lecture 11 (Oct 28, What Data Do Agents Need?) is about data: traces, demonstrations and feedback, how to separate data for optimization from data for evaluation, how a data flywheel turns, and how to collect synthetic and human-agent interaction data. HW1 is due Friday, Oct 30, and the midpoint demo video is due the evening of Nov 4.
 
-The data flywheel is one sentence: every production output is training material for the next round. Each answer an agent gives leaves a trace — what the user asked, which steps the system took, where it went wrong. Save the traces, score them, put the good ones back into the prompt as demonstrations, and put the fixed bad ones back too. One full turn means better demonstrations and higher scores, and the next turn produces even better data.
-
-Shankar splits the loop into three stations: evaluation, monitoring, and continual improvement. Evaluation defines what success looks like; monitoring keeps the metrics honest against reality; improvement feeds what was learned back into the system. All three eat the same production data, for different purposes. The post ships no new model and no new algorithm. It is engineering discipline: how to squeeze every drop out of production data.
-
-## Lecture 10 slide guide
-
-<div class="slide-reader" data-slide-reader data-pages="64" data-pdf-src="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf">
-<p>Lecture 10: 64 PDF pages. Use the links below to compare the source.</p>
-<button type="button" data-slide-open>Open slide comparison</button>
-<p><a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf" target="_blank" rel="noopener noreferrer">Original PDF</a></p>
-</div>
-
-This guest lecture comes from Terminal-Bench co-creators Alex Shaw and Ryan Marten, under the title Evaluating Agents: Terminal-Bench and Harbor. The first half argues that evaluation has become the center of agent development; the second half is their practical experience writing tasks and maintaining a benchmark.
-
-### Pages 1–28: Rules are no longer the only source of truth
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=1" data-slide-page="1">Slides 1–28</a>
-
-The speakers start with a short history of software: from numeric machine instructions to assembly to high-level code, humans write rules and programs apply them to new inputs. That is deductive development. Machine learning reverses the direction: humans supply example inputs and outputs, and training infers the rules. The slides then claim all digital technology is becoming inductive: models are learned from data, agents are developed through evaluation, and software is generated by agents.
-
-That sets up the talk's question. The specifier used to be the software engineer; who is the evaluator now? When behavior is learned rather than written, outputs are what you can check. This is also why HW2 asks you to design an evaluation yourself.
-
-**Check your understanding:** why do the speakers say agents are "developed via evaluation"? **Answer criteria:** there is no rulebook for an agent's behavior to review line by line; you observe what it does on a set of scored tasks and change it based on the results, so evaluation replaces the specification as the reference for right and wrong.
-
-### Pages 29–39: What a Terminal-Bench task looks like
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=29" data-slide-page="29">Slides 29–39</a>
-
-Terminal-Bench starts from the insight that bash is the one tool that covers most work, so every task happens in a terminal. The example on [page 38](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=38) splits a task into three files. The instruction asks the agent to output a STEP solid model from the 2D drawing at `/app/schematic.png`; the Dockerfile only provides Python and the image; the tests check that the file is valid and watertight and that volume, surface area, principal inertia, and topology are correct. The tests read the artifact and ignore which commands produced it.
-
-The speakers also show the project's scale ([page 36](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=36) cites more than 7 million benchmark runs), and on page 39 they shift from "we make the eval" to "you make the eval": Harbor is the tool they built for that.
-
-**Check your understanding:** why does the STEP example check volume and inertia instead of only whether the file opens? **Answer criteria:** opening only proves the format is valid; volume, surface area, inertia, and topology correspond to the actual requirement of producing the object in the drawing.
-
-### Pages 40–55: Writing tasks: instruction, environment, verifier
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=40" data-slide-page="40">Slides 40–55</a>
-
-[Page 42](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=42) borrows Anthropic's evaluation vocabulary: a task is one test, a trial is one attempt, a verifier scores it, and a trajectory is the full record. The evaluation harness runs the whole suite; the agent harness lets a model act as an agent. Keep the two apart. [Page 43](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=43) shows a Harbor task directory, `instruction.md`, `task.toml`, `environment/Dockerfile`, `solution/solve.sh`, and `tests/test.sh`, which is agent-agnostic and portable.
-
-The core question in writing a task is what you are measuring and whether you measure it correctly. Instructions should be fully specified, concise, and natural; [page 46](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=46) contrasts a long original instruction with a shorter version revised after feedback. Environments should use real software and services rather than mocks, with network dependencies baked into the image to reduce flakiness. A verifier is an outcome-based classifier on the environment's final state: think in terms of a confusion matrix, map each check one-to-one to a requirement in the instruction, and use programmatic checks or agent and LLM judges. To prevent reward hacking, isolate the agent environment from the verifier environment and pass only the artifact to the tests; [page 52](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=52) shows a model searching online for known Lean kernel bugs to pass a grader. The reference solution should mimic the actions an agent would take rather than hardcode the answer, or it will not expose bugs in the environment or verifier.
-
-**Check your understanding:** the instruction says "write summary.csv," but the verifier also checks column order. What goes wrong? **Answer criteria:** the verifier demands a condition the instruction never stated, so a correct agent fails, a false negative. Fix it by mapping instruction and verifier one-to-one: state the requirement or relax the check.
-
-### Pages 56–64: Evaluation infrastructure and task versions
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=56" data-slide-page="56">Slides 56–64</a>
-
-Evaluation infrastructure has to be reliable, reproducible, fast through parallel independent trials, and portable between local and cloud sandboxes; the same rollout infrastructure can serve testing, training, and production. Tasks need QA too. [Page 59](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=59) lists static checks, an agent judge, an oracle agent that runs the reference solution, frontier agents, and cheat agents that hunt for loopholes, with a judge reading those trajectories.
-
-The speakers treat tasks as software: they have bugs, users file reports, and new models bring new behavior. [Page 61](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=61) uses a three-part version number to decide what happens to old results. A change to the instruction, environment, or tools the agent sees bumps the major version and requires a rerun. A verifier-only change, such as fixing an overly strict check, closing a reward hack, or re-tuning a judge, bumps the minor version and regrades stored trajectories. Documentation, pinned dependencies, and typo fixes bump the patch version and reuse results. Every result row should come with full receipts: trajectory, logs, artifacts, and rewards.
-
-**Check your understanding:** you notice the verifier misses "corrupted the input file" and add the check. Must you rerun last week's 50 trials? **Answer criteria:** only the verifier changed, a minor-version bump; the stored trajectories and artifacts are enough to regrade without rerunning, provided every trial kept its artifacts.
+The data flywheel fits in one sentence: every output in production is material for the next improvement. The assigned reading, [Shreya Shankar](https://www.sh-reya.com/)'s [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/), splits that loop into evaluation, monitoring and continual improvement; the additional reading is Tan et al.'s survey on LLMs for data annotation and synthesis. This post digests both. The slide guide below follows the PDF page numbers, followed by digests of the assigned readings. Examples and self-checks are teaching exercises, not official homework answers; repeated animation frames, logistics and section dividers are grouped together.
 
 ## Lecture 11 slide guide
 
@@ -82,7 +30,7 @@ The speakers treat tasks as software: they have bugs, users file reports, and ne
 <p><a href="https://web.stanford.edu/class/cs329z/slides/lecture11.pdf" target="_blank" rel="noopener noreferrer">Original PDF</a></p>
 </div>
 
-Lecture 09 optimized the system around a model whose weights stay frozen. This lecture asks how to make the model itself a better agent, and the main lever is data. Next week's Data Selection lecture covers which data to train on.
+Lecture 09 optimized the system around a model whose weights stay frozen. This lecture asks how to make the model itself a better agent, and the main lever is data. The next lecture, Data Selection (Nov 2), covers which data to train on.
 
 ### Pages 1–18: Agent data comes in two kinds: trajectories and environments
 
@@ -140,74 +88,7 @@ A failed case can become development material for changing a prompt, or remain u
 
 **Check your understanding:** the CSV is well formed but includes canceled orders. Should you add a model judge? **Answer criteria:** first add an executable business-rule check and inspect the filtering step. A model judge for open-ended quality does not replace this deterministic rule.
 
-
-
-## Reading 1 | Terminal-Bench
-
-Source: [Terminal-Bench](https://arxiv.org/html/2601.11868)
-
-### TL;DR
-
-Tasks combine instructions, Docker environments, time limits, tests, and reference solutions and score resulting state.
-
-### Editorial judgment
-
-| Dimension | Reading judgment |
-| --- | --- |
-| Central question | How can a terminal agent's completion claim be verified? |
-| Evidence and scope | This guide follows the paper's task definition and version, rather than treating a current leaderboard as course performance. |
-
-### Domain background
-
-A terminal can modify extensive state; a successful exit can still leave wrong artifacts or incomplete configuration.
-
-### Intermediate guide
-
-**Method.** The harness starts an isolated environment, supplies instructions and a terminal, and checks resulting state after execution.
-
-For what the guest speakers covered, see the Lecture 10 slide guide above. This section reads the assigned [Terminal-Bench paper](https://arxiv.org/html/2601.11868) to see how the paper writes down its task definition. You need to understand tool calls and terminal output; the goal is to write a success condition your agent cannot satisfy merely by saying it is done.
-
-The paper defines tasks through instructions, an isolated Docker environment, tests, a reference solution, and a time limit. The agent chooses its commands. Tests check whether the **final container state satisfies the requested outcomes**; they do not require the reference command sequence or grade the final chat reply. Bring that distinction back to HW1: using a terminal is an action capability; checking whether the action met the request is an evaluation capability.
-
-Here is an original teaching example, not an official benchmark task or homework solution. Suppose a team asks you to summarize event registrations from this CSV:
-
-```csv
-city,status
-Taipei,confirmed
-Taipei,cancelled
-Taichung,confirmed
-Taipei,confirmed
-```
-
-The request is to count only `confirmed` registrations by city in `summary.csv`, without changing the input. Walk through the rows: exclude the cancelled Taipei entry, leaving two Taipei entries and one Taichung entry. The expected output is therefore Taipei 2 and Taichung 1, regardless of row order.
-
-| State after the run | Verdict | Reason |
-|---|---|---|
-| Says “done,” but creates no output file | Fail | A reply cannot substitute for a file |
-| Creates a file, but counts Taipei as 3 | Fail | Cancelled registrations were included |
-| Counts Taipei 2 and Taichung 1, but alters the input | Fail | Correct output still violates the input-preservation constraint |
-| Correct columns, cities, counts, and unchanged input | Passes this example's conditions | Both the outcome and constraint hold |
-
-A verifier could read the CSV back, compare the city-to-count mapping, and compare the input file's hash before and after execution. This describes a verifier design; it is not a claim that the official harness has been run, or that these checks ensure safety for arbitrary tasks.
-
-**Check your understanding**: one agent uses Python and another uses shell commands to reach the same valid state. Which should pass? Both: the request did not prescribe a language. What if the verifier only checks that the output file exists? It catches the missing-file case but misses wrong counts and input corruption. Add outcome and constraint checks.
-
-**Evidence and result.** The paper packages complex command-line work as tasks with environments and tests, enabling outcome scoring beyond agent self-report.
-
-### Deeper points
-
-- A reference solution establishes solvability without requiring the agent to follow identical commands.
-- Reset state and time limits belong to the task; reusing previous artifacts changes the problem.
-
-### Reviewer’s one-line verdict
-
-Outcome verification is closer to task capability than completion claims.
-
-### Your take-away
-
-Write a test that inspects the actual artifact and does not accept the final message as proof.
-
-## Reading 2 | Data Flywheels for LLM Applications
+## Reading 1 | Data Flywheels for LLM Applications
 
 Source: [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/)
 
@@ -240,7 +121,7 @@ Single calls are easy to validate; graphs of calls are not. Errors from an early
 
 Each type gets validated differently. Classifiers take the classic metrics — accuracy, precision, recall. Writers are the hardest, with bespoke standards per task and custom validators to match. Code-generating nodes have it best: linters, test suites, and executing the SQL to inspect the result — the full software-engineering toolkit applies.
 
-With many probes in place, the next question is what to fix first. The answer: label every validator output and compute per-step accuracy, so the compounding becomes visible. The author concedes that full validation of multi-step pipelines remains an open research question — an appetizer for next week's evaluation theme.
+With many probes in place, the next question is what to fix first. The answer: label every validator output and compute per-step accuracy, so the compounding becomes visible. The author concedes that full validation of multi-step pipelines remains an open research question — an appetizer for Lecture 13's evaluation theme.
 
 The field mostly validates outputs; the author insists on inputs as well. Rejecting queries the pipeline was never built for is robustness in itself. The motto is borrowed from [Brendan Dolan-Gavitt](https://moyix.net/): be strict in what you send to the model, liberal in what you accept back.
 
@@ -250,7 +131,7 @@ A metric set never stays done. Model vendors ship silent updates, user tastes dr
 
 Metric implementations have to grow up too. Sample regularly, label by hand, store everything with timestamps — the most labor-hungry step of the whole flywheel. Once the label store exists, validator prompts stop being static: retrieve relevant examples by semantic similarity on each call, prefer cases where humans and models once disagreed, and weight by recency. Favoring fresh data is the author's instinct, and she admits nobody she knows does it yet.
 
-Labeling labor cannot be eliminated, but it can get smarter. [LangChain](https://www.langchain.com/)'s approach is model-labels-first, human-edits-second: every item ships with a default label, and people override only when they care. The failure mode is stated honestly: if people get lazy and stop checking, alignment silently drifts. That is exactly the problem next week's [Who Validates the Validators](https://arxiv.org/abs/2404.12272) (UIST 2024) takes on.
+Labeling labor cannot be eliminated, but it can get smarter. [LangChain](https://www.langchain.com/)'s approach is model-labels-first, human-edits-second: every item ships with a default label, and people override only when they care. The failure mode is stated honestly: if people get lazy and stop checking, alignment silently drifts. That is exactly the problem Lecture 12's [Who Validates the Validators](https://arxiv.org/abs/2404.12272) (UIST 2024) takes on.
 
 The first two stations exist for this one: a system that gets stronger as it runs. The prerequisite is complete logs — what the output was, what each metric scored — which is what tools like [LangSmith](https://www.langchain.com/langsmith) are for. Then walk on two legs, human and automatic.
 
@@ -260,7 +141,7 @@ The architecture has a lovely side effect: prompt engineering turns into a retri
 
 The lecture title names three data kinds — traces, demonstrations, and feedback — and the flywheel post divides their labor. Fixed traces are demonstrations, for optimization; scored traces are test items, for evaluation. Both uses may originate in one label store, but assign cases to development or held-out evaluation before tuning; a case used in demonstrations cannot also provide independent test evidence.
 
-That also explains why HW2 follows HW1 so closely. HW2 (released Oct 26) asks you to build a full evaluation suite for a ready-made agent: hardcoded graders, at least one model judge, test tasks built on the 4-tuple (request, environment, stopping criteria, scorer), plus error analysis. Week 5 taught optimization, this week teaches production data, and evaluation completes the triangle — the course's deliberate sequencing.
+That also explains why HW2 follows HW1 so closely. HW2 (released Oct 26) asks you to build a full evaluation suite for a ready-made agent: hardcoded graders, at least one model judge, test tasks built on the 4-tuple (request, environment, stopping criteria, scorer), plus error analysis. Lecture 9 taught optimization, this lecture teaches production data, and evaluation completes the triangle — the course's deliberate sequencing.
 
 Whether the flywheel spins ultimately depends on humans willing to label. The author's first observation says it plainly: people must stay in the loop regularly, because human preferences over outputs shift over time. Model-first, human-edits-second saves effort, but legal teams wanting prompt sign-off and adversarial queries poisoning the demonstration pool are real-world friction. In the post's footnotes, Han names both risks.
 
@@ -281,7 +162,7 @@ A working flywheel depends on turning failures into reliable labels.
 
 Keep reasons and corrections for each failure and isolate acceptance data from development.
 
-## Reading 3 | LLMs for Data Annotation and Synthesis: A Survey
+## Reading 2 | LLMs for Data Annotation and Synthesis: A Survey
 
 Source: [LLMs for Data Annotation and Synthesis: A Survey](https://aclanthology.org/2024.emnlp-main.54/)
 
@@ -306,7 +187,7 @@ Generation can reduce some collection costs while reproducing model blind spots;
 
 The main post barely discusses purely synthetic data, and that silence is itself the answer. The flywheel burns fixed real outputs, not model-dreamed ones. Whether model rewrites and model labels are usable depends on how well validators align with humans — which the author flags as an open problem. Next-token probabilities from instruction-tuned models are poorly calibrated, and asking models for confidence scores does not work well either.
 
-To fill the gap, read this week's additional reading, [Tan et al.'s survey](https://arxiv.org/abs/2402.13446) (EMNLP 2024): how models serve as annotators, how synthetic labels get accepted, and what to watch when training on synthetic data. It covers exactly the pages the flywheel leaves blank.
+To fill the gap, read this lecture's additional reading, [Tan et al.'s survey](https://arxiv.org/abs/2402.13446) (EMNLP 2024): how models serve as annotators, how synthetic labels get accepted, and what to watch when training on synthetic data. It covers exactly the pages the flywheel leaves blank.
 
 **Evidence and result.** The survey maps annotation and synthesis methods and highlights tradeoffs among cost, quality, and bias.
 
@@ -323,37 +204,20 @@ Data volume and trustworthiness require separate judgments.
 
 Check synthetic data against a small human-labeled sample before scaling selected failure categories.
 
-
 ## What to do: make traces exist before the deadline
 
 **What to do**: give your HW1 agent minimal trace logging — store the query, the retrieved emails, and the final answer for each question, plus one good-or-bad tag graded by your own hand. Reserve half an hour each week for review: file fixed bad cases into a demonstration pool, and turn recurring failure types into next-version metrics. Finish one full round before HW1 is due, and the midway report's Environment & Data and Summary of Progress sections will practically write themselves: where your evaluation data comes from, and which failures you are still stuck on.
 
 ## Where it sits in the course
 
-This week is the watershed. HW1 (due Oct 30) wraps up a full harness written from scratch with no frameworks; HW2 (released Oct 26) moves the battle to evaluation. Next week (Week 7) doubles down: Monday reads [SWE-smith](https://arxiv.org/abs/2504.21798) (NeurIPS 2025) on mass-producing task data for software-engineering agents, plus Who Validates the Validators on validator alignment, and Wednesday is all evaluation design. The midpoint demo is now a recorded video rather than an in-class presentation, due Nov 4 at 11:59 p.m.; the midway report lands on Nov 6 — you need a running prototype before there is anything to record.
+Lecture 11 turns traces into data. The next week moves to data quality and evaluation: [Lecture 12](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection-en) covers finding the most informative data, and Lecture 13 covers benchmark design.
 
-## This week's course material
+## Course material for this lecture
 
-The [official schedule](https://cs329z.stanford.edu/) links these slides and readings.
-
-| Class | Slides | Required readings | Additional reading |
-| --- | --- | --- | --- |
-| Oct 26: Lecture 10, Terminal-Bench guest lecture | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf), guided above | [Terminal-Bench project](https://www.tbench.ai/) and [paper](https://arxiv.org/html/2601.11868) | No additional assigned item listed |
-| Oct 28: Lecture 11, Data for Agentic Systems | [PDF](https://web.stanford.edu/class/cs329z/slides/lecture11.pdf), guided above | [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/) | [LLMs for Data Annotation and Synthesis: A Survey](https://aclanthology.org/2024.emnlp-main.54/) |
-
-
-## Update log
-
-- 2026-10-29: After the Lecture 10 and 11 slides were released, added page-referenced guides to both lectures with a check per section (writing tasks and verifiers, task versioning, the two forms and five sources of agent data, and what data teaches by accident), and rewrote the opening, course-material map, and Terminal-Bench reading where they called the lectures upcoming.
-
-- 2026-10-23: Rebuilt the guide around source status, mechanisms, a worked scenario, and answer criteria; separated detailed assigned readings from lecture preparation.
-
-- 2026-10-23: Added the announced Terminal-Bench guest readings, an original outcome-verification example, a bilingual diagram, and development/test separation. The guest session is upcoming; this is a reading guide, not a talk transcript.
-
-
-- 2026-10-10: Added explicit video status and checked recording sources and access notes.
-- 2026-09-29: HW1 was restructured (no more from-scratch / framework split, the corpus is now a corporate email archive) and the midpoint demo became a recorded video due Nov 4 at 11:59 p.m.; rewrote the timeline, trace-logging, and course-position passages to match
-- 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
+- Official slides (PDF): [What Data Do Agents Need? — Lecture 11](https://web.stanford.edu/class/cs329z/slides/lecture11.pdf)
+- Assigned reading: Shankar, "Data Flywheels for LLM Applications" (digested here)
+- Additional reading: Tan et al., "Large Language Models for Data Annotation and Synthesis: A Survey" (digested here)
+- Schedule: [CS329Z site](https://cs329z.stanford.edu/)
 
 ## Course video sources
 
@@ -366,15 +230,20 @@ Course and recording entries:
 
 Checked: 2026-10-29.
 
+## Update log
+
+- 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 11 (Wed Oct 28), previously part of the "Week 6: get the data flywheel turning" guide; earlier entries below predate the split.
+- 2026-10-29: After the Lecture 10 and 11 slides were released, added page-referenced guides to both lectures with a check per section (writing tasks and verifiers, task versioning, the two forms and five sources of agent data, and what data teaches by accident), and rewrote the opening, course-material map, and Terminal-Bench reading where they called the lectures upcoming.
+- 2026-10-23: Rebuilt the guide around source status, mechanisms, a worked scenario, and answer criteria; separated detailed assigned readings from lecture preparation.
+- 2026-10-23: Added the announced Terminal-Bench guest readings, an original outcome-verification example, a bilingual diagram, and development/test separation. The guest session is upcoming; this is a reading guide, not a talk transcript.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-09-29: HW1 was restructured (no more from-scratch / framework split, the corpus is now a corporate email archive) and the midpoint demo became a recorded video due Nov 4 at 11:59 p.m.; rewrote the timeline, trace-logging, and course-position passages to match
+- 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
+
 ## References
 
-- On this site: [Week 5: multi-agent systems and optimization](/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization-en), [CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Lecture 10: Terminal-Bench guest lecture](/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench-en), [Lecture 12: Data Selection & Quality](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection-en), [Stanford CS329Z course overview](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
-- Course material (Mon Oct 26): Lecture 10 Terminal-Bench guest session, [slides](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf) guided above; the assigned project site and paper are covered in Reading 1.
-- Course material (Wed Oct 28, Lecture 11 What Data Do Agents Need?): [slides](https://web.stanford.edu/class/cs329z/slides/lecture11.pdf) guided above; the anchor reading is Shankar's flywheel, guided above. The additional reading is [Tan et al.'s survey](https://aclanthology.org/2024.emnlp-main.54/) (EMNLP 2024), which splits model-as-annotator work into annotation generation, annotation assessment, and training on synthetic annotations, with a data-type taxonomy and a learning-strategy review. The synthetic-data section above follows that three-part map.
+- Course material (Wed Oct 28, Lecture 11 What Data Do Agents Need?): [slides](https://web.stanford.edu/class/cs329z/slides/lecture11.pdf), [Tan et al.'s survey](https://aclanthology.org/2024.emnlp-main.54/)
 - Sources: [Shankar, Data Flywheels for LLM Applications (2024)](https://www.sh-reya.com/blog/ai-engineering-flywheel/), [Tan et al., Large Language Models for Data Annotation and Synthesis, EMNLP 2024](https://arxiv.org/abs/2402.13446), [Shankar et al., Who Validates the Validators, UIST 2024](https://arxiv.org/abs/2404.12272)
-- Further: [Hamel's evaluation guide](https://hamel.dev/blog/posts/evals/), [LangChain: aligning model judges with human preferences](https://blog.langchain.dev/aligning-llm-as-a-judge-with-human-preferences/), [Dosu: turning prompt engineering into retrieval](https://blog.langchain.dev/dosu-langsmith-no-prompt-eng/), [SWE-smith: mass-producing data for software-engineering agents](https://arxiv.org/abs/2504.21798)
-
-- [Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces](https://arxiv.org/html/2601.11868) — task formulation; the paper describes Terminal-Bench 2.0, not a live leaderboard snapshot.
-- [Terminal-Bench — ICLR 2026 proceedings](https://proceedings.iclr.cc/paper_files/paper/2026/hash/444a3737adaee10d86ad2ef5f74468e6-Abstract-Conference.html)
-- [Terminal-Bench project site](https://www.tbench.ai/)
+- Further: [Hamel's evaluation guide](https://hamel.dev/blog/posts/evals/), [Dosu: turning prompt engineering into retrieval](https://blog.langchain.dev/dosu-langsmith-no-prompt-eng/)

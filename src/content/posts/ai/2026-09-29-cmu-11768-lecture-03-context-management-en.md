@@ -454,7 +454,7 @@ The schedule lists no required reading for this lecture, only a long reference l
 - [CS336 Lecture 4: attention variants and MoE](/posts/ai/2026-08-22-cs336-attention-moe-en): prerequisite for this post's model layer
 - [CS336 Lecture 10: inference is about reading less weight and KV cache](/posts/ai/2026-08-22-cs336-inference-en): prefill/decode and the KV cache from a systems view
 - [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/posts/ai/2026-03-24-context-engineering-guide-en): practical notes for the harness layer
-- [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en): another take on MemGPT's external memory
+- [Reading Stanford CS329Z Lecture 6: ReAct](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en) and [Lecture 7: MemGPT](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory-en): another take on MemGPT's external memory
 
 ## Course video sources
 

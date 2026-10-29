@@ -1,88 +1,26 @@
 ---
-title: "Learn to Think While Doing, Then Learn to Remember — ReAct and MemGPT | Stanford CS329Z Week 4"
+title: "Make Agents Remember What Matters: MemGPT, Letta, Mem0, and Generative Agents | Stanford CS329Z Lecture 7"
 date: 2026-09-10
 updated: 2026-10-29
 category: ai
 type: deep-dive
-tags: [cs329z, ai-course, stanford, ai-agent, dspy, rag]
+tags: [cs329z, ai-course, stanford, ai-agent, rag]
 lang: en
 series:
   name: "Reading Stanford CS329Z"
-  order: 5
-tldr: "Week 4 connects the ReAct loop and MemGPT memory hierarchy to Lecture 06/07: composing design patterns, keeping context focused without losing commitments, choosing memory architectures, and evaluating correct use. An original email-assistant example tests whether compaction preserves an approval constraint."
-description: "A guided reading of the Stanford CS329Z Week 4 anchors: how Yao et al.'s ReAct interleaves reasoning with acting, how Packer et al.'s MemGPT manages memory past context limits, and how both map to the HW1 agent harness."
+  order: 8
+tldr: "Lecture 07 sorts agent memory into working, episodic, semantic and procedural types, compares skill libraries, MemGPT-style tiers, reflective consolidation and memory maintenance, and covers memory benchmarks plus forgetting, privacy and over-personalization. The readings run from MemGPT's virtual memory to Letta, Mem0 and Generative Agents."
+description: "A page-linked guide to the CS329Z Lecture 07 Agent Memory Architectures slides, digests of MemGPT, Letta, Mem0 and Generative Agents, and a worked example that tests whether a summary preserves an earlier constraint."
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory)
+> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
-Picture hiring a research assistant with two failure modes: one sits at the desk answering from memory and going wrong where you cannot debug it, the other clicks links endlessly without ever saying what it is looking for. You cannot steer either of them. That dilemma is what Week 4's two anchor papers set out to fix.
+Lecture 7 (Oct 14, Agent Memory Architectures) asks how an agent keeps the state that matters when context is finite and sessions reset. The slides sort memory into four types, compare four architecture patterns, and close with memory benchmarks and open problems in forgetting, privacy and over-personalization.
 
-Monday (Oct 12, Agent Patterns) assigns Yao et al.'s [ReAct](https://arxiv.org/abs/2210.03629) (ICLR 2023): let the model interleave "thinking" (Thought) with "doing" (Action), checking the environment's reply (Observation) after every step. Wednesday (Oct 14, Agent Memory Architectures) assigns Packer et al.'s [MemGPT](https://arxiv.org/abs/2310.08560) (ICLR 2024): borrow hierarchical memory from operating systems and page information between a finite window and external storage through function calls. The same week lands mid-way through [HW1](https://cs329z.stanford.edu/), where the loop's shape and the memory layout are the two decisions to lock in before the harness grows further.
-
-For orientation: [Week 3](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en) released HW1 — build a company's internal AI assistant with no agent frameworks, just a chat-completion call and your own code, starting from pipelines that retrieve and reason over a real corporate email archive and growing into a harness with tools, a terminal, memory, and a human in the loop. Week 4 hands you two papers as construction blueprints, and the [course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) frames the whole course as engineering — this is the week the drawings get unrolled.
-
-This update uses the published Lecture 06/07 slides alongside the assigned papers. It covers the full topic structure of both decks; no unavailable classroom speech is reconstructed.
-
-The official slides and assigned readings serve different roles. The page-by-page guides below cover both lectures; the following reading digests retain the arguments and experiments of the assigned sources. Examples and checks proposed by this article are teaching exercises, not official assignment solutions. Page ranges use physical PDF pages; repeated animation and section-divider pages are grouped.
-
-## Lecture 06 slide guide
-
-<div class="slide-reader" data-slide-reader data-pages="86" data-pdf-src="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf">
-<p>86 physical PDF pages. Select a page-range link to compare the slides with this guide.</p>
-<button type="button" data-slide-open>Open slide comparison</button>
-<p><a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf" target="_blank" rel="noopener noreferrer">Open original PDF</a></p>
-</div>
-
-### Pages 1–12: Adapt patterns to the task
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=1" data-slide-page="1">Slides 1–12</a>
-
-Patterns need adaptation to their environment. The lecture distinguishes workflows and agents by where control flow lives: program logic can classify, retrieve, and draft in a fixed sequence; a model can investigate and choose steps from feedback. Real systems combine both.
-
-Map a support flow and label each branch as a business rule or model decision. If all branches are known in advance, a reproducible workflow provides a useful baseline.
-
-### Pages 13–30: Compose the five workflow patterns
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=13" data-slide-page="13">Slides 13–30</a>
-
-Chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer are introduced separately, then composed in STORM and Archon. In STORM, inspect who decides the subtasks across research, synthesis, and critique. Simultaneous calls alone do not establish dynamic orchestration. Archon searches compositions of inference techniques.
-
-Map your own research flow onto these patterns, then identify the slowest and most error-prone stage before adding another critique round.
-
-### Pages 31–42: ReAct and Reflexion use feedback differently
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=31" data-slide-page="31">Slides 31–42</a>
-
-ReAct interleaves reasoning, action, and observation. Reflexion additionally turns evaluations and failure reflections into text for a later attempt. The lecture cautions that unsupported self-evaluation can repeat an error; CRITIC adds tools to the verifier. The figures report particular research settings rather than a universal benefit from reflection.
-
-Separate noticing a failed tool call from changing strategy because of it. The ReAct digest below examines the paper’s QA and interactive-environment experiments.
-
-### Pages 43–54: Code actions, plans, and dependency-aware execution
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=43" data-slide-page="43">Slides 43–54</a>
-
-CodeAct uses executable code as the action representation. A cross-country phone-price comparison illustrates loops and combined data processing; the execution environment and permissions become part of the design. ReWOO separates planning from tool execution, while LLMCompiler adds parallelism and dynamic replanning.
-
-An original failure test can disable one price API. Identify independent work and dependent steps. Correct arithmetic over stale or missing prices can still produce a bad recommendation.
-
-### Pages 55–75: Separate the complete event record from current context
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=55" data-slide-page="55">Slides 55–75</a>
-
-The principles are focus and continuity: retain information needed now while preserving goals, constraints, and progress. OpenHands preserves original events and reconstructs model input. Offloading moves knowledge outside the window; compaction summarizes; observation masking hides older tool output; isolation limits subtask context. Progressive disclosure loads details when needed.
-
-These methods can coexist. After removing lengthy test output, preserve the command, exit code, conclusion, and source path. A summary that drops “do not send yet” fails even if it saves many tokens.
-
-### Pages 76–86: Pi shows the decisions inside a minimal harness
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=76" data-slide-page="76">Slides 76–86</a>
-
-The lecture’s Pi snapshot uses read, write, edit, and bash; a ReAct-style loop; tree-shaped history; progressive disclosure through skills; and compaction. Treat it as a course snapshot rather than a permanent feature list. Fewer tool definitions do not automatically constrain bash. [Page 78](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=78) lists what Pi deliberately leaves out: no subagents, no permission checks, no plan mode, no agent to-do lists, and no background bash. Features found in mainstream harnesses come from community extensions.
-
-[Page 82](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=82) stresses that Pi runs with the launching process's permissions and never pops up a confirmation, so it is effectively always in auto mode. Assess state retention, stopping behavior, and enforcement of user constraints alongside tool count. The final recap connects workflow, reasoning, and context choices to Wednesday’s memory lecture.
+The assigned readings are Sumers et al.'s CoALA, Packer et al.'s [MemGPT](https://arxiv.org/abs/2310.08560), and Park et al.'s [Generative Agents](https://arxiv.org/abs/2304.03442). This post digests MemGPT and Generative Agents, plus two implementations, Letta and Mem0. MemGPT brings an operating system's memory hierarchy into the LLM and pages between the finite window and external storage through function calls. The slide guide below follows the PDF page numbers, followed by digests of the assigned readings. Examples and self-checks are teaching exercises, not official homework answers; repeated animation frames, logistics and section dividers are grouped together.
 
 ## Lecture 07 slide guide
 
@@ -156,63 +94,9 @@ Future relevance is unknown at write time, so retaining everything and deleting 
 
 Test an unrelated programming question when private schedule information exists in memory: does the answer avoid using it? Also test whether corrections and deletion requests affect later retrieval. Appropriate non-use belongs in memory acceptance criteria.
 
-## Reading | ReAct: interleave reasoning with environment actions
-
-[Monday required reading](https://arxiv.org/abs/2210.03629)
-
-### TL;DR
-
-ReAct interleaves reasoning and actions, using observations to update subsequent steps. QA and interactive environments show different tradeoffs, including task-dependent CoT hybrids.
-
-### Editorial assessment
-
-| Dimension | Assessment |
-|---|---|
-| Evidence | ICLR 2023 research spanning HotpotQA, FEVER, ALFWorld, WebShop, and manually analyzed trajectories. |
-| Boundary | A zero hallucination category in a small audited sample is not a universal rate. Step caps and fallback rules are experimental settings. |
-| Reading value | Useful for analyzing tool loops and environment feedback. |
-
-### Background
-
-Internal reasoning can invent facts, while action-only traces can repeat failures. ReAct brings environment observations back into the decision process.
-
-### Intermediate guide
-
-**ReAct: the think-act-observe loop**
-
-ReAct's definition fits in one sentence: merge the language space into the action space. A model that could previously only emit actions may now also emit "thoughts" — thoughts never touch the outside environment, they only organize the context so far to inform the next move. Task trajectories then read as repeating Thought → Action → Observation sequences, with reasoning deciding what to look up and actions feeding outside information back into reasoning.
-
-Why bother? The two prior roads each carry a terminal illness. Pure reasoning ([Chain-of-Thought](https://arxiv.org/abs/2202.03629)) is a static black box: the model generates thoughts from internal representations alone, ungrounded, so one wrong step compounds all the way down. Pure acting has no working memory: the paper's Act baseline forgets the sink holds no pepper shaker and repeats hallucinated moves in place. ReAct's claim is that humans cooking dinner already work this way — chopped vegetables prompt the thought to boil water, missing salt becomes soy sauce, a forgotten recipe means opening the cookbook. Thinking and doing serve each other.
-
-The setups are deliberately asymmetric. Question answering runs on a deliberately spartan [Wikipedia](https://www.wikipedia.org/) API with exactly three moves: search an article, look up a string within the page, finish with an answer. Keeping retrieval weak forces the model to retrieve through explicit verbal reasoning instead of leaning on a strong retriever. Decision-making tasks (the [ALFWorld](https://alfworld.github.io/) text game, [WebShop](https://webshop-pnlp.github.io/) shopping navigation) flip the pattern: thoughts appear sparsely, and the model itself decides when to think versus when to act.
-
-**Optional exercise**: implement a separate loop in this shape — three moves per iteration: one Thought line (why this action), one Action (one tool call), one Observation (what the tool returned). Add two guardrails: a step cap (7 steps for HotpotQA, 5 for FEVER, falling back to CoT-SC past the cap) plus a finish move that must carry an answer. For this exercise, sort every failed trajectory into three bins — reasoning error, empty retrieval, or repetition loop. The paper's appendix hands you that taxonomy for free.
-
-**The controlled experiment: where did the hallucinations go**
-
-ReAct's most readable table is not a leaderboard but Table 2, a hand-labeled error analysis. The authors sampled 50 correct and 50 incorrect trajectories for each method on HotpotQA, totaling 200 for manual analysis. Among [CoT](https://arxiv.org/abs/2202.03629)'s failures, hallucination accounts for 56%. Under the same audit, ReAct's hallucination category is 0% within the sampled failed trajectories; this is not a universal hallucination rate. The price is rigidity bought with structure: ReAct's reasoning-error rate runs higher than CoT's, and its signature death is replaying one thought-action pair forever, unable to break the loop.
-
-Scores split by domain. On the [FEVER](https://fever.ai/) fact-checking task, ReAct beats CoT 60.9 to 56.3. On [HotpotQA](https://hotpotqa.github.io/) multi-hop QA, ReAct trails slightly at 27.4 to 29.4. The hybrids win overall. On HotpotQA, answer with ReAct first and fall back to CoT-SC on failure, reaching 35.1. On FEVER the reverse order wins: lead with CoT-SC and fall back to ReAct when consensus runs thin, reaching 64.6. Internal knowledge owns structure, external retrieval owns facts — a division of labor that multi-agent week will revisit.
-
-Decision-making scores are cleaner: with only one or two in-context examples, ReAct beats imitation-learning baselines by 34 percentage points on ALFWorld. On WebShop it clears the previous best method by 10 percentage points. The finetuning result throws small models a lifeline: finetuned on just 3,000 correct trajectories, an 8B ReAct model overtakes every 62B prompting result. Teaching a model "how to look things up" generalizes better than teaching it "the answers" — translated to an email assistant, teach it how to search the inbox rather than stuffing the whole archive into the prompt.
-
-**What to do**: give your agent a CoT fallback — when ReAct exhausts its step budget without an answer, back off to one pure-CoT attempt; when CoT's sampled consensus runs too thin, switch to ReAct with external lookup. Count how many questions each path rescues. Use the count in your own error analysis; the fallback design is a suggested experiment, not an official HW1 requirement.
-
-### Deeper points
-
-Readable traces are not complete causal explanations of model internals. Check execution, observation delivery, and stopping conditions directly.
-
-### Reviewer in one sentence
-
-It makes the feedback-sensitive trajectory an inspectable unit of agent behavior.
-
-### Your take-away
-
-Find the first missing-evidence, wrong-tool, or repeated-action point in a failed trace, then change one component and compare.
-
 ## Reading | MemGPT: a memory hierarchy for finite context
 
-[Wednesday required reading](https://arxiv.org/abs/2310.08560)
+[Required reading](https://arxiv.org/abs/2310.08560)
 
 ### TL;DR
 
@@ -256,7 +140,7 @@ After filling the window, ask about an early constraint and require source recov
 
 ## Reading | Letta: build memory from explicit context components
 
-[Wednesday additional reading](https://www.letta.com/blog/agent-memory)
+[Additional reading](https://www.letta.com/blog/agent-memory)
 
 ### TL;DR
 
@@ -296,7 +180,7 @@ Trace a preference from its original message into a core block, through correcti
 
 ## Reading | Mem0: extract, update, and retrieve long-term facts
 
-[Wednesday additional reading](https://arxiv.org/abs/2504.19413)
+[Additional reading](https://arxiv.org/abs/2504.19413)
 
 ### TL;DR
 
@@ -336,7 +220,7 @@ Create successive preference and deadline corrections, inspect retrieval after u
 
 ## Reading | Generative Agents: turn observations into reflection and plans
 
-[Wednesday additional reading](https://arxiv.org/abs/2304.03442)
+[Additional reading](https://arxiv.org/abs/2304.03442)
 
 ### TL;DR
 
@@ -416,42 +300,30 @@ For the worked example, separately record whether the constraint was stored, ret
 
 ## Where it sits in the course
 
-Week 4 bridges both directions. Looking back, it gives [Week 2](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)'s workflow-versus-agent distinction a runnable shape: ReAct and tiered memory offer composable agent designs. Looking ahead, multi-agent collaboration (roles, communication, emergent behavior) is the focus of Week 5 — and the ReAct paper's closing note, that humans can steer an agent live by editing its Thoughts, is exactly where human-in-the-loop collaboration begins, and it is the hook HW1 asks you to leave open for a human.
+Lecture 7 adds the memory layer of the HW1 harness. The next week turns to division of labor and improvement: [Lecture 8](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent-en) asks whether to split work across agents, with shared memory as part of the coordination layer.
 
-On the calendar, HW1 (due Oct 30) should get its skeleton settled this week: loop shape fixed, memory design fixed, which leaves the next two weeks for wiring in the terminal, adding the human-in-the-loop step, running evaluations, and writing error analysis. The assignment bans frameworks throughout, so [Week 3](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en)'s DSPy stays in lecture, where you can see how it abstracts the parts you are writing by hand. Return to Week 1’s question: which system choices improve a task beyond model selection? These papers offer loop and memory designs to test.
+## Course material for this lecture
 
-## This week's course-material map
-
-- Monday: Lecture 06 and required ReAct reading, each guided separately above.
-- Wednesday: Lecture 07 and required MemGPT reading. Letta, Mem0, and Generative Agents are additional readings, each with its own digest above.
-- [Official schedule](https://cs329z.stanford.edu/).
-
-## Update log
-
-- 2026-10-29: Rechecked every section's page range against the Lecture 06/07 PDFs; the Pi case now lists the features the slides say it deliberately omits and its permission model (L06 pp. 78, 82).
-
-- 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.
-
-- 2026-10-23: Expanded from the full Lecture 06/07 slides with design patterns, context management, memory architectures, evaluation, and an original worked example.
-
-- 2026-10-10: Added explicit video status and checked recording sources and access notes.
-- 2026-09-29: HW1 was restructured (no more Part A / Part B split, the corpus is now a corporate email archive, memory and human-in-the-loop are explicit requirements); rewrote the opening, the ReAct/MemGPT "What to do" notes, and the course-position section to match
-- 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
+- Official slides (PDF): [Agent Memory Architectures — Lecture 07](https://web.stanford.edu/class/cs329z/slides/lecture07.pdf)
+- Assigned readings: Sumers et al., "Cognitive Architectures for Language Agents"; Packer et al., "MemGPT" (digested here); Park et al., "Generative Agents" (digested here)
+- Schedule: [CS329Z site](https://cs329z.stanford.edu/)
 
 ## Course video sources
 
 The [official Logistics page](https://cs329z.stanford.edu/logistics.html) states that lecture recordings are accessed by logging into the course Canvas site. This article uses publicly available PDFs and readings; it does not claim to have watched the restricted recordings. The recording-access statement was checked against the official page on 2026-10-23.
 
+## Update log
+
+- 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 7 (Wed Oct 14), previously part of the "Week 4: reason while acting, then remember" guide; earlier entries below predate the split.
+- 2026-10-29: Rechecked every section's page range against the Lecture 06/07 PDFs; the Pi case now lists the features the slides say it deliberately omits and its permission model (L06 pp. 78, 82).
+- 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.
+- 2026-10-23: Expanded from the full Lecture 06/07 slides with design patterns, context management, memory architectures, evaluation, and an original worked example.
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-09-29: HW1 was restructured (no more Part A / Part B split, the corpus is now a corporate email archive, memory and human-in-the-loop are explicit requirements); rewrote the opening, the ReAct/MemGPT "What to do" notes, and the course-position section to match
+- 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
+
 ## References
 
-- [Letta: Agent Memory](https://www.letta.com/blog/agent-memory)
-- [Chhikara et al.: Mem0](https://arxiv.org/abs/2504.19413)
-- [Park et al.: Generative Agents](https://arxiv.org/abs/2304.03442)
-
-- [Lecture 06: Agent Design Patterns and Scaffolds](https://web.stanford.edu/class/cs329z/slides/lecture06.pdf)
-- [Lecture 07: Agent Memory Architectures](https://web.stanford.edu/class/cs329z/slides/lecture07.pdf)
-
-- On this site: [Week 3: plug tools in, swap frameworks up](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en), [Week 2: workflows versus agents](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), [Stanford CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Lecture 6: Agent Design Patterns & Scaffolds](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en), [Lecture 8: Multi-Agent Systems](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent-en), [Stanford CS329Z course overview](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
-- Sources: [Yao et al., ReAct, ICLR 2023](https://arxiv.org/abs/2210.03629), [Packer et al., MemGPT, ICLR 2024](https://arxiv.org/abs/2310.08560), [Wei et al., Chain-of-Thought](https://arxiv.org/abs/2202.03629)
-- Projects and data: [ReAct project page](https://react-lm.github.io/), [MemGPT research site](https://research.memgpt.ai/), [ALFWorld](https://alfworld.github.io/), [WebShop](https://webshop-pnlp.github.io/), [FEVER](https://fever.ai/), [HotpotQA](https://hotpotqa.github.io/)
+- Sources: [Packer et al., MemGPT, ICLR 2024](https://arxiv.org/abs/2310.08560)

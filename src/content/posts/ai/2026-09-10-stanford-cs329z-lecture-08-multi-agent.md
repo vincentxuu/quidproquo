@@ -1,30 +1,26 @@
 ---
-title: "該單幹還是開會——多智慧體與優化三軸｜Stanford CS329Z 第 5 週"
+title: "該單幹還是開會：多智慧體的分工、溝通與失敗｜Stanford CS329Z 第 8 堂"
 date: 2026-09-10
-updated: 2026-10-23
+updated: 2026-10-29
 category: ai
 type: deep-dive
-tags: [cs329z, ai-course, stanford, ai-agent, dspy, compound-ai-systems]
+tags: [cs329z, ai-course, stanford, ai-agent, compound-ai-systems]
 lang: zh-TW
 series:
   name: "Stanford CS329Z 導讀"
-  order: 6
-tldr: "Lecture 08 拆開編排、通訊與協調，教你用 task ledger 和 worktree 管理分工；Lecture 09 從資料與評估出發，比較 context 優化、SFT、RL 與蒸餾。透過可追溯的 email 例子，判斷多加 agent 或優化哪一層才對準瓶頸。"
-description: "帶讀 Stanford CS329Z Week 5 兩堂課：AutoGen 的 conversable agent 與 conversation programming，GEPA 的反思式 prompt 演化與 test-time compute 的按難度分配，以及它們如何收斂成 HW1 收尾時的三選一。"
+  order: 9
+tldr: "Lecture 08 先問單一 agent 夠不夠，再比較 orchestrator、swarm、hybrid 三種編排，以及 handoff、留言板、A2A 協議與 task ledger、共享記憶、worktree 隔離等協調設施，最後追查多智慧體為什麼失敗。讀物從 AutoGen 讀到 MAST、單一 agent 反論與 DyLAN。"
+description: "依實體頁碼帶讀 CS329Z Lecture 08 Multi-Agent Systems 投影片，再深讀 AutoGen、MAST 失敗分類、單一 agent 的反論與 DyLAN，並用兩個 agent 整理 email 的例子檢查分工。"
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization-en)
+> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
-本次導讀以 Lecture 08–09 完整投影片文字與指定閱讀為底本；先備是 [Week 4 的 agent 迴圈與記憶分層](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory)。
+一個模型解不開的題目，直覺解法是多找幾個模型來分工：一個寫程式、一個跑程式、一個負責挑錯，就像開一場會。但開過會的人都知道，會議本身有成本。誰先發言、結論誰寫、錯了算誰的，一樣都少不了。模型開會也一樣，而且錯得更安靜：上游 agent 的幻覺，會變成下游 agent 深信不疑的事實。
 
-一個模型解不開的題目，直覺解法是多找幾個模型來分工。一個寫程式、一個跑程式、一個負責挑錯，就像開一場會。這就是 multi-agent 在吵的事：什麼時候一個人做完就好，什麼時候值得開會。
-
-但開過會的人都知道，會議本身有成本。誰先發言、結論誰寫、錯了算誰的，一樣都少不了。模型開會也一樣，而且錯得更安靜：上游 agent 的幻覺，會變成下游 agent 深信不疑的事實。週一（10/19，Multi-Agent Systems）的主讀物是 Wu 等人的 [AutoGen](https://arxiv.org/abs/2308.08155)（COLM 2024）：把開會規則寫成程式的框架。
-
-週三（10/21，Optimization）換了一個問題：不管單幹還是開會，可以先從三個地方檢查系統。改 prompt（換說明書）、改權重（換腦袋）、加推理算力（想久一點）。主讀物是 Snell 等人的 [test-time compute 論文](https://arxiv.org/abs/2408.03314)（ICLR 2025）與 Agrawal 等人的 [GEPA](https://arxiv.org/abs/2507.19457)。時間點很現實：[HW1 在 10/30 截止](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，這是交卷前最後一個完整週。這篇幫你決定力氣花在哪一軸。
+第 8 堂（10/19，Multi-Agent Systems）的指定讀物是 Wu 等人的 [AutoGen](https://arxiv.org/abs/2308.08155)、Cemri 等人的 MAST 失敗分類，以及 Kim 等人的 agent 系統擴展研究。本文深讀 AutoGen 與 MAST，另讀單一 agent 的反論與 DyLAN。先備是[第 6 堂的迴圈](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)與[第 7 堂的記憶分層](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory)。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
 
 ## Lecture 08 投影片導讀：先設計分工，再追查失敗
 
@@ -70,55 +66,6 @@ Task ledger 記目標、分工、進度與未解問題；shared memory 保存共
 
 案例把專責角色、Git 上的任務狀態與 worktree 連起來。重點是測試、錯誤摘要、可搜尋紀錄與進度回報能否讓 agent 自己辨認下一步。測試若不反映真正任務，多個 agent 只會更有效率地達成錯誤目標。**理解檢查**：各分支測試通過就能合併發布嗎？**答案判準**：仍需共同環境中的整合測試與最終需求驗收。
 
-
-
-## Lecture 09 投影片導讀：讓證據決定優化哪一層
-
-<div class="slide-reader" data-slide-reader data-pages="125" data-pdf-src="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf">
-<p>Lecture 09: 125 頁 PDF。</p>
-<button type="button" data-slide-open>開啟投影片對照</button>
-<p><a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf" target="_blank" rel="noopener noreferrer">原始 PDF</a></p>
-</div>
-
-### 第 1–11 頁：優化先有三個支柱
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=1" data-slide-page="1">投影片第 1–11 頁</a>
-
-資料、可執行系統與評估必須一起存在。先把可靠性、領域需求或成本問題寫成能測的目標，再談搜尋 prompt。若指標只獎勵語氣，優化器可能把錯誤說得更流暢；若需要的行為無法靠文字指令穩定表達，示範與回饋才有價值。
-
-### 第 12–22 頁：Few-shot：挑例子，也挑順序
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=12" data-slide-page="12">投影片第 12–22 頁</a>
-
-投影片先用 few-shot 的順序敏感性說明，內容相同不表示效果相同。STaR 與 DSPy 的 bootstrapping 從成功推理或任務軌跡建立可用材料；先跑出候選，再用指標篩選，避免把所有生成都當成好示範。這是資料與評估共同決定 context 的例子。
-
-### 第 23–69 頁：反思式搜尋：MIPROv2 到 GEPA
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=23" data-slide-page="23">投影片第 23–69 頁</a>
-
-MIPROv2 的長動畫其實只有三個階段：蒐集成功示範、根據程式與資料提出指令、搜尋指令與示範組合。小批量測試提供便宜回饋，定期完整評估再檢查候選。TextGrad 把文字回饋往模組傳，GEPA 讀失敗軌跡反思並保留互補候選。不要把一張結果圖讀成任何工作負載的通用保證。
-
-### 第 70–104 頁：權重：誰產生軌跡，誰提供回饋
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=70" data-slide-page="70">投影片第 70–104 頁</a>
-
-SFT 用教師完成任務的軌跡訓練學生；RL 讓學生自己操作，由結果獎勵更新。PPO 與 GRPO 的比較在說明 value 與群組相對回饋的差別；on-policy distillation 則在學生自己產生的路徑上取教師分布回饋。**理解檢查**：只有離線教師成功紀錄，不能重新操作環境，先試哪條？**答案判準**：SFT；不能直接假設已具備 RL 的互動與獎勵。
-
-### 第 105–116 頁：Agent 也能改 harness，但評估必須可信
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=105" data-slide-page="105">投影片第 105–116 頁</a>
-
-Darwin Gödel Machine、Meta-Harness 與 auto-research 都把修改、實驗與保留有效版本接成迴圈。它們改的是系統設計或研究流程，並不等於模型權重自己更新。本文建議將驗收條件放在改寫範圍之外，並保存實驗設定與失敗，避免優化變成挑最好看的分數。
-
-### 第 117–125 頁：選擇策略：條件比口號重要
-
-<a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=117" data-slide-page="117">投影片第 117–125 頁</a>
-
-BetterTogether 展示 prompt 與權重可以交替改善。只有 API、任務常變或環境執行昂貴時，context 優化可能是較可行的起點；有強教師、想部署較便宜學生或 context 過長時，再評估權重方案。資料、算力、模型存取與驗收可靠性共同決定路線；未定位的失敗不能直接推論需要微調。
-
-
-
-
 ## 從會聊天到能協作：Lecture 08 的三層設計
 
 [Lecture 08](https://web.stanford.edu/class/cs329z/slides/lecture08.pdf)把設計拆成 orchestration、communication、coordination。第一層決定工作怎麼分；第二層決定資訊怎麼交換；第三層管理相依、承諾與共同資源。會傳訊息，只代表第二層存在。
@@ -137,21 +84,6 @@ Communication 還要分清 handoff 與 agent-as-tool。前者把後續控制權�
 **理解檢查**：兩個 agent 都能讀同一個聊天室，卻各自改了同一個介面，為什麼仍會整合失敗？**答案判準**：指出聊天解決資訊通道，沒有自動解決資源歸屬與介面承諾；要補 task ledger 的 owner、共同介面約定、隔離工作區與整合驗證。
 
 講義把失敗分成設計、agent 間、驗證等問題，也提醒從眾和目標不相容：所有 agent 同意，不代表證據更強；各自達標，也不代表整體目標一致。因此 reviewer 應回到原始工具輸出與測試，而不是只替上一個 agent 的摘要背書。
-
-## 用資料決定改哪裡：Lecture 09 的選擇方式
-
-[Lecture 09](https://web.stanford.edu/class/cs329z/slides/lecture09.pdf)先要求三樣東西一起存在：資料、可執行的系統、評估與指標。若「好答案」還沒定義，優化器只會更有效率地追逐模糊目標。成功率之外，也要測成本與延遲；資料要分成調整用與保留驗收用，避免把看過的題目記熟誤認為泛化。
-
-Context optimization 不只改一句 system prompt。Few-shot 路線先從成功軌跡建立示範，再搜尋有用的組合；MIPROv2 同時提出指令與示範候選，用小批量評估更新搜尋。反思式路線把失敗軌跡與回饋交給模型，讓它提出下一個修改。這說明了為什麼只存最後分數不夠：工具回傳錯在哪，才可能告訴你哪個模組該改。
-
-| 手上的條件 | 優先試驗 | 要先確認的事 |
-|---|---|---|
-| 只有 API、常換任務、環境執行昂貴 | Context／prompt 優化 | 評估是否涵蓋真實失敗 |
-| 有好教師，要把任務移到較便宜學生 | SFT／蒸餾 | 教師軌跡品質與多樣性 |
-| 學生能互動，任務結果可驗證 | RL | 獎勵是否反映真正完成 |
-| 某些題目重試會改善，且有可靠 verifier | 增加推理算力 | 增益是否值得成本與延遲 |
-
-這張表是根據講義整理的試驗起點，不是互斥選單。講義用 BetterTogether 說明 prompt、權重、再 prompt 可以交替；也談到讓 agent 修改 harness、跑實驗、保留有效改動。越能自動探索，越要把評估固定在它不能任意改寫的地方，並保留未用於調參的題目。
 
 ## 本文教學例子：兩個 agent 整理 email
 
@@ -184,7 +116,6 @@ caption: 本文教學例子；箭頭表示交接資料的方向。
 下一步要看成本與失敗軌跡。假如剩下的錯都是搜尋工具沒回傳正確信件，加一個 reviewer 無法憑空補出證據；應先檢查查詢與索引。如果有正確候選、卻挑錯答案，才試更多候選加 verifier。是否拆 agent、改 prompt 或訓練權重，都要對著同一個瓶頸做對照。
 
 **綜合理解檢查**：拆成三個 agent 後，每個都回報成功，整體仍錯；你會先增加 agent，還是改哪一個檢查？**答案判準**：先用原始 email 對照端到端輸出，找資訊在哪次交接變形；檢查 ledger、交接契約與 evaluator。只有確認可分工的瓶頸，且對照顯示收益大於協調成本，才擴編。單一失敗結果無法直接判定需要微調。
-
 
 ## 讀物 1｜AutoGen
 
@@ -219,7 +150,7 @@ AutoGen 的核心抽象有兩個，[開源實作](https://github.com/microsoft/a
 
 **怎麼做**：先別拆。拿 HW1 的 email 助理跑 20 題，把失敗分成兩堆：單一步驟錯、後面跟著全錯。只有當同一條分工邊界反覆出現（例如寫 code 和驗 code 老是互相污染），才把那條邊切成第二個 agent。切分要有失敗證據，不要為組織圖好看而切。
 
-課程週一的標題直接點名：coordination and error propagation。多體架構的帳單有三張。第一張是狀態交接：agent 之間傳的不只是答案，還有做到哪、為什麼這樣做。傳丟了，下游就重蹈覆轍。
+這堂的標題直接點名：coordination and error propagation。多體架構的帳單有三張。第一張是狀態交接：agent 之間傳的不只是答案，還有做到哪、為什麼這樣做。傳丟了，下游就重蹈覆轍。
 
 第二張是錯誤放大：沒人檢查的管線，每多一站就多一次把幻覺當事實的機會。AutoGen 把原本解供應鏈問答的 [OptiGuide](https://arxiv.org/abs/2307.03875)重寫成多智慧體：Commander 協調 Writer 與 Safeguard，寫 code 和驗 code 分家，正是為了讓檢查獨立於生產。自己驗自己寫的東西，人跟模型都做不好。
 
@@ -242,87 +173,7 @@ AutoGen 的核心抽象有兩個，[開源實作](https://github.com/microsoft/a
 
 先寫兩個角色的交接欄位與停止條件，再用原始工具輸出驗證每次交接。
 
-## 讀物 2｜Scaling Test-Time Compute
-
-原文：[Scaling Test-Time Compute](https://arxiv.org/abs/2408.03314)
-
-### TL;DR
-
-研究把 proposer 與 verifier 接起來，比較搜尋與修訂在不同題目難度下的配置；選法隨模型能力與預算改變。
-
-### 編輯判斷
-
-| 面向 | 閱讀判斷 |
-| --- | --- |
-| 核心問題 | 同一筆推理預算要用在搜尋，還是逐次修訂？ |
-| 證據與邊界 | 主要證據來自數學題與特定 verifier；不能直接推論企業 email 任務也有同等收益。 |
-
-### 領域背景
-
-推理階段可以產生更多候選，也可以沿同一答案持續修訂；兩者消耗相近資源，失敗型態卻不同。
-
-### 中階導讀
-
-**方法。** 以相同推理預算比較平行候選、逐次修訂與verifier搜尋，再按難度分析效果。
-
-Snell 那篇守推理算力軸。它把 test-time compute 拆成兩招：對 process verifier 做搜尋，以及讓模型迭代改自己的答案。論文研究修訂與搜尋的效益如何隨題目難度和預算改變；在 [MATH](https://arxiv.org/abs/2103.03874) 上的實驗支持按情況配置算力。它沒有證明 email 助理「怎樣都答不對」就必須改權重：漏檢索、工具失效、評分標準出錯，也會長得一樣。先看失敗軌跡，才能選優化方向。
-
-**證據與結果。** 作者觀察到搜尋與修訂的相對收益會隨題目難度改變，支持按條件分配而非平均增加算力。
-
-### 深入要點
-
-- Proposer 改變候選答案的分布，verifier 則決定如何篩選候選，兩者是不同瓶頸。
-- 若verifier偏好錯誤答案，增加搜尋可能更常挑中看似高分的錯解。
-
-### Reviewer 一句話評
-
-增加思考預算有價值的前提，是知道如何選出較好的嘗試。
-
-### 給你的 take-away
-
-固定題目與成本上限，分別試候選搜尋與修訂，連同失敗型態一起比較。
-
-## 讀物 3｜GEPA
-
-原文：[GEPA](https://arxiv.org/abs/2507.19457)
-
-### TL;DR
-
-GEPA 讀執行軌跡與回饋，反思 prompt 改動，並以 Pareto 候選保留不同題目上的互補優勢。
-
-### 編輯判斷
-
-| 面向 | 閱讀判斷 |
-| --- | --- |
-| 核心問題 | 只看總分，怎麼知道應該改哪個模組的 prompt？ |
-| 證據與邊界 | 論文比較受限於任務、模型與 rollout 預算；標題的 outperform 不是任意部署的保證。 |
-
-### 領域背景
-
-複合系統可能在檢索、工具或摘要任一處失敗；總分只告訴你結果，軌跡才保留修改線索。
-
-### 中階導讀
-
-**方法。** 選一個候選系統、執行小批案例、讀軌跡反思並提出prompt改動，再評估是否保留或合併。
-
-GEPA 守 prompt 軸。它看著系統跑出來的軌跡（推理、工具呼叫、工具輸出）用自然語言反思，診斷哪裡壞、該改哪句 prompt。多次嘗試裡互補的經驗，再從 Pareto 前沿合起來。[開源實作](https://github.com/gepa-ai/gepa)把這個循環具體化：提出 prompt 改動、執行、檢查回饋，再保留有用的候選。Lecture 09 把 GEPA 與 MIPROv2、TextGrad 放在同一條反思式優化脈絡，並不保證某個優化器在你的工作負載一定勝出。
-
-**證據與結果。** 論文在多個複合系統配置中比較優化器與預算，顯示自然語言軌跡回饋可提供比單一reward更細的修改線索。
-
-### 深入要點
-
-- 反思需要看到哪次工具回覆導致錯誤；只給最終成功或失敗，會失去模組歸因。
-- Pareto候選保留不同題目上的優勢，避免用單一平均分數過早丟掉互補策略。
-
-### Reviewer 一句話評
-
-反思的價值在讀懂可行動的回饋，而非再多產生一段自我評論。
-
-### 給你的 take-away
-
-在失敗紀錄中保留工具參數與回覆，讓反思能指出具體模組，再用保留題驗收。
-
-## 讀物 4｜MAST: Why Multi-Agent Systems Fail
+## 讀物 2｜MAST: Why Multi-Agent Systems Fail
 
 原文：[MAST: Why Multi-Agent Systems Fail](https://arxiv.org/abs/2503.13657)
 
@@ -360,7 +211,7 @@ MAST-Data 蒐集七種框架超過 1600 條標註軌跡，從系統設計、agen
 
 把自己的失敗 trace 標成設計、交接或驗證問題，再選一類先修。
 
-## 讀物 5｜Do Not Sleep on Single-Agent Systems
+## 讀物 3｜Do Not Sleep on Single-Agent Systems
 
 原文：[Do Not Sleep on Single-Agent Systems](https://openhands.dev/blog/dont-sleep-on-single-agent-systems)
 
@@ -398,7 +249,7 @@ MAST-Data 蒐集七種框架超過 1600 條標註軌跡，從系統設計、agen
 
 保留一份單 agent 對照版，以同一題集量協調收益與額外成本。
 
-## 讀物 6｜DyLAN
+## 讀物 4｜DyLAN
 
 原文：[DyLAN](https://arxiv.org/abs/2310.02170)
 
@@ -436,98 +287,15 @@ DyLAN 先挑選團隊，再讓角色以動態網路互動，避免每題固定�
 
 比較固定團隊與動態選角，記錄哪些角色在何種題目提供有效資訊。
 
-## 讀物 7｜BetterTogether
-
-原文：[BetterTogether](https://aclanthology.org/2024.emnlp-main.597/)
-
-### TL;DR
-
-BetterTogether 交替進行 prompt 優化與微調，讓前一階段改善後的系統產生下一階段可用資料。
-
-### 編輯判斷
-
-| 面向 | 閱讀判斷 |
-| --- | --- |
-| 核心問題 | Prompt 與權重優化會不會互相改變彼此的最佳起點？ |
-| 證據與邊界 | 結果限於論文的問答與推理配置；交替不是無條件更便宜或更好。 |
-
-### 領域背景
-
-Prompt 會改變模型的輸出分布，微調也會改變模型對指令的反應，因此兩者可能相互影響。
-
-### 中階導讀
-
-**方法。** 在可評估的程式上交替產生訓練材料、微調與prompt搜尋，保留各階段的對照。
-
-**證據與結果。** 在論文的多跳問答與數學推理設定中，組合策略優於只調prompt或只調權重的比較設定。
-
-### 深入要點
-
-- 微調後最好的prompt可能改變，舊prompt不應自動視為新權重的最佳搭配。
-- 成功軌跡也可能缺乏多樣性，反覆自教需檢查資料分布是否縮窄。
-
-### Reviewer 一句話評
-
-先後順序本身也是系統設計的一部分。
-
-### 給你的 take-away
-
-保存每一階段版本與成本，驗收組合是否真的優於單獨優化。
-
-## 讀物 8｜MIPRO
-
-原文：[MIPRO](https://arxiv.org/abs/2406.11695)
-
-### TL;DR
-
-MIPRO 根據程式、資料與成功軌跡提出候選，使用代理評估搜尋跨模組的組合。
-
-### 編輯判斷
-
-| 面向 | 閱讀判斷 |
-| --- | --- |
-| 核心問題 | 多階段程式中，指令和示範如何一起挑選？ |
-| 證據與邊界 | 原文報告最高約 13% accuracy 改善；這是指定任務與模型的比較，不是每段模組各增 13%。 |
-
-### 領域背景
-
-多階段程式的指令彼此相依，逐段挑局部最佳不一定得到端到端最佳。
-
-### 中階導讀
-
-**方法。** 先bootstrap示範，再提出多個指令，最後用代理搜尋組合指令與示範。
-
-**證據與結果。** 論文在七個多階段程式中的五個優於比較優化器；收益依程式與候選搜尋而異。
-
-### 深入要點
-
-- 候選指令有程式、資料與成功軌跡作脈絡，避免完全盲目改寫。
-- 小批量評估降低搜尋成本，但選出的候選仍需較完整評估確認。
-
-### Reviewer 一句話評
-
-聯合搜尋把指令與示範一起評估，代價是必須有可信的指標。
-
-### 給你的 take-away
-
-把模組級 prompt 與示範一起版本化，保留端到端評分以檢查跨模組歸因。
-
-
-## HW1 收尾：交卷前只做三件事
-
-第一，鎖骨架。[Week 4](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory) 把 [ReAct](https://arxiv.org/abs/2210.03629) 迴圈形狀和記憶分層定下來之後就別再改，凍結一個能跑的版本當對照組。第二，把 harness 補齊：HW1 要的不只是會查信的 pipeline，還有工具、terminal、記憶和人類介入。缺哪塊先補哪塊，每補一塊就拿同一組 email 題對凍結版跑一次。第三，錯誤分析三行寫好：哪類題目最常失敗、失敗落在檢索還是推理、人類介入在哪裡攔下了錯。
-
-**怎麼做**：依尚缺的項目分配剩餘時間：鎖骨架、補齊 harness 並逐塊對照，再預留錯誤分析與收尾。每天只動一軸：今天改 prompt，明天加算力，後天才考慮拆 agent。混著調的失敗是沒法寫進報告的。
-
 ## 它在課程裡的位置
 
-Week 5 接著進入 Week 6 的嘉賓演講與 Data for Agentic Systems，[HW2 在 10/26 釋出](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，HW1 在 10/30 交卷。多智慧體的錯誤傳遞會在 Week 8 的安全與護欄回來，注入攻擊與 sandbox 算的是同一筆帳。優化三軸則直接連著季度專案：demo 前每一輪迭代都是同一個三選一。Week 4 定迴圈形狀，Week 5 決定這個迴圈複製幾份、力氣花在哪。順序讀下來，HW1 就是這五週的總驗收。
+第 8 堂決定要不要分工，[第 9 堂](/posts/ai/2026-09-10-stanford-cs329z-lecture-09-optimization)接著問：不管單幹還是開會，力氣該花在改 prompt、改權重還是加推理算力。HW1 在 10/30 截止，這是交卷前最後一個完整週。
 
-## 本週 Course Material 對照
+## 本堂 Course Material 對照
 
-- 週一 10/19 Multi-Agent Systems：主讀物 AutoGen（本文已導讀）。[Cemri 等人收了 1600 多條多智慧體軌跡](https://arxiv.org/abs/2503.13657)，做成 MAST-Data。失敗模式按設計問題、智慧體對不齊、缺驗證分堆，給開會出事點名。呼應週一主題：協調失敗有結構，不是運氣。[Neubig](https://openhands.dev/blog/dont-sleep-on-single-agent-systems)拿 [OpenHands](https://github.com/OpenHands/OpenHands) 經驗幫單體說話：多體的痛在結構僵硬、交接漏上下文、維護貴。一個強模型配通用工具箱加長 prompt，多數分工都吃得下。[Liu 等人的 DyLAN](https://arxiv.org/abs/2310.02170)先選隊再動態組網：在特定 [MMLU](https://arxiv.org/abs/2009.03300) 子集上，選對隊伍最多拉高 25% 準確率。誰上場本身就是可優化的變數。
-- 週三 10/21 Optimization：主讀物 Snell 等人 test-time compute、GEPA（本文已導讀）。[Soylu 等人把微調權重和優化 prompt 交替做](https://aclanthology.org/2024.emnlp-main.597/)，讓同一個模型自己教自己。在多跳問答和數學推理上，一起做贏過只做一邊。[Opsahl-Ong 等人的 MIPRO](https://arxiv.org/abs/2406.11695)把多階段程式每段的指令和示範一起優化，用小批量代理評估解跨模組歸因。原文在特定配置報告最高約13%的accuracy改善，優化器已收進 [DSPy](https://dspy.ai)。它的後續版本 MIPROv2，正是 GEPA 論文鎖定的最強基線。
-- 課表原文：[CS329Z 官網 Week 5](https://cs329z.stanford.edu/)
+- 官方投影片（PDF）：[Multi-Agent Systems — Lecture 08](https://web.stanford.edu/class/cs329z/slides/lecture08.pdf)
+- 指定閱讀：Wu 等人〈AutoGen〉（本文深讀）、Cemri 等人〈Why Do Multi-Agent LLM Systems Fail?〉（本文深讀）、Kim 等人〈Towards a Science of Scaling Agent Systems〉
+- 課表原文：[CS329Z 官網](https://cs329z.stanford.edu/)
 
 ## 課程影片來源
 
@@ -542,17 +310,16 @@ Week 5 接著進入 Week 6 的嘉賓演講與 Data for Agentic Systems，[HW2 �
 
 ## 更新紀錄
 
+- 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 8（10/19 週一）的內容，原屬「第 5 週：該單幹還是開會」導讀；以下保留拆分前的紀錄。
 - 2026-10-23：依 Lecture 08–09 補入協調、worktree、權重優化與依評估選策略，新增完整教學例子、圖解與理解檢查。
-
-
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、語料換成企業 email、改成不用框架的完整 harness），改寫「HW1 收尾」的十天計畫與各節「怎麼做」裡的作業對應
 - 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。
 
 ## 參考資料
 
-- 站內：[Week 4：ReAct 與記憶](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory)、[Week 3：工具與 DSPy](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
-- 講義：[Lecture 08: Multi-Agent Systems](https://web.stanford.edu/class/cs329z/slides/lecture08.pdf)、[Lecture 09: Optimization](https://web.stanford.edu/class/cs329z/slides/lecture09.pdf)
+- 站內：[第 7 堂：Agent Memory Architectures](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory)、[第 9 堂：Optimization](/posts/ai/2026-09-10-stanford-cs329z-lecture-09-optimization)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
+- 講義：[Lecture 08: Multi-Agent Systems](https://web.stanford.edu/class/cs329z/slides/lecture08.pdf)
 - 課程：[CS329Z 官網課表](https://cs329z.stanford.edu/)
-- 原文：[Wu et al., AutoGen, COLM 2024](https://arxiv.org/abs/2308.08155)、[Snell et al., Scaling LLM Test-Time Compute Optimally, ICLR 2025](https://arxiv.org/abs/2408.03314)、[Agrawal et al., GEPA, arXiv 2025 (ICLR 2026 Oral)](https://arxiv.org/abs/2507.19457)
-- 工具：[AutoGen](https://github.com/microsoft/autogen)、[GEPA](https://github.com/gepa-ai/gepa)
+- 原文：[Wu et al., AutoGen, COLM 2024](https://arxiv.org/abs/2308.08155)
+- 工具：[AutoGen](https://github.com/microsoft/autogen)

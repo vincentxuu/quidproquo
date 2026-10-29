@@ -454,7 +454,7 @@ Neubig 講了一個 OpenHands 早期的故事。他們認為自己做出了最�
 - [CS336 Lecture 4：Attention 不只一種，MoE 也不是免費擴大模型](/posts/ai/2026-08-22-cs336-attention-moe)：本篇模型層的前置
 - [CS336 Lecture 10：LLM 推論的核心不是少算，而是少讀權重與 KV cache](/posts/ai/2026-08-22-cs336-inference)：prefill／decode 與 KV cache 的系統觀點
 - [Context Engineering：為什麼你的 AI Agent 問題出在資訊，不在模型](/posts/ai/2026-03-24-context-engineering-guide)：harness 層的實務整理
-- [Stanford CS329Z 導讀 Week 4：ReAct 與 MemGPT](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory)：MemGPT 外存記憶的另一種講法
+- [Stanford CS329Z 第 6 堂：ReAct](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)與[第 7 堂：MemGPT](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory)：MemGPT 外存記憶的另一種講法
 
 ## 課程影片來源
 

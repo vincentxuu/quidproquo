@@ -67,6 +67,27 @@ export default defineConfig({
   output: 'server',
   // 已發佈文章換檔名時，舊網址一律留一條 301，外站連過來才不會 404。
   redirects: {
+    // Stanford CS329Z：一週一篇改為一堂一篇，舊週文轉到該週第一堂（2026-10-29）。
+    '/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems': { destination: '/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems', status: 301 },
+    '/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en': { destination: '/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week9-coding-agents': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-17-coding-agents', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week9-coding-agents-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-17-coding-agents-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week11-proactive-demos': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-18-proactive-agents', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week11-proactive-demos-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-18-proactive-agents-en', status: 301 },
     // Agent 隔離邊界：移除重複附錄，保留原文導讀（2026-10-26）。
     '/posts/ai/2026-10-24-agent-isolation-retelling-check': { destination: '/posts/ai/2026-10-24-agent-isolation-openai-red-team-reading', status: 301 },
     '/posts/ai/2026-10-24-agent-isolation-retelling-check-en': { destination: '/posts/ai/2026-10-24-agent-isolation-openai-red-team-reading-en', status: 301 },

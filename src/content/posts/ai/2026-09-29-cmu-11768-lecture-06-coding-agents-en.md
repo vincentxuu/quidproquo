@@ -243,7 +243,7 @@ L6 is the first Domain lecture after the Capabilities module, landing the pieces
 
 ## Further reading
 
-- On this site: [Reading Stanford CS329Z Week 9: coding agents](/posts/ai/2026-09-10-stanford-cs329z-week9-coding-agents-en) (SWE-agent's ACI and the OpenHands platform)
+- On this site: [Reading Stanford CS329Z Lecture 17: coding agents](/posts/ai/2026-09-10-stanford-cs329z-lecture-17-coding-agents-en) (SWE-agent's ACI and the OpenHands platform)
 - On this site: [Edit tool trade-offs in coding agents](/posts/ai/2026-08-25-coding-agent-edit-tool-tradeoffs-en)
 - On this site: [Toolset design philosophy in coding agents](/posts/ai/2026-08-30-coding-agent-toolset-design-philosophy-en)
 - On this site: [The verification gate in coding agents](/posts/ai/2026-08-25-coding-agent-verification-gate-en)

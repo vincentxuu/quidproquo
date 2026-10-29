@@ -1,32 +1,30 @@
 ---
-title: "寫程式的智慧體，先替它造一把順手的 IDE｜Stanford CS329Z 第 9 週"
+title: "寫程式的智慧體，先替它造一把順手的 IDE｜Stanford CS329Z 第 17 堂"
 date: 2026-09-10
-updated: 2026-10-23
+updated: 2026-10-29
 category: ai
 type: deep-dive
 tags: [cs329z, ai-course, stanford, ai-agent, rag]
 lang: zh-TW
 series:
   name: "Stanford CS329Z 導讀"
-  order: 10
-tldr: "第九週週三談寫程式智慧體：SWE-agent 證明介面即效能，OpenHands 把沙箱與評測做成通用底座；第二份作業週五到期，本週交付是一道會動的修 bug 考題。"
-description: "帶讀 Stanford CS329Z Week 9 兩大主讀物：SWE-agent 的 ACI 介面設計與消融證據、OpenHands 的事件流沙箱與多基準評測，以及 SWE-bench 四元組考題結構與一條可動手的打包建議。"
+  order: 18
+tldr: "第 17 堂依課表談 coding agent 的端到端運作：SWE-agent、Claude Code 與 OpenHands 的架構，scaffold 作為設計決策，SWE-bench 與 4-tuple 框架的實際應用，以及軟體開發的未來。讀物涵蓋 SWE-agent 的 ACI、OpenHands 的事件流沙箱、Claude Code 實務、長任務 harness 與 SWE-bench。"
+description: "依課表與指定閱讀預習 Stanford CS329Z 第 17 堂 Coding & Software Agents：深讀 SWE-agent 的 ACI 介面設計、OpenHands 的事件流沙箱、Claude Code 實務、長任務 harness 與 SWE-bench 考題結構。"
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-week9-coding-agents-en)
+> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-17-coding-agents-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
-第九週是寫程式週。週一是 Guest 場（十一月十六日）。週三談 Coding 與 Software Agents（十一月十八日）。第二份作業在週五到期（十一月二十日）。
+給智慧體一個 GitHub issue，它能不能自己修好，這是第 17 堂（11/18，Coding & Software Agents）的起點。端到端流程有五步：讀懂需求、找到相關程式碼、寫出重現腳本、動手改程式、跑測試確認。最後交出的是一份 patch，外加全部通過的測試。週五（11/20）HW2 到期。
 
-給智慧體一個 GitHub issue，它能不能自己修好，這是本週的起點。端到端流程有五步：讀懂需求、找到相關程式碼、寫出重現腳本、動手改程式、跑測試確認。最後交出的是一份 patch，外加全部通過的測試。
-
-你可以把它想成一位會用電腦的工程師學徒：給它任務與工具，它在沙箱裡試錯前進。本週有兩篇主讀物。[SWE-agent](https://arxiv.org/abs/2405.15793) 回答介面問題：給智慧體什麼樣的工具，它才改得動程式。[OpenHands](https://arxiv.org/abs/2407.16741) 回答平台問題：沙箱、工具庫、評測如何兜成通用底座。Guest 場沒有指定讀物，本篇不寫。
+你可以把它想成一位會用電腦的工程師學徒：給它任務與工具，它在沙箱裡試錯前進。指定讀物 [SWE-agent](https://arxiv.org/abs/2405.15793) 回答介面問題：給智慧體什麼樣的工具，它才改得動程式；[OpenHands](https://arxiv.org/abs/2407.16741) 回答平台問題：沙箱、工具庫、評測如何兜成通用底座。延伸閱讀是 Claude Code 實務、長任務 harness 與 SWE-bench，本文都深讀。同一週週一（11/16）的客座課主題仍待公布，沒有指定讀物，本系列等官網公告後再補。截至 2026-10-29，這堂還沒有公開投影片，本文是依官方課表與指定閱讀寫的預習，不代表講師在課堂上說過的內容。第 11 堂以後的堂次編號依課表順序推算，官網目前只列日期與主題。
 
 ## 沿一次修復追蹤：介面、環境、patch 與驗收
 
-[官方課表](https://cs329z.stanford.edu/)的 11/16 客座課仍標 TBA，11/18 才是 Coding & Software Agents；截至 2026-10-23 尚無公開投影片。本文依 SWE-agent、OpenHands 與長任務 harness 指定閱讀建立預習路徑，不把未知客座內容補成課程事實。對正在維護實際專案的讀者，這週要學的是讓修復可追蹤，而非只讓模型多寫幾行程式。
+[官方課表](https://cs329z.stanford.edu/)的 11/16 客座課仍標 TBA，11/18 才是 Coding & Software Agents；截至 2026-10-23 尚無公開投影片。本文依 SWE-agent、OpenHands 與長任務 harness 指定閱讀建立預習路徑，不把未知客座內容補成課程事實。對正在維護實際專案的讀者，這堂要學的是讓修復可追蹤，而非只讓模型多寫幾行程式。
 
 ### 介面決定下一步看得到什麼
 
@@ -41,8 +39,6 @@ draft: false
 先跑會失敗的重現，確認它對準原問題；改碼後讓它通過，再跑相鄰行為，避免只針對單一輸入硬寫答案。Patch 交出後仍要在乾淨環境驗收。Agent 自己跑過的開發測試與評估 harness 的獨立測試要分開，才不會把「它宣稱測過」當成成功。[長任務 harness 指南](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)補上跨 context 的進度紀錄與可恢復工作方式。
 
 **理解檢查**：agent 修改了測試讓它通過，能否算修復？**答案判準**：先查原始需求與測試是否真的錯。驗收應檢查使用者可觀測行為，保護獨立的測試條件；刪掉失敗案例本身沒有證明 bug 消失。
-
-
 
 ## 讀物 1｜SWE-agent
 
@@ -249,7 +245,7 @@ Context有限，工作卻可能跨多次session；若狀態只存在對話裡，
 
 基準本身也是設計。每道考題是四元組：issue 原文、某個 commit 的程式庫快照、修好才會過的新測試、修前修後都要過的舊測試。前者叫 `FAIL_TO_PASS`，後者叫 `PASS_TO_PASS`。智慧體看得到前兩項，看不到後兩項，兩組全過才算解出。
 
-完整集來自十二個 Python 倉庫。題目是兩千多道真實 issue 留下來的。[SWE-bench](https://arxiv.org/abs/2310.06770) 的 Lite 子集只留三百題，省錢省時間。SWE-agent 配當時的 [GPT-4](https://arxiv.org/abs/2303.08774)，完整集解出一成二強。Lite 子集約一成八。只檢索不動手的 [RAG](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag) 基線，在 Lite 上不到三個百分點。
+完整集來自十二個 Python 倉庫。題目是兩千多道真實 issue 留下來的。[SWE-bench](https://arxiv.org/abs/2310.06770) 的 Lite 子集只留三百題，省錢省時間。SWE-agent 配當時的 [GPT-4](https://arxiv.org/abs/2303.08774)，完整集解出一成二強。Lite 子集約一成八。只檢索不動手的 [RAG](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag) 基線，在 Lite 上不到三個百分點。
 
 **證據與結果。** 資料集讓模型面對真實issue與整個repo；早期低分揭露長context、定位與修改並非單次文字生成就能處理。
 
@@ -266,22 +262,20 @@ Patch是否有效，由行為與測試決定。
 
 固定base commit與乾淨環境，把修復條件和不得退步的行為分開測。
 
-
 ## 怎麼做：給自己的倉庫出一份考題
 
 **怎麼做**：挑自己倉庫裡一個已修好的 issue，把它包成四元組：issue 原文、當時版本、驗證用測試。智慧體只能看前兩項，在隔離沙箱裡重跑一次修 bug。測試全過才算分，沒過就把軌跡存下來，變成下一輪的教材。
 
 ## 它在課程裡的位置
 
-[Week 8 的裁判與護欄](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)發了工具，本週直接下場寫程式：ACI 管手感，沙箱管安全，測試管對錯。第二份作業在週五到期，季度專案的展示也就不遠了。修 bug 智慧體正是專案的好題目：考題現成，評分自動，展示效果直觀。
+coding agent 把前面各堂串在一起：工具（第 4 堂）、迴圈與 context（第 6 堂）、評估四元組（第 13 堂）、沙箱與許可（第 15 堂）。下一週是 Thanksgiving 停課，之後[第 18 堂](/posts/ai/2026-09-10-stanford-cs329z-lecture-18-proactive-agents)談 agent 什麼時候該主動出手。
 
-## 本週 Course Material 對照
+## 本堂 Course Material 對照
 
-延伸閱讀有三份。[Anthropic 的 Claude Code 實戰建議](https://www.anthropic.com/engineering/claude-code-best-practices)把上下文窗口當成最稀缺的資源，動手前先給智慧體可執行的驗證手段。第二份是[Young 談長運行智慧體的 harness](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)，初始化智慧體先鋪環境，每輪小步推進並留下進度紀錄。第三份 [SWE-bench 原文](https://arxiv.org/abs/2310.06770)是整週考題的源頭，發表時最強模型僅解出約二個百分點。
-
-- 週一 11/16 Guest Lecture：客座場，無指定讀物。
-- 週三 11/18 Coding & Software Agents：主讀物 SWE-agent、OpenHands（本文已導讀）；延伸閱讀 [Anthropic Claude Code 實戰建議](https://www.anthropic.com/engineering/claude-code-best-practices)、[Young 談長運行智慧體的 harness](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)、[Jimenez 等人 SWE-bench：LLM 能否解真實 GitHub issue](https://arxiv.org/abs/2310.06770)。
-- 課表原文：[CS329Z 官網 Week 9](https://cs329z.stanford.edu/)
+- 官方投影片：尚未公開（截至 2026-10-29）
+- 指定閱讀：Yang 等人〈SWE-agent〉（本文深讀）、Wang 等人〈OpenHands〉（本文深讀）
+- 延伸閱讀：Anthropic〈Claude Code: Best Practices for Agentic Coding〉、Young〈Effective Harnesses for Long-Running Agents〉、Jimenez 等人〈SWE-bench〉（皆本文深讀）
+- 課表原文：[CS329Z 官網](https://cs329z.stanford.edu/)
 
 ## 課程影片來源
 
@@ -296,16 +290,15 @@ Patch是否有效，由行為與測試決定。
 
 ## 更新紀錄
 
+- 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 17（11/18 週三）的內容，原屬「第 9 週：寫程式的智慧體，先替它造一把順手的 IDE」導讀；以下保留拆分前的紀錄。
 - 2026-10-23：依第一堂模板重整材料狀態、機制、情境與理解檢查；將指定閱讀深讀與課堂預習分開。
-
 - 2026-10-23：將既有教學內容補成圖解與必要對照表；本次未重新查證數據、課表或研究結果。
-
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。
 
 ## 參考資料
 
-- 站內：[Week 8：模型裁判與安全護欄](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)、[Week 2：工作流與 RAG](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
+- 站內：[第 15 堂：Agent Safety & Guardrails](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety)、[第 18 堂：Proactive Agents](/posts/ai/2026-09-10-stanford-cs329z-lecture-18-proactive-agents)、[CS329Z 總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 - 課程：[CS329Z 官網課表](https://cs329z.stanford.edu/)
 - 原文：[Yang et al., SWE-agent](https://arxiv.org/abs/2405.15793)、[Wang et al., OpenHands, ICLR 2025](https://arxiv.org/abs/2407.16741)、[Jimenez et al., SWE-bench, ICLR 2024](https://arxiv.org/abs/2310.06770)、[Wang et al., CodeAct, ICML 2024](https://arxiv.org/abs/2402.01030)、[Muennighoff et al., OctoPack 與 HumanEvalPack](https://arxiv.org/abs/2308.07124)
-- 工具：[SWE-agent](https://swe-agent.com)、[OpenHands](https://github.com/OpenHands/openhands)
+- 工具：[OpenHands](https://github.com/OpenHands/openhands)
