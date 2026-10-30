@@ -33,8 +33,8 @@ The product moved gradually from "finding resources" to "helping people actually
 
 | When | What we did | What we learned |
 |---|---|---|
-| H1 2025 | Learning marathon: five months, with facilitators and study groups | Participants felt the pull of connecting with others, but "faced with a five-month commitment, many began to hesitate" ([DaoDao on LinkedIn](https://tw.linkedin.com/company/daodaolearn), 2025-08-22) |
-| H2 2025 | "Learning plan" feature: fill in motivation, goals and milestones | Asking that much before someone can start is too high a bar for people still exploring (["Learning Lab"](https://vocus.cc/article/690203fefd8978000130c914), 2025-10-30, in Chinese) |
+| Late 2024 | "Learning plan" feature, built for the marathon: motivation, goals and milestones | Asking that much before someone can start is too high a bar for people still exploring (["Learning Lab"](https://vocus.cc/article/690203fefd8978000130c914), 2025-10-30, in Chinese) |
+| H1 2025 | Learning marathon: five months (February to July), with facilitators and study groups | Participants felt the pull of connecting with others, but "faced with a five-month commitment, many began to hesitate" ([DaoDao on LinkedIn](https://tw.linkedin.com/company/daodaolearn), 2025-08-22) |
 | H2 2025 | Learning lab: a four-week exploration programme | Paused because too few people signed up ([DaoDao newsletter](https://daoda.kit.com/posts/-6), in Chinese) |
 | Feb 2026 | Themed practices: 7 to 30 days, flexible frequency, check-ins | The barrier to starting dropped about as low as it could go |
 
@@ -131,6 +131,7 @@ Each post answers one operating question, roughly in the order why → how to ju
 - [Day 7: The birth of DaoDao, from educational ideals to action (iThome, 2024-09-08)](https://ithelp.ithome.com.tw/articles/10348539) (in Chinese)
 - [DaoTW DaoDao self-learning platform README (GitHub, 2020-10)](https://github.com/LeeLin2602/DaoTW) (in Chinese)
 - [DaoDao learning community project page (Open Culture Foundation)](https://ocf.tw/p/daodao/) (in Chinese)
+- [DaoDao Cup 2025 Spring Learning Marathon (official event page, 9 Feb – 12 Jul 2025)](https://daodao.so/en/learning-marathons/2025S1) (in Chinese)
 - [Learning Lab: rethinking how learning starts (DaoDao on vocus, 2025-10-30)](https://vocus.cc/article/690203fefd8978000130c914) (in Chinese)
 - [DaoDao update: stuck, narrowing down, readjusting (DaoDao newsletter)](https://daoda.kit.com/posts/-6) (in Chinese)
 - [DaoDao update: re-Visit reading group (DaoDao newsletter)](https://daoda.kit.com/posts/re-visit) (in Chinese)

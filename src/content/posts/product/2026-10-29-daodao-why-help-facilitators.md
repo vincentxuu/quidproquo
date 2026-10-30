@@ -33,8 +33,8 @@ draft: false
 
 | 時間 | 做了什麼 | 學到什麼 |
 |---|---|---|
-| 2025 上半年 | 學習馬拉松：五個月、有引導師和學習小組 | 參與者感受到人與人連結的力量，但「面對 5 個月的承諾時，許多人開始猶豫」（[島島 LinkedIn](https://tw.linkedin.com/company/daodaolearn)，2025-08-22） |
-| 2025 下半年 | 「學習計劃」功能：填動機、目標、里程碑 | 要填這麼多才能開始，對還在探索的人門檻太高（[〈學習實驗室〉](https://vocus.cc/article/690203fefd8978000130c914)，2025-10-30） |
+| 2024 年底 | 「學習計劃」功能（為馬拉松而做）：填動機、目標、里程碑 | 要填這麼多才能開始，對還在探索的人門檻太高（[〈學習實驗室〉](https://vocus.cc/article/690203fefd8978000130c914)，2025-10-30） |
+| 2025 上半年 | 學習馬拉松：五個月（2 月到 7 月）、有引導師和學習小組 | 參與者感受到人與人連結的力量，但「面對 5 個月的承諾時，許多人開始猶豫」（[島島 LinkedIn](https://tw.linkedin.com/company/daodaolearn)，2025-08-22） |
 | 2025 下半年 | 學習實驗室：四週的探索活動 | 因為報名人數不足而暫緩（[島島電子報](https://daoda.kit.com/posts/-6)） |
 | 2026-02 | 主題實踐：7 到 30 天、彈性頻率、打卡紀錄 | 開始的門檻降到最低 |
 
@@ -131,6 +131,7 @@ draft: false
 - [Day 7: 島島阿學的誕生：從教育理念到實際行動（iT 邦幫忙，2024-09-08）](https://ithelp.ithome.com.tw/articles/10348539)
 - [DaoTW 島島阿學自學平台 README（GitHub，2020-10）](https://github.com/LeeLin2602/DaoTW)
 - [【社群專案】島島阿學學習社群（開放文化基金會）](https://ocf.tw/p/daodao/)
+- [島島盃｜2025 春季學習馬拉松（官方活動頁，2025-02-09～07-12）](https://daodao.so/en/learning-marathons/2025S1)
 - [學習實驗室：當我們重新思考「開始學習」這件事（島島阿學，vocus，2025-10-30）](https://vocus.cc/article/690203fefd8978000130c914)
 - [島島阿學近況更新：卡關、收歛、重新調整（島島電子報）](https://daoda.kit.com/posts/-6)
 - [島島阿學近況更新：re-Visit 共讀聚會（島島電子報）](https://daoda.kit.com/posts/re-visit)
