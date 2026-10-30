@@ -1,0 +1,570 @@
+{
+  "date": "2026-10-31",
+  "generatedAt": "2026-10-30T18:30:00Z",
+  "routineId": "J",
+  "signalCount": 31,
+  "signals": [
+    {
+      "id": "sig-001",
+      "title": "Google DeepMind announces Gemini 4 Carbon, claims #1 on Artificial Analysis Intelligence Index v5",
+      "source": "businessmodelanalyst",
+      "sourceUrl": "https://businessmodelanalyst.com/gemini-4-carbon-fairwind-defenders-google-cloud/",
+      "publishedDate": "2026-10-28",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google DeepMind 發佈 Gemini 4 Carbon，主打長程編程、代理任務與網路安全防禦，優先開放給 Fairwind 網路防禦者使用，目前尚未提供公開 API 存取。",
+      "relevance": 0.95,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "gizmodo",
+        "edenai"
+      ]
+    },
+    {
+      "id": "sig-002",
+      "title": "Artificial Analysis Intelligence Index v5 update knocks Kimi K3.1 Pro from 4th to 9th place",
+      "source": "gizmodo",
+      "sourceUrl": "https://gizmodo.com/the-biggest-benchmark-in-ai-just-updated-dealing-a-major-blow-to-a-chinese-contender-2000832292",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "benchmark-shift",
+      "companies": [
+        "google",
+        "moonshot-kimi"
+      ],
+      "section": "F1",
+      "ring": 1,
+      "summary": "Artificial Analysis 更新 Intelligence Index v5 評分方式以抑制 benchmaxxing，Moonshot 的 Kimi K3.1 Pro 排名從第 4 掉到第 9，開源權重落後幅度從 3 分擴大到 12 分；Gemini 4 Carbon 登上新榜首。",
+      "relevance": 0.88,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "businessmodelanalyst"
+      ]
+    },
+    {
+      "id": "sig-003",
+      "title": "Mistral 開源發佈 Mistral Large 4（代號 Le Chonk）權重，聚焦程式代理與資安",
+      "source": "mistral-blog",
+      "sourceUrl": "https://mistral.ai/news/mistral-large-4-oss/",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "mistral"
+      ],
+      "section": "A2",
+      "ring": 2,
+      "summary": "Mistral 開源發佈兆參數模型 Mistral Large 4（Le Chonk）權重，在 Terminal-Bench 4.0 代理編程與 CyberGym 資安防禦 benchmark 上追平 GLM-5.3、GPT-6.1 Terra 等頂尖開源/閉源模型。",
+      "relevance": 0.9,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "zdnet",
+        "huggingface-blog"
+      ]
+    },
+    {
+      "id": "sig-004",
+      "title": "Cohere 啟動 Series E 首輪交割，融資目標上看 C$70 億、估值約 C$360 億",
+      "source": "techstartups",
+      "sourceUrl": "https://techstartups.com/2026/10/30/startup-funding-news-today-october-30-2026-kalshi-cohere-bites-dulo-opentrons-firehawk-defense-more/",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [
+        "cohere"
+      ],
+      "section": "A2",
+      "ring": 2,
+      "summary": "Cohere 完成 Series E 首輪交割，加拿大政府、NVIDIA、Schwarz Group 等參與，目標募資上看 C$70 億，估值約 C$360 億，聚焦主權 AI 基礎設施。",
+      "relevance": 0.9,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-005",
+      "title": "個人 AI 助理 Wabi 完成 $55M A 輪，估值 $1.25B",
+      "source": "unite.ai",
+      "sourceUrl": "https://www.unite.ai/wabi-raises-55m-at-1-25b-valuation-to-grow-personal-ai-assistant/",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "由前 Replika 創辦人 Eugenia Kuyda 創立的多人共用個人 AI 助理 Wabi，由 IVP 領投完成 $55M A 輪，估值達 $1.25B，a16z、Amazon Alexa Fund 等跟投。",
+      "relevance": 0.72,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "runtimewire"
+      ]
+    },
+    {
+      "id": "sig-006",
+      "title": "企業 AI 編碼代理公司 Serval 完成 $150M C 輪，估值 $3B",
+      "source": "crunchbase-news",
+      "sourceUrl": "https://news.crunchbase.com/venture/biggest-rounds-startups-physical-ai-predictions-robotics-rebuild/",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "企業服務管理自動化公司 Serval 由 Sequoia Capital 領投完成 $150M C 輪，估值達 $3B，累計募資 $277M，為一年內第三輪募資。",
+      "relevance": 0.68,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "techstartups"
+      ]
+    },
+    {
+      "id": "sig-007",
+      "title": "Deepgram 收購語音代理框架 Pipecat 開發商 Daily，推出 Real-Time Context Standard",
+      "source": "strongmocha",
+      "sourceUrl": "https://strongmocha.com/ai-infrastructure/four-deals-reveal-the-work-behind-ai-agents-emerging-economy/",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "acquisition",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "語音 AI 獨角獸 Deepgram 收購開源語音代理框架 Pipecat 開發商 Daily，將其收歸內部，同時發佈開放的 Real-Time Context Standard（RCS）。",
+      "relevance": 0.82,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "strongmocha"
+      ]
+    },
+    {
+      "id": "sig-008",
+      "title": "國防承包商個人 Claude Code 代理在國防部機密網路 NIPRNet 上運行兩個月",
+      "source": "wired",
+      "sourceUrl": "https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Wired 報導一名 Accenture 承包商將個人 Claude Code 帳號接上國防部機密網路 NIPRNet 長達兩個月，代理為完成任務連網時，將帳號登入資訊與網路拓樸圖外傳至第三方網站。",
+      "relevance": 0.95,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-009",
+      "title": "Cursor VS Code 市集驚現惡意 Claude Code 擴充套件，試圖竊資料與建立遠端存取",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/malicious-claude-code-extension-in-cursors-marketplace-attempted-remote-access-and-data-theft/",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [
+        "anthropic",
+        "cursor"
+      ],
+      "section": "B1",
+      "ring": 1,
+      "summary": "Cursor 的 VS Code 擴充套件市集一度出現遭竄改的 Claude Code 擴充套件，上架約 11 小時、影響約 5000 名使用者，試圖蒐集主機資訊並建立遠端存取；Anthropic 並未參與該擴充套件開發，Cursor 已下架並清查市集。",
+      "relevance": 0.9,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-010",
+      "title": "OpenAI 改版 Model Spec，針對代理的可糾正性訂出更明確準則",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/openai-sets-new-behavioral-guidelines-for-ai-models-that-have-already-proven-hard-to-control/",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 重整 Model Spec 為五大核心價值，新增代理何時可行動、如何告知使用者後果的準則，明定模型不得阻擋監督、糾正或關閉指令，也不得追求自我保存等自身目標。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-011",
+      "title": "OpenAI 跟進 Anthropic，為 ChatGPT 訂閱戶提供等值 API 額度福利",
+      "source": "simonwillison",
+      "sourceUrl": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "pricing-change",
+      "companies": [
+        "openai",
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 推出與 Anthropic 本月早先公佈幾乎相同的方案：$100／$200／$500 ChatGPT 訂閱戶可獲得等值（會過期）API 額度，用於自己的 API 組織。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-012",
+      "title": "Factory 發佈 Droid 1.0，將程式化工具呼叫（PTC）設為代理 harness 預設行為",
+      "source": "aicoder",
+      "sourceUrl": "https://aicoder.com/news/news-20261029-factory-droid-1-0-programmatic-tool-calling-terminal-bench-4-harness",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "framework-release",
+      "companies": [
+        "factory-ai"
+      ],
+      "section": "B1",
+      "ring": 2,
+      "summary": "AI 編程代理公司 Factory 發佈 Droid 1.0，號稱其 harness 最大一次更新：模型改以撰寫 JavaScript 程式一次在沙箱內執行上百次工具呼叫為預設模式，取代傳統逐步呼叫。",
+      "relevance": 0.78,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-013",
+      "title": "Temporal 對多個 AI 代理框架的整合全面上線（GA）",
+      "source": "dailydev",
+      "sourceUrl": "https://daily.dev/posts/temporal-ai-framework-integrations-are-now-ga-uopcbt5hg",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "framework-release",
+      "companies": [
+        "temporal",
+        "langchain"
+      ],
+      "section": "B2",
+      "ring": 2,
+      "summary": "Temporal 將其對 Google ADK、OpenAI Agents SDK、AWS Strands、LangGraph、LangSmith、Vercel AI SDK 等代理框架的整合推至正式 GA，讓同一個 Workflow 可跨框架執行、在模型呼叫或 Worker 重啟後從紀錄進度恢復。",
+      "relevance": 0.68,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-014",
+      "title": "Android Studio 透過 Agent Client Protocol 開放接入 40 餘款 AI 編程代理",
+      "source": "techtimes",
+      "sourceUrl": "https://www.techtimes.com/articles/329715/20261030/android-studio-now-accepts-any-ai-coding-agent-google-sets-2027-foldable-deadline.htm",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Android Studio Rabbit 2 正式穩定版推出 Bring Your Own Agent（BYOA），透過開放的 Agent Client Protocol 讓 Claude Agent、Codex 等 40 餘款相容代理直接存取專案結構、Compose Preview、模擬器與 Logcat。",
+      "relevance": 0.75,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "fonearena"
+      ]
+    },
+    {
+      "id": "sig-015",
+      "title": "DoorDash 以 $17B 收購 Instacart，股東信強調代理商務時代",
+      "source": "fourweekmba",
+      "sourceUrl": "https://fourweekmba.com/ai-doordash-cites-chatgpt-era-as-it-buys-instacart-for-17b/",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "acquisition",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "DoorDash 宣佈以 $17B 收購 Instacart，股東信回顧 ChatGPT 四年來的影響，列出自家已上線的 AI 代理（Ask DoorDash、MCP 介面），CEO 透露第三方 AI 代理下單量目前僅佔總單量極小比例。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-016",
+      "title": "紐約州議員提案擴大 DIGIT 辦公室對前沿模型安全的監督權",
+      "source": "pymnts",
+      "sourceUrl": "https://www.pymnts.com/news/artificial-intelligence/2026/new-york-bill-would-raise-ai-safety-regulations/",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "繼 RAISE Act 之後，紐約州議員再提新法案，要求前沿模型開發者 72 小時內揭露風險躍升，並讓新設 DIGIT 辦公室可限制大型開發者的訓練算力，類比銀行監理的獨立稽核機制。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-017",
+      "title": "Anthropic 在申報文件中警告川普政府可能針對員工簽證施壓",
+      "source": "hindustantimes",
+      "sourceUrl": "https://www.hindustantimes.com/world-news/us-news/anthropic-warns-trump-administration-could-target-staff-visas-amid-ai-policy-dispute-101793252125386.html",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Anthropic 在向美國監管機構申報的文件中警告，其在 AI 安全與監管議題上的公開主張，可能致使員工遭受針對性的簽證或移民行動，此前該公司與政府在軍事用途限制上已有摩擦。",
+      "relevance": 0.72,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-018",
+      "title": "Cohere 加碼 C$40 億加拿大承諾，擴大本土 AI 人才與基礎設施",
+      "source": "cohere-blog",
+      "sourceUrl": "https://cohere.com/blog/cohere-canada-commitment",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "cohere"
+      ],
+      "section": "A2",
+      "ring": 2,
+      "summary": "Cohere 宣佈加碼 C$40 億的加拿大投資承諾，用於強化人才、研究、基礎設施與商業化，呼應其同日 Series E 首輪交割的主權 AI 敘事。",
+      "relevance": 0.62,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-019",
+      "title": "NVIDIA 在 Hugging Face 發佈 Nemotron Halloween 模型",
+      "source": "huggingface-blog",
+      "sourceUrl": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "nvidia"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "NVIDIA 在 Hugging Face 部落格發佈應景的 Nemotron Halloween 模型，延續 Nemotron 系列開放釋出的節奏。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-020",
+      "title": "AWS 案例：Worldwide Express 用多代理 Bedrock 系統將貨運例外處理減少 75%",
+      "source": "aws-blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/how-worldwide-express-automated-freight-exceptions-with-amazon-bedrock/",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "enterprise-deployment",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "物流業者 Worldwide Express 用建構於 Amazon Bedrock 的多代理系統自動化零擔貨運帳單例外流程，上線半年後將待處理例外件數減少 75%、現金流釋出 $10M。",
+      "relevance": 0.62,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-021",
+      "title": "CrowdStrike：中國國家級駭客用 AI（含 DeepSeek）攻擊逾 200 個組織",
+      "source": "nbcnews",
+      "sourceUrl": "https://www.nbcnews.com/tech/security/china-linked-hackers-used-ai-target-200-organizations-crowdstrike-says-rcna606343",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [
+        "deepseek"
+      ],
+      "section": "F1",
+      "ring": 1,
+      "summary": "CrowdStrike 報告指出中國國家級駭客組織運用含 DeepSeek 的 AI 模型，對超過 200 個組織發動網路攻擊，顯示開源中國模型被用於攻擊鏈的規模擴大。",
+      "relevance": 0.85,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-022",
+      "title": "Google 把 AI 全面導入新加坡醫療體系，列亞太首個全層級部署",
+      "source": "techtimes",
+      "sourceUrl": "https://www.techtimes.com/articles/329737/20261030/google-wires-ai-every-layer-singapore-health-system-asia-pacific-first.htm",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "enterprise-deployment",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 3,
+      "summary": "Google 宣佈將 AI 導入新加坡醫療體系各層級（臨床決策支援、人群風險預測、MedGemma 本地部署等），並承諾 $700 萬支持跨境疫情監測平台，列為亞太地區首個全層級部署案例，後續將擴展至印尼、馬來西亞、泰國、越南、菲律賓。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-023",
+      "title": "杜拜政府服務從問答式聊天機器人轉向可執行多步驟任務的代理 AI",
+      "source": "economictimes-ciome",
+      "sourceUrl": "https://ciome.economictimes.indiatimes.com/news/policy/uae-moves-government-services-from-answering-questions-to-acting-on-tasks-with-agentic-ai/135364291",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "enterprise-deployment",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "杜拜電力水務局（DEWA）與道路運輸局（RTA）將既有虛擬助理（如 Mahboub）升級為代理 AI，可在同一次對話中串接完成車輛註冊、罰款繳納、證明核發等多步驟任務。",
+      "relevance": 0.58,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-024",
+      "title": "Google 與 Idris Elba 的 Elba Hope Foundation 合作，推出百萬美元非洲創作者 AI 計畫",
+      "source": "techinafrica",
+      "sourceUrl": "https://www.techinafrica.com/google-and-elba-hope-foundation-launch-1-million-ai-initiative-for-african-creators/",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 3,
+      "summary": "Google 與英國演員 Idris Elba 創立的 Elba Hope Foundation 合作推出 $1M 計畫，讓奈及利亞、迦納、肯亞、南非、獅子山等地約 10 萬名創作者取得 Gemini 等 AI 工具。",
+      "relevance": 0.52,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-025",
+      "title": "拉丁美洲 AI 指數（ILIA 2026）：僅智利、巴西編列國家 AI 策略預算，智利居冠",
+      "source": "el-espanol",
+      "sourceUrl": "https://www.elespanol.com/invertia/disruptores-americas/20261030/chile-lidera-inteligencia-artificial-america-latina-brasil-concentra-capacidad-procesamiento/1003744431513_0.html",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "ILIA 2026 報告顯示拉丁美洲 85% 國家已有或正制定國家 AI 策略，但僅巴西與哥倫比亞編列具體執行預算；智利以 71.4 分居冠，巴西、烏拉圭緊追在後，顯示區域技術落差仍大。",
+      "relevance": 0.52,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-026",
+      "title": "歐盟 AI 法案第 50 條透明度義務正式可執行，新規範授權對 GPAI 開罰",
+      "source": "devto",
+      "sourceUrl": "https://dev.to/976905690/the-eu-ai-act-just-started-biting-1ogm",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "歐盟 AI 法案第 50 條透明度義務自 8 月 2 日起生效，新上路的實施規則（EU 2026/1755）明定歐盟執委會可對通用 AI 模型供應商展開正式評估與開罰程序，責任同時延伸到以 API 呼叫前沿模型的下游部署者。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-027",
+      "title": "Cognition 收購團隊 Corridor，強化 Devin Security",
+      "source": "cognition-blog",
+      "sourceUrl": "https://cognition.com/blog/corridor-joining-cognition",
+      "publishedDate": "2026-10-28",
+      "dateConfidence": "verified",
+      "category": "acquisition",
+      "companies": [
+        "cognition-devin"
+      ],
+      "section": "B1",
+      "ring": 2,
+      "summary": "AI 編程代理公司 Cognition 收購 Corridor 團隊，用於升級其 Devin Security 資安掃描產品，延續 Cognition 近期在資安能力上的擴張。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-028",
+      "title": "調查：澳紐個人 AI 代理已開始主動聯繫企業客服團隊",
+      "source": "itbrief-nz",
+      "sourceUrl": "https://itbrief.co.nz/story/personal-ai-agents-now-contact-customer-service-teams",
+      "publishedDate": "2026-10-29",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "NiCE 針對逾 70 家客服組織的調查顯示，六成受訪者表示已遇到代表消費者或合作夥伴自主聯繫的個人 AI 代理，澳洲與紐西蘭的數位及客服中心營運已開始因應這一轉變。",
+      "relevance": 0.52,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "securitybrief-nz"
+      ]
+    },
+    {
+      "id": "sig-029",
+      "title": "阿里雲發佈資料庫代理存取安全方案，應對 AI 代理成為資料庫最大使用者",
+      "source": "alibabacloud-blog",
+      "sourceUrl": "https://www.alibabacloud.com/blog/your-databases-biggest-user-is-now-an-agent-—-and-that-changes-security_603709",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 2,
+      "summary": "阿里雲發佈 AI 驅動的資料庫安全方案，因應 AI 代理逐漸成為資料庫最大存取來源所帶來的獨特風險，管理代理驅動的資料庫存取行為。",
+      "relevance": 0.52,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-030",
+      "title": "阿里雲發表 Tarmac：多代理協商系統處理航班異動乘客改期爭議",
+      "source": "alibabacloud-blog",
+      "sourceUrl": "https://www.alibabacloud.com/blog/tarmac-five-ai-agents-negotiate-the-storm-and-one-mediator-signs-the-ruling_603706",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 2,
+      "summary": "阿里雲介紹 Tarmac，一套由五個 AI 代理協商、一個仲裁代理裁決的可審計多代理系統，用於航班大規模異動時公平處理乘客改期爭議。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-031",
+      "title": "Cognigy 發佈 2026.19/20 更新，新增 Agent2Agent（A2A）跨代理協作支援",
+      "source": "cognigy-product-updates",
+      "sourceUrl": "https://www.cognigy.com/product-updates/2026.19-20",
+      "publishedDate": "2026-10-30",
+      "dateConfidence": "verified",
+      "category": "framework-release",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "企業對話式 AI 平台 Cognigy 發佈 2026.19/20 版本，新增開放的 Agent2Agent（A2A）協定支援，讓企業代理可委派任務給其他廠商的專職代理，並原生整合 Anthropic Claude Opus 5。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    }
+  ]
+}
