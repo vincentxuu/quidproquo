@@ -1782,3 +1782,8 @@ daily-digest-framework／daily-digest-tool／daily-digest-benchmark 三支 2026-
 ## 2026-11-01 封存：口說文章求職聊天六個修正 2026-10-07 條目（daily-digest-framework 2026-11-01 新增條目前壓回 90 行上限）
 
 - **口說文章：求職聊天六個修正（2026-10-07，草稿待確認）**：`learning/2026-10-07-job-hunt-chat-english`（雙語，`draft: true`）＋16 張 `job-*` 卡接進 `/english` 日常情境（共 35 卡；卡片尚未填 `article`，發佈後補）。來源 Cambridge／Merriam-Webster／British Council 共 23 頁，Groundlane 401／Jina 402，改用 Firecrawl，不算 Groundlane 驗證；每頁讀取範圍記在 `.work/english-speaking/job-hunt-chat/evidence.md`。skill 補「整段對話」流程與去識別化規則，`corrections.md`（含原句）已 gitignore。瀏覽器走完日常 18 卡揭示／自評、390px 無橫向捲動。待辦：母語者確認、Groundlane 連線、發佈決定、on/in the team 與薪資制度說法待查。5 測試通過、verify 全綠；未 commit、未 deploy。
+
+## 2026-11-01 封存：多來源導讀與跟讀／Agency 部署追蹤 2026-10-10 兩條目（daily-digest-report 2026-11-01 新增條目前壓回 90 行上限）
+
+- **多來源導讀與跟讀（2026-10-10）**：Poteto／Agency 四篇明分原站字幕跟讀、短引文與理解摘要；並未提供頁內完整逐字稿。保留三段30–60秒原音及官方字幕入口。post／post-update skill、ADR與寫作規則加入交付分類及逐段檢查模板；原音回聽仍未完成，頁內逐字稿需求仍有缺口，不能稱完整交付。
+- **Agency／部署追蹤（2026-10-10）**：字幕 API 1.2.4 已取得有效字幕，未保存全文；Agency 已公開。9c24ffc0 build／verify 成功，Cloudflare deployments API 504 導致 CD 失敗，已重跑；本次內容修訂準備 commit／push，production 成功與公開頁面待確認。
