@@ -1,3 +1,7 @@
+## 2026-11-02 封存：agent-isolation 附錄移除 2026-10-26 條目（daily-digest-ai-interview 2026-11-02 壓回 90 行上限）
+
+- **agent-isolation 附錄移除 2026-10-26**：使用者同意移除 retelling-check 中英文，舊網址 301 轉到既有 OpenAI 原文導讀；系列保留 order 0–6。隔離工作目錄 /tmp/qp-remove-retelling；verify／全站 build 通過、產物含雙語301路由；本機HTTP未驗完；使用者已授權 commit／push，待提交，未確認部署。
+
 ## 2026-11-02 封存：`zero-11` 報告篇補完 2026-10-16 條目（daily-digest-tool 2026-11-02 rebase 合併併發 session 後再次壓回 90 行上限）
 
 - **`zero-11` 報告篇補完（2026-10-16，未 commit）**：兩篇未入庫草稿 `tech/2026-10-16-bug-bounty-write-report-and-triage{,-en}.md` 擋 `check:references`＋`check:series-order`（Q-038）。使用者決定不發表，改把草稿獨有內容整合進已發佈的 `tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value{,-en}.md`（slug／`date` 不動）：模板加「嚴重度」欄、新增「送出之後：分流狀態與聲望」（HackerOne 開啟／結案狀態表＋重複對策，聲望數字歸 HackerOne Reputation 頁）、「交件前的自我檢查」、「系列流程圖」、`## 更新紀錄`、HackerOne 兩筆參考資料；`限制` 的來源範圍一併更新。草稿移 `.work/bug-bounty-from-zero/retired/` 保留不刪。`pnpm verify` 27 項全綠；diff 待使用者過目後 commit。
