@@ -1787,3 +1787,7 @@ daily-digest-framework／daily-digest-tool／daily-digest-benchmark 三支 2026-
 
 - **多來源導讀與跟讀（2026-10-10）**：Poteto／Agency 四篇明分原站字幕跟讀、短引文與理解摘要；並未提供頁內完整逐字稿。保留三段30–60秒原音及官方字幕入口。post／post-update skill、ADR與寫作規則加入交付分類及逐段檢查模板；原音回聽仍未完成，頁內逐字稿需求仍有缺口，不能稱完整交付。
 - **Agency／部署追蹤（2026-10-10）**：字幕 API 1.2.4 已取得有效字幕，未保存全文；Agency 已公開。9c24ffc0 build／verify 成功，Cloudflare deployments API 504 導致 CD 失敗，已重跑；本次內容修訂準備 commit／push，production 成功與公開頁面待確認。
+
+## 2026-11-02 封存：系列防護＋資安獵人重寫 2026-10-15 條目（daily-digest-security 2026-11-02 rebase 後壓回 90 行上限；內容已落地——`check:series-plan`／`check-process-leak` 等皆已在現行 `pnpm verify:staged` 常駐執行，確認非未完成工作）
+
+- **系列防護＋資安獵人重寫（2026-10-15，防護已做未 commit）**：根因＝無規劃表、事件文升格第 0 篇、只跑 post-verify 沒跑 review／polish、🟡「標成作者判斷」造成但書堆疊、雲端一批四篇無人看。已加：check-process-leak 歸因但書上限 3、新 `check:series-plan`（新系列要 `.work/series-plans/<slug>.md`＋每篇 `.work/reviews/<slug>.md` 三節；既有 103 系列在 baseline）、post／post-verify／series-curriculum-design／writing-guide／anti-shortcuts 規則；pnpm verify 全綠。注意：另一 session 未提交的「教學文章怎麼寫」16 檔會被新但書規則擋。下一步：重寫 bug-bounty-from-zero（先規劃表、從 baseline 移除、總覽＋1–4 篇給使用者看）。
