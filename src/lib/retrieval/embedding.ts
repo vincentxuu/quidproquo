@@ -70,6 +70,17 @@ async function runQwen3(
 function isInputTooBigError(error: unknown): boolean {
   const message = error instanceof Error ? error.message : String(error)
   return message.includes('3030') || message.toLowerCase().includes('input too big')
+    || /exceeds \d+ (characters|tokens)/i.test(message)
+}
+
+/**
+ * Workers AI embedding 模型的單筆輸入上限。超過時直接截斷，
+ * 避免「整批重試也無解」的單筆過長錯誤卡死索引 pipeline。
+ */
+export const MAX_EMBED_INPUT_CHARS = 24_000
+
+function capInputChars(texts: string[]): string[] {
+  return texts.map(text => text.length > MAX_EMBED_INPUT_CHARS ? text.slice(0, MAX_EMBED_INPUT_CHARS) : text)
 }
 
 async function runQwen3Adaptive(
@@ -80,7 +91,7 @@ async function runQwen3Adaptive(
 ): Promise<number[][]> {
   try {
     return await runQwen3(runtime, {
-      [field]: texts,
+      [field]: capInputChars(texts),
       ...(instruction ? { instruction } : {}),
     }, texts.length)
   } catch (error) {

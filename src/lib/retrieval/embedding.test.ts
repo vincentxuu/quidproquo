@@ -78,6 +78,44 @@ describe('embedding provider abstraction', () => {
     expect(calls.map(call => (call.documents as string[]).length)).toEqual([4, 2, 2])
     expect(result.map(item => item[0])).toEqual([97, 98, 99, 100])
   })
+
+  it('treats the Workers AI per-item char limit message as an input-too-big error', async () => {
+    const calls: Record<string, unknown>[] = []
+    const runtime: EmbeddingRuntime = {
+      async run(_model, input) {
+        calls.push(input)
+        const documents = input.documents as string[]
+        if (documents.length > 1) {
+          throw new Error('contextual input exceeds 24000 characters; re-chunk before retrying')
+        }
+        return { data: documents.map(document => vector(document.length)) }
+      },
+    }
+
+    const result = await qwen3EmbeddingProvider.embedDocuments(runtime, ['甲', '乙', '丙', '丁'])
+
+    expect(calls.map(call => (call.documents as string[]).length)).toEqual([4, 2, 1, 1, 2, 1, 1])
+    expect(result.map(item => item[0])).toEqual([1, 1, 1, 1])
+  })
+
+  it('truncates single inputs beyond MAX_EMBED_INPUT_CHARS instead of failing forever', async () => {
+    const { MAX_EMBED_INPUT_CHARS } = await import('./embedding')
+    const calls: Record<string, unknown>[] = []
+    const runtime: EmbeddingRuntime = {
+      async run(_model, input) {
+        calls.push(input)
+        return { data: (input.documents as string[]).map(() => vector()) }
+      },
+    }
+
+    const oversized = 'y'.repeat(MAX_EMBED_INPUT_CHARS + 500)
+    const [embedded] = await qwen3EmbeddingProvider.embedDocuments(runtime, [oversized])
+
+    expect(embedded.length).toBe(qwen3EmbeddingProvider.dimensions)
+    const sent = (calls[0].documents as string[])[0]
+    expect(sent.length).toBe(MAX_EMBED_INPUT_CHARS)
+    expect(calls.length).toBe(1)
+  })
 })
 
 describe('semantic cache embedding isolation', () => {

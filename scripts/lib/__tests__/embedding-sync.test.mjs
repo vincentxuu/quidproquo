@@ -43,7 +43,17 @@ test('stops retries when the overall time budget cannot cover backoff', async ()
  const h=harness([new Response('busy',{status:503})],{maxDurationMs:100,now:()=>0});await assert.rejects(h.run(),/time budget/);assert.equal(h.calls.length,1);assert.deepEqual(h.delays,[])
 })
 test('does not acknowledge an empty batch with more pending work',async()=>{
- const h=harness([new Response(JSON.stringify({ok:true,results:[{source:'posts',vectors:0,deleted:0,hasMore:true,errors:[]}]}))]);await assert.rejects(h.run(),/no progress/)
+ const h=harness([new Response(JSON.stringify({ok:true,results:[{source:'posts',vectors:0,deleted:0,hasMore:true,errors:['chunk X: contextual input exceeds 24000 characters; re-chunk before retrying']}]}))]);await assert.rejects(h.run(),/no progress with errors/)
+})
+test('drains past per-chunk errors while the run keeps making progress and reports them at the end',async()=>{
+ const poison='chunk X: contextual input exceeds 24000 characters; re-chunk before retrying'
+ const h=harness([
+  new Response(JSON.stringify({ok:true,results:[{source:'posts',vectors:2,deleted:0,hasMore:true,errors:[poison]}]})),
+  new Response(JSON.stringify({ok:true,results:[{source:'posts',vectors:1,deleted:0,hasMore:false,errors:[poison]}]})),
+ ])
+ const result=await h.run()
+ assert.equal(result.totalVectors,3)
+ assert.deepEqual(result.errors,[poison])
 })
 
 test('CLI recovers against a real HTTP server and never logs its secret', async () => {
