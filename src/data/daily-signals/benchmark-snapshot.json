@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "swebench_verified_top5": [
     { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
     { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
@@ -27,5 +27,5 @@
     { "rank": 5, "model": "Sonnet 5.5 Extra High", "org": "Anthropic", "score": 53.1, "costPerTask": 2.81, "tokensPerTask": 100158 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-11-01：SWE-bench Verified 用 Bash python3 -I 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json 解析 180 筆 Verified 結果，前 5 名與 10-30 逐位元相同（79.20／79.20／78.80／77.40，第 5 名仍是 76.80 三方並列），未異動。LMArena Agent 子集用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，config=agent，latest split，length=12），leaderboard_publish_date 仍停在 10-28（與 10-30 快照同一批，未推進新批次），前 12 名模型、名次與分數逐位元相同（Opus 5.5 Max 20.94%／Gemini 4 Carbon 16.04%／Sonnet 5.5 Max 13.84%／Fable 5.1 Max 13.35%／GPT-6 Astra 12.96%），無新模型進前三、無第一易主，不觸發。cursor.com/cursorbench 前 5 名與官網 changelog 皆與 10-30 相同（最後一筆仍是 10-07 定價調整），未異動；morphllm.com/leaderboard 直接 web_fetch 仍回 429（Vercel Security Checkpoint，既有已知阻塞）；artificialanalysis.ai/agents/coding-agents（aa_agentic_index_top3）本次未重新嘗試，延用上次確認值。Step 3b 新聞信號查詢命中 Cognition FrontierCode 2.0、Gemini 4 Carbon 登頂 Perplexity 自家 WANDR benchmark 等，皆非本站四個追蹤榜單的官方排名變動，非觸發條件。依 skill Step 4 判斷今日無 Benchmark 異動，不產出文章。"
+  "notes": "2026-11-02：SWE-bench Verified 用 Bash python3 -I 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json 解析 180 筆 Verified 結果，前 5 名與 11-01 逐位元相同（79.20／79.20／78.80／77.40，第 5 名仍是 76.80 三方並列），未異動。LMArena Agent 子集用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，config=agent，latest split，length=15），leaderboard_publish_date 仍停在 10-28（連續第 3 次快照未推進新批次），前 15 名模型、名次與分數逐位元相同（Opus 5.5 Max 20.94%／Gemini 4 Carbon 16.04%／Sonnet 5.5 Max 13.84%／Fable 5.1 Max 13.35%／GPT-6 Astra 12.96%），無新模型進前三、無第一易主，不觸發。cursor.com/cursorbench 前 5 名與官網 changelog 皆與 11-01 相同（最後一筆仍是 10-07 定價調整），未異動；morphllm.com/leaderboard 直接 web_fetch 仍回 429（Vercel Security Checkpoint，既有已知阻塞）；artificialanalysis.ai/agents/coding-agents 改用 Groundlane web_fetch 重試，頁面仍為前端 JS 渲染、無法解析出表格數值（aa_agentic_index_top3 延用上次確認值，未能重新驗證）。Step 3b 新聞信號查詢（Q1/Q2）命中第三方聚合站（swfte.com、metatext.io、BenchLM.ai 等）的排名與本站直連官方來源數字不一致，判定為非官方聚合雜訊，非四個追蹤榜單本身的排名變動；另命中 Gemini 4 Carbon／Artificial Analysis Intelligence Index v5.0 等既有已知事件，非新觸發。依 skill Step 4 判斷今日無 Benchmark 異動，不產出文章。"
 }
