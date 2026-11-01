@@ -7,6 +7,9 @@ tags: [runloop, ai-agent, sandbox, coding-agent, devbox, agent-infrastructure]
 lang: zh-TW
 tldr: "Runloop 把隔離 microVM、可重現映像、磁碟分支、憑證代理與 eval 放進同一套程式開發 Agent 基建；官方案例已公開單一工作負載突破 10,000 個並行 Devbox。"
 description: "拆解 Runloop Devbox、Blueprint、Snapshot、Network Policy 與 Agent Gateway 的架構，並比較它和通用雲端 Sandbox 的選型取捨。"
+series:
+  name: "沙箱系列"
+  order: 10
 draft: false
 ---
 

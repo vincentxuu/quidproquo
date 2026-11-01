@@ -149,7 +149,7 @@ One thing to do tonight: in a model you use, open two fresh chats the way the fi
 
 - How model specs describe this behavior: [L4: Model Specifications & Compliance](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en)
 - RLHF and safety training in the training pipeline: [L2: Modern LLM Training](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en)
-- How reliable LLM-as-judge is: [Stanford CS329Z Week 8: Judges and safety](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en)
+- How reliable LLM-as-judge is: [Stanford CS329Z Lecture 14: judges](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge-en) and [Lecture 15: safety](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety-en)
 
 ## Course video sources
 

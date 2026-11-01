@@ -6,6 +6,9 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 29
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 19
 tags: [coding-agent, harness-engineering, sandbox, landlock, seatbelt, bubblewrap]
 lang: en
 description: "Dissecting OS-sandbox boundaries in mature coding agents, then checking Looplane's sandbox-exec, Landlock/seccomp, and fail-closed verification baseline."

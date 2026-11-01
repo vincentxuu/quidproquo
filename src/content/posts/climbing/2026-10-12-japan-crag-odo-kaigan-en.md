@@ -8,124 +8,242 @@ lang: en
 series:
   name: "Japan Climbing Crags"
   order: 3901
-tldr: "White granite sea cliffs in Otsuki, Kochi. ROCKTOPO lists 85 routes, 75 of them cracks, and apart from anchors on the popular lines there is almost no fixed gear, so bring a rack and build your own anchors. Both sites give the season as November to March; the cliffs face south and get hot even in winter when the wind drops. The rail line ends at Sukumo Station on the Tosa Kuroshio Railway, and every source assumes you drive from there."
+tldr: "Odo Kaigan is a granite sea-cliff crag at Shikoku’s southwest tip, mostly for trad crack climbing; easy grades still require anchor and retreat skills. Prioritize November to March and access by car, then check your sector’s tides, road access, and way back to the clifftop."
 description: "A guide to the Odo Kaigan crag in Ashizuri-Uwakai National Park, Otsuki, Kochi: rock type, crack route count and grades, tide and rappel approaches by sector, season, driving and bus options, and notes on the camping ban, monkeys, and rockfall."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-odo-kaigan)
 
-Odo Kaigan (大堂海岸, おおどうかいがん; "Odo Coast") is in Otsuki, Hata District, Kochi Prefecture, at the southwest corner of Shikoku, inside Ashizuri-Uwakai National Park. White granite cliffs drop straight into the Pacific and the climbing is at their base. Almost all of it is crack climbing: of the 85 routes on [ROCKTOPO](https://www.rocktopo.net/areas/166), 75 are listed as リード（クラック） (lead, crack), and [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E5%A4%A7%E5%A0%82%E6%B5%B7%E5%B2%B8/) says "ポピュラーなルートの終了点を除いて、残置物はほとんどない" (apart from anchors on popular routes, there is almost no fixed gear).
+White granite cliffs drop straight into the Pacific at Odo Kaigan, with cracks rising above the sea. The appeal is placing your own protection and following the rock’s natural lines; the responsibility includes anchors, tides, and getting back to the clifftop.
 
-Two questions decide whether this crag is for you: can you place gear and build your own anchors, and can you handle a sea-cliff approach? Some sectors depend on the tide, and some need a rappel in and a climb back out. CLIMBING-net calls it "まさに最果ての地と呼ぶにふさわしい岩場" (a crag that truly deserves to be called the end of the earth).
+This guide helps you decide whether Odo Kaigan suits your team, plan a winter visit, understand the options without a car, and choose routes by grade.
 
-## What kind of crag it is
+## What kind of crag
 
-| Item | Details | Source |
-|---|---|---|
-| Location | Otsuki, Hata District, Kochi (高知県幡多郡大月町) | [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E5%A4%A7%E5%A0%82%E6%B5%B7%E5%B2%B8/) |
-| National park | Western Ashizuri section of Ashizuri-Uwakai National Park; the Ministry of the Environment lists it among "リアス式沈降海岸である叶崎や大堂海岸などの西部" (the western ria coast, including Kanozaki and Odo Kaigan) | [Ministry of the Environment](https://www.env.go.jp/nature/nationalparks/list/ashizuri-uwakai/feature/) |
-| Rock | Granite (ROCKTOPO's page has no rock-type field) | CLIMBING-net |
-| Angle | 80–100° | CLIMBING-net |
-| Aspect | South-facing (南向き) | CLIMBING-net |
-| Development | Started in the 1980s by climbers from Kochi, Matsuyama, and Uwajima; Naoya Naito, Makoto Kitayama, and others added routes later | CLIMBING-net |
-| Japan's 100 Crags | No. 87 | CLIMBING-net |
+**Odo Kaigan (大堂海岸, おおどうかいがん)** is in Otsuki, Hata District, Kochi Prefecture, at Shikoku’s southwest tip inside Ashizuri-Uwakai National Park. Distinguish the sightseeing destination, Odoyama Observation Deck (大堂山展望台), from the climbing approaches: reaching the viewpoint does not put you at a route’s start.
 
-The forestry agency backs up the rock type: the [Shikoku Regional Forest Office](https://www.rinya.maff.go.jp/shikoku/policy/business/invitation/sizen_kyuyorin/oodoo.html) describes the Odo district as "10Kmにもおよぶ白亜の花崗断崖" (white granite cliffs stretching 10 km), and the [Otsuki Tourism Association](https://otsuki-kanko.jp/tourism/content5) calls Kannon-iwa, a sea stack on this coast, "高さ30mほどの花崗岩" (a granite rock about 30 m tall).
+According to [Yama-Kei’s CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E5%A4%A7%E5%A0%82%E6%B5%B7%E5%B2%B8/), the south-facing granite ranges from slabs to slightly overhanging rock. Trad cracks dominate, alongside face climbing, bouldering, and multi-pitch routes. There is little fixed gear beyond popular routes; where the topo does not show an anchor, expect to build your own.
 
-Three official sources give different cliff heights. The Shikoku Regional Forest Office says "高さ約150mの白亜の断崖が10kmにわたって連なり" (white cliffs about 150 m high run for 10 km). The MLIT multilingual description [Walking from the Odo Coast to Kashiwajima](https://www.mlit.go.jp/tagengo-db/R1-02462.html) says "The cliffs along the Odo coast are up to 140 meters high." [VISIT KOCHI JAPAN](https://visitkochijapan.com/en/see-and-do/10040), run by the Kochi Visitors & Convention Association, mentions "the almost 50-meter-high white cliffs" in the context of a sightseeing boat at their foot. These describe the coastline, not route lengths.
+**Climbing 5.8 and leading a team up a 5.8 sea-cliff trad route require different skills.** Your team needs gear-placement, anchor-building, route-finding, and retreat skills. For a first visit, investigate Monkey (モンキーエリア) or Ozashiki (お座敷エリア). CLIMBING-net lists these and Harbor (ハーバーエリア) among the easier approaches, but Harbor remains tide-dependent.
 
-### Route count and grades (checked 2026-10-12)
+### Route coverage
 
-- **CLIMBING-net**: "88本以上" (88+ routes). The overview adds "簡単なラインを含めるとルートは無数に取れると言っても過言ではない" (counting easy lines, it is no exaggeration to say the routes are countless), and local climbers are still adding new ones.
-- **[ROCKTOPO](https://www.rocktopo.net/areas/166)**: 85 routes. Crack leads, 75: 39 in the 5.2+ band, 25 at 5.10a+, 11 at 5.11a+. Face leads, 9: one at 5.2+, three at 5.10a+, four at 5.11a+, one at 5.12a+. Plus one boulder problem (4級+).
-- ROCKTOPO has a separate page, [大堂海岸 白いエリア](https://www.rocktopo.net/areas/283) ("White Area"), which the main page's nearby-areas list shows with 27 crack routes and 1 multi-pitch. Those are not in the 85 above.
+[ROCKTOPO](https://www.rocktopo.net/areas/166) still listed **85 routes** when rechecked in October 2026: 75 cracks, 9 face routes, and 1 boulder problem. CLIMBING-net lists 88 or more. Their coverage differs; neither count should be treated as a complete inventory.
 
-More than half of the crack routes are 5.9 or easier, and numbers thin out past 5.11. The hardest listed line is 彫刻海岸 (5.12a, face) on 彫刻岩. Routes marked (2P) or (3P) are multi-pitch, such as イースター（2P） in 帰れずエリア and 迷い道くねくね（3P） in 最果てのエリア. CLIMBING-net's feature icons list bouldering, bolted lead, crack lead, multi-pitch, and "トップロープ限定あり" (some top-rope-only routes).
-
-Who it suits: climbers who already place gear and build their own anchors. Sport-only climbers will find little here; there are only 9 face routes.
+More than half of ROCKTOPO’s crack routes are 5.9 or easier, making this worth considering for experienced trad teams seeking crack mileage. The [White Area (白いエリア)](https://www.rocktopo.net/areas/283) has a separate page; adding its count to the main page does not establish a deduplicated total. Cliff heights in sightseeing descriptions are not route lengths.
 
 ### Sectors and approaches
 
-ROCKTOPO divides the crag into 11 sectors, each tagged with an approach note from parking. CLIMBING-net's notes add: "アプローチはモンキー、ハーバー、お座敷の各エリアがもっとも容易で、東、前傾壁、最果ての各エリアは非常に分かりにくい" (Monkey, Harbor, and Ozashiki are the easiest to reach; East, Zenkeiheki, and Saihate are very hard to find).
+The table retains ROCKTOPO’s 11 sectors and approach labels. Choose an approach your team can manage before choosing a grade. “Close” is a database label, not a promise of easy walking.
 
-| Sector | Routes (ROCKTOPO) | Approach (ROCKTOPO tag and notes) |
-|---|---|---|
-| モンキーエリア (Monkey) | 26 (C25, F1) | 近め (close) |
-| 帰れずエリア (Kaerezu) | 14 (C14) | Close; "満潮時はアプローチができない。潮汐を確認してから利用するように。" (no access at high tide; check the tides first) |
+| Sector | Routes (ROCKTOPO) | Approach (ROCKTOPO labels and notes) |
+| --- | --- | --- |
+| モンキーエリア (Monkey) | 26 (C25, F1) | Close |
+| 帰れずエリア (Kaerezu) | 14 (C14) | Close; inaccessible at high tide; check tides first |
 | お座敷エリア (Ozashiki) | 10 (C6, F4) | Close |
-| ハーバーエリア (Harbor) | 9 (C8, B1) | Close; "干潮時はルーフ下までモンキーエリアから歩いてアプローチ可能。それ以外は懸垂下降が必要。" (at low tide you can walk from Monkey to below the roof; otherwise rappel) |
-| 最果てのエリア (Saihate) | 6 (C6) | 登り返し有 (uphill on the way); "アプローチで70mの懸垂下降" (70 m rappel on the approach) |
-| 東のエリア (East) | 5 (C4, F1) | Uphill on the way |
-| 超最果てエリア (Cho-Saihate) | 5 (C5) | Uphill on the way |
+| ハーバーエリア (Harbor) | 9 (C8, B1) | Close; at low tide, walk from Monkey to below the roof; otherwise a rappel is required |
+| 最果てのエリア (Saihate) | 6 (C6) | 登り返し有; approach includes a 70 m rappel |
+| 東のエリア (East) | 5 (C4, F1) | 登り返し有 |
+| 超最果てエリア (Cho-Saihate) | 5 (C5) | 登り返し有 |
 | 彫刻岩 (Chokoku-iwa) | 4 (C2, F2) | Close |
 | 洞窟エリア (Cave) | 3 (C3) | Close |
 | 大滝エリア (Otaki) | 3 (C2, F1) | Close |
-| 前傾壁エリア (Zenkeiheki) | 0 (no routes listed yet) | Uphill on the way; "20mほど懸垂下降してアプローチ" (approach by a rappel of about 20 m) |
+| 前傾壁エリア (Zenkeiheki) | 0 (no routes listed yet) | 登り返し有; approach includes a rappel of about 20 m |
 
-C = crack, F = face, B = boulder. "登り返し有" means part of the walk from the parking climbs back uphill. How to get back up after rappelling in (climbing out on a route or leaving a fixed line) is not covered on ROCKTOPO or CLIMBING-net.
+C = crack, F = face, B = boulder. 登り返し有 is ROCKTOPO’s approach label; it does not establish how to retreat after rappelling in. The listed rappel distances are also insufficient to determine rope requirements. Confirm the descent, return route, and alternatives with a topo before entering a sector.
 
 ## When to go
 
-| Source | What it says |
-|---|---|
-| CLIMBING-net | Season "11月~3月" (November–March); "岩場は南向きで白い花崗岩の照り返しがきついことから、風がなければ冬でも暑いほどである" (the crag faces south and the white granite reflects strongly, so without wind it can be hot even in winter) |
-| ROCKTOPO | Season field lists January, February, March, November, December |
+**Prioritize November to March.** CLIMBING-net and ROCKTOPO agree on the season. The south aspect and reflective white granite can make windless winter days hot. Carry enough water and layers for the difference between climbing and standing still at a belay.
 
-The two sites agree: this is a winter crag, because of the south aspect and the glare off the white granite.
-
-Neither site says why April to October is a poor choice, and no primary source was found on how typhoons, swell, or water temperature affect the approaches. 帰れずエリア and ハーバーエリア are tide-dependent in any season, so check a tide table before you go.
+A suitable season does not settle coastal access. Kaerezu is inaccessible at high tide; walking into Harbor from Monkey is a low-tide option, with rappelling required otherwise. For either sector, plan both entry and exit around the tides and check the day’s weather and sea conditions separately.
 
 ## Getting there
 
-### By car (the main option in practice)
+### Public transport
 
-- **Route**: CLIMBING-net says it takes about 2 hours from Susaki-higashi IC (須崎東IC) on the Kochi Expressway to Sukumo via National Route 56, or about 2.5 hours from Ozu IC (大洲IC) on the Matsuyama Expressway. From Sukumo, take Route 321, turn right toward Kashiwajima about 1 km past central Otsuki, roughly 30 minutes from Sukumo. VISIT KOCHI JAPAN instead gives "About 2 hr 30 min drive from Shimantocho-chuo IC on Kochi Expressway". The Shikoku Regional Forest Office routes it from Nakamura via Routes 56 and 321 and Prefectural Road 43, "宿毛から所要約50分" (about 50 minutes from Sukumo), which differs from CLIMBING-net's 30 minutes.
-- **Access road**: CLIMBING-net says to approach from near the entrance of "大堂トンネル（平成15年度開通予定）" (Odo Tunnel, scheduled to open in fiscal 2003) and from the old road that bypasses it. That text predates the tunnel: [Kochi Prefecture](https://www.pref.kochi.lg.jp/doc/110629kashiwajima/) reports "平成１５年度 県内の県道では最長となる大堂トンネル（L=1,923m）が完成" (Odo Tunnel, 1,923 m and the prefecture's longest on a prefectural road, completed in fiscal 2003). CLIMBING-net also says the old road was closed after a collapse, was "2013年3月20日現在、復旧しており通行可" (repaired and open as of March 20, 2013), but has "道路に多数の落石があり、荒れている" (lots of fallen rock; rough).
-- **Parking**: ROCKTOPO lists two spots, "[大堂海岸の駐車場](https://www.rocktopo.net/parking_spots/312)" and "[大堂海岸の駐車場（東側）](https://www.rocktopo.net/parking_spots/1411)" (east side). Both are "路肩の駐車スペース" (roadside shoulder space); the west one says about 2 cars, the east one gives no number. Both pages say "道路通行止めの可能性あり。最新の情報を確認してください" (the road may be closed; check the latest information) and "各岩場の付近にスペースあるため適宜駐車してください" (there is space near each sector; park as appropriate). CLIMBING-net's parking GPS field is blank.
+The rail connection is **Sukumo Station (宿毛駅)** on the Tosa Kuroshio Railway. For buses toward Otsuki and Kashiwajima, check both the trunk-line and “大月町各地” local timetables on [Kochi Seinan Kotsu’s website](https://kochi-seinan.co.jp/local/), including transfers and the return journey. When rechecked in October 2026, the Otsuki local page listed a revision from that month. An old fare table is not a timetable.
 
-### By public transport
+[VISIT KOCHI JAPAN](https://visitkochijapan.com/en/see-and-do/10040) gives a walk of about 25 minutes from **Kannonbae Iriguchi (観音礁入口)** to Odo Coast. This is sightseeing access information, not an approach time to each climbing sector. Without a car, connect the bus stop, your chosen sector, carrying equipment, and the return journey before committing; consider sharing a car or arranging a pickup if the final leg remains unresolved.
 
-- Rail ends at Sukumo Station (宿毛駅) on the Tosa Kuroshio Railway. The [Otsuki Tourism Association](https://otsuki-kanko.jp/tourism/content4) gives about 40 minutes by car from Sukumo Station to the Odoyama observation deck.
-- Bus: VISIT KOCHI JAPAN says it is "About 25 min walk from Kannonbae Iriguchi (Kochi Seinan Kotsu Bus)". Kochi Seinan Kotsu's [Otsuki fare table](https://www.kochi-seinan.co.jp/obj/pdf/fee_ootsuki2021.pdf) spells the stop 観音礁入口. That walk time is to the sightseeing area; no source gives the time from the stop to any climbing sector. For timetables, see the "大月町各地" (Otsuki local) line on [Kochi Seinan Kotsu's route bus page](https://kochi-seinan.co.jp/local/).
-- Crack climbing means carrying a full rack and ropes, the sectors are spread along several kilometers of coast, and every crag source checked assumes you arrive by car.
+### Driving
 
-| | By car | By public transport |
-|---|---|---|
-| Start | Susaki-higashi IC / Ozu IC / Shimantocho-chuo IC (by source) | Sukumo Station, Tosa Kuroshio Railway |
-| Middle leg | About 30 min from Sukumo (CLIMBING-net) or about 50 min (Forest Office) | Kochi Seinan Kotsu bus to 観音礁入口 |
-| Park / get off | Roadside space, about 2 cars on the west side; road may close | About 25 min walk to the sightseeing area; time to the crag not published |
+From Sukumo, follow National Route 321 toward Otsuki, then turn toward Kashiwajima. The official tourism page gives about two and a half hours from Shimantocho-chuo IC; the [Otsuki Tourism Association](https://otsuki-kanko.jp/tourism/content4) gives about 40 minutes from Sukumo Station to Odoyama Observation Deck. These have different endpoints and starting points; neither includes the climbing approach after parking.
 
-## Rules to know before you go
+Sector approaches are spread around Odo Tunnel and the old road. CLIMBING-net’s road description still includes text from before the tunnel opened, while its record of the old road being passable dates to 2013. Check current road conditions instead of treating those directions as confirmation of access.
 
-- **No camping on the coast**: CLIMBING-net says "大堂海岸でのキャンプは原則的に禁止。水場もない" (camping at Odo Kaigan is prohibited in principle; there is no water source either). The same page mentions a free campground at Kashiwajima, at the end of the prefectural road, and the Otsuki Ecology Campground, but gives no date for that information, so check fees and opening status with the campgrounds directly.
-- **No toilets**: CLIMBING-net's public toilet field says "無" (none).
-- **Monkeys**: CLIMBING-net warns "猿が出没するので、食料の扱いには注意が必要" (monkeys appear, so be careful with food). The Otsuki Tourism Association also notes you may meet wild monkeys (大堂お猿公園) on the trail between the observation deck and Kannon-iwa.
-- **Anchors**: CLIMBING-net says "ルート図に終了点が描かれているルート以外は基本的に終了点はない" (routes without an anchor marked on the topo basically have no anchor). On most lines you build your own anchor and work out your own descent.
-- **Road closures and rockfall**: see the previous section. ROCKTOPO's parking pages warn the road may be closed, and CLIMBING-net mentions heavy rockfall on the old road.
-- **National park**: Odo Kaigan is inside Ashizuri-Uwakai National Park. None of the Ministry of the Environment, Kochi Prefecture, or Otsuki pages checked have rules specific to climbing or bolting, and the [JFA access-issue list](https://freeclimb.jp/activities/deal-with/issue-list/) (checked 2026-10-12) does not list Odo Kaigan. No rule found does not mean bolting is fine; CLIMBING-net describes a crag with almost no fixed gear beyond anchors on popular routes.
+### Parking
 
-Registration or access fees: none mentioned on the CLIMBING-net, ROCKTOPO, or JFA pages checked.
+ROCKTOPO lists roadside spaces on the [west](https://www.rocktopo.net/parking_spots/312) and [east](https://www.rocktopo.net/parking_spots/1411) sides. The west space is listed for about two cars; no capacity is given for the east. These are database locations rather than staffed parking facilities, and both pages warn of possible road closures.
 
-## Notable routes
+Match your chosen sector to its parking location, then confirm on arrival that parking is permitted and will not obstruct traffic. If the shoulder is full or the road closed, change your plan. A sightseeing car park is not automatically an alternative entrance to every sector.
 
-ROCKTOPO does not mark popular routes for Odo Kaigan. These are the routes in the latest 10 user logs at the top of the [ROCKTOPO Odo Kaigan page](https://www.rocktopo.net/areas/166), with grades from the [route list](https://www.rocktopo.net/areas/166/routes) (2026-10-12). All are cracks:
+## Rules before you go
 
-- モンキーエリア: スーパー・クラック (5.9), ダブルフレーク (5.9), ぐいの実クラック (5.8), ビッグ・ウェーブ (5.10b), 岡山ルート (5.10c)
-- 東のエリア: 柿羊羹 (5.10a), クレオパトラ (5.11a)
-- 最果てのエリア: SECRET AGENT MAN（2P） (5.11a)
+**Check road access and climbing access separately.** ROCKTOPO’s parking pages warn of closures, and CLIMBING-net records rockfall on the old road. Driving nearby does not establish access to every sea-cliff approach. See the [Ministry of the Environment](https://www.env.go.jp/nature/nationalparks/list/ashizuri-uwakai/feature/) for the national park context, and check the [JFA access-issue list](https://freeclimb.jp/activities/deal-with/issue-list/) and local notices before departure. This guide has no management document sufficient to confirm current climbing permits, registration, or access-fee requirements; ask local climbers and the relevant managers before visiting.
 
-Seven of the 10 logs are in モンキーエリア, one of the sectors CLIMBING-net calls easiest to reach.
+- **Camping and supplies:** CLIMBING-net says coastal camping is prohibited in principle and that there is no water source or public toilet. This is a secondary crag description; a current management notice was not obtained. Book a permitted campsite or accommodation and sort out drinking water and toilets before entering the sectors.
+- **Fixed gear and descent:** CLIMBING-net warns that most routes require your own anchors. Bring protection for the selected route and confirm anchors and descent in a topo. A database “face” classification alone does not establish that quickdraws are sufficient.
+- **Monkeys:** CLIMBING-net and the [Otsuki Tourism Association](https://otsuki-kanko.jp/tourism/content4) both mention wild monkeys. Keep food packed away rather than spread out at the base.
+- **Adding fixed gear:** Permission to bolt or install anchors has not been verified here. Consult the managers and local developers first.
+
+For emergency medical assistance, call **119** and describe your location and the injured person’s condition; the [Japan Fire and Disaster Management Agency’s English guide](https://www.fdma.go.jp/publication/portal/items/portal002_english.pdf) explains how to call. Save Japanese sector and route names, parking locations, and offline maps before departure, and share the retreat plan with your companions. Ask your insurer whether trad climbing, multi-pitch climbing, search and rescue, medical care, and repatriation are covered.
+
+## Routes by level
+
+YDS and V-grade conversions follow the [Mountain Project international grade comparison chart](https://www.mountainproject.com/international-climbing-grades) and are approximate; "approx." marks grades the sources give without a/b/c (such as 4 or 5+). The original grade is the one that counts.
+
+**The tables include all 84 roped entries in ROCKTOPO’s main-area list, retaining native YDS; its one boulder entry is described separately.** [theTopo’s 11-entry list](https://www.thetopo.com/crags/14008/routelist) uses different displayed grades, preserved in notes without treating them as YDS confirmations. Its Treasure Ship entry is included separately pending a Japanese-name match; do not add it to the ROCKTOPO count as a confirmed distinct line. The developer’s 2024 account supplies five further named main-area entries, each attributed in its row; fixed grade alone does not establish the protection style. White Area’s separate 28-entry list is outside these tables. Length fields are blank; 2P/3P names supply pitch counts, not individual pitch grades or rope requirements. Split grades are grouped by their first value.
+
+For a first look at the sectors, read [Kyokara Kimiwa’s introduction](https://kyokarakimiwa.com/odo-kaigan/) (2022, updated 2025). First-person reports appear in the relevant route notes; their approaches, anchors and retreat choices describe those historical trips, not current directions or equipment lists.
+
+Videos open through **View videos** in each row. Top-rope footage, time-lapses, the Monkey Roof left variant, H Crack’s title-grade difference and the Great Roof direct finish are labelled separately. The SAM short clip does not establish complete two-pitch coverage or descent. Video-title grades describe that clip’s version; use the table sources when choosing a route.
+
+### Beginner: up to 6a (YDS 5.10a and below)
+
+Start by comparing Monkey’s Guinomi, Super Crack and Monkey Roof. A lower grade does not remove gear-placement or sea-cliff retreat requirements; Kaerezu, Harbor and Saihate still need separate access planning.
+
+| Route | Grade | YDS | Length / pitches | Sector | Notes |
+| --- | --- | --- | --- | --- | --- |
+| α、β、γクラック | 5.7 | 5.7 | Not listed | ハーバーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 岬 | 5.8 | 5.8 | Not listed | ハーバーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ウォーミングアップ | 5.9 | 5.9 | Not listed | ハーバーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 渚クラック | 5.9 | 5.9 | Not listed | ハーバーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| クレジット | 5.6 | 5.6 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| もぐらたたき | 5.7 | 5.7 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| お祭りクラック | 5.7 | 5.7 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ダブル・クラック | 5.7 | 5.7 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| うず潮 | 5.8 | 5.8 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack; [theTopo](https://www.thetopo.com/crags/14008/routelist): 4+ (different displayed grade) |
+| ターン・クラック | 5.8 | 5.8 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ぐいの実クラック | 5.8 | 5.8 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack。Trip report: [Yamano Makochan 2020](https://yamanomakochan.blogspot.com/2020/11/odokaiganclimbing.html) describes upper finger cracks, hand jams and slab, with video from the trip. |
+| あみだくじ | 5.8 | 5.8 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ステッピング・ルート（2P） | 5.8 | 5.8 | 2 pitches; length not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| おまたせクラック | 5.8 | 5.8 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ぶり | 5.8 | 5.8 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| かつお | 5.9 | 5.9 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ヒップアップ | 5.9 | 5.9 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| スーパー・クラック | 5.9 | 5.9 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack; [theTopo](https://www.thetopo.com/crags/14008/routelist): 5 (different displayed grade)。Recommended line: [Mitsumine 2019](https://www.mitsumine.gr.jp/kaiho/359/oodo_coast.html) names it and Monkey Roof as trip objectives and describes hand jams. [Miroku 2024](https://npo.mirokuyamanokai.org/2024/02/24/53786) adds photos; some caption grades conflict. |
+| シャトル | 5.9 | 5.9 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 胎内クラック | 5.9 | 5.9 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ダブルフレーク | 5.9 | 5.9 | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| モンキー・ルーフ | 5.10a | 5.10a | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack; [theTopo](https://www.thetopo.com/crags/14008/routelist): 5+ (different displayed grade)。Recommended line: [Mitsumine 2019](https://www.mitsumine.gr.jp/kaiho/359/oodo_coast.html) describes trying the roof and returning to complete it. Video also includes the left variant. |
+| ネギとかも | 5.10a | 5.10a | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| モンキー・ルーフ左 | 5.10a/b | 5.10a/b | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack。Listed separately from the original; second part of the helmet video covers this variant. |
+| ムセイ・クラック | 5.10a/b | 5.10a/b | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| アメフラシ | 5.9 | 5.9 | Not listed | 大滝エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 大フレーク | 5.10a | 5.10a | Not listed | 大滝エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 南風 | 5.7 | 5.7 | Not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 砂かけ爺 | 5.7 | 5.7 | Not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| お月さん桃色 | 5.8 | 5.8 | Not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| セーラー | 5.8 | 5.8 | Not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| オールマイティー | 5.9 | 5.9 | Not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 大フレーク・オットット（2P） | 5.9 | 5.9 | 2 pitches; length not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| センターライン | 5.9 | 5.9 | Not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 熱風セレナーデ（2P） | 5.10a | 5.10a | 2 pitches; length not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| レフト＆ライト | 5.9 | 5.9 | Not listed | お座敷エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); face |
+| 親潮 | 5.10a | 5.10a | Not listed | お座敷エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); face |
+| ミミズ・クラック | 5.6 | 5.6 | Not listed | お座敷エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack; [theTopo](https://www.thetopo.com/crags/14008/routelist): 3+ (different displayed grade) |
+| スクイズ・チムニー | 5.9 | 5.9 | Not listed | お座敷エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| フナムシ | 5.9 | 5.9 | Not listed | お座敷エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack; [theTopo](https://www.thetopo.com/crags/14008/routelist): 5 (different displayed grade) |
+| 黒潮 | 5.9 | 5.9 | Not listed | お座敷エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| カンテ状スラブ | 5.10a | 5.10a | Not listed | 彫刻岩 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); face |
+| アシカクラック | 5.9 | 5.9 | Not listed | 彫刻岩 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ラズベリージャム | 5.9 | 5.9 | Not listed | 最果てのエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack; [theTopo](https://www.thetopo.com/crags/14008/routelist): 5 (different displayed grade)。The [2024 account](https://blog.livedoor.jp/jamminggentleman/archives/34855658.html) gives 5.10a, versus database 5.9; difference retained. |
+| 青の悦び | 5.8 | 5.8 | Not listed | 東のエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 柿羊羹 | 5.10a | 5.10a | Not listed | 東のエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack。Trip report: the [developer, 2024](https://blog.livedoor.jp/jamminggentleman/archives/34855658.html) describes fingers, wide cracks and face climbing; that account’s length is not descent guidance. |
+| チムニー | 5.8 | 5.8 | Not listed | 洞窟エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| オフウィズス | 5.9 | 5.9 | Not listed | 洞窟エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 刺身丼伝説 | 5.8 | 5.8 | Not listed | 超最果てエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 天国への扉 | 5.9 | 5.9 | Not listed | 東のエリア | Sources: [developer 2024](https://blog.livedoor.jp/jamminggentleman/archives/34855658.html); single source |
+| ジワタネホ | 5.9 | 5.9 | Not listed | 最果てのエリア | Sources: [developer 2024](https://blog.livedoor.jp/jamminggentleman/archives/34855658.html); single source; named opening pitches join another route; full length/pitch count unconfirmed |
+| Treasure Ship（Japanese name unconfirmed） | 6a | 5.10a | Not listed | Locate with guidebook | Sources: [theTopo](https://www.thetopo.com/crags/14008/routelist) only; Japanese-name match and distinct identity not confirmed |
+
+```video-gallery
+key: odoKaigan
+lang: en
+layout: routes
+ids: aKtadhBbMKs, yKkoYqPZzRM, BL2mPFFBjq0, AnB_meuRVGE, 4kxEcadRh9w, 0WzjGPaTMVo, yENEmkfGLhs, 4_xlQ1bIdlY, BIBugqK9KEA, lsN54yqx744, tj3UoLhS_L4, qDDNnYWmYRY, L3nHc_h0yIM
+```
+
+### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
+
+Cracks span Monkey, East, Ozashiki and the more remote sectors. Decide on access before linking routes; SAM’s grade alone does not describe the commitment of a multi-pitch sea-cliff day.
+
+| Route | Grade | YDS | Length / pitches | Sector | Notes |
+| --- | --- | --- | --- | --- | --- |
+| 無名クラック | 5.10b | 5.10b | Not listed | ハーバーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack。Harbor and Kaerezu namesakes are separate lines. |
+| レイバック | 5.10b | 5.10b | Not listed | ハーバーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| アップダウンクイズ | 5.10c | 5.10c | Not listed | ハーバーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 大ルーフ | 5.11c | 5.11c | Not listed | ハーバーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack。Videos include the original and a direct finish labelled 5.13a/b; that variant grade does not regrade this original. |
+| ビッグ・ウェーブ | 5.10b | 5.10b | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| セイシ・クラック | 5.10b | 5.10b | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 猿の道(モンキー・ロード) | 5.10c | 5.10c | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 岡山ルート | 5.10c | 5.10c | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack; [theTopo](https://www.thetopo.com/crags/14008/routelist): 6a+ (different displayed grade)。Trip report: [Go for it! 2015](http://blog.livedoor.jp/climbing2-goforit/archives/20115076.html) describes fingers above a small overhang; [2024 photos](https://npo.mirokuyamanokai.org/2024/02/24/53786) show the wall. |
+| 波浪注意報 | 5.11a | 5.11a | Not listed | 大滝エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); face |
+| スウィング | 5.10b | 5.10b | Not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| アルト | 5.10b | 5.10b | Not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| イースター（2P） | 5.10d | 5.10d | 2 pitches; length not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack; [theTopo](https://www.thetopo.com/crags/14008/routelist): 6b (different displayed grade) |
+| オンザビード | 5.11a | 5.11a | Not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| モンゴサンタマリア（2P） | 5.11b/c | 5.11b/c | 2 pitches; length not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 無名クラック | 5.11c/d | 5.11c/d | Not listed | 帰れずエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack。Harbor and Kaerezu namesakes are separate lines. |
+| 雀の涙 | 5.10d | 5.10d | Not listed | お座敷エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); face |
+| ダイレクトカンテ | 5.11a | 5.11a | Not listed | お座敷エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); face |
+| Hクラック | 5.10d | 5.10d | Not listed | お座敷エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack。Video title gives 5.11-, versus database 5.10d. |
+| シンクラック | 5.11a | 5.11a | Not listed | お座敷エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| L字クラック | 5.10d | 5.10d | Not listed | 彫刻岩 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ハートロッカー | 5.10b | 5.10b | Not listed | 最果てのエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack; [theTopo](https://www.thetopo.com/crags/14008/routelist): 6b (different displayed grade) |
+| ミレニアム | 5.10b | 5.10b | Not listed | 最果てのエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ひじき | 5.10b | 5.10b | Not listed | 最果てのエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| 迷い道くねくね（3P） | 5.10d | 5.10d | 3 pitches; length not listed | 最果てのエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| SECRET AGENT MAN（2P） | 5.11a | 5.11a | 2 pitches; length not listed | 最果てのエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack; [theTopo](https://www.thetopo.com/crags/14008/routelist): 6b+ (different displayed grade)。Trip reports: [Go for it! 2015](http://blog.livedoor.jp/climbing2-goforit/archives/20115076.html) covers two pitches and a mistaken descent entrance; [kbt1235 2013](https://kbt1235.hatenablog.com/entry/20130101/1357566039) skipped pitch two and returned by fixed-line ascent, a different version. |
+| さざなみフェイス | 5.11a | 5.11a | Not listed | 東のエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); face |
+| 黒い悦び | 5.11a | 5.11a | Not listed | 東のエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| クレオパトラ | 5.11a | 5.11a | Not listed | 東のエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack。Trip report: the developer’s [2024 revisit](https://blog.livedoor.jp/jamminggentleman/archives/34855658.html) describes slightly overhanging thin cracks and explicitly revises 5.10c to 5.11a. |
+| さあかすのざう | 5.11c | 5.11c | Not listed | 洞窟エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ひじき | 5.10b | 5.10b | Not listed | 超最果てエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ミレニアム | 5.10b | 5.10b | Not listed | 超最果てエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack |
+| ジパング | 5.11a | 5.11a | Not listed | 超最果てエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack。Do not conflate with Zipang Direct in the developer account. |
+| 漁民俱楽部 | 5.11b | 5.11b | Not listed | 超最果てエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); crack。The [developer, 2024](https://blog.livedoor.jp/jamminggentleman/archives/34855658.html) recommends it at 5.11a; database gives 5.11b. |
+| Moon Light | 5.10c | 5.10c | Not listed | 超最果てエリア | Sources: [developer 2024](https://blog.livedoor.jp/jamminggentleman/archives/34855658.html); single source |
+| ジパングDirect | 5.11a | 5.11a | Not listed | 超最果てエリア | Sources: [developer 2024](https://blog.livedoor.jp/jamminggentleman/archives/34855658.html); single source |
+
+```video-gallery
+key: odoKaigan
+lang: en
+layout: routes
+ids: URzkf4dy8Do, p4kGWxcKhwo, 4fxywqIVQdc, -inzHp-yjYk, 7S847LTAvuA, 0IXYL3wy0N4, _upcZGDZN0g, _J51Ie-HNn0, K9jviwqAnBI, bg3nKVeHGrg, entvLpZN7EY
+```
+
+### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
+
+Two main-list face routes enter this band. Great Roof’s harder direct-finish video stays attached to its original route row, with the version difference explicit.
+
+| Route | Grade | YDS | Length / pitches | Sector | Notes |
+| --- | --- | --- | --- | --- | --- |
+| ザ・ドリーム | 5.11d/12a | 5.11d/12a | Not listed | モンキーエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); face |
+| 彫刻海岸 | 5.12a | 5.12a | Not listed | 彫刻岩 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/166/routes); face |
+| New Old Line | 5.11d | 5.11d | Not listed | 東のエリア | Sources: [developer 2024](https://blog.livedoor.jp/jamminggentleman/archives/34855658.html); single source |
+
+### Expert: 8a and up (YDS 5.13b and up)
+
+The main-area list has no original routes in this band. A video variant label is not a new, verified inventory entry.
+
+### Bouldering: Harbor
+
+ROCKTOPO’s remaining entry is トラバースボルダー, listed as Japanese grade **2級** in Harbor. No Font or V grade is established here; do not interpret it as a roped route.
 
 ## Where to look things up
 
-- **[ROCKTOPO: Odo Kaigan](https://www.rocktopo.net/areas/166)**: locations of the 11 sectors, approach tags with tide and rappel notes, the route list and grade spread, and user logs. Offline download requires login.
-- **[ROCKTOPO: Odo Kaigan White Area](https://www.rocktopo.net/areas/283)**: a separate crack sector with its own page.
-- **[ROCKTOPO parking (west)](https://www.rocktopo.net/parking_spots/312) / [(east)](https://www.rocktopo.net/parking_spots/1411)**: roadside parking spots and a "駐車場への行き方を見る" (directions) link.
-- **[CLIMBING-net: Odo Kaigan](https://www.climbing-net.com/iwaba_detail/%E5%A4%A7%E5%A0%82%E6%B5%B7%E5%B2%B8/)**: Yama-Kei's crag entry, with an overview, driving directions, campgrounds, and notes. The "掲載書籍" field lists the 中国・四国・九州 (Chugoku, Shikoku, Kyushu) guidebook, which has the topos. Parts of the entry date from around 2013; trust the prefecture's notices for road information.
-- **[JFA access-issue list](https://freeclimb.jp/activities/deal-with/issue-list/)**: check for new restrictions before you go.
-- **[Otsuki Tourism Association](https://otsuki-kanko.jp/)**: sightseeing information on the Odoyama observation deck, Kannon-iwa, and the coastal trail.
-- **[Kochi Seinan Kotsu](https://kochi-seinan.co.jp/local/)**: timetables for the Otsuki local bus line.
+- **[ROCKTOPO: Odo Kaigan](https://www.rocktopo.net/areas/166):** locate sectors and read tide and rappel notes, then consult the [route list](https://www.rocktopo.net/areas/166/routes). Missing lengths need another source.
+- **[CLIMBING-net: Odo Kaigan](https://www.climbing-net.com/iwaba_detail/%E5%A4%A7%E5%A0%82%E6%B5%B7%E5%B2%B8/):** rock, season, anchor requirements, and approach notes. Reconfirm older transport and camping information with operators or managers.
+- **Management and transport:** [JFA](https://freeclimb.jp/activities/deal-with/issue-list/) for access issues, [Kochi Seinan Kotsu](https://kochi-seinan.co.jp/local/) for timetables, and the [Otsuki Tourism Association](https://otsuki-kanko.jp/) for sightseeing trails and trip-planning contacts.
+- **Guidebook:** Grades and route counts here come mainly from online databases; the guidebook is the authority.
+  - [*フリークライミング 日本100岩場5 中国・四国・九州 増補改訂版*](https://www.yamakei.co.jp/products/2815120465.html), edited by Makoto Kitayama, Yama-Kei, Japanese. The publisher lists the electronic edition as released in 2016, covering Chugoku, Shikoku, and Kyushu; CLIMBING-net identifies Odo Kaigan as No. 87 in this volume. Only the bibliographic listing was checked for this guide, not the topo pages. That edition cannot guarantee today’s road or fixed-gear conditions.
+
+## Update history
+
+- 2026-10-26: Reorganized the introduction, transport, and route selection using the crag template; added grade-band tables, the complete main-area route inventory, route videos, first-person reports, a crag introduction, and a guidebook entry. Rechecked ROCKTOPO, CLIMBING-net, the bus operator, and the publisher, retaining the limitations around missing route lengths and current management documents.
 
 ## References
 
@@ -145,3 +263,38 @@ Seven of the 10 logs are in モンキーエリア, one of the sectors CLIMBING-n
 - [VISIT KOCHI JAPAN: Odo Coast](https://visitkochijapan.com/en/see-and-do/10040)
 - [Kochi Seinan Kotsu: Route buses](https://kochi-seinan.co.jp/local/) (in Japanese)
 - [Kochi Seinan Kotsu: Otsuki fare table (PDF)](https://www.kochi-seinan.co.jp/obj/pdf/fee_ootsuki2021.pdf) (in Japanese)
+- [Yama-Kei: Japan’s 100 Crags, Vol. 5, revised and expanded edition — electronic edition listing](https://www.yamakei.co.jp/products/2815120465.html) (in Japanese)
+- [Mountain Project: International climbing grade comparison chart](https://www.mountainproject.com/international-climbing-grades)
+- [Japan Fire and Disaster Management Agency: English ambulance guide](https://www.fdma.go.jp/publication/portal/items/portal002_english.pdf)
+- [Kyokara Kimiwa: Odo Kaigan introduction](https://kyokarakimiwa.com/odo-kaigan/)
+- [Miroku Yama-no-kai: Odo Kaigan, 2024](https://npo.mirokuyamanokai.org/2024/02/24/53786)
+- [Jamming Gentleman: New Year Odo Kaigan, 2024](https://blog.livedoor.jp/jamminggentleman/archives/34855658.html)
+- [Go for it!: Odo Kaigan trip, 2015](http://blog.livedoor.jp/climbing2-goforit/archives/20115076.html)
+- [kbt1235: SECRET AGENT MAN, 2013](https://kbt1235.hatenablog.com/entry/20130101/1357566039)
+- [Yamano Makochan: Odo Kaigan cracks, 2020](https://yamanomakochan.blogspot.com/2020/11/odokaiganclimbing.html)
+- [YouTube：大堂海岸 クライミング2 ぐいの実クラック  トラッドクライミング](https://www.youtube.com/watch?v=aKtadhBbMKs)
+- [YouTube：大堂海岸　ぐいの実クラック　トップロープ](https://www.youtube.com/watch?v=0WzjGPaTMVo)
+- [YouTube：タイムラプス time lapse #01大堂海岸スーパークラック gopro hero6](https://www.youtube.com/watch?v=BL2mPFFBjq0)
+- [YouTube：【TradClimbing】大堂海岸　モンキールーフ5.10a　左5.10ab【ヘルメットマウント】](https://www.youtube.com/watch?v=4_xlQ1bIdlY)
+- [YouTube：【TradClimbing】大堂海岸　岡山ルート5 10ｃ【ヘルメットマウント】](https://www.youtube.com/watch?v=0IXYL3wy0N4)
+- [YouTube：SECRET AGENT MAN ＠ 最果て](https://www.youtube.com/watch?v=K9jviwqAnBI)
+- [Mitsumine：大堂海岸攀登紀錄，2019](https://www.mitsumine.gr.jp/kaiho/359/oodo_coast.html)
+- [theTopo：大堂海岸 11 筆路線](https://www.thetopo.com/crags/14008/routelist)
+- [YouTube：四国・大堂海岸「大ルーフ」(5.11c)](https://www.youtube.com/watch?v=URzkf4dy8Do)
+- [YouTube：大堂海岸「大ルーフ」ダイレクトフィニッシュ(5.13a/b)](https://www.youtube.com/watch?v=p4kGWxcKhwo)
+- [YouTube：大堂海岸（高知県）フナムシ 5.9  /Odo coast(Kochi pref in Japan)](https://www.youtube.com/watch?v=yKkoYqPZzRM)
+- [YouTube：大堂海岸アップダウンクイズ5 10c【ヘルメットマウント】+終了点一つでロワーダウンする方法について](https://www.youtube.com/watch?v=4fxywqIVQdc)
+- [YouTube：大堂海岸（高知県）Hクラック 5.11-  /Odo coast(Kochi pref in Japan)](https://www.youtube.com/watch?v=-inzHp-yjYk)
+- [YouTube：大堂海岸 クライミング1 お祭りクラック  トラッドクライミング](https://www.youtube.com/watch?v=AnB_meuRVGE)
+- [YouTube：大堂海岸　クレジット5.6](https://www.youtube.com/watch?v=4kxEcadRh9w)
+- [YouTube：大堂海岸モンキーエリア モンキールーフ 5.10a](https://www.youtube.com/watch?v=yENEmkfGLhs)
+- [YouTube：大堂海岸モンキーエリア セイシクラック 5.10b](https://www.youtube.com/watch?v=7S847LTAvuA)
+- [YouTube：大堂海岸モンキーエリア 岡山ルート 5.10c](https://www.youtube.com/watch?v=_upcZGDZN0g)
+- [YouTube：大堂海岸帰れずエリア オールマイティー(5.9) 32m](https://www.youtube.com/watch?v=BIBugqK9KEA)
+- [YouTube：大堂海岸お座敷エリア Hクラック 5.11-](https://www.youtube.com/watch?v=_J51Ie-HNn0)
+- [YouTube：【TradClimbing】大堂海岸　柿羊羹　5 10a【ヘルメットマウント】](https://www.youtube.com/watch?v=lsN54yqx744)
+- [YouTube：【大堂海岸】黒い悦び](https://www.youtube.com/watch?v=bg3nKVeHGrg)
+- [YouTube：【TradClimbing】大堂海岸　熱風セレナーデ5 10a【ヘルメットマウント】](https://www.youtube.com/watch?v=tj3UoLhS_L4)
+- [YouTube：空撮 drone footage #04 大堂海岸 dji spark](https://www.youtube.com/watch?v=qDDNnYWmYRY)
+- [YouTube：空撮 drone footage #03 大堂海岸 dji spark](https://www.youtube.com/watch?v=L3nHc_h0yIM)
+- [YouTube：【TradClimbing】大堂海岸　Moonlight　5 10c【ヘルメットマウント】](https://www.youtube.com/watch?v=entvLpZN7EY)

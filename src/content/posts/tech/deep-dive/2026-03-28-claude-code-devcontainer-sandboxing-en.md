@@ -11,6 +11,9 @@ draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 30
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 5
 ---
 
 > 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-devcontainer-sandboxing)

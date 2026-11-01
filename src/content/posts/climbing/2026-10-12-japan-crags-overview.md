@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "日本岩場"
   order: 0
-tldr: "「日本岩場」系列一個岩場一篇，目前 22 篇，從北海道占冠到沖繩辺戸岬。冬天（12–3 月）去伊豆與湯河原的朝南岩壁或沖繩，夏天往海拔 1,600 公尺的小川山、瑞牆山或北海道；路線與規範查 ROCKTOPO、CLIMBING-net，找繩伴可用 Meetup、臉書社團與ジモティー。"
-description: "日本岩場系列的總覽：22 個已介紹岩場的季節、岩質與風格對照表，查資料用的 ROCKTOPO、CLIMBING-net、JFA 與在地協會，以及 Meetup、臉書社團、ジモティー等找繩伴的管道。"
+tldr: "「日本岩場」系列一個岩場一篇，目前 57 個岩場指南，從北海道占冠到沖繩辺戸岬。冬天（12–3 月）去伊豆與湯河原的朝南岩壁或沖繩，夏天往海拔 1,600 公尺的小川山、瑞牆山或北海道；路線與規範查 ROCKTOPO、CLIMBING-net，找繩伴可用 Meetup、臉書社團與ジモティー。"
+description: "日本岩場系列的總覽：57 個已介紹岩場的季節、岩質與風格對照表，查資料用的 ROCKTOPO、CLIMBING-net、JFA 與在地協會，以及 Meetup、臉書社團、ジモティー等找繩伴的管道。"
 draft: false
 ---
 
@@ -17,7 +17,9 @@ draft: false
 
 這個系列一次介紹一個日本岩場：岩質與攀登風格、適合的季節和原因、搭電車和開車怎麼去、去之前要知道的在地規範。不寫行程、機票或連假怎麼排，因為那些很快就過時；岩場的季節和規矩相對穩定。
 
-目前寫了 22 個岩場，涵蓋北海道、東北、關東、甲信、北陸、伊豆、東海、近畿、中國、四國、九州和沖繩。日本的岩場遠不止這些：岩場資料站 [ROCKTOPO](https://www.rocktopo.net/) 各縣頁面列的區域加起來有兩百多個，之後會依縣逐步補上。
+目前寫了 57 個岩場，涵蓋北海道、東北、關東、甲信、北陸、伊豆、東海、近畿、中國、四國、九州和沖繩。日本的岩場遠不止這些：岩場資料站 [ROCKTOPO](https://www.rocktopo.net/) 各縣頁面列的區域加起來有兩百多個，之後會依縣逐步補上。
+
+同一岩場的分區放在同一篇介紹。例如カサメリ沢收在瑞牆山、羽山收在備中；名張與鳳來則各有獨立指南。
 
 ## 依季節挑岩場
 
@@ -32,29 +34,66 @@ draft: false
 | 岩場 | 地點 | 風格 | 岩質 | 季節（來源說法） |
 |---|---|---|---|---|
 | [赤岩青巌峡](/posts/climbing/2026-10-12-japan-crag-akaiwa-seigankyo) | 北海道占冠村 | 運動攀登，5.12–5.13 多 | 燧石 | 5–10 月 |
+| [小樽赤岩](/posts/climbing/2026-10-26-japan-crag-otaru-akaiwa) | 北海道 | 繩攀 | 安山岩質集塊岩 | 4–11 月 |
+| [神居岩](/posts/climbing/2026-10-26-japan-crag-kamuiiwa) | 北海道 | 繩攀 | 石灰岩 | 4–11 月 |
+| [旭川抱石群](/posts/climbing/2026-10-26-japan-crag-asahikawa-boulders) | 北海道 | 抱石 | 多種岩質 | 春、秋；林區約 5 月下旬至 11 月上旬 |
+| [石垣山](/posts/climbing/2026-10-26-japan-crag-ishigakiyama) | 北海道 | 繩攀 | 安山岩 | 5 月下旬至 10 月上旬 |
+| [義經岩](/posts/climbing/2026-10-26-japan-crag-yoshitsune-iwa) | 北海道 | 繩攀 | 凝灰岩 | 春、秋；介紹列 3–12 月 |
 | [侍浜](/posts/climbing/2026-10-12-japan-crag-samuraihama) | 岩手縣久慈市 | 海岸抱石、運動攀登 | 花崗岩 | 3 月底–11 月底 |
+| [葫蘆洞](/posts/climbing/2026-10-26-japan-crag-hyotan-cave) | 岩手縣 | 繩攀 | 石灰岩 | 3–12 月；留意滲水 |
+| [大倉抱石群](/posts/climbing/2026-10-26-japan-crag-okura-boulders) | 宮城縣 | 抱石 | 河床巨石；來源未標岩質 | 春、秋；介紹列 4–12 月 |
+| [山寺](/posts/climbing/2026-10-26-japan-crag-yamadera) | 山形縣 | 繩攀 | 安山岩 | 4–10 月 |
 | [青葉](/posts/climbing/2026-10-12-japan-crag-aoba) | 福島縣いわき市 | 運動攀登 | 砂岩 | 9–5 月 |
+| [笠間抱石群](/posts/climbing/2026-10-26-japan-crag-kasama) | 茨城縣 | 抱石 | 花崗岩 | 全年；夏季炎熱多蚊 |
+| [鹽原抱石群](/posts/climbing/2026-10-26-japan-crag-shiobara) | 栃木縣 | 抱石 | 凝灰岩（大谷石） | 可跨季安排；雪、水位另查 |
+| [古賀志山](/posts/climbing/2026-10-26-japan-crag-kogashiyama) | 栃木縣 | 繩攀 | 燧石 | 全年；冷熱與濕度另評估 |
+| [有笠山](/posts/climbing/2026-10-26-japan-crag-arigasayama) | 群馬 | 運動攀登 | 流紋岩 | 春至秋 |
 | [二子山](/posts/climbing/2026-10-12-japan-crag-futagoyama) | 埼玉縣小鹿野町 | 大傾斜運動攀登 | 石灰岩 | 全年，梅雨與夏天滲水 |
+| [河又](/posts/climbing/2026-10-26-japan-crag-kawamata) | 埼玉 | 運動攀登 | 石灰岩 | 3–6、9–12月 |
 | [御岳ボルダー](/posts/climbing/2026-10-12-japan-crag-mitake-boulder) | 東京都青梅市 | 抱石 | 燧石 | 10–5 月 |
 | [天王岩](/posts/climbing/2026-10-12-japan-crag-tennoiwa) | 東京都あきる野市 | 運動攀登，5.10–5.11 為主 | 燧石 | 全年，冬天冷 |
+| [御前岩](/posts/climbing/2026-10-26-japan-crag-gozeniwa) | 東京 | 運動攀登 | 石灰岩 | 秋至春為主 |
+| [白妙橋](/posts/climbing/2026-10-26-japan-crag-shiromyo-bashi) | 東京 | 運動攀登 | 石灰岩 | 春秋優先 |
+| [越沢バットレス](/posts/climbing/2026-10-26-japan-crag-koshizawa-buttress) | 東京 | 多段傳攀 | 燧石岩 | 春秋優先 |
 | [湯河原幕岩](/posts/climbing/2026-10-12-japan-crag-yugawara) | 神奈川縣湯河原町 | 短的運動攀登、抱石 | 凝灰岩／安山岩 | 12–3 月 |
 | [雑穀谷](/posts/climbing/2026-10-12-japan-crag-zakkokudani) | 富山縣立山町 | 運動攀登、裂隙 | 花崗岩 | 4 月上旬–11 月底（称名道路開放期間） |
 | [瑞牆山](/posts/climbing/2026-10-12-japan-crag-mizugakiyama) | 山梨縣北杜市 | 裂隙、多段、高抱石 | 花崗岩 | 4–11 月 |
+| [三ツ峠](/posts/climbing/2026-10-26-japan-crag-mitsutoge) | 山梨 | 多段傳攀與面攀 | 集塊岩 | 4–10月 |
+| [甲府幕岩](/posts/climbing/2026-10-26-japan-crag-kofu-makuiwa) | 山梨 | 運動攀登 | 凝灰岩 | 4–6、10–11月 |
+| [太刀岡山](/posts/climbing/2026-10-26-japan-crag-tachiookayama) | 山梨 | 運攀與多段 | 安山岩 | 4–6、9–11月 |
 | [小川山](/posts/climbing/2026-10-12-japan-crag-ogawayama) | 長野縣川上村 | 裂隙、運動攀登、多段、抱石 | 花崗岩 | 4–11 月 |
+| [惠那・笠置山](/posts/climbing/2026-10-26-japan-crag-ena-kasagiyama) | 岐阜 | 抱石為主、兼繩攀 | 硬質凝灰岩 | 3–5、10–12月 |
+| [フクベ](/posts/climbing/2026-10-26-japan-crag-fukube) | 岐阜 | 抱石 | 硬質凝灰岩 | 3–6、9–12月 |
+| [瑞浪・屏風岩](/posts/climbing/2026-10-26-japan-crag-mizunami-byobuiwa) | 岐阜 | 傳攀與面攀 | 花崗岩 | 10–4月 |
 | [城ヶ崎](/posts/climbing/2026-10-12-japan-crag-jogasaki) | 靜岡縣伊東市 | 海岸裂隙、運動攀登、抱石 | 安山岩 | 12–4 月 |
 | [城山](/posts/climbing/2026-10-12-japan-crag-joyama) | 靜岡縣伊豆の国市 | 運動攀登、多段 | 凝灰岩 | 11–3 月 |
+| [鷲頭山](/posts/climbing/2026-10-26-japan-crag-washizuyama) | 靜岡縣 | 凝灰岩岩面與裂隙攀登 | 凝灰岩 | 9–6 月 |
 | [豊田](/posts/climbing/2026-10-12-japan-crag-toyota) | 愛知縣豊田市 | 抱石為主 | 花崗岩 | 秋到春 |
+| [鳳來（鳳来）](/posts/climbing/2026-10-26-japan-crag-horai) | 愛知縣新城市 | 大傾斜運動攀登、抱石 | 凝灰岩 | ROCKTOPO：4–6、9–11 月；依岩區調整 |
 | [御在所岳](/posts/climbing/2026-10-12-japan-crag-gozaisho) | 三重縣菰野町 | 高山多段 | 花崗岩 | 4–11 月 |
+| [名張・香落溪](/posts/climbing/2026-10-26-japan-crag-nabari) | 三重縣名張市一帶 | 裂隙傳攀 | 熔結凝灰岩 | ROCKTOPO：3–6、9–11 月；接近需涉溪 |
 | [笠置ボルダー](/posts/climbing/2026-10-12-japan-crag-kasagi-boulder) | 京都府笠置町 | 抱石 | 花崗岩 | 全年，盛冬很冷 |
 | [金比羅山](/posts/climbing/2026-10-12-japan-crag-konpirasan) | 京都市左京區 | 運動攀登、多段 | 燧石 | 全年 |
 | [北山公園](/posts/climbing/2026-10-12-japan-crag-kitayama-park) | 兵庫縣西宮市 | 抱石 | 花崗岩 | 全年，盛夏條件差 |
 | [不動岩](/posts/climbing/2026-10-12-japan-crag-fudoiwa) | 兵庫縣神戶市 | 運動攀登 | 凝灰岩 | 全年 |
+| [堡壘岩](/posts/climbing/2026-10-26-japan-crag-horuiiwa) | 兵庫縣 | 都市近郊裂隙與岩面攀登 | 花崗岩 | 全年；另看當日山上天候 |
+| [島根半島](/posts/climbing/2026-10-26-japan-crag-shimane-peninsula) | 島根縣 | 分散海崖的短線與裂隙 | 多種海岸岩質 | 4–11 月（舊資料） |
 | [備中](/posts/climbing/2026-10-12-japan-crag-bitchu) | 岡山縣高梁市一帶 | 前傾壁運動攀登 | 石灰岩 | 全年，依子區挑 |
+| [王子岳](/posts/climbing/2026-10-26-japan-crag-ojigatake) | 岡山縣 | 海景花崗岩抱石 | 花崗岩 | 秋季至春季 |
+| [三倉岳](/posts/climbing/2026-10-26-japan-crag-mikuradake) | 廣島縣 | 裂隙傳攀、slab、多繩距 | 花崗岩 | 3–5、9–11 月（ROCKTOPO） |
+| [日和佐](/posts/climbing/2026-10-26-japan-crag-hiwasa) | 德島縣 | 海崖外傾與洞穴攀登 | 砂岩 | 9 月中旬至 5 月上旬 |
 | [大堂海岸](/posts/climbing/2026-10-12-japan-crag-odo-kaigan) | 高知縣大月町 | 海岸裂隙、多段 | 花崗岩 | 11–3 月 |
 | [日向神](/posts/climbing/2026-10-12-japan-crag-hyugami) | 福岡縣八女市 | 運動攀登，5.10–5.11 為主 | 安山岩 | 全年，避開梅雨 |
+| [野岳](/posts/climbing/2026-10-26-japan-crag-nodake) | 長崎縣 | 垂直與微外傾運動攀登 | 安山岩 | 全年；依當日岩況調整 |
+| [本匠](/posts/climbing/2026-10-26-japan-crag-honjo) | 大分縣 | 河谷石灰岩運動攀登 | 石灰岩 | 全年；依子區朝向調整 |
+| [八面山](/posts/climbing/2026-10-26-japan-crag-hachimensan) | 大分縣 | 運動攀登與抱石 | 安山岩 | 全年；南向上部與北向下部條件不同 |
+| [比叡山](/posts/climbing/2026-10-26-japan-crag-hieizan) | 宮崎縣 | 花崗岩多繩距、裂隙、slab | 花崗斑岩／花崗岩系 | 4–11 月（CLIMBING-net） |
 | [辺戸岬・宇佐浜](/posts/climbing/2026-10-12-japan-crag-hedo-usahama) | 沖縄縣国頭村 | 海岸運動攀登 | 石灰岩 | 11–3 月 |
+| [具志頭](/posts/climbing/2026-10-26-japan-crag-gushichan) | 沖繩縣 | 海岸抱石，也有繩攀線 | 琉球石灰岩 | 全年；夏季挑陰涼通風處 |
 
 依交通看：搭電車加步行就能到的，有御岳ボルダー（JR 青梅線御嶽站）、城ヶ崎（伊豆急三站）、城山（伊豆箱根鉄道大仁駅）、笠置ボルダー（JR 関西本線笠置駅）、不動岩（JR 福知山線道場駅）、北山公園（阪急甲陽園駅）。要轉巴士的有天王岩、湯河原、小川山、豊田、御在所、備中、日向神。赤岩青巌峡、侍浜、青葉、雑穀谷、二子山、瑞牆山、大堂海岸、辺戸岬實際上要開車或班次很少，細節看各篇。
+
+名張的接近要涉溪，先確認水位與在地規範；鳳來乳岩峽側的停車方式已改變，先讀各篇的交通與規範，再決定租車或搭車。
 
 ## 去哪查資料
 
@@ -99,10 +138,14 @@ draft: false
 
 ## 這個系列的限制
 
-- 資料都是 2026-10-12 查詢的。巴士時刻、營地營業期、停車費、林道封閉每年會變，各篇都附了公告入口，出發前再查一次。
+- 原有 22 個岩場資料查於 2026-10-12；新增 35 個目的地指南查於 2026-10-26。巴士時刻、營地營業期、停車費、林道封閉每年會變，各篇都附了公告入口，出發前再查一次。
 - 作者沒有親自去過這些岩場，內容整理自公開來源，沒有臨場經驗。
 - 不同來源的路線數差很多（例如小川山 ROCKTOPO 1,055 條、theCrag 365 條），是登錄範圍不同，不代表誰錯。
-- 已經禁止攀爬的岩場不收進這個系列。
+- 持續全面禁止攀爬的岩場不收錄；局部封閉、歷史自肅或許可狀態尚未釐清的情況，會在各篇明示，不能把有指南當成開放保證。
+
+## 更新紀錄
+
+- 2026-10-26：新增 35 個獨立目的地的中英指南，總數由 22 增至 57，涵蓋名張、鳳來、北海道岩場、關東近郊、三倉岳、比叡山與具志頭等；子分區留在母岩場文章。原有 22 個岩場與找繩伴資訊未重新查證。
 
 ## 參考資料
 

@@ -1,6 +1,13 @@
 import { Converter } from 'opencc-js/cn2t'
 
-const toTaiwanTraditional = Converter({ from: 'cn', to: 'twp' })
+// Built on first use: constructing the converter at module scope costs ~39 ms of
+// Worker startup CPU, which counts against Cloudflare's deploy-time startup limit.
+let toTaiwanTraditional: ((text: string) => string) | undefined
+
+function getConverter(): (text: string) => string {
+  toTaiwanTraditional ??= Converter({ from: 'cn', to: 'twp' })
+  return toTaiwanTraditional
+}
 
 const MARKDOWN_LITERAL_PATTERN = /```[\s\S]*?```|~~~[\s\S]*?~~~|`+[^`\n]*`+|https?:\/\/[^\s<]+|<[^>\n]+>/g
 
@@ -19,6 +26,6 @@ export function normalizeAnswerLanguage(text: string, language: string): string 
     return token
   })
 
-  const normalized = toTaiwanTraditional(protectedText)
+  const normalized = getConverter()(protectedText)
   return normalized.replace(/\u{F0000}(\d+)\u{F0001}/gu, (_, index: string) => literals[Number(index)] ?? '')
 }

@@ -9,7 +9,7 @@ description: "A guide to WSE General English, classroom hours versus speaking op
 tldr: "WSE suits learners who can spend time abroad and actively join classroom and everyday conversations. Budget for accommodation and living costs, and obtain cancellation terms that explicitly apply to your booking."
 series:
   name: "English Speaking Practice"
-  order: 11
+  order: 29
 draft: false
 ---
 

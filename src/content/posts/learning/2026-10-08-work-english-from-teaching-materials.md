@@ -7,6 +7,9 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "讀了 BBC Office English 二十一集、British Council 四堂口說課和 PagerDuty 的事故應變文件之後，發現教材教的和我原本練的幾乎不重疊。這篇補上十九句：請人幫忙與婉拒、確認理解、委婉不同意、承認錯誤與預告壞消息、催進度與期限、事故通話。其中十五句是教材原句。"
 tldr: "卡住了說 Have you got a second to help me out?；請人再看一次說 I think I need another pair of eyes on this；確認理解說 Can I just check that I've understood that right?；沒跟上說 I'm not sure I follow you；不同意先說 I see what you mean, but…；出包說 That's on me；預告壞消息說 I need to give you a heads up；催進度說 Have you had a chance to look at…?"
+series:
+  name: "英文口說練習"
+  order: 7
 draft: false
 ---
 
@@ -15,6 +18,8 @@ draft: false
 [上一篇工作英文](/posts/learning/2026-10-07-work-standup-english)的十句是我先想中文、再找字典確認句型做出來的，主題是站立會議報進度。這次換了做法：先讀職場英文教材，看它們教什麼，再回頭對照。
 
 結果有點意外：教材幾乎沒有教我原本練的那些。
+
+這篇以英國機構的職場教材為主，不把示範句當成英美通用口語的比較。換入 staging、PR 或 branch 的句子是技術情境練習，不是工程團隊會議的逐字紀錄。站會報進度可接著讀[工作上的十句話](/posts/learning/2026-10-07-work-standup-english)。
 
 ## 我當時想說什麼
 
@@ -186,19 +191,15 @@ BBC 的 [Mistakes](https://www.bbc.com/learningenglish/english/features/office-e
 | 問期限能不能動 | How firm is our deadline on this? |
 | 事故中回覆收到 | Understood, I'll get back with an update in 20 minutes. |
 
-## 仍待核對
-
-- 站立會議報進度的說法：這次讀的教材都沒有教，需要另找來源，例如公開的工程團隊會議紀錄。
-- *Have you got…?* 和 *snowed under* 是否偏英式：兩份教材都是英國機構，沒有說明；我也沒有查到字典的標示。
-- 把教材句子的內容換成技術用語（staging、PR、branch）之後，搭配是否自然：沒有另外查。
-- 美式的職場口說教材：這次完全沒有取樣。
-- BBC Office English 還有十三集沒讀。
-
 ## 整體來說
 
 這一批和上一篇最大的差別，是我發現自己原本練的和教材教的幾乎不重疊。我以為工作英文的難處是把技術狀況講清楚，教材認為難處在人際：怎麼開口求助、怎麼說不、怎麼不同意又不傷和氣、怎麼認錯。兩邊都需要，但後者我完全沒練過。
 
 十九句裡十五句是教材原句。最值得先練的是確認理解那三句和認錯那三句，因為沒說出口的代價最高。限制是兩份口說教材都來自英國機構，委婉的程度不一定適用於其他地方；也沒有母語者測試或頻率比較。
+
+## 更新紀錄
+
+- 2026-10-25：納入統一口說系列；查證待辦移至研究紀錄，保留教材來源與使用範圍。
 
 ## 參考資料
 

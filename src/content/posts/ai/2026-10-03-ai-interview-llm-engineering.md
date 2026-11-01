@@ -274,7 +274,7 @@ n-gram 重疊、記憶探針這類偵測技術，本文只讀到綜述的摘要�
 
 後續研究把偏誤量化得更具體：[Large Language Models are not Fair Evaluators](https://arxiv.org/abs/2305.17926) 發現僅僅調換回答出現的順序，就能翻轉排名，例如以 ChatGPT 當評審時，Vicuna-13B 能在 80 題中的 66 題勝過 ChatGPT。[LLM Evaluators Recognize and Favor Their Own Generations](https://arxiv.org/abs/2404.13076) 則顯示 GPT-4 與 Llama 2 能分辨自己與他者的輸出，自我辨識越強，自我偏好也越強。
 
-校準有現成的做法。[FairEval](https://arxiv.org/abs/2305.17926) 提出三招：先寫多段評估證據再打分、跨多種順序聚合結果、把裁判分歧大的難題交給人。MT-Bench 的做法是先用人類標註量測裁判與人類的一致率，再決定能不能大規模使用；實務上就是抽樣做人工標註，檢查裁判與人的一致率。延伸閱讀：[Self-Reflection + LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge)、[RAG 評估框架](/posts/ai/2026-03-12-rag-evaluation-frameworks) 與 [CS329Z 的裁判與護欄導讀](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)。
+校準有現成的做法。[FairEval](https://arxiv.org/abs/2305.17926) 提出三招：先寫多段評估證據再打分、跨多種順序聚合結果、把裁判分歧大的難題交給人。MT-Bench 的做法是先用人類標註量測裁判與人類的一致率，再決定能不能大規模使用；實務上就是抽樣做人工標註，檢查裁判與人的一致率。延伸閱讀：[Self-Reflection + LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge)、[RAG 評估框架](/posts/ai/2026-03-12-rag-evaluation-frameworks) 與 [CS329Z 的裁判](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge)與[護欄導讀](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety)。
 
 ### 兩個必須會算的指標
 

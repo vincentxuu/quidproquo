@@ -8,6 +8,9 @@ lang: zh-TW
 series:
   name: "OpenClaw 文件導讀"
   order: 17
+additionalSeries:
+  - name: "沙箱系列"
+    order: 16
 tldr: "沙箱由三個獨立設定決定：mode（何時套用）、scope（開幾個容器）、backend（在哪執行）。最容易出事的是預期落差——`tools.exec.host` 現在預設是 auto，所以「沒設就等於在沙箱裡」已經不成立，安全稽核有一條專門抓這個。"
 description: "OpenClaw 沙箱完整指南：mode／scope／backend 三個獨立設定、Docker/Podman/SSH/OpenShell 四種後端的能力差異、預設的加固設定、workspace 存取模式，以及 Docker-out-of-Docker 的路徑陷阱。"
 draft: false

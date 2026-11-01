@@ -83,11 +83,15 @@ pnpm check:links src/content/posts/<category>/<檔名>.md
 | 弱 | 強 |
 |---|---|
 | 「介紹這個工具的特色」 | 「Skill 是一個資料夾、一份 SKILL.md。三層 progressive disclosure 讓 Claude 在需要時才載入細節」 |
+| 「四個起點不是四種功能，是四種 loop 歸屬的安排」 | 「已有 harness 用 PiHarness；做 chat 且要自己組 model call 用 AIChatAgent，交給框架用 Think；不是 chat 但要 state、排程、MCP 用 Agent」 |
 
 檢查點：
 - 有具體名詞、版本範圍或選型取捨嗎？數字只在已核對且有助理解時放，不以沒有數字判摘要弱。
 - 有點出「跟讀者切身相關的資訊」嗎？
 - 是不是「這篇有多好」（弱）而不是「這篇講什麼」（強）
+- 是資訊型（寫出答案）還是指示型（只預告談什麼）？遮掉正文只看 tldr，讀者能做決定嗎？
+- 答案有沒有在正文決策段，而 tldr 卻取材自導言或「整體來說」？
+- `check:post-quality` 的 tldr 警告（自指、否定式對比、意義抬高）逐條看；誤判要能說出理由，不然列必修。規則見 `../post/references/writing-guide.md` §tldr / description 原則
 
 ### 4.5 衍生內容的事實一致性（tldr / faq / glossary）
 

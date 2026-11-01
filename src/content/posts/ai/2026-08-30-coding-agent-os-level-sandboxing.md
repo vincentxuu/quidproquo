@@ -6,6 +6,9 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 29
+additionalSeries:
+  - name: "沙箱系列"
+    order: 19
 tags: [coding-agent, harness-engineering, sandbox, landlock, seatbelt, bubblewrap]
 lang: zh-TW
 description: "拆解成熟 coding agent 的 OS 沙箱邊界，並核對 Looplane macOS sandbox-exec、Linux Landlock/seccomp 與 fail-closed verification baseline。"

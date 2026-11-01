@@ -25,7 +25,7 @@ These are representative destinations, not a national inventory. Jeju and Seorak
 
 | Destination | Region | Main attraction | Before choosing |
 |---|---|---|---|
-| [Insubong / 인수봉](/posts/climbing/2026-10-21-korea-crag-insubong-en) | Seoul, Bukhansan | Granite cracks, slabs and multipitch | 5.8 still needs trad and descent skills |
+| [Insubong / 인수봉](/posts/climbing/2026-10-21-korea-crag-insubong-en) | Seoul, Bukhansan | Granite cracks, slabs and multipitch | 5.8 still needs trad and descent skills; starts and pitch-by-pitch details are in the [route notes](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en) |
 | [Seoninbong / 선인봉](/posts/climbing/2026-10-21-korea-crag-seoninbong-en) | Seoul, Dobongsan | Granite multipitch and fist cracks | Check named routes, rockfall notices and approach |
 | [Ulsanbawi / 울산바위](/posts/climbing/2026-10-21-korea-crag-ulsanbawi-en) | Gangwon, Seoraksan | Large granite walls and ridge climbing | A wall day and the complete ridge are different objectives |
 | [Janggunbong / 장군봉](/posts/climbing/2026-10-21-korea-crag-janggunbong-en) | Gangwon, Seoraksan | Granite long routes above the valley | Plan approach, team pace and retreat |

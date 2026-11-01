@@ -9,7 +9,7 @@ description: "介紹 Engoo 台灣一般、雙享與 Premium 方案，完整說�
 tldr: "Engoo 適合願意自己選老師和材料、固定練短課的人；先試糾錯方式，再按每 30 天能上完的堂數買課，別只看年繳均價。"
 series:
   name: "英文口說練習"
-  order: 7
+  order: 25
 draft: false
 ---
 

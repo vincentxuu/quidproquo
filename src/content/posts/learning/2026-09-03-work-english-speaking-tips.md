@@ -7,6 +7,9 @@ tags: [english, speaking, self-learning, ai-and-learning, language-learning]
 lang: zh-TW
 tldr: "每天 30 分鐘、持續 12 週，用跟讀法＋情境模擬＋AI App 三件組合，讓職場英文從「聽得懂但說不出來」變成能開會能簡報。"
 description: "整理 6 篇網路心得與教學文章，拆解四種練習法、上班族碎片時間安排、7 款 AI 口說 App 比較、40+ 職場會議句型。"
+series:
+  name: "英文口說練習"
+  order: 1
 draft: false
 ---
 

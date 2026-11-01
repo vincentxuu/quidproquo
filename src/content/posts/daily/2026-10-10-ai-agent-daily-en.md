@@ -68,7 +68,7 @@ No Arxiv or GitHub Digest from Stage 1 today. On the framework front: **Agno v3.
 
 **OpenAI exposes Russian and Iranian influence ops**: Russia's "Dark Clark" used fictitious think tanks to spread anti-Ukraine content in Latin American media, triggering an official rebuttal (Breakout Scale level 5, the first in two and a half years); Iran's "Bogus Bylines" used seven fake journalist personas to place nearly a hundred pro-Iran articles worldwide. ([the-decoder](https://the-decoder.com/openai-uncovers-russian-and-iranian-influence-ops-that-planted-fake-stories-in-real-news-outlets/))
 
-**ARTEX AI agent goes closed-source**: After being tied to South Korean bank attacks by security researchers, a Chinese developer converted the previously open-source pentesting agent "ARTEX" to closed-source and took down its GitHub page; South Korean and Japanese regulators have required financial institutions to complete security self-assessments (see Regional Roundup — Japan/Korea). ([reuters](https://www.reuters.com/world/china/chinese-developer-makes-artex-ai-agent-closed-source-after-korean-bank-hack-2026-10-09))
+**ARTEX AI agent goes closed-source**: CrowdStrike published a report on 10/07 describing an unidentified threat actor using the open-source agentic pentesting tool "ARTEX" ([report](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)); on 10/08 the author announced the public version would stop receiving updates and go closed-source, and took down its GitHub page (the author's statement does not directly mention the South Korean incident); South Korean and Japanese regulators have required financial institutions to complete security self-assessments (see Regional Roundup — Japan/Korea). ([reuters](https://www.reuters.com/world/china/chinese-developer-makes-artex-ai-agent-closed-source-after-korean-bank-hack-2026-10-09))
 
 **Tensorlake npm supply-chain attack**: The official npm SDK for an AI agent sandbox service was compromised with a Shai-Hulud worm variant that steals GitHub/npm/AWS/Vault credentials and settings from AI tools including Claude, Cursor, and Kiro, and writes itself into `.claude/settings.json` for cross-tool persistence — the attack re-triggers the next time a victim opens the project. Defense requires isolating the machine from the network first to clear the credential-monitoring watchdog, since revoking tokens directly triggers a home-directory wipe — full writeup at our [Security Alert](/posts/daily/2026-10-10-security-tensorlake-npm-shai-hulud-supply-chain-en) article.
 
@@ -94,7 +94,7 @@ An Economic Daily News editorial argues that as OpenAI's Dot and Meta's Muse Cha
 
 **Japan / Korea**
 
-After being tied to South Korean bank attacks by security researchers, a Chinese developer converted the previously open-source pentesting agent "ARTEX" to closed-source and took down its GitHub page, stressing opposition to illegal use; South Korean and Japanese regulators have required financial institutions to complete security self-assessments (see Security section). ([technology.org](https://www.technology.org/2026/10/09/artex-ai-agent-closed-source-korea-bank-hacks))
+After CrowdStrike's 10/07 report ([report](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)), the author of the open-source pentesting agent "ARTEX" announced on 10/08 that the public version was going closed-source and took down its GitHub page, stressing opposition to illegal use; the statement does not directly mention the South Korean incident; South Korean and Japanese regulators have required financial institutions to complete security self-assessments (see Security section). ([technology.org](https://www.technology.org/2026/10/09/artex-ai-agent-closed-source-korea-bank-hacks))
 
 **Southeast Asia**
 
@@ -164,6 +164,10 @@ Due to the 4-query cap on this round's global gap-fill search, Oceania wasn't co
 
 I used to think the risk of an npm supply-chain attack was simply "credentials get stolen," and the fix was rotating keys afterward. Seeing the Tensorlake incident write malicious config into `.claude/settings.json` made me realize that for AI coding agent developers, the audit scope has to widen to "does my repo have something secretly planted that auto-executes the moment I open the project" — that's a fundamentally different tier of cleanup than remediating a leaked credential.
 
+## Update Log
+
+- 2026-10-24: Corrected how the ARTEX closed-source item states cause and attribution. (1) The original said the tool went closed-source "after being tied to South Korean bank attacks by security researchers", which overstated both the finding and the causal link; it now gives the sequence: CrowdStrike's report on 10/07, the author's closed-source announcement on 10/08 (the statement does not directly mention the South Korean incident), and the nationality descriptor is removed. (2) Follow-up: on 10/15 ThreatBook said the open-source version was a personal project of one of its employees and launched a closed-source commercial edition, ARTEX Pro (a self-description by an interested party); after the public version went closed, forks and mirrors remain in circulation. Details: [Security Alert: ARTEX](/posts/daily/2026-10-08-security-artex-ai-pentest-korea-banks-en).
+
 ## References
 
 - [Benchmark Shift｜Arena Agent Leaderboard: Claude Opus 5.5 Takes the Top Spot](/posts/daily/2026-10-10-benchmark-arena-agent-opus-5-5-en)
@@ -199,3 +203,4 @@ I used to think the risk of an npm supply-chain attack was simply "credentials g
 - [Vietnam filmmakers back tighter scrutiny of AI-generated short films — vietnamnet.vn](https://vietnamnet.vn/en/vietnam-filmmakers-back-tighter-scrutiny-of-ai-generated-short-films-2563035.html)
 - [IndiaAI-backed Soket AI launches LOOP for long-running AI agents — ciol.com](https://www.ciol.com/news/indiaai-backed-soket-ai-launches-loop-for-long-running-ai-agents-12659054)
 - [TII releases Falcon ASR speech recognition model — huggingface.co](https://huggingface.co/blog/tiiuae/falcon-asr)
+- [Unknown Threat Actor Uses AI-Driven ARTEX to Target South Korean Finance — CrowdStrike](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)

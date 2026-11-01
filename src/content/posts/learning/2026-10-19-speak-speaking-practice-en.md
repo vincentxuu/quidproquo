@@ -9,7 +9,7 @@ description: "A Taiwan-focused guide to Speak’s AI speaking lessons, Premium t
 tldr: "Speak suits learners seeking low-pressure daily practice. Test recognition and feedback, check whether you need Plus allowances, and add human follow-up questions."
 series:
   name: "English Speaking Practice"
-  order: 9
+  order: 27
 draft: false
 ---
 

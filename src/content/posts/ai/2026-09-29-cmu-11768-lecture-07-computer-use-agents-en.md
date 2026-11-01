@@ -240,7 +240,7 @@ Then ask: if you kept only check 2, which "looks successful" trajectories would 
 ## Further reading
 
 - Same series: [L6 Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en), [L8 SFT](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft-en) (the details behind this lecture's SFT stage)
-- Evaluation design and benchmark contamination: [Stanford CS329Z Week 7](/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks-en)
+- Evaluation design and benchmark contamination: [Stanford CS329Z Lecture 13](/posts/ai/2026-09-10-stanford-cs329z-lecture-13-eval-benchmarks-en)
 - Background for the RL stage: [CS336 Lecture 16: RLVR and GRPO](/posts/ai/2026-08-22-cs336-rlvr-en)
 - SFT basics: [CS336 Lecture 15: SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en)
 - Biases of LLM judges: [Self-Reflection and LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)

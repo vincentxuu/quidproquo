@@ -7,6 +7,9 @@ tags: [e2b, sandbox, ai-agent, code-execution, security]
 lang: en
 tldr: "E2B combines Templates, Firecracker microVMs, and process, file, and network APIs into an agent execution layer. Its real selection advantage is preserving memory and processes across pause and resume, not merely providing another code interpreter."
 description: "A product-architecture guide to E2B: how Templates prepare environments, how Sandboxes execute untrusted code, how pause/resume and network policy shape long-running tasks, and the tradeoffs against Modal, Daytona, Runloop, Vercel Sandbox, and Cloudflare Sandboxes."
+series:
+  name: "Sandbox Series"
+  order: 8
 draft: false
 ---
 

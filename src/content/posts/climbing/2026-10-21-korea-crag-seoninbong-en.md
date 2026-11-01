@@ -1,15 +1,16 @@
 ---
 title: "Seoninbong: Granite Cracks and Multipitch by Subway from Seoul | Korea Climbing Crags"
 date: 2026-10-21
+updated: 2026-10-25
 category: climbing
 type: guide
-tags: [climbing, south-korea, trad-climbing, seoul]
+tags: [climbing, south-korea, outdoor-climbing, trad-climbing, multi-pitch, seoul]
 lang: en
 series:
   name: "Korea Climbing Crags"
   order: 2
-tldr: "Seoninbong offers granite cracks, slabs and multipitch climbing in the Dobong area of Bukhansan National Park, reached from subway lines 1 and 7. Moderate grades still require protection and descent skills; check named-route notices, especially around the area affected by rockfall."
-description: "A Seoninbong climbing guide to Dobongsan Station access, southeast-facing granite, official parking, park rules, and routes from Seonin A/B to fist cracks and harder multipitch."
+tldr: "Seoninbong is a granite wall in Dobongsan with cracks, slabs and multipitch climbing; Leopard (표범길), Bat (박쥐길) and Yodel Buttress are the recognised classics. Even the moderate lines need your own protection, and most teams climb to mid-height and rappel the route. Subway lines 1 and 7 run to Dobongsan Station, about 40 minutes' walk from the wall; the closure after the 2025 rockfall was lifted that May, but check the KNPS live notices before you go."
+description: "A Seoninbong climbing guide: Dobongsan Station approach, seasons on a southeast-facing wall, the 2025 rockfall closure and its lifting, the 2012 guide's 34 routes plus a fist crack by grade, classics such as Leopard and Bat, Korean community pitch logs, and rappelling from mid-height."
 draft: false
 ---
 
@@ -17,115 +18,252 @@ draft: false
 
 Insubong is not the only option for a granite multipitch day while staying in Seoul. Farther northeast, Seoninbong (선인봉) in Dobongsan also begins with a subway journey. Its cracks can put fists, arms and your whole body to work alongside the slabs.
 
-This guide helps you compare Seoninbong with Insubong, plan a car-free approach and choose routes that match your crack and multipitch skills. It is for teams with outdoor belaying experience who can prepare trad protection and a descent plan.
+This guide helps you compare Seoninbong with Insubong, plan a car-free approach, check which routes reopened after the 2025 rockfall, and choose among lines from Leopard and Bat to Yodel Buttress to match your crack and multipitch skills. It is for teams with outdoor belaying experience who can prepare trad protection and a descent plan.
 
 ## What kind of crag
 
-Seoninbong is a **climbing cliff in the Dobong district of Bukhansan National Park**, rather than another name for a Dobongsan hike. The 2012 [*Climb: Rock Climbing in Korea*](https://product.kyobobook.co.kr/detail/S000001582823) lists 37 routes here, describing granite slabs, cracks, chimneys and overhangs. That is the edition's coverage, not a current complete count.
+Seoninbong is a climbing wall in the **Dobong area of Bukhansan National Park**, not another name for a Dobongsan hike. The 2012 guide [*Climb: Rock Climbing in Korea*](https://product.kyobobook.co.kr/detail/S000001582823) dates the first ascent to 1937 and describes it as one of the two early centres of Korean climbing alongside Insubong. The wall faces southeast and offers granite slabs, cracks, chimneys and overhanging climbing.
 
-The same guide describes it as steeper, with better friction, than [Insubong](/posts/climbing/2026-10-21-korea-crag-insubong-en). This is a useful impression of the style, not proof that every crack is easy to protect. Some lines have fixed gear; others depend on removable protection throughout.
+How big it is depends on the source. The 2012 guide lists **37 routes**; [theCrag](https://www.thecrag.com/en/climbing/south-korea/dobongsan/area/272350515) has 42; a [2015 *Wolgan San* feature on Bat](http://san.chosun.com/news/articleView.html?idxno=9435) puts the wall at about 200 m high and 500 m wide with 56 routes opened by then. They cover different scopes, so the numbers cannot tell you how many routes have been added since.
 
-For example, [*People and Mountain's* 2017 feature on 주먹 쥐고 일어서](https://www.sansan.co.kr/news/articleView.html?idxno=9990), or Stands With a Fist, describes an approximately 28 m, 5.10c fist crack with no bolts on the climbing section and a need for repeated cam sizes. Climbing the same sport grade does not establish readiness for its wide crack or protection requirements.
+Compared with [Insubong](/posts/climbing/2026-10-21-korea-crag-insubong), the same guide calls Seoninbong steeper with better friction, and the [Mountain Project](https://www.mountainproject.com/area/119848026/seonin-bong-dobongsan) area page says many climbers think it has as many quality crack routes as Insubong, with fewer crowds. That helps picture the style, but it does not mean every crack takes protection easily: some lines have fixed gear, while others rely on your rack throughout.
 
-Choose Seoninbong for crack-focused granite climbing when you can bring a trad rack and allow time for the approach and team efficiency. For a lighter rack of quickdraws and a day of short routes, compare [Ganhyeon](/posts/climbing/2026-10-21-korea-crag-ganhyeon-en) first.
+For example, [*People and Mountain* described "주먹 쥐고 일어서" in 2017](https://www.sansan.co.kr/news/articleView.html?idxno=9990) as a roughly 28 m 5.10c fist crack with no bolts on the climbing section, needing repeated cam sizes. Climbing the same grade on sport routes does not mean you can handle its wide crack and protection.
+
+Choose Seoninbong for a specific reason: you want granite with distinctive cracks, can bring trad gear and are willing to count the approach and team efficiency as part of the day. The 2012 guide recommends 15 quickdraws, two 60 m ropes and a full set of cams with extra small to mid sizes. If you only want light short climbs with quickdraws, compare [Ganhyeon](/posts/climbing/2026-10-21-korea-crag-ganhyeon) first.
 
 ## When to go
 
-The 2012 guide describes the main cliff as **southeast-facing**. Dry spring and autumn days are a sensible starting point for a first visit. Summer adds sun, humidity and an uphill approach. The [Korea Meteorological Administration's climate overview](https://www.kma.go.kr/neng/biz/climate/climate-of-korea.do) describes the country's summer rains and cold winters; your chosen face and the day's wind still matter.
+The 2012 guide says the main wall faces **southeast**. Dry, moderate spring and autumn days are a sensible starting point for a first visit; summer combines sun, humid heat and an uphill approach. The [Korea Meteorological Administration overview](https://www.kma.go.kr/neng/biz/climate/climate-of-korea.do) explains national summer rains and cold winters, but your chosen face and the day's wind still matter.
 
-There are local exceptions. Stands With a Fist occupies a shaded cleft: the firsthand *People and Mountain* report describes all-day shade there. That applies to **that crack and its location**, not to Seoninbong as a uniformly shady summer venue.
+There are local exceptions. "주먹 쥐고 일어서" is in a deep shaded cleft. The on-site *People and Mountain* report says it gets shade all day. That describes **that crack and its location**, not all of Seoninbong as a summer shade crag.
 
-Check thaw restrictions before fixing spring climbing dates. A [2026 notice reproduced by the Seoul Alpine Federation](https://saf.or.kr/forum_01/11188) named Seoninbong among the Dobong-area cliffs restricted from March 23 to April 5, with possible weather-related changes. These are that year's dates, not a permanent annual calendar.
+After rain, leave the crack lines for another day. Korean climbers' logs for Bat, Yeondae Bachelor and Ascent all mention cracks seeping or running with water when it rained the day before.
+
+In spring, check thaw restrictions before choosing a date. The [Seoul Alpine Federation reproduction of the 2026 notice](https://saf.or.kr/forum_01/11188) names Seoninbong and set the Dobong area restriction from 23 March to 5 April that year, subject to weather changes. Do not copy those dates for future years.
+
+Autumn Sundays are the busiest. One Leopard log describes queueing at every pitch; a Hyeonam log found no free route at the wall and the team bailed after three pitches. Go on a weekday if you can.
 
 ## Getting there
 
 ### Public transport
 
-The [official Dobong transport page](https://tour.dobong.go.kr/Contents.asp?code=10001622), checked in October 2026, lists **Dobongsan Station (도봉산역), on subway lines 1 and 7**. The [official FAQ](https://tour.dobong.go.kr/Contents.asp?code=10006278) gives about ten minutes on foot from the station to Dobong Visitor Support Center. That only reaches the trailhead, not the cliff.
+The [Dobong District official transport page](https://tour.dobong.go.kr/Contents.asp?code=10001622), checked in October 2026, lists **Dobongsan Station (도봉산역) on subway lines 1 and 7**. Its [official FAQ](https://tour.dobong.go.kr/Contents.asp?code=10006278) gives about 10 minutes on foot from the station to the Dobong visitor support centre. That only gets you to the trail entrance, not to the wall.
 
-From the entrance, follow the Dobong-area approach toward the mountain rescue station, then use your selected route's topo to identify the cliff branch. This is the approach described in the 2012 guide. Allow separately for walking uphill with ropes, route finding and breaks; an old guide's walking time is not a promise for your team. Seoninbong, Insubong and the Dobongsan hiking viewpoints are different destinations.
+The 2012 guide's approach: leave Dobongsan Station by exit 1, cross the main road and walk through the shops towards Seoninbong, follow the hiking trail to the **Mountain Rescue Office (산악구조대)**, then take the trail on the right to the crag, about 40 minutes. That is an old guidebook time; allow extra for the climb, route-finding and rests with ropes on your back. Do not interchange Seoninbong, Insubong and the Dobongsan hiking summit.
+
+<details>
+<summary>Watch the approach from above Seokguram to the Leopard, Bat and Seolwoo starts</summary>
+
+```video-gallery
+key: seoninbong
+lang: en
+ids: TfV0XpOFdr4
+```
+
+</details>
 
 ### Driving
 
-Locate the **도봉산역 / 도봉탐방지원센터** side and confirm that you are entering from Dobong-dong. Arriving at Songchu or another national park entrance does not put you on the same climbing approach.
+Navigate first to the **도봉산역／도봉탐방지원센터** side and make sure you enter from Dobong-dong. Driving to Songchu or another entrance does not automatically connect to the same climbing approach just because it is in the same national park.
 
 ### Parking
 
-Start with [Seoul Facilities Corporation's Dobongsan Station transfer car park](https://www.sisul.or.kr/open_content/parking/bbs/bbsMsgDetail.do?bcd=parking&msg_seq=35). Its page checked in October 2026 gives the address **서울시 도봉구 도봉로 955**. This is paid station parking: you still walk to the trailhead and then the cliff. Confirm vehicle-height limits, current operating conditions and charges with the operator; do not assume temple grounds provide unrestricted all-day climbing parking.
+You can plan around the [Seoul Facilities Corporation transfer car park at Dobongsan Station](https://www.sisul.or.kr/open_content/parking/bbs/bbsMsgDetail.do?bcd=parking&msg_seq=35). In October 2026 its page listed **서울시 도봉구 도봉로 955**. This is a paid facility beside the station; you still walk to the trail entrance and then to the wall. Check vehicle height limits, operating rules and current charges with the operator. Do not treat temple land as all-day climber parking.
 
 ## Rules before you go
 
-**Check the named cliff and route.** The [KNPS live control page](https://www.knps.or.kr/front/portal/safe/acsCtrList.do?menuNo=8000340) identifies the Bukhansan Dobong office's status, but a normal trail status does not establish that a climbing line is open.
+**Check named walls and routes.** The [KNPS live restriction page](https://www.knps.or.kr/front/portal/safe/acsCtrList.do?menuNo=8000340) shows the Bukhansan Dobong office status. A normal status for ordinary trails does not replace confirming that your climbing route is open.
 
-This matters around 표범길 (Leopard), 박쥐길 (Bat) and 설우길 (Seolwoo). A [2025 *Monthly Mountain* report on rockfall and restrictions](https://san.chosun.com/news/articleView.html?idxno=24721) distinguished the adjacent trail's planned reopening from the undetermined reopening of climbing routes. **This is a secondary report from that time, not a current closure or reopening notice.** Confirm the named lines and approach with the Dobong office before planning them. They are not listed as first-visit objectives below.
+**The 2025 rockfall closure has been lifted.** On 19 April 2025 strong wind toppled a pine above Bat and set off rockfall, and routes from Leopard to Seolwoo were closed ([*Wolgan San* report](https://san.chosun.com/news/articleView.html?idxno=24721)). A [June 2025 Bukbu News report](https://www.bukbu.kr/news/view.php?idx=29372&mcode=m48dkpe) quotes the Bukhansan National Park Dobong office: safety work was finished and Bat and the other closed routes **reopened from 24 May**, with regular inspections planned through that August. This is a media report, not the notice itself; no new Seoninbong-specific restriction turned up in October 2026, but the KNPS live page is the authority before you go.
 
-Ask the Dobong office how rock use is currently handled. The [general KNPS rock-use service](https://www.knps.or.kr/smartsafe/permission/list.do) provides an enquiry entry point, rather than proof of the exact process for every Seoninbong line. Keep access clear around temples, rescue facilities and trails, respect barriers and do not treat historical camping information as current permission.
+The pine is gone. Logs from after the reopening say a rockfall-protection chain now sits where the tree stood beside the Bat pitch 3 belay. Where older sources mention the "pine-tree rappel point", go by the anchors actually there.
 
-Before climbing, prepare suitable protection, ropes and a descent topo for the chosen line. A 2017 refurbishment feature does not guarantee today's hardware, and the table's climbing lengths are not rappel-rope requirements. If sharing a descent with another team, establish the stations, rope-drop direction and waiting arrangements.
+<details>
+<summary>Watch the national park rescue team deal with the rockfall and fallen tree (2025)</summary>
 
-For an emergency, call **119**, which the [National Fire Agency's service information](https://www.nfa.go.kr/eng/ems/service/) also covers for foreigners. Save Korean crag and route names and an offline location. Ask your own insurer about trad climbing, multipitch, search and rescue, medical treatment and repatriation; your policy controls coverage. The [BMC product summary](https://services.thebmc.co.uk/modules/insurance/r/downloads/BMC_IPID_2025_26_1225_Edition_1225.pdf) illustrates activity eligibility and exclusions, not a recommendation that Taiwan residents buy that product.
+```video-gallery
+key: seoninbong
+lang: en
+ids: qet4vd44fxI
+```
+
+</details>
+
+Ask the Dobong office how wall use must be handled. The [KNPS rock-wall service page](https://www.knps.or.kr/smartsafe/permission/list.do) is a lookup point, not proof of which procedure applies to every Seoninbong route. Keep temple, rescue-facility and trail areas clear, do not cross barriers, and do not treat old camping information as current permission.
+
+Before leaving the ground, have protection, ropes and a descent topo suited to your route. A 2017 report about maintenance does not guarantee today's fixed gear, and the route lengths in the tables are not rappel rope lengths. If sharing a descent line with other parties, confirm its location, rope-throw direction and waiting arrangements first.
+
+Call **119** in an emergency; the [National Fire Agency](https://www.nfa.go.kr/eng/ems/service/) service information says foreigners can use it. Keep the Korean crag and route names and an offline location on your phone. Ask your insurer whether trad and multipitch climbing, search and rescue, medical treatment and repatriation are covered; the policy wording decides. Climbing activities may have eligibility rules and exclusions, as the [BMC insurance product summary](https://services.thebmc.co.uk/modules/insurance/r/downloads/BMC_IPID_2025_26_1225_Edition_1225.pdf) shows. This is an example of what to look for, not advice that Taiwanese travellers should buy that product.
 
 ## Routes by level
 
 YDS and V-grade conversions follow the [Mountain Project international grade comparison chart](https://www.mountainproject.com/international-climbing-grades) and are approximate; "approx." marks grades the sources give without a/b/c (such as 4 or 5+). The original grade is the one that counts.
 
-These sources already use YDS, so both grade columns retain the original. Except for the separately reported fist crack, figures come from printed pages 240–241 of the 2012 guide, a single version. This is not an operating topo or a promise of entirely free climbing. Consider protection, traverses and the descent as well as the lowest number.
+**The three tables below hold the 2012 guide's whole Seoninbong route list** (printed pages 240–241), plus the fist crack from *People and Mountain*. The guide has 37 entries; "여델길" and "요델우측" have no grade and "미상" has no name. Leaving those three out gives 34, and with the fist crack the tables hold 35 rows. Grades, lengths and pitch counts come from the 2012 guide unless noted. The guide's pitch-by-pitch figures match the "선인봉 루트 개요" table that circulates from *Wolgan San* almost cell for cell, so the two are one data set, not independent checks. The notes column only gives sources and where other records differ.
+
+The tables also hold the lines the Korean climbing community treats as classics. **Bat, Leopard and Yodel Buttress** are each named by three or more sources (theCrag and Mountain Project star ratings, the 2015 *Wolgan San* series "고전 루트를 찾아서", and Kim Seong-ryul's "한국의 바윗길을 가다" columns in bnt News); Gyeongsong A, Ascent, On The South, Yeondae Bachelor and Overhang on The South by one or two, and each note opens with who names it.
+
+The "Online logs" at the end of a note are Korean climbers' blog records from the wall; they add method, timing and a sense of the place, while grades and pitch counts follow the start of the note. Three sets of topos circulate:
+
+- **The *사람과 산* May 2008 supplement "인수 선인의 바윗길"**, redrawn in 2012 by 양규옥 of 산빛산악회 with the source printed on the image; the [58climbers blog Cheongam page](https://58climbers.tistory.com/entry/%EB%93%B1%EB%B0%98%EA%B0%9C%EB%85%90%EB%8F%84-%EB%8F%84%EB%B4%89%EC%82%B0-%EC%84%A0%EC%9D%B8%EB%B4%89-%EC%B2%AD%EC%95%94%EA%B8%B8) and [Yodel Buttress / Hanmaeum page](https://58climbers.tistory.com/entry/%EB%93%B1%EB%B0%98%EA%B0%9C%EB%85%90%EB%8F%84-%EB%8F%84%EB%B4%89%EC%82%B0-%EC%84%A0%EC%9D%B8%EB%B4%89-%EC%9A%94%EB%8D%B8%EB%B2%84%ED%8A%B8%EB%A0%88%EC%8A%A4-%ED%95%9C%EB%A7%88%EC%9D%8C) reproduce it.
+- **NEPA's 2006 "Rock Navigation" photo topos**: the original site is gone, but a [2022 repost on the yoosoon333 blog](https://yoosoon333.tistory.com/8111386) keeps the overview and more than ten route images.
+- **The *Wolgan San* "선인봉 루트 개요" pitch table**: only a 2010 [Daum café repost](https://m.cafe.daum.net/eccen/n71/108) was found. The 2012 guide's pitch figures are almost identical to it.
+
+These and their reposts are versions of the same body of data, not independent checks.
+
+Routes are placed by the guide's **hardest free pitch**, not its overall grade: Yeondae Bachelor's overall entry reads 5.9/A1 but pitch 3 is 5.11a, so it sits in the intermediate band. A0, A1 and A2 denote aid and must not be dropped. Lengths and pitch counts only identify the version; they are not for planning pitches or rappels on the wall.
+
+Videos sit with their routes in the tables; select a thumbnail to open that route's list. Watch for version differences:
+
+- One Bat clip's title says "7 pitches to the summit", more than the guide's three.
+- The Summit pitch 1 clip is labelled 11c, while the guide gives that pitch 5.8 A0.
+- One Stands With a Fist clip uses the old 5.10d grade.
+- One Ascent clip records a cam pulling on the aid section and a fall, not a demonstration.
+
+Grades and route names in video titles describe that clip's version only; choose routes from the source column in the tables.
 
 ### Beginner: up to 6a (YDS 5.10a and below)
 
-Seonin A, Seonin B and Silver provide starting points for comparing moderate multipitch routes. A and B both put their hardest pitch later, so an easy first pitch is no guide to the whole team's pace. “Beginner” is only a grade band; trad and multipitch skills remain necessary.
+For a classic granite multipitch, start by comparing **Bat and On The South**. Bat is the line most often named as Seoninbong's signature, though the guide's 5.9 and the databases' 5.10a are a grade apart; On The South is much shorter, and linking it into Side Route is the fastest way to the top. **Seonin A, Seonin B and Silver** are another set of moderate multipitch; the hardest pitches on A and B come last, so an easy first pitch is no guide to your team's speed. "Beginner" is only a grade band; trad and multipitch skills are still needed.
 
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Seonin A / 선인 A | 5.8 (hardest) | 5.8 | 100 m / 3 pitches | Locate using guide | 2012 guide; pitches 5.7, 5.7, 5.8. |
-| Seonin B / 선인 B | 5.9 (hardest) | 5.9 | 138 m / 4 pitches | Locate using guide | 2012 guide; first three pitches 5.7, final pitch 5.9. |
-| Silver / 은벽길 | 5.8 (hardest) | 5.8 | 106 m / 4 pitches | Locate using guide | Single 2012 guide source; the overall grade is not a beginner recommendation. |
-
-### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
-
-Juyoung is a short line listed in the older guide. Stands With a Fist concentrates the challenge in wide-crack technique and protection. Repeated cam sizes give it a very different rack requirement from clipping bolts at the same grade.
-
-| Route | Grade | YDS | Length / pitches | Sector | Notes |
-| --- | --- | --- | --- | --- | --- |
-| Juyoung / 주영길 | 5.10c | 5.10c | 29 m | Locate using guide | Single 2012 guide source. |
-| 주먹 쥐고 일어서 / Stands With a Fist | 5.10c | 5.10c | Approx. 28 m | East Face, left of Seonin C chimney | 2017 *People and Mountain* report; reduced from 5.10d after test climbs; removable protection on the climbing section. |
-
-### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
-
-Seonam begins with a 5.12c pitch, rather than easing into a harder objective. Obtain a clear pitch topo first. The old guide's overall length disagrees with its pitch sum, so the table retains the pitch count without adopting either length for planning.
-
-| Route | Grade | YDS | Length / pitches | Sector | Notes |
-| --- | --- | --- | --- | --- | --- |
-| Seonam / 선암길 | 5.12c (hardest) | 5.12c | 4 pitches; confirm total with topo | Locate using guide | Single 2012 guide source; overall entry 188 m versus pitch sum 122 m. Not a basis for rope planning. |
-
-### Expert: 8a and up (YDS 5.13b and up)
-
-The sources used here provide no verified route to list in this band. If hard sport climbing is the trip's main purpose, do not infer the entire crag's distribution from this selection. Compare sport venues such as Seonunsan, then decide whether to reserve a separate granite multipitch day.
-
-## Watch the climbs
+| Sunshine Road / 양지길 | 5.9 (hardest), plus A1 | 5.9, plus A1 | 125 m / 4 pitches | Locate using guide | 2012 guide; *한국의 바윗길을 가다* dates it to 1964. |
+| S Chimney / 침니 | 5.7 | 5.7 | 35 m | Locate using guide | 2012 guide, single pitch. |
+| On The South / 남측길 | 5.10a (hardest) | 5.10a | 70 m / 4 pitches | South face | Three stars on theCrag; the fastest line to the top. Pitch 2 (5.10a) has a pendulum; link into Side Route to reach the summit (wooltraveler 2021). |
+| Side Route / 측면길 | 5.8 (hardest) | 5.8 | 138 m / 5 pitches | Locate using guide | The guide leaves pitch 3 ungraded. It has been extended to the summit and has no fixed bolts (K Climbing 2020 video description), hence 6- and 9-pitch versions. Online logs: 엉클비's [2018 log](https://m.blog.naver.com/edunix/221315196339) puts the start about 200 m left of the clearing above the rescue office, at the pine where a red fixed rope ends; a peregrine falcon nests midway up the pitch 3 crack; the whole day took 7 hours. |
+| Waist / 허리길 | 5.10a (hardest) | 5.10a | 59 m / 2 pitches | Locate using guide | 2012 guide; [*한국의 바윗길을 가다 (17)*](https://www.bntnews.co.kr/article/view/bnt201105200160) dates it to 1965. |
+| Young / 영길 | 5.10a (hardest), plus A0 | 5.10a, plus A0 | 97 m / 3 pitches | Locate using guide | 2012 guide, single source. |
+| Bat / 박쥐길 | 5.9 (2012); 5.10a (theCrag, MP) | 5.9 / 5.10a | 2012: 188 m / 3 pitches; *Wolgan San*: about 150 m, 6 pitches to the top | Left side (next to Leopard) | Three stars on theCrag; *Wolgan San* calls it "the symbol of Seoninbong". First climbed 1960 by Seonwoo Jung-ok and Jeon Gwang-ho; the signature is the "박쥐날개" under-cling crack on pitch 2, and pitch 4 is a 5.10a roof traverse, or about 5.9 round the slab on the left. The guide's pitches add up to 115 m, not its total. Online logs: 도랫굽이's [2013 log](https://ami41.tistory.com/562) and 달람쥐's [2023 log](https://m.blog.naver.com/623308m/223127710708) give 150 m / 4 pitches with pitch 2 at 5.8, and a double-bolt station partway up the under-cling; in pet1973's [2023 log](https://pet1973.tistory.com/213) a pair started at 2:30 and finished the descent from the Leopard ledge atop pitch 4 at 4:40. |
+| Seonin A / 선인 A | 5.8 (hardest) | 5.8 | 100 m / 3 pitches | Locate using guide | 2012 guide; pitches 5.7, 5.7, 5.8. Seoninbong's first ascent in 1937 took this line (*Wolgan San* 2015). |
+| Seonin B / 선인 B | 5.9 (hardest) | 5.9 | 138 m / 4 pitches | Locate using guide | 2012 guide; first three pitches 5.7, last 5.9. |
+| Silver / 은벽길 | 5.8 (hardest) | 5.8 | 106 m / 4 pitches | Locate using guide | 2012 guide. The original first-pitch start sees little traffic; most parties now use a variation start that joins pitches 1–2 into about 30 m (달람쥐 2023). Online logs: 뚱뎅이 펭귄's [2022 log](https://mountain-climber.tistory.com/21) gives cam sizes pitch by pitch (big cams on pitch 3), notes that pitch 2 is runout until the third bolt, and gives pitch 4 as 5.8 (guide 5.7). |
+| Ascent / 어센트길 | 5.8 (hardest), plus A2 | 5.8, plus A2 | 143 m / 4 pitches | Locate using guide | Three stars on theCrag and on MP (only one vote on MP). The guide gives only 5.8; theCrag and a 2007 log record pitch 3 as an A2 bolt ladder through a roof, with the rest free. Online logs: 古山's [2007 log](https://gosan.tistory.com/131) says Friends #4 and #5 are essential and the pitch 1 crack runs with water after rain. |
 
 ```video-gallery
 key: seoninbong
 lang: en
+layout: routes
 ```
+
+### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
+
+This band holds Seoninbong's signature lines. **Leopard** is the only Seoninbong route Mountain Project lists as a classic, and most parties stop after pitch 4; **Yodel Buttress** is the longest line on the crag, and most climb only its first three or four pitches. For crack practice, pitch 1 of **Overhang on The South** and **Stands With a Fist** are two different widths: a finger crack and a fist crack, both protected entirely by your own gear. Where sources differ by a grade, leave margin for the harder one.
+
+| Route | Grade | YDS | Length / pitches | Sector | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Overhang on The South / 남측오버행 | 5.11c (2012); 5.12a (*Wolgan San* 2020) | 5.11c / 5.12a | 75 m / 3 pitches | South face | *Wolgan San* 2020 calls it one of Korea's benchmark hard finger cracks. Opened as aid in 1964 and first freed in 1987; the name comes from the 5.10d roof on pitch 2, there are no bolts anywhere, and most climb only pitch 1. Online logs: isjungn's [2024 log](https://isjungn.tistory.com/258) says protection is all cams, including #0.3 and #0.4, and parties lower off after pitch 1. |
+| Seal / 물개길 | 5.11b (hardest) | 5.11b | 58 m / 2 pitches | Locate using guide | 2012 guide, single source. |
+| Juyoung / 주영길 | 5.10c | 5.10c | 29 m | Locate using guide | 2012 guide, single source. |
+| Jeonghyang / 정향길 | 5.11c (hardest), plus A0 | 5.11c, plus A0 | 89 m / 3 pitches | Locate using guide | 2012 guide; pitch 1 is aid. |
+| Leopard / 표범길 | 5.10c (hardest) | 5.10c | 188 m / 6 pitches | Far left | The only MP classic (3.6 stars, 5 votes); Kim Seong-ryul calls it "the most popular on Seoninbong". Opened by the Yodel alpine club in 1966–67; the cruxes are the start of pitch 1 (polished rock where falls often injure ankles) and the pendulum from the end of pitch 1 into pitch 2, and most parties stop after pitch 4. Online logs: 달람쥐's [2023 log](https://m.blog.naver.com/623308m/223140619578) puts a BD #11 nut at the first crux of pitch 1; jjunmh's [2019 log](https://m.blog.naver.com/jjunmh/221672777865) notes that rebolting added a belay partway up pitch 2, so older topos split the pitches wrongly; 泰山峻嶺's [2018 log](https://tksdkrwjs.tistory.com/1257) describes a 7–8 m traverse left on pitch 3 where the quickdraws turn. |
+| Squirrel / 다람쥐길 | 5.10b (hardest) | 5.10b | 128 m / 5 pitches | Locate using guide | The same figures appear as 재원길 in the *Wolgan San* route table, and 재원길 is elsewhere graded 5.12a; confirm which line you are on. |
+| Sky / 하늘길 | 5.11b (hardest) | 5.11b | 146 m / 4 pitches | Locate using guide | The guide gives pitch 4 as 5.8; the NEPA topo and a 2020 log record it as partly aid. Not the same route as Insubong's 하늘길. Online logs: 泰山峻嶺's [2020 log](https://tksdkrwjs.tistory.com/1467) and 古山's [2009 log](https://gosan.tistory.com/346): pitch 3 starts with big cams, goes from under-cling to stemming and layback, and becomes a finger crack higher up; on a weekend a five-person party once blocked pitch 2. |
+| Blue / 푸른길 | 5.11a (hardest) | 5.11a | 139 m / 4 pitches | Locate using guide | 2012 guide; pitches 2 and 3 are both 5.11a. |
+| Seolwoo / 설우길 | 5.11b (hardest) | 5.11b | 125 m / 4 pitches | Centre of the east face | The 2012 guide and a 2011 report agree pitch by pitch; opened in the early 1980s. Online logs: Kim Seong-ryul's [*한국의 바윗길을 가다 (28)*](https://www.bntnews.co.kr/article/view/bnt201110240048) describes a balance crux right below the pitch 3 belay and notes that bolts are farther apart on Seoninbong than on Insubong. |
+| Hanmaeum / 한마음길 | 5.10b | 5.10b | 33 m | Locate using guide | The 2012 guide has one pitch; the 사람과산 2008 topo has two, hardest 5.10d A0. Also a common alternative start to Yodel Buttress. |
+| Yodel Buttress / 요델버트레스 | 5.11a (hardest), plus A1 | 5.11a, plus A1 | 2012: 236 m / 6 pitches; theCrag and others: 8 pitches, about 240 m | Locate using guide | Three stars on theCrag; *Wolgan San* calls it "a signature route", and it is the longest line on Seoninbong. The Yodel alpine club began working it in 1968 and finished it in 1975; the 5.11a on pitch 1 comes after the first bolt. Most parties rappel after pitch 3 or 4; above pitch 4 the bolts are old and far apart. Online logs: 채울's [2022 log](https://m.blog.naver.com/wooltraveler/222913839937) and gaussmt's [2020 log](https://gaussmt.tistory.com/1428) say the first bolt on pitch 5 is 5–6 m up; pitch 7 is an A1 thin crack in the original, but most climbers use the Yeondae Bachelor bolt ladder to the right; starting from Hanmaeum makes the descent easier. |
+| Yeondae Bachelor / 연대베첼러 | 5.11a (hardest pitch); overall 5.9/A1 | 5.11a, plus A1 | 174 m / 5 pitches | Between Yodel Buttress and Summit | *Wolgan San* calls it "one of the popular routes". Opened in 1968 by the Yonsei University alpine club; the straight cracks on pitches 1 and 2 are the highlight, and most climbers stop after pitch 3. The guide's overall grade and pitch grades disagree, so the table uses the hardest pitch; the same *Wolgan San* article puts the 5.11a crux on pitch 3 in its text and pitch 2 in its summary. Online logs: 곡우's [2018 log](https://bulgaji.tistory.com/13733744) and isjungn's [2020 log](https://isjungn.tistory.com/90) give a total of 194 m, about 3.5 hours for a pair with 13 quickdraws and a set of cams; the crux is between the third and fourth bolts of pitch 3, and pitch 5 has only one bolt mid-pitch; four rappels from the top, or three on a doubled 60 m rope when bailing from pitch 3. |
+| Summit / 써미터 | 5.10d (hardest), plus A0 | 5.10d, plus A0 | 168 m / 5 pitches | Locate using guide | 2012 guide, single source; all five pitches carry aid marks. |
+| Cheongam / 청암길 | 5.11a (hardest), plus A0 | 5.11a, plus A0 | 190 m / 7 pitches | Near the rescue office, right of Seonin C | The 2012 guide and the 사람과산 2008 topo agree pitch by pitch; pitch 6 is mossy. |
+| Gyeongsong A / 경송 A | 5.10c (hardest), plus A0 | 5.10c, plus A0 | 145 m / 5 pitches | Locate using guide | Two stars on theCrag. Opened 1982–83 by the Gyeongsong alpine club in memory of a member who died on Bat in 1975; pitch 3 is 5.10c friction slab throughout. The guide gives pitch 4 as 5.10a, but Kim Seong-ryul's 2013 feature describes it as an aid section hung with slings; pitch 5 has loose rock, and many parties finish early. Online logs: Kim Seong-ryul's [*한국의 바윗길을 가다 (53)*](https://sports.news.nate.com/view/20130528n15641) says the first bolt on pitch 1 is more than 10 m up on very polished rock, and a pair usually allows 2.5 hours. |
+| Azalea / 진달래길 | 5.11a (hardest) | 5.11a | 80 m / 3 pitches | Locate using guide | 2012 guide; a common link-up is Azalea pitches 1–2 into Silver pitches 3–4 (도랫굽이 2013). |
+| Myeongsimhana / 명심하나길 | 5.10c (hardest), plus A0 | 5.10c, plus A0 | 96 m / 3 pitches | Locate using guide | 2012 guide, single source. |
+| Myeongsimdul / 명심둘길 | 5.10d (hardest) | 5.10d | 137 m / 5 pitches | Locate using guide | 2012 guide; two stars on theCrag. |
+| Shawshank Redemption / 쇼생크탈출 | 5.11b (hardest) | 5.11b | 40 m / 2 pitches | Locate using guide | 2012 guide; pitch 1 ungraded. |
+| Stands With a Fist / 주먹 쥐고 일어서 | 5.10c | 5.10c | About 28 m | East face, left of the Seonin C chimney | *People and Mountain* 2017; regraded from 5.10d to 5.10c after test climbs. No bolts on the climbing section; repeated cam sizes needed. |
+
+```video-gallery
+key: seoninbong
+lang: en
+layout: routes
+```
+
+### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
+
+The data for all four routes here comes almost entirely from the 2012 guide, and three include aid. **Seonam**'s first pitch is already 5.12c, so it is not a long line for warming up gradually; when **Gyeongsong B** was opened in 1986, it was reported as the hardest route on Seoninbong. Get a clear pitch topo before trying anything in this band.
+
+| Route | Grade | YDS | Length / pitches | Sector | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Hyeonam / 현암길 | 5.11d (hardest), plus A0 | 5.11d, plus A0 | 149 m / 6 pitches | Locate using guide | 2012 guide; the NEPA topo gives pitch 5 as 5.11c. Online logs: 걸리's [2015 log](https://han5256.tistory.com/7667171): on an autumn Sunday no route at the wall was free, and the seven-person team climbed three pitches and went down. |
+| Seonam / 선암길 | 5.12c (hardest) | 5.12c | 4 pitches; verify total length on a topo | Locate using guide | The total field says 188 m but the pitches add up to 122 m; pitch 3 reads 5.11 with no letter. |
+| Gyeongsong B / 경송 B | 5.12a (hardest), plus A0 | 5.12a, plus A0 | 136 m / 3 pitches | Locate using guide | 2012 guide; opened 1986. |
+| Youngest One / 막내길 | 5.11d (hardest), plus A0 | 5.11d, plus A0 | 201 m / 6 pitches | Locate using guide | 2012 guide; *한국의 바윗길을 가다 (17)* dates it to 1973. |
+
+```video-gallery
+key: seoninbong
+lang: en
+layout: routes
+```
+
+### Expert: 8a and up (YDS 5.13b and up)
+
+The 2012 guide table used here has no route for this band, and unverified project lines are not added to fill it. If hard sport climbing is the focus of the trip, compare sport destinations such as [Seonunsan](/posts/climbing/2026-10-21-korea-crag-seonunsan-en) before deciding whether to keep a day for granite multipitch.
+
+### Getting down
+
+This is the biggest difference from Insubong: **most teams do not go to the summit; they climb to mid-height and rappel the route.** The 2015 *Wolgan San* series says every belay has double bolts for rappelling. Korean sources assume two 60 m ropes; [Mountain Project](https://www.mountainproject.com/area/119848026/seonin-bong-dobongsan) suggests a 60 m rope plus a tag line.
+
+- **Leopard and Bat:** the [*Wolgan San* Leopard feature](http://san.chosun.com/news/articleView.html?idxno=9510) says most climbers finish pitch 4, rappel along Bat to the 허리테라스 ledge, then to the pine, and reach the ground in one rappel on two 60 m ropes tied together. That pine fell in 2025 and its spot now holds a rockfall chain; go by the anchors you find.
+- **Yodel Buttress:** the [*Wolgan San* feature](http://san.chosun.com/news/articleView.html?idxno=9650) gives two 60 m rappels from pitch 3 towards Hanmaeum to the ground, or three down Sky from pitch 4.
+- **Yeondae Bachelor:** the [*Wolgan San* feature](http://san.chosun.com/news/articleView.html?idxno=9709) says most climbers finish pitch 3 and make three rappels down Yodel.
+- **From the summit:** the 2012 guide says you can make one rappel from the top and walk down the back. Blog records include four rappels from the summit via 왕관바위 towards Yodel Buttress ([도랫굽이 2012](https://ami41.tistory.com/396)), and, after topping out on On The South, rappels in stages back to 호랑이굴 and on down ([wooltraveler 2021](https://m.blog.naver.com/wooltraveler/222535531461)).
+
+The cost of rappelling from mid-height is that you descend into the lines of parties below. The 2012 guide specifically warns about climbers behind you; check where the rope will land before you throw it, and do not drop rope ends onto another team. In 2018 a climber died on On The South when the rope came loose during a rappel, and the report says the party may have used a tree as the rappel point ([JoongAng Ilbo](https://www.joongang.co.kr/article/23021260)); check each other's knots and connections before rappelling, and use bolt anchors rather than trees where they exist.
 
 ## Where to look things up
 
-- **Management and trails:** [KNPS live controls](https://www.knps.or.kr/front/portal/safe/acsCtrList.do?menuNo=8000340); identify the Bukhansan Dobong office and confirm named lines with management.
-- **Transport and parking:** [Dobong transport](https://tour.dobong.go.kr/Contents.asp?code=10001622), the [official FAQ](https://tour.dobong.go.kr/Contents.asp?code=10006278) and the [parking operator](https://www.sisul.or.kr/open_content/parking/bbs/bbsMsgDetail.do?bcd=parking&msg_seq=35) cover the station, trailhead and parking separately.
-- **Route features:** [*People and Mountain's* fist-crack report](https://www.sansan.co.kr/news/articleView.html?idxno=9990) explains the style and repeated cam sizes; an old refurbishment date is not a hardware guarantee.
-- **Guidebooks:** Grades and route counts here come mainly from online databases; the guidebook is the authority. This article also checks the original book directly; carry a current route-specific topo.
-  - [*Climb: Rock Climbing in Korea*](https://product.kyobobook.co.kr/detail/S000001582823), Dong-il Ryou and Jonn Jeanneret, Outdoor Global, first edition 2012. English with Korean names, covering selected roped crags around Korea; Seoninbong is on printed pages 238–241. Old transport and access information is not evidence of current conditions.
+- **Management and trails:** [KNPS restriction information](https://www.knps.or.kr/front/portal/safe/acsCtrList.do?menuNo=8000340), where you identify the Bukhansan Dobong office; confirm named route locations directly with management.
+- **Transport and parking:** [Dobong District transport](https://tour.dobong.go.kr/Contents.asp?code=10001622), [official FAQ](https://tour.dobong.go.kr/Contents.asp?code=10006278) and [car park operator](https://www.sisul.or.kr/open_content/parking/bbs/bbsMsgDetail.do?bcd=parking&msg_seq=35), respectively for the station, entrance and parking facility.
+- **Online databases:** the [theCrag Seoninbong page](https://www.thecrag.com/en/climbing/south-korea/dobongsan/area/272350515) has star ratings and pitch breakdowns; the [Mountain Project Seoninbong page](https://www.mountainproject.com/area/119848026/seonin-bong-dobongsan) has only 8 routes but gives gear and descent advice. Both have very few logged ascents, so treat the stars as a rough guide.
+- **Route features:** the 2015 *Wolgan San* series "고전 루트를 찾아서" (Bat, Leopard, Yodel Buttress, Yeondae Bachelor) and Kim Seong-ryul's "한국의 바윗길을 가다" cover first-ascent history, pitch cruxes and descent set-ups.
+- **Guidebooks:** Grades and route counts here come mainly from online databases; the guidebook is the authority. The grade tables in this article were checked directly against the 2012 guide, and you still need a current route topo.
+  - [*Climb: Rock Climbing in Korea*](https://product.kyobobook.co.kr/detail/S000001582823), Dong-il Ryou and Jonn Jeanneret, Outdoor Global, first edition 2012. English text with Korean names, covering many Korean roped-climbing crags; Seoninbong is on printed pages 238–241. Its old transport and management information is not used for current conditions.
+  - *사람과 산*, May 2008 supplement "인수 선인의 바윗길", in Korean, a route-topo collection for Insubong and Seoninbong; this article has seen only the 2012 redrawn reproductions, not the original. No newer printed or digital topo for Seoninbong was found.
+
+## Update history
+
+- 2026-10-25: Rewritten to follow the full Insubong structure. The grade tables now cover the 2012 guide's 34 routes plus the fist crack, each with its source and where other records differ; added videos for 25 routes; who names each classic, its first-ascent history and community logs for 12 routes now sit in the grade-table notes rather than separate sections; added the sources of three topo sets and "Getting down"; rewrote the rules section to say the April 2025 rockfall closure was lifted on 24 May; added the 2012 guide's approach and an approach video.
 
 ## References
 
-- [Climb book listing](https://product.kyobobook.co.kr/detail/S000001582823)
-- [People and Mountain: Stands With a Fist](https://www.sansan.co.kr/news/articleView.html?idxno=9990)
-- [Monthly Mountain: Seoninbong rockfall and restrictions, 2025](https://san.chosun.com/news/articleView.html?idxno=24721)
-- [Seoul Alpine Federation: Reproduced 2026 thaw restrictions](https://saf.or.kr/forum_01/11188)
-- [Dobong transport](https://tour.dobong.go.kr/Contents.asp?code=10001622) and [FAQ](https://tour.dobong.go.kr/Contents.asp?code=10006278)
-- [Seoul Facilities Corporation: Dobongsan Station parking](https://www.sisul.or.kr/open_content/parking/bbs/bbsMsgDetail.do?bcd=parking&msg_seq=35)
-- [KNPS live controls](https://www.knps.or.kr/front/portal/safe/acsCtrList.do?menuNo=8000340) and [rock-use service](https://www.knps.or.kr/smartsafe/permission/list.do)
+- [*Climb* bibliographic record](https://product.kyobobook.co.kr/detail/S000001582823)
+- [theCrag: Seonin-bong](https://www.thecrag.com/en/climbing/south-korea/dobongsan/area/272350515)
+- [Mountain Project: Seonin-bong](https://www.mountainproject.com/area/119848026/seonin-bong-dobongsan), [Leopard](https://www.mountainproject.com/route/119848129/leopard), [Bat Route](https://www.mountainproject.com/route/204020467/bat-route), [Yodel Buttress](https://www.mountainproject.com/route/200914746/yodel-buttress), [Ascent](https://www.mountainproject.com/route/124184400/ascent)
+- [People and Mountain: Seoninbong "주먹 쥐고 일어서", 2017](https://www.sansan.co.kr/news/articleView.html?idxno=9990)
+- [Wolgan San: 고전 루트를 찾아서, Bat, 2015](http://san.chosun.com/news/articleView.html?idxno=9435)
+- [Wolgan San: 고전 루트를 찾아서, Leopard, 2015](http://san.chosun.com/news/articleView.html?idxno=9510)
+- [Wolgan San: 고전 루트를 찾아서, Yodel Buttress, 2015](http://san.chosun.com/news/articleView.html?idxno=9650)
+- [Wolgan San: 고전 루트를 찾아서, Yeondae Bachelor, 2015](http://san.chosun.com/news/articleView.html?idxno=9709)
+- [Wolgan San: Seoninbong Corner Crack and Overhang on The South, 2020](http://san.chosun.com/news/articleView.html?idxno=14312)
+- [Wolgan San: Seoninbong rockfall and restriction report, 2025](https://san.chosun.com/news/articleView.html?idxno=24721)
+- [Bukbu News: Seoninbong routes reopen after rockfall safety work, 2025-06-04](https://www.bukbu.kr/news/view.php?idx=29372&mcode=m48dkpe)
+- [Kim Seong-ryul: 한국의 바윗길을 가다 (28), Seolwoo, bnt News](https://www.bntnews.co.kr/article/view/bnt201110240048)
+- [Kim Seong-ryul: 한국의 바윗길을 가다 (53), Gyeongsong A, 2013](https://sports.news.nate.com/view/20130528n15641)
+- [JoongAng Ilbo: Seoninbong rappel accident, 2018](https://www.joongang.co.kr/article/23021260)
+- [Seoul Alpine Federation: 2026 thaw-period wall restriction reproduction](https://saf.or.kr/forum_01/11188)
+- [Dobong District: transport information](https://tour.dobong.go.kr/Contents.asp?code=10001622), [FAQ](https://tour.dobong.go.kr/Contents.asp?code=10006278)
+- [Seoul Facilities Corporation: Dobongsan Station transfer car park](https://www.sisul.or.kr/open_content/parking/bbs/bbsMsgDetail.do?bcd=parking&msg_seq=35)
+- [KNPS: live restrictions](https://www.knps.or.kr/front/portal/safe/acsCtrList.do?menuNo=8000340), [rock-wall services](https://www.knps.or.kr/smartsafe/permission/list.do)
 - [Korea Meteorological Administration: Climate of Korea](https://www.kma.go.kr/neng/biz/climate/climate-of-korea.do)
-- [National Fire Agency: Public EMS](https://www.nfa.go.kr/eng/ems/service/) and [BMC product summary](https://services.thebmc.co.uk/modules/insurance/r/downloads/BMC_IPID_2025_26_1225_Edition_1225.pdf)
-- [Mountain Project: International grades](https://www.mountainproject.com/international-climbing-grades)
+- [National Fire Agency: Public EMS](https://www.nfa.go.kr/eng/ems/service/), [BMC insurance product summary](https://services.thebmc.co.uk/modules/insurance/r/downloads/BMC_IPID_2025_26_1225_Edition_1225.pdf)
+- [Mountain Project: international grade comparison](https://www.mountainproject.com/international-climbing-grades)
+- [58climbers: Seoninbong Cheongam topo (사람과 산 2008, redrawn by 양규옥)](https://58climbers.tistory.com/entry/%EB%93%B1%EB%B0%98%EA%B0%9C%EB%85%90%EB%8F%84-%EB%8F%84%EB%B4%89%EC%82%B0-%EC%84%A0%EC%9D%B8%EB%B4%89-%EC%B2%AD%EC%95%94%EA%B8%B8), [Yodel Buttress / Hanmaeum topo](https://58climbers.tistory.com/entry/%EB%93%B1%EB%B0%98%EA%B0%9C%EB%85%90%EB%8F%84-%EB%8F%84%EB%B4%89%EC%82%B0-%EC%84%A0%EC%9D%B8%EB%B4%89-%EC%9A%94%EB%8D%B8%EB%B2%84%ED%8A%B8%EB%A0%88%EC%8A%A4-%ED%95%9C%EB%A7%88%EC%9D%8C)
+- [yoosoon333: NEPA Rock Navigation Seoninbong topo repost, 2022](https://yoosoon333.tistory.com/8111386)
+- [Daum café: *Wolgan San* 선인봉 루트 개요 repost, 2010](https://m.cafe.daum.net/eccen/n71/108)
+- [도랫굽이: Bat, 2013](https://ami41.tistory.com/562), [Leopard, 2013](https://ami41.tistory.com/563), [Seoninbong summit climb, 2012](https://ami41.tistory.com/396)
+- [달람쥐: Bat and Gyeongsong A, 2023](https://m.blog.naver.com/623308m/223127710708), [Silver and Leopard, 2023](https://m.blog.naver.com/623308m/223140619578)
+- [pet1973: Bat, 2023](https://pet1973.tistory.com/213)
+- [泰山峻嶺: Leopard, 2018](https://tksdkrwjs.tistory.com/1257)
+- [Kim Seong-ryul: 한국의 바윗길을 가다 (17), Leopard, bnt News, 2011](https://www.bntnews.co.kr/article/view/bnt201105200160)
+- [jjunmh: Leopard, 2019](https://m.blog.naver.com/jjunmh/221672777865)
+- [Ultraveler (채울): Yodel Buttress, 2022](https://m.blog.naver.com/wooltraveler/222913839937), [On The South, 2021](https://m.blog.naver.com/wooltraveler/222535531461)
+- [gaussmt: Yodel Buttress, 2020](https://gaussmt.tistory.com/1428)
+- [곡우: Yeondae Bachelor, 2018](https://bulgaji.tistory.com/13733744)
+- [isjungn: Yeondae Bachelor, 2020](https://isjungn.tistory.com/90), [Overhang on The South, 2024](https://isjungn.tistory.com/258)
+- [뚱뎅이 펭귄: Silver, 2022](https://mountain-climber.tistory.com/21)
+- [泰山峻嶺: Sky, 2020](https://tksdkrwjs.tistory.com/1467)
+- [古山: Sky, 2009](https://gosan.tistory.com/346), [Ascent, 2007](https://gosan.tistory.com/131)
+- [엉클비: Side Route, 2018](https://m.blog.naver.com/edunix/221315196339)
+- [걸리: Hyeonam, 2015](https://han5256.tistory.com/7667171)

@@ -9,7 +9,7 @@ description: "Compare Cambly's adult Small Groups, Private+, and Pro plans, unde
 tldr: "Choose between conversation practice and structured instruction, check whether you can use your weekly minutes, and test whether a tutor asks follow-up questions and lets you retry after feedback."
 series:
   name: "English Speaking Practice"
-  order: 2
+  order: 20
 draft: false
 ---
 

@@ -22,7 +22,7 @@ Google Cloud 發布跨 Gmail、Drive、Docs、Calendar 運作的通用型工作 
 
 ### 2. ARTEX 這款開源 agentic 滲透測試工具遭武器化，南韓銀行資料外洩
 
-中國開發者公開的 agentic pentesting 工具 ARTEX，搭配 DeepSeek／GLM／Claude 等多個 LLM，被不明財務動機的攻擊者用來自動化攻擊南韓多家銀行的放款查詢系統與員工行動辦公系統，造成至少 6.8 萬人個資外洩。CrowdStrike 靠攻擊者自己暴露的無認證目錄（含 Claude Code 對話紀錄與 ARTEX 設定檔）重建了攻擊鏈，作者 Autumn-27 已將 ARTEX 轉為閉源並停止維護——但工具一旦公開過，防禦方永遠補不回那段落差。這是目前為止 agentic pentest 工具造成真實財務級損害最明確的一個案例。（[The Hacker News](https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html)、[CrowdStrike](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)）
+中國開發者公開的 agentic pentesting 工具 ARTEX，搭配 DeepSeek／GLM／Claude 等多個 LLM，被不明財務動機的攻擊者用來自動化攻擊南韓多家銀行的放款查詢系統與員工行動辦公系統，造成至少 6.8 萬人個資外洩（至 10/09 的媒體報導，後續數字有變動）。CrowdStrike 靠攻擊者自己暴露的無認證目錄（含 Claude Code 對話紀錄與 ARTEX 設定檔）還原作業架構與工具；報告不點名銀行，也說受影響機構總數尚未確認，作者 Autumn-27 已將 ARTEX 轉為閉源並停止維護——但工具一旦公開過，防禦方永遠補不回那段落差。這是目前公開資料中，agentic pentest 工具被實戰使用最具體的案例之一，但各家銀行是否都由 ARTEX 入侵尚待官方調查，也沒有來源量化金錢損失。（[The Hacker News](https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html)、[CrowdStrike](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)）
 
 ### 3. 供應商自己放出去的 agent 也會脫序：Wikimedia 與澳洲 Medicare 事件
 
@@ -88,6 +88,10 @@ DeepSeek 原計畫募 75 億美元，因投資人熱烈認購擴大到逾 120 �
 ## 我這週學到什麼
 
 這週最大的認知更新是，agent 安全的瓶頸不再是「有沒有防護機制」，而是「防護機制實測擋下多少」——研究端（疊兩層只等效 1.2–1.4 層）、現實端（ARTEX 真實入侵南韓銀行、Wikimedia／Medicare 自家 agent 脫序）在同一週給出一致的答案。對企業來說，這代表評估 agent 供應商時該問的問題要換一個版本：不是「你有沒有安全機制」,而是「你的安全機制實測擋下率是多少、是誰測的」。
+
+## 更新紀錄
+
+- 2026-10-24：依 CrowdStrike 原文修正。「重建攻擊鏈」改為「還原作業架構與工具」（報告不點名銀行、受影響機構總數未確認）；6.8 萬人標明為至 10/09 的報導數字；刪去無來源支持的「真實財務級損害最明確」說法。
 
 ## 參考資料
 

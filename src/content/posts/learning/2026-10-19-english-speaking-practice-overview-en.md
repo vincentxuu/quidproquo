@@ -1,12 +1,12 @@
 ---
-title: "Planning English Speaking Practice: Self-Study, Live Lessons, and Language Schools"
+title: "Planning English Speaking Practice: Methods, Scenario Materials, and Course Choices"
 date: 2026-10-19
 category: learning
 type: guide
 tags: [english-speaking, language-learning, self-learning]
 lang: en
-description: "Choose speaking practice around a real communication task, connect preparation with feedback and repetition, and explore individual platform and language-school guides."
-tldr: "Choose something you want to accomplish in English, then find practice and feedback that support it. Repeat the task and try unfamiliar follow-ups to see what carries into conversation."
+description: "An overview of the English Speaking Practice series: methods and research evidence, work, travel and interview materials, tutoring platforms and language schools, and review routines."
+tldr: "Start with methods and evidence, choose a scenario to practise, then find a tutor, platform or school if needed. Use feedback to repeat the task and connect reading, speaking and review."
 series:
   name: "English Speaking Practice"
   order: 0
@@ -15,11 +15,27 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-10-19-english-speaking-practice-overview)
 
-When you want to improve your spoken English, shopping for lessons often comes first: online tutors, AI apps, a local language centre, or a language school abroad. Each looks promising, but choosing where to start is difficult.
+To speak English more smoothly, start with something familiar: give a work update, ask for help while travelling, or answer an interviewer’s follow-up question. Choose the task, then consider the practice, materials and feedback it needs.
 
-If you work in Taiwan and can read documents but struggle to contribute to meetings, choose a specific task: give an update, explain a problem, or handle a follow-up question. That task helps you decide what practice you need and gives you something to take to a trial lesson.
+If you work in Taiwan and can read documents but struggle to contribute to meetings, note where you get stuck. Are you missing an expression, struggling to understand a follow-up, or unsure whether the listener understood? That observation helps you choose what to read and practise next.
 
-This series covers practice methods and individual services, including named language schools. Each service gets its own guide to lessons, costs, teacher selection, cancellation, and a practical routine. This overview connects the steps so you know what questions to bring.
+English Speaking Practice brings 34 articles into one series. It starts with practice methods and research evidence, moves into work, travel and interview materials, then explores platforms, tutors and language schools before covering review and selection. The shadowing evidence review and scenario materials are included in the series reading order. Methods help you decide how to practise; materials give you something to practise with.
+
+The [English speaking hub](/english/) brings these articles and interactive practice together. Follow the series in order, or choose a situation you need, read the usage notes, then try saying it without looking at the English. The hub and interactive practice currently use a Chinese interface.
+
+## How to read this series
+
+| Stage | Question to work on | Where to start |
+|---|---|---|
+| 1. Methods and evidence | How should I organise practice? What can shadowing train, and what are its limitations? | [Speaking practice for working adults](/posts/learning/2026-09-03-work-english-speaking-tips-en), [shadowing evidence](/posts/learning/2026-10-08-shadowing-evidence-en), and [original audio and agency](/posts/learning/2026-10-10-agency-ai-shadowing-en) |
+| 2. Scenario materials and speaking practice | How can I express what I mean in work, travel, surfing, climbing, daily conversation and interviews? | Choose a [scenario article](/english/#materials), then try the interactive practice |
+| 3. Platforms, tutors and schools | Where can I get more follow-ups and feedback? | Read the individual guides below, or browse [platforms and schools](/english/#courses) |
+| 4. Review after practice | How can I retain corrections and repeat the task in a different situation? | [Review routines and transfer checks](/posts/learning/2026-10-19-speaking-practice-review-routine-en) |
+| 5. Make a choice | How do my goals, budget and available time fit together? | [Selection guide: goals, budget and exit terms](/posts/learning/2026-10-19-speaking-practice-selection-guide-en) |
+
+Four new situations add more everyday practice: [talking with colleagues about health and lunch](/posts/learning/2026-10-25-daily-health-lunch-english-en), [flight delays and a missing cabin bag](/posts/learning/2026-10-25-travel-delays-lost-baggage-english-en), [asking about surf conditions and entry points](/posts/learning/2026-10-25-surf-conditions-entry-english-en), and [asking about moves at a climbing gym](/posts/learning/2026-10-25-climbing-gym-beta-english-en). Choose one you expect to encounter soon and practise connecting the questions into a conversation.
+
+Move between methods and materials as needed. Return to a scenario article when you cannot express a particular idea, or explore [methods, research and original audio](/english/#methods) to understand a practice activity’s purpose and limitations. You can start speaking before choosing a course.
 
 ## Turn “poor speaking” into something you can practise
 
@@ -94,7 +110,7 @@ Choose a guide around the question you need to answer:
 
 Each guide provides a concrete practice task and questions for choosing a course. Assess it against your schedule, budget, and feedback needs. You do not need to subscribe to every service.
 
-This round covers six live tutoring platforms, two AI tools, two institutions in Taiwan, two overseas schools, and Tandem language exchange. Each service has its own guide to getting started, costs, exit terms, and a concrete practice task. The review routine and selection guide connect those options to regular practice.
+The platform and school section covers six live tutoring platforms, two AI tools, two institutions in Taiwan, two overseas schools, and Tandem language exchange. Each service has its own guide to getting started, costs, exit terms, and a concrete practice task. The review routine and selection guide connect those options to regular practice.
 
 Official sources establish service features and fees. Teaching experience requires actual trial lessons. The series distinguishes researched introductions from first-hand reviews and does not treat marketing as proof of learning outcomes.
 
@@ -108,6 +124,7 @@ To start tonight, choose a task, record an attempt, and identify the first diffi
 
 ## Updates
 
+- 2026-10-25: Brought methods and scenario materials into the same series, reordered its 34 articles, added daily, travel, surfing and climbing-gym situations, and updated the overview and practice links in both languages.
 - 2026-10-19: Expanded the reading route to all 16 guides, including overseas schools, AI tools, language exchange, review, and selection.
 - 2026-10-19: Added Preply and Engoo guides covering subscriptions and booking.
 - 2026-10-19: Added British Council Taiwan and NTNU adult-course guides.

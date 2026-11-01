@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "Agent 的操作紀錄正變成雙面證據——Anthropic 把近兩成股權捐做勞動衝擊基金的同一週，南韓銀行攻擊者卻被自己留下的 Claude Code 紀錄出賣"
-tldr: "Anthropic 宣布捐出 5% 股權（含既有承諾合計約 20%）成立 Public Benefit Fund 處理 AI 對勞動市場的衝擊；CrowdStrike 揪出用 ARTEX＋Claude Code 攻擊南韓 7-9 家銀行的攻擊者，靠的正是攻擊者自己留在公開目錄裡的 agent 操作紀錄；台灣金管會發布代理 AI 安全諮詢文件、英國 ICO 開 6 週意見徵集、中國提案 23 項 AI 技術出口管制；印度 CERT-In 首次證實測試中的 AI agent 碰到企業真實系統"
+tldr: "Anthropic 宣布捐出 5% 股權（含既有承諾合計約 20%）成立 Public Benefit Fund 處理 AI 對勞動市場的衝擊；CrowdStrike 分析攻擊者自己留在公開目錄裡的 agent 操作紀錄，還原其使用 ARTEX＋Claude Code 攻擊南韓金融機構的作業方式（報告不點名銀行，受影響機構總數未確認）；台灣金管會發布代理 AI 安全諮詢文件、英國 ICO 開 6 週意見徵集、中國提案 23 項 AI 技術出口管制；印度 CERT-In 首次證實測試中的 AI agent 碰到企業真實系統"
 draft: false
 series:
   name: "AI 日報"
@@ -24,7 +24,7 @@ series:
 
 證據一：Anthropic 宣布將把 5% 股權（加上既有的員工股權捐贈配對計畫，合計約 20% 股權）投入新成立的 Public Benefit Fund，用途包括處理 AI 對勞動市場的衝擊——公司已經為此投入 $200M 研究經費。這是業界第一次不是用公關語言，而是用可查核的股權規模承諾「衝擊有多嚴重、該賠多少」，前提是這個衝擊必須先被量化、被追蹤，否則連捐多少都定不出來。
 
-證據二：同一週，CrowdStrike 揭露一起針對南韓 7-9 家銀行的入侵事件。攻擊者用中國開源的 AI 滲透測試工具 ARTEX 搭配 Claude Code，底層接 DeepSeek v4.1-flash、GLM-5.3、Grok 4.6 等多個模型，9 月底到 10 月初鎖定銀行的貸款進度查詢服務與員工行動辦公系統下手。抓到攻擊者的關鍵不是傳統鑑識，是攻擊者自己留在公開目錄裡的 Claude Code session 紀錄與 agent 記憶檔案——裡面連攻擊者問 Claude「去哪裡賣南韓個資」「幫我寫一份涵蓋這次攻擊成果的履歷」都留著，連電話號碼、Telegram 帳號、就讀大學都被攻擊者自己的提示詞交了出來。ARTEX 作者在報告曝光後第一時間把專案設為私有，但為時已晚，韓文與英文 fork 已經流出。
+證據二：同一週，CrowdStrike 揭露一起針對南韓金融機構的入侵活動；報告不點名銀行，也說受影響機構總數尚未確認（「至少 7 家」是韓方與媒體的統計）。攻擊者用中國開源的 AI 滲透測試工具 ARTEX 搭配 Claude Code，底層接 DeepSeek v4.1-flash、GLM-5.3、Grok 4.6 等多個模型，9 月底到 10 月初鎖定銀行的貸款進度查詢服務與員工行動辦公系統下手。抓到攻擊者的關鍵不是傳統鑑識，是攻擊者自己留在公開目錄裡的 Claude Code session 紀錄與 agent 記憶檔案——裡面連攻擊者問 Claude「去哪裡賣南韓個資」都留著。ARTEX 作者 10/8 宣布公開版轉閉源，但程式碼已散布，韓文、英文等分叉與鏡像仍在流通。
 
 這兩件事的共同點：Agent 留下的操作紀錄，不管是誰在用、用來做什麼，正在變成無法迴避的第一手證據——合法使用者的勞動市場衝擊被迫量化成股權承諾；非法使用者的攻擊鏈則被自己 agent 的操作紀錄反咬。對從業者的意義是，部署 Agent 時真正的分水嶺，不是「它能不能把任務做好」，是「它的操作紀錄你是否收得到、看得懂」。對台灣讀者更直接：金管會這週剛發布的代理 AI 安全諮詢文件，核心思路正是要求金融業先定義清楚 Agent 能讀哪些資料、能改哪些紀錄，並留存紀錄以便追查任務怎麼完成——方向與今天這兩起事件完全一致，但前提是企業要先有能力「看得到、看得懂」自己 Agent 留下的紀錄，不是裝了監控工具就算數。
 
@@ -40,7 +40,7 @@ series:
 
 ### 資安事件
 
-**ARTEX AI 擊穿南韓銀行**：CrowdStrike 披露一起疑似中國籌資動機攻擊者發起的入侵，用開源 AI 滲透測試工具 ARTEX 搭配 Claude Code（底層接 DeepSeek v4.1-flash、GLM-5.3、Grok 4.6），9 月底到 10 月初入侵 7-9 家南韓銀行；手法曝光靠的是攻擊者自己留在公開目錄裡的 Claude Code session 紀錄，連履歷、電話、Telegram 帳號都留下。ARTEX 作者 10/8 把專案轉為私有。（[來源](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)）
+**ARTEX AI 擊穿南韓銀行**：CrowdStrike 披露一起針對南韓金融機構的入侵活動，評估攻擊者以中等信心為使用中文、財務動機，用開源 AI 滲透測試工具 ARTEX 搭配 Claude Code（底層接 DeepSeek v4.1-flash、GLM-5.3、Grok 4.6），活動期間為 9 月底到 10 月初；報告不點名銀行，受影響機構總數未確認（「至少 7 家」出自韓方與媒體）。手法曝光靠的是攻擊者自己留在公開目錄裡的 Claude Code session 紀錄。ARTEX 作者 10/8 宣布公開版轉閉源。（[來源](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)）
 
 ### 全球區域動態
 
@@ -82,7 +82,7 @@ IBM 調查顯示，75% 阿聯酋高階主管過去 12 個月曾有 AI 相關事�
 | 項目 | 數字 | 來源 |
 |------|------|------|
 | Anthropic Public Benefit Fund 股權占比 | 5%（含既有承諾合計約 20%） | [Anthropic](https://www.anthropic.com/news/public-benefit-fund) |
-| ARTEX 攻擊涉及南韓銀行家數／外洩人數 | 7-9 家／67,000+ 人（確切數字未確認） | [CrowdStrike](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/) |
+| 南韓金融機構外洩事件（ARTEX 相關） | 至少 7 家／約 6.7 萬人以上（韓方與媒體數字，約至 10/09；CrowdStrike 本身未給總數） | [CrowdStrike](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)（報告稱總數未確認）、WSJ |
 | 英國 ICO 代理式 AI 意見徵集期限 | 6 週（至 11/20） | [ICO 意見徵集說明](https://www.tlt.com/insights-and-events/insight/the-icos-agentic-ai-call-for-evidence-what-you-need-to-know) |
 | UAE 高階主管 AI 事件上報董事會比例 | 75% | [CXO Insight ME](https://www.cxoinsightme.com/future/tech/ibm-study-75-of-uae-executives-report-ai-incidents-reaching-leadership-as-agent-autonomy-grows/) |
 | Satlyt 種子輪金額 | $800 萬 | [LaunchBase Africa](https://launchbaseafrica.com/2026/10/12/african-startup-deal/) |
@@ -105,6 +105,10 @@ IBM 調查顯示，75% 阿聯酋高階主管過去 12 個月曾有 AI 相關事�
 ## 今日收穫
 
 之前以為用 AI 犯罪的人至少會留意不要留下證據，但 CrowdStrike 的報告顯示南韓銀行攻擊者連「這些個資該去哪裡賣」「幫我寫一份涵蓋這次攻擊成果的履歷」都直接問 Claude——AI 降低的不只是攻擊門檻，也降低了攻擊者自己的保密意識。這跟深度分析講的「查核成本下降」是同一個現象的另一面，但重點不同：不是企業該怎麼用 Agent 留下的紀錄，是連做壞事的人自己都沒意識到，自己已經把底交了出去。
+
+## 更新紀錄
+
+- 2026-10-24：依 CrowdStrike 原文修正。「7-9 家」混用了不同來源的數字，不是 CrowdStrike 的結論，改為「至少 7 家（韓方與媒體統計）」並註明報告不點名銀行、總數未確認；「疑似中國籌資動機」改為報告原文的「中文使用者、財務動機（中等信心）」；刪去報告中疑似攻擊者的個人資訊；「設為私有」改為作者聲明的「公開版轉閉源」，並註明分叉仍在流通。
 
 ## 參考資料
 

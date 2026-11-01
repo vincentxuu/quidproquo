@@ -7,6 +7,9 @@ tags: [sandbox, firecracker, gvisor, docker, e2b, cloudflare, ai-agent]
 lang: en
 tldr: "A sandbox is not a single package but a spectrum—Namespace, cgroups, seccomp, gVisor, and Firecracker stacked by trust boundary; local OS sandboxes bound blast radius, cloud microVMs bound multi-tenancy, and the choice hinges on trust and ops cost."
 description: "Using Anthropic sandbox-runtime, gVisor, Firecracker, nsjail, Hades, E2B, Daytona, Modal, Cloudflare, and AWS Lambda MicroVMs as examples, this guide breaks down the four pillars, isolation tiers, and trade-offs behind execution environments and sandbox design."
+series:
+  name: "Sandbox Series"
+  order: 2
 draft: false
 ---
 

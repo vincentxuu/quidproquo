@@ -48,8 +48,10 @@ Skill edit flow: edit `.agents/skills/<skill>/` → `pnpm skills:sync` → `pnpm
 
 ```bash
 pnpm dev              # Start dev server (with Cloudflare platform proxy)
-                      # 已內建 ASTRO_DEV_BACKGROUND=0：Astro 7 偵測到 agent 會自動轉背景
-                      # 並只等 30s lock，本 repo 完整啟動約 37s，會誤報「failed to start within 30s」
+                      # 走 scripts/dev.mjs：內建 ASTRO_DEV_BACKGROUND=0（Astro 7 偵測到 agent 會自動轉背景
+                      # 並只等 30s lock，本 repo 完整啟動約 37s，會誤報「failed to start within 30s」）；
+                      # 啟動時收掉同 repo 舊的 astro dev，3 小時沒請求（DEV_IDLE_HOURS）或啟動它的 session
+                      # 結束就自己關。要長開設 DEV_KEEP_ALIVE=1。agent 自己開的 dev server，交回前要關掉。
 pnpm build            # Full production build (cron stubs + astro build + OG images)
 pnpm deploy           # Build then wrangler deploy
 pnpm lint             # oxlint src/ (excludes *.astro)

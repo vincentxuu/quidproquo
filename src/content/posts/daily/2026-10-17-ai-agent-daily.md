@@ -70,7 +70,7 @@ series:
 中華電信總裁林榮賜表示，對話式 AI 轉向自主 agent 正重塑企業導入方式，資料治理、存取控制與責任歸屬是規模化部署的關鍵（[來源](https://www.digitimes.com/news/a20261016PD239/cht-president-data-infrastructure-governance.html)）。
 
 **日韓**
-日韓同步爆發 AI 驅動網路攻擊潮：日本執政黨網路安全小組主席平井卓也 10/9 定調「國安層級的網路空間緊急狀態」，今年至 10 月已逾 600 件企業資安事件，超過 2025 全年總數，SOURCENEXT（2,251 萬筆）、Park24 旗下 Times Car（160 萬張駕照照片，每張 20 日圓在暗網流出）都是重災戶；南韓總統李在明警告 AI 大幅降低攻擊門檻，CrowdStrike 將新韓銀行、KB 國民銀行等至少 16 家金融機構的入侵，追溯到使用中國開發開源滲透工具 ARTEX 的中文語系攻擊者（[來源](https://www.straitstimes.com/asia/east-asia/millions-of-personal-records-in-japan-south-korea-exposed-amid-surge-in-ai-powered-cyberattacks)）。
+日韓同步爆發 AI 驅動網路攻擊潮：日本執政黨網路安全小組主席平井卓也 10/9 定調「國安層級的網路空間緊急狀態」，今年至 10 月已逾 600 件企業資安事件，超過 2025 全年總數，SOURCENEXT（2,251 萬筆）、Park24 旗下 Times Car（160 萬張駕照照片，每張 20 日圓在暗網流出）都是重災戶；南韓總統李在明警告 AI 大幅降低攻擊門檻，南韓至少 16 家金融機構（含新韓銀行、KB 國民銀行）遭入侵、約 10 萬筆客戶聯絡與借貸紀錄外洩，這是金融當局公布、經 Straits Times 轉述的數字；CrowdStrike 則評估相關活動出自使用中國開發開源滲透工具 ARTEX 的中文使用者、財務動機行為者（中等信心），其報告不點名銀行，也說受影響機構總數尚未確認（[來源](https://www.straitstimes.com/asia/east-asia/millions-of-personal-records-in-japan-south-korea-exposed-amid-surge-in-ai-powered-cyberattacks)）。
 
 **東南亞**
 新加坡數位發展部長 Josephine Teo 表示新加坡已成為首個發布專門 AI agent 治理框架的政府，聚焦風險界定與人為可問責（[來源](https://www.netnewsledger.com/2026/10/15/singapore-wants-to-be-southeast-asias-front-door-for-ai/)）。
@@ -144,6 +144,10 @@ CERT-In 警告 AI agent 測試過程中存取了印度企業機密資料（[來�
 
 之前以為「AI 讓攻防不對稱加劇」只會發生在開發中的 agent 原型，日韓這波資安危機顯示它已經是生產環境等級的問題——南韓總統直接點名「業餘攻擊者也能靠 AI 輕易入侵系統」，追查到的攻擊工具 ARTEX 本身就是開源 AI 驅動滲透框架。AI 同時在拉低攻擊門檻跟防禦門檻，誰先把這個落差補起來，決定的不是技術先進程度，而是治理動作快不快。
 
+## 更新紀錄
+
+- 2026-10-24：更正歸屬。「至少 16 家金融機構」與約 10 萬筆外洩是韓國金融當局的數字，不是 CrowdStrike 的結論；CrowdStrike 原文不點名銀行，且稱受影響機構總數尚未確認。內文已拆開寫，並補上 CrowdStrike 報告連結。
+
 ## 參考資料
 
 - [AI Agent Arxiv Digest — 2026-10-17](/posts/daily/2026-10-17-ai-agent-arxiv-digest)
@@ -163,6 +167,7 @@ CERT-In 警告 AI agent 測試過程中存取了印度企業機密資料（[來�
 - [China proposes export controls — Bloomberg](https://www.bloomberg.com/news/articles/2026-10-16/china-proposes-export-controls-on-ai-models-chips-and-agents)
 - [中華電信總裁談資料治理 — Digitimes](https://www.digitimes.com/news/a20261016PD239/cht-president-data-infrastructure-governance.html)
 - [Japan, South Korea AI-powered cyberattacks — The Straits Times](https://www.straitstimes.com/asia/east-asia/millions-of-personal-records-in-japan-south-korea-exposed-amid-surge-in-ai-powered-cyberattacks)
+- [Unknown Threat Actor Uses AI-Driven ARTEX to Target South Korean Finance — CrowdStrike](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/)
 - [Singapore AI gateway — NetNewsLedger](https://www.netnewsledger.com/2026/10/15/singapore-wants-to-be-southeast-asias-front-door-for-ai/)
 - [CERT-In warns AI agents accessed sensitive data — The Hacker News](https://thehackernews.com/2026/10/cert-in-warns-ai-agents-accessed.html)
 - [Pakistan lacks AI safety law — TechX.pk](https://techx.pk/ai-worms-autonomous-agent-safety-global-regulation-pakistan/)

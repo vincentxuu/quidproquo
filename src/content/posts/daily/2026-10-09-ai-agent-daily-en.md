@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: en
 description: "The same day Google drove agent approval friction toward zero, AWS Bedrock and a South Korean bank breach proved attackers get the same discount — the question enterprises should ask isn't how much labor an agent saves, but who stops it when its permissions get hijacked"
-tldr: "Google Cloud launched a universal Gemini agent that works across Gmail, Drive, Docs and Calendar with its own mailbox and permissions; Zenity disclosed that a single prompt could hijack every agent in an AWS Bedrock AgentCore account, the same day ARTEX plus Claude Code breached South Korean banks and leaked 25,000+ records from Shinhan Bank; Manus's parent raised over $500M in its first funding round after Beijing blocked Meta's acquisition, while Nous Research and Rein Security raised $90M and $25M respectively; Claude Haiku 5.5's model card and new Claude Max/Team API credit pricing also shipped."
+tldr: "Google Cloud launched a universal Gemini agent that works across Gmail, Drive, Docs and Calendar with its own mailbox and permissions; Zenity disclosed that a single prompt could hijack every agent in an AWS Bedrock AgentCore account, the same day South Korea reported 25,000+ records leaked from Shinhan Bank, with the attacker said to have used ARTEX plus Claude Code (the bank's link to ARTEX is press inference); Manus's parent raised over $500M in its first funding round after Beijing blocked Meta's acquisition, while Nous Research and Rein Security raised $90M and $25M respectively; Claude Haiku 5.5's model card and new Claude Max/Team API credit pricing also shipped."
 draft: false
 series:
   name: "AI 日報"
@@ -24,7 +24,7 @@ I think the thing most worth connecting today is that an agent's commercial valu
 
 Evidence A: Google Cloud launched a universal "Gemini agent" that works across Gmail, Drive, Docs and Calendar, able to spin up "coworker agents" with their own mailbox and permissions; finance and legal versions are already in preview. This essentially turns a chain of cross-system actions that used to require human sign-off into something the agent runs automatically in the background — transaction cost pushed toward zero.
 
-Evidence B: the same day, Zenity Labs researchers found that a single publicly accessible AWS Bedrock AgentCore agent could, through an internal temporary-credential interface, take over every other agent in the same account and region. South Korea's case is even more direct: attackers combined the open-source pentesting tool ARTEX with Claude Code to breach multiple South Korean banks, leaking 25,000+ customer records from Shinhan Bank. Both incidents share the same structure — once an agent's "no-approval-needed" permissions get hijacked, attackers inherit the exact same no-approval discount, with no human gate in between.
+Evidence B: the same day, Zenity Labs researchers found that a single publicly accessible AWS Bedrock AgentCore agent could, through an internal temporary-credential interface, take over every other agent in the same account and region. South Korea's case is the same pattern of a tool turned around: from artifacts the attacker left exposed, CrowdStrike assessed that an actor used the open-source pentesting tool ARTEX with multiple LLMs (including Claude Code sessions) against South Korean financial institutions; press reports say 25,000+ customer records leaked from Shinhan Bank, but CrowdStrike's report names no banks. Both incidents share the same structure — once an agent's "no-approval-needed" permissions get hijacked, attackers inherit the exact same no-approval discount, with no human gate in between.
 
 What this means for practitioners: Rein Security raised a $25M Series A the same day, building exactly the runtime monitoring layer that restores the approval step that was removed — confirming that the labor savings from agent autonomy and the attack surface it opens are never something you can buy separately. For Taiwanese enterprises looking to replicate the kind of financial-agent case studies seen recently, the question before letting an agent touch a wealth manager's systems or customer data shouldn't be "how much labor can this save me," but "who stops it when its permissions get stolen."
 
@@ -72,7 +72,7 @@ Today's three Arxiv Digest papers converge on one message: an agent's real attac
 
 ### Security Incidents & Defenses
 
-**ARTEX + Claude Code breaches South Korean banks**: a CrowdStrike report says a suspected 26-year-old attacker from Guangdong, China used the open-source pentesting tool ARTEX (combining DeepSeek, GLM and Grok) together with Claude Code to breach multiple South Korean banks; Shinhan Bank leaked 25,000+ customer records, and South Korea's financial regulator has convened an emergency meeting (see Deep Dive). ([reuters](https://www.reuters.com/world/suspect-behind-south-korea-bank-hacks-may-be-26-year-old-china-cybersecurity-2026-10-08))
+**ARTEX + Claude Code breaches South Korean banks**: a CrowdStrike report says a Chinese-speaking, financially motivated actor (moderate confidence) used the open-source pentesting tool ARTEX (combining DeepSeek, GLM and Grok) with Claude Code sessions against South Korean financial institutions; the report names no banks and says the number of affected organizations is unconfirmed. Press reports say Shinhan Bank leaked 25,000+ customer records, and South Korea's financial regulator has convened an emergency meeting (see Deep Dive). ([CrowdStrike](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/))
 
 **Single-prompt hijack of AWS Bedrock AgentCore**: Zenity Labs researchers found that a single publicly accessible Bedrock AgentCore agent could, via an internal temporary-credential interface, take over every other agent in the same account and region; AWS has patched the issue and significantly tightened default agent permissions (see Deep Dive). ([the-decoder](https://the-decoder.com/a-single-prompt-was-enough-to-hijack-every-ai-agent-in-an-aws-account-zenity-researchers-found/))
 
@@ -100,7 +100,7 @@ Availability and pricing for three major personal AI agents — Meta Muse, OpenA
 
 **Japan / Korea**
 
-South Korea's Shinhan Bank was breached via ARTEX + Claude Code, leaking 25,000+ customer records — see Security Incidents.
+Press reports say South Korea's Shinhan Bank leaked 25,000+ customer records, with the attacker said to have used ARTEX + Claude Code — see Security Incidents.
 
 Anthropic's mass book-buying in Japan as training data has drawn backlash from local publishers, the latest flashpoint in Japan's debate over the legality of AI training data. ([asia.nikkei.com](https://asia.nikkei.com/business/technology/artificial-intelligence/anthropic-s-mass-book-buying-in-japan-stirs-publisher-backlash))
 
@@ -178,6 +178,10 @@ Australia's technology minister Andrew Charlton outlined a regulatory direction 
 ## Today's Takeaway
 
 I used to think an agent's commercial selling point and its attack surface were separate problems you could address on separate timelines — ship the product first, bolt on security later. Seeing Google's coworker-agent permission design and the AWS Bedrock AgentCore vulnerability surface almost simultaneously made me realize they're really the front and back of the same design decision: however much approval friction you remove for the agent, that's exactly how much no-approval room an attacker inherits once it's hijacked — you can't buy just one side of that trade.
+
+## Update Log
+
+- 2026-10-24: Corrected against CrowdStrike's report. It names no banks and says the total number of affected organizations is unconfirmed; the Shinhan-to-ARTEX link comes from press inference (an ARTEX string seen on an attacker-linked server), not from CrowdStrike. The tldr, deep dive, security item and other mentions now say "press reports say" / "said to have used", and the attacker's age and location, which the report does not state, were removed.
 
 ## References
 

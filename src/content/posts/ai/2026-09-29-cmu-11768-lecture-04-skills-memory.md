@@ -345,7 +345,7 @@ ASI 也測了跨網站：在 WebArena 上歸納的 `sort_listings` 預期點一�
 
 ## 延伸閱讀
 
-- [Stanford CS329Z 導讀 Week 4：ReAct 與 MemGPT](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory)
+- [Stanford CS329Z 第 6 堂：ReAct](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)與[第 7 堂：MemGPT](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory)
 - [LLM Agent 的技能管理：從 Voyager 到 MUSE-Autoskill 的 Skill Lifecycle 全景](/posts/ai/2026-06-06-llm-agent-skill-lifecycle)
 - [Hermes Agent 的記憶與技能](/posts/ai/2026-08-18-hermes-agent-memory-skills)
 - [Agent Memory 系統：從 RAG 到 Read-Write 記憶的演化](/posts/ai/2026-03-19-agent-memory-systems)

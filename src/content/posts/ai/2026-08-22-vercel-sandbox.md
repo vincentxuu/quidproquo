@@ -7,6 +7,9 @@ lang: zh-TW
 type: deep-dive
 tldr: "Vercel Sandbox 用 Firecracker microVM 隔離不受信任的程式碼，搭配 Fluid compute、Active CPU 計價與 Vercel OIDC；它最適合已在 Vercel 上運行的 Agent，但網路預設值、記憶體計費與持久化生命週期仍要自己設計。"
 description: "從建立、執行、網路隔離到停止與持久化，拆解 Vercel Sandbox 的架構、最小用法、定價、安全邊界，以及與其他 Agent sandbox 的選型差異。"
+series:
+  name: "沙箱系列"
+  order: 11
 draft: false
 ---
 

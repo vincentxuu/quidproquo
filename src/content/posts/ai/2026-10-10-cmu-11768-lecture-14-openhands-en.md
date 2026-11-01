@@ -15,7 +15,11 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands)
 
+<<<<<<< Updated upstream
 **Video status: Videos included.** [Source details](#course-video-sources)
+=======
+**Video status: Videos included.** [Source notes](#course-video-sources)
+>>>>>>> Stashed changes
 
 > **This post is written from the slides.** The official recording (about 69 min, posted 2026-10-19) is embedded [at the end](#course-video-sources); the text has not yet been revised with the lecturer's spoken explanation. Everything below is based on the slides; where I go beyond them, I say so.
 
@@ -183,24 +187,40 @@ I couldn't check this paper against public sources: the link on the slides is an
 ## Changelog
 
 - 2026-10-10: Added this post, written from the Lecture 14 slides; no recording on the official public page yet.
+<<<<<<< Updated upstream
 - 2026-10-24: The Lecture 14 recording is now on the official playlist (posted 2026-10-19); updated the video status and embedded the video. The text is still based on the slides.
 
 ## Course video sources
 
 Checked the public recording of CMU 11-768 Fall 2026 Lecture 14; it is published on instructor Graham Neubig's channel, and the title and lecture number match this course. The text is still based on the slides and has not been checked against the recording's content.
+=======
+- 2026-10-28: Rechecked official schedule and YouTube playlist — Lecture 14 OpenHands now has a recording (VAzZkT68h2Q), video status changed to "Included" and embedded.
+
+## Course video sources
+
+2026-10-28: Rechecked the official schedule and YouTube playlist — Lecture 14 OpenHands now has a recording (Graham Neubig, uploaded 2026-10-19), public and embeddable. This post is still written from the slides; the video serves as class review.
+>>>>>>> Stashed changes
 
 ```youtube
 url: https://www.youtube.com/watch?v=VAzZkT68h2Q
 title: CMU AI Agents 2026: 14. Lessons from Building OpenHands
 ```
 
+<<<<<<< Updated upstream
 Original video: [CMU AI Agents 2026: 14. Lessons from Building OpenHands](https://www.youtube.com/watch?v=VAzZkT68h2Q)
+=======
+Original video: [CMU AI Agents 2026: 14. Lessons from Building OpenHands (Graham Neubig)](https://www.youtube.com/watch?v=VAzZkT68h2Q)
+>>>>>>> Stashed changes
 
 Official source:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
+<<<<<<< Updated upstream
 Checked: 2026-10-24.
+=======
+Checked: 2026-10-28.
+>>>>>>> Stashed changes
 
 ## References
 

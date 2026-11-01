@@ -204,13 +204,13 @@ Hugh Van Deventer asked: take a model with little safety training, give it a det
 
 His interpretation: prompting selects a sub-distribution of what the model already learned. It's reversible and adjustable per use case, but later prompts, including jailbreaks, can override it. Safety training tries to change the underlying distribution, which is more durable but hard to target precisely and prone to overcorrection. He recommends using both.
 
-## What this post can and cannot confirm
+## Scope of this post
 
-Confirmed: the lecture topic and reading list on the course site; the recording (via auto-generated captions); text on the first several slides (the plan, the three-period table, the three alignment goals); the file list of the Drive folder; the experiment write-up and repo; the two papers' abstracts. Not confirmed: whether later slides expand on the course site's "Lessons from law" bullet (PowerPoint Online only yielded the first few slides, and the recording covers only the two legal traditions and the word counts); the recording doesn't discuss SpecEval or Statutory Construction, so this post describes them from their abstracts; this post did not check each group's Google Doc in full.
+The recording does not discuss SpecEval or Statutory Construction, so the descriptions of those two papers above come from their abstracts. For the course site's "Lessons from law" bullet, the recording covers only the two legal traditions and the word counts of the statutes.
 
 The recording ends with a preview of the midterm mini-project: reproduce one of four papers over about a month. See the [midterm project post](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en).
 
-Further reading on this site: [CS329Z on LLM-as-judge and safety evaluation](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en) covers the pitfalls of using models to grade models, a useful companion to SpecEval's three-way consistency design.
+Further reading on this site: [CS329Z on LLM-as-judge](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge-en) and [safety evaluation](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety-en) covers the pitfalls of using models to grade models, a useful companion to SpecEval's three-way consistency design.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) | Previous: [L3: Jailbreaks, prompt injection, and lessons borrowed from software security](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en) | Next: [L5: Content Policies](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies-en)
 

@@ -1,0 +1,148 @@
+[
+  {
+    "id": "climb-beta",
+    "scenario": "climbing",
+    "family": "climbing",
+    "context": "朋友剛才完成了這個動作，你想問他怎麼做的。",
+    "zh": "這一步你是怎麼過的？",
+    "en": "How did you do this move?",
+    "swap": "問整體動作後，追問：Where did you put your left foot?",
+    "usageNote": "did 問朋友已經做過的動作；如果要對方現在示範，改成 Can you show me how to do it?。",
+    "alternatives": [],
+    "articlePath": "/posts/learning/2026-10-25-climbing-gym-beta-english/",
+    "reuseExistingId": true,
+    "evidenceType": "adapted",
+    "contextEvidenceType": "adapted",
+    "support": "Collins how 的原句是 How did you do it?；只把受詞 it 換成 this move。REI 支持 move 的攀岩動作語境。",
+    "sources": [
+      {
+        "title": "Collins：how",
+        "url": "https://www.collinsdictionary.com/dictionary/english-chinese/how",
+        "supports": "Collins how 的原句是 How did you do it?；只把受詞 it 換成 this move。REI 支持 move 的攀岩動作語境。",
+        "evidenceType": "adapted",
+        "contextEvidenceType": "adapted"
+      },
+      {
+        "title": "REI：Climbing Techniques and Moves",
+        "url": "https://www.rei.com/learn/expert-advice/climbing-techniques.html",
+        "supports": "Collins how 的原句是 How did you do it?；只把受詞 it 換成 this move。REI 支持 move 的攀岩動作語境。",
+        "evidenceType": "adapted",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "climb-show-move",
+    "scenario": "climbing",
+    "family": "climbing",
+    "context": "朋友剛口頭解釋過，但你希望他示範這一步的做法。",
+    "zh": "你可以示範給我看嗎？",
+    "en": "Can you show me how to do it?",
+    "swap": "先只說 Can you show me，再接 how to do it。",
+    "usageNote": "完整英文是來源例句；攀岩館請求示範的情境為自寫，不是來源對話。",
+    "alternatives": [],
+    "articlePath": "/posts/learning/2026-10-25-climbing-gym-beta-english/",
+    "reuseExistingId": false,
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "Cambridge 英法字典 how 直接列出 Can you show me how to do it?。",
+    "sources": [
+      {
+        "title": "Cambridge：how（英法字典）",
+        "url": "https://dictionary.cambridge.org/dictionary/english-french/how",
+        "supports": "Cambridge 英法字典 how 直接列出 Can you show me how to do it?。",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "climb-left-foot",
+    "scenario": "climbing",
+    "family": "climbing",
+    "context": "朋友已經爬完，你想問他剛才左腳的放置位置。",
+    "zh": "你剛才左腳放在哪裡？",
+    "en": "Where did you put your left foot?",
+    "swap": "改問右腳：Where did you put your right foot?",
+    "usageNote": "問已經做過的動作，不是在替眼前路線指定腳點。",
+    "alternatives": [],
+    "articlePath": "/posts/learning/2026-10-25-climbing-gym-beta-english/",
+    "reuseExistingId": false,
+    "evidenceType": "adapted",
+    "contextEvidenceType": "adapted",
+    "support": "Geniebook WHERE 節原句為 Where did you put it?；只把受詞 it 換成 your left foot。REI 的動作文章支持 foot placement 語境。",
+    "sources": [
+      {
+        "title": "Geniebook：Interrogative Words & Modal Verbs",
+        "url": "https://geniebook.com/vn/chuong-trinh/primary-5/tieng-anh/interrogative-words-modal-verbs",
+        "supports": "Geniebook WHERE 節原句為 Where did you put it?；只把受詞 it 換成 your left foot。REI 的動作文章支持 foot placement 語境。",
+        "evidenceType": "adapted",
+        "contextEvidenceType": "adapted"
+      },
+      {
+        "title": "REI：Climbing Techniques and Moves",
+        "url": "https://www.rei.com/learn/expert-advice/climbing-techniques.html",
+        "supports": "Geniebook WHERE 節原句為 Where did you put it?；只把受詞 it 換成 your left foot。REI 的動作文章支持 foot placement 語境。",
+        "evidenceType": "adapted",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "climb-reach-hold",
+    "scenario": "climbing",
+    "family": "climbing",
+    "context": "你和朋友站在地面討論動作，要說某個岩點對你而言搆不到。",
+    "zh": "那個岩點我搆不到。",
+    "en": "I can’t reach that hold.",
+    "swap": "把那個換成這個：I can’t reach this hold.",
+    "usageNote": "描述搆不到，不判定是身高、力量或動作的問題，也不是攀登操作建議。",
+    "alternatives": [],
+    "articlePath": "/posts/learning/2026-10-25-climbing-gym-beta-english/",
+    "reuseExistingId": false,
+    "evidenceType": "adapted",
+    "contextEvidenceType": "adapted",
+    "support": "Cambridge reach 有 I can’t reach my zip - could you unfasten it, please?；保留 I can’t reach + 受詞，將 my zip 換成 that hold。REI 支持 hold 的攀岩意思。",
+    "sources": [
+      {
+        "title": "Cambridge：reach",
+        "url": "https://dictionary.cambridge.org/dictionary/english/reach",
+        "supports": "Cambridge reach 有 I can’t reach my zip - could you unfasten it, please?；保留 I can’t reach + 受詞，將 my zip 換成 that hold。REI 支持 hold 的攀岩意思。",
+        "evidenceType": "adapted",
+        "contextEvidenceType": "adapted"
+      },
+      {
+        "title": "REI：Rock Climbing Terms & Lingo Guide",
+        "url": "https://www.rei.com/learn/expert-advice/rock-climbing-glossary.html",
+        "supports": "Cambridge reach 有 I can’t reach my zip - could you unfasten it, please?；保留 I can’t reach + 受詞，將 my zip 換成 that hold。REI 支持 hold 的攀岩意思。",
+        "evidenceType": "adapted",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "climb-offer-beta",
+    "scenario": "climbing",
+    "family": "climbing",
+    "context": "你看到朋友卡關，有個想法，先問他想不想聽。",
+    "zh": "你想聽 beta 嗎？",
+    "en": "Do you want beta?",
+    "swap": "先等對方回答，再決定要不要提供建議。",
+    "usageNote": "這句是提供建議的人問對方，不是向別人討 beta。",
+    "alternatives": [],
+    "articlePath": "/posts/learning/2026-10-25-climbing-gym-beta-english/",
+    "reuseExistingId": false,
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "Climb On Equipment 的 I know the beta 節直接示範 Do you want beta?。",
+    "sources": [
+      {
+        "title": "Climb On Equipment：攀岩館禮儀",
+        "url": "https://climbonequipment.com/en-us/blogs/knowledge/top-10-unwritten-rules-of-the-climbing-gym",
+        "supports": "Climb On Equipment 的 I know the beta 節直接示範 Do you want beta?。",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  }
+]

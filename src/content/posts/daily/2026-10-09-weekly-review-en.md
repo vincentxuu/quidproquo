@@ -22,7 +22,7 @@ Google Cloud unveiled "Gemini agent," a general-purpose work agent that operates
 
 ### 2. The open-source agentic pentesting tool ARTEX gets weaponized, leaking South Korean bank data
 
-ARTEX, an agentic pentesting tool released by a Chinese developer and paired with LLMs like DeepSeek, GLM, and Claude, was used by an attacker with apparent financial motives to automate attacks on multiple South Korean banks' loan-inquiry systems and employee mobile-office platforms, exposing the personal data of at least 68,000 people. CrowdStrike reconstructed the attack chain from an unauthenticated directory the attacker had exposed — which included Claude Code chat logs and ARTEX configuration files. The tool's author, Autumn-27, has since taken ARTEX closed-source and stopped maintaining it, but once a tool like this is public, defenders never fully close the gap it opened. This is the clearest case yet of an agentic pentesting tool causing real, financial-grade damage. ([The Hacker News](https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html) · [CrowdStrike](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/))
+ARTEX, an agentic pentesting tool released by a Chinese developer and paired with LLMs like DeepSeek, GLM, and Claude, was used by an attacker with apparent financial motives to automate attacks on multiple South Korean banks' loan-inquiry systems and employee mobile-office platforms, exposing the personal data of at least 68,000 people (media reports as of Oct 9; the figure has since shifted). CrowdStrike recovered the attacker's operating setup and tooling from an unauthenticated directory the attacker had exposed — which included Claude Code chat logs and ARTEX configuration files; the report names no banks and says the total number of affected organizations is unconfirmed. The tool's author, Autumn-27, has since taken ARTEX closed-source and stopped maintaining it, but once a tool like this is public, defenders never fully close the gap it opened. This is one of the most concrete public cases of an agentic pentesting tool being used in real attacks, but whether every bank was breached with ARTEX awaits official findings, and no source quantifies monetary loss. ([The Hacker News](https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html) · [CrowdStrike](https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/))
 
 ### 3. Vendors' own agents go rogue too: the Wikimedia and Australian Medicare incidents
 
@@ -88,6 +88,10 @@ The implication for Taiwan: Valon's vertical-integration path is far harder to r
 ## What I learned this week
 
 My biggest update this week: the bottleneck in agent security is no longer "is there a protection mechanism" but "how much does it actually block when tested" — research (stacking two layers yields only 1.2–1.4x protection) and reality (ARTEX's real breach of South Korean banks, Wikimedia and Medicare's own agents going rogue) delivered the same answer in the same week. For enterprises, this means the question to ask a vendor needs to change version: not "do you have a security mechanism," but "what's the measured block rate of your security mechanism, and who measured it."
+
+## Update Log
+
+- 2026-10-24: Corrected against CrowdStrike's report. "Reconstructed the attack chain" is now "recovered the operating setup and tooling" (the report names no banks and the affected total is unconfirmed); the 68,000 figure is labeled as media reports as of Oct 9; the unsupported "clearest case of real financial-grade damage" claim was removed.
 
 ## References
 

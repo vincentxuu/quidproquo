@@ -120,7 +120,7 @@ glossary:
 ## 延伸閱讀
 
 - 政策寫在哪裡、怎麼解釋：[CS2881R L4：Model Spec 該寫原則還是細則](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)
-- 用模型當裁判與護欄的工程面：[Stanford CS329Z 導讀 Week 8：請模型當裁判，再幫 agent 上護欄](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)
+- 用模型當裁判與護欄的工程面：[Stanford CS329Z 第 14 堂：請模型當裁判](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge)與[第 15 堂：幫 agent 上護欄](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety)
 - 同一主題在其他課程的講法：[台大 ADL 2025 第 10 講：偏見、安全、幻覺與對齊](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)
 
 ## 課程影片來源

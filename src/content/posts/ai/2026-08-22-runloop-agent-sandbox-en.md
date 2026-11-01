@@ -7,6 +7,9 @@ tags: [runloop, ai-agent, sandbox, coding-agent, devbox, agent-infrastructure]
 lang: en
 tldr: "Runloop combines isolated microVMs, reproducible images, disk branching, credential proxies, and evals in one coding-agent platform; an official case study reports more than 10,000 concurrent Devboxes in one workload."
 description: "A technical guide to Runloop Devboxes, Blueprints, Snapshots, Network Policies, Agent Gateway, and the tradeoffs against general-purpose cloud sandboxes."
+series:
+  name: "Sandbox Series"
+  order: 10
 draft: false
 ---
 

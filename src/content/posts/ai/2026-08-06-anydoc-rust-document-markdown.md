@@ -31,7 +31,7 @@ glossary:
 
 先講一個影響閱讀方式的事實：這個 repo 建立於 2026-08-03，寫這篇時只有三天大，746 stars（GitHub API 查詢於 2026-08-06）。所有數字都還在動——我第一次讀 README 到第二次查證之間，benchmark 表就換過一輪。下面引的每個數字都標了查詢時間，你讀到時請當快照看。
 
-這個賽道已經很擠了——[MarkItDown](/posts/ai/2026-04-18-markitdown-intro)、[Docling](https://github.com/docling-project/docling)、MinerU、Marker 各有擁護者。anydoc 值得看的原因不是「又快又好」這種行銷語言，而是它在一個大家都以為沒得選的地方做了明確取捨：**放棄模態廣度，換格式深度與可預測性**。
+這個領域已經很擠了——[MarkItDown](/posts/ai/2026-04-18-markitdown-intro)、[Docling](https://github.com/docling-project/docling)、MinerU、Marker 各有擁護者。anydoc 值得看的原因不是「又快又好」這種行銷語言，而是它在一個大家都以為沒得選的地方做了明確取捨：**放棄模態廣度，換格式深度與可預測性**。
 
 ## 一個共用的 Document model
 

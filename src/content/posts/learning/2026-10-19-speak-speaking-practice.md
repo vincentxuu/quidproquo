@@ -9,7 +9,7 @@ description: "介紹 Speak 台灣 AI 口說課程、Premium 與 Premium Plus 功
 tldr: "Speak 適合想先降低開口壓力、每天短練的人；用試用期確認辨識和回饋，再看是否需要 Plus 的客製課程額度，並安排真人追問。"
 series:
   name: "英文口說練習"
-  order: 9
+  order: 27
 draft: false
 ---
 

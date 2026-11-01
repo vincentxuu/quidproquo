@@ -7,6 +7,9 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "Ten sentences for the four things a software engineer says in an English interview: introducing yourself, describing a project, describing a failure or a disagreement, and asking the interviewer questions. Each one comes with a sentence pattern from Oxford Learner's Dictionaries. Five of them carry my own real content with company and product names removed, so replace them with your own experience."
 tldr: "Expertise: I have experience in / as. Current job: I currently work for a company that…. Ownership: I was responsible for + -ing. Results: reduced … from A to B. Difficulty: The hardest part was + -ing. Reflection: I underestimated how…. Change: Since then, I've always…. For your own questions, ask how the team divides up the work and what the goals are for the first three months."
+series:
+  name: "English Speaking Practice"
+  order: 9
 draft: false
 ---
 
@@ -15,6 +18,8 @@ draft: false
 The "interview" scenario in my English speaking practice area only had two sentences. This post adds ten, covering the four things interviews ask about most.
 
 One thing first: a few of these sentences used to carry example values that only showed the pattern. They now carry my own real content, with company and product names removed. When you practice, replace them with your own experience, or the sentences will not help in an actual interview.
+
+This lesson practises patterns for describing experience rather than a complete interview-answer framework. Replace the examples with your own experience. Dictionary support for meaning and structure does not establish which version is more frequent at work.
 
 ## What I was trying to say
 
@@ -160,14 +165,6 @@ Rate yourself on whether you got the meaning across, not on matching the words e
 | 反問：團隊平常是怎麼分工的？ | How does the team divide up the work? | divide up the work |
 | 反問：這個職位前三個月最重要的目標是什麼？ | What are the most important goals for this role in the first three months? | goals for this role |
 
-## Still to verify
-
-I have not found a suitable source for these, so they are not in the practice set:
-
-- Whether *implement a feature* is normal in spoken English on software teams: the dictionary only has examples with policies and decisions
-- The overall structure of an interview answer (for example situation first, then action and result): I only checked sentence patterns, not interview teaching material
-- Which version is more common: that needs a corpus query, which I did not run
-
 ## Overall
 
 Of the ten, *experience in / as*, *responsible for + -ing*, and *since then* with the present perfect are worth practicing first, because every interview uses them. Almost all the sources are learner's dictionaries, which support meaning and sentence patterns. Only the questions for the interviewer have a situation-level example from a job site. There was no native-speaker testing and no frequency comparison, so this post only says "works in this situation". Five of the sentences carry my own real content, with company and product names removed. When you practice, replace them with your own experience.
@@ -175,6 +172,10 @@ Of the ten, *experience in / as*, *responsible for + -ing*, and *since then* wit
 ## Changelog
 
 - 2026-10-08: Replaced five example-value sentences with my own real content (company and product names removed), and adjusted the explanations, the short dialogue, and the references to match
+
+## Updates
+
+- 2026-10-25: Joined the unified speaking series; moved research to-dos into working notes and retained the lesson’s source and use limitations.
 
 ## References
 

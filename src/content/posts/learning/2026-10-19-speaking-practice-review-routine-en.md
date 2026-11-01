@@ -9,7 +9,7 @@ description: "Connect preparation, classroom feedback, independent retelling and
 tldr: "Choose one real task, record your first attempt, use feedback to try again, then change a condition to see what you can use independently. Keep the schedule and notes focused on that task."
 series:
   name: "English Speaking Practice"
-  order: 14
+  order: 32
 draft: false
 ---
 

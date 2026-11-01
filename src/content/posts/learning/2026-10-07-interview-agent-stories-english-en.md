@@ -7,14 +7,19 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "Twelve sentences picked from my own Chinese prep notes for AI agent engineering interviews, each matched to a dictionary sentence pattern: a one-line positioning statement, a project whose direction changed five times, a bug with no error messages, two design principles, one mistake, and an honest answer about what is not done yet."
 tldr: "Positioning: I work on improving…, My work covers…. Changing requirements: changed five times in four months. Persuading with data: that convinced the team to…. A measured result: took 29 minutes. A mistake: I changed … but didn't update …, We only found out … after …. An honest gap: To be honest, we don't have … yet."
+series:
+  name: "English Speaking Practice"
+  order: 10
 draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-07-interview-agent-stories-english)
 
-My [previous post on interview speaking](/posts/learning/2026-10-07-interview-experience-english-en) covered general patterns, with example numbers. This one uses my own interview prep material. I already had the stories and follow-up answers in Chinese, so I picked the twelve sentences I say most often and get stuck on in English.
+My [previous post on interview speaking](/posts/learning/2026-10-07-interview-experience-english-en) covered introductions, projects, failures and questions for the interviewer. This one uses my own interview prep material. I already had the stories and follow-up answers in Chinese, so I picked the twelve sentences I say most often and get stuck on in English.
 
 Company and product names are removed here. Only the work and the measured numbers remain.
+
+This lesson puts work experience into sentence patterns; dictionary examples are not recordings of engineering-team conversations. It does not comprehensively compare technical collocations, individual prepositions or wording frequency. Use your own experience when practising.
 
 ## What I was trying to say
 
@@ -156,18 +161,13 @@ Rate yourself on whether you got the meaning across, not on matching the words e
 | 講失誤：我們在合併兩個月後才發現。 | We only found out two months after the merge. | find out |
 | 承認缺口：老實說，這部分我們還沒有系統性的評估。 | To be honest, we don't have a systematic evaluation for this yet. | yet at the end |
 
-## Still to verify
-
-I have not found suitable sources for these, so I am not stating them as settled:
-
-- How runtime, flag, log, merge, and error tracking are used in spoken English on software teams: the learner's dictionary does not list these senses, and I did not check technical documentation this time
-- The preposition in *set the limit at* + a number
-- Direct examples for *instead of going* and *is not a guarantee*
-- Which version is more common: that needs a corpus query, which I did not run
-
 ## Overall
 
 Of the twelve, the two positioning sentences are worth practicing first, because every interview opens with them and mixing up *improve* and *build* misstates my own role. Next are *convinced the team to* and *To be honest … yet*. All the sources are learner's dictionaries, which support meaning and sentence patterns but do not cover the software terms. There was no native-speaker testing and no frequency comparison, so this post only says "works in this situation".
+
+## Updates
+
+- 2026-10-25: Joined the unified speaking series; moved research to-dos into working notes and retained the lesson’s source and use limitations.
 
 ## References
 

@@ -9,7 +9,7 @@ description: "A guide to Engoo Taiwan’s Standard, mixed, and Premium access, p
 tldr: "Engoo suits learners willing to choose tutors and materials for regular short lessons. Test the feedback first, then buy an allowance you can finish every 30 days."
 series:
   name: "English Speaking Practice"
-  order: 7
+  order: 25
 draft: false
 ---
 

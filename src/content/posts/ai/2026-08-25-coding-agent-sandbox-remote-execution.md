@@ -6,6 +6,9 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 11
+additionalSeries:
+  - name: "沙箱系列"
+    order: 18
 tags: [coding-agent, harness-engineering, sandbox, cloudflare-workers, durable-objects, sse]
 lang: zh-TW
 description: "拆解 Codex、Claude Code、OpenCode、Pi、OMP 五家的沙箱策略：本地 OS 級沙箱與雲端沙箱其實是兩種問題。對照 looplane 用 Cloudflare Worker control plane + Durable Object + Sandbox binding 做遠端執行的實戰，包括 SSE file stream 解碼與 stale wheel 兩個真實踩坑。"

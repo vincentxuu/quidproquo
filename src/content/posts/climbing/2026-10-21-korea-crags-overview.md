@@ -25,7 +25,7 @@ draft: false
 
 | 目的地 | 區域 | 主要吸引力 | 選擇前先想的事 |
 |---|---|---|---|
-| [仁壽峰 Insubong／인수봉](/posts/climbing/2026-10-21-korea-crag-insubong) | 首爾、北漢山 | 花崗岩裂隙、摩擦板、多繩距 | 5.8 仍需傳攀與下降能力 |
+| [仁壽峰 Insubong／인수봉](/posts/climbing/2026-10-21-korea-crag-insubong) | 首爾、北漢山 | 花崗岩裂隙、摩擦板、多繩距 | 5.8 仍需傳攀與下降能力；起攀位置與逐段資料見[逐段路線筆記](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes) |
 | [仙人峰 Seoninbong／선인봉](/posts/climbing/2026-10-21-korea-crag-seoninbong) | 首爾、道峰山 | 花崗岩多段與拳裂隙 | 核對具名路線、落石後公告與接近 |
 | [蔚山岩 Ulsanbawi／울산바위](/posts/climbing/2026-10-21-korea-crag-ulsanbawi) | 江原、雪嶽山 | 大型花崗岩岩壁與稜線 | 一天岩壁線和完整稜線分開安排 |
 | [將軍峰 Janggunbong／장군봉](/posts/climbing/2026-10-21-korea-crag-janggunbong) | 江原、雪嶽山 | 山谷上方的花崗岩長線 | 步道接近、繩隊速度與撤退都要規劃 |

@@ -7,12 +7,17 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "讀了十一個來源的面試內容之後，整理出面試官會問的五十三題和教材示範的說法，再對照自己原本的二十四張練習卡。這篇補上十三句：開場、說明職責、為什麼換工作、STAR 的背景、任務與結果、請對方重複題目、四個反問、面試後跟進。其中八句是來源原句（一句從原文的 company/team 取 team）。"
 tldr: "開場說 I'm really excited to be speaking with you today；職責用 I'm responsible for…；換工作用 I'd like to apply my skills to a new challenge；STAR 的背景用 In my current job, …，任務用 My job was to find a way of…，結果用 Because of this, …；沒聽清楚就說 Sorry, can you repeat the question?；反問可以問挑戰、典型的一天、下一步流程。"
+series:
+  name: "英文口說練習"
+  order: 11
 draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-10-08-interview-english-from-teaching-materials-en)
 
 前兩篇面試口說（[通用句型](/posts/learning/2026-10-07-interview-experience-english)和[我自己的故事](/posts/learning/2026-10-07-interview-agent-stories-english)）都是先想中文、再找字典確認句型。情境方面的依據只讀過一個商業求職網站。這次換做法：先讀面試相關的教材和指引，看它們涵蓋什麼，再對照我缺什麼。
+
+教材裡的面試題目可以用來練回答，不是現成答案。這篇的 HBR 題目依轉載頁與同名影片整理，不能當成付費原文的逐字引述；例句也不替你補上真實年資。
 
 ## 我當時想說什麼
 
@@ -193,19 +198,15 @@ HBR 那篇的轉載頁還有 *Can you tell me about the team I'll be working wit
 | 反問：下一步流程 | What's the next step in the recruitment process after this interview? |
 | 面試後跟進 | Can I just ask what the outcome of the interview is? |
 
-## 仍待核對
-
-- 在面試裡怎麼講失敗：六個來源都問，沒有一個示範回答。
-- 為什麼想來這家公司、強項、弱點：來源有題目與建議，示範句很少，這次沒有做成卡片。
-- HBR 原文的確切用字：內文在付費牆後面，我讀的是轉載頁；轉載頁和同名影片的題目一致，但個別用字不同。
-- 這些說法的英美差異：沒有一個來源說明。
-- 我的真實年資：前一篇的面試卡原本寫「五年」，是範例值。我不確定該報幾年，所以那張卡改成不講年數；其他幾張範例值的卡已換成真實內容。
-
 ## 整體來說
 
 十三句裡八句是來源原句，其中一句是從原文的 *company/team* 裡取 *team*。最值得先練的是 STAR 的三個開頭和四個反問，因為每場面試都會用到，而且這兩組在多個來源重複出現。
 
 這次最有用的發現不是句子，而是缺口的形狀：教材把開場、動機、反問教得很完整，卻沒有人示範怎麼講失敗和怎麼講工程專案的細節。這兩塊正好是我的面試最需要的，還是得靠自己寫、再找人幫忙看。來源方面，語言教材全是英國與澳洲的機構，沒有美國的口說教材；沒有母語者測試，也沒有頻率比較。
+
+## 更新紀錄
+
+- 2026-10-25：納入統一口說系列；查證待辦移至研究紀錄，保留教材來源與使用範圍。
 
 ## 參考資料
 

@@ -6,6 +6,9 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 11
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 18
 tags: [coding-agent, harness-engineering, sandbox, cloudflare-workers, durable-objects, sse]
 lang: en
 description: "How Codex, Claude Code, OpenCode, Pi, and OMP handle sandboxing—and why local OS sandboxes and cloud sandboxes are two different problems. Compared against looplane's real deployment on Cloudflare Workers with a control plane, Durable Objects, and a Sandbox binding, including SSE file stream decoding and stale wheel pitfalls."

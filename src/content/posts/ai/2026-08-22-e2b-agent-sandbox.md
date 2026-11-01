@@ -7,6 +7,9 @@ tags: [e2b, sandbox, ai-agent, code-execution, security]
 lang: zh-TW
 tldr: "E2B 把 Template、Firecracker microVM 與檔案／程序／網路 API 組成 agent 專用執行層；真正的選型優勢是可暫停並保留記憶體與程序，而不是單純多一個 code interpreter。"
 description: "從產品架構拆解 E2B：Template 如何預製環境、Sandbox 如何執行不可信程式碼、pause/resume 與網路政策如何影響長任務，以及它和 Modal、Daytona、Runloop、Vercel Sandbox、Cloudflare Sandboxes 的取捨。"
+series:
+  name: "沙箱系列"
+  order: 8
 draft: false
 ---
 

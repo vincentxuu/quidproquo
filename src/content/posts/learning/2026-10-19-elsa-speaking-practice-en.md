@@ -9,7 +9,7 @@ description: "Compare ELSA Speak pronunciation and AI conversation practice, Fre
 tldr: "ELSA can help isolate pronunciation difficulties. Check conversation entitlements before buying, then use your own words with a real listener instead of treating an app score as proof of speaking ability."
 series:
   name: "English Speaking Practice"
-  order: 10
+  order: 28
 draft: false
 ---
 

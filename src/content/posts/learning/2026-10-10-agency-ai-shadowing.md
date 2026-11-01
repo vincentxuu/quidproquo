@@ -6,6 +6,9 @@ tags: [podcast, self-learning, skill-development]
 lang: zh-TW
 description: "從 Max Schoening 的 Lenny’s Podcast 訪談理解 agency，搭配三段原站字幕跟讀、定位用短摘錄、改寫的英中理解提示與工作情境練習句。"
 tldr: "Agency 是相信自己能改變事情，並開始行動。讀完導讀，再用三段原音與原站英文字幕練跟讀，把觀念換成自己工作中說得出口的句子。"
+series:
+  name: "英文口說練習"
+  order: 3
 draft: false
 glossary:
   - term: "agency"

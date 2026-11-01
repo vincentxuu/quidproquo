@@ -9,7 +9,7 @@ description: "介紹 ELSA Speak 的發音練習與 AI 對話、Free／Pro／Prem
 tldr: "ELSA 適合把發音問題拆小練習；買之前分清發音課與完整 AI 對話權限，練完再用自己的話和真人確認，別把 App 分數當成口說能力證明。"
 series:
   name: "英文口說練習"
-  order: 10
+  order: 28
 draft: false
 ---
 

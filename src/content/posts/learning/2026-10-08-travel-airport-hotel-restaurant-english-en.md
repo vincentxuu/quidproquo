@@ -7,12 +7,17 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "I read seven public English teaching sources first, listed what they teach for travel, and compared that with my own practice cards, which only covered asking directions. This post adds sixteen sentences for airport check-in and transfers, hotel check-in and problems, ordering and paying, and asking the way and the fare. Nine of them are quoted from the materials or change a single word."
 tldr: "At check-in: I have one bag to check in. Before a transfer: Do I have to pick up my bag in …? At the hotel: I have a reservation. For a room problem: I'm afraid there's a problem with…. To order: I'll have the…, and if it is sold out, Okay, I'll have the … then. For ingredients: Does it have any … in it? For the bill: Shall we split the bill? For directions: Could you tell me which way … is?"
+series:
+  name: "English Speaking Practice"
+  order: 4
 draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-08-travel-airport-hotel-restaurant-english)
 
 The travel scenario in my speaking practice area had nine sentences, all of them about what is nearby and how to get somewhere. For earlier batches I wrote the Chinese first and then checked a dictionary for the pattern. This time I went the other way: I read English teaching materials first to see what they teach for travel, then looked at what I was missing.
+
+This lesson covers ordinary check-in, accommodation and restaurant requests, not rules for transporting climbing equipment. Use the service-charge question in its teaching context rather than inferring local charging practices from the phrase. State any other dietary requirements explicitly.
 
 ## What I was trying to say
 
@@ -173,19 +178,15 @@ Rate yourself on whether you got the meaning across, not on matching the words e
 | 問路：請問車站往哪個方向？ | Could you tell me which way the station is? | the station is word order |
 | 搭公車：車資需要剛好的零錢嗎？ | Do I need the exact fare? | exact fare |
 
-## Still to verify
-
-- How to ask about checking or carrying climbing gear: teaching materials do not cover it. I only read the first ten rows of the TSA sporting equipment table and have not reached climbing gear.
-- "Not spicy", "to go", and "can I leave my bags here": I did not find these in the materials I read.
-- "A table for two": I only saw it in sentence lists on commercial sites, so I did not use it.
-- Whether *Is service included?* applies outside the UK: the material does not say. The note on the card is my own addition.
-- Which version is more common: that needs a corpus query, which I did not run.
-
 ## Overall
 
 The main difference from earlier batches is the level of support. Nine of the sixteen are quoted from a source or change one word. *I'll have the…* appears in three sources, and *have a reservation*, *split the bill*, and the transfer baggage question each appear in two. The ones worth practicing first are the six restaurant sentences and the transfer question, because every trip uses them.
 
 The limits: I found the seven sources by searching, and they lean toward British institutions. Three sentences have only one source, and it is a commercial teaching site. For most pages I read the relevant section, not the whole site. There was no native-speaker testing and no frequency comparison.
+
+## Updates
+
+- 2026-10-25: Joined the unified speaking series; moved research to-dos into working notes and retained the lesson’s source and use limitations.
 
 ## References
 

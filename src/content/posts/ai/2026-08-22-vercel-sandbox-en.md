@@ -7,6 +7,9 @@ lang: en
 type: deep-dive
 tldr: "Vercel Sandbox isolates untrusted code in Firecracker microVMs and integrates with Fluid compute, Active CPU pricing, and Vercel OIDC. It fits agents already running on Vercel, but network defaults, memory billing, and persistence still require deliberate design."
 description: "A lifecycle-based examination of Vercel Sandbox: architecture, minimal usage, isolation, networking, persistence, pricing, security boundaries, and infrastructure trade-offs."
+series:
+  name: "Sandbox Series"
+  order: 11
 draft: false
 ---
 

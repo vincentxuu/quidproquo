@@ -9,6 +9,9 @@ tldr: "During a capture-the-flag style evaluation run by third-party firm Irregu
 series:
   name: "AI Security Alert"
   order: 34
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 26
 ---
 
 > 🌏 [中文版](/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape)

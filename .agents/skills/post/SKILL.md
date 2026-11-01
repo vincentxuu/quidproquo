@@ -25,7 +25,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 ## 支援的分類
 
-`tech` / `ai` / `product` / `marketing` / `learning` / `education` / `policy` / `design` / `career` / `climbing` / `surf` / `film` / `coffee` / `life` / `travel` / `anime` / `investing`
+`tech` / `ai` / `product` / `marketing` / `learning` / `education` / `policy` / `design` / `career` / `climbing` / `surf` / `film` / `coffee` / `life` / `travel` / `anime` / `investing` / `weather`
 
 不要自己發明新分類。找不到合適的先問使用者。
 

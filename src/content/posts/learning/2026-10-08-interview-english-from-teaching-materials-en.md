@@ -7,12 +7,17 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "After reading interview content from eleven sources, I listed fifty-three questions interviewers ask and the phrasing the materials demonstrate, then compared them with my own twenty-four practice cards. This post adds thirteen sentences: the opening, describing responsibilities, why I am changing jobs, the Situation, Task, and Result of STAR, asking for the question to be repeated, four questions for the interviewer, and following up afterwards. Eight of them are quoted from the sources."
 tldr: "To open: I'm really excited to be speaking with you today. For responsibilities: I'm responsible for… For changing jobs: I'd like to apply my skills to a new challenge. In STAR, the Situation starts with In my current job, …, the Task with My job was to find a way of…, and the Result with Because of this, … If you missed the question: Sorry, can you repeat the question? For your own questions, ask about challenges, a typical day, and the next step in the process."
+series:
+  name: "English Speaking Practice"
+  order: 11
 draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-08-interview-english-from-teaching-materials)
 
 My two earlier interview posts ([general patterns](/posts/learning/2026-10-07-interview-experience-english-en) and [my own stories](/posts/learning/2026-10-07-interview-agent-stories-english-en)) both started from the Chinese, and I then checked a dictionary for the pattern. For the situations themselves, the only thing I had read was one commercial job-search site. This time I changed the method: I read interview teaching materials and guidance first to see what they cover, then compared that with what I was missing.
+
+Use the interview questions as prompts, not ready-made answers. The HBR questions here are based on a repost and the same-title video, not verbatim access to the paywalled original. The examples do not supply your actual years of experience.
 
 ## What I was trying to say
 
@@ -193,19 +198,15 @@ Rate yourself on whether you got the meaning across, not on matching the words e
 | 反問：下一步流程 | What's the next step in the recruitment process after this interview? |
 | 面試後跟進 | Can I just ask what the outcome of the interview is? |
 
-## Still to verify
-
-- How to talk about failure in an interview: six sources ask the question, and none demonstrates an answer.
-- Why I want to work for this company, strengths, weaknesses: the sources have questions and advice but very few sample sentences, so I made no cards for them this time.
-- The exact wording of the HBR original: the article is behind a paywall, and I read the reposted page. The reposted page and the video of the same title have the same questions, but individual words differ.
-- British and American differences in these phrases: no source addresses them.
-- My actual years of experience: one interview card in an earlier post said "five years", which was an example value. I am not sure what number to give, so that card no longer states a number. The other example-value cards now use real content.
-
 ## Overall
 
 Eight of the thirteen sentences are quoted from the sources, one of them by picking *team* from *company/team* in the original. The ones worth practicing first are the three STAR openers and the four questions for the interviewer, because every interview uses them and both groups repeat across several sources.
 
 The most useful finding this time is not a sentence but the shape of the gap. The materials teach openings, motivation, and questions for the interviewer thoroughly, yet nobody demonstrates how to talk about failure or about the details of an engineering project. Those two are exactly what my interviews need most, so I still have to write them myself and find someone to look them over. As for the sources, the language teaching materials all come from British and Australian institutions, with no American speaking materials. There was no native-speaker testing and no frequency comparison.
+
+## Updates
+
+- 2026-10-25: Joined the unified speaking series; moved research to-dos into working notes and retained the lesson’s source and use limitations.
 
 ## References
 

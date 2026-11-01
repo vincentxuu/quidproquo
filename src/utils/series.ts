@@ -215,8 +215,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'climbing',
     names: { 'zh-TW': '日本岩場', en: 'Japan Climbing Crags' },
     descriptions: {
-      'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭電車與開車怎麼去、在地規範。母群取自 ROCKTOPO 與 CLIMBING-net（《日本100岩場》），依都道府縣排序，從本州中部開始逐步補滿全日本。',
-      en: 'One crag per guide: rock type and climbing style, the best seasons and why, how to get there by train or car, and local rules. Crags are drawn from ROCKTOPO and CLIMBING-net (the Japan 100 Crags guidebooks), ordered by prefecture, starting in central Honshu and expanding to cover all of Japan.',
+      'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭電車與開車怎麼去、在地規範。母群取自 ROCKTOPO 與 CLIMBING-net（《日本100岩場》），依都道府縣排序，優先補齊知名的獨立目的地；分區留在母岩場指南。',
+      en: 'One crag per guide: rock type and climbing style, the best seasons and why, how to get there by train or car, and local rules. Crags are drawn from ROCKTOPO and CLIMBING-net (the Japan 100 Crags guidebooks), ordered by prefecture, prioritizing notable independent destinations, with sectors kept in their parent guides.',
     },
   },
   {
@@ -374,6 +374,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'sandbox-series',
+    category: 'engineering',
+    names: { 'zh-TW': '沙箱系列', en: 'Sandbox Series' },
+    descriptions: {
+      'zh-TW': '把 AI agent 執行環境與沙箱從原理、供應商到安全邊界拆開：從 Namespace、gVisor、Firecracker 的隔離光譜，到 E2B、Daytona、Runloop、Vercel 等雲端沙箱的選型取捨，以及權限、憑證、網路邊界與逃逸案例。',
+      en: 'Breaking down AI agent execution environments and sandboxes from principle, to vendor selection, to security boundaries: from the isolation spectrum of Namespace, gVisor, and Firecracker, to the trade-offs of cloud sandboxes like E2B, Daytona, Runloop, and Vercel, plus permission, credential, network-boundary, and escape case studies.',
+    },
+  },
+  {
     slug: 'ai-top-conferences',
     category: 'ai-agents',
     names: { 'zh-TW': 'AI 頂會導讀', en: 'Reading AI Top Conferences' },
@@ -399,6 +408,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '把 agent 當成一條生產線來看：概念界線、模型與 harness 的分工、context 與記憶、企業案例、安全、協定層，以及 RAG 的三種形態。',
       en: 'Reading agents as a production line: where the concept ends, how model and harness divide the work, context and memory, enterprise cases, security, the protocol layer, and the three shapes of RAG.',
+    },
+  },
+  {
+    slug: 'ai-agent-security-tooling',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI Agent 資安工具地圖', en: 'AI Agent Security Tooling Map' },
+    descriptions: {
+      'zh-TW': '把 skill、MCP 與 coding agent 周邊的開源資安工具分成七類：安裝前掃描、沙箱、護欄與閘道、偵測與稽核、程式碼審計、測試 AI 系統，以及用 AI 打別人的滲透測試，逐類看它們做了什麼、沒做什麼，以及公開的數字能不能信。',
+      en: 'The open-source security tools around skills, MCP and coding agents, sorted into seven kinds: pre-install scanning, sandboxes, guardrails and gateways, detection and audit, code auditing, testing AI systems, and AI that attacks others. What each does, what it does not, and whether the published numbers hold up.',
     },
   },
   {
@@ -570,8 +588,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS329Z 導讀', en: 'Reading Stanford CS329Z' },
     descriptions: {
-      'zh-TW': 'Stanford CS329Z Fall 2026 自學導讀：前九堂投影片附頁碼對照，各週指定閱讀分篇深讀，從 agent 迴圈、記憶與協調走到評估、安全及主動式助理。',
-      en: 'A self-study guide to Stanford CS329Z Fall 2026: page-linked guides to nine slide decks and individual reading digests, from agent loops, memory and coordination to evaluation, safety and proactive assistants.',
+      'zh-TW': 'Stanford CS329Z Fall 2026 自學導讀，一堂一篇：已公開的十一堂投影片附頁碼對照，各堂指定閱讀深讀，從 agent 迴圈、記憶與協調走到評估、安全及主動式助理。',
+      en: 'A self-study guide to Stanford CS329Z Fall 2026, one post per lecture: page-linked guides to the eleven released slide decks and digests of each lecture\'s readings, from agent loops, memory and coordination to evaluation, safety and proactive assistants.',
     },
   },
   {
@@ -669,6 +687,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '把學習科學的證據與生成式 AI 的實際用法擺在一起審視：哪些做法有證據支持、哪些只是流傳，以及數位之外紙筆還剩什麼。',
       en: 'Auditing the evidence behind learning science alongside how generative AI is actually used — which practices hold up, which merely circulate, and what pen and paper still do better.',
+    },
+  },
+  {
+    slug: 'ai-common-failures',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI 通病', en: 'AI Common Failures' },
+    descriptions: {
+      'zh-TW': 'LLM 寫的文字讀起來有資訊、讀者卻拿不到答案的寫法：否定式對比、意義抬高、指示型摘要、過度概括。每篇講怎麼認、怎麼改、什麼時候該留，再談成因、防護與別矯枉過正。',
+      en: 'Patterns in LLM prose that read as informative but leave the reader without an answer: contrast framing, significance inflation, indicative summaries, overgeneralization. Each post covers how to spot it, how to fix it and when to keep it, followed by causes, guardrails and the risk of overcorrecting.',
     },
   },
   {
@@ -1302,12 +1329,21 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'crack-climbing',
+    category: 'climbing',
+    names: { 'zh-TW': '裂隙攀登技術', en: 'Crack Climbing Technique' },
+    descriptions: {
+      'zh-TW': '讀完〈裂隙怎麼爬〉之後，按尺寸把每種塞法練到能用：手掌、腳塞、指裂、薄手、拳、寬裂、擠身縫與煙囪，再到 layback、斜裂與屋簷，最後是膠帶手套、訓練，以及日本與韓國的裂隙岩場。每種技巧都附 2020 年以後、不同岩場與不同攀岩者的教學和攀爬影片，也講手大小怎麼改變答案。',
+      en: 'After the crack-climbing primer, work through each size until it holds: hands, feet, fingers, off-fingers, fists, offwidths, squeezes and chimneys, then laybacks, leaning cracks and roofs, and finally tape gloves, training, and the crack crags of Japan and Korea. Every technique comes with 2020-or-later lessons and ascent videos from different crags and climbers, and each post covers how hand size changes the answer.',
+    },
+  },
+  {
     slug: 'english-speaking-practice',
     category: 'learning',
     names: { 'zh-TW': '英文口說練習', en: 'English Speaking Practice' },
     descriptions: {
-      'zh-TW': '從具體溝通任務出發，逐家介紹線上真人平台、AI 工具與語言學校，搭配課前準備、課中回饋與課後重說。',
-      en: 'Task-based speaking practice with individual guides to live tutoring platforms, AI tools, and language schools, connecting preparation, feedback, and repetition.',
+      'zh-TW': '從練習方法與跟讀研究出發，接到日常、旅遊、衝浪、攀岩、工作與面試教材，再選擇真人平台、AI 工具或語言學校，安排回饋與複習。',
+      en: 'A complete speaking practice path: methods and shadowing research, everyday and specialist scenarios, tutoring platforms, AI tools, language schools, feedback and review.',
     },
   },
 ];

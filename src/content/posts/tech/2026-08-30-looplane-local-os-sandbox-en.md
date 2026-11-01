@@ -10,6 +10,9 @@ description: "Trace how Looplane resolves its verification sandbox into macOS sa
 series:
   name: "Looplane Architecture Notes"
   order: 10
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 3
 draft: false
 ---
 

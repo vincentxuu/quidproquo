@@ -10,6 +10,9 @@ description: "拆解 Cloudflare Sandbox SDK 的三層架構、生命週期、最
 series:
   name: "Cloudflare AI Stack"
   order: 10
+additionalSeries:
+  - name: "沙箱系列"
+    order: 15
 draft: false
 ---
 

@@ -7,12 +7,17 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "A system design interview has no code, and nearly all forty-five minutes are spent talking. This post collects twelve sentences: how to open by asking about users, traffic, and the read to write ratio; how to set scope, state an assumption, and park a detail; how to state the cost of an approach, commit to a decision, point out a bottleneck, and change your mind on the spot. The sentences come from the System Design Primer, Google's official interview guidance, and the transcripts of three mock interviews on interviewing.io."
 tldr: "Open with How many users are there? and What is the expected read to write ratio? For a detail you are parking: I'm going to put a pin in that. For a cost: …but it will come at the cost of latency. After comparing, commit: I'm going to go with an event queue because I'd rather… After a section, ask Do you think that makes sense?"
+series:
+  name: "English Speaking Practice"
+  order: 14
 draft: false
 ---
 
 > 🌏 [中文版](/posts/learning/2026-10-12-system-design-interview-english)
 
 This is the third piece of interview speaking. After [coding interviews](/posts/learning/2026-10-12-coding-interview-english-en) and [handling follow-up questions](/posts/learning/2026-10-12-interview-thinking-time-english-en), what remains is the system design interview.
+
+The examples use selected passages from mock-interview transcripts, not complete records of actual hiring interviews. Speech-to-text errors are possible and the wording has not been checked line by line against audio. Use the examples to practise requirements, trade-offs and follow-ups, not to establish register, regional differences or how to pronounce capacity figures.
 
 ## What I was trying to say
 
@@ -185,20 +190,15 @@ The standard for rating yourself is whether you can get the meaning across, not 
 | 當場改口 | It may actually make more sense, now that I'm thinking about this, to use a NoSQL database. |
 | 確認對方同意 | Do you think that makes sense? |
 
-## Still to verify
-
-- **The transcripts were not read from start to finish.** For all three I searched by function and read the surrounding passages, so I may have missed better wording.
-- **The transcripts are speech converted to text.** Individual words may be misrecognized, and I did not check them against the recordings.
-- **A mock interview is not a real hiring interview.** The candidates are people practicing, and their performance varies. I tried to pick sentences from passages the interviewer praised afterwards, but not every sentence has that.
-- **The expression put a pin in.** It is used in a transcript and the interviewer praises the move, but I did not find a dictionary entry to confirm its register.
-- **How to say the numbers aloud when estimating capacity.** Google's guidance asks for numeric estimates; I made no card for this.
-- **British and American differences.** The sources are all American companies and platforms, and none explains regional differences in usage.
-
 ## Overall
 
 Of the twelve sentences, six are quoted from a source and six are adapted. The ones to practice first are the three opening questions about scale, and *I'm going to go with … because I'd rather…*. The first group is needed for every question; the second is the step all three sources stress and the one most easily skipped: after comparing, commit to a decision.
 
 What sets this batch apart from the two earlier posts is that the evidence includes actual conversations, followed by the interviewer's feedback, so I can see which ways of speaking were counted as strengths. The limitation is in the same place: these are mock interviews, not language teaching materials, and nobody guarantees the grammar of those sentences. I only picked sentences that hold up grammatically and that are matched by the same wording or the same expectation in another source.
+
+## Updates
+
+- 2026-10-25: Joined the unified speaking series; moved research to-dos into working notes and retained the lesson’s source and use limitations.
 
 ## References
 

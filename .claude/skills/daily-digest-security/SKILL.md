@@ -317,6 +317,7 @@ series:
 - [ ] 攻擊面對應到 OWASP LLM Top 10 的哪一項
 - [ ] 防禦做法有「立即動作」和「長期架構」兩層
 - [ ] 提到了 watchlist B7 中相關的安全工具
+- [ ] 推薦或引用 watchlist 廠商／工具前已確認其現況（被收購、更名、停止維護者要註明現屬哪家，並查 watchlist 條目的 `note` 欄）。例：Invariant Labs 已於 2025-06-24 被 Snyk 收購，其 mcp-scan 現為 snyk/agent-scan，應寫「Snyk（前 Invariant Labs）的 Agent Scan」，不要當獨立廠商推薦
 - [ ] 基本資訊表完整（類型、範圍、嚴重度、CVE、來源）
 - [ ] 「今日收穫」是認知差，不是摘要
 - [ ] description 和 tldr 已填寫

@@ -7,12 +7,17 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "先讀七份公開的英語教材，整理出旅遊情境教哪些功能，再對照自己原本的練習卡，發現只練了問路。這篇補上機場報到與轉機、飯店入住與求助、點餐與付帳、問方向與車資，共十六句，其中九句是教材原句或只換了一個詞。"
 tldr: "報到時說 I have one bag to check in；轉機問 Do I have to pick up my bag in …?；入住說 I have a reservation；房間有問題說 I'm afraid there's a problem with…；點餐說 I'll have the…，賣完了就 Okay, I'll have the … then；問成分用 Does it have any … in it?；付帳說 Shall we split the bill?；問路可以說 Could you tell me which way … is?"
+series:
+  name: "英文口說練習"
+  order: 4
 draft: false
 ---
 
 > 🌏 [English version](/posts/learning/2026-10-08-travel-airport-hotel-restaurant-english-en)
 
 我的口說練習區裡，旅遊情境原本有九句，全部是「這附近有什麼」和「怎麼到那裡」。之前幾批句子的做法是先想中文、再找字典確認句型。這次反過來：先讀英語教材，看它們在旅遊情境教什麼，再回頭看自己缺什麼。
+
+這篇練一般報到、住宿與用餐需求，不涵蓋攀岩裝備的託運規定。詢問服務費的句子依教材情境使用，不從一句問法推論不同地區的收費制度；其他飲食限制也要另說清楚。
 
 ## 我當時想說什麼
 
@@ -173,19 +178,15 @@ British Council 交通那一課的角色扮演講到搭公車付現：*the drive
 | 問路：請問車站往哪個方向？ | Could you tell me which way the station is? | the station is 的語序 |
 | 搭公車：車資需要剛好的零錢嗎？ | Do I need the exact fare? | exact fare |
 
-## 仍待核對
-
-- 攀岩裝備託運或隨身攜帶怎麼問：教材不教這個。美國 TSA 的運動器材表我只讀到前十列，還沒讀到攀岩裝備。
-- 「不吃辣」「可以外帶嗎」「可以寄放行李嗎」：這次讀的教材裡沒有找到。
-- 「一張兩人的桌子」：只在商業網站的句子清單裡看到，沒有採用。
-- *Is service included?* 在英國以外是否適用：教材沒有寫，我在卡片上加的提醒是自己的補充。
-- 哪一句比較常用：這需要語料庫查詢，這次沒有做。
-
 ## 整體來說
 
 這批句子和之前最大的不同是依據的層級。十六句裡有九句是教材原句或只換一個字，其中 *I'll have the…* 在三份教材出現，*have a reservation*、*split the bill*、轉機領行李的問法各在兩份教材出現。最值得先練的是點餐那六句和轉機那一句，因為每趟行程都會用到。
 
 限制也要說清楚：七份來源是搜尋找到的，偏英國機構；有三句只有一份來源，而且是商業教學網站；多數頁面我讀的是相關段落，不是整個網站。沒有母語者測試，也沒有頻率比較。
+
+## 更新紀錄
+
+- 2026-10-25：納入統一口說系列；查證待辦移至研究紀錄，保留教材來源與使用範圍。
 
 ## 參考資料
 

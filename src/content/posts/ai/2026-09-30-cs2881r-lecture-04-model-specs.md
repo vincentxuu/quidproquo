@@ -204,13 +204,13 @@ Hugh Van Deventer 問的是：拿一個安全訓練很少的模型，給它詳�
 
 作者的解讀是：prompt 是在既有分布裡挑子分布，可以逆轉、可以依用途調整，但也會被後來的 prompt（包括 jailbreak）蓋掉；安全訓練試圖改變底層分布，比較持久，但難以精準瞄準，容易矯枉過正。他建議兩者並用。
 
-## 這一篇可以確認與不能確認的
+## 讀這一篇要知道的範圍
 
-可以確認：課站列出的講題與閱讀清單；錄影內容（依自動字幕）；投影片前幾張的文字（計畫、三時期表、三種對齊目標）；Drive 資料夾的檔案清單；實驗文與 repo；兩篇論文的摘要。不能確認：課站條列的「Lessons from law」在投影片後段是否有更完整的內容（PowerPoint Online 只擷取到前幾張，錄影裡只談到兩大法系與法規字數）；錄影沒有討論 SpecEval 與 Statutory Construction，本文只依論文摘要介紹；各組 Google Doc 的完整內容本文沒有逐份核對。
+錄影沒有討論 SpecEval 與 Statutory Construction，上文對這兩篇的介紹依論文摘要。課站條列的「Lessons from law」，錄影只談到兩大法系與法規字數。
 
 錄影最後預告了期中 mini-project：四篇論文擇一重現，約一個月，細節見[期中專題那篇](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project)。
 
-延伸閱讀：站上 [CS329Z 的 LLM-as-judge 與安全評測](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)談「用模型評模型」的陷阱，可以對照 SpecEval 的三方一致性設計。
+延伸閱讀：站上 [CS329Z 的 LLM-as-judge](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge)與[安全評測](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety)談「用模型評模型」的陷阱，可以對照 SpecEval 的三方一致性設計。
 
 系列導覽：[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)｜上一篇 [L3：jailbreak、prompt injection 與從軟體安全借來的教訓](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness)｜下一篇 [L5：Content Policies](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies)
 

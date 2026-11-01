@@ -7,6 +7,9 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: en
 description: "After reading twenty-one episodes of BBC Office English, four British Council speaking lessons, and PagerDuty's incident response documentation, I found that what the materials teach barely overlaps with what I had been practicing. This post adds nineteen sentences: asking for help and saying no, checking understanding, disagreeing politely, admitting mistakes and warning about bad news, chasing progress and deadlines, and incident calls. Fifteen of them are quoted from the sources."
 tldr: "When you are stuck: Have you got a second to help me out? To ask for a second look: I think I need another pair of eyes on this. To check understanding: Can I just check that I've understood that right? When you are lost: I'm not sure I follow you. Before disagreeing: I see what you mean, but… When you got it wrong: That's on me. Before bad news: I need to give you a heads up. To chase progress: Have you had a chance to look at…?"
+series:
+  name: "English Speaking Practice"
+  order: 7
 draft: false
 ---
 
@@ -15,6 +18,8 @@ draft: false
 The ten sentences in [my previous work English post](/posts/learning/2026-10-07-work-standup-english-en) started from the Chinese, and I then checked a dictionary for the pattern. The topic was reporting progress in a stand-up. This time I changed the method: I read workplace English teaching materials first to see what they teach, then compared.
 
 The result surprised me a little. The materials teach almost none of what I had been practicing.
+
+This lesson mainly uses workplace materials from British institutions, not a comparison of British and American speech. Sentences with staging, PR or branch are technical-context practice, not transcripts of engineering meetings. For stand-up updates, continue with the [ten workplace expressions](/posts/learning/2026-10-07-work-standup-english-en).
 
 ## What I was trying to say
 
@@ -186,19 +191,15 @@ Rate yourself on whether you got the meaning across, not on matching the words e
 | 問期限能不能動 | How firm is our deadline on this? |
 | 事故中回覆收到 | Understood, I'll get back with an update in 20 minutes. |
 
-## Still to verify
-
-- How to report progress in a stand-up: none of the materials I read this time teach it. It needs another kind of source, such as public meeting notes from engineering teams.
-- Whether *Have you got…?* and *snowed under* lean British: both speaking sources are British institutions and do not say. I did not find a dictionary label either.
-- Whether the collocations still sound natural after I swapped technical terms (staging, PR, branch) into the source sentences: I did not check separately.
-- American workplace speaking materials: I sampled none this time.
-- Thirteen episodes of BBC Office English are still unread.
-
 ## Overall
 
 The biggest difference between this batch and the previous post is that I found what I had been practicing barely overlaps with what the materials teach. I assumed the hard part of work English was explaining a technical situation clearly. The materials put the hard part between people: how to ask for help, how to say no, how to disagree without souring things, how to admit a mistake. Both are needed, but I had never practiced the second kind at all.
 
 Fifteen of the nineteen sentences are quoted from the sources. The ones worth practicing first are the three for checking understanding and the three for admitting mistakes, because leaving those unsaid costs the most. The limit is that both speaking sources come from British institutions, so this level of indirectness may not fit elsewhere. There was also no native-speaker testing and no frequency comparison.
+
+## Updates
+
+- 2026-10-25: Joined the unified speaking series; moved research to-dos into working notes and retained the lesson’s source and use limitations.
 
 ## References
 
