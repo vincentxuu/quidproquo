@@ -8,8 +8,8 @@ lang: en
 series:
   name: "Choosing an Agent CLI"
   order: 10
-tldr: "OpenCode is a free, open-source TypeScript CLI agent (MIT, ~198K GitHub stars). It supports 75+ model providers including local Ollama, allows authentication via Copilot/ChatGPT accounts, and lets you switch models mid-session without losing context. There is also a desktop app and an official Zen gateway."
-description: "OpenCode's open-source architecture, multi-provider support, the Zen gateway, authentication options, core features, comparison with Claude Code, and who it fits."
+tldr: "OpenCode is a free, open-source TypeScript CLI agent (MIT). It supports 75+ model providers including local Ollama, can connect external providers and supported subscription plans, and lets you switch models mid-session. There is also a desktop app, built-in free models, and an optional Console service."
+description: "OpenCode's open-source architecture, multi-provider support, the Console model service, authentication options, core features, comparison with Claude Code, and who it fits."
 draft: false
 ---
 
@@ -21,26 +21,28 @@ This post provides an in-depth analysis of OpenCode's architecture, pricing, cor
 
 ## Product Positioning
 
-[OpenCode](https://github.com/anomalyco/opencode) is an open-source coding agent written in **TypeScript** and licensed under **MIT**, maintained under the [anomalyco](https://github.com/anomalyco) org. It has around **198K GitHub stars**, the highest in the agent CLI space; the project's own numbers are 950 contributors, 13,000+ commits, and 16 million developers a month.
+[OpenCode](https://github.com/anomalyco/opencode) is an open-source coding agent written in **TypeScript** and licensed under **MIT**, maintained under the [anomalyco](https://github.com/anomalyco) org.
 
 > **⚠️ A common case of mistaken identity**: an earlier project called `opencode-ai/opencode` was written in Go with [Bubble Tea](https://github.com/charmbracelet/bubbletea), and it is not the same codebase as this OpenCode. Much of the "OpenCode is written in Go and licensed Apache-2.0" claim circulating online — including in the previous version of this post — traces back to that confusion. Go by the current repo: TypeScript, MIT.
 
-The terminal interface is far from a bare-bones text-only experience — OpenCode offers a full TUI with panel switching, syntax highlighting, and interactive operations. It runs in the terminal but feels close to a GUI. Beyond the TUI there is now also a **desktop app** (beta, on macOS / Windows / Linux) and an IDE extension.
+The terminal interface is far from a bare-bones text-only experience — OpenCode offers a full TUI with panel switching, syntax highlighting, and interactive operations. It runs in the terminal but feels close to a GUI. Beyond the TUI there is now also a **desktop app** with platform-specific downloads and an IDE extension.
 
-There are many ways to install it: `curl -fsSL https://opencode.ai/install | bash`, npm, Homebrew, scoop, pacman, and nix all work.
+For a new V2 installation, use `npm install --global @opencode/cli`, then verify the version with `opencode --version`. The command remains `opencode`. V1 uses the older `opencode-ai` package; on Windows, use the [official V2 standalone CLI download](https://opencode.ai/v2/docs).
 
 ## Pricing Model
 
-OpenCode itself is completely free; what you pay for is the underlying LLM usage. There are three ways to access models:
+The application is free and open source, and model access can also be free. Keep these options separate:
 
-| Plan | Cost | Description |
-|------|------|-------------|
-| **OpenCode (the tool)** | Free (open-source) | MIT license, no usage restrictions |
-| **OpenCode Zen** | Pay-as-you-go, prepaid credits | The official curated AI gateway: only models the team has tested and tuned with providers |
-| **BYOM (Bring Your Own Model)** | Free, billed at provider rates | Use your own API keys, connect directly to any supported provider |
-| **Copilot / ChatGPT Auth** | Free (uses existing subscription) | Log in with your GitHub Copilot or ChatGPT Plus account |
+| Option | Cost | What it means |
+|---|---|---|
+| OpenCode application | Open source | The client, not unlimited access to every model |
+| Built-in free models | Free within service limits | Select an available free entry in `/models`; check both Input and Output in the official price table |
+| Console paid models | Pay-as-you-go | Prepaid access to the official model catalog |
+| OpenCode Go | Optional paid subscription | Included usage subject to the plan's limits |
+| External provider or local model | Depends on the service or hardware | A provider's free tier, paid API, or local inference |
+| Supported subscription sign-in | Uses an existing paid plan | Account eligibility and plan limits still apply |
 
-The last option is worth noting: if you already subscribe to GitHub Copilot or ChatGPT Plus, you can authenticate OpenCode directly with that account at no additional cost. This makes the switching cost virtually zero.
+For example, the [official Console table](https://opencode.ai/v2/docs/console/models) lists Big Pickle (`opencode/big-pickle`) with free input and output. You can start with a native free model without connecting OpenRouter. Free availability and usage limits may change. An existing paid subscription is not a free model merely because it avoids a separate API bill.
 
 ## Supported Providers
 
@@ -54,6 +56,12 @@ OpenCode supports **75+ LLM providers**, covering major cloud and local options:
 - **Groq** (ultra-low latency inference)
 - **OpenRouter** (aggregated routing)
 - **Ollama** (local models, fully offline)
+
+Provider and model metadata comes from [Models.dev](https://models.dev).
+
+### OpenCode Console
+
+The current V2 documentation groups the official model service under Console, rather than the older Zen name. Console offers a tested model catalog, paid usage, and free entries; Go is an optional subscription. You can use other providers instead. For the backend and API changes, see the [OpenCode 2 guide](/posts/tech/2026-08-22-opencode-2-electron-rewrite-coding-agent-en).
 
 The key capability: **switch models mid-session without losing context**. You can start a complex refactoring task with Claude Sonnet, switch to o3 when you need stronger reasoning, then switch back to Gemini for documentation generation -- the entire conversation history and working state is fully preserved.
 
@@ -91,7 +99,7 @@ Like other Agent CLIs, OpenCode can execute shell commands, read and write files
 
 ### Privacy First
 
-**No code or context data is stored in the cloud**. All data stays in local SQLite. Even when using OpenCode Zen routing, only API requests are forwarded -- no content is retained.
+Local SQLite history and data received by model services are separate boundaries. Cloud models still receive prompts, tool results, and selected code; session sharing also changes who can access the data. Console policies vary by model: data collected during Big Pickle's free period may be used to improve it. Local persistence does not mean that nothing is sent to or retained in the cloud.
 
 ## Comparison with Claude Code
 
@@ -99,7 +107,7 @@ OpenCode and Claude Code are the two most closely positioned Agent CLIs, but the
 
 | Aspect | OpenCode | Claude Code |
 |--------|----------|-------------|
-| **Cost** | Free (open-source) | $20+/month (API costs) |
+| **Cost** | Open-source tool; free models or separately paid services | Paid subscription or API billing |
 | **Supported Models** | 75+ providers | Anthropic models only |
 | **Context Management** | Good, supports mid-session switching | More mature, sub-agent architecture |
 | **Vendor Lock-in** | Zero lock-in | Locked to Anthropic |
@@ -127,22 +135,26 @@ For more discussion on multi-model routing strategies, see **[Multi-Model Routin
 OpenCode is best suited for the following types of developers and teams:
 
 - **Those seeking provider independence**: Don't want to be locked into any single LLM provider, want the freedom to switch at any time
-- **Privacy-sensitive teams**: All data stays local, nothing uploaded to the cloud
+- **Privacy-sensitive teams**: Choose local models, or review the data terms of cloud providers
 - **Local model users**: Run local models via Ollama, operate completely offline
-- **Developers with existing Copilot / ChatGPT subscriptions**: Zero additional cost, use your existing account directly
+- **Developers with a supported subscription**: Evaluate account sign-in while respecting the plan's eligibility and limits
 - **Teams needing maximum model flexibility**: Use different models for different tasks, switch mid-session without losing context
-- **Budget-conscious individual developers**: The tool itself is free, you only pay for model usage
+- **Budget-conscious individual developers**: Start with built-in free models and evaluate payment later
 
 If your need is "use the strongest model for the most complex tasks," Claude Code may be a better fit. But if your need is "use the most suitable model for each task," OpenCode's multi-provider architecture offers flexibility that other tools can't match.
 
-## References
-
-- [OpenCode | GitHub (anomalyco/opencode)](https://github.com/anomalyco/opencode)
-- [OpenCode official site](https://opencode.ai/)
-- [OpenCode Docs](https://opencode.ai/docs/)
-- [OpenCode Zen documentation](https://opencode.ai/docs/zen/)
-- [Models.dev (source of the provider and model list)](https://models.dev)
+For step-by-step setup, finding free models, and a first everyday prompt, read [How to use LLMs for free with OpenCode 2 and OpenRouter](/posts/ai/2026-11-01-free-llm-opencode2-openrouter-en).
 
 ## Changelog
 
+- 2026-11-01: Updated V2 installation, native free-model access and optional Console/Go pricing; clarified subscription costs and cloud data policies, including Big Pickle.
 - 2026-08-18: Refreshed against the official repo and docs, correcting three substantive errors: (1) **the language is TypeScript, not Go**; (2) **the license is MIT, not Apache-2.0**; (3) the repo has long since moved off `opencode-ai/opencode` and is maintained by `anomalyco` (formerly `sst/opencode`). All three traced back to confusion with an earlier, identically named Go project, now flagged in the post. Also: stars 95K → ~198K; added the desktop app, the built-in build/plan agents and general subagent, Models.dev as the provider list source, and Zen's curation angle; removed a dead freerouter link and an outdated SWE-bench comparison
+
+## References
+
+- [OpenCode GitHub](https://github.com/anomalyco/opencode)
+- [OpenCode V2 installation](https://opencode.ai/v2/docs)
+- [OpenCode V2 CLI commands](https://opencode.ai/v2/docs/cli/commands)
+- [OpenCode Console models and privacy](https://opencode.ai/v2/docs/console/models)
+- [OpenCode V2 models](https://opencode.ai/v2/docs/models/)
+- [Models.dev](https://models.dev)

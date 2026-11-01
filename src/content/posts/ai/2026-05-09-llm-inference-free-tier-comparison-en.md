@@ -16,6 +16,12 @@ For side projects, toy demos, and RAG prototypes, nobody wants to swipe a credit
 
 All numbers below are cross-referenced directly from official pricing pages. Where something couldn't be verified, it's explicitly marked "unverified" -- nothing is fabricated to fill the table.
 
+## Free models inside an app are different from a free API
+
+If you just want to ask questions or organize text, OpenCode 2 provides free models inside the app. Open `/models`, select an OpenCode model such as Big Pickle, and confirm that both Input and Output are Free in the [official model table](https://opencode.ai/v2/docs/console/models). You do not need to connect OpenRouter first.
+
+These hosted free chat models are intended for use through OpenCode. For an API in your own application, OpenRouter's `:free` variants or `openrouter/free` are a separate option. Neither route guarantees unlimited capacity. The [OpenCode 2 article](/posts/tech/2026-08-22-opencode-2-electron-rewrite-coding-agent-en) covers its current installation and model entry points.
+
 ## How the Three Tiers Are Defined
 
 The key distinction is whether free resources **auto-replenish or are one-time / hard-capped**:
@@ -124,10 +130,11 @@ Gemini 3 series official pipeline, 1.2M context window included.
 ### (c) Strict Rate Limits (no large token quotas)
 
 **[OpenRouter](https://openrouter.ai/)**
-- `:free` models at 20 RPM; cumulative purchases <$10 -> 50 RPD; purchases >=$10 -> **1000 RPD**
-- No credit card required for free models (DeepSeek-V3, Llama 3.3 70B, Qwen3, etc.)
-- Paid requests forwarded at provider cost, zero markup
-- Catch: `:free` models have worse context and throughput, may fall back, and prompts may be collected by providers
+- Choose a currently listed `:free` variant, checking that both input and output prices are zero. `openrouter/free` instead chooses from eligible free models automatically.
+- The official free-variant limits table lists 20 requests/minute. The daily limit is 50 requests below 10 credits purchased in total, or 1,000 at 10 or more; check [Limits](https://openrouter.ai/docs/api/reference/limits) and your account for the applicable policy.
+- For coding agents, also check `tools` support. Not every model has a free variant, and free availability can change.
+- Each agent task may make several model requests. A daily request allowance is not a daily task allowance. Wait or try another free model when capacity is exhausted.
+- Paid inference prices and credit-purchase fees are separate; check [Pricing](https://openrouter.ai/pricing) before paying. See the [OpenRouter guide](/posts/ai/2026-08-22-openrouter-model-routing-en) for model selection and routing.
 
 **[GitHub Models](https://github.com/marketplace/models)**
 - Copilot Free/Pro: Low models 15 RPM / 150 RPD; High models 10 RPM / 50 RPD; Embedding 15 RPM / 150 RPD; most limited to 8K input / 4K output
@@ -318,7 +325,17 @@ Overall, the good news in 2026 is that free resources are far more abundant than
 
 ---
 
+For step-by-step setup, finding free models, and a first everyday prompt, read [How to use LLMs for free with OpenCode 2 and OpenRouter](/posts/ai/2026-11-01-free-llm-opencode2-openrouter-en).
+
+## Update history
+
+- 2026-11-01: Updated the OpenRouter entry and added OpenCode 2 in-app free models versus external API access. Other providers retain their existing section information.
+
 ## References
+
+- [OpenCode 2 Console models](https://opencode.ai/v2/docs/console/models)
+- [OpenRouter Free Models Router](https://openrouter.ai/docs/guides/routing/routers/free-router)
+- [OpenRouter Free Variant](https://openrouter.ai/docs/guides/routing/model-variants/free)
 
 - [Cerebras Inference Rate Limits](https://inference-docs.cerebras.ai/support/rate-limits)
 - [Cerebras Inference Pricing](https://inference-docs.cerebras.ai/support/pricing)
@@ -327,7 +344,7 @@ Overall, the good news in 2026 is that free resources are far more abundant than
 - [Cloudflare Workers AI Pricing](https://developers.cloudflare.com/workers-ai/platform/pricing/)
 - [Google Gemini API Pricing](https://ai.google.dev/pricing)
 - [Google Gemini API Rate Limits](https://ai.google.dev/gemini-api/docs/rate-limits)
-- [OpenRouter API Limits](https://openrouter.ai/docs/api-reference/limits)
+- [OpenRouter API Limits](https://openrouter.ai/docs/api/reference/limits)
 - [GitHub Models Prototyping Limits](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models)
 - [Hugging Face Inference Providers Pricing](https://huggingface.co/docs/inference-providers/pricing)
 - [Vercel AI Gateway Pricing](https://vercel.com/docs/ai-gateway/pricing)

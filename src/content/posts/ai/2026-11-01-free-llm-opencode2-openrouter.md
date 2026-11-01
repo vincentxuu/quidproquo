@@ -7,7 +7,7 @@ tags: [opencode, openrouter, llm, coding-agent]
 lang: zh-TW
 tldr: "安裝 OpenCode 2 後，先直接選用內建免費模型，完成第一個生活小任務；想換更多模型或在自己的程式呼叫免費 API，再接 OpenRouter。"
 description: "從 OpenCode 2 內建免費模型開始，不必先接 OpenRouter；附生活提問範例、OpenRouter 免費模型串接與 API 範例。"
-draft: true
+draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-11-01-free-llm-opencode2-openrouter-en)
@@ -251,6 +251,8 @@ OpenCode 各免費模型的資料使用條款可能不同，例如官方對 Big 
 從「解釋一個函式」「替小函式補測試」「修正一個有明確預期輸出的錯誤」開始。把範圍說清楚、檢查實際改動，再執行原本的測試。
 
 免費模型能讓你先學會這套工作方式。等你真的碰到穩定性、品質或用量瓶頸，再決定是否付費；不用在第一次試用前，就先把整套訂閱買齊。
+
+想了解 OpenCode 2 的背景服務與介面設計，可以接著看 [OpenCode 2 介紹](/posts/tech/2026-08-22-opencode-2-electron-rewrite-coding-agent)；工具與供應商的定位則見 [OpenCode 方案分析](/posts/ai/2026-04-02-agent-cli-opencode)。
 
 想比較其他免費服務，可以接著看[LLM 推論服務免費額度與定價整理](/posts/ai/2026-05-09-llm-inference-free-tier-comparison)；想理解背後的多模型服務，再看 [OpenRouter 路由層介紹](/posts/ai/2026-08-22-openrouter-model-routing)。
 

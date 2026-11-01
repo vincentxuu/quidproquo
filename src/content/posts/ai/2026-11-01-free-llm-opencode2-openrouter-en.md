@@ -7,7 +7,7 @@ tags: [opencode, openrouter, llm, coding-agent]
 lang: en
 tldr: "Install OpenCode 2, select a built-in free model, and complete your first everyday task. Connect OpenRouter later if you want more models or a free API for your own application."
 description: "Start with OpenCode 2's built-in free models without connecting OpenRouter first. Includes an everyday prompt example, optional OpenRouter integration, and a free API example."
-draft: true
+draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-11-01-free-llm-opencode2-openrouter)
@@ -251,6 +251,8 @@ Cloud-hosted free models still send requests to service providers. Start with ev
 Start with requests such as “explain this function,” “add tests for this small function,” or “fix this bug with a clearly defined expected output.” Keep the scope specific, inspect the changes, and run the project's existing tests.
 
 Free models let you learn this workflow first. If reliability, quality, or usage limits become a real obstacle, decide whether paying makes sense then. You do not need a collection of subscriptions before your first experiment.
+
+For OpenCode 2's background service and interfaces, read the [OpenCode 2 overview](/posts/tech/2026-08-22-opencode-2-electron-rewrite-coding-agent-en). For the relationship between the tool and model providers, see the [OpenCode product analysis](/posts/ai/2026-04-02-agent-cli-opencode-en).
 
 To compare other free services, see [LLM inference free tiers and pricing](/posts/ai/2026-05-09-llm-inference-free-tier-comparison-en). For the multi-model service behind this setup, read the [OpenRouter routing guide](/posts/ai/2026-08-22-openrouter-model-routing-en).
 
