@@ -1,12 +1,12 @@
 ---
 title: "Cloudflare Workers AI 模型選型指南：依用途、價格與 context 挑模型"
 date: 2026-08-18
-updated: 2026-08-19
+updated: 2026-11-01
 type: guide
 category: ai
 tags: [cloudflare-workers-ai, llm, pricing, embedding, cloudflare-workers]
 lang: zh-TW
-tldr: "Workers AI 目錄目前 84 個模型。通用對話選 glm-4.7-flash（$0.06 / $0.40 per M、131K context），要 vision 選 gemma-4-26b-a4b-it（$0.10 / $0.30、256K），極省成本選 granite-4.0-h-micro（$0.017 / $0.112），embedding 選 qwen3-embedding-0.6b 或 bge-m3（同為 $0.012 per M）。這篇會定期跟著官方目錄更新。"
+tldr: "Workers AI 目錄目前 73 個模型。通用對話選 glm-4.7-flash（$0.06 / $0.40 per M、131K context），要 vision 選 gemma-4-26b-a4b-it（$0.10 / $0.30、256K），極省成本選 granite-4.0-h-micro（$0.017 / $0.112），embedding 選 qwen3-embedding-0.6b 或 bge-m3（同為 $0.012 per M）。這篇會定期跟著官方目錄更新。"
 description: "依 Cloudflare 官方模型目錄與定價頁整理的 Workers AI 選型表：文字生成分層比較、embedding 與 rerank、圖片與語音模型、Neurons 計費、2026-05-30 那波模型汰換的遷移建議。持續更新。"
 draft: false
 series:
@@ -20,7 +20,7 @@ Workers AI 的模型目錄換得很快。上一次大規模汰換是 2026-05-30�
 
 這篇是一份對照表，照官方 [模型目錄](https://developers.cloudflare.com/workers-ai/models/) 與 [定價頁](https://developers.cloudflare.com/workers-ai/platform/pricing/) 整理，會持續更新。
 
-**快照時間**：2026-08-18。官方模型目錄頁標示 Last updated 2026-08-12，共 **84 個模型**；定價頁 Last updated 2026-08-18。
+**快照時間**：2026-11-01。官方模型目錄頁標示 Last updated 2026-08-12，共 **73 個模型**（比上次快照的 84 個少，目錄頁的 Last updated 日期沒跟著變，推測是官方頁面的標示沒即時更新，不影響下面的數字）；定價頁 Last updated 2026-10-20。
 
 所有 context window 與價格都取自各模型的官方模型頁，不是原始模型的規格——同一個開源模型在 Workers AI 上的 context window 常常被裁短（`gemma-3-12b-it` 原生 128K，在 Workers AI 上是 80,000 tokens）。
 
@@ -32,13 +32,13 @@ Workers AI 的模型目錄換得很快。上一次大規模汰換是 2026-05-30�
 | 需要看圖 | [`@cf/google/gemma-4-26b-a4b-it`](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) | $0.10 / $0.30 |
 | 分類、路由、抽欄位（極省） | [`@cf/ibm-granite/granite-4.0-h-micro`](https://developers.cloudflare.com/workers-ai/models/granite-4.0-h-micro/) | $0.017 / $0.112 |
 | 推理密集 | [`@cf/openai/gpt-oss-120b`](https://developers.cloudflare.com/workers-ai/models/gpt-oss-120b/) | $0.35 / $0.75 |
-| Agentic / coding（需付費方案） | [`@cf/moonshotai/kimi-k2.7-code`](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/) | $0.95 / $4.00 |
+| Agentic / coding（需付費方案） | [`@cf/zai-org/glm-5.3-flash`](https://developers.cloudflare.com/workers-ai/models/glm-5.3-flash/) | $0.15 / $0.50 |
 | Embedding | [`@cf/qwen/qwen3-embedding-0.6b`](https://developers.cloudflare.com/workers-ai/models/qwen3-embedding-0.6b/) 或 [`@cf/baai/bge-m3`](https://developers.cloudflare.com/workers-ai/models/bge-m3/) | $0.012（僅 input） |
 | Rerank | [`@cf/baai/bge-reranker-base`](https://developers.cloudflare.com/workers-ai/models/bge-reranker-base/) | $0.003 |
 | 圖片生成 | [`@cf/black-forest-labs/flux-2-klein-4b`](https://developers.cloudflare.com/workers-ai/models/flux-2-klein-4b/) | $0.000059 / 輸入 512×512 tile |
 | 語音轉文字（批次） | [`@cf/openai/whisper-large-v3-turbo`](https://developers.cloudflare.com/workers-ai/models/whisper-large-v3-turbo/) | $0.0005 / 音訊分鐘 |
 
-目錄頁上 Cloudflare 自己置頂（Pinned）了四個：`kimi-k2.7-code`、`glm-4.7-flash`、`gpt-oss-120b`、`llama-4-scout-17b-16e-instruct`。這四個大致代表官方目前想推的組合。
+目錄頁上 Cloudflare 自己置頂（Pinned）的名單換過一輪：上次快照時是 `kimi-k2.7-code`、`glm-4.7-flash`、`gpt-oss-120b`、`llama-4-scout-17b-16e-instruct` 這組聊天／agentic 陣容；這次查是 Cloudflare 自家做的四個「決策模型」——`clairic`、`clef`、`clef-flash`、`clef-omni`。這組跟一般對話式 LLM 是不同的產品形態（輸入是 state + 打字欄位／問題 schema，輸出是帶信心分數的結構化值，不是聊天訊息），細節見文末「其他值得知道的」。Pinned 名單的變化只反映 Cloudflare 現在想推什麼，不直接影響這篇聊天／RAG／embedding 取向的選型結論。
 
 ## 先看懂 model ID
 
@@ -103,8 +103,8 @@ MoE（Mixture-of-Experts）在這份目錄裡已經是主流：Gemma 4、Llama 4
 | [gpt-oss-120b](https://developers.cloudflare.com/workers-ai/models/gpt-oss-120b/) | 128,000 | $0.35 / $0.75 | 官方定位 production、high reasoning |
 | [gpt-oss-20b](https://developers.cloudflare.com/workers-ai/models/gpt-oss-20b/) | 128,000 | $0.20 / $0.30 | 低延遲版 |
 | [nemotron-3-120b-a12b](https://developers.cloudflare.com/workers-ai/models/nemotron-3-120b-a12b/) | 256,000 | $0.50 / $1.50 | NVIDIA，主打 multi-agent |
-| [deepseek-r1-distill-qwen-32b](https://developers.cloudflare.com/workers-ai/models/deepseek-r1-distill-qwen-32b/) | — | $0.497 / $4.881 | 舊世代蒸餾推理模型，輸出很貴 |
-| [qwq-32b](https://developers.cloudflare.com/workers-ai/models/qwq-32b/) | — | $0.66 / $1.00 | 同上世代 |
+| [deepseek-r1-distill-qwen-32b](https://developers.cloudflare.com/workers-ai/models/deepseek-r1-distill-qwen-32b/) | 80,000 | $0.497 / $4.881 | 舊世代蒸餾推理模型，輸出很貴 |
+| [qwq-32b](https://developers.cloudflare.com/workers-ai/models/qwq-32b/) | 24,000 | $0.66 / $1.00 | 同上世代 |
 
 - **[gpt-oss-120b / gpt-oss-20b](https://developers.cloudflare.com/workers-ai/models/gpt-oss-120b/)**（OpenAI）— OpenAI 少見的開放權重模型，官方定位是「powerful reasoning, agentic tasks, and versatile developer use cases」，120b 給生產環境的高推理需求，20b 給低延遲與特化場景。
 - **[nemotron-3-120b-a12b](https://developers.cloudflare.com/workers-ai/models/nemotron-3-120b-a12b/)**（NVIDIA）— NVIDIA 自家的 Nemotron 3 Super，hybrid MoE 架構（120B 總 / 12B active），官方主打 multi-agent 應用與 agentic AI 系統的準確度。
@@ -119,34 +119,41 @@ MoE（Mixture-of-Experts）在這份目錄裡已經是主流：Gemma 4、Llama 4
 
 定價頁明講：
 
-> Some models require a paid billing method. This applies to `@cf/moonshotai/kimi-k2.6`, `@cf/moonshotai/kimi-k2.7-code`, `@cf/zai-org/glm-5.2`, `@cf/deepseek-ai/deepseek-v4-flash-0731`, and `@cf/deepseek-ai/deepseek-v4-pro-0813`.
+> Some models require a paid billing method. This applies to `@cf/moonshotai/kimi-k2.6`, `@cf/moonshotai/kimi-k2.7-code`, `@cf/zai-org/glm-5.2`, `@cf/zai-org/glm-5.3`, `@cf/zai-org/glm-5.3-flash`, `@cf/deepseek-ai/deepseek-v4-flash-0731`, `@cf/deepseek-ai/deepseek-v4.1-flash-1017`, and `@cf/deepseek-ai/deepseek-v4-pro-0813`.
 
-Workers Free 方案打這五個會失敗，要 Workers Paid 或預付的 [AI Gateway credits](https://developers.cloudflare.com/ai-gateway/features/unified-billing/)。
+Workers Free 方案打這八個會失敗，要 Workers Paid 或預付的 [AI Gateway credits](https://developers.cloudflare.com/ai-gateway/features/unified-billing/)。這層從上次快照的 5 個漲到 8 個：GLM 加了 `glm-5.3`、`glm-5.3-flash`，DeepSeek 加了 `deepseek-v4.1-flash-1017`。
 
 | 模型 | Context | in / cached in / out per M |
 |---|---|---|
-| [kimi-k2.7-code](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/) | 262,100 | $0.95 / $0.19 / $4.00 |
-| [kimi-k2.6](https://developers.cloudflare.com/workers-ai/models/kimi-k2.6/) | 262,100 | $0.95 / $0.16 / $4.00 |
-| [deepseek-v4-flash-0731](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/) | **1,048,576** | $0.44 / $0.014 / $1.32 |
-| [deepseek-v4-pro-0813](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-pro-0813/) | — | $1.32 / $0.044 / $3.96 |
+| [glm-5.3-flash](https://developers.cloudflare.com/workers-ai/models/glm-5.3-flash/) | 1,048,576 | $0.15 / $0.03 / $0.50 |
+| [glm-5.3](https://developers.cloudflare.com/workers-ai/models/glm-5.3/) | 1,048,576 | $1.40 / $0.26 / $4.40 |
 | [glm-5.2](https://developers.cloudflare.com/workers-ai/models/glm-5.2/) | 262,144 | $1.40 / $0.26 / $4.40 |
+| [kimi-k2.7-code](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/) | 262,144 | $0.95 / $0.19 / $4.00 |
+| [kimi-k2.6](https://developers.cloudflare.com/workers-ai/models/kimi-k2.6/) | 262,144 | $0.95 / $0.16 / $4.00 |
+| [deepseek-v4.1-flash-1017](https://developers.cloudflare.com/workers-ai/models/deepseek-v4.1-flash-1017/) | **1,048,576** | $0.30 / $0.006 / $1.20 |
+| [deepseek-v4-flash-0731](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/) | **1,048,576** | $0.44 / $0.014 / $1.32 |
+| [deepseek-v4-pro-0813](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-pro-0813/) | **1,048,576** | $1.32 / $0.044 / $3.96 |
 
 這一層是什麼：
 
-- **[kimi-k2.6 / kimi-k2.7-code](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/)**（月之暗面 Moonshot AI）— **1T 參數**的開源前沿模型，262K context、多輪工具呼叫、視覺輸入、結構化輸出，官方定位就是 agentic workload。`k2.7-code` 是同架構的 coding 特化版，也是目錄首位的 Pinned 模型。
-- **[deepseek-v4-flash-0731 / deepseek-v4-pro-0813](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/)**（DeepSeek）— V4 世代分 Flash 與 Pro 兩檔，Flash 是快速版、Pro 是高階版。要注意 `deepseek-v4-pro-0813` 在官方目錄裡的描述欄目前還是佔位字串（就寫「deepseek-ai/deepseek-v4-pro-0813」），沒有實質說明。
-- **[glm-5.2](https://developers.cloudflare.com/workers-ai/models/glm-5.2/)**（智譜 / Z.ai）— 官方描述只有一句「Z.ai's flagship agentic coding model」，是 GLM 系列的旗艦 coding 模型，跟同門的 `glm-4.7-flash` 差了一個量級的定位與價格（輸入貴 23 倍）。
+- **[glm-5.3-flash](https://developers.cloudflare.com/workers-ai/models/glm-5.3-flash/)**（智譜 / Z.ai）— GLM-5 系列第一個原生多模態模型，320B 總參數 / 18B active 的 MoE。官方說法是「outperforms GLM-5.2 across benchmarks and real-world workloads at one-tenth the price, while approaching Claude Opus 4.8 on coding and agentic benchmarks」——拿十分之一的價格打上一代，還補上 vision。目前這層最值得先試的一個。
+- **[glm-5.3](https://developers.cloudflare.com/workers-ai/models/glm-5.3/)** — 跟 `glm-5.2` 同價（$1.40 / $4.40 / cached $0.26），差別是 context 從 262,144 拉到 1,048,576，沒有 vision。單純想要 glm-5.2 的能力加大 context，換這個，價格不變。
+- **[glm-5.2](https://developers.cloudflare.com/workers-ai/models/glm-5.2/)** — 上一代旗艦。官方描述只有一句「Z.ai's flagship agentic coding model」，現在被同價更長 context 的 `glm-5.3`、與十分之一價格的 `glm-5.3-flash` 兩邊夾殺，起新專案沒有理由再選它，但模型還在目錄裡，舊程式碼不用急著搬。
+- **[kimi-k2.6 / kimi-k2.7-code](https://developers.cloudflare.com/workers-ai/models/kimi-k2.7-code/)**（月之暗面 Moonshot AI）— **1T 參數**的開源前沿模型，262,144 context、多輪工具呼叫、視覺輸入、結構化輸出，官方定位就是 agentic workload。`k2.7-code` 是同架構的 coding 特化版。
+- **[deepseek-v4.1-flash-1017](https://developers.cloudflare.com/workers-ai/models/deepseek-v4.1-flash-1017/)**（DeepSeek）— V4.1 世代的 Flash 版，552B MoE backbone，原生處理文字與圖片，context 維持 1,048,576。$0.30 / $1.20 比上一代 `deepseek-v4-flash-0731` 的 $0.44 / $1.32 全面更便宜，還多了 vision，是這層現在「便宜又長 context」的新答案。
+- **[deepseek-v4-flash-0731](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-flash-0731/)** — 還在目錄裡，但已經被 `deepseek-v4.1-flash-1017` 取代（更貴、沒有 vision），沒有理由再選它起新專案。
+- **[deepseek-v4-pro-0813](https://developers.cloudflare.com/workers-ai/models/deepseek-v4-pro-0813/)** — 上次快照時這欄 context 查不到，這次確認跟 Flash 版一樣是 1,048,576，是 V4 系列的高階 Pro 檔，沒有 vision。
 
-這一層才有 **cached input 定價**，而且折扣幅度差很多：DeepSeek V4 Flash 的 cached input 是 $0.014，相對一般 input 的 $0.44 是 **1/31**；Kimi K2.6 的 $0.16 對 $0.95 只有 1/6。多輪對話或反覆送同一份長 prompt 時，這個比例直接決定帳單。要吃到快取，記得送 `x-session-affinity` header 把請求導回同一個模型實例（見官方 [Prompt caching](https://developers.cloudflare.com/workers-ai/features/prompt-caching/) 文件）。
+這一層才有 **cached input 定價**，折扣幅度差很多：`deepseek-v4.1-flash-1017` 的 cached input 是 $0.006，相對一般 input 的 $0.30 是 **1/50**，是目前全目錄最高的快取折扣；`glm-5.3-flash` 的 $0.03 對 $0.15 是 1/5；Kimi K2.6 的 $0.16 對 $0.95 是 1/6。多輪對話或反覆送同一份長 prompt 時，這個比例直接決定帳單。要吃到快取，記得送 `x-session-affinity` header 把請求導回同一個模型實例（見官方 [Prompt caching](https://developers.cloudflare.com/workers-ai/features/prompt-caching/) 文件）。
 
-`deepseek-v4-flash-0731` 的 1,048,576 tokens 是目錄裡唯一破百萬的 context，而且價格只有 $0.44 / $1.32，比 Kimi 便宜一半以上。要整本文件塞進去問問題，它是現在的答案。
+百萬 context 在這層已經不是稀缺品：`glm-5.3`、`glm-5.3-flash`、`deepseek-v4.1-flash-1017`、`deepseek-v4-flash-0731`、`deepseek-v4-pro-0813` 五個都是 1,048,576。價格最低的百萬 context 選擇是 `deepseek-v4.1-flash-1017`（$0.30 / $1.20），比 `glm-5.3-flash` 的輸出單價貴一點，但兩者都有 vision——要整本文件塞進去問問題，看你比較在乎哪個 provider 生態，兩個都是合理答案。
 
 ## Embedding 與 rerank
 
 | 模型 | Context | 價格 per M input | 備註 |
 |---|---|---|---|
 | [qwen3-embedding-0.6b](https://developers.cloudflare.com/workers-ai/models/qwen3-embedding-0.6b/) | 8,192 | $0.012 | 多語言，支援 `instruction` 參數 |
-| [bge-m3](https://developers.cloudflare.com/workers-ai/models/bge-m3/) | — | $0.012 | 多語言、多粒度，繁中表現好 |
+| [bge-m3](https://developers.cloudflare.com/workers-ai/models/bge-m3/) | 60,000 | $0.012 | 多語言、多粒度，繁中表現好 |
 | [embeddinggemma-300m](https://developers.cloudflare.com/workers-ai/models/embeddinggemma-300m/) | — | 未列於定價頁 | 100+ 語言 |
 | [plamo-embedding-1b](https://developers.cloudflare.com/workers-ai/models/plamo-embedding-1b/) | — | $0.019 | 日文專用 |
 | [bge-large-en-v1.5](https://developers.cloudflare.com/workers-ai/models/bge-large-en-v1.5/) | — | $0.204 | 英文，1024 維，支援 Batch |
@@ -205,6 +212,13 @@ Rerank 目前只有一個選項：`bge-reranker-base`，$0.003 per M input token
 - **[gemma-sea-lion-v4-27b-it](https://developers.cloudflare.com/workers-ai/models/gemma-sea-lion-v4-27b-it/)**（AI Singapore）— 為東南亞語言預訓練與指令微調的 Gemma 變體，SEA-LION = Southeast Asian Languages In One Network。做東南亞市場的產品值得評估。
 - **[m2m100-1.2b](https://developers.cloudflare.com/workers-ai/models/m2m100-1.2b/)**（Meta）與 **[indictrans2-en-indic-1B](https://developers.cloudflare.com/workers-ai/models/indictrans2-en-indic-1B/)**（AI4Bharat）— 專用翻譯模型（各 $0.342）。前者多對多多語言，後者專攻印度 22 種官方語言。
 - **[distilbert-sst-2-int8](https://developers.cloudflare.com/workers-ai/models/distilbert-sst-2-int8/)**（$0.026）— 情緒分類的老兵，量大時比叫 LLM 便宜。
+
+**新的一類：決策模型（不是聊天模型）**。Cloudflare 這次把目錄頁的 Pinned 名額全部換給自己做的四個模型——`clairic`、`clef`、`clef-flash`、`clef-omni`——它們不是對話式 LLM，而是「餵一段 state（文字／JSON／圖片／影音）+ 一組打字欄位或問題 schema，直接吐回帶信心分數或機率的結構化值」的專用 API，定價也只算 input token，沒有 output 費用：
+
+- **[clairic](https://developers.cloudflare.com/workers-ai/models/clairic/)**（$0.10/M input，65,536 context）— 官方定位是「System One-style model」，吃一段 state 加 `fields` schema（text / date / number / list / estimate 等型別），直接抽取、計算、估計、預測欄位值，每個欄位都帶 confidence 或機率區間。適合取代「叫 LLM 吐 JSON 再自己解析」的抽欄位 pipeline。
+- **[clef](https://developers.cloudflare.com/workers-ai/models/clef/)**（$0.24/M input，27B，65,536 context）／**[clef-flash](https://developers.cloudflare.com/workers-ai/models/clef-flash/)**（$0.038/M input，9B）／**[clef-omni](https://developers.cloudflare.com/workers-ai/models/clef-omni/)**（$0.15/M input，30B MoE / 3B active，多模態含音訊與影片）— 吃 state 加 `questions` schema（choice / score / noul 等型別），對每個問題的每個選項回一個機率，是分類、路由、評分這類「選一個答案」場景的專用模型，而不是生成文字。
+
+這四個目前還不影響這篇的聊天／RAG／embedding 選型結論，但如果你的 pipeline 裡有「叫 LLM 做分類或抽欄位然後自己 parse JSON」這種用法，值得評估換成這組——定價是純 input 計費，通常比塞一個聊天模型去做同樣的事更省。
 
 ## 計費：Neurons 與免費額度
 
@@ -269,6 +283,7 @@ const answer = await env.AI.run(MODELS.chat, { messages, stream: true })
 
 ## 更新紀錄
 
+- 2026-11-01：定期更新。模型總數 84 → 73（目錄頁 Last updated 日期沒變，推測是標示沒跟著更新）。Pinned 名單從舊的聊天／agentic 四個換成 Cloudflare 自家的決策模型 `clairic`/`clef`/`clef-flash`/`clef-omni`，新增一節介紹這類模型。Tier 3 新增 `glm-5.3`、`glm-5.3-flash`、`deepseek-v4.1-flash-1017` 三個模型，付費門檻清單從 5 個擴到 8 個；一分鐘結論的 Agentic / coding 建議改為 `glm-5.3-flash`（$0.15/$0.50，比 kimi-k2.7-code 便宜且多了 vision）。補上 `deepseek-r1-distill-qwen-32b`（80,000）、`qwq-32b`（24,000）、`deepseek-v4-pro-0813`（1,048,576）、`bge-m3`（60,000）原本查不到的 context window。改寫「cached input 折扣」與「哪個模型破百萬 context」兩段，因為現在五個模型都有 1,048,576 context，`deepseek-v4.1-flash-1017` 的 cached 折扣（1/50）取代 `deepseek-v4-flash-0731`（1/31）成為全目錄最高。
 - 2026-08-19：對照官方文件逐項查證翻新，易腐內容交還官方連結，並收進「Cloudflare 邊緣tech stack」系列。
 - 2026-08-18：首次發布。對照 2026-08-12 版目錄（84 個模型）與 2026-08-18 版定價頁。
 
