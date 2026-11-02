@@ -30,7 +30,7 @@ glossary:
 
 On your first gym visit you rented shoes, and the front desk handed you a chalk bag. A few months later you start wondering: is it time to buy my own shoes? What about a harness? A friend offers to sell you a rope he's used for a few years, cheap. Should you take it?
 
-This is post 0 of the Climbing Gear series. The series gives each piece of gear its own post: the buying criteria and standard numbers first, then a comparison of current models, with written reviews and YouTube test and first-hand videos. This post doesn't compare models itself; the GRIGRI below is just an example of how a manual is written. It answers two questions: what to buy first and what to keep renting, and how to read the CE, UIAA, EN numbers and manufacture year on a label. How to choose each item and which models to consider are in posts 1 to 11; how to inspect and when to retire gear is the final post, post 12.
+This is post 0 of the Climbing Gear series. The series gives each piece of gear its own post: the buying criteria and standard numbers first, then a comparison of current models, with written reviews and YouTube test and first-hand videos. This post doesn't compare models itself; the GRIGRI below is just an example of how a manual is written. It answers two questions: what to buy first and what to keep renting, and how to read the CE, UIAA, EN numbers and manufacture year on a label. How to choose each item and which models to consider are in posts 1 to 13; how to inspect and when to retire gear is the final post, post 14.
 
 If you haven't been to a gym yet, start with the [climbing beginner's guide](/posts/climbing/2026-10-08-climbing-beginner-guide-en).
 
@@ -46,7 +46,8 @@ The series follows the order in which you'll spend money. The rule: **buy things
 | Leading your own outdoor sport trips | Quickdraws, dynamic rope | The gym supplies ropes; outdoors you bring your own | [Post 7: Quickdraws](/posts/climbing/2026-10-24-climbing-quickdraws-en), [Post 8: Rope](/posts/climbing/2026-10-24-climbing-rope-en) |
 | Rappelling on your own outdoors | Prusik cord | A backup when rappelling, and needed for self-rescue | [Post 9: Prusik cord](/posts/climbing/2026-10-24-prusik-cord-en) |
 | Starting trad | Nuts, cams | You place your own protection in cracks instead of clipping bolts | [Post 10: Nuts](/posts/climbing/2026-10-24-climbing-nuts-en), [Post 11: Cams](/posts/climbing/2026-10-24-climbing-cams-en) |
-| From then on | Inspection, care, retirement | Every item above ages | [Post 12: Inspection, care and retirement](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en) |
+| Starting multi-pitch, alpine or overseas climbing | Satellite messenger or PLB, radios | You need a way to call for help beyond phone coverage; on long pitches or round a corner you can't hear your partner | [Post 12: Satellite messengers and PLBs](/posts/climbing/2026-11-01-satellite-messengers-plb-en), [Post 13: Radios](/posts/climbing/2026-11-01-climbing-radios-en) |
+| From then on | Inspection, care, retirement | Every item above ages | [Post 14: Inspection, care and retirement](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en) |
 
 Outdoor bouldering also needs a crash pad; that belongs to outdoor bouldering, and this series doesn't cover it.
 
@@ -111,7 +112,7 @@ The standards for quickdraw slings and prusik cord are in [post 7](/posts/climbi
 
 For example, [Petzl's GRIGRI technical notice](https://www.petzl.com/sfc/servlet.shepherd/version/download/068Tx000009YCjEIAW) (November 2024 edition) classifies it as "EN 15151-1 type 6", a belay and rappel device without an anti-panic function, and states it meets the EU PPE Regulation (EU) 2016/425.
 
-**What does passing a standard mean?** That samples of this model passed the standard's lab tests. It doesn't mean the one in your hands is still good: it may have sat too long, met acid or been dropped. That's the subject of [post 12](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en).
+**What does passing a standard mean?** That samples of this model passed the standard's lab tests. It doesn't mean the one in your hands is still good: it may have sat too long, met acid or been dropped. That's the subject of [post 14](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en).
 
 ## Where the manufacture year is printed
 
@@ -155,7 +156,7 @@ The UIAA's final group, "Record and Review", is the one most people skip. Two of
 - **Inspect on arrival.** Look for damage, deformation, incomplete stitching or corrosion; make sure it's new, clearly labelled and **not close to the end of its recommended service life**. If anything looks questionable, don't use it and contact the retailer. Maximum lifetime runs from the manufacture date, so even a brand-new harness needs a look at its year.
 - **Keep a record.** Note brand, model, serial number, purchase date, inspection dates and usage to track wear and replacement.
 
-A record-sheet template is in [post 12](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en).
+A record-sheet template is in [post 14](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en).
 
 **Something you can do tonight**: start a spreadsheet with those six columns and add a row for every piece of PPE you own.
 
@@ -174,6 +175,8 @@ A record-sheet template is in [post 12](/posts/climbing/2026-10-19-climbing-gear
 | Prusik cord | Before you rappel on your own outdoors | [Post 9](/posts/climbing/2026-10-24-prusik-cord-en) |
 | Nuts | Starting trad | [Post 10](/posts/climbing/2026-10-24-climbing-nuts-en) |
 | Cams | Starting trad | [Post 11](/posts/climbing/2026-10-24-climbing-cams-en) |
+| Satellite messenger or PLB | Climbing where there's no phone signal | [Post 12](/posts/climbing/2026-11-01-satellite-messengers-plb-en) |
+| Radios | Starting multi-pitch | [Post 13](/posts/climbing/2026-11-01-climbing-radios-en) |
 
 ## Practice: four scenarios
 
@@ -225,6 +228,7 @@ The video embedded in this post comes from JB Mountain Skills. The other two cha
 
 ## Update Log
 
+- 2026-11-01: Added satellite messengers and PLBs (post 12) and radios (post 13) to the series; the stage table and shopping list now include both, and inspection and retirement is now post 14
 - 2026-10-24: The series now gives each piece of gear its own post and compares current models; rewrote the series description in the intro; the stage table, standards table and shopping list now link to the new posts (chalk bag, belay device, carabiners, quickdraws and rope each get their own), and add the prusik cord, nuts and cams; videos are now limited to uploads from 2024 or later, so three HowNOT2 videos and one Hard Is Easy video from 2020 to 2022 were removed, and the rope-core date marking now cites Petzl's rope inspection procedure
 - 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 

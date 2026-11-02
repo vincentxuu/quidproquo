@@ -10,7 +10,7 @@ tldr: "A manufacturer's 10 years is a maximum lifetime: the most a product can l
 draft: false
 series:
   name: "Climbing Gear"
-  order: 12
+  order: 14
 glossary:
   - term: "maximum lifetime"
     aliases: ["Lebensdauer", "lifespan"]
@@ -309,9 +309,11 @@ This series followed the order in which you spend money:
 9. [Prusik cord](/posts/climbing/2026-10-24-prusik-cord-en): tie your own or buy sewn, nylon or aramid.
 10. [Nuts](/posts/climbing/2026-10-24-climbing-nuts-en): curved or offset, which sizes first.
 11. [Cams](/posts/climbing/2026-10-24-climbing-cams-en): how far your first rack goes, matching sizes across brands.
-12. This post: inspection, care and retirement.
+12. [Satellite messengers and PLBs](/posts/climbing/2026-11-01-satellite-messengers-plb-en): two-way or one-way, activating in Taiwan, what happens after you press SOS.
+13. [Radios](/posts/climbing/2026-11-01-climbing-radios-en): which kind is legal in Taiwan, Europe and the US, and how to talk on a multi-pitch.
+14. This post: inspection, care and retirement.
 
-Posts 1 to 11 each compare a handful of current models, with reviews and test and first-hand videos.
+Posts 1 to 13 each compare a handful of current models, with reviews and test and first-hand videos.
 
 ## Further viewing: gear-testing and instruction channels
 
@@ -322,6 +324,7 @@ The videos embedded in this post come from the two channels below. They're a goo
 
 ## Update Log
 
+- 2026-11-01: Added two posts to the series, satellite messengers and PLBs, and radios; this post is now post 14 and the series recap lists both
 - 2026-10-24: The series now gives each piece of gear its own post, making this post 12; the harness-stitching cross-reference now points to the harness post, the series recap lists all 13 posts, and the intro points to the inspection sections of the nuts, cams, prusik cord and chalk bag posts
 - 2026-10-23: Added gear-testing videos from HowNOT2, Hard Is Easy and similar channels, plus a channel guide
 

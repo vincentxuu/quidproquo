@@ -315,7 +315,11 @@ start: 118
 
 ## 下一步
 
-到這裡，攀岩要買的器材都講完了。最後一篇講買回來之後怎麼檢查、什麼時候該換：[第 12 篇：檢查與汰換](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement)。
+到這裡，攀岩的保護器材都講完了。接下來兩篇講走得更遠時要帶的通訊裝備：[第 12 篇：衛星通訊器與 PLB](/posts/climbing/2026-11-01-satellite-messengers-plb)、[第 13 篇：對講機](/posts/climbing/2026-11-01-climbing-radios)。最後一篇講買回來之後怎麼檢查、什麼時候該換：[第 14 篇：檢查與汰換](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement)。
+
+## 更新紀錄
+
+- 2026-11-01：系列新增衛星通訊器與 PLB、對講機兩篇，下一步改連到這兩篇，檢查與汰換改為第 14 篇
 
 ## 參考資料
 

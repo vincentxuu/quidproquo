@@ -314,7 +314,11 @@ Take the cams out and wipe them that night. Longdong's salt rusts the metal part
 
 ## Next
 
-That covers everything you need to buy. The last post covers how to check your gear once you own it, and when to replace it: [Part 12: Inspection and Retirement](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en).
+That covers the protection you need to buy. The next two posts cover the communication gear you carry once you go further: [Part 12: Satellite Messengers and PLBs](/posts/climbing/2026-11-01-satellite-messengers-plb-en) and [Part 13: Radios](/posts/climbing/2026-11-01-climbing-radios-en). The last post covers how to check your gear once you own it, and when to replace it: [Part 14: Inspection and Retirement](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en).
+
+## Update Log
+
+- 2026-11-01: Added two posts to the series, satellite messengers and PLBs, and radios; the next-step links now point to them, and inspection and retirement is now part 14
 
 ## References
 
