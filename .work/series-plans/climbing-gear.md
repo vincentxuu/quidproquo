@@ -9,6 +9,13 @@
 
 來源：`.research/2026-10-18-climbing-gear-research.md`（UIAA 標準圖解、Petzl／Black Diamond／Mammut／Edelrid 原廠說明、DAV 安全研究、BMC、4 篇鞋子研究、台灣用語表、7 個衝突、待解問題）、`.research/2026-10-17-climbing-full-curriculum.md`（L 模組）、`.research/2026-10-17-climbing-curriculum-audit.md`（12 份課綱涵蓋「裝備挑選與合身」、5 份涵蓋「檢查、保養、汰換」）。
 
+## 新增通訊裝備兩篇（2026-11-01）
+
+使用者要求研究救援用 inReach 與溝通用無線電，寫成文章接進攀岩系列。執行解讀：照「一個裝備一篇」拆兩篇，插在活動岩楔之後；檢查與汰換改為 order 14（只改 frontmatter order）。
+- order 12：`2026-11-01-satellite-messengers-plb`（衛星通訊器與 PLB；研究 `.work/climbing-comms/R-satellite.md`）
+- order 13：`2026-11-01-climbing-radios`（攀登用對講機；研究 `.work/climbing-comms/R-radio.md`）
+- 回填：buying-order 階段表與購物清單、inspection 系列回顧、cams 下一步（中英）。series.ts 描述待補（檔案有其他 session 未提交修改）。
+
 ## 使用者決定（2026-10-24，取代 2026-10-19 的「不推薦品牌型號」）
 
 - 取消「不推薦型號」規則：要推薦型號，尤其是評測或心得分享的 YouTube 影片。
