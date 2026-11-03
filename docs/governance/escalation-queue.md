@@ -558,3 +558,10 @@
 - 定位：`SHA-256(slug::chunkIndex)` 前 16 位元比對到 `climbing/2026-10-21-korea-crag-insubong` 第 14 個區塊；不屬本輪 12 篇文章修改。
 - 下一步：獨立檢查 `src/lib/crawl/chunker.ts`、`scripts/sync-to-d1.ts` 產生的該區塊，以及 `src/lib/indexing/pipeline.ts` 的 24000 字元請求上限；保留上限，修正分塊／重切後再同步，不以放大上限或跳過失敗來變綠。
 - 為何未在本輪執行：需另行修復分塊與正式索引資料，超出這次文章公開與相關內容更新範圍。完整證據 `.work/free-llm-related-updates/release.md`；CI https://github.com/vincentxuu/quidproquo/actions/runs/41282405822 。
+
+
+## 2026-11-04：部署品質閘門修復待發布核准
+
+- 做什麼：修正 `.work/reviews/2026-10-12-japan-crag-odo-kaigan.md` 與 `.work/reviews/2026-10-21-korea-crag-seoninbong.md` 的過期影片統計，完整 verify 通過後提交並推送 main，追蹤正式 Deploy。
+- 使用者已於 2026-11-04 回覆「commit push」，核准推送此修復並觸發正式部署。未修改 workflow、驗證器或文章內容；部署結果仍待 Actions 確認。
+- 接手入口：`.work/deploy-fix-20261104/plan.md`、`verify.log`；只帶入本輪兩份審稿紀錄與必要工作紀錄，保留其他 session 改動。較早 embedding 超長問題另見上方 2026-11-01 條目。
