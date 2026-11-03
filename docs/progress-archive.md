@@ -1173,3 +1173,11 @@ daily-digest-report 2026-10-17：讀 32 筆 signals JSON＋9 篇 Stage 1 固定�
 ## 2026-11-04 封存：AIP-C01 備考指南補強（2026-09-12）（daily-digest-product-interview 2026-11-04 壓回 90 行上限，第二筆）
 
 - **AIP-C01 備考指南補強（2026-09-12）**：中英已補四步準備法、教材比較、實作與應考提醒，另補四份標準版後的獨立考生紀錄，區分 beta 與標準版並標註背景差異；targeted references／tw／diff check 通過，quality 僅既有 `career` tag 提示。全站 verify 既有 blocker 見 Q-024；未 commit／deploy，詳 `.work/aip-c01-update/`。
+
+## 2026-11-04 封存：英文口說專區 PoC 2026-10-05（daily-digest-ai-interview 2026-11-04 新增條目壓回 90 行上限）
+
+- **英文口說專區 PoC（2026-10-05，待使用者確認）**：nav／`/english`、六情境 19 句、文章／筆記、翻卡朗讀、自評本機排程完成；播放圖示依回饋改為喇叭＋「播放英文／停止播放」；參考連結補用專案主題 token（含 visited／focus），瀏覽器確認深色為 #5cb87a，修後 verify 全綠。4 個測試通過、最後 pnpm verify 全綠；瀏覽器驗證揭示、自評、完成／無到期、重新整理進度、390px 手機。可看 http://127.0.0.1:4323/english；輕量預覽啟動方式與限制見 `.work/english-speaking-plan.md`。使用者已授權本次 commit／push；未 deploy。
+
+## 2026-11-04 封存：英文口說文章 skill 2026-10-06（daily-digest-ai-interview 2026-11-04 再壓一行回 90 行上限）
+
+- **英文口說文章 skill（2026-10-06）**：建立 `.agents/skills/english-speaking-post/`（4 檔＋生成鏡像），每次口說需求查證後留雙語文章與回想卡，明訂來源選擇、語用差異、改寫範圍、待查句排除。Groundlane live 讀 Cambridge here-and-there；獨立票券試跑產出雙語草稿＋3 卡（fixture 範圍成立，位置／have 比較待查），補強情境與表達分開標證據後再試跑通過。產物 `.work/english-speaking-skill-eval/outputs/`；skill validator、skills-sync、最後 pnpm verify 全綠。19 主卡及延伸句已逐題核對並加入來源／改寫範圍；票券改出示情境與新 ID，衝浪／攀岩語境修正。紀錄 `.work/english-speaking/poc-audit/`；4 測試通過、pnpm verify 全綠、瀏覽器確認票券與展開來源。使用者已授權本次 commit／push；未 deploy。
