@@ -1157,3 +1157,7 @@ daily-digest-report 2026-10-17：讀 32 筆 signals JSON＋9 篇 Stage 1 固定�
 ## 2026-11-04 封存：Q-021 提示（daily-digest-benchmark 2026-11-04 rebase 壓回 90 行上限）
 
 - **Q-021（2026-09-05）**：daily-digest-benchmark 執行時 Groundlane 顯示 connected+enabledInChat 但查無工具，未產出當日 benchmark 文章，見 escalation-queue。
+
+## 2026-11-04 封存：AI 模型家族 order 19 Thinking Machines Lab／Inkling 2026-09-05（daily-digest-pricing 新增條目壓回 85 行上限）
+
+- **AI 模型家族 order 19 Thinking Machines Lab／Inkling（2026-09-05）**：中英雙版已 commit；另修掉擋 verify 的真問題（tw A 級 30 處、quality 6 ERROR、references 3 ERROR、parity 4 draft 標記，詳 Q-021），全在別人 session 草稿上，只修未代 commit。
