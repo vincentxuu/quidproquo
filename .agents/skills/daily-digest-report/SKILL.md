@@ -202,6 +202,7 @@ tags: [ai-agent, daily]
 lang: zh-TW
 description: "一句話判斷，不是事件列表"
 tldr: "3-5 行的今日重點，用分號隔開"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。
 draft: false
 series:
   name: "AI 日報"
