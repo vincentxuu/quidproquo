@@ -165,6 +165,7 @@ tags: [ai-agent, pricing, daily, {vendor-slug}]
 lang: zh-TW
 description: "一句話概述最重要的定價變動"
 tldr: "{廠商}的{模型/API}從{舊價}降到{新價}，降幅{X%}，生效日{日期}。{一句話影響}。"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Pricing Watch"
   order: N

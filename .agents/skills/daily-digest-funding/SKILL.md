@@ -162,6 +162,7 @@ tags: [ai-agent, funding, daily, {company-slug}, {sector-tag}]
 lang: zh-TW
 description: "一句話概述公司和這輪融資的意義"
 tldr: "{公司}完成{輪次}，由{領投}領投，估值{估值}。{一句話這筆錢代表的趨勢}。"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Agent Funding"
   order: N

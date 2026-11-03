@@ -237,6 +237,7 @@ tags: [ai-agent, model-release, daily, {vendor-slug}]
 lang: zh-TW
 description: "一句話概述新模型的定位和最大亮點"
 tldr: "模型名稱、核心數字（context window、定價、關鍵 benchmark）、對 Agent 開發的意義"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Model Tracker"
   order: N

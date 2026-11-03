@@ -164,6 +164,7 @@ tags: [ai-agent, tool, daily, {tool-type}]
 lang: zh-TW
 description: "一句話：這個工具解決什麼問題"
 tldr: "{工具名稱} 是 {一句話定義}。安裝：{一行安裝指令}。解決了 {什麼問題}。"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Tool of the Day"
   order: N

@@ -177,6 +177,7 @@ tags: [ai-agent, weekly, daily]
 lang: zh-TW
 description: "一句話概述本週最大的認知變化"
 tldr: "3-5 行本週最重要的認知差"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Agent 週回顧"
   order: N

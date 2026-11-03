@@ -25,13 +25,11 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 ## 支援的分類
 
-`tech` / `ai` / `product` / `marketing` / `learning` / `education` / `policy` / `design` / `career` / `climbing` / `surf` / `film` / `coffee` / `life` / `travel` / `anime` / `investing` / `weather`
+`tech` / `ai` / `product` / `marketing` / `learning` / `education` / `policy` / `design` / `career` / `climbing` / `surf` / `film` / `coffee` / `life` / `travel` / `anime` / `investing`
 
 不要自己發明新分類。找不到合適的先問使用者。
 
 ## 執行步驟
-
-需要外部研究時，先讀 `docs/research-pool.md`，按主題類別與子題查 `.research/pool/`，再補搜缺口；頻道、影片、論文、文件只是來源類型。研究過程依文件保留搜尋與閱讀觀察，將新來源、採用／淘汰理由與本篇中英路徑寫回pool，再跑 `node scripts/research-pool.mjs check`。索引命中不等於當次查證，仍遵守來源與閱讀範圍要求；不要只把最後進參考資料的來源存回去。
 
 ### 0. 寫前閘門（動筆前必過，先於一切）
 
@@ -76,8 +74,6 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 攀岩器材與保護系統文章（繩子、確保器、鉤環、吊帶、頭盔、岩楔／cam、固定點、bolt、確保、檢查汰換）預設補實測影片：先找 HowNOT2 與 Hard Is Easy，每篇 3–5 支嵌在對應段落、文末加頻道介紹。研究前先定日期門檻（評測、影片、價格預設只收 2024 年以後）、先用 `scripts/yt-candidates.mjs` 掃頻道清單再用關鍵字補漏；挑片、查證、雜訊排除、限制寫法與標準稿見 `references/climbing-gear-videos.md`。
 
-攀岩技術文章（確保、固定點、多繩距、拖包、救援、人工攀登與大岩壁、器材怎麼用）研究前先讀 `docs/climbing-technique-sources.md`：哪些來源算一手、各自擅長什麼、已知陷阱（下架網址、付費牆、舊文年份）與多語搜尋關鍵字。它補的是來源分級與陷阱；查來源與寫回仍照上面的研究池流程。
-
 ### 1b. 多來源導讀與英文練習
 
 來源是 YouTube、podcast、影音檔或逐字稿時，先跑 `../media-to-post/SKILL.md`，取得來源紀錄、校正版、主題地圖、主張定位與覆蓋報告，再寫本文。只補嵌入不用跑整套。已處理材料可重用，但先確認來源版本、取得範圍與未解決疑點；不能拿 show notes 或他人摘要冒充整集內容。
@@ -117,6 +113,7 @@ Podcast 採「原音＋逐字稿練習」：提供官方音訊入口、經核對
 | `title` / `tldr` / `description` | 中文 | 自然英文（不是機翻） |
 | 跨語言連結 | `> 🌏 [English version](/posts/<category>/YYYY-MM-DD-<slug>-en)` | `> 🌏 [中文版](/posts/<category>/YYYY-MM-DD-<slug>)` |
 | 其餘 frontmatter | 相同 | 相同；系列顯示名稱依已登錄的語言名，模型家族按專用規格 |
+| `tldr` 注意 | 前端不會把 frontmatter 當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等語法；建議 1–2 句話，只講最核心的一個重點 | 同上 |
 
 英文版規則：
 - code block 不動（只翻中文註解）
