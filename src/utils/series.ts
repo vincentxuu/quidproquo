@@ -127,15 +127,6 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
-    slug: 'agent-isolation',
-    category: 'ai-agents',
-    names: { 'zh-TW': 'Agent 隔離邊界', en: 'Agent Isolation Boundaries' },
-    descriptions: {
-      'zh-TW': '從容器、gVisor、microVM 到共用硬體上的隱蔽通道：拆開「在隔離環境中執行」這句話，看 AI agent 的程式碼被哪幾層擋住、哪些資源仍然共用、出口怎麼被找到，並以 OpenAI 2026 年的紅隊文章為案例。',
-      en: 'From containers, gVisor, and microVMs to covert channels on shared hardware: unpack "runs in an isolated environment" for AI agents, covering which layers contain the code, what is still shared, how exits get found, with OpenAI\'s 2026 red-team write-up as the case study.',
-    },
-  },
-  {
     slug: 'statistics-ml-ai',
     category: 'exams-interviews',
     names: { 'zh-TW': '從考試到 ML/AI 的統計學導讀', en: 'Statistics from Exams to ML/AI' },
@@ -215,8 +206,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'climbing',
     names: { 'zh-TW': '日本岩場', en: 'Japan Climbing Crags' },
     descriptions: {
-      'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭電車與開車怎麼去、在地規範。母群取自 ROCKTOPO 與 CLIMBING-net（《日本100岩場》），依都道府縣排序，優先補齊知名的獨立目的地；分區留在母岩場指南。',
-      en: 'One crag per guide: rock type and climbing style, the best seasons and why, how to get there by train or car, and local rules. Crags are drawn from ROCKTOPO and CLIMBING-net (the Japan 100 Crags guidebooks), ordered by prefecture, prioritizing notable independent destinations, with sectors kept in their parent guides.',
+      'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭電車與開車怎麼去、在地規範。母群取自 ROCKTOPO 與 CLIMBING-net（《日本100岩場》），依都道府縣排序，從本州中部開始逐步補滿全日本。',
+      en: 'One crag per guide: rock type and climbing style, the best seasons and why, how to get there by train or car, and local rules. Crags are drawn from ROCKTOPO and CLIMBING-net (the Japan 100 Crags guidebooks), ordered by prefecture, starting in central Honshu and expanding to cover all of Japan.',
     },
   },
   {
@@ -235,51 +226,6 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '從首爾花崗岩多段到地方運攀與濟州抱石，按風格、程度、季節與交通選目的地。每個岩場分開介紹路線、接近方式、在地規範與指南書。',
       en: 'Choose Korean climbing destinations by style, grade, season and transport, from Seoul granite multipitch to regional sport climbing and Jeju bouldering. Each crag guide covers routes, approaches, local rules and guidebooks.',
-    },
-  },
-  {
-    slug: 'laos-crags',
-    category: 'climbing',
-    names: { 'zh-TW': '寮國岩場', en: 'Laos Climbing Crags' },
-    descriptions: {
-      'zh-TW': '從他曲的 Pha Tam Kam 與 Tha Falang、萬榮的喀斯特岩壁到龍坡邦的河壁，按風格、級數、季節與交通選目的地。每篇分開介紹路線、接近方式、住宿、岩栓與醫療風險。',
-      en: 'Choose Lao climbing destinations by style, grade, season and transport, from Pha Tam Kam and Tha Falang in Thakhek to the karst walls of Vang Vieng and the river walls of Luang Prabang. Each guide covers routes, approaches, lodging, bolts and medical risk.',
-    },
-  },
-  {
-    slug: 'vietnam-crags',
-    category: 'climbing',
-    names: { 'zh-TW': '越南岩場', en: 'Vietnam Climbing Crags' },
-    descriptions: {
-      'zh-TW': '從諒山 Hữu Lũng 的 267 條果園石灰岩運攀，到吉婆島的海島屋頂與蘭夏灣的沙灘運動攀岩與深水抱石，按風格、級數、季節、潮汐與交通選目的地。每篇分開介紹路線、接近方式、通行費、封閉與在地規範。',
-      en: 'Choose Vietnamese climbing destinations by style, grade, season, tide and transport, from the 267 orchard limestone sport routes at Hữu Lũng to island roofs on Cat Ba and beach sport climbing plus deep water soloing in Lan Hạ Bay. Each guide covers routes, approaches, access fees, closures and local rules.',
-    },
-  },
-  {
-    slug: 'building-knowledge-bases',
-    category: 'learning',
-    names: { 'zh-TW': '知識庫怎麼建', en: 'Building Knowledge Bases' },
-    descriptions: {
-      'zh-TW': '同一套問題走三遍：給未來的自己（個人筆記）、給同事（團隊 wiki）、給模型（RAG 用的 AI 知識庫）。每段都回答收什麼、怎麼整理、怎麼找到、誰來維護，方法作者的主張和實證研究分開寫。',
-      en: 'The same four questions asked three times: for your future self (personal notes), for colleagues (team wikis), and for a model (an AI knowledge base for RAG). Each part covers what to keep, how to organize it, how it gets found, and who maintains it, with method authors’ claims kept apart from empirical research.',
-    },
-  },
-  {
-    slug: 'malaysia-crags',
-    category: 'climbing',
-    names: { 'zh-TW': '馬來西亞岩場', en: 'Malaysia Climbing Crags' },
-    descriptions: {
-      'zh-TW': '從玻璃市的石灰岩運攀、蘭卡威的私人岩場與深水抱石，到黑風洞、怡保、刁曼島多段與砂拉越洞穴。每個岩場分開介紹路線、接近方式、在地規範、岩栓狀態與指南書。',
-      en: 'From Perlis limestone sport climbing and Langkawi’s private crags and deep-water soloing to Batu Caves, Ipoh, Tioman multipitch and Sarawak caves. Each crag guide covers routes, approaches, local rules, bolt condition and guidebooks.',
-    },
-  },
-  {
-    slug: 'thailand-crags',
-    category: 'climbing',
-    names: { 'zh-TW': '泰國岩場', en: 'Thailand Climbing Crags' },
-    descriptions: {
-      'zh-TW': '從喀比半島的 Tonsai 與 Railay、Ao Nang 本島的 North Wall 與 Chong Phli，到清邁 Crazy Horse、清道、華富里、北標與龜島抱石，按風格、級數、季節與交通選目的地。每篇分開介紹具名路線、接近方式、進入規定、岩栓狀態與指南書。',
-      en: 'Choose Thai climbing destinations by style, grade, season and transport, from Tonsai and Railay on the Krabi peninsula and the Ao Nang mainland crags to Crazy Horse, Chiang Dao, Lopburi, Nam Pha Pa Yai and Koh Tao bouldering. Each guide covers named routes, approaches, access rules, bolt condition and guidebooks.',
     },
   },
   {
@@ -374,15 +320,6 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
-    slug: 'sandbox-series',
-    category: 'engineering',
-    names: { 'zh-TW': '沙箱系列', en: 'Sandbox Series' },
-    descriptions: {
-      'zh-TW': '把 AI agent 執行環境與沙箱從原理、供應商到安全邊界拆開：從 Namespace、gVisor、Firecracker 的隔離光譜，到 E2B、Daytona、Runloop、Vercel 等雲端沙箱的選型取捨，以及權限、憑證、網路邊界與逃逸案例。',
-      en: 'Breaking down AI agent execution environments and sandboxes from principle, to vendor selection, to security boundaries: from the isolation spectrum of Namespace, gVisor, and Firecracker, to the trade-offs of cloud sandboxes like E2B, Daytona, Runloop, and Vercel, plus permission, credential, network-boundary, and escape case studies.',
-    },
-  },
-  {
     slug: 'ai-top-conferences',
     category: 'ai-agents',
     names: { 'zh-TW': 'AI 頂會導讀', en: 'Reading AI Top Conferences' },
@@ -401,6 +338,33 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'ai-common-failures',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI 通病', en: 'AI Common Failures' },
+    descriptions: {
+      'zh-TW': '針對 AI 相關寫作與介紹文章的常見通病，如否定式對比、意義抬高、指示型摘要、過度概括，說明如何認出與修正。',
+      en: 'Common pitfalls in AI-related writing and introductions, such as negative contrast, overstated significance, instructive summaries, and overgeneralization — how to spot and fix them.',
+    },
+  },
+  {
+    slug: 'ai-agent-security-tooling-map',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI Agent 資安工具地圖', en: 'AI Agent Security Tooling Map' },
+    descriptions: {
+      'zh-TW': '圖解 AI Agent 資安工具的版圖與關係，釐清各工具在防禦、偵測與回應層的定位。',
+      en: 'Mapping the landscape of AI agent security tools, clarifying each tool\u2019s role in defense, detection, and response layers.',
+    },
+  },
+  {
+    slug: 'agent-isolation-boundaries',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'Agent 隔離邊界', en: 'Agent Isolation Boundaries' },
+    descriptions: {
+      'zh-TW': '探討 Agent 與主機、網路、資料之間的隔離邊界，以及如何確保 Agent 動作不越界。',
+      en: 'Exploring isolation boundaries between agents and hosts, networks, and data, and how to keep agent actions within bounds.',
+    },
+  },
+  {
     // slug 沿用先前 fallback 產生的 'agent'，改名會動到已發佈的 URL
     slug: 'agent',
     category: 'ai-agents',
@@ -408,15 +372,6 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '把 agent 當成一條生產線來看：概念界線、模型與 harness 的分工、context 與記憶、企業案例、安全、協定層，以及 RAG 的三種形態。',
       en: 'Reading agents as a production line: where the concept ends, how model and harness divide the work, context and memory, enterprise cases, security, the protocol layer, and the three shapes of RAG.',
-    },
-  },
-  {
-    slug: 'ai-agent-security-tooling',
-    category: 'ai-agents',
-    names: { 'zh-TW': 'AI Agent 資安工具地圖', en: 'AI Agent Security Tooling Map' },
-    descriptions: {
-      'zh-TW': '把 skill、MCP 與 coding agent 周邊的開源資安工具分成七類：安裝前掃描、沙箱、護欄與閘道、偵測與稽核、程式碼審計、測試 AI 系統，以及用 AI 打別人的滲透測試，逐類看它們做了什麼、沒做什麼，以及公開的數字能不能信。',
-      en: 'The open-source security tools around skills, MCP and coding agents, sorted into seven kinds: pre-install scanning, sandboxes, guardrails and gateways, detection and audit, code auditing, testing AI systems, and AI that attacks others. What each does, what it does not, and whether the published numbers hold up.',
     },
   },
   {
@@ -588,8 +543,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS329Z 導讀', en: 'Reading Stanford CS329Z' },
     descriptions: {
-      'zh-TW': 'Stanford CS329Z Fall 2026 自學導讀，一堂一篇：已公開的十一堂投影片附頁碼對照，各堂指定閱讀深讀，從 agent 迴圈、記憶與協調走到評估、安全及主動式助理。',
-      en: 'A self-study guide to Stanford CS329Z Fall 2026, one post per lecture: page-linked guides to the eleven released slide decks and digests of each lecture\'s readings, from agent loops, memory and coordination to evaluation, safety and proactive assistants.',
+      'zh-TW': 'Stanford CS329Z Fall 2026 自學導讀：前九堂投影片附頁碼對照，各週指定閱讀分篇深讀，從 agent 迴圈、記憶與協調走到評估、安全及主動式助理。',
+      en: 'A self-study guide to Stanford CS329Z Fall 2026: page-linked guides to nine slide decks and individual reading digests, from agent loops, memory and coordination to evaluation, safety and proactive assistants.',
     },
   },
   {
@@ -687,15 +642,6 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '把學習科學的證據與生成式 AI 的實際用法擺在一起審視：哪些做法有證據支持、哪些只是流傳，以及數位之外紙筆還剩什麼。',
       en: 'Auditing the evidence behind learning science alongside how generative AI is actually used — which practices hold up, which merely circulate, and what pen and paper still do better.',
-    },
-  },
-  {
-    slug: 'ai-common-failures',
-    category: 'ai-agents',
-    names: { 'zh-TW': 'AI 通病', en: 'AI Common Failures' },
-    descriptions: {
-      'zh-TW': 'LLM 寫的文字讀起來有資訊、讀者卻拿不到答案的寫法：否定式對比、意義抬高、指示型摘要、過度概括。每篇講怎麼認、怎麼改、什麼時候該留，再談成因、防護與別矯枉過正。',
-      en: 'Patterns in LLM prose that read as informative but leave the reader without an answer: contrast framing, significance inflation, indicative summaries, overgeneralization. Each post covers how to spot it, how to fix it and when to keep it, followed by causes, guardrails and the risk of overcorrecting.',
     },
   },
   {
