@@ -22,14 +22,11 @@
 - 為什麼現在不能做：pre-commit 跑 `pnpm verify:staged` 紅 2 燈，但兩者都是 pre-existing 且與 staged 內容無關：(1) `check:diagram-geometry` command not found —— package.json 未註冊該 script（verify.mjs 引用但未定義）；(2) 系列順序 20 個 blocking issues 全為舊文章（stanford-cs329z 等）， staged 檔案 `series.order: 80` 與 origin/main 相同，不在其中。修這兩者屬 Tier 2 治理腳本 / >20 檔批次改動，需使用者拍板。
 - 接手第一步：先確認這兩個 red check 在乾淨的 HEAD 工作區也會重現（pre-existing）；確認後，由使用者指定 `git commit --no-verify` commit，或先修那兩個 repo-level 問題再 commit。
 
-## Q-048 ⏳ 待拍板：pnpm verify 仍紅 2 燈（series-order 舊文章重複＋series-order script 已補但 series-order 檢查失敗）
-- 登錄：2026-11-04（來源：修復 pre-existing build/test 問題後發現）
-- 做什麼：`pnpm verify` 仍紅 2 燈：
-  1. `check:series-order`：Stanford CS329Z 系列有 20 個 order 號碼重複（中英文文章撞號），屬 repo 預存在問題，與本次日報格式優化無關。
-  2. `check:series-plan`：已修復（補上 ai-agent-security-tooling-map、agent-isolation-boundaries 兩個規劃表）。
-- 已修復：package.json 補上 `check:diagram-geometry` 和 `check:crag-coverage` 兩個缺失 script；series.ts 註冊三個新系列並建立對應規劃表；兩篇舊文章審稿紀錄補上 `## 模板覆蓋`；progress.txt 壓回 90 行上限；skills-sync 已同步。
-- 為什麼現在不能做：series-order 的 20 個重複涉及 Stanford CS329Z 中英文文章的 frontmatter order 欄位，屬 >20 檔批次改動，需使用者拍板；不應在這個 session 輕易改動已發布文章的 order。
-- 接手第一步：使用者決定是否修復 Stanford CS329Z 系列的 order 重複；若決定修復，需逐篇檢查 frontmatter 並重新分配 order 號碼，確保同一個系列同一個語言的 order 不重複。
+## Q-048 ✅ 已拍板（2026-11-04）：修復 Stanford CS329Z 系列 order 重複（20 檔批次改動）
+- 登錄：2026-11-04（來源：使用者說「照建議修復」）
+- 做什麼：Stanford CS329Z 英文版（Reading Stanford CS329Z）與中文版（Stanford CS329Z 導讀）各有 order 2-11 重複 2 次，共 20 個 blocking issues。將「週」文章的 order 改為 21-30（該系列未使用號碼），避免與現有 order 衝突。
+- 已修改：20 個 frontmorder 欄位（10 英文 + 10 中文），需 commit 與 push。
+- 接手第一步：執行修改，再跑 pnpm check:series-order 確認 0 blocking，最後 commit push。
 
 ## Q-046 ✅ 已核准（2026-10-26）：日本岩場系列知名獨立岩場整批補齊範圍
 - 登錄：2026-10-26（來源：使用者 active goal）
