@@ -22,6 +22,18 @@
 | [Deadline 2026-07：The Pitt 25 項艾美提名](https://deadline.com/2026/07/noah-wyle-the-pitt-emmy-nominations-season-3-spoilers-1236977559) | 🟡 搜尋摘要 | 2026 年提名數最多 |
 | [Decider 2026-09-15：The Pitt 第三季](https://decider.com/2026/09/15/the-pitt-season-3-release-date-everything-we-know-about-the-pitt-season-3) | 🟡 搜尋摘要 | 第二季 2026-04 完結；第三季 2027-01 首播 |
 
+## 各國在地推薦來源（初步確認存在且 2026 有最新結果）
+
+| 來源 | 讀取範圍 | 2026 最新結果（摘要） |
+|---|---|---|
+| [Yahoo 2026 百想得獎名單](https://tw.news.yahoo.com/2026%E7%99%BE%E6%83%B3%EF%BC%8F%E3%80%8A%E7%8E%8B%E5%91%BD%E4%B9%8B%E5%BE%92%E3%80%8B%E6%9F%B3%E6%B5%B7%E7%9C%9F%E3%80%81%E3%80%8A%E9%87%91%E9%83%A8%E9%95%B7%E7%9A%84%E5%A4%A2%E6%83%B3%E4%BA%BA%E7%94%9F%E3%80%8B%E6%9F%B3%E6%89%BF%E9%BE%8D%E5%A5%AA%E5%A4%A7%E8%B3%9E%EF%BC%81%E6%9C%B4%E6%AD%A3%E6%B0%91%E3%80%81%E6%96%87%E4%BD%B3%E7%85%90%E5%B0%81%E5%BD%B1%E5%B8%9D%E5%90%8E%EF%BC%81%E5%AE%8C%E6%95%B4%E5%BE%97%E7%8D%8E%E5%90%8D%E5%96%AE%E4%B8%80%E6%AC%A1%E7%9C%8B-090358471.html)、[Vogue Taiwan 入圍名單](https://www.vogue.com.tw/article/2026-baeksang-awards-nominations) | 🟡 搜尋摘要 | 電視劇作品賞：《妳和其餘的一切》（Netflix）；大賞：柳承龍《金部長的夢想人生》（JTBC）；入圍含《未知的首爾》《下流大盜》《暴君的廚師》 |
+| [ザテレビジョン 第128回ドラマアカデミー賞](https://thetv.jp/feature/drama-academy/128/awards)、[KADOKAWA 新聞稿](https://group.kadokawa.co.jp/information/promotional_topics/article-15522.html) | 🟡 搜尋摘要 | 每季頒發（讀者＋記者＋評審票）；2026 春季最優秀作品《銀河の一票》、冬季《リブート》 |
+| [虎嗅：2026 白玉蘭前瞻](https://www.huxiu.com/article/4845235.html) | 🟡 搜尋摘要 | 白玉蘭提名與豆瓣分的關係（豆瓣 6 分以下基本與白玉蘭無緣）；雲合數據、CVB 收視是觀眾端指標 |
+| [SMG 電視劇頻道：2026 白玉蘭最佳男主角](https://www.youtube.com/watch?v=Sy7i8J5MytU) | 🟡 影片描述 | 于和伟《沉默的荣耀》 |
+| [Zoom TV：Euphoria 第三季評論](https://www.zoomtventertainment.com/reviews/american-medical-system-series-season-two-episode-one-review-153401088) | 🟡 搜尋摘要 | 《高校十八禁》第三季評價偏弱（「Zendaya 是唯一亮點」）→ 美劇篇要寫出在地評價落差 |
+
+觀察：三種推薦常常不一致（白玉蘭與豆瓣只部分重合；收視高的古偶劇不受白玉蘭青睞）。這正是「至少兩種推薦」規則要處理的地方，文章裡要寫出每部是被哪種推薦撐起來的。
+
 ## 觀察
 
 1. 使用者給的五部（權力遊戲、和平使者、瑞克和莫蒂、匹茲堡醫魂、高校十八禁）全是 HBO Max 台灣片庫的美國作品，出處是一則平台導向的短影音貼文 → 適合當「美劇」篇的骨架，但要標明偏誤：單一平台、單一國家、四部真人一部動畫、類型集中在暴力／性／黑色幽默。
