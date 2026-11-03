@@ -1153,3 +1153,7 @@ daily-digest-report 2026-10-17：讀 32 筆 signals JSON＋9 篇 Stage 1 固定�
 ## 2026-11-03 封存：daily-digest-security 2026-10-17 daily-digest-pricing（壓回 90 行上限）
 
 - **daily-digest-pricing 2026-10-17**：週六輪值 Cohere／AWS Bedrock 官方定價頁（無變動）＋三組 Groundlane `web_search`（定價變動／sunset／促銷）。命中訊號含 Azure gpt-4.1-nano 退役、Vertex AI Gemini 2.5 系列 10/20 退役、ElevenLabs 50% off（非核心模型 API，排除）、Anthropic Sonnet 4 Bedrock EOL（已於 10-14 報導過）；最後選定 Google 官方 `ai.google.dev/gemini-api/docs/pricing` 這次補上了 10/4 報導時明確指出「沒給到期日」的 Gemini 4 Argon 促銷到期日：2026-11-30 後 input/output 雙漲 100% 至 $4.00/$20.00；同一頁面 Gemini 3.8 Flash 與前代 Flash 的促銷到期日也定在 2026-12-31，2027-01-01 起同樣雙漲 100%。官方頁面＋felloai.com／nocode.mba 兩篇新聞交叉確認，並與 10/4 既有報導互相連結構成追蹤延續。series order 24（接續 10-16 OpenAI GPT-4o sunset 的 23）。中英雙版已建立並互相連結。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning，初版英文 `## Sources` 改回慣用 `## References` 標題才過）、`check:lang-parity`（2852 組全過）、`check:tw`（0 blocking，新檔 0 命中）、`check:series-order`（24 無撞號，僅既有缺號 warning）皆 0 blocking；已將最舊 Recently completed 條目（10-13 daily-digest-tool）移至 `docs/progress-archive.md`；已 commit／push。
+
+## 2026-11-04 封存：Q-021 提示（daily-digest-benchmark 2026-11-04 rebase 壓回 90 行上限）
+
+- **Q-021（2026-09-05）**：daily-digest-benchmark 執行時 Groundlane 顯示 connected+enabledInChat 但查無工具，未產出當日 benchmark 文章，見 escalation-queue。

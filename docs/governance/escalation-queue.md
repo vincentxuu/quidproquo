@@ -559,9 +559,19 @@
 - 下一步：獨立檢查 `src/lib/crawl/chunker.ts`、`scripts/sync-to-d1.ts` 產生的該區塊，以及 `src/lib/indexing/pipeline.ts` 的 24000 字元請求上限；保留上限，修正分塊／重切後再同步，不以放大上限或跳過失敗來變綠。
 - 為何未在本輪執行：需另行修復分塊與正式索引資料，超出這次文章公開與相關內容更新範圍。完整證據 `.work/free-llm-related-updates/release.md`；CI https://github.com/vincentxuu/quidproquo/actions/runs/41282405822 。
 
-
 ## 2026-11-04：部署品質閘門修復待發布核准
 
 - 做什麼：修正 `.work/reviews/2026-10-12-japan-crag-odo-kaigan.md` 與 `.work/reviews/2026-10-21-korea-crag-seoninbong.md` 的過期影片統計，完整 verify 通過後提交並推送 main，追蹤正式 Deploy。
 - 使用者已於 2026-11-04 回覆「commit push」，核准推送此修復並觸發正式部署。未修改 workflow、驗證器或文章內容；部署結果仍待 Actions 確認。
 - 接手入口：`.work/deploy-fix-20261104/plan.md`、`verify.log`；只帶入本輪兩份審稿紀錄與必要工作紀錄，保留其他 session 改動。較早 embedding 超長問題另見上方 2026-11-01 條目。
+
+## Q-049 ✅ 已解除（2026-11-04，由上方「部署品質閘門修復」處理）：daily-digest-benchmark commit 被 pre-existing crag-coverage red check 擋住
+- 登錄：2026-11-04（來源：daily-digest-benchmark routine 執行時，`pnpm verify:staged` 因暫存區含 `src/data/daily-signals/benchmark-snapshot.json`（資料檔）自動升級成完整 verify）
+- 做什麼：commit 本次 benchmark 無異動快照更新（僅 `progress.txt` 與 `src/data/daily-signals/benchmark-snapshot.json` 兩檔，與攀岩內容無關）。
+- 為什麼現在不能做：`check:crag-coverage` 紅 2 燈，但都是既有檔案、與本次 staged 內容無關：
+  - `src/content/posts/climbing/2026-10-12-japan-crag-odo-kaigan.md`：審稿紀錄 `.work/reviews/2026-10-12-japan-crag-odo-kaigan.md` 寫「影片統計：查詢 0 組；候選 0 支；收錄 0 支；有影片的路線 0／10 列」，但文章目前「依程度挑路線」分級表實際已有 90 列、其中 19 列對到 `src/data/climbing-videos.ts` 有影片。
+  - `src/content/posts/climbing/2026-10-21-korea-crag-seoninbong.md`：審稿紀錄同樣寫「0／6 列」，實際分級表已到 35 列，25 列有影片。
+  - 兩篇都不在 `scripts/config/crag-coverage-baseline.json` 的豁免名單內，所以腳本依規則擋下。這不是 5 分鐘內能對的 A 級用語或撞號修正——分級表列數成長 9～10 倍（10→90、6→35）但審稿紀錄完全沒跟上，需要先確認：(1) 這些路線是何時、由誰加進分級表的（本 session 未碰過攀岩內容），(2) 新增的路線是否真的做過影片搜尋（審稿寫「候選 0 支」明顯是舊快照，不能由本 session 憑空補數字），(3) 覆蓋率 19/90≈21%、25/35≈71% 若低於 30% 門檻（`odo-kaigan` 符合）還需要補一行「影片覆蓋說明」解釋為什麼找不到更多——這需要實際補做影片搜尋研究，不是機械同步數字。治理憲章規定紅在既有檔案、修不動時不准 commit、不准 `--no-verify`，故登錄此處。
+- 接手第一步：先查 `git log -p --follow -- src/content/posts/climbing/2026-10-12-japan-crag-odo-kaigan.md` 確認分級表何時長到 90 列（可能與 progress.txt 提到的「大堂海岸模板優化 2026-10-26」或攀岩裝備系列並行工作有關）；若分級表擴充屬實且合理，請負責攀岩內容的使用者/session 依 `scripts/check-crag-coverage.mjs` 規則重新搜尋路線影片並更新兩篇審稿紀錄（含覆蓋率 <30% 的說明行）；若擴充本身有誤（例如誤合併、重複列），應先修正分級表再重算。修好後 `git add src/data/daily-signals/benchmark-snapshot.json && git commit` 即可補上，不需重跑 benchmark 查證（數字已在本條目與 progress.txt 寫好）。
+- 本次已完成的拆分：`verify.mjs` 的 `stagedPlan()` 只把 `src/content/posts/**/*.md`、`.agents|.claude/skills/**/*.md`、`docs/**/*.md`、`.work/`、`progress.txt` 視為安全路徑，`src/data/daily-signals/benchmark-snapshot.json` 不在其中、一律退回完整 verify，才踩到上述 pre-existing 紅燈。因此本次只 commit `progress.txt`（＋本條目），`benchmark-snapshot.json` 的異動留在工作目錄不 commit；內容數字已完整寫入本條目與 progress.txt 新條目，之後直接 `git add` 補 commit 即可，不是遺失資料。
+- **解除**：上方「2026-11-04：部署品質閘門修復待發布核准」條目已修好 `.work/reviews/2026-10-12-japan-crag-odo-kaigan.md`／`.work/reviews/2026-10-21-korea-crag-seoninbong.md` 的影片統計並 commit／push（`d8a65ed`），`check:crag-coverage` 恢復綠燈。`benchmark-snapshot.json` 現在可以直接補 commit，不需再等。
