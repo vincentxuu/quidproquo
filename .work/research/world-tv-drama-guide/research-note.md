@@ -32,7 +32,20 @@
 | [SMG 電視劇頻道：2026 白玉蘭最佳男主角](https://www.youtube.com/watch?v=Sy7i8J5MytU) | 🟡 影片描述 | 于和伟《沉默的荣耀》 |
 | [Zoom TV：Euphoria 第三季評論](https://www.zoomtventertainment.com/reviews/american-medical-system-series-season-two-episode-one-review-153401088) | 🟡 搜尋摘要 | 《高校十八禁》第三季評價偏弱（「Zendaya 是唯一亮點」）→ 美劇篇要寫出在地評價落差 |
 
-觀察：三種推薦常常不一致（白玉蘭與豆瓣只部分重合；收視高的古偶劇不受白玉蘭青睞）。這正是「至少兩種推薦」規則要處理的地方，文章裡要寫出每部是被哪種推薦撐起來的。
+| [BBC Culture 21 世紀百大影集](https://www.bbc.com/culture/article/20211015-the-100-greatest-tv-series-of-the-21st-century)、[投票者名單](https://www.bbc.com/culture/article/20211014-the-greatest-tv-series-of-the-21st-century-who-voted) | 🟡 搜尋摘要 | 2021 年，206 位專家、43 國；第 1 名 The Wire；榜內含非美劇（紙房子、Borgen、The Bridge、中國《走向共和》《隱秘的角落》）→ 跨國影評共識來源（時效：2021，只當經典參考） |
+| [Parrot Analytics × 金氏世界紀錄 2026](https://www.parrotanalytics.com/announcements/parrot-analytics-and-guinness-world-records-crown-the-worlds-most-in-demand-tv-shows-in-guinness-world-records-2026) | 🟡 搜尋摘要 | 需求指標：權力遊戲為最高需求影集（全球平均 89 倍）、瑞克和莫蒂為最高需求情境喜劇 → 美劇篇可用 |
+| [Good Data Corporation FUNdex](https://blog.naver.com/gooddata_fundex/224171133498?viewType=pc) | 🟡 搜尋摘要 | 韓國 TV＋OTT 每週話題性排行 |
+| [MyDramaList Top Dramas](https://mydramalist.com/shows/top) | 🟡 搜尋摘要 | 亞洲劇國際觀眾評分；#1《苦盡柑來遇見你》9.3 |
+| [PTT KoreaDrama：2025 最愛韓劇](https://www.pttweb.cc/bbs/KoreaDrama/M.1765265708.A.DA2) | 🟡 搜尋摘要 | 台灣劇迷口碑；推文中有《未知的首爾》《金部長的夢想人生》，與 2026 百想入圍重合 |
+| [Dcard 戲劇綜藝板](https://www.dcard.tw/f/tvepisode/p/262317863) | 🟡 搜尋摘要 | 台灣年輕觀眾推坑文 |
+| [LA Times 2026 艾美獎得獎名單](https://www.latimes.com/entertainment-arts/awards/story/2026-09-14/emmys-2026-complete-list-winners)、[Television Academy 劇情類](https://www.televisionacademy.com/awards/nominees-winners/2026/outstanding-drama-series) | 🟡 搜尋摘要 | 《匹茲堡醫魂》連兩年拿劇情類影集；《七王國的騎士》入圍 |
+| [Series Mania](https://en.wikipedia.org/wiki/Series_Mania)、[國際艾美獎](https://www.iemmys.tv/international-emmy-awards/awards-gala) | 🟡 搜尋摘要 | 非英語劇的國際評審獎（2025 Series Mania 首獎：西班牙《Querer》） |
+
+觀察：不同類別的來源常常不一致（白玉蘭與豆瓣只部分重合；收視高的古偶劇不受白玉蘭青睞）。這正是「至少兩種推薦」規則要處理的地方，文章裡要寫出每部是被哪種推薦撐起來的。
+
+## 為什麼有西語篇（回答使用者）
+
+原本依據的是全球數據，不是台灣數據：Omdia 2024 指出韓語與西語內容合占 Netflix 全球觀看 16%；Netflix 歷來非英語劇 Top 10 有 3 季《紙房子》；BBC 百大也收了《紙房子》。但 MIC 2025 台灣調查沒有列西語劇 → 西語篇的理由是「全球第二大非英語劇來源」，不是「台灣人常看」。替代方案：把 order 7 擴成「歐洲與拉美非英語劇」（西、法《亡命之徒 Lupin》、北歐 Borgen／The Bridge、德 Dark），由多元來源決定實際選誰。
 
 ## 觀察
 
