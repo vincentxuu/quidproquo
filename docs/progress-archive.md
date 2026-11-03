@@ -1165,3 +1165,11 @@ daily-digest-report 2026-10-17：讀 32 筆 signals JSON＋9 篇 Stage 1 固定�
 ## 2026-11-04 封存：daily-digest-model-card 2026-10-18（daily-digest-tool 2026-11-04 rebase 合併併發 session 後壓回 90 行上限）
 
 - **daily-digest-model-card 2026-10-18**：HF API 四組 trending 掃描（文字生成／多模態／文字轉圖／文字轉影片）＋兩組 Groundlane `web_search` 後，候選中 DeepSeek-V4.1-Flash-1017（既有家族 09-11／09-12 已寫過，僅日期後綴的例行 checkpoint，非架構突破）、Ling-3.1-flash（Ling 家族 09-19 已寫過）、Muse-Spark-Open-816B-A42B（10-16 已寫過）、autotrust/JEV-27B-VL（10-16 以資安角度寫過）均因「已寫過模型卡的 base model 後續衍生版」排除；選出唯一符合條件 A（新 base model、createdAt 7 天內、無 base_model tag）且有第三方交叉驗證的新事件：**Reflection AI Beam 1.0**（501.3B 總參數／23.4B 啟用 MoE，2026-10-05 早鳥預告、10-16 正式開放權重 Apache 2.0，1M context）。SWE-bench Verified 81.6%（BF16）、Terminal-Bench 2.1 80.1%、AIME 2026 97.7%；官方部落格自陳與 GLM 5.2 相當、逼近 Qwen 3.8 Max，但輸給 Kimi K3，賣點是推理 token 效率（官方稱約省 3 倍）。定價查無 Reflection 官方 API 頁，改用第三方代管 Together AI 定價頁（input $0.40／output $1.20 每百萬 token，快取 input $0.04）。官方 Reflection Blog＋HuggingFace Model Card＋Together AI 定價頁＋第三方 Data Studios 分析文四方交叉確認。series order 50（接續 10-16 tencent-hy-memory 的 49）。中英雙版已建立並互相連結。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新兩檔 0 warning）、`check:lang-parity`（2871 組全過）、`check:tw`（0 blocking，新檔 0 命中）、`check:series-order`（50 無撞號，僅既有缺號 warning）、`pnpm lint`（0 warning/error）皆 0 blocking；已將最舊 Recently completed 條目（10-14 daily-digest-github）移至 `docs/progress-archive.md`；待 commit／push。
+
+## 2026-11-04 封存：Q-020（2026-09-06）（daily-digest-product-interview 2026-11-04 壓回 90 行上限）
+
+- **Q-020（2026-09-06）**：同日 framework/funding/pricing/signals/report/arxiv/github 七支 routine 皆踩到「Groundlane connected+enabledInChat:true 但需認證、非互動 session 無法 OAuth」，均未產出，見 escalation-queue Q-020 尾端（github digest 額外確認 gh CLI 未裝、GitHub MCP scope 鎖死本 repo）。
+
+## 2026-11-04 封存：AIP-C01 備考指南補強（2026-09-12）（daily-digest-product-interview 2026-11-04 壓回 90 行上限，第二筆）
+
+- **AIP-C01 備考指南補強（2026-09-12）**：中英已補四步準備法、教材比較、實作與應考提醒，另補四份標準版後的獨立考生紀錄，區分 beta 與標準版並標註背景差異；targeted references／tw／diff check 通過，quality 僅既有 `career` tag 提示。全站 verify 既有 blocker 見 Q-024；未 commit／deploy，詳 `.work/aip-c01-update/`。
