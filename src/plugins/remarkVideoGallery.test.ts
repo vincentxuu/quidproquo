@@ -154,7 +154,7 @@ describe('route video playlist', () => {
   });
 
   it('makes external viewing a separate explicit action and retains every clip', () => {
-    expect(spec.videos).toHaveLength(33);
+    expect(spec.videos).toHaveLength(91);
     for (const video of spec.videos) expect(html).toContain(video.id);
     expect(html).toContain('<a class="video-gallery__external-row video-gallery__external-link"');
     expect(html).toContain('target="_blank" rel="noopener noreferrer"');
