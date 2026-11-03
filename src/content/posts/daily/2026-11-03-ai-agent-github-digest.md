@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-memory, mcp, model-serving]
 lang: zh-TW
 description: "記憶層擴大到幾乎所有 coding agent、平行 worktree 不再打結、Unreal Editor 整個變成 MCP 工具、290B 模型塞進一張遊戲顯卡——今天四個 repo 各補了 agent 基礎設施一層"
-tldr: "**thedotmack/claude-mem**(⭐110k)是給 agent 用的常駐記憶壓縮系統,今天把相容清單擴大到 Grok Bot／T3 Code／Antigravity CLI／OMP／Pi／DeepSeek Harness,幾乎吃下市面上叫得出名字的 coding agent；**max-sixty/worktrunk**(⭐9.9k)用 Rust 把 git worktree 操作簡化成三個指令,解決平行跑多個 agent 時『開一個新工作目錄要打三次分支名』的麻煩；**db-lyon/ue-mcp**(⭐466)把整個 Unreal Editor 暴露成 MCP 工具,2114+ 個動作裡 830 個直接呼叫 Epic 官方原生 AI Toolset；**FlashML-org/FreeToken**(⭐16k)是 edge-native 的 MoE 推理引擎,想讓 290B+ 參數的前沿開放權重模型在一般遊戲電腦上跑出互動速度。今天沒有重要框架 release。"
+tldr: "thedotmack/claude-mem (⭐110k) 是給 agent 用的常駐記憶壓縮系統，今天把相容清單擴大到 Grok Bot／T3 Code／Antigravity CLI／OMP／Pi／DeepSeek Harness，幾乎吃下市面上叫得出名字的 coding agent；max-sixty/worktrunk (⭐9.9k) 用 Rust 把 git worktree 操作簡化成三個指令，解決平行跑多個 agent 時「開一個新工作目錄要打三次分支名」的麻煩；db-lyon/ue-mcp (⭐466) 把整個 Unreal Editor 暴露成 MCP 工具，2114+ 個動作裡 830 個直接呼叫 Epic 官方原生 AI Toolset；FlashML-org/FreeToken (⭐16k) 是 edge-native 的 MoE 推理引擎，想讓 290B+ 參數的前沿開放權重模型在一般遊戲電腦上跑出互動速度。今天沒有重要框架 release。"
 series:
   name: "AI Agent GitHub Digest"
   order: 80
