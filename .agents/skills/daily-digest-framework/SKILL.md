@@ -166,6 +166,7 @@ tags: [ai-agent, framework, daily, {framework-slug}]
 lang: zh-TW
 description: "一句話概述這個版本最重要的變更"
 tldr: "2-3 行概述 breaking changes 和關鍵新功能"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Framework Changelog"
   order: N

@@ -279,6 +279,7 @@ tags: [ai-agent, region, daily, {region-slug}]
 lang: zh-TW
 description: "一句話概述本週該區域最重要的動態"
 tldr: "3-5 行重點"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Region Focus"
   order: N

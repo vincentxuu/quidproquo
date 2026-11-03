@@ -185,6 +185,7 @@ tags: [ai-agent, security, daily, {attack-type}]
 lang: zh-TW
 description: "一句話概述事件和影響"
 tldr: "事件 + 影響範圍 + 防禦做法的 2-3 句話摘要"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Security Alert"
   order: N

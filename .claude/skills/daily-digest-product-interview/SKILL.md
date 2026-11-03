@@ -151,6 +151,7 @@ tags: [product-builder-interview, daily, {topic-specific-tag}]
 lang: zh-TW
 description: "{一句話描述今天練什麼}"
 tldr: "{今天的核心框架 + 練習重點}"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "Product Builder 面試日練"
   order: N

@@ -185,6 +185,7 @@ tags: [ai-agent, benchmark, daily, {benchmark-slug}]
 lang: zh-TW
 description: "一句話概述排名變動和意義"
 tldr: "誰變第一 + 分數多少 + 這代表什麼"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Benchmark Watch"
   order: N

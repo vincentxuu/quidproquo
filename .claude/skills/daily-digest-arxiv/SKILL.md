@@ -300,6 +300,7 @@ tags: [ai-agent, arxiv, daily]
 lang: zh-TW
 description: "一句話，串起今天入選論文的共同主題"
 tldr: "入選論文的一句話結論，用分號隔開"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Agent Arxiv Digest"
   order: N
