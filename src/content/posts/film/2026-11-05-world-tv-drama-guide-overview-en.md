@@ -144,7 +144,7 @@ The last row has data behind it. [Omdia's analysis of Netflix's first-half 2024 
 |---|---|---|
 | 0 | How to pick a show by country (this post) | Which country should I start with? |
 | 1 | [US: fantasy, sci-fi, horror and superheroes](/posts/film/2026-11-05-us-tv-fantasy-scifi-superhero-en) | Game of Thrones, Stranger Things, Peacemaker and 15 more: who are they for, and how far do they go? |
-| 2 | US: crime, mystery and politics | Breaking Bad, Fargo, House of Cards and more: where to start? |
+| 2 | [US: crime, mystery and politics](/posts/film/2026-11-05-us-tv-crime-mystery-politics-en) | Breaking Bad, Fargo, House of Cards, Paradise and 17 more: where to start? |
 | 3 | [US: workplace, period and life dramas](/posts/film/2026-11-05-us-tv-workplace-history-life-en) | The Pitt, Succession, Shōgun, Euphoria and 15 more: are they worth it? |
 | 4 | US: comedy and adult animation | Beyond Rick and Morty, Ted Lasso and The Studio, how to pick American comedy? |
 | 5 | Korean dramas | What is there beyond romance? |
