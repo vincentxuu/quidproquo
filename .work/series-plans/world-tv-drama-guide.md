@@ -56,6 +56,15 @@ order 0 是總覽：各國劇差在哪（一季幾集、會不會續訂、題材
 
 美劇依類型拆成 4 篇（`.work/research/world-tv-drama-guide/us/split-proposal.md`），系列順序改為：0 總覽、1 美劇｜奇幻科幻恐怖與超級英雄、2 美劇｜犯罪懸疑與政治、3 美劇｜職人歷史與人生劇情、4 美劇｜喜劇與成人動畫、5 韓劇、6 日劇、7 陸劇、8 台劇、9 英劇、10 歐洲與拉美非英語劇、（泰劇選寫）。下表篇目的原始 order 以此為準。第一批寫美劇 1 與美劇 3（含使用者原清單四部），交出後停，確認再寫 2、4。總覽的系列地圖在美劇篇上線時用 post-update 同步。
 
+
+## 評價欄位多元化（使用者 2026-11-05：「都是 Rotten Tomatoes 不夠多元」）
+
+每部卡片的「劇評」改成兩行：
+- **評分**：Metacritic（影評人加權平均）｜Rotten Tomatoes 影評／觀眾（好評比例）｜IMDb（全球觀眾）｜豆瓣（華語觀眾）。
+- **劇評怎麼說**：一篇英美主流媒體署名劇評（NYT、Vulture、The Guardian、The Atlantic、The New Yorker、Variety、THR、LA Times、The Telegraph、IndieWire 等，同一篇文章內同一媒體不超過 4 次）＋一篇中文影評（台灣優先：釀電影、放映週報、端傳媒、報導者、關鍵評論網；退而求其次為豆瓣具名長評或香港媒體），各一句重點＋連結。
+- 不同來源意見相反（例如英語圈高、豆瓣低）時直接寫出。
+- 研究檔：`.work/research/world-tv-drama-guide/us/reviews-post*.md`。
+
 ## 每篇共用結構
 
 1. 這國的劇是什麼樣子（產製方式、集數、季制、常見類型）
