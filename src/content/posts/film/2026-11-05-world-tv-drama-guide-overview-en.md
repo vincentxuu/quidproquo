@@ -146,7 +146,7 @@ The last row has data behind it. [Omdia's analysis of Netflix's first-half 2024 
 | 1 | [US: fantasy, sci-fi, horror and superheroes](/posts/film/2026-11-05-us-tv-fantasy-scifi-superhero-en) | Game of Thrones, Stranger Things, Peacemaker and 15 more: who are they for, and how far do they go? |
 | 2 | [US: crime, mystery and politics](/posts/film/2026-11-05-us-tv-crime-mystery-politics-en) | Breaking Bad, Fargo, House of Cards, Paradise and 17 more: where to start? |
 | 3 | [US: workplace, period and life dramas](/posts/film/2026-11-05-us-tv-workplace-history-life-en) | The Pitt, Succession, Shōgun, Euphoria and 15 more: are they worth it? |
-| 4 | US: comedy and adult animation | Beyond Rick and Morty, Ted Lasso and The Studio, how to pick American comedy? |
+| 4 | [US: comedy and adult animation](/posts/film/2026-11-05-us-tv-comedy-adult-animation-en) | Rick and Morty, Ted Lasso, The Office, The Studio and 18 more: how to pick American comedy? |
 | 5 | Korean dramas | What is there beyond romance? |
 | 6 | Japanese dramas | How does the quarterly drama schedule work? |
 | 7 | Chinese dramas | How do you pick one you'll actually finish at 40 episodes? |
