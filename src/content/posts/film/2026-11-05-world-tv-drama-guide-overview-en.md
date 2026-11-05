@@ -130,8 +130,8 @@ More tags means more kinds of viewers recommend it. When sources disagree (lots 
 | What you want | Read first |
 |---|---|
 | Finish in a weekend, with a real ending | Korea, Japan, UK |
-| Years with the same characters | US |
-| Edgy: violence or dark comedy | US (start with Game of Thrones, Peacemaker, Rick and Morty) |
+| Years with the same characters | [US fantasy and sci-fi](/posts/film/2026-11-05-us-tv-fantasy-scifi-superhero-en), [US workplace and life](/posts/film/2026-11-05-us-tv-workplace-history-life-en) |
+| Edgy: violence or dark comedy | [US fantasy and sci-fi](/posts/film/2026-11-05-us-tv-fantasy-scifi-superhero-en) (start with Game of Thrones, Peacemaker) |
 | Period drama, palace intrigue, long epics | China |
 | Familiar streets and language | Taiwan |
 | Non-English shows that went global | Europe and Latin America |
@@ -143,15 +143,18 @@ The last row has data behind it. [Omdia's analysis of Netflix's first-half 2024 
 | Order | Post | Question it answers |
 |---|---|---|
 | 0 | How to pick a show by country (this post) | Which country should I start with? |
-| 1 | American dramas | Game of Thrones, Peacemaker, Rick and Morty, The Pitt, Euphoria and every other American show that clears the bar: who are they for, and how far does each go? |
-| 2 | Korean dramas | What is there beyond romance? |
-| 3 | Japanese dramas | How does the quarterly drama schedule work? |
-| 4 | Chinese dramas | How do you pick one you'll actually finish at 40 episodes? |
-| 5 | Taiwanese dramas | What genres has Taiwanese TV moved into? |
-| 6 | British dramas | How does a six-episode series pace differently from an American season? |
-| 7 | European and Latin American non-English dramas | Beyond Money Heist, what else comes from Spain, France, the Nordics, Germany and Latin America? |
+| 1 | [US: fantasy, sci-fi, horror and superheroes](/posts/film/2026-11-05-us-tv-fantasy-scifi-superhero-en) | Game of Thrones, Stranger Things, Peacemaker and 15 more: who are they for, and how far do they go? |
+| 2 | US: crime, mystery and politics | Breaking Bad, Fargo, House of Cards and more: where to start? |
+| 3 | [US: workplace, period and life dramas](/posts/film/2026-11-05-us-tv-workplace-history-life-en) | The Pitt, Succession, Shōgun, Euphoria and 15 more: are they worth it? |
+| 4 | US: comedy and adult animation | Beyond Rick and Morty, Ted Lasso and The Studio, how to pick American comedy? |
+| 5 | Korean dramas | What is there beyond romance? |
+| 6 | Japanese dramas | How does the quarterly drama schedule work? |
+| 7 | Chinese dramas | How do you pick one you'll actually finish at 40 episodes? |
+| 8 | Taiwanese dramas | What genres has Taiwanese TV moved into? |
+| 9 | British dramas | How does a six-episode series pace differently from an American season? |
+| 10 | European and Latin American non-English dramas | Beyond Money Heist, what else comes from Spain, France, the Nordics, Germany and Latin America? |
 
-Countries with long lists, like the US, will be split by genre into several posts, and the order will be adjusted then. Whether a Thai post follows depends on how the earlier ones go.
+Posts without links are still being written. Other countries with long lists will also be split by genre. Whether a Thai post follows depends on how the earlier ones go.
 
 ## Limits of this guide
 
