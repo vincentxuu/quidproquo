@@ -1230,6 +1230,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'world-tv-drama-guide',
+    category: 'other',
+    names: { 'zh-TW': '各國影劇導讀', en: 'World TV Drama Guide' },
+    descriptions: {
+      'zh-TW': '想找下一部劇、但不知道從哪國劇開始時讀：先看美劇、韓劇、日劇、陸劇、台劇、英劇與歐洲拉美劇在集數、續訂、尺度上差在哪，再看每國的片單。片單由獎項、影評人投票、觀眾評分、收視數據、話題指標、劇迷口碑交叉比對，每部附推薦來源與台灣合法串流連結。',
+      en: 'For when you want your next show but do not know which country to start with: how American, Korean, Japanese, Chinese, Taiwanese, British and European or Latin American dramas differ in episode count, renewals and content, then a watchlist for each. Picks are cross-checked across awards, critics polls, audience ratings, viewing data, buzz metrics and fan communities, and each comes with its recommendation sources and legal streaming links in Taiwan.',
+    },
+  },
+  {
     slug: 'climbing-disciplines',
     category: 'climbing',
     names: { 'zh-TW': '其他攀登類型', en: 'Other Climbing Disciplines' },

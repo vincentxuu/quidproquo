@@ -14,7 +14,7 @@
 | [MIC AISP 原始新聞稿](https://mic.iii.org.tw/aisp/news-content?sno=715) | 🔴 頁面回錯誤頁，只見搜尋摘要（數字與 NOWnews 一致） | 一手出處，動筆前換管道再讀 |
 | [Kantar／LifePoints 2020 台灣 OTT 報告](https://kantar.com.tw/MailSources/InfoPulse/2020/03/2020_March_Kantar_Taiwan_and_LifePoints_Report_OTT_trend_report(PART_I).pdf) | 🟡 搜尋摘要 | 舊資料對照：2019 年韓劇 43%、陸劇 34%、日劇 25% → 日劇、美劇觀看率上升（時效：只當趨勢對照） |
 | [Netflix Tudum 非英語劇集歷來 Top 10](https://www.netflix.com/tudum/top10/most-popular/tv-non-english) | 🟡 搜尋摘要 | 全球熱門非英語劇：魷魚遊戲（韓）、紙房子（西）、亡命之徒 Lupin（法） → 支持西語、歐陸篇 |
-| [Omdia 2024：韓語與西語占 Netflix 全球觀看 16%](https://omdia.tech.informa.com/pr/2024/oct/omdia-korean-and-spanish-content-dominate-netflixs-non-english-viewing-capturing-16-percent-of-global-viewing) | 🟡 搜尋摘要 | 同上 |
+| [Omdia 2024：韓語與西語主導 Netflix 非英語觀看](https://omdia.tech.informa.com/pr/2024/oct/omdia-korean-and-spanish-content-dominate-netflixs-non-english-viewing-capturing-16-percent-of-global-viewing) | ✅ 全文（2026-11-05） | 2024 上半年非英語內容觀看時數：韓語 8.71%、西語 7.11%（標題的「16% of global viewing」與內文分母不同，以內文為準）；西語時數超過法德葡合計的兩倍 |
 | [Quartz：Netflix 最大的外語劇](https://qz.com/most-watched-non-english-netflix-shows)（2026-10 更新） | 🟡 搜尋摘要 | 日本真人劇在全球榜單占比小於韓劇、西語劇，海外觸及多靠動畫 → 日劇篇要談這點 |
 | [TEEPR 讚爆「5部大人必看的影劇」貼文](https://www.facebook.com/TEEPRVideo/posts/1454321509466716) | 🟡 搜尋摘要 | 使用者清單出處；提到《權力遊戲》在 HBO Max 上還有 2 部延伸劇 |
 | [HBO Max 台灣網站地圖](https://www.hbomax.com/tw/zh/sitemap) | 🟡 搜尋摘要 | 五部中文片名皆在 HBO Max 台灣片庫（高校十八禁、瑞克和莫蒂、權力遊戲、匹茲堡醫魂…） |
@@ -45,7 +45,7 @@
 
 ## 為什麼有西語篇（回答使用者）
 
-原本依據的是全球數據，不是台灣數據：Omdia 2024 指出韓語與西語內容合占 Netflix 全球觀看 16%；Netflix 歷來非英語劇 Top 10 有 3 季《紙房子》；BBC 百大也收了《紙房子》。但 MIC 2025 台灣調查沒有列西語劇 → 西語篇的理由是「全球第二大非英語劇來源」，不是「台灣人常看」。替代方案：把 order 7 擴成「歐洲與拉美非英語劇」（西、法《亡命之徒 Lupin》、北歐 Borgen／The Bridge、德 Dark），由多元來源決定實際選誰。
+原本依據的是全球數據，不是台灣數據：Omdia 2024 指出 Netflix 非英語內容觀看時數中韓語占 8.71%、西語占 7.11%（排前兩名）；Netflix 歷來非英語劇 Top 10 有 3 季《紙房子》；BBC 百大也收了《紙房子》。但 MIC 2025 台灣調查沒有列西語劇 → 西語篇的理由是「全球第二大非英語劇來源」，不是「台灣人常看」。替代方案：把 order 7 擴成「歐洲與拉美非英語劇」（西、法《亡命之徒 Lupin》、北歐 Borgen／The Bridge、德 Dark），由多元來源決定實際選誰。
 
 ## 觀察
 
@@ -62,3 +62,19 @@
 | 時效 | ✅ MIC 2025、Deadline／Decider 2026 皆為 2024 年後。 |
 | 反證 | ⬜ 尚未搜各劇的負評與爭議（如《權力遊戲》第八季評價、《高校十八禁》對青少年描寫的爭議、《瑞克和莫蒂》配音員更換）→ 美劇篇動筆前補。 |
 | 飽和 | ⬜ 國別篇目只用了台灣調查＋Netflix 全球榜兩組來源；動筆各國篇前再換關鍵字掃（各國收視率、艾美／百想／日劇學院賞）。 |
+
+## 總覽篇（order 0）補讀來源（2026-11-05）
+
+| 來源 | 讀取範圍 | 用於 |
+|---|---|---|
+| [TVREV：The Great Contraction](https://www.tvrev.com/news/the-great-contraction-why-tv-seasons-are-shrinking-and-what-it-means-for-the-industry) | ✅ 全文 | 轉引 Parrot：美國串流季均 10.7→9.3 集（2018→2024-07），無線 16.2→11.8 |
+| [The Korea Times：16 集韓劇退場](https://www.koreatimes.co.kr/entertainment/shows-dramas/20250222/korean-dramas-shift-to-shorter-seasons-as-16-episode-format-fades) | ✅ 全文 | 24→20→16→12 集；The Trauma Code 8 集 |
+| [nippon.com：日劇輸出為何困難](https://www.nippon.com/ja/articles/-/6831) | ✅ 全文 | 民放 1/4/7/10 月開播、1 クール 10–12 回、每回約 1 小時；朝ドラ與大河除外；《阿信》一年 297 回 |
+| [中廣互聯：廣電總局注水劇治理](https://www.tvoao.com/a/215685.aspx) | ✅ 全文 | 原則上不超過 40 集；系列總量 1800 分鐘、超過須隔 12 個月 |
+| [Chief：英劇為何較短](https://www.chief.tv/post/why-are-uk-television-series-shorter-than-american-seasons) | 🟡 前半（輸出截斷） | 出口英劇多 6 集；Casualty 等長壽劇每季 30+ 集 |
+| [Wikipedia：Telenovela](https://en.wikipedia.org/wiki/Telenovela) | 🟡 導言段 | 一個完整故事、通常一年內、每集 30–45 分鐘 |
+| [維基百科：中華民國電視節目分級制度](https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E9%9B%BB%E8%A6%96%E7%AF%80%E7%9B%AE%E5%88%86%E7%B4%9A%E5%88%B6%E5%BA%A6) | 🟡 現行五級段 | 2017-06-13 起五級；限制級只適用成人頻道。全國法規資料庫原文頁兩次逾時 |
+| [BBC Culture：Who voted](https://www.bbc.com/culture/article/20211014-the-greatest-tv-series-of-the-21st-century-who-voted) | 🟡 方法段 | 206 位、43 國、每人 10 部、計分方式 |
+| [JustWatch 台灣](https://www.justwatch.com/tw) | 🟡 首頁說明 | 合法串流查詢 |
+
+研究池：`.research/pool/film/`（run `2026-11-05-world-tv-drama-guide`）。
