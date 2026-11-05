@@ -114,7 +114,8 @@ caption: 尺度依 IMDb 家長指南：性、暴力、髒話、菸酒藥物、�
 每部的格式都一樣：
 
 - **推薦來源**：寫出是哪一類、哪個來源推薦。
-- **劇評**：Rotten Tomatoes 第一季的影評分、觀眾分與劇評共識。
+- **評分**：同時列四個來源，各看不同的東西。[Metacritic](https://metacritichelp.zendesk.com/hc/en-us/articles/14478499933079-How-do-you-compute-METASCORES) 是美國影評人的加權平均分（0–100，看「有多好」）；[Rotten Tomatoes](https://www.rottentomatoes.com/about)（RT）是給好評的影評與觀眾比例（看「會不會踩雷」，以及兩邊有沒有分歧）；IMDb 是全球一般觀眾的 10 分制；豆瓣是華語觀眾的 10 分制。都是第一季。
+- **劇評**：一篇英美主流媒體的署名劇評，有讀得到的台灣中文劇評就一起附上。
 - **尺度**：依 [IMDb 家長指南](https://www.imdb.com/title/tt0944947/parentalguide/)的四級換算，○○○ 無、●○○ 輕微、●●○ 中等、●●● 嚴重。
 - **長度**、**先看什麼**、**在哪看**。
 
@@ -129,7 +130,8 @@ caption: 尺度依 IMDb 家長指南：性、暴力、髒話、菸酒藥物、�
 維斯特洛各大家族爭奪鐵王座，流亡的坦格利安後裔想奪回王位，北方的守夜人則在邊境抵禦更古老的威脅（[Wikipedia](https://en.wikipedia.org/wiki/Game_of_Thrones)）。
 
 - **推薦來源**：`A 艾美獎劇情類影集 2016、2018、2019` `B BBC 21 世紀百大 #5` `B 紐約時報 21 世紀百大 #6` `C IMDb 9.2` `E 金氏世界紀錄 2026 全球最高需求影集` `F PTT 美劇板推薦串` `G GQ Taiwan 片單`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/game_of_thrones/s01)影評 90%、觀眾 96%。劇評共識認為它的劇情錯綜、題材黑暗，可能讓部分觀眾吃不消，但表演和劇本好到不看奇幻的人也會被吸進去。
+- **評分**：Metacritic 80｜[RT](https://www.rottentomatoes.com/tv/game_of_thrones/s01) 影評 90%、觀眾 96%｜IMDb 9.2｜豆瓣 9.5
+- **劇評**：[The Hollywood Reporter 的 Tim Goodman](https://www.hollywoodreporter.com/tv/tv-reviews/game-thrones-review-174120/) 評第一季時說宣傳沒有誇大：劇情複雜卻不拖沓，有《黑道家族》那種讓人停不下來的吸引力。Metacritic 只有 80，代表一開始評論並非一面倒；華語觀眾給得比 IMDb 還高。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt0944947/parentalguide/)）：暴力 ●●●｜性 ●●●｜驚嚇 ●●●｜粗口 ●●●｜菸酒藥物 ●●○。大量裸露與性愛場面，包括性暴力；斬首、酷刑。
 - **長度**：8 季 73 集，已完結。
 - **先看什麼**：不用，這是整個系列的起點。
@@ -140,7 +142,8 @@ caption: 尺度依 IMDb 家長指南：性、暴力、髒話、菸酒藥物、�
 時間在《權力遊戲》之前約 200 年，講坦格利安家族由盛轉衰，以及王位繼承戰爭「血龍狂舞」（[Wikipedia](https://en.wikipedia.org/wiki/House_of_the_Dragon)）。
 
 - **推薦來源**：`A 金球獎劇情類影集 2023` `C RT 第二季影評 84%` `E Parrot Analytics 2024 全球最高需求影集` `F PTT 美劇板推薦串`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/house_of_the_dragon/s01)影評 90%、觀眾 82%。劇評共識認為它延續了前作最出色的宮廷鬥爭，是一部有分量的前傳。
+- **評分**：Metacritic 69｜[RT](https://www.rottentomatoes.com/tv/house_of_the_dragon/s01) 影評 90%、觀眾 82%｜IMDb 8.2｜豆瓣 8.7
+- **劇評**：[The Guardian 的 Lucy Mangan](https://www.theguardian.com/tv-and-radio/2022/aug/19/house-of-the-dragon-review-game-of-thrones-prequel-got) 看完第一集就認為它會和前作巔峰期一樣好看。關鍵評論網的[明蒂小姐評第三季](https://www.thenewslens.com/article/269739)時，嫌第一季時間線跳太快、第二季太慢，第三季的大戰才「或可一掃前兩季陰霾」。RT 90% 但 Metacritic 只有 69：多數評論是「正面但不熱烈」。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt11198330/parentalguide/)）：暴力 ●●●｜性 ●●●｜驚嚇 ●●●｜粗口 ●●●｜菸酒藥物 ●○○。有血腥的生產場面、龍焰燒人與斷肢。
 - **長度**：已播 3 季 26 集；第 4 季是最終季，預計 2028 年播出。
 - **先看什麼**：不一定要先看《權力遊戲》，但看過比較容易懂坦格利安家族的背景。
@@ -151,7 +154,8 @@ caption: 尺度依 IMDb 家長指南：性、暴力、髒話、菸酒藥物、�
 時間在《權力遊戲》之前約 100 年，雇傭騎士「高個子」鄧肯和他的侍從「蛋」一起冒險，改編自 Martin 的《Dunk 與 Egg》中篇小說（[Wikipedia](https://en.wikipedia.org/wiki/A_Knight_of_the_Seven_Kingdoms_(TV_series))）。
 
 - **推薦來源**：`A 艾美獎劇情類影集提名 2026` `C IMDb 8.6` `F PTT 美劇板推薦串`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/a_knight_of_the_seven_kingdoms/s01)影評 94%、觀眾 79%。劇評共識認為它像一部搭檔喜劇，比單純的打鬥更出色。
+- **評分**：Metacritic 75｜[RT](https://www.rottentomatoes.com/tv/a_knight_of_the_seven_kingdoms/s01) 影評 94%、觀眾 79%｜IMDb 8.6
+- **劇評**：[IndieWire 的 Ben Travers](https://www.indiewire.com/criticism/shows/knight-of-the-seven-kingdoms-review-game-of-thrones-series-1235172708/) 稱讚它刻意縮小規模，用同情心取代《權力遊戲》的冷酷，是值得肯定的選擇。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt27497448/parentalguide/)）：暴力 ●●●｜性 ●●○｜驚嚇 ●●○｜粗口 ●●○｜菸酒藥物 ●○○。整體調性比同系列另外兩部輕鬆，但第 5 集的比武場面很血腥。
 - **長度**：1 季 6 集；已續訂第 2 季，預計 2027 年播出。
 - **先看什麼**：不用，故事獨立。
@@ -166,7 +170,8 @@ caption: 尺度依 IMDb 家長指南：性、暴力、髒話、菸酒藥物、�
 小偷 Cassian Andor 在電影《俠盜一號》之前的五年間，怎麼被逼成反抗軍間諜，以及反抗軍聯盟如何成形（[Wikipedia](https://en.wikipedia.org/wiki/Andor)）。
 
 - **推薦來源**：`A 艾美獎劇情類影集提名 2023、2025` `B Variety、Vulture、THR 多位影評人 2025 年度第 1` `B 紐約時報 21 世紀百大 #32` `C IMDb 8.6` `F RedRecs Reddit 2025 #1` `F PTT 美劇板 2025 年度最佳串` `G GQ Taiwan Disney+ 片單`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/andor/s01)影評 96%、觀眾 88%。劇評共識稱它是星際大戰裡格外成熟、政治性最強的作品之一。
+- **評分**：Metacritic 74｜[RT](https://www.rottentomatoes.com/tv/andor/s01) 影評 96%、觀眾 88%｜IMDb 8.6｜豆瓣 9.0
+- **劇評**：[The Atlantic 的 Shirley Li](https://www.theatlantic.com/culture/archive/2022/09/andor-star-wars-disney-tv-show-review/671497/) 稱它是星際大戰最成熟的一部，少了光劍對決，多了善惡之間的混沌。台灣的[釀電影黃郁書](https://filmaholic.tw/series/68382af2fd897800015edba9)評完兩季後說，沒有原力和光劍，卻是「有史以來最精彩動人的一部『星際大戰』」。觀眾比 Metacritic 的 74 熱烈得多。
 - **尺度**（[TV-14](https://www.imdb.com/title/tt9253284/parentalguide/)）：暴力 ●●○｜性 ●○○｜驚嚇 ●●○｜粗口 ●○○｜菸酒藥物 ●○○。
 - **長度**：2 季 24 集，已完結。
 - **先看什麼**：不用。劇情結束在《俠盜一號》開始的地方，看完再看電影是常見的順序。
@@ -177,7 +182,8 @@ caption: 尺度依 IMDb 家長指南：性、暴力、髒話、菸酒藥物、�
 時間在《絕地大反攻》之後五年，一名獨行的曼達洛賞金獵人保護擁有原力天賦的孩子古古，躲避帝國殘黨追殺（[Wikipedia](https://en.wikipedia.org/wiki/The_Mandalorian)）。
 
 - **推薦來源**：`A 艾美獎劇情類影集提名 2020、2021` `C IMDb 8.6` `D Nielsen 2023 串流原創劇第 8` `F PTT 美劇板推薦串` `G GQ Taiwan Disney+ 片單`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/the_mandalorian/s01)影評 93%、觀眾 93%。劇評共識認為它動作場面紮實、製作精良，古古的可愛加了很多分；缺點是有時太吊胃口。
+- **評分**：Metacritic 70｜[RT](https://www.rottentomatoes.com/tv/the_mandalorian/s01) 影評 93%、觀眾 93%｜IMDb 8.6
+- **劇評**：[Slate 的 Sam Adams](https://slate.com/culture/2019/11/the-mandalorian-review-star-wars-series-disney-plus.html) 看完第一集給負評，說它「預算很大、想像力很少」。關鍵評論網的[傅紀鋼](https://www.thenewslens.com/article/159368)看完兩季的評價完全相反：不需要星戰背景知識也看得懂，「父子情」主線讓它好看。這是影評與觀眾落差最明顯的劇之一，觀眾分數一直很高。
 - **尺度**（[TV-14](https://www.imdb.com/title/tt8111088/parentalguide/)）：暴力 ●●○｜性 ○○○｜驚嚇 ●●○｜粗口 ○○○｜菸酒藥物 ○○○。這篇尺度最輕的一部。
 - **長度**：3 季 24 集。第 4 季改拍成電影《曼達洛人與古古》（2026 年 5 月上映）接續故事。
 - **先看什麼**：不用先看星戰電影。
@@ -192,7 +198,8 @@ caption: 尺度依 IMDb 家長指南：性、暴力、髒話、菸酒藥物、�
 James Gunn 打造的 DC 影集，主角是電影《自殺突擊隊：集結》裡那位「為了和平不惜殺人」的反英雄（John Cena 飾）（[Wikipedia](https://en.wikipedia.org/wiki/Peacemaker_(TV_series))）。
 
 - **推薦來源**：`C RT 第二季影評 94%` `E Parrot Analytics 2025 超級英雄類決選` `F PTT 美劇板推薦串` `F RedRecs Reddit 2025 #8`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/peacemaker_2022/s01)影評 93%、觀眾 87%。劇評共識認為 John Cena 狀態很好，這部是一場血淋淋的狂歡，讓 James Gunn 盡情發揮他的怪。
+- **評分**：Metacritic 70｜[RT](https://www.rottentomatoes.com/tv/peacemaker_2022/s01) 影評 93%、觀眾 87%｜IMDb 8.2
+- **劇評**：[IndieWire 的 Ben Travers](https://www.indiewire.com/criticism/shows/peacemaker-review-hbo-max-james-gunn-1234689873/) 認為 John Cena 的投入和 Gunn 的金屬搖滾配樂讓這部暴力劇意外靈活，後段比較搖晃。台灣[鳴人堂的林運鴻](https://opinion.udn.com/opinion/story/120617/6146526)認為它的低俗笑話對好萊塢的「進步多元」有輕微冒犯，但不能只用表面上的政治正確來看一部充滿戲謔的作品。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt13146488/parentalguide/)）：暴力 ●●●｜性 ●●●｜驚嚇 ●●●｜粗口 ●●●｜菸酒藥物 ●●○。爆頭、酷刑；第二季第一集有全裸雜交場面；髒話密度非常高。
 - **長度**：2 季 16 集，已完結。
 - **先看什麼**：**建議先看電影《自殺突擊隊：集結》（2021）**，第一季是它的衍生劇；第二季接在電影《超人》（2025）之後。
@@ -205,7 +212,8 @@ James Gunn 打造的 DC 影集，主角是電影《自殺突擊隊：集結》�
 一群義警對抗濫用超能力、替大企業賣命的超級英雄，以及帶頭的「祖國人」（[Wikipedia](https://en.wikipedia.org/wiki/The_Boys_(TV_series))）。
 
 - **推薦來源**：`A 艾美獎劇情類影集提名 2021` `C IMDb 8.5` `D Nielsen 2024 串流原創劇第 3` `E 金氏世界紀錄 2026 最高需求超級英雄影集` `F PTT 美劇板推薦串`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/the_boys_2019/s01)影評 85%、觀眾 90%。劇評共識認為它的暴力和沉重題材不是每個人都受得了，但想找一群反英雄來支持的人會很滿意。
+- **評分**：Metacritic 74｜[RT](https://www.rottentomatoes.com/tv/the_boys_2019/s01) 影評 85%、觀眾 90%｜IMDb 8.5｜豆瓣 8.6
+- **劇評**：[Slate 的 Matthew Dessem](https://slate.com/culture/2019/08/the-boys-amazon-series-comic-book-adaptation-trump-marvel.html) 稱它是「拆解超級英雄故事的高手」，低俗得恰到好處，只是改編自 2006 年的漫畫，有些地方跟不上現在。評論和觀眾的意見大致一致。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt1190634/parentalguide/)）：暴力 ●●●｜性 ●●●｜驚嚇 ●●●｜粗口 ●●●｜菸酒藥物 ●●●。五項全是最高級，是這篇尺度最重的一部。
 - **長度**：5 季 40 集，2026 年 5 月完結。
 - **先看什麼**：不用。同一個宇宙另有《Gen V》。
@@ -216,7 +224,8 @@ James Gunn 打造的 DC 影集，主角是電影《自殺突擊隊：集結》�
 電影《蝙蝠俠》（2022）的衍生迷你影集，講黑幫份子奧茲在高譚市地下世界奪權（[Wikipedia](https://en.wikipedia.org/wiki/The_Penguin_(TV_series))）。
 
 - **推薦來源**：`A 艾美獎迷你影集提名 2025` `B Variety 2024 年度影集第 1 名（Aramide Tinubu）` `C IMDb 8.6`
-- **劇評**：[全季](https://www.rottentomatoes.com/tv/the_penguin/s01)影評 95%、觀眾 85%。劇評共識認為它用拳拳到肉的寫實犯罪劇來拍高譚市，Colin Farrell 和 Cristin Milioti 撐起了分量。
+- **評分**：Metacritic 72｜[RT](https://www.rottentomatoes.com/tv/the_penguin/s01) 影評 95%、觀眾 85%｜IMDb 8.6｜豆瓣 8.6
+- **劇評**：[Variety 的 Aramide Tinubu](https://variety.com/2024/tv/reviews/the-penguin-review-1236133718/) 說它不只是反派起源故事，「扭曲、令人不安又深深吸引人」。台灣影評人[出前一廷在電影神搜](https://news.agentm.tw/308060/)指出，它沒有刻意替反派討同情，直接呈現主角自私的本質，反而更好看。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt15435876/parentalguide/)）：暴力 ●●●｜性 ●○○｜驚嚇 ●●●｜粗口 ●●●｜菸酒藥物 ●●●。
 - **長度**：迷你影集，8 集，一季完結。
 - **先看什麼**：建議先看電影《蝙蝠俠》（2022），但不是必要。
@@ -231,7 +240,8 @@ James Gunn 打造的 DC 影集，主角是電影《自殺突擊隊：集結》�
 Lumon 公司的員工接受手術，把工作和私生活的記憶完全切開，變成只活在辦公室裡的「內在人格」和對工作一無所知的「外在人格」（[Wikipedia](https://en.wikipedia.org/wiki/Severance_(TV_series))）。
 
 - **推薦來源**：`A 艾美獎劇情類影集提名 2022、2025` `B 紐約時報 21 世紀百大 #30` `B CriticsTop10 2025 影評年度榜彙整 #6` `C IMDb 8.6` `F RedRecs Reddit 2025 #4` `G ELLE Taiwan 2025 美劇推薦`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/severance/s01)影評 97%、觀眾 86%。劇評共識稱它大膽、神祕，對上班族的苦悶有新觀點，是一部「什麼都有」的劇。
+- **評分**：Metacritic 83｜[RT](https://www.rottentomatoes.com/tv/severance/s01) 影評 97%、觀眾 86%｜IMDb 8.6｜豆瓣 9.0
+- **劇評**：[Vulture 的 Roxana Hadadi](https://www.vulture.com/article/severance-apple-tv-series-review.html) 稱它是「寫得自信、拍得有型的一季」，每集都扣進整體謎題。影評人、全球觀眾和華語觀眾的分數都很高，沒有明顯分歧。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt11280740/parentalguide/)）：暴力 ●○○｜性 ●○○｜驚嚇 ●●○｜粗口 ●●○｜菸酒藥物 ●○○。
 - **長度**：2 季 19 集；已續訂第 3 季。
 - **先看什麼**：不用，原創劇。
@@ -242,7 +252,8 @@ Lumon 公司的員工接受手術，把工作和私生活的記憶完全切開�
 《絕命毒師》編劇 Vince Gilligan 的新作：外星病毒把全人類變成平和、滿足的集體意識，小說家 Carol 是少數免疫的人，而集體意識想把她也同化（[Wikipedia](https://en.wikipedia.org/wiki/Pluribus_(TV_series))）。
 
 - **推薦來源**：`A 艾美獎劇情類影集提名 2026` `B CriticsTop10 2025 影評年度榜彙整 #3` `B Vulture 2025 年度影集` `C RT 影評 99%` `F PTT 美劇板 2025 年度最佳串原 PO 第 1` `G 釀電影 2025 最讓人興奮的新劇`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/pluribus/s01)影評 99%、觀眾 68%。影評人幾乎一致叫好，觀眾分卻低了三十個百分點，是這篇影評與觀眾落差最大的劇之一。劇評共識稱它是真正原創的科幻作品。
+- **評分**：Metacritic 87｜[RT](https://www.rottentomatoes.com/tv/pluribus/s01) 影評 99%、觀眾 68%｜IMDb 7.9｜豆瓣 8.2
+- **劇評**：[Vulture 的 Nicholas Quah](https://www.vulture.com/article/pluribus-apple-tv-series-review-vince-gilligan-rhea-seehorn.html) 說它節奏刻意緩慢，可能讓人卻步，但信任這個過程就會被它吞沒。[釀電影總編輯張硯拓](https://filmaholic.tw/series/697b3891fd897800011a2f69)稱它是「2025 年最讓我興奮的新劇」，把集體意識讀成 AI 式的討好與沒有自我。影評人幾乎全面叫好，觀眾分數低了一截，是這篇分歧最大的劇。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt22202452/parentalguide/)）：暴力 ●○○｜性 ●○○｜驚嚇 ●●○｜粗口 ●●○｜菸酒藥物 ●●○。
 - **長度**：1 季 9 集；已續訂第 2 季。
 - **先看什麼**：不用，原創劇。
@@ -253,7 +264,8 @@ Lumon 公司的員工接受手術，把工作和私生活的記憶完全切開�
 改編自劉慈欣的《三體》，一群科學家接觸到外星文明，人類面對一連串威脅（[Wikipedia](https://en.wikipedia.org/wiki/3_Body_Problem_(TV_series))）。
 
 - **推薦來源**：`A 艾美獎劇情類影集提名 2024` `B Vulture 2024 年度亮點` `C RT 影評 78%` `D Netflix 2024 上半年觀看第 8`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/3_body_problem/s01)影評 78%、觀眾 76%，影評分在這篇只高於《星期三》。劇評共識認為它用很大的企圖心處理原著，是個扎實的開始。
+- **評分**：Metacritic 70｜[RT](https://www.rottentomatoes.com/tv/3_body_problem/s01) 影評 78%、觀眾 76%｜IMDb 7.5｜豆瓣 6.8（2024 年 3 月）
+- **劇評**：[The New Yorker 的 Inkoo Kang](https://www.newyorker.com/magazine/2024/03/25/3-body-problem-tv-review-netflix) 稱它把艱深的理論和真正的奇觀、情感結合起來。華語觀眾不買帳：[聯合早報](https://www.zaobao.com.sg/realtime/china/story20240327-3223712)報導，開播一週豆瓣只有 6.8，遠低於騰訊版的 8.7，不少中國網友不滿改動太多。台灣的[釀電影黃彥瑄](https://filmaholic.tw/series/6659e67efd89780001f8ea83)則跳過改編優劣，從角色的選擇讀出「以愛為名」的冒險動力。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt13016388/parentalguide/)）：暴力 ●●●｜性 ●●○｜驚嚇 ●●●｜粗口 ●●○｜菸酒藥物 ●●○。
 - **長度**：1 季 8 集；已續訂第 2、3 季。
 - **先看什麼**：不用先讀原著。它和騰訊 2023 年的陸劇《三體》是不同的改編。
@@ -264,7 +276,8 @@ Lumon 公司的員工接受手術，把工作和私生活的記憶完全切開�
 改編自同名電玩，2077 年核戰兩百年後，文明崩潰的廢土世界（[Wikipedia](https://en.wikipedia.org/wiki/Fallout_(American_TV_series))）。
 
 - **推薦來源**：`A 艾美獎劇情類影集提名 2024` `B CriticsTop10 2024 影評年度榜彙整 #8` `C RT 第二季影評 96%、觀眾 96%` `D Nielsen 2024 新原創劇情劇第 1`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/fallout/s01)影評 93%、觀眾 95%。劇評共識認為它像是遊戲的延伸，新觀眾和老玩家都會喜歡。
+- **評分**：Metacritic 73｜[RT](https://www.rottentomatoes.com/tv/fallout/s01) 影評 93%、觀眾 95%｜IMDb 8.3
+- **劇評**：[The Guardian 的 Lucy Mangan](https://www.theguardian.com/tv-and-radio/2024/apr/11/prime-fallout-review-an-absolute-blast-of-a-tv-show) 說它和《最後生還者》一樣，沒玩過遊戲也能投入，「聰明、冷面幽默、結構完美」。台灣影評人[龍貓大王通信在電影神搜](https://news.agentm.tw/277384/)認為三位主角的視角有效展開了巨大世界觀，也保留了遊戲的暴力和黑色幽默。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt12637874/parentalguide/)）：暴力 ●●●｜性 ●●○｜驚嚇 ●●●｜粗口 ●●○｜菸酒藥物 ●●○。
 - **長度**：2 季 16 集；已續訂第 3 季。
 - **先看什麼**：不用先玩遊戲。
@@ -275,7 +288,8 @@ Lumon 公司的員工接受手術，把工作和私生活的記憶完全切開�
 真菌感染讓社會崩潰數十年後，走私客 Joel 護送少女 Ellie 橫越美國，改編自同名電玩（[Wikipedia](https://en.wikipedia.org/wiki/The_Last_of_Us_(TV_series))）。
 
 - **推薦來源**：`A 艾美獎劇情類影集提名 2023、2025` `C RT 第二季影評 92%` `E Parrot Analytics 2023 全球最高需求劇情劇`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/the_last_of_us/s01)影評 96%、觀眾 86%。劇評共識稱它是史上最好的電玩改編之一。第二季影評仍有 92%，觀眾分卻只剩 37%，兩季的評價差很多。
+- **評分**：Metacritic 84｜[RT](https://www.rottentomatoes.com/tv/the_last_of_us/s01) 影評 96%、觀眾 86%｜IMDb 8.4
+- **劇評**：[Los Angeles Times 的 Lorraine Ali](https://www.latimes.com/entertainment-arts/tv/story/2023-01-13/the-last-of-us-hbo-review) 說它在殘酷中保留了「底層的美與優雅」，Pedro Pascal 演得極好。關鍵評論網的[明蒂小姐](https://www.thenewslens.com/article/182564)認為 Bella Ramsey 的表現幾乎超出「電視劇表演」的範疇。第二季影評仍有 92%，觀眾分卻只剩 37%，兩季的評價差很多。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt3581920/parentalguide/)）：暴力 ●●●｜性 ●○○｜驚嚇 ●●●｜粗口 ●●●｜菸酒藥物 ●○○。
 - **長度**：2 季 16 集；第 3 季預計 2027 年播出。
 - **先看什麼**：不用先玩遊戲。
@@ -286,7 +300,8 @@ Lumon 公司的員工接受手術，把工作和私生活的記憶完全切開�
 改編自 Margaret Atwood 的小說，美國內戰後的神權國家把還能生育的女性當作生育奴隸（[Wikipedia](https://en.wikipedia.org/wiki/The_Handmaid%27s_Tale_(TV_series))）。
 
 - **推薦來源**：`A 艾美獎劇情類影集 2017（第一部得獎的串流影集）` `A 金球獎劇情類影集 2018` `B BBC 21 世紀百大 #38` `B 紐約時報 21 世紀百大 #67` `C RT 最終季影評 87%`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/the_handmaids_tale/s01)影評 94%、觀眾 90%。劇評共識稱它陰森鮮明、引人入勝，Elisabeth Moss 的演出是核心。
+- **評分**：Metacritic 92｜[RT](https://www.rottentomatoes.com/tv/the_handmaids_tale/s01) 影評 94%、觀眾 90%｜IMDb 8.3
+- **劇評**：第一季的 Metacritic 92 是這篇最高分。[Vulture 的 Jen Chaney](https://www.vulture.com/2017/04/the-handmaids-tale-hulu-review.html) 稱它節奏精準、殘酷、畫面驚人，是那年春天的必看劇。IMDb 整部只有 8.3，常見的看法是後幾季不如第一季。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt5834204/parentalguide/)）：暴力 ●●●｜性 ●●●｜驚嚇 ●●●｜粗口 ●●○｜菸酒藥物 ●○○。性暴力是劇情核心的一部分，看之前要有心理準備。
 - **長度**：6 季 66 集，已完結。續作《證言》2026 年開播。
 - **先看什麼**：不用先讀原著。
@@ -301,7 +316,8 @@ Lumon 公司的員工接受手術，把工作和私生活的記憶完全切開�
 1980 年代印第安納州小鎮，有念力的女孩「Eleven」和一群孩子被捲進政府祕密實驗打開的「顛倒世界」（[Wikipedia](https://en.wikipedia.org/wiki/Stranger_Things)）。
 
 - **推薦來源**：`A 艾美獎劇情類影集提名 2017、2018、2020、2022` `B 紐約時報 21 世紀百大 #53` `C IMDb 8.6` `D Nielsen 2025 串流原創劇第 1` `D Netflix 史上最多人看的英語影集第 3、第 4（第四、五季）` `E Parrot Analytics 2025 全球最高需求影集` `F PTT 美劇板推薦串` `G Netflix 台灣 Top 10 第 1（2025 年 11 月）`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/stranger_things/s01)影評 97%、觀眾 96%。劇評共識稱它刺激、揪心，偶爾很嚇人，是向史匹柏電影和 1980 年代電視致敬的上癮之作。最終季評價較分歧，影評 83%、觀眾 52%。
+- **評分**：Metacritic 76｜[RT](https://www.rottentomatoes.com/tv/stranger_things/s01) 影評 97%、觀眾 96%｜IMDb 8.6
+- **劇評**：[Variety 的 Maureen Ryan](https://variety.com/2016/tv/reviews/stranger-things-review-winona-ryder-netflix-matthew-modine-1201808737/) 評第一季時褒中帶保留：致敬太多，「原創性不是它的強項」，但驚嚇有效。關鍵評論網的[胡芩](https://www.thenewslens.com/article/261716)回看到最終季，認為它真正的魅力不在懷舊，而是對角色恐懼與家庭情感的細膩描寫。觀眾分數一直比影評人高。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt4574334/parentalguide/)）：暴力 ●●●｜性 ●○○｜驚嚇 ●●●｜粗口 ●●○｜菸酒藥物 ●○○。
 - **長度**：5 季 42 集，2025 年 12 月完結。
 - **先看什麼**：不用，原創劇。
@@ -312,7 +328,8 @@ Lumon 公司的員工接受手術，把工作和私生活的記憶完全切開�
 電影《牠》（2017）與《牠：第二章》（2019）的前傳，Bill Skarsgård 再次演出小丑潘尼懷斯（[Wikipedia](https://en.wikipedia.org/wiki/It_%E2%80%93_Welcome_to_Derry)）。
 
 - **推薦來源**：`B Variety 2025 年度影集（Aramide Tinubu #5）` `C RT 影評 81%` `E Parrot Analytics 2025 最高需求新劇` `F PTT 美劇板 2025 年度最佳串推文最多的美劇` `G FlixPatrol HBO Max 台灣 Top 10`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/it_welcome_to_derry/s01)影評 81%、觀眾 82%。劇評共識認為劇情有時鬆散，但社會觀察、氣氛和演出讓潘尼懷斯的神話更深一層。
+- **評分**：Metacritic 61｜[RT](https://www.rottentomatoes.com/tv/it_welcome_to_derry/s01) 影評 81%、觀眾 82%｜IMDb 7.9
+- **劇評**：Metacritic 61 是這篇最低分，但 [Variety 的 Aramide Tinubu](https://variety.com/2025/tv/reviews/it-welcome-to-derry-review-hbo-1236557304/) 很喜歡，稱它是「精心編織、令人膽寒的故事」。台灣影評人[出前一廷在關鍵評論網](https://www.thenewslens.com/article/262649)認為影集終於回到原著常被忽略的主題，把德利鎮當成美國社會的縮影。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt19244304/parentalguide/)）：暴力 ●●●｜性 ●○○｜驚嚇 ●●●｜粗口 ●●○｜菸酒藥物 ●○○。
 - **長度**：1 季 9 集；已續訂第 2 季。
 - **先看什麼**：不一定要先看電影，但看過比較能體會潘尼懷斯的設定。
@@ -323,7 +340,8 @@ Lumon 公司的員工接受手術，把工作和私生活的記憶完全切開�
 《異形》系列的第一部影集，時間在 1979 年電影《異形》之前兩年，舞台搬到地球（[Wikipedia](https://en.wikipedia.org/wiki/Alien:_Earth)）。
 
 - **推薦來源**：`B CriticsTop10 2025 影評年度榜彙整 #12` `C RT 影評 94%` `E Parrot Analytics 2025 新劇決選` `F RedRecs Reddit 2025 #15` `G GQ Taiwan Disney+ 片單`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/alien_earth/s01)影評 94%、觀眾 65%。劇評共識稱它風格大膽、非常嚇人，把異形的電影規格完整搬進影集。
+- **評分**：Metacritic 85｜[RT](https://www.rottentomatoes.com/tv/alien_earth/s01) 影評 94%、觀眾 65%｜IMDb 7.1
+- **劇評**：[The Hollywood Reporter 的 Angie Han](https://www.hollywoodreporter.com/tv/tv-reviews/alien-earth-timothy-olyphant-sydney-chandler-noah-hawley-fx-1236335484/) 稱它是一部「有野心、龐雜、偶爾難駕馭，但最終刺激的史詩」。影評人很愛，觀眾冷淡得多：IMDb 只有 7.1，是這篇評論與觀眾落差最大的兩部之一。
 - **尺度**（[TV-MA](https://www.imdb.com/title/tt13623632/parentalguide/)）：暴力 ●●●｜性 ●○○｜驚嚇 ●●●｜粗口 ●●○｜菸酒藥物 ●○○。
 - **長度**：1 季 8 集；已續訂第 2 季。
 - **先看什麼**：不用，看過 1979 年的《異形》會比較懂設定。
@@ -334,7 +352,8 @@ Lumon 公司的員工接受手術，把工作和私生活的記憶完全切開�
 《阿達一族》的女兒 Wednesday（Jenna Ortega 飾）轉到新學校，試著解開一連串謀殺案，部分集數由 Tim Burton 執導（[Wikipedia](https://en.wikipedia.org/wiki/Wednesday_(TV_series))）。
 
 - **推薦來源**：`A 艾美獎喜劇類影集提名 2023` `C RT 第二季影評 87%` `D Netflix 史上最多人看的英語影集第 1（第一季）` `D Nielsen 2025 串流原創劇第 3` `G Netflix 台灣 Top 10 第 1（2025 年 8 月）`
-- **劇評**：[第一季](https://www.rottentomatoes.com/tv/wednesday/s01)影評 74%、觀眾 86%。劇評共識的評價褒貶參半：認為撐起這部劇的主要是 Jenna Ortega 的演出。
+- **評分**：Metacritic 66｜[RT](https://www.rottentomatoes.com/tv/wednesday/s01) 影評 74%、觀眾 86%｜IMDb 8.0
+- **劇評**：[Los Angeles Times 的 Lorraine Ali](https://www.latimes.com/entertainment-arts/tv/story/2022-11-23/wednesday-netflix-addams-family) 很喜歡，說 Jenna Ortega 的冷面演出是年度電視名場面。關鍵評論網的[明蒂小姐評第二季](https://www.thenewslens.com/column/streaming/257030)時拆解了它對愛倫坡和哥德文學的致敬。和多數劇相反，這部是觀眾比影評人熱烈。
 - **尺度**（[TV-14](https://www.imdb.com/title/tt13443470/parentalguide/)）：暴力 ●●○｜性 ○○○｜驚嚇 ●●○｜粗口 ●○○｜菸酒藥物 ○○○。
 - **長度**：2 季 16 集；已續訂第 3 季。
 - **先看什麼**：不用先看任何《阿達一族》作品。
@@ -353,11 +372,14 @@ Lumon 公司的員工接受手術，把工作和私生活的記憶完全切開�
 
 - **只看得到 2016 年後的劇與少數經典。**《X 檔案》這類更早的科幻經典，如果沒進影評人投票榜或拿過重大獎項，就不在這篇。
 - **劇迷口碑以 PTT 和 Reddit 為主。** Dcard 的推薦串讀不到，台灣年輕觀眾的口味可能被低估。
+- **華語評價只收讀得到的。** 豆瓣擋自動讀取，只列讀得到頁面的分數；台灣媒體的美劇長評不多，有讀到才附。
 - **尺度來自 IMDb 使用者投票，不是官方分級。** 冷門劇的投票人數少，參考就好。
 - **串流授權會變。** 本篇串流連結核對日期：2026-11-05。
 
 ## 參考資料
 
+- [How do you compute METASCORES?（Metacritic）](https://metacritichelp.zendesk.com/hc/en-us/articles/14478499933079-How-do-you-compute-METASCORES)
+- [About the Tomatometer（Rotten Tomatoes）](https://www.rottentomatoes.com/about)
 - [Primetime Emmy Award for Outstanding Drama Series（Wikipedia）](https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Drama_Series)
 - [Golden Globe Award for Best Television Series – Drama（Wikipedia）](https://en.wikipedia.org/wiki/Golden_Globe_Award_for_Best_Television_Series_%E2%80%93_Drama)
 - [The 100 greatest TV series of the 21st Century（BBC Culture，2021）](https://www.bbc.com/culture/article/20211015-the-100-greatest-tv-series-of-the-21st-century)

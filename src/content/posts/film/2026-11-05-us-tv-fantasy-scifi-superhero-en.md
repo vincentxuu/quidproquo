@@ -114,7 +114,8 @@ caption: Content uses the IMDb Parents Guide: heavy means three or more of five 
 Every entry uses the same fields:
 
 - **Recommended by**: which source type and which source.
-- **Reviews**: Rotten Tomatoes season-one Tomatometer, Popcornmeter and critics consensus.
+- **Scores**: four sources that measure different things. [Metacritic](https://metacritichelp.zendesk.com/hc/en-us/articles/14478499933079-How-do-you-compute-METASCORES) is a weighted average of US critics (0–100: how good); [Rotten Tomatoes](https://www.rottentomatoes.com/about) (RT) is the share of positive critics and viewers (whether you'll regret it, and whether the two sides disagree); IMDb is worldwide viewers out of 10; Douban is Chinese-speaking viewers out of 10. All for season 1.
+- **Reviews**: one signed review from a major English-language outlet, plus a Taiwanese Chinese-language review where one could be read.
 - **Content**: converted from the four levels of the [IMDb Parents Guide](https://www.imdb.com/title/tt0944947/parentalguide/): ○○○ none, ●○○ mild, ●●○ moderate, ●●● severe.
 - **Length**, **watch first**, **where to watch**.
 
@@ -129,7 +130,8 @@ All three come from George R. R. Martin's *A Song of Ice and Fire* world. Start 
 The great houses of Westeros fight over the Iron Throne, an exiled Targaryen heir plans her return, and the Night's Watch guards the north against an older threat ([Wikipedia](https://en.wikipedia.org/wiki/Game_of_Thrones)).
 
 - **Recommended by**: `A Emmy Outstanding Drama Series 2016, 2018, 2019` `B BBC 21st-century top 100 #5` `B New York Times 21st-century top 100 #6` `C IMDb 9.2` `E Guinness World Records 2026 most in-demand TV show` `F PTT drama board picks` `G GQ Taiwan list`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/game_of_thrones/s01) 90% critics, 96% audience. The consensus says its intricate plotting and dark themes may overwhelm some viewers, but it is well acted and smartly written enough to win over people who don't watch fantasy.
+- **Scores**: Metacritic 80 | [RT](https://www.rottentomatoes.com/tv/game_of_thrones/s01) 90% critics, 96% audience | IMDb 9.2 | Douban 9.5
+- **Reviews**: Reviewing season 1, [Tim Goodman at The Hollywood Reporter](https://www.hollywoodreporter.com/tv/tv-reviews/game-thrones-review-174120/) said the hype was justified, praising "exceptional storytelling, strong writing, superb acting". Its Metacritic 80 shows critics weren't unanimous at first; Douban viewers score it higher than IMDb.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt0944947/parentalguide/)): violence ●●● | sex ●●● | scares ●●● | profanity ●●● | drugs ●●○. Frequent nudity and sex, including sexual violence; beheadings and torture.
 - **Length**: 8 seasons, 73 episodes, finished.
 - **Watch first**: nothing; this is where the franchise starts.
@@ -140,7 +142,8 @@ The great houses of Westeros fight over the Iron Throne, an exiled Targaryen hei
 About 200 years before Game of Thrones: House Targaryen's decline and the succession war known as the Dance of the Dragons ([Wikipedia](https://en.wikipedia.org/wiki/House_of_the_Dragon)).
 
 - **Recommended by**: `A Golden Globe Best Drama Series 2023` `C RT season 2 critics 84%` `E Parrot Analytics most in-demand series of 2024` `F PTT drama board picks`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/house_of_the_dragon/s01) 90% critics, 82% audience. The consensus calls it an impressive prequel that carries on the court intrigue that set its predecessor apart.
+- **Scores**: Metacritic 69 | [RT](https://www.rottentomatoes.com/tv/house_of_the_dragon/s01) 90% critics, 82% audience | IMDb 8.2 | Douban 8.7
+- **Reviews**: [Lucy Mangan in The Guardian](https://www.theguardian.com/tv-and-radio/2022/aug/19/house-of-the-dragon-review-game-of-thrones-prequel-got) thought from episode 1 it could match its predecessor at its peak. Reviewing season 3, [明蒂小姐 on The News Lens](https://www.thenewslens.com/article/269739) (in Chinese) found season 1 rushed and season 2 slow, with season 3's battles finally lifting the gloom. RT 90% but Metacritic 69: positive, not passionate.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt11198330/parentalguide/)): violence ●●● | sex ●●● | scares ●●● | profanity ●●● | drugs ●○○. Graphic childbirth, dragonfire and dismemberment.
 - **Length**: 3 seasons, 26 episodes so far; the fourth and final season is expected in 2028.
 - **Watch first**: not required, but Game of Thrones helps with the Targaryen background.
@@ -151,7 +154,8 @@ About 200 years before Game of Thrones: House Targaryen's decline and the succes
 About 100 years before Game of Thrones, the hedge knight Ser Duncan the Tall and his squire Egg go adventuring, adapted from Martin's *Tales of Dunk and Egg* novellas ([Wikipedia](https://en.wikipedia.org/wiki/A_Knight_of_the_Seven_Kingdoms_(TV_series))).
 
 - **Recommended by**: `A Emmy Drama Series nomination 2026` `C IMDb 8.6` `F PTT drama board picks`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/a_knight_of_the_seven_kingdoms/s01) 94% critics, 79% audience. The consensus says it works best as a buddy comedy rather than as a fight show.
+- **Scores**: Metacritic 75 | [RT](https://www.rottentomatoes.com/tv/a_knight_of_the_seven_kingdoms/s01) 94% critics, 79% audience | IMDb 8.6
+- **Reviews**: [Ben Travers at IndieWire](https://www.indiewire.com/criticism/shows/knight-of-the-seven-kingdoms-review-game-of-thrones-series-1235172708/) praised it for choosing kindness over carnage: "a lighter perspective is just what the maester ordered".
 - **Content** ([TV-MA](https://www.imdb.com/title/tt27497448/parentalguide/)): violence ●●● | sex ●●○ | scares ●●○ | profanity ●●○ | drugs ●○○. Lighter in tone than the other two, but the episode 5 joust is gory.
 - **Length**: 1 season, 6 episodes; renewed for a second season, expected in 2027.
 - **Watch first**: nothing; it stands alone.
@@ -166,7 +170,8 @@ One universe, two shows: a grounded political spy drama and a Western-style boun
 Over the five years before the film *Rogue One*, the thief Cassian Andor is radicalised into a rebel spy as the Rebel Alliance takes shape ([Wikipedia](https://en.wikipedia.org/wiki/Andor)).
 
 - **Recommended by**: `A Emmy Drama Series nominations 2023, 2025` `B several critics' #1 of 2025 (Variety, Vulture, THR)` `B New York Times 21st-century top 100 #32` `C IMDb 8.6` `F RedRecs Reddit 2025 #1` `F PTT drama board best of 2025 thread` `G GQ Taiwan Disney+ list`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/andor/s01) 96% critics, 88% audience. The consensus calls it an exceptionally mature and political Star Wars story, and one of the best yet.
+- **Scores**: Metacritic 74 | [RT](https://www.rottentomatoes.com/tv/andor/s01) 96% critics, 88% audience | IMDb 8.6 | Douban 9.0
+- **Reviews**: [Shirley Li in The Atlantic](https://www.theatlantic.com/culture/archive/2022/09/andor-star-wars-disney-tv-show-review/671497/) called it Star Wars at its most mature, with fewer lightsaber duels and messier morality. Taiwan's [Filmaholic critic 黃郁書](https://filmaholic.tw/series/68382af2fd897800015edba9) (in Chinese) called it, without the Force or lightsabers, the most moving Star Wars ever made. Viewers are far warmer than its Metacritic 74.
 - **Content** ([TV-14](https://www.imdb.com/title/tt9253284/parentalguide/)): violence ●●○ | sex ●○○ | scares ●●○ | profanity ●○○ | drugs ●○○.
 - **Length**: 2 seasons, 24 episodes, finished.
 - **Watch first**: nothing. It ends where *Rogue One* begins, so watching the film afterwards is a common order.
@@ -177,7 +182,8 @@ Over the five years before the film *Rogue One*, the thief Cassian Andor is radi
 Five years after *Return of the Jedi*, a lone Mandalorian bounty hunter protects the Force-sensitive child Grogu from Imperial remnants ([Wikipedia](https://en.wikipedia.org/wiki/The_Mandalorian)).
 
 - **Recommended by**: `A Emmy Drama Series nominations 2020, 2021` `C IMDb 8.6` `D Nielsen 2023 #8 streaming original` `F PTT drama board picks` `G GQ Taiwan Disney+ list`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/the_mandalorian/s01) 93% critics, 93% audience. The consensus praises its action and craft and says Grogu's cuteness helps a lot, though it can withhold too much.
+- **Scores**: Metacritic 70 | [RT](https://www.rottentomatoes.com/tv/the_mandalorian/s01) 93% critics, 93% audience | IMDb 8.6
+- **Reviews**: [Sam Adams at Slate](https://slate.com/culture/2019/11/the-mandalorian-review-star-wars-series-disney-plus.html) panned the first episode as "39 minutes of mediocre Star Wars". After two seasons, [傅紀鋼 on The News Lens](https://www.thenewslens.com/article/159368) (in Chinese) came to the opposite view: no Star Wars homework needed, carried by its father-son story. One of the biggest critic-audience gaps here; audiences have always loved it.
 - **Content** ([TV-14](https://www.imdb.com/title/tt8111088/parentalguide/)): violence ●●○ | sex ○○○ | scares ●●○ | profanity ○○○ | drugs ○○○. The lightest show in this post.
 - **Length**: 3 seasons, 24 episodes. The planned fourth season became the film *The Mandalorian and Grogu* (May 2026).
 - **Watch first**: no Star Wars films needed.
@@ -192,7 +198,8 @@ The most recommended American superhero shows of recent years are the ones mocki
 James Gunn's DC series about the antihero from *The Suicide Squad* who would kill for peace (John Cena) ([Wikipedia](https://en.wikipedia.org/wiki/Peacemaker_(TV_series))).
 
 - **Recommended by**: `C RT season 2 critics 94%` `E Parrot Analytics 2025 superhero finalist` `F PTT drama board picks` `F RedRecs Reddit 2025 #8`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/peacemaker_2022/s01) 93% critics, 87% audience. The consensus says John Cena is in solid form in a bloody good time that lets James Gunn let his freak flag fly.
+- **Scores**: Metacritic 70 | [RT](https://www.rottentomatoes.com/tv/peacemaker_2022/s01) 93% critics, 87% audience | IMDb 8.2
+- **Reviews**: [Ben Travers at IndieWire](https://www.indiewire.com/criticism/shows/peacemaker-review-hbo-max-james-gunn-1234689873/) found that Cena's commitment and Gunn's metal soundtrack make it move "surprisingly well", though it gets wobblier. In Taiwan, [林運鴻 at Opinion UDN](https://opinion.udn.com/opinion/story/120617/6146526) (in Chinese) argued its crude jokes poke at Hollywood's progressive pieties, but judging such a playful show only by surface politics misses the joke.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt13146488/parentalguide/)): violence ●●● | sex ●●● | scares ●●● | profanity ●●● | drugs ●●○. Head shots and torture; a fully nude orgy scene in the season 2 premiere; very dense swearing.
 - **Length**: 2 seasons, 16 episodes, finished.
 - **Watch first**: **the film *The Suicide Squad* (2021)**, which season 1 spins off from; season 2 follows *Superman* (2025).
@@ -205,7 +212,8 @@ Peacemaker is from the original "must-watch for grown-ups" list this series star
 A band of vigilantes takes on corrupt, corporate-owned superheroes and their leader, Homelander ([Wikipedia](https://en.wikipedia.org/wiki/The_Boys_(TV_series))).
 
 - **Recommended by**: `A Emmy Drama Series nomination 2021` `C IMDb 8.5` `D Nielsen 2024 #3 streaming original` `E Guinness World Records 2026 most in-demand superhero show` `F PTT drama board picks`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/the_boys_2019/s01) 85% critics, 90% audience. The consensus says mileage may vary, but its violent delights and heavy themes will please anyone looking for antiheroes to root for.
+- **Scores**: Metacritic 74 | [RT](https://www.rottentomatoes.com/tv/the_boys_2019/s01) 85% critics, 90% audience | IMDb 8.5 | Douban 8.6
+- **Reviews**: [Matthew Dessem at Slate](https://slate.com/culture/2019/08/the-boys-amazon-series-comic-book-adaptation-trump-marvel.html) called it "an expert deconstruction of superhero stories", wonderfully tasteless, if sometimes dated by its 2006 comic source. Critics and audiences broadly agree.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt1190634/parentalguide/)): violence ●●● | sex ●●● | scares ●●● | profanity ●●● | drugs ●●●. All five at the top level: the heaviest show here.
 - **Length**: 5 seasons, 40 episodes, ended May 2026.
 - **Watch first**: nothing. The same universe also has *Gen V*.
@@ -216,7 +224,8 @@ A band of vigilantes takes on corrupt, corporate-owned superheroes and their lea
 A limited series spun off from *The Batman* (2022): Oz Cobb's rise through Gotham's underworld ([Wikipedia](https://en.wikipedia.org/wiki/The_Penguin_(TV_series))).
 
 - **Recommended by**: `A Emmy Limited Series nomination 2025` `B Variety's #1 of 2024 (Aramide Tinubu)` `C IMDb 8.6`
-- **Reviews**: [The series](https://www.rottentomatoes.com/tv/the_penguin/s01) 95% critics, 85% audience. The consensus calls it a grounded crime saga given gravitas by Colin Farrell and a scene-stealing Cristin Milioti.
+- **Scores**: Metacritic 72 | [RT](https://www.rottentomatoes.com/tv/the_penguin/s01) 95% critics, 85% audience | IMDb 8.6 | Douban 8.6
+- **Reviews**: [Aramide Tinubu at Variety](https://variety.com/2024/tv/reviews/the-penguin-review-1236133718/) called it more than an origin story: "twisted, disturbing and deeply enthralling". Taiwanese critic [出前一廷 at 電影神搜](https://news.agentm.tw/308060/) (in Chinese) noted it never begs sympathy for its villain, and is better for it.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt15435876/parentalguide/)): violence ●●● | sex ●○○ | scares ●●● | profanity ●●● | drugs ●●●.
 - **Length**: limited series, 8 episodes.
 - **Watch first**: *The Batman* (2022) helps but isn't required.
@@ -231,7 +240,8 @@ From workplace memory splitting and an alien hive mind to a nuclear wasteland an
 Lumon employees undergo a procedure that splits work memories from personal ones, creating an "innie" who lives only at the office and an "outie" who knows nothing about the job ([Wikipedia](https://en.wikipedia.org/wiki/Severance_(TV_series))).
 
 - **Recommended by**: `A Emmy Drama Series nominations 2022, 2025` `B New York Times 21st-century top 100 #30` `B CriticsTop10 2025 aggregate #6` `C IMDb 8.6` `F RedRecs Reddit 2025 #4` `G ELLE Taiwan 2025 picks`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/severance/s01) 97% critics, 86% audience. The consensus calls it audacious and mysterious, with fresh insight into corporate drudgery: the complete package.
+- **Scores**: Metacritic 83 | [RT](https://www.rottentomatoes.com/tv/severance/s01) 97% critics, 86% audience | IMDb 8.6 | Douban 9.0
+- **Reviews**: [Roxana Hadadi at Vulture](https://www.vulture.com/article/severance-apple-tv-series-review.html) called it "a confidently written, stylishly directed first season". Critics, worldwide viewers and Chinese-speaking viewers all score it highly.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt11280740/parentalguide/)): violence ●○○ | sex ●○○ | scares ●●○ | profanity ●●○ | drugs ●○○.
 - **Length**: 2 seasons, 19 episodes; renewed for a third.
 - **Watch first**: nothing; it's original.
@@ -242,7 +252,8 @@ Lumon employees undergo a procedure that splits work memories from personal ones
 Vince Gilligan's follow-up to Breaking Bad: an alien virus turns humanity into a calm, contented hive mind, and novelist Carol is one of the few immune people it wants to absorb ([Wikipedia](https://en.wikipedia.org/wiki/Pluribus_(TV_series))).
 
 - **Recommended by**: `A Emmy Drama Series nomination 2026` `B CriticsTop10 2025 aggregate #3` `B Vulture best of 2025` `C RT critics 99%` `F PTT drama board best of 2025, original poster's #1` `G Filmaholic: most exciting new show of 2025`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/pluribus/s01) 99% critics, 68% audience. Critics are almost unanimous; audiences sit 31 points lower, one of the widest gaps in this post. The consensus calls it genuinely original sci-fi.
+- **Scores**: Metacritic 87 | [RT](https://www.rottentomatoes.com/tv/pluribus/s01) 99% critics, 68% audience | IMDb 7.9 | Douban 8.2
+- **Reviews**: [Nicholas Quah at Vulture](https://www.vulture.com/article/pluribus-apple-tv-series-review-vince-gilligan-rhea-seehorn.html) warned the slow pace may put people off, but trusting it pays off. [Filmaholic editor 張硯拓](https://filmaholic.tw/series/697b3891fd897800011a2f69) (in Chinese) called it the new show that excited him most in 2025, reading the hive mind as AI-style people-pleasing. Critics near-unanimous, audiences cooler: the widest split in this post.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt22202452/parentalguide/)): violence ●○○ | sex ●○○ | scares ●●○ | profanity ●●○ | drugs ●●○.
 - **Length**: 1 season, 9 episodes; renewed for a second.
 - **Watch first**: nothing; it's original.
@@ -253,7 +264,8 @@ Vince Gilligan's follow-up to Breaking Bad: an alien virus turns humanity into a
 From Liu Cixin's *Remembrance of Earth's Past* trilogy: a group of scientists makes contact with an alien civilisation, and humanity faces a chain of threats ([Wikipedia](https://en.wikipedia.org/wiki/3_Body_Problem_(TV_series))).
 
 - **Recommended by**: `A Emmy Drama Series nomination 2024` `B Vulture 2024 highlights` `C RT critics 78%` `D Netflix H1 2024 #8`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/3_body_problem/s01) 78% critics, 76% audience; only Wednesday scores lower with critics here. The consensus calls it an ambitious, solid start.
+- **Scores**: Metacritic 70 | [RT](https://www.rottentomatoes.com/tv/3_body_problem/s01) 78% critics, 76% audience | IMDb 7.5 | Douban 6.8 (March 2024)
+- **Reviews**: [Inkoo Kang in The New Yorker](https://www.newyorker.com/magazine/2024/03/25/3-body-problem-tv-review-netflix) said it joins knotty theory with real spectacle and feeling. Chinese-speaking viewers disagreed: [Lianhe Zaobao](https://www.zaobao.com.sg/realtime/china/story20240327-3223712) (in Chinese) reported a Douban score of 6.8 in its first week, far below Tencent's 8.7 version, with many complaining about the changes. Taiwan's [Filmaholic critic 黃彥瑄](https://filmaholic.tw/series/6659e67efd89780001f8ea83) (in Chinese) set the adaptation debate aside and read the characters' choices as adventures driven by love.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt13016388/parentalguide/)): violence ●●● | sex ●●○ | scares ●●● | profanity ●●○ | drugs ●●○.
 - **Length**: 1 season, 8 episodes; renewed for seasons 2 and 3.
 - **Watch first**: no need to read the books. It is a different adaptation from Tencent's 2023 Chinese series *Three-Body*.
@@ -264,7 +276,8 @@ From Liu Cixin's *Remembrance of Earth's Past* trilogy: a group of scientists ma
 From the video game series: a wasteland two centuries after the 2077 nuclear war ([Wikipedia](https://en.wikipedia.org/wiki/Fallout_(American_TV_series))).
 
 - **Recommended by**: `A Emmy Drama Series nomination 2024` `B CriticsTop10 2024 aggregate #8` `C RT season 2 96% critics, 96% audience` `D Nielsen 2024 top new original drama`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/fallout/s01) 93% critics, 95% audience. The consensus says it feels like a true extension of the games, for newcomers and fans alike.
+- **Scores**: Metacritic 73 | [RT](https://www.rottentomatoes.com/tv/fallout/s01) 93% critics, 95% audience | IMDb 8.3
+- **Reviews**: [Lucy Mangan in The Guardian](https://www.theguardian.com/tv-and-radio/2024/apr/11/prime-fallout-review-an-absolute-blast-of-a-tv-show) said, like The Last of Us, it works without the games: an "intelligent, drily witty, immaculately constructed series". Taiwanese critic [龍貓大王通信 at 電影神搜](https://news.agentm.tw/277384/) (in Chinese) found its three viewpoints open up the huge world while keeping the games' violence and black humour.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt12637874/parentalguide/)): violence ●●● | sex ●●○ | scares ●●● | profanity ●●○ | drugs ●●○.
 - **Length**: 2 seasons, 16 episodes; renewed for a third.
 - **Watch first**: no need to play the games.
@@ -275,7 +288,8 @@ From the video game series: a wasteland two centuries after the 2077 nuclear war
 Decades after a fungal infection collapses society, smuggler Joel escorts Ellie across America, adapted from the video game ([Wikipedia](https://en.wikipedia.org/wiki/The_Last_of_Us_(TV_series))).
 
 - **Recommended by**: `A Emmy Drama Series nominations 2023, 2025` `C RT season 2 critics 92%` `E Parrot Analytics most in-demand drama of 2023`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/the_last_of_us/s01) 96% critics, 86% audience. The consensus ranks it among the greatest video game adaptations. Season 2 kept 92% with critics but fell to 37% with audiences.
+- **Scores**: Metacritic 84 | [RT](https://www.rottentomatoes.com/tv/the_last_of_us/s01) 96% critics, 86% audience | IMDb 8.4
+- **Reviews**: [Lorraine Ali in the Los Angeles Times](https://www.latimes.com/entertainment-arts/tv/story/2023-01-13/the-last-of-us-hbo-review) found "an underlying beauty and grace" amid the brutality. [明蒂小姐 on The News Lens](https://www.thenewslens.com/article/182564) (in Chinese) said Bella Ramsey's performance goes almost beyond TV acting. Season 2 kept 92% with critics but fell to 37% with audiences.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt3581920/parentalguide/)): violence ●●● | sex ●○○ | scares ●●● | profanity ●●● | drugs ●○○.
 - **Length**: 2 seasons, 16 episodes; season 3 is expected in 2027.
 - **Watch first**: no need to play the game.
@@ -286,7 +300,8 @@ Decades after a fungal infection collapses society, smuggler Joel escorts Ellie 
 From Margaret Atwood's novel: after a second American civil war, a theocracy enslaves fertile women as breeders ([Wikipedia](https://en.wikipedia.org/wiki/The_Handmaid%27s_Tale_(TV_series))).
 
 - **Recommended by**: `A Emmy Outstanding Drama Series 2017 (first streaming winner)` `A Golden Globe Best Drama Series 2018` `B BBC 21st-century top 100 #38` `B New York Times 21st-century top 100 #67` `C RT final season critics 87%`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/the_handmaids_tale/s01) 94% critics, 90% audience. The consensus calls it haunting, vivid and engrossing, anchored by Elisabeth Moss.
+- **Scores**: Metacritic 92 | [RT](https://www.rottentomatoes.com/tv/the_handmaids_tale/s01) 94% critics, 90% audience | IMDb 8.3
+- **Reviews**: Season 1's Metacritic 92 is the highest in this post. [Jen Chaney at Vulture](https://www.vulture.com/2017/04/the-handmaids-tale-hulu-review.html) called it "meticulously paced, brutal, visually stunning". The series' IMDb 8.3 reflects a common view that later seasons fall short of the first.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt5834204/parentalguide/)): violence ●●● | sex ●●● | scares ●●● | profanity ●●○ | drugs ●○○. Sexual violence is central to the story; go in prepared.
 - **Length**: 6 seasons, 66 episodes, finished. The sequel *The Testaments* premiered in 2026.
 - **Watch first**: no need to read the novel.
@@ -301,7 +316,8 @@ From a 1980s small-town monster and Stephen King's clown to aliens and a gloomy 
 In a 1980s Indiana town, a telekinetic girl called Eleven and a group of kids are drawn into the Upside Down, opened by a secret government lab ([Wikipedia](https://en.wikipedia.org/wiki/Stranger_Things)).
 
 - **Recommended by**: `A Emmy Drama Series nominations 2017, 2018, 2020, 2022` `B New York Times 21st-century top 100 #53` `C IMDb 8.6` `D Nielsen 2025 #1 streaming original` `D Netflix all-time English TV #3 and #4 (seasons 4 and 5)` `E Parrot Analytics most in-demand series of 2025` `F PTT drama board picks` `G Netflix Taiwan Top 10 #1 (Nov 2025)`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/stranger_things/s01) 97% critics, 96% audience. The consensus calls it exciting, heartbreaking and sometimes scary, an addictive homage to Spielberg and 1980s TV. The final season split opinion: 83% critics, 52% audience.
+- **Scores**: Metacritic 76 | [RT](https://www.rottentomatoes.com/tv/stranger_things/s01) 97% critics, 96% audience | IMDb 8.6
+- **Reviews**: Reviewing season 1, [Maureen Ryan at Variety](https://variety.com/2016/tv/reviews/stranger-things-review-winona-ryder-netflix-matthew-modine-1201808737/) was warm but guarded: "originality is not exactly its strong suit", though the scares work. Looking back from the final season, [胡芩 on The News Lens](https://www.thenewslens.com/article/261716) (in Chinese) said its real appeal is not nostalgia but its feel for characters' fears and families. Audiences have always rated it above critics.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt4574334/parentalguide/)): violence ●●● | sex ●○○ | scares ●●● | profanity ●●○ | drugs ●○○.
 - **Length**: 5 seasons, 42 episodes, ended December 2025.
 - **Watch first**: nothing; it's original.
@@ -312,7 +328,8 @@ In a 1980s Indiana town, a telekinetic girl called Eleven and a group of kids ar
 A prequel to the films *It* (2017) and *It Chapter Two* (2019), with Bill Skarsgård back as Pennywise ([Wikipedia](https://en.wikipedia.org/wiki/It_%E2%80%93_Welcome_to_Derry)).
 
 - **Recommended by**: `B Variety best of 2025 (Aramide Tinubu #5)` `C RT critics 81%` `E Parrot Analytics most in-demand series debut of 2025` `F most-mentioned American show in PTT's best of 2025 thread` `G FlixPatrol HBO Max Taiwan Top 10`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/it_welcome_to_derry/s01) 81% critics, 82% audience. The consensus says the plotting sometimes scatters, but social commentary, atmosphere and performances deepen the Pennywise myth.
+- **Scores**: Metacritic 61 | [RT](https://www.rottentomatoes.com/tv/it_welcome_to_derry/s01) 81% critics, 82% audience | IMDb 7.9
+- **Reviews**: Its Metacritic 61 is the lowest in this post, but [Aramide Tinubu at Variety](https://variety.com/2025/tv/reviews/it-welcome-to-derry-review-hbo-1236557304/) loved "a masterfully woven and terrifying tale". Taiwanese critic [出前一廷 on The News Lens](https://www.thenewslens.com/article/262649) (in Chinese) said it finally returns to the novel's neglected theme of Derry as a microcosm of America.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt19244304/parentalguide/)): violence ●●● | sex ●○○ | scares ●●● | profanity ●●○ | drugs ●○○.
 - **Length**: 1 season, 9 episodes; renewed for a second.
 - **Watch first**: not required, but the films make Pennywise land harder.
@@ -323,7 +340,8 @@ A prequel to the films *It* (2017) and *It Chapter Two* (2019), with Bill Skarsg
 The first Alien series, set two years before the 1979 film and moved to Earth ([Wikipedia](https://en.wikipedia.org/wiki/Alien:_Earth)).
 
 - **Recommended by**: `B CriticsTop10 2025 aggregate #12` `C RT critics 94%` `E Parrot Analytics 2025 debut finalist` `F RedRecs Reddit 2025 #15` `G GQ Taiwan Disney+ list`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/alien_earth/s01) 94% critics, 65% audience. The consensus calls it stylistically bold and scary as hell, bringing the franchise's cinematic scale intact to TV.
+- **Scores**: Metacritic 85 | [RT](https://www.rottentomatoes.com/tv/alien_earth/s01) 94% critics, 65% audience | IMDb 7.1
+- **Reviews**: [Angie Han at The Hollywood Reporter](https://www.hollywoodreporter.com/tv/tv-reviews/alien-earth-timothy-olyphant-sydney-chandler-noah-hawley-fx-1236335484/) called it a "heady, sprawling, occasionally unwieldy but eventually thrilling epic". Critics love it, audiences much less: IMDb 7.1, one of the two widest critic-audience gaps here.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt13623632/parentalguide/)): violence ●●● | sex ●○○ | scares ●●● | profanity ●●○ | drugs ●○○.
 - **Length**: 1 season, 8 episodes; renewed for a second.
 - **Watch first**: nothing; the 1979 *Alien* helps with the lore.
@@ -334,7 +352,8 @@ The first Alien series, set two years before the 1979 film and moved to Earth ([
 Wednesday Addams (Jenna Ortega) starts at a new school and tries to solve a string of murders; Tim Burton directs several episodes ([Wikipedia](https://en.wikipedia.org/wiki/Wednesday_(TV_series))).
 
 - **Recommended by**: `A Emmy Comedy Series nomination 2023` `C RT season 2 critics 87%` `D Netflix all-time English TV #1 (season 1)` `D Nielsen 2025 #3 streaming original` `G Netflix Taiwan Top 10 #1 (Aug 2025)`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/wednesday/s01) 74% critics, 86% audience. The consensus is mixed: it is mostly Jenna Ortega holding the show up.
+- **Scores**: Metacritic 66 | [RT](https://www.rottentomatoes.com/tv/wednesday/s01) 74% critics, 86% audience | IMDb 8.0
+- **Reviews**: [Lorraine Ali in the Los Angeles Times](https://www.latimes.com/entertainment-arts/tv/story/2022-11-23/wednesday-netflix-addams-family) wrote that "Ortega kills as the gifted, nihilistic teen". Reviewing season 2, [明蒂小姐 on The News Lens](https://www.thenewslens.com/column/streaming/257030) (in Chinese) unpacked its nods to Poe and gothic literature. Unusually, audiences are warmer than critics.
 - **Content** ([TV-14](https://www.imdb.com/title/tt13443470/parentalguide/)): violence ●●○ | sex ○○○ | scares ●●○ | profanity ●○○ | drugs ○○○.
 - **Length**: 2 seasons, 16 episodes; renewed for a third.
 - **Watch first**: no Addams Family needed.
@@ -353,11 +372,14 @@ Shows that cleared two source types, or have no legal channel in Taiwan:
 
 - **Mostly shows from 2016 on, plus a few classics.** Older sci-fi such as *The X-Files* only appears if it made a critics poll or won a major award.
 - **Fan word of mouth is mostly PTT and Reddit.** Dcard threads couldn't be read, so younger Taiwanese viewers' taste may be under-represented.
+- **Chinese-language scores only appear where the page could be read.** Douban blocks automated reading, and Taiwanese outlets publish few long reviews of American shows.
 - **Content levels come from IMDb user votes, not official ratings.** Less-watched shows have few votes.
 - **Streaming licences change.** Streaming links checked: 2026-11-05.
 
 ## References
 
+- [How do you compute METASCORES? (Metacritic)](https://metacritichelp.zendesk.com/hc/en-us/articles/14478499933079-How-do-you-compute-METASCORES)
+- [About the Tomatometer (Rotten Tomatoes)](https://www.rottentomatoes.com/about)
 - [Primetime Emmy Award for Outstanding Drama Series (Wikipedia)](https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Drama_Series)
 - [Golden Globe Award for Best Television Series – Drama (Wikipedia)](https://en.wikipedia.org/wiki/Golden_Globe_Award_for_Best_Television_Series_%E2%80%93_Drama)
 - [The 100 greatest TV series of the 21st Century (BBC Culture, 2021)](https://www.bbc.com/culture/article/20211015-the-100-greatest-tv-series-of-the-21st-century)

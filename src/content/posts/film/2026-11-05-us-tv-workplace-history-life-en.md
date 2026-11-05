@@ -107,7 +107,10 @@ caption: Content uses the IMDb Parents Guide: heavy means three or more of five 
 
 ## The watchlist
 
-Entries follow the same format as the [fantasy and sci-fi post](/posts/film/2026-11-05-us-tv-fantasy-scifi-superhero-en): recommended by, reviews, content (from the [IMDb Parents Guide](https://www.imdb.com/title/tt31938062/parentalguide/): ○○○ none, ●○○ mild, ●●○ moderate, ●●● severe), length and where to watch. Reviews are for season 1, with the latest season noted when it differs a lot.
+Entries follow the same format as the [fantasy and sci-fi post](/posts/film/2026-11-05-us-tv-fantasy-scifi-superhero-en): recommended by, scores, reviews, content (from the [IMDb Parents Guide](https://www.imdb.com/title/tt31938062/parentalguide/): ○○○ none, ●○○ mild, ●●○ moderate, ●●● severe), length and where to watch.
+
+- **Scores** come from four places that measure different things: [Metacritic](https://metacritichelp.zendesk.com/hc/en-us/articles/14478499933079-How-do-you-compute-METASCORES) is a weighted average of US critics (0–100: how good); [Rotten Tomatoes](https://www.rottentomatoes.com/about) is the share of positive critics and viewers (whether you'll regret it, and whether the two sides disagree); IMDb is worldwide viewers out of 10; Douban is Chinese-speaking viewers out of 10. All are for season 1 unless noted.
+- **Reviews** quote one signed review from a major English-language outlet, plus a Taiwanese Chinese-language review where one could be read.
 
 "Listed on JustWatch Taiwan" means the service's own page has not yet been confirmed from Taiwan. If the link says the show is unavailable where you are, check [JustWatch Taiwan](https://www.justwatch.com/tw) for the latest.
 
@@ -120,7 +123,8 @@ Watching people do a job well, or fall apart doing it.
 ER staff at a Pittsburgh trauma centre get through a single 12-hour shift short of people and money; each episode covers roughly one hour of the shift ([Wikipedia](https://en.wikipedia.org/wiki/The_Pitt)).
 
 - **Recommended by**: `A Emmy Outstanding Drama Series 2025, 2026` `A Golden Globe Best Drama Series 2026` `B CriticsTop10 2025 aggregate #1` `B New York Times 21st-century top 100 #36` `C IMDb 8.9` `D Nielsen 2025 top new original drama` `F PTT drama board best of 2025 thread` `G LINE TODAY Spotlight Awards 2025 Western drama top 10`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/the_pitt/s01) 94% critics, 88% audience; [season 2](https://www.rottentomatoes.com/tv/the_pitt/s02) rose to 99% with critics. The consensus says putting hospital life on a timer turns familiar formulas into a bracingly fresh medical drama.
+- **Scores**: Metacritic 78 | [RT](https://www.rottentomatoes.com/tv/the_pitt/s01) 94% critics, 88% audience ([season 2](https://www.rottentomatoes.com/tv/the_pitt/s02) 99% critics) | IMDb 8.9 | Douban 9.5
+- **Reviews**: Most critics loved it; [Benjamin Lee in The Guardian](https://www.theguardian.com/tv-and-radio/2025/jan/09/the-pitt-review-noah-wyle) is a rare dissent, finding it torn between realism and soap and short of ER. Chinese-speaking viewers like it even more: its Douban score is higher than its IMDb score.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt31938062/parentalguide/)): violence ●●● | sex ●●○ | scares ●●○ | profanity ●●○ | drugs ●○○. The "violence" is almost all medical: organs, surgery and trauma shown directly, plus nudity in medical settings. If you like workplace drama but can't take blood, try The Bear instead.
 - **Length**: 2 seasons, 30 episodes; season 3 is due January 2027.
 - **Where to watch**: [HBO Max](https://www.hbomax.com/tw/zh/show/e6e7bad9-d48d-4434-b334-7c651ffc4bdf) (subscription)
@@ -130,7 +134,8 @@ ER staff at a Pittsburgh trauma centre get through a single 12-hour shift short 
 Award-winning chef Carmy returns to Chicago to run his late brother's chaotic Italian beef sandwich shop ([Wikipedia](https://en.wikipedia.org/wiki/The_Bear_(TV_series))).
 
 - **Recommended by**: `A Emmy Outstanding Comedy Series 2023` `A Golden Globe Best Comedy Series 2024` `B New York Times 21st-century top 100 #74` `C RT season 4 critics 84%` `F PTT drama board picks` `G LINE TODAY Spotlight Awards 2025 Western drama #3` `G GQ Taiwan Disney+ list`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/the_bear/s01) 100% critics, 92% audience. The consensus compares it to an expertly assembled sandwich.
+- **Scores**: Metacritic 88 | [RT](https://www.rottentomatoes.com/tv/the_bear/s01) 100% critics, 92% audience | IMDb 8.5 | Douban 8.4
+- **Reviews**: [Jen Chaney at Vulture](https://www.vulture.com/article/the-bear-fx-hulu-series-review.html) called it "gorgeously, addictively stressful", dropping viewers into the kitchen without explaining the jargon. Taiwan's [Filmaholic critic Kristin](https://filmaholic.tw/series/66b9e8c2fd89780001eaa2e5) (in Chinese) found season 3's main story looser but its standalone side episodes exceptional.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt14452776/parentalguide/)): violence ●○○ | sex ●○○ | scares ●●○ | profanity ●●● | drugs ●○○. Very dense swearing and lots of kitchen pressure and panic attacks; some viewers call it one of the most anxiety-inducing series around.
 - **Length**: 5 seasons, 47 episodes, ended June 2026. It won comedy awards but plays more like a drama.
 - **Where to watch**: [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-05eb6a8e-90ed-4947-8c0b-e6536cbddd5f) (subscription)
@@ -140,7 +145,8 @@ Award-winning chef Carmy returns to Chicago to run his late brother's chaotic It
 The Roy family, owners of the media conglomerate Waystar RoyCo, fight for control as their patriarch's health wobbles ([Wikipedia](https://en.wikipedia.org/wiki/Succession_(TV_series))).
 
 - **Recommended by**: `A Emmy Outstanding Drama Series 2020, 2022, 2023` `A Golden Globe Best Drama Series 2020, 2022, 2024` `B New York Times 21st-century top 100 #4` `B BBC 21st-century top 100 #10` `C IMDb 8.8` `F PTT drama board picks`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/succession/s01) 89% critics, 84% audience; the [final season](https://www.rottentomatoes.com/tv/succession/s04) 98%. The consensus calls it a divine comedy of absolute power and dysfunction, laced with acid wit.
+- **Scores**: Metacritic 70 | [RT](https://www.rottentomatoes.com/tv/succession/s01) 89% critics, 84% audience ([final season](https://www.rottentomatoes.com/tv/succession/s04) 98% critics) | IMDb 8.8 | Douban 8.4
+- **Reviews**: [Troy Patterson in The New Yorker](https://www.newyorker.com/culture/on-television/succession-reviewed-an-irresistible-family-power-struggle-told-through-soap-and-satire) praised how its mix of soap and satire diagrams the family's power relationships. A [review on The News Lens](https://www.thenewslens.com/article/162754) (in Chinese) reads patriarch Logan as a modern King Lear modelled on Rupert Murdoch. Season 1 scored only 70 on Metacritic; it grew into its reputation.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt7660850/parentalguide/)): violence ●○○ | sex ●●○ | scares ●○○ | profanity ●●● | drugs ●●○. Light on screen; heavy on a father's emotional abuse and wall-to-wall swearing.
 - **Length**: 4 seasons, 39 episodes, finished.
 - **Where to watch**: [HBO Max](https://www.hbomax.com/tw/zh/show/a8484031-f244-4661-9fb7-0932bd1ba872) (subscription)
@@ -150,7 +156,8 @@ The Roy family, owners of the media conglomerate Waystar RoyCo, fight for contro
 A top-rated New York morning news show, starting from a co-anchor's sexual misconduct scandal ([Wikipedia](https://en.wikipedia.org/wiki/The_Morning_Show_(American_TV_series))).
 
 - **Recommended by**: `A Golden Globe Best Drama Series nominations 2020, 2022, 2024` `A Emmy Drama Series nomination 2024` `B Vulture best of 2025 (Jackson McHenry #9)` `C RT 2025 Certified Fresh` `F PTT drama board picks`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/the_morning_show/s01) 62% critics, 64% audience, the lowest season 1 in this post (leaving out Euphoria's season 3). The consensus says it can feel more like a vanity project, but watching Jennifer Aniston and Reese Witherspoon give it their all is a pleasure.
+- **Scores**: Metacritic 61 | [RT](https://www.rottentomatoes.com/tv/the_morning_show/s01) 62% critics, 64% audience | IMDb 8.1 | Douban 8.6
+- **Reviews**: American critics were split, nearly half mixed; [Lucy Mangan in The Guardian](https://www.theguardian.com/tv-and-radio/2019/nov/01/the-morning-show-review-jennifer-aniston) gave it full marks as a masterwork for the #MeToo era. Audience scores on IMDb and Douban are well above the critics'.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt7203552/parentalguide/)): violence ○○○ | sex ●○○ | scares ●○○ | profanity ●●● | drugs ●○○.
 - **Length**: 4 seasons, 40 episodes so far; the fifth and final season has finished filming but not aired.
 - **Where to watch**: [Apple TV](https://tv.apple.com/tw/show/umc.cmc.25tn3v8ku4b39tr6ccgb8nl6m) (subscription)
@@ -160,7 +167,8 @@ A top-rated New York morning news show, starting from a co-anchor's sexual misco
 Billy Bob Thornton plays a Texas oil company's landman, caught between oilfield workers and oil billionaires ([Wikipedia](https://en.wikipedia.org/wiki/Landman_(TV_series))).
 
 - **Recommended by**: `C RT season 2 critics 83%` `D Nielsen 2025 #4 streaming original` `F PTT drama board best of 2025 ("my top pick this year")`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/landman/s01) 78% critics, 67% audience; season 2 audiences only 50%. The consensus says it covers familiar Taylor Sheridan ground and Billy Bob Thornton carries it; its writing of women is a common complaint.
+- **Scores**: Metacritic 60 | [RT](https://www.rottentomatoes.com/tv/landman/s01) 78% critics, 67% audience (season 2 audience 50%) | IMDb 8.2
+- **Reviews**: [Alison Herman at Variety](https://variety.com/2024/tv/tv-reviews/landman-review-taylor-sheridan-billy-bob-thornton-1236204963/) found it carries Yellowstone's macho streak but holds up on its detailed oilfield world, with Billy Bob Thornton its biggest asset. Critics are reserved; IMDb viewers give it 8.2. Its writing of women is a common complaint.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt14186672/parentalguide/)): violence ●●○ | sex ●●○ | scares ●●○ | profanity ●●● | drugs ●●○. Almost every episode has a workplace accident, some very graphic.
 - **Length**: 2 seasons, 20 episodes; renewed for a third.
 - **Where to watch**: [CATCHPLAY+](https://www.catchplay.com/tw/video/97248ae3-5df6-44c6-ba19-a132df01f177) (subscription, both seasons); [Netflix](https://www.netflix.com/tw/title/81946384) has season 1 only (listed on JustWatch Taiwan).
@@ -174,7 +182,8 @@ From Japan in 1600, the American West in 1857 and 1880s New York to World War II
 English sailor Blackthorne is shipwrecked in Japan and meets the shrewd daimyo Yoshii Toranaga, each with his own plans; adapted from James Clavell's novel, mostly in Japanese ([Wikipedia](https://en.wikipedia.org/wiki/Sh%C5%8Dgun_(2024_TV_series))).
 
 - **Recommended by**: `A Emmy Outstanding Drama Series 2024` `A Golden Globe Best Drama Series 2025` `B CriticsTop10 2024 aggregate #1` `B New York Times 21st-century top 100 #86` `C IMDb 8.6` `F PTT drama board Disney+ picks` `G GQ Taiwan Disney+ list`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/shogun_2024/s01) 99% critics, 85% audience. The consensus calls it visually sumptuous and culturally authentic, an epic adaptation that outdoes the original.
+- **Scores**: Metacritic 85 | [RT](https://www.rottentomatoes.com/tv/shogun_2024/s01) 99% critics, 85% audience | IMDb 8.6
+- **Reviews**: [Geoffrey Bunting at Slate](https://slate.com/culture/2024/02/shogun-series-fx-hulu-book-james-clavell.html) said it turns a book full of stereotypes into an epic for today's global audience while staying faithful to the plot.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt2788316/parentalguide/)): violence ●●● | sex ●●○ | scares ●●○ | profanity ●●○ | drugs ●○○. Stabbings, beheadings and seppuku are all shown directly.
 - **Length**: 1 season, 10 episodes; renewed for seasons 2 and 3, with season 2 filming in 2026.
 - **Where to watch**: [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-5422a5f9-e4f1-475e-9217-65e8249388d0) (subscription)
@@ -184,7 +193,8 @@ English sailor Blackthorne is shipwrecked in Japan and meets the shrewd daimyo Y
 From Downton Abbey creator Julian Fellowes: a social war between old and new money in 1880s New York ([Wikipedia](https://en.wikipedia.org/wiki/The_Gilded_Age_(TV_series))).
 
 - **Recommended by**: `A Emmy Drama Series nominations 2024, 2026` `B two Variety critics' best of 2025` `B Vulture best of 2025` `C RT season 3 critics 96%` `F PTT drama board picks` `G FlixPatrol HBO Max Taiwan Top 10`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/the_gilded_age/s01) 79% critics, 60% audience; [season 3](https://www.rottentomatoes.com/tv/the_gilded_age/s03) rose to 96% and 86%. It got better as it went.
+- **Scores**: Metacritic 68 | [RT](https://www.rottentomatoes.com/tv/the_gilded_age/s01) 79% critics, 60% audience ([season 3](https://www.rottentomatoes.com/tv/the_gilded_age/s03) 96% and 86%) | IMDb 8.1 | Douban 8.6
+- **Reviews**: Reviewing season 1, [Daniel D'Addario at Variety](https://variety.com/2022/tv/reviews/gilded-age-hbo-review-1235157550/) called it stodgily written, saved by its cast (especially Carrie Coon) and design. Scores rose sharply by season 3.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt4406178/parentalguide/)): violence ○○○ | sex ●●○ | scares ○○○ | profanity ○○○ | drugs ●○○. One of the lightest shows in this post.
 - **Length**: 4 seasons, 26 episodes; season 4 is airing through 20 December 2026.
 - **Where to watch**: [HBO Max](https://www.hbomax.com/tw/zh/show/2537da31-ff99-4195-a53e-e0e1ddb1d67e) (subscription)
@@ -194,7 +204,8 @@ From Downton Abbey creator Julian Fellowes: a social war between old and new mon
 A dramatisation of the 1986 Chernobyl disaster and the people caught up in it and sent to respond; an HBO and Sky co-production ([Wikipedia](https://en.wikipedia.org/wiki/Chernobyl_(miniseries))).
 
 - **Recommended by**: `A Emmy Outstanding Limited Series 2019` `A Golden Globe Best Limited Series 2020` `B BBC 21st-century top 100 #15` `B New York Times 21st-century top 100 #19` `C IMDb 9.3` `F PTT drama board picks`
-- **Reviews**: [The series](https://www.rottentomatoes.com/tv/chernobyl/s01) 95% critics, 97% audience. The consensus says its creeping dread never lifts, with an intelligent dissection of institutional rot.
+- **Scores**: Metacritic 82 | [RT](https://www.rottentomatoes.com/tv/chernobyl/s01) 95% critics, 97% audience | IMDb 9.3
+- **Reviews**: [Lorraine Ali in the Los Angeles Times](https://www.latimes.com/entertainment/tv/la-et-st-chernobyl-hbo-review-jared-harris-20190503-story.html) said it is not a horror show but a suspenseful tragedy about government corruption and the truth tellers who paid for it. A [review on The News Lens](https://www.thenewslens.com/article/121381) (in Chinese) credits its realism, singling out the courtroom scene that explains the disaster in under ten minutes.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt7366338/parentalguide/)): violence ●●○ | sex ●○○ | scares ●●● | profanity ●○○ | drugs ●○○. The hardest part is the radiation injuries.
 - **Length**: limited series, 5 episodes.
 - **Where to watch**: [HBO Max](https://www.hbomax.com/tw/zh/show/396999a6-3fff-4af3-802b-10c46d10deff) (subscription)
@@ -204,7 +215,8 @@ A dramatisation of the 1986 Chernobyl disaster and the people caught up in it an
 From Stephen Ambrose's nonfiction book: ten episodes following the US Army's Easy Company through World War II ([Wikipedia](https://en.wikipedia.org/wiki/Band_of_Brothers_(miniseries))).
 
 - **Recommended by**: `B BBC 21st-century top 100 #36` `B New York Times 21st-century top 100 #28` `C IMDb 9.4` `F PTT drama board picks`
-- **Reviews**: [The series](https://www.rottentomatoes.com/tv/band_of_brothers/s01) 94% critics, 97% audience. The consensus calls it a visceral look at the horrors of war and the sacrifices of millions of ordinary people.
+- **Scores**: Metacritic 86 | [RT](https://www.rottentomatoes.com/tv/band_of_brothers/s01) 94% critics, 97% audience | IMDb 9.4
+- **Reviews**: [The New York Times' 2001 review](https://www.nytimes.com/2001/09/07/movies/tv-weekend-an-intricate-tapestry-of-a-heroic-age.html) worried about its romanticised opening, which soon gives way to the visceral horror of war.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt0185906/parentalguide/)): violence ●●● | sex ●○○ | scares ●●● | profanity ●●● | drugs ●○○. Realistic combat and field surgery; one episode is set in a concentration camp.
 - **Length**: 2001 limited series, 10 episodes.
 - **Where to watch**: [HBO Max](https://www.hbomax.com/tw/zh/show/6a0a0227-f567-46ba-9a2d-04374c5f6193) (subscription)
@@ -214,7 +226,8 @@ From Stephen Ambrose's nonfiction book: ten episodes following the US Army's Eas
 The Utah War of 1857: violent conflict over the American West and the Mountain Meadows Massacre ([Wikipedia](https://en.wikipedia.org/wiki/American_Primeval)).
 
 - **Recommended by**: `B Vulture 2025 highlights` `F PTT drama board best of 2025 thread` `G ELLE Taiwan 2025 picks #1`
-- **Reviews**: [The series](https://www.rottentomatoes.com/tv/american_primeval/s01) 71% critics, 87% audience; audiences like it more than critics. The consensus calls it handsomely shot and thoroughly grim, sometimes to a deadening effect.
+- **Scores**: Metacritic 58 | [RT](https://www.rottentomatoes.com/tv/american_primeval/s01) 71% critics, 87% audience | IMDb 8.0 | Douban 7.7
+- **Reviews**: [Aramide Tinubu at Variety](https://variety.com/2025/tv/reviews/american-primeval-review-netflix-taylor-kitsch-1236267125/) called it a brutal, fascinating portrait of a country still in thrall to violence. Its Metacritic 58 is the lowest in this post; viewers like it more than critics.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt24069848/parentalguide/)): violence ●●● | sex ●○○ | scares ●●● | profanity ●●○ | drugs ●○○. Brutal violence, including rape.
 - **Length**: limited series, 6 episodes.
 - **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81457507) (subscription)
@@ -224,7 +237,8 @@ The Utah War of 1857: violent conflict over the American West and the Mountain M
 From Beth Macy's nonfiction book: how America's opioid crisis began, what it did to families, and the case against Purdue Pharma ([Wikipedia](https://en.wikipedia.org/wiki/Dopesick_(miniseries))).
 
 - **Recommended by**: `A Emmy Limited Series nomination 2022` `A Golden Globe Limited Series nomination 2022` `C IMDb 8.6` `F PTT drama board Disney+ picks`
-- **Reviews**: [The series](https://www.rottentomatoes.com/tv/dopesick/s01) 89% critics, 94% audience. The consensus says it sometimes sinks under its subject, but Michael Keaton and Kaitlyn Dever make it harrowing drama.
+- **Scores**: Metacritic 68 | [RT](https://www.rottentomatoes.com/tv/dopesick/s01) 89% critics, 94% audience | IMDb 8.6
+- **Reviews**: [The New York Times](https://www.nytimes.com/2021/10/12/arts/television/review-dopesick-hulu.html) found it ambitious but only intermittently compelling, with pain as the thread through every character. Critics are reserved; audiences score it much higher.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt9174558/parentalguide/)): violence ●○○ | sex ●○○ | scares ●●○ | profanity ●●○ | drugs ●●●. Addiction is the core subject.
 - **Length**: limited series, 8 episodes.
 - **Where to watch**: [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-227de06a-d3d4-42e0-9df1-bb5495e1738d) (subscription)
@@ -236,7 +250,8 @@ From Beth Macy's nonfiction book: how America's opioid crisis began, what it did
 Two parents and their three children, told across several timelines over decades ([Wikipedia](https://en.wikipedia.org/wiki/This_Is_Us)).
 
 - **Recommended by**: `A Emmy Drama Series nominations 2017, 2018, 2019, 2021` `C IMDb 8.7` `F PTT drama board picks`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/this_is_us/s01) 92% critics, 91% audience; the [final season](https://www.rottentomatoes.com/tv/this_is_us/s06) 100%. The consensus calls it full-tilt heartstring-tugging family drama.
+- **Scores**: Metacritic 76 | [RT](https://www.rottentomatoes.com/tv/this_is_us/s01) 92% critics, 91% audience ([final season](https://www.rottentomatoes.com/tv/this_is_us/s06) 100% critics) | IMDb 8.7
+- **Reviews**: [The New York Times' review](https://www.nytimes.com/2016/09/20/arts/television/review-this-is-us-is-skillful-shameless-tear-jerking.html) said it in the headline: "skillful, shameless tear-jerking". People watch it to cry, and that is also why others don't.
 - **Content** ([TV-14](https://www.imdb.com/title/tt5555260/parentalguide/)): violence ○○○ | sex ●○○ | scares ●○○ | profanity ●○○ | drugs ●○○. The only show here not rated TV-MA; light on screen, but full of death, illness and addiction. It can be hard going if you have lost a parent.
 - **Length**: 6 seasons, 106 episodes, finished; season 1 alone has 18 episodes, the longest show in this post.
 - **Where to watch**: [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-9dc170da-85db-475d-9df4-6572f15ffb00) (subscription)
@@ -246,7 +261,8 @@ Two parents and their three children, told across several timelines over decades
 From the mid-1950s into the 1960s, orphaned chess prodigy Beth Harmon rises to the top while fighting drug and alcohol addiction ([Wikipedia](https://en.wikipedia.org/wiki/The_Queen%27s_Gambit_(miniseries))).
 
 - **Recommended by**: `A Emmy Outstanding Limited Series 2021` `A Golden Globe Best Limited Series 2021` `B BBC 21st-century top 100 #100` `B New York Times 21st-century top 100 #81` `C IMDb 8.5` `D Netflix all-time English TV #9`
-- **Reviews**: [The series](https://www.rottentomatoes.com/tv/the_queens_gambit/s01) 96% critics, 94% audience. The consensus says Anya Taylor-Joy, the period detail and the writing make it an absolute win.
+- **Scores**: Metacritic 79 | [RT](https://www.rottentomatoes.com/tv/the_queens_gambit/s01) 96% critics, 94% audience | IMDb 8.5
+- **Reviews**: [Daniel Fienberg at The Hollywood Reporter](https://www.hollywoodreporter.com/tv/tv-reviews/the-queens-gambit-tv-review-4078272/) called it "smart, well-produced TV for grownups", anchored by Anya Taylor-Joy.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt10048342/parentalguide/)): violence ○○○ | sex ●○○ | scares ○○○ | profanity ●●○ | drugs ●●○. Its heroine is addicted to tranquillisers.
 - **Length**: limited series, 7 episodes.
 - **Where to watch**: [Netflix](https://www.netflix.com/tw/title/80234304) (subscription)
@@ -256,7 +272,8 @@ From the mid-1950s into the 1960s, orphaned chess prodigy Beth Harmon rises to t
 New York's ball culture in the 1980s and 1990s: Black and Latino LGBTQ communities competing for trophies and recognition and forming chosen families called "houses" ([Wikipedia](https://en.wikipedia.org/wiki/Pose_(TV_series))).
 
 - **Recommended by**: `A Emmy Drama Series nominations 2019, 2021` `B BBC 21st-century top 100 #62` `C IMDb 8.6`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/pose/s01) 96% critics, 88% audience; the [final season](https://www.rottentomatoes.com/tv/pose/s03) 100%. The consensus calls it full of energy, pirouetting between opulence and soapy drama.
+- **Scores**: Metacritic 75 | [RT](https://www.rottentomatoes.com/tv/pose/s01) 96% critics, 88% audience ([final season](https://www.rottentomatoes.com/tv/pose/s03) 100% critics) | IMDb 8.6
+- **Reviews**: [Ben Travers at IndieWire](https://www.indiewire.com/criticism/shows/pose-fx-review-ryan-murphy-trans-cast-tv-show-1201970601/) found its core story traditional but said it "uses that familiarity to its advantage".
 - **Content** ([TV-MA](https://www.imdb.com/title/tt7562112/parentalguide/)): violence ●○○ | sex ●●○ | scares ●○○ | profanity ●●● | drugs ●●●. The AIDS crisis and characters' deaths are central. Few votes; treat as a rough guide.
 - **Length**: 3 seasons, 26 episodes, finished.
 - **Where to watch**: [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-6bf318d8-f506-4e7f-a58f-0c5cc09b6c90) (subscription)
@@ -266,7 +283,8 @@ New York's ball culture in the 1980s and 1990s: Black and Latino LGBTQ communiti
 Loosely based on Molly Kochan's life: diagnosed with terminal cancer, she leaves her husband to look for the orgasm she has never had, with her best friend beside her to the end ([Wikipedia](https://en.wikipedia.org/wiki/Dying_for_Sex)).
 
 - **Recommended by**: `A Emmy Limited Series nomination 2025` `B CriticsTop10 2025 aggregate #9` `B Variety best of 2025 (Alison Herman #4)` `C RT critics 98%`
-- **Reviews**: [The series](https://www.rottentomatoes.com/tv/dying_for_sex/s01) 98% critics, 80% audience. The consensus calls it jaunty and sweet but never flippant, a bittersweet ode to living fully from Michelle Williams and Jenny Slate.
+- **Scores**: Metacritic 83 | [RT](https://www.rottentomatoes.com/tv/dying_for_sex/s01) 98% critics, 80% audience | IMDb 7.6
+- **Reviews**: [Mary McNamara in the Los Angeles Times](https://www.latimes.com/entertainment-arts/tv/story/2025-04-03/dying-for-sex-fx-review) called it funny, heartbreaking and deeply human, perhaps this century's Love Story. Critics are warmer than viewers: IMDb is only 7.6.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt30252752/parentalguide/)): violence ○○○ | sex ●●○ | scares ●○○ | profanity ●●○ | drugs ●○○. The subject is terminal cancer, including treatment and surgery.
 - **Length**: limited series, 8 episodes.
 - **Where to watch**: [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-423f6320-b55b-453b-a85f-dea05bd495d9) (subscription)
@@ -277,8 +295,8 @@ Zendaya plays Rue, a drug-addicted teenager who is also an unreliable narrator; 
 
 It doesn't clear the bar, but it was on the original "must-watch for grown-ups" list this series started from, so it is here with both sides:
 
-- **For**: the first two seasons won Zendaya the Emmy for Lead Actress in a Drama Series in 2020 and 2022, and the show was nominated for Outstanding Drama Series in 2022. [Season 1](https://www.rottentomatoes.com/tv/euphoria/s01) 80% critics, 83% audience; the consensus calls it brutally honest yet empathetic, and visually gorgeous.
-- **Against**: the 2026 [third season](https://www.rottentomatoes.com/tv/euphoria/s03) fell to 44% critics and 38% audience; the consensus calls it disjointed, leaving its cast stranded. [The Guardian's review](https://www.theguardian.com/tv-and-radio/2026/apr/13/euphoria-season-three-review-sydney-sweeney-zendaya-hbo) said it was "absolutely not worth the wait". PTT's drama board was mostly negative during season 3, and nobody in its 2024–2026 recommendation threads put it forward.
+- **For**: the first two seasons won Zendaya the Emmy for Lead Actress in a Drama Series in 2020 and 2022, and the show was nominated for Outstanding Drama Series in 2022. Season 1: Metacritic 67, [RT](https://www.rottentomatoes.com/tv/euphoria/s01) 80% critics, 83% audience; IMDb 8.1 for the series. [Tim Goodman at The Hollywood Reporter](https://www.hollywoodreporter.com/tv/tv-reviews/euphoria-review-1215681/) concluded: "Triggering for parents — but excellent."
+- **Against**: the 2026 third season fell to Metacritic 57 and [RT](https://www.rottentomatoes.com/tv/euphoria/s03) 44% critics, 38% audience; the consensus calls it disjointed, leaving its cast stranded. [The Guardian's review](https://www.theguardian.com/tv-and-radio/2026/apr/13/euphoria-season-three-review-sydney-sweeney-zendaya-hbo) said it was "absolutely not worth the wait". PTT's drama board was mostly negative during season 3, and nobody in its 2024–2026 recommendation threads put it forward.
 - **Taiwanese recommendations** come mainly from an HBO Max sponsored post, which this series doesn't count.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt8772296/parentalguide/)): violence ●●○ | sex ●●● | scares ●●● | profanity ●●● | drugs ●●●. Extensive nudity and sex involving teenage characters; drug use.
 - **Length**: 3 seasons, 26 episodes, ended May 2026.
@@ -292,7 +310,8 @@ It doesn't clear the bar, but it was on the original "must-watch for grown-ups" 
 Mike White's dark comedy anthology follows guests and staff through a week at a fictional luxury resort ([Wikipedia](https://en.wikipedia.org/wiki/The_White_Lotus)).
 
 - **Recommended by**: `A Emmy Outstanding Limited Series 2022` `A Golden Globe Best Limited Series 2023` `B New York Times 21st-century top 100 #21` `C RT season 3 critics 86%`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/the_white_lotus/s01) 90% critics, 78% audience. The consensus says its intentions get murky, but the vistas, twists and cast make it compelling, if uncomfortable.
+- **Scores**: Metacritic 82 | [RT](https://www.rottentomatoes.com/tv/the_white_lotus/s01) 90% critics, 78% audience | IMDb 8.0
+- **Reviews**: [Naomi Fry in The New Yorker](https://www.newyorker.com/magazine/2021/08/02/the-brilliant-biting-social-satire-of-the-white-lotus) called it "a near-note-perfect tragicomedy" about the power struggles of race, class and gender beneath polite surfaces.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt13406094/parentalguide/)): violence ●○○ | sex ●●● | scares ●○○ | profanity ●●○ | drugs ●●●.
 - **Length**: 3 seasons, 21 episodes; each season has a new resort and cast, so start anywhere. Renewed for a fourth.
 - **Where to watch**: [HBO Max](https://www.hbomax.com/tw/zh/show/14f9834d-bc23-41a8-ab61-5c8abdbea505) (subscription)
@@ -302,7 +321,8 @@ Mike White's dark comedy anthology follows guests and staff through a week at a 
 New Yorker Piper is sentenced to 15 months in a women's prison for carrying drug money for her ex-girlfriend a decade earlier ([Wikipedia](https://en.wikipedia.org/wiki/Orange_Is_the_New_Black)).
 
 - **Recommended by**: `A Golden Globe Comedy Series nomination 2016` `B BBC 21st-century top 100 #65` `G GQ Taiwan list`
-- **Reviews**: [Season 1](https://www.rottentomatoes.com/tv/orange_is_the_new_black/s01) 95% critics, 92% audience. The consensus calls it a sharp mix of black humour and dramatic heft with an intriguing flashback structure.
+- **Scores**: Metacritic 79 | [RT](https://www.rottentomatoes.com/tv/orange_is_the_new_black/s01) 95% critics, 92% audience | IMDb 8.0 | Douban 8.5
+- **Reviews**: [Tim Goodman at The Hollywood Reporter](https://www.hollywoodreporter.com/tv/tv-reviews/orange-is-new-black-tv-578162/) said a premise full of red flags turned out surprisingly strong, and it "expertly balances humor and drama".
 - **Content** ([TV-MA](https://www.imdb.com/title/tt2372162/parentalguide/)): violence ●●○ | sex ●●● | scares ●●○ | profanity ●●● | drugs ●●○.
 - **Length**: 7 seasons, 91 episodes, finished.
 - **Where to watch**: [Netflix](https://www.netflix.com/tw/title/70242311) (subscription, listed on JustWatch Taiwan)
@@ -312,7 +332,8 @@ New Yorker Piper is sentenced to 15 months in a women's prison for carrying drug
 Devon worries about her sister's odd relationship with her new boss, billionaire socialite Michaela, and stages an intervention over one weekend at a beach estate ([Wikipedia](https://en.wikipedia.org/wiki/Sirens_(2025_TV_series))).
 
 - **Recommended by**: `B Vulture 2025 highlights` `C RT critics 75%` `D Netflix H1 2025 #8`
-- **Reviews**: [The series](https://www.rottentomatoes.com/tv/sirens_2025/s01) 75% critics, 56% audience. The consensus says it sings a familiar tune, carried by Julianne Moore, Meghann Fahy and Milly Alcock.
+- **Scores**: Metacritic 66 | [RT](https://www.rottentomatoes.com/tv/sirens_2025/s01) 75% critics, 56% audience | IMDb 6.7
+- **Reviews**: [Lucy Mangan in The Guardian](https://www.theguardian.com/tv-and-radio/2025/may/22/sirens-review-julianne-moore-cult-drama-netflix) gave it full marks as preposterous fun; overall reception is lukewarm, and its IMDb 6.7 is the lowest here.
 - **Content** ([TV-MA](https://www.imdb.com/title/tt31429675/parentalguide/)): violence ●○○ | sex ●○○ | scares ●○○ | profanity ●●○ | drugs ●●○.
 - **Length**: limited series, 5 episodes.
 - **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81589551) (subscription)
@@ -321,12 +342,15 @@ Devon worries about her sister's odd relationship with her new boss, billionaire
 
 - **It leans towards jury taste.** 15 of the 19 have Emmy or Golden Globe series nominations; for what everyone is actually streaming, look at the shows with a D.
 - **Fan word of mouth is mostly PTT and Reddit.** Dcard threads couldn't be read.
+- **Chinese-language scores only appear where the page could be read.** Douban blocks automated reading, and Taiwanese outlets publish few long reviews of American shows.
 - **Content levels come from IMDb user votes, not official ratings.** Pose, Dying for Sex, Sirens and Dopesick have only a few dozen votes.
 - **Landman needs CATCHPLAY+ for both seasons.** Netflix Taiwan has season 1 only.
 - **Streaming licences change.** Streaming links checked: 2026-11-05.
 
 ## References
 
+- [How do you compute METASCORES? (Metacritic)](https://metacritichelp.zendesk.com/hc/en-us/articles/14478499933079-How-do-you-compute-METASCORES)
+- [About the Tomatometer (Rotten Tomatoes)](https://www.rottentomatoes.com/about)
 - [Primetime Emmy Award for Outstanding Drama Series (Wikipedia)](https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Drama_Series)
 - [Primetime Emmy Award for Outstanding Limited or Anthology Series (Wikipedia)](https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Limited_or_Anthology_Series)
 - [Primetime Emmy Award for Outstanding Comedy Series (Wikipedia)](https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Comedy_Series)
