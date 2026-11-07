@@ -163,7 +163,7 @@ max_results: 10
 | 技術進展 | 有 arxiv digest 或 `framework-release` 信號 | 無技術新聞 |
 | 商業案例/融資/併購 | 有 `funding` / `acquisition` / `enterprise-deployment` 信號 | 無商業新聞 |
 | 資安事件與防禦技術 | 有 `security-incident` 信號或 security post | 無資安事件 |
-| 法規與治理 | 有 `regulation` 信號 | 無法規新聞 |
+| 法規與治理 | 有 `regulation` 信號，或其他類別的信號主要在談 agent 治理（身分、權限、稽核）；同一件事全篇只寫一次 | 無法規或治理新聞 |
 | 全球區域動態 | 有 `region-news` 信號、區域公司／政策動態，或 Step 4e 補掃命中 | 無合格區域新聞 |
 | 觀察與洞察 | **必寫** | — |
 | 今日收穫 | **必寫** | — |

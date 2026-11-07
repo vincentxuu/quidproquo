@@ -75,7 +75,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 
 三層策略，總共約 94 次呼叫（搜尋 API 19 次，其餘為已知 URL 直讀）：
 
-1. **廣域主題查詢**（8 個 Groundlane `web_search`）— 不限特定公司，按主題掃全網
+1. **廣域主題查詢**（9 個 Groundlane `web_search`）— 不限特定公司，按主題掃全網
 2. **官方 blog 直讀**（約 75 個 Groundlane `web_fetch`）— 直接抓 blog 列表頁讀日期，0 搜尋配額
 3. **社群 + 全球區域來源**（Groundlane `web_search`）— HN、Reddit，加上東亞、東南亞、南亞、歐洲、中東、非洲、拉丁美洲與大洋洲
 
@@ -100,6 +100,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | 6 | `AI agent tool MCP server open source` | 工具/開源 |
 | 7 | `AI agent enterprise deployment case study` | 企業落地 |
 | 8 | `AI regulation policy government` | 法規治理 |
+| 9 | `AI agent governance identity permissions audit` | 企業 agent 治理（身分、權限、稽核）；category 依內容判斷，不一律標 `regulation` |
 
 ### 第二層：官方 blog 直讀（Groundlane `web_fetch`，0 搜尋配額）
 
@@ -294,7 +295,7 @@ max_results: 5 each
 | 7 | 拉丁美洲 | `(Latin America OR Brazil OR Mexico OR Chile OR Colombia OR Argentina) AI agent launch regulation funding` |
 | 8 | 大洋洲 | `(Australia OR New Zealand) AI agent launch regulation funding` |
 
-北美不另開第九個區域查詢：第一層 8 個英文廣域查詢與第二層美國／加拿大公司官方來源已高度覆蓋北美。信號處理時仍要把北美列入覆蓋稽核，不能把它當成不需檢查的預設基準。
+北美不另開第九個區域查詢：第一層 9 個英文廣域查詢與第二層美國／加拿大公司官方來源已高度覆蓋北美。信號處理時仍要把北美列入覆蓋稽核，不能把它當成不需檢查的預設基準。
 
 這是**檢索覆蓋要求，不是收錄配額**。每組都必須真的查過；找不到 48 小時內、來源可靠且跟 AI 直接相關的事件時，0 筆是正確結果，不得拿舊聞、泛市場報告或薄弱轉載補數量。以色列歸入中東；澳洲與紐西蘭歸入大洋洲。
 
@@ -302,11 +303,11 @@ max_results: 5 each
 
 | 工具 | 查詢數 | 說明 |
 |------|--------|------|
-| Groundlane `web_search`（廣域） | 8 | AI 生態主題 |
+| Groundlane `web_search`（廣域） | 9 | AI 生態主題 |
 | Groundlane `web_search`（區域） | 8 | 全球區域矩陣 |
 | Groundlane `web_search`（社群） | 3 | HN + Reddit |
 | Groundlane `web_fetch` | 約 75 | 官方 blog/research/HF/GitHub 直讀（0 搜尋配額） |
-| **總計** | **約 94** | 搜尋 API 共 19 次，其餘為已知 URL 直讀 |
+| **總計** | **約 95** | 搜尋 API 共 20 次，其餘為已知 URL 直讀 |
 
 ### 去重與時間過濾
 
