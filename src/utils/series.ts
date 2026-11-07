@@ -1140,6 +1140,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'ai-agent-monthly-report',
+    category: 'updates',
+    names: { 'zh-TW': 'AI Agent 月報', en: 'AI Agent Monthly Report' },
+    descriptions: {
+      'zh-TW': '每月整理 AI Agent 領域改變判斷的變化：月對月指標、三條主線、上期判斷回顧、更正與下月驗證。',
+      en: 'A monthly report on what changed judgments in the AI agent space: month-over-month metrics, three main threads, a review of past claims, corrections, and conditions to check next month.',
+    },
+  },
+  {
     slug: 'deep-research',
     category: 'ai-agents',
     names: { 'zh-TW': 'Deep Research 前沿', en: 'Deep Research Frontier' },

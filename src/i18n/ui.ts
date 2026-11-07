@@ -49,6 +49,7 @@ export const ui = {
     'daily.filter.arxiv': 'Arxiv',
     'daily.filter.github': 'GitHub',
     'daily.filter.weekly': '週回顧',
+    'daily.filter.monthly': '月報',
     'daily.empty': '尚無日報。',
   },
   en: {
@@ -91,6 +92,7 @@ export const ui = {
     'daily.filter.arxiv': 'Arxiv',
     'daily.filter.github': 'GitHub',
     'daily.filter.weekly': 'Weekly',
+    'daily.filter.monthly': 'Monthly',
     'daily.empty': 'No daily digest yet.',
   },
 } as const;

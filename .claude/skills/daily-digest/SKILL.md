@@ -26,6 +26,7 @@ description: Produce daily digest content for quidproquo.cc/daily. Invoked by Cl
 | K | `daily-digest-report` | 每日 Stage 3 | 日報彙整組裝 |
 | L | `daily-digest-weekly` | 每週五 | 週回顧 + Watchlist 建議 |
 | M | `daily-digest-region` | 每週五 | 區域焦點 |
+| — | `daily-digest-monthly` | 每月，手動（尚未排程） | 月報：月對月指標、判斷回顧、更正、下月驗證 |
 
 ## Routine 排程（台灣時間）
 
@@ -67,6 +68,7 @@ Stage 4（每週五）
 | funding | AI Agent Funding |
 | pricing | AI Pricing Watch |
 | weekly | AI Agent 週回顧 |
+| monthly | AI Agent 月報 |
 | region | AI Region Focus |
 
 ## 搜尋工具契約（Groundlane 優先，失效就降級，不准停）

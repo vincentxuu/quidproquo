@@ -1,0 +1,196 @@
+[
+ {
+  "month": "2026-10",
+  "daysWithSignals": 30,
+  "rawSignals": 943,
+  "uniqueUrls": 916,
+  "events": 907,
+  "multiDayEvents": 15,
+  "byCategory": {
+   "vendor-update": 142,
+   "regulation": 110,
+   "funding": 110,
+   "security-incident": 103,
+   "region-news": 87,
+   "tool-launch": 77,
+   "model-release": 57,
+   "enterprise-deployment": 49,
+   "open-source": 44,
+   "community-signal": 35,
+   "framework-release": 33,
+   "acquisition": 30,
+   "benchmark-shift": 20,
+   "pricing-change": 10
+  },
+  "topCompanies": [
+   [
+    "openai",
+    96
+   ],
+   [
+    "anthropic",
+    76
+   ],
+   [
+    "google",
+    50
+   ],
+   [
+    "nvidia",
+    44
+   ],
+   [
+    "microsoft",
+    38
+   ],
+   [
+    "amazon",
+    27
+   ],
+   [
+    "alibaba-qwen",
+    23
+   ],
+   [
+    "meta",
+    15
+   ],
+   [
+    "cloudflare",
+    13
+   ],
+   [
+    "deepseek",
+    13
+   ],
+   [
+    "mistral",
+    10
+   ],
+   [
+    "langchain",
+    8
+   ]
+  ],
+  "repeatSamples": [
+   {
+    "days": [
+     "10-05",
+     "10-15",
+     "10-28"
+    ],
+    "title": "Aleph Alpha 推出主權開源模型 Kolibri"
+   }
+  ]
+ },
+ {
+  "month": "2026-09",
+  "daysWithSignals": 28,
+  "rawSignals": 869,
+  "uniqueUrls": 825,
+  "events": 816,
+  "multiDayEvents": 27,
+  "byCategory": {
+   "vendor-update": 147,
+   "regulation": 99,
+   "region-news": 98,
+   "security-incident": 85,
+   "funding": 83,
+   "tool-launch": 75,
+   "enterprise-deployment": 46,
+   "model-release": 44,
+   "community-signal": 40,
+   "open-source": 37,
+   "benchmark-shift": 22,
+   "framework-release": 20,
+   "pricing-change": 11,
+   "acquisition": 9
+  },
+  "topCompanies": [
+   [
+    "openai",
+    105
+   ],
+   [
+    "anthropic",
+    70
+   ],
+   [
+    "google",
+    44
+   ],
+   [
+    "amazon",
+    31
+   ],
+   [
+    "alibaba-qwen",
+    30
+   ],
+   [
+    "microsoft",
+    28
+   ],
+   [
+    "meta",
+    26
+   ],
+   [
+    "nvidia",
+    25
+   ],
+   [
+    "deepseek",
+    12
+   ],
+   [
+    "salesforce",
+    10
+   ],
+   [
+    "xai",
+    9
+   ],
+   [
+    "cognition-devin",
+    9
+   ]
+  ],
+  "repeatSamples": [
+   {
+    "days": [
+     "09-04",
+     "09-05",
+     "09-06",
+     "09-20",
+     "09-29"
+    ],
+    "title": "LangChain adds stateless MCP protocol support with elicitation"
+   },
+   {
+    "days": [
+     "09-03",
+     "09-04",
+     "09-06"
+    ],
+    "title": "Gemini 3.8 Flash and 3.8 Flash Cyber: Google's third budget model in six weeks"
+   },
+   {
+    "days": [
+     "09-04",
+     "09-06",
+     "09-07"
+    ],
+    "title": "GitHub spotlights \"PR Sous Chef\" — a production Copilot workflow for pull request triage"
+   },
+   {
+    "days": [
+     "09-15",
+     "09-20",
+     "09-22"
+    ],
+    "title": "Temporal closes $550M Series E at $12.55B valuation as agentic AI demand surges"
+   }
+  ]
+ }
+]
