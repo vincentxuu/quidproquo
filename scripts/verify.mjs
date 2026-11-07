@@ -166,6 +166,10 @@ const FULL_STEPS = [
   // 岩場文章（baseline 外）：模板條件段要有結論、影片統計要和分級表實際覆蓋一致（見 crag-guide-contract「條件段」）。
   ['crag coverage regression tests', 'node scripts/check-crag-coverage.mjs --self-test'],
   ['check:crag-coverage', 'pnpm check:crag-coverage'],
+  // layout: routes 沒緊接表格時，外掛拋錯、整篇內文變空白而 build 仍成功（2026-10-26 的 44 篇）。
+  ['route-video-fences regression tests', 'node scripts/check-route-video-fences.mjs --self-test'],
+  ['check:route-video-fences', 'node scripts/check-route-video-fences.mjs'],
+  ['rendered-posts regression tests', 'node scripts/check-rendered-posts.mjs --self-test'],
   // ```diagram 的連線幾何：箭頭尖端不可縮進框裡、不穿框、不交叉不跳線、只用直角（diagram skill primitives.md 連線規則）。
   // diagram-preview 只看文字，不看線；純 Node、全站不到 1 秒，所以全站與 --staged 都跑。
   ['diagram geometry regression tests', 'node scripts/check-diagram-geometry.mjs --self-test'],
@@ -208,6 +212,7 @@ function stagedPlan() {
     ['process-leak (staged)', `node scripts/check-process-leak.mjs ${quote(posts)}`],
     ['series-plan (staged)', `node scripts/check-series-plan.mjs ${quote(posts)}`],
     ['crag-coverage (staged)', `node scripts/check-crag-coverage.mjs ${quote(posts)}`],
+    ['route-video-fences (staged)', `node scripts/check-route-video-fences.mjs ${quote(posts)}`],
     ...diagramPosts.map((p) => [`diagram-preview (staged): ${p}`, `pnpm exec tsx scripts/diagram-preview.ts ${quote([p])} --skip-if-no-browser`]),
   ] : [];
   if (fullReason) return { full: true, reason: fullReason, extra: leakStep };
