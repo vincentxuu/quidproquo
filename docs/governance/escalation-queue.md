@@ -554,6 +554,8 @@
 
 ## 2026-11-01：仁壽峰舊文章超長區塊阻擋語意索引同步
 
+- 狀態：2026-11-07 已解決（30426f93d）。根因是分塊修復後這幾篇 source hash 沒變、未重切；重新同步後 Deploy 轉綠，線上超過 23,000 字元的待處理區塊歸零。
+
 - 現象：公開免費 LLM 教學的 CI 41282405822 已完成 production Worker 部署與 D1 12 篇內容同步，但 embedding sync 因 `post chunk 4ea9124cfa13e5c0: contextual input exceeds 24000 characters; re-chunk before retrying` 失敗，整體 workflow 呈紅。新教學與相關 12 個正式頁面均回傳 200，關鍵字索引已驗證。
 - 定位：`SHA-256(slug::chunkIndex)` 前 16 位元比對到 `climbing/2026-10-21-korea-crag-insubong` 第 14 個區塊；不屬本輪 12 篇文章修改。
 - 下一步：獨立檢查 `src/lib/crawl/chunker.ts`、`scripts/sync-to-d1.ts` 產生的該區塊，以及 `src/lib/indexing/pipeline.ts` 的 24000 字元請求上限；保留上限，修正分塊／重切後再同步，不以放大上限或跳過失敗來變綠。
