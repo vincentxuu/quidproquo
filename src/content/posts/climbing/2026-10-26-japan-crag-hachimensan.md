@@ -55,12 +55,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 清單收錄已核讀 ROCKTOPO 表中全部 171 條有級數資料，不含未定級條目；其他已核實來源及差異附在原列。完整 topo 與現行使用公告仍要另外攜帶、確認。
 
-```video-gallery
-key: japanHachimensan
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：6a 以下（YDS 5.10a 以下）
 
 先在 topo 找到「上部エリア」、「中部エリア」的線位。先確認保護與落地，不把低級數當作低風險。
@@ -146,6 +140,12 @@ layout: routes
 | 「砂の岬」 | 5.11c | 5.11c | 未列 | 中部エリア（Bサイド） | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；ROCKTOPO 單一出處。 |
 | 「白日」 | 5.11c | 5.11c | 未列 | 中部エリア（Bサイド） | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；ROCKTOPO 單一出處。 |
 | 「アムニージア」 | 5.11c | 5.11c | 未列 | 中部エリア（Bサイド） | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；ROCKTOPO 單一出處。 |
+
+```video-gallery
+key: japanHachimensan
+lang: zh-TW
+layout: routes
+```
 
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 
@@ -266,6 +266,12 @@ layout: routes
 | 「石舞台正面ダイレクトB」 | 3級 | — | — | 石舞台エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；單一出處。 |
 | 「石舞台正面ダイレクトA」 | 3級 | — | — | 石舞台エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；單一出處。 |
 | 「フラワー」 | 1級 | — | — | 石舞台エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；單一出處。 |
+
+```video-gallery
+key: japanHachimensan
+lang: zh-TW
+layout: routes
+```
 
 
 ## 查資料的入口

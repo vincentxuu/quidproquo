@@ -55,12 +55,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 清單收錄已核讀 ROCKTOPO 表中全部 115 條有級數資料，不含未定級條目；其他已核實來源及差異附在原列。完整 topo 與現行使用公告仍要另外攜帶、確認。 [theCrag 主頁](https://www.thecrag.com/en/climbing/japan/okinawa/area/6679206927)另外標示 158 條抱石，本次未能核讀其完整分區清單，因此這裡不宣稱列盡那 158 條；要找較少見的線，先補齊地方完整 topo。
 
-```video-gallery
-key: japanGushichan
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：6 級與更容易
 
 先在 topo 找到「多和田岩・ぜんざい岩」、「出前岩」的線位。先確認保護與落地，不把低級數當作低風險。
@@ -73,6 +67,12 @@ layout: routes
 | 「ひろおマントル」 | 6級 | — | — | ゴーヤ岩、チョックストーン、ザ・ルーフ | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；單一出處；不反推換算。 |
 | 「豆腐トラバース」 | 6級 | — | — | トーフ岩・モズク岩 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；單一出處；不反推換算。 |
 | 「トラバース」（無名岩・マントル岩） | 6級 | — | — | 無名岩・マントル岩 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；單一出處；不反推換算。 |
+
+```video-gallery
+key: japanGushichan
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：5 級到 3 級
 
@@ -123,6 +123,12 @@ layout: routes
 | 「ちゃぶ台返し」 | 5級 | — | — | 無名岩・マントル岩 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；單一出處；不反推換算。 |
 | 「炎天下」 | 4級 | — | — | 無名岩・マントル岩 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；單一出處；不反推換算。 |
 
+```video-gallery
+key: japanGushichan
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：2 級到 1 級
 
 先在 topo 找到「ゴーヤ岩、チョックストーン、ザ・ルーフ」、「ミチゾウ岩」的線位。核心級數以外，也把岩面狀態與保護安排納入決定。
@@ -160,6 +166,12 @@ layout: routes
 | 「グレート王様」 | 2級 | — | — | 王様 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；單一出處；不反推換算。 |
 | 「いつか王子様が」 | 1級 | — | — | 王様 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；單一出處；不反推換算。 |
 
+```video-gallery
+key: japanGushichan
+lang: zh-TW
+layout: routes
+```
+
 ### 高手：初段以上
 
 先在 topo 找到「チェイサー岩」、「ゴーヤ岩、チョックストーン、ザ・ルーフ」的線位。先對照版本及開放狀態，不使用未定級 project 補足清單。
@@ -185,6 +197,12 @@ layout: routes
 | 「チョックマン」 | 初段 | — | — | ゴーヤ岩、チョックストーン、ザ・ルーフ | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；單一出處；不反推換算。 |
 | 「チョックストーンアタック」 | 初段 | — | — | ゴーヤ岩、チョックストーン、ザ・ルーフ | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；單一出處；不反推換算。 網路紀錄：好日山莊的[2015紀錄](https://www.kojitusanso.jp/tozan-report/detail/?fm=15937)，作者因與鄰線提早共用手點而重爬，說明線位與合流位置會影響完攀判定。 |
 | 「保クラック」 | 二段 | — | — | ゴーヤ岩、チョックストーン、ザ・ルーフ | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；單一出處；不反推換算。 |
+
+```video-gallery
+key: japanGushichan
+lang: zh-TW
+layout: routes
+```
 
 
 

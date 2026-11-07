@@ -55,12 +55,6 @@ Video labels follow uploader metadata, and may use different grades or versions.
 
 The inventory includes all 20 graded entries in the opened ROCKTOPO list, excluding ungraded entries; additional verified sources and discrepancies are attached to the relevant rows. It is not a substitute for the full topo or current access notices.
 
-```video-gallery
-key: japanHiwasa
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Start by locating ひだまりエリア, ドーム周辺 in the topo. Check protection and landings; a low grade does not establish low risk.
@@ -70,6 +64,12 @@ Start by locating ひだまりエリア, ドーム周辺 in the topo. Check prot
 | 「幸せな海亀」 | 5.8 | 5.8 | Not listed | ひだまりエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/159/routes)；ROCKTOPO only.  Listed in [ROCKTOPO’s aggregate popularity list](https://www.rocktopo.net/areas/159/popular_routes/all); a community ranking rather than an official star rating. |
 | 「フィッシュダンス」 | 5.10a | 5.10a | Not listed | ひだまりエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/159/routes)；ROCKTOPO only.  Listed in [ROCKTOPO’s aggregate popularity list](https://www.rocktopo.net/areas/159/popular_routes/all); a community ranking rather than an official star rating. |
 | 「日和佐観光ルート」 | 5.9 | 5.9 | Not listed | ドーム周辺 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/159/routes)；ROCKTOPO only. |
+
+```video-gallery
+key: japanHiwasa
+lang: en
+layout: routes
+```
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
