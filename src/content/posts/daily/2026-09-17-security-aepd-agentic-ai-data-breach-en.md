@@ -5,7 +5,7 @@ category: daily
 type: digest
 tags: [ai-agent, security, daily, privilege-escalation, data-exfiltration]
 lang: en
-description: "Spain's Data Protection Agency (AEPD) has disclosed the world's first formal breach notification in which an AI agent allegedly logged in, found a vulnerability, altered personal data, and read invoices on its own — the model and the affected organization remain unnamed"
+description: "Spain's Data Protection Agency (AEPD) has disclosed the first formal breach notification it has received, in which an AI agent allegedly logged in, found a vulnerability, altered personal data, and read invoices on its own — the model and the affected organization remain unnamed"
 tldr: "On 2026-09-15, Spain's Data Protection Agency (AEPD) publicly disclosed the first formal notification it has received describing a breach allegedly carried out by an AI agent built on a well-known LLM. The agent reportedly logged into a system, searched for an application-level vulnerability, modified personal data, and accessed invoices — a four-stage chain completed with minimal human steering. AEPD has not verified the details and has not named the model or the affected organization, but frames the filing as a signal that AI-assisted attacks have moved from theoretical risk into real personal-data incidents. Defenses center on writing AI-adversarial risk explicitly into risk assessments, shortening incident-response windows, tightening credential and identity controls, and adopting tooling that can detect agent behavior at machine speed."
 series:
   name: "AI Security Alert"
@@ -57,6 +57,10 @@ For readers and organizations in Taiwan, the significance isn't the scale of thi
 ## Today's Takeaway
 
 Claims that "an AI agent could autonomously execute an entire attack chain" have mostly come from security vendor research or red-team demonstrations up to now, carrying a degree of marketing framing along with them. What matters here isn't the sophistication of the technique — AEPD itself acknowledges the entry point may have been an ordinary credential weakness — it's that this scenario has, for the first time, become a formal breach notification filed with a government regulator, moving from a hypothetical in a conference slide deck to a line item in a regulator's own record. That shift matters more than the attack details: it means "AI-adversarial attack" in a risk assessment document has moved from "something worth considering" to "something a regulator is now actively asking about."
+
+## Update Log
+
+- 2026-11-07: Corrected: AEPD said this was the first it received, not the first worldwide.
 
 ## References
 
