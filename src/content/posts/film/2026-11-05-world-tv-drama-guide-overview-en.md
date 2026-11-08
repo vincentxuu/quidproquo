@@ -147,12 +147,16 @@ The last row has data behind it. [Omdia's analysis of Netflix's first-half 2024 
 | 2 | [US: crime, mystery and politics](/posts/film/2026-11-05-us-tv-crime-mystery-politics-en) | Breaking Bad, Fargo, House of Cards, Paradise and 17 more: where to start? |
 | 3 | [US: workplace, period and life dramas](/posts/film/2026-11-05-us-tv-workplace-history-life-en) | The Pitt, Succession, Shōgun, Euphoria and 15 more: are they worth it? |
 | 4 | [US: comedy and adult animation](/posts/film/2026-11-05-us-tv-comedy-adult-animation-en) | Rick and Morty, Ted Lasso, The Office, The Studio and 18 more: how to pick American comedy? |
-| 5 | Korean dramas | What is there beyond romance? |
-| 6 | Japanese dramas | How does the quarterly drama schedule work? |
-| 7 | Chinese dramas | How do you pick one you'll actually finish at 40 episodes? |
-| 8 | Taiwanese dramas | What genres has Taiwanese TV moved into? |
-| 9 | British dramas | How does a six-episode series pace differently from an American season? |
-| 10 | European and Latin American non-English dramas | Beyond Money Heist, what else comes from Spain, France, the Nordics, Germany and Latin America? |
+| 5 | [Korea: romance, time-slip and fantasy](/posts/film/2026-11-08-kdrama-romance-fantasy-en) | Bon Appétit, Your Majesty, Lovely Runner, Crash Landing on You, Queen of Tears and 14 more: where to start? |
+| 6 | Korea: crime, mystery and revenge | The Glory, Taxi Driver, Signal and more: how dark do they get? |
+| 7 | Korea: action, survival and superpowers | Squid Game, Moving, Weak Hero and more: who are they for? |
+| 8 | Korea: medical, legal and workplace | The Trauma Code, Extraordinary Attorney Woo, Resident Playbook and more: are they worth it? |
+| 9 | [Korea: life, family and period dramas](/posts/film/2026-11-08-kdrama-life-family-period-en) | When Life Gives You Tangerines, Reply 1988, My Mister and 11 more: how to pick a slow-burn life drama? |
+| 10 | Japanese dramas | How does the quarterly drama schedule work? |
+| 11 | Chinese dramas | How do you pick one you'll actually finish at 40 episodes? |
+| 12 | Taiwanese dramas | What genres has Taiwanese TV moved into? |
+| 13 | British dramas | How does a six-episode series pace differently from an American season? |
+| 14 | European and Latin American non-English dramas | Beyond Money Heist, what else comes from Spain, France, the Nordics, Germany and Latin America? |
 
 Posts without links are still being written. Other countries with long lists will also be split by genre. Whether a Thai post follows depends on how the earlier ones go.
 
