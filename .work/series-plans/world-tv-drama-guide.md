@@ -128,3 +128,7 @@ order 0 是總覽：各國劇差在哪（一季幾集、會不會續訂、題材
 ## 審稿
 
 每篇 commit 前在 `.work/reviews/<slug>.md` 補 post-verify／post-review／post-polish 三節。先寫 order 0＋order 1 給使用者看，確認後再往下。
+
+## 韓劇拆篇與順序重編（使用者 2026-11-08 選「拆五篇」）
+
+韓劇 75 部（三類門檻＋台灣有合法串流）依類型拆五篇，見 `.work/research/world-tv-drama-guide/kr/split-proposal.md`。系列順序改為：5 韓劇｜愛情、穿越與奇幻浪漫、6 韓劇｜犯罪懸疑與復仇、7 韓劇｜動作生存與超能力、8 韓劇｜職人醫療法律職場、9 韓劇｜人生家庭與時代劇、10 日劇、11 陸劇、12 台劇、13 英劇、14 歐洲與拉美非英語劇。第一批寫 order 5 與 order 9，交出後停。
