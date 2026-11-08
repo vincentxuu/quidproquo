@@ -148,7 +148,7 @@ The last row has data behind it. [Omdia's analysis of Netflix's first-half 2024 
 | 3 | [US: workplace, period and life dramas](/posts/film/2026-11-05-us-tv-workplace-history-life-en) | The Pitt, Succession, Shōgun, Euphoria and 15 more: are they worth it? |
 | 4 | [US: comedy and adult animation](/posts/film/2026-11-05-us-tv-comedy-adult-animation-en) | Rick and Morty, Ted Lasso, The Office, The Studio and 18 more: how to pick American comedy? |
 | 5 | [Korea: romance, time-slip and fantasy](/posts/film/2026-11-08-kdrama-romance-fantasy-en) | Bon Appétit, Your Majesty, Lovely Runner, Crash Landing on You, Queen of Tears and 14 more: where to start? |
-| 6 | Korea: crime, mystery and revenge | The Glory, Taxi Driver, Signal and more: how dark do they get? |
+| 6 | [Korea: crime, mystery and revenge](/posts/film/2026-11-08-kdrama-crime-mystery-revenge-en) | The Glory, Taxi Driver, Signal, Stranger and 14 more: how dark do they get? |
 | 7 | [Korea: action, survival and superpowers](/posts/film/2026-11-08-kdrama-action-survival-en) | Squid Game, Kingdom, Moving, Weak Hero and 7 more: who are they for? |
 | 8 | Korea: medical, legal and workplace | The Trauma Code, Extraordinary Attorney Woo, Resident Playbook and more: are they worth it? |
 | 9 | [Korea: life, family and period dramas](/posts/film/2026-11-08-kdrama-life-family-period-en) | When Life Gives You Tangerines, Reply 1988, My Mister and 11 more: how to pick a slow-burn life drama? |
