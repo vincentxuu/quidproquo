@@ -622,3 +622,9 @@
 
 - 登錄：2026-11-10（來源：daily-digest-funding routine 執行 `pnpm verify:staged`，暫存新文章時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-10-funding-nominal{,-en}.md`（Nominal Series C $240M）、`src/content/posts/daily/2026-11-10-funding-coframe{,-en}.md`（Coframe Series A $25M）、`.work/daily-log/2026-11-10/daily-digest-funding.md`——已單獨跑過 `node scripts/check-post-references.mjs`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過，`diagram-preview` 因環境無瀏覽器被 skip（Nominal 文章含分層架構圖）。四篇文章檔案已 stash 暫存，等 Q-051 解除後直接 `git stash pop` 補 commit，不需重跑查證。
+
+### Q-051 補充：daily-digest-pricing routine 也撞上同一紅燈
+
+- 登錄：2026-11-10（來源：daily-digest-pricing routine 執行 `pnpm verify:staged`，暫存新文章時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 本次產出：GitHub Copilot 於 2026-11-16 下架 Claude Opus 4.8／Opus 5／GPT-5.6 Terra 三個模型（[官方 changelog](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/)），按官方 AI credit 費率表,Opus 系列遷移到建議替代 Opus 5.5 後單價降 20%,Terra 遷移到 GPT-6.1 Sol 則 output 降約 17%(遷移到 GPT-6 Luna 可降 95% 但模型等級從 Versatile 降到 Lightweight)。中英雙版已寫好並互連,series order 34,已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過（無 diagram 區塊,不需跑 diagram-preview）。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-pricing-github-copilot-opus-terra-deprecation{,-en}.md` 留在工作目錄未 commit,等 Q-051 解除後直接補 commit,不需重跑查證。
