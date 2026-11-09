@@ -16,6 +16,12 @@
 
 ---
 
+## Q-051 ⏳ 待拍板：`daodao-community-ops` 系列缺規劃表，擋住全站所有 commit
+- 登錄：2026-11-10（來源：daily-digest-model-card routine 執行 pre-commit 時發現）
+- 做什麼：本次 routine 寫完 Muse Ember 模型卡（中英雙版＋daily-log），`git commit` 時 `pnpm verify:staged` 的 `series-plan (staged)` 檢查噴紅：「系列 daodao-community-ops 沒有規劃表 `.work/series-plans/daodao-community-ops.md`（先跑 series-curriculum-design）」。已確認 `src/utils/series.ts` 第 1304-1312 行確實有 `daodao-community-ops`（『島島阿學怎麼經營』）的登錄，且不在 `scripts/config/series-plan-baseline.json` 的 grandfathered 清單裡；`.work/series-plans/` 下沒有對應檔案。commit 已被 pre-commit hook 擋下（沒有產生任何 commit），本次模型卡的 3 個新檔仍停在 staged 狀態未提交。
+- 為什麼現在不能做：`scripts/check-series-plan.mjs` 對「規劃表是否存在」這條規則是全站掃描 `series.ts` 所有非 baseline 系列，不限暫存檔案範圍，所以這個缺口現在擋住**任何一次** commit，不只本次模型卡。regular 補一份規劃表需要真正做 series-curriculum-design（目標讀者／弧線／入口篇／斷崖處理／每篇範圍卡），而且最後一項「使用者確認：YYYY-MM-DD」必須是使用者真的確認過，不能由 session 代寫日期；這不是 5 分鐘內能對的 A 級用語或撞號修正，超出本次 model-card routine 的範圍，也不該由不了解島島系列規劃脈絡的 session 杜撰。progress.txt 先前記錄「同日一併提交島島兩篇與 series.ts 的 daodao-community-ops 定義」（約 2026-10-28／30），當時顯然沒有同步建立規劃表就把登錄併入了 bcb163b 這次合併，現在才在全站層級炸開。
+- 接手第一步：確認是誰／哪個 session 負責「島島阿學」系列內容，請該 session 跑 `series-curriculum-design` skill 產出 `.work/series-plans/daodao-community-ops.md`（含目標讀者、弧線、入口篇、斷崖處理、每篇範圍卡，並取得使用者本人確認後補上「使用者確認：YYYY-MM-DD」），或者如果這個系列其實還沒要正式啟用，考慮先把 `daodao-community-ops` 從 `src/utils/series.ts` 移除／移入 baseline 的 grandfathered 清單，待規劃表齊備後再登錄回來。補好後，本次 model-card routine 暫存的 3 個檔案（`src/content/posts/daily/2026-11-10-model-meta-muse-ember{,-en}.md`、`.work/daily-log/2026-11-10/daily-digest-model-card.md`）可以直接 `git commit` 補上，不需重做內容或查證。
+
 ## Q-050 ⏳ 待處理：課程影片查核日期 862 項過期，CI 完整 verify 擋住 deploy
 - 登錄：2026-11-09（來源：對話）
 - 做什麼：約 40 門課在 2026-10-10 同一天查核，2026-11-09 一起超過 30 天。`pnpm -s check:course-videos` 列出清單（862 項，含 `scripts/config/course-videos.json` 的 cmu-11768 項目），依 post-update skill「課程影片狀態」逐門課回原始來源即時重查：仍無錄影就更新查核日期與更新紀錄，找到錄影就嵌入。CS329Z 的 week5／7／8／9／11 五組已在 2026-11-09 重查。
