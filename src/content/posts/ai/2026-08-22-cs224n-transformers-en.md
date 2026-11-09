@@ -99,7 +99,7 @@ Course and recording entries:
 - [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this article. This is 2023 Lecture 8; the transcript covers self-attention, position representations, multi-head attention, residual connections and layer norm, encoder/decoder architectures and the quadratic cost of attention, which fits this article. It is a 2023 lecture, so details need not match the Winter 2026 slides.
 
@@ -108,6 +108,7 @@ Content check: verified against the video transcript (2026-10-10): what was chec
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2023 public recording on the same topic; the Winter 2026 original is behind sign-in and could not be verified.
 - 2026-10-10: Checked the video content against its transcript. The topic matches this article; noted that it is the 2023 version.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

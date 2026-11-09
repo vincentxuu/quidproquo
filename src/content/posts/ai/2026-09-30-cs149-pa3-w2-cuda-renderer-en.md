@@ -149,7 +149,7 @@ One thing you can do tonight: clone [asst3](https://github.com/stanford-cs149/as
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-11-09: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-11-09.
 
 Course and recording entries:
 
@@ -159,6 +159,7 @@ Course and recording entries:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Rechecked official sources; there is still no public recording matching this article, and a check date was added.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

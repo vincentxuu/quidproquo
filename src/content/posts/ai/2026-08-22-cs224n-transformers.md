@@ -133,7 +133,7 @@ title: Stanford CS224N NLP with Deep Learning | 2023 | Lecture 8 - Self-Attentio
 - [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本文的關係。這支是 2023 年 Lecture 8，字幕內容為 self-attention、position 表示、multi-head、residual 與 layer norm、encoder／decoder 架構與 attention 的二次方成本，主題與本文相符；但它是 2023 年的課，細節與 Winter 2026 投影片不必然一致。
 
@@ -142,6 +142,7 @@ title: Stanford CS224N NLP with Deep Learning | 2023 | Lecture 8 - Self-Attentio
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 2023 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
 - 2026-10-10：依字幕核對影片內容。確認影片主題與本文相符，註明是 2023 年版本。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

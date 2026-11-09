@@ -125,7 +125,7 @@ glossary:
 
 ## 課程影片來源
 
-官方 Fall 2025 課表只提供本講的學生實驗影片，沒有列 Ziad Reslan 客座講課錄影。2026-10-10 即時重查官方 YouTube 播放清單（AI Safety，17 支）：第 5 講同樣只有這支學生實驗影片，播放清單由第 4 講錄影直接接到第 6 講錄影。下方可觀看的是學生的 policy compliance 實驗，不能當成客座講課的錄影。
+官方 Fall 2025 課表只提供本講的學生實驗影片，沒有列 Ziad Reslan 客座講課錄影。2026-11-09 即時重查官方 YouTube 播放清單（AI Safety；共 20 支，含後來加入的 Fall 2026 講課）：Fall 2025 第 5 講同樣只有這支學生實驗影片，播放清單由第 4 講錄影直接接到第 6 講錄影。下方可觀看的是學生的 policy compliance 實驗，不能當成客座講課的錄影。
 
 ```youtube
 url: https://www.youtube.com/watch?v=HMcA4Gi6HFE
@@ -137,9 +137,9 @@ title: CS2881R Fall 2025 L5: Student experiment on policy compliance
 官方來源：
 
 - [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety; includes Fall 2026 lectures added later)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：這支影片是學生實驗，不是客座講課。讀了《Lecture 5: Experiment on Policy compliance》（17:01）的完整字幕：確認講者開頭說「這是上週的實驗」，內容是 minimal／principles／rules 三種 system prompt 在 DeepSeek-R1 8B、RealSafe-R1-8B 與 GPT-4o、Gemini、Claude 3.5 Sonnet 上的比較，評測用 OR-Bench 與 MMLU-Pro，每條件跑 3 次、約百題，結論是模型差距大於 prompt 差距。字幕沒有講者姓名；「押韻」的例子是講者自己回應觀眾時說的，不是 Boaz，已更正。
 
@@ -148,6 +148,7 @@ title: CS2881R Fall 2025 L5: Student experiment on policy compliance
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方課表與播放清單第 5 講仍只有學生實驗影片，沒有客座講課錄影，狀態維持僅附相關補充影片。
 - 2026-10-10：依字幕核對影片內容。更正「押韻」例子的說話者（是學生講者，不是 Boaz）；其餘說法與字幕相符。
+- 2026-11-09：重查影片狀態。播放清單現有 20 支，多了後來加入的 Fall 2026 講課；Fall 2025 部分沒有變動，結論不變。
 
 ## 參考資料
 

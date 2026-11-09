@@ -294,7 +294,7 @@ None of the three videos walks through HW1 problem by problem; positions above a
 5. **Dropout / BatchNorm**: Handle correctly in both forward and backward
 
 ## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: Homework 1 has no dedicated recording. The two videos below are related public OCW videos: Lec 02 How to Train a Neural Net (SGD, backpropagation, automatic differentiation) and the PyTorch Tutorial. They are background supplements, not a walkthrough of HW1.
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-11-09: Homework 1 has no dedicated recording. The two videos below are related public OCW videos: Lec 02 How to Train a Neural Net (SGD, backpropagation, automatic differentiation) and the PyTorch Tutorial. They are background supplements, not a walkthrough of HW1.
 
 ```youtube
 url: https://www.youtube.com/watch?v=vidCX_dMCu0
@@ -313,7 +313,7 @@ Course and recording entries:
 - [MIT OCW — PyTorch Tutorial](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_review_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): read the Lec 01 and Lec 02 transcripts and the full PyTorch Tutorial transcript (read directly, not saved to a file); all three are related background rather than a HW1 walkthrough; the misleading "video timestamps (relevant lectures)" heading was renamed and each video's actual content added by approximate relative position, with no exact timecodes.
 
@@ -322,6 +322,7 @@ Content check: verified against the video transcript (2026-10-10): read the Lec 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. HW1 has no dedicated recording, so OCW Lec 02 and the PyTorch Tutorial are embedded as related supplementary videos and the status is now “Related supplementary video included; the original lecture recording has not been verified.”
 - 2026-10-10: Checked the video content against its transcript. Checked the three related videos against their transcripts; renamed the heading to "Related Lecture Videos" and added each video's actual content (no exact timecodes).
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

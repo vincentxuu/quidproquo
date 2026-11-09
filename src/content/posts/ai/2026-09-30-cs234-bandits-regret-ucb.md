@@ -222,7 +222,7 @@ title: Stanford CS234 Spring 2024 播放清單第 11 支「Exploration 1」
 - [Spring 2024 版](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 11「Exploration 1」字幕（Emma Brunskill 主講，約 75 分鐘）：確認影片講 bandit 設定、骨折治療例子、regret、greedy 與 ε-greedy、下界、optimism 與以信賴界做的 UCB，主題與本文一致；字幕沒有 COVID 邊境檢測案例，也沒有 sub-Gaussian 的字眼，這些是本文依 2026 投影片寫的，不是影片內容。
 
@@ -231,6 +231,7 @@ Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄�
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。影片主題一致；已把 Brunskill 開場那句話改為有字幕依據的說法，「YouTube 章節」改為「字幕」。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

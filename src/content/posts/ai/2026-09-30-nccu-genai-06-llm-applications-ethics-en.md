@@ -198,7 +198,7 @@ Previous: [L05 Transformers in Full](/posts/ai/2026-09-30-nccu-genai-05-transfor
 
 ## Course video sources
 
-Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
+Video sources were checked against the official course page (Checked: 2026-11-09) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
 
 Original videos: [Generative AI 06: LLM applications and ethical challenges (YouTube recording, in Mandarin)](https://www.youtube.com/watch?v=m6DFB60Tk68)
 
@@ -206,7 +206,7 @@ Course and recording entries:
 
 - [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
@@ -214,6 +214,7 @@ Checked: 2026-10-10.
 - 2026-10-10: Rechecked video status. The official schedule maps this lecture to the linked video, but embedded playback could not be verified, so status is unchanged.
 - 2026-10-10: Checked the video content. No captions are available, so only the description chapters were compared; confirmed the video is not embeddable (the embed block cannot play; use the original link).
 - 2026-10-10: The video owner disabled embedding for this lecture, so the broken player was removed; the original-video link stays in the source section, and the status is now official entry / recording index only.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

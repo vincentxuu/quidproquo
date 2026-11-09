@@ -226,7 +226,7 @@ Course and recording entries:
 - [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): Read both transcripts: Spring 2024 Lecture 5, "Policy Search 1" (about 61K characters), goes through policy gradients, the likelihood ratio/score function, REINFORCE and baselines, with a ChatGPT/PPO mention near the start; Lecture 6, "Policy Search 2" (about 66K characters), continues with baselines and actor-critic early on and turns to monotonic improvement and PPO later. Both match this post; "YouTube chapters" became "transcript".
 
@@ -235,6 +235,7 @@ Content check: verified against the video transcript (2026-10-10): Read both tra
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 - 2026-10-10: Checked the video content against its transcript. Both videos match the topic; "YouTube chapters" became "transcript".
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

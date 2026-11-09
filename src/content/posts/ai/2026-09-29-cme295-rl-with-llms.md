@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-rl-with-llms-en)
 
-**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：原講次錄影已上架，本文尚未依錄影更新；目前僅附相關補充影片。** [影片來源與說明](#課程影片來源)
 
 > **課前預寫版**：本篇寫於 2026 年 9 月 29 日，2026 版第 4 講（2026 年 10 月 16 日）尚未開課。內容根據 2026 課表的主題清單、2025 版投影片中已講過的部分，以及原始論文整理；影片與投影片上架後會對照更新。
 
@@ -389,7 +389,7 @@ KL(π_θ ‖ π_teacher) = E_{x~π_θ} [ log π_θ(x_{t+1}|x_1..t) − log π_te
 
 ## 課程影片來源
 
-本文預寫 CME295 2026 版第 4 講（Reinforcement learning with LLMs，10 月 16 日）。2026-10-10 讀取官方 2026 課表，該講仍標示 “Coming soon”，原講次錄影尚未上架。下方是 2025 版第 5 講（LLM tuning，含 PPO）與第 6 講（LLM reasoning，含 GRPO）的公開錄影；2025 版沒有獨立的 RL 講次，所以只作相關補充，不是 2026 版第 4 講的錄影。
+本文預寫 CME295 2026 版第 4 講（Reinforcement learning with LLMs，10 月 16 日）。2026-11-09 即時讀取官方 2026 課表，這一講的原講次錄影已上架：[Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 4 - Reinforcement Learning with LLMs](https://www.youtube.com/watch?v=3Vaj0Oka_t4)。本文寫於開課前，正文還沒有依這支錄影與 2026 投影片對照更新，所以先不把它放進導言。下方是 2025 版第 5 講（LLM tuning，含 PPO）與第 6 講（LLM reasoning，含 GRPO）的公開錄影；2025 版沒有獨立的 RL 講次，所以只作相關補充，不是 2026 版第 4 講的錄影。
 
 ```youtube
 url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
@@ -410,13 +410,14 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reaso
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
 - [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。2026 版第 4 講錄影尚未上架，附上 2025 版第 5、6 講作為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。兩支 2025 影片（第 5 講含 PPO、第 6 講含 GRPO）與本文說法相符，沒有需修正之處。
+- 2026-11-09：重查影片狀態。2026 版第 4 講錄影已在官方課表上架，補上原錄影連結並改寫狀態行；正文依錄影對照更新待另做。
 
 ## 參考資料
 

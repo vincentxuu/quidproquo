@@ -157,17 +157,18 @@ Lecture 12 decides what data to keep; [Lecture 13](/posts/ai/2026-09-10-stanford
 
 ## Course video sources
 
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+The Lecture Recordings section of the official Logistics page (read live on 2026-11-09) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs329z.stanford.edu/)
 - [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update log
 
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 12 (Mon Nov 2), previously part of the "Week 7: don't let the score fool you, then scale the data" guide; earlier entries below predate the split.
 - 2026-10-23: Rebuilt the guide around source status, mechanisms, a worked scenario, and answer criteria; separated detailed assigned readings from lecture preparation.
 - 2026-10-23: Added diagrams and comparison tables where useful for the existing explanation; this visual update does not reverify numerical results, schedules or research claims.
