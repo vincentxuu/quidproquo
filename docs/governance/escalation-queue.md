@@ -595,3 +595,13 @@
 - 登錄：2026-11-10（來源：daily-digest-security routine 執行 `pnpm verify:staged`，暫存新文章時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
 - 額外發現：`progress.txt` 當時（約 2026-10-28／30）記的「同日一併提交島島兩篇與 `daodao-community-ops` 定義，`check:series-plan` 由紅轉綠」與目前 repo 狀態不符——`git log --all --diff-filter=A --name-only` 查不到 `.work/series-plans/daodao-community-ops.md` 或任何 `.work/reviews/2026-10-29-daodao-*.md` 曾被新增過；該次 commit（`d0b3809`）的上層合併記錄寫著用了 `--no-verify`。規劃表與審稿紀錄很可能從未真的寫出，只是 progress.txt 誤記已完成，供接手者排查時參考。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-10-security-operation-snowball-deepseek-telecom-breach{,-en}.md`（Operation Snowball 資安警報，中英雙版，已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-geometry` 全部通過）留在工作目錄未 commit，等 Q-051 解除後直接補 commit，不需重跑查證。
+
+### Q-051 補充：第三次撞上同一紅燈（daily-digest-benchmark routine）
+
+- 登錄：2026-11-09（來源：daily-digest-benchmark routine 執行時，`pnpm verify:staged` 因暫存區含 `src/data/daily-signals/benchmark-snapshot.json`（資料檔，不在安全路徑清單內）自動升級成完整 verify，撞上同一個 `daodao-community-ops` 紅燈；與上方 Q-051 同一根因，不另開新編號）
+- 本次查證結論（供日後需要時沿用，不需重查）：SWE-bench Verified 前 5 名（Bash python3 -I 直連 `raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json` 解析）與 CursorBench 前 5 名（Groundlane web_fetch cursor.com/cursorbench）皆與前一日逐位元相同；LMArena Agent 子集（Groundlane web_fetch 打 HF datasets-server）`leaderboard_publish_date` 從卡住 3 天的 11-04 推進到 11-08，前 3 名不變，第 4／5 名互換（Claude Fable 5.1 13.86%→14.34%、GPT-6 Astra 14.70%→14.24%），分差 <0.5 個百分點且非前 3 名，未達 skill 門檻；morphllm.com/leaderboard 今日回 404（toolDegradation，非排名訊號）；artificialanalysis.ai 仍為前端 JS 渲染抓不到表格數值。依 skill Step 4 判定今日無 Benchmark 異動，不產出文章。
+- 本次暫留：`src/data/daily-signals/benchmark-snapshot.json`（已更新為 2026-11-09 資料）留在工作目錄不 commit；`.work/daily-log/2026-11-09/daily-digest-benchmark.md` 因屬安全路徑已單獨 commit。Q-051 解除後直接補 commit 即可：
+  ```
+  git add -- src/data/daily-signals/benchmark-snapshot.json
+  git commit -m "chore(daily): benchmark 快照更新 2026-11-09，無異動未產出"
+  ```
