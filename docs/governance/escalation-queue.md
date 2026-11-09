@@ -628,3 +628,9 @@
 - 登錄：2026-11-10（來源：daily-digest-pricing routine 執行 `pnpm verify:staged`，暫存新文章時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
 - 本次產出：GitHub Copilot 於 2026-11-16 下架 Claude Opus 4.8／Opus 5／GPT-5.6 Terra 三個模型（[官方 changelog](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/)），按官方 AI credit 費率表,Opus 系列遷移到建議替代 Opus 5.5 後單價降 20%,Terra 遷移到 GPT-6.1 Sol 則 output 降約 17%(遷移到 GPT-6 Luna 可降 95% 但模型等級從 Versatile 降到 Lightweight)。中英雙版已寫好並互連,series order 34,已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過（無 diagram 區塊,不需跑 diagram-preview）。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-10-pricing-github-copilot-opus-terra-deprecation{,-en}.md` 留在工作目錄未 commit,等 Q-051 解除後直接補 commit,不需重跑查證。
+
+### Q-051 補充：daily-digest-ai-interview routine 也撞上同一紅燈
+
+- 登錄：2026-11-10（來源：daily-digest-ai-interview routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 本次產出：週二 Deep Learning & NLP 主題，取 PracHub 整理的 NVIDIA Software Engineer「Explain Transformers and QKV matrices」真題，聚焦原題第五部分（positional encoding、multi-head）與延伸追問（KV cache、O(n²) 複雜度），刻意避開 11-03 已練過的 Q/K/V 基礎推導與 BERT/GPT 比較。中英雙版，series order 83，含 1 張 flow-diagram（KV cache 自迴歸解碼流程，中英各一）。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-ai-interview-daily{,-en}.md`、`.work/daily-log/2026-11-10/daily-digest-ai-interview.md`，皆已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-geometry` 全部通過（`diagram-preview` 因無瀏覽器被跳過，環境缺 headless chromium 執行檔），已 `git add` 留在暫存區未 commit，等 Q-051 解除後直接補 commit，不需重寫內容或重跑查證。
