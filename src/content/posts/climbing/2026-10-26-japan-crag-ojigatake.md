@@ -55,12 +55,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 清單收錄已核讀 ROCKTOPO 表中全部 90 條有級數資料，不含未定級條目；其他已核實來源及差異附在原列。完整 topo 與現行使用公告仍要另外攜帶、確認。
 
-```video-gallery
-key: japanOjigatake
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：6 級與更容易
 
 先在 topo 找到「東のボルダリング・エリア」、「入口のボルダーエリア」的線位。先確認保護與落地，不把低級數當作低風險。
@@ -87,6 +81,12 @@ layout: routes
 | 「フェイス」（東のボルダリング・エリア；RT #33） | 6級 | — | — | 東のボルダリング・エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；單一出處；不反推換算。 同名資料列以來源表序辨識，實際岩塊仍須對 topo。 |
 | 「クラック」（東のボルダリング・エリア；RT #34） | 6級 | — | — | 東のボルダリング・エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；單一出處；不反推換算。 同名資料列以來源表序辨識，實際岩塊仍須對 topo。 |
 | 「ムーライトエプロン」 | 6級 | — | — | 東のボルダリング・エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；單一出處；不反推換算。 |
+
+```video-gallery
+key: japanOjigatake
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：5 級到 3 級
 
@@ -142,6 +142,12 @@ layout: routes
 | 「フラッシュゴードンカンテ」 | 3級 | — | — | 東のボルダリング・エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；單一出處；不反推換算。 |
 | 「インベーダー」 | 3級 | — | — | 東のボルダリング・エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；單一出處；不反推換算。 |
 
+```video-gallery
+key: japanOjigatake
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：2 級到 1 級
 
 先在 topo 找到「東のボルダリング・エリア」、「ニコニコ岩周辺」的線位。核心級數以外，也把岩面狀態與保護安排納入決定。
@@ -163,6 +169,12 @@ layout: routes
 | 「象岩ダイレクト」 | 1級 | — | — | 東のボルダリング・エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；單一出處；不反推換算。 |
 | 「ハングマン」 | 1級 | — | — | 東のボルダリング・エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；單一出處；不反推換算。 |
 
+```video-gallery
+key: japanOjigatake
+lang: zh-TW
+layout: routes
+```
+
 ### 高手：初段以上
 
 先在 topo 找到「東のボルダリング・エリア」、「ニコニコ岩周辺」的線位。先對照版本及開放狀態，不使用未定級 project 補足清單。
@@ -178,6 +190,12 @@ layout: routes
 | 「ミラースタンドトラバース往復」 | 二段 | — | — | 東のボルダリング・エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；單一出處；不反推換算。 |
 | 「ナイトメア」 | 二段 | — | — | 東のボルダリング・エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；單一出處；不反推換算。 |
 | 「カンテ」 | 二段 | — | — | 東のボルダリング・エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；單一出處；不反推換算。 |
+
+```video-gallery
+key: japanOjigatake
+lang: zh-TW
+layout: routes
+```
 
 ## 查資料的入口
 

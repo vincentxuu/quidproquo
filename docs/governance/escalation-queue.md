@@ -16,13 +16,36 @@
 
 ---
 
+## Q-050 ⏳ 待處理：課程影片查核日期 862 項過期，CI 完整 verify 擋住 deploy
+- 登錄：2026-11-09（來源：對話）
+- 做什麼：約 40 門課在 2026-10-10 同一天查核，2026-11-09 一起超過 30 天。`pnpm -s check:course-videos` 列出清單（862 項，含 `scripts/config/course-videos.json` 的 cmu-11768 項目），依 post-update skill「課程影片狀態」逐門課回原始來源即時重查：仍無錄影就更新查核日期與更新紀錄，找到錄影就嵌入。CS329Z 的 week5／7／8／9／11 五組已在 2026-11-09 重查。
+- 為什麼現在不能做：約 860 檔批次改動（Tier 2），而且每門課都要即時重查，不能只改日期。2026-11-09 起 pre-commit 只擋暫存文章的過期項目（`--stale-scope`），其餘印 WARN，所以不再卡住無關的 commit；但 CI 的完整 `pnpm verify` 照樣擋 deploy，在清完之前站上不會更新。
+- 接手第一步：依課程分組（stanford-cs111／cs103、cmu-11785／07280 最多），每門課重查一次、同課所有講次一起改。之後錯開各課查核日期，避免再同日過期；verify 在過期前 7 天會先印 WARN。
+
+## Q-047 ⏳ 待拍板：commit 2026-11-03 AI 日報格式優化被 pre-existing red check 阻擋
+- 登錄：2026-11-04（來源：與使用者對話，日報格式優化任務）
+- 做什麼：commit 已 staged 的 4 個檔案（src/content/posts/daily/2026-11-03-ai-agent-daily.md zh-TW、2026-11-03-ai-agent-daily-en.md、.agents/skills/daily-digest-report/SKILL.md、.claude/skills/daily-digest-report/SKILL.md），內容為日報表格化＋三層監督機制圖＋en 版同步＋daily-digest-report 模板表格化。
+- 為什麼現在不能做：pre-commit 跑 `pnpm verify:staged` 紅 2 燈，但兩者都是 pre-existing 且與 staged 內容無關：(1) `check:diagram-geometry` command not found —— package.json 未註冊該 script（verify.mjs 引用但未定義）；(2) 系列順序 20 個 blocking issues 全為舊文章（stanford-cs329z 等）， staged 檔案 `series.order: 80` 與 origin/main 相同，不在其中。修這兩者屬 Tier 2 治理腳本 / >20 檔批次改動，需使用者拍板。
+- 接手第一步：先確認這兩個 red check 在乾淨的 HEAD 工作區也會重現（pre-existing）；確認後，由使用者指定 `git commit --no-verify` commit，或先修那兩個 repo-level 問題再 commit。
+
+## Q-048 ✅ 已拍板（2026-11-04）：修復 Stanford CS329Z 系列 order 重複（20 檔批次改動）
+- 登錄：2026-11-04（來源：使用者說「照建議修復」）
+- 做什麼：Stanford CS329Z 英文版（Reading Stanford CS329Z）與中文版（Stanford CS329Z 導讀）各有 order 2-11 重複 2 次，共 20 個 blocking issues。將「週」文章的 order 改為 21-30（該系列未使用號碼），避免與現有 order 衝突。
+- 已修改：20 個 frontmorder 欄位（10 英文 + 10 中文），需 commit 與 push。
+- 接手第一步：執行修改，再跑 pnpm check:series-order 確認 0 blocking，最後 commit push。
+
+## Q-046 ✅ 已核准（2026-10-26）：日本岩場系列知名獨立岩場整批補齊範圍
+- 登錄：2026-10-26（來源：使用者 active goal）
+- 做什麼：依 `.work/series-plans/japan-crags-expansion.md` 首輪35個獨立岩場候選完成中英指南、總覽、研究／審稿與事實索引；名張、鳳來先作兩個可讀樣本。子分區不另開篇，禁止或限制公開介紹的地點不列一般指南。
+- 決議：使用者已明確回覆「同意照計畫繼續 完成後就commit push」，整批範圍及完成後commit／push已核准；不含部署。規劃約70個文章檔、35研究、35審稿與共用整合，依原先計畫及查證結果完成。
+- 接手第一步：讀擴充計畫、`.work/research/japan-crags-gaps/coverage.md`、名張／鳳來中英樣本與 `.work/japan-crags-expansion/` 驗證紀錄；取得批次範圍同意後才開始其餘候選。逐篇確認現行地權、交通及規範，不能拿舊目錄當開放許可。
+
 ## Q-044 check:links 的 HEAD 404 與 GET 200 誤報
 - 登錄：2026-10-22（來源：AI資安第2批外鏈驗收）
 - 做什麼：評估 `scripts/check-external-links.mjs` 對 HEAD 404 是否需要 bounded GET 二次確認，並保留真正 GET 404 的失敗；不要簡單忽略404。
 - 為什麼現在不能做：文章任務只核對連結，不在本輪修改檢查／治理腳本（Tier 2）。目前18個外鏈中17正常，PortSwigger指定Lab在相同UA下HEAD404但GET200；已另讀完整正文，因此保留原連結與原失敗log，不偽稱外鏈命令全綠。
 - 接手第一步：讀 `.work/ai-security/batch-2/link-head-get-check.json`、`external-links.log`、`research/lab-live-fetch.json`；重驗 `https://portswigger.net/web-security/access-control/lab-user-id-controlled-by-request-parameter` 的兩種方法，再看腳本probe函式。取得使用者同意才改腳本及新增有意義回歸案例。
 - 全系列補證（2026-10-22）：48檔36個URL，3個PortSwigger HEAD404／同UA GET200，另含Academy入口與indirect prompt injection lab；保留原exit1，見 `.work/ai-security/full/external-links.log` 與 `link-head-get-metadata.json`。
-
 
 ## Q-001 把 `type` 改成 content schema 必填欄位
 - 登錄：2026-07-06（來源：progress.txt Next steps）
@@ -506,12 +529,24 @@
 - 為什麼現在不能做：這不是單一工具故障（Tavily／WebFetch 皆正常），是來源品質問題——AI 新聞聚合生態系這幾天明顯被大量 SEO 回收站／「每日彙整」站稀釋，光靠 `web_search` 的 `timeRange: day` 或結果裡的相對時間戳完全不可信，必須對每個候選都往回查「原始公告／primary source 的實際日期」才能判斷真偽，這個驗證成本遠超單次 routine 預算，且是否要調整 skill 的時效判定方法（例如強制要求候選附上 primary source URL 而非只接受聚合站連結）屬於改 skill 核心邏輯的決定，需要人拍板。
 - 接手第一步：若要直接補今天的信號檔，可從本次已核實為真正新鮮（Oct 17-18 primary source）的候選清單重新開始（Claude Code v2.1.302 Mods／n8n CVE-2026-86074／ARTEX 韓國銀行入侵／Anthropic 律師事務所談判規範／Alibaba OpenGCUA／Gemini 4 Argon 打通 Minecraft／台灣晶片出口限制／ByteDance-MediaTek／Hurotics 韓國／Hex-Rays 以色列／Stripe 收購 OpenRouter／美國資料中心延宕／TechCabal 非洲 AI 新創／世銀泰國小型 AI／Sarvam AI 融資，共 15 則），再補足另外 15-35 則；若要治本，考慮在 `.agents/skills/daily-digest-signals/SKILL.md` 加一條規則：聚合站／彙整頁候選必須點進去找到其引用的 primary source 並以 primary source 的發佈日期為準，聚合站自己標的相對時間戳不可信。
 
+## Q-041 攀岩裝備草稿驗證被共用工作目錄的義大利岩場稿擋住
+- 登錄：2026-10-19（來源：本次攀岩裝備系列對話）
+- 做什麼：其他session完成義大利岩場翻譯／連結與審稿後，重新執行全站pnpm verify。
+- 為什麼現在不能做：不屬本次8篇16份裝備稿範圍，不能替其他作者虛構審稿或刪改未完稿來過閘門。上一輪references／post-quality有6個不存在路徑，series-plan缺審稿；級數檢查已通過，不能沿用舊失敗結論。
+- 接手第一步：讀 `.work/climbing-gear-travel/completion-verify-final.log`，依目前工作目錄重新確認；裝備稿定向檢查與交付證據見 `completion-report.md`。
 
-## Q-041 ✅ 已更正（2026-10-24）：早期UI畫面不足以判定雲端研究空跑
+## Q-042 英文口說最終全站閘門：兩套攀岩裝備系列撞號
 
-原先根據初始化畫面及Succeeded狀態，過早判定新排程沒有執行並暫停。後來同一session_012mxBRhPWJATRztESp5Dgvt實際以Groundlane補查，提交`9fa83756`（9新來源、25觀察、6搜尋）；PR #206已於2026-10-24合併，證明該次工作確有執行。原「宿主失效」判斷不成立，不能再以它阻擋通用排程。
+- 登錄：2026-10-19。口說32稿定向references/quality/tw/process/series-plan/lang-parity通過，但全站series-order在共用目錄的兩套「攀岩裝備 / Climbing Gear」order0–4各撞號，10個阻擋；series.ts也有兩個同slug登錄。
+- 不在口說稿範圍：一套已追蹤buying-order/shoes/harness-helmet/rope-belay-device/inspection-retirement；另一套未追蹤travel-overview/dynamic-rope-triple-rating/multipitch-rope-systems/multipitch-climbing-backpacks/travel-packing，含其餘裝備稿。不能刪稿、改已發佈身份或任意重排來過閘門。
+- 第一步：先讀兩套稿與.work/series-plans/climbing-gear.md、.work/climbing-gear-travel/，由負責裝備系列的使用者/session確認應分為不同系列或整併並安排order，然後同步雙語/總覽/登錄/規劃。口說不代為作內容取捨。
+- 口說另建立/tmp/quidproquo-speaking-final：基於f882ff5b完整站點，只加入本輪32稿/對應規劃審稿與口說系列登錄，跑未修改的完整pnpm verify。隔離通過不代表共用目錄全綠；最終報告須分開列。
 
-通用任務入口為docs/research-watch.md與.research/watch-config.json，從pool的非空category/topic自動產生主題；城山專用設定停用，歷史資料保留。後續驗收須等待實際查詢、集中證據、pool回填與提交，不以UI早期畫面或Succeeded單獨判定成功／失敗。沒有改動其他既有排程，也沒有擴大私有資料或連接器權限。
+## Q-043 Poteto 三片段完整字幕的重製與翻譯依據待確認
+- 登錄：2026-10-19（來源：VoiceTube 互動學習對話）
+- 做什麼：為 MN9dGgmLyso 的 16:43–17:14、22:47–23:38、49:34–50:20 提供頁內完整英文字幕與逐句中文。
+- 更正（2026-10-19）：未確認明確授權不代表不得利用。合理使用也是需個案評估的依據；原先將取得授權當成唯一前提過窄。一般官方解釋與本案評估分存 rights-check.md／teaching-use-review.md，未保證合法性。
+- 現況：使用者已指示繼續精選短句教學。兩篇各三段已有精選原音中英語句、分段教學與單一播放器，桌機、390px手機與首頁篩選已驗收，隔離全站verify通過（teaching-acceptance.md）。完整逐字稿與逐句原音回聽仍未交付；不再以等待使用者拿授權阻塞所有工作。不得把短摘錄冒稱完整逐字稿。
 
 ## Q-045 ✅ 已核准修正（2026-10-25）：口說教材的 My guess 例句被誤判為作者但書（2026-10-25）
 
@@ -522,10 +557,29 @@
 
 - 使用者核准：2026-10-25，使用者回覆「好」，同意套用已備妥的窄範圍誤判修正並完成 commit/push。已保留門檻與舊斷言，新增9項負例與教學回歸；原治理腳本不再等待核准。
 
-## Q-047 正式站部署時好時壞：Worker 啟動 CPU 逼近上限（10021）
 
-- 登錄：2026-10-28（來源：裂隙攀登技術系列對話）
-- 現象：e310824b 起多次 `wrangler deploy` 回「Script startup exceeded CPU time limit」（10021），重跑也失敗；同一大小的 bundle（約 46,845 KiB）在 f0c28962 失敗、d1ac0b18 成功。CI 印出的 Startup Time 在 bundle 幾乎不變時從 326 ms 跳到 494 ms，浮動來自 Cloudflare 驗證端。文章內容不在 Worker bundle 裡，不是新文章造成的。
-- 已做（短期）：`src/lib/retrieval/language.ts` 的 opencc Converter 改成第一次呼叫才建，本機量約省 39 ms 頂層執行。
-- 為什麼不能直接做（中期）：`scripts/create-cron-entry.mjs:228-229` 讓 wrangler 把 1,020 個 chunk 和 198 個動態 import 內嵌成單一約 48 MB 模組，每次啟動整包 parse（本機約 235 ms）。根本解有兩條，都屬 Tier 2：(B) SSR 不帶 shiki 全語言與 mermaid（`ai-elements/message.tsx`、`code-block.tsx`），是 UI 改動，要跑視覺回歸；(C) 改打包管線讓動態 chunk 保持分檔（`find_additional_modules` 的 dry-run 尚未成功）。
-- 接手第一步：讀 `.work/worker-startup-diagnosis-2026-10-27.md`，請使用者在 B／C 之間決定。
+## 2026-11-01：仁壽峰舊文章超長區塊阻擋語意索引同步
+
+- 狀態：2026-11-07 已解決（30426f93d）。根因是分塊修復後這幾篇 source hash 沒變、未重切；重新同步後 Deploy 轉綠，線上超過 23,000 字元的待處理區塊歸零。
+
+- 現象：公開免費 LLM 教學的 CI 41282405822 已完成 production Worker 部署與 D1 12 篇內容同步，但 embedding sync 因 `post chunk 4ea9124cfa13e5c0: contextual input exceeds 24000 characters; re-chunk before retrying` 失敗，整體 workflow 呈紅。新教學與相關 12 個正式頁面均回傳 200，關鍵字索引已驗證。
+- 定位：`SHA-256(slug::chunkIndex)` 前 16 位元比對到 `climbing/2026-10-21-korea-crag-insubong` 第 14 個區塊；不屬本輪 12 篇文章修改。
+- 下一步：獨立檢查 `src/lib/crawl/chunker.ts`、`scripts/sync-to-d1.ts` 產生的該區塊，以及 `src/lib/indexing/pipeline.ts` 的 24000 字元請求上限；保留上限，修正分塊／重切後再同步，不以放大上限或跳過失敗來變綠。
+- 為何未在本輪執行：需另行修復分塊與正式索引資料，超出這次文章公開與相關內容更新範圍。完整證據 `.work/free-llm-related-updates/release.md`；CI https://github.com/vincentxuu/quidproquo/actions/runs/41282405822 。
+
+## 2026-11-04：部署品質閘門修復待發布核准
+
+- 做什麼：修正 `.work/reviews/2026-10-12-japan-crag-odo-kaigan.md` 與 `.work/reviews/2026-10-21-korea-crag-seoninbong.md` 的過期影片統計，完整 verify 通過後提交並推送 main，追蹤正式 Deploy。
+- 使用者已於 2026-11-04 回覆「commit push」，核准推送此修復並觸發正式部署。未修改 workflow、驗證器或文章內容；部署結果仍待 Actions 確認。
+- 接手入口：`.work/deploy-fix-20261104/plan.md`、`verify.log`；只帶入本輪兩份審稿紀錄與必要工作紀錄，保留其他 session 改動。較早 embedding 超長問題另見上方 2026-11-01 條目。
+
+## Q-049 ✅ 已解除（2026-11-04，由上方「部署品質閘門修復」處理）：daily-digest-benchmark commit 被 pre-existing crag-coverage red check 擋住
+- 登錄：2026-11-04（來源：daily-digest-benchmark routine 執行時，`pnpm verify:staged` 因暫存區含 `src/data/daily-signals/benchmark-snapshot.json`（資料檔）自動升級成完整 verify）
+- 做什麼：commit 本次 benchmark 無異動快照更新（僅 `progress.txt` 與 `src/data/daily-signals/benchmark-snapshot.json` 兩檔，與攀岩內容無關）。
+- 為什麼現在不能做：`check:crag-coverage` 紅 2 燈，但都是既有檔案、與本次 staged 內容無關：
+  - `src/content/posts/climbing/2026-10-12-japan-crag-odo-kaigan.md`：審稿紀錄 `.work/reviews/2026-10-12-japan-crag-odo-kaigan.md` 寫「影片統計：查詢 0 組；候選 0 支；收錄 0 支；有影片的路線 0／10 列」，但文章目前「依程度挑路線」分級表實際已有 90 列、其中 19 列對到 `src/data/climbing-videos.ts` 有影片。
+  - `src/content/posts/climbing/2026-10-21-korea-crag-seoninbong.md`：審稿紀錄同樣寫「0／6 列」，實際分級表已到 35 列，25 列有影片。
+  - 兩篇都不在 `scripts/config/crag-coverage-baseline.json` 的豁免名單內，所以腳本依規則擋下。這不是 5 分鐘內能對的 A 級用語或撞號修正——分級表列數成長 9～10 倍（10→90、6→35）但審稿紀錄完全沒跟上，需要先確認：(1) 這些路線是何時、由誰加進分級表的（本 session 未碰過攀岩內容），(2) 新增的路線是否真的做過影片搜尋（審稿寫「候選 0 支」明顯是舊快照，不能由本 session 憑空補數字），(3) 覆蓋率 19/90≈21%、25/35≈71% 若低於 30% 門檻（`odo-kaigan` 符合）還需要補一行「影片覆蓋說明」解釋為什麼找不到更多——這需要實際補做影片搜尋研究，不是機械同步數字。治理憲章規定紅在既有檔案、修不動時不准 commit、不准 `--no-verify`，故登錄此處。
+- 接手第一步：先查 `git log -p --follow -- src/content/posts/climbing/2026-10-12-japan-crag-odo-kaigan.md` 確認分級表何時長到 90 列（可能與 progress.txt 提到的「大堂海岸模板優化 2026-10-26」或攀岩裝備系列並行工作有關）；若分級表擴充屬實且合理，請負責攀岩內容的使用者/session 依 `scripts/check-crag-coverage.mjs` 規則重新搜尋路線影片並更新兩篇審稿紀錄（含覆蓋率 <30% 的說明行）；若擴充本身有誤（例如誤合併、重複列），應先修正分級表再重算。修好後 `git add src/data/daily-signals/benchmark-snapshot.json && git commit` 即可補上，不需重跑 benchmark 查證（數字已在本條目與 progress.txt 寫好）。
+- 本次已完成的拆分：`verify.mjs` 的 `stagedPlan()` 只把 `src/content/posts/**/*.md`、`.agents|.claude/skills/**/*.md`、`docs/**/*.md`、`.work/`、`progress.txt` 視為安全路徑，`src/data/daily-signals/benchmark-snapshot.json` 不在其中、一律退回完整 verify，才踩到上述 pre-existing 紅燈。因此本次只 commit `progress.txt`（＋本條目），`benchmark-snapshot.json` 的異動留在工作目錄不 commit；內容數字已完整寫入本條目與 progress.txt 新條目，之後直接 `git add` 補 commit 即可，不是遺失資料。
+- **解除**：上方「2026-11-04：部署品質閘門修復待發布核准」條目已修好 `.work/reviews/2026-10-12-japan-crag-odo-kaigan.md`／`.work/reviews/2026-10-21-korea-crag-seoninbong.md` 的影片統計並 commit／push（`d8a65ed`），`check:crag-coverage` 恢復綠燈。`benchmark-snapshot.json` 現在可以直接補 commit，不需再等。

@@ -59,12 +59,6 @@ Each row cites the public route list. Most entries lack length and pitch informa
 
 
 
-```video-gallery
-key: japanKogashiyama
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Fudo Falls has many easier lines, but edges and incut direction still matter. Warm up on a face with a confirmed permissible approach.
@@ -104,6 +98,12 @@ Fudo Falls has many easier lines, but edges and incut direction still matter. Wa
 | 「アニマ」 | 5.8 | 5.8 | not listed | 獅子落とし・南陵ドーム | Sources: [RockTopo](https://www.rocktopo.net/areas/80/routes)；Sources: [publisher’s older topo table #102-2](https://www.climbing-net.com/wp-content/uploads/2013/06/102-2.jpg); original label アニマ, grade 5.8 |
 | 「ひらひら」 | 5.10a | 5.10a | not listed | 獅子落とし・南陵ドーム | Sources: [RockTopo](https://www.rocktopo.net/areas/80/routes)；Sources: [publisher’s older topo table #102-2](https://www.climbing-net.com/wp-content/uploads/2013/06/102-2.jpg); original label ひらひら, grade 5.10a |
 | 「ねこのねごと」 | 5.10a | 5.10a | not listed | 獅子落とし・南陵ドーム | Sources: [RockTopo](https://www.rocktopo.net/areas/80/routes)；Sources: [publisher’s older topo table #102-2](https://www.climbing-net.com/wp-content/uploads/2013/06/102-2.jpg); original label ねこのねごと, grade 5.10a |
+
+```video-gallery
+key: japanKogashiyama
+lang: en
+layout: routes
+```
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
@@ -165,6 +165,12 @@ Named lines include Kamoshika Hang and Hana Cante. Roofs and precise feet can ma
 | 「直上の直情」 | 5.10d | 5.10d | not listed | 獅子落とし・南陵ドーム | Sources: [RockTopo](https://www.rocktopo.net/areas/80/routes)；Sources: [publisher’s older topo table #102-2](https://www.climbing-net.com/wp-content/uploads/2013/06/102-2.jpg); original label 直上の直情, grade 5.10d/11a; differs from RockTopo; both source versions retained |
 | 「元気になーれ」 | 5.11a | 5.11a | not listed | 獅子落とし・南陵ドーム | Sources: [RockTopo](https://www.rocktopo.net/areas/80/routes)；Sources: [publisher’s older topo table #102-2](https://www.climbing-net.com/wp-content/uploads/2013/06/102-2.jpg); original label 元気になーれ, grade 5.11a/b; differs from RockTopo; both source versions retained |
 
+```video-gallery
+key: japanKogashiyama
+lang: en
+layout: routes
+```
+
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 
 Several 5.12 lines occur here, often without recorded dimensions. Identify the start and protection before choosing the team setup.
@@ -185,6 +191,12 @@ Several 5.12 lines occur here, often without recorded dimensions. Identify the s
 | 「梅雨前線」 | 5.12c | 5.12c | not listed | 不動滝正面・左フェイス | Sources: [RockTopo](https://www.rocktopo.net/areas/80/routes)；Sources: [publisher’s older topo table #100](https://www.climbing-net.com/wp-content/uploads/2013/06/100.jpg); original label 梅雨前線, grade 5.12c/d; differs from RockTopo; both source versions retained |
 | 「ラブリー・フェイス」 | 5.12d | 5.12d | not listed | 不動滝正面・左フェイス | Sources: [RockTopo](https://www.rocktopo.net/areas/80/routes)；Sources: [publisher’s older topo table #100](https://www.climbing-net.com/wp-content/uploads/2013/06/100.jpg); original label ラブリー・フェイス, grade 5.12d |
 | 「フィンガーワルツ」 | 5.12a | 5.12a | not listed | マラ岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/80/routes)；Sources: [publisher’s older topo table #102-1](https://www.climbing-net.com/wp-content/uploads/2013/06/102-1.jpg); original label フィンガーワルツ, grade 5.12a |
+
+```video-gallery
+key: japanKogashiyama
+lang: en
+layout: routes
+```
 
 ### Expert: 8a and up (YDS 5.13b and up)
 

@@ -32,8 +32,8 @@ cat src/data/agent-watchlist.json | jq '[.companies[].name]' | head -50
 # E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 產英文版（invoke post-translate）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -162,6 +162,7 @@ tags: [ai-agent, funding, daily, {company-slug}, {sector-tag}]
 lang: zh-TW
 description: "一句話概述公司和這輪融資的意義"
 tldr: "{公司}完成{輪次}，由{領投}領投，估值{估值}。{一句話這筆錢代表的趨勢}。"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Agent Funding"
   order: N
@@ -306,4 +307,4 @@ ZenGuard 尚未在 watchlist 中。建議加入 section B7（Agent 安全/治理
 - [ ] 「今日收穫」是認知差
 - [ ] description 和 tldr 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
-- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

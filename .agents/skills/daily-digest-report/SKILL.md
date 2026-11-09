@@ -34,8 +34,8 @@ cat src/data/agent-watchlist.json | jq '.companies | length'
 # E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 跳過（本 skill 已在 Step 5 同時產出中英雙版）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -163,7 +163,7 @@ max_results: 10
 | 技術進展 | 有 arxiv digest 或 `framework-release` 信號 | 無技術新聞 |
 | 商業案例/融資/併購 | 有 `funding` / `acquisition` / `enterprise-deployment` 信號 | 無商業新聞 |
 | 資安事件與防禦技術 | 有 `security-incident` 信號或 security post | 無資安事件 |
-| 法規與治理 | 有 `regulation` 信號 | 無法規新聞 |
+| 法規與治理 | 有 `regulation` 信號，或其他類別的信號主要在談 agent 治理（身分、權限、稽核）；同一件事全篇只寫一次 | 無法規或治理新聞 |
 | 全球區域動態 | 有 `region-news` 信號、區域公司／政策動態，或 Step 4e 補掃命中 | 無合格區域新聞 |
 | 觀察與洞察 | **必寫** | — |
 | 今日收穫 | **必寫** | — |
@@ -202,6 +202,7 @@ tags: [ai-agent, daily]
 lang: zh-TW
 description: "一句話判斷，不是事件列表"
 tldr: "3-5 行的今日重點，用分號隔開"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。
 draft: false
 series:
   name: "AI 日報"
@@ -232,48 +233,41 @@ series:
 
 ## 今日動態
 
-{Stage 1 沒覆蓋到的新聞，分小節寫。有事才出現的小節直接省略。}
+{Stage 1 沒覆蓋到的新聞，分小節寫。有事才出現的小節直接省略。每條用表格一行，不要寫成散文段落：}
+
+| 主體 | 本日動態 | 來源 |
+|------|----------|------|
+| **{公司名/事件名}** | {1-2 句摘要，Stage 1 已有詳細文章的只放一句 + 站內連結} | [標題](URL) |
 
 ### 廠商動態
 
-每家公司用粗體名稱分開，不要混在同一段：
-
-**{公司名}**：{1-2 句動態，附來源連結。}
-
-**{公司名}**：{另一家...}
+| 主體 | 本日動態 | 來源 |
+|------|----------|------|
+| **{公司名}** | {1-2 句動態} | [標題](URL) |
 
 ### 模型與基礎設施
 
-每個事件獨立一段，用粗體開頭：
-
-**{模型/事件名}**：{1-2 句摘要，附來源連結。}
-若 Stage 1 已有 model-card / pricing / benchmark 文章，只寫一句 + 連結，不重述。
+| 主體 | 本日動態 | 來源 |
+|------|----------|------|
+| **{模型/事件名}** | {1-2 句摘要} | [標題](URL) |
 
 ### 資安事件
 
-每個事件獨立一段：
-
-**{事件名}**：{攻擊面描述 + 防禦做法，附來源連結。}
-若 Stage 1 已有 security 文章，只寫一句 + 連結。
+| 主體 | 本日動態 | 來源 |
+|------|----------|------|
+| **{事件名}** | {攻擊面描述 + 防禦做法} | [標題](URL) |
 
 ### 法規與治理
 
-每條法規獨立一段：
-
-**{法規/政策名}**：{1-2 句摘要，附來源連結。}
+| 主體 | 本日動態 | 來源 |
+|------|----------|------|
+| **{法規/政策名}** | {1-2 句摘要} | [標題](URL) |
 
 ### 區域動態
 
-每個區域用粗體標題分開，不要混在同一段；同一區域內若有兩則以上彼此獨立的新聞，每則新聞之間也要留一個 Markdown 空白行，不能因為共用區域標題就接成同一段：
-
-**中國**
-{中國相關新聞}
-
-**台灣**
-{台灣相關新聞}
-
-**日韓** / **東南亞** / **印度** / **歐洲** / **中東** / **非洲** / **拉丁美洲** / **大洋洲**
-{各區域分段寫；同區域的不同事件也各自成段，沒新聞的區域直接省略}
+| 區域 | 本日動態 |
+|------|----------|
+| **{區域名}** | {區域相關新聞，沒新聞的區域直接省略} |
 
 動筆前要逐一掃過全球區域矩陣：台灣、中國／香港、日本／韓國、東南亞、印度／南亞、歐洲、中東（含以色列）、非洲、北美、拉丁美洲、以及大洋洲（澳洲／紐西蘭）。這是**檢索覆蓋要求，不是成稿配額**：同一時間窗找不到可靠且跟 AI 直接相關的事件就省略，不拿舊聞或泛市場報告湊版面。北美事件若已完整出現在廠商、法規或資安段，不必在區域段重複。
 
@@ -281,8 +275,10 @@ series:
 「某國蓋 AI 中心」「某大學開課」這類跟 AI 從業者無關的新聞不收。
 
 ### 商業案例 / 融資
-{融資：公司名、金額、投資人、一句話意義。若 Stage 1 已有 funding 文章，
- 這裡只寫一句摘要 + 連結。}
+
+| 主體 | 本日動態 | 來源 |
+|------|----------|------|
+| **{公司名}** | {融資：公司名、金額、投資人、一句話意義；Stage 1 已有 funding 文章的只寫一句摘要 + 連結} | [標題](URL) |
 
 ## 關鍵數字
 
@@ -490,4 +486,4 @@ zh-TW 版至少在「一句話判斷」「深度分析」「今日收穫」「�
 - [ ] `draft: false` 已明確寫出
 - [ ] `description` 是一句判斷（不是事件列表）
 - [ ] 文末有「## 參考資料」區段，格式 `- [標題](URL)`（`pnpm check:references` 會擋）
-- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

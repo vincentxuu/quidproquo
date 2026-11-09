@@ -59,12 +59,6 @@ Each row cites the public route list. Most entries lack length and pitch informa
 
 
 
-```video-gallery
-key: japanYoshitsuneIwa
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Lower grades still require judging steepness and hardware. The access-release conditions apply to every grade.
@@ -76,6 +70,12 @@ Lower grades still require judging steepness and hardware. The access-release co
 | 「看板ルート」 | 5.9 | 5.9 | not listed | 洞爺湖・義経岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/56/routes) |
 | 「南中央」 | 5.10a | 5.10a | not listed | 洞爺湖・義経岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/56/routes) |
 | 「ならの木」 | 5.10a | 5.10a | not listed | 洞爺湖・義経岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/56/routes) |
+
+```video-gallery
+key: japanYoshitsuneIwa
+lang: en
+layout: routes
+```
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
@@ -99,6 +99,12 @@ Most choices lie here. Ladybug Cante and Hiyodorigoe have differing source grade
 | 「子供ジュスティーヌ」 | 5.11c | 5.11c | not listed | 洞爺湖・義経岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/56/routes) |
 | 「オタッキー」 | 5.11c | 5.11c | not listed | 洞爺湖・義経岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/56/routes) |
 
+```video-gallery
+key: japanYoshitsuneIwa
+lang: en
+layout: routes
+```
+
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 
 Match Justine and similarly named extensions to the topo before relying on video titles or ascent grades.
@@ -111,6 +117,12 @@ Match Justine and similarly named extensions to the topo before relying on video
 | 「ジュスティーヌ」 | 5.12d | 5.12d | not listed | 洞爺湖・義経岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/56/routes)、[additional source](https://www.thecrag.com/zh_hans/climbing/japan/area/987210849)；theCrag lists 5.12b; source grades differ. |
 | 「ジュスティーヌじいさん」 | 5.13a | 5.13a | not listed | 洞爺湖・義経岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/56/routes) |
 | 「スペシャルランチ」 | 5.13a | 5.13a | not listed | 洞爺湖・義経岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/56/routes) |
+
+```video-gallery
+key: japanYoshitsuneIwa
+lang: en
+layout: routes
+```
 
 ### Expert: 8a and up (YDS 5.13b and up)
 

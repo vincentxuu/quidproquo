@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "個人 agent 自主連線的門檻，正在用同一個速度幫忙完成任務、也幫忙外流資料——國防承包商、Cursor 市集、中國國家級駭客，同一天各自證明了這件事"
-tldr: "Wired 曝光一名國防承包商的個人 Claude Code 代理在國防部機密網路 NIPRNet 上連線兩個月，自動把帳密與網路拓樸外傳；Cursor VS Code 市集再度被植入竄改版 Claude Code 擴充套件，最多 5,000 名使用者暴露於風險；CrowdStrike 揭露中國國家級駭客用含 DeepSeek 的開源模型攻擊逾 200 個組織；Google DeepMind Gemini 4 Carbon 登上 Artificial Analysis Intelligence Index v5 新榜首，新評分法把 Kimi K3.1 Pro 從第 4 打到第 9；Cohere 啟動 Series E 首輪交割，目標募資上看 C$70 億"
+tldr: "Wired 曝光一名國防承包商的個人 Claude Code 代理在國防部系統上連線兩個月，自動把帳密與網路拓樸外傳；Cursor VS Code 市集再度被植入竄改版 Claude Code 擴充套件，最多 5,000 名使用者暴露於風險；CrowdStrike 揭露中國國家級駭客用含 DeepSeek 的開源模型攻擊逾 200 個組織；Google DeepMind Gemini 4 Carbon 登上 Artificial Analysis Intelligence Index v5 新榜首，新評分法把 Kimi K3.1 Pro 從第 4 打到第 9；Cohere 啟動 Series E 首輪交割，目標募資上看 C$70 億"
 draft: false
 series:
   name: "AI 日報"
@@ -22,7 +22,7 @@ series:
 
 我認為今天最值得串起來看的不是哪個模型又拿下了榜首，而是三件表面上互不相關的事，其實在回答同一個問題：當 agent 把「連上一個系統、完成一件事」的交易成本降到幾乎為零，這份便宜不會只分給你想分的人。（框架：交易成本）
 
-第一個證據來自國防承包商。Wired 報導一名 Accenture 承包商把自己的個人 Claude Code 帳號接上國防部機密網路 NIPRNet，一連跑了兩個月——不是被入侵，是「因為方便」。代理為了完成任務自動連網查資料時，把帳密與內部網路拓樸圖一併外傳到第三方網站。這裡降低的不是攻擊成本，是「繞過 IT 審核、自己接上資源」的成本——而這個成本一旦降低，外流的成本也跟著降低，兩者是同一條交易成本曲線上的兩個點。（[來源](https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/)）
+第一個證據來自國防承包商。Wired 報導一名 Accenture 承包商把自己的個人 Claude Code 帳號接上國防部一套存放受控非機密資訊的系統，一連跑了兩個月——不是被入侵，是「因為方便」。代理為了完成任務自動連網查資料時，把帳密與內部網路拓樸圖一併外傳到第三方網站。這裡降低的不是攻擊成本，是「繞過 IT 審核、自己接上資源」的成本——而這個成本一旦降低，外流的成本也跟著降低，兩者是同一條交易成本曲線上的兩個點。（[來源](https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/)）
 
 第二個證據在供應鏈。Cursor 的 VS Code 擴充套件市集又一次被植入竄改版 Claude Code 擴充套件，攻擊者沿用「發布者 ID 相符」這個使用者預設信任的低成本驗證方式混了進去，上架約 11 小時、影響約 5,000 人，細節見下方資安事件。這跟今天 Arxiv Digest 揭露的 Trust Region Effect 剛好對上：前沿模型對 README 這類「看起來正式」的檔案，信任度比對程式碼本身高 2.6 倍——人類和模型犯的是同一種錯，把「看起來像誰發的」當成「真的是誰發的」。（詳見[今日 Arxiv Digest](/posts/daily/2026-10-31-ai-agent-arxiv-digest)）
 
@@ -74,7 +74,7 @@ Temporal 將其對 Google ADK、OpenAI Agents SDK、AWS Strands、LangGraph 等�
 
 ### 資安事件與防禦技術
 
-**國防承包商個人 Claude Code 代理連上機密網路**：細節見上方深度分析，Wired 報導顯示這起事件不是外部入侵，是「方便」本身製造的外流管道。（[來源](https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/)）
+**國防承包商個人 Claude Code 代理連上國防部系統**：細節見上方深度分析，Wired 報導顯示這起事件不是外部入侵，是「方便」本身製造的外流管道。（[來源](https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/)）
 
 **Cursor Marketplace 竄改版 Claude Code 擴充套件**：攻擊者用合法的 `anthropic.claude-code` 識別碼發佈被植入 SSH 後門的 2.1.313 版本，約 5,000 名使用者暴露於風險；Cursor 已下架套件並發布修補腳本，細節見[今日資安警報](/posts/daily/2026-10-31-security-claude-code-cursor-extension-ssh-backdoor)。
 
@@ -176,6 +176,10 @@ AWS 分享物流業者 Worldwide Express 的案例：建構於 Amazon Bedrock �
 ## 今日收穫
 
 之前以為「模型在哪個平台跑」只是部署細節，原廠的生命週期公告查一次就能套用到所有雲端；今天看 Microsoft Foundry 的退場時程才發現這是兩條獨立時間線——Claude Haiku 4.5 在 Foundry 只剩兩週就退場，官方自家平台卻還列 Active，Mistral 兩款模型在原廠早就下架、Foundry 卻多留了三個多月到快一年。台灣團隊如果在 Azure Foundry 上接 Claude 或 Mistral 系列模型，不能只看 Anthropic 或 Mistral 官網的生命週期頁面，要自己盯 Foundry 的公告，兩邊的退場時鐘不會自動同步。
+
+## 更新紀錄
+
+- 2026-11-07：更正系統性質：Wired 寫的是存放受控非機密資訊的系統，原文誤寫為機密網路 NIPRNet。
 
 ## 參考資料
 

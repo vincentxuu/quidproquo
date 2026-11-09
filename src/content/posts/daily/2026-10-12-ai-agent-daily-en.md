@@ -110,7 +110,7 @@ Egyptian agritech startup SmartCrop closed a $25M Series A led by Middle Eastern
 
 ### Business Cases / Funding / M&A
 
-**OpenAI**: Bloomberg reported it expects annualized revenue to reach or exceed $70B by year-end (up from roughly $50B at end of September), and confirmed it's in talks for a new round above $3B at a $1.4T valuation; the same day, US stocks dipped on reports its annualized revenue may be lower than previously disclosed, showing heightened market sensitivity to AI companies' revenue figures. ([anothercodingblog](https://www.anothercodingblog.com/p/another-daily-ai-newsletter-october-406), [the-decoder](https://the-decoder.com/cheaper-ai-tokens-are-driving-more-demand-and-thats-jensen-huangs-best-case-scenario/)) The same day, a16z noted a textbook Jevons paradox: token prices keep falling while H100 rental rates stay high or even rise, as cheaper tokens unlock more agent demand faster than unit costs drop. ([the-decoder](https://the-decoder.com/cheaper-ai-tokens-are-driving-more-demand-and-thats-jensen-huangs-best-case-scenario/))
+**OpenAI**: Bloomberg reported it expects annualized revenue to reach or exceed $70B by year-end (up from roughly $50B at end of September), and confirmed it's in talks for a new round above $30B at a $1.4T valuation; the same day, US stocks dipped on reports its annualized revenue may be lower than previously disclosed, showing heightened market sensitivity to AI companies' revenue figures. ([anothercodingblog](https://www.anothercodingblog.com/p/another-daily-ai-newsletter-october-406), [the-decoder](https://the-decoder.com/cheaper-ai-tokens-are-driving-more-demand-and-thats-jensen-huangs-best-case-scenario/)) The same day, a16z noted a textbook Jevons paradox: token prices keep falling while H100 rental rates stay high or even rise, as cheaper tokens unlock more agent demand faster than unit costs drop. ([the-decoder](https://the-decoder.com/cheaper-ai-tokens-are-driving-more-demand-and-thats-jensen-huangs-best-case-scenario/))
 
 **Manus**: parent company Butterfly Effect closed over $500M in funding, its first round since Beijing ordered Meta to unwind its roughly $2B acquisition — a sign investors still believe in Manus's independent agentic AI prospects. ([techcrunch](https://techcrunch.com/2026/10/08/chinas-manus-raises-over-500m-in-first-funding-round-since-split-with-meta/))
 
@@ -154,6 +154,7 @@ I used to think agent security mainly meant defending against external attackers
 
 ## Update Log
 
+- 2026-11-07: Corrected the OpenAI funding figure, which was misstated as $3B.
 - 2026-10-24: Added a provenance and misuse-risk warning to the ARTEX sentence (CrowdStrike's Oct 7 report, the author's Oct 8 move to closed source, mirrors being third-party backup copies, and misuse reported by several vendors), and noted that we do not encourage installing or using it.
 
 ## References

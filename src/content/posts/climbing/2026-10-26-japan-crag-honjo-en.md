@@ -55,12 +55,6 @@ Video labels follow uploader metadata, and may use different grades or versions.
 
 The inventory includes all 131 graded entries in the opened ROCKTOPO list, excluding ungraded entries; additional verified sources and discrepancies are attached to the relevant rows. It is not a substitute for the full topo or current access notices.
 
-```video-gallery
-key: japanHonjo
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Start by locating 井ノ上タワー, 神社エリア in the topo. Check protection and landings; a low grade does not establish low risk.
@@ -164,6 +158,12 @@ Start by locating 魚道エリア, 猪鹿ロック in the topo. Choose for the d
 | 「免許皆伝」 | 5.11b | 5.11b | Not listed | 魚道エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/176/routes)；ROCKTOPO only. |
 | 「ブラックアンドホワイト」 | 5.11c | 5.11c | Not listed | 魚道エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/176/routes)；ROCKTOPO only. |
 | 「巨人の胃袋」 | 5.11c | 5.11c | Not listed | 魚道エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/176/routes)；ROCKTOPO only. |
+
+```video-gallery
+key: japanHonjo
+lang: en
+layout: routes
+```
 
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 

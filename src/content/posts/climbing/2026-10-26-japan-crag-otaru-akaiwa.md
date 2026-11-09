@@ -59,12 +59,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 
 
-```video-gallery
-key: japanOtaruAkaiwa
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：6a 以下（YDS 5.10a 以下）
 
 入門繩攀線與最難段不高的多段記錄並列。第一次來，先分清「單段有 bolt」和「需自行安排確保與下降的岩稜」，別只按最高級數挑。
@@ -89,6 +83,12 @@ layout: routes
 | 「キュンメル」 | 5.8 | 5.8 | 未列 | 西奥壁 | 來源： [RockTopo](https://www.rocktopo.net/areas/55/routes) |
 | 「ファイアーフライ」 | 5.10a | 5.10a | 未列 | 西奥壁 | 來源： [RockTopo](https://www.rocktopo.net/areas/55/routes) |
 | 「赤壁クラック」 | 5.9 | 5.9 | 未列 | 赤壁 | 來源： [RockTopo](https://www.rocktopo.net/areas/55/routes)；資料庫列裂隙，另確認自備保護 |
+
+```video-gallery
+key: japanOtaruAkaiwa
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
@@ -143,6 +143,12 @@ layout: routes
 | 「メソッド・トウィーク」 | 5.11a | 5.11a | 未列 | 赤壁上部 | 來源： [RockTopo](https://www.rocktopo.net/areas/55/routes) |
 | 「パウダージャンキー」 | 5.11a | 5.11a | 未列 | 赤壁上部 | 來源： [RockTopo](https://www.rocktopo.net/areas/55/routes) |
 
+```video-gallery
+key: japanOtaruAkaiwa
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 
 進階線延伸到クリスタルフェイス等岩面。資料庫未列長度的線，先補齊 topo 與下降資訊再排成當日目標。
@@ -172,6 +178,12 @@ layout: routes
 | 「ミスターオタル」 | 5.13a | 5.13a | 未列 | 西壁・とかげの洞窟 | 來源： [RockTopo](https://www.rocktopo.net/areas/55/routes) |
 | 「海を泳ぐ男」 | 5.12d | 5.12d | 未列 | 赤壁上部 | 來源： [RockTopo](https://www.rocktopo.net/areas/55/routes) |
 | 「甘い男 Low」 | 5.12b | 5.12b | 未列 | 修験の壁・野鳥の岩 | 來源：[在地 topo／記錄](http://eijiclimbing.blog.fc2.com/blog-entry-434.html)；開拓者 2022 年記錄：不踩疊石，由第一 bolt 正下方地面起攀；與 5.11b 原線分開。 |
+
+```video-gallery
+key: japanOtaruAkaiwa
+lang: zh-TW
+layout: routes
+```
 
 ### 高手：8a 以上（YDS 5.13b 以上）
 

@@ -320,3 +320,4 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 - [달빛나그네: Insubong Sanchonji, 2024](https://m.blog.naver.com/PostView.naver?blogId=r9600495&logNo=223445895731)
 - [울트래블러 (채울): Insubong single-pitch day, 2022](https://m.blog.naver.com/PostView.naver?blogId=wooltraveler&logNo=222924647461)
 - [古山: Insubong Georyong-gil, 2007 (published)](https://gosan.tistory.com/271)
+

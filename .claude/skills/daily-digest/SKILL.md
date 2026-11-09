@@ -26,6 +26,7 @@ description: Produce daily digest content for quidproquo.cc/daily. Invoked by Cl
 | K | `daily-digest-report` | 每日 Stage 3 | 日報彙整組裝 |
 | L | `daily-digest-weekly` | 每週五 | 週回顧 + Watchlist 建議 |
 | M | `daily-digest-region` | 每週五 | 區域焦點 |
+| — | `daily-digest-monthly` | 每月，手動（尚未排程） | 月報：月對月指標、判斷回顧、更正、下月驗證 |
 
 ## Routine 排程（台灣時間）
 
@@ -67,6 +68,7 @@ Stage 4（每週五）
 | funding | AI Agent Funding |
 | pricing | AI Pricing Watch |
 | weekly | AI Agent 週回顧 |
+| monthly | AI Agent 月報 |
 | region | AI Region Focus |
 
 ## 搜尋工具契約（Groundlane 優先，失效就降級，不准停）
@@ -85,7 +87,7 @@ Stage 4（每週五）
 規則：
 
 - 每一層失敗就換下一層，**只有 1–6 全部失敗**才算 blocker，這時把每層的錯誤訊息寫進 `docs/governance/escalation-queue.md`。
-- 降級時在 progress.txt 本次條目（或 screening record）寫 `toolDegradation`，例如 `groundlane 401 invalid_token → keenable keyless + WebFetch`。
+- 降級時在 daily-log 本次紀錄（或 screening record）寫 `toolDegradation`，例如 `groundlane 401 invalid_token → keenable keyless + WebFetch`。
 - 降級不放寬品質門檻：交叉驗證、一手來源優先、48 小時時間窗照舊。搜尋 snippet 只能用來發現候選，寫進文章前要讀到原文。
 - Fallback 只送公開查詢，不傳 secrets、認證內容或私有資料。
 - 仍然禁止已退役工具：`stealth_fetch`、`web-fetch/fetch_page`。

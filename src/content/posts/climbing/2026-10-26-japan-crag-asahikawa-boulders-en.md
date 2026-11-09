@@ -59,12 +59,6 @@ Each row cites the public route list. Most entries lack length and pitch informa
 
 
 
-```video-gallery
-key: japanAsahikawaBoulders
-lang: en
-layout: routes
-```
-
 ### Beginner: Japanese 5–10 kyu
 
 Identify easier problems by their actual boulder, including Margarita and Ryozanpaku. A low grade can still involve height.
@@ -82,6 +76,12 @@ Identify easier problems by their actual boulder, including Margarita and Ryozan
 | かぶと虫 by Akiko 7級 | 7級 | — | — | 雨粉・北の再発見ボルダー | Sources: [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | 膝将軍 6級 | 6級 | — | — | 雨粉・北の再発見ボルダー | Sources: [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | 念力 5級 | 5級 | — | — | 雨粉・北の再発見ボルダー | Sources: [RockTopo](https://www.rocktopo.net/areas/50/routes) |
+
+```video-gallery
+key: japanAsahikawaBoulders
+lang: en
+layout: routes
+```
 
 ### Intermediate: Japanese 4–2 kyu
 
@@ -120,6 +120,12 @@ This group retains Japanese 4–2 kyu. AKR and Tsundora have additional accounts
 | ネコ会議 3級 | 3級 | — | — | 雨粉・北の再発見ボルダー | Sources: [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | エルヒガンテ 2級 | 2級 | — | — | 雨粉・北の再発見ボルダー | Sources: [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | Chicken Soup V4- | 未列 | 6B | V4 | Shigeru / Kenjikomoro | Sources: [local topo / database](https://www.mountainproject.com/area/109089867/shigeru-boulder-and-kenjikomoro-boulder)；MP lists V4- / 6B with no Japanese grade; grouped near V4, not assigned a Japanese conversion. |
+
+```video-gallery
+key: japanAsahikawaBoulders
+lang: en
+layout: routes
+```
 
 ### Advanced: Japanese 1 kyu–shodan
 
@@ -164,6 +170,12 @@ One-kyu and shodan records include steeper lines and variants. A missing Font/V 
 | ガトリングマン・ロング 初段 | 初段 | — | — | 雨粉・北の再発見ボルダー | Sources: [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | エクストリームウェイ 初段+ | 初段+ | — | — | 雨粉・北の再発見ボルダー | Sources: [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 
+```video-gallery
+key: japanAsahikawaBoulders
+lang: en
+layout: routes
+```
+
 ### Expert: Japanese nidan and above
 
 Check whether the chosen Habu-family line is the original, reverse or extended version; match the start to the topo.
@@ -179,6 +191,12 @@ Check whether the chosen Habu-family line is the original, reverse or extended v
 | ジュテエクステンション 二段- | 二段- | — | — | 梁山泊 | Sources: [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | 紋次郎 二段- | 二段- | — | — | 雨粉パンクロック | Sources: [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | 虎鉄 二段 | 二段 | — | — | 雨粉パンクロック | Sources: [RockTopo](https://www.rocktopo.net/areas/50/routes) |
+
+```video-gallery
+key: japanAsahikawaBoulders
+lang: en
+layout: routes
+```
 
 ## Where to look things up
 

@@ -55,12 +55,6 @@ Video labels follow uploader metadata, and may use different grades or versions.
 
 The inventory includes all 60 graded entries in the opened ROCKTOPO list, excluding ungraded entries; additional verified sources and discrepancies are attached to the relevant rows. It is not a substitute for the full topo or current access notices.
 
-```video-gallery
-key: japanShimanePeninsula
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Start by locating 片句・高城鼻の岩場, 手結ノ裏膳棚 in the topo. Check protection and landings; a low grade does not establish low risk.
@@ -125,6 +119,12 @@ Start by locating 片句・高城鼻の岩場, 手結ノ裏膳棚 in the topo. C
 | 「トリートメントプラント」 | 5.11c | 5.11c | Not listed | 魚瀬の岩場 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/151/routes)；ROCKTOPO only. |
 | 「クラックルート」 | 5.10b | 5.10b | Not listed | 魚瀬の岩場 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/151/routes)；ROCKTOPO only. |
 
+```video-gallery
+key: japanShimanePeninsula
+lang: en
+layout: routes
+```
+
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 
 Start by locating 地合の岩場, 沖泊の岩場 in the topo. Consider rock condition and protection alongside the crux grade.
@@ -140,6 +140,12 @@ Start by locating 地合の岩場, 沖泊の岩場 in the topo. Consider rock co
 | 「ソドム」 | 5.11d | 5.11d | Not listed | 沖泊の岩場 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/151/routes)；ROCKTOPO only. |
 | 「気狂いピエロ」 | 5.11d | 5.11d | Not listed | 沖泊の岩場 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/151/routes)；ROCKTOPO only. |
 | 「灼熱金太」 | 5.12a | 5.12a | Not listed | 沖泊の岩場 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/151/routes)；ROCKTOPO only. |
+
+```video-gallery
+key: japanShimanePeninsula
+lang: en
+layout: routes
+```
 
 ### Expert: 8a and up (YDS 5.13b and up)
 

@@ -51,5 +51,18 @@ if (staleDev.length > 0) {
   );
 }
 
+// 每日 routine 一天推十幾筆到 main；本機 commit 放著不推，下次 pull 就是一大串 merge（2026-11-09：本機 5 筆放 10 天、落後 84 筆）。
+try {
+  execSync('git fetch --quiet origin main', { cwd: ROOT, stdio: 'ignore', timeout: 20000 });
+  const [behind, ahead] = execSync('git rev-list --left-right --count origin/main...HEAD', { cwd: ROOT, encoding: 'utf8' })
+    .trim().split(/\s+/).map(Number);
+  const notes = [];
+  if (ahead > 0) notes.push(`本機有 ${ahead} 筆沒推的 commit：做完就 push（git pull --rebase origin main && git push origin main）`);
+  if (behind > 20) notes.push(`落後 origin/main ${behind} 筆：開工前先 git pull --rebase origin main`);
+  if (notes.length) printSection('git sync', notes.join('\n'));
+} catch {
+  printSection('git sync', '（無法 fetch origin，略過同步檢查）');
+}
+
 const verifyOk = runCommand('pnpm verify', 'pnpm verify');
 process.exitCode = verifyOk ? 0 : 1;
