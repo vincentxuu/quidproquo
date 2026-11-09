@@ -575,3 +575,10 @@
 - 接手第一步：先查 `git log -p --follow -- src/content/posts/climbing/2026-10-12-japan-crag-odo-kaigan.md` 確認分級表何時長到 90 列（可能與 progress.txt 提到的「大堂海岸模板優化 2026-10-26」或攀岩裝備系列並行工作有關）；若分級表擴充屬實且合理，請負責攀岩內容的使用者/session 依 `scripts/check-crag-coverage.mjs` 規則重新搜尋路線影片並更新兩篇審稿紀錄（含覆蓋率 <30% 的說明行）；若擴充本身有誤（例如誤合併、重複列），應先修正分級表再重算。修好後 `git add src/data/daily-signals/benchmark-snapshot.json && git commit` 即可補上，不需重跑 benchmark 查證（數字已在本條目與 progress.txt 寫好）。
 - 本次已完成的拆分：`verify.mjs` 的 `stagedPlan()` 只把 `src/content/posts/**/*.md`、`.agents|.claude/skills/**/*.md`、`docs/**/*.md`、`.work/`、`progress.txt` 視為安全路徑，`src/data/daily-signals/benchmark-snapshot.json` 不在其中、一律退回完整 verify，才踩到上述 pre-existing 紅燈。因此本次只 commit `progress.txt`（＋本條目），`benchmark-snapshot.json` 的異動留在工作目錄不 commit；內容數字已完整寫入本條目與 progress.txt 新條目，之後直接 `git add` 補 commit 即可，不是遺失資料。
 - **解除**：上方「2026-11-04：部署品質閘門修復待發布核准」條目已修好 `.work/reviews/2026-10-12-japan-crag-odo-kaigan.md`／`.work/reviews/2026-10-21-korea-crag-seoninbong.md` 的影片統計並 commit／push（`d8a65ed`），`check:crag-coverage` 恢復綠燈。`benchmark-snapshot.json` 現在可以直接補 commit，不需再等。
+
+## 2026-11-09：check:course-videos 因「查核日期 2026-10-10」過期全站紅燈，擋住所有 commit
+
+- 現象：`pnpm verify` 的 `check:course-videos` 回報 872 個問題。約 40 門 AI 課程文章的影片狀態段落寫「查核日期：2026-10-10」／「Checked: 2026-10-10」，在 2026-11-09 超過 `genericStaleAfterDays`（30 天）。另有登錄表 `scripts/config/course-videos.json` 的 11 筆 cmu-11768 項目（checkedAt 2026-10-10），也一起列入。最多的課程是 stanford-cs111／cs103、cmu-11785／07280，各 29 篇。
+- 影響：pre-commit 會退回完整 verify，任何 commit 都被擋。韓劇職人篇（`src/content/posts/film/2026-11-09-kdrama-medical-legal-workplace(.md/-en.md)`、審稿紀錄、總覽第 8 列連結、progress.txt）已完成並通過所有文章檢查，但還留在 `claude/dreamy-lovelace-mb4jv3` 的工作區，沒有 commit。
+- 為何不能直接做：要依 post-update skill「課程影片狀態」回各課程原始來源即時重查，才能更新日期。這會改到約 870 檔，屬 Tier 2 的批次改動；不能只改日期，也不能 `--no-verify`。使用者 2026-11-09 選擇自行處理。
+- 接手第一步：`pnpm -s check:course-videos` 列出清單，依課程分組重查。仍無錄影的課程更新查核日期，有新錄影的課程改嵌入影片。verify 轉綠後，補 commit 職人篇那幾個檔案。
