@@ -1,0 +1,320 @@
+---
+title: "韓國醫療、法律與職場劇怎麼挑：外傷重症中心、非常律師禹英禑、機智住院醫生生活等 14 部"
+date: 2026-11-09
+category: film
+tags: [tv-drama, k-drama, medical-drama, legal-drama]
+lang: zh-TW
+type: guide
+description: "給想看韓國醫療劇、律師劇和職場劇的台灣觀眾：醫療、法律與職場、牢房與小酒館三組，14 部都同時被獎項評審、影評人、觀眾評分、收視數據、話題指標、劇迷口碑、台灣觀眾當中至少三類推薦；每部附推薦來源、MyDramaList／IMDb／豆瓣評分、英文與台灣劇評、尺度、集數與台灣合法串流連結。"
+tldr: "先看六類來源都推的《外傷重症中心》、三季收視都高的《浪漫醫生金師傅》，或國際艾美獎入圍的《非常律師禹英禑》。14 部只有《狂醫魔徒》是韓國 19 歲以上，其餘都是 15 歲以上；想看療癒一點的選《精神病房也會迎來清晨》，想看中年上班族的選《金部長的夢想人生》。"
+draft: false
+series:
+  name: "各國影劇導讀"
+  order: 8
+---
+
+> 🌏 [English version](/posts/film/2026-11-09-kdrama-medical-legal-workplace-en)
+
+這篇收的是韓國的醫療劇、律師劇和職場劇：戰地回來的外傷外科醫師、自閉症類群的新人律師、重回醫院當住院醫師的家庭主婦，以及被公司邊緣化的中年部長。14 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類都推它，而且台灣有合法串流管道。韓劇和美劇在集數、播法上的差別，寫在[愛情篇](/posts/film/2026-11-08-kdrama-romance-fantasy)開頭；以家庭和人生為主線的劇放在[人生家庭篇](/posts/film/2026-11-08-kdrama-life-family-period)。
+
+這組有兩個特點：
+
+- **醫療劇最多。** 14 部有 6 部在醫院，其中《外傷重症中心》《精神病房也會迎來清晨》《狂醫魔徒》是串流原創，沒有電視收視數字。
+- **尺度普遍輕。** 只有《狂醫魔徒》是韓國 19 歲以上，其餘 13 部都是 15 歲以上；手術畫面、自傷情節和職場霸凌寫在每部的尺度欄。
+
+## 先從這 3 部開始
+
+| 劇 | 為什麼先看 | 尺度 | 在哪看 |
+|---|---|---|---|
+| 外傷重症中心 | 六類推薦來源都有它，MyDramaList 9.1 是這篇最高，8 集就看完 | 中等：手術和血的畫面多 | Netflix |
+| 浪漫醫生金師傅 | 三季收視都高，第 2 季最高 27.1% | 中等 | Disney+ |
+| 非常律師禹英禑 | 國際艾美獎與百想最佳電視劇入圍，Cine21 年度劇集第一 | 輕 | Netflix |
+
+## 推薦來源一覽
+
+表中 ● 代表這一類來源有推薦。A 獎項評審、B 影評人投票榜、C 觀眾評分、D 收視與串流數據、E 話題指標、F 劇迷口碑、G 台灣觀眾。
+
+| 劇 | A | B | C | D | E | F | G | 類別數 |
+|---|---|---|---|---|---|---|---|---|
+| 外傷重症中心 | ● | ● | ● | ● |  | ● | ● | 6 |
+| 浪漫醫生金師傅 | ● |  | ● | ● | ● | ● | ● | 6 |
+| 機智住院醫生生活 |  | ● | ● |  | ● | ● | ● | 5 |
+| 精神病房也會迎來清晨 | ● | ● | ● |  |  | ● | ● | 5 |
+| 車貞淑醫生 |  | ● |  | ● | ● |  | ● | 4 |
+| 非常律師禹英禑 | ● | ● | ● | ● |  |  |  | 4 |
+| 代理公司 |  |  |  | ● | ● | ● | ● | 4 |
+| 狂醫魔徒 | ● | ● |  |  |  | ● |  | 3 |
+| 金部長的夢想人生 | ● | ● |  |  |  | ● |  | 3 |
+| 協商的技術 |  | ● |  |  |  | ● | ● | 3 |
+| 臥底洪小姐 |  |  |  | ● |  | ● | ● | 3 |
+| 金牌救援 | ● |  |  | ● |  | ● |  | 3 |
+| 機智牢房生活 |  |  | ● | ● |  | ● |  | 3 |
+| 梨泰院 Class | ● |  | ● | ● |  |  |  | 3 |
+
+這組的 F 欄（劇迷口碑）最滿，14 部有 11 部；E 欄（話題指標）只有 4 部。《代理公司》《臥底洪小姐》沒有評審、影評人或觀眾評分推薦，是靠收視、PTT 和台灣觀眾過門檻。
+
+## 先看收視：電視台播出劇的最高收視
+
+```diagram
+title: 9 部電視台播出劇的韓國最高收視
+desc: 浪漫醫生金師傅第 2 季 27.1% 最高，金牌救援 19.1%、車貞淑醫生 18.5%、非常律師禹英禑 17.5% 次之；金部長的夢想人生完結集 7.6% 最低。
+caption: 尼爾森韓國全國收視，金部長的夢想人生是完結集數字，其他是全劇最高。浪漫醫生金師傅、金牌救援在無線台 SBS 播出，其他在有線台，基準不同。外傷重症中心、精神病房也會迎來清晨、狂醫魔徒是串流原創，沒有電視收視；機智住院醫生生活、協商的技術沒查到可靠的收視數字，所以不在圖上。
+---
+<svg viewBox="0 0 640 244">
+  <text class="dg-sub" x="184" y="24" text-anchor="end" dominant-baseline="central">浪漫醫生金師傅（第 2 季）</text>
+  <rect class="dg-bar" x="196" y="16" width="379" height="16" rx="3"/>
+  <text class="dg-small" x="583" y="24" dominant-baseline="central">27.1%</text>
+  <text class="dg-sub" x="184" y="49" text-anchor="end" dominant-baseline="central">金牌救援</text>
+  <rect class="dg-bar" x="196" y="41" width="267" height="16" rx="3"/>
+  <text class="dg-small" x="471" y="49" dominant-baseline="central">19.1%</text>
+  <text class="dg-sub" x="184" y="74" text-anchor="end" dominant-baseline="central">車貞淑醫生</text>
+  <rect class="dg-bar" x="196" y="66" width="259" height="16" rx="3"/>
+  <text class="dg-small" x="463" y="74" dominant-baseline="central">18.5%</text>
+  <text class="dg-sub" x="184" y="99" text-anchor="end" dominant-baseline="central">非常律師禹英禑</text>
+  <rect class="dg-bar" x="196" y="91" width="245" height="16" rx="3"/>
+  <text class="dg-small" x="449" y="99" dominant-baseline="central">17.5%</text>
+  <text class="dg-sub" x="184" y="124" text-anchor="end" dominant-baseline="central">梨泰院 Class</text>
+  <rect class="dg-bar" x="196" y="116" width="231" height="16" rx="3"/>
+  <text class="dg-small" x="435" y="124" dominant-baseline="central">16.5%</text>
+  <text class="dg-sub" x="184" y="149" text-anchor="end" dominant-baseline="central">代理公司</text>
+  <rect class="dg-bar" x="196" y="141" width="224" height="16" rx="3"/>
+  <text class="dg-small" x="428" y="149" dominant-baseline="central">16.0%</text>
+  <text class="dg-sub" x="184" y="174" text-anchor="end" dominant-baseline="central">臥底洪小姐</text>
+  <rect class="dg-bar" x="196" y="166" width="183" height="16" rx="3"/>
+  <text class="dg-small" x="387" y="174" dominant-baseline="central">13.1%</text>
+  <text class="dg-sub" x="184" y="199" text-anchor="end" dominant-baseline="central">機智牢房生活</text>
+  <rect class="dg-bar" x="196" y="191" width="157" height="16" rx="3"/>
+  <text class="dg-small" x="361" y="199" dominant-baseline="central">11.2%</text>
+  <text class="dg-sub" x="184" y="224" text-anchor="end" dominant-baseline="central">金部長的夢想人生</text>
+  <rect class="dg-bar" x="196" y="216" width="106" height="16" rx="3"/>
+  <text class="dg-small" x="310" y="224" dominant-baseline="central">7.6%</text>
+</svg>
+```
+
+## 片單
+
+每部的格式：推薦來源、評分、劇評、尺度、長度、先看什麼、在哪看。
+
+- **評分**：韓劇大多沒有 Metacritic 分數，這篇用 [MyDramaList](https://mydramalist.com/shows/top_korean_dramas)、IMDb 和豆瓣；多季劇的 MyDramaList 是第一季，IMDb 是全劇。豆瓣只列讀得到新聞或劇評引述的分數。
+- **尺度**：韓國分級取自韓文維基或 IMDb 各國分級欄，台灣平台有標分級的另外寫出。內容提醒取自 IMDb 家長指南的投稿，這組多數劇只有幾票，甚至沒有投票。
+- 標「JustWatch 台灣列出」的，是授權劇且最新的台灣證據停在 2020–2023 年；點進去如果無法觀看，請以 [JustWatch 台灣](https://www.justwatch.com/tw)為準。
+
+### 醫療
+
+外傷中心、婦產科、精神科和小醫院。一半以上是醫療劇，從爽劇到療癒劇都有。
+
+#### 外傷重症中心（The Trauma Code: Heroes on Call）
+
+曾在世界各地戰地行醫的天才外傷外科醫師白剛赫，來到人手不足的大學醫院外傷小組，用非典型作風把團隊帶成頂尖的外傷中心（[Wikipedia](https://en.wikipedia.org/wiki/The_Trauma_Code:_Heroes_on_Call)）。
+
+- **推薦來源**：`A 青龍系列大賞最佳劇集 2025` `A 百想藝術大賞最佳電視劇提名 2025` `C MyDramaList 韓劇榜 #6（9.1）` `D Netflix 2025 上半年 3,400 萬次觀看` `F PTT 韓劇板 2025 年度最愛串` `G LINE TODAY 聚光賞 2025 追劇榜 #7`
+- **評分**：MyDramaList 9.1（64,565 人）｜IMDb 8.4（1.2 萬 票）｜豆瓣 8.3
+- **劇評**：[Decider 的 Joel Keller](https://decider.com/2025/01/28/the-trauma-code-heroes-on-call-netflix-review/) 看完第一集給了「跳過」，說主角像穿披風的超級英雄，是「《匹茲堡醫魂》但不寫實得多」。聯合報的[潘光中](https://stars.udn.com/star/story/10093/8548803)則說它主打一個「爽」字，雖然浮誇，仍符合醫療專業，財務長報告「營收前三名是殯儀館、停車場、美食街」那場戲，點出韓國醫療體系瀕臨崩潰的現實。真實的外傷外科醫師受訪時也說太誇張，但觀眾端是這篇最高分。
+- **尺度**：韓國 15+。手術、器官和血的畫面多，但不算血腥；英文配音版髒話不少。
+- **長度**：8 集。已續訂第 2、3 季，2026 年 10 月開拍，還沒定檔。
+- **先看什麼**：改編自網路小說與 Naver 網漫，不必先看。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81677629)（訂閱）
+
+#### 浪漫醫生金師傅（Dr. Romantic）
+
+在偏鄉小醫院「石牆醫院」，天才醫師金師傅帶著一批年輕醫師，學習什麼才是真正的醫師（[Wikipedia](https://en.wikipedia.org/wiki/Dr._Romantic)）。
+
+- **推薦來源**：`A 百想藝術大賞最佳電視劇提名 2017` `C MyDramaList 8.9（第 3 季）` `D 2020 年收視第 2（27.1%，第 2 季）` `E FUNdex 大獎 2023 入圍` `F PTT 韓劇板 2023 年度徵文` `G LINE TODAY 2023 網友票選 #3`
+- **評分**：MyDramaList 8.7（第 1 季）（48,435 人）｜IMDb 8.4（7,300 票）
+- **劇評**：[NME 的 Hidzir Junaini](https://www.nme.com/reviews/tv-reviews/dr-romantic-season-3-review-medical-melodrama-finest-3441100) 評第三季前四集，說前兩季已經是類型第一，「第三季可能是《浪漫醫生金師傅》最好的一季」。鏡週刊的[廖佩玲](https://www.mirrormedia.mg/story/20161207inf002)第一季播出時寫，它「嚴格來說是一部很老套的傳統醫療劇」，但韓石圭的氣場讓它「無條件升格至神劇之列」。中英評論都承認老派，也都說靠演員和台詞撐起來。
+- **尺度**：韓國 15+（Disney+ 台灣 15+）。IMDb 家長指南只有幾票；手術場面多，第三季開場有槍戰。
+- **長度**：3 季共 52 集加 2 集特別篇，2016–2023 年。第 2、3 季的年輕醫師是同一批。
+- **先看什麼**：不用，原創劇。建議照順序看；金師傅三季都由韓石圭飾演。
+- **在哪看**：[Disney+](https://www.disneyplus.com/zh-tw/browse/entity-37b31212-ee3e-4440-9d10-b9247c830d5c)（訂閱）
+
+#### 機智住院醫生生活（Resident Playbook）
+
+在低生育率的年代，一群年輕住院醫師自願走進冷門的婦產科，一邊出錯、一邊長大，也慢慢成為彼此的朋友（[Wikipedia](https://en.wikipedia.org/wiki/Resident_Playbook)）。
+
+- **推薦來源**：`B Time 2025 年度韓劇 #6` `C MyDramaList 8.7` `E FUNdex 大獎 2025 男女主角與配角獎` `F PTT 韓劇板 2025 年度最愛串` `G Netflix 台灣週榜第 3（累計 8 週）`
+- **評分**：MyDramaList 8.7（37,394 人）｜IMDb 8.0（5,500 票）｜豆瓣 8.3
+- **劇評**：找不到主流媒體的正式劇評；[Time 的 Kayti Burt](https://time.com/7278386/resident-playbook-netflix-medical-k-drama/) 在首播時寫了背景解析：它原本因 2024 年的住院醫師集體辭職延後一年，劇雖在罷工前拍攝，但「大致呈現了導致醫界與政府僵持的結構問題」。電影神搜的 [Winnie](https://news.agentm.tw/355327/) 看完前兩集，說它維持「機醫」的溫暖日常，但架構稍嫌鬆散、開播收視不如預期。之後收視和口碑回溫。
+- **尺度**：韓國 15+。有開刀和分娩畫面；IMDb 投票只有幾票。
+- **長度**：12 集，已完結。
+- **先看什麼**：是《機智醫生生活》的衍生劇，同一家醫院、新的一批主角，不必先看原作。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81739043)（訂閱）
+
+#### 精神病房也會迎來清晨（Daily Dose of Sunshine）
+
+從內科調到精神科的護理師鄭多恩，在大學醫院的精神病房照顧形形色色的病人（[Wikipedia](https://en.wikipedia.org/wiki/Daily_Dose_of_Sunshine)）。
+
+- **推薦來源**：`A 青龍系列大賞最佳劇集 2024` `A 國際艾美獎喜劇類入圍 2024` `B Cine21 2023 年度劇集 #7` `C MyDramaList 8.8` `F PTT 韓劇板 2023 年度徵文` `G LINE TODAY 2023 網友票選 #5`
+- **評分**：MyDramaList 8.8（39,485 人）｜IMDb 8.1（6,600 票）
+- **劇評**：[NME 的 Carmen Chin](https://www.nme.com/reviews/tv-reviews/daily-dose-of-sunshine-review-3533868) 說韓國影視向來用刻板印象呈現精神疾病，這部把病人寫成立體的人：「終於有一部韓劇不把他們貶為暴力、敵對的刻板角色，令人耳目一新。」釀電影的[九號球](https://filmaholic.tw/series/656f4bb8fd89780001e3842e/)說它用動畫把症狀發作的感受具象化，大致一集一個故事，最有感的是國考生陷入妄想的那一集。
+- **尺度**：韓國 15+。有一集出現自傷，也有兩場自殺情節，是這部最重要的觀看提醒。
+- **長度**：12 集，Netflix 原創，已完結。
+- **先看什麼**：改編自前護理師李羅荷取材親身經歷的 Kakao 網漫，不必先看。基調是療癒，不是外科緊張戲。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81572595)（訂閱）
+
+#### 車貞淑醫生（Doctor Cha）
+
+醫學院畢業後當了二十年家庭主婦的車貞淑，在一場意外危機後決定重回醫界，從一年級住院醫師做起（[Wikipedia](https://en.wikipedia.org/wiki/Doctor_Cha)）。
+
+- **推薦來源**：`B Time 2023 Netflix 韓劇推薦` `D 韓國有線台歷代收視 #8（18.5%）` `E FUNdex 大獎 2023 入圍` `G LINE TODAY 2023 網友票選 #7`
+- **評分**：MyDramaList 8.1（20,672 人）｜IMDb 7.5（2,900 票）
+- **劇評**：[The Hindu 的 S. Poorvaja](https://www.thehindu.com/entertainment/movies/doctor-cha-k-drama-review-uhm-jung-hwa-aces-this-journey-towards-empowerment-and-independence/article66942259.ece) 說前半很精彩，第 9 集後變成冗長的八點檔，但「撇開跳躍的寫法，貞淑把自己放在第一位的旅程很清新」。聯合報的[雀雀](https://stars.udn.com/star/story/10093/7224576)說它把醫生一家、小三、外遇丈夫放進同一間醫院，「又扯又爆笑」，讓觀眾看得解氣。收視極高，評論普遍說後半走弱。
+- **尺度**：韓國 15+。IMDb 家長指南沒有投票；主線之一是丈夫外遇。
+- **長度**：16 集。第 2 季演員經紀公司證實參演，製作方說還沒具體討論。
+- **先看什麼**：不用，原創劇。一半是醫療劇、一半是婚姻家庭喜劇。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81682438)（訂閱，JustWatch 台灣列出）
+
+#### 狂醫魔徒（Hyper Knife）
+
+被吊銷執照的天才神經外科醫師鄭世玉，在暗處進行非法手術，直到和當年的恩師重逢，兩人展開權力與復仇的角力（[Wikipedia](https://en.wikipedia.org/wiki/Hyper_Knife)）。
+
+- **推薦來源**：`A 國際艾美獎電視電影／迷你影集入圍 2026` `B Cine21 2025 年度劇集 #10` `F PTT 韓劇板 2025 年度最愛串`
+- **評分**：MyDramaList 7.9（10,753 人）｜IMDb 7.3（2,700 票）
+- **劇評**：[《韓國先驅報》的 Lee Yoon-seo](https://www.koreaherald.com/article/10446226) 看完前兩集，說朴恩斌演出「定義生涯」的精神病態醫師，但「《狂醫魔徒》的弱點在可信度」。電影神搜的[推坑人妻](https://news.agentm.tw/353676/)說反轉不斷、沒有冷場，結局把師徒相殺翻成恩師的苦心。表演一面倒稱讚，劇情與結局意見分裂；國際艾美獎結果 2026-11-23 揭曉。
+- **尺度**：韓國 19+（只見於 IMDb；Disney+ 台灣 15+）。這篇最重：有人被挖出心臟並被逼咬下，第 4 集有裸露；暴力、粗口、藥物、驚嚇都是嚴重級（票數很少）。
+- **長度**：8 集，Disney+ 原創，已完結。
+- **先看什麼**：不用，原創劇。它是黑暗的醫療犯罪驚悚，和其他溫暖醫療劇很不一樣。
+- **在哪看**：[Disney+](https://www.disneyplus.com/zh-tw/browse/entity-2ec24dc1-0c67-44c9-b043-b5d0537a66cb)（訂閱）
+
+### 法律與職場
+
+律師、經紀公司、廣告公司、併購談判、證券公司和職棒球團。主角多半是在體制裡逆風的人。
+
+#### 非常律師禹英禑（Extraordinary Attorney Woo）
+
+有自閉症、記憶力過人的新手律師禹英禑進入首爾大型律師事務所，靠一件件案子證明自己（[Wikipedia](https://en.wikipedia.org/wiki/Extraordinary_Attorney_Woo)）。
+
+- **推薦來源**：`A 國際艾美獎劇情類入圍 2023` `A 百想藝術大賞最佳電視劇提名 2023` `B Cine21 2022 年度劇集 #1` `C MyDramaList 8.8（評分人數這篇最多）` `D 韓國有線台歷代收視 #10（17.5%）`
+- **評分**：MyDramaList 8.8（117,052 人）｜IMDb 8.5（4.1 萬 票）｜豆瓣 9.3（播出期間）
+- **劇評**：自閉症作者、[Polygon 的 Geoffrey Bunting](https://www.polygon.com/23308322/extraordinary-attorney-woo-netflix-autistic-representation-episode/) 訪問了自閉症觀眾，結論是「是，也不是」：劇對職場歧視的描寫很好，但主角被寫成罕見的天才型，潛台詞是「障礙者的價值來自他們能貢獻什麼」。關鍵評論網轉載的精神科醫師[楊添圍](https://www.thenewslens.com/article/171148)說自閉症反而「完美掩護了女主角是人生勝利組」，把障礙理想化會扭曲現實。這是這篇再現爭議最明確的一部。
+- **尺度**：韓國 15+。很輕；有一集處理智能障礙女性被控性侵的案子（不直拍），也有角色企圖自殺。
+- **長度**：16 集。2022 年宣布第 2 季，至今沒有播出時間。
+- **先看什麼**：不用，原創劇。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81518991)（訂閱，JustWatch 台灣列出）
+
+#### 代理公司（Agency）
+
+高雅仁在一家大型廣告公司一路往上爬，成為公司第一位女性高階主管（[Wikipedia](https://en.wikipedia.org/wiki/Agency_(South_Korean_TV_series))）。
+
+- **推薦來源**：`D 韓國有線台歷代收視 #18（16.0%）` `E FUNdex 大獎 2023 入圍` `F PTT 韓劇板 2023 年度徵文` `G LINE TODAY 2023 網友票選`
+- **評分**：MyDramaList 8.2（4,783 人）｜IMDb 7.8（850 票）
+- **劇評**：找不到主流媒體的署名劇評；英國廣告業媒體 [MediaCat 的兩位首爾廣告人](https://mediacat.uk/agency-to-have-and-have-not/) 說很多職場性別歧視「可惜都很真實」，但「這是誇張、美化、肥皂劇版的廣告公司，現實裡我們不會遇到」。電影神搜的[潘光中](https://news.agentm.tw/289921/)說它不論當職場正劇或大女主復仇爽劇，都「堪稱是一部足以呈現韓國影視工業高端水平的優秀作品」。收視從 4.8% 漲到 16%，韓國《女性新聞》卻評為 C 級。
+- **尺度**：韓國 15+。IMDb 家長指南沒有投票；職場霸凌與權力鬥爭為主，喝酒場面多。
+- **長度**：16 集，已完結。
+- **先看什麼**：不用，原創劇。沒有感情線。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81672245)（訂閱，JustWatch 台灣列出）。LINE TV 已授權到期
+
+#### 金部長的夢想人生（The Dream Life of Mr. Kim）
+
+在首爾有房、在大企業做了 25 年的業務部長金洛洙，自以為人生勝利組，卻在職場與家庭接連失去一切，被迫重新認識自己（[Wikipedia](https://en.wikipedia.org/wiki/The_Dream_Life_of_Mr._Kim)）。
+
+- **推薦來源**：`A 百想藝術大賞最佳電視劇提名 2026` `B Cine21 2025 年度劇集 #6` `B Time 2025 年度韓劇榮譽提名` `F PTT 韓劇板 2025 年度最愛串（約 20 人推）`
+- **評分**：MyDramaList 8.0（1,314 人）｜IMDb 7.7（533 票）｜豆瓣 8.3
+- **劇評**：[《韓國時報》的 Baek Byung-yeul](https://www.koreatimes.co.kr/entertainment/shows-dramas/20251202/the-dream-life-of-mr-kim-unpacks-midlife-crisis) 說它給韓國中年人深刻的安慰與自省，「這部劇的情感力量顯然來自柳承龍的表演」，但成功者失去一切才找到人生意義的套路可以預期。Tatler Asia 繁中版的 [Irene Chen](https://www.tatlerasia.com/lifestyle/entertainment/the-dream-life-of-mr-kim-review-zh-hant) 說它像「職場紀錄片」：買公事包要比上司便宜一點、比部屬貴一點。首播收視只有 2.9%，PTT 劇迷說前四集難熬、後面倒吃甘蔗。
+- **尺度**：韓國 15+。很輕，只有輕度髒話和喝醉。
+- **長度**：12 集，已完結。
+- **先看什麼**：改編自宋熙久的同名小說，不必先看。前四集節奏慢。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/82068378)（訂閱）
+
+#### 協商的技術（The Art of Negotiation）
+
+大企業集團的傳奇併購談判專家尹柱午，帶著他的 M&A 團隊在一樁樁企業收購案裡周旋（[Wikipedia](https://en.wikipedia.org/wiki/The_Art_of_Negotiation)）。
+
+- **推薦來源**：`B Cine21 2025 年度劇集 #5` `F PTT 韓劇板 2025 年度最愛串` `G Hami Video 2025 戲劇收視 #4`
+- **評分**：MyDramaList 8.0（4,772 人）｜IMDb 7.8（891 票）
+- **劇評**：找不到主流媒體的署名劇評；韓劇評論網站 [The Blossom Review 的 Karen Mansoldo](https://theblossomreview.com/the-art-of-negotiation-viki-review/) 說它打破愛情、復仇、狗血的公式，是「一部有健康劑量寫實、潛台詞用得出色的商戰劇」，兩集一個併購案。電影神搜的[推坑人妻](https://news.agentm.tw/329775/)看完首播兩集，說第一集敘事感重，第二集進入併購環節後開低走高。
+- **尺度**：韓國 15+。IMDb 家長指南沒有投票；商戰為主，尺度很輕。
+- **長度**：12 集，已完結。
+- **先看什麼**：不用，原創劇。台灣是 Hami Video 獨家，Netflix 台灣沒有。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/286760.do)（訂閱，部分免費）
+
+#### 臥底洪小姐（Undercover Miss Hong）
+
+1997 年的首爾，35 歲的金融監督院菁英稽查員洪金寶，靠一張娃娃臉假扮成 20 歲新進員工，潛入可疑的證券公司臥底（[Wikipedia](https://en.wikipedia.org/wiki/Undercover_Miss_Hong)）。
+
+- **推薦來源**：`D 韓國有線台歷代收視 #27（13.1%）` `F PTT 韓劇板 2026 入坑推薦串` `G Netflix 台灣週榜（累計 9 週）`
+- **評分**：MyDramaList 8.3（11,359 人）｜IMDb 7.5（1,900 票）
+- **劇評**：[Decider 的 Joel Keller](https://decider.com/2026/01/20/undercover-miss-hong-netflix-review/) 看完第一集給了「跳過」：「第一集塞了太多東西，連核心案件都很難看懂」，只肯定朴信惠的演出。找不到台灣作者的劇評。但它從首播 3.5% 一路漲到 13% 左右，是這篇首集評價和最終收視落差最大的劇。
+- **尺度**：韓國 15+。IMDb 家長指南沒有投票；喜劇為主。
+- **長度**：16 集，已完結。
+- **先看什麼**：不用，原創劇。它是 1997 年背景的臥底職場喜劇，不是寫實職人劇。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/82632108)（訂閱）
+
+#### 金牌救援（Hot Stove League）
+
+連續四年墊底的職棒隊換來一位完全沒有棒球經驗、但帶過多支冠軍隊的新團長，他從球團辦公室著手改造整支球隊（[Wikipedia](https://en.wikipedia.org/wiki/Hot_Stove_League)）。
+
+- **推薦來源**：`A 百想藝術大賞最佳電視劇 2020` `D 2020 年收視第 5（19.1%）` `F PTT 韓劇板入坑推薦串`
+- **評分**：MyDramaList 8.5（16,148 人）｜IMDb 8.2（2,600 票）
+- **劇評**：找不到主流媒體的署名劇評；英國影評網站 [The Review Geek 的 Greg Wheeler](https://www.thereviewgeek.com/stoveleague-s1review/) 說它接續《魔球》的路線，「巧妙地把角色劇和政治、社會議題織在一起」，球場比賽很少，但「你不會想念」。電影神搜的[薇琪吳不負責任的報告書](https://news.agentm.tw/159691/)說它不只是運動劇，是「貨真價實的熱血職場劇」。首播只有 3%，完結 19.1%。
+- **尺度**：韓國 15+。很輕，IMDb 投稿說語言乾淨。
+- **長度**：16 集，已完結。
+- **先看什麼**：不用，原創劇。不懂棒球也看得懂，場景幾乎都在球團辦公室。台灣目前只有 friDay 買斷版確認，JustWatch 另列 Netflix。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/1112)（數位珍藏，買斷）
+
+### 牢房與小酒館
+
+一部在監獄、一部在梨泰院開店。不算典型職場，但都在講一群人怎麼在陌生的地方站穩。
+
+#### 機智牢房生活（Prison Playbook）
+
+即將加盟波士頓紅襪隊的明星投手金濟赫，為了保護妹妹失手重傷對方而入獄，在監獄裡從頭適應、重新練球，也和各式各樣的受刑人相處（[Wikipedia](https://en.wikipedia.org/wiki/Prison_Playbook)）。
+
+- **推薦來源**：`C MyDramaList 韓劇榜 #19（8.9）` `D 韓國有線台歷代收視 #39（11.2%）` `F PTT 韓劇板入坑推薦串`
+- **評分**：MyDramaList 8.9（39,407 人）｜IMDb 8.3（6,500 票）
+- **劇評**：找不到主流媒體的署名劇評；韓劇資料站 [HanCinema 的 Vasia Orion](https://www.hancinema.net/hancinema-s-drama-review-prison-playbook-118114.html) 說它是「最不可能的療癒劇，但我敢保證」，演員群的化學反應是最大強項，只嫌男主角的感情線重複。鏡週刊的[廖佩玲](https://www.mirrormedia.mg/story/20180208insight007)說剛開始會覺得在搞什麼鬼，耐著性子看下去就會被犯人們的小故事打動。
+- **尺度**：韓國 15+（HBO Max 台灣 16+）。有一般的打架，不血腥；也有藥物成癮題材。
+- **長度**：16 集，已完結。每集約 90 分鐘。
+- **先看什麼**：不用，原創劇，和《機智醫生生活》同一個團隊。它是監獄群像喜劇，收在這篇是因為同一團隊的職人群像寫法。
+- **在哪看**：[HBO Max](https://www.hbomax.com/tw/zh/show/46d40a09-4e36-4b58-9bf2-09724440d82e)（訂閱）
+
+#### 梨泰院 Class（Itaewon Class）
+
+父親死於財閥少爺造成的車禍，朴世路尋仇入獄；出獄後他在梨泰院開了小酒館，一步步做大，目標是向財閥集團復仇（[Wikipedia](https://en.wikipedia.org/wiki/Itaewon_Class)）。
+
+- **推薦來源**：`A 首爾國際電視劇大賞迷你劇亞軍 2020` `C IMDb 8.1` `D 韓國有線台歷代收視 #16（16.5%）`
+- **評分**：MyDramaList 8.4（104,421 人）｜IMDb 8.1（2.6 萬 票）
+- **劇評**：[Vulture 的 E. Alex Jung](https://www.vulture.com/2020/04/itaewon-class-a-korean-drama-that-just-hits-different.html) 說它是「重混的經典」，配角群（跨性別廚師、尋父的黑人韓國人、前科犯）是韓劇少見的：「它給了中產電視最好的安慰：會驚喜，會讓人開心。」聯合報系 500 輯的[田育志](https://500times.udn.com/wtimes/story/12672/5276612)說第 13 集一跳四年，主角的一步一腳印忽然變成一步登天，所以被批爛尾。
+- **尺度**：韓國 15+。喝酒、派對場面多，英文字幕髒話不少；暴力輕。
+- **長度**：16 集，已完結。
+- **先看什麼**：改編自 Daum 網漫，不必先看。主線是復仇與創業，收在這篇是因為大半在經營小酒館。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81193309)（訂閱，JustWatch 台灣列出）
+
+## 候補觀察名單
+
+| 劇 | 狀況 |
+|---|---|
+| 機智醫生生活（슬기로운 의사생활） | 觀眾評分和收視都高，只有兩類；台灣串流未查 |
+| 勞務師盧武鎮（노무사 노무진） | 劇迷和台灣觀眾推薦，只有兩類；台灣串流未查 |
+| 瑞草洞（서초동） | 劇迷和台灣觀眾推薦，只有兩類；台灣串流未查 |
+| 夢想成為律師的律師們（Beyond the Bar，에스콰이어） | 劇迷和台灣觀眾推薦，只有兩類；台灣串流未查 |
+
+## 這份片單的限制
+
+- **英文劇評很多只看了前幾集，也有不少來自清單外的媒體。** 《代理公司》《協商的技術》《金牌救援》《機智牢房生活》的英文劇評來自 MediaCat、The Blossom Review、The Review Geek 和 HanCinema；《機智住院醫生生活》只找到 Time 的背景報導，不是正式劇評。
+- **《臥底洪小姐》找不到台灣劇評。** 英文劇評也只看了第一集。
+- **豆瓣只有 4 部。** 《外傷重症中心》《機智住院醫生生活》《非常律師禹英禑》《金部長的夢想人生》讀得到引述，其他不列。
+- **新劇的評分人數少。** 《金部長的夢想人生》在 MyDramaList 只有約 1,300 人評分，IMDb 也只有 533 票。
+- **授權劇可能下架。** 《梨泰院 Class》《非常律師禹英禑》《車貞淑醫生》《代理公司》的台灣證據停在 2020–2023 年，《代理公司》在 LINE TV 的授權已經到期。本篇串流連結核對日期：2026-11-08。
+
+## 參考資料
+
+- [Baeksang Arts Award for Best Drama（Wikipedia）](https://en.wikipedia.org/wiki/Baeksang_Arts_Award_for_Best_Drama)
+- [Blue Dragon Series Awards（Wikipedia）](https://en.wikipedia.org/wiki/Blue_Dragon_Series_Awards)
+- [The Best K-Dramas of 2025（Time）](https://time.com/7340988/best-k-dramas-2025/)
+- [The Best K-Dramas of 2024（Time）](https://time.com/7201080/best-k-dramas-2024/)
+- [The Best Korean Dramas on Netflix in 2023（Time）](https://time.com/6549115/best-korean-dramas-netflix-2023-2/)
+- [씨네21 올해의 시리즈 2025（Cine21）](https://cine21.com/news/view/?mag_id=109072)
+- [씨네21 올해의 시리즈 歷年整理（namu.wiki）](https://namu.wiki/w/씨네21/올해의%20시리즈)
+- [MyDramaList：Top Korean Dramas](https://mydramalist.com/shows/top_korean_dramas)
+- [Korean drama：highest-rated series on cable television（Wikipedia）](https://en.wikipedia.org/wiki/Korean_drama)
+- [What We Watched: the First Half of 2025（Netflix）](https://about.netflix.com/en/news/what-we-watched-the-first-half-of-2025)
+- [FUNdex Awards 2024](https://www.fundex.co.kr/award24.html)
+- [PTT 韓劇板〈2025 年大家心目中的最愛韓劇〉](https://www.ptt.cc/bbs/KoreaDrama/M.1765265708.A.DA2.html)
+- [PTT 韓劇板〈從原本無感到意外入坑覺得好看的劇〉（2026）](https://www.ptt.cc/bbs/KoreaDrama/M.1772100829.A.023.html)
+- [PTT 韓劇板〈2023 年 韓劇 台灣網友推薦榜〉（轉貼 LINE TODAY 網友票選）](https://www.ptt.cc/bbs/KoreaDrama/M.1704596717.A.CD9.html)
+- [Dcard 戲劇綜藝板〈2025 年底總推薦片單〉](https://www.dcard.tw/f/tvepisode/p/260362037)
+- [Dcard 戲劇綜藝板〈韓劇推薦分享（持續更新）〉](https://www.dcard.tw/f/tvepisode/p/258766809)
+- [LINE TODAY 聚光賞〈2025 十大追劇榜〉（LINE 新聞稿）](https://www.linecorp.com/ko/pr/news/2025/1217)
+- [LINE TODAY 聚光賞〈2025 韓劇年度榜〉](https://today.line.me/tw/v3/article/Vx5eVE2)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [JustWatch 台灣](https://www.justwatch.com/tw)

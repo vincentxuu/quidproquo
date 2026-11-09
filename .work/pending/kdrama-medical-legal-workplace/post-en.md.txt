@@ -1,0 +1,320 @@
+---
+title: "How to Pick Korean Medical, Legal and Workplace Dramas: The Trauma Code, Extraordinary Attorney Woo, Resident Playbook and 11 More"
+date: 2026-11-09
+category: film
+tags: [tv-drama, k-drama, medical-drama, legal-drama]
+lang: en
+type: guide
+description: "For viewers in Taiwan looking for Korean medical, legal and workplace dramas: medicine, law and the workplace, and a prison and a pub. 14 shows, each backed by at least three of seven recommendation source types, with recommendation sources, MyDramaList, IMDb and Douban scores, English and Taiwanese reviews, content notes, episode counts and legal streaming links in Taiwan."
+tldr: "Start with The Trauma Code (backed by six source types), Dr. Romantic (high ratings across three seasons) or International Emmy nominee Extraordinary Attorney Woo. Only Hyper Knife is rated 19+ in Korea; the other 13 are 15+. For something gentler, try Daily Dose of Sunshine; for a middle-aged office worker's story, The Dream Life of Mr. Kim."
+draft: false
+series:
+  name: "World TV Drama Guide"
+  order: 8
+---
+
+> 🌏 [中文版](/posts/film/2026-11-09-kdrama-medical-legal-workplace)
+
+This post covers Korean medical, legal and workplace dramas: a trauma surgeon back from war zones, a rookie lawyer on the autism spectrum, a housewife returning to hospital as a first-year resident, and a middle-aged manager pushed to the margins at work. All 14 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, and each can be watched legally in Taiwan. How K-dramas differ from American shows is covered at the start of the [romance post](/posts/film/2026-11-08-kdrama-romance-fantasy-en); shows centred on family and life are in the [life and family post](/posts/film/2026-11-08-kdrama-life-family-period-en).
+
+Two things stand out in this group:
+
+- **Mostly medical.** Six of the 14 are set in hospitals; The Trauma Code, Daily Dose of Sunshine and Hyper Knife are streaming originals with no TV ratings.
+- **Generally mild.** Only Hyper Knife is rated 19+ in Korea; the other 13 are 15+. Surgery scenes, self-harm and workplace bullying are noted for each show.
+
+## Start with these 3
+
+| Show | Why start here | Content | Where to watch |
+|---|---|---|---|
+| The Trauma Code | Backed by six source types; MyDramaList 9.1, the highest here; only 8 episodes | Moderate: lots of surgery and blood | Netflix |
+| Dr. Romantic | High ratings across three seasons, peaking at 27.1% in season 2 | Moderate | Disney+ |
+| Extraordinary Attorney Woo | International Emmy and Baeksang Best Drama nominee; Cine21's top series of 2022 | Mild | Netflix |
+
+## Recommendation sources at a glance
+
+● means that source type recommends the show. A award juries, B critics polls, C audience ratings, D viewing data, E buzz metrics, F fan communities, G Taiwanese viewers.
+
+| Show | A | B | C | D | E | F | G | Types |
+|---|---|---|---|---|---|---|---|---|
+| The Trauma Code: Heroes on Call | ● | ● | ● | ● |  | ● | ● | 6 |
+| Dr. Romantic | ● |  | ● | ● | ● | ● | ● | 6 |
+| Resident Playbook |  | ● | ● |  | ● | ● | ● | 5 |
+| Daily Dose of Sunshine | ● | ● | ● |  |  | ● | ● | 5 |
+| Doctor Cha |  | ● |  | ● | ● |  | ● | 4 |
+| Extraordinary Attorney Woo | ● | ● | ● | ● |  |  |  | 4 |
+| Agency |  |  |  | ● | ● | ● | ● | 4 |
+| Hyper Knife | ● | ● |  |  |  | ● |  | 3 |
+| The Dream Life of Mr. Kim | ● | ● |  |  |  | ● |  | 3 |
+| The Art of Negotiation |  | ● |  |  |  | ● | ● | 3 |
+| Undercover Miss Hong |  |  |  | ● |  | ● | ● | 3 |
+| Hot Stove League | ● |  |  | ● |  | ● |  | 3 |
+| Prison Playbook |  |  | ● | ● |  | ● |  | 3 |
+| Itaewon Class | ● |  | ● | ● |  |  |  | 3 |
+
+Column F (fan communities) is the fullest, with 11 of 14; column E (buzz metrics) has only 4. Agency and Undercover Miss Hong have no juries, critics or audience ratings behind them, clearing the bar on ratings, PTT and Taiwanese viewers.
+
+## Ratings first: peaks of the broadcast shows
+
+```diagram
+title: Peak Korean TV ratings of 9 broadcast shows
+desc: Dr. Romantic season 2 peaks highest at 27.1%, followed by Hot Stove League at 19.1%, Doctor Cha at 18.5% and Extraordinary Attorney Woo at 17.5%; The Dream Life of Mr. Kim is lowest, ending at 7.6%.
+caption: Nielsen Korea nationwide ratings. Mr. Kim's figure is its finale; the others are series peaks. Dr. Romantic and Hot Stove League aired on terrestrial SBS, the rest on cable, so the bases differ. The Trauma Code, Daily Dose of Sunshine and Hyper Knife are streaming originals with no TV ratings; no reliable figures were found for Resident Playbook or The Art of Negotiation, so they are left out.
+---
+<svg viewBox="0 0 640 244">
+  <text class="dg-sub" x="184" y="24" text-anchor="end" dominant-baseline="central">Dr. Romantic (S2)</text>
+  <rect class="dg-bar" x="196" y="16" width="379" height="16" rx="3"/>
+  <text class="dg-small" x="583" y="24" dominant-baseline="central">27.1%</text>
+  <text class="dg-sub" x="184" y="49" text-anchor="end" dominant-baseline="central">Hot Stove League</text>
+  <rect class="dg-bar" x="196" y="41" width="267" height="16" rx="3"/>
+  <text class="dg-small" x="471" y="49" dominant-baseline="central">19.1%</text>
+  <text class="dg-sub" x="184" y="74" text-anchor="end" dominant-baseline="central">Doctor Cha</text>
+  <rect class="dg-bar" x="196" y="66" width="259" height="16" rx="3"/>
+  <text class="dg-small" x="463" y="74" dominant-baseline="central">18.5%</text>
+  <text class="dg-sub" x="184" y="99" text-anchor="end" dominant-baseline="central">Extraordinary Attorney Woo</text>
+  <rect class="dg-bar" x="196" y="91" width="245" height="16" rx="3"/>
+  <text class="dg-small" x="449" y="99" dominant-baseline="central">17.5%</text>
+  <text class="dg-sub" x="184" y="124" text-anchor="end" dominant-baseline="central">Itaewon Class</text>
+  <rect class="dg-bar" x="196" y="116" width="231" height="16" rx="3"/>
+  <text class="dg-small" x="435" y="124" dominant-baseline="central">16.5%</text>
+  <text class="dg-sub" x="184" y="149" text-anchor="end" dominant-baseline="central">Agency</text>
+  <rect class="dg-bar" x="196" y="141" width="224" height="16" rx="3"/>
+  <text class="dg-small" x="428" y="149" dominant-baseline="central">16.0%</text>
+  <text class="dg-sub" x="184" y="174" text-anchor="end" dominant-baseline="central">Undercover Miss Hong</text>
+  <rect class="dg-bar" x="196" y="166" width="183" height="16" rx="3"/>
+  <text class="dg-small" x="387" y="174" dominant-baseline="central">13.1%</text>
+  <text class="dg-sub" x="184" y="199" text-anchor="end" dominant-baseline="central">Prison Playbook</text>
+  <rect class="dg-bar" x="196" y="191" width="157" height="16" rx="3"/>
+  <text class="dg-small" x="361" y="199" dominant-baseline="central">11.2%</text>
+  <text class="dg-sub" x="184" y="224" text-anchor="end" dominant-baseline="central">The Dream Life of Mr. Kim</text>
+  <rect class="dg-bar" x="196" y="216" width="106" height="16" rx="3"/>
+  <text class="dg-small" x="310" y="224" dominant-baseline="central">7.6%</text>
+</svg>
+```
+
+## The watchlist
+
+Entries list recommended by, scores, reviews, content, length, watch first and where to watch.
+
+- **Scores**: most K-dramas have no Metacritic score, so this post uses [MyDramaList](https://mydramalist.com/shows/top_korean_dramas), IMDb and Douban; for multi-season shows, MyDramaList is season 1 and IMDb the whole show. Douban scores appear only where a news report or review quoted them.
+- **Content**: Korean ratings come from Korean Wikipedia or IMDb's certification list, with Taiwan platform ratings where shown; content notes come from IMDb Parents Guide contributors, and most shows here have only a handful of votes or none.
+- "Listed on JustWatch Taiwan" marks licensed shows whose latest Taiwan evidence is from 2020–2023; if the link doesn't play, check [JustWatch Taiwan](https://www.justwatch.com/tw).
+
+### Medicine
+
+Trauma centres, obstetrics, psychiatry and a small country hospital. More than half the list, from crowd-pleasers to comfort viewing.
+
+#### The Trauma Code: Heroes on Call
+
+A brilliant trauma surgeon who honed his skills in war zones takes over an understaffed university-hospital trauma team and turns it around with unorthodox methods ([Wikipedia](https://en.wikipedia.org/wiki/The_Trauma_Code:_Heroes_on_Call)).
+
+- **Recommended by**: `A Blue Dragon Series Awards best drama 2025` `A Baeksang Best Drama nomination 2025` `C MyDramaList top Korean drama #6 (9.1)` `D Netflix H1 2025: 34M views` `F PTT KoreaDrama 2025 favourites thread` `G LINE TODAY Spotlight Awards 2025 #7`
+- **Scores**: MyDramaList 9.1 (64,565 ratings) | IMDb 8.4 (12K votes) | Douban 8.3
+- **Reviews**: After episode 1, [Joel Keller at Decider](https://decider.com/2025/01/28/the-trauma-code-heroes-on-call-netflix-review/) said skip it, calling it "The Pitt but a whole lot less realistic". [潘光中 at United Daily News](https://stars.udn.com/star/story/10093/8548803) (in Chinese) argues the swagger sits on a real crisis in Korean hospitals. Real trauma surgeons called it exaggerated, yet with viewers it scores highest here.
+- **Content**: Korea 15+. Plenty of surgery, organs and blood, though not gory; the English dub swears a lot.
+- **Length**: 8 episodes. Seasons 2 and 3 went into production in October 2026, with no date yet.
+- **Watch first**: Adapted from a web novel and Naver webtoon; no need to read them.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81677629) (subscription)
+
+#### Dr. Romantic
+
+At a small regional hospital, a genius doctor known as Teacher Kim shows a series of young doctors what being a real doctor means ([Wikipedia](https://en.wikipedia.org/wiki/Dr._Romantic)).
+
+- **Recommended by**: `A Baeksang Best Drama nomination 2017` `C MyDramaList 8.9 (season 3)` `D #2 in 2020 ratings (27.1%, season 2)` `E FUNdex Awards 2023 finalist` `F PTT KoreaDrama 2023 year-end essays` `G LINE TODAY 2023 readers' poll #3`
+- **Scores**: MyDramaList 8.7 (season 1) (48,435 ratings) | IMDb 8.4 (7.3K votes)
+- **Reviews**: Reviewing the start of season 3, [Hidzir Junaini at NME](https://www.nme.com/reviews/tv-reviews/dr-romantic-season-3-review-medical-melodrama-finest-3441100) wrote that "season three is shaping up to be Dr. Romantic's best yet". During season 1, [廖佩玲 at Mirror Media](https://www.mirrormedia.mg/story/20161207inf002) (in Chinese) called it an old-fashioned medical drama lifted to greatness by Han Suk-kyu. Both admit it is traditional.
+- **Content**: Korea 15+ (Disney+ Taiwan 15+). Only a handful of IMDb votes; lots of surgery, and season 3 opens with a shootout.
+- **Length**: 3 seasons, 52 episodes plus 2 specials, 2016–2023. Seasons 2 and 3 share the same young doctors.
+- **Watch first**: Nothing; it is an original. Watch in order; Han Suk-kyu plays Teacher Kim throughout.
+- **Where to watch**: [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-37b31212-ee3e-4440-9d10-b9247c830d5c) (subscription)
+
+#### Resident Playbook
+
+In an era of falling birth rates, a group of young residents choose unpopular obstetrics and gynaecology, making mistakes, growing up and becoming friends ([Wikipedia](https://en.wikipedia.org/wiki/Resident_Playbook)).
+
+- **Recommended by**: `B Time best K-dramas of 2025 #6` `C MyDramaList 8.7` `E FUNdex Awards 2025 lead and supporting acting awards` `F PTT KoreaDrama 2025 favourites thread` `G #3 on Netflix Taiwan (8 weeks)`
+- **Scores**: MyDramaList 8.7 (37,394 ratings) | IMDb 8.0 (5.5K votes) | Douban 8.3
+- **Reviews**: No formal major-outlet review could be found; at launch, [Kayti Burt at Time](https://time.com/7278386/resident-playbook-netflix-medical-k-drama/) explained it was delayed a year by the 2024 resident walkout and that "its story is broadly informed by the systemic conditions that have led to the stalemate". [Winnie at 電影神搜](https://news.agentm.tw/355327/) (in Chinese) found the first two episodes warm but loose. Ratings and buzz picked up later.
+- **Content**: Korea 15+. Surgery and childbirth on screen; only a few IMDb votes.
+- **Length**: 12 episodes, finished.
+- **Watch first**: A spin-off of Hospital Playlist, same hospital with new leads; no need to watch the original first.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81739043) (subscription)
+
+#### Daily Dose of Sunshine
+
+A nurse transferred from internal medicine to psychiatry looks after a varied ward of patients at a university hospital ([Wikipedia](https://en.wikipedia.org/wiki/Daily_Dose_of_Sunshine)).
+
+- **Recommended by**: `A Blue Dragon Series Awards best drama 2024` `A International Emmy comedy nomination 2024` `B Cine21 series of 2023 #7` `C MyDramaList 8.8` `F PTT KoreaDrama 2023 year-end essays` `G LINE TODAY 2023 readers' poll #5`
+- **Scores**: MyDramaList 8.8 (39,485 ratings) | IMDb 8.1 (6.6K votes)
+- **Reviews**: [Carmen Chin at NME](https://www.nme.com/reviews/tv-reviews/daily-dose-of-sunshine-review-3533868) notes Korean screen culture usually stereotypes mental illness: "It is incredibly refreshing to finally have a Korean drama that doesn't relegate them to violent and antagonistic stereotypes." [九號球 at 釀電影](https://filmaholic.tw/series/656f4bb8fd89780001e3842e/) (in Chinese) praises how animation conveys what symptoms feel like.
+- **Content**: Korea 15+. One episode shows self-harm and there are two suicide scenes; the main thing to know before watching.
+- **Length**: 12 episodes, a Netflix original, finished.
+- **Watch first**: Adapted from a former nurse's Kakao webtoon based on her own experience; no need to read it. Healing in tone, not surgical tension.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81572595) (subscription)
+
+#### Doctor Cha
+
+After twenty years as a housewife, a medical-school graduate goes back to medicine as a first-year resident following a health scare ([Wikipedia](https://en.wikipedia.org/wiki/Doctor_Cha)).
+
+- **Recommended by**: `B Time K-drama picks 2023 (Netflix)` `D #8 all-time Korean cable ratings (18.5%)` `E FUNdex Awards 2023 finalist` `G LINE TODAY 2023 readers' poll #7`
+- **Scores**: MyDramaList 8.1 (20,672 ratings) | IMDb 7.5 (2.9K votes)
+- **Reviews**: [S. Poorvaja at The Hindu](https://www.thehindu.com/entertainment/movies/doctor-cha-k-drama-review-uhm-jung-hwa-aces-this-journey-towards-empowerment-and-independence/article66942259.ece) finds the second half soapy: "Choppy writing aside, Jeong-suk's journey towards putting herself first is refreshing." [雀雀 at United Daily News](https://stars.udn.com/star/story/10093/7224576) (in Chinese) enjoys the absurd hospital-and-affair comedy. Huge ratings; most reviews say it weakens later.
+- **Content**: Korea 15+. No IMDb Parents Guide votes; the husband's affair is a main thread.
+- **Length**: 16 episodes. The cast's agencies confirmed a season 2, but the producer says nothing concrete is set.
+- **Watch first**: Nothing; it is an original. Half medical drama, half marriage comedy.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81682438) (subscription, listed on JustWatch Taiwan)
+
+#### Hyper Knife
+
+Stripped of her licence, a brilliant neurosurgeon performs illegal surgery in the shadows until she meets her old mentor again ([Wikipedia](https://en.wikipedia.org/wiki/Hyper_Knife)).
+
+- **Recommended by**: `A International Emmy TV movie/miniseries nomination 2026` `B Cine21 series of 2025 #10` `F PTT KoreaDrama 2025 favourites thread`
+- **Scores**: MyDramaList 7.9 (10,753 ratings) | IMDb 7.3 (2.7K votes)
+- **Reviews**: After two episodes, [Lee Yoon-seo at The Korea Herald](https://www.koreaherald.com/article/10446226) called Park Eun-bin's psychopathic surgeon career-defining, but "where ‘Hyper Knife’ falters is in its credibility". [推坑人妻 at 電影神搜](https://news.agentm.tw/353676/) (in Chinese) found it relentless. The acting is praised; the plot divides. The International Emmy result comes on 2026-11-23.
+- **Content**: Korea 19+ (IMDb only; Disney+ Taiwan 15+). The heaviest here: a heart is cut out and the victim forced to bite it, nudity in episode 4; severe violence, swearing, drugs and intensity (few votes).
+- **Length**: 8 episodes, a Disney+ original, finished.
+- **Watch first**: Nothing; it is an original. A dark medical crime thriller, nothing like the warmer hospital shows.
+- **Where to watch**: [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-2ec24dc1-0c67-44c9-b043-b5d0537a66cb) (subscription)
+
+### Law and the workplace
+
+Lawyers, a talent agency, an ad agency, M&A negotiators, a brokerage and a baseball front office. Most leads are swimming against the system.
+
+#### Extraordinary Attorney Woo
+
+An autistic rookie attorney with a phenomenal memory joins a major Seoul law firm and proves herself case by case ([Wikipedia](https://en.wikipedia.org/wiki/Extraordinary_Attorney_Woo)).
+
+- **Recommended by**: `A International Emmy drama nomination 2023` `A Baeksang Best Drama nomination 2023` `B Cine21 series of 2022 #1` `C MyDramaList 8.8 (most ratings here)` `D #10 all-time Korean cable ratings (17.5%)`
+- **Scores**: MyDramaList 8.8 (117,052 ratings) | IMDb 8.5 (41K votes) | Douban 9.3 (mid-run)
+- **Reviews**: Autistic writer [Geoffrey Bunting at Polygon](https://www.polygon.com/23308322/extraordinary-attorney-woo-netflix-autistic-representation-episode/) concludes "yes… and no": strong on workplace prejudice, but its subtext "reinforces the idea that disabled people's value is derived from what they can contribute". Psychiatrist [楊添圍, republished by The News Lens](https://www.thenewslens.com/article/171148) (in Chinese), argues the idealisation distorts reality. The clearest representation debate in this post.
+- **Content**: Korea 15+. Light; one case concerns a disabled woman and an alleged sexual assault (nothing shown), and a character attempts suicide.
+- **Length**: 16 episodes. A season 2 was announced in 2022, with no air date since.
+- **Watch first**: Nothing; it is an original.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81518991) (subscription, listed on JustWatch Taiwan)
+
+#### Agency
+
+A woman climbs the ranks of a major advertising agency to become its first female executive ([Wikipedia](https://en.wikipedia.org/wiki/Agency_(South_Korean_TV_series))).
+
+- **Recommended by**: `D #18 all-time Korean cable ratings (16.0%)` `E FUNdex Awards 2023 finalist` `F PTT KoreaDrama 2023 year-end essays` `G LINE TODAY 2023 readers' poll`
+- **Scores**: MyDramaList 8.2 (4,783 ratings) | IMDb 7.8 (850 votes)
+- **Reviews**: No signed major-outlet review could be found; two Seoul ad professionals writing in UK trade magazine [MediaCat](https://mediacat.uk/agency-to-have-and-have-not/) say the sexism rings true, but "Agency is an over-the-top, glamorised and soapy version of an Ad agency". [潘光中 at 電影神搜](https://news.agentm.tw/289921/) (in Chinese) rates it highly. Ratings climbed from 4.8% to 16%, yet a Korean women's newspaper graded it C.
+- **Content**: Korea 15+. No IMDb Parents Guide votes; mostly office bullying and power games, with lots of drinking.
+- **Length**: 16 episodes, finished.
+- **Watch first**: Nothing; it is an original, with no romance.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81672245) (subscription, listed on JustWatch Taiwan). Its LINE TV licence has expired
+
+#### The Dream Life of Mr. Kim
+
+A sales manager with 25 years at a conglomerate and a Seoul apartment thinks he has won at life, until he loses everything at work and at home ([Wikipedia](https://en.wikipedia.org/wiki/The_Dream_Life_of_Mr._Kim)).
+
+- **Recommended by**: `A Baeksang Best Drama nomination 2026` `B Cine21 series of 2025 #6` `B Time best K-dramas of 2025 honourable mention` `F PTT KoreaDrama 2025 favourites (about 20 posters)`
+- **Scores**: MyDramaList 8.0 (1,314 ratings) | IMDb 7.7 (533 votes) | Douban 8.3
+- **Reviews**: [Baek Byung-yeul at The Korea Times](https://www.koreatimes.co.kr/entertainment/shows-dramas/20251202/the-dream-life-of-mr-kim-unpacks-midlife-crisis) calls it a consolation for middle-aged Koreans: "the emotional strength of the drama clearly came from Ryu's performance". [Irene Chen at Tatler Asia](https://www.tatlerasia.com/lifestyle/entertainment/the-dream-life-of-mr-kim-review-zh-hant) (in Chinese) likens it to an office documentary. It premiered to 2.9%; PTT fans say push through the first four episodes.
+- **Content**: Korea 15+. Light: mild swearing and some drunkenness.
+- **Length**: 12 episodes, finished.
+- **Watch first**: Adapted from Song Hee-gu's novel; no need to read it. The first four episodes are slow.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/82068378) (subscription)
+
+#### The Art of Negotiation
+
+A conglomerate's legendary M&A negotiator and his team work through one corporate takeover after another ([Wikipedia](https://en.wikipedia.org/wiki/The_Art_of_Negotiation)).
+
+- **Recommended by**: `B Cine21 series of 2025 #5` `F PTT KoreaDrama 2025 favourites thread` `G Hami Video 2025 dramas #4`
+- **Scores**: MyDramaList 8.0 (4,772 ratings) | IMDb 7.8 (891 votes)
+- **Reviews**: No signed major-outlet review could be found; [Karen Mansoldo at The Blossom Review](https://theblossomreview.com/the-art-of-negotiation-viki-review/) calls it "a business drama with a healthy dose of realism and an extraordinary use of subtext", one takeover every two episodes. [推坑人妻 at 電影神搜](https://news.agentm.tw/329775/) (in Chinese) found it picked up from episode 2.
+- **Content**: Korea 15+. No IMDb Parents Guide votes; a corporate drama with very light content.
+- **Length**: 12 episodes, finished.
+- **Watch first**: Nothing; it is an original. In Taiwan it is exclusive to Hami Video, not on Netflix.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/286760.do) (subscription, some episodes free)
+
+#### Undercover Miss Hong
+
+In 1997 Seoul, a 35-year-old financial inspector with a baby face poses as a 20-year-old new hire to go undercover at a suspicious brokerage ([Wikipedia](https://en.wikipedia.org/wiki/Undercover_Miss_Hong)).
+
+- **Recommended by**: `D #27 all-time Korean cable ratings (13.1%)` `F PTT KoreaDrama 2026 starter threads` `G 9 weeks on Netflix Taiwan's chart`
+- **Scores**: MyDramaList 8.3 (11,359 ratings) | IMDb 7.5 (1.9K votes)
+- **Reviews**: After episode 1, [Joel Keller at Decider](https://decider.com/2026/01/20/undercover-miss-hong-netflix-review/) said skip it: "There's too much going on in the first episode", though Park Shin-hye is strong. No Taiwanese review could be found. It then climbed from about 3.5% to around 13%, the widest gap here between first-episode reviews and final ratings.
+- **Content**: Korea 15+. No IMDb Parents Guide votes; mostly comedy.
+- **Length**: 16 episodes, finished.
+- **Watch first**: Nothing; it is an original. A 1997-set undercover office comedy, not a realistic workplace drama.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/82632108) (subscription)
+
+#### Hot Stove League
+
+A baseball team that has finished last four years running hires a general manager with no baseball experience but a record of championship teams, and he rebuilds it from the front office ([Wikipedia](https://en.wikipedia.org/wiki/Hot_Stove_League)).
+
+- **Recommended by**: `A Baeksang Best Drama 2020` `D #5 in 2020 ratings (19.1%)` `F PTT KoreaDrama starter threads`
+- **Scores**: MyDramaList 8.5 (16,148 ratings) | IMDb 8.2 (2.6K votes)
+- **Reviews**: No signed major-outlet review could be found; [Greg Wheeler at The Review Geek](https://www.thereviewgeek.com/stoveleague-s1review/) says it "seamlessly weaves character drama with political and societal issues", with little on-field action. [薇琪吳不負責任的報告書 at 電影神搜](https://news.agentm.tw/159691/) (in Chinese) calls it a true workplace drama. It rose from about 3% to 19.1%.
+- **Content**: Korea 15+. Light; IMDb contributors call the language clean.
+- **Length**: 16 episodes, finished.
+- **Watch first**: Nothing; it is an original. No baseball knowledge needed; it is set almost entirely in the front office. In Taiwan only friDay's buy-to-own version is confirmed; JustWatch also lists Netflix.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/1112) (buy to own)
+
+### A prison and a pub
+
+One is set in prison, the other in an Itaewon bar. Not typical workplaces, but both are about a group finding its feet somewhere unfamiliar.
+
+#### Prison Playbook
+
+A star pitcher about to join the Boston Red Sox goes to prison for injuring a man who attacked his sister, and has to adapt, train again and get to know his fellow inmates ([Wikipedia](https://en.wikipedia.org/wiki/Prison_Playbook)).
+
+- **Recommended by**: `C MyDramaList top Korean drama #19 (8.9)` `D #39 all-time Korean cable ratings (11.2%)` `F PTT KoreaDrama starter threads`
+- **Scores**: MyDramaList 8.9 (39,407 ratings) | IMDb 8.3 (6.5K votes)
+- **Reviews**: No signed major-outlet review could be found; [Vasia Orion at HanCinema](https://www.hancinema.net/hancinema-s-drama-review-prison-playbook-118114.html) calls it "the most unlikely feel-good series I can confidently vouch for". [廖佩玲 at Mirror Media](https://www.mirrormedia.mg/story/20180208insight007) (in Chinese) says stick with it past the odd start.
+- **Content**: Korea 15+ (HBO Max Taiwan 16+). Ordinary fights, nothing gory; drug addiction is one theme.
+- **Length**: 16 episodes, finished. Episodes run about 90 minutes.
+- **Watch first**: Nothing; it is an original from the Hospital Playlist team. A prison ensemble comedy, filed here for that team's workplace-ensemble style.
+- **Where to watch**: [HBO Max](https://www.hbomax.com/tw/zh/show/46d40a09-4e36-4b58-9bf2-09724440d82e) (subscription)
+
+#### Itaewon Class
+
+After his father dies in a crash caused by a chaebol heir, a young man goes to prison for revenge; released, he opens a bar in Itaewon and builds it up to take on the conglomerate ([Wikipedia](https://en.wikipedia.org/wiki/Itaewon_Class)).
+
+- **Recommended by**: `A Seoul International Drama Awards miniseries runner-up 2020` `C IMDb 8.1` `D #16 all-time Korean cable ratings (16.5%)`
+- **Scores**: MyDramaList 8.4 (104,421 ratings) | IMDb 8.1 (26K votes)
+- **Reviews**: [E. Alex Jung at Vulture](https://www.vulture.com/2020/04/itaewon-class-a-korean-drama-that-just-hits-different.html) calls it a remixed classic with an unusual supporting cast: "The show delivers that great salve of middlebrow television: It surprises and delights." [田育志 at 500輯](https://500times.udn.com/wtimes/story/12672/5276612) (in Chinese) says the four-year jump in episode 13 made the climb feel unearned.
+- **Content**: Korea 15+. Lots of drinking and partying, plenty of swearing in the subtitles; light violence.
+- **Length**: 16 episodes, finished.
+- **Watch first**: Adapted from a Daum webtoon; no need to read it. Revenge and start-up at heart, filed here because most of it is about running the bar.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81193309) (subscription, listed on JustWatch Taiwan)
+
+## Watch-later list
+
+| Show | Status |
+|---|---|
+| Hospital Playlist (슬기로운 의사생활) | Strong audience ratings and TV ratings, but only two types; Taiwan streaming not checked |
+| Nomusa Nomujin (노무사 노무진) | Fans and Taiwanese viewers recommend it; two types only; Taiwan streaming not checked |
+| Law and the City (서초동) | Fans and Taiwanese viewers recommend it; two types only; Taiwan streaming not checked |
+| Beyond the Bar (에스콰이어) | Fans and Taiwanese viewers recommend it; two types only; Taiwan streaming not checked |
+
+## Limits of this list
+
+- **Many English reviews cover only the first few episodes, and several come from outlets outside the usual list.** Agency, The Art of Negotiation, Hot Stove League and Prison Playbook rely on MediaCat, The Blossom Review, The Review Geek and HanCinema; for Resident Playbook only a Time background piece was found, not a review.
+- **No Taiwanese review of Undercover Miss Hong was found,** and its English review covers only episode 1.
+- **Douban for only 4 shows.** The Trauma Code, Resident Playbook, Extraordinary Attorney Woo and The Dream Life of Mr. Kim have quoted scores; the rest are left blank.
+- **New shows have few ratings.** The Dream Life of Mr. Kim has about 1,300 ratings on MyDramaList and 533 votes on IMDb.
+- **Licensed shows can disappear.** Taiwan evidence for Itaewon Class, Extraordinary Attorney Woo, Doctor Cha and Agency stops between 2020 and 2023, and Agency's licence on LINE TV has expired. Streaming links checked: 2026-11-08.
+
+## References
+
+- [Baeksang Arts Award for Best Drama(Wikipedia)](https://en.wikipedia.org/wiki/Baeksang_Arts_Award_for_Best_Drama)
+- [Blue Dragon Series Awards(Wikipedia)](https://en.wikipedia.org/wiki/Blue_Dragon_Series_Awards)
+- [The Best K-Dramas of 2025(Time)](https://time.com/7340988/best-k-dramas-2025/)
+- [The Best K-Dramas of 2024(Time)](https://time.com/7201080/best-k-dramas-2024/)
+- [The Best Korean Dramas on Netflix in 2023(Time)](https://time.com/6549115/best-korean-dramas-netflix-2023-2/)
+- [씨네21 올해의 시리즈 2025(Cine21)](https://cine21.com/news/view/?mag_id=109072) (in Korean)
+- [씨네21 올해의 시리즈 歷年整理(namu.wiki)](https://namu.wiki/w/씨네21/올해의%20시리즈) (in Korean)
+- [MyDramaList: Top Korean Dramas](https://mydramalist.com/shows/top_korean_dramas)
+- [Korean drama: highest-rated series on cable television(Wikipedia)](https://en.wikipedia.org/wiki/Korean_drama)
+- [What We Watched: the First Half of 2025(Netflix)](https://about.netflix.com/en/news/what-we-watched-the-first-half-of-2025)
+- [FUNdex Awards 2024](https://www.fundex.co.kr/award24.html) (in Korean)
+- [PTT KoreaDrama: favourite K-dramas of 2025](https://www.ptt.cc/bbs/KoreaDrama/M.1765265708.A.DA2.html) (in Chinese)
+- [PTT KoreaDrama: shows that won me over (2026)](https://www.ptt.cc/bbs/KoreaDrama/M.1772100829.A.023.html) (in Chinese)
+- [PTT KoreaDrama: 2023 Taiwanese readers' K-drama poll (repost of LINE TODAY)](https://www.ptt.cc/bbs/KoreaDrama/M.1704596717.A.CD9.html) (in Chinese)
+- [Dcard TV board: year-end picks 2025](https://www.dcard.tw/f/tvepisode/p/260362037) (in Chinese)
+- [Dcard TV board: K-drama recommendations (ongoing)](https://www.dcard.tw/f/tvepisode/p/258766809) (in Chinese)
+- [LINE TODAY Spotlight Awards: top 10 series of 2025 (LINE press release)](https://www.linecorp.com/ko/pr/news/2025/1217) (in Chinese)
+- [LINE TODAY Spotlight Awards: K-dramas of 2025](https://today.line.me/tw/v3/article/Vx5eVE2) (in Chinese)
+- [Netflix Top 10: Taiwan weekly TV chart](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [JustWatch Taiwan](https://www.justwatch.com/tw)
