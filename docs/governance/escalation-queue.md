@@ -634,3 +634,10 @@
 - 登錄：2026-11-10（來源：daily-digest-ai-interview routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
 - 本次產出：週二 Deep Learning & NLP 主題，取 PracHub 整理的 NVIDIA Software Engineer「Explain Transformers and QKV matrices」真題，聚焦原題第五部分（positional encoding、multi-head）與延伸追問（KV cache、O(n²) 複雜度），刻意避開 11-03 已練過的 Q/K/V 基礎推導與 BERT/GPT 比較。中英雙版，series order 83，含 1 張 flow-diagram（KV cache 自迴歸解碼流程，中英各一）。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-10-ai-interview-daily{,-en}.md`、`.work/daily-log/2026-11-10/daily-digest-ai-interview.md`，皆已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-geometry` 全部通過（`diagram-preview` 因無瀏覽器被跳過，環境缺 headless chromium 執行檔），已 `git add` 留在暫存區未 commit，等 Q-051 解除後直接補 commit，不需重寫內容或重跑查證。
+
+### Q-051 補充：daily-digest-product-interview routine 也撞上同一紅燈
+
+- 登錄：2026-11-10（來源：daily-digest-product-interview routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 本次產出：Product Builder 面試日練 Metrics & Analytics 主題（星期二固定主題，interview-focus.json 權重全為 1 未加權），series order 83。核心框架是北極星指標四層拆解（Breadth/Depth/Frequency/Speed，附 1 張樹狀圖）與指標信任檢查流程（Goal → Decision → Metric tree → Instrumentation → Guardrails → Review cadence）；練習題「Engagement 上升但 retention 持平」；案例是 Spotify 選「收聽時間」而非「註冊數」當北極星指標。中英雙版已寫好並互連，單獨跑過 `check:references`／`check:lang-parity`／`check:series-order` 全部通過；`check:tw` 原本擋下中文版 4 處「用戶」（A 級），已全改為「使用者」後重跑確認過；`check:diagram-geometry` 兩版皆通過；`diagram-preview`——本次 session 一開始 `node_modules` 是空的，已 `pnpm install --frozen-lockfile` 補齊，但 `/opt/pw-browsers` 只預裝 chromium-1243（無 `@playwright/test` 1.58.2 要的 headless_shell-1208），改用 `chromium.launch({ executablePath: '/opt/pw-browsers/chromium' })` 臨時 patch `scripts/diagram-preview.ts` 跑完驗證（英文版因標籤過長先縮短四個子節點文字才過）後用 `git checkout` 還原腳本，未留在 repo；兩版截圖皆已用 Read 工具目視確認過排版。
+- **注意：series order 83 與同日 daily-digest-ai-interview routine 撞號**（見上一條目，兩個不同系列各自的 order 83，不是同一系列撞號，不影響 `check:series-order`，但提醒接手者這是巧合不是錯誤）。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-product-builder-interview-daily{,-en}.md`、`.work/daily-log/2026-11-10/daily-digest-product-interview.md` 留在工作目錄已 `git add` 暫存，等 Q-051 解除後直接 `git commit` 補上，不需重跑查證或重新翻譯。
