@@ -617,3 +617,8 @@
 - 登錄：2026-11-10（來源：daily-digest-tool routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-10-tool-0security{,-en}.md`（工具推薦｜0，0sec-labs/0 的開源 AI 資安 harness，中英雙版＋1 張架構圖）、`.work/daily-log/2026-11-10/daily-digest-tool.md`，皆已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-geometry` 全部通過（`diagram-preview` 因無瀏覽器被跳過），留在工作目錄未 commit，等 Q-051 解除後直接補 commit，不需重新選案或重寫內容。
 - 額外排除紀錄：本次搜尋候選中 `Nanoutrolley/roblox-studio-mcp`（GitHub 當日新建、280 stars）經複製檢視後確認是假星／惡意倉庫——README 宣稱 Node/TypeScript MCP server，實際內容只有兩個不相關的 Python stub 檔，「Quick Start」要求從 telegra.ph 連結下載並執行 `ProjectFiles.exe`，未採用，留此記錄避免其他 routine 重複踩雷。
+
+### Q-051 補充：daily-digest-funding routine 也撞上同一紅燈
+
+- 登錄：2026-11-10（來源：daily-digest-funding routine 執行 `pnpm verify:staged`，暫存新文章時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-funding-nominal{,-en}.md`（Nominal Series C $240M）、`src/content/posts/daily/2026-11-10-funding-coframe{,-en}.md`（Coframe Series A $25M）、`.work/daily-log/2026-11-10/daily-digest-funding.md`——已單獨跑過 `node scripts/check-post-references.mjs`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過，`diagram-preview` 因環境無瀏覽器被 skip（Nominal 文章含分層架構圖）。四篇文章檔案已 stash 暫存，等 Q-051 解除後直接 `git stash pop` 補 commit，不需重跑查證。
