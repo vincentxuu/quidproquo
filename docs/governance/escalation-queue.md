@@ -16,11 +16,12 @@
 
 ---
 
-## Q-050 ⏳ 待處理：課程影片查核日期 862 項過期，CI 完整 verify 擋住 deploy
+## Q-050 ⏳ 待拍板：剩 46 篇課程影片查核過期，卡在既有 process-leak（CI 仍擋 deploy）
 - 登錄：2026-11-09（來源：對話）
-- 做什麼：約 40 門課在 2026-10-10 同一天查核，2026-11-09 一起超過 30 天。`pnpm -s check:course-videos` 列出清單（862 項，含 `scripts/config/course-videos.json` 的 cmu-11768 項目），依 post-update skill「課程影片狀態」逐門課回原始來源即時重查：仍無錄影就更新查核日期與更新紀錄，找到錄影就嵌入。CS329Z 的 week5／7／8／9／11 五組已在 2026-11-09 重查。
-- 為什麼現在不能做：約 860 檔批次改動（Tier 2），而且每門課都要即時重查，不能只改日期。2026-11-09 起 pre-commit 只擋暫存文章的過期項目（`--stale-scope`），其餘印 WARN，所以不再卡住無關的 commit；但 CI 的完整 `pnpm verify` 照樣擋 deploy，在清完之前站上不會更新。
-- 接手第一步：依課程分組（stanford-cs111／cs103、cmu-11785／07280 最多），每門課重查一次、同課所有講次一起改。之後錯開各課查核日期，避免再同日過期；verify 在過期前 7 天會先印 WARN。
+- 進度：2026-11-09 已逐門即時重查 40 門課，820 篇更新查核日期（commit 4c94a500a）。剩下 46 篇的查核日期也已在工作區改好、重查結論相同，但這些文章原本就有 process-leak（「附錄：數字與查證方式」「這一篇可以確認與不能確認的」「逐頁核對清單」整節，少數另有 404／查不到句型），暫存後被 pre-commit 逐篇擋下，所以沒有 commit。清單：`node scripts/check-process-leak.mjs $(git diff --name-only -- src/content/posts)`。
+- 要拍板：照 writing-guide「查證過程不寫進正文」把那些整節移到 `.work/<slug>/evidence.md`、會影響讀者的限制併回正文，是約 46 篇的內容改動（刪讀者看得到的整節）。修完這 46 篇，`check:course-videos` 才會全綠，deploy 才會解除阻擋。
+- 另一件：CME295 2026 第 4、5 講（`cme295-rl-with-llms`、`cme295-llm-systems`）原錄影已上架，文章是課前預寫版，承諾上架後依錄影與 2026 投影片更新。要用 post-update 依字幕改寫正文，再把錄影移到導言、狀態改「已附影片」。
+- 接手第一步：工作區那 46 篇已改好日期，先逐篇處理 process-leak，再一起 commit。
 
 ## Q-047 ⏳ 待拍板：commit 2026-11-03 AI 日報格式優化被 pre-existing red check 阻擋
 - 登錄：2026-11-04（來源：與使用者對話，日報格式優化任務）
