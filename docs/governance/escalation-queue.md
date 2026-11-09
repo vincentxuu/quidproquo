@@ -16,6 +16,12 @@
 
 ---
 
+## Q-050 ⏳ 待拍板：任何文章 commit 都被 check:course-videos 的 876 筆「查核日期超過 30 天」擋住
+- 登錄：2026-11-09（來源：寫 life/天然猛健樂 兩篇文章，pre-commit 跑 `pnpm verify:staged` 紅 1 燈）
+- 做什麼：commit 已暫存的 3 個檔案（`src/content/posts/life/2026-11-09-natural-mounjaro-food-trend.md`、`-en.md`、`.work/2026-11-09-natural-mounjaro-food-trend/evidence.md`）並 push 到 `claude/tender-mendel-it0ezo`。文章本身的檢查（check:tw、references、post-quality、process-leak、lang-parity、lint）全綠，`astro check` 加大記憶體後 0 errors。
+- 為什麼現在不能做：`verify.mjs` 的 `stagedPlan()` 只要暫存區含文章，就固定跑全站的 `check:course-videos`。目前它有 876 個問題，主要是約 80 篇課程文章的影片查核日期（`scripts/config/course-videos.json` 的 `checkedAt` 為 2026-10-10 前後）今天剛滿 30 天。用 `git stash -u` 把本次新檔移開後重跑，仍是 876 筆，所以與本次內容無關。要消掉它必須回原始來源（播放清單、講師頻道）逐一重查影片狀態；只改日期不重查等於偽造查核，屬於弱化檢查，不准；`--no-verify` 也不准。這是批次重查（遠超 20 檔），需要使用者決定。
+- 接手第一步：選一條路：(1) 使用者指定先重查課程影片，依 `.agents/skills/post-update/SKILL.md`「課程影片狀態」更新 `course-videos.json` 後 commit；(2) 使用者明確授權對這次 commit 使用 `--no-verify`（CI 的完整 verify 仍會紅，deploy 前仍要先解決）；(3) 使用者決定調整 `genericStaleAfterDays` 或 stagedPlan 的作法（Tier 2：改驗證器）。三者擇一後，執行 `git commit -- <上述 3 個路徑>` 並 push。這 3 個檔案目前保留在暫存區，沒有被刪或還原。
+
 ## Q-047 ⏳ 待拍板：commit 2026-11-03 AI 日報格式優化被 pre-existing red check 阻擋
 - 登錄：2026-11-04（來源：與使用者對話，日報格式優化任務）
 - 做什麼：commit 已 staged 的 4 個檔案（src/content/posts/daily/2026-11-03-ai-agent-daily.md zh-TW、2026-11-03-ai-agent-daily-en.md、.agents/skills/daily-digest-report/SKILL.md、.claude/skills/daily-digest-report/SKILL.md），內容為日報表格化＋三層監督機制圖＋en 版同步＋daily-digest-report 模板表格化。
