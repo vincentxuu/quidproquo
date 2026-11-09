@@ -589,3 +589,9 @@
 - 接手第一步：先查 `git log -p --follow -- src/content/posts/climbing/2026-10-12-japan-crag-odo-kaigan.md` 確認分級表何時長到 90 列（可能與 progress.txt 提到的「大堂海岸模板優化 2026-10-26」或攀岩裝備系列並行工作有關）；若分級表擴充屬實且合理，請負責攀岩內容的使用者/session 依 `scripts/check-crag-coverage.mjs` 規則重新搜尋路線影片並更新兩篇審稿紀錄（含覆蓋率 <30% 的說明行）；若擴充本身有誤（例如誤合併、重複列），應先修正分級表再重算。修好後 `git add src/data/daily-signals/benchmark-snapshot.json && git commit` 即可補上，不需重跑 benchmark 查證（數字已在本條目與 progress.txt 寫好）。
 - 本次已完成的拆分：`verify.mjs` 的 `stagedPlan()` 只把 `src/content/posts/**/*.md`、`.agents|.claude/skills/**/*.md`、`docs/**/*.md`、`.work/`、`progress.txt` 視為安全路徑，`src/data/daily-signals/benchmark-snapshot.json` 不在其中、一律退回完整 verify，才踩到上述 pre-existing 紅燈。因此本次只 commit `progress.txt`（＋本條目），`benchmark-snapshot.json` 的異動留在工作目錄不 commit；內容數字已完整寫入本條目與 progress.txt 新條目，之後直接 `git add` 補 commit 即可，不是遺失資料。
 - **解除**：上方「2026-11-04：部署品質閘門修復待發布核准」條目已修好 `.work/reviews/2026-10-12-japan-crag-odo-kaigan.md`／`.work/reviews/2026-10-21-korea-crag-seoninbong.md` 的影片統計並 commit／push（`d8a65ed`），`check:crag-coverage` 恢復綠燈。`benchmark-snapshot.json` 現在可以直接補 commit，不需再等。
+
+### Q-051 補充：另一次撞上同一紅燈（daily-digest-security routine）
+
+- 登錄：2026-11-10（來源：daily-digest-security routine 執行 `pnpm verify:staged`，暫存新文章時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 額外發現：`progress.txt` 當時（約 2026-10-28／30）記的「同日一併提交島島兩篇與 `daodao-community-ops` 定義，`check:series-plan` 由紅轉綠」與目前 repo 狀態不符——`git log --all --diff-filter=A --name-only` 查不到 `.work/series-plans/daodao-community-ops.md` 或任何 `.work/reviews/2026-10-29-daodao-*.md` 曾被新增過；該次 commit（`d0b3809`）的上層合併記錄寫著用了 `--no-verify`。規劃表與審稿紀錄很可能從未真的寫出，只是 progress.txt 誤記已完成，供接手者排查時參考。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-security-operation-snowball-deepseek-telecom-breach{,-en}.md`（Operation Snowball 資安警報，中英雙版，已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-geometry` 全部通過）留在工作目錄未 commit，等 Q-051 解除後直接補 commit，不需重跑查證。
