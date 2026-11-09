@@ -579,6 +579,12 @@
 - 使用者已於 2026-11-04 回覆「commit push」，核准推送此修復並觸發正式部署。未修改 workflow、驗證器或文章內容；部署結果仍待 Actions 確認。
 - 接手入口：`.work/deploy-fix-20261104/plan.md`、`verify.log`；只帶入本輪兩份審稿紀錄與必要工作紀錄，保留其他 session 改動。較早 embedding 超長問題另見上方 2026-11-01 條目。
 
+### Q-051 補充：第四次撞上同一紅燈（daily-digest-arxiv routine）
+
+- 登錄：2026-11-10（來源：daily-digest-arxiv routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 額外確認：`scripts/check-series-plan.mjs` 的規劃表檢查不吃傳入參數（獨立不帶參數跑一樣是紅），且 `scripts/verify.mjs` 的 `stagedPlan()` 只要 `posts.length > 0` 就一定跑 `series-plan (staged)`——跟 Q-049（crag-coverage）不同，這次即使只保留 `isSafe` 清單內的安全路徑檔案（文章＋`.work/`），只要還有一篇 `.md` 文章，依然會因 daodao 系列而紅，無法靠拆分暫存範圍規避。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-ai-agent-arxiv-digest{,-en}.md`（選中 Flex-RSI arXiv:2611.08946、Beneath the Surface arXiv:2611.07624、Aegis OS arXiv:2611.08516，已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過，`diagram-preview` 因無瀏覽器被跳過）、`.research/daily-arxiv-screening/2026-11-10.json`、`src/data/daily-signals/seen-arxiv-ids.txt` 的對應更新、`.work/daily-log/2026-11-10/daily-digest-arxiv.md`，皆留在工作目錄未 commit，等 Q-051 解除後直接補 commit，不需重新研究選案。
+
 ## Q-049 ✅ 已解除（2026-11-04，由上方「部署品質閘門修復」處理）：daily-digest-benchmark commit 被 pre-existing crag-coverage red check 擋住
 - 登錄：2026-11-04（來源：daily-digest-benchmark routine 執行時，`pnpm verify:staged` 因暫存區含 `src/data/daily-signals/benchmark-snapshot.json`（資料檔）自動升級成完整 verify）
 - 做什麼：commit 本次 benchmark 無異動快照更新（僅 `progress.txt` 與 `src/data/daily-signals/benchmark-snapshot.json` 兩檔，與攀岩內容無關）。
