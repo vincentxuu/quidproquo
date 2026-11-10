@@ -68,7 +68,7 @@ Haystack v3.4.0 added an experimental `ToolResultOffloadCompactor` that offloads
 
 ### Business Cases / Funding / M&A
 
-**Anthropic**: FT reported it told investors Q3 revenue hit $16.8bn, growing nearly 50% year over year with an 11% adjusted operating margin; distillation usage, 5-7% of revenue, was sharply cut back in Q3 ahead of its IPO. ([source](https://www.ft.com/content/11632d03-358c-454b-af95-d06d4072932b))
+**Anthropic**: FT reported it told investors Q3 revenue hit $16.8bn, growing about 45% from Q2 with an 11% adjusted operating margin; distillation usage, 5-7% of revenue, was sharply cut back in Q3 ahead of its IPO. ([source](https://www.ft.com/content/11632d03-358c-454b-af95-d06d4072932b))
 
 **Confido Health**: the healthcare-admin agent company closed a $12.5M Series A extension, bringing its cumulative raise to $22.5M, growing 15x by treating private-equity portfolios as its distribution channel — full story in today's funding brief. ([Funding brief](/posts/daily/2026-10-16-funding-confido-health-en))
 
@@ -140,6 +140,10 @@ Haystack v3.4.0 added an experimental `ToolResultOffloadCompactor` that offloads
 ## Today's Takeaway
 
 I used to think open-weight models always trailed frontier models by some lag. Seeing Muse Spark Open land on AWS SageMaker JumpStart the same day it shipped made me realize open-weight release cadence has now synced up with commercial cloud supply chains — it's no longer a second-class citizen integrated only after the fact.
+
+## Update Log
+
+- 2026-11-07: Corrected the basis of Anthropic's Q3 growth, which was misstated as year over year.
 
 ## References
 

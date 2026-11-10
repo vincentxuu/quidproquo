@@ -59,12 +59,6 @@ Each row cites the public route list. Most entries lack length and pitch informa
 
 
 
-```video-gallery
-key: japanYamadera
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Even lower grades involve long or intersecting lines. One first-visit account wandered from Nigemakutte into Daikoshin.
@@ -78,6 +72,12 @@ Even lower grades involve long or intersecting lines. One first-visit account wa
 | 「ブラック＆ブルー」 | 5.10a | 5.10a | not listed | 直角ハング | Sources: [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 | 「夏の扉」 | 5.10a | 5.10a | not listed | 直角ハング | Sources: [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 | 「４８ライナー（ヨンパチライナー）」 | 5.10a | 5.10a | not listed | 黒岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/71/routes) |
+
+```video-gallery
+key: japanYamadera
+lang: en
+layout: routes
+```
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
@@ -118,6 +118,12 @@ Endurance and rests matter on Ichiban, Camel and related routes. Plan the sector
 | 「若菜」 | 5.11a | 5.11a | not listed | 黒岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 | 「くろえもんクラック」 | 5.10b | 5.10b | not listed | 黒岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/71/routes); crack entry; confirm removable protection |
 
+```video-gallery
+key: japanYamadera
+lang: en
+layout: routes
+```
+
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 
 Advanced lines span Sennindo and other sectors. Check named routes against dated reports rather than assuming grades and conditions stayed unchanged.
@@ -146,6 +152,12 @@ Advanced lines span Sennindo and other sectors. Check named routes against dated
 | 「帰ってきた松」 | 5.12b | 5.12b | not listed | 黒岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 | 「岩ひばとうちゃん」 | 5.12c | 5.12c | not listed | 黒岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 
+```video-gallery
+key: japanYamadera
+lang: en
+layout: routes
+```
+
 ### Expert: 8a and up (YDS 5.13b and up)
 
 Hard-route records are fewer. Check rock, hardware and current local information instead of inheriting an old trip’s dry conditions.
@@ -155,6 +167,12 @@ Hard-route records are fewer. Check rock, hardware and current local information
 | 「夢」 | 5.13c | 5.13c | not listed | 仙人堂・苦四楽岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 | 「正夢」 | 5.13b | 5.13b | not listed | 御前岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 | 「OneMove」 | 5.13c | 5.13c | not listed | 御前岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/71/routes) |
+
+```video-gallery
+key: japanYamadera
+lang: en
+layout: routes
+```
 
 ## Where to look things up
 

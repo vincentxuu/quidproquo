@@ -25,13 +25,16 @@ Chinese register scan: 2 long sentences, no template contrast phrases, no generi
 
 ## 模板覆蓋
 
-| 路線影片 | 查過沒有 |
+| 路線影片 | 已做：現有圖庫收錄 24 支公開影片；與分級表對照覆蓋 19／90 列。 |
 | 經典線 | 已做 |
 | 網路上的路線紀錄 | 已做 |
 
-影片統計：查詢 0 組；候選 0 支；收錄 0 支；有影片的路線 0／10 列
-影片覆蓋說明：此岩場為冷門海崖裂隙區，未發現公開攀登影片，故路線影片覆蓋為 0／10。
+影片統計：查詢 98 組；候選 1630 支；收錄 24 支；有影片的路線 19／90 列
+影片覆蓋說明：依 `.work/odo-kaigan/plan.md` 的既有研究範圍，查詢 98 組並掃描 11 個頻道、1630 支 uploads（候選母群，非逐支內容核對）。目前圖庫 24 支影片覆蓋分級表 19／90 列；未對上的列不推定有影片，也不再沿用「未發現公開攀登影片」的舊結論。
+
+2026-11-04 本機一致性修正：以現有中英文文章、`src/data/climbing-videos.ts`、`video-evidence.json` 及上述研究紀錄回算；未新增公開搜尋、未重看影片。上方歷史審稿結論保留其原查核範圍，不代表本次重新查證。
 
 ## Checks
+
 
 Final pnpm verify passed, including astro check, lint, references, language parity and grades. See .work/odo-kaigan/verify-final.log. Series grade scan:44 files,244 rows,no issues; legacy articles without route tables skipped. Source recheck:3 baselines,1 script404; Exa readback succeeded on same CLIMBING-net content. No publication performed.

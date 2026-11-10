@@ -55,12 +55,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 清單收錄已核讀 ROCKTOPO 表中全部 60 條有級數資料，不含未定級條目；其他已核實來源及差異附在原列。完整 topo 與現行使用公告仍要另外攜帶、確認。
 
-```video-gallery
-key: japanShimanePeninsula
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：6a 以下（YDS 5.10a 以下）
 
 先在 topo 找到「片句・高城鼻の岩場」、「手結ノ裏膳棚」的線位。先確認保護與落地，不把低級數當作低風險。
@@ -125,6 +119,12 @@ layout: routes
 | 「トリートメントプラント」 | 5.11c | 5.11c | 未列 | 魚瀬の岩場 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/151/routes)；ROCKTOPO 單一出處。 |
 | 「クラックルート」 | 5.10b | 5.10b | 未列 | 魚瀬の岩場 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/151/routes)；ROCKTOPO 單一出處。 |
 
+```video-gallery
+key: japanShimanePeninsula
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 
 先在 topo 找到「地合の岩場」、「沖泊の岩場」的線位。核心級數以外，也把岩面狀態與保護安排納入決定。
@@ -140,6 +140,12 @@ layout: routes
 | 「ソドム」 | 5.11d | 5.11d | 未列 | 沖泊の岩場 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/151/routes)；ROCKTOPO 單一出處。 |
 | 「気狂いピエロ」 | 5.11d | 5.11d | 未列 | 沖泊の岩場 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/151/routes)；ROCKTOPO 單一出處。 |
 | 「灼熱金太」 | 5.12a | 5.12a | 未列 | 沖泊の岩場 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/151/routes)；ROCKTOPO 單一出處。 |
+
+```video-gallery
+key: japanShimanePeninsula
+lang: zh-TW
+layout: routes
+```
 
 ### 高手：8a 以上（YDS 5.13b 以上）
 

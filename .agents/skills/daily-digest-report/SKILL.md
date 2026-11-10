@@ -34,8 +34,8 @@ cat src/data/agent-watchlist.json | jq '.companies | length'
 # E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 跳過（本 skill 已在 Step 5 同時產出中英雙版）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -163,7 +163,7 @@ max_results: 10
 | 技術進展 | 有 arxiv digest 或 `framework-release` 信號 | 無技術新聞 |
 | 商業案例/融資/併購 | 有 `funding` / `acquisition` / `enterprise-deployment` 信號 | 無商業新聞 |
 | 資安事件與防禦技術 | 有 `security-incident` 信號或 security post | 無資安事件 |
-| 法規與治理 | 有 `regulation` 信號 | 無法規新聞 |
+| 法規與治理 | 有 `regulation` 信號，或其他類別的信號主要在談 agent 治理（身分、權限、稽核）；同一件事全篇只寫一次 | 無法規或治理新聞 |
 | 全球區域動態 | 有 `region-news` 信號、區域公司／政策動態，或 Step 4e 補掃命中 | 無合格區域新聞 |
 | 觀察與洞察 | **必寫** | — |
 | 今日收穫 | **必寫** | — |
@@ -486,4 +486,4 @@ zh-TW 版至少在「一句話判斷」「深度分析」「今日收穫」「�
 - [ ] `draft: false` 已明確寫出
 - [ ] `description` 是一句判斷（不是事件列表）
 - [ ] 文末有「## 參考資料」區段，格式 `- [標題](URL)`（`pnpm check:references` 會擋）
-- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

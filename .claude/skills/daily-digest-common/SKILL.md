@@ -1,6 +1,6 @@
 ---
 name: daily-digest-common
-description: "Shared commit epilogue for all daily-digest skills: diagram pass, en translation, progress.txt update, targeted verify, then commit/push."
+description: "Shared commit epilogue for all daily-digest skills: diagram pass, en translation, per-routine daily-log file (never progress.txt), targeted verify, then commit/push."
 ---
 
 # daily-digest-common — 共用提交尾聲
@@ -17,7 +17,7 @@ description: "Shared commit epilogue for all daily-digest skills: diagram pass, 
 
 - 常見對應：論文方法／系統架構 → 架構圖或流程圖；框架新版的控制流改變 → 前後對照；多個工具／模型／方案比較 → 比較矩陣或象限圖；資安事件的攻擊鏈、發布時程 → 循序圖或時間軸；定價前後 → 前後對照或長條圖。
 - 圖只能畫正文已寫、有來源的內容；不確定的關係不畫實線。
-- 純新聞條列、沒有結構可畫的段落不硬畫。真的整篇都沒有適合的段落，在 progress.txt 本次條目寫「圖解：無適合段落」，不用另外說明。
+- 純新聞條列、沒有結構可畫的段落不硬畫。真的整篇都沒有適合的段落，在 daily-log 本次紀錄寫「圖解：無適合段落」，不用另外說明。
 - 已同時產出中英雙版的 skill（daily-digest-report、daily-digest-arxiv），兩版都要放同一張圖（座標相同，只換文字）；其他 skill 先畫在中文版，E1 的 `post-translate` 會把圖一起翻過去。
 
 ### E1：產英文版
@@ -43,14 +43,18 @@ node scripts/check-post-references.mjs -- "${ZH_FILE}" "${EN_FILE}"
 
 修完後重跑確認 0 WARN。
 
-### E3：更新 progress.txt
+### E3：寫當日 routine 紀錄（不碰 progress.txt）
+
+每支 routine 只寫自己的檔：`.work/daily-log/${TODAY}/${SKILL_NAME}.md`（`SKILL_NAME` 是 skill 名稱，例如 `daily-digest-arxiv`）。
 
 ```bash
-# 更新 Last updated 行
-sed -i '' "s/^Last updated:.*/Last updated: $(TZ=Asia/Taipei date +%Y-%m-%d)/" progress.txt
+mkdir -p ".work/daily-log/${TODAY}"
+# 用 Write 工具寫 .work/daily-log/${TODAY}/${SKILL_NAME}.md
 ```
 
-同時在 `Recently completed` 區段補一行描述本次產出（一句話即可）。若 progress.txt 超過 85 行，先把最舊的 `Recently completed` 條目移到 `docs/progress-archive.md`。
+內容：一句話寫本次產出（或「無合格事件，未產出」），再條列例外，例如 `toolDegradation`、「圖解：無適合段落」、「diagram-preview 未跑：無瀏覽器」、install 錯誤、跳過的檢查。查證細節、候選清單這類過程不用寫，commit message 和文章本身就是紀錄。
+
+**不准改 `progress.txt` 或 `docs/progress-archive.md`**（`pnpm verify` 會擋 `progress.txt` 出現 `daily-digest-*` 條目）。理由：一天十支 routine 都改 `progress.txt` 同幾行，本機只要有沒推的 commit 碰到它，pull 必衝突（2026-11-09 一次 merge 衝突、合併後 91 行超上限就是這樣來的）。一支 routine 一個檔，彼此不會撞。真的需要人處理的事照舊登錄 `docs/governance/escalation-queue.md`。
 
 ### E4：環境準備 + targeted verify
 
@@ -60,7 +64,7 @@ sed -i '' "s/^Last updated:.*/Last updated: $(TZ=Asia/Taipei date +%Y-%m-%d)/" p
 pnpm install --frozen-lockfile
 ```
 
-- routine 的 `sources` 已含 `lanefoundry/gatelane`（2026-09-21 起），`@lanefoundry/gatelane-sdk` 裝得起來。若 install 失敗，把錯誤前 5 行寫進 progress.txt 本次條目，**照樣往下跑能跑的檢查**（`check:tw` 不需要任何依賴，一定要跑），不要嘗試修環境。
+- routine 的 `sources` 已含 `lanefoundry/gatelane`（2026-09-21 起），`@lanefoundry/gatelane-sdk` 裝得起來。若 install 失敗，把錯誤前 5 行寫進 daily-log 本次紀錄，**照樣往下跑能跑的檢查**（`check:tw` 不需要任何依賴，一定要跑），不要嘗試修環境。
 - 裝完後 `simple-git-hooks` 會把 pre-commit（= `pnpm verify`）裝進 `.git/hooks/`。這是預期行為，commit 會因此多跑 2–3 分鐘 `astro check`，等它跑完。
 
 **硬規則（Tier 3，違反等於這次 routine 失敗）**：
@@ -79,17 +83,14 @@ pnpm check:series-order  # series order 撞號擋 commit
 # 有 diagram／flow-diagram 區塊的新檔，中英各跑一次（沒有區塊的檔案不要跑，腳本會回 exit 2）
 grep -lE '^```(diagram|flow-diagram)$' src/content/posts/daily/${TODAY}-*.md | while read f; do
   pnpm exec tsx scripts/diagram-preview.ts "$f" --out "/tmp/diagram-preview/$(basename "$f" .md)" --skip-if-no-browser
-done
-# progress.txt 格式
-grep -q "^Last updated: [0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}" progress.txt || echo "FAIL: progress.txt missing Last updated line"
-```
+done```
 
-五項加 diagram-preview 都必須 0 error／0 blocking 才繼續（diagram-preview 有 ✗ 就修圖；環境沒有瀏覽器而被 skip 時，在 progress.txt 本次條目註明「diagram-preview 未跑：無瀏覽器」）。有 error 就修，不准 `--no-verify` 繞過。`check:tw` 的 `[WARN]` 是 B 級看語境，`[ERROR]` 才擋。
+四項加 diagram-preview 都必須 0 error／0 blocking 才繼續（diagram-preview 有 ✗ 就修圖；環境沒有瀏覽器而被 skip 時，在 daily-log 本次紀錄註明「diagram-preview 未跑：無瀏覽器」）。有 error 就修，不准 `--no-verify` 繞過。`check:tw` 的 `[WARN]` 是 B 級看語境，`[ERROR]` 才擋。
 
 ### E5：commit + push
 
 ```bash
-git add src/content/posts/daily/${TODAY}-*.md progress.txt
+git add src/content/posts/daily/${TODAY}-*.md ".work/daily-log/${TODAY}/${SKILL_NAME}.md"
 git commit -m "post(daily): ${COMMIT_SUBJECT} ${TODAY}"
 git push origin main || { git pull --rebase origin main && git push origin main; }
 ```

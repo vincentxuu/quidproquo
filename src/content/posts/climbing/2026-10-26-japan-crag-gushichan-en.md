@@ -55,12 +55,6 @@ Video labels follow uploader metadata, and may use different grades or versions.
 
 The inventory includes all 115 graded entries in the opened ROCKTOPO list, excluding ungraded entries; additional verified sources and discrepancies are attached to the relevant rows. It is not a substitute for the full topo or current access notices. The [theCrag parent page](https://www.thecrag.com/en/climbing/japan/okinawa/area/6679206927) separately advertises 158 boulders; its complete sector-by-sector list was not readable in this research, so the table does not claim to reproduce all 158. Check a complete local topo before choosing lesser-known problems.
 
-```video-gallery
-key: japanGushichan
-lang: en
-layout: routes
-```
-
 ### Getting started: 6-kyu and easier
 
 Start by locating 多和田岩・ぜんざい岩, 出前岩 in the topo. Check protection and landings; a low grade does not establish low risk.
@@ -73,6 +67,12 @@ Start by locating 多和田岩・ぜんざい岩, 出前岩 in the topo. Check p
 | 「ひろおマントル」 | 6級 | — | — | ゴーヤ岩、チョックストーン、ザ・ルーフ | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；single source; no reverse conversion. |
 | 「豆腐トラバース」 | 6級 | — | — | トーフ岩・モズク岩 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；single source; no reverse conversion. |
 | 「トラバース」（無名岩・マントル岩） | 6級 | — | — | 無名岩・マントル岩 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；single source; no reverse conversion. |
+
+```video-gallery
+key: japanGushichan
+lang: en
+layout: routes
+```
 
 ### Intermediate: 5-kyu to 3-kyu
 
@@ -123,6 +123,12 @@ Start by locating ゴーヤ岩、チョックストーン、ザ・ルーフ, ト
 | 「ちゃぶ台返し」 | 5級 | — | — | 無名岩・マントル岩 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；single source; no reverse conversion. |
 | 「炎天下」 | 4級 | — | — | 無名岩・マントル岩 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；single source; no reverse conversion. |
 
+```video-gallery
+key: japanGushichan
+lang: en
+layout: routes
+```
+
 ### Advanced: 2-kyu to 1-kyu
 
 Start by locating ゴーヤ岩、チョックストーン、ザ・ルーフ, ミチゾウ岩 in the topo. Consider rock condition and protection alongside the crux grade.
@@ -160,6 +166,12 @@ Start by locating ゴーヤ岩、チョックストーン、ザ・ルーフ, ミ
 | 「グレート王様」 | 2級 | — | — | 王様 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；single source; no reverse conversion. |
 | 「いつか王子様が」 | 1級 | — | — | 王様 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；single source; no reverse conversion. |
 
+```video-gallery
+key: japanGushichan
+lang: en
+layout: routes
+```
+
 ### Expert: shodan and above
 
 Start by locating チェイサー岩, ゴーヤ岩、チョックストーン、ザ・ルーフ in the topo. Confirm the version and access status; unfinished projects do not fill gaps in the inventory.
@@ -185,6 +197,12 @@ Start by locating チェイサー岩, ゴーヤ岩、チョックストーン、
 | 「チョックマン」 | 初段 | — | — | ゴーヤ岩、チョックストーン、ザ・ルーフ | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；single source; no reverse conversion. |
 | 「チョックストーンアタック」 | 初段 | — | — | ゴーヤ岩、チョックストーン、ザ・ルーフ | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；single source; no reverse conversion. Online account: 好日山莊’s [2015 report](https://www.kojitusanso.jp/tozan-report/detail/?fm=15937). The author repeated the problem after sharing holds with the neighbouring line too early, illustrating line-boundary ambiguity. |
 | 「保クラック」 | 二段 | — | — | ゴーヤ岩、チョックストーン、ザ・ルーフ | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/184/routes)；single source; no reverse conversion. |
+
+```video-gallery
+key: japanGushichan
+lang: en
+layout: routes
+```
 
 
 

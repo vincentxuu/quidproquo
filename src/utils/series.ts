@@ -1140,6 +1140,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'ai-agent-monthly-report',
+    category: 'updates',
+    names: { 'zh-TW': 'AI Agent 月報', en: 'AI Agent Monthly Report' },
+    descriptions: {
+      'zh-TW': '每月整理 AI Agent 領域改變判斷的變化：月對月指標、三條主線、上期判斷回顧、更正與下月驗證。',
+      en: 'A monthly report on what changed judgments in the AI agent space: month-over-month metrics, three main threads, a review of past claims, corrections, and conditions to check next month.',
+    },
+  },
+  {
     slug: 'deep-research',
     category: 'ai-agents',
     names: { 'zh-TW': 'Deep Research 前沿', en: 'Deep Research Frontier' },
@@ -1290,6 +1299,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '從練習方法與跟讀研究出發，接到日常、旅遊、衝浪、攀岩、工作與面試教材，再選擇真人平台、AI 工具或語言學校，安排回饋與複習。',
       en: 'A complete speaking practice path: methods and shadowing research, everyday and specialist scenarios, tutoring platforms, AI tools, language schools, feedback and review.',
+    },
+  },
+  {
+    slug: 'daodao-community-ops',
+    category: 'business',
+    names: { 'zh-TW': '島島阿學怎麼經營', en: 'How DaoDao Runs a Learning Community' },
+    descriptions: {
+      'zh-TW': '島島阿學原本想直接幫學習者養成學習習慣，後來轉向幫助開課、帶社群的老師與引導者，再用共同挑戰讓不同取向的人都有地方加入。這個系列拆解這套做法：三種學習形式各自負責什麼、軟體在哪裡頂替人、錢從哪來、怎麼量，以及怎麼讓社群不靠少數人撐下去。',
+      en: 'DaoDao set out to help learners build habits directly, then turned to helping the teachers and facilitators who run courses and communities, with open co-challenges for people with any goal. This series takes the approach apart: what each of three learning formats is for, where software stands in for people, who pays, what to measure, and how a community keeps going without resting on a few people.',
     },
   },
 ];

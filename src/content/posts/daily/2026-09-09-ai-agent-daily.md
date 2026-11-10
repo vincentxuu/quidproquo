@@ -84,7 +84,7 @@ series:
 
 **拉丁美洲**：阿根廷巴塔哥尼亞因低溫氣候、水力與風力發電、頁岩氣資源，吸引 AI 資料中心進駐；Pampa Energía 計畫在內烏肯省蓋 500MW 設施，OpenAI 也與 Sur Energy 洽談合作案。（[來源](https://the-decoder.com/patagonia-has-what-ai-data-centers-want-including-no-resistance-so-far/)）
 
-**大洋洲**：澳洲職場營運平台 SafetyCulture 收購雪梨 AI 新創 Twine，加速 agentic AI 布局，創辦人將領導其 AI 部門，詳見商業案例段。
+**大洋洲**：澳洲職場營運平台 SafetyCulture 收購雪梨 AI 新創 Twine（2026 年 4 月已公布，不是當日新聞），加速 agentic AI 布局，創辦人將領導其 AI 部門，詳見商業案例段。
 
 中國動態已見上方法規與治理段（MIIT），歐洲動態已見下方融資段（Mistral），此處不重複；中東地區今日已檢索，未發現直接相關且夠格的 AI agent 新聞。
 
@@ -92,9 +92,9 @@ series:
 
 **Mistral AI**：完成 30 億歐元 Series D，估值突破 210 億歐元，由三星電子領投，是歐洲史上最大科技融資紀錄，估值三年內成長近一倍。（[來源](https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/)）
 
-**SafetyCulture**：收購雪梨 AI 新創 Twine，其創辦人將領導 SafetyCulture 的 AI 部門，是回歸 CEO Luke Anear 主導收購策略的第一步。（[來源](https://www.startupresearcher.com/news/safetyculture-acquires-ai-startup-twine)）
+**SafetyCulture**：收購雪梨 AI 新創 Twine（[2026 年 4 月已公布](https://mitti.com/media-releases/safetyculture-acquires-twine-to-accelerate-agentic-platform-ambitions)），其創辦人將領導 SafetyCulture 的 AI 部門，是回歸 CEO Luke Anear 主導收購策略的第一步。（[來源](https://www.startupresearcher.com/news/safetyculture-acquires-ai-startup-twine)）
 
-**Salesforce**：收購 Spindle AI，該公司打造能分析資料、建立情境模型並預測商業結果的 agent，可於數分鐘內生成並稽核數百組情境假設。（[來源](https://hicglobalsolutions.com/blog/salesforce-acquires-phennecs-know-everything-about-this-sandbox-privacy-startup)）
+**Salesforce**：收購 Spindle AI（2025 年 11 月已完成，不是當日新聞），該公司打造能分析資料、建立情境模型並預測商業結果的 agent，可於數分鐘內生成並稽核數百組情境假設。（[來源](https://www.salesforce.com/news/stories/salesforce-signs-definitive-agreement-to-acquire-spindle-ai/)）
 
 **SAP**：探討企業薪資系統從「AI 輔助」邁向「自主營運」的演進，是企業導入 agent 處理關鍵營運流程的案例。（[來源](https://news.sap.com/2026/09/autonomous-payroll-next-evolution-of-workforce-trust/)）
 
@@ -127,6 +127,10 @@ series:
 
 之前以為「agent 能不能被信任」主要靠模型廠商的安全公告或監理規範這類「由上而下」的機制,今天看到 bankmcp 這種完全民間、自架、開源的專案，也能用「唯讀 + 持牌中介機構」的組合解決同一個信任問題，才意識到信任機制其實可以是由下而上、工程師自己就能組裝出來的——不必等大廠或法規先動。
 
+## 更新紀錄
+
+- 2026-11-07：更正：Twine 與 Spindle 都是舊案，並換掉 Spindle 指錯的來源。
+
 ## 參考資料
 
 - [Introducing Muse — Meta](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)
@@ -154,6 +158,6 @@ series:
 - [How AI wiped out an entire industry in Nairobi — the-decoder](https://the-decoder.com/how-ai-wiped-out-an-entire-industry-in-nairobi/)
 - [Argentina's Patagonia emerges as an AI compute frontier — the-decoder](https://the-decoder.com/patagonia-has-what-ai-data-centers-want-including-no-resistance-so-far/)
 - [SafetyCulture acquires Sydney AI startup Twine](https://www.startupresearcher.com/news/safetyculture-acquires-ai-startup-twine)
-- [Salesforce acquires Spindle AI](https://hicglobalsolutions.com/blog/salesforce-acquires-phennecs-know-everything-about-this-sandbox-privacy-startup)
+- [Salesforce acquires Spindle AI](https://www.salesforce.com/news/stories/salesforce-signs-definitive-agreement-to-acquire-spindle-ai/)
 - [SAP: From AI-Enabled Payroll to Autonomous Payroll](https://news.sap.com/2026/09/autonomous-payroll-next-evolution-of-workforce-trust/)
 - [Mistral raises €3B Series D](https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/)

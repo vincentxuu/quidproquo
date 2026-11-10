@@ -59,12 +59,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 
 
-```video-gallery
-key: japanYamadera
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：6a 以下（YDS 5.10a 以下）
 
 低級數也有長線和交錯線路。逃げまくってしまいました的實攀記錄曾走進大行進，顯示初訪辨線的重要性。
@@ -78,6 +72,12 @@ layout: routes
 | 「ブラック＆ブルー」 | 5.10a | 5.10a | 未列 | 直角ハング | 來源： [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 | 「夏の扉」 | 5.10a | 5.10a | 未列 | 直角ハング | 來源： [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 | 「４８ライナー（ヨンパチライナー）」 | 5.10a | 5.10a | 未列 | 黒岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/71/routes) |
+
+```video-gallery
+key: japanYamadera
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
@@ -118,6 +118,12 @@ layout: routes
 | 「若菜」 | 5.11a | 5.11a | 未列 | 黒岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 | 「くろえもんクラック」 | 5.10b | 5.10b | 未列 | 黒岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/71/routes)；資料庫列裂隙，另確認自備保護 |
 
+```video-gallery
+key: japanYamadera
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 
 進階線涵蓋仙人堂及其他子區。夢、TUNAMI 等不同年代記錄的級數與狀況仍可能不同，具名確認再開始。
@@ -146,6 +152,12 @@ layout: routes
 | 「帰ってきた松」 | 5.12b | 5.12b | 未列 | 黒岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 | 「岩ひばとうちゃん」 | 5.12c | 5.12c | 未列 | 黒岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 
+```video-gallery
+key: japanYamadera
+lang: zh-TW
+layout: routes
+```
+
 ### 高手：8a 以上（YDS 5.13b 以上）
 
 高難度記錄數量較少；到場先看岩面、固定點和近期在地資訊，不把舊遠征文章的乾燥狀態套到今天。
@@ -155,6 +167,12 @@ layout: routes
 | 「夢」 | 5.13c | 5.13c | 未列 | 仙人堂・苦四楽岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 | 「正夢」 | 5.13b | 5.13b | 未列 | 御前岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/71/routes) |
 | 「OneMove」 | 5.13c | 5.13c | 未列 | 御前岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/71/routes) |
+
+```video-gallery
+key: japanYamadera
+lang: zh-TW
+layout: routes
+```
 
 ## 查資料的入口
 

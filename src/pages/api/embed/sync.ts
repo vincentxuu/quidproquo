@@ -29,10 +29,20 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     })
   }
 
-  const results = await runEmbedPipeline(parsed.data.sources, 0, parsed.data.limit, parsed.data.full)
-  return new Response(JSON.stringify({ ok: true, results }), {
-    headers: { 'Content-Type': 'application/json' },
-  })
+  try {
+    const results = await runEmbedPipeline(parsed.data.sources, 0, parsed.data.limit, parsed.data.full)
+    return new Response(JSON.stringify({ ok: true, results }), {
+      headers: { 'Content-Type': 'application/json' },
+    })
+  } catch (error) {
+    // 只有通過驗證的呼叫端看得到：CI log 要能看出 500 的原因，否則下次又查不到。
+    const message = error instanceof Error ? error.message : String(error)
+    console.error('[embed-sync] pipeline failed', message)
+    return new Response(JSON.stringify({ ok: false, error: message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
 }
 
 async function isAuthorized(

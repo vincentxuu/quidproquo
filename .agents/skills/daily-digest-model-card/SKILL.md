@@ -29,8 +29,8 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "A1" o
 # E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 產英文版（invoke post-translate）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -47,7 +47,7 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "A1" o
 
 ### 搜尋工具 fallback
 
-依 `daily-digest` skill 的「搜尋工具契約」：Groundlane MCP → Groundlane 直接 HTTP → Keenable keyless → You.com keyless → 其他雲端搜尋 MCP／平台內建搜尋 → 平台內建 fetch。Groundlane 失效（未掛載、401、逾時）不是 blocker，換下一層照常跑，並在 progress.txt 記 `toolDegradation`。HF API（`https://huggingface.co/api/models?...`）是公開 JSON，Groundlane 不可用時直接 `curl` 即可。
+依 `daily-digest` skill 的「搜尋工具契約」：Groundlane MCP → Groundlane 直接 HTTP → Keenable keyless → You.com keyless → 其他雲端搜尋 MCP／平台內建搜尋 → 平台內建 fetch。Groundlane 失效（未掛載、401、逾時）不是 blocker，換下一層照常跑，並在 daily-log 本次紀錄記 `toolDegradation`。HF API（`https://huggingface.co/api/models?...`）是公開 JSON，Groundlane 不可用時直接 `curl` 即可。
 
 只有使用者在當次對話指定「只能用 Groundlane」時才不降級。Fallback 只限公開資料，不得傳送 secrets、認證內容或私有資料。禁止已退役的 `stealth_fetch`、`web-fetch/fetch_page`。
 
@@ -397,4 +397,4 @@ MCP server-side execution 是這次最大的架構變化。之前 Claude 只能�
 - [ ] `tags` 包含 `model-family-{family-slug}` 家族 tag
 - [ ] 模型資訊表包含「家族」和「HuggingFace」欄位（開源模型）
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
-- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

@@ -16,20 +16,29 @@
 
 ---
 
+## Q-051 ⏳ 待拍板：`daodao-community-ops` 系列缺規劃表，擋住全站所有 commit
+- 登錄：2026-11-10（來源：daily-digest-model-card routine 執行 pre-commit 時發現）
+- 做什麼：本次 routine 寫完 Muse Ember 模型卡（中英雙版＋daily-log），`git commit` 時 `pnpm verify:staged` 的 `series-plan (staged)` 檢查噴紅：「系列 daodao-community-ops 沒有規劃表 `.work/series-plans/daodao-community-ops.md`（先跑 series-curriculum-design）」。已確認 `src/utils/series.ts` 第 1304-1312 行確實有 `daodao-community-ops`（『島島阿學怎麼經營』）的登錄，且不在 `scripts/config/series-plan-baseline.json` 的 grandfathered 清單裡；`.work/series-plans/` 下沒有對應檔案。commit 已被 pre-commit hook 擋下（沒有產生任何 commit），本次模型卡的 3 個新檔仍停在 staged 狀態未提交。
+- 為什麼現在不能做：`scripts/check-series-plan.mjs` 對「規劃表是否存在」這條規則是全站掃描 `series.ts` 所有非 baseline 系列，不限暫存檔案範圍，所以這個缺口現在擋住**任何一次** commit，不只本次模型卡。regular 補一份規劃表需要真正做 series-curriculum-design（目標讀者／弧線／入口篇／斷崖處理／每篇範圍卡），而且最後一項「使用者確認：YYYY-MM-DD」必須是使用者真的確認過，不能由 session 代寫日期；這不是 5 分鐘內能對的 A 級用語或撞號修正，超出本次 model-card routine 的範圍，也不該由不了解島島系列規劃脈絡的 session 杜撰。progress.txt 先前記錄「同日一併提交島島兩篇與 series.ts 的 daodao-community-ops 定義」（約 2026-10-28／30），當時顯然沒有同步建立規劃表就把登錄併入了 bcb163b 這次合併，現在才在全站層級炸開。
+- 接手第一步：確認是誰／哪個 session 負責「島島阿學」系列內容，請該 session 跑 `series-curriculum-design` skill 產出 `.work/series-plans/daodao-community-ops.md`（含目標讀者、弧線、入口篇、斷崖處理、每篇範圍卡，並取得使用者本人確認後補上「使用者確認：YYYY-MM-DD」），或者如果這個系列其實還沒要正式啟用，考慮先把 `daodao-community-ops` 從 `src/utils/series.ts` 移除／移入 baseline 的 grandfathered 清單，待規劃表齊備後再登錄回來。補好後，本次 model-card routine 暫存的 3 個檔案（`src/content/posts/daily/2026-11-10-model-meta-muse-ember{,-en}.md`、`.work/daily-log/2026-11-10/daily-digest-model-card.md`）可以直接 `git commit` 補上，不需重做內容或查證。
+
+## Q-050 ⏳ 待處理：課程影片查核日期 862 項過期，CI 完整 verify 擋住 deploy
+- 登錄：2026-11-09（來源：對話）
+- 做什麼：約 40 門課在 2026-10-10 同一天查核，2026-11-09 一起超過 30 天。`pnpm -s check:course-videos` 列出清單（862 項，含 `scripts/config/course-videos.json` 的 cmu-11768 項目），依 post-update skill「課程影片狀態」逐門課回原始來源即時重查：仍無錄影就更新查核日期與更新紀錄，找到錄影就嵌入。CS329Z 的 week5／7／8／9／11 五組已在 2026-11-09 重查。
+- 為什麼現在不能做：約 860 檔批次改動（Tier 2），而且每門課都要即時重查，不能只改日期。2026-11-09 起 pre-commit 只擋暫存文章的過期項目（`--stale-scope`），其餘印 WARN，所以不再卡住無關的 commit；但 CI 的完整 `pnpm verify` 照樣擋 deploy，在清完之前站上不會更新。
+- 接手第一步：依課程分組（stanford-cs111／cs103、cmu-11785／07280 最多），每門課重查一次、同課所有講次一起改。之後錯開各課查核日期，避免再同日過期；verify 在過期前 7 天會先印 WARN。
+
 ## Q-047 ⏳ 待拍板：commit 2026-11-03 AI 日報格式優化被 pre-existing red check 阻擋
 - 登錄：2026-11-04（來源：與使用者對話，日報格式優化任務）
 - 做什麼：commit 已 staged 的 4 個檔案（src/content/posts/daily/2026-11-03-ai-agent-daily.md zh-TW、2026-11-03-ai-agent-daily-en.md、.agents/skills/daily-digest-report/SKILL.md、.claude/skills/daily-digest-report/SKILL.md），內容為日報表格化＋三層監督機制圖＋en 版同步＋daily-digest-report 模板表格化。
 - 為什麼現在不能做：pre-commit 跑 `pnpm verify:staged` 紅 2 燈，但兩者都是 pre-existing 且與 staged 內容無關：(1) `check:diagram-geometry` command not found —— package.json 未註冊該 script（verify.mjs 引用但未定義）；(2) 系列順序 20 個 blocking issues 全為舊文章（stanford-cs329z 等）， staged 檔案 `series.order: 80` 與 origin/main 相同，不在其中。修這兩者屬 Tier 2 治理腳本 / >20 檔批次改動，需使用者拍板。
 - 接手第一步：先確認這兩個 red check 在乾淨的 HEAD 工作區也會重現（pre-existing）；確認後，由使用者指定 `git commit --no-verify` commit，或先修那兩個 repo-level 問題再 commit。
 
-## Q-048 ⏳ 待拍板：pnpm verify 仍紅 2 燈（series-order 舊文章重複＋series-order script 已補但 series-order 檢查失敗）
-- 登錄：2026-11-04（來源：修復 pre-existing build/test 問題後發現）
-- 做什麼：`pnpm verify` 仍紅 2 燈：
-  1. `check:series-order`：Stanford CS329Z 系列有 20 個 order 號碼重複（中英文文章撞號），屬 repo 預存在問題，與本次日報格式優化無關。
-  2. `check:series-plan`：已修復（補上 ai-agent-security-tooling-map、agent-isolation-boundaries 兩個規劃表）。
-- 已修復：package.json 補上 `check:diagram-geometry` 和 `check:crag-coverage` 兩個缺失 script；series.ts 註冊三個新系列並建立對應規劃表；兩篇舊文章審稿紀錄補上 `## 模板覆蓋`；progress.txt 壓回 90 行上限；skills-sync 已同步。
-- 為什麼現在不能做：series-order 的 20 個重複涉及 Stanford CS329Z 中英文文章的 frontmatter order 欄位，屬 >20 檔批次改動，需使用者拍板；不應在這個 session 輕易改動已發布文章的 order。
-- 接手第一步：使用者決定是否修復 Stanford CS329Z 系列的 order 重複；若決定修復，需逐篇檢查 frontmatter 並重新分配 order 號碼，確保同一個系列同一個語言的 order 不重複。
+## Q-048 ✅ 已拍板（2026-11-04）：修復 Stanford CS329Z 系列 order 重複（20 檔批次改動）
+- 登錄：2026-11-04（來源：使用者說「照建議修復」）
+- 做什麼：Stanford CS329Z 英文版（Reading Stanford CS329Z）與中文版（Stanford CS329Z 導讀）各有 order 2-11 重複 2 次，共 20 個 blocking issues。將「週」文章的 order 改為 21-30（該系列未使用號碼），避免與現有 order 衝突。
+- 已修改：20 個 frontmorder 欄位（10 英文 + 10 中文），需 commit 與 push。
+- 接手第一步：執行修改，再跑 pnpm check:series-order 確認 0 blocking，最後 commit push。
 
 ## Q-046 ✅ 已核准（2026-10-26）：日本岩場系列知名獨立岩場整批補齊範圍
 - 登錄：2026-10-26（來源：使用者 active goal）
@@ -557,7 +566,85 @@
 
 ## 2026-11-01：仁壽峰舊文章超長區塊阻擋語意索引同步
 
+- 狀態：2026-11-07 已解決（30426f93d）。根因是分塊修復後這幾篇 source hash 沒變、未重切；重新同步後 Deploy 轉綠，線上超過 23,000 字元的待處理區塊歸零。
+
 - 現象：公開免費 LLM 教學的 CI 41282405822 已完成 production Worker 部署與 D1 12 篇內容同步，但 embedding sync 因 `post chunk 4ea9124cfa13e5c0: contextual input exceeds 24000 characters; re-chunk before retrying` 失敗，整體 workflow 呈紅。新教學與相關 12 個正式頁面均回傳 200，關鍵字索引已驗證。
 - 定位：`SHA-256(slug::chunkIndex)` 前 16 位元比對到 `climbing/2026-10-21-korea-crag-insubong` 第 14 個區塊；不屬本輪 12 篇文章修改。
 - 下一步：獨立檢查 `src/lib/crawl/chunker.ts`、`scripts/sync-to-d1.ts` 產生的該區塊，以及 `src/lib/indexing/pipeline.ts` 的 24000 字元請求上限；保留上限，修正分塊／重切後再同步，不以放大上限或跳過失敗來變綠。
 - 為何未在本輪執行：需另行修復分塊與正式索引資料，超出這次文章公開與相關內容更新範圍。完整證據 `.work/free-llm-related-updates/release.md`；CI https://github.com/vincentxuu/quidproquo/actions/runs/41282405822 。
+
+## 2026-11-04：部署品質閘門修復待發布核准
+
+- 做什麼：修正 `.work/reviews/2026-10-12-japan-crag-odo-kaigan.md` 與 `.work/reviews/2026-10-21-korea-crag-seoninbong.md` 的過期影片統計，完整 verify 通過後提交並推送 main，追蹤正式 Deploy。
+- 使用者已於 2026-11-04 回覆「commit push」，核准推送此修復並觸發正式部署。未修改 workflow、驗證器或文章內容；部署結果仍待 Actions 確認。
+- 接手入口：`.work/deploy-fix-20261104/plan.md`、`verify.log`；只帶入本輪兩份審稿紀錄與必要工作紀錄，保留其他 session 改動。較早 embedding 超長問題另見上方 2026-11-01 條目。
+
+### Q-051 補充：第四次撞上同一紅燈（daily-digest-arxiv routine）
+
+- 登錄：2026-11-10（來源：daily-digest-arxiv routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 額外確認：`scripts/check-series-plan.mjs` 的規劃表檢查不吃傳入參數（獨立不帶參數跑一樣是紅），且 `scripts/verify.mjs` 的 `stagedPlan()` 只要 `posts.length > 0` 就一定跑 `series-plan (staged)`——跟 Q-049（crag-coverage）不同，這次即使只保留 `isSafe` 清單內的安全路徑檔案（文章＋`.work/`），只要還有一篇 `.md` 文章，依然會因 daodao 系列而紅，無法靠拆分暫存範圍規避。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-ai-agent-arxiv-digest{,-en}.md`（選中 Flex-RSI arXiv:2611.08946、Beneath the Surface arXiv:2611.07624、Aegis OS arXiv:2611.08516，已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過，`diagram-preview` 因無瀏覽器被跳過）、`.research/daily-arxiv-screening/2026-11-10.json`、`src/data/daily-signals/seen-arxiv-ids.txt` 的對應更新、`.work/daily-log/2026-11-10/daily-digest-arxiv.md`，皆留在工作目錄未 commit，等 Q-051 解除後直接補 commit，不需重新研究選案。
+
+## Q-049 ✅ 已解除（2026-11-04，由上方「部署品質閘門修復」處理）：daily-digest-benchmark commit 被 pre-existing crag-coverage red check 擋住
+- 登錄：2026-11-04（來源：daily-digest-benchmark routine 執行時，`pnpm verify:staged` 因暫存區含 `src/data/daily-signals/benchmark-snapshot.json`（資料檔）自動升級成完整 verify）
+- 做什麼：commit 本次 benchmark 無異動快照更新（僅 `progress.txt` 與 `src/data/daily-signals/benchmark-snapshot.json` 兩檔，與攀岩內容無關）。
+- 為什麼現在不能做：`check:crag-coverage` 紅 2 燈，但都是既有檔案、與本次 staged 內容無關：
+  - `src/content/posts/climbing/2026-10-12-japan-crag-odo-kaigan.md`：審稿紀錄 `.work/reviews/2026-10-12-japan-crag-odo-kaigan.md` 寫「影片統計：查詢 0 組；候選 0 支；收錄 0 支；有影片的路線 0／10 列」，但文章目前「依程度挑路線」分級表實際已有 90 列、其中 19 列對到 `src/data/climbing-videos.ts` 有影片。
+  - `src/content/posts/climbing/2026-10-21-korea-crag-seoninbong.md`：審稿紀錄同樣寫「0／6 列」，實際分級表已到 35 列，25 列有影片。
+  - 兩篇都不在 `scripts/config/crag-coverage-baseline.json` 的豁免名單內，所以腳本依規則擋下。這不是 5 分鐘內能對的 A 級用語或撞號修正——分級表列數成長 9～10 倍（10→90、6→35）但審稿紀錄完全沒跟上，需要先確認：(1) 這些路線是何時、由誰加進分級表的（本 session 未碰過攀岩內容），(2) 新增的路線是否真的做過影片搜尋（審稿寫「候選 0 支」明顯是舊快照，不能由本 session 憑空補數字），(3) 覆蓋率 19/90≈21%、25/35≈71% 若低於 30% 門檻（`odo-kaigan` 符合）還需要補一行「影片覆蓋說明」解釋為什麼找不到更多——這需要實際補做影片搜尋研究，不是機械同步數字。治理憲章規定紅在既有檔案、修不動時不准 commit、不准 `--no-verify`，故登錄此處。
+- 接手第一步：先查 `git log -p --follow -- src/content/posts/climbing/2026-10-12-japan-crag-odo-kaigan.md` 確認分級表何時長到 90 列（可能與 progress.txt 提到的「大堂海岸模板優化 2026-10-26」或攀岩裝備系列並行工作有關）；若分級表擴充屬實且合理，請負責攀岩內容的使用者/session 依 `scripts/check-crag-coverage.mjs` 規則重新搜尋路線影片並更新兩篇審稿紀錄（含覆蓋率 <30% 的說明行）；若擴充本身有誤（例如誤合併、重複列），應先修正分級表再重算。修好後 `git add src/data/daily-signals/benchmark-snapshot.json && git commit` 即可補上，不需重跑 benchmark 查證（數字已在本條目與 progress.txt 寫好）。
+- 本次已完成的拆分：`verify.mjs` 的 `stagedPlan()` 只把 `src/content/posts/**/*.md`、`.agents|.claude/skills/**/*.md`、`docs/**/*.md`、`.work/`、`progress.txt` 視為安全路徑，`src/data/daily-signals/benchmark-snapshot.json` 不在其中、一律退回完整 verify，才踩到上述 pre-existing 紅燈。因此本次只 commit `progress.txt`（＋本條目），`benchmark-snapshot.json` 的異動留在工作目錄不 commit；內容數字已完整寫入本條目與 progress.txt 新條目，之後直接 `git add` 補 commit 即可，不是遺失資料。
+- **解除**：上方「2026-11-04：部署品質閘門修復待發布核准」條目已修好 `.work/reviews/2026-10-12-japan-crag-odo-kaigan.md`／`.work/reviews/2026-10-21-korea-crag-seoninbong.md` 的影片統計並 commit／push（`d8a65ed`），`check:crag-coverage` 恢復綠燈。`benchmark-snapshot.json` 現在可以直接補 commit，不需再等。
+
+### Q-051 補充：另一次撞上同一紅燈（daily-digest-security routine）
+
+- 登錄：2026-11-10（來源：daily-digest-security routine 執行 `pnpm verify:staged`，暫存新文章時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 額外發現：`progress.txt` 當時（約 2026-10-28／30）記的「同日一併提交島島兩篇與 `daodao-community-ops` 定義，`check:series-plan` 由紅轉綠」與目前 repo 狀態不符——`git log --all --diff-filter=A --name-only` 查不到 `.work/series-plans/daodao-community-ops.md` 或任何 `.work/reviews/2026-10-29-daodao-*.md` 曾被新增過；該次 commit（`d0b3809`）的上層合併記錄寫著用了 `--no-verify`。規劃表與審稿紀錄很可能從未真的寫出，只是 progress.txt 誤記已完成，供接手者排查時參考。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-security-operation-snowball-deepseek-telecom-breach{,-en}.md`（Operation Snowball 資安警報，中英雙版，已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-geometry` 全部通過）留在工作目錄未 commit，等 Q-051 解除後直接補 commit，不需重跑查證。
+
+### Q-051 補充：第三次撞上同一紅燈（daily-digest-benchmark routine）
+
+- 登錄：2026-11-09（來源：daily-digest-benchmark routine 執行時，`pnpm verify:staged` 因暫存區含 `src/data/daily-signals/benchmark-snapshot.json`（資料檔，不在安全路徑清單內）自動升級成完整 verify，撞上同一個 `daodao-community-ops` 紅燈；與上方 Q-051 同一根因，不另開新編號）
+- 本次查證結論（供日後需要時沿用，不需重查）：SWE-bench Verified 前 5 名（Bash python3 -I 直連 `raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json` 解析）與 CursorBench 前 5 名（Groundlane web_fetch cursor.com/cursorbench）皆與前一日逐位元相同；LMArena Agent 子集（Groundlane web_fetch 打 HF datasets-server）`leaderboard_publish_date` 從卡住 3 天的 11-04 推進到 11-08，前 3 名不變，第 4／5 名互換（Claude Fable 5.1 13.86%→14.34%、GPT-6 Astra 14.70%→14.24%），分差 <0.5 個百分點且非前 3 名，未達 skill 門檻；morphllm.com/leaderboard 今日回 404（toolDegradation，非排名訊號）；artificialanalysis.ai 仍為前端 JS 渲染抓不到表格數值。依 skill Step 4 判定今日無 Benchmark 異動，不產出文章。
+- 本次暫留：`src/data/daily-signals/benchmark-snapshot.json`（已更新為 2026-11-09 資料）留在工作目錄不 commit；`.work/daily-log/2026-11-09/daily-digest-benchmark.md` 因屬安全路徑已單獨 commit。Q-051 解除後直接補 commit 即可：
+  ```
+  git add -- src/data/daily-signals/benchmark-snapshot.json
+  git commit -m "chore(daily): benchmark 快照更新 2026-11-09，無異動未產出"
+  ```
+
+### Q-051 補充：daily-digest-tool routine 也撞上同一紅燈
+
+- 登錄：2026-11-10（來源：daily-digest-tool routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-tool-0security{,-en}.md`（工具推薦｜0，0sec-labs/0 的開源 AI 資安 harness，中英雙版＋1 張架構圖）、`.work/daily-log/2026-11-10/daily-digest-tool.md`，皆已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-geometry` 全部通過（`diagram-preview` 因無瀏覽器被跳過），留在工作目錄未 commit，等 Q-051 解除後直接補 commit，不需重新選案或重寫內容。
+- 額外排除紀錄：本次搜尋候選中 `Nanoutrolley/roblox-studio-mcp`（GitHub 當日新建、280 stars）經複製檢視後確認是假星／惡意倉庫——README 宣稱 Node/TypeScript MCP server，實際內容只有兩個不相關的 Python stub 檔，「Quick Start」要求從 telegra.ph 連結下載並執行 `ProjectFiles.exe`，未採用，留此記錄避免其他 routine 重複踩雷。
+
+### Q-051 補充：daily-digest-funding routine 也撞上同一紅燈
+
+- 登錄：2026-11-10（來源：daily-digest-funding routine 執行 `pnpm verify:staged`，暫存新文章時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-funding-nominal{,-en}.md`（Nominal Series C $240M）、`src/content/posts/daily/2026-11-10-funding-coframe{,-en}.md`（Coframe Series A $25M）、`.work/daily-log/2026-11-10/daily-digest-funding.md`——已單獨跑過 `node scripts/check-post-references.mjs`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過，`diagram-preview` 因環境無瀏覽器被 skip（Nominal 文章含分層架構圖）。四篇文章檔案已 stash 暫存，等 Q-051 解除後直接 `git stash pop` 補 commit，不需重跑查證。
+
+### Q-051 補充：daily-digest-pricing routine 也撞上同一紅燈
+
+- 登錄：2026-11-10（來源：daily-digest-pricing routine 執行 `pnpm verify:staged`，暫存新文章時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 本次產出：GitHub Copilot 於 2026-11-16 下架 Claude Opus 4.8／Opus 5／GPT-5.6 Terra 三個模型（[官方 changelog](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/)），按官方 AI credit 費率表,Opus 系列遷移到建議替代 Opus 5.5 後單價降 20%,Terra 遷移到 GPT-6.1 Sol 則 output 降約 17%(遷移到 GPT-6 Luna 可降 95% 但模型等級從 Versatile 降到 Lightweight)。中英雙版已寫好並互連,series order 34,已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過（無 diagram 區塊,不需跑 diagram-preview）。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-pricing-github-copilot-opus-terra-deprecation{,-en}.md` 留在工作目錄未 commit,等 Q-051 解除後直接補 commit,不需重跑查證。
+
+### Q-051 補充：daily-digest-ai-interview routine 也撞上同一紅燈
+
+- 登錄：2026-11-10（來源：daily-digest-ai-interview routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 本次產出：週二 Deep Learning & NLP 主題，取 PracHub 整理的 NVIDIA Software Engineer「Explain Transformers and QKV matrices」真題，聚焦原題第五部分（positional encoding、multi-head）與延伸追問（KV cache、O(n²) 複雜度），刻意避開 11-03 已練過的 Q/K/V 基礎推導與 BERT/GPT 比較。中英雙版，series order 83，含 1 張 flow-diagram（KV cache 自迴歸解碼流程，中英各一）。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-ai-interview-daily{,-en}.md`、`.work/daily-log/2026-11-10/daily-digest-ai-interview.md`，皆已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-geometry` 全部通過（`diagram-preview` 因無瀏覽器被跳過，環境缺 headless chromium 執行檔），已 `git add` 留在暫存區未 commit，等 Q-051 解除後直接補 commit，不需重寫內容或重跑查證。
+
+### Q-051 補充：daily-digest-product-interview routine 也撞上同一紅燈
+
+- 登錄：2026-11-10（來源：daily-digest-product-interview routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 本次產出：Product Builder 面試日練 Metrics & Analytics 主題（星期二固定主題，interview-focus.json 權重全為 1 未加權），series order 83。核心框架是北極星指標四層拆解（Breadth/Depth/Frequency/Speed，附 1 張樹狀圖）與指標信任檢查流程（Goal → Decision → Metric tree → Instrumentation → Guardrails → Review cadence）；練習題「Engagement 上升但 retention 持平」；案例是 Spotify 選「收聽時間」而非「註冊數」當北極星指標。中英雙版已寫好並互連，單獨跑過 `check:references`／`check:lang-parity`／`check:series-order` 全部通過；`check:tw` 原本擋下中文版 4 處「用戶」（A 級），已全改為「使用者」後重跑確認過；`check:diagram-geometry` 兩版皆通過；`diagram-preview`——本次 session 一開始 `node_modules` 是空的，已 `pnpm install --frozen-lockfile` 補齊，但 `/opt/pw-browsers` 只預裝 chromium-1243（無 `@playwright/test` 1.58.2 要的 headless_shell-1208），改用 `chromium.launch({ executablePath: '/opt/pw-browsers/chromium' })` 臨時 patch `scripts/diagram-preview.ts` 跑完驗證（英文版因標籤過長先縮短四個子節點文字才過）後用 `git checkout` 還原腳本，未留在 repo；兩版截圖皆已用 Read 工具目視確認過排版。
+- **注意：series order 83 與同日 daily-digest-ai-interview routine 撞號**（見上一條目，兩個不同系列各自的 order 83，不是同一系列撞號，不影響 `check:series-order`，但提醒接手者這是巧合不是錯誤）。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-product-builder-interview-daily{,-en}.md`、`.work/daily-log/2026-11-10/daily-digest-product-interview.md` 留在工作目錄已 `git add` 暫存，等 Q-051 解除後直接 `git commit` 補上，不需重跑查證或重新翻譯。
+
+### Q-051 補充：daily-digest-report routine 也撞上同一紅燈
+
+- 登錄：2026-11-10（來源：daily-digest-report routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 額外狀況：本次執行時發現本機 `main` 分支 ref 嚴重落後 `origin/main`（落後 55 個 commit、領先 9 個已被上游取代的舊 commit，疑似此 session 容器先前未同步過），改在新分支 `daily-digest-work`（`git checkout -b daily-digest-work origin/main`，追蹤 `origin/main`）上作業，避免誤觸發「不可逆本地破壞」權限阻擋去動本地 `main` ref；未改動或刪除本地 `main` 分支，留給之後處理。
+- 本次產出：AI 日報 2026-11-10 中英雙版，主題是多個監管機構（香港 Project SAGE／Know-Your-Agent、中國裝置識別碼、新加坡個人 agent 指引）同步把「agent 身分與問責」做成可執行規範，對照同日曝光的歐洲電信商遭越獄 agent 自主入侵兩週資安事件；因今天沒有任何 Stage1 產出（arxiv/github digest、事件驅動文章皆未生成），改依 signals JSON（35 筆）與區域缺口補掃獨立撰寫，省略「今日 Digest 一覽」區段；含 1 張時間軸圖（中英座標相同）。已單獨跑過 `check:references`（僅既有標題日期關鍵詞重疊 WARN，與 2026-11-09 日報同一已知誤報模式，不處理）／`check:lang-parity`／`check:series-order`／`check:diagram-geometry` 全部通過；`check:tw` 原本擋下中文版 4 處「用戶」（A 級），已全改為「使用者」後重跑確認 0 error；`diagram-preview` 因環境無瀏覽器被 skip（`/opt/pw-browsers` 只有 chromium-1243／chromium_headless_shell-1243，無 `@playwright/test` 要的 headless_shell-1208）。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-10-ai-agent-daily{,-en}.md`、`.work/daily-log/2026-11-10/daily-digest-report.md` 留在工作目錄已 `git add` 暫存於 `daily-digest-work` 分支，等 Q-051 解除後直接 `git commit` 補上，不需重新彙整或重跑查證。
