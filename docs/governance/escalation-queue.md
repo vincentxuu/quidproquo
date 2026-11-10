@@ -675,3 +675,11 @@
 - 本次產出：CursorBench 4.0 前五名整批換血觸發文章——Google 11-10 公開發布 Gemini 4 Carbon（三個 effort 等級擠進第 1、2、4 名）、Anthropic 11-09 發布 Claude Fable 5.2（Max 60.0% 排第 3），原冠軍 Claude Opus 5.5（Max）分數不變（57.8%）但掉到第 5；中英雙版 `src/content/posts/daily/2026-11-11-benchmark-cursorbench-carbon-fable{,-en}.md`，series order 10，已單獨跑過 `node scripts/check-post-references.mjs`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過（無 diagram 區塊，依 diagram skill「只改屬性、沒改結構的前後對照 → 表格」判定不需畫圖，未跑 diagram-preview）。`src/data/daily-signals/benchmark-snapshot.json` 已更新為 2026-11-11 資料（含 SWE-bench Verified／LMArena Agent 子集本次未異動的查核記錄），`.work/daily-log/2026-11-11/daily-digest-benchmark.md` 已寫好。
 - 完整 `pnpm verify --staged` 其餘項目全綠（astro check／lint／check:references／check:post-quality／check:tw／check:series-order／check:lang-parity／diagram-geometry／crag-coverage／course-videos 等皆 ✅ 或既有 WARN），僅 `check:series-plan` 與 `series-plan (staged)` 兩項紅在 `daodao-community-ops` 缺規劃表，與本次暫存內容無關，commit 已被 pre-commit hook 擋下（沒有產生任何 commit）。
 - 被擋下的本次產出：上述 4 個檔案留在工作目錄已 `git add` 暫存，等 Q-051 解除後直接 `git commit` 補上，不需重新查證或重寫內容。
+
+### Q-051 補充：daily-digest-tool routine 第二次撞上同一紅燈（ha-mcp）
+
+- 登錄：2026-11-11（來源：daily-digest-tool routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 本次產出：工具推薦｜ha-mcp（homeassistant-ai/ha-mcp，開源 MCP server，讓 AI 助理透過 87 個工具管理 Home Assistant 的自動化／儀表板／裝置登錄檔，不只是已曝光給 Assist 的裝置；GitHub 6,498 ★、MIT 授權，metadata 已用 `api.github.com` 直接核對），中英雙版 `src/content/posts/daily/2026-11-11-tool-ha-mcp{,-en}.md`，series order 77，`.work/daily-log/2026-11-11/daily-digest-tool.md` 已寫好。候選搜尋：GitHub 當日新建 MCP repo（全是 0–5 星玩具／練習專案，無合格候選）＋ Groundlane `web_search`（Product Hunt／新工具關鍵字），ha-mcp 由 AlphaSignal 當日報導「87-tool 擴充」命中。
+- 已單獨跑過 `pnpm check:references`／`check:lang-parity`／`check:tw`（抓到 2 個 A 級用詞「用戶」「插件」已修正）／`check:series-order`／`pnpm lint` 全部通過；無 diagram 區塊（比較表已足夠講清楚範圍差異，依 diagram skill 判定不需畫圖），未跑 diagram-preview。
+- 被擋下的本次產出：上述 3 個檔案留在工作目錄已 `git add` 暫存（本機 `main` 分支，`origin/main` 已 fast-forward 到最新），等 Q-051 解除後直接 `git commit` 補上，不需重新查證或重寫內容。
+- 額外參考：上面 2026-11-10「Q-051 補充：daily-digest-tool routine 也撞上同一紅燈」條目記錄的 0sec Labs「0」文章，連同其他幾次撞牆的暫存檔案，依 2026-11-10「daily-digest-security routine 第二次撞上同一紅燈」條目的額外發現，疑似已隨雲端 session 容器回收而遺失（本次工作目錄乾淨、查無對應檔案），僅供後續接手者知悉此風險，本次不嘗試回收。
