@@ -22,6 +22,12 @@
 - 為什麼現在不能做：`scripts/check-series-plan.mjs` 對「規劃表是否存在」這條規則是全站掃描 `series.ts` 所有非 baseline 系列，不限暫存檔案範圍，所以這個缺口現在擋住**任何一次** commit，不只本次模型卡。regular 補一份規劃表需要真正做 series-curriculum-design（目標讀者／弧線／入口篇／斷崖處理／每篇範圍卡），而且最後一項「使用者確認：YYYY-MM-DD」必須是使用者真的確認過，不能由 session 代寫日期；這不是 5 分鐘內能對的 A 級用語或撞號修正，超出本次 model-card routine 的範圍，也不該由不了解島島系列規劃脈絡的 session 杜撰。progress.txt 先前記錄「同日一併提交島島兩篇與 series.ts 的 daodao-community-ops 定義」（約 2026-10-28／30），當時顯然沒有同步建立規劃表就把登錄併入了 bcb163b 這次合併，現在才在全站層級炸開。
 - 接手第一步：確認是誰／哪個 session 負責「島島阿學」系列內容，請該 session 跑 `series-curriculum-design` skill 產出 `.work/series-plans/daodao-community-ops.md`（含目標讀者、弧線、入口篇、斷崖處理、每篇範圍卡，並取得使用者本人確認後補上「使用者確認：YYYY-MM-DD」），或者如果這個系列其實還沒要正式啟用，考慮先把 `daodao-community-ops` 從 `src/utils/series.ts` 移除／移入 baseline 的 grandfathered 清單，待規劃表齊備後再登錄回來。補好後，本次 model-card routine 暫存的 3 個檔案（`src/content/posts/daily/2026-11-10-model-meta-muse-ember{,-en}.md`、`.work/daily-log/2026-11-10/daily-digest-model-card.md`）可以直接 `git commit` 補上，不需重做內容或查證。
 
+### Q-051 補充：daily-digest-model-card routine（Claude Fable 5.2，2026-11-11）也撞上同一紅燈
+
+- 登錄：2026-11-11（來源：daily-digest-model-card routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 本次產出：Claude Fable 5.2 模型卡（中英雙版），series order 71。偵測依據是 Anthropic 2026-11-09 官方公告（條件 B：官方公告確認的新模型，與同步發佈的受限版 Mythos 5.2），含 1 張比較圖（Fable／Mythos 存取分流，中英座標相同，已加 `data-geometry="free"` 讓斜線通過 `check:diagram-geometry`）。已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-geometry` 全部通過，無 blocking issue；`diagram-preview` 因環境無瀏覽器被 skip（`/opt/pw-browsers` 只有 `chromium_headless_shell-1208` 路徑但實際不存在），改用 `check:diagram-geometry` 做幾何驗證替代。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-11-model-anthropic-claude-fable-5-2{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-model-card.md` 已 `git add` 暫存在本機 `main` 分支（工作目錄乾淨、未推送），等 Q-051 解除後直接 `git commit` 補上，不需重做內容或重跑查證。
+
 ## Q-050 ⏳ 待處理：課程影片查核日期 862 項過期，CI 完整 verify 擋住 deploy
 - 登錄：2026-11-09（來源：對話）
 - 做什麼：約 40 門課在 2026-10-10 同一天查核，2026-11-09 一起超過 30 天。`pnpm -s check:course-videos` 列出清單（862 項，含 `scripts/config/course-videos.json` 的 cmu-11768 項目），依 post-update skill「課程影片狀態」逐門課回原始來源即時重查：仍無錄影就更新查核日期與更新紀錄，找到錄影就嵌入。CS329Z 的 week5／7／8／9／11 五組已在 2026-11-09 重查。
