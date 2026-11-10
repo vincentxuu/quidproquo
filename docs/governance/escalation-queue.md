@@ -28,6 +28,12 @@
 - 本次產出：Claude Fable 5.2 模型卡（中英雙版），series order 71。偵測依據是 Anthropic 2026-11-09 官方公告（條件 B：官方公告確認的新模型，與同步發佈的受限版 Mythos 5.2），含 1 張比較圖（Fable／Mythos 存取分流，中英座標相同，已加 `data-geometry="free"` 讓斜線通過 `check:diagram-geometry`）。已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-geometry` 全部通過，無 blocking issue；`diagram-preview` 因環境無瀏覽器被 skip（`/opt/pw-browsers` 只有 `chromium_headless_shell-1208` 路徑但實際不存在），改用 `check:diagram-geometry` 做幾何驗證替代。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-11-model-anthropic-claude-fable-5-2{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-model-card.md` 已 `git add` 暫存在本機 `main` 分支（工作目錄乾淨、未推送），等 Q-051 解除後直接 `git commit` 補上，不需重做內容或重跑查證。
 
+### Q-051 補充：daily-digest-pricing routine（Claude Fable 5.2 降價，2026-11-11）也撞上同一紅燈
+
+- 登錄：2026-11-11（來源：daily-digest-pricing routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 本次產出：「定價追蹤｜Claude Fable 5.2 上市，頂規模型降價 20%」中英雙版，series `AI Pricing Watch` order 34。事件來源：Anthropic 官方 Fable 5.2 發布公告 + `platform.claude.com` 官方定價頁（input $10→$8、output $50→$40，皆 ↓20%，2026-11-09 生效），雙來源交叉驗證（官方公告 + 官方定價頁，另有 BigGo/felloai/explainx.ai 等第三方報導佐證）。無 diagram 區塊（純屬性數字變動、無結構差異，依 diagram skill 規則用表格即可）。已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過（exit 0），無 blocking issue。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-11-pricing-anthropic-claude-fable-5-2-price-cut{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-pricing.md` 已 `git add` 暫存在本機 `main` 分支（工作目錄乾淨、未推送），等 Q-051 解除後直接 `git commit` 補上，不需重做內容或重跑查證。
+
 ## Q-050 ⏳ 待處理：課程影片查核日期 862 項過期，CI 完整 verify 擋住 deploy
 - 登錄：2026-11-09（來源：對話）
 - 做什麼：約 40 門課在 2026-10-10 同一天查核，2026-11-09 一起超過 30 天。`pnpm -s check:course-videos` 列出清單（862 項，含 `scripts/config/course-videos.json` 的 cmu-11768 項目），依 post-update skill「課程影片狀態」逐門課回原始來源即時重查：仍無錄影就更新查核日期與更新紀錄，找到錄影就嵌入。CS329Z 的 week5／7／8／9／11 五組已在 2026-11-09 重查。
