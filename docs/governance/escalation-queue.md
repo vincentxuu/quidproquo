@@ -683,3 +683,10 @@
 - 已單獨跑過 `pnpm check:references`／`check:lang-parity`／`check:tw`（抓到 2 個 A 級用詞「用戶」「插件」已修正）／`check:series-order`／`pnpm lint` 全部通過；無 diagram 區塊（比較表已足夠講清楚範圍差異，依 diagram skill 判定不需畫圖），未跑 diagram-preview。
 - 被擋下的本次產出：上述 3 個檔案留在工作目錄已 `git add` 暫存（本機 `main` 分支，`origin/main` 已 fast-forward 到最新），等 Q-051 解除後直接 `git commit` 補上，不需重新查證或重寫內容。
 - 額外參考：上面 2026-11-10「Q-051 補充：daily-digest-tool routine 也撞上同一紅燈」條目記錄的 0sec Labs「0」文章，連同其他幾次撞牆的暫存檔案，依 2026-11-10「daily-digest-security routine 第二次撞上同一紅燈」條目的額外發現，疑似已隨雲端 session 容器回收而遺失（本次工作目錄乾淨、查無對應檔案），僅供後續接手者知悉此風險，本次不嘗試回收。
+
+### Q-051 補充：daily-digest-funding routine（2026-11-11）再次撞上同一紅燈
+
+- 登錄：2026-11-11（來源：daily-digest-funding routine 執行 `pnpm verify:staged`，暫存新文章時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 本次產出：兩筆 Agent 安全／治理領域的 Series A/B 融資——WhiteMatter（原 QuilrAI）$20M Series A（Blumberg Capital 領投）、Daylight Security $80M Series B（Goldman Sachs Alternatives Growth Equity 領投），各自有 ≥2 獨立來源確認（官方新聞稿/多家媒體交叉驗證）。中英雙版，series order 130／131，無 diagram 區塊（內容以財務表格與分析敘述為主，判斷不需另畫圖）。已單獨跑過 `pnpm check:references`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過（皆 0 blocking）。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-11-funding-whitematter{,-en}.md`、`src/content/posts/daily/2026-11-11-funding-daylight{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-funding.md`，皆已 `git add` 留在暫存區未 commit，等 Q-051 解除後直接 `git commit` 補上，不需重新選案或重跑查證。
+- **風險提醒（呼應上方 daily-digest-security 條目的教訓）**：上方已有一次實際案例證實「卡在 Q-051、留在工作目錄未 commit」的內容在 session 容器回收後直接遺失（Operation Snowball 兩篇）。目前累積在這條佇列裡、等 Q-051 解除後要補 commit 的產出已有至少 6 組（funding×2、pricing、ai-interview、product-interview、security），一天比一天多，且每一組都有相同的遺失風險。建議儘快拍板 Q-051（補規劃表，或把 `daodao-community-ops` 移入 `scripts/config/series-plan-baseline.json` 的 grandfathered 清單解除全站擋 commit），而不是讓各 routine 持續用「留在工作目錄」頂著。
