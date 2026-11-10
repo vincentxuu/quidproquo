@@ -1,0 +1,401 @@
+---
+title: "日劇懸疑、犯罪與動作怎麼挑：VIVANT、Unnatural 法醫女王、獅子的藏身處、今際之國的闖關者等 18 部"
+date: 2026-11-10
+category: film
+tags: [tv-drama, j-drama, crime-drama, thriller]
+lang: zh-TW
+type: guide
+description: "給想看日本推理劇、刑警劇、懸疑劇和動作劇的台灣觀眾：刑警法醫與律師、懸疑與陰謀、生存恐怖與動作三組，18 部都同時被獎項評審、影評人、觀眾評分、收視數據、話題指標、劇迷口碑、台灣觀眾當中至少三類推薦；每部附推薦來源、MyDramaList／IMDb／Filmarks／豆瓣評分、英文與台灣劇評、尺度、集數與台灣合法串流連結。"
+tldr: "先看七類來源都推的《VIVANT》、兄弟家庭懸疑《獅子的藏身處》，或 Filmarks 分數最高的《Unnatural 法醫女王》。電視台播的多是 9 到 12 集，以辦案推理為主；《噬亡村》《武士生死鬥》《今際之國的闖關者》《地面師》《幽遊白書》是串流原創，血腥暴力重很多。"
+draft: false
+series:
+  name: "各國影劇導讀"
+  order: 11
+---
+
+> 🌏 [English version](/posts/film/2026-11-10-jdrama-mystery-crime-action-en)
+
+這篇收的是日本的推理、刑警、懸疑驚悚（thriller）和動作劇：派往中亞的諜報任務、法醫研究所的解剖台、全盲的 FBI 搜查官，以及賭上性命的死亡遊戲。18 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類都推它，而且台灣有合法串流管道。日劇的集數和原創比例寫在[愛情喜劇篇](/posts/film/2026-11-10-jdrama-romance-comedy-bl)開頭；韓國同類型的劇在[韓劇犯罪懸疑篇](/posts/film/2026-11-08-kdrama-crime-mystery-revenge)。
+
+這組有兩個特點：
+
+- **尺度分兩種。** 13 部電視台播出的劇以辦案和推理為主；5 部 Netflix 或 Disney+ 原創則有食人、斬首和死亡遊戲，寫在每部的尺度欄。
+- **長短差很多。** 從 5 集的《幽遊白書》到 5 季 46 集的《女王偵訊室》都有，下面的長條圖可以先挑長度。
+
+## 先從這 3 部開始
+
+| 劇 | 為什麼先看 | 尺度 | 在哪看 |
+|---|---|---|---|
+| VIVANT | 七類推薦來源都有，東京ドラマアウォード大獎 | 無線台黃金時段播出 | friDay影音、LINE TV、Hami Video |
+| 獅子的藏身處 | 六類推薦來源都有，兄弟家庭劇加懸疑 | 輕 | LINE TV |
+| Unnatural 法醫女王 | Filmarks ★4.4，這篇最高；10 集一案接一案 | 輕到中等：有霸凌，性侵未遂只以對白交代 | LINE TV、Netflix |
+
+## 推薦來源一覽
+
+表中 ● 代表這一類來源有推薦。A 獎項評審、B 影評人投票榜、C 觀眾評分、D 收視與串流數據、E 話題指標、F 劇迷口碑、G 台灣觀眾。
+
+| 劇 | A | B | C | D | E | F | G | 類別數 |
+|---|---|---|---|---|---|---|---|---|
+| VIVANT | ● | ● | ● | ● | ● | ● | ● | 7 |
+| 獅子的藏身處 | ● | ● | ● | ● |  | ● | ● | 6 |
+| 地面師 |  | ● | ● | ● |  | ● | ● | 5 |
+| 武士生死鬥 |  | ● | ● | ● |  | ● | ● | 5 |
+| MIU404 | ● |  | ● | ● |  | ● |  | 4 |
+| 噬亡村 |  |  | ● |  | ● | ● | ● | 4 |
+| Last Man -全盲搜查官- |  |  | ● | ● |  | ● | ● | 4 |
+| 東京沙拉碗 | ● | ● | ● |  |  | ● |  | 4 |
+| 今際之國的闖關者 |  |  | ● | ● | ● |  | ● | 4 |
+| 幽遊白書 |  | ● | ● | ● |  |  | ● | 4 |
+| Unnatural 法醫女王 | ● |  | ● |  |  | ● |  | 3 |
+| 99.9 刑事專門律師 | ● |  | ● | ● |  |  |  | 3 |
+| 勿說是推理 | ● |  | ● | ● |  |  |  | 3 |
+| 輪到你了 | ● |  |  | ● | ● |  |  | 3 |
+| GO HOME～警視廳身分不明者諮詢室～ |  |  |  | ● |  | ● | ● | 3 |
+| 女王偵訊室 | ● |  |  | ● | ● |  |  | 3 |
+| 我們還不懂那顆星球的校規 | ● | ● |  |  |  | ● |  | 3 |
+| 幸福的婚姻 |  | ● | ● | ● |  |  |  | 3 |
+
+這組的 C、D 欄（觀眾評分、收視與串流數據）最滿，18 部各有 14 部；E 欄（話題指標）只有 5 部。七類都有的只有《VIVANT》。
+
+## 先挑長度：總集數
+
+```diagram
+title: 18 部的總集數
+desc: 女王偵訊室 5 季 46 集最長，VIVANT 24 集、今際之國的闖關者 22 集、輪到你了 20 集次之；多數是 9 到 12 集；地面師、武士生死鬥、幽遊白書是 5 到 7 集的 Netflix 原創。
+caption: 已播出的連續劇集數，不含特別篇和電影。女王偵訊室在台灣只確認第 4 季（9 集）可看；VIVANT 第 2 季 2026-11-08 剛播完，電影 2026-12-04 在日本上映。
+---
+<svg viewBox="0 0 640 468">
+  <text class="dg-sub" x="184" y="24" text-anchor="end" dominant-baseline="central">女王偵訊室</text>
+  <rect class="dg-bar" x="196" y="16" width="396" height="16" rx="3"/>
+  <text class="dg-small" x="600" y="24" dominant-baseline="central">46</text>
+  <text class="dg-sub" x="184" y="49" text-anchor="end" dominant-baseline="central">VIVANT</text>
+  <rect class="dg-bar" x="196" y="41" width="206" height="16" rx="3"/>
+  <text class="dg-small" x="410" y="49" dominant-baseline="central">24</text>
+  <text class="dg-sub" x="184" y="74" text-anchor="end" dominant-baseline="central">今際之國的闖關者</text>
+  <rect class="dg-bar" x="196" y="66" width="189" height="16" rx="3"/>
+  <text class="dg-small" x="393" y="74" dominant-baseline="central">22</text>
+  <text class="dg-sub" x="184" y="99" text-anchor="end" dominant-baseline="central">輪到你了</text>
+  <rect class="dg-bar" x="196" y="91" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="376" y="99" dominant-baseline="central">20</text>
+  <text class="dg-sub" x="184" y="124" text-anchor="end" dominant-baseline="central">99.9 刑事專門律師</text>
+  <rect class="dg-bar" x="196" y="116" width="163" height="16" rx="3"/>
+  <text class="dg-small" x="367" y="124" dominant-baseline="central">19</text>
+  <text class="dg-sub" x="184" y="149" text-anchor="end" dominant-baseline="central">噬亡村</text>
+  <rect class="dg-bar" x="196" y="141" width="129" height="16" rx="3"/>
+  <text class="dg-small" x="333" y="149" dominant-baseline="central">15</text>
+  <text class="dg-sub" x="184" y="174" text-anchor="end" dominant-baseline="central">勿說是推理</text>
+  <rect class="dg-bar" x="196" y="166" width="103" height="16" rx="3"/>
+  <text class="dg-small" x="307" y="174" dominant-baseline="central">12</text>
+  <text class="dg-sub" x="184" y="199" text-anchor="end" dominant-baseline="central">MIU404</text>
+  <rect class="dg-bar" x="196" y="191" width="95" height="16" rx="3"/>
+  <text class="dg-small" x="299" y="199" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="184" y="224" text-anchor="end" dominant-baseline="central">我們還不懂那顆星球的校規</text>
+  <rect class="dg-bar" x="196" y="216" width="95" height="16" rx="3"/>
+  <text class="dg-small" x="299" y="224" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="184" y="249" text-anchor="end" dominant-baseline="central">獅子的藏身處</text>
+  <rect class="dg-bar" x="196" y="241" width="95" height="16" rx="3"/>
+  <text class="dg-small" x="299" y="249" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="184" y="274" text-anchor="end" dominant-baseline="central">Unnatural 法醫女王</text>
+  <rect class="dg-bar" x="196" y="266" width="86" height="16" rx="3"/>
+  <text class="dg-small" x="290" y="274" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="184" y="299" text-anchor="end" dominant-baseline="central">Last Man 全盲搜查官</text>
+  <rect class="dg-bar" x="196" y="291" width="86" height="16" rx="3"/>
+  <text class="dg-small" x="290" y="299" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="184" y="324" text-anchor="end" dominant-baseline="central">GO HOME</text>
+  <rect class="dg-bar" x="196" y="316" width="86" height="16" rx="3"/>
+  <text class="dg-small" x="290" y="324" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="184" y="349" text-anchor="end" dominant-baseline="central">東京沙拉碗</text>
+  <rect class="dg-bar" x="196" y="341" width="77" height="16" rx="3"/>
+  <text class="dg-small" x="281" y="349" dominant-baseline="central">9</text>
+  <text class="dg-sub" x="184" y="374" text-anchor="end" dominant-baseline="central">幸福的婚姻</text>
+  <rect class="dg-bar" x="196" y="366" width="77" height="16" rx="3"/>
+  <text class="dg-small" x="281" y="374" dominant-baseline="central">9</text>
+  <text class="dg-sub" x="184" y="399" text-anchor="end" dominant-baseline="central">地面師</text>
+  <rect class="dg-bar" x="196" y="391" width="60" height="16" rx="3"/>
+  <text class="dg-small" x="264" y="399" dominant-baseline="central">7</text>
+  <text class="dg-sub" x="184" y="424" text-anchor="end" dominant-baseline="central">武士生死鬥</text>
+  <rect class="dg-bar" x="196" y="416" width="52" height="16" rx="3"/>
+  <text class="dg-small" x="256" y="424" dominant-baseline="central">6</text>
+  <text class="dg-sub" x="184" y="449" text-anchor="end" dominant-baseline="central">幽遊白書</text>
+  <rect class="dg-bar" x="196" y="441" width="43" height="16" rx="3"/>
+  <text class="dg-small" x="247" y="449" dominant-baseline="central">5</text>
+</svg>
+```
+
+## 片單
+
+每部的格式：推薦來源、評分、劇評、尺度、長度、先看什麼、在哪看。
+
+- **評分**：日劇大多沒有 Metacritic 分數，這篇用 [MyDramaList](https://mydramalist.com/shows/top_japanese_dramas)、IMDb、日本的 Filmarks 和豆瓣；多季劇的 MyDramaList 是第一季，IMDb 是全劇。串流原創有 Metacritic 或爛番茄分數的寫在劇評欄。
+- **尺度**：日本電視劇沒有統一分級，有台灣平台分級的另外寫出。內容提醒取自 IMDb 家長指南，只有 6 部有投票，其他依劇情寫。
+- **在哪看**：連結是台灣平台的作品頁；只有部分季數可看的，寫在該部的在哪看欄。
+
+### 刑警、法醫與律師
+
+機動搜查隊、法醫研究所、刑事律師、偵訊室和外國人社區的警察。不少是一集一案，可以跳著看。
+
+#### MIU404（MIU404）
+
+性格相反的兩名刑警在警視廳第四機動搜查隊搭檔，面對背後有各種社會問題的犯人與被害者（[Wikipedia](https://ja.wikipedia.org/wiki/MIU404)）。
+
+- **推薦來源**：`A 日劇學院賞最佳作品（2020 夏季）` `A 東京ドラマアウォード 2021 優秀賞` `C MyDramaList 日劇榜 #22（8.5）` `D 最終回關東收視 24.8%（令和以來 #21）` `F PTT 日劇板 2023 年度回顧（三刷）`
+- **評分**：MyDramaList 8.5（3,589 人）｜IMDb 7.3（1,200 票）｜Filmarks ★4.3
+- **劇評**：[MyDramaList News 的 Orangevine](https://news.mydramalist.com/article/currently-watching-buddy-cop-j-drama-miu404-011015463) 在播到第 9 集時推薦。她說它「和 Unnatural 一樣精巧，只是藏在大量好玩的東西後面」；這是粉絲向新聞站。電影神搜的[重點就在括號裡](https://news.agentm.tw/132620/)看完全劇，說它「以誠實的態勢，拍出日本國家的問題」。他也指出疫情把 14 集砍成 11 集，結尾收得草率。評價大致一致，分歧只在開播平淡、後勁很強。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；每集案件都牽涉一個社會問題。
+- **長度**：11 集，已完結。和 Unnatural 同一個世界觀，2024 年電影《ラストマイル》是兩部的延伸。
+- **先看什麼**：不用，原創劇（野木亞紀子編劇）。不必先看 Unnatural，兩部都看會認出交叉設定。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/23124/eps/1)（上架中）
+
+#### Last Man -全盲搜查官-（Last Man）
+
+全盲的 FBI 搜查官以交流名義來到日本，和一心只想抓犯人的刑警搭檔，專破最棘手的案子（[Wikipedia](https://ja.wikipedia.org/wiki/ラストマン-全盲の捜査官-)）。
+
+- **推薦來源**：`C Filmarks 2023 日劇 #14` `D 最終回關東收視 24.2%（2023 年民放單集 #2）` `F PTT 日劇板 2023 年度回顧 #3` `G KKTV 2023 熱播 #3`
+- **評分**：MyDramaList 7.8（220 人）｜IMDb 7.5（128 票）｜Filmarks ★3.9
+- **劇評**：找不到英文署名劇評。聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/7266903)看完全劇，說福山雅治耍帥、大泉洋吐槽，「根本是在表演雙口相聲」。她也說最後兩集收好了 41 年前舊案的伏筆。收視很高，獎項與英文評論卻都缺席。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票。
+- **長度**：10 集（2023），另有 2025 年特別篇《FAKE/TRUTH》。電影《FIRST LOVE》2025 年 12 月在日本上映，2026 年 8 月在台灣上映。
+- **先看什麼**：不用，原創劇。特別篇與電影接在連續劇之後，照順序看。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/314916.do?cs=2)（訂閱，部分免費，2028 年 1 月 9 日下架）。LINE TV 的連續劇已授權到期；2025 年特別篇《FAKE/TRUTH》在 [LINE TV](https://www.linetv.tw/drama/21250/eps/1)
+
+#### 東京沙拉碗（Tokyo Salad Bowl）
+
+綠頭髮的警察鴻田麻里和前警察口譯員有木野了搭檔，在外國居民愈來愈多的東京處理涉外案件（[Wikipedia](https://ja.wikipedia.org/wiki/東京サラダボウル)）。
+
+- **推薦來源**：`A 東京ドラマアウォード 2025 優秀賞` `B Real Sound 2025 年度劇集（田幸和歌子 #2）` `C Filmarks Awards 2025 日劇入圍` `F PTT 日劇板 2025 推薦串` `F PTT 日劇板 2025 年度回顧遺珠`
+- **評分**：MyDramaList 7.9（584 人）｜IMDb 7.3（234 票）｜Filmarks ★4.0
+- **劇評**：東京在地作者的評論站 [Tokyo Prism 3CK 的 Olivier Fabre](https://tokyoprism3ck.com/2025/08/tokyo-salad-bowl-food-for-thought-queerbait-crumbs-or-just-patronizing-2/) 持保留。他說它描寫外國居民，像「戴著塑膠手套端上桌」。聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/8478556)只評第 1 集，喜歡奈緒和松田龍平。她也說從日本人角度看外國人犯罪，難免帶刻板印象。日本評審把多元社會題材當加分，兩篇評論都點出觀點的限制。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票。
+- **長度**：9 集，已完結。
+- **先看什麼**：改編自黑丸的漫畫，不必先看。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/3926)（上架中）
+
+#### Unnatural 法醫女王（Unnatural）
+
+法醫三澄美琴在新設的「不自然死因究明研究所」工作，和同事一起解開非自然死亡的案件（[Wikipedia](https://en.wikipedia.org/wiki/Unnatural_(TV_series))）。
+
+- **推薦來源**：`A 日劇學院賞最佳作品（2018 冬季）` `A ギャラクシー賞優秀賞（2017 年度）` `C MyDramaList 日劇榜 #8（8.5）` `C IMDb 8.1` `F PTT 日劇板入坑推薦串` `F PTT 日劇板 2024 推薦「過季無限重刷」`
+- **評分**：MyDramaList 8.5（5,969 人）｜IMDb 8.1（3,000 票）｜Filmarks ★4.4｜豆瓣 9.3（2018 年）
+- **劇評**：[Asian Movie Pulse 的 Adriana Rosati](https://asianmoviepulse.com/2025/07/series-review-unnatural-2018-by-ayuko-tsukahara/) 說它像日本版 CSI，原創性不突出。但幾個聰明的選擇，讓它「高出許多同類作品」。聯合報〈娛樂有評〉的[卡爬](https://stars.udn.com/star/story/10093/4432994)只談第 1 集的傳染病案。她對照 2020 年新冠疫情下的網路獵巫，說「瘟疫其實就像一面照妖鏡」。評審、豆瓣與海外觀眾的評價一致，是這組 Filmarks 分數最高的一部。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南每類只有 1–2 票；有一案的性侵未遂只以對白交代，也有校園霸凌毆打。
+- **長度**：10 集，已完結。
+- **先看什麼**：不用，原創劇（野木亞紀子編劇）。看完可以接 MIU404，兩部同一個世界觀。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/21215/eps/1)（VIP 訂閱）；[Netflix](https://www.netflix.com/tw/title/81714729)（訂閱）
+
+#### 99.9 刑事專門律師（99.9 Criminal Lawyer）
+
+日本刑事案件有罪率 99.9%，專門替被告辯護的律師追查剩下 0.1% 的真相，一集一案（[Wikipedia](https://ja.wikipedia.org/wiki/99.9-刑事専門弁護士-)）。
+
+- **推薦來源**：`A 日劇學院賞最佳作品（2016 春季）` `C MyDramaList 日劇榜 #46（8.3，第 2 季）` `D 2018 年平均收視第 1（第 2 季 17.4%）`
+- **評分**：MyDramaList 8.3（第 1 季）（2,818 人）｜IMDb 7.4（670 票）｜Filmarks ★4.1｜豆瓣 8.4（第 2 季，2018 年）
+- **劇評**：找不到英文署名劇評，也找不到台灣劇評。收視很高，第 2 季是 2018 年日本平均收視第 1，評論界卻幾乎沒寫。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；TBS 週日黃金時段的法庭劇。
+- **長度**：2 季 19 集（2016、2018），另有 2021 年的特別篇與電影版。
+- **先看什麼**：不用，原創劇。單元劇形式，第 2 季可以單看；特別篇與電影接在第 2 季之後。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/82072564)（訂閱）。平台資料沒有寫明上架的是哪幾季
+
+#### 勿說是推理（Don’t Call It Mystery）
+
+大學生久能整被當成殺害同學的嫌犯帶回警局，他在偵訊室裡不停說話，拆解刑警們的盲點（[Wikipedia](https://en.wikipedia.org/wiki/Don%27t_Call_It_Mystery)）。
+
+- **推薦來源**：`A 亞洲學院創意獎日本最佳劇集 2022` `A 東京ドラマアウォード 2022 優秀賞` `C MyDramaList 日劇榜 #19（8.5）` `D 令和以來關東收視 #12（25.8%）` `D TVerアワード 2022 特別賞`
+- **評分**：MyDramaList 8.5（3,628 人）｜IMDb 7.6（679 票）｜Filmarks ★4.1
+- **劇評**：英文只找到小型評論站 [The Blossom Review 的 Karen Mansoldo](https://theblossomreview.com/dont-call-it-mystery-viki-j-drama-review/)。她推薦，但只讀到前三分之一。電影神搜的[雪奈](https://news.agentm.tw/216506/)看完全劇，說它是「療癒為主、推理為輔」的懸疑劇。她也說它「沒有故弄玄虛，也沒有驚人反轉」。收視、串流和評審都給高分，想看硬派推理的人可能會失望。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；劇中觸及兒童虐待與霸凌議題。
+- **長度**：12 集（2022），另有 2023 年特別篇與電影版。沒有第 2 季消息。
+- **先看什麼**：改編自田村由美的漫畫，不必先看。電影接在連續劇之後，先看劇再看電影。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/2275)（免費或影劇方案）
+
+#### GO HOME～警視廳身分不明者諮詢室～（Go Home）
+
+警視廳「身元不明人相談室」的三田櫻和搭檔，從無名遺體留下的線索查出身分，把遺體送回家人身邊（[Wikipedia](https://ja.wikipedia.org/wiki/GO_HOME〜警視庁身元不明人相談室〜)）。
+
+- **推薦來源**：`D 2024 年關東收視 #17（14.4%）` `F PTT 日劇板 2024 年度回顧遺珠` `G KKTV 2024 熱播 #10`
+- **評分**：MyDramaList 7.8（108 人）｜IMDb 6.5（23 票）｜Filmarks ★3.4
+- **劇評**：找不到英文署名劇評。聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/8260788)說它幾乎每集都催淚，但缺乏推理元素。她最期待的兩位女主角創傷主線，「最後有點草草收尾」。這是小品，IMDb 只有 23 票，Filmarks 3.4 是這組最低。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；每集都圍繞一具身分不明的遺體。
+- **長度**：10 集，已完結。
+- **先看什麼**：不用，原創劇。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/268346.do?cs=2)（訂閱，部分免費）；[LINE TV](https://www.linetv.tw/drama/22252/eps/1)（VIP 訂閱）
+
+#### 女王偵訊室（Emergency Interrogation Room）
+
+背黑鍋被調職的女刑警真壁有希子，和一群老刑警在偵訊室裡靠心理攻防讓嫌犯開口（[Wikipedia](https://ja.wikipedia.org/wiki/緊急取調室)）。
+
+- **推薦來源**：`A 東京ドラマアウォード 2022 優秀賞（第 4 季）` `D 2025 年關東收視 #7（16.5%，第 5 季）` `E ORICON 2025 日劇滿意度 #8（第 5 季）`
+- **評分**：MyDramaList 7.6（第 1 季）（439 人）｜IMDb 7.4（135 票）｜Filmarks ★4.0
+- **劇評**：找不到英文署名劇評。台灣只找到介紹文：電影神搜的[雪奈](https://news.agentm.tw/269869/)寫系列回顧，整理設定與幕後趣聞。這是長壽收視劇，評審只肯定過第 4 季，中英文都沒有像樣的單季評論。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；以偵訊室裡的對話為主。
+- **長度**：5 季 46 集（2014–2025）加 2 部特別篇，2025 年 12 月的電影《THE FINAL》收尾。台灣只確認第 4 季（9 集）。
+- **先看什麼**：不用，原創劇。從第 1 季看最好，只看第 4 季也看得懂單元案件。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/321851.do?cs=2)（第 4 季，訂閱，部分免費）；[myVideo](https://www.myvideo.net.tw/details/3/19638)（第 4 季）。其他季與電影在台灣的串流狀態沒有查到
+
+#### 我們還不懂那顆星球的校規（School Lawyer）
+
+學生時代被霸凌過的膽小律師白鳥健治，被派到男女校合併的私立高中，每週駐校三天處理校內問題（[Wikipedia](https://ja.wikipedia.org/wiki/僕達はまだその星の校則を知らない)）。
+
+- **推薦來源**：`A 日劇學院賞最佳作品（2025 夏季）` `B Real Sound 2025 年度劇集（明日菜子 #1、藤原奈緒 #3）` `B 映画チャンネル 2025 年度前五（兩位寫手）` `F PTT 日劇板 2025 年度回顧 #4` `F MyDramaList 使用者 2025 年度清單 #2`
+- **評分**：MyDramaList 8.0（101 人）｜IMDb 6.9（17 票）｜Filmarks ★4.1
+- **劇評**：找不到英文署名劇評。台灣只找到介紹文：聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/8876226)在開播第一週介紹第 1 集。日本影評人很愛，拿下日劇學院賞最佳作品；IMDb 卻只有 17 票，大眾反應不明。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；劇情涉及校園霸凌。
+- **長度**：11 集，已完結。
+- **先看什麼**：不用，原創劇。類型是校園律師劇，案件多是校內問題，沒有犯罪懸疑。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/18212/eps/1)（VIP 訂閱）
+
+### 懸疑與陰謀
+
+諜報、公寓連續殺人、地產詐騙、失蹤孩子和妻子的過去。要從第一集連著看，最適合一次追完。
+
+#### VIVANT（VIVANT）
+
+有隱藏人格的商社員被派往中亞追回公司誤匯的鉅款，捲進國際陰謀，還被警方當成犯罪組織的一員（[Wikipedia](https://en.wikipedia.org/wiki/Vivant_(TV_series))）。
+
+- **推薦來源**：`A 東京ドラマアウォード 2024 首獎` `A 日劇學院賞最佳作品（2023 夏季）` `B Real Sound 2023 年度劇集（5 位影評人中 2 位選入）` `C Filmarks 2023 日劇 #2` `D 2023 年關東平均收視第 1（最終回 29.8%）` `E Yahoo!検索大賞 2023 戲劇部門` `F PTT 日劇板 2023 年度回顧` `G friDay 2023 日劇收視 #1` `G KKTV 2023 熱播 #2`
+- **評分**：MyDramaList 8.1（第 1 季）（935 人）｜IMDb 7.0（1,000 票）｜Filmarks ★4.3
+- **劇評**：找不到可讀全文的英文署名劇評，Japan Times 的第一季回顧在付費牆後。聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/7452917)看完第一季，說中段回到日本後最好看。但她認為後半把恐怖組織洗白，是「為了反轉而反轉」，結論仍肯定 TBS 燒錢突破日劇框架。日本收視與大獎都拿到，英文影評幾乎缺席；台灣 DailyView 2026 年 10 月聲量的負評占 56%。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；在 TBS 週日晚間九點的黃金時段播出。
+- **長度**：2 季共 24 集：第 1 季 10 集（2023），第 2 季 14 集，2026 年 11 月 8 日播完。電影 2026 年 12 月 4 日在日本上映。
+- **先看什麼**：不用，原創劇（導演福澤克雄原作）。看第 2 季前要先看第 1 季。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/3025)（第 1 季）；[LINE TV](https://www.linetv.tw/drama/21211/eps/1)（第 1 季）；[friDay影音](https://video.friday.tw/drama/detail/5039)（第 2 季）；[Hami Video](https://hamivideo.hinet.net/product/331506.do?cs=2)（第 2 季，至 2028-07-27）；[LINE TV](https://www.linetv.tw/drama/23125/eps/1)（第 2 季）
+
+#### 獅子的藏身處（Light of My Lion）
+
+市公所職員小森洸人照顧自閉症弟弟美路人，兄弟倆的規律日子，被一個自稱「獅子」的神祕小男孩打亂（[Wikipedia](https://en.wikipedia.org/wiki/Light_of_My_Lion)）。
+
+- **推薦來源**：`A 民放連賞 2025 優秀賞` `B Real Sound 2024 年度劇集（田幸和歌子 #2）` `C MyDramaList 日劇榜 #15（8.5）` `D 最終回關東收視 15.4%（2024 年 #12）` `F PTT 日劇板 2024 年度回顧 #5` `G KKTV 2024 最佳男配角（坂東龍汰）`
+- **評分**：MyDramaList 8.5（3,212 人）｜IMDb 8.0（696 票）｜Filmarks ★4.2
+- **劇評**：小型評論站 [The Blossom Review 的 Karen Mansoldo](https://theblossomreview.com/light-of-my-lion-netflix-review/) 推它，說懸疑線只是推動兄弟成長的工具。她也稱讚自閉症弟弟沒有寫成刻板形象（評論只讀到三分之二）。聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/8443474)把它列為 2024 秋季最愛，說溫馨與沉重「掌握得恰到好處」。兩邊看法一致，口碑高於收視。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票。
+- **長度**：11 集，已完結。
+- **先看什麼**：不用，原創劇。主軸是兄弟家庭劇，懸疑線推動劇情。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/21227/eps/1)（上架中）
+
+#### 地面師（Tokyo Swindlers）
+
+一群冒充地主、詐騙土地交易的「地面師」，盯上價值百億日圓的土地，策劃史上最大的一票（[Wikipedia](https://en.wikipedia.org/wiki/Tokyo_Swindlers)）。
+
+- **推薦來源**：`B Real Sound 2024 年度劇集（麦倉正樹 #1）` `C Filmarks Awards 2024 串流劇最優秀賞` `D Netflix 2024 下半年 1,200 萬次觀看` `F PTT 日劇板 2024 推薦串` `G Netflix 台灣週榜 #2（累計 6 週）`
+- **評分**：MyDramaList 7.7（1,218 人）｜IMDb 7.3（3,300 票）｜Filmarks ★4.1｜豆瓣 7.2（2026 年 10 月）
+- **劇評**：[Decider 的 Joel Keller](https://decider.com/2024/07/29/tokyo-swindlers-netflix-review/) 只看第 1 集就推薦。他說它基本上是搶案劇，但大案和詐欺師團隊都很有意思。台灣只找到介紹文：電影神搜的[雪奈](https://news.agentm.tw/296680/)在上線隔天寫開箱，整理劇情與導演大根仁。日本與台灣串流都很紅，豆瓣卻只有 7.2，也有人嫌後半收得粗糙。Rotten Tomatoes 100%（9 則）。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南五類都在中度以上：暴力、粗口、菸酒毒品與驚嚇是嚴重級，性與裸露是中度。
+- **長度**：7 集，2024 年一次上線。Netflix 沒有正式宣布第 2 季。
+- **先看什麼**：改編自新庄耕的小說，不必先看。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81574118)（訂閱）
+
+#### 輪到你了（Your Turn to Kill）
+
+年齡差距大的新婚夫妻搬進公寓，在住戶會上玩了一場「交換殺人遊戲」，之後住戶接連死亡（[Wikipedia](https://en.wikipedia.org/wiki/Your_Turn_to_Kill)）。
+
+- **推薦來源**：`A 東京ドラマアウォード 2020 優秀賞` `D 反擊篇最終回關東收視 25.0%` `E Yahoo!検索大賞 2019 戲劇部門`
+- **評分**：MyDramaList 8.0（第 1 章）（1,582 人）｜IMDb 7.1（971 票）｜Filmarks ★4.0
+- **劇評**：找不到英文署名劇評。聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/4037676)肯定秋元康的話題操作，說網友的推理比劇情本身更精彩。但她直說結局「漏洞百出、劇情鬆散，故弄玄虛但虎頭蛇尾」。分歧很清楚：收視與話題爆表，結局被批爛尾。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；主線是住戶接連遇害的連續殺人。
+- **長度**：20 集，分兩章（第 2 章是「反擊篇」），另有特別篇。2021 年有電影版。
+- **先看什麼**：不用，原創劇（秋元康原案）。第 1 章和反擊篇要連著看。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81506809)（訂閱）
+
+#### 幸福的婚姻（Their Marriage）
+
+單身 50 年的名律師在醫院電梯裡遇見美術老師，兩人閃電結婚，但妻子有一個沒說出口的大祕密（[Wikipedia](https://ja.wikipedia.org/wiki/しあわせな結婚)）。
+
+- **推薦來源**：`B Real Sound 2025 年度劇集（麦倉正樹 #3）` `C Filmarks Awards 2025 日劇入圍` `D 2025 年關東收視 #12（15.5%）`
+- **評分**：MyDramaList 7.2（275 人）｜IMDb 6.6（168 票）｜Filmarks ★3.7
+- **劇評**：找不到英文署名劇評。聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/9006391)持保留，說編劇大石靜在懸疑與家庭倫理之間「還沒有拿捏得很精準」。她認為賣點是阿部貞夫與松隆子的表演。有收視也上了影評年度榜，劇本評價卻分歧。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票。
+- **長度**：9 集，已完結。
+- **先看什麼**：不用，原創劇（大石靜編劇）。類型是婚姻懸疑，謎團是妻子的過去，沒有犯罪辦案。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/82084559)（訂閱）
+
+### 生存、恐怖與動作
+
+食人村、武士死鬥、死亡遊戲和靈界偵探。都是 Netflix 或 Disney+ 原創，尺度也最重。
+
+#### 武士生死鬥（Last Samurai Standing）
+
+明治時代，292 名武士為了 10 萬圓獎金從京都出發，搶奪彼此的木牌，一路廝殺到東京（[Wikipedia](https://en.wikipedia.org/wiki/Last_Samurai_Standing_(TV_series))）。
+
+- **推薦來源**：`B Real Sound 2025 年度劇集（麦倉正樹 #4）` `C IMDb 7.5（2.3 萬票）` `D Netflix 2025 下半年 2,100 萬次觀看` `F PTT 日劇板 2025 秋季推薦 #3` `G Netflix 台灣週榜 #10（累計 3 週）` `G VERSE 2025 必看十部日劇`
+- **評分**：MyDramaList 8.3（2,755 人）｜IMDb 7.5（2.3 萬 票）｜Filmarks ★3.9｜豆瓣 7.3（2026 年 10 月）
+- **劇評**：[RogerEbert.com 的 Rendy Jones](https://www.rogerebert.com/streaming/last-samurai-standing-netflix-tv-review-2025) 看完全季，說它是明治版《大逃殺》。他認為動作場面是近年電視上最精細的之一。缺點是六集塞太多角色。台灣只找到 VERSE [葉聖博](https://www.verse.com.tw/article/2025-j-drama)的年度片單短評，說「開場一鏡到底的戰爭畫面、一刀斃命的戲碼都非常精彩」。影評高、觀眾分數中等：Metacritic 78（7 則），使用者只給 6.3；Rotten Tomatoes 100%（12 則）。
+- **尺度**：日本無分級；台灣平台未標。暴力血腥是嚴重級：斬首、肢解、噴血、開腸剖肚都直接拍出；驚嚇屬中度，沒有性內容。
+- **長度**：第 1 季 6 集（2025 年 11 月）。Netflix 日本已宣布製作第 2 季，還沒定檔。
+- **先看什麼**：改編自今村翔吾的小說，不必先看。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81607397)（訂閱）
+
+#### 噬亡村（Gannibal）
+
+駐在警察阿川大悟調到偏遠山村，村裡傳說「這裡會吃人」，他追查村民失蹤，逐步碰觸支配村子的後藤家（[Wikipedia](https://en.wikipedia.org/wiki/Gannibal_(TV_series))）。
+
+- **推薦來源**：`C Filmarks 2023 日劇 #4` `C MyDramaList 8.3（第 1 季）` `E Parrot Analytics 2025 漫改真人劇需求 #2` `F MyDramaList 使用者 2025 年度清單 #1` `G ELLE Taiwan 2025 預告片單 #2`
+- **評分**：MyDramaList 8.3（第 1 季）（3,646 人）｜IMDb 7.4（3,200 票）｜Filmarks ★4.2
+- **劇評**：[Decider 的 Johnny Loftus](https://decider.com/2025/03/31/gannibal-season-2-hulu-review/) 只評第 2 季首集，結論是推薦。他喜歡邪教設定，但嫌大量換視角的閃回「極度磨人」。電影神搜的[雪奈](https://news.agentm.tw/247405/)寫第 1 季完結評，稱讚柳樂優彌的怪演和三線並行的敘事。分歧正好在敘事：Decider 嫌難跟，台灣評論當成優點。Rotten Tomatoes 頁面沒有任何影評。
+- **尺度**：Disney+ 台灣 18+（IMDb 台灣列 15+，兩者不一致）。題材是食人，暴力血腥是嚴重級，有人被吃、被殺的場面，包括兒童；第 2 季第 5 集有背面裸露。
+- **長度**：2 季共 15 集（7＋8），第 2 季是完結篇，2025 年播完。
+- **先看什麼**：改編自二宮正明的漫畫，不必先看。第 2 季直接接第 1 季，要依序看。
+- **在哪看**：[Disney+](https://www.disneyplus.com/zh-tw/browse/entity-71a78f9b-14d5-47a9-8ceb-6192d2856c41)（訂閱）
+
+#### 今際之國的闖關者（Alice in Borderland）
+
+沉迷電玩的青年有栖良平和兩個朋友，突然被傳送到空無一人的東京，必須參加生死遊戲才能活下去（[Wikipedia](https://en.wikipedia.org/wiki/Alice_in_Borderland_(TV_series))）。
+
+- **推薦來源**：`C IMDb 7.8（15.4 萬票）` `C MyDramaList 日劇榜 #2（8.9，第 2 季）` `D Netflix 2025 下半年 2,500 萬次觀看（第 3 季）` `E Parrot Analytics 2025 漫改真人劇需求 #1` `G Netflix 台灣週榜 #3（第 3 季，累計 3 週）`
+- **評分**：MyDramaList 8.9（第 1 季）（99,781 人）｜IMDb 7.8（15.4 萬 票）｜Filmarks ★3.9｜豆瓣 8.7（第 1 季上線約一週）
+- **劇評**：[IndieWire 的 Steve Greene](https://www.indiewire.com/criticism/shows/alice-in-borderland-season-2-review-netflix-show-1234794167/) 評第 2 季，嫌角色常停下來講哲理。但他說壯觀場面「幾乎彌補了其他所有缺點」。電影神搜的[潘光中](https://news.agentm.tw/149891/)評第 1 季，說生存遊戲題材有冷飯熱炒的風險。但他也說主創「將所有人物都呈獻的非常鮮明、厚度十足」。觀看量最大，第 3 季口碑卻明顯下滑：MyDramaList 從 8.9 掉到 8.1，Filmarks 掉到 3.5。Rotten Tomatoes 78%（30 則），Metacritic 三季都評論太少、沒有分數。
+- **尺度**：日本無分級；台灣平台未標。死亡遊戲暴力是嚴重級，項圈爆炸炸開脖子的處決反覆出現。第 1 季第 6 集有女性被壓制、遭威脅性侵（未遂），也有性愛場面與注射毒品的回憶。
+- **長度**：3 季共 22 集（8＋8＋6，2020–2025），Netflix 已說第 3 季是最終季。
+- **先看什麼**：改編自麻生羽呂的漫畫，不必先看。三季要依序看。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81682895)（訂閱）
+
+#### 幽遊白書（Yu Yu Hakusho）
+
+不良高中生浦飯幽助為救孩子被車撞死，獲得復活機會，條件是替靈界當處理超自然事件的偵探（[Wikipedia](https://en.wikipedia.org/wiki/YuYu_Hakusho_(2023_TV_series))）。
+
+- **推薦來源**：`B Real Sound 2023 年度劇集（成馬零一 #2）` `C Filmarks Awards 2024 串流劇入圍` `D Netflix 2023 下半年 1,700 萬次觀看` `G Netflix 台灣週榜 #1（累計 3 週）`
+- **評分**：MyDramaList 8.1（5,653 人）｜IMDb 7.2（1 萬 票）｜Filmarks ★3.6
+- **劇評**：[Decider 的 Johnny Loftus](https://decider.com/2023/12/16/yu-yu-hakusho-netflix-review/) 只看第 1 集就推薦，說原作粉絲一定想看，「其他人也有很多可以享受的」。電影神搜的[潘光中](https://news.agentm.tw/270176/)看完 5 集持負評，嫌選角與劇情魔改，只推打戲。他說它像「空有熱情、但眼界有限的在校學子」交出的畢業製作。兩人看的集數不同，結論也相反。Metacritic 70（4 則），使用者只給 6.6；Rotten Tomatoes 83%（12 則）。
+- **尺度**：日本無分級；台灣平台未標。打鬥血腥是嚴重級，有怪物造成的身體恐怖，也有自傷與車禍畫面。
+- **長度**：5 集（2023）。據報導第 2 季在製作，Netflix 還沒正式宣布。
+- **先看什麼**：改編自冨樫義博的漫畫。五集濃縮了大段原作，看過漫畫或 1992 年動畫比較容易跟上。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81243969)（訂閱）
+
+## 候補觀察名單
+
+| 劇 | 狀況 |
+|---|---|
+| 反英雄（アンチヒーロー） | 四類推薦來源都有，但 friDay、Hami Video 都已下架，台灣找不到合法串流 |
+| dele 刪除人生（dele） | 三類推薦來源都有，KKTV、myVideo 授權都已到期 |
+| 最好的教師（最高の教師 1年後、私は生徒に■された） | 三類推薦來源都有，Hami Video、LINE TV 都已下架 |
+| シナントロープ | 三類推薦來源都有，台灣找不到合法串流，也沒有台灣官方譯名 |
+
+## 這份片單的限制
+
+- **英文劇評很少。** 18 部有 8 部找不到能讀完的英文署名劇評，《VIVANT》的 The Japan Times 劇評有付費牆。Decider 的三篇都只看了第一集，另外 5 部的劇評來自 Asian Movie Pulse、MyDramaList News、The Blossom Review、Tokyo Prism 3CK 等清單外小站。
+- **台灣劇評集中在雪奈一人。** 18 部有 11 部的台灣劇評出自她；《99.9 刑事專門律師》找不到台灣劇評，《地面師》《女王偵訊室》《我們還不懂那顆星球的校規》只有介紹文。
+- **豆瓣只有 5 部。** 《Unnatural 法醫女王》《99.9 刑事專門律師》《地面師》《武士生死鬥》《今際之國的闖關者》讀得到媒體引述。
+- **新劇的評分人數很少。** 《GO HOME》《我們還不懂那顆星球的校規》在 IMDb 都不到 30 票。
+- **授權劇可能下架。** 《女王偵訊室》台灣只確認第 4 季；《Last Man 全盲搜查官》在 LINE TV 已到期，目前在 Hami Video。本篇串流連結核對日期：2026-11-09。
+
+## 參考資料
+
+- [ザテレビジョンドラマアカデミー賞（日文維基）](https://ja.wikipedia.org/wiki/ザテレビジョンドラマアカデミー賞)
+- [国際ドラマフェスティバル in TOKYO／東京ドラマアウォード（日文維基）](https://ja.wikipedia.org/wiki/国際ドラマフェスティバル_in_TOKYO)
+- [ギャラクシー賞（日文維基）](https://ja.wikipedia.org/wiki/ギャラクシー賞)
+- [日本民間放送連盟賞 2025](https://j-ba.or.jp/award2025/)
+- [Asian Academy Creative Award for Best Drama Series（Wikipedia）](https://en.wikipedia.org/wiki/Asian_Academy_Creative_Award_for_Best_Drama_Series)
+- [Real Sound〈2025年 年間ベストドラマTOP10〉](https://realsound.jp/movie/2025/12/post-2254007.html)
+- [MyDramaList：Top Japanese Dramas](https://mydramalist.com/shows/top_japanese_dramas)
+- [Filmarks Awards 歷年整理（pixiin）](https://pixiin.com/ranking-filmarks-awards-all/)
+- [Video Research〈令和版 ドラマ視聴率ランキング〉](https://www.videor.co.jp/digestplus/article/tv231219.html)
+- [Video Research〈2025年 民放ドラマまとめ〉](https://www.videor.co.jp/digestplus/article/tv260129-2.html)
+- [TVerアワード2025（PR TIMES）](https://prtimes.jp/main/html/rd/p/000000486.000002492.html)
+- [ORICON〈2025年 ドラマ満足度ランキング〉](https://www.oricon.co.jp/news/2427637/full/)
+- [Yahoo!検索大賞（日文維基）](https://ja.wikipedia.org/wiki/Yahoo!検索大賞)
+- [PTT 日劇板〈2025日劇無雷推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1768239645.A.F20.html)
+- [PTT 日劇板〈2025秋季日劇推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1766497769.A.FB6.html)
+- [PTT 日劇板〈2024日劇無雷推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1735532228.A.0CA.html)
+- [LINE TODAY 聚光賞〈2025 十大追劇榜〉（LINE 新聞稿）](https://www.linecorp.com/ko/pr/news/2025/1217)
+- [LINE TODAY 聚光賞〈2025 日劇年度榜〉](https://today.line.me/tw/v3/article/l25eq2G)
+- [friDay影音〈2025 年度大勢排行〉](https://video.friday.tw/curation/935)
+- [VERSE〈2025 年必看十部日劇〉](https://www.verse.com.tw/article/2025-j-drama)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [JustWatch 台灣](https://www.justwatch.com/tw)

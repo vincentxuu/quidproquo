@@ -1,0 +1,401 @@
+---
+title: "How to Pick Japanese Mystery, Crime and Action Dramas: VIVANT, Unnatural, Light of My Lion, Alice in Borderland and 14 More"
+date: 2026-11-10
+category: film
+tags: [tv-drama, j-drama, crime-drama, thriller]
+lang: en
+type: guide
+description: "For viewers in Taiwan looking for Japanese mystery, police, thriller and action dramas: police, forensics and lawyers, mysteries and conspiracies, and survival, horror and action. 18 shows, each backed by at least three of seven recommendation source types, with recommendation sources, MyDramaList, IMDb, Filmarks and Douban scores, English and Taiwanese reviews, content notes, episode counts and legal streaming links in Taiwan."
+tldr: "Start with VIVANT (backed by all seven source types), the brothers-and-family mystery Light of My Lion, or Unnatural, the top Filmarks score here. Broadcast shows mostly run 9 to 12 episodes and centre on investigation; Gannibal, Last Samurai Standing, Alice in Borderland, Tokyo Swindlers and Yu Yu Hakusho are streaming originals with far heavier violence."
+draft: false
+series:
+  name: "World TV Drama Guide"
+  order: 11
+---
+
+> 🌏 [中文版](/posts/film/2026-11-10-jdrama-mystery-crime-action)
+
+This post covers Japanese mystery, police, thriller and action: an espionage mission in Central Asia, the autopsy tables of a forensic lab, a blind FBI agent and death games played for your life. All 18 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, and each can be watched legally in Taiwan. Episode counts and the share of original scripts in Japanese drama are covered at the start of the [romance and comedy post](/posts/film/2026-11-10-jdrama-romance-comedy-bl-en); the Korean equivalent is the [Korean crime and mystery post](/posts/film/2026-11-08-kdrama-crime-mystery-revenge-en).
+
+Two things stand out in this group:
+
+- **Two levels of content.** The 13 broadcast shows centre on investigation and deduction; the 5 Netflix and Disney+ originals include cannibalism, beheadings and death games, noted for each show.
+- **Lengths vary widely.** From Yu Yu Hakusho’s 5 episodes to Emergency Interrogation Room’s 46 over five seasons; the bar chart below helps you pick by length.
+
+## Start with these 3
+
+| Show | Why start here | Content | Where to watch |
+|---|---|---|---|
+| VIVANT | Backed by all seven source types; Tokyo Drama Awards grand prix | Aired in a broadcast prime-time slot | friDay, LINE TV, Hami Video |
+| Light of My Lion | Backed by six source types; a family drama with a mystery | Mild | LINE TV |
+| Unnatural | Filmarks 4.4 stars, the highest here; 10 episodes, case by case | Mild to moderate: bullying; an attempted rape is only described in dialogue | LINE TV, Netflix |
+
+## Recommendation sources at a glance
+
+● means that source type recommends the show. A award juries, B critics polls, C audience ratings, D viewing data, E buzz metrics, F fan communities, G Taiwanese viewers.
+
+| Show | A | B | C | D | E | F | G | Types |
+|---|---|---|---|---|---|---|---|---|
+| VIVANT | ● | ● | ● | ● | ● | ● | ● | 7 |
+| Light of My Lion | ● | ● | ● | ● |  | ● | ● | 6 |
+| Tokyo Swindlers |  | ● | ● | ● |  | ● | ● | 5 |
+| Last Samurai Standing |  | ● | ● | ● |  | ● | ● | 5 |
+| MIU404 | ● |  | ● | ● |  | ● |  | 4 |
+| Gannibal |  |  | ● |  | ● | ● | ● | 4 |
+| Last Man |  |  | ● | ● |  | ● | ● | 4 |
+| Tokyo Salad Bowl | ● | ● | ● |  |  | ● |  | 4 |
+| Alice in Borderland |  |  | ● | ● | ● |  | ● | 4 |
+| Yu Yu Hakusho |  | ● | ● | ● |  |  | ● | 4 |
+| Unnatural | ● |  | ● |  |  | ● |  | 3 |
+| 99.9 Criminal Lawyer | ● |  | ● | ● |  |  |  | 3 |
+| Don’t Call It Mystery | ● |  | ● | ● |  |  |  | 3 |
+| Your Turn to Kill | ● |  |  | ● | ● |  |  | 3 |
+| Go Home |  |  |  | ● |  | ● | ● | 3 |
+| Emergency Interrogation Room | ● |  |  | ● | ● |  |  | 3 |
+| School Lawyer | ● | ● |  |  |  | ● |  | 3 |
+| Their Marriage |  | ● | ● | ● |  |  |  | 3 |
+
+Columns C and D (audience ratings and viewing data) are the fullest, 14 of 18 each; column E (buzz metrics) has only 5. Only VIVANT is backed by all seven types.
+
+## Pick a length: total episodes
+
+```diagram
+title: Total episodes of the 18 shows
+desc: Emergency Interrogation Room is longest at 46 episodes over 5 seasons, followed by VIVANT at 24, Alice in Borderland at 22 and Your Turn to Kill at 20; most run 9 to 12; Tokyo Swindlers, Last Samurai Standing and Yu Yu Hakusho are 5 to 7-episode Netflix originals.
+caption: Series episodes aired so far, excluding specials and films. Only season 4 (9 episodes) of Emergency Interrogation Room is confirmed in Taiwan; VIVANT season 2 ended on 2026-11-08, and a film opens in Japan on 2026-12-04.
+---
+<svg viewBox="0 0 640 468">
+  <text class="dg-sub" x="184" y="24" text-anchor="end" dominant-baseline="central">Emergency Interrogation Room</text>
+  <rect class="dg-bar" x="196" y="16" width="396" height="16" rx="3"/>
+  <text class="dg-small" x="600" y="24" dominant-baseline="central">46</text>
+  <text class="dg-sub" x="184" y="49" text-anchor="end" dominant-baseline="central">VIVANT</text>
+  <rect class="dg-bar" x="196" y="41" width="206" height="16" rx="3"/>
+  <text class="dg-small" x="410" y="49" dominant-baseline="central">24</text>
+  <text class="dg-sub" x="184" y="74" text-anchor="end" dominant-baseline="central">Alice in Borderland</text>
+  <rect class="dg-bar" x="196" y="66" width="189" height="16" rx="3"/>
+  <text class="dg-small" x="393" y="74" dominant-baseline="central">22</text>
+  <text class="dg-sub" x="184" y="99" text-anchor="end" dominant-baseline="central">Your Turn to Kill</text>
+  <rect class="dg-bar" x="196" y="91" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="376" y="99" dominant-baseline="central">20</text>
+  <text class="dg-sub" x="184" y="124" text-anchor="end" dominant-baseline="central">99.9 Criminal Lawyer</text>
+  <rect class="dg-bar" x="196" y="116" width="163" height="16" rx="3"/>
+  <text class="dg-small" x="367" y="124" dominant-baseline="central">19</text>
+  <text class="dg-sub" x="184" y="149" text-anchor="end" dominant-baseline="central">Gannibal</text>
+  <rect class="dg-bar" x="196" y="141" width="129" height="16" rx="3"/>
+  <text class="dg-small" x="333" y="149" dominant-baseline="central">15</text>
+  <text class="dg-sub" x="184" y="174" text-anchor="end" dominant-baseline="central">Don’t Call It Mystery</text>
+  <rect class="dg-bar" x="196" y="166" width="103" height="16" rx="3"/>
+  <text class="dg-small" x="307" y="174" dominant-baseline="central">12</text>
+  <text class="dg-sub" x="184" y="199" text-anchor="end" dominant-baseline="central">MIU404</text>
+  <rect class="dg-bar" x="196" y="191" width="95" height="16" rx="3"/>
+  <text class="dg-small" x="299" y="199" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="184" y="224" text-anchor="end" dominant-baseline="central">School Lawyer</text>
+  <rect class="dg-bar" x="196" y="216" width="95" height="16" rx="3"/>
+  <text class="dg-small" x="299" y="224" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="184" y="249" text-anchor="end" dominant-baseline="central">Light of My Lion</text>
+  <rect class="dg-bar" x="196" y="241" width="95" height="16" rx="3"/>
+  <text class="dg-small" x="299" y="249" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="184" y="274" text-anchor="end" dominant-baseline="central">Unnatural</text>
+  <rect class="dg-bar" x="196" y="266" width="86" height="16" rx="3"/>
+  <text class="dg-small" x="290" y="274" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="184" y="299" text-anchor="end" dominant-baseline="central">Last Man</text>
+  <rect class="dg-bar" x="196" y="291" width="86" height="16" rx="3"/>
+  <text class="dg-small" x="290" y="299" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="184" y="324" text-anchor="end" dominant-baseline="central">Go Home</text>
+  <rect class="dg-bar" x="196" y="316" width="86" height="16" rx="3"/>
+  <text class="dg-small" x="290" y="324" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="184" y="349" text-anchor="end" dominant-baseline="central">Tokyo Salad Bowl</text>
+  <rect class="dg-bar" x="196" y="341" width="77" height="16" rx="3"/>
+  <text class="dg-small" x="281" y="349" dominant-baseline="central">9</text>
+  <text class="dg-sub" x="184" y="374" text-anchor="end" dominant-baseline="central">Their Marriage</text>
+  <rect class="dg-bar" x="196" y="366" width="77" height="16" rx="3"/>
+  <text class="dg-small" x="281" y="374" dominant-baseline="central">9</text>
+  <text class="dg-sub" x="184" y="399" text-anchor="end" dominant-baseline="central">Tokyo Swindlers</text>
+  <rect class="dg-bar" x="196" y="391" width="60" height="16" rx="3"/>
+  <text class="dg-small" x="264" y="399" dominant-baseline="central">7</text>
+  <text class="dg-sub" x="184" y="424" text-anchor="end" dominant-baseline="central">Last Samurai Standing</text>
+  <rect class="dg-bar" x="196" y="416" width="52" height="16" rx="3"/>
+  <text class="dg-small" x="256" y="424" dominant-baseline="central">6</text>
+  <text class="dg-sub" x="184" y="449" text-anchor="end" dominant-baseline="central">Yu Yu Hakusho</text>
+  <rect class="dg-bar" x="196" y="441" width="43" height="16" rx="3"/>
+  <text class="dg-small" x="247" y="449" dominant-baseline="central">5</text>
+</svg>
+```
+
+## The watchlist
+
+Entries list recommended by, scores, reviews, content, length, watch first and where to watch.
+
+- **Scores**: most Japanese dramas have no Metacritic score, so this post uses [MyDramaList](https://mydramalist.com/shows/top_japanese_dramas), IMDb, Japan’s Filmarks and Douban; for multi-season shows, MyDramaList is season 1 and IMDb the whole show. Streaming originals with a Metacritic or Rotten Tomatoes score have it in the review entry.
+- **Content**: Japanese TV has no single rating system; Taiwan platform ratings are given where shown. Content notes come from the IMDb Parents Guide, which has votes for only 6 shows; the rest follow the plot.
+- **Where to watch**: links go to Taiwan platform title pages; where only some seasons are available, the entry says so.
+
+### Police, forensics and lawyers
+
+A mobile investigation unit, a forensic lab, defence lawyers, an interrogation room and police in an immigrant neighbourhood. Many run a case per episode, so you can dip in.
+
+#### MIU404
+
+Two detectives with opposite temperaments team up in the Tokyo police’s 4th Mobile Investigative Unit, facing culprits and victims shaped by social problems ([Wikipedia](https://ja.wikipedia.org/wiki/MIU404)).
+
+- **Recommended by**: `A Television Drama Academy Awards best drama (summer 2020)` `A Tokyo Drama Awards 2021 award of excellence` `C MyDramaList top Japanese drama #22 (8.5)` `D Finale Kanto rating 24.8% (#21 of the Reiwa era)` `F PTT Japandrama 2023 year-end review (third rewatch)`
+- **Scores**: MyDramaList 8.5 (3,589 ratings) | IMDb 7.3 (1.2K votes) | Filmarks ★4.3
+- **Reviews**: Writing at episode 9, [Orangevine at MyDramaList News](https://news.mydramalist.com/article/currently-watching-buddy-cop-j-drama-miu404-011015463), a fan-oriented news site, recommended it: "MIU404 is constructed as masterfully as Unnatural but hides that behind tons of fun stuff." After the finale, [重點就在括號裡 at 電影神搜](https://news.agentm.tw/132620/) (in Chinese) praised its honest look at Japan’s social problems, but said the pandemic cut from 14 to 11 episodes left the ending rushed. Reviews broadly agree; the split is a flat start versus a strong finish.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; each case turns on a social problem.
+- **Length**: 11 episodes, finished. It shares a universe with Unnatural; the 2024 film Last Mile extends both.
+- **Watch first**: Nothing; it is an original by writer Nogi Akiko. Unnatural is not required, though fans of both will spot the crossovers.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/23124/eps/1) (available)
+
+#### Last Man
+
+A blind FBI investigator famed for cracking the toughest cases comes to Japan on an exchange and pairs up with a detective obsessed with catching criminals ([Wikipedia](https://ja.wikipedia.org/wiki/ラストマン-全盲の捜査官-)).
+
+- **Recommended by**: `C Filmarks 2023 Japanese drama #14` `D Finale Kanto rating 24.2% (#2 commercial-TV episode of 2023)` `F PTT Japandrama 2023 year-end review #3` `G KKTV 2023 most watched #3`
+- **Scores**: MyDramaList 7.8 (220 ratings) | IMDb 7.5 (128 votes) | Filmarks ★3.9
+- **Reviews**: No signed English review could be found. [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/7266903) (in Chinese) loved the double act between Fukuyama Masaharu and Oizumi Yo, and said the last two episodes tied up a 41-year-old case well. High ratings, but no awards and no English reviews.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes.
+- **Length**: 10 episodes (2023), plus the 2025 special FAKE/TRUTH. The film First Love opened in Japan in December 2025 and in Taiwan in August 2026.
+- **Watch first**: Nothing; it is an original. The special and the film follow the series, so watch in order.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/314916.do?cs=2) (subscription, some episodes free, leaves 9 January 2028). The series has lapsed on LINE TV; the 2025 special FAKE/TRUTH is on [LINE TV](https://www.linetv.tw/drama/21250/eps/1)
+
+#### Tokyo Salad Bowl
+
+A green-haired police officer and a former police interpreter team up on cases involving foreign residents in an increasingly diverse Tokyo ([Wikipedia](https://ja.wikipedia.org/wiki/東京サラダボウル)).
+
+- **Recommended by**: `A Tokyo Drama Awards 2025 award of excellence` `B Real Sound best of 2025 (one critic’s #2)` `C Filmarks Awards 2025 TV drama nominee` `F PTT Japandrama 2025 picks thread` `F PTT Japandrama 2025 year-end hidden gem`
+- **Scores**: MyDramaList 7.9 (584 ratings) | IMDb 7.3 (234 votes) | Filmarks ★4.0
+- **Reviews**: [Olivier Fabre at Tokyo Prism 3CK](https://tokyoprism3ck.com/2025/08/tokyo-salad-bowl-food-for-thought-queerbait-crumbs-or-just-patronizing-2/), a Tokyo-based blog-style site, says "it plays like something served with plastic gloves – sanitized, cautious, and slightly over-rehearsed". Reviewing episode 1 only, [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/8478556) (in Chinese) enjoyed the leads but felt uneasy about stereotypes from a Japanese point of view. Japanese juries rewarded it; both reviewers question its viewpoint.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes.
+- **Length**: 9 episodes, finished.
+- **Watch first**: Adapted from Kuromaru’s manga; no need to read it.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/3926) (available)
+
+#### Unnatural
+
+Forensic doctor Misumi Mikoto works at a new Unnatural Death Investigation Laboratory, solving cases of deaths from unnatural causes with her colleagues ([Wikipedia](https://en.wikipedia.org/wiki/Unnatural_(TV_series))).
+
+- **Recommended by**: `A Television Drama Academy Awards best drama (winter 2018)` `A Galaxy Award of excellence (2017)` `C MyDramaList top Japanese drama #8 (8.5)` `C IMDb 8.1` `F PTT Japandrama gateway-drama thread` `F PTT Japandrama 2024 picks: endless rewatches`
+- **Scores**: MyDramaList 8.5 (5,969 ratings) | IMDb 8.1 (3K votes) | Filmarks ★4.4 | Douban 9.3 (2018)
+- **Reviews**: [Adriana Rosati at Asian Movie Pulse](https://asianmoviepulse.com/2025/07/series-review-unnatural-2018-by-ayuko-tsukahara/) calls it Japan’s CSI and writes that "although it doesn't shine for originality, a few clever choices earn it some extra credit and elevate it above many of its peers". [卡爬 at United Daily News](https://stars.udn.com/star/story/10093/4432994) (in Chinese) writes only about the episode 1 epidemic case, reading it against online witch-hunts during Covid. Critics, Douban and overseas fans agree; it has the highest Filmarks score in this group.
+- **Content**: No Japanese rating; no Taiwan platform rating found. Only one or two IMDb votes per category; one case involves an attempted rape that is only talked about, and there is a school bullying beating.
+- **Length**: 10 episodes, finished.
+- **Watch first**: Nothing; it is an original by writer Nogi Akiko. MIU404, set in the same universe, makes a good follow-up.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/21215/eps/1) (VIP subscription); [Netflix](https://www.netflix.com/tw/title/81714729) (subscription)
+
+#### 99.9 Criminal Lawyer
+
+With a 99.9% conviction rate in Japanese criminal trials, a defence lawyer hunts for the truth in the remaining 0.1%, one case per episode ([Wikipedia](https://ja.wikipedia.org/wiki/99.9-刑事専門弁護士-)).
+
+- **Recommended by**: `A Television Drama Academy Awards best drama (spring 2016)` `C MyDramaList top Japanese drama #46 (8.3, season 2)` `D #1 average rating of 2018 (season 2, 17.4%)`
+- **Scores**: MyDramaList 8.3 (season 1) (2,818 ratings) | IMDb 7.4 (670 votes) | Filmarks ★4.1 | Douban 8.4 (season 2, 2018)
+- **Reviews**: No signed English review could be found, and no Taiwanese review either. Season 2 was Japan’s top-rated drama of 2018, yet critics barely wrote about it.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; a courtroom drama from TBS’s Sunday prime-time slot.
+- **Length**: 2 seasons, 19 episodes (2016 and 2018), plus a 2021 special and a film.
+- **Watch first**: Nothing; it is an original. Episodes stand alone, so season 2 works by itself; the special and film follow season 2.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/82072564) (subscription). The listing does not say which seasons are up
+
+#### Don’t Call It Mystery
+
+A university student taken in as a murder suspect talks nonstop in the interrogation room, picking apart the detectives’ blind spots ([Wikipedia](https://en.wikipedia.org/wiki/Don%27t_Call_It_Mystery)).
+
+- **Recommended by**: `A Asian Academy Creative Awards best drama series, Japan 2022` `A Tokyo Drama Awards 2022 award of excellence` `C MyDramaList top Japanese drama #19 (8.5)` `D #12 Kanto rating of the Reiwa era (25.8%)` `D TVer Awards 2022 special prize`
+- **Scores**: MyDramaList 8.5 (3,628 ratings) | IMDb 7.6 (679 votes) | Filmarks ★4.1
+- **Reviews**: The only English review found is from [Karen Mansoldo at The Blossom Review](https://theblossomreview.com/dont-call-it-mystery-viki-j-drama-review/), a small review site; it is positive, though only its first third could be read. [雪奈 at 電影神搜](https://news.agentm.tw/216506/) (in Chinese) calls it a healing drama first and a mystery second, with no big twists. Ratings, streaming and awards are all strong; viewers after hard puzzles may be disappointed.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; it touches on child abuse and bullying.
+- **Length**: 12 episodes (2022), plus a 2023 special and a film. No word of a season 2.
+- **Watch first**: Adapted from Tamura Yumi’s manga; no need to read it. The film follows the series, so watch the series first.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/2275) (free tier or drama plan)
+
+#### Go Home
+
+Two officers in a Tokyo police unit for unidentified remains use the faintest clues to name the dead and send them home to their families ([Wikipedia](https://ja.wikipedia.org/wiki/GO_HOME〜警視庁身元不明人相談室〜)).
+
+- **Recommended by**: `D #17 Kanto rating of 2024 (14.4%)` `F PTT Japandrama 2024 year-end hidden gem` `G KKTV 2024 most watched #10`
+- **Scores**: MyDramaList 7.8 (108 ratings) | IMDb 6.5 (23 votes) | Filmarks ★3.4
+- **Reviews**: No signed English review could be found. [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/8260788) (in Chinese) found nearly every episode moving but light on mystery, with the leads’ own storyline wrapped up in a hurry. A small show: 23 IMDb votes, and the lowest Filmarks score in this group.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; every episode centres on an unidentified body.
+- **Length**: 10 episodes, finished.
+- **Watch first**: Nothing; it is an original.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/268346.do?cs=2) (subscription, some episodes free); [LINE TV](https://www.linetv.tw/drama/22252/eps/1) (VIP subscription)
+
+#### Emergency Interrogation Room
+
+A detective demoted after taking the blame for a failure joins a squad of veteran detectives who break suspects through psychological duels in the interrogation room ([Wikipedia](https://ja.wikipedia.org/wiki/緊急取調室)).
+
+- **Recommended by**: `A Tokyo Drama Awards 2022 award of excellence (season 4)` `D #7 Kanto rating of 2025 (16.5%, season 5)` `E ORICON 2025 drama satisfaction #8 (season 5)`
+- **Scores**: MyDramaList 7.6 (season 1) (439 ratings) | IMDb 7.4 (135 votes) | Filmarks ★4.0
+- **Reviews**: No signed English review could be found. In Taiwan only an introductory piece could be found: a series overview by [雪奈 at 電影神搜](https://news.agentm.tw/269869/) (in Chinese). A long-running ratings hit; critics honoured only season 4, and no proper single-season review exists in either language.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; it is mostly talk in the interrogation room.
+- **Length**: 5 seasons, 46 episodes (2014–2025), plus 2 specials; the December 2025 film The Final closes the series. Only season 4 (9 episodes) is confirmed in Taiwan.
+- **Watch first**: Nothing; it is an original. Season 1 is the best start, but season 4’s standalone cases work on their own.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/321851.do?cs=2) (season 4, subscription, some episodes free); [myVideo](https://www.myvideo.net.tw/details/3/19638) (season 4). Other seasons and the film were not found on Taiwan streaming
+
+#### School Lawyer
+
+A timid lawyer, bullied as a student, is sent three days a week to a private high school formed by merging a boys’ and a girls’ school ([Wikipedia](https://ja.wikipedia.org/wiki/僕達はまだその星の校則を知らない)).
+
+- **Recommended by**: `A Television Drama Academy Awards best drama (summer 2025)` `B Real Sound best of 2025 (two critics: #1 and #3)` `B Eiga Channel 2025 top five (two writers)` `F PTT Japandrama 2025 year-end review #4` `F MyDramaList user’s 2025 list #2`
+- **Scores**: MyDramaList 8.0 (101 ratings) | IMDb 6.9 (17 votes) | Filmarks ★4.1
+- **Reviews**: No signed English review could be found. In Taiwan only an introductory piece could be found: [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/8876226) (in Chinese) previewed episode 1. Japanese critics love it and it won a Television Drama Academy Award, yet it has only 17 IMDb votes.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; school bullying is part of the story.
+- **Length**: 11 episodes, finished.
+- **Watch first**: Nothing; it is an original. It is a school-lawyer drama, not a crime mystery.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/18212/eps/1) (VIP subscription)
+
+### Mysteries and conspiracies
+
+Espionage, serial killings in an apartment block, property fraud, a missing child and a wife’s past. Best watched in order, ideally in one go.
+
+#### VIVANT
+
+A Japanese businessman with a secret personality is sent to Central Asia to recover money his company wired out by mistake, and is drawn into an international conspiracy ([Wikipedia](https://en.wikipedia.org/wiki/Vivant_(TV_series))).
+
+- **Recommended by**: `A Tokyo Drama Awards 2024 Grand Prix` `A Television Drama Academy Awards best drama (summer 2023)` `B Real Sound best of 2023 (2 of 5 critics)` `C Filmarks 2023 Japanese drama #2` `D #1 Kanto average rating of 2023 (finale 29.8%)` `E Yahoo! Search Awards 2023 drama category` `F PTT Japandrama 2023 year-end review` `G #1 Japanese drama on friDay 2023` `G KKTV 2023 most watched #2`
+- **Scores**: MyDramaList 8.1 (season 1) (935 ratings) | IMDb 7.0 (1K votes) | Filmarks ★4.3
+- **Reviews**: No signed English review could be read in full; the Japan Times season-1 recap is paywalled. Reviewing season 1, [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/7452917) (in Chinese) liked the middle stretch back in Japan, but called the late twist that whitewashes the terror group a reversal for its own sake. It swept Japanese ratings and awards, drew almost no English criticism, and 56% of its October 2026 buzz on Taiwan’s DailyView was negative.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; it aired in TBS’s 9 pm Sunday prime-time slot.
+- **Length**: 2 seasons, 24 episodes: season 1 has 10 (2023), season 2 has 14 and ended on 8 November 2026. A film opens in Japan on 4 December 2026.
+- **Watch first**: Nothing; it is an original by director Fukuzawa Katsuo. Watch season 1 before season 2.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/3025) (season 1); [LINE TV](https://www.linetv.tw/drama/21211/eps/1) (season 1); [friDay影音](https://video.friday.tw/drama/detail/5039) (season 2); [Hami Video](https://hamivideo.hinet.net/product/331506.do?cs=2) (season 2, leaves 27 July 2028); [LINE TV](https://www.linetv.tw/drama/23125/eps/1) (season 2)
+
+#### Light of My Lion
+
+A city-hall clerk who cares for his autistic younger brother sees their quiet routine upended by a mysterious little boy who calls himself Lion ([Wikipedia](https://en.wikipedia.org/wiki/Light_of_My_Lion)).
+
+- **Recommended by**: `A JBA Awards 2025 award of excellence` `B Real Sound best of 2024 (one critic’s #2)` `C MyDramaList top Japanese drama #15 (8.5)` `D Finale Kanto rating 15.4% (#12 of 2024)` `F PTT Japandrama 2024 year-end review #5` `G KKTV 2024 best supporting actor (Bando Ryota)`
+- **Scores**: MyDramaList 8.5 (3,212 ratings) | IMDb 8.0 (696 votes) | Filmarks ★4.2
+- **Reviews**: [Karen Mansoldo at The Blossom Review](https://theblossomreview.com/light-of-my-lion-netflix-review/), a small review site, likes how the mystery serves the brothers’ growth and how the autistic brother avoids stereotype (only two-thirds of it could be read). [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/8443474) (in Chinese) named it her favourite of autumn 2024 for balancing warmth and weight. Both agree; word of mouth outran ratings.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes.
+- **Length**: 11 episodes, finished.
+- **Watch first**: Nothing; it is an original. At heart a family drama about two brothers, driven by a mystery.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/21227/eps/1) (available)
+
+#### Tokyo Swindlers
+
+A team of land swindlers who pose as owners to fake property deals targets a plot worth 10 billion yen for their biggest scam yet ([Wikipedia](https://en.wikipedia.org/wiki/Tokyo_Swindlers)).
+
+- **Recommended by**: `B Real Sound best of 2024 (Mugikura Masaki #1)` `C Filmarks Awards 2024 best streaming drama` `D Netflix H2 2024: 12M views` `F PTT Japandrama 2024 picks thread` `G #2 on Netflix Taiwan (6 weeks)`
+- **Scores**: MyDramaList 7.7 (1,218 ratings) | IMDb 7.3 (3.3K votes) | Filmarks ★4.1 | Douban 7.2 (October 2026)
+- **Reviews**: Watching episode 1 only, [Joel Keller at Decider](https://decider.com/2024/07/29/tokyo-swindlers-netflix-review/) said stream it: "Tokyo Swindlers is basically a heist show, but it's a heist show that has set up a pretty interesting heist with an interesting team of con artists trying to make the big score." In Taiwan only an introductory piece could be found, by [雪奈 at 電影神搜](https://news.agentm.tw/296680/) (in Chinese). A streaming hit in Japan and Taiwan, but only 7.2 on Douban, with some calling the back half sloppy. Rotten Tomatoes 100% (9 reviews).
+- **Content**: No Japanese rating; no Taiwan platform rating found. All five IMDb Parents Guide categories are moderate or worse: violence, profanity, drugs and intensity are rated severe, sex and nudity moderate.
+- **Length**: 7 episodes, all released in 2024. Netflix has not announced a season 2.
+- **Watch first**: Adapted from Shinjo Ko’s novel; no need to read it.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81574118) (subscription)
+
+#### Your Turn to Kill
+
+Newlyweds with a big age gap move into an apartment block, join a “murder swap game” at a residents’ meeting, and then the residents start dying ([Wikipedia](https://en.wikipedia.org/wiki/Your_Turn_to_Kill)).
+
+- **Recommended by**: `A Tokyo Drama Awards 2020 award of excellence` `D Counterattack finale Kanto rating 25.0%` `E Yahoo! Search Awards 2019 drama category`
+- **Scores**: MyDramaList 8.0 (part 1) (1,582 ratings) | IMDb 7.1 (971 votes) | Filmarks ★4.0
+- **Reviews**: No signed English review could be found. [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/4037676) (in Chinese) credits the hype and says fan theories beat the plot, but calls the ending full of holes and anticlimactic. The split is clear: huge ratings and buzz, a criticised ending.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; the story is a string of murders among residents.
+- **Length**: 20 episodes in two parts (part 2 is Counterattack), plus a special. A film followed in 2021.
+- **Watch first**: Nothing; it is an original from a concept by Akimoto Yasushi. Watch part 1 and Counterattack back to back.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81506809) (subscription)
+
+#### Their Marriage
+
+A star lawyer single for 50 years meets an art teacher in a hospital lift and marries her on the spot, but she has a big secret ([Wikipedia](https://ja.wikipedia.org/wiki/しあわせな結婚)).
+
+- **Recommended by**: `B Real Sound best of 2025 (Mugikura Masaki #3)` `C Filmarks Awards 2025 TV drama nominee` `D #12 Kanto rating of 2025 (15.5%)`
+- **Scores**: MyDramaList 7.2 (275 ratings) | IMDb 6.6 (168 votes) | Filmarks ★3.7
+- **Reviews**: No signed English review could be found. [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/9006391) (in Chinese) has reservations: the script never quite balances mystery and family drama, and the leads carry it. It drew solid ratings and a critic’s year-end pick, but the writing divides opinion.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes.
+- **Length**: 9 episodes, finished.
+- **Watch first**: Nothing; it is an original written by Oishi Shizuka. It is a marriage mystery, not a crime show.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/82084559) (subscription)
+
+### Survival, horror and action
+
+A cannibal village, samurai fighting to the death, death games and a spirit detective. All Netflix or Disney+ originals, and the heaviest content here.
+
+#### Last Samurai Standing
+
+In the Meiji era, 292 fighters chase a 100,000-yen prize, seizing each other’s wooden tags on a deadly race from Kyoto to Tokyo ([Wikipedia](https://en.wikipedia.org/wiki/Last_Samurai_Standing_(TV_series))).
+
+- **Recommended by**: `B Real Sound best of 2025 (Mugikura Masaki #4)` `C IMDb 7.5 (23K votes)` `D Netflix H2 2025: 21M views` `F PTT Japandrama autumn 2025 picks #3` `G #10 on Netflix Taiwan (3 weeks)` `G VERSE ten must-see Japanese dramas of 2025`
+- **Scores**: MyDramaList 8.3 (2,755 ratings) | IMDb 7.5 (23K votes) | Filmarks ★3.9 | Douban 7.3 (October 2026)
+- **Reviews**: Having seen the whole season, [Rendy Jones at RogerEbert.com](https://www.rogerebert.com/streaming/last-samurai-standing-netflix-tv-review-2025) calls it Battle Royale in the Meiji era and "a fully realized, epic action series", though six episodes hold too many characters. The only Taiwanese take is a short entry in [葉聖博’s VERSE year-end list](https://www.verse.com.tw/article/2025-j-drama) (in Chinese), praising the one-take opening battle. Critics rate it above viewers: Metacritic 78 (7 reviews) against a user score of 6.3; Rotten Tomatoes 100% (12 reviews).
+- **Content**: No Japanese rating; no Taiwan platform rating found. Violence is severe: decapitations, mutilation, spurting blood and disembowelling are shown. Intensity is moderate; there is no sexual content.
+- **Length**: Season 1 has 6 episodes (November 2025). Netflix Japan has confirmed a season 2, with no date yet.
+- **Watch first**: Adapted from Imamura Shogo’s novel; no need to read it.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81607397) (subscription)
+
+#### Gannibal
+
+A police officer posted to a remote mountain village, rumoured to eat people, investigates a villager’s disappearance and closes in on the family that runs the place ([Wikipedia](https://en.wikipedia.org/wiki/Gannibal_(TV_series))).
+
+- **Recommended by**: `C Filmarks 2023 Japanese drama #4` `C MyDramaList 8.3 (season 1)` `E Parrot Analytics 2025 manga/anime live-action demand #2` `F MyDramaList user’s 2025 list #1` `G ELLE Taiwan 2025 upcoming picks #2`
+- **Scores**: MyDramaList 8.3 (season 1) (3,646 ratings) | IMDb 7.4 (3.2K votes) | Filmarks ★4.2
+- **Reviews**: Reviewing only the season 2 premiere, [Johnny Loftus at Decider](https://decider.com/2025/03/31/gannibal-season-2-hulu-review/) said stream it, yet wrote: "Cult stuff: we usually love it. And Gannibal's version is intriguing. But the fact is that the formatting of its story is extremely trying." [雪奈 at 電影神搜](https://news.agentm.tw/247405/) (in Chinese) reviewed season 1 and praised its three parallel threads. Decider finds the storytelling hard to follow; the Taiwanese review sees it as a strength. Rotten Tomatoes lists no critic reviews.
+- **Content**: Disney+ Taiwan 18+ (IMDb lists Taiwan 15+, which conflicts). The subject is cannibalism; violence is severe, with people being eaten or killed, children included. Season 2 episode 5 has rear nudity.
+- **Length**: 2 seasons, 15 episodes (7 + 8); season 2 is the finale and ended in 2025.
+- **Watch first**: Adapted from Ninomiya Masaaki’s manga; no need to read it. Season 2 picks up directly from season 1, so watch in order.
+- **Where to watch**: [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-71a78f9b-14d5-47a9-8ceb-6192d2856c41) (subscription)
+
+#### Alice in Borderland
+
+A video-game-obsessed young man and two friends are suddenly transported to a deserted Tokyo where they must play life-or-death games to survive ([Wikipedia](https://en.wikipedia.org/wiki/Alice_in_Borderland_(TV_series))).
+
+- **Recommended by**: `C IMDb 7.8 (154K votes)` `C MyDramaList top Japanese drama #2 (8.9, season 2)` `D Netflix H2 2025: 25M views (season 3)` `E Parrot Analytics 2025 manga/anime live-action demand #1` `G #3 on Netflix Taiwan (season 3, 3 weeks)`
+- **Scores**: MyDramaList 8.9 (season 1) (99,781 ratings) | IMDb 7.8 (154K votes) | Filmarks ★3.9 | Douban 8.7 (season 1, first week)
+- **Reviews**: Reviewing season 2, [Steve Greene at IndieWire](https://www.indiewire.com/criticism/shows/alice-in-borderland-season-2-review-netflix-show-1234794167/) tired of characters stopping to philosophise: "But it's that spectacle that pretty much makes up for all the other shortcomings." [潘光中 at 電影神搜](https://news.agentm.tw/149891/) (in Chinese), reviewing season 1, warned the survival-game genre was well worn but found every character vivid. It has the biggest audience here, but season 3 slipped: 8.9 to 8.1 on MyDramaList, down to 3.5 on Filmarks. Rotten Tomatoes 78% (30 reviews); Metacritic has too few reviews for a score.
+- **Content**: No Japanese rating; no Taiwan platform rating found. Death-game violence is severe, with exploding collars killing players again and again. Season 1 episode 6 has a woman pinned down and threatened with rape (not carried out); there are also sex scenes and a drug-injection flashback.
+- **Length**: 3 seasons, 22 episodes (8 + 8 + 6, 2020–2025); Netflix has said season 3 was the last.
+- **Watch first**: Adapted from Aso Haro’s manga; no need to read it. Watch the three seasons in order.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81682895) (subscription)
+
+#### Yu Yu Hakusho
+
+A delinquent high-school student dies saving a child from a car and is brought back to life to investigate the supernatural for the spirit world ([Wikipedia](https://en.wikipedia.org/wiki/YuYu_Hakusho_(2023_TV_series))).
+
+- **Recommended by**: `B Real Sound best of 2023 (Narima Reiichi #2)` `C Filmarks Awards 2024 streaming drama nominee` `D Netflix H2 2023: 17M views` `G #1 on Netflix Taiwan (3 weeks)`
+- **Scores**: MyDramaList 8.1 (5,653 ratings) | IMDb 7.2 (10K votes) | Filmarks ★3.6
+- **Reviews**: After episode 1, [Johnny Loftus at Decider](https://decider.com/2023/12/16/yu-yu-hakusho-netflix-review/) said stream it: "Fans of the original Yu Yu Hakusho manga will definitely want to check how this energetic live action version realizes its classic characters. But there's plenty to enjoy for the rest of us, too". Having watched all five, [潘光中 at 電影神搜](https://news.agentm.tw/270176/) (in Chinese) panned the casting and rewrites, praised only the fights, and likened it to a student graduation project. They watched different amounts and reached opposite verdicts. Metacritic 70 (4 reviews), user score 6.6; Rotten Tomatoes 83% (12 reviews).
+- **Content**: No Japanese rating; no Taiwan platform rating found. Violence is severe: bloody fights, monster body horror, self-harm and a car crash.
+- **Length**: 5 episodes (2023). A season 2 is reportedly in production, but Netflix has not officially confirmed it.
+- **Watch first**: Adapted from Togashi Yoshihiro’s manga. Five episodes compress a lot of story, so the manga or the 1992 anime helps.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81243969) (subscription)
+
+## Watch-later list
+
+| Show | Status |
+|---|---|
+| Antihero (アンチヒーロー) | Backed by four source types, but gone from friDay and Hami Video; no legal streaming option found in Taiwan |
+| dele (dele) | Backed by three source types; its KKTV and myVideo licences have expired |
+| 最高の教師 1年後、私は生徒に■された | Backed by three source types; gone from Hami Video and LINE TV |
+| シナントロープ | Backed by three source types; no legal streaming option or official Taiwan title found |
+
+## Limits of this list
+
+- **Few English reviews.** 8 of the 18 have no signed English review that could be read in full, and the Japan Times review of VIVANT is paywalled. All three Decider reviews cover only the first episode, and 5 others come from outlets outside the usual list, such as Asian Movie Pulse, MyDramaList News, The Blossom Review and Tokyo Prism 3CK.
+- **Taiwanese reviews come mostly from one writer.** 雪奈 wrote the Taiwanese review for 11 of the 18; 99.9 Criminal Lawyer has none, and Tokyo Swindlers, Emergency Interrogation Room and School Lawyer have only introductions.
+- **Douban for only 5 shows.** Unnatural, 99.9 Criminal Lawyer, Tokyo Swindlers, Last Samurai Standing and Alice in Borderland have quoted scores.
+- **Newer shows have few ratings.** Go Home and School Lawyer each have under 30 IMDb votes.
+- **Licensed shows can disappear.** Only season 4 of Emergency Interrogation Room is confirmed in Taiwan; Last Man has expired on LINE TV and is now on Hami Video. Streaming links checked: 2026-11-09.
+
+## References
+
+- [ザテレビジョンドラマアカデミー賞 (Japanese Wikipedia)](https://ja.wikipedia.org/wiki/ザテレビジョンドラマアカデミー賞)
+- [国際ドラマフェスティバル in TOKYO／東京ドラマアウォード (Japanese Wikipedia)](https://ja.wikipedia.org/wiki/国際ドラマフェスティバル_in_TOKYO)
+- [ギャラクシー賞 (Japanese Wikipedia)](https://ja.wikipedia.org/wiki/ギャラクシー賞)
+- [日本民間放送連盟賞 2025](https://j-ba.or.jp/award2025/) (in Japanese)
+- [Asian Academy Creative Award for Best Drama Series (Wikipedia)](https://en.wikipedia.org/wiki/Asian_Academy_Creative_Award_for_Best_Drama_Series)
+- [Real Sound〈2025年 年間ベストドラマTOP10〉](https://realsound.jp/movie/2025/12/post-2254007.html) (in Japanese)
+- [MyDramaList：Top Japanese Dramas](https://mydramalist.com/shows/top_japanese_dramas)
+- [Filmarks Awards history (pixiin)](https://pixiin.com/ranking-filmarks-awards-all/)
+- [Video Research〈令和版 ドラマ視聴率ランキング〉](https://www.videor.co.jp/digestplus/article/tv231219.html) (in Japanese)
+- [Video Research〈2025年 民放ドラマまとめ〉](https://www.videor.co.jp/digestplus/article/tv260129-2.html) (in Japanese)
+- [TVerアワード2025 (PR TIMES)](https://prtimes.jp/main/html/rd/p/000000486.000002492.html) (in Japanese)
+- [ORICON〈2025年 ドラマ満足度ランキング〉](https://www.oricon.co.jp/news/2427637/full/) (in Japanese)
+- [Yahoo!検索大賞 (Japanese Wikipedia)](https://ja.wikipedia.org/wiki/Yahoo!検索大賞)
+- [PTT 日劇板〈2025日劇無雷推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1768239645.A.F20.html) (in Chinese)
+- [PTT 日劇板〈2025秋季日劇推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1766497769.A.FB6.html) (in Chinese)
+- [PTT 日劇板〈2024日劇無雷推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1735532228.A.0CA.html) (in Chinese)
+- [LINE TODAY 聚光賞〈2025 十大追劇榜〉 (LINE press release)](https://www.linecorp.com/ko/pr/news/2025/1217) (in Chinese)
+- [LINE TODAY 聚光賞〈2025 日劇年度榜〉](https://today.line.me/tw/v3/article/l25eq2G) (in Chinese)
+- [friDay影音〈2025 年度大勢排行〉](https://video.friday.tw/curation/935) (in Chinese)
+- [VERSE〈2025 年必看十部日劇〉](https://www.verse.com.tw/article/2025-j-drama) (in Chinese)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [JustWatch 台灣](https://www.justwatch.com/tw)

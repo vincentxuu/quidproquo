@@ -1,0 +1,378 @@
+---
+title: "日劇愛情、喜劇與 BL 怎麼挑：有本事換你來做啊！、小鎮星熱點、月薪嬌妻、Silent 等 17 部"
+date: 2026-11-10
+category: film
+tags: [tv-drama, j-drama, romance, comedy]
+lang: zh-TW
+type: guide
+description: "給想看日本愛情劇、愛情喜劇和 BL 的台灣觀眾：愛情與愛情喜劇、BL 與同志伴侶、喜劇科幻與青春三組，17 部都同時被獎項評審、影評人、觀眾評分、收視數據、話題指標、劇迷口碑、台灣觀眾當中至少三類推薦；每部附推薦來源、MyDramaList／IMDb／Filmarks／豆瓣評分、英文與台灣劇評、尺度、集數與台灣合法串流連結。"
+tldr: "先看七類來源都推的《有本事換你來做啊！》《小鎮星熱點》《宛如粼光夫婦日和》。17 部有 16 部是 9 到 12 集，大多一季就完結，週末就能看完。想看 BL 從《大叔的愛》或《昨日的美食》開始；《玻璃之心》《戀愛可以持續到天長地久》在海外評分高、在日本普通。"
+draft: false
+series:
+  name: "各國影劇導讀"
+  order: 10
+---
+
+> 🌏 [English version](/posts/film/2026-11-10-jdrama-romance-comedy-bl-en)
+
+日劇系列從愛情、喜劇和 BL 開始：大男人被女友甩掉後學做菜、小鎮旅館的外星人同事、昭和體育老師穿越到現代，以及兩個中年男人每天的晚餐。17 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類都推它，而且台灣有合法串流管道。懸疑、犯罪和動作另外放在[懸疑犯罪篇](/posts/film/2026-11-10-jdrama-mystery-crime-action)。
+
+和[韓劇愛情篇](/posts/film/2026-11-08-kdrama-romance-fantasy)比，這組有三個特點：
+
+- **短。** 17 部有 16 部是 9 到 12 集，大多一季就完結；只有《大叔的愛》第一季是 7 集。
+- **原創劇比較多。** 10 部是原創劇本，6 部改編漫畫，1 部改編小說，都不必先看原作。
+- **尺度普遍輕。** 日本電視劇沒有統一分級，IMDb 家長指南也幾乎沒人投票；每部的尺度欄寫的是依劇情需要提醒的內容。
+
+## 先從這 3 部開始
+
+| 劇 | 為什麼先看 | 尺度 | 在哪看 |
+|---|---|---|---|
+| 有本事換你來做啊！ | 七類推薦來源都有，PTT 日劇板有人說「如果今年只推薦一部作品，肯定是這部」 | 輕：主角的大男人言行是主線 | friDay影音、LINE TV |
+| 小鎮星熱點 | 七類推薦來源都有，LINE TODAY 2025 日劇年度榜第一 | 輕 | Netflix |
+| 宛如粼光夫婦日和 | 七類推薦來源都有，第 2 期正在播 | 輕 | friDay影音 |
+
+## 推薦來源一覽
+
+表中 ● 代表這一類來源有推薦。A 獎項評審、B 影評人投票榜、C 觀眾評分、D 收視與串流數據、E 話題指標、F 劇迷口碑、G 台灣觀眾。
+
+| 劇 | A | B | C | D | E | F | G | 類別數 |
+|---|---|---|---|---|---|---|---|---|
+| 有本事換你來做啊！ | ● | ● | ● | ● | ● | ● | ● | 7 |
+| 小鎮星熱點 | ● | ● | ● | ● | ● | ● | ● | 7 |
+| 宛如粼光夫婦日和 | ● | ● | ● | ● | ● | ● | ● | 7 |
+| 極度不妥！ | ● | ● | ● | ● |  | ● | ● | 6 |
+| 月薪嬌妻 | ● |  | ● | ● |  | ● | ● | 5 |
+| 西園寺小姐不做家事 | ● | ● | ● | ● |  |  | ● | 5 |
+| Silent | ● |  | ● | ● |  | ● |  | 4 |
+| 昨日的美食 | ● | ● |  |  |  | ● | ● | 4 |
+| 再續．倒數第二次戀愛 |  | ● |  | ● | ● |  | ● | 4 |
+| 一點點超能力 |  | ● |  | ● |  | ● | ● | 4 |
+| 戀愛可以持續到天長地久 | ● |  | ● | ● |  |  |  | 3 |
+| Eye Love You | ● | ● | ● |  |  |  |  | 3 |
+| 大叔的愛 | ● |  | ● |  |  | ● |  | 3 |
+| 被選中的家 |  | ● | ● |  |  | ● |  | 3 |
+| 至愛之花 |  | ● | ● | ● |  |  |  | 3 |
+| 玻璃之心 |  |  | ● |  |  | ● | ● | 3 |
+| 花牌情緣：巡 |  | ● | ● |  |  | ● |  | 3 |
+
+這組的 C 欄（觀眾評分）最滿，17 部有 14 部；E 欄（話題指標）只有 4 部。七類都有的 3 部全是 2025 年的新劇。
+
+## 日本和海外的評分不一定一致
+
+```diagram
+title: 17 部的 MyDramaList 與 Filmarks 評分
+desc: Silent、宛如粼光夫婦日和、再續倒數第二次戀愛、小鎮星熱點、花牌情緣：巡兩邊都高；有本事換你來做啊！、月薪嬌妻、昨日的美食、至愛之花、極度不妥！、西園寺小姐不做家事、大叔的愛日本觀眾給分高、海外劇迷較低；玻璃之心、戀愛可以持續到天長地久、被選中的家海外高、日本低；Eye Love You、一點點超能力兩邊都偏低。
+caption: 橫軸是 MyDramaList（多為海外劇迷），以 8.2 為界；縱軸是日本的 Filmarks，以 ★4.0 為界。兩站分數尺度不同，只比相對高低。再續．倒數第二次戀愛的 MyDramaList 只有 26 人評分；昨日的美食的 Filmarks 是第 2 季、MyDramaList 是第 1 季；大叔的愛用 2018 年第 1 季。
+---
+<svg viewBox="0 0 640 520">
+  <line class="dg-rule" x1="352" y1="40" x2="352" y2="480"/>
+  <line class="dg-rule" x1="88" y1="260" x2="616" y2="260"/>
+  <path class="dg-axis" d="M88 480V36" marker-end="url(#arrow)"/>
+  <path class="dg-axis" d="M88 480H620" marker-end="url(#arrow)"/>
+  <text class="dg-small" x="76" y="48" text-anchor="end" dominant-baseline="central">Filmarks 高</text>
+  <text class="dg-small" x="76" y="468" text-anchor="end" dominant-baseline="central">Filmarks 低</text>
+  <text class="dg-small" x="96" y="500" dominant-baseline="central">MyDramaList 低</text>
+  <text class="dg-small" x="616" y="500" text-anchor="end" dominant-baseline="central">MyDramaList 高</text>
+  <text class="dg-tag" x="104" y="64" dominant-baseline="central">日本高、海外低</text>
+  <text class="dg-tag" x="600" y="64" text-anchor="end" dominant-baseline="central">兩邊都高</text>
+  <text class="dg-tag" x="104" y="456" dominant-baseline="central">兩邊都低</text>
+  <text class="dg-tag" x="600" y="456" text-anchor="end" dominant-baseline="central">海外高、日本低</text>
+  <circle class="dg-dot" cx="108" cy="92" r="5"/>
+  <text class="dg-sub" x="120" y="92" dominant-baseline="central">有本事換你來做啊！</text>
+  <circle class="dg-dot" cx="108" cy="118" r="5"/>
+  <text class="dg-sub" x="120" y="118" dominant-baseline="central">月薪嬌妻</text>
+  <circle class="dg-dot" cx="108" cy="144" r="5"/>
+  <text class="dg-sub" x="120" y="144" dominant-baseline="central">昨日的美食</text>
+  <circle class="dg-dot" cx="108" cy="170" r="5"/>
+  <text class="dg-sub" x="120" y="170" dominant-baseline="central">至愛之花</text>
+  <circle class="dg-dot" cx="108" cy="196" r="5"/>
+  <text class="dg-sub" x="120" y="196" dominant-baseline="central">極度不妥！</text>
+  <circle class="dg-dot" cx="108" cy="222" r="5"/>
+  <text class="dg-sub" x="120" y="222" dominant-baseline="central">西園寺小姐不做家事</text>
+  <circle class="dg-dot" cx="108" cy="248" r="5"/>
+  <text class="dg-sub" x="120" y="248" dominant-baseline="central">大叔的愛</text>
+  <circle class="dg-dot" cx="372" cy="92" r="5"/>
+  <text class="dg-sub" x="384" y="92" dominant-baseline="central">Silent</text>
+  <circle class="dg-dot" cx="372" cy="118" r="5"/>
+  <text class="dg-sub" x="384" y="118" dominant-baseline="central">宛如粼光夫婦日和</text>
+  <circle class="dg-dot" cx="372" cy="144" r="5"/>
+  <text class="dg-sub" x="384" y="144" dominant-baseline="central">再續．倒數第二次戀愛</text>
+  <circle class="dg-dot" cx="372" cy="170" r="5"/>
+  <text class="dg-sub" x="384" y="170" dominant-baseline="central">小鎮星熱點</text>
+  <circle class="dg-dot" cx="372" cy="196" r="5"/>
+  <text class="dg-sub" x="384" y="196" dominant-baseline="central">花牌情緣：巡</text>
+  <circle class="dg-dot" cx="372" cy="316" r="5"/>
+  <text class="dg-sub" x="384" y="316" dominant-baseline="central">玻璃之心</text>
+  <circle class="dg-dot" cx="372" cy="342" r="5"/>
+  <text class="dg-sub" x="384" y="342" dominant-baseline="central">戀愛可以持續到天長地久</text>
+  <circle class="dg-dot" cx="372" cy="368" r="5"/>
+  <text class="dg-sub" x="384" y="368" dominant-baseline="central">被選中的家</text>
+  <circle class="dg-dot" cx="108" cy="316" r="5"/>
+  <text class="dg-sub" x="120" y="316" dominant-baseline="central">Eye Love You</text>
+  <circle class="dg-dot" cx="108" cy="342" r="5"/>
+  <text class="dg-sub" x="120" y="342" dominant-baseline="central">一點點超能力</text>
+</svg>
+```
+
+## 片單
+
+每部的格式：推薦來源、評分、劇評、尺度、長度、先看什麼、在哪看。
+
+- **評分**：日劇大多沒有 Metacritic 分數，這篇用 [MyDramaList](https://mydramalist.com/shows/top_japanese_dramas)、IMDb、日本的 Filmarks 和豆瓣；多季劇的 MyDramaList 是第一季。豆瓣只列讀得到新聞或劇評引述的分數，自媒體引述會標出來。
+- **尺度**：日本電視劇沒有統一分級，有台灣平台或 IMDb 台灣列的分級就寫出來。內容提醒取自 IMDb 家長指南，這組多數劇沒有投票，改依劇情寫。
+- **在哪看**：連結是台灣平台的作品頁。只有台灣媒體報導、沒有平台頁可查的，會寫在該部的在哪看欄。
+
+### 愛情與愛情喜劇
+
+契約婚姻、醫院戀愛、聽障純愛和中年戀愛。多半是一季 10 到 11 集的電視台連續劇。
+
+#### 有本事換你來做啊！（Then You Try Making It!）
+
+交往六年的勝男求婚被拒，理由是他認為料理本來就該女人做；分手後他開始自己下廚，鮎美也重新找回自己（[Wikipedia](https://en.wikipedia.org/wiki/Then_You_Try_Making_It!)）。
+
+- **推薦來源**：`A 日劇學院賞最佳作品 2025 秋` `B 映画チャンネル 2025 年度大賞（3 位寫手一致）` `B Real Sound 2025 年度十大（5 位評論家中 3 位）` `C Filmarks Awards 2025 電視劇入圍` `D TVer Award 2025 日劇大賞（總播放 6,100 萬次以上）` `E ORICON 2025 日劇滿意度 #4` `F PTT 日劇板 2025 無雷推薦「今年只推一部就是這部」` `G friDay影音 2025 日劇榜 #2`
+- **評分**：MyDramaList 8.0（734 人）｜IMDb 8.2（89 票）｜Filmarks ★4.2
+- **劇評**：[The Blossom Review 的 Karen Mansoldo](https://theblossomreview.com/tbs-then-you-try-making-it-review/) 看完全劇，說這部「愛情喜劇」打破類型期待。它借料理談平等與自立。釀電影的 [Yusmoke](https://filmaholic.tw/series/695fbc9ffd89780001f91770/) 肯定它沒走「還是要相信愛情」的老路，卻也點出劇有「惜男情節」。評審、收視和台灣口碑一致叫好，爭議在男主角的轉變是否被獎賞得太輕易。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；主線是男主角的大男人與控制型言行，沒有找到暴力或性的描述。
+- **長度**：10 集，2025 年播出，已完結。特別篇已宣布製作，週刊報導 2027 年 1 月播出，電視台還沒公告日期。
+- **先看什麼**：改編自谷口菜津子的漫畫，不必先看。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/4325)（影劇方案）；[LINE TV](https://www.linetv.tw/drama/21240/eps/1)（上架）
+
+#### 宛如粼光夫婦日和（A Calm Sea and Beautiful Days with You）
+
+1936 年，夏美被安排嫁給海軍中尉瀧昌，新郎卻在婚禮當天缺席；兩人從生疏和誤會開始，一點點靠近（[Wikipedia](https://en.wikipedia.org/wiki/A_Calm_Sea_and_Beautiful_Days_with_You)）。
+
+- **推薦來源**：`A 日劇學院賞最佳作品 2025 春` `A 東京劇集大賞優秀賞 2025` `B Real Sound 2025 年度十大（成馬零一 #4）` `B 映画チャンネル 2025 寫手推薦（2 位）` `C Filmarks Awards 2025 電視劇入圍` `D 2025 民放劇時移收視 #18（6.1%）` `E ORICON 2025 日劇滿意度 #1` `F PTT 日劇板 2025 無雷推薦「今年最強戀愛劇當之無愧」` `G friDay影音 2025 日劇榜 #1`
+- **評分**：MyDramaList 8.3（第 1 期）（3,786 人）｜IMDb 7.8（201 票）｜Filmarks ★4.2
+- **劇評**：[The Blossom Review 的 Karen Mansoldo](https://theblossomreview.com/a-calm-sea-and-beautiful-days-with-you-review/) 看完全劇，說它沒有反轉也沒有反派。她的結論是「有點太甜，但仍是健康、溫柔、鼓舞人心的愛情故事」。她的保留是視覺平淡、女主角反應太誇張。聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/8729696)只評前 3 集，說它是先婚後愛題材裡「算是耳目一新的出色作品」。ORICON 滿意度年度第一，家戶收視卻只有 6% 左右。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情，新婚「初夜」是害羞喜劇的橋段，第 2 期可能帶到戰爭陰影。
+- **長度**：第 1 期 10 集，2025 年播出，另有 FOD 獨家特別篇 1 集。第 2 期 2026 年 10 月 15 日起播出中，總集數未定。
+- **先看什麼**：改編自西香はち的漫畫，不必先看。看第 2 期前要先看第 1 期。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/4095)（影劇方案）。第 1 期 friDay 免費方案也能看；第 2 期也在 [friDay影音](https://video.friday.tw/drama/detail/5398) 跟播
+
+#### 月薪嬌妻（The Full-Time Wife Escapist）
+
+找不到工作的研究所畢業生實栗到單身上班族平匡家當家事管理員，兩人簽下「契約婚姻」，假夫妻慢慢變成真感情（[Wikipedia](https://en.wikipedia.org/wiki/The_Full-Time_Wife_Escapist)）。
+
+- **推薦來源**：`A 東京劇集大賞首獎 2017` `A 日劇學院賞最佳作品 2016 秋` `C IMDb 7.8` `D TVer Award 2021 特別賞（新春特別篇）` `F PTT 日劇板年度回顧「重刷」` `G DailyView 2026 年 10 月聲量榜 #6`
+- **評分**：MyDramaList 8.1（9,464 人）｜IMDb 7.8（2,900 票）｜Filmarks ★4.2｜豆瓣 8.4（自媒體引述）
+- **劇評**：[North American Post 的 David Yamaguchi](https://napost.com/2017/nigeru-wa-haji/) 說前提有點站不住，角色卻讓它成立。最出色的是它常從輕喜劇一轉身就進到真實人生議題。關鍵評論網的[陳韻竹](https://www.thenewslens.com/article/55901)在播出中寫議題評論，說它火紅是因為「少了爭吵只擷取愛情甜蜜的另類婚姻公式」。評論和獎項大致一致，保留只在契約婚姻的前提太理想化。
+- **尺度**：IMDb 台灣列 0+（使用者可編輯）。IMDb 家長指南沒有投票；IMDb 列的新加坡 NC16 和台灣 0+ 落差很大，沒有找到具體內容來源。
+- **長度**：11 集，2016 年播出，已完結。2021 年另有一集 145 分鐘的新春特別篇，描寫婚後第三年。
+- **先看什麼**：改編自海野つなみ的漫畫，不必先看。看新春特別篇前要先看完連續劇。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/21218/eps/1)（上架）。2021 年新春特別篇在台灣未確認可看
+
+#### 西園寺小姐不做家事（No Domestic Work for Ms. Saionji!）
+
+能幹又徹底不做家事的西園寺買了自己的房子，和無家可歸的單親爸爸楠見父子以「偽家族」同住，慢慢交心（[Wikipedia](https://ja.wikipedia.org/wiki/%E8%A5%BF%E5%9C%92%E5%AF%BA%E3%81%95%E3%82%93%E3%81%AF%E5%AE%B6%E4%BA%8B%E3%82%92%E3%81%97%E3%81%AA%E3%81%84)）。
+
+- **推薦來源**：`A 日劇學院賞最佳作品 2024 夏` `B Real Sound 2024 年度十大（藤原奈緒 #9）` `C Filmarks Awards 2024 電視劇入圍` `D 2024 民放劇時移收視 #13（7.3%）` `G KKTV 2024 熱播 #8`
+- **評分**：MyDramaList 7.6（477 人）｜IMDb 6.7（29 票）｜Filmarks ★4.0
+- **劇評**：找不到英文署名劇評，也找不到台灣署名劇評。日本評論家成馬零一在[民放online](https://minpo.online/article/2024-44.html)的夏劇總評說，它看似歡樂的家庭喜劇，其實是在摸索新家庭樣貌的思考實驗。台灣和英文圈的討論主要在 PTT 心得和 MyDramaList 使用者評論。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票，沒有找到需要提醒的內容。
+- **長度**：11 集，2024 年播出，已完結，沒有特別篇或續篇消息。
+- **先看什麼**：改編自ひうらさとる的漫畫，不必先看。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/21222/eps/1)（上架）
+
+#### Silent（Silent）
+
+紬的高中男友想在畢業後不告而別，八年後兩人重逢，她才知道想因病逐漸失去聽力（[Wikipedia](https://ja.wikipedia.org/wiki/Silent_%28%E3%83%86%E3%83%AC%E3%83%93%E3%83%89%E3%83%A9%E3%83%9E%29)）。
+
+- **推薦來源**：`A 東京劇集大賞優秀賞 2023` `A 日本民間放送聯盟賞優秀賞 2023` `C MyDramaList 日劇榜 #14（8.5）` `D TVer Award 2022 日劇大賞（播放 7,300 萬次以上，當時 TVer 最高）` `F PTT 日劇板年度回顧「重刷」`
+- **評分**：MyDramaList 8.5（9,424 人）｜IMDb 7.9（935 票）｜Filmarks ★4.1｜豆瓣 9.0→8.5（播出期間，媒體引述）
+- **劇評**：[The Review Geek 的 Kristen Lazur](https://www.thereviewgeek.com/silent-s1review/) 看完全劇給 7.5/10，說悲劇處理得尊重又細膩。她認為「雖然不完全出人意料，仍是一部可愛、真誠的劇」。釀電影的[吳思恩](https://filmaholic.tw/series/63a6a923fd8978000132a06a/)說它在聾人設定下給對手戲「足夠寬闊與溫柔的留白」，男二湊斗是最大驚喜。串流創下 TVer 紀錄，但聾人團體批評第 8 集替嬰兒取名「優生」，中國影評也嫌後段高開低走。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；以聽障與手語為主題，催淚，但沒有找到需要提醒的內容。
+- **長度**：11 集，2022 年播出，已完結，沒有特別篇或續篇。
+- **先看什麼**：原創劇，不必先看。基調是催淚純愛，不是喜劇。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/5300)（影劇方案）。2026 年 9 月重新上架
+
+#### 再續．倒數第二次戀愛（Second to Last Love 3）
+
+鎌倉長倉家與隔壁的製作人千明，十一年後千明 59 歲、和平 63 歲，兩人距離依舊，繼續過著中年與老後的日子（[Wikipedia](https://en.wikipedia.org/wiki/Second_to_Last_Love)）。
+
+- **推薦來源**：`B Real Sound 2025 年度十大（明日菜子 #2）` `B 映画チャンネル 2025 寫手推薦（2 位）` `D 2025 民放劇單集收視 #6（16.5%）` `E ORICON 2025 日劇滿意度 #3` `G LINE TODAY 2025 日劇年度榜前十` `G VERSE 2025 必看十部`
+- **評分**：MyDramaList 8.3（第 3 期）（26 人）｜IMDb 8.2（153 票）｜Filmarks ★4.2
+- **劇評**：找不到英文署名劇評。電影神搜的[雪奈日劇部屋](https://news.agentm.tw/359781/)站在老粉絲角度推薦，說千明與和平「持續保持的曖昧就是最自然、最舒服的相處之道」。她也承認「有些觀眾會認為對話太長了」。收視和滿意度都高，英文圈幾乎沒人評。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票，沒有找到需要提醒的內容。
+- **長度**：11 集，2025 年播出，已完結，還沒有第 4 期消息。系列第 3 期，前兩期是 2012、2014 年，另有 2012 年特別篇。IMDb 分數是三期合併，MyDramaList 只有 26 人評分。
+- **先看什麼**：第 3 期接續前兩期，人物關係累積了 13 年。台灣目前只確認第 3 期可看。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/4081)（影劇方案）。friDay 免費方案（有廣告）也能看
+
+#### 戀愛可以持續到天長地久（An Incurable Case of Love）
+
+七瀨為了再見一位醫師苦讀成為護理師，重逢的天堂卻是毒舌「魔王」，她仍一次次直率示愛（[Wikipedia](https://en.wikipedia.org/wiki/An_Incurable_Case_of_Love)）。
+
+- **推薦來源**：`A 日劇學院賞最佳作品 2020 冬` `A 東京劇集大賞優秀賞 2020` `C MyDramaList 日劇榜 #54（8.3）` `C IMDb 7.4` `D 令和日劇單集收視 #21（25.3%）` `D TVer Award 2020 日劇大賞`
+- **評分**：MyDramaList 8.3（29,444 人）｜IMDb 7.4（2,600 票）｜Filmarks ★3.8
+- **劇評**：找不到英文署名劇評。關鍵評論網的 [Shel Lin](https://www.thenewslens.com/article/133658) 看完全劇給負評，說它「在情節橋段和拍攝手法上也未見突破，卻收穫了如潮的好評」。她認為醫生與護士的強弱結構複製了男主外女主內。收視爆紅、評論批評，是這篇落差最明確的一部。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南只有 1–4 票：有吻戲和喝酒，醫院場景有出血和手術畫面。
+- **長度**：10 集，2020 年播出，已完結。另有網路衍生短劇《まだまだ恋はつづくよどこまでも》。
+- **先看什麼**：改編自円城寺マキ的漫畫，不必先看。醫療只是舞台，主線是戀愛。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81423569)（訂閱）。台灣上架證據來自 2026 年 8 月的媒體片單
+
+#### Eye Love You（Eye Love You）
+
+能從眼神聽見心聲的侑里對戀愛敬而遠之，直到遇見心裡講韓文、她聽不懂的韓國留學生泰吳（[Wikipedia](https://ja.wikipedia.org/wiki/Eye_Love_You)）。
+
+- **推薦來源**：`A 首爾國際電視劇大賞評審團特別獎 2024` `B Real Sound 2024 年度十大（明日菜子 #8）` `C Filmarks Awards 2024 電視劇入圍`
+- **評分**：MyDramaList 7.7（8,449 人）｜IMDb 6.8（800 票）｜Filmarks ★3.8
+- **劇評**：[Future of the Force 的 Thomas Storai](https://thefutureoftheforce.com/2024/03/11/tv-review-eye-love-you-episodes-1-5/) 分兩篇評前後五集，結論是「無疑是 2024 年最好的愛情喜劇」。[The Blossom Review 的 Karen Mansoldo](https://theblossomreview.com/eye-love-you-netflix-viki-review/) 則嫌女主角薄弱、男主角背景發展不足。找不到台灣署名劇評。國際獎和粉絲熱度都有，劇本評價普遍不高。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票，沒有找到需要提醒的內容。
+- **長度**：10 集，2024 年播出，已完結，沒有特別篇或續篇。
+- **先看什麼**：原創劇，不必先看。日韓跨國戀是賣點，男主角由韓國演員蔡鍾協飾演。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/21226/eps/1)（VIP）；[Netflix](https://www.netflix.com/tw/title/81747048)（訂閱）
+
+#### 至愛之花（Ichiban Suki na Hana）
+
+四個從小就不擅長「兩人一組」的人，各自在友誼、戀愛和職場裡受傷，偶然相遇後開始交心（[Wikipedia](https://ja.wikipedia.org/wiki/%E3%81%84%E3%81%A1%E3%81%B0%E3%82%93%E3%81%99%E3%81%8D%E3%81%AA%E8%8A%B1)）。
+
+- **推薦來源**：`B Real Sound 2023 年度第 1（成馬零一）` `C Filmarks Awards 2023 日劇 #20` `D 2023 民放劇時移收視 #17（7.9%）`
+- **評分**：MyDramaList 8.0（393 人）｜IMDb 7.9（49 票）｜Filmarks ★4.0
+- **劇評**：找不到英文署名劇評。電影神搜的[雪奈日劇部屋](https://news.agentm.tw/270712/)說一開始四人相遇「不免覺得有點突兀和牽強」，看完第七集才「忍不住要讚嘆編劇的用心安排」。它偏群像，主題是男女能不能只當朋友，戀愛只是其中一條線。評論家選為年度第一，收視卻偏低。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票，沒有找到需要提醒的內容。
+- **長度**：11 集，2023 年播出，已完結。另有配合足球國際賽的特別短劇，長度與形式不明。
+- **先看什麼**：原創劇，不必先看。和《Silent》同一製作團隊，但劇情無關。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/21032/eps/1)（VIP）。台灣只確認 LINE TV 一個平台
+
+### BL 與同志伴侶
+
+職場三角戀、同居中年情侶的家常菜，以及一對想一起買房的情侶。
+
+#### 昨日的美食（What Did You Eat Yesterday?）
+
+東京一對中年同志伴侶，律師史朗和美髮師賢二，每集圍繞一頓家常晚餐，帶出家庭、職場與同志處境（[Wikipedia](https://en.wikipedia.org/wiki/What_Did_You_Eat_Yesterday%3F)）。
+
+- **推薦來源**：`A 日劇學院賞最佳作品 2019 春` `A 東京劇集大賞優秀賞 2019` `B Real Sound 2023 年度十大（5 位評論家中 2 位，第 2 季）` `F PTT 日劇板 2023 年度回顧 #2（第 2 季）` `G KKTV 2023 K劇大賞最佳日劇 #2（第 2 季）`
+- **評分**：MyDramaList 8.0（第 1 季）（3,466 人）｜IMDb 8.1（780 票）｜Filmarks ★4.3 (S2)｜豆瓣 8.7（第 1 季開播兩集，自媒體引述）
+- **劇評**：印尼女性主義媒體 [Magdalene 的 Devi Asmarani](https://magdalene.co/story/what-did-you-eat-yesterday-portrays-realistic-mature-gay-relationship/) 評第 1 季，說它的重點不在鍋子和盤子裡。它不落俗套地呈現中年男同志伴侶在當代日本的生活。聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/7663886)評第 2 季，說它更深入面對變老與身後事，整體「更為柔和舒服、自然寫實」。評審、評論和台灣觀眾一致正面。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；IMDb 列的日本分級是 7+，依劇情是日常生活劇。
+- **長度**：第 1 季 12 集（2019）、第 2 季 12 集（2023），都已完結。另有 2020 年正月特別篇和 2021 年電影，沒有第 3 季消息。
+- **先看什麼**：改編自よしながふみ的漫畫，不必先看。建議依序看第 1 季、正月特別篇、電影、第 2 季，但台灣目前只看得到第 2 季。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/22886/eps/1)（第 2 季）。第 1 季在 LINE TV 已授權到期下架，台灣目前只確認第 2 季
+
+#### 大叔的愛（Ossan’s Love）
+
+33 歲交不到女友的春田，發現中年上司黑澤暗戀自己，同住的男後輩牧也喜歡他，陷入三角關係（[Wikipedia](https://en.wikipedia.org/wiki/Ossan%27s_Love)）。
+
+- **推薦來源**：`A 東京劇集大賞首獎 2018` `A 日劇學院賞最佳作品 2018 春` `C Filmarks Awards 2024 電視劇入圍（續篇 Returns）` `F PTT 日劇板 2024 年度回顧遺珠（續篇 Returns）`
+- **評分**：MyDramaList 7.5（2018 第 1 季）（7,576 人）｜IMDb 7.5（765 票）｜Filmarks ★4.1
+- **劇評**：LGBT 旅遊文化網站 [Japan Gay Guide 的 Tobias Waters](https://japangayguide.com/gay-lesbian-movies/ossans-love-my-honest-review/) 評 2018 年第 1 季，提醒誇張、近乎動畫的演法一開始會讓人卻步。他的結論是 BL 類型的里程碑。鏡週刊的[馬欣](https://www.mirrormedia.mg/story/20180608web001)從演員論切入，說林遣都讓 BL 角色不再「流於人物蒼白，不然就要背負使命的苦情」。2018 年評審和熱度一致，2024 年續篇的熱度明顯下滑。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情是戀愛喜劇，沒有找到需要提醒的內容。
+- **長度**：第 1 季 7 集，2018 年播出，已完結。2019 年有第 2 季《in the sky》8 集和電影，2024 年續篇《Returns》9 集；2016 年另有單集版。
+- **先看什麼**：原創劇，從 2018 年第 1 季看起。《in the sky》換了舞台，是平行設定；《Returns》接續第 1 季。
+- **在哪看**：[愛奇藝](https://www.iq.com/album/%E5%A4%A7%E5%8F%94%E7%9A%84%E6%84%9B-2018-19rrgxxtzx?lang=zh_tw)（上架）。2024 年續篇《大叔的愛－Returns－》在 [Hami Video](https://hamivideo.hinet.net/product/280363.do?cs=2) 和 [LINE TV](https://www.linetv.tw/drama/18430/eps/1)（VIP）
+
+#### 被選中的家（Chosen Home）
+
+50 歲的同志動物園飼育員玄一，提議和對愛情死心的教師作田一起買房；作田的學生卻說要拿藏起來的錢幫他們買（[Wikipedia](https://en.wikipedia.org/wiki/Chosen_Home_(TV_series))）。
+
+- **推薦來源**：`B Real Sound 2025 年度十大（5 位評論家中 2 位）` `C MyDramaList 日劇榜 #49（8.3）` `F PTT 日劇板 2025 年度回顧遺珠`
+- **評分**：MyDramaList 8.3（2,225 人）｜IMDb 7.6（218 票）｜Filmarks ★3.9
+- **劇評**：[The Blossom Review 的 Karen Mansoldo](https://theblossomreview.com/ntv-chosen-home-netflix-review/) 看完全劇，稱讚及川光博與白鳥玉季。她說它是對愛、多元與社群真誠又溫暖的禮讚。天下雜誌〈獨立評論〉的[米果](https://opinion.cw.com.tw/blog/profile/57/article/16941)說角色布局有野心，但「不複雜，也不沉重」，也承認它「有點冷門」。評論家和重度劇迷喜歡，大眾熱度偏低。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情，有一條問題少女的家庭線。
+- **長度**：10 集，2025 年播出，已完結，沒有特別篇或續篇消息。
+- **先看什麼**：原創劇，不必先看。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/)（訂閱）。找不到片號，上架證據只有 LINE TODAY 2025 年 11 月跟播報導的搜尋摘要
+
+### 喜劇、科幻與青春
+
+外星人、穿越昭和、超能力、樂團和競技歌留多。愛情都只是支線，因為調性輕鬆放在這篇。
+
+#### 小鎮星熱點（The Hot Spot）
+
+富士山腳小鎮商務旅館的單親媽媽清美，發現同事高橋其實是外星人，從此被捲進一連串小鎮騷動（[Wikipedia](https://en.wikipedia.org/wiki/The_Hot_Spot_(TV_series))）。
+
+- **推薦來源**：`A 東京劇集大賞優秀賞 2025` `A 日本民間放送聯盟賞優秀賞 2025` `B Real Sound 2025 年度十大（5 位評論家中 3 位）` `C Filmarks Awards 2025 電視劇部門最優秀賞` `D 2025 民放劇單集收視 #17（12.7%）` `E ORICON 2025 日劇滿意度 #6` `F PTT 日劇板 2025 年度回顧 #2` `G LINE TODAY 2025 日劇年度榜 #1`
+- **評分**：MyDramaList 8.2（977 人）｜IMDb 7.9（1,400 票）｜Filmarks ★4.2
+- **劇評**：[The Japan Times 的 Patrick St. Michel](https://www.japantimes.co.jp/culture/2025/02/10/tv-streaming/the-hot-spot/) 在播出中寫，劇沒有走向星際大戲。超能力只用來處理體育館屋頂卡住排球這種小事。付費牆擋住後文，完整立場讀不到。釀電影的[倉鼠球営業中](https://filmaholic.tw/series/67ef894afd89780001afc07c/)坦言前半段「較難抓到重點，也讓我更難推坑給其他人」，但最後三集收回伏筆。收視只在中段，評審和觀眾口碑都是頂尖，評論的保留都在前半太慢。
+- **尺度**：IMDb 台灣列 13+（使用者可編輯）。IMDb 家長指南沒有投票；IMDb 列的各國分級在 7 到 13 歲之間，沒有找到需要提醒的內容。
+- **長度**：10 集，2025 年播出，已完結。編劇バカリズム說刻意把結局寫完，沒有續篇。
+- **先看什麼**：原創劇，不必先看。和《重啟人生》是同一製作團隊，但劇情無關。不是愛情劇，是小鎮外星人喜劇。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81985186)（訂閱）。台灣上架證據來自 Marie Claire、ELLE 台灣的報導
+
+#### 極度不妥！（Extremely Inappropriate!）
+
+1986 年滿口粗話的斯巴達式國中老師市郎意外穿越到 2024 年，他的昭和言行在令和社會處處「不妥」（[Wikipedia](https://en.wikipedia.org/wiki/Extremely_Inappropriate!)）。
+
+- **推薦來源**：`A 銀河獎特別獎 2023 年度` `A 東京劇集大賞優秀賞 2024` `B Real Sound 2024 年度十大（5 位評論家中 3 位）` `B Japan Times 2024 年度佳作` `C Filmarks Awards 2024 電視劇部門最優秀賞` `D 2024 民放劇單集收視 #5（17.3%）` `F PTT 日劇板 2024 無雷推薦「年度最火紅到出圈」` `G KKTV 2024 K劇大賞最佳日劇` `G LINE TODAY 2024 十大追劇榜 #9（唯一日劇）`
+- **評分**：MyDramaList 7.9（763 人）｜IMDb 7.6（617 票）｜Filmarks ★4.1
+- **劇評**：[The Japan Times 的 Patrick St. Michel](https://www.japantimes.co.jp/culture/2024/04/05/tv-streaming/extremely-inappropriate-series/) 在完結後寫，稱它是今年至今最有野心也最兩極的日劇。標題說電視因它變得更好。付費牆擋住後文，細節讀不到。釀電影的[鈺玟](https://filmaholic.tw/series/6683b955fd897800016c35b0/)說歌舞橋段起初「覺得有些胡來」，習慣後反被說服。收視、評審、評論都高，說教和替昭和辯護的爭議一直都在。
+- **尺度**：IMDb 台灣列 0+（使用者可編輯）。IMDb 家長指南沒有投票；依劇情，笑點建立在昭和式的粗口、體罰和騷擾言論上，台灣 0+ 可能偏低。
+- **長度**：10 集，2024 年播出，已完結。2026 年 1 月 4 日播出新春特別篇。
+- **先看什麼**：原創劇，不必先看，看特別篇前先看連續劇。它不是愛情劇，是含歌舞的穿越喜劇。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/21230/eps/1)（上架）。2026 年新春特別篇也有 [LINE TV 頁面](https://www.linetv.tw/drama/21249/eps/1)
+
+#### 一點點超能力（Just a Bit Espers）
+
+失去工作、家庭和存款的文太，被神秘公司錄取成「只有一點點」的超能力者去拯救世界，卻被規定不准愛上別人（[Wikipedia](https://ja.wikipedia.org/wiki/%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%A0%E3%81%91%E3%82%A8%E3%82%B9%E3%83%91%E3%83%BC)）。
+
+- **推薦來源**：`B Real Sound 2025 年度十大（5 位評論家中 2 位）` `D 2025 民放劇單集收視 #13（14.1%）` `F PTT 日劇板 2025 秋季推薦 #6` `G LINE TODAY 2025 日劇年度榜 #10`
+- **評分**：MyDramaList 7.7（451 人）｜IMDb 6.6（189 票）｜Filmarks ★3.8
+- **劇評**：[The Blossom Review 的 Karen Mansoldo](https://theblossomreview.com/just-a-bit-espers-netflix-review/) 說它從超級英雄和職場劇的戲仿開始。它慢慢從簡單的諷刺長成複雜的人性劇。釀電影的[范亦昕](https://filmaholic.tw/series/695f87dafd897800019cc8f2/)把它讀成一群早就不想活的人重新學會活著的故事，沒有提出批評。署名劇評都正面，PTT 劇迷和馬來西亞專欄卻批評結局，是這篇口碑最分裂的一部。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；後半轉為嚴肅，有角色眼耳流血倒下，也有死亡和復仇情節。
+- **長度**：9 集，2025 年播出，已完結。主演大泉洋說過想拍續篇，但電視台沒有公告，續篇未定。
+- **先看什麼**：原創劇，不必先看。後半轉為科幻懸疑，不是單純的愛情喜劇。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/82143695)（訂閱）。台灣上架證據來自誠品、上報的報導
+
+#### 玻璃之心（Glass Heart）
+
+出道前被樂團開除的大學生鼓手朱音，被天才音樂人藤谷選進新樂團 TENBLANK，樂團走紅後藤谷的秘密逐漸浮現（[Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%A9%E3%82%B9%E3%83%8F%E3%83%BC%E3%83%88)）。
+
+- **推薦來源**：`C MyDramaList 日劇榜 #11（8.5）` `C IMDb 8.1` `F Dcard「下半年最火紅的日劇」` `G VERSE 2025 必看十部`
+- **評分**：MyDramaList 8.5（7,694 人）｜IMDb 8.1（1,900 票）｜Filmarks ★3.6
+- **劇評**：[Collider 的 Kelcie Mattson](https://collider.com/glass-heart-netflix-review/) 上線前看完全 10 集，嫌後半套路變多、戀情老遠就猜得到。但她說它真誠、壯觀，讓人停不下來。台灣 La Vie 的 [Ning Chi](https://www.wowlavie.com/article/250026119) 承認「影評多指本劇劇情毫無新意」，但認為漫改劇的看點本來就在現實化的過程。英文影評集中在 80 分，日本 Filmarks 只有 3.6，是這篇海內外落差最大的一部。
+- **尺度**：IMDb 台灣列 12+（使用者可編輯）。IMDb 家長指南每類只有 2–3 票：有飲酒與藥物畫面、中度暴力；主角罹患腦瘤。
+- **長度**：10 集，2025 年 Netflix 一次上線。第 2 季沒有宣布，未定。
+- **先看什麼**：改編自若木未生的小說，劇情大幅改寫、結局也不同，不必先看。主軸是樂團，愛情是支線。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81517368)（訂閱）
+
+#### 花牌情緣：巡（Chihayafuru: Full Circle）
+
+電影版十年後，令和時代的高中生接下前一代的熱情，把青春押在競技花牌上（[Wikipedia](https://ja.wikipedia.org/wiki/%E3%81%A1%E3%81%AF%E3%82%84%E3%81%B5%E3%82%8B)）。
+
+- **推薦來源**：`B Real Sound 2025 年度十大（5 位評論家中 2 位）` `B 映画チャンネル 2025 寫手推薦` `C Filmarks Awards 2025 電視劇入圍` `F PTT 日劇板 2025 年度回顧 #5（推文「遠超乎預期」）`
+- **評分**：MyDramaList 8.2（609 人）｜IMDb 7.6（158 票）｜Filmarks ★4.2
+- **劇評**：日本流行文化網站 [scrmbl 的 Alicia Haddick](https://scrmbl.com/post/chihayafuru-full-circle-review) 說它是少見成功的續作，沒看過電影也能入戲。但它「遠稱不上完美，前兩集是道難關」。聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/9028637)說小巡「缺乏主角的光環與自信」，從膽怯到覺醒卻最耐人尋味。中英評論都指出主角前期刻意不討喜，那是門檻也是重點。
+- **尺度**：IMDb 台灣列 13+（Netflix 分級，使用者可編輯）。IMDb 家長指南沒有投票，沒有找到需要提醒的內容。
+- **長度**：10 集，2025 年播出，已完結，沒有續篇或特別篇消息。
+- **先看什麼**：屬於《花牌情緣》系列，但卡司全新、故事原創，不必先看漫畫或電影。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/82085211)（訂閱）。台灣上架證據來自聯合報的報導
+
+## 候補觀察名單
+
+| 劇 | 狀況 |
+|---|---|
+| 重啟人生（ブラッシュアップライフ） | 六類推薦來源都有，但原本只在 KKTV 上架，KKTV 2026 年初停止營運後，台灣找不到合法串流 |
+
+## 這份片單的限制
+
+- **英文劇評多半來自清單外的小站。** The Blossom Review 一個人就寫了 6 部的英文劇評；《戀愛可以持續到天長地久》《再續．倒數第二次戀愛》《西園寺小姐不做家事》《至愛之花》找不到英文署名劇評。The Japan Times 的兩篇有付費牆，只讀到開頭。
+- **台灣劇評集中在少數作者。** 雪奈一人寫了 5 部的主要劇評，《Eye Love You》《西園寺小姐不做家事》找不到台灣劇評。
+- **豆瓣只有 3 部。** 只有《Silent》是媒體引述；《月薪嬌妻》《昨日的美食》來自入口網站轉載的自媒體文章。
+- **《大叔的愛》的觀眾評分和劇迷推薦，其實來自 2024 年的續篇《Returns》。**
+- **有幾部的台灣串流證據偏弱。** 《小鎮星熱點》《戀愛可以持續到天長地久》《一點點超能力》《花牌情緣：巡》只有台灣媒體報導；《被選中的家》只看到搜尋摘要。《昨日的美食》台灣目前只看得到第 2 季。本篇串流連結核對日期：2026-11-09。
+
+## 參考資料
+
+- [ザテレビジョンドラマアカデミー賞（日文維基）](https://ja.wikipedia.org/wiki/ザテレビジョンドラマアカデミー賞)
+- [国際ドラマフェスティバル in TOKYO／東京ドラマアウォード（日文維基）](https://ja.wikipedia.org/wiki/国際ドラマフェスティバル_in_TOKYO)
+- [ギャラクシー賞（日文維基）](https://ja.wikipedia.org/wiki/ギャラクシー賞)
+- [日本民間放送連盟賞 2025](https://j-ba.or.jp/award2025/)
+- [Asian Academy Creative Award for Best Drama Series（Wikipedia）](https://en.wikipedia.org/wiki/Asian_Academy_Creative_Award_for_Best_Drama_Series)
+- [Real Sound〈2025年 年間ベストドラマTOP10〉](https://realsound.jp/movie/2025/12/post-2254007.html)
+- [MyDramaList：Top Japanese Dramas](https://mydramalist.com/shows/top_japanese_dramas)
+- [Filmarks Awards 歷年整理（pixiin）](https://pixiin.com/ranking-filmarks-awards-all/)
+- [Video Research〈令和版 ドラマ視聴率ランキング〉](https://www.videor.co.jp/digestplus/article/tv231219.html)
+- [Video Research〈2025年 民放ドラマまとめ〉](https://www.videor.co.jp/digestplus/article/tv260129-2.html)
+- [TVerアワード2025（PR TIMES）](https://prtimes.jp/main/html/rd/p/000000486.000002492.html)
+- [ORICON〈2025年 ドラマ満足度ランキング〉](https://www.oricon.co.jp/news/2427637/full/)
+- [Yahoo!検索大賞（日文維基）](https://ja.wikipedia.org/wiki/Yahoo!検索大賞)
+- [PTT 日劇板〈2025日劇無雷推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1768239645.A.F20.html)
+- [PTT 日劇板〈2025秋季日劇推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1766497769.A.FB6.html)
+- [PTT 日劇板〈2024日劇無雷推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1735532228.A.0CA.html)
+- [LINE TODAY 聚光賞〈2025 十大追劇榜〉（LINE 新聞稿）](https://www.linecorp.com/ko/pr/news/2025/1217)
+- [LINE TODAY 聚光賞〈2025 日劇年度榜〉](https://today.line.me/tw/v3/article/l25eq2G)
+- [friDay影音〈2025 年度大勢排行〉](https://video.friday.tw/curation/935)
+- [VERSE〈2025 年必看十部日劇〉](https://www.verse.com.tw/article/2025-j-drama)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [JustWatch 台灣](https://www.justwatch.com/tw)

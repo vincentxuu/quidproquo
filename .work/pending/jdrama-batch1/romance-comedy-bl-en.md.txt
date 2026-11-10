@@ -1,0 +1,378 @@
+---
+title: "How to Pick Japanese Romance, Comedy and BL Dramas: Then You Try Making It!, The Hot Spot, The Full-Time Wife Escapist, Silent and 13 More"
+date: 2026-11-10
+category: film
+tags: [tv-drama, j-drama, romance, comedy]
+lang: en
+type: guide
+description: "For viewers in Taiwan looking for Japanese romance, romantic comedy and BL: romance, BL and gay couples, and comedy, sci-fi and youth. 17 shows, each backed by at least three of seven recommendation source types, with recommendation sources, MyDramaList, IMDb, Filmarks and Douban scores, English and Taiwanese reviews, content notes, episode counts and legal streaming links in Taiwan."
+tldr: "Start with Then You Try Making It!, The Hot Spot or A Calm Sea and Beautiful Days with You, each backed by all seven source types. 16 of the 17 run 9 to 12 episodes, and most finish in one season, so a weekend is enough. For BL, begin with Ossan’s Love or What Did You Eat Yesterday?; Glass Heart and An Incurable Case of Love score high abroad but only average in Japan."
+draft: false
+series:
+  name: "World TV Drama Guide"
+  order: 10
+---
+
+> 🌏 [中文版](/posts/film/2026-11-10-jdrama-romance-comedy-bl)
+
+The Japanese part of the series opens with romance, comedy and BL: a chauvinist who learns to cook after his girlfriend leaves, an alien co-worker at a small-town hotel, a Showa-era gym teacher dropped into the present, and two middle-aged men and their dinners. All 17 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, and each can be watched legally in Taiwan. Mystery, crime and action are in the [mystery and crime post](/posts/film/2026-11-10-jdrama-mystery-crime-action-en).
+
+Compared with the [Korean romance post](/posts/film/2026-11-08-kdrama-romance-fantasy-en), three things stand out:
+
+- **Short.** 16 of the 17 run 9 to 12 episodes, and most finish in one season; only Ossan’s Love’s first season is shorter, at 7.
+- **More original scripts.** 10 are original, 6 adapt manga and 1 adapts a novel; none needs the source first.
+- **Generally mild.** Japanese TV has no single rating system and IMDb’s Parents Guide has almost no votes, so content notes are based on the plots.
+
+## Start with these 3
+
+| Show | Why start here | Content | Where to watch |
+|---|---|---|---|
+| Then You Try Making It! | Backed by all seven source types; one PTT J-drama poster said it was the only show they would recommend in 2025 | Mild: the lead’s chauvinism is the plot | friDay, LINE TV |
+| The Hot Spot | Backed by all seven source types; #1 on LINE TODAY’s 2025 J-drama list | Mild | Netflix |
+| A Calm Sea and Beautiful Days with You | Backed by all seven source types; part 2 is airing now | Mild | friDay |
+
+## Recommendation sources at a glance
+
+● means that source type recommends the show. A award juries, B critics polls, C audience ratings, D viewing data, E buzz metrics, F fan communities, G Taiwanese viewers.
+
+| Show | A | B | C | D | E | F | G | Types |
+|---|---|---|---|---|---|---|---|---|
+| Then You Try Making It! | ● | ● | ● | ● | ● | ● | ● | 7 |
+| The Hot Spot | ● | ● | ● | ● | ● | ● | ● | 7 |
+| A Calm Sea and Beautiful Days with You | ● | ● | ● | ● | ● | ● | ● | 7 |
+| Extremely Inappropriate! | ● | ● | ● | ● |  | ● | ● | 6 |
+| The Full-Time Wife Escapist | ● |  | ● | ● |  | ● | ● | 5 |
+| No Domestic Work for Ms. Saionji! | ● | ● | ● | ● |  |  | ● | 5 |
+| Silent | ● |  | ● | ● |  | ● |  | 4 |
+| What Did You Eat Yesterday? | ● | ● |  |  |  | ● | ● | 4 |
+| Second to Last Love 3 |  | ● |  | ● | ● |  | ● | 4 |
+| Just a Bit Espers |  | ● |  | ● |  | ● | ● | 4 |
+| An Incurable Case of Love | ● |  | ● | ● |  |  |  | 3 |
+| Eye Love You | ● | ● | ● |  |  |  |  | 3 |
+| Ossan’s Love | ● |  | ● |  |  | ● |  | 3 |
+| Chosen Home |  | ● | ● |  |  | ● |  | 3 |
+| Ichiban Suki na Hana |  | ● | ● | ● |  |  |  | 3 |
+| Glass Heart |  |  | ● |  |  | ● | ● | 3 |
+| Chihayafuru: Full Circle |  | ● | ● |  |  | ● |  | 3 |
+
+Column C (audience ratings) is the fullest, with 14 of 17; column E (buzz metrics) has only 4. The three shows backed by all seven types all aired in 2025.
+
+## Japan and abroad don’t always agree
+
+```diagram
+title: MyDramaList versus Filmarks scores for 17 shows
+desc: Silent, A Calm Sea and Beautiful Days, Second to Last Love 3, The Hot Spot and Chihayafuru: Full Circle score high on both; Then You Try Making It!, The Full-Time Wife Escapist, What Did You Eat Yesterday?, Ichiban Suki na Hana, Extremely Inappropriate!, Ms. Saionji and Ossan’s Love score higher in Japan than abroad; Glass Heart, An Incurable Case of Love and Chosen Home score higher abroad; Eye Love You and Just a Bit Espers are lower on both.
+caption: The horizontal axis is MyDramaList (mostly international fans), split at 8.2; the vertical axis is Japan’s Filmarks, split at 4.0 stars. The two sites use different scales, so only relative position matters. Second to Last Love 3 has just 26 MyDramaList ratings; What Did You Eat Yesterday? pairs season 2 on Filmarks with season 1 on MyDramaList; Ossan’s Love uses the 2018 first season.
+---
+<svg viewBox="0 0 640 520">
+  <line class="dg-rule" x1="352" y1="40" x2="352" y2="480"/>
+  <line class="dg-rule" x1="88" y1="260" x2="616" y2="260"/>
+  <path class="dg-axis" d="M88 480V36" marker-end="url(#arrow)"/>
+  <path class="dg-axis" d="M88 480H620" marker-end="url(#arrow)"/>
+  <text class="dg-small" x="76" y="48" text-anchor="end" dominant-baseline="central">Filmarks high</text>
+  <text class="dg-small" x="76" y="468" text-anchor="end" dominant-baseline="central">Filmarks low</text>
+  <text class="dg-small" x="96" y="500" dominant-baseline="central">MDL low</text>
+  <text class="dg-small" x="616" y="500" text-anchor="end" dominant-baseline="central">MDL high</text>
+  <text class="dg-tag" x="104" y="64" dominant-baseline="central">JAPAN HIGHER</text>
+  <text class="dg-tag" x="600" y="64" text-anchor="end" dominant-baseline="central">HIGH ON BOTH</text>
+  <text class="dg-tag" x="104" y="456" dominant-baseline="central">LOW ON BOTH</text>
+  <text class="dg-tag" x="600" y="456" text-anchor="end" dominant-baseline="central">ABROAD HIGHER</text>
+  <circle class="dg-dot" cx="108" cy="92" r="5"/>
+  <text class="dg-sub" x="120" y="92" dominant-baseline="central">Then You Try Making It!</text>
+  <circle class="dg-dot" cx="108" cy="118" r="5"/>
+  <text class="dg-sub" x="120" y="118" dominant-baseline="central">The Full-Time Wife Escapist</text>
+  <circle class="dg-dot" cx="108" cy="144" r="5"/>
+  <text class="dg-sub" x="120" y="144" dominant-baseline="central">What Did You Eat Yesterday?</text>
+  <circle class="dg-dot" cx="108" cy="170" r="5"/>
+  <text class="dg-sub" x="120" y="170" dominant-baseline="central">Ichiban Suki na Hana</text>
+  <circle class="dg-dot" cx="108" cy="196" r="5"/>
+  <text class="dg-sub" x="120" y="196" dominant-baseline="central">Extremely Inappropriate!</text>
+  <circle class="dg-dot" cx="108" cy="222" r="5"/>
+  <text class="dg-sub" x="120" y="222" dominant-baseline="central">Ms. Saionji</text>
+  <circle class="dg-dot" cx="108" cy="248" r="5"/>
+  <text class="dg-sub" x="120" y="248" dominant-baseline="central">Ossan’s Love</text>
+  <circle class="dg-dot" cx="372" cy="92" r="5"/>
+  <text class="dg-sub" x="384" y="92" dominant-baseline="central">Silent</text>
+  <circle class="dg-dot" cx="372" cy="118" r="5"/>
+  <text class="dg-sub" x="384" y="118" dominant-baseline="central">A Calm Sea and Beautiful Days</text>
+  <circle class="dg-dot" cx="372" cy="144" r="5"/>
+  <text class="dg-sub" x="384" y="144" dominant-baseline="central">Second to Last Love 3</text>
+  <circle class="dg-dot" cx="372" cy="170" r="5"/>
+  <text class="dg-sub" x="384" y="170" dominant-baseline="central">The Hot Spot</text>
+  <circle class="dg-dot" cx="372" cy="196" r="5"/>
+  <text class="dg-sub" x="384" y="196" dominant-baseline="central">Chihayafuru: Full Circle</text>
+  <circle class="dg-dot" cx="372" cy="316" r="5"/>
+  <text class="dg-sub" x="384" y="316" dominant-baseline="central">Glass Heart</text>
+  <circle class="dg-dot" cx="372" cy="342" r="5"/>
+  <text class="dg-sub" x="384" y="342" dominant-baseline="central">An Incurable Case of Love</text>
+  <circle class="dg-dot" cx="372" cy="368" r="5"/>
+  <text class="dg-sub" x="384" y="368" dominant-baseline="central">Chosen Home</text>
+  <circle class="dg-dot" cx="108" cy="316" r="5"/>
+  <text class="dg-sub" x="120" y="316" dominant-baseline="central">Eye Love You</text>
+  <circle class="dg-dot" cx="108" cy="342" r="5"/>
+  <text class="dg-sub" x="120" y="342" dominant-baseline="central">Just a Bit Espers</text>
+</svg>
+```
+
+## The watchlist
+
+Entries list recommended by, scores, reviews, content, length, watch first and where to watch.
+
+- **Scores**: most Japanese dramas have no Metacritic score, so this post uses [MyDramaList](https://mydramalist.com/shows/top_japanese_dramas), IMDb, Japan’s Filmarks and Douban; for multi-season shows, MyDramaList is season 1. Douban scores appear only where a news report or review quoted them, and quotes from self-published posts are flagged.
+- **Content**: Japanese TV has no single rating system, so ratings shown come from Taiwan platforms or IMDb’s Taiwan entry. Content notes come from the IMDb Parents Guide; most shows here have no votes, so the notes follow the plot.
+- **Where to watch**: links go to Taiwan platform title pages. Shows backed only by Taiwan news reports, with no platform page to check, say so.
+
+### Romance and romantic comedy
+
+Contract marriage, a hospital crush, a love story told in sign language and a middle-aged romance. Mostly single broadcast seasons of 10 to 11 episodes.
+
+#### Then You Try Making It!
+
+Katsuo’s proposal is turned down after six years together because he believes cooking is women’s work; after the breakup he starts cooking, and Ayumi finds herself again ([Wikipedia](https://en.wikipedia.org/wiki/Then_You_Try_Making_It!)).
+
+- **Recommended by**: `A Television Drama Academy Awards best drama, autumn 2025` `B Eiga Channel 2025 drama of the year (all 3 writers)` `B Real Sound 2025 top 10 (3 of 5 critics)` `C Filmarks Awards 2025 TV drama nominee` `D TVer Award 2025 drama grand prize (61M+ plays)` `E ORICON 2025 drama satisfaction #4` `F PTT Japandrama 2025: "if I recommend one show this year, it’s this"` `G friDay 2025 Japanese drama chart #2`
+- **Scores**: MyDramaList 8.0 (734 ratings) | IMDb 8.2 (89 votes) | Filmarks ★4.2
+- **Reviews**: [Karen Mansoldo at The Blossom Review](https://theblossomreview.com/tbs-then-you-try-making-it-review/) calls it a "romantic comedy" that "defies the expectations of its genre" to talk about equality and self-reliance. [Yusmoke at 釀電影](https://filmaholic.tw/series/695fbc9ffd89780001f91770/) (in Chinese) likes that it skips the believe-in-love ending, but says it goes easy on its man. Awards, ratings and Taiwanese fans agree; the debate is whether Katsuo is forgiven too easily.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; the core is the hero’s controlling, old-fashioned attitudes, with no violence or sex reported.
+- **Length**: 10 episodes, 2025, finished. A special has been announced; a weekly magazine reports January 2027, but the broadcaster has not confirmed a date.
+- **Watch first**: Adapted from Natsuko Taniguchi’s manga; no need to read it.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/4325) (影劇 plan); [LINE TV](https://www.linetv.tw/drama/21240/eps/1) (available)
+
+#### A Calm Sea and Beautiful Days with You
+
+In 1936, Natsumi is married off to a navy lieutenant who misses their own wedding; from awkwardness and misunderstandings, the two slowly grow closer ([Wikipedia](https://en.wikipedia.org/wiki/A_Calm_Sea_and_Beautiful_Days_with_You)).
+
+- **Recommended by**: `A Television Drama Academy Awards best drama, spring 2025` `A Tokyo Drama Awards excellence prize 2025` `B Real Sound 2025 top 10 (one critic’s #4)` `B Eiga Channel 2025 writers’ picks (2)` `C Filmarks Awards 2025 TV drama nominee` `D 2025 commercial-TV time-shift ratings #18 (6.1%)` `E ORICON 2025 drama satisfaction #1` `F PTT Japandrama 2025: "the year’s best romance, no contest"` `G friDay 2025 Japanese drama chart #1`
+- **Scores**: MyDramaList 8.3 (season 1) (3,786 ratings) | IMDb 7.8 (201 votes) | Filmarks ★4.2
+- **Reviews**: Over the full run, [Karen Mansoldo at The Blossom Review](https://theblossomreview.com/a-calm-sea-and-beautiful-days-with-you-review/) found no twists or villains: it "can be a tad saccharine, but it’s still a wholesome, gentle, and inspiring love story". After three episodes, [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/8729696) (in Chinese) called it a fresh take on marry-first romance. It topped ORICON’s satisfaction ranking while household ratings hovered near 6%.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, the wedding night is played for shy comedy, and season 2 may touch on the coming war.
+- **Length**: Season 1: 10 episodes in 2025, plus a one-episode FOD-exclusive special. Season 2 began on 15 October 2026 and is still airing; episode count not yet known.
+- **Watch first**: Adapted from Hachi Nishika’s manga; no need to read it. Watch season 1 before season 2.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/4095) (影劇 plan). Season 1 is also on friDay’s free tier; season 2 is airing on [friDay](https://video.friday.tw/drama/detail/5398)
+
+#### The Full-Time Wife Escapist
+
+A jobless graduate becomes a housekeeper for a single office worker; they sign a contract marriage, and the fake couple slowly fall for each other ([Wikipedia](https://en.wikipedia.org/wiki/The_Full-Time_Wife_Escapist)).
+
+- **Recommended by**: `A Tokyo Drama Awards grand prix 2017` `A Television Drama Academy Awards best drama, autumn 2016` `C IMDb 7.8` `D TVer Award 2021 special prize (New Year special)` `F PTT Japandrama year-end review: rewatched` `G DailyView October 2026 buzz chart #6`
+- **Scores**: MyDramaList 8.1 (9,464 ratings) | IMDb 7.8 (2.9K votes) | Filmarks ★4.2 | Douban 8.4 (cited by a self-published article)
+- **Reviews**: [David Yamaguchi at the North American Post](https://napost.com/2017/nigeru-wa-haji/) found the premise flaky, but "truly outstanding is the way that the drama repeatedly turns on a dime from light romantic comedy to real-life issues". Writing mid-run, [陳韻竹 at The News Lens](https://www.thenewslens.com/article/55901) (in Chinese) read it as a look at women’s place in Japanese marriage and work. Critics and awards largely agree.
+- **Content**: IMDb Taiwan listing 0+ (user-editable). No IMDb Parents Guide votes; IMDb’s Singapore NC16 and Taiwan 0+ are far apart, and no specific content notes were found.
+- **Length**: 11 episodes, 2016, finished. A 145-minute New Year special in 2021 shows their third year of marriage.
+- **Watch first**: Adapted from Tsunami Umino’s manga; no need to read it. Finish the series before the 2021 special.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/21218/eps/1) (available). Taiwan availability of the 2021 special was not checked
+
+#### No Domestic Work for Ms. Saionji!
+
+A capable woman who refuses to do housework buys her own home and takes in a homeless single father and his son as a makeshift family ([Wikipedia](https://ja.wikipedia.org/wiki/%E8%A5%BF%E5%9C%92%E5%AF%BA%E3%81%95%E3%82%93%E3%81%AF%E5%AE%B6%E4%BA%8B%E3%82%92%E3%81%97%E3%81%AA%E3%81%84)).
+
+- **Recommended by**: `A Television Drama Academy Awards best drama, summer 2024` `B Real Sound 2024 top 10 (one critic’s #9)` `C Filmarks Awards 2024 TV drama nominee` `D 2024 commercial-TV time-shift ratings #13 (7.3%)` `G KKTV 2024 most-watched #8`
+- **Scores**: MyDramaList 7.6 (477 ratings) | IMDb 6.7 (29 votes) | Filmarks ★4.0
+- **Reviews**: No signed English review could be found, and no Taiwanese one either. A Japanese critic at [Minpo Online](https://minpo.online/article/2024-44.html) read the cheerful family comedy as a thought experiment on new kinds of family. Discussion in English and in Taiwan lives mostly in MyDramaList and PTT user posts.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; nothing specific flagged.
+- **Length**: 11 episodes, 2024, finished; no special or sequel found.
+- **Watch first**: Adapted from Satoru Hiura’s manga; no need to read it.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/21222/eps/1) (available)
+
+#### Silent
+
+Tsumugi’s high-school boyfriend Sou vanished after graduation; meeting him again eight years later, she learns he has been losing his hearing ([Wikipedia](https://ja.wikipedia.org/wiki/Silent_%28%E3%83%86%E3%83%AC%E3%83%93%E3%83%89%E3%83%A9%E3%83%9E%29)).
+
+- **Recommended by**: `A Tokyo Drama Awards excellence prize 2023` `A Japan Commercial Broadcasters Association excellence award 2023` `C MyDramaList top Japanese drama #14 (8.5)` `D TVer Award 2022 drama grand prize (73M+ plays, a TVer record at the time)` `F PTT Japandrama year-end review: rewatched`
+- **Scores**: MyDramaList 8.5 (9,424 ratings) | IMDb 7.9 (935 votes) | Filmarks ★4.1 | Douban 9.0→8.5 (during broadcast, per media reports)
+- **Reviews**: [Kristen Lazur at The Review Geek](https://www.thereviewgeek.com/silent-s1review/) gave it 7.5/10: "While the drama isn’t entirely unpredictable, it’s still a lovely, heartfelt watch". [吳思恩 at 釀電影](https://filmaholic.tw/series/63a6a923fd8978000132a06a/) (in Chinese) praises its gentle use of silence and its second lead. It set a TVer streaming record, but a deaf advocacy group objected to a baby being named "Yusei" (eugenics) in episode 8, and Chinese critics said it fell off late.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; a tearjerker about deafness and sign language, with nothing specific flagged.
+- **Length**: 11 episodes, 2022, finished; no special or sequel.
+- **Watch first**: Nothing; it is an original. A tearjerker romance, not a comedy.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/5300) (影劇 plan). Relaunched in September 2026
+
+#### Second to Last Love 3
+
+Eleven years on, TV producer Chiaki is 59 and her Kamakura neighbour Wahei 63; they stay as close and as undefined as ever ([Wikipedia](https://en.wikipedia.org/wiki/Second_to_Last_Love)).
+
+- **Recommended by**: `B Real Sound 2025 top 10 (one critic’s #2)` `B Eiga Channel 2025 writers’ picks (2)` `D 2025 commercial-TV drama episode ratings #6 (16.5%)` `E ORICON 2025 drama satisfaction #3` `G LINE TODAY 2025 Japanese drama top 10` `G VERSE 2025 ten must-watch shows`
+- **Scores**: MyDramaList 8.3 (season 3) (26 ratings) | IMDb 8.2 (153 votes) | Filmarks ★4.2
+- **Reviews**: No signed English review could be found. [雪奈日劇部屋 at 電影神搜](https://news.agentm.tw/359781/) (in Chinese), writing as a long-time fan, likes that the pair stay unmarried and admits some find the dialogue too long. Strong ratings and satisfaction scores, almost no English coverage.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; nothing specific flagged.
+- **Length**: 11 episodes, 2025, finished; no word on a fourth. The third instalment after 2012 and 2014, plus a 2012 special. The IMDb score covers all three; only 26 MyDramaList users rated it.
+- **Watch first**: It continues the first two instalments and 13 years of relationships. Only this third one is confirmed in Taiwan; the earlier ones were not checked.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/4081) (影劇 plan). Also on friDay’s ad-supported free tier
+
+#### An Incurable Case of Love
+
+Nanase becomes a nurse to meet a doctor again, only to find he is a sharp-tongued "demon lord"; she keeps confessing anyway ([Wikipedia](https://en.wikipedia.org/wiki/An_Incurable_Case_of_Love)).
+
+- **Recommended by**: `A Television Drama Academy Awards best drama, winter 2020` `A Tokyo Drama Awards excellence prize 2020` `C MyDramaList top Japanese drama #54 (8.3)` `C IMDb 7.4` `D Reiwa-era drama episode ratings #21 (25.3%)` `D TVer Award 2020 drama grand prize`
+- **Scores**: MyDramaList 8.3 (29,444 ratings) | IMDb 7.4 (2.6K votes) | Filmarks ★3.8
+- **Reviews**: No signed English review could be found. [Shel Lin at The News Lens](https://www.thenewslens.com/article/133658) (in Chinese) panned it as formulaic, with a doctor-nurse power gap that recycles old gender roles. Huge ratings against critical scorn: the clearest split in this post.
+- **Content**: No Japanese rating; no Taiwan platform rating found. Only 1–4 IMDb Parents Guide votes per category: kissing, drinking, and bleeding and surgery in hospital scenes.
+- **Length**: 10 episodes, 2020, finished. A short web spin-off ran alongside it.
+- **Watch first**: Adapted from Maki Enjoji’s manga; no need to read it. The hospital is just the setting; romance is the point.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81423569) (subscription). Taiwan availability is based on an August 2026 media list
+
+#### Eye Love You
+
+A woman who hears people’s thoughts through eye contact has given up on love, until she meets a Korean student who thinks in a language she can’t understand ([Wikipedia](https://ja.wikipedia.org/wiki/Eye_Love_You)).
+
+- **Recommended by**: `A Seoul International Drama Awards jury special prize 2024` `B Real Sound 2024 top 10 (one critic’s #8)` `C Filmarks Awards 2024 TV drama nominee`
+- **Scores**: MyDramaList 7.7 (8,449 ratings) | IMDb 6.8 (800 votes) | Filmarks ★3.8
+- **Reviews**: Across two reviews, [Thomas Storai at Future of the Force](https://thefutureoftheforce.com/2024/03/11/tv-review-eye-love-you-episodes-1-5/) declared that "Eye Love You is undoubtedly the best rom-com of 2024", while [Karen Mansoldo at The Blossom Review](https://theblossomreview.com/eye-love-you-netflix-viki-review/) found the heroine weak. No Taiwanese review could be found. An international prize and keen fans, but the writing draws faint praise.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; nothing specific flagged.
+- **Length**: 10 episodes, 2024, finished; no special or sequel.
+- **Watch first**: Nothing; it is an original. The Japan–Korea romance is the draw, with Korean actor Chae Jong-hyeop as the lead.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/21226/eps/1) (VIP); [Netflix](https://www.netflix.com/tw/title/81747048) (subscription)
+
+#### Ichiban Suki na Hana
+
+Four people who have never been good at pairing up, each hurt by friendship, love or work, meet by chance and open up to one another ([Wikipedia](https://ja.wikipedia.org/wiki/%E3%81%84%E3%81%A1%E3%81%B0%E3%82%93%E3%81%99%E3%81%8D%E3%81%AA%E8%8A%B1)).
+
+- **Recommended by**: `B Real Sound 2023: one critic’s #1 of the year` `C Filmarks Awards 2023 Japanese drama #20` `D 2023 commercial-TV time-shift ratings #17 (7.9%)`
+- **Scores**: MyDramaList 8.0 (393 ratings) | IMDb 7.9 (49 votes) | Filmarks ★4.0
+- **Reviews**: No signed English review could be found. [雪奈日劇部屋 at 電影神搜](https://news.agentm.tw/270712/) (in Chinese) found the four leads’ meeting contrived until episode 7 pulled the threads together. It is an ensemble piece about whether men and women can be just friends, with romance as one thread. A critic’s No. 1 of the year, on low ratings.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; nothing specific flagged.
+- **Length**: 11 episodes, 2023, finished. A tie-in special with an international football match also exists; its length and format are unknown.
+- **Watch first**: Nothing; it is an original. Same team as Silent, but unrelated.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/21032/eps/1) (VIP). LINE TV is the only confirmed Taiwan platform
+
+### BL and gay couples
+
+A workplace love triangle, a middle-aged couple’s home cooking, and two men trying to buy a home together.
+
+#### What Did You Eat Yesterday?
+
+A middle-aged gay couple in Tokyo, a lawyer and a hairdresser, share a home-cooked dinner each episode, touching on family, work and gay life in Japan ([Wikipedia](https://en.wikipedia.org/wiki/What_Did_You_Eat_Yesterday%3F)).
+
+- **Recommended by**: `A Television Drama Academy Awards best drama, spring 2019` `A Tokyo Drama Awards excellence prize 2019` `B Real Sound 2023 top 10 (2 of 5 critics, season 2)` `F PTT Japandrama 2023 year-end review #2 (season 2)` `G KKTV 2023 awards best Japanese drama #2 (season 2)`
+- **Scores**: MyDramaList 8.0 (season 1) (3,466 ratings) | IMDb 8.1 (780 votes) | Filmarks ★4.3 (S2) | Douban 8.7 (season 1 after two episodes; cited by a self-published article)
+- **Reviews**: Reviewing season 1, [Devi Asmarani at Magdalene](https://magdalene.co/story/what-did-you-eat-yesterday-portrays-realistic-mature-gay-relationship/) praised "the frank and nuanced depiction of life as coupled middle-aged gay men in contemporary Japan without the usual cliches". On season 2, [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/7663886) (in Chinese) noted its turn toward ageing and end-of-life questions. Awards, critics and Taiwanese viewers agree.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; IMDb lists Japan 7+, and going by the plot it is an everyday-life drama.
+- **Length**: Season 1 (2019) and season 2 (2023), 12 episodes each, both finished. A 2020 New Year special and a 2021 film sit between them; no word on season 3.
+- **Watch first**: Adapted from Fumi Yoshinaga’s manga; no need to read it. Ideally watch season 1, the special, the film, then season 2, but only season 2 is available in Taiwan.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/22886/eps/1) (season 2). Season 1’s LINE TV licence has expired; only season 2 is confirmed in Taiwan
+
+#### Ossan’s Love
+
+Haruta, 33 and perpetually single, finds that both his middle-aged boss and the younger male colleague he lives with are in love with him ([Wikipedia](https://en.wikipedia.org/wiki/Ossan%27s_Love)).
+
+- **Recommended by**: `A Tokyo Drama Awards grand prix 2018` `A Television Drama Academy Awards best drama, spring 2018` `C Filmarks Awards 2024 TV drama nominee (sequel Returns)` `F PTT Japandrama 2024 year-end overlooked gems (sequel Returns)`
+- **Scores**: MyDramaList 7.5 (2018 season 1) (7,576 ratings) | IMDb 7.5 (765 votes) | Filmarks ★4.1
+- **Reviews**: Reviewing the 2018 season, [Tobias Waters at Japan Gay Guide](https://japangayguide.com/gay-lesbian-movies/ossans-love-my-honest-review/) warns the near-anime overacting takes adjusting to, but says "Ossan’s Love is a landmark in BL programming". [馬欣 at Mirror Media](https://www.mirrormedia.mg/story/20180608web001) (in Chinese) credits Kento Hayashi with giving a BL character real depth. The 2018 season was a critical and popular hit; the 2024 sequel drew much less buzz.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, a romantic comedy with nothing specific flagged.
+- **Length**: Season 1: 7 episodes, 2018, finished. Season 2, in the sky (8 episodes), and a film followed in 2019, then the 9-episode Returns in 2024; a one-off pilot aired in 2016.
+- **Watch first**: An original; start with the 2018 season. in the sky moves to an airline in a parallel setup; Returns continues season 1.
+- **Where to watch**: [愛奇藝](https://www.iq.com/album/%E5%A4%A7%E5%8F%94%E7%9A%84%E6%84%9B-2018-19rrgxxtzx?lang=zh_tw) (available). The 2024 sequel is on [Hami Video](https://hamivideo.hinet.net/product/280363.do?cs=2) and [LINE TV](https://www.linetv.tw/drama/18430/eps/1) (VIP)
+
+#### Chosen Home
+
+A lonely gay zookeeper of 50 proposes buying a home with a teacher who has given up on love, and the teacher’s student offers her hidden fortune to pay for it ([Wikipedia](https://en.wikipedia.org/wiki/Chosen_Home_(TV_series))).
+
+- **Recommended by**: `B Real Sound 2025 top 10 (2 of 5 critics)` `C MyDramaList top Japanese drama #49 (8.3)` `F PTT Japandrama 2025 year-end overlooked gems`
+- **Scores**: MyDramaList 8.3 (2,225 ratings) | IMDb 7.6 (218 votes) | Filmarks ★3.9
+- **Reviews**: [Karen Mansoldo at The Blossom Review](https://theblossomreview.com/ntv-chosen-home-netflix-review/) calls it "a genuine, heartwarming, and humane celebration of love, diversity, and community". [米果 at CommonWealth’s Independent Opinion](https://opinion.cw.com.tw/blog/profile/57/article/16941) (in Chinese) finds it ambitious yet light and admits it is a bit of a sleeper. Critics and devoted fans like it more than the wider audience.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, there is a troubled-teen family thread, details unknown.
+- **Length**: 10 episodes, 2025, finished; no special or sequel found.
+- **Watch first**: Nothing; it is an original.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/) (subscription). No title ID was found; the only evidence is a search snippet of a November 2025 LINE TODAY report
+
+### Comedy, sci-fi and youth
+
+Aliens, a trip back to the Showa era, psychic powers, a band and competitive karuta. Romance is only a side plot; they sit here for their light tone.
+
+#### The Hot Spot
+
+A single mother at a business hotel in a small town below Mount Fuji discovers her co-worker Takahashi is an alien and gets pulled into a string of local mishaps ([Wikipedia](https://en.wikipedia.org/wiki/The_Hot_Spot_(TV_series))).
+
+- **Recommended by**: `A Tokyo Drama Awards excellence prize 2025` `A Japan Commercial Broadcasters Association excellence award 2025` `B Real Sound 2025 top 10 (3 of 5 critics)` `C Filmarks Awards 2025 best TV drama` `D 2025 commercial-TV drama episode ratings #17 (12.7%)` `E ORICON 2025 drama satisfaction #6` `F PTT Japandrama 2025 year-end review #2` `G LINE TODAY 2025 Japanese drama chart #1`
+- **Scores**: MyDramaList 8.2 (977 ratings) | IMDb 7.9 (1.4K votes) | Filmarks ★4.2
+- **Reviews**: Writing mid-run, [Patrick St. Michel at The Japan Times](https://www.japantimes.co.jp/culture/2025/02/10/tv-streaming/the-hot-spot/) noted that "the bulk of a single episode primarily revolves around funny chitchat"; the rest is paywalled, so his verdict is unknown. [倉鼠球営業中 at 釀電影](https://filmaholic.tw/series/67ef894afd89780001afc07c/) (in Chinese) found the first half hard to sell but the last three episodes rewarding. Middling ratings, top-tier word of mouth; the one complaint is a slow start.
+- **Content**: IMDb Taiwan listing 13+ (user-editable). No IMDb Parents Guide votes; the ratings IMDb lists run from 7 to 13, and nothing specific was flagged.
+- **Length**: 10 episodes, 2025, finished. Writer Bakarhythm says he wrote the ending so there would be no sequel.
+- **Watch first**: Nothing; it is an original. Same team as Brush Up Life, but unrelated. A small-town alien comedy, not a romance.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81985186) (subscription). Taiwan availability is based on Marie Claire and ELLE Taiwan reports
+
+#### Extremely Inappropriate!
+
+A foul-mouthed, old-school 1986 PE teacher time-travels to 2024, where his Showa-era ways clash with modern Japan ([Wikipedia](https://en.wikipedia.org/wiki/Extremely_Inappropriate!)).
+
+- **Recommended by**: `A Galaxy Award special prize (2023 season)` `A Tokyo Drama Awards excellence prize 2024` `B Real Sound 2024 top 10 (3 of 5 critics)` `B Japan Times 2024: one of the year’s best` `C Filmarks Awards 2024 best TV drama` `D 2024 commercial-TV drama episode ratings #5 (17.3%)` `F PTT Japandrama 2024: "the year’s breakout hit"` `G KKTV 2024 awards best Japanese drama` `G LINE TODAY 2024 top 10 shows #9 (only Japanese title)`
+- **Scores**: MyDramaList 7.9 (763 ratings) | IMDb 7.6 (617 votes) | Filmarks ★4.1
+- **Reviews**: After the finale, [Patrick St. Michel at The Japan Times](https://www.japantimes.co.jp/culture/2024/04/05/tv-streaming/extremely-inappropriate-series/) called it "the most ambitious and divisive Japanese TV show of the year so far"; the rest is paywalled. [鈺玟 at 釀電影](https://filmaholic.tw/series/6683b955fd897800016c35b0/) (in Chinese) was won over by the musical numbers. High ratings, awards and reviews, yet the charge of preachiness never went away.
+- **Content**: IMDb Taiwan listing 0+ (user-editable). No IMDb Parents Guide votes; going by the plot, the jokes rest on Showa-era swearing, corporal punishment and harassment, so Taiwan 0+ may be low.
+- **Length**: 10 episodes, 2024, finished. A New Year special aired on 4 January 2026.
+- **Watch first**: Nothing; it is an original. Watch the series before the special. A time-travel comedy with musical numbers, not a romance.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/21230/eps/1) (available). The 2026 special has its own [LINE TV page](https://www.linetv.tw/drama/21249/eps/1)
+
+#### Just a Bit Espers
+
+A man who has lost his job, family and savings is hired by a mysterious company as a barely-psychic esper to save the world, on condition he loves no one ([Wikipedia](https://ja.wikipedia.org/wiki/%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%A0%E3%81%91%E3%82%A8%E3%82%B9%E3%83%91%E3%83%BC)).
+
+- **Recommended by**: `B Real Sound 2025 top 10 (2 of 5 critics)` `D 2025 commercial-TV drama episode ratings #13 (14.1%)` `F PTT Japandrama autumn 2025 recommendations #6` `G LINE TODAY 2025 Japanese drama chart #10`
+- **Scores**: MyDramaList 7.7 (451 ratings) | IMDb 6.6 (189 votes) | Filmarks ★3.8
+- **Reviews**: [Karen Mansoldo at The Blossom Review](https://theblossomreview.com/just-a-bit-espers-netflix-review/) watched it grow "from a simple satire" into "a complex human drama". [范亦昕 at 釀電影](https://filmaholic.tw/series/695f87dafd897800019cc8f2/) (in Chinese) reads it as people relearning how to live. Signed reviews are positive, but PTT viewers and a Malaysian columnist panned the ending: the most divisive show here.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; the second half turns serious, with a character bleeding from the eyes and ears, deaths and a revenge plot.
+- **Length**: 9 episodes, 2025, finished. Star Yo Oizumi has floated a sequel, but nothing is announced.
+- **Watch first**: Nothing; it is an original. The second half becomes a sci-fi mystery, not a straight romantic comedy.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/82143695) (subscription). Taiwan availability is based on Eslite and Up Media reports
+
+#### Glass Heart
+
+A college drummer fired by her band is recruited by a reclusive genius into his new band TENBLANK; as they take off, his secret surfaces ([Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%A9%E3%82%B9%E3%83%8F%E3%83%BC%E3%83%88)).
+
+- **Recommended by**: `C MyDramaList top Japanese drama #11 (8.5)` `C IMDb 8.1` `F Dcard: "the hottest Japanese drama of the second half"` `G VERSE 2025 ten must-watch shows`
+- **Scores**: MyDramaList 8.5 (7,694 ratings) | IMDb 8.1 (1.9K votes) | Filmarks ★3.6
+- **Reviews**: Having seen all ten episodes before launch, [Kelcie Mattson at Collider](https://collider.com/glass-heart-netflix-review/) found it "altogether watchable and oddly comforting to boot" despite late clichés. [Ning Chi at La Vie](https://www.wowlavie.com/article/250026119) (in Chinese) concedes the plot is predictable but defends it. English critics cluster around 80, while Filmarks users give it 3.6: the widest home-abroad gap here.
+- **Content**: IMDb Taiwan listing 12+ (user-editable). Only 2–3 IMDb Parents Guide votes per category: drinking and drugs, moderate violence; the lead has a brain tumour.
+- **Length**: 10 episodes, released at once on Netflix in 2025. No second season has been announced.
+- **Watch first**: Adapted from Mio Wakagi’s novels, but heavily rewritten with a different ending; no need to read them. The band is the focus; romance is a subplot.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81517368) (subscription)
+
+#### Chihayafuru: Full Circle
+
+Ten years after the films, a new generation of high-school students stake their youth on competitive karuta ([Wikipedia](https://ja.wikipedia.org/wiki/%E3%81%A1%E3%81%AF%E3%82%84%E3%81%B5%E3%82%8B)).
+
+- **Recommended by**: `B Real Sound 2025 top 10 (2 of 5 critics)` `B Eiga Channel 2025 writer’s pick` `C Filmarks Awards 2025 TV drama nominee` `F PTT Japandrama 2025 year-end review #5 ("far beyond expectations")`
+- **Scores**: MyDramaList 8.2 (609 ratings) | IMDb 7.6 (158 votes) | Filmarks ★4.2
+- **Reviews**: [Alicia Haddick at scrmbl](https://scrmbl.com/post/chihayafuru-full-circle-review) calls it a rare legacy sequel that works, though "it’s far from perfect, those first two episodes being a challenge to overcome". [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/9028637) (in Chinese) was moved by the heroine’s slow growth. Both note her deliberately unlikable start.
+- **Content**: IMDb Taiwan listing 13+ (Netflix rating, user-editable). No IMDb Parents Guide votes; nothing specific flagged.
+- **Length**: 10 episodes, 2025, finished; no sequel or special found.
+- **Watch first**: Part of the Chihayafuru franchise, but with a new cast and original story; no need to read the manga or see the films.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/82085211) (subscription). Taiwan availability is based on a United Daily News report
+
+## Watch-later list
+
+| Show | Status |
+|---|---|
+| Rebooting (ブラッシュアップライフ) | Backed by six source types, but it was only on KKTV; since KKTV closed in early 2026, no legal streaming option has been found in Taiwan |
+
+## Limits of this list
+
+- **Most English reviews come from small outlets outside the usual list.** The Blossom Review alone covers 6 shows; An Incurable Case of Love, Second to Last Love 3, No Domestic Work for Ms. Saionji! and Ichiban Suki na Hana have no signed English review. Both Japan Times reviews sit behind a paywall, and only their openings could be read.
+- **Taiwanese reviews come from a few writers.** 雪奈 wrote the main review for 5 shows; Eye Love You and No Domestic Work for Ms. Saionji! have no Taiwanese review.
+- **Douban for only 3 shows.** Only Silent’s score comes from the press; The Full-Time Wife Escapist and What Did You Eat Yesterday? rely on self-published posts carried by portals.
+- **Ossan’s Love’s audience ratings and fan picks actually come from the 2024 sequel, Returns.**
+- **Some Taiwan streaming evidence is thin.** The Hot Spot, An Incurable Case of Love, Just a Bit Espers and Chihayafuru: Full Circle rest on Taiwan news reports; Chosen Home only on a search snippet. Only season 2 of What Did You Eat Yesterday? is available in Taiwan. Streaming links checked: 2026-11-09.
+
+## References
+
+- [ザテレビジョンドラマアカデミー賞 (Japanese Wikipedia)](https://ja.wikipedia.org/wiki/ザテレビジョンドラマアカデミー賞)
+- [国際ドラマフェスティバル in TOKYO／東京ドラマアウォード (Japanese Wikipedia)](https://ja.wikipedia.org/wiki/国際ドラマフェスティバル_in_TOKYO)
+- [ギャラクシー賞 (Japanese Wikipedia)](https://ja.wikipedia.org/wiki/ギャラクシー賞)
+- [日本民間放送連盟賞 2025](https://j-ba.or.jp/award2025/) (in Japanese)
+- [Asian Academy Creative Award for Best Drama Series (Wikipedia)](https://en.wikipedia.org/wiki/Asian_Academy_Creative_Award_for_Best_Drama_Series)
+- [Real Sound〈2025年 年間ベストドラマTOP10〉](https://realsound.jp/movie/2025/12/post-2254007.html) (in Japanese)
+- [MyDramaList：Top Japanese Dramas](https://mydramalist.com/shows/top_japanese_dramas)
+- [Filmarks Awards history (pixiin)](https://pixiin.com/ranking-filmarks-awards-all/)
+- [Video Research〈令和版 ドラマ視聴率ランキング〉](https://www.videor.co.jp/digestplus/article/tv231219.html) (in Japanese)
+- [Video Research〈2025年 民放ドラマまとめ〉](https://www.videor.co.jp/digestplus/article/tv260129-2.html) (in Japanese)
+- [TVerアワード2025 (PR TIMES)](https://prtimes.jp/main/html/rd/p/000000486.000002492.html) (in Japanese)
+- [ORICON〈2025年 ドラマ満足度ランキング〉](https://www.oricon.co.jp/news/2427637/full/) (in Japanese)
+- [Yahoo!検索大賞 (Japanese Wikipedia)](https://ja.wikipedia.org/wiki/Yahoo!検索大賞)
+- [PTT 日劇板〈2025日劇無雷推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1768239645.A.F20.html) (in Chinese)
+- [PTT 日劇板〈2025秋季日劇推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1766497769.A.FB6.html) (in Chinese)
+- [PTT 日劇板〈2024日劇無雷推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1735532228.A.0CA.html) (in Chinese)
+- [LINE TODAY 聚光賞〈2025 十大追劇榜〉 (LINE press release)](https://www.linecorp.com/ko/pr/news/2025/1217) (in Chinese)
+- [LINE TODAY 聚光賞〈2025 日劇年度榜〉](https://today.line.me/tw/v3/article/l25eq2G) (in Chinese)
+- [friDay影音〈2025 年度大勢排行〉](https://video.friday.tw/curation/935) (in Chinese)
+- [VERSE〈2025 年必看十部日劇〉](https://www.verse.com.tw/article/2025-j-drama) (in Chinese)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [JustWatch 台灣](https://www.justwatch.com/tw)
