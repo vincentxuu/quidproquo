@@ -41,6 +41,12 @@
 - 本次產出（委派 subagent 執行完整選案流程後驗收）：《AI Agent Arxiv Digest — 2026-11-11》中英雙版，series order 171，主題「多 Agent 之間未經指示的隱性影響——透過共享狀態、同儕記憶與觀察網路互相改變行為，但『行為變了』不等於『結果變好了』」。入選 3 篇，皆讀完方法／實驗／限制正文後判定（非只看摘要）：**arXiv:2611.12412**（Tampere University，雙實作獨立複現＋Zenodo 完整產物 DOI，連結已查證屬實的 METR OpenAI/Hugging Face 真實事件）；**arXiv:2611.09990**（NYIT／Georgia State／Algoverse／Columbia，NeurIPS 2026 Workshop PALM 已接受，95% CI 跨零之誠實揭露）；**arXiv:2611.11714**（Northeastern University，1,080 episode 實驗，作者自陳跨模型遷移未測試）。另有 26 篇候選已逐一記錄具體排除理由於篩選紀錄。`check:tw` 初版撞 2 處簡體用語「網絡」已修正為「網路」，重跑後 0 blocking；`check:references`／`check:lang-parity`（3537 組全過）／`check:series-order`／`check:diagram-geometry` 皆 0 blocking；`diagram-preview` 因環境無瀏覽器被 skip。Semantic Scholar 429 全數重試仍失敗，改用論文自身 arXiv HTML header 核對 venue／機構；arXiv `list/new` 頁面過大改用 `?show=50` 分頁＋arXiv export API；兩者皆為 toolDegradation，非 blocker。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-11-ai-agent-arxiv-digest{,-en}.md`、`.research/daily-arxiv-screening/2026-11-11.json`、`src/data/daily-signals/seen-arxiv-ids.txt` 的對應更新（追加 `2026-11-11: 2611.12412, 2611.09990, 2611.11714`）、`.work/daily-log/2026-11-11/daily-digest-arxiv.md`，皆已 `git add` 暫存在本機 `main` 分支（工作目錄乾淨、未推送），等 Q-051 解除後直接補 commit，不需重新研究選案。
 
+### Q-051 補充：daily-digest-product-interview routine（Strategy & Execution，2026-11-11）再次撞上同一紅燈
+
+- 登錄：2026-11-11（來源：daily-digest-product-interview routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 本次產出：《Product Builder 面試日練 — 2026-11-11：Strategy & Execution》中英雙版，series order 84（星期三固定主題，`interview-focus.json` 權重全為 1，無加權覆寫）。框架：Tim Herbig 的策略敘事／戰場／致勝打法三元素＋愚蠢反轉測試、五透鏡競爭分析；練習題改編自 DailyDoseOfPM 產品案例共學班的 Webex vs Zoom AI 策略真實練習；案例為 Netflix 反向定位打垮 Blockbuster 逾期費營收（NBC News 2010 報導驗證 $800M→$134M、16%→3% 數字）。無 diagram 區塊（五透鏡比較與 Webex/Zoom 對照皆用表格,依 diagram skill「三欄表格就講得清楚→表格」規則不強行畫圖）。已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過，無 blocking issue。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-11-product-builder-interview-daily{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-product-interview.md` 皆已 `git add` 暫存在本機 detached HEAD（與 `origin/main` 同步於 `39a0553`，工作目錄乾淨、未推送），等 Q-051 解除後直接 `git commit` 補上，不需重做內容或重跑查證。
+
 ## Q-050 ⏳ 待處理：課程影片查核日期 862 項過期，CI 完整 verify 擋住 deploy
 - 登錄：2026-11-09（來源：對話）
 - 做什麼：約 40 門課在 2026-10-10 同一天查核，2026-11-09 一起超過 30 天。`pnpm -s check:course-videos` 列出清單（862 項，含 `scripts/config/course-videos.json` 的 cmu-11768 項目），依 post-update skill「課程影片狀態」逐門課回原始來源即時重查：仍無錄影就更新查核日期與更新紀錄，找到錄影就嵌入。CS329Z 的 week5／7／8／9／11 五組已在 2026-11-09 重查。
