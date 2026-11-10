@@ -47,6 +47,12 @@
 - 本次產出：《Product Builder 面試日練 — 2026-11-11：Strategy & Execution》中英雙版，series order 84（星期三固定主題，`interview-focus.json` 權重全為 1，無加權覆寫）。框架：Tim Herbig 的策略敘事／戰場／致勝打法三元素＋愚蠢反轉測試、五透鏡競爭分析；練習題改編自 DailyDoseOfPM 產品案例共學班的 Webex vs Zoom AI 策略真實練習；案例為 Netflix 反向定位打垮 Blockbuster 逾期費營收（NBC News 2010 報導驗證 $800M→$134M、16%→3% 數字）。無 diagram 區塊（五透鏡比較與 Webex/Zoom 對照皆用表格,依 diagram skill「三欄表格就講得清楚→表格」規則不強行畫圖）。已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過，無 blocking issue。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-11-product-builder-interview-daily{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-product-interview.md` 皆已 `git add` 暫存在本機 detached HEAD（與 `origin/main` 同步於 `39a0553`，工作目錄乾淨、未推送），等 Q-051 解除後直接 `git commit` 補上，不需重做內容或重跑查證。
 
+### Q-051 補充：daily-digest-report routine（AI 日報 2026-11-11，order 88）第六次撞上同一紅燈
+
+- 登錄：2026-11-11（來源：daily-digest-report routine 執行 `git commit` 時被 Q-051 同一個紅燈擋下；與上方 Q-051 是同一個根因，不另開新編號）
+- 本次產出：《AI 日報 — 2026-11-11》中英雙版，series order 88。主題「模型護城河保鮮期壓縮到 24 小時」（Claude Fable 5.2 登頂次日被 Gemini 4 Carbon 追平並砍半成本），五力分析框架貫穿深度分析；含 1 張 NEAR AI 攻擊鏈循序圖（中英座標相同）。Stage 1 當日（2026-11-11）無其他 routine 產出可引用，僅 Stage 2 signals JSON（33 條）可用，依規則略過「今日 Digest 一覽」段落；Step 4e 全球區域補掃經 Groundlane `web_search`／`web_fetch` 新增日韓（Korea Deep Learning 與南韓 IBK 的 PoC）與東南亞（新加坡 CSA／GovTech／IMDA 個人 agent 風險指引）兩筆經查證的區域事件。已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`（初版撞 4 處「用戶」已修正為「使用者」）／`check:series-order`／`check:diagram-geometry` 全部通過，無 blocking issue；`diagram-preview` 因環境無瀏覽器被 skip（`/opt/pw-browsers` 下找不到 `chrome-headless-shell`），改用 `check:diagram-geometry` 做幾何驗證替代。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-11-ai-agent-daily{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-report.md` 已 `git add` 暫存在本機 `main` 分支（工作目錄乾淨、未推送），等 Q-051 解除後直接 `git commit` 補上，不需重做內容或重跑查證。
+
 ## Q-050 ⏳ 待處理：課程影片查核日期 862 項過期，CI 完整 verify 擋住 deploy
 - 登錄：2026-11-09（來源：對話）
 - 做什麼：約 40 門課在 2026-10-10 同一天查核，2026-11-09 一起超過 30 天。`pnpm -s check:course-videos` 列出清單（862 項，含 `scripts/config/course-videos.json` 的 cmu-11768 項目），依 post-update skill「課程影片狀態」逐門課回原始來源即時重查：仍無錄影就更新查核日期與更新紀錄，找到錄影就嵌入。CS329Z 的 week5／7／8／9／11 五組已在 2026-11-09 重查。
