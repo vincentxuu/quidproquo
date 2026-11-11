@@ -16,6 +16,13 @@
 
 ---
 
+## Q-049 ✅ 已拍板（2026-11-11，使用者選「只這次 --no-verify」）：全站 `check:course-videos` 因查核日期滿 30 天轉紅，所有 commit 被擋
+- 處置：Simular box 兩篇文章與本條紀錄以單一 commit 使用一次 `--no-verify`；全站課程影片重查仍未做，之後任何 commit 在重查前都會被同一燈擋住，需要另行排工（批次重查約 800 多篇、>20 檔，Tier 2）。
+- 登錄：2026-11-10（來源：與使用者對話，commit Simular box 中英文章時被擋）
+- 做什麼：commit 已 staged 的 2 個檔案（`src/content/posts/ai/2026-11-10-simular-box-cloud-computers.md` 與 `-en.md`，雲端電腦服務選型文），並 push 到 `claude/friendly-hypatia-780bnl`。
+- 為什麼現在不能做：pre-commit 的 `pnpm verify:staged` 只剩 `check:course-videos` 一燈紅（874 個問題），其餘 18 項（含本文的 references、post-quality、process-leak、check:tw、diagram-preview、lang-parity）全綠。原因是 `scripts/check-course-videos.mjs` 的 `genericStaleAfterDays`（30 天）：大量課程文章的影片來源查核日期是 2026-10-10，2026-11-10 起超過 30 天（前一天 2026-11-09 剛好還沒超過，所以當時的 commit 能過）。與 staged 內容無關，任何 commit 現在都會被擋。修法是回原始來源即時重查約 800 多篇課程文的影片狀態並更新 `scripts/config/course-videos.json` 與各文 `checkedAt`，屬 >20 檔批次改動（Tier 2）。不能只改日期：該檢查要求即時重查來源。
+- 接手第一步：先在乾淨 HEAD 跑 `pnpm check:course-videos` 確認同樣紅。然後由使用者三選一：(a) 指定這次 `git commit --no-verify`（Q-047 先例）；(b) 批准批次重查課程影片再 commit；(c) 暫不 commit，文章留在工作區。
+
 ## Q-047 ⏳ 待拍板：commit 2026-11-03 AI 日報格式優化被 pre-existing red check 阻擋
 - 登錄：2026-11-04（來源：與使用者對話，日報格式優化任務）
 - 做什麼：commit 已 staged 的 4 個檔案（src/content/posts/daily/2026-11-03-ai-agent-daily.md zh-TW、2026-11-03-ai-agent-daily-en.md、.agents/skills/daily-digest-report/SKILL.md、.claude/skills/daily-digest-report/SKILL.md），內容為日報表格化＋三層監督機制圖＋en 版同步＋daily-digest-report 模板表格化。
