@@ -809,3 +809,11 @@
 - 為什麼現在不能做：同上方 Q-053 原始條目——`research-note.md` 需要真正跑過 `daodao-community-ops` 系列的研究，不是本次面試日練 routine 能代寫的內容。
 - 接手第一步：同上方 Q-053 原始條目。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-12-product-builder-interview-daily{,-en}.md`、`.work/daily-log/2026-11-12/daily-digest-product-interview.md`，皆已 `git add` 留在暫存區未 commit，等 Q-053（含上游 Q-051 根因）解除後直接 `git commit` 補上，不需重新查證或重寫內容。
+
+### Q-053 補充：daily-digest-report routine（Stage 3，2026-11-12）也撞上同一紅燈，另外確認上游各補充條目的暫存產出已隨容器回收遺失
+
+- 登錄：2026-11-12（來源：daily-digest-report routine 執行 `pnpm check:series-plan` 時被同一紅燈擋下；與上方 Q-053 是同一個根因，不另開新編號。本次 session 工作目錄一開始處於 detached HEAD 指向落後 origin/main 42 個 commit 的舊狀態，已用 `git checkout main && git pull origin main` 快轉修復，純 fast-forward，未用破壞性操作）
+- 額外發現（重要）：本次執行時檢查了 `git status`，工作目錄只有本次新增的 2 個檔案被 staged——上方 Q-053 各補充條目（daily-digest-github／security／framework／benchmark／funding／pricing／ai-interview／product-interview）宣稱「已 `git add` 暫存在本機未 commit」的所有文章檔案，在本次 session 的 checkout 裡**一個都不存在**（`src/content/posts/daily/2026-11-12-{tool-browse,security-mcp-server-git-config-rce,framework-haystack-v3.5.0,framework-dspy-3.5.0,framework-pydantic-ai-v2.67.0,benchmark-cursorbench-carbon-tops,funding-mercor,funding-rox,funding-plurai,pricing-anthropic-claude-fable-mythos-5-2-price-cut,ai-interview-daily,product-builder-interview-daily}{,-en}.md` 均 `git status`／`find` 查無）。確認了 Q-053 benchmark 補充條目裡已經記錄過的猜測——「本機暫存」在這個雲端沙箱環境裡是**單一 session 容器的本地狀態，不會跨 session 持久化**；容器回收後，沒推送（push）的 `git add` 暫存一律遺失，不是「等 Q-053 解除後直接補 commit」能救回來的。本次 Q-053 清單上列出的至少 8 支 routine、約 20+ 篇文章的產出，實務上已經遺失，需要重新產出才能補齊，不是接手就能補交。
+- 為什麼現在不能做：`research-note.md` 與審稿紀錄仍需要真正做過 `daodao-community-ops` 系列研究／`post-verify`／`post-review`／`post-polish` 的實質產出，不是 daily-digest-report 這類 routine 能代寫的內容；本條目性質與上方相同，不重複論證。
+- 接手第一步：同上方 Q-053 原始條目（補 research-note.md、補兩篇島島文章審稿紀錄）。另外建議：Q-053 解除後，各 daily-digest routine 不應假設「已暫存＝安全」，必須在同一次 session 內完成 commit＋push，否則遺失風險等同沒做；若 verify 紅燈可能跨 session 才解除，應考慮改成每次 routine 執行完就嘗試 push（即使預期會被擋），或至少把暫存內容額外寫一份到 `.work/daily-log/` 全文備份，而不是只寄望 `git add` 留在工作目錄。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-12-ai-agent-daily{,-en}.md`、`.work/daily-log/2026-11-12/daily-digest-report.md`，已 `git add` 留在暫存區未 commit；鑑於上述遺失模式，此次直接在 commit message 草稿與本條目留下完整檔案清單供日後比對，但同樣無法保證在 Q-053 解除前不會隨容器回收遺失。
