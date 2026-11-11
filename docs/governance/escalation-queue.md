@@ -785,3 +785,9 @@
 - 登錄：2026-11-12（來源：daily-digest-funding routine 執行 `git commit` 時被 Q-053 同一個紅燈擋下；與上方 Q-053 是同一個根因，不另開新編號）
 - 本次產出：3 篇融資速報中英雙版（series order 130–132）——Mercor（Series D $750M，估值 13 個月內從 $10B 翻倍到 $20B）、Rox（Series B $100M，估值 $1.3B，AI 業務代理挑戰 Salesforce）、Plurai（Seed $13M，agent 模擬與可靠性基礎設施）。已單獨跑過 `check:references`／`check:tw`（第一輪抓到「對標」A 級用語已修正）／`check:series-order`／`check:diagram-geometry`（Mercor、Plurai 各一張圖，中英共 4 張，0 錯誤）全部通過，無 blocking issue；`diagram-preview` 因環境無瀏覽器被 skip（`/opt/pw-browsers` 缺 `chrome-headless-shell`），已用 `check:diagram-geometry` 做幾何驗證替代。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-12-funding-{mercor,rox,plurai}{,-en}.md`（6 檔）與 `.work/daily-log/2026-11-12/daily-digest-funding.md` 已 `git add` 暫存在本機 `main` 分支（工作目錄起始已先 `git checkout -B main origin/main` 校正過偵測到的 detached HEAD／落後本機 main 分支，確認無本機獨有 commit 才覆蓋；未推送），等 Q-053 解除後直接 `git commit` 補上，不需重做內容或重新查證。
+
+### Q-053 補充：daily-digest-pricing routine 也撞上同一紅燈
+
+- 登錄：2026-11-12（來源：daily-digest-pricing routine 執行 `git commit` 時被 Q-053 同一個紅燈擋下；與上方 Q-053 是同一個根因，不另開新編號）
+- 本次產出：Anthropic 2026-11-09 發表 Claude Fable 5.2／Claude Mythos 5.2，標準定價從上一代 $10/$50 降到 $8/$40（每百萬 tokens，降 20%），快取讀寫與 Batch API 同步降 20%，新增 fast mode；確認來源為官方公告（anthropic.com/claude-fable-and-mythos-5-2）與官方 pricing docs（platform.claude.com），另以 3 家獨立新聞交叉驗證。中英雙版，series order 34，無 diagram 區塊（純屬性前後對照，依 diagram skill 判定表格已足夠，未畫圖）。已單獨跑過 `pnpm check:references`（原本擋下英文版缺 `## References` 標題，已修正為 0 error）／`pnpm check:lang-parity`（新檔未被列入既有的 22 筆落差）／`pnpm check:tw`（原本擋下中文版 1 處「用戶」A 級用詞，已修正為「使用者」後重跑確認 0 blocking）／`pnpm check:series-order`（order 34 無撞號）全部通過。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-12-pricing-anthropic-claude-fable-mythos-5-2-price-cut{,-en}.md`、`.work/daily-log/2026-11-12/daily-digest-pricing.md` 留在工作目錄已 `git add` 暫存，等 Q-053（含上游 Q-051 根因）解除後直接 `git commit` 補上，不需重新查證或重寫內容。
