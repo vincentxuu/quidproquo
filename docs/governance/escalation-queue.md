@@ -762,3 +762,12 @@
 - 為什麼現在不能做：同上方 Q-053 原始條目——`research-note.md` 需要真正跑過 `daodao-community-ops` 系列的研究，不是本次資安 routine 能杜撰的內容。
 - 接手第一步：同上方 Q-053 原始條目。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-12-security-mcp-server-git-config-rce{,-en}.md`、`.work/daily-log/2026-11-12/daily-digest-security.md`，皆已 `git add` 留在暫存區未 commit，等 Q-053 解除後直接 `git commit` 補上，不需重新查證或重寫內容。
+
+### Q-053 補充：daily-digest-framework routine（2026-11-12）也撞上同一紅燈
+
+- 登錄：2026-11-12（來源：daily-digest-framework routine 執行 `git commit` 時被 `series-plan (staged)` 擋下；與上方 Q-053 是同一個根因，不另開新編號）
+- 本次產出：三篇框架更新文章（皆過去 24 小時內的 minor 版本且有重要新功能／breaking changes，符合 skill「寫」門檻），中英雙版，series order 65／66／67——Haystack v3.5.0（新增 OpenAI Decisions API 路由三元件、`StructuredOutputHook`；Breaking：`Pipeline` 的 `Variadic`／多上游 `list` 輸入改成依 `connect()` 呼叫順序排序）、DSPy 3.5.0（`RLM`／`Flex`／`GEPA` 畢業，換 lm15 輕量引擎把安裝體積從 206.7 MiB 降到 30.9 MiB；Breaking：`XMLAdapter` 變成預設 Adapter）、Pydantic AI v2.67.0（`SubAgents(dynamic_agents=...)` 支援 DBOS child workflow 平行跑；Breaking：provider-specific 工具欄位搬進 `provider_settings`）。無 diagram 區塊（三篇皆條列式功能/breaking changes＋表格前後對照，判定不需畫圖）。GitHub release 資料改用 Firecrawl Alexandria `github-com` provider（`gh api`／`api.github.com` 對未附加的公開 repo 回「GitHub access to this repository is not enabled for this session」，`add_repo` 回「read access already available」但只開放 git clone、不含 REST API）。已單獨跑過 `pnpm check:references`／`check:lang-parity`／`check:tw`／`check:series-order` 全部通過（皆 0 blocking，新檔案不在任何既有 WARN 清單裡）。
+- 額外發現：本次 session 一開始 `main` 分支處於 detached HEAD（指向舊的 `0e42ba7`，落後 `origin/main` 31 個 commit），與本次 routine 內容無關，研判是容器殘留狀態；已確認 `git merge-base --is-ancestor main HEAD` 為純 fast-forward 後用 `git checkout main && git merge --ff-only` 修復，未使用任何破壞性操作，供後續排查時參考。
+- 為什麼現在不能做：同上方 Q-053 原始條目——`research-note.md` 需要真正跑過 `daodao-community-ops` 系列的研究，不是本次框架更新 routine 能代寫的內容。
+- 接手第一步：同上方 Q-053 原始條目。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-12-framework-haystack-v3.5.0{,-en}.md`、`src/content/posts/daily/2026-11-12-framework-dspy-3.5.0{,-en}.md`、`src/content/posts/daily/2026-11-12-framework-pydantic-ai-v2.67.0{,-en}.md`、`.work/daily-log/2026-11-12/daily-digest-framework.md`，皆已 `git add` 留在暫存區未 commit，等 Q-053 解除後直接 `git commit` 補上，不需重新查證或重寫內容。
