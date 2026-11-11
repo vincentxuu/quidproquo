@@ -27,6 +27,17 @@
   2. lang-parity：對上述 21 篇逐篇比對 zh/en 的「更新紀錄」區塊，確認是哪一次更新只改了一邊，補上對應語言缺的那一筆（更新日期＋內容摘要），跑 `pnpm check:lang-parity` 確認轉綠。
   3. 兩項都解決、或至少把 (1) 處理掉（(2) 不影響同一次 commit 就必須兩個都綠，`pnpm verify:staged` 是 `&&` 串接，任一紅就擋commit）後，本次模型卡的 3 個新檔（`src/content/posts/daily/2026-11-11-model-meituan-longcat-2-5{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-model-card.md`，已 `git add` 暫存）可以直接 `git commit` 補上，不需重做內容或重新查證。
 
+### Q-052 補充：daily-digest-arxiv routine（2026-11-12）也撞上同一紅燈，另外新增第三個紅燈 `check:course-videos`
+
+- 登錄：2026-11-12（來源：daily-digest-arxiv routine 執行 `pnpm verify` 時被 Q-052 的 (1)(2) 同一個紅燈擋下；與上方 Q-052 是同一個根因，不另開新編號）
+- 本次產出：《AI Agent Arxiv Digest — 2026-11-12》中英雙版，series order 172，主題「Agent 可靠性的三層檢查都有縫隙」。入選 arXiv:2611.13254（Villanova University，長程 Agent 失敗軌跡的事件紀錄研究，有條件通過——annotation 由單一 LLM 執行、無人工 inter-annotator agreement，但附完整重現材料）、arXiv:2611.13541（Lenovo/Marquette/Cornell，重新計分 8 個 benchmark 揭露 pass/fail 量尺已飽和，通過——有自行花費約 $115 的控制重跑與統計檢定）、arXiv:2611.13367（Universidad San Sebastián，AI agent 把關不可能定理，通過——完整形式證明＋220 萬程式模擬＋GitHub 重現包）。已單獨跑過 `check:references`／`check:lang-parity`（僅檢查新增這對）／`check:tw`／`check:series-order`／`check:diagram-geometry` 全部通過，無 blocking issue。
+- 額外發現：除了上方 (1) 研究筆記缺口與 (2) 22 組 lang-parity 不一致（本次重跑結果相同，仍是那 21+1 篇舊文，與今天新增檔案無關）之外，本次完整 `pnpm verify` 還多撞到第三個既有紅燈 `check:course-videos`——48 篇課程文章查核日期超過 30 天，與 **Q-050**（同檔案清單的早期子集，當時 46 篇，現在因時間推進漲到 48 篇）同根因，不是新問題，詳情見 Q-050。本次會跑到完整 `pnpm verify`（而不只是 `verify:staged` 的縮小範圍）是因為這次 add 的 `.research/daily-arxiv-screening/2026-11-12.json` 與 `src/data/daily-signals/seen-arxiv-ids.txt` 兩個路徑都不在 `scripts/verify.mjs` 的 `isSafe` 白名單內（只認文章 `.md`、`.agents|.claude/skills` 的 `.md`、`docs/*.md`、`.work/`、`progress.txt`），觸發「暫存區含非安全路徑 → 退回完整 verify」的規則。
+- 為什麼現在不能做：同上方 Q-052 (1)(2) 的理由；(3) 課程影片查核已在 Q-050 記錄為「待拍板」的既有阻塞，見該條目，不是本次 routine 該處理的範圍。
+- 接手第一步：同上方 Q-052 的兩步，外加比照 Q-050 處理課程影片查核。任一全部解除後，本次被擋下的 arxiv digest 即可直接 `git commit`，不需重跑選案或重寫內容。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-12-ai-agent-arxiv-digest{,-en}.md`、`.research/daily-arxiv-screening/2026-11-12.json`、`src/data/daily-signals/seen-arxiv-ids.txt` 的對應更新（追加 `2026-11-12: 2611.13254, 2611.13541, 2611.13367`）已 `git add` 暫存在本機 `main` 分支（工作目錄其餘部分乾淨，已推送本條目與 `.work/daily-log/2026-11-12/daily-digest-arxiv.md`），等上述紅燈解除後直接補 commit，不需重新研究選案。
+
+---
+
 ## Q-051 ✅ 已解決（2026-11-11）：`daodao-community-ops` 系列缺規劃表，擋住全站所有 commit
 - 解決：規劃表 `.work/series-plans/daodao-community-ops.md` 早已寫好（使用者確認 2026-10-29），但一直只留在本機、沒進 git，所以只有雲端 routine 與 CI 撞紅燈。2026-11-11 已把它 commit 進 repo。下方各 routine 暫存、沒 commit 的產出，到各自的環境重新 `git commit` 即可。
 - 登錄：2026-11-10（來源：daily-digest-model-card routine 執行 pre-commit 時發現）
