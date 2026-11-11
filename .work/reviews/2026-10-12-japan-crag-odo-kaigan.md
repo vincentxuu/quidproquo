@@ -36,4 +36,5 @@ Chinese register scan: 2 long sentences, no template contrast phrases, no generi
 
 ## Checks
 
+
 Final pnpm verify passed, including astro check, lint, references, language parity and grades. See .work/odo-kaigan/verify-final.log. Series grade scan:44 files,244 rows,no issues; legacy articles without route tables skipped. Source recheck:3 baselines,1 script404; Exa readback succeeded on same CLIMBING-net content. No publication performed.
