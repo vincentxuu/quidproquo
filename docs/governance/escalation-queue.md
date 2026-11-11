@@ -800,3 +800,12 @@
 - 為什麼現在不能做：同上方 Q-053 原始條目——`research-note.md` 需要真正跑過 `daodao-community-ops` 系列的研究，不是本次面試日練 routine 能代寫的內容。
 - 接手第一步：同上方 Q-053 原始條目。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-12-ai-interview-daily{,-en}.md`、`.work/daily-log/2026-11-12/daily-digest-ai-interview.md`，皆已 `git add` 留在暫存區未 commit，等 Q-053（含上游 Q-051 根因）解除後直接 `git commit` 補上，不需重新查證或重寫內容。
+
+### Q-053 補充：daily-digest-product-interview routine（2026-11-12，AI Product Design）也撞上同一紅燈
+
+- 登錄：2026-11-12（來源：daily-digest-product-interview routine 執行 `git commit` 時被 `series-plan (staged)` 擋下；與上方 Q-053 是同一個根因，不另開新編號。本次 session 工作目錄一開始是乾淨的，`pnpm install --frozen-lockfile` 正常完成）
+- 本次產出：Product Builder 面試日練 2026-11-12（星期四 AI Product Design，`interview-focus.json` 權重全 1、無加練覆寫，series order 85，中英雙版）。核心框架是三層人類介入模型（human-in-the-loop／on-the-loop／out-of-the-loop，附自主性旋鈕概念）與信任校準三種失敗模式（過度信任／信任不足／監督能力退化）；練習題是幫一個自動核對並代付供應商發票的 agent 劃出「永遠要先問人」的清單（改寫自真實面試題「What should the agent never do without asking a person?」），案例是 Walmart 官方部落格公開講的「human threshold for automation」與 co-pilot model。含 1 張流程圖（發票付款三道分級判斷，中英座標相同，只換文字）。
+- 已單獨跑過 `pnpm check:diagram-geometry`（中英各 1 張圖，0 錯誤）／`pnpm check:references`（第一輪中文版有 1 個 WARN「參考資料和標題缺少關鍵詞重疊」，在參考資料補上英文關鍵詞 AI Product Design 後重跑 0 WARN）／`pnpm check:lang-parity`（新檔未被列入既有的 22 筆落差）／`pnpm check:tw`（0 筆命中）／`pnpm check:series-order`（exit 0，order 85 無撞號，僅既有缺號警告）全部通過。`diagram-preview` 單獨執行時因腳本預期 `chromium_headless_shell-1208` 而沙箱只有 `chromium-1243`／`chromium_headless_shell-1243` 被判定無瀏覽器自動跳過；但實際跑 `pnpm commit`（pre-commit hook `pnpm verify:staged`）時，`diagram-preview (staged)` 中英兩項皆顯示 ✅ 通過，與上方 daily-digest-ai-interview 條目的觀察一致。
+- 為什麼現在不能做：同上方 Q-053 原始條目——`research-note.md` 需要真正跑過 `daodao-community-ops` 系列的研究，不是本次面試日練 routine 能代寫的內容。
+- 接手第一步：同上方 Q-053 原始條目。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-12-product-builder-interview-daily{,-en}.md`、`.work/daily-log/2026-11-12/daily-digest-product-interview.md`，皆已 `git add` 留在暫存區未 commit，等 Q-053（含上游 Q-051 根因）解除後直接 `git commit` 補上，不需重新查證或重寫內容。
