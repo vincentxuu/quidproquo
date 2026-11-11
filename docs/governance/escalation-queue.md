@@ -779,3 +779,9 @@
 - 為什麼現在不能做：同上方 Q-053 原始條目——`research-note.md` 需要真正跑過 `daodao-community-ops` 系列的研究，不是本次 benchmark routine 能代寫的內容。
 - 接手第一步：同上方 Q-053 原始條目。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-12-benchmark-cursorbench-carbon-tops{,-en}.md`、`src/data/daily-signals/benchmark-snapshot.json`、`.work/daily-log/2026-11-12/daily-digest-benchmark.md`，皆已 `git add` 留在暫存區未 commit，等 Q-053 解除後直接 `git commit` 補上，不需重新查證或重寫內容。
+
+### Q-053 補充：daily-digest-funding routine（2026-11-12）也撞上同一紅燈
+
+- 登錄：2026-11-12（來源：daily-digest-funding routine 執行 `git commit` 時被 Q-053 同一個紅燈擋下；與上方 Q-053 是同一個根因，不另開新編號）
+- 本次產出：3 篇融資速報中英雙版（series order 130–132）——Mercor（Series D $750M，估值 13 個月內從 $10B 翻倍到 $20B）、Rox（Series B $100M，估值 $1.3B，AI 業務代理挑戰 Salesforce）、Plurai（Seed $13M，agent 模擬與可靠性基礎設施）。已單獨跑過 `check:references`／`check:tw`（第一輪抓到「對標」A 級用語已修正）／`check:series-order`／`check:diagram-geometry`（Mercor、Plurai 各一張圖，中英共 4 張，0 錯誤）全部通過，無 blocking issue；`diagram-preview` 因環境無瀏覽器被 skip（`/opt/pw-browsers` 缺 `chrome-headless-shell`），已用 `check:diagram-geometry` 做幾何驗證替代。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-12-funding-{mercor,rox,plurai}{,-en}.md`（6 檔）與 `.work/daily-log/2026-11-12/daily-digest-funding.md` 已 `git add` 暫存在本機 `main` 分支（工作目錄起始已先 `git checkout -B main origin/main` 校正過偵測到的 detached HEAD／落後本機 main 分支，確認無本機獨有 commit 才覆蓋；未推送），等 Q-053 解除後直接 `git commit` 補上，不需重做內容或重新查證。
