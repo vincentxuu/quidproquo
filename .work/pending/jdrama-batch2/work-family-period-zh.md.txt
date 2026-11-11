@@ -1,0 +1,377 @@
+---
+title: "日劇職人、家庭與時代劇怎麼挑：Unmet、御上老師、宛如阿修羅、大膽狂徒等 16 部"
+date: 2026-11-11
+category: film
+tags: [tv-drama, j-drama, medical-drama, historical-drama]
+lang: zh-TW
+type: guide
+description: "給想看日本醫療劇、職場劇、家庭劇、大河劇與晨間劇的台灣觀眾：醫療與救護、職場與教室、家庭、時代劇與晨間劇四組，16 部都同時被獎項評審、影評人、觀眾評分、收視數據、話題指標、劇迷口碑、台灣觀眾當中至少三類推薦；每部附推薦來源、MyDramaList／IMDb／Filmarks／豆瓣評分、英文與台灣劇評、尺度、集數與台灣合法串流連結。"
+tldr: "先看六類來源都推的《Unmet－某腦外科醫的日記－》《御上老師》，或 Netflix 7 集、Metacritic 89 分的《宛如阿修羅》。想長期追，選 NHK 大河劇《大膽狂徒》《致光之君》或晨間劇《紅豆麵包》；其他 12 部都在 12 集以內。"
+draft: false
+series:
+  name: "各國影劇導讀"
+  order: 12
+---
+
+> 🌏 [English version](/posts/film/2026-11-11-jdrama-work-family-period-en)
+
+日劇最後一篇收的是醫療、職場、家庭和時代劇：無法形成新記憶的腦外科醫師、從文部科學省空降的高中老師、四姊妹與父親的外遇，以及江戶吉原出身的出版人。16 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類都推它，而且台灣有合法串流管道。日劇的集數和原創比例寫在[愛情喜劇篇](/posts/film/2026-11-10-jdrama-romance-comedy-bl)開頭；韓國同類型的劇在[韓劇職人篇](/posts/film/2026-11-09-kdrama-medical-legal-workplace)。
+
+這組有兩個特點：
+
+- **長短差最多。** 從 7 集的《宛如阿修羅》到 130 集的晨間劇《紅豆麵包》都有。大河劇一年播 48 集，下面的長條圖可以先挑長度。
+- **題材沉重的不少，但尺度輕。** 末期癌症、前女友病逝、學生自殺未遂和戰爭都會出現；只有《宛如阿修羅》在 IMDb 家長指南有投票，五類都是無或輕度。
+
+## 先從這 3 部開始
+
+| 劇 | 為什麼先看 | 尺度 | 在哪看 |
+|---|---|---|---|
+| Unmet－某腦外科醫的日記－ | 六類推薦來源都有，Filmarks ★4.4，和《海中沉睡的鑽石》並列這篇最高 | 輕：有腦外科手術場面 | Hami Video、LINE TV |
+| 御上老師 | 六類推薦來源都有，教育體制與官僚政治 | 輕 | friDay影音、Hami Video |
+| 宛如阿修羅 | Netflix 7 集，Metacritic 89、爛番茄 100% | 輕：主題是外遇 | Netflix |
+
+## 推薦來源一覽
+
+表中 ● 代表這一類來源有推薦。A 獎項評審、B 影評人投票榜、C 觀眾評分、D 收視與串流數據、E 話題指標、F 劇迷口碑、G 台灣觀眾。
+
+| 劇 | A | B | C | D | E | F | G | 類別數 |
+|---|---|---|---|---|---|---|---|---|
+| Unmet－某腦外科醫的日記－ | ● | ● | ● | ● |  | ● | ● | 6 |
+| 御上老師 | ● |  | ● | ● | ● | ● | ● | 6 |
+| 大膽狂徒〜蔦重繁華如夢故事〜 | ● | ● |  | ● | ● | ● | ● | 6 |
+| 型男主廚三星夢 | ● |  | ● | ● |  | ● | ● | 5 |
+| 派遣女醫X |  |  | ● | ● |  | ● | ● | 4 |
+| 新宿野戰醫院 |  |  | ● | ● |  | ● | ● | 4 |
+| 榮耀家族 |  |  |  | ● | ● | ● | ● | 4 |
+| 春暖花開的那一天 | ● | ● | ● | ● |  |  |  | 4 |
+| 宛如阿修羅 | ● | ● | ● |  |  |  | ● | 4 |
+| 海中沉睡的鑽石 | ● | ● |  | ● |  | ● |  | 4 |
+| 紅豆麵包 |  |  | ● |  | ● | ● | ● | 4 |
+| 119緊急呼叫 |  |  |  | ● |  | ● | ● | 3 |
+| 東大特訓班2 | ● |  | ● | ● |  |  |  | 3 |
+| 海的開始 |  | ● | ● | ● |  |  |  | 3 |
+| 對岸的家事～這就是我的生存之道！～ |  | ● |  |  |  | ● | ● | 3 |
+| 致光之君 |  | ● |  |  |  | ● | ● | 3 |
+
+這組的 D 欄（收視與串流數據）最滿，16 部有 13 部；E 欄（話題指標）只有 4 部。沒有一部七類都有，六類的是《Unmet》《御上老師》《大膽狂徒》。
+
+## 先挑長度：總集數
+
+```diagram
+title: 16 部的總集數
+desc: 晨間劇紅豆麵包 130 集最多，派遣女醫X 7 季 69 集，大河劇大膽狂徒、致光之君各 48 集；其餘 12 部都是 7 到 12 集。
+caption: 不含特別篇和電影。紅豆麵包每集 15 分鐘，總長約 32 小時；兩部大河劇每集約 45 分鐘，各約 36 小時。海中沉睡的鑽石電視播 9 集，串流版拆成 10 集。
+---
+<svg viewBox="0 0 640 420">
+  <text class="dg-sub" x="224" y="24" text-anchor="end" dominant-baseline="central">紅豆麵包</text>
+  <rect class="dg-bar" x="236" y="16" width="338" height="16" rx="3"/>
+  <text class="dg-small" x="582" y="24" dominant-baseline="central">130</text>
+  <text class="dg-sub" x="224" y="49" text-anchor="end" dominant-baseline="central">派遣女醫X</text>
+  <rect class="dg-bar" x="236" y="41" width="179" height="16" rx="3"/>
+  <text class="dg-small" x="423" y="49" dominant-baseline="central">69</text>
+  <text class="dg-sub" x="224" y="74" text-anchor="end" dominant-baseline="central">大膽狂徒</text>
+  <rect class="dg-bar" x="236" y="66" width="125" height="16" rx="3"/>
+  <text class="dg-small" x="369" y="74" dominant-baseline="central">48</text>
+  <text class="dg-sub" x="224" y="99" text-anchor="end" dominant-baseline="central">致光之君</text>
+  <rect class="dg-bar" x="236" y="91" width="125" height="16" rx="3"/>
+  <text class="dg-small" x="369" y="99" dominant-baseline="central">48</text>
+  <text class="dg-sub" x="224" y="124" text-anchor="end" dominant-baseline="central">海的開始</text>
+  <rect class="dg-bar" x="236" y="116" width="31" height="16" rx="3"/>
+  <text class="dg-small" x="275" y="124" dominant-baseline="central">12</text>
+  <text class="dg-sub" x="224" y="149" text-anchor="end" dominant-baseline="central">Unmet</text>
+  <rect class="dg-bar" x="236" y="141" width="29" height="16" rx="3"/>
+  <text class="dg-small" x="273" y="149" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="224" y="174" text-anchor="end" dominant-baseline="central">新宿野戰醫院</text>
+  <rect class="dg-bar" x="236" y="166" width="29" height="16" rx="3"/>
+  <text class="dg-small" x="273" y="174" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="224" y="199" text-anchor="end" dominant-baseline="central">119緊急呼叫</text>
+  <rect class="dg-bar" x="236" y="191" width="29" height="16" rx="3"/>
+  <text class="dg-small" x="273" y="199" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="224" y="224" text-anchor="end" dominant-baseline="central">型男主廚三星夢</text>
+  <rect class="dg-bar" x="236" y="216" width="29" height="16" rx="3"/>
+  <text class="dg-small" x="273" y="224" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="224" y="249" text-anchor="end" dominant-baseline="central">春暖花開的那一天</text>
+  <rect class="dg-bar" x="236" y="241" width="29" height="16" rx="3"/>
+  <text class="dg-small" x="273" y="249" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="224" y="274" text-anchor="end" dominant-baseline="central">榮耀家族</text>
+  <rect class="dg-bar" x="236" y="266" width="26" height="16" rx="3"/>
+  <text class="dg-small" x="270" y="274" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="224" y="299" text-anchor="end" dominant-baseline="central">御上老師</text>
+  <rect class="dg-bar" x="236" y="291" width="26" height="16" rx="3"/>
+  <text class="dg-small" x="270" y="299" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="224" y="324" text-anchor="end" dominant-baseline="central">東大特訓班2</text>
+  <rect class="dg-bar" x="236" y="316" width="26" height="16" rx="3"/>
+  <text class="dg-small" x="270" y="324" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="224" y="349" text-anchor="end" dominant-baseline="central">對岸的家事</text>
+  <rect class="dg-bar" x="236" y="341" width="26" height="16" rx="3"/>
+  <text class="dg-small" x="270" y="349" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="224" y="374" text-anchor="end" dominant-baseline="central">海中沉睡的鑽石</text>
+  <rect class="dg-bar" x="236" y="366" width="26" height="16" rx="3"/>
+  <text class="dg-small" x="270" y="374" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="224" y="399" text-anchor="end" dominant-baseline="central">宛如阿修羅</text>
+  <rect class="dg-bar" x="236" y="391" width="18" height="16" rx="3"/>
+  <text class="dg-small" x="262" y="399" dominant-baseline="central">7</text>
+</svg>
+```
+
+## 片單
+
+每部的格式：推薦來源、評分、劇評、尺度、長度、先看什麼、在哪看。
+
+- **評分**：日劇大多沒有 Metacritic 分數，這篇用 [MyDramaList](https://mydramalist.com/shows/top_japanese_dramas)、IMDb、日本的 Filmarks 和豆瓣；多季劇的 MyDramaList 是第一季。大河劇與晨間劇在 MyDramaList、IMDb 的評分人數都很少，只能當參考。
+- **尺度**：日本電視劇沒有統一分級，16 部的台灣平台頁也沒有標分級。內容提醒除了《宛如阿修羅》都依劇情寫。
+- **在哪看**：連結是台灣平台的作品頁；只有部分季數可看的，寫在該部的在哪看欄。
+
+### 醫療與救護
+
+腦外科、自由接案的外科醫師、歌舞伎町的急診室和 119 通報中心。
+
+#### Unmet－某腦外科醫的日記－（Unmet: A Neurosurgeon’s Diary）
+
+腦外科醫師在事故中腦部受傷，無法形成新記憶，只能當護理助手，直到一位古怪的醫師幫她找回手術能力（[Wikipedia](https://en.wikipedia.org/wiki/Unmet:_A_Neurosurgeon%27s_Diary)）。
+
+- **推薦來源**：`A 民放連賞 2025 最優秀賞` `A 日劇學院賞最佳作品（2024 春季）` `B Real Sound 2024 年度劇集（5 位影評人中 4 位選入，藤原奈緒 #1）` `C MyDramaList 日劇榜 #30（8.4）` `C Filmarks Awards 2024 日劇入圍` `D 2024 年關東時移收視 #20（最終回 7.2%）` `F PTT 日劇板 2024 年度回顧 #1` `F PTT 日劇板 2024 推薦串「春季王者」` `G KKTV 2024 年度大賞 5 項（含改編劇本、女主角）` `G KKTV 2024 熱播 #6`
+- **評分**：MyDramaList 8.4（第 1 季）（1,216 人）｜IMDb 7.7（138 票）｜Filmarks ★4.4
+- **劇評**：找不到英文署名劇評。聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/8060572)看完全季，說主線比每集的病例好看，「一集比一集更精彩」。她也說步調有時偏慢，但不至於沉悶。評審、影評人和台灣劇迷都給高分，分歧在即時收視普通，英文評論也缺席。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；有腦外科手術場面，主角有記憶障礙。
+- **長度**：第 1 季 11 集（2024），已完結。已宣布續季：日文維基寫第 2 季 2027 年 1 月期播出，官方公告未讀到。
+- **先看什麼**：改編自子鹿ゆずる原作、大槻閑人作畫的漫畫，不必先看。第 2 季播出前要先看第 1 季。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/257957.do?cs=2)（訂閱，部分免費，2027 年 4 月 15 日下架）；[LINE TV](https://www.linetv.tw/drama/18198/eps/1)（上架中）
+
+#### 派遣女醫X（Doctor-X: Surgeon Michiko Daimon）
+
+不屬於任何醫局的自由接案外科醫師大門未知子，在各大學醫院之間接案動刀（[Wikipedia](https://en.wikipedia.org/wiki/Doctor-X:_Surgeon_Michiko_Daimon)）。
+
+- **推薦來源**：`C IMDb 7.6（1,100 票）` `D 六度拿下年度關東平均收視第 1（2012–2021）` `D 最終回關東收視 31.0%（令和以來 #5，2019）` `F PTT 日劇板入坑推薦串（2 人提名）` `G DailyView 2026 年 10 月聲量 #1（負評 33%）`
+- **評分**：MyDramaList 8.2（第 1 季）（2,920 人）｜IMDb 7.6（1,100 票）｜Filmarks ★4.1（第 1–6 季）
+- **劇評**：馬來西亞報紙 [The Star 的 Michael Cheang](https://www.thestar.com.my/lifestyle/entertainment/2016/11/16/review-doctor-x) 看完前三季和第 4 季前 4 集。他推薦，說故事公式化，但米倉涼子撐起整部劇。文章開頭和結尾都在導流串流平台 dimsum，帶推銷性質。台灣只找到介紹文：上報的[雪奈](https://www.upmedia.mg/tw/popularity/chinese-dramas/224411)寫系列回顧與米倉涼子的經歷。收視長年第一，評審與獎項卻完全缺席。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；每集都有外科手術畫面。
+- **長度**：7 季 69 集（2012–2021），另有特別篇。2024 年電影《劇場版ドクターX FINAL》讓系列完結。
+- **先看什麼**：不用，原創劇。單元劇形式，可以從任何一季開始；電影版是完結篇，看過前作才有感。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/2091)（第 1 季）；[friDay影音](https://video.friday.tw/drama/detail/2094)（第 4 季）；[friDay影音](https://video.friday.tw/drama/detail/2095)（第 5 季）；[friDay影音](https://video.friday.tw/drama/detail/1052)（第 6 季）。friDay 確認第 1、4、5、6 季有單季頁，其他季與電影版未確認
+
+#### 新宿野戰醫院（Shinjuku Field Hospital）
+
+歌舞伎町的老醫院來了一位講岡山腔英語、當過軍醫的美籍外科醫師，她沒有日本醫師執照，卻被院長硬留下來（[Wikipedia](https://ja.wikipedia.org/wiki/新宿野戦病院)）。
+
+- **推薦來源**：`C Filmarks Awards 2024 日劇入圍` `D 2024 年關東收視 #8（17.9%，時移 #3）` `F PTT 日劇板 2024 年度回顧（褒貶互見）` `G KKTV 2024 熱播 #3`
+- **評分**：MyDramaList 7.6（306 人）｜IMDb 6.9（138 票）｜Filmarks ★3.8
+- **劇評**：找不到英文署名劇評。電影神搜的[龍貓大王通信](https://news.agentm.tw/284524/)只評第 1 集，說宮藤官九郎的劇本「比起《極度不妥！》甚至更加偏激」。他也說小池榮子要講大量英語台詞，「著實有點勉強」。日本收視不錯，台灣劇迷褒貶互見，有人卡在英語台詞，前幾集就棄劇。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；病患包括牛郎、公關、遊民與難民，有急性酒精中毒和手術場面。
+- **長度**：11 集（2024），已完結，沒有續季消息。
+- **先看什麼**：不用，宮藤官九郎原創劇本。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/265696.do?cs=2)（訂閱，2027 年 7 月 3 日下架）
+
+#### 119緊急呼叫（119 Emergency Call）
+
+橫濱市消防局的指令管制員接聽 119 通報，判斷狀況、調派救護車與消防車；主角粕原雪原本是銀行職員（[Wikipedia](https://ja.wikipedia.org/wiki/119エマージェンシーコール)）。
+
+- **推薦來源**：`D 2025 年關東收視 #11（14.7%）` `F PTT 日劇板 2025 年度回顧遺珠` `G ELLE Taiwan 2025 預告片單 #9`
+- **評分**：MyDramaList 7.7（303 人）｜IMDb 7.4（29 票）｜Filmarks ★3.8
+- **劇評**：小型評論站 [The Blossom Review 的 Karen Mansoldo](https://theblossomreview.com/119-emergency-call-drama-fuji-tv-viki-review/) 推薦（評論只讀到三分之一）。她說把焦點放在被忽略的接線員很新鮮。找不到台灣署名劇評。收視中上，PTT 劇迷列為遺珠，評審與獎項卻都缺席。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；通報內容包括火災、事故與急救。
+- **長度**：第 1 季 11 集（2025），2026 年 1 月有 130 分鐘特別篇。日文維基寫第 2 季 2027 年 4 月期播出，官方公告未讀到。
+- **先看什麼**：不用，原創劇。特別篇和第 2 季都接在第 1 季之後。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/3893)（免費或影劇方案）；[Hami Video](https://hamivideo.hinet.net/product/283797.do?cs=2)（訂閱）。2026 年特別篇在 [Hami Video](https://hamivideo.hinet.net/product/314648.do?cs=2)，分成 2 集
+
+### 職場與教室
+
+法式餐廳、賽馬、官僚出身的高中老師和東大升學班。
+
+#### 御上老師（Mr. Mikami’s Classroom）
+
+東大畢業的文部科學省官僚御上孝被派到私立高中當高三班導，從教育現場挑戰權力（[Wikipedia](https://ja.wikipedia.org/wiki/御上先生)）。
+
+- **推薦來源**：`A 日劇學院賞最佳作品（2025 冬季）` `A 東京ドラマアウォード 2025 優秀賞` `C Filmarks Awards 2025 日劇入圍` `D 2025 年關東收視 #2（20.0%，時移 #1）` `D TVerアワード 2025 戲劇優秀賞` `E ORICON 2025 日劇滿意度 #2` `F PTT 日劇板 2025 推薦串` `G friDay 2025 日劇收視 #8` `G VERSE 2025 必看十部日劇`
+- **評分**：MyDramaList 7.9（432 人）｜IMDb 7.6（78 票）｜Filmarks ★3.9
+- **劇評**：菲律賓財經報紙 [BusinessMirror 的 Tito Genova Valiente](https://businessmirror.com.ph/2026/02/20/japan-dark-and-serious-mr-mikamis-classroom/) 看完全劇，態度偏正面。他大半篇幅在解釋日本的官僚空降與東大考試（評論只讀到一半）。找不到台灣署名劇評。收視、評審和觀眾滿意度都高，中英文劇評卻都很少。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；主題是教育體制與官僚政治。
+- **長度**：10 集（2025），已完結。另有 7 集短篇衍生劇。
+- **先看什麼**：不用，原創劇（詩森ろば編劇）。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/3891)（影劇方案）；[Hami Video](https://hamivideo.hinet.net/product/283637.do?cs=2)（訂閱，2027 年 1 月 20 日下架）
+
+#### 型男主廚三星夢（La Grande Maison Tokyo）
+
+在巴黎拿過米其林二星、因事件身敗名裂的主廚尾花夏樹，和女主廚早見倫子在東京合開新餐廳，目標三星（[Wikipedia](https://en.wikipedia.org/wiki/La_Grande_Maison_Tokyo)）。
+
+- **推薦來源**：`A 日劇學院賞最佳作品（2019 秋季）` `C IMDb 7.8（1,500 票）` `C MyDramaList 日劇榜 #50（8.3）` `D 最終回關東收視 26.3%（令和以來 #9）` `F PTT 日劇板 2025 年度回顧（特別篇看兩次）` `G Netflix 台灣週榜 #6（累計 5 週）`
+- **評分**：MyDramaList 8.3（1,482 人）｜IMDb 7.8（1,500 票）｜Filmarks ★4.2
+- **劇評**：東京英文網站 [scrmbl 的 Patrick St. Michel](https://scrmbl.com/post/the-fine-dining-of-le-grand-maison-tokyo-is-j-drama-comfort-food) 看完全劇推薦，說它不算傑作，但食物拍得令人垂涎。500輯的[文青&宅男の觀影筆記](https://500times.udn.com/wtimes/story/12672/4718819)最被鈴木京香的女主廚打動。他說女性故事「不需要透過轟轟烈烈的愛情來堆疊」。連續劇兩邊都推，分歧在 2024 年電影版：scrmbl 嫌前半的黑道與爆炸太過頭。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票，也沒有內容提醒的投稿。
+- **長度**：11 集（2019），已完結。2024 年 12 月有特別篇，電影《グランメゾン★パリ》同月上映。
+- **先看什麼**：不用，原創劇（黑岩勉編劇）。特別篇與電影接在連續劇之後，先看連續劇。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/21217/eps/1)（連續劇）；[friDay影音](https://video.friday.tw/drama/detail/3888)（2024 年特別篇）；[Hami Video](https://hamivideo.hinet.net/product/282762.do?cs=2)（2024 年特別篇，2027 年 1 月 6 日下架）
+
+#### 榮耀家族（Passing the Reins）
+
+1997 年，喪父後失意的稅理士被馬主山王耕造收為秘書，陪他追逐讓自家的馬贏下有馬紀念的夢想二十年（[Wikipedia](https://ja.wikipedia.org/wiki/ザ・ロイヤルファミリー)）。
+
+- **推薦來源**：`D 2025 年關東收視 #3（最終回 18.5%）` `D 2025 秋季檔關東平均收視第 1（10.6%）` `E ORICON 2025 日劇滿意度 #7` `F PTT 日劇板 2025 年度回顧 #1` `F PTT 日劇板 2025 秋季推薦 #5` `G VERSE 2025 必看十部日劇`
+- **評分**：MyDramaList 7.8（288 人）｜IMDb 7.6（159 票）｜Filmarks ★4.1
+- **劇評**：小型評論站 [The Blossom Review 的 Karen Mansoldo](https://theblossomreview.com/passing-the-reins-the-royal-family-netflix-review/) 推薦（評論只讀到一半）。她說真正動人的是韌性與人的連結。獨立評論＠天下的[米果](https://opinion.cw.com.tw/blog/profile/57/article/16988)原以為是豪門鬥爭，看完說「我真的被這部日劇感動了」。她特別稱讚幾位資深演員和馬的眼神。收視與台灣劇迷熱度都高，獎項卻少。它 2025 年 10 月才開播，趕不上當年的東京ドラマアウォード。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；以賽馬為題材的家族與職場劇。
+- **長度**：10 集（2025），已完結，沒有續作消息。
+- **先看什麼**：改編自早見和真的小說，不必先讀。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/4327)（影劇方案）；[LINE TV](https://www.linetv.tw/drama/21239/eps/1)（上架中）
+
+#### 東大特訓班2（Dragon Zakura (2021)）
+
+前暴走族律師櫻木建二再度出山，和當年的學生、現在是律師的水野直美，要讓一所私立高中隔年出 5 名東大合格者（[Wikipedia](https://en.wikipedia.org/wiki/Dragon_Zakura_(TV_series))）。
+
+- **推薦來源**：`A 日劇學院賞最佳作品（2021 春季）` `C IMDb 7.7（2,100 票，兩版合併）` `D 最終回關東收視 28.9%（令和以來 #4）`
+- **評分**：MyDramaList 8.1（第 2 季）（901 人）｜IMDb 7.7（2,100 票）｜Filmarks ★3.9
+- **劇評**：找不到英文署名劇評。電影神搜的[雪奈](https://news.agentm.tw/181299/)看完全季推薦，說它是半澤式逆轉勝加青春熱血校園劇。她也承認這種拍法「得到的評價很兩極化」，因為校園劇多了商戰情節。收視很高，分歧在校園劇被拍成《半澤直樹》式的商戰。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；第 2 季開場有學生落榜後自殺未遂的情節。
+- **長度**：10 集（2021），已完結。2005 年的第 1 季有 11 集。
+- **先看什麼**：改編自三田紀房的漫畫。它是 2005 年版的續篇，櫻木和當年的學生水野回歸；可以單看，看過 2005 版更有感。IMDb 把兩版合成一個條目計分。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81488898)（訂閱，JustWatch 台灣列出）。friDay 與 Hami Video 的授權已到期
+
+### 家庭
+
+前女友留下的女兒、父親的最後一個春天、全職主婦和四姊妹。題材多半沉重，但尺度輕。
+
+#### 春暖花開的那一天（When Spring Comes）
+
+當助產師的女兒宣布三個月後結婚，父親同時宣布三個月後會死；他是末期胰臟癌，決定不治療（[Wikipedia](https://ja.wikipedia.org/wiki/春になったら_(テレビドラマ))）。
+
+- **推薦來源**：`A 民放連賞 2024 最優秀賞` `B Real Sound 2024 年度劇集（田幸和歌子 #6）` `C Filmarks Awards 2024 日劇入圍` `D 2024 年關東收視 #20（13.2%）`
+- **評分**：MyDramaList 7.8（83 人）｜IMDb 6.8（27 票）｜Filmarks ★4.0
+- **劇評**：找不到英文署名劇評，也找不到台灣劇評。收視排名偏後，卻拿下民放連賞最優秀賞，評論幾乎一片空白。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；主軸是父親的末期癌症與臨終，題材沉重。
+- **長度**：11 集（2024），已完結。
+- **先看什麼**：不用，原創劇（福田靖編劇）。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/250303.do?cs=2)（訂閱，2027 年 1 月 15 日下架）
+
+#### 宛如阿修羅（Asura）
+
+1979 年的東京，竹澤家四姊妹發現年邁的父親有外遇和私生子，各自隱藏的婚姻與感情問題也一一浮上檯面（[Wikipedia](https://ja.wikipedia.org/wiki/阿修羅のごとく)）。
+
+- **推薦來源**：`A 首爾國際電視劇大賞 2025 最佳導演（是枝裕和）` `B 紐約時報 Mike Hale 2025 年度國際劇十大` `B Real Sound 2025 年度劇集（明日菜子 #4）` `C IMDb 7.6（2,000 票）` `G LINE TODAY 2025 日劇年度榜 #2` `G VERSE 2025 必看十部日劇`
+- **評分**：MyDramaList 7.7（832 人）｜IMDb 7.6（2,000 票）｜Filmarks ★3.9｜豆瓣 7.9（風傳媒 2026 年 10 月引述）
+- **劇評**：[衛報的 Rebecca Nicholson](https://www.theguardian.com/tv-and-radio/2025/jan/29/asura-netflix-drama-hirokazu-kore-eda) 看完 7 集，說它是 Netflix 多年來最好的劇，錯過會很可惜。聯合報〈娛樂有評〉的[雀雀](https://stars.udn.com/star/story/10093/8593224)說它把外遇與背叛拍成喜劇。她稱是枝裕和是山田洋次之後，最能拍好常民故事的「日常派導演」。影評一面倒叫好，觀眾分數偏低：Metacritic 使用者只給 6.4。Metacritic 89（5 則），Rotten Tomatoes 100%（21 則）。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南五類都是無或輕度：性、暴力、粗口為無，菸酒與驚嚇是輕度。主題是外遇，沒有裸露。
+- **長度**：7 集，2025 年 1 月在 Netflix 一次上線，限定劇，已完結。
+- **先看什麼**：改編自向田邦子編劇的 1979 年 NHK 劇。是枝裕和重新改編，不是續篇，不必先看舊版。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81759233)（訂閱）
+
+#### 海的開始（Where Does the Sea Begin）
+
+月岡夏在大學時代前女友的葬禮上遇見女孩「海」，發現她是自己的親生女兒，開始學著當父親（[Wikipedia](https://ja.wikipedia.org/wiki/海のはじまり)）。
+
+- **推薦來源**：`B Real Sound 2024 年度劇集（5 位影評人中 3 位選入，成馬零一 #3）` `C MyDramaList 日劇榜 #31（8.4）` `C Filmarks Awards 2024 日劇入圍` `D 2024 年關東收視 #10（16.8%）` `D TVerアワード 2024 戲劇大賞（總播放 7,200 萬次以上）`
+- **評分**：MyDramaList 8.4（2,779 人）｜IMDb 8.0（297 票）｜Filmarks ★3.8
+- **劇評**：小型評論站 [The Blossom Review 的 Karen Mansoldo](https://theblossomreview.com/the-beginning-of-the-sea-viki-review/) 不推（評論只讀到三分之一）。她認為劇本歌頌瞞著夏生下孩子的水季，扭曲了女性主義訊息。電影神搜的[雪奈](https://news.agentm.tw/302786/)看完全劇，稱讚演員與不煽情的拍法。但她說編劇生方美久「還是太過於理想和天真」。TVer 播放量和評審都肯定，兩篇評論卻都對水季這條線有保留。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；題材是前女友病逝、單親與父女關係。
+- **長度**：12 集加 1 集特別編（2024），已完結，沒有續季消息。另有衍生短劇。
+- **先看什麼**：不用，原創劇（生方美久編劇）。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/3575)（免費或影劇方案）
+
+#### 對岸的家事～這就是我的生存之道！～（Who Does Housework Anymore?）
+
+選擇當全職主婦的村上詩穗，和職業媽媽、請育嬰假的厚勞省菁英爸爸相遇，一起面對家事與育兒的難題（[Wikipedia](https://ja.wikipedia.org/wiki/対岸の家事)）。
+
+- **推薦來源**：`B Real Sound 2025 年度劇集（明日菜子、麦倉正樹各列 #7）` `B 映画チャンネル 2025 年度前五（一位寫手）` `F PTT 日劇板 2025 年度回顧遺珠` `G LINE TODAY 2025 日劇年度榜前十`
+- **評分**：MyDramaList 7.6（170 人）｜IMDb 7.2（21 票）｜Filmarks ★3.8
+- **劇評**：小型評論站 [The Blossom Review 的 Karen Mansoldo](https://theblossomreview.com/who-does-housework-anymore-taigan-no-kaji-review/) 大力推薦（評論只讀到四成）。她說它在平凡家務裡談尊重與性別分工。聯合報〈娛樂有評〉的[雪奈](https://stars.udn.com/star/story/10093/8787000)看完全劇，說它「角色形象立體而細緻」，幾乎沒有批評。兩篇評論都推，Real Sound 也有兩位影評人選入年度榜；收視只排中段。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；以家事與育兒為主的生活劇。
+- **長度**：10 集（2025），已完結，沒有續作消息。
+- **先看什麼**：改編自朱野歸子的小說，不必先讀。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/4026)（影劇方案）
+
+### 時代劇與晨間劇
+
+戰後的長崎端島、麵包超人作者夫婦的一生、江戶的出版人和平安時代的紫式部。後三部是 NHK 的長篇，要追半年到一年。
+
+#### 大膽狂徒〜蔦重繁華如夢故事〜（Unbound）
+
+18 世紀的江戶，出身吉原的出版人蔦屋重三郎崛起；娛樂管制收緊後，他仍發掘歌麿、北齋與寫樂（[Wikipedia](https://en.wikipedia.org/wiki/Unbound_(TV_series))）。
+
+- **推薦來源**：`A 東京ドラマアウォード 2025 優秀賞` `B Real Sound 2025 年度劇集（藤原奈緒、麦倉正樹都列 #1）` `D 2025 夏季檔關東平均收視 #2（8.9%）` `E ORICON 2025 日劇滿意度 #10` `F PTT 日劇板 2025 年度回顧 #3` `G VERSE 2025 必看十部日劇`
+- **評分**：MyDramaList 7.5（19 人）｜IMDb 6.8（19 票）｜Filmarks ★4.1
+- **劇評**：找不到英文署名劇評。Japan Times 只有首集播出後的介紹，且在付費牆後。也找不到台灣署名劇評。Real Sound 有兩位影評人選它當 2025 年度第一，國際評分站卻只有 19 人評分。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；舞台是江戶吉原，第 1 回就有女郎遺體被丟棄的場面。劇組設有親密場面協調員，裸露尺度沒有資料。
+- **長度**：NHK 大河劇，48 集，每集約 45 分鐘，2025 年 1 月到 12 月全年播出。已完結。
+- **先看什麼**：不用，原創劇（森下佳子編劇）。對江戶出版文化和浮世繪有點認識會更好懂。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/283079.do?cs=2)（訂閱，部分免費，2028 年 1 月 5 日下架）；[LINE TV](https://www.linetv.tw/drama/20964/eps/1)（上架中）
+
+#### 海中沉睡的鑽石（The Diamond Sleeping in the Sea）
+
+戰後長崎端島（軍艦島）煤礦島上的年輕人和現代東京的人物，交織出跨越數十年的愛情、夢想與家族故事（[Wikipedia](https://ja.wikipedia.org/wiki/海に眠るダイヤモンド)）。
+
+- **推薦來源**：`A 東京ドラマアウォード 2025 首獎` `A 日劇學院賞最佳作品（2024 秋季）` `B Real Sound 2024 年度劇集（5 位影評人中 4 位選入，田幸和歌子 #3）` `D 2024 年關東收視 #5（17.3%）` `F PTT 日劇板 2024 推薦串「會在歷史上留名」` `F PTT 日劇板 2024 年度回顧前五`
+- **評分**：MyDramaList 8.3（170 人）｜IMDb 8.1（70 票）｜Filmarks ★4.4｜豆瓣 8.3（引自播出平台公視+ 旗下的未署名文章）
+- **劇評**：找不到英文署名劇評。台灣只找到公視+〈觀點同不同〉[福澤喬](https://issues.ptsplus.tv/articles/11348/)的議題評論，肯定劇組重建端島與描寫礦工勞動。他另外補上劇中沒碰的朝鮮勞工歷史（文章讀到大半）。公視+ 當時是它在台灣的串流平台，屬有利害關係的媒體。評審大獎和 PTT 口碑極高，英文評論卻缺席；2024 年播出時台灣也沒有串流。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；舞台是戰後長崎端島的煤礦。
+- **長度**：電視播 9 集，串流版把延長的最終回拆成兩集，共 10 集（2024）。已完結。
+- **先看什麼**：不用，原創劇（野木亞紀子編劇）。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/5291)（影劇方案，第 1 集免費）。公視+ 的授權已到期
+
+#### 紅豆麵包（Anpan）
+
+深受軍國思想影響的朝田暢經歷戰爭後價值觀翻轉，戰後和丈夫嵩一起追尋「不會翻轉的正義」（[Wikipedia](https://en.wikipedia.org/wiki/Anpan_(TV_series))）。
+
+- **推薦來源**：`C Filmarks Awards 2025 日劇入圍` `E Yahoo!検索大賞 2025 戲劇部門` `F PTT 日劇板 2025 年度回顧` `G friDay 2025 日劇收視 #6` `G VERSE 2025 必看十部日劇`
+- **評分**：MyDramaList 7.9（138 人）｜IMDb 8.1（27 票）｜Filmarks ★4.1
+- **劇評**：東京英文網站 [scrmbl 的 Alicia Haddick](https://scrmbl.com/post/nhks-anpan-puts-a-face-to-the-creation-of-japans-beloved-childrens-mascot) 寫於播到一半、劇情還在戰時時。她推薦，說它是近年最會利用每天 15 分鐘形式的晨間劇之一，但嫌片頭太長、旁白解說過多。台灣只找到介紹文：上報的[雪奈](https://www.upmedia.mg/tw/popularity/chinese-dramas/230502)在開播約七週時介紹故事原型與今田美櫻。VERSE 說它是 2025 上半年收視冠軍，Real Sound 年度榜卻沒有人選它。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；中段有主角經歷戰爭、丈夫從軍的情節，戰爭場面的尺度沒有資料。
+- **長度**：NHK 晨間劇，130 集，每集 15 分鐘。2025 年 3 月到 9 月週一到週五早上播出，已完結。
+- **先看什麼**：不用，原創劇，以《麵包超人》作者柳瀨嵩夫婦為靈感。看過《麵包超人》會認出不少致敬。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/4023)（免費方案加影劇方案）；[Hami Video](https://hamivideo.hinet.net/product/289843.do?cs=2)（訂閱，2028 年 3 月 30 日下架）；[LINE TV](https://www.linetv.tw/drama/20753/eps/1)（上架中）
+
+#### 致光之君（Dear Radiance）
+
+平安時代中期，《源氏物語》作者紫式部的一生，以及她與藤原道長之間的關係（[Wikipedia](https://en.wikipedia.org/wiki/Dear_Radiance)）。
+
+- **推薦來源**：`B Real Sound 2024 年度劇集（5 位影評人中 4 位選入，麦倉正樹、藤原奈緒都列 #2）` `F PTT 日劇板 2024 年度回顧 #2` `G KKTV 2024 熱播 #7`
+- **評分**：MyDramaList 7.8（69 人）｜IMDb 7.8（60 票）｜Filmarks ★4.2
+- **劇評**：找不到英文署名劇評。台灣只找到介紹文：電影神搜的[凱莉的廢話練習簿](https://news.agentm.tw/281962/)在播到第 23 集時整理劇情與史實。Real Sound 有四位影評人選入年度榜；PTT 劇迷兩極，有人列年度第二，也有人說後期幾乎沒有印象。
+- **尺度**：日本無分級；台灣平台未標。IMDb 家長指南沒有投票；第 1 回就有主角母親被殺的場面，也有宮廷政爭與毒殺情節。
+- **長度**：NHK 大河劇，48 集，每集約 45 分鐘，2024 年 1 月到 12 月全年播出。已完結。
+- **先看什麼**：不用，原創劇（大石靜編劇），不必先讀《源氏物語》。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/20965/eps/1)（VIP 訂閱）；[myVideo](https://www.myvideo.net.tw/details/3/26246)（上架中）
+
+## 候補觀察名單
+
+| 劇 | 狀況 |
+|---|---|
+| 半澤直樹（半沢直樹） | 四類推薦來源都有，friDay 頁面已下架，KKTV 停止營運，台灣找不到合法串流 |
+| 鎌倉殿的13人（鎌倉殿の13人） | 四類推薦來源都有，Hami Video、KKTV、公視+ 的授權都已到期 |
+| 如虎添翼（虎に翼） | 四類推薦來源都有，台灣只在緯來日本台播過，沒有串流 |
+| 華麗一族（華麗なる一族） | 三類推薦來源都有，friDay 頁面已下架 |
+| 下剋上球兒（下剋上球児） | 三類推薦來源都有，friDay、LINE TV 都已下架 |
+| 空中急診英雄 第三季（コード・ブルー） | 三類推薦來源都有，台灣找不到合法串流 |
+| 真田丸 | 三類推薦來源都有，台灣只在電視台播過，沒有串流 |
+| ひらやすみ、日曜の夜ぐらいは...、舟を編む | 都有三類推薦來源，台灣找不到合法串流，也沒有台灣官方譯名 |
+
+## 這份片單的限制
+
+- **英文劇評很少。** 16 部有 7 部找不到英文署名劇評，大河劇兩部都沒有；只有《宛如阿修羅》有 The Guardian、RogerEbert 等主流媒體的完整劇評。The Blossom Review 一個人寫了 4 部，而且都只讀到一部分。
+- **台灣劇評一樣少。** 《119緊急呼叫》《御上老師》《春暖花開的那一天》《大膽狂徒》找不到台灣劇評；《派遣女醫X》《紅豆麵包》《致光之君》只有介紹文或劇情整理。
+- **長篇的評分人數很少。** 《大膽狂徒》在 MyDramaList、IMDb 各只有 19 人評分；《紅豆麵包》在 IMDb 只有 27 票。
+- **豆瓣只有 2 部。** 《海中沉睡的鑽石》的 8.3 出自播出平台公視+ 站上的未署名文章。
+- **授權劇可能下架。** 《東大特訓班2》只有 JustWatch 類資料；《派遣女醫X》在台灣只確認第 1、4、5、6 季。本篇串流連結核對日期：2026-11-09。
+
+## 參考資料
+
+- [ザテレビジョンドラマアカデミー賞（日文維基）](https://ja.wikipedia.org/wiki/ザテレビジョンドラマアカデミー賞)
+- [国際ドラマフェスティバル in TOKYO／東京ドラマアウォード（日文維基）](https://ja.wikipedia.org/wiki/国際ドラマフェスティバル_in_TOKYO)
+- [ギャラクシー賞（日文維基）](https://ja.wikipedia.org/wiki/ギャラクシー賞)
+- [日本民間放送連盟賞 2025](https://j-ba.or.jp/award2025/)
+- [Asian Academy Creative Award for Best Drama Series（Wikipedia）](https://en.wikipedia.org/wiki/Asian_Academy_Creative_Award_for_Best_Drama_Series)
+- [Real Sound〈2025年 年間ベストドラマTOP10〉](https://realsound.jp/movie/2025/12/post-2254007.html)
+- [MyDramaList：Top Japanese Dramas](https://mydramalist.com/shows/top_japanese_dramas)
+- [Filmarks Awards 歷年整理（pixiin）](https://pixiin.com/ranking-filmarks-awards-all/)
+- [Video Research〈令和版 ドラマ視聴率ランキング〉](https://www.videor.co.jp/digestplus/article/tv231219.html)
+- [Video Research〈2025年 民放ドラマまとめ〉](https://www.videor.co.jp/digestplus/article/tv260129-2.html)
+- [TVerアワード2025（PR TIMES）](https://prtimes.jp/main/html/rd/p/000000486.000002492.html)
+- [ORICON〈2025年 ドラマ満足度ランキング〉](https://www.oricon.co.jp/news/2427637/full/)
+- [Yahoo!検索大賞（日文維基）](https://ja.wikipedia.org/wiki/Yahoo!検索大賞)
+- [PTT 日劇板〈2025日劇無雷推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1768239645.A.F20.html)
+- [PTT 日劇板〈2025秋季日劇推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1766497769.A.FB6.html)
+- [PTT 日劇板〈2024日劇無雷推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1735532228.A.0CA.html)
+- [LINE TODAY 聚光賞〈2025 十大追劇榜〉（LINE 新聞稿）](https://www.linecorp.com/ko/pr/news/2025/1217)
+- [LINE TODAY 聚光賞〈2025 日劇年度榜〉](https://today.line.me/tw/v3/article/l25eq2G)
+- [friDay影音〈2025 年度大勢排行〉](https://video.friday.tw/curation/935)
+- [VERSE〈2025 年必看十部日劇〉](https://www.verse.com.tw/article/2025-j-drama)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [JustWatch 台灣](https://www.justwatch.com/tw)

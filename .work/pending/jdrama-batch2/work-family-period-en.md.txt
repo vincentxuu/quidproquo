@@ -1,0 +1,377 @@
+---
+title: "How to Pick Japanese Workplace, Family and Period Dramas: Unmet, Mr. Mikami’s Classroom, Asura, Unbound and 12 More"
+date: 2026-11-11
+category: film
+tags: [tv-drama, j-drama, medical-drama, historical-drama]
+lang: en
+type: guide
+description: "For viewers in Taiwan looking for Japanese medical, workplace, family, taiga and morning dramas: medicine and emergency services, work and the classroom, family, and period and morning dramas. 16 shows, each backed by at least three of seven recommendation source types, with recommendation sources, MyDramaList, IMDb, Filmarks and Douban scores, English and Taiwanese reviews, content notes, episode counts and legal streaming links in Taiwan."
+tldr: "Start with Unmet or Mr. Mikami’s Classroom, each backed by six source types, or Asura, 7 episodes on Netflix with a Metacritic 89. For a long commitment, pick the NHK taiga dramas Unbound and Dear Radiance or the morning drama Anpan; the other 12 run 12 episodes or fewer."
+draft: false
+series:
+  name: "World TV Drama Guide"
+  order: 12
+---
+
+> 🌏 [中文版](/posts/film/2026-11-11-jdrama-work-family-period)
+
+The last Japanese post covers medical, workplace, family and period dramas: a neurosurgeon who can no longer form new memories, a high-school teacher parachuted in from the education ministry, four sisters and their father’s affair, and a publisher raised in Edo’s Yoshiwara. All 16 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, and each can be watched legally in Taiwan. Episode counts and the share of original scripts in Japanese drama are covered at the start of the [romance and comedy post](/posts/film/2026-11-10-jdrama-romance-comedy-bl-en); the Korean equivalent is the [Korean medical, legal and workplace post](/posts/film/2026-11-09-kdrama-medical-legal-workplace-en).
+
+Two things stand out in this group:
+
+- **The widest range of lengths.** From Asura’s 7 episodes to the morning drama Anpan’s 130. A taiga drama runs 48 episodes over a year; the bar chart below helps you pick by length.
+- **Heavy themes, mild content.** Terminal cancer, an ex-girlfriend’s death, a student’s suicide attempt and war all appear; only Asura has IMDb Parents Guide votes, all None or Mild.
+
+## Start with these 3
+
+| Show | Why start here | Content | Where to watch |
+|---|---|---|---|
+| Unmet: A Neurosurgeon’s Diary | Backed by six source types; Filmarks 4.4 stars, tied for the highest here | Mild: brain surgery scenes | Hami Video, LINE TV |
+| Mr. Mikami’s Classroom | Backed by six source types; education and bureaucratic politics | Mild | friDay, Hami Video |
+| Asura | 7 episodes on Netflix; Metacritic 89, Rotten Tomatoes 100% | Mild: the theme is infidelity | Netflix |
+
+## Recommendation sources at a glance
+
+● means that source type recommends the show. A award juries, B critics polls, C audience ratings, D viewing data, E buzz metrics, F fan communities, G Taiwanese viewers.
+
+| Show | A | B | C | D | E | F | G | Types |
+|---|---|---|---|---|---|---|---|---|
+| Unmet: A Neurosurgeon’s Diary | ● | ● | ● | ● |  | ● | ● | 6 |
+| Mr. Mikami’s Classroom | ● |  | ● | ● | ● | ● | ● | 6 |
+| Unbound | ● | ● |  | ● | ● | ● | ● | 6 |
+| La Grande Maison Tokyo | ● |  | ● | ● |  | ● | ● | 5 |
+| Doctor-X: Surgeon Michiko Daimon |  |  | ● | ● |  | ● | ● | 4 |
+| Shinjuku Field Hospital |  |  | ● | ● |  | ● | ● | 4 |
+| Passing the Reins |  |  |  | ● | ● | ● | ● | 4 |
+| When Spring Comes | ● | ● | ● | ● |  |  |  | 4 |
+| Asura | ● | ● | ● |  |  |  | ● | 4 |
+| The Diamond Sleeping in the Sea | ● | ● |  | ● |  | ● |  | 4 |
+| Anpan |  |  | ● |  | ● | ● | ● | 4 |
+| 119 Emergency Call |  |  |  | ● |  | ● | ● | 3 |
+| Dragon Zakura (2021) | ● |  | ● | ● |  |  |  | 3 |
+| Where Does the Sea Begin |  | ● | ● | ● |  |  |  | 3 |
+| Who Does Housework Anymore? |  | ● |  |  |  | ● | ● | 3 |
+| Dear Radiance |  | ● |  |  |  | ● | ● | 3 |
+
+Column D (viewing data) is the fullest, with 13 of 16; column E (buzz metrics) has only 4. None is backed by all seven types; Unmet, Mr. Mikami’s Classroom and Unbound have six.
+
+## Pick a length: total episodes
+
+```diagram
+title: Total episodes of the 16 shows
+desc: The morning drama Anpan has the most at 130, Doctor-X has 69 over 7 seasons, and the taiga dramas Unbound and Dear Radiance have 48 each; the other 12 run 7 to 12 episodes.
+caption: Excluding specials and films. Anpan’s episodes are 15 minutes, about 32 hours in all; the two taiga dramas run about 45 minutes an episode, roughly 36 hours each. The Diamond Sleeping in the Sea aired as 9 episodes and streams as 10.
+---
+<svg viewBox="0 0 640 420">
+  <text class="dg-sub" x="224" y="24" text-anchor="end" dominant-baseline="central">Anpan</text>
+  <rect class="dg-bar" x="236" y="16" width="338" height="16" rx="3"/>
+  <text class="dg-small" x="582" y="24" dominant-baseline="central">130</text>
+  <text class="dg-sub" x="224" y="49" text-anchor="end" dominant-baseline="central">Doctor-X</text>
+  <rect class="dg-bar" x="236" y="41" width="179" height="16" rx="3"/>
+  <text class="dg-small" x="423" y="49" dominant-baseline="central">69</text>
+  <text class="dg-sub" x="224" y="74" text-anchor="end" dominant-baseline="central">Unbound</text>
+  <rect class="dg-bar" x="236" y="66" width="125" height="16" rx="3"/>
+  <text class="dg-small" x="369" y="74" dominant-baseline="central">48</text>
+  <text class="dg-sub" x="224" y="99" text-anchor="end" dominant-baseline="central">Dear Radiance</text>
+  <rect class="dg-bar" x="236" y="91" width="125" height="16" rx="3"/>
+  <text class="dg-small" x="369" y="99" dominant-baseline="central">48</text>
+  <text class="dg-sub" x="224" y="124" text-anchor="end" dominant-baseline="central">Where Does the Sea Begin</text>
+  <rect class="dg-bar" x="236" y="116" width="31" height="16" rx="3"/>
+  <text class="dg-small" x="275" y="124" dominant-baseline="central">12</text>
+  <text class="dg-sub" x="224" y="149" text-anchor="end" dominant-baseline="central">Unmet</text>
+  <rect class="dg-bar" x="236" y="141" width="29" height="16" rx="3"/>
+  <text class="dg-small" x="273" y="149" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="224" y="174" text-anchor="end" dominant-baseline="central">Shinjuku Field Hospital</text>
+  <rect class="dg-bar" x="236" y="166" width="29" height="16" rx="3"/>
+  <text class="dg-small" x="273" y="174" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="224" y="199" text-anchor="end" dominant-baseline="central">119 Emergency Call</text>
+  <rect class="dg-bar" x="236" y="191" width="29" height="16" rx="3"/>
+  <text class="dg-small" x="273" y="199" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="224" y="224" text-anchor="end" dominant-baseline="central">La Grande Maison Tokyo</text>
+  <rect class="dg-bar" x="236" y="216" width="29" height="16" rx="3"/>
+  <text class="dg-small" x="273" y="224" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="224" y="249" text-anchor="end" dominant-baseline="central">When Spring Comes</text>
+  <rect class="dg-bar" x="236" y="241" width="29" height="16" rx="3"/>
+  <text class="dg-small" x="273" y="249" dominant-baseline="central">11</text>
+  <text class="dg-sub" x="224" y="274" text-anchor="end" dominant-baseline="central">Passing the Reins</text>
+  <rect class="dg-bar" x="236" y="266" width="26" height="16" rx="3"/>
+  <text class="dg-small" x="270" y="274" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="224" y="299" text-anchor="end" dominant-baseline="central">Mr. Mikami’s Classroom</text>
+  <rect class="dg-bar" x="236" y="291" width="26" height="16" rx="3"/>
+  <text class="dg-small" x="270" y="299" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="224" y="324" text-anchor="end" dominant-baseline="central">Dragon Zakura (2021)</text>
+  <rect class="dg-bar" x="236" y="316" width="26" height="16" rx="3"/>
+  <text class="dg-small" x="270" y="324" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="224" y="349" text-anchor="end" dominant-baseline="central">Who Does Housework Anymore?</text>
+  <rect class="dg-bar" x="236" y="341" width="26" height="16" rx="3"/>
+  <text class="dg-small" x="270" y="349" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="224" y="374" text-anchor="end" dominant-baseline="central">The Diamond Sleeping in the Sea</text>
+  <rect class="dg-bar" x="236" y="366" width="26" height="16" rx="3"/>
+  <text class="dg-small" x="270" y="374" dominant-baseline="central">10</text>
+  <text class="dg-sub" x="224" y="399" text-anchor="end" dominant-baseline="central">Asura</text>
+  <rect class="dg-bar" x="236" y="391" width="18" height="16" rx="3"/>
+  <text class="dg-small" x="262" y="399" dominant-baseline="central">7</text>
+</svg>
+```
+
+## The watchlist
+
+Entries list recommended by, scores, reviews, content, length, watch first and where to watch.
+
+- **Scores**: most Japanese dramas have no Metacritic score, so this post uses [MyDramaList](https://mydramalist.com/shows/top_japanese_dramas), IMDb, Japan’s Filmarks and Douban; for multi-season shows, MyDramaList is season 1. The taiga and morning dramas have very few ratings on MyDramaList and IMDb, so treat those scores loosely.
+- **Content**: Japanese TV has no single rating system, and none of the 16 Taiwan platform pages shows a rating. Except for Asura, content notes follow the plot.
+- **Where to watch**: links go to Taiwan platform title pages; where only some seasons are available, the entry says so.
+
+### Medicine and emergency services
+
+A neurosurgery ward, a freelance surgeon, an ER in Kabukicho and a 119 dispatch centre.
+
+#### Unmet: A Neurosurgeon’s Diary
+
+A neurosurgeon left unable to form new memories after an accident works as a nursing assistant, until an odd doctor helps her regain her surgical skills and uncover her past ([Wikipedia](https://en.wikipedia.org/wiki/Unmet:_A_Neurosurgeon%27s_Diary)).
+
+- **Recommended by**: `A JBA Awards 2025 top prize` `A Television Drama Academy Awards best drama (spring 2024)` `B Real Sound best of 2024 (4 of 5 critics; Fujiwara Nao #1)` `C MyDramaList top Japanese drama #30 (8.4)` `C Filmarks Awards 2024 TV drama nominee` `D #20 Kanto time-shift rating of 2024 (finale 7.2%)` `F PTT Japandrama 2024 year-end review #1` `F PTT Japandrama 2024 picks: “king of the spring season”` `G KKTV 2024 awards: 5 wins incl. adapted screenplay and actress` `G KKTV 2024 most watched #6`
+- **Scores**: MyDramaList 8.4 (season 1) (1,216 ratings) | IMDb 7.7 (138 votes) | Filmarks ★4.4
+- **Reviews**: No signed English review could be found. Having seen the whole season, [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/8060572) (in Chinese) found the heroine’s own story stronger than the case of the week and said it got better with every episode, slow at times but never dull. Juries, critics and Taiwanese fans all rate it highly; the gaps are middling live ratings and no English reviews.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; there are brain-surgery scenes, and the heroine has memory loss.
+- **Length**: Season 1 has 11 episodes (2024), finished. A sequel has been announced: Japanese Wikipedia lists season 2 for January 2027; the official announcement was not read.
+- **Watch first**: Adapted from the manga by Koshika Yuzuru and Otsuki Shizuto; no need to read it. Watch season 1 before season 2.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/257957.do?cs=2) (subscription, some episodes free, leaves 15 April 2027); [LINE TV](https://www.linetv.tw/drama/18198/eps/1) (available)
+
+#### Doctor-X: Surgeon Michiko Daimon
+
+Daimon Michiko, a freelance surgeon who belongs to no hospital faction, takes on operations at university hospitals across Japan ([Wikipedia](https://en.wikipedia.org/wiki/Doctor-X:_Surgeon_Michiko_Daimon)).
+
+- **Recommended by**: `C IMDb 7.6 (1.1K votes)` `D #1 Kanto average rating of the year six times (2012–2021)` `D Finale Kanto rating 31.0% (#5 of the Reiwa era, 2019)` `F PTT Japandrama gateway-drama thread (2 mentions)` `G #1 on Taiwan’s DailyView buzz chart, October 2026 (33% negative)`
+- **Scores**: MyDramaList 8.2 (season 1) (2,920 ratings) | IMDb 7.6 (1.1K votes) | Filmarks ★4.1（第 1–6 季）
+- **Reviews**: Having watched seasons 1–3 and four episodes of season 4, [Michael Cheang at The Star](https://www.thestar.com.my/lifestyle/entertainment/2016/11/16/review-doctor-x), a Malaysian paper, recommended it: "while the stories may be formulaic and the medical procedures just a little too incredulous at times, Doctor-X is still great fun to watch thanks to its electric leading lady." The piece opens and closes by steering readers to the dimsum streaming service, so it doubles as promotion. In Taiwan only an introductory piece could be found: a series overview by [雪奈 at Up Media](https://www.upmedia.mg/tw/popularity/chinese-dramas/224411) (in Chinese). Years of top ratings, but no awards and little criticism.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; every episode has surgery scenes.
+- **Length**: 7 seasons, 69 episodes (2012–2021), plus specials. The 2024 film Doctor-X Final closed the series.
+- **Watch first**: Nothing; it is an original. Episodes stand alone, so any season works as a start; the final film needs the earlier seasons.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/2091) (season 1); [friDay影音](https://video.friday.tw/drama/detail/2094) (season 4); [friDay影音](https://video.friday.tw/drama/detail/2095) (season 5); [friDay影音](https://video.friday.tw/drama/detail/1052) (season 6). friDay has confirmed pages for seasons 1, 4, 5 and 6; the other seasons and the film are unconfirmed
+
+#### Shinjuku Field Hospital
+
+A run-down hospital in Kabukicho takes on an American former army surgeon who speaks English with an Okayama accent, even though she has no Japanese medical licence ([Wikipedia](https://ja.wikipedia.org/wiki/新宿野戦病院)).
+
+- **Recommended by**: `C Filmarks Awards 2024 TV drama nominee` `D #8 Kanto rating of 2024 (17.9%; time-shift #3)` `F PTT Japandrama 2024 year-end review (mixed)` `G KKTV 2024 most watched #3`
+- **Scores**: MyDramaList 7.6 (306 ratings) | IMDb 6.9 (138 votes) | Filmarks ★3.8
+- **Reviews**: No signed English review could be found. Reviewing episode 1 only, [龍貓大王通信 at 電影神搜](https://news.agentm.tw/284524/) (in Chinese) found Kudo Kankuro’s script even sharper and more ruthless than his previous drama, but felt Koike Eiko’s heavy load of English lines was a stretch. It rated well in Japan; Taiwanese fans are split, with some dropping it early over the English dialogue.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; patients include hosts, hostesses, homeless people and refugees, with scenes of alcohol poisoning and surgery.
+- **Length**: 11 episodes (2024), finished. No word of a season 2.
+- **Watch first**: Nothing; it is an original by writer Kudo Kankuro.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/265696.do?cs=2) (subscription, leaves 3 July 2027)
+
+#### 119 Emergency Call
+
+Dispatchers at Yokohama’s fire department take 119 calls, size up emergencies and send out ambulances and fire engines; the lead used to work at a bank ([Wikipedia](https://ja.wikipedia.org/wiki/119エマージェンシーコール)).
+
+- **Recommended by**: `D #11 Kanto rating of 2025 (14.7%)` `F PTT Japandrama 2025 year-end hidden gem` `G ELLE Taiwan 2025 upcoming picks #9`
+- **Scores**: MyDramaList 7.7 (303 ratings) | IMDb 7.4 (29 votes) | Filmarks ★3.8
+- **Reviews**: [Karen Mansoldo at The Blossom Review](https://theblossomreview.com/119-emergency-call-drama-fuji-tv-viki-review/), a small review site, recommends it as a fresh look at an overlooked job (only a third of it could be read). No Taiwanese review could be found. Decent ratings and a hidden-gem pick on PTT, but no awards and little critical attention.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; the calls involve fires, accidents and medical emergencies.
+- **Length**: Season 1 has 11 episodes (2025), plus a 130-minute special in January 2026. Japanese Wikipedia lists season 2 for April 2027; the official announcement was not read.
+- **Watch first**: Nothing; it is an original. The special and season 2 follow season 1.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/3893) (free tier or drama plan); [Hami Video](https://hamivideo.hinet.net/product/283797.do?cs=2) (subscription). The 2026 special is on [Hami Video](https://hamivideo.hinet.net/product/314648.do?cs=2), split into 2 parts
+
+### Work and the classroom
+
+A French restaurant, horse racing, a bureaucrat turned high-school teacher and a cram class aiming at the University of Tokyo.
+
+#### Mr. Mikami’s Classroom
+
+Mikami Takashi, a Tokyo University–educated education ministry bureaucrat, is seconded to a private high school as a homeroom teacher and takes on the powers that be ([Wikipedia](https://ja.wikipedia.org/wiki/御上先生)).
+
+- **Recommended by**: `A Television Drama Academy Awards best drama (winter 2025)` `A Tokyo Drama Awards 2025 award of excellence` `C Filmarks Awards 2025 TV drama nominee` `D #2 Kanto rating of 2025 (20.0%; time-shift #1)` `D TVer Awards 2025 drama award of excellence` `E ORICON 2025 drama satisfaction #2` `F PTT Japandrama 2025 picks thread` `G friDay 2025 Japanese drama #8` `G VERSE ten must-see Japanese dramas of 2025`
+- **Scores**: MyDramaList 7.9 (432 ratings) | IMDb 7.6 (78 votes) | Filmarks ★3.9
+- **Reviews**: [Tito Genova Valiente at BusinessMirror](https://businessmirror.com.ph/2026/02/20/japan-dark-and-serious-mr-mikamis-classroom/), a Philippine business paper, leans positive after the full series, spending much of the piece explaining Japanese bureaucracy and the Todai entrance exam (only half of it could be read). No Taiwanese review could be found. Ratings, juries and viewer satisfaction are all high, yet reviews in either language are scarce.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; it is about the education system and bureaucratic politics.
+- **Length**: 10 episodes (2025), finished. A 7-episode short spin-off also aired.
+- **Watch first**: Nothing; it is an original written by Shimori Roba.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/3891) (drama plan); [Hami Video](https://hamivideo.hinet.net/product/283637.do?cs=2) (subscription, leaves 20 January 2027)
+
+#### La Grande Maison Tokyo
+
+A chef who lost his two-Michelin-star Paris restaurant in a scandal teams up with a female chef to open a new restaurant in Tokyo, aiming for three stars ([Wikipedia](https://en.wikipedia.org/wiki/La_Grande_Maison_Tokyo)).
+
+- **Recommended by**: `A Television Drama Academy Awards best drama (autumn 2019)` `C IMDb 7.8 (1.5K votes)` `C MyDramaList top Japanese drama #50 (8.3)` `D Finale Kanto rating 26.3% (#9 of the Reiwa era)` `F PTT Japandrama 2025 year-end review (special watched twice)` `G #6 on Netflix Taiwan (5 weeks)`
+- **Scores**: MyDramaList 8.3 (1,482 ratings) | IMDb 7.8 (1.5K votes) | Filmarks ★4.2
+- **Reviews**: Having seen the whole series, [Patrick St. Michel at scrmbl](https://scrmbl.com/post/the-fine-dining-of-le-grand-maison-tokyo-is-j-drama-comfort-food), a Tokyo-based English pop-culture site, recommends it: "Grande Maison isn't a great drama per se. Yet it is an absolutely mouth-watering J-drama." [文青&宅男の觀影筆記 at 500 Times](https://500times.udn.com/wtimes/story/12672/4718819) (in Chinese) was most moved by Suzuki Kyoka’s chef, a woman’s story told without a grand romance. Both like the series; the split is over the 2024 film, whose gangsters and explosions scrmbl found well over the top.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes or content notes.
+- **Length**: 11 episodes (2019), finished. A special aired in December 2024, and the film La Grande Maison Paris opened the same month.
+- **Watch first**: Nothing; it is an original written by Kuroiwa Tsutomu. The special and the film follow the series, so watch the series first.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/21217/eps/1) (series); [friDay影音](https://video.friday.tw/drama/detail/3888) (2024 special); [Hami Video](https://hamivideo.hinet.net/product/282762.do?cs=2) (2024 special, leaves 6 January 2027)
+
+#### Passing the Reins
+
+In 1997 a grieving tax accountant becomes secretary to a racehorse owner and spends twenty years chasing his dream of winning the Arima Kinen ([Wikipedia](https://ja.wikipedia.org/wiki/ザ・ロイヤルファミリー)).
+
+- **Recommended by**: `D #3 Kanto rating of 2025 (finale 18.5%)` `D #1 Kanto average of the autumn 2025 season (10.6%)` `E ORICON 2025 drama satisfaction #7` `F PTT Japandrama 2025 year-end review #1` `F PTT Japandrama autumn 2025 picks #5` `G VERSE ten must-see Japanese dramas of 2025`
+- **Scores**: MyDramaList 7.8 (288 ratings) | IMDb 7.6 (159 votes) | Filmarks ★4.1
+- **Reviews**: [Karen Mansoldo at The Blossom Review](https://theblossomreview.com/passing-the-reins-the-royal-family-netflix-review/), a small review site, recommends it for its portrait of resilience and human bonds (only half of it could be read). [米果 at CommonWealth Opinion](https://opinion.cw.com.tw/blog/profile/57/article/16988) (in Chinese) expected a family power struggle and came away deeply moved, by the veteran cast and by the horses’ eyes. High ratings and Taiwanese fan love, but few awards: it premiered in October 2025, too late for that year’s Tokyo Drama Awards.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; a family and workplace saga set in horse racing.
+- **Length**: 10 episodes (2025), finished. No word of a sequel.
+- **Watch first**: Adapted from Hayami Kazumasa’s novel; no need to read it.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/4327) (drama plan); [LINE TV](https://www.linetv.tw/drama/21239/eps/1) (available)
+
+#### Dragon Zakura (2021)
+
+Former biker-gang lawyer Sakuragi returns with his old student Mizuno, now a lawyer herself, to get five students from a private high school into Tokyo University within a year ([Wikipedia](https://en.wikipedia.org/wiki/Dragon_Zakura_(TV_series))).
+
+- **Recommended by**: `A Television Drama Academy Awards best drama (spring 2021)` `C IMDb 7.7 (2.1K votes, both versions combined)` `D Finale Kanto rating 28.9% (#4 of the Reiwa era)`
+- **Scores**: MyDramaList 8.1 (season 2) (901 ratings) | IMDb 7.7 (2.1K votes) | Filmarks ★3.9
+- **Reviews**: No signed English review could be found. After the full season, [雪奈 at 電影神搜](https://news.agentm.tw/181299/) (in Chinese) recommended it as a Hanzawa Naoki–style comeback story crossed with a school drama, while admitting the boardroom-style plotting split opinion. Big ratings; the divide is over turning a school drama into corporate intrigue.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; season 2 opens with a student’s suicide attempt after failing the exam.
+- **Length**: 10 episodes (2021), finished. The 2005 first season had 11.
+- **Watch first**: Adapted from Mita Norifusa’s manga. It is a sequel to the 2005 series, bringing back Sakuragi and his former student Mizuno; it works alone, but the 2005 version adds weight. IMDb scores both versions as one entry.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81488898) (subscription, listed on JustWatch Taiwan). It has lapsed on friDay and Hami Video
+
+### Family
+
+A daughter left by an ex-girlfriend, a father’s last spring, a full-time housewife and four sisters. Heavy themes, mild content.
+
+#### When Spring Comes
+
+A midwife announces she will marry in three months, just as her father announces he will die in three: he has terminal pancreatic cancer and has refused treatment ([Wikipedia](https://ja.wikipedia.org/wiki/春になったら_(テレビドラマ))).
+
+- **Recommended by**: `A JBA Awards 2024 top prize` `B Real Sound best of 2024 (Tako Wakako #6)` `C Filmarks Awards 2024 TV drama nominee` `D #20 Kanto rating of 2024 (13.2%)`
+- **Scores**: MyDramaList 7.8 (83 ratings) | IMDb 6.8 (27 votes) | Filmarks ★4.0
+- **Reviews**: No signed English review and no Taiwanese review could be found. Its ratings were modest, yet it won the JBA Awards top prize; critics have barely written about it.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; the story centres on a father’s terminal cancer and his last months, so it is heavy going.
+- **Length**: 11 episodes (2024), finished.
+- **Watch first**: Nothing; it is an original written by Fukuda Yasushi.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/250303.do?cs=2) (subscription, leaves 15 January 2027)
+
+#### Asura
+
+In 1979 Tokyo, four sisters discover their elderly father’s affair and secret child, and their own hidden marital and romantic troubles slowly surface ([Wikipedia](https://ja.wikipedia.org/wiki/阿修羅のごとく)).
+
+- **Recommended by**: `A Seoul International Drama Awards 2025 best director (Kore-eda Hirokazu)` `B New York Times (Mike Hale) best international shows of 2025` `B Real Sound best of 2025 (Asuna Nako #4)` `C IMDb 7.6 (2K votes)` `G LINE TODAY 2025 Japanese drama #2` `G VERSE ten must-see Japanese dramas of 2025`
+- **Scores**: MyDramaList 7.7 (832 ratings) | IMDb 7.6 (2K votes) | Filmarks ★3.9 | Douban 7.9 (cited by Storm Media, October 2026)
+- **Reviews**: Having seen all seven episodes, [Rebecca Nicholson at The Guardian](https://www.theguardian.com/tv-and-radio/2025/jan/29/asura-netflix-drama-hirokazu-kore-eda) wrote: "this is a fantastic television series, and it would be criminal to let it pass you by." [雀雀 at United Daily News](https://stars.udn.com/star/story/10093/8593224) (in Chinese) admired how it plays infidelity and betrayal as comedy, calling Kore-eda the best director of everyday Japanese life since Yamada Yoji. Critics are unanimous, viewers cooler: the Metacritic user score is 6.4. Metacritic 89 (5 reviews); Rotten Tomatoes 100% (21 reviews).
+- **Content**: No Japanese rating; no Taiwan platform rating found. All five IMDb Parents Guide categories are None or Mild: sex, violence and profanity none, drinking and smoking and intensity mild. Infidelity is the theme; there is no nudity.
+- **Length**: 7 episodes, released at once on Netflix in January 2025; a limited series, finished.
+- **Watch first**: A remake of Mukoda Kuniko’s 1979 NHK drama. Kore-eda’s version is a fresh adaptation, not a sequel, so the original is not required.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81759233) (subscription)
+
+#### Where Does the Sea Begin
+
+At the funeral of his college girlfriend, Tsukioka Natsu meets a girl named Umi, learns she is his daughter and starts learning to be a father ([Wikipedia](https://ja.wikipedia.org/wiki/海のはじまり)).
+
+- **Recommended by**: `B Real Sound best of 2024 (3 of 5 critics; Narima Reiichi #3)` `C MyDramaList top Japanese drama #31 (8.4)` `C Filmarks Awards 2024 TV drama nominee` `D #10 Kanto rating of 2024 (16.8%)` `D TVer Awards 2024 drama grand prize (72M+ plays)`
+- **Scores**: MyDramaList 8.4 (2,779 ratings) | IMDb 8.0 (297 votes) | Filmarks ★3.8
+- **Reviews**: [Karen Mansoldo at The Blossom Review](https://theblossomreview.com/the-beginning-of-the-sea-viki-review/), a small review site, is negative: she argues the script glorifies Mizuki, who had the child without telling Natsu, and twists its feminist message (only a third of it could be read). After the finale, [雪奈 at 電影神搜](https://news.agentm.tw/302786/) (in Chinese) praised the cast and restrained direction but found writer Ubukata Miku too idealistic and naive. TVer numbers and juries back it; both reviewers have doubts about Mizuki’s storyline.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; it deals with a former girlfriend’s death, single parenthood and a father–daughter bond.
+- **Length**: 12 episodes plus a special (2024), finished. No word of a season 2. Spin-off shorts also aired.
+- **Watch first**: Nothing; it is an original written by Ubukata Miku.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/3575) (free tier or drama plan)
+
+#### Who Does Housework Anymore?
+
+Murakami Shiho, a full-time housewife in an age of working mothers, crosses paths with a working mum and an elite civil-servant dad on parental leave ([Wikipedia](https://ja.wikipedia.org/wiki/対岸の家事)).
+
+- **Recommended by**: `B Real Sound best of 2025 (two critics, both #7)` `B Eiga Channel 2025 top five (one writer)` `F PTT Japandrama 2025 year-end hidden gem` `G LINE TODAY 2025 Japanese drama top ten`
+- **Scores**: MyDramaList 7.6 (170 ratings) | IMDb 7.2 (21 votes) | Filmarks ★3.8
+- **Reviews**: [Karen Mansoldo at The Blossom Review](https://theblossomreview.com/who-does-housework-anymore-taigan-no-kaji-review/), a small review site, calls it a rare gem about respect and the gendered division of housework (only 40% of it could be read). After the finale, [雪奈 at United Daily News](https://stars.udn.com/star/story/10093/8787000) (in Chinese) praised its rounded characters, with hardly a criticism. Both reviews and two Real Sound critics back it; ratings were only mid-table.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; an everyday drama about housework and childcare.
+- **Length**: 10 episodes (2025), finished. No word of a sequel.
+- **Watch first**: Adapted from Akeno Kaeruko’s novel; no need to read it.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/4026) (drama plan)
+
+### Period dramas and morning dramas
+
+Postwar Hashima in Nagasaki, the couple behind Anpanman, an Edo-era publisher and Murasaki Shikibu in the Heian court. The last three are long NHK runs that take six months to a year.
+
+#### Unbound
+
+In 18th-century Edo, publisher Tsutaya Juzaburo rises from the Yoshiwara pleasure quarter and, even after a crackdown on entertainment, discovers Utamaro, Hokusai and Sharaku ([Wikipedia](https://en.wikipedia.org/wiki/Unbound_(TV_series))).
+
+- **Recommended by**: `A Tokyo Drama Awards 2025 award of excellence` `B Real Sound best of 2025 (#1 for two critics)` `D #2 Kanto average of the summer 2025 season (8.9%)` `E ORICON 2025 drama satisfaction #10` `F PTT Japandrama 2025 year-end review #3` `G VERSE ten must-see Japanese dramas of 2025`
+- **Scores**: MyDramaList 7.5 (19 ratings) | IMDb 6.8 (19 votes) | Filmarks ★4.1
+- **Reviews**: No signed English review could be found; the Japan Times piece is a paywalled introduction written after episode 1. No Taiwanese review could be found either. Two Real Sound critics named it the best drama of 2025, yet only 19 people have rated it on MyDramaList.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; it is set in Edo’s Yoshiwara pleasure quarter, and episode 1 shows the body of a courtesan being dumped. The crew included an intimacy coordinator; the level of nudity is not documented.
+- **Length**: An NHK taiga drama: 48 episodes of about 45 minutes, aired weekly through 2025 (January to December). Finished.
+- **Watch first**: Nothing; it is an original written by Morishita Yoshiko. Some background on Edo publishing and ukiyo-e helps.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/283079.do?cs=2) (subscription, some episodes free, leaves 5 January 2028); [LINE TV](https://www.linetv.tw/drama/20964/eps/1) (available)
+
+#### The Diamond Sleeping in the Sea
+
+Young people on the post-war coal-mining island of Hashima, off Nagasaki, and characters in present-day Tokyo are linked by love, dreams and family across decades ([Wikipedia](https://ja.wikipedia.org/wiki/海に眠るダイヤモンド)).
+
+- **Recommended by**: `A Tokyo Drama Awards 2025 Grand Prix` `A Television Drama Academy Awards best drama (autumn 2024)` `B Real Sound best of 2024 (4 of 5 critics; Tako Wakako #3)` `D #5 Kanto rating of 2024 (17.3%)` `F PTT Japandrama 2024 picks: “will go down in history”` `F PTT Japandrama 2024 year-end top five`
+- **Scores**: MyDramaList 8.3 (170 ratings) | IMDb 8.1 (70 votes) | Filmarks ★4.4 | Douban 8.3 (cited in an unsigned article on PTS+, its streaming platform)
+- **Reviews**: No signed English review could be found. The only Taiwanese piece is an issues column by [福澤喬 at PTS+](https://issues.ptsplus.tv/articles/11348/) (in Chinese), which praises the rebuilt Hashima and its portrait of mining labour, then adds the history of Korean wartime labourers the drama leaves out (most of it could be read). PTS+ was then its Taiwan streaming platform, so the outlet is not disinterested. Top awards and strong word of mouth on PTT, but no English reviews, and no Taiwan streaming when it first aired in 2024.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; it is set in a post-war coal mine on Hashima.
+- **Length**: 9 episodes on TV; streaming splits the extended finale in two for 10 (2024). Finished.
+- **Watch first**: Nothing; it is an original by writer Nogi Akiko.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/5291) (drama plan, episode 1 free). It has lapsed on PTS+
+
+#### Anpan
+
+Asada Nobu, raised on militarist ideals, has her values overturned by the war; afterwards she and her husband Takashi pursue “a justice that never overturns” ([Wikipedia](https://en.wikipedia.org/wiki/Anpan_(TV_series))).
+
+- **Recommended by**: `C Filmarks Awards 2025 TV drama nominee` `E Yahoo! Search Awards 2025 drama category` `F PTT Japandrama 2025 year-end review` `G friDay 2025 Japanese drama #6` `G VERSE ten must-see Japanese dramas of 2025`
+- **Scores**: MyDramaList 7.9 (138 ratings) | IMDb 8.1 (27 votes) | Filmarks ★4.1
+- **Reviews**: Writing mid-run, while the story was still in wartime, [Alicia Haddick at scrmbl](https://scrmbl.com/post/nhks-anpan-puts-a-face-to-the-creation-of-japans-beloved-childrens-mascot) recommended it: "It just so happens that Anpan is also one of the better shows to take advantage of the format in recent years." She found the opening titles too long and the narration over-explanatory. In Taiwan only an introductory piece could be found, by [雪奈 at Up Media](https://www.upmedia.mg/tw/popularity/chinese-dramas/230502) (in Chinese), about seven weeks in. VERSE calls it the top-rated drama of early 2025, yet no Real Sound critic picked it.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; the middle stretch covers the war, with the heroine’s husband sent to fight. How graphic the war scenes are is not documented.
+- **Length**: An NHK morning drama: 130 episodes of 15 minutes, aired weekday mornings from March to September 2025. Finished.
+- **Watch first**: Nothing; it is an original inspired by Anpanman creator Yanase Takashi and his wife. Anpanman fans will spot many nods.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/4023) (free tier plus drama plan); [Hami Video](https://hamivideo.hinet.net/product/289843.do?cs=2) (subscription, leaves 30 March 2028); [LINE TV](https://www.linetv.tw/drama/20753/eps/1) (available)
+
+#### Dear Radiance
+
+The life of Murasaki Shikibu, author of The Tale of Genji, and her bond with Fujiwara no Michinaga in the mid-Heian period ([Wikipedia](https://en.wikipedia.org/wiki/Dear_Radiance)).
+
+- **Recommended by**: `B Real Sound best of 2024 (4 of 5 critics; #2 for two)` `F PTT Japandrama 2024 year-end review #2` `G KKTV 2024 most watched #7`
+- **Scores**: MyDramaList 7.8 (69 ratings) | IMDb 7.8 (60 votes) | Filmarks ★4.2
+- **Reviews**: No signed English review could be found. In Taiwan only an introductory piece could be found: a plot-and-history recap by [凱莉的廢話練習簿 at 電影神搜](https://news.agentm.tw/281962/) (in Chinese), written at episode 23. Four Real Sound critics put it in their year-end lists; PTT fans are split, one ranking it second of the year, another barely remembering the later episodes.
+- **Content**: No Japanese rating; no Taiwan platform rating found. No IMDb Parents Guide votes; episode 1 shows the heroine’s mother being killed, and there is court intrigue including poisoning.
+- **Length**: An NHK taiga drama: 48 episodes of about 45 minutes, aired weekly through 2024 (January to December). Finished.
+- **Watch first**: Nothing; it is an original written by Oishi Shizuka. No need to read The Tale of Genji first.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/20965/eps/1) (VIP subscription); [myVideo](https://www.myvideo.net.tw/details/3/26246) (available)
+
+## Watch-later list
+
+| Show | Status |
+|---|---|
+| Hanzawa Naoki (半沢直樹) | Backed by four source types; its friDay page is gone and KKTV has closed, so no legal streaming option was found in Taiwan |
+| The 13 Lords of the Shogun (鎌倉殿の13人) | Backed by four source types; its Hami Video, KKTV and PTS+ licences have expired |
+| Tora ni Tsubasa (虎に翼) | Backed by four source types; shown in Taiwan only on the Videoland Japan TV channel, not streaming |
+| The Family (華麗なる一族) | Backed by three source types; its friDay page is gone |
+| 下剋上球児 | Backed by three source types; gone from friDay and LINE TV |
+| Code Blue season 3 (コード・ブルー) | Backed by three source types; no legal streaming option found in Taiwan |
+| 真田丸 | Backed by three source types; aired in Taiwan only on TV, not streaming |
+| ひらやすみ, 日曜の夜ぐらいは..., 舟を編む | Each backed by three source types; no legal streaming option or official Taiwan title found |
+
+## Limits of this list
+
+- **Few English reviews.** 7 of the 16 have no signed English review, including both taiga dramas; only Asura has full reviews from major outlets such as the Guardian and RogerEbert. The Blossom Review covers 4 shows on its own, each only partly readable.
+- **Few Taiwanese reviews too.** 119 Emergency Call, Mr. Mikami’s Classroom, When Spring Comes and Unbound have none; Doctor-X, Anpan and Dear Radiance have only introductions or plot recaps.
+- **Long runs have few ratings.** Unbound has just 19 ratings each on MyDramaList and IMDb; Anpan has 27 IMDb votes.
+- **Douban for only 2 shows.** The Diamond Sleeping in the Sea’s 8.3 comes from an unsigned piece on PTS+, the platform that streams it.
+- **Licensed shows can disappear.** Dragon Zakura (2021) rests on JustWatch-type data only; for Doctor-X, only seasons 1, 4, 5 and 6 are confirmed in Taiwan. Streaming links checked: 2026-11-09.
+
+## References
+
+- [ザテレビジョンドラマアカデミー賞 (Japanese Wikipedia)](https://ja.wikipedia.org/wiki/ザテレビジョンドラマアカデミー賞)
+- [国際ドラマフェスティバル in TOKYO／東京ドラマアウォード (Japanese Wikipedia)](https://ja.wikipedia.org/wiki/国際ドラマフェスティバル_in_TOKYO)
+- [ギャラクシー賞 (Japanese Wikipedia)](https://ja.wikipedia.org/wiki/ギャラクシー賞)
+- [日本民間放送連盟賞 2025](https://j-ba.or.jp/award2025/) (in Japanese)
+- [Asian Academy Creative Award for Best Drama Series (Wikipedia)](https://en.wikipedia.org/wiki/Asian_Academy_Creative_Award_for_Best_Drama_Series)
+- [Real Sound〈2025年 年間ベストドラマTOP10〉](https://realsound.jp/movie/2025/12/post-2254007.html) (in Japanese)
+- [MyDramaList：Top Japanese Dramas](https://mydramalist.com/shows/top_japanese_dramas)
+- [Filmarks Awards history (pixiin)](https://pixiin.com/ranking-filmarks-awards-all/)
+- [Video Research〈令和版 ドラマ視聴率ランキング〉](https://www.videor.co.jp/digestplus/article/tv231219.html) (in Japanese)
+- [Video Research〈2025年 民放ドラマまとめ〉](https://www.videor.co.jp/digestplus/article/tv260129-2.html) (in Japanese)
+- [TVerアワード2025 (PR TIMES)](https://prtimes.jp/main/html/rd/p/000000486.000002492.html) (in Japanese)
+- [ORICON〈2025年 ドラマ満足度ランキング〉](https://www.oricon.co.jp/news/2427637/full/) (in Japanese)
+- [Yahoo!検索大賞 (Japanese Wikipedia)](https://ja.wikipedia.org/wiki/Yahoo!検索大賞)
+- [PTT 日劇板〈2025日劇無雷推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1768239645.A.F20.html) (in Chinese)
+- [PTT 日劇板〈2025秋季日劇推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1766497769.A.FB6.html) (in Chinese)
+- [PTT 日劇板〈2024日劇無雷推薦〉](https://www.ptt.cc/bbs/Japandrama/M.1735532228.A.0CA.html) (in Chinese)
+- [LINE TODAY 聚光賞〈2025 十大追劇榜〉 (LINE press release)](https://www.linecorp.com/ko/pr/news/2025/1217) (in Chinese)
+- [LINE TODAY 聚光賞〈2025 日劇年度榜〉](https://today.line.me/tw/v3/article/l25eq2G) (in Chinese)
+- [friDay影音〈2025 年度大勢排行〉](https://video.friday.tw/curation/935) (in Chinese)
+- [VERSE〈2025 年必看十部日劇〉](https://www.verse.com.tw/article/2025-j-drama) (in Chinese)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [JustWatch 台灣](https://www.justwatch.com/tw)
