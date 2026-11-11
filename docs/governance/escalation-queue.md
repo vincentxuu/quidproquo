@@ -791,3 +791,12 @@
 - 登錄：2026-11-12（來源：daily-digest-pricing routine 執行 `git commit` 時被 Q-053 同一個紅燈擋下；與上方 Q-053 是同一個根因，不另開新編號）
 - 本次產出：Anthropic 2026-11-09 發表 Claude Fable 5.2／Claude Mythos 5.2，標準定價從上一代 $10/$50 降到 $8/$40（每百萬 tokens，降 20%），快取讀寫與 Batch API 同步降 20%，新增 fast mode；確認來源為官方公告（anthropic.com/claude-fable-and-mythos-5-2）與官方 pricing docs（platform.claude.com），另以 3 家獨立新聞交叉驗證。中英雙版，series order 34，無 diagram 區塊（純屬性前後對照，依 diagram skill 判定表格已足夠，未畫圖）。已單獨跑過 `pnpm check:references`（原本擋下英文版缺 `## References` 標題，已修正為 0 error）／`pnpm check:lang-parity`（新檔未被列入既有的 22 筆落差）／`pnpm check:tw`（原本擋下中文版 1 處「用戶」A 級用詞，已修正為「使用者」後重跑確認 0 blocking）／`pnpm check:series-order`（order 34 無撞號）全部通過。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-12-pricing-anthropic-claude-fable-mythos-5-2-price-cut{,-en}.md`、`.work/daily-log/2026-11-12/daily-digest-pricing.md` 留在工作目錄已 `git add` 暫存，等 Q-053（含上游 Q-051 根因）解除後直接 `git commit` 補上，不需重新查證或重寫內容。
+
+### Q-053 補充：daily-digest-ai-interview routine（2026-11-12，LLM & Agent Engineering）也撞上同一紅燈
+
+- 登錄：2026-11-12（來源：daily-digest-ai-interview routine 執行 `git commit` 時被 `series-plan (staged)` 擋下；與上方 Q-053 是同一個根因，不另開新編號。本次 session 工作目錄一開始是乾淨的，`pnpm install --frozen-lockfile` 正常完成）
+- 本次產出：AI Engineer 面試日練 2026-11-12（星期四 LLM & Agent Engineering，`interview-focus.json` 權重全 1、無加練覆寫，series order 85，中英雙版）。練習題取自 Renekin AI 部落格的 LLM system design interview 7 步框架與真實面試追問——設計一個從 help docs 回答問題的客服 assistant；核心概念涵蓋先釐清問題再估規模、retrieval 品質（hybrid search＋rerank＋metadata 過濾）決定答案品質的大部分、工具權限要綁在程式碼層而非 system prompt、高風險操作走「模型提案、人核准」、evaluation 分 offline／online 兩層並加一道不靠 LLM 判斷的 grounding check。含 1 張架構迴圈圖（中英座標相同，純上下流＋一條側邊回饋虛線，無分支/合流，刻意簡化幾何以降低驗證風險）。
+- 已單獨跑過 `pnpm check:diagram-geometry`（中英各 1 張圖，0 錯誤）／`pnpm check:references`（新檔 0 WARN，未列入既有的 192 筆警告）／`pnpm check:lang-parity`（新檔未被列入既有的 22 筆落差）／`pnpm check:tw`（exit 0，0 ERROR）／`pnpm check:series-order`（exit 0，order 85 無撞號，僅既有缺號警告）全部通過。`diagram-preview` 單獨執行時因腳本預期 `chromium_headless_shell-1208` 而沙箱只有 `chromium-1243`／`chromium_headless_shell-1243`被判定無瀏覽器自動跳過；但實際 `pnpm verify:staged` 跑 pre-commit 時，`diagram-preview (staged)` 中英兩項皆顯示 ✅ 通過（研判 pre-commit hook 用的瀏覽器設定與單獨執行腳本不同，未深入追查，比照其他已登錄條目的經驗判斷不影響本次內容正確性）。
+- 為什麼現在不能做：同上方 Q-053 原始條目——`research-note.md` 需要真正跑過 `daodao-community-ops` 系列的研究，不是本次面試日練 routine 能代寫的內容。
+- 接手第一步：同上方 Q-053 原始條目。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-12-ai-interview-daily{,-en}.md`、`.work/daily-log/2026-11-12/daily-digest-ai-interview.md`，皆已 `git add` 留在暫存區未 commit，等 Q-053（含上游 Q-051 根因）解除後直接 `git commit` 補上，不需重新查證或重寫內容。
