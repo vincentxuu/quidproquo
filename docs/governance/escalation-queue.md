@@ -771,3 +771,11 @@
 - 為什麼現在不能做：同上方 Q-053 原始條目——`research-note.md` 需要真正跑過 `daodao-community-ops` 系列的研究，不是本次框架更新 routine 能代寫的內容。
 - 接手第一步：同上方 Q-053 原始條目。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-12-framework-haystack-v3.5.0{,-en}.md`、`src/content/posts/daily/2026-11-12-framework-dspy-3.5.0{,-en}.md`、`src/content/posts/daily/2026-11-12-framework-pydantic-ai-v2.67.0{,-en}.md`、`.work/daily-log/2026-11-12/daily-digest-framework.md`，皆已 `git add` 留在暫存區未 commit，等 Q-053 解除後直接 `git commit` 補上，不需重新查證或重寫內容。
+
+### Q-053 補充：daily-digest-benchmark routine（2026-11-12，CursorBench 4.0）也撞上同一紅燈
+
+- 登錄：2026-11-12（來源：daily-digest-benchmark routine 執行 `git commit` 時被 `series-plan (staged)` 擋下；與上方 Q-053 是同一個根因，不另開新編號。本次 session 工作目錄一開始是乾淨的，另查到 2026-11-11 已有一次同主題文章 `2026-11-11-benchmark-cursorbench-carbon-fable{,-en}.md` 因撞到 Q-051 而留在工作目錄未 commit——目前工作目錄與 `git stash list` 均查無此檔，研判已隨該次 session 容器回收遺失，本次未嘗試回收，改用新日期檔名獨立重新產出）
+- 本次產出：CursorBench 4.0 前五名整批換血觸發文章——Google 11-10 公開發布的 Gemini 4 Carbon（High/Medium/Low 包辦第 1、2、4 名）、Anthropic 11-9 發布的 Claude Fable 5.2（Max，60.0% 排第 3），原冠軍 Claude Opus 5.5（Max）分數不變（57.8%）但掉到第 5。中英雙版 `src/content/posts/daily/2026-11-12-benchmark-cursorbench-carbon-tops{,-en}.md`，series order 10，含 1 張分數 vs. 成本散點圖（中英座標相同，只換文字）。已單獨跑過 `pnpm check:references`／`pnpm check:lang-parity`／`pnpm check:tw`（原本擋下中文版 1 處「用戶」A 級，已改為「使用者」後重跑確認 0 blocking）／`pnpm check:series-order`／`pnpm lint`／`pnpm check:diagram-geometry`（0 錯誤）全部通過；`diagram-preview` 因環境無瀏覽器被 skip（`/opt/pw-browsers` 只有 `chromium-1243`／`chromium_headless_shell-1243`，缺腳本要的 `chromium_headless_shell-1208`），本次未臨時 patch `scripts/diagram-preview.ts`，純靠 `check:diagram-geometry` 把關線條幾何，點與標籤座標已依 `diagram` skill 的散點圖換算公式人工核對無重疊。`src/data/daily-signals/benchmark-snapshot.json` 已更新為 2026-11-12 資料（含 SWE-bench Verified／LMArena Agent 子集本次未異動的查核記錄、aa_agentic_index_top3 因 Artificial Analysis 改版 v2.0 指標暫停追蹤的記錄）。
+- 為什麼現在不能做：同上方 Q-053 原始條目——`research-note.md` 需要真正跑過 `daodao-community-ops` 系列的研究，不是本次 benchmark routine 能代寫的內容。
+- 接手第一步：同上方 Q-053 原始條目。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-12-benchmark-cursorbench-carbon-tops{,-en}.md`、`src/data/daily-signals/benchmark-snapshot.json`、`.work/daily-log/2026-11-12/daily-digest-benchmark.md`，皆已 `git add` 留在暫存區未 commit，等 Q-053 解除後直接 `git commit` 補上，不需重新查證或重寫內容。
