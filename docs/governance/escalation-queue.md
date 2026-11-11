@@ -26,6 +26,7 @@
   1. 研究筆記：請負責「島島阿學怎麼經營」系列的 session／使用者，依 `.work/series-plans/daodao-community-ops.md` 的規劃跑研究、寫出 `.work/research/daodao-community-ops/research-note.md`（+ 其索引的 `cases.md`、`frameworks.md`），或若研究尚未開始，考慮先把該系列從 `src/utils/series.ts` 移入 baseline 的 grandfathered 清單，待研究齊備後再移出。
   2. lang-parity：對上述 21 篇逐篇比對 zh/en 的「更新紀錄」區塊，確認是哪一次更新只改了一邊，補上對應語言缺的那一筆（更新日期＋內容摘要），跑 `pnpm check:lang-parity` 確認轉綠。
   3. 兩項都解決、或至少把 (1) 處理掉（(2) 不影響同一次 commit 就必須兩個都綠，`pnpm verify:staged` 是 `&&` 串接，任一紅就擋commit）後，本次模型卡的 3 個新檔（`src/content/posts/daily/2026-11-11-model-meituan-longcat-2-5{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-model-card.md`，已 `git add` 暫存）可以直接 `git commit` 補上，不需重做內容或重新查證。
+- 補充（2026-11-12，來源：`daily-digest-tool` routine 同根因第二次獨立重現）：工具推薦 browse（`anomalyco/browse`，MCP server + Chromium 擴充套件，MIT，500 stars）中英雙版＋daily-log 寫完，`git commit` 被同樣兩項既有紅燈擋下（`series-plan (staged)` 的 daodao-community-ops 研究筆記缺口；`check:lang-parity` 同一批 21 篇舊文、22 issue(s) across 3540 pair(s)，數字與 2026-11-11 當時一致，確認是同一個尚未處理的缺口，不是新債務）。本次新增的 `src/content/posts/daily/2026-11-12-tool-browse{,-en}.md` 單獨跑過 `check:references`／`check:tw`／`check:series-order`／`check:diagram-geometry`（初版圖的 3 條箭頭座標誤差 4px 落在框內、1 條箭頭終點沒接上任何節點，已修正轉綠）皆 0 blocking；`diagram-preview` 因環境無瀏覽器被 skip。3 個新檔（`src/content/posts/daily/2026-11-12-tool-browse{,-en}.md`、`.work/daily-log/2026-11-12/daily-digest-tool.md`）已 `git add` 暫存但未 commit，等 Q-052 解除後直接補 commit，不需重做內容。
 
 ### Q-052 補充：daily-digest-arxiv routine（2026-11-12）也撞上同一紅燈，另外新增第三個紅燈 `check:course-videos`
 
