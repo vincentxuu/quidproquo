@@ -16,6 +16,17 @@
 
 ---
 
+## Q-052 ⏳ 待拍板：兩個既有全站紅燈擋住 2026-11-11 LongCat-2.5 模型卡 commit
+- 登錄：2026-11-11（來源：daily-digest-model-card routine 執行 `git commit` 時發現）
+- 做什麼：本次 routine 寫完 LongCat-2.5 模型卡（中英雙版＋daily-log，3 個新檔，皆已 `git add` 暫存），`git commit` 觸發 pre-commit `pnpm verify:staged` 噴紅兩項，與本次新增／修改的檔案無關：
+  1. **`series-plan (staged)`**：「`.work/series-plans/daodao-community-ops.md` 缺：研究筆記檔案 `.work/research/daodao-community-ops/research-note.md` 不存在」。Q-051 已把規劃表本體 commit 進 repo（2026-11-11，commit `cf3215a`），但規劃表第 5 行寫著「研究筆記：`.work/research/daodao-community-ops/research-note.md`（索引；案例在 `cases.md`，理論與實證在 `frameworks.md`）」，這個路徑目前整個 `.work/research/daodao-community-ops/` 資料夾都不存在——Q-051 只解決了「規劃表檔案本身缺失」，沒解決「規劃表引用的研究筆記缺失」，是同一系列的下一層缺口，不是新問題重複登錄。
+  2. **`check:lang-parity`**（非 staged 範圍限定，全站掃描）：21 篇舊文（非本次新增）zh/en 的「更新紀錄」筆數不一致，腳本 Summary 回報「22 issue(s) across 3540 pair(s)」。檔案清單：`src/content/posts/ai/2026-09-30-cs149-{cache-coherence,fine-grained-locking-lock-free,locality-communication,pa1-w1-quad-core-performance,pa2-task-graph-scheduling,pa5-fastest-kernels,synchronization-memory-consistency,transactional-memory-w4,work-distribution-scheduling}.md`、`src/content/posts/ai/2026-09-30-cs224r-{hierarchical-rl-il,hw2-online-rl-sawyer,off-policy-actor-critic-ppo-sac,q-learning,rl-for-vlas,sim2real-robot-learning}.md`、`src/content/posts/ai/2026-09-30-cs231n-{cnn-image-classification,course-overview,recurrent-neural-networks,training-cnns-architectures}.md`、`src/content/posts/learning/2026-08-22-stanford-cs111-lecture-{24-journaling-file-systems,28-course-review}.md`、`src/content/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map.md`。本次新增的 `2026-11-11-model-meituan-longcat-2-5{,-en}.md` 單獨跑 `node scripts/check-post-references.mjs` 與 `pnpm check:lang-parity`（grep 確認檔名未出現在失敗清單）皆為 0 issue。
+- 為什麼現在不能做：(1) 研究筆記缺口同 Q-051 的理由——`check-series-plan.mjs` 全站掃描，不限暫存範圍，任何一次 commit 都會撞到；補一份真正的 `research-note.md`（含案例索引、理論與實證）需要熟悉島島系列脈絡的 session 去做研究與寫作，不該由不了解該系列的 model-card routine 杜撰內容去填路徑。(2) `check:lang-parity` 的 21 篇舊文「更新紀錄」筆數落差需要逐篇對照 zh/en 的更新紀錄區塊、判斷哪一邊漏了對應的那一筆並補上正確內容（可能要考古出實際改了什麼），不是 5 分鐘內能對的 A 級用語替換或 order 撞號修正，且是 CS149／CS224R／CS231N／CS111／CS189 課程筆記系列，超出本次例行模型卡 routine 的範圍。
+- 接手第一步：
+  1. 研究筆記：請負責「島島阿學怎麼經營」系列的 session／使用者，依 `.work/series-plans/daodao-community-ops.md` 的規劃跑研究、寫出 `.work/research/daodao-community-ops/research-note.md`（+ 其索引的 `cases.md`、`frameworks.md`），或若研究尚未開始，考慮先把該系列從 `src/utils/series.ts` 移入 baseline 的 grandfathered 清單，待研究齊備後再移出。
+  2. lang-parity：對上述 21 篇逐篇比對 zh/en 的「更新紀錄」區塊，確認是哪一次更新只改了一邊，補上對應語言缺的那一筆（更新日期＋內容摘要），跑 `pnpm check:lang-parity` 確認轉綠。
+  3. 兩項都解決、或至少把 (1) 處理掉（(2) 不影響同一次 commit 就必須兩個都綠，`pnpm verify:staged` 是 `&&` 串接，任一紅就擋commit）後，本次模型卡的 3 個新檔（`src/content/posts/daily/2026-11-11-model-meituan-longcat-2-5{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-model-card.md`，已 `git add` 暫存）可以直接 `git commit` 補上，不需重做內容或重新查證。
+
 ## Q-051 ✅ 已解決（2026-11-11）：`daodao-community-ops` 系列缺規劃表，擋住全站所有 commit
 - 解決：規劃表 `.work/series-plans/daodao-community-ops.md` 早已寫好（使用者確認 2026-10-29），但一直只留在本機、沒進 git，所以只有雲端 routine 與 CI 撞紅燈。2026-11-11 已把它 commit 進 repo。下方各 routine 暫存、沒 commit 的產出，到各自的環境重新 `git commit` 即可。
 - 登錄：2026-11-10（來源：daily-digest-model-card routine 執行 pre-commit 時發現）
