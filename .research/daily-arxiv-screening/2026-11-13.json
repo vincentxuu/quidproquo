@@ -1,0 +1,1974 @@
+{
+  "date": "2026-11-13",
+  "status": "published",
+  "selectedCount": 3,
+  "candidateSources": {
+    "layerA": "arXiv officially-announced /new batch: 'Wednesday, 11 November 2026' per arxiv.org/list/{cs.AI,cs.CL,cs.MA}/new headers (re-confirmed on cs.AI/recent, same date). This is the first time this batch has been screened (the 2026-11-09 routine's last-screened batch was Friday 6 Nov 2026; Sat 7 Nov-Tue 10 Nov had no new arXiv announcement visible at those routines' run times per the Sun-Thu cadence). cs.AI: 105 new submissions (53 read with full abstract via direct fetch, remainder of the 381-entry combined cs.AI page -- cross-lists and replacements -- not individually re-screened due to output-size limits; none of the untouched cross-list/replacement entries surfaced in Groundlane web_search Q1-Q3 either, so no additional agent-relevant items are known to have been missed). cs.CL: 54 of its new-submission entries read with full abstract. cs.MA: all 1 new submission (PARLEY) plus its 9 cross-listed entries read in full.",
+    "layerB": [
+      "HuggingFace Daily Papers API (https://huggingface.co/api/daily_papers?limit=30): sampled first 5 entries by recency (ScrapeBench, FAME-QP, Evolving Infra, CARTBench, +1 partially truncated); ScrapeBench (2611.11306) was the only one not already present in the arXiv Layer A pool and became a selected candidate.",
+      "Groundlane web_search for 'site:arxiv.org cs.AI OR cs.MA agent tool-use planning reasoning 2026' / 'cs.CL RAG retrieval-augmented context memory agent' / 'cs.AI OR cs.MA multi-agent protocol safety guardrails' style queries (Q1-Q3) and targeted title searches for the two Amazon/Villanova candidates: surfaced no agent-relevant arXiv ID outside the Layer A pool already collected; confirmed neither 2611.12953 nor 2611.13254 appear on HuggingFace Daily Papers or Papers with Code as of this run.",
+      "Semantic Scholar graph API queried per-candidate for venue/citationCount/affiliations: succeeded once (2611.12953: 0 citations, no venue, 14 authors incl. Amazon/Wake Forest affiliation on one author), then returned HTTP 429 on all further attempts for 2611.13254 and 2611.11306 despite sleep-and-retry up to 10s backoff across 4 attempts each (toolDegradation, consistent with 429s reported in the 2026-11-07/08/09 screening records on preceding days). ScrapeBench's venue (NeurIPS 2026 Evaluations and Datasets Track) was independently confirmed via its project page BibTeX, so the S2 outage did not block its background-signal requirement.",
+      "Papers with Code / GitHub cross-check via Groundlane web_search for ScrapeBench: confirmed listing at paperswithcode.co/paper/2611.11306 and an actively maintained github.com/imperialite/scrapebench repo with a v2 update."
+    ],
+    "layerC": "14-day lookback window 2026-10-30 to 2026-11-12 against .research/daily-arxiv-screening/*.json (files for 2026-10-30, 10-31, 11-01, 11-02, 11-03, 11-05, 11-07, 11-08, 11-09 exist; 11-04, 11-06, 11-10, 11-11, 11-12 have no screening file, i.e. those routine runs did not execute or did not persist a record). Per retention rules: all 'off-topic' and 'stale' rejections from this window remain permanently excluded (not re-entered). All 'watch' and 'stronger-competitor' entries were re-collected (~230 arXiv IDs spanning recurring multi-agent-safety/deception/collusion, agent-memory, and agent-evaluation clusters first seen 2026-10-30 through 2026-11-09) and compared at title+prior-reason level against today's three selected papers and today's theme (agent architecture cost, long-horizon error attribution, legal/compliance blind spots). None matched today's theme closely enough to outweigh 0.85^d decay at d>=4 against three newly-surfaced, freshly-full-text-verified candidates; per-ID re-scoring of background signals for all ~230 carried-forward entries was infeasible within this routine's effort budget (toolDegradation, consistent with the 2026-11-09 record's same disclosure) beyond the title-level theme comparison already performed. No 'evidence-insufficient' entry from this window had a new code release or external replication signal that would trigger reconsideration. Selected IDs are hard-deduped against src/data/daily-signals/seen-arxiv-ids.txt."
+  },
+  "generatedAt": "2026-11-13T03:40:00+08:00",
+  "candidates": [
+    {
+      "arxivId": "2611.12953",
+      "title": "Agent Architecture Cost-Success Trade-offs: A Controlled Evaluation across Enterprise-Style SOPs",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "announcementBatch": "arXiv cs.AI new listing, Wednesday 11 Nov 2026 (submitted 7 Nov 2026)",
+      "topicGate": "pass",
+      "venue": "arXiv preprint (not yet peer reviewed; no venue in Semantic Scholar record)",
+      "citationCount": 0,
+      "citationVelocity": "0 citations in 6 days (Semantic Scholar, queried 2026-11-13)",
+      "institution": "Amazon + University of Washington",
+      "communitySignals": [
+        "not found on HF Daily Papers or Papers with Code (checked by title search 2026-11-13)"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Sec 3.1-3.2: 8 arms x 13 enterprise SOPs on SOP-Bench, deterministic mock-tool dispatch, model fixed at claude-opus-4-8, 2,124 tasks per arm (shared comparison)",
+        "Confirms baseline macro TSR varies <=2.3 points across Opus 4.6/4.7/4.8 before fixing the model, to isolate architecture effects (Appendix E)",
+        "Reports token/latency cost multipliers (1.4-4.7x tokens, 2.6-5.8x latency) alongside success-rate deltas, not success alone"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Covers main claim with cost and success metrics across 8 architecture arms and a skill-quality rubric ablation; explicitly scoped to a single model family (claude-opus-4-8), so no cross-model generalization claim is made or implied",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "Built on SOP-Bench (Nandi et al. 2026, same author group), prompts/control flow in Appendix F; no public code/data release found for this specific study as of 2026-11-13"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "The article's claims (architecture choice is SOP-dependent; added coordination cost often isn't justified by success gain; implementation quality can matter more than single- vs multi-agent) track the paper's own explicitly-scoped findings",
+      "primaryLimitation": "Single model family (claude-opus-4-8); authors explicitly disclaim cross-family generalization",
+      "presentation": "clear",
+      "presentationReason": "Method, arms, and statistical caveats (e.g. 'directional, not yet significant') are stated precisely",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "入選：對照同日候選,本篇是唯一以固定模型、固定工具、僅變動架構的方式,直接量化「多 Agent 協調的額外成本是否值得」這個今年被反覆討論卻少有控制實驗的問題"
+    },
+    {
+      "arxivId": "2611.13254",
+      "title": "Dependable Long-Horizon LLM Agents: A Trajectory-Centered Empirical Study of Where Errors Enter and Which Controls Reach Them",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "announcementBatch": "arXiv cs.AI new listing, Wednesday 11 Nov 2026 (submitted 9 Nov 2026)",
+      "topicGate": "pass",
+      "venue": "arXiv preprint; ACM CCS concept tags suggest a conference submission template, but no acceptance confirmed",
+      "citationCount": null,
+      "citationVelocity": "not-assessed — Semantic Scholar returned HTTP 429 on every retry (4 attempts, exponential backoff up to 10s) for this specific paper id during this run (toolDegradation)",
+      "institution": "Villanova University, Department of Electrical and Computer Engineering",
+      "communitySignals": [
+        "not found on HF Daily Papers or Papers with Code (checked by title search 2026-11-13)"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Sec 2: defines an operational-phase (P0-P7) x state-domain (R1-R6) episode-record framework for fault origin/propagation/detection/response",
+        "Sec 3-4 (read in full per abstract+body fetch): applied as a written annotation protocol to 95 failed runs across six multi-agent systems from two public corpora (Who&When, MAST/MAD), reading each trajectory in full",
+        "Quantified findings tied to the annotated corpus: faults enter at median 0.18 of run length, 72% of failed runs contain pre-failure contradicting evidence, 45% of hand-crafted Who&When failures traced to a harness-level content-filter crash mis-attributed to an agent",
+        "Protocol, annotation records and scripts released as ancillary files for every number in the paper"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "Methodologically rigorous manual annotation with a named protocol, but based on 95 runs from only two existing public corpora rather than a newly collected or more diverse trajectory set",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "Paper states protocol, all annotation records, and the scripts producing every number in the paper are included as ancillary files"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "The narrow claim (where/how faults enter and propagate in these 95 annotated runs, and which control families would have reached them) is directly supported by the released annotation data",
+      "primaryLimitation": "Sample limited to 95 failed runs drawn from two existing public corpora (Who&When, MAST/MAD); no new deployment or intervention test of the proposed control families",
+      "presentation": "clear",
+      "presentationReason": "Framework, running example, and RQ1-RQ3 structure make the methodology and claim boundaries easy to follow",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "入選：補上「多 Agent 系統是否可靠」辯論中最缺的一塊——錯誤究竟從哪個環節滲入、何時能被攔截,並揭露既有歸因標籤（如 Who&When 的人工標記）本身可能誤判 45% 的失敗案例"
+    },
+    {
+      "arxivId": "2611.11306",
+      "title": "ScrapeBench: Evaluating Legal Compliance of AI Agents in Website Scraping",
+      "source": [
+        "layerB"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "announcementBatch": "HuggingFace Daily Papers, submittedOnDailyAt 2026-11-12 (arXiv submitted 10 Nov 2026)",
+      "topicGate": "pass",
+      "venue": "NeurIPS 2026, Evaluations and Datasets Track (accepted — confirmed via project page BibTeX at scrapebench.github.io)",
+      "citationCount": null,
+      "citationVelocity": "not-assessed — Semantic Scholar returned HTTP 429 on every retry for this paper id during this run (toolDegradation); NeurIPS acceptance is independently confirmed via the project page regardless",
+      "institution": "Pivotal Research / University of Bath / National University Philippines; University of Notre Dame; Hebrew University of Jerusalem",
+      "communitySignals": [
+        "HuggingFace Daily Papers (1 upvote, 2026-11-12)",
+        "Papers with Code listed (paperswithcode.co/paper/2611.11306)",
+        "GitHub repo imperialite/scrapebench, actively maintained with a v2 that adds newer models per the project page"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Sec 2: curated dataset of ToS/robots.txt for 1,895 top CrUX websites (1,626 explicitly-prohibited, 269 not-explicitly-prohibited), with two co-authors who are legal professionals building the labeling pipeline and a 97.9%/98.9% agreement (Cohen's kappa=0.91) quality check against manual labels",
+        "Sec 3-4: 6 closed/open-weight agents (GPT-5.2, Claude Opus 4.6, Gemini 3.1 Pro, Kimi K2.5, Qwen3 Max, Grok 4.2) evaluated across 8 legal-priming prompt conditions including an adversarial condition",
+        "Sec 6: human baseline with n=180 Prolific participants across the same conditions, with significance tests (e.g. p<0.001) reported for prompt-condition effects",
+        "Sec 5: behavioral mechanism analysis (checking ToS/robots.txt does not predict compliance; agents stop checking once legal text is already pasted into the prompt)"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "NeurIPS-accepted dataset+benchmark paper with real-world data, multiple frontier models, a human baseline for context, and failure-mode attribution via a judge model (own limitation: judge-model-based rationale categorization only covers 42.5% of violation trials that stated a rationale)",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "Code and dataset released at github.com/imperialite/scrapebench; listed on Papers with Code; project site documents an updated v2 evaluation run"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "Headline claims (near-zero baseline compliance; compliance requires pasted legal text, not just the ability to look it up; Claude's adversarial-prompt resistance is indiscriminate over-refusal, not legal reasoning) are each tied to a specific reported figure",
+      "primaryLimitation": "Binary EP/NEP legal labeling discards conditional-restriction websites by design, and relies on GPT-5.2 extraction (97.9%/98.9% agreement with manual review, not 100%) plus US-centric case law; findings may not transfer to other jurisdictions",
+      "presentation": "clear",
+      "presentationReason": "Explicit formalization of the compliance/over-refusal outcome function and prompt taxonomy (P1-P8) makes claim scope unambiguous",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "入選：揭露一個今日工程團隊幾乎都忽略的盲點——Agent 會不會主動遵守 ToS/robots.txt,且證據顯示「查過規則」與「真的遵守」是兩件不相關的事,NeurIPS 認可加上人類對照組讓證據強度足以支持這個結論"
+    },
+    {
+      "arxivId": "2611.12933",
+      "title": "Auditable Human-Agent Teams for Autonomous X-ray Experimentation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level only: three real synchrotron experiments, quantified provenance stats (61-67% interpretive messages, 59-68% multi-participant corrections)"
+      ],
+      "evidenceMaturity": "preliminary",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "方法層面只讀摘要,未核對正文方法/限制段落（effort budget）",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "人機協作治理的量化分析有意義,但侷限於同步輻射 X 光科學儀器場景,工程讀者難以直接遷移;三篇入選論文（架構成本、長程錯誤定位、合規盲點）涵蓋面更廣且彼此形成互補敘事"
+    },
+    {
+      "arxivId": "2611.12934",
+      "title": "EarthRecord: From Pixels to Land Change with Multimodal Agents over Four Decades of Satellite Imagery",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: 238 land-change questions across 56 sites, 12 multimodal agents evaluated, closed-book and instrument-swap controls"
+      ],
+      "evidenceMaturity": "preliminary",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "僅讀摘要,未核對正文（effort budget）",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "揭露多模態 Agent 在遙測領域「答案跟著造假衛星資料漂移」的盲點很有趣,但屬遙測科學垂直應用,比入選的三篇在今日工程決策上的直接連結弱"
+    },
+    {
+      "arxivId": "2611.12958",
+      "title": "Embodied Science Agents: Making Embodied Experimental Design Learnable",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: single case study (wastewater treatment), transmittance improved 82%->99.7% over 15 rounds"
+      ],
+      "evidenceMaturity": "proof-of-concept",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "low",
+      "primaryLimitation": "單一案例驗證,未讀正文（effort budget）",
+      "relevance": "indirect",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "自駕實驗室/具身科學 Agent 屬機器人+化學垂直場景,證據是單一案例研究,不如入選論文的多樣本控制實驗"
+    },
+    {
+      "arxivId": "2611.12966",
+      "title": "BuySideFlow: A Point-in-Time Benchmark for LLM Agents in Investment Research",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: 408 practitioner tasks, 9 agent configs, result accuracy 16.2-36.8%, PIT violations in 50.8% of checks-passing runs"
+      ],
+      "evidenceMaturity": "preliminary",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "僅讀摘要（effort budget）；金融垂直場景",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "「結果對了但時間點錯了」這個發現頗有意思,但限定在中文金融資料庫場景;今日名額已由覆蓋面更廣的三篇用盡"
+    },
+    {
+      "arxivId": "2611.13006",
+      "title": "Seeing Is Not Believing: Counterfactual Lesion Erasure Teaches a Small Medical Vision-Language Agent to Report Only What the Image Shows",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: ESG metric, cross-site external validation, honest about failure (0/48 pneumothorax on fresh external test)"
+      ],
+      "evidenceMaturity": "preliminary",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "醫療影像垂直領域,僅讀摘要（effort budget）",
+      "relevance": "indirect",
+      "novelty": "substantive",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "核心貢獻是醫療影像幻覺偵測訓練方法,與今日 Agent 架構/錯誤/合規主題不構成同一聚類"
+    },
+    {
+      "arxivId": "2611.13015",
+      "title": "From Questions to Decisions: Benchmarking How LLM Agents Acquire Decision-Relevant Information from Human Beings",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: Ask2Decide benchmark, 43 planning tasks, 79 human interaction sessions (n=19), frontier LLM initial plans infeasible on 58-98% of tasks when info missing"
+      ],
+      "evidenceMaturity": "preliminary",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "僅讀摘要,未核對正文實驗細節（effort budget）；標註本身仍是 work-in-progress（作者自述）",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "「Agent 該問什麼」是今日很實際的問題,證據也具體,但聚焦調度規劃這一垂直場景;今日入選的三篇覆蓋面更廣且彼此形成更完整的敘事（架構選擇、錯誤定位、合規盲點）"
+    },
+    {
+      "arxivId": "2611.13020",
+      "title": "ChipOmni: A General-Purpose AI Agent for Electronic Design Automation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: AnalogCoder-Pro 30/30 tasks, RISC-V spec-to-GDSII case study"
+      ],
+      "evidenceMaturity": "preliminary",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "low",
+      "primaryLimitation": "EDA 垂直領域,僅讀摘要（effort budget）",
+      "relevance": "indirect",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "晶片設計垂直應用,與今日「Agent 架構/可靠性/合規」主軸關聯度低"
+    },
+    {
+      "arxivId": "2611.13127",
+      "title": "Activation-Guided Graph Retrieval for Cognitive Memory Reconstruction in Language Model Systems",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "reject",
+      "credibilityEvidence": [
+        "作者自述：'This architecture-and-analysis preprint reports no benchmark measurements.'"
+      ],
+      "evidenceMaturity": "proof-of-concept",
+      "reproducibility": "not-provided",
+      "editorialConfidence": "low",
+      "primaryLimitation": "完全沒有實驗數據,純架構規格書",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "none",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "作者自己聲明本篇不含任何 benchmark 量測結果,僅為架構規格與消融計畫,不滿足可信度門檻的最低證據要求"
+    },
+    {
+      "arxivId": "2611.13144",
+      "title": "Teaching the Harness: Student-Aware Skill Transfer for LLM Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: Claude-Sonnet-5 teaching DeepSeek-V4-Flash, SAT reaches 86.46% vs 75.00% untaught baseline across 4 runs; cross-model skill-library swap ablation"
+      ],
+      "evidenceMaturity": "preliminary",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "僅讀摘要,未核對正文消融與統計檢定（effort budget）",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "教師-學生技能遷移的發現具體且與 watchlist 的 Agent Skills/MCP 技能生態相關,但今日三個名額已由覆蓋面更廣、已完整核對正文的候選用盡"
+    },
+    {
+      "arxivId": "2611.13161",
+      "title": "Cognitive Multi-Agent Search and Rescue: Language-Grounded Hierarchical Reinforcement Learning for Collaborative Robotics",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "僅讀標題（effort budget）",
+      "relevance": "indirect",
+      "novelty": "not-assessed",
+      "todayImportance": "low",
+      "practicalLink": "none",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "機器人搜救的階層式強化學習研究,屬具身機器人協作而非 LLM Agent 架構/安全主題"
+    },
+    {
+      "arxivId": "2611.13196",
+      "title": "From Process Models to Composable Agentic Workflows: Combining BPMN, Agents and Enterprise Knowledge",
+      "source": [
+        "layerA",
+        "layerA-cross-MA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: BPMN+LangGraph/Pregel runtime, framework proposal with two illustrative patterns, no quantified benchmark reported in abstract"
+      ],
+      "evidenceMaturity": "proof-of-concept",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "low",
+      "primaryLimitation": "偏架構提案,摘要未見量化評測（effort budget，未核對正文）",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "BPMN 編排框架提案性質強,摘要沒有量化評測佐證,證據強度不如入選三篇"
+    },
+    {
+      "arxivId": "2611.13217",
+      "title": "Reliability of Claude Code as an Agentic AI Grading System for Handwritten University Exams",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: r=0.97 agreement with human grading on 20 papers, MAE 0.85 marks, test-retest reliability, weighted kappa; single-course/single-grader-as-ground-truth design explicitly disclosed by author"
+      ],
+      "evidenceMaturity": "preliminary",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "單一評分者作為唯一人類基準（作者自述為研究設計限制）,樣本僅 60 位學生,僅讀摘要（effort budget）",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "與 watchlist 的 Anthropic/Claude Code 直接相關且數據具體,但屬單一課程、單一評分者的案例研究,方法新意是應用改寫而非架構突破；今日名額已由方向新意更高的三篇用盡"
+    },
+    {
+      "arxivId": "2611.13246",
+      "title": "ExpertCrowd-SWE: Measuring Frontier Coding Agents on Expert-Authored Engineering Tasks in Unfamiliar Codebases",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: 100 expert-authored tasks across 87 OSS repos/11 languages, sealed reference solutions with executable graders, 7 frontier models x 5 runs (3,495 scored runs), calibration checks (reference=1.0, untouched/inert=0)"
+      ],
+      "evidenceMaturity": "substantial",
+      "reproducibility": "partial-artifacts",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "僅讀摘要,未核對正文結果與排行榜數字本身（effort budget）",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "方法嚴謹（校準過的執行式評分器、對抗性控制補丁偵測）,是今日次強候選,但屬於「又一個 coding agent benchmark」,新意不如揭露合規盲點的 ScrapeBench 或補上錯誤歸因缺口的 Dependable Long-Horizon Agents"
+    },
+    {
+      "arxivId": "2611.13312",
+      "title": "Towards Scalable Network-Based Interventions for HIV Treatment and Prevention via R2C-Agent",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "僅讀標題（effort budget）",
+      "relevance": "indirect",
+      "novelty": "not-assessed",
+      "todayImportance": "low",
+      "practicalLink": "none",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "公共衛生網路介入的垂直應用,Agent 僅為工具命名,非架構或行為研究主軸"
+    },
+    {
+      "arxivId": "2611.13329",
+      "title": "Agent-Guided Discovery of Exchange-Correlation Functionals with Physics-based Validation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "primaryLimitation": "僅讀標題（effort budget）",
+      "relevance": "indirect",
+      "novelty": "not-assessed",
+      "todayImportance": "low",
+      "practicalLink": "none",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "量子化學泛函發現的科學計算應用,非 Agent 架構/安全/記憶主題"
+    },
+    {
+      "arxivId": "2611.13333",
+      "title": "Do AI Agents need Preventive Care? An Epidemiologic Cohort Design for Agentic AI",
+      "source": [
+        "layerA",
+        "layerA-cross-MA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: proposes epidemiologic cohort framework, illustrated via two prospective observational case studies (curiosity/probing; data-checking accuracy), no large-scale quantified result reported in abstract"
+      ],
+      "evidenceMaturity": "proof-of-concept",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "low",
+      "primaryLimitation": "方法論提案,摘要僅有兩個說明性案例研究,未見大規模驗證（effort budget，未核對正文）",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "把流行病學世代研究設計搬到 Agent 安全監測是新穎的框架類比,但目前只是方法論提案加兩個說明性案例,證據成熟度不如入選三篇的量化實證"
+    },
+    {
+      "arxivId": "2611.13336",
+      "title": "Veritas: A Verifier Generation Harness for Agent Tasks",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: evaluated on 6 benchmarks (4 execution-scored, 2 pairwise), outperforms 7 other harnesses on official-verdict agreement for all 4 execution-scored benchmarks"
+      ],
+      "evidenceMaturity": "preliminary",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "僅讀摘要,未核對正文消融與基準細節（effort budget）",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "自動生成驗證器是 self-improvement 系統的關鍵瓶頸,證據具體,但屬於評測工具鏈的增量改進,今日三篇覆蓋面與新意更高"
+    },
+    {
+      "arxivId": "2611.13367",
+      "title": "No finite rulebook can certify every safe program: an impossibility theorem for gatekeeping AI agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Abstract states a formal impossibility theorem with proof sketch (finite-bit rulebook of n bits necessarily omits a compliant program of about n bits), characterizes which behavioral properties are checkable vs not, and states what a gatekeeper can still guarantee"
+      ],
+      "evidenceMaturity": "substantial",
+      "reproducibility": "not-applicable-theoretical",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "僅讀摘要,未核對正文完整證明與反例構造（effort budget）；理論結果的現實適用邊界（finite-record 假設是否貼合實際 gatekeeper 實作）需要正文佐證",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "形式化證明「沒有有限規則手冊能同時完整地允許安全程式並攔截所有不安全程式」是今日很有份量的理論結果,方向新意很高,但因效果預算只做了摘要層級核對（未讀正文證明細節）,信心不足以越過三篇已完整核對正文的入選論文；留在回溯池,若之後有時間完整核對證明可重新考慮"
+    },
+    {
+      "arxivId": "2611.13426",
+      "title": "BioMem: Agentic Memory for Biomedical LLM Agents",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: 5 memory approaches x 4 LLMs x 3 settings, HMRU framework yields 8.6% average relative improvement, reduces conversational answer errors by 24.9%"
+      ],
+      "evidenceMaturity": "preliminary",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "生醫垂直領域,僅讀摘要（effort budget）",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "Agent 記憶系統的評測侷限在生醫領域,與今日「架構成本/錯誤定位/合規」聚類不構成同一主題"
+    },
+    {
+      "arxivId": "2611.13615",
+      "title": "Synapse-Control: Making Agent Experience Actionable with Lightweight Runtime Control",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract-level: 1,308 attempts/method on AppWorld+WebShop, 270 successes (29.8% more than base), replaces 4,987 generative diagnosis calls, 50-51% control-time reduction vs Sentry baseline"
+      ],
+      "evidenceMaturity": "preliminary",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "僅讀摘要,未核對正文與基準完整設定（effort budget）",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "用輕量分類器取代生成式診斷來重用 Agent 經驗,證據具體且與成本效率主題相關,但今日名額已由覆蓋面更廣的三篇用盡；可留意是否與入選的 ReTrace 類方向（蒸餾 Agent 經驗以降本）在後續回溯池中重新比較"
+    },
+    {
+      "arxivId": "2611.14492",
+      "title": "ReTrace: Distilling Tool-Using Agents into Planner-Free Workflows",
+      "source": [
+        "layerA-cross-MA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Abstract: 79 production-platform procedures, 93.8% completion vs 96.8% agent baseline at 24% lower cost; tau2-Bench 75.8% vs 80.6% agent, 1.3s vs 170s runtime; repair lifts k=2 workflows 66.7%->81.2%; 8 SOP-Bench procedures with and without repair compared against few-shot generation"
+      ],
+      "evidenceMaturity": "substantial",
+      "reproducibility": "partial-artifacts",
+      "editorialConfidence": "high",
+      "primaryLimitation": "僅讀摘要,未核對正文的 production-platform 79 個流程的選取與統計方法（effort budget）",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "證據強度與今日選題高度吻合（把重複執行的 Agent SOP 蒸餾成便宜的程式化工作流程),但主題與入選的 2611.12953（架構成本-成效）高度重疊——兩篇都在量化「Agent 協調的額外開銷值不值得」；為避免同一天兩篇談同一件事,保留證據更全面、橫跨四種架構的 2611.12953,本篇留在回溯池,若後續仍是獨立最強候選可直接入選"
+    },
+    {
+      "arxivId": "2611.14320",
+      "title": "Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents",
+      "source": [
+        "layerA-cross-MA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Abstract: WikiTrace evaluated on five agentic benchmarks, consistently outperforms existing memory approaches and a same-insights-only baseline while reducing memory-induced degradation; code released"
+      ],
+      "evidenceMaturity": "substantial",
+      "reproducibility": "full-artifacts",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "僅讀摘要,未核對正文五個基準的具體數字（effort budget）",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "「記憶教訓缺乏可追溯證據導致誤用」是記憶管理領域紮實的候選,證據完整且開源,但今日三個名額已由不同角度（架構成本、錯誤定位、合規）用盡;留在回溯池作記憶主題的強力候選"
+    },
+    {
+      "arxivId": "2611.14242",
+      "title": "PARLEY: Evaluating LLM Collaboration Through Cooperative Asymmetric Puzzles",
+      "source": [
+        "layerA-cs.MA-new"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Abstract: GPT-4o agent pairs across 4 asymmetric puzzle tasks (N=400), 60.5% success with 34-80% task-level variation; data-driven PAC failure taxonomy; taxonomy-guided intervention (N=200) improves success to 70.5%"
+      ],
+      "evidenceMaturity": "substantial",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "僅讀摘要,未核對正文任務設計與統計檢定（effort budget）；僅測試 GPT-4o 單一模型",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "多 Agent 協作失敗分類（感知/適應/協調三大類)具體且可信,但僅測單一模型（GPT-4o)、偏認知心理學拼圖任務,今日工程決策連結不如入選三篇直接"
+    },
+    {
+      "arxivId": "2611.12304",
+      "title": "Evolving Infra: Agent-Adaptive LLM Serving at Scale",
+      "source": [
+        "layerB-HF-daily"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract: coding/math/computer-use tasks on GLM-5.2 and Kimi K2.6 across up to 256 GB300 GPUs, reduces latency and P95 TTFT by up to 4.1x/14x vs NVIDIA Dynamo; MIT HAN Lab + Ion Stoica/Song Han co-authorship; GitHub repo, 9 HF upvotes at time of check"
+      ],
+      "evidenceMaturity": "substantial",
+      "reproducibility": "partial-artifacts",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "僅讀摘要,未核對正文（effort budget）",
+      "relevance": "indirect",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "這是 LLM 推理基礎設施（PD 分離/KV cache 管理)的系統論文,服務對象是維運 Agent 工作負載的基礎設施團隊,而非 Agent 本身的架構/行為/安全決策,與今日聚類主題不同軸"
+    },
+    {
+      "arxivId": "2611.05862",
+      "title": "CARTBench: Rubric-Based Evaluation of Shopping Advice for Complex and Ambiguous Requests with Timelines",
+      "source": [
+        "layerB-HF-daily"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "Abstract: 1,603 product records across 17 retail domains, 1,328 expert-annotated criteria, 3/10 models exceed 90% on Core criteria but none exceeds 45% on Excellence"
+      ],
+      "evidenceMaturity": "preliminary",
+      "reproducibility": "partial-artifacts",
+      "editorialConfidence": "medium",
+      "primaryLimitation": "電商購物助理垂直場景,僅讀摘要（effort budget）",
+      "relevance": "indirect",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "購物助理對話評測屬零售垂直應用,與今日「架構成本/長程錯誤/合規」主題不構成同一聚類"
+    },
+    {
+      "arxivId": "2611.13766",
+      "title": "FAME-QP: A GPU-Accelerated Quadratic-Programming Solver for Real-Time Model Predictive Control",
+      "source": [
+        "layerB-HF-daily"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "evidenceMaturity": "not-assessed",
+      "reproducibility": "not-assessed",
+      "editorialConfidence": "not-assessed",
+      "relevance": "not-assessed",
+      "novelty": "not-assessed",
+      "todayImportance": "low",
+      "practicalLink": "none",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "機器人控制用的 QP 求解器,與 LLM Agent 無關"
+    },
+    {
+      "arxivId": "2611.12935",
+      "title": "Train on prefill, monitor at decode: Using sparse autoencoders for topic monitoring",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.12936",
+      "title": "LandslideFM: A Foundation Model Towards Unified Landslide Perception and Understanding",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "領域專用預測模型，非 Agent 相關研究"
+    },
+    {
+      "arxivId": "2611.12937",
+      "title": "Tracing Psychometric Inference in Large Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.12938",
+      "title": "Graph Visualizations in Prompts for Knowledge Graph Question Answering",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.12940",
+      "title": "Reinforcement Learning based control of Cancer Chemotherapy treatments",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "醫療垂直領域的模型評測，未涉及通用 Agent 架構或安全議題"
+    },
+    {
+      "arxivId": "2611.12941",
+      "title": "AI Governance Should Prioritize Control and Knowledge Boundaries Over Limiting Intelligence",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.12942",
+      "title": "Tabular Foundation Models vs Tuned Gradient Boosting for Telecom Churn: A Profit- and Calibration-Aware Evaluation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "領域專用預測模型，非 Agent 相關研究"
+    },
+    {
+      "arxivId": "2611.12950",
+      "title": "SetPrint: Black-Box LLM Fingerprinting via Setwise Correspondence of Response Changes",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.12954",
+      "title": "Physics2Weight: Direct Neural Network Architecture and Weight Generation from Physical Laws Using Large Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.12959",
+      "title": "Monitoring One Channel Is Not Communication Control: Causal Evidence for Adaptive Reallocation of Joint Message--Route Codes",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.12960",
+      "title": "IIT Patna at \"ICPR 2026 TVRID Competition on Privacy-Preserving Person Re-Identification from Top-View RGB-Depth Camera\"",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "電腦視覺/機器人感知任務，非 Agent 架構研究"
+    },
+    {
+      "arxivId": "2611.12961",
+      "title": "RBLA+: Efficient Rank-Specific LoRA Adapter Extraction for Federated Fine-Tuning with Heterogeneous Clients",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.12970",
+      "title": "TrustMod-SM: A Multi-Axis Benchmark for Evaluating Trustworthiness of LLMs in Social Media Content Moderation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.12992",
+      "title": "ZeroPoint: Lightweight Energy-Based Decision Model",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13017",
+      "title": "Multi-Future Drafting: Mixture Block Drafters for Tree-Verified Speculative Decoding",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.13022",
+      "title": "Understanding-First AI Engineering: Purposes, Reference Architecture, and Architectural Patterns for Human Understanding",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13024",
+      "title": "GRAP: Gender Rubric-Aware Probing for Analyzing Gender Bias in LLMs",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "社會語言學/偏見量測研究，與 Agent 架構或安全決策無直接關係"
+    },
+    {
+      "arxivId": "2611.13030",
+      "title": "APS-VLA: Action-Guided and Future-Aware Token Pruning for Efficient Vision-Language-Action Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.13042",
+      "title": "Trust, but verify, audit and attribute: a human-in-the-loop framework for checking AI-produced research results",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13062",
+      "title": "Elicitation of the parameters of a multi-criteria sorting model",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "決策理論/可解釋性基礎研究，與今日入選的 Agent 工程議題不直接相關"
+    },
+    {
+      "arxivId": "2611.13113",
+      "title": "Building World Models from Intrinsic Motivation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13140",
+      "title": "Agreeing on the Answer but Not the Reason: Measurement Limits of LLM Reasoning Failure Taxonomies",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.13167",
+      "title": "AI Alignment Is Neither Solvable nor Sufficient",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13215",
+      "title": "Counting Under Disagreement: Dollar-Weighted Measurement, Selective Machine Labelling and Budgeted Human Review from Disagreeing AI Readers of Administrative Text",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13232",
+      "title": "W-ISA: Transactional Execution of Weight-Space Intervention Programs",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13233",
+      "title": "Decisions by Discrimination: Differential Evidence for Medical Reasoning",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "醫療垂直領域的模型評測，未涉及通用 Agent 架構或安全議題"
+    },
+    {
+      "arxivId": "2611.13236",
+      "title": "NCP: Verifier-Guided Optimization of Weight-Space Control Policies",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13325",
+      "title": "F3-AGI v4.0: Bioenergetically-Gated Active Inference, Metaplastic Preconditioning, and Residual Program Synthesis for Sample-Efficient Abstract Reasoning",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13334",
+      "title": "Disentangling Multimodal Rotary Positional Embedding in Vision-Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.13352",
+      "title": "Multi-Stage Phase-Aware Self-Supervised Reconstruction for Multi-Echo Gradient-Echo MRI",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "醫療垂直領域的模型評測，未涉及通用 Agent 架構或安全議題"
+    },
+    {
+      "arxivId": "2611.13361",
+      "title": "A Technique to Model Product Information and User Reviews (MPIUR)",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "機器人控制/隊形理論研究，屬機器人控制而非 LLM Agent 編排"
+    },
+    {
+      "arxivId": "2611.13388",
+      "title": "Online-Adaptive Fuzzy Cognitive Maps for Neuro-symbolic Financial Forecasting",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "領域專用預測模型，非 Agent 相關研究"
+    },
+    {
+      "arxivId": "2611.13402",
+      "title": "Living constitutions: Participatory alignment for sovereign foundation models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.12900",
+      "title": "From Relevant Posts to Attributable Spans: Explicit Symptom Evidence for Depression Questionnaire Inference",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "醫療垂直領域的模型評測，未涉及通用 Agent 架構或安全議題"
+    },
+    {
+      "arxivId": "2611.12901",
+      "title": "Rethinking in Spikes: Mitigating Hallucinations in MDLMs with Step-Aware Decoding",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.12902",
+      "title": "TimeOmni-o1: Bidirectionally Coupling Time Series Foundation Models and LLMs for Multimodal Reasoning and Forecasting",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "領域專用預測模型，非 Agent 相關研究"
+    },
+    {
+      "arxivId": "2611.12903",
+      "title": "SELD: Detecting Silent Evidence Loss in Context Compression beyond the Answer",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.12904",
+      "title": "Actionable Feedback: Improving Model Capabilities from User Edit Data on Clinical Documentation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "醫療垂直領域的模型評測，未涉及通用 Agent 架構或安全議題"
+    },
+    {
+      "arxivId": "2611.12906",
+      "title": "Brasilidade: Measuring Brazilian Identity for Large Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.12918",
+      "title": "IntentTwin: Deconfounding Candidate Support and the Oracle-to-Deployment Gap in Offline Web Behavior Prediction",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.12995",
+      "title": "Capacity Allocation at the Source: Sparse Target Optimization for LLM Knowledge Editing",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13012",
+      "title": "khammoon: From a Linguistic Guideline to a Thai Morpheme Segmenter",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "字詞切分/tokenizer 效率研究，與 Agent 架構、記憶或安全無直接關係"
+    },
+    {
+      "arxivId": "2611.13058",
+      "title": "The Indic Token Tax in 2026: Measuring Tokenizer. Disparity and Its Cost for the Languages of India",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "字詞切分/tokenizer 效率研究，與 Agent 架構、記憶或安全無直接關係"
+    },
+    {
+      "arxivId": "2611.13059",
+      "title": "A Multi-Word Tokenizer for 204 Languages That Needs Fewer Tokens Than GPT-4o's, Including on English",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "字詞切分/tokenizer 效率研究，與 Agent 架構、記憶或安全無直接關係"
+    },
+    {
+      "arxivId": "2611.13107",
+      "title": "Catch It Where It Happens: Real Time Error Correction During LLM Reasoning",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13207",
+      "title": "HiCAP: Hierarchical Cultural Adaptation via Personality for Dialogue Generation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13223",
+      "title": "Deletion Sensitivity Is a Property of the Model: A Three-Condition Measurement across Seven Open Reasoning Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "決策理論/可解釋性基礎研究，與今日入選的 Agent 工程議題不直接相關"
+    },
+    {
+      "arxivId": "2611.13270",
+      "title": "What drives the emergence of symbolic mechanisms in large language models?",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.13339",
+      "title": "Measuring Definition Sensitivity in LLM Annotation of Social Science Concepts",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "決策理論/可解釋性基礎研究，與今日入選的 Agent 工程議題不直接相關"
+    },
+    {
+      "arxivId": "2611.13358",
+      "title": "Understanding Students' Rationales for AI-Mediated Cheating: An Instructor Perspective from Online Forums Analysis",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "社會語言學/偏見量測研究，與 Agent 架構或安全決策無直接關係"
+    },
+    {
+      "arxivId": "2611.13366",
+      "title": "Mapping Instructors' Attitudes Towards Cheating with AI: An Exploratory Analysis Using Forum Analysis",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "社會語言學/偏見量測研究，與 Agent 架構或安全決策無直接關係"
+    },
+    {
+      "arxivId": "2611.13441",
+      "title": "Inherited Weights: Measuring the Tokenization Premium and the Sovereignty Cost of Language Models for the Global South",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "字詞切分/tokenizer 效率研究，與 Agent 架構、記憶或安全無直接關係"
+    },
+    {
+      "arxivId": "2611.13509",
+      "title": "Mobile AI Factory: Building Specialized Language Models for Your Mobile Device",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13531",
+      "title": "Framing-Induced Vulnerability in Large Language Models: Evidence from Chinese News Headlines",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "社會語言學/偏見量測研究，與 Agent 架構或安全決策無直接關係"
+    },
+    {
+      "arxivId": "2611.13552",
+      "title": "How Post-Training Influences Verbalized Algorithmic Computation in Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13560",
+      "title": "Are Dense Rewards Worth Their Tokens in GRPO?",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.13562",
+      "title": "An evidence-traceable benchmark of clinical reasoning in large language models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "醫療垂直領域的模型評測，未涉及通用 Agent 架構或安全議題"
+    },
+    {
+      "arxivId": "2611.13564",
+      "title": "A Concept-Based Interpretable Framework for Clinical Text-based Prediction via Token-Concept Attention without Concept Supervision",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "醫療垂直領域的模型評測，未涉及通用 Agent 架構或安全議題"
+    },
+    {
+      "arxivId": "2611.13595",
+      "title": "IFRS Compliance Verification: An Open Multi-LLM Benchmark and Content-Conditioned Ensemble Classifier",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13597",
+      "title": "Compute the Interactions, Not the Attributes: What a Fact Layer Must Supply in the Chinese Sexagenary System",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "決策理論/可解釋性基礎研究，與今日入選的 Agent 工程議題不直接相關"
+    },
+    {
+      "arxivId": "2611.13607",
+      "title": "One Byte, One Token: Byteifying a 27B Hybrid-Attention LLM with Self-Generated Data",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "字詞切分/tokenizer 效率研究，與 Agent 架構、記憶或安全無直接關係"
+    },
+    {
+      "arxivId": "2611.13609",
+      "title": "Post-OCR Correction of Mixed-Script Uzbek Text: Byte-Level ByT5 with an Empirical Homoglyph Noise Matrix",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "字詞切分/tokenizer 效率研究，與 Agent 架構、記憶或安全無直接關係"
+    },
+    {
+      "arxivId": "2611.13636",
+      "title": "An Interpretable Stylometric Framework for Early Chinese Buddhist Translator Styles: A Case Study on the Attribution of Disputed Works of An Shigao",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "社會語言學/偏見量測研究，與 Agent 架構或安全決策無直接關係"
+    },
+    {
+      "arxivId": "2611.13675",
+      "title": "OpticalRAG: Pixel-Space Compression for Token-Efficient Retrieval-Augmented Generation",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13686",
+      "title": "You Are What You Read: Indian Political News Media Bias Dataset for Hindi Language",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "社會語言學/偏見量測研究，與 Agent 架構或安全決策無直接關係"
+    },
+    {
+      "arxivId": "2611.13744",
+      "title": "Do Language Models Feel the Sentiment? Investigating Emotion Vectors",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13752",
+      "title": "Word-Level Alignment of OCR and Ground Truth under Zoning and Reading-Order Errors",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "語音/OCR 訊號處理研究，不涉及 Agent 決策或編排"
+    },
+    {
+      "arxivId": "2611.13788",
+      "title": "LLM Validation Makes Minimal-Pair Benchmarks Easier for Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13811",
+      "title": "Antalia-2 Mini: A 7.6-million-parameter Turkish text-to-speech model trained entirely on synthetic speech",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "語音/OCR 訊號處理研究，不涉及 Agent 決策或編排"
+    },
+    {
+      "arxivId": "2611.13843",
+      "title": "PolyRoute: A Twelve-Language and Code-Mixed Benchmark for Typed-Decision Routing, with Baselines and a Leaderboard",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13845",
+      "title": "Alania-2: Turkish text-to-speech with instant and fine-tuned voice cloning",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "語音/OCR 訊號處理研究，不涉及 Agent 決策或編排"
+    },
+    {
+      "arxivId": "2611.13855",
+      "title": "Beyond Passive Imitation: On-Policy Mid-Training Distillation for Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.13894",
+      "title": "Beyond Fluent Responses: Finding User Dissatisfaction in Human-AI Interactions",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.13957",
+      "title": "AVCC: Audio-Visual Conversation Corpus for Turn-Taking Prediction with a Human Benchmark",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "語音/OCR 訊號處理研究，不涉及 Agent 決策或編排"
+    },
+    {
+      "arxivId": "2611.13990",
+      "title": "On the information rate of phones, syllables and words",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "語音/OCR 訊號處理研究，不涉及 Agent 決策或編排"
+    },
+    {
+      "arxivId": "2611.14010",
+      "title": "One Sequence Is Enough: Fingerprinting Language Models from Fixed-Length Integer Sequences",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.14019",
+      "title": "Program-Aided Patchable Skill Evolution",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.14036",
+      "title": "MISO-BR: An Open Corpus for Misogyny Detection in Brazilian Portuguese",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "社會語言學/偏見量測研究，與 Agent 架構或安全決策無直接關係"
+    },
+    {
+      "arxivId": "2611.14059",
+      "title": "HandsOnAid: Building and Evaluating an Offline First-Aid Assistant for Emergency Response Scenarios",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.14079",
+      "title": "From Bias to Positionality: A critical grammar for Large Language Models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "社會語言學/偏見量測研究，與 Agent 架構或安全決策無直接關係"
+    },
+    {
+      "arxivId": "2611.14100",
+      "title": "Sckwoky at SHROOM-Visions: Character-Level Hallucination-Span Detection in Image-Conditioned VLMs via Dual-Prompted LoRA Decoders",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.14116",
+      "title": "Visual Similarity in Adult Word Extension and Artificial Word Learning",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "初篩排除：主題偏向一般 NLP/ML/領域應用研究，未直接涉及 Agent 架構、編排、記憶或安全"
+    },
+    {
+      "arxivId": "2611.14168",
+      "title": "Representational Atoms in Neural Networks",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.14221",
+      "title": "Stagewise and interpretable emergence of inside-outside computation in Transformer-based language models",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "模型訓練/推理最佳化技術研究，非 Agent 架構或行為研究"
+    },
+    {
+      "arxivId": "2611.14236",
+      "title": "StaRSE: Compact Russian Sentence Embeddings with a Sign-Coded Static Encoder",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "reject",
+      "credibility": "not-assessed",
+      "decision": "rejected",
+      "rejectionCategory": "off-topic",
+      "reason": "字詞切分/tokenizer 效率研究，與 Agent 架構、記憶或安全無直接關係"
+    }
+  ]
+}
