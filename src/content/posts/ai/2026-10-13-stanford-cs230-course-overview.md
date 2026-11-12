@@ -156,11 +156,12 @@ AI 工具分兩種情況寫。作業可以把生成式 AI 當協作者，但不�
 - [Stanford CS230 Autumn 2025 YouTube 播放清單（Stanford Online）](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
 - [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
 
-查核日期：2026-10-13。
+查核日期：2026-11-12。
 
 ## 更新紀錄
 
 - 2026-10-13：新增課程總覽，作為系列入口。
+- 2026-11-12：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

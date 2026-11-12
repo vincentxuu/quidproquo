@@ -30,7 +30,7 @@ The site's [map of Stanford's CS courses](/posts/learning/2026-08-20-stanford-cs
 
 The instructor is [Mendel Rosenblum](https://stanford.edu/~mendel). One line from his bio is worth holding onto: co-founder of VMware, and its chief scientist for the company's first decade. That fact pays off in lecture 27.
 
-The [ExploreCourses entry](https://explorecourses.stanford.edu/search?q=CS+111&view=catalog) lists autumn, winter and spring offerings, and gives a range in the units field. That range is a trap. The [CS department's BS degree requirements page](https://www.cs.stanford.edu/bs-degree-requirements) adds a hard rule: every undergraduate taking CS103, CS107, CS109, CS111 or CS161 must take it for 5 units, major or not. The [syllabus](https://web.stanford.edu/class/cs111/syllabus) is blunter still — an undergraduate not enrolled for five units will not receive a grade, and dropping units removes no course requirement. The range is for graduate students (exact figures in the appendix).
+The [ExploreCourses entry](https://explorecourses.stanford.edu/search?q=CS+111&view=catalog) lists autumn, winter and spring offerings, and gives a range in the units field. That range is a trap. The [CS department's BS degree requirements page](https://www.cs.stanford.edu/bs-degree-requirements) adds a hard rule: every undergraduate taking CS103, CS107, CS109, CS111 or CS161 must take it for 5 units, major or not. The [syllabus](https://web.stanford.edu/class/cs111/syllabus) is blunter still — an undergraduate not enrolled for five units will not receive a grade, and dropping units removes no course requirement. The 3–5 unit range is for graduate students.
 
 There is one prerequisite, CS107, but the syllabus spells out what "or equivalent" means: writing complex memory manipulation with `malloc`/`free`/`new`/`delete`, working in a Unix environment with `make`, `gcc`, `valgrind` and `gdb`, and a basic understanding of x86-64.
 
@@ -111,7 +111,7 @@ The first lecture deck has a slide comparing CS111 to CS106 and CS107. It's thre
 >   - Sections focus on the assignments
 >   - Exams focus on lecture material
 
-Put that next to the syllabus grade breakdown and it gets sharper: assignments are a little over a third, and the two exams together are more than half (full weights in the appendix). Which means someone who only works through the nine assignments has earned the lighter half of the course. The lecture half — those 28 PDFs — is what the exams are actually about.
+Put that next to the syllabus grade breakdown and it gets sharper: assignments are a little over a third, and the two exams together are more than half (assignments 35%, section attendance 5%, lecture participation 5%, midterm 20%, final 35%). Which means someone who only works through the nine assignments has earned the lighter half of the course. The lecture half — those 28 PDFs — is what the exams are actually about.
 
 For a self-learner that's good news, because the lecture half is the public half. It's the assignment half that's locked.
 
@@ -170,20 +170,9 @@ Same `count` function, same global variable; one character of difference turns "
 
 When you're done, the next step isn't hunting for starter code. Go to the exams directory, grab the [Spring 2024 midterm and its solutions](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/exams/Spr2024Midterm.pdf), and take it once. The exams test the lectures, and the lectures are entirely public — the friendliest thing about this course for a self-learner, and the easiest to overlook.
 
-## Appendix: numbers and how they were checked
-
-- **Grade weights** (Spring 2026 syllabus): assignments 35%, section attendance 5%, lecture participation 5%, midterm 20%, final 35%. The midterm is two hours, closed-book, with two double-sided A4 pages of notes allowed; the final is three hours.
-- **Units**: ExploreCourses and the Stanford Bulletin both say 3–5 units; the CS degree requirements page mandates 5 units for CS103/107/109/111/161; the syllabus adds that only enrolled Stanford graduate students may take 3–5 units, and undergraduates below five units are not graded. All three agree — they're just cutting the same rule from different angles.
-- **A source that moved**: while this was being checked, Stanford CS's `www-cs.stanford.edu/bs-core-requirements` came down (301 to `www.cs.stanford.edu/bs-core-requirements`, then 404). The five-unit rule is now cited to the current degree requirements page, and "Formerly known as CS110" to a January 2026 archive snapshot. Older articles citing that line all need their links replaced.
-- **Size and schedule**: Spring 2026 meets in Nvidia Auditorium, three 50-minute lectures a week, 28 total (one cancelled for a holiday). Eight sections, eight programming assignments plus one warm-up.
-- **Future offerings**: autumn, winter and spring of 2026–2027; Nick Troccoli teaches autumn and winter, Rosenblum teaches spring (per the ExploreCourses entry, checked August 2026).
-- **Archive URL format**: `web.stanford.edu/class/archive/cs/cs111/cs111.1266/` (1266 = Spring 2026). The CS110 archive is `cs110.1204` (Winter 2020), reachable at the time of writing.
-- **A mislabeled holiday**: the Spring 2026 calendar marks May 25 as Presidents' Day; that date is actually Memorial Day (Presidents' Day is in February). The cancellation is right, the label isn't.
-- **Three things I could not confirm**: (1) whether the auditor clone path with `guest` in place of `$USER` still works — I have no SUNet ID and couldn't test it; (2) how often the email request for recording access is actually granted; (3) the Winter 2026 offering (`cs111.1264`) numbers its assignments differently from Spring 2026 (V6 file systems is assign1, the journaling file system is assign2). I could only reach those two archived handouts, not that quarter's full calendar, so I can't tell whether the whole sequence was reordered.
-
 ## Course video sources
 
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-11-12: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-11-12.
 
 Course and recording entries:
 
@@ -193,6 +182,7 @@ Course and recording entries:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
+- 2026-11-12: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

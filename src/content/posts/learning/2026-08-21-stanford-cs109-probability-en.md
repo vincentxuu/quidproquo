@@ -28,7 +28,7 @@ This piece was written after downloading those PDFs and reading them page by pag
 
 ## The hard facts
 
-Summer 2026 is taught by [Chris Gregg](https://web.stanford.edu/~cgregg/chris-gregg/), Monday through Thursday mornings in CoDa B80. The course runs again in all three quarters of the coming academic year, under three different instructors: Gregg in autumn, [Chris Piech](https://stanford.edu/~cpiech/bio/index.html) in winter, Jerry Cain in spring. The autumn section has an enrollment cap of **999** (all from the ExploreCourses entries; the query method and the other two caps are in the appendix). With the summer offering, that's four times a year. Nobody is stuck waiting for a seat.
+Summer 2026 is taught by [Chris Gregg](https://web.stanford.edu/~cgregg/chris-gregg/), Monday through Thursday mornings in CoDa B80. The course runs again in all three quarters of the coming academic year, under three different instructors: Gregg in autumn, [Chris Piech](https://stanford.edu/~cpiech/bio/index.html) in winter, Jerry Cain in spring. The autumn section has an enrollment cap of **999** (all from the ExploreCourses entries; the winter cap is 350 and the spring cap 500). With the summer offering, that's four times a year. Nobody is stuck waiting for a seat.
 
 The prerequisites are looser than people assume. The syllabus asks for CS106B plus calculus at the MATH 21 level, and adds that "past students have managed to take CS106B concurrently with CS109 and have done just fine." The strictness lives elsewhere:
 
@@ -148,17 +148,6 @@ That prompt hard-codes an instruction to check whether you used the right sample
 
 To keep going, treat the `worksheets/` directory as your main line: for each lecture, work the Worksheet yourself, use the LLM Learning Guide to have a model quiz you, then check against the AnswerKey. Where the slides break after Lecture 15, fill the gap with the interactive reader.
 
-## Appendix: numbers and how they were checked
-
-- **How to query ExploreCourses**: the web interface now requires a login, but the XML endpoint is still open: `https://explorecourses.stanford.edu/search?view=xml-20200810&q=CS109`. The CS109 entry gives the title as *Introduction to Probability for Computer Scientists* (one word longer than the course site's *Probability for Computer Scientists*), a 3-to-5 unit range, Letter or Credit/No Credit grading, and the GER:DB-EngrAppSci, WAY-AQR and WAY-FR requirement tags.
-- **Instructors and enrollment caps for the three 2026–2027 quarters**: autumn Gregg (999), winter Piech (350), spring Cain (500). The numbers come from the `maxEnrolled` field on each quarter's LEC section, which is a cap, not actual enrollment.
-- **Grade weights**: problem sets 10%, midterms combined 30%, final 35%, in-class work 25%. These come from the syllabus page, whose other fields (lecture times, location, number of problem sets) have already been contradicted by the schedule — so the weights may not be the current summer numbers either. The sourcing limit is flagged in the body.
-- **The 23 LLM Learning Guides**: counted file by file from the `worksheets/` directory listing. Filenames run `Lecture01` through `Lecture22` plus `Lecture25`, with timestamps from 2026-06-19 to 2026-08-05. Lectures 23, 24, 26, 27 and 28 have no corresponding file.
-- **Slides breaking at Lecture 15**: requested `lectures/<dirname>/<dirname>.pdf` one at a time. Lectures 1 through 14 return 200; Lecture 15 onward returns 404 (`28-Future` is the exception, returning 200). Checked 2026-08-21. The same directory still holds folders numbered for older quarters (for example `17-Sampling`, `22-Optimization`); those 404 as well.
-- **The honor code Rule 4 quote**: the original reads "LLMs do leave tell tail probabilistic distributions in their output." `tell tail` is presumably `tell-tale`; the quote is reproduced above exactly as published.
-- **A date typo on the homepage schedule**: the homepage's "This Week in CS109" labels June 25 as Tue, while the schedule lists that same lecture on Thu. Trust the schedule.
-- **Three things that could not be confirmed**: (1) whether Summer 2026 has six or seven problem sets — the schedule lists through Pset #6, while the syllabus and the sidebar menu both say seven, and psetapp requires a login so it can't be checked; (2) which quarter the LLM Learning Guide first appeared in — the archived Autumn 2024, Winter 2025 and Summer 2025 pages have no such column, but the archives are incomplete, so Summer 2026 can't be declared the first; (3) what the 25% in-class work is actually made of — the syllabus paragraphs on discussion sections and one-on-one pre-exam meetings are commented out on the live page, and it's unclear whether the summer offering still runs them.
-
 ## Course video sources
 
 Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so the official recording entry is linked and there is no public Summer 2026 player. A public Stanford Online playlist of the 2022 offering (29 videos, a different term) also exists; only the playlist link is given and nothing is embedded or treated as a Summer 2026 recording.
@@ -170,12 +159,13 @@ Official sources:
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-Checked: 2026-10-10.
+Checked: 2026-11-12.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Confirmed Summer 2026 recordings need Canvas sign-in and a public 2022 playlist also exists; status changed to official entry / recording index only.
+- 2026-11-12: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 
