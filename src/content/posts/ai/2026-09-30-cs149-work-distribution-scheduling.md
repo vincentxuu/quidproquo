@@ -197,11 +197,9 @@ Cilk 用的是 **greedy join scheduling**：
 
 **怎麼做**：打開投影片第 16 頁「Choosing task size」，拿你手邊任何一段 `parallel for` 或 thread pool 程式，寫下兩個數字：單一任務大概跑多久、領一次任務大概花多久。兩者差距不到兩個數量級的話，先試著把 granularity 放大。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：L5 投影片 PDF 的內容與課程首頁的講次日期。不能確認：Fall 2025 課堂上的口頭補充（錄影不公開），以及 2023 年錄影與 2025 投影片的逐頁差異。本文沒有依影片內容寫作。
-
-延伸閱讀：OS 層級的 CPU 排程不在本講範圍，可以讀 [CS111 Lecture 8：CPU scheduling](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling)。
+OS 層級的 CPU 排程不在本講範圍，可以讀 [CS111 Lecture 8：CPU scheduling](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling)。
 
 系列導覽：上一篇 [L4 平行化的思考流程](/posts/ai/2026-09-30-cs149-parallelizing-thought-process)｜下一篇 [L6 Locality、通訊與 arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
 

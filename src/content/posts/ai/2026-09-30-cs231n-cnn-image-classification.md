@@ -171,13 +171,9 @@ Conv(Translate(X)) = Translate(Conv(X))
 
 最後一頁預告下一講：CNN 架構。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：2026 課表的主題與閱讀、2026 投影片內容、官方筆記裡的參數共享例子、2025 年 L5 錄影的存在與講者（依 2025 課表）。
-
-不能確認：2026 年這一講實際由誰主講（2026 課表的講者欄被註解掉，沒有顯示）、2026 課堂錄影的內容（只在 Canvas）。2025 錄影是另一個學期的講課，投影片細節可能不同，例如 2025 版多了 Bag of Words。
-
-延伸閱讀：站上 [CMU 11-785 的 CNN 第一講](/posts/ai/2026-08-22-cmu-11785-09-cnn-one)從掃描式 MLP 推導卷積，是另一條進路；[CMU 07-280 第 14 講](/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns)是更入門的電腦視覺與 CNN 介紹。
+站上 [CMU 11-785 的 CNN 第一講](/posts/ai/2026-08-22-cmu-11785-09-cnn-one)從掃描式 MLP 推導卷積，是另一條進路；[CMU 07-280 第 14 講](/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns)是更入門的電腦視覺與 CNN 介紹。
 
 系列導覽：上一篇 [A1 導讀：kNN、Softmax、兩層網路與全連接網路](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet)｜下一篇 [L6：訓練 CNN 與經典架構](/posts/ai/2026-09-30-cs231n-training-cnns-architectures)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
 

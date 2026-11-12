@@ -187,11 +187,9 @@ UTD（update-to-data ratio）是每走一步環境，做幾次 critic 梯度更�
 2. Problem 2、3 先在本機讀懂 `PPOAgent` 和 `ACAgent`，把 `YOUR CODE HERE` 填完，再決定要不要花錢跑 Modal。起始碼附的 `tests/test_on_policy.py` 可以先檢查 Problem 2 的程式。
 3. 預算有限時，先跑 Problem 3 的基本設定：它的門檻是 10 萬步，比 PPO 的 100 萬步少一個數量級（實際耗時本文沒有實測）。題目說 UTD=5 那組 5 萬步約 2 小時，最後再跑。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：題目 PDF 的全部文字、起始碼的檔案清單與設定檔、算力指南、課表上的日期與配分。不能確認：官方解答與評分細則、實際跑完的成功率曲線（本文沒有執行作業）、Modal 跑完整份作業的實際費用。題目 Problem 1 的「40 × 4 = 160」和 Problem 3 的「Problem 1 的參考 policy」看起來是筆誤，本文照原文列出並註明。
-
-延伸閱讀：[Berkeley CS285 的作業與專題路線](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route)也有 PPO 和 off-policy 的實作作業，可以當作第二套練習。
+[Berkeley CS285 的作業與專題路線](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route)也有 PPO 和 off-policy 的實作作業，可以當作第二套練習。
 
 系列導覽：上一篇 [L6 Q-learning 與它的穩定化](/posts/ai/2026-09-30-cs224r-q-learning)｜下一篇 [L7 Offline RL](/posts/ai/2026-09-30-cs224r-offline-rl)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
 

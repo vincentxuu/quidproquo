@@ -187,11 +187,9 @@ Full performance credit requires being within 20% of the reference for Part A an
 - **Hidden correctness tests**: correctness is checked against workloads you don't have, so outside Stanford you can't know whether you'd pass them all.
 - **No solutions**: Gradescope submission and grading are for enrolled students only.
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the contents of the asst2 README, `tests/README.md`, and `cloud_readme.md` (the repo was last updated 2025-10-15, consistent with the 2025-10-16 due date), plus the assignment title and date on the course homepage. Not confirmed: the hidden correctness tests, the reference implementation's internal design, and clarifications posted on Ed.
-
-Further reading: for an operating-systems view of condition variables and locks, see [CS111 Lecture 5: locks and condition variables](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables-en).
+For an operating-systems view of condition variables and locks, see [CS111 Lecture 5: locks and condition variables](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables-en).
 
 Series navigation: previous, [Lecture 6: locality, communication, and arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication-en) | next, [Lecture 7: GPU architecture and CUDA](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 

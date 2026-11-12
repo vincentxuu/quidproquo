@@ -55,13 +55,6 @@ The final page reduces the design space to performance, durability, and consiste
 
 To test your understanding, close the slides and model one “allocate a new block to a file” operation. List every write to the free map, inode, data block, and log; insert a power failure between every pair; then classify the restart outcome as data loss, leaked space, inconsistent metadata, or complete replay. If you cannot identify which write must become durable first, you have not fully understood the “ahead” in write-ahead logging.
 
-## Page-by-page coverage checklist
-
-- Pages 1–15: owned by Lecture 23—the crash model, `fsck`, ordered writes, and the WAL entry point.
-- Pages 16–18: logical and physical entries, idempotence, consistent groups, and Assignment 8 transactions.
-- Pages 19–22: checkpoints, metadata-only logging, benefits and costs, delayed log writes, `fsync`, and device failure.
-- Page 23: trade-offs among performance, durability, consistency, and the failures a design can recover from.
-
 ## Course video sources
 
 This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-11-09: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-11-09.

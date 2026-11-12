@@ -215,13 +215,9 @@ Page 96 cites Bergstra and Bengio (2012): **random search beats grid search.** W
 
 **What to do**: before your next training run, do steps 1 and 2. If the initial loss doesn't match its expected value, or you can't overfit a tiny batch, every later tuning step is wasted.
 
-## What this post can and can't confirm
+## Further reading
 
-Confirmed: the 2026 schedule's topics and paper list, the content and title of the 2026 slides, the official notes' AlexNet/GoogLeNet/VGG/ResNet case studies and BatchNorm paragraph, and the existence and lecturer of the 2025 L6 recording (per the 2025 schedule).
-
-Not confirmed: who taught this lecture in 2026 (the lecturer column on the 2026 schedule is commented out), and whether BatchNorm was covered verbally in the 2026 class. The 2025 and 2026 decks have nearly identical sections, but I did not check the 2025 recording's narration section by section.
-
-Further reading on this site: the [CMU 11-785 CNN lectures](/posts/ai/2026-08-22-cmu-11785-10-cnn-two-en) derive CNN training and architecture a different way.
+The [CMU 11-785 CNN lectures](/posts/ai/2026-08-22-cmu-11785-10-cnn-two-en) derive CNN training and architecture a different way.
 
 Series navigation: previous [L5: Image Classification with CNNs](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en) | next [L7: Recurrent Neural Networks and Image Captioning](/posts/ai/2026-09-30-cs231n-recurrent-neural-networks-en) | [series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
 

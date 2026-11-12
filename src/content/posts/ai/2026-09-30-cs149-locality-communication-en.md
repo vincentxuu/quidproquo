@@ -195,11 +195,9 @@ The bonus section at the end covers scaling pitfalls:
 
 The takeaway: evaluating a machine with a fixed problem size can mislead, and scaling the problem with the machine is often more realistic.
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the contents of the Lecture 6 slide PDF and the lecture date. The numbers here (435 GB/s, 1/3 and 3/5, 310 and 32K cells) all come from the slides. Not confirmed: anything said in the Fall 2025 classroom, and page-level differences between the 2023 recording and the 2025 slides. This post was not written from the video.
-
-Further reading: for cache and memory-hierarchy basics, start with [CS107 on caching and the memory hierarchy](/posts/learning/2026-08-22-stanford-cs107-caching-memory-hierarchy-en). For the same bandwidth-and-fusion thinking on GPUs, compare [CS336 on GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en).
+For cache and memory-hierarchy basics, start with [CS107 on caching and the memory hierarchy](/posts/learning/2026-08-22-stanford-cs107-caching-memory-hierarchy-en). For the same bandwidth-and-fusion thinking on GPUs, compare [CS336 on GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en).
 
 Series navigation: previous, [Lecture 5: work distribution and scheduling](/posts/ai/2026-09-30-cs149-work-distribution-scheduling-en) | next, [PA2: building a task execution library from scratch](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 

@@ -197,11 +197,9 @@ void fused(int n, float* A, float* B, float* C, float* D, float* E) {
 
 結論是：用固定的問題大小評估機器可能有問題，隨著機器變大一起放大問題規模往往更合理。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：L6 投影片 PDF 的內容與講次日期。本文的數字（435 GB/s、1/3 與 3/5、310 與 32K 格）都來自投影片。不能確認：Fall 2025 課堂上的口頭補充；2023 錄影與 2025 投影片的逐頁差異。本文沒有依影片內容寫作。
-
-延伸閱讀：cache 與記憶體階層的基礎可以先讀 [CS107 的 caching 與 memory hierarchy](/posts/learning/2026-08-22-stanford-cs107-caching-memory-hierarchy)。GPU 上的同一套頻寬與 fusion 思維，可以對照 [CS336 的 GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)。
+cache 與記憶體階層的基礎可以先讀 [CS107 的 caching 與 memory hierarchy](/posts/learning/2026-08-22-stanford-cs107-caching-memory-hierarchy)。GPU 上的同一套頻寬與 fusion 思維，可以對照 [CS336 的 GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)。
 
 系列導覽：上一篇 [L5 工作分配與排程](/posts/ai/2026-09-30-cs149-work-distribution-scheduling)｜下一篇 [PA2：從零打造 task execution library](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
 

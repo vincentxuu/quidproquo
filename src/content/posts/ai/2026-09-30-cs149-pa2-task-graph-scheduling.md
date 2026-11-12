@@ -188,11 +188,9 @@ python3 ../tests/run_test_harness.py
 - **沒公開的正確性測試**：官方會用一組沒給你的 workload 檢查正確性，校外無從得知自己是否全部通過。
 - **沒有解答**：Gradescope 繳交與評分只對修課學生開放。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：asst2 主 README、`tests/README.md`、`cloud_readme.md` 的內容（repo 最後更新於 2025-10-15，和截止日 2025-10-16 吻合），以及課程首頁的作業標題與日期。不能確認：隱藏的正確性測試內容、參考實作的內部設計、Ed 討論區上的補充說明。
-
-延伸閱讀：condition variable 與 lock 的作業系統觀點，可以讀 [CS111 Lecture 5：Locks 與 condition variables](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables)。
+condition variable 與 lock 的作業系統觀點，可以讀 [CS111 Lecture 5：Locks 與 condition variables](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables)。
 
 系列導覽：上一篇 [L6 Locality、通訊與 arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication)｜下一篇 [L7 GPU 架構與 CUDA](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
 

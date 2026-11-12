@@ -165,9 +165,9 @@ The slide says both roads **benefit from seeding with imitation or demonstration
 - **PPO for LLMs.** On this site, the [CS336 SFT and RLHF guide](/posts/ai/2026-08-22-cs336-sft-rlhf-en) and [CME295 RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms-en) cover the same clipped objective from the language-model side.
 - **Another course's take.** See the [Berkeley CS285 policy and value methods guide](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en). Several of CS224R's slides 16–23 are marked "Slide adapted from Sergey Levine," so the two courses present this part in much the same way.
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the text and equations on the 2026 slides, the schedule dates and reading list, and the titles and lengths of the 2025 videos. Not confirmed: anything said aloud in the 2026 lecture (recordings are Canvas-only), and the specifics of the video demos on slides 25–28 (the PDF has only stills and citations). The hyperparameters on slide 14 are the slide's examples, not HW2's settings. For HW2's actual settings, see the homework post.
+The hyperparameters on slide 14 are the slide's examples, not HW2's settings. For HW2's actual settings, see the homework post.
 
 Series navigation: previous [L4 Actor-Critic](/posts/ai/2026-09-30-cs224r-actor-critic-en) | next [L6 Q-learning and How to Stabilize It](/posts/ai/2026-09-30-cs224r-q-learning-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
 

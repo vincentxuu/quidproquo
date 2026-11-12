@@ -176,11 +176,9 @@ PDF 後面還有 12 道 PRACTICE PROBLEM，主題包括另一題 MSI 狀態表�
 
 **怎麼做**：先做 Problem 1 的 MSI 表格，錯了就回去看 L16 第 16 頁那張逐步示範的投影片；再做 Problem 4 的 A、B 小題，自己畫出兩條 thread 交錯時的指標狀態。Written 4 沒有公開解答，想確認答案，可以寫個小程式讓兩條 thread 大量交錯插入，檢查 `next` 與 `prev` 是否一致。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：L17、L18 投影片與 Written 4 PDF 的內容，課程首頁的講次日期與 Written 4 標示的日期。不能確認：Fall 2025 課堂上的口頭補充與 AMA 內容（錄影不公開）；投影片效能圖的具體數值（本文只引用投影片以文字寫出的數字）；Written 4 的解答與評分細節（未公開）。Written 4 的 MSI 狀態圖上印著「Stanford CS149, Fall 2020」，是沿用舊圖，本文不另作推論。
-
-延伸閱讀：OS 角度的鎖與 deadlock，見 [CS111 Lecture 7：Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock)。
+OS 角度的鎖與 deadlock，見 [CS111 Lecture 7：Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock)。
 
 系列導覽：上一篇 [L16 細粒度鎖與 lock-free](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free)｜本篇是系列最後一篇｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
 

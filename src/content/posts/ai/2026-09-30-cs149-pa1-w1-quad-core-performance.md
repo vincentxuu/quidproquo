@@ -150,11 +150,9 @@ Problem 3 就是上一篇洗衣服比喻的考題版，Problem 4 則是上一篇
 
 **怎麼用**：做 PA1 之前先寫 Problem 1、2，把「理想上限」算熟；做完 Program 2、4 再寫 Problem 5，對照你量到的 vector utilization。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：README 的題目、分數、評分機器規格與限制；Written 1 的題目與計分方式。不能確認：myth 機器上的參考數字、Gradescope 的評分細節、Ed 討論區的補充說明（校外不可見）、Written 1 的截止日（PDF 與課程首頁都沒寫）。本文沒有任何題目的解答。
-
-延伸閱讀：README 最後的「For the Curious」強烈推薦 Matt Pharr 的 [The Story of ISPC](https://pharr.org/matt/blog/2018/04/30/ispc-all)，它談到為什麼「編譯器不能自己平行化」這類常見問題。
+README 最後的「For the Curious」強烈推薦 Matt Pharr 的 [The Story of ISPC](https://pharr.org/matt/blog/2018/04/30/ispc-all)，它談到為什麼「編譯器不能自己平行化」這類常見問題。
 
 系列導覽：上一篇 [L3 延遲 vs 頻寬與 ISPC](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc)｜下一篇 [L4 平行化程式的思考流程](/posts/ai/2026-09-30-cs149-parallelizing-thought-process)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
 

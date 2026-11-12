@@ -239,9 +239,7 @@ flow matching 在 [HW1](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-
 - [Berkeley CS285 的 inference 與 offline RL 導讀](/posts/learning/2026-08-22-berkeley-cs285-inference-offline-rl)
 - [CS336 RLVR](/posts/ai/2026-08-22-cs336-rlvr)，LLM 那一側「SFT 之後再做 RL」的對照
 
-## 這一篇可以確認與不能確認的
-
-可以確認：2026 投影片的文字、演算法步驟、數字（80%、99%、2 倍、13 小時、65 episode／約 10k 步、O(100 倍)、19 分鐘／約 11k 步）與論文標註；課表的日期與「沒有指定閱讀」；2025 封存頁和播放清單都沒有對應講次。不能確認：這講的講者（投影片沒有寫名字，只說「my opinion」）；各圖表的具體數值、比較基準和實驗設定；πRL、RLT、Probe-Learn-Distill、EXPO-FT 的論文全文（我沒有找到或沒有開啟它們的原始頁面，只依投影片上的標註）。
+## 延伸閱讀
 
 系列導覽：上一篇 [L16 Sim-to-Real 機器人學習](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning)｜下一篇 [L18 前沿與研究方法](/posts/ai/2026-09-30-cs224r-frontiers-how-to-research)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
 

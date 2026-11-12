@@ -196,11 +196,9 @@ Cilk uses **greedy join scheduling**:
 
 **Try this**: open slide 16, "Choosing task size," take any `parallel for` or thread-pool code you have, and write down two numbers: roughly how long one task runs, and roughly how long one task grab takes. If they're less than two orders of magnitude apart, try a larger granularity first.
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the contents of the Lecture 5 slide PDF and the lecture date on the course homepage. Not confirmed: anything said in the Fall 2025 classroom (the recordings aren't public), and page-level differences between the 2023 recording and the 2025 slides. This post was not written from the video.
-
-Further reading: OS-level CPU scheduling is out of scope for this lecture; see [CS111 Lecture 8: CPU scheduling](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling-en).
+OS-level CPU scheduling is out of scope for this lecture; see [CS111 Lecture 8: CPU scheduling](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling-en).
 
 Series navigation: previous, [Lecture 4: the parallelization thought process](/posts/ai/2026-09-30-cs149-parallelizing-thought-process-en) | next, [Lecture 6: locality, communication, and arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 

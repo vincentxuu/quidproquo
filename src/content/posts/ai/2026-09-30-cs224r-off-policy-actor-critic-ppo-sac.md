@@ -166,9 +166,9 @@ n 步 advantage 與 GAE：
 - **PPO 在 LLM 上的用法**：站上 [CS336 的 SFT 與 RLHF 導讀](/posts/ai/2026-08-22-cs336-sft-rlhf)和 [CME295 的 RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms) 從語言模型的角度講同一套 clip 目標。
 - **對照另一門課**：[Berkeley CS285 的 policy 與 value 方法導讀](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)。CS224R 第 16–23 頁有幾頁註明「Slide adapted from Sergey Levine」，兩門課在這段的講法很接近。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：2026 投影片的文字與公式、課表日期與閱讀清單、2025 影片的標題與長度。不能確認：2026 課堂上的口頭補充（錄影只在 Canvas），以及投影片第 25–28 頁影片示範的具體內容（PDF 只有截圖和出處）。第 14 頁的超參數是投影片上的範例，不是 HW2 的設定；HW2 的實際設定見作業那篇。
+第 14 頁的超參數是投影片上的範例，不是 HW2 的設定；HW2 的實際設定見作業那篇。
 
 系列導覽：上一篇 [L4 Actor-Critic](/posts/ai/2026-09-30-cs224r-actor-critic)｜下一篇 [L6 Q-learning 與它的穩定化](/posts/ai/2026-09-30-cs224r-q-learning)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
 

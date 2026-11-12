@@ -153,15 +153,13 @@ README 把這個迴圈寫成四步：執行、量測、用對程式的理解加�
 
 **怎麼做**：挑一題，先不寫任何 kernel。用 `eval.py profile` 跑 baseline，把 profile 摘要貼進筆記，寫下一句「我認為它被 ___ 限制，因為 ___ 這個數字」。這句話就是你工作日誌的第一步。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：asst5-kernels repo 的 README、五個題目的 README 與 `test_cases/test.txt`、模板檔案清單，以及課程首頁的作業標題與截止日。README 裡的效能數字是助教在各自硬體上量的（FlashAttention 表的小、中形狀是 RTX 5090，大形狀是 H100），本文照引，沒有重跑。
+README 裡的效能數字是助教在各自硬體上量的（FlashAttention 表的小、中形狀是 RTX 5090，大形狀是 H100），拿自己的結果比較前先對齊硬體。
 
-不能確認：Ed 上的 `setup.sh` 內容與排行榜實際結果、H100 queue 的實際排隊狀況、助教評分工作日誌的細部標準。
+SwiGLU 題的 README 把 [arXiv 1710.05941](https://arxiv.org/abs/1710.05941) 寫成「the original SwiGLU paper」，但那篇是 Ramachandran、Zoph、Le 2017 年的〈Searching for Activation Functions〉，提出的是 Swish 這個激活函數。把 Swish 放進 GLU 閘門、命名 SwiGLU 的是 Noam Shazeer 2020 年的〈[GLU Variants Improve Transformer](https://arxiv.org/abs/2002.05202)〉（arXiv 2002.05202）。題目的公式 Swish(xW + b) ⊙ (xV + c) 兩篇都用得上：Swish 的定義查前者，SwiGLU 的結構查後者。
 
-另外要注意：SwiGLU 題的 README 把 [arXiv 1710.05941](https://arxiv.org/abs/1710.05941) 寫成「the original SwiGLU paper」，但那篇是 Ramachandran、Zoph、Le 2017 年的〈Searching for Activation Functions〉，提出的是 Swish 這個激活函數。把 Swish 放進 GLU 閘門、命名 SwiGLU 的是 Noam Shazeer 2020 年的〈[GLU Variants Improve Transformer](https://arxiv.org/abs/2002.05202)〉（arXiv 2002.05202）。題目的公式 Swish(xW + b) ⊙ (xV + c) 兩篇都用得上：Swish 的定義查前者，SwiGLU 的結構查後者。
-
-延伸閱讀：FlashAttention 的完整推導與演進看 [CMU 11-868 L21](/posts/ai/2026-09-30-cmu11868-flashattention)；Triton 的程式模型看 [CS336 kernels 與 Triton](/posts/ai/2026-08-22-cs336-kernels-triton)；GPU 程式設計的另一種講法看 [CMU 11-868 GPU programming](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)。
+FlashAttention 的完整推導與演進看 [CMU 11-868 L21](/posts/ai/2026-09-30-cmu11868-flashattention)；Triton 的程式模型看 [CS336 kernels 與 Triton](/posts/ai/2026-08-22-cs336-kernels-triton)；GPU 程式設計的另一種講法看 [CMU 11-868 GPU programming](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)。
 
 系列導覽：上一篇 [L13 DSL 與 AI 驅動的效能最佳化](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization)｜下一篇 [L14 Cache coherence：MSI、MESI 與 false sharing](/posts/ai/2026-09-30-cs149-cache-coherence)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
 

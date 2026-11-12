@@ -210,13 +210,9 @@ LSTM 真的解決了梯度消失嗎？第 115 頁的回答很節制：
 
 最後一頁預告下一講：Attention 與 Transformer。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：2026 課表的主題與建議閱讀、2026 課表連結投影片的內容、A2 Q5 的題目說明、2025 年 L7 錄影的存在與講者（依 2025 課表）。
-
-不能確認：課表列出的 GRU 與 sequence-to-sequence 在課堂上講了多少（兩個年份的投影片文字都沒有）、2026 年這一講實際由誰主講（2026 課表的講者欄被註解掉）、2026 課堂錄影內容（只在 Canvas）。
-
-延伸閱讀：站上 [CS224N 的 RNN 與語言模型導讀](/posts/ai/2026-08-22-cs224n-rnn-language-models)從 NLP 角度講同一批模型；[CMU 11-785 的 RNN 第一講](/posts/ai/2026-08-22-cmu-11785-13-rnn-one)與 [seq2seq 講次](/posts/ai/2026-08-22-cmu-11785-15-seq2seq-ctc)可以補上本講投影片沒有展開的 sequence-to-sequence。
+站上 [CS224N 的 RNN 與語言模型導讀](/posts/ai/2026-08-22-cs224n-rnn-language-models)從 NLP 角度講同一批模型；[CMU 11-785 的 RNN 第一講](/posts/ai/2026-08-22-cmu-11785-13-rnn-one)與 [seq2seq 講次](/posts/ai/2026-08-22-cmu-11785-15-seq2seq-ctc)可以補上本講投影片沒有展開的 sequence-to-sequence。
 
 系列導覽：上一篇 [L6：訓練 CNN 與經典架構](/posts/ai/2026-09-30-cs231n-training-cnns-architectures)｜下一篇 [A2 導讀：BatchNorm、Dropout、CNN、PyTorch 與 RNN Captioning](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
 

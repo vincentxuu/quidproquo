@@ -190,9 +190,9 @@ Further reading on this site:
 - [Berkeley CS285: exploration and open problems](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en)
 - [CS285: imitation and RL basics](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics-en), another take on DAgger
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the text, algorithm steps, and figure titles in the 2026 slides; the schedule's date and reading; the title and length of the 2025 video; and every paper title (each arXiv page was opened). Not confirmed: what was said in the slide 13 discussion, the numbers and metrics behind the bar charts on slides 34–36, and how the four industry systems on slide 23 were presented in class. The 2026 slides title SuSIE "SuSIE: Subgoal Synthesis via Image Editing," while arXiv titles it "Zero-Shot Robotic Manipulation with Pretrained Image-Editing Diffusion Models." They are the same paper.
+The slides call SuSIE "SuSIE: Subgoal Synthesis via Image Editing," but its arXiv title is "Zero-Shot Robotic Manipulation with Pretrained Image-Editing Diffusion Models," so search for the latter.
 
 Series navigation: previous [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl-en) | next [L16 Sim-to-Real Robot Learning](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
 
