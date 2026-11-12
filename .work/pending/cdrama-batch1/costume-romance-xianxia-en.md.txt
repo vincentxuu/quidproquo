@@ -1,0 +1,398 @@
+---
+title: "How to Pick Chinese Costume Romance and Xianxia Dramas: The Prisoner of Beauty, Flourished Peony, The Legend of Shen Li, Pursuit of Jade, Love Between Fairy and Devil and 13 More"
+date: 2026-11-12
+category: film
+tags: [tv-drama, c-drama, romance, fantasy]
+lang: en
+type: guide
+description: "For viewers in Taiwan looking for Chinese costume dramas, period romances and xianxia: palace and family feuds, period romance, and xianxia and fantasy romance. 18 shows, each backed by at least three of seven recommendation source types (state-run awards excluded) and legally streamable in Taiwan, with recommendation sources, MyDramaList, IMDb and Douban scores, English and Taiwanese reviews, content notes, episode counts and Taiwan streaming links."
+tldr: "Start with Flourished Peony, The Prisoner of Beauty or The Legend of Shen Li, each backed by five source types. Chinese costume romances mostly run 30 to 40 episodes and in Taiwan sit mainly on Hami Video; shows available only on iQIYI’s international site or WeTV don’t count as legal Taiwan options and are on the watch-later list. International fans usually score them higher than Douban: Pursuit of Jade gets 9.1 on MyDramaList and 6.4 on Douban."
+draft: false
+series:
+  name: "World TV Drama Guide"
+  order: 13
+---
+
+> 🌏 [中文版](/posts/film/2026-11-12-cdrama-costume-romance-xianxia)
+
+The Chinese part of the series opens with costume romance and xianxia: feuding clans joined by marriage, a butcher who saves a fallen marquis, a woman buried alive who returns to the capital under another’s name, and an orchid spirit bound to a moon lord by a curse. All 18 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, and each can be watched legally in Taiwan. Intrigue, mystery, wuxia and fantasy are in the [intrigue and mystery post](/posts/film/2026-11-12-cdrama-intrigue-mystery-wuxia-en); compared with the [Korean romance post](/posts/film/2026-11-08-kdrama-romance-fantasy-en), Chinese costume romances run much longer.
+
+Two rules for Chinese dramas differ from the Korean and Japanese posts:
+
+- **State-run awards don’t count.** The Feitian Awards, Golden Eagle Awards and the annual drama recommendation list are run by state bodies, so they are not counted as award juries and appear separately on each card as “State-run lists”.
+- **iQIYI’s international site and WeTV don’t count as legal Taiwan channels.** Since 2020 Taiwan’s economics ministry has barred local agents and distributors for Chinese streaming services, and the Mainland Affairs Council deems iQIYI Chinese-funded ([CNA](https://www.cna.com.tw/news/firstnews/202008185009.aspx), in Chinese). Shows available only there are on the watch-later list.
+
+Two things stand out in this group:
+
+- **Long, and mostly on Hami Video.** 16 of the 18 run 30 to 40 episodes, and The Story of Ming Lan has 78; 15 are on Hami Video.
+- **International fans score higher than Douban.** The chart below covers the 5 shows whose Douban score has a readable source; all five score higher on MyDramaList.
+
+## Start with these 3
+
+| Show | Why start here | Content | Where to watch |
+|---|---|---|---|
+| Flourished Peony | Backed by five source types; Douban 7.8 and MyDramaList 8.5, unusually close | Mild: business rivalry and romance | friDay (free tier), Hami Video, LINE TV |
+| The Prisoner of Beauty | Backed by five source types; MyDramaList 8.9 | Moderate: intimate scenes and battles | Hami Video, Netflix |
+| The Legend of Shen Li | Backed by five source types; second-most-streamed drama of 2024 | Mild to moderate: xianxia battles | Hami Video, Disney+ |
+
+## Recommendation sources at a glance
+
+● means that source type recommends the show. A award juries, B critics polls, C audience ratings, D viewing data, E buzz metrics, F fan communities, G Taiwanese viewers. State-run lists are not counted under A.
+
+| Show | A | B | C | D | E | F | G | Types |
+|---|---|---|---|---|---|---|---|---|
+| The Legend of Shen Li |  | ● | ● | ● |  | ● | ● | 5 |
+| Flourished Peony |  |  | ● | ● | ● | ● | ● | 5 |
+| The Double | ● |  | ● | ● |  | ● | ● | 5 |
+| The Prisoner of Beauty |  |  | ● | ● | ● | ● | ● | 5 |
+| Lost You Forever |  | ● | ● | ● |  | ● | ● | 5 |
+| Blossoms in Adversity | ● |  | ● | ● |  | ● |  | 4 |
+| Love Game in Eastern Fantasy |  |  | ● | ● |  | ● | ● | 4 |
+| The Story of Ming Lan | ● |  | ● | ● |  | ● |  | 4 |
+| Love Between Fairy and Devil | ● |  | ● | ● |  | ● |  | 4 |
+| Pursuit of Jade |  |  | ● | ● | ● |  | ● | 4 |
+| Love of the Divine Tree | ● |  |  |  |  | ● | ● | 3 |
+| Love in the Clouds |  |  | ● |  |  | ● | ● | 3 |
+| Legend of the Female General |  |  |  |  | ● | ● | ● | 3 |
+| Love Like the Galaxy |  |  | ● | ● |  | ● |  | 3 |
+| Where the Mask Ends |  |  | ● | ● |  |  | ● | 3 |
+| Blossom |  |  | ● |  | ● | ● |  | 3 |
+| Feud |  |  |  | ● | ● |  | ● | 3 |
+| The Glory |  |  |  | ● | ● | ● |  | 3 |
+
+Column F (fan communities) is the fullest, with 15 of 18; column A (non-state awards) has only 5 and column B (critics) only 2. Costume romances clear the bar almost entirely on viewers, streaming numbers and fans.
+
+## International fans versus Douban
+
+```diagram
+title: Douban versus MyDramaList for 5 shows
+desc: Pursuit of Jade has the widest gap, 6.4 on Douban and 9.1 on MyDramaList; Feud 6.0 versus 8.1, Love in the Clouds 7.0 versus 8.8, Blossom 7.8 versus 8.8; Flourished Peony is closest, 7.8 versus 8.5. All five score higher on MyDramaList.
+caption: Only the 5 shows whose Douban score comes from a readable source: Flourished Peony, Blossom and Pursuit of Jade from Douban’s 2025 year-end list, Love in the Clouds and Feud from English Wikipedia. The two sites use different scales and audiences, so read the direction only. Douban figures for the other 13 come from Taiwan media roundups or news snippets and appear in each review entry.
+---
+<svg viewBox="0 0 640 300">
+  <line class="dg-rule" x1="200" y1="244" x2="200" y2="252"/>
+  <text class="dg-small" x="200" y="270" text-anchor="middle">5</text>
+  <line class="dg-rule" x1="280" y1="244" x2="280" y2="252"/>
+  <text class="dg-small" x="280" y="270" text-anchor="middle">6</text>
+  <line class="dg-rule" x1="360" y1="244" x2="360" y2="252"/>
+  <text class="dg-small" x="360" y="270" text-anchor="middle">7</text>
+  <line class="dg-rule" x1="440" y1="244" x2="440" y2="252"/>
+  <text class="dg-small" x="440" y="270" text-anchor="middle">8</text>
+  <line class="dg-rule" x1="520" y1="244" x2="520" y2="252"/>
+  <text class="dg-small" x="520" y="270" text-anchor="middle">9</text>
+  <line class="dg-rule" x1="600" y1="244" x2="600" y2="252"/>
+  <text class="dg-small" x="600" y="270" text-anchor="middle">10</text>
+  <line class="dg-rule" x1="200" y1="248" x2="600" y2="248"/>
+  <text class="dg-sub" x="184" y="64" text-anchor="end" dominant-baseline="central">Pursuit of Jade</text>
+  <line class="dg-axis" x1="312" y1="64" x2="528" y2="64"/>
+  <circle class="dg-dot" cx="312" cy="64" r="6"/>
+  <rect class="dg-bar" x="522" y="58" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="300" y="64" text-anchor="end" dominant-baseline="central">6.4</text>
+  <text class="dg-small" x="540" y="64" dominant-baseline="central">9.1</text>
+  <text class="dg-sub" x="184" y="104" text-anchor="end" dominant-baseline="central">Feud</text>
+  <line class="dg-axis" x1="280" y1="104" x2="448" y2="104"/>
+  <circle class="dg-dot" cx="280" cy="104" r="6"/>
+  <rect class="dg-bar" x="442" y="98" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="268" y="104" text-anchor="end" dominant-baseline="central">6.0</text>
+  <text class="dg-small" x="460" y="104" dominant-baseline="central">8.1</text>
+  <text class="dg-sub" x="184" y="144" text-anchor="end" dominant-baseline="central">Love in the Clouds</text>
+  <line class="dg-axis" x1="360" y1="144" x2="504" y2="144"/>
+  <circle class="dg-dot" cx="360" cy="144" r="6"/>
+  <rect class="dg-bar" x="498" y="138" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="348" y="144" text-anchor="end" dominant-baseline="central">7.0</text>
+  <text class="dg-small" x="516" y="144" dominant-baseline="central">8.8</text>
+  <text class="dg-sub" x="184" y="184" text-anchor="end" dominant-baseline="central">Blossom</text>
+  <line class="dg-axis" x1="424" y1="184" x2="504" y2="184"/>
+  <circle class="dg-dot" cx="424" cy="184" r="6"/>
+  <rect class="dg-bar" x="498" y="178" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="412" y="184" text-anchor="end" dominant-baseline="central">7.8</text>
+  <text class="dg-small" x="516" y="184" dominant-baseline="central">8.8</text>
+  <text class="dg-sub" x="184" y="224" text-anchor="end" dominant-baseline="central">Flourished Peony</text>
+  <line class="dg-axis" x1="424" y1="224" x2="480" y2="224"/>
+  <circle class="dg-dot" cx="424" cy="224" r="6"/>
+  <rect class="dg-bar" x="474" y="218" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="412" y="224" text-anchor="end" dominant-baseline="central">7.8</text>
+  <text class="dg-small" x="492" y="224" dominant-baseline="central">8.5</text>
+  <text class="dg-tag" x="200" y="24" dominant-baseline="central">● Douban   ■ MyDramaList</text>
+</svg>
+```
+
+## The watchlist
+
+Entries list recommended by, state-run lists (where any), scores, reviews, content, length, watch first and where to watch.
+
+- **Scores**: Chinese dramas have no Metacritic scores, so this post uses [MyDramaList](https://mydramalist.com/shows/top_chinese_dramas), IMDb and Douban. The score line gives Douban only where the source is readable; Douban figures from Taiwan media roundups appear in the review entry and are snapshots in time.
+- **Content**: China has no rating system; Taiwan platform ratings are given where shown. Content notes come from the IMDb Parents Guide; most shows have no votes, so the notes follow the plot.
+- **Where to watch**: links go to Taiwan platform title pages. Netflix listings backed only by media reports or chart entries appear as notes.
+
+### Palace, family feuds and revenge
+
+A merchant’s daughter, a woman buried alive, a concubine’s daughter, a family stripped of its rank, and noblewomen who swap places or are reborn. Beyond romance, most centre on family power struggles or revenge.
+
+#### Flourished Peony
+
+In the Tang dynasty, He Weifang, a merchant’s daughter who grows rare peonies, leaves a marriage of convenience for Chang’an, partners with imperial envoy Jiang Changyang and opens a flower shop with a group of downtrodden women ([Wikipedia](https://en.wikipedia.org/wiki/Flourished_Peony)).
+
+- **Recommended by**: `C MyDramaList top Chinese drama #57 (8.5)` `C Douban top-rated Chinese series of 2025 #8 (7.8)` `D Dengta 2025 domestic series views #9 (1.28B)` `D Mango TV 2025 views #2` `E Maoyan 2025 TV heat #2` `E Weibo 2025 quality work of the year` `F PTT China-Drama 2025 year-in-review (mixed on part one, positive on the sequel)` `G MyVideo 2025 drama chart #2 (sequel #8)`
+- **State-run lists (not counted)**: Feitian Awards 2026 outstanding TV drama, Golden Eagle Awards 2026 nomination
+- **Scores**: MyDramaList 8.5 (Flourished Peony) (9,049 ratings) | IMDb 5.7 (1.5K votes) | Douban 7.8 (Douban 2025 annual list page, as of November 2026)
+- **Reviews**: No signed English review could be found. Writing mid-run about the first half, [潘光中 at 500times](https://500times.udn.com/wtimes/story/120840/8513255) (in Chinese) argues that character depth decides everything; not flawless, he says, but a sign the genre is coming down to earth. MyDramaList 8.5 and Douban 7.8 sit unusually close, with awards and viewing numbers on the same side; only IMDb (5.7) and Taiwan’s PTT chatter lag.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, business rivalry and romance with nothing specific flagged.
+- **Length**: 32 episodes, January 2025, finished. The sequel, In the Name of Blossom, has 24 episodes (June 2025), also finished; MyDramaList rates it separately at 8.4 (4,628 ratings). IMDb merges both into one entry.
+- **Watch first**: Adapted from Yi Qianzhong’s web novel; no need to read it. Finish this before the sequel, In the Name of Blossom.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/4702) (free tier + 影劇 plan); [Hami Video](https://hamivideo.hinet.net/product/286412.do?cs=2) (subscription, leaves 6 January 2030); [LINE TV](https://www.linetv.tw/drama/17037/eps/1) (available). Taiwan streaming for the sequel, In the Name of Blossom, is unconfirmed
+
+#### The Double
+
+Betrayed and buried alive by her husband, a magistrate’s daughter survives and returns to the capital as Jiang Li, the dying chancellor’s daughter who saved her, to take revenge ([Wikipedia](https://en.wikipedia.org/wiki/The_Double_(TV_series))).
+
+- **Recommended by**: `A Asia Contents Awards 2024 drama nomination` `C IMDb 8.2 (2.4K votes)` `C MyDramaList top Chinese drama #20 (8.8)` `D Yunhe 2024 new-series views #3 (2.67B)` `D Dengta 2024 web series #1 (3.37B)` `F PTT China-Drama 2024 favourites thread (8 users, several unhappy with the ending)` `G Netflix Taiwan weekly #1 (23 June 2024, 9 weeks on chart)` `G LINE TODAY 2024 Chinese dramas #2`
+- **State-run lists (not counted)**: the 2024 state recommended-drama list
+- **Scores**: MyDramaList 8.8 (29,937 ratings) | IMDb 8.2 (2.4K votes)
+- **Reviews**: [Bhavna Agarwal at India Today](https://www.indiatoday.in/entertainment/ott/story/the-double-review-wu-jin-yan-wang-xiang-yuen-chinese-drama-2578035-2024-08-06) gave the full series 3.5/5, praising its balance of politics, revenge and romance but finding it too long. Near the end of its China run, [潘光中 at 電影神搜](https://news.agentm.tw/283619/) (in Chinese) read it as a revenge thriller and a coming-of-age story whose heroine is not driven by romance. Douban sits around 6.6 per Taiwanese media against 8.8 on MyDramaList, one of the widest gaps here.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; it opens with a woman buried alive and a killing, and revenge drives the rest.
+- **Length**: 40 episodes plus one bonus episode, 2024, finished.
+- **Watch first**: Adapted from Qianshan Chake’s web novel; no need to read it. The core is an identity-swap revenge plot, with romance on the side.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/262525.do?cs=2) (subscription, leaves 2 June 2029); [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-9cc94fc6-afa3-40e0-81d1-8a14c4723936) (subscription). [Netflix](https://www.netflix.com/tw/title/81900131) also topped Taiwan’s weekly chart in 2024
+
+#### Blossoms in Adversity
+
+When disaster sends the Hua family’s men into exile, eldest daughter Hua Zhi stops hiding her talents, leads the women and children through hardship, and grows close to the feared commander Gu Yanxi ([Wikipedia](https://mydramalist.com/749431-the-story-of-hua-zhi)).
+
+- **Recommended by**: `A Asia Contents Awards 2024 best actress nomination (Zhang Jingyi)` `C MyDramaList top Chinese drama #41 (8.6)` `D Yunhe 2024 new-series views #9 (1.69B)` `D Dengta 2024 web series #3 (2.00B)` `F PTT China-Drama 2024 favourites thread (14 users)`
+- **Scores**: MyDramaList 8.6 (14,320 ratings) | IMDb 8.0 (640 votes)
+- **Reviews**: In a short issue piece, [Liana Garcellano at The Diarist.ph](https://www.thediarist.ph/just-the-point-of-view-we-need-tiger-women-hold-up-half-the-sky-in-c-dramas/), a Philippine lifestyle site, reads Hua Zhi as a Mulan figure and praises a story of women’s self-reliance that never turns on men. No Taiwanese review could be found. Douban rose from 7.1 to 7.4 after the finale per Taiwanese media, with MyDramaList at 8.6: a slow-burn reputation.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, a family is ruined and exiled and struggles with hunger and cold.
+- **Length**: 40 episodes, 2024, finished.
+- **Watch first**: Adapted from Kong Liu’s web novel; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/266774.do?cs=2) (some episodes free, leaves 18 July 2029)
+
+#### The Story of Ming Lan
+
+In the Northern Song, Minglan, a concubine’s daughter who loses her mother young, hides her intelligence to survive the family’s infighting, then marries Gu Tingye and takes his household in hand ([Wikipedia](https://zh.wikipedia.org/wiki/%E7%9F%A5%E5%90%A6%EF%BC%9F%E7%9F%A5%E5%90%A6%EF%BC%9F%E5%BA%94%E6%98%AF%E7%BB%BF%E8%82%A5%E7%BA%A2%E7%98%A6)).
+
+- **Recommended by**: `A Magnolia Awards 2019 best Chinese TV series nomination` `C IMDb 8.3 (1.5K votes)` `C MyDramaList top Chinese drama #26 (8.7)` `D Yunhe 2024 older-series views #3` `F PTT China-Drama 2019 favourites thread (~16 users)` `F PTT China-Drama 2020 top-three thread (~18 users)`
+- **State-run lists (not counted)**: Golden Eagle Awards 2020 outstanding TV drama
+- **Scores**: MyDramaList 8.7 (11,301 ratings) | IMDb 8.3 (1.5K votes)
+- **Reviews**: No signed English review could be found. About 34 episodes in, [柯志遠 at United Daily News](https://stars.udn.com/star/story/10093/3601350) (in Chinese) strongly recommended it, finding its household intrigue more relatable than palace dramas, though he held back on the two leads. Douban stood at 7.5 at the finale per Jiemian and has since climbed to 7.8–7.9 per Taiwanese media, against 8.7 on MyDramaList; China’s Guangming Online (February 2019) faulted the adaptation for chasing easy thrills.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, a mother is murdered and the household infighting is relentless.
+- **Length**: 78 episodes (73 in the international DVD cut), aired from late 2018 into 2019, finished.
+- **Watch first**: Adapted from Guan Xin Ze Luan’s web novel; no need to read it. The same author wrote the source of Love Like the Galaxy, but the stories are unrelated.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/76386.do?cs=2) (subscription, leaves 24 December 2026); [LINE TV](https://www.linetv.tw/drama/9008/eps/1) (available). The Hami Video licence ends in December 2026
+
+#### Where the Mask Ends
+
+Afraid of being widowed by a gravely wounded fiancé, noblewoman Wei Rao sends a look-alike night-soil collector, A Chou, to marry him in her place; then he wakes up, and A Chou must survive the household ([Wikipedia](https://en.wikipedia.org/wiki/Where_the_Mask_Ends)).
+
+- **Recommended by**: `C MyDramaList top Chinese drama #50 (8.6)` `D Netflix global top 10 non-English TV #7 (week of 12–18 October 2026, 1.6M views)` `G DailyView October 2026 Chinese drama buzz #1 (30% negative)`
+- **Scores**: MyDramaList 8.6 (8,989 ratings) | IMDb 7.9 (748 votes)
+- **Reviews**: No signed English review could be found, nor a Taiwanese one. Douban opened at 7.0 per Taiwanese media against 8.6 on MyDramaList; it leads Taiwan’s online buzz, but 30% of that is negative. It has been out less than a month, so the scores will move.
+- **Content**: No rating system in China; no Taiwan platform rating found. The IMDb Parents Guide notes an attempted rape, a woman beating someone to death with her face covered in blood, and self-cutting; violence and frightening scenes are Moderate.
+- **Length**: 30 episodes, premiered 16 October 2026. MyDramaList records the streaming run as complete on 3 November, so it counts as finished; the CCTV-8 broadcast schedule is unconfirmed.
+- **Watch first**: Adapted from Xiao Jiaren’s web novel, serialised on Jinjiang Literature City; no need to read it.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/83150089) (subscription). Netflix is the only Taiwan option; availability is based on Netflix Taiwan’s official trailer
+
+#### Blossom
+
+Wronged and killed in her past life, Dou Zhao wakes up years earlier with her memories and a prophetic book, and allies with Song Mo, a general who has also been reborn, against court plots ([Wikipedia](https://en.wikipedia.org/wiki/Blossom_(Chinese_TV_series))).
+
+- **Recommended by**: `C Douban top-rated Chinese series of 2025 #10 (7.8)` `C MyDramaList top Chinese drama #24 (8.8)` `E Weibo 2025 breakthrough work of the year` `F PTT China-Drama 2024 favourites thread (3 users, mid-run)` `F Dcard Chinese drama board review, 4 stars`
+- **State-run lists (not counted)**: the 2024 state recommended-drama list
+- **Scores**: MyDramaList 8.8 (24,517 ratings) | IMDb 7.9 (1.2K votes) | Douban 7.8 (Douban 2025 annual list page, as of November 2026)
+- **Reviews**: No signed English review could be found. After the China run, [雀雀 at United Daily News](https://stars.udn.com/star/story/10093/8533990) (in Chinese) found the rebirth formula familiar and the heroine a little stony-faced, but welcomed an ending where the villains are punished. Douban 7.8, MyDramaList 8.8 and positive Taiwanese fans: a dark horse everyone agrees on.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, it opens with the heroine betrayed and killed in her past life.
+- **Length**: 34 episodes, 2024, finished.
+- **Watch first**: Adapted from Zhizhi’s web novel; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/280740.do?cs=2) (subscription, leaves 5 June 2030); [LINE TV](https://www.linetv.tw/drama/16880/eps/1) (available); [friDay影音](https://video.friday.tw/drama/detail/4714) (free tier + 影劇 plan). Netflix also carries it, per Harper’s Bazaar Taiwan
+
+#### The Glory
+
+Abandoned as a child, Zhuang Hanyan returns to the Zhuang family, catches the eye of judicial official Fu Yunxi, and together they expose the hidden side of her father, Zhuang Shiyang ([Wikipedia](https://zh.wikipedia.org/wiki/%E9%9B%81%E5%9B%9E%E6%97%B6)).
+
+- **Recommended by**: `D Tencent Video 2025 heat index #2` `E Weibo 2025 audience favourite of the year` `F Dcard drama board, first-half 2025 picks (3.5/5)` `F PTT China-Drama 2025 recommendations thread (1 user)`
+- **Scores**: MyDramaList 8.3 (9,943 ratings) | IMDb 7.2 (482 votes)
+- **Reviews**: No signed English review could be found, nor a Taiwanese one. It was Tencent Video’s second-hottest show of 2025, but Douban slipped from 7.0 to 6.8 per Taiwanese media, against 8.3 on MyDramaList.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, family revenge and mystery.
+- **Length**: 30 episodes, 2025, finished.
+- **Watch first**: Adapted from Qianshan Chake’s web novel; no need to read it. The core is family revenge and mystery, with romance on the side.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/290380.do?cs=2) (some episodes free, leaves 14 April 2030). [Netflix](https://www.netflix.com/tw/title/82036449) also carries it, per Harper’s Bazaar Taiwan
+
+### Period romance
+
+Feuding clans joined by marriage, a butcher and a marquis, a woman disguised as a general, and Cheng Shaoshang, left behind by her parents.
+
+#### The Prisoner of Beauty
+
+Amid wars between clans, Xiao Qiao is married off to Wei Shao, head of the Wei family whose men died when her family broke an alliance; the two move from mutual suspicion to partnership ([Wikipedia](https://en.wikipedia.org/wiki/The_Prisoner_of_Beauty)).
+
+- **Recommended by**: `C IMDb 8.2 (2.6K votes)` `C MyDramaList top Chinese drama #9 (8.9)` `D Tencent Video 2025 heat index #3` `E Weibo 2025 outstanding work of the year` `F PTT China-Drama 2025 recommendations thread (~19 users)` `F MyDramaList user list, best Chinese dramas of 2025 #2` `G Netflix Taiwan weekly #1 (25 May 2025, 8 weeks on chart)` `G LINE TODAY 2025 Chinese dramas #2`
+- **Scores**: MyDramaList 8.9 (31,696 ratings) | IMDb 8.2 (2.6K votes)
+- **Reviews**: No signed English review could be found. Around the end of its China run, [廖芳潔 at Opinion@CommonWealth](https://opinion.cw.com.tw/blog/profile/517/article/16212) (in Chinese) defends the much-criticised heroine as a woman rationally fighting to survive, while admitting the plot circles and pads. It topped Netflix Taiwan and scores 8.9 on MyDramaList, yet Douban sits at 6.4–6.6 per Taiwanese media: one of the sharpest home-versus-abroad splits.
+- **Content**: No rating system in China; no Taiwan platform rating found. Only 1–3 IMDb Parents Guide votes per category, all Moderate: an interrupted love scene, drunken kisses and battle scenes.
+- **Length**: 36 episodes, 2025, finished.
+- **Watch first**: Adapted from Penglaike’s web novel, serialised on Jinjiang Literature City; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/296127.do?cs=2) (subscription, leaves 1 June 2030); [Netflix](https://www.netflix.com/tw/title/83073240) (subscription). Netflix availability is based on Netflix Taiwan’s official YouTube channel
+
+#### Pursuit of Jade
+
+Newly orphaned butcher Fan Changyu rescues the badly wounded Xie Zheng, a marquis hiding his identity while plotting revenge for a 16-year blood feud; their marriage of convenience turns into real love ([Wikipedia](https://en.wikipedia.org/wiki/Pursuit_of_Jade)).
+
+- **Recommended by**: `C MyDramaList top Chinese drama #1 (9.1)` `C IMDb 8.7` `D Netflix global top 10 non-English TV #6 (week of 9–15 March 2026, 1.9M views)` `E Weibo 2026 TV drama of the year` `G Netflix Taiwan weekly #2 (12 April 2026, 13 weeks on chart)` `G DailyView October 2026 Chinese drama buzz #3`
+- **Scores**: MyDramaList 9.1 (46,932 ratings) | IMDb 8.7 (5.8K votes) | Douban 6.4 (Douban annual list page, as of November 2026)
+- **Reviews**: [J.R. Waugh at Screen Rant](https://screenrant.com/netflix-chinese-drama-pursuit-of-jade-long-binge/) recommends all 40 episodes but warns they are too dense for one weekend, praising the cinematography and fight scenes. Less than a week into the run, [柯志遠 at NOWnews](https://tw.news.yahoo.com/%E5%90%8D%E5%AE%B6%E8%AB%96%E5%A3%87-%E6%9F%AF%E5%BF%97%E9%81%A0-%E5%8A%87%E8%A9%95-%E9%80%90%E7%8E%89-075815709.html) (in Chinese) gave the early episodes a rave, arguing that buzz only opens the door and content earns the applause. MyDramaList 9.1 against Douban 6.4 is the widest gap in this post; China’s Yangcheng Evening News (March 2026) found the political plot flat.
+- **Content**: No rating system in China; no Taiwan platform rating found. The most-voted IMDb Parents Guide in this group rates violence and frightening scenes Severe (10 of 15 and 8 of 12 votes). Episode 1 has bloody slaughter and a man killing with a blade, and suicide is a plot point.
+- **Length**: 40 episodes, March 2026, finished.
+- **Watch first**: Adapted from Tuanzi Laixi’s web novel; no need to read it.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/82706181) (subscription). Netflix is the only Taiwan option; availability is based on Netflix Taiwan’s official YouTube channel
+
+#### Legend of the Female General
+
+Forced to serve in the army in place of her frail brother, He Yan wins renown only to have her identity taken back; surviving, she enlists again in disguise under her own name and fights alongside Xiao Jue ([Wikipedia](https://en.wikipedia.org/wiki/Legend_of_the_Female_General)).
+
+- **Recommended by**: `E Maoyan 2025 TV heat #9` `F PTT China-Drama 2025 recommendations thread (6 users)` `F PTT China-Drama 2025 year-in-review ("I’d love to give it six stars")` `G iQIYI Taiwan site, August 2025 #1 (popularity signal only)`
+- **Scores**: MyDramaList 8.6 (26,927 ratings) | IMDb 8.1 (1.8K votes)
+- **Reviews**: No signed English review could be found. During the run, [雀雀 at United Daily News](https://stars.udn.com/star/story/10093/8956760) (in Chinese) analysed it alongside A Dream within a Dream without taking sides, enjoying Zhou Ye’s role-within-a-role while noting that audiences still flock to defy-your-fate formulas. Douban sits at just 5.4 per Taiwanese media against 8.6 on MyDramaList, a 3.2-point gap driven by readers angry that the rebirth plot was cut.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, expect battle scenes.
+- **Length**: 36 episodes, 2025, finished.
+- **Watch first**: Adapted from Qianshan Chake’s web novel; no need to read it. The same author wrote the sources of The Double and The Glory.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/302738.do?cs=2) (some episodes free, leaves 28 August 2030). [Netflix](https://www.netflix.com/tw/title/82116162) also carries it, per ELLE Taiwan
+
+#### Love Like the Galaxy
+
+Left behind by parents at war and mistreated by relatives, Cheng Shaoshang grows up quick-witted and self-protective, then becomes entangled with the emperor’s foster son, Ling Buyi, and the secret of his past ([Wikipedia](https://en.wikipedia.org/wiki/Love_Like_the_Galaxy)).
+
+- **Recommended by**: `C IMDb 8.3 (2.9K votes)` `C MyDramaList top Chinese drama: part 1 #13, part 2 #11 (both 8.9)` `D Yunhe 2024 older-series views #9` `F PTT China-Drama "first Chinese drama" thread (1 user)`
+- **Scores**: MyDramaList 8.9 (part 1) (34,815 ratings) | IMDb 8.3 (2.9K votes)
+- **Reviews**: No signed English review could be found. After the finale, [杜沛學 at United Daily News](https://stars.udn.com/star/story/10093/6582858) (in Chinese) wrote mostly about the actors, singling out the betrothal scene that bridges the two parts as the drama’s highlight. Early word of mouth was poor; Douban climbed from 7.4 to 7.7 per Taiwanese media, while both parts score 8.9 on MyDramaList.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, a family massacre and revenge drive the backstory.
+- **Length**: One drama aired in two parts, not two seasons: part 1 (27 episodes) and part 2 (29 episodes), 2022, finished. MyDramaList lists them separately; part 2 scores 8.9 (28,925 ratings).
+- **Watch first**: Adapted from Guan Xin Ze Luan’s web novel; no need to read it. The two parts are one story, so watch them in order.
+- **Where to watch**: [Hami Video 上部](https://hamivideo.hinet.net/product/213003.do?cs=2) (subscription, leaves 18 October 2027); [Hami Video 下部](https://hamivideo.hinet.net/product/213819.do?cs=2) (subscription, leaves 18 October 2027). [Netflix](https://www.netflix.com/tw/title/81633699) also carries it, per Harper’s Bazaar Taiwan
+
+### Xianxia and fantasy romance
+
+A phoenix, a divine princess, a girl trapped in a novel, an orchid spirit and a moon lord. Past and present lives spanning centuries.
+
+#### The Legend of Shen Li
+
+To escape a political marriage, the warrior Shen Li flees the immortal realm; wounded in battle, she falls to the mortal world in phoenix form and meets a mortal named Xingyun ([Wikipedia](https://en.wikipedia.org/wiki/The_Legend_of_Shen_Li)).
+
+- **Recommended by**: `B Beijing News drama of the year 2024` `C IMDb 8.2 (1.4K votes)` `C MyDramaList top Chinese drama #40 (8.6)` `D Yunhe 2024 new-series views #2 (3.16B)` `D Dengta 2024 TV series #2 (2.81B)` `F PTT China-Drama 2024 favourites thread (16 users: "the best ending there is")` `G LINE TODAY 2024 Chinese dramas #4`
+- **Scores**: MyDramaList 8.6 (12,105 ratings) | IMDb 8.2 (1.4K votes)
+- **Reviews**: No signed English review could be found, nor a Taiwanese one; in a review of The Prisoner of Beauty, [廖芳潔 at Opinion@CommonWealth](https://opinion.cw.com.tw/blog/profile/517/article/16212) (in Chinese) remarks in passing that Shen Li goes soft to the point of spinelessness later on. MyDramaList 8.6 and 2024’s second-biggest streaming numbers sit against a Douban 7.2 cited by Taiwanese media; China Youth Daily (April 2024) liked its subversions but found the story hollow.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, expect xianxia battle scenes.
+- **Length**: 39 episodes, 2024, finished.
+- **Watch first**: Adapted from Jiu Lu Fei Xiang’s web novel; the author also co-wrote the script. No need to read it. Same author as Love Between Fairy and Devil, but the stories are unrelated.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/261728.do?cs=2) (some episodes free, leaves 17 March 2029); [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-e2a32b3f-bdd5-42ea-9053-3fac94fcbc50) (subscription)
+
+#### Lost You Forever
+
+In an age when gods, humans and demons coexist, a lost princess, Xiaoyao, lives 300 years later disguised as a male healer in Qingshui Town and is drawn into the loves and power struggles of three men ([Wikipedia](https://en.wikipedia.org/wiki/Lost_You_Forever)).
+
+- **Recommended by**: `B Southern Metropolis Entertainment Yearbook 2023 top 10 dramas #6` `C MyDramaList top Chinese drama #55 (8.6)` `D Yunhe 2024 average views per episode #13 (season 2)` `D Dengta 2024 costume-romance views per episode #3, top xianxia series (season 2)` `F PTT China-Drama 2023 favourites thread (~37 users, season 1)` `G Netflix Taiwan weekly chart (24 September 2023, season 1)`
+- **Scores**: MyDramaList 8.6 (season 1) (10,862 ratings) | IMDb 6.5 (3.4K votes)
+- **Reviews**: No signed English review could be found. After season 1 ended, [潘光中 at United Daily News](https://stars.udn.com/star/story/10093/7442868) (in Chinese) called it a show that broke out on merit, its multiple love lines and realism reaching past the usual costume-romance audience. Season 1 scores 8.6 on MyDramaList and about 7.8 on Douban per Taiwanese media; season 2 drops to 8.3 on MyDramaList and disappointed some Taiwanese fans.
+- **Content**: Disney+ Taiwan: 12+. No IMDb Parents Guide votes; going by the plot, expect xianxia warfare and character deaths.
+- **Length**: Season 1: 39 episodes (2023); season 2: 23 episodes (2024); both finished. Season 2 scores 8.3 on MyDramaList (5,216 ratings); IMDb merges both seasons into one entry.
+- **Watch first**: Adapted from Tong Hua’s novel; the author also co-wrote the script. No need to read it. Season 2 picks up where season 1 ends, so watch in order.
+- **Where to watch**: [Hami Video 第一季](https://hamivideo.hinet.net/product/235089.do?cs=2) (subscription, leaves 24 August 2028); [Hami Video 第二季](https://hamivideo.hinet.net/product/268984.do?cs=2) (subscription, leaves 1 August 2029); [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-56753e43-f4a9-471b-984a-bc8c8094da9c) (subscription, 12+)
+
+#### Love Game in Eastern Fantasy
+
+After posting a scathing review, Ling Miaomiao is pulled into the fantasy novel as a doomed side character and must complete system tasks and win over the villain Mu Sheng to get home ([Wikipedia](https://en.wikipedia.org/wiki/Love_Game_in_Eastern_Fantasy)).
+
+- **Recommended by**: `C IMDb 7.6 (1.6K votes)` `D Yunhe 2024 new-series views #14 (1.34B)` `F PTT China-Drama 2024 favourites thread (~33 users)` `F Dcard Chinese drama board review, 5 stars ("a guaranteed smash")` `G Netflix Taiwan weekly #10 (8 December 2024, 5 weeks on chart)`
+- **State-run lists (not counted)**: the 2024 state recommended-drama list
+- **Scores**: MyDramaList 8.5 (23,216 ratings) | IMDb 7.6 (1.6K votes)
+- **Reviews**: No signed English review could be found. Covering only the first three episodes, [白話雯 at 電影神搜](https://news.agentm.tw/306868/) (in Chinese) called the director bold for wrapping up the book’s story ten minutes into episode 1, with reservations about the effects; an introduction more than a verdict. Global Times cited Douban at 7.5 against 8.5 on MyDramaList, so home and abroad roughly agree.
+- **Content**: No rating system in China; no Taiwan platform rating found. Only 2 IMDb Parents Guide votes: violence and frightening scenes are Moderate, with blood drawn through the air as demons feed; no sex or profanity.
+- **Length**: 32 episodes, 2024, finished.
+- **Watch first**: Adapted from Bai Yu Zhai Diao Gong’s web novel; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/284605.do?cs=2) (some episodes free, leaves 23 January 2030). [Netflix](https://www.netflix.com/tw/title/81950758) also charted in Taiwan in late 2024
+
+#### Love Between Fairy and Devil
+
+A lowly orchid spirit accidentally frees the sealed demon lord Dongfang Qingcang, and a curse binds them so they share injuries, emotions and death ([Wikipedia](https://en.wikipedia.org/wiki/Love_Between_Fairy_and_Devil)).
+
+- **Recommended by**: `A Asian Academy Creative Awards 2023 best drama series (China)` `C IMDb 8.4 (5.5K votes)` `C Douban top-rated Chinese series of 2022 #8` `D Yunhe 2024 club of 100M+ views per episode` `D iQIYI 10,000 heat-index club` `F PTT China-Drama "first Chinese drama" thread (2 users: "the best xianxia I’ve seen")`
+- **Scores**: MyDramaList 8.7 (44,204 ratings) | IMDb 8.4 (5.5K votes)
+- **Reviews**: Having watched it all, [Michele Kirichanskaya at Collider](https://collider.com/love-between-fairy-and-devil-chinese-drama/) calls it "the perfect Xianxia drama with its "opposites attract" story, complicated characters, and strong storytelling." After the finale, [雀雀 at United Daily News](https://stars.udn.com/star/story/10093/6584237) (in Chinese) praised its playful twists on a formula, saying it clears three charges usually laid against Chinese dramas. MyDramaList 8.7 and a Douban score that rose from 7.7 to 8.1 per Taiwanese media: a rare xianxia that everyone rates highly, though Taiwanese fan chatter is thin.
+- **Content**: IMDb Taiwan listing 13+ (user-editable). Only 1 IMDb Parents Guide vote per category; the notes mention a few very simple kisses and call the whole show very mild.
+- **Length**: 36 episodes plus two specials, 2022, finished.
+- **Watch first**: Adapted from Jiu Lu Fei Xiang’s web novel; no need to read it. The same author wrote The Legend of Shen Li, but the stories are unrelated.
+- **Where to watch**: [Netflix](https://www.elle.com/tw/entertainment/drama/g41222597/lovebetweenfairyanddevil) (reported in 2022, may no longer be available in Taiwan). Videoland Drama aired it on TV in 2023
+
+#### Love of the Divine Tree
+
+Eighteen years after the “demoness” Mu Qingge died changing her disciple Su Yishui’s fate, she returns as the frail Xue Ranran and becomes the pupil of Su Yishui, now a sect leader ([Wikipedia](https://zh.wikipedia.org/wiki/%E4%BB%99%E5%8F%B0%E6%9C%89%E6%A8%B9)).
+
+- **Recommended by**: `A Asian Academy Creative Awards 2025 visual effects (China, craft award)` `F PTT China-Drama 2025 recommendations thread (10 users; the poster rewatched it)` `F PTT China-Drama 2025 favourites thread (5 users)` `G iQIYI Taiwan site, first half of 2025 #7 (popularity signal only)` `G LINE TODAY 2025 Chinese drama roundup mention`
+- **Scores**: MyDramaList 8.5 (9,336 ratings) | IMDb 7.5 (429 votes)
+- **Reviews**: No signed English review could be found, nor a Taiwanese one. Fan enthusiasm on PTT far outruns critics and international charts; MyDramaList 8.5, Douban about 7.1 per Taiwanese media.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, a xianxia master-and-disciple romance with nothing specific flagged.
+- **Length**: 40 episodes, 2025, finished.
+- **Watch first**: Adapted from Kuang Shang Jia Kuang’s web novel; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/325606.do?cs=2) (subscription, leaves 21 May 2029)
+
+#### Love in the Clouds
+
+Disguised as the crown prince, Ming Yi wins the Qingyun tournament seven years running, until she loses to Ji Bozai and is poisoned; suspecting him, she poses as a dancer to get the antidote ([Wikipedia](https://en.wikipedia.org/wiki/Love_in_the_Clouds)).
+
+- **Recommended by**: `C IMDb 8.3 (1.9K votes)` `C MyDramaList top Chinese drama #17 (8.8)` `F PTT China-Drama 2025 year-in-review ("six stars, a gateway drama")` `F MyDramaList user list, best Chinese dramas of 2025 #3` `G Netflix Taiwan weekly #9 (26 October 2025, 3 weeks on chart)`
+- **Scores**: MyDramaList 8.8 (29,512 ratings) | IMDb 8.3 (1.9K votes) | Douban 7.0 (cited by English Wikipedia, 73,000+ ratings)
+- **Reviews**: No signed English review could be found, nor a Taiwanese one. MyDramaList 8.8 against Douban 7.0: international viewers rate it clearly higher, while Taiwanese media relay mainland complaints about the slow pace.
+- **Content**: No rating system in China; no Taiwan platform rating found. Only 1–3 IMDb Parents Guide votes per category: no sex, profanity or frightening scenes; mild violence and drinking.
+- **Length**: 36 episodes, 2025, finished.
+- **Watch first**: Adapted from Bai Lu Cheng Shuang’s web novel; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/307368.do?cs=2) (some episodes free, leaves 1 October 2030)
+
+#### Feud
+
+Long-time rivals Hua Ruyue and Bai Jiusi fall out over a mortal love trial and she dies; 400 years later, a weak disciple, Li Qingyue, marries Bai Jiusi and finds she looks exactly like his late wife ([Wikipedia](https://en.wikipedia.org/wiki/Feud_(Chinese_TV_series))).
+
+- **Recommended by**: `D Yunhe 2025 new long-form series views top 20` `D Maoyan 2025 most daily #1s among web series (24)` `E Weibo 2025 audience favourite of the year` `G iQIYI Taiwan site, June 2025 #1 (popularity signal only)`
+- **Scores**: MyDramaList 8.1 (7,872 ratings) | IMDb 6.8 (493 votes) | Douban 6.0 (cited by English Wikipedia, 121,000+ ratings)
+- **Reviews**: No signed English review could be found, nor a Taiwanese one. It topped China’s daily streaming charts more often than any web series in 2025, yet scores 8.1 on MyDramaList and 6.0 on Douban, and some Taiwanese fans on PTT panned it.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, a tragic xianxia romance in which the heroine dies in her past life.
+- **Length**: 32 episodes, 2025, finished.
+- **Watch first**: English Wikipedia lists no source novel; just start watching.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/297602.do?cs=2) (some episodes free, leaves 30 June 2029); [LINE TV](https://www.linetv.tw/drama/17539/eps/1) (available)
+
+## Watch-later list
+
+Each of these is backed by at least three source types (state awards excluded), but in Taiwan is available only on iQIYI’s international site.
+
+| Show | Status |
+|---|---|
+| A Dream within a Dream (書卷一夢) | Backed by five source types; in Taiwan only on iQIYI’s international site |
+| Story of Kunning Palace (寧安如夢), Moonlight Mystique (白月梵星), 長風渡 | Backed by four source types; in Taiwan only on iQIYI’s international site |
+| 雲之羽, Fated Hearts (一笑隨歌), 無憂渡 | Backed by three source types; in Taiwan only on iQIYI’s international site |
+
+## Limits of this list
+
+- **Almost no English reviews.** Only 4 of the 18 have a signed English piece, and the only major outlets are Collider and the South China Morning Post, both on Love Between Fairy and Devil; the rest is blogs and MyDramaList user reviews, which aren’t used.
+- **Taiwanese reviews come from a few writers.** 7 shows have no signed Taiwanese review; of the 12 pieces found, 9 are by 潘光中, 雀雀 and 柯志遠, and several cover only the first episodes.
+- **Douban scores mostly come from Taiwan media roundups.** The score line shows Douban only for the 5 shows with a readable source; the rest appear in the review entries and change over time.
+- **Taiwan policy limits Chinese streaming.** Many popular costume romances are only on iQIYI’s international site and sit on the watch-later list. Taiwan evidence for Love Between Fairy and Devil stops in 2022, so it may have been removed; The Story of Ming Lan’s Hami Video licence ends on 2026-12-24. Streaming links checked: 2026-11-12.
+
+## References
+
+- [第30屆上海電視節白玉蘭獎 (Chinese Wikipedia)](https://zh.wikipedia.org/wiki/第30届上海电视节白玉兰奖)
+- [Asian Academy Creative Award for Best Drama Series (Wikipedia)](https://en.wikipedia.org/wiki/Asian_Academy_Creative_Award_for_Best_Drama_Series)
+- [Global OTT Awards (Wikipedia)](https://en.wikipedia.org/wiki/Global_OTT_Awards)
+- [南方周末〈2025文化原創榜·劇集〉](https://www.infzm.com/contents/313610) (in Chinese)
+- [新周刊 2024 中國視頻榜](https://www.cbbr.com.cn/contents/533/97031.html) (in Chinese)
+- [MyDramaList：Top Chinese Dramas](https://mydramalist.com/shows/top_chinese_dramas)
+- [豆瓣 2025 年度電影榜單](https://movie.douban.com/annual/2025/) (in Chinese)
+- [雲合數據〈2024 年長劇集網播年度觀察〉](https://pdf.dfcfw.com/pdf/H3_AP202501081641847977_1.pdf) (in Chinese)
+- [燈塔專業版 2024 年度劇集播放榜](https://www.sohu.com/a/843429934_745022) (in Chinese)
+- [中國視聽大數據 2025 年國產電視劇收視報告 (NRTA)](https://www.nrta.gov.cn/art/2025/12/26/art_114_72192.html) (in Chinese)
+- [2025 微博視界大會榮譽](https://hea.china.com/articles/20251105/202511051759836.html) (in Chinese)
+- [PTT 陸劇板〈2025最喜歡的中劇？〉](https://www.ptt.cc/bbs/China-Drama/M.1765465415.A.B24.html) (in Chinese)
+- [PTT 陸劇板〈2024最喜歡的中劇？〉](https://www.ptt.cc/bbs/China-Drama/M.1733465852.A.DE4.html) (in Chinese)
+- [LINE TODAY 聚光賞〈2025 陸劇年度榜〉](https://today.line.me/tw/v3/article/wJYz5Ra) (in Chinese)
+- [LINE TODAY 聚光賞〈2024 陸劇年度榜〉](https://today.line.me/tw/v3/article/8nWW20Z) (in Chinese)
+- [網路溫度計〈年度人氣陸劇 TOP 10〉](https://dailyview.tw/daily/5191) (in Chinese)
+- [中華電信 Hami Video〈影劇館+ 2025 年度收視排行榜〉](https://www.cht.com.tw/zh-tw/home/cht/messages/2025/1210-1500) (in Chinese)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [中央社〈愛奇藝條款上路 代理商違法最高可罰500萬〉](https://www.cna.com.tw/news/firstnews/202008185009.aspx) (in Chinese)

@@ -1,0 +1,398 @@
+---
+title: "陸劇古裝愛情與仙俠怎麼挑：折腰、國色芳華、與鳳行、逐玉、蒼蘭訣等 18 部"
+date: 2026-11-12
+category: film
+tags: [tv-drama, c-drama, romance, fantasy]
+lang: zh-TW
+type: guide
+description: "給想看中國古裝劇、古偶劇與仙俠劇的台灣觀眾：宮廷宅鬥與復仇、古裝愛情、仙俠與奇幻愛情三組，18 部都同時被獎項評審、影評人、觀眾評分、收視數據、話題指標、劇迷口碑、台灣觀眾當中至少三類非官方來源推薦，而且台灣有合法串流；每部附推薦來源、MyDramaList／IMDb／豆瓣評分、英文與台灣劇評、尺度、集數與台灣串流連結。"
+tldr: "先看五類來源都推的《國色芳華》《折腰》《與鳳行》。陸劇古偶多半 30 到 40 集，在台灣主要上 Hami Video；只在愛奇藝國際站或 WeTV 的劇不算台灣合法管道，列在候補。海外劇迷給分普遍比豆瓣高：《逐玉》MyDramaList 9.1、豆瓣 6.4。"
+draft: false
+series:
+  name: "各國影劇導讀"
+  order: 13
+---
+
+> 🌏 [English version](/posts/film/2026-11-12-cdrama-costume-romance-xianxia-en)
+
+陸劇從古裝愛情和仙俠開始：世仇聯姻、殺豬女救了落難侯爺、被活埋後頂替別人身分回京復仇，以及被同心咒綁在一起的蘭花精和月尊。18 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類都推它，而且台灣有合法串流管道。權謀、懸疑、武俠和奇幻另外放在[權謀懸疑篇](/posts/film/2026-11-12-cdrama-intrigue-mystery-wuxia)；和[韓劇愛情篇](/posts/film/2026-11-08-kdrama-romance-fantasy)比，陸劇古偶長得多。
+
+陸劇的選片規則和日韓不太一樣，有兩條：
+
+- **官方獎不計。** 飛天獎、金鷹獎和年度劇集推優由國家單位主辦，不算在「獎項評審」這一類，只在卡片的「官方榜」欄另外寫出。
+- **愛奇藝國際站和 WeTV 不算台灣合法管道。** 經濟部 2020 年起禁止代理或經銷中國 OTT，陸委會也認定愛奇藝屬陸資（[中央社](https://www.cna.com.tw/news/firstnews/202008185009.aspx)）。只在這兩個平台上架的劇列在候補。
+
+這組也有兩個特點：
+
+- **長，而且多在 Hami Video。** 18 部有 16 部是 30 到 40 集，《知否知否應是綠肥紅瘦》78 集；15 部在 Hami Video 上架。
+- **海外劇迷給分比豆瓣高。** 下面的圖是豆瓣分數讀得到原文來源的 5 部，五部都是 MyDramaList 比較高。
+
+## 先從這 3 部開始
+
+| 劇 | 為什麼先看 | 尺度 | 在哪看 |
+|---|---|---|---|
+| 國色芳華 | 五類推薦來源都有，豆瓣 7.8、MyDramaList 8.5，兩邊少見地接近 | 輕：商戰加愛情 | friDay影音（免費方案可看）、Hami Video、LINE TV |
+| 折腰 | 五類推薦來源都有，MyDramaList 8.9 | 中等：有親密戲與戰爭場面 | Hami Video、Netflix |
+| 與鳳行 | 五類推薦來源都有，2024 年播放量第二 | 輕到中等：仙俠戰鬥 | Hami Video、Disney+ |
+
+## 推薦來源一覽
+
+表中 ● 代表這一類來源有推薦。A 獎項評審、B 影評人投票榜、C 觀眾評分、D 收視與串流數據、E 話題指標、F 劇迷口碑、G 台灣觀眾。官方榜不算在 A 類。
+
+| 劇 | A | B | C | D | E | F | G | 類別數 |
+|---|---|---|---|---|---|---|---|---|
+| 與鳳行 |  | ● | ● | ● |  | ● | ● | 5 |
+| 國色芳華 |  |  | ● | ● | ● | ● | ● | 5 |
+| 墨雨雲間 | ● |  | ● | ● |  | ● | ● | 5 |
+| 折腰 |  |  | ● | ● | ● | ● | ● | 5 |
+| 長相思 |  | ● | ● | ● |  | ● | ● | 5 |
+| 惜花芷 | ● |  | ● | ● |  | ● |  | 4 |
+| 永夜星河 |  |  | ● | ● |  | ● | ● | 4 |
+| 知否知否應是綠肥紅瘦 | ● |  | ● | ● |  | ● |  | 4 |
+| 蒼蘭訣 | ● |  | ● | ● |  | ● |  | 4 |
+| 逐玉 |  |  | ● | ● | ● |  | ● | 4 |
+| 仙台有樹 | ● |  |  |  |  | ● | ● | 3 |
+| 入青雲 |  |  | ● |  |  | ● | ● | 3 |
+| 錦月如歌 |  |  |  |  | ● | ● | ● | 3 |
+| 星漢燦爛．月升滄海 |  |  | ● | ● |  | ● |  | 3 |
+| 嫁金釵 |  |  | ● | ● |  |  | ● | 3 |
+| 九重紫 |  |  | ● |  | ● | ● |  | 3 |
+| 臨江仙 |  |  |  | ● | ● |  | ● | 3 |
+| 雁回時 |  |  |  | ● | ● | ● |  | 3 |
+
+這組的 F 欄（劇迷口碑）最滿，18 部有 15 部；A 欄（非官方獎項）只有 5 部，B 欄（影評人）只有 2 部。古偶劇幾乎靠觀眾、播放量和劇迷撐過門檻。
+
+## 海外劇迷和豆瓣的落差
+
+```diagram
+title: 5 部的豆瓣與 MyDramaList 分數
+desc: 逐玉差最多，豆瓣 6.4、MyDramaList 9.1；臨江仙 6.0 對 8.1，入青雲 7.0 對 8.8，九重紫 7.8 對 8.8；國色芳華最接近，7.8 對 8.5。五部都是 MyDramaList 比豆瓣高。
+caption: 只放豆瓣分數讀得到原文來源的 5 部：國色芳華、九重紫、逐玉取自豆瓣 2025 年度榜，入青雲、臨江仙取自英文維基。兩站的評分尺度和評分者都不同，只看方向。其他 13 部的豆瓣只有台灣媒體整理或新聞摘要，寫在各部劇評欄。
+---
+<svg viewBox="0 0 640 300">
+  <line class="dg-rule" x1="200" y1="244" x2="200" y2="252"/>
+  <text class="dg-small" x="200" y="270" text-anchor="middle">5</text>
+  <line class="dg-rule" x1="280" y1="244" x2="280" y2="252"/>
+  <text class="dg-small" x="280" y="270" text-anchor="middle">6</text>
+  <line class="dg-rule" x1="360" y1="244" x2="360" y2="252"/>
+  <text class="dg-small" x="360" y="270" text-anchor="middle">7</text>
+  <line class="dg-rule" x1="440" y1="244" x2="440" y2="252"/>
+  <text class="dg-small" x="440" y="270" text-anchor="middle">8</text>
+  <line class="dg-rule" x1="520" y1="244" x2="520" y2="252"/>
+  <text class="dg-small" x="520" y="270" text-anchor="middle">9</text>
+  <line class="dg-rule" x1="600" y1="244" x2="600" y2="252"/>
+  <text class="dg-small" x="600" y="270" text-anchor="middle">10</text>
+  <line class="dg-rule" x1="200" y1="248" x2="600" y2="248"/>
+  <text class="dg-sub" x="184" y="64" text-anchor="end" dominant-baseline="central">逐玉</text>
+  <line class="dg-axis" x1="312" y1="64" x2="528" y2="64"/>
+  <circle class="dg-dot" cx="312" cy="64" r="6"/>
+  <rect class="dg-bar" x="522" y="58" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="300" y="64" text-anchor="end" dominant-baseline="central">6.4</text>
+  <text class="dg-small" x="540" y="64" dominant-baseline="central">9.1</text>
+  <text class="dg-sub" x="184" y="104" text-anchor="end" dominant-baseline="central">臨江仙</text>
+  <line class="dg-axis" x1="280" y1="104" x2="448" y2="104"/>
+  <circle class="dg-dot" cx="280" cy="104" r="6"/>
+  <rect class="dg-bar" x="442" y="98" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="268" y="104" text-anchor="end" dominant-baseline="central">6.0</text>
+  <text class="dg-small" x="460" y="104" dominant-baseline="central">8.1</text>
+  <text class="dg-sub" x="184" y="144" text-anchor="end" dominant-baseline="central">入青雲</text>
+  <line class="dg-axis" x1="360" y1="144" x2="504" y2="144"/>
+  <circle class="dg-dot" cx="360" cy="144" r="6"/>
+  <rect class="dg-bar" x="498" y="138" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="348" y="144" text-anchor="end" dominant-baseline="central">7.0</text>
+  <text class="dg-small" x="516" y="144" dominant-baseline="central">8.8</text>
+  <text class="dg-sub" x="184" y="184" text-anchor="end" dominant-baseline="central">九重紫</text>
+  <line class="dg-axis" x1="424" y1="184" x2="504" y2="184"/>
+  <circle class="dg-dot" cx="424" cy="184" r="6"/>
+  <rect class="dg-bar" x="498" y="178" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="412" y="184" text-anchor="end" dominant-baseline="central">7.8</text>
+  <text class="dg-small" x="516" y="184" dominant-baseline="central">8.8</text>
+  <text class="dg-sub" x="184" y="224" text-anchor="end" dominant-baseline="central">國色芳華</text>
+  <line class="dg-axis" x1="424" y1="224" x2="480" y2="224"/>
+  <circle class="dg-dot" cx="424" cy="224" r="6"/>
+  <rect class="dg-bar" x="474" y="218" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="412" y="224" text-anchor="end" dominant-baseline="central">7.8</text>
+  <text class="dg-small" x="492" y="224" dominant-baseline="central">8.5</text>
+  <text class="dg-tag" x="200" y="24" dominant-baseline="central">● 豆瓣　■ MyDramaList</text>
+</svg>
+```
+
+## 片單
+
+每部的格式：推薦來源、官方榜（有的話）、評分、劇評、尺度、長度、先看什麼、在哪看。
+
+- **評分**：陸劇沒有 Metacritic 分數，這篇用 [MyDramaList](https://mydramalist.com/shows/top_chinese_dramas)、IMDb 和豆瓣。評分欄的豆瓣只寫讀得到原文來源的分數；台灣媒體整理的豆瓣分數寫在劇評欄，都是某個時間點的數字。
+- **尺度**：中國沒有分級制度，台灣平台有標分級的另外寫出。內容提醒取自 IMDb 家長指南，多數劇沒有投票，改依劇情寫。
+- **在哪看**：連結是台灣平台的作品頁。Netflix 只有媒體報導或週榜紀錄的，寫在附註。
+
+### 宮廷、宅鬥與復仇
+
+商人之女、被活埋的才女、庶出的六姑娘、被抄家的大小姐，以及替嫁和重生的貴女。愛情之外，主線多半是家族鬥爭或復仇。
+
+#### 國色芳華（Flourished Peony）
+
+唐代會種罕見牡丹的商人之女何惟芳，離開權宜婚姻來到長安，和花鳥使蔣長揚合作，帶一群受困女子開花鋪（[Wikipedia](https://en.wikipedia.org/wiki/Flourished_Peony)）。
+
+- **推薦來源**：`C MyDramaList 陸劇榜 #57（8.5）` `C 豆瓣 2025 評分最高華語劇集 #8（7.8）` `D 燈塔 2025 國產劇播放量 #9（12.78 億）` `D 芒果TV 2025 播放量 #2` `E 貓眼 2025 電視劇熱度 #2` `E 微博視界大會 2025 年度品質作品` `F PTT China-Drama 2025 追劇回顧（第一部褒貶互見，續篇正評）` `G MyVideo 2025 戲劇榜 #2（續篇錦繡芳華 #8）`
+- **官方榜（不計入推薦來源）**：飛天獎 2026 優秀電視劇、金鷹獎 2026 提名
+- **評分**：MyDramaList 8.5（國色芳華）（9,049 人）｜IMDb 5.7（1,500 票）｜豆瓣 7.8（豆瓣 2025 年度榜頁面，2026 年 11 月的值）
+- **劇評**：找不到英文署名劇評。500輯〈質青評論〉的[潘光中](https://500times.udn.com/wtimes/story/120840/8513255)在播出中評前半，說「『角色厚度』決定了一切」。他認為它「並不是完美無缺的天花板」，但代表古偶開始思考如何落地。MDL 8.5、豆瓣 7.8，兩邊少見地接近，評審和播放量也站同一邊。分數只有 IMDb 偏低（5.7），台灣 PTT 討論也偏冷。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情是商戰加愛情，沒有找到需要提醒的內容。
+- **長度**：32 集，2025 年 1 月播出，已完結。續篇《錦繡芳華》24 集，2025 年 6 月播出，也已完結，MDL 另列 8.4（4,628 人）。IMDb 把兩部合成一條計分。
+- **先看什麼**：改編自意千重的網路小說，不必先讀。看續篇《錦繡芳華》前要先看完第一部。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/4702)（免費＋影劇方案）；[Hami Video](https://hamivideo.hinet.net/product/286412.do?cs=2)（訂閱，至 2030-01-06）；[LINE TV](https://www.linetv.tw/drama/17037/eps/1)（上架中）。續篇《錦繡芳華》的台灣串流未確認
+
+#### 墨雨雲間（The Double）
+
+縣令之女薛芳菲被丈夫背叛活埋，僥倖生還，頂替救她的首輔之女姜梨的身分回京復仇（[Wikipedia](https://en.wikipedia.org/wiki/The_Double_(TV_series))）。
+
+- **推薦來源**：`A Asia Contents Awards 2024 劇集類提名` `C IMDb 8.2（2,400 票）` `C MyDramaList 陸劇榜 #20（8.8）` `D 云合 2024 上新劇有效播放 #3（26.7 億）` `D 燈塔 2024 網路劇榜 #1（33.70 億）` `F PTT China-Drama 2024「最喜歡的中劇」串（8 人，多人嫌結局）` `G Netflix 台灣週榜 #1（2024-06-23，累計 9 週）` `G LINE TODAY 2024 陸劇 #2`
+- **官方榜（不計入推薦來源）**：2024 年劇集推優名單
+- **評分**：MyDramaList 8.8（29,937 人）｜IMDb 8.2（2,400 票）
+- **劇評**：[India Today 的 Bhavna Agarwal](https://www.indiatoday.in/entertainment/ott/story/the-double-review-wu-jin-yan-wang-xiang-yuen-chinese-drama-2578035-2024-08-06) 評全劇給 3.5/5，肯定政治、復仇、愛情比例平衡，但嫌太長。電影神搜的[潘光中](https://news.agentm.tw/283619/)在陸播接近尾聲時寫，女主的「敘事線並不靠著愛情來推動」。他認為它是復仇爽劇，也是女性成長故事。台灣媒體整理的豆瓣分數完結後約 6.6，MDL 8.8，是落差最大的幾部之一。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；開場就有活埋與殺害，之後是一路復仇。
+- **長度**：40 集，另有 1 集彩蛋，2024 年播出，已完結。
+- **先看什麼**：改編自千山茶客的網路小說《嫡嫁千金》，不必先讀。主軸是頂替身分復仇，愛情是副線。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/262525.do?cs=2)（訂閱，至 2029-06-02）；[Disney+](https://www.disneyplus.com/zh-tw/browse/entity-9cc94fc6-afa3-40e0-81d1-8a14c4723936)（訂閱）。[Netflix](https://www.netflix.com/tw/title/81900131) 2024 年也曾拿下台灣週榜第一
+
+#### 惜花芷（Blossoms in Adversity）
+
+花家遭變故、男丁流放，大小姐花芷不再藏拙，帶女眷與孩子度過難關，也和七宿司指揮使顧晏惜走近（[Wikipedia](https://mydramalist.com/749431-the-story-of-hua-zhi)）。
+
+- **推薦來源**：`A Asia Contents Awards 2024 最佳女主角提名（張婧儀）` `C MyDramaList 陸劇榜 #41（8.6）` `D 云合 2024 上新劇有效播放 #9（16.9 億）` `D 燈塔 2024 網路劇榜 #3（19.96 億）` `F PTT China-Drama 2024「最喜歡的中劇」串（14 人）`
+- **評分**：MyDramaList 8.6（14,320 人）｜IMDb 8.0（640 票）
+- **劇評**：菲律賓生活網站 The Diarist.ph 的 [Liana Garcellano](https://www.thediarist.ph/just-the-point-of-view-we-need-tiger-women-hold-up-half-the-sky-in-c-dramas/) 寫議題短評，把花芷讀成木蘭式人物。她肯定劇寫女性自立，而不是靠仇男。找不到台灣署名劇評。台灣媒體整理的豆瓣分數播完後從 7.1 升到 7.4，MDL 8.6，是慢慢累積的長尾口碑。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情有抄家、流放與飢寒求生。
+- **長度**：40 集，2024 年播出，已完結。
+- **先看什麼**：改編自空留的網路小說，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/266774.do?cs=2)（部分免費，至 2029-07-18）
+
+#### 知否知否應是綠肥紅瘦（The Story of Ming Lan）
+
+北宋盛家庶出的六姑娘明蘭幼年喪母，藏起聰慧在逆境中長大，嫁給顧廷燁後整頓侯府（[Wikipedia](https://zh.wikipedia.org/wiki/%E7%9F%A5%E5%90%A6%EF%BC%9F%E7%9F%A5%E5%90%A6%EF%BC%9F%E5%BA%94%E6%98%AF%E7%BB%BF%E8%82%A5%E7%BA%A2%E7%98%A6)）。
+
+- **推薦來源**：`A 白玉蘭獎 2019 最佳中國電視劇提名` `C IMDb 8.3（1,500 票）` `C MyDramaList 陸劇榜 #26（8.7）` `D 云合 2024 老劇有效播放 #3` `F PTT China-Drama 2019「最愛陸劇」串（約 16 人）` `F PTT China-Drama 2020「最愛的三部陸劇」串（約 18 人）`
+- **官方榜（不計入推薦來源）**：金鷹獎 2020 優秀電視劇
+- **評分**：MyDramaList 8.7（11,301 人）｜IMDb 8.3（1,500 票）
+- **劇評**：找不到英文署名劇評。聯合報〈娛樂有評〉的[柯志遠](https://stars.udn.com/star/story/10093/3601350)播到約第 34 集時強推，對兩位主演有保留。他說劇中的宅鬥比宮鬥「要更讓人易生共鳴」。大陸界面新聞記完結時豆瓣 7.5，之後台灣媒體整理到 7.8 至 7.9，MDL 8.7。大陸光明網（2019-02）則批評改編太求爽。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情有生母被害與宅鬥。
+- **長度**：78 集（國際 DVD 版 73 集），2018 年底到 2019 年播出，已完結。
+- **先看什麼**：改編自關心則亂的網路小說，不必先讀。關心則亂也是《星漢燦爛．月升滄海》的原著作者，兩劇劇情無關。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/76386.do?cs=2)（訂閱，至 2026-12-24）；[LINE TV](https://www.linetv.tw/drama/9008/eps/1)（上架中）。Hami Video 的授權 2026 年 12 月到期
+
+#### 嫁金釵（Where the Mask Ends）
+
+貴女魏嬈怕替重傷的未婚夫沖喜後守寡，找來長相一樣的掏糞女阿醜替嫁；未婚夫卻醒了，阿醜得在府中求生（[Wikipedia](https://en.wikipedia.org/wiki/Where_the_Mask_Ends)）。
+
+- **推薦來源**：`C MyDramaList 陸劇榜 #50（8.6）` `D Netflix 全球非英語影集週榜 #7（2026-10-12～18，160 萬次觀看）` `G DailyView 2026 年 10 月陸劇聲量 #1（負評 30%）`
+- **評分**：MyDramaList 8.6（8,989 人）｜IMDb 7.9（748 票）
+- **劇評**：找不到英文署名劇評。找不到台灣署名劇評。台灣媒體整理的豆瓣開分 7.0，MDL 8.6；台灣聲量第一，但三成是負評。播出未滿一個月，分數還會變。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南有強暴未遂、女子滿臉是血把人打死，還有割手自傷，暴力與驚嚇為 Moderate。
+- **長度**：30 集，2026 年 10 月 16 日開播。MDL 記 11 月 3 日網路平台更新完畢，以此算已完結；CCTV-8 的播出進度未確認。
+- **先看什麼**：改編自笑佳人在晉江文學城連載的網路小說，不必先讀。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/83150089)（訂閱）。台灣只有 Netflix，上架證據來自 Netflix 台灣官方預告
+
+#### 九重紫（Blossom）
+
+前世含冤而死的竇昭帶著記憶和一本預言書重生，和同樣重生的將軍宋墨結盟對抗朝堂陰謀，從盟友走向相愛（[Wikipedia](https://en.wikipedia.org/wiki/Blossom_(Chinese_TV_series))）。
+
+- **推薦來源**：`C 豆瓣 2025 評分最高華語劇集 #10（7.8）` `C MyDramaList 陸劇榜 #24（8.8）` `E 微博視界大會 2025 年度突破創新作品` `F PTT China-Drama 2024「最喜歡的中劇」串（3 人，播出中）` `F Dcard 中國戲劇綜藝板追劇心得 4★`
+- **官方榜（不計入推薦來源）**：2024 年劇集推優名單
+- **評分**：MyDramaList 8.8（24,517 人）｜IMDb 7.9（1,200 票）｜豆瓣 7.8（豆瓣 2025 年度榜頁面，2026 年 11 月的值）
+- **劇評**：找不到英文署名劇評。聯合報〈娛樂有評〉的[雀雀](https://stars.udn.com/star/story/10093/8533990)在陸播完結後寫，說重生公式不新，女主角「稍嫌面癱」。她肯定結局「惡人受懲」，算陸劇的一次長進。豆瓣 7.8、MDL 8.8，台灣劇迷也正評，是各方少見一致的黑馬。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情開頭有前世遭背叛致死。
+- **長度**：34 集，2024 年播出，已完結。
+- **先看什麼**：改編自吱吱的網路小說，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/280740.do?cs=2)（訂閱，至 2030-06-05）；[LINE TV](https://www.linetv.tw/drama/16880/eps/1)（上架中）；[friDay影音](https://video.friday.tw/drama/detail/4714)（免費＋影劇方案）。Netflix 也有上架，證據來自 Harper’s Bazaar 台灣
+
+#### 雁回時（The Glory）
+
+從小被棄養的莊寒雁重回莊家，引起大理寺少卿傅雲夕注意，兩人揭穿莊家家長莊仕洋的另一面（[Wikipedia](https://zh.wikipedia.org/wiki/%E9%9B%81%E5%9B%9E%E6%97%B6)）。
+
+- **推薦來源**：`D 騰訊 2025 熱度值 #2` `E 微博視界大會 2025 年度大眾喜愛作品` `F Dcard 戲劇綜藝板 2025 上半年陸劇推薦（3.5/5）` `F PTT China-Drama 2025「還有推薦哪部」串（1 人）`
+- **評分**：MyDramaList 8.3（9,943 人）｜IMDb 7.2（482 票）
+- **劇評**：找不到英文署名劇評。找不到台灣署名劇評。騰訊熱度年度第二，台灣媒體整理的豆瓣分數卻從開分 7.0 降到 6.8，MDL 8.3。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情是家族內的復仇與懸疑。
+- **長度**：30 集，2025 年播出，已完結。
+- **先看什麼**：改編自千山茶客的網路小說《重生之貴女難求》，不必先讀。主軸是家族復仇懸疑，愛情是副線。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/290380.do?cs=2)（部分免費，至 2030-04-14）。[Netflix](https://www.netflix.com/tw/title/82036449) 也有上架，證據來自 Harper’s Bazaar 台灣
+
+### 古裝愛情
+
+聯姻的世仇、殺豬女與侯爺、女扮男裝的將軍，以及被父母留下的程少商。
+
+#### 折腰（The Prisoner of Beauty）
+
+亂世中，喬家女兒小喬被送去和世仇魏家的家主魏劭聯姻，兩人從互相提防走到攜手（[Wikipedia](https://en.wikipedia.org/wiki/The_Prisoner_of_Beauty)）。
+
+- **推薦來源**：`C IMDb 8.2（2,600 票）` `C MyDramaList 陸劇榜 #9（8.9）` `D 騰訊 2025 熱度值 #3` `E 微博視界大會 2025 年度優秀作品` `F PTT China-Drama 2025「還有推薦哪部」串（約 19 人）` `F MyDramaList 使用者 2025 陸劇清單 #2` `G Netflix 台灣週榜 #1（2025-05-25，累計 8 週）` `G LINE TODAY 2025 陸劇 #2`
+- **評分**：MyDramaList 8.9（31,696 人）｜IMDb 8.2（2,600 票）
+- **劇評**：找不到英文署名劇評。獨立評論＠天下的[廖芳潔](https://opinion.cw.com.tw/blog/profile/517/article/16212)在陸播完結前後替被罵的小喬辯護，說宋祖兒「不是在討你喜歡」。她也承認劇情「反覆、灌水」，整體仍推。Netflix 台灣週榜第一、MDL 8.9，台灣媒體整理的豆瓣只有 6.4 到 6.6，國內外評價分得最開。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南每類只有 1–3 票，五類都是 Moderate：有被打斷的親密戲、酒後親吻與戰爭場面。
+- **長度**：36 集，2025 年播出，已完結。
+- **先看什麼**：改編自蓬萊客在晉江文學城連載的網路小說，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/296127.do?cs=2)（訂閱，至 2030-06-01）；[Netflix](https://www.netflix.com/tw/title/83073240)（訂閱）。Netflix 上架證據來自 Netflix 台灣官方 YouTube
+
+#### 逐玉（Pursuit of Jade）
+
+剛成孤兒、以殺豬為業的樊長玉救起重傷的謝征，他隱瞞侯爺身分籌謀血仇，兩人假成親後日久生情（[Wikipedia](https://en.wikipedia.org/wiki/Pursuit_of_Jade)）。
+
+- **推薦來源**：`C MyDramaList 陸劇榜 #1（9.1）` `C IMDb 8.7` `D Netflix 全球非英語影集週榜 #6（2026-03-09～15，190 萬次觀看）` `E 微博視界大會 2026 年度電視劇` `G Netflix 台灣週榜 #2（2026-04-12，累計 13 週）` `G DailyView 2026 年 10 月陸劇聲量 #3`
+- **評分**：MyDramaList 9.1（46,932 人）｜IMDb 8.7（5,800 票）｜豆瓣 6.4（豆瓣年度榜頁面當下值，2026 年 11 月）
+- **劇評**：[Screen Rant 的 J.R. Waugh](https://screenrant.com/netflix-chinese-drama-pursuit-of-jade-long-binge/) 評全 40 集，推薦但說太密，不適合一個週末看完，稱讚攝影與武打。NOWnews〈名家論壇〉的[柯志遠](https://tw.news.yahoo.com/%E5%90%8D%E5%AE%B6%E8%AB%96%E5%A3%87-%E6%9F%AF%E5%BF%97%E9%81%A0-%E5%8A%87%E8%A9%95-%E9%80%90%E7%8E%89-075815709.html)開播不到一週就強推，只評了前段。他說「流量只是開場，內容才是掌聲」。MDL 9.1、豆瓣 6.4，差 2.7 分，是全篇落差最大的一部。大陸羊城晚報（2026-03）則批評權謀線扁平。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南投票最多，暴力與驚嚇都是 Severe（10/15、8/12 票）。第 1 集就有見血的屠宰和持刀殺人，自殺是劇情重點。
+- **長度**：40 集，2026 年 3 月播出，已完結。
+- **先看什麼**：改編自團子來襲的網路小說，不必先讀。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/82706181)（訂閱）。台灣只有 Netflix，上架證據來自 Netflix 台灣官方 YouTube
+
+#### 錦月如歌（Legend of the Female General）
+
+禾晏被迫頂替體弱的弟弟從軍，立功後身分被奪；死裡逃生的她再度女扮男裝從軍，和肖珏並肩作戰查案（[Wikipedia](https://en.wikipedia.org/wiki/Legend_of_the_Female_General)）。
+
+- **推薦來源**：`E 貓眼 2025 電視劇熱度 #9` `F PTT China-Drama 2025「還有推薦哪部」串（6 人）` `F PTT China-Drama 2025 追劇回顧（「私心很想給六顆星」）` `G 愛奇藝台灣站 2025 年 8 月冠軍（熱度參考）`
+- **評分**：MyDramaList 8.6（26,927 人）｜IMDb 8.1（1,800 票）
+- **劇評**：找不到英文署名劇評。聯合報〈娛樂有評〉的[雀雀](https://stars.udn.com/star/story/10093/8956760)在播出期間和《書卷一夢》合評，屬中性分析。她說看點在周也「演戲也演戲中戲」，也感嘆觀眾最愛的仍是逆天改命公式。台灣媒體整理的豆瓣只有 5.4，MDL 8.6，差 3.2 分；原著讀者不滿劇版刪掉重生線。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情有戰爭場面。
+- **長度**：36 集，2025 年播出，已完結。
+- **先看什麼**：改編自千山茶客的網路小說《重生之女將星》，不必先讀。千山茶客也是《墨雨雲間》《雁回時》的原著作者。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/302738.do?cs=2)（部分免費，至 2030-08-28）。[Netflix](https://www.netflix.com/tw/title/82116162) 也有上架，證據來自 ELLE 台灣
+
+#### 星漢燦爛．月升滄海（Love Like the Galaxy）
+
+程少商從小被出征的父母留下、受長輩苛待，養成機警性子，後來和皇帝養子凌不疑糾纏，牽出他的身世之謎（[Wikipedia](https://en.wikipedia.org/wiki/Love_Like_the_Galaxy)）。
+
+- **推薦來源**：`C IMDb 8.3（2,900 票）` `C MyDramaList 陸劇榜：上部 #13、下部 #11（皆 8.9）` `D 云合 2024 老劇有效播放 #9` `F PTT China-Drama 入坑串（1 人）`
+- **評分**：MyDramaList 8.9（上部）（34,815 人）｜IMDb 8.3（2,900 票）
+- **劇評**：找不到英文署名劇評。udn〈星級評論〉的[杜沛學](https://stars.udn.com/star/story/10093/6582858)在完結後以演員評論為主，談劇的篇幅約三分之一。她說連接上下部的訂親戲「堪稱全部戲劇最重要、最有看頭的經典場面」。開播時口碑差，台灣媒體整理的豆瓣從 7.4 升到 7.7；MDL 上下部都是 8.9。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情有滅門與復仇情節。
+- **長度**：一部劇分上下部播出，不是兩季：上部《星漢燦爛》27 集、下部《月升滄海》29 集，2022 年播出，已完結。MDL 分兩條，下部 8.9（28,925 人）。
+- **先看什麼**：改編自關心則亂的網路小說，不必先讀。上部和下部是同一個故事，要照順序看。
+- **在哪看**：[Hami Video 上部](https://hamivideo.hinet.net/product/213003.do?cs=2)（訂閱，至 2027-10-18）；[Hami Video 下部](https://hamivideo.hinet.net/product/213819.do?cs=2)（訂閱，至 2027-10-18）。[Netflix](https://www.netflix.com/tw/title/81633699) 也有上架，證據來自 Harper’s Bazaar 台灣
+
+### 仙俠與奇幻愛情
+
+鳳凰、神族王姬、穿書少女、蘭花精和月尊。動輒數百年的前世今生。
+
+#### 與鳳行（The Legend of Shen Li）
+
+為了逃婚離開神界的女將軍沈璃，在戰鬥中受傷化回鳳凰原形，墜入人間遇上凡人行雲（[Wikipedia](https://en.wikipedia.org/wiki/The_Legend_of_Shen_Li)）。
+
+- **推薦來源**：`B 新京報 2024 年度劇集` `C IMDb 8.2（1,400 票）` `C MyDramaList 陸劇榜 #40（8.6）` `D 云合 2024 上新劇有效播放 #2（31.6 億）` `D 燈塔 2024 電視劇榜 #2（28.12 億）` `F PTT China-Drama 2024「最喜歡的中劇」串（16 人，「結局天花板」）` `G LINE TODAY 2024 陸劇 #4`
+- **評分**：MyDramaList 8.6（12,105 人）｜IMDb 8.2（1,400 票）
+- **劇評**：找不到英文署名劇評。找不到台灣署名劇評；[獨立評論＠天下的廖芳潔](https://opinion.cw.com.tw/blog/profile/517/article/16212)談《折腰》時順帶批評，說沈璃「後期卻柔情到沒骨頭」。MDL 8.6、播放量 2024 年第二，台灣媒體整理的豆瓣分數只有 7.2。大陸的中國青年報（2024-04）肯定反套路細節，但嫌故事空洞。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情有仙俠戰鬥場面。
+- **長度**：39 集，2024 年播出，已完結。
+- **先看什麼**：改編自九鷺非香的網路小說，九鷺非香也兼編劇，不必先讀。原著作者和《蒼蘭訣》相同，劇情無關。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/261728.do?cs=2)（部分免費，至 2029-03-17）；[Disney+](https://www.disneyplus.com/zh-tw/browse/entity-e2a32b3f-bdd5-42ea-9053-3fac94fcbc50)（訂閱）
+
+#### 長相思（Lost You Forever）
+
+神、人、妖並存的上古，王姬小夭幼年流落，三百年後女扮男裝在清水鎮行醫，捲入三個男人的情感與權謀（[Wikipedia](https://en.wikipedia.org/wiki/Lost_You_Forever)）。
+
+- **推薦來源**：`B 南都娛樂年鑑 2023 十大劇集 #6` `C MyDramaList 陸劇榜 #55（8.6）` `D 云合 2024 熱播期集均 #13（第二季）` `D 燈塔 2024 古偶集均 #3、仙俠劇冠軍（第二季）` `F PTT China-Drama 2023「最喜歡的中劇」串（約 37 人，第一季）` `G Netflix 台灣週榜（2023-09-24，第一季）`
+- **評分**：MyDramaList 8.6（第一季）（10,862 人）｜IMDb 6.5（3,400 票）
+- **劇評**：找不到英文署名劇評。聯合報〈娛樂有評〉的[潘光中](https://stars.udn.com/star/story/10093/7442868)在第一季完結後寫，稱它是「認認真真憑實力出圈的良心劇」。他說多線 CP 加上現實主義，讓它跨出古偶基本盤。第一季 MDL 8.6，台灣媒體整理的豆瓣約 7.8；第二季 MDL 降到 8.3，台灣劇迷也有人失望。
+- **尺度**：Disney+ 台灣 12+。IMDb 家長指南沒有投票；依劇情有仙俠戰爭與角色死亡。
+- **長度**：第一季 39 集（2023）、第二季 23 集（2024），兩季都已完結。第二季 MDL 8.3（5,216 人）；IMDb 把兩季合成一條計分。
+- **先看什麼**：改編自桐華的小說，桐華也兼編劇，不必先讀。第二季直接接第一季，要照順序看。
+- **在哪看**：[Hami Video 第一季](https://hamivideo.hinet.net/product/235089.do?cs=2)（訂閱，至 2028-08-24）；[Hami Video 第二季](https://hamivideo.hinet.net/product/268984.do?cs=2)（訂閱，至 2029-08-01）；[Disney+](https://www.disneyplus.com/zh-tw/browse/entity-56753e43-f4a9-471b-984a-bc8c8094da9c)（訂閱，12+）
+
+#### 永夜星河（Love Game in Eastern Fantasy）
+
+凌妙妙寫負評時意外穿進志怪小說，成了炮灰女配，得完成系統任務、攻略反派慕聲才能回到現實（[Wikipedia](https://en.wikipedia.org/wiki/Love_Game_in_Eastern_Fantasy)）。
+
+- **推薦來源**：`C IMDb 7.6（1,600 票）` `D 云合 2024 上新劇有效播放 #14（13.4 億）` `F PTT China-Drama 2024「最喜歡的中劇」串（約 33 人）` `F Dcard 中國戲劇綜藝板追劇心得 5★（「絕對是大爆款」）` `G Netflix 台灣週榜 #10（2024-12-08，累計 5 週）`
+- **官方榜（不計入推薦來源）**：2024 年劇集推優名單
+- **評分**：MyDramaList 8.5（23,216 人）｜IMDb 7.6（1,600 票）
+- **劇評**：找不到英文署名劇評。電影神搜的[白話雯](https://news.agentm.tw/306868/)只看前 3 集寫開箱，對第一集十分鐘就劇終的剪輯說「導演真的是很大膽」。她對特效的一體感有保留，屬介紹型偏正面。Global Times 引述的豆瓣分數是 7.5，MDL 8.5，國內外熱度一致。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南只有 2 票：暴力與驚嚇為 Moderate，捉妖時有血液在空中飛散，沒有性和髒話。
+- **長度**：32 集，2024 年播出，已完結。
+- **先看什麼**：改編自白羽摘雕弓的網路小說《黑蓮花攻略手冊》，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/284605.do?cs=2)（部分免費，至 2030-01-23）。[Netflix](https://www.netflix.com/tw/title/81950758) 2024 年底也曾登台灣週榜
+
+#### 蒼蘭訣（Love Between Fairy and Devil）
+
+小蘭花精意外放出被封印的月尊東方青蒼，兩人被同心咒綁住，傷痛、情感與生死都相連（[Wikipedia](https://en.wikipedia.org/wiki/Love_Between_Fairy_and_Devil)）。
+
+- **推薦來源**：`A 亞洲學院創意獎 2023 中國區最佳劇集` `C IMDb 8.4（5,500 票）` `C 豆瓣 2022 評分最高華語劇集 #8` `D 云合 2024 集均破億劇集` `D 愛奇藝站內熱度破萬` `F PTT China-Drama 入坑串（2 人，「我的仙俠天花板」）`
+- **評分**：MyDramaList 8.7（44,204 人）｜IMDb 8.4（5,500 票）
+- **劇評**：[Collider 的 Michele Kirichanskaya](https://collider.com/love-between-fairy-and-devil-chinese-drama/) 看完全劇寫推薦特寫，稱它是「完美的仙俠劇」。聯合報〈娛樂有評〉的[雀雀](https://stars.udn.com/star/story/10093/6584237)在完結後寫，說它公式中有反套路。她說它「一次洗白三種陸劇常被拍成爛劇的罪名元素」。MDL 8.7，台灣媒體整理的豆瓣從開分 7.7 升到 8.1，是少數各方都給高分的仙俠；台灣劇迷討論反而少。
+- **尺度**：IMDb 台灣列 13+（使用者可編輯）。IMDb 家長指南每類只有 1 票，投稿說只有幾場很單純的吻戲，全劇尺度都很輕。
+- **長度**：36 集，另有 2 集特別篇，2022 年播出，已完結。
+- **先看什麼**：改編自九鷺非香的網路小說，不必先讀。九鷺非香也是《與鳳行》的原著作者，兩劇劇情無關。
+- **在哪看**：[Netflix](https://www.elle.com/tw/entertainment/drama/g41222597/lovebetweenfairyanddevil)（2022 年媒體報導，現在台灣可能已下架）。緯來戲劇台 2023 年曾播出
+
+#### 仙台有樹（Love of the Divine Tree）
+
+女魔頭沐清歌為徒弟蘇易水改天命而死，十八年後化為體弱的薛冉冉，反被已是掌門的蘇易水收為徒弟（[Wikipedia](https://zh.wikipedia.org/wiki/%E4%BB%99%E5%8F%B0%E6%9C%89%E6%A8%B9)）。
+
+- **推薦來源**：`A 亞洲學院創意獎 2025 中國區視覺特效（技術獎）` `F PTT China-Drama 2025「還有推薦哪部」串（10 人，原 PO 二刷）` `F PTT China-Drama 2025「最喜歡的中劇」串（5 人）` `G 愛奇藝台灣站 2025 上半年 #7（熱度參考）` `G LINE TODAY 2025 陸劇年度榜點名`
+- **評分**：MyDramaList 8.5（9,336 人）｜IMDb 7.5（429 票）
+- **劇評**：找不到英文署名劇評。找不到台灣署名劇評。台灣 PTT 劇迷的熱度遠高於評論與國際排名，MDL 8.5，台灣媒體整理的豆瓣分數約 7.1。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情是仙俠師徒戀，沒有找到需要提醒的內容。
+- **長度**：40 集，2025 年播出，已完結。
+- **先看什麼**：改編自狂上加狂的網路小說，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/325606.do?cs=2)（訂閱，至 2029-05-21）
+
+#### 入青雲（Love in the Clouds）
+
+女扮男裝的明意以太子名義連贏七年青雲大會，卻敗給紀伯宰又中毒斷了靈脈，於是化身舞姬接近他討解藥（[Wikipedia](https://en.wikipedia.org/wiki/Love_in_the_Clouds)）。
+
+- **推薦來源**：`C IMDb 8.3（1,900 票）` `C MyDramaList 陸劇榜 #17（8.8）` `F PTT China-Drama 2025 追劇回顧（「六顆星，入門劇」）` `F MyDramaList 使用者 2025 陸劇清單 #3` `G Netflix 台灣週榜 #9（2025-10-26，累計 3 週）`
+- **評分**：MyDramaList 8.8（29,512 人）｜IMDb 8.3（1,900 票）｜豆瓣 7.0（英文維基引述，逾 7.3 萬人評分）
+- **劇評**：找不到英文署名劇評。找不到台灣署名劇評。MDL 8.8、豆瓣 7.0，國際分數明顯較高；台灣媒體轉述大陸觀眾嫌節奏偏慢。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南只有 1–3 票：性、髒話與驚嚇都是 None，暴力和飲酒為 Mild。
+- **長度**：36 集，2025 年播出，已完結。
+- **先看什麼**：改編自白鷺成雙的網路小說，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/307368.do?cs=2)（部分免費，至 2030-10-01）
+
+#### 臨江仙（Feud）
+
+宿敵華如月與白九思因情劫反目，華如月自爆而死；四百年後弟子李青月嫁給白九思，發現自己和他前妻長得一樣（[Wikipedia](https://en.wikipedia.org/wiki/Feud_(Chinese_TV_series))）。
+
+- **推薦來源**：`D 云合 2025 上新長劇有效播放前 20` `D 貓眼 2025 日冠次數最多網路劇（24 次）` `E 微博視界大會 2025 年度大眾喜愛作品` `G 愛奇藝台灣站 2025 年 6 月冠軍（熱度參考）`
+- **評分**：MyDramaList 8.1（7,872 人）｜IMDb 6.8（493 票）｜豆瓣 6.0（英文維基引述，逾 12 萬人評分）
+- **劇評**：找不到英文署名劇評。找不到台灣署名劇評。它是 2025 年日冠次數最多的網路劇，MDL 8.1、豆瓣 6.0；台灣 PTT 也有劇迷給負評。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情是仙俠虐戀，女主角前世自爆而死。
+- **長度**：32 集，2025 年播出，已完結。
+- **先看什麼**：英文維基沒有列出原著，直接看即可。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/297602.do?cs=2)（部分免費，至 2029-06-30）；[LINE TV](https://www.linetv.tw/drama/17539/eps/1)（上架中）
+
+## 候補觀察名單
+
+這些劇都有三類以上非官方來源推薦，但台灣只在愛奇藝國際站上架。
+
+| 劇 | 狀況 |
+|---|---|
+| 書卷一夢 | 五類推薦來源都有，台灣只在愛奇藝國際站上架 |
+| 寧安如夢、白月梵星、長風渡 | 四類推薦來源都有，台灣只在愛奇藝國際站上架 |
+| 雲之羽、一笑隨歌、無憂渡 | 三類推薦來源都有，台灣只在愛奇藝國際站上架 |
+
+## 這份片單的限制
+
+- **英文劇評幾乎沒有。** 18 部只有 4 部找得到英文署名文章，主流媒體只有 Collider 和南華早報評過《蒼蘭訣》；其他多是部落格和 MyDramaList 使用者評論，沒有收。
+- **台灣劇評集中在少數作者。** 7 部找不到台灣署名劇評；有的 12 篇裡 9 篇出自潘光中、雀雀、柯志遠三人，幾篇只評了前幾集。
+- **豆瓣分數多半來自台灣媒體整理。** 評分欄只放 5 部讀得到原文來源的分數，其他寫在劇評欄，而且分數會隨時間變動。
+- **陸劇在台灣的串流有政策限制。** 不少熱門古偶只在愛奇藝國際站上架，依規則列在候補。《蒼蘭訣》的台灣證據停在 2022 年，可能已下架；《知否知否應是綠肥紅瘦》在 Hami Video 的授權 2026-12-24 到期。本篇串流連結核對日期：2026-11-12。
+
+## 參考資料
+
+- [第30屆上海電視節白玉蘭獎（中文維基）](https://zh.wikipedia.org/wiki/第30届上海电视节白玉兰奖)
+- [Asian Academy Creative Award for Best Drama Series（Wikipedia）](https://en.wikipedia.org/wiki/Asian_Academy_Creative_Award_for_Best_Drama_Series)
+- [Global OTT Awards（Wikipedia）](https://en.wikipedia.org/wiki/Global_OTT_Awards)
+- [南方周末〈2025文化原創榜·劇集〉](https://www.infzm.com/contents/313610)
+- [新周刊 2024 中國視頻榜（中國出版傳媒商報）](https://www.cbbr.com.cn/contents/533/97031.html)
+- [MyDramaList：Top Chinese Dramas](https://mydramalist.com/shows/top_chinese_dramas)
+- [豆瓣 2025 年度電影榜單](https://movie.douban.com/annual/2025/)
+- [雲合數據〈2024 年長劇集網播年度觀察〉](https://pdf.dfcfw.com/pdf/H3_AP202501081641847977_1.pdf)
+- [燈塔專業版 2024 年度劇集播放榜](https://www.sohu.com/a/843429934_745022)
+- [中國視聽大數據 2025 年國產電視劇收視報告（國家廣播電視總局）](https://www.nrta.gov.cn/art/2025/12/26/art_114_72192.html)
+- [2025 微博視界大會榮譽](https://hea.china.com/articles/20251105/202511051759836.html)
+- [PTT 陸劇板〈2025最喜歡的中劇？〉](https://www.ptt.cc/bbs/China-Drama/M.1765465415.A.B24.html)
+- [PTT 陸劇板〈2024最喜歡的中劇？〉](https://www.ptt.cc/bbs/China-Drama/M.1733465852.A.DE4.html)
+- [LINE TODAY 聚光賞〈2025 陸劇年度榜〉](https://today.line.me/tw/v3/article/wJYz5Ra)
+- [LINE TODAY 聚光賞〈2024 陸劇年度榜〉](https://today.line.me/tw/v3/article/8nWW20Z)
+- [網路溫度計〈年度人氣陸劇 TOP 10〉](https://dailyview.tw/daily/5191)
+- [中華電信 Hami Video〈影劇館+ 2025 年度收視排行榜〉](https://www.cht.com.tw/zh-tw/home/cht/messages/2025/1210-1500)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [中央社〈愛奇藝條款上路 代理商違法最高可罰500萬〉](https://www.cna.com.tw/news/firstnews/202008185009.aspx)
