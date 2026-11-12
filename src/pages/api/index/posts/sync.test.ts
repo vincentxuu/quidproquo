@@ -65,4 +65,17 @@ describe('/api/index/posts/sync', () => {
     expect(response.status).toBe(200)
     expect(applyPostSyncOperations).toHaveBeenCalledWith(workerEnv.DB, [operation])
   })
+
+  it('returns the D1 error message when applying a batch fails', async () => {
+    vi.mocked(applyPostSyncOperations).mockRejectedValueOnce(new Error('D1_ERROR: database is locked'))
+    const errorLog = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const response = await POST({
+      request: request('POST', { operations: [{ type: 'delete', slug: 'tech/stale' }] }),
+    } as never)
+
+    expect(response.status).toBe(500)
+    await expect(response.json()).resolves.toEqual({ error: 'D1_ERROR: database is locked' })
+    expect(errorLog).toHaveBeenCalledWith(expect.stringContaining('D1_ERROR: database is locked'))
+    errorLog.mockRestore()
+  })
 })
