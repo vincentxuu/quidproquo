@@ -1,0 +1,359 @@
+---
+title: "陸劇權謀、懸疑、武俠與奇幻怎麼挑：慶餘年、唐朝詭事錄之西行、藏海傳、漫長的季節等 15 部"
+date: 2026-11-12
+category: film
+tags: [tv-drama, c-drama, crime-drama, fantasy]
+lang: zh-TW
+type: guide
+description: "給想看中國權謀劇、懸疑劇、武俠劇與奇幻劇的台灣觀眾：古裝權謀與懸疑、武俠與奇幻、現代懸疑犯罪三組，15 部都同時被獎項評審、影評人、觀眾評分、收視數據、話題指標、劇迷口碑、台灣觀眾當中至少三類非官方來源推薦，而且台灣有合法串流；每部附推薦來源、MyDramaList／IMDb／豆瓣評分、英文與台灣劇評、尺度、集數與台灣串流連結。"
+tldr: "先看六類來源都推的《慶餘年》《唐朝詭事錄之西行》《藏海傳》。想短一點，選 10 到 21 集的現代懸疑《漫長的季節》《新生》《不眠日》《邊水往事》。豆瓣和國際評分落差很大：《大奉打更人》豆瓣 5.6、MyDramaList 8.6；《漫長的季節》反過來，豆瓣 9.4。"
+draft: false
+series:
+  name: "各國影劇導讀"
+  order: 14
+---
+
+> 🌏 [English version](/posts/film/2026-11-12-cdrama-intrigue-mystery-wuxia-en)
+
+這篇收的是中國的權謀、懸疑、武俠和奇幻（fantasy）劇：唐代被貶官員一路西行偵辦的詭案、穿越者在朝堂上的生存、江湖少年的冒險，以及東北工業小城 18 年前的碎屍懸案。15 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類非官方來源都推它，而且台灣有合法串流管道。陸劇的選片規則（官方獎不計、愛奇藝國際站與 WeTV 不算台灣合法管道）寫在[古裝愛情篇](/posts/film/2026-11-12-cdrama-costume-romance-xianxia)開頭；日本同類型的劇在[日劇懸疑篇](/posts/film/2026-11-10-jdrama-mystery-crime-action)。
+
+這組有兩個特點：
+
+- **長。** 古裝和武俠多在 28 到 40 集，《慶餘年》兩季 82 集；現代懸疑短得多，10 到 21 集。
+- **豆瓣和國際評分常常不一致。** 《大奉打更人》豆瓣 5.6、MyDramaList 8.6；《漫長的季節》反過來，豆瓣 9.4、MyDramaList 8.0。每部的評分欄兩邊都寫。
+
+## 先從這 3 部開始
+
+| 劇 | 為什麼先看 | 尺度 | 在哪看 |
+|---|---|---|---|
+| 慶餘年 | 六類推薦來源都有，MyDramaList 8.9 | 中等：刺殺與打鬥 | Disney+、Hami Video |
+| 唐朝詭事錄之西行 | 六類推薦來源都有，豆瓣 8.6 | 中等：命案與恐怖元素 | Hami Video |
+| 藏海傳 | 六類推薦來源都有，IMDb 2.4 萬票 | Disney+ 台灣 12+，開場是滅門慘案 | Disney+、Hami Video |
+
+## 推薦來源一覽
+
+表中 ● 代表這一類來源有推薦。A 獎項評審、B 影評人投票榜、C 觀眾評分、D 收視與串流數據、E 話題指標、F 劇迷口碑、G 台灣觀眾。飛天獎、金鷹獎和年度劇集推優由國家單位主辦，不算在 A 類，另外寫在卡片的「官方榜」欄。
+
+| 劇 | A | B | C | D | E | F | G | 類別數 |
+|---|---|---|---|---|---|---|---|---|
+| 唐朝詭事錄之西行 | ● |  | ● | ● | ● | ● | ● | 6 |
+| 慶餘年 | ● | ● | ● | ● |  | ● | ● | 6 |
+| 藏海傳 | ● |  | ● | ● | ● | ● | ● | 6 |
+| 凡人修仙傳 |  |  |  | ● | ● | ● | ● | 4 |
+| 異人之下 | ● | ● | ● |  |  | ● |  | 4 |
+| 漫長的季節 | ● | ● | ● |  |  | ● |  | 4 |
+| 新生 |  | ● |  | ● |  | ● | ● | 4 |
+| 邊水往事 | ● | ● | ● | ● |  |  |  | 4 |
+| 水龍吟 |  |  | ● | ● |  | ● | ● | 4 |
+| 琅琊榜 | ● |  | ● | ● |  |  |  | 3 |
+| 大奉打更人 |  |  | ● | ● | ● |  |  | 3 |
+| 長安二十四計 |  |  |  |  | ● | ● | ● | 3 |
+| 少年歌行 |  |  | ● | ● |  | ● |  | 3 |
+| 暗河傳 |  |  | ● |  |  | ● | ● | 3 |
+| 不眠日 |  | ● |  |  |  | ● | ● | 3 |
+
+這組的 F 欄（劇迷口碑）最滿，15 部有 12 部；B 欄（影評人）只有 6 部，E 欄（話題指標）只有 5 部。
+
+## 先挑長度：總集數
+
+```diagram
+title: 15 部的總集數
+desc: 慶餘年兩季 82 集最長，琅琊榜 54 集；古裝與武俠多在 28 到 40 集；現代懸疑的邊水往事、不眠日、漫長的季節、新生只有 10 到 21 集。
+caption: 已播出的集數，不含電影與特別篇。慶餘年、異人之下是兩季合計；唐朝詭事錄之西行是系列第二部，第一部 36 集、第三部 40 集另計。
+---
+<svg viewBox="0 0 640 396">
+  <text class="dg-sub" x="224" y="24" text-anchor="end" dominant-baseline="central">慶餘年</text>
+  <rect class="dg-bar" x="236" y="16" width="353" height="16" rx="3"/>
+  <text class="dg-small" x="597" y="24" dominant-baseline="central">82</text>
+  <text class="dg-sub" x="224" y="49" text-anchor="end" dominant-baseline="central">琅琊榜</text>
+  <rect class="dg-bar" x="236" y="41" width="232" height="16" rx="3"/>
+  <text class="dg-small" x="476" y="49" dominant-baseline="central">54</text>
+  <text class="dg-sub" x="224" y="74" text-anchor="end" dominant-baseline="central">唐朝詭事錄之西行</text>
+  <rect class="dg-bar" x="236" y="66" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="416" y="74" dominant-baseline="central">40</text>
+  <text class="dg-sub" x="224" y="99" text-anchor="end" dominant-baseline="central">藏海傳</text>
+  <rect class="dg-bar" x="236" y="91" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="416" y="99" dominant-baseline="central">40</text>
+  <text class="dg-sub" x="224" y="124" text-anchor="end" dominant-baseline="central">大奉打更人</text>
+  <rect class="dg-bar" x="236" y="116" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="416" y="124" dominant-baseline="central">40</text>
+  <text class="dg-sub" x="224" y="149" text-anchor="end" dominant-baseline="central">少年歌行</text>
+  <rect class="dg-bar" x="236" y="141" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="416" y="149" dominant-baseline="central">40</text>
+  <text class="dg-sub" x="224" y="174" text-anchor="end" dominant-baseline="central">水龍吟</text>
+  <rect class="dg-bar" x="236" y="166" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="416" y="174" dominant-baseline="central">40</text>
+  <text class="dg-sub" x="224" y="199" text-anchor="end" dominant-baseline="central">異人之下</text>
+  <rect class="dg-bar" x="236" y="191" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="416" y="199" dominant-baseline="central">40</text>
+  <text class="dg-sub" x="224" y="224" text-anchor="end" dominant-baseline="central">暗河傳</text>
+  <rect class="dg-bar" x="236" y="216" width="163" height="16" rx="3"/>
+  <text class="dg-small" x="407" y="224" dominant-baseline="central">38</text>
+  <text class="dg-sub" x="224" y="249" text-anchor="end" dominant-baseline="central">凡人修仙傳</text>
+  <rect class="dg-bar" x="236" y="241" width="129" height="16" rx="3"/>
+  <text class="dg-small" x="373" y="249" dominant-baseline="central">30</text>
+  <text class="dg-sub" x="224" y="274" text-anchor="end" dominant-baseline="central">長安二十四計</text>
+  <rect class="dg-bar" x="236" y="266" width="120" height="16" rx="3"/>
+  <text class="dg-small" x="364" y="274" dominant-baseline="central">28</text>
+  <text class="dg-sub" x="224" y="299" text-anchor="end" dominant-baseline="central">邊水往事</text>
+  <rect class="dg-bar" x="236" y="291" width="90" height="16" rx="3"/>
+  <text class="dg-small" x="334" y="299" dominant-baseline="central">21</text>
+  <text class="dg-sub" x="224" y="324" text-anchor="end" dominant-baseline="central">不眠日</text>
+  <rect class="dg-bar" x="236" y="316" width="69" height="16" rx="3"/>
+  <text class="dg-small" x="313" y="324" dominant-baseline="central">16</text>
+  <text class="dg-sub" x="224" y="349" text-anchor="end" dominant-baseline="central">漫長的季節</text>
+  <rect class="dg-bar" x="236" y="341" width="52" height="16" rx="3"/>
+  <text class="dg-small" x="296" y="349" dominant-baseline="central">12</text>
+  <text class="dg-sub" x="224" y="374" text-anchor="end" dominant-baseline="central">新生</text>
+  <rect class="dg-bar" x="236" y="366" width="43" height="16" rx="3"/>
+  <text class="dg-small" x="287" y="374" dominant-baseline="central">10</text>
+</svg>
+```
+
+## 片單
+
+每部的格式：推薦來源、官方榜（有的話）、評分、劇評、尺度、長度、先看什麼、在哪看。
+
+- **評分**：陸劇沒有 Metacritic 分數，這篇用 [MyDramaList](https://mydramalist.com/shows/top_chinese_dramas)、IMDb 和豆瓣；多季劇的 MyDramaList 是第一季。豆瓣只寫讀得到原文的年度榜或媒體引述，並註明時間點，只看到新聞標題的分數不寫。
+- **尺度**：中國沒有分級制度，台灣平台有標分級的另外寫出。內容提醒取自 IMDb 家長指南，多數劇只有幾票或沒有投票，改依劇情寫。
+- **在哪看**：連結是台灣平台的作品頁。只有舊證據的劇會寫明可能已下架。
+
+### 古裝權謀與懸疑
+
+唐代的詭案、穿越者的朝堂、滅門倖存者的復仇，以及梅長蘇的翻案。最長、也最常被拿來和豆瓣分數對照的一組。
+
+#### 唐朝詭事錄之西行（Strange Tales of Tang Dynasty II: To the West）
+
+狄仁傑的弟子蘇無名與金吾衛出身的盧凌風遭貶，一路西行赴任，沿途偵辦各地詭異奇案（[Wikipedia](https://zh.wikipedia.org/wiki/唐朝诡事录之西行)）。
+
+- **推薦來源**：`A 亞洲學院創意獎 2025 最佳劇集大獎` `A 白玉蘭獎 2026 提名（之長安）` `C 豆瓣 2024 評分最高華語劇集 #5（8.6）` `D 云合 2024 上新劇有效播放 #6（20.2 億）` `D 燈塔 2024 網路劇榜 #2、懸疑劇冠軍` `E 微博視界大會 2026 年度優秀作品（之長安）` `F PTT China-Drama 2024「最喜歡的中劇」串（約 24 推）` `G LINE TODAY 2024 陸劇 #5`
+- **官方榜（不計入推薦來源）**：金鷹獎 2026 提名（之長安）、2024 年劇集推優名單、飛天獎 2026 入圍
+- **評分**：MyDramaList 8.5（西行）（1,331 人）｜IMDb 8.0（167 票）｜豆瓣 8.6（西行，2024 年底，云合數據年度報告）
+- **劇評**：英文只找到部落格 [Chasing Dramas 的 Karen and Cathy](https://www.chasingdramas.com/reviews/currently-watching-strange-tales-of-tang-dynasty-ii-to-the-west-2024-%E5%94%90%E6%9C%9D%E8%AF%A1%E4%BA%8B%E5%BD%95%E8%A5%BF%E8%A1%8C/)，她們看完全劇推薦。她們說西行比第一部好看，案件有強有弱，但「highly re-watchable」。聯合報〈娛樂有評〉的[潘光中](https://stars.udn.com/star/story/10093/8196683)在西行播出期間合評前兩部。他說唐詭靠「推理邏輯的奇譎、案件進展的奇詭、視覺效果的奇觀」殺出重圍。豆瓣、收視、獎項與台灣劇迷評價一致，英文主流媒體則沒有評過。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；題材是命案與詭案，帶恐怖元素。
+- **長度**：西行 40 集（2024），已完結。第一部 36 集（2022），第三部《之長安》40 集（2025）。中文維基列《唐詭奇譚》為續作，MDL 另有《之蜀道》與第六部條目，都沒有播出日期。
+- **先看什麼**：改編自魏風華的《唐朝詭事錄》系列小說，不必先讀。主角關係延續第一部，建議先看第一部，但它在 Hami Video 已下架。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/285371.do?cs=2)（部分免費，至 2028-01-31）。第一部在 Hami Video 的授權已到期；LINE TV 的《唐詭奇案》是另一部劇
+
+#### 慶餘年（Joy of Life）
+
+帶著現代記憶出生在架空古代慶國的少年范閑，前往京都，捲入奪嫡之爭並追查自己的身世（[Wikipedia](https://en.wikipedia.org/wiki/Joy_of_Life_(TV_series))）。
+
+- **推薦來源**：`A 白玉蘭獎 2020 提名` `A 白玉蘭獎 2025 提名（第 2 季）` `B 新京報 2024 年度劇集（第 2 季）` `C MyDramaList 陸劇榜 #7（8.9）` `C IMDb 8.2（2,700 票，兩季合併）` `D 云合 2024 上新劇有效播放 #1（第 2 季 45.1 億）` `D 燈塔 2024 電視劇榜 #1` `F PTT China-Drama 2019「最愛」串（約 35 推）` `G LINE TODAY 2024 陸劇 #1（第 2 季）`
+- **官方榜（不計入推薦來源）**：金鷹獎 2026 提名、2024 年劇集推優名單、飛天獎 2026 入圍（都是第 2 季）
+- **評分**：MyDramaList 8.9（第 1 季）（14,583 人）｜IMDb 8.2（2,700 票）
+- **劇評**：英國亞洲電影網站 [easternkicks 的 Deborah Valentine](https://www.easternkicks.com/reviews/joy-of-life/) 看完第 1 季推薦。她說它常常荒唐，但荒唐得漂亮，從不淪為惡搞。聯合報〈娛樂有評〉的影評人[麥若愚](https://stars.udn.com/star/story/10093/4631646)看完第 1 季，拿它對照琅琊榜。他說「「瑯玡榜」嚴肅悲情，「慶餘年」睿智詼諧」。第 2 季播放量是 2024 年第一，但香港大公報與英文部落格都說它不如第 1 季。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；權謀劇，有刺殺與打鬥情節。
+- **長度**：2 季共 82 集：第 1 季 46 集（2019–2020），第 2 季 36 集（2024），都已完結。第 3 季未定檔。
+- **先看什麼**：改編自貓膩的網路小說，不必先讀。第 2 季直接接第 1 季結局，要先看第 1 季。
+- **在哪看**：[Disney+](https://www.disneyplus.com/zh-tw/browse/entity-ddb257a8-7b22-4b72-b87c-a446ed15586f)（訂閱，第 1–2 季）；[Hami Video](https://hamivideo.hinet.net/product/210932.do?cs=2)（第 1 季，部分免費，至 2027-02-20）
+
+#### 藏海傳（Legend of Zang Hai）
+
+欽天監監正之子全家被滅門，他隱姓埋名化身謀士藏海，十年後重返朝堂，用堪輿與機關布局復仇（[Wikipedia](https://en.wikipedia.org/wiki/The_Legend_of_Zang_Hai)）。
+
+- **推薦來源**：`A 白玉蘭獎 2026 提名` `C IMDb 8.2（24,000 票）` `D 云合 2025 上新劇有效播放 #1（22.3 億）` `D 燈塔 2025 播放量 #1（28.75 億）` `E 微博視界大會 2025 年度影響力作品` `F PTT China-Drama 2025 推薦串（約 19 推）` `G DailyView 2025 陸劇聲量 #5` `G LINE TODAY 2025 陸劇前十`
+- **官方榜（不計入推薦來源）**：金鷹獎 2026 提名、飛天獎 2026 入圍
+- **評分**：MyDramaList 8.5（8,780 人）｜IMDb 8.2（24,000 票）｜豆瓣 7.1（2025 年底，燈塔年度榜新聞）
+- **劇評**：英文只找到義大利陸劇部落格 [Red Taotie 的 Alessandra](https://www.redtaotie.com/blog/legend-of-zang-hai-2025/)，她看完全劇給 8 分。她肯定角色與視覺，但說計謀多半事先揭曉，主角又不會死，反轉張力有限。找不到台灣署名劇評。播放量是 2025 年冠軍，IMDb 8.2，豆瓣只有 7.1。PTT 也有劇迷說劇本動機難以說服人，但質感很好。
+- **尺度**：Disney+ 台灣 12+。IMDb 家長指南約 13 票：暴力與驚嚇都是輕微，性與裸露為無；開場是滅門慘案。
+- **長度**：40 集（2025），已完結。MDL 有第 2 季條目，但沒有播出日期。
+- **先看什麼**：改編自南派三叔的《萬海戲麟》，不必先讀，也不必先看同作者的《盜墓筆記》系列。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/321612.do?cs=2)（訂閱，至 2029-04-02）；[Disney+](https://www.disneyplus.com/zh-tw/browse/entity-93d59aa6-12c4-4d6e-8f5e-7fadbe662862)（訂閱）
+
+#### 琅琊榜（Nirvana in Fire）
+
+赤焰軍冤案的倖存者林殊改名梅長蘇，十二年後回京，暗助不受寵的靖王奪嫡、為舊案平反（[Wikipedia](https://en.wikipedia.org/wiki/Nirvana_in_Fire)）。
+
+- **推薦來源**：`A 白玉蘭獎 2016 提名` `C MyDramaList 陸劇榜 #3（9.0）` `C IMDb 8.8（3,700 票）` `D 云合 2024 老劇有效播放 #10`
+- **評分**：MyDramaList 9.0（14,182 人）｜IMDb 8.8（3,700 票）
+- **劇評**：[Asia Times 的 George Koo](https://asiatimes.com/2016/06/review-nirvana-in-fire-a-historical-drama-from-china/) 看完 54 集，寫成懷舊的觀後感專欄。他說角色動機都合理，「Over the 54 episodes, inconsistencies were rare」。風傳媒〈觀點投書〉的自由撰稿人[聽風的先生](https://www.storm.mg/article/11147824)（筆名）談它在台灣追了十年的原因。他說正午陽光的答案是：「把「克制」當美學」。MDL 9.0、IMDb 8.8，中外評價一致。英文評論裡只有 The Cultural Gutter 質疑它仍寄望明君。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南暴力為輕微（3 票）：有戰爭、刀劍、弓箭與濺血；其他類別為無。
+- **長度**：54 集（2015），已完結。2017 年的《琅琊榜之風起長林》是同一世界觀的另一個故事。
+- **先看什麼**：改編自海宴的小說，不必先讀。故事獨立完整，《風起長林》可以之後再看。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/303491.do?cs=2)（部分免費，至 2028-09-04）。LINE TV 與 friDay影音的授權已到期
+
+#### 大奉打更人（Guardians of the Dafeng）
+
+現代青年玩劇本殺時穿越成大奉王朝的許七安，在牢裡醒來，靠推理脫困，成為查案的打更人（[Wikipedia](https://en.wikipedia.org/wiki/Guardians_of_the_Dafeng)）。
+
+- **推薦來源**：`C MyDramaList 陸劇榜 #42（8.6）` `C IMDb 7.8（1,200 票）` `D 云合 2025 上新劇有效播放 #2（22.1 億）` `D 貓眼 2025 喜劇有效播放雙榜冠軍` `E 微博視界大會 2025 年度影響力作品`
+- **評分**：MyDramaList 8.6（11,694 人）｜IMDb 7.8（1,200 票）｜豆瓣 5.6（2025 年底，燈塔年度榜新聞）
+- **劇評**：部落格 [Read Between the Subtitles 的 Mary](https://www.readbetweenthesubtitles.com/post/guardians-of-the-dafeng-dropped-drama-diaries) 看到第 10 集就棄劇。她說它是「less sophisticated answer to Joy of Life」，但承認好玩。找不到台灣署名劇評。豆瓣 5.6、MDL 8.6，差了 3 分，是 15 部裡落差最大的一部。
+- **尺度**：Disney+ 台灣 12+。IMDb 家長指南只有 1–2 票：暴力標嚴重；青樓場景只有歌舞，全劇只有兩三個吻。
+- **長度**：40 集（2024–2025），已完結。另有電影《大奉打更人之世間無我這般人》。MDL 有第 2 季條目，未定檔。
+- **先看什麼**：改編自賣報小郎君的網路小說，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/282506.do?cs=2)（訂閱，至 2030-12-29）；[Disney+](https://www.disneyplus.com/zh-tw/browse/entity-4719e5ff-e420-4173-aaa9-e5da0db283ca)（訂閱）
+
+#### 長安二十四計（The Vendetta of An）
+
+背負滅門之仇的謝淮安潛伏十年，集結畫師、將領與劍客，和虎賁將軍言鳳山鬥智，粉碎裂國陰謀（[Wikipedia](https://zh.wikipedia.org/wiki/長安二十四計)）。
+
+- **推薦來源**：`E 貓眼 2025 電視劇熱度榜 #5` `F PTT China-Drama 2025 年度回顧推文「2025最強」` `G Netflix 台灣週榜 #5（累計 3 週）`
+- **評分**：MyDramaList 8.5（2,994 人）｜IMDb 5.8（10,000 票）
+- **劇評**：英文部落格 [Cnovelholic 的 Iya Moyya](https://cnovelholic.com/drama-review/mystery/the-vendetta-of-an-drama-review/) 看完全劇給 8.8 分，列為她 2025 年最喜歡的陸劇之一。台灣只找到 Harper’s BAZAAR 的 [Hayley Yu](https://www.harpersbazaar.com/tw/culture/filmandmusic/a69803343/c-drmam-the-vendetta-of-an/)，是帶 Netflix 導流性質的介紹兼評論。她在開播一週內寫，說網路聲量「熱度很高、評價兩極」。MDL 8.5、IMDb 5.8（1 萬票），差 2.7 分。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；復仇與滅門題材。
+- **長度**：28 集（2025），已完結。沒有續季消息。
+- **先看什麼**：不用。中文維基與 MDL 都沒有標原作。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/82648017)（訂閱）
+
+### 武俠與奇幻
+
+修仙、異能、江湖少年和刺客組織。多半改編自網路小說或漫畫，打鬥場面多。
+
+#### 凡人修仙傳（The Immortal Ascension）
+
+資質平庸的山村窮小子韓立撿到神秘小綠瓶，靠謹慎與算計在修仙界一路求生（[Wikipedia](https://mydramalist.com/35477-a-record-of-a-mortal-s-journey-to-immortality)）。
+
+- **推薦來源**：`D 貓眼 2025 網路劇有效播放 #3` `D 優酷 2025 熱度 #4` `E 微博視界大會 2025 年度大眾喜愛作品` `F PTT China-Drama 2025「最喜歡的中劇」串（約 12 推）` `F PTT China-Drama 2025 推薦串（12 推）` `G Netflix 台灣週榜 #3（累計 5 週）` `G Hami Video 2025 戲劇榜 #10`
+- **評分**：MyDramaList 8.3（4,526 人）｜IMDb 7.5（658 票）
+- **劇評**：英文部落格 [Cnovelholic 的 Iya Moyya](https://cnovelholic.com/drama-review/wuxia/the-immortal-ascension-drama-review/) 看完全劇給 8.5 分。她說自己不是武俠迷也看得下去，情節複雜又迷人。找不到台灣署名劇評。收視、Netflix 台灣週榜與 PTT 都有好成績，評論界幾乎缺席。同名動畫是另一部作品，分數不要混用。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；仙俠題材，有法術打鬥與正邪對戰。
+- **長度**：30 集（2025），已完結。MDL 有第 2 季條目，未定檔。
+- **先看什麼**：改編自忘語的網路小說，不必先讀，也不必先看同名動畫。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/300397.do?cs=2)（部分免費，至 2030-07-27）。Netflix 台灣也有上架；friDay影音與 myVideo 上的是動畫版
+
+#### 異人之下（I Am Nobody）
+
+大學生張楚嵐在爺爺遺體失蹤後捲入「異人」的隱秘世界，遇見神秘少女馮寶寶，揭開爺爺的過去（[Wikipedia](https://zh.wikipedia.org/wiki/異人之下)）。
+
+- **推薦來源**：`A 亞洲內容大獎 2025 最佳視覺特效（第 2 季）` `B 南方都市報 2023 十大劇集 #8` `C MyDramaList 陸劇榜 #46（8.6，第 1 季）` `C IMDb 7.6（764 票，兩季合併）` `F PTT China-Drama 2023「最喜歡的中劇」串（約 11 推）`
+- **評分**：MyDramaList 8.6（第 1 季）（8,110 人）｜IMDb 7.6（764 票）｜豆瓣 8.4（第 2 季，2026 年 8 月，風傳媒排行）
+- **劇評**：英文只找到部落格 K & C Drama Musings，署名只有站名。它看完第 1 季推薦，說結尾收得很好，混合民俗與超能力。找不到台灣署名劇評。第 2 季豆瓣比第 1 季受好評，英文評論卻只談第 1 季。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南 1–5 票，各類都是輕微；有一場女性在男主角面前脫衣的戲，沒有裸露畫面。
+- **長度**：2 季共 40 集：第 1 季 27 集（2023）；第 2 季《決戰！碧遊村》13 集（2025）。第 1 季開播隔天停播，一個月後復播。沒有第 3 季消息。
+- **先看什麼**：改編自米二的漫畫《一人之下》，不必先看漫畫或動畫。第 2 季接第 1 季，要照順序看。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81758659)（訂閱）。台灣證據只有 Netflix 索引頁與網友貼文，可能已下架
+
+#### 水龍吟（Whispers of Fate）
+
+善惡難辨的唐儷辭遭舊友陷害，被迫踏入江湖洗刷罪名，揭開「風流店」意圖剿滅武林的陰謀（[Wikipedia](https://en.wikipedia.org/wiki/Whispers_of_Fate)）。
+
+- **推薦來源**：`C IMDb 8.2（1,900 票）` `D 貓眼 2025 網路劇有效播放 #2（18.32 億）、武俠劇雙榜冠軍` `D 芒果TV 2025 播放量 #1` `F PTT China-Drama 2025 推薦串（約 22 推）` `F PTT China-Drama 2025「最喜歡的中劇」串（4 推）` `G DailyView 2025 陸劇聲量 #10`
+- **評分**：MyDramaList 8.1（4,218 人）｜IMDb 8.2（1,900 票）
+- **劇評**：找不到英文署名劇評，也找不到台灣署名劇評。播放量是 2025 年武俠劇冠軍，IMDb 8.2，豆瓣開分卻只有 5.7。PTT 推薦串約 22 人推，但也有人寫長篇負評。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；有武林屠殺與命案情節。
+- **長度**：40 集（2025），已完結。沒有續季消息。
+- **先看什麼**：改編自藤萍的小說《千劫眉》，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/308799.do?cs=2)（訂閱，至 2029-10-23）；[LINE TV](https://www.linetv.tw/drama/18138/eps/1)（上架中）；[Netflix](https://www.netflix.com/tw/title/82076399)（訂閱）
+
+#### 少年歌行（The Blood of Youth）
+
+想當大俠的雷無桀毀了蕭瑟的雪落山莊，兩人結伴同行，捲入隱藏身分與皇位之爭的江湖大事（[Wikipedia](https://zh.wikipedia.org/wiki/少年歌行)）。
+
+- **推薦來源**：`C MyDramaList 陸劇榜 #23（8.8）` `D 云合 2024 老劇有效播放 #8` `F PTT China-Drama 2023「最喜歡的中劇」串（約 14 推）` `F Dcard 網友 5 星「近幾年最好看的武俠劇」`
+- **評分**：MyDramaList 8.8（10,640 人）｜IMDb 8.3（866 票）
+- **劇評**：部落格 [Drama Tea 的 The Tea Lady](https://dramatea88.wordpress.com/2024/01/01/the-blood-of-youth-review/)（筆名）看完全劇，列為 2023 年最愛之一。她說它「weirdly addictive」，平常討厭飛天武俠，卻被角色吸引。找不到台灣署名劇評。MDL 8.8 在 15 部裡排第三高。另一個部落格 Drama Slot（筆名 Drama Addict）嫌打鬥偏動畫感、反派草草收尾。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；武俠題材，打鬥場面多。
+- **長度**：40 集（2022–2023），已完結。同系列還有前傳《少年白馬醉春風》與《暗河傳》。
+- **先看什麼**：改編自周木楠的小說，不必先讀，也不必先看動畫。和《暗河傳》同一世界觀，先看哪一部都可以。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/216420.do?cs=2)（部分免費，至 2027-03-09）。LINE TV 的授權已到期；friDay影音的《少年歌行之風花雪月》是另一部劇
+
+#### 暗河傳（Blood River）
+
+刺客組織「暗河」大家長命在旦夕，三家爭位，少年劍客蘇暮雨與兄弟聯手護住暗河，也發現自己的身世（[Wikipedia](https://en.wikipedia.org/wiki/Blood_River_(TV_series))）。
+
+- **推薦來源**：`C IMDb 8.2（1,700 票）` `F PTT China-Drama 2025 推薦串（約 25 推，全串最多）` `F PTT China-Drama 2025「最喜歡的中劇」串（5 推）` `G Netflix 台灣週榜 #6（累計 2 週）` `G LINE TODAY 2025 陸劇點名`
+- **評分**：MyDramaList 8.2（4,235 人）｜IMDb 8.2（1,700 票）
+- **劇評**：部落格 [Chasing Dramas 的 Karen and Cathy](https://www.chasingdramas.com/reviews/currently-watching-blood-river-2025-%e6%9a%97%e6%b2%b3%e4%bc%a0/) 只評前 16 集，給 6.8 分。她們喜歡主題與製作規模，但嫌角色派系太多、表演不夠細膩。台灣只找到 Harper’s BAZAAR 的 [Hayley Yu](https://www.harpersbazaar.com/tw/culture/filmandmusic/a69116786/what-to-know-about-blood-river/)，是帶 Netflix 導流性質的介紹兼評論。她只看了前幾集，把蘇昌河讀成悲劇人物：「真正的背叛，不是反叛組織，而是繼續沉默」。PTT 推文數是 15 部之冠，英文部落格卻都偏保留。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；刺客組織題材，打鬥場面多。
+- **長度**：38 集（2025），已完結。MDL 有第 2 季條目和簡介，但沒有播出日期。
+- **先看什麼**：改編自周木楠的小說，不必先讀。和《少年歌行》同一世界觀，暗河在那部是副線；不必先看。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/310402.do?cs=2)（部分免費，至 2029-11-30）
+
+### 現代懸疑犯罪
+
+碎屍懸案、詐騙犯、金三角走私和時間循環。集數最短，10 到 21 集就看完。
+
+#### 漫長的季節（The Long Season）
+
+東北工業小城樺林，退休火車司機王響因一輛套牌計程車，重新捲入 18 年前的碎屍懸案（[Wikipedia](https://en.wikipedia.org/wiki/The_Long_Season)）。
+
+- **推薦來源**：`A 首爾國際電視劇獎 2023 最佳男主角（范偉）` `A 亞洲內容大獎 2023 最佳導演（辛爽）` `B 南方週末 2023 年度劇集` `B 新週刊 2023 年度劇集` `C 豆瓣 2023 評分最高華語劇集 #1` `C IMDb 8.8（1,800 票）` `F PTT China-Drama 2023「最喜歡的中劇」串（3 推）`
+- **官方榜（不計入推薦來源）**：飛天獎 2024 優秀電視劇、金鷹獎 2024 優秀電視劇
+- **評分**：MyDramaList 8.0（483 人）｜IMDb 8.8（1,800 票）｜豆瓣 9.4（2024 年 7 月，MCLC 學術評論引述）
+- **劇評**：[Foreign Policy 的 James Palmer](https://foreignpolicy.com/2024/02/03/long-season-tv-review-amazon-prime-china/) 看完全劇強推。他說「This is a must-watch show」，缺點是女性角色只是配角。獨立評論＠天下的[廖芳潔](https://opinion.cw.com.tw/blog/profile/517/article/15978)看完全劇推薦。她說它「犀利得像是一面鏡子，黏膩得像是口香糖」。豆瓣 9.4，MDL 只有 8.0（483 人）；英文評論共同的批評是女性角色扁平。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南每類 2 票：暴力與驚嚇是中度；主線是碎屍命案。
+- **長度**：12 集（2023），已完結，單季。
+- **先看什麼**：不用。人物框架來自編劇于小千的《凜冬之刃》，劇名取自班宇的同名短篇，都不必先讀。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81714026)（訂閱）。台灣最新證據是 2023 年的 Netflix 預告，可能已下架；Hami Video 的授權已到期
+
+#### 新生（Regeneration）
+
+記者何珊和五個陌生人參加費可的追悼會，發現每個人認識的費可身分都不同，拼出這個騙子的真面目（[Wikipedia](https://zh.wikipedia.org/wiki/新生_(网络剧))）。
+
+- **推薦來源**：`B 新週刊 2024 年度劇集（另獲劇集導演）` `D 燈塔 2024 短劇集榜 #1（6.75 億）` `D 云合 2024 熱播期集均 #6` `F PTT China-Drama 2024「最喜歡的中劇」串（1 推）` `G 2024 上半年 Netflix 台灣週榜上榜 5 次，最高 #2`
+- **評分**：MyDramaList 8.2（1,885 人）｜IMDb 7.2（304 票）
+- **劇評**：英文只找到匿名作者的 Substack 電子報 40somethingahjumma，看完全劇推薦。作者肯定劇本與井柏然的表演，也知道結局有爭議，但覺得合理。找不到台灣署名劇評。Harper’s BAZAAR 台灣版的結局回顧整理網友反應，多數認為收尾太倉促。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；詐騙犯罪題材。
+- **長度**：10 集（2024），已完結。MDL 有第 2 季條目，未定檔。
+- **先看什麼**：改編自珞珈的網路小說《費可的晚宴》，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/274602.do?cs=2)（部分免費，至 2028-08-30）；[Netflix](https://www.netflix.com/tw/title/81775090)（訂閱）。LINE TV 的《新生》是另一部新加坡劇
+
+#### 邊水往事（Escape from the Trilateral Slopes）
+
+四處打工的沈星流落到熱帶的三邊坡，結識黑白兩道通吃的猜叔，被捲進當地的生存遊戲（[Wikipedia](https://zh.wikipedia.org/wiki/边水往事)）。
+
+- **推薦來源**：`A 白玉蘭獎 2025 提名` `B 新京報 2024 年度劇集` `C 豆瓣 2024 評分最高華語劇集 #10` `D 燈塔 2024 懸疑劇集均 #1` `D 云合 2024 集均 V30 #18`
+- **官方榜（不計入推薦來源）**：金鷹獎 2026 提名、2024 年劇集推優名單、飛天獎 2026 入圍
+- **評分**：MyDramaList 7.9（162 人）｜IMDb 7.3（223 票）｜豆瓣 7.9（2026 年 8 月，風傳媒排行；開分 8.1）
+- **劇評**：部落格 [Chasing Dramas 的 Karen and Cathy](https://www.chasingdramas.com/reviews/currently-watching-escape-the-trilateral-slopes-2024-%e8%be%b9%e6%b0%b4%e5%be%80%e4%ba%8b/) 看完全劇推薦。她們強調它是黑幫劇，但後半追不上前半設下的「extremely high bar」。找不到台灣署名劇評。大陸媒體也說後半弱，[澎湃新聞的曾於里](https://www.thepaper.cn/newsDetail_forward_28577088)還批評它用架空東南亞滿足獵奇。豆瓣從開分 8.1 降到 7.9，和後半口碑下滑一致。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；以虛構的「三邊坡」影射金三角，有暴力、毒品與犯罪。
+- **長度**：21 集（2024），已完結。沒有續季消息。
+- **先看什麼**：改編自沈星星的同名紀實小說，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/280048.do?cs=2)（部分免費，至 2028-11-28）
+
+#### 不眠日（Mobius）
+
+警官丁奇意外獲得時間循環感知力，循環日會重啟五次，他保留每次記憶，追查連環命案（[Wikipedia](https://en.wikipedia.org/wiki/Mobius_(TV_series))）。
+
+- **推薦來源**：`B 新京報 2025 年度劇集榜` `F PTT China-Drama 2025 推薦串（約 16 推）` `F PTT China-Drama 2025 年度回顧「很棒的劇本，很棒的演員」` `G LINE TODAY 2025 陸劇前十`
+- **評分**：MyDramaList 8.3（7,505 人）｜IMDb 7.5（975 票）｜豆瓣 7.6（2026 年 8 月，風傳媒排行）
+- **劇評**：[Gulf News 的 Lakshana N Palat](https://gulfnews.com/entertainment/chinese-drama-mobius-review-bai-jing-tings-thriller-is-brilliant-savage-and-strangely-obsessed-with-squids-1.500286969) 在播出第 12 天推薦。這家阿聯酋大報的文章大量引用 Reddit 網友反應。她說它在走驚悚路線時最好看，愛情線反而多餘。台灣只找到 Harper’s BAZAAR 的 [Hayley Yu](https://www.harpersbazaar.com/tw/culture/filmandmusic/a66116425/things-to-know-about-mobius-highlights/)，是帶 Netflix 導流性質的介紹兼評論。她在開播隔天只評前幾集，說它緊湊燒腦，但更像一部「爽劇」。兩篇都寫在播出初期，共同保留是愛情線與人物深度。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南只有 1–3 票：暴力、菸酒毒品與驚嚇都是中度，性與裸露為無。
+- **長度**：16 集（2025），已完結。沒有續季消息。
+- **先看什麼**：改編自張小貓的小說《逆時偵查組》，不必先讀。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/4722)（免費或影劇方案）；[LINE TV](https://www.linetv.tw/drama/17991/eps/1)（上架中）；[Netflix](https://www.netflix.com/tw/title/82096026)（訂閱）
+
+## 候補觀察名單
+
+這些劇都有三類以上非官方來源推薦，但台灣找不到合法串流，或只在愛奇藝國際站、WeTV 上架。
+
+| 劇 | 狀況 |
+|---|---|
+| 狂飆 | 五類推薦來源都有，台灣只在愛奇藝國際站上架 |
+| 蓮花樓 | 五類推薦來源都有，台灣只在愛奇藝國際站上架 |
+| 一念關山、獵罪圖鑑2、我是刑警 | 四類推薦來源都有，台灣只在愛奇藝國際站上架 |
+| 隱秘的角落 | 三類推薦來源都有，台灣只在愛奇藝國際站上架 |
+| 三體、棋士 | 三類推薦來源都有，台灣只在 WeTV 上架 |
+| 白夜追兇 | 三類推薦來源都有，2021 年已從 Netflix 下架 |
+| 反人類暴行、沉默的榮耀、無盡的盡頭 | 三類推薦來源都有，台灣找不到合法串流 |
+
+## 這份片單的限制
+
+- **英文劇評很少。** 我常用的英美主流媒體都找不到這 15 部的劇評；只有《漫長的季節》《琅琊榜》《不眠日》有 Foreign Policy、Asia Times、Gulf News 的署名文章，其他多是部落格，《水龍吟》一篇都沒有。
+- **台灣劇評也少。** 8 部找不到台灣署名劇評；《長安二十四計》《暗河傳》《不眠日》只有 Harper’s BAZAAR 帶 Netflix 導流性質的介紹兼評論。
+- **豆瓣分數來源不一。** 有的出自豆瓣年度榜或數據報告，有的出自台灣媒體的排行文，而且多是某個時間點的分數；《長安二十四計》的豆瓣分數不寫。
+- **陸劇在台灣的串流有政策限制。** 很多熱門陸劇只在愛奇藝國際站或 WeTV 上架，依規則列在候補。《漫長的季節》《異人之下》的台灣證據偏舊，可能已下架。本篇串流連結核對日期：2026-11-12。
+
+## 參考資料
+
+- [第30屆上海電視節白玉蘭獎（中文維基）](https://zh.wikipedia.org/wiki/第30届上海电视节白玉兰奖)
+- [Asian Academy Creative Award for Best Drama Series（Wikipedia）](https://en.wikipedia.org/wiki/Asian_Academy_Creative_Award_for_Best_Drama_Series)
+- [Global OTT Awards（Wikipedia）](https://en.wikipedia.org/wiki/Global_OTT_Awards)
+- [南方周末〈2025文化原創榜·劇集〉](https://www.infzm.com/contents/313610)
+- [新周刊 2024 中國視頻榜（中國出版傳媒商報）](https://www.cbbr.com.cn/contents/533/97031.html)
+- [MyDramaList：Top Chinese Dramas](https://mydramalist.com/shows/top_chinese_dramas)
+- [豆瓣 2025 年度電影榜單](https://movie.douban.com/annual/2025/)
+- [雲合數據〈2024 年長劇集網播年度觀察〉](https://pdf.dfcfw.com/pdf/H3_AP202501081641847977_1.pdf)
+- [燈塔專業版 2024 年度劇集播放榜](https://www.sohu.com/a/843429934_745022)
+- [中國視聽大數據 2025 年國產電視劇收視報告（國家廣播電視總局）](https://www.nrta.gov.cn/art/2025/12/26/art_114_72192.html)
+- [2025 微博視界大會榮譽](https://hea.china.com/articles/20251105/202511051759836.html)
+- [PTT 陸劇板〈2025最喜歡的中劇？〉](https://www.ptt.cc/bbs/China-Drama/M.1765465415.A.B24.html)
+- [PTT 陸劇板〈2024最喜歡的中劇？〉](https://www.ptt.cc/bbs/China-Drama/M.1733465852.A.DE4.html)
+- [LINE TODAY 聚光賞〈2025 陸劇年度榜〉](https://today.line.me/tw/v3/article/wJYz5Ra)
+- [LINE TODAY 聚光賞〈2024 陸劇年度榜〉](https://today.line.me/tw/v3/article/8nWW20Z)
+- [網路溫度計〈年度人氣陸劇 TOP 10〉](https://dailyview.tw/daily/5191)
+- [中華電信 Hami Video〈影劇館+ 2025 年度收視排行榜〉](https://www.cht.com.tw/zh-tw/home/cht/messages/2025/1210-1500)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [中央社〈愛奇藝條款上路 代理商違法最高可罰500萬〉](https://www.cna.com.tw/news/firstnews/202008185009.aspx)

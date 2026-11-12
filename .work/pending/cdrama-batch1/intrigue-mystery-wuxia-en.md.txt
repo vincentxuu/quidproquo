@@ -1,0 +1,359 @@
+---
+title: "How to Pick Chinese Intrigue, Mystery, Wuxia and Fantasy Dramas: Joy of Life, Strange Tales of Tang Dynasty II, Legend of Zang Hai, The Long Season and 11 More"
+date: 2026-11-12
+category: film
+tags: [tv-drama, c-drama, crime-drama, fantasy]
+lang: en
+type: guide
+description: "For viewers in Taiwan looking for Chinese court intrigue, mystery, wuxia and fantasy dramas: period intrigue and mystery, wuxia and fantasy, and modern crime. 15 shows, each backed by at least three of seven recommendation source types (state-run awards excluded) and legally streamable in Taiwan, with recommendation sources, MyDramaList, IMDb and Douban scores, English and Taiwanese reviews, content notes, episode counts and Taiwan streaming links."
+tldr: "Start with Joy of Life, Strange Tales of Tang Dynasty II or Legend of Zang Hai, each backed by six source types. For something shorter, pick one of the 10 to 21-episode modern mysteries: The Long Season, Regeneration, Mobius or Escape from the Trilateral Slopes. Douban and international scores often split: Guardians of the Dafeng gets 5.6 on Douban but 8.6 on MyDramaList, while The Long Season runs the other way, 9.4 on Douban."
+draft: false
+series:
+  name: "World TV Drama Guide"
+  order: 14
+---
+
+> 🌏 [中文版](/posts/film/2026-11-12-cdrama-intrigue-mystery-wuxia)
+
+This post covers Chinese intrigue, mystery, wuxia and fantasy: two demoted Tang-dynasty officials solving strange cases on the road west, a time-traveller surviving palace politics, young swordsmen on the road, and an 18-year-old dismemberment case in a northeastern industrial town. All 15 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, not counting state-run awards, and each can be watched legally in Taiwan. The rules for Chinese dramas (state awards excluded; iQIYI’s international site and WeTV not counted as legal Taiwan channels) are explained at the start of the [costume romance post](/posts/film/2026-11-12-cdrama-costume-romance-xianxia-en); the Japanese equivalent is the [Japanese mystery and crime post](/posts/film/2026-11-10-jdrama-mystery-crime-action-en).
+
+Two things stand out in this group:
+
+- **Long.** Period and wuxia shows mostly run 28 to 40 episodes, and Joy of Life has 82 over two seasons; the modern mysteries are far shorter, 10 to 21.
+- **Douban and international scores often disagree.** Guardians of the Dafeng scores 5.6 on Douban but 8.6 on MyDramaList; The Long Season runs the other way, 9.4 on Douban and 8.0 on MyDramaList. Each entry gives both.
+
+## Start with these 3
+
+| Show | Why start here | Content | Where to watch |
+|---|---|---|---|
+| Joy of Life | Backed by six source types; MyDramaList 8.9 | Moderate: assassinations and fights | Disney+, Hami Video |
+| Strange Tales of Tang Dynasty II | Backed by six source types; Douban 8.6 | Moderate: murders and horror elements | Hami Video |
+| Legend of Zang Hai | Backed by six source types; 24K IMDb votes | 12+ on Disney+ Taiwan; opens with a family massacre | Disney+, Hami Video |
+
+## Recommendation sources at a glance
+
+● means that source type recommends the show. A award juries, B critics polls, C audience ratings, D viewing data, E buzz metrics, F fan communities, G Taiwanese viewers. The Feitian Awards, Golden Eagle Awards and the annual drama recommendation list are run by state bodies, so they are not counted under A and appear separately as “State-run lists”.
+
+| Show | A | B | C | D | E | F | G | Types |
+|---|---|---|---|---|---|---|---|---|
+| Strange Tales of Tang Dynasty II: To the West | ● |  | ● | ● | ● | ● | ● | 6 |
+| Joy of Life | ● | ● | ● | ● |  | ● | ● | 6 |
+| Legend of Zang Hai | ● |  | ● | ● | ● | ● | ● | 6 |
+| The Immortal Ascension |  |  |  | ● | ● | ● | ● | 4 |
+| I Am Nobody | ● | ● | ● |  |  | ● |  | 4 |
+| The Long Season | ● | ● | ● |  |  | ● |  | 4 |
+| Regeneration |  | ● |  | ● |  | ● | ● | 4 |
+| Escape from the Trilateral Slopes | ● | ● | ● | ● |  |  |  | 4 |
+| Whispers of Fate |  |  | ● | ● |  | ● | ● | 4 |
+| Nirvana in Fire | ● |  | ● | ● |  |  |  | 3 |
+| Guardians of the Dafeng |  |  | ● | ● | ● |  |  | 3 |
+| The Vendetta of An |  |  |  |  | ● | ● | ● | 3 |
+| The Blood of Youth |  |  | ● | ● |  | ● |  | 3 |
+| Blood River |  |  | ● |  |  | ● | ● | 3 |
+| Mobius |  | ● |  |  |  | ● | ● | 3 |
+
+Column F (fan communities) is the fullest, with 12 of 15; column B (critics) has only 6 and column E (buzz) only 5.
+
+## Pick a length: total episodes
+
+```diagram
+title: Total episodes of the 15 shows
+desc: Joy of Life is longest at 82 episodes over two seasons, then Nirvana in Fire at 54; period and wuxia shows mostly run 28 to 40; the modern crime shows Escape from the Trilateral Slopes, Mobius, The Long Season and Regeneration run 10 to 21.
+caption: Episodes aired, excluding films and specials. Joy of Life and I Am Nobody combine two seasons; Strange Tales of Tang Dynasty II is the second instalment, with 36 episodes in the first and 40 in the third counted separately.
+---
+<svg viewBox="0 0 640 396">
+  <text class="dg-sub" x="224" y="24" text-anchor="end" dominant-baseline="central">Joy of Life</text>
+  <rect class="dg-bar" x="236" y="16" width="353" height="16" rx="3"/>
+  <text class="dg-small" x="597" y="24" dominant-baseline="central">82</text>
+  <text class="dg-sub" x="224" y="49" text-anchor="end" dominant-baseline="central">Nirvana in Fire</text>
+  <rect class="dg-bar" x="236" y="41" width="232" height="16" rx="3"/>
+  <text class="dg-small" x="476" y="49" dominant-baseline="central">54</text>
+  <text class="dg-sub" x="224" y="74" text-anchor="end" dominant-baseline="central">Strange Tales of Tang Dynasty II</text>
+  <rect class="dg-bar" x="236" y="66" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="416" y="74" dominant-baseline="central">40</text>
+  <text class="dg-sub" x="224" y="99" text-anchor="end" dominant-baseline="central">Legend of Zang Hai</text>
+  <rect class="dg-bar" x="236" y="91" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="416" y="99" dominant-baseline="central">40</text>
+  <text class="dg-sub" x="224" y="124" text-anchor="end" dominant-baseline="central">Guardians of the Dafeng</text>
+  <rect class="dg-bar" x="236" y="116" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="416" y="124" dominant-baseline="central">40</text>
+  <text class="dg-sub" x="224" y="149" text-anchor="end" dominant-baseline="central">The Blood of Youth</text>
+  <rect class="dg-bar" x="236" y="141" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="416" y="149" dominant-baseline="central">40</text>
+  <text class="dg-sub" x="224" y="174" text-anchor="end" dominant-baseline="central">Whispers of Fate</text>
+  <rect class="dg-bar" x="236" y="166" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="416" y="174" dominant-baseline="central">40</text>
+  <text class="dg-sub" x="224" y="199" text-anchor="end" dominant-baseline="central">I Am Nobody</text>
+  <rect class="dg-bar" x="236" y="191" width="172" height="16" rx="3"/>
+  <text class="dg-small" x="416" y="199" dominant-baseline="central">40</text>
+  <text class="dg-sub" x="224" y="224" text-anchor="end" dominant-baseline="central">Blood River</text>
+  <rect class="dg-bar" x="236" y="216" width="163" height="16" rx="3"/>
+  <text class="dg-small" x="407" y="224" dominant-baseline="central">38</text>
+  <text class="dg-sub" x="224" y="249" text-anchor="end" dominant-baseline="central">The Immortal Ascension</text>
+  <rect class="dg-bar" x="236" y="241" width="129" height="16" rx="3"/>
+  <text class="dg-small" x="373" y="249" dominant-baseline="central">30</text>
+  <text class="dg-sub" x="224" y="274" text-anchor="end" dominant-baseline="central">The Vendetta of An</text>
+  <rect class="dg-bar" x="236" y="266" width="120" height="16" rx="3"/>
+  <text class="dg-small" x="364" y="274" dominant-baseline="central">28</text>
+  <text class="dg-sub" x="224" y="299" text-anchor="end" dominant-baseline="central">Escape from the Trilateral Slopes</text>
+  <rect class="dg-bar" x="236" y="291" width="90" height="16" rx="3"/>
+  <text class="dg-small" x="334" y="299" dominant-baseline="central">21</text>
+  <text class="dg-sub" x="224" y="324" text-anchor="end" dominant-baseline="central">Mobius</text>
+  <rect class="dg-bar" x="236" y="316" width="69" height="16" rx="3"/>
+  <text class="dg-small" x="313" y="324" dominant-baseline="central">16</text>
+  <text class="dg-sub" x="224" y="349" text-anchor="end" dominant-baseline="central">The Long Season</text>
+  <rect class="dg-bar" x="236" y="341" width="52" height="16" rx="3"/>
+  <text class="dg-small" x="296" y="349" dominant-baseline="central">12</text>
+  <text class="dg-sub" x="224" y="374" text-anchor="end" dominant-baseline="central">Regeneration</text>
+  <rect class="dg-bar" x="236" y="366" width="43" height="16" rx="3"/>
+  <text class="dg-small" x="287" y="374" dominant-baseline="central">10</text>
+</svg>
+```
+
+## The watchlist
+
+Entries list recommended by, state-run lists (where any), scores, reviews, content, length, watch first and where to watch.
+
+- **Scores**: Chinese dramas have no Metacritic scores, so this post uses [MyDramaList](https://mydramalist.com/shows/top_chinese_dramas), IMDb and Douban; for multi-season shows, MyDramaList is season 1. Douban scores appear only where a readable year-end list or press report gives them, with the date; scores seen only in headlines are left out.
+- **Content**: China has no rating system; Taiwan platform ratings are given where shown. Content notes come from the IMDb Parents Guide, which has a handful of votes or none for most shows, so many notes follow the plot.
+- **Where to watch**: links go to Taiwan platform title pages. Shows backed only by old evidence say they may have been removed.
+
+### Period intrigue and mystery
+
+Tang-dynasty mysteries, a time-traveller at court, a massacre survivor’s revenge and Mei Changsu’s fight to clear old names. The longest group, and the one most often measured against Douban.
+
+#### Strange Tales of Tang Dynasty II: To the West
+
+Su Wuming, a disciple of Di Renjie, and former imperial guard Lu Lingfeng are demoted and sent west, solving uncanny cases along the way ([Wikipedia](https://zh.wikipedia.org/wiki/唐朝诡事录之西行)).
+
+- **Recommended by**: `A Asian Academy Creative Awards 2025 Grand Best Drama Series` `A Magnolia Awards 2026 nomination (part three, Chang’an)` `C Douban top-rated Chinese series of 2024 #5 (8.6)` `D Yunhe 2024 new-series views #6 (2.02B)` `D Dengta 2024 web series #2, top mystery series` `E Weibo 2026 outstanding work of the year (Chang’an)` `F PTT China-Drama 2024 favourites thread (~24 upvotes)` `G LINE TODAY 2024 Chinese dramas #5`
+- **State-run lists (not counted)**: Golden Eagle Awards 2026 nomination (Chang’an), the 2024 state recommended-drama list, Feitian Awards 2026 shortlist
+- **Scores**: MyDramaList 8.5 (To the West) (1,331 ratings) | IMDb 8.0 (167 votes) | Douban 8.6 (To the West, end of 2024, Yunhe Data annual report)
+- **Reviews**: The only English review found is from the blog [Chasing Dramas, by Karen and Cathy](https://www.chasingdramas.com/reviews/currently-watching-strange-tales-of-tang-dynasty-ii-to-the-west-2024-%E5%94%90%E6%9C%9D%E8%AF%A1%E4%BA%8B%E5%BD%95%E8%A5%BF%E8%A1%8C/), who finished it and liked it more than part one: "Though some cases were stronger than others, this drama is highly re-watchable." Writing during the run, [潘光中 at United Daily News](https://stars.udn.com/star/story/10093/8196683) (in Chinese) credited its puzzling logic, uncanny cases and visual spectacle, with no hit IP or idol stars behind it. Douban, viewing charts, awards and Taiwanese fans agree; mainstream English media never reviewed it.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; the cases are murders and uncanny crimes with horror touches.
+- **Length**: To the West has 40 episodes (2024), finished. Part one has 36 (2022) and part three, Chang’an, has 40 (2025). Chinese Wikipedia lists a follow-up, and MDL has entries for further parts, none with an air date.
+- **Watch first**: Adapted from Wei Fenghua’s novel series; no need to read it. The leads’ relationship carries over from part one, so start there, though part one has left Hami Video.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/285371.do?cs=2) (some episodes free, leaves 31 January 2028). Part one has lapsed on Hami Video; LINE TV’s 唐詭奇案 is a different show
+
+#### Joy of Life
+
+Fan Xian, born into the fictional ancient state of Qing with memories of the 21st century, heads to the capital and is drawn into succession intrigue while digging into his origins ([Wikipedia](https://en.wikipedia.org/wiki/Joy_of_Life_(TV_series))).
+
+- **Recommended by**: `A Magnolia Awards 2020 nomination` `A Magnolia Awards 2025 nomination (season 2)` `B Beijing News drama of the year 2024 (season 2)` `C MyDramaList top Chinese drama #7 (8.9)` `C IMDb 8.2 (2.7K votes, both seasons combined)` `D Yunhe 2024 new-series views #1 (season 2, 4.51B)` `D Dengta 2024 TV series #1` `F PTT China-Drama 2019 favourites thread (~35 upvotes)` `G LINE TODAY 2024 Chinese dramas #1 (season 2)`
+- **State-run lists (not counted)**: Golden Eagle Awards 2026 nomination, the 2024 state recommended-drama list and a Feitian Awards 2026 shortlist place (all season 2)
+- **Scores**: MyDramaList 8.9 (season 1) (14,583 ratings) | IMDb 8.2 (2.7K votes)
+- **Reviews**: Reviewing all of season 1, [Deborah Valentine at easternkicks](https://www.easternkicks.com/reviews/joy-of-life/), a UK site on Asian film, recommended it: "Does it sometimes verge on ridiculous? Yes! Brilliantly so! … But for all the humour and complications it never falls into the abyss of spoof-dom." After season 1, critic [麥若愚 at United Daily News](https://stars.udn.com/star/story/10093/4631646) (in Chinese) set it against Nirvana in Fire, calling one solemn and tragic and the other witty. Season 2 was China’s most-streamed series of 2024, yet Hong Kong’s Ta Kung Pao and English bloggers judged it weaker than season 1.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; a court-intrigue drama with assassination attempts and fights.
+- **Length**: 2 seasons, 82 episodes: season 1 has 46 (2019–2020), season 2 has 36 (2024); both finished. Season 3 has no confirmed date.
+- **Watch first**: Adapted from Mao Ni’s web novel; no need to read it. Season 2 picks up straight from the season 1 finale, so watch season 1 first.
+- **Where to watch**: [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-ddb257a8-7b22-4b72-b87c-a446ed15586f) (subscription, seasons 1–2); [Hami Video](https://hamivideo.hinet.net/product/210932.do?cs=2) (season 1, some episodes free, leaves 20 February 2027)
+
+#### Legend of Zang Hai
+
+The sole survivor of a massacred family of court astronomers returns to court ten years later as the strategist Zang Hai, using geomancy and mechanisms to plot his revenge ([Wikipedia](https://en.wikipedia.org/wiki/The_Legend_of_Zang_Hai)).
+
+- **Recommended by**: `A Magnolia Awards 2026 nomination` `C IMDb 8.2 (24K votes)` `D Yunhe 2025 new-series views #1 (2.23B)` `D Dengta 2025 views #1 (2.875B)` `E Weibo 2025 influential work of the year` `F PTT China-Drama 2025 picks thread (~19 upvotes)` `G DailyView 2025 Chinese drama buzz #5` `G LINE TODAY 2025 Chinese dramas top 10`
+- **State-run lists (not counted)**: Golden Eagle Awards 2026 nomination, Feitian Awards 2026 shortlist
+- **Scores**: MyDramaList 8.5 (8,780 ratings) | IMDb 8.2 (24K votes) | Douban 7.1 (end of 2025, Dengta year-end chart via news)
+- **Reviews**: The only English review found is from [Alessandra at Red Taotie](https://www.redtaotie.com/blog/legend-of-zang-hai-2025/), the English edition of an Italian C-drama blog; after all 40 episodes she gave it 8/10, praising characters and visuals but noting the twists lose tension because the schemes are usually shown in advance. No signed Taiwanese review could be found. It was 2025’s most-watched series with IMDb 8.2, but Douban sits at 7.1, and a PTT fan found the motives unconvincing despite the polish.
+- **Content**: Disney+ Taiwan: 12+. About 13 IMDb Parents Guide votes: violence and frightening scenes are mild, sex and nudity none; it opens with a family massacre.
+- **Length**: 40 episodes (2025), finished. MDL lists a season 2 entry with no air date.
+- **Watch first**: Adapted from Nanpai Sanshu’s novel; no need to read it or his Daomu Biji series first.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/321612.do?cs=2) (subscription, leaves 2 April 2029); [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-93d59aa6-12c4-4d6e-8f5e-7fadbe662862) (subscription)
+
+#### Nirvana in Fire
+
+Lin Shu, survivor of a framed army, returns to the capital twelve years later as Mei Changsu to help the overlooked Prince Jing toward the throne and clear the old case ([Wikipedia](https://en.wikipedia.org/wiki/Nirvana_in_Fire)).
+
+- **Recommended by**: `A Magnolia Awards 2016 nomination` `C MyDramaList top Chinese drama #3 (9.0)` `C IMDb 8.8 (3.7K votes)` `D Yunhe 2024 older-series views #10`
+- **Scores**: MyDramaList 9.0 (14,182 ratings) | IMDb 8.8 (3.7K votes)
+- **Reviews**: Having watched all 54 episodes, [George Koo at Asia Times](https://asiatimes.com/2016/06/review-nirvana-in-fire-a-historical-drama-from-china/) wrote a nostalgic, essay-style piece: "The script paid careful attention to details. Over the 54 episodes, inconsistencies were rare." In an op-ed at [The Storm Media](https://www.storm.mg/article/11147824) (in Chinese), freelance writer 聽風的先生 (a pen name) said its decade-long following in Taiwan comes from treating restraint as an aesthetic. MDL 9.0 and IMDb 8.8 agree; the only English dissent, at The Cultural Gutter, notes it still pins its hopes on a good ruler rather than reform.
+- **Content**: No rating system in China; no Taiwan platform rating found. IMDb Parents Guide rates violence mild (3 votes): battles, swords, arrows and some blood spatter; other categories none.
+- **Length**: 54 episodes (2015), finished. Nirvana in Fire II (2017) is a separate story in the same world.
+- **Watch first**: Adapted from Hai Yan’s novel; no need to read it. It stands alone; the 2017 follow-up can wait.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/303491.do?cs=2) (some episodes free, leaves 4 September 2028). It has lapsed on LINE TV and friDay
+
+#### Guardians of the Dafeng
+
+A young man playing a murder-mystery game wakes up in a Dafeng dynasty jail as Xu Qi’an, reasons his way out, and joins the night-watch investigators ([Wikipedia](https://en.wikipedia.org/wiki/Guardians_of_the_Dafeng)).
+
+- **Recommended by**: `C MyDramaList top Chinese drama #42 (8.6)` `C IMDb 7.8 (1.2K votes)` `D Yunhe 2025 new-series views #2 (2.21B)` `D Maoyan 2025 top comedy by views` `E Weibo 2025 influential work of the year`
+- **Scores**: MyDramaList 8.6 (11,694 ratings) | IMDb 7.8 (1.2K votes) | Douban 5.6 (end of 2025, Dengta year-end chart via news)
+- **Reviews**: [Mary at Read Between the Subtitles](https://www.readbetweenthesubtitles.com/post/guardians-of-the-dafeng-dropped-drama-diaries), a blog, dropped it after episode 10: "Guardians of Dafeng is the glossy, less sophisticated answer to Joy of Life that no one asked for, but it was still fun." No signed Taiwanese review could be found. Douban 5.6 against MDL 8.6 is a three-point gap, the widest of these 15 shows.
+- **Content**: Disney+ Taiwan: 12+. Only one or two IMDb Parents Guide votes: violence is marked severe; brothel scenes show only singing and dancing, and there are two or three kisses.
+- **Length**: 40 episodes (2024–2025), finished. A spin-off film followed. MDL lists a season 2 entry with no date.
+- **Watch first**: Adapted from Mai Bao Xiao Lang Jun’s web novel; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/282506.do?cs=2) (subscription, leaves 29 December 2030); [Disney+](https://www.disneyplus.com/zh-tw/browse/entity-4719e5ff-e420-4173-aaa9-e5da0db283ca) (subscription)
+
+#### The Vendetta of An
+
+After ten years in hiding, Xie Huai’an, whose family was massacred, gathers a painter, a general and a swordsman to outwit General Yan Fengshan and foil a plot to split the empire ([Wikipedia](https://zh.wikipedia.org/wiki/長安二十四計)).
+
+- **Recommended by**: `E Maoyan 2025 TV buzz chart #5` `F PTT China-Drama 2025 year-end review reply: “strongest of 2025”` `G #5 on Netflix Taiwan (3 weeks)`
+- **Scores**: MyDramaList 8.5 (2,994 ratings) | IMDb 5.8 (10K votes)
+- **Reviews**: [Iya Moyya at Cnovelholic](https://cnovelholic.com/drama-review/mystery/the-vendetta-of-an-drama-review/), a blog, gave it 8.8/10 after the full run and named it one of her favourite C-dramas of 2025. In Taiwan, [Hayley Yu at Harper’s BAZAAR](https://www.harpersbazaar.com/tw/culture/filmandmusic/a69803343/c-drmam-the-vendetta-of-an/) (in Chinese) wrote in its first week, in a Netflix-linked introduction-cum-review, that online buzz was huge but split. MDL 8.5 against IMDb 5.8 (10K votes) is a 2.7-point gap.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; a revenge story built on a family massacre.
+- **Length**: 28 episodes (2025), finished. No word of a season 2.
+- **Watch first**: Nothing; neither Chinese Wikipedia nor MDL lists a source work.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/82648017) (subscription)
+
+### Wuxia and fantasy
+
+Cultivation, superpowers, young swordsmen and an assassins’ guild. Mostly adapted from web novels or comics, with plenty of fights.
+
+#### The Immortal Ascension
+
+Han Li, a poor village boy with mediocre talent, finds a mysterious little green bottle and survives the cultivation world through caution and calculation ([Wikipedia](https://mydramalist.com/35477-a-record-of-a-mortal-s-journey-to-immortality)).
+
+- **Recommended by**: `D Maoyan 2025 web series views #3` `D Youku 2025 buzz #4` `E Weibo 2025 audience favourite` `F PTT China-Drama 2025 favourites thread (~12 upvotes)` `F PTT China-Drama 2025 picks thread (12 upvotes)` `G #3 on Netflix Taiwan (5 weeks)` `G Hami Video 2025 drama chart #10`
+- **Scores**: MyDramaList 8.3 (4,526 ratings) | IMDb 7.5 (658 votes)
+- **Reviews**: [Iya Moyya at Cnovelholic](https://cnovelholic.com/drama-review/wuxia/the-immortal-ascension-drama-review/), a blog, gave it 8.5/10 after the full run, saying even a non-wuxia fan could enjoy the intricate plot. No signed Taiwanese review could be found. It did well on TV ratings, Netflix Taiwan and PTT, while critics barely noticed it. The anime of the same name is a separate work; do not mix up their scores.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; a xianxia story with magical combat and battles against demonic sects.
+- **Length**: 30 episodes (2025), finished. MDL lists a season 2 entry with no date.
+- **Watch first**: Adapted from Wang Yu’s web novel; no need to read it or watch the anime first.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/300397.do?cs=2) (some episodes free, leaves 27 July 2030). Netflix Taiwan also carries it; the versions on friDay and myVideo are the anime
+
+#### I Am Nobody
+
+After his grandfather’s body vanishes, student Zhang Chulan is pulled into the hidden world of “Outsiders”, meets the mysterious Feng Baobao, and uncovers his grandfather’s past ([Wikipedia](https://zh.wikipedia.org/wiki/異人之下)).
+
+- **Recommended by**: `A Asia Contents Awards 2025 best visual effects (season 2)` `B Southern Metropolis Daily top 10 dramas of 2023 #8` `C MyDramaList top Chinese drama #46 (8.6, season 1)` `C IMDb 7.6 (764 votes, both seasons combined)` `F PTT China-Drama 2023 favourites thread (~11 upvotes)`
+- **Scores**: MyDramaList 8.6 (season 1) (8,110 ratings) | IMDb 7.6 (764 votes) | Douban 8.4 (season 2, August 2026, The Storm Media ranking)
+- **Reviews**: The only English review found is from the blog K & C Drama Musings, signed only with the site name; it recommended season 1 and said it ended on a high, mixing folklore with superpowers. No signed Taiwanese review could be found. Season 2 fared better on Douban, yet English reviews cover only season 1.
+- **Content**: No rating system in China; no Taiwan platform rating found. IMDb Parents Guide has 1–5 votes per category, all mild; in one scene a woman undresses in front of the hero, with no nudity shown.
+- **Length**: 2 seasons, 40 episodes: season 1 has 27 (2023), season 2, The Showdown between Yin & Yang, has 13 (2025). Season 1 was pulled the day after its premiere and resumed a month later. No word of a season 3.
+- **Watch first**: Adapted from Mi Er’s manhua Hitori no Shita; no need to read it or watch the anime. Season 2 continues season 1, so watch in order.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81758659) (subscription). Taiwan evidence is only an indexed Netflix page and a fan post; it may have been removed
+
+#### Whispers of Fate
+
+The morally inscrutable Tang Lici, framed by a former friend, enters the martial world to clear his name and uncovers the House of Pleasure’s plot to wipe it out ([Wikipedia](https://en.wikipedia.org/wiki/Whispers_of_Fate)).
+
+- **Recommended by**: `C IMDb 8.2 (1.9K votes)` `D Maoyan 2025 web series views #2 (1.832B), top wuxia series` `D Mango TV 2025 views #1` `F PTT China-Drama 2025 picks thread (~22 upvotes)` `F PTT China-Drama 2025 favourites thread (4 upvotes)` `G DailyView 2025 Chinese drama buzz #10`
+- **Scores**: MyDramaList 8.1 (4,218 ratings) | IMDb 8.2 (1.9K votes)
+- **Reviews**: No signed English review could be found, and no Taiwanese review either. It was 2025’s most-streamed wuxia series with IMDb 8.2, yet opened at just 5.7 on Douban. About 22 PTT users recommended it, while one posted a long negative review.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; the plot involves massacres and murders in the martial world.
+- **Length**: 40 episodes (2025), finished. No word of a season 2.
+- **Watch first**: Adapted from Teng Ping’s novel; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/308799.do?cs=2) (subscription, leaves 23 October 2029); [LINE TV](https://www.linetv.tw/drama/18138/eps/1) (available); [Netflix](https://www.netflix.com/tw/title/82076399) (subscription)
+
+#### The Blood of Youth
+
+Would-be hero Lei Wujie wrecks Xiao Se’s inn, and the two set off together into an adventure of hidden identities and a buried fight for the throne ([Wikipedia](https://zh.wikipedia.org/wiki/少年歌行)).
+
+- **Recommended by**: `C MyDramaList top Chinese drama #23 (8.8)` `D Yunhe 2024 older-series views #8` `F PTT China-Drama 2023 favourites thread (~14 upvotes)` `F Dcard user: five stars, “best wuxia in years”`
+- **Scores**: MyDramaList 8.8 (10,640 ratings) | IMDb 8.3 (866 votes)
+- **Reviews**: [The Tea Lady at Drama Tea](https://dramatea88.wordpress.com/2024/01/01/the-blood-of-youth-review/) (a pen name; a personal blog) finished it and named it a 2023 favourite: "There is something weirdly addictive about The Blood Of Youth. I usually hate "video game" wuxia with the flying sparkling kung fu, but the characters are compelling." No signed Taiwanese review could be found. Its MDL 8.8 is the third highest of these 15; another blog, Drama Slot (by "Drama Addict"), found the fights cartoonish and the villain’s ending rushed.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; a wuxia story with plenty of fights.
+- **Length**: 40 episodes (2022–2023), finished. The same universe includes the prequel 少年白馬醉春風 and Blood River.
+- **Watch first**: Adapted from Zhou Munan’s novel; no need to read it or watch the anime. It shares a world with Blood River, and either can come first.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/216420.do?cs=2) (some episodes free, leaves 9 March 2027). It has lapsed on LINE TV; friDay’s 少年歌行之風花雪月 is a different show
+
+#### Blood River
+
+With the head of the assassin guild Blood River near death and three clans fighting to succeed him, young swordsman Su Muyu and his sworn brother defend the guild and learn the truth of his birth ([Wikipedia](https://en.wikipedia.org/wiki/Blood_River_(TV_series))).
+
+- **Recommended by**: `C IMDb 8.2 (1.7K votes)` `F PTT China-Drama 2025 picks thread (~25 upvotes, the most in the thread)` `F PTT China-Drama 2025 favourites thread (5 upvotes)` `G #6 on Netflix Taiwan (2 weeks)` `G Named in LINE TODAY’s 2025 Chinese dramas`
+- **Scores**: MyDramaList 8.2 (4,235 ratings) | IMDb 8.2 (1.7K votes)
+- **Reviews**: Reviewing only the first 16 episodes, the blog [Chasing Dramas, by Karen and Cathy](https://www.chasingdramas.com/reviews/currently-watching-blood-river-2025-%e6%9a%97%e6%b2%b3%e4%bc%a0/) gave it 6.8/10, liking the theme and scale but finding too many factions and flat acting. In Taiwan, [Hayley Yu at Harper’s BAZAAR](https://www.harpersbazaar.com/tw/culture/filmandmusic/a69116786/what-to-know-about-blood-river/) (in Chinese), in a Netflix-linked introduction-cum-review written after the first few episodes, read Su Changhe as a tragic rebel against the guild. It drew the most PTT upvotes of these 15, while English bloggers stayed lukewarm.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; a story about an assassin guild with plenty of fights.
+- **Length**: 38 episodes (2025), finished. MDL lists a season 2 entry with a synopsis but no air date.
+- **Watch first**: Adapted from Zhou Munan’s novel; no need to read it. It shares a world with The Blood of Youth, where the guild is a subplot, but that is not required.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/310402.do?cs=2) (some episodes free, leaves 30 November 2029)
+
+### Modern crime and mystery
+
+A dismembered body, a con man, smuggling in the Golden Triangle and a time loop. The shortest group, 10 to 21 episodes each.
+
+#### The Long Season
+
+In a northeastern factory town, retired train driver Wang Xiang is drawn back into an 18-year-old dismemberment case by a taxi with fake plates ([Wikipedia](https://en.wikipedia.org/wiki/The_Long_Season)).
+
+- **Recommended by**: `A Seoul International Drama Awards 2023 best actor (Fan Wei)` `A Asia Contents Awards 2023 best director (Xin Shuang)` `B Southern Weekly drama of the year 2023` `B New Weekly drama of the year 2023` `C Douban top-rated Chinese series of 2023 #1` `C IMDb 8.8 (1.8K votes)` `F PTT China-Drama 2023 favourites thread (3 upvotes)`
+- **State-run lists (not counted)**: Feitian Awards 2024 outstanding TV drama, Golden Eagle Awards 2024 outstanding TV drama
+- **Scores**: MyDramaList 8.0 (483 ratings) | IMDb 8.8 (1.8K votes) | Douban 9.4 (July 2024, cited in an MCLC academic review)
+- **Reviews**: After the full run, [James Palmer at Foreign Policy](https://foreignpolicy.com/2024/02/03/long-season-tv-review-amazon-prime-china/) called it essential: "This is a must-watch show, and it’s amazing that it got made in today’s China." His one complaint: "If the show has a flaw, it’s in the status of its female characters." [廖芳潔 at CommonWealth’s Independent Opinion](https://opinion.cw.com.tw/blog/profile/517/article/15978) (in Chinese) also recommended it, saying the mystery is a surface for a story about life and choices. Douban gives it 9.4 while MDL has 8.0 from just 483 users; English critics share one complaint, its thin female characters.
+- **Content**: No rating system in China; no Taiwan platform rating found. Two IMDb Parents Guide votes per category: violence and frightening scenes are moderate; the case at its centre is a dismemberment murder.
+- **Length**: 12 episodes (2023), finished; a single season.
+- **Watch first**: Nothing. Its characters come from writer Yu Xiaoqian’s earlier script and its title from a Ban Yu short story; neither is required.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81714026) (subscription). The latest Taiwan evidence is a 2023 Netflix trailer, so it may have been removed; it has lapsed on Hami Video
+
+#### Regeneration
+
+Journalist He Shan and five strangers meet at Fei Ke’s memorial and discover each knew a different version of him, piecing together who the con man really was ([Wikipedia](https://zh.wikipedia.org/wiki/新生_(网络剧))).
+
+- **Recommended by**: `B New Weekly drama of the year 2024 (plus best director)` `D Dengta 2024 short-series chart #1 (675M)` `D Yunhe 2024 per-episode views during run #6` `F PTT China-Drama 2024 favourites thread (1 upvote)` `G Netflix Taiwan weekly chart 5 times in H1 2024, peak #2`
+- **Scores**: MyDramaList 8.2 (1,885 ratings) | IMDb 7.2 (304 votes)
+- **Reviews**: The only English review found is from 40somethingahjumma, an anonymous Substack newsletter, which recommended the full series, praising the script and Jing Boran and accepting the disputed ending. No signed Taiwanese review could be found. Harper’s BAZAAR Taiwan’s ending recap rounded up viewers who felt the finale was rushed.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; a crime story about fraud.
+- **Length**: 10 episodes (2024), finished. MDL lists a season 2 entry with no date.
+- **Watch first**: Adapted from Luo Jia’s web novel; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/274602.do?cs=2) (some episodes free, leaves 30 August 2028); [Netflix](https://www.netflix.com/tw/title/81775090) (subscription). LINE TV’s 新生 is a different, Singaporean series
+
+#### Escape from the Trilateral Slopes
+
+Drifting young worker Shen Xing ends up in the lawless tropical Trilateral Slopes, falls in with fixer Uncle Cai, and is pulled into its game of survival ([Wikipedia](https://zh.wikipedia.org/wiki/边水往事)).
+
+- **Recommended by**: `A Magnolia Awards 2025 nomination` `B Beijing News drama of the year 2024` `C Douban top-rated Chinese series of 2024 #10` `D Dengta 2024 per-episode views, mystery #1` `D Yunhe 2024 V30 per-episode views #18`
+- **State-run lists (not counted)**: Golden Eagle Awards 2026 nomination, the 2024 state recommended-drama list, Feitian Awards 2026 shortlist
+- **Scores**: MyDramaList 7.9 (162 ratings) | IMDb 7.3 (223 votes) | Douban 7.9 (August 2026, The Storm Media ranking; opened at 8.1)
+- **Reviews**: After the full run, the blog [Chasing Dramas, by Karen and Cathy](https://www.chasingdramas.com/reviews/currently-watching-escape-the-trilateral-slopes-2024-%e8%be%b9%e6%b0%b4%e5%be%80%e4%ba%8b/) stressed that this is a gangster drama, not an idol show: "The first half sets an extremely high bar that the second half doesn’t match." No signed Taiwanese review could be found. Mainland critics also found the back half weaker, and [曾於里 at The Paper](https://www.thepaper.cn/newsDetail_forward_28577088) (in Chinese) faulted its exotic, fictionalised Southeast Asia. Its Douban score slid from 8.1 at launch to 7.9.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; the fictional “Trilateral Slopes” stand in for the Golden Triangle, with violence, drugs and crime.
+- **Length**: 21 episodes (2024), finished. No word of a season 2.
+- **Watch first**: Adapted from Shen Xingxing’s non-fiction novel; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/280048.do?cs=2) (some episodes free, leaves 28 November 2028)
+
+#### Mobius
+
+Police officer Ding Qi gains the ability to remember time loops that reset five times a day, and uses it to chase a string of murders ([Wikipedia](https://en.wikipedia.org/wiki/Mobius_(TV_series))).
+
+- **Recommended by**: `B Beijing News dramas of the year 2025` `F PTT China-Drama 2025 picks thread (~16 upvotes)` `F PTT China-Drama 2025 year-end review: “great script, great cast”` `G LINE TODAY 2025 Chinese dramas top 10`
+- **Scores**: MyDramaList 8.3 (7,505 ratings) | IMDb 7.5 (975 votes) | Douban 7.6 (August 2026, The Storm Media ranking)
+- **Reviews**: On day 12 of the run, [Lakshana N Palat at Gulf News](https://gulfnews.com/entertainment/chinese-drama-mobius-review-bai-jing-tings-thriller-is-brilliant-savage-and-strangely-obsessed-with-squids-1.500286969), drawing heavily on Reddit reactions, recommended it: "Mobius works best when it leans into the thriller aspect — suspicious CEOs, midnight resets, everyone being a potential traitor — and not when it tries to cue romantic elevator music." The day after the premiere, [Hayley Yu at Harper’s BAZAAR](https://www.harpersbazaar.com/tw/culture/filmandmusic/a66116425/things-to-know-about-mobius-highlights/) (in Chinese), in a Netflix-linked introduction-cum-review of the first few episodes, found it tight and clever but shallow on character. Both wrote early; both doubt the romance and the depth.
+- **Content**: No rating system in China; no Taiwan platform rating found. Only one to three IMDb Parents Guide votes: violence, substances and frightening scenes are moderate; sex and nudity none.
+- **Length**: 16 episodes (2025), finished. No word of a season 2.
+- **Watch first**: Adapted from Zhang Xiaomao’s novel; no need to read it.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/4722) (free tier or drama plan); [LINE TV](https://www.linetv.tw/drama/17991/eps/1) (available); [Netflix](https://www.netflix.com/tw/title/82096026) (subscription)
+
+## Watch-later list
+
+Each of these is backed by at least three source types (state awards excluded), but has no legal streaming option in Taiwan or is available only on iQIYI’s international site or WeTV.
+
+| Show | Status |
+|---|---|
+| The Knockout (狂飆) | Backed by five source types; in Taiwan only on iQIYI’s international site |
+| Mysterious Lotus Casebook (蓮花樓) | Backed by five source types; in Taiwan only on iQIYI’s international site |
+| A Journey to Love (一念關山), Under the Skin II (獵罪圖鑑2), We Are Criminal Police (我是刑警) | Backed by four source types; in Taiwan only on iQIYI’s international site |
+| The Bad Kids (隱秘的角落) | Backed by three source types; in Taiwan only on iQIYI’s international site |
+| Three-Body (三體), 棋士 | Backed by three source types; in Taiwan only on WeTV |
+| Day and Night (白夜追兇) | Backed by three source types; removed from Netflix in 2021 |
+| 反人類暴行, 沉默的榮耀, 無盡的盡頭 | Backed by three source types; no legal streaming option in Taiwan |
+
+## Limits of this list
+
+- **Few English reviews.** None of the US or UK outlets this series usually draws on reviewed these 15; only The Long Season, Nirvana in Fire and Mobius have signed pieces in Foreign Policy, Asia Times and Gulf News. The rest rely mostly on blogs, and Whispers of Fate has none.
+- **Few Taiwanese reviews too.** 8 shows have no signed Taiwanese review; The Vendetta of An, Blood River and Mobius have only Harper’s BAZAAR pieces that double as Netflix promotion.
+- **Douban scores come from mixed sources.** Some come from Douban’s year-end lists or data reports, some from Taiwanese media rankings, and most are snapshots in time; The Vendetta of An’s Douban score is left out.
+- **Taiwan policy limits Chinese streaming.** Many popular Chinese dramas are only on iQIYI’s international site or WeTV and sit on the watch-later list. Taiwan evidence for The Long Season and I Am Nobody is old, so they may have been removed. Streaming links checked: 2026-11-12.
+
+## References
+
+- [第30屆上海電視節白玉蘭獎 (Chinese Wikipedia)](https://zh.wikipedia.org/wiki/第30届上海电视节白玉兰奖)
+- [Asian Academy Creative Award for Best Drama Series (Wikipedia)](https://en.wikipedia.org/wiki/Asian_Academy_Creative_Award_for_Best_Drama_Series)
+- [Global OTT Awards (Wikipedia)](https://en.wikipedia.org/wiki/Global_OTT_Awards)
+- [南方周末〈2025文化原創榜·劇集〉](https://www.infzm.com/contents/313610) (in Chinese)
+- [新周刊 2024 中國視頻榜](https://www.cbbr.com.cn/contents/533/97031.html) (in Chinese)
+- [MyDramaList：Top Chinese Dramas](https://mydramalist.com/shows/top_chinese_dramas)
+- [豆瓣 2025 年度電影榜單](https://movie.douban.com/annual/2025/) (in Chinese)
+- [雲合數據〈2024 年長劇集網播年度觀察〉](https://pdf.dfcfw.com/pdf/H3_AP202501081641847977_1.pdf) (in Chinese)
+- [燈塔專業版 2024 年度劇集播放榜](https://www.sohu.com/a/843429934_745022) (in Chinese)
+- [中國視聽大數據 2025 年國產電視劇收視報告 (NRTA)](https://www.nrta.gov.cn/art/2025/12/26/art_114_72192.html) (in Chinese)
+- [2025 微博視界大會榮譽](https://hea.china.com/articles/20251105/202511051759836.html) (in Chinese)
+- [PTT 陸劇板〈2025最喜歡的中劇？〉](https://www.ptt.cc/bbs/China-Drama/M.1765465415.A.B24.html) (in Chinese)
+- [PTT 陸劇板〈2024最喜歡的中劇？〉](https://www.ptt.cc/bbs/China-Drama/M.1733465852.A.DE4.html) (in Chinese)
+- [LINE TODAY 聚光賞〈2025 陸劇年度榜〉](https://today.line.me/tw/v3/article/wJYz5Ra) (in Chinese)
+- [LINE TODAY 聚光賞〈2024 陸劇年度榜〉](https://today.line.me/tw/v3/article/8nWW20Z) (in Chinese)
+- [網路溫度計〈年度人氣陸劇 TOP 10〉](https://dailyview.tw/daily/5191) (in Chinese)
+- [中華電信 Hami Video〈影劇館+ 2025 年度收視排行榜〉](https://www.cht.com.tw/zh-tw/home/cht/messages/2025/1210-1500) (in Chinese)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [中央社〈愛奇藝條款上路 代理商違法最高可罰500萬〉](https://www.cna.com.tw/news/firstnews/202008185009.aspx) (in Chinese)
