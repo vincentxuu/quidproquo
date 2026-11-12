@@ -23,12 +23,13 @@ const execAsync = promisify(exec);
 
 async function runStep(name, command) {
   try {
-    await execAsync(command, {
+    const { stdout } = await execAsync(command, {
       cwd: ROOT,
       encoding: 'utf8',
       maxBuffer: 64 * 1024 * 1024,
     });
-    return { name, ok: true };
+    const warnings = stdout.split('\n').filter((l) => l.startsWith('WARN check:'));
+    return { name, ok: true, warnings };
   } catch (error) {
     const out = [error.stdout, error.stderr].map((s) => s?.toString().trim()).filter(Boolean).join('\n');
     return { name, ok: false, detail: out || error.message };
@@ -45,6 +46,13 @@ function checkProgress() {
     const lineCount = text.split('\n').length;
     if (!/^Last updated: \d{4}-\d{2}-\d{2}$/m.test(text)) {
       problems.push('progress.txt needs a "Last updated: YYYY-MM-DD" line');
+    }
+    // 每日 routine 一天十支都寫同幾行，本機有沒推的 commit 就必衝突（2026-11-09）。routine 改寫 .work/daily-log/。
+    const routineLines = text.split('\n').filter((l) => /^- \*\*daily-digest-/.test(l));
+    if (routineLines.length > 0) {
+      problems.push(
+        `progress.txt has ${routineLines.length} daily-digest routine entr${routineLines.length === 1 ? 'y' : 'ies'} — routines write .work/daily-log/<date>/<skill>.md instead (daily-digest-common E3)`
+      );
     }
     if (lineCount > 90) {
       problems.push(
@@ -187,7 +195,14 @@ const FULL_STEPS = [
 // 安全邊界：暫存區只有文章、skill／docs 的 Markdown、.work、progress.txt 時才縮小範圍；
 // 只要動到程式碼、設定、腳本，或刪除／改名文章（別篇可能連過來），一律退回完整 verify。
 function stagedPlan() {
-  const out = execSync('git diff --cached --name-status -M', { cwd: ROOT, encoding: 'utf8' });
+  // merge commit（git pull 產生）時，對 HEAD 的 diff 會含遠端已推上去的全部改動，
+  // 等於替別人的 commit 重跑逐篇檢查（2026-11-09：194 篇遠端 daily 文章的圖表截圖擋住 merge）。
+  // 改成對 MERGE_HEAD 比，只檢查本機這一側帶進來的改動；遠端那側由它自己的 commit／CI 負責。
+  let base = '';
+  try {
+    base = execSync('git rev-parse -q --verify MERGE_HEAD', { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  } catch {}
+  const out = execSync(`git diff --cached --name-status -M ${base}`, { cwd: ROOT, encoding: 'utf8' });
   const entries = out.split('\n').filter(Boolean).map((line) => {
     const [status, ...paths] = line.split('\t');
     return { status: status[0], path: paths.at(-1) };
@@ -215,7 +230,10 @@ function stagedPlan() {
     ['route-video-fences (staged)', `node scripts/check-route-video-fences.mjs ${quote(posts)}`],
     ...diagramPosts.map((p) => [`diagram-preview (staged): ${p}`, `pnpm exec tsx scripts/diagram-preview.ts ${quote([p])} --skip-if-no-browser`]),
   ] : [];
-  if (fullReason) return { full: true, reason: fullReason, extra: leakStep };
+  // 課程影片查核日期過期是「時間到了」，不是這次 commit 造成的：pre-commit 只擋暫存的文章，
+  // 其餘過期項目印 WARN；全站過期由 CI 的完整 verify 擋 deploy（2026-11-09 全站同日過期擋住所有 commit）。
+  const courseVideosStep = ['check:course-videos', `node scripts/check-course-videos.mjs --stale-scope ${quote(posts)}`];
+  if (fullReason) return { full: true, reason: fullReason, extra: leakStep, courseVideosStep };
 
   const zhPosts = posts.filter((p) => !p.endsWith('-en.md'));
   const pick = (...names) => FULL_STEPS.filter(([name]) => names.includes(name));
@@ -230,7 +248,7 @@ function stagedPlan() {
     if (zhPosts.length > 0) steps.push(['check:tw (staged)', `node scripts/check-tw-terms.mjs ${quote(zhPosts)}`]);
     // 這些看的是文章之間的關係（系列編號、中英成對、課程標題與版面），本來就要全站看；實測每項 2 秒內。
     steps.push(...pick('check:chat-style', 'check:series-order', 'course title gate', 'course source layout gate',
-      'check:lang-parity', 'check:grades', 'check:course-videos', 'check:seo-smoke', 'check:diagram-geometry'));
+      'check:lang-parity', 'check:grades', 'check:seo-smoke', 'check:diagram-geometry'), courseVideosStep);
   }
   if (entries.some((e) => /^(\.agents|\.claude)\/skills\//.test(e.path))) {
     steps.push(...pick('skills-sync (.agents ↔ .claude)', 'skill-anchors (章節連結)'));
@@ -243,7 +261,7 @@ let header = '=== pnpm verify ===';
 if (process.argv.includes('--staged')) {
   const plan = stagedPlan();
   if (plan.full) {
-    steps = [...FULL_STEPS, ...plan.extra];
+    steps = [...FULL_STEPS.map((s) => (s[0] === 'check:course-videos' ? plan.courseVideosStep : s)), ...plan.extra];
     header = `=== pnpm verify --staged → 完整 verify（暫存區含 ${plan.reason}）===`;
   } else {
     steps = plan.steps;
@@ -263,6 +281,7 @@ let failed = 0;
 process.stdout.write(`\n${header}\n`);
 for (const r of results) {
   process.stdout.write(`${r.ok ? '✅' : '🔴'} ${r.name}\n`);
+  for (const w of r.warnings ?? []) process.stdout.write(`     ⚠ ${w.replace(/^WARN /, '')}\n`);
   if (!r.ok) {
     failed += 1;
     // 只印前 30 行會把 astro check 的錯誤截掉（警告先佔滿），改成錯誤行優先。

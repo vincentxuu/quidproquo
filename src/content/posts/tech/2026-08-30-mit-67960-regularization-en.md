@@ -250,7 +250,7 @@ for name, cfg in configs.items():
 | Small batch BN statistics unstable | Batch size < 16 | Switch to GroupNorm(32) or LayerNorm |
 
 ## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery and the Lec 06 page on 2026-10-10: this article is a topic guide with no single matching lecture (it was once labelled L04, but OCW Lec 04 is Architectures: Grids). OCW has no lecture dedicated to weight decay, dropout, batch norm or label smoothing; the official summary of Lec 06 Generalization Theory covers overparameterization, double descent, limits of VC dimension and inductive biases, so it is related background only. It does not verify this article’s content.
+Rechecked against the live MIT OCW Fall 2024 gallery and the Lec 06 page on 2026-11-09: this article is a topic guide with no single matching lecture (it was once labelled L04, but OCW Lec 04 is Architectures: Grids). OCW has no lecture dedicated to weight decay, dropout, batch norm or label smoothing; the official summary of Lec 06 Generalization Theory covers overparameterization, double descent, limits of VC dimension and inductive biases, so it is related background only. It does not verify this article’s content.
 
 ```youtube
 url: https://www.youtube.com/watch?v=EiO8BBa-xdc
@@ -264,7 +264,7 @@ Course and recording entries:
 - [MIT OCW — Lec 06. Generalization Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec06_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Numbering note: the L03–L06 numbers of these four posts were planned by this site early on from a generic deep-learning teaching order (optimization, regularization, CNN, modern CNN) without matching each one to the OCW lecture list. OCW Fall 2024 Lec 03–06 are actually Approximation Theory, Architectures: Grids, Architectures: Graphs and Generalization Theory, so these four L numbers differ from OCW lecture numbers. Since 2026-10-13 the titles follow OCW: the CNN architectures post matches Lec 04 and is labelled Lecture 4, while the optimization, regularization and modern CNN posts have no single matching lecture and are labelled Topic Guide. URLs are unchanged, so the modern CNN post still has l06 in its URL; from Lec 07 on the posts already matched OCW.
 
@@ -275,6 +275,7 @@ Content check: verified against the video transcript (2026-10-10): read the tran
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded Lec 06 Generalization Theory is not the lecture for this topic (weight decay, dropout, batch norm), so the status is now “Related supplementary video included; the original lecture recording has not been verified”, and the video-timestamps section is noted as not tied to any official video.
 - 2026-10-10: Checked the video content against its transcript. Removed the "video timestamps" section that matched no video and replaced it with a transcript-based mapping; corrected the Lec 09 lecturer to Phillip Isola (was wrongly Sara Beery) and noted that Lec 09 advises against batch norm.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

@@ -187,11 +187,9 @@ The compute guide itself is public and credits the CS336 Spring 2026 Modal guide
 2. For Problems 2 and 3, read `PPOAgent` and `ACAgent` locally and fill in the `YOUR CODE HERE` blocks before deciding whether to pay for Modal. The starter code's `tests/test_on_policy.py` can check your Problem 2 code first.
 3. On a budget, run Problem 3's base setting first. Its bar is 100K steps, an order of magnitude fewer than PPO's 1M (this post did not measure wall-clock time). The handout puts the UTD=5 run at about 2 hours for 50K steps, so run it last.
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the full handout text, the starter code's file list and configs, the compute guide, and the schedule's dates and grade weights. Not confirmed: official solutions and rubrics, actual success-rate curves (this post did not run the assignment), and the real Modal cost of the full assignment. Problem 1's "40 × 4 = 160" and Problem 3's "reference policy used in Problem 1" look like typos; this post reports them as written and flags them.
-
-Related reading: the [Berkeley CS285 homework and project route](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route-en) also includes PPO and off-policy assignments, if you want a second set of exercises.
+The [Berkeley CS285 homework and project route](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route-en) also includes PPO and off-policy assignments, if you want a second set of exercises.
 
 Series navigation: previous [L6 Q-learning and How to Stabilize It](/posts/ai/2026-09-30-cs224r-q-learning-en) | next [L7 Offline RL](/posts/ai/2026-09-30-cs224r-offline-rl-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
 
@@ -203,12 +201,13 @@ Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked the official page and public playlist again; no matching public recording, so status unchanged.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

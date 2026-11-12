@@ -189,12 +189,13 @@ Course and recording entries:
 
 - [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-7-binary-search-trees-and-red-black-trees)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Confirmed that the official lecture page links recordings to a Panopto sign-in page and found no public recording of the same term; status unchanged.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 
@@ -202,4 +203,3 @@ Checked: 2026-10-10.
 - [Lecture 7 notes: Heaps and Binary Search Trees](https://stanford-cs161.github.io/winter2026/assets/files/lecture7-notes.pdf)
 - [Lecture 7 slides: Binary Search Trees and Red-Black Trees](https://stanford-cs161.github.io/winter2026/assets/files/lecture7-slides.pdf)
 - [Lecture 7 pre-lecture exercise](https://stanford-cs161.github.io/winter2026/assets/files/lecture7-pre.pdf)
-

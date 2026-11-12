@@ -66,11 +66,13 @@ title: Stanford CS109 Probability for Computer Scientists I What is Probability?
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 3「What is Probability?」字幕（Chris Piech 主講，約 75 分鐘）：確認影片講樣本空間、事件、等可能結果、兩顆骰子點數和的陷阱與機率公理，主題與本講一致；影片後段另開始介紹計數（step rule），本文未對此下說法。本文 worksheet 各題內容來自 Summer 2026 官方題目，不是影片內容。
 
 ## 更新紀錄
+
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 - 2026-10-11：補上自編教學例子、推理結果與理解檢查答案。
 

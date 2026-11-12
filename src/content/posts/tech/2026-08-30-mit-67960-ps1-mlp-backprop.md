@@ -294,7 +294,7 @@ if __name__ == "__main__":
 5. **Dropout / BatchNorm**：前向/反向都要正確處理
 
 ## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：Homework 1 本身沒有專屬錄影。下方兩支是 OCW 的相關公開影片：Lec 02 How to Train a Neural Net（SGD、反向傳播、自動微分）與 PyTorch Tutorial。它們是背景補充，不是 HW1 的逐題講解。
+2026-11-09 已即時回 MIT OCW Fall 2024 官方錄影列表核對：Homework 1 本身沒有專屬錄影。下方兩支是 OCW 的相關公開影片：Lec 02 How to Train a Neural Net（SGD、反向傳播、自動微分）與 PyTorch Tutorial。它們是背景補充，不是 HW1 的逐題講解。
 
 ```youtube
 url: https://www.youtube.com/watch?v=vidCX_dMCu0
@@ -313,7 +313,7 @@ title: PyTorch Tutorial
 - [MIT OCW — PyTorch Tutorial](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_review_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了 Lec 01、Lec 02 的字幕，並讀了 PyTorch Tutorial 的字幕全文（該支字幕直接讀取，未另存檔）；三支都確實是相關背景而非 HW1 逐題講解，原「影片時間戳（相關講義）」標題誤導，已改為「相關講義影片」並依字幕補上各支實際內容（相對位置、無精確時間碼）。
 
@@ -322,6 +322,7 @@ title: PyTorch Tutorial
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。HW1 沒有專屬錄影，改附 OCW 的 Lec 02 與 PyTorch Tutorial 作為相關補充影片，狀態改為「僅附相關補充影片；原講次錄影未確認」。
 - 2026-10-10：依字幕核對影片內容。三支相關影片的字幕已核對，標題改為「相關講義影片」，補上各支實際內容（無精確時間碼）。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

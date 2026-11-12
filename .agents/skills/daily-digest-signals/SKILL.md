@@ -35,8 +35,10 @@ cat src/data/daily-signals/schema.ts
 # Step 8: 更新跨天去重檔案
 #   把本次收錄的所有 sourceUrl 追加到 seen-signal-urls.txt
 echo "${TODAY}: $(jq -r '[.signals[].sourceUrl] | join(", ")' src/data/daily-signals/${TODAY}.json)" >> src/data/daily-signals/seen-signal-urls.txt
-# Step 9: 提交（含 push 失敗 retry）
+# Step 9: 有例外（toolDegradation、來源掛掉）才寫 .work/daily-log/${TODAY}/daily-digest-signals.md；不碰 progress.txt（見 daily-digest-common E3）
+# Step 10: 提交（含 push 失敗 retry）
 git add src/data/daily-signals/${TODAY}.json src/data/daily-signals/seen-signal-urls.txt
+[ -f ".work/daily-log/${TODAY}/daily-digest-signals.md" ] && git add ".work/daily-log/${TODAY}/daily-digest-signals.md"
 git commit -m "chore(daily): signals ${TODAY}"
 git push origin main || { git pull --rebase origin main && git push origin main; }
 ```

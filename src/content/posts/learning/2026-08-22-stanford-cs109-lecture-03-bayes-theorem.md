@@ -60,7 +60,7 @@ title: Stanford CS109 I Conditional Probability and Bayes I 2022 I Lecture 4
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 4「Conditional Probability and Bayes」字幕（約 75 分鐘）：影片對應官方 schedule 的題名 Bayes Theorem（條件機率、全機率公式、Bayes），但字幕幾乎沒有講 independence，也沒有 inclusion-exclusion，而本文 worksheet agenda 的核心正是這兩項，因此影片只能補 Bayes 前置概念，不能對應下文 worksheet 的主要內容。同一支影片也嵌在 Lecture 2。
 
@@ -69,6 +69,7 @@ title: Stanford CS109 I Conditional Probability and Bayes I 2022 I Lecture 4
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
 - 2026-10-10：依字幕核對影片內容。影片只對應 schedule 題名（Bayes），不涵蓋 worksheet 的 independence／inclusion-exclusion，已在說明中改為「部分對應」。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

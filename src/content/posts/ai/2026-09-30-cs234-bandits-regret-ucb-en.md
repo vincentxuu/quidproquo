@@ -222,7 +222,7 @@ Course and recording entries:
 - [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 11, "Exploration 1" (Emma Brunskill, about 75 minutes): it covers the bandit setting, the fracture-treatment example, regret, greedy and ε-greedy, the lower bound, optimism and UCB built on confidence bounds, matching this post. The transcript has no COVID border-testing case and never says "sub-Gaussian"; those parts come from the 2026 slides, not the video.
 
@@ -231,6 +231,7 @@ Content check: verified against the video transcript (2026-10-10): Read the tran
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 - 2026-10-10: Checked the video content against its transcript. The video topic matches; the Brunskill opening remark now rests on what she says in the 2024 transcript, and "YouTube chapters" became "transcript".
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

@@ -93,7 +93,7 @@ series:
 
 1. 用獨立 agent 跑 `post-verify` 與 `post-review`，只給文章路徑，不給結論。
 2. 修完跑 `post-polish`。
-3. 依 `daily-digest-common` 的 Commit Epilogue 收尾（圖解、英文版、references、progress、verify、commit）。
+3. 依 `daily-digest-common` 的 Commit Epilogue 收尾（圖解、英文版、references、daily-log、verify、commit）。
 
 ## 品質檢查
 

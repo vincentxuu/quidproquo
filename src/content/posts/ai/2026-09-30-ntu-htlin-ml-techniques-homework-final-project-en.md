@@ -223,12 +223,13 @@ Course and recording entries:
 - [Foundations: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
 - [Techniques: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
 
-On 2026-10-10 the official MOOC page and both playlists were checked live: the playlists hold lecture videos only, with no walkthrough video for the homework this post covers (the problems are PDFs on the NTU course pages).
+On 2026-11-09 the official MOOC page and both playlists were checked live: the playlists hold lecture videos only, with no walkthrough video for the homework this post covers (the problems are PDFs on the NTU course pages).
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 - 2026-10-13: The series now has one post per lecture; updated the links to each lecture and the lecture naming.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official playlists hold lecture videos only, no homework walkthrough; status unchanged.

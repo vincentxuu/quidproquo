@@ -207,9 +207,7 @@ TA 講義最後兩節是 DQN walkthrough 和 Soft Actor-Critic，PDF 上只有�
 - [CS221 L8 強化學習與 Q-learning](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning)，從表格型的角度講同一套想法
 - [Berkeley CS285 的 policy 與 value 方法導讀](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)。本講有多頁投影片標註「Slide adapted from Sergey Levine」
 
-## 這一篇可以確認與不能確認的
-
-可以確認：2026 投影片與 TA 講義的文字、公式與圖表標題，課表日期、地點與閱讀清單，2025 兩支影片的標題與長度。不能確認：第 7 頁思考題在課堂上給的答案、TA 加課的口頭內容、講義 DQN 與 SAC walkthrough 的細節。第 2 頁的課程提醒提到會分享「去年 head CA 的筆記」，這份筆記沒有出現在公開頁面上。
+## 延伸閱讀
 
 系列導覽：上一篇 [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac)｜下一篇 [HW2：Gridworld Q-learning、PPO 與 Sawyer 鐵鎚任務](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
 
@@ -235,13 +233,14 @@ title: Spring 2025 Tutorial Session: Review of Q-Learning（YouTube，補充）
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
 
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。兩支影片（2025 L6 與助教 Tutorial）主題、講者與長度都與本文相符，沒有需修正之處。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

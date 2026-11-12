@@ -126,7 +126,7 @@ curl -O https://raw.githubusercontent.com/harvard-ml-courses/cs181-s26-homeworks
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
@@ -135,6 +135,7 @@ curl -O https://raw.githubusercontent.com/harvard-ml-courses/cs181-s26-homeworks
 - 2026-10-10：重查影片狀態。重讀官方課表與 syllabus，仍未列出此主題的公開講課影片。
 - **2026-09-30**：依官方 `hw1_release.tex` 重寫題目段落。原文誤寫為 OLS／RBF kernel／MLP 三題，實際是 kNN & Kernels、Geometric Least Squares、Basis Regression、Probabilistic View & Regularization 四題；同步更正資料筆數與年代描述、Jouzel et al. 2007 的出處，移除沒有來源的 MLP 與 PyTorch 內容。
 - **2026-09-29**：截止日依 s26 `hw1_release.tex` 更正為 2026-02-13；「與後續週的銜接」改為連到系列實際文章，題目依各份 `.tex` 標題。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

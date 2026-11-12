@@ -322,7 +322,7 @@ Once the video and slides for 2026 Lecture 6 are published (the syllabus date is
 
 ## Course video sources
 
-This article is a pre-written guide to CME295 2026 Lecture 6 (AI Agents, November 6). The official 2026 syllabus, read on 2026-10-10, still marks that lecture "Coming soon", so the original lecture recording is not yet available. The video below is the public 2025 Lecture 7, "Agentic LLMs"; the article itself notes that tool calling, MCP and retrieval were already covered there, so it is included only as related background and is not the 2026 Lecture 6 recording.
+This article is a pre-written guide to CME295 2026 Lecture 6 (AI Agents, November 6). The official 2026 syllabus, read live on 2026-11-09, now lists slides for this lecture, but the recording is not yet available. The video below is the public 2025 Lecture 7, "Agentic LLMs"; the article itself notes that tool calling, MCP and retrieval were already covered there, so it is included only as related background and is not the 2026 Lecture 6 recording.
 
 ```youtube
 url: https://www.youtube.com/watch?v=h-7S6HNq0Vg
@@ -338,13 +338,14 @@ Course and recording entries:
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
 - [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The 2026 Lecture 6 recording is not yet published; the 2025 Lecture 7 video is included as related supplementary material.
 - 2026-10-10: Checked the video content against its transcript. The video is 2025 Lecture 7 and does cover tool calling, MCP and retrieval, matching the post's "related supplement" label; there is no 2026 Lecture 6 video to check against.
+- 2026-11-09: Rechecked video status. The official syllabus now lists the Lecture 6 slides; the recording is still not available, so the status is unchanged.
 
 ## References
 

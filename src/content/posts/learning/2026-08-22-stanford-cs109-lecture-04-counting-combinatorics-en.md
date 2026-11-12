@@ -69,7 +69,7 @@ Official sources:
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): what was checked is how the two videos relate to this lecture. In 2022 Lecture 1 (Counting) most of the first part is course introduction and motivation; the step (multiplication) and sum rules start only in roughly the last quarter, estimated from the relative position in the transcript, not an exact time. 2022 Lecture 2 (Combinatorics) covers permutations, combinations, and distinguishable/indistinguishable objects in buckets (buckets and dividers). Together they fit this lecture on the multiplication rule, permutations, combinations and counting with repetition.
 
@@ -78,6 +78,7 @@ Content check: verified against the video transcript (2026-10-10): what was chec
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
 - 2026-10-10: Checked the video content against its transcript. The two videos together cover this lecture's topic; noted that the first video is mostly course introduction.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

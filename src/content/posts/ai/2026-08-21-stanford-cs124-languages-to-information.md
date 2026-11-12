@@ -259,17 +259,18 @@ YouTube 上有一個 [From Languages to Information 頻道](https://www.youtube.
 
 ## 課程影片來源
 
-官方 Winter 2026 課程頁（2026-10-10 即時讀取）寫明：預錄影片放在 Canvas 的 Modules（課號 186110），我實際開啟被導向 Stanford 登入頁，確認有登入牆；五場現場講課與五場實作課明寫 “not recorded”。YouTube 頻道 From Languages to Information 有一份 80 支的 “CS124 - Full Course” 播放清單，但分週標題（例如 Week 2: Naive Bayes、Week 6: Chatbots and Dialogue Agents）與 Winter 2026 課綱不同，不能當作當期錄影，所以不嵌入。
+官方 Winter 2026 課程頁（2026-11-09 即時讀取）寫明：預錄影片放在 Canvas 的 Modules（課號 186110），我實際開啟被導向 Stanford 登入頁，確認有登入牆；五場現場講課與五場實作課明寫 “not recorded”。YouTube 頻道 From Languages to Information 有一份 80 支的 “CS124 - Full Course” 播放清單，但分週標題（例如 Week 2: Naive Bayes、Week 6: Chatbots and Dialogue Agents）與 Winter 2026 課綱不同，不能當作當期錄影，所以不嵌入。
 
 課程與錄影入口：
 
 - [From Languages to Information YouTube 頻道](https://www.youtube.com/channel/UC_48v322owNVtORXuMeRmpA)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs124/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 - 2026-10-13：全文改寫成課程總覽。新增課程主線、十週各教什麼、bigram 手算例子、先修自我檢查與兩條閱讀路線；原本的查課過程（先修欄位沿革、封存目錄比對、選課人數等）移出正文。
 - 2026-10-10：重查影片狀態。官方頁寫明預錄影片在 Canvas，實際開啟確認有登入牆；YouTube 頻道的週次標題與 Winter 2026 課綱不符，不嵌入；狀態改為需登入。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
