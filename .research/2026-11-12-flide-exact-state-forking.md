@@ -10,10 +10,16 @@
 | 論文 HTML 全文 `arxiv.org/html/2610.42148v1` | ✅ 一手（文字層） | firecrawl_scrape，存成 111,049 字元；讀了第 21–522 行（摘要、§1–§5）與第 993–1344 行（附錄 A–H）。**沒讀**第 523–992 行（參考文獻清單，只用 grep 查了 4 筆）。**沒看到圖**（Fig 1–9 是圖片，只讀到圖說） |
 | GitHub `OmniJev/Flide` | ✅ 一手（README 首頁） | firecrawl_scrape，快取版本（2026-11-11）；沒讀原始碼、沒跑 `flide verify` |
 | flide.org 專案頁 | ✅ 一手 | firecrawl_scrape |
-| Jev／System One API（TypeSafe AI 部落格） | 🔴 未讀 | 論文引用 `typesafe.ai/blog/introducing-system-one-models-and-jev`；本輪沒抓。文中對 Jev 的描述只能算論文轉述 |
-| Decision Index、vLLM 決策端點、SGLang MIS 文件 | 🔴 未讀 | 只讀到論文對它們的描述 |
+| Jev／System One 發表文（TypeSafe AI，2026-09-15） | ✅ 一手（廠商自述） | firecrawl_scrape 全文。FAQ 的幾個折疊項（Is Jev just a smaller LLM? 等）沒展開，內容未讀 |
+| 論文參考文獻清單（約 46 筆） | ✅ 清單讀完 | 只讀書目，**沒有逐篇打開被引用的論文／PR** |
+| vLLM Automatic Prefix Caching 文件（latest） | ✅ 一手 | firecrawl_scrape 全頁，maxAge=0 |
+| Hacker News 討論串（item 50421155，30 則留言） | ✅ 一手 | firecrawl_scrape 全串；留言為個人說法，不當事實 |
+| daily.dev 的 Show HN 摘要 | 🟡 二手 | AI 產生的「社群摘要」，頁面同時顯示「No comments yet」，自相矛盾，只當線索，不引用 |
+| vLLM／SGLang 決策端點與 MIS 的 PR（#59299、#61192、#41208、#33922、#44793） | 🔴 未讀 | 論文 Table 1 的 ✓/✗ 依據這些；我沒核對 |
+| Decision Index 排行榜、Open-Jev／OneJev 模型卡 | 🔴 未讀 | |
+| 論文圖（Fig 1–9） | ⚪ 取不到 | 抓取結果只有 `overview.png` 一個圖檔連結，其餘圖不在文字層；直接下載 `arxiv.org` 圖檔被環境代理回 403（`CONNECT tunnel failed`）。圖的數字在 Table 3–7、9–12 都有對應表，影響有限 |
 
-工具降級紀錄：Groundlane `web_fetch` 回「requires approval」（權限層，非伺服器故障），改走 Firecrawl。`paper_lookup` 未跑。
+工具降級紀錄：Groundlane `web_fetch` 回「requires approval」（權限層，非伺服器故障），改走 Firecrawl。`paper_lookup` 未跑。`hn.algolia.com` 與 `arxiv.org` 圖檔經 curl 走代理回 403（網域未在環境白名單），HN 改用 firecrawl 讀到。
 
 ## 這篇在解什麼
 
@@ -62,18 +68,42 @@
 6. 適用範圍：只服務**因果**的決策模型（附錄 H 提到雙向讀取的模型要退化成每題一個序列，加速較小）。
 7. 論文引用的 vLLM／SGLang 功能（如 vLLM 決策端點、MIS）出自專案文件與 GitHub，並非同儕審查文獻。
 
-## 與既有研究的關係（已讀範圍內）
+## 背景：Jev 與「Jev-like」模型（一手：TypeSafe 發表文，廠商自述）
 
-論文自己列的相關工作：prefix caching（vLLM、SGLang/RadixAttention）、cascade／tree attention、混合模型的區塊邊界快取、投機解碼樹注意力。Flide 的新處是同一次前向傳遞同時算樹幹和分支，並處理 Gated DeltaNet 的狀態分岔。**我沒有獨立搜過這些相關工作的原文與近年反證** ❌（見未關閉項目）。
+- Jev 是 TypeSafe AI 於 2026-09-15 以 early access 發表的「System One 模型」：輸入非結構化狀態，輸出型別安全、附校準機率的決策；**平行取樣、一次查詢產出所有輸出，不生成字串**。
+- 廠商宣稱：同等 System One 任務上比現有 LLM 快、省約兩個數量級（首頁數字 193.6 倍快、444.6 倍便宜，文中自己說「應在真實收益的高端」）；「不會有型別錯誤」（輸出格式由結構保證）；定價輸入 $0.042／百萬 token、輸出免費。
+- 廠商自己標的偏誤：基準以 GPT-6 Astra 與 Fable 5.1 的平均當參考答案；workflow 由自家能力團隊設計；延遲是從自家筆電量的；補貼與否「無法證明」。
+- **和 Flide 的關係** [推論，依 README「Jev-style / Jev-like」與模型清單]：Flide 服務的是與 Jev 的 `/v1/systemone` API 相容的**開源決策模型**（Open-Jev、OneJev 與一批 Qwen3.5／Gemma 4 微調），不是 TypeSafe 的 Jev 本體。論文的 Jev 敘述（「highly promising paradigm」）來自這篇廠商文章，不是獨立評估。
+
+## 與既有研究的關係
+
+- 論文自己列的相關工作：prefix caching、cascade／tree attention、混合模型的區塊邊界快取、投機解碼樹注意力。Flide 的新處是同一次前向傳遞同時算樹幹和分支，並處理 Gated DeltaNet 的狀態分岔。
+- 論文參考文獻裡有幾篇同期（2026-10）的同題工作，**我只讀到書目，沒讀內容**：Antunes et al.〈Narrow decision models〉arXiv:2610.25553、Chouhan & Perry〈Verdict: Encode once, decide many〉2610.20778、Ma et al.〈FastJEV〉2610.11379、Jing et al.〈RadixFlow〉2610.18143（論文有拿它當基線）。
+- 搜尋另外找到 arXiv:2609.33477〈Prefix Caching via Suffix Replay for Hybrid LLMs〉：同樣針對混合模型前綴快取，用「重播後綴」取代存遞迴狀態。Flide 的參考文獻**沒有列這篇**；只讀到搜尋片段，不確定它與 Flide 設計的關係。
+
+## 反證搜尋結果
+
+| 檢查項 | 結果 | 讀取層級 |
+|---|---|---|
+| vLLM 混合模型快取是否真的只在區塊邊界 | ✅ 與論文一致：文件寫「Mamba state is stored only on the Mamba block grid, so a prefix-cache hit can resume only at a block boundary」 | 一手（vLLM latest 文件） |
+| vLLM 有沒有更好的設定論文沒開 | ⚠️ 有 `--enable-mamba-shared-prefix-checkpoint`（可在共用前綴交界存檢查點），但文件寫明**只在前綴快取＋EAGLE/MTP 投機解碼＋`--prefix-match-unit` 小於區塊＋非多模組 MTP 時生效**。決策模型通常不開投機解碼，這個旗標多半幫不上；但這是 latest 文件，不是論文用的 0.32.0rc1，**我沒在論文版本上驗證** | 一手文件，結論為推論 |
+| 社群獨立驗證 | ❌ 沒有。HN 留言沒有人貼出自己的量測。唯一接近的是 Tostino 說自己改 vLLM 在「全注意力」模型上拿到差不多的加速（無數據、無程式碼，不可驗證）；作者回覆承認全注意力下可行，差異在 Gated DeltaNet、CUDA graph 與位元一致 | 一手（留言），個人說法 |
+| 工作負載限制 | ⚠️ HN 上 p-e-w 指出「同一個問題問很多輸入」在實務更常見，作者承認目前設定幫助不大，打算之後讓問題置前共用 | 一手（留言） |
+| 單題情境 | 作者在留言自己說：每個 state 只有一題時，從「與 27B 長輸入幾乎打平」到「小模型短輸入 3 倍以上」；9.5 倍是「Qwen3.5-0.8B、QuALITY、5.8k token、平均 18 題」。與我核對的 Table 3 一致 | 一手（留言＋論文表） |
+| 雙向注意力模型 | 作者留言：GLiDE 用雙向注意力，加速有限；論文附錄 H 也寫這類模型每題退化成獨立序列 | 一手 |
+| 其他限制 | 作者只在 Linux 測過；預編譯核心列 A40、A10、RTX 30、H100、H200（專案頁）與後來加入的 RTX 40/50（README 新聞） | 一手（專案頁／README） |
+
+結論：目前沒有找到反駁論文數字的來源，但也**沒有獨立重現**；主要質疑是適用範圍（誰會同時問很多題），不是數字是否為真。
 
 ## 未關閉項目
 
-- ✉️／🔴 Jev 與 System One API 是什麼（TypeSafe AI 部落格）未讀；導讀裡對 Jev 的描述只能標「論文轉述」。
-- 🔴 圖表（Fig 3–5、7–9）只讀圖說。
-- ⚪ 獨立重現／批評：本輪只查了作者的 GitHub 與專案頁，**未做反證搜尋**（replication / criticism / limitations），也未查 vLLM／SGLang 是否在 2026-10 之後加入類似功能。
-- 🔴 參考文獻 bib 清單只 grep 4 筆，未逐條核對。
-- 論文 arXiv ID 為 2610，投稿日期 2026-10-30；GitHub 新聞寫「2026-11-02 released paper」，兩者差 3 天，原因不明（可能是公告日期）。
+- ✅ 已關閉：Jev 一手來源（見「背景」）；參考文獻清單已讀完；反證搜尋已做一輪（見上表）。
+- ⚪ 圖 Fig 3–5、7–9：取不到圖檔（`arxiv.org` 圖檔被環境代理 403，需要把該網域加進環境 Allowed domains 才能試）；數字以對應表為準。
+- 🔴 未讀：vLLM／SGLang 決策端點與 MIS 的 PR（論文 Table 1 的依據）、Decision Index、Open-Jev／OneJev 模型卡、四篇同期論文與 2609.33477 的正文。要在文章裡引用它們的內容前必須先讀。
+- ⚪ 獨立重現：目前找不到。查過：論文頁／專案頁／GitHub、HN 討論串（全串）、兩輪網頁搜尋。沒查：X／Reddit／Hugging Face 討論。
+- ❓ 論文 arXiv 投稿日是 2026-10-30，GitHub 新聞寫 2026-11-02「released paper」，差 3 天，原因不明（可能是公告日）。
+- 🟡 論文 Table 1 的 vLLM／SGLang 能力標示（One pass／Hybrid fork／Bitwise 等）是作者依「公開文件與程式碼」標的，我沒有驗證。
 
 ## 交接建議
 
-要發文的話走 `post` skill，建議 type: deep-dive、category: ai；骨架為「問題（重複算＋答案偏移）→ 設計（樹幹／分支、兩段式 DeltaNet）→ 結果（含對照條件，9.5× 是最佳案例）→ 什麼時候有用／沒用」。發文前先補：Jev 一手來源、獨立反證搜尋。
+要發文的話走 `post` skill，建議 type: deep-dive、category: ai；骨架為「Jev／決策模型是什麼（廠商說法要標明）→ 問題（重複算＋答案偏移）→ 設計（樹幹／分支、兩段式 DeltaNet）→ 結果（含對照條件，9.5× 是最佳案例）→ 什麼時候有用／沒用（多題共用一個狀態才大贏；同題問多個輸入、雙向注意力模型幫助有限）」。發文前若要寫到同期論文或 vLLM／SGLang PR 的內容，先讀那些來源。
