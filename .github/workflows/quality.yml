@@ -73,7 +73,7 @@ jobs:
     name: Visual regression (required for UI changes)
     needs: ui-scope
     if: needs.ui-scope.outputs.required == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -102,7 +102,7 @@ jobs:
     needs: ui-scope
     if: needs.ui-scope.outputs.required == 'true'
     continue-on-error: true
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
