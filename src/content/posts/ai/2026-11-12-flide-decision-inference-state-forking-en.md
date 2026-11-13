@@ -126,12 +126,24 @@ The comparison in the table below is against the faster of the two baselines in 
 
 On accuracy, Flide stays within 1.2 percentage points of vLLM, and its answers are closest to the float32 reference in total variation distance among the engines compared.
 
+## Contemporaneous related work
+
+Flide's related-work section cites several contemporaneous papers. I read their full texts. None of them cites Flide, and all were submitted earlier, so each solves a different problem and the comparison needs care.
+
+- **The encoder line: Verdict ([arXiv:2610.20778](https://arxiv.org/abs/2610.20778)) and Narrow Decision Models ([arXiv:2610.25553](https://arxiv.org/abs/2610.25553)).** Both use a ModernBERT-style encoder with a block attention mask that answers every question about one state in a single forward pass, and both require training the model that way. They do not serve off-the-shelf hybrid decoder models, so they are not Flide's direct competitors. Flide describes this family as paying a latency penalty for scanning block masks, but neither paper measures the mask's own cost; Verdict measures the opposite direction: with the same weights, packing is 2.7x to 2.8x faster than running each question separately (batch 8, one laptop GPU).
+- **Numerical guarantees stop at rounding level there too.** Both say the invariances hold in exact arithmetic and report small measured error; in bf16, Verdict finds that asking one question alone versus packed moves 0.75% of cases across the auto-handling threshold. That matches Flide's own statement; what Flide adds is the optional `--batch-invariant`.
+- **FastJEV ([arXiv:2610.11379](https://arxiv.org/abs/2610.11379)).** Also a Gated DeltaNet hybrid, but what it shares is the candidate answers of a single question, not multiple questions. The authors' own conclusion is that tree sharing is often slower in practice: the full method is slightly slower than the original, and the fast variant is the one without the tree. That supports Flide's choice to flatten branches into one stream and avoid segmented passes, though FastJEV does not compare against Flide.
+- **Prefix caching on hybrids: RadixFlow ([arXiv:2610.18143](https://arxiv.org/abs/2610.18143)) and SuffixReplay ([arXiv:2609.33477](https://arxiv.org/abs/2609.33477), not cited by Flide).** RadixFlow takes "resuming needs the full state at the boundary" as a premise and addresses scheduling: idle slots when a consumer waits on a producer in the same round. SuffixReplay stores sparse hidden states and, on a hit, replays a recent suffix to approximately restore the state at every 64-token page boundary; it also notes that SGLang by default saves checkpoints at request end and at the first branching continuation, not only at chunk boundaries. So "resume only from block boundaries" holds for vLLM's documentation, not as a rule for every engine. SuffixReplay is approximate, whereas Flide's selling point is exactness.
+
+None of these papers was compared against Flide on Flide's workloads, so the above marks the edges of the problem; it is not evidence about who is faster.
+
 ## Limits and where it does not help
 
 - **All numbers come from the authors' own tests**: a single H200, a pre-release vLLM, SGLang at default settings, and no third-party reproduction yet. Before relying on it, run the `flide verify` command mentioned in the README on your own model and requests.
 - **One question over many inputs gets little.** A Hacker News commenter pointed out this shape is more common in practice; the author replied that the current setup does not help much there and that a future version might put the question first so all states share it.
 - **Bidirectional-attention models speed up less.** Models that read the whole prompt both ways, even for the question (the paper's Appendix H lists Jeffan, StartLux, and Lychee), run each question as its own sequence inside the stream. The author said on HN that GLiDE uses bidirectional attention and is not yet supported.
 - **The gap is smaller on full-attention models.** On Gemma 4, Flide is 1.1x to 2.9x faster than vLLM, which already caches the shared state. A Hacker News commenter said they modified vLLM and got similar results on such models, without sharing numbers.
+- **The gap over SGLang depends on its checkpoint settings.** According to the SuffixReplay paper, SGLang by default also saves checkpoints at request end and at the first branching continuation, so "every question recomputes the tail" is the worst case. Flide's SGLang numbers were measured at default settings, and I found no comparison varying the checkpoint settings.
 - **Exactness holds only to rounding level in floating point.** Bit-identical output needs `--batch-invariant`.
 - **Platform.** Prebuilt kernels cover the A40, A10, H100, H200, and the RTX 30 through 50 series. The authors tested only on Linux; on Windows you need WSL2.
 
@@ -149,4 +161,13 @@ The decision-model category is still new: Jev's performance claims come from the
 - [Introducing System One Models & Jev (TypeSafe AI)](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
 - [Automatic Prefix Caching (vLLM documentation)](https://docs.vllm.ai/en/latest/features/automatic_prefix_caching/)
 - [Show HN: Flide (Hacker News thread)](https://news.ycombinator.com/item?id=50421155)
+- [Verdict: Encode Once, Decide Many (arXiv:2610.20778)](https://arxiv.org/abs/2610.20778)
+- [Narrow Decision Models (arXiv:2610.25553)](https://arxiv.org/abs/2610.25553)
+- [FastJEV (arXiv:2610.11379)](https://arxiv.org/abs/2610.11379)
+- [RadixFlow (arXiv:2610.18143)](https://arxiv.org/abs/2610.18143)
+- [Prefix Caching via SuffixReplay for Hybrid LLMs (arXiv:2609.33477)](https://arxiv.org/abs/2609.33477)
 - Related on this site: [vLLM: From PagedAttention to a Production LLM Inference Engine](/posts/ai/2026-03-14-vllm-inference-engine-en)
+
+## Update log
+
+- 2026-11-13: Read the full texts of the contemporaneous papers Flide cites; added "Contemporaneous related work" and one limit, plus five references.

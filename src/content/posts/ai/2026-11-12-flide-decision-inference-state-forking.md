@@ -126,12 +126,24 @@ curl http://localhost:8000/v1/systemone -H "Content-Type: application/json" -d '
 
 準確度方面，Flide 與 vLLM 的差距在 1.2 個百分點內，答案與 float32 參考值的總變差距離在各引擎中最小。
 
+## 同期的相關工作
+
+Flide 的相關工作引了幾篇同期論文。我讀了這幾篇的全文：它們都沒有引用 Flide，投稿也都更早，對照時要留意各自解的是不同的問題。
+
+- **encoder 路線：Verdict（[arXiv:2610.20778](https://arxiv.org/abs/2610.20778)）與 Narrow Decision Models（[arXiv:2610.25553](https://arxiv.org/abs/2610.25553)）。** 兩篇都用 ModernBERT 一類的 encoder，加一張區塊注意力遮罩，一次前向回答同一份狀態的所有問題，而且要重新訓練模型。它們不是在服務現成的混合 decoder 模型，所以不是 Flide 的直接對手。Flide 把這類做法描述成「掃描區塊遮罩有延遲代價」，但兩篇都沒有量測遮罩本身的成本；Verdict 量到的方向相反：同一組權重，打包比逐題各跑快 2.7 到 2.8 倍（批次 8，單張筆電 GPU）。
+- **數值上的保證同樣只到捨入等級。** 兩篇都說不變性在精確算術下成立，實測有微小誤差：Verdict 在 bf16 下，單題單獨問與打包問會讓 0.75% 的案例跨過自動處理門檻。這和 Flide 的說法一致，Flide 多提供的是選用的 `--batch-invariant`。
+- **FastJEV（[arXiv:2610.11379](https://arxiv.org/abs/2610.11379)）。** 同樣是 Gated DeltaNet 混合模型，但共用的是單一問題的多個候選答案，不是多個問題。作者自己的結論是樹狀共享在實作中常常更慢：完整方法比原版略慢，快的是不含樹的版本。這支持 Flide 把分支攤成一條串流、避開分段前向的取向，不過 FastJEV 沒有拿 Flide 比。
+- **混合模型的前綴快取：RadixFlow（[arXiv:2610.18143](https://arxiv.org/abs/2610.18143)）與 SuffixReplay（[arXiv:2609.33477](https://arxiv.org/abs/2609.33477)，Flide 沒引用）。** RadixFlow 把「接續要有邊界上的完整狀態」當成前提，處理的是排程：同一輪裡消費者等生產者造成的空轉。SuffixReplay 則用稀疏存下的隱藏狀態，命中時重放最近一段後綴，近似地在每個 64 token 的頁邊界還原狀態；它同時指出 SGLang 預設除了區塊邊界，也會在請求結尾與分岔續寫時存檢查點。所以「只能從區塊邊界接續」對 vLLM 的文件成立，不是所有引擎的通則。SuffixReplay 是近似，Flide 主打的是精確。
+
+這幾篇都沒有在 Flide 的工作負載上和它對比過，所以上面只能當作問題的邊界，不是誰快誰慢的證據。
+
 ## 限制與不適用的情況
 
 - **數字都出自作者自己的測試**：單張 H200，vLLM 用預發布版，SGLang 用預設設定，目前沒有第三方重現。上線前先用 README 提到的 `flide verify` 在自己的模型和請求上驗一次。
 - **同一題問很多輸入，幫助有限。** Hacker News 上有人指出這種形狀在實務更常見；作者的回覆是目前設定下幫助不大，之後可能讓問題置前、由所有狀態共用。
 - **雙向注意力的模型加速有限。** 連問題也雙向讀整份提示的模型（論文附錄 H 列了 Jeffan、StartLux、Lychee），每題只能當一條獨立序列在串流裡跑；作者在 HN 說 GLiDE 用雙向注意力，尚未支援。
 - **全注意力模型的差距較小。** Gemma 4 對已有前綴快取的 vLLM 是 1.1 到 2.9 倍。HN 上有人說自己改 vLLM 後，在這類模型上拿到相近的效果，沒有附數據。
+- **對 SGLang 的差距，要看它的檢查點設定。** 據 SuffixReplay 的描述，SGLang 預設還會在請求結尾與第一次分岔續寫時存檢查點，「每題都重算尾巴」是最壞情況。Flide 的 SGLang 數字是在預設設定下量的，我沒有看到針對檢查點設定的對照。
 - **精確性在浮點下只到捨入等級。** 要逐位元一致，需要開 `--batch-invariant`。
 - **平台。** 預編譯核心涵蓋 A40、A10、H100、H200 與 RTX 30 到 50 系列；作者只在 Linux 測過，Windows 要用 WSL2。
 
@@ -149,4 +161,13 @@ Flide 的核心取捨很單純：把「一個狀態、多個問題」這個決�
 - [Introducing System One Models & Jev（TypeSafe AI）](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
 - [Automatic Prefix Caching（vLLM 文件）](https://docs.vllm.ai/en/latest/features/automatic_prefix_caching/)
 - [Show HN: Flide（Hacker News 討論串）](https://news.ycombinator.com/item?id=50421155)
+- [Verdict: Encode Once, Decide Many（arXiv:2610.20778）](https://arxiv.org/abs/2610.20778)
+- [Narrow Decision Models（arXiv:2610.25553）](https://arxiv.org/abs/2610.25553)
+- [FastJEV（arXiv:2610.11379）](https://arxiv.org/abs/2610.11379)
+- [RadixFlow（arXiv:2610.18143）](https://arxiv.org/abs/2610.18143)
+- [Prefix Caching via SuffixReplay for Hybrid LLMs（arXiv:2609.33477）](https://arxiv.org/abs/2609.33477)
 - 站內相關：[vLLM — 從 PagedAttention 到生產級 LLM 推論引擎](/posts/ai/2026-03-14-vllm-inference-engine)
+
+## 更新紀錄
+
+- 2026-11-13：讀完 Flide 引用的同期論文全文，新增「同期的相關工作」一節與一條限制，補五筆參考資料。

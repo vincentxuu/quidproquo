@@ -78,8 +78,8 @@
 ## 與既有研究的關係
 
 - 論文自己列的相關工作：prefix caching、cascade／tree attention、混合模型的區塊邊界快取、投機解碼樹注意力。Flide 的新處是同一次前向傳遞同時算樹幹和分支，並處理 Gated DeltaNet 的狀態分岔。
-- 論文參考文獻裡有幾篇同期（2026-10）的同題工作，**我只讀到書目，沒讀內容**：Antunes et al.〈Narrow decision models〉arXiv:2610.25553、Chouhan & Perry〈Verdict: Encode once, decide many〉2610.20778、Ma et al.〈FastJEV〉2610.11379、Jing et al.〈RadixFlow〉2610.18143（論文有拿它當基線）。
-- 搜尋另外找到 arXiv:2609.33477〈Prefix Caching via Suffix Replay for Hybrid LLMs〉：同樣針對混合模型前綴快取，用「重播後綴」取代存遞迴狀態。Flide 的參考文獻**沒有列這篇**；只讀到搜尋片段，不確定它與 Flide 設計的關係。
+- 論文參考文獻裡有幾篇同期（2026-10）的同題工作，**2026-11-13 已全文讀完**（逐篇抽取紀錄在 session scratchpad，不入庫）：Antunes et al.〈Narrow decision models〉arXiv:2610.25553、Chouhan & Perry〈Verdict〉2610.20778、Ma et al.〈FastJEV〉2610.11379、Jing et al.〈RadixFlow〉2610.18143（論文有拿它當基線）。五篇都沒引用 Flide。重點：Verdict／NDM 是需重訓的 ModernBERT encoder＋區塊遮罩，都沒量遮罩本身的延遲（Verdict 量到打包比逐題快 2.7–2.8×，批次 8、筆電 GPU），Flide 對它們的「掃描區塊遮罩有延遲代價」描述在這兩篇找不到實測依據；FastJEV 共用的是單題的候選答案，作者結論是樹狀共享常更慢（完整方法幾何平均 0.938–0.953×，不含樹的 S+P 為 1.053–1.258×）；RadixFlow 把「邊界上要有完整狀態」當前提，貢獻在同輪依賴的排程（延遲 −3%～−24%，基線是加了 overlay 的 vLLM、非原版），沒用「區塊邊界」一詞，Flide 的歸因偏強。
+- arXiv:2609.33477〈SuffixReplay〉（Flide 沒列）**已全文讀完**：存稀疏輸入隱藏狀態、命中時重放近端後綴，近似還原每個 64-token 頁邊界的狀態（品質保留 91.4–100%，TTFT 降 15–70%，皆為作者自測、近似法）；並指出 SGLang 預設也在請求結尾（對齊 256 token）與分岔續寫時存檢查點，vLLM 混合模型前綴快取「討論中」。對 Flide：「只能從區塊邊界接續」不是所有引擎的通則；兩者一近似、一精確，未互相比較。摘要與結論的數字不一致（品質下限 91.4% vs 94%；TTFT 15–70% vs 41–69%），引用以摘要與 Table 3 為準。
 
 ## 反證搜尋結果
 
@@ -99,7 +99,8 @@
 
 - ✅ 已關閉：Jev 一手來源（見「背景」）；參考文獻清單已讀完；反證搜尋已做一輪（見上表）。
 - ⚪ 圖 Fig 3–5、7–9：取不到圖檔（`arxiv.org` 圖檔被環境代理 403，需要把該網域加進環境 Allowed domains 才能試）；數字以對應表為準。
-- 🔴 未讀：vLLM／SGLang 決策端點與 MIS 的 PR（論文 Table 1 的依據）、Decision Index、Open-Jev／OneJev 模型卡、四篇同期論文與 2609.33477 的正文。要在文章裡引用它們的內容前必須先讀。
+- 🔴 未讀：vLLM／SGLang 決策端點與 MIS 的 PR（論文 Table 1 的依據）、Decision Index、Open-Jev／OneJev 模型卡、各論文的圖（圖本身未讀，只讀圖說）。要在文章裡引用它們的內容前必須先讀。
+- ✅ 已讀（2026-11-13）：2610.25553、2610.20778、2610.11379、2610.18143、2609.33477 全文。取得時 MCP 閘道全部回 502，改用 curl＋pandoc 讀 arXiv HTML；另發現 arXiv `/html/<id>v1` 曾回到別篇論文（快取錯置），後來以不帶版號的 URL 與 abs 頁核對標題後才採信。
 - ⚪ 獨立重現：目前找不到。查過：論文頁／專案頁／GitHub、HN 討論串（全串）、兩輪網頁搜尋。沒查：X／Reddit／Hugging Face 討論。
 - ❓ 論文 arXiv 投稿日是 2026-10-30，GitHub 新聞寫 2026-11-02「released paper」，差 3 天，原因不明（可能是公告日）。
 - 🟡 論文 Table 1 的 vLLM／SGLang 能力標示（One pass／Hybrid fork／Bitwise 等）是作者依「公開文件與程式碼」標的，我沒有驗證。
