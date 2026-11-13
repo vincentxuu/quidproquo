@@ -78,19 +78,19 @@ So the tools can be compared side by side, each hands-on post follows the same o
 
 Where possible, each post will also include one publicly documented company deployment of the tool to cover what simulated data can't show; if no credible case is available, it is left out.
 
-## Planned posts
+## Posts in the series
 
-| Order | Task type × tool | Status |
-|---|---|---|
-| 1 | Series introduction (this post) | Published |
-| 2 | [On-site confirmation × AppSheet + Looker Studio: food waste and shrinkage rate](/posts/product/2026-11-12-no-code-food-waste-appsheet-looker-en) | Published |
-| 3 | Requests and approvals × Power Apps | Planned |
-| 4 | Sign-ups and rosters × Glide | Planned |
-| 5 | Inventory and asset tracking × Airtable Interface Designer | Planned |
-| 6 | Inspections and audits: the same task built in two tools | Planned |
-| 7 | Comparing all four, with recommendations | Planned |
+| Order | Task type × tool |
+|---|---|
+| 1 | Series introduction (this post) |
+| 2 | [On-site confirmation × AppSheet + Looker Studio: food waste and shrinkage rate](/posts/product/2026-11-12-no-code-food-waste-appsheet-looker-en) |
+| 3 | [Requests and approvals × Airtable: equipment repair requests, with Power Apps compared from documentation](/posts/product/2026-11-12-no-code-approval-airtable-power-apps-en) |
+| 4 | [Sign-ups and rosters × Glide: community event sign-up and check-in](/posts/product/2026-11-12-no-code-event-signup-glide-en) |
+| 5 | [Inventory and asset tracking × Glide: equipment loans and overdue lists](/posts/product/2026-11-12-no-code-equipment-loan-glide-en) |
+| 6 | [Inspections and audits × Glide and Airtable Omni: one brief, built twice](/posts/product/2026-11-12-no-code-inspection-glide-airtable-en) |
+| 7 | [Comparing all four, with recommendations](/posts/product/2026-11-12-no-code-tools-comparison-en) |
 
-Pairings and scenarios from post 3 on aren't final. Before each build, I'll check how far each tool's free tier goes, then decide.
+Power Apps' free Developer Plan only accepts work or school accounts, so post 3 was built in Airtable instead, with Power Apps covered through official documentation and customer stories.
 
 ## References
 

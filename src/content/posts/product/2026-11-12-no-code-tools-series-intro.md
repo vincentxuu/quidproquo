@@ -78,19 +78,19 @@ draft: false
 
 每篇也會盡量附上一則該工具公開的企業導入案例，補足模擬資料看不到的部分；找不到可信的案例就不放。
 
-## 預計篇目
+## 篇目
 
-| 順序 | 任務類型 × 工具 | 狀態 |
-|---|---|---|
-| 1 | 系列導讀（本篇） | 已發布 |
-| 2 | [現場確認與回報 × AppSheet + Looker Studio：鮮食報廢與短少率](/posts/product/2026-11-12-no-code-food-waste-appsheet-looker) | 已發布 |
-| 3 | 申請與審核 × Power Apps | 規劃中 |
-| 4 | 報名與名單管理 × Glide | 規劃中 |
-| 5 | 庫存與資產追蹤 × Airtable Interface Designer | 規劃中 |
-| 6 | 巡檢與稽核：同一個任務用兩個工具各做一次 | 規劃中 |
-| 7 | 四個工具總比較與選擇建議 | 規劃中 |
+| 順序 | 任務類型 × 工具 |
+|---|---|
+| 1 | 系列導讀（本篇） |
+| 2 | [現場確認與回報 × AppSheet + Looker Studio：鮮食報廢與短少率](/posts/product/2026-11-12-no-code-food-waste-appsheet-looker) |
+| 3 | [申請與審核 × Airtable：設備報修，並以文件對照 Power Apps](/posts/product/2026-11-12-no-code-approval-airtable-power-apps) |
+| 4 | [報名與名單管理 × Glide：社群活動報名與簽到](/posts/product/2026-11-12-no-code-event-signup-glide) |
+| 5 | [庫存與資產追蹤 × Glide：器材借用與逾期清單](/posts/product/2026-11-12-no-code-equipment-loan-glide) |
+| 6 | [巡檢與稽核 × Glide 與 Airtable Omni：同一段需求各做一次](/posts/product/2026-11-12-no-code-inspection-glide-airtable) |
+| 7 | [四個工具總比較與選擇建議](/posts/product/2026-11-12-no-code-tools-comparison) |
 
-第 3 篇之後的配對與情境還沒定案，動手前會先確認各工具的試用方案能做到哪裡，再決定。
+Power Apps 的免費開發者方案只接受公司或學校帳號，所以第 3 篇改用 Airtable 實作，Power Apps 以官方文件與客戶故事對照。
 
 ## 參考資料
 
