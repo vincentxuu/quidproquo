@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-13",
+  "date": "2026-11-14",
   "swebench_verified_top5": [
     { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
     { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
@@ -27,5 +27,5 @@
     { "rank": 5, "model": "Opus 5.5 Max", "org": "Anthropic", "score": 57.8, "costPerTask": 13.43, "tokensPerTask": 218363 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-11-13：SWE-bench Verified 用 Bash python3 -I 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json 解析 180 筆 Verified 結果，前 5 名與 11-08 逐位元相同（79.20／79.20／78.80／77.40，第 5 名仍是 76.80 三方並列），未異動。LMArena Agent 子集用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，config=agent，latest split，length=20），leaderboard_publish_date 從卡住的 11-04 推進到 11-11：Anthropic 11-09 發布的 Claude Fable 5.2（Max）首次上榜直接登頂 30.35%（session_count 4731，六者中最小，CI 最寬 [26.42%,34.28%] 但仍與原冠軍 Opus 5.5 CI [17.49%,21.54%] 無重疊），原冠軍 Opus 5.5（Max）退到第二（20.14%→19.52%），Gemini 4 Carbon（High）退到第三（16.72%→16.98%，名次↓1），GPT-6 Astra（Max）掉出前五（14.70%→14.54%，第4→第6）。已觸發發文（第一名易主＋前三新進＋watchlist A1 廠商首次上榜）。CursorBench 4.0 同週改版：前 5 名整批換血，Gemini 4 Carbon 三個效力等級＋Fable 5.2 Max 擠掉原本前 5 名的 Opus 5.5／Sonnet 5.5 各效力等級，新冠軍 Gemini 4 Carbon（High）60.4%（$9.22/task），原冠軍 Opus 5.5 Max 分數不變（57.8%）但名次退到第 5；Fable 5.2 Max 第三（60.0%，但單次成本 $32.79，是 Carbon High 的 3.6 倍）；Cursor 官方未公布 CI，第一到第三名僅差 0.4pp，業界報導（AlphaSignal）認為不足以確立決定性優勢。已併入同一篇文章（兩榜單同週變動同一波新模型驅動）。morphllm.com/leaderboard 這次直接回 404（先前是 429），持續無法存取；artificialanalysis.ai/agents/coding-agents 仍為前端 JS 渲染、無法擷取表格數值，aa_agentic_index_top3 延用上次確認值未重新驗證。發文：src/content/posts/daily/2026-11-13-benchmark-arena-cursorbench-fable-5-2{,-en}.md。"
+  "notes": "2026-11-14：SWE-bench Verified 用 Bash python3 -I 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json 解析 180 筆 Verified 結果，前 5 名與 11-13 逐位元相同（79.20／79.20／78.80／77.40，第 5 名仍是 76.80 三方並列），未異動。LMArena Agent 子集用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，config=agent，latest split，length=20，首次呼叫回 502，重試一次即成功），leaderboard_publish_date 仍停在 11-11（未推進批次），前 5 名與 11-13 逐位元相同（Fable 5.2 30.35%／Opus 5.5 19.52%／Carbon High 16.98%／Sonnet 5.5 15.95%／Fable 5.1 14.82%），未異動。CursorBench 4.0 用 Groundlane web_search 交叉比對 benchlm.ai／AlphaSignal 報導，前 3 名與 11-13 相同（Gemini 4 Carbon High 60.4%／Fable 5.2 Max 60.0%／Opus 5.5 Max 57.8%），未異動。皆未達第 4 條觸發門檻，今日無 Benchmark 異動。morphllm.com/leaderboard 持續回 404，無法存取；artificialanalysis.ai/agents/coding-agents 仍為前端 JS 渲染、無法擷取表格數值，aa_agentic_index_top3 延用上次確認值未重新驗證（第三方聚合站 benchlm.ai 對同名指標給出不一致數字，判定方法論不明、不採用）。"
 }
