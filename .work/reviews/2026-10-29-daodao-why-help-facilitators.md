@@ -2,7 +2,7 @@
 
 檔案：`src/content/posts/product/2026-10-29-daodao-why-help-facilitators.md`（主審）、`-en.md`（抽查）
 日期：2026-11-12
-說明：**本紀錄是發布後補做的審稿**。文章已於 2026-10-29 發布，發布前沒有跑 post-verify／post-review／post-polish；這次補跑是為了關閉治理項 Q-053（`docs/governance/escalation-queue.md`）。三項都只報告，沒有改動文章。
+說明：**本紀錄是發布後補做的審稿**（2026-11-12），不是發布前的原始審稿。2026-10-30 的原始審稿紀錄已於 2026-11-13 找回，見 `.work/reviews/2026-10-29-daodao-why-help-facilitators-original-2026-10-30.md`；本檔保留 2026-11-12 的獨立重跑結果。三項都只報告，沒有改動文章。
 審稿：獨立審稿人（沒有參與寫稿），照 `.agents/skills/post-verify`、`post-review`、`post-polish` 的 SKILL.md。
 
 工具：網頁一律用 Groundlane `web_fetch` 全文讀取（iThome、GitHub README、OCF、vocus、島島電子報兩篇、Luma 活動頁、LinkedIn 公司頁、daodao.so 馬拉松頁），全部成功，沒有用到 fallback。LinkedIn 2025-08-22 貼文以 Groundlane `web_search` 搜尋未果。daodaoedu/daodao 的留存診斷與 DaoTW README 提交日期以 `gh api` 讀取（daodaoedu/daodao 為公開 repo）。

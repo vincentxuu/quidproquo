@@ -2,7 +2,7 @@
 
 檔案：`src/content/posts/product/2026-10-29-daodao-living-community.md`（zh-TW，主審）、`-en.md`（抽查）
 日期：2026-11-12
-說明：**本紀錄是發布後補做的審稿**。文章已於 2026-10-29 發布，當時沒有留下 post-verify／post-review／post-polish 紀錄；這次補跑三個 skill，目的是結案治理項目 Q-053。三個 skill 都只報告，本次沒有改動文章。
+說明：**本紀錄是發布後補做的審稿**（2026-11-12），不是發布前的原始審稿。2026-10-30 的原始審稿紀錄已於 2026-11-13 找回，見 `.work/reviews/2026-10-29-daodao-living-community-original-2026-10-30.md`；本檔保留 2026-11-12 的獨立重跑結果。三項都只報告，沒有改動文章。
 審稿：子代理（沒有參與寫稿），照 `.agents/skills/post-verify`、`post-review`、`post-polish` 的 SKILL.md 執行。
 
 工具與降級（toolDegradation）：
