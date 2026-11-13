@@ -141,7 +141,8 @@
     "wrangler": "4.131.2"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm verify:staged"
+    "pre-commit": "pnpm verify:staged",
+    "pre-push": "node scripts/check-push.mjs"
   },
   "pnpm": {
     "overrides": {

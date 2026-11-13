@@ -9,6 +9,7 @@
 - **`pnpm verify` 是唯一品質閘門**（lint + references + skills-sync + progress 協定），CI 在 deploy 前跑全站；pre-commit 跑 `pnpm verify:staged`，只檢查暫存的檔案（動到程式碼／設定／腳本或刪改文章就自動跑完整 verify）。紅了修真問題，不准繞過。
 - **行動分級**：schema 變更、D1 migration、production flag flip、deploy、改已發佈文章的 slug/date、改 CI/hooks、新 dependency、>20 檔批次改動——這些**先問使用者**。手改 `.claude/skills/`、為了變綠而弱化檢查——**禁止**。
 - 需要人拍板或做不動的事 → 登錄 `docs/governance/escalation-queue.md`，不要硬做。
+- **工作區保持乾淨**：未 commit 的改動不跨 session 留著；pull 用 `git pull --rebase --autostash`。`pnpm session:start` 會列出「origin/main 也改過、pull 會衝突」的檔案。
 - `progress.txt` 是 working memory（≤ 90 行），狀態變了就更新；完成條目歸檔到 `docs/progress-archive.md`。
 
 ## 共用研究與搜尋資料

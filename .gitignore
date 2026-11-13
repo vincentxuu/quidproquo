@@ -68,6 +68,13 @@ pnpm-debug.log*
 test-results/
 playwright-report/
 
+# Playwright MCP 的 console / page 快照（每次操作都新增，不是原始碼）
+.playwright-mcp/
+
+# Python 快取（.work 內的轉錄與分析腳本）
+__pycache__/
+*.pyc
+
 # 英文口說：逐句修正表保留使用者原句，不進版控
 .work/english-speaking/*/corrections.md
 
