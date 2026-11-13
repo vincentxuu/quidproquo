@@ -58,19 +58,20 @@ A2 的 Transformer 與 A3 的 RAG 都可能產生費用。先用小資料、小�
 
 ## 課程影片來源
 
-官方課程資訊頁寫明錄影提供給修課學生與 Berkeley 校內旁聽者。2026-10-10 即時核對：課程首頁連到一份標示「Lecture recordings (Needs Berkeley log in)」的 YouTube 播放清單（CS288 Spring 2026），未登入開啟時看不到任何影片。沒有找到可公開觀看的外部錄影，請參考公開講義。
+官方課程資訊頁寫明錄影提供給修課學生與 Berkeley 校內旁聽者。2026-11-09 即時核對：課程首頁連到一份標示「Lecture recordings (Needs Berkeley log in)」的 YouTube 播放清單（CS288 Spring 2026），未登入開啟時看不到任何影片。沒有找到可公開觀看的外部錄影，請參考公開講義。
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://cal-cs288.github.io/sp26/course_info/)
 - [CS288 Spring 2026 錄影播放清單（需 Berkeley 登入）](https://www.youtube.com/playlist?list=PLnocShPlK-Fv9YZIX7qdOyc2GJqnT3D-8)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認錄影播放清單標示需 Berkeley 登入，匿名開啟看不到影片；狀態維持需登入或課程授權。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

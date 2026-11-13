@@ -20,7 +20,7 @@ draft: false
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
-[CS 161](https://stanford-cs161.github.io/winter2026/) is the required algorithms course for undergraduates in Stanford's CS department. It is also the department's most frequently cited prerequisite. From [CS 221](https://explorecourses.stanford.edu/search?q=CS+161&view=catalog), the AI entry point, through databases, combinatorial optimization and randomized algorithms, the prerequisite line points here (full list in the appendix). This site's [map of Stanford CS courses](/posts/learning/2026-08-20-stanford-cs-course-map-en) files it under the five courses that form the skeleton of the degree. What follows is about what happens once you are inside.
+[CS 161](https://stanford-cs161.github.io/winter2026/) is the required algorithms course for undergraduates in Stanford's CS department. It is also the department's most frequently cited prerequisite. From [CS 221](https://explorecourses.stanford.edu/search?q=CS+161&view=catalog), the AI entry point, through databases, combinatorial optimization and randomized algorithms, the prerequisite line points here (CS 221, 245, 256, 261, 265, 354, 366). This site's [map of Stanford CS courses](/posts/learning/2026-08-20-stanford-cs-course-map-en) files it under the five courses that form the skeleton of the degree. What follows is about what happens once you are inside.
 
 Start with the least obvious thing about it: the course has three stated goals, and the third is communication. The first lecture puts it on the same slide as design and analysis — **Communication: Learn to communicate clearly about algorithms**. That is not decoration. It is where the entire homework regime comes from, including why handwritten work scores zero from the second problem set onward.
 
@@ -30,7 +30,7 @@ This piece covers the Winter 2026 offering: eighteen sets of lecture notes, eigh
 
 Winter 2026 is co-taught by [Moses Charikar](https://profiles.stanford.edu/moses-charikar) and [Ellen Vitercik](https://profiles.stanford.edu/ellen-vitercik). Charikar holds the Donald E. Knuth professorship and works on search and indexing algorithms for high-dimensional data; Vitercik is an assistant professor in Management Science and Engineering and in CS. They alternate lectures, one each. Class meets in STLC 111, Monday and Wednesday afternoons.
 
-The catalog lists a variable unit range, but the department pins it: undergraduates must take this course for five units regardless of major. That rule is [still posted on the BS degree requirements page](https://www.cs.stanford.edu/bs-degree-requirements). There are three prerequisites — programming and data structures, discrete math and proofs, and probability (exact wording in the appendix). Probability is listed for a reason; this course uses more of it than the title suggests.
+The catalog lists a variable unit range, but the department pins it: undergraduates must take this course for five units regardless of major. That rule is [still posted on the BS degree requirements page](https://www.cs.stanford.edu/bs-degree-requirements). There are three prerequisites — programming and data structures, discrete math and proofs, and probability (CS 106B or 106X; CS 103 or 103B; CS 109 or STATS 116). Probability is listed for a reason; this course uses more of it than the title suggests.
 
 Grades come from homework, a midterm and a final, with the lowest homework score dropped.
 
@@ -175,19 +175,6 @@ Problem 1.5 goes like this: given n people, some pairs of whom are friends, prov
 
 If you can't, the course you need isn't CS161, it's CS 103. This one assumes from the first problem set that you can already write a proof; what it teaches is how to point proofs at algorithms.
 
-## Appendix: the numbers and how they were checked
-
-- **Grade breakdown**: eight homeworks at 40% total, midterm 25%, final 35%. The lowest homework is dropped, so each counted assignment is worth 5.714% — a figure the course site works out and prints itself.
-- **Prerequisites, verbatim**: "CS 106B or CS 106X; CS 103 or CS 103B; CS 109 or STATS 116."
-- **Downstream courses listing CS161 as a prerequisite** (from ExploreCourses search results for the 2026–2027 academic year): CS 221, CS 245, CS 256, CS 261, CS 265/CME 309, CS 354, CS 366. Four of them currently show as not offered, last taught in the order CS 261 (Winter 2026), CS 256 (Autumn 2025), CS 366 (Winter 2024), CS 354 (Winter 2022).
-- **Late work**: six late days for the quarter, at most two on any single assignment, no credit past 48 hours. For HW4 and HW8 even OAE extensions are capped at two days, so that solutions can be released before the exams.
-- **Exam times**: the Winter 2026 midterm is February 11, 6–9 pm; the final is March 18, 3:30–6:30 pm. This offering took part in the pilot proctoring program run by Stanford's Academic Integrity Working Group (AIWG).
-- **Points per assignment**: 43 / 60 / 42 / 38 / 40 / 65 / 38 / 49, for 375 points across the quarter. I totaled these part by part from the eight PDFs; the course site doesn't publish the table. Ethics problems come to 22 points, roughly 6% (8 in HW4, 4 each in HW5 and HW6, 6 in HW8).
-- **Lecture and material counts**: eighteen regular lectures plus one EthiCS lecture, nine sections plus three review sessions, thirteen Python notebooks.
-- **Course staff**: two instructors, one course manager, one head CA, seven CAs, plus one CA dedicated to ACE.
-- **The Stanford Online version**: five units, eight weeks, ten to twenty hours a week suggested, tuition $7,875 (the page notes it is subject to change), running June 22 to August 15 in 2026, and showing enrollment closed when I checked.
-- **What I could not confirm**: first, enrollment numbers — neither the course site nor ExploreCourses publishes them, and I found no citable source. Second, whether autumn and summer offerings return in 2026–2027 — ExploreCourses currently lists only winter and spring, but future-year data fills in gradually, so it is too early to call it a reduction. Third, whether the full course sites for offerings before Winter 2026 are still up. The directory `web.stanford.edu/class/archive/cs/cs161/` returns a 404 outright, and I found no browsable archive index; the only old material I could confirm still exists is the year-by-year notebook repos on GitHub, going back to Winter 2021.
-
 ## Course video sources
 
 Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
@@ -196,12 +183,13 @@ Course and recording entries:
 
 - [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-12.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Confirmed that the official lecture page links recordings to a Panopto sign-in page and found no public recording of the same term; status unchanged.
+- 2026-11-12: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

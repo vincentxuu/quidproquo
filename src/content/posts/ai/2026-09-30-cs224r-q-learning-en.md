@@ -205,9 +205,7 @@ Related reading on this site:
 - [CS221 L8 Reinforcement Learning and Q-learning](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning-en), the same ideas from the tabular side
 - [Berkeley CS285 policy and value methods guide](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en). Many slides in this lecture are marked "Slide adapted from Sergey Levine"
 
-## What this post can and cannot confirm
-
-Confirmed: the text, equations, and figure titles in the 2026 slides and TA handout; the schedule's dates, room, and readings; and the titles and lengths of the two 2025 videos. Not confirmed: the in-class answer to the slide 7 exercise, anything said in the TA section, and the details of the handout's DQN and SAC walkthroughs. Slide 2's course reminders mention sharing "written notes from last year's head CA." Those notes do not appear on the public site.
+## Further reading
 
 Series navigation: previous [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac-en) | next [HW2: Gridworld Q-learning, PPO, and the Sawyer Hammer Task](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
 
@@ -233,13 +231,14 @@ Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
 
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 - 2026-10-10: Checked the video content against its transcript. Both videos (2025 L6 and the TA tutorial) match the post on topic, speaker and length; nothing needed correcting.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

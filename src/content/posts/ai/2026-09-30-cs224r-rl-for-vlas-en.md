@@ -237,9 +237,7 @@ Further reading on this site:
 - [Berkeley CS285: inference and offline RL](/posts/learning/2026-08-22-berkeley-cs285-inference-offline-rl-en)
 - [CS336 RLVR](/posts/ai/2026-08-22-cs336-rlvr-en), the LLM-side counterpart of "RL after SFT"
 
-## What this post can and cannot confirm
-
-Confirmed: the text, algorithm steps, numbers (80%, 99%, 2x, 13 hours, 65 episodes / ~10k steps, O(100x), 19 minutes / ~11k steps), and paper labels in the 2026 slides; the schedule's date and the absence of a reading; and that neither the 2025 archive nor the playlist has a matching lecture. Not confirmed: who gave this lecture (the slides name no one and just say "my opinion"); the specific values, baselines, and setups behind each figure; and the full papers for πRL, RLT, Probe-Learn-Distill, and EXPO-FT, which I did not find or open and cite only from the slide labels.
+## Further reading
 
 Series navigation: previous [L16 Sim-to-Real Robot Learning](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning-en) | next [L18 Frontiers and How to Do Research](/posts/ai/2026-09-30-cs224r-frontiers-how-to-research-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
 
@@ -252,12 +250,13 @@ Course and recording entries:
 - [2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
 - [Official course / lecture source](https://cs224r.stanford.edu/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked the official page and public playlist again; no matching public recording, so status unchanged.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

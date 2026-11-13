@@ -299,18 +299,26 @@ async function execLocalSql(sql: string): Promise<void> {
   }
 }
 
+// Production D1 occasionally returns transient 5xx under sustained batch writes
+// (2026-11-12: one deploy needed five reruns, failing at a different batch each
+// time). Each batch is one D1 transaction, so retrying is safe; back off long
+// enough for D1 to recover instead of giving up within ~1.5s.
+const RETRY_DELAYS_MS = [2_000, 5_000, 15_000]
+
 async function fetchWithRetry(url: string, init: RequestInit): Promise<Response> {
+  const attempts = RETRY_DELAYS_MS.length + 1
   let lastError: unknown
-  for (let attempt = 1; attempt <= 3; attempt++) {
+  for (let attempt = 1; attempt <= attempts; attempt++) {
     try {
       const response = await fetch(url, init)
-      if (response.status < 500 || attempt === 3) return response
+      if (response.status < 500 || attempt === attempts) return response
       lastError = new Error(`HTTP ${response.status}`)
+      console.warn(`Retrying after ${await responseError(response)} (attempt ${attempt}/${attempts})`)
     } catch (error) {
       lastError = error
-      if (attempt === 3) throw error
+      if (attempt === attempts) throw error
     }
-    await new Promise(resolve => setTimeout(resolve, attempt * 500))
+    await new Promise(resolve => setTimeout(resolve, RETRY_DELAYS_MS[attempt - 1]))
   }
   throw lastError
 }

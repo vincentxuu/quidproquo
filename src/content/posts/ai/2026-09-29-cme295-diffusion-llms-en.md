@@ -379,18 +379,19 @@ Once the November 20, 2026 video and slides are released, this post will be chec
 
 ## Course video sources
 
-This article is a pre-written guide to CME295 2026 Lecture 8 (Diffusion LLMs, November 20). The official 2026 syllabus, read live on 2026-10-10, still marks that lecture "Coming soon", so no recording exists yet; the 2025 syllabus has no corresponding lecture, so there is no public video to include.
+This article is a pre-written guide to CME295 2026 Lecture 8 (Diffusion LLMs, November 20). The official 2026 syllabus, read live on 2026-11-09, still marks that lecture "Coming soon", so no recording exists yet; the 2025 syllabus has no corresponding lecture, so there is no public video to include.
 
 Course and recording entries:
 
 - [Official 2026 syllabus](https://cme295.stanford.edu/syllabus/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Read the official 2026 syllabus live: the Lecture 8 recording is not yet published and the 2025 course has no matching lecture; the status is now checked, no recording listed.
+- 2026-11-09: Rechecked video status. Lecture 8 is still marked "Coming soon" on the official syllabus, so the status is unchanged.
 
 ## References
 

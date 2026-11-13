@@ -299,17 +299,18 @@ Lecture 8 decides whether to divide the work; [Lecture 9](/posts/ai/2026-09-10-s
 
 ## Course video sources
 
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+The Lecture Recordings section of the official Logistics page (read live on 2026-11-09) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs329z.stanford.edu/)
 - [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update log
 
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 8 (Mon Oct 19), previously part of the "Week 5: go solo or call a meeting" guide; earlier entries below predate the split.
 - 2026-10-23: Added Lecture 08–09 material on coordination, worktrees, weight optimization and evaluation-based choices; added an original worked example, diagram and answer criteria.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.

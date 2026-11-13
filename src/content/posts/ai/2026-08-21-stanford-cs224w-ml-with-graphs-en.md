@@ -30,7 +30,7 @@ This piece was written after reading the Autumn 2025 (Aut2526) primary materials
 
 The instructor is [Jure Leskovec](https://profiles.stanford.edu/jure-leskovec), a professor in Stanford's CS department and formerly Chief Scientist at Pinterest. Autumn 2025 added a guest instructor, Charilaos Kanatsoulis, credited alongside him on the slide covers.
 
-The course runs in autumn only. The [ExploreCourses 2026-27 entry](https://explorecourses.stanford.edu/search?q=CS+224W&view=catalog) lists the next offering as Autumn 2026, with the same meeting times and the same room as 2025. Three to four units, letter grade or credit/no credit. Section number and dates are in the appendix.
+The course runs in autumn only. The [ExploreCourses 2026-27 entry](https://explorecourses.stanford.edu/search?q=CS+224W&view=catalog) lists the next offering as Autumn 2026, with the same meeting times and the same room as 2025. Three to four units, letter grade or credit/no credit. The autumn 2026 section is 2058, running 2026/09/22 to 12/04.
 
 The course site is blunt about where outsiders stand:
 
@@ -38,7 +38,7 @@ The course site is blunt about where outsiders stand:
 
 Materials open, grading closed. The recordings are described as "available on Canvas for all the enrolled Stanford students" — the current term's video is locked.
 
-There are two paid routes, and both currently read Enrollment Closed: XCS224W in the AI Professional Program, and CS224W for graduate credit. Prices are in the appendix.
+There are two paid routes, and both currently read Enrollment Closed: XCS224W in the AI Professional Program, and CS224W for graduate credit. The first costs $1,950 for a single course; the second lists $6,300 in tuition.
 
 ## Two official pages state different prerequisites
 
@@ -76,7 +76,7 @@ Lecture 1's self-description is explicit: node embeddings (DeepWalk, node2vec) �
 
 Relational deep learning (RDL) gets two full lectures and appears nowhere in the old recordings. Its setup: enterprise data already lives across many tables joined by foreign keys, and the traditional move is for a data scientist to hand-write SQL that flattens it into one feature table, then feed that to XGBoost.
 
-Lecture 12's slides use a Stack Exchange task — will this user still be active in six months — as the comparison, with a data scientist of five years' experience implementing it for real. The manual route took roughly **682 lines of code**. The RDL numbers sit on the same slide; they're in the appendix.
+Lecture 12's slides use a Stack Exchange task — will this user still be active in six months — as the comparison, with a data scientist of five years' experience implementing it for real. The manual route took roughly **682 lines of code**. On the same slide, the RDL route takes 54 lines, and manual work drops from 12 hours to under 1. This is an effort comparison; the slide pairs it with no accuracy comparison, so don't read it as a claim about model performance.
 
 The infrastructure behind this block is [RelBench](https://relbench.stanford.edu/), Stanford's own relational-database benchmark, which the slides describe as "Load as a PyG graph."
 
@@ -161,7 +161,7 @@ The answer here is a clear yes, and you can point at the specific slides.
 
 **Lecture 16, "LLM + GNN,"** covers the two directions of GraphRAG.
 
-The GNN-feeds-LLM direction follows [G-retriever](https://arxiv.org/abs/2402.07630)'s four steps: the LLM encodes the query, a relevant subgraph is retrieved from the knowledge graph and encoded by a GNN, the two embeddings are combined, and the LLM decodes an answer. Subgraph retrieval uses KNN plus n-hop neighbors as a first pass, then prunes with a Prize-Collecting Steiner Tree. The slides carry a Neo4j case study: on [STaRK Prime](https://stark.stanford.edu/), PyG's GNN+LLM setup doubles Hit@1. The baselines and exact numbers are in the appendix.
+The GNN-feeds-LLM direction follows [G-retriever](https://arxiv.org/abs/2402.07630)'s four steps: the LLM encodes the query, a relevant subgraph is retrieved from the knowledge graph and encoded by a GNN, the two embeddings are combined, and the LLM decodes an answer. Subgraph retrieval uses KNN plus n-hop neighbors as a first pass, then prunes with a Prize-Collecting Steiner Tree. The slides carry a Neo4j case study: on [STaRK Prime](https://stark.stanford.edu/), PyG's GNN+LLM setup doubles Hit@1. The numbers are .16 to .32, against agentic GraphRAG baselines with claude-3-opus (.18) and gpt-4-turbo (.2). This is a third-party case study relayed on the slides, not an experiment the course ran.
 
 The reverse direction, LLM-feeds-GNN, uses a sentence transformer to turn each node's and edge's text into a feature vector, then hands those to a GNN for node classification. The slides also note that PyG 2.7 shipped `TXT2KG`: using an LLM to extract (entity, relation, entity) triples from unstructured text.
 
@@ -205,19 +205,6 @@ One gray area is worth mentioning: above the schedule on the course site is a li
 
 **If you want your work seen**: the third project option — implement a paper as a PR into PyG `contrib` — needs no enrollment, and PyG is a live repo.
 
-## Appendix: the numbers and how they were checked
-
-- **Units and schedule**: 3–4 units, autumn only. The 2026-27 autumn section is 2058, 2026/09/22–2026/12/04, Tuesdays and Thursdays 15:00–16:20, NVIDIA Auditorium, letter or credit/no credit. Source: the ExploreCourses 2026-27 entry.
-- **Grade weights**: homework 20% (three at 6.67% each), Colabs 15% (five at 3% each), exam 35%, final project 30%, with extra credit for Ed participation on top. The project splits internally into proposal 13.33%, milestone 6.67%, report 80% — 4%, 2% and 24% of the final grade. Source: `info.html` and the project handout.
-- **Late policy**: two no-questions-asked late periods of 4 days each, not applicable to the final project report; past that, each late period costs 50%, and nothing is accepted beyond one late period. Gradescope allows a 15-minute grace window.
-- **Homework point breakdown**: HW1 section 1 (GNN Expressiveness) 28 points, section 3 (GCN) 11 points plus a 3-point bonus problem; HW2's three sections are 20, 21 and 10; HW3's are 20, 13 and 15. All three carry a 0-point honor code section.
-- **The RDL comparison numbers**: on lecture 12's slides, for the Stack Exchange user-activity prediction task, the manual route is "12 hours manual work / ~682 lines of code / 1hr model training" and the RDL route is "<1 hour manual work / 54 lines of code / 1hr model training." The slide defines the effort measure as "the marginal effort to solve a new task." This is an efficiency comparison, and **the slide does not pair these numbers with an accuracy comparison** — don't read it as a claim about model performance.
-- **STaRK's 18%**: from lecture 17's slides, verbatim, "For all methods, Hit@1 is below 18%," referring to every retrieval-augmented method and LLM tested on the STaRK benchmark.
-- **Hit@1 in the Neo4j case study**: lecture 16's slides show .16→.32 on STaRK Prime. The PyG setup is "LLAMA3.1-8B w/ LoRA + 10M param GAT"; the baselines are agentic GraphRAG with claude-3-opus (.18) and gpt-4-turbo (.2). This is a third-party case study relayed on the slides, not an experiment the course ran.
-- **Paid enrollment prices**: the AI Professional Program charges $1,950 for a single course (XCS224W); CS224W for graduate credit is listed on Stanford Online at $6,300 in tuition. Both read Enrollment Closed when checked, and XCS224W lists no start date although several sibling courses on the same page do. **The page gives no reason.**
-- **Maintenance status of DeepSNAP and OGB**: when checked, the GitHub API showed `snap-stanford/deepsnap` last pushed 2025-11-24, `snap-stanford/ogb` 2025-05-06, and `pyg-team/pytorch_geometric` 2026-08-17. Neither repo is marked archived.
-- **Three things I could not confirm**: (1) Colab 0's Google Drive link returns 200, but it's a Drive viewer page rather than the notebook, and I did not obtain its cell contents — hence the blank row in the table above; (2) Stanford Online's two YouTube playlists hold 47 and 60 videos, but I did not compare them video by video to establish what the difference consists of; (3) lecture 16's slides do not name their speaker, and I found no official page saying who taught it, so no name appears in the text.
-
 ## Course video sources
 
 Checked live: the archived Fall 2025 official page lists no public recording link (its Canvas entry is empty), and the current Fall 2026 official page says lecture videos are on Canvas for enrolled students only; the Canvas entry redirects to the Stanford sign-in page. The public Stanford Online YouTube playlists currently cover only the 2021 and 2023 offerings, whose lectures differ from the Fall 2025 offering this article follows, so they are not embedded or treated as Fall 2025 recordings.
@@ -229,12 +216,13 @@ Course and recording entries:
 - [Stanford Online CS224W public playlist (2021 offering, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
 - [Stanford Online CS224W public playlist (2021 / 2023 offerings, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
 
-Checked: 2026-10-10.
+Checked: 2026-11-12.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Confirmed the official pages list no public Fall 2025 recording, Canvas requires sign-in, and public playlists cover only 2021/2023; status unchanged and check date added.
+- 2026-11-12: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

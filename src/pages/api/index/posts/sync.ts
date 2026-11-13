@@ -35,7 +35,15 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ error: message }, 400)
   }
 
-  await applyPostSyncOperations(bindings.DB, operations)
+  try {
+    await applyPostSyncOperations(bindings.DB, operations)
+  } catch (error) {
+    // D1 batch is a single transaction, so a failed batch writes nothing and the
+    // caller can retry safely. Surface the cause instead of Astro's bare 500.
+    const message = error instanceof Error ? error.message : String(error)
+    console.error(`[index-sync] apply failed for ${operations.length} operation(s): ${message}`)
+    return json({ error: message }, 500)
+  }
   return json({ ok: true, applied: operations.length })
 }
 

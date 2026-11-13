@@ -1301,6 +1301,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'A complete speaking practice path: methods and shadowing research, everyday and specialist scenarios, tutoring platforms, AI tools, language schools, feedback and review.',
     },
   },
+  {
+    slug: 'daodao-community-ops',
+    category: 'business',
+    names: { 'zh-TW': '島島阿學怎麼經營', en: 'How DaoDao Runs a Learning Community' },
+    descriptions: {
+      'zh-TW': '島島阿學原本想直接幫學習者養成學習習慣，後來轉向幫助開課、帶社群的老師與引導者，再用共同挑戰讓不同取向的人都有地方加入。這個系列拆解這套做法：三種學習形式各自負責什麼、軟體在哪裡頂替人、錢從哪來、怎麼量，以及怎麼讓社群不靠少數人撐下去。',
+      en: 'DaoDao set out to help learners build habits directly, then turned to helping the teachers and facilitators who run courses and communities, with open co-challenges for people with any goal. This series takes the approach apart: what each of three learning formats is for, where software stands in for people, who pays, what to measure, and how a community keeps going without resting on a few people.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(

@@ -157,7 +157,7 @@ title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 11 - Benc
 - [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：核對的是 2024 年春季 Lecture 11（約 84 分鐘，YouTube 標題署名 Yann Dubois，字幕本身沒有出現講者姓名）與本文（以 Winter 2026 投影片為準）的主題關係，不是 2026 課堂錄影。字幕涵蓋評估的整體框架、close-ended 任務（多選題、MMLU、SuperGLUE 與多任務平均）、open-ended 評估（reference-based 指標、人類評估與標註者選擇、LLM-as-judge 如 AlpacaEval）、perplexity、prompt 微調就改變排名的穩健性、contamination 與 dynamic test set，主題與本文相符。字幕沒有出現 Goodhart、construct validity，也沒有 adversarial 設計與「evaluation contract」「contamination audit」之類的具體流程，本文這些節只依 Winter 2026 投影片與本站補充，不是影片內容。
 
@@ -166,6 +166,7 @@ title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 11 - Benc
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Spring 2024 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
 - 2026-10-10：依字幕核對影片內容。確認 2024 年影片涵蓋 close／open-ended 評估、LLM judge、prompt 穩健性、contamination 與 dynamic test set；Goodhart、construct validity、adversarial 與審計流程影片未涵蓋，標明非影片內容。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

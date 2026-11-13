@@ -197,17 +197,15 @@ Cilk 用的是 **greedy join scheduling**：
 
 **怎麼做**：打開投影片第 16 頁「Choosing task size」，拿你手邊任何一段 `parallel for` 或 thread pool 程式，寫下兩個數字：單一任務大概跑多久、領一次任務大概花多久。兩者差距不到兩個數量級的話，先試著把 granularity 放大。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：L5 投影片 PDF 的內容與課程首頁的講次日期。不能確認：Fall 2025 課堂上的口頭補充（錄影不公開），以及 2023 年錄影與 2025 投影片的逐頁差異。本文沒有依影片內容寫作。
-
-延伸閱讀：OS 層級的 CPU 排程不在本講範圍，可以讀 [CS111 Lecture 8：CPU scheduling](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling)。
+OS 層級的 CPU 排程不在本講範圍，可以讀 [CS111 Lecture 8：CPU scheduling](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling)。
 
 系列導覽：上一篇 [L4 平行化的思考流程](/posts/ai/2026-09-30-cs149-parallelizing-thought-process)｜下一篇 [L6 Locality、通訊與 arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
 
 ## 課程影片來源
 
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-11-09。
 
 ```youtube
 url: https://www.youtube.com/watch?v=mmO2Ri_dJkk
@@ -228,6 +226,7 @@ title: Stanford CS149 I 2023 I Lecture 5 - Performance Optimization I: Work Dist
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
 - 2026-10-10：依字幕核對影片內容。影片主題與本文一致，未發現需要更正的影片說法。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

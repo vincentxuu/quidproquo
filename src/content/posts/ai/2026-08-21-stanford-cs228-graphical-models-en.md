@@ -75,7 +75,7 @@ The line on the front page — "The notes are still **under construction**" — 
 - Bayesian learning marks "Examples (under construction)," but that page opens with two complete examples. One is why the MLE for a biased coin doesn't grow more confident as data accumulates; the other is a bag-of-words language model assigning zero probability to a whole sentence on hitting an unseen word. Conjugate priors, Beta, and Dirichlet follow, closing with Laplace smoothing as a special case of a Dirichlet prior.
 - The only genuine gap is in the structure learning chapter. Score-based methods, Chow-Liu, AIC/BIC, the BD score, constraint-based methods, order search, and ILP are all there — but there is no standalone Bayesian structure learning section.
 
-On maintenance, be blunt. The repo has over two thousand stars and hasn't been archived, but **the last push was in June 2025**, and that change was a single typo fix. Scroll back further and the substantive edits cluster in 2023 and early 2024. Several pull requests are still open; the oldest was filed six years ago (exact numbers in the appendix).
+On maintenance, be blunt. The repo has over two thousand stars and hasn't been archived, but **the last push was in June 2025**, and that change was a single typo fix. Scroll back further and the substantive edits cluster in 2023 and early 2024. Several pull requests are still open; the oldest was filed six years ago.
 
 Rot is setting in, though people are patching it. Three places in the notes recommend "an interactive simulation built by a former CS228 student," all pointing at the same dead `pgmlearning.herokuapp.com`. Two of them have been repointed at Wayback Machine snapshots: d-separation and variable elimination. There's a commit in the repo from early 2024 literally named "Update variable elimination web app link with archived version." **Only the K3 algorithm simulation in the structure learning chapter still points at the original URL, which returns a 404.**
 
@@ -161,19 +161,6 @@ What's more informative is where both courses stand now. On ExploreCourses, CS23
 
 The division of labor is clean, though. CS228 teaches how to write independence assumptions into a graph and how to do inference and learning on it, ending at the VAE; CS236 starts at the VAE and fans out into GANs, normalizing flows, autoregressive, energy-based, and score-based models. So the last chapter of the notes is exactly the seam between the two. One practical difference: the CS236 site explicitly welcomes on-campus visitors ("we are very open to sitting-in guests if you are a member of the Stanford community"), and the CS228 site says nothing equivalent.
 
-## Appendix: the numbers and how they were checked
-
-- **Units and offerings**: 3–4 units, winter quarter only. The 2026-2027 academic year page on ExploreCourses shows CS 228 as Class # 25130, Session 2026-2027 Winter 1, In Person, with the instructor field and meeting times blank (read 2026-08-21). The 2024-2025 and 2025-2026 pages both show `Last offered: Winter 2024`.
-- **Grade weights**: 70% assignments (five of them), 30% final exam, up to 3% extra credit. The two ways to earn extra credit are answering classmates' questions substantively on Ed, or submitting a GitHub PR to the course notes.
-- **Late policy**: six late days total, at most two per assignment penalty-free, 25% per day beyond that. This is a lateness rule, not a resubmission rule — the site has no resubmission clause of any kind.
-- **Final exam timing**: the Winter 2024 exam was March 21, 15:30–18:30, three hours. That's the version currently displayed. CS228 has no final project; for contrast, CS236's site weights three assignments at 15% each, a midterm at 15%, and the course project at 40%.
-- **Notes repo numbers**: 2,009 stars, 476 forks, 7 open pull requests (read via the GitHub API on 2026-08-21). The repo was created 2017-01-10; last push 2025-06-24 (PR #227, a typo fix in the probability review). The oldest unmerged PR was filed 2020-03-16.
-- **Under-construction markers in the notes**: the index marks four (Probability Review, Real-World Applications, the Examples in Bayesian learning, and Bayesian structure learning in Structure learning). All four pages were read individually; the first three have complete content, and the fourth genuinely has no corresponding section.
-- **Dead links** (all tested 2026-08-21): the K3 interactive simulation in the structure learning chapter, `pgmlearning.herokuapp.com/k3LearningApp`, returns HTTP 404; the same-family links in the d-separation and variable elimination chapters have been repointed at Wayback snapshots and open fine. In the further-reading list on the course site, the Wainwright & Jordan PDF at `www.eecs.berkeley.edu/~wainwrig/Papers/WaiJor08_FTML.pdf` returns HTTP 404, and the usual `people.eecs.berkeley.edu` alternative path 404s as well; a stable public copy was later found in the Princeton course archive (linked in the textbook section above).
-- **Where the course site lives**: `cs228.stanford.edu` actually redirects to `ermongroup.github.io/cs228`, with the header marked Winter 2023-24. `web.stanford.edu/class/archive/cs/cs228/` returns 404 — this course has no past offerings in the Stanford archive.
-
-**Not confirmed**: (1) why CS228 skipped multiple consecutive academic years (2025-26 included), and why CS236 hasn't run since Autumn 2023 — no official page explains it, but the 26 August 2026 re-check lined up the timeline: ExploreCourses XML confirms the last offerings of both courses were taught by Ermon himself (CS228 Winter 2024 with 133 students; CS236 Autumn 2023 with 321), and he has been **CEO of Inception Labs**, a diffusion-LLM startup, since July 2024 — out of stealth February 2025, $50M seed November 2025 led by Menlo Ventures, whose interview describes the founders as having "walked away from tenure." The gap in teaching coincides exactly with the startup years, and Stanford's faculty startup policy requires a leave of absence for management roles. This is the strongest available explanation by indirect evidence, but no official source connects the two explicitly. The courses aren't dead: CS236 is scheduled for Spring 2027 with Ermon listed as PI, and CS228 is listed for Winter 2027 with instructor TBD. (2) Who will teach the CS228 slot listed for Winter of academic year 2026-27 — the ExploreCourses instructor field is currently blank (checked 26 August 2026). (3) The actual problems and difficulty spread of the five assignments — the content is locked on Ed, and everything said here about the assignments comes from the public schedule and grading policy, not from the assignments themselves.
-
 ## Course video sources
 
 The official course site (cs228.stanford.edu, which redirects to ermongroup.github.io/cs228 and is headed Winter 2023-24; read live on 2026-10-10) links its Lecture Videos to an external tool on canvas.stanford.edu; I opened it and was redirected to the Stanford login page, confirming that a course account is required. A web search found no public YouTube or OCW release of this course, so nothing is embedded and no other course’s videos are passed off as its recordings.
@@ -182,12 +169,13 @@ Course and recording entries:
 
 - [Official course / lecture source](https://cs228.stanford.edu/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-12.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Opened the official site’s Lecture Videos link live and confirmed it redirects to the Canvas login page; no public release was found, so the status stays sign-in required and the source note now reflects the live check.
+- 2026-11-12: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

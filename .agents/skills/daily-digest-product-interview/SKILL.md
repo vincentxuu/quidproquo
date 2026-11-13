@@ -68,8 +68,8 @@ cat src/data/interview-focus.json | 讀取 product-builder.weights
 # E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 產英文版（invoke post-translate）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -82,7 +82,7 @@ cat src/data/interview-focus.json | 讀取 product-builder.weights
 | **搜尋/發現** | Groundlane `web_search` | 合併結果去重，覆蓋面最廣 |
 | **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 
-Groundlane 不可用（未掛載、401 `invalid_token`、逾時）不是 blocker：依 `daily-digest` skill 的「搜尋工具契約」換下一層（Groundlane 直接 HTTP → Keenable keyless → You.com keyless → 其他雲端搜尋 MCP／平台內建搜尋 → 平台內建 fetch），照常產出，並在 progress.txt 本次條目記 `toolDegradation`。
+Groundlane 不可用（未掛載、401 `invalid_token`、逾時）不是 blocker：依 `daily-digest` skill 的「搜尋工具契約」換下一層（Groundlane 直接 HTTP → Keenable keyless → You.com keyless → 其他雲端搜尋 MCP／平台內建搜尋 → 平台內建 fetch），照常產出，並在 daily-log 本次紀錄記 `toolDegradation`。
 
 ---
 
@@ -270,4 +270,4 @@ series:
 - [ ] series order 正確（距離 2026-08-20 的天數 + 1）
 - [ ] 文末有「## 參考資料」區段（`pnpm check:references` 會擋）
 - [ ] tags 包含 `product-builder-interview` + `daily` + 主題 tag
-- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

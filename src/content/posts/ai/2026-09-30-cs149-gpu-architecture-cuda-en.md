@@ -183,7 +183,7 @@ One thing you can do tonight: copy down the `myFlag` example, write one sentence
 
 ## Course video sources
 
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-11-09.
 
 Its embedded player reports an owner restriction, so this page now links to YouTube instead. Playback on YouTube has not been tested. Checked: 2026-10-11.
 
@@ -203,6 +203,8 @@ Course and recording entries:
 Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 7 - GPU architecture and CUDA Programming” (1:18:47). The captions cover the GPU's move from the graphics pipeline to compute mode, CUDA's host/device and grid/block/thread, the 1D convolution example, shared memory, SMs and warps on Volta (the V100 is introduced as a Volta diagram), and thread block scheduling; the lecture ends with the point that thread blocks cannot assume any execution order, matching this post. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
+
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 - 2026-10-11: Replaced the restricted embed with the original YouTube link; playback on YouTube remains unverified.
 

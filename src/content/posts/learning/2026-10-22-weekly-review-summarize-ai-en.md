@@ -104,7 +104,7 @@ The timings are my suggestion; adjust them to how many notes you have. What matt
 
 [Order 0](/posts/learning/2026-10-22-knowledge-base-three-readers-en)'s example was a personal note: "Leave: ask HR, form pinned in Slack." For you, that's enough, because you remember which HR person and which channel. Move it to a team wiki, and when a new colleague reads it, "I know what this means" no longer holds: they don't know whom to ask or which channel, or whether this is last year's rule.
 
-Once the reader changes from you to a colleague, all four questions from these five posts need answering again: what to keep, how to organize it, how others will find it, and who maintains it. That's the subject of the team part, starting with order 6, Why Team Knowledge Bases Rot, and Which Documents to Write (in progress).
+Once the reader changes from you to a colleague, all four questions from these five posts need answering again: what to keep, how to organize it, how others will find it, and who maintains it. That's the subject of the team part, starting with order 6, Why Team Knowledge Bases Rot, and Which Documents to Write.
 
 ## Limits of the research
 

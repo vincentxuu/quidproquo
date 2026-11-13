@@ -204,7 +204,7 @@ Course and recording entries:
 - [Spring 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): Read both transcripts: Spring 2024 Lecture 7, "Policy Search 3" (about 79 minutes), spends its first part on GAE and monotonic improvement, only starts imitation learning after roughly 55% (behavior cloning, ALVINN, DAgger) and reaches IRL and feature matching in about the last 15%; Lecture 8, "Offline RL 1" (about 74 minutes), opens with an imitation-learning recap and MaxEnt IRL and turns to RLHF after roughly 70%. Every mm:ss timestamp is now an approximate value estimated from where topics fall in the transcript, the &t= links are removed, and "YouTube chapters" became "transcript"; the claim that the video is more detailed than the slides was removed because that comparison was not made.
 
@@ -213,6 +213,7 @@ Content check: verified against the video transcript (2026-10-10): Read both tra
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 - 2026-10-10: Checked the video content against its transcript. Timestamps became approximate and &t= links were removed; the unverified "more detailed than the slides" claim was dropped.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

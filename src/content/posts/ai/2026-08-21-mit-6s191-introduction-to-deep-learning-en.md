@@ -148,18 +148,19 @@ Give it ninety minutes. If you can explain the tensor shapes, gradients, and pur
 ## Changelog
 
 
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official entry: per-lecture recordings are listed there and embedded in each lecture article; the status stays “Official entry or recording index only.”
 - 2026-08-22: Added the bilingual nine-lecture and three-lab series, and pinned all lab links to the official `2026` branch.
 
 ## Course video sources
-This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live official course page on 2026-10-10: the 2026 edition lists public YouTube recordings for all nine lectures (matching the first nine items of the official playlist); the three labs have no dedicated recording. Per-lecture videos are embedded in each lecture article.
+This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live official course page on 2026-11-09: the 2026 edition lists public YouTube recordings for all nine lectures (matching the first nine items of the official playlist); the three labs have no dedicated recording. Per-lecture videos are embedded in each lecture article.
 
 Course and recording entries:
 
 - [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## References
 

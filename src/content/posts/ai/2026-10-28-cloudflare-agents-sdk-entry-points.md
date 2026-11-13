@@ -5,7 +5,7 @@ type: deep-dive
 category: ai
 tags: [cloudflare, cloudflare-agents, agent-harness, durable-objects, ai-agent]
 lang: zh-TW
-tldr: "已有 harness 就用 PiHarness；做 chat、要自己組模型呼叫用 AIChatAgent，交給框架用 Think；不是 chat 但要狀態、排程、MCP，用 Agent。"
+tldr: "四個起點是同一條樓梯，不是選單：缺記憶與續傳就加 DO，缺 chat 管線用 AIChatAgent，缺 loop 管理上 Think 或 PiHarness，要拆工作才看 dynamic agents。"
 description: "比較 Cloudflare Agents SDK 的四個起點：PiHarness、Agent、AIChatAgent、Think，拆解 Lifecycle 分層、各自的 loop 歸屬，以及 dynamic agents、agent tools、Code Mode 的使用邊界。"
 draft: false
 glossary:
@@ -223,9 +223,44 @@ Sandbox 沒有網路，所有副作用要走 connector，所以核准、rollback
 | 模型要在對話中決定叫哪個 child，且要看得到進度 | agent tools | 多一層 run registry；child 的 client tools 受限 |
 | 工具太多、每次呼叫都要來回模型 | Code Mode | sandbox 沒網路，副作用要包 connector；experimental |
 
+## 用樓梯看，不要用選單看
+
+四個起點看起來像選單，實際上是同一條樓梯的不同階。這裡的「階」談的是產品缺哪一層能力，不是上面那張架構圖的 L1–L5。
+
+以「讀者問答」為例：
+
+```text
+第 0 階  普通 Worker + RAG
+         request → 檢索 → SSE → 結束。沒有記憶。
+         不夠用的時候：要記住同一個 thread、斷線要能續、跨裝置要同步。
+
+第 1 階  Durable Object + 自寫 loop
+         每個 thread 一個 DO，有自己的 SQLite、WebSocket、alarm。
+         你得到「活著」，但 chat 協定、訊息持久化、續傳都要自己寫。
+
+第 2 階  AIChatAgent
+         DO + chat 管線（訊息持久化、串流、中斷、續傳、recovery）框架給你，
+         但每一次 model call、prompt、retrieval 還是你自己寫 onChatMessage()。
+
+第 3 階  Think
+         框架連 loop、sessions 樹、壓縮、workspace 都幫你管，你只改 hook。
+```
+
+同一個功能也可以停在別的階，而且不是每個產品都要爬到頂。每日 digest 是第 0 階的 cron function、第 1 階的 queue + retry、第 2 階的 `PiHarness`（把 model call、tool call 各自當 task，掛掉從 checkpoint 接）；多 agent 是第 0 階的單一 prompt、第 1 階程式寫死 DAG、第 2 階讓模型在對話中決定叫 child（agent tools）、第 3 階讓 parent 擁有 child 的 class 與生命週期（dynamic agents）。
+
+所以「選起點」不是一次決定要不要用 SDK，而是每次只問：我現在缺哪一階？缺的是活著，加 DO；缺的是 chat 管線，上 `AIChatAgent`；缺的是 loop 管理，上 `Think` 或 `PiHarness`；缺的是工作拆分，才看 dynamic agents、agent tools、Code Mode。
+
+不管什麼產品，先填這三格：
+
+1. **狀態單位是什麼？** request／thread／user／room／job。這決定你要不要 DO。
+2. **loop 歸誰跑？** 我／框架／外包給 harness。這決定你選 `Agent`、`AIChatAgent`、`Think` 還是 `PiHarness`。
+3. **工作要不要拆？** 不拆／程式拆／模型拆／工具太多。這決定 dynamic agents、agent tools、Code Mode。
+
+三格都填得出來，答案就出來了；填不出來，通常不是選錯 SDK，是需求還沒想清楚。
+
 ## 我會怎麼選
 
-把問題照順序問一遍，通常三題就有答案：
+上面那張樓梯圖是思考方式；實際選型時，把問題照順序問一遍，通常三題就有答案：
 
 1. **你已經有想用的 harness 嗎？** 有，而且你能接受它 experimental 的 API，就用 `PiHarness`。它給你最成熟的 loop 與 recovery 語意，代價是 client 層要自己接。
 2. **沒有 harness，而且你要做 chat 介面嗎？** 不要，往第 4 題。
@@ -249,6 +284,10 @@ Sandbox 沒有網路，所有副作用要走 connector，所以核准、rollback
 Cloudflare Agents 真正賣的不是某一個 class，是「每個 agent 都有自己的 Durable Object」這個單位。選哪個起點，取決於你願意自己除錯哪一層：loop、chat 管線，還是 runtime。
 
 如果你已經在 Workers 上，想要每個使用者一個會記住狀態的 agent，這套 SDK 是目前摩擦最小的路徑。如果你只是要一次模型呼叫，或你的團隊主要寫 Python，先不要為了「agent」這個詞把整個 runtime 搬過來。
+
+## 更新紀錄
+
+- 2026-10-30：新增「用樓梯看，不要用選單看」一節，用產品成熟度補充四個起點的選擇方式；原本的五題選型清單保留為快速檢查表。
 
 ## 參考資料
 

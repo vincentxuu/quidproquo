@@ -134,7 +134,7 @@ title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 3 - Backp
 - [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：核對的是 2024 年春季 Manning 授課影片（約 73 分鐘）與本文（以 Winter 2026 投影片為準）的主題關係，不是 2026 課堂錄影。字幕涵蓋神經元即小型 logistic 單元、矩陣微積分與 Jacobian、梯度要與參數同形（shape 約 55–62%）、chain rule、計算圖與 forward／backward pass（含分支處梯度累加）、PyTorch 起手式與作業二說明，結尾約 92% 提到手動 gradient checking，與本文前半相符。字幕中沒有出現 numerator layout、softmax／cross-entropy 合併、反向傳播的記憶體成本、optimizer 與 learning rate，本文對應各節只依 Winter 2026 投影片與本站補充，不是影片內容。
 
@@ -143,6 +143,7 @@ title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 3 - Backp
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Spring 2024 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
 - 2026-10-10：依字幕核對影片內容。確認 2024 年影片涵蓋神經元、矩陣微積分、shape、計算圖、gradient checking，與本文主線相符；softmax＋cross-entropy、記憶體成本、optimizer 等節影片未涵蓋，標明非影片內容。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

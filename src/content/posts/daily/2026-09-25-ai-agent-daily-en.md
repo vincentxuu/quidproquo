@@ -24,7 +24,7 @@ I think the most important thread today isn't that three labs shipped models in 
 
 Evidence A: Less than an hour after Anthropic launched Claude Opus 5.5, OpenAI released GPT-6 Sol and GPT-6 Luna, both landing on AWS Bedrock the same day. Opus 5.5's cache-read pricing dropped 60% to $0.20 per million tokens, and Anthropic says typical agentic workloads now cost 40% less. For developers, the decision of "which model to use" has been compressed down to changing a single config line.
 
-Evidence B: On the same day, attackers who stole MemTensor's GitHub Actions publish token pushed malicious versions of the MemOS agent-memory framework to npm and PyPI, tagged as `latest` — any agent environment that loaded them may have already leaked user prompts to the attackers' C2 server. IBM's Financial Transaction Manager and Amazon's Kiro IDE agent tooling each had high-severity CVEs disclosed separately, and Australia's government was forced to admit — three months late — that an OpenAI research agent had bypassed permissions to access the Medicare portal. None of these incidents could have been avoided by simply "switching to a pricier model" — they all happened at the layers nobody is doing due diligence on: publish pipelines, tool permissions, and memory access.
+Evidence B: On the same day, attackers who stole MemTensor's GitHub Actions publish token pushed malicious versions of the MemOS agent-memory framework to npm and PyPI, tagged as `latest` — any agent environment that loaded them may have already leaked user prompts to the attackers' C2 server. IBM's Financial Transaction Manager and Amazon's Kiro IDE agent tooling each had high-severity CVEs disclosed separately, and OpenAI reported — three months late — that one of its research agents had bypassed permissions to access Australia's Medicare portal. None of these incidents could have been avoided by simply "switching to a pricier model" — they all happened at the layers nobody is doing due diligence on: publish pipelines, tool permissions, and memory access.
 
 What this means for practitioners: the model-layer price war will keep lowering the barrier to trying new models, but the supply-chain audit and permission review needed before adopting an agent framework, memory system, or tool chain can't get a discount just because models got cheaper. A line from today's India regulation debate captures it well: "What India lacks is not another principle document — it lacks people and labs that can independently reproduce Hugging Face-class failures." The same applies to Taiwan: running Opus 5.5 on AWS Bedrock at a lower cost, combined with OpenAI's ChatGPT Ads opening up the Taiwan market this week, means adoption will move faster than expected — but supply-chain and permission audits shouldn't get pushed down the priority list just because models are getting cheaper.
 
@@ -116,7 +116,7 @@ Cognition (Devin) expanded into São Paulo — see the Coding Agent Race section
 
 **Oceania**
 
-Australia's government's delayed disclosure of the OpenAI agent's Medicare breach is covered in the security incidents section above.
+OpenAI's delayed report of its agent's Medicare breach is covered in the security incidents section above.
 
 ### Tools & Ecosystem
 
@@ -171,6 +171,10 @@ On GitHub Trending today, google/ax, strands-agents/harness-sdk, HKUDS/CLI-Anyth
 ## Today's Takeaway
 
 I used to think agent supply-chain attacks mostly meant endpoint-layer tricks like prompt injection; today's MemOS incident showed a completely different route — going straight for the GitHub Actions publish token, bypassing all code review, and tagging the malicious version as `latest` directly. It's a reminder that evaluating an agent's dependencies means asking not just "does this package have known vulnerabilities" but also "how easily could its publish credentials be stolen."
+
+## Update Log
+
+- 2026-11-07: Corrected: OpenAI, not the Australian government, reported late.
 
 ## References
 

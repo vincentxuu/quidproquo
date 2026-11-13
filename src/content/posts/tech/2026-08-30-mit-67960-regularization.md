@@ -249,7 +249,7 @@ for name, cfg in configs.items():
 | 小批次 BN 統計量不穩 | Batch size < 16 | 改 GroupNorm(32) 或 LayerNorm |
 
 ## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表與 Lec 06 頁面核對：本文是主題單元，不對應單一講次（早期曾標為 L04，但 OCW 的 Lec 04 是 Architectures: Grids）。OCW 沒有一講專門講 weight decay、dropout、Batch Norm 與標籤平滑；Lec 06 Generalization Theory 的官方摘要是 overparameterization、double descent、VC dimension 的限制與 inductive bias，只能當相關背景補充，不能證明本文內容來自該影片。
+2026-11-09 已即時回 MIT OCW Fall 2024 官方錄影列表與 Lec 06 頁面核對：本文是主題單元，不對應單一講次（早期曾標為 L04，但 OCW 的 Lec 04 是 Architectures: Grids）。OCW 沒有一講專門講 weight decay、dropout、Batch Norm 與標籤平滑；Lec 06 Generalization Theory 的官方摘要是 overparameterization、double descent、VC dimension 的限制與 inductive bias，只能當相關背景補充，不能證明本文內容來自該影片。
 
 ```youtube
 url: https://www.youtube.com/watch?v=EiO8BBa-xdc
@@ -263,7 +263,7 @@ title: MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory
 - [MIT OCW — Lec 06. Generalization Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec06_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 編號說明：本站 L03–L06 這四篇的編號，是本站早期依一般深度學習教學順序（優化、正則化、CNN、現代 CNN）自行規劃的，沒有逐一對照 OCW 講次表；OCW Fall 2024 的 Lec 03–06 實際是 Approximation Theory、Architectures: Grids、Architectures: Graphs、Generalization Theory，所以這四篇的 L 編號與 OCW 講次不同。2026-10-13 起標題改依 OCW 講次：CNN 架構篇對應 Lec 04，標為第 4 堂；優化、正則化、現代 CNN 三篇沒有對應的單一講次，改標主題單元。網址維持不變，所以現代 CNN 篇的網址仍帶 l06；從 Lec 07 起各篇本來就與 OCW 講次一致。
 
@@ -274,6 +274,7 @@ title: MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。原嵌入的 Lec 06 Generalization Theory 與本文主題（weight decay、dropout、Batch Norm）不是同一講，狀態改為「僅附相關補充影片；原講次錄影未確認」，並註明「影片時間戳」章節未對應任何官方影片。
 - 2026-10-10：依字幕核對影片內容。刪除對不上任何影片的「影片時間戳」章節，改寫為依字幕的對應說明；更正 Lec 09 講者為 Phillip Isola（原誤寫 Sara Beery），並註明 Lec 09 建議不要用 Batch Norm。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

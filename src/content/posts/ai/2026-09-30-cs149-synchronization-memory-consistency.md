@@ -179,19 +179,15 @@ x86 大致是 TSO，軟體需要模型沒保證的順序時，可以用 `_mm_lfe
 | 「lock-free 資料結構的作者要在意 consistency」 | 投影片直接標註「Topic of a later lecture」 |
 | transactional memory 作為同步原語 | [L17–L18 Transactional memory](/posts/ai/2026-09-30-cs149-transactional-memory-w4) |
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：L15 投影片 PDF 的內容、課程首頁的講次標題與描述，以及 L16 PDF 封面標題與其中的鎖實作段落。首頁描述的「Fine-grained synchronization via locks」在 L15 PDF 裡找不到對應投影片；課堂上是否口頭帶過，沒有錄影可以確認。第 42 頁「Write Buffer Performance」是一張圖表，本文沒有引用其中的數值。
-
-不能確認：Fall 2025 課堂的口頭補充，以及 2023 年錄影（當年標題是 Memory Consistency）與 2025 投影片的逐頁差異。本文沒有依影片內容寫作。
-
-延伸閱讀：作業系統角度的鎖實作與 atomic 操作，可以讀 [CS111 Lecture 6：Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)。
+作業系統角度的鎖實作與 atomic 操作，可以讀 [CS111 Lecture 6：Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)。
 
 系列導覽：上一篇 [L14 Cache coherence：MSI、MESI 與 false sharing](/posts/ai/2026-09-30-cs149-cache-coherence)｜下一篇 [L16 細粒度鎖與 lock-free](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
 
 ## 課程影片來源
 
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-11-09。
 
 ```youtube
 url: https://www.youtube.com/watch?v=nFXWmo9MFiY
@@ -212,6 +208,7 @@ title: Stanford CS149 I Parallel Computing I 2023 I Lecture 12 - Memory Consiste
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
 - 2026-10-10：依字幕核對影片內容。影片主題與本文一致；x86 fence 指令細節與 release consistency 不在影片中。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

@@ -90,7 +90,7 @@ pnpm sync:prod        # Sync posts to D1 (production)
 ## Important Decisions
 
 - **Feature flags are mandatory** for all advanced/experimental techniques (RAG, embeddings, AI features). Every such feature must be individually toggleable. Do not add unless an observed failure justifies it.
-- `progress.txt` at the repo root is the lightweight session memory (working memory, not a logbook — cap 90 lines, enforced by `pnpm verify`). Update it when task status materially changes; archive finished entries to `docs/progress-archive.md`.
+- `progress.txt` at the repo root is the lightweight session memory (working memory, not a logbook — cap 90 lines, enforced by `pnpm verify`). Update it when task status materially changes; archive finished entries to `docs/progress-archive.md`. Daily-digest routines never touch it — they write `.work/daily-log/<date>/<skill>.md` (`daily-digest-common` E3; `pnpm verify` rejects `daily-digest-*` entries in progress.txt).
 - Never revert file changes without explicit user confirmation.
 - 網頁研究遵循全域 Web Fetch fallback 鏈：(1) Groundlane MCP → (2) Groundlane 直接 HTTP（`WebFetch` POST `groundlane.vincent-xu-work.workers.dev/mcp`，繞過 connector） → (3) Keenable keyless API（`GET api.keenable.ai/v1/search/public`，10 萬次/月免費） → (4) You.com keyless（`GET api.you.com/mcp?profile=free`，100 次/天免費） → (5) 雲端 MCP：`Exa`、`Tavily`、`linkup`、`jina`、`firecrawl` → (6) 內建 `WebFetch`。降級時記錄 `toolDegradation`。舊 `stealth_fetch` 與舊 `web-fetch/fetch_page` 已退役，不再使用。
   - 雲端 session（claude.ai/code）的 Groundlane 工具常是 deferred：名字在清單裡但要先用 ToolSearch 載入才能呼叫。沒載入過不算「不可用」。

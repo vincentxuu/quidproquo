@@ -234,7 +234,7 @@ title: Spring 2024 Lecture 1: Introduction to Reinforcement Learning（YouTube�
 
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 1「Introduction to Reinforcement Learning」字幕（約 72K 字元）：確認影片講 RL 的定位與應用（AlphaGo、核融合、COVID、ChatGPT、AlphaTensor）、探索與利用、AI 家教加減法的 reward 例子、Markov 假設、Mars rover 與折扣，主題與本文一致；字幕沒有 OpenAI o1（2024 影片早於 o1），本文提到 o1 的地方是依 2026 投影片，不是影片內容。
 
@@ -243,6 +243,7 @@ Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄�
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。影片主題一致；o1 非影片內容，已在標記中說明。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

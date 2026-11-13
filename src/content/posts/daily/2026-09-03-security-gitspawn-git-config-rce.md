@@ -1,12 +1,12 @@
 ---
-title: "資安警報｜Git 設定檔裡藏一行指令,就能讓 Claude Code、Codex、Cursor 等七款 AI coding agent 執行任意程式碼——GitSpawn 手法仍有四款未修補"
+title: "資安警報｜Git 設定檔裡藏一行指令,就能讓 Claude Code、Codex、Cursor 等七款 AI coding agent 執行任意程式碼——GitSpawn 手法仍有 4 個問題未修補"
 date: 2026-09-03
 category: daily
 type: digest
 tags: [ai-agent, security, daily, privilege-escalation]
 lang: zh-TW
-description: "資安研究機構 Manifold Security 揭露名為 GitSpawn 的攻擊手法:AI coding agent 開機時呼叫 git 蒐集專案資訊,卻沒有清掉 repo 自帶的 git 設定,讓惡意 repo 能在使用者核准信任對話框之前,於本機以使用者權限執行任意指令。goose、Codex、Claude Code 已修補,Hermes Agent、Qwen Code、Grok Build 及 Claude Code 的第二條路徑仍未修補。"
-tldr: "資安公司 Manifold Security 於 9 月 1 日發布研究 GitSpawn:七款命令列 AI coding agent(goose、Codex CLI/Desktop、Claude Code、Hermes Agent、Qwen Code、Grok Build)開機或建立 session 時會呼叫 git status、git diff 等指令蒐集專案資訊,但沒有先清掉該 repo 自己的 .git/config——而 core.fsmonitor 等 git 設定的值本身就是「要執行的指令」。只要收到一份保留 .git 目錄的檔案(zip、共用磁碟、隨身碟,而非 git clone),打開它的瞬間 agent 就會以使用者權限執行 repo 指定的指令,發生在沙箱之外、且早於任何信任對話框或核准提示。goose(CVE-2026-72718,CVSS 7.0)、Codex(OpenAI 同日發布三組 CVE)、Claude Code 的 core.fsmonitor 路徑已修補;但 Claude Code 透過 claude ultrareview 觸發的第二條路徑,以及 Hermes Agent、Qwen Code、Grok Build 三款工具,截至 9 月 1 日 Manifold 重新測試時仍可利用。目前無證據顯示已遭在野利用。防禦:開啟未知來源目錄前先檢查 .git/config,並全域關閉 core.fsmonitor。"
+description: "資安研究機構 Manifold Security 揭露名為 GitSpawn 的攻擊手法:AI coding agent 開機時呼叫 git 蒐集專案資訊,卻沒有清掉 repo 自帶的 git 設定,讓惡意 repo 能在部分 agent 的信任對話框核准之前,於本機以使用者權限執行任意指令。goose、Codex、Claude Code 已修補,Hermes Agent、Qwen Code、Grok Build 及 Claude Code 的第二條路徑仍未修補。"
+tldr: "資安公司 Manifold Security 於 9 月 1 日發布研究 GitSpawn:七款命令列 AI coding agent(goose、Codex CLI/Desktop、Claude Code、Hermes Agent、Qwen Code、Grok Build)開機或建立 session 時會呼叫 git status、git diff 等指令蒐集專案資訊,但沒有先清掉該 repo 自己的 .git/config——而 core.fsmonitor 等 git 設定的值本身就是「要執行的指令」。只要收到一份保留 .git 目錄的檔案(zip、共用磁碟、隨身碟,而非 git clone),打開它的瞬間 agent 就會以使用者權限執行 repo 指定的指令,發生在沙箱之外,部分 agent 甚至早於信任對話框。goose(CVE-2026-72718,CVSS 7.0)、Codex(OpenAI 同日發布三組 CVE)、Claude Code 的 core.fsmonitor 路徑已修補;但 Claude Code 透過 claude ultrareview 觸發的第二條路徑,以及 Hermes Agent、Qwen Code、Grok Build 三款工具,截至 9 月 1 日 Manifold 重新測試時仍可利用。目前無證據顯示已遭在野利用。防禦:開啟未知來源目錄前先檢查 .git/config,並全域關閉 core.fsmonitor。"
 series:
   name: "AI Security Alert"
   order: 20
@@ -16,7 +16,7 @@ series:
 
 ## 事件概述
 
-資安研究公司 Manifold Security 於 9 月 1 日發布研究報告,揭露一個他們命名為 GitSpawn 的攻擊手法模式,同時影響七款命令列 AI coding agent:goose、Codex CLI/Desktop、Claude Code、Hermes Agent、Qwen Code、Grok Build,另外三週前已先揭露過 Cursor CLI 的同類問題。這些 agent 在啟動或建立 session 時,會呼叫 `git status`、`git diff` 這類指令來判斷目前分支、有哪些檔案異動,藉此蒐集專案上下文——但呼叫時沒有先清掉這個 repo 自己的 git 設定。問題在於,`core.fsmonitor` 這類 git 設定值本身就是「要執行的指令」,git 讀到就會執行,而且是在使用者權限下、於沙箱之外、早於任何信任對話框或核准提示執行。攻擊者不需要誘騙使用者點擊或核准任何東西,只要對方打開一份「保留 `.git` 目錄的檔案」——例如共用的 zip 壓縮檔、共用磁碟、同步資料夾或隨身碟,而不是透過 `git clone` 取得——AI agent 一啟動就會踩到這個陷阱。OpenAI 同一天也為 Codex 發布了三組 CVE,分別由三個互不相關的研究團隊各自回報同一類問題。The Hacker News 已跟進報導。
+資安研究公司 Manifold Security 於 9 月 1 日發布研究報告,揭露一個他們命名為 GitSpawn 的攻擊手法模式,同時影響七款命令列 AI coding agent:goose、Codex CLI/Desktop、Claude Code、Hermes Agent、Qwen Code、Grok Build,另外三週前已先揭露過 Cursor CLI 的同類問題。這些 agent 在啟動或建立 session 時,會呼叫 `git status`、`git diff` 這類指令來判斷目前分支、有哪些檔案異動,藉此蒐集專案上下文——但呼叫時沒有先清掉這個 repo 自己的 git 設定。問題在於,`core.fsmonitor` 這類 git 設定值本身就是「要執行的指令」,git 讀到就會執行,而且是在使用者權限下、於沙箱之外執行,部分 agent 甚至早於信任對話框。攻擊者不需要誘騙使用者點擊或核准任何東西,只要對方打開一份「保留 `.git` 目錄的檔案」——例如共用的 zip 壓縮檔、共用磁碟、同步資料夾或隨身碟,而不是透過 `git clone` 取得——AI agent 一啟動就會踩到這個陷阱。OpenAI 同一天也為 Codex 發布了三組 CVE,分別由三個互不相關的研究團隊各自回報同一類問題。The Hacker News 已跟進報導。
 
 **基本資訊**
 
@@ -61,6 +61,10 @@ Manifold 表示這個模式在他們點名的七款工具之外「還在更多 a
 ## 今日收穫
 
 過去談 AI coding agent 的資安風險,直覺會先想到「惡意 prompt 誘騙 agent 做壞事」,但 GitSpawn 完全不需要碰到模型——它利用的是 agent 為了「搞清楚自己在哪個專案」而在背景默默呼叫的 git 指令,這條路徑存在的意義是效能與上下文蒐集,設計者從沒把它當成需要被信任邊界涵蓋的執行路徑。這提醒我:agent 的攻擊面不只是「prompt 進得去、工具呼叫核准得過」這兩端,任何 agent 為了自己方便而在背景 spawn 的 subprocess,都可能是一條完全繞過核准機制的旁路。
+
+## 更新紀錄
+
+- 2026-11-07：更正：未修補的是 4 個問題，分布在三款 agent 和 Claude Code 第二條路徑；報導沒說七款都早於信任對話框。
 
 ## 參考資料
 

@@ -183,13 +183,13 @@ OCW 的 [Readings 頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-202
 6.7960 的自學答案取決於你要什麼。走 OCW Fall 2024，你拿到的是接近 A3 的完整包——影片、五份作業、起始檔、一份解答、project rubric；讀 Fall 2025 投影片，你拿到最新的 foundation models 課綱，但要自己造練習。兩版都公開了策展過的 readings 和免費教科書路線，也都不給你 office hours 和 MIT 的學分。先選版本，再開第一份作業。
 
 ## 課程影片來源
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：列有 Lec 01–21、Lec 23、Lec 24 與 PyTorch Tutorial 的公開錄影；Lec 22 官方標示 not available。逐講影片附在各講文章。2026-10-13 補查 Readings 與 Lecture Notes 頁：全課 25 堂，Lec 22 與 Lec 25 的錄影與投影片都沒有公開；Lec 20 的公開錄影只有 38 分鐘。
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-11-09 已即時回 MIT OCW Fall 2024 官方錄影列表核對：列有 Lec 01–21、Lec 23、Lec 24 與 PyTorch Tutorial 的公開錄影；Lec 22 官方標示 not available。逐講影片附在各講文章。2026-10-13 補查 Readings 與 Lecture Notes 頁：全課 25 堂，Lec 22 與 Lec 25 的錄影與投影片都沒有公開；Lec 20 的公開錄影只有 38 分鐘。
 
 課程與錄影入口：
 
 - [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：本篇沒有嵌入影片，只核對文中關於影片的說法：讀了 Lec 01–18 共 18 支講課影片的字幕與影片說明（Lec 19 以後未讀），確認 Fall 2024 的講者是 Isola、Bernstein、Beery 三位（Beery 並非 2025 才加入），原「Fall 2024 由 Isola 與 Bernstein 合授」漏了 Beery，已更正。
 
@@ -199,6 +199,7 @@ OCW 的 [Readings 頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-202
 - 2026-10-10：重查影片狀態。即時核對官方入口，各講錄影列在官方頁，逐講影片附在各講文章；狀態維持「僅附官方入口或錄影清單」。
 - 2026-10-10：依字幕核對影片內容。更正 Fall 2024 講者（補上 Sara Beery），並註明各講主講人。
 - 2026-10-13：新增「OCW Fall 2024 逐堂對照」，補上第 2、6、19、20、21、23、24 堂的導讀連結，說明第 22、25 堂沒有公開教材、第 20 堂錄影只有前半；標題範圍由「主題單元」改為「課程總覽」。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

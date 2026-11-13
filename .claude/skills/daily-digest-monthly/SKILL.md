@@ -65,7 +65,7 @@ node .agents/skills/daily-digest-monthly/scripts/month-stats.mjs "$MONTH" "$PREV
 - **下月驗證**：3–5 件，每件要能在下月底判定真假，附判定條件。不寫趨勢預言。
 - **方法與限制**：窗口、母數、缺資料日期、去重限制、讀不到的來源、語言與地區偏誤、AI 參與方式。
 
-術語第一次出現要有半句說明。主線標題只寫變化，但書留給「要打折的地方」，全文用同一個詞稱呼同一件事。長度 1,500–2,500 字。三條主線以外的事不放；要看全部的人去讀日報。
+術語第一次出現要有半句說明。主線標題只寫變化，但書留給「要打折的地方」，全文用同一個詞稱呼同一件事。長度以 1,500–2,500 字為目標，不是硬上限：需要才超過，不要為了字數刪掉對當事方不利的事實或沒中的判斷。三條主線以外的事不放；要看全部的人去讀日報。
 
 ## 5. Frontmatter
 
@@ -93,7 +93,7 @@ series:
 
 1. 用獨立 agent 跑 `post-verify` 與 `post-review`，只給文章路徑，不給結論。
 2. 修完跑 `post-polish`。
-3. 依 `daily-digest-common` 的 Commit Epilogue 收尾（圖解、英文版、references、progress、verify、commit）。
+3. 依 `daily-digest-common` 的 Commit Epilogue 收尾（圖解、英文版、references、daily-log、verify、commit）。
 
 ## 品質檢查
 

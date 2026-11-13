@@ -128,7 +128,7 @@ Qualitative coding 的價值來自一致應用 codebook，而不是產出很多 
 
 ## 課程影片來源
 
-本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（「Document Set Analysis: Qualitative Coding」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
+本文依據 Fall 2025 講義。官方課程網站（2026-11-09 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（「Document Set Analysis: Qualitative Coding」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
 
 內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 14 講（約 1 小時 29 分），字幕以大量文件集分析與 LLM 自動質性編碼（qualitative coding、codebook、訪談與文件摘要）為主，與本文主題相符；本文細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
 
@@ -145,13 +145,14 @@ title: CS224V Fall 2024 Lecture 14: Qualitative Coding 11 06 2024
 - [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
 - [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方站寫明錄影在 Canvas（需登入）；找到 Fall 2024 公開的同主題講次，附為相關補充影片，Fall 2025 原講次錄影未確認。
 - 2026-10-10：依字幕核對影片內容。影片主題相符（文件集分析、質性編碼）；文章對影片沒有具體說法，只加標記。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

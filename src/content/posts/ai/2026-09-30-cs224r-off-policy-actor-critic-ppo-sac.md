@@ -166,9 +166,9 @@ n 步 advantage 與 GAE：
 - **PPO 在 LLM 上的用法**：站上 [CS336 的 SFT 與 RLHF 導讀](/posts/ai/2026-08-22-cs336-sft-rlhf)和 [CME295 的 RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms) 從語言模型的角度講同一套 clip 目標。
 - **對照另一門課**：[Berkeley CS285 的 policy 與 value 方法導讀](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)。CS224R 第 16–23 頁有幾頁註明「Slide adapted from Sergey Levine」，兩門課在這段的講法很接近。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：2026 投影片的文字與公式、課表日期與閱讀清單、2025 影片的標題與長度。不能確認：2026 課堂上的口頭補充（錄影只在 Canvas），以及投影片第 25–28 頁影片示範的具體內容（PDF 只有截圖和出處）。第 14 頁的超參數是投影片上的範例，不是 HW2 的設定；HW2 的實際設定見作業那篇。
+第 14 頁的超參數是投影片上的範例，不是 HW2 的設定；HW2 的實際設定見作業那篇。
 
 系列導覽：上一篇 [L4 Actor-Critic](/posts/ai/2026-09-30-cs224r-actor-critic)｜下一篇 [L6 Q-learning 與它的穩定化](/posts/ai/2026-09-30-cs224r-q-learning)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
 
@@ -190,13 +190,14 @@ title: Spring 2025 Lecture 5: Off-Policy Actor Critic（YouTube，補充）
 - [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
 
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。影片是 Spring 2025 L5，主題相符（約 69 分鐘亦相符），沒有需修正之處。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

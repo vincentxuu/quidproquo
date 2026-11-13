@@ -64,11 +64,13 @@ Official sources:
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 3, "What is Probability?" (Chris Piech, about 75 minutes): it covers sample spaces, events, equally likely outcomes, the dice-sum trap and the probability axioms, matching this lecture's topic; its last part starts on counting (the step rule), which this post makes no claim about. The worksheet sections in this post come from the Summer 2026 official problems, not from the video.
 
 ## Update Log
+
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 - 2026-10-11: Added an invented teaching example, worked reasoning, and a comprehension check with an answer.
 

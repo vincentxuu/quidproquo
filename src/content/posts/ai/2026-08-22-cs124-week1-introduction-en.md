@@ -127,16 +127,17 @@ One check is worth doing once you finish: restart the notebook's kernel and run 
 
 ## Course video sources
 
-The official Winter 2026 course page (read live on 2026-10-10) says the January 6 Introduction is a live lecture by Dan marked "required not recorded", and January 8 is a live tutorial. The only videos listed for this week are the PA0 Windows and Mac setup demos, which sit in Canvas (sign-in required) and are not lecture recordings. The "CS124 - Full Course" YouTube playlist uses weekly titles that differ from the Winter 2026 syllabus, so it is not treated as this term’s recording.
+The official Winter 2026 course page (read live on 2026-11-09) says the January 6 Introduction is a live lecture by Dan marked "required not recorded", and January 8 is a live tutorial. The only videos listed for this week are the PA0 Windows and Mac setup demos, which sit in Canvas (sign-in required) and are not lecture recordings. The "CS124 - Full Course" YouTube playlist uses weekly titles that differ from the Winter 2026 syllabus, so it is not treated as this term’s recording.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://web.stanford.edu/class/cs124/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 - 2026-10-13: Rewritten from the public slides. The post now follows the actual content of the introduction: the scope of the course, the preview examples, the ambiguity example, the reasons for the flipped classroom, and the comparison of CS124 and CS224N; removed advice about self-study record-keeping that was unrelated to the course content.
 - 2026-10-10: Rechecked video status. The official page says the January 6 Introduction is a live lecture that is not recorded; the only video listed for the week is the PA0 setup demo (Canvas, sign-in required); the status is now checked, no recording listed.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.

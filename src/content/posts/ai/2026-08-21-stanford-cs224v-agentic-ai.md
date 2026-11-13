@@ -30,13 +30,13 @@ draft: false
 
 授課者是 [Monica Lam](https://suif.stanford.edu/~lam/)，Stanford CS 系教授、美國國家工程院院士、ACM Fellow，也是編譯器「龍書」的共同作者。她主持 [Open Virtual Assistant Lab（OVAL）](https://oval.cs.stanford.edu/)，這門課的教材幾乎就是這個實驗室的成果目錄。自 2022 年起每年秋季開，PI 一直是她。
 
-先修寫得很寬：LINGUIST 180/280、CS 124、CS 224N、CS 224S、CS 224U，**五門擇一即可**。學分三到四，成績可選字母或通過/不通過。下一次開課排在 2026 年秋季，每週一三下午上課，起訖日期收在附錄。
+先修寫得很寬：LINGUIST 180/280、CS 124、CS 224N、CS 224S、CS 224U，**五門擇一即可**。學分三到四，成績可選字母或通過/不通過。下一次開課排在 2026 年秋季，9 月 22 日到 12 月 4 日，每週一三下午 3:00–4:20。
 
 有兩件事跟同系的 agent 課不一樣。第一，**這門課收旁聽**——[課程網站](https://web.stanford.edu/class/cs224v/)寫明寫信給助教信箱、主旨打 `audit cs224v request` 即可，相較之下 [CS329A 明講不接受旁聽](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)。第二，它限額而且長期額滿；2025 年秋季的公告頁直接寫著：
 
 > We apologize that we cannot accommodate all the students wishing to take the course this year.
 
-選課人數的軌跡在 ExploreCourses 上是公開的。第一年 29 人，之後三年每年都超收，最近一次是 138 人。逐年數字收在文末附錄。
+選課人數的軌跡在 ExploreCourses 上是公開的。第一年 29 人，之後三年每年都超收，最近一次是 138 人：2023 年 94 人（上限 75）、2024 年 139 人（上限 120）、2025 年 138 人（上限 120）。
 
 ## 三份官方描述，兩次換血
 
@@ -112,21 +112,9 @@ Genie Worksheets 是這門課的核心工具，也是課程立場的體現：你
 
 想先建立整條軸線的直覺，就照時間順序讀四份講義：Introduction（計算思維）→ Grounding on Free Text（WikiChat）→ SUQL（結構化加非結構化）→ Satisfying NL Constraints with SMT。這四份走完，這門課的骨架就完整了。
 
-## 附錄：數字與查證方式
-
-- **下次開課**：2026-2027 秋季，2026 年 9 月 22 日至 12 月 4 日，週一、週三下午 3:00–4:20，教室 CODAB80，期末考時段 2026 年 12 月 8 日上午。
-- **選課人數**：2022-2023 秋季 29 人（Turing Auditorium，未標上限）；2023-2024 秋季 94 人／上限 75；2024-2025 秋季 139 人／上限 120；2025-2026 秋季 138 人／上限 120。四筆都取自 ExploreCourses 對應學年分頁的 Schedule 區塊。2026-2027 的條目目前只列出開課時段與教室（CODAB80），未顯示選課人數。
-- **成績比重，官方兩份文件不一致**：課程網站首頁寫 Participation 15%、Homeworks 20%、Final Project 65%；第一堂投影片的表格寫 Participation 15%、Assignment 25%、Final Project 60%。兩份都是 Fall 2025 的官方材料，本文正文採用網站數字（Homework 占分不到三成，兩份說法都成立）。課程沒有說明哪一份為準。
-- **參與分的拆法**：本地學生 5% 給到課與課堂參與，另外 10%（本地）／15%（遠距 SCPD）給每週的書面進度與 mentor 會議。
-- **閱讀清單規模**：分十一個主題節，逐條計數為 54 條，其中 11 條標 `[Mandatory]`。PDF 內的編號在第四、第五節有錯亂（出現 8、7 接在 1、3、2 之後），故以條目數而非編號計。
-- **Mandatory 的歸屬**：11 篇中 Monica Lam 掛名 7 篇（STORM、Co-STORM、WikiChat、SUQL、SPINACH、Genie Worksheets、ReactGenie），對照方式是逐篇比對閱讀清單的參考文獻作者欄。
-- **講義引用的系統數字**（皆出自第一堂投影片，非本文獨立查證）：WikiChat 英文事實正確率 97%、支援 25 種語言；SPINACH 部署在 Wikidata 查詢論壇，1700 次對話、198 個抽樣的成功率 78%；Genie Worksheets 準確率 80%，對照組 GPT-4 function calling 為 0–10%；STORM 有 80 萬名自然使用者、寫出 140 萬篇文章。
-- **11 月 12 日那堂的 NLP building blocks**：講的是 CHURRO，一個 3B 參數的歷史文獻辨識視覺語言模型，論文收錄於 [EMNLP 2025](https://aclanthology.org/2025.emnlp-main.1763/)。
-- **未能確認的項目**：（1）改名的官方理由——ExploreCourses、課程網站、OVAL 網站三處都沒有任何說明；（2）2026 年秋季是否沿用 2025 年的作業與閱讀清單，新課綱尚未上線；（3）2026-2027 條目目前只列 Monica Lam 一人，助教名單尚未公布，無法判斷是否有異動。
-
 ## 課程影片來源
 
-官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
+官方課程網站（2026-11-12 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
 
 課程與錄影入口：
 
@@ -134,12 +122,13 @@ Genie Worksheets 是這門課的核心工具，也是課程立場的體現：你
 - [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
 - [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
 
-查核日期：2026-10-10。
+查核日期：2026-11-12。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方站寫明錄影在 Canvas，實際開啟入口確認有登入牆；公開的 Fall 2024 播放清單沒有確定對得上本講的講次，維持不嵌入，狀態改為需登入。
+- 2026-11-12：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

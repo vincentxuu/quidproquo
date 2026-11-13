@@ -189,12 +189,13 @@ h ≤ 2 log₂(n + 1)
 
 - [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-7-binary-search-trees-and-red-black-trees)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認官方講次頁的錄影連結導向 Panopto 登入頁，查無同期公開錄影，維持原狀態。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 
@@ -202,4 +203,3 @@ h ≤ 2 log₂(n + 1)
 - [Lecture 7 notes: Heaps and Binary Search Trees](https://stanford-cs161.github.io/winter2026/assets/files/lecture7-notes.pdf)
 - [Lecture 7 slides: Binary Search Trees and Red-Black Trees](https://stanford-cs161.github.io/winter2026/assets/files/lecture7-slides.pdf)
 - [Lecture 7 pre-lecture exercise](https://stanford-cs161.github.io/winter2026/assets/files/lecture7-pre.pdf)
-

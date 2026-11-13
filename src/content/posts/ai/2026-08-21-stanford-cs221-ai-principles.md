@@ -28,7 +28,7 @@ draft: false
 
 ## 這門課的硬事實
 
-授課者輪替。[Autumn 2025 那版](https://stanford-cs221.github.io/autumn2025/)由 [Percy Liang](https://cs.stanford.edu/~pliang/) 主講，[Spring 2025 那版](https://stanford-cs221.github.io/spring2025/)是 Moses Charikar 與 Zachary Robertson。依 [ExploreCourses 的 CS221 條目](https://explorecourses.stanford.edu/search?q=CS+221&view=catalog)，2026–2027 學年秋季由 Liang 開、春季由 Charikar 開。學分數與授課時段見附錄。
+授課者輪替。[Autumn 2025 那版](https://stanford-cs221.github.io/autumn2025/)由 [Percy Liang](https://cs.stanford.edu/~pliang/) 主講，[Spring 2025 那版](https://stanford-cs221.github.io/spring2025/)是 Moses Charikar 與 Zachary Robertson。依 [ExploreCourses 的 CS221 條目](https://explorecourses.stanford.edu/search?q=CS+221&view=catalog)，2026–2027 學年秋季由 Liang 開、春季由 Charikar 開。3–4 學分；2026 年秋季班週二、週四 15:00–16:20 上課。
 
 先修條件是這篇的軸心，而且**它同時存在三個版本**。ExploreCourses 的 `Prerequisites` 欄位寫得最硬：
 
@@ -141,7 +141,7 @@ Autumn 2025 是八份週作業，各佔總成績的一部分，每份都有書�
 
 把歷屆課程網站的評分比重排出來，會看到一個橫跨六年的移動：專案從成績裡消失了。
 
-Autumn 2019 那屆的專案佔總成績兩成。到 Autumn 2025，[專案說明頁](https://stanford-cs221.github.io/autumn2025/project.html)已經直接寫著「the project is ungraded (except for potential extra credit)」——最多換到一點加分，成績主體是一場期末考。逐屆的比重見附錄。
+Autumn 2019 那屆的專案佔總成績兩成。到 Autumn 2025，[專案說明頁](https://stanford-cs221.github.io/autumn2025/project.html)已經直接寫著「the project is ungraded (except for potential extra credit)」——最多換到一點加分，成績主體是一場期末考。考試比重在 Autumn 2021 與 2022 是四成，Autumn 2023 起約六成。
 
 很多寫於幾年前的 CS221 自學指南還把專案當成這門課的重頭戲，那個描述已經過期了。課程網站沒有解釋為什麼這樣改。
 
@@ -167,16 +167,6 @@ Autumn 2019 那屆的專案佔總成績兩成。到 Autumn 2025，[專案說明�
 
 想要更完整的入口，就從 [welcome](https://stanford-cs221.github.io/autumn2025-lectures/?trace=welcome) 開始逐行跑到底，它會在二十分鐘內告訴你這門課的世界觀，包括那句被砍掉的顏文字。
 
-## 附錄：數字與查證方式
-
-- **開課規格**：ExploreCourses 條目列 3–4 學分，註明「May be taken for 3 units by graduate students」。2026–2027 學年秋季班（class #1903）為 Percy Liang 授課，週二週四 15:00–16:20，地點 Hewlett Teaching Center 200，期末考排在 2026-12-10；春季班（class #1890）為 Moses Charikar 授課，週一週三 10:30–12:20。Autumn 2025 那屆上課地點是 NVIDIA Auditorium，考試訂在 2025-11-19 晚上 6 至 9 點，單場、實體、佔總成績 60%。
-- **評分比重的歷屆變化**：Autumn 2019 為作業 60%、考試 20%、專案 20%；Autumn 2021 為作業 55%、考試 40%（兩場開書、各 100 分鐘、透過 Gradescope 發放）；Autumn 2022 為作業 60%、考試 40%，專案降為最多 2% 加分；Autumn 2023 起變成作業 40%、考試 60%；Autumn 2024 與 Spring 2025 為作業 40%、考試 59.5%（多出的 0.5% 是先修測驗），專案最多 1.5% 加分；Autumn 2025 為作業 40%、單場考試 60%，專案最多 1.5% 加分、Ed 討論最多 1% 加分。各數字取自 `stanford-cs221.github.io/<學期>/` 的評分段落。
-- **模組數與公開範圍**：Spring 2025 的模組登錄檔（`modules/course-data.js`）共列出 111 個模組，其中 32 個帶 Panopto 影片連結、10 個在索引裡直接給 PDF 連結。那 10 份分別是五份先修複習與五份嵌入式倫理模組。其餘模組的投影片 PDF 未列在索引上，但同樣位於 `spring2025-extra/modules/<群組>/<名稱>.pdf`，逐一測試皆可下載。
-- **Autumn 2025 的講次數**：課表列到第 20 講。其中第 17（語言模型）、18（AI 與社會）、19 三講在課程網站上標記為 `[New]`。第 19 講的名稱在課程網站上是「AI Supply Chains」，在講義 repo 的 README 上是「Economics of AI」，兩者連到的材料不同（前者無獨立連結，後者是一份 Google 簡報）。
-- **作業歷屆組成**：Autumn 2022 為 foundations、blackjack、pacman、scheduling、car、logic；Autumn 2023 把 blackjack 換成 sentiment；Autumn 2024 與 Spring 2025 增加 route 與 mountaincar，成為八份；Autumn 2025 移除 scheduling 與 car，加入 bayesian 與 society。
-- **遲交規則**：全學期 7 個延遲日，單份作業最多用 2 天，用完之後每逾一天上限降 25%，超過 2 天不收。
-- **未能確認的項目**：（一）三份官方頁面在先修條件上不一致時該以哪一份為準，沒有任何一頁說明；本文只能建議取聯集，無法判定優先序。（二）約束滿足被砍掉的原因，第一堂講義只寫了結果與一個顏文字，沒有給理由。（三）專案從計分項降為加分項的原因，歷屆課程網站都沒有說明。（四）作業指南頁寫著提交的程式「不保證支援標準函式庫以外的套件，不要用 numpy、scikit-learn、pandas」，但第一份作業的安裝步驟要你 `uv add numpy einops`，兩頁的適用範圍我無法從頁面本身確定。（五）Autumn 2025 的選課人數未公開。
-
 ## 課程影片來源
 
 本文是整門課的導讀，不對應單一講次。下方附 Autumn 2025 第 1 講（課程總覽）作為相關補充；各講另有對應的導讀文章。官方播放清單是公開的，共 20 講。
@@ -193,7 +183,7 @@ title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundati
 - [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-12。
 
 內容核對：已依字幕核對（2026-10-10）：讀了整支字幕（1:06:26）。這是 Percy Liang 在 Autumn 2025 的第一堂：自述這是他在 Stanford 的第 14 年、第 13 次開這門課，且今年課程做了很大的改動；內容有 AI 的定義與簡史、perceive／reason／act／learn 四個能力與「都要在資源限制下完成」（運算與資料等資源）、用 tensor 表達各種演算法、learning by doing 的作業理念，以及 AI 的社會議題預告，與本文對這門課的描述相符。字幕沒有談到被砍掉的約束滿足、講義 repo 或作業與評分細節，那些說法依據的是 welcome.py 與官方頁面，不是這支影片。
 
@@ -202,6 +192,7 @@ title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundati
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方播放清單公開且有 20 講；本文是課程層級導讀，故嵌入第 1 講作為相關補充。
 - 2026-10-10：依字幕核對影片內容。讀完整支字幕，與本文對課程的描述相符；補註約束滿足被砍、講義 repo、作業評分等說法的依據不是這支影片。
+- 2026-11-12：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 
