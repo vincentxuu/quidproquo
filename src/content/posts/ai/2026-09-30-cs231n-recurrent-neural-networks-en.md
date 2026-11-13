@@ -209,13 +209,9 @@ The summary on page 118:
 
 The last slide previews the next lecture: attention and transformers.
 
-## What this post can and can't confirm
+## Further reading
 
-Confirmed: the 2026 schedule's topics and suggested readings, the content of the deck linked from the 2026 schedule, the A2 Q5 description, and the existence and lecturer of the 2025 L7 recording (per the 2025 schedule).
-
-Not confirmed: how much of GRU and sequence-to-sequence, both listed on the schedule, was covered in class (neither year's slides mention them in text); who taught this lecture in 2026 (the lecturer column on the 2026 schedule is commented out); and what the 2026 class recording contains (Canvas only).
-
-Further reading on this site: [CS224N on RNNs and language models](/posts/ai/2026-08-22-cs224n-rnn-language-models-en) covers the same models from the NLP side. [CMU 11-785's first RNN lecture](/posts/ai/2026-08-22-cmu-11785-13-rnn-one-en) and its [seq2seq lecture](/posts/ai/2026-08-22-cmu-11785-15-seq2seq-ctc-en) cover the sequence-to-sequence material these slides don't expand on.
+[CS224N on RNNs and language models](/posts/ai/2026-08-22-cs224n-rnn-language-models-en) covers the same models from the NLP side. [CMU 11-785's first RNN lecture](/posts/ai/2026-08-22-cmu-11785-13-rnn-one-en) and its [seq2seq lecture](/posts/ai/2026-08-22-cmu-11785-15-seq2seq-ctc-en) cover the sequence-to-sequence material these slides don't expand on.
 
 Series navigation: previous [L6: Training CNNs and CNN Architectures](/posts/ai/2026-09-30-cs231n-training-cnns-architectures-en) | next [A2 guide: BatchNorm, Dropout, CNNs, PyTorch, and RNN Captioning](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn-en) | [series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
 

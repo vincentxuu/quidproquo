@@ -193,13 +193,11 @@ The summary slide makes three points:
 2. Snooping's main idea is that any cache operation that could affect coherence is broadcast to all other cache controllers. The hardware challenge is keeping the protocol's overhead low; the software challenge is watching for artifactual communication such as false sharing
 3. Snooping scales only as far as broadcast does; directories are how coherence scales further
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the L14 slide PDF, and the lecture date and description on the course home page ("Invalidation-based coherence using MSI and MESI, false sharing"). The first 20 pages of the Fall 2025 L15 slides repeat L14's MSI, MESI, directory, and false-sharing material almost verbatim, which suggests L14 ran over into the next lecture. That is an inference from the slides; there's no recording to confirm it.
+The first 20 pages of the Fall 2025 L15 slides repeat L14's MSI, MESI, directory, and false-sharing material almost verbatim, so after this post you can skip that part of L15.
 
-Not confirmed: what was said in the Fall 2025 lecture, and the page-by-page differences between the 2023 video and the 2025 slides. This post was not written from the video.
-
-Further reading: locks and synchronization from the operating-system side in [CS111 Lecture 6: Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en).
+Locks and synchronization from the operating-system side in [CS111 Lecture 6: Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en).
 
 **Series**: previous [PA5, the fastest kernel on an H100](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels-en) | next [L15 Memory consistency](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 

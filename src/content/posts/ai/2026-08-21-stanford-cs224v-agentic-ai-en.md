@@ -30,13 +30,13 @@ This piece was written after reading the course site, four academic years of Exp
 
 The instructor is [Monica Lam](https://suif.stanford.edu/~lam/), a Stanford CS professor, member of the National Academy of Engineering, ACM Fellow, and co-author of the compiler "dragon book." She directs the [Open Virtual Assistant Lab (OVAL)](https://oval.cs.stanford.edu/), and the course materials are close to a catalog of that lab's output. The course has run every autumn since 2022, with her as PI throughout.
 
-The prerequisites are written loosely: LINGUIST 180/280, CS 124, CS 224N, CS 224S, or CS 224U — **any one of the five**. Three to four units, letter grade or credit/no-credit. The next offering is autumn 2026, Monday and Wednesday afternoons; exact dates are in the appendix.
+The prerequisites are written loosely: LINGUIST 180/280, CS 124, CS 224N, CS 224S, or CS 224U — **any one of the five**. Three to four units, letter grade or credit/no-credit. The next offering is autumn 2026, September 22 to December 4, Monday and Wednesday 3:00–4:20 p.m.
 
 Two things set it apart from the other agent course in the department. First, **it takes auditors** — the [course site](https://web.stanford.edu/class/cs224v/) says to email the course staff address with the subject line `audit cs224v request`, whereas [CS329A states plainly that auditing is not allowed](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en). Second, it is capped and has been oversubscribed for years; the autumn 2025 announcement page says so directly:
 
 > We apologize that we cannot accommodate all the students wishing to take the course this year.
 
-Enrollment history is public on ExploreCourses. Twenty-nine students the first year, then over the cap for three straight years, most recently 138. Year-by-year numbers are in the appendix.
+Enrollment history is public on ExploreCourses. Twenty-nine students the first year, then over the cap for three straight years, most recently 138: 94 against a cap of 75 in 2023, 139 against 120 in 2024, 138 against 120 in 2025.
 
 ## Three official descriptions, two rewrites
 
@@ -112,21 +112,9 @@ One thing you can do tonight: open the [November 10 deck](https://web.stanford.e
 
 To get a feel for the whole spine first, read four decks in order: Introduction (computational thinking) → Grounding on Free Text (WikiChat) → SUQL (structured plus unstructured) → Satisfying NL Constraints with SMT. Those four give you the skeleton of the course.
 
-## Appendix: numbers and how they were checked
-
-- **Next offering**: autumn 2026–2027, September 22 to December 4, 2026, Monday and Wednesday 3:00–4:20 p.m., room CODAB80, final exam slot the morning of December 8, 2026.
-- **Enrollment**: autumn 2022–2023, 29 (Turing Auditorium, no cap listed); autumn 2023–2024, 94 against a cap of 75; autumn 2024–2025, 139 against 120; autumn 2025–2026, 138 against 120. All four come from the Schedule block on the corresponding academic year's ExploreCourses page. The 2026–2027 entry currently lists only the meeting time and room (CODAB80), with no enrollment figure.
-- **The two official documents disagree on grade weights**: the course site's front page says Participation 15%, Homeworks 20%, Final Project 65%; the table in the first lecture deck says Participation 15%, Assignment 25%, Final Project 60%. Both are official Fall 2025 materials. This post uses the website's numbers in the body text (homework worth under thirty percent holds either way). The course does not say which one governs.
-- **How participation breaks down**: 5% for attendance and in-class participation for local students, with the other 10% (local) or 15% (remote SCPD) for the weekly written update and mentor meeting.
-- **Reading list size**: eleven topic sections, 54 entries counted one by one, of which 11 are marked `[Mandatory]`. The numbering inside the PDF is scrambled in sections four and five (8 and 7 appear after 1, 3, 2), so the count is by entry, not by number.
-- **Attribution of the mandatory readings**: Monica Lam is an author on 7 of the 11 (STORM, Co-STORM, WikiChat, SUQL, SPINACH, Genie Worksheets, ReactGenie), determined by checking the author field of each entry's citation on the reading list.
-- **System numbers cited in the lectures** (all from the first deck, not independently verified here): WikiChat at 97% factual accuracy in English across 25 supported languages; SPINACH deployed on the Wikidata query forum with 1,700 conversations and a 78% success rate on 198 sampled ones; Genie Worksheets at 80% accuracy against 0–10% for GPT-4 function calling; STORM with 800,000 organic users and 1.4 million articles written.
-- **The NLP building blocks lecture on November 12**: it covers CHURRO, a 3B-parameter vision-language model for recognizing historical documents, published at [EMNLP 2025](https://aclanthology.org/2025.emnlp-main.1763/).
-- **Unconfirmed**: (1) the official reason for the rename — ExploreCourses, the course site, and the OVAL site all say nothing about it; (2) whether autumn 2026 reuses the 2025 assignments and reading list, since the new syllabus is not up; (3) the 2026–2027 entry lists only Monica Lam, with no course staff yet, so there is no way to tell whether the team changed.
-
 ## Course video sources
 
-The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
+The official course site (read live on 2026-11-12) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
 
 Course and recording entries:
 
@@ -134,12 +122,13 @@ Course and recording entries:
 - [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
 - [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
 
-Checked: 2026-10-10.
+Checked: 2026-11-12.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official site says recordings are on Canvas and opening the entry confirmed the sign-in wall; the public Fall 2024 playlist has no lecture that definitely matches, so nothing is embedded and the status is now sign-in required.
+- 2026-11-12: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

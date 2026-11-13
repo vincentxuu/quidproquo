@@ -176,11 +176,9 @@ The PDF also has 12 practice problems. Topics include another MSI state table, f
 
 **Try this**: do the MSI table in Problem 1 first; if you get stuck, go back to L16 slide 16, which walks through a similar sequence step by step. Then do Parts A and B of Problem 4 and draw the pointer states for the interleavings yourself. There are no public solutions. To check your answers, write a small program where two threads interleave many inserts, then verify that every `next` and `prev` agree.
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the contents of the L17 and L18 slides and the Written 4 PDF, and the lecture dates and the Written 4 date on the course home page. Not confirmed: anything said in the Fall 2025 lectures or AMA beyond the slides (the recordings are not public); exact numbers in the performance charts (this post only quotes figures the slides state in text); and Written 4 solutions and grading details (not public). The MSI diagrams in Written 4 carry a "Stanford CS149, Fall 2020" footer, which looks like a reused figure; this post draws no conclusion from it.
-
-Further reading: for locks and deadlock from the OS side, see [CS111 Lecture 7: Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en).
+For locks and deadlock from the OS side, see [CS111 Lecture 7: Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en).
 
 Series navigation: previous [L16: Fine-Grained Locking and Lock-Free Programming](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free-en) | this is the last part | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 

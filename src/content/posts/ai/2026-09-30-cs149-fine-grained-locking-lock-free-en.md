@@ -157,11 +157,9 @@ Slide 65 closes with a question and answer. What role did CAS play in these lock
 
 Slide 66 lists further reading: Michael & Scott 1996 (a multi-reader/writer lock-free queue), Harris 2001, Michael Sullivan's [RMC compiler](https://github.com/msullivan/rmc-compiler), and two blog posts.
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the contents of the L16 slides PDF, and the lecture date and summary on the course home page. Not confirmed: anything said in the Fall 2025 lecture beyond the slides (the recording is not public); the exact numbers in the slide 62 chart (this post does not read values off the graph); and slide-by-slide differences between the 2023 recording and the 2025 slides. Nothing here is based on the video.
-
-Further reading: for locks and deadlock from the OS side, see [CS111 Lecture 6: Implementing Locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en) and [CS111 Lecture 7: Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en).
+For locks and deadlock from the OS side, see [CS111 Lecture 6: Implementing Locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en) and [CS111 Lecture 7: Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en).
 
 Series navigation: previous [L15: Implementing Synchronization and Memory Consistency](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency-en) | next [L17–L18: Transactional Memory + Written 4](/posts/ai/2026-09-30-cs149-transactional-memory-w4-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 

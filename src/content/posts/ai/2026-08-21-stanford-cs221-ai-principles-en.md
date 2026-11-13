@@ -28,7 +28,7 @@ What follows covers the hard facts, how the course defines AI, the four-layer sp
 
 ## The hard facts
 
-Instructors rotate. [Autumn 2025](https://stanford-cs221.github.io/autumn2025/) was taught by [Percy Liang](https://cs.stanford.edu/~pliang/); [Spring 2025](https://stanford-cs221.github.io/spring2025/) by Moses Charikar and Zachary Robertson. Per the [ExploreCourses entry for CS221](https://explorecourses.stanford.edu/search?q=CS+221&view=catalog), the 2026–2027 autumn section goes to Liang and the spring section to Charikar. Units and meeting times are in the appendix.
+Instructors rotate. [Autumn 2025](https://stanford-cs221.github.io/autumn2025/) was taught by [Percy Liang](https://cs.stanford.edu/~pliang/); [Spring 2025](https://stanford-cs221.github.io/spring2025/) by Moses Charikar and Zachary Robertson. Per the [ExploreCourses entry for CS221](https://explorecourses.stanford.edu/search?q=CS+221&view=catalog), the 2026–2027 autumn section goes to Liang and the spring section to Charikar. It carries 3–4 units; the autumn 2026 section meets Tuesdays and Thursdays 15:00–16:20.
 
 The prerequisites are the spine of this piece, and **there are three versions of them in circulation**. ExploreCourses states them most firmly:
 
@@ -141,7 +141,7 @@ The problem ships with a full tutor prompt template, and instructs the AI not to
 
 Line up the grade weights across offerings and you see a six-year drift: the project disappeared from the grade.
 
-In Autumn 2019 the project was 20% of the total. By Autumn 2025 the [project page](https://stanford-cs221.github.io/autumn2025/project.html) states flatly that "the project is ungraded (except for potential extra credit)" — a couple of points at most, with the bulk of the grade sitting on one final exam. Year-by-year weights are in the appendix.
+In Autumn 2019 the project was 20% of the total. By Autumn 2025 the [project page](https://stanford-cs221.github.io/autumn2025/project.html) states flatly that "the project is ungraded (except for potential extra credit)" — a couple of points at most, with the bulk of the grade sitting on one final exam. Exams were 40% in Autumn 2021 and 2022 and have been about 60% since Autumn 2023.
 
 Plenty of CS221 self-study guides written a few years ago still treat the project as the centerpiece of the course. That description has expired. The course site doesn't explain the change.
 
@@ -167,16 +167,6 @@ Once you've written your answers, read [the ucs\_astar lecture](https://stanford
 
 For a fuller entry point, run [welcome](https://stanford-cs221.github.io/autumn2025-lectures/?trace=welcome) from top to bottom. In twenty minutes it will hand you the course's worldview, emoticon included.
 
-## Appendix: numbers and how they were checked
-
-- **Offering details**: the ExploreCourses entry lists 3–4 units, noting "May be taken for 3 units by graduate students." The 2026–2027 autumn section (class #1903) is taught by Percy Liang, Tuesdays and Thursdays 15:00–16:20 in Hewlett Teaching Center 200, with the final exam on 2026-12-10; the spring section (class #1890) is taught by Moses Charikar, Mondays and Wednesdays 10:30–12:20. Autumn 2025 met in NVIDIA Auditorium, with a single in-person exam on 2025-11-19 from 6 to 9 pm worth 60% of the grade.
-- **Grade weights across offerings**: Autumn 2019 was 60% assignments, 20% exams, 20% project; Autumn 2021 was 55% assignments and 40% exams (two open-book exams, 100 minutes each, distributed via Gradescope); Autumn 2022 was 60% assignments and 40% exams, with the project dropped to at most 2% extra credit; from Autumn 2023 it became 40% assignments and 60% exams; Autumn 2024 and Spring 2025 were 40% assignments and 59.5% exams (the extra 0.5% is a prerequisite quiz), with the project worth up to 1.5% extra credit; Autumn 2025 is 40% assignments and one 60% exam, with up to 1.5% extra credit for the project and up to 1% for Ed participation. Each figure comes from the grading section of `stanford-cs221.github.io/<quarter>/`.
-- **Module count and what's public**: the Spring 2025 module registry (`modules/course-data.js`) lists 111 modules, 32 of them carrying Panopto video links and 10 linked directly to PDFs from the index. Those 10 are five prerequisite-review modules and five embedded-ethics modules. The remaining modules' slide PDFs aren't listed on the index but sit at the same `spring2025-extra/modules/<group>/<name>.pdf` path and download fine when tested one by one.
-- **Lecture count for Autumn 2025**: the schedule runs to lecture 20. Lectures 17 (language models), 18 (AI and society) and 19 are marked `[New]` on the course site. Lecture 19 is titled "AI Supply Chains" on the course site and "Economics of AI" in the lecture repo's README, and the two link to different material (the former has no separate link; the latter is a Google Slides deck).
-- **Assignment lineup across offerings**: Autumn 2022 was foundations, blackjack, pacman, scheduling, car, logic; Autumn 2023 swapped blackjack for sentiment; Autumn 2024 and Spring 2025 added route and mountaincar for a total of eight; Autumn 2025 removed scheduling and car and added bayesian and society.
-- **Late policy**: 7 late days for the quarter, at most 2 on any single assignment; past that, the cap drops 25% per additional day, and nothing is accepted more than 2 days late.
-- **What could not be confirmed**: (1) which of the three official pages takes precedence when they disagree on prerequisites — none of them says; this piece can only suggest taking the union, not settle the ordering. (2) Why constraint satisfaction was cut — the first lecture records the outcome and an emoticon, no reason. (3) Why the project dropped from a graded component to extra credit — no course site across the offerings explains it. (4) The assignment policy page says submitted code has "no guarantee of support for packages beyond the standard library" and tells you not to use numpy, scikit-learn or pandas, yet the setup steps for the first assignment tell you to run `uv add numpy einops`; I can't determine from the pages themselves which scope each rule applies to. (5) Autumn 2025 enrollment is not published.
-
 ## Course video sources
 
 This article is a course-level guide, not a single lecture. The video below, Autumn 2025 Lecture 1 (course overview), is a related supplement; each lecture has its own guide article in this series. The official playlist is public and lists all 20 lectures.
@@ -193,7 +183,7 @@ Course and recording entries:
 - [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-12.
 
 Content check: verified against the video transcript (2026-10-10): read the whole transcript (1:06:26). This is Percy Liang's first lecture of Autumn 2025: he says it is his 14th year at Stanford and 13th time teaching the course, with quite large changes this year; it covers the definition and brief history of AI, the four abilities perceive/reason/act/learn under resource constraints (computation and data), expressing algorithms as tensors, the learning-by-doing philosophy of the homeworks, and a preview of AI's societal issues, matching this article's description of the course. The transcript does not discuss the dropped constraint-satisfaction material, the lecture repo, or assignment and grading details; those claims rest on welcome.py and the official pages, not this video.
 
@@ -202,6 +192,7 @@ Content check: verified against the video transcript (2026-10-10): read the whol
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official playlist is public with 20 lectures; embedded Lecture 1 as a related supplement because this is a course-level article.
 - 2026-10-10: Checked the video content against its transcript. Read the whole transcript; it matches the article's description of the course; noted that the dropped constraint-satisfaction material, lecture repo and assignment/grading claims rest on other sources, not this video.
+- 2026-11-12: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

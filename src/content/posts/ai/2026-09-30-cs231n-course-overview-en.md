@@ -32,7 +32,7 @@ The course description centers on end-to-end learning. Over 10 weeks, students i
 
 This post answers three questions: what the course teaches, what outside readers can actually get, and how to fit it into 10 weeks.
 
-## The hard facts
+## Class times, grading, and prerequisites
 
 **Meeting times**: Tuesdays and Thursdays, 12:00–1:20 PM Pacific, in NVIDIA Auditorium, plus Friday discussion sections.
 

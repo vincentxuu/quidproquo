@@ -177,13 +177,9 @@ The two summary slides:
 | "Lock-free data structure authors must care about consistency" | The slide itself marks it "Topic of a later lecture" |
 | Transactional memory as a synchronization primitive | [L17–L18 Transactional memory](/posts/ai/2026-09-30-cs149-transactional-memory-w4-en) |
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the L15 slide PDF, the lecture title and description on the course home page, and the L16 PDF's cover title and lock-implementation section. The home page's "Fine-grained synchronization via locks" has no matching slides in the L15 PDF; whether it was covered verbally in class can't be checked without a recording. Slide 42, "Write Buffer Performance," is a chart, and this post doesn't quote its values.
-
-Not confirmed: what was said in the Fall 2025 lecture, and the page-by-page differences between the 2023 video (titled Memory Consistency that year) and the 2025 slides. This post was not written from the video.
-
-Further reading: lock implementations and atomic operations from the operating-system side in [CS111 Lecture 6: Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en).
+Lock implementations and atomic operations from the operating-system side in [CS111 Lecture 6: Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en).
 
 **Series**: previous [L14 Cache coherence: MSI, MESI, and false sharing](/posts/ai/2026-09-30-cs149-cache-coherence-en) | next [L16 Fine-grained locking and lock-free programming](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 

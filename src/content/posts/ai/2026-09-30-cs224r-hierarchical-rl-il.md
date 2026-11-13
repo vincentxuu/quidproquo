@@ -192,9 +192,9 @@ g_t 有很多名字：subgoal、subtask、skill、option、high-level action。�
 - [Berkeley CS285 的探索與開放問題導讀](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems)
 - [CS285 模仿學習與 RL 基礎](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics)，DAgger 的另一種講法
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：2026 投影片的文字、演算法步驟與圖表標題；課表的日期與指定閱讀；2025 影片的標題與長度；各篇論文的標題（逐一開過 arXiv 頁面）。不能確認：第 13 頁課堂討論的內容、第 34–36 頁長條圖的具體數值與指標、第 23 頁四個業界系統在課堂上被怎麼介紹。2026 投影片的 SuSIE 標題寫作「SuSIE: Subgoal Synthesis via Image Editing」，arXiv 上的標題是「Zero-Shot Robotic Manipulation with Pretrained Image-Editing Diffusion Models」，兩者是同一篇。
+投影片把 SuSIE 寫作「SuSIE: Subgoal Synthesis via Image Editing」，arXiv 上的標題是「Zero-Shot Robotic Manipulation with Pretrained Image-Editing Diffusion Models」，找論文時要搜後者。
 
 系列導覽：上一篇 [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl)｜下一篇 [L16 Sim-to-Real 機器人學習](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
 
@@ -215,13 +215,14 @@ title: Spring 2025 Lecture 15: Hierarchical RL and IL（YouTube，補充）
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
 
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。影片是 Spring 2025 L15，主題相符（約 70 分鐘亦相符），沒有需修正之處。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

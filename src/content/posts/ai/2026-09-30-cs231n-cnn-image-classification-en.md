@@ -169,13 +169,9 @@ Translate then convolve equals convolve then translate. The slide's intuition: *
 
 The last slide previews the next lecture: CNN architectures.
 
-## What this post can and can't confirm
+## Further reading
 
-Confirmed: the 2026 schedule's topics and reading, the 2026 slide content, the parameter-sharing example in the official notes, and the existence and lecturer of the 2025 L5 recording (per the 2025 schedule).
-
-Not confirmed: who actually taught this lecture in 2026 (the lecturer column on the 2026 schedule is commented out) and what the 2026 class recording contains (Canvas only). The 2025 recording is a different term's lecture, and slide details may differ; the 2025 deck has the extra Bag of Words slide, for example.
-
-Further reading on this site: [CMU 11-785's first CNN lecture](/posts/ai/2026-08-22-cmu-11785-09-cnn-one-en) derives convolution from scanning MLPs, a different route in. [CMU 07-280 Lecture 14](/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns-en) is a gentler introduction to computer vision and CNNs.
+[CMU 11-785's first CNN lecture](/posts/ai/2026-08-22-cmu-11785-09-cnn-one-en) derives convolution from scanning MLPs, a different route in. [CMU 07-280 Lecture 14](/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns-en) is a gentler introduction to computer vision and CNNs.
 
 Series navigation: previous [A1 guide: kNN, Softmax, Two-Layer Net, and Fully-Connected Nets](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet-en) | next [L6: Training CNNs and CNN Architectures](/posts/ai/2026-09-30-cs231n-training-cnns-architectures-en) | [series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
 
