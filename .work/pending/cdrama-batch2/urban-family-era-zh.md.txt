@@ -1,0 +1,458 @@
+---
+title: "陸劇都市愛情、家庭與時代劇怎麼挑：繁花、去有風的地方、難哄、偷偷藏不住、我的阿勒泰等 21 部"
+date: 2026-11-13
+category: film
+tags: [tv-drama, c-drama, romance, family-drama]
+lang: zh-TW
+type: guide
+description: "給想看中國現代愛情劇、家庭劇與年代劇的台灣觀眾：都市愛情、家庭與人生、年代與時代劇三組，21 部都同時被獎項評審、影評人、觀眾評分、收視數據、話題指標、劇迷口碑、台灣觀眾當中至少三類非官方來源推薦，而且台灣有合法串流；每部附推薦來源、MyDramaList／IMDb／豆瓣評分、英文與台灣劇評、尺度、集數與台灣串流連結。"
+tldr: "先看六類來源都推的《繁花》、五類都推的《去有風的地方》和《難哄》。都市愛情多在 Netflix、海外劇迷給分高，豆瓣卻偏低；年代劇反過來，最常拿獎、豆瓣也比較高。只有 8 集的《我的阿勒泰》在 Hami Video 的授權 2026-12-01 到期。"
+draft: false
+series:
+  name: "各國影劇導讀"
+  order: 15
+---
+
+> 🌏 [English version](/posts/film/2026-11-13-cdrama-urban-family-era-en)
+
+陸劇最後一篇收的是現代劇和年代劇：重逢的暗戀、女機師的訓練、辭職去大理的酒店經理、阿勒泰草原上的雜貨鋪，以及 1990 年代上海黃河路的商戰。21 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類非官方來源都推它，而且台灣有合法串流管道。陸劇的選片規則（官方獎不計、愛奇藝國際站與 WeTV 不算台灣合法管道）寫在[古裝愛情篇](/posts/film/2026-11-12-cdrama-costume-romance-xianxia)開頭；韓國的家庭與時代劇在[韓劇人生家庭篇](/posts/film/2026-11-08-kdrama-life-family-period)。
+
+這組有兩個特點：
+
+- **都市愛情靠觀眾，年代劇靠評審。** 7 部年代劇都有非官方獎項推薦；9 部都市愛情只有《玫瑰的故事》有。
+- **豆瓣和海外劇迷的方向相反。** 都市愛情在 MyDramaList 普遍比豆瓣高 1 到 3 分；《繁花》《小巷人家》反過來，豆瓣比較高。
+
+## 先從這 3 部開始
+
+| 劇 | 為什麼先看 | 尺度 | 在哪看 |
+|---|---|---|---|
+| 繁花 | 六類推薦來源都有，Metacritic 77、豆瓣 8.7 | 輕：商戰與情感 | myVideo（台灣獨家） |
+| 去有風的地方 | 五類推薦來源都有，豆瓣 8.4、MyDramaList 8.8 | 輕 | friDay影音（免費方案可看）、Hami Video |
+| 難哄 | 五類推薦來源都有，MyDramaList 8.8、4.7 萬人評分 | 輕到中等：有驚嚇情節 | Netflix |
+
+## 推薦來源一覽
+
+表中 ● 代表這一類來源有推薦。A 獎項評審、B 影評人投票榜、C 觀眾評分、D 收視與串流數據、E 話題指標、F 劇迷口碑、G 台灣觀眾。官方榜不算在 A 類。
+
+| 劇 | A | B | C | D | E | F | G | 類別數 |
+|---|---|---|---|---|---|---|---|---|
+| 繁花 | ● | ● | ● | ● |  | ● | ● | 6 |
+| 難哄 |  |  | ● | ● | ● | ● | ● | 5 |
+| 蠻好的人生 | ● |  |  | ● | ● | ● | ● | 5 |
+| 北上 | ● |  |  | ● | ● | ● | ● | 5 |
+| 去有風的地方 | ● | ● | ● |  |  | ● | ● | 5 |
+| 小巷人家 | ● |  | ● | ● | ● | ● |  | 5 |
+| 許我耀眼 |  | ● |  | ● |  | ● | ● | 4 |
+| 在暴雪時分 |  | ● | ● | ● |  | ● |  | 4 |
+| 玫瑰的故事 | ● |  |  | ● |  | ● | ● | 4 |
+| 早春晴朗 |  |  | ● | ● | ● |  | ● | 4 |
+| 生萬物 | ● | ● |  | ● | ● |  |  | 4 |
+| 偷偷藏不住 |  | ● | ● |  |  | ● |  | 3 |
+| 當我飛奔向你 |  |  | ● |  |  | ● | ● | 3 |
+| 180天重啟計劃 |  | ● |  |  | ● | ● |  | 3 |
+| 向風而行 |  |  |  | ● |  | ● | ● | 3 |
+| 狙擊蝴蝶 |  | ● |  |  |  | ● | ● | 3 |
+| 以家人之名 | ● |  | ● |  |  | ● |  | 3 |
+| 人世間 | ● | ● |  | ● |  |  |  | 3 |
+| 我的阿勒泰 | ● | ● | ● |  |  |  |  | 3 |
+| 大生意人 | ● |  |  |  | ● | ● |  | 3 |
+| 老舅 | ● | ● |  |  | ● |  |  | 3 |
+
+這組的 F 欄（劇迷口碑）最滿，21 部有 16 部。A 欄（非官方獎項）有 12 部，比古裝兩篇多得多，大多是年代劇和家庭劇。
+
+## 豆瓣和海外劇迷，方向不一樣
+
+```diagram
+title: 8 部的豆瓣與 MyDramaList 分數
+desc: 都市愛情差距最大：難哄豆瓣 5.4、MyDramaList 8.8，偷偷藏不住 6.7 對 9.0，許我耀眼 6.5 對 8.3；去有風的地方、我的阿勒泰兩邊接近；年代劇小巷人家、繁花反過來，豆瓣比 MyDramaList 高。
+caption: 豆瓣分數來源不一：燈塔、雲合年度報告或新聞報導，多數是某個時間點的數字，難哄的 5.4 沒寫明是開分還是後來的分數。繁花、小巷人家在 MyDramaList 只有幾百人評分。兩站評分者不同，只看方向。
+---
+<svg viewBox="0 0 640 388">
+  <line class="dg-rule" x1="220" y1="344" x2="600" y2="344"/>
+  <line class="dg-rule" x1="220" y1="340" x2="220" y2="348"/>
+  <text class="dg-small" x="220" y="366" text-anchor="middle">5</text>
+  <line class="dg-rule" x1="296" y1="340" x2="296" y2="348"/>
+  <text class="dg-small" x="296" y="366" text-anchor="middle">6</text>
+  <line class="dg-rule" x1="372" y1="340" x2="372" y2="348"/>
+  <text class="dg-small" x="372" y="366" text-anchor="middle">7</text>
+  <line class="dg-rule" x1="448" y1="340" x2="448" y2="348"/>
+  <text class="dg-small" x="448" y="366" text-anchor="middle">8</text>
+  <line class="dg-rule" x1="524" y1="340" x2="524" y2="348"/>
+  <text class="dg-small" x="524" y="366" text-anchor="middle">9</text>
+  <line class="dg-rule" x1="600" y1="340" x2="600" y2="348"/>
+  <text class="dg-small" x="600" y="366" text-anchor="middle">10</text>
+  <text class="dg-sub" x="204" y="56" text-anchor="end" dominant-baseline="central">難哄</text>
+  <line class="dg-axis" x1="250" y1="56" x2="509" y2="56"/>
+  <circle class="dg-dot" cx="250" cy="56" r="6"/>
+  <rect class="dg-bar" x="503" y="50" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="238" y="56" text-anchor="end" dominant-baseline="central">5.4</text>
+  <text class="dg-small" x="521" y="56" dominant-baseline="central">8.8</text>
+  <text class="dg-sub" x="204" y="92" text-anchor="end" dominant-baseline="central">偷偷藏不住</text>
+  <line class="dg-axis" x1="349" y1="92" x2="524" y2="92"/>
+  <circle class="dg-dot" cx="349" cy="92" r="6"/>
+  <rect class="dg-bar" x="518" y="86" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="337" y="92" text-anchor="end" dominant-baseline="central">6.7</text>
+  <text class="dg-small" x="536" y="92" dominant-baseline="central">9.0</text>
+  <text class="dg-sub" x="204" y="128" text-anchor="end" dominant-baseline="central">許我耀眼</text>
+  <line class="dg-axis" x1="334" y1="128" x2="471" y2="128"/>
+  <circle class="dg-dot" cx="334" cy="128" r="6"/>
+  <rect class="dg-bar" x="465" y="122" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="322" y="128" text-anchor="end" dominant-baseline="central">6.5</text>
+  <text class="dg-small" x="483" y="128" dominant-baseline="central">8.3</text>
+  <text class="dg-sub" x="204" y="164" text-anchor="end" dominant-baseline="central">蠻好的人生</text>
+  <line class="dg-axis" x1="326" y1="164" x2="425" y2="164"/>
+  <circle class="dg-dot" cx="326" cy="164" r="6"/>
+  <rect class="dg-bar" x="419" y="158" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="314" y="164" text-anchor="end" dominant-baseline="central">6.4</text>
+  <text class="dg-small" x="437" y="164" dominant-baseline="central">7.7</text>
+  <text class="dg-sub" x="204" y="200" text-anchor="end" dominant-baseline="central">去有風的地方</text>
+  <line class="dg-axis" x1="478" y1="200" x2="509" y2="200"/>
+  <circle class="dg-dot" cx="478" cy="200" r="6"/>
+  <rect class="dg-bar" x="503" y="194" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="466" y="200" text-anchor="end" dominant-baseline="central">8.4</text>
+  <text class="dg-small" x="521" y="200" dominant-baseline="central">8.8</text>
+  <text class="dg-sub" x="204" y="236" text-anchor="end" dominant-baseline="central">我的阿勒泰</text>
+  <line class="dg-axis" x1="516" y1="236" x2="509" y2="236"/>
+  <circle class="dg-dot" cx="516" cy="236" r="6"/>
+  <rect class="dg-bar" x="503" y="230" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="497" y="236" text-anchor="end" dominant-baseline="central">8.8</text>
+  <text class="dg-small" x="528" y="236" dominant-baseline="central">8.9</text>
+  <text class="dg-sub" x="204" y="272" text-anchor="end" dominant-baseline="central">小巷人家</text>
+  <line class="dg-axis" x1="471" y1="272" x2="448" y2="272"/>
+  <circle class="dg-dot" cx="471" cy="272" r="6"/>
+  <rect class="dg-bar" x="442" y="266" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="436" y="272" text-anchor="end" dominant-baseline="central">8.0</text>
+  <text class="dg-small" x="483" y="272" dominant-baseline="central">8.3</text>
+  <text class="dg-sub" x="204" y="308" text-anchor="end" dominant-baseline="central">繁花</text>
+  <line class="dg-axis" x1="501" y1="308" x2="425" y2="308"/>
+  <circle class="dg-dot" cx="501" cy="308" r="6"/>
+  <rect class="dg-bar" x="419" y="302" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="413" y="308" text-anchor="end" dominant-baseline="central">7.7</text>
+  <text class="dg-small" x="513" y="308" dominant-baseline="central">8.7</text>
+  <text class="dg-tag" x="220" y="22" dominant-baseline="central">● 豆瓣　■ MyDramaList</text>
+</svg>
+```
+
+## 片單
+
+每部的格式：推薦來源、官方榜（有的話）、評分、劇評、尺度、長度、先看什麼、在哪看。
+
+- **評分**：這篇用 [MyDramaList](https://mydramalist.com/shows/top_chinese_dramas)、IMDb 和豆瓣，只有《繁花》有 Metacritic 分數。評分欄的豆瓣只寫讀得到原文來源的分數，並註明時間點；只有生活網站整理的豆瓣分數寫在劇評欄並標明。
+- **尺度**：中國沒有分級制度，21 部的台灣平台頁也沒有標分級。內容提醒取自 IMDb 家長指南，多數劇沒有投票，改依劇情寫。
+- **在哪看**：連結是台灣平台的作品頁；Netflix 只有台灣媒體報導的，寫在附註。
+
+### 都市愛情
+
+重逢的暗戀、偷偷喜歡哥哥的朋友、斯諾克球桌邊的相遇、女機師和廣告公司的地下戀情。多數在 Netflix，也最受海外劇迷歡迎。
+
+#### 難哄（The First Frost）
+
+電視台記者溫以凡與高中時拒絕過的桑延多年後重逢，陰錯陽差成了室友，舊情重燃（[Wikipedia](https://en.wikipedia.org/wiki/The_First_Frost)）。
+
+- **推薦來源**：`C MyDramaList 陸劇榜 #14（8.8）` `C IMDb 8.4（5,100 票）` `D 云合 2025 上新長劇有效播放前 20` `E 微博視界大會 2025 年度大眾喜愛作品` `F PTT China-Drama 2025 追劇回顧（「完成度相當高」）` `F Dcard 2025 上半年陸劇票選 #2（143 票）` `G LINE TODAY 2025 陸劇 #1` `G Netflix 台灣週榜 #1（2025-03-02，累計 7 週）`
+- **評分**：MyDramaList 8.8（47,582 人）｜IMDb 8.4（5,100 票）｜豆瓣 5.4（搜狐 2025 年 2 月報導，未註明是否為開分）
+- **劇評**：[Gulf News 的 Lakshana N Palat](https://gulfnews.com/entertainment/the-first-frost-c-drama-rewind-a-breathtaking-tale-of-love-and-trauma-that-rewrites-the-rules-of-romance-1.500164071) 評全 32 集，把它讀成創傷與療癒的故事，強力推薦。500輯〈質青評論〉的[雀雀](https://500times.udn.com/wtimes/story/120840/8608497)在完結後推它，說純愛劇從此進入「細節時代」。她也嫌劇集拉到三十二集，「戲很難唱下去」。MDL 8.8，搜狐報導的豆瓣只有 5.4，是本篇落差最大的一部。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南驚嚇類 Moderate（5 票全數），性為 None；女主有過去的創傷與騷擾情節。
+- **長度**：32 集，2025 年播出，已完結。中文維基列《折月亮》為後續作品。
+- **先看什麼**：改編自竹已的網路小說，不必先讀。和《偷偷藏不住》同作者、同系列，但主角不同，可以單獨看。
+- **在哪看**：[Netflix](https://www.cosmopolitan.com/tw/entertainment/movies/g61941830/the-first-frost/)（訂閱）。上架證據來自 Cosmopolitan 台灣版 2025 年報導
+
+#### 許我耀眼（Love’s Ambition）
+
+當紅主播許妍靠精心裝點的身世嫁給沈皓明，婚姻破裂後在低谷重新認識自己，沈皓明則想把她追回（[Wikipedia](https://zh.wikipedia.org/wiki/%E8%AE%B8%E6%88%91%E8%80%80%E7%9C%BC)）。
+
+- **推薦來源**：`B 新週刊 2025 年度熱劇` `D 云合 2025 熱播期集均 #3` `D 燈塔 2025 國產劇播放量 #5（19.64 億）` `F PTT China-Drama 2025「還有推薦哪部」串（3 推）` `G Netflix 台灣週榜 #2（2025-10-26，累計 7 週）` `G LINE TODAY 2025 陸劇 #3`
+- **評分**：MyDramaList 8.3（14,612 人）｜IMDb 7.4（931 票）｜豆瓣 6.5（燈塔 2025 年度榜新聞引述，2025 年 12 月）
+- **劇評**：[India Today 的 Bhavna Agarwal](https://www.indiatoday.in/entertainment/ott/story/loves-ambition-chinese-drama-zhao-lusi-romance-ambition-2800188-2025-10-09) 推薦但有保留，肯定趙露思演出有層次，嫌陳偉霆的男主角偏弱。找不到台灣署名劇評；聯合報系創作者平台 udn 女子漾的網紅[柒默lisa](https://woman.udn.com/woman/story/123164/9330973)寫心得推薦。她說後期有「節奏偏快、商戰線略浮的小瑕疵」。MDL 8.3、豆瓣 6.5，台灣串流熱度明顯高於大陸口碑。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南每類只有 1–2 票，只有酒精類是 Mild；依劇情尺度輕，題材是婚姻欺瞞。
+- **長度**：32 集，2025 年播出，已完結。
+- **先看什麼**：改編自張悅然的小說《大喬小喬》，不必先讀。同一原作另有電影《喬妍的心事》。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/17522/eps/1)（上架中）；[Netflix](https://www.netflix.com/tw/title/82050339)（訂閱）。Netflix 上架證據來自 Netflix 台灣官方 YouTube
+
+#### 在暴雪時分（Amidst a Snowstorm of Love）
+
+被禁賽後退役的前斯諾克天才林亦揚，在暴雪之夜遇見九球選手殷果，在她帶動下重返賽場（[Wikipedia](https://en.wikipedia.org/wiki/Amidst_a_Snowstorm_of_Love)）。
+
+- **推薦來源**：`B 新京報 2024 年度劇集` `C IMDb 7.9（2,000 票）` `D 云合 2024 上新劇有效播放 #19（11.9 億）` `F PTT China-Drama 2024「最喜歡的中劇」串（5 推）`
+- **評分**：MyDramaList 8.5（24,008 人）｜IMDb 7.9（2,000 票）
+- **劇評**：部落格 The Fangirl Verdict 的 [kfangurl](https://thefangirlverdict.com/2024/06/30/review-amidst-a-snowstorm-of-love-china/) 評全 30 集，推薦給能接受日常戀愛步調的觀眾。找不到台灣署名劇評。MDL 8.5，生活網站整理的豆瓣 6.8，播出時口碑兩極。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情是運動與戀愛，尺度輕。
+- **長度**：30 集，2024 年播出，已完結。
+- **先看什麼**：改編自墨寶非寶的小說，作者也兼編劇，不必先讀。
+- **在哪看**：[Netflix](https://www.beauty321.com/post/60022)（2024 年上架報導）。台灣證據偏舊，可能已下架；八大戲劇台 2024 年曾播出
+
+#### 玫瑰的故事（The Tale of Rose）
+
+書香世家出身的黃亦玫從職場新人到創業策展，經歷初戀錯過、婚姻離散與摯愛病逝，仍把人生活得精彩（[Wikipedia](https://en.wikipedia.org/wiki/The_Tale_of_Rose)）。
+
+- **推薦來源**：`A 白玉蘭獎 2025 提名` `D 云合 2024 上新劇有效播放 #5（22.9 億）` `D 燈塔 2024 電視劇榜 #3（20.82 億）、都市劇冠軍` `F PTT China-Drama 2024「最喜歡的中劇」串（1 人，「竟然沒人推」）` `G LINE TODAY 2024 陸劇點名`
+- **官方榜（不計入推薦來源）**：金鷹獎 2026 提名、2024 年劇集推優名單、飛天獎 2026 入圍
+- **評分**：MyDramaList 8.2（2,215 人）｜IMDb 6.8（568 票）｜豆瓣 7.1（開分，8.7 萬人評分，華龍網 2024 年 6 月報導）
+- **劇評**：小站 The Odd Apple 的 [Elle Morie](https://theoddapple.com/the-tale-of-rose/) 強推，說是劉亦菲近年最好的演出，也提醒較適合成熟觀眾。獨立評論＠天下的[廖芳潔](https://opinion.cw.com.tw/blog/profile/517/article/15044)說，重點「從來不在戀愛」。她認為劇在談「人生中會出現的所有選擇」。豆瓣開分 7.1、MDL 8.2，生活網站整理的豆瓣後來漲到 7.4。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情有多段感情、離婚與絕症。
+- **長度**：38 集，2024 年播出，已完結。導演說是開放式結局，沒有續集。
+- **先看什麼**：改編自亦舒的小說，不必先讀。1986 年的同名電影不是前作。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/271369.do?cs=2)（部分免費，至 2029-06-07）
+
+#### 早春晴朗（The Early Spring）
+
+北漂的尚之桃進入廣告公司，在毒舌創意總監欒念手下成長，兩人談了六年地下戀，分開多年後重逢（[Wikipedia](https://en.wikipedia.org/wiki/The_Early_Spring)）。
+
+- **推薦來源**：`C IMDb 8.2（2,200 票）` `D Netflix 全球非英語影集週榜 #2（連續兩週，最高 320 萬次觀看）` `E 微博視界大會 2026 年度影響力作品` `G DailyView 2026 年 10 月陸劇聲量 #7`
+- **評分**：MyDramaList 8.5（18,399 人）｜IMDb 8.2（2,200 票）
+- **劇評**：[India Today 的 Bhavna Agarwal](https://www.indiatoday.in/entertainment/ott/story/the-early-spring-review-jing-boran-sun-qian-mature-workplace-romance-netflix-2991074-2026-09-09) 評全 24 集推薦，說它分得清來電與合不合適。她嫌分手後的段落太壓縮。找不到台灣署名劇評。MDL 8.5，世界新聞網報導豆瓣開分只有 6.7，被稱為熱度與口碑倒掛。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南性類 Mild（5 票中 3 票），投稿提到暗示性的親密場面。
+- **長度**：24 集，2026 年播出，已完結。
+- **先看什麼**：改編自姑娘別哭的網路小說，不必先讀。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/83067197)（全球獨家）
+
+#### 偷偷藏不住（Hidden Love）
+
+桑稚國中起暗戀常來家裡找哥哥的段嘉許，上大學到他所在的城市後，兩人重新相處、慢慢相戀（[Wikipedia](https://en.wikipedia.org/wiki/Hidden_Love_(TV_series))）。
+
+- **推薦來源**：`B 南都娛樂年鑑 2023 十大劇集 #10` `C MyDramaList 陸劇榜 #4（9.0）` `C IMDb 8.6（9,900 票）` `F PTT China-Drama 2023「最喜歡的中劇」串（約 32 推）`
+- **評分**：MyDramaList 9.0（97,413 人）｜IMDb 8.6（9,900 票）｜豆瓣 6.7（開分，新浪轉錄微博，2023 年 7 月）
+- **劇評**：[India Today 的 Bhavna Agarwal](https://www.indiatoday.in/entertainment/ott/story/why-chinese-drama-hidden-love-should-be-on-your-binge-watch-list-this-season-2405778-2023-07-13) 在播完一週後推薦，稱讚它處理五歲年齡差的方式溫和。找不到台灣署名劇評；[風傳媒轉載一篇未署名的方格子影評](https://www.storm.mg/lifestyle/4829065)，只評前半。作者嫌原著台詞油膩，認為劇版「明顯被改善非常多」。MDL 9.0、豆瓣開分 6.7，爭議多集中在年齡差。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南性與暴力都是 Mild（26 票中 12 票、16 票中 13 票），只有簡單接吻。女主國中起暗戀大學生，年齡差是劇情設定。
+- **長度**：25 集，2023 年播出，已完結。
+- **先看什麼**：改編自竹已的網路小說，不必先讀。和《難哄》《當我飛奔向你》同作者，主角不同。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81705641)（訂閱）。上架證據來自風傳媒 2026 年 7 月的 Netflix 片單
+
+#### 當我飛奔向你（When I Fly Towards You）
+
+直球高中少女蘇在在雨天在小賣部前對校草張陸讓一見鍾情，用偏愛融化他的心防，從高中走到大學（[Wikipedia](https://en.wikipedia.org/wiki/When_I_Fly_Towards_You)）。
+
+- **推薦來源**：`C MyDramaList 陸劇榜 #2（9.0）` `C IMDb 8.5（4,400 票）` `F PTT China-Drama 2023「最喜歡的中劇」串（約 34 推）` `G Netflix 台灣週榜 #8（2023-08-27，1 週）`
+- **評分**：MyDramaList 9.0（62,728 人）｜IMDb 8.5（4,400 票）｜豆瓣 7.9（Cosmopolitan 台灣版整理，2025 年 2 月）
+- **劇評**：愛荷華市高中校刊 The Little Hawk 的學生 [Claire Hartwig](https://www.thelittlehawk.com/62229/culture/when-i-fly-towards-you-review/) 給 10/10，說浪漫派一定要看。找不到台灣署名劇評。MDL 9.0、生活網站整理的豆瓣 7.9，評論界幾乎缺席，口碑主要來自粉絲。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南性類 Mild（11 票中 8 票），大學後有接吻與暗示；後段有職場上司不當注視的情節。
+- **長度**：24 集，2023 年播出，已完結。
+- **先看什麼**：改編自竹已的網路小說《她病得不輕》，不必先讀。
+- **在哪看**：[Netflix](https://www.netflix.com/tw/title/81712983)（訂閱）。上架證據來自風傳媒與 Beauty321 的 2026 年報導
+
+#### 向風而行（Flight to You）
+
+立志當機長的女飛行員程曉跟著嚴格的機長顧南亭受訓，在男性為主的行業證明自己，兩人日久生情（[Wikipedia](https://zh.wikipedia.org/wiki/%E5%90%91%E9%A3%8E%E8%80%8C%E8%A1%8C)）。
+
+- **推薦來源**：`D 云合 2023 愛奇藝全網前十（無名次）` `F PTT China-Drama 2023「最喜歡的中劇」串（7 推）` `G myVideo 2023 戲劇年榜 #2` `G 愛奇藝台灣站 2023 #9（熱度參考）`
+- **評分**：MyDramaList 8.2（4,257 人）｜IMDb 7.8（196 票）｜豆瓣 6.9（開分，2.1 萬人評分，新浪轉錄微博，2023 年 1 月）
+- **劇評**：個人部落格 [cyn lynn](https://cyn-lynn.blogspot.com/2022/12/flight-to-you-recap-and-review.html) 不推，說看下去只為王凱與譚松韻，頁首評分 2.85/5。找不到台灣署名劇評。豆瓣開分 6.9、MDL 8.2，台灣 myVideo 年榜卻排第二，落差在看演員與看劇本的觀眾分流。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情是民航職場與戀愛，尺度輕。
+- **長度**：TV 版 39 集、原版 40 集，2022 年底到 2023 年初播出，已完結。
+- **先看什麼**：改編自沐清雨的小說《雲過天空你過心》，不必先讀。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/14795/eps/1)（上架中）；[friDay影音](https://video.friday.tw/drama/detail/2760)（免費＋影劇方案）
+
+#### 狙擊蝴蝶（Sniper Butterfly）
+
+岑矜在人生低谷把曾資助的鄉村少年李霧接到城市念書，六年後已是職場精英的李霧與她重逢，走向姊弟戀（[Wikipedia](https://mydramalist.com/756325-ju-ji-hu-die)）。
+
+- **推薦來源**：`B 新京報 2025 年度劇集榜` `F PTT China-Drama 2025「最喜歡的中劇」串（7 推）` `G Netflix 台灣週榜 #10（2025-12-21，2 週）`
+- **評分**：MyDramaList 8.0（5,343 人）｜IMDb 7.7（287 票）｜豆瓣 6.8（開分，搜狐 2025 年 12 月報導）
+- **劇評**：部落格 The Fangirl Verdict 的 [kfangurl](https://thefangirlverdict.com/2026/04/06/review-sniper-butterfly-china/) 推薦，但嫌最後一段的敘事決定讓情感沒到位。找不到台灣署名劇評。豆瓣開分 6.8、MDL 8.0，差距不大，討論焦點多在資助關係與年齡差的題材。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；資助人與受資助者的年齡差戀愛是主線，搜狐報導提到壁咚與強吻戲。
+- **長度**：30 集，2025 年 12 月播出，已完結。
+- **先看什麼**：改編自七寶酥的網路小說，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/318872.do?cs=2)（部分免費，至 2031-03-01）
+
+### 家庭與人生
+
+沒有血緣的一家人、48 歲意外懷孕的母親、中年失婚失業、辭職去大理和回到阿勒泰的草原。
+
+#### 蠻好的人生（A Better Life）
+
+39 歲的保險業務胡曼黎同時失去婚姻與工作，和當初害她被開除的新人薛曉舟聯手重新出發（[Wikipedia](https://en.wikipedia.org/wiki/A_Better_Life_(TV_series))）。
+
+- **推薦來源**：`A 白玉蘭獎 2026 提名` `D 云合 2025 上新劇有效播放 #18（11 億）` `D 燈塔 2025 國產劇播放量 #8（14.61 億）` `E 微博視界大會 2025 年度優秀作品` `F PTT China-Drama 2025「還有推薦哪部」串（2 推）` `G Netflix 台灣週榜 #6（2025-07-13，累計 6 週）` `G Hami Video 2025 戲劇榜 #6`
+- **官方榜（不計入推薦來源）**：金鷹獎 2026 提名、飛天獎 2026 入圍
+- **評分**：MyDramaList 7.7（311 人）｜IMDb 7.3（118 票）｜豆瓣 6.4（燈塔 2025 年度榜新聞引述，2025 年 12 月）
+- **劇評**：部落格 Cnovelholic 的 [Iya Moyya](https://cnovelholic.com/drama-review/romance/a-better-life-drama-review/) 推薦，說孫儷撐起全劇，但保險橋段有時不真實。聯合報〈娛樂有評〉的[潘光中](https://stars.udn.com/star/story/10093/8729509)播出期間推。他說困境場景「導演和編劇每集都能來個好幾次」。MDL 7.7 只有 311 人、豆瓣 6.4，大陸網友的不滿多指向男主角。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情是外遇、失業與職場鬥爭，尺度輕。
+- **長度**：36 集，2025 年播出，已完結。
+- **先看什麼**：中文維基寫改編自同名小說，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/291553.do?cs=2)（部分免費，至 2030-04-18）；[Netflix](https://www.netflix.com/tw/title/82071131)（訂閱）。Netflix 上架證據來自 Netflix 台灣官方 YouTube
+
+#### 去有風的地方（Meet Yourself）
+
+酒店大堂經理許紅豆因摯友病逝辭職，到雲南大理長住，結識返鄉創業的謝之遙，兩人日久生情（[Wikipedia](https://en.wikipedia.org/wiki/Meet_Yourself)）。
+
+- **推薦來源**：`A 首爾國際電視劇獎 2023 最佳連續劇（與另一部並列）` `B 南都娛樂年鑑 2023 十大劇集 #4` `C 豆瓣 2023 評分最高華語劇集 #3` `C MyDramaList 陸劇榜 #19（8.8）` `F PTT China-Drama 2023「最喜歡的中劇」串（約 65 推，本篇最多）` `G myVideo 2023 戲劇年榜 #1`
+- **官方榜（不計入推薦來源）**：飛天獎 2024 優秀電視劇、金鷹獎 2024 優秀電視劇
+- **評分**：MyDramaList 8.8（13,395 人）｜IMDb 8.2（1,200 票）｜豆瓣 8.4（新浪轉錄微博，2023 年 2 月；開分 8.1）
+- **劇評**：部落格 Chasing Dramas 的 [Karen and Cathy](https://www.chasingdramas.com/reviews/currently-watching-meet-yourself-2022-%E5%8E%BB%E6%9C%89%E9%A3%8E%E7%9A%84%E5%9C%B0%E6%96%B9/) 給 7/10，說很療癒但近乎太理想化。聯合報〈娛樂有評〉的[王瑋](https://stars.udn.com/star/story/10093/7193239)推，說四十集甜而不膩。他也點出「靜好歲月的設定自然顯得有些刻意」。豆瓣開分 8.1 後漲到 8.4、MDL 8.8，是國內外評價最一致的一部。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情尺度輕，開頭是摯友因癌症過世。
+- **長度**：40 集，2023 年播出，已完結。
+- **先看什麼**：原創劇本，不必先看任何作品。
+- **在哪看**：[friDay影音](https://video.friday.tw/drama/detail/4697)（免費＋影劇方案）；[Hami Video](https://hamivideo.hinet.net/product/211689.do?cs=2)（訂閱，至 2027-01-02）；[LINE TV](https://www.linetv.tw/drama/14304/eps/1)（上架中）
+
+#### 180天重啟計劃（Me and My Family）
+
+失戀又失業的顧雲蘇回家投靠母親，卻發現 48 歲再婚的母親意外懷孕，只好陪產照護 180 天（[Wikipedia](https://mydramalist.com/755761-180-tian-pei-chan-ji-hua)）。
+
+- **推薦來源**：`B 南方週末 2025 年度劇集提名` `E 微博視界大會 2025 年度突破創新作品` `F PTT China-Drama 2025 推薦（「李漠導演都市劇的神」）`
+- **評分**：MyDramaList 7.8（127 人）｜IMDb 6.4（24 票）
+- **劇評**：找不到英文署名劇評。找不到台灣署名劇評。MDL 7.8 只有 127 人，豆瓣沒有可靠的公開分數；評審肯定來自南方週末年度劇集提名。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情有激烈的夫妻與母女爭吵，以及外婆過世的段落。
+- **長度**：27 集，2025 年播出，已完結。
+- **先看什麼**：改編自楚棠在豆瓣閱讀連載的網路小說《180天陪產計劃》，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/290629.do?cs=2)（部分免費，至 2030-02-16）；[LINE TV](https://www.linetv.tw/drama/17223/eps/1)（上架中）
+
+#### 以家人之名（Go Ahead）
+
+三個來自破碎家庭的孩子和兩個爸爸組成沒有血緣的一家人，分開九年後重聚，面對各自的過去（[Wikipedia](https://en.wikipedia.org/wiki/Go_Ahead_(TV_series))）。
+
+- **推薦來源**：`A 首爾國際電視劇獎 2021 最佳連續劇第二名` `C MyDramaList 陸劇榜 #15（8.8）` `C IMDb 8.5（2,500 票）` `F PTT China-Drama 2020「最愛的三部陸劇」串（約 28 推）`
+- **評分**：MyDramaList 8.8（39,513 人）｜IMDb 8.5（2,500 票）
+- **劇評**：個人部落格 [Guavarama](https://www.guavarama.com/2021/12/24/go-ahead/) 推薦，說三天看完、很有溫度，但嫌後段原生家庭搶人太狗血。聯合報〈娛樂有評〉的[海那Hannah](https://stars.udn.com/star/story/10093/4829907)推，說「以最溫暖的情節包裝」社會問題最高明。電影神搜的[潘光中](https://news.agentm.tw/131944/)寫，豆瓣從 8.6 掉到 7.0；MDL 仍是 8.8。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南五類都是 Mild，每類 3–4 票；有兒童被大人推打的家暴情節。
+- **長度**：40 集（大陸電視版 46 集），2020 年播出，已完結。
+- **先看什麼**：原創劇本，不必先看任何作品。
+- **在哪看**：[LINE TV](https://www.linetv.tw/drama/20204/eps/1)（上架中）
+
+#### 我的阿勒泰（To the Wonder）
+
+阿勒泰小鎮長大的李文秀到城市追作家夢受挫，回鄉幫母親顧雜貨鋪，結識哈薩克族少年巴太與遊牧家庭（[Wikipedia](https://en.wikipedia.org/wiki/To_the_Wonder_(TV_series))）。
+
+- **推薦來源**：`A 白玉蘭獎 2025 最佳中國電視劇` `A 亞洲學院創意獎 2024 中國區最佳劇集` `B 南方週末 2024 年度劇集` `B 新週刊 2024 年度劇集（另獲劇集導演）` `C 豆瓣 2024 評分最高華語劇集 #2（8.9）` `C MyDramaList 陸劇榜 #22（8.8）`
+- **官方榜（不計入推薦來源）**：飛天獎 2026 優秀電視劇、金鷹獎 2026 優秀電視劇、2024 年劇集推優名單
+- **評分**：MyDramaList 8.8（3,225 人）｜IMDb 8.2（480 票）｜豆瓣 8.9（豆瓣 2024 年度榜，云合年度報告引述）
+- **劇評**：英文媒體多把它當新疆觀光熱潮報導，沒有正式劇評；個人電子報 [Active Faults](https://activefaults.substack.com/p/09-nomadland) 認為它既是軟宣傳也是軟抵抗。udn 女子漾的創作者[曾箏](https://woman.udn.com/woman/story/123164/7963864)強推，讚它平淡如紀錄片卻深深打動人。豆瓣 8.9 是本篇最高，MDL 也有 8.8。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情是草原生活與家庭，尺度輕。
+- **長度**：8 集迷你劇，2024 年播出，已完結。
+- **先看什麼**：改編自李娟的散文集，不必先讀。對白有普通話、維吾爾語與哈薩克語。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/282840.do?cs=2)（部分免費，至 2026-12-01）。Hami Video 授權 2026 年 12 月 1 日到期，台灣沒有其他平台
+
+### 年代與時代劇
+
+1990 年代的上海和東北、1970 年代末的蘇州、民國的魯南、清末的商人，以及跨越半世紀的周家三代。最常拿獎的一組。
+
+#### 繁花（Blossoms Shanghai）
+
+1990 年代改革開放初期的上海，阿寶在黃河路發跡成為商界新星，一家新開的飯店讓他的事業與人際陷入動盪（[Wikipedia](https://en.wikipedia.org/wiki/Blossoms_Shanghai)）。
+
+- **推薦來源**：`A 白玉蘭獎 2024 最佳中國電視劇` `A 亞洲內容大獎 2024 最佳創意、最佳男主角（胡歌）` `B 新週刊 2024 年度文化貢獻` `B 南方週末 2023 年度劇集提名` `C 豆瓣 2024 評分最高華語劇集 #4` `C IMDb 7.8（1,400 票）` `D 云合 2024 上新劇有效播放 #4（22.9 億）` `D 燈塔 2024 都市劇 #2（18.19 億）` `F PTT China-Drama 2024「最喜歡的中劇」串（1 推）` `G LINE TODAY 2024 陸劇 #3`
+- **官方榜（不計入推薦來源）**：飛天獎 2024 優秀電視劇、金鷹獎 2024 優秀電視劇
+- **評分**：MyDramaList 7.7（228 人）｜IMDb 7.8（1,400 票）｜豆瓣 8.7（42 萬人評分，新京報 2024 年 2 月報導；開分 8.1）
+- **劇評**：RogerEbert.com 的 [Peter Sobczynski](https://www.rogerebert.com/streaming/blossoms-shanghai-criterion-review) 給 90 分，說像每週看一部新的王家衛電影。獨立評論＠天下的[李明軒](https://opinion.cw.com.tw/blog/profile/486/article/14483)說，看著「會恍然以為自己正在觀看1980年代的香港電視劇」。他肯定藝術表現，但把重點放在劇中「高人解厄」的人治幻想。豆瓣 8.7 高於 MDL 7.7（228 人），是少見的反向落差；Metacritic 77（6 則）。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情是商戰與情感，尺度輕。台灣版有滬語原音。
+- **長度**：30 集，2023 年底到 2024 年初播出，已完結。
+- **先看什麼**：改編自金宇澄獲茅盾文學獎的小說，不必先讀。王家衛首部電視劇。
+- **在哪看**：[myVideo](https://www.myvideo.net.tw/details/3/27675)（台灣獨家，滬語與普通話雙語版）。myVideo 頁面在台灣以外無法核對，上架狀態未確認
+
+#### 北上（Northward）
+
+京杭大運河邊花街長大的一群 90 後各奔前程，多年後重聚重新出發，同時串起運河百年興衰（[Wikipedia](https://zh.wikipedia.org/wiki/%E5%8C%97%E4%B8%8A_%28%E7%94%B5%E8%A7%86%E5%89%A7%29)）。
+
+- **推薦來源**：`A 亞洲內容大獎 2025 最佳導演（姚曉峰）` `D 中國視聽大數據 2025 CCTV-1 收視 3.615%（有統計以來電視劇第三）` `D 云合 2025 上新長劇有效播放前 20` `E 微博視界大會 2025 年度影視化文學 IP` `F PTT China-Drama 2025「最喜歡的中劇」串（1 推）` `G 愛奇藝台灣站 2025 上半年 #10（熱度參考）`
+- **官方榜（不計入推薦來源）**：金鷹獎 2026 提名、飛天獎 2026 入圍
+- **評分**：MyDramaList 8.5（1,798 人）｜IMDb 7.9（263 票）｜豆瓣 7.3（開分，網易 2025 年 3 月報導）
+- **劇評**：找不到英文署名劇評。找不到台灣署名劇評。豆瓣開分 7.3、MDL 8.5；央視收視是有統計以來電視劇第三高，評論卻幾乎缺席。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；IMDb 簡介提到高中時一場意外奪走女主角的弟弟與祖母。
+- **長度**：38 集，2025 年播出，已完結。
+- **先看什麼**：改編自徐則臣獲茅盾文學獎的小說，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/323030.do?cs=2)（部分免費，至 2029-02-03）
+
+#### 小巷人家（Romance in the Alley）
+
+1970 年代末蘇州棉紡廠家屬區，莊、林、吳三戶人家走過恢復高考與改革開放，各自成長（[Wikipedia](https://zh.wikipedia.org/wiki/%E5%B0%8F%E5%B7%B7%E4%BA%BA%E5%AE%B6)）。
+
+- **推薦來源**：`A 白玉蘭獎 2025 提名` `C 豆瓣 2024 評分最高華語劇集 #9（8.3）` `D 云合 2024 上新劇有效播放 #15（13.2 億）` `D 燈塔 2024 年代劇播放冠軍` `E 微博視界大會 2025 年度影響力作品` `F PTT China-Drama 2024「最喜歡的中劇」串（6 推，「意外的好看」）`
+- **官方榜（不計入推薦來源）**：飛天獎 2026 優秀電視劇、金鷹獎 2026 提名、2024 年劇集推優名單
+- **評分**：MyDramaList 8.0（473 人）｜IMDb 7.9（133 票）｜豆瓣 8.3（豆瓣 2024 年度榜，云合年度報告引述）
+- **劇評**：北京英文雜誌 The World of Chinese 的 [Venla Tang](https://www.theworldofchinese.com/2024/12/chinese-series-romance-in-the-alley-highlights-womanhood-chinas-reform-era/) 推薦，說力量在兩位母親的情誼。獨立評論＠天下的[廖芳潔](https://opinion.cw.com.tw/blog/profile/517/article/16067)強推，說它「竟然能在我心中超越《請回答1988》」。豆瓣 8.3、MDL 8.0（473 人），兩邊接近，只是國際樣本很少。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情是家庭生活與愚孝帶來的傷害，尺度輕。
+- **長度**：40 集（大陸電視版 47 集），2024 年播出，已完結。
+- **先看什麼**：改編自大米的網路小說，不必先讀。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/305910.do?cs=2)（部分免費，至 2029-07-19）
+
+#### 生萬物（This Thriving Land）
+
+1920 年代魯南，地主之女寧繡繡成婚當日被土匪擄走，脫險後與父親決裂，嫁給救她的莊稼漢封大腳（[Wikipedia](https://en.wikipedia.org/wiki/This_Thriving_Land)）。
+
+- **推薦來源**：`A 白玉蘭獎 2026 提名` `B 新週刊 2025 年度劇集` `D 燈塔 2025 國產劇播放量 #2（21.35 億）` `D 貓眼 2025 電視劇有效播放 #2（21.60 億）` `E 微博視界大會 2025 年度影響力作品`
+- **官方榜（不計入推薦來源）**：飛天獎 2026 優秀電視劇、金鷹獎 2026 優秀電視劇
+- **評分**：MyDramaList 8.2（767 人）｜IMDb 3.3（608 票）｜豆瓣 7.2（22 萬人評分，燈塔 2025 年度榜新聞引述）
+- **劇評**：部落格 [Chasing Dramas](https://www.chasingdramas.com/reviews/currently-watching-this-thriving-land-2025-%E7%94%9F%E4%B8%87%E7%89%A9/) 說前十集很精彩，但越往後越不滿敘事又把焦點給男人，立場偏負。聯合報〈娛樂有評〉的[潘光中](https://stars.udn.com/star/story/10093/9018706)推，說它有別於紅色樣板劇。他也直說央視選它當國慶大戲，「除了符合政治正確」也因卡司強。豆瓣 7.2、MDL 8.2，IMDb 卻只有 3.3（608 票）。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情有土匪擄人、戰爭與抗日情節。
+- **長度**：36 集，2025 年播出，已完結。
+- **先看什麼**：改編自趙德發的小說《繾綣與決絕》，不必先讀。時代從民國到抗戰，比其他年代劇早。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/334081.do?cs=2)（部分免費，至 2029-07-19）
+
+#### 人世間（A Lifelong Journey）
+
+東北省會城市周家三代人，從文革後期走到改革開放之後，主線是周秉昆與鄭娟的患難婚姻與下崗陣痛（[Wikipedia](https://en.wikipedia.org/wiki/A_Lifelong_Journey)）。
+
+- **推薦來源**：`A 白玉蘭獎 2023 最佳中國電視劇（並列）` `B 南方週末 2022 年度劇集` `D 愛奇藝站內熱度破萬`
+- **官方榜（不計入推薦來源）**：飛天獎 2024 優秀電視劇、金鷹獎 2022 優秀電視劇
+- **評分**：MyDramaList 7.8（55 人）｜IMDb 8.3（158 票）
+- **劇評**：已停刊的紐約媒體 The China Project 的 [Brian Wu](https://thechinaproject.com/2022/06/24/a-lifelong-journey-a-family-saga-through-chinas-past-five-decades/) 評全 58 集，肯定人物立體，但嫌節奏拖。聯合報〈娛樂有評〉的[麥若愚](https://stars.udn.com/star/story/10093/6413251)推，說它讓觀眾重溫「傳統老三台的戲劇表達與演繹方式」。The China Project 寫豆瓣 8.1，MDL 只有 55 人評分（7.8），國際平台幾乎無聲。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情有文革、入獄與下崗等時代苦難。
+- **長度**：58 集，2022 年播出，已完結。
+- **先看什麼**：改編自梁曉聲獲茅盾文學獎的小說，不必先讀。
+- **在哪看**：[Disney+](https://www.cna.com.tw/news/amov/202201060241.aspx)（2022 年上架報導）。台灣證據偏舊，可能已下架
+
+#### 大生意人（Legend of the Magnate）
+
+晚清書生古平原科場遭誣陷、流放寧古塔，越獄後跟著商隊到山西，從典當、茶葉做到鹽業，成為商王（[Wikipedia](https://zh.wikipedia.org/wiki/%E5%A4%A7%E7%94%9F%E6%84%8F%E4%BA%BA)）。
+
+- **推薦來源**：`A 白玉蘭獎 2026 提名` `E 貓眼 2025 電視劇熱度 #4` `E 微博視界大會 2026 年度品質作品` `F PTT China-Drama 2025「還有推薦哪部」串（5 推）`
+- **官方榜（不計入推薦來源）**：飛天獎 2026 入圍
+- **評分**：MyDramaList 8.3（965 人）｜IMDb 7.4（128 票）｜豆瓣 7.2（搜狐 2025 年 12 月報導）
+- **劇評**：部落格 [Chasing Dramas](https://www.chasingdramas.com/reviews/legend-of-the-magnate-2025-%E5%A4%A7%E7%94%9F%E6%84%8F%E4%BA%BA/) 推薦，肯定走出橫店實景拍攝，最愛第 18–19 集的鬥茶。找不到台灣署名劇評。豆瓣 7.2、MDL 8.3，國際評分人數不到一千。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情有流放、越獄與商場鬥爭。
+- **長度**：40 集，2025 年 11 月播出，已完結。TVB 另播 23 集粵語版。
+- **先看什麼**：改編自趙之羽的小說，不必先讀。這是晚清古裝商戰劇，不是現代劇。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/310725.do?cs=2)（部分免費，至 2031-11-24）；[LINE TV](https://www.linetv.tw/drama/20124/eps/1)（上架中）
+
+#### 老舅（Uncle）
+
+1990 年代東北，從外甥二胖的視角，看聰明卻三分鐘熱度的老舅崔國明從下崗到一次次創業失敗（[Wikipedia](https://mydramalist.com/778856-lao-jiu)）。
+
+- **推薦來源**：`A 白玉蘭獎 2026 提名` `B 新京報 2025 年度劇集榜` `E 貓眼 2025 電視劇熱度 #7`
+- **官方榜（不計入推薦來源）**：金鷹獎 2026 提名、飛天獎 2026 入圍
+- **評分**：MyDramaList 7.3（31 人）｜IMDb 7.4（14 票）｜豆瓣 7.6（搜狐 2025 年 12 月報導）
+- **劇評**：找不到英文署名劇評。找不到台灣署名劇評。豆瓣 7.6；MDL 7.3 只有 31 人、IMDb 只有 14 票，國際分數幾乎不能比。
+- **尺度**：中國無分級；台灣平台未標。IMDb 家長指南沒有投票；依劇情是下崗與家庭喜劇，尺度輕。
+- **長度**：27 集，2025 年 12 月播出，已完結。
+- **先看什麼**：不必先看任何作品。
+- **在哪看**：[Hami Video](https://hamivideo.hinet.net/product/324870.do?cs=2)（部分免費，至 2030-12-14）；[LINE TV](https://www.linetv.tw/drama/20852/eps/1)（部分免費）
+
+## 候補觀察名單
+
+這些劇都有三類以上非官方來源推薦，但台灣只在愛奇藝國際站、WeTV 上架，或找不到合法串流。
+
+| 劇 | 狀況 |
+|---|---|
+| 愛你 | 四類推薦來源都有，台灣只在愛奇藝國際站上架 |
+| 山花爛漫時 | 四類推薦來源都有，台灣只在 WeTV 上架 |
+| 你是我的榮耀、六姊妹、歸隊 | 三類推薦來源都有，台灣只在 WeTV 上架（你是我的榮耀曾在八大、TVBS 電視台播出） |
+| 風吹半夏 | 三類推薦來源都有，台灣只在中天娛樂台播過，找不到合法串流 |
+
+## 這份片單的限制
+
+- **英文劇評集中在《繁花》。** 只有《繁花》有 RogerEbert、IndieWire、Collider 等主流媒體的劇評；4 部 Netflix 都市劇的英文劇評都出自 India Today 的同一位作者，其他多是部落格。《180天重啟計劃》《北上》《老舅》找不到英文署名劇評。
+- **台灣劇評缺 9 部。** 多數都市愛情劇在台灣只找到平台導流的介紹文，沒有算成劇評。
+- **豆瓣分數來源不一。** 有的出自燈塔、雲合年度報告，有的出自新聞或生活網站，多數是某個時間點的分數。
+- **評分人數差很多。** 《人世間》《老舅》在 MyDramaList 不到 60 人評分；《生萬物》的 IMDb 只有 3.3，和豆瓣 7.2、MyDramaList 8.2 落差很大。
+- **授權劇可能下架。** 《我的阿勒泰》Hami Video 授權 2026-12-01 到期；《在暴雪時分》《人世間》台灣證據偏舊；《繁花》只在 myVideo，台灣以外無法核對頁面。本篇串流連結核對日期：2026-11-12。
+
+## 參考資料
+
+- [第30屆上海電視節白玉蘭獎（中文維基）](https://zh.wikipedia.org/wiki/第30届上海电视节白玉兰奖)
+- [Asian Academy Creative Award for Best Drama Series（Wikipedia）](https://en.wikipedia.org/wiki/Asian_Academy_Creative_Award_for_Best_Drama_Series)
+- [Global OTT Awards（Wikipedia）](https://en.wikipedia.org/wiki/Global_OTT_Awards)
+- [南方周末〈2025文化原創榜·劇集〉](https://www.infzm.com/contents/313610)
+- [新周刊 2024 中國視頻榜（中國出版傳媒商報）](https://www.cbbr.com.cn/contents/533/97031.html)
+- [MyDramaList：Top Chinese Dramas](https://mydramalist.com/shows/top_chinese_dramas)
+- [豆瓣 2025 年度電影榜單](https://movie.douban.com/annual/2025/)
+- [雲合數據〈2024 年長劇集網播年度觀察〉](https://pdf.dfcfw.com/pdf/H3_AP202501081641847977_1.pdf)
+- [燈塔專業版 2024 年度劇集播放榜](https://www.sohu.com/a/843429934_745022)
+- [中國視聽大數據 2025 年國產電視劇收視報告（國家廣播電視總局）](https://www.nrta.gov.cn/art/2025/12/26/art_114_72192.html)
+- [2025 微博視界大會榮譽](https://hea.china.com/articles/20251105/202511051759836.html)
+- [PTT 陸劇板〈2025最喜歡的中劇？〉](https://www.ptt.cc/bbs/China-Drama/M.1765465415.A.B24.html)
+- [PTT 陸劇板〈2024最喜歡的中劇？〉](https://www.ptt.cc/bbs/China-Drama/M.1733465852.A.DE4.html)
+- [LINE TODAY 聚光賞〈2025 陸劇年度榜〉](https://today.line.me/tw/v3/article/wJYz5Ra)
+- [LINE TODAY 聚光賞〈2024 陸劇年度榜〉](https://today.line.me/tw/v3/article/8nWW20Z)
+- [網路溫度計〈年度人氣陸劇 TOP 10〉](https://dailyview.tw/daily/5191)
+- [中華電信 Hami Video〈影劇館+ 2025 年度收視排行榜〉](https://www.cht.com.tw/zh-tw/home/cht/messages/2025/1210-1500)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [中央社〈愛奇藝條款上路 代理商違法最高可罰500萬〉](https://www.cna.com.tw/news/firstnews/202008185009.aspx)

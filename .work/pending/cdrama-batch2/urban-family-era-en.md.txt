@@ -1,0 +1,458 @@
+---
+title: "How to Pick Chinese Urban Romance, Family and Era Dramas: Blossoms Shanghai, Meet Yourself, The First Frost, Hidden Love, To the Wonder and 16 More"
+date: 2026-11-13
+category: film
+tags: [tv-drama, c-drama, romance, family-drama]
+lang: en
+type: guide
+description: "For viewers in Taiwan looking for Chinese modern romance, family and era dramas: urban romance, family and life, and period and era dramas. 21 shows, each backed by at least three of seven recommendation source types (state-run awards excluded) and legally streamable in Taiwan, with recommendation sources, MyDramaList, IMDb and Douban scores, English and Taiwanese reviews, content notes, episode counts and Taiwan streaming links."
+tldr: "Start with Blossoms Shanghai (six source types), or Meet Yourself and The First Frost (five each). Urban romances are mostly on Netflix and score high with international fans but low on Douban; era dramas run the other way, winning the most awards and scoring higher on Douban. The 8-episode To the Wonder leaves Hami Video when its licence ends on 2026-12-01."
+draft: false
+series:
+  name: "World TV Drama Guide"
+  order: 15
+---
+
+> 🌏 [中文版](/posts/film/2026-11-13-cdrama-urban-family-era)
+
+The last Chinese post covers modern and era dramas: a reunited crush, a female pilot in training, a hotel manager who quits for Dali, a grocery shop on the Altay grasslands and a business war on 1990s Shanghai’s Huanghe Road. All 21 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, not counting state-run awards, and each can be watched legally in Taiwan. The rules for Chinese dramas (state awards excluded; iQIYI’s international site and WeTV not counted as legal Taiwan channels) are explained at the start of the [costume romance post](/posts/film/2026-11-12-cdrama-costume-romance-xianxia-en); the Korean equivalent is the [Korean life and family post](/posts/film/2026-11-08-kdrama-life-family-period-en).
+
+Two things stand out in this group:
+
+- **Urban romance rides on viewers; era dramas on juries.** All 7 era dramas have a non-state award behind them; of the 9 urban romances, only The Tale of Rose does.
+- **Douban and international fans pull opposite ways.** Urban romances usually score 1 to 3 points higher on MyDramaList than on Douban; Blossoms Shanghai and Romance in the Alley run the other way.
+
+## Start with these 3
+
+| Show | Why start here | Content | Where to watch |
+|---|---|---|---|
+| Blossoms Shanghai | Backed by six source types; Metacritic 77, Douban 8.7 | Mild: business rivalry and romance | myVideo (Taiwan exclusive) |
+| Meet Yourself | Backed by five source types; Douban 8.4, MyDramaList 8.8 | Mild | friDay (free tier), Hami Video |
+| The First Frost | Backed by five source types; MyDramaList 8.8 from 47K ratings | Mild to moderate: some frightening scenes | Netflix |
+
+## Recommendation sources at a glance
+
+● means that source type recommends the show. A award juries, B critics polls, C audience ratings, D viewing data, E buzz metrics, F fan communities, G Taiwanese viewers. State-run lists are not counted under A.
+
+| Show | A | B | C | D | E | F | G | Types |
+|---|---|---|---|---|---|---|---|---|
+| Blossoms Shanghai | ● | ● | ● | ● |  | ● | ● | 6 |
+| The First Frost |  |  | ● | ● | ● | ● | ● | 5 |
+| A Better Life | ● |  |  | ● | ● | ● | ● | 5 |
+| Northward | ● |  |  | ● | ● | ● | ● | 5 |
+| Meet Yourself | ● | ● | ● |  |  | ● | ● | 5 |
+| Romance in the Alley | ● |  | ● | ● | ● | ● |  | 5 |
+| Love’s Ambition |  | ● |  | ● |  | ● | ● | 4 |
+| Amidst a Snowstorm of Love |  | ● | ● | ● |  | ● |  | 4 |
+| The Tale of Rose | ● |  |  | ● |  | ● | ● | 4 |
+| The Early Spring |  |  | ● | ● | ● |  | ● | 4 |
+| This Thriving Land | ● | ● |  | ● | ● |  |  | 4 |
+| Hidden Love |  | ● | ● |  |  | ● |  | 3 |
+| When I Fly Towards You |  |  | ● |  |  | ● | ● | 3 |
+| Me and My Family |  | ● |  |  | ● | ● |  | 3 |
+| Flight to You |  |  |  | ● |  | ● | ● | 3 |
+| Sniper Butterfly |  | ● |  |  |  | ● | ● | 3 |
+| Go Ahead | ● |  | ● |  |  | ● |  | 3 |
+| A Lifelong Journey | ● | ● |  | ● |  |  |  | 3 |
+| To the Wonder | ● | ● | ● |  |  |  |  | 3 |
+| Legend of the Magnate | ● |  |  |  | ● | ● |  | 3 |
+| Uncle | ● | ● |  |  | ● |  |  | 3 |
+
+Column F (fan communities) is the fullest, with 16 of 21. Column A (non-state awards) has 12, far more than the two costume posts, mostly era and family dramas.
+
+## Douban and international fans disagree
+
+```diagram
+title: Douban versus MyDramaList for 8 shows
+desc: Urban romances show the widest gaps: The First Frost 5.4 on Douban and 8.8 on MyDramaList, Hidden Love 6.7 versus 9.0, Love’s Ambition 6.5 versus 8.3; Meet Yourself and To the Wonder are close; the era dramas Romance in the Alley and Blossoms Shanghai run the other way, higher on Douban.
+caption: Douban scores come from mixed sources (Dengta and Yunhe year-end reports or news reports), mostly snapshots in time; The First Frost’s 5.4 doesn’t say whether it was the opening score. Blossoms Shanghai and Romance in the Alley have only a few hundred MyDramaList ratings. The two sites have different audiences, so read the direction only.
+---
+<svg viewBox="0 0 640 388">
+  <line class="dg-rule" x1="220" y1="344" x2="600" y2="344"/>
+  <line class="dg-rule" x1="220" y1="340" x2="220" y2="348"/>
+  <text class="dg-small" x="220" y="366" text-anchor="middle">5</text>
+  <line class="dg-rule" x1="296" y1="340" x2="296" y2="348"/>
+  <text class="dg-small" x="296" y="366" text-anchor="middle">6</text>
+  <line class="dg-rule" x1="372" y1="340" x2="372" y2="348"/>
+  <text class="dg-small" x="372" y="366" text-anchor="middle">7</text>
+  <line class="dg-rule" x1="448" y1="340" x2="448" y2="348"/>
+  <text class="dg-small" x="448" y="366" text-anchor="middle">8</text>
+  <line class="dg-rule" x1="524" y1="340" x2="524" y2="348"/>
+  <text class="dg-small" x="524" y="366" text-anchor="middle">9</text>
+  <line class="dg-rule" x1="600" y1="340" x2="600" y2="348"/>
+  <text class="dg-small" x="600" y="366" text-anchor="middle">10</text>
+  <text class="dg-sub" x="204" y="56" text-anchor="end" dominant-baseline="central">The First Frost</text>
+  <line class="dg-axis" x1="250" y1="56" x2="509" y2="56"/>
+  <circle class="dg-dot" cx="250" cy="56" r="6"/>
+  <rect class="dg-bar" x="503" y="50" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="238" y="56" text-anchor="end" dominant-baseline="central">5.4</text>
+  <text class="dg-small" x="521" y="56" dominant-baseline="central">8.8</text>
+  <text class="dg-sub" x="204" y="92" text-anchor="end" dominant-baseline="central">Hidden Love</text>
+  <line class="dg-axis" x1="349" y1="92" x2="524" y2="92"/>
+  <circle class="dg-dot" cx="349" cy="92" r="6"/>
+  <rect class="dg-bar" x="518" y="86" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="337" y="92" text-anchor="end" dominant-baseline="central">6.7</text>
+  <text class="dg-small" x="536" y="92" dominant-baseline="central">9.0</text>
+  <text class="dg-sub" x="204" y="128" text-anchor="end" dominant-baseline="central">Love’s Ambition</text>
+  <line class="dg-axis" x1="334" y1="128" x2="471" y2="128"/>
+  <circle class="dg-dot" cx="334" cy="128" r="6"/>
+  <rect class="dg-bar" x="465" y="122" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="322" y="128" text-anchor="end" dominant-baseline="central">6.5</text>
+  <text class="dg-small" x="483" y="128" dominant-baseline="central">8.3</text>
+  <text class="dg-sub" x="204" y="164" text-anchor="end" dominant-baseline="central">A Better Life</text>
+  <line class="dg-axis" x1="326" y1="164" x2="425" y2="164"/>
+  <circle class="dg-dot" cx="326" cy="164" r="6"/>
+  <rect class="dg-bar" x="419" y="158" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="314" y="164" text-anchor="end" dominant-baseline="central">6.4</text>
+  <text class="dg-small" x="437" y="164" dominant-baseline="central">7.7</text>
+  <text class="dg-sub" x="204" y="200" text-anchor="end" dominant-baseline="central">Meet Yourself</text>
+  <line class="dg-axis" x1="478" y1="200" x2="509" y2="200"/>
+  <circle class="dg-dot" cx="478" cy="200" r="6"/>
+  <rect class="dg-bar" x="503" y="194" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="466" y="200" text-anchor="end" dominant-baseline="central">8.4</text>
+  <text class="dg-small" x="521" y="200" dominant-baseline="central">8.8</text>
+  <text class="dg-sub" x="204" y="236" text-anchor="end" dominant-baseline="central">To the Wonder</text>
+  <line class="dg-axis" x1="516" y1="236" x2="509" y2="236"/>
+  <circle class="dg-dot" cx="516" cy="236" r="6"/>
+  <rect class="dg-bar" x="503" y="230" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="497" y="236" text-anchor="end" dominant-baseline="central">8.8</text>
+  <text class="dg-small" x="528" y="236" dominant-baseline="central">8.9</text>
+  <text class="dg-sub" x="204" y="272" text-anchor="end" dominant-baseline="central">Romance in the Alley</text>
+  <line class="dg-axis" x1="471" y1="272" x2="448" y2="272"/>
+  <circle class="dg-dot" cx="471" cy="272" r="6"/>
+  <rect class="dg-bar" x="442" y="266" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="436" y="272" text-anchor="end" dominant-baseline="central">8.0</text>
+  <text class="dg-small" x="483" y="272" dominant-baseline="central">8.3</text>
+  <text class="dg-sub" x="204" y="308" text-anchor="end" dominant-baseline="central">Blossoms Shanghai</text>
+  <line class="dg-axis" x1="501" y1="308" x2="425" y2="308"/>
+  <circle class="dg-dot" cx="501" cy="308" r="6"/>
+  <rect class="dg-bar" x="419" y="302" width="12" height="12" rx="2"/>
+  <text class="dg-small" x="413" y="308" text-anchor="end" dominant-baseline="central">7.7</text>
+  <text class="dg-small" x="513" y="308" dominant-baseline="central">8.7</text>
+  <text class="dg-tag" x="220" y="22" dominant-baseline="central">● Douban   ■ MyDramaList</text>
+</svg>
+```
+
+## The watchlist
+
+Entries list recommended by, state-run lists (where any), scores, reviews, content, length, watch first and where to watch.
+
+- **Scores**: this post uses [MyDramaList](https://mydramalist.com/shows/top_chinese_dramas), IMDb and Douban; only Blossoms Shanghai has a Metacritic score. The score line gives Douban only where the source is readable, with the date; Douban figures from lifestyle sites appear in the review entry and are labelled.
+- **Content**: China has no rating system, and none of the 21 Taiwan platform pages shows a rating. Content notes come from the IMDb Parents Guide; most shows have no votes, so the notes follow the plot.
+- **Where to watch**: links go to Taiwan platform title pages; Netflix listings backed only by Taiwan news reports appear as notes.
+
+### Urban romance
+
+A crush reunited, a secret love for a brother’s friend, a meeting at the snooker table, a female pilot and a hidden office romance. Mostly on Netflix, and the most popular with international fans.
+
+#### The First Frost
+
+Years after turning him down in high school, TV reporter Wen Yifan becomes Sang Yan’s housemate by pure chance, and old feelings resurface ([Wikipedia](https://en.wikipedia.org/wiki/The_First_Frost)).
+
+- **Recommended by**: `C MyDramaList top Chinese drama #14 (8.8)` `C IMDb 8.4 (5.1K votes)` `D Yunhe 2025 new long-form series views top 20` `E Weibo 2025 audience favourite of the year` `F PTT China-Drama 2025 year-in-review (“very polished”)` `F Dcard first-half 2025 Chinese drama poll #2 (143 votes)` `G LINE TODAY 2025 Chinese dramas #1` `G Netflix Taiwan weekly #1 (2 March 2025, 7 weeks on chart)`
+- **Scores**: MyDramaList 8.8 (47,582 ratings) | IMDb 8.4 (5.1K votes) | Douban 5.4 (reported by Sohu, February 2025; not stated whether this is the opening score)
+- **Reviews**: [Lakshana N Palat at Gulf News](https://gulfnews.com/entertainment/the-first-frost-c-drama-rewind-a-breathtaking-tale-of-love-and-trauma-that-rewrites-the-rules-of-romance-1.500164071) reviewed all 32 episodes as a story of trauma and healing and recommends it strongly. After the finale, [雀雀 at 500times](https://500times.udn.com/wtimes/story/120840/8608497) (in Chinese) said it moves romance dramas into an age of detail, though stretching it to 32 episodes left the story struggling. MyDramaList 8.8 against a Douban 5.4 reported by Sohu: the widest gap in this group.
+- **Content**: No rating system in China; no Taiwan platform rating found. IMDb Parents Guide: frightening scenes Moderate (all 5 votes), sex None; the heroine’s past trauma and harassment are part of the plot.
+- **Length**: 32 episodes, 2025, finished. Chinese Wikipedia lists Zhe Yue Liang (2026) as a follow-up work.
+- **Watch first**: Adapted from Zhu Yi’s web novel; no need to read it. Same author and series as Hidden Love, but with different leads, so it stands alone.
+- **Where to watch**: [Netflix](https://www.cosmopolitan.com/tw/entertainment/movies/g61941830/the-first-frost/) (subscription). Availability is based on a 2025 Cosmopolitan Taiwan report
+
+#### Love’s Ambition
+
+Star presenter Xu Yan marries Shen Haoming on a carefully dressed-up family background; after the marriage collapses she rediscovers herself, while he realises he wants her back ([Wikipedia](https://zh.wikipedia.org/wiki/%E8%AE%B8%E6%88%91%E8%80%80%E7%9C%BC)).
+
+- **Recommended by**: `B New Weekly 2025 hit drama of the year` `D Yunhe 2025 average views per episode during run #3` `D Dengta 2025 domestic series views #5 (1.96B)` `F PTT China-Drama 2025 recommendations thread (3 upvotes)` `G Netflix Taiwan weekly #2 (26 October 2025, 7 weeks on chart)` `G LINE TODAY 2025 Chinese dramas #3`
+- **Scores**: MyDramaList 8.3 (14,612 ratings) | IMDb 7.4 (931 votes) | Douban 6.5 (cited in coverage of Dengta’s 2025 chart, December 2025)
+- **Reviews**: [Bhavna Agarwal at India Today](https://www.indiatoday.in/entertainment/ott/story/loves-ambition-chinese-drama-zhao-lusi-romance-ambition-2800188-2025-10-09) recommends it with reservations, praising Zhao Lusi’s layered performance and finding William Chan’s male lead weak. No signed Taiwanese review could be found; on udn’s creator platform 女子漾, influencer [柒默lisa](https://woman.udn.com/woman/story/123164/9330973) (in Chinese) recommends it while noting a rushed pace and a thin business plot later on. MyDramaList 8.3 against Douban 6.5: it did far better on Taiwan streaming than with Chinese viewers’ ratings.
+- **Content**: No rating system in China; no Taiwan platform rating found. Only 1–2 IMDb Parents Guide votes per category, with only alcohol rated Mild; going by the plot, mild, centred on deception within a marriage.
+- **Length**: 32 episodes, 2025, finished.
+- **Watch first**: Adapted from Zhang Yueran’s novel; no need to read it. The same novel was also made into a 2024 film.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/17522/eps/1) (available); [Netflix](https://www.netflix.com/tw/title/82050339) (subscription). Netflix availability is based on Netflix Taiwan’s official YouTube channel
+
+#### Amidst a Snowstorm of Love
+
+Lin Yiyang, a former snooker prodigy who quit after a ban, meets nine-ball player Yin Guo on a blizzard night, and she draws him back into competition ([Wikipedia](https://en.wikipedia.org/wiki/Amidst_a_Snowstorm_of_Love)).
+
+- **Recommended by**: `B Beijing News drama of the year 2024` `C IMDb 7.9 (2K votes)` `D Yunhe 2024 new-series views #19 (1.19B)` `F PTT China-Drama 2024 favourites thread (5 upvotes)`
+- **Scores**: MyDramaList 8.5 (24,008 ratings) | IMDb 7.9 (2K votes)
+- **Reviews**: Blogger [kfangurl at The Fangirl Verdict](https://thefangirlverdict.com/2024/06/30/review-amidst-a-snowstorm-of-love-china/) reviewed all 30 episodes and recommends it to viewers who enjoy a slow, everyday romance. No signed Taiwanese review could be found. MyDramaList 8.5 against a Douban 6.8 compiled by a lifestyle site; opinion split sharply during its run.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, sport and romance, mild.
+- **Length**: 30 episodes, 2024, finished.
+- **Watch first**: Adapted from Mo Bao Fei Bao’s novel; the author also co-wrote the script. No need to read it.
+- **Where to watch**: [Netflix](https://www.beauty321.com/post/60022) (reported in 2024). The Taiwan evidence is old, so it may no longer be available; GTV Drama aired it on TV in 2024
+
+#### The Tale of Rose
+
+Raised in a scholarly family, Huang Yimei goes from office newcomer to running her own exhibitions, living through a lost first love, divorce and a soulmate’s death, and still chooses to live fully ([Wikipedia](https://en.wikipedia.org/wiki/The_Tale_of_Rose)).
+
+- **Recommended by**: `A Magnolia Awards 2025 nomination` `D Yunhe 2024 new-series views #5 (2.29B)` `D Dengta 2024 TV series #3 (2.08B), top urban drama` `F PTT China-Drama 2024 favourites thread (1 user: “can’t believe nobody picked it”)` `G Named in LINE TODAY’s 2024 Chinese dramas`
+- **State-run lists (not counted)**: Golden Eagle Awards 2026 nomination, the 2024 state recommended-drama list, Feitian Awards 2026 shortlist
+- **Scores**: MyDramaList 8.2 (2,215 ratings) | IMDb 6.8 (568 votes) | Douban 7.1 (opening score from 87,000+ ratings, reported by Hualong, June 2024)
+- **Reviews**: [Elle Morie at The Odd Apple](https://theoddapple.com/the-tale-of-rose/), a small site, recommends it strongly, calling it one of Liu Yifei’s best performances in years and noting it suits mature viewers. [廖芳潔 at Opinion@CommonWealth](https://opinion.cw.com.tw/blog/profile/517/article/15044) (in Chinese) argues it was never about romance but about the choices a life brings. Douban opened at 7.1 against MyDramaList 8.2; a lifestyle site later put Douban at 7.4.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, several relationships, divorce and terminal illness.
+- **Length**: 38 episodes, 2024, finished. The director has said the ending is open but there will be no sequel.
+- **Watch first**: Adapted from Yi Shu’s novel; no need to read it. The 1986 film of the same name is not a prequel.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/271369.do?cs=2) (some episodes free, leaves 7 June 2029)
+
+#### The Early Spring
+
+Newcomer Shang Zhitao joins a Beijing ad agency and grows up under acid-tongued creative director Luan Nian; their six-year secret affair ends, and they meet again years later ([Wikipedia](https://en.wikipedia.org/wiki/The_Early_Spring)).
+
+- **Recommended by**: `C IMDb 8.2 (2.2K votes)` `D Netflix global top 10 non-English TV #2 (two weeks running, up to 3.2M views)` `E Weibo 2026 influential work of the year` `G DailyView October 2026 Chinese drama buzz #7`
+- **Scores**: MyDramaList 8.5 (18,399 ratings) | IMDb 8.2 (2.2K votes)
+- **Reviews**: Reviewing all 24 episodes, [Bhavna Agarwal at India Today](https://www.indiatoday.in/entertainment/ott/story/the-early-spring-review-jing-boran-sun-qian-mature-workplace-romance-netflix-2991074-2026-09-09) recommends it: “The romance is built on chemistry, but The Early Spring does not confuse chemistry with compatibility.” She found the post-breakup stretch too compressed. No signed Taiwanese review could be found. MyDramaList 8.5 against a Douban opening score of 6.7 reported by World Journal, which called it a gap between hype and reputation.
+- **Content**: No rating system in China; no Taiwan platform rating found. IMDb Parents Guide: sex Mild (3 of 5 votes), with implied sex scenes.
+- **Length**: 24 episodes, 2026, finished.
+- **Watch first**: Adapted from Gu Niang Bie Ku’s web novel; no need to read it.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/83067197) (global exclusive)
+
+#### Hidden Love
+
+Sang Zhi has had a crush on her brother’s friend Duan Jiaxu since middle school; years later she goes to university in his city, and the two slowly fall in love ([Wikipedia](https://en.wikipedia.org/wiki/Hidden_Love_(TV_series))).
+
+- **Recommended by**: `B Southern Metropolis Entertainment Yearbook 2023 top 10 dramas #10` `C MyDramaList top Chinese drama #4 (9.0)` `C IMDb 8.6 (9.9K votes)` `F PTT China-Drama 2023 favourites thread (~32 upvotes)`
+- **Scores**: MyDramaList 9.0 (97,413 ratings) | IMDb 8.6 (9.9K votes) | Douban 6.7 (opening score, Weibo post reposted by Sina, July 2023)
+- **Reviews**: A week after it ended, [Bhavna Agarwal at India Today](https://www.indiatoday.in/entertainment/ott/story/why-chinese-drama-hidden-love-should-be-on-your-binge-watch-list-this-season-2405778-2023-07-13) recommended it for handling the five-year age gap gently. No signed Taiwanese review could be found; [an unsigned Vocus piece reposted by Storm Media](https://www.storm.mg/lifestyle/4829065) (in Chinese), covering only the first half, says the show greatly improves on the novel’s greasy dialogue. MyDramaList 9.0 against a Douban opening score of 6.7, with most of the dispute over the age gap.
+- **Content**: No rating system in China; no Taiwan platform rating found. IMDb Parents Guide: sex and violence Mild (12 of 26 and 13 of 16 votes), with only simple kisses; the heroine’s crush on a university student begins in middle school, so the age gap is built into the story.
+- **Length**: 25 episodes, 2023, finished.
+- **Watch first**: Adapted from Zhu Yi’s web novel; no need to read it. Same author as The First Frost and When I Fly Towards You, with different leads.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81705641) (subscription). Availability is based on a July 2026 Netflix list by Storm Media
+
+#### When I Fly Towards You
+
+One rainy day, outspoken 16-year-old Su Zaizai falls for her schoolmate Zhang Lurang at the tuck shop, and her open affection slowly wins him over from high school to university ([Wikipedia](https://en.wikipedia.org/wiki/When_I_Fly_Towards_You)).
+
+- **Recommended by**: `C MyDramaList top Chinese drama #2 (9.0)` `C IMDb 8.5 (4.4K votes)` `F PTT China-Drama 2023 favourites thread (~34 upvotes)` `G Netflix Taiwan weekly #8 (27 August 2023, 1 week on chart)`
+- **Scores**: MyDramaList 9.0 (62,728 ratings) | IMDb 8.5 (4.4K votes) | Douban 7.9 (compiled by Cosmopolitan Taiwan, February 2025)
+- **Reviews**: [Claire Hartwig](https://www.thelittlehawk.com/62229/culture/when-i-fly-towards-you-review/), a student writer at The Little Hawk, an Iowa City high school paper, gave it 10/10: “a must watch for all hopeless romantics.” No signed Taiwanese review could be found. MyDramaList 9.0 and a Douban 7.9 compiled by a lifestyle site; critics are largely absent and its reputation rests on fans.
+- **Content**: No rating system in China; no Taiwan platform rating found. IMDb Parents Guide: sex Mild (8 of 11 votes), with kisses and implied intimacy after university; a later storyline involves a boss’s inappropriate attention at work.
+- **Length**: 24 episodes, 2023, finished.
+- **Watch first**: Adapted from Zhu Yi’s web novel; no need to read it.
+- **Where to watch**: [Netflix](https://www.netflix.com/tw/title/81712983) (subscription). Availability is based on 2026 reports by Storm Media and Beauty321
+
+#### Flight to You
+
+Aspiring captain Cheng Xiao trains under the exacting pilot Gu Nanting at a fictional airline, proving herself in a male-dominated field as the two fall for each other ([Wikipedia](https://zh.wikipedia.org/wiki/%E5%90%91%E9%A3%8E%E8%80%8C%E8%A1%8C)).
+
+- **Recommended by**: `D Yunhe 2023 top 10 (no rank given)` `F PTT China-Drama 2023 favourites thread (7 upvotes)` `G myVideo 2023 drama chart #2` `G iQIYI Taiwan site 2023 #9 (popularity signal only)`
+- **Scores**: MyDramaList 8.2 (4,257 ratings) | IMDb 7.8 (196 votes) | Douban 6.9 (opening score from 21,000 ratings, Weibo post reposted by Sina, January 2023)
+- **Reviews**: Personal blog [cyn lynn](https://cyn-lynn.blogspot.com/2022/12/flight-to-you-recap-and-review.html) does not recommend it, rating it 2.85/5 and admitting she stayed only for Wang Kai and Tan Songyun. No signed Taiwanese review could be found. Douban opened at 6.9 against MyDramaList 8.2, yet it was myVideo Taiwan’s second-biggest drama of 2023: viewers who come for the stars and those who come for the script split.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, an aviation workplace romance, mild.
+- **Length**: 39 episodes on TV, 40 in the original cut, aired late 2022 to early 2023, finished.
+- **Watch first**: Adapted from Mu Qingyu’s novel; no need to read it.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/14795/eps/1) (available); [friDay影音](https://video.friday.tw/drama/detail/2760) (free tier + 影劇 plan)
+
+#### Sniper Butterfly
+
+At a low point in her life, Cen Jin brings Li Wu, a rural boy she once sponsored, to the city to study; six years later he returns as a successful professional and their reunion turns into romance ([Wikipedia](https://mydramalist.com/756325-ju-ji-hu-die)).
+
+- **Recommended by**: `B Beijing News dramas of the year 2025` `F PTT China-Drama 2025 favourites thread (7 upvotes)` `G Netflix Taiwan weekly #10 (21 December 2025, 2 weeks on chart)`
+- **Scores**: MyDramaList 8.0 (5,343 ratings) | IMDb 7.7 (287 votes) | Douban 6.8 (opening score, reported by Sohu, December 2025)
+- **Reviews**: Blogger [kfangurl at The Fangirl Verdict](https://thefangirlverdict.com/2026/04/06/review-sniper-butterfly-china/) recommends it, though she felt a late narrative choice kept the emotions from landing. No signed Taiwanese review could be found. Douban opened at 6.8 against MyDramaList 8.0, a modest gap; most of the debate is about the sponsor-and-protégé setup and the age gap.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; the core is an age-gap romance between a sponsor and the boy she supported, and Sohu mentions forceful kisses.
+- **Length**: 30 episodes, December 2025, finished.
+- **Watch first**: Adapted from Qi Bao Su’s web novel; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/318872.do?cs=2) (some episodes free, leaves 1 March 2031)
+
+### Family and life
+
+A family not bound by blood, a 48-year-old mother’s surprise pregnancy, a middle-aged woman losing her marriage and job, a move to Dali and a return to the Altay grasslands.
+
+#### A Better Life
+
+Hu Manli, a 39-year-old insurance saleswoman, loses her marriage and her job at once, then teams up with Xue Xiaozhou, the young recruit who got her fired, to start over ([Wikipedia](https://en.wikipedia.org/wiki/A_Better_Life_(TV_series))).
+
+- **Recommended by**: `A Magnolia Awards 2026 nomination` `D Yunhe 2025 new-series views #18 (1.1B)` `D Dengta 2025 domestic series views #8 (1.46B)` `E Weibo 2025 outstanding work of the year` `F PTT China-Drama 2025 recommendations thread (2 upvotes)` `G Netflix Taiwan weekly #6 (13 July 2025, 6 weeks on chart)` `G Hami Video 2025 drama chart #6`
+- **State-run lists (not counted)**: Golden Eagle Awards 2026 nomination, Feitian Awards 2026 shortlist
+- **Scores**: MyDramaList 7.7 (311 ratings) | IMDb 7.3 (118 votes) | Douban 6.4 (cited in coverage of Dengta’s 2025 chart, December 2025)
+- **Reviews**: Blogger [Iya Moyya at Cnovelholic](https://cnovelholic.com/drama-review/romance/a-better-life-drama-review/) recommends it, saying Sun Li carries the show even if the insurance plots sometimes feel unrealistic. Mid-run, [潘光中 at United Daily News](https://stars.udn.com/star/story/10093/8729509) (in Chinese) praised how each episode stacks up relatable predicaments for the audience. MyDramaList 7.7 from only 311 ratings against Douban 6.4; Chinese viewers’ complaints focus on the male lead.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, infidelity, job loss and office politics, mild.
+- **Length**: 36 episodes, 2025, finished.
+- **Watch first**: Chinese Wikipedia says it is based on a novel of the same name; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/291553.do?cs=2) (some episodes free, leaves 18 April 2030); [Netflix](https://www.netflix.com/tw/title/82071131) (subscription). Netflix availability is based on Netflix Taiwan’s official YouTube channel
+
+#### Meet Yourself
+
+After her best friend dies, Beijing hotel manager Xu Hongdou quits and settles in Dali, Yunnan, where she meets Xie Zhiyao, back home to start a business, and love grows slowly ([Wikipedia](https://en.wikipedia.org/wiki/Meet_Yourself)).
+
+- **Recommended by**: `A Seoul International Drama Awards 2023 best series drama (listed jointly with another title)` `B Southern Metropolis Entertainment Yearbook 2023 top 10 dramas #4` `C Douban top-rated Chinese series of 2023 #3` `C MyDramaList top Chinese drama #19 (8.8)` `F PTT China-Drama 2023 favourites thread (~65 upvotes, the most in this group)` `G myVideo 2023 drama chart #1`
+- **State-run lists (not counted)**: Feitian Awards 2024 outstanding TV drama, Golden Eagle Awards 2024 outstanding TV drama
+- **Scores**: MyDramaList 8.8 (13,395 ratings) | IMDb 8.2 (1.2K votes) | Douban 8.4 (Weibo post reposted by Sina, February 2023; opened at 8.1)
+- **Reviews**: [Karen and Cathy at Chasing Dramas](https://www.chasingdramas.com/reviews/currently-watching-meet-yourself-2022-%E5%8E%BB%E6%9C%89%E9%A3%8E%E7%9A%84%E5%9C%B0%E6%96%B9/), a blog, gave it 7/10: soothing but almost too idealistic. [王瑋 at United Daily News](https://stars.udn.com/star/story/10093/7193239) (in Chinese) found its 40 episodes sweet without cloying, while noting its peaceful world feels a little contrived. Douban rose from 8.1 to 8.4 and MyDramaList sits at 8.8: the most consistent reception at home and abroad in this group.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, mild, though it opens with a best friend’s death from cancer.
+- **Length**: 40 episodes, 2023, finished.
+- **Watch first**: An original script; nothing to watch first.
+- **Where to watch**: [friDay影音](https://video.friday.tw/drama/detail/4697) (free tier + 影劇 plan); [Hami Video](https://hamivideo.hinet.net/product/211689.do?cs=2) (subscription, leaves 2 January 2027); [LINE TV](https://www.linetv.tw/drama/14304/eps/1) (available)
+
+#### Me and My Family
+
+Heartbroken and jobless at 28, Gu Yunsu moves back in with her remarried mother, who turns out to be unexpectedly pregnant at 48, and spends 180 days caring for her ([Wikipedia](https://mydramalist.com/755761-180-tian-pei-chan-ji-hua)).
+
+- **Recommended by**: `B Southern Weekly 2025 drama of the year nomination` `E Weibo 2025 breakthrough work of the year` `F PTT China-Drama 2025 recommendation (“director Li Mo is a god of urban drama”)`
+- **Scores**: MyDramaList 7.8 (127 ratings) | IMDb 6.4 (24 votes)
+- **Reviews**: No signed English review could be found, nor a Taiwanese one. MyDramaList 7.8 rests on only 127 ratings and there is no reliably reported Douban score; the critical nod is a Southern Weekly drama-of-the-year nomination.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, heated fights between spouses and between mother and daughter, and a grandmother’s death.
+- **Length**: 27 episodes, 2025, finished.
+- **Watch first**: Adapted from Chu Tang’s web novel serialised on Douban Read; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/290629.do?cs=2) (some episodes free, leaves 16 February 2030); [LINE TV](https://www.linetv.tw/drama/17223/eps/1) (available)
+
+#### Go Ahead
+
+Three children from broken homes form a chosen family with two fathers; after nine years apart, the three reunite and face their pasts ([Wikipedia](https://en.wikipedia.org/wiki/Go_Ahead_(TV_series))).
+
+- **Recommended by**: `A Seoul International Drama Awards 2021 best series drama, runner-up` `C MyDramaList top Chinese drama #15 (8.8)` `C IMDb 8.5 (2.5K votes)` `F PTT China-Drama 2020 top-three thread (~28 upvotes)`
+- **Scores**: MyDramaList 8.8 (39,513 ratings) | IMDb 8.5 (2.5K votes)
+- **Reviews**: Personal blog [Guavarama](https://www.guavarama.com/2021/12/24/go-ahead/) recommends it as a show with real heart, though the birth parents’ return late on turns melodramatic. [海那Hannah at United Daily News](https://stars.udn.com/star/story/10093/4829907) (in Chinese) praised it for wrapping a harsh social problem in the warmest of stories. [潘光中 at 電影神搜](https://news.agentm.tw/131944/) (in Chinese) noted Douban fell from 8.6 to 7.0 after the finale, while MyDramaList holds at 8.8.
+- **Content**: No rating system in China; no Taiwan platform rating found. IMDb Parents Guide: all five categories Mild, 3–4 votes each; a child is pushed and hit by an adult.
+- **Length**: 40 episodes (46 in the Chinese TV cut), 2020, finished.
+- **Watch first**: An original script; nothing to watch first.
+- **Where to watch**: [LINE TV](https://www.linetv.tw/drama/20204/eps/1) (available)
+
+#### To the Wonder
+
+Li Wenxiu, who grew up in a small town in Altay, fails to make it as a writer in the city, returns home to help her mother’s shop, and meets the Kazakh youth Batay and his nomadic family ([Wikipedia](https://en.wikipedia.org/wiki/To_the_Wonder_(TV_series))).
+
+- **Recommended by**: `A Magnolia Awards 2025 best Chinese TV series` `A Asian Academy Creative Awards 2024 best drama series (China)` `B Southern Weekly drama of the year 2024` `B New Weekly drama of the year 2024 (plus best director)` `C Douban top-rated Chinese series of 2024 #2 (8.9)` `C MyDramaList top Chinese drama #22 (8.8)`
+- **State-run lists (not counted)**: Feitian Awards 2026 outstanding TV drama, Golden Eagle Awards 2026 outstanding TV drama, the 2024 state recommended-drama list
+- **Scores**: MyDramaList 8.8 (3,225 ratings) | IMDb 8.2 (480 votes) | Douban 8.9 (Douban 2024 annual list, cited in Yunhe’s annual report)
+- **Reviews**: English-language media mostly covered it as a driver of Xinjiang tourism rather than reviewing it; the personal newsletter [Active Faults](https://activefaults.substack.com/p/09-nomadland) reads it as both soft propaganda and soft resistance. On udn’s creator platform 女子漾, [曾箏](https://woman.udn.com/woman/story/123164/7963864) (in Chinese) recommends it strongly for moving viewers with documentary-like plainness. Douban 8.9 is the highest in this group, and MyDramaList gives it 8.8.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, grassland life and family, mild.
+- **Length**: 8-episode miniseries, 2024, finished.
+- **Watch first**: Adapted from Li Juan’s essay collection; no need to read it. Dialogue is in Mandarin, Uyghur and Kazakh.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/282840.do?cs=2) (some episodes free, leaves 1 December 2026). The Hami Video licence ends on 1 December 2026, with no other Taiwan platform
+
+### Period and era dramas
+
+1990s Shanghai and the northeast, late-1970s Suzhou, Republican-era Shandong, a late-Qing merchant and three generations of one family across half a century. The group that wins the most awards.
+
+#### Blossoms Shanghai
+
+In early-1990s Shanghai, A Bao rises on Huanghe Road to become a business star, until a new restaurant throws his career and relationships into turmoil ([Wikipedia](https://en.wikipedia.org/wiki/Blossoms_Shanghai)).
+
+- **Recommended by**: `A Magnolia Awards 2024 best Chinese TV series` `A Asia Contents Awards 2024 best creative and best lead actor (Hu Ge)` `B New Weekly 2024 cultural contribution of the year` `B Southern Weekly 2023 drama of the year nomination` `C Douban top-rated Chinese series of 2024 #4` `C IMDb 7.8 (1.4K votes)` `D Yunhe 2024 new-series views #4 (2.29B)` `D Dengta 2024 urban dramas #2 (1.82B)` `F PTT China-Drama 2024 favourites thread (1 upvote)` `G LINE TODAY 2024 Chinese dramas #3`
+- **State-run lists (not counted)**: Feitian Awards 2024 outstanding TV drama, Golden Eagle Awards 2024 outstanding TV drama
+- **Scores**: MyDramaList 7.7 (228 ratings) | IMDb 7.8 (1.4K votes) | Douban 8.7 (420,000 ratings, reported by Beijing News, February 2024; opened at 8.1)
+- **Reviews**: [Peter Sobczynski at RogerEbert.com](https://www.rogerebert.com/streaming/blossoms-shanghai-criterion-review) scored it 90, likening it to a new Wong Kar-wai film every week. [李明軒 at Opinion@CommonWealth](https://opinion.cw.com.tw/blog/profile/486/article/14483) (in Chinese) said it can feel like a 1980s Hong Kong TV drama, and while praising its artistry he reads its plot as a fantasy of fixers who solve everything with a phone call. Douban 8.7 sits above MyDramaList 7.7 (228 ratings), a rare reversal; Metacritic gives it 77 from 6 reviews.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, business rivalry and romance, mild. The Taiwan release includes the original Shanghainese track.
+- **Length**: 30 episodes, aired late 2023 to early 2024, finished.
+- **Watch first**: Adapted from Jin Yucheng’s Mao Dun Literature Prize-winning novel; no need to read it. Wong Kar-wai’s first TV series.
+- **Where to watch**: [myVideo](https://www.myvideo.net.tw/details/3/27675) (Taiwan exclusive, Shanghainese and Mandarin versions). The myVideo page cannot be checked from outside Taiwan, so current availability is unconfirmed
+
+#### Northward
+
+A group of friends born in the 1990s who grew up on a street beside the Grand Canal go their separate ways, then reunite years later, their story threaded through a century of the canal’s fortunes ([Wikipedia](https://zh.wikipedia.org/wiki/%E5%8C%97%E4%B8%8A_%28%E7%94%B5%E8%A7%86%E5%89%A7%29)).
+
+- **Recommended by**: `A Asia Contents Awards 2025 best director (Yao Xiaofeng)` `D China Audio-Visual Big Data 2025: CCTV-1 rating 3.615% (third-highest drama on record)` `D Yunhe 2025 new long-form series views top 20` `E Weibo 2025 literary adaptation IP of the year` `F PTT China-Drama 2025 favourites thread (1 upvote)` `G iQIYI Taiwan site, first half of 2025 #10 (popularity signal only)`
+- **State-run lists (not counted)**: Golden Eagle Awards 2026 nomination, Feitian Awards 2026 shortlist
+- **Scores**: MyDramaList 8.5 (1,798 ratings) | IMDb 7.9 (263 votes) | Douban 7.3 (opening score, reported by NetEase, March 2025)
+- **Reviews**: No signed English review could be found, nor a Taiwanese one. Douban opened at 7.3 against MyDramaList 8.5; its CCTV ratings were the third-highest for a drama on record, yet it drew almost no critical attention.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; the IMDb synopsis mentions an accident in high school that kills the heroine’s brother and grandmother.
+- **Length**: 38 episodes, 2025, finished.
+- **Watch first**: Adapted from Xu Zechen’s Mao Dun Literature Prize-winning novel; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/323030.do?cs=2) (some episodes free, leaves 3 February 2029)
+
+#### Romance in the Alley
+
+In the late 1970s, three families in a Suzhou cotton mill’s housing lane, the Zhuangs, Lins and Wus, grow up through the return of university entrance exams and the reform era ([Wikipedia](https://zh.wikipedia.org/wiki/%E5%B0%8F%E5%B7%B7%E4%BA%BA%E5%AE%B6)).
+
+- **Recommended by**: `A Magnolia Awards 2025 nomination` `C Douban top-rated Chinese series of 2024 #9 (8.3)` `D Yunhe 2024 new-series views #15 (1.32B)` `D Dengta 2024 top period drama by views` `E Weibo 2025 influential work of the year` `F PTT China-Drama 2024 favourites thread (6 upvotes: “surprisingly good”)`
+- **State-run lists (not counted)**: Feitian Awards 2026 outstanding TV drama, Golden Eagle Awards 2026 nomination, the 2024 state recommended-drama list
+- **Scores**: MyDramaList 8.0 (473 ratings) | IMDb 7.9 (133 votes) | Douban 8.3 (Douban 2024 annual list, cited in Yunhe’s annual report)
+- **Reviews**: [Venla Tang at The World of Chinese](https://www.theworldofchinese.com/2024/12/chinese-series-romance-in-the-alley-highlights-womanhood-chinas-reform-era/), a Beijing-based English magazine, recommends it: “much of what makes the show powerful is that it’s not about romance at all,” but the bond between two mothers. [廖芳潔 at Opinion@CommonWealth](https://opinion.cw.com.tw/blog/profile/517/article/16067) (in Chinese) rates it above Reply 1988. Douban 8.3 and MyDramaList 8.0 (473 ratings) roughly agree, though the international sample is small.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, family life and the harm of blind filial duty, mild.
+- **Length**: 40 episodes (47 in the Chinese TV cut), 2024, finished.
+- **Watch first**: Adapted from Da Mi’s web novel; no need to read it.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/305910.do?cs=2) (some episodes free, leaves 19 July 2029)
+
+#### This Thriving Land
+
+In 1920s rural Shandong, landlord’s daughter Ning Xiuxiu is kidnapped by bandits on her wedding day; after escaping she breaks with her father and marries Feng Dajiao, the farmhand who rescued her ([Wikipedia](https://en.wikipedia.org/wiki/This_Thriving_Land)).
+
+- **Recommended by**: `A Magnolia Awards 2026 nomination` `B New Weekly drama of the year 2025` `D Dengta 2025 domestic series views #2 (2.14B)` `D Maoyan 2025 TV series views #2 (2.16B)` `E Weibo 2025 influential work of the year`
+- **State-run lists (not counted)**: Feitian Awards 2026 outstanding TV drama, Golden Eagle Awards 2026 outstanding TV drama
+- **Scores**: MyDramaList 8.2 (767 ratings) | IMDb 3.3 (608 votes) | Douban 7.2 (220,000 ratings, cited in coverage of Dengta’s 2025 chart)
+- **Reviews**: Blog [Chasing Dramas](https://www.chasingdramas.com/reviews/currently-watching-this-thriving-land-2025-%E7%94%9F%E4%B8%87%E7%89%A9/) leans negative: “The first ten episodes are riveting,” but frustration mounted as the story handed the spotlight back to the men. [潘光中 at United Daily News](https://stars.udn.com/star/story/10093/9018706) (in Chinese) recommends it as a break from red propaganda dramas, while noting CCTV’s holiday slot also reflected political correctness and a strong cast. Douban 7.2 and MyDramaList 8.2, but IMDb only 3.3 (608 votes).
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, bandit kidnapping, war and resistance against the Japanese.
+- **Length**: 36 episodes, 2025, finished.
+- **Watch first**: Adapted from Zhao Defa’s novel; no need to read it. Set from the Republican era through the war with Japan, earlier than the other period dramas here.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/334081.do?cs=2) (some episodes free, leaves 19 July 2029)
+
+#### A Lifelong Journey
+
+Three generations of the Zhou family in a north-eastern provincial capital, from the late Cultural Revolution into the reform era, centred on Zhou Bingkun and Zheng Juan’s hard-won marriage and the pain of factory lay-offs ([Wikipedia](https://en.wikipedia.org/wiki/A_Lifelong_Journey)).
+
+- **Recommended by**: `A Magnolia Awards 2023 best Chinese TV series (shared)` `B Southern Weekly drama of the year 2022` `D iQIYI 10,000 heat-index club`
+- **State-run lists (not counted)**: Feitian Awards 2024 outstanding TV drama, Golden Eagle Awards 2022 outstanding TV drama
+- **Scores**: MyDramaList 7.8 (55 ratings) | IMDb 8.3 (158 votes)
+- **Reviews**: Reviewing all 58 episodes, [Brian Wu at The China Project](https://thechinaproject.com/2022/06/24/a-lifelong-journey-a-family-saga-through-chinas-past-five-decades/), a now-closed New York outlet, praised its rounded characters but wrote: “where the drama falls short is pacing.” [麥若愚 at United Daily News](https://stars.udn.com/star/story/10093/6413251) (in Chinese) recommends it as a return to the style of Taiwan’s old three-network TV dramas. The China Project put Douban at 8.1; MyDramaList has only 55 ratings (7.8), so international platforms are nearly silent.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, the Cultural Revolution, prison and mass lay-offs.
+- **Length**: 58 episodes, 2022, finished.
+- **Watch first**: Adapted from Liang Xiaosheng’s Mao Dun Literature Prize-winning novel; no need to read it.
+- **Where to watch**: [Disney+](https://www.cna.com.tw/news/amov/202201060241.aspx) (reported in 2022). The Taiwan evidence is old, so it may no longer be available
+
+#### Legend of the Magnate
+
+In the late Qing dynasty, scholar Gu Pingyuan is framed in the imperial exams and exiled to Ningguta; after escaping he follows a salt caravan to Shanxi and rises from pawnbroking and tea to the salt trade ([Wikipedia](https://zh.wikipedia.org/wiki/%E5%A4%A7%E7%94%9F%E6%84%8F%E4%BA%BA)).
+
+- **Recommended by**: `A Magnolia Awards 2026 nomination` `E Maoyan 2025 TV heat #4` `E Weibo 2026 quality work of the year` `F PTT China-Drama 2025 recommendations thread (5 upvotes)`
+- **State-run lists (not counted)**: Feitian Awards 2026 shortlist
+- **Scores**: MyDramaList 8.3 (965 ratings) | IMDb 7.4 (128 votes) | Douban 7.2 (reported by Sohu, December 2025)
+- **Reviews**: Blog [Chasing Dramas](https://www.chasingdramas.com/reviews/legend-of-the-magnate-2025-%E5%A4%A7%E7%94%9F%E6%84%8F%E4%BA%BA/) recommends it, glad to see location shooting beyond the usual Hengdian sets, with the tea contest in episodes 18–19 a highlight. No signed Taiwanese review could be found. Douban 7.2 against MyDramaList 8.3, from fewer than a thousand ratings.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, exile, a prison break and business rivalry.
+- **Length**: 40 episodes, November 2025, finished. TVB aired a 23-episode Cantonese version.
+- **Watch first**: Adapted from Zhao Zhiyu’s novel; no need to read it. It is a late-Qing costume business drama, not a modern one.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/310725.do?cs=2) (some episodes free, leaves 24 November 2031); [LINE TV](https://www.linetv.tw/drama/20124/eps/1) (available)
+
+#### Uncle
+
+In 1990s north-east China, a nephew watches his clever but fickle uncle Cui Guoming lose his factory job and fail at one venture after another ([Wikipedia](https://mydramalist.com/778856-lao-jiu)).
+
+- **Recommended by**: `A Magnolia Awards 2026 nomination` `B Beijing News dramas of the year 2025` `E Maoyan 2025 TV heat #7`
+- **State-run lists (not counted)**: Golden Eagle Awards 2026 nomination, Feitian Awards 2026 shortlist
+- **Scores**: MyDramaList 7.3 (31 ratings) | IMDb 7.4 (14 votes) | Douban 7.6 (reported by Sohu, December 2025)
+- **Reviews**: No signed English review could be found, nor a Taiwanese one. Douban 7.6; MyDramaList 7.3 from 31 ratings and IMDb from 14 votes are too thin to compare.
+- **Content**: No rating system in China; no Taiwan platform rating found. No IMDb Parents Guide votes; going by the plot, a family comedy about lay-offs, mild.
+- **Length**: 27 episodes, December 2025, finished.
+- **Watch first**: Nothing to watch first.
+- **Where to watch**: [Hami Video](https://hamivideo.hinet.net/product/324870.do?cs=2) (some episodes free, leaves 14 December 2030); [LINE TV](https://www.linetv.tw/drama/20852/eps/1) (some episodes free)
+
+## Watch-later list
+
+Each of these is backed by at least three source types (state awards excluded), but in Taiwan is only on iQIYI’s international site or WeTV, or has no legal streaming option.
+
+| Show | Status |
+|---|---|
+| The Best Thing (愛你) | Backed by four source types; in Taiwan only on iQIYI’s international site |
+| 山花爛漫時 | Backed by four source types; in Taiwan only on WeTV |
+| You Are My Hero (你是我的榮耀), Six Sisters (六姊妹), 歸隊 | Backed by three source types; in Taiwan only on WeTV (You Are My Hero has aired on Taiwan’s 八大 and TVBS channels) |
+| Wild Bloom (風吹半夏) | Backed by three source types; aired in Taiwan only on the CTi Entertainment channel, with no legal streaming option |
+
+## Limits of this list
+
+- **English reviews cluster on Blossoms Shanghai.** Only Blossoms Shanghai has reviews from major outlets such as RogerEbert, IndieWire and Collider; the English reviews of 4 Netflix urban romances are all by one India Today writer, and the rest are mostly blogs. Me and My Family, Northward and Uncle have no signed English review.
+- **9 shows have no Taiwanese review.** Most urban romances have only platform promotion pieces in Taiwan, which aren’t counted as reviews.
+- **Douban scores come from mixed sources.** Some come from Dengta or Yunhe year-end reports, others from news or lifestyle sites, mostly as snapshots in time.
+- **Rating counts vary widely.** A Lifelong Journey and Uncle have under 60 MyDramaList ratings each; This Thriving Land scores only 3.3 on IMDb, far below its Douban 7.2 and MyDramaList 8.2.
+- **Licensed shows can disappear.** To the Wonder’s Hami Video licence ends on 2026-12-01; Taiwan evidence for Amidst a Snowstorm of Love and A Lifelong Journey is old; Blossoms Shanghai is only on myVideo, whose page can’t be checked from outside Taiwan. Streaming links checked: 2026-11-12.
+
+## References
+
+- [第30屆上海電視節白玉蘭獎 (Chinese Wikipedia)](https://zh.wikipedia.org/wiki/第30届上海电视节白玉兰奖)
+- [Asian Academy Creative Award for Best Drama Series (Wikipedia)](https://en.wikipedia.org/wiki/Asian_Academy_Creative_Award_for_Best_Drama_Series)
+- [Global OTT Awards (Wikipedia)](https://en.wikipedia.org/wiki/Global_OTT_Awards)
+- [南方周末〈2025文化原創榜·劇集〉](https://www.infzm.com/contents/313610) (in Chinese)
+- [新周刊 2024 中國視頻榜](https://www.cbbr.com.cn/contents/533/97031.html) (in Chinese)
+- [MyDramaList：Top Chinese Dramas](https://mydramalist.com/shows/top_chinese_dramas)
+- [豆瓣 2025 年度電影榜單](https://movie.douban.com/annual/2025/) (in Chinese)
+- [雲合數據〈2024 年長劇集網播年度觀察〉](https://pdf.dfcfw.com/pdf/H3_AP202501081641847977_1.pdf) (in Chinese)
+- [燈塔專業版 2024 年度劇集播放榜](https://www.sohu.com/a/843429934_745022) (in Chinese)
+- [中國視聽大數據 2025 年國產電視劇收視報告 (NRTA)](https://www.nrta.gov.cn/art/2025/12/26/art_114_72192.html) (in Chinese)
+- [2025 微博視界大會榮譽](https://hea.china.com/articles/20251105/202511051759836.html) (in Chinese)
+- [PTT 陸劇板〈2025最喜歡的中劇？〉](https://www.ptt.cc/bbs/China-Drama/M.1765465415.A.B24.html) (in Chinese)
+- [PTT 陸劇板〈2024最喜歡的中劇？〉](https://www.ptt.cc/bbs/China-Drama/M.1733465852.A.DE4.html) (in Chinese)
+- [LINE TODAY 聚光賞〈2025 陸劇年度榜〉](https://today.line.me/tw/v3/article/wJYz5Ra) (in Chinese)
+- [LINE TODAY 聚光賞〈2024 陸劇年度榜〉](https://today.line.me/tw/v3/article/8nWW20Z) (in Chinese)
+- [網路溫度計〈年度人氣陸劇 TOP 10〉](https://dailyview.tw/daily/5191) (in Chinese)
+- [中華電信 Hami Video〈影劇館+ 2025 年度收視排行榜〉](https://www.cht.com.tw/zh-tw/home/cht/messages/2025/1210-1500) (in Chinese)
+- [Netflix Top 10：台灣影集週榜](https://www.netflix.com/tudum/top10/taiwan/tv)
+- [中央社〈愛奇藝條款上路 代理商違法最高可罰500萬〉](https://www.cna.com.tw/news/firstnews/202008185009.aspx) (in Chinese)
