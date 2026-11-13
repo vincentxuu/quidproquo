@@ -6,3 +6,10 @@
 - `check:references` 對新檔出現 1 筆「參考資料和標題缺少關鍵詞重疊」WARN；比對 2026-11-09 等既有已發佈日報，同一 WARN 一樣存在（日報標題與段落多為中文，無法與英文參考資料標題重疊），判定為日報格式既有的已知誤報模式，非本次新增問題，未修改。
 - `diagram-preview` 因環境只有 `chromium-1243`／`chromium_headless_shell-1243`、缺腳本要的 `chromium_headless_shell-1208` 被自動跳過；改用 `check:diagram-geometry`（0 錯誤）做幾何驗證替代。
 - **本次產出被 `pnpm check:series-plan` 既有紅燈擋下，未能 commit**：`daodao-community-ops` 系列缺研究筆記 `.work/research/daodao-community-ops/research-note.md`，以及 2026-10-29 兩篇島島文章缺審稿紀錄 `.work/reviews/2026-10-29-daodao-{living-community,why-help-facilitators}.md`——與今天的日報內容本身無關，是全站性阻塞（見 `docs/governance/escalation-queue.md` Q-053）。已在 Q-053 下補一筆條目記錄本次被擋下的檔案；2 個新檔（`src/content/posts/daily/2026-11-12-ai-agent-daily{,-en}.md`）已 `git add` 暫存在本機未 commit，等 Q-053 解除後可直接補 commit，不需重新彙整。
+
+補發（2026-11-13）：
+
+- 原產出因 Q-053 未能 commit、容器回收後遺失，依 signals JSON 重新彙整並在隔離 worktree 補 commit；relevance ≥ 0.8 的 7 筆信號全數涵蓋，主題與 1 張前後對照圖維持原設計。
+- 重新查證後修正 signals 的兩處：SoftBank／Grab 的合作方是砂拉越 PETROS，不是 Petronas；孟加拉 2.5 億美元是向亞洲開發銀行洽談的計畫，韓國進出口銀行有意共同出資。
+- 未收錄（查無可交叉查證來源或來源可信度不足）：Qwen 4（只有單一部落格寫 1.2T／56B，其他來源規格不一）、ERNIE 5.5 Flash Preview、AI2Shell、Corelight、SAP ABAP、QueryNow、每日新聞摘要類 substack、compareai 定價彙整；agent 壓力測試研究只引用 Notebookcheck 可見的 43／8 數字，15%／24%／34% 未能查證未寫入。
+- `check:references` 原有關鍵詞重疊 WARN，深度分析標題加入 Muse Ember 後 0 WARN；英文圖的「Governance evidence」溢出方框，改為「Governance proof」後 diagram-preview 全部 ✓。
