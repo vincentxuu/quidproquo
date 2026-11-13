@@ -75,6 +75,37 @@ playwright-report/
 __pycache__/
 *.pyc
 
+# 研究與課程改寫的原始素材、轉檔與建置產物（可再生；筆記與審稿 .md 仍進版控）
+.work/build-check-*/
+.work/video-guide-research/
+.work/ntu-htlin-ml/audio/
+.work/ntu-htlin-ml/pdf/
+.work/ntu-htlin-ml/subs/
+.work/ntu-htlin-ml/chunks/
+.work/ntu-htlin-ml/transcripts/
+.work/teaching-text-research/src/
+.work/teaching-text-research/seq/
+.work/learning-visualization-research/src/
+.work/video-layout-research/sites/
+.work/video-layout-research/*.pdf
+.work/mit-67960-backfill/raw/
+.work/research/*/_raw/
+.work/research/thailand-crags/tc/
+.work/cs229-spring2026/subs/
+.work/cs229-spring2026/txt/
+.work/cs229-spring2026/archive/
+.work/cs229-spring2026/*.log
+.work/cs229-spring2026/*.pdf
+.work/cs229-spring2026/*.png
+.work/cs229-spring2026/*.txt
+.work/cs50ai-rewrite/**/src/
+.work/cs50ai-rewrite/**/src[0-9]*/
+.work/cs50ai-rewrite/**/dist-*/
+.work/cs50ai-rewrite/**/nltk_data/
+.work/cs50ai-rewrite/**/*.zip
+.work/cs50ai-rewrite/**/*.csv
+.work/cs50ai-rewrite/**/*.h5
+
 # 英文口說：逐句修正表保留使用者原句，不進版控
 .work/english-speaking/*/corrections.md
 
