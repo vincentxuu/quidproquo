@@ -112,7 +112,7 @@ MLA-C02 仍是需要實作的 associate 考試。它要求至少一年使用 Sag
 → 這三張都不是最直接的答案。AWS 線上最接近的是 AIP-C01 第 2 章的 agentic AI（26% 那塊裡的 7 個技能點），但跨廠商的比對見[多 agent 架構的考點交集](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains)。
 
 **如果你的公司主力不是 AWS**
-→ 先確認雲端廠商再挑證照。Google 生態現在能報名的技術類 AI 證照只有 [PMLE](/posts/ai/2026-08-18-google-pmle-prep-guide) 一張（新開的 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) 正式版 2026 年 11 月 2 日開放報名），規則（尤其是重考罰則）跟 AWS 差很多。
+→ 先確認雲端廠商再挑證照。Google 生態現在能報名的技術類 AI 證照有兩張：[PMLE](/posts/ai/2026-08-18-google-pmle-prep-guide) 與新開的 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect)（正式版（GA）2026 年 11 月 2 日開放報名），規則（尤其是重考罰則）跟 AWS 差很多。
 
 ## 會變動的資訊（報名前再確認）
 
@@ -131,6 +131,7 @@ MLA-C02 仍是需要實作的 associate 考試。它要求至少一年使用 Sag
 
 - 2026-10-08：補上 MLA-C02 備考路徑的連結，該篇已發佈。
 - 2026-10-08：「Google 生態只有 PMLE 一張」改為「現在能報名的技術類 AI 證照只有 PMLE 一張」，並補上 Google 新開的 Professional Agentic Architect。AWS 三張的結論未變動。
+- 2026-11-13：「Google 生態現在能報名的技術類 AI 證照只有 PMLE 一張」改為「有兩張」；Professional Agentic Architect 已進入 GA。
 - 2026-09-12：MLA-C02 英文 beta 已開放報名後，更新 MLA 規格、考綱範圍、代碼關係、續期表與選擇路徑。
 
 ## 參考資料

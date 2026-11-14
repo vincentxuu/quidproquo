@@ -196,7 +196,7 @@ AI-500 的 guardrail 框架是這五份裡最結構化的：「**多重介入的
 
 **GH-600 獨有**：其他五張的 agent 是在對話或工作流裡協作，GH-600 的 agent 是在同一個程式碼儲存庫裡平行改檔案。所以它考別張沒有的三件事：**agent 之間的衝突**（重疊的程式碼變更、重複的工作、互相矛盾的輸出）、**agent 的生命週期**（在不中斷進行中工作流的情況下更新或替換、汰除時保留可稽核性），以及**分類失敗根因**（官方舉的例子是推理錯誤、工具誤用、context 或環境問題）。
 
-**還有第七張在路上**：Google 新開的 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) 官方考試指南第 3.3 節考 MCP 與 A2A 編排、多 agent 交接。它的 beta 報名已關閉，正式版 2026 年 11 月 2 日開放報名，開放後再併入對照。這不影響上面對 PMLE 的說明，PMLE 仍然不考多 agent 協調。
+**第七張，Google Professional Agentic Architect（GA）**：Google 新開的 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) 官方考試指南第 3.3 節考 MCP 與 A2A 編排、多 agent 交接。它的 beta 報名已關閉，**正式版（GA）2026 年 11 月 2 日開放報名**；正式版開放後進入這份對照的範圍。這不影響上面對 PMLE 的說明，PMLE 仍然不考多 agent 協調。
 
 ## 會變動的資訊（報名前再確認）
 
@@ -213,6 +213,7 @@ AI-500 的 guardrail 框架是這五份裡最結構化的：「**多重介入的
 ## 更新紀錄
 
 - 2026-10-08：新增「補充：第六張，GitHub GH-600」一節，把 GH-600 的考綱對到七件事，並註記 Google Professional Agentic Architect 將於正式版開放後併入。原有五張的內容與結論未變動。
+- 2026-11-13：Professional Agentic Architect 已進入 GA，第七張對照的狀態改寫為 GA。
 
 ## 參考資料
 
