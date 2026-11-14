@@ -12,20 +12,25 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 16
-tldr: "CS329Z 是 Stanford 的 AI agent 工程課：先不靠框架手刻 RAG、工具呼叫與 agent 迴圈，再看 DSPy 這類框架抽掉了什麼，兩份作業分別是做 agent harness 與設計 agent 評估。課綱、指定閱讀、前十一堂投影片與第一份作業的起始碼、資料和公開測試都拿得到；錄影要以選課身分登入 Canvas。"
+tldr: "CS329Z 是 Stanford 的 AI agent 工程課：先不靠框架手刻 RAG、工具呼叫與 agent 迴圈，再看 DSPy 這類框架抽掉了什麼，兩份作業分別是做 agent harness 與設計 agent 評估。課綱、指定閱讀、前十一堂投影片與第一份作業的起始碼、資料和公開測試都拿得到；錄影已由 Stanford Online 在 YouTube 公開上架（第 1–4 堂已上架，其餘陸續上架）。"
 description: "Stanford CS329Z Engineering AI Agents 自學路線：從 RAG、工具與迴圈走到 context、記憶、多智慧體協調與優化，整理前十一堂官方投影片（含 Terminal-Bench 客座與 agent 資料）及 HW1 起始碼。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片（第 1 場代表影片）。** [影片來源與說明](#課程影片來源)。各堂錄影由 Stanford Online 在 YouTube 公開上架，第 1–4 堂已上架；各堂導讀嵌入對應錄影，第 1 堂全片約 70 分鐘。
+
+```youtube
+url: https://www.youtube.com/watch?v=DGI4vucR71w
+title: What Are AI Agents? Agentic Systems Explained | Stanford CS329Z Lecture 1 with Diyi Yang
+```
 
 [CS329Z: Engineering AI Agents](https://cs329z.stanford.edu/) 是 Stanford 電腦科學系 2026 年秋季的三學分課。名字裡的關鍵字是 **Engineering**。它不是把最新的 agent 論文排成十週讀完，而是要學生把一套 agentic 系統從零做出來、量出來，然後在 Demo Day 上把它演一遍。
 
 課程官網開宗明義給的框架是「compound AI systems」：由 LLM、檢索器、工具、優化器多個元件組成、彼此互動的系統。官網說這代表 AI 應用建構方式的一次根本改變。整學期的三條軸線寫在第一堂的描述裡——拆解（decomposition）、資料（data）、評估（evaluation）。
 
-自學這門課，可以沿著「先做出來，再讓它可靠」讀下去：前段手刻檢索與工具，中段管理 context、記憶與多智慧體，接著用資料和評估決定如何優化。本文整理材料入口與起步方式；系列改為一堂一篇：第 1～11 堂已依實際投影片逐頁帶讀，第 12 堂以後依課表與指定閱讀預習。錄影仍須課程 Canvas 權限。
+自學這門課，可以沿著「先做出來，再讓它可靠」讀下去：前段手刻檢索與工具，中段管理 context、記憶與多智慧體，接著用資料和評估決定如何優化。本文整理材料入口與起步方式；系列改為一堂一篇：第 1～11 堂已依實際投影片逐頁帶讀，第 12 堂以後依課表與指定閱讀預習。錄影由 Stanford Online 在 YouTube 公開上架，第 1–4 堂已上架，其餘陸續上架。
 
 ## 把系列讀成一次接得起來的工程練習
 
@@ -41,7 +46,7 @@ draft: false
 
 ### 先讀材料狀態，再決定怎麼使用導讀
 
-截至 2026-10-29，官網連出 Lecture 01–11（到 10/28 的 Data for Agentic Systems）。第 12 堂以後目前是依課表與指定閱讀寫的預習，不能當成尚未發生的課堂紀錄；閱讀 Digest 也與主線解釋分開。自學者可用公開投影片與論文，[錄影則需課程 Canvas 權限](https://cs329z.stanford.edu/logistics.html)。有文章導讀，不表示有公開影片。
+截至 2026-10-29，官網連出 Lecture 01–11（到 10/28 的 Data for Agentic Systems）。第 12 堂以後目前是依課表與指定閱讀寫的預習，不能當成尚未發生的課堂紀錄；閱讀 Digest 也與主線解釋分開。自學者可用公開投影片與論文，[錄影也已公開上架](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)（第 1–4 堂已上架，其餘陸續上架）。
 
 **理解檢查**：助理找到正確信件，寫出合理解釋，並說已寄信，還缺什麼證據？**答案判準**：先確認解釋有保留原信的不確定性；寄送則要有實際工具結果與對應授權。「已完成」一句話無法證明這兩件事。
 
@@ -144,7 +149,7 @@ DSPy 出自 Stanford NLP。[Omar Khattab](https://omarkhattab.com/) 在 Stanford
 
 ## 自學者實際拿得到什麼
 
-先講結論：**拿得到課綱、閱讀清單，以及一堂一堂放出來的投影片；HW1 起始碼與測試也已公開；錄影仍需登入 Canvas。**
+先講結論：**拿得到課綱、閱讀清單，以及一堂一堂放出來的投影片；HW1 起始碼與測試也已公開；錄影由 Stanford Online 在 YouTube 公開上架，第 1–4 堂已上架。**
 
 **拿得到：前十一堂投影片，而且不用登入。** 截至 2026-10-29，[官方課表](https://cs329z.stanford.edu/)已連到 10/28 的 Data for Agentic Systems。自學可以照下面的順序讀：
 
@@ -181,7 +186,7 @@ DSPy 出自 Stanford NLP。[Omar Khattab](https://omarkhattab.com/) 在 Stanford
 
 **拿得到：課程網站的原始碼與修改史。** 上一節那些課綱變動就是從這裡讀出來的。
 
-**拿不到（至少現在）：錄影。** 課堂有錄，但官網寫的是錄影放在 Canvas，要用選課生身分登入。第一堂投影片則寫「Lecture slides and videos will be posted online」。兩個說法還沒對上，公開錄影會不會出現，要再等等看。
+**拿得到（陸續上架）：錄影。** Stanford Online 在 YouTube 開了[課程播放清單](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)，2026-11-09 至 11-12 依序上架第 1–4 堂；清單內另有數支影片尚未公開。第一堂投影片寫的「Lecture slides and videos will be posted online」正在兌現，後續堂次陸續上架。
 
 **拿得到：HW1 起始碼、資料與公開測試。** 官網 Logistics 頁已連到[官方 starter repo](https://github.com/cs329z/assignment1-harness)，裡面有作業講義、壓縮的企業郵件封存、Cardinal Energy 文件、待實作的 adapter、確定性與 live 測試，以及模擬使用者評估。Cardinal Energy 是虛構公司；講義把另一份 email archive 說明為真實企業郵件。這已足夠讓自學者照正式介面開工，但 starter 並不是完成的解答。HW2 已在 10/26 發布，不過官網截止日期表沒有連出公開檔案，cs329z 的 GitHub 組織也還沒有 HW2 repo（2026-10-29 查）。
 
@@ -296,17 +301,18 @@ Agent展示容易隱藏選題、失敗與安裝條件。專案規格要求把這
 
 ## 課程影片來源
 
-[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)說明錄影由課程 Canvas 提供，需登入取得。投影片地圖與各堂導讀依公開教材撰寫，未取得需認證的錄影或逐字稿。
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)（Stanford Online 頻道）
+- 第 1–4 堂已於 2026-11-09 至 11-12 公開上架；清單內其餘影片尚未公開。各堂導讀嵌入對應錄影，本篇導言嵌第 1 堂（全片約 70 分鐘）。
+- 查核日期：2026-11-13。上架前「錄影需登入課程 Canvas」的說法已不再適用。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs329z.stanford.edu/)
 - [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
 
-查核日期：2026-10-29。
-
 ## 更新紀錄
 
+- 2026-11-13：Stanford Online 於 YouTube 公開上架課程錄影（第 1–4 堂），總覽嵌入第 1 堂代表影片、改寫影片狀態與來源區，同步更新 tldr 與自學材料清單。
 - 2026-10-29：系列由一週一篇改為一堂一篇（第 1–19 堂，第 16 堂客座待公布），閱讀路線表補到第 19 堂，舊週文網址轉到對應堂次。
 - 2026-10-29：投影片地圖擴充到 Lecture 11（Terminal-Bench 客座、Data for Agentic Systems），改寫閱讀路線與客座段落中「尚未開講」的說法，補 HW2 起始檔尚未公開的現況，並重查錄影取得方式。
 

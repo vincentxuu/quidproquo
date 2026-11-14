@@ -16,7 +16,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems)
 
-**Video status: Recordings require the course Canvas login.** [Official access information](https://cs329z.stanford.edu/logistics.html). This guide uses public slides and original readings, without classroom speech or timestamps.
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 70 minutes); this guide follows the public slides and readings and had each section start time checked against the recording via a machine-generated transcript.
 
 The three readings for Stanford CS329Z Lecture 1 approach one question from different directions: how do processes beyond the model change AI's actual performance? BAIR frames the system-design problem. Andrew Ng organizes iterative work patterns. Si and colleagues subject research ideas to code implementation and GPU experiments. The guide first explains the lecture slides, then presents independent reading digests that distinguish perspective articles from experimental evidence.
 
@@ -36,11 +36,18 @@ Roles and dates follow the [official schedule](https://cs329z.stanford.edu/); th
 <p><a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf" target="_blank" rel="noopener noreferrer">Open original PDF in a new tab</a></p>
 </div>
 
+```youtube
+url: https://www.youtube.com/watch?v=DGI4vucR71w
+title: What Are AI Agents? Agentic Systems Explained | Stanford CS329Z Lecture 1 with Diyi Yang
+```
+
 ## Opening lecture guide: reasoning, action, and evaluation across 71 slides
 
 [Intro to Agentic Systems](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf) covers more than compound systems. It begins with the course and agent history, examines reasoning, memory, and tools, then tests the architecture against reliability and safety problems. The guide below follows the slide order, grouping logistics and repeated section dividers while retaining mechanisms and examples. Page numbers refer to physical PDF pages; use the links to compare the slides within this page.
 
 ### Pages 1–17: understanding both models and software systems
+
+[Recording 00:00–07:35](https://www.youtube.com/watch?v=DGI4vucR71w)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=1" data-slide-page="1">Slides 1–17</a>
 
@@ -54,6 +61,8 @@ Pages 14–16 distinguish using AI to learn from letting it replace understandin
 
 ### Pages 18–27: agents predate chat models; perception and action remain central
 
+[Recording 07:35–22:01](https://www.youtube.com/watch?v=DGI4vucR71w&t=455s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=18" data-slide-page="18">Slides 18–27</a>
 
 The history is not an exercise in memorizing dates. Early actors, task negotiation, and the Society of Mind already examined units that act and collaborate. Definitions in the 1990s emphasized autonomy, reactivity, proactivity, and social interaction. The sensor-and-actuator definition on page 21 exposes the common structure: receive information from an environment, then affect it through actions.
@@ -65,6 +74,8 @@ Page 25 places ReAct, ChatGPT, GPT-4, and early autonomous-agent projects on one
 **Check your understanding:** has a model executed a task merely because it writes a complete plan? No. A plan remains an output. Actions must actually run and results must return before the system can judge whether the plan works.
 
 ### Pages 29–34: how do five components form an action loop?
+
+[Recording 22:01–31:48](https://www.youtube.com/watch?v=DGI4vucR71w&t=1321s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=29" data-slide-page="29">Slides 29–34</a>
 
@@ -109,6 +120,8 @@ A counterexample is an email-search timeout. The observation is “the result wa
 
 ### Pages 35–37: the Apple Remote example turns failed search into a clue
 
+[Recording 31:48–35:05](https://www.youtube.com/watch?v=DGI4vucR71w&t=1908s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=35" data-slide-page="35">Slides 35–37</a>
 
 This is a complete slide example whose evidence can be followed. The question asks: **apart from Apple Remote, what device can control the program it was originally designed for?** First identify the program, then investigate its other controls.
@@ -132,6 +145,8 @@ Page 37 places task scores beside error categories, preventing one success from 
 
 ### Pages 38–43: sampling, reflection, debate, and orchestration use different feedback
 
+[Recording 35:05–43:10](https://www.youtube.com/watch?v=DGI4vucR71w&t=2105s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=38" data-slide-page="38">Slides 38–43</a>
 
 These approaches have different information flows; they are not several names for thinking longer:
@@ -151,6 +166,8 @@ The orchestrator diagram on page 43 addresses a different problem: extract code 
 
 ### Pages 44–50: distinguish remembered experiences, inferred knowledge, and reusable skills
 
+[Recording 43:10–46:45](https://www.youtube.com/watch?v=DGI4vucR71w&t=2590s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=44" data-slide-page="44">Slides 44–50</a>
 
 Page 44 returns to the overall architecture and highlights memory. Page 45 motivates it: event streams cannot all remain in context, and even fitting them does not establish that relevant information will be found. Memory design therefore includes writing and reading, beyond simply storing chat history.
@@ -167,6 +184,8 @@ Consider an original illustration: “yesterday's search failed” is an experie
 
 ### Pages 51–53: tool use includes timing, arguments, and using the result
 
+[Recording 46:45–53:41](https://www.youtube.com/watch?v=DGI4vucR71w&t=2805s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=51" data-slide-page="51">Slides 51–53</a>
 
 Toolformer separates tool use into learning which API to call, when, with what arguments, and how to incorporate results into generation. Page 51 illustrates calculators, question answering, search, translation, and calendars, showing how tools add external information or computation. Producing plausible call syntax completes only part of that process.
@@ -176,6 +195,8 @@ The Gorilla diagram on page 52 addresses selection as APIs multiply: organize AP
 Page 53 returns tools to the complete architecture. Tool outputs become observations that can affect reasoning and memory; installing a tool alone does not establish successful integration. **Check your understanding:** if a calculator returns the right number but the answer uses an older number, what failed? Tool execution worked, but its result was not incorporated correctly. Inspect how the return value enters context and whether the model uses it.
 
 ### Pages 55–59: system, data, and evals in RAG, tool calls, and MCP
+
+[Recording 53:41–61:13](https://www.youtube.com/watch?v=DGI4vucR71w&t=3221s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=55" data-slide-page="55">Slides 55–59</a>
 
@@ -200,6 +221,8 @@ Page 59 places MCP as a standard protocol between applications and data/tools. C
 
 ### Pages 61–64: test success, reliability, and safe completion separately
 
+[Recording 61:13–64:55](https://www.youtube.com/watch?v=DGI4vucR71w&t=3673s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=61" data-slide-page="61">Slides 61–64</a>
 
 Page 61 lists reliability, training, long tasks, safety, and evaluation as central challenges. Errors in a long loop can propagate; training faces sparse feedback, long horizons, and expensive rollouts; growing context can also let goals and constraints drift. These are distinct system problems to diagnose, rather than one explanation for a wrong final answer.
@@ -217,6 +240,8 @@ Page 63's HAL dashboard places capabilities alongside several reliability dimens
 **Answer criterion:** correctly summarizing every delay email but sending the summary externally without confirmation does not pass the complete task. Content may be correct while authorization fails. Tests must distinguish those conditions and then check that both hold.
 
 ### Pages 65–71: collaboration, attacks, and privacy extend beyond completion rate
+
+[Recording 64:55–69:36](https://www.youtube.com/watch?v=DGI4vucR71w&t=3895s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=65" data-slide-page="65">Slides 65–71</a>
 
@@ -482,8 +507,17 @@ BAIR makes the whole system the unit of improvement. Ng supplies language for ch
 
 Carry these questions into [Lecture 6's workflows](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en) and [Lecture 3's RAG](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag-en), then [Lecture 4's tools](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use-en) and [Lecture 5's frameworks](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks-en). HW1 is a later implementation assignment. The editorial judgments and original examples here do not replace its official requirements.
 
+## Course video sources
+
+- Recording: [What Are AI Agents? Agentic Systems Explained | Stanford CS329Z Lecture 1 with Diyi Yang](https://www.youtube.com/watch?v=DGI4vucR71w) (Stanford Online channel, uploaded 2026-11-09, about 70 minutes)
+- Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- Checked: 2026-11-13. The earlier statement that recordings require the course Canvas login no longer applies; this guide follows the public slides and readings and had each section start time checked against the recording via a machine-generated transcript.
+- Content check: verified against the video (2026-11-13): section start times were checked against a machine-generated transcript, and each slides subsection carries a recording time link.
+
 ## Update Log
 
+- 2026-11-13: Stanford Online published this lecture's recording and opened the course playlist; embedded the video, switched the status to videos included, and added the video sources section.
+- 2026-11-13: Checked section start times against a machine-generated transcript and added recording time links to each slides subsection.
 - 2026-10-29: The series moved from one post per week to one post per lecture; this post is now "Lecture 1" at a new URL, and the old URL redirects here.
 - 2026-10-23: Expanded the lecture guide across all 71 physical PDF pages, adding page links, the complete Apple Remote trace, comparisons of reasoning and memory mechanisms, tool-call stages, safety cases, and an action-loop diagram. Preserved the three independent reading digests.
 
