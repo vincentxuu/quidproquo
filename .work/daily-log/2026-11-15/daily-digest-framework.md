@@ -1,0 +1,4 @@
+無合格事件，未產出：掃過 watchlist B2 全部 14 個框架（LangChain/LangGraph、CrewAI、Pydantic AI、Mastra、Agno、Composio、Haystack、DSPy、smolagents、LlamaIndex、Temporal、Inngest、AG2、AutoGen）＋ MCP spec、Claude Code，過去 24–48 小時內只有 patch 級更新（LangGraph 1.2.22、CrewAI 1.15.41、Composio CLI 0.6.1、LlamaIndex v0.14.26 皆無新功能或 breaking changes），唯一夠格的 minor 更新 Mastra `@mastra/core@1.83.0` 已由昨天（2026-11-14）的 routine 寫過，不重複；今天的 `daily-digest-github` routine 獨立交叉確認同一結論。Groundlane `web_search` 補搜「AI agent framework release changelog」亦無漏網的非追蹤清單框架（n8n／Microsoft Agent Framework 皆為小幅依賴或行為調整，非新功能）。
+
+- toolDegradation：`gh api` 對 watchlist 的外部框架 repo 一律回 403（session GitHub 範圍只開 vincentxuu/quidproquo、lanefoundry/gatelane），改用 Groundlane `web_fetch` 直讀各 repo 的 GitHub releases 頁面取得版本號與發布時間；`web_search`（provider: brave，time_range: day）補搜追蹤清單外的框架動態。
+- 無文章產出，未跑圖解／英文版／check:references 等文章相關步驟。
