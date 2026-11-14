@@ -16,11 +16,16 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 77 分鐘；本文依公開投影片與指定讀物整理，並已依錄影（機器轉錄逐字稿）核對各節起點。
 
 第 3 堂（9/30，Retrieval-Augmented Generation）是第一個完整的複合系統：模型不知道的事，先檢索再生成。投影片從索引（chunking、contextual retrieval、RAPTOR、HNSW）講到檢索器（BM25、DPR、hybrid）、reranking、ColBERT 與 agentic RAG，也在這堂介紹了期末專案。
 
 指定讀物是 Lewis 等人的 [RAG 論文](https://arxiv.org/abs/2005.11401)、Karpukhin 等人的 DPR，以及 Khattab 與 Zaharia 的 [ColBERT](https://arxiv.org/abs/2004.12832)。本文深讀 RAG 與 ColBERT 兩篇，它們合起來就是 [HW1](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents) 第一段 email 檢索管線的施工圖。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=psLc-46GqY0
+title: RAG Explained: From BM25 to Agentic RAG | Stanford CS329Z Lecture 3 with Diyi Yang
+```
 
 ## Lecture 03 投影片導讀
 
@@ -32,6 +37,8 @@ draft: false
 
 ### 第 1–9 頁：從 project 問題開始，而非先選框架
 
+[錄影 00:00–05:55](https://www.youtube.com/watch?v=psLc-46GqY0)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=1" data-slide-page="1">投影片第 1–9 頁</a>
 
 課務與 project 說明先要求定義任務、研究問題、資料來源與成功條件。課堂列出課程表、研究搜尋與 coding agent 等題目，但強調只成功一次的 demo 不足以說明品質。比較基線、測多種任務、交代失敗原因，才有可討論的結果。
@@ -39,6 +46,8 @@ draft: false
 本文自擬的繁中內部知識助理可以先收集同事真正問過的問題，標出證據所在與無法回答的情況，再決定檢索器。這能避免做到最後才發現沒有可用資料或沒有評分標準。
 
 ### 第 10–22 頁：RAG 的動機與原始生成配方
+
+[錄影 05:55–26:23](https://www.youtube.com/watch?v=psLc-46GqY0&t=355s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=10" data-slide-page="10">投影片第 10–22 頁</a>
 
@@ -48,6 +57,8 @@ draft: false
 
 ### 第 23–31 頁：Chunk 的邊界決定證據是否完整
 
+[錄影 26:23–36:48](https://www.youtube.com/watch?v=psLc-46GqY0&t=1583s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=23" data-slide-page="23">投影片第 23–31 頁</a>
 
 同一段評分規則被切成不同 chunk，會影響截止時間與 late-day 限制能否一起被找到。固定大小容易實作，卻可能切斷語意；按句子或結構切分可保存邊界，但長度更不均勻。Contextual retrieval 為片段加上文件脈絡，late chunking 則先編碼較長文件，再形成片段表示。
@@ -55,6 +66,8 @@ draft: false
 課堂的 ACME 營收例子說明，只有「成長了多少」而沒有公司與季度，片段離開原文件後就難以辨識。自測可問同一個數值屬於哪家公司、哪一期，並保留原始文件 ID，避免補進的脈絡被誤當原文證據。
 
 ### 第 32–38 頁：跨段問題與近似向量搜尋
+
+[錄影 36:48–48:49](https://www.youtube.com/watch?v=psLc-46GqY0&t=2208s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=32" data-slide-page="32">投影片第 32–38 頁</a>
 
@@ -64,6 +77,8 @@ RAPTOR 用分層摘要讓檢索跨越單一片段，灰姑娘的主旨與結局�
 
 ### 第 39–54 頁：BM25、dense、hybrid 與 reranker 各解一種問題
 
+[錄影 48:49–68:22](https://www.youtube.com/watch?v=psLc-46GqY0&t=2929s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=39" data-slide-page="39">投影片第 39–54 頁</a>
 
 BM25 依詞彙重疊、詞頻飽和與長度校正打分；DPR 將問題與段落各編成向量。前者能抓錯誤碼和罕見字面值，後者能找到不同措辭，因此 hybrid search 用兩邊候選合併，RRF 依排名融合。Cross-encoder 再看 query 與候選段落的互動，通常留到較小候選集合；ColBERT 則保存 token 層級向量，以 late interaction 做細粒度比對。
@@ -71,6 +86,8 @@ BM25 依詞彙重疊、詞頻飽和與長度校正打分；DPR 將問題與段�
 評估也要配問題：Hit@k 問是否至少命中一份，Recall@k 問相關證據找回多少，MRR 看第一份相關結果的位置，nDCG 評排名與相關程度。若題目需要兩份證據，單看 Hit@k 容易掩蓋缺漏；這是選指標時必須先寫清楚的需求。
 
 ### 第 55–63 頁：讓 agent 決定何時查、查什麼與何時停
+
+[錄影 68:22–76:31](https://www.youtube.com/watch?v=psLc-46GqY0&t=4102s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=55" data-slide-page="55">投影片第 55–63 頁</a>
 
@@ -216,10 +233,15 @@ MaxSim 讓每個 query token 在文件中找最相近 token，再加總。這個
 
 ## 課程影片來源
 
-[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)寫明，課堂錄影須登入課程 Canvas 取得。本文依公開 PDF 與指定讀物帶讀，沒有把受限錄影當作已觀看材料。錄影取得方式於 2026-10-23 依官方頁面核對。
+- 錄影：[RAG Explained: From BM25 to Agentic RAG | Stanford CS329Z Lecture 3 with Diyi Yang](https://www.youtube.com/watch?v=psLc-46GqY0)（Stanford Online 頻道，2026-11-11 上架，全片約 77 分鐘）
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- 查核日期：2026-11-13。上架前「錄影需登入課程 Canvas」的說法已不再適用；本文依公開 PDF 與指定讀物帶讀，並已依錄影（機器轉錄逐字稿）核對各節起點。
+- 內容核對：已依影片核對（2026-11-13）：以機器轉錄逐字稿核對各節起點，投影片導讀各小節附錄影時間連結。
 
 ## 更新紀錄
 
+- 2026-11-13：Stanford Online 公開上架本堂錄影並建立課程播放清單，嵌入影片、狀態改為已附影片，改寫影片來源區。
+- 2026-11-13：以機器轉錄逐字稿核對各節起點，投影片導讀各小節加上錄影時間連結。
 - 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 3（9/30 週三）的內容，原屬「第 2 週：先分清 workflow 和 agent，再手刻第一個 RAG」導讀；以下保留拆分前的紀錄。
 - 2026-10-23：依兩堂官方 PDF 補成逐段投影片導讀，加入頁碼對照、機制與自測，保留並分開指定讀物解說。
 - 2026-10-23：補入workflow／agent 對照表與 RAG 架構圖，只將既有解說視覺化，未重新查核事實。

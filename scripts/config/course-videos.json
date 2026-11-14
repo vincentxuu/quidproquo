@@ -188,6 +188,31 @@
       "video": null,
       "source": "https://cs2680.com/policy",
       "checkedAt": "2026-11-13"
+    },
+    "2026-08-21-stanford-cs329z-engineering-ai-agents": {
+      "video": "DGI4vucR71w",
+      "source": "https://www.youtube.com/playlist?list=PLPRcF5HR02_U",
+      "checkedAt": "2026-11-13"
+    },
+    "2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems": {
+      "video": "DGI4vucR71w",
+      "source": "https://www.youtube.com/playlist?list=PLPRcF5HR02_U",
+      "checkedAt": "2026-11-13"
+    },
+    "2026-09-10-stanford-cs329z-lecture-02-llms-for-builders": {
+      "video": "Vr1NzH8bT44",
+      "source": "https://www.youtube.com/playlist?list=PLPRcF5HR02_U",
+      "checkedAt": "2026-11-13"
+    },
+    "2026-09-10-stanford-cs329z-lecture-03-rag": {
+      "video": "psLc-46GqY0",
+      "source": "https://www.youtube.com/playlist?list=PLPRcF5HR02_U",
+      "checkedAt": "2026-11-13"
+    },
+    "2026-09-10-stanford-cs329z-lecture-04-tool-use": {
+      "video": "s0S38lz6O7M",
+      "source": "https://www.youtube.com/playlist?list=PLPRcF5HR02_U",
+      "checkedAt": "2026-11-13"
     }
   }
 }
