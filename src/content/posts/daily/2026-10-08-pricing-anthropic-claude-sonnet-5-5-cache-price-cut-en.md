@@ -6,7 +6,7 @@ lang: en
 type: digest
 tags: [ai-agent, pricing, daily, anthropic]
 description: "On 10/7 Anthropic cut Claude Sonnet 5.5's prompt-cache-hit price from $0.20 to $0.10 per 1M tokens, a 50% cut; input, output, and cache-write prices are unchanged"
-tldr: "On 2026-10-07, Anthropic cut Claude Sonnet 5.5's cache-read (cache-hit) price from $0.20 to $0.10 per 1M tokens — down from 10% of the input price to 5% — effective the same day. Input ($2), output ($10), and cache writes (5-minute $2.50, 1-hour $4) are unchanged. This is the first real price change for Sonnet 5.5 since its 9/29 launch: at launch Anthropic insisted the headline rates hadn't moved and the savings came entirely from using fewer tokens per task."
+tldr: "On 2026-10-07, Anthropic cut Claude Sonnet 5.5's cache-read (cache-hit) price from $0.20 to $0.10 per 1M tokens — down from 10% of the input price to 5% — effective the same day. Input ($2), output ($10), and cache writes (5-minute $2.50, 1-hour $4) are unchanged. This is the first real price change for Sonnet 5.5 since its 9/28 launch: at launch Anthropic insisted the headline rates hadn't moved and the savings came entirely from using fewer tokens per task."
 series:
   name: "AI Pricing Watch"
   order: 19
@@ -16,7 +16,7 @@ series:
 
 ## Summary
 
-In its official release notes dated 2026-10-07, Anthropic cut Claude Sonnet 5.5's prompt-cache-hit price from $0.20 to $0.10 per 1M tokens, moving the discount ratio from 10% of the input price to 5% — the same ratio Opus 5.5 shipped with two weeks earlier. Input, output, and cache-write prices are all unchanged. This one is worth flagging specifically because Sonnet 5.5's headline rates were identical to its predecessor Sonnet 5 at launch on 9/29 (as this site noted on 9/30); Anthropic credited the "costs up to 30% less" claim entirely to using fewer tokens per task, not to a price cut. This is the model's first genuine rate change since launch, and it targets the exact line item that dominates agent and coding workload bills: repeated long-context reads.
+In its official release notes dated 2026-10-07, Anthropic cut Claude Sonnet 5.5's prompt-cache-hit price from $0.20 to $0.10 per 1M tokens, moving the discount ratio from 10% of the input price to 5% — the same ratio Opus 5.5 shipped with two weeks earlier. Input, output, and cache-write prices are all unchanged. This one is worth flagging specifically because Sonnet 5.5's headline rates were identical to its predecessor Sonnet 5 at launch on 9/28 (as this site noted on 9/30); Anthropic credited the "costs up to 30% less" claim entirely to using fewer tokens per task, not to a price cut. This is the model's first genuine rate change since launch, and it targets the exact line item that dominates agent and coding workload bills: repeated long-context reads.
 
 ## Before/After
 
@@ -73,6 +73,10 @@ After the cut, Sonnet 5.5's cache discount ratio moves from trailing GPT-6.1 Sol
 ## Today's Takeaway
 
 Anthropic went out of its way at Sonnet 5.5's late-September launch to say the headline rates hadn't moved and the savings came purely from token efficiency — then cut the cache rate in half less than two weeks later. That pattern — ship on an "efficiency, not a price cut" narrative, watch how the market reacts (especially to competitors like GPT-6.1 Sol with a better cache discount ratio), then follow up with an actual rate cut — looks like it's becoming standard playbook. For anyone tracking pricing, "this isn't a price cut" in a launch announcement may now have a shelf life measured in days, not months.
+
+## Update Log
+
+- 2026-11-07: Corrected: Sonnet 5.5 launched on September 28.
 
 ## References
 

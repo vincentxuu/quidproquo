@@ -55,12 +55,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 清單收錄已核讀 ROCKTOPO 表中全部 55 條有級數資料，不含未定級條目；其他已核實來源及差異附在原列。完整 topo 與現行使用公告仍要另外攜帶、確認。
 
-```video-gallery
-key: japanWashizuyama
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：6a 以下（YDS 5.10a 以下）
 
 先在 topo 找到「鷲頭メインウォール」、「カッチンロック」的線位。先確認保護與落地，不把低級數當作低風險。
@@ -85,6 +79,12 @@ layout: routes
 | 「クラシックルート」 | 5.9 | 5.9 | 未列 | 鷲頭メインウォール | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/1/routes)；ROCKTOPO 單一出處。 |
 | 「中央正面ルート」 | 5.9 | 5.9 | 未列 | 鷲頭メインウォール | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/1/routes)；ROCKTOPO 單一出處。 |
 | 「右壁クラック」 | 5.9 | 5.9 | 未列 | 鷲頭メインウォール | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/1/routes)；ROCKTOPO 單一出處。 |
+
+```video-gallery
+key: japanWashizuyama
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
@@ -116,6 +116,12 @@ layout: routes
 | 「ETハングダイレクト」 | 5.11c | 5.11c | 未列 | 鷲頭メインウォール | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/1/routes)； 網路紀錄：ROCKTOPO 登攀者的[記錄紀錄](https://www.rocktopo.net/daily_reports/44422)，作者因第一個固定點較高，在起步裂片放活動岩楔；這是個人配置，不能當通用裝備表。  [ROCKTOPO 綜合紀錄／收藏排序](https://www.rocktopo.net/areas/1/popular_routes/all)有列；這是社群排序，不是官方星等。 |
 | 「ドームクラック」 | 5.10c | 5.10c | 未列 | 鷲頭メインウォール | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/1/routes)；另見 [JFA 2025 警告](https://freeclimb.jp/access/10123/)；受限線不可攀，相關線與通道有落石警告，本列只供辨識。 |
 | 「北嶺ルート」 | 5.10c | 5.10c | 未列 | 鷲頭メインウォール | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/1/routes)；ROCKTOPO 單一出處。 |
+
+```video-gallery
+key: japanWashizuyama
+lang: zh-TW
+layout: routes
+```
 
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 

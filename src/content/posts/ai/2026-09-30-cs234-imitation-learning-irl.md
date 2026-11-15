@@ -204,7 +204,7 @@ title: 約第 4 分起
 - [Spring 2024 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 7「Policy Search 3」（約 79 分鐘）前段是 GAE 與單調改進，約 55% 之後才開始講模仿學習，依序是 behavior cloning、ALVINN、DAgger，到最後約 15% 才進入 IRL 與 feature matching；Lecture 8「Offline RL 1」（約 74 分鐘）前段是模仿學習回顧與 MaxEnt IRL，約 70% 之後轉到 RLHF。全文的 mm:ss 時間碼都改成依字幕位置估算的「約」值並拿掉 &t= 連結，「YouTube 章節」改為「字幕」；影片與投影片的詳細程度比較沒有做，已拿掉「影片講得比投影片細」的說法。
 
@@ -213,6 +213,7 @@ Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄�
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。時間碼改為「約」值、移除 &t= 連結；移除未比對的「影片比投影片詳細」說法。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

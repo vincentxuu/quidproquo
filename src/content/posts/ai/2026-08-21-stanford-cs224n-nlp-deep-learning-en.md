@@ -145,16 +145,6 @@ Read part three of the handout before you start; its hint about using asserts to
 
 If you would rather watch lectures first, the order to use is: watch lectures 1, 3 and 5 of the Spring 2024 recordings to pick up word vectors and backpropagation, then **jump straight to the Winter 2026 slides** and read from lecture 5, Transformers, onward. Skip the 2024 RNN and machine translation lectures in between — the course has already skipped them.
 
-## Appendix: the numbers and how they were checked
-
-- **Units and scheduling**: ExploreCourses shows CS 224N as 3–4 units, Terms: Win, with the 2026–2027 winter offering on the schedule and Hashimoto, T. and Yang, D. in the PI field. The current Winter 2026 course site lists Diyi Yang and Yejin Choi as instructors — different academic years, not a contradiction.
-- **Grade weights (Winter 2026)**: assignments 48% (A1 6%, A2–A4 14% each), final project 49% (proposal 8%, milestone 6%, poster 3%, report 32%), participation 3%. In 2019 it was assignments 54% (A1 6%, A2–A5 12% each), project 43%, participation 3%.
-- **Late policy**: 6 late days per person, at most 3 on any one assignment; past that, each additional day costs 1% of the overall grade. The 2019 penalty was 10% of that assignment per extra day; the switch to 1% of the overall grade came in with the 2022 offering.
-- **Quarter codes in archive URLs**: `cs224n.1194` = Winter 2019, `1224` = Winter 2022, `1234` = Winter 2023, `1244` = Winter 2024, `1246` = **Spring** 2024, `1254` = Winter 2025. The final digit is 2 for autumn, 4 for winter, 6 for spring. The 2023–24 academic year had two offerings (winter and spring), which the Winter 2024 homepage notes itself.
-- **Lecture counts**: the Winter 2019 syllabus lists 20 numbered lectures; Winter 2026's slide filenames run up to `lecture19`, four of them guest lectures (tokenization and multilinguality, interpretability, multimodality, Tinker and LoRA).
-- **An internal contradiction in the A4 handout**: the title line on page one reads "CS 224N Winter 2025 Assignment 4," but the running header on every page says Winter 2026, and the due date (Thursday, February 19) matches the Winter 2026 syllabus. Winter 2025's A4 was Transformer self-supervision and fine-tuning, due February 13, so the title line is a leftover string from copying.
-- **Not confirmed**: the course site publishes no enrollment numbers for any offering, and gives no reason for any syllabus change — "why drop machine translation" and "why add a history lecture" have no answer in the primary materials, and this piece does not speculate. I did not open the remaining archived offerings such as Winter 2020, Winter 2021 or Winter 2017, so the "last appeared in" claims above hold only within the six versions I actually compared.
-
 ## Course video sources
 
 Checked live on the official CS224N page: Winter 2026 lecture videos are on Canvas (sign-in required) and the course says they cannot be opened to non-enrolled students; the Canvas entry redirects to the Stanford sign-in page. The public recordings the official page points to are the 2024 playlist, and a Winter 2019 playlist is linked as well. None of these is a Winter 2026 lecture recording, so only the playlist links are given and nothing is embedded.
@@ -165,12 +155,13 @@ Course and recording entries:
 - [CS224N Spring 2024 public recording playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-12.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Confirmed Winter 2026 recordings need sign-in and the public playlists are the 2024 and 2019 offerings; status changed to official entry / recording index only.
+- 2026-11-12: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

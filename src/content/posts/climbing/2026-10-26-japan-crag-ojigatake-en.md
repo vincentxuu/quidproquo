@@ -55,12 +55,6 @@ Video labels follow uploader metadata, and may use different grades or versions.
 
 The inventory includes all 90 graded entries in the opened ROCKTOPO list, excluding ungraded entries; additional verified sources and discrepancies are attached to the relevant rows. It is not a substitute for the full topo or current access notices.
 
-```video-gallery
-key: japanOjigatake
-lang: en
-layout: routes
-```
-
 ### Getting started: 6-kyu and easier
 
 Start by locating 東のボルダリング・エリア, 入口のボルダーエリア in the topo. Check protection and landings; a low grade does not establish low risk.
@@ -87,6 +81,12 @@ Start by locating 東のボルダリング・エリア, 入口のボルダーエ
 | 「フェイス」（東のボルダリング・エリア；RT #33） | 6級 | — | — | 東のボルダリング・エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；single source; no reverse conversion. Same-name database row, identified by source-table order; exact rock still requires topo identification. |
 | 「クラック」（東のボルダリング・エリア；RT #34） | 6級 | — | — | 東のボルダリング・エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；single source; no reverse conversion. Same-name database row, identified by source-table order; exact rock still requires topo identification. |
 | 「ムーライトエプロン」 | 6級 | — | — | 東のボルダリング・エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；single source; no reverse conversion. |
+
+```video-gallery
+key: japanOjigatake
+lang: en
+layout: routes
+```
 
 ### Intermediate: 5-kyu to 3-kyu
 
@@ -142,6 +142,12 @@ Start by locating 東のボルダリング・エリア, 入口のボルダーエ
 | 「フラッシュゴードンカンテ」 | 3級 | — | — | 東のボルダリング・エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；single source; no reverse conversion. |
 | 「インベーダー」 | 3級 | — | — | 東のボルダリング・エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；single source; no reverse conversion. |
 
+```video-gallery
+key: japanOjigatake
+lang: en
+layout: routes
+```
+
 ### Advanced: 2-kyu to 1-kyu
 
 Start by locating 東のボルダリング・エリア, ニコニコ岩周辺 in the topo. Consider rock condition and protection alongside the crux grade.
@@ -163,6 +169,12 @@ Start by locating 東のボルダリング・エリア, ニコニコ岩周辺 in
 | 「象岩ダイレクト」 | 1級 | — | — | 東のボルダリング・エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；single source; no reverse conversion. |
 | 「ハングマン」 | 1級 | — | — | 東のボルダリング・エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；single source; no reverse conversion. |
 
+```video-gallery
+key: japanOjigatake
+lang: en
+layout: routes
+```
+
 ### Expert: shodan and above
 
 Start by locating 東のボルダリング・エリア, ニコニコ岩周辺 in the topo. Confirm the version and access status; unfinished projects do not fill gaps in the inventory.
@@ -178,6 +190,12 @@ Start by locating 東のボルダリング・エリア, ニコニコ岩周辺 in
 | 「ミラースタンドトラバース往復」 | 二段 | — | — | 東のボルダリング・エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；single source; no reverse conversion. |
 | 「ナイトメア」 | 二段 | — | — | 東のボルダリング・エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；single source; no reverse conversion. |
 | 「カンテ」 | 二段 | — | — | 東のボルダリング・エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/152/routes)；single source; no reverse conversion. |
+
+```video-gallery
+key: japanOjigatake
+lang: en
+layout: routes
+```
 
 ## Where to look things up
 

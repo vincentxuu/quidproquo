@@ -97,7 +97,7 @@ Course and recording entries:
 - [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): what was checked is how the 2023 Lecture 9 (about 79 minutes, uploaded in September 2023) relates to this article, which is based on the Winter 2026 slides "Pretraining (Scaling, Systems, Data)"; it is neither the 2026 classroom recording nor the 2024 version. The transcript covers subword and BPE-style vocabulary design, the pre-training/fine-tuning paradigm, the three pre-training styles (decoder, encoder with BERT-style masked language modeling, encoder-decoder with span corruption/T5), parameter-efficient fine-tuning, and ends with GPT-3 in-context learning, chain-of-thought and a one-line Chinchilla mention, matching the first half of this article. The 2023 version lacks the systems and data threads of the Winter 2026 version (no discussion of GPUs, data filtering or deduplication in the transcript, and scaling appears only through that Chinchilla remark), so those sections rest on the Winter 2026 slides alone, not the video.
 
@@ -106,6 +106,7 @@ Content check: verified against the video transcript (2026-10-10): what was chec
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2023 public recording on the same topic; the Winter 2026 original is behind sign-in and could not be verified.
 - 2026-10-10: Checked the video content against its transcript. The 2023 video covers subwords, the three pre-training styles, PEFT and in-context learning; the scaling/systems/data threads appear in the video only as a Chinchilla remark and are marked as not video content.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

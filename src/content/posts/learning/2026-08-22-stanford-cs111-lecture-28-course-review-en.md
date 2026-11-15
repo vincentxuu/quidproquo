@@ -73,18 +73,9 @@ Then run a failure test. Remove the mechanism and ask whether the observable res
 
 If the compelling part of CS111 was how abstractions reach the kernel, continue toward kernel implementation. If it was translation and runtime behavior, compilers extend linking, address spaces, and control transfer. If it was persistent state and transactions, databases push consistency further. If it was partial failure across machines, networking and distributed systems remove the course's single-machine assumptions one by one.
 
-## Page-by-page coverage checklist
-
-- Pages 1–2: course review and the three major topics of concurrency, memory, and storage.
-- Page 3: processes, threads, dispatch, synchronization, scheduling, and deadlock.
-- Pages 4–5: linking, allocation, relocation, segmentation, paging, TLBs, demand paging, replacement, and thrashing.
-- Pages 6–7: disk I/O, file access, inodes, block layouts, free space, caching, scheduling, links, crash recovery, and FTL.
-- Page 8: virtualization, concurrency, atomicity, locality, and layering.
-- Pages 9–10: directions for further courses and the closing slide.
-
 ## Course video sources
 
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-11-09: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-11-09.
 
 Course and recording entries:
 
@@ -94,6 +85,7 @@ Course and recording entries:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

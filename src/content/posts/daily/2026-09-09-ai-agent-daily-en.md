@@ -84,7 +84,7 @@ Today's [AI Agent Arxiv Digest](/posts/daily/2026-09-09-ai-agent-arxiv-digest-en
 
 **Latin America**: Argentina's Patagonia is attracting AI data centers thanks to its cold climate and hydro, wind, and shale-gas resources; Pampa Energía plans a 500MW facility in Neuquén province, and OpenAI is in talks with Sur Energy on a potential partnership. ([Source](https://the-decoder.com/patagonia-has-what-ai-data-centers-want-including-no-resistance-so-far/))
 
-**Oceania**: Australian workplace-operations platform SafetyCulture acquired Sydney AI startup Twine to accelerate its agentic AI push, with Twine's founders set to lead SafetyCulture's AI division — see Business Cases below.
+**Oceania**: Australian workplace-operations platform SafetyCulture acquired Sydney AI startup Twine (announced in April 2026, not news that day) to accelerate its agentic AI push, with Twine's founders set to lead SafetyCulture's AI division — see Business Cases below.
 
 China is covered above in Regulation & Governance (MIIT); Europe is covered below in Funding (Mistral) and not repeated here. The Middle East was checked today; no directly relevant, qualifying AI-agent news turned up.
 
@@ -92,9 +92,9 @@ China is covered above in Regulation & Governance (MIIT); Europe is covered belo
 
 **Mistral AI**: Closed a €3 billion Series D at a valuation above €21 billion, led by Samsung Electronics — Europe's largest-ever tech funding round, with the valuation nearly doubling in three years. ([Source](https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/))
 
-**SafetyCulture**: Acquired Sydney AI startup Twine, whose founders will lead SafetyCulture's AI division, marking the first step in a renewed acquisition push led by CEO Luke Anear. ([Source](https://www.startupresearcher.com/news/safetyculture-acquires-ai-startup-twine))
+**SafetyCulture**: Acquired Sydney AI startup Twine ([announced in April 2026](https://mitti.com/media-releases/safetyculture-acquires-twine-to-accelerate-agentic-platform-ambitions)), whose founders will lead SafetyCulture's AI division, marking the first step in a renewed acquisition push led by CEO Luke Anear. ([Source](https://www.startupresearcher.com/news/safetyculture-acquires-ai-startup-twine))
 
-**Salesforce**: Acquired Spindle AI, whose agents analyze data, build scenario models, and predict business outcomes, generating and auditing hundreds of scenario hypotheses within minutes. ([Source](https://hicglobalsolutions.com/blog/salesforce-acquires-phennecs-know-everything-about-this-sandbox-privacy-startup))
+**Salesforce**: Acquired Spindle AI (completed in November 2025, not news that day), whose agents analyze data, build scenario models, and predict business outcomes, generating and auditing hundreds of scenario hypotheses within minutes. ([Source](https://www.salesforce.com/news/stories/salesforce-signs-definitive-agreement-to-acquire-spindle-ai/))
 
 **SAP**: Discussed the evolution of enterprise payroll from "AI-enabled" to "autonomous," an example of enterprises handing critical operational workflows to agents. ([Source](https://news.sap.com/2026/09/autonomous-payroll-next-evolution-of-workforce-trust/))
 
@@ -127,6 +127,10 @@ China is covered above in Regulation & Governance (MIIT); Europe is covered belo
 
 I used to think "can an agent be trusted" was mostly a top-down mechanism — vendor safety announcements or regulatory rules. Today, seeing bankmcp — a fully grassroots, self-hosted, open-source project — solve the same trust problem with a "read-only plus licensed intermediary" combination made me realize trust mechanisms can also be assembled bottom-up by individual engineers, without waiting for a big vendor or a regulator to move first.
 
+## Update Log
+
+- 2026-11-07: Corrected: the Twine and Spindle deals were old news; replaced the wrong Spindle source.
+
 ## References
 
 - [Introducing Muse — Meta](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)
@@ -154,6 +158,6 @@ I used to think "can an agent be trusted" was mostly a top-down mechanism — ve
 - [How AI wiped out an entire industry in Nairobi — the-decoder](https://the-decoder.com/how-ai-wiped-out-an-entire-industry-in-nairobi/)
 - [Argentina's Patagonia emerges as an AI compute frontier — the-decoder](https://the-decoder.com/patagonia-has-what-ai-data-centers-want-including-no-resistance-so-far/)
 - [SafetyCulture acquires Sydney AI startup Twine](https://www.startupresearcher.com/news/safetyculture-acquires-ai-startup-twine)
-- [Salesforce acquires Spindle AI](https://hicglobalsolutions.com/blog/salesforce-acquires-phennecs-know-everything-about-this-sandbox-privacy-startup)
+- [Salesforce acquires Spindle AI](https://www.salesforce.com/news/stories/salesforce-signs-definitive-agreement-to-acquire-spindle-ai/)
 - [SAP: From AI-Enabled Payroll to Autonomous Payroll](https://news.sap.com/2026/09/autonomous-payroll-next-evolution-of-workforce-trust/)
 - [Mistral raises €3B Series D](https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/)

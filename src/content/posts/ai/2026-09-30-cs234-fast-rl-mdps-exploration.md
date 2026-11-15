@@ -243,7 +243,7 @@ title: Stanford CS234 Spring 2024 影片 13〈Exploration 3〉
 - [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 13「Exploration 3」字幕（約 70 分鐘）：確認影片涵蓋 optimism 與 MBIE-EB、PAC 與 simulation lemma、Bayesian MDP 與 PSRL、concurrent RL 與 seed sampling，後段有 contextual／linear bandit、Montezuma's Revenge 與 Decision-Pretrained Transformer 的簡短提及，與本文主題一致；「YouTube 章節」改為「字幕」。
 
@@ -252,6 +252,7 @@ Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄�
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。影片主題一致；「YouTube 章節」改為「字幕」。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

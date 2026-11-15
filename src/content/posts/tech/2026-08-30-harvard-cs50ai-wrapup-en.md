@@ -158,14 +158,14 @@ This series has eleven posts in all: the course overview, seven weekly guides, t
 
 ## Course video sources
 
-This post is a course retrospective written by this site; it corresponds to no particular week and embeds no video. Wherever it discusses a week's content it links to that week's guide, where the player and time links are. The official CS50 YouTube playlist (8 videos: an introduction plus the Week 0–6 lectures) was checked live on 2026-10-10 and contains no course retrospective video.
+This post is a course retrospective written by this site; it corresponds to no particular week and embeds no video. Wherever it discusses a week's content it links to that week's guide, where the player and time links are. The official CS50 YouTube playlist (8 videos: an introduction plus the Week 0–6 lectures) was checked live on 2026-11-09 and contains no course retrospective video.
 
 Course and recording entries:
 
 - [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
 - [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
@@ -175,6 +175,7 @@ Checked: 2026-10-10.
 - 2026-10-13: Rewritten from scratch against the rewritten weekly guides and the course site. The "What's Timeless" section listed many things the lectures do not cover (D-separation, conditional independence, variational inference, the chain rule and computation graphs, various optimizers, translation invariance, ablation studies) and is now a review table written from the weekly guides. The "superseded" comparison table was removed in full, including its TF-IDF row: its statements about current industry practice carried no sources (for example "dense retrieval fully replaces sparse vectors"), and the current course does not teach TF-IDF. The former roadmap, external resource list, and "advice by goal" table were removed, since their tool names, week counts, and month counts had no basis; they are replaced with links to this site's overviews of nine follow-up courses, marked as this site's judgment. Corrections: the recordings did not "miss the Transformer", since Week 6 covers it; the certificate condition now notes the 100% exception for Knights; "ten posts" corrected to eleven; removed "an experience usually reserved for paid courses", "countless GitHub reference implementations", and the invented closing quotation. Added three review self-check questions. The title now states what the post actually contains; the scope label stays "Topic Guide".
 - 2026-10-13: Fixes from independent review: the lectures are given by Brian Yu (the post said both instructors taught); the variable elimination item now notes that the lecturer mentions enumeration can avoid repeated computation; the subheading under "What to read next" now reads Weeks 2, 4, and 5; the tags career and llm were removed.
 - 2026-10-14: Fixes from re-review: the statement about instructors now follows the course site header and the edX course page (the header shows both names, and the edX course page lists both as instructors). The tag retrospective was also removed.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

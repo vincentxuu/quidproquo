@@ -65,12 +65,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 清單收錄已核讀 ROCKTOPO 表中全部 29 條有級數資料，不含未定級條目；其他已核實來源及差異附在原列。完整 topo 與現行使用公告仍要另外攜帶、確認。
 
-```video-gallery
-key: japanHieizan
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：6a 以下（YDS 5.10a 以下）
 
 II 峰下部的短線與ニードル左岩稜不是同一種工作量；後者要另處理多段確保與下降。
@@ -81,6 +75,12 @@ II 峰下部的短線與ニードル左岩稜不是同一種工作量；後者�
 | 「左スラブルート」 | 5.8 | 5.8 | 未列 | II峰下部岩壁 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/179/routes)；ROCKTOPO 單一出處。 |
 | 「無名クラック」 | 5.8 | 5.8 | 未列 | II峰下部岩壁 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/179/routes)；ROCKTOPO 單一出處。 |
 | 「ニードル左岩稜」 | 5.9 | 5.9 | 未列 | I峰正面壁ニードル | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/179/routes)；K1 ヒュッテ另列 120 公尺、4 段；本表級數採 RT。 網路紀錄：山のまこちゃん的[2020紀錄](http://yamanomakochan.blogspot.com/2020/11/needlesaganryou.html)，第一段雙裂隙出發比作者預期困難，並記錄延長保護點的需求；個人感受不取代原級數。 |
+
+```video-gallery
+key: japanHieizan
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
@@ -113,6 +113,12 @@ II 峰下部的短線與ニードル左岩稜不是同一種工作量；後者�
 | 「Ⅰ峰正面壁ルート」 | 5.11c | 5.11c | 未列 | I峰正面壁ニードル | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/179/routes)；ROCKTOPO 單一出處。 |
 | 「上野クラック」 | 5.10b | 5.10b | 未列 | I峰正面壁ニードル | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/179/routes)；ROCKTOPO 單一出處。 |
 
+```video-gallery
+key: japanHieizan
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 
 III 峰水場與 II 峰下部都有進階線，選壁時連岩面與下降一併確認。
@@ -140,6 +146,12 @@ III 峰水場與 II 峰下部都有進階線，選壁時連岩面與下降一併
 | 「第１スラブ(スーパー)」 | V+ | — | I峰 | 來源：[developer account](http://yabuyama.private.coocan.jp/h1root/h1root1.html)；各線數次交會，帶完整 topo 辨認版本。 |
 | 「第１スラブ(ノーマル)」 | IV+ | — | I峰 | 來源：[developer account](http://yabuyama.private.coocan.jp/h1root/h1root1.html)；各線數次交會，帶完整 topo 辨認版本。 |
 | 「KYバリエーション」 | 5.11 | 5.11 | I峰 | 來源：[developer account](http://yabuyama.private.coocan.jp/h1root/h1root1.html)；各線數次交會，帶完整 topo 辨認版本。 |
+
+```video-gallery
+key: japanHieizan
+lang: zh-TW
+layout: routes
+```
 
 ## 查資料的入口
 

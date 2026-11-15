@@ -59,12 +59,6 @@ Each row cites the public route list. Most entries lack length and pitch informa
 
 
 
-```video-gallery
-key: japanKamuiiwa
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 The south face includes several 5.10a lines. Confirm that your approach avoids collapse-affected terrain even for easier objectives.
@@ -77,6 +71,12 @@ The south face includes several 5.10a lines. Confirm that your approach avoids c
 | 「アビニヨン」 | 5.10a | 5.10a | not listed | 南面 | Sources: [RockTopo](https://www.rocktopo.net/areas/54/routes) |
 | 「右往左往」 | 5.8 | 5.8 | not listed | 東面 | Sources: [RockTopo](https://www.rocktopo.net/areas/54/routes); east-face identification only; confirm post-collapse status |
 | 「もっと手足を」 | 5.10a | 5.10a | not listed | 東面 | Sources: [RockTopo](https://www.rocktopo.net/areas/54/routes); east-face identification only; confirm post-collapse status |
+
+```video-gallery
+key: japanKamuiiwa
+lang: en
+layout: routes
+```
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
@@ -115,6 +115,12 @@ The northeast face contains several 5.12 routes. Remaining east-face entries are
 | 「ラ・アップル通信」 | 5.11d | 5.11d | not listed | 東面 | Sources: [RockTopo](https://www.rocktopo.net/areas/54/routes); east-face identification only; confirm post-collapse status |
 | 「ラフレシア」 | 5.12a | 5.12a | not listed | 東面 | Sources: [RockTopo](https://www.rocktopo.net/areas/54/routes); east-face identification only; confirm post-collapse status |
 
+```video-gallery
+key: japanKamuiiwa
+lang: en
+layout: routes
+```
+
 ### Expert: 8a and up (YDS 5.13b and up)
 
 The northeast face retains hard records such as Face the Complex and Plagio. Destroyed Supinator is excluded as an objective.
@@ -123,6 +129,12 @@ The northeast face retains hard records such as Face the Complex and Plagio. Des
 | --- | --- | --- | --- | --- | --- |
 | 「フェイス・ザ・コンプレックス」 | 5.13b | 5.13b | not listed | 北東面 | Sources: [RockTopo](https://www.rocktopo.net/areas/54/routes)；Sources: [classic / ranking context](https://www.climbing-net.com/iwaba_detail/%E7%A5%9E%E5%B1%85%E5%B2%A9/)；A hard historical landmark in the publisher’s account, on the northeast face rather than the destroyed Supinator line. |
 | 「プラジオ」 | 5.13d | 5.13d | not listed | 北東面 | Sources: [RockTopo](https://www.rocktopo.net/areas/54/routes) |
+
+```video-gallery
+key: japanKamuiiwa
+lang: en
+layout: routes
+```
 
 ## Where to look things up
 

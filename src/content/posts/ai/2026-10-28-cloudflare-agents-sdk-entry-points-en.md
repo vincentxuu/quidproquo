@@ -5,7 +5,7 @@ type: deep-dive
 category: ai
 tags: [cloudflare, cloudflare-agents, agent-harness, durable-objects, ai-agent]
 lang: en
-tldr: "Already have a harness: PiHarness. Chat where you assemble each model call: AIChatAgent; let the framework run it: Think. Not chat but need state, scheduling or MCP: Agent."
+tldr: "The four entry points are one staircase, not a menu: add a DO when you need memory and resumption, AIChatAgent for the chat pipeline, Think or PiHarness for loop management, and dynamic agents only when you need to split work."
 description: "A comparison of the four Cloudflare Agents SDK entry points — PiHarness, Agent, AIChatAgent, and Think — including the Lifecycle split, who owns the loop, and the boundaries of dynamic agents, agent tools, and Code Mode."
 draft: false
 glossary:
@@ -223,9 +223,44 @@ The sandbox has no network access, so every side effect goes through a connector
 | The model should choose a child mid-conversation and show progress | Agent tools | An extra run registry; child client tools are limited |
 | Too many tools, or too many model round trips per task | Code Mode | No network in the sandbox; wrap side effects in connectors; experimental |
 
+## Read it as a staircase, not a menu
+
+The four entry points look like a menu, but they are steps on the same staircase. "Step" here means which capability the product is missing, not the L1–L5 layers in the architecture diagram above.
+
+Take reader Q&A:
+
+```text
+Step 0  A plain Worker + RAG
+        request → retrieve → SSE → done. No memory.
+        Not enough when: you need to remember a thread, resume after a disconnect, or sync across devices.
+
+Step 1  A Durable Object + a hand-written loop
+        One DO per thread, with its own SQLite, WebSocket, and alarm.
+        You get "alive", but you write the chat protocol, message persistence, and resume yourself.
+
+Step 2  AIChatAgent
+        The DO and the chat plumbing (message persistence, streaming, interruption, resume, recovery) come from the framework,
+        but you still write every model call, prompt, and retrieval in onChatMessage().
+
+Step 3  Think
+        The framework also owns the loop, sessions tree, compaction, and workspace. You only change hooks.
+```
+
+The same feature can stop at a different step, and not every product needs to climb to the top. A daily digest is a Step 0 cron function, a Step 1 queue + retry, or a Step 2 `PiHarness` (each model call and tool call is a task, and a crash resumes from the last checkpoint). Multi-agent is Step 0 single prompt, Step 1 a hard-coded DAG, Step 2 the model deciding which child to call (agent tools), Step 3 the parent owning the child's class and lifecycle (dynamic agents).
+
+So choosing an entry point is not a one-time decision about whether to use the SDK. Each time, ask: which step am I missing? If you are missing "alive", add a DO. If you are missing chat plumbing, move to `AIChatAgent`. If you are missing loop management, move to `Think` or `PiHarness`. If you are missing work decomposition, look at dynamic agents, agent tools, or Code Mode.
+
+Whatever the product, fill in these three blanks first:
+
+1. **What is the unit of state?** request / thread / user / room / job. This decides whether you need a DO.
+2. **Who runs the loop?** me / the framework / an outsourced harness. This decides between `Agent`, `AIChatAgent`, `Think`, and `PiHarness`.
+3. **Should the work be split?** no / split by code / split by the model / too many tools. This decides between dynamic agents, agent tools, and Code Mode.
+
+If you can fill in all three, the answer follows. If you cannot, you usually do not have an SDK choice problem; you have an unclear requirement.
+
 ## How I would choose
 
-Ask the questions in order. Most people get an answer in three.
+The staircase is the mental model; for an actual choice, ask these questions in order. Most people get an answer in three.
 
 1. **Do you already have a harness you want to use?** If yes, and you can live with its experimental API, use `PiHarness`. It gives you the most mature loop and recovery semantics; you pay for it in client-side plumbing.
 2. **No harness, and you are building a chat interface?** If not, skip to question 4.
@@ -249,6 +284,10 @@ If you are still unsure, here is something you can do tonight: run `examples/pla
 What Cloudflare is really selling is not a class. It is the unit: every agent gets its own Durable Object. Which entry point you choose depends on which layer you are willing to debug: the loop, the chat plumbing, or the runtime.
 
 If you are already on Workers and want one stateful agent per user, this SDK is the shortest path. If you need a single model call, or your team writes Python, do not move your runtime just because the word "agent" is in the name.
+
+## Update Log
+
+- 2026-10-30: Added "Read it as a staircase, not a menu" to frame the four entry points by product maturity rather than as a menu. The original five-question checklist remains as a quick check.
 
 ## References
 

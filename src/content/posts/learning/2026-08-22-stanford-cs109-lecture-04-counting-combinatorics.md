@@ -69,7 +69,7 @@ title: Stanford CS109 Probability for Computer Scientists I Combinatorics I 2022
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：核對的是兩支影片主題與本講的關係。2022 年第 1 講（Counting）前面大半是課程介紹與動機，約最後四分之一才進入計數的乘法（step）與加法（sum）原則；2022 年第 2 講（Combinatorics）講排列、組合、可區分與不可區分物件分進桶子（buckets and dividers）。兩支合起來與本講「乘法原理、排列、組合與重複計數」相符。「約最後四分之一」是依字幕相對位置估算，不是精確時間點。
 
@@ -78,6 +78,7 @@ title: Stanford CS109 Probability for Computer Scientists I Combinatorics I 2022
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
 - 2026-10-10：依字幕核對影片內容。確認兩支影片合起來涵蓋本講主題，並註明第一支前段多為課程介紹。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

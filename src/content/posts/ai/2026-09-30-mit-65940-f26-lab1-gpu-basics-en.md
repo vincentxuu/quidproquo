@@ -140,18 +140,19 @@ One thing you can do tonight: download the archive and do only 2.1.2, using your
 - FlashAttention: [CMU 11-868 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention-en)
 
 ## Course video sources
-Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as a downloadable zip). The Fall 2026 page currently lists lecture recordings for Lectures 1–8; Lab 1 GPU Basics is a downloadable zip and the page lists no recording for it.
+Rechecked against the live official course page on 2026-11-09: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as a downloadable zip). The Fall 2026 page currently lists lecture recordings for Lectures 1–16; Lab 1 GPU Basics is a downloadable zip and the page lists no recording for it.
 
 Course and recording entries:
 
 - [mit-6-5940 Fall 2026 — official course page](https://hanlab.mit.edu/courses/2026-fall-65940)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official public page: it still lists lecture recordings only, with none dedicated to this article, so the status is now “Checked: no corresponding recording link listed on the public official page.”
+- 2026-11-09: Rechecked video status. The Fall 2026 page now lists lecture recordings for Lectures 1–16; the lab still has no dedicated recording, so the conclusion stands.
 
 ## References
 

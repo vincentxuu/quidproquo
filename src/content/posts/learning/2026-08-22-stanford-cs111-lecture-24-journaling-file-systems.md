@@ -55,16 +55,9 @@ log entry 可以描述 logical operation，例如「把某區塊設為 inode 的
 
 闔上投影片後，可以用一次「替檔案配置新區塊」自我測驗：列出 free map、inode、data block 與 log 的每次寫入，在任意兩步間插入斷電，再判斷重啟後是遺失資料、洩漏空間、metadata 不一致，還是能完整 replay。只要還說不清楚哪個 write 必須先 durable，就還沒有真正讀懂 write-ahead 的「ahead」。
 
-## 逐頁核對清單
-
-- 第 1–15 頁：由 Lecture 23 承擔 crash model、`fsck`、ordered writes 與 WAL 入口。
-- 第 16–18 頁：logical／physical entry、idempotence、consistent group、Assignment 8 transaction。
-- 第 19–22 頁：checkpoint、metadata-only logging、優缺點、delayed log writes、`fsync`、裝置失效。
-- 第 23 頁：performance、durability、consistency 與可恢復失敗範圍的取捨。
-
 ## 課程影片來源
 
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-11-09。
 
 課程與錄影入口：
 
@@ -74,6 +67,7 @@ log entry 可以描述 logical operation，例如「把某區塊設為 inode 的
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認登入牆屬實，同學期也沒有公開錄影，狀態不變。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

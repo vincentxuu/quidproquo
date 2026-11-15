@@ -185,7 +185,7 @@ title: Stanford CS109 I Central Limit Theorem I 2022 I Lecture 18
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 18「Central Limit Theorem」字幕（約 49 分鐘）：影片先複習 convolution，再講 IID 的和、sample mean、variance 與 CLT 的樣本數估計，與本講一致；本文 P4 ELO、Truncation Error 等 worksheet 題目不是影片內容。
 
@@ -194,6 +194,7 @@ title: Stanford CS109 I Central Limit Theorem I 2022 I Lecture 18
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
 - 2026-10-10：依字幕核對影片內容。影片主題一致，無需改動說法。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

@@ -82,12 +82,13 @@ Fall 2025 仍可作歷史備援；Fall 2026 在本文查證時是新學期入口
 
 - [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時查官方講課表，28 講皆列有 YouTube 錄影；本篇涵蓋多講，維持只附錄影清單。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

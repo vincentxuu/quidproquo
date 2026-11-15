@@ -156,7 +156,7 @@ title: Stanford CS109 Probability for Computer Scientists I Poisson I 2022 I Lec
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 8「Poisson」字幕（約 68K 字元）：影片講 variance、Poisson、二項分布的 Poisson 近似，並以大西洋颶風資料收尾，與本講主題一致；字幕沒有 geometric 分布，本文 P1 的 geometric warm-up 與 DNA 題不是影片內容。
 
@@ -165,6 +165,7 @@ title: Stanford CS109 Probability for Computer Scientists I Poisson I 2022 I Lec
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
 - 2026-10-10：依字幕核對影片內容。影片主題一致；P1 geometric 等 worksheet 題目非影片內容，已在標記中說明。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

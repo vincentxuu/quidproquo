@@ -50,7 +50,7 @@ HW1、HW2 適合 CPU 起步。[HW3](https://rail.eecs.berkeley.edu/deeprlcourse/
 
 ## 課程影片來源
 
-本文是課程總覽或資源地圖，沒有單一對應講次。2026-10-10 即時核對：講師已把 Spring 2026 講課錄影公開在 RAIL 的 YouTube 頻道（27 支，2026-08-15 起公開）；課程 syllabus 仍寫錄影在 bCourses，課站也仍連到 Fall 2023 播放清單。請依講次編號從播放清單挑選錄影。
+本文是課程總覽或資源地圖，沒有單一對應講次。2026-11-09 即時核對：講師已把 Spring 2026 講課錄影公開在 RAIL 的 YouTube 頻道（27 支，2026-08-15 起公開）；課程 syllabus 仍寫錄影在 bCourses，課站也仍連到 Fall 2023 播放清單。請依講次編號從播放清單挑選錄影。
 
 課程總覽附上第 1 講錄影作為入門補充（開場介紹，44 分鐘；已依字幕核對內容是開場與課程介紹）：
 
@@ -64,7 +64,7 @@ title: CS 185/285 (Spring 2026): Lecture 1, Deep Reinforcement Learning
 - [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
 - [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：第 1 講字幕（取得的部分只到講課中段，約講到 Bitter Lesson 的 learning 與 search 為止）涵蓋機器人抓取的開場例子、課程行政（先修、作業、考試、期末專案）、什麼是 RL、與監督式學習在 IID 假設上的差異、各種應用，以及 Sutton 的 The Bitter Lesson；作為入門補充與本文總覽相符。
 
@@ -75,6 +75,7 @@ title: CS 185/285 (Spring 2026): Lecture 1, Deep Reinforcement Learning
 - 2026-10-10：重查影片狀態。找到 RAIL 頻道公開的 Spring 2026 播放清單並補上連結；本篇沒有單一講次，狀態維持僅附官方入口。
 - 2026-10-10：總覽嵌入 Spring 2026 第 1 講錄影，狀態改為相關補充影片，與其他課程總覽的做法一致。
 - 2026-10-10：依字幕核對影片內容。第 1 講影片已讀字幕，確認是開場與課程介紹；把先前「未讀字幕」的註記更新為已核對。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

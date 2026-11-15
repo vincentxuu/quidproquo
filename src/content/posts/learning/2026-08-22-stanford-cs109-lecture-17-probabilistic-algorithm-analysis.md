@@ -169,7 +169,7 @@ title: Stanford CS109 I Algorithmic Analysis I 2022 I Lecture 20
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本講的關係。這支是 2022 年第 20 講（Algorithmic Analysis），字幕內容為期望值與 law of total expectation、conditional expectation、indicator variable、hash 的期望碰撞數、coupon collector 與遞迴程式的期望分析，與本講主題相符；講者是當年的 head TA，不是本文的 Summer 2026 講者。
 
@@ -178,6 +178,7 @@ title: Stanford CS109 I Algorithmic Analysis I 2022 I Lecture 20
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
 - 2026-10-10：依字幕核對影片內容。確認影片主題與本講相符。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

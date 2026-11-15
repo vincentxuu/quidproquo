@@ -30,7 +30,7 @@ I opened every official page below without logging in on 2026-09-29. The ratings
 |---|---|---|---|---|
 | [Spring 2026](https://eecs189.org/sp26/) | Listgarten, Dimakis | A 27-lecture schedule; slide PDFs or Notes on Google Drive; a YouTube playlist, linked from the course site, with 25 lecture videos; Discussions 1–12, each with a worksheet, solutions and a walkthrough video; Drive folders for HW1–5 (PDF, LaTeX template, notebooks; HW5 includes solutions) | Gradescope, hidden tests, Ed; HW1–4 solutions; the final exam; a Lecture 1 recording | **A3 (base)** |
 | [Spring 2025](https://people.eecs.berkeley.edu/~jrs/189s25/) | Jonathan Shewchuk | Lecture notes for each lecture, the full [machlearn.pdf](https://people.eecs.berkeley.edu/~jrs/papers/machlearn.pdf), HW1–7 (zip or PDF), past midterms and finals | The official recordings are on bCourses and need a login; only screen-only backup screencasts on Drive are public | A3, but a different route |
-| [Fall 2025](https://eecs189.org/fa25/) | Narges Norouzi, Joseph Gonzalez | Schedule, slides, a lecture playlist, discussions | The homework Drive folders open empty; the `BerkeleyML/fa25-student` repo linked from the home page returns 404 | A2 |
+| [Fall 2025](https://eecs189.org/fa25/) | Narges Norouzi, Joseph Gonzalez | Schedule, slides, a lecture playlist, discussions | The homework Drive folders open empty; the `BerkeleyML/fa25-student` repo linked from the home page isn't public | A2 |
 | [Fall 2026](https://eecs189.org/fa26/) | Norouzi, Gonzalez | In progress (the home page says Week 6); materials for lectures already given; the `BerkeleyML/fa26-student` repo opens | No public homework links on the home page; the semester isn't over | A1→A2 |
 
 The Spring 2026 [Past Offerings](https://eecs189.org/sp26/past-offerings/) page lists earlier semesters from Spring 2016 to Fall 2025. Most of them are Shewchuk's `~jrs/189sXX` pages.
@@ -39,7 +39,7 @@ The Spring 2026 [Past Offerings](https://eecs189.org/sp26/past-offerings/) page 
 
 ## Why not Fall 2025
 
-Fall 2025 follows a lecture order close to Spring 2026, and its slides are all there. The practice chain is what breaks. Each homework on the home page links to a Drive materials folder, and those folders open empty for an anonymous visitor. The home page also links `github.com/BerkeleyML/fa25-student` as its Content Repository, and that URL returns 404.
+Fall 2025 follows a lecture order close to Spring 2026, and its slides are all there. The practice chain is what breaks. Each homework on the home page links to a Drive materials folder, and those folders open empty for an anonymous visitor. The home page also links `github.com/BerkeleyML/fa25-student` as its Content Repository, but that repo isn't public, so the practice material has to come from elsewhere.
 
 Without the homework, a course is just slides and videos. That is enough to understand the topics. It is not enough to practise them. So Fall 2025 rates A2 and is not the base.
 
@@ -82,7 +82,7 @@ The [Resources page](https://eecs189.org/sp26/resources/) adds three free supple
 | Homework | Drive folders in the HW column | HW1 coding is in Modal notebooks; HW5 is marked optional |
 | Past exams | The [Past Exams folder](https://drive.google.com/drive/folders/1jmkYiwFCEjhFmMTipTh7KMx-l9lbdDuZ) on the Resources page | Midterms include `sp26-midterm.pdf` with solutions; finals go up to sp25 and fa25 |
 
-The Lecture 3 slides say course content also lives in a `BerkeleyML/sp26-student` repo, but that repo returns 404 to anonymous visitors today. The Drive files are unaffected, and this series cites only Drive and course-site links.
+The Lecture 3 slides say course content also lives in a `BerkeleyML/sp26-student` repo, but that repo isn't public. The Drive files are unaffected, and this series cites only Drive and course-site links.
 
 **One thing to do tonight**: open the [HW1 Part 1 folder](https://drive.google.com/drive/folders/1gnC68dyq-QKJ5qFc-wKPJ4bCn1Q-YV8C) and check that you can see `hw1.pdf` and `hw1_student.tex`. If you can, you have access to the course's practice chain.
 
@@ -143,12 +143,13 @@ Course and recording entries:
 - [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
 - [CS189 Spring 2025 course page (Shewchuk)](https://people.eecs.berkeley.edu/~jrs/189s25/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Confirmed the Spring 2026 YouTube playlist is public and that Spring 2025 official recordings sit behind a CalNet sign-in; the status stays official entry only for this overview.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

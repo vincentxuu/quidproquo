@@ -179,7 +179,7 @@ Official sources:
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): Read both transcripts: 2022 Lecture 12, "Inference", covers updating beliefs with Bayes and ends by previewing the Stanford Acuity Test; 2022 Lecture 13, "Inference II", covers the belief-update loop, the Acuity Test, normalization, discretization and the due-date (baby) example, matching this lecture. Neither transcript contains carbon dating or the mutation clock, so P5 and P6 in this post are not video content.
 
@@ -188,6 +188,7 @@ Content check: verified against the video transcript (2026-10-10): Read both tra
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
 - 2026-10-10: Checked the video content against its transcript. Both videos match the topic; carbon dating and the mutation clock are not video content, as the check note says.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

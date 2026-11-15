@@ -198,7 +198,7 @@ title: Stanford CS234 Spring 2024 Lecture 4「Q learning and Function Approximat
 - [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 4「Q learning and Function Approximation」字幕（約 68K 字元）：確認影片依序講 Monte Carlo control 與 GLIE、SARSA、Q-learning、函數近似與 deadly triad，後段才進 DQN，與本文（前半，DQN 留給下一篇）一致；本文逐頁的投影片細節未對照影片，Baird 反例在字幕裡也沒有出現。
 
@@ -207,6 +207,7 @@ Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄�
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。影片主題一致；Baird 反例非影片內容，已在標記中說明。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

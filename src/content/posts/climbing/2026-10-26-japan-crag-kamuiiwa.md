@@ -59,12 +59,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 
 
-```video-gallery
-key: japanKamuiiwa
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：6a 以下（YDS 5.10a 以下）
 
 南面有ワイルドターキー、タンポンひでき等 5.10a；即使只爬低級數，也先確認接近是否會經過受崩落影響的地方。
@@ -77,6 +71,12 @@ layout: routes
 | 「アビニヨン」 | 5.10a | 5.10a | 未列 | 南面 | 來源： [RockTopo](https://www.rocktopo.net/areas/54/routes) |
 | 「右往左往」 | 5.8 | 5.8 | 未列 | 東面 | 來源： [RockTopo](https://www.rocktopo.net/areas/54/routes)；東面僅供辨識，先確認崩落後狀況 |
 | 「もっと手足を」 | 5.10a | 5.10a | 未列 | 東面 | 來源： [RockTopo](https://www.rocktopo.net/areas/54/routes)；東面僅供辨識，先確認崩落後狀況 |
+
+```video-gallery
+key: japanKamuiiwa
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
@@ -115,6 +115,12 @@ layout: routes
 | 「ラ・アップル通信」 | 5.11d | 5.11d | 未列 | 東面 | 來源： [RockTopo](https://www.rocktopo.net/areas/54/routes)；東面僅供辨識，先確認崩落後狀況 |
 | 「ラフレシア」 | 5.12a | 5.12a | 未列 | 東面 | 來源： [RockTopo](https://www.rocktopo.net/areas/54/routes)；東面僅供辨識，先確認崩落後狀況 |
 
+```video-gallery
+key: japanKamuiiwa
+lang: zh-TW
+layout: routes
+```
+
 ### 高手：8a 以上（YDS 5.13b 以上）
 
 北東面保留フェイス・ザ・コンプレックス與プラジオ等高難度記錄。已崩落的シュピネイター不列成可嘗試目標。
@@ -123,6 +129,12 @@ layout: routes
 | --- | --- | --- | --- | --- | --- |
 | 「フェイス・ザ・コンプレックス」 | 5.13b | 5.13b | 未列 | 北東面 | 來源： [RockTopo](https://www.rocktopo.net/areas/54/routes)；來源：[代表線／排序脈絡](https://www.climbing-net.com/iwaba_detail/%E7%A5%9E%E5%B1%85%E5%B2%A9/)；出版社歷史介紹中的代表高難度線；此處位於北東面，不是已崩落的シュピネイター。 |
 | 「プラジオ」 | 5.13d | 5.13d | 未列 | 北東面 | 來源： [RockTopo](https://www.rocktopo.net/areas/54/routes) |
+
+```video-gallery
+key: japanKamuiiwa
+lang: zh-TW
+layout: routes
+```
 
 ## 查資料的入口
 

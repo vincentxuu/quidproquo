@@ -199,7 +199,7 @@ print("Saved plot to optimizer_comparison.png")
 | AdamW weight decay ineffective | Used `weight_decay` param but optimizer is Adam | Use `torch.optim.AdamW` (decoupled) |
 
 ## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: this article is a topic guide with no single matching lecture (it was once labelled L03, but OCW Lec 03 is actually Approximation Theory), and OCW has no lecture dedicated to Adam or learning-rate schedules. The two videos below are related lectures: Lec 02 How to Train a Neural Net (SGD, backpropagation, automatic differentiation) and Lec 07 Scaling Rules for Optimization. They are topical supplements and do not verify that the whole article comes from these lectures.
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-11-09: this article is a topic guide with no single matching lecture (it was once labelled L03, but OCW Lec 03 is actually Approximation Theory), and OCW has no lecture dedicated to Adam or learning-rate schedules. The two videos below are related lectures: Lec 02 How to Train a Neural Net (SGD, backpropagation, automatic differentiation) and Lec 07 Scaling Rules for Optimization. They are topical supplements and do not verify that the whole article comes from these lectures.
 
 ```youtube
 url: https://www.youtube.com/watch?v=vidCX_dMCu0
@@ -218,7 +218,7 @@ Course and recording entries:
 - [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Numbering note: the L03–L06 numbers of these four posts were planned by this site early on from a generic deep-learning teaching order (optimization, regularization, CNN, modern CNN) without matching each one to the OCW lecture list. OCW Fall 2024 Lec 03–06 are actually Approximation Theory, Architectures: Grids, Architectures: Graphs and Generalization Theory, so these four L numbers differ from OCW lecture numbers. Since 2026-10-13 the titles follow OCW: the CNN architectures post matches Lec 04 and is labelled Lecture 4, while the optimization, regularization and modern CNN posts have no single matching lecture and are labelled Topic Guide. URLs are unchanged, so the modern CNN post still has l06 in its URL; from Lec 07 on the posts already matched OCW.
 
@@ -229,6 +229,7 @@ Content check: verified against the video transcript (2026-10-10): read the tran
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. OCW has no single lecture matching this optimization overview, so Lec 02 and Lec 07 are embedded as related supplementary videos and the status is now “Related supplementary video included; the original lecture recording has not been verified.”
 - 2026-10-10: Checked the video content against its transcript. The old "video timestamps" did not match the Lec 07 transcript (no Adam/AdamW/schedules/critical batch size); replaced with an approximate topic order from the transcripts, and corrected the reference video ID and lecturer attributions.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

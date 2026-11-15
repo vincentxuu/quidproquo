@@ -18,6 +18,20 @@ export interface GlossaryEntry {
 
 export const DEFAULT_GLOSSARY_TERMS: GlossaryEntry[] = [
   {
+    term: 'KMS',
+    aliases: ['Key Management Service', '金鑰管理服務'],
+    definition: '集中管理加密金鑰與金鑰使用權限的服務。應用依身分取得加密或解密能力，不必把主金鑰寫入原始碼。',
+    definition_en: 'A service for managing cryptographic keys and permissions to use them. Applications obtain encryption or decryption capabilities through their identities rather than embedding master keys in source code.',
+    links: [{ label: 'AWS KMS concepts', url: 'https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html' }],
+  },
+  {
+    term: 'Secret Manager',
+    aliases: ['Secrets Manager', '秘密儲存服務'],
+    definition: '集中保存、授權存取與管理 API key 等秘密的服務。能讀取秘密的應用仍須保護取用後的明文。',
+    definition_en: 'A service for storing, authorizing access to, and managing secrets such as API keys. Applications allowed to retrieve a secret must still protect the plaintext after retrieval.',
+    links: [{ label: 'AWS Secrets Manager best practices', url: 'https://docs.aws.amazon.com/secretsmanager/latest/userguide/best-practices.html' }],
+  },
+  {
     term: '遙控無人機',
     aliases: ['無人機', 'UAS', 'RPAS', 'drone'],
     definition: '由地面操作人以無線電控制、機上無人搭乘的航空器。台灣民航法把 250 公克以上者納入管理。',

@@ -60,11 +60,11 @@ Luna 的 output 降幅（58%）比官方公告寫的「50% cheaper」更大，�
 | GPT-6 Luna | $0.10 | $0.50 | 降價後最便宜的 GPT-6 系列成員 |
 | Claude Haiku 4.5 | $1.00 | $5.00 | 高能力模型中最便宜 |
 | **GPT-6 Sol（新價）** | **$2.00** | **$10.00** | 降價後與多數同級競品拉開差距 |
-| Claude Sonnet 5 | $4.00 | $10.00 | Output 與 GPT-6 Sol 持平，Input 貴一倍 |
+| Claude Sonnet 5 | $2.00 | $10.00 | Input、Output 都與 GPT-6 Sol 持平 |
 | GPT-6 Astra | $10.00 | $50.00 | 旗艦模型，價格未變 |
 | Claude Opus 5 | $15.00 | $75.00 | 最貴 |
 
-降價後 GPT-6 Sol 的 output 價格與 Claude Sonnet 5 打平，但 input 只要 Sonnet 5 的一半——對 input 密集的場景（長 context、大量文件檢索）是明顯的價格優勢。官方公告也附了自家 benchmark 佐證：AutomationBench 上 GPT-6 Sol（xhigh）成本只要 Claude Opus 5（max）的 9%，但這類廠商自報數字通常挑對自己有利的比較條件，實際選型仍建議用自己的任務跑一次 eval。
+降價後 GPT-6 Sol 的 input、output 價格都與 Claude Sonnet 5 打平，兩者在單價上已無差距。官方公告也附了自家 benchmark 佐證：AutomationBench 上 GPT-6 Sol（xhigh）成本只要 Claude Opus 5（max）的 9%，但這類廠商自報數字通常挑對自己有利的比較條件，實際選型仍建議用自己的任務跑一次 eval。
 
 ### 行動建議
 
@@ -79,6 +79,10 @@ Luna 的 output 降幅（58%）比官方公告寫的「50% cheaper」更大，�
 ## 今日收穫
 
 過去追蹤定價變動，習慣把「新模型上線」和「舊模型降價」當成兩件事分開記——但這次 OpenAI 的做法是把兩者合成一次公告：新模型的定價直接錨定在「比舊模型的促銷價再降 50%」，而不是給一個獨立的絕對數字。這種「相對降價」的敘事讓公告讀起來降幅更大、更有新聞性，但真正該記住的基準點其實是舊促銷價本身有到期日這件事——沒有查證這一層，很容易把「比促銷價再降 50%」誤讀成「比原價降更多」。
+
+## 更新紀錄
+
+- 2026-11-07：更正：Sonnet 5 輸入是 $2，不是 $4，「輸入只要一半」不成立。
 
 ## 參考資料
 

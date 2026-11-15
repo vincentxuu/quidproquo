@@ -219,7 +219,7 @@ title: Stanford CS234 Spring 2024 Lecture 3「Policy Evaluation」
 - [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 3「Policy Evaluation」字幕（約 62K 字元）：確認影片講 Monte Carlo（first-visit）與 TD 的 policy evaluation、bias 與 variance、certainty equivalence、batch 與 Mars rover／AB 例子，主題與本文一致；本文逐題小測與頁碼細節來自 2026 投影片，未對照影片。
 
@@ -228,6 +228,7 @@ Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄�
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。影片主題一致，無需改動說法。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

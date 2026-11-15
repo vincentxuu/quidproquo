@@ -160,19 +160,20 @@ The model is torchvision's `convnext_base` (from "[A ConvNet for the 2020s](http
 
 ## Course video sources
 
-No public lecture video dedicated to this post was found. The official Spring 2026 schedule and the lecture playlist (25 videos) were checked live on 2026-10-10 and contain lecture recordings only, no walkthrough of this homework; use the official course entry for recordings and materials.
+No public lecture video dedicated to this post was found. The official Spring 2026 schedule and the lecture playlist (25 videos) were checked live on 2026-11-09 and contain lecture recordings only, no walkthrough of this homework; use the official course entry for recordings and materials.
 
 Course and recording entries:
 
 - [Official course and recording entry](https://eecs189.org/sp26/)
 - [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked the official schedule and playlist live; there is no recording dedicated to this homework, so the status stays official entry only.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

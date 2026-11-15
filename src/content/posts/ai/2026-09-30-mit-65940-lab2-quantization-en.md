@@ -131,18 +131,19 @@ One thing you can do tonight: open the notebook and run only the Setup and FP32 
 - 4-bit weight quantization for LLMs: [Lab 4 + Lab 5: AWQ and an LLM on a laptop](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop-en)
 
 ## Course video sources
-Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
+Rechecked against the live official course page on 2026-11-09: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official public page: it still lists lecture recordings only, with none dedicated to this article, so the status is now “Checked: no corresponding recording link listed on the public official page.”
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

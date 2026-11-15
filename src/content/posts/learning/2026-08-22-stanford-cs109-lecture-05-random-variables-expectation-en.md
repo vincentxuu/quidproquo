@@ -62,7 +62,7 @@ Official sources:
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 6, "Random Variables and Expectation" (about 68 minutes): it covers random variables, probability mass functions, dice and coin examples and expectation, matching the official title. The word "binomial" never appears in the transcript, while this post's worksheet agenda and binomial section centre on the binomial PMF, so the video does not cover that part; the description now says "partial match".
 
@@ -71,6 +71,7 @@ Content check: verified against the video transcript (2026-10-10): Read the tran
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
 - 2026-10-10: Checked the video content against its transcript. The video does not cover the binomial distribution; the description now says "partial match".
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

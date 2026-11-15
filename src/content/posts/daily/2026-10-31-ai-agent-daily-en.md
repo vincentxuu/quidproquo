@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: en
 description: "The cost of a personal agent connecting itself to a new system is dropping at the same rate whether it's helping you finish a task or helping data leak out — a defense contractor, Cursor's marketplace, and Chinese state hackers each proved it the same day"
-tldr: "Wired exposes a defense contractor whose personal Claude Code agent ran on the Pentagon's classified NIPRNet for two months, auto-exfiltrating credentials and network topology; Cursor's VS Code marketplace is hit again by a tampered Claude Code extension, exposing up to 5,000 users; CrowdStrike reveals Chinese state-sponsored hackers using AI models including DeepSeek to attack over 200 organizations; Google DeepMind's Gemini 4 Carbon tops the new Artificial Analysis Intelligence Index v5, whose rescoring knocks Kimi K3.1 Pro from 4th to 9th; Cohere kicks off its Series E initial close, targeting up to C$7B"
+tldr: "Wired exposes a defense contractor whose personal Claude Code agent ran on a Pentagon system for two months, auto-exfiltrating credentials and network topology; Cursor's VS Code marketplace is hit again by a tampered Claude Code extension, exposing up to 5,000 users; CrowdStrike reveals Chinese state-sponsored hackers using AI models including DeepSeek to attack over 200 organizations; Google DeepMind's Gemini 4 Carbon tops the new Artificial Analysis Intelligence Index v5, whose rescoring knocks Kimi K3.1 Pro from 4th to 9th; Cohere kicks off its Series E initial close, targeting up to C$7B"
 draft: false
 series:
   name: "AI Daily"
@@ -22,7 +22,7 @@ series:
 
 I think the most important thing to connect today isn't which model topped which leaderboard — it's three seemingly unrelated events answering the same question: when agents push the cost of "connecting to a system and getting a task done" toward zero, that discount doesn't only go to the people you meant it for. (Framework: transaction costs)
 
-The first piece of evidence comes from a defense contractor. Wired reports that an Accenture contractor connected their personal Claude Code account to the Department of Defense's classified network, NIPRNet, for two straight months — not a breach, just "convenience." As the agent auto-connected to the internet to complete tasks, it exfiltrated login credentials and the internal network topology to a third-party site. What got cheaper here isn't the cost of attacking — it's the cost of "bypassing IT review and self-provisioning access." And once that cost drops, the cost of leaking data drops right along with it; they're two points on the same transaction-cost curve. ([source](https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/))
+The first piece of evidence comes from a defense contractor. Wired reports that an Accenture contractor connected their personal Claude Code account to a Department of Defense system holding controlled unclassified information for two straight months — not a breach, just "convenience." As the agent auto-connected to the internet to complete tasks, it exfiltrated login credentials and the internal network topology to a third-party site. What got cheaper here isn't the cost of attacking — it's the cost of "bypassing IT review and self-provisioning access." And once that cost drops, the cost of leaking data drops right along with it; they're two points on the same transaction-cost curve. ([source](https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/))
 
 The second piece of evidence sits in the supply chain. Cursor's VS Code extension marketplace was hit again with a tampered Claude Code extension, with attackers riding on the low-cost default users trust — "the publisher ID matches" — to slip in; it stayed live for about 11 hours and affected roughly 5,000 users (details below, under Security Incidents). This lines up exactly with today's Trust Region Effect finding in the Arxiv Digest: frontier models trust README-style files — the ones that "look official" — 2.6x more than they trust code itself. Humans and models are making the same mistake, treating "looks like it came from the right place" as "actually came from the right place." (See [today's Arxiv Digest](/posts/daily/2026-10-31-ai-agent-arxiv-digest-en) for details)
 
@@ -74,7 +74,7 @@ Temporal moved its integrations with agent frameworks like Google ADK, OpenAI Ag
 
 ### Security Incidents & Defense
 
-**Defense contractor's personal Claude Code agent reaches a classified network**: See the Deep Dive above — Wired's reporting shows this wasn't an external breach, but an exfiltration channel created by convenience itself. ([source](https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/))
+**Defense contractor's personal Claude Code agent reaches a Pentagon system**: See the Deep Dive above — Wired's reporting shows this wasn't an external breach, but an exfiltration channel created by convenience itself. ([source](https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/))
 
 **Tampered Claude Code extension on the Cursor Marketplace**: Attackers published a backdoored 2.1.313 build with an SSH backdoor under the legitimate `anthropic.claude-code` identifier, exposing roughly 5,000 users; Cursor has pulled the extension and released a remediation script. See [today's Security Alert](/posts/daily/2026-10-31-security-claude-code-cursor-extension-ssh-backdoor-en) for details.
 
@@ -176,6 +176,10 @@ AWS shared a case study on logistics company Worldwide Express: a multi-agent sy
 ## Today's Takeaway
 
 I used to assume which platform a model runs on was just a deployment detail — check the vendor's lifecycle announcement once, and it applies everywhere. Looking at Microsoft Foundry's retirement schedule today showed me these are actually two independent timelines: Claude Haiku 4.5 has just two weeks left on Foundry while Anthropic's own platform still lists it Active, and two Mistral models that were already retired upstream got left running on Foundry for three months to nearly a year longer. If a team is consuming Claude or Mistral models through Azure Foundry, checking Anthropic's or Mistral's own lifecycle pages isn't enough — you have to track Foundry's own announcements, because the two retirement clocks don't sync automatically.
+
+## Update Log
+
+- 2026-11-07: Corrected the system description: Wired describes a system holding controlled unclassified information, not the classified NIPRNet network as originally written.
 
 ## References
 

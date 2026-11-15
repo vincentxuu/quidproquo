@@ -230,14 +230,14 @@ Relevant sections: [Bayes' rule](/posts/tech/2026-08-30-harvard-cs50ai-w02-uncer
 
 ## Course video sources
 
-This post is a cross-week review written by this site; it corresponds to no particular week and embeds no video. Wherever it discusses a week's content it links to the relevant section of that week's guide, where the player and time links are. The official CS50 YouTube playlist (8 videos: an introduction plus the Week 0–6 lectures) was checked live on 2026-10-10 and contains no cross-week synthesis video.
+This post is a cross-week review written by this site; it corresponds to no particular week and embeds no video. Wherever it discusses a week's content it links to the relevant section of that week's guide, where the player and time links are. The official CS50 YouTube playlist (8 videos: an introduction plus the Week 0–6 lectures) was checked live on 2026-11-09 and contains no cross-week synthesis video.
 
 Course and recording entries:
 
 - [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
 - [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
@@ -247,6 +247,7 @@ Checked: 2026-10-10.
 - 2026-10-13: Rewritten from scratch against the rewritten weekly guides, with its role changed to a cross-week review. The former knowledge-arc diagram, three-stage tables, and "core abstraction" chain were removed; they contained a good deal the lectures do not cover (conditional independence and variable elimination, PageRank's stationary distribution, the SVM kernel trick, Q-learning as "model-free, off-policy, convergence", the chain rule for backpropagation, translation invariance for CNNs, the "symbolism to connectionism" framing) and wrong project descriptions (Heredity as likelihood-weighting sampling, Shopping as requiring standardization). The new content is three kinds of cross-week relationship, each linked to sections of the weekly guides; three cross-week examples worked to the end; and four cross-week self-check questions with answers. The project table moved to cross-week review 2. The unsupported math list and reading list were removed. The scope label in the title changed from "Course Overview" to "Topic Guide" so it no longer shares a role with the actual course overview.
 - 2026-10-13: Fixes from independent review: in four rows of the "methods the lectures replace" table the limit is stated in an earlier section, so each now links to that section and the explanatory sentence was rewritten; example 3 and the last self-check question now use the words "loved" and "it" so they no longer duplicate the self-check in the Week 6 guide; added the places where the lecturer refers back to Week 1; tags reduced from 12 to 5.
 - 2026-10-14: Fixes from re-review: only the Week 5 remark refers back to Week 1 by name; in the Week 3 remark the lecturer does not name Week 1, so it is now marked as this site's guess. The tag python was also removed, leaving 4.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

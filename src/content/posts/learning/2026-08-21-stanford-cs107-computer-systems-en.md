@@ -26,7 +26,7 @@ Its job is to dismantle a mental model. High-level languages let you believe a v
 
 This site's [map of Stanford's CS course sequence](/posts/learning/2026-08-20-stanford-cs-course-map-en) puts CS107 among the five undergraduate core courses and calls it the most painful and the most worth it. That's a judgment about where the course sits on the ladder. This piece is about what happens once you're inside: what each of the seven assignments does, and which one is the actual break. Plus a more practical question — someone with no SUNet ID following this public site, how many steps in do they hit a wall?
 
-**Scope, up front.** Everything here comes from public web pages: the current quarter's course site, seven assignment specs, seven lab handouts with their solutions, three archived quarters (quarter codes and their terms are in the appendix), the ExploreCourses entry, and the Stanford Online for-credit page. **Not read: lecture recordings** (behind Canvas), **exams** (same), and the autograder's test suite (the course says explicitly it isn't released). So what follows is what's on those pages, not a report from someone who took the class.
+**Scope, up front.** Everything here comes from public web pages: the current quarter's course site, seven assignment specs, seven lab handouts with their solutions, three archived quarters (URL codes 1256 = Spring 2025, 1262 = Autumn 2025, 1264 = Winter 2026; the current 1268 = Summer 2026), the ExploreCourses entry, and the Stanford Online for-credit page. **Not read: lecture recordings** (behind Canvas), **exams** (same), and the autograder's test suite (the course says explicitly it isn't released). So what follows is what's on those pages, not a report from someone who took the class.
 
 ## The hard facts
 
@@ -36,7 +36,7 @@ Four offerings a year — unusually frequent for a Stanford CS course.
 
 There is one prerequisite: CS106B or equivalent. But the syllabus spells "equivalent" out concretely — recursion, pointers, linked lists, trees, graphs, stacks, queues, sets, maps, searching, sorting, hashing. It asks for one more thing besides: that you already care whether your code reads well.
 
-Units is the field most often misread. ExploreCourses says "3-5 units," while the [Stanford CS department's degree requirements page](https://www.cs.stanford.edu/bs-degree-requirements) mandates that the core courses be taken for five units — and scopes that mandate more broadly than most people assume, to "all undergraduate students (regardless of major)" (the course list is in the appendix).
+Units is the field most often misread. ExploreCourses says "3-5 units," while the [Stanford CS department's degree requirements page](https://www.cs.stanford.edu/bs-degree-requirements) mandates that the core courses be taken for five units — and scopes that mandate more broadly than most people assume, to "all undergraduate students (regardless of major)" (it covers CS 103, 107, 109, 111 and 161).
 
 The two don't contradict each other; ExploreCourses just doesn't put the condition in the main field. The syllabus states it: only enrolled graduate students may take fewer units, undergraduates always take five. And enrolling for fewer units doesn't mean doing less work — it means not getting a grade.
 
@@ -50,7 +50,7 @@ CS106B teaches you to manipulate data structures as concepts. The entire course-
 
 The lecture schedule is that line, implemented. It opens with integers, bits and bytes, moves into C strings and pointers, then the heap and function pointers, then turns to assembly. Six straight lectures in the middle sit in x86-64: arithmetic and logic, condition codes and control flow, the runtime stack, alignment and optimization. The last of them is called "Managing the Heap" — precisely the setup for the final assignment.
 
-One lecture deserves a note of its own. The Summer 2026 schedule slots a **Sockets** lecture in just before the final review. The official course description on ExploreCourses lists no networking topics. I can point at a page for each of those facts, but no page connects them — whether that lecture is unique to that quarter, I could not verify (see the appendix). Anyone trying to infer from a syllabus whether CS107 covers networking should first check which offering's schedule they're reading.
+One lecture deserves a note of its own. The Summer 2026 schedule slots a **Sockets** lecture in just before the final review. The official course description on ExploreCourses lists no networking topics. Each fact has a page, but no page says whether that lecture is unique to that quarter. Anyone trying to infer from a syllabus whether CS107 covers networking should first check which offering's schedule they're reading.
 
 ## The seven assignments, one by one
 
@@ -102,7 +102,7 @@ The same section goes on: your original score has to be at least 25%, otherwise 
 
 **Troccoli's Spring 2025 has no such section.** That syllabus doesn't address whether you can submit again after seeing a grade at all.
 
-Its late-day tiers differ from Cain's too, and it allows two days instead of three (both scales are in the appendix).
+Its late-day tiers differ from Cain's too, and it allows two days instead of three (Spring 2025: 95% within 24 hours, 87.5% at 24–48 hours; Cain's: 95%, 90%, 85%, nothing past three days).
 
 So "you can resubmit in CS107" has no general answer; it depends on who taught that quarter. **To check, open that quarter's archived `syllabus.html` and search for `Resubmission`.** It's there or it isn't — no need to guess.
 
@@ -112,7 +112,7 @@ Stanford's archives preserve a full quarter of announcements, and CS107's grade-
 
 Of the five [Autumn 2025](https://web.stanford.edu/class/archive/cs/cs107/cs107.1262/) assignments with a published median, three are perfect scores and the other two are off by one point and three points.
 
-[Spring 2025](https://web.stanford.edu/class/archive/cs/cs107/cs107.1256/) published all seven; assign4 was a perfect score and the other six all sit near the top, including the final heap allocator (raw numbers in the appendix).
+[Spring 2025](https://web.stanford.edu/class/archive/cs/cs107/cs107.1256/) published all seven; assign4 was a perfect score and the other six all sit near the top, including the final heap allocator (assign0 through assign6: 26/26, 98/100, 95/96, 96/97, 107/107, 115/119, 113/119).
 
 Worth emphasizing that these two quarters had **different instructors and different assignment policies** — one with resubmission, one without — and the medians pin to the ceiling either way.
 
@@ -126,7 +126,7 @@ This isn't inferred from scores; it's written into three separate pages.
 
 The resubmission policy says "all assignments except `assign6`." The [assign6 spec](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/assign6/) says no late submissions are accepted and the deadline is firm without exception (barring OAE accommodations and Head TA–granted extensions). The Spring 2025 syllabus, the one with no resubmission policy at all, still carves out the same exception specifically for assign6.
 
-It's also split into two deadlines, neither extendable, with a rule between them. You can keep changing the implicit allocator after submitting it at the checkpoint, but the change is only adopted if it passes a discounted comparison: your new score, after the discount, still isn't below your checkpoint score (the discount factor is in the appendix).
+It's also split into two deadlines, neither extendable, with a rule between them. You can keep changing the implicit allocator after submitting it at the checkpoint, but the change is only adopted if it passes a discounted comparison: your new score, after the discount, still isn't below your checkpoint score (the new score is multiplied by 0.85).
 
 To be clear, **this is a break in the rules, not in the scores** — the Spring 2025 assign6 median is high like the rest. So the next sentence is my advice, not the course's: **if you want one assignment to gauge whether you can survive CS107, pick the seventh.** Not because the scores are lowest, but because it's the only one where submitting is final.
 
@@ -160,36 +160,9 @@ Lab 5 isn't a random pick: it's the one where the problems, the worked solutions
 
 To go the whole way, use the seven labs as the spine (problems and solutions both public), the slide decks as supplement, and the assignment specs as reading material — **read the assignments as specifications and build each project from scratch, instead of waiting to fill in blanks.** That's harder than taking the class, but `mywhich`, `myuniq`, `mysort` and the heap allocator are specified thoroughly enough to rebuild without any starter code.
 
-## Appendix: numbers and how they were checked
-
-Everything here comes from official pages fetched on 2026-08-21. Archived URLs follow the pattern `web.stanford.edu/class/archive/cs/cs107/cs107.<quarter code>/`, where 1256 is Spring 2025, 1262 is Autumn 2025, 1264 is Winter 2026, and 1268 is Summer 2026. Each code's term name comes from the title the archived page itself displays, not from decoding the number.
-
-- **Autumn 2025 median functionality scores** (from grade-release announcements on that quarter's archived homepage): assign0 26/26, assign1 90/90, assign3 95 (the announcement says "a perfect 95"), assign4 106/107, assign5 116/119. The assign2 announcement gives no median, and instead reminds anyone below 85% of the functionality points about the resubmission policy, noting that many students reinvented the wheel by implementing `strspn`, `strcspn` and even `strncmp` themselves. No assign6 median appears in that quarter's announcements.
-- **Spring 2025 median functionality scores** (from grade-release announcements on that quarter's archived homepage; all seven present): assign0 26/26, assign1 98/100, assign2 95/96, assign3 96/97 (the announcement notes this excludes extra credit), assign4 107/107, assign5 115/119, assign6 113/119. This is the only one of the four quarters that published a median for assign6.
-- **Autumn 2025 and Winter 2026 grade composition** (identical): assignments 40%, lab participation 10%, midterm 20%, final 30%. Winter 2026 adds that if an exam median falls below 80, the whole distribution is curved up.
-- **Spring 2025 grade composition**: assignments 40%, lab participation 5%, lecture points 5%, midterm 20%, final 30%.
-- **Summer 2026 grade composition**: assignments 20%, lab participation 5%, midterm 15%, final 20%, quizzes 40%. The threshold for a C- is guaranteed to be no higher than 70%.
-- **Late-submission ceilings (Cain's two quarters)**: 95% within 24 hours, 90% at 24–48 hours, 85% at 48–72 hours, nothing accepted past three days.
-- **Late-submission ceilings (Spring 2025)**: 95% within 24 hours, 87.5% at 24–48 hours, two days only.
-- **Resubmission policy**: appears only in the Assignment Resubmission Policy section of the Autumn 2025 and Winter 2026 syllabi. Anyone below 85% of the functionality points may resubmit up to that 85% mark, but the original score must be at least 25%, otherwise the ceiling is three times the original; the code review is not redone; it applies to every assignment except assign6. The Spring 2025 syllabus has no such section.
-- **assign6 accepts no late submissions**: consistent across all four quarters, except for Head TA–granted extensions and OAE accommodations.
-- **assign6 checkpoint rule**: if the implicit allocator submitted at the end differs from the checkpoint version, the new functionality score is multiplied by 0.85 and adopted only if the result is not below the checkpoint score; otherwise the checkpoint version is graded.
-- **Code review grades**: five levels, `+` / `ok` / `–` / `––` / `0`; the course says most submissions land at `ok`.
-- **Lecture and assignment counts**: Summer 2026 has 18 lectures (including the final review), 7 assignments, 7 labs.
-- **Course structure**: lectures Monday, Wednesday and Friday, plus one lab a week. The Summer 2026 final runs three hours.
-- **Scope of the five-unit rule**: the degree requirements page reads "In the Core section, all undergraduate students (regardless of major) enrolling in CS 103, 107, 109, 111 or 161 must take it for 5 units." — all undergraduates regardless of major, not just CS majors.
-- **CS107ACE**: a separate one-unit supplementary section (also called CS107A or Pathfinders), by application, taken concurrently with CS107, graded satisfactory/no credit.
-- **Tuition for the for-credit distance version**: the [Stanford Online CS107 page](https://online.stanford.edu/courses/cs107-computer-organization-and-systems) showed $7,875 for five units on 2026-08-21, running 2026-06-22 to 08-15, with a suggested 15–25 hours per week. Non-degree students must enroll for the maximum units, must take a letter grade, and must hold a B or better in each course to keep enrolling.
-
-Three things I could not confirm. **First**, this site's Stanford CS course map recorded CS107 distance tuition as $8,110 on 2026-08-20, which differs from the $7,875 I read on August 21; that page only shows the currently open offering, and I can't go back to determine which offering $8,110 belonged to, so both readings are reported as read. **Second**, whether the Sockets lecture in the Summer 2026 schedule is unique to that quarter — I can confirm only that ExploreCourses' official description lists no networking topics, and I could not confirm whether other quarters' schedules include it, because the archive has no public index page and you can only try quarter codes one at a time. **Third**, I did not find a resubmission section in the Summer 2026 syllabus, but that isn't the same as the quarter not having one; all I can say is I didn't read it, not that it doesn't exist.
-
-One more thing is deliberately left open: why the medians sit at the ceiling every quarter. Neither the announcements nor the syllabi explain it, and this piece offers no speculative mechanism. Quarters with a resubmission policy and quarters without have equally high medians, so any explanation linking the two needs evidence from outside these pages.
-
-And one thing wasn't unavailable so much as not attempted: the assignment and lab starter code lives on AFS behind a SUNet ID, this piece made no attempt to obtain it, and every description of assignment content here comes from the public assignment specs themselves.
-
 ## Course video sources
 
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-11-12.
 
 Course and recording entries:
 
@@ -199,6 +172,7 @@ Course and recording entries:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
+- 2026-11-12: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

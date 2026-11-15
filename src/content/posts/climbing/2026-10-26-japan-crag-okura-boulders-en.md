@@ -59,12 +59,6 @@ Each row cites the public route list. Most entries lack length and pitch informa
 
 
 
-```video-gallery
-key: japanOkuraBoulders
-lang: en
-layout: routes
-```
-
 ### Beginner: Japanese 5–10 kyu
 
 Easier problems are spread among boulders, with water level affecting landings. Confirm a safe return to the path first.
@@ -109,6 +103,12 @@ Inu and Kunoichi-gaeshi have named accounts or videos. Do not identify anonymous
 | 放流者 2級 | 2級 | — | — | 犬岩周辺 | Sources: [RockTopo](https://www.rocktopo.net/areas/67/routes) |
 | テキサスチェーンソー 2級 | 2級 | — | — | 犬岩周辺 | Sources: [RockTopo](https://www.rocktopo.net/areas/67/routes) |
 
+```video-gallery
+key: japanOkuraBoulders
+lang: en
+layout: routes
+```
+
 ### Advanced: Japanese 1 kyu–shodan
 
 Shiru and MNO offer shodan objectives with different landings. Shiru accounts mention moisture on the opening move.
@@ -125,6 +125,12 @@ Shiru and MNO offer shodan objectives with different landings. Shiru accounts me
 | 悟り 初段+ | 初段+ | — | — | 汁岩周辺 | Sources: [RockTopo](https://www.rocktopo.net/areas/67/routes) |
 | 愚断 初段 | 初段 | — | — | 犬岩周辺 | Sources: [RockTopo](https://www.rocktopo.net/areas/67/routes) |
 
+```video-gallery
+key: japanOkuraBoulders
+lang: en
+layout: routes
+```
+
 ### Expert: Japanese nidan and above
 
 Mushin, Tanzo and En warrant a specialist topo. Reassess pads for the actual river level rather than copying an old clip.
@@ -135,6 +141,12 @@ Mushin, Tanzo and En warrant a specialist topo. Reassess pads for the actual riv
 | 苦行 二段 | 二段 | — | — | 汁岩周辺 | Sources: [RockTopo](https://www.rocktopo.net/areas/67/routes) |
 | 縁 四段 | 四段 | — | — | 汁岩周辺 | Sources: [RockTopo](https://www.rocktopo.net/areas/67/routes) |
 | 鍛造 四段 | 四段 | — | — | 汁岩周辺 | Sources: [RockTopo](https://www.rocktopo.net/areas/67/routes) |
+
+```video-gallery
+key: japanOkuraBoulders
+lang: en
+layout: routes
+```
 
 ## Where to look things up
 

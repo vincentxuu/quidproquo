@@ -150,17 +150,15 @@ The practice problems start with "Be An ISPC Compiler," which has you hand-trans
 
 **How to use it**: do Problems 1 and 2 before PA1 so the "ideal ceiling" math is automatic. Do Problem 5 after Programs 2 and 4, and compare it with the vector utilization you measured.
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the problems, point values, grading-machine specs, and constraints in the README; the problems and grading scheme of Written 1. Not confirmed: reference numbers on myth machines, Gradescope grading details, clarifications posted on Ed (not visible outside Stanford), and Written 1's due date (neither the PDF nor the course home page states it). This post includes no solutions.
-
-Further reading: the README's "For the Curious" section strongly recommends Matt Pharr's [The Story of ISPC](https://pharr.org/matt/blog/2018/04/30/ispc-all), which takes on questions like "why can't the compiler just parallelize it?"
+The README's "For the Curious" section strongly recommends Matt Pharr's [The Story of ISPC](https://pharr.org/matt/blog/2018/04/30/ispc-all), which takes on questions like "why can't the compiler just parallelize it?"
 
 Series navigation: previous [L3: Latency vs. Bandwidth and ISPC](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc-en) | next [L4: The Thought Process of Parallelizing Code](/posts/ai/2026-09-30-cs149-parallelizing-thought-process-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-11-09: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-11-09.
 
 Course and recording entries:
 
@@ -170,6 +168,7 @@ Course and recording entries:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Rechecked official sources; there is still no public recording matching this article, and a check date was added.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

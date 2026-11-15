@@ -130,12 +130,13 @@ Course and recording entries:
 - [Stanford Online CS224W public playlist (2021 offering, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
 - [Stanford Online CS224W public playlist (2021 / 2023 offerings, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Confirmed the official pages list no public Fall 2025 recording, Canvas requires sign-in, and public playlists cover only 2021/2023; status unchanged and check date added.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

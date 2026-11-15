@@ -58,12 +58,6 @@ Each row cites the public route list. Most entries lack length and pitch informa
 
 
 
-```video-gallery
-key: japanKasama
-lang: en
-layout: routes
-```
-
 ### Beginner: Japanese 5–10 kyu
 
 Some easy mantles are high and leaves can hide landing rocks. Old Daikoku-iwa beginner lines are excluded because of its entry restriction.
@@ -133,6 +127,12 @@ Some easy mantles are high and leaves can hide landing rocks. Old Daikoku-iwa be
 | マントル 5級（道端岩） | 5級 | — | — | 道端岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/78/routes) |
 | カンテ左 5級（道端岩） | 5級 | — | — | 道端岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/78/routes) |
 
+```video-gallery
+key: japanKasama
+lang: en
+layout: routes
+```
+
 ### Intermediate: Japanese 4–2 kyu
 
 Granite positioning matters even at 4 kyu. Match the actual boulder and distinguish original from sit-start versions.
@@ -192,6 +192,12 @@ Granite positioning matters even at 4 kyu. Match the actual boulder and distingu
 | カンテ右 4級（道端岩） | 4級 | — | — | 道端岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/78/routes) |
 | 子ぎつねいなり 2級 | 2級 | — | — | 差分 topo：位置另查 | Sources: [local topo / database](https://ameblo.jp/shibarock48/entry-12725923105.html)；v4.1 revision: 1 kyu to 2 kyu. |
 
+```video-gallery
+key: japanKasama
+lang: en
+layout: routes
+```
+
 ### Advanced: Japanese 1 kyu–shodan
 
 Sekkijin Slab and Simple & Deep are representative precision-footwork problems, requiring outdoor slab and descent judgement.
@@ -237,6 +243,12 @@ Sekkijin Slab and Simple & Deep are representative precision-footwork problems, 
 | 石器人スラブ・ど真ん中 初段 | 初段 | — | — | 石器人岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/78/routes) |
 | 楽栗マクリスキィ 1級 | 1級 | — | — | 差分 topo：位置另查 | Sources: [local topo / database](https://ameblo.jp/shibarock48/entry-12725923105.html)；v4.1 revision: 2 kyu to 1 kyu. |
 
+```video-gallery
+key: japanKasama
+lang: en
+layout: routes
+```
+
 ### Expert: Japanese nidan and above
 
 DEEPNESS, Obake Tunnel and revised differential-topo entries occur here. The differential topo supplements, rather than replaces, the original area topo.
@@ -253,6 +265,12 @@ DEEPNESS, Obake Tunnel and revised differential-topo entries occur here. The dif
 | Way of The Gill SD 二段- | 二段- | — | — | ギル岩・ゴールドフィンガー岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/78/routes) |
 | Samurai Gaeshi 日式未列 | 日式未列 | 7B | V8 | 來源未列 | Sources: [local topo / database](https://www.thetopo.com/crags/kasama/routelist)；thetopo only: 7B; V8 follows MP. English name retained; Japanese identity not established. |
 | 石、まだかな橋 二段 | 二段 | — | — | 差分 topo：位置另查 | Sources: [local topo / database](https://ameblo.jp/shibarock48/entry-12725923105.html)；v4.1 revision: shodan to nidan. |
+
+```video-gallery
+key: japanKasama
+lang: en
+layout: routes
+```
 
 
 ## Where to look things up

@@ -169,19 +169,15 @@ Translate then convolve equals convolve then translate. The slide's intuition: *
 
 The last slide previews the next lecture: CNN architectures.
 
-## What this post can and can't confirm
+## Further reading
 
-Confirmed: the 2026 schedule's topics and reading, the 2026 slide content, the parameter-sharing example in the official notes, and the existence and lecturer of the 2025 L5 recording (per the 2025 schedule).
-
-Not confirmed: who actually taught this lecture in 2026 (the lecturer column on the 2026 schedule is commented out) and what the 2026 class recording contains (Canvas only). The 2025 recording is a different term's lecture, and slide details may differ; the 2025 deck has the extra Bag of Words slide, for example.
-
-Further reading on this site: [CMU 11-785's first CNN lecture](/posts/ai/2026-08-22-cmu-11785-09-cnn-one-en) derives convolution from scanning MLPs, a different route in. [CMU 07-280 Lecture 14](/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns-en) is a gentler introduction to computer vision and CNNs.
+[CMU 11-785's first CNN lecture](/posts/ai/2026-08-22-cmu-11785-09-cnn-one-en) derives convolution from scanning MLPs, a different route in. [CMU 07-280 Lecture 14](/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns-en) is a gentler introduction to computer vision and CNNs.
 
 Series navigation: previous [A1 guide: kNN, Softmax, Two-Layer Net, and Fully-Connected Nets](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet-en) | next [L6: Training CNNs and CNN Architectures](/posts/ai/2026-09-30-cs231n-training-cnns-architectures-en) | [series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
 
 ## Course video sources
 
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-11-09) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 5 (length 1:08:04). Justin Johnson introduces himself at the start as this lecture's speaker, and the transcript covers hand-crafted features and HOG, AlexNet, convolution-layer padding/stride/parameter counts, receptive fields, pooling and translation equivariance, matching the article's topic. It does not mention Bag of Words or LeNet (the article says the Bag of Words page is in the 2025 slides, so the recording may have skipped it). The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
 
@@ -202,6 +198,7 @@ Course and recording entries:
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 - 2026-10-10: Checked the video content against its transcript. The video topic, lecture number and speaker match, and the sampled concepts appear in the transcript. The article makes no specific video claims that needed correcting, so only the check note was added.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

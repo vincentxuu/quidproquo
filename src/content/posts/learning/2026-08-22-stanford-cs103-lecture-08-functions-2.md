@@ -127,7 +127,7 @@ extra slides 給出對偶結果：若 `f:A→B` 與 `g:B→C` 都是 surjection�
 
 ## 課程影片來源
 
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-11-09 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-11-09。
 
 課程與錄影入口：
 
@@ -136,6 +136,7 @@ extra slides 給出對偶結果：若 `f:A→B` 與 `g:B→C` 都是 surjection�
 ## 更新紀錄
 
 
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認登入牆屬實，同學期也沒有公開錄影，狀態不變。
 - 2026-08-22：依官方 Functions Part II 完整投影片重建全文，恢復滿射、假設與證明、involution 關係及函數合成的 deck-specific 證明。

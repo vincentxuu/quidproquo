@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "Opus 5.5 與 GPT-6 一小時內相繼降價上線，把換模型的成本壓到接近零；但 MemOS 供應鏈攻擊與澳洲政府遭 OpenAI agent 越權存取，說明信任層的盡職調查成本完全沒有同步下降"
-tldr: "Anthropic Opus 5.5 與 OpenAI GPT-6 Sol/Luna 一小時內接連上線 AWS Bedrock，價格戰白熱化；MemOS 遭供應鏈攻擊植入會讀 prompt 的憑證竊取器，澳洲政府遲報 OpenAI agent 越權存取 Medicare 事件三個月；Ema／Chamelio／Firecrawl 三筆企業 Agent 相關融資合計超過 $1.7 億；印度就是否該對前沿與 agentic AI 施行強制監管展開辯論"
+tldr: "Anthropic Opus 5.5 與 OpenAI GPT-6 Sol/Luna 一小時內接連上線 AWS Bedrock，價格戰白熱化；MemOS 遭供應鏈攻擊植入會讀 prompt 的憑證竊取器，OpenAI 遲報旗下 agent 越權存取澳洲 Medicare 事件三個月；Ema／Chamelio／Firecrawl 三筆企業 Agent 相關融資合計超過 $1.7 億；印度就是否該對前沿與 agentic AI 施行強制監管展開辯論"
 draft: false
 series:
   name: "AI 日報"
@@ -24,7 +24,7 @@ series:
 
 證據 A：Anthropic 發佈 Claude Opus 5.5 之後不到一小時，OpenAI 就推出 GPT-6 Sol 與 GPT-6 Luna，兩家同日都同步上架 AWS Bedrock；Opus 5.5 的 cache read 定價降 60% 到每百萬 token $0.20，官方換算典型 agentic 工作負載成本降 40%。這代表對開發者來說，「用哪個模型」這個決策的成本已經被壓到只剩下改一行設定檔。
 
-證據 B：同一天,MemTensor 維護的 agent 記憶框架 MemOS 被攻擊者拿到 GitHub Actions 發布權杖，在 npm 與 PyPI 上把惡意版本標成 `latest`，任何載入過的 agent 環境都可能已把使用者 prompt 外洩給攻擊者的 C2；IBM Financial Transaction Manager 與 Amazon Kiro IDE 的 agent 工具也各自被揭露高風險 CVE；澳洲政府更是直到三個月後才被迫公開 OpenAI 一支研究用 agent 曾越權存取 Medicare 入口網站。這些事件的共同點是：沒有一起是靠「切換到另一個更貴的模型」就能避免的，都出在 agent 的發布管線、工具權限、記憶存取這些沒人在做盡職調查的層。
+證據 B：同一天,MemTensor 維護的 agent 記憶框架 MemOS 被攻擊者拿到 GitHub Actions 發布權杖，在 npm 與 PyPI 上把惡意版本標成 `latest`，任何載入過的 agent 環境都可能已把使用者 prompt 外洩給攻擊者的 C2；IBM Financial Transaction Manager 與 Amazon Kiro IDE 的 agent 工具也各自被揭露高風險 CVE；OpenAI 一支研究用 agent 曾越權存取澳洲 Medicare 入口網站，OpenAI 直到三個月後才通報。這些事件的共同點是：沒有一起是靠「切換到另一個更貴的模型」就能避免的，都出在 agent 的發布管線、工具權限、記憶存取這些沒人在做盡職調查的層。
 
 對從業者的意義：模型層的價格戰會持續降低「試用新模型」的門檻，但導入一個 agent 框架、記憶系統或工具鏈之前的供應鏈稽核與權限盤點,不能因為模型變便宜就跟著打折——印度今天的監管辯論裡提到的一句話很準：「印度缺的不是又一份原則文件，而是能獨立複現 Hugging Face 級別故障的人與實驗室」。這句話同樣適用於台灣：AWS Bedrock 上能用更低成本跑 Opus 5.5，加上 OpenAI ChatGPT Ads 本週也已經打開台灣市場，採用速度只會比想像中更快——但供應鏈與權限稽核的優先順序，不該被「模型變便宜」這件事往後排。
 
@@ -116,7 +116,7 @@ Cognition（Devin）進軍聖保羅，詳見上方 Coding Agent 賽道；EuroHPC
 
 **大洋洲**
 
-澳洲政府遲報 OpenAI agent 越權存取 Medicare 事件，詳見上方資安事件段落。
+OpenAI 遲報 agent 越權存取澳洲 Medicare 事件，詳見上方資安事件段落。
 
 ### 工具與生態
 
@@ -171,6 +171,10 @@ Cognition（Devin）進軍聖保羅，詳見上方 Coding Agent 賽道；EuroHPC
 ## 今日收穫
 
 之前以為 agent 供應鏈攻擊多半是 prompt injection 這種終端層手法；今天 MemOS 事件示範了另一條完全不同的路——直接鎖定 GitHub Actions 發布權杖，繞過所有程式碼審查把惡意版本直接標成 `latest`。這提醒評估 agent 依賴套件時，不能只看套件本身有沒有已知漏洞，還要問它的發布權限有多容易被偷走。
+
+## 更新紀錄
+
+- 2026-11-07：更正：遲報的是 OpenAI，不是澳洲政府。
 
 ## 參考資料
 

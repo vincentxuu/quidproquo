@@ -102,7 +102,7 @@ title: Program in C — The Memory Unsafety Anthem
 
 原始影片：[Program in C — The Memory Unsafety Anthem](https://www.youtube.com/watch?v=G7LJC9vJluU)
 
-2026-10-10 即時重查：官方 Winter 2026 課表說明錄影放在 Canvas／Panopto 且僅限修課學生，開啟 Canvas 入口會被導向 Stanford 登入頁；同學期未找到公開的 YouTube、Stanford Online 或 OCW 課堂錄影。本文也無法從公開投影片的文字確認該影片連結，僅沿用先前的說明。查核日期：2026-10-10。
+2026-11-09 即時重查：官方 Winter 2026 課表說明錄影放在 Canvas／Panopto 且僅限修課學生，開啟 Canvas 入口會被導向 Stanford 登入頁；同學期未找到公開的 YouTube、Stanford Online 或 OCW 課堂錄影。本文也無法從公開投影片的文字確認該影片連結，僅沿用先前的說明。查核日期：2026-11-09。
 
 影片內容未核對：這支是歌曲式影片，我嘗試取得字幕或歌詞但沒有取到，因此只確認了頁面標題與上傳者，沒有對歌詞或內容做任何核對，本文也不對影片內容下結論。
 
@@ -117,6 +117,7 @@ title: Program in C — The Memory Unsafety Anthem
 - 2026-10-10：重查影片狀態。嵌入的 Sebastian C 影片不是課堂錄影，改標為補充影片；登入牆屬實，同學期無公開錄影。
 - 2026-08-22：把 wrap-up 的 absolute-value 回顧明確連回 Lecture 5 的 `INT_MIN` signed-overflow caveat。
 - 2026-10-10：嘗試依字幕核對影片內容，但取不到字幕，未加核對記號；僅確認頁面標題與上傳者，影片內容仍未核對。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

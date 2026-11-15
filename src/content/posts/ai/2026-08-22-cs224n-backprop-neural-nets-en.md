@@ -102,7 +102,7 @@ Course and recording entries:
 - [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): what was checked is how the Spring 2024 video (taught by Manning, about 73 minutes) relates to this article, which is based on the Winter 2026 slides; it is not the 2026 classroom recording. The transcript covers neurons as small logistic units, matrix calculus and Jacobians, gradients having the same shape as the parameters (shapes, roughly 55 to 62%), the chain rule, computation graphs and the forward/backward pass (including accumulating gradients at branches), a PyTorch start and assignment two logistics, and manual gradient checking around 92%, matching the first half of this article. The transcript never mentions numerator layout, merging softmax with cross-entropy, the memory cost of backprop, optimizers or learning rates, so the corresponding sections rest on the Winter 2026 slides and this site's own additions, not on the video.
 
@@ -111,6 +111,7 @@ Content check: verified against the video transcript (2026-10-10): what was chec
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the Spring 2024 public recording on the same topic; the Winter 2026 original is behind sign-in and could not be verified.
 - 2026-10-10: Checked the video content against its transcript. The 2024 video covers neurons, matrix calculus, shapes, computation graphs and gradient checking, matching the article's main line; softmax plus cross-entropy, memory cost and optimizers are not in the video and are marked as not video content.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

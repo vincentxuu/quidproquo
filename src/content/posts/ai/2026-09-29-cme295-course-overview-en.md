@@ -135,17 +135,18 @@ One thing you can do tonight: open Lecture 1 in the [2025 playlist](https://www.
 
 ## Course video sources
 
-This overview does not map to a single lecture, so no individual video is embedded. The nine 2025 lectures are on the Stanford Online playlist below (confirmed live on 2026-10-10: 9 videos, lecture numbers match); the official 2026 syllabus currently has recordings for Lectures 1 and 2 only, with the rest marked "Coming soon". See each per-lecture guide for its recording.
+This overview does not map to a single lecture, so no individual video is embedded. The nine 2025 lectures are on the Stanford Online playlist below (confirmed live on 2026-10-10: 9 videos, lecture numbers match); when rechecked live on 2026-11-09, the official 2026 syllabus had recordings for Lectures 1–5, slides only for Lecture 6, and the rest marked "Coming soon". See each per-lecture guide for its recording.
 
 Course and recording entries:
 
 - [2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
+- 2026-11-09: Rechecked video status. The official 2026 syllabus now has recordings for Lectures 1–5; updated the overview accordingly.
 - 2026-10-11: Added direct links to the 2026 Lecture 2 recording and slides and clarified how it maps to the 2025 guides.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Confirmed live that the 2025 playlist has 9 videos and the 2026 syllabus has recordings for Lectures 1 and 2 only; status stays official entry only, with the 2026 syllabus link added.

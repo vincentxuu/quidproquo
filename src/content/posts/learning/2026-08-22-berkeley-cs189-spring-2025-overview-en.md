@@ -93,7 +93,7 @@ Still unavailable, and only noted as existing in the series: the Spring 2026 fin
 
 ## Course video sources
 
-This post is a course overview or resource map with no single corresponding lecture. Checked live on 2026-10-10: the Spring 2026 official YouTube playlist (25 lecture videos) is publicly viewable. The Spring 2025 official lecture videos are on bCourses and redirect to a CalNet sign-in page; the only public Spring 2025 recordings are screen-only backup screencasts on Google Drive. Fall 2026 was not part of this check.
+This post is a course overview or resource map with no single corresponding lecture. Checked live on 2026-11-09: the Spring 2026 official YouTube playlist (25 lecture videos) is publicly viewable. The Spring 2025 official lecture videos are on bCourses and redirect to a CalNet sign-in page; the only public Spring 2025 recordings are screen-only backup screencasts on Google Drive. Fall 2026 was not part of this check.
 
 Course and recording entries:
 
@@ -101,9 +101,11 @@ Course and recording entries:
 - [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
 - [CS189 Spring 2025 course page (Shewchuk)](https://people.eecs.berkeley.edu/~jrs/189s25/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
+
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 - 2026-10-10: Rechecked video status. Confirmed the Spring 2026 YouTube playlist is public and that Spring 2025 official recordings sit behind a CalNet sign-in; the status stays official entry only for this overview.
 

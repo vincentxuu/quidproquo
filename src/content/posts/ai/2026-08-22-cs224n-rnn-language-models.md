@@ -140,7 +140,7 @@ title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 5 - Recur
 - [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本文的關係。這支是 Spring 2024 Lecture 5：字幕內容為神經網路補充、語言模型（含 n-gram）、RNN 與 backpropagation through time（重複權重的梯度相加），結尾預告下次繼續；字幕中沒有出現 vanishing／exploding gradient、LSTM／GRU 與機器翻譯的內容（這些在後續講次），所以本文對應的「梯度消失或爆炸」「LSTM 與 GRU」「機器翻譯」幾節在這支影片裡找不到。
 
@@ -149,6 +149,7 @@ title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 5 - Recur
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Spring 2024 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
 - 2026-10-10：依字幕核對影片內容。影片只涵蓋語言模型與 RNN 基礎，不含梯度消失／爆炸、LSTM／GRU、機器翻譯，已在來源段落註明。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

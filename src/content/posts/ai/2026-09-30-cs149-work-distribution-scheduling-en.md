@@ -196,17 +196,15 @@ Cilk uses **greedy join scheduling**:
 
 **Try this**: open slide 16, "Choosing task size," take any `parallel for` or thread-pool code you have, and write down two numbers: roughly how long one task runs, and roughly how long one task grab takes. If they're less than two orders of magnitude apart, try a larger granularity first.
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the contents of the Lecture 5 slide PDF and the lecture date on the course homepage. Not confirmed: anything said in the Fall 2025 classroom (the recordings aren't public), and page-level differences between the 2023 recording and the 2025 slides. This post was not written from the video.
-
-Further reading: OS-level CPU scheduling is out of scope for this lecture; see [CS111 Lecture 8: CPU scheduling](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling-en).
+OS-level CPU scheduling is out of scope for this lecture; see [CS111 Lecture 8: CPU scheduling](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling-en).
 
 Series navigation: previous, [Lecture 4: the parallelization thought process](/posts/ai/2026-09-30-cs149-parallelizing-thought-process-en) | next, [Lecture 6: locality, communication, and arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 
 ## Course video sources
 
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-11-09.
 
 ```youtube
 url: https://www.youtube.com/watch?v=mmO2Ri_dJkk
@@ -227,6 +225,7 @@ Content check: verified against the video transcript (2026-10-10): I read the au
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 - 2026-10-10: Checked the video content against its transcript. The video topic matches this post; no video claims needed correcting.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

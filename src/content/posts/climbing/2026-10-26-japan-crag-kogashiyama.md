@@ -59,12 +59,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 
 
-```video-gallery
-key: japanKogashiyama
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：6a 以下（YDS 5.10a 以下）
 
 不動瀑布周邊有許多低級數線，仍可能逆層、岩點細。暖身先找已確認可合法接近的岩面。
@@ -104,6 +98,12 @@ layout: routes
 | 「アニマ」 | 5.8 | 5.8 | 未列 | 獅子落とし・南陵ドーム | 來源： [RockTopo](https://www.rocktopo.net/areas/80/routes)；來源：[出版社舊 topo 級數表 #102-2](https://www.climbing-net.com/wp-content/uploads/2013/06/102-2.jpg)；原表名 アニマ、級數 5.8 |
 | 「ひらひら」 | 5.10a | 5.10a | 未列 | 獅子落とし・南陵ドーム | 來源： [RockTopo](https://www.rocktopo.net/areas/80/routes)；來源：[出版社舊 topo 級數表 #102-2](https://www.climbing-net.com/wp-content/uploads/2013/06/102-2.jpg)；原表名 ひらひら、級數 5.10a |
 | 「ねこのねごと」 | 5.10a | 5.10a | 未列 | 獅子落とし・南陵ドーム | 來源： [RockTopo](https://www.rocktopo.net/areas/80/routes)；來源：[出版社舊 topo 級數表 #102-2](https://www.climbing-net.com/wp-content/uploads/2013/06/102-2.jpg)；原表名 ねこのねごと、級數 5.10a |
+
+```video-gallery
+key: japanKogashiyama
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
@@ -165,6 +165,12 @@ layout: routes
 | 「直上の直情」 | 5.10d | 5.10d | 未列 | 獅子落とし・南陵ドーム | 來源： [RockTopo](https://www.rocktopo.net/areas/80/routes)；來源：[出版社舊 topo 級數表 #102-2](https://www.climbing-net.com/wp-content/uploads/2013/06/102-2.jpg)；原表名 直上の直情、級數 5.10d/11a，與 RockTopo 不同，兩種來源版本並列 |
 | 「元気になーれ」 | 5.11a | 5.11a | 未列 | 獅子落とし・南陵ドーム | 來源： [RockTopo](https://www.rocktopo.net/areas/80/routes)；來源：[出版社舊 topo 級數表 #102-2](https://www.climbing-net.com/wp-content/uploads/2013/06/102-2.jpg)；原表名 元気になーれ、級數 5.11a/b，與 RockTopo 不同，兩種來源版本並列 |
 
+```video-gallery
+key: japanKogashiyama
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 
 這組包括多條 5.12 線，但來源未列長度與段數的比例高。先看起攀點與固定點，再決定繩隊配置。
@@ -185,6 +191,12 @@ layout: routes
 | 「梅雨前線」 | 5.12c | 5.12c | 未列 | 不動滝正面・左フェイス | 來源： [RockTopo](https://www.rocktopo.net/areas/80/routes)；來源：[出版社舊 topo 級數表 #100](https://www.climbing-net.com/wp-content/uploads/2013/06/100.jpg)；原表名 梅雨前線、級數 5.12c/d，與 RockTopo 不同，兩種來源版本並列 |
 | 「ラブリー・フェイス」 | 5.12d | 5.12d | 未列 | 不動滝正面・左フェイス | 來源： [RockTopo](https://www.rocktopo.net/areas/80/routes)；來源：[出版社舊 topo 級數表 #100](https://www.climbing-net.com/wp-content/uploads/2013/06/100.jpg)；原表名 ラブリー・フェイス、級數 5.12d |
 | 「フィンガーワルツ」 | 5.12a | 5.12a | 未列 | マラ岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/80/routes)；來源：[出版社舊 topo 級數表 #102-1](https://www.climbing-net.com/wp-content/uploads/2013/06/102-1.jpg)；原表名 フィンガーワルツ、級數 5.12a |
+
+```video-gallery
+key: japanKogashiyama
+lang: zh-TW
+layout: routes
+```
 
 ### 高手：8a 以上（YDS 5.13b 以上）
 

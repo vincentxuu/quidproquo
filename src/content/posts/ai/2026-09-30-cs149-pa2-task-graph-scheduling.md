@@ -188,17 +188,15 @@ python3 ../tests/run_test_harness.py
 - **沒公開的正確性測試**：官方會用一組沒給你的 workload 檢查正確性，校外無從得知自己是否全部通過。
 - **沒有解答**：Gradescope 繳交與評分只對修課學生開放。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：asst2 主 README、`tests/README.md`、`cloud_readme.md` 的內容（repo 最後更新於 2025-10-15，和截止日 2025-10-16 吻合），以及課程首頁的作業標題與日期。不能確認：隱藏的正確性測試內容、參考實作的內部設計、Ed 討論區上的補充說明。
-
-延伸閱讀：condition variable 與 lock 的作業系統觀點，可以讀 [CS111 Lecture 5：Locks 與 condition variables](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables)。
+condition variable 與 lock 的作業系統觀點，可以讀 [CS111 Lecture 5：Locks 與 condition variables](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables)。
 
 系列導覽：上一篇 [L6 Locality、通訊與 arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication)｜下一篇 [L7 GPU 架構與 CUDA](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-11-09。
 
 課程與錄影入口：
 
@@ -208,6 +206,7 @@ python3 ../tests/run_test_harness.py
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。重查官方來源，確認仍無對應本文範圍的公開錄影，補上查核日期。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

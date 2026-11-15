@@ -127,7 +127,7 @@ The URL `web.stanford.edu/class/cs103/` always points at **whichever offering is
 
 In other words, **if you plan your self-study around the lecture list on today's home page, you may be working from a compressed version.** The two offerings cover nearly the same set of topics, but the granularity differs a lot, and granularity is exactly what matters in a course like this.
 
-Telling them apart is easy: the last digit of the code at the end of an archive URL is the quarter, and summer is 8. **To plan a schedule, pick an offering ending in 2 (autumn) or 6 (spring).** The full code mapping is in the appendix.
+Telling them apart is easy: the last digit of the code at the end of an archive URL is the quarter, and summer is 8. **To plan a schedule, pick an offering ending in 2 (autumn) or 6 (spring).** The full mapping is 2 = autumn, 4 = winter, 6 = spring, 8 = summer.
 
 Worth noting in passing: the summer offering actually adds a few handouts the regular quarter doesn't have — Guide to Elements and Subsets, Guide to Cantor's Theorem, and a Timeline of CS103 Results laying out the theorems the course covers in chronological order, from the Rhind Papyrus around 1550 BCE to the present. So the sensible move is: **lecture schedule from a regular quarter, handout list from the current offering**.
 
@@ -158,20 +158,9 @@ Something you can do tonight: open [Guide to Proofs](https://web.stanford.edu/cl
 
 Don't worry yet about whether you can finish the proof. That two-column move is the first thing the course's first handout teaches, and most people get stuck not because they can't prove it but because they never separated the starting point from the destination on paper. Once you've written something, open the Proofwriting Checklist and run those eight items over it — you'll catch at least one on the first try.
 
-## Appendix: numbers and how they were checked
-
-- **Units**: the ExploreCourses entry lists 3–5 units. The syllabus adds that undergraduates and CGOE students must enroll for five; only matriculated graduate students may pick between 3 and 5, and content and requirements don't change with unit count.
-- **Grade composition** (summer 2026 syllabus): assignments 20%, exams 75%, participation 5%. Assignment scores use "sum of the square roots of your scores divided by the sum of the square roots of the maximums," which lifts an 81% to a 90%; no lowest score is dropped. Exam weights are 7/15 on the higher score, 5/15 on the lower, plus an extra 3/15 on the final, so the final carries more real weight than the midterm. Participation runs on PollEv attendance; you can miss three and still get full credit, and online students are exempt with the weight redistributed proportionally.
-- **Passing thresholds**: assignments and exams must *each* reach a passing level independently. The syllabus's rough guide is around 60% on assignments and around 50% on exams, while stating the instructor sets the final standard after the quarter ends. Historical grade medians sit near the B/B+ boundary.
-- **Late policy**: three free late days, at most one per assignment; past that, late work is multiplied by 0.7; nothing is accepted more than 24 hours late. PS7 permits no late days.
-- **Lecture and assignment counts**: summer 2026 ran 15 lectures, 8 assignments (PS0–PS7), one midterm and one final; spring 2026 ran 28 lectures and 10 assignments (PS0–PS9). The autumn 2020 archive directory contains 4 midterm exams.
-- **Handout lengths**: the web version of the Proofwriting Checklist runs roughly 14,000 words with exercises attached to each of the eight guidelines; Guide to Proofs on Sets, Guide to Induction and Guide to the Myhill-Nerode Theorem are each around 10,000. These are my own word counts from the scraped pages, not official figures.
-- **Archive URL encoding**: `cs103.1268` → academic year ending 2026, quarter code 8 (summer). Quarter codes are 2 = autumn, 4 = winter, 6 = spring, 8 = summer. I derived this rule by testing codes `1212` through `1268` one at a time and comparing against the quarter each page states about itself; Stanford publishes no explanation page.
-- **Three things I could not confirm**: (1) I found no officially public lecture recordings for any CS103 offering, but "couldn't find" isn't "doesn't exist," and unofficial reuploads aren't ruled out. (2) Stanford's course archive has no browsable index (`web.stanford.edu/class/archive/cs/cs103/` returns 404), so "which is the earliest archived offering" could only be probed code by code; I stopped once autumn 2020 still resolved and didn't exhaust anything earlier. (3) The ExploreCourses description for CS 103 tells readers to enroll in CS103A, but searching for CS103A only returns CS 103 itself; the companion course that actually exists in the catalog is CS 103ACE (one unit, Satisfactory/No Credit, taken alongside CS103). I found no official statement on how those two codes relate.
-
 ## Course video sources
 
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-11-12.
 
 Course and recording entries:
 
@@ -181,6 +170,7 @@ Course and recording entries:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
+- 2026-11-12: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

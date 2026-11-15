@@ -176,17 +176,15 @@ The PDF also has 12 practice problems. Topics include another MSI state table, f
 
 **Try this**: do the MSI table in Problem 1 first; if you get stuck, go back to L16 slide 16, which walks through a similar sequence step by step. Then do Parts A and B of Problem 4 and draw the pointer states for the interleavings yourself. There are no public solutions. To check your answers, write a small program where two threads interleave many inserts, then verify that every `next` and `prev` agree.
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the contents of the L17 and L18 slides and the Written 4 PDF, and the lecture dates and the Written 4 date on the course home page. Not confirmed: anything said in the Fall 2025 lectures or AMA beyond the slides (the recordings are not public); exact numbers in the performance charts (this post only quotes figures the slides state in text); and Written 4 solutions and grading details (not public). The MSI diagrams in Written 4 carry a "Stanford CS149, Fall 2020" footer, which looks like a reused figure; this post draws no conclusion from it.
-
-Further reading: for locks and deadlock from the OS side, see [CS111 Lecture 7: Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en).
+For locks and deadlock from the OS side, see [CS111 Lecture 7: Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en).
 
 Series navigation: previous [L16: Fine-Grained Locking and Lock-Free Programming](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free-en) | this is the last part | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 
 ## Course video sources
 
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-11-09.
 
 ```youtube
 url: https://www.youtube.com/watch?v=rFFf3WIJ7BA
@@ -212,6 +210,7 @@ Content check: verified against the video transcript (2026-10-10): I read the au
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 - 2026-10-10: Checked the video content against its transcript. Both videos match this post's topic; TCC is not in the videos, and the Written 4 part is unrelated to them.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

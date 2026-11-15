@@ -68,7 +68,7 @@ Haystack v3.4.0 新增實驗性 `ToolResultOffloadCompactor`，context compactio
 
 ### 商業案例 / 融資 / 併購
 
-**Anthropic**：FT 報導向投資人透露第三季營收達 $16.8bn，年成長近 50%，調整後營運利潤率 11%；distillation 用量佔營收 5-7%，第三季已大幅削減，為 IPO 鋪路。（[來源](https://www.ft.com/content/11632d03-358c-454b-af95-d06d4072932b)）
+**Anthropic**：FT 報導向投資人透露第三季營收達 $16.8bn，較第二季成長約 45%，調整後營運利潤率 11%；distillation 用量佔營收 5-7%，第三季已大幅削減，為 IPO 鋪路。（[來源](https://www.ft.com/content/11632d03-358c-454b-af95-d06d4072932b)）
 
 **Confido Health**：醫療行政 agent 公司完成 $12.5M Series A 延伸輪，累計 $22.5M，靠私募股權投資組合當分銷通路成長 15 倍，詳見今日融資速報。（[融資速報](/posts/daily/2026-10-16-funding-confido-health)）
 
@@ -140,6 +140,10 @@ Haystack v3.4.0 新增實驗性 `ToolResultOffloadCompactor`，context compactio
 ## 今日收穫
 
 之前以為開放權重模型只是跟在 frontier 模型後面慢慢追，看到 Muse Spark Open 發布當天就上架 AWS SageMaker JumpStart，才意識到開放權重的發布節奏已經跟商業雲平台的供應鏈同步，不再是事後才被整合進去的二等公民。
+
+## 更新紀錄
+
+- 2026-11-07：更正 Anthropic 第三季成長率的比較基準，原文誤寫為年成長。
 
 ## 參考資料
 

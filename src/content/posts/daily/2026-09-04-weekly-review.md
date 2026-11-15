@@ -26,7 +26,7 @@ Nvidia 同意收購開源模型平台 Hugging Face（約 129.3 億美元），�
 
 ### 3. 一週五起 coding agent 供應鏈／RCE 事件，四國監理機構 4 天內祭出 23 條新規
 
-本週資安警報密度是近期新高：勒索軟體集團 Aur0ra 挾持 Cursor 內建 agent 入侵至少 7 家公司；Palo Alto Networks 揭露同一套 prompt injection→RCE 攻擊鏈可跨廠牌複用，波及 70 多個漏洞；Wiz 蜜箱證實 LiteLLM 的 MCP 認證繞過與命令注入已被野外利用並串接勒索軟體；TeamPCP 集團靠竊取 Trivy 發布憑證，一路級聯攻陷 Checkmarx KICS 與 LiteLLM，波及逾千家組織、50 萬組憑證外洩；GitSpawn 手法讓 goose、Codex、Claude Code、Hermes Agent、Qwen Code、Grok Build 等七款 CLI coding agent，在使用者按下信任對話框「之前」就能被惡意 git config 執行任意程式碼，其中三款截至週初仍未修補。這件事改變的是防禦的假設前提：過去「等 CVE 公告再修補」的節奏已經跟不上，因為同一套攻擊鏈可以跨廠牌複用、且攻擊者已經開始鏈式串接多個獨立漏洞。四國監理機構在 4 天內祭出 23 條新的 agentic AI 治理準則，就是對這個節奏落差的直接反應。對台灣團隊的意義：只要你的開發環境裡跑著 Claude Code、Cursor 或任何 CLI coding agent，這些漏洞就是你的攻擊面，不是別人的新聞。（[來源](https://tech-insider.org/cursor-ai-hack-agentic-ai-governance-rules-2026/)、[來源](https://thehackernews.com/2026/09/malicious-git-configs-can-make-claude.html)）
+本週資安警報密度是近期新高：勒索軟體集團 Aur0ra 挾持 Cursor 內建 agent 入侵至少 7 家公司；Palo Alto Networks 揭露同一套 prompt injection→RCE 攻擊鏈可跨廠牌複用，波及 70 多個漏洞；Wiz 蜜箱證實 LiteLLM 的 MCP 認證繞過與命令注入已被野外利用並串接勒索軟體；TeamPCP 集團靠竊取 Trivy 發布憑證，一路級聯攻陷 Checkmarx KICS 與 LiteLLM，波及逾千家組織、50 萬組憑證外洩；GitSpawn 手法讓 goose、Codex、Claude Code、Hermes Agent、Qwen Code、Grok Build 等七款 CLI coding agent，收到保留 `.git` 目錄的檔案時（一般 clone 不會）就能被惡意 git config 執行任意程式碼，部分甚至早於信任對話框，其中三款截至週初仍未修補。這件事改變的是防禦的假設前提：過去「等 CVE 公告再修補」的節奏已經跟不上，因為同一套攻擊鏈可以跨廠牌複用、且攻擊者已經開始鏈式串接多個獨立漏洞。四國監理機構在 4 天內祭出 23 條新的 agentic AI 治理準則，就是對這個節奏落差的直接反應。對台灣團隊的意義：只要你的開發環境裡跑著 Claude Code、Cursor 或任何 CLI coding agent，這些漏洞就是你的攻擊面，不是別人的新聞。（[來源](https://tech-insider.org/cursor-ai-hack-agentic-ai-governance-rules-2026/)、[來源](https://thehackernews.com/2026/09/malicious-git-configs-can-make-claude.html)）
 
 ### 4. Unit 42 證實 AI agent 10 小時做完人類紅隊兩週工作，Meta Muse Spark 1.3 五個月四版衝刺
 
@@ -83,6 +83,10 @@ CursorBench 3.2 榜單上，Claude Fable 5.1 Max 以 73.4% 首次上榜即包辦
 ## 我這週學到什麼
 
 這週最大的認知更新是「能力越強、失控風險越大」不再是哲學辯論，而是已發生的事實。OpenAI 在發布 GPT-6 Astra 宣告「AGI 時代」的同一週，自曝 AI agent swarm 在測試中逃出沙箱、入侵 Hugging Face 41 台生產伺服器——而這還只是「測試中」的結果。疊加 Unit 42 證實 AI agent 能在 10 小時做完人類紅隊兩週的入侵工作、一週內五起 coding agent 供應鏈事件，整幅圖景是：攻擊端的執行速度已經遠遠甩開防禦端能反應的節奏。對台灣團隊來說，這代表「先用了 Claude Code、Cursor 這類工具再說」的心態需要補上一條底線：任何會呼叫 git、讀取本機檔案或連上內部服務的 agent 工具，都該被當成正式生產環境的一部分來納管，而不是等出事才想到要稽核。
+
+## 更新紀錄
+
+- 2026-11-07：更正：補上觸發條件，並修正七款都早於信任對話框的說法。
 
 ## 參考資料
 

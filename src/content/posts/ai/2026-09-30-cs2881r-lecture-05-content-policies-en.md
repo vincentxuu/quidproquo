@@ -124,7 +124,7 @@ One thing you can do tonight: following the class exercise, list five image scen
 
 ## Course video sources
 
-The official Fall 2025 schedule provides only a student experiment video for this lecture and does not list a recording of Ziad Reslan’s guest lecture. Rechecked live on 2026-10-10: the official YouTube playlist (AI Safety, 17 videos) also has only this student experiment video for Lecture 5, and goes straight from the Lecture 4 recording to the Lecture 6 recording. The video below is the policy-compliance student experiment, not the guest lecture.
+The official Fall 2025 schedule provides only a student experiment video for this lecture and does not list a recording of Ziad Reslan’s guest lecture. Rechecked live on 2026-11-09: the official YouTube playlist (AI Safety; 20 videos, including Fall 2026 lectures added later) also has only this student experiment video for Fall 2025 Lecture 5, and goes straight from the Lecture 4 recording to the Lecture 6 recording. The video below is the policy-compliance student experiment, not the guest lecture.
 
 ```youtube
 url: https://www.youtube.com/watch?v=HMcA4Gi6HFE
@@ -136,9 +136,9 @@ Original videos: [CS2881R Fall 2025 L5: Student experiment on policy compliance]
 Official sources:
 
 - [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety; includes Fall 2026 lectures added later)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): This video is the student experiment, not the guest lecture. I read the full captions of “Lecture 5: Experiment on Policy compliance” (17:01) and confirmed that the speaker opens by saying it is last week's experiment, and that it compares minimal/principles/rules system prompts on DeepSeek-R1 8B, RealSafe-R1-8B and GPT-4o, Gemini and Claude 3.5 Sonnet, evaluated with OR-Bench and MMLU-Pro, 3 runs per condition and roughly a hundred prompts, concluding that gaps between models exceed gaps between prompts. The captions do not give the speaker's name; the “rhyme” example was said by the presenter himself while answering the audience, not by Boaz, which is corrected.
 
@@ -147,6 +147,7 @@ Content check: verified against the video transcript (2026-10-10): This video is
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official schedule and playlist still list only the student experiment video for Lecture 5, so the status stays as related supplementary video only.
 - 2026-10-10: Checked the video content against its transcript. Corrected who gave the “rhyme” example (the student presenter, not Boaz); the rest matches the captions.
+- 2026-11-09: Rechecked video status. The playlist now has 20 videos, including Fall 2026 lectures added later; the Fall 2025 part is unchanged, so the conclusion stands.
 
 ## References
 

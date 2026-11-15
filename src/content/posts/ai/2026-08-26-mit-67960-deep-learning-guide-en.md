@@ -158,13 +158,13 @@ Besides the lecture guides, the series has three topic guides that do not match 
 6.7960 Fall 2025 is a rigorously designed A2 course: 21 public decks, curated readings, and an open project guidelines document make materials-level self-study entirely feasible, while closed psets, solutions, and current-year recordings mark the real boundary for outsiders. Substitute textbooks for lectures, fill recordings from OCW 2024, and close with a mini project — you won't get MIT credit, but you will reach the core of the course.
 
 ## Course video sources
-This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: it lists public recordings for Lec 01–21, Lec 23, Lec 24 and a PyTorch Tutorial; OCW marks Lec 22 as not available. Rechecked the Readings and Lecture Notes pages on 2026-10-13: the course has 25 sessions, neither recording nor slides are public for Lec 22 and Lec 25, and the public Lec 20 recording is only 38 minutes long. Per-lecture videos are embedded in each lecture article.
+This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live MIT OCW Fall 2024 gallery on 2026-11-09: it lists public recordings for Lec 01–21, Lec 23, Lec 24 and a PyTorch Tutorial; OCW marks Lec 22 as not available. Rechecked the Readings and Lecture Notes pages on 2026-10-13: the course has 25 sessions, neither recording nor slides are public for Lec 22 and Lec 25, and the public Lec 20 recording is only 38 minutes long. Per-lecture videos are embedded in each lecture article.
 
 Course and recording entries:
 
 - [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): this post embeds no video, so only its statements about the videos were checked: I read the transcripts and descriptions of the 18 lecture videos Lec 01–18 (Lec 19 onward not read) and confirmed that the Fall 2024 lecturers were Isola, Bernstein and Beery (Beery did not only join in 2025); the old "taught by Isola and Bernstein" omitted Beery and was corrected.
 
@@ -174,6 +174,7 @@ Content check: verified against the video transcript (2026-10-10): this post emb
 - 2026-10-10: Rechecked video status. Live-checked the official entry: per-lecture recordings are listed there and embedded in each lecture article; the status stays “Official entry or recording index only.”
 - 2026-10-10: Checked the video content against its transcript. Corrected the Fall 2024 lecturers (added Sara Beery) and noted who gave which lecture.
 - 2026-10-13: Added "OCW Fall 2024, Lecture by Lecture" with links to the new guides for Lectures 2, 6, 19, 20, 21, 23 and 24, and notes on why Lectures 22 and 25 have no public material and why the Lecture 20 recording is only the first half; title scope changed from "Topic Guide" to "Course Overview".
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

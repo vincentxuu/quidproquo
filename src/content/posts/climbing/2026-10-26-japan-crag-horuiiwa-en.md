@@ -55,12 +55,6 @@ Video labels follow uploader metadata, and may use different grades or versions.
 
 The inventory includes all 54 graded entries in the opened ROCKTOPO list, excluding ungraded entries; additional verified sources and discrepancies are attached to the relevant rows. It is not a substitute for the full topo or current access notices.
 
-```video-gallery
-key: japanHoruiiwa
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Start by locating 中央稜 南東面, 西陵 in the topo. Check protection and landings; a low grade does not establish low risk.
@@ -108,6 +102,12 @@ Start by locating 中央稜 南東面, 西陵 in the topo. Check protection and 
 | 「西稜ハングVar1」 | 5.10a | 5.10a | Not listed | 西陵 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/150/routes)；ROCKTOPO only. |
 | 「西稜クラック」 | 5.7 | 5.7 | Not listed | 西陵 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/150/routes)；ROCKTOPO only. |
 
+```video-gallery
+key: japanHoruiiwa
+lang: en
+layout: routes
+```
+
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
 Start by locating 中央稜 南東面, 中央稜西面 in the topo. Choose for the day’s conditions, with line identification and descent checked individually.
@@ -135,6 +135,12 @@ Start by locating 中央稜 南東面 in the topo. Consider rock condition and p
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 |---|---|---|---|---|---|
 | 「大ハングルート」 | 5.12a | 5.12a | Not listed | 中央稜 南東面 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/150/routes)；ROCKTOPO only. |
+
+```video-gallery
+key: japanHoruiiwa
+lang: en
+layout: routes
+```
 
 ### Expert: 8a and up (YDS 5.13b and up)
 

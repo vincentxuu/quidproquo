@@ -59,12 +59,6 @@ Each row cites the public route list. Most entries lack length and pitch informa
 
 
 
-```video-gallery
-key: japanOtaruAkaiwa
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Lower grades include both single pitches and multi-pitch records. Distinguish bolted faces from ridges requiring an independent belay and descent plan.
@@ -89,6 +83,12 @@ Lower grades include both single pitches and multi-pitch records. Distinguish bo
 | 「キュンメル」 | 5.8 | 5.8 | not listed | 西奥壁 | Sources: [RockTopo](https://www.rocktopo.net/areas/55/routes) |
 | 「ファイアーフライ」 | 5.10a | 5.10a | not listed | 西奥壁 | Sources: [RockTopo](https://www.rocktopo.net/areas/55/routes) |
 | 「赤壁クラック」 | 5.9 | 5.9 | not listed | 赤壁 | Sources: [RockTopo](https://www.rocktopo.net/areas/55/routes); crack entry; confirm removable protection |
+
+```video-gallery
+key: japanOtaruAkaiwa
+lang: en
+layout: routes
+```
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
@@ -143,6 +143,12 @@ The 44 Face and Shugendo Wall provide intermediate options. Choose a sector with
 | 「メソッド・トウィーク」 | 5.11a | 5.11a | not listed | 赤壁上部 | Sources: [RockTopo](https://www.rocktopo.net/areas/55/routes) |
 | 「パウダージャンキー」 | 5.11a | 5.11a | not listed | 赤壁上部 | Sources: [RockTopo](https://www.rocktopo.net/areas/55/routes) |
 
+```video-gallery
+key: japanOtaruAkaiwa
+lang: en
+layout: routes
+```
+
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 
 Harder lines extend to Crystal Face and other walls. Obtain missing length and descent information before committing to a route.
@@ -172,6 +178,12 @@ Harder lines extend to Crystal Face and other walls. Obtain missing length and d
 | 「ミスターオタル」 | 5.13a | 5.13a | not listed | 西壁・とかげの洞窟 | Sources: [RockTopo](https://www.rocktopo.net/areas/55/routes) |
 | 「海を泳ぐ男」 | 5.12d | 5.12d | not listed | 赤壁上部 | Sources: [RockTopo](https://www.rocktopo.net/areas/55/routes) |
 | 「甘い男 Low」 | 5.12b | 5.12b | not listed | 修験の壁・野鳥の岩 | Sources: [local topo / account](http://eijiclimbing.blog.fc2.com/blog-entry-434.html)；Developer’s 2022 account: start from the ground below bolt one without stacked stones; distinct from the 5.11b original. |
+
+```video-gallery
+key: japanOtaruAkaiwa
+lang: en
+layout: routes
+```
 
 ### Expert: 8a and up (YDS 5.13b and up)
 

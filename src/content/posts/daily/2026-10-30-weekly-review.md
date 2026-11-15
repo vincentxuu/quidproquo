@@ -6,7 +6,7 @@ type: digest
 tags: [ai-agent, weekly, daily]
 lang: zh-TW
 description: "本週最大的認知變化：模型與資本的軍備競賽已經壓縮到兩週一個節奏，而『加記憶』和『看成功率』這兩件事本身都可能讓 agent 系統變得更不安全、更沒用"
-tldr: "Google 兩週內從 Gemini 4 Argon 推進到 Carbon，首秀即空降 Arena Agent 第二、資安三項 benchmark 全面 SOTA，卻仍只開放受信任夥伴；OpenAI 同週發布砍半定價的 GPT-6.1 Terra、用最高 90% 折扣搶下 Replit 等 Anthropic 大客戶、同時洽談 $1.25T 估值募資；連三天 Arxiv Digest（Naive RAG 勝 12 種記憶系統、Memory Tax 證明多數記憶系統淨值為負、TrawMem／DiscernMem／EMMA 各自補強記憶的不同環節）一致指向『複雜記憶管理不等於更好』；LiteLLM 根因回溯到 5 個月前未撤銷的外流金鑰、AGENTS.md 挾持 Downloads、MCP SDK OAuth 漏洞、INC／Gentlemen 勒索 AI 共同操作、PAN-OS AI 輔助開發攻擊鏈，疊出 agent 信任機制系統性失靈的一週；Casap、Hyphenate、Infisical 同週拿下金融後台與憑證安全的大額融資，加上 NVIDIA 投資 Meta $3B、Oracle 砸 $1B 建生態系，資本持續押注執行層基礎設施。"
+tldr: "Google 兩週內從 Gemini 4 Argon 推進到 Carbon，首秀即空降 Arena Agent 第二、資安三項 benchmark 全面 SOTA，卻仍只開放受信任夥伴；OpenAI 同週發布砍半定價的 GPT-6.1 Terra、用大幅折扣搶下 Replit 等 Anthropic 大客戶、同時洽談 $1.25T 估值募資；連三天 Arxiv Digest（Naive RAG 勝 12 種記憶系統、Memory Tax 證明多數記憶系統淨值為負、TrawMem／DiscernMem／EMMA 各自補強記憶的不同環節）一致指向『複雜記憶管理不等於更好』；LiteLLM 根因回溯到 5 個月前未撤銷的外流金鑰、AGENTS.md 挾持 Downloads、MCP SDK OAuth 漏洞、INC／Gentlemen 勒索 AI 共同操作、PAN-OS AI 輔助開發攻擊鏈，疊出 agent 信任機制系統性失靈的一週；Casap、Hyphenate、Infisical 同週拿下金融後台與憑證安全的大額融資，加上 NVIDIA 投資 Meta $3B、Oracle 砸 $1B 建生態系，資本持續押注執行層基礎設施。"
 series:
   name: "AI Agent 週回顧"
   order: 12
@@ -24,7 +24,7 @@ Google 在 Gemini 4 Argon 發佈僅兩週後，10/28 推出 Gemini 4 Carbon，�
 
 ### 2. OpenAI 同週打出三張牌：砍半定價、搶客戶、談估值
 
-OpenAI 10/26 發佈 GPT-6.1 Terra，把旗艦級電腦操作能力的定價砍半（input $1.00／output $5.00／1M tokens，為前代與同代 Sol 的一半），Terminal-Bench 4.0 在 max effort 下拿下 50.3%，比前代 21.5% 翻倍以上，內部事實錯誤率從前代 53.6% 降到 16.7%。同一週，The Next Web 報導 OpenAI 用最高 90% 的折扣把 Replit 等原本在 Anthropic 這邊的大客戶搶走（Replit 單一合約規模已破 $1 億美元/年）；同時 OpenAI 正洽談最多 $300 億美元的新一輪募資，估值上看 $1.25 兆美元。三件事疊在一起說明：這個賽道的競爭已經不只是模型能力的比拼，而是資本補貼換市占的消耗戰——誰能一邊砍價搶客戶、一邊靠更大的估值撐住更大的燒錢速度，誰就能先把對手的客戶基礎啃掉一塊。
+OpenAI 10/26 發佈 GPT-6.1 Terra，把旗艦級電腦操作能力的定價砍半（input $1.00／output $5.00／1M tokens，為前代與同代 Sol 的一半），Terminal-Bench 4.0 在 max effort 下拿下 50.3%，比前代 21.5% 翻倍以上，內部事實錯誤率從前代 53.6% 降到 16.7%。同一週，The Next Web 報導 OpenAI 用超過 30% 的折扣把 Replit 從 Anthropic 這邊搶走（單一合約規模已破 $1 億美元/年），DataCamp 執行長則說轉用後成本降了 80% 到 90%；同時 OpenAI 正洽談最多 $300 億美元的新一輪募資，估值上看 $1.25 兆美元。三件事疊在一起說明：這個賽道的競爭已經不只是模型能力的比拼，而是資本補貼換市占的消耗戰——誰能一邊砍價搶客戶、一邊靠更大的估值撐住更大的燒錢速度，誰就能先把對手的客戶基礎啃掉一塊。
 
 （[OpenAI：Introducing GPT-6.1 Terra](https://openai.com/index/introducing-gpt-6-1-terra/)、[Replit 把 AI 支出從 Anthropic 轉向 OpenAI — thenextweb](https://thenextweb.com/news/openai-discounts-anthropic-customers-replit-rippling)、[OpenAI 洽談至多 $300 億美元募資 — enterpriseam](https://enterpriseam.com/ai/2026/10/27/openai-seeks-uae-backing-as-it-looks-to-raise-up-to-usd-30-bn/)）
 
@@ -122,6 +122,10 @@ Casap 完成 $56M Series B，做信用卡爭議這種規則明確、後果可審
 ## 我這週學到什麼
 
 這週最大的認知差是：「記憶」跟「安全驗收」犯的是同一種錯——以為做得越多、看得越細就越可靠，但沒有結構化設計的複雜度，反而會放大風險或拖累效能。Naive RAG 贏過 12 種設計過的記憶系統、SABench 證明 89% 的成功率裡藏著 12.8% 的隱性越權，說的是同一件事：先用最簡單的基線量出真正的表現，再決定要不要加複雜度，而不是預設複雜架構或高成功率數字本身就代表安全或有效。對台灣團隊的提醒是：評估一套 agent 系統時，先問「你的基線（最簡單版本）量過嗎」，再問「你的安全分數測的是不是你以為的那個東西」。
+
+## 更新紀錄
+
+- 2026-11-07：更正 OpenAI 折扣的敘述：Replit 是超過 30% 的折扣，80% 到 90% 是 DataCamp 說的成本降幅。
 
 ## 參考資料
 

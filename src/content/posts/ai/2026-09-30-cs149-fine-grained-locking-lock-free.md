@@ -159,17 +159,15 @@ test-and-set 家族的共同問題是放鎖那一刻所有等待者同時去搶�
 
 第 66 頁列了延伸閱讀：Michael & Scott 1996 的多讀多寫 lock-free 佇列、Harris 2001、Michael Sullivan 的 [RMC compiler](https://github.com/msullivan/rmc-compiler)，以及兩篇部落格文章。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：L16 投影片 PDF 的內容、課程首頁上的講次日期與講題摘要。不能確認：Fall 2025 課堂上的口頭補充（錄影不公開）；第 62 頁實驗圖的具體數值（本文沒有讀圖取數）；2023 年錄影與 2025 投影片的逐頁差異。本文沒有依影片內容寫作。
-
-延伸閱讀：OS 角度的鎖實作與 deadlock，可以讀 [CS111 Lecture 6：實作鎖](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)與 [CS111 Lecture 7：Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock)。
+OS 角度的鎖實作與 deadlock，可以讀 [CS111 Lecture 6：實作鎖](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)與 [CS111 Lecture 7：Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock)。
 
 系列導覽：上一篇 [L15 同步實作與記憶體一致性](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency)｜下一篇 [L17–L18 Transactional memory + Written 4](/posts/ai/2026-09-30-cs149-transactional-memory-w4)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
 
 ## 課程影片來源
 
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-11-09。
 
 ```youtube
 url: https://www.youtube.com/watch?v=GA1ObImqaMo
@@ -190,6 +188,7 @@ title: Stanford CS149 I 2023 I Lecture 13 - Fine-Grained Synchronization and Loc
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
 - 2026-10-10：依字幕核對影片內容。影片主要對應本文前半的鎖，lock-free 只簡短帶過；hazard pointer 與 SPSC 佇列不在影片中，已在影片來源段寫明。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

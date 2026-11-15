@@ -6,7 +6,7 @@ type: digest
 tags: [ai-agent, weekly, daily]
 lang: en
 description: "This week's biggest cognitive shift: the model and capital arms race has compressed to a two-week cadence, while both 'adding memory' and 'watching success rates' can themselves make agent systems less safe and less useful"
-tldr: "Google moved from Gemini 4 Argon to Carbon in two weeks — debuting straight into #2 on Arena Agent and sweeping three cybersecurity benchmarks, yet still gated to trusted partners; OpenAI played three cards in one week with half-price GPT-6.1 Terra, discounts up to 90% that poached Replit from Anthropic, and funding talks at a $1.25T valuation; three straight days of Arxiv Digest (Naive RAG beating 12 memory systems, Memory Tax showing most memory systems have negative net value, TrawMem/DiscernMem/EMMA each fixing a different part of memory) converged on 'complex memory management isn't automatically better'; LiteLLM's root cause traced back to an unrevoked leaked key from five months earlier, an AGENTS.md Downloads-folder hijack, an MCP SDK OAuth bug, INC/Gentlemen ransomware's AI co-operation, and an AI-assisted PAN-OS exploit chain stacked up into a week of systemic trust-mechanism failure; Casap, Hyphenate, and Infisical all closed large rounds in financial back-office and credential security, alongside NVIDIA's $3B investment in Meta and Oracle's $1B ecosystem bet — capital keeps rotating into execution-layer infrastructure."
+tldr: "Google moved from Gemini 4 Argon to Carbon in two weeks — debuting straight into #2 on Arena Agent and sweeping three cybersecurity benchmarks, yet still gated to trusted partners; OpenAI played three cards in one week with half-price GPT-6.1 Terra, steep discounts that poached Replit from Anthropic, and funding talks at a $1.25T valuation; three straight days of Arxiv Digest (Naive RAG beating 12 memory systems, Memory Tax showing most memory systems have negative net value, TrawMem/DiscernMem/EMMA each fixing a different part of memory) converged on 'complex memory management isn't automatically better'; LiteLLM's root cause traced back to an unrevoked leaked key from five months earlier, an AGENTS.md Downloads-folder hijack, an MCP SDK OAuth bug, INC/Gentlemen ransomware's AI co-operation, and an AI-assisted PAN-OS exploit chain stacked up into a week of systemic trust-mechanism failure; Casap, Hyphenate, and Infisical all closed large rounds in financial back-office and credential security, alongside NVIDIA's $3B investment in Meta and Oracle's $1B ecosystem bet — capital keeps rotating into execution-layer infrastructure."
 series:
   name: "AI Agent 週回顧"
   order: 12
@@ -24,7 +24,7 @@ Just two weeks after Gemini 4 Argon, Google shipped Gemini 4 Carbon on 10/28. Th
 
 ### 2. OpenAI played three cards in one week: half-price model, customer raids, and a funding round
 
-OpenAI shipped GPT-6.1 Terra on 10/26, halving the price of flagship-grade computer-use capability (input $1.00 / output $5.00 per 1M tokens — half the rate of both the predecessor and the same-generation Sol). Terminal-Bench 4.0 at max effort hit 50.3%, more than double the predecessor's 21.5%, while the internal factual-error rate fell from 53.6% to 16.7%. The same week, The Next Web reported OpenAI using discounts up to 90% to poach major customers from Anthropic, including Replit (whose contract alone exceeds $100M/year). Simultaneously, OpenAI is in talks to raise up to $30B at a $1.25T pre-money valuation. Taken together, these three moves show the race has moved beyond model capability into a capital-subsidized war of attrition — whoever can undercut prices to steal customers while using a bigger valuation to sustain a faster burn rate gets to eat into a rival's customer base first.
+OpenAI shipped GPT-6.1 Terra on 10/26, halving the price of flagship-grade computer-use capability (input $1.00 / output $5.00 per 1M tokens — half the rate of both the predecessor and the same-generation Sol). Terminal-Bench 4.0 at max effort hit 50.3%, more than double the predecessor's 21.5%, while the internal factual-error rate fell from 53.6% to 16.7%. The same week, The Next Web reported OpenAI winning Replit from Anthropic with a discount above 30% on a contract worth over $100M a year, and DataCamp's CEO said switching cut costs by 80% to 90%. Simultaneously, OpenAI is in talks to raise up to $30B at a $1.25T pre-money valuation. Taken together, these three moves show the race has moved beyond model capability into a capital-subsidized war of attrition — whoever can undercut prices to steal customers while using a bigger valuation to sustain a faster burn rate gets to eat into a rival's customer base first.
 
 ([OpenAI: Introducing GPT-6.1 Terra](https://openai.com/index/introducing-gpt-6-1-terra/), [thenextweb: Replit shifts AI spend from Anthropic to OpenAI](https://thenextweb.com/news/openai-discounts-anthropic-customers-replit-rippling), [enterpriseam: OpenAI seeks UAE backing for up to $30B raise](https://enterpriseam.com/ai/2026/10/27/openai-seeks-uae-backing-as-it-looks-to-raise-up-to-usd-30-bn/))
 
@@ -56,7 +56,7 @@ caption: Dated by each Arxiv Digest's publish date; see references below.
     <line class="dg-rule" x1="660" y1="66" x2="660" y2="114"/>
     <circle class="dg-dot dg-dot--accent" cx="660" cy="120" r="6"/>
     <text class="dg-label" x="660" y="40" text-anchor="middle" dominant-baseline="central">10/30 Structured fixes</text>
-    <text class="dg-sub" x="660" y="188" text-anchor="middle" dominant-baseline="central">TrawMem / DiscernMem / EMMA</text>
+    <text class="dg-sub" x="744" y="188" text-anchor="end" dominant-baseline="central">TrawMem / DiscernMem / EMMA</text>
   </g>
 </svg>
 ```
@@ -122,6 +122,10 @@ The companies that appeared most frequently in this week's signals are all alrea
 ## What I Learned This Week
 
 My biggest cognitive update this week is that "memory" and "security acceptance" fail in the same way: assuming more and finer-grained work means more reliability, when unstructured complexity actually amplifies risk or drags down performance instead. Naive RAG beating 12 purpose-built memory systems and SABench showing that 12.8% of hidden overreach can hide behind an 89% success rate are saying the same thing — measure the real performance of the simplest possible baseline first, then decide whether to add complexity, instead of assuming a complex architecture or a high success-rate number is itself proof of safety or effectiveness. The reminder for teams anywhere: when evaluating an agent system, ask first "have you measured your baseline (the simplest version)," then ask "does your safety score actually measure what you think it measures."
+
+## Update Log
+
+- 2026-11-07: Corrected the OpenAI discount description: Replit got a discount above 30%; 80% to 90% is the cost reduction DataCamp described.
 
 ## References
 

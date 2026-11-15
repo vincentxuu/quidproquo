@@ -59,12 +59,6 @@ Each row cites the public route list. Most entries lack length and pitch informa
 
 
 
-```video-gallery
-key: japanShiobara
-lang: en
-layout: routes
-```
-
 ### Beginner: Japanese 5–10 kyu
 
 Check that the tuff is dry even on easy problems. Inspect the exit where the landing lies beside water.
@@ -81,6 +75,12 @@ Check that the tuff is dry even on easy problems. Inspect the exit where the lan
 | スラブ 7級（野立岩・ボロ岩） | 7級 | — | — | 野立岩・ボロ岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/79/routes) |
 | スラブ 6級（野立岩・ボロ岩） | 6級 | — | — | 野立岩・ボロ岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/79/routes) |
 | スラブ 5級（野立岩・ボロ岩） | 5級 | — | — | 野立岩・ボロ岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/79/routes) |
+
+```video-gallery
+key: japanShiobara
+lang: en
+layout: routes
+```
 
 ### Intermediate: Japanese 4–2 kyu
 
@@ -113,6 +113,12 @@ Kokai and Sakura have similar grades but different height and movement demands. 
 | ボロ 3級 | 3級 | — | — | 野立岩・ボロ岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/79/routes) |
 | 野立たか 2級 | 2級 | — | — | 野立岩・ボロ岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/79/routes) |
 
+```video-gallery
+key: japanShiobara
+lang: en
+layout: routes
+```
+
 ### Advanced: Japanese 1 kyu–shodan
 
 Sen and other shodan entries introduce steeper climbing. Distinguish original, sit-start and short versions carefully.
@@ -142,6 +148,12 @@ Sen and other shodan entries introduce steeper climbing. Distinguish original, s
 | オモルグス 初段 | 初段 | — | — | 野立岩・ボロ岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/79/routes) |
 | Long Day 初段 | 初段 | — | — | 野立岩・ボロ岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/79/routes) |
 | アイワイス 初段+ | 初段+ | — | — | 野立岩・ボロ岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/79/routes) |
+
+```video-gallery
+key: japanShiobara
+lang: en
+layout: routes
+```
 
 ### Expert: Japanese nidan and above
 
@@ -179,6 +191,12 @@ Internationally known Hydra and Babel appear here. Native Japanese grades and se
 | カタルシス 五段+ | 五段+ | 8B+ | V14 | 野立岩・ボロ岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/79/routes)、[additional source](https://thetopo.com/crags/shiobara/routelist)；thetopo Font grade is shown alongside the Japanese grade; V follows the MP chart. |
 | ハイドランジア 五段+ | 五段+ | 8B+ | V14 | 野立岩・ボロ岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/79/routes)、[additional source](https://thetopo.com/crags/shiobara/routelist)；thetopo Font grade is shown alongside the Japanese grade; V follows the MP chart. |
 | Nexus 六段 | 六段 | — | — | 野立岩・ボロ岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/79/routes) |
+
+```video-gallery
+key: japanShiobara
+lang: en
+layout: routes
+```
 
 ## Where to look things up
 

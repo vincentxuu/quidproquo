@@ -4,8 +4,8 @@ date: 2026-10-19
 category: climbing
 tags: [climbing, climbing-gear, travel, outdoor-climbing, sport-climbing]
 lang: en
-description: "The entry point to the Climbing Travel Gear series: the five extra decisions you face when taking climbing gear abroad, which post handles each one, and reading paths for sport-climbing holidays, multipitch, trad, and bouldering trips."
-tldr: "Flying abroad to climb adds five decisions: what to bring and how long a rope, what can go in the cabin, how to split checked and carry-on bags, what to pack it all in, and which pack to carry at the crag. For a sport-climbing holiday, posts 1 to 6 are enough, with post 2 only if you are buying or replacing a rope; add post 7 for multipitch. How to choose each piece of gear is covered in the Climbing Gear series."
+description: "The entry point to the Climbing Travel Gear series: the six extra decisions you face when taking climbing gear abroad, which post handles each one, and reading paths for sport-climbing holidays, multipitch, trad, and bouldering trips."
+tldr: "Flying abroad to climb adds six decisions: what to bring and how long a rope, what can go in the cabin, how to split checked and carry-on bags, what to pack it all in, which pack to carry at the crag, and whether your radios and satellite SOS device are legal there. For a sport-climbing holiday, posts 1 to 6 are enough, with post 2 only if you are buying or replacing a rope; add post 7 for multipitch, and post 8 for Japan or Korea. How to choose each piece of gear is covered in the Climbing Gear series."
 draft: false
 series:
   name: "Climbing Travel Gear"
@@ -18,7 +18,7 @@ Going to your local crag or gym, you throw the gear in the car and go. Taking it
 
 This series deals only with those problems that come up when you travel. It is for climbers who already own shoes, a harness, and a belay device, have climbed in a gym or outdoors at home, and are preparing for one of their first trips abroad with gear.
 
-## Five decisions you don't face at home
+## Six decisions you don't face at home
 
 In the order you make them before leaving, with one or two posts per decision:
 
@@ -29,6 +29,7 @@ In the order you make them before leaving, with one or two posts per decision:
 | 3 | How do other climbers actually split checked and carry-on, and how much does it weigh? | [How climbers pack for trips abroad](/posts/climbing/2026-10-19-climbing-travel-packing-examples-en) |
 | 4 | What should the checked bag and carry-on be? | [Checked bags and carry-ons](/posts/climbing/2026-10-19-climbing-travel-luggage-en) |
 | 5 | Once you arrive, what pack do you carry to the crag each day? | [Crag packs](/posts/climbing/2026-10-19-climbing-crag-packs-en), [multipitch packs](/posts/climbing/2026-10-19-multipitch-climbing-backpacks-en) |
+| 6 | Can you use your Taiwanese radios and PLB there? Should you rent or buy locally? | [Climbing communications for Japan and Korea](/posts/climbing/2026-11-02-climbing-comms-japan-korea-en) |
 
 The order has a reason. You need the list before you know the total weight. Knowing the airline and security rules explains why other climbers check the rope and carry the shoes on board. After seeing real examples, you know which kind of bag you need. Crag and climbing packs are used after you land, so they come last.
 
@@ -41,6 +42,7 @@ The order has a reason. You need the list before you know the total weight. Know
 - **Post 5, checked bags and carry-ons:** choose a duffel, a large backpack, or a travel pack based on how you'll get around, then decide whether your crag pack can be your carry-on.
 - **Post 6, crag packs:** pick a pack for a day of single-pitch climbing based on approach length and load.
 - **Post 7, multipitch packs:** try a pack on with harness and helmet and judge whether it can go up the wall with you.
+- **Post 8, communications for Japan and Korea:** decide whether to rent or buy radios locally, find a rental shop, and check whether your satellite SOS device can be used in each country.
 
 ## Reading paths by trip type
 
@@ -49,7 +51,7 @@ You don't need every post. Start with the kind of trip you're taking:
 | Trip type | Examples | Suggested reading |
 |---|---|---|
 | Sport-climbing holiday | Railay in Thailand, Kalymnos, Spain; mostly single pitch | 1 → 2 → 3 → 4 → 5 → 6 |
-| Multipitch | Multi-pitch routes at Tonsai, Kalymnos, or Insubong in Korea | 1 → 2 → 3 → 4 → 5 → 7, plus 6 for crag days |
+| Multipitch | Multi-pitch routes at Tonsai, Kalymnos, or Insubong in Korea | 1 → 2 → 3 → 4 → 5 → 7, plus 6 for crag days; add 8 for Japan or Korea |
 | Trad | Flying with a rack of cams | 1 → 2 → 3 → 4 (see the trad examples on how cams travel) → 5 |
 | Bouldering | Bringing a pad or renting one there | 1 → 3 → 4 (bouldering examples) → 5 |
 
@@ -69,6 +71,10 @@ This series doesn't cover how to choose, fit, or care for each piece of gear. Th
 - [Inspecting, caring for, and retiring gear](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en)
 
 Also, having the gear is not the same as knowing how to use it. Multipitch belaying, rappelling, and retreat need instruction and practice; you can't learn them from articles.
+
+## Update Log
+
+- 2026-11-02: Added post 8, Climbing Communications for Japan and Korea, to the decision table, the per-post list and the multipitch reading path
 
 ## References
 

@@ -110,7 +110,7 @@ Mistral Large 4 公測版細節曝光，1 兆參數、520 億啟用參數的 MoE
 
 ### 商業案例 / 融資 / 併購
 
-**OpenAI**：彭博報導預期到 2026 年底年化營收將達到或超過 700 億美元（9 月底約 500 億美元），同時確認正洽談估值 1.4 兆美元的新一輪 30 億美元以上募資；同日美股也因傳出其年化營收可能低於先前揭露的數字而下跌，顯示市場對 AI 公司營收數字的敏感度已大幅提高。（[anothercodingblog](https://www.anothercodingblog.com/p/another-daily-ai-newsletter-october-406)、[the-decoder](https://the-decoder.com/cheaper-ai-tokens-are-driving-more-demand-and-thats-jensen-huangs-best-case-scenario/)）a16z 同日分析指出，token 價格持續下滑但 H100 GPU 租金維持高位甚至上漲，是典型的傑文斯悖論——便宜的 token 釋放出更多 agent 需求，使運算需求成長速度超過單位成本下降速度。（[the-decoder](https://the-decoder.com/cheaper-ai-tokens-are-driving-more-demand-and-thats-jensen-huangs-best-case-scenario/)）
+**OpenAI**：彭博報導預期到 2026 年底年化營收將達到或超過 700 億美元（9 月底約 500 億美元），同時確認正洽談估值 1.4 兆美元的新一輪 300 億美元以上募資；同日美股也因傳出其年化營收可能低於先前揭露的數字而下跌，顯示市場對 AI 公司營收數字的敏感度已大幅提高。（[anothercodingblog](https://www.anothercodingblog.com/p/another-daily-ai-newsletter-october-406)、[the-decoder](https://the-decoder.com/cheaper-ai-tokens-are-driving-more-demand-and-thats-jensen-huangs-best-case-scenario/)）a16z 同日分析指出，token 價格持續下滑但 H100 GPU 租金維持高位甚至上漲，是典型的傑文斯悖論——便宜的 token 釋放出更多 agent 需求，使運算需求成長速度超過單位成本下降速度。（[the-decoder](https://the-decoder.com/cheaper-ai-tokens-are-driving-more-demand-and-thats-jensen-huangs-best-case-scenario/)）
 
 **Manus**：母公司 Butterfly Effect 完成超過 5 億美元融資，是北京政府要求 Meta 撤銷約 20 億美元收購案後的首輪募資，顯示投資人仍願意押注獨立運作的 Agentic AI 商業前景。（[techcrunch](https://techcrunch.com/2026/10/08/chinas-manus-raises-over-500m-in-first-funding-round-since-split-with-meta/)）
 
@@ -154,6 +154,7 @@ Mistral Large 4 公測版細節曝光，1 兆參數、520 億啟用參數的 MoE
 
 ## 更新紀錄
 
+- 2026-11-07：更正 OpenAI 募資金額，原文誤寫為 30 億美元。
 - 2026-10-24：ARTEX 一句補上來源與濫用風險警語（10/07 CrowdStrike 報告、作者 10/08 轉閉源、鏡像為第三方備份複本、多家廠商報告有人濫用），並註明不鼓勵安裝或使用。
 
 ## 參考資料

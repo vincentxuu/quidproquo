@@ -290,7 +290,7 @@ title: Spring 2024 Lecture 2: Tabular MDP Planning（YouTube，補充）
 
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 2「Tabular MDP Planning」字幕（約 65K 字元）：確認影片講 Markov reward process、policy evaluation、policy iteration 與單調改進、value iteration 與 contraction、finite horizon 與 Mars rover 例子，主題與本文一致；本文逐題的小測與證明細節來自 2026 投影片，未逐項對照影片。
 
@@ -299,6 +299,7 @@ Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄�
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。影片主題一致，無需改動說法。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

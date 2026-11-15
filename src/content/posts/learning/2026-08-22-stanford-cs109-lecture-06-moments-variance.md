@@ -121,7 +121,7 @@ title: Stanford CS109 Probability for Computer Scientists I Variance Bernoulli B
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本講的關係。這支是 2022 年第 7 講（Variance, Bernoulli, Binomial）：開場回顧期望值的線性性與 LOTUS，接著講 Bernoulli 與 binomial，最後才引入 variance。它與本講（期望值、LOTUS、線性性）主題相鄰且部分重疊，但 variance 與 binomial 的比重大於本講，是相關補充，不是同一講。
 
@@ -130,6 +130,7 @@ title: Stanford CS109 Probability for Computer Scientists I Variance Bernoulli B
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
 - 2026-10-10：依字幕核對影片內容。影片與本講部分重疊（期望值回顧），主體是 Bernoulli／binomial／variance，已在來源段落如實註明。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

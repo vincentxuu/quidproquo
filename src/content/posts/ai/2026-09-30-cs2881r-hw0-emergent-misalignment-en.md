@@ -187,19 +187,20 @@ One thing to do tonight: open [`eval/prompts/non_medical.py`](https://github.com
 
 ## Course video sources
 
-This post covers an assignment, not a single lecture. The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10 and has no walkthrough video for this assignment; use the schedule for the lecture recordings.
+This post covers an assignment, not a single lecture. The official Fall 2025 YouTube playlist (AI Safety; 20 videos when checked live on 2026-11-09, including Fall 2026 lectures added later) was checked live and has no walkthrough video for this assignment; use the schedule for the lecture recordings.
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety; includes Fall 2026 lectures added later)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official playlist was checked live; no recording corresponds to this post, so the status stays official entry only.
+- 2026-11-09: Rechecked video status. The playlist now has 20 videos, including Fall 2026 lectures added later; the Fall 2025 part is unchanged, so the conclusion stands.
 
 ## References
 

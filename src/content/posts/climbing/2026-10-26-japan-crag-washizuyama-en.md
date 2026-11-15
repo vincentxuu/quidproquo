@@ -55,12 +55,6 @@ Video labels follow uploader metadata, and may use different grades or versions.
 
 The inventory includes all 55 graded entries in the opened ROCKTOPO list, excluding ungraded entries; additional verified sources and discrepancies are attached to the relevant rows. It is not a substitute for the full topo or current access notices.
 
-```video-gallery
-key: japanWashizuyama
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Start by locating 鷲頭メインウォール, カッチンロック in the topo. Check protection and landings; a low grade does not establish low risk.
@@ -85,6 +79,12 @@ Start by locating 鷲頭メインウォール, カッチンロック in the topo
 | 「クラシックルート」 | 5.9 | 5.9 | Not listed | 鷲頭メインウォール | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/1/routes)；ROCKTOPO only. |
 | 「中央正面ルート」 | 5.9 | 5.9 | Not listed | 鷲頭メインウォール | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/1/routes)；ROCKTOPO only. |
 | 「右壁クラック」 | 5.9 | 5.9 | Not listed | 鷲頭メインウォール | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/1/routes)；ROCKTOPO only. |
+
+```video-gallery
+key: japanWashizuyama
+lang: en
+layout: routes
+```
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
@@ -116,6 +116,12 @@ Start by locating 鷲頭メインウォール, カッチンロック in the topo
 | 「ETハングダイレクト」 | 5.11c | 5.11c | Not listed | 鷲頭メインウォール | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/1/routes)； Online account: ROCKTOPO 登攀者’s [記錄 report](https://www.rocktopo.net/daily_reports/44422). The author placed a cam in the starting flake below a high first bolt; this is an individual setup, not a universal rack list.  Listed in [ROCKTOPO’s aggregate popularity list](https://www.rocktopo.net/areas/1/popular_routes/all); a community ranking rather than an official star rating. |
 | 「ドームクラック」 | 5.10c | 5.10c | Not listed | 鷲頭メインウォール | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/1/routes)；See the [JFA 2025 warning](https://freeclimb.jp/access/10123/): restricted lines must not be climbed; associated lines and paths carry rockfall warnings. Inventory only. |
 | 「北嶺ルート」 | 5.10c | 5.10c | Not listed | 鷲頭メインウォール | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/1/routes)；ROCKTOPO only. |
+
+```video-gallery
+key: japanWashizuyama
+lang: en
+layout: routes
+```
 
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 

@@ -77,6 +77,31 @@ OpenRouter uses prepaid credits for inference. Its [FAQ](https://openrouter.ai/d
 
 Organizations with existing provider contracts can use [BYOK](https://openrouter.ai/docs/guides/overview/auth/byok). OpenRouter can prioritize your provider keys, then fall back to shared OpenRouter capacity. This preserves the unified interface and failover, but requests still pass through OpenRouter, and usage beyond the plan's included BYOK allowance may carry a platform fee. If eliminating the intermediary is a hard requirement, integrate directly or evaluate a self-hosted gateway such as LiteLLM.
 
+## How to find and use free models
+
+You do not have to buy credits before trying a free model. OpenRouter offers two ways to select one:
+
+| Selection | What it does | When to use it |
+|---|---|---|
+| A listed model ID ending in `:free` | Selects that specific free catalog entry | Comparing models or keeping the same model for a task |
+| `openrouter/free` | Filters free models for the request's capabilities, then chooses one at random | Trying the API without picking a model first |
+
+Start with the [zero-input-price shortlist](https://openrouter.ai/models?max_price=0). Open a model, confirm that its ID ends in `:free`, and check that both input and output prices are zero. The shortlist filters input price; it does not replace checking output price. Not every paid model has a free variant.
+
+For a coding agent, also check `tools` / tool calling in the model's supported parameters. A free chat model is not automatically suitable for reading files or editing code through an agent. OpenCode 2 prefixes an OpenRouter ID with its own provider name: `vendor/model:free` becomes `openrouter/vendor/model:free` in OpenCode configuration.
+
+To try a free route with the client above:
+
+```ts
+const response = await client.responses.create({
+  model: 'openrouter/free',
+  input: 'I have eggs, tofu, and cabbage. Suggest a simple dinner for two.',
+});
+console.log(response.output_text);
+```
+
+Free models have request limits and variable availability. For current account and provider limits, see [Limits](https://openrouter.ai/docs/api/reference/limits). For a broader comparison, see [free tiers and pricing](/posts/ai/2026-05-09-llm-inference-free-tier-comparison-en). OpenCode also offers its own free models inside the app; connecting OpenRouter is optional. The [OpenCode 2 overview](/posts/tech/2026-08-22-opencode-2-electron-rewrite-coding-agent-en) explains its current entry points.
+
 ## Privacy control is more than “not used for training”
 
 Adding a routing layer adds another data processor to review. According to OpenRouter's [data collection documentation](https://openrouter.ai/docs/guides/privacy/data-collection), retention of prompt and response content is opt-in by default, while request metadata such as token counts and latency is retained. Downstream providers still have their own retention and training policies.
@@ -91,7 +116,18 @@ It is a weaker fit when a product needs the deepest native features from one pro
 
 OpenRouter's central value is not simply “cheaper models.” It turns model selection and serving-provider selection into configurable routing policy. That speed and optionality are valuable during prototyping. In production, observability, data policy, backup quality, and an exit path must be designed alongside the router—or multi-vendor lock-in merely becomes gateway lock-in.
 
+For step-by-step setup, finding free models, and a first everyday prompt, read [How to use LLMs for free with OpenCode 2 and OpenRouter](/posts/ai/2026-11-01-free-llm-opencode2-openrouter-en).
+
+## Update history
+
+- 2026-11-01: Added free-model discovery, `:free` versus `openrouter/free`, zero-price and tool-support checks, and OpenCode 2 model-ID mapping.
+
 ## References
+
+- [OpenRouter Free Variant](https://openrouter.ai/docs/guides/routing/model-variants/free)
+- [OpenRouter Free Models Router](https://openrouter.ai/docs/guides/routing/routers/free-router)
+- [OpenRouter Limits](https://openrouter.ai/docs/api/reference/limits)
+
 
 - [OpenRouter Quickstart](https://openrouter.ai/docs/quickstart)
 - [OpenRouter Provider Routing](https://openrouter.ai/docs/guides/routing/provider-selection)

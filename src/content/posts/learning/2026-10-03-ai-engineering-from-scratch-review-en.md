@@ -144,16 +144,17 @@ I had AI agents read the notes lesson by lesson, run the code, and then adversar
 ## Update log
 
 - 2026-10-03: Rewritten as a course introduction. Added the course structure, a content map of every phase, who it suits and how long it takes, a Phase 1 lesson 5 walkthrough, and pairing advice. The audit findings shrank into "Limits to know before you start"; the audit flowchart, the claims-versus-reality table, and the long error list were removed. Star count updated to 63k.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## Course video sources
 
-Checked the course repository README (viewed live on 2026-10-10): the course is text and code, and the page lists no lecture recordings (every "video" in the README is a course topic such as video generation or video understanding). This conclusion applies to the official public page only.
+Checked the course repository README (viewed live on 2026-11-09): the course is text and code, and the page lists no lecture recordings (every "video" in the README is a course topic such as video generation or video understanding). This conclusion applies to the official public page only.
 
 Official source:
 
 - [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Changelog
 

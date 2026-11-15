@@ -30,7 +30,7 @@ draft: false
 
 授課者是 [Jure Leskovec](https://profiles.stanford.edu/jure-leskovec)，Stanford 電腦科學系教授，做過 Pinterest 的 Chief Scientist。2025 年秋季有一位客座講師 Charilaos Kanatsoulis 共同掛名，投影片封面上兩人並列。
 
-課只在秋季開。[ExploreCourses 的 2026-27 條目](https://explorecourses.stanford.edu/search?q=CS+224W&view=catalog)顯示下一次是 2026 年秋季，上課時段與教室跟 2025 年一模一樣。學分 3–4，可以選 Letter 或 Credit/No Credit。詳細班號與日期收在附錄。
+課只在秋季開。[ExploreCourses 的 2026-27 條目](https://explorecourses.stanford.edu/search?q=CS+224W&view=catalog)顯示下一次是 2026 年秋季，上課時段與教室跟 2025 年一模一樣。學分 3–4，可以選 Letter 或 Credit/No Credit。2026 年秋季的班號是 2058，上課期間 2026/09/22 到 12/04。
 
 課程官網對校外人士的態度寫得很直白：
 
@@ -38,7 +38,7 @@ draft: false
 
 也就是說：材料開放，評分不開放。錄影則明講「available on Canvas for all the enrolled Stanford students」——當屆錄影是鎖的。
 
-想付費修的話有兩條路，兩條現在都寫著 Enrollment Closed：AI Professional Program 裡的 XCS224W，以及研究生學分的 CS224W（金額見附錄）。
+想付費修的話有兩條路，兩條現在都寫著 Enrollment Closed：AI Professional Program 裡的 XCS224W，以及研究生學分的 CS224W（前者個別報名 1,950 美元，後者學費 6,300 美元）。
 
 ## 兩份官方頁面對先修的說法不一樣
 
@@ -76,7 +76,7 @@ draft: false
 
 其中「Relational Deep Learning」（RDL）佔了兩整堂，是舊錄影完全沒有的一塊。它的問題設定是：企業的資料本來就躺在多張互相有外鍵的資料表裡，傳統做法是資料科學家手寫 SQL 把它壓成一張特徵表，再餵給 XGBoost。
 
-第 12 堂的投影片拿一個 Stack Exchange 的「使用者六個月後還活躍嗎」任務做對照，找了一位五年年資的資料科學家實際實作一遍，記錄下手工路線要寫**約 682 行程式碼**。RDL 路線的對照數字放在同一張投影片上，收在附錄。
+第 12 堂的投影片拿一個 Stack Exchange 的「使用者六個月後還活躍嗎」任務做對照，找了一位五年年資的資料科學家實際實作一遍，記錄下手工路線要寫**約 682 行程式碼**。同一張投影片上的 RDL 路線是 54 行，人工時間從 12 小時降到不到 1 小時。這是工作量對照，投影片沒有同時比準確度，不要讀成模型表現的比較。
 
 支撐這塊的是 [RelBench](https://relbench.stanford.edu/)，Stanford 自己出的關聯式資料庫 benchmark，投影片上明講它「Load as a PyG graph」。
 
@@ -161,7 +161,7 @@ Leskovec 名下的公開資源很多，但不是每一項都跟 CS224W 有關。
 
 **第 16 堂「LLM + GNN」** 講的是 GraphRAG 的兩個方向。
 
-「GNN 餵給 LLM」那一路走的是 [G-retriever](https://arxiv.org/abs/2402.07630) 的四步流程：LLM 編碼查詢 → 從知識圖譜取出相關子圖並用 GNN 編碼 → 把兩個嵌入合起來 → LLM 解碼生成答案。子圖檢索用 KNN 加 n-hop 鄰居先撈，再用 Prize-Collecting Steiner Tree 修剪。投影片上有一個 Neo4j 的案例研究：在 [STaRK Prime](https://stark.stanford.edu/) 上，PyG 的 GNN+LLM 方案把 Hit@1 翻了一倍，對照組與具體數字收在附錄。
+「GNN 餵給 LLM」那一路走的是 [G-retriever](https://arxiv.org/abs/2402.07630) 的四步流程：LLM 編碼查詢 → 從知識圖譜取出相關子圖並用 GNN 編碼 → 把兩個嵌入合起來 → LLM 解碼生成答案。子圖檢索用 KNN 加 n-hop 鄰居先撈，再用 Prize-Collecting Steiner Tree 修剪。投影片上有一個 Neo4j 的案例研究：在 [STaRK Prime](https://stark.stanford.edu/) 上，PyG 的 GNN+LLM 方案把 Hit@1 翻了一倍，數字是 .16 到 .32，對照組是 agentic GraphRAG 搭 claude-3-opus（.18）與 gpt-4-turbo（.2）。這是投影片轉述的第三方案例，不是課程自己跑的實驗。
 
 反方向「LLM 餵給 GNN」則用 sentence transformer 把每個節點與邊的短語轉成特徵向量，再丟給 GNN 做節點分類。投影片也提到 PyG 2.7 釋出了 `TXT2KG`：拿 LLM 把非結構化文字抽成 (entity, relation, entity) 三元組。
 
@@ -205,19 +205,6 @@ Leskovec 名下的公開資源很多，但不是每一項都跟 CS224W 有關。
 
 **想要有人看你的東西**：專案的第三種形態（實作一篇論文成 PyG `contrib` 的 PR）不需要註冊這門課也能做，而且 PyG 是活的 repo。
 
-## 附錄：數字與查證方式
-
-- **學分與時段**：3–4 學分，只在秋季開。2026-27 秋季班號 2058，2026/09/22–2026/12/04，週二週四 15:00–16:20，NVIDIA Auditorium，Letter 或 Credit/No Credit。出處：ExploreCourses 2026-27 條目。
-- **評分權重**：Homework 20%（三份各 6.67%）、Colab 15%（五份各 3%）、Exam 35%、Final Project 30%，Ed 參與另計加分。專案內部再拆成 proposal 13.33%、milestone 6.67%、report 80%，換算成總成績分別是 4%、2%、24%。出處：`info.html` 與專案說明文件。
-- **遲交政策**：兩個 no-questions-asked 的 late period，每個 4 天，不適用於期末專案報告；用完之後每個 late period 扣 50%，超過一個 late period 不收。Gradescope 有 15 分鐘寬限期。
-- **作業配分細節**：HW1 第一節 GNN Expressiveness 28 分、第三節 GCN 11 分（另有 3 分 BONUS 題）；HW2 三節分別 20、21、10 分；HW3 三節分別 20、13、15 分。三份都有 0 分的 Honor Code 節。
-- **RDL 的對照數字**：第 12 堂投影片上，Stack Exchange 使用者活躍度預測任務，人工路線是「12 hours manual work / ~682 lines of code / 1hr model training」，RDL 路線是「<1 hour manual work / 54 lines of code / 1hr model training」。投影片標註工作量的定義是「the marginal effort to solve a new task」。這是投影片上的效率對照，**投影片上的這一組數字沒有同時給準確度對照**，不要把它讀成模型表現的比較。
-- **STaRK 的 18%**：出自第 17 堂投影片的原文「For all methods, Hit@1 is below 18%」，指 STaRK benchmark 上所有受測的檢索增強方法與 LLM。
-- **Neo4j 案例的 Hit@1**：第 16 堂投影片列出 .16→.32，資料集是 STaRK Prime。PyG 方案的組成是「LLAMA3.1-8B w/ LoRA + 10M param GAT」；對照組是 agentic GraphRAG 的 claude-3-opus（.18）與 gpt-4-turbo（.2）。這是投影片轉述的第三方案例，不是課程自己跑的實驗。
-- **付費修課的金額**：AI Professional Program 個別報名 1,950 美元一門（XCS224W）；研究生學分的 CS224W 在 Stanford Online 標示學費 6,300 美元。兩者查詢當下皆為 Enrollment Closed，且 XCS224W 沒有列出開課日期，而同一頁上多門姊妹課有。**頁面沒有說明原因。**
-- **DeepSNAP 與 OGB 的維護狀態**：查詢當下 GitHub API 顯示 `snap-stanford/deepsnap` 最後推送於 2025-11-24、`snap-stanford/ogb` 最後推送於 2025-05-06、`pyg-team/pytorch_geometric` 最後推送於 2026-08-17。兩個 repo 都沒有被標記為 archived。
-- **未能確認的三項**：（1）Colab 0 的 Google Drive 連結回 200，但它是 Drive 的檢視頁而非 notebook，我沒有取得它的 cell 內容，上表因此留白；（2）Stanford Online 的兩個 YouTube 播放清單分別是 47 支與 60 支，但我沒有逐支比對確認兩者的差集是什麼；（3）第 16 堂投影片的講者未在投影片上具名，我沒有找到官方頁面說明那堂由誰主講，因此文中沒有寫講者姓名。
-
 ## 課程影片來源
 
 已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
@@ -229,12 +216,13 @@ Leskovec 名下的公開資源很多，但不是每一項都跟 CS224W 有關。
 - [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
 - [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
 
-查核日期：2026-10-10。
+查核日期：2026-11-12。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認官方頁未列 Fall 2025 公開錄影、Canvas 需登入，公開播放清單僅 2021／2023 年版，維持原狀態並補上查核日期。
+- 2026-11-12：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

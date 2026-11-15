@@ -57,12 +57,6 @@ Video labels follow uploader metadata, and may use different grades or versions.
 
 The inventory includes all 76 graded entries in the opened ROCKTOPO list, excluding ungraded entries; additional verified sources and discrepancies are attached to the relevant rows. It is not a substitute for the full topo or current access notices.
 
-```video-gallery
-key: japanNodake
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Start by locating 野岳 メインエリア in the topo. Check protection and landings; a low grade does not establish low risk.
@@ -72,6 +66,12 @@ Start by locating 野岳 メインエリア in the topo. Check protection and la
 | 「迎賓館」 | 5.8 | 5.8 | Not listed | 野岳 メインエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/172/routes)；ROCKTOPO only. |
 | 「スポットライト」 | 5.8 | 5.8 | Not listed | 野岳 メインエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/172/routes)；ROCKTOPO only.  Listed in [ROCKTOPO’s aggregate popularity list](https://www.rocktopo.net/areas/172/popular_routes/all); a community ranking rather than an official star rating. |
 | 「ミスター礫」 | 5.10a | 5.10a | Not listed | 野岳 メインエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/172/routes)；ROCKTOPO only.  Listed in [ROCKTOPO’s aggregate popularity list](https://www.rocktopo.net/areas/172/popular_routes/all); a community ranking rather than an official star rating. |
+
+```video-gallery
+key: japanNodake
+lang: en
+layout: routes
+```
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
@@ -127,6 +127,12 @@ Start by locating 野岳 メインエリア in the topo. Choose for the day’s 
 | 「ごめんね！シジュカラ」 | 5.11c | 5.11c | Not listed | 野岳 メインエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/172/routes)；ROCKTOPO only. |
 | 「始発駅」 | 5.11c | 5.11c | Not listed | 野岳 メインエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/172/routes)；ROCKTOPO only. |
 | 「ホワイトブレス」 | 5.11c | 5.11c | Not listed | 野岳 メインエリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/172/routes)；ROCKTOPO only. |
+
+```video-gallery
+key: japanNodake
+lang: en
+layout: routes
+```
 
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 

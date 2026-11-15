@@ -36,7 +36,7 @@ Spring 2026 是第三次開課，週一週三下午在 Skilling Auditorium 上�
 
 同一段還有兩句比較少被引的。一句是「A significant part of the course will involve making neural language models run quickly and efficiently on GPUs across multiple machines」——這是在說系統課的比重不是點綴。另一句是整段最後的加粗提醒：「Note that this is a 5-unit class. This is a very implementation-heavy class, so please allocate enough time for it.」
 
-順帶一提，這裡有一個官方頁面互相對不上的地方：課程頁寫「this is a 5-unit class」，[ExploreCourses](https://explorecourses.stanford.edu/search?q=CS+336&view=catalog) 的學分欄寫的卻是 3-5。[Stanford Online](https://online.stanford.edu/courses/cs336-language-modeling-scratch) 的遠距版又是另一組數字，收在文末附錄。
+順帶一提，這裡有一個官方頁面互相對不上的地方：課程頁寫「this is a 5-unit class」，[ExploreCourses](https://explorecourses.stanford.edu/search?q=CS+336&view=catalog) 的學分欄寫的卻是 3-5。[Stanford Online](https://online.stanford.edu/courses/cs336-language-modeling-scratch) 的遠距版又是另一組數字：5 學分、7,875 美元、10 週、每週 20–25 小時。
 
 工作量到底多重，課程自己引了一句學生評鑑。這句在 `lecture_01.py` 的 `course_logistics()` 函式裡，標明出自 Spring 2024 的課程評鑑：
 
@@ -52,7 +52,7 @@ Spring 2026 是第三次開課，週一週三下午在 Skilling Auditorium 上�
 
 ## 講義是一支跑得起來的程式，但只有九堂是
 
-[講義 repo](https://github.com/stanford-cs336/lectures) 目前有 3,649 顆星，跟本站地圖文前一天記的數字幾乎沒動。fork 數、最後更新時間與讀取日期見附錄。
+[講義 repo](https://github.com/stanford-cs336/lectures) 目前有 3,649 顆星，跟本站地圖文前一天記的數字幾乎沒動。最後一次推送在 2026 年 5 月 28 日。作業 repo 的 fork 數從第一份的 2,686 遞減到第三份的 262，但 fork 數不是完成率，課程沒有公開任何完成率。
 
 這個 repo 最常被提到的特色是「可執行講義」。定義是課程自己下的，寫在 `lecture_01.py` 的 `what_is_this_program()` 函式裡：
 
@@ -110,7 +110,7 @@ Spring 2025 那版的榮譽準則只寫到「強烈建議你把 IDE 的 AI 自�
 
 **第三份的形狀跟其他四份不一樣。** 它不要你自己訓練大模型，而是對課程架的訓練 API 送實驗、拿回 validation loss，再從這些點擬合出 scaling law，外推出計算最佳的模型大小。真正的限制是額度：**你的實驗總共只有 12 B200 小時，超過之後 API 會直接拒絕請求。** 而且額度是動態結算的——預約的時間沒用完會退回餘額，逾時被砍的則按預約時間全額計費。這是整門課裡最像真實研究實驗室的一份：卡住你的不是會不會寫，是實驗排程規劃得好不好。
 
-**第一份和第二份都有公開排行榜。** [第一份的排行榜](https://github.com/stanford-cs336/assignment1-basics-leaderboard)比的是 OpenWebText 的 validation loss，規則是單張 B200 上最多跑 45 分鐘。[第二份的排行榜](https://github.com/stanford-cs336/assignment2-systems-leaderboard)比的是一個 8B 模型完整訓練一步要多久，官方說「我們預期投稿要打敗 10 秒這條天真基準線」——目前榜首大約是它的四分之一。兩份的完整規則與現況數字都收在附錄。
+**第一份和第二份都有公開排行榜。** [第一份的排行榜](https://github.com/stanford-cs336/assignment1-basics-leaderboard)比的是 OpenWebText 的 validation loss，規則是單張 B200 上最多跑 45 分鐘。[第二份的排行榜](https://github.com/stanford-cs336/assignment2-systems-leaderboard)比的是一個 8B 模型完整訓練一步要多久，官方說「我們預期投稿要打敗 10 秒這條天真基準線」——目前榜首大約是它的四分之一。第一份在本屆的預算是 0.75 B200 小時，天真基準線的 validation loss 是 5.00；第二份在兩張 B200 上量測，整個量測要從空的 PyTorch/Triton 快取起算 10 分鐘內跑完。
 
 ## 分水嶺在第二份，而證據就寫在講義的排版裡
 
@@ -130,11 +130,11 @@ GitHub 的 fork 數也指向同一個地方：第一份作業的 repo 有 2,686 
 
 ## GPU 的錢：單價在課程頁上，時數在講義裡
 
-這門課有一節叫「GPU compute for self-study」，直接寫給沒修課的人看。它列出五家雲端供應商單張 B200 的公開報價，並標明報價的讀取日期；最低的 RunPod 是每小時 **4.99 美元**，其餘四家與那家有免費額度的贊助商都收在附錄。同一節給的建議是：先在 CPU 上除錯正確性，再開 GPU 跑訓練或做效能量測。
+這門課有一節叫「GPU compute for self-study」，直接寫給沒修課的人看。它列出五家雲端供應商單張 B200 的公開報價，並標明報價的讀取日期；最低的 RunPod 是每小時 **4.99 美元**，其餘是 Nebius 5.50（可搶占式 3.05）、Modal 6.25、Lambda 6.69、Together 7.49（最少 8 張）；Modal 是贊助商，每月送 30 美元的免費算力。同一節給的建議是：先在 CPU 上除錯正確性，再開 GPU 跑訓練或做效能量測。
 
 跟 [Spring 2025 版的同一節](https://cs336.stanford.edu/spring2025/)對照才有意思：那時候列的是 H100 80GB 的報價，最低每小時 1.99 美元。一年之間課程的基準硬體換了一個世代，單價下緣也漲了一倍以上。
 
-時數則寫在講義裡。CS336 的作業講義有一個少見的習慣：**每一道要用 GPU 的題目，標題括號裡就寫著它的算力預算**，像是 `Problem (leaderboard): Leaderboard (10 B200 hrs)`、`Problem (layer_norm_ablation): Remove RMSNorm and train (0.5 B200 hrs)`。所以預算不需要任何人幫你估——把講義裡的數字加起來，再乘上課程頁自己列的單價就好。完整加總過程放在附錄，這裡只給結果：**四份作業講義明寫的時數合計 71 B200 小時**（第二份沒標時數，沒算進去），照課程頁列的單價區間換算，落在四百多美元上下，前提是你一次做對、不重跑。
+時數則寫在講義裡。CS336 的作業講義有一個少見的習慣：**每一道要用 GPU 的題目，標題括號裡就寫著它的算力預算**，像是 `Problem (leaderboard): Leaderboard (10 B200 hrs)`、`Problem (layer_norm_ablation): Remove RMSNorm and train (0.5 B200 hrs)`。所以預算不需要任何人幫你估——把講義裡的數字加起來，再乘上課程頁自己列的單價就好。分份來看是第一份 17、第三份 12、第四份約 16、第五份 26，**四份作業講義明寫的時數合計 71 B200 小時**（第二份沒標時數，沒算進去），照課程頁列的單價區間換算，落在四百多美元上下，前提是你一次做對、不重跑。
 
 兩個一定要知道的但書。其一，第三份那筆額度對修課學生是課程的訓練 API 出的，自學者要自己買。其二，第二份沒有時數上限，因為它比的是速度不是總量——但它要求最多六張 GPU 同時在線，那是另一種帳。
 
@@ -180,20 +180,9 @@ Stanford Online 那頁把「為什麼要申請」寫得很直接：「Due to hig
 
 如果只有一個下午而且不想寫程式，就開 `lecture_01` 的追蹤頁，直接跳到 tokenization 那一段，把 `merge()` 一步一步跟完。那是這門課教法的最小樣本。
 
-## 附錄：數字與查證方式
-
-- **講義 repo 讀數**：3,649 stars、758 forks、最後 push 2026-05-28，取自 GitHub API 於 2026-08-21。作業 repo 的 fork 數同日：assignment1-basics 2,686、assignment2-systems 705、assignment3-scaling 262、assignment4-data 274、assignment5-alignment 460。**fork 數不是完成率**，只是「有多少人把 repo 拉到自己名下」，課程未公開任何完成率資料。
-- **可執行講義 9 / PDF 8 的對照**：依 `stanford-cs336/lectures` 的檔案清單與 Spring 2026 課表的授課者標注逐堂比對。九支 `.py` 對應課表標 [Percy] 的第 1、2、6、7、10、12、13、14、17 堂；八份 `.pdf` 對應標 [Tatsu] 的第 3、4、5、8、9、11、15、16 堂。第 18、19 堂是客座（Daniel Selsam、Dan Fu），沒有掛材料。**Spring 2025 那屆不是這個對應關係**——當年課表把 `lecture_06.py` 標給 Tatsu，所以這條規律只在 2026 這屆成立。
-- **B200 小時逐題加總**：第一份 = 學習率調校 2 + batch size 實驗 1 + 四項消融各 0.5 + OWT 主實驗 2 + 排行榜 10 = 17；第五份 = GSM8K prompting 2 + 學習率 4 + prompt 消融 4 + 兩題 RL 演算法各 8 = 26；第三份 = API 端強制的 12 小時 scaling law 額度（講義寫 `total_budget_seconds` 為 43,200 秒），另外那個 48 B200 小時是你要預測的目標大跑，不是你要跑的；第四份 = 講義寫的「8 張 B200、batch size 128/卡、16,384 步、約 8.6B token，我們的訓練跑約 2:00 小時」＝約 16 B200 小時。合計 71，**不含第二份**（講義只寫最多 6 張 GPU 與每次量測 5 分鐘內，沒給總時數）、不含重跑、不含 tokenizer 訓練那一段的 CPU 時間（講義寫最多 12 小時、100 GB 記憶體以內，不需要 GPU）。
-- **每小時單價**：課程頁自己標注是「public pricing for a single B200 GPU on March 28, 2026」，Modal 6.25、Lambda 6.69、RunPod 4.99、Nebius 5.50（可搶占式 3.05）、Together 7.49（最少 8 張）。Spring 2025 版的同一節標注是「prices for a single H100 80GB GPU on June 6, 2025」，RunPod 1.99–2.99、Lambda 2.49–3.29、Paperspace 2.24、Together 2.85。**本文沒有自己估價，所有單價都是課程頁列的，時數都是講義列的。** 71 小時乘上 4.99 到 7.49 這個區間，得到 354 到 532 美元；這是兩組公開數字相乘的結果，不是我的估算。
-- **第一份作業講義寫的低資源設定**：Low-Resource Tip 共 8 個（以 `pdftotext` 轉出的純文字逐個計數）。其中提到的機器是「36 GB RAM 的 Apple M4 Max」，助教解答在 MPS 上不到 5 分鐘、純 CPU 約 30 分鐘就能訓練出通順文字；CPU/MPS 路線建議把處理量降到 4,000 萬 token、目標 validation loss 從 1.45 放寬到 2.00。BPE tokenizer 訓練那一題標的資源需求是「≤ 30 分鐘、不需要 GPU、≤ 30 GB RAM」。第二到第五份講義搜尋「Low-Resource Tip」的命中數都是 0。
-- **排行榜數字**：第一份的班內表（Spring 2026）預算標「0.75 B200 hours」、單次最多 45 分鐘，天真基準線 validation loss 5.00，目前榜首 3.03543；2025 那屆的班內表與全球表預算都是「1.5 H100 hours」。第二份（Spring 2026）在兩張 B200、batch size 2、序列長度 32768 上量完整一步的時間，天真基準線 10 秒，目前榜首 3,837 毫秒，且規定整個量測跑程從空的 PyTorch/Triton 快取起算要在 10 分鐘內完成。
-- **學分與學費**：課程頁寫 5 學分，ExploreCourses 寫 3-5，Stanford Online 的遠距版寫 5 學分、7,875 美元、10 週、每週 20–25 小時、2026 年 3 月 30 日至 6 月 10 日。三者並存，本文照各自來源標注，沒有取捨。
-- **未能確認的項目**：一，Spring 2026 播放清單顯示 18 支影片，而課表有 19 個講次格（17 堂正課加 2 場客座），少的是哪一堂我沒有逐支比對確認。二，第三份作業的訓練 API（`hyperturing.stanford.edu:8000`）我沒有測試連通性，只能確認 repo 說它需要八位數學生證號當 key。三，Spring 2026 各作業實際的完成率、選課人數與錄取率，公開材料裡都沒有。
-
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方課程頁與 Spring 2026 播放清單列的是逐講錄影；本文是整門課的導讀，不對應單一講次，因此只列入口，各講錄影見對應的逐講導讀。查核日期：2026-10-10。
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方課程頁與 Spring 2026 播放清單列的是逐講錄影；本文是整門課的導讀，不對應單一講次，因此只列入口，各講錄影見對應的逐講導讀。查核日期：2026-11-12。
 
 課程與錄影入口：
 
@@ -204,6 +193,7 @@ Stanford Online 那頁把「為什麼要申請」寫得很直接：「Due to hig
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。重查官方來源，確認仍無對應本文範圍的公開錄影，補上查核日期。
+- 2026-11-12：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

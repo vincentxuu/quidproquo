@@ -194,7 +194,7 @@ Course and recording entries:
 
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): Read both transcripts: Lecture 15 (about 74 minutes, Emma Brunskill and Dan Webber) opens with a DPO/RLHF review quiz and an AlphaZero wrap-up, then from about 22% Dan Webber covers value alignment (paperclips, intentions, preferences, best interests, morals and ethics), broadly the same theme as this post, and the word sycophancy never appears in the transcript; Lecture 16 (about 70 minutes) is the final lecture, a course recap with a quiz discussion and RL applications, not value alignment. mm:ss timestamps became approximate values and the &t= links were removed, "YouTube chapters" became "transcript", and the "chapters don't show sycophancy" remark was corrected.
 
@@ -203,6 +203,7 @@ Content check: verified against the video transcript (2026-10-10): Read both tra
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 - 2026-10-10: Checked the video content against its transcript. Timestamps became approximate and &t= links were removed; the opening of video 15 and the sycophancy remark were corrected.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

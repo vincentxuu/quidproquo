@@ -14,7 +14,8 @@ export async function runEmbeddingSync({
   const endpoint = new URL('/api/embed/sync', origin)
   if (!['http:', 'https:'].includes(endpoint.protocol)) throw new Error('Expected an HTTP(S) Worker origin')
   const deadline = now() + maxDurationMs
-  let currentLimit = limit, totalVectors = 0, totalDeleted = 0, batches = 0, hasMore = true
+  let currentLimit = limit, totalVectors = 0, totalDeleted = 0, batches = 0, hasMore = true, madeProgress = false
+  const collectedErrors = new Set()
   while (hasMore && batches < maxBatches) {
     const reset = full && batches === 0
     let payload
@@ -34,13 +35,14 @@ export async function runEmbeddingSync({
         failure = error
       }
       const resourceLimit = response?.status === 503 && /1102|Worker exceeded resource limits/i.test(text)
-      const transient = failure || [429, 502, 503, 504].includes(response?.status)
+      const transient = failure || [429, 500, 502, 503, 504].includes(response?.status)
       if (!failure && response.ok) {
         try { payload = JSON.parse(text) } catch { throw new Error('Embedding sync returned invalid JSON') }
         break
       }
       const status = response ? `HTTP ${response.status}` : 'network/timeout failure'
-      const detail = `${status}${resourceLimit ? ' (Worker resource limit)' : ''}; limit=${currentLimit}`
+      const body = text.replace(/\s+/g, ' ').trim().slice(0, 300)
+      const detail = `${status}${resourceLimit ? ' (Worker resource limit)' : ''}; limit=${currentLimit}${body ? `; body=${body}` : ''}`
       // A failed response may follow a committed reset. Retrying full=true could
       // erase checkpoints again, so operators must resume incrementally instead.
       if (reset) throw new Error(`Full rebuild response failed: ${detail}. Reset outcome is unknown; inspect state and resume without --full.`)
@@ -55,18 +57,37 @@ export async function runEmbeddingSync({
     if (!payload?.ok) throw new Error('Embedding sync response reported failure')
     const result = payload.results?.find?.(item => item.source === 'posts')
     if (!result) throw new Error('Embedding sync response did not include a posts result')
-    if (result.errors?.length) throw new Error(`Embedding sync returned errors: ${JSON.stringify(result.errors.slice(0, 20))}`)
     if (![result.vectors, result.deleted].every(value => Number.isInteger(value) && value >= 0) || typeof result.hasMore !== 'boolean') {
       throw new Error('Embedding sync returned an invalid progress result')
     }
-    if (result.hasMore && result.vectors + result.deleted === 0) throw new Error('Embedding sync made no progress; pending work remains')
+    // Per-chunk errors (e.g. one oversized chunk the model keeps rejecting) must
+    // not abort the run: record them and keep draining the rest of the queue.
+    // The run only fails when a whole pass made zero progress on top of errors,
+    // in which case every retry would loop over the same poisoned chunks forever.
+    if (result.errors?.length) {
+      for (const message of result.errors) collectedErrors.add(message)
+      log(`[embed-sync] batch=${batches + 1} returned ${result.errors.length} error(s) (${collectedErrors.size} distinct so far)`)
+    }
+    if (result.hasMore && result.vectors + result.deleted === 0) {
+      throw new Error(collectedErrors.size > 0
+        ? `Embedding sync made no progress with errors: ${JSON.stringify([...collectedErrors].slice(0, 20))}`
+        : 'Embedding sync made no progress; pending work remains')
+    }
     totalVectors += result.vectors
     totalDeleted += result.deleted
+    if (result.vectors + result.deleted > 0) madeProgress = true
     hasMore = result.hasMore
     batches++
     log(`[embed-sync] batch=${batches} limit=${currentLimit} vectors=${result.vectors} deleted=${result.deleted} hasMore=${hasMore}`)
   }
   if (hasMore && full) throw new Error(`Full rebuild paused after ${maxBatches} batches; pending work remains; resume without --full`)
+  if (collectedErrors.size > 0) {
+    if (!madeProgress) {
+      throw new Error(`Embedding sync returned errors with no progress: ${JSON.stringify([...collectedErrors].slice(0, 20))}`)
+    }
+    log(`[embed-sync] completed with ${collectedErrors.size} distinct chunk error(s) after ${batches} batch(es)`)
+    for (const message of [...collectedErrors].slice(0, 20)) log(`[embed-sync] error: ${message}`)
+  }
   log(hasMore ? `[embed-sync] paused after ${maxBatches} batches; pending work remains` : `[embed-sync] complete batches=${batches} vectors=${totalVectors} deleted=${totalDeleted}`)
-  return { batches, totalVectors, totalDeleted, hasMore, limit: currentLimit }
+  return { batches, totalVectors, totalDeleted, hasMore, limit: currentLimit, errors: [...collectedErrors] }
 }

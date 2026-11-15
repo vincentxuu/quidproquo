@@ -8,8 +8,8 @@ lang: en
 series:
   name: "Choosing an Agent CLI"
   order: 25
-tldr: "Opencode 2 is a major rewrite led by Anomaly (Dax Raad). Runtime migrated from Bun to Node.js (memory issues), desktop from Tauri to Electron (WebKit perf and Node integration), v1 API intentionally incompatible. New: multi-tab parallel sessions, persistent backend service, HTTP API + SDK. Currently beta, stable estimated ~September 2026. ~200K stars."
-description: "Opencode 2's technical reasons for migrating from Bun/Tauri to Node.js/Electron, three API breaking points, multi-tab parallel session architecture, cross-tool skill portability, and beta-stage risks."
+tldr: "Opencode 2 is a major rewrite led by Anomaly (Dax Raad). Runtime migrated from Bun to Node.js (memory issues), desktop from Tauri to Electron (WebKit perf and Node integration), v1 API intentionally incompatible. New: multi-tab parallel sessions, persistent backend service, HTTP API and CLI integration. The current CLI package is @opencode/cli and the command remains opencode. Built-in free models are available alongside paid Console and Go options."
+description: "Opencode 2's technical reasons for migrating from Bun/Tauri to Node.js/Electron, three API breaking points, multi-tab parallel session architecture, cross-tool skill portability, and the tradeoffs in installation, free models, and migration."
 draft: false
 ---
 
@@ -17,19 +17,18 @@ draft: false
 
 The [March article](/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent-en) concluded that opencode was a full-featured coding agent built in TypeScript — dual agent mode (Build / Plan), 75+ model support, MIT license.
 
-Opencode 2 overturns every one of those technical choices.
+OpenCode 2 changes the runtime, desktop shell, and backend architecture while retaining the open-source, multi-model direction.
 
-In August 2026, [Anomaly](https://anomaly.co/) (Dax Raad's company) released opencode 2 beta. This isn't a natural evolution from v1.x — it's an intentional breaking change, with three foundational layers replaced simultaneously. The npm install name changed to `@opencode-ai/cli@beta`, and the binary from `opencode` to `opencode2`. Repo at [anomalyco/opencode](https://github.com/anomalyco/opencode), ~200,000 stars, still MIT.
-
+This article focuses on OpenCode 2's move from Bun/Tauri to Node.js/Electron and the integration options enabled by a persistent backend. For installation today, use the V2 entry point: the npm package is `@opencode/cli`, and the command is `opencode`. V1 and V2 share that default command name; the early beta's separate `opencode2` command is no longer a basis for side-by-side installation.
 ## Why Rewrite
 
 ### Bun → Node.js
 
 Opencode v1 used Bun as its runtime. Bun's selling points were fast startup and a built-in bundler/test runner, but v1's production problem was **memory**.
 
-Bun's GC behavior differs from V8 — in long-running agent sessions, memory usage climbs steadily, and `Bun.gc()` timing is unpredictable. After several hundred rounds of tool calls, v1's RSS could spike to 2-3 GB. Node.js's V8 GC performs more stably under the same workload, and Node.js's ecosystem — particularly native addons and debug tools — is a tier more mature.
+For agents that run for long periods, read files, and call tools repeatedly, runtime tradeoffs extend beyond startup speed to garbage collection, debugging, and package compatibility. Node.js's V8 and native-addon ecosystem provide a different set of operational tools from Bun.
 
-The startup speed gap does exist (Bun is ~100-200ms faster), but v2's architecture includes a **persistent backend service** (discussed below), and the agent doesn't cold-start frequently — so startup speed is no longer a bottleneck.
+V2 also keeps a service running in the background, reducing the need to restart the backend each time a frontend opens. Long-session stability is therefore more useful to evaluate than a single cold start.
 
 ### Tauri → Electron
 
@@ -37,7 +36,7 @@ Opencode v1's desktop app used Tauri. Tauri's selling points were small binaries
 
 Tauri uses WebKitGTK on Linux and WKWebView on macOS. Neither engine matches Chromium's DevTools support, and WebKitGTK's performance on Linux has persistent issues — complex UI rendering and scrolling often stutter. More practically, the Node.js integration: v2's backend is entirely Node.js, making Tauri's Rust backend a redundant intermediate layer.
 
-Electron's downsides (large binary, high memory footprint) are real, but for a desktop app that's already running an LLM client, Electron's extra 100-200 MB is not the primary concern relative to the overall session memory usage.
+Electron adds download and memory costs. Whether they are worthwhile depends on your need for the desktop interface and its integration features; CLI users do not need the entire desktop shell.
 
 ## API Redesign: Three Breaking Points
 
@@ -59,11 +58,16 @@ v1 was frontend-driven — each opencode launch was a new process, gone when clo
 
 This architecture parallels Pi v2's direction (both pursuing session durability and remote access) but takes a different implementation path — Pi uses CBOR + Unix sockets, opencode 2 uses an **HTTP API**.
 
-### 3. HTTP API + SDK
+### 3. HTTP API and CLI Integration
 
-v2 exposes a set of HTTP APIs plus a TypeScript SDK. You can use the SDK to control opencode from your own programs — open sessions, send commands, read responses.
+A persistent service also lets other programs control OpenCode. V2 provides `opencode run` for noninteractive tasks and `opencode api` for server API calls, so integration does not require forking the project.
 
-This makes opencode usable as a building block embedded in other tools. Previously, integrating opencode meant forking it or shelling out to its CLI; now you can `import { OpenCode } from '@opencode-ai/sdk'` and operate programmatically.
+```bash
+opencode run "Summarize this project's TODOs"
+opencode api GET /api/session
+```
+
+The first command submits a model task and consumes the selected model's allowance; the second reads the server's session list. The HTTP API is marked experimental. Build custom clients against the current [V2 API documentation](https://opencode.ai/v2/docs/api), rather than copying SDK package names or imports from an early beta.
 
 ## Cross-Tool Skill Portability
 
@@ -75,32 +79,31 @@ Conversely, opencode 2's own skills live in `.opencode/skills/`, in a nearly ide
 
 In the context of intensifying coding agent competition in H2 2026, this is a smart choice — it lowers switching costs, so users don't have to rewrite all their agent guidance when changing tools.
 
-## Installation and Current State
+## Installation and Free Models
+
+On macOS or Linux, use the official npm package:
 
 ```bash
-# npm install beta
-npm install -g @opencode-ai/cli@beta
-
-# or download the binary directly
-# binary name is opencode2, no conflict with v1's opencode
+npm install -g @opencode/cli
+opencode --version
+opencode
 ```
 
-Current status:
+Check that the version starts with `2.`. Both V1 and V2 use `opencode`, so an older executable may still appear first in PATH. On Windows, download the CLI for your architecture from the [official V2 page](https://opencode.ai/v2/docs).
 
-- **Beta**, not recommended for production
-- v1 and v2 can be installed side by side (different binary names, different npm packages)
-- Estimated stable timeline: **September 2026**
-- Known issue: Electron desktop on certain Linux distros has GPU acceleration conflicts
+Inside OpenCode, enter `/models` to select a built-in free model. For example, Big Pickle's full ID is `opencode/big-pickle`, and its Input and Output prices are both Free in the official table. Check the [Console model table](https://opencode.ai/v2/docs/console/models): open-source software does not make every model free.
+
+Free models have usage limits, and some are offered for a limited time. You do not need a Go subscription or prepaid credits for your first experiment. To use an external provider such as OpenRouter, configure it separately through `/connect`.
 
 ## Risks
 
-**Beta is beta.** The API is still changing, and SDK type definitions may shift. If you build on the SDK now, expect breakage.
+**Match interfaces to the version.** Use the current V2 documentation for CLI commands, configuration fields, and APIs. Mixing early-beta packages and commands with current configuration is a common source of integration trouble.
 
-**Electron baggage.** Electron's large binary (~150 MB) and idle memory footprint (~200 MB) are known issues. For users who "just want a CLI agent," this overhead is meaningless. v2's CLI mode doesn't require Electron, but using the desktop multi-tab experience means accepting it.
+**Electron tradeoffs.** The desktop application adds download and memory costs. If you only need a terminal, use the CLI; accessing free models does not require installing the desktop app.
 
-**No v1 → v2 migration path.** v2's session format is incompatible with v1, with no import tool. Session history accumulated in v1 won't automatically carry over to v2.
+**Check historical-data migration separately.** Updating the executable, provider settings, and session history are separate tasks. Preserve existing data before upgrading; a working command does not prove that every historical session has migrated.
 
-**Anomaly's business model.** Opencode is MIT, but Anomaly is a company. Opencode's sustainability depends on whether Anomaly can monetize opencode or related products. No signs of a paid tier or cloud hosting yet, but it can't be ruled out long-term.
+**Model services and data policies.** OpenCode is open source, while Console offers pay-as-you-go access and Go provides subscriptions. Built-in free models have their own data terms: Big Pickle, for example, may use collected content to improve the model during its free period. Check the selected model's terms before submitting company code or private data.
 
 ## Comparison with Other Coding Agents
 
@@ -110,27 +113,34 @@ Current status:
 | Desktop | Electron | None (IDE integration) | None | Web UI |
 | Parallel sessions | Multi-tab | Single session | Single session | Single session |
 | Backend architecture | Persistent service + HTTP API | In-process | Unix socket | Web server |
-| SDK | TypeScript SDK | Extension API | AgentHarness v2 | Cordis plugin |
+| Integration | HTTP API / CLI | Extension API | AgentHarness v2 | Cordis plugin |
 | Skill portability | Reads .claude/skills/ | Native | Extensions | Plugin |
 
 Opencode 2's biggest differentiator from other agents is the **parallel sessions + persistent backend** combination. Claude Code runs one session at a time, Pi likewise; opencode 2 lets you run multiple simultaneously.
 
 ## Overall
 
-Opencode 2's rewrite isn't a technical pursuit — it solves v1's real problems: Bun's memory, Tauri's WebKit, an unprogrammable API. Each substitution has a clear reason, each reason is verifiable.
+OpenCode 2's architectural tradeoffs fall into three areas: operating the runtime, choosing a desktop rendering engine, and defining the frontend/backend integration boundary. Relate those differences to your own workflow when evaluating an upgrade.
 
 Multi-tab parallel sessions and the persistent backend are the real functional leaps — they transform opencode from "a CLI tool" into "an agent service that runs in the background." Cross-tool skill portability is a smart ecosystem-level choice.
 
-But beta is beta. APIs will change, Electron has baggage, v1 sessions don't carry over. If you need a stable coding agent now, v1 or Claude Code are safer bets. If what you want is **a coding agent with multi-session parallelism, programmability, and an SDK for integration** — and you're willing to bear beta risk — opencode 2 is the closest open-source option to that direction.
+If you need several frontends connected to one backend or want an agent inside your own workflow, the persistent service and HTTP API are worth exploring. To try AI for free, start with a built-in free model in the CLI, then add the desktop interface, external providers, or programmatic integration as needed.
 
-~200,000 stars and Anomaly's team size show it's not a side project. But stars and team don't equal stability — wait for the September stable release.
+For step-by-step setup, finding free models, and a first everyday prompt, read [How to use LLMs for free with OpenCode 2 and OpenRouter](/posts/ai/2026-11-01-free-llm-opencode2-openrouter-en).
+
+## Update History
+
+- 2026-11-01: Updated the V2 package and shared command name, removed outdated beta/stable forecasts and SDK imports, and added built-in free models, Console/Go, and data-policy distinctions.
 
 ## References
 
 - [anomalyco/opencode (GitHub)](https://github.com/anomalyco/opencode)
 - [opencode.ai official website](https://opencode.ai)
 - [Anomaly (Dax Raad's company)](https://anomaly.co/)
-- [@opencode-ai/cli (npm)](https://www.npmjs.com/package/@opencode-ai/cli)
+- [OpenCode 2 installation and downloads](https://opencode.ai/v2/docs)
+- [OpenCode 2 CLI and background service](https://opencode.ai/v2/docs/cli/)
+- [OpenCode 2 CLI commands](https://opencode.ai/v2/docs/cli/commands)
+- [OpenCode 2 models and privacy terms](https://opencode.ai/v2/docs/console/models)
 - Internal: [Opencode: Open-Source AI Terminal Coding Agent](/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent-en) (in Chinese)
 - Internal: [From Prompt to Harness: Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution) (in Chinese)
 - Internal: [The model is just a component — the harness is the system](/posts/ai/2026-08-10-model-component-harness-system) (in Chinese)

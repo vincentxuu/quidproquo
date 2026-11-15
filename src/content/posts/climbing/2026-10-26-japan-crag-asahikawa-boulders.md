@@ -59,12 +59,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 
 
-```video-gallery
-key: japanAsahikawaBoulders
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：日式 5–10 級
 
 先從マルガリータ、梁山泊等具名岩塊辨識容易線。容易級數也可能有高度，先走完下岩與落地檢查。
@@ -82,6 +76,12 @@ layout: routes
 | かぶと虫 by Akiko 7級 | 7級 | — | — | 雨粉・北の再発見ボルダー | 來源： [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | 膝将軍 6級 | 6級 | — | — | 雨粉・北の再発見ボルダー | 來源： [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | 念力 5級 | 5級 | — | — | 雨粉・北の再発見ボルダー | 來源： [RockTopo](https://www.rocktopo.net/areas/50/routes) |
+
+```video-gallery
+key: japanAsahikawaBoulders
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：日式 4–2 級
 
@@ -120,6 +120,12 @@ layout: routes
 | ネコ会議 3級 | 3級 | — | — | 雨粉・北の再発見ボルダー | 來源： [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | エルヒガンテ 2級 | 2級 | — | — | 雨粉・北の再発見ボルダー | 來源： [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | Chicken Soup V4- | 未列 | 6B | V4 | Shigeru / Kenjikomoro | 來源：[在地 topo／資料庫](https://www.mountainproject.com/area/109089867/shigeru-boulder-and-kenjikomoro-boulder)；MP 原列 V4-／6B；日式級數未列，按 V4 附近放在中級，不主張日式換算。 |
+
+```video-gallery
+key: japanAsahikawaBoulders
+lang: zh-TW
+layout: routes
+```
 
 ### 進階：日式 1 級至初段
 
@@ -164,6 +170,12 @@ layout: routes
 | ガトリングマン・ロング 初段 | 初段 | — | — | 雨粉・北の再発見ボルダー | 來源： [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | エクストリームウェイ 初段+ | 初段+ | — | — | 雨粉・北の再発見ボルダー | 來源： [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 
+```video-gallery
+key: japanAsahikawaBoulders
+lang: zh-TW
+layout: routes
+```
+
 ### 高手：日式二段以上
 
 ハブ系列與スタミナハブ是進一步研究的入口。先確認自己看的是原線、反向或延長版，影片中的起攀點要與 topo 一致。
@@ -179,6 +191,12 @@ layout: routes
 | ジュテエクステンション 二段- | 二段- | — | — | 梁山泊 | 來源： [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | 紋次郎 二段- | 二段- | — | — | 雨粉パンクロック | 來源： [RockTopo](https://www.rocktopo.net/areas/50/routes) |
 | 虎鉄 二段 | 二段 | — | — | 雨粉パンクロック | 來源： [RockTopo](https://www.rocktopo.net/areas/50/routes) |
+
+```video-gallery
+key: japanAsahikawaBoulders
+lang: zh-TW
+layout: routes
+```
 
 ## 查資料的入口
 

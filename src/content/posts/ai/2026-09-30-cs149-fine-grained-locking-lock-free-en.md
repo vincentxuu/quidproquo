@@ -157,17 +157,15 @@ Slide 65 closes with a question and answer. What role did CAS play in these lock
 
 Slide 66 lists further reading: Michael & Scott 1996 (a multi-reader/writer lock-free queue), Harris 2001, Michael Sullivan's [RMC compiler](https://github.com/msullivan/rmc-compiler), and two blog posts.
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the contents of the L16 slides PDF, and the lecture date and summary on the course home page. Not confirmed: anything said in the Fall 2025 lecture beyond the slides (the recording is not public); the exact numbers in the slide 62 chart (this post does not read values off the graph); and slide-by-slide differences between the 2023 recording and the 2025 slides. Nothing here is based on the video.
-
-Further reading: for locks and deadlock from the OS side, see [CS111 Lecture 6: Implementing Locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en) and [CS111 Lecture 7: Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en).
+For locks and deadlock from the OS side, see [CS111 Lecture 6: Implementing Locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en) and [CS111 Lecture 7: Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en).
 
 Series navigation: previous [L15: Implementing Synchronization and Memory Consistency](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency-en) | next [L17–L18: Transactional Memory + Written 4](/posts/ai/2026-09-30-cs149-transactional-memory-w4-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 
 ## Course video sources
 
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-11-09.
 
 ```youtube
 url: https://www.youtube.com/watch?v=GA1ObImqaMo
@@ -188,6 +186,7 @@ Content check: verified against the video transcript (2026-10-10): I read the au
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 - 2026-10-10: Checked the video content against its transcript. The video mostly corresponds to the locking half of this post and only touches lock-free briefly; hazard pointers and SPSC queues are not in the video, which the video-sources section now states.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

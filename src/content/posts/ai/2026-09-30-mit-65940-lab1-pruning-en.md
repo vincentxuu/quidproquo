@@ -130,15 +130,17 @@ Two of four positions are now zero, giving sparsity `2/4=50%`. The tensor still 
 **Check:** What if only the smallest magnitude is zeroed? The result is `[-0.1, 0.8, -0.3, 0]`, with sparsity `25%`. There are no threshold ties here. Consult assignment requirements for equal magnitudes; a strict greater-than threshold alone does not guarantee an exact retained count.
 
 ## Course video sources
-Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
+Rechecked against the live official course page on 2026-11-09: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
+
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 - 2026-10-11: Added an invented conceptual example and comprehension check while preserving the original materials and video-verification scope.
 

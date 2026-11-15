@@ -190,9 +190,7 @@ Further reading on this site:
 
 - [Berkeley CS285 Spring 2026 overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
 
-## What this post can and cannot confirm
-
-Confirmed: the text, equations, and paper labels in the 2026 slides; the schedule's date, speaker, and reading; the 2025 archive's lecture split and the 2025 video's title and length; and that every project URL on the slides loads. Not confirmed: the content of the many videos and figures, including what task the 18-second training run on slide 9 solved and any real-robot numbers; the details of SAPG, FastTD3/FastSAC, FPO/FPO++, and BFM-Zero; and the content of the 2025 L17 recording, which this post does not rely on.
+## Further reading
 
 Series navigation: previous [L15 Hierarchical RL and Imitation Learning](/posts/ai/2026-09-30-cs224r-hierarchical-rl-il-en) | next [L17 RL for Robot Foundation Models (VLAs)](/posts/ai/2026-09-30-cs224r-rl-for-vlas-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
 
@@ -213,13 +211,14 @@ Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
 
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 - 2026-10-10: Checked the video content against its transcript. Speaker, length and sim-to-real topic all match the post's statements; nothing needed correcting.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

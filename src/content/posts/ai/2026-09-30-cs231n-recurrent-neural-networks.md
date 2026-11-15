@@ -210,19 +210,15 @@ LSTM 真的解決了梯度消失嗎？第 115 頁的回答很節制：
 
 最後一頁預告下一講：Attention 與 Transformer。
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：2026 課表的主題與建議閱讀、2026 課表連結投影片的內容、A2 Q5 的題目說明、2025 年 L7 錄影的存在與講者（依 2025 課表）。
-
-不能確認：課表列出的 GRU 與 sequence-to-sequence 在課堂上講了多少（兩個年份的投影片文字都沒有）、2026 年這一講實際由誰主講（2026 課表的講者欄被註解掉）、2026 課堂錄影內容（只在 Canvas）。
-
-延伸閱讀：站上 [CS224N 的 RNN 與語言模型導讀](/posts/ai/2026-08-22-cs224n-rnn-language-models)從 NLP 角度講同一批模型；[CMU 11-785 的 RNN 第一講](/posts/ai/2026-08-22-cmu-11785-13-rnn-one)與 [seq2seq 講次](/posts/ai/2026-08-22-cmu-11785-15-seq2seq-ctc)可以補上本講投影片沒有展開的 sequence-to-sequence。
+站上 [CS224N 的 RNN 與語言模型導讀](/posts/ai/2026-08-22-cs224n-rnn-language-models)從 NLP 角度講同一批模型；[CMU 11-785 的 RNN 第一講](/posts/ai/2026-08-22-cmu-11785-13-rnn-one)與 [seq2seq 講次](/posts/ai/2026-08-22-cmu-11785-15-seq2seq-ctc)可以補上本講投影片沒有展開的 sequence-to-sequence。
 
 系列導覽：上一篇 [L6：訓練 CNN 與經典架構](/posts/ai/2026-09-30-cs231n-training-cnns-architectures)｜下一篇 [A2 導讀：BatchNorm、Dropout、CNN、PyTorch 與 RNN Captioning](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
 
 ## 課程影片來源
 
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 7 講（長度 1:11:47），字幕有 RNN 序列問題與字元級語言模型、截斷 BPTT、影像描述、VQA 與 Visual Dialog、LSTM 與梯度消失／爆炸、state space model，與本文主題相符；字幕沒有 GRU 與 sequence-to-sequence，與本文說兩個年份的投影片都沒有這兩個主題一致。講者 Zane Durante 這一點字幕沒有直接說出（影片說明欄列出），未另行驗證。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
 
@@ -242,6 +238,7 @@ title: Stanford CS231N | Spring 2025 | Lecture 7: Recurrent Neural Networks
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
 - 2026-10-10：依字幕核對影片內容。影片主題與講次相符，抽樣核對的概念都在字幕出現；文章對影片沒有需要更正的具體說法，只加標記。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

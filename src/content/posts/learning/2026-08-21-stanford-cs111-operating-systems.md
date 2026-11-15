@@ -30,7 +30,7 @@ draft: false
 
 授課者是 [Mendel Rosenblum](https://stanford.edu/~mendel)。他的自我介紹裡有一行值得先記住：VMware 共同創辦人，公司前十年的首席科學家。這件事到第二十七堂會發生作用。
 
-[ExploreCourses 條目](https://explorecourses.stanford.edu/search?q=CS+111&view=catalog)寫的是秋冬春三學期都開，學分欄給了一個區間。那個區間有陷阱。[CS 系的大學部學位要求頁](https://www.cs.stanford.edu/bs-degree-requirements)加了一條硬規定：不分主修，修 CS103、CS107、CS109、CS111、CS161 的大學部學生都必須以五學分修習。[課程 syllabus](https://web.stanford.edu/class/cs111/syllabus) 講得更白——大學部學生沒註冊滿五學分就不會拿到成績，而且降學分不會減少任何課程要求。那個區間是給研究生的（確切數字見附錄）。
+[ExploreCourses 條目](https://explorecourses.stanford.edu/search?q=CS+111&view=catalog)寫的是秋冬春三學期都開，學分欄給了一個區間。那個區間有陷阱。[CS 系的大學部學位要求頁](https://www.cs.stanford.edu/bs-degree-requirements)加了一條硬規定：不分主修，修 CS103、CS107、CS109、CS111、CS161 的大學部學生都必須以五學分修習。[課程 syllabus](https://web.stanford.edu/class/cs111/syllabus) 講得更白——大學部學生沒註冊滿五學分就不會拿到成績，而且降學分不會減少任何課程要求。3–5 學分那個區間是給研究生的。
 
 先修只有一門 CS107，但 syllabus 把「等同」拆得很具體：要能用 `malloc`／`free`／`new`／`delete` 寫出複雜的記憶體操作，要能在 Unix 環境用 `make`、`gcc`、`valgrind`、`gdb`，還要對 x86-64 有基本理解。
 
@@ -106,7 +106,7 @@ Stanford CS 系在很多課裡塞了短篇倫理單元，CS111 分到的題目�
 
 > 早期課程（CS106 與 CS107）的講堂圍繞著作業。CS111 的講堂講的是作業系統的原理與概念。section 負責作業，**考試考講堂內容**。
 
-對照 syllabus 的計分表就更清楚了：作業只占三分之一略多，兩場考試合計超過一半（完整比重見附錄）。也就是說，一個只把九份作業做完的人，拿到的是這門課權重較低的那一半；而講堂那一半——那些 28 份 PDF——才是考試在考的東西。
+對照 syllabus 的計分表就更清楚了：作業只占三分之一略多，兩場考試合計超過一半（作業 35%、section 出席 5%、講堂點名 5%、期中 20%、期末 35%）。也就是說，一個只把九份作業做完的人，拿到的是這門課權重較低的那一半；而講堂那一半——那些 28 份 PDF——才是考試在考的東西。
 
 這對自學者反而是好消息，因為講堂那一半是公開的，作業那一半才是被鎖住的。
 
@@ -165,20 +165,9 @@ g++ -std=c++17 -o tvp thread-v-process.cc -lpthread
 
 跑完之後，下一步不是找起始碼，是去 exams 目錄抓 [Spr2024 的期中考與解答](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/exams/Spr2024Midterm.pdf)，先做一次。考試考的是講堂，而講堂全部公開——這是這門課對自學者最友善的地方，也是最容易被忽略的地方。
 
-## 附錄：數字與查證方式
-
-- **計分比重**（Spring 2026 syllabus）：作業 35%、section 出席 5%、講堂點名 5%、期中考 20%、期末考 35%。期中是兩小時、閉書、可帶兩張雙面 A4 筆記；期末三小時。
-- **學分**：ExploreCourses 與 Stanford Bulletin 都寫 3–5 學分；CS 系學位要求頁規定 CS103／107／109／111／161 必須以五學分修習；syllabus 補充只有 Stanford 在籍研究生可以修 3–5 學分，大學部不滿五學分不予評分。三處說法一致，只是切面不同。
-- **來源異動**：本文查證期間，Stanford CS 系的 `www-cs.stanford.edu/bs-core-requirements` 已下架（301 到 `www.cs.stanford.edu/bs-core-requirements` 後 404）。五學分規定改引現行的學位要求頁，「Formerly known as CS110」改引 2026 年 1 月的封存快照。引用這條的舊文章都需要換連結。
-- **課程規模與時段**：Spring 2026 在 Nvidia Auditorium，一週三堂各 50 分鐘，共 28 堂（其中一堂遇假日停課）。八次 section、八份程式作業加一份暖身作業。
-- **未來開課**：2026–2027 學年秋、冬、春三學期都開；秋與冬由 Nick Troccoli 授課，春由 Rosenblum 授課（依 ExploreCourses 條目，2026 年 8 月查）。
-- **封存網址格式**：`web.stanford.edu/class/archive/cs/cs111/cs111.1266/`（1266 = Spring 2026）。CS110 的封存版是 `cs110.1204`（Winter 2020），本文寫作時可正常存取。
-- **假日標示有誤**：Spring 2026 行事曆把 5 月 25 日標成 Presidents' Day，該日實際上是 Memorial Day（Presidents' Day 在二月）。停課本身沒錯，標籤錯了。
-- **未能確認的三項**：（一）旁聽者用 `guest` 取代 `$USER` 的 clone 路徑是否仍然可用——我沒有 SUNet ID，無法實測；（二）寄信索取錄影權限的實際核准率；（三）Winter 2026 那一版（`cs111.1264`）的作業編號與 Spring 2026 不同（V6 檔案系統排在 assign1、日誌式檔案系統排在 assign2），我只讀到那兩份的封存頁，沒有完整的該學期行事曆，所以無法判斷整學期的順序是否重排過。
-
 ## 課程影片來源
 
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-11-12 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-11-12。
 
 課程與錄影入口：
 
@@ -188,6 +177,7 @@ g++ -std=c++17 -o tvp thread-v-process.cc -lpthread
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認登入牆屬實，同學期也沒有公開錄影，狀態不變。
+- 2026-11-12：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

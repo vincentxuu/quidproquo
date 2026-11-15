@@ -58,12 +58,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 
 
-```video-gallery
-key: japanKasama
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：日式 5–10 級
 
 入門線也有高的翻頂；林間落葉可能遮住落地石塊。大黑岩的舊容易線已排除，不拿舊入門攻略當開放證明。
@@ -133,6 +127,12 @@ layout: routes
 | マントル 5級（道端岩） | 5級 | — | — | 道端岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/78/routes) |
 | カンテ左 5級（道端岩） | 5級 | — | — | 道端岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/78/routes) |
 
+```video-gallery
+key: japanKasama
+lang: zh-TW
+layout: routes
+```
+
 ### 中級：日式 4–2 級
 
 花崗岩的站點與身體位置很重要，4 級也可能讓人反覆嘗試。先分清同名岩塊和原線、SD 的差別。
@@ -192,6 +192,12 @@ layout: routes
 | カンテ右 4級（道端岩） | 4級 | — | — | 道端岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/78/routes) |
 | 子ぎつねいなり 2級 | 2級 | — | — | 差分 topo：位置另查 | 來源：[在地 topo／資料庫](https://ameblo.jp/shibarock48/entry-12725923105.html)；作者 v4.1 改級：1 級→2 級。 |
 
+```video-gallery
+key: japanKasama
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：日式 1 級至初段
 
 石器人スラブ中央、シンプル＆ディープ等是足部精度的代表線；能在室內爬初段，仍要重新適應岩板與退出。
@@ -237,6 +243,12 @@ layout: routes
 | 石器人スラブ・ど真ん中 初段 | 初段 | — | — | 石器人岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/78/routes) |
 | 楽栗マクリスキィ 1級 | 1級 | — | — | 差分 topo：位置另查 | 來源：[在地 topo／資料庫](https://ameblo.jp/shibarock48/entry-12725923105.html)；作者 v4.1 改級：2 級→1 級。 |
 
+```video-gallery
+key: japanKasama
+lang: zh-TW
+layout: routes
+```
+
 ### 高手：日式二段以上
 
 DEEPNESS、お化けトンネル及差分 topo 的改級線放在這組。差分 topo 只補新線，需與原區域 topo 一起看。
@@ -253,6 +265,12 @@ DEEPNESS、お化けトンネル及差分 topo 的改級線放在這組。差分
 | Way of The Gill SD 二段- | 二段- | — | — | ギル岩・ゴールドフィンガー岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/78/routes) |
 | Samurai Gaeshi 日式未列 | 日式未列 | 7B | V8 | 來源未列 | 來源：[在地 topo／資料庫](https://www.thetopo.com/crags/kasama/routelist)；僅 thetopo：7B；V8 依 MP 對照。英文名保留，尚未確定對應日文線名。 |
 | 石、まだかな橋 二段 | 二段 | — | — | 差分 topo：位置另查 | 來源：[在地 topo／資料庫](https://ameblo.jp/shibarock48/entry-12725923105.html)；作者 v4.1 改級：初段→二段。 |
+
+```video-gallery
+key: japanKasama
+lang: zh-TW
+layout: routes
+```
 
 
 ## 查資料的入口

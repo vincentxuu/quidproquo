@@ -59,12 +59,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 
 
-```video-gallery
-key: japanShiobara
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：日式 5–10 級
 
 容易線也要先看凝灰岩是否乾燥。落地與河水接近時，先決定如何退回步道，再開始擺墊。
@@ -81,6 +75,12 @@ layout: routes
 | スラブ 7級（野立岩・ボロ岩） | 7級 | — | — | 野立岩・ボロ岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/79/routes) |
 | スラブ 6級（野立岩・ボロ岩） | 6級 | — | — | 野立岩・ボロ岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/79/routes) |
 | スラブ 5級（野立岩・ボロ岩） | 5級 | — | — | 野立岩・ボロ岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/79/routes) |
+
+```video-gallery
+key: japanShiobara
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：日式 4–2 級
 
@@ -113,6 +113,12 @@ layout: routes
 | ボロ 3級 | 3級 | — | — | 野立岩・ボロ岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/79/routes) |
 | 野立たか 2級 | 2級 | — | — | 野立岩・ボロ岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/79/routes) |
 
+```video-gallery
+key: japanShiobara
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：日式 1 級至初段
 
 千與其他初段線可逐步熟悉陡角。站姿、坐姿與短版應分開辨識，不能只憑影片標題裡的一個共用字。
@@ -142,6 +148,12 @@ layout: routes
 | オモルグス 初段 | 初段 | — | — | 野立岩・ボロ岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/79/routes) |
 | Long Day 初段 | 初段 | — | — | 野立岩・ボロ岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/79/routes) |
 | アイワイス 初段+ | 初段+ | — | — | 野立岩・ボロ岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/79/routes) |
+
+```video-gallery
+key: japanShiobara
+lang: zh-TW
+layout: routes
+```
 
 ### 高手：日式二段以上
 
@@ -179,6 +191,12 @@ layout: routes
 | カタルシス 五段+ | 五段+ | 8B+ | V14 | 野立岩・ボロ岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/79/routes)、[補充來源](https://thetopo.com/crags/shiobara/routelist)；thetopo 的 Font 級與日式級數並列；V 依 MP 對照。 |
 | ハイドランジア 五段+ | 五段+ | 8B+ | V14 | 野立岩・ボロ岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/79/routes)、[補充來源](https://thetopo.com/crags/shiobara/routelist)；thetopo 的 Font 級與日式級數並列；V 依 MP 對照。 |
 | Nexus 六段 | 六段 | — | — | 野立岩・ボロ岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/79/routes) |
+
+```video-gallery
+key: japanShiobara
+lang: zh-TW
+layout: routes
+```
 
 ## 查資料的入口
 

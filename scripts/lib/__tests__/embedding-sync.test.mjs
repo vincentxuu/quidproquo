@@ -10,6 +10,10 @@ test('resource-limit failure shrinks the next request and retains the smaller li
   const h = harness([new Response('<span>1102</span>Worker exceeded resource limits', {status:503}),ok(true),ok()])
   await h.run(); assert.deepEqual(h.calls.map(x => x.limit), [20,10,10]); assert.deepEqual(h.delays,[500])
 })
+test('a transient 500 retries and a persistent 500 reports its body', async () => {
+  const h=harness([new Response('boom',{status:500}),ok()]);await h.run();assert.equal(h.calls.length,2)
+  const stuck=harness(Array.from({length:6},()=>new Response('{"ok":false,"error":"vectorize down"}',{status:500})));await assert.rejects(stuck.run(),/HTTP 500.*vectorize down/);assert.equal(stuck.calls.length,6)
+})
 test('temporary network failures retry but authorization failures fail immediately', async () => {
   const h=harness([new TypeError('fetch failed'),ok()]);await h.run();assert.equal(h.calls.length,2)
   const denied=harness([new Response('no',{status:401})]);await assert.rejects(denied.run(),/401/);assert.equal(denied.calls.length,1)
@@ -43,7 +47,17 @@ test('stops retries when the overall time budget cannot cover backoff', async ()
  const h=harness([new Response('busy',{status:503})],{maxDurationMs:100,now:()=>0});await assert.rejects(h.run(),/time budget/);assert.equal(h.calls.length,1);assert.deepEqual(h.delays,[])
 })
 test('does not acknowledge an empty batch with more pending work',async()=>{
- const h=harness([new Response(JSON.stringify({ok:true,results:[{source:'posts',vectors:0,deleted:0,hasMore:true,errors:[]}]}))]);await assert.rejects(h.run(),/no progress/)
+ const h=harness([new Response(JSON.stringify({ok:true,results:[{source:'posts',vectors:0,deleted:0,hasMore:true,errors:['chunk X: contextual input exceeds 24000 characters; re-chunk before retrying']}]}))]);await assert.rejects(h.run(),/no progress with errors/)
+})
+test('drains past per-chunk errors while the run keeps making progress and reports them at the end',async()=>{
+ const poison='chunk X: contextual input exceeds 24000 characters; re-chunk before retrying'
+ const h=harness([
+  new Response(JSON.stringify({ok:true,results:[{source:'posts',vectors:2,deleted:0,hasMore:true,errors:[poison]}]})),
+  new Response(JSON.stringify({ok:true,results:[{source:'posts',vectors:1,deleted:0,hasMore:false,errors:[poison]}]})),
+ ])
+ const result=await h.run()
+ assert.equal(result.totalVectors,3)
+ assert.deepEqual(result.errors,[poison])
 })
 
 test('CLI recovers against a real HTTP server and never logs its secret', async () => {

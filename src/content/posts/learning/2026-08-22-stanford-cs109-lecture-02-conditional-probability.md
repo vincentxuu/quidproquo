@@ -60,7 +60,7 @@ title: Stanford CS109 I Conditional Probability and Bayes I 2022 I Lecture 4
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 4「Conditional Probability and Bayes」字幕（Chris Piech 主講，約 75 分鐘）：確認影片講條件機率、chain rule、全機率公式與 Bayes，與本講主題一致。本文 worksheet 各題內容來自 Summer 2026 官方題目，不是影片內容。
 
@@ -69,6 +69,7 @@ title: Stanford CS109 I Conditional Probability and Bayes I 2022 I Lecture 4
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
 - 2026-10-10：依字幕核對影片內容。影片主題與本講一致，無需改動說法。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

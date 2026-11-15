@@ -45,6 +45,7 @@ order 0 是導讀：說明出國攀岩比在台灣多出哪幾個決定、這系
 | 5 | climbing-travel-luggage（取代 travel-packing） | 托運主袋與登機包怎麼挑 | 大裝備袋、大背包、旅行背包各適合哪種行程？ | 待寫 |
 | 6 | climbing-crag-packs | 岩場包怎麼挑 | 單繩距岩場一天，要哪種開口、容量和背負？ | 待寫 |
 | 7 | multipitch-climbing-backpacks（沿用） | 多繩距攀登包怎麼挑 | 背上岩壁的包，要多小、哪些功能才不會礙事？ | 待重寫 |
+| 8 | 2026-11-02-climbing-comms-japan-korea（2026-11-02 新增） | 去日本、韓國攀岩的通訊裝備 | 台灣的對講機、PLB 在日韓能不能用？當地租還是買？ | 已寫（使用者 2026-11-02「寫文章吧」；研究 .work/climbing-comms/R-radio-jp-kr*.md） |
 
 移出本系列：dynamic-rope-triple-rating、multipitch-rope-systems（使用者 2026-10-19 指出出國多數只帶一條單繩，繩子併入 order 1 一節；雙繩只當例外段，標籤由 climbing-gear order 3 負責）、climbing-shoes-harness-helmet、climbing-belay-hardware、climbing-gear-care-retirement（由 climbing-gear 負責）。四篇舊文刪除，網址 301 到對應的新文章或 climbing-gear 篇。旅行特有的保養（海邊鹽霧、濕熱、乾燥）併入 order 1。
 

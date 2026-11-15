@@ -73,18 +73,9 @@ crash recovery 的三個答案是 `fsck`、ordered writes、write-ahead logging�
 
 若這門課最吸引你的是「抽象如何落到核心」，往 kernel implementation 走。若是 translation 與 runtime，compilers 會延續 linking、address space 與 control transfer。若是持久狀態和 transaction，databases 會把一致性問題推得更深。若是跨機器的部分失敗，networking 與 distributed systems 會把本課單機假設逐一拿掉。
 
-## 逐頁核對清單
-
-- 第 1–2 頁：課程回顧與 concurrency／memory／storage 三大主題。
-- 第 3 頁：process、thread、dispatch、synchronization、scheduling、deadlock。
-- 第 4–5 頁：linking、allocation、relocation、segmentation、paging、TLB、demand paging、replacement、thrashing。
-- 第 6–7 頁：disk I/O、file access、inode、block layout、free space、cache、scheduling、links、crash recovery、FTL。
-- 第 8 頁：virtualization、atomicity、locality、layering。
-- 第 9–10 頁：後續課程方向與結語。
-
 ## 課程影片來源
 
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-11-09。
 
 課程與錄影入口：
 
@@ -94,6 +85,7 @@ crash recovery 的三個答案是 `fsck`、ordered writes、write-ahead logging�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認登入牆屬實，同學期也沒有公開錄影，狀態不變。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

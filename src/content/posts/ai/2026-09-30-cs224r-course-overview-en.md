@@ -181,12 +181,13 @@ Course and recording entries:
 - [CS224R Spring 2025 YouTube playlist (Stanford Online)](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
 - [Official course / lecture source](https://cs224r.stanford.edu/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked the official page and public playlist again; no matching public recording, so status unchanged.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

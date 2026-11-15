@@ -86,7 +86,7 @@ Official sources:
 
 - [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
 
-Checked on 2026-10-10.
+Checked on 2026-11-09.
 
 ## Official materials and reading scope
 
@@ -96,6 +96,7 @@ I read the complete [Optimization lecture notes](https://www.cs.cmu.edu/~07280/l
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Re-verified the live official course pages and public video sources; no public recording for this lecture was found, so the status stands.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

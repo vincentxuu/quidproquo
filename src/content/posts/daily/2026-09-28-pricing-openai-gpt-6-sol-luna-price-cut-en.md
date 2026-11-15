@@ -60,11 +60,11 @@ Current flagship pricing (input/output, USD per 1M tokens, standard short-contex
 | GPT-6 Luna | $0.10 | $0.50 | Cheapest member of the GPT-6 family post-cut |
 | Claude Haiku 4.5 | $1.00 | $5.00 | Cheapest high-capability model |
 | **GPT-6 Sol (new)** | **$2.00** | **$10.00** | Now well below most same-tier competitors |
-| Claude Sonnet 5 | $4.00 | $10.00 | Ties GPT-6 Sol on output, double on input |
+| Claude Sonnet 5 | $2.00 | $10.00 | Ties GPT-6 Sol on input and output |
 | GPT-6 Astra | $10.00 | $50.00 | Flagship tier, unchanged |
 | Claude Opus 5 | $15.00 | $75.00 | Most expensive |
 
-After the cut, GPT-6 Sol's output price ties Claude Sonnet 5's, but its input price is half of Sonnet 5's — a clear edge for input-heavy workloads like long-context work or large-scale document retrieval. OpenAI's launch post backs this with its own benchmarks (GPT-6 Sol at xhigh reportedly costs 9% of Claude Opus 5 at max on AutomationBench), but vendor-reported numbers like this tend to pick the comparison that flatters them most, so it's still worth running your own eval before switching.
+After the cut, GPT-6 Sol ties Claude Sonnet 5 on both input and output, so the two no longer differ on unit price. OpenAI's launch post backs this with its own benchmarks (GPT-6 Sol at xhigh reportedly costs 9% of Claude Opus 5 at max on AutomationBench), but vendor-reported numbers like this tend to pick the comparison that flatters them most, so it's still worth running your own eval before switching.
 
 ### Action Items
 
@@ -79,6 +79,10 @@ After the cut, GPT-6 Sol's output price ties Claude Sonnet 5's, but its input pr
 ## Takeaway
 
 Pricing-change tracking usually treats "new model ships" and "old model gets cheaper" as two separate events — but here OpenAI merged them into one announcement, anchoring the new model's price to "50% below the old model's promotional rate" rather than giving an independent number. That framing reads as a bigger cut and makes for a punchier headline, but the number actually worth remembering is that the old promo rate had an expiration date in the first place. Without checking that detail, it's easy to misread "50% below the promo price" as "an even bigger cut below the list price" — which isn't quite what happened.
+
+## Update Log
+
+- 2026-11-07: Corrected: Sonnet 5 input is $2, not $4, so "half the input price" does not hold.
 
 ## References
 

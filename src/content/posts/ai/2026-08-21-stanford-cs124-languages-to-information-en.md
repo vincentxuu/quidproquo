@@ -259,17 +259,18 @@ For where to go afterwards, the Week 1 slides give directions too:
 
 ## Course video sources
 
-The official Winter 2026 course page (read live on 2026-10-10) says the pre-recorded videos are in Canvas Modules (course 186110); opening it redirected me to the Stanford login page, confirming the sign-in wall, and the five live lectures and five labs are explicitly "not recorded". The From Languages to Information YouTube channel has an 80-video "CS124 - Full Course" playlist, but its weekly titles (for example Week 2: Naive Bayes, Week 6: Chatbots and Dialogue Agents) do not match the Winter 2026 syllabus, so it is not treated as the current term’s recordings and nothing is embedded.
+The official Winter 2026 course page (read live on 2026-11-09) says the pre-recorded videos are in Canvas Modules (course 186110); opening it redirected me to the Stanford login page, confirming the sign-in wall, and the five live lectures and five labs are explicitly "not recorded". The From Languages to Information YouTube channel has an 80-video "CS124 - Full Course" playlist, but its weekly titles (for example Week 2: Naive Bayes, Week 6: Chatbots and Dialogue Agents) do not match the Winter 2026 syllabus, so it is not treated as the current term’s recordings and nothing is embedded.
 
 Course and recording entries:
 
 - [From Languages to Information YouTube channel](https://www.youtube.com/channel/UC_48v322owNVtORXuMeRmpA)
 - [Official course / lecture source](https://web.stanford.edu/class/cs124/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 - 2026-10-13: Rewrote the post as a course overview. Added the main thread, what each of the ten weeks teaches, a hand-worked bigram example, a prerequisite self-check and two reading routes; the earlier account of the course-research process (the history of the prerequisite line, archive-directory comparisons, enrollment numbers and so on) was moved out of the body.
 - 2026-10-10: Rechecked video status. The official page says the pre-recorded videos are in Canvas and opening it confirmed the sign-in wall; the YouTube channel’s weekly titles do not match the Winter 2026 syllabus, so nothing is embedded and the status is now sign-in required.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.

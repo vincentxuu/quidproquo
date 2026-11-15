@@ -195,19 +195,17 @@ Demo 的數字：8 個 thread 在 4 核系統上各自對自己的計數器加�
 2. snooping 的主旨是：任何可能影響 coherence 的 cache 操作，都廣播給其他所有 cache controller。硬體設計者的挑戰是降低協定開銷，軟體開發者的挑戰是小心協定帶來的人為通訊，例如 false sharing
 3. snooping 的規模受限於廣播能力，directory 是擴展的方向
 
-## 這一篇可以確認與不能確認的
+## 延伸閱讀
 
-可以確認：L14 投影片 PDF 的內容與課程首頁的講次日期、描述（「Invalidation-based coherence using MSI and MESI, false sharing」）。Fall 2025 的 L15 投影片前 20 頁幾乎完整重複了 L14 的 MSI、MESI、directory 與 false sharing 內容，表示 L14 可能沒講完，延到下一講；這是從投影片推論，沒有錄影可證。
+Fall 2025 的 L15 投影片前 20 頁幾乎重複了 L14 的 MSI、MESI、directory 與 false sharing，讀完本篇再讀 L15 時可以直接跳過那一段。
 
-不能確認：Fall 2025 課堂的口頭補充，以及 2023 年錄影和 2025 投影片的逐頁差異。本文沒有依影片內容寫作。
-
-延伸閱讀：作業系統層級的鎖與同步可以讀 [CS111 Lecture 6：Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)。
+作業系統層級的鎖與同步可以讀 [CS111 Lecture 6：Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)。
 
 系列導覽：上一篇 [PA5 在 H100 上寫最快的 kernel](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels)｜下一篇 [L15 記憶體一致性](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
 
 ## 課程影片來源
 
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-11-09。
 
 ```youtube
 url: https://www.youtube.com/watch?v=lrCfG2CPDEw
@@ -228,6 +226,7 @@ title: Stanford CS149 I Parallel Computing I 2023 I Lecture 11 - Cache Coherence
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
 - 2026-10-10：依字幕核對影片內容。這支 2023 錄影只涵蓋本文前半（定義、不變式、snooping、MSI 狀態定義），MESI、directory、false sharing 在影片中沒有，已在影片來源段寫明。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

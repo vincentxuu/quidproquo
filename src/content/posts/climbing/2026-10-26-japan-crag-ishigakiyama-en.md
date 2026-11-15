@@ -59,12 +59,6 @@ Each row cites the public route list. Most entries lack length and pitch informa
 
 
 
-```video-gallery
-key: japanIshigakiyama
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Many easier entries are cracks. Bring the skills for removable protection and descent; the illustrated summit-sector guide supplies additional named lines.
@@ -113,6 +107,12 @@ Many easier entries are cracks. Bring the skills for removable protection and de
 | 「苔の同門（左・フィスト）」 | 5.7 | 5.7 | 12 m / pitches not listed | 頂上直下・見張り岩 | Sources: [local topo / account](http://yamanomakochan.blogspot.com/2021/05/climbingishigakiyama.html)；Named crack in the illustrated guide; length follows the author, pitches unspecified. |
 | 「苔の同門（右・チムニー）」 | 5.7 | 5.7 | 12 m / pitches not listed | 頂上直下・見張り岩 | Sources: [local topo / account](http://yamanomakochan.blogspot.com/2021/05/climbingishigakiyama.html)；Named crack in the illustrated guide; length follows the author, pitches unspecified. |
 
+```video-gallery
+key: japanIshigakiyama
+lang: en
+layout: routes
+```
+
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
 Intermediate options include cracks as well as faces. Different spellings and grades for YUMIKOMYLOVE and Viking are retained in the notes.
@@ -146,6 +146,12 @@ Intermediate options include cracks as well as faces. Different spellings and gr
 | 「青い空」 | 5.11c | 5.11c | not listed | 相愛岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/49/routes) |
 | 「蛍」 | 5.10 | 5.10 | 15 m / pitches not listed | 頂上直下・見張り岩 | Sources: [local topo / account](http://yamanomakochan.blogspot.com/2021/05/climbingishigakiyama.html)；Named crack in the illustrated guide; length follows the author, pitches unspecified. |
 
+```video-gallery
+key: japanIshigakiyama
+lang: en
+layout: routes
+```
+
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 
 Lines such as Atama Narabini Hara combine cracks with balance faces, making sustained climbing relevant beyond the hardest move.
@@ -163,6 +169,12 @@ Lines such as Atama Narabini Hara combine cracks with balance faces, making sust
 | 「パリブレスト」 | 5.12b | 5.12b | not listed | 相愛岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/49/routes) |
 | 「アムリタ」 | 5.12c | 5.12c | not listed | 相愛岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/49/routes) |
 | 「白い雪」 | 5.13a | 5.13a | not listed | 相愛岩 | Sources: [RockTopo](https://www.rocktopo.net/areas/49/routes) |
+
+```video-gallery
+key: japanIshigakiyama
+lang: en
+layout: routes
+```
 
 ### Expert: 8a and up (YDS 5.13b and up)
 

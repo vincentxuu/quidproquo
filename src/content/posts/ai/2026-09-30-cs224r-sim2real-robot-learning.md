@@ -192,9 +192,7 @@ glossary:
 
 - [Berkeley CS285 Spring 2026 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
 
-## 這一篇可以確認與不能確認的
-
-可以確認：2026 投影片的文字、式子與論文標註；課表的日期、講者與指定閱讀；2025 封存頁的講次切分與 2025 影片標題、長度；投影片上列出的專案網址都能開啟。不能確認：投影片裡大量影片與圖的內容，包括第 9 頁 18 秒訓練的任務是什麼、各方法在真機上的具體數據；SAPG、FastTD3/FastSAC、FPO/FPO++、BFM-Zero 的細節；2025 L17 錄影的內容（本文沒有拿它當依據）。
+## 延伸閱讀
 
 系列導覽：上一篇 [L15 階層式 RL 與模仿學習](/posts/ai/2026-09-30-cs224r-hierarchical-rl-il)｜下一篇 [L17 用 RL 改進機器人基礎模型（VLA）](/posts/ai/2026-09-30-cs224r-rl-for-vlas)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
 
@@ -215,13 +213,14 @@ title: Spring 2025 Lecture 17: Advancing Robot Intelligence（YouTube，講者�
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
 
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。講者、長度與 sim-to-real 主題皆與本文說法相符，沒有需修正之處。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

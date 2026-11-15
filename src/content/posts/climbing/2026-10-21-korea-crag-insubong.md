@@ -320,3 +320,4 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 - [달빛나그네：인수봉 산천지길，2024](https://m.blog.naver.com/PostView.naver?blogId=r9600495&logNo=223445895731)
 - [울트래블러（채울）：인수봉 단피치 뿌시기，2022](https://m.blog.naver.com/PostView.naver?blogId=wooltraveler&logNo=222924647461)
 - [古山：인수봉 거룡길，2007（刊出）](https://gosan.tistory.com/271)
+

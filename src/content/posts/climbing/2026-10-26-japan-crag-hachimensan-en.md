@@ -55,12 +55,6 @@ Video labels follow uploader metadata, and may use different grades or versions.
 
 The inventory includes all 171 graded entries in the opened ROCKTOPO list, excluding ungraded entries; additional verified sources and discrepancies are attached to the relevant rows. It is not a substitute for the full topo or current access notices.
 
-```video-gallery
-key: japanHachimensan
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Start by locating 上部エリア, 中部エリア in the topo. Check protection and landings; a low grade does not establish low risk.
@@ -146,6 +140,12 @@ Start by locating 中部エリア（Bサイド）, 上部エリア in the topo. 
 | 「砂の岬」 | 5.11c | 5.11c | Not listed | 中部エリア（Bサイド） | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；ROCKTOPO only. |
 | 「白日」 | 5.11c | 5.11c | Not listed | 中部エリア（Bサイド） | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；ROCKTOPO only. |
 | 「アムニージア」 | 5.11c | 5.11c | Not listed | 中部エリア（Bサイド） | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；ROCKTOPO only. |
+
+```video-gallery
+key: japanHachimensan
+lang: en
+layout: routes
+```
 
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 
@@ -266,6 +266,12 @@ Additional graded inventory: roped lines and boulders require separate protectio
 | 「石舞台正面ダイレクトB」 | 3級 | — | — | 石舞台エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；single source. |
 | 「石舞台正面ダイレクトA」 | 3級 | — | — | 石舞台エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；single source. |
 | 「フラワー」 | 1級 | — | — | 石舞台エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；single source. |
+
+```video-gallery
+key: japanHachimensan
+lang: en
+layout: routes
+```
 
 
 ## Where to look things up

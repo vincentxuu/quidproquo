@@ -198,7 +198,7 @@ title: 影片 16〈Value Alignment〉
 
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Lecture 15（約 74 分鐘，Emma Brunskill 與 Dan Webber）一開始是 DPO／RLHF 小測回顧與 AlphaZero 收尾，約 22% 之後 Dan Webber 講 value alignment（paperclip、意圖、偏好、最佳利益、道德與倫理），與本文主題大致相同，字幕裡沒有 sycophancy 這個詞；Lecture 16（約 70 分鐘）是最後一講，內容為課程回顧、小考討論與 RL 應用，不是 value alignment。已把 mm:ss 時間碼改成「約」值並移除 &t= 連結、「YouTube 章節」改為「字幕」，並更正「sycophancy 章節看不出來」的說法。
 
@@ -207,6 +207,7 @@ Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄�
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。時間碼改為「約」值、移除 &t= 連結；更正影片 15 開頭內容與 sycophancy 的說法。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

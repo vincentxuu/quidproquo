@@ -190,9 +190,9 @@ Further reading on this site:
 - [Berkeley CS285: exploration and open problems](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en)
 - [CS285: imitation and RL basics](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics-en), another take on DAgger
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the text, algorithm steps, and figure titles in the 2026 slides; the schedule's date and reading; the title and length of the 2025 video; and every paper title (each arXiv page was opened). Not confirmed: what was said in the slide 13 discussion, the numbers and metrics behind the bar charts on slides 34–36, and how the four industry systems on slide 23 were presented in class. The 2026 slides title SuSIE "SuSIE: Subgoal Synthesis via Image Editing," while arXiv titles it "Zero-Shot Robotic Manipulation with Pretrained Image-Editing Diffusion Models." They are the same paper.
+The slides call SuSIE "SuSIE: Subgoal Synthesis via Image Editing," but its arXiv title is "Zero-Shot Robotic Manipulation with Pretrained Image-Editing Diffusion Models," so search for the latter.
 
 Series navigation: previous [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl-en) | next [L16 Sim-to-Real Robot Learning](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
 
@@ -213,13 +213,14 @@ Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
 
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 - 2026-10-10: Checked the video content against its transcript. The video is Spring 2025 L15 and the topic matches (the roughly 70-minute length also matches); nothing needed correcting.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

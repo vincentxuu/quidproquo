@@ -116,7 +116,7 @@ draft: false
 - Bayesian learning 標的是「Examples（under construction）」，但那頁開頭就擺著兩個完整的例子。一個是偏心硬幣的 MLE 為什麼不會隨資料量變得更有信心，另一個是 bag-of-words 語言模型碰到未見詞時整句機率變成零。後面接共軛先驗、Beta、Dirichlet，最後把 Laplace smoothing 收成 Dirichlet 先驗的特例。
 - 唯一還真的缺的是結構學習那章。score-based、Chow-Liu、AIC/BIC、BD score、constraint-based、order search 與 ILP 都在，但沒有獨立的 Bayesian structure learning 一節。
 
-維護狀態就誠實一點。這個 repo 有兩千多顆星、沒有被封存，但**最後一次推送停在 2025 年 6 月**，而且那筆改動只是一則錯字修正。再往前翻，實質內容的編輯集中在 2023 到 2024 年初。它現在還掛著幾個沒被合併的 PR，最舊的那個開在六年前（精確數字見附錄）。
+維護狀態就誠實一點。這個 repo 有兩千多顆星、沒有被封存，但**最後一次推送停在 2025 年 6 月**，而且那筆改動只是一則錯字修正。再往前翻，實質內容的編輯集中在 2023 到 2024 年初。它現在還掛著幾個沒被合併的 PR，最舊的那個開在六年前。
 
 腐蝕開始出現，但也有人在補。講義裡有三處推薦「一位前 CS228 學生做的互動模擬」，全部指向同一個已經下線的 `pgmlearning.herokuapp.com`。其中兩處已經被改成 Wayback Machine 的封存版：d-separation 與變數消除。repo 裡有一筆 2024 年初的 commit 名字就叫「Update variable elimination web app link with archived version」。**只有結構學習那章的 K3 演算法模擬還指著原網址，實測回 404。**
 
@@ -167,19 +167,6 @@ CS228 和 [CS236: Deep Generative Models](https://deepgenerativemodels.github.io
 
 分工倒是清楚的：CS228 教怎麼用圖寫下獨立假設、怎麼在圖上做推論與學習，結束在 VAE；CS236 從 VAE 開始，往 GAN、normalizing flow、autoregressive、energy-based 與 score-based 展開。所以講義最後那章，剛好就是兩門課的接縫。另外一個實務差異：CS236 官網明寫歡迎校內旁聽（「we are very open to sitting-in guests if you are a member of the Stanford community」），CS228 官網沒有對應的說法。
 
-## 附錄：數字與查證方式
-
-- **學分與開課**：3–4 學分、只在冬季開。ExploreCourses 的 2026-2027 學年頁面顯示 CS 228 Class # 25130、Session 2026-2027 Winter 1、In Person，講師欄與上課時間空白（2026-08-21 讀數）。2024-2025 與 2025-2026 兩個學年頁面的狀態均為 `Last offered: Winter 2024`。
-- **評分比重**：作業 70%（五份）、期末考 30%、額外加分最多 3%。加分的兩種拿法是在 Ed 上實質回答同學問題，或對課程講義送 GitHub PR。
-- **遲交政策**：六天額度，單份作業最多兩天不罰，超出後每多一天罰 25%。這是遲交規定，不是重交規定——官網沒有任何重新提交的條款。
-- **期末考時間**：Winter 2024 那次是 3 月 21 日 15:30–18:30，三小時。官網目前顯示的就是這一版。CS228 沒有期末專案；作為對照，CS236 官網的比重是三份作業各 15%、期中 15%、課程專案 40%。
-- **講義 repo 數字**：2,009 顆星、476 個 fork、7 個開著的 PR（2026-08-21 由 GitHub API 讀取）。repo 建於 2017-01-10，最後一次推送 2025-06-24（PR #227，機率複習的錯字修正）。最舊的未合併 PR 開於 2020-03-16。
-- **講義 under construction 標記**：索引頁標了四處（Probability Review、Real-World Applications、Bayesian learning 的 Examples、Structure learning 的 Bayesian structure learning）。四頁均已逐頁讀過，前三處內容存在且完整，第四處確實沒有對應章節。
-- **死連結**（皆為 2026-08-21 實測）：結構學習章節的 K3 互動模擬 `pgmlearning.herokuapp.com/k3LearningApp` 回 HTTP 404；d-separation 與變數消除兩章的同系列連結已改指 Wayback 封存版，可開。課程官網延伸閱讀清單裡的 Wainwright & Jordan PDF `www.eecs.berkeley.edu/~wainwrig/Papers/WaiJor08_FTML.pdf` 回 HTTP 404，`people.eecs.berkeley.edu` 的常見替代路徑同樣 404，本篇未能找到該檔的官方有效鏡像。
-- **課程官網位置**：`cs228.stanford.edu` 實際導向 `ermongroup.github.io/cs228`，頁首標示 Winter 2023-24。`web.stanford.edu/class/archive/cs/cs228/` 回 404，這門課沒有 Stanford 封存區的歷屆版本。
-
-**未能確認的項目**：(1) CS228 為何連續兩個學年停開、CS236 為何自 Autumn 2023 後未再開課——官方從未說明，但 2026-08-26 的查核把時間軸對上了：ExploreCourses XML 確認最後一次開課兩門都是 Ermon 本人教（Winter 2024 的 CS228 有 133 人、Autumn 2023 的 CS236 有 321 人），而他 **2024 年 7 月起擔任 diffusion LLM 新創 Inception Labs 的 CEO**，2025 年 2 月出 stealth、11 月拿 $50M seed（Menlo Ventures 領投），投資方訪談裡直接說三位創辦人「walk away from tenure」——停開期與創業期完全重疊。Stanford 的 faculty startup 政策也明文要求教授接管理職應休假（leave of absence）。這是間接證據最強的解釋，但沒有任何官方來源明文連結兩者。課程本身沒有死掉：CS236 已排進 Spring 2027 且 PI 就是 Ermon，CS228 排 Winter 2027 但講師 TBD。(2) Winter 2027 的授課者是誰，ExploreCourses 的講師欄目前空白。(3) 五份作業的實際題目與難度分布，作業內容鎖在 Ed 上，本篇對作業的描述全部來自公開的時程表與評分政策，不是作業本身。
-
 ## 課程影片來源
 
 官方課程網站（cs228.stanford.edu，導向 ermongroup.github.io/cs228，頁首標示 Winter 2023-24；2026-10-10 即時讀取）的 Lecture Videos 連結指向 canvas.stanford.edu 的外部工具；我實際開啟，被導向 Stanford 登入頁，確認需要修課帳號。搜尋也沒有找到這門課的公開 YouTube 或 OCW 釋出，所以不嵌入，也不以其他課程的影片冒充。
@@ -188,12 +175,13 @@ CS228 和 [CS236: Deep Generative Models](https://deepgenerativemodels.github.io
 
 - [官方課程／講次來源](https://cs228.stanford.edu/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-12。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時開啟官方站的 Lecture Videos 連結，確認導向 Canvas 登入頁；沒有找到公開釋出，維持需登入，並把來源說明改成實測結果。
+- 2026-11-12：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

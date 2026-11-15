@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "Agent CLI 選型指南"
   order: 10
-tldr: "OpenCode 是免費開源的 TypeScript CLI agent（MIT，約 198K GitHub stars），支援 75+ 模型供應商含本地 Ollama，可用 Copilot/ChatGPT 帳號認證，session 中途切換模型不丟上下文。另有桌面版與官方 Zen gateway。"
-description: "OpenCode 的開源架構、多供應商支援、Zen gateway、認證方式、核心功能、與 Claude Code 的比較及適用場景。"
+tldr: "OpenCode 是免費開源的 TypeScript CLI agent（MIT），支援 75+ 模型供應商含本地 Ollama，可連接外部供應商與支援的訂閱方案，session 中途切換模型。另有桌面版、內建免費模型與選用的 Console 服務。"
+description: "OpenCode 的開源架構、多供應商支援、Console 模型服務、認證方式、核心功能、與 Claude Code 的比較及適用場景。"
 draft: false
 ---
 
@@ -19,26 +19,28 @@ draft: false
 
 ## 產品定位
 
-[OpenCode](https://github.com/anomalyco/opencode) 是用 **TypeScript** 打造的開源 coding agent，**MIT** 授權，目前在 [anomalyco](https://github.com/anomalyco) 這個 org 下維護。累積約 **198K GitHub stars**，是 Agent CLI 領域星數最高的專案，官方數字是 950 位貢獻者、13,000+ commits、每月 1,600 萬名開發者使用。
+[OpenCode](https://github.com/anomalyco/opencode) 是用 **TypeScript** 打造的開源 coding agent，**MIT** 授權，目前在 [anomalyco](https://github.com/anomalyco) 這個 org 下維護。
 
 > **⚠️ 這裡有個常見的張冠李戴**：早期有一個叫 `opencode-ai/opencode` 的專案是用 Go + [Bubble Tea](https://github.com/charmbracelet/bubbletea) 寫的，跟現在這個 OpenCode 不是同一份程式碼。網路上（包括本文舊版）不少「OpenCode 是 Go 寫的、Apache-2.0 授權」的說法都源自這個混淆。以現在的 repo 為準：TypeScript、MIT。
 
-終端介面不是簡陋的純文字——OpenCode 有完整的 TUI，具備面板切換、語法高亮、互動式操作等功能。跑在終端機裡，但體驗接近 GUI。除了 TUI 之外，現在還有**桌面應用程式**（beta，macOS / Windows / Linux 都有）與 IDE 擴充。
+終端介面不是簡陋的純文字——OpenCode 有完整的 TUI，具備面板切換、語法高亮、互動式操作等功能。跑在終端機裡，但體驗接近 GUI。除了 TUI 之外，現在還有**桌面應用程式**（依平台提供安裝版本）與 IDE 擴充。
 
-安裝方式很多，`curl -fsSL https://opencode.ai/install | bash`、npm、Homebrew、scoop、pacman、nix 都可以。
+新安裝 V2 使用 `npm install --global @opencode/cli`，再跑 `opencode --version` 確認版本；啟動指令仍是 `opencode`。V1 的 `opencode-ai` 套件與安裝方式要分開看，Windows V2 請使用[官方獨立 CLI 下載](https://opencode.ai/v2/docs)。
 
 ## 定價模式
 
-OpenCode 本身完全免費，付費的是底層 LLM 的使用。提供三種取得模型的方式：
+OpenCode 本體免費開源，模型也不一定要付費。選擇時分清楚這幾件事：
 
-| 方案 | 費用 | 說明 |
-|------|------|------|
-| **OpenCode 本體** | 免費（開源） | MIT 授權，無使用限制 |
-| **OpenCode Zen** | Pay-as-you-go，需儲值 | 官方策展的 AI gateway：只收經團隊實測、與供應商調校過的模型 |
-| **BYOM（Bring Your Own Model）** | 免費，按供應商費率計費 | 自備 API key，直連任何支援的供應商 |
-| **Copilot / ChatGPT 認證** | 免費（使用既有訂閱） | 用 GitHub Copilot 或 ChatGPT Plus 帳號登入即可使用 |
+| 方式 | 費用 | 說明 |
+|---|---|---|
+| OpenCode 工具 | 開源 | 免費的是 client，不代表所有模型無限使用 |
+| 內建免費模型 | 服務額度內免費 | 在 `/models` 選當下可用項目，並核對官方 Input／Output 價格 |
+| Console 付費模型 | 按量計費 | 儲值後使用官方模型服務 |
+| OpenCode Go | 選用的付費訂閱 | 依方案提供用量，仍有額度限制 |
+| 外部供應商／本地模型 | 依服務或硬體而定 | 可以是免費 API 額度、付費 API 或本地推論 |
+| 支援的訂閱登入 | 使用既有付費方案 | 仍受帳號資格與方案額度限制 |
 
-最後一項值得注意：如果你已經訂閱了 GitHub Copilot 或 ChatGPT Plus，可以直接用那個帳號認證 OpenCode，不需要額外付費。這讓切換成本幾乎為零。
+例如[官方 Console 模型表](https://opencode.ai/v2/docs/console/models)列有 Big Pickle（`opencode/big-pickle`），輸入與輸出都是免費。可以先用內建免費模型開始，不需要先連接 OpenRouter；免費名單與額度仍可能改變。既有付費訂閱即使不另收 API 費，也不等於模型免費。
 
 ## 支援的供應商
 
@@ -55,9 +57,9 @@ OpenCode 支援 **75+ LLM 供應商**，涵蓋主流雲端和本地方案：
 
 供應商清單走 [Models.dev](https://models.dev)，所以新模型上架的速度不取決於 OpenCode 自己發版。
 
-### OpenCode Zen
+### OpenCode Console
 
-如果不想自己在一堆供應商之間試錯，官方另外提供 **Zen** 這個 gateway。它的賣點不是便宜，而是**策展**：團隊實測過模型、跟供應商確認過部署方式、再 benchmark 過模型與供應商的組合，才放進清單。這解決的是走聚合路由時「你永遠不確定拿到的是不是這個模型的最佳版本」的問題。Zen 是選配，不用它一樣能用 OpenCode。
+V2 文件將官方模型服務放在 Console 下，舊文常見的 Zen 名稱需要與目前入口分開看。Console 提供經團隊測試的模型清單，包含免費項目與付費使用方式；Go 是選用訂閱。不用 Console，也可以連接其他供應商。後端與 API 的改動可延伸看 [OpenCode 2 介紹](/posts/tech/2026-08-22-opencode-2-electron-rewrite-coding-agent)。
 
 關鍵能力：**session 中途切換模型不丟失上下文**。你可以用 Claude Sonnet 開始一個複雜的重構任務，發現需要更強的推理能力時切換到 o3，再切回 Gemini 做文件生成——整個對話歷史和工作狀態完整保留。
 
@@ -95,7 +97,7 @@ OpenCode 會**自動偵測並設定語言伺服器**（Language Server Protocol�
 
 ### 隱私優先
 
-**不儲存任何程式碼或上下文資料到雲端**。所有資料留在本地 SQLite。即使使用 OpenCode Zen 路由，也只轉發 API 請求，不留存內容。
+本地 SQLite 的對話儲存，和模型服務收到的資料，是兩個不同的邊界。使用雲端模型時，prompt、工具結果與選取的程式內容仍會送到供應商；開啟分享也會改變資料的可見範圍。Console 的資料政策依模型而異，例如 Big Pickle 免費期間收集的資料可能用來改善模型。不能把本地儲存寫成「所有內容都不會上雲」。
 
 ## 與 Claude Code 比較
 
@@ -103,7 +105,7 @@ OpenCode 和 Claude Code 是定位最接近的兩個 Agent CLI，但設計哲學
 
 | 面向 | OpenCode | Claude Code |
 |------|----------|-------------|
-| **費用** | 免費（開源），只付模型費用 | $20+/月訂閱或 API 計費 |
+| **費用** | 工具開源；內建免費模型或另選付費服務 | 付費訂閱或 API 計費 |
 | **支援模型** | 75+ 供應商 | 僅 Anthropic 模型 |
 | **上下文管理** | 良好，支援 mid-session 切換 | 更成熟，sub-agent 架構 |
 | **供應商鎖定** | 零鎖定 | 鎖定 Anthropic |
@@ -112,8 +114,6 @@ OpenCode 和 Claude Code 是定位最接近的兩個 Agent CLI，但設計哲學
 | **本地模型** | 支援（Ollama） | 不支援 |
 
 結論很清楚：**如果你追求最成熟的擴充生態，Claude Code 仍然領先**——sub-agent 架構、CLAUDE.md 系統、Skills 和 Hooks 都更完整。但如果你重視**供應商彈性、成本控制、或本地模型支援**，OpenCode 是目前最好的選擇。
-
-（原文這裡放了兩者的 SWE-bench 分數對比，這一版拿掉了：那組數字綁定的模型世代早已換過，而 OpenCode 的分數本來就取決於你掛哪個模型，拿它跟固定模型的工具比並不對等。）
 
 ## 模型路由的最佳搭檔
 
@@ -133,22 +133,26 @@ OpenCode 的 75+ 供應商支援，搭配第三方模型路由器（如 [freerou
 OpenCode 最適合以下類型的開發者和團隊：
 
 - **追求供應商獨立性**：不想被任何一家 LLM 供應商綁定，希望隨時切換
-- **隱私敏感團隊**：所有資料留在本地，不上傳雲端
+- **隱私敏感團隊**：可選本地模型；雲端使用仍需審查供應商資料條款
 - **本地模型使用者**：透過 Ollama 跑本地模型，完全離線運作
-- **已有 Copilot / ChatGPT 訂閱的開發者**：零額外成本，直接用既有帳號
+- **已有支援訂閱的開發者**：可評估帳號登入，仍遵守原方案資格與額度
 - **需要最大模型彈性的團隊**：不同任務用不同模型，session 中途切換不丟上下文
-- **預算有限的個人開發者**：工具本身免費，只付模型使用費
+- **預算有限的個人開發者**：先試內建免費模型，需要時再評估付費
 
 如果你的需求是「用最強的模型做最複雜的任務」，Claude Code 可能更適合。但如果你的需求是「用最適合的模型做每一個任務」，OpenCode 的多供應商架構提供了其他工具無法比擬的彈性。
 
-## 參考資料
-
-- [OpenCode | GitHub（anomalyco/opencode）](https://github.com/anomalyco/opencode)
-- [OpenCode 官方網站](https://opencode.ai/)
-- [OpenCode Docs](https://opencode.ai/docs/)
-- [OpenCode Zen 文件](https://opencode.ai/docs/zen/)
-- [Models.dev（供應商與模型清單來源）](https://models.dev)
+從安裝、找免費模型到第一次生活提問，可以接著看[免費 LLM 入門教學：OpenCode 2 與 OpenRouter](/posts/ai/2026-11-01-free-llm-opencode2-openrouter)。
 
 ## 更新紀錄
 
+- 2026-11-01：更新 V2 安裝、內建免費模型與 Console／Go 費用，釐清既有訂閱仍屬付費，並補上 Big Pickle 等雲端資料政策差異。
 - 2026-08-18：對照官方 repo 與文件翻新，修掉三個實質錯誤：①**語言不是 Go，是 TypeScript**；②**授權不是 Apache-2.0，是 MIT**；③repo 早已不在 `opencode-ai/opencode`，現由 `anomalyco` 維護（前身為 `sst/opencode`）——這三點源自與一個同名的早期 Go 專案混淆，文中已加註說明。另外：stars 95K → 約 198K，補上桌面版、內建 build／plan 雙 agent 與 general subagent、Models.dev 作為供應商清單來源、Zen 的策展定位；移除失效的 freerouter 連結與已過期的 SWE-bench 對比
+
+## 參考資料
+
+- [OpenCode GitHub](https://github.com/anomalyco/opencode)
+- [OpenCode V2 installation](https://opencode.ai/v2/docs)
+- [OpenCode V2 CLI commands](https://opencode.ai/v2/docs/cli/commands)
+- [OpenCode Console models and privacy](https://opencode.ai/v2/docs/console/models)
+- [OpenCode V2 models](https://opencode.ai/v2/docs/models/)
+- [Models.dev](https://models.dev)

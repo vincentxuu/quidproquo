@@ -204,7 +204,7 @@ Official sources:
 - [Official OCW Lec 04 video and transcript](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/)
 - [Official Fall 2024 lecture video index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
-Checked on 2026-10-10.
+Checked on 2026-11-09.
 
 Numbering note: the L03–L06 numbers of these four posts were planned by this site early on from a generic deep-learning teaching order (optimization, regularization, CNN, modern CNN) without matching each one to the OCW lecture list. OCW Fall 2024 Lec 03–06 are actually Approximation Theory, Architectures: Grids, Architectures: Graphs and Generalization Theory, so these four L numbers differ from OCW lecture numbers. Since 2026-10-13 the titles follow OCW: the CNN architectures post matches Lec 04 and is labelled Lecture 4, while the optimization, regularization and modern CNN posts have no single matching lecture and are labelled Topic Guide. URLs are unchanged, so the modern CNN post still has l06 in its URL; from Lec 07 on the posts already matched OCW.
 
@@ -215,6 +215,7 @@ Content check: verified against the video transcript (2026-10-10): read the tran
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. OCW Lecture 6 is still Generalization Theory with no “Modern CNN” lecture; the supplementary video stays Lecture 4 and the status is unchanged.
 - 2026-10-10: Checked the video content against its transcript. Removed the segment timetable that matched no video and the link to a non-existent slide deck, and noted that MobileNet / EfficientNet / ConvNeXt are not in the embedded video.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

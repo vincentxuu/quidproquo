@@ -176,7 +176,7 @@ These courses cover the same architecture from the language model side. This pos
 
 ## Course video sources
 
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-11-09) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 8 (length 1:06:31). The transcript covers the RNN translation model and attention, the matrix form of self-attention, permutation equivariance, positional encoding, masked and multi-head attention, the RNN/convolution/self-attention comparison, the Transformer block and a ViT overview, and ends with a Transformer summary. It has no RoPE, QK-Norm, Flash Attention, Pre-Norm, SwiGLU or MoE, and no 224x224 / 16x16 patch numbers; those come from the 2026 slides this article follows, and the version note now says so. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
 
@@ -196,6 +196,7 @@ Course and recording entries:
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 - 2026-10-10: Checked the video content against its transcript. The video topic and lecture number match. The version note only said the video lacks RoPE and QK-Norm, but it lacks more (Flash Attention, Pre-Norm, SwiGLU, MoE and others), so that was added.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

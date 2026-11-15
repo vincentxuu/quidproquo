@@ -178,7 +178,7 @@ Y = A V         [N × D_out]   Y_i = Σ_j A_ij V_j
 
 ## 課程影片來源
 
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-11-09 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 8 講（長度 1:06:31），字幕有 RNN 翻譯模型與 attention、self-attention 的矩陣運算、排列等變、位置編碼、masked 與 multi-head、RNN／卷積／self-attention 比較、Transformer block 與 ViT 概述，結尾是 Transformer 總結。字幕沒有 RoPE、QK-Norm、Flash Attention、Pre-Norm、SwiGLU、MoE，也沒有 224×224／16×16 patch 的數字例子，這些屬於本文依據的 2026 投影片，已在版本說明補上。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
 
@@ -198,6 +198,7 @@ title: Stanford CS231N | Spring 2025 | Lecture 8: Attention and Transformers
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
 - 2026-10-10：依字幕核對影片內容。影片主題與講次相符；版本說明只提到影片少了 RoPE 與 QK-Norm，實際上少的更多（Flash Attention、Pre-Norm、SwiGLU、MoE 等），已補充。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

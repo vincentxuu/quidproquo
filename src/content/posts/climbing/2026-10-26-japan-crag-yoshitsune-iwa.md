@@ -59,12 +59,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 
 
-```video-gallery
-key: japanYoshitsuneIwa
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：6a 以下（YDS 5.10a 以下）
 
 松の木、看板ルート等線級數較低，但陡度與固定點仍要確認。解除自肅的條件對所有級數都適用。
@@ -76,6 +70,12 @@ layout: routes
 | 「看板ルート」 | 5.9 | 5.9 | 未列 | 洞爺湖・義経岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/56/routes) |
 | 「南中央」 | 5.10a | 5.10a | 未列 | 洞爺湖・義経岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/56/routes) |
 | 「ならの木」 | 5.10a | 5.10a | 未列 | 洞爺湖・義経岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/56/routes) |
+
+```video-gallery
+key: japanYoshitsuneIwa
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
@@ -99,6 +99,12 @@ layout: routes
 | 「子供ジュスティーヌ」 | 5.11c | 5.11c | 未列 | 洞爺湖・義経岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/56/routes) |
 | 「オタッキー」 | 5.11c | 5.11c | 未列 | 洞爺湖・義経岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/56/routes) |
 
+```video-gallery
+key: japanYoshitsuneIwa
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 
 進階線包含ジュスティーヌ等。原線與延長線的名字相近，現場先對線，再看影片或其他人的完攀級數。
@@ -111,6 +117,12 @@ layout: routes
 | 「ジュスティーヌ」 | 5.12d | 5.12d | 未列 | 洞爺湖・義経岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/56/routes)、[補充來源](https://www.thecrag.com/zh_hans/climbing/japan/area/987210849)；theCrag 列 5.12b；保留來源差異，勿把不同版本級數合併。 |
 | 「ジュスティーヌじいさん」 | 5.13a | 5.13a | 未列 | 洞爺湖・義経岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/56/routes) |
 | 「スペシャルランチ」 | 5.13a | 5.13a | 未列 | 洞爺湖・義経岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/56/routes) |
+
+```video-gallery
+key: japanYoshitsuneIwa
+lang: zh-TW
+layout: routes
+```
 
 ### 高手：8a 以上（YDS 5.13b 以上）
 

@@ -65,12 +65,6 @@ Video labels follow uploader metadata, and may use different grades or versions.
 
 The inventory includes all 29 graded entries in the opened ROCKTOPO list, excluding ungraded entries; additional verified sources and discrepancies are attached to the relevant rows. It is not a substitute for the full topo or current access notices.
 
-```video-gallery
-key: japanHieizan
-lang: en
-layout: routes
-```
-
 ### Beginner: up to 6a (YDS 5.10a and below)
 
 Shorter lines below Peak II and Needle Left Ridge are different undertakings; the latter adds multipitch belays and descent.
@@ -81,6 +75,12 @@ Shorter lines below Peak II and Needle Left Ridge are different undertakings; th
 | 「左スラブルート」 | 5.8 | 5.8 | Not listed | II峰下部岩壁 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/179/routes)；ROCKTOPO only. |
 | 「無名クラック」 | 5.8 | 5.8 | Not listed | II峰下部岩壁 | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/179/routes)；ROCKTOPO only. |
 | 「ニードル左岩稜」 | 5.9 | 5.9 | Not listed | I峰正面壁ニードル | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/179/routes)；K1 Hutte also lists120m/4pitches; grade here is RT. Online account: 山のまこちゃん’s [2020 report](http://yamanomakochan.blogspot.com/2020/11/needlesaganryou.html). The first-pitch double-flake start felt harder than expected; the author discusses extending placements. This does not replace the published grade. |
+
+```video-gallery
+key: japanHieizan
+lang: en
+layout: routes
+```
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
@@ -113,6 +113,12 @@ Treat Chuo Freeway on the Needle as a multipitch outing, with a different time p
 | 「Ⅰ峰正面壁ルート」 | 5.11c | 5.11c | Not listed | I峰正面壁ニードル | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/179/routes)；ROCKTOPO only. |
 | 「上野クラック」 | 5.10b | 5.10b | Not listed | I峰正面壁ニードル | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/179/routes)；ROCKTOPO only. |
 
+```video-gallery
+key: japanHieizan
+lang: en
+layout: routes
+```
+
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 
 Advanced lines occur around Peak III’s water point and below Peak II; identify the wall and descent together.
@@ -140,6 +146,12 @@ The developer also describes the following historically graded lines. These are 
 | 「第１スラブ(スーパー)」 | V+ | — | I峰 | Sources: [developer account](http://yabuyama.private.coocan.jp/h1root/h1root1.html)；The lines intersect; identify the exact version with the full topo. |
 | 「第１スラブ(ノーマル)」 | IV+ | — | I峰 | Sources: [developer account](http://yabuyama.private.coocan.jp/h1root/h1root1.html)；The lines intersect; identify the exact version with the full topo. |
 | 「KYバリエーション」 | 5.11 | 5.11 | I峰 | Sources: [developer account](http://yabuyama.private.coocan.jp/h1root/h1root1.html)；The lines intersect; identify the exact version with the full topo. |
+
+```video-gallery
+key: japanHieizan
+lang: en
+layout: routes
+```
 
 ## Where to look things up
 

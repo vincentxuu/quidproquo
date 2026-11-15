@@ -109,7 +109,7 @@ Course and recording entries:
 - [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): what was checked is how the Spring 2024 Lecture 11 (about 84 minutes; the YouTube title credits Yann Dubois, but the transcript itself never names the speaker) relates to this article, which is based on the Winter 2026 slides; it is not the 2026 classroom recording. The transcript covers the overall evaluation framework, close-ended tasks (multiple choice, MMLU, SuperGLUE and multi-task averaging), open-ended evaluation (reference-based metrics, human evaluation and annotator selection, LLM-as-judge such as AlpacaEval), perplexity, robustness of rankings to small prompt changes, contamination and dynamic test sets, matching this article's topic. It never mentions Goodhart or construct validity and has no adversarial design or concrete procedures such as an "evaluation contract" or "contamination audit", so those sections rest on the Winter 2026 slides and this site's own additions, not on the video.
 
@@ -118,6 +118,7 @@ Content check: verified against the video transcript (2026-10-10): what was chec
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the Spring 2024 public recording on the same topic; the Winter 2026 original is behind sign-in and could not be verified.
 - 2026-10-10: Checked the video content against its transcript. The 2024 video covers close/open-ended evaluation, LLM judges, prompt robustness, contamination and dynamic test sets; Goodhart, construct validity, adversarial design and audit procedures are not in the video and are marked as not video content.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

@@ -77,6 +77,31 @@ OpenRouter 以預付 credits 支付推論費用。官方 [FAQ](https://openroute
 
 若公司已和供應商簽約，也可以使用 [BYOK](https://openrouter.ai/docs/guides/overview/auth/byok)：把自有 provider key 加進 OpenRouter，控制使用自有額度的優先序，失敗後再切到 OpenRouter 共用容量。這保留統一介面與 fallback，但請求仍會經過 OpenRouter，而且 BYOK 超過方案內免收費額度後仍可能產生平台費。若需求是完全移除中介方，就應直接接供應商，或評估自架 LiteLLM 類 gateway。
 
+## 免費模型怎麼找、怎麼用？
+
+想先試免費模型，不必先購買付費額度。OpenRouter 有兩種選法：
+
+| 選法 | 做什麼 | 適合什麼情況 |
+|---|---|---|
+| 目錄裡結尾為 `:free` 的完整 ID | 固定選用該免費版本 | 比較模型，或希望同一個任務沿用同一模型 |
+| `openrouter/free` | 依請求能力篩選免費模型，再隨機挑一個 | 先試 API，不想自己選型 |
+
+先打開[零輸入價格候選清單](https://openrouter.ai/models?max_price=0)，點進模型頁，確認完整 ID 結尾是 `:free`，而且輸入、輸出價格都是 0。候選清單只先篩輸入價格，輸出價格仍要另外看；也不是每個付費模型都有免費版本。
+
+要接 coding agent，還要查看支援參數中有沒有 `tools`／工具呼叫。能免費聊天，不代表能配合 agent 讀檔、改檔。以 OpenCode 2 為例，原本的 OpenRouter ID `vendor/model:free`，放到 OpenCode 設定時要加上供應商前綴，寫成 `openrouter/vendor/model:free`。
+
+沿用前面建立的 client，就可以先試免費路由：
+
+```ts
+const response = await client.responses.create({
+  model: 'openrouter/free',
+  input: '冰箱有雞蛋、豆腐和高麗菜，幫我想簡單的兩人晚餐。',
+});
+console.log(response.output_text);
+```
+
+免費模型仍有請求限制，也可能暫時無法服務。當下的帳號與供應商限制看 [Limits](https://openrouter.ai/docs/api/reference/limits)，更多選項看[免費額度與定價整理](/posts/ai/2026-05-09-llm-inference-free-tier-comparison)。如果只是想先用 OpenCode，也可以直接選它提供的免費模型，不必先接 OpenRouter；[OpenCode 2 介紹](/posts/tech/2026-08-22-opencode-2-electron-rewrite-coding-agent)補充了目前入口。
+
 ## 隱私控制不是一句「不訓練」
 
 多一層路由，就多一個需要審查的資料處理者。依 OpenRouter 的[資料收集文件](https://openrouter.ai/docs/guides/privacy/data-collection)，prompt 與回應內容的保存預設為 opt-in，但請求的 token、延遲等 metadata 會保留。底層供應商則各有自己的保留與訓練政策。
@@ -91,7 +116,18 @@ OpenRouter 適合需要快速試多模型、希望一套 API 管理多家端點�
 
 整體來說，OpenRouter 的核心價值不是「模型比較便宜」，而是把模型選擇與供應商選擇變成可設定的路由策略。原型期用它換取速度和選擇權很划算；進入正式環境後，則要把可觀測性、資料政策、備援品質與退出方案一起設計，才不會只是把多家 vendor lock-in 換成一家 gateway lock-in。
 
+從安裝、找免費模型到第一次生活提問，可以接著看[免費 LLM 入門教學：OpenCode 2 與 OpenRouter](/posts/ai/2026-11-01-free-llm-opencode2-openrouter)。
+
+## 更新紀錄
+
+- 2026-11-01：補上免費模型查找、`:free` 與 `openrouter/free` 差異、零價格與工具能力核對，以及 OpenCode 2 模型 ID 寫法。
+
 ## 參考資料
+
+- [OpenRouter Free Variant](https://openrouter.ai/docs/guides/routing/model-variants/free)
+- [OpenRouter Free Models Router](https://openrouter.ai/docs/guides/routing/routers/free-router)
+- [OpenRouter Limits](https://openrouter.ai/docs/api/reference/limits)
+
 
 - [OpenRouter Quickstart](https://openrouter.ai/docs/quickstart)
 - [OpenRouter Provider Routing](https://openrouter.ai/docs/guides/routing/provider-selection)

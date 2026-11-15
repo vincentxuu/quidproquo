@@ -197,7 +197,7 @@ Course and recording entries:
 - [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): Read both transcripts: Spring 2024 Lecture 14, "Multi-Agent Game Playing" (about 73 minutes), goes in order through simulation-based search and expectimax, MCTS, UCT, AlphaGo/AlphaZero and self-play, then the neural networks; Lecture 15 (about 74 minutes) opens with a DPO/RLHF review quiz, then wraps up AlphaZero, and hands over to guest Dan Webber at about 22%. Minute marks are now approximate values estimated from the transcript, &t= links are removed, "YouTube chapters" became "transcript", and the description of video 15 now mentions the opening DPO/RLHF quiz.
 
@@ -206,6 +206,7 @@ Content check: verified against the video transcript (2026-10-10): Read both tra
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 - 2026-10-10: Checked the video content against its transcript. Minute marks became approximate, &t= links were removed, and video 15 now notes its opening DPO/RLHF quiz.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

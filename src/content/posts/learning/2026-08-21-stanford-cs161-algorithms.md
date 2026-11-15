@@ -20,7 +20,7 @@ draft: false
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
-[CS 161](https://stanford-cs161.github.io/winter2026/) 是 Stanford 電腦科學系大學部的演算法必修。它也是這個系裡最常被當成先修條件的一門。從 AI 入門的 [CS 221](https://explorecourses.stanford.edu/search?q=CS+161&view=catalog) 到資料庫、組合最佳化、隨機演算法，先修欄位都指向它（清單見附錄）。本站的 [Stanford CS 課程導讀地圖](/posts/learning/2026-08-20-stanford-cs-course-map)把它放在「學位骨架五門」那一格。這篇要回答的是進去之後會發生什麼事。
+[CS 161](https://stanford-cs161.github.io/winter2026/) 是 Stanford 電腦科學系大學部的演算法必修。它也是這個系裡最常被當成先修條件的一門。從 AI 入門的 [CS 221](https://explorecourses.stanford.edu/search?q=CS+161&view=catalog) 到資料庫、組合最佳化、隨機演算法，先修欄位都指向它（CS 221、245、256、261、265、354、366）。本站的 [Stanford CS 課程導讀地圖](/posts/learning/2026-08-20-stanford-cs-course-map)把它放在「學位骨架五門」那一格。這篇要回答的是進去之後會發生什麼事。
 
 先講最反直覺的一件事：這門課的官方目標有三個，第三個是「溝通」。第一堂的投影片把它跟設計、分析並列寫在同一頁——**Communication: Learn to communicate clearly about algorithms**。這不是場面話，它是整套作業規則的來源，包括為什麼從第二份作業起手寫一律零分。
 
@@ -30,7 +30,7 @@ draft: false
 
 Winter 2026 由 [Moses Charikar](https://profiles.stanford.edu/moses-charikar) 與 [Ellen Vitercik](https://profiles.stanford.edu/ellen-vitercik) 合開。前者是 Donald E. Knuth 講座教授，研究高維資料的檢索與索引演算法；後者是管理科學與工程系暨資工系助理教授。兩人輪流上台，一人一堂交錯排。課堂在 STLC 111，每週一、三下午各一堂。
 
-學分掛的是彈性區間，但系上規定寫死：大學部學生無論主修什麼，這門課都必須以五學分修習。這條[現在還掛在 BS 學位要求頁上](https://www.cs.stanford.edu/bs-degree-requirements)。先修有三門：程式與資料結構、離散數學與證明、機率（原文見附錄）——機率是硬列的，這門課用到的機率比課名看起來多。
+學分掛的是彈性區間，但系上規定寫死：大學部學生無論主修什麼，這門課都必須以五學分修習。這條[現在還掛在 BS 學位要求頁上](https://www.cs.stanford.edu/bs-degree-requirements)。先修有三門：程式與資料結構、離散數學與證明、機率（CS 106B 或 106X；CS 103 或 103B；CS 109 或 STATS 116）——機率是硬列的，這門課用到的機率比課名看起來多。
 
 成績由作業、期中、期末三塊構成，作業會丟掉最低的一份。
 
@@ -175,19 +175,6 @@ Winter 2026 由 [Moses Charikar](https://profiles.stanford.edu/moses-charikar) �
 
 分不出來的話，你要補的不是 CS161，是 CS 103。這門課從第一份作業起就假設你已經會寫證明，它教的是拿證明去分析演算法。
 
-## 附錄：數字與查證方式
-
-- **成績組成**：八份作業共 40%，期中 25%，期末 35%。最低的一份作業會被丟掉，所以每份計分的作業佔 5.714%——這個數字是課程官網自己算好寫上去的。
-- **先修條件原文**：「CS 106B or CS 106X; CS 103 or CS 103B; CS 109 or STATS 116」。
-- **以 CS161 為先修的下游課程**（取自 ExploreCourses 2026–2027 學年的搜尋結果）：CS 221、CS 245、CS 256、CS 261、CS 265／CME 309、CS 354、CS 366。其中四門目前顯示停開，最後開課依序是 CS 261（2026 年冬季）、CS 256（2025 年秋季）、CS 366（2024 年冬季）、CS 354（2022 年冬季）。
-- **遲交**：全學期六個 late day，單份作業最多用兩個，超過 48 小時不給分。HW4 與 HW8 因為要在考前及時釋出解答，即使是 OAE 的展延也最多兩天。
-- **考試時間**：期中 Winter 2026 排在 2 月 11 日晚間六點到九點，期末 3 月 18 日下午三點半到六點半。這一輪參加了 Stanford 學術誠信工作小組（AIWG）的監考試辦計畫。
-- **作業配分逐份**：43 / 60 / 42 / 38 / 40 / 65 / 38 / 49，全學期合計 375 分。這是我從八份 PDF 的每小題標示逐項加總得到的，課程網站沒有公布這張表。倫理小題合計 22 分，約佔 6%（HW4 佔 8 分、HW5 與 HW6 各 4 分、HW8 佔 6 分）。
-- **講次與教材數量**：正課十八講加一堂 EthiCS，九次討論課外加三次複習課，十三份 Python notebook。
-- **課程人力**：兩位授課者、一位課程經理、一位 head CA、七位 CA，另有一位 ACE 專屬 CA。
-- **Stanford Online 版本**：五學分，八週，每週建議十到二十小時，學費 7,875 美元（頁面註明可能變動），2026 年的檔期是 6 月 22 日到 8 月 15 日，我查證當下顯示未開放報名。
-- **未能確認的項目**：一、修課人數。課程網站與 ExploreCourses 都沒有公布，我沒有找到可引用的來源。二、2026–2027 學年是否會再開秋季與夏季班——ExploreCourses 目前只掛冬季與春季，但未來學年的資料會陸續補，現在下「減開」的結論太早。三、Winter 2026 之前各屆的完整課程網站是否還開著。`web.stanford.edu/class/archive/cs/cs161/` 這層目錄直接回 404，我沒有找到可瀏覽的封存索引；能確認還在的舊材料只有 GitHub 上逐年的 notebook repo（最早到 2021 年冬季）。
-
 ## 課程影片來源
 
 已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
@@ -196,12 +183,13 @@ Winter 2026 由 [Moses Charikar](https://profiles.stanford.edu/moses-charikar) �
 
 - [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-12。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認官方講次頁的錄影連結導向 Panopto 登入頁，查無同期公開錄影，維持原狀態。
+- 2026-11-12：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

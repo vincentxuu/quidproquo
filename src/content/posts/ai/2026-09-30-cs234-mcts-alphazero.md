@@ -199,7 +199,7 @@ title: 影片 15 的前 15 分鐘
 - [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
 
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-11-09。
 
 內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 14「Multi-Agent Game Playing」（約 73 分鐘）依序是 simulation-based search 與 expectimax、MCTS、UCT、AlphaGo／AlphaZero 與 self-play、神經網路；Lecture 15（約 74 分鐘）一開始先回顧 DPO／RLHF 小測，接著是 AlphaZero 收尾，約 22% 之後換 Dan Webber 客座。分鐘數改為依字幕位置估算的「約」值並移除 &t= 連結，「YouTube 章節」改為「字幕」，影片 15 的描述補上開頭的 DPO／RLHF 小測。
 
@@ -208,6 +208,7 @@ Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄�
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。分鐘數改為「約」值、移除 &t= 連結；補上影片 15 開頭其實是 DPO／RLHF 小測。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

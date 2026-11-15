@@ -6,7 +6,7 @@ type: digest
 tags: [ai-agent, pricing, daily, anthropic]
 lang: zh-TW
 description: "Anthropic 官方定價頁與發表頁雙重確認：Claude Sonnet 5.5 的 API 單價與 Sonnet 5 完全相同（$2/$10 per 1M tokens），宣傳的『成本降 30%』來自效率而非降價"
-tldr: "Claude Sonnet 5.5 於 2026-09-29 發表，API 定價與前代 Sonnet 5 完全相同：input $2.00、output $10.00、cache read $0.20（皆為 USD/1M tokens），單價變化是 0%。Anthropic 宣傳的『成本降最多 30%』來自同任務所需 token 數變少、工具呼叫次數變少，不是調降單價——這代表實際省多少完全取決於你的工作負載能不能吃到這個效率提升，不是保證值。"
+tldr: "Claude Sonnet 5.5 於 2026-09-28 發表，API 定價與前代 Sonnet 5 完全相同：input $2.00、output $10.00、cache read $0.20（皆為 USD/1M tokens），單價變化是 0%。Anthropic 宣傳的『成本降最多 30%』來自同任務所需 token 數變少、工具呼叫次數變少，不是調降單價——這代表實際省多少完全取決於你的工作負載能不能吃到這個效率提升，不是保證值。"
 series:
   name: "AI Pricing Watch"
   order: 13
@@ -16,18 +16,18 @@ series:
 
 ## 變更摘要
 
-Anthropic 在 2026-09-29 發表 Claude Sonnet 5.5，官方頁面標題寫著「costs up to 30% less for most work」，乍看像一次降價公告。但對照官方定價頁會發現：input、output、cache read 三項單價跟 Sonnet 5 一字不差，都是 $2.00／$10.00／$0.20 per 1M tokens。這次不是降價，是「同價格、換更省 token 的模型」——30% 的成本下降是效率提升換來的，不是帳單上的單價數字變小，兩者對預算規劃的意義完全不同。
+Anthropic 在 2026-09-28 發表 Claude Sonnet 5.5，官方頁面標題寫著「costs up to 30% less for most work」，乍看像一次降價公告。但對照官方定價頁會發現：input、output、cache read 三項單價跟 Sonnet 5 一字不差，都是 $2.00／$10.00／$0.20 per 1M tokens。這次不是降價，是「同價格、換更省 token 的模型」——30% 的成本下降是效率提升換來的，不是帳單上的單價數字變小，兩者對預算規劃的意義完全不同。
 
 ## 前後對照
 
 | 項目 | Sonnet 5 | Sonnet 5.5 | 變化 | 生效日 |
 |---|---|---|---|---|
-| Input | $2.00/1M tokens | $2.00/1M tokens | 0% | 2026-09-29 |
-| Output | $10.00/1M tokens | $10.00/1M tokens | 0% | 2026-09-29 |
-| Cache Read | $0.20/1M tokens | $0.20/1M tokens | 0% | 2026-09-29 |
-| Cache Write（5m） | $2.50/1M tokens | $2.50/1M tokens | 0% | 2026-09-29 |
-| Batch Input | $1.00/1M tokens | $1.00/1M tokens | 0% | 2026-09-29 |
-| Batch Output | $5.00/1M tokens | $5.00/1M tokens | 0% | 2026-09-29 |
+| Input | $2.00/1M tokens | $2.00/1M tokens | 0% | 2026-09-28 |
+| Output | $10.00/1M tokens | $10.00/1M tokens | 0% | 2026-09-28 |
+| Cache Read | $0.20/1M tokens | $0.20/1M tokens | 0% | 2026-09-28 |
+| Cache Write（5m） | $2.50/1M tokens | $2.50/1M tokens | 0% | 2026-09-28 |
+| Batch Input | $1.00/1M tokens | $1.00/1M tokens | 0% | 2026-09-28 |
+| Batch Output | $5.00/1M tokens | $5.00/1M tokens | 0% | 2026-09-28 |
 
 單價全數持平，這本身就是值得記錄的訊號：Anthropic 選擇把 Sonnet 5.5 定位成「用同一個價格帶做更多事」，而不是像 GPT-6 Sol／Luna 那樣直接砍價競爭（見 [09-28 定價追蹤](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut)）。
 
@@ -75,6 +75,10 @@ Sonnet 5.5 上線後，Anthropic 和 OpenAI 在同一個 $2/$10 價位帶正面�
 ## 今日收穫
 
 看到「costs up to 30% less」這種標題，直覺會先去查定價頁有沒有調價——這次查完發現單價一分錢都沒變，30% 完全來自「同任務用更少 token」。這提醒一件事：廠商講的「降價」不等於「調降牌價」，效率提升換算出來的成本下降同樣可以包裝成降價新聞，但兩者對長期預算規劃的可靠度完全不同——調降牌價是保證生效的常數，效率提升的省幅會隨任務類型大幅浮動，甚至在某些場景下趨近於零。
+
+## 更新紀錄
+
+- 2026-11-07：更正：Sonnet 5.5 發表日是 9/28。
 
 ## 參考資料
 

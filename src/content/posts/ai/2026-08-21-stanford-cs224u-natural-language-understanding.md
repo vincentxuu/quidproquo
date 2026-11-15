@@ -138,7 +138,7 @@ ExploreCourses 上 CS 224U 的[課程描述](https://explorecourses.stanford.edu
 
 **拿不到：XCS224U 的課內材料與助教。** 那是付費的，而且 2026-08-26 重查時 Stanford Online 頁面已明寫「as of May 19, 2025, this course is no longer available」——連付費這條路也關了。
 
-**要注意：repo 現在是別人在維護，而且第一份作業照原樣跑不起來。** 最近一批 commit 集中在 2025 年初，作者是 XCS224U 線上梯次的助教，訊息寫著更新 torch 版本、更新 openai 套件。三份作業 notebook 內嵌的版本字串也對不上課程網站，最新的一份標的是 Fall 2024（逐份對照見附錄）。
+**要注意：repo 現在是別人在維護，而且第一份作業照原樣跑不起來。** 最近一批 commit 集中在 2025 年初，作者是 XCS224U 線上梯次的助教，訊息寫著更新 torch 版本、更新 openai 套件。三份作業 notebook 內嵌的版本字串也對不上課程網站，`hw_sentiment` 標 Spring 2023、`hw_recogs` 標 Spring 2024、`hw_openqa` 標 Fall 2024。
 
 真正會擋住你的是 `hw_sentiment.ipynb` 的資料載入。它呼叫 `load_dataset("dynabench/dynasent", ..., trust_remote_code=True)`，但 [Hugging Face `datasets` 4.0.0 的 release note](https://github.com/huggingface/datasets/releases/tag/4.0.0) 寫著 `trust_remote_code` is no longer supported；而 `dynabench/dynasent` 在 Hub 上只有一支 2021 年的 Python 載入腳本，沒有 parquet 版本——[HF 的 API](https://huggingface.co/api/datasets/dynabench/dynasent/parquet) 直接回「the dataset viewer doesn't support this dataset because it runs arbitrary Python code」。repo 的 `requirements.txt` 沒有把 `datasets` 釘住版本，所以新裝的環境會拿到最新版。我沒有實際跑過，但這三個公開事實指向同一個結論：**要動這份作業，你得自己把 datasets 降版，或自己去把 DynaSent 轉成 parquet。**
 
@@ -182,21 +182,9 @@ cd cs224u
 
 幾塊拿不到或沒有公開的部分，各篇會標明：Canvas 上的 quiz、教室錄影、需登入的往年優秀期末論文。Kawin Ethayarajh 那場「Real-world NLP assessments」客座沒有投影片也沒有影片，所以沒有專篇，缺口記在第 14 篇。Lisa Li 的擴散模型講座只有投影片、沒有對應的公開影片，第 17 篇只依投影片寫。如果 2026-27 或之後重新開課並換上新網站，系列會補一篇新舊版對照。
 
-## 附錄：數字與查證方式
-
-- **停開的三個學年**：用 ExploreCourses 的公開 XML 介面（`https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=<學年>&q=Natural+Language+Understanding&filter-departmentcode-CS=on`）逐年查，CS 224U 在 20232024、20242025、20252026 三個學年的條目都存在但 `<sections>` 為空；20222023 有一節 2022-2023 Spring，20262027 在 2026-08-21 與 08-26 查時有 2026-2027 Spring 的講座與討論各一節，classId 25499 與 25500，講師欄位空白；2026-09-29 與 09-30 重查，`<sections>` 已為空（同介面下 CS224N 2026-27 仍有 section）。**ExploreCourses 的 HTML 版本我沒能取得**——用 curl 或 scraping 工具打它的 `view=catalog` 頁面只會拿到「Please login to view this page」，所以「Last offered」那一行我沒有讀到原文，上述判斷是根據同一套資料的 XML 輸出加上 Potts 授課頁的交叉比對。
-- **作業 notebook 的版本字串**：`hw_sentiment.ipynb` 標 `CS224u, Stanford, Spring 2023`、`hw_recogs.ipynb` 標 Spring 2024、`hw_openqa.ipynb` 標 Fall 2024。課程網站則停在 Spring 2023。
-- **COGS 那張表**：九列模型，overall 落在 48 到 88 之間，本文提到的 T5 是 83。structural 三欄裡 `Obj PP → Subj PP` 九列全部為 0，`CP Recursion` 只有兩列非 0，`PP Recursion` 有四列非 0；lexical 欄有六列在 90 以上。
-- **repo 狀態**（GitHub API，2026-08-21 查）：2,192 star、911 fork、3 個開啟中的 issue，最後一次 push 是 2025-02-28，`archived` 為 false。最舊的開啟中 issue 是 2023 年 8 月的 #127，回報 `hw_sentiment.ipynb` 第一個 cell 失敗（`charset_normalizer` 相關），Potts 當天回覆過，至今未關。repo 內沒有 `.github/workflows` 目錄，README 上的 CI badge 在 2025-02-27 一個標題為 remove failed badge 的 commit 中被移除。
-- **成績配比**：quiz 15%、作業與 bake-off 35%、文獻回顧 10%、實驗計畫 10%、期末論文 30%。政策頁另有一張不做常態分配的分數對照表（≥94 為 A，≥90 為 A−，<60 不通過），以及每人 4 天免費遲交額度——但期末論文任何情況都不接受遲交。
-- **COGS 那張表的對照條件**：投影片標註該表轉引自 ReCOGS（Wu, Manning & Potts 2023）。表上三列另標了「結果引自 Yao and Koller (2022)」，最高分那一列標了「該模型使用預訓練權重，並以泛化集抽樣做過超參數調整」。
-- **作業配分**：三份作業都是 9 + 1（bake-off 參賽 1 分），原創系統那題在三份裡都是 3 分。bake-off 榜首另有 0.5 分加分，遲交的參賽項目可以收但拿不到加分。
-- **檔案大小**：ColBERTv2 checkpoint 約 406 MB、課程的預建索引約 600 MB，兩個連結在 2026-08-21 都還可下載（HTTP 200）。
-- **未能確認的項目**：(1) 2026-27 春季會不會開、由誰授課——那兩節在 2026-09-29 已從 XML 消失，原因沒有公開說明；在那之前，ExploreCourses 講師欄位是空的（2026-08-26 重查仍空白；對照同季的 CS224N 與 CS336 講師都已填上，確認是未指派而非資料缺欄），Potts 的授課頁最新只寫到 2024-25，GitHub repo 也沒有任何新學期準備的跡象。間接線索偏向 Potts 回鍋：他的 Linguistics 系主任任期到 2025 年 8 月屆滿，Amazon Scholar 的兼任也在 2024 年 12 月結束——卸任後隔一個學年，課就排回來了。但不能寫死。(2) 停開三年的原因——沒有任何官方頁面說明，但背景拼圖在 2026-08-26 補齊了大半：個人層面，系主任任期（2020-09 至 2025-08）與 Amazon Scholar 兼任（2022-10 至 2024-12）正好覆蓋停開的兩年，且他 2025 年 1 月起共同創辦 AI agent 監控新創 [Bigspin AI](https://bigspin.ai) 任 Chief Scientist，2025–26 年的公開活動全是外部演講與 webinar、零教學紀錄——「重心移轉」證據很強，「不回鍋」則只是推測。校級層面，XCS224U 的下架也不是孤立事件：Stanford 因預算砍 $140M 並裁員，[2026 年 1 月直接裁撤了數位教育副教務長辦公室](https://stanforddaily.com/2026/01/18/stanford-digital-education-shuts-doors/)（Stanford Daily 報導），付費自學課程線批量 sunset——收的是低量產品線，同期 XCS224N 等熱門課仍在招生。他停開期間仍有教其他課，「太忙所以不教書」不成立；最後一堂校內課（2023 春）經 ExploreCourses XML 反查確認是他本人 PI。(3) 校外人士能否旁聽校內班——Stanford Bulletin 的 [auditing 政策](https://bulletin.stanford.edu/academic-polices/enrollment/auditing)明文只開放已註冊學生、postdoc、訪問學者與教職員；校外一般人要走付費的 Permit to Attend 且需講師、系所、註冊組三層核准，實務上等於不能免費坐進去。付費遠端的部分見下一節：XCS224U 已於 2025 年 5 月正式停開（同一波 Stanford Online 還收了 XCS330，但 XCS224N 仍在招生），官方只有一句通用的「periodically sunset」說法，沒有逐門理由。(4) 上述那個資料載入問題我沒有實際建環境執行，結論是由三份公開文件推得的。
-
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方課程頁與 Spring 2023 播放清單（50 支）列的是逐講錄影；本文是整門課的導讀，不對應單一講次，因此只列入口，各講錄影見對應的逐講導讀。查核日期：2026-10-10。
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-11-12 已即時重查：官方課程頁與 Spring 2023 播放清單（50 支）列的是逐講錄影；本文是整門課的導讀，不對應單一講次，因此只列入口，各講錄影見對應的逐講導讀。查核日期：2026-11-12。
 
 課程與錄影入口：
 
@@ -238,3 +226,4 @@ cd cs224u
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-09-29：新增「系列目錄」，連到第 2–17 篇與未公開部分的說明。2026-09-29 與 09-30 用同一個 XML 介面重查 ExploreCourses，2026-27 學年的 `<sections>` 已變成空的（原本的 Spring 講座與討論兩節不在了），tldr、硬事實一節與附錄依此改寫。
 - 2026-10-10：重查影片狀態。重查官方來源，確認仍無對應本文範圍的公開錄影，補上查核日期。
+- 2026-11-12：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。

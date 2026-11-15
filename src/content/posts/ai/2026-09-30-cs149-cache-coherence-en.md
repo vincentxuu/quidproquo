@@ -193,19 +193,17 @@ The summary slide makes three points:
 2. Snooping's main idea is that any cache operation that could affect coherence is broadcast to all other cache controllers. The hardware challenge is keeping the protocol's overhead low; the software challenge is watching for artifactual communication such as false sharing
 3. Snooping scales only as far as broadcast does; directories are how coherence scales further
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the L14 slide PDF, and the lecture date and description on the course home page ("Invalidation-based coherence using MSI and MESI, false sharing"). The first 20 pages of the Fall 2025 L15 slides repeat L14's MSI, MESI, directory, and false-sharing material almost verbatim, which suggests L14 ran over into the next lecture. That is an inference from the slides; there's no recording to confirm it.
+The first 20 pages of the Fall 2025 L15 slides repeat L14's MSI, MESI, directory, and false-sharing material almost verbatim, so after this post you can skip that part of L15.
 
-Not confirmed: what was said in the Fall 2025 lecture, and the page-by-page differences between the 2023 video and the 2025 slides. This post was not written from the video.
-
-Further reading: locks and synchronization from the operating-system side in [CS111 Lecture 6: Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en).
+Locks and synchronization from the operating-system side in [CS111 Lecture 6: Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en).
 
 **Series**: previous [PA5, the fastest kernel on an H100](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels-en) | next [L15 Memory consistency](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 
 ## Course video sources
 
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-11-09.
 
 ```youtube
 url: https://www.youtube.com/watch?v=lrCfG2CPDEw
@@ -226,6 +224,7 @@ Content check: verified against the video transcript (2026-10-10): I read the au
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
 - 2026-10-10: Checked the video content against its transcript. This 2023 recording covers only the first half of this post (definition, invariants, snooping, MSI state definitions); MESI, directories and false sharing are not in the video, which the video-sources section now states.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

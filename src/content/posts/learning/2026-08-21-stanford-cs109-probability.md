@@ -28,7 +28,7 @@ draft: false
 
 ## 這門課的硬事實
 
-2026 年夏季由 [Chris Gregg](https://web.stanford.edu/~cgregg/chris-gregg/) 授課，週一到週四上午在 CoDa B80。接下來的學年秋、冬、春三學期都有開，三位不同的授課者輪流：秋季 Gregg、冬季 [Chris Piech](https://stanford.edu/~cpiech/bio/index.html)、春季 Jerry Cain。秋季那班的選課上限掛到 **999 人**（皆見 ExploreCourses 條目，查詢方式與其他兩班的上限收在附錄）。加上夏季這輪，這門課一年開四次，不存在「等不到」的問題。
+2026 年夏季由 [Chris Gregg](https://web.stanford.edu/~cgregg/chris-gregg/) 授課，週一到週四上午在 CoDa B80。接下來的學年秋、冬、春三學期都有開，三位不同的授課者輪流：秋季 Gregg、冬季 [Chris Piech](https://stanford.edu/~cpiech/bio/index.html)、春季 Jerry Cain。秋季那班的選課上限掛到 **999 人**（皆見 ExploreCourses 條目；冬季班上限 350 人、春季班 500 人）。加上夏季這輪，這門課一年開四次，不存在「等不到」的問題。
 
 先修條件比一般人以為的鬆。課程大綱寫的是 CS106B 加上 MATH 21 等級的微積分，而且明講「過去有學生把 CS106B 跟 CS109 同時修，結果也都還好」。真正嚴的是別的地方：
 
@@ -148,17 +148,6 @@ score = sophistication × (1 + creativity + impact)
 
 想接著往下走的話，把 `worksheets/` 目錄當主線：每一講先讀 Worksheet 自己做，再用 LLM Learning Guide 讓模型考你，最後用 AnswerKey 對。第 15 講之後投影片斷掉的部分，用互動式讀本補。
 
-## 附錄：數字與查證方式
-
-- **ExploreCourses 查詢方式**：網頁版現在要求登入，但 XML 端點還開著：`https://explorecourses.stanford.edu/search?view=xml-20200810&q=CS109`。CS109 條目的課名是 *Introduction to Probability for Computer Scientists*（比課程網站的 *Probability for Computer Scientists* 多了 Introduction 一字）、學分區間 3 至 5、評分方式為 Letter 或 Credit/No Credit、通識標記為 GER:DB-EngrAppSci、WAY-AQR、WAY-FR。
-- **2026–2027 三學期的授課者與選課上限**：秋季 Gregg（999）、冬季 Piech（350）、春季 Cain（500）。數字取自各學期 LEC 節次的 `maxEnrolled` 欄位，是選課上限而非實際人數。
-- **成績比重**：作業 10%、期中合計 30%、期末 35%、課堂參與 25%。這組數字出自課程大綱頁，而該頁其他欄位（上課時間、地點、作業份數）已被進度表推翻，所以比重也有可能不是夏季班的最新版本。已在正文標明來源限制。
-- **LLM Learning Guide 的 23 份**：以 `worksheets/` 目錄列表逐檔清點，檔名為 `Lecture01` 至 `Lecture22` 加上 `Lecture25`，檔案時間戳從 2026-06-19 到 2026-08-05。第 23、24、26、27、28 講沒有對應檔案。
-- **投影片在第 15 講斷掉**：逐一對 `lectures/<目錄名>/<目錄名>.pdf` 發請求，第 1 至第 14 講回 200，第 15 講起回 404（`28-Future` 是例外，回 200）。查驗日期 2026-08-21。同一目錄下還留著多個舊學期編號的資料夾（例如 `17-Sampling`、`22-Optimization`），那些也都是 404。
-- **榮譽守則第四條的引文**：原文寫的是「LLMs do leave tell tail probabilistic distributions in their output」，`tell tail` 應為 `tell-tale`（藏不住的、洩底的），正文採此讀法翻譯。
-- **首頁講次表的日期筆誤**：首頁「This Week in CS109」把 6 月 25 日標成 Tue，但進度表上同一講是 Thu。以進度表為準。
-- **未能確認的三件事**：（一）Summer 2026 的作業究竟是六份還是七份——進度表列到 Pset #6，大綱與側邊選單都寫七份，psetapp 需登入所以無法核對；（二）LLM Learning Guide 最早出現在哪一個學期——封存的 Autumn 2024、Winter 2025、Summer 2025 三個版本的頁面都沒有這一欄，但封存版不完整，無法斷言 Summer 2026 是首次；（三）課堂參與那 25% 的細部組成——大綱裡討論分組討論課與一對一考前面談的段落，在現行頁面上是被註解掉的狀態，不確定夏季班是否仍然實施。
-
 ## 課程影片來源
 
 已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。因此附官方錄影入口，不提供 Summer 2026 的公開播放器。另有 Stanford Online 公開的 2022 年版播放清單（29 支，不同學期），僅附清單連結、不嵌入，也不當成 Summer 2026 錄影。
@@ -170,12 +159,13 @@ score = sophistication × (1 + creativity + impact)
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
 - [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-查核日期：2026-10-10。
+查核日期：2026-11-12。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認 Summer 2026 錄影需 Canvas 登入，另有 2022 年版公開播放清單；狀態改為僅附官方入口或錄影清單。
+- 2026-11-12：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

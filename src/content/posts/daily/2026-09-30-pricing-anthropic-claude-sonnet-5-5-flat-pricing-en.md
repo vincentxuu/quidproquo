@@ -6,7 +6,7 @@ type: digest
 tags: [ai-agent, pricing, daily, anthropic]
 lang: en
 description: "Anthropic's official pricing page and launch post both confirm it: Claude Sonnet 5.5's API rate is identical to Sonnet 5 at $2/$10 per 1M tokens — the advertised '30% cheaper' comes from efficiency, not a price cut"
-tldr: "Claude Sonnet 5.5 launched on 2026-09-29 at the exact same API rate as Sonnet 5: $2.00 input, $10.00 output, $0.20 cache read (all USD/1M tokens) — a 0% price change. Anthropic's headline claim of 'up to 30% less' comes from needing fewer tokens and fewer tool calls per task, not a lower per-token rate, so the actual savings you see depend entirely on whether your workload benefits from that efficiency gain — it's not a guaranteed number."
+tldr: "Claude Sonnet 5.5 launched on 2026-09-28 at the exact same API rate as Sonnet 5: $2.00 input, $10.00 output, $0.20 cache read (all USD/1M tokens) — a 0% price change. Anthropic's headline claim of 'up to 30% less' comes from needing fewer tokens and fewer tool calls per task, not a lower per-token rate, so the actual savings you see depend entirely on whether your workload benefits from that efficiency gain — it's not a guaranteed number."
 series:
   name: "AI Pricing Watch"
   order: 13
@@ -16,18 +16,18 @@ series:
 
 ## What changed
 
-Anthropic launched Claude Sonnet 5.5 on 2026-09-29 with a headline that reads "costs up to 30% less for most work" — the kind of line that makes you assume a price cut. Check the official pricing page, though, and the input, output, and cache-read rates are identical to Sonnet 5, down to the cent: $2.00 / $10.00 / $0.20 per 1M tokens. This isn't a price cut. It's the same price for a model that needs fewer tokens to do the same work — a 30% cost reduction earned through efficiency, not a smaller number on the rate card. Those two things mean very different things for budget planning.
+Anthropic launched Claude Sonnet 5.5 on 2026-09-28 with a headline that reads "costs up to 30% less for most work" — the kind of line that makes you assume a price cut. Check the official pricing page, though, and the input, output, and cache-read rates are identical to Sonnet 5, down to the cent: $2.00 / $10.00 / $0.20 per 1M tokens. This isn't a price cut. It's the same price for a model that needs fewer tokens to do the same work — a 30% cost reduction earned through efficiency, not a smaller number on the rate card. Those two things mean very different things for budget planning.
 
 ## Before / after
 
 | Item | Sonnet 5 | Sonnet 5.5 | Change | Effective |
 |---|---|---|---|---|
-| Input | $2.00/1M tokens | $2.00/1M tokens | 0% | 2026-09-29 |
-| Output | $10.00/1M tokens | $10.00/1M tokens | 0% | 2026-09-29 |
-| Cache read | $0.20/1M tokens | $0.20/1M tokens | 0% | 2026-09-29 |
-| Cache write (5m) | $2.50/1M tokens | $2.50/1M tokens | 0% | 2026-09-29 |
-| Batch input | $1.00/1M tokens | $1.00/1M tokens | 0% | 2026-09-29 |
-| Batch output | $5.00/1M tokens | $5.00/1M tokens | 0% | 2026-09-29 |
+| Input | $2.00/1M tokens | $2.00/1M tokens | 0% | 2026-09-28 |
+| Output | $10.00/1M tokens | $10.00/1M tokens | 0% | 2026-09-28 |
+| Cache read | $0.20/1M tokens | $0.20/1M tokens | 0% | 2026-09-28 |
+| Cache write (5m) | $2.50/1M tokens | $2.50/1M tokens | 0% | 2026-09-28 |
+| Batch input | $1.00/1M tokens | $1.00/1M tokens | 0% | 2026-09-28 |
+| Batch output | $5.00/1M tokens | $5.00/1M tokens | 0% | 2026-09-28 |
 
 The flat rate across the board is itself the story worth noting: Anthropic chose to position Sonnet 5.5 as "do more at the same price point," rather than compete on rate cuts the way OpenAI did with GPT-6 Sol/Luna (see [our 09-28 pricing writeup](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)).
 
@@ -75,6 +75,10 @@ With Sonnet 5.5, Anthropic and OpenAI are now going head-to-head at the exact sa
 ## Takeaway
 
 Seeing a headline like "costs up to 30% less" makes you want to go check the pricing page for a rate cut — this time the rate hadn't moved a cent, and the entire 30% came from "the same task using fewer tokens." That's worth remembering: a vendor's "cheaper" claim doesn't automatically mean a lower list price. Efficiency gains can be packaged into a pricing headline just as easily as an actual rate cut, but the two have very different reliability for long-term budget planning — a rate cut is a guaranteed constant, while efficiency gains swing wildly by task type and can shrink toward zero in the wrong workload.
+
+## Update Log
+
+- 2026-11-07: Corrected: Sonnet 5.5 launched on September 28.
 
 ## References
 

@@ -6,7 +6,7 @@ type: digest
 tags: [ai-agent, pricing, daily, anthropic]
 lang: zh-TW
 description: "Anthropic 10/7 將 Claude Sonnet 5.5 的 prompt cache 命中價格從 $0.20 降到 $0.10/1M tokens，降幅 50%，input/output/cache write 不變"
-tldr: "Anthropic 2026-10-07 把 Claude Sonnet 5.5 的 cache read（快取命中）價格從 $0.20 砍到 $0.10/1M tokens（輸入價的 5%，原本是 10%），降幅 50%，當天生效。Input $2、output $10、cache write（5 分鐘 $2.50／1 小時 $4）都沒變。這是 Sonnet 5.5 自 9/29 上市以來第一次真正調價——上市時官方強調『同價格換省 token』，這次才是帳單單價真的變小。"
+tldr: "Anthropic 2026-10-07 把 Claude Sonnet 5.5 的 cache read（快取命中）價格從 $0.20 砍到 $0.10/1M tokens（輸入價的 5%，原本是 10%），降幅 50%，當天生效。Input $2、output $10、cache write（5 分鐘 $2.50／1 小時 $4）都沒變。這是 Sonnet 5.5 自 9/28 上市以來第一次真正調價——上市時官方強調『同價格換省 token』，這次才是帳單單價真的變小。"
 series:
   name: "AI Pricing Watch"
   order: 19
@@ -16,7 +16,7 @@ series:
 
 ## 變更摘要
 
-Anthropic 在 2026-10-07 的官方 release notes 宣布，將 Claude Sonnet 5.5 的 prompt cache 命中（cache read）價格從 $0.20 降到 $0.10/1M tokens，折扣比例從「輸入價的 10%」改成「輸入價的 5%」，跟兩週前 Opus 5.5 上市時用的折扣比例看齊。Input、output、cache write 三項單價維持不變。這次調整值得特別記一筆的原因是：Sonnet 5.5 在 9/29 上市時三項單價跟前代 Sonnet 5 一字不差（本站 9/30 已記錄），Anthropic 當時把「成本降 30%」的功勞全部歸給「同任務用更少 token」而非降價；這次是該模型掛牌以來第一次單價真的變小，而且砍的正是 agent／coding 這類重複送入長上下文工作負載裡占比最高的一行。
+Anthropic 在 2026-10-07 的官方 release notes 宣布，將 Claude Sonnet 5.5 的 prompt cache 命中（cache read）價格從 $0.20 降到 $0.10/1M tokens，折扣比例從「輸入價的 10%」改成「輸入價的 5%」，跟兩週前 Opus 5.5 上市時用的折扣比例看齊。Input、output、cache write 三項單價維持不變。這次調整值得特別記一筆的原因是：Sonnet 5.5 在 9/28 上市時三項單價跟前代 Sonnet 5 一字不差（本站 9/30 已記錄），Anthropic 當時把「成本降 30%」的功勞全部歸給「同任務用更少 token」而非降價；這次是該模型掛牌以來第一次單價真的變小，而且砍的正是 agent／coding 這類重複送入長上下文工作負載裡占比最高的一行。
 
 ## 前後對照
 
@@ -73,6 +73,10 @@ Anthropic 在 2026-10-07 的官方 release notes 宣布，將 Claude Sonnet 5.5 
 ## 今日收穫
 
 Anthropic 9 月底發表 Sonnet 5.5 時刻意強調「單價沒變，省的是 token 數」，但不到十天就把快取命中價砍半——這說明「同代模型分階段調價」正在變成常態打法：先用「效率提升」敘事上市卡位，觀察市場反應（尤其是 GPT-6.1 Sol 這類快取折扣比例更高的競品），再補一刀真正的單價調整。對追蹤定價的人來說，模型上市公告裡「這次不是降價」這句話，保質期可能只有一到兩週。
+
+## 更新紀錄
+
+- 2026-11-07：更正：Sonnet 5.5 上市日是 9/28。
 
 ## 參考資料
 

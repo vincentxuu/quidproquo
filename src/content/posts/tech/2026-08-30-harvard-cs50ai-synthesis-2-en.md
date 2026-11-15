@@ -242,14 +242,14 @@ Do the projects in week order. The only things known for certain that affect sch
 
 ## Course video sources
 
-This post is a cross-week review written by this site; it corresponds to no particular week and embeds no video. None of the seven lecture recordings introduces that week's project assignments (Week 4 demonstrates Nim but does not mention the assignment); the project content here comes from the spec pages on the course site and the officially released code. The official CS50 YouTube playlist (8 videos: an introduction plus the Week 0–6 lectures) was checked live on 2026-10-10.
+This post is a cross-week review written by this site; it corresponds to no particular week and embeds no video. None of the seven lecture recordings introduces that week's project assignments (Week 4 demonstrates Nim but does not mention the assignment); the project content here comes from the spec pages on the course site and the officially released code. The official CS50 YouTube playlist (8 videos: an introduction plus the Week 0–6 lectures) was checked live on 2026-11-09.
 
 Course and recording entries:
 
 - [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
 - [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
@@ -259,6 +259,7 @@ Checked: 2026-10-10.
 - 2026-10-13: Rewritten from scratch against the official distribution code, the spec pages, and the rewritten weekly guides, with its role changed to a cross-week review. Removed unsupported content: the estimated line counts per project, the star difficulty ratings, the hour estimates and the "60–100 hours" total, the "check50 key verification" column (this series did not run check50), and the skill transfer map. Corrected wrong project descriptions: Heredity enumerates every combination and normalizes (previously likelihood-weighting sampling); Shopping has no `StandardScaler` (previously "MUST use"); Nim has no discount parameter (previously γ=1); `add_constraints`, `forward_check`, `count_conflicts`, and `structure3.txt` do not exist in Crossword's official files; in Traffic you write `load_data` yourself and the spec has no accuracy threshold (previously: check50 loads `traffic_model.h5`, threshold around 95%); alpha-beta pruning in Tic-Tac-Toe is optional. New content: each project linked to the lecture sections it uses, six kinds of relationship between projects and nine lecture demonstrations to compare against, three examples worked to the end, and five self-check questions with answers. The scope label in the title changed from "Course Overview" to "Topic Guide", and the topic half now says what the post actually does.
 - 2026-10-13: Fixes from independent review: example 2 no longer copies the run count and ranges from the Week 4 guide and links there instead; Tic-Tac-Toe and PageRank were added to the projects with a lecture demonstration to compare against, nine in all; Attention's checkpoint is two example sentences; "neither trains nor reasons" became "uses a model someone else trained"; the PageRank row no longer links to the Bayesian-network sampling section; the account needed for check50 is now consistently a GitHub account; the tags difficulty and portfolio were removed.
 - 2026-10-14: Fixes from re-review: the fourth self-check question and its criterion now cover "a definition given in lecture", since Tic-Tac-Toe is matched to a definition, not a program. The tag comparison was also removed.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

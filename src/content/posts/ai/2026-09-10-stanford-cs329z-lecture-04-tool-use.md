@@ -16,11 +16,16 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 79 分鐘；本文依公開投影片與指定讀物整理，並已依錄影（機器轉錄逐字稿）核對各節起點。
 
 第 4 堂（10/5，Tool Use & Function Calling）回答模型為什麼需要工具、又怎麼學會用：從 Toolformer、Gorilla 與 ToolLLM，到 REST、function calling 與 MCP 這些標準介面，再用 BFCL、ToolBench 與 τ-bench 評估工具使用。同一天 [HW1 發布](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)：不准用任何 agent 框架，只給一個 chat-completion 呼叫，從零刻一個公司內部的 AI 助理。
 
 指定讀物有 Toolformer、Gorilla 與 [MCP 規範](https://modelcontextprotocol.io/specification/2025-06-18)。本文深讀 MCP：工具從此有統一插頭，不用每接一家重寫一遍。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=s0S38lz6O7M
+title: How AI Agents Use Tools: Function Calling & MCP | Stanford CS329Z Lecture 4 with Diyi Yang
+```
 
 ## Lecture 04 投影片導讀
 
@@ -32,6 +37,8 @@ draft: false
 
 ### 第 1–14 頁：先補完 RAG 的證據問題
 
+[錄影 00:00–17:44](https://www.youtube.com/watch?v=s0S38lz6O7M)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=1" data-slide-page="1">投影片第 1–14 頁</a>
 
 這堂先接續前週：檢索找得更多，生成不一定用得更好。Lost in the middle 與引用品質的圖分別問「模型是否讀到」及「引用是否支持主張」。畫面上有可點的來源，仍須逐句核對支持關係。最後又回到 retriever、reader、loop 三層失敗，讓工具課從具體缺口出發。
@@ -39,6 +46,8 @@ draft: false
 檢查一個答案時，可先保持模型不動，只改證據位置與無關段落數；另抽查引用指向的內容。這是本文自擬的診斷法，可以把檢索不足、使用不足與假引用分開。
 
 ### 第 15–21 頁：工具把計算與外部狀態交給程式
+
+[錄影 17:44–31:49](https://www.youtube.com/watch?v=s0S38lz6O7M&t=1064s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=15" data-slide-page="15">投影片第 15–21 頁</a>
 
@@ -48,6 +57,8 @@ draft: false
 
 ### 第 22–35 頁：Toolformer：先執行候選，再篩出有用呼叫
 
+[錄影 31:49–50:52](https://www.youtube.com/watch?v=s0S38lz6O7M&t=1909s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=22" data-slide-page="22">投影片第 22–35 頁</a>
 
 Toolformer 從少量示範出發，在文字中抽樣 API 呼叫候選，真的執行，再看結果是否降低後續 token 的預測損失。留下有幫助的呼叫，形成微調資料。這是用語言建模目標產生工具訓練訊號，不等於沒有資料處理，也不等於已證明多步任務可靠。
@@ -55,6 +66,8 @@ Toolformer 從少量示範出發，在文字中抽樣 API 呼叫候選，真的�
 接著 ToolkenGPT 把工具當特殊 token，學工具 embedding，觸發後切到填參數的模式。兩者都在學呼叫，但訓練的部位不同。讀比較表時，先找「更新了模型權重還是工具 embedding」，再看能擴到多少工具。
 
 ### 第 36–45 頁：工具很多時，先找對 API 再生成呼叫
+
+[錄影 50:52–63:43](https://www.youtube.com/watch?v=s0S38lz6O7M&t=3052s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=36" data-slide-page="36">投影片第 36–45 頁</a>
 
@@ -64,6 +77,8 @@ API 名稱存在、參數型別合法與使用後任務成功，是三道不同�
 
 ### 第 46–56 頁：REST、function calling、MCP 與兩段認證
 
+[錄影 63:43–75:24](https://www.youtube.com/watch?v=s0S38lz6O7M&t=3823s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=46" data-slide-page="46">投影片第 46–56 頁</a>
 
 REST 暴露服務端點，function calling 用 schema 描述模型可選的名稱與參數，MCP 再提供跨 host 的發現與呼叫協議。投影片用 tools/list 與 tools/call 逐步示範，並把 LMS 的查作業、查繳交與評分路由轉成工具。這些程式碼是課堂示意；實作仍應以採用版本的正式規範為準。
@@ -71,6 +86,8 @@ REST 暴露服務端點，function calling 用 schema 描述模型可選的名�
 最值得停下來看的是 inbound／outbound auth：agent 是否能連 MCP server，與 server 是否能讀寫 LMS，是兩道權限。能連上 server 不代表可評所有學生的分數；執行器仍要檢查使用者、資源與操作範圍。下面 MCP 指定版本導讀再拆 host／client／server。
 
 ### 第 57–68 頁：從合法呼叫到可重複完成任務
+
+[錄影 75:24–79:15](https://www.youtube.com/watch?v=s0S38lz6O7M&t=4524s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=57" data-slide-page="57">投影片第 57–68 頁</a>
 
@@ -160,10 +177,15 @@ Resources、prompts 與 tools 的控制方式不同；client capabilities 也不
 
 ## 課程影片來源
 
-[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)寫明，課堂錄影須登入課程 Canvas 取得。本文依公開 PDF 與指定讀物帶讀，沒有把受限錄影當作已觀看材料。錄影取得方式於 2026-10-23 依官方頁面核對。
+- 錄影：[How AI Agents Use Tools: Function Calling & MCP | Stanford CS329Z Lecture 4 with Diyi Yang](https://www.youtube.com/watch?v=s0S38lz6O7M)（Stanford Online 頻道，2026-11-12 上架，全片約 79 分鐘）
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- 查核日期：2026-11-13。上架前「錄影需登入課程 Canvas」的說法已不再適用；本文依公開 PDF 與指定讀物帶讀，並已依錄影（機器轉錄逐字稿）核對各節起點。
+- 內容核對：已依影片核對（2026-11-13）：以機器轉錄逐字稿核對各節起點，投影片導讀各小節附錄影時間連結。
 
 ## 更新紀錄
 
+- 2026-11-13：Stanford Online 公開上架本堂錄影並建立課程播放清單，嵌入影片、狀態改為已附影片，改寫影片來源區。
+- 2026-11-13：以機器轉錄逐字稿核對各節起點，投影片導讀各小節加上錄影時間連結。
 - 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 4（10/5 週一）的內容，原屬「第 3 週：工具接進來，框架拆開看」導讀；以下保留拆分前的紀錄。
 - 2026-10-29：對照 Lecture 04／05 投影片重核各節頁碼；補上工具失敗三層分類與 τ-bench 版本演進（L04 第 64–67 頁）、同模型換 harness 的成功率差距與 Meta-Harness（L05 第 86–88 頁），以及需要 durable orchestration 的理由（L05 第 92–93 頁）。
 - 2026-10-23：依兩堂官方 PDF 補成逐段投影片導讀，加入頁碼對照、機制與自測，保留並分開指定讀物解說。

@@ -59,12 +59,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 
 
-```video-gallery
-key: japanOkuraBoulders
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：日式 5–10 級
 
 容易線分散在多塊岩，水位仍會改變落地。先選能安全下河床、也能安全回到步徑的岩塊。
@@ -109,6 +103,12 @@ layout: routes
 | 放流者 2級 | 2級 | — | — | 犬岩周辺 | 來源： [RockTopo](https://www.rocktopo.net/areas/67/routes) |
 | テキサスチェーンソー 2級 | 2級 | — | — | 犬岩周辺 | 來源： [RockTopo](https://www.rocktopo.net/areas/67/routes) |
 
+```video-gallery
+key: japanOkuraBoulders
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：日式 1 級至初段
 
 汁、MNO 等初段線各有不同的動作與落地。汁的記錄特別提到初手潮濕，出發前仍應查看整塊岩的水況。
@@ -125,6 +125,12 @@ layout: routes
 | 悟り 初段+ | 初段+ | — | — | 汁岩周辺 | 來源： [RockTopo](https://www.rocktopo.net/areas/67/routes) |
 | 愚断 初段 | 初段 | — | — | 犬岩周辺 | 來源： [RockTopo](https://www.rocktopo.net/areas/67/routes) |
 
+```video-gallery
+key: japanOkuraBoulders
+lang: zh-TW
+layout: routes
+```
+
 ### 高手：日式二段以上
 
 無心、鍛造、縁等線適合再查專門 topo。河床下方的墊子配置要隨水位重看，不能直接複製舊影片。
@@ -135,6 +141,12 @@ layout: routes
 | 苦行 二段 | 二段 | — | — | 汁岩周辺 | 來源： [RockTopo](https://www.rocktopo.net/areas/67/routes) |
 | 縁 四段 | 四段 | — | — | 汁岩周辺 | 來源： [RockTopo](https://www.rocktopo.net/areas/67/routes) |
 | 鍛造 四段 | 四段 | — | — | 汁岩周辺 | 來源： [RockTopo](https://www.rocktopo.net/areas/67/routes) |
+
+```video-gallery
+key: japanOkuraBoulders
+lang: zh-TW
+layout: routes
+```
 
 ## 查資料的入口
 

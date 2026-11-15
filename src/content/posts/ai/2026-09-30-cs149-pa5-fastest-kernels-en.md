@@ -152,21 +152,19 @@ The README describes the loop in four steps: run, measure, form a hypothesis fro
 
 **Try this**: pick a problem and don't write a kernel yet. Run the baseline with `eval.py profile`, paste the summary into your notes, and finish this sentence: "I think it is limited by ___, because of this number: ___." That sentence is step one of your work log.
 
-## What this post can and cannot confirm
+## Further reading
 
-Confirmed: the asst5-kernels README, the five problem READMEs and `test_cases/test.txt` files, the template file list, and the assignment title and due date on the course home page. Performance numbers in the READMEs were measured by staff on their own hardware (the FlashAttention table's small and medium shapes on an RTX 5090, the large shape on an H100). This post quotes them without rerunning anything.
+Performance numbers in the READMEs were measured by staff on their own hardware (the FlashAttention table's small and medium shapes on an RTX 5090, the large shape on an H100), so match the hardware before comparing your own results.
 
-Not confirmed: the contents of `setup.sh` on Ed, actual leaderboard results, queue wait times on the H100s, and the finer points of how staff grade work logs.
+The SwiGLU README calls [arXiv 1710.05941](https://arxiv.org/abs/1710.05941) "the original SwiGLU paper," but that is Ramachandran, Zoph, and Le's 2017 "Searching for Activation Functions," which introduced the Swish activation. The paper that put Swish inside a GLU gate and named it SwiGLU is Noam Shazeer's 2020 "[GLU Variants Improve Transformer](https://arxiv.org/abs/2002.05202)" (arXiv 2002.05202). The problem's formula, Swish(xW + b) ⊙ (xV + c), draws on both: look up Swish in the first and the SwiGLU structure in the second.
 
-One more thing to watch: the SwiGLU README calls [arXiv 1710.05941](https://arxiv.org/abs/1710.05941) "the original SwiGLU paper," but that is Ramachandran, Zoph, and Le's 2017 "Searching for Activation Functions," which introduced the Swish activation. The paper that put Swish inside a GLU gate and named it SwiGLU is Noam Shazeer's 2020 "[GLU Variants Improve Transformer](https://arxiv.org/abs/2002.05202)" (arXiv 2002.05202). The problem's formula, Swish(xW + b) ⊙ (xV + c), draws on both: look up Swish in the first and the SwiGLU structure in the second.
-
-Further reading: the full FlashAttention story in [CMU 11-868 L21](/posts/ai/2026-09-30-cmu11868-flashattention-en); Triton's programming model in [CS336 kernels and Triton](/posts/ai/2026-08-22-cs336-kernels-triton-en); another take on GPU programming in [CMU 11-868 GPU programming](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en).
+The full FlashAttention story in [CMU 11-868 L21](/posts/ai/2026-09-30-cmu11868-flashattention-en); Triton's programming model in [CS336 kernels and Triton](/posts/ai/2026-08-22-cs336-kernels-triton-en); another take on GPU programming in [CMU 11-868 GPU programming](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en).
 
 **Series**: previous [L13 DSLs and AI-driven optimization](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization-en) | next [L14 Cache coherence: MSI, MESI, and false sharing](/posts/ai/2026-09-30-cs149-cache-coherence-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-11-09: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-11-09.
 
 Course and recording entries:
 
@@ -176,6 +174,7 @@ Course and recording entries:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Rechecked official sources; there is still no public recording matching this article, and a check date was added.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 
