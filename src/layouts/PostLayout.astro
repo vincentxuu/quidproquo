@@ -121,6 +121,7 @@ const pageTitle =
       <a href={tagsHref} class="nav-link">{t('nav.tags')}</a>
       <a href={lang === 'en' ? '/en/interview' : '/interview'} class="nav-link">{t('nav.interview')}</a>
       <a href="/english" class="nav-link">{t('nav.english')}</a>
+      {lang !== 'en' && <a href="/collection" class="nav-link">{t('nav.collection')}</a>}
       <a href={lang === 'en' ? '/en/vocabulary' : '/vocabulary'} class="nav-link">{lang === 'en' ? 'Vocabulary' : '單字庫'}</a>
       <a href="/account" class="nav-link">{lang === 'en' ? 'My space' : '私人空間'}</a>
       <div class="nav-right">

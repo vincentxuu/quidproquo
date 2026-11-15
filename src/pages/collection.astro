@@ -1,0 +1,113 @@
+---
+export const prerender = true;
+import "../styles/collection.css";
+
+import PostLayout from '../layouts/PostLayout.astro';
+import { useTranslations } from '../i18n/utils';
+import {
+  getCollection,
+  getTopWorks,
+  getWorksByType,
+  getGradientFor,
+  getStatusLabel,
+  type MediaType,
+} from '../lib/collection';
+
+const t = useTranslations('zh-TW');
+const all = getCollection();
+const top = getTopWorks(5);
+const sections: { type: MediaType; id: string; works: typeof all }[] = [
+  { type: 'anime', id: 'anime', works: getWorksByType('anime') },
+  { type: 'film', id: 'film', works: getWorksByType('film') },
+  { type: 'drama', id: 'drama', works: getWorksByType('drama') },
+];
+const sectionLabels: Record<MediaType, string> = {
+  anime: '動漫',
+  film: '電影',
+  drama: '戲劇',
+};
+const typeClasses: Record<MediaType, string> = {
+  anime: 'cat-anime',
+  film: 'cat-film',
+  drama: 'cat-drama',
+};
+const count = (type: MediaType) => all.filter((w) => w.type === type).length;
+const favoriteCount = all.filter((w) => w.tier === 'favorite').length;
+---
+
+<PostLayout title="收藏館 — quidproquo" lang="zh-TW" description="動漫、電影與戲劇的個人收藏館：評分、最愛場景與真愛作品。">
+  <header class="collection-hero">
+    <p class="collection-eyebrow">Collection</p>
+    <h1>我的收藏館</h1>
+    <p class="collection-tagline">
+      看過的作品沉澱在這裡：評分是我的，感受是我的，真愛作品單獨開一間房。
+    </p>
+    <div class="collection-stats">
+      <div class="collection-stat"><b>{all.length}</b><span>收藏總數</span></div>
+      <div class="collection-stat"><b>{count('anime')}</b><span>動漫</span></div>
+      <div class="collection-stat"><b>{count('film')}</b><span>電影</span></div>
+      <div class="collection-stat"><b>{count('drama')}</b><span>戲劇</span></div>
+      <div class="collection-stat"><b>{favoriteCount}</b><span>真愛</span></div>
+    </div>
+  </header>
+
+  <div class="collection-mosaic" aria-label="收藏牆">
+    {all.map((w, i) => (
+      <div class:list={['mosaic-tile', i === 0 && 'mosaic-tile--hero']}>
+        <a
+          href={`/collection/${w.slug}`}
+          style={`background:${getGradientFor(w.slug)}`}
+          aria-label={w.title}
+        >{w.title}</a>
+      </div>
+    ))}
+  </div>
+
+  <section class="collection-section">
+    <div class="collection-section-header">
+      <h2>真愛 TOP {top.length}</h2>
+    </div>
+    <div class="collection-grid">
+      {top.map((w) => (
+        <a class="work-card" href={`/collection/${w.slug}`}>
+          <div class="work-card-poster" style={`background:${getGradientFor(w.slug)}`}>
+            {w.poster && <img src={w.poster} alt={`${w.title} 海報`} loading="lazy" />}
+            <span class="work-card-rating">★ {w.rating}</span>
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-title">{w.title}</span>
+            <span class="work-card-meta">{w.year} · {sectionLabels[w.type]}</span>
+            {w.oneLiner && <span class="work-card-oneliner">{w.oneLiner}</span>}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  {sections.map((s) => (
+    <section class="collection-section" id={s.id}>
+      <div class:list={['collection-section-header', typeClasses[s.type]]}>
+        <h2>{sectionLabels[s.type]} · {s.works.length} 部</h2>
+      </div>
+      {s.works.length === 0 ? (
+        <p class="collection-empty">這個分類還沒有收藏。</p>
+      ) : (
+        <div class="collection-grid">
+          {s.works.map((w) => (
+            <a class="work-card" href={`/collection/${w.slug}`}>
+              <div class="work-card-poster" style={`background:${getGradientFor(w.slug)}`}>
+                {w.poster && <img src={w.poster} alt={`${w.title} 海報`} loading="lazy" />}
+                <span class="work-card-rating">★ {w.rating}</span>
+              </div>
+              <div class="work-card-body">
+                <span class="work-card-title">{w.title}</span>
+                <span class="work-card-meta">{w.year} · {getStatusLabel(w.status, 'zh-TW')}</span>
+                {w.oneLiner && <span class="work-card-oneliner">{w.oneLiner}</span>}
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </section>
+  ))}
+</PostLayout>
