@@ -16,7 +16,7 @@
 
 | Gate | Status | Evidence / revision | Remaining work |
 |---|---|---|---|
-| Source and automated checks | pending | `pnpm lint` / `pnpm exec astro check` / prerender build 結果見下方更新 | — |
+| Source and automated checks | pass | `pnpm lint` 0 errors；`pnpm exec astro check` 0 errors（84 hints 皆既有）；`pnpm build` 成功，`dist/client/collection/` 生成 index + 8 作品頁；`pnpm verify`（pre-commit）all green，commit `71b3dee64` | — |
 | Interaction | pending | 連結導向 /collection/<slug> 為靜態 href；無 JS 互動邏輯 | 使用者或指定 reviewer 操作驗收 |
 | Visual review | pending | 需瀏覽器驗收（深淺色 × 桌面/窄螢幕） | 待驗 |
 | Deployment confirmation | not applicable | feature branch PR 流程，未部署 | — |
