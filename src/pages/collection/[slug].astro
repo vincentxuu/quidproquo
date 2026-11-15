@@ -42,7 +42,7 @@ const tierLabels = { favorite: '真愛', loved: '很喜歡', watched: '看過' }
           <span class="work-badge">{work.year}</span>
           <span class="work-badge">{getStatusLabel(work.status, 'zh-TW')}</span>
           <span class="work-badge">{tierLabels[work.tier]}</span>
-          <span class="work-badge">★ {work.rating} / 10</span>
+          {work.rating > 0 && <span class="work-badge">★ {work.rating} / 10</span>}
         </div>
         <div class="work-badges">
           {work.genres.map((g) => <span class="work-badge">{g}</span>)}

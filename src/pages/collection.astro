@@ -97,7 +97,7 @@ const favoriteCount = all.filter((w) => w.tier === 'favorite').length;
             <a class="work-card" href={`/collection/${w.slug}`}>
               <div class="work-card-poster" style={`background:${getGradientFor(w.slug)}`}>
                 {w.poster && <img src={w.poster} alt={`${w.title} 海報`} loading="lazy" />}
-                <span class="work-card-rating">★ {w.rating}</span>
+                {w.rating > 0 && <span class="work-card-rating">★ {w.rating}</span>}
               </div>
               <div class="work-card-body">
                 <span class="work-card-title">{w.title}</span>
