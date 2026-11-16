@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "swebench_verified_top5": [
     { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
     { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
@@ -8,11 +8,11 @@
     { "rank": 5, "model": "EPAM AI/Run Developer Agent + Atlassian Rovo Dev + Claude 4.5 Opus（三方並列 76.80）", "org": "EPAM／Atlassian／Anthropic", "score": 76.80 }
   ],
   "lmsys_agent_top5": [
-    { "rank": 1, "model": "Claude Fable 5.2 (Max)", "score": 30.35, "ci": "[26.42%, 34.28%]" },
-    { "rank": 2, "model": "Claude Opus 5.5 (Max)", "score": 19.52, "ci": "[17.49%, 21.54%]" },
-    { "rank": 3, "model": "Gemini 4 Carbon (High)", "score": 16.98, "ci": "[16.29%, 17.66%]" },
-    { "rank": 4, "model": "Claude Sonnet 5.5 (Max)", "score": 15.95, "ci": "[13.13%, 18.77%]" },
-    { "rank": 5, "model": "Claude Fable 5.1 (Max)", "score": 14.82, "ci": "[12.76%, 16.88%]" }
+    { "rank": 1, "model": "Claude Fable 5.2 (Max)", "score": 28.61, "ci": "[24.89%, 32.33%]" },
+    { "rank": 2, "model": "Claude Opus 5.5 (Max)", "score": 18.19, "ci": "[16.17%, 20.22%]" },
+    { "rank": 3, "model": "Gemini 4 Carbon (High)", "score": 16.45, "ci": "[15.77%, 17.12%]" },
+    { "rank": 4, "model": "Claude Sonnet 5.5 (Max)", "score": 15.29, "ci": "[12.39%, 18.18%]" },
+    { "rank": 5, "model": "Gemini 4 Hydrogen (High)", "score": 14.91, "ci": "[13.02%, 16.79%]" }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59.2 },
@@ -27,5 +27,5 @@
     { "rank": 5, "model": "Opus 5.5 Max", "org": "Anthropic", "score": 57.8, "costPerTask": 13.43, "tokensPerTask": 218363 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-11-16：SWE-bench Verified 用 Bash python3 -I 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json 解析 180 筆 Verified 結果，前 5 名與 11-15 逐位元相同（79.20／79.20／78.80／77.40，第 5 名仍是 76.80 三方並列），未異動。LMArena Agent 子集用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，config=agent，latest split，length=20），leaderboard_publish_date 仍停在 11-11（未推進批次），前 5 名與 11-15 逐位元相同（Fable 5.2 30.35%／Opus 5.5 19.52%／Carbon High 16.98%／Sonnet 5.5 15.95%／Fable 5.1 14.82%），未異動。CursorBench 4.0 用 Groundlane web_search 交叉比對 benchlm.ai／AlphaSignal／Cursor 官方 X 貼文/llm-stats.com，前 3 名與 11-15 相同（Gemini 4 Carbon High 60.4%／Fable 5.2 Max 60.0%／Opus 5.5 Max 57.8%），未異動；fourweekmba.com 一則報導指 Gemini 4 Hydrogen 在 CursorBench 追平 Opus 5.5 Max（57.8%），但該並列發生在第 5 名，不影響前 3 名排序，不觸發。Step 3b 新聞信號查詢（SOTA／SWE-bench／Chatbot Arena 關鍵字）僅命中泛用排行榜整理文（kilo.ai、isitsota.com、llm-stats.com 等），無具體排名異動事件。皆未達第 4 條觸發門檻，今日無 Benchmark 異動。morphllm.com/leaderboard 持續回 404，無法存取；artificialanalysis.ai/agents/coding-agents 仍為前端 JS 渲染（改用 render:always 重試仍只拿到章節標題、無表格數值），aa_agentic_index_top3 延用上次確認值未重新驗證。"
+  "notes": "2026-11-17：SWE-bench Verified 用 Bash python3 -I 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json 解析 180 筆 Verified 結果，前 5 名與 11-16 逐位元相同（79.20／79.20／78.80／77.40，第 5 名仍是 76.80 三方並列），未異動。LMArena Agent 子集用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，config=agent，latest split，length=20），leaderboard_publish_date 從 11-11 推進到 11-15（新批次），分數全面下修：Fable 5.2 30.35%→28.61%（-1.74pp）、Opus 5.5 19.52%→18.19%（-1.33pp）、Carbon High 16.98%→16.45%（-0.53pp）、Sonnet 5.5 15.95%→15.29%（-0.66pp）；第 5 名由 Fable 5.1（14.82%→14.10%，降至第 6）換成 Gemini 4 Hydrogen (High) 14.91%（新進前 5，但非前 3，且無單一模型變動 >2pp），前 3 名排序與第 1 名皆未變，未達觸發門檻。CursorBench 4.0 用 Groundlane web_search 交叉比對 benchlm.ai／llm-stats.com／Cursor 官方 X 貼文，前 3 名與 11-16 相同（Gemini 4 Carbon High 60.4%／Fable 5.2 Max 60.0%／Opus 5.5 Max 57.8%），未異動；fourweekmba.com 重複報導 Gemini 4 Hydrogen 在 CursorBench 追平 Opus 5.5 Max（57.8%），仍是第 5 名並列，不影響前 3，不觸發。Terminal-Bench 4.1 新聞信號顯示 Claude Opus 5.5 以 65.76% 居首（benchlm.ai），但本 skill 未追蹤 Terminal-Bench 歷史快照（P3 週頻、無基準比對對象），僅記錄作為背景，不構成『異動』判定。Step 3b 新聞信號查詢（SOTA／SWE-bench／Chatbot Arena 關鍵字）僅命中泛用排行榜整理文與一篇討論『benchmark 互相矛盾』的部落格文章，無具體排名異動事件。皆未達觸發門檻，今日無 Benchmark 異動。morphllm.com/leaderboard 持續回 404，無法存取；artificialanalysis.ai/agents/coding-agents 仍為前端 JS 渲染，aa_agentic_index_top3 延用上次確認值未重新驗證（benchlm.ai 另有一個『AA Agentic Index』聚合頁顯示 Claude Fable 5.1 58.0% 居首，但該聚合值與官方站歷史追蹤的指標定義不同，不採用於比對）。"
 }
