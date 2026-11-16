@@ -33,16 +33,16 @@ caption: Figures and cases from LangChain's $300M Series C ($3B valuation), Whit
 ---
 <svg viewBox="0 0 640 310">
   <rect class="dg-box" x="40" y="32" width="560" height="100" rx="6"/>
-  <text class="dg-tag" x="60" y="60" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="92" y="60" dominant-baseline="central">Decision &amp; action layer — where today's money is</text>
-  <text class="dg-sub" x="580" y="60" text-anchor="end" dominant-baseline="central">LangSmith ($300M Series C), WhiteMatter Guardian agent ($20M Series A)</text>
-  <text class="dg-sub" x="580" y="90" text-anchor="end" dominant-baseline="central">Covers: policy checks, governance and audit before an agent acts</text>
+  <text class="dg-tag" x="60" y="56" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="92" y="56" dominant-baseline="central">Decision &amp; action layer — where today's money is</text>
+  <text class="dg-sub" x="92" y="82" dominant-baseline="central">LangSmith ($300M Series C), WhiteMatter Guardian agent ($20M Series A)</text>
+  <text class="dg-sub" x="92" y="106" dominant-baseline="central">Covers: policy checks, governance and audit before an agent acts</text>
 
   <rect class="dg-box dg-box--accent" x="40" y="152" width="560" height="100" rx="6"/>
-  <text class="dg-tag" x="60" y="180" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="92" y="180" dominant-baseline="central">Supply-chain credential layer — where today's incident is</text>
-  <text class="dg-sub" x="580" y="180" text-anchor="end" dominant-baseline="central">Fireworks AI key leak → Cursor internal systems → extension backdoor → Uber/Notion</text>
-  <text class="dg-sub" x="580" y="210" text-anchor="end" dominant-baseline="central">Same day: CVEs pass 100,000; FBI FLASH warning on ARTEX</text>
+  <text class="dg-tag" x="60" y="176" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="92" y="176" dominant-baseline="central">Supply-chain credential layer — where today's incident is</text>
+  <text class="dg-sub" x="92" y="202" dominant-baseline="central">Fireworks AI key leak → Cursor internal systems → extension backdoor → Uber/Notion</text>
+  <text class="dg-sub" x="92" y="226" dominant-baseline="central">Same day: CVEs pass 100,000; FBI FLASH warning on ARTEX</text>
 
   <line class="dg-rule" x1="40" y1="272" x2="600" y2="272"/>
   <text class="dg-sub" x="40" y="292" dominant-baseline="central">Gap: almost no agent-governance product on the market specifically covers L2</text>

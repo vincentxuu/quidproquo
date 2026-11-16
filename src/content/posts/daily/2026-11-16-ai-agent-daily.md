@@ -33,16 +33,16 @@ caption: 數字與案例來自 LangChain $300M C 輪（估值 $3B）、WhiteMatt
 ---
 <svg viewBox="0 0 640 310">
   <rect class="dg-box" x="40" y="32" width="560" height="100" rx="6"/>
-  <text class="dg-tag" x="60" y="60" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="92" y="60" dominant-baseline="central">決策與行動層——今天的錢在這裡</text>
-  <text class="dg-sub" x="580" y="60" text-anchor="end" dominant-baseline="central">LangSmith（$300M C 輪）、WhiteMatter Guardian agent（$20M A 輪）</text>
-  <text class="dg-sub" x="580" y="90" text-anchor="end" dominant-baseline="central">覆蓋範圍：agent 執行動作前的政策檢查、治理與稽核</text>
+  <text class="dg-tag" x="60" y="56" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="92" y="56" dominant-baseline="central">決策與行動層——今天的錢在這裡</text>
+  <text class="dg-sub" x="92" y="82" dominant-baseline="central">LangSmith（$300M C 輪）、WhiteMatter Guardian agent（$20M A 輪）</text>
+  <text class="dg-sub" x="92" y="106" dominant-baseline="central">覆蓋範圍：agent 執行動作前的政策檢查、治理與稽核</text>
 
   <rect class="dg-box dg-box--accent" x="40" y="152" width="560" height="100" rx="6"/>
-  <text class="dg-tag" x="60" y="180" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="92" y="180" dominant-baseline="central">供應鏈憑證層——今天的事故在這裡</text>
-  <text class="dg-sub" x="580" y="180" text-anchor="end" dominant-baseline="central">Fireworks AI 金鑰外流 → Cursor 內部系統 → 擴充套件後門 → Uber／Notion</text>
-  <text class="dg-sub" x="580" y="210" text-anchor="end" dominant-baseline="central">同日並行：CVE 破 10 萬筆、FBI 對 ARTEX 的 FLASH 警示</text>
+  <text class="dg-tag" x="60" y="176" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="92" y="176" dominant-baseline="central">供應鏈憑證層——今天的事故在這裡</text>
+  <text class="dg-sub" x="92" y="202" dominant-baseline="central">Fireworks AI 金鑰外流 → Cursor 內部系統 → 擴充套件後門 → Uber／Notion</text>
+  <text class="dg-sub" x="92" y="226" dominant-baseline="central">同日並行：CVE 破 10 萬筆、FBI 對 ARTEX 的 FLASH 警示</text>
 
   <line class="dg-rule" x1="40" y1="272" x2="600" y2="272"/>
   <text class="dg-sub" x="40" y="292" dominant-baseline="central">落差：目前市面上的 agent 治理產品幾乎沒有一個專門覆蓋 L2</text>
