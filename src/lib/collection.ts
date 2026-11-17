@@ -80,15 +80,25 @@ export function getStatusLabel(status: WatchStatus, lang: string): string {
 }
 
 /**
- * 沒有海報圖時的視覺替代：由 slug 產生穩定的漸層色。
- * Phase 2 海報下載後，poster 非空即可改用 <img>。
+ * 沒有海報圖時的視覺替代：由 slug 從精選的暗色雙色調（duotone）色板挑一組，
+ * 避免隨機亮色漸層——這是「放映廳」的基調，Phase 2 海報下載後即可替換。
  */
+const DUOTONES: ReadonlyArray<readonly [string, string]> = [
+  ['#1a0d10', '#5b1a24'], // oxblood
+  ['#0c1220', '#1d3557'], // midnight
+  ['#0d1a14', '#1f513a'], // forest
+  ['#170d1f', '#4a1d63'], // plum
+  ['#1d1206', '#6b4312'], // bronze
+  ['#101418', '#313d4d'], // steel
+  ['#08201f', '#155e5a'], // deep sea
+  ['#200a17', '#7c2d4e'], // wine
+];
+
 export function getGradientFor(slug: string): string {
   let hash = 0;
   for (const ch of slug) hash = (hash * 31 + ch.charCodeAt(0)) | 0;
-  const hue1 = Math.abs(hash) % 360;
-  const hue2 = (hue1 + 45 + (Math.abs(hash >> 8) % 60)) % 360;
-  return `linear-gradient(135deg, hsl(${hue1} 45% 38%), hsl(${hue2} 55% 22%))`;
+  const [from, to] = DUOTONES[Math.abs(hash) % DUOTONES.length];
+  return `linear-gradient(165deg, ${from} 0%, ${to} 78%)`;
 }
 
 export function collectionHref(lang: string): string {
