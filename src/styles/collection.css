@@ -1,7 +1,16 @@
 /* Collection 頁樣式 —— 暗色放映廳基調（body.is-collection，不受站上主題切換影響）。
-   色彩刻意不使用站上 token：這裡是獨立的「房間」，深淺模式下視覺一致，對照 initiald.fan。 */
+   色板一律從 src/styles/tokens.css 衍生：底色與文字取 dark 主題的既定值（釘住），
+   強調色用品牌綠 --brand-500 的 dark 值，類型色沿用 --cat-*。不准引入站上沒有的新色系。 */
 
 body.is-collection {
+  --coll-bg: #0f1419;      /* = tokens dark --bg-page */
+  --coll-panel: #1a2332;   /* = tokens dark --bg-card */
+  --coll-border: #2a3545;  /* = tokens dark --border */
+  --coll-text: #d1d5db;    /* = tokens dark --text-primary */
+  --coll-soft: #a9b2ba;    /* 介於 text/muted 的中間層 */
+  --coll-muted: #8b929e;   /* = tokens dark --text-muted */
+  --coll-accent: #5cb87a;  /* = tokens dark --brand-500（品牌綠） */
+
   max-width: none;
 }
 
@@ -13,8 +22,8 @@ body.is-collection header nav {
 body.is-collection #main-content {
   max-width: 1180px;
   margin: 0 auto;
-  background: #0b0d12;
-  color: #f4f4f5;
+  background: var(--coll-bg);
+  color: var(--coll-text);
   border-radius: 18px;
   padding: 0 clamp(1.25rem, 4vw, 3rem) 3.5rem;
   overflow: hidden;
@@ -26,7 +35,7 @@ body.is-collection #main-content {
 }
 
 .collection-scope :focus-visible {
-  outline: 2px solid #d4b475;
+  outline: 2px solid var(--coll-accent);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -43,7 +52,7 @@ body.is-collection #main-content {
   font-size: 0.72rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: #d4b475;
+  color: var(--coll-accent);
   margin: 0 0 1rem;
 }
 
@@ -53,13 +62,13 @@ body.is-collection #main-content {
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin: 0 0 1rem;
-  color: #fafafa;
+  color: var(--coll-text);
 }
 
 .collection-tagline {
   font-size: clamp(0.95rem, 2vw, 1.05rem);
   line-height: 1.8;
-  color: #a1a1aa;
+  color: var(--coll-soft);
   max-width: 34rem;
   margin: 0 auto 1.75rem;
 }
@@ -76,7 +85,7 @@ body.is-collection #main-content {
   flex-direction: column;
   gap: 0.2rem;
   padding: 0 1.6rem;
-  border-left: 1px solid rgb(255 255 255 / 0.09);
+  border-left: 1px solid var(--coll-border);
 }
 
 .collection-stat:first-child {
@@ -87,13 +96,13 @@ body.is-collection #main-content {
   font-size: 1.7rem;
   font-weight: 800;
   letter-spacing: -0.01em;
-  color: #fafafa;
+  color: var(--coll-text);
 }
 
 .collection-stat span {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
-  color: #71717a;
+  color: var(--coll-muted);
 }
 
 /* ── 收藏牆拼貼 ── */
@@ -104,7 +113,7 @@ body.is-collection #main-content {
   gap: 4px;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgb(255 255 255 / 0.08);
+  border: 1px solid var(--coll-border);
 }
 
 .mosaic-tile {
@@ -137,7 +146,8 @@ body.is-collection #main-content {
 .mosaic-tile a:hover,
 .mosaic-tile a:focus-visible {
   filter: saturate(1.1) brightness(1.05);
-  outline: none;
+  outline: 2px solid var(--coll-accent);
+  outline-offset: -2px;
 }
 
 .mosaic-tile b {
@@ -176,7 +186,7 @@ body.is-collection #main-content {
   align-items: baseline;
   gap: 0.9rem;
   padding-top: 1.1rem;
-  border-top: 1px solid rgb(255 255 255 / 0.09);
+  border-top: 1px solid var(--coll-border);
   margin-bottom: 1.4rem;
 }
 
@@ -184,7 +194,7 @@ body.is-collection #main-content {
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #d4b475;
+  color: var(--coll-accent);
   font-variant-numeric: tabular-nums;
 }
 
@@ -193,21 +203,21 @@ body.is-collection #main-content {
   font-weight: 800;
   letter-spacing: -0.01em;
   margin: 0;
-  color: #fafafa;
+  color: var(--coll-text);
 }
 
 .collection-section-count {
   margin-left: auto;
   font-size: 0.78rem;
   letter-spacing: 0.14em;
-  color: #71717a;
+  color: var(--coll-muted);
 }
 
 .collection-empty {
-  color: #71717a;
+  color: var(--coll-muted);
   font-size: 0.9rem;
   padding: 2rem;
-  border: 1px dashed rgb(255 255 255 / 0.14);
+  border: 1px dashed var(--coll-border);
   border-radius: 10px;
 }
 
@@ -222,8 +232,8 @@ body.is-collection #main-content {
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  background: #12151d;
-  border: 1px solid rgb(255 255 255 / 0.06);
+  background: var(--coll-panel);
+  border: 1px solid var(--coll-border);
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
@@ -232,7 +242,7 @@ body.is-collection #main-content {
 .work-card:hover,
 .work-card:focus-visible {
   transform: translateY(-3px);
-  border-color: rgb(212 180 117 / 0.45);
+  border-color: color-mix(in srgb, var(--coll-accent) 55%, transparent);
   box-shadow: 0 10px 28px rgb(0 0 0 / 0.45);
 }
 
@@ -271,7 +281,7 @@ body.is-collection #main-content {
   bottom: 0.55rem;
   right: 0.65rem;
   z-index: 1;
-  color: #d4b475;
+  color: #fff;
   font-weight: 700;
   font-size: 0.85rem;
   text-shadow: 0 1px 4px rgb(0 0 0 / 0.8);
@@ -287,20 +297,20 @@ body.is-collection #main-content {
 .work-card-title {
   font-size: 0.98rem;
   font-weight: 700;
-  color: #f4f4f5;
+  color: var(--coll-text);
   line-height: 1.3;
 }
 
 .work-card-meta {
   font-size: 0.72rem;
   letter-spacing: 0.06em;
-  color: #71717a;
+  color: var(--coll-muted);
 }
 
 .work-card-oneliner {
   font-size: 0.8rem;
   line-height: 1.5;
-  color: #a1a1aa;
+  color: var(--coll-soft);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -323,7 +333,7 @@ body.is-collection #main-content {
   justify-content: flex-end;
   padding: 0.75rem;
   position: relative;
-  border: 1px solid rgb(255 255 255 / 0.08);
+  border: 1px solid var(--coll-border);
   box-shadow: 0 16px 40px rgb(0 0 0 / 0.5);
   color: #fff;
 }
@@ -358,11 +368,11 @@ body.is-collection #main-content {
   font-weight: 900;
   letter-spacing: -0.02em;
   margin: 0 0 0.3rem;
-  color: #fafafa;
+  color: var(--coll-text);
 }
 
 .work-hero-original {
-  color: #71717a;
+  color: var(--coll-muted);
   font-size: 0.95rem;
   letter-spacing: 0.04em;
   margin: 0 0 1rem;
@@ -380,28 +390,29 @@ body.is-collection #main-content {
   letter-spacing: 0.05em;
   padding: 0.26rem 0.65rem;
   border-radius: 999px;
-  background: rgb(255 255 255 / 0.05);
-  color: #a1a1aa;
-  border: 1px solid rgb(255 255 255 / 0.1);
+  background: rgb(255 255 255 / 0.04);
+  color: var(--coll-soft);
+  border: 1px solid var(--coll-border);
 }
 
-.work-badge--anime { color: #fb7185; border-color: rgb(225 29 72 / 0.4); }
-.work-badge--film { color: #d6d3d1; border-color: rgb(214 211 209 / 0.25); }
-.work-badge--drama { color: #c4b5fd; border-color: rgb(124 58 237 / 0.45); }
-.work-badge--tier-favorite { color: #d4b475; border-color: rgb(212 180 117 / 0.45); }
-.work-badge--rating { color: #d4b475; border-color: rgb(212 180 117 / 0.45); font-weight: 700; }
+/* 類型 badge：文字以 --cat-* 提亮（color-mix 混白）確保暗底對比，色源仍是站上 token */
+.work-badge--anime { color: color-mix(in srgb, var(--cat-anime) 70%, #fff); border-color: color-mix(in srgb, var(--cat-anime) 45%, transparent); }
+.work-badge--film { color: var(--coll-soft); border-color: color-mix(in srgb, var(--cat-film) 60%, transparent); }
+.work-badge--drama { color: color-mix(in srgb, var(--cat-drama) 70%, #fff); border-color: color-mix(in srgb, var(--cat-drama) 45%, transparent); }
+.work-badge--tier-favorite { color: var(--coll-accent); border-color: color-mix(in srgb, var(--coll-accent) 45%, transparent); }
+.work-badge--rating { color: var(--coll-accent); border-color: color-mix(in srgb, var(--coll-accent) 45%, transparent); font-weight: 700; }
 
 .work-oneliner {
   font-size: 1.08rem;
   line-height: 1.65;
-  color: #e4e4e7;
-  border-left: 3px solid #d4b475;
+  color: var(--coll-text);
+  border-left: 3px solid var(--coll-accent);
   padding: 0.15rem 0 0.15rem 1rem;
   margin: 0 0 1.25rem;
 }
 
 .work-hero-synopsis {
-  color: #a1a1aa;
+  color: var(--coll-soft);
   line-height: 1.8;
   margin: 0;
   font-size: 0.95rem;
@@ -415,15 +426,15 @@ body.is-collection #main-content {
   font-size: 1.05rem;
   font-weight: 800;
   letter-spacing: 0.02em;
-  color: #e4e4e7;
+  color: var(--coll-text);
   margin: 0 0 0.85rem;
   padding-top: 1.1rem;
-  border-top: 1px solid rgb(255 255 255 / 0.09);
+  border-top: 1px solid var(--coll-border);
 }
 
 .work-section p,
 .work-section li {
-  color: #a1a1aa;
+  color: var(--coll-soft);
   line-height: 1.85;
   font-size: 0.95rem;
 }
@@ -442,17 +453,17 @@ body.is-collection #main-content {
   margin-top: 3rem;
   font-size: 0.85rem;
   letter-spacing: 0.08em;
-  color: #a1a1aa;
+  color: var(--coll-muted);
   text-decoration: none;
 }
 
 .work-backlink:hover,
 .work-posts a:hover {
-  color: #d4b475;
+  color: var(--coll-accent);
 }
 
 .work-posts a {
-  color: #d4b475;
+  color: var(--coll-accent);
   text-decoration: none;
 }
 
