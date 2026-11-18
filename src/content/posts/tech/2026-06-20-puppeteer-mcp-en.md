@@ -10,8 +10,8 @@ tldr: "server-puppeteer is the Puppeteer wrapper in the official MCP servers mon
 description: "The design of @modelcontextprotocol/server-puppeteer, the trade-offs of screenshot-driven page state, and where to migrate now that it has been archived."
 draft: false
 series:
-  name: "Browser Automation and MCP"
-  order: 2
+  name: "AI Browser Automation"
+  order: 3
 ---
 
 > 🌏 [中文版](/posts/tech/2026-06-20-puppeteer-mcp)

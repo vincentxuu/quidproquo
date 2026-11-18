@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Browser Use 把瀏覽器狀態、模型決策與 click／type／extract 等動作組成可重複迴圈；開放原始碼版本適合自訂工具與執行策略，Cloud 則代管瀏覽器、profile、proxy 與並行工作。"
 description: "從 Browser Use 的 Agent 迴圈、Python 安裝、結構化輸出、登入狀態、自訂工具與安全邊界開始，說明本機與 Cloud 的差異、成本及失敗處理。"
 draft: false
+series:
+  name: "AI 瀏覽器自動化"
+  order: 14
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-21-browser-use-complete-guide-en)

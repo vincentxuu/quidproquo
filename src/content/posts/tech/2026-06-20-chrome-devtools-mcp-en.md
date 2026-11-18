@@ -10,8 +10,8 @@ tldr: "chrome-devtools-mcp, maintained by the Chrome team, packages DevTools cap
 description: "An introduction to chrome-devtools-mcp: what CDP is, what Chrome's official MCP server can do, how to attach it to a browser you already have open, the privacy and platform limits, and when you'd still wrap CDP yourself."
 draft: false
 series:
-  name: "Browser Automation and MCP"
-  order: 3
+  name: "AI Browser Automation"
+  order: 4
 ---
 
 > 🌏 [中文版](/posts/tech/2026-06-20-chrome-devtools-mcp)

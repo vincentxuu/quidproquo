@@ -10,8 +10,8 @@ tldr: "browse.sh, launched by Browserbase in May 2026, is two things: a browser 
 description: "A breakdown of Browserbase's browse.sh: the browser skill catalog, the Browse CLI, how Autobrowse trains skills, its relationship to the AgentSkills standard, and what 'open source and free' actually means here."
 draft: false
 series:
-  name: "Browser Automation and MCP"
-  order: 6
+  name: "AI Browser Automation"
+  order: 7
 ---
 
 🌏 [中文版](/posts/ai/2026-05-23-browse-sh-browser-skills)

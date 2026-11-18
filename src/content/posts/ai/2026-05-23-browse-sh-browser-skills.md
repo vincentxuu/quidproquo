@@ -10,8 +10,8 @@ tldr: "Browserbase 在 2026-05 推出的 browse.sh,是「瀏覽器技能目錄 +
 description: "解讀 Browserbase 的 browse.sh:瀏覽器技能目錄、Browse CLI、Autobrowse 怎麼養出技能、與 AgentSkills 標準的關係,以及「開源免費」要打的星號。"
 draft: false
 series:
-  name: "瀏覽器自動化與 MCP"
-  order: 6
+  name: "AI 瀏覽器自動化"
+  order: 7
 ---
 
 🌏 [English version](/posts/ai/2026-05-23-browse-sh-browser-skills-en)

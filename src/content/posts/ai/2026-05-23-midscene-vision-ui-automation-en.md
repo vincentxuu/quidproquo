@@ -10,8 +10,8 @@ tldr: "An MIT-licensed open-source UI automation framework from ByteDance. UI ac
 description: "A deep dive into Midscene.js: design trade-offs of pure-vision UI automation, three API categories and two automation styles, multi-model strategy, caching mechanism, the shift from MCP to Skills, and how it compares to Stagehand and browser-use."
 draft: false
 series:
-  name: "Browser Automation and MCP"
-  order: 5
+  name: "AI Browser Automation"
+  order: 10
 glossary:
   - term: "VLM"
     aliases: ["Vision-Language Model"]

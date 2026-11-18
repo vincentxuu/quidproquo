@@ -10,8 +10,8 @@ tldr: "server-puppeteer 是 MCP 官方 monorepo 裡的 Puppeteer 封裝，工具
 description: "@modelcontextprotocol/server-puppeteer 的設計、截圖導向的取捨，以及它被封存之後該遷移到哪裡。"
 draft: false
 series:
-  name: "瀏覽器自動化與 MCP"
-  order: 2
+  name: "AI 瀏覽器自動化"
+  order: 3
 ---
 
 > 🌏 [English version](/posts/tech/2026-06-20-puppeteer-mcp-en)

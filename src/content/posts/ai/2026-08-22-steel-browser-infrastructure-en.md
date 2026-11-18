@@ -8,6 +8,9 @@ type: deep-dive
 tldr: "Steel packages Chromium sessions, CDP, proxies, stealth, and debugging behind an Apache-2.0 browser API. Its public repository has about 7,400 stars and it entered the Stripe Projects developer preview in 2026. Self-hosting fits development and data-control needs; Cloud addresses concurrency, managed proxies, CAPTCHA, recordings, and SLAs."
 description: "An architecture and selection-focused guide to Steel Browser: sessions, CDP, Playwright, proxies, stealth, observability, credential security, single-host limits, and competing browser infrastructure."
 draft: false
+series:
+  name: "AI Browser Automation"
+  order: 21
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-steel-browser-infrastructure)

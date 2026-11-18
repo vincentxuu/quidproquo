@@ -8,6 +8,9 @@ lang: en
 tldr: "Browser Use combines browser state, model decisions, and actions such as click, type, and extract into a repeatable loop. The open-source package favors custom tools and execution control; Cloud manages browsers, profiles, proxies, and concurrent work."
 description: "Learn the Browser Use agent loop, Python setup, structured output, authentication state, custom tools, security boundaries, open-source versus Cloud deployment, costs, and failure handling."
 draft: false
+series:
+  name: "AI Browser Automation"
+  order: 14
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-21-browser-use-complete-guide)

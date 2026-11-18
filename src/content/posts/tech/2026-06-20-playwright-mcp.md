@@ -10,8 +10,8 @@ tldr: "@playwright/mcp 預設用 accessibility tree（browser_snapshot）取代�
 description: "深入介紹 @playwright/mcp：安裝設定、工具分組與 --caps 開關、accessibility tree 模式的 token 優勢、profile 與 session 管理，以及什麼時候該改用截圖模式或改走 Playwright CLI。"
 draft: false
 series:
-  name: "瀏覽器自動化與 MCP"
-  order: 1
+  name: "AI 瀏覽器自動化"
+  order: 2
 ---
 
 > 🌏 [English version](/posts/tech/2026-06-20-playwright-mcp-en)

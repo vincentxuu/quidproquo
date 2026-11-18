@@ -8,6 +8,9 @@ type: deep-dive
 tldr: "Hyperbrowser 把 Playwright／Puppeteer 的 Chrome session、proxy、stealth、profile 與錄影包成託管 API；它適合要快速擴充真實瀏覽器工作的 Agent，但 profile 憑證、反爬蟲合規與 proxy 流量成本仍由應用端負責。"
 description: "沿著 browser session 生命週期拆解 Hyperbrowser：SDK、profiles、proxies、stealth、observability、安全邊界、定價，以及與 Browserbase、Steel、Cloudflare Kitesurf 的選型差異。"
 draft: false
+series:
+  name: "AI 瀏覽器自動化"
+  order: 22
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure-en)

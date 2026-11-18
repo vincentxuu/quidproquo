@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Kitesurf 是 Browser Run 內仍在 beta 的非 Chromium 瀏覽器後端：用 Workers isolates、Rust/Wasm 與無狀態元件換低 CPU／記憶體，但犧牲像素相容性、長登入工作階段、WebGL 與完整反機器人能力。"
 description: "拆解 Cloudflare Kitesurf 的 Engine、PageScript、PageRenderer 與 SandboxOutbound 架構，釐清它和 Browser Run、舊 Browser Rendering 的關係，並比較 Browserbase、Steel、Hyperbrowser 的選型邊界。"
 draft: false
+series:
+  name: "AI 瀏覽器自動化"
+  order: 24
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure-en)

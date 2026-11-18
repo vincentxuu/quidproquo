@@ -10,8 +10,8 @@ tldr: "It's really a two-way choice now: @playwright/mcp (cross-browser, accessi
 description: "A comparison of three browser MCP approaches: Chrome's official chrome-devtools-mcp, Microsoft's @playwright/mcp, and the archived @modelcontextprotocol/server-puppeteer — covering maintenance status, page-state delivery, browser support, and when to use each."
 draft: false
 series:
-  name: "Browser Automation and MCP"
-  order: 4
+  name: "AI Browser Automation"
+  order: 5
 ---
 
 > 🌏 [中文版](/posts/tech/2026-06-20-browser-mcp-comparison)

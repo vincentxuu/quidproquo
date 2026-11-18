@@ -8,6 +8,9 @@ lang: en
 tldr: "Kitesurf is a non-Chromium browser backend in Browser Run that remains in beta. It trades pixel compatibility, persistent authenticated sessions, WebGL, and full anti-bot behavior for low CPU and memory through Workers isolates, Rust/Wasm, and stateless components."
 description: "An architectural guide to Cloudflare Kitesurf's Engine, PageScript, PageRenderer, and SandboxOutbound; its relationship to Browser Run and the former Browser Rendering name; and its selection boundary against Browserbase, Steel, and Hyperbrowser."
 draft: false
+series:
+  name: "AI Browser Automation"
+  order: 24
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure)

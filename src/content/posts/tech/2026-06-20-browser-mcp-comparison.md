@@ -10,8 +10,8 @@ tldr: "這題現在其實是二選一：@playwright/mcp（跨瀏覽器、accessi
 description: "比較三種 Browser MCP 方案：Chrome 官方的 chrome-devtools-mcp、微軟的 @playwright/mcp、已封存的 @modelcontextprotocol/server-puppeteer，從維護狀態、頁面狀態回傳、瀏覽器支援與適用場景逐一對比。"
 draft: false
 series:
-  name: "瀏覽器自動化與 MCP"
-  order: 4
+  name: "AI 瀏覽器自動化"
+  order: 5
 ---
 
 > 🌏 [English version](/posts/tech/2026-06-20-browser-mcp-comparison-en)

@@ -8,6 +8,9 @@ lang: zh-TW
 tldr: "Browserbase 把遠端 Chromium、持久化 Context、代理伺服器與 Session Inspector 包成同一個控制平面；它解決的是瀏覽器艦隊的生命週期與除錯，不替 agent 決定下一步。官方截至 2026-08 自報每月超過 3,500 萬次 browser session、逾 10,000 家客戶。"
 description: "從 sessions、contexts、proxies、observability 與 browser identity 拆解 Browserbase，說清楚它和 Stagehand 的分工、安全界線，以及相對 Steel、Hyperbrowser、Cloudflare Kitesurf 的選型位置。"
 draft: false
+series:
+  name: "AI 瀏覽器自動化"
+  order: 20
 ---
 
 🌏 [English version](/posts/ai/2026-08-22-browserbase-browser-infrastructure-en)

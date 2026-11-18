@@ -10,8 +10,8 @@ tldr: "Three vendors originally took three routes: Anthropic built an extension,
 description: "A comparison of Claude in Chrome, OpenAI's post-Atlas strategy, and Gemini in Chrome — three AI browser agent approaches, their permission models and known security issues, and how to choose between them."
 draft: false
 series:
-  name: "Browser Automation and MCP"
-  order: 7
+  name: "AI Browser Automation"
+  order: 1
 ---
 
 > 🌏 [中文版](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini)
