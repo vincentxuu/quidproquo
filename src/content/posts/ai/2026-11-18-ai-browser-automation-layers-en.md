@@ -162,12 +162,12 @@ The series runs down the five layers from the top, one post per choice within a 
 | Section | Published |
 |---|---|
 | Tools for coding agents | [Claude, Codex and Gemini in Chrome](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini-en), [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en), [Puppeteer MCP](/posts/tech/2026-06-20-puppeteer-mcp-en), [Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp-en), [Choosing a browser MCP](/posts/tech/2026-06-20-browser-mcp-comparison-en), [browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills-en) |
-| AI SDKs you script against | [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4-en), [Midscene.js](/posts/ai/2026-05-23-midscene-vision-ui-automation-en), [AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en) |
+| AI SDKs you script against | [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4-en), [Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright-en), [Midscene.js](/posts/ai/2026-05-23-midscene-vision-ui-automation-en), [AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en) |
 | Letting the model decide | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide-en) |
-| Drivers and protocols | (in progress) |
+| Drivers and protocols | [Raw CDP or Playwright](/posts/ai/2026-11-18-cdp-vs-playwright-driver-en) |
 | Browsers and where they run | [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure-en), [Steel](/posts/ai/2026-08-22-steel-browser-infrastructure-en), [Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure-en), [Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure-en) |
 
-The gaps get filled next. In the SDK section: Stagehand versus Playwright, Skyvern, and a comparison of the hybrid SDKs. In the tools section: agent-browser. The rest: why the agent loop is being retired, two posts on drivers and protocols, non-Chromium engines, a hosting comparison, and Cloudflare Browser Run.
+The gaps get filled next. In the SDK section: Skyvern and a comparison of the hybrid SDKs. In the tools section: agent-browser. The rest: why the agent loop is being retired, a post on protocols, non-Chromium engines, a hosting comparison, and Cloudflare Browser Run.
 
 The series leaves two things out. If you just want a ready-made scraping service, see the [Search and Scraping in Practice](/en/series/search-and-scraping) series. Techniques for getting around anti-bot systems are not covered; where they come up, the posts stick to compliance and limits.
 

@@ -25,7 +25,7 @@ The question here: **which steps are worth one model call, and how do you avoid 
 
 People who write TypeScript or Python and have a web flow that runs again and again (pull a report from an admin panel, fill in a fixed form, extract data from a page that keeps getting redesigned) and whose selectors keep breaking.
 
-It is not a replacement for end-to-end tests. Stagehand states plainly that it is [not a test framework](https://docs.stagehand.dev/v4/migrations/playwright): no `expect()`, no fixtures, no retries, no reports. Whether to move an existing Playwright suite is the subject of the next post in the series.
+It is not a replacement for end-to-end tests. Stagehand states plainly that it is [not a test framework](https://docs.stagehand.dev/v4/migrations/playwright): no `expect()`, no fixtures, no retries, no reports. Whether to move an existing Playwright suite is covered in [Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright-en).
 
 ## The three methods
 
@@ -241,7 +241,7 @@ The new architecture also lets the three languages share one core: each SDK beco
 ## Limits
 
 - **Chromium only.** No Firefox or WebKit, and no automatic browser download; local runs use the Chrome you already have.
-- **No auto-waiting.** Stagehand resolves a selector once and throws if it is not there; `goto()` waits only for `domcontentloaded` by default. Wait explicitly with `waitForSelector()` before acting. What to watch for when porting from Playwright is the subject of the next post in the series.
+- **No auto-waiting.** Stagehand resolves a selector once and throws if it is not there; `goto()` waits only for `domcontentloaded` by default. Wait explicitly with `waitForSelector()` before acting. What to watch for when porting from Playwright is covered in [Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright-en).
 - **Do not wrap `act()` in a retry loop.** A failed `act()` may already have clicked or submitted. The [migration guide](https://docs.stagehand.dev/v4/migrations/playwright) and the [cost page](https://docs.stagehand.dev/v4/best-practices/cost-optimization) recommend retrying `observe()` (which only plans) and handing the result to `act()` exactly once; if you escalate to a stronger model, do it on `observe()`, not on `act()`.
 - **The API moves fast.** From v2 to v4 took under a year and a half, and construction, return shapes and `agent()` all changed along the way, while model training data mostly holds the old patterns. That is why the project ships [rule files](https://docs.stagehand.dev/v4/first-steps/ai-rules) for coding agents, meant for `CLAUDE.md` or `.cursorrules`.
 - **Cloudflare Browser Run supports only v2.5.x.** Cloudflare's [explanation](https://developers.cloudflare.com/browser-run/stagehand/) is that Stagehand v3 and later are not Playwright-based. For hosted v4 browsers, Browserbase is the main option today.

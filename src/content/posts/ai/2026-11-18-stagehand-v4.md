@@ -25,7 +25,7 @@ series:
 
 會寫 TypeScript 或 Python，手上有一個要反覆跑的網頁流程（登入後台抓報表、填固定的表單、從會改版的頁面抽資料），而 selector 常常壞掉的人。
 
-不適合拿來取代 E2E 測試：Stagehand 官方明說它[不是測試框架](https://docs.stagehand.dev/v4/migrations/playwright)，沒有 `expect()`、fixtures、重試與報表。手上已有 Playwright 測試要不要換，留給系列的下一篇。
+不適合拿來取代 E2E 測試：Stagehand 官方明說它[不是測試框架](https://docs.stagehand.dev/v4/migrations/playwright)，沒有 `expect()`、fixtures、重試與報表。手上已有 Playwright 測試要不要換，見 [Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright)。
 
 ## 三個方法
 
@@ -241,7 +241,7 @@ caption: 依 Browserbase 的 v4 發布文整理。瀏覽器在遠端時，跨網
 ## 限制
 
 - **只支援 Chromium。** 沒有 Firefox、WebKit，也不會自動下載瀏覽器，本機執行用你已經裝好的 Chrome。
-- **不會自動等待。** Stagehand 解析 selector 一次，找不到就丟錯；`goto()` 預設只等到 `domcontentloaded`。動作前要自己 `waitForSelector()`。從 Playwright 搬過來要注意哪些差異，留給系列的下一篇。
+- **不會自動等待。** Stagehand 解析 selector 一次，找不到就丟錯；`goto()` 預設只等到 `domcontentloaded`。動作前要自己 `waitForSelector()`。從 Playwright 搬過來要注意哪些差異，見 [Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright)。
 - **不要對 `act()` 寫重試迴圈。** 失敗的 `act()` 可能已經點下去、送出去了。官方的[遷移指南](https://docs.stagehand.dev/v4/migrations/playwright)與[成本頁](https://docs.stagehand.dev/v4/best-practices/cost-optimization)建議改成重試 `observe()`（它只規劃），確定之後再交給 `act()` 執行一次；要換更強的模型重試，也是換在 `observe()` 上，不是 `act()`。
 - **API 變得很快。** 從 v2 到 v4 不到一年半，建構方式、回傳格式、`agent()` 都改過，模型訓練資料裡多半是舊寫法。官方因此提供了給 coding agent 用的[規則檔](https://docs.stagehand.dev/v4/first-steps/ai-rules)，可以放進 `CLAUDE.md` 或 `.cursorrules`。
 - **Cloudflare Browser Run 只支援 v2.5.x。** Cloudflare 的[說明](https://developers.cloudflare.com/browser-run/stagehand/)是 Stagehand v3 之後不再以 Playwright 為基礎。要用 v4 的託管瀏覽器，目前主要是 Browserbase。

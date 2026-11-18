@@ -44,7 +44,7 @@ order 0 是新寫的總覽：五層地圖、每層代表工具與站上對應篇
 
 | order | 狀態 | 檔案／slug | 主題 | 聚焦問題 |
 |---|---|---|---|---|
-| 0 | 新寫 | browser-automation-layers-overview | 總覽：五層地圖 | 這些工具各在哪一層、選型要分開問哪三件事？ |
+| 0 | 已上線 | 2026-11-18-ai-browser-automation-layers | 總覽：五層地圖 | 這些工具各在哪一層、選型要分開問哪三件事？ |
 | **A 給 coding agent 的工具** | | | | |
 | 1 | 既有（原 7） | 2026-05-09-ai-browser-agents-claude-codex-gemini | 三家 AI 進 Chrome | coding agent 內建的瀏覽器能做到哪？ |
 | 2 | 既有（原 1） | 2026-06-20-playwright-mcp | @playwright/mcp | 官方 MCP 怎麼用 accessibility snapshot 操作頁面？ |
@@ -54,8 +54,8 @@ order 0 是新寫的總覽：五層地圖、每層代表工具與站上對應篇
 | 6 | 新寫 | agent-browser-cli | agent-browser 與 CLI＋skill 路線 | 為什麼 coding agent 改用 CLI 而不是 MCP，agent-browser 和 Playwright CLI 怎麼選？ |
 | 7 | 既有（原 6） | 2026-05-23-browse-sh-browser-skills | browse.sh | 把學過的網站操作存成技能 |
 | **B 寫程式用的 AI SDK** | | | | |
-| 8 | 新寫 | stagehand-v4 | Stagehand v4：act／observe／extract | 什麼時候在一個步驟花一次推論，怎麼讓它下次不用再花？ |
-| 9 | 新寫 | stagehand-vs-playwright | Stagehand vs Playwright | 已有 Playwright 腳本，該不該換、換了會失去什麼？ |
+| 8 | 已上線 | 2026-11-18-stagehand-v4 | Stagehand v4：act／observe／extract | 什麼時候在一個步驟花一次推論，怎麼讓它下次不用再花？ |
+| 9 | 已上線 | 2026-11-18-stagehand-vs-playwright | Stagehand vs Playwright | 已有 Playwright 腳本，該不該換、換了會失去什麼？ |
 | 10 | 既有（原 5） | 2026-05-23-midscene-vision-ui-automation | Midscene.js | 用截圖而不是 DOM 定位，換到什麼、付出什麼？ |
 | 11 | 既有（單篇） | 2026-08-21-agentql-semantic-web-extraction | AgentQL | 用查詢語言做擷取 |
 | 12 | 新寫 | skyvern | Skyvern：視覺型的 SDK＋agent＋no-code | 跨很多陌生網站跑同一流程時，視覺 LLM 換到什麼？AGPL 對你有什麼影響？ |
@@ -64,7 +64,7 @@ order 0 是新寫的總覽：五層地圖、每層代表工具與站上對應篇
 | 14 | 既有（單篇） | 2026-08-21-browser-use-complete-guide | Browser Use | 自主 agent 迴圈（待 post-update：1.0 改為 REPL＋raw CDP） |
 | 15 | 新寫 | browser-agent-loop-to-code-mode | agent loop 退場 | 為什麼大家都把「每步推論」換成「AI 寫碼或外部 agent 驅動」？ |
 | **D driver 與協定** | | | | |
-| 16 | 新寫 | cdp-vs-playwright-driver | Driver：自己打 CDP 或用 Playwright | 為什麼有人拆掉 Playwright、代價是什麼？ |
+| 16 | 已上線 | 2026-11-18-cdp-vs-playwright-driver | Driver：自己打 CDP 或用 Playwright | 為什麼有人拆掉 Playwright、代價是什麼？ |
 | 17 | 新寫 | cdp-webdriver-bidi | 協定：CDP 與 WebDriver BiDi | 兩個協定差在哪，「只綁 Chromium」的代價是什麼？ |
 | **E 瀏覽器：引擎與執行位置** | | | | |
 | 18 | 新寫 | browser-engines-beyond-chromium | 引擎：Chromium 以外的選擇 | Lightpanda、Kitesurf 這類非 Chromium 引擎換到什麼、犧牲什麼？ |
@@ -148,6 +148,7 @@ Order 16：Driver：自己打 CDP 或用 Playwright
   動筆前補研究：Playwright 官方對 client-server 架構的一手說明。
 
 Order 17：協定：CDP 與 WebDriver BiDi
+  （order 16 審稿留下的螺旋：order 9 提到 Stagehand CSS selector 能穿過 closed shadow root，17 要講 a11y tree／Playwright locator 為什麼看不到 closed root。）
   聚焦問題：CDP 和 BiDi 差在哪，「只綁 Chromium」的代價是什麼？
   講：CDP 的 domain／event 模型、Runtime.enable 與偵測史（V8 13.8 修補）；WebDriver classic→BiDi；Firefox 141 移除 CDP；Puppeteer 的 BiDi 支援與缺口；Playwright BiDi 仍 experimental；WebKit 進度。
   讀完後讀者能：判斷自己的工具鏈未來會不會被協定卡住。

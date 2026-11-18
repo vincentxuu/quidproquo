@@ -162,12 +162,12 @@ curl -X POST 'https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-
 | 段落 | 已上線 |
 |---|---|
 | 給 coding agent 的工具 | [三家 AI 進 Chrome](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini)、[@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp)、[Puppeteer MCP](/posts/tech/2026-06-20-puppeteer-mcp)、[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp)、[Browser MCP 三選一](/posts/tech/2026-06-20-browser-mcp-comparison)、[browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills) |
-| 寫程式用的 AI SDK | [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4)、[Midscene.js](/posts/ai/2026-05-23-midscene-vision-ui-automation)、[AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction) |
+| 寫程式用的 AI SDK | [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4)、[Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright)、[Midscene.js](/posts/ai/2026-05-23-midscene-vision-ui-automation)、[AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction) |
 | 模型自己決定 | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide) |
-| Driver 與協定 | （撰寫中） |
+| Driver 與協定 | [自己打 CDP 還是用 Playwright](/posts/ai/2026-11-18-cdp-vs-playwright-driver) |
 | 瀏覽器與執行位置 | [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure)、[Steel](/posts/ai/2026-08-22-steel-browser-infrastructure)、[Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure)、[Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure) |
 
-接下來會補上幾段的空缺。SDK 段：Stagehand 與 Playwright 的對照、Skyvern、同層 SDK 比較。工具段：agent-browser。其餘是 agent 迴圈為什麼正在退場、driver 與協定兩篇、非 Chromium 引擎、託管對照與 Cloudflare Browser Run。
+接下來會補上幾段的空缺。SDK 段：Skyvern、同層 SDK 比較。工具段：agent-browser。其餘是 agent 迴圈為什麼正在退場、協定篇、非 Chromium 引擎、託管對照與 Cloudflare Browser Run。
 
 這個系列不處理兩件事：只想找現成爬蟲服務的讀者，請看[搜尋與爬取實戰](/series/search-and-scraping)系列；繞過反爬機制的做法不教，遇到時只寫合規與限制。
 
