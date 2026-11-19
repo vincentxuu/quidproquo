@@ -27,10 +27,12 @@
 .dg__scroll { overflow-x: auto; overscroll-behavior-x: contain; }
 .dg__scroll:focus-visible { outline: 2px solid var(--dg-accent); outline-offset: 2px; }
 .dg-svg { display: block; width: 100%; height: auto; max-height: 85vh; margin-inline: auto; overflow: visible; }
-/* Never shrink text below 75%: wide diagrams scroll sideways inside the figure instead. */
-.dg--s .dg-svg { max-width: 560px; }
-.dg--m .dg-svg { max-width: 720px; min-width: 480px; }
-.dg--l .dg-svg { max-width: 840px; min-width: 600px; }
+/* Never shrink text below 75%: wide diagrams scroll sideways inside the figure instead.
+   Never enlarge past the drawn size either (--dg-w = viewBox width): a 340-wide diagram used to stretch to 560px,
+   blowing 15px labels up to ~25px (2026-11-19, series overview map). */
+.dg--s .dg-svg { max-width: min(560px, var(--dg-w, 560px)); }
+.dg--m .dg-svg { max-width: min(720px, var(--dg-w, 720px)); min-width: min(480px, var(--dg-w, 480px)); }
+.dg--l .dg-svg { max-width: min(840px, var(--dg-w, 840px)); min-width: min(600px, var(--dg-w, 600px)); }
 
 /* Shapes */
 .dg-box { fill: var(--dg-paper); stroke: var(--dg-muted); stroke-width: 1.2; }

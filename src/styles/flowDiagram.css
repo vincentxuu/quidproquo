@@ -4,7 +4,8 @@
 .flow-diagram__scroll { overflow-x: auto; overscroll-behavior-x: contain; }
 .flow-diagram__scroll:focus-visible { outline: 2px solid var(--flow-active); outline-offset: 2px; }
 /* Keep 12px labels at ~9px or more on phones: below this width the diagram scrolls instead of shrinking. */
-.flow-diagram__svg { display: block; width: 100%; max-width: 680px; min-width: 500px; height: auto; max-height: 80vh; margin-inline: auto; overflow: visible; }
+/* --flow-w = viewBox width: never draw larger than designed (labels were scaled up to 1.2x). */
+.flow-diagram__svg { display: block; width: 100%; max-width: min(680px, var(--flow-w, 680px)); min-width: min(500px, var(--flow-w, 500px)); height: auto; max-height: 80vh; margin-inline: auto; overflow: visible; }
 
 .flow-diagram__node rect, .flow-diagram__node ellipse, .flow-diagram__node path:not(.flow-diagram__pins), .flow-diagram__node circle { fill: var(--bg-subtle); stroke: var(--text-muted); stroke-width: 1.5; }
 .flow-diagram__node--db path:not(.flow-diagram__pins) { fill: var(--bg-subtle); }

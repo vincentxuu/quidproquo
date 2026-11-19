@@ -201,7 +201,7 @@ export function renderFlowDiagram(spec: FlowDiagramSpec, index = 0): string {
   return [
     `<figure class="flow-diagram" data-flow-diagram data-flow-total="${spec.steps.length}" data-flow-lang="${spec.lang}" aria-labelledby="${id}-title">`,
     `<figcaption class="flow-diagram__title" id="${id}-title">${escape(spec.title)}</figcaption>`,
-    `<div class="flow-diagram__scroll" tabindex="0" aria-label="${en ? 'Diagram, scroll sideways if it is cut off' : '圖表，若被截斷可左右捲動'}"><svg class="flow-diagram__svg" viewBox="0 0 ${spec.width} ${spec.height}" role="img" aria-labelledby="${id}-title" aria-describedby="${id}-steps">`,
+    `<div class="flow-diagram__scroll" tabindex="0" aria-label="${en ? 'Diagram, scroll sideways if it is cut off' : '圖表，若被截斷可左右捲動'}"><svg class="flow-diagram__svg" style="--flow-w:${spec.width}px" viewBox="0 0 ${spec.width} ${spec.height}" role="img" aria-labelledby="${id}-title" aria-describedby="${id}-steps">`,
     groups.join(''), edges.join(''), rest.join(''),
     '</svg></div>',
     `<div class="flow-diagram__controls" data-flow-controls hidden><button type="button" data-flow-prev aria-label="${en ? 'Previous step' : '上一步'}">←</button><button type="button" data-flow-toggle aria-pressed="false">${en ? 'Play' : '播放'}</button><button type="button" data-flow-next aria-label="${en ? 'Next step' : '下一步'}">→</button><span data-flow-status role="status" aria-live="polite">${en ? `All ${spec.steps.length} steps` : `全部 ${spec.steps.length} 步`}</span></div>`,
