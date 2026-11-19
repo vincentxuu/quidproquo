@@ -49,7 +49,7 @@ step: 成功就用 render 驗證結果並回傳；失敗就自動回滾成一個
   <path class="dg-line" d="M280 112V144" marker-end="url(#arrow)" data-step="1"/>
   <path class="dg-line" d="M376 192H428" marker-end="url(#arrow)" data-step="2"/>
   <path class="dg-line" d="M280 236V268" data-step="3"/>
-  <path class="dg-line" d="M520 216V260Q520 268 512 268H288" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M520 220V260Q520 268 512 268H288" marker-end="url(#arrow)" data-step="2"/>
   <path class="dg-line" d="M280 272V292" marker-end="url(#arrow)" data-step="3"/>
   <path class="dg-line" d="M280 348V372" marker-end="url(#arrow)" data-step="4"/>
   <path class="dg-line dg-line--accent" d="M376 416H428" marker-end="url(#arrow-accent)" data-step="5"/>
@@ -59,8 +59,8 @@ step: 成功就用 render 驗證結果並回傳；失敗就自動回滾成一個
 
   <g data-step="1">
     <rect class="dg-box" x="196" y="60" width="168" height="52" rx="6"/>
-    <text class="dg-label" x="280" y="80" text-anchor="middle" dominant-baseline="central">鎖定目標文件</text>
-    <text class="dg-sub" x="280" y="98" text-anchor="middle" dominant-baseline="central">docId pinning</text>
+    <text class="dg-label" x="280" y="75" text-anchor="middle" dominant-baseline="central">鎖定目標文件</text>
+    <text class="dg-sub" x="280" y="99" text-anchor="middle" dominant-baseline="central">docId pinning</text>
   </g>
 
   <g data-step="2">
@@ -70,9 +70,9 @@ step: 成功就用 render 驗證結果並回傳；失敗就自動回滾成一個
   </g>
 
   <g data-step="2">
-    <rect class="dg-box" x="432" y="168" width="176" height="48" rx="6"/>
-    <text class="dg-label" x="520" y="188" text-anchor="middle" dominant-baseline="central">建立 checkpoint</text>
-    <text class="dg-sub" x="520" y="206" text-anchor="middle" dominant-baseline="central">快照＋分層備份</text>
+    <rect class="dg-box" x="432" y="164" width="176" height="56" rx="6"/>
+    <text class="dg-label" x="520" y="180" text-anchor="middle" dominant-baseline="central">建立 checkpoint</text>
+    <text class="dg-sub" x="520" y="204" text-anchor="middle" dominant-baseline="central">快照＋分層備份</text>
   </g>
 
   <circle class="dg-dot" cx="280" cy="270" r="4" data-step="2 3"/>

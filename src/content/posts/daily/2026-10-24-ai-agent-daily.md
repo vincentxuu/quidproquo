@@ -92,8 +92,8 @@ caption: 時間以密碼噴灑開始（10/10）為 T+0；日本／南韓的攻�
 
   <line class="dg-rule" x1="60" y1="76" x2="60" y2="136"/>
   <circle class="dg-dot" cx="60" cy="140" r="4"/>
-  <text class="dg-label" x="60" y="40" text-anchor="middle" dominant-baseline="central">密碼噴灑開始</text>
-  <text class="dg-sub" x="60" y="62" text-anchor="middle" dominant-baseline="central">2,900次/分鐘 × 2,250租戶</text>
+  <text class="dg-label" x="48" y="40" text-anchor="start" dominant-baseline="central">密碼噴灑開始</text>
+  <text class="dg-sub" x="48" y="62" text-anchor="start" dominant-baseline="central">2,900次/分鐘 × 2,250租戶</text>
 
   <line class="dg-rule" x1="310" y1="146" x2="310" y2="188"/>
   <circle class="dg-dot dg-dot--accent" cx="310" cy="140" r="6"/>

@@ -61,63 +61,63 @@ step: 用 PSI 比對特徵分布有沒有顯著偏移
 step: 分布真的偏移了，才排重新訓練，並接上驗證閘才換模型
 ---
 <svg viewBox="0 0 640 568">
-  <path class="dg-line" d="M280 34V64" marker-end="url(#arrow)" data-step="1"/>
-  <path class="dg-line dg-line--warn" d="M376 108H432" marker-end="url(#arrow-warn)" data-step="1"/>
-  <path class="dg-line" d="M280 152V204" marker-end="url(#arrow)" data-step="1 2"/>
-  <path class="dg-line dg-line--accent" d="M376 248H432" marker-end="url(#arrow-accent)" data-step="2"/>
-  <path class="dg-line" d="M280 292V344" marker-end="url(#arrow)" data-step="2 3"/>
-  <path class="dg-line" d="M376 388H432" marker-end="url(#arrow)" data-step="3"/>
-  <path class="dg-line dg-line--accent" d="M280 432V484" marker-end="url(#arrow-accent)" data-step="3 4"/>
+  <path class="dg-line" d="M240 34V64" marker-end="url(#arrow)" data-step="1"/>
+  <path class="dg-line dg-line--warn" d="M416 108H456" marker-end="url(#arrow-warn)" data-step="1"/>
+  <path class="dg-line" d="M240 152V204" marker-end="url(#arrow)" data-step="1 2"/>
+  <path class="dg-line dg-line--accent" d="M416 248H456" marker-end="url(#arrow-accent)" data-step="2"/>
+  <path class="dg-line" d="M240 292V344" marker-end="url(#arrow)" data-step="2 3"/>
+  <path class="dg-line" d="M416 388H456" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line dg-line--accent" d="M240 432V484" marker-end="url(#arrow-accent)" data-step="3 4"/>
 
-  <circle class="dg-dot" cx="280" cy="28" r="6" data-step="1"/>
+  <circle class="dg-dot" cx="240" cy="28" r="6" data-step="1"/>
 
   <g data-step="1">
-    <path class="dg-box" d="M280 64L376 108L280 152L184 108Z"/>
-    <text class="dg-label" x="280" y="98" text-anchor="middle" dominant-baseline="central">管線本身出問題？</text>
-    <text class="dg-sub" x="280" y="120" text-anchor="middle" dominant-baseline="central">schema／空值</text>
+    <path class="dg-box" d="M240 64L416 108L240 152L64 108Z"/>
+    <text class="dg-label" x="240" y="98" text-anchor="middle" dominant-baseline="central">管線本身出問題？</text>
+    <text class="dg-sub" x="240" y="120" text-anchor="middle" dominant-baseline="central">schema／空值</text>
   </g>
 
   <g data-step="1">
-    <rect class="dg-box dg-box--warn" x="432" y="84" width="144" height="48" rx="6"/>
-    <text class="dg-label" x="504" y="108" text-anchor="middle" dominant-baseline="central">修資料管線</text>
+    <rect class="dg-box dg-box--warn" x="456" y="84" width="152" height="48" rx="6"/>
+    <text class="dg-label" x="532" y="108" text-anchor="middle" dominant-baseline="central">修資料管線</text>
   </g>
 
   <g data-step="2">
-    <path class="dg-box" d="M280 204L376 248L280 292L184 248Z"/>
-    <text class="dg-label" x="280" y="238" text-anchor="middle" dominant-baseline="central">換特徵重算會變差？</text>
-    <text class="dg-sub" x="280" y="260" text-anchor="middle" dominant-baseline="central">skew 檢查</text>
+    <path class="dg-box" d="M240 204L416 248L240 292L64 248Z"/>
+    <text class="dg-label" x="240" y="238" text-anchor="middle" dominant-baseline="central">換特徵重算會變差？</text>
+    <text class="dg-sub" x="240" y="260" text-anchor="middle" dominant-baseline="central">skew 檢查</text>
   </g>
 
   <g data-step="2">
-    <rect class="dg-box dg-box--accent" x="432" y="220" width="144" height="56" rx="6"/>
-    <text class="dg-label" x="504" y="238" text-anchor="middle" dominant-baseline="central">收斂特徵定義</text>
-    <text class="dg-sub" x="504" y="260" text-anchor="middle" dominant-baseline="central">Feature Store</text>
+    <rect class="dg-box dg-box--accent" x="456" y="220" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="532" y="238" text-anchor="middle" dominant-baseline="central">收斂特徵定義</text>
+    <text class="dg-sub" x="532" y="260" text-anchor="middle" dominant-baseline="central">Feature Store</text>
   </g>
 
   <g data-step="3">
-    <path class="dg-box" d="M280 344L376 388L280 432L184 388Z"/>
-    <text class="dg-label" x="280" y="378" text-anchor="middle" dominant-baseline="central">特徵分布穩定？</text>
-    <text class="dg-sub" x="280" y="400" text-anchor="middle" dominant-baseline="central">PSI&lt;0.1</text>
+    <path class="dg-box" d="M240 344L416 388L240 432L64 388Z"/>
+    <text class="dg-label" x="240" y="378" text-anchor="middle" dominant-baseline="central">特徵分布穩定？</text>
+    <text class="dg-sub" x="240" y="400" text-anchor="middle" dominant-baseline="central">PSI&lt;0.1</text>
   </g>
 
   <g data-step="3">
-    <rect class="dg-box" x="432" y="360" width="144" height="56" rx="6"/>
-    <text class="dg-label" x="504" y="378" text-anchor="middle" dominant-baseline="central">繼續觀察</text>
-    <text class="dg-sub" x="504" y="400" text-anchor="middle" dominant-baseline="central">可能是雜訊</text>
+    <rect class="dg-box" x="456" y="360" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="532" y="378" text-anchor="middle" dominant-baseline="central">繼續觀察</text>
+    <text class="dg-sub" x="532" y="400" text-anchor="middle" dominant-baseline="central">可能是雜訊</text>
   </g>
 
   <g data-step="4">
-    <rect class="dg-box dg-box--accent" x="208" y="484" width="144" height="64" rx="6"/>
-    <text class="dg-label" x="280" y="506" text-anchor="middle" dominant-baseline="central">重新訓練</text>
-    <text class="dg-sub" x="280" y="528" text-anchor="middle" dominant-baseline="central">先過驗證才上線</text>
+    <rect class="dg-box dg-box--accent" x="168" y="484" width="144" height="64" rx="6"/>
+    <text class="dg-label" x="240" y="506" text-anchor="middle" dominant-baseline="central">重新訓練</text>
+    <text class="dg-sub" x="240" y="528" text-anchor="middle" dominant-baseline="central">先過驗證才上線</text>
   </g>
 
-  <text class="dg-edge dg-text--warn" x="404" y="96" text-anchor="middle" dominant-baseline="central" data-step="1">是</text>
-  <text class="dg-edge" x="290" y="178" text-anchor="start" dominant-baseline="central" data-step="1 2">否</text>
-  <text class="dg-edge" x="404" y="236" text-anchor="middle" dominant-baseline="central" data-step="2">是</text>
-  <text class="dg-edge" x="290" y="318" text-anchor="start" dominant-baseline="central" data-step="2 3">否</text>
-  <text class="dg-edge" x="404" y="376" text-anchor="middle" dominant-baseline="central" data-step="3">是</text>
-  <text class="dg-edge" x="290" y="458" text-anchor="start" dominant-baseline="central" data-step="3 4">否</text>
+  <text class="dg-edge dg-text--warn" x="436" y="96" text-anchor="middle" dominant-baseline="central" data-step="1">是</text>
+  <text class="dg-edge" x="250" y="178" text-anchor="start" dominant-baseline="central" data-step="1 2">否</text>
+  <text class="dg-edge" x="436" y="236" text-anchor="middle" dominant-baseline="central" data-step="2">是</text>
+  <text class="dg-edge" x="250" y="318" text-anchor="start" dominant-baseline="central" data-step="2 3">否</text>
+  <text class="dg-edge" x="436" y="376" text-anchor="middle" dominant-baseline="central" data-step="3">是</text>
+  <text class="dg-edge" x="250" y="458" text-anchor="start" dominant-baseline="central" data-step="3 4">否</text>
 </svg>
 ```
 

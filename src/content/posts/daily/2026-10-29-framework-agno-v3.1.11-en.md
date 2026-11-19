@@ -37,29 +37,29 @@ caption: Simplified: only the delegation relationship is shown; Workflow's Paral
 ---
 <svg viewBox="0 0 640 320">
   <rect class="dg-zone" x="220" y="160" width="380" height="120" rx="8"/>
-  <text class="dg-tag" x="236" y="182" dominant-baseline="central">SANDBOX</text>
+  <text class="dg-tag" x="236" y="180" dominant-baseline="central">SANDBOX</text>
 
-  <path class="dg-line" d="M270 104V138Q270 146 262 146H118Q110 146 110 154V188" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M310 104V188" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M350 104V138Q350 146 358 146H482Q490 146 490 154V188" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M270 104V138Q270 146 262 146H118Q110 146 110 154V200" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M310 104V200" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M350 104V138Q350 146 358 146H482Q490 146 490 154V200" marker-end="url(#arrow)"/>
 
   <rect class="dg-box dg-box--accent" x="240" y="40" width="160" height="64" rx="6"/>
   <text class="dg-label" x="320" y="62" text-anchor="middle" dominant-baseline="central">Team Leader</text>
   <text class="dg-sub" x="320" y="82" text-anchor="middle" dominant-baseline="central">orchestrates</text>
 
-  <rect class="dg-box" x="40" y="188" width="140" height="64" rx="6"/>
-  <text class="dg-label" x="110" y="210" text-anchor="middle" dominant-baseline="central">Member</text>
-  <text class="dg-sub" x="110" y="232" text-anchor="middle" dominant-baseline="central">Agno Agent</text>
+  <rect class="dg-box" x="40" y="200" width="140" height="64" rx="6"/>
+  <text class="dg-label" x="110" y="222" text-anchor="middle" dominant-baseline="central">Member</text>
+  <text class="dg-sub" x="110" y="244" text-anchor="middle" dominant-baseline="central">Agno Agent</text>
 
-  <rect class="dg-box" x="240" y="188" width="140" height="64" rx="6"/>
-  <text class="dg-label" x="310" y="210" text-anchor="middle" dominant-baseline="central">ClaudeAgent</text>
-  <text class="dg-sub" x="310" y="232" text-anchor="middle" dominant-baseline="central">sandboxed</text>
+  <rect class="dg-box" x="240" y="200" width="140" height="64" rx="6"/>
+  <text class="dg-label" x="310" y="222" text-anchor="middle" dominant-baseline="central">ClaudeAgent</text>
+  <text class="dg-sub" x="310" y="244" text-anchor="middle" dominant-baseline="central">sandboxed</text>
 
-  <rect class="dg-box" x="420" y="188" width="140" height="64" rx="6"/>
-  <text class="dg-label" x="490" y="210" text-anchor="middle" dominant-baseline="central">CodexAgent</text>
-  <text class="dg-sub" x="490" y="232" text-anchor="middle" dominant-baseline="central">sandboxed</text>
+  <rect class="dg-box" x="420" y="200" width="140" height="64" rx="6"/>
+  <text class="dg-label" x="490" y="222" text-anchor="middle" dominant-baseline="central">CodexAgent</text>
+  <text class="dg-sub" x="490" y="244" text-anchor="middle" dominant-baseline="central">sandboxed</text>
 
-  <text class="dg-edge" x="320" y="146" text-anchor="start" dominant-baseline="central">delegates</text>
+  <text class="dg-edge" x="360" y="130" text-anchor="start" dominant-baseline="central">delegates</text>
 </svg>
 ```
 

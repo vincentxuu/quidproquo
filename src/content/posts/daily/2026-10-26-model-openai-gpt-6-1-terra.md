@@ -64,8 +64,8 @@ caption: 資料來源：OpenAI 官方公告自測結果（2026-10-26）。max ef
   <text class="dg-small" x="64" y="220" text-anchor="end" dominant-baseline="central">20</text>
   <text class="dg-small" x="64" y="300" text-anchor="end" dominant-baseline="central">0</text>
 
-  <text class="dg-text--series" x="172" y="52" text-anchor="middle" dominant-baseline="central">GPT-5.6 Terra</text>
-  <text class="dg-text--series dg-text--accent" x="244" y="52" text-anchor="middle" dominant-baseline="central">GPT-6.1 Terra</text>
+  <text class="dg-text--series dg-c-s1" x="360" y="32" dominant-baseline="central">GPT-5.6 Terra</text>
+  <text class="dg-text--series dg-c-accent" x="488" y="32" dominant-baseline="central">GPT-6.1 Terra</text>
 
   <rect class="dg-bar dg-c-s1" x="140" y="86" width="64" height="214"/>
   <rect class="dg-bar dg-c-accent" x="212" y="233" width="64" height="67"/>

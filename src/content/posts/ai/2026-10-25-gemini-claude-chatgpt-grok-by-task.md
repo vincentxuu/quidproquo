@@ -76,31 +76,31 @@ caption: 簡化示意。綠框是你要自己先做的步驟。
   <text class="dg-edge" x="122" y="304" dominant-baseline="central">免前處理</text>
 
   <rect class="dg-box" x="20" y="56" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="110" y="74" text-anchor="middle" dominant-baseline="central">影片檔</text>
-  <text class="dg-sub" x="110" y="92" text-anchor="middle" dominant-baseline="central">含音訊</text>
+  <text class="dg-label" x="110" y="70" text-anchor="middle" dominant-baseline="central">影片檔</text>
+  <text class="dg-sub" x="110" y="94" text-anchor="middle" dominant-baseline="central">含音訊</text>
   <rect class="dg-box" x="20" y="136" width="180" height="112" rx="6"/>
   <text class="dg-label" x="110" y="172" text-anchor="middle" dominant-baseline="central">Gemini API</text>
   <text class="dg-sub" x="110" y="196" text-anchor="middle" dominant-baseline="central">整支影片檔</text>
   <text class="dg-sub" x="110" y="214" text-anchor="middle" dominant-baseline="central">一次送進</text>
   <rect class="dg-box" x="20" y="360" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="110" y="378" text-anchor="middle" dominant-baseline="central">課程筆記</text>
-  <text class="dg-sub" x="110" y="396" text-anchor="middle" dominant-baseline="central">帶時間戳</text>
+  <text class="dg-label" x="110" y="374" text-anchor="middle" dominant-baseline="central">課程筆記</text>
+  <text class="dg-sub" x="110" y="398" text-anchor="middle" dominant-baseline="central">帶時間戳</text>
 
   <rect class="dg-box" x="240" y="56" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="330" y="74" text-anchor="middle" dominant-baseline="central">影片檔</text>
-  <text class="dg-sub" x="330" y="92" text-anchor="middle" dominant-baseline="central">含音訊</text>
+  <text class="dg-label" x="330" y="70" text-anchor="middle" dominant-baseline="central">影片檔</text>
+  <text class="dg-sub" x="330" y="94" text-anchor="middle" dominant-baseline="central">含音訊</text>
   <rect class="dg-box dg-box--accent" x="268" y="136" width="128" height="48" rx="6"/>
-  <text class="dg-label" x="332" y="154" text-anchor="middle" dominant-baseline="central">抽幀</text>
-  <text class="dg-sub" x="332" y="172" text-anchor="middle" dominant-baseline="central">每隔幾秒截圖</text>
+  <text class="dg-label" x="332" y="150" text-anchor="middle" dominant-baseline="central">抽幀</text>
+  <text class="dg-sub" x="332" y="174" text-anchor="middle" dominant-baseline="central">每隔幾秒截圖</text>
   <rect class="dg-box dg-box--accent" x="268" y="200" width="128" height="48" rx="6"/>
-  <text class="dg-label" x="332" y="218" text-anchor="middle" dominant-baseline="central">逐字稿</text>
-  <text class="dg-sub" x="332" y="236" text-anchor="middle" dominant-baseline="central">音訊轉文字</text>
+  <text class="dg-label" x="332" y="214" text-anchor="middle" dominant-baseline="central">逐字稿</text>
+  <text class="dg-sub" x="332" y="238" text-anchor="middle" dominant-baseline="central">音訊轉文字</text>
   <rect class="dg-box" x="240" y="280" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="330" y="298" text-anchor="middle" dominant-baseline="central">模型</text>
-  <text class="dg-sub" x="330" y="316" text-anchor="middle" dominant-baseline="central">讀圖片加文字</text>
+  <text class="dg-label" x="330" y="294" text-anchor="middle" dominant-baseline="central">模型</text>
+  <text class="dg-sub" x="330" y="318" text-anchor="middle" dominant-baseline="central">讀圖片加文字</text>
   <rect class="dg-box" x="240" y="360" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="330" y="378" text-anchor="middle" dominant-baseline="central">課程筆記</text>
-  <text class="dg-sub" x="330" y="396" text-anchor="middle" dominant-baseline="central">帶時間戳</text>
+  <text class="dg-label" x="330" y="374" text-anchor="middle" dominant-baseline="central">課程筆記</text>
+  <text class="dg-sub" x="330" y="398" text-anchor="middle" dominant-baseline="central">帶時間戳</text>
 </svg>
 ```
 

@@ -46,16 +46,16 @@ caption: Based on the Stagehand v4 docs. page.locator() involves no model; act(A
 ---
 <svg viewBox="0 0 504 488">
   <path class="dg-line" d="M136 34V60" marker-end="url(#arrow)"/>
-  <path class="dg-line dg-line--accent" d="M248 108H292" marker-end="url(#arrow-accent)"/>
+  <path class="dg-line dg-line--accent" d="M264 108H292" marker-end="url(#arrow-accent)"/>
   <path class="dg-line" d="M136 152V188" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M248 236H292" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M264 236H292" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M136 280V316" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M136 376V412" marker-end="url(#arrow)"/>
   <path class="dg-line dg-line--warn dg-line--dashed" d="M248 444H292" marker-end="url(#arrow-warn)"/>
 
   <circle class="dg-dot" cx="136" cy="28" r="6"/>
 
-  <path class="dg-box" d="M136 64L248 108L136 152L24 108Z"/>
+  <path class="dg-box" d="M136 64L264 108L136 152L8 108Z"/>
   <text class="dg-label" x="136" y="98" text-anchor="middle" dominant-baseline="central">Stable selector?</text>
   <text class="dg-sub" x="136" y="120" text-anchor="middle" dominant-baseline="central">e.g. data-testid</text>
 
@@ -63,7 +63,7 @@ caption: Based on the Stagehand v4 docs. page.locator() involves no model; act(A
   <text class="dg-label" x="392" y="98" text-anchor="middle" dominant-baseline="central">page.locator()</text>
   <text class="dg-sub" x="392" y="120" text-anchor="middle" dominant-baseline="central">no model, milliseconds</text>
 
-  <path class="dg-box" d="M136 192L248 236L136 280L24 236Z"/>
+  <path class="dg-box" d="M136 192L264 236L136 280L8 236Z"/>
   <text class="dg-label" x="136" y="226" text-anchor="middle" dominant-baseline="central">Reading data?</text>
   <text class="dg-sub" x="136" y="248" text-anchor="middle" dominant-baseline="central">or clicking, filling</text>
 
@@ -83,9 +83,9 @@ caption: Based on the Stagehand v4 docs. page.locator() involves no model; act(A
   <text class="dg-label" x="392" y="434" text-anchor="middle" dominant-baseline="central">Selector breaks</text>
   <text class="dg-sub" x="392" y="456" text-anchor="middle" dominant-baseline="central">selfHeal retries once</text>
 
-  <text class="dg-edge" x="270" y="96" text-anchor="middle" dominant-baseline="central">Yes</text>
+  <text class="dg-edge" x="278" y="96" text-anchor="middle" dominant-baseline="central">Yes</text>
   <text class="dg-edge" x="146" y="170" text-anchor="start" dominant-baseline="central">No</text>
-  <text class="dg-edge" x="270" y="224" text-anchor="middle" dominant-baseline="central">Yes</text>
+  <text class="dg-edge" x="278" y="224" text-anchor="middle" dominant-baseline="central">Yes</text>
   <text class="dg-edge" x="146" y="298" text-anchor="start" dominant-baseline="central">No</text>
   <text class="dg-edge dg-text--warn" x="270" y="432" text-anchor="middle" dominant-baseline="central">fails</text>
 </svg>

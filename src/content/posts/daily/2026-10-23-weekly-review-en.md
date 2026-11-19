@@ -25,7 +25,7 @@ title: This week's agent security arms race
 desc: Attack and defense traded blows from 10/19 to 10/22, with defensive tooling and the Skynet disclosure landing on the same day.
 caption: Dates follow each daily/arXiv digest's publication and reporting time; see references below.
 ---
-<svg viewBox="0 0 760 260">
+<svg viewBox="0 0 772 260">
   <path class="dg-axis" d="M60 140H700"/>
 
   <g>

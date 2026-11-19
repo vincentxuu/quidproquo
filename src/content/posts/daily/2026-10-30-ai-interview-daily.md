@@ -29,11 +29,11 @@ caption: 簡化示意：實際實作還要處理 batch 維度與 temperature。
 ---
 <svg viewBox="0 0 720 480">
   <path class="dg-line" d="M360 34V60" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M360 108V180" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M360 268V300" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M456 224H520" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M264 224H200" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M360 348V392" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M360 108V160" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M360 288V308" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M480 224H520" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M240 224H200" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M360 356V392" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M612 256V392Q612 400 604 400H364" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M108 256V392Q108 400 116 400H356" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M360 400V420" marker-end="url(#arrow)"/>
@@ -41,19 +41,19 @@ caption: 簡化示意：實際實作還要處理 batch 維度與 temperature。
   <circle class="dg-dot" cx="360" cy="28" r="6"/>
 
   <g>
-    <rect class="dg-box" x="264" y="60" width="192" height="48" rx="6"/>
+    <rect class="dg-box" x="244" y="60" width="232" height="48" rx="6"/>
     <text class="dg-label" x="360" y="84" text-anchor="middle" dominant-baseline="central">softmax（先減最大值）</text>
   </g>
 
   <g>
-    <path class="dg-box" d="M360 180L456 224L360 268L264 224Z"/>
-    <text class="dg-label" x="360" y="214" text-anchor="middle" dominant-baseline="central">怎麼選下一個 token？</text>
-    <text class="dg-sub" x="360" y="236" text-anchor="middle" dominant-baseline="central">greedy／top-k／top-p</text>
+    <path class="dg-box" d="M360 160L480 224L360 288L240 224Z"/>
+    <text class="dg-label" x="360" y="212" text-anchor="middle" dominant-baseline="central">怎麼選下一個 token？</text>
+    <text class="dg-sub" x="360" y="238" text-anchor="middle" dominant-baseline="central">greedy／top-k／top-p</text>
   </g>
 
   <g>
-    <rect class="dg-box" x="264" y="300" width="192" height="48" rx="6"/>
-    <text class="dg-label" x="360" y="324" text-anchor="middle" dominant-baseline="central">greedy：argmax</text>
+    <rect class="dg-box" x="264" y="308" width="192" height="48" rx="6"/>
+    <text class="dg-label" x="360" y="332" text-anchor="middle" dominant-baseline="central">greedy：argmax</text>
   </g>
 
   <g>
@@ -71,13 +71,13 @@ caption: 簡化示意：實際實作還要處理 batch 維度與 temperature。
   <circle class="dg-dot" cx="360" cy="400" r="4"/>
 
   <g>
-    <rect class="dg-box dg-box--accent" x="264" y="420" width="192" height="48" rx="6"/>
+    <rect class="dg-box dg-box--accent" x="236" y="420" width="248" height="48" rx="6"/>
     <text class="dg-label" x="360" y="444" text-anchor="middle" dominant-baseline="central">輸出 token，寫回序列</text>
   </g>
 
-  <text class="dg-edge" x="414" y="200" text-anchor="middle" dominant-baseline="central">greedy</text>
-  <text class="dg-edge" x="488" y="212" text-anchor="middle" dominant-baseline="central">top-k</text>
-  <text class="dg-edge" x="232" y="212" text-anchor="middle" dominant-baseline="central">top-p</text>
+  <text class="dg-edge" x="368" y="298" text-anchor="start" dominant-baseline="central">greedy</text>
+  <text class="dg-edge" x="500" y="212" text-anchor="middle" dominant-baseline="central">top-k</text>
+  <text class="dg-edge" x="220" y="212" text-anchor="middle" dominant-baseline="central">top-p</text>
 </svg>
 ```
 

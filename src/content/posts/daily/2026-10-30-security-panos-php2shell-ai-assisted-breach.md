@@ -39,32 +39,34 @@ series:
 title: PHP2Shell ＋ Fragnesia 攻擊鏈
 desc: 單次 HTTP 請求內完成 RCE 與 kernel 權限提升，再透過反向通道打進內網 Active Directory
 ---
-<svg viewBox="0 0 640 460">
+<svg viewBox="0 0 640 496">
   <path class="dg-line" d="M320 76V100" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M320 156V180" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M320 236V260" marker-end="url(#arrow)"/>
   <path class="dg-line dg-line--accent" d="M320 316V340" marker-end="url(#arrow-accent)"/>
   <path class="dg-line dg-line--accent" d="M320 396V420" marker-end="url(#arrow-accent)"/>
 
-  <rect class="dg-box" x="120" y="20" width="400" height="56" rx="6"/>
-  <text class="dg-label" x="320" y="39" text-anchor="middle" dominant-baseline="central">A1 記憶體灌爆（~383MB）＋ B1 洩漏 libphp.so 位址</text>
-  <text class="dg-sub" x="320" y="59" text-anchor="middle" dominant-baseline="central">PHP2Shell 第一階段</text>
+  <rect class="dg-box" x="20" y="20" width="600" height="56" rx="6"/>
+  <text class="dg-label" x="320" y="36" text-anchor="middle" dominant-baseline="central">A1 記憶體灌爆（~383MB）＋ B1 洩漏 libphp.so 位址</text>
+  <text class="dg-sub" x="320" y="60" text-anchor="middle" dominant-baseline="central">PHP2Shell 第一階段</text>
 
-  <rect class="dg-box" x="120" y="100" width="400" height="56" rx="6"/>
+  <rect class="dg-box" x="20" y="100" width="600" height="56" rx="6"/>
   <text class="dg-label" x="320" y="128" text-anchor="middle" dominant-baseline="central">A2 製造懸空參照 ＋ B2 偽造 HashTable 解構子</text>
 
-  <rect class="dg-box dg-box--warn" x="120" y="180" width="400" height="56" rx="6"/>
-  <text class="dg-label" x="320" y="199" text-anchor="middle" dominant-baseline="central">取得 nobody 權限任意指令執行</text>
-  <text class="dg-sub" x="320" y="219" text-anchor="middle" dominant-baseline="central">同一個 HTTP 請求內完成</text>
+  <rect class="dg-box dg-box--warn" x="20" y="180" width="600" height="56" rx="6"/>
+  <text class="dg-label" x="320" y="196" text-anchor="middle" dominant-baseline="central">取得 nobody 權限任意指令執行</text>
+  <text class="dg-sub" x="320" y="220" text-anchor="middle" dominant-baseline="central">同一個 HTTP 請求內完成</text>
 
-  <rect class="dg-box" x="120" y="260" width="400" height="56" rx="6"/>
+  <rect class="dg-box" x="20" y="260" width="600" height="56" rx="6"/>
   <text class="dg-label" x="320" y="288" text-anchor="middle" dominant-baseline="central">Fragnesia：page-cache 改寫 /etc/pam.d/su</text>
 
-  <rect class="dg-box dg-box--warn" x="120" y="340" width="400" height="56" rx="6"/>
-  <text class="dg-label" x="320" y="368" text-anchor="middle" dominant-baseline="central">su root 免密碼成功，15 分鐘內拿到持久 root webshell</text>
+  <rect class="dg-box dg-box--warn" x="20" y="340" width="600" height="56" rx="6"/>
+  <text class="dg-label" x="320" y="356" text-anchor="middle" dominant-baseline="central">su root 免密碼成功</text>
+  <text class="dg-sub" x="320" y="380" text-anchor="middle" dominant-baseline="central">15 分鐘內拿到持久 root webshell</text>
 
-  <rect class="dg-box" x="120" y="420" width="400" height="56" rx="6"/>
-  <text class="dg-label" x="320" y="439" text-anchor="middle" dominant-baseline="central">反向 SSH 通道回內網 → 打中央管理伺服器 → 解密 LDAP 服務帳密</text>
+  <rect class="dg-box" x="20" y="420" width="600" height="56" rx="6"/>
+  <text class="dg-label" x="320" y="436" text-anchor="middle" dominant-baseline="central">反向 SSH 通道回內網 → 打中央管理伺服器</text>
+  <text class="dg-sub" x="320" y="460" text-anchor="middle" dominant-baseline="central">→ 解密 LDAP 服務帳密</text>
 </svg>
 ```
 

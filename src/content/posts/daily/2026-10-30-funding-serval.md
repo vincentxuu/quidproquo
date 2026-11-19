@@ -53,7 +53,7 @@ title: Serval 估值成長：2025/8 至 2026/10
 desc: Serval 估值從 2025 年 8 月的 2.32 億美元，經 12 月 Series B 來到 10 億美元，10 個月後的 2026 年 10 月 Series C 達到 30 億美元，14 個月內漲了約 13 倍。
 caption: 估值數字依 Crypto Briefing、citybiz、Dealroom 報導整理；縱軸從 0 起算，1 格 = 10 億美元。
 ---
-<svg viewBox="0 0 640 348">
+<svg viewBox="0 0 640 360">
   <text class="dg-small" x="64" y="32" dominant-baseline="central">估值（US$M）</text>
   <line class="dg-grid" x1="72" y1="220" x2="612" y2="220"/>
   <line class="dg-grid" x1="72" y1="140" x2="612" y2="140"/>
@@ -74,9 +74,9 @@ caption: 估值數字依 Crypto Briefing、citybiz、Dealroom 報導整理；縱
 
   <text class="dg-sub" x="180" y="316" text-anchor="middle" dominant-baseline="central">2025/08</text>
   <text class="dg-sub" x="320" y="316" text-anchor="middle" dominant-baseline="central">2025/12</text>
-  <text class="dg-sub" x="320" y="332" text-anchor="middle" dominant-baseline="central">Series B</text>
+  <text class="dg-sub" x="320" y="338" text-anchor="middle" dominant-baseline="central">Series B</text>
   <text class="dg-label dg-text--accent" x="460" y="316" text-anchor="middle" dominant-baseline="central">2026/10</text>
-  <text class="dg-label dg-text--accent" x="460" y="332" text-anchor="middle" dominant-baseline="central">Series C</text>
+  <text class="dg-label dg-text--accent" x="460" y="338" text-anchor="middle" dominant-baseline="central">Series C</text>
 </svg>
 ```
 

@@ -48,9 +48,10 @@ caption: "Simplified: the paper also covers a path for black-box agents that can
   <path class="dg-line" d="M380 180H430" marker-end="url(#arrow)"/>
   <path class="dg-line dg-line--accent" d="M520 224V244Q520 252 512 252H348Q340 252 340 260V280" marker-end="url(#arrow-accent)"/>
 
-  <rect class="dg-box" x="40" y="148" width="140" height="64" rx="6"/>
-  <text class="dg-label" x="110" y="172" text-anchor="middle" dominant-baseline="central">Agentic event</text>
-  <text class="dg-sub" x="110" y="192" text-anchor="middle" dominant-baseline="central">prompt / tool call / message</text>
+  <rect class="dg-box" x="40" y="138" width="140" height="84" rx="6"/>
+  <text class="dg-label" x="110" y="160" text-anchor="middle" dominant-baseline="central">Agentic event</text>
+  <text class="dg-sub" x="110" y="182" text-anchor="middle" dominant-baseline="central">prompt, tool call,</text>
+  <text class="dg-sub" x="110" y="200" text-anchor="middle" dominant-baseline="central">or message</text>
 
   <rect class="dg-box" x="240" y="148" width="140" height="64" rx="6"/>
   <text class="dg-label" x="310" y="172" text-anchor="middle" dominant-baseline="central">A-Guard</text>

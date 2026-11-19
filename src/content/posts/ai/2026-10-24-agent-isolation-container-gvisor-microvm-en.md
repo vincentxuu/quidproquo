@@ -47,43 +47,43 @@ title: Stacks of the three isolation approaches and the shared hardware
 desc: A container's program faces the host kernel directly; gVisor adds a user-space kernel in between; a microVM adds a guest kernel and a hypervisor. All three sit on the same host hardware and caches.
 caption: Simplified. gVisor also has a Gofer process and several platforms, and a microVM's VMM runs as a host process; both are omitted.
 ---
-<svg viewBox="0 0 640 332">
-  <text class="dg-label" x="112" y="26" text-anchor="middle" dominant-baseline="central">Container</text>
-  <text class="dg-label" x="320" y="26" text-anchor="middle" dominant-baseline="central">gVisor</text>
-  <text class="dg-label" x="528" y="26" text-anchor="middle" dominant-baseline="central">microVM</text>
+<svg viewBox="0 0 664 332">
+  <text class="dg-label" x="118" y="26" text-anchor="middle" dominant-baseline="central">Container</text>
+  <text class="dg-label" x="332" y="26" text-anchor="middle" dominant-baseline="central">gVisor</text>
+  <text class="dg-label" x="546" y="26" text-anchor="middle" dominant-baseline="central">microVM</text>
 
-  <rect class="dg-box" x="20" y="48" width="184" height="52" rx="6"/>
-  <text class="dg-label" x="112" y="68" text-anchor="middle" dominant-baseline="central">Program in container</text>
-  <text class="dg-sub" x="112" y="88" text-anchor="middle" dominant-baseline="central">the agent's code</text>
-  <rect class="dg-box" x="228" y="48" width="184" height="52" rx="6"/>
-  <text class="dg-label" x="320" y="68" text-anchor="middle" dominant-baseline="central">Program in container</text>
-  <text class="dg-sub" x="320" y="88" text-anchor="middle" dominant-baseline="central">the agent's code</text>
-  <rect class="dg-box" x="436" y="48" width="184" height="52" rx="6"/>
-  <text class="dg-label" x="528" y="68" text-anchor="middle" dominant-baseline="central">Program in container</text>
-  <text class="dg-sub" x="528" y="88" text-anchor="middle" dominant-baseline="central">the agent's code</text>
+  <rect class="dg-box" x="20" y="48" width="196" height="52" rx="6"/>
+  <text class="dg-label" x="118" y="68" text-anchor="middle" dominant-baseline="central">Program in container</text>
+  <text class="dg-sub" x="118" y="88" text-anchor="middle" dominant-baseline="central">the agent's code</text>
+  <rect class="dg-box" x="234" y="48" width="196" height="52" rx="6"/>
+  <text class="dg-label" x="332" y="68" text-anchor="middle" dominant-baseline="central">Program in container</text>
+  <text class="dg-sub" x="332" y="88" text-anchor="middle" dominant-baseline="central">the agent's code</text>
+  <rect class="dg-box" x="448" y="48" width="196" height="52" rx="6"/>
+  <text class="dg-label" x="546" y="68" text-anchor="middle" dominant-baseline="central">Program in container</text>
+  <text class="dg-sub" x="546" y="88" text-anchor="middle" dominant-baseline="central">the agent's code</text>
 
-  <rect class="dg-box dg-box--store" x="20" y="112" width="184" height="52" rx="6"/>
-  <text class="dg-label" x="112" y="132" text-anchor="middle" dominant-baseline="central">Host Linux kernel</text>
-  <text class="dg-sub" x="112" y="152" text-anchor="middle" dominant-baseline="central">shared with other containers</text>
-  <rect class="dg-box" x="228" y="112" width="184" height="52" rx="6"/>
-  <text class="dg-label" x="320" y="132" text-anchor="middle" dominant-baseline="central">gVisor Sentry</text>
-  <text class="dg-sub" x="320" y="152" text-anchor="middle" dominant-baseline="central">user-space kernel</text>
-  <rect class="dg-box" x="436" y="112" width="184" height="52" rx="6"/>
-  <text class="dg-label" x="528" y="132" text-anchor="middle" dominant-baseline="central">Guest Linux kernel</text>
-  <text class="dg-sub" x="528" y="152" text-anchor="middle" dominant-baseline="central">one per VM</text>
+  <rect class="dg-box dg-box--store" x="20" y="112" width="196" height="52" rx="6"/>
+  <text class="dg-label" x="118" y="132" text-anchor="middle" dominant-baseline="central">Host Linux kernel</text>
+  <text class="dg-sub" x="118" y="152" text-anchor="middle" dominant-baseline="central">shared with other containers</text>
+  <rect class="dg-box" x="234" y="112" width="196" height="52" rx="6"/>
+  <text class="dg-label" x="332" y="132" text-anchor="middle" dominant-baseline="central">gVisor Sentry</text>
+  <text class="dg-sub" x="332" y="152" text-anchor="middle" dominant-baseline="central">user-space kernel</text>
+  <rect class="dg-box" x="448" y="112" width="196" height="52" rx="6"/>
+  <text class="dg-label" x="546" y="132" text-anchor="middle" dominant-baseline="central">Guest Linux kernel</text>
+  <text class="dg-sub" x="546" y="152" text-anchor="middle" dominant-baseline="central">one per VM</text>
 
-  <rect class="dg-box dg-box--ghost" x="20" y="176" width="184" height="52" rx="6"/>
-  <text class="dg-sub" x="112" y="202" text-anchor="middle" dominant-baseline="central">no second boundary</text>
-  <rect class="dg-box dg-box--store" x="228" y="176" width="184" height="52" rx="6"/>
-  <text class="dg-label" x="320" y="196" text-anchor="middle" dominant-baseline="central">Host Linux kernel</text>
-  <text class="dg-sub" x="320" y="216" text-anchor="middle" dominant-baseline="central">limited calls only</text>
-  <rect class="dg-box dg-box--store" x="436" y="176" width="184" height="52" rx="6"/>
-  <text class="dg-label" x="528" y="196" text-anchor="middle" dominant-baseline="central">Hypervisor + host kernel</text>
-  <text class="dg-sub" x="528" y="216" text-anchor="middle" dominant-baseline="central">reachable via VM exit</text>
+  <rect class="dg-box dg-box--ghost" x="20" y="176" width="196" height="52" rx="6"/>
+  <text class="dg-sub" x="118" y="202" text-anchor="middle" dominant-baseline="central">no second boundary</text>
+  <rect class="dg-box dg-box--store" x="234" y="176" width="196" height="52" rx="6"/>
+  <text class="dg-label" x="332" y="196" text-anchor="middle" dominant-baseline="central">Host Linux kernel</text>
+  <text class="dg-sub" x="332" y="216" text-anchor="middle" dominant-baseline="central">limited calls only</text>
+  <rect class="dg-box dg-box--store" x="448" y="176" width="196" height="52" rx="6"/>
+  <text class="dg-label" x="546" y="196" text-anchor="middle" dominant-baseline="central">Hypervisor + host kernel</text>
+  <text class="dg-sub" x="546" y="216" text-anchor="middle" dominant-baseline="central">reachable via VM exit</text>
 
-  <rect class="dg-box dg-box--accent" x="20" y="248" width="600" height="60" rx="6"/>
-  <text class="dg-label" x="320" y="270" text-anchor="middle" dominant-baseline="central">One host's CPU caches, memory, and storage</text>
-  <text class="dg-sub" x="320" y="292" text-anchor="middle" dominant-baseline="central">shared by all three</text>
+  <rect class="dg-box dg-box--accent" x="20" y="248" width="624" height="60" rx="6"/>
+  <text class="dg-label" x="332" y="270" text-anchor="middle" dominant-baseline="central">One host's CPU caches, memory, and storage</text>
+  <text class="dg-sub" x="332" y="292" text-anchor="middle" dominant-baseline="central">shared by all three</text>
 </svg>
 ```
 

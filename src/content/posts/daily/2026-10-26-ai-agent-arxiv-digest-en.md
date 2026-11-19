@@ -24,16 +24,16 @@ caption: Simplified: each paper tests a complex option against a simple option f
 ---
 <svg viewBox="0 0 640 420">
   <rect class="dg-box" x="14" y="30" width="196" height="40" rx="6"/>
-  <text class="dg-tag" x="112" y="50" text-anchor="middle" dominant-baseline="central">Conversational memory</text>
+  <text class="dg-tag" x="112" y="50" text-anchor="middle" dominant-baseline="central">Conversational</text>
 
   <rect class="dg-box" x="222" y="30" width="196" height="40" rx="6"/>
-  <text class="dg-tag" x="320" y="50" text-anchor="middle" dominant-baseline="central">Task-planning memory</text>
+  <text class="dg-tag" x="320" y="50" text-anchor="middle" dominant-baseline="central">Task planning</text>
 
   <rect class="dg-box" x="430" y="30" width="196" height="40" rx="6"/>
-  <text class="dg-tag" x="528" y="50" text-anchor="middle" dominant-baseline="central">Multi-agent coordination memory</text>
+  <text class="dg-tag" x="528" y="50" text-anchor="middle" dominant-baseline="central">Multi-agent coordination</text>
 
   <rect class="dg-box dg-box--link" x="14" y="85" width="196" height="95" rx="6"/>
-  <text class="dg-label" x="112" y="117" text-anchor="middle" dominant-baseline="central">12 agentic memory systems</text>
+  <text class="dg-label" x="112" y="117" text-anchor="middle" dominant-baseline="central">12 agent memory systems</text>
   <text class="dg-sub" x="112" y="139" text-anchor="middle" dominant-baseline="central">Mem0 / MemOS / graph…</text>
   <text class="dg-sub" x="112" y="157" text-anchor="middle" dominant-baseline="central">complex option</text>
 
@@ -64,8 +64,9 @@ caption: Simplified: each paper tests a complex option against a simple option f
 
   <line class="dg-rule" x1="14" y1="310" x2="626" y2="310"/>
   <text class="dg-tag" x="14" y="334" dominant-baseline="central">Legend</text>
-  <text class="dg-small" x="14" y="358" dominant-baseline="central">Highlighted box = the experimental winner for that role; the winners are simple, structured, simple — no single rule</text>
-  <text class="dg-small" x="14" y="380" dominant-baseline="central">Winners follow each paper's main results table; see "Key Takeaways" in each section</text>
+  <text class="dg-small" x="14" y="356" dominant-baseline="central">Highlighted box = the experimental winner for that role;</text>
+  <text class="dg-small" x="14" y="376" dominant-baseline="central">the winners are simple, structured, simple — no single rule</text>
+  <text class="dg-small" x="14" y="398" dominant-baseline="central">Winners follow each paper's main results table; see "Key Takeaways" in each section</text>
 </svg>
 ```
 

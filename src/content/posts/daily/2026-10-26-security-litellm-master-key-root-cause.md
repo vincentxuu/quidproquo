@@ -40,41 +40,35 @@ step: 2026-10-10／10-12：建自刪分支推 push-triggered workflow，兩輪�
 step: 2026-10-21 10:08-11:08 UTC：覆寫分支保護，發布管線改指向仿冒 repo
 step: 2026-10-21 11:39 UTC：惡意版本 v1.107.0 發布到 PyPI／Docker Hub／GHCR
 ---
-<svg viewBox="0 0 760 260">
-  <line class="dg-rule" x1="60" y1="56" x2="60" y2="240"/>
-  <line class="dg-rule" x1="220" y1="56" x2="220" y2="240"/>
-  <line class="dg-rule" x1="380" y1="56" x2="380" y2="240"/>
-  <line class="dg-rule" x1="540" y1="56" x2="540" y2="240"/>
-  <line class="dg-rule" x1="700" y1="56" x2="700" y2="240"/>
-
+<svg viewBox="0 0 760 264">
   <g data-step="1">
-    <circle class="dg-dot" cx="60" cy="100" r="6"/>
-    <text class="dg-label" x="60" y="128" text-anchor="middle">05-27 master key 外流</text>
-    <text class="dg-caption" x="60" y="146" text-anchor="middle">之後未撤銷</text>
+    <circle class="dg-dot" cx="40" cy="36" r="6"/>
+    <text class="dg-label" x="64" y="36" dominant-baseline="central">05-27 master key 外流</text>
+    <text class="dg-caption" x="300" y="36" dominant-baseline="central">之後未撤銷</text>
   </g>
   <g data-step="2">
-    <path class="dg-line" d="M66 100H214" marker-end="url(#arrow)"/>
-    <circle class="dg-dot" cx="220" cy="100" r="6"/>
-    <text class="dg-label" x="220" y="128" text-anchor="middle">10-10 偷 GitHub token</text>
-    <text class="dg-caption" x="220" y="146" text-anchor="middle">org owner 等級</text>
+    <path class="dg-line" d="M40 42V78" marker-end="url(#arrow)"/>
+    <circle class="dg-dot" cx="40" cy="84" r="6"/>
+    <text class="dg-label" x="64" y="84" dominant-baseline="central">10-10 偷 GitHub token</text>
+    <text class="dg-caption" x="300" y="84" dominant-baseline="central">org owner 等級</text>
   </g>
   <g data-step="3">
-    <path class="dg-line dg-line--dashed" d="M226 100H374" marker-end="url(#arrow)"/>
-    <circle class="dg-dot" cx="380" cy="100" r="6"/>
-    <text class="dg-label" x="380" y="128" text-anchor="middle">自刪分支偷更多金鑰</text>
-    <text class="dg-caption" x="380" y="146" text-anchor="middle">兩輪，幾分鐘內清掉痕跡</text>
+    <path class="dg-line dg-line--dashed" d="M40 90V126" marker-end="url(#arrow)"/>
+    <circle class="dg-dot" cx="40" cy="132" r="6"/>
+    <text class="dg-label" x="64" y="132" dominant-baseline="central">自刪分支偷更多金鑰</text>
+    <text class="dg-caption" x="300" y="132" dominant-baseline="central">兩輪，幾分鐘內清掉痕跡</text>
   </g>
   <g data-step="4">
-    <path class="dg-line" d="M386 100H534" marker-end="url(#arrow)"/>
-    <circle class="dg-dot" cx="540" cy="100" r="6"/>
-    <text class="dg-label" x="540" y="128" text-anchor="middle">10-21 覆寫發布管線</text>
-    <text class="dg-caption" x="540" y="146" text-anchor="middle">指向仿冒 repo</text>
+    <path class="dg-line" d="M40 138V174" marker-end="url(#arrow)"/>
+    <circle class="dg-dot" cx="40" cy="180" r="6"/>
+    <text class="dg-label" x="64" y="180" dominant-baseline="central">10-21 覆寫發布管線</text>
+    <text class="dg-caption" x="300" y="180" dominant-baseline="central">指向仿冒 repo</text>
   </g>
   <g data-step="5">
-    <path class="dg-line dg-line--accent" d="M546 100H694" marker-end="url(#arrow-accent)"/>
-    <circle class="dg-dot dg-dot--accent" cx="700" cy="100" r="6"/>
-    <text class="dg-label dg-text--accent" x="700" y="128" text-anchor="middle">v1.107.0 發布</text>
-    <text class="dg-caption" x="700" y="146" text-anchor="middle">PyPI／Docker／GHCR</text>
+    <path class="dg-line dg-line--accent" d="M40 186V222" marker-end="url(#arrow-accent)"/>
+    <circle class="dg-dot dg-dot--accent" cx="40" cy="228" r="6"/>
+    <text class="dg-label dg-text--accent" x="64" y="228" dominant-baseline="central">v1.107.0 發布</text>
+    <text class="dg-caption" x="300" y="228" dominant-baseline="central">PyPI／Docker／GHCR</text>
   </g>
 </svg>
 ```

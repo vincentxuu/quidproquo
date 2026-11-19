@@ -36,8 +36,8 @@ caption: Simplified: schema registry and the shared feature-transform layer are 
   <path class="dg-line" d="M500 184 V260" marker-end="url(#arrow)"/>
 
   <rect class="dg-box" x="200" y="20" width="240" height="56" rx="6"/>
-  <text class="dg-label" x="320" y="40" text-anchor="middle" dominant-baseline="central">Feature Sources</text>
-  <text class="dg-sub" x="320" y="58" text-anchor="middle" dominant-baseline="central">behavior, transactions</text>
+  <text class="dg-label" x="320" y="36" text-anchor="middle" dominant-baseline="central">Feature Sources</text>
+  <text class="dg-sub" x="320" y="60" text-anchor="middle" dominant-baseline="central">behavior, transactions</text>
 
   <rect class="dg-box dg-box--store" x="40" y="120" width="200" height="64" rx="6"/>
   <text class="dg-label" x="140" y="144" text-anchor="middle" dominant-baseline="central">Offline Store</text>
@@ -48,8 +48,8 @@ caption: Simplified: schema registry and the shared feature-transform layer are 
   <text class="dg-sub" x="500" y="164" text-anchor="middle" dominant-baseline="central">low-latency memory</text>
 
   <rect class="dg-box" x="40" y="260" width="200" height="56" rx="6"/>
-  <text class="dg-label" x="140" y="280" text-anchor="middle" dominant-baseline="central">Model Training</text>
-  <text class="dg-sub" x="140" y="298" text-anchor="middle" dominant-baseline="central">point-in-time</text>
+  <text class="dg-label" x="140" y="276" text-anchor="middle" dominant-baseline="central">Model Training</text>
+  <text class="dg-sub" x="140" y="300" text-anchor="middle" dominant-baseline="central">point-in-time</text>
 
   <rect class="dg-box" x="380" y="260" width="240" height="64" rx="6"/>
   <text class="dg-label" x="500" y="284" text-anchor="middle" dominant-baseline="central">Online Inference</text>

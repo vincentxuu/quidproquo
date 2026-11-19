@@ -71,8 +71,8 @@ caption: Success rates are Forever Security's own test figures; the real attack 
   <text class="dg-label" x="480" y="379" text-anchor="middle" dominant-baseline="central">OAuth token leaked</text>
   <text class="dg-sub" x="480" y="399" text-anchor="middle" dominant-baseline="central">~50% success rate</text>
 
-  <text class="dg-edge" x="240" y="228" text-anchor="middle" dominant-baseline="central">Codex</text>
-  <text class="dg-edge" x="400" y="228" text-anchor="middle" dominant-baseline="central">Claude Code</text>
+  <text class="dg-edge" x="170" y="252" text-anchor="start" dominant-baseline="central">Codex</text>
+  <text class="dg-edge" x="490" y="252" text-anchor="start" dominant-baseline="central">Claude Code</text>
 </svg>
 ```
 

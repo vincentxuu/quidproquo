@@ -22,7 +22,7 @@ title: Three trust failures, three different causes
 desc: At the text, system, and content layers, each has a surface-level signal that looks fine — but each hides a gap once actually checked. These three failure modes have different root causes; they are not three examples of the same problem.
 caption: Simplified: the top row is the surface signal; the bottom row (highlighted) is the moment today's three papers each expose or block being wrongly trusted.
 ---
-<svg viewBox="0 0 640 420">
+<svg viewBox="0 0 640 436">
   <rect class="dg-box" x="14" y="30" width="196" height="40" rx="6"/>
   <text class="dg-tag" x="112" y="50" text-anchor="middle" dominant-baseline="central">Tool output text</text>
 
@@ -64,8 +64,10 @@ caption: Simplified: the top row is the surface signal; the bottom row (highligh
 
   <line class="dg-rule" x1="14" y1="310" x2="626" y2="310"/>
   <text class="dg-tag" x="14" y="334" dominant-baseline="central">Legend</text>
-  <text class="dg-small" x="14" y="358" dominant-baseline="central">Top row = the surface signal that looks fine; bottom row (highlighted) = the moment each paper exposes or blocks the wrongly-trusted step</text>
-  <text class="dg-small" x="14" y="380" dominant-baseline="central">The three failure modes sit at the text, system, and content layers and have different root causes — see each paper's editorial table and deep-dive section</text>
+  <text class="dg-small" x="14" y="356" dominant-baseline="central">Top row = the surface signal that looks fine; bottom row (highlighted) = the moment</text>
+  <text class="dg-small" x="14" y="374" dominant-baseline="central">each paper exposes or blocks the wrongly-trusted step</text>
+  <text class="dg-small" x="14" y="398" dominant-baseline="central">The three failure modes sit at the text, system, and content layers and have different</text>
+  <text class="dg-small" x="14" y="416" dominant-baseline="central">root causes — see each paper's editorial table and deep-dive section</text>
 </svg>
 ```
 

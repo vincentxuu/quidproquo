@@ -71,14 +71,14 @@ caption: 資料來源：KRAFTON 官方 Hugging Face 模型卡自測（評審模�
     <rect class="dg-bar" x="234" y="76" width="44" height="224"/>
     <rect class="dg-bar" x="374" y="116" width="44" height="184"/>
     <rect class="dg-bar" x="514" y="77" width="44" height="223"/>
-    <text class="dg-text--series" x="116" y="44" text-anchor="middle" dominant-baseline="central">Raon-1 mini</text>
+    <text class="dg-text--series" x="452" y="32" text-anchor="end" dominant-baseline="central">Raon-1 mini</text>
   </g>
   <g class="dg-c-s1">
     <rect class="dg-bar" x="150" y="148" width="44" height="152"/>
     <rect class="dg-bar" x="290" y="77" width="44" height="223"/>
     <rect class="dg-bar" x="430" y="94" width="44" height="206"/>
     <rect class="dg-bar" x="570" y="121" width="44" height="179"/>
-    <text class="dg-text--series" x="172" y="44" text-anchor="middle" dominant-baseline="central">Qwen3.6-35B-A3B</text>
+    <text class="dg-text--series" x="612" y="32" text-anchor="end" dominant-baseline="central">Qwen3.6-35B-A3B</text>
   </g>
 
   <text class="dg-sub" x="116" y="120" text-anchor="middle" dominant-baseline="central">70.8</text>

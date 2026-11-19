@@ -176,7 +176,7 @@ The figure below redraws the assignment page's architecture diagram, keeping onl
       "offset": 16,
       "labelAt": [
         368,
-        320
+        312
       ]
     },
     {

@@ -57,8 +57,8 @@ caption: Figures from SenseTime's official launch chart, verified via screenshot
   <text class="dg-small" x="64" y="120" text-anchor="end" dominant-baseline="central">60</text>
   <text class="dg-small" x="64" y="300" text-anchor="end" dominant-baseline="central">0</text>
 
-  <text class="dg-text--series" x="136" y="52" text-anchor="middle" dominant-baseline="central">Qwen3.5-27B</text>
-  <text class="dg-text--series dg-text--accent" x="188" y="52" text-anchor="middle" dominant-baseline="central">Loop-9B</text>
+  <g class="dg-c-s1"><text class="dg-text--series" x="400" y="32" text-anchor="start" dominant-baseline="central">Qwen3.5-27B</text></g>
+  <g class="dg-c-accent"><text class="dg-text--series" x="520" y="32" text-anchor="start" dominant-baseline="central">Loop-9B</text></g>
 
   <rect class="dg-bar dg-c-s1" x="114" y="118" width="44" height="182"/>
   <rect class="dg-bar dg-c-accent" x="166" y="99" width="44" height="201"/>

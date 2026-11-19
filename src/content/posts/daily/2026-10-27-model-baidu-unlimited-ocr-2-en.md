@@ -65,8 +65,8 @@ caption: Source: Baidu's official leaderboard chart (2026-10-27, all self-report
   <text class="dg-small" x="64" y="204" text-anchor="end" dominant-baseline="central">40</text>
   <text class="dg-small" x="64" y="300" text-anchor="end" dominant-baseline="central">0</text>
 
-  <text class="dg-text--series" x="136" y="52" text-anchor="middle" dominant-baseline="central">MPDoc</text>
-  <text class="dg-text--series dg-text--accent" x="188" y="52" text-anchor="middle" dominant-baseline="central">Marathon</text>
+  <g class="dg-c-s1"><text class="dg-text--series" x="440" y="32" text-anchor="start" dominant-baseline="central">MPDoc</text></g>
+  <g class="dg-c-accent"><text class="dg-text--series" x="520" y="32" text-anchor="start" dominant-baseline="central">Marathon</text></g>
 
   <rect class="dg-bar dg-c-s1" x="114" y="97" width="44" height="203"/>
   <rect class="dg-bar dg-c-accent" x="166" y="115" width="44" height="185"/>

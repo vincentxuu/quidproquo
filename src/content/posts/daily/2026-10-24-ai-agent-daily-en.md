@@ -92,8 +92,8 @@ caption: Time is measured from the start of password spraying (10/10) as T+0; wh
 
   <line class="dg-rule" x1="60" y1="76" x2="60" y2="136"/>
   <circle class="dg-dot" cx="60" cy="140" r="4"/>
-  <text class="dg-label" x="60" y="40" text-anchor="middle" dominant-baseline="central">Spraying begins</text>
-  <text class="dg-sub" x="60" y="62" text-anchor="middle" dominant-baseline="central">2,900/min × 2,250 tenants</text>
+  <text class="dg-label" x="48" y="40" text-anchor="start" dominant-baseline="central">Spraying begins</text>
+  <text class="dg-sub" x="48" y="62" text-anchor="start" dominant-baseline="central">2,900/min × 2,250 tenants</text>
 
   <line class="dg-rule" x1="310" y1="146" x2="310" y2="188"/>
   <circle class="dg-dot dg-dot--accent" cx="310" cy="140" r="6"/>

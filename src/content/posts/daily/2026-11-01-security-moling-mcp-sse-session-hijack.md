@@ -66,12 +66,12 @@ caption: 前提：受害者已用 `-l` 參數在 SSE 模式下啟動 MoLing，�
   <rect class="dg-box" x="300" y="108" width="8" height="68" rx="2" data-step="1 2"/>
   <rect class="dg-box" x="300" y="196" width="8" height="68" rx="2" data-step="3 4"/>
 
-  <rect class="dg-box" x="20" y="24" width="128" height="48" rx="6"/>
-  <text class="dg-label" x="84" y="42" text-anchor="middle" dominant-baseline="central">惡意網頁</text>
-  <text class="dg-sub" x="84" y="60" text-anchor="middle" dominant-baseline="central">攻擊者控制</text>
-  <rect class="dg-box" x="240" y="24" width="128" height="48" rx="6"/>
-  <text class="dg-label" x="304" y="42" text-anchor="middle" dominant-baseline="central">MoLing</text>
-  <text class="dg-sub" x="304" y="60" text-anchor="middle" dominant-baseline="central">SSE 模式／未驗證</text>
+  <rect class="dg-box" x="20" y="16" width="128" height="56" rx="6"/>
+  <text class="dg-label" x="84" y="32" text-anchor="middle" dominant-baseline="central">惡意網頁</text>
+  <text class="dg-sub" x="84" y="56" text-anchor="middle" dominant-baseline="central">攻擊者控制</text>
+  <rect class="dg-box" x="240" y="16" width="128" height="56" rx="6"/>
+  <text class="dg-label" x="304" y="32" text-anchor="middle" dominant-baseline="central">MoLing</text>
+  <text class="dg-sub" x="304" y="56" text-anchor="middle" dominant-baseline="central">SSE 模式／未驗證</text>
 </svg>
 ```
 

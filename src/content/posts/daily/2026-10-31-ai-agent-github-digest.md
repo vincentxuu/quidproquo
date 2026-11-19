@@ -33,45 +33,45 @@ title: CopilotKit/OpenBot 的治理閘道
 desc: 使用者的話經 Server 送給 Bot，Bot 想呼叫工具時都要先過 Gateway 的 CEL 政策判斷，決策寫進 PostgreSQL 稽核紀錄，允許才送進該 Bot 專屬的沙箱電腦執行。
 caption: 簡化示意：只畫出「允許並執行」這條路徑；政策判斷為拒絕時，Gateway 會附上規則名稱回報給 Bot，不會把動作送進沙箱電腦。
 ---
-<svg viewBox="0 0 800 400">
-  <path class="dg-line" d="M132 216 H168" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M296 216 H332" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M448 216 H484" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M636 216 H664" marker-end="url(#arrow)"/>
-  <path class="dg-line dg-line--dashed" d="M560 268 V320" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M232 252 V292 Q232 300 240 300 H322 Q330 300 330 308 V320" marker-end="url(#arrow)"/>
+<svg viewBox="0 0 800 252">
+  <path class="dg-line" d="M100 72 H132" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M252 72 H284" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M396 72 H476" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M612 72 H688" marker-end="url(#arrow)"/>
+  <path class="dg-line dg-line--dashed" d="M544 124 V176" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M192 108 V148 Q192 156 200 156 H292 Q300 156 300 164 V176" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box" x="20" y="188" width="112" height="56" rx="6"/>
-  <text class="dg-label" x="76" y="216" text-anchor="middle" dominant-baseline="central">使用者</text>
+  <rect class="dg-box" x="20" y="44" width="80" height="56" rx="6"/>
+  <text class="dg-label" x="60" y="72" text-anchor="middle" dominant-baseline="central">使用者</text>
 
-  <rect class="dg-box" x="168" y="180" width="128" height="72" rx="6"/>
-  <text class="dg-label" x="232" y="206" text-anchor="middle" dominant-baseline="central">Server</text>
-  <text class="dg-sub" x="232" y="228" text-anchor="middle" dominant-baseline="central">送出這輪對話</text>
+  <rect class="dg-box" x="132" y="36" width="120" height="72" rx="6"/>
+  <text class="dg-label" x="192" y="62" text-anchor="middle" dominant-baseline="central">Server</text>
+  <text class="dg-sub" x="192" y="84" text-anchor="middle" dominant-baseline="central">送出這輪對話</text>
 
-  <rect class="dg-box" x="332" y="180" width="116" height="72" rx="6"/>
-  <text class="dg-label" x="390" y="206" text-anchor="middle" dominant-baseline="central">Bot</text>
-  <text class="dg-sub" x="390" y="228" text-anchor="middle" dominant-baseline="central">AG-UI 端點</text>
+  <rect class="dg-box" x="284" y="36" width="112" height="72" rx="6"/>
+  <text class="dg-label" x="340" y="62" text-anchor="middle" dominant-baseline="central">Bot</text>
+  <text class="dg-sub" x="340" y="84" text-anchor="middle" dominant-baseline="central">AG-UI 端點</text>
 
-  <rect class="dg-box dg-box--accent" x="484" y="164" width="152" height="104" rx="6"/>
-  <text class="dg-label" x="560" y="204" text-anchor="middle" dominant-baseline="central">Gateway</text>
-  <text class="dg-sub" x="560" y="226" text-anchor="middle" dominant-baseline="central">CEL 政策引擎</text>
+  <rect class="dg-box dg-box--accent" x="476" y="20" width="136" height="104" rx="6"/>
+  <text class="dg-label" x="544" y="60" text-anchor="middle" dominant-baseline="central">Gateway</text>
+  <text class="dg-sub" x="544" y="82" text-anchor="middle" dominant-baseline="central">CEL 政策引擎</text>
 
-  <rect class="dg-box" x="664" y="180" width="124" height="72" rx="6"/>
-  <text class="dg-label" x="726" y="206" text-anchor="middle" dominant-baseline="central">沙箱電腦</text>
-  <text class="dg-sub" x="726" y="228" text-anchor="middle" dominant-baseline="central">瀏覽器／檔案</text>
+  <rect class="dg-box" x="688" y="36" width="104" height="72" rx="6"/>
+  <text class="dg-label" x="740" y="62" text-anchor="middle" dominant-baseline="central">沙箱電腦</text>
+  <text class="dg-sub" x="740" y="84" text-anchor="middle" dominant-baseline="central">瀏覽器／檔案</text>
 
-  <rect class="dg-box dg-box--store" x="480" y="320" width="160" height="56" rx="6"/>
-  <text class="dg-label" x="560" y="340" text-anchor="middle" dominant-baseline="central">PostgreSQL</text>
-  <text class="dg-sub" x="560" y="358" text-anchor="middle" dominant-baseline="central">稽核紀錄＋決策</text>
+  <rect class="dg-box dg-box--store" x="454" y="176" width="180" height="56" rx="6"/>
+  <text class="dg-label" x="544" y="190" text-anchor="middle" dominant-baseline="central">PostgreSQL</text>
+  <text class="dg-sub" x="544" y="214" text-anchor="middle" dominant-baseline="central">稽核紀錄＋決策</text>
 
-  <rect class="dg-box dg-box--store" x="212" y="320" width="236" height="56" rx="6"/>
-  <text class="dg-label" x="330" y="340" text-anchor="middle" dominant-baseline="central">CopilotKit Intelligence</text>
-  <text class="dg-sub" x="330" y="358" text-anchor="middle" dominant-baseline="central">thread／長期記憶</text>
+  <rect class="dg-box dg-box--store" x="172" y="176" width="256" height="56" rx="6"/>
+  <text class="dg-label" x="300" y="190" text-anchor="middle" dominant-baseline="central">CopilotKit Intelligence</text>
+  <text class="dg-sub" x="300" y="214" text-anchor="middle" dominant-baseline="central">thread／長期記憶</text>
 
-  <text class="dg-edge" x="466" y="204" text-anchor="middle" dominant-baseline="central">工具呼叫</text>
-  <text class="dg-edge" x="650" y="204" text-anchor="middle" dominant-baseline="central">允許時執行</text>
-  <text class="dg-edge" x="570" y="294" dominant-baseline="central">寫入稽核</text>
-  <text class="dg-edge" x="281" y="288" text-anchor="middle" dominant-baseline="central">thread／記憶</text>
+  <text class="dg-edge" x="436" y="56" text-anchor="middle" dominant-baseline="central">工具呼叫</text>
+  <text class="dg-edge" x="650" y="56" text-anchor="middle" dominant-baseline="central">允許時執行</text>
+  <text class="dg-edge" x="554" y="150" dominant-baseline="central">寫入稽核</text>
+  <text class="dg-edge" x="204" y="132" text-anchor="start" dominant-baseline="central">thread／記憶</text>
 </svg>
 ```
 

@@ -36,8 +36,8 @@ caption: 簡化示意：省略 schema registry 跟特徵計算邏輯共用層。
   <path class="dg-line" d="M440 184 V260" marker-end="url(#arrow)"/>
 
   <rect class="dg-box" x="240" y="20" width="160" height="56" rx="6"/>
-  <text class="dg-label" x="320" y="40" text-anchor="middle" dominant-baseline="central">特徵來源</text>
-  <text class="dg-sub" x="320" y="58" text-anchor="middle" dominant-baseline="central">使用者行為與交易</text>
+  <text class="dg-label" x="320" y="36" text-anchor="middle" dominant-baseline="central">特徵來源</text>
+  <text class="dg-sub" x="320" y="60" text-anchor="middle" dominant-baseline="central">使用者行為與交易</text>
 
   <rect class="dg-box dg-box--store" x="100" y="120" width="160" height="64" rx="6"/>
   <text class="dg-label" x="180" y="144" text-anchor="middle" dominant-baseline="central">Offline Store</text>
@@ -48,8 +48,8 @@ caption: 簡化示意：省略 schema registry 跟特徵計算邏輯共用層。
   <text class="dg-sub" x="440" y="164" text-anchor="middle" dominant-baseline="central">低延遲記憶體儲存</text>
 
   <rect class="dg-box" x="100" y="260" width="160" height="56" rx="6"/>
-  <text class="dg-label" x="180" y="280" text-anchor="middle" dominant-baseline="central">模型訓練</text>
-  <text class="dg-sub" x="180" y="298" text-anchor="middle" dominant-baseline="central">point-in-time</text>
+  <text class="dg-label" x="180" y="276" text-anchor="middle" dominant-baseline="central">模型訓練</text>
+  <text class="dg-sub" x="180" y="300" text-anchor="middle" dominant-baseline="central">point-in-time</text>
 
   <rect class="dg-box" x="360" y="260" width="160" height="64" rx="6"/>
   <text class="dg-label" x="440" y="284" text-anchor="middle" dominant-baseline="central">線上推論</text>

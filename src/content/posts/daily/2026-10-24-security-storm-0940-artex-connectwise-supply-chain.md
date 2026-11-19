@@ -57,20 +57,20 @@ step: 用該 app 已有的信任，以機器速度對 2,250+ 租戶自動登入�
   </g>
 
   <rect class="dg-box" x="25" y="20" width="150" height="56" rx="6"/>
-  <text class="dg-label" x="100" y="40" text-anchor="middle" dominant-baseline="central">Storm-0940</text>
-  <text class="dg-sub" x="100" y="58" text-anchor="middle" dominant-baseline="central">中國國家級攻擊者</text>
+  <text class="dg-label" x="100" y="36" text-anchor="middle" dominant-baseline="central">Storm-0940</text>
+  <text class="dg-sub" x="100" y="60" text-anchor="middle" dominant-baseline="central">中國國家級攻擊者</text>
 
   <rect class="dg-box" x="205" y="20" width="150" height="56" rx="6"/>
-  <text class="dg-label" x="280" y="40" text-anchor="middle" dominant-baseline="central">ARTEX agent</text>
-  <text class="dg-sub" x="280" y="58" text-anchor="middle" dominant-baseline="central">自動密碼噴灑</text>
+  <text class="dg-label" x="280" y="36" text-anchor="middle" dominant-baseline="central">ARTEX agent</text>
+  <text class="dg-sub" x="280" y="60" text-anchor="middle" dominant-baseline="central">自動密碼噴灑</text>
 
   <rect class="dg-box" x="385" y="20" width="150" height="56" rx="6"/>
-  <text class="dg-label" x="460" y="40" text-anchor="middle" dominant-baseline="central">ConnectWise</text>
-  <text class="dg-sub" x="460" y="58" text-anchor="middle" dominant-baseline="central">租戶信任遭濫用</text>
+  <text class="dg-label" x="460" y="36" text-anchor="middle" dominant-baseline="central">ConnectWise</text>
+  <text class="dg-sub" x="460" y="60" text-anchor="middle" dominant-baseline="central">租戶信任遭濫用</text>
 
   <rect class="dg-box dg-box--accent" x="565" y="20" width="150" height="56" rx="6"/>
-  <text class="dg-label" x="640" y="40" text-anchor="middle" dominant-baseline="central">2,250+ 租戶</text>
-  <text class="dg-sub" x="640" y="58" text-anchor="middle" dominant-baseline="central">特權存取 &lt;3hr</text>
+  <text class="dg-label" x="640" y="36" text-anchor="middle" dominant-baseline="central">2,250+ 租戶</text>
+  <text class="dg-sub" x="640" y="60" text-anchor="middle" dominant-baseline="central">特權存取 &lt;3hr</text>
 </svg>
 ```
 

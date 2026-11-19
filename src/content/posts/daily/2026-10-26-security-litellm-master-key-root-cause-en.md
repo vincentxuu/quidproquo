@@ -40,41 +40,35 @@ step: 2026-10-10 / 10-12: two rounds of credential theft via self-deleting branc
 step: 2026-10-21 10:08-11:08 UTC: branch protection overridden, release pipeline repointed to a lookalike repo
 step: 2026-10-21 11:39 UTC: malicious v1.107.0 published to PyPI, Docker Hub, and GHCR
 ---
-<svg viewBox="0 0 760 260">
-  <line class="dg-rule" x1="60" y1="56" x2="60" y2="240"/>
-  <line class="dg-rule" x1="220" y1="56" x2="220" y2="240"/>
-  <line class="dg-rule" x1="380" y1="56" x2="380" y2="240"/>
-  <line class="dg-rule" x1="540" y1="56" x2="540" y2="240"/>
-  <line class="dg-rule" x1="700" y1="56" x2="700" y2="240"/>
-
+<svg viewBox="0 0 760 264">
   <g data-step="1">
-    <circle class="dg-dot" cx="60" cy="100" r="6"/>
-    <text class="dg-label" x="60" y="128" text-anchor="middle">05-27 master key leak</text>
-    <text class="dg-caption" x="60" y="146" text-anchor="middle">never revoked after</text>
+    <circle class="dg-dot" cx="40" cy="36" r="6"/>
+    <text class="dg-label" x="64" y="36" dominant-baseline="central">05-27 master key leak</text>
+    <text class="dg-caption" x="420" y="36" dominant-baseline="central">never revoked after</text>
   </g>
   <g data-step="2">
-    <path class="dg-line" d="M66 100H214" marker-end="url(#arrow)"/>
-    <circle class="dg-dot" cx="220" cy="100" r="6"/>
-    <text class="dg-label" x="220" y="128" text-anchor="middle">10-10 GitHub token stolen</text>
-    <text class="dg-caption" x="220" y="146" text-anchor="middle">org-owner level</text>
+    <path class="dg-line" d="M40 42V78" marker-end="url(#arrow)"/>
+    <circle class="dg-dot" cx="40" cy="84" r="6"/>
+    <text class="dg-label" x="64" y="84" dominant-baseline="central">10-10 GitHub token stolen</text>
+    <text class="dg-caption" x="420" y="84" dominant-baseline="central">org-owner level</text>
   </g>
   <g data-step="3">
-    <path class="dg-line dg-line--dashed" d="M226 100H374" marker-end="url(#arrow)"/>
-    <circle class="dg-dot" cx="380" cy="100" r="6"/>
-    <text class="dg-label" x="380" y="128" text-anchor="middle">more secrets via self-deleting branches</text>
-    <text class="dg-caption" x="380" y="146" text-anchor="middle">two rounds, traces wiped in minutes</text>
+    <path class="dg-line dg-line--dashed" d="M40 90V126" marker-end="url(#arrow)"/>
+    <circle class="dg-dot" cx="40" cy="132" r="6"/>
+    <text class="dg-label" x="64" y="132" dominant-baseline="central">more secrets via self-deleting branches</text>
+    <text class="dg-caption" x="420" y="132" dominant-baseline="central">two rounds, traces wiped in minutes</text>
   </g>
   <g data-step="4">
-    <path class="dg-line" d="M386 100H534" marker-end="url(#arrow)"/>
-    <circle class="dg-dot" cx="540" cy="100" r="6"/>
-    <text class="dg-label" x="540" y="128" text-anchor="middle">10-21 release pipeline overridden</text>
-    <text class="dg-caption" x="540" y="146" text-anchor="middle">repointed to lookalike repo</text>
+    <path class="dg-line" d="M40 138V174" marker-end="url(#arrow)"/>
+    <circle class="dg-dot" cx="40" cy="180" r="6"/>
+    <text class="dg-label" x="64" y="180" dominant-baseline="central">10-21 release pipeline overridden</text>
+    <text class="dg-caption" x="420" y="180" dominant-baseline="central">repointed to lookalike repo</text>
   </g>
   <g data-step="5">
-    <path class="dg-line dg-line--accent" d="M546 100H694" marker-end="url(#arrow-accent)"/>
-    <circle class="dg-dot dg-dot--accent" cx="700" cy="100" r="6"/>
-    <text class="dg-label dg-text--accent" x="700" y="128" text-anchor="middle">v1.107.0 published</text>
-    <text class="dg-caption" x="700" y="146" text-anchor="middle">PyPI / Docker / GHCR</text>
+    <path class="dg-line dg-line--accent" d="M40 186V222" marker-end="url(#arrow-accent)"/>
+    <circle class="dg-dot dg-dot--accent" cx="40" cy="228" r="6"/>
+    <text class="dg-label dg-text--accent" x="64" y="228" dominant-baseline="central">v1.107.0 published</text>
+    <text class="dg-caption" x="420" y="228" dominant-baseline="central">PyPI / Docker / GHCR</text>
   </g>
 </svg>
 ```

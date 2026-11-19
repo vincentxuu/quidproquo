@@ -39,32 +39,34 @@ What's worth recording here is *how* the chain was built: the scene included an 
 title: PHP2Shell + Fragnesia exploit chain
 desc: RCE and kernel privilege escalation complete in a single HTTP request, then a reverse tunnel reaches the internal Active Directory
 ---
-<svg viewBox="0 0 640 460">
+<svg viewBox="0 0 640 496">
   <path class="dg-line" d="M320 76V100" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M320 156V180" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M320 236V260" marker-end="url(#arrow)"/>
   <path class="dg-line dg-line--accent" d="M320 316V340" marker-end="url(#arrow-accent)"/>
   <path class="dg-line dg-line--accent" d="M320 396V420" marker-end="url(#arrow-accent)"/>
 
-  <rect class="dg-box" x="120" y="20" width="400" height="56" rx="6"/>
-  <text class="dg-label" x="320" y="39" text-anchor="middle" dominant-baseline="central">A1 memory exhaustion (~383MB) + B1 leak libphp.so address</text>
-  <text class="dg-sub" x="320" y="59" text-anchor="middle" dominant-baseline="central">PHP2Shell stage one</text>
+  <rect class="dg-box" x="20" y="20" width="600" height="56" rx="6"/>
+  <text class="dg-label" x="320" y="36" text-anchor="middle" dominant-baseline="central">A1 memory exhaustion (~383MB) + B1 leak libphp.so address</text>
+  <text class="dg-sub" x="320" y="60" text-anchor="middle" dominant-baseline="central">PHP2Shell stage one</text>
 
-  <rect class="dg-box" x="120" y="100" width="400" height="56" rx="6"/>
+  <rect class="dg-box" x="20" y="100" width="600" height="56" rx="6"/>
   <text class="dg-label" x="320" y="128" text-anchor="middle" dominant-baseline="central">A2 stale reference setup + B2 forge HashTable destructor</text>
 
-  <rect class="dg-box dg-box--warn" x="120" y="180" width="400" height="56" rx="6"/>
-  <text class="dg-label" x="320" y="199" text-anchor="middle" dominant-baseline="central">Arbitrary command execution as nobody</text>
-  <text class="dg-sub" x="320" y="219" text-anchor="middle" dominant-baseline="central">Completed inside one HTTP request</text>
+  <rect class="dg-box dg-box--warn" x="20" y="180" width="600" height="56" rx="6"/>
+  <text class="dg-label" x="320" y="196" text-anchor="middle" dominant-baseline="central">Arbitrary command execution as nobody</text>
+  <text class="dg-sub" x="320" y="220" text-anchor="middle" dominant-baseline="central">Completed inside one HTTP request</text>
 
-  <rect class="dg-box" x="120" y="260" width="400" height="56" rx="6"/>
+  <rect class="dg-box" x="20" y="260" width="600" height="56" rx="6"/>
   <text class="dg-label" x="320" y="288" text-anchor="middle" dominant-baseline="central">Fragnesia: page-cache overwrite of /etc/pam.d/su</text>
 
-  <rect class="dg-box dg-box--warn" x="120" y="340" width="400" height="56" rx="6"/>
-  <text class="dg-label" x="320" y="368" text-anchor="middle" dominant-baseline="central">Passwordless su root succeeds, persistent root webshell in under 15 minutes</text>
+  <rect class="dg-box dg-box--warn" x="20" y="340" width="600" height="56" rx="6"/>
+  <text class="dg-label" x="320" y="356" text-anchor="middle" dominant-baseline="central">Passwordless su root succeeds</text>
+  <text class="dg-sub" x="320" y="380" text-anchor="middle" dominant-baseline="central">persistent root webshell in under 15 minutes</text>
 
-  <rect class="dg-box" x="120" y="420" width="400" height="56" rx="6"/>
-  <text class="dg-label" x="320" y="439" text-anchor="middle" dominant-baseline="central">Reverse SSH tunnel inward → central management server → decrypt LDAP service credentials</text>
+  <rect class="dg-box" x="20" y="420" width="600" height="56" rx="6"/>
+  <text class="dg-label" x="320" y="436" text-anchor="middle" dominant-baseline="central">Reverse SSH tunnel inward → central management server</text>
+  <text class="dg-sub" x="320" y="460" text-anchor="middle" dominant-baseline="central">→ decrypt LDAP service credentials</text>
 </svg>
 ```
 
