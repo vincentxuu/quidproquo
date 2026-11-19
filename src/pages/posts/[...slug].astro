@@ -28,6 +28,9 @@ export async function getStaticPaths() {
 }
 
 const { post, allPosts } = Astro.props;
+// Only src/pages/styleguide.astro passes `noindex`, when it reuses this template for its fixture.
+// Props are inferred from getStaticPaths, so the extra prop is read untyped.
+const noindex = (Astro.props as { noindex?: boolean }).noindex === true;
 const { Content, headings } = await render(post);
 const lang = post.data.lang as Lang;
 const t = useTranslations(lang);
@@ -165,6 +168,7 @@ const breadcrumbLD = {
   hreflangZh={zhHref}
 >
   <Fragment slot="head">
+    {noindex && <meta name="robots" content="noindex" />}
     <script is:inline type="application/ld+json" set:html={JSON.stringify(blogPostingLD).replace(/</g, '\\u003c')} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbLD).replace(/</g, '\\u003c')} />
     {faqLD && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqLD).replace(/</g, '\\u003c')} />}

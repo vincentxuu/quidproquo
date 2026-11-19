@@ -59,6 +59,8 @@ function rehypeLazyImages() {
 
 function isPublicSitemapPage(page) {
   const { pathname } = new URL(page);
+  // /styleguide/ is an internal component fixture (noindex), not a page to list.
+  if (pathname.replace(/\/$/, '') === '/styleguide') return false;
   return pathname !== '/admin' && !pathname.startsWith('/admin/');
 }
 
@@ -427,6 +429,17 @@ export default defineConfig({
     },
   ],
   markdown: {
+    // github-dark 的註解色 #6A737D 在程式碼底色上對比只有約 3:1（低於 WCAG 4.5:1），
+    // /styleguide/ 的對比測試抓到（2026-11-19）；只把這個顏色提亮成 #8B949E，其他語法色不動。
+    shikiConfig: {
+      transformers: [{
+        name: 'readable-comments',
+        span(node) {
+          const style = node.properties?.style;
+          if (typeof style === 'string' && /#6a737d/i.test(style)) node.properties.style = style.replace(/#6a737d/gi, '#8B949E');
+        },
+      }],
+    },
     processor: unified({
       smartypants: false,
       // remarkMathOptIn 必須排第一：它替 frontmatter 有 math: true 的文章重新解析，後面的 plugin 才看得到數學節點。

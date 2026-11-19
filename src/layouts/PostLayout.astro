@@ -588,20 +588,28 @@ const pageTitle =
   .content blockquote p { margin-bottom: 0.35rem; }
   .content blockquote p:last-child { margin-bottom: 0; }
 
-  /* 文章開頭的語言切換（> 🌏 [English version](…)）：只有一個連結，不該套提示框的大藍框，改成小膠囊。 */
+  /* 文章開頭的語言切換（> 🌏 [English version](…)）：只有一個連結，不該套提示框的大藍框，改成小膠囊。
+     外層 blockquote 維持一般區塊（寬版版面靠 margin-inline: auto 對齊內文欄），膠囊畫在裡面那段上。 */
   .content > blockquote:first-child:has(> p:only-child > a:only-child) {
-    display: inline-flex;
-    align-items: center;
-    margin: 0 0 1.25rem;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  }
+  .content > blockquote:first-child:has(> p:only-child > a:only-child) > p {
+    /* inline-block 而不是 inline-flex：flex 會吃掉 🌏 與連結之間的空白。 */
+    display: inline-block;
+    margin: 0;
     padding: 0.3rem 0.9rem;
     background: var(--brand-50);
     border: 1px solid var(--brand-300);
     border-radius: 999px;
     font-size: 0.85rem;
     line-height: 1.5;
-    color: var(--text-muted);
+    color: var(--brand-700);
   }
-  .content > blockquote:first-child:has(> p:only-child > a:only-child) p { margin: 0; }
   .content > blockquote:first-child:has(> p:only-child > a:only-child) a {
     color: var(--brand-700);
     font-weight: 600;

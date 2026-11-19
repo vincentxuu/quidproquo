@@ -3,9 +3,7 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
-const posts = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/posts' }),
-  schema: z.object({
+const postSchema = z.object({
     title: z.string(),
     date: z.coerce.date(),
     // Last substantive revision. Feeds schema.org dateModified + article:modified_time
@@ -66,7 +64,19 @@ const posts = defineCollection({
       title: z.string().optional(),
       source: z.string().optional(),
     }).optional(),
-  }),
 });
 
-export const collections = { posts };
+const posts = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/posts' }),
+  schema: postSchema,
+});
+
+// Style-guide fixture rendered at /styleguide/ through the real post template.
+// A separate collection (not a draft post) so nothing that lists, syncs, indexes or
+// checks `posts` (getPublishedPosts, D1 sync, OG images, post checks) can ever see it.
+const styleguide = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/styleguide' }),
+  schema: postSchema,
+});
+
+export const collections = { posts, styleguide };
