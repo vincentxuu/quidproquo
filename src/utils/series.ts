@@ -1310,6 +1310,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
       en: 'DaoDao set out to help learners build habits directly, then turned to helping the teachers and facilitators who run courses and communities, with open co-challenges for people with any goal. This series takes the approach apart: what each of three learning formats is for, where software stands in for people, who pays, what to measure, and how a community keeps going without resting on a few people.',
     },
   },
+  {
+    slug: 'mass-irrationality',
+    category: 'learning',
+    names: { 'zh-TW': '群體非理性閱讀地圖', en: 'The Mass Irrationality Reading Map' },
+    descriptions: {
+      'zh-TW': '從 1841 年的金融狂熱敘事到 2024 年的錯誤資訊辯論，用十一本書搭一條解釋鏈：群體非理性在歷史上怎麼反覆出現、群眾心理與認知科學怎麼解釋它、文化與制度怎麼放大它、當代平台機制又怎麼讓它更難被糾正。每篇導讀一本書，並列後來研究修正了什麼。',
+      en: 'Eleven books, one explanation chain: why collective delusions keep recurring in history, what crowd psychology and cognitive science say about why, how culture and institutions amplify them, and what contemporary platform mechanics change. Each post reads one book against later research, with the criticisms alongside.',
+    },
+  },
 ];
 
 export function validateSeriesDefinitions(
