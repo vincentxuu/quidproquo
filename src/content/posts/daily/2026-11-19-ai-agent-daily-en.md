@@ -36,18 +36,18 @@ caption: Cases and figures from Google GTIG, FBI/dev.to, HYPR, Oleria, CNBC.
 <svg viewBox="0 0 640 300">
   <rect class="dg-box" x="40" y="24" width="560" height="56" rx="6"/>
   <text class="dg-tag" x="60" y="52" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="92" y="52" dominant-baseline="central">Attackers — exploiting the governance vacuum</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">GTIG: autonomous attack agents active; FBI: pentest frameworks used in real breaches</text>
+  <text class="dg-label" x="92" y="40" dominant-baseline="central">Attackers — exploiting the governance vacuum</text>
+  <text class="dg-sub" x="92" y="64" dominant-baseline="central">GTIG: autonomous attack agents seen; FBI: pentest kits used in breaches</text>
 
   <rect class="dg-box dg-box--accent" x="40" y="96" width="560" height="56" rx="6"/>
   <text class="dg-tag" x="60" y="124" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="92" y="124" dominant-baseline="central">Market response — identity governance fills in</text>
-  <text class="dg-sub" x="604" y="124" text-anchor="end" dominant-baseline="central">HYPR AgentPass, Oleria AI Gateway tie accountability back to a human owner</text>
+  <text class="dg-label" x="92" y="112" dominant-baseline="central">Market response — identity governance fills in</text>
+  <text class="dg-sub" x="92" y="136" dominant-baseline="central">HYPR AgentPass, Oleria AI Gateway tie each agent to a human owner</text>
 
   <rect class="dg-box dg-box--accent" x="40" y="168" width="560" height="56" rx="6"/>
   <text class="dg-tag" x="60" y="196" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="92" y="196" dominant-baseline="central">The top is just as stuck — corporate governance too</text>
-  <text class="dg-sub" x="604" y="196" text-anchor="end" dominant-baseline="central">Nvidia's decision-making vacuum has lasted over a week since the founder's exit</text>
+  <text class="dg-label" x="92" y="184" dominant-baseline="central">The top is just as stuck — corporate governance too</text>
+  <text class="dg-sub" x="92" y="208" dominant-baseline="central">Nvidia's decision vacuum has lasted over a week since the founder left</text>
 
   <line class="dg-rule" x1="40" y1="236" x2="600" y2="236"/>
   <text class="dg-sub" x="40" y="260" dominant-baseline="central">Shared gap: accountability isn't wired up at the package, agent, or board level</text>
@@ -59,86 +59,72 @@ caption: Cases and figures from Google GTIG, FBI/dev.to, HYPR, Oleria, CNBC.
 
 ### Vendor Updates
 
-| Entity | Development | Source |
-|------|----------|------|
-| **Microsoft** | Launched the autonomous agent Copilot Autopilot with its own identity and reasoning layer at Ignite 2026, alongside the MAI Code 2 model family aimed at existing coding assistants | [aiagentsdirectory](https://aiagentsdirectory.com/news/ai-agents-news-brief-november-18-2026) |
-| **Google Labs** | Released Stitch Loop, an autonomous product agent that continuously monitors production data and auto-opens PRs for security, latency and accessibility issues | [testingcatalog](https://www.testingcatalog.com/early-look-at-loop-new-autonomous-ai-agent-from-google/) |
-| **Oleria** | Launched AI Gateway, extending identity governance to AI agents, tracking each agent's actual permission use with a context graph of 7.2B relationships and 52B events | [yahoo finance](https://finance.yahoo.com/technology/ai/articles/oleria-extends-identity-governance-ai-170000479.html) |
-| **Alibaba (Qwen)** | Released QoderWake, letting AI digital workers proactively and cost-efficiently handle group-chat requests without an explicit @-mention every time | [alibabacloud](https://www.alibabacloud.com/blog/qoderwake-digital-workers-take-the-initiative-%E2%80%94-no-need-to-%40-every-time_603789) |
-| **Meta** | Personal AI agent Muse officially launched in Australia, one of its earliest international markets outside the US, confirming with users before taking sensitive actions | [smartcompany](https://www.smartcompany.com.au/artificial-intelligence/your-new-muse-meta-launches-ai-personal-assistant-in-australia/) |
-| **OpenAI** | Published how it used its own models, including GPT-6 Astra, to optimize Jalapeño silicon circuits and RISC-V core design | [openai](https://openai.com/index/advancing-chip-design-with-our-models/) |
-| **Nvidia** | Q3 earnings beat expectations but the stock still fell 2%; held its first all-hands since founder/CEO Jensen Huang's scandal-driven resignation, with the board confirming he won't return while still searching for a new CEO | [cnbc](https://www.cnbc.com/2026/11/18/nvidia-interim-ceo-kress-addresses-staff-after-jensen-huang-exit-.html) |
+- **[Microsoft](https://aiagentsdirectory.com/news/ai-agents-news-brief-november-18-2026)** (aiagentsdirectory): Launched the autonomous agent Copilot Autopilot with its own identity and reasoning layer at Ignite 2026, alongside the MAI Code 2 model family aimed at existing coding assistants.
+- **[Google Labs](https://www.testingcatalog.com/early-look-at-loop-new-autonomous-ai-agent-from-google/)** (testingcatalog): Released Stitch Loop, an autonomous product agent that continuously monitors production data and auto-opens PRs for security, latency and accessibility issues.
+- **[Oleria](https://finance.yahoo.com/technology/ai/articles/oleria-extends-identity-governance-ai-170000479.html)** (yahoo finance): Launched AI Gateway, extending identity governance to AI agents, tracking each agent's actual permission use with a context graph of 7.2B relationships and 52B events.
+- **[Alibaba (Qwen)](https://www.alibabacloud.com/blog/qoderwake-digital-workers-take-the-initiative-%E2%80%94-no-need-to-%40-every-time_603789)** (alibabacloud): Released QoderWake, letting AI digital workers proactively and cost-efficiently handle group-chat requests without an explicit @-mention every time.
+- **[Meta](https://www.smartcompany.com.au/artificial-intelligence/your-new-muse-meta-launches-ai-personal-assistant-in-australia/)** (smartcompany): Personal AI agent Muse officially launched in Australia, one of its earliest international markets outside the US, confirming with users before taking sensitive actions.
+- **[OpenAI](https://openai.com/index/advancing-chip-design-with-our-models/)** (openai): Published how it used its own models, including GPT-6 Astra, to optimize Jalapeño silicon circuits and RISC-V core design.
+- **[Nvidia](https://www.cnbc.com/2026/11/18/nvidia-interim-ceo-kress-addresses-staff-after-jensen-huang-exit-.html)** (cnbc): Q3 earnings beat expectations but the stock still fell 2%; held its first all-hands since founder/CEO Jensen Huang's scandal-driven resignation, with the board confirming he won't return while still searching for a new CEO.
 
 ### Models & Infrastructure
 
-| Entity | Development | Source |
-|------|----------|------|
-| **Tencent Hunyuan** | Open-sourced Hy4 flash: 224B total parameters (including a 64B Engram lookup module), 12B active parameters, 1M context — WorkIndex task cost is just 1/20 of flagship Hy4 (full model card already in Stage 1) | [Model Card｜Tencent Hy4 flash](/posts/daily/2026-11-19-model-tencent-hy4-flash-en) |
+- **[Tencent Hunyuan](/posts/daily/2026-11-19-model-tencent-hy4-flash-en)** (our article): Open-sourced Hy4 flash: 224B total parameters (including a 64B Engram lookup module), 12B active parameters, 1M context — WorkIndex task cost is just 1/20 of flagship Hy4 (full model card already in Stage 1)
 
 ### Technical Progress
 
 Today's Arxiv Digest looks at three papers on the handoff design flaws in multi-agent shared memory: standard benchmarks can't tell memory architectures apart, delegated investigation lets evidence get stuck between workers and leads, and filtering out conflicting evidence cleanly actually makes systems easier to poison. The shared lesson: agent memory systems usually fail not because they don't remember enough, but because the design around "who should fully see what evidence" is wrong ([AI Agent Arxiv Digest](/posts/daily/2026-11-19-ai-agent-arxiv-digest-en)).
 
-| Entity | Development | Source |
-|------|----------|------|
-| **Mastra** | Added a built-in MCP Server to its agent framework, connecting directly to Claude Code/Cursor/VS Code, alongside a Custom Factory and Mastra Forward managed agent-engineering service | [mastra blog](https://mastra.ai/blog/introducing-built-in-mcp-server) |
-| **Pydantic AI** | v2.70.0 fixed two high-severity ReDoS vulnerabilities and added harness primitives like ToolSearch and PruneToolResults (full writeup in Stage 1) | [Framework Update｜Pydantic AI v2.70.0](/posts/daily/2026-11-19-framework-pydantic-ai-v2.70.0-en) |
+- **[Mastra](https://mastra.ai/blog/introducing-built-in-mcp-server)** (mastra blog): Added a built-in MCP Server to its agent framework, connecting directly to Claude Code/Cursor/VS Code, alongside a Custom Factory and Mastra Forward managed agent-engineering service.
+- **[Pydantic AI](/posts/daily/2026-11-19-framework-pydantic-ai-v2.70.0-en)** (our article): v2.70.0 fixed two high-severity ReDoS vulnerabilities and added harness primitives like ToolSearch and PruneToolResults (full writeup in Stage 1)
 
 ### Security Incidents
 
-| Entity | Development | Source |
-|------|----------|------|
-| **Google GTIG** | Threat intel report found fully autonomous AI agents already writing and launching exploits without human involvement; attack events nearly doubled Jan-Aug, with 22 zero-days in August alone | [helpnetsecurity](https://www.helpnetsecurity.com/2026/11/17/ai-powered-cyberattacks-gtig-report/) |
-| **FBI** | Warned that open-source agentic pentest frameworks like ARTEX, CAIRN and CyberStrikeAI have shown up in real intrusions, suspected North Korean actors, including one that tampered with `.claude/settings.json` to plant a backdoor | [dev.to](https://dev.to/humanbound_ai/attacker-agents-now-turn-fresh-patches-into-exploits-on-their-own-35l7) |
-| **Sourcegraph** | Security startup Calif's AI model found the critical Java4Shell flaw (CVE-2026-114938) in just 3 hours | [bankinfosecurity](https://www.bankinfosecurity.com/ai-agent-finds-critical-java-flaw-in-just-3-hours-a-33427) |
-| **Microsoft Agent Framework** | PyPI package compromised with a .pth startup-hook credential stealer, leaking Azure/GitHub Actions credentials (full writeup in Stage 1) | [Security Alert｜Microsoft Agent Framework](/posts/daily/2026-11-19-security-microsoft-agent-framework-pypi-credential-stealer-en) |
+- **[Google GTIG](https://www.helpnetsecurity.com/2026/11/17/ai-powered-cyberattacks-gtig-report/)** (helpnetsecurity): Threat intel report found fully autonomous AI agents already writing and launching exploits without human involvement; attack events nearly doubled Jan-Aug, with 22 zero-days in August alone.
+- **[FBI](https://dev.to/humanbound_ai/attacker-agents-now-turn-fresh-patches-into-exploits-on-their-own-35l7)** (dev.to): Warned that open-source agentic pentest frameworks like ARTEX, CAIRN and CyberStrikeAI have shown up in real intrusions, suspected North Korean actors, including one that tampered with `.claude/settings.json` to plant a backdoor.
+- **[Sourcegraph](https://www.bankinfosecurity.com/ai-agent-finds-critical-java-flaw-in-just-3-hours-a-33427)** (bankinfosecurity): Security startup Calif's AI model found the critical Java4Shell flaw (CVE-2026-114938) in just 3 hours.
+- **[Microsoft Agent Framework](/posts/daily/2026-11-19-security-microsoft-agent-framework-pypi-credential-stealer-en)** (our article): PyPI package compromised with a .pth startup-hook credential stealer, leaking Azure/GitHub Actions credentials (full writeup in Stage 1)
+  - **Why it matters**: Before adopting a fast-releasing agent framework from PyPI, check who holds publish rights and whether versions are pinned; this is the accountability gap in today's deep dive.
 
 ### Tools & Ecosystem
 
 Today's GitHub Digest theme is "security hardening racing to catch up with framework expansion" — Pydantic AI and CrewAI both fixed vulnerabilities in their own code and third-party dependencies on the same day; on the tooling side, Claude-BugHunter broke a thousand stars in a day, Google connected Agent Skills to its own design tool Stitch, and Mastra followed Tencent's LoopForge with its own issue-in, PR-out Factory template ([AI Agent GitHub Digest](/posts/daily/2026-11-19-ai-agent-github-digest-en)).
 
-| Entity | Development | Source |
-|------|----------|------|
-| **HYPR** | Launched AgentPass, assigning every AI agent an accountable human owner | [globenewswire](https://www.globenewswire.com/news-release/2026/11/18/3405704/0/en/hypr-launches-agentpass-to-assign-every-ai-agent-to-an-accountable-human.html) |
-| **Vercel** | eve 1.0 reached general availability, packaging harness and infrastructure for AI agents | [vercel blog](https://vercel.com/blog/eve-is-now-generally-available) |
-| **otpkit** | API-key-free temp email/SMS MCP server that auto-extracts OTP codes (full writeup in Stage 1) | [Tool Pick｜otpkit](/posts/daily/2026-11-19-tool-otpkit-en) |
+- **[HYPR](https://www.globenewswire.com/news-release/2026/11/18/3405704/0/en/hypr-launches-agentpass-to-assign-every-ai-agent-to-an-accountable-human.html)** (globenewswire): Launched AgentPass, assigning every AI agent an accountable human owner.
+  - **Why it matters**: Turns "who owns this agent" into a product, matching the one-line take: write the accountable owner into the contract before adopting.
+- **[Vercel](https://vercel.com/blog/eve-is-now-generally-available)** (vercel blog): eve 1.0 reached general availability, packaging harness and infrastructure for AI agents.
+- **[otpkit](/posts/daily/2026-11-19-tool-otpkit-en)** (our article): API-key-free temp email/SMS MCP server that auto-extracts OTP codes (full writeup in Stage 1)
 
 ### Regulation & Governance
 
-| Entity | Development | Source |
-|------|----------|------|
-| **US Commerce Department** | New rules require data centers in Singapore, Malaysia, Thailand, Indonesia and Brazil to get a license before importing advanced AI chips, closing a loophole for remote Chinese access to compute | [cnbc](https://www.cnbc.com/2026/11/18/nvidia-us-ai-chip-export-controls-data-centers-.html) |
-| **Hong Kong AI industry group** | Released a voluntary AI agent governance framework drawing on EU, Singapore, Japan/Korea and US approaches, urging businesses to tighten controls — though it carries no legal force | [crowdfundinsider](https://www.crowdfundinsider.com/2026/11/323415-hong-kong-ai-group-calls-on-businesses-to-strengthen-controls-as-ai-agents-advance/) |
-| **US-Japan-India-Australia Quad** | Launched an Indo-Pacific AI initiative coordinating funding and technical assistance for trustworthy AI deployment in the region | [nextgov](https://www.nextgov.com/artificial-intelligence/2026/11/trump-touts-quad-initiative-expand-ai-access-indo-pacific/417286/) |
-| **German official** | Called for more innovation-friendly EU AI regulation to catch up in the race, naming the current EU AI Act as raising the bar for European companies | [semafor](https://www.semafor.com/article/11/17/2026/europe-needs-innovation-friendly-regulation-to-catch-up-on-ai-german-official-says) |
-| **US + UAE and others** | Signed the San Francisco Declaration pledging to protect sensitive technology and critical infrastructure underpinning AI systems; Israel and Qatar joined too, Saudi Arabia did not | [thenationalnews](https://www.thenationalnews.com/opinion/editorial/2026/11/18/uae-us-france-ai-artificial-intelligence-regulation-anthropic/) |
-| **UAE** | Established a Federal Authority for Artificial Intelligence and Data, unifying AI, data governance and digital government under one body | [fticonsulting](https://www.fticonsulting.com/insights/articles/the-uaes-federal-authority-for-artificial-intelligence-and-data) |
+- **[US Commerce Department](https://www.cnbc.com/2026/11/18/nvidia-us-ai-chip-export-controls-data-centers-.html)** (cnbc): New rules require data centers in Singapore, Malaysia, Thailand, Indonesia and Brazil to get a license before importing advanced AI chips, closing a loophole for remote Chinese access to compute.
+- **[Hong Kong AI industry group](https://www.crowdfundinsider.com/2026/11/323415-hong-kong-ai-group-calls-on-businesses-to-strengthen-controls-as-ai-agents-advance/)** (crowdfundinsider): Released a voluntary AI agent governance framework drawing on EU, Singapore, Japan/Korea and US approaches, urging businesses to tighten controls — though it carries no legal force.
+- **[US-Japan-India-Australia Quad](https://www.nextgov.com/artificial-intelligence/2026/11/trump-touts-quad-initiative-expand-ai-access-indo-pacific/417286/)** (nextgov): Launched an Indo-Pacific AI initiative coordinating funding and technical assistance for trustworthy AI deployment in the region.
+- **[German official](https://www.semafor.com/article/11/17/2026/europe-needs-innovation-friendly-regulation-to-catch-up-on-ai-german-official-says)** (semafor): Called for more innovation-friendly EU AI regulation to catch up in the race, naming the current EU AI Act as raising the bar for European companies.
+- **[US + UAE and others](https://www.thenationalnews.com/opinion/editorial/2026/11/18/uae-us-france-ai-artificial-intelligence-regulation-anthropic/)** (thenationalnews): Signed the San Francisco Declaration pledging to protect sensitive technology and critical infrastructure underpinning AI systems; Israel and Qatar joined too, Saudi Arabia did not.
+- **[UAE](https://www.fticonsulting.com/insights/articles/the-uaes-federal-authority-for-artificial-intelligence-and-data)** (fticonsulting): Established a Federal Authority for Artificial Intelligence and Data, unifying AI, data governance and digital government under one body.
 
 ### Regional Developments
 
-| Region | Development |
-|------|----------|
-| **China / Hong Kong** | e27 rounded up the 50 companies that defined Asia's AI industry in 2026, highlighting Alibaba, Tencent and Chinese state funds behind the scenes; Hong Kong regulators and industry leaders met to discuss the risks of agentic AI seeping into finance |
-| **Japan / Korea** | Google rolled out Gemini's autonomous "Tasks" feature for free in Japan, Korea, Canada, Australia and India (powered by the new Gemini 4 Hydrogen model); JPMorgan and South Korea's Hyundai Card completed a proof-of-concept for AI agents autonomously executing FX transactions, planning to expand testing to more complex multi-agent transactions in H1 2027 |
-| **Southeast Asia / South Asia** | Visa expanded its Agentic Ready program across Asia-Pacific to prepare merchants for agent-initiated transactions (see also the Regulation section on new chip-import rules hitting Southeast Asia) |
-| **Europe** | Paris startup H Company deployed its enterprise agent platform on AWS's European sovereign cloud, keeping data from regulated industries and public-sector clients within the EU |
-| **Africa** | Cassava Technologies plans to deploy 12,000 NVIDIA GPUs across five African countries in a $720M investment (see also the Google.org grant to Nigeria below) |
-| **Latin America** | An Inter-American Development Bank report found widespread AI adoption could lift Latin America and Caribbean GDP by 5.1% within a decade; Uruguay has already set up a national AI center |
-| **Oceania** | Systems integrator Insight launched an enterprise Agent Store across Australia, New Zealand, Singapore and 11 other countries; Meta's Muse is now live in Australia (see Vendor Updates) |
+- **China / Hong Kong**: e27 rounded up the 50 companies that defined Asia's AI industry in 2026, highlighting Alibaba, Tencent and Chinese state funds behind the scenes; Hong Kong regulators and industry leaders met to discuss the risks of agentic AI seeping into finance
+- **Japan / Korea**: Google rolled out Gemini's autonomous "Tasks" feature for free in Japan, Korea, Canada, Australia and India (powered by the new Gemini 4 Hydrogen model); JPMorgan and South Korea's Hyundai Card completed a proof-of-concept for AI agents autonomously executing FX transactions, planning to expand testing to more complex multi-agent transactions in H1 2027
+- **Southeast Asia / South Asia**: Visa expanded its Agentic Ready program across Asia-Pacific to prepare merchants for agent-initiated transactions (see also the Regulation section on new chip-import rules hitting Southeast Asia)
+- **Europe**: Paris startup H Company deployed its enterprise agent platform on AWS's European sovereign cloud, keeping data from regulated industries and public-sector clients within the EU
+- **Africa**: Cassava Technologies plans to deploy 12,000 NVIDIA GPUs across five African countries in a $720M investment (see also the Google.org grant to Nigeria below)
+- **Latin America**: An Inter-American Development Bank report found widespread AI adoption could lift Latin America and Caribbean GDP by 5.1% within a decade; Uruguay has already set up a national AI center
+- **Oceania**: Systems integrator Insight launched an enterprise Agent Store across Australia, New Zealand, Singapore and 11 other countries; Meta's Muse is now live in Australia (see Vendor Updates)
 
 We checked for AI agent news specific to Taiwan today and found no qualifying event; see "Today's Take" and the "Deep Dive" above for the reader-facing judgment that applies regardless.
 
 ### Business Cases / Funding
 
-| Entity | Development | Source |
-|------|----------|------|
-| **Anthropic** | Updated IPO filing: selling 825M Class A shares at $70-78, pricing 11/18 ahead of listing on Nasdaq under ticker ANT | [yahoo finance](https://finance.yahoo.com/technology/ai/article/anthropic-ipo-what-we-know-143321078.html) |
-| **Model ML** | $250M Series C at a $1.5B valuation, co-led by General Atlantic and QED Investors, building AI agents for investment bankers | [techcrunch](https://techcrunch.com/2026/11/17/model-ml-raises-250m-to-automate-investment-banking-grunt-work/) |
-| **Arva AI** | $20M Series A led by Arthur Ventures with Y Combinator and Gradient, building banking-compliance AI agents | [scommerce](https://www.scommerce.com/arva-ai-funding/) |
-| **Humyn Labs** | $47M Series A (equity portion led by Accel), an India-based company collecting physical-world human task data to sell to AI/robotics firms | [business-standard](https://www.business-standard.com/companies/news/ai-startup-humyn-labs-raises-47-million-in-series-a-funding-round-126111800765_1.html) |
-| **Soket AI** | Bajaj Finance and Pennant Technologies jointly invested $4M in this Indian AI startup | [timesofindia](https://timesofindia.indiatimes.com/business/india-business/bajaj-finance-pennant-technologies-invest-4mn-in-soket-ai/articleshow/135968881.cms) |
-| **Google.org** | Nigeria's Helium Health was selected as one of 15 global recipients of the $30M "AI for Government Innovation" program | [iwajoo](https://iwajoo.substack.com/p/who-gets-to-shape-africas-ai-future) |
-| **Payhawk** | Series C $280M at a $2B valuation, led by Goldman Sachs Alternatives, pivoting toward an "AI-era finance operating system" (full writeup in Stage 1) | [Funding Flash｜Payhawk](/posts/daily/2026-11-19-funding-payhawk-en) |
+- **[Anthropic](https://finance.yahoo.com/technology/ai/article/anthropic-ipo-what-we-know-143321078.html)** (yahoo finance): Updated IPO filing: selling 825M Class A shares at $70-78, pricing 11/18 ahead of listing on Nasdaq under ticker ANT.
+- **[Model ML](https://techcrunch.com/2026/11/17/model-ml-raises-250m-to-automate-investment-banking-grunt-work/)** (techcrunch): $250M Series C at a $1.5B valuation, co-led by General Atlantic and QED Investors, building AI agents for investment bankers.
+- **[Arva AI](https://www.scommerce.com/arva-ai-funding/)** (scommerce): $20M Series A led by Arthur Ventures with Y Combinator and Gradient, building banking-compliance AI agents.
+- **[Humyn Labs](https://www.business-standard.com/companies/news/ai-startup-humyn-labs-raises-47-million-in-series-a-funding-round-126111800765_1.html)** (business-standard): $47M Series A (equity portion led by Accel), an India-based company collecting physical-world human task data to sell to AI/robotics firms.
+- **[Soket AI](https://timesofindia.indiatimes.com/business/india-business/bajaj-finance-pennant-technologies-invest-4mn-in-soket-ai/articleshow/135968881.cms)** (timesofindia): Bajaj Finance and Pennant Technologies jointly invested $4M in this Indian AI startup.
+- **[Google.org](https://iwajoo.substack.com/p/who-gets-to-shape-africas-ai-future)** (iwajoo): Nigeria's Helium Health was selected as one of 15 global recipients of the $30M "AI for Government Innovation" program.
+- **[Payhawk](/posts/daily/2026-11-19-funding-payhawk-en)** (our article): Series C $280M at a $2B valuation, led by Goldman Sachs Alternatives, pivoting toward an "AI-era finance operating system" (full writeup in Stage 1)
 
 ## Key Numbers
 
