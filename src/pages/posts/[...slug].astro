@@ -450,16 +450,11 @@ const breadcrumbLD = {
     /* 淺色：品牌深綠面；深色：沿用卡片／頁面底。字兩種主題都是 --text-on-accent。 */
     background: linear-gradient(135deg, var(--brand-700) 0%, var(--brand-900) 50%, var(--brand-700) 100%);
     color: var(--text-on-accent);
-    margin: -1rem -1.5rem 0;
-    padding: 3rem 1.5rem 4rem;
+    /* 往外吃掉 body 的上內距與左右 --page-gutter（PostLayout body），斷點跟著 gutter 走 */
+    margin: calc(-1 * var(--space-4)) calc(-1 * var(--page-gutter)) 0;
+    padding: var(--space-12) var(--page-gutter) 4rem;
     text-align: center;
     overflow: hidden;
-  }
-  @media (max-width: 640px) {
-    .hero { margin-left: -1rem; margin-right: -1rem; padding-left: 1rem; padding-right: 1rem; }
-  }
-  @media (max-width: 400px) {
-    .hero { margin-left: -0.75rem; margin-right: -0.75rem; padding-left: 0.75rem; padding-right: 0.75rem; }
   }
   :global([data-theme="dark"]) .hero {
     background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-page) 50%, var(--bg-card) 100%);
@@ -470,14 +465,14 @@ const breadcrumbLD = {
     font-weight: 900;
     letter-spacing: -0.5px;
     line-height: 1.25;
-    margin: 0 0 1rem;
+    margin: 0 0 var(--space-4);
     color: inherit;
   }
   .hero-meta {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: var(--space-6);
     font-size: 0.82rem;
     color: color-mix(in srgb, currentColor 60%, transparent);
   }
@@ -502,9 +497,9 @@ const breadcrumbLD = {
   .breadcrumb {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1.25rem;
-    margin-top: 1.5rem;
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+    margin-top: var(--space-6);
     font-size: 0.82rem;
   }
   .breadcrumb-link {
@@ -528,15 +523,15 @@ const breadcrumbLD = {
   .tldr {
     background: var(--bg-subtle);
     border: 1px solid var(--border);
-    padding: 0.75rem 1rem;
+    padding: var(--space-3) var(--space-4);
     border-radius: var(--corner-md);
-    margin-bottom: 1rem;
-    font-size: 0.88rem;
+    margin-bottom: var(--space-4);
+    font-size: var(--fs-sm);
     line-height: 1.6;
     color: var(--text-primary);
   }
   .tldr-label {
-    font-size: 0.68rem;
+    font-size: var(--fs-2xs);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--text-muted);
@@ -546,22 +541,22 @@ const breadcrumbLD = {
   }
 
   /* ── Tags ── */
-  .tags { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .tags { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-bottom: var(--space-5); }
 
   /* ── TOC (collapsible via details/summary) ── */
   .toc {
     border: 1px solid var(--border);
     border-radius: var(--corner-md);
-    padding: 1rem;
+    padding: var(--space-4);
     background: var(--bg-subtle);
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-6);
   }
-  .toc:not([open]) { padding: 0.7rem 1rem; }
+  .toc:not([open]) { padding: 0.7rem var(--space-4); }
   .toc-header {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.68rem;
+    font-size: var(--fs-2xs);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -582,7 +577,7 @@ const breadcrumbLD = {
   .toc:not([open]) > .toc-header { margin-bottom: 0; }
   .toc:not([open]) > .toc-header::after { content: '▸'; }
   .toc ol { padding-left: 1.2rem; margin: 0; font-size: 0.83rem; line-height: 1.9; color: var(--brand-700); }
-  .toc ol ol { font-size: 0.78rem; color: var(--text-secondary); }
+  .toc ol ol { font-size: var(--fs-xs); color: var(--text-secondary); }
   .toc a { color: inherit; text-decoration: none; }
   /* 跟本文連結同一套規則：字色不變，hover 出現 --brand-500 底線。 */
   .toc a:hover { text-decoration: underline; text-decoration-color: var(--brand-500); text-underline-offset: 3px; }
@@ -599,10 +594,10 @@ const breadcrumbLD = {
     .post-grid {
       grid-template-columns: minmax(0, 1fr) 340px;
       grid-template-areas: "main sidebar";
-      gap: 2.5rem;
+      gap: var(--space-10);
       align-items: start;
     }
-    .post-sidebar { position: sticky; top: 1.5rem; }
+    .post-sidebar { position: sticky; top: var(--space-6); }
     /* 本文在兩欄模式下置中於可用欄位，上限 760px（約 44 全角字／行），
        避免寬螢幕被拉太長影響可讀性。 */
     .post-main { max-width: 760px; margin: 0 auto; }
@@ -625,7 +620,7 @@ const breadcrumbLD = {
     border-radius: var(--corner-md);
     overflow: hidden;
     background: var(--bg-subtle);
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-6);
   }
   .video-embed { position: relative; aspect-ratio: 16 / 9; }
   .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -635,51 +630,51 @@ const breadcrumbLD = {
 
   /* ── Inline AI ask ── */
   /* ── Series box ── */
-  .series-box { border: 1px solid var(--border); border-radius: var(--corner-md); padding: 0.85rem 1rem; background: var(--bg-subtle); margin-bottom: 1.5rem; }
-  .series-header { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem; }
+  .series-box { border: 1px solid var(--border); border-radius: var(--corner-md); padding: 0.85rem var(--space-4); background: var(--bg-subtle); margin-bottom: var(--space-6); }
+  .series-header { display: flex; align-items: center; gap: 0.4rem; font-size: var(--fs-xs); font-weight: 700; color: var(--text-secondary); margin-bottom: var(--space-2); }
   .series-link { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
   .series-link:hover { border-bottom-color: currentColor; }
   .series-nav { display: flex; justify-content: space-between; font-size: 0.8rem; }
-  .series-prev, .series-next { display: flex; align-items: center; gap: 0.25rem; color: var(--brand-700); text-decoration: none; }
+  .series-prev, .series-next { display: flex; align-items: center; gap: var(--space-1); color: var(--brand-700); text-decoration: none; }
   .series-prev:hover, .series-next:hover { text-decoration: underline; text-decoration-color: var(--brand-500); text-underline-offset: 3px; }
 
   /* ── Post nav ── */
-  .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-bottom: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--border); }
   @media (max-width: 480px) {
     .post-nav { grid-template-columns: 1fr; }
     .post-nav-next { text-align: left; }
     .post-nav-next .post-nav-label { justify-content: flex-start; }
   }
-  .post-nav-prev, .post-nav-next { border: 1px solid var(--border); border-radius: var(--corner-md); padding: 0.75rem; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s, background 0.15s; }
+  .post-nav-prev, .post-nav-next { border: 1px solid var(--border); border-radius: var(--corner-md); padding: var(--space-3); text-decoration: none; color: var(--text-primary); transition: border-color 0.15s, background 0.15s; }
   .post-nav-prev:hover, .post-nav-next:hover { border-color: var(--brand-500); background: var(--bg-subtle); }
   .post-nav-next { text-align: right; }
-  .post-nav-label { display: flex; align-items: center; gap: 0.25rem; font-size: 0.68rem; color: var(--text-muted); margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .post-nav-label { display: flex; align-items: center; gap: var(--space-1); font-size: var(--fs-2xs); color: var(--text-muted); margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
   .post-nav-next .post-nav-label { justify-content: flex-end; }
-  .post-nav-title { font-size: 0.85rem; font-weight: 600; line-height: 1.3; display: block; }
+  .post-nav-title { font-size: var(--fs-sm); font-weight: 600; line-height: 1.3; display: block; }
 
   /* ── FAQ ── */
-  .faq { margin: 2.5rem 0 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .faq { margin: var(--space-10) 0 var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--border); }
   .faq h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.9rem; }
   .faq-item { border: 1px solid var(--border); border-radius: var(--corner-md); padding: 0.7rem 0.9rem; margin-bottom: 0.6rem; }
   .faq-item summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; line-height: 1.5; }
   .faq-item p { margin: 0.6rem 0 0; font-size: 0.92rem; line-height: 1.75; color: var(--text-primary); }
 
   /* ── Related digests ── */
-  .related-digests { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
-  .related-digests h3 { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.85rem; }
-  .related-digests-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .related-digests { margin-bottom: var(--space-6); padding-bottom: var(--space-6); border-bottom: 1px solid var(--border); }
+  .related-digests h3 { display: flex; align-items: center; gap: 0.4rem; font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.85rem; }
+  .related-digests-list { display: flex; flex-direction: column; gap: var(--space-2); }
   .related-digest-item { display: flex; flex-direction: column; padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: var(--corner-md); text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
   .related-digest-item:hover { border-color: var(--brand-500); }
-  .rd-title { font-size: 0.85rem; font-weight: 500; text-transform: capitalize; }
-  .rd-reason { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+  .rd-title { font-size: var(--fs-sm); font-weight: 500; text-transform: capitalize; }
+  .rd-reason { font-size: var(--fs-xs); color: var(--text-muted); margin-top: 0.2rem; }
 
   /* ── Related posts ── */
-  .related h3 { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.85rem; }
-  .related :global(.related-list) { display: flex; flex-direction: column; gap: 0.5rem; }
+  .related h3 { display: flex; align-items: center; gap: 0.4rem; font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.85rem; }
+  .related :global(.related-list) { display: flex; flex-direction: column; gap: var(--space-2); }
   .related :global(.related-item) { display: flex; justify-content: space-between; align-items: baseline; padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: var(--corner-md); text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
   .related :global(.related-item:hover) { border-color: var(--brand-500); }
-  .related :global(.related-title) { font-size: 0.88rem; font-weight: 600; line-height: 1.3; }
-  .related :global(.related-time) { display: flex; align-items: center; gap: 0.2rem; font-size: 0.72rem; color: var(--text-muted); flex-shrink: 0; margin-left: 0.75rem; }
+  .related :global(.related-title) { font-size: var(--fs-sm); font-weight: 600; line-height: 1.3; }
+  .related :global(.related-time) { display: flex; align-items: center; gap: 0.2rem; font-size: var(--fs-xs); color: var(--text-muted); flex-shrink: 0; margin-left: var(--space-3); }
 
   /* ── Glossary term marks ── */
   :global(.glossary-term) {
@@ -776,8 +771,8 @@ const breadcrumbLD = {
     background: var(--cat-investing);
     color: var(--text-on-accent);
     padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.68rem;
+    border-radius: var(--corner-sm);
+    font-size: var(--fs-2xs);
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -802,8 +797,8 @@ const breadcrumbLD = {
     background: var(--cat-ai);
     color: var(--text-on-accent);
     padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.68rem;
+    border-radius: var(--corner-sm);
+    font-size: var(--fs-2xs);
     font-weight: 700;
     letter-spacing: 0.04em;
     margin-bottom: 0.3rem;
@@ -825,8 +820,8 @@ const breadcrumbLD = {
     background: var(--cat-policy);
     color: var(--text-on-accent);
     padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.68rem;
+    border-radius: var(--corner-sm);
+    font-size: var(--fs-2xs);
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
@@ -851,8 +846,8 @@ const breadcrumbLD = {
     background: var(--cat-investing);
     color: var(--text-on-accent);
     padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.68rem;
+    border-radius: var(--corner-sm);
+    font-size: var(--fs-2xs);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -1295,7 +1290,7 @@ const breadcrumbLD = {
     line-height: 1.6;
   }
   .glossary-save-actions { display: flex; gap: .7rem; align-items: center; margin-top: .7rem; }
-  .glossary-save-actions button { font: inherit; padding: .45rem .6rem; border: 1px solid var(--border); border-radius: 5px; background: var(--bg-subtle); color: var(--text-primary); cursor: pointer; }
+  .glossary-save-actions button { font: inherit; padding: .45rem .6rem; border: 1px solid var(--border); border-radius: var(--corner-sm); background: var(--bg-subtle); color: var(--text-primary); cursor: pointer; }
   .glossary-save-actions a { color: var(--brand-700); text-decoration-color: var(--brand-300); text-underline-offset: 3px; }
   .glossary-save-actions a:hover { text-decoration-color: var(--brand-500); }
   .glossary-save-actions :focus-visible { outline: 2px solid var(--brand-500); outline-offset: 3px; }
@@ -1324,7 +1319,7 @@ const breadcrumbLD = {
   .glossary-level {
     display: inline-flex;
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: var(--corner-sm);
     overflow: hidden;
     flex-shrink: 0;
   }
@@ -1357,7 +1352,7 @@ const breadcrumbLD = {
   }
   .glossary-reading a {
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: var(--corner-sm);
     color: var(--brand-700);
     padding: 0.15rem 0.45rem;
     text-decoration: none;
@@ -1378,13 +1373,13 @@ const breadcrumbLD = {
   .copy-btn {
     position: absolute;
     top: 0.45rem;
-    right: 0.75rem;
+    right: var(--space-3);
     background: transparent;
     /* 程式碼標題列兩種主題都是深底（--bg-code），按鈕用淡化的 on-accent 白 */
     color: color-mix(in srgb, var(--text-on-accent) 40%, transparent);
     border: none;
-    border-radius: 4px;
-    padding: 0.25rem;
+    border-radius: var(--corner-sm);
+    padding: var(--space-1);
     cursor: pointer;
     display: flex;
     align-items: center;

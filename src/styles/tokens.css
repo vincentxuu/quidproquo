@@ -37,9 +37,14 @@
   --shine:      rgba(255, 255, 255, 0.55);
   --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.08);
   --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.15);
+  --shadow-card-soft: 0 10px 24px rgba(26, 46, 26, 0.05); /* About 頁手機版專案卡；兩種主題相同 */
   --code-dot-red: #ff5f57;
   --code-dot-yellow: #febc2e;
   --code-dot-green: #28c840;
+  /* 程式碼區塊：底是 --bg-code（兩種主題都是深底），所以字色與標題列兩種主題相同 */
+  --code-text: #d4d4d4;
+  --code-bar: rgba(0, 0, 0, 0.15);          /* 三顆圓點那條標題列的加深層 */
+  --code-bar-divider: rgba(255, 255, 255, 0.05); /* 標題列與程式碼之間的分隔線 */
 
   /* Category badge colors */
   --cat-tech:      #1a1a1a;
