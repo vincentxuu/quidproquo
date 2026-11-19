@@ -33,25 +33,25 @@ title: Model layer flattens, governance becomes the new battlefield
 desc: The left column shows three signals that landed on the same day — model capability converging, vendors staking out governance infrastructure, and authorization boundaries failing across the board in tests; the right column mirrors the same vacuum from the attacker's side.
 caption: Cases and figures from OpenAI, the Microsoft Azure Blog, today's third Arxiv Digest paper, and Unit 42 (Palo Alto Networks).
 ---
-<svg viewBox="0 0 640 300">
-  <rect class="dg-box" x="40" y="24" width="560" height="56" rx="6"/>
-  <text class="dg-tag" x="60" y="52" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="92" y="52" dominant-baseline="central">Model layer — capability converging</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">GPT-6.2 Astra scores 174, ties Claude Fable 5.2</text>
+<svg viewBox="0 0 720 324">
+  <rect class="dg-box" x="40" y="24" width="640" height="64" rx="6"/>
+  <text class="dg-tag" x="60" y="44" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="92" y="44" dominant-baseline="central">Model layer — capability converging</text>
+  <text class="dg-sub" x="92" y="68" dominant-baseline="central">GPT-6.2 Astra scores 174, ties Claude Fable 5.2</text>
 
-  <rect class="dg-box dg-box--accent" x="40" y="96" width="560" height="56" rx="6"/>
-  <text class="dg-tag" x="60" y="124" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="92" y="124" dominant-baseline="central">Governance layer — vendors stake a claim</text>
-  <text class="dg-sub" x="604" y="124" text-anchor="end" dominant-baseline="central">Microsoft IQ feeds governed enterprise context to every agent</text>
+  <rect class="dg-box dg-box--accent" x="40" y="96" width="640" height="64" rx="6"/>
+  <text class="dg-tag" x="60" y="116" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="92" y="116" dominant-baseline="central">Governance layer — vendors stake a claim</text>
+  <text class="dg-sub" x="92" y="140" dominant-baseline="central">Microsoft IQ feeds governed enterprise context to every agent</text>
 
-  <rect class="dg-box dg-box--accent" x="40" y="168" width="560" height="56" rx="6"/>
-  <text class="dg-tag" x="60" y="196" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="92" y="196" dominant-baseline="central">Governance layer — fails every test</text>
-  <text class="dg-sub" x="604" y="196" text-anchor="end" dominant-baseline="central">LangChain/LangGraph/AutoGen/OpenClaw all hit OWASP risks</text>
+  <rect class="dg-box dg-box--accent" x="40" y="168" width="640" height="64" rx="6"/>
+  <text class="dg-tag" x="60" y="188" dominant-baseline="central">L3</text>
+  <text class="dg-label" x="92" y="188" dominant-baseline="central">Governance layer — fails every test</text>
+  <text class="dg-sub" x="92" y="212" dominant-baseline="central">LangChain/LangGraph/AutoGen/OpenClaw all hit OWASP risks</text>
 
-  <line class="dg-rule" x1="40" y1="236" x2="600" y2="236"/>
-  <text class="dg-sub" x="40" y="260" dominant-baseline="central">Mirror on the attack side: Cairn wired to GLM/DeepSeek breaches 10 orgs in two months</text>
-  <text class="dg-sub" x="40" y="280" dominant-baseline="central">Shared gap: governance infrastructure isn't being built as fast as models converge and attacks automate</text>
+  <line class="dg-rule" x1="40" y1="256" x2="680" y2="256"/>
+  <text class="dg-sub" x="40" y="280" dominant-baseline="central">Mirror on the attack side: Cairn wired to GLM/DeepSeek breaches 10 orgs in two months</text>
+  <text class="dg-sub" x="40" y="302" dominant-baseline="central">Shared gap: governance infrastructure isn't being built as fast as models converge and attacks automate</text>
 </svg>
 ```
 

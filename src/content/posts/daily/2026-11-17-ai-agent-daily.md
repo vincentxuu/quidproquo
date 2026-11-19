@@ -31,22 +31,23 @@ title: 攻擊成本正在崩潰，監管反應卻在分裂
 desc: 上層是攻擊側的自主化證據（Google exploit_agent、Amazon 截獲的 ARTEX 作戰紀錄），下層是監管側同一週內方向相反的兩種反應：加碼管制與鬆绑責任認定。
 caption: 案例與數字來自 Google Cloud 威脅情報部落格、Amazon AWS Security Blog（ARTEX 金鑰竊取）、MinterEllison 澳洲監管更新、Taipei Times（舊金山宣言）、TechCrunch（晶片出口管制）、Insurance Journal（白宮鬆绑責任提案）。
 ---
-<svg viewBox="0 0 640 340">
+<svg viewBox="0 0 640 346">
   <rect class="dg-box" x="40" y="24" width="560" height="104" rx="6"/>
   <text class="dg-tag" x="60" y="48" dominant-baseline="central">L1</text>
   <text class="dg-label" x="92" y="48" dominant-baseline="central">攻擊側——自主化把生產成本壓到趨近於零</text>
   <text class="dg-sub" x="92" y="74" dominant-baseline="central">Google：exploit_agent 無人介入把 2 個 PHP CVE 轉成可用攻擊程式</text>
   <text class="dg-sub" x="92" y="98" dominant-baseline="central">ARTEX：竊金鑰→驗證→共用金鑰池→用池中金鑰規劃下一輪掃描，自我供電</text>
 
-  <rect class="dg-box dg-box--accent" x="40" y="156" width="560" height="128" rx="6"/>
-  <text class="dg-tag" x="60" y="180" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="92" y="180" dominant-baseline="central">監管側——同一週內方向完全相反</text>
-  <text class="dg-sub" x="92" y="206" dominant-baseline="central">加碼：澳洲 18 項立法建議、十國舊金山宣言、美國堵東南亞／巴西晶片漏洞、五大 AI 公司遭提告</text>
-  <text class="dg-sub" x="92" y="230" dominant-baseline="central">鬆绑：白宮建議放寬資安責任認定，鼓勵業者主動揭露事故</text>
-  <text class="dg-sub" x="92" y="254" dominant-baseline="central">共同因果：攻擊成本崩潰後，兩股反應都在修正「揭露」這個變因</text>
+  <rect class="dg-box dg-box--accent" x="40" y="152" width="560" height="140" rx="6"/>
+  <text class="dg-tag" x="60" y="176" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="92" y="176" dominant-baseline="central">監管側——同一週內方向完全相反</text>
+  <text class="dg-sub" x="92" y="202" dominant-baseline="central">加碼：澳洲 18 項立法建議、十國舊金山宣言、</text>
+  <text class="dg-sub" x="104" y="222" dominant-baseline="central">美國堵東南亞／巴西晶片漏洞、五大 AI 公司遭提告</text>
+  <text class="dg-sub" x="92" y="248" dominant-baseline="central">鬆绑：白宮建議放寬資安責任認定，鼓勵業者主動揭露事故</text>
+  <text class="dg-sub" x="92" y="272" dominant-baseline="central">共同因果：攻擊成本崩潰後，兩股反應都在修正「揭露」這個變因</text>
 
-  <line class="dg-rule" x1="40" y1="300" x2="600" y2="300"/>
-  <text class="dg-sub" x="40" y="320" dominant-baseline="central">落差：目前沒有一套框架把「進入門檻」與「揭露責任」兩股政策方向接成同一條線</text>
+  <line class="dg-rule" x1="40" y1="308" x2="600" y2="308"/>
+  <text class="dg-sub" x="40" y="328" dominant-baseline="central">落差：目前沒有一套框架把「進入門檻」與「揭露責任」兩股政策方向接成同一條線</text>
 </svg>
 ```
 

@@ -40,9 +40,9 @@ desc: 標準做法要 snapshot、逐欄位 fill、select_option、upload 四段�
 caption: 輪數與 token 數出自 README benchmark（10 欄表單，tiktoken o200k_base 實測），呼叫段落為簡化示意。
 ---
 <svg viewBox="0 0 640 500">
-  <text class="dg-heading" x="20" y="28" dominant-baseline="central">改動前</text>
+  <text class="dg-heading" x="20" y="22" dominant-baseline="central">改動前</text>
   <text class="dg-sub" x="20" y="44" dominant-baseline="central">11 輪・72,614 累積 token</text>
-  <text class="dg-heading" x="340" y="28" dominant-baseline="central">改動後</text>
+  <text class="dg-heading" x="340" y="22" dominant-baseline="central">改動後</text>
   <text class="dg-sub" x="340" y="44" dominant-baseline="central">1 輪・811 token</text>
   <line class="dg-rule" x1="316" y1="16" x2="316" y2="352"/>
 

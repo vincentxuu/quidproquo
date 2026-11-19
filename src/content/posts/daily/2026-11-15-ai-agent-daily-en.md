@@ -33,10 +33,10 @@ title: Two tracks after security accelerated — attackers scale tooling, defend
 desc: The left column shows attackers reusing the same open-source agentic tools across continents and victim types; the right column shows defenders focused on lowering the friction of disclosure and accountability rather than pure blocking.
 caption: Based on reporting from Amazon MadPot, Elastic Security Labs, The Register, the White House AI task force, and Hong Kong's HKMA Project SAGE.
 ---
-<svg viewBox="0 0 640 300">
+<svg viewBox="0 0 640 272">
   <text class="dg-heading" x="160" y="28" text-anchor="middle" dominant-baseline="central">Attackers: scale tooling</text>
   <text class="dg-heading" x="480" y="28" text-anchor="middle" dominant-baseline="central">Defenders: lower friction</text>
-  <line class="dg-rule" x1="320" y1="16" x2="320" y2="280"/>
+  <line class="dg-rule" x1="320" y1="16" x2="320" y2="216"/>
 
   <rect class="dg-box dg-box--accent" x="50" y="56" width="220" height="56" rx="6"/>
   <text class="dg-label" x="160" y="78" text-anchor="middle" dominant-baseline="central">Attack tools spread</text>
@@ -57,7 +57,7 @@ caption: Based on reporting from Amazon MadPot, Elastic Security Labs, The Regis
   <path class="dg-line" d="M160 112V140" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M480 112V140" marker-end="url(#arrow)"/>
 
-  <text class="dg-sub" x="320" y="240" text-anchor="middle" dominant-baseline="central">Lower disclosure friction means the next incident surfaces faster</text>
+  <text class="dg-sub" x="320" y="244" text-anchor="middle" dominant-baseline="central">Lower disclosure friction means the next incident surfaces faster</text>
 </svg>
 ```
 

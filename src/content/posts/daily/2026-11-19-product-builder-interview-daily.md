@@ -38,37 +38,37 @@ title: AI 功能遇到風險或低信心時,要走哪條路
 desc: 任務先檢查動作是否可逆且風險低,可以就自動執行;風險高或不可逆時,再檢查模型對這次判斷有沒有把握,有把握就先提案等人確認,沒把握就直接升級給人決定。
 caption: 示意:簡化成兩層判斷,實際門檻依產業與動作不可逆程度調整。
 ---
-<svg viewBox="0 0 640 400">
-  <circle class="dg-dot" cx="280" cy="22" r="6"/>
-  <path class="dg-line" d="M280 28V56" marker-end="url(#arrow)"/>
+<svg viewBox="0 0 716 440">
+  <circle class="dg-dot" cx="240" cy="22" r="6"/>
+  <path class="dg-line" d="M240 28V56" marker-end="url(#arrow)"/>
 
-  <path class="dg-box" d="M280 56L376 100L280 144L184 100Z"/>
-  <text class="dg-label" x="280" y="92" text-anchor="middle" dominant-baseline="central">動作可逆、風險低?</text>
-  <text class="dg-sub" x="280" y="112" text-anchor="middle" dominant-baseline="central">例:草稿 vs. 刪除、轉帳</text>
+  <path class="dg-box" d="M240 56L440 112L240 168L40 112Z"/>
+  <text class="dg-label" x="240" y="100" text-anchor="middle" dominant-baseline="central">動作可逆、風險低?</text>
+  <text class="dg-sub" x="240" y="124" text-anchor="middle" dominant-baseline="central">例:草稿 vs. 刪除、轉帳</text>
 
-  <path class="dg-line" d="M376 100H432" marker-end="url(#arrow)"/>
-  <text class="dg-edge" x="404" y="88" text-anchor="middle" dominant-baseline="central">是</text>
-  <rect class="dg-box" x="432" y="76" width="144" height="48" rx="6"/>
-  <text class="dg-label" x="504" y="100" text-anchor="middle" dominant-baseline="central">自動執行</text>
+  <path class="dg-line" d="M440 112H520" marker-end="url(#arrow)"/>
+  <text class="dg-edge" x="480" y="98" text-anchor="middle" dominant-baseline="central">是</text>
+  <rect class="dg-box" x="520" y="88" width="176" height="48" rx="6"/>
+  <text class="dg-label" x="608" y="112" text-anchor="middle" dominant-baseline="central">自動執行</text>
 
-  <path class="dg-line" d="M280 144V188" marker-end="url(#arrow)"/>
-  <text class="dg-edge" x="296" y="166" text-anchor="start" dominant-baseline="central">否</text>
+  <path class="dg-line" d="M240 168V212" marker-end="url(#arrow)"/>
+  <text class="dg-edge" x="256" y="190" text-anchor="start" dominant-baseline="central">否</text>
 
-  <path class="dg-box" d="M280 188L376 232L280 276L184 232Z"/>
-  <text class="dg-label" x="280" y="224" text-anchor="middle" dominant-baseline="central">模型有把握嗎?</text>
-  <text class="dg-sub" x="280" y="244" text-anchor="middle" dominant-baseline="central">信心分數、有無檢索命中</text>
+  <path class="dg-box" d="M240 212L440 268L240 324L40 268Z"/>
+  <text class="dg-label" x="240" y="256" text-anchor="middle" dominant-baseline="central">模型有把握嗎?</text>
+  <text class="dg-sub" x="240" y="280" text-anchor="middle" dominant-baseline="central">信心分數、有無檢索命中</text>
 
-  <path class="dg-line" d="M376 232H432" marker-end="url(#arrow)"/>
-  <text class="dg-edge" x="404" y="220" text-anchor="middle" dominant-baseline="central">有信心</text>
-  <rect class="dg-box" x="432" y="208" width="144" height="48" rx="6"/>
-  <text class="dg-label" x="504" y="223" text-anchor="middle" dominant-baseline="central">先提案</text>
-  <text class="dg-sub" x="504" y="243" text-anchor="middle" dominant-baseline="central">等人確認後才執行</text>
+  <path class="dg-line" d="M440 268H520" marker-end="url(#arrow)"/>
+  <text class="dg-edge" x="480" y="254" text-anchor="middle" dominant-baseline="central">有信心</text>
+  <rect class="dg-box" x="520" y="240" width="176" height="56" rx="6"/>
+  <text class="dg-label" x="608" y="256" text-anchor="middle" dominant-baseline="central">先提案</text>
+  <text class="dg-sub" x="608" y="280" text-anchor="middle" dominant-baseline="central">等人確認後才執行</text>
 
-  <path class="dg-line dg-line--accent" d="M280 276V320" marker-end="url(#arrow-accent)"/>
-  <text class="dg-edge dg-text--accent" x="296" y="298" text-anchor="start" dominant-baseline="central">沒信心</text>
-  <rect class="dg-box dg-box--accent" x="184" y="320" width="192" height="56" rx="6"/>
-  <text class="dg-label" x="280" y="339" text-anchor="middle" dominant-baseline="central">升級給人</text>
-  <text class="dg-sub" x="280" y="359" text-anchor="middle" dominant-baseline="central">由人決定怎麼做</text>
+  <path class="dg-line dg-line--accent" d="M240 324V368" marker-end="url(#arrow-accent)"/>
+  <text class="dg-edge dg-text--accent" x="256" y="346" text-anchor="start" dominant-baseline="central">沒信心</text>
+  <rect class="dg-box dg-box--accent" x="144" y="368" width="192" height="56" rx="6"/>
+  <text class="dg-label" x="240" y="384" text-anchor="middle" dominant-baseline="central">升級給人</text>
+  <text class="dg-sub" x="240" y="408" text-anchor="middle" dominant-baseline="central">由人決定怎麼做</text>
 </svg>
 ```
 

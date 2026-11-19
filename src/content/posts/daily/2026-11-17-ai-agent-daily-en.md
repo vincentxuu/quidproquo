@@ -31,22 +31,28 @@ title: Attack costs are collapsing while regulatory responses split apart
 desc: The top layer shows evidence of autonomy on the attack side (Google's exploit_agent, Amazon's intercepted ARTEX logs); the bottom layer shows two opposite regulatory responses in the same week — tightening controls and loosening liability.
 caption: Cases and figures from the Google Cloud Threat Intelligence blog, Amazon's AWS Security Blog (ARTEX key theft), MinterEllison's Australian regulatory update, Taipei Times (San Francisco Declaration), TechCrunch (chip export controls), and Insurance Journal (White House liability proposal).
 ---
-<svg viewBox="0 0 640 340">
-  <rect class="dg-box" x="40" y="24" width="560" height="104" rx="6"/>
+<svg viewBox="0 0 640 424">
+  <rect class="dg-box" x="40" y="24" width="560" height="132" rx="6"/>
   <text class="dg-tag" x="60" y="48" dominant-baseline="central">L1</text>
   <text class="dg-label" x="92" y="48" dominant-baseline="central">Attack side — autonomy drives production cost toward zero</text>
-  <text class="dg-sub" x="92" y="74" dominant-baseline="central">Google: exploit_agent turned 2 PHP CVEs into working exploits with no human in the loop</text>
-  <text class="dg-sub" x="92" y="98" dominant-baseline="central">ARTEX: steal keys → validate → shared key pool → plan next scan with pooled keys, self-powering</text>
+  <text class="dg-sub" x="92" y="74" dominant-baseline="central">Google: exploit_agent turned 2 PHP CVEs into working exploits</text>
+  <text class="dg-sub" x="104" y="94" dominant-baseline="central">with no human in the loop</text>
+  <text class="dg-sub" x="92" y="120" dominant-baseline="central">ARTEX: steal keys → validate → shared key pool → plan next scan</text>
+  <text class="dg-sub" x="104" y="140" dominant-baseline="central">with pooled keys, self-powering</text>
 
-  <rect class="dg-box dg-box--accent" x="40" y="156" width="560" height="128" rx="6"/>
-  <text class="dg-tag" x="60" y="180" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="92" y="180" dominant-baseline="central">Regulatory side — opposite directions in the same week</text>
-  <text class="dg-sub" x="92" y="206" dominant-baseline="central">Tightening: Australia's 18 recommendations, the 9-ally San Francisco Declaration, US closing SEA/Brazil chip loopholes, 5 AI firms sued</text>
-  <text class="dg-sub" x="92" y="230" dominant-baseline="central">Loosening: White House proposes easing cyber-liability standards to encourage disclosure</text>
-  <text class="dg-sub" x="92" y="254" dominant-baseline="central">Shared cause: once attack cost collapses, both responses are adjusting the same variable — disclosure</text>
+  <rect class="dg-box dg-box--accent" x="40" y="172" width="560" height="178" rx="6"/>
+  <text class="dg-tag" x="60" y="196" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="92" y="196" dominant-baseline="central">Regulatory side — opposite directions in the same week</text>
+  <text class="dg-sub" x="92" y="222" dominant-baseline="central">Tightening: Australia's 18 recommendations, the 9-ally San Francisco</text>
+  <text class="dg-sub" x="104" y="242" dominant-baseline="central">Declaration, US closing SEA/Brazil chip loopholes, 5 AI firms sued</text>
+  <text class="dg-sub" x="92" y="268" dominant-baseline="central">Loosening: White House proposes easing cyber-liability standards</text>
+  <text class="dg-sub" x="104" y="288" dominant-baseline="central">to encourage disclosure</text>
+  <text class="dg-sub" x="92" y="314" dominant-baseline="central">Shared cause: once attack cost collapses, both responses are adjusting</text>
+  <text class="dg-sub" x="104" y="334" dominant-baseline="central">the same variable — disclosure</text>
 
-  <line class="dg-rule" x1="40" y1="300" x2="600" y2="300"/>
-  <text class="dg-sub" x="40" y="320" dominant-baseline="central">Gap: no framework yet connects "raising the entry barrier" and "disclosure liability" into one coherent line</text>
+  <line class="dg-rule" x1="40" y1="366" x2="600" y2="366"/>
+  <text class="dg-sub" x="40" y="386" dominant-baseline="central">Gap: no framework yet connects "raising the entry barrier" and</text>
+  <text class="dg-sub" x="52" y="406" dominant-baseline="central">"disclosure liability" into one coherent line</text>
 </svg>
 ```
 

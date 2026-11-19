@@ -40,9 +40,9 @@ desc: The standard approach splits work into snapshot, field-by-field fill, sele
 caption: Turn counts and token counts come from the README benchmark (10-field form, measured with tiktoken o200k_base); the call stages shown here are simplified.
 ---
 <svg viewBox="0 0 640 500">
-  <text class="dg-heading" x="20" y="28" dominant-baseline="central">Before</text>
+  <text class="dg-heading" x="20" y="22" dominant-baseline="central">Before</text>
   <text class="dg-sub" x="20" y="44" dominant-baseline="central">11 turns · 72,614 cumulative tokens</text>
-  <text class="dg-heading" x="340" y="28" dominant-baseline="central">After</text>
+  <text class="dg-heading" x="340" y="22" dominant-baseline="central">After</text>
   <text class="dg-sub" x="340" y="44" dominant-baseline="central">1 turn · 811 tokens</text>
   <line class="dg-rule" x1="316" y1="16" x2="316" y2="352"/>
 

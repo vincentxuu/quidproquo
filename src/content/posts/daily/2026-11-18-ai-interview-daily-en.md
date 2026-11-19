@@ -46,14 +46,14 @@ An input distribution changing (input drift) doesn't mean the relationship betwe
 {
   "title": "Diagnosing a quietly rising missing-value rate",
   "lang": "en",
-  "width": 520,
-  "height": 760,
+  "width": 600,
+  "height": 704,
   "nodes": [
-    {"id": "signal", "label": "Observed signal\nmissing rate 1%→20%, service status and latency normal", "x": 260, "y": 50, "w": 280},
-    {"id": "breakdown", "label": "Break down missing rate by collector version / rollout cohort\nkeep request counts, not just ratios", "x": 260, "y": 200, "w": 280},
-    {"id": "replay", "label": "Hold model and payload fixed\nswap only the preprocessing version and replay", "x": 260, "y": 350, "w": 280, "tone": "accent"},
-    {"id": "confirm", "label": "Confirm where the gap comes from\nreproduce the feature-contract mismatch", "x": 260, "y": 500, "w": 280},
-    {"id": "respond", "label": "Restore the feature contract, verify recovery on new traffic\nwait for mature cohorts before evaluating recall and workload", "x": 260, "y": 650, "w": 280}
+    {"id": "signal", "label": "Observed signal\nmissing rate 1%→20%, service status and latency normal", "x": 300, "y": 50, "w": 500},
+    {"id": "breakdown", "label": "Break down missing rate by collector version / rollout cohort\nkeep request counts, not just ratios", "x": 300, "y": 200, "w": 500},
+    {"id": "replay", "label": "Hold model and payload fixed\nswap only the preprocessing version and replay", "x": 300, "y": 350, "w": 500, "tone": "accent"},
+    {"id": "confirm", "label": "Confirm where the gap comes from\nreproduce the feature-contract mismatch", "x": 300, "y": 500, "w": 500},
+    {"id": "respond", "label": "Restore the feature contract, verify recovery on new traffic\nwait for mature cohorts before evaluating recall and workload", "x": 300, "y": 650, "w": 500}
   ],
   "edges": [
     {"from": "signal", "to": "breakdown", "step": 1, "label": "break it down before concluding"},

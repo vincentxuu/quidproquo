@@ -92,38 +92,38 @@ step: 使用、續約與擴席，再回到品牌形成共同語言
 
   <g data-step="1">
     <rect class="dg-box" x="144" y="16" width="152" height="56" rx="6"/>
-    <text class="dg-label" x="220" y="34" text-anchor="middle" dominant-baseline="central">品牌形成</text>
-    <text class="dg-label" x="220" y="54" text-anchor="middle" dominant-baseline="central">共同語言</text>
+    <text class="dg-label" x="220" y="33" text-anchor="middle" dominant-baseline="central">品牌形成</text>
+    <text class="dg-label" x="220" y="55" text-anchor="middle" dominant-baseline="central">共同語言</text>
   </g>
 
   <g data-step="2">
     <rect class="dg-box" x="284" y="96" width="152" height="56" rx="6"/>
-    <text class="dg-label" x="360" y="114" text-anchor="middle" dominant-baseline="central">更多</text>
-    <text class="dg-label" x="360" y="134" text-anchor="middle" dominant-baseline="central">企業訂閱</text>
+    <text class="dg-label" x="360" y="113" text-anchor="middle" dominant-baseline="central">更多</text>
+    <text class="dg-label" x="360" y="135" text-anchor="middle" dominant-baseline="central">企業訂閱</text>
   </g>
 
   <g data-step="3">
     <rect class="dg-box" x="284" y="256" width="152" height="56" rx="6"/>
-    <text class="dg-label" x="360" y="274" text-anchor="middle" dominant-baseline="central">更多</text>
-    <text class="dg-label" x="360" y="294" text-anchor="middle" dominant-baseline="central">分析師互動</text>
+    <text class="dg-label" x="360" y="273" text-anchor="middle" dominant-baseline="central">更多</text>
+    <text class="dg-label" x="360" y="295" text-anchor="middle" dominant-baseline="central">分析師互動</text>
   </g>
 
   <g data-step="4">
     <rect class="dg-box" x="144" y="336" width="152" height="56" rx="6"/>
-    <text class="dg-label" x="220" y="354" text-anchor="middle" dominant-baseline="central">研究與基準</text>
-    <text class="dg-label" x="220" y="374" text-anchor="middle" dominant-baseline="central">更完整</text>
+    <text class="dg-label" x="220" y="353" text-anchor="middle" dominant-baseline="central">研究與基準</text>
+    <text class="dg-label" x="220" y="375" text-anchor="middle" dominant-baseline="central">更完整</text>
   </g>
 
   <g data-step="5">
     <rect class="dg-box" x="4" y="256" width="152" height="56" rx="6"/>
-    <text class="dg-label" x="80" y="274" text-anchor="middle" dominant-baseline="central">進入採購</text>
-    <text class="dg-label" x="80" y="294" text-anchor="middle" dominant-baseline="central">工作流程</text>
+    <text class="dg-label" x="80" y="273" text-anchor="middle" dominant-baseline="central">進入採購</text>
+    <text class="dg-label" x="80" y="295" text-anchor="middle" dominant-baseline="central">工作流程</text>
   </g>
 
   <g data-step="6">
     <rect class="dg-box" x="4" y="96" width="152" height="56" rx="6"/>
-    <text class="dg-label" x="80" y="114" text-anchor="middle" dominant-baseline="central">使用、續約</text>
-    <text class="dg-label" x="80" y="134" text-anchor="middle" dominant-baseline="central">與擴席</text>
+    <text class="dg-label" x="80" y="113" text-anchor="middle" dominant-baseline="central">使用、續約</text>
+    <text class="dg-label" x="80" y="135" text-anchor="middle" dominant-baseline="central">與擴席</text>
   </g>
 
   <text class="dg-sub" x="220" y="204" text-anchor="middle" dominant-baseline="central">回饋迴路</text>

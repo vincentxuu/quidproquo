@@ -54,23 +54,23 @@ desc: 累計融資倍數不到 2.5 倍，但營收成長超過 10 倍、開源�
 caption: 數字來自 LanceDB 官方部落格（2026-11-17）。
 ---
 <svg viewBox="0 0 640 280">
-  <text class="dg-small" x="220" y="24" dominant-baseline="central">Series A（2025-06）→ Series B（2026-11）成長倍數</text>
-  <line class="dg-grid" x1="220" y1="44" x2="220" y2="256"/>
+  <text class="dg-small" x="24" y="24" dominant-baseline="central">Series A（2025-06）→ Series B（2026-11）成長倍數</text>
+  <line class="dg-grid" x1="24" y1="44" x2="24" y2="256"/>
 
   <g>
-    <rect class="dg-bar dg-c-muted" x="220" y="56" width="58" height="36"/>
-    <text class="dg-sub" x="286" y="74" dominant-baseline="central">累計融資：2.4x（$41M → $98.5M）</text>
+    <rect class="dg-bar dg-c-muted" x="24" y="56" width="58" height="36"/>
+    <text class="dg-sub" x="90" y="74" dominant-baseline="central">累計融資：2.4x（$41M → $98.5M）</text>
   </g>
   <g>
-    <rect class="dg-bar dg-c-accent" x="220" y="112" width="240" height="36"/>
-    <text class="dg-label dg-text--accent" x="468" y="130" dominant-baseline="central">年營收：10x+（公司自報）</text>
+    <rect class="dg-bar dg-c-accent" x="24" y="112" width="240" height="36"/>
+    <text class="dg-label dg-text--accent" x="272" y="130" dominant-baseline="central">年營收：10x+（公司自報）</text>
   </g>
   <g>
-    <rect class="dg-bar dg-c-accent" x="220" y="168" width="144" height="36"/>
-    <text class="dg-label dg-text--accent" x="372" y="186" dominant-baseline="central">開源下載累計：6x（120M+ 次）</text>
+    <rect class="dg-bar dg-c-accent" x="24" y="168" width="144" height="36"/>
+    <text class="dg-label dg-text--accent" x="176" y="186" dominant-baseline="central">開源下載累計：6x（120M+ 次）</text>
   </g>
 
-  <line class="dg-axis" x1="220" y1="44" x2="220" y2="256"/>
+  <line class="dg-axis" x1="24" y1="44" x2="24" y2="256"/>
 </svg>
 ```
 

@@ -52,7 +52,7 @@ caption: Illustrative: layer width represents the direction of convergence, not 
 ---
 <svg viewBox="0 0 640 460">
   <path class="dg-axis" d="M24 40V440" marker-end="url(#arrow)"/>
-  <text class="dg-small" x="36" y="40" dominant-baseline="central">fewer candidates going down</text>
+  <text class="dg-small" x="18" y="18" dominant-baseline="central">fewer candidates going down</text>
 
   <polygon class="dg-box" points="40,32 600,32 552,132 88,132"/>
   <polygon class="dg-box" points="88,136 552,136 504,236 136,236"/>

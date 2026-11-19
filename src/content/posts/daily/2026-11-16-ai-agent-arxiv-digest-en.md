@@ -20,27 +20,31 @@ title: Three different layers where agent memory gets stuck
 desc: Front to back: the memory system's design space, resolution after writing, and trust at read time. Today's three papers each find a concrete, measurable gap in one of these layers.
 caption: Numbers in order from arXiv 2611.17068 (transplanted into 5 existing systems, all improve; +11 points on LongMemEval), 2611.15729 (recall near-saturated at 0.93-0.98, answer correctness still trails at 0.861 vs 0.806), and 2611.14320 (52% of memory degradation cases trace to a wrong lesson; regression cut from 6.5% to 4.5%).
 ---
-<svg viewBox="0 0 640 340">
-  <rect class="dg-box" x="72" y="24" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="52" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="124" y="52" dominant-baseline="central">Design space: where to invest in memory</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">Catches: a dozen memory algorithms competing, each claiming to be best</text>
-  <text class="dg-sub" x="604" y="80" text-anchor="end" dominant-baseline="central">Misses: only two design choices actually transplant across systems, not the algorithm itself</text>
+<svg viewBox="0 0 640 404">
+  <rect class="dg-box" x="72" y="24" width="552" height="96" rx="6"/>
+  <text class="dg-tag" x="92" y="44" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="124" y="44" dominant-baseline="central">Design space: where to invest in memory</text>
+  <text class="dg-sub" x="124" y="66" dominant-baseline="central">Catches: a dozen memory algorithms competing, each claiming to be best</text>
+  <text class="dg-sub" x="124" y="84" dominant-baseline="central">Misses: only two design choices actually transplant</text>
+  <text class="dg-sub" x="124" y="102" dominant-baseline="central">across systems, not the algorithm itself</text>
 
-  <rect class="dg-box" x="72" y="112" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="140" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="124" y="140" dominant-baseline="central">After writing: resolution in enterprise settings</text>
-  <text class="dg-sub" x="604" y="140" text-anchor="end" dominant-baseline="central">Catches: retrieval recall already at 0.93-0.98, near-saturated</text>
-  <text class="dg-sub" x="604" y="168" text-anchor="end" dominant-baseline="central">Misses: answer accuracy still lags because confusable entities and stale values aren't resolved cleanly</text>
+  <rect class="dg-box" x="72" y="128" width="552" height="96" rx="6"/>
+  <text class="dg-tag" x="92" y="148" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="124" y="148" dominant-baseline="central">After writing: resolution in enterprise settings</text>
+  <text class="dg-sub" x="124" y="170" dominant-baseline="central">Catches: retrieval recall already at 0.93-0.98, near-saturated</text>
+  <text class="dg-sub" x="124" y="188" dominant-baseline="central">Misses: answer accuracy still lags because confusable</text>
+  <text class="dg-sub" x="124" y="206" dominant-baseline="central">entities and stale values aren't resolved cleanly</text>
 
-  <rect class="dg-box" x="72" y="200" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="228" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="124" y="228" dominant-baseline="central">At read time: whether to trust a lesson</text>
-  <text class="dg-sub" x="604" y="228" text-anchor="end" dominant-baseline="central">Catches: a lesson in memory that reads plausible, clearly worded</text>
-  <text class="dg-sub" x="604" y="256" text-anchor="end" dominant-baseline="central">Misses: 52% of memory-degradation cases trace to a wrong lesson nobody checked</text>
+  <rect class="dg-box" x="72" y="232" width="552" height="96" rx="6"/>
+  <text class="dg-tag" x="92" y="252" dominant-baseline="central">L3</text>
+  <text class="dg-label" x="124" y="252" dominant-baseline="central">At read time: whether to trust a lesson</text>
+  <text class="dg-sub" x="124" y="274" dominant-baseline="central">Catches: a lesson in memory that reads plausible, clearly worded</text>
+  <text class="dg-sub" x="124" y="292" dominant-baseline="central">Misses: 52% of memory-degradation cases</text>
+  <text class="dg-sub" x="124" y="310" dominant-baseline="central">trace to a wrong lesson nobody checked</text>
 
-  <line class="dg-rule" x1="72" y1="300" x2="624" y2="300"/>
-  <text class="dg-sub" x="72" y="324" dominant-baseline="central">Residual risk: each paper validates only its own benchmark or setting; no study yet chains "design choice → correct resolution → trustworthy lesson" into one memory pipeline</text>
+  <line class="dg-rule" x1="72" y1="348" x2="624" y2="348"/>
+  <text class="dg-sub" x="72" y="370" dominant-baseline="central">Residual risk: each paper validates only its own benchmark or setting; no study yet chains</text>
+  <text class="dg-sub" x="72" y="388" dominant-baseline="central">"design choice → correct resolution → trustworthy lesson" into one memory pipeline</text>
 </svg>
 ```
 

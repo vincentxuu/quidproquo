@@ -71,7 +71,7 @@ step: The same Fireworks breach separately exposes Uber driver's license data an
   </g>
 
   <g data-step="6">
-    <rect class="dg-box" x="316" y="252" width="168" height="56" rx="6"/>
+    <rect class="dg-box" x="296" y="252" width="208" height="56" rx="6"/>
     <text class="dg-label" x="400" y="271" text-anchor="middle" dominant-baseline="central">Uber</text>
     <text class="dg-sub" x="400" y="291" text-anchor="middle" dominant-baseline="central">driver's license data exposed</text>
   </g>

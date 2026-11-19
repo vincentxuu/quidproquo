@@ -54,19 +54,19 @@ desc: Seed to Series A in three months, with valuation jumping straight to $1B f
 caption: Figures from Corma's official announcement (BusinessWire, 2026-11-16) and Calcalist reporting (2026-11-16).
 ---
 <svg viewBox="0 0 640 220">
-  <text class="dg-small" x="160" y="24" dominant-baseline="central">Total funding ($M)</text>
-  <line class="dg-grid" x1="160" y1="40" x2="160" y2="176"/>
+  <text class="dg-small" x="40" y="24" dominant-baseline="central">Total funding ($M)</text>
+  <line class="dg-grid" x1="40" y1="40" x2="40" y2="176"/>
 
   <g>
-    <rect class="dg-bar dg-c-muted" x="160" y="60" width="96" height="36"/>
-    <text class="dg-sub" x="264" y="78" dominant-baseline="central">$60M seed (2026-08, valuation undisclosed)</text>
+    <rect class="dg-bar dg-c-muted" x="40" y="60" width="96" height="36"/>
+    <text class="dg-sub" x="144" y="78" dominant-baseline="central">$60M seed (2026-08, valuation undisclosed)</text>
   </g>
   <g>
-    <rect class="dg-bar dg-c-accent" x="160" y="120" width="296" height="36"/>
-    <text class="dg-label dg-text--accent" x="464" y="138" dominant-baseline="central">$185M total / $1B valuation (2026-11)</text>
+    <rect class="dg-bar dg-c-accent" x="40" y="120" width="296" height="36"/>
+    <text class="dg-label dg-text--accent" x="344" y="138" dominant-baseline="central">$185M total / $1B valuation (2026-11)</text>
   </g>
 
-  <line class="dg-axis" x1="160" y1="40" x2="160" y2="176"/>
+  <line class="dg-axis" x1="40" y1="40" x2="40" y2="176"/>
 </svg>
 ```
 

@@ -45,16 +45,16 @@ caption: 簡化自官方的三層說法。Antigravity 也屬於「Coding agent�
   <path class="dg-line" d="M290 216V284" marker-end="url(#arrow)"/>
 
   <rect class="dg-box" x="16" y="24" width="128" height="56" rx="6"/>
-  <text class="dg-label" x="80" y="46" text-anchor="middle" dominant-baseline="central">應用後端</text>
-  <text class="dg-sub" x="80" y="64" text-anchor="middle" dominant-baseline="central">網站、API 服務</text>
+  <text class="dg-label" x="80" y="40" text-anchor="middle" dominant-baseline="central">應用後端</text>
+  <text class="dg-sub" x="80" y="66" text-anchor="middle" dominant-baseline="central">網站、API 服務</text>
 
   <rect class="dg-box" x="156" y="24" width="128" height="56" rx="6"/>
-  <text class="dg-label" x="220" y="46" text-anchor="middle" dominant-baseline="central">本機工具</text>
-  <text class="dg-sub" x="220" y="64" text-anchor="middle" dominant-baseline="central">外掛、腳本、CI</text>
+  <text class="dg-label" x="220" y="40" text-anchor="middle" dominant-baseline="central">本機工具</text>
+  <text class="dg-sub" x="220" y="66" text-anchor="middle" dominant-baseline="central">外掛、腳本、CI</text>
 
   <rect class="dg-box" x="296" y="24" width="128" height="56" rx="6"/>
-  <text class="dg-label" x="360" y="46" text-anchor="middle" dominant-baseline="central">Coding agent</text>
-  <text class="dg-sub" x="360" y="64" text-anchor="middle" dominant-baseline="central">Claude Code 等</text>
+  <text class="dg-label" x="360" y="40" text-anchor="middle" dominant-baseline="central">Coding agent</text>
+  <text class="dg-sub" x="360" y="66" text-anchor="middle" dominant-baseline="central">Claude Code 等</text>
 
   <rect class="dg-box" x="16" y="152" width="128" height="64" rx="6"/>
   <text class="dg-label" x="80" y="176" text-anchor="middle" dominant-baseline="central">Gen AI SDK</text>

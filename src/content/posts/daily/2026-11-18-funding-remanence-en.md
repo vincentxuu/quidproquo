@@ -54,36 +54,36 @@ desc: Execution data from enterprise agents is turned into a training environmen
 caption: Flow summarized from Remanence's own statements and Tech Funding News reporting.
 ---
 <svg viewBox="0 0 640 280">
-  <path class="dg-line" d="M200 68H440" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M520 96V176" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M440 204H200" marker-end="url(#arrow)"/>
-  <path class="dg-line dg-line--dashed" d="M120 176V96" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M244 68H396" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M508 96V176" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M396 204H244" marker-end="url(#arrow)"/>
+  <path class="dg-line dg-line--dashed" d="M132 176V96" marker-end="url(#arrow)"/>
 
   <g>
-    <rect class="dg-box" x="40" y="40" width="160" height="56" rx="6"/>
-    <text class="dg-label" x="120" y="60" text-anchor="middle" dominant-baseline="central">Enterprise AI agent</text>
-    <text class="dg-sub" x="120" y="80" text-anchor="middle" dominant-baseline="central">Generates execution traces</text>
+    <rect class="dg-box" x="20" y="40" width="224" height="56" rx="6"/>
+    <text class="dg-label" x="132" y="60" text-anchor="middle" dominant-baseline="central">Enterprise AI agent</text>
+    <text class="dg-sub" x="132" y="80" text-anchor="middle" dominant-baseline="central">Generates execution traces</text>
   </g>
 
   <g>
-    <rect class="dg-box" x="440" y="40" width="160" height="56" rx="6"/>
-    <text class="dg-label" x="520" y="60" text-anchor="middle" dominant-baseline="central">Converted into training env</text>
-    <text class="dg-sub" x="520" y="80" text-anchor="middle" dominant-baseline="central">Remanence platform</text>
+    <rect class="dg-box" x="396" y="40" width="224" height="56" rx="6"/>
+    <text class="dg-label" x="508" y="60" text-anchor="middle" dominant-baseline="central">Converted into training env</text>
+    <text class="dg-sub" x="508" y="80" text-anchor="middle" dominant-baseline="central">Remanence platform</text>
   </g>
 
   <g>
-    <rect class="dg-box dg-box--accent" x="440" y="176" width="160" height="56" rx="6"/>
-    <text class="dg-label dg-text--accent" x="520" y="196" text-anchor="middle" dominant-baseline="central">Post-training (RL)</text>
-    <text class="dg-sub" x="520" y="216" text-anchor="middle" dominant-baseline="central">Open-weight model</text>
+    <rect class="dg-box dg-box--accent" x="396" y="176" width="224" height="56" rx="6"/>
+    <text class="dg-label dg-text--accent" x="508" y="196" text-anchor="middle" dominant-baseline="central">Post-training (RL)</text>
+    <text class="dg-sub" x="508" y="216" text-anchor="middle" dominant-baseline="central">Open-weight model</text>
   </g>
 
   <g>
-    <rect class="dg-box dg-box--store" x="40" y="176" width="160" height="56" rx="6"/>
-    <text class="dg-label" x="120" y="196" text-anchor="middle" dominant-baseline="central">Enterprise-owned model</text>
-    <text class="dg-sub" x="120" y="216" text-anchor="middle" dominant-baseline="central">Weights owned by the enterprise</text>
+    <rect class="dg-box dg-box--store" x="20" y="176" width="224" height="56" rx="6"/>
+    <text class="dg-label" x="132" y="196" text-anchor="middle" dominant-baseline="central">Enterprise-owned model</text>
+    <text class="dg-sub" x="132" y="216" text-anchor="middle" dominant-baseline="central">Weights owned by the enterprise</text>
   </g>
 
-  <text class="dg-edge" x="100" y="136" text-anchor="middle" dominant-baseline="central">Deploy</text>
+  <text class="dg-edge" x="104" y="136" text-anchor="middle" dominant-baseline="central">Deploy</text>
 </svg>
 ```
 

@@ -20,27 +20,28 @@ title: Three trust signals you may be relying on, and what each one misses
 desc: Front to back: the leaderboard you check before picking a model, the advice you get once it's deployed, and the audit report you check after the fact. Today's three papers each find a concrete, measurable gap in one of these.
 caption: Numbers in order from arXiv 2611.14769 (strategic voting + nomination + prompting combined boosts rank by up to 45 places), 2611.15475 (the CEO-reporting difference-in-differences effect, replication study +7.8pp, p<0.001), and 2611.16493 (six non-GPT configurations' recall on the evidence-contradiction subtype is only 31.2%).
 ---
-<svg viewBox="0 0 640 340">
-  <rect class="dg-box" x="72" y="24" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="52" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="124" y="52" dominant-baseline="central">Before: public arena leaderboard</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">Catches: a relative rank aggregated from real human votes</text>
-  <text class="dg-sub" x="604" y="80" text-anchor="end" dominant-baseline="central">Misses: voting + nomination + prompting combined boosts rank by up to 45 places</text>
+<svg viewBox="0 0 700 404">
+  <rect class="dg-box" x="20" y="24" width="660" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="48" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="68" y="48" dominant-baseline="central">Before: public arena leaderboard</text>
+  <text class="dg-sub" x="68" y="74" dominant-baseline="central">Catches: a relative rank aggregated from real human votes</text>
+  <text class="dg-sub" x="68" y="96" dominant-baseline="central">Misses: voting + nomination + prompting combined boosts rank by up to 45 places</text>
 
-  <rect class="dg-box" x="72" y="112" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="140" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="124" y="140" dominant-baseline="central">During: advice under a reporting relationship</text>
-  <text class="dg-sub" x="604" y="140" text-anchor="end" dominant-baseline="central">Catches: a written recommendation that reads objective, with reasons</text>
-  <text class="dg-sub" x="604" y="168" text-anchor="end" dominant-baseline="central">Misses: advice drifts toward the supervisor's bonus target; even auditors 41% mention it</text>
+  <rect class="dg-box" x="20" y="124" width="660" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="148" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="68" y="148" dominant-baseline="central">During: advice under a reporting relationship</text>
+  <text class="dg-sub" x="68" y="174" dominant-baseline="central">Catches: a written recommendation that reads objective, with reasons</text>
+  <text class="dg-sub" x="68" y="196" dominant-baseline="central">Misses: advice drifts toward the supervisor's bonus target; even auditors 41% mention it</text>
 
-  <rect class="dg-box" x="72" y="200" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="228" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="124" y="228" dominant-baseline="central">After: agent trajectory auditing</text>
-  <text class="dg-sub" x="604" y="228" text-anchor="end" dominant-baseline="central">Catches: obviously dangerous actions, recall 80%-95%</text>
-  <text class="dg-sub" x="604" y="256" text-anchor="end" dominant-baseline="central">Misses: risks needing evidence checks, recall drops to 28.7%-31.2%</text>
+  <rect class="dg-box" x="20" y="224" width="660" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="248" dominant-baseline="central">L3</text>
+  <text class="dg-label" x="68" y="248" dominant-baseline="central">After: agent trajectory auditing</text>
+  <text class="dg-sub" x="68" y="274" dominant-baseline="central">Catches: obviously dangerous actions, recall 80%-95%</text>
+  <text class="dg-sub" x="68" y="296" dominant-baseline="central">Misses: risks needing evidence checks, recall drops to 28.7%-31.2%</text>
 
-  <line class="dg-rule" x1="72" y1="300" x2="624" y2="300"/>
-  <text class="dg-sub" x="72" y="324" dominant-baseline="central">Residual risk: each paper validates its own controlled setup only; no study yet chains all three into one deployment pipeline</text>
+  <line class="dg-rule" x1="20" y1="336" x2="680" y2="336"/>
+  <text class="dg-sub" x="20" y="360" dominant-baseline="central">Residual risk: each paper validates its own controlled setup only;</text>
+  <text class="dg-sub" x="20" y="382" dominant-baseline="central">no study yet chains all three into one deployment pipeline</text>
 </svg>
 ```
 

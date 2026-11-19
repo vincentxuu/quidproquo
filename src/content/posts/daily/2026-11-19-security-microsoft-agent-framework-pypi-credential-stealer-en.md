@@ -54,7 +54,7 @@ step: Data compressed and encoded, then exfiltrated via HTTPS POST to webhook.si
   <path class="dg-line dg-line--accent" d="M400 488V528" marker-end="url(#arrow-accent)" data-step="5"/>
 
   <g data-step="1">
-    <rect class="dg-box" x="280" y="32" width="240" height="56" rx="6"/>
+    <rect class="dg-box" x="260" y="32" width="280" height="56" rx="6"/>
     <text class="dg-label" x="400" y="51" text-anchor="middle" dominant-baseline="central">Attacker gets PyPI publish access</text>
     <text class="dg-sub" x="400" y="71" text-anchor="middle" dominant-baseline="central">method unknown</text>
   </g>

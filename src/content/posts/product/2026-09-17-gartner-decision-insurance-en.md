@@ -92,38 +92,38 @@ step: Usage, renewal, and expansion lead back to the brand's shared language
 
   <g data-step="1">
     <rect class="dg-box" x="144" y="16" width="152" height="56" rx="6"/>
-    <text class="dg-label" x="220" y="34" text-anchor="middle" dominant-baseline="central">Brand creates a</text>
-    <text class="dg-label" x="220" y="54" text-anchor="middle" dominant-baseline="central">shared language</text>
+    <text class="dg-label" x="220" y="33" text-anchor="middle" dominant-baseline="central">Brand creates a</text>
+    <text class="dg-label" x="220" y="55" text-anchor="middle" dominant-baseline="central">shared language</text>
   </g>
 
   <g data-step="2">
     <rect class="dg-box" x="284" y="96" width="152" height="56" rx="6"/>
-    <text class="dg-label" x="360" y="114" text-anchor="middle" dominant-baseline="central">More enterprises</text>
-    <text class="dg-label" x="360" y="134" text-anchor="middle" dominant-baseline="central">subscribe</text>
+    <text class="dg-label" x="360" y="113" text-anchor="middle" dominant-baseline="central">More enterprises</text>
+    <text class="dg-label" x="360" y="135" text-anchor="middle" dominant-baseline="central">subscribe</text>
   </g>
 
   <g data-step="3">
     <rect class="dg-box" x="284" y="256" width="152" height="56" rx="6"/>
-    <text class="dg-label" x="360" y="274" text-anchor="middle" dominant-baseline="central">More analyst</text>
-    <text class="dg-label" x="360" y="294" text-anchor="middle" dominant-baseline="central">interactions</text>
+    <text class="dg-label" x="360" y="273" text-anchor="middle" dominant-baseline="central">More analyst</text>
+    <text class="dg-label" x="360" y="295" text-anchor="middle" dominant-baseline="central">interactions</text>
   </g>
 
   <g data-step="4">
     <rect class="dg-box" x="144" y="336" width="152" height="56" rx="6"/>
-    <text class="dg-label" x="220" y="354" text-anchor="middle" dominant-baseline="central">Broader research</text>
-    <text class="dg-label" x="220" y="374" text-anchor="middle" dominant-baseline="central">and benchmarks</text>
+    <text class="dg-label" x="220" y="353" text-anchor="middle" dominant-baseline="central">Broader research</text>
+    <text class="dg-label" x="220" y="375" text-anchor="middle" dominant-baseline="central">and benchmarks</text>
   </g>
 
   <g data-step="5">
     <rect class="dg-box" x="4" y="256" width="152" height="56" rx="6"/>
-    <text class="dg-label" x="80" y="274" text-anchor="middle" dominant-baseline="central">Research enters</text>
-    <text class="dg-label" x="80" y="294" text-anchor="middle" dominant-baseline="central">buying workflows</text>
+    <text class="dg-label" x="80" y="273" text-anchor="middle" dominant-baseline="central">Research enters</text>
+    <text class="dg-label" x="80" y="295" text-anchor="middle" dominant-baseline="central">buying workflows</text>
   </g>
 
   <g data-step="6">
     <rect class="dg-box" x="4" y="96" width="152" height="56" rx="6"/>
-    <text class="dg-label" x="80" y="114" text-anchor="middle" dominant-baseline="central">Usage, renewal,</text>
-    <text class="dg-label" x="80" y="134" text-anchor="middle" dominant-baseline="central">and expansion</text>
+    <text class="dg-label" x="80" y="113" text-anchor="middle" dominant-baseline="central">Usage, renewal,</text>
+    <text class="dg-label" x="80" y="135" text-anchor="middle" dominant-baseline="central">and expansion</text>
   </g>
 
   <text class="dg-sub" x="220" y="204" text-anchor="middle" dominant-baseline="central">Feedback loop</text>

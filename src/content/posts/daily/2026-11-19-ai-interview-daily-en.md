@@ -46,20 +46,20 @@ Every step the agent takes needs an upper bound — a step limit, a tool-call bu
 {
   "title": "Context validation and authorization flow when an agent resumes",
   "lang": "en",
-  "width": 560,
+  "width": 640,
   "height": 760,
   "nodes": [
-    {"id": "resume", "label": "Resume starts\nLoad durable knowledge: repo state, past decisions, task state", "x": 280, "y": 50, "w": 260},
-    {"id": "revalidate", "label": "Re-validate assumptions\nCheck against current repository state; flag stale decisions", "x": 280, "y": 200, "w": 260, "tone": "accent"},
-    {"id": "propose", "label": "Model proposes next step\nWithin a predefined authorization boundary", "x": 280, "y": 350, "w": 260},
-    {"id": "execute", "label": "Application authorizes and executes the bounded tool call\nWith an idempotency key; retrieved text never grants execution rights", "x": 280, "y": 500, "w": 260},
-    {"id": "checkpoint", "label": "Validate the result\nOnly checkpoint (outside the transcript) on success; otherwise stop", "x": 280, "y": 650, "w": 260}
+    {"id": "resume", "label": "Resume starts\nLoad durable knowledge: repo state,\npast decisions, task state", "x": 320, "y": 50, "w": 460, "h": 76},
+    {"id": "revalidate", "label": "Re-validate assumptions\nCheck against current repository state;\nflag stale decisions", "x": 320, "y": 200, "w": 460, "tone": "accent", "h": 76},
+    {"id": "propose", "label": "Model proposes next step\nWithin a predefined authorization boundary", "x": 320, "y": 350, "w": 460, "h": 76},
+    {"id": "execute", "label": "Application authorizes and executes the bounded tool call\nWith an idempotency key; retrieved text\nnever grants execution rights", "x": 320, "y": 500, "w": 460, "h": 76},
+    {"id": "checkpoint", "label": "Validate the result\nOnly checkpoint (outside the transcript)\non success; otherwise stop", "x": 320, "y": 650, "w": 460, "h": 76}
   ],
   "edges": [
-    {"from": "resume", "to": "revalidate", "step": 1, "label": "Resuming is not trusting last time's conclusion"},
-    {"from": "revalidate", "to": "propose", "step": 2, "label": "Only let the model decide once context is confirmed valid"},
-    {"from": "propose", "to": "execute", "step": 3, "label": "Authorization logic stays in the app / tool-execution layer"},
-    {"from": "execute", "to": "checkpoint", "step": 4, "label": "Checkpointing outside the transcript makes progress correctly recoverable"}
+    {"from": "resume", "to": "revalidate", "step": 1, "label": "Resuming is not trusting\nlast time's conclusion"},
+    {"from": "revalidate", "to": "propose", "step": 2, "label": "Only let the model decide once\ncontext is confirmed valid"},
+    {"from": "propose", "to": "execute", "step": 3, "label": "Authorization logic stays in the\napp / tool-execution layer"},
+    {"from": "execute", "to": "checkpoint", "step": 4, "label": "Checkpointing outside the transcript\nmakes progress correctly recoverable"}
   ],
   "steps": [
     "On resume, first load the durable project knowledge — current repo state, the decision record left by earlier sessions, and task progress. This long-lived knowledge is managed separately from the fresh context injected on each individual call.",

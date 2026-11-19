@@ -22,23 +22,23 @@ caption: The bottom-to-top ordering is an editorial grouping (individual agent â
 ---
 <svg viewBox="0 0 640 280">
   <path class="dg-axis" d="M36 232V40" marker-end="url(#arrow)"/>
-  <text class="dg-tag" x="36" y="24" text-anchor="middle" dominant-baseline="central">multi-agent</text>
-  <text class="dg-tag" x="36" y="248" text-anchor="middle" dominant-baseline="central">single agent</text>
+  <text class="dg-tag" x="16" y="12" dominant-baseline="central">multi-agent</text>
+  <text class="dg-tag" x="16" y="248" dominant-baseline="central">single agent</text>
 
   <rect class="dg-box" x="72" y="24" width="552" height="56" rx="6"/>
-  <text class="dg-tag" x="92" y="52" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="124" y="52" dominant-baseline="central">Authorization &amp; trust boundaries</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">All 4 frameworks: injection, unauthorized tool calls</text>
+  <text class="dg-tag" x="92" y="40" dominant-baseline="central">L3</text>
+  <text class="dg-label" x="124" y="40" dominant-baseline="central">Authorization &amp; trust boundaries</text>
+  <text class="dg-sub" x="124" y="64" dominant-baseline="central">All 4 frameworks: injection, unauthorized tool calls</text>
 
   <rect class="dg-box" x="72" y="88" width="552" height="56" rx="6"/>
-  <text class="dg-tag" x="92" y="116" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="124" y="116" dominant-baseline="central">Self-improvement loop</text>
-  <text class="dg-sub" x="604" y="116" text-anchor="end" dominant-baseline="central">Eval-free gate, 8.8x faster</text>
+  <text class="dg-tag" x="92" y="104" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="124" y="104" dominant-baseline="central">Self-improvement loop</text>
+  <text class="dg-sub" x="124" y="128" dominant-baseline="central">Eval-free gate, 8.8x faster</text>
 
   <rect class="dg-box" x="72" y="152" width="552" height="56" rx="6"/>
-  <text class="dg-tag" x="92" y="180" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="124" y="180" dominant-baseline="central">Memory &amp; experience</text>
-  <text class="dg-sub" x="604" y="180" text-anchor="end" dominant-baseline="central">Silent interface change: veterans lose to novices</text>
+  <text class="dg-tag" x="92" y="168" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="124" y="168" dominant-baseline="central">Memory &amp; experience</text>
+  <text class="dg-sub" x="124" y="192" dominant-baseline="central">Silent interface change: veterans lose to novices</text>
 </svg>
 ```
 

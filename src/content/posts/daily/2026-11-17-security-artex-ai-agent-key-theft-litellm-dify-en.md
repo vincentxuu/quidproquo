@@ -41,44 +41,44 @@ step: Call an AI model using pooled keys to plan the next round of scanning and 
 step: Search GitHub, npm, paste sites, and Telegram channels for more leaked keys
 step: Return to scanning more exposed AI apps, with a larger key pool than the last cycle
 ---
-<svg viewBox="0 0 440 392">
-  <path class="dg-line" d="M280 56.3A152 152 0 0 1 368.8 165.1" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line" d="M369.4 224A152 152 0 0 1 282.7 334.4" marker-end="url(#arrow)" data-step="3"/>
-  <path class="dg-line" d="M160 335.7A152 152 0 0 1 71.2 226.9" marker-end="url(#arrow)" data-step="4"/>
-  <path class="dg-line" d="M70.6 168A152 152 0 0 1 157.3 57.6" marker-end="url(#arrow)" data-step="5"/>
-  <path class="dg-line dg-line--dashed" d="M312 196H276" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line dg-line--dashed" d="M220 224V316" marker-end="url(#arrow)" data-step="3"/>
+<svg viewBox="0 0 640 420">
+  <path class="dg-line" d="M412 59.1A200 170 0 0 1 516.6 179" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M517.3 238A200 170 0 0 1 415 359.6" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line" d="M228 360.9A200 170 0 0 1 123.4 241" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line" d="M122.7 182A200 170 0 0 1 225 60.4" marker-end="url(#arrow)" data-step="5"/>
+  <path class="dg-line dg-line--dashed" d="M428 210H390" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line dg-line--dashed" d="M320 238V348" marker-end="url(#arrow)" data-step="3"/>
 
   <g data-step="1 5">
-    <rect class="dg-box" x="152" y="16" width="136" height="56" rx="6"/>
-    <text class="dg-label" x="220" y="35" text-anchor="middle" dominant-baseline="central">Scan exposed AI apps</text>
-    <text class="dg-sub" x="220" y="55" text-anchor="middle" dominant-baseline="central">LiteLLM・Dify・RAGFlow</text>
+    <rect class="dg-box" x="228" y="12" width="184" height="56" rx="6"/>
+    <text class="dg-label" x="320" y="31" text-anchor="middle" dominant-baseline="central">Scan exposed AI apps</text>
+    <text class="dg-sub" x="320" y="51" text-anchor="middle" dominant-baseline="central">LiteLLM・Dify・RAGFlow</text>
   </g>
 
   <g data-step="2">
-    <rect class="dg-box" x="304" y="168" width="136" height="56" rx="6"/>
-    <text class="dg-label" x="372" y="187" text-anchor="middle" dominant-baseline="central">Steal &amp; verify keys</text>
-    <text class="dg-sub" x="372" y="207" text-anchor="middle" dominant-baseline="central">defaults・CVEs・bypass</text>
+    <rect class="dg-box" x="428" y="182" width="184" height="56" rx="6"/>
+    <text class="dg-label" x="520" y="201" text-anchor="middle" dominant-baseline="central">Steal &amp; verify keys</text>
+    <text class="dg-sub" x="520" y="221" text-anchor="middle" dominant-baseline="central">defaults・CVEs・bypass</text>
   </g>
 
   <g data-step="3">
-    <rect class="dg-box dg-box--accent" x="152" y="320" width="136" height="56" rx="6"/>
-    <text class="dg-label" x="220" y="339" text-anchor="middle" dominant-baseline="central">Call AI model to plan</text>
-    <text class="dg-sub" x="220" y="359" text-anchor="middle" dominant-baseline="central">using pooled keys</text>
+    <rect class="dg-box dg-box--accent" x="228" y="352" width="184" height="56" rx="6"/>
+    <text class="dg-label" x="320" y="371" text-anchor="middle" dominant-baseline="central">Call AI model to plan</text>
+    <text class="dg-sub" x="320" y="391" text-anchor="middle" dominant-baseline="central">using pooled keys</text>
   </g>
 
   <g data-step="4">
-    <rect class="dg-box" x="0" y="168" width="136" height="56" rx="6"/>
-    <text class="dg-label" x="68" y="187" text-anchor="middle" dominant-baseline="central">Search for more keys</text>
-    <text class="dg-sub" x="68" y="207" text-anchor="middle" dominant-baseline="central">GitHub・npm・Telegram</text>
+    <rect class="dg-box" x="28" y="182" width="184" height="56" rx="6"/>
+    <text class="dg-label" x="120" y="201" text-anchor="middle" dominant-baseline="central">Search for more keys</text>
+    <text class="dg-sub" x="120" y="221" text-anchor="middle" dominant-baseline="central">GitHub・npm・Telegram</text>
   </g>
 
-  <rect class="dg-box dg-box--store" x="168" y="168" width="104" height="56" rx="6"/>
-  <text class="dg-label" x="220" y="187" text-anchor="middle" dominant-baseline="central">Shared key pool</text>
-  <text class="dg-sub" x="220" y="207" text-anchor="middle" dominant-baseline="central">grows every cycle</text>
+  <rect class="dg-box dg-box--store" x="254" y="182" width="132" height="56" rx="6"/>
+  <text class="dg-label" x="320" y="201" text-anchor="middle" dominant-baseline="central">Shared key pool</text>
+  <text class="dg-sub" x="320" y="221" text-anchor="middle" dominant-baseline="central">grows every cycle</text>
 
-  <text class="dg-edge" x="292" y="182" text-anchor="middle" dominant-baseline="central" data-step="2">write</text>
-  <text class="dg-edge" x="230" y="270" text-anchor="start" dominant-baseline="central" data-step="3">call</text>
+  <text class="dg-edge" x="408" y="194" text-anchor="middle" dominant-baseline="central" data-step="2">write</text>
+  <text class="dg-edge" x="330" y="295" text-anchor="start" dominant-baseline="central" data-step="3">call</text>
 </svg>
 ```
 

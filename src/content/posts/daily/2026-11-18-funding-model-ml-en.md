@@ -54,23 +54,23 @@ desc: In under two years, each round got dramatically bigger — the Series B is
 caption: Figures compiled by Tech Funding News (2026-11-17) from official announcements.
 ---
 <svg viewBox="0 0 640 260">
-  <text class="dg-small" x="150" y="24" dominant-baseline="central">Amount raised per round ($M)</text>
-  <line class="dg-grid" x1="150" y1="40" x2="150" y2="216"/>
+  <text class="dg-small" x="40" y="24" dominant-baseline="central">Amount raised per round ($M)</text>
+  <line class="dg-grid" x1="40" y1="40" x2="40" y2="216"/>
 
   <g>
-    <rect class="dg-bar dg-c-muted" x="150" y="52" width="16" height="36"/>
-    <text class="dg-sub" x="174" y="70" dominant-baseline="central">Seed $12M (2025-02)</text>
+    <rect class="dg-bar dg-c-muted" x="40" y="52" width="16" height="36"/>
+    <text class="dg-sub" x="64" y="70" dominant-baseline="central">Seed $12M (2025-02)</text>
   </g>
   <g>
-    <rect class="dg-bar dg-c-muted" x="150" y="108" width="100" height="36"/>
-    <text class="dg-sub" x="258" y="126" dominant-baseline="central">Series A $75M (2025-11)</text>
+    <rect class="dg-bar dg-c-muted" x="40" y="108" width="100" height="36"/>
+    <text class="dg-sub" x="148" y="126" dominant-baseline="central">Series A $75M (2025-11)</text>
   </g>
   <g>
-    <rect class="dg-bar dg-c-accent" x="150" y="164" width="333" height="36"/>
-    <text class="dg-label dg-text--accent" x="491" y="182" dominant-baseline="central">Series B $250M (2026-11)</text>
+    <rect class="dg-bar dg-c-accent" x="40" y="164" width="333" height="36"/>
+    <text class="dg-label dg-text--accent" x="381" y="182" dominant-baseline="central">Series B $250M (2026-11)</text>
   </g>
 
-  <line class="dg-axis" x1="150" y1="40" x2="150" y2="216"/>
+  <line class="dg-axis" x1="40" y1="40" x2="40" y2="216"/>
 </svg>
 ```
 

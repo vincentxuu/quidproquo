@@ -146,26 +146,27 @@ caption: 數字來自 Required 委派策略的池化結果（198 次任務執行
 ---
 <svg viewBox="0 0 640 372">
   <path class="dg-axis" d="M40 348V40" marker-end="url(#arrow)"/>
-  <text class="dg-small" x="52" y="48" dominant-baseline="central">委派後，證據一路流失</text>
+  <text class="dg-small" x="52" y="320" dominant-baseline="central">委派後，</text>
+  <text class="dg-small" x="52" y="338" dominant-baseline="central">證據一路流失</text>
 
   <text class="dg-small" x="320" y="26" text-anchor="middle" dominant-baseline="central">68.7% 進入漏斗：兩個矛盾值都被某個 worker 讀到</text>
 
-  <polygon class="dg-box" points="80,40 560,40 405,140 235,140"/>
-  <polygon class="dg-box" points="235,144 405,144 375,244 265,244"/>
-  <polygon class="dg-box dg-box--accent" points="265,248 375,248 366,348 274,348"/>
+  <polygon class="dg-box" points="60,44 580,44 490,140 150,140"/>
+  <polygon class="dg-box" points="150,144 490,144 440,244 200,244"/>
+  <polygon class="dg-box dg-box--accent" points="200,248 440,248 424,348 216,348"/>
 
-  <text class="dg-big" x="320" y="82" text-anchor="middle" dominant-baseline="central">24.4%</text>
-  <text class="dg-sub" x="320" y="106" text-anchor="middle" dominant-baseline="central">worker 回報同時提及</text>
+  <text class="dg-big" x="320" y="78" text-anchor="middle" dominant-baseline="central">24.4%</text>
+  <text class="dg-sub" x="320" y="108" text-anchor="middle" dominant-baseline="central">worker 回報同時提及</text>
 
-  <text class="dg-big" x="320" y="186" text-anchor="middle" dominant-baseline="central">15.8%</text>
+  <text class="dg-big" x="320" y="180" text-anchor="middle" dominant-baseline="central">15.8%</text>
   <text class="dg-sub" x="320" y="210" text-anchor="middle" dominant-baseline="central">最終報告同時寫出</text>
 
-  <text class="dg-big dg-text--accent" x="320" y="290" text-anchor="middle" dominant-baseline="central">13.2%</text>
+  <text class="dg-big dg-text--accent" x="320" y="284" text-anchor="middle" dominant-baseline="central">13.2%</text>
   <text class="dg-sub" x="320" y="314" text-anchor="middle" dominant-baseline="central">Judge 判定正確揭露並處理</text>
 
-  <text class="dg-small" x="498" y="90" dominant-baseline="central">−44.3pp</text>
-  <text class="dg-small" x="406" y="194" dominant-baseline="central">−8.6pp</text>
-  <text class="dg-small" x="386" y="298" dominant-baseline="central">−2.6pp</text>
+  <text class="dg-small" x="548" y="90" dominant-baseline="central">−44.3pp</text>
+  <text class="dg-small" x="476" y="194" dominant-baseline="central">−8.6pp</text>
+  <text class="dg-small" x="444" y="298" dominant-baseline="central">−2.6pp</text>
 </svg>
 ```
 

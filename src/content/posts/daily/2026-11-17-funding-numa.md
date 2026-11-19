@@ -53,20 +53,20 @@ title: Numa 累計融資與客戶規模成長軌跡
 desc: 從 2024 年 10 月 Series B 到 2026 年 11 月 Series C，累計融資與經銷商客戶數同步放大。
 caption: 數字來自 TechCrunch（2024-10-01）與 PRNewswire（2026-11-16）官方公告。
 ---
-<svg viewBox="0 0 640 260">
-  <text class="dg-small" x="160" y="24" dominant-baseline="central">累計融資（$M）／經銷商客戶數（店）</text>
-  <line class="dg-grid" x1="160" y1="40" x2="160" y2="216"/>
+<svg viewBox="0 0 640 220">
+  <text class="dg-small" x="40" y="24" dominant-baseline="central">累計融資（$M）／經銷商客戶數（店）</text>
+  <line class="dg-grid" x1="40" y1="40" x2="40" y2="200"/>
 
   <g>
-    <rect class="dg-bar dg-c-muted" x="160" y="60" width="192" height="40"/>
-    <text class="dg-sub" x="360" y="80" dominant-baseline="central">$48M 累計／600 家經銷商（2024-10）</text>
+    <rect class="dg-bar dg-c-muted" x="40" y="76" width="192" height="40"/>
+    <text class="dg-sub" x="48" y="58" dominant-baseline="central">$48M 累計／600 家經銷商（2024-10）</text>
   </g>
   <g>
-    <rect class="dg-bar dg-c-accent" x="160" y="140" width="384" height="40"/>
-    <text class="dg-label dg-text--accent" x="552" y="160" dominant-baseline="central">$96M 累計／1,500+ 家經銷商（2026-11）</text>
+    <rect class="dg-bar dg-c-accent" x="40" y="152" width="384" height="40"/>
+    <text class="dg-label dg-text--accent" x="48" y="134" dominant-baseline="central">$96M 累計／1,500+ 家經銷商（2026-11）</text>
   </g>
 
-  <line class="dg-axis" x1="160" y1="40" x2="160" y2="216"/>
+  <line class="dg-axis" x1="40" y1="40" x2="40" y2="200"/>
 </svg>
 ```
 

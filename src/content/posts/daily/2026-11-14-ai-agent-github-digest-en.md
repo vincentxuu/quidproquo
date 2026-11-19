@@ -22,51 +22,51 @@ title: Tool-calling loop vs. writing code to call tools (Code Mode)
 desc: Classic tool-calling makes the LLM pick one tool per turn and loop several rounds before it has an answer; Code Mode lets the LLM write one program that calls several tools inside a sandbox and returns the result once.
 caption: Simplified for illustration — context-window size and pricing differ too, but this only shows the structural change in how tools get called.
 ---
-<svg viewBox="0 0 640 400">
+<svg viewBox="0 0 640 416">
   <text class="dg-heading" x="20" y="28" dominant-baseline="central">Before</text>
   <text class="dg-heading" x="340" y="28" dominant-baseline="central">After</text>
   <line class="dg-rule" x1="320" y1="16" x2="320" y2="280"/>
 
-  <path class="dg-line" d="M160 100V140" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M160 188V224" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M480 100V140" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M480 188V224" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M160 100V132" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M160 188V216" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M480 100V132" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M480 188V216" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box" x="76" y="56" width="168" height="44" rx="6"/>
+  <rect class="dg-box" x="52" y="56" width="216" height="44" rx="6"/>
   <text class="dg-label" x="160" y="78" text-anchor="middle" dominant-baseline="central">Agent context</text>
 
-  <rect class="dg-box" x="76" y="140" width="168" height="48" rx="6"/>
-  <text class="dg-label" x="160" y="156" text-anchor="middle" dominant-baseline="central">LLM picks one tool</text>
-  <text class="dg-sub" x="160" y="174" text-anchor="middle" dominant-baseline="central">one tool per turn</text>
+  <rect class="dg-box" x="52" y="132" width="216" height="56" rx="6"/>
+  <text class="dg-label" x="160" y="150" text-anchor="middle" dominant-baseline="central">LLM picks one tool</text>
+  <text class="dg-sub" x="160" y="172" text-anchor="middle" dominant-baseline="central">one tool per turn</text>
 
-  <rect class="dg-box" x="76" y="224" width="168" height="48" rx="6"/>
-  <text class="dg-label" x="160" y="240" text-anchor="middle" dominant-baseline="central">Tool runs, result returned</text>
-  <text class="dg-sub" x="160" y="258" text-anchor="middle" dominant-baseline="central">usually several rounds</text>
+  <rect class="dg-box" x="52" y="216" width="216" height="56" rx="6"/>
+  <text class="dg-label" x="160" y="234" text-anchor="middle" dominant-baseline="central">Tool runs, result returned</text>
+  <text class="dg-sub" x="160" y="256" text-anchor="middle" dominant-baseline="central">usually several rounds</text>
 
-  <rect class="dg-box" x="396" y="56" width="168" height="44" rx="6"/>
+  <rect class="dg-box" x="372" y="56" width="216" height="44" rx="6"/>
   <text class="dg-label" x="480" y="78" text-anchor="middle" dominant-baseline="central">Agent context</text>
 
-  <rect class="dg-box dg-box--accent" x="396" y="140" width="168" height="48" rx="6"/>
-  <text class="dg-label" x="480" y="156" text-anchor="middle" dominant-baseline="central">LLM writes one program</text>
-  <text class="dg-sub" x="480" y="174" text-anchor="middle" dominant-baseline="central">calls several tools at once</text>
+  <rect class="dg-box dg-box--accent" x="372" y="132" width="216" height="56" rx="6"/>
+  <text class="dg-label" x="480" y="150" text-anchor="middle" dominant-baseline="central">LLM writes one program</text>
+  <text class="dg-sub" x="480" y="172" text-anchor="middle" dominant-baseline="central">calls several tools at once</text>
 
-  <rect class="dg-box" x="396" y="224" width="168" height="48" rx="6"/>
-  <text class="dg-label" x="480" y="240" text-anchor="middle" dominant-baseline="central">Sandbox runs the program</text>
-  <text class="dg-sub" x="480" y="258" text-anchor="middle" dominant-baseline="central">result returned once</text>
+  <rect class="dg-box" x="372" y="216" width="216" height="56" rx="6"/>
+  <text class="dg-label" x="480" y="234" text-anchor="middle" dominant-baseline="central">Sandbox runs the program</text>
+  <text class="dg-sub" x="480" y="256" text-anchor="middle" dominant-baseline="central">result returned once</text>
 
-  <g class="dg-badge"><circle cx="60" cy="164" r="10"/><text x="60" y="164" text-anchor="middle" dominant-baseline="central">−</text></g>
-  <g class="dg-badge"><circle cx="60" cy="248" r="10"/><text x="60" y="248" text-anchor="middle" dominant-baseline="central">−</text></g>
-  <g class="dg-badge dg-badge--accent"><circle cx="380" cy="164" r="10"/><text x="380" y="164" text-anchor="middle" dominant-baseline="central">+</text></g>
-  <g class="dg-badge"><circle cx="380" cy="248" r="10"/><text x="380" y="248" text-anchor="middle" dominant-baseline="central">+</text></g>
+  <g class="dg-badge"><circle cx="36" cy="160" r="10"/><text x="36" y="160" text-anchor="middle" dominant-baseline="central">−</text></g>
+  <g class="dg-badge"><circle cx="36" cy="244" r="10"/><text x="36" y="244" text-anchor="middle" dominant-baseline="central">−</text></g>
+  <g class="dg-badge dg-badge--accent"><circle cx="352" cy="160" r="10"/><text x="352" y="160" text-anchor="middle" dominant-baseline="central">+</text></g>
+  <g class="dg-badge"><circle cx="352" cy="244" r="10"/><text x="352" y="244" text-anchor="middle" dominant-baseline="central">+</text></g>
 
   <line class="dg-rule" x1="20" y1="300" x2="620" y2="300"/>
   <text class="dg-tag" x="20" y="324" dominant-baseline="central">Changes</text>
   <g class="dg-badge"><circle cx="32" cy="352" r="10"/><text x="32" y="352" text-anchor="middle" dominant-baseline="central">−</text></g>
   <text class="dg-sub" x="52" y="352" dominant-baseline="central">Removed: pick-one-tool loop over several rounds</text>
-  <g class="dg-badge dg-badge--accent"><circle cx="352" cy="352" r="10"/><text x="352" y="352" text-anchor="middle" dominant-baseline="central">+</text></g>
-  <text class="dg-sub" x="372" y="352" dominant-baseline="central">Added: LLM writes one program calling several tools</text>
-  <g class="dg-badge"><circle cx="352" cy="376" r="10"/><text x="352" y="376" text-anchor="middle" dominant-baseline="central">+</text></g>
-  <text class="dg-sub" x="372" y="376" dominant-baseline="central">Added: sandbox runs the whole program, returns once</text>
+  <g class="dg-badge dg-badge--accent"><circle cx="32" cy="376" r="10"/><text x="32" y="376" text-anchor="middle" dominant-baseline="central">+</text></g>
+  <text class="dg-sub" x="52" y="376" dominant-baseline="central">Added: LLM writes one program calling several tools</text>
+  <g class="dg-badge"><circle cx="32" cy="400" r="10"/><text x="32" y="400" text-anchor="middle" dominant-baseline="central">+</text></g>
+  <text class="dg-sub" x="52" y="400" dominant-baseline="central">Added: sandbox runs the whole program, returns once</text>
 </svg>
 ```
 

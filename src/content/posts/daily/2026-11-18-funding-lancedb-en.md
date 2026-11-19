@@ -54,23 +54,23 @@ desc: Total funding grew less than 2.5x, but reported revenue grew more than 10x
 caption: Figures from LanceDB's official blog post (2026-11-17).
 ---
 <svg viewBox="0 0 640 280">
-  <text class="dg-small" x="220" y="24" dominant-baseline="central">Growth multiple, Series A (2025-06) to Series B (2026-11)</text>
-  <line class="dg-grid" x1="220" y1="44" x2="220" y2="256"/>
+  <text class="dg-small" x="24" y="24" dominant-baseline="central">Growth multiple, Series A (2025-06) to Series B (2026-11)</text>
+  <line class="dg-grid" x1="24" y1="44" x2="24" y2="256"/>
 
   <g>
-    <rect class="dg-bar dg-c-muted" x="220" y="56" width="58" height="36"/>
-    <text class="dg-sub" x="286" y="74" dominant-baseline="central">Total funding: 2.4x ($41M → $98.5M)</text>
+    <rect class="dg-bar dg-c-muted" x="24" y="56" width="58" height="36"/>
+    <text class="dg-sub" x="90" y="74" dominant-baseline="central">Total funding: 2.4x ($41M → $98.5M)</text>
   </g>
   <g>
-    <rect class="dg-bar dg-c-accent" x="220" y="112" width="240" height="36"/>
-    <text class="dg-label dg-text--accent" x="468" y="130" dominant-baseline="central">Annual revenue: 10x+ (self-reported)</text>
+    <rect class="dg-bar dg-c-accent" x="24" y="112" width="240" height="36"/>
+    <text class="dg-label dg-text--accent" x="272" y="130" dominant-baseline="central">Annual revenue: 10x+ (self-reported)</text>
   </g>
   <g>
-    <rect class="dg-bar dg-c-accent" x="220" y="168" width="144" height="36"/>
-    <text class="dg-label dg-text--accent" x="372" y="186" dominant-baseline="central">Cumulative OSS downloads: 6x (120M+)</text>
+    <rect class="dg-bar dg-c-accent" x="24" y="168" width="144" height="36"/>
+    <text class="dg-label dg-text--accent" x="176" y="186" dominant-baseline="central">Cumulative OSS downloads: 6x (120M+)</text>
   </g>
 
-  <line class="dg-axis" x1="220" y1="44" x2="220" y2="256"/>
+  <line class="dg-axis" x1="24" y1="44" x2="24" y2="256"/>
 </svg>
 ```
 

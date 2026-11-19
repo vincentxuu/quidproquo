@@ -33,25 +33,25 @@ title: 模型層打平，治理層成為新戰場
 desc: 左欄是今天同時出現的三種訊號：模型能力趨同、治理基礎設施卡位、授權邊界實測全部失守；右欄是攻擊端鏡射出的同一塊真空。
 caption: 案例與數字來自 OpenAI、Microsoft Azure Blog、今日 Arxiv Digest 論文三、Unit 42（經 Palo Alto Networks）。
 ---
-<svg viewBox="0 0 640 300">
-  <rect class="dg-box" x="40" y="24" width="560" height="56" rx="6"/>
-  <text class="dg-tag" x="60" y="52" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="92" y="52" dominant-baseline="central">模型層——能力趨同</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">GPT-6.2 Astra 174 分追平 Claude Fable 5.2</text>
+<svg viewBox="0 0 720 324">
+  <rect class="dg-box" x="40" y="24" width="640" height="64" rx="6"/>
+  <text class="dg-tag" x="60" y="44" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="92" y="44" dominant-baseline="central">模型層——能力趨同</text>
+  <text class="dg-sub" x="92" y="68" dominant-baseline="central">GPT-6.2 Astra 174 分追平 Claude Fable 5.2</text>
 
-  <rect class="dg-box dg-box--accent" x="40" y="96" width="560" height="56" rx="6"/>
-  <text class="dg-tag" x="60" y="124" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="92" y="124" dominant-baseline="central">治理層——廠商卡位互補資產</text>
-  <text class="dg-sub" x="604" y="124" text-anchor="end" dominant-baseline="central">Microsoft IQ 把受治理企業情境餵給每個 agent</text>
+  <rect class="dg-box dg-box--accent" x="40" y="96" width="640" height="64" rx="6"/>
+  <text class="dg-tag" x="60" y="116" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="92" y="116" dominant-baseline="central">治理層——廠商卡位互補資產</text>
+  <text class="dg-sub" x="92" y="140" dominant-baseline="central">Microsoft IQ 把受治理企業情境餵給每個 agent</text>
 
-  <rect class="dg-box dg-box--accent" x="40" y="168" width="560" height="56" rx="6"/>
-  <text class="dg-tag" x="60" y="196" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="92" y="196" dominant-baseline="central">治理層——實測全部失守</text>
-  <text class="dg-sub" x="604" y="196" text-anchor="end" dominant-baseline="central">LangChain／LangGraph／AutoGen／OpenClaw 全中 OWASP 風險</text>
+  <rect class="dg-box dg-box--accent" x="40" y="168" width="640" height="64" rx="6"/>
+  <text class="dg-tag" x="60" y="188" dominant-baseline="central">L3</text>
+  <text class="dg-label" x="92" y="188" dominant-baseline="central">治理層——實測全部失守</text>
+  <text class="dg-sub" x="92" y="212" dominant-baseline="central">LangChain／LangGraph／AutoGen／OpenClaw 全中 OWASP 風險</text>
 
-  <line class="dg-rule" x1="40" y1="236" x2="600" y2="236"/>
-  <text class="dg-sub" x="40" y="260" dominant-baseline="central">攻擊端鏡射：Cairn 接上 GLM／DeepSeek，兩個月自主入侵 10 個組織</text>
-  <text class="dg-sub" x="40" y="280" dominant-baseline="central">共同落差：治理層的建設速度，還跟不上模型趨同與攻擊自動化的速度</text>
+  <line class="dg-rule" x1="40" y1="256" x2="680" y2="256"/>
+  <text class="dg-sub" x="40" y="280" dominant-baseline="central">攻擊端鏡射：Cairn 接上 GLM／DeepSeek，兩個月自主入侵 10 個組織</text>
+  <text class="dg-sub" x="40" y="302" dominant-baseline="central">共同落差：治理層的建設速度，還跟不上模型趨同與攻擊自動化的速度</text>
 </svg>
 ```
 

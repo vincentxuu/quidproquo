@@ -33,10 +33,10 @@ title: 資安攻防加速後的兩條線：攻擊端規模化複製，防禦端�
 desc: 左欄是攻擊端把開源 agentic 工具重複使用到多個大洲與受害類型，右欄是防禦端把精力放在降低揭露與究責的摩擦，而不是單純防堵。
 caption: 依 Amazon MadPot、Elastic Security Labs、The Register、白宮 AI 任務小組、香港金管局 Project SAGE 相關報導整理。
 ---
-<svg viewBox="0 0 640 300">
+<svg viewBox="0 0 640 272">
   <text class="dg-heading" x="160" y="28" text-anchor="middle" dominant-baseline="central">攻擊端：規模化複製</text>
   <text class="dg-heading" x="480" y="28" text-anchor="middle" dominant-baseline="central">防禦端：降低揭露摩擦</text>
-  <line class="dg-rule" x1="320" y1="16" x2="320" y2="280"/>
+  <line class="dg-rule" x1="320" y1="16" x2="320" y2="216"/>
 
   <rect class="dg-box dg-box--accent" x="60" y="56" width="200" height="56" rx="6"/>
   <text class="dg-label" x="160" y="78" text-anchor="middle" dominant-baseline="central">攻擊工具擴散</text>
@@ -57,7 +57,7 @@ caption: 依 Amazon MadPot、Elastic Security Labs、The Register、白宮 AI �
   <path class="dg-line" d="M160 112V140" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M480 112V140" marker-end="url(#arrow)"/>
 
-  <text class="dg-sub" x="320" y="240" text-anchor="middle" dominant-baseline="central">揭露機制的摩擦夠不夠低，決定下一輪事件多快被看見</text>
+  <text class="dg-sub" x="320" y="244" text-anchor="middle" dominant-baseline="central">揭露機制的摩擦夠不夠低，決定下一輪事件多快被看見</text>
 </svg>
 ```
 

@@ -20,27 +20,28 @@ title: Agent 記憶系統卡住的三個不同層次
 desc: 由前到後依序是記憶系統的設計空間、寫入後的解析、讀取時的信任；今天三篇論文各自在其中一層找到具體可量化的落差。
 caption: 數字依序來自 arxiv 2611.17068（移植進 5 套既有系統全部提升；LongMemEval 上 +11 個百分點）、2611.15729（召回 0.93-0.98 近飽和，答對率仍落後 0.861 vs 0.806）、2611.14320（記憶退化案例 52% 可追回一條錯誤教訓，退化率從 6.5% 壓到 4.5%）。
 ---
-<svg viewBox="0 0 640 340">
-  <rect class="dg-box" x="72" y="24" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="52" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="124" y="52" dominant-baseline="central">設計空間：記憶系統該往哪裡投資</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">看到的：十幾種記憶演算法在互相比較、互相宣稱最好</text>
-  <text class="dg-sub" x="604" y="80" text-anchor="end" dominant-baseline="central">看漏的：真正能移植到其他系統的關鍵設計只有兩個，不是演算法本身</text>
+<svg viewBox="0 0 640 350">
+  <rect class="dg-box" x="72" y="24" width="552" height="78" rx="6"/>
+  <text class="dg-tag" x="92" y="44" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="124" y="44" dominant-baseline="central">設計空間：記憶系統該往哪裡投資</text>
+  <text class="dg-sub" x="124" y="66" dominant-baseline="central">看到的：十幾種記憶演算法在互相比較、互相宣稱最好</text>
+  <text class="dg-sub" x="124" y="84" dominant-baseline="central">看漏的：真正能移植到其他系統的關鍵設計只有兩個，不是演算法本身</text>
 
-  <rect class="dg-box" x="72" y="112" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="140" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="124" y="140" dominant-baseline="central">寫入後：企業場景裡的解析</text>
-  <text class="dg-sub" x="604" y="140" text-anchor="end" dominant-baseline="central">看到的：檢索召回率已經做到 0.93-0.98，接近飽和</text>
-  <text class="dg-sub" x="604" y="168" text-anchor="end" dominant-baseline="central">看漏的：答對率仍落後，因為同名實體、過期數值沒被解析乾淨</text>
+  <rect class="dg-box" x="72" y="110" width="552" height="78" rx="6"/>
+  <text class="dg-tag" x="92" y="130" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="124" y="130" dominant-baseline="central">寫入後：企業場景裡的解析</text>
+  <text class="dg-sub" x="124" y="152" dominant-baseline="central">看到的：檢索召回率已經做到 0.93-0.98，接近飽和</text>
+  <text class="dg-sub" x="124" y="170" dominant-baseline="central">看漏的：答對率仍落後，因為同名實體、過期數值沒被解析乾淨</text>
 
-  <rect class="dg-box" x="72" y="200" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="228" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="124" y="228" dominant-baseline="central">讀取時：教訓該不該被信任</text>
-  <text class="dg-sub" x="604" y="228" text-anchor="end" dominant-baseline="central">看到的：記憶裡的教訓讀起來言之有理、措辭清楚</text>
-  <text class="dg-sub" x="604" y="256" text-anchor="end" dominant-baseline="central">看漏的：52% 的記憶退化案例背後是一條沒人回頭查過的錯誤教訓</text>
+  <rect class="dg-box" x="72" y="196" width="552" height="78" rx="6"/>
+  <text class="dg-tag" x="92" y="216" dominant-baseline="central">L3</text>
+  <text class="dg-label" x="124" y="216" dominant-baseline="central">讀取時：教訓該不該被信任</text>
+  <text class="dg-sub" x="124" y="238" dominant-baseline="central">看到的：記憶裡的教訓讀起來言之有理、措辭清楚</text>
+  <text class="dg-sub" x="124" y="256" dominant-baseline="central">看漏的：52% 的記憶退化案例背後是一條沒人回頭查過的錯誤教訓</text>
 
-  <line class="dg-rule" x1="72" y1="300" x2="624" y2="300"/>
-  <text class="dg-sub" x="72" y="324" dominant-baseline="central">剩餘風險：三篇都只驗證在各自的基準或場景，尚無研究把「設計選擇→解析正確→教訓可信」串成同一條記憶管線一起評測</text>
+  <line class="dg-rule" x1="72" y1="294" x2="624" y2="294"/>
+  <text class="dg-sub" x="72" y="316" dominant-baseline="central">剩餘風險：三篇都只驗證在各自的基準或場景，</text>
+  <text class="dg-sub" x="72" y="334" dominant-baseline="central">尚無研究把「設計選擇→解析正確→教訓可信」串成同一條記憶管線一起評測</text>
 </svg>
 ```
 

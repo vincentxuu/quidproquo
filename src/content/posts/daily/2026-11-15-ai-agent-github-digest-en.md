@@ -69,11 +69,11 @@ desc: Comparing GitHub's gh-aw, Alibaba's open-code-review, OpenAI's codex-secur
 caption: A qualitative comparison based on the designs and current state described in this article, not a quantitative score.
 ---
 <svg viewBox="0 0 640 384">
-  <rect class="dg-band dg-band--accent" x="347" y="16" width="136" height="304" rx="6"/>
+  <rect class="dg-band dg-band--accent" x="360" y="16" width="136" height="304" rx="6"/>
 
-  <text class="dg-label" x="278" y="40" text-anchor="middle" dominant-baseline="central">Easy to adopt</text>
-  <text class="dg-label dg-text--accent" x="415" y="40" text-anchor="middle" dominant-baseline="central">Write access scoped</text>
-  <text class="dg-label" x="552" y="40" text-anchor="middle" dominant-baseline="central">Battle-tested at scale</text>
+  <text class="dg-label" x="296" y="30" text-anchor="middle" dominant-baseline="central"><tspan x="296" dy="0">Easy to</tspan><tspan x="296" dy="20">adopt</tspan></text>
+  <text class="dg-label dg-text--accent" x="428" y="30" text-anchor="middle" dominant-baseline="central"><tspan x="428" dy="0">Write access</tspan><tspan x="428" dy="20">scoped</tspan></text>
+  <text class="dg-label" x="560" y="30" text-anchor="middle" dominant-baseline="central"><tspan x="560" dy="0">Battle-tested</tspan><tspan x="560" dy="20">at scale</tspan></text>
   <line class="dg-rule" x1="20" y1="64" x2="620" y2="64"/>
   <line class="dg-rule" x1="20" y1="128" x2="620" y2="128"/>
   <line class="dg-rule" x1="20" y1="192" x2="620" y2="192"/>
@@ -82,27 +82,27 @@ caption: A qualitative comparison based on the designs and current state describ
 
   <text class="dg-label" x="32" y="86" dominant-baseline="central">gh-aw</text>
   <text class="dg-sub" x="32" y="108" dominant-baseline="central">CI automation, GitHub's own</text>
-  <circle class="dg-dot dg-dot--hollow" cx="278" cy="96" r="9"/><path class="dg-dot" d="M278 87A9 9 0 0 0 278 105Z"/>
-  <circle class="dg-dot dg-dot--hollow" cx="415" cy="96" r="9"/><path class="dg-dot" d="M415 87A9 9 0 0 0 415 105Z"/>
-  <circle class="dg-dot" cx="552" cy="96" r="9"/>
+  <circle class="dg-dot dg-dot--hollow" cx="296" cy="96" r="9"/><path class="dg-dot" d="M296 87A9 9 0 0 0 296 105Z"/>
+  <circle class="dg-dot dg-dot--hollow" cx="428" cy="96" r="9"/><path class="dg-dot" d="M428 87A9 9 0 0 0 428 105Z"/>
+  <circle class="dg-dot" cx="560" cy="96" r="9"/>
 
   <text class="dg-label" x="32" y="150" dominant-baseline="central">open-code-review</text>
   <text class="dg-sub" x="32" y="172" dominant-baseline="central">Rule engine + LLM review</text>
-  <circle class="dg-dot" cx="278" cy="160" r="9"/>
-  <circle class="dg-dot" cx="415" cy="160" r="9"/>
-  <circle class="dg-dot" cx="552" cy="160" r="9"/>
+  <circle class="dg-dot" cx="296" cy="160" r="9"/>
+  <circle class="dg-dot" cx="428" cy="160" r="9"/>
+  <circle class="dg-dot" cx="560" cy="160" r="9"/>
 
   <text class="dg-label" x="32" y="214" dominant-baseline="central">codex-security</text>
   <text class="dg-sub" x="32" y="236" dominant-baseline="central">Scan → validate → patch</text>
-  <circle class="dg-dot" cx="278" cy="224" r="9"/>
-  <circle class="dg-dot dg-dot--hollow" cx="415" cy="224" r="9"/><path class="dg-dot" d="M415 215A9 9 0 0 0 415 233Z"/>
-  <circle class="dg-dot dg-dot--hollow" cx="552" cy="224" r="9"/><path class="dg-dot" d="M552 215A9 9 0 0 0 552 233Z"/>
+  <circle class="dg-dot" cx="296" cy="224" r="9"/>
+  <circle class="dg-dot dg-dot--hollow" cx="428" cy="224" r="9"/><path class="dg-dot" d="M428 215A9 9 0 0 0 428 233Z"/>
+  <circle class="dg-dot dg-dot--hollow" cx="560" cy="224" r="9"/><path class="dg-dot" d="M560 215A9 9 0 0 0 560 233Z"/>
 
   <text class="dg-label" x="32" y="278" dominant-baseline="central">dsh-superagent</text>
   <text class="dg-sub" x="32" y="300" dominant-baseline="central">DeepSeek's autonomous agent prototype</text>
-  <circle class="dg-dot dg-dot--hollow" cx="278" cy="288" r="9"/>
-  <circle class="dg-dot dg-dot--hollow" cx="415" cy="288" r="9"/>
-  <circle class="dg-dot dg-dot--hollow" cx="552" cy="288" r="9"/>
+  <circle class="dg-dot dg-dot--hollow" cx="296" cy="288" r="9"/>
+  <circle class="dg-dot dg-dot--hollow" cx="428" cy="288" r="9"/>
+  <circle class="dg-dot dg-dot--hollow" cx="560" cy="288" r="9"/>
 
   <text class="dg-tag" x="20" y="344" dominant-baseline="central">Legend</text>
   <circle class="dg-dot" cx="84" cy="344" r="7"/>

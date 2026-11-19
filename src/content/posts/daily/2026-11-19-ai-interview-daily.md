@@ -50,11 +50,11 @@ Agent 的每一步都要設上限——步數上限、工具呼叫預算上限,�
   "width": 520,
   "height": 760,
   "nodes": [
-    {"id": "resume", "label": "Resume 啟動\n載入 durable knowledge：repo 狀態、過去決策、task state", "x": 260, "y": 50, "w": 240},
-    {"id": "revalidate", "label": "重新驗證假設\n對照目前 repository 狀態，確認決策是否過期", "x": 260, "y": 200, "w": 240, "tone": "accent"},
-    {"id": "propose", "label": "Model 提出下一步\n在預先定義的授權邊界內", "x": 260, "y": 350, "w": 240},
-    {"id": "execute", "label": "Application 授權並執行 bounded tool call\n用 idempotency key，不信任 retrieved 文字裡的指令", "x": 260, "y": 500, "w": 240},
-    {"id": "checkpoint", "label": "驗證結果\n成功才 checkpoint（存在對話之外），失敗則停下來", "x": 260, "y": 650, "w": 240}
+    {"id": "resume", "label": "Resume 啟動\n載入 durable knowledge：\nrepo 狀態、過去決策、task state", "x": 260, "y": 50, "w": 320, "h": 76},
+    {"id": "revalidate", "label": "重新驗證假設\n對照目前 repository 狀態，\n確認決策是否過期", "x": 260, "y": 200, "w": 320, "tone": "accent", "h": 76},
+    {"id": "propose", "label": "Model 提出下一步\n在預先定義的授權邊界內", "x": 260, "y": 350, "w": 320, "h": 76},
+    {"id": "execute", "label": "Application 授權並執行 bounded tool call\n用 idempotency key，\n不信任 retrieved 文字裡的指令", "x": 260, "y": 500, "w": 320, "h": 76},
+    {"id": "checkpoint", "label": "驗證結果\n成功才 checkpoint（存在對話之外），\n失敗則停下來", "x": 260, "y": 650, "w": 320, "h": 76}
   ],
   "edges": [
     {"from": "resume", "to": "revalidate", "step": 1, "label": "resume 不是直接信任上次結論"},

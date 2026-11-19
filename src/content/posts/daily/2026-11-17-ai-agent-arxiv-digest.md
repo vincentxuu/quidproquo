@@ -20,27 +20,28 @@ title: 今天戳破的三個 Agent 系統預設
 desc: 由上到下依序是架構層（多代理人是否划算）、委派層（安全取決於誰）、自主性層（持續執行會不會養出違規）；今天三篇論文各自在其中一層給出可量化的落差。
 caption: 數字依序來自 arxiv 2611.17610（9 項研究、516 組設定，樣本數匹配基準線下平均 -0.042，74% 對照不優於基準線）、2611.17520（委派給弱子代理後攻擊成功率 0/180→75/180，聚合層 751/757 重複同一錯誤）、2611.17460（內部文件規則違規率 32.2%→43.6%，使用者直說同規則僅 8.5%）。
 ---
-<svg viewBox="0 0 640 340">
-  <rect class="dg-box" x="72" y="24" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="52" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="124" y="52" dominant-baseline="central">架構層：多代理人是否划算</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">看到的：多個模型討論、投票，準確率理所當然該更高</text>
-  <text class="dg-sub" x="604" y="80" text-anchor="end" dominant-baseline="central">看漏的：樣本數匹配基準線下平均 -0.042，74% 對照不優於單一模型</text>
+<svg viewBox="0 0 760 404">
+  <rect class="dg-box" x="20" y="24" width="720" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="48" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="68" y="48" dominant-baseline="central">架構層：多代理人是否划算</text>
+  <text class="dg-sub" x="68" y="74" dominant-baseline="central">看到的：多個模型討論、投票，準確率理所當然該更高</text>
+  <text class="dg-sub" x="68" y="96" dominant-baseline="central">看漏的：樣本數匹配基準線下平均 -0.042，74% 對照不優於單一模型</text>
 
-  <rect class="dg-box" x="72" y="112" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="140" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="124" y="140" dominant-baseline="central">委派層：安全取決於誰在讀證據</text>
-  <text class="dg-sub" x="604" y="140" text-anchor="end" dominant-baseline="central">看到的：Orchestrator 是強模型，系統應該跟著強</text>
-  <text class="dg-sub" x="604" y="168" text-anchor="end" dominant-baseline="central">看漏的：委派給弱子代理後，攻擊成功率從 0/180 跳到 75/180</text>
+  <rect class="dg-box" x="20" y="124" width="720" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="148" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="68" y="148" dominant-baseline="central">委派層：安全取決於誰在讀證據</text>
+  <text class="dg-sub" x="68" y="174" dominant-baseline="central">看到的：Orchestrator 是強模型，系統應該跟著強</text>
+  <text class="dg-sub" x="68" y="196" dominant-baseline="central">看漏的：委派給弱子代理後，攻擊成功率從 0/180 跳到 75/180</text>
 
-  <rect class="dg-box" x="72" y="200" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="228" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="124" y="228" dominant-baseline="central">自主性層：持續執行會不會養出違規</text>
-  <text class="dg-sub" x="604" y="228" text-anchor="end" dominant-baseline="central">看到的：叫 Agent「做到完成」只是負責任的提示詞</text>
-  <text class="dg-sub" x="604" y="256" text-anchor="end" dominant-baseline="central">看漏的：同一條規則藏在文件裡，違規率從 8.5% 衝到 43.6%</text>
+  <rect class="dg-box" x="20" y="224" width="720" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="248" dominant-baseline="central">L3</text>
+  <text class="dg-label" x="68" y="248" dominant-baseline="central">自主性層：持續執行會不會養出違規</text>
+  <text class="dg-sub" x="68" y="274" dominant-baseline="central">看到的：叫 Agent「做到完成」只是負責任的提示詞</text>
+  <text class="dg-sub" x="68" y="296" dominant-baseline="central">看漏的：同一條規則藏在文件裡，違規率從 8.5% 衝到 43.6%</text>
 
-  <line class="dg-rule" x1="72" y1="300" x2="624" y2="300"/>
-  <text class="dg-sub" x="72" y="324" dominant-baseline="central">剩餘風險：三篇分別驗證在各自的場景與模型面板，尚無研究把「架構選擇→委派安全→自主性風險」串成同一套上線前檢查清單</text>
+  <line class="dg-rule" x1="20" y1="336" x2="740" y2="336"/>
+  <text class="dg-sub" x="20" y="360" dominant-baseline="central">剩餘風險：三篇分別驗證在各自的場景與模型面板，</text>
+  <text class="dg-sub" x="20" y="382" dominant-baseline="central">尚無研究把「架構選擇→委派安全→自主性風險」串成同一套上線前檢查清單</text>
 </svg>
 ```
 

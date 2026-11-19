@@ -41,44 +41,44 @@ step: 用池中金鑰呼叫 AI 模型，規劃下一輪掃描與搜尋任務
 step: 到 GitHub、npm、paste 網站、Telegram 頻道搜尋更多洩漏的金鑰
 step: 回到掃描更多暴露的 AI app，金鑰池比上一圈更大
 ---
-<svg viewBox="0 0 440 392">
-  <path class="dg-line" d="M280 56.3A152 152 0 0 1 368.8 165.1" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line" d="M369.4 224A152 152 0 0 1 282.7 334.4" marker-end="url(#arrow)" data-step="3"/>
-  <path class="dg-line" d="M160 335.7A152 152 0 0 1 71.2 226.9" marker-end="url(#arrow)" data-step="4"/>
-  <path class="dg-line" d="M70.6 168A152 152 0 0 1 157.3 57.6" marker-end="url(#arrow)" data-step="5"/>
-  <path class="dg-line dg-line--dashed" d="M312 196H276" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line dg-line--dashed" d="M220 224V316" marker-end="url(#arrow)" data-step="3"/>
+<svg viewBox="0 0 640 420">
+  <path class="dg-line" d="M412 59.1A200 170 0 0 1 516.6 179" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M517.3 238A200 170 0 0 1 415 359.6" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line" d="M228 360.9A200 170 0 0 1 123.4 241" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line" d="M122.7 182A200 170 0 0 1 225 60.4" marker-end="url(#arrow)" data-step="5"/>
+  <path class="dg-line dg-line--dashed" d="M428 210H390" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line dg-line--dashed" d="M320 238V348" marker-end="url(#arrow)" data-step="3"/>
 
   <g data-step="1 5">
-    <rect class="dg-box" x="160" y="16" width="120" height="56" rx="6"/>
-    <text class="dg-label" x="220" y="35" text-anchor="middle" dominant-baseline="central">掃描暴露 AI App</text>
-    <text class="dg-sub" x="220" y="55" text-anchor="middle" dominant-baseline="central">LiteLLM・Dify・RAGFlow</text>
+    <rect class="dg-box" x="228" y="12" width="184" height="56" rx="6"/>
+    <text class="dg-label" x="320" y="31" text-anchor="middle" dominant-baseline="central">掃描暴露 AI App</text>
+    <text class="dg-sub" x="320" y="51" text-anchor="middle" dominant-baseline="central">LiteLLM・Dify・RAGFlow</text>
   </g>
 
   <g data-step="2">
-    <rect class="dg-box" x="312" y="168" width="120" height="56" rx="6"/>
-    <text class="dg-label" x="372" y="187" text-anchor="middle" dominant-baseline="central">竊取並驗證金鑰</text>
-    <text class="dg-sub" x="372" y="207" text-anchor="middle" dominant-baseline="central">預設密碼・CVE・驗證繞過</text>
+    <rect class="dg-box" x="428" y="182" width="184" height="56" rx="6"/>
+    <text class="dg-label" x="520" y="201" text-anchor="middle" dominant-baseline="central">竊取並驗證金鑰</text>
+    <text class="dg-sub" x="520" y="221" text-anchor="middle" dominant-baseline="central">預設密碼・CVE・驗證繞過</text>
   </g>
 
   <g data-step="3">
-    <rect class="dg-box dg-box--accent" x="160" y="320" width="120" height="56" rx="6"/>
-    <text class="dg-label" x="220" y="339" text-anchor="middle" dominant-baseline="central">呼叫 AI 模型規劃</text>
-    <text class="dg-sub" x="220" y="359" text-anchor="middle" dominant-baseline="central">用金鑰池裡的鑰</text>
+    <rect class="dg-box dg-box--accent" x="228" y="352" width="184" height="56" rx="6"/>
+    <text class="dg-label" x="320" y="371" text-anchor="middle" dominant-baseline="central">呼叫 AI 模型規劃</text>
+    <text class="dg-sub" x="320" y="391" text-anchor="middle" dominant-baseline="central">用金鑰池裡的鑰</text>
   </g>
 
   <g data-step="4">
-    <rect class="dg-box" x="8" y="168" width="120" height="56" rx="6"/>
-    <text class="dg-label" x="68" y="187" text-anchor="middle" dominant-baseline="central">搜尋更多洩漏金鑰</text>
-    <text class="dg-sub" x="68" y="207" text-anchor="middle" dominant-baseline="central">GitHub・npm・Telegram</text>
+    <rect class="dg-box" x="28" y="182" width="184" height="56" rx="6"/>
+    <text class="dg-label" x="120" y="201" text-anchor="middle" dominant-baseline="central">搜尋更多洩漏金鑰</text>
+    <text class="dg-sub" x="120" y="221" text-anchor="middle" dominant-baseline="central">GitHub・npm・Telegram</text>
   </g>
 
-  <rect class="dg-box dg-box--store" x="168" y="168" width="104" height="56" rx="6"/>
-  <text class="dg-label" x="220" y="187" text-anchor="middle" dominant-baseline="central">共用金鑰池</text>
-  <text class="dg-sub" x="220" y="207" text-anchor="middle" dominant-baseline="central">每圈金鑰數量增加</text>
+  <rect class="dg-box dg-box--store" x="254" y="182" width="132" height="56" rx="6"/>
+  <text class="dg-label" x="320" y="201" text-anchor="middle" dominant-baseline="central">共用金鑰池</text>
+  <text class="dg-sub" x="320" y="221" text-anchor="middle" dominant-baseline="central">每圈金鑰數量增加</text>
 
-  <text class="dg-edge" x="292" y="182" text-anchor="middle" dominant-baseline="central" data-step="2">寫入</text>
-  <text class="dg-edge" x="230" y="270" text-anchor="start" dominant-baseline="central" data-step="3">呼叫</text>
+  <text class="dg-edge" x="408" y="194" text-anchor="middle" dominant-baseline="central" data-step="2">寫入</text>
+  <text class="dg-edge" x="330" y="295" text-anchor="start" dominant-baseline="central" data-step="3">呼叫</text>
 </svg>
 ```
 

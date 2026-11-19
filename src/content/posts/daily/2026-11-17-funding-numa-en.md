@@ -53,20 +53,20 @@ title: Numa's funding and customer growth trajectory
 desc: From the October 2024 Series B to the November 2026 Series C, total funding and dealership customer count scaled in lockstep.
 caption: Figures from TechCrunch (2024-10-01) and Numa's PRNewswire announcement (2026-11-16).
 ---
-<svg viewBox="0 0 640 260">
-  <text class="dg-small" x="160" y="24" dominant-baseline="central">Total funding ($M) / dealership customers</text>
-  <line class="dg-grid" x1="160" y1="40" x2="160" y2="216"/>
+<svg viewBox="0 0 640 220">
+  <text class="dg-small" x="40" y="24" dominant-baseline="central">Total funding ($M) / dealership customers</text>
+  <line class="dg-grid" x1="40" y1="40" x2="40" y2="200"/>
 
   <g>
-    <rect class="dg-bar dg-c-muted" x="160" y="60" width="192" height="40"/>
-    <text class="dg-sub" x="360" y="80" dominant-baseline="central">$48M total / 600 dealerships (2024-10)</text>
+    <rect class="dg-bar dg-c-muted" x="40" y="76" width="192" height="40"/>
+    <text class="dg-sub" x="48" y="58" dominant-baseline="central">$48M total / 600 dealerships (2024-10)</text>
   </g>
   <g>
-    <rect class="dg-bar dg-c-accent" x="160" y="140" width="384" height="40"/>
-    <text class="dg-label dg-text--accent" x="552" y="160" dominant-baseline="central">$96M total / 1,500+ dealerships (2026-11)</text>
+    <rect class="dg-bar dg-c-accent" x="40" y="152" width="384" height="40"/>
+    <text class="dg-label dg-text--accent" x="48" y="134" dominant-baseline="central">$96M total / 1,500+ dealerships (2026-11)</text>
   </g>
 
-  <line class="dg-axis" x1="160" y1="40" x2="160" y2="216"/>
+  <line class="dg-axis" x1="40" y1="40" x2="40" y2="200"/>
 </svg>
 ```
 

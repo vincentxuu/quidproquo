@@ -46,14 +46,14 @@ series:
 {
   "title": "缺值率悄悄升高事件的診斷流程",
   "lang": "zh-TW",
-  "width": 520,
-  "height": 760,
+  "width": 560,
+  "height": 704,
   "nodes": [
-    {"id": "signal", "label": "觀察到的訊號\n缺值率 1%→20%，但服務狀態與延遲正常", "x": 260, "y": 50, "w": 240},
-    {"id": "breakdown", "label": "按 collector 版本／上線分組拆解缺值率\n保留請求數而不是只看比例", "x": 260, "y": 200, "w": 240},
-    {"id": "replay", "label": "固定模型與 payload\n只換前處理版本重放同一批資料", "x": 260, "y": 350, "w": 240, "tone": "accent"},
-    {"id": "confirm", "label": "確認落差來源\n複現特徵契約不一致", "x": 260, "y": 500, "w": 240},
-    {"id": "respond", "label": "回復特徵契約，驗證新流量缺值率恢復\n等成熟 cohort 到位才評估 recall 與工作量", "x": 260, "y": 650, "w": 240}
+    {"id": "signal", "label": "觀察到的訊號\n缺值率 1%→20%，但服務狀態與延遲正常", "x": 280, "y": 50, "w": 420},
+    {"id": "breakdown", "label": "按 collector 版本／上線分組拆解缺值率\n保留請求數而不是只看比例", "x": 280, "y": 200, "w": 420},
+    {"id": "replay", "label": "固定模型與 payload\n只換前處理版本重放同一批資料", "x": 280, "y": 350, "w": 420, "tone": "accent"},
+    {"id": "confirm", "label": "確認落差來源\n複現特徵契約不一致", "x": 280, "y": 500, "w": 420},
+    {"id": "respond", "label": "回復特徵契約，驗證新流量缺值率恢復\n等成熟 cohort 到位才評估 recall 與工作量", "x": 280, "y": 650, "w": 420}
   ],
   "edges": [
     {"from": "signal", "to": "breakdown", "step": 1, "label": "先拆解不要直接下結論"},

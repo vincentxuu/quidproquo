@@ -38,37 +38,37 @@ title: Where a high-risk or low-confidence AI action should go
 desc: An action is first checked for reversibility and risk; if it's low risk and reversible it runs automatically. If it's high risk or irreversible, the system then checks model confidence — confident cases get proposed and wait for human confirmation, low-confidence cases escalate straight to a human.
 caption: Illustrative: simplified to two decision layers; real thresholds vary by industry and how irreversible the action is.
 ---
-<svg viewBox="0 0 640 400">
-  <circle class="dg-dot" cx="280" cy="22" r="6"/>
-  <path class="dg-line" d="M280 28V56" marker-end="url(#arrow)"/>
+<svg viewBox="0 0 716 440">
+  <circle class="dg-dot" cx="240" cy="22" r="6"/>
+  <path class="dg-line" d="M240 28V56" marker-end="url(#arrow)"/>
 
-  <path class="dg-box" d="M280 56L376 100L280 144L184 100Z"/>
-  <text class="dg-label" x="280" y="92" text-anchor="middle" dominant-baseline="central">Reversible, low risk?</text>
-  <text class="dg-sub" x="280" y="112" text-anchor="middle" dominant-baseline="central">e.g. a draft vs. a delete, a transfer</text>
+  <path class="dg-box" d="M240 56L440 112L240 168L40 112Z"/>
+  <text class="dg-label" x="240" y="100" text-anchor="middle" dominant-baseline="central">Reversible, low risk?</text>
+  <text class="dg-sub" x="240" y="124" text-anchor="middle" dominant-baseline="central">e.g. a draft vs. a delete, a transfer</text>
 
-  <path class="dg-line" d="M376 100H432" marker-end="url(#arrow)"/>
-  <text class="dg-edge" x="404" y="88" text-anchor="middle" dominant-baseline="central">yes</text>
-  <rect class="dg-box" x="432" y="76" width="144" height="48" rx="6"/>
-  <text class="dg-label" x="504" y="100" text-anchor="middle" dominant-baseline="central">Run automatically</text>
+  <path class="dg-line" d="M440 112H520" marker-end="url(#arrow)"/>
+  <text class="dg-edge" x="480" y="98" text-anchor="middle" dominant-baseline="central">yes</text>
+  <rect class="dg-box" x="520" y="88" width="176" height="48" rx="6"/>
+  <text class="dg-label" x="608" y="112" text-anchor="middle" dominant-baseline="central">Run automatically</text>
 
-  <path class="dg-line" d="M280 144V188" marker-end="url(#arrow)"/>
-  <text class="dg-edge" x="296" y="166" text-anchor="start" dominant-baseline="central">no</text>
+  <path class="dg-line" d="M240 168V212" marker-end="url(#arrow)"/>
+  <text class="dg-edge" x="256" y="190" text-anchor="start" dominant-baseline="central">no</text>
 
-  <path class="dg-box" d="M280 188L376 232L280 276L184 232Z"/>
-  <text class="dg-label" x="280" y="224" text-anchor="middle" dominant-baseline="central">Is the model confident?</text>
-  <text class="dg-sub" x="280" y="244" text-anchor="middle" dominant-baseline="central">confidence score, retrieval hit or miss</text>
+  <path class="dg-box" d="M240 212L440 268L240 324L40 268Z"/>
+  <text class="dg-label" x="240" y="256" text-anchor="middle" dominant-baseline="central">Is the model confident?</text>
+  <text class="dg-sub" x="240" y="280" text-anchor="middle" dominant-baseline="central">confidence score, retrieval hit or miss</text>
 
-  <path class="dg-line" d="M376 232H432" marker-end="url(#arrow)"/>
-  <text class="dg-edge" x="404" y="220" text-anchor="middle" dominant-baseline="central">confident</text>
-  <rect class="dg-box" x="432" y="208" width="144" height="48" rx="6"/>
-  <text class="dg-label" x="504" y="223" text-anchor="middle" dominant-baseline="central">Propose first</text>
-  <text class="dg-sub" x="504" y="243" text-anchor="middle" dominant-baseline="central">run after human confirms</text>
+  <path class="dg-line" d="M440 268H520" marker-end="url(#arrow)"/>
+  <text class="dg-edge" x="480" y="254" text-anchor="middle" dominant-baseline="central">confident</text>
+  <rect class="dg-box" x="520" y="240" width="176" height="56" rx="6"/>
+  <text class="dg-label" x="608" y="256" text-anchor="middle" dominant-baseline="central">Propose first</text>
+  <text class="dg-sub" x="608" y="280" text-anchor="middle" dominant-baseline="central">run after human confirms</text>
 
-  <path class="dg-line dg-line--accent" d="M280 276V320" marker-end="url(#arrow-accent)"/>
-  <text class="dg-edge dg-text--accent" x="296" y="298" text-anchor="start" dominant-baseline="central">not confident</text>
-  <rect class="dg-box dg-box--accent" x="184" y="320" width="192" height="56" rx="6"/>
-  <text class="dg-label" x="280" y="339" text-anchor="middle" dominant-baseline="central">Escalate to human</text>
-  <text class="dg-sub" x="280" y="359" text-anchor="middle" dominant-baseline="central">human decides what to do</text>
+  <path class="dg-line dg-line--accent" d="M240 324V368" marker-end="url(#arrow-accent)"/>
+  <text class="dg-edge dg-text--accent" x="256" y="346" text-anchor="start" dominant-baseline="central">not confident</text>
+  <rect class="dg-box dg-box--accent" x="144" y="368" width="192" height="56" rx="6"/>
+  <text class="dg-label" x="240" y="384" text-anchor="middle" dominant-baseline="central">Escalate to human</text>
+  <text class="dg-sub" x="240" y="408" text-anchor="middle" dominant-baseline="central">human decides what to do</text>
 </svg>
 ```
 
