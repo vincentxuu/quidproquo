@@ -65,7 +65,7 @@ desc: Reliability and activation each get 4 person-quarters, new-segment discove
 caption: Illustrative numbers, adapted from PracHub's fictional practice case. Conversion: baseline y=300, 60 units per person-quarter (y=300−person-quarters×60), vertical axis starts at 0.
 ---
 <svg viewBox="0 0 640 340">
-  <text class="dg-small" x="64" y="32" dominant-baseline="central">Person-quarters</text>
+  <text class="dg-small" x="64" y="20" dominant-baseline="central">Person-quarters</text>
   <line class="dg-grid" x1="72" y1="180" x2="612" y2="180"/>
   <text class="dg-small" x="64" y="180" text-anchor="end" dominant-baseline="central">2</text>
   <text class="dg-small" x="64" y="300" text-anchor="end" dominant-baseline="central">0</text>

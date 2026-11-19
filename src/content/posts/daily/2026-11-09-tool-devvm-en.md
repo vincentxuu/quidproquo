@@ -62,8 +62,8 @@ desc: a request from the coding agent inside the VM goes through a host-side pro
   <text class="dg-label" x="620" y="268" text-anchor="middle" dominant-baseline="central">Un-allowed host</text>
 
   <text class="dg-edge" x="250" y="136" text-anchor="middle" dominant-baseline="central">placeholder</text>
-  <text class="dg-edge dg-text--link" x="505" y="104" text-anchor="middle" dominant-baseline="central">real token</text>
-  <text class="dg-edge dg-text--warn" x="505" y="208" text-anchor="middle" dominant-baseline="central">403 denied</text>
+  <text class="dg-edge dg-text--link" x="536" y="126" text-anchor="start" dominant-baseline="central">real token</text>
+  <text class="dg-edge dg-text--warn" x="536" y="208" text-anchor="start" dominant-baseline="central">403 denied</text>
 
   <line class="dg-rule" x1="20" y1="320" x2="680" y2="320"/>
   <text class="dg-tag" x="20" y="344" dominant-baseline="central">Legend</text>

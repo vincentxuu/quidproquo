@@ -34,22 +34,22 @@ caption: Simplified view — omits the model's re-proposal path and the detail o
   <path class="dg-line" d="M320 576H148Q140 576 140 584V612" marker-end="url(#arrow)"/>
   <path class="dg-line dg-line--dashed" d="M320 576H492Q500 576 500 584V612" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box" x="180" y="20" width="280" height="56" rx="6"/>
+  <rect class="dg-box" x="130" y="20" width="380" height="56" rx="6"/>
   <text class="dg-label" x="320" y="48" text-anchor="middle" dominant-baseline="central">Model proposes a tool call</text>
 
-  <rect class="dg-box dg-box--accent" x="180" y="132" width="280" height="64" rx="6"/>
+  <rect class="dg-box dg-box--accent" x="130" y="132" width="380" height="64" rx="6"/>
   <text class="dg-label" x="320" y="156" text-anchor="middle" dominant-baseline="central">Schema validation</text>
   <text class="dg-sub" x="320" y="176" text-anchor="middle" dominant-baseline="central">JSON schema, retry capped at 3</text>
 
-  <rect class="dg-box" x="180" y="252" width="280" height="64" rx="6"/>
+  <rect class="dg-box" x="130" y="252" width="380" height="64" rx="6"/>
   <text class="dg-label" x="320" y="276" text-anchor="middle" dominant-baseline="central">Side-effect tiering</text>
   <text class="dg-sub" x="320" y="296" text-anchor="middle" dominant-baseline="central">reads retry freely; writes need idempotency keys</text>
 
-  <rect class="dg-box" x="180" y="372" width="280" height="64" rx="6"/>
+  <rect class="dg-box" x="130" y="372" width="380" height="64" rx="6"/>
   <text class="dg-label" x="320" y="396" text-anchor="middle" dominant-baseline="central">Irreversible-action gate</text>
   <text class="dg-sub" x="320" y="416" text-anchor="middle" dominant-baseline="central">refunds／deletes／emails need human confirmation</text>
 
-  <rect class="dg-box dg-box--accent" x="180" y="492" width="280" height="64" rx="6"/>
+  <rect class="dg-box dg-box--accent" x="130" y="492" width="380" height="64" rx="6"/>
   <text class="dg-label" x="320" y="516" text-anchor="middle" dominant-baseline="central">State and cap check</text>
   <text class="dg-sub" x="320" y="536" text-anchor="middle" dominant-baseline="central">persisted log + iteration／time／token budget</text>
 

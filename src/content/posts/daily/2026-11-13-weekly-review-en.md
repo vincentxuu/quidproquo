@@ -53,11 +53,11 @@ caption: Dates reflect each story's publication or response date; see References
   <g>
     <line class="dg-rule" x1="60" y1="76" x2="60" y2="118"/>
     <circle class="dg-dot" cx="60" cy="124" r="4"/>
-    <text class="dg-label" x="60" y="40" text-anchor="middle" dominant-baseline="central">Apiiro disclosure</text>
-    <text class="dg-sub" x="60" y="62" text-anchor="middle" dominant-baseline="central">2,539 secrets, 63 orgs</text>
+    <text class="dg-label" x="48" y="40" dominant-baseline="central">Apiiro disclosure</text>
+    <text class="dg-sub" x="48" y="62" dominant-baseline="central">2,539 secrets, 63 orgs</text>
   </g>
   <g>
-    <line class="dg-rule" x1="420" y1="130" x2="420" y2="172"/>
+    <line class="dg-rule" x1="420" y1="156" x2="420" y2="172"/>
     <circle class="dg-dot" cx="420" cy="124" r="4"/>
     <text class="dg-label" x="420" y="186" text-anchor="middle" dominant-baseline="central">Telecom breach surfaces</text>
     <text class="dg-sub" x="420" y="208" text-anchor="middle" dominant-baseline="central">Jailbroken agent, 2-week intrusion</text>
@@ -69,10 +69,10 @@ caption: Dates reflect each story's publication or response date; see References
     <text class="dg-sub" x="510" y="62" text-anchor="middle" dominant-baseline="central">Pulled live AWS secrets</text>
   </g>
   <g>
-    <line class="dg-rule" x1="690" y1="130" x2="690" y2="172"/>
+    <line class="dg-rule" x1="690" y1="156" x2="690" y2="172"/>
     <circle class="dg-dot dg-dot--accent" cx="690" cy="124" r="6"/>
-    <text class="dg-label" x="690" y="186" text-anchor="middle" dominant-baseline="central">AWS responds</text>
-    <text class="dg-sub" x="690" y="208" text-anchor="middle" dominant-baseline="central">Service intact, fault was config</text>
+    <text class="dg-label" x="740" y="186" text-anchor="end" dominant-baseline="central">AWS responds</text>
+    <text class="dg-sub" x="740" y="208" text-anchor="end" dominant-baseline="central">Service intact, fault was config</text>
   </g>
 </svg>
 ```

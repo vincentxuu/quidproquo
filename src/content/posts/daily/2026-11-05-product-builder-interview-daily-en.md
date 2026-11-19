@@ -53,52 +53,52 @@ step: If the blast radius is small, run it with periodic spot-checks
 step: If it reaches customers or money, wait for a human
 ---
 <svg viewBox="0 0 640 480">
-  <path class="dg-line" d="M280 34V60" marker-end="url(#arrow)" data-step="1"/>
-  <path class="dg-line" d="M280 108V144" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line dg-line--accent" d="M376 188H432" marker-end="url(#arrow-accent)" data-step="3"/>
-  <path class="dg-line" d="M280 232V268" marker-end="url(#arrow)" data-step="4"/>
-  <path class="dg-line" d="M376 312H432" marker-end="url(#arrow)" data-step="5"/>
-  <path class="dg-line dg-line--warn" d="M280 356V392" marker-end="url(#arrow-warn)" data-step="6"/>
+  <path class="dg-line" d="M230 34V60" marker-end="url(#arrow)" data-step="1"/>
+  <path class="dg-line" d="M230 108V144" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line dg-line--accent" d="M410 188H444" marker-end="url(#arrow-accent)" data-step="3"/>
+  <path class="dg-line" d="M230 232V268" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line" d="M410 312H444" marker-end="url(#arrow)" data-step="5"/>
+  <path class="dg-line dg-line--warn" d="M230 356V392" marker-end="url(#arrow-warn)" data-step="6"/>
 
-  <circle class="dg-dot" cx="280" cy="28" r="6" data-step="1"/>
+  <circle class="dg-dot" cx="230" cy="28" r="6" data-step="1"/>
 
   <g data-step="1">
-    <rect class="dg-box" x="160" y="60" width="240" height="48" rx="6"/>
-    <text class="dg-label" x="280" y="84" text-anchor="middle" dominant-baseline="central">Agent wants to act</text>
+    <rect class="dg-box" x="110" y="60" width="240" height="48" rx="6"/>
+    <text class="dg-label" x="230" y="84" text-anchor="middle" dominant-baseline="central">Agent wants to act</text>
   </g>
 
   <g data-step="2">
-    <path class="dg-box" d="M280 144L376 188L280 232L184 188Z"/>
-    <text class="dg-label" x="280" y="178" text-anchor="middle" dominant-baseline="central">Undo in a minute?</text>
-    <text class="dg-sub" x="280" y="200" text-anchor="middle" dominant-baseline="central">Reversibility</text>
+    <path class="dg-box" d="M230 144L410 188L230 232L50 188Z"/>
+    <text class="dg-label" x="230" y="178" text-anchor="middle" dominant-baseline="central">Undo in a minute?</text>
+    <text class="dg-sub" x="230" y="200" text-anchor="middle" dominant-baseline="central">Reversibility</text>
   </g>
 
   <g data-step="3">
-    <rect class="dg-box dg-box--accent" x="432" y="164" width="184" height="48" rx="6"/>
-    <text class="dg-label" x="524" y="188" text-anchor="middle" dominant-baseline="central">Run it, just log it</text>
+    <rect class="dg-box dg-box--accent" x="444" y="164" width="184" height="48" rx="6"/>
+    <text class="dg-label" x="536" y="188" text-anchor="middle" dominant-baseline="central">Run it, just log it</text>
   </g>
 
   <g data-step="4">
-    <path class="dg-box" d="M280 268L376 312L280 356L184 312Z"/>
-    <text class="dg-label" x="280" y="302" text-anchor="middle" dominant-baseline="central">Hits customers or money?</text>
-    <text class="dg-sub" x="280" y="324" text-anchor="middle" dominant-baseline="central">Blast radius</text>
+    <path class="dg-box" d="M230 268L410 312L230 356L50 312Z"/>
+    <text class="dg-label" x="230" y="302" text-anchor="middle" dominant-baseline="central">Hits customers or money?</text>
+    <text class="dg-sub" x="230" y="324" text-anchor="middle" dominant-baseline="central">Blast radius</text>
   </g>
 
   <g data-step="5">
-    <rect class="dg-box" x="432" y="288" width="184" height="48" rx="6"/>
-    <text class="dg-label" x="524" y="312" text-anchor="middle" dominant-baseline="central">Run it, spot-check later</text>
+    <rect class="dg-box" x="444" y="288" width="184" height="48" rx="6"/>
+    <text class="dg-label" x="536" y="312" text-anchor="middle" dominant-baseline="central">Run it, spot-check later</text>
   </g>
 
   <g data-step="6">
-    <rect class="dg-box dg-box--warn" x="152" y="392" width="256" height="64" rx="6"/>
-    <text class="dg-label" x="280" y="412" text-anchor="middle" dominant-baseline="central">Wait for approval</text>
-    <text class="dg-sub" x="280" y="434" text-anchor="middle" dominant-baseline="central">With reason + before/after</text>
+    <rect class="dg-box dg-box--warn" x="102" y="392" width="256" height="64" rx="6"/>
+    <text class="dg-label" x="230" y="412" text-anchor="middle" dominant-baseline="central">Wait for approval</text>
+    <text class="dg-sub" x="230" y="434" text-anchor="middle" dominant-baseline="central">With reason + before/after</text>
   </g>
 
-  <text class="dg-edge" x="404" y="176" text-anchor="middle" dominant-baseline="central" data-step="3">Yes</text>
-  <text class="dg-edge" x="290" y="250" text-anchor="start" dominant-baseline="central" data-step="4">No</text>
-  <text class="dg-edge" x="404" y="300" text-anchor="middle" dominant-baseline="central" data-step="5">No</text>
-  <text class="dg-edge dg-text--warn" x="290" y="374" text-anchor="start" dominant-baseline="central" data-step="6">Yes</text>
+  <text class="dg-edge" x="427" y="176" text-anchor="middle" dominant-baseline="central" data-step="3">Yes</text>
+  <text class="dg-edge" x="240" y="250" text-anchor="start" dominant-baseline="central" data-step="4">No</text>
+  <text class="dg-edge" x="427" y="300" text-anchor="middle" dominant-baseline="central" data-step="5">No</text>
+  <text class="dg-edge dg-text--warn" x="240" y="374" text-anchor="start" dominant-baseline="central" data-step="6">Yes</text>
 </svg>
 ```
 

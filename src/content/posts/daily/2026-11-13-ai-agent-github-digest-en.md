@@ -22,26 +22,26 @@ title: Four signals today: wider execution, tighter approval
 desc: Three trending repos push what an agent can touch outward, while Agno v3.2 tightens who can approve its actions
 caption: Illustrative grouping for this digest, not an industry-standard taxonomy
 ---
-<svg viewBox="0 0 480 300">
-  <rect class="dg-box dg-box--accent" x="16" y="16" width="448" height="56" rx="6"/>
+<svg viewBox="0 0 568 280">
+  <rect class="dg-box dg-box--accent" x="16" y="16" width="536" height="56" rx="6"/>
   <text class="dg-tag" x="32" y="36" dominant-baseline="central">Phone</text>
-  <text class="dg-label" x="104" y="36" dominant-baseline="central">Real iPhone / Android</text>
-  <text class="dg-sub" x="104" y="58" dominant-baseline="central">Pinky · approval gateway kept apart from the agent</text>
+  <text class="dg-label" x="180" y="36" dominant-baseline="central">Real iPhone / Android</text>
+  <text class="dg-sub" x="180" y="58" dominant-baseline="central">Pinky · approval gateway kept apart from the agent</text>
 
-  <rect class="dg-box" x="16" y="80" width="448" height="56" rx="6"/>
+  <rect class="dg-box" x="16" y="80" width="536" height="56" rx="6"/>
   <text class="dg-tag" x="32" y="100" dominant-baseline="central">Game engine</text>
-  <text class="dg-label" x="104" y="100" dominant-baseline="central">Roblox Studio + Luau</text>
-  <text class="dg-sub" x="104" y="122" dominant-baseline="central">Studsmith · plan → write code → diff → playtest</text>
+  <text class="dg-label" x="180" y="100" dominant-baseline="central">Roblox Studio + Luau</text>
+  <text class="dg-sub" x="180" y="122" dominant-baseline="central">Studsmith · plan → write code → diff → playtest</text>
 
-  <rect class="dg-box" x="16" y="144" width="448" height="56" rx="6"/>
+  <rect class="dg-box" x="16" y="144" width="536" height="56" rx="6"/>
   <text class="dg-tag" x="32" y="164" dominant-baseline="central">Archiving</text>
-  <text class="dg-label" x="104" y="164" dominant-baseline="central">Download + structured notes</text>
-  <text class="dg-sub" x="104" y="186" dominant-baseline="central">Download Anything · subtitles/citations/metadata alongside</text>
+  <text class="dg-label" x="180" y="164" dominant-baseline="central">Download + structured notes</text>
+  <text class="dg-sub" x="180" y="186" dominant-baseline="central">Download Anything · subtitles/citations/metadata alongside</text>
 
-  <rect class="dg-box dg-box--warn" x="16" y="208" width="448" height="56" rx="6"/>
+  <rect class="dg-box dg-box--warn" x="16" y="208" width="536" height="56" rx="6"/>
   <text class="dg-tag" x="32" y="228" dominant-baseline="central">Tighter approval</text>
-  <text class="dg-label" x="104" y="228" dominant-baseline="central">A2A 1.0 + Slack Bolt</text>
-  <text class="dg-sub" x="104" y="250" dominant-baseline="central">Agno v3.2 · breaking change</text>
+  <text class="dg-label" x="180" y="228" dominant-baseline="central">A2A 1.0 + Slack Bolt</text>
+  <text class="dg-sub" x="180" y="250" dominant-baseline="central">Agno v3.2 · breaking change</text>
 </svg>
 ```
 

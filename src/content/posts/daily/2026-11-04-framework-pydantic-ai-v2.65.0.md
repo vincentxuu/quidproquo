@@ -83,11 +83,11 @@ step: Store 寫入成功，revision 進到 r3
   <rect class="dg-box" x="316" y="204" width="8" height="72" rx="2" data-step="3 4"/>
   <rect class="dg-box" x="316" y="300" width="8" height="72" rx="2" data-step="5 6"/>
 
-  <rect class="dg-box" x="32" y="24" width="128" height="48" rx="6"/>
+  <rect class="dg-box" x="16" y="24" width="160" height="48" rx="6"/>
   <text class="dg-label" x="96" y="48" text-anchor="middle" dominant-baseline="central">Worker A</text>
-  <rect class="dg-box dg-box--accent" x="256" y="24" width="128" height="48" rx="6"/>
+  <rect class="dg-box dg-box--accent" x="240" y="24" width="160" height="48" rx="6"/>
   <text class="dg-label" x="320" y="48" text-anchor="middle" dominant-baseline="central">ConversationStore</text>
-  <rect class="dg-box" x="480" y="24" width="128" height="48" rx="6"/>
+  <rect class="dg-box" x="464" y="24" width="160" height="48" rx="6"/>
   <text class="dg-label" x="544" y="48" text-anchor="middle" dominant-baseline="central">Worker B</text>
 </svg>
 ```

@@ -49,36 +49,36 @@ caption: 簡化示意：是非／選擇／評分三種題型與單題計算細�
   <text class="dg-heading" x="340" y="28" dominant-baseline="central">改動後：Gemini Decision 1</text>
   <line class="dg-rule" x1="316" y1="16" x2="316" y2="332"/>
 
-  <path class="dg-line" d="M116 100V128" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M116 244V272" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M436 100V128" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M436 244V272" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M180 100V128" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M180 244V272" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M496 100V128" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M496 244V272" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box" x="52" y="56" width="128" height="44" rx="6"/>
-  <text class="dg-label" x="116" y="78" text-anchor="middle" dominant-baseline="central">共用輸入</text>
+  <rect class="dg-box" x="64" y="56" width="232" height="44" rx="6"/>
+  <text class="dg-label" x="180" y="78" text-anchor="middle" dominant-baseline="central">共用輸入</text>
 
-  <rect class="dg-box dg-box--ghost" x="52" y="128" width="128" height="116" rx="6"/>
-  <text class="dg-label" x="116" y="152" text-anchor="middle" dominant-baseline="central">生成式模型</text>
-  <text class="dg-sub" x="116" y="172" text-anchor="middle" dominant-baseline="central">逐字解碼產生文字</text>
-  <text class="dg-sub" x="116" y="190" text-anchor="middle" dominant-baseline="central">每題各發一次請求</text>
-  <text class="dg-sub" x="116" y="208" text-anchor="middle" dominant-baseline="central">共用輸入重複計費</text>
+  <rect class="dg-box dg-box--ghost" x="64" y="128" width="232" height="116" rx="6"/>
+  <text class="dg-label" x="180" y="152" text-anchor="middle" dominant-baseline="central">生成式模型</text>
+  <text class="dg-sub" x="180" y="172" text-anchor="middle" dominant-baseline="central">逐字解碼產生文字</text>
+  <text class="dg-sub" x="180" y="190" text-anchor="middle" dominant-baseline="central">每題各發一次請求</text>
+  <text class="dg-sub" x="180" y="208" text-anchor="middle" dominant-baseline="central">共用輸入重複計費</text>
 
-  <rect class="dg-box" x="52" y="272" width="128" height="60" rx="6"/>
-  <text class="dg-label" x="116" y="294" text-anchor="middle" dominant-baseline="central">文字／JSON 輸出</text>
-  <text class="dg-sub" x="116" y="312" text-anchor="middle" dominant-baseline="central">自行解析，無信心分數</text>
+  <rect class="dg-box" x="64" y="272" width="232" height="64" rx="6"/>
+  <text class="dg-label" x="180" y="290" text-anchor="middle" dominant-baseline="central">文字／JSON 輸出</text>
+  <text class="dg-sub" x="180" y="314" text-anchor="middle" dominant-baseline="central">自行解析，無信心分數</text>
 
-  <rect class="dg-box" x="372" y="56" width="128" height="44" rx="6"/>
-  <text class="dg-label" x="436" y="78" text-anchor="middle" dominant-baseline="central">共用輸入＋最多 1000 題</text>
+  <rect class="dg-box" x="380" y="56" width="232" height="44" rx="6"/>
+  <text class="dg-label" x="496" y="78" text-anchor="middle" dominant-baseline="central">共用輸入＋最多 1000 題</text>
 
-  <rect class="dg-box dg-box--accent" x="372" y="128" width="128" height="116" rx="6"/>
-  <text class="dg-label" x="436" y="152" text-anchor="middle" dominant-baseline="central">Gemini Decision 1</text>
-  <text class="dg-sub" x="436" y="172" text-anchor="middle" dominant-baseline="central">單次 forward pass</text>
-  <text class="dg-sub" x="436" y="190" text-anchor="middle" dominant-baseline="central">多題一次評分</text>
-  <text class="dg-sub" x="436" y="208" text-anchor="middle" dominant-baseline="central">共用輸入只計費一次</text>
+  <rect class="dg-box dg-box--accent" x="380" y="128" width="232" height="116" rx="6"/>
+  <text class="dg-label" x="496" y="152" text-anchor="middle" dominant-baseline="central">Gemini Decision 1</text>
+  <text class="dg-sub" x="496" y="172" text-anchor="middle" dominant-baseline="central">單次 forward pass</text>
+  <text class="dg-sub" x="496" y="190" text-anchor="middle" dominant-baseline="central">多題一次評分</text>
+  <text class="dg-sub" x="496" y="208" text-anchor="middle" dominant-baseline="central">共用輸入只計費一次</text>
 
-  <rect class="dg-box" x="372" y="272" width="128" height="60" rx="6"/>
-  <text class="dg-label" x="436" y="294" text-anchor="middle" dominant-baseline="central">機率＋信心分數</text>
-  <text class="dg-sub" x="436" y="312" text-anchor="middle" dominant-baseline="central">零輸出 token 計費</text>
+  <rect class="dg-box" x="380" y="272" width="232" height="64" rx="6"/>
+  <text class="dg-label" x="496" y="290" text-anchor="middle" dominant-baseline="central">機率＋信心分數</text>
+  <text class="dg-sub" x="496" y="314" text-anchor="middle" dominant-baseline="central">零輸出 token 計費</text>
 
   <g class="dg-badge"><circle cx="36" cy="186" r="10"/><text x="36" y="186" text-anchor="middle" dominant-baseline="central">−</text></g>
   <g class="dg-badge"><circle cx="36" cy="302" r="10"/><text x="36" y="302" text-anchor="middle" dominant-baseline="central">−</text></g>

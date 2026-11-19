@@ -22,25 +22,25 @@ title: 今天四個 repo 補的四塊 Agent 基礎設施缺口
 desc: 標準化、成本、多代理協作、測試環境——四個互不相關的問題，剛好對應今天上榜的四個 repo
 caption: 示意：本文用來說明四個 repo 定位的簡化分類，不是業界標準分層
 ---
-<svg viewBox="0 0 480 300">
+<svg viewBox="0 0 480 296">
   <rect class="dg-box dg-box--accent" x="16" y="16" width="448" height="60" rx="6"/>
   <text class="dg-tag" x="32" y="36" dominant-baseline="central">標準化</text>
   <text class="dg-label" x="104" y="36" dominant-baseline="central">Agent Skills 格式</text>
   <text class="dg-sub" x="104" y="58" dominant-baseline="central">anthropics/skills・規格不綁 Claude</text>
 
-  <rect class="dg-box" x="16" y="88" width="448" height="56" rx="6"/>
-  <text class="dg-tag" x="32" y="116" dominant-baseline="central">成本</text>
-  <text class="dg-label" x="104" y="116" dominant-baseline="central">Context 壓縮</text>
-  <text class="dg-sub" x="104" y="134" dominant-baseline="central">billion-context・宣稱省 5 倍 token</text>
+  <rect class="dg-box" x="16" y="84" width="448" height="60" rx="6"/>
+  <text class="dg-tag" x="32" y="104" dominant-baseline="central">成本</text>
+  <text class="dg-label" x="104" y="104" dominant-baseline="central">Context 壓縮</text>
+  <text class="dg-sub" x="104" y="126" dominant-baseline="central">billion-context・宣稱省 5 倍 token</text>
 
-  <rect class="dg-box" x="16" y="152" width="448" height="56" rx="6"/>
-  <text class="dg-tag" x="32" y="180" dominant-baseline="central">多代理</text>
-  <text class="dg-label" x="104" y="180" dominant-baseline="central">多個 agent 分身</text>
-  <text class="dg-sub" x="104" y="198" dominant-baseline="central">OpenMausBot・聊天介面同時管理</text>
+  <rect class="dg-box" x="16" y="152" width="448" height="60" rx="6"/>
+  <text class="dg-tag" x="32" y="172" dominant-baseline="central">多代理</text>
+  <text class="dg-label" x="104" y="172" dominant-baseline="central">多個 agent 分身</text>
+  <text class="dg-sub" x="104" y="194" dominant-baseline="central">OpenMausBot・聊天介面同時管理</text>
 
-  <rect class="dg-box" x="16" y="216" width="448" height="56" rx="6"/>
-  <text class="dg-tag" x="32" y="244" dominant-baseline="central">測試環境</text>
-  <text class="dg-label" x="104" y="244" dominant-baseline="central">用完即丟的機器</text>
+  <rect class="dg-box" x="16" y="220" width="448" height="60" rx="6"/>
+  <text class="dg-tag" x="32" y="240" dominant-baseline="central">測試環境</text>
+  <text class="dg-label" x="104" y="240" dominant-baseline="central">用完即丟的機器</text>
   <text class="dg-sub" x="104" y="262" dominant-baseline="central">sandbox-mcp・乾淨 Windows Sandbox</text>
 </svg>
 ```

@@ -49,25 +49,25 @@ step: The request is checked against the identity map and least-privilege scope
 step: Access is allowed within scope, or blocked/flagged outside it
 step: After an incident, the system reconstructs what data that agent touched
 ---
-<svg viewBox="0 0 440 240">
-  <rect class="dg-box" x="8" y="92" width="112" height="56" rx="6" data-step="1"/>
-  <text class="dg-label" x="64" y="111" text-anchor="middle" dominant-baseline="central" data-step="1">AI agent</text>
-  <text class="dg-sub" x="64" y="131" text-anchor="middle" dominant-baseline="central" data-step="1">requests access</text>
+<svg viewBox="0 0 520 240">
+  <rect class="dg-box" x="8" y="92" width="144" height="56" rx="6" data-step="1"/>
+  <text class="dg-label" x="80" y="111" text-anchor="middle" dominant-baseline="central" data-step="1">AI agent</text>
+  <text class="dg-sub" x="80" y="131" text-anchor="middle" dominant-baseline="central" data-step="1">requests access</text>
 
-  <path class="dg-line" d="M120 120H164" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M152 120H188" marker-end="url(#arrow)" data-step="2"/>
 
-  <rect class="dg-box dg-box--accent" x="164" y="92" width="112" height="56" rx="6" data-step="2"/>
-  <text class="dg-label" x="220" y="111" text-anchor="middle" dominant-baseline="central" data-step="2">Permission map</text>
-  <text class="dg-sub" x="220" y="131" text-anchor="middle" dominant-baseline="central" data-step="2">checks least privilege</text>
+  <rect class="dg-box dg-box--accent" x="188" y="92" width="144" height="56" rx="6" data-step="2"/>
+  <text class="dg-label" x="260" y="111" text-anchor="middle" dominant-baseline="central" data-step="2">Permission map</text>
+  <text class="dg-sub" x="260" y="131" text-anchor="middle" dominant-baseline="central" data-step="2">checks least privilege</text>
 
-  <path class="dg-line" d="M276 120H320" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line" d="M332 120H368" marker-end="url(#arrow)" data-step="3"/>
 
-  <rect class="dg-box" x="320" y="92" width="112" height="56" rx="6" data-step="3"/>
-  <text class="dg-label" x="376" y="111" text-anchor="middle" dominant-baseline="central" data-step="3">Allow / block</text>
-  <text class="dg-sub" x="376" y="131" text-anchor="middle" dominant-baseline="central" data-step="3">flags out-of-scope</text>
+  <rect class="dg-box" x="368" y="92" width="144" height="56" rx="6" data-step="3"/>
+  <text class="dg-label" x="440" y="111" text-anchor="middle" dominant-baseline="central" data-step="3">Allow / block</text>
+  <text class="dg-sub" x="440" y="131" text-anchor="middle" dominant-baseline="central" data-step="3">flags out-of-scope</text>
 
-  <path class="dg-line dg-line--dashed" d="M376 148V196H64V148" marker-end="url(#arrow)" data-step="4"/>
-  <text class="dg-edge" x="220" y="212" text-anchor="middle" dominant-baseline="central" data-step="4">Reconstruct access history after an incident</text>
+  <path class="dg-line dg-line--dashed" d="M440 148V196H80V148" marker-end="url(#arrow)" data-step="4"/>
+  <text class="dg-edge" x="260" y="212" text-anchor="middle" dominant-baseline="central" data-step="4">Reconstruct access history after an incident</text>
 </svg>
 ```
 

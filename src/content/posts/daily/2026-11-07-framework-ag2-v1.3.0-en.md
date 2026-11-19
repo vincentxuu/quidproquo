@@ -72,13 +72,13 @@ step: Observer addresses a message back to Worker with event.origin.send()
 
   <rect class="dg-box" x="316" y="108" width="8" height="96" rx="2" data-step="1 2"/>
 
-  <rect class="dg-box" x="20" y="24" width="152" height="48" rx="6"/>
-  <text class="dg-label" x="96" y="40" text-anchor="middle" dominant-baseline="central">Worker</text>
-  <text class="dg-sub" x="96" y="59" text-anchor="middle" dominant-baseline="central">(child agent)</text>
-  <rect class="dg-box dg-box--accent" x="224" y="24" width="192" height="48" rx="6"/>
-  <text class="dg-label" x="320" y="48" text-anchor="middle" dominant-baseline="central">observer callback</text>
-  <rect class="dg-box" x="456" y="24" width="176" height="48" rx="6"/>
-  <text class="dg-label" x="544" y="48" text-anchor="middle" dominant-baseline="central">model transcript</text>
+  <rect class="dg-box" x="20" y="16" width="152" height="56" rx="6"/>
+  <text class="dg-label" x="96" y="32" text-anchor="middle" dominant-baseline="central">Worker</text>
+  <text class="dg-sub" x="96" y="56" text-anchor="middle" dominant-baseline="central">(child agent)</text>
+  <rect class="dg-box dg-box--accent" x="224" y="16" width="192" height="56" rx="6"/>
+  <text class="dg-label" x="320" y="44" text-anchor="middle" dominant-baseline="central">observer callback</text>
+  <rect class="dg-box" x="456" y="16" width="176" height="56" rx="6"/>
+  <text class="dg-label" x="544" y="44" text-anchor="middle" dominant-baseline="central">model transcript</text>
 </svg>
 ```
 

@@ -37,41 +37,42 @@ title: How AnythingMCP turns legacy systems into MCP tools
 desc: ERP, REST/SOAP API, and SQL database specs are each imported into AnythingMCP's connector catalog, which generates MCP tools; a governance layer filters fields and enforces role permissions before Claude, ChatGPT, and other AI clients call them through one MCP endpoint.
 caption: Simplified: omits the knowledge graph, company memory, and Code Mode's sandboxed execution layer.
 ---
-<svg viewBox="0 0 700 480">
-  <rect class="dg-zone" x="212" y="16" width="320" height="448" rx="8"/>
-  <text class="dg-tag" x="228" y="38" dominant-baseline="central">ANYTHINGMCP (SELF-HOSTED)</text>
+<svg viewBox="0 0 776 480">
+  <rect class="dg-zone" x="228" y="16" width="304" height="448" rx="8"/>
+  <text class="dg-tag" x="244" y="38" dominant-baseline="central">ANYTHINGMCP (SELF-HOSTED)</text>
 
-  <path class="dg-line" d="M168 110H236" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M168 210H236" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M168 310H236" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M366 360V384" marker-end="url(#arrow)"/>
-  <path class="dg-line dg-line--link" d="M496 416H576" marker-end="url(#arrow-link)"/>
+  <path class="dg-line" d="M208 110H252" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M208 210H252" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M208 310H252" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M388 360V384" marker-end="url(#arrow)"/>
+  <path class="dg-line dg-line--link" d="M524 416H636" marker-end="url(#arrow-link)"/>
 
-  <rect class="dg-box" x="20" y="82" width="148" height="56" rx="6"/>
-  <text class="dg-label" x="94" y="102" text-anchor="middle" dominant-baseline="central">ERP／SAP, Odoo</text>
-  <text class="dg-sub" x="94" y="122" text-anchor="middle" dominant-baseline="central">OData／SQL spec</text>
+  <rect class="dg-box" x="20" y="82" width="188" height="56" rx="6"/>
+  <text class="dg-label" x="114" y="98" text-anchor="middle" dominant-baseline="central">ERP／SAP, Odoo</text>
+  <text class="dg-sub" x="114" y="122" text-anchor="middle" dominant-baseline="central">OData／SQL spec</text>
 
-  <rect class="dg-box" x="20" y="182" width="148" height="56" rx="6"/>
-  <text class="dg-label" x="94" y="202" text-anchor="middle" dominant-baseline="central">REST／SOAP／GraphQL</text>
-  <text class="dg-sub" x="94" y="222" text-anchor="middle" dominant-baseline="central">OpenAPI／WSDL</text>
+  <rect class="dg-box" x="20" y="182" width="188" height="56" rx="6"/>
+  <text class="dg-label" x="114" y="198" text-anchor="middle" dominant-baseline="central">REST／SOAP／GraphQL</text>
+  <text class="dg-sub" x="114" y="222" text-anchor="middle" dominant-baseline="central">OpenAPI／WSDL</text>
 
-  <rect class="dg-box" x="20" y="282" width="148" height="56" rx="6"/>
-  <text class="dg-label" x="94" y="302" text-anchor="middle" dominant-baseline="central">SQL／MongoDB</text>
-  <text class="dg-sub" x="94" y="322" text-anchor="middle" dominant-baseline="central">in-house database</text>
+  <rect class="dg-box" x="20" y="282" width="188" height="56" rx="6"/>
+  <text class="dg-label" x="114" y="298" text-anchor="middle" dominant-baseline="central">SQL／MongoDB</text>
+  <text class="dg-sub" x="114" y="322" text-anchor="middle" dominant-baseline="central">in-house database</text>
 
-  <rect class="dg-box dg-box--store" x="236" y="60" width="260" height="300" rx="6"/>
-  <text class="dg-label" x="366" y="200" text-anchor="middle" dominant-baseline="central">Connector catalog</text>
-  <text class="dg-sub" x="366" y="222" text-anchor="middle" dominant-baseline="central">694 adapters, registered as MCP tools at runtime</text>
+  <rect class="dg-box dg-box--store" x="252" y="60" width="272" height="300" rx="6"/>
+  <text class="dg-label" x="388" y="188" text-anchor="middle" dominant-baseline="central">Connector catalog</text>
+  <text class="dg-sub" x="388" y="212" text-anchor="middle" dominant-baseline="central">694 adapters, registered</text>
+  <text class="dg-sub" x="388" y="234" text-anchor="middle" dominant-baseline="central">as MCP tools at runtime</text>
 
-  <rect class="dg-box dg-box--accent" x="236" y="384" width="260" height="64" rx="6"/>
-  <text class="dg-label" x="366" y="406" text-anchor="middle" dominant-baseline="central">Governance layer</text>
-  <text class="dg-sub" x="366" y="428" text-anchor="middle" dominant-baseline="central">roles・field filtering・audit log</text>
+  <rect class="dg-box dg-box--accent" x="252" y="384" width="272" height="64" rx="6"/>
+  <text class="dg-label" x="388" y="404" text-anchor="middle" dominant-baseline="central">Governance layer</text>
+  <text class="dg-sub" x="388" y="428" text-anchor="middle" dominant-baseline="central">roles・field filtering・audit log</text>
 
-  <rect class="dg-box" x="576" y="388" width="104" height="56" rx="6"/>
-  <text class="dg-label" x="628" y="408" text-anchor="middle" dominant-baseline="central">AI client</text>
-  <text class="dg-sub" x="628" y="428" text-anchor="middle" dominant-baseline="central">Claude／ChatGPT</text>
+  <rect class="dg-box" x="636" y="388" width="124" height="56" rx="6"/>
+  <text class="dg-label" x="698" y="404" text-anchor="middle" dominant-baseline="central">AI client</text>
+  <text class="dg-sub" x="698" y="428" text-anchor="middle" dominant-baseline="central">Claude／ChatGPT</text>
 
-  <text class="dg-edge" x="536" y="404" text-anchor="middle" dominant-baseline="central">MCP endpoint</text>
+  <text class="dg-edge" x="584" y="400" text-anchor="middle" dominant-baseline="central">MCP endpoint</text>
 </svg>
 ```
 

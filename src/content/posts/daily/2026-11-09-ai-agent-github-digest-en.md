@@ -22,25 +22,25 @@ title: Four infrastructure gaps today's repos are filling
 desc: Standardization, cost, multi-agent coordination, and test environments — four unrelated problems, matched by today's four trending repos
 caption: Illustrative: a simplified grouping used to frame these four repos, not an industry-standard taxonomy
 ---
-<svg viewBox="0 0 480 300">
+<svg viewBox="0 0 480 296">
   <rect class="dg-box dg-box--accent" x="16" y="16" width="448" height="60" rx="6"/>
   <text class="dg-tag" x="32" y="36" dominant-baseline="central">Standard</text>
   <text class="dg-label" x="128" y="36" dominant-baseline="central">Agent Skills format</text>
   <text class="dg-sub" x="128" y="58" dominant-baseline="central">anthropics/skills · spec not tied to Claude</text>
 
-  <rect class="dg-box" x="16" y="88" width="448" height="56" rx="6"/>
-  <text class="dg-tag" x="32" y="116" dominant-baseline="central">Cost</text>
-  <text class="dg-label" x="128" y="116" dominant-baseline="central">Context compression</text>
-  <text class="dg-sub" x="128" y="134" dominant-baseline="central">billion-context · claims 5x fewer tokens</text>
+  <rect class="dg-box" x="16" y="84" width="448" height="60" rx="6"/>
+  <text class="dg-tag" x="32" y="104" dominant-baseline="central">Cost</text>
+  <text class="dg-label" x="128" y="104" dominant-baseline="central">Context compression</text>
+  <text class="dg-sub" x="128" y="126" dominant-baseline="central">billion-context · claims 5x fewer tokens</text>
 
-  <rect class="dg-box" x="16" y="152" width="448" height="56" rx="6"/>
-  <text class="dg-tag" x="32" y="180" dominant-baseline="central">Multi-agent</text>
-  <text class="dg-label" x="128" y="180" dominant-baseline="central">Several agent personas</text>
-  <text class="dg-sub" x="128" y="198" dominant-baseline="central">OpenMausBot · managed from one chat UI</text>
+  <rect class="dg-box" x="16" y="152" width="448" height="60" rx="6"/>
+  <text class="dg-tag" x="32" y="172" dominant-baseline="central">Multi-agent</text>
+  <text class="dg-label" x="128" y="172" dominant-baseline="central">Several agent personas</text>
+  <text class="dg-sub" x="128" y="194" dominant-baseline="central">OpenMausBot · managed from one chat UI</text>
 
-  <rect class="dg-box" x="16" y="216" width="448" height="56" rx="6"/>
-  <text class="dg-tag" x="32" y="244" dominant-baseline="central">Test env</text>
-  <text class="dg-label" x="128" y="244" dominant-baseline="central">Throwaway machines</text>
+  <rect class="dg-box" x="16" y="220" width="448" height="60" rx="6"/>
+  <text class="dg-tag" x="32" y="240" dominant-baseline="central">Test env</text>
+  <text class="dg-label" x="128" y="240" dominant-baseline="central">Throwaway machines</text>
   <text class="dg-sub" x="128" y="262" dominant-baseline="central">sandbox-mcp · clean Windows Sandbox</text>
 </svg>
 ```

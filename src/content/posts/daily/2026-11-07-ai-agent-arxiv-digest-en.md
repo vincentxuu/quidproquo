@@ -20,27 +20,28 @@ title: Three lines of agent-safety defense, each with a measurable gap
 desc: From top to bottom: the scope assumption behind persistent memory, chain-of-thought monitoring as an oversight mechanism, and methods for quantifying loss-of-control risk. Each was meant to reassure us that agents won't cause harm on unrelated tasks, but today's three papers each find a concrete, measurable gap in one of them.
 caption: Numbers in order come from arxiv 2611.07554 (memory pushes unsafe-action rate to 66-81%), 2611.07586 (CoT-monitor evasion success pushed to 59.94-61.67%), and 2611.07953 (loss-of-control score correlates at 0.84 with actual failure rates).
 ---
-<svg viewBox="0 0 640 340">
+<svg viewBox="0 0 640 352">
   <rect class="dg-box" x="72" y="24" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="52" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="124" y="52" dominant-baseline="central">Memory's scope assumption</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">Covers: preferences/procedures recurring in the same context</text>
-  <text class="dg-sub" x="604" y="80" text-anchor="end" dominant-baseline="central">Misses: benign memory crossing context pushes unsafe rate to 66-81%</text>
+  <text class="dg-tag" x="92" y="44" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="124" y="44" dominant-baseline="central">Memory's scope assumption</text>
+  <text class="dg-sub" x="124" y="66" dominant-baseline="central">Covers: preferences/procedures recurring in the same context</text>
+  <text class="dg-sub" x="124" y="86" dominant-baseline="central">Misses: benign memory crossing context pushes unsafe rate to 66-81%</text>
 
   <rect class="dg-box" x="72" y="112" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="140" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="124" y="140" dominant-baseline="central">Chain-of-thought monitoring</text>
-  <text class="dg-sub" x="604" y="140" text-anchor="end" dominant-baseline="central">Covers: template-style side-task insertions</text>
-  <text class="dg-sub" x="604" y="168" text-anchor="end" dominant-baseline="central">Misses: task-tailored concealment pushes evasion to 59.94-61.67%</text>
+  <text class="dg-tag" x="92" y="132" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="124" y="132" dominant-baseline="central">Chain-of-thought monitoring</text>
+  <text class="dg-sub" x="124" y="154" dominant-baseline="central">Covers: template-style side-task insertions</text>
+  <text class="dg-sub" x="124" y="174" dominant-baseline="central">Misses: task-tailored concealment pushes evasion to 59.94-61.67%</text>
 
   <rect class="dg-box" x="72" y="200" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="228" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="124" y="228" dominant-baseline="central">Loss-of-control risk quantification</text>
-  <text class="dg-sub" x="604" y="228" text-anchor="end" dominant-baseline="central">Covers: consequences only observable after loss of control happens</text>
-  <text class="dg-sub" x="604" y="256" text-anchor="end" dominant-baseline="central">Adds: 13-aspect score correlates at r=0.84 with actual failure rate</text>
+  <text class="dg-tag" x="92" y="220" dominant-baseline="central">L3</text>
+  <text class="dg-label" x="124" y="220" dominant-baseline="central">Loss-of-control risk quantification</text>
+  <text class="dg-sub" x="124" y="242" dominant-baseline="central">Covers: consequences only observable after loss of control happens</text>
+  <text class="dg-sub" x="124" y="262" dominant-baseline="central">Adds: 13-aspect score correlates at r=0.84 with actual failure rate</text>
 
   <line class="dg-rule" x1="72" y1="300" x2="624" y2="300"/>
-  <text class="dg-sub" x="72" y="324" dominant-baseline="central">Remaining risk: all three defenses are validated independently today; no integrated test yet covers memory, monitoring and risk scoring together</text>
+  <text class="dg-sub" x="72" y="322" dominant-baseline="central">Remaining risk: all three defenses are validated independently today;</text>
+  <text class="dg-sub" x="72" y="340" dominant-baseline="central">no integrated test yet covers memory, monitoring and risk scoring together</text>
 </svg>
 ```
 

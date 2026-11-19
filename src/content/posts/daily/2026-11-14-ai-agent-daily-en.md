@@ -35,31 +35,31 @@ title: The agent commerce turf war — OpenAI wants to be the transaction layer,
 desc: Left column is OpenAI's new transaction path; right column is the retailers' defensive response; the market hasn't decided who is supplier and who is buyer.
 caption: Based on TechCrunch's ChatGPT Wallet report and Business Insider's list of retailers banning AI shopping agents.
 ---
-<svg viewBox="0 0 640 300">
+<svg viewBox="0 0 640 272">
   <text class="dg-heading" x="160" y="28" text-anchor="middle" dominant-baseline="central">OpenAI's offense</text>
   <text class="dg-heading" x="480" y="28" text-anchor="middle" dominant-baseline="central">Retailers' defense</text>
-  <line class="dg-rule" x1="320" y1="16" x2="320" y2="280"/>
+  <line class="dg-rule" x1="320" y1="16" x2="320" y2="216"/>
 
-  <rect class="dg-box dg-box--accent" x="76" y="56" width="168" height="56" rx="6"/>
+  <rect class="dg-box dg-box--accent" x="12" y="56" width="296" height="56" rx="6"/>
   <text class="dg-label" x="160" y="78" text-anchor="middle" dominant-baseline="central">ChatGPT Wallet</text>
   <text class="dg-sub" x="160" y="98" text-anchor="middle" dominant-baseline="central">agent checks out directly, no cut</text>
 
-  <rect class="dg-box dg-box--accent" x="76" y="140" width="168" height="56" rx="6"/>
+  <rect class="dg-box dg-box--accent" x="12" y="140" width="296" height="56" rx="6"/>
   <text class="dg-label" x="160" y="162" text-anchor="middle" dominant-baseline="central">Inserts between buyer and merchant</text>
   <text class="dg-sub" x="160" y="182" text-anchor="middle" dominant-baseline="central">Captures the relationship and data</text>
 
-  <rect class="dg-box" x="396" y="56" width="168" height="56" rx="6"/>
+  <rect class="dg-box" x="332" y="56" width="296" height="56" rx="6"/>
   <text class="dg-label" x="480" y="78" text-anchor="middle" dominant-baseline="central">Block third-party agents</text>
   <text class="dg-sub" x="480" y="98" text-anchor="middle" dominant-baseline="central">United／Amazon／Target</text>
 
-  <rect class="dg-box" x="396" y="140" width="168" height="56" rx="6"/>
+  <rect class="dg-box" x="332" y="140" width="296" height="56" rx="6"/>
   <text class="dg-label" x="480" y="162" text-anchor="middle" dominant-baseline="central">Defends checkout and authorization</text>
   <text class="dg-sub" x="480" y="182" text-anchor="middle" dominant-baseline="central">Blocks instead of negotiating</text>
 
   <path class="dg-line" d="M160 112V140" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M480 112V140" marker-end="url(#arrow)"/>
 
-  <text class="dg-sub" x="320" y="240" text-anchor="middle" dominant-baseline="central">Whoever forces the other to concede writes the rules of agent commerce</text>
+  <text class="dg-sub" x="320" y="244" text-anchor="middle" dominant-baseline="central">Whoever forces the other to concede writes the rules of agent commerce</text>
 </svg>
 ```
 

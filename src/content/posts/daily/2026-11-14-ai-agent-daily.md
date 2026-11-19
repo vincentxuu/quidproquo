@@ -35,31 +35,31 @@ title: Agent 商務化的卡位戰：OpenAI 想當交易層，零售商選擇封
 desc: 左欄是 OpenAI 想建立的新交易路徑，右欄是零售商的防守反應；市場還沒決定誰是供應商、誰是買方。
 caption: 依 TechCrunch ChatGPT Wallet 報導與 Business Insider 零售商封鎖清單整理。
 ---
-<svg viewBox="0 0 640 300">
+<svg viewBox="0 0 640 272">
   <text class="dg-heading" x="160" y="28" text-anchor="middle" dominant-baseline="central">OpenAI 的攻勢</text>
   <text class="dg-heading" x="480" y="28" text-anchor="middle" dominant-baseline="central">零售商的守勢</text>
-  <line class="dg-rule" x1="320" y1="16" x2="320" y2="280"/>
+  <line class="dg-rule" x1="320" y1="16" x2="320" y2="216"/>
 
-  <rect class="dg-box dg-box--accent" x="76" y="56" width="168" height="56" rx="6"/>
+  <rect class="dg-box dg-box--accent" x="12" y="56" width="296" height="56" rx="6"/>
   <text class="dg-label" x="160" y="78" text-anchor="middle" dominant-baseline="central">ChatGPT Wallet</text>
   <text class="dg-sub" x="160" y="98" text-anchor="middle" dominant-baseline="central">agent 直接購物結帳，不抽成</text>
 
-  <rect class="dg-box dg-box--accent" x="76" y="140" width="168" height="56" rx="6"/>
+  <rect class="dg-box dg-box--accent" x="12" y="140" width="296" height="56" rx="6"/>
   <text class="dg-label" x="160" y="162" text-anchor="middle" dominant-baseline="central">插入消費者與商家之間</text>
   <text class="dg-sub" x="160" y="182" text-anchor="middle" dominant-baseline="central">搶交易關係與資料</text>
 
-  <rect class="dg-box" x="396" y="56" width="168" height="56" rx="6"/>
+  <rect class="dg-box" x="332" y="56" width="296" height="56" rx="6"/>
   <text class="dg-label" x="480" y="78" text-anchor="middle" dominant-baseline="central">封鎖第三方 agent</text>
   <text class="dg-sub" x="480" y="98" text-anchor="middle" dominant-baseline="central">United／Amazon／Target</text>
 
-  <rect class="dg-box" x="396" y="140" width="168" height="56" rx="6"/>
+  <rect class="dg-box" x="332" y="140" width="296" height="56" rx="6"/>
   <text class="dg-label" x="480" y="162" text-anchor="middle" dominant-baseline="central">守住結帳頁與授權權</text>
   <text class="dg-sub" x="480" y="182" text-anchor="middle" dominant-baseline="central">不談分潤，直接擋</text>
 
   <path class="dg-line" d="M160 112V140" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M480 112V140" marker-end="url(#arrow)"/>
 
-  <text class="dg-sub" x="320" y="240" text-anchor="middle" dominant-baseline="central">誰先讓對方讓步，誰就定義 agent 商務規則</text>
+  <text class="dg-sub" x="320" y="244" text-anchor="middle" dominant-baseline="central">誰先讓對方讓步，誰就定義 agent 商務規則</text>
 </svg>
 ```
 

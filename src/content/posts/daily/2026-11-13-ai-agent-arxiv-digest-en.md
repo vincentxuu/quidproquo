@@ -20,27 +20,28 @@ title: Three reality checks on deploying agents, each one comes up short
 desc: Top to bottom: the architecture decision before deployment, error attribution during execution, and compliance after action. Today's three papers each find a concrete, measurable gap in one of these layers.
 caption: Numbers in order from arXiv 2611.12953 (coordinated architectures spend 1.4-4.7x the tokens and 2.6-5.8x the latency), 2611.13254 (72% of failed trajectories already had contradicting evidence; 45% of 'responsible agent' labels trace to the harness crashing), and 2611.11306 (GPT checks 100% of robots.txt yet complies only 14.2% of the time).
 ---
-<svg viewBox="0 0 640 340">
-  <rect class="dg-box" x="72" y="24" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="52" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="124" y="52" dominant-baseline="central">Before: Architecture choice</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">Catches: structure can pay off on complex, branching tasks</text>
-  <text class="dg-sub" x="604" y="80" text-anchor="end" dominant-baseline="central">Misses: 1.4-4.7x tokens, 2.6-5.8x latency buys little</text>
+<svg viewBox="0 0 700 404">
+  <rect class="dg-box" x="20" y="24" width="660" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="48" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="68" y="48" dominant-baseline="central">Before: Architecture choice</text>
+  <text class="dg-sub" x="68" y="74" dominant-baseline="central">Catches: structure can pay off on complex, branching tasks</text>
+  <text class="dg-sub" x="68" y="96" dominant-baseline="central">Misses: 1.4-4.7x tokens, 2.6-5.8x latency buys little</text>
 
-  <rect class="dg-box" x="72" y="112" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="140" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="124" y="140" dominant-baseline="central">During: Error attribution</text>
-  <text class="dg-sub" x="604" y="140" text-anchor="end" dominant-baseline="central">Catches: symptom labels name which agent, which step "looks" wrong</text>
-  <text class="dg-sub" x="604" y="168" text-anchor="end" dominant-baseline="central">Misses: 72% had unused evidence; 45% of labels are harness crashes</text>
+  <rect class="dg-box" x="20" y="124" width="660" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="148" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="68" y="148" dominant-baseline="central">During: Error attribution</text>
+  <text class="dg-sub" x="68" y="174" dominant-baseline="central">Catches: symptom labels name which agent, which step "looks" wrong</text>
+  <text class="dg-sub" x="68" y="196" dominant-baseline="central">Misses: 72% had unused evidence; 45% of labels are harness crashes</text>
 
-  <rect class="dg-box" x="72" y="200" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="228" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="124" y="228" dominant-baseline="central">After: Compliance</text>
-  <text class="dg-sub" x="604" y="228" text-anchor="end" dominant-baseline="central">Catches: strong legal warnings push compliance to 60-86%</text>
-  <text class="dg-sub" x="604" y="256" text-anchor="end" dominant-baseline="central">Misses: checking the rule doesn't mean following it; GPT: 100% checked, 14.2% compliant</text>
+  <rect class="dg-box" x="20" y="224" width="660" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="248" dominant-baseline="central">L3</text>
+  <text class="dg-label" x="68" y="248" dominant-baseline="central">After: Compliance</text>
+  <text class="dg-sub" x="68" y="274" dominant-baseline="central">Catches: strong legal warnings push compliance to 60-86%</text>
+  <text class="dg-sub" x="68" y="296" dominant-baseline="central">Misses: checking the rule doesn't mean following it; GPT: 100% checked, 14.2% compliant</text>
 
-  <line class="dg-rule" x1="72" y1="300" x2="624" y2="300"/>
-  <text class="dg-sub" x="72" y="324" dominant-baseline="central">Residual risk: each paper validates its own controlled setup only; none yet spans architecture choice, long-horizon attribution, and compliance end to end</text>
+  <line class="dg-rule" x1="20" y1="336" x2="680" y2="336"/>
+  <text class="dg-sub" x="20" y="360" dominant-baseline="central">Residual risk: each paper validates its own controlled setup only;</text>
+  <text class="dg-sub" x="20" y="382" dominant-baseline="central">none yet spans architecture choice, long-horizon attribution, and compliance end to end</text>
 </svg>
 ```
 

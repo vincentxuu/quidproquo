@@ -20,27 +20,28 @@ title: Three layers of eval-and-oversight infrastructure, each with its own hole
 desc: From top to bottom: the leaderboard's scoring pipeline, the measurement of post-hoc diagnosis vs. live oversight, and the overseer who holds approval power. All three are supposed to let us trust scores and gates — today's three papers each found a concrete hole in one of them.
 caption: Numbers in order come from arxiv 2611.04399 (a scoring-pipeline bug silently dropped scores by 59-82 points), 2610.41025 (the best post-hoc diagnoser trails the best live supervisor by 14.5 points), and 2611.04556 (every tested model flipped the overseer's decision).
 ---
-<svg viewBox="0 0 640 340">
+<svg viewBox="0 0 640 352">
   <rect class="dg-box" x="72" y="24" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="52" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="124" y="52" dominant-baseline="central">Leaderboard scoring pipeline</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">Catches: score gaps from model mistakes</text>
-  <text class="dg-sub" x="604" y="80" text-anchor="end" dominant-baseline="central">Misses: grader's own bug dropped scores 59-82 pts</text>
+  <text class="dg-tag" x="92" y="44" dominant-baseline="central">L3</text>
+  <text class="dg-label" x="124" y="44" dominant-baseline="central">Leaderboard scoring pipeline</text>
+  <text class="dg-sub" x="124" y="66" dominant-baseline="central">Catches: score gaps from model mistakes</text>
+  <text class="dg-sub" x="124" y="86" dominant-baseline="central">Misses: grader's own bug dropped scores 59-82 pts</text>
 
   <rect class="dg-box" x="72" y="112" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="140" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="124" y="140" dominant-baseline="central">Post-hoc diagnosis vs. live oversight</text>
-  <text class="dg-sub" x="604" y="140" text-anchor="end" dominant-baseline="central">Catches: bugs found by reading full failure logs</text>
-  <text class="dg-sub" x="604" y="168" text-anchor="end" dominant-baseline="central">Misses: best diagnoser trails best live supervisor by 14.5 pts</text>
+  <text class="dg-tag" x="92" y="132" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="124" y="132" dominant-baseline="central">Post-hoc diagnosis vs. live oversight</text>
+  <text class="dg-sub" x="124" y="154" dominant-baseline="central">Catches: bugs found by reading full failure logs</text>
+  <text class="dg-sub" x="124" y="174" dominant-baseline="central">Misses: best diagnoser trails best live supervisor by 14.5 pts</text>
 
   <rect class="dg-box" x="72" y="200" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="228" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="124" y="228" dominant-baseline="central">Overseer's approval gate</text>
-  <text class="dg-sub" x="604" y="228" text-anchor="end" dominant-baseline="central">Catches: actions blocked without approval</text>
-  <text class="dg-sub" x="604" y="256" text-anchor="end" dominant-baseline="central">Misses: every tested model can talk, trick, or pressure the overseer</text>
+  <text class="dg-tag" x="92" y="220" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="124" y="220" dominant-baseline="central">Overseer's approval gate</text>
+  <text class="dg-sub" x="124" y="242" dominant-baseline="central">Catches: actions blocked without approval</text>
+  <text class="dg-sub" x="124" y="262" dominant-baseline="central">Misses: every tested model can talk, trick, or pressure the overseer</text>
 
   <line class="dg-rule" x1="72" y1="300" x2="624" y2="300"/>
-  <text class="dg-sub" x="72" y="324" dominant-baseline="central">Residual risk: all three layers have concrete counterexamples; no study yet covers scoring, diagnosis, and approval together</text>
+  <text class="dg-sub" x="72" y="322" dominant-baseline="central">Residual risk: all three layers have concrete counterexamples;</text>
+  <text class="dg-sub" x="72" y="340" dominant-baseline="central">no study yet covers scoring, diagnosis, and approval together</text>
 </svg>
 ```
 

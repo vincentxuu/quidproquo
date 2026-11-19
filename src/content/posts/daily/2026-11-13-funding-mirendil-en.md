@@ -50,22 +50,22 @@ step: June 2026: $200M seed
 step: September 2026: talks reported
 step: November 2026: $1B Series A
 ---
-<svg viewBox="0 0 520 160">
+<svg viewBox="0 0 556 160">
   <rect class="dg-box" x="8" y="52" width="150" height="64" rx="6" data-step="1"/>
   <text class="dg-label" x="83" y="76" text-anchor="middle" dominant-baseline="central" data-step="1">Seed: $200M</text>
   <text class="dg-sub" x="83" y="96" text-anchor="middle" dominant-baseline="central" data-step="1">Valuation $1B</text>
 
-  <path class="dg-line" d="M158 84H190" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M158 84H186" marker-end="url(#arrow)" data-step="2"/>
 
-  <rect class="dg-box dg-box--accent" x="190" y="52" width="150" height="64" rx="6" data-step="2"/>
-  <text class="dg-label" x="265" y="76" text-anchor="middle" dominant-baseline="central" data-step="2">Target in talks: $5B</text>
-  <text class="dg-sub" x="265" y="96" text-anchor="middle" dominant-baseline="central" data-step="2">Per Bloomberg, unconfirmed</text>
+  <rect class="dg-box dg-box--accent" x="186" y="52" width="184" height="64" rx="6" data-step="2"/>
+  <text class="dg-label" x="278" y="76" text-anchor="middle" dominant-baseline="central" data-step="2">Target in talks: $5B</text>
+  <text class="dg-sub" x="278" y="96" text-anchor="middle" dominant-baseline="central" data-step="2">Per Bloomberg, unconfirmed</text>
 
-  <path class="dg-line" d="M340 84H372" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line" d="M370 84H398" marker-end="url(#arrow)" data-step="3"/>
 
-  <rect class="dg-box" x="372" y="52" width="140" height="64" rx="6" data-step="3"/>
-  <text class="dg-label" x="442" y="76" text-anchor="middle" dominant-baseline="central" data-step="3">Series A: $1B</text>
-  <text class="dg-sub" x="442" y="96" text-anchor="middle" dominant-baseline="central" data-step="3">Valuation undisclosed</text>
+  <rect class="dg-box" x="398" y="52" width="150" height="64" rx="6" data-step="3"/>
+  <text class="dg-label" x="473" y="76" text-anchor="middle" dominant-baseline="central" data-step="3">Series A: $1B</text>
+  <text class="dg-sub" x="473" y="96" text-anchor="middle" dominant-baseline="central" data-step="3">Valuation undisclosed</text>
 </svg>
 ```
 

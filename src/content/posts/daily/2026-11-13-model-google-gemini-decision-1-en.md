@@ -49,36 +49,36 @@ caption: Simplified: the three question types (yes/no, choice, score) and per-qu
   <text class="dg-heading" x="340" y="28" dominant-baseline="central">After: Gemini Decision 1</text>
   <line class="dg-rule" x1="316" y1="16" x2="316" y2="332"/>
 
-  <path class="dg-line" d="M116 100V128" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M116 244V272" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M436 100V128" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M436 244V272" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M180 100V128" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M180 244V272" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M496 100V128" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M496 244V272" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box" x="52" y="56" width="128" height="44" rx="6"/>
-  <text class="dg-label" x="116" y="78" text-anchor="middle" dominant-baseline="central">Shared input</text>
+  <rect class="dg-box" x="64" y="56" width="232" height="44" rx="6"/>
+  <text class="dg-label" x="180" y="78" text-anchor="middle" dominant-baseline="central">Shared input</text>
 
-  <rect class="dg-box dg-box--ghost" x="52" y="128" width="128" height="116" rx="6"/>
-  <text class="dg-label" x="116" y="152" text-anchor="middle" dominant-baseline="central">Generative model</text>
-  <text class="dg-sub" x="116" y="172" text-anchor="middle" dominant-baseline="central">Decodes text token by token</text>
-  <text class="dg-sub" x="116" y="190" text-anchor="middle" dominant-baseline="central">One call per question</text>
-  <text class="dg-sub" x="116" y="208" text-anchor="middle" dominant-baseline="central">Shared input billed repeatedly</text>
+  <rect class="dg-box dg-box--ghost" x="64" y="128" width="232" height="116" rx="6"/>
+  <text class="dg-label" x="180" y="152" text-anchor="middle" dominant-baseline="central">Generative model</text>
+  <text class="dg-sub" x="180" y="172" text-anchor="middle" dominant-baseline="central">Decodes text token by token</text>
+  <text class="dg-sub" x="180" y="190" text-anchor="middle" dominant-baseline="central">One call per question</text>
+  <text class="dg-sub" x="180" y="208" text-anchor="middle" dominant-baseline="central">Shared input billed repeatedly</text>
 
-  <rect class="dg-box" x="52" y="272" width="128" height="60" rx="6"/>
-  <text class="dg-label" x="116" y="294" text-anchor="middle" dominant-baseline="central">Text / JSON output</text>
-  <text class="dg-sub" x="116" y="312" text-anchor="middle" dominant-baseline="central">Must parse, no confidence score</text>
+  <rect class="dg-box" x="64" y="272" width="232" height="64" rx="6"/>
+  <text class="dg-label" x="180" y="290" text-anchor="middle" dominant-baseline="central">Text / JSON output</text>
+  <text class="dg-sub" x="180" y="314" text-anchor="middle" dominant-baseline="central">Must parse, no confidence score</text>
 
-  <rect class="dg-box" x="372" y="56" width="128" height="44" rx="6"/>
-  <text class="dg-label" x="436" y="78" text-anchor="middle" dominant-baseline="central">Shared input + up to 1,000 Qs</text>
+  <rect class="dg-box" x="380" y="56" width="232" height="44" rx="6"/>
+  <text class="dg-label" x="496" y="78" text-anchor="middle" dominant-baseline="central">Shared input + up to 1,000 Qs</text>
 
-  <rect class="dg-box dg-box--accent" x="372" y="128" width="128" height="116" rx="6"/>
-  <text class="dg-label" x="436" y="152" text-anchor="middle" dominant-baseline="central">Gemini Decision 1</text>
-  <text class="dg-sub" x="436" y="172" text-anchor="middle" dominant-baseline="central">Single forward pass</text>
-  <text class="dg-sub" x="436" y="190" text-anchor="middle" dominant-baseline="central">Scores all questions at once</text>
-  <text class="dg-sub" x="436" y="208" text-anchor="middle" dominant-baseline="central">Shared input billed once</text>
+  <rect class="dg-box dg-box--accent" x="380" y="128" width="232" height="116" rx="6"/>
+  <text class="dg-label" x="496" y="152" text-anchor="middle" dominant-baseline="central">Gemini Decision 1</text>
+  <text class="dg-sub" x="496" y="172" text-anchor="middle" dominant-baseline="central">Single forward pass</text>
+  <text class="dg-sub" x="496" y="190" text-anchor="middle" dominant-baseline="central">Scores all questions at once</text>
+  <text class="dg-sub" x="496" y="208" text-anchor="middle" dominant-baseline="central">Shared input billed once</text>
 
-  <rect class="dg-box" x="372" y="272" width="128" height="60" rx="6"/>
-  <text class="dg-label" x="436" y="294" text-anchor="middle" dominant-baseline="central">Probability + confidence</text>
-  <text class="dg-sub" x="436" y="312" text-anchor="middle" dominant-baseline="central">Zero output-token billing</text>
+  <rect class="dg-box" x="380" y="272" width="232" height="64" rx="6"/>
+  <text class="dg-label" x="496" y="290" text-anchor="middle" dominant-baseline="central">Probability + confidence</text>
+  <text class="dg-sub" x="496" y="314" text-anchor="middle" dominant-baseline="central">Zero output-token billing</text>
 
   <g class="dg-badge"><circle cx="36" cy="186" r="10"/><text x="36" y="186" text-anchor="middle" dominant-baseline="central">−</text></g>
   <g class="dg-badge"><circle cx="36" cy="302" r="10"/><text x="36" y="302" text-anchor="middle" dominant-baseline="central">−</text></g>

@@ -63,7 +63,7 @@ caption: Source: WorkOS's Nov 6 update (four gaps: public exposure, guessable de
   <text class="dg-sub" x="720" y="84" text-anchor="middle" dominant-baseline="central">no rate limiting</text>
 
   <rect class="dg-box" x="650" y="184" width="140" height="64" rx="6"/>
-  <text class="dg-label" x="720" y="208" text-anchor="middle" dominant-baseline="central">Detected 5 days late</text>
+  <text class="dg-label" x="720" y="208" text-anchor="middle" dominant-baseline="central">Found 5 days late</text>
   <text class="dg-sub" x="720" y="228" text-anchor="middle" dominant-baseline="central">Oct 25 → Oct 30</text>
 </svg>
 ```

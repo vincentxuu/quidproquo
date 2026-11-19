@@ -29,11 +29,11 @@ caption: Simplified: the general GQA case is a grouped lookup, with n_kv_heads e
 ---
 <svg viewBox="0 0 720 520">
   <path class="dg-line" d="M360 34V60" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M360 116V184" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M360 280V312" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M360 116V168" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M360 296V328" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M488 232H528" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M232 232H192" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M360 376V412" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M360 392V412" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M624 268V404Q624 412 616 412H368" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M96 268V404Q96 412 104 412H352" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M360 420V440" marker-end="url(#arrow)"/>
@@ -47,15 +47,15 @@ caption: Simplified: the general GQA case is a grouped lookup, with n_kv_heads e
   </g>
 
   <g>
-    <path class="dg-box" d="M360 184L488 232L360 280L232 232Z"/>
+    <path class="dg-box" d="M360 168L488 232L360 296L232 232Z"/>
     <text class="dg-label" x="360" y="222" text-anchor="middle" dominant-baseline="central">Which KV does it read?</text>
     <text class="dg-sub" x="360" y="244" text-anchor="middle" dominant-baseline="central">depends on n_kv_heads</text>
   </g>
 
   <g>
-    <rect class="dg-box" x="228" y="312" width="264" height="64" rx="6"/>
-    <text class="dg-label" x="360" y="334" text-anchor="middle" dominant-baseline="central">n_kv_heads = n_heads</text>
-    <text class="dg-sub" x="360" y="356" text-anchor="middle" dominant-baseline="central">degenerates to MHA: each head owns its KV</text>
+    <rect class="dg-box" x="228" y="328" width="264" height="64" rx="6"/>
+    <text class="dg-label" x="360" y="350" text-anchor="middle" dominant-baseline="central">n_kv_heads = n_heads</text>
+    <text class="dg-sub" x="360" y="372" text-anchor="middle" dominant-baseline="central">degenerates to MHA: each head owns its KV</text>
   </g>
 
   <g>
@@ -66,21 +66,22 @@ caption: Simplified: the general GQA case is a grouped lookup, with n_kv_heads e
 
   <g>
     <rect class="dg-box" x="0" y="196" width="192" height="72" rx="6"/>
-    <text class="dg-label" x="96" y="220" text-anchor="middle" dominant-baseline="central">n_kv_heads = 1</text>
-    <text class="dg-sub" x="96" y="244" text-anchor="middle" dominant-baseline="central">degenerates to MQA: all heads share one KV</text>
+    <text class="dg-label" x="96" y="212" text-anchor="middle" dominant-baseline="central">n_kv_heads = 1</text>
+    <text class="dg-sub" x="96" y="234" text-anchor="middle" dominant-baseline="central">degenerates to MQA:</text>
+    <text class="dg-sub" x="96" y="252" text-anchor="middle" dominant-baseline="central">all heads share one KV</text>
   </g>
 
   <circle class="dg-dot" cx="360" cy="420" r="4"/>
 
   <g>
-    <rect class="dg-box dg-box--accent" x="228" y="440" width="264" height="56" rx="6"/>
+    <rect class="dg-box dg-box--accent" x="160" y="440" width="400" height="56" rx="6"/>
     <text class="dg-label" x="360" y="460" text-anchor="middle" dominant-baseline="central">Each head's attention output gets concatenated</text>
     <text class="dg-sub" x="360" y="480" text-anchor="middle" dominant-baseline="central">projected by W_o; cache carries over to the next step</text>
   </g>
 
-  <text class="dg-edge" x="424" y="310" text-anchor="middle" dominant-baseline="central">degenerate MHA</text>
-  <text class="dg-edge" x="508" y="222" text-anchor="middle" dominant-baseline="central">general GQA</text>
-  <text class="dg-edge" x="212" y="222" text-anchor="middle" dominant-baseline="central">degenerate MQA</text>
+  <text class="dg-edge" x="368" y="312" text-anchor="start" dominant-baseline="central">degenerate MHA</text>
+  <text class="dg-edge" x="528" y="184" text-anchor="start" dominant-baseline="central">general GQA</text>
+  <text class="dg-edge" x="192" y="184" text-anchor="end" dominant-baseline="central">degenerate MQA</text>
 </svg>
 ```
 

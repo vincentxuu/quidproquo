@@ -71,7 +71,8 @@ step: 主機敏感檔案被複製進沙箱，或沙箱內容被寫進主機任�
   </g>
   <g data-step="6">
     <path class="dg-line dg-line--accent" d="M504 352H532Q540 352 540 360V368Q540 376 532 376H508" marker-end="url(#arrow-accent)"/>
-    <text class="dg-edge dg-text--accent" x="552" y="364" dominant-baseline="central">讀出／寫入主機檔案</text>
+    <text class="dg-edge dg-text--accent" x="548" y="355" dominant-baseline="central">讀出／寫入</text>
+    <text class="dg-edge dg-text--accent" x="548" y="373" dominant-baseline="central">主機檔案</text>
   </g>
 
   <rect class="dg-box" x="496" y="100" width="8" height="280" rx="2" data-step="1 2 3 4 5 6"/>

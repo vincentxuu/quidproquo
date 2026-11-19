@@ -29,11 +29,11 @@ caption: 簡化示意：GQA 的一般情況是分組查表，n_kv_heads 等於 n
 ---
 <svg viewBox="0 0 720 520">
   <path class="dg-line" d="M360 34V60" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M360 116V184" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M360 280V312" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M360 116V168" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M360 296V328" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M488 232H528" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M232 232H192" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M360 376V412" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M360 392V412" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M624 268V404Q624 412 616 412H368" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M96 268V404Q96 412 104 412H352" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M360 420V440" marker-end="url(#arrow)"/>
@@ -47,15 +47,15 @@ caption: 簡化示意：GQA 的一般情況是分組查表，n_kv_heads 等於 n
   </g>
 
   <g>
-    <path class="dg-box" d="M360 184L488 232L360 280L232 232Z"/>
+    <path class="dg-box" d="M360 168L488 232L360 296L232 232Z"/>
     <text class="dg-label" x="360" y="222" text-anchor="middle" dominant-baseline="central">KV 來源怎麼決定？</text>
     <text class="dg-sub" x="360" y="244" text-anchor="middle" dominant-baseline="central">看 n_kv_heads 設定</text>
   </g>
 
   <g>
-    <rect class="dg-box" x="228" y="312" width="264" height="64" rx="6"/>
-    <text class="dg-label" x="360" y="334" text-anchor="middle" dominant-baseline="central">n_kv_heads = n_heads</text>
-    <text class="dg-sub" x="360" y="356" text-anchor="middle" dominant-baseline="central">退化成 MHA：各 head 用自己的 KV</text>
+    <rect class="dg-box" x="228" y="328" width="264" height="64" rx="6"/>
+    <text class="dg-label" x="360" y="350" text-anchor="middle" dominant-baseline="central">n_kv_heads = n_heads</text>
+    <text class="dg-sub" x="360" y="372" text-anchor="middle" dominant-baseline="central">退化成 MHA：各 head 用自己的 KV</text>
   </g>
 
   <g>
@@ -73,14 +73,14 @@ caption: 簡化示意：GQA 的一般情況是分組查表，n_kv_heads 等於 n
   <circle class="dg-dot" cx="360" cy="420" r="4"/>
 
   <g>
-    <rect class="dg-box dg-box--accent" x="228" y="440" width="264" height="56" rx="6"/>
+    <rect class="dg-box dg-box--accent" x="160" y="440" width="400" height="56" rx="6"/>
     <text class="dg-label" x="360" y="460" text-anchor="middle" dominant-baseline="central">各 head attention 後 concat</text>
     <text class="dg-sub" x="360" y="480" text-anchor="middle" dominant-baseline="central">過 W_o 輸出 token，cache 留給下一步</text>
   </g>
 
-  <text class="dg-edge" x="424" y="310" text-anchor="middle" dominant-baseline="central">退化 MHA</text>
-  <text class="dg-edge" x="508" y="222" text-anchor="middle" dominant-baseline="central">一般 GQA</text>
-  <text class="dg-edge" x="212" y="222" text-anchor="middle" dominant-baseline="central">退化 MQA</text>
+  <text class="dg-edge" x="368" y="312" text-anchor="start" dominant-baseline="central">退化 MHA</text>
+  <text class="dg-edge" x="528" y="184" text-anchor="start" dominant-baseline="central">一般 GQA</text>
+  <text class="dg-edge" x="192" y="184" text-anchor="end" dominant-baseline="central">退化 MQA</text>
 </svg>
 ```
 

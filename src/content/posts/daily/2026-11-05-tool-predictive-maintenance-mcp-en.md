@@ -43,7 +43,7 @@ caption: Simplified: the real flow also reports the deviation and multiple candi
   <path class="dg-line" d="M220 196V224" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M220 320V348" marker-end="url(#arrow)"/>
   <path class="dg-line dg-line--accent" d="M220 404V428" marker-end="url(#arrow-accent)"/>
-  <path class="dg-line dg-line--warn" d="M360 272H432" marker-end="url(#arrow-warn)"/>
+  <path class="dg-line dg-line--warn" d="M400 272H448" marker-end="url(#arrow-warn)"/>
 
   <circle class="dg-dot" cx="220" cy="28" r="6"/>
 
@@ -55,7 +55,7 @@ caption: Simplified: the real flow also reports the deviation and multiple candi
   <text class="dg-label" x="220" y="159" text-anchor="middle" dominant-baseline="central">FFT analysis</text>
   <text class="dg-sub" x="220" y="179" text-anchor="middle" dominant-baseline="central">envelope spectrum</text>
 
-  <path class="dg-box" d="M220 224L360 272L220 320L80 272Z"/>
+  <path class="dg-box" d="M220 224L400 272L220 320L40 272Z"/>
   <text class="dg-label" x="220" y="262" text-anchor="middle" dominant-baseline="central">Fault frequency found?</text>
   <text class="dg-sub" x="220" y="284" text-anchor="middle" dominant-baseline="central">vs. noise floor</text>
 
@@ -67,12 +67,12 @@ caption: Simplified: the real flow also reports the deviation and multiple candi
   <text class="dg-label" x="220" y="447" text-anchor="middle" dominant-baseline="central">Diagnostic report</text>
   <text class="dg-sub" x="220" y="467" text-anchor="middle" dominant-baseline="central">with matched evidence</text>
 
-  <rect class="dg-box dg-box--warn" x="432" y="248" width="220" height="48" rx="6"/>
-  <text class="dg-label" x="542" y="264" text-anchor="middle" dominant-baseline="central">unknown</text>
-  <text class="dg-sub" x="542" y="282" text-anchor="middle" dominant-baseline="central">insufficient evidence</text>
+  <rect class="dg-box dg-box--warn" x="448" y="244" width="212" height="56" rx="6"/>
+  <text class="dg-label" x="554" y="260" text-anchor="middle" dominant-baseline="central">unknown</text>
+  <text class="dg-sub" x="554" y="284" text-anchor="middle" dominant-baseline="central">insufficient evidence</text>
 
   <text class="dg-edge" x="232" y="334" text-anchor="start" dominant-baseline="central">Yes</text>
-  <text class="dg-edge dg-text--warn" x="396" y="260" text-anchor="middle" dominant-baseline="central">No</text>
+  <text class="dg-edge dg-text--warn" x="424" y="260" text-anchor="middle" dominant-baseline="central">No</text>
 </svg>
 ```
 

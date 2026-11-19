@@ -20,27 +20,28 @@ title: Agent 落地的三個現實檢查，三層各自踩空
 desc: 由上往下分別是落地前的架構決策、執行中的錯誤歸因、產出後的合規遵循；今天三篇論文各自在其中一層找到具體、可量化的落差。
 caption: 數字依序來自 arxiv 2611.12953（協調架構多花 1.4–4.7x token、2.6–5.8x 延遲）、2611.13254（72% 失敗軌跡早有反證據、45% 肇事標籤其實是框架當掉）、2611.11306（GPT 查了 100% robots.txt 合規率仍僅 14.2%）。
 ---
-<svg viewBox="0 0 640 340">
-  <rect class="dg-box" x="72" y="24" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="52" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="124" y="52" dominant-baseline="central">落地前：架構決策</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">看對了：複雜分支任務上加結構有機會打平成本</text>
-  <text class="dg-sub" x="604" y="80" text-anchor="end" dominant-baseline="central">看漏了：多花 1.4–4.7x token、2.6–5.8x 延遲換不回顯著增益</text>
+<svg viewBox="0 0 700 404">
+  <rect class="dg-box" x="20" y="24" width="660" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="48" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="68" y="48" dominant-baseline="central">落地前：架構決策</text>
+  <text class="dg-sub" x="68" y="74" dominant-baseline="central">看對了：複雜分支任務上加結構有機會打平成本</text>
+  <text class="dg-sub" x="68" y="96" dominant-baseline="central">看漏了：多花 1.4–4.7x token、2.6–5.8x 延遲換不回顯著增益</text>
 
-  <rect class="dg-box" x="72" y="112" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="140" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="124" y="140" dominant-baseline="central">執行中：錯誤歸因</text>
-  <text class="dg-sub" x="604" y="140" text-anchor="end" dominant-baseline="central">看對了：症狀標籤能指出哪個 Agent、哪一步「看起來」出錯</text>
-  <text class="dg-sub" x="604" y="168" text-anchor="end" dominant-baseline="central">看漏了：72% 失敗早有反證據沒人用，45% 肇事標籤其實是框架當掉</text>
+  <rect class="dg-box" x="20" y="124" width="660" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="148" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="68" y="148" dominant-baseline="central">執行中：錯誤歸因</text>
+  <text class="dg-sub" x="68" y="174" dominant-baseline="central">看對了：症狀標籤能指出哪個 Agent、哪一步「看起來」出錯</text>
+  <text class="dg-sub" x="68" y="196" dominant-baseline="central">看漏了：72% 失敗早有反證據沒人用，45% 肇事標籤其實是框架當掉</text>
 
-  <rect class="dg-box" x="72" y="200" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="228" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="124" y="228" dominant-baseline="central">產出後：合規遵循</text>
-  <text class="dg-sub" x="604" y="228" text-anchor="end" dominant-baseline="central">看對了：強力法律警示能把合規率拉到 60–86%</text>
-  <text class="dg-sub" x="604" y="256" text-anchor="end" dominant-baseline="central">看漏了：查了規則不代表遵守，GPT 查 100% 仍只合規 14.2%</text>
+  <rect class="dg-box" x="20" y="224" width="660" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="248" dominant-baseline="central">L3</text>
+  <text class="dg-label" x="68" y="248" dominant-baseline="central">產出後：合規遵循</text>
+  <text class="dg-sub" x="68" y="274" dominant-baseline="central">看對了：強力法律警示能把合規率拉到 60–86%</text>
+  <text class="dg-sub" x="68" y="296" dominant-baseline="central">看漏了：查了規則不代表遵守，GPT 查 100% 仍只合規 14.2%</text>
 
-  <line class="dg-rule" x1="72" y1="300" x2="624" y2="300"/>
-  <text class="dg-sub" x="72" y="324" dominant-baseline="central">剩餘風險：三篇皆驗證於各自的受控環境，尚無測試同時涵蓋架構選擇、長程歸因與合規遵循的端到端部署</text>
+  <line class="dg-rule" x1="20" y1="336" x2="680" y2="336"/>
+  <text class="dg-sub" x="20" y="360" dominant-baseline="central">剩餘風險：三篇皆驗證於各自的受控環境，</text>
+  <text class="dg-sub" x="20" y="382" dominant-baseline="central">尚無測試同時涵蓋架構選擇、長程歸因與合規遵循的端到端部署</text>
 </svg>
 ```
 

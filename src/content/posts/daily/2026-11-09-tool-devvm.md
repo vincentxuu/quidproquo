@@ -62,8 +62,8 @@ desc: coding agent 在 VM 裡發出的請求，由主機上的 proxy 依 allowli
   <text class="dg-label" x="620" y="268" text-anchor="middle" dominant-baseline="central">未放行的主機</text>
 
   <text class="dg-edge" x="250" y="136" text-anchor="middle" dominant-baseline="central">佔位 token</text>
-  <text class="dg-edge dg-text--link" x="520" y="104" text-anchor="middle" dominant-baseline="central">換真 token</text>
-  <text class="dg-edge dg-text--warn" x="520" y="208" text-anchor="middle" dominant-baseline="central">403 拒絕</text>
+  <text class="dg-edge dg-text--link" x="526" y="126" text-anchor="start" dominant-baseline="central">換真 token</text>
+  <text class="dg-edge dg-text--warn" x="526" y="208" text-anchor="start" dominant-baseline="central">403 拒絕</text>
 
   <line class="dg-rule" x1="20" y1="320" x2="680" y2="320"/>
   <text class="dg-tag" x="20" y="344" dominant-baseline="central">圖例</text>

@@ -43,38 +43,38 @@ step: 判斷這版稽核有沒有通過
 step: 沒通過,加條件重新指令,回到 AI 重新生成
 step: 通過,定案輸出,最終判斷責任留在 PM
 ---
-<svg viewBox="0 0 460 460">
-  <path class="dg-line" d="M230 84V136" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line" d="M230 204V256" marker-end="url(#arrow)" data-step="3"/>
-  <path class="dg-line" d="M230 324V376" marker-end="url(#arrow)" data-step="5"/>
-  <path class="dg-line dg-line--dashed" d="M320 292H400V52H320" marker-end="url(#arrow)" data-step="4"/>
+<svg viewBox="0 0 500 460">
+  <path class="dg-line" d="M130 84V136" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M130 204V256" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line" d="M130 324V376" marker-end="url(#arrow)" data-step="5"/>
+  <path class="dg-line dg-line--dashed" d="M220 292H300V52H220" marker-end="url(#arrow)" data-step="4"/>
 
   <g data-step="1 4">
-    <rect class="dg-box" x="140" y="20" width="180" height="64" rx="6"/>
-    <text class="dg-label" x="230" y="44" text-anchor="middle" dominant-baseline="central">AI 生成方案</text>
-    <text class="dg-sub" x="230" y="64" text-anchor="middle" dominant-baseline="central">依 PM 指令產出初版</text>
+    <rect class="dg-box" x="40" y="20" width="180" height="64" rx="6"/>
+    <text class="dg-label" x="130" y="44" text-anchor="middle" dominant-baseline="central">AI 生成方案</text>
+    <text class="dg-sub" x="130" y="64" text-anchor="middle" dominant-baseline="central">依 PM 指令產出初版</text>
   </g>
 
   <g data-step="2">
-    <rect class="dg-box" x="140" y="140" width="180" height="64" rx="6"/>
-    <text class="dg-label" x="230" y="164" text-anchor="middle" dominant-baseline="central">PM 稽核</text>
-    <text class="dg-sub" x="230" y="184" text-anchor="middle" dominant-baseline="central">抓落差、風險、偏離方向</text>
+    <rect class="dg-box" x="40" y="140" width="180" height="64" rx="6"/>
+    <text class="dg-label" x="130" y="164" text-anchor="middle" dominant-baseline="central">PM 稽核</text>
+    <text class="dg-sub" x="130" y="184" text-anchor="middle" dominant-baseline="central">抓落差、風險、偏離方向</text>
   </g>
 
   <g data-step="3">
-    <rect class="dg-box" x="140" y="260" width="180" height="64" rx="6"/>
-    <text class="dg-label" x="230" y="284" text-anchor="middle" dominant-baseline="central">稽核通過？</text>
-    <text class="dg-sub" x="230" y="304" text-anchor="middle" dominant-baseline="central">沒通過回頭重做</text>
+    <rect class="dg-box" x="40" y="260" width="180" height="64" rx="6"/>
+    <text class="dg-label" x="130" y="284" text-anchor="middle" dominant-baseline="central">稽核通過？</text>
+    <text class="dg-sub" x="130" y="304" text-anchor="middle" dominant-baseline="central">沒通過回頭重做</text>
   </g>
 
   <g data-step="5">
-    <rect class="dg-box dg-box--accent" x="140" y="380" width="180" height="64" rx="6"/>
-    <text class="dg-label" x="230" y="404" text-anchor="middle" dominant-baseline="central">定案輸出</text>
-    <text class="dg-sub" x="230" y="424" text-anchor="middle" dominant-baseline="central">PM 承擔最終判斷責任</text>
+    <rect class="dg-box dg-box--accent" x="40" y="380" width="180" height="64" rx="6"/>
+    <text class="dg-label" x="130" y="404" text-anchor="middle" dominant-baseline="central">定案輸出</text>
+    <text class="dg-sub" x="130" y="424" text-anchor="middle" dominant-baseline="central">PM 承擔最終判斷責任</text>
   </g>
 
-  <text class="dg-edge" x="405" y="172" text-anchor="start" dominant-baseline="central" data-step="4">否：加條件重新指令</text>
-  <text class="dg-edge" x="245" y="352" text-anchor="start" dominant-baseline="central" data-step="5">是</text>
+  <text class="dg-edge" x="305" y="172" text-anchor="start" dominant-baseline="central" data-step="4">否：加條件重新指令</text>
+  <text class="dg-edge" x="145" y="352" text-anchor="start" dominant-baseline="central" data-step="5">是</text>
 </svg>
 ```
 

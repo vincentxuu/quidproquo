@@ -33,25 +33,25 @@ title: 安全能力被收編進同一個治理平台，護城河從「選模型�
 desc: 由上往下三格分別是模型選擇、Fiddler AI 的可觀測性、Dreadnode 的紅隊測試，原本各自獨立；CrowdStrike 的收購把後兩者一次性收進 Falcon Guardian，推出 AI Kill Switch，變成同一個鎖定點。
 caption: 模型層的一分之差幾乎可忽略；安全層的轉換成本在收購後被整合進單一平台，反而升高。
 ---
-<svg viewBox="0 0 440 330">
-  <rect class="dg-box dg-box--warn" x="56" y="18" width="328" height="72" rx="6"/>
-  <text class="dg-label" x="76" y="46" dominant-baseline="central">模型選擇</text>
-  <text class="dg-sub" x="76" y="70" dominant-baseline="central">縫隙：Gemini 4 Carbon 僅贏 Opus 5.5 一分，可替換</text>
-  <text class="dg-sub" x="368" y="46" text-anchor="end" dominant-baseline="central">表象：挑最聰明的模型</text>
+<svg viewBox="0 0 480 352">
+  <rect class="dg-box dg-box--warn" x="20" y="16" width="440" height="80" rx="6"/>
+  <text class="dg-label" x="40" y="36" dominant-baseline="central">模型選擇</text>
+  <text class="dg-sub" x="40" y="60" dominant-baseline="central">表象：挑最聰明的模型</text>
+  <text class="dg-sub" x="40" y="80" dominant-baseline="central">縫隙：Gemini 4 Carbon 僅贏 Opus 5.5 一分，可替換</text>
 
-  <rect class="dg-box dg-box--warn" x="56" y="100" width="328" height="72" rx="6"/>
-  <text class="dg-label" x="76" y="128" dominant-baseline="central">Fiddler AI（可觀測性）</text>
-  <text class="dg-sub" x="76" y="152" dominant-baseline="central">縫隙：被 CrowdStrike 收購，不再獨立</text>
-  <text class="dg-sub" x="368" y="128" text-anchor="end" dominant-baseline="central">表象：獨立監控 agent 行為</text>
+  <rect class="dg-box dg-box--warn" x="20" y="106" width="440" height="80" rx="6"/>
+  <text class="dg-label" x="40" y="126" dominant-baseline="central">Fiddler AI（可觀測性）</text>
+  <text class="dg-sub" x="40" y="150" dominant-baseline="central">表象：獨立監控 agent 行為</text>
+  <text class="dg-sub" x="40" y="170" dominant-baseline="central">縫隙：被 CrowdStrike 收購，不再獨立</text>
 
-  <rect class="dg-box dg-box--warn" x="56" y="182" width="328" height="72" rx="6"/>
-  <text class="dg-label" x="76" y="210" dominant-baseline="central">Dreadnode（紅隊）</text>
-  <text class="dg-sub" x="76" y="234" dominant-baseline="central">縫隙：同日被收購，整合進同一平台</text>
-  <text class="dg-sub" x="368" y="210" text-anchor="end" dominant-baseline="central">表象：獨立紅隊測試 agent 安全</text>
+  <rect class="dg-box dg-box--warn" x="20" y="196" width="440" height="80" rx="6"/>
+  <text class="dg-label" x="40" y="216" dominant-baseline="central">Dreadnode（紅隊）</text>
+  <text class="dg-sub" x="40" y="240" dominant-baseline="central">表象：獨立紅隊測試 agent 安全</text>
+  <text class="dg-sub" x="40" y="260" dominant-baseline="central">縫隙：同日被收購，整合進同一平台</text>
 
-  <rect class="dg-box dg-box--accent" x="56" y="264" width="328" height="56" rx="6"/>
-  <text class="dg-label dg-text--invert" x="76" y="292" dominant-baseline="central">Falcon Guardian + AI Kill Switch</text>
-  <text class="dg-sub dg-text--invert" x="368" y="292" text-anchor="end" dominant-baseline="central">企業買的是能不能一鍵關掉</text>
+  <rect class="dg-box dg-box--accent" x="20" y="286" width="440" height="60" rx="6"/>
+  <text class="dg-label" x="40" y="304" dominant-baseline="central">Falcon Guardian + AI Kill Switch</text>
+  <text class="dg-sub" x="40" y="328" dominant-baseline="central">企業買的是能不能一鍵關掉</text>
 </svg>
 ```
 

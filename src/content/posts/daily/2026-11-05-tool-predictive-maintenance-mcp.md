@@ -65,9 +65,9 @@ caption: 簡化示意：實際還會列出偏差量與多個候選故障模式�
   <text class="dg-label" x="200" y="431" text-anchor="middle" dominant-baseline="central">診斷報告</text>
   <text class="dg-sub" x="200" y="451" text-anchor="middle" dominant-baseline="central">附頻率證據與嚴重度</text>
 
-  <rect class="dg-box dg-box--warn" x="380" y="232" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="470" y="248" text-anchor="middle" dominant-baseline="central">unknown</text>
-  <text class="dg-sub" x="470" y="266" text-anchor="middle" dominant-baseline="central">證據不足，不下判斷</text>
+  <rect class="dg-box dg-box--warn" x="380" y="228" width="180" height="56" rx="6"/>
+  <text class="dg-label" x="470" y="244" text-anchor="middle" dominant-baseline="central">unknown</text>
+  <text class="dg-sub" x="470" y="268" text-anchor="middle" dominant-baseline="central">證據不足，不下判斷</text>
 
   <text class="dg-edge" x="212" y="318" text-anchor="start" dominant-baseline="central">是</text>
   <text class="dg-edge dg-text--warn" x="344" y="244" text-anchor="middle" dominant-baseline="central">否</text>
