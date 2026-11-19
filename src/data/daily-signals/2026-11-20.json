@@ -1,0 +1,642 @@
+{
+  "date": "2026-11-20",
+  "generatedAt": "2026-11-19T19:40:53Z",
+  "routineId": "J",
+  "signalCount": 34,
+  "signals": [
+    {
+      "id": "sig-001",
+      "title": "Malicious versions of Microsoft's agent-framework PyPI package steal credentials",
+      "source": "wiz-blog",
+      "sourceUrl": "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi",
+      "publishedDate": "2026-11-17",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Microsoft 的 agent-framework PyPI 套件（月下載近 20 萬次）11/17 被上傳含竊憑證程式的惡意版本 1.26.1/1.26.2，影響 Azure 與 CI pipeline 存取憑證，已被下架並建議釘選 1.26.0。",
+      "relevance": 0.95,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "techrepublic",
+        "ox-security",
+        "newsy-today",
+        "strongmocha"
+      ]
+    },
+    {
+      "id": "sig-002",
+      "title": "Google ships Gemini 4 Neon, its fourth new Gemini model in a month",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/google-ships-gemini-4-neon-its-fourth-new-gemini-model-in-a-month/",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google 在一個月內發佈第四款 Gemini 4 模型 Neon，定價 $3/$15（每百萬 token），支援百萬 token 情境窗與 Computer Use、程式執行、Grounding，定位近似 Claude Opus／GPT Sol 等級。",
+      "relevance": 0.9,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-003",
+      "title": "Google DeepMind's Project Genie update brings Genie 4 and chainable worlds",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/google-deepminds-project-genie-update-brings-genie-4-chainable-worlds-and-a-community-gallery-for-remixing/",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google DeepMind 的世界模型 Genie 4 從研究預覽轉為 Google AI Ultra 訂閱開放，支援即時文字改寫世界、原生音效、可鏈接場景與社群重製畫廊。",
+      "relevance": 0.7,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-004",
+      "title": "Microsoft launches AI Transparency Initiative to make AI agents independently verifiable",
+      "source": "actuia",
+      "sourceUrl": "https://www.actuia.com/en/news/microsoft-launches-initiative-to-make-ai-agents-independently-verifiable/",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Microsoft 聯合 40 多個組織推出 AI Transparency Initiative，目標讓 AI agent 的行為可被獨立驗證，風險評分與遏制控制機制仍在預覽階段。",
+      "relevance": 0.85,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-005",
+      "title": "Perplexity launches Multiagent, up to 16 AI agents working as one team",
+      "source": "pasqualepillitteri",
+      "sourceUrl": "https://pasqualepillitteri.it/en/news/35232/perplexity-launches-multiagent-up-to-16-ai-agents-working",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "perplexity"
+      ],
+      "section": "C1",
+      "ring": 2,
+      "summary": "Perplexity 推出 Multiagent 功能，讓 Fable 5.2 統籌最多 16 個不同模型的 AI agent 協作，目前限 Max 方案網頁版使用。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-006",
+      "title": "Google adds Computer Use agent feature to Gemini app for macOS",
+      "source": "biggo-finance",
+      "sourceUrl": "https://finance.biggo.com/news/5703b3da-c8f4-4031-add6-62c4a213eb62",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google 為 macOS 版 Gemini App 加入 Computer Use 功能，讓 AI 可跨應用程式代為操作任務，同步推出英文版美國上線。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-007",
+      "title": "Meta's Muse AI agent hit by SEV-2 vulnerability, calling feature rolled back",
+      "source": "shattered-io",
+      "sourceUrl": "https://shattered.io/meta-muse-ai-agent-sev-2-vulnerability-human-concierge-rollback/",
+      "publishedDate": "2026-11-18",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [
+        "meta"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Meta 內部將 Muse AI agent 的一項漏洞列為五級中第三高的 SEV-2，外部研究者的 bug bounty 報告促使 Meta 回收一項人力協助通話實驗；Meta 坦承 Muse 尚未完全防範 prompt injection。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-008",
+      "title": "Meta's Muse reaches Australia with nine local connector partners",
+      "source": "ppc-land",
+      "sourceUrl": "https://ppc.land/metas-muse-reaches-australia-with-9-local-partners-from-canva-to-kogan/",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "meta"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Meta 個人 AI agent Muse 正式進入澳洲市場，與 Canva、Domain、Kogan、MECCA、Officeworks 等 9 家本地品牌串接。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "region-oceania"
+      ]
+    },
+    {
+      "id": "sig-009",
+      "title": "AG-UI Protocol hits v1.0 with a frozen spec, surges on GitHub trending",
+      "source": "blockchain-news",
+      "sourceUrl": "https://blockchain.news/news/ag-ui-protocol-github-trending",
+      "publishedDate": "2026-11-18",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "Agent-UI 互動協定 AG-UI 發佈凍結規格的 1.0 版，24 小時內在 GitHub 新增 1444 星，並保證向下相容讓舊版 agent 可與 1.0 client 互通。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-010",
+      "title": "Claude Agent SDK Python 0.2.184 released",
+      "source": "freedom-tech",
+      "sourceUrl": "https://freedom.tech/posts/2026-11-18-claude-agent-sdk-python-0-2-184/",
+      "publishedDate": "2026-11-18",
+      "dateConfidence": "verified",
+      "category": "framework-release",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Claude Agent SDK Python 更新至 0.2.184，加強 agentic workflow 的 tool 整合與型別安全性。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-011",
+      "title": "Microsoft releases Copilot SDK 2.0 with rebuilt Rust runtime for enterprise AI agents",
+      "source": "visualstudiomagazine",
+      "sourceUrl": "https://visualstudiomagazine.com/articles/2026/11/17/microsoft-releases-copilot-sdk-2-0-for-enterprise-ai-agents.aspx",
+      "publishedDate": "2026-11-17",
+      "dateConfidence": "verified",
+      "category": "framework-release",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Microsoft 發佈 Copilot SDK 2.0，重寫 Rust runtime，讓開發者可在單一行程內承載多個 agent session 並選擇工具執行位置。",
+      "relevance": 0.7,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-012",
+      "title": "Governor Newsom proposes sweeping California AI safety framework with 'emergency brakes'",
+      "source": "politico",
+      "sourceUrl": "https://www.politico.com/news/2026/11/18/newsom-ai-plan-01172739",
+      "publishedDate": "2026-11-18",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 1,
+      "summary": "加州州長 Newsom 提出全面性 AI 安全框架草案，主張讓州政府介入高風險模型、在實驗室內嵌獨立安全監督，並保留強制關閉危險模型的「緊急制動」權力，作為聯邦立法範本。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-013",
+      "title": "Trump rejects global AI regulation at APEC amid reports of AI agents breaching government sites",
+      "source": "euronews",
+      "sourceUrl": "https://www.euronews.com/2026/11/19/us-president-trump-rejects-global-ai-regulation-as-chinas-xi-calls-for-cooperation-on-safe",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "川普在 APEC 公開反對任何形式的全球 AI 監管，習近平則呼籲在 AI 上維持「人類可控」；報導同時提及 OpenAI 的 agent 曾入侵澳洲政府入口網站與多個美國政府網站。",
+      "relevance": 0.8,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-014",
+      "title": "Trump administration weighs requiring disclosure of Chinese AI model use",
+      "source": "tokenpost",
+      "sourceUrl": "https://www.tokenpost.com/news/regulation/60345",
+      "publishedDate": "2026-11-18",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "deepseek"
+      ],
+      "section": "F1",
+      "ring": 3,
+      "summary": "川普政府考慮要求美國企業公開揭露是否使用中國 AI 模型，並評估限制政府採購與將部分中國實驗室列入商務部實體清單。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-015",
+      "title": "How OpenAI's Performance Factory keeps ChatGPT fast",
+      "source": "openai-news",
+      "sourceUrl": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast/",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 分享內部「Performance Factory」工程實踐，說明如何在規模成長下維持 ChatGPT 回應速度。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-016",
+      "title": "OpenAI details Codex's sandbox isolation design",
+      "source": "openai-news",
+      "sourceUrl": "https://openai.com/index/inside-the-codex-sandbox/",
+      "publishedDate": "2026-11-18",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 公開 Codex coding agent 的 sandbox 隔離架構細節，說明如何限制 agent 執行環境的存取範圍。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-017",
+      "title": "OpenAI publishes framework for managing frontier AI risk from training to deployment",
+      "source": "openai-news",
+      "sourceUrl": "https://openai.com/index/managing-frontier-ai-risk/",
+      "publishedDate": "2026-11-18",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 發佈從訓練到部署全流程的前沿 AI 風險管理框架，闡述其內部風險分級與緩解機制。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-018",
+      "title": "OpenAI's AI models deliver a year's worth of chip optimization atop AMD's own engineering",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/openai-says-its-models-delivered-a-years-worth-of-chip-optimization-on-top-of-amds-own-engineering/",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 與 AMD 合作，用自家模型在 5 個月內讓旗艦 GPU IP 提升最多 14% 的功耗/效能/面積（PPA），相當於工程師多年優化成果，部分改動已進入量產設計。",
+      "relevance": 0.6,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "openai-news"
+      ]
+    },
+    {
+      "id": "sig-019",
+      "title": "AWS and Skyflow protect agent tool calls via Bedrock AgentCore Gateway",
+      "source": "aws-ml-blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/protect-agent-tool-calls-with-skyflow-and-amazon-bedrock-agentcore-gateway/",
+      "publishedDate": "2026-11-18",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "AWS 與 Skyflow 合作，透過 Bedrock AgentCore Gateway 為 agent 的工具呼叫加上資料防護層，防止敏感資訊外洩。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-020",
+      "title": "PolyAI's Dialog-RSN-1 reasoning model now on Amazon SageMaker JumpStart",
+      "source": "aws-ml-blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/polyai-dialog-rsn-1-is-now-on-amazon-sagemaker-jumpstart/",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "即時複雜對話用的推理模型 PolyAI Dialog-RSN-1 上架 AWS Marketplace 與 SageMaker JumpStart，可一鍵部署至私有 SageMaker endpoint。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-021",
+      "title": "Accenture's sequenced approach optimizes AI economics on Amazon Bedrock",
+      "source": "aws-ml-blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/optimize-ai-economics-on-amazon-bedrock-with-accentures-sequenced-approach/",
+      "publishedDate": "2026-11-18",
+      "dateConfidence": "verified",
+      "category": "enterprise-deployment",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Accenture 分享在 Amazon Bedrock 上透過分階段排序的方式控管企業導入 AI 的成本結構。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-022",
+      "title": "NVIDIA shows how to build tool-calling parsers in Rust for AI agents",
+      "source": "nvidia-dev-blog",
+      "sourceUrl": "https://developer.nvidia.com/blog/build-tool-calling-parsers-in-rust-with-ai-agents/",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "nvidia"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "NVIDIA 技術文章示範如何用 Rust 建構可容錯處理分段、截斷輸出的 tool-calling parser，解決 agent 工具呼叫輸出不完整的問題。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-023",
+      "title": "Vercel introduces Board, a shared message board for humans and agents",
+      "source": "vercel-blog",
+      "sourceUrl": "https://vercel.com/blog/introducing-vercel-board",
+      "publishedDate": "2026-11-18",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "v0-vercel"
+      ],
+      "section": "B1",
+      "ring": 2,
+      "summary": "Vercel 推出 Board，一個讓人類與 AI agent 共用的訊息看板型協作工具。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-024",
+      "title": "Sourcegraph cuts credit costs across Deep Search and Code Finder",
+      "source": "sourcegraph-blog",
+      "sourceUrl": "https://sourcegraph.com/blog/credit-pricing-update",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "pricing-change",
+      "companies": [
+        "sourcegraph"
+      ],
+      "section": "B1",
+      "ring": 2,
+      "summary": "Sourcegraph 降低點數成本：同樣點數可用的 Deep Search 增加 40%、Code Finder（透過 MCP）成本降到 3 點，Smart Hovers 改為免費。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-025",
+      "title": "Java4Shell (CVE-2026-114938) lets attackers target every vulnerable JDK across repos and servers",
+      "source": "sourcegraph-blog",
+      "sourceUrl": "https://sourcegraph.com/blog/java4shell-cve-2026-114938-find-vulnerable-jdk",
+      "publishedDate": "2026-11-18",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "Java4Shell（CVE-2026-114938）只影響搭載 AVX-512 的 x86 CPU 上的 Java 17+，Sourcegraph 說明如何用 Deep Search 找出所有受影響 JDK 並修補。",
+      "relevance": 0.6,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "aikido-blog"
+      ]
+    },
+    {
+      "id": "sig-026",
+      "title": "Alibaba Cloud publishes DeepSeek harness evaluation practice built on AgentLoop",
+      "source": "alibabacloud-blog",
+      "sourceUrl": "https://www.alibabacloud.com/blog/deepseek-harness-evaluation-practice-based-on-alibaba-cloud-agentloop_603790",
+      "publishedDate": "2026-11-18",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "alibaba-qwen",
+        "deepseek"
+      ],
+      "section": "F1",
+      "ring": 3,
+      "summary": "Alibaba Cloud 介紹用 AgentLoop 搭配 terminal-bench 2 對 DeepSeek Harness Agent framework 做三維度、基於軌跡的評測方法。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-027",
+      "title": "US export controls and NYT investigation hit Chinese AI firms: chip shipments stop, Alibaba accused of routing Nvidia chips to military",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/chinese-tech-firms-face-a-double-hit-as-chip-shipments-stop-and-overseas-cloud-access-disappears/",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 3,
+      "summary": "美國升級 AI 晶片出口管制：月之暗面放棄印尼 1.5 億美元合約、台積電與三星停止對中供貨；紐時調查指阿里巴巴透過空殼公司將 Nvidia 晶片轉售給中國軍方研究單位。",
+      "relevance": 0.75,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "chosun",
+        "cnbc"
+      ],
+      "tags": [
+        "region-east-asia"
+      ]
+    },
+    {
+      "id": "sig-028",
+      "title": "Open OCR models now digitize a million pages for under $130 as costs drop fivefold in 18 months",
+      "source": "the-decoder",
+      "sourceUrl": "https://the-decoder.com/ocr-models-now-digitize-a-million-pages-for-under-130-as-costs-drop-fivefold-in-18-months/",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "Hugging Face 研究者比較 8 款開源 OCR 模型，發現同尺寸下每千頁成本從 2025 年 4 月的 51 美分降到 2026 年 10 月的不到 10 美分，模型迭代與推論優化同等重要。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-029",
+      "title": "Singapore's MAS advances AI agent protocol and tokenised collateral framework",
+      "source": "asianbankingandfinance",
+      "sourceUrl": "https://asianbankingandfinance.net/banking-technology/in-focus/singapore-explores-ai-agent-protocol-and-tokenisation-framework",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "新加坡 MAS 推出 Guardian Tokenised Collateral Framework，並與業界合作制定 AI agent 協定與代幣化抵押品的規管要求。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "region-southeast-asia"
+      ]
+    },
+    {
+      "id": "sig-030",
+      "title": "India's SEBI prepares guidelines for AI-powered trading agents in capital markets",
+      "source": "tribuneindia",
+      "sourceUrl": "https://www.tribuneindia.com/news/ai-regulation/sebi-preparing-guidelines-for-responsible-ai-use-in-capital-markets-including-disclosures-and-accountability-kvr-murty",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "印度證券交易委員會（SEBI）表示正準備針對資本市場中負責任使用 AI（含揭露與責任歸屬）的指引，並點名 AI 交易 agent 帶來的新監管挑戰。",
+      "relevance": 0.6,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "moneycontrol"
+      ],
+      "tags": [
+        "region-south-asia"
+      ]
+    },
+    {
+      "id": "sig-031",
+      "title": "IndiaAI Mission startup Soket AI raises $4M for on-premise LLMs",
+      "source": "indianstartupnews",
+      "sourceUrl": "https://indianstartupnews.com/funding/indiaai-mission-startup-soket-ai-gets-4-million-from-bajaj-finance-and-pennant-for-on-premise-llms",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "印度 IndiaAI Mission 旗下、發佈 263 億參數模型 EKA-1 的 Soket AI，從 Bajaj Finance 與 Pennant Technologies 取得近 400 萬美元資金。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "region-south-asia"
+      ]
+    },
+    {
+      "id": "sig-032",
+      "title": "Global Privacy Assembly adopts first global standards for agentic AI and privacy-enhancing tech",
+      "source": "mlex",
+      "sourceUrl": "https://www.mlex.com/mlex/technology/articles/2552199",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "超過 80 國的資料保護機關在布魯塞爾的第 48 屆 Global Privacy Assembly 上通過 agentic AI 與隱私強化技術的非強制性全球標準，限制 agent 處理個資的方式並要求持續測試與即時監控。",
+      "relevance": 0.7,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "region-europe"
+      ]
+    },
+    {
+      "id": "sig-033",
+      "title": "Debate over whether EU AI Act adequately covers agentic AI intensifies",
+      "source": "europesays",
+      "sourceUrl": "https://www.europesays.com/3386635/",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "歐盟 AI 委員會成員反駁「AI Act 對 agentic AI 存在監管空白」的說法，強調法規依技術用途與風險而非特定技術形式規管，agentic AI 已在數個層面受規管。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "region-europe"
+      ]
+    },
+    {
+      "id": "sig-034",
+      "title": "Cassava Technologies seeks $1B to expand African AI data centres with Nvidia chips",
+      "source": "dataconomy",
+      "sourceUrl": "https://dataconomy.com/2026/11/19/cassava-seeks-1-billion-for-nvidia-chips-to-build-african/",
+      "publishedDate": "2026-11-19",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "辛巴威創辦人 Masiyiwa 的 Cassava Technologies 向美國與中東投資者洽談最多 10 億美元融資，計畫在南非、埃及、肯亞、奈及利亞部署 12,000 張 Nvidia 晶片建置 AI 資料中心。",
+      "relevance": 0.55,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "thezimbabwemail",
+        "cioafrica"
+      ],
+      "tags": [
+        "region-africa"
+      ]
+    }
+  ]
+}
