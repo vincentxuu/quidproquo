@@ -101,7 +101,7 @@ Firefox 和 WebKit 是完整的瀏覽器引擎，一點也不比 Chromium 輕。
 
 ## 想深入
 
-這幾個引擎多半透過託管服務來用：Kitesurf 在 Cloudflare Browser Run 裡，Lightpanda 有自己的雲端。下一篇換到「瀏覽器放在哪裡跑」：Browserbase、Browser Run、Steel、Hyperbrowser、Browser Use Cloud 這些託管服務各適合什麼，什麼時候該自己架。
+這幾個引擎多半透過託管服務來用：Kitesurf 在 Cloudflare Browser Run 裡，Lightpanda 有自己的雲端。[下一篇](/posts/ai/2026-11-19-hosted-browser-comparison)換到「瀏覽器放在哪裡跑」：Browserbase、Browser Run、Steel、Hyperbrowser、Browser Use Cloud 這些託管服務各適合什麼，什麼時候該自己架。
 
 ## 參考資料
 

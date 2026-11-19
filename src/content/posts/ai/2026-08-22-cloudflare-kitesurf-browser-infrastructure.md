@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [cloudflare, kitesurf, browser-automation, ai-agent, webassembly, workers]
 lang: zh-TW
-tldr: "Kitesurf 是 Browser Run 內仍在 beta 的非 Chromium 瀏覽器後端：用 Workers isolates、Rust/Wasm 與無狀態元件換低 CPU／記憶體，但犧牲像素相容性、長登入工作階段、WebGL 與完整反機器人能力。"
+tldr: "Kitesurf 是 Browser Run 內仍在 beta 的非 Chromium 瀏覽器後端，2026-11 起以 Apache-2.0 開源、可自行部署到 Workers：用 Workers isolates、Rust/Wasm 與無狀態元件換低 CPU／記憶體，但犧牲像素相容性、長登入工作階段、WebGL 與完整反機器人能力。"
 description: "拆解 Cloudflare Kitesurf 的 Engine、PageScript、PageRenderer 與 SandboxOutbound 架構，釐清它和 Browser Run、舊 Browser Rendering 的關係，並比較 Browserbase、Steel、Hyperbrowser 的選型邊界。"
 draft: false
 series:
@@ -19,7 +19,7 @@ series:
 
 產品層級要先切清楚：**Browser Run 是 Cloudflare 的託管瀏覽器 API，Kitesurf 是其中一個仍在 beta 的可選後端。** Browser Run 的預設後端仍是 Chromium；請求加上 `browser=kitesurf` 才會切換引擎。2026-04 的「Browser Rendering 改名 Browser Run」是既有產品擴充 CDP、Live View 與 Human in the Loop，不是 Kitesurf 的發布。
 
-截至 2026-08-22，Kitesurf 在 beta 期間免費但受每帳號限制，不能當成 GA 能力承諾。選型問題很直接。大量讀頁面、抽 HTML、截圖的 agent 可能適合 Kitesurf。要長期登入、通過 bot challenge、完整重現 Chrome，則應留在 Chromium。
+截至 2026-11，[官方文件](https://developers.cloudflare.com/browser-run/kitesurf/)仍寫 Kitesurf 在 beta 期間免費但受每帳號限制，不能當成 GA 能力承諾。2026-11-12 起它以 Apache-2.0 [開源](https://blog.cloudflare.com/kitesurf-open-source/)（[cloudflare/kitesurf](https://github.com/cloudflare/kitesurf)），可以自己部署到 Workers，但需要 Workers Paid 方案；README 提醒本機版的 JavaScript 跑在 `workerd` 裡，不是加固過的沙箱，不要拿來開不受信任的網站，部署時前面也要加認證。選型問題很直接。大量讀頁面、抽 HTML、截圖的 agent 可能適合 Kitesurf。要長期登入、通過 bot challenge、完整重現 Chrome，則應留在 Chromium。
 
 ## 設計哲學：把「人的瀏覽器」拆掉
 
@@ -45,7 +45,7 @@ PageRenderer Worker ── PNG / JPEG / PDF
 
 **Engine** 是唯一對外元件，接 CDP WebSocket 與 REST，並保存 session 狀態。這個相容層讓既有 Puppeteer、Playwright、chrome-remote-interface 或 Chrome DevTools client 不必學一套全新協定。
 
-**PageScript** 為每個頁面或跨程序 iframe 建立 Dynamic Worker isolate。HTML 與 CSS 由 Rust 元件 Blitz、Stylo 解析，網站的 JavaScript 與 Wasm 在該 isolate 執行。Workers 原生不允許 `eval`，目前改由 Rust 的 Boa JavaScript engine 處理。這是可用的相容補洞，不等於完整 V8 行為。
+**PageScript** 為每個頁面或跨程序 iframe 建立 Dynamic Worker isolate。HTML 與 CSS 由 Rust 元件 Blitz、Stylo 解析，網站的 JavaScript 與 Wasm 在該 isolate 執行。開源公告說明，只有在 Dynamic Workers 跑不了 JavaScript 時，才以 WebAssembly 裡的 Rust Boa engine 當最後手段。這是可用的相容補洞，不等於完整 V8 行為。
 
 **PageRenderer** 透過 Workers RPC 接收 scene，載入字型與圖片後輸出畫面。它不保存頁面狀態，卡死時可以直接丟棄重開。**SandboxOutbound** 則是唯一能對 origin 發 request 的元件，負責 CORS、headers、response filtering 與每頁獨立 cookie jar；其他元件不能直接連外。
 
@@ -74,7 +74,7 @@ wss://api.cloudflare.com/client/v4/accounts/<ACCOUNT_ID>/browser-run/devtools/br
 
 Cloudflare 自家 benchmark 使用 14 個 URL、每項五次 Browser Run Quick Action，並拿 Kitesurf 冷執行和 Chromium warm pool 比。[公告結果](https://blog.cloudflare.com/kitesurf/)顯示 HTML 擷取的記憶體少七倍，CPU 少 3.8 倍；但 wall time 慢 1.7 倍。這組數字適合說明架構取捨，不能外推成所有網站都更省或更快。
 
-相容性也只能當進度指標。Cloudflare 自報 Kitesurf 已通過約 215,000 個 Web Platform Tests；WPT 測的是標準行為，不等於真實網站、反機器人系統或視覺回歸都會通過。今晚能做的測試是拿自己流量最高的 20 個網站，逐一比對 DOM 欄位、互動結果與 screenshot diff，而不是只看 WPT 總數。
+相容性也只能當進度指標。Cloudflare 各頁對 Web Platform Tests 的數字不一致：文件寫通過超過 235,000 個子測試，9 月的部落格寫 730,000 以上，[kitesurf.dev](https://kitesurf.dev/wpt) 則列出 1,543,688 個中通過 1,516,918 個，其中約 114 萬是編碼相關的自動生成測試。計法不同，不能跨頁或跨廠商比較；WPT 測的是標準行為，不等於真實網站、反機器人系統或視覺回歸都會通過。今晚能做的測試是拿自己流量最高的 20 個網站，逐一比對 DOM 欄位、互動結果與 screenshot diff，而不是只看 WPT 總數。
 
 ## 安全邊界：網站隔離了，agent 還沒安全
 
@@ -94,22 +94,37 @@ Cloudflare 自家 benchmark 使用 14 個 URL、每項五次 Browser Run Quick A
 |---|---|---|
 | 大量無狀態讀頁、HTML／PDF／截圖，已用 Workers | Kitesurf | 非 Chromium、isolate 原生、Browser Run Quick Actions；接受 beta 與相容性取捨 |
 | 完整 Chrome、持久登入、live inspector 與代管代理網路 | Browserbase | [Session 是核心物件](https://docs.browserbase.com/reference/api/overview)，Contexts 可跨 session 重用環境；託管 proxy 與觀測功能較完整 |
-| 想自架完整瀏覽器 API | Steel | [Apache-2.0 專案](https://github.com/steel-dev/steel-browser)可用 Docker 自架，保留 CDP、session、proxy、extension 與 quick actions |
+| 想自架完整瀏覽器 API | Steel | [Apache-2.0 專案](https://github.com/steel-dev/steel-browser)可用 Docker 自架，保留 CDP、session、proxy、extension 與 quick actions；但[官方文件](https://steel.dev/docs/llms-full/self-hosting.txt)寫明自架版一次只有一個 session、不檢查 API key |
 | 完整 Chrome 加 stealth、CAPTCHA、profile 與 agent API | Hyperbrowser | [Session parameters](https://www.hyperbrowser.ai/docs/sessions/parameters)把 proxy、stealth、CAPTCHA、recording 與 profile 做成設定；部分能力需付費或 Enterprise |
 
 比較時不要只問「能不能開網頁」。用同一批目標網站測五件事：登入能否保存、動態頁能否完成、被擋率、人工接管流程、每個成功任務成本。Kitesurf 最可能贏的是可重播的讀取型任務；完整 Chromium 平台最可能贏的是有身分、長時間且網站相容性優先的任務。
+
+## 2026 年 9 月到 11 月的變化
+
+- **9 月 28 日**：[支援 WebMCP](https://blog.cloudflare.com/kitesurf-update/)，並宣布「full Browser Run API coverage」，CDP、Playwright、Puppeteer、MCP 都能用；Workers binding 可以用 `quickAction(..., { browser: "kitesurf" })` 指定 Kitesurf；另外推出終端機 CLI。
+- **11 月 12 日**：以 Apache-2.0 開源，可自行部署到 Workers（需 Workers Paid）。
+- 公開的 playground 改到 [kitesurf.dev](https://kitesurf.dev/)，也有每日更新的 [benchmark](https://kitesurf.dev/benchmarks)。
+
+Kitesurf 在 Chromium 以外的引擎裡處於什麼位置，跟 Lightpanda、Obscura 怎麼比，見[引擎篇](/posts/ai/2026-11-19-browser-engines-beyond-chromium)；Browser Run 本身的 Quick Actions 與 Browser Sessions，見 [Browser Run 篇](/posts/ai/2026-11-19-cloudflare-browser-run)。
 
 ## 整體來說
 
 Kitesurf 不是 Cloudflare 做了一個更便宜的 Chrome，而是把「agent 真的需要多少瀏覽器」變成架構問題。Engine 留最少 session state，頁面程式與 rendering 分拆到 isolates，網路集中經過 SandboxOutbound；這套設計很適合大量、短命、可重試的網頁工作。
 
-目前它仍是免費 beta，也有清楚的功能缺口。最穩健的導入方式，是把它當 Browser Run 的第二個 execution backend。先用任務分類與相容性測試吃下擷取流量，再讓 Chromium 保留登入、反機器人與視覺精準流程。等實際成功率和成本證明值得，再擴大路由比例。
+目前它仍是免費 beta，也有清楚的功能缺口；開源之後多了自架的選項，但同樣要自己補認證與沙箱。最穩健的導入方式，是把它當 Browser Run 的第二個 execution backend。先用任務分類與相容性測試吃下擷取流量，再讓 Chromium 保留登入、反機器人與視覺精準流程。等實際成功率和成本證明值得，再擴大路由比例。
+
+## 更新紀錄
+
+- 2026-11-19：補上 2026-11-12 開源、9 月的 WebMCP 與完整 Browser Run API 支援；修正 WPT 數字、Boa 的角色與 playground 網址；Steel 自架補上單一 session 的限制。
 
 ## 參考資料
 
 - [Kitesurf — Cloudflare Browser Run docs](https://developers.cloudflare.com/browser-run/kitesurf/)（beta 狀態、使用方式、適用與不適用情境）
 - [Introducing Kitesurf](https://blog.cloudflare.com/kitesurf/)（架構、隔離模型、WPT 與 vendor benchmark 方法）
-- [Kitesurf playground](https://kitesurf.cloudflare.app/)（公開 CDP、支援輸出與執行限制）
+- [Kitesurf playground（kitesurf.dev）](https://kitesurf.dev/)（公開 CDP、支援輸出與執行限制）
+- [Kitesurf is now open source](https://blog.cloudflare.com/kitesurf-open-source/)（Apache-2.0、自架需求與元件說明）
+- [Kitesurf update（2026-09）](https://blog.cloudflare.com/kitesurf-update/)（WebMCP、完整 Browser Run API 支援、CLI）
+- [cloudflare/kitesurf](https://github.com/cloudflare/kitesurf)
 - [Browser Run: give your agents a browser](https://blog.cloudflare.com/browser-run-for-ai-agents/)（Browser Rendering 改名與 Browser Run 功能範圍）
 - [Browserbase API Overview](https://docs.browserbase.com/reference/api/overview) 與 [Proxies](https://docs.browserbase.com/platform/identity/proxies)（session、context 與 proxy 模型）
 - [Steel Browser GitHub repository](https://github.com/steel-dev/steel-browser)（自架、CDP、session、proxy 與 quick actions）

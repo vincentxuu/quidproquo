@@ -165,9 +165,8 @@ curl -X POST 'https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-
 | 寫程式用的 AI SDK | [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4)、[Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright)、[Midscene.js](/posts/ai/2026-05-23-midscene-vision-ui-automation)、[AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction)、[Skyvern](/posts/ai/2026-11-19-skyvern)、[混合式 SDK 比較](/posts/ai/2026-11-19-ai-browser-sdk-comparison) |
 | 模型自己決定 | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide)、[agent 迴圈怎麼了](/posts/ai/2026-11-19-browser-agent-loop-to-code-mode) |
 | Driver 與協定 | [自己打 CDP 還是用 Playwright](/posts/ai/2026-11-18-cdp-vs-playwright-driver)、[CDP 與 WebDriver BiDi](/posts/ai/2026-11-19-cdp-webdriver-bidi) |
-| 瀏覽器與執行位置 | [Chromium 以外的引擎](/posts/ai/2026-11-19-browser-engines-beyond-chromium)、[Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure)、[Steel](/posts/ai/2026-08-22-steel-browser-infrastructure)、[Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure)、[Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure) |
+| 瀏覽器與執行位置 | [Chromium 以外的引擎](/posts/ai/2026-11-19-browser-engines-beyond-chromium)、[託管瀏覽器對照](/posts/ai/2026-11-19-hosted-browser-comparison)、[Cloudflare Browser Run](/posts/ai/2026-11-19-cloudflare-browser-run)、[Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure)、[Steel](/posts/ai/2026-08-22-steel-browser-infrastructure)、[Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure)、[Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure) |
 
-接下來會補上最後兩篇：託管對照與 Cloudflare Browser Run。
 
 這個系列不處理兩件事：只想找現成爬蟲服務的讀者，請看[搜尋與爬取實戰](/series/search-and-scraping)系列；繞過反爬機制的做法不教，遇到時只寫合規與限制。
 

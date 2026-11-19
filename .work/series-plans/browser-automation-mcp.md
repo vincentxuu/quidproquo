@@ -68,11 +68,11 @@ order 0 是新寫的總覽：五層地圖、每層代表工具與站上對應篇
 | 17 | 已上線 | 2026-11-19-cdp-webdriver-bidi | 協定：CDP 與 WebDriver BiDi | 兩個協定差在哪，「只綁 Chromium」的代價是什麼？ |
 | **E 瀏覽器：引擎與執行位置** | | | | |
 | 18 | 已上線 | 2026-11-19-browser-engines-beyond-chromium | 引擎：Chromium 以外的選擇 | Lightpanda、Kitesurf 這類非 Chromium 引擎換到什麼、犧牲什麼？ |
-| 19 | 新寫 | hosted-browser-comparison | 託管對照 | Browserbase、Browser Run、Steel、Hyperbrowser、Browser Use Cloud 各適合什麼，什麼時候自架？ |
+| 19 | 已上線 | 2026-11-19-hosted-browser-comparison | 託管對照 | Browserbase、Browser Run、Steel、Hyperbrowser、Browser Use Cloud 各適合什麼，什麼時候自架？ |
 | 20 | 既有（單篇） | 2026-08-22-browserbase-browser-infrastructure | Browserbase | |
 | 21 | 既有（單篇） | 2026-08-22-steel-browser-infrastructure | Steel | |
 | 22 | 既有（單篇） | 2026-08-22-hyperbrowser-browser-infrastructure | Hyperbrowser | |
-| 23 | 新寫 | cloudflare-browser-run | Cloudflare Browser Run | Quick Actions 和 Browser Sessions 怎麼選，Workers 整合換到什麼、限制在哪？ |
+| 23 | 已上線 | 2026-11-19-cloudflare-browser-run | Cloudflare Browser Run | Quick Actions 和 Browser Sessions 怎麼選，Workers 整合換到什麼、限制在哪？ |
 | 24 | 既有（單篇） | 2026-08-22-cloudflare-kitesurf-browser-infrastructure | Cloudflare Kitesurf | |
 
 新寫 12 篇（各中英兩檔，共 24 檔）；既有 13 篇只改 frontmatter `series`（order／name），不動 slug、date、正文。

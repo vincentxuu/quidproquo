@@ -101,7 +101,7 @@ The savings really pay off when concurrency is high, machine costs dominate, pag
 
 ## Going deeper
 
-These engines are mostly used through hosted services: Kitesurf lives in Cloudflare Browser Run, and Lightpanda has its own cloud. The next post moves to where the browser runs: what Browserbase, Browser Run, Steel, Hyperbrowser, and Browser Use Cloud each suit, and when to host it yourself.
+These engines are mostly used through hosted services: Kitesurf lives in Cloudflare Browser Run, and Lightpanda has its own cloud. The [next post](/posts/ai/2026-11-19-hosted-browser-comparison-en) moves to where the browser runs: what Browserbase, Browser Run, Steel, Hyperbrowser, and Browser Use Cloud each suit, and when to host it yourself.
 
 ## References
 
