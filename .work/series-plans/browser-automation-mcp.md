@@ -58,8 +58,8 @@ order 0 是新寫的總覽：五層地圖、每層代表工具與站上對應篇
 | 9 | 已上線 | 2026-11-18-stagehand-vs-playwright | Stagehand vs Playwright | 已有 Playwright 腳本，該不該換、換了會失去什麼？ |
 | 10 | 既有（原 5） | 2026-05-23-midscene-vision-ui-automation | Midscene.js | 用截圖而不是 DOM 定位，換到什麼、付出什麼？ |
 | 11 | 既有（單篇） | 2026-08-21-agentql-semantic-web-extraction | AgentQL | 用查詢語言做擷取 |
-| 12 | 新寫 | skyvern | Skyvern：視覺型的 SDK＋agent＋no-code | 跨很多陌生網站跑同一流程時，視覺 LLM 換到什麼？AGPL 對你有什麼影響？ |
-| 13 | 新寫 | ai-browser-sdk-comparison | 混合式 SDK 比較＋評測怎麼讀 | 同層 SDK 怎麼分、廠商成功率能不能拿來比？ |
+| 12 | 已上線 | 2026-11-19-skyvern | Skyvern：視覺型的 SDK＋agent＋no-code | 跨很多陌生網站跑同一流程時，視覺 LLM 換到什麼？AGPL 對你有什麼影響？ |
+| 13 | 已上線 | 2026-11-19-ai-browser-sdk-comparison | 混合式 SDK 比較＋評測怎麼讀 | 同層 SDK 怎麼分、廠商成功率能不能拿來比？ |
 | **C 模型自己決定** | | | | |
 | 14 | 既有（單篇） | 2026-08-21-browser-use-complete-guide | Browser Use | 自主 agent 迴圈（待 post-update：1.0 改為 REPL＋raw CDP） |
 | 15 | 新寫 | browser-agent-loop-to-code-mode | agent loop 退場 | 為什麼大家都把「每步推論」換成「AI 寫碼或外部 agent 驅動」？ |

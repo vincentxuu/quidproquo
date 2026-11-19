@@ -68,7 +68,7 @@ caption: 簡化示意：一個產品可以同時橫跨好幾層，例如 Browser
 | 類型 | 誰決定下一步 | 代表 |
 |---|---|---|
 | 給 coding agent 的工具 | 外部 agent 的模型（Claude Code、Codex） | [Playwright MCP](/posts/tech/2026-06-20-playwright-mcp)、[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp)、[agent-browser](/posts/ai/2026-11-19-agent-browser-cli)、[browse CLI](/posts/ai/2026-05-23-browse-sh-browser-skills) |
-| 混合式 SDK | 你寫的程式，個別步驟交給模型 | [Stagehand](/posts/ai/2026-11-18-stagehand-v4)、[Midscene](/posts/ai/2026-05-23-midscene-vision-ui-automation)、[AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction)、[Skyvern](https://github.com/Skyvern-AI/skyvern) 的 SDK |
+| 混合式 SDK | 你寫的程式，個別步驟交給模型 | [Stagehand](/posts/ai/2026-11-18-stagehand-v4)、[Midscene](/posts/ai/2026-05-23-midscene-vision-ui-automation)、[AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction)、[Skyvern](/posts/ai/2026-11-19-skyvern) 的 SDK |
 | 自主 agent | 模型，每一步都自己判斷 | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide)、Skyvern 的 agent |
 
 工具這一型本身不含模型，決策品質主要看你接上的那一個；換句話說，它的「決定」其實發生在上一層，是 Claude Code 這個應用的模型透過工具在操作瀏覽器。混合式 SDK 讓你在程式碼裡寫 `stagehand.act("click the sign in button")`，穩定的步驟照樣用 selector。自主 agent 收一句任務描述，自己看頁面、自己點。
@@ -162,12 +162,12 @@ curl -X POST 'https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-
 | 段落 | 已上線 |
 |---|---|
 | 給 coding agent 的工具 | [三家 AI 進 Chrome](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini)、[@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp)、[Puppeteer MCP](/posts/tech/2026-06-20-puppeteer-mcp)、[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp)、[Browser MCP 三選一](/posts/tech/2026-06-20-browser-mcp-comparison)、[agent-browser 與 CLI 路線](/posts/ai/2026-11-19-agent-browser-cli)、[browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills) |
-| 寫程式用的 AI SDK | [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4)、[Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright)、[Midscene.js](/posts/ai/2026-05-23-midscene-vision-ui-automation)、[AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction) |
+| 寫程式用的 AI SDK | [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4)、[Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright)、[Midscene.js](/posts/ai/2026-05-23-midscene-vision-ui-automation)、[AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction)、[Skyvern](/posts/ai/2026-11-19-skyvern)、[混合式 SDK 比較](/posts/ai/2026-11-19-ai-browser-sdk-comparison) |
 | 模型自己決定 | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide) |
 | Driver 與協定 | [自己打 CDP 還是用 Playwright](/posts/ai/2026-11-18-cdp-vs-playwright-driver)、[CDP 與 WebDriver BiDi](/posts/ai/2026-11-19-cdp-webdriver-bidi) |
 | 瀏覽器與執行位置 | [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure)、[Steel](/posts/ai/2026-08-22-steel-browser-infrastructure)、[Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure)、[Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure) |
 
-接下來會補上幾段的空缺。SDK 段：Skyvern、同層 SDK 比較。其餘是 agent 迴圈為什麼正在退場、非 Chromium 引擎、託管對照與 Cloudflare Browser Run。
+接下來會補上幾段的空缺：agent 迴圈為什麼正在退場、非 Chromium 引擎、託管對照與 Cloudflare Browser Run。
 
 這個系列不處理兩件事：只想找現成爬蟲服務的讀者，請看[搜尋與爬取實戰](/series/search-and-scraping)系列；繞過反爬機制的做法不教，遇到時只寫合規與限制。
 
