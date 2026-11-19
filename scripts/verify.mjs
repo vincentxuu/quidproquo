@@ -165,6 +165,7 @@ const FULL_STEPS = [
   ['check:references', 'pnpm check:references'],
   ['check:post-quality', 'pnpm check:post-quality'],
   ['check:tw (台灣用語 A 級)', 'pnpm check:tw'],
+  ['chat-style regression tests', 'node scripts/check-chat-style.mjs --self-test'],
   ['check:chat-style', 'pnpm check:chat-style'],
   ['check:glossary', 'pnpm check:glossary'],
   ['check:series-order', 'pnpm check:series-order'],

@@ -29,15 +29,59 @@ const add = (file, line, msg) =>
   errors.push(`${path.relative(process.cwd(), file)}:${line}: ${msg}`);
 
 // 規則 1：token 不准有第二個來源（單一來源＝src/styles/tokens.css；後台獨立）。
-for (const file of walk(SRC_ROOT, ['.astro', '.css'])) {
-  const rel = path.relative(process.cwd(), file);
-  if (rel === 'src/styles/tokens.css' || rel === 'src/styles/admin-tokens.css') continue;
-  if (rel.startsWith('src/content/')) continue;
-  linesOf(file).forEach((line, i) => {
-    if (/--brand-900\s*:/.test(line)) {
-      add(file, i + 1, 'token 出現第二來源——改色只改 src/styles/tokens.css，刪掉這份拷貝');
-    }
+// tokens.css 宣告的每一個 `--name:` 都不准在其他 .astro／.css 再宣告一次——
+// 文章頁曾在 article 內把 --text-secondary／--brand-700 改掉，只看 tokens.css 的人會誤判顏色。
+// 引用（var(--name)）不受影響；只擋「--name:」宣告。
+const TOKEN_SOURCES = new Set(['src/styles/tokens.css', 'src/styles/admin-tokens.css']);
+
+export function tokenNames(tokensCss) {
+  return [...new Set([...tokensCss.matchAll(/(?<![\w-])(--[\w-]+)\s*:/g)].map((m) => m[1]))];
+}
+
+export function findTokenRedefinitions(text, names) {
+  const hits = [];
+  const patterns = names.map((name) => [name, new RegExp(`(?<![\\w-])${name}\\s*:`)]);
+  text.split('\n').forEach((line, i) => {
+    for (const [name, re] of patterns) if (re.test(line)) hits.push({ line: i + 1, name });
   });
+  return hits;
+}
+
+function selfTest() {
+  const names = tokenNames(':root {\n  --brand-700: #2d4a2d;\n  --text-secondary: #4a7c59;\n}\n[data-theme="dark"] { --brand-700: #c0c0c0; }');
+  const cases = [
+    ['抓得到 article 內重定義', 'article {\n  --text-secondary: #555;\n  --brand-700: #374151;\n}', 2],
+    ['抓得到行內 style 重定義', '<div style="--brand-700:#000">', 1],
+    ['引用 var() 不算', '.a { color: var(--brand-700); border-color: var(--text-secondary, #555); }', 0],
+    ['名稱前綴相同的私有變數不算', '.dg { --brand-700-mix: red; --x-brand-700: red; }', 0],
+    ['tokens.css 沒有的名稱不算', '.dg { --dg-ink: var(--text-primary); }', 0],
+  ];
+  let bad = 0;
+  if (names.join(',') !== '--brand-700,--text-secondary') {
+    bad++;
+    console.log(`  [FAIL] tokenNames 取出 ${names.join(',')}`);
+  }
+  for (const [label, text, want] of cases) {
+    const got = findTokenRedefinitions(text, names).length;
+    if (got !== want) {
+      bad++;
+      console.log(`  [FAIL] ${label}：預期 ${want} 筆，實得 ${got} 筆`);
+    }
+  }
+  console.log(bad ? `self-test 失敗 ${bad} 項` : `self-test 通過（${cases.length + 1} 項）`);
+  return bad === 0;
+}
+
+if (process.argv.includes('--self-test')) process.exit(selfTest() ? 0 : 1);
+
+const TOKEN_NAMES = tokenNames(fs.readFileSync(path.resolve('src/styles/tokens.css'), 'utf8'));
+for (const file of walk(SRC_ROOT, ['.astro', '.css'])) {
+  const rel = path.relative(process.cwd(), file).split(path.sep).join('/');
+  if (TOKEN_SOURCES.has(rel)) continue;
+  if (rel.startsWith('src/content/')) continue;
+  for (const { line, name } of findTokenRedefinitions(fs.readFileSync(file, 'utf8'), TOKEN_NAMES)) {
+    add(file, line, `token ${name} 出現第二來源——改色只改 src/styles/tokens.css，刪掉這份宣告`);
+  }
 }
 
 // 規則 2–5：Chat 元件內的硬編碼風格。

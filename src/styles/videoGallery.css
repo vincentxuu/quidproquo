@@ -1,6 +1,6 @@
 .video-gallery { margin-block: 1.75rem; border: 1px solid var(--border); border-radius: .75rem; background: var(--bg-card); overflow: hidden; }
 .video-gallery__player { padding: .85rem .85rem 0; }
-.video-gallery__frame { position: relative; aspect-ratio: 16 / 9; background: #000; border-radius: .5rem; overflow: hidden; }
+.video-gallery__frame { position: relative; aspect-ratio: 16 / 9; background: var(--bg-video); border-radius: .5rem; overflow: hidden; }
 .video-gallery__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .video-gallery__now { margin: .55rem 0 0; font-size: .8rem; line-height: 1.5; color: var(--text-secondary); }
 .video-gallery__rail-wrap { position: relative; padding: .75rem .85rem .9rem; }
@@ -15,13 +15,13 @@
 
 .video-gallery__thumb { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: .4rem; overflow: hidden; background: var(--bg-subtle); }
 .video-gallery__thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.video-gallery__length { position: absolute; right: .3rem; bottom: .3rem; padding: .05rem .3rem; border-radius: .25rem; background: rgb(0 0 0 / .78); color: #fff; font-size: .7rem; font-variant-numeric: tabular-nums; }
+.video-gallery__length { position: absolute; right: .3rem; bottom: .3rem; padding: .05rem .3rem; border-radius: .25rem; background: var(--video-badge-bg); color: var(--on-video); font-size: .7rem; font-variant-numeric: tabular-nums; }
 .video-gallery__route { font-size: .78rem; font-weight: 700; line-height: 1.4; color: var(--text-primary); }
 .video-gallery__note { font-size: .72rem; line-height: 1.45; color: var(--text-secondary); }
 .video-gallery__external { font-weight: 400; color: var(--text-muted); }
-.video-gallery__card--external .video-gallery__thumb::after { content: ""; position: absolute; inset: 0; background: rgb(0 0 0 / .18); }
+.video-gallery__card--external .video-gallery__thumb::after { content: ""; position: absolute; inset: 0; background: var(--video-scrim); }
 
-.video-gallery__nav { position: absolute; top: 50%; z-index: 2; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; padding: 0; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-card); color: var(--text-primary); font-size: 1.15rem; line-height: 1; cursor: pointer; transform: translateY(-50%); box-shadow: 0 1px 4px rgb(0 0 0 / .15); }
+.video-gallery__nav { position: absolute; top: 50%; z-index: 2; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; padding: 0; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-card); color: var(--text-primary); font-size: 1.15rem; line-height: 1; cursor: pointer; transform: translateY(-50%); box-shadow: var(--shadow-control); }
 .video-gallery__nav[hidden] { display: none; }
 .video-gallery__nav:disabled { opacity: .35; cursor: default; }
 .video-gallery__nav:focus-visible { outline: 2px solid var(--brand-700); outline-offset: 2px; }
@@ -47,7 +47,7 @@
 .route-videos__trigger { display: grid; gap: .4rem; width: 100%; min-width: 5.5rem; padding: 0; border: 0; background: none; color: var(--text-primary); text-align: left; font: inherit; font-weight: 600; cursor: pointer; }
 .route-videos__poster { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: .3rem; overflow: hidden; background: var(--bg-subtle); }
 .content .route-videos__poster img { display: block; margin: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
-.route-videos__play { position: absolute; inset: 0; display: grid; place-items: center; color: white; font-size: 1rem; text-shadow: 0 1px 4px #000; background: rgb(0 0 0 / .15); }
+.route-videos__play { position: absolute; inset: 0; display: grid; place-items: center; color: var(--on-video); font-size: 1rem; text-shadow: var(--video-text-shadow); background: var(--video-scrim-soft); }
 .route-videos__trigger[aria-expanded="true"] .route-videos__poster { outline: 2px solid var(--brand-700); outline-offset: 2px; }
 .route-videos__trigger:focus-visible, .route-videos__panel button:focus-visible { outline: 2px solid var(--brand-700); outline-offset: 3px; }
 .route-videos__panel { min-width: 0; border: 1px solid var(--border); border-radius: .5rem; background: var(--bg-card); overflow: hidden; }

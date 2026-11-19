@@ -32,7 +32,7 @@ faq:
 
 ##### 五級標題 h5
 
-h2 下方有一條短色線；h3、h4 只有字級與粗細差異。
+h2 上方有一條分隔線（內文第一個 h2 不畫）；h3、h4 只有字級與粗細差異。
 
 ## 段落與行內樣式
 
@@ -95,21 +95,38 @@ pnpm -s check:diagram-text src/content/styleguide/styleguide.md && pnpm -s check
 | 富邦證券 | 3.6–4.2% | — | T+1 | 5 萬 | 有 | 需先開立交割帳戶 |
 | 國泰證券 | 3.8% | 專案利率至 12/30 | T+2 | 3 萬 | 有 | — |
 
-## 提示框（預設 info）
+## 提示框（預設 note）
 
-> 一般的引用區塊會畫成藍色提示框。可以有多段。
+> 一般的引用區塊畫成品牌綠的 note 框。可以有多段。
 >
-> 第二段裡也可以有 **粗體** 與 [連結](/posts/ai/2026-11-13-ai-is-the-new-baseline)。
+> 第二段裡也可以有 **粗體**、`inline code` 與 [連結](/posts/ai/2026-11-13-ai-is-the-new-baseline)。
 
-## 提示框（success）
+GitHub 語法的 `[!NOTE]`／`[!IMPORTANT]`，以及開頭粗體 `**注意**`／`**Note**`，也是同一種框；`[!X]` 標記會換成標題：
 
-目前沒有文章用到，CSS 支援 `blockquote.callout-success`，要用原始 HTML 寫：
+> [!NOTE]
+> 標記那一行不會出現在頁面上，換成「說明」標題。
 
-<blockquote class="callout-success">
+## 提示框（warning）
 
-**成功**：class 為 `callout-success` 的引用區塊會畫成綠色。
+GitHub 語法 `> [!WARNING]`（`[!CAUTION]` 同樣是 warning）：
 
-</blockquote>
+> [!WARNING]
+> 價格為撰文時的參考值，實際售價可能因地區和通路而異。
+
+既有文章的寫法：第一段以粗體 `**警告**`／`**Warning**`／`**Caution**` 開頭。
+
+> **警告**：`core` 是最大的 crate，新功能優先開新 crate，不要再往 core 裡塞。
+
+## 提示框（tip）
+
+GitHub 語法 `> [!TIP]`：
+
+> [!TIP]
+> 改完文章 CSS 先看這頁，再去翻真實文章。
+
+既有文章的寫法：第一段以粗體 `**提示**`／`**Tip**`／`**小提醒**` 開頭。
+
+> **小提醒：** 深色模式也要看，提示框的底色在深色下是另一組 token。
 
 ## 圖片與圖說
 

@@ -14,14 +14,14 @@
 :root {
   --brand-900: #1a2e1a;
   --brand-700: #2d4a2d;
-  --brand-500: #4a9e6a;
+  --brand-500: #2f7a4d; /* ≥4.5:1 as text on white, --bg-subtle, --brand-50/100（原 #4a9e6a 只有 3.29） */
   --brand-300: #a7c4a0;
   --brand-100: #e8f5e8;
   --brand-50:  #f0f7f0;
   --border:    #d1e8d1;
   --text-primary:    #1a1a1a;
-  --text-secondary:  #4a7c59;
-  --text-muted:      #767676;
+  --text-secondary:  #2f7a4d; /* 同 --brand-500，不再有第二個綠 */
+  --text-muted:      #6e6e6e; /* ≥4.5:1 on white 與 --bg-subtle、--brand-50/100 */
   --bg-page:   #ffffff;
   --bg-subtle: #f5f7f5;
   --bg-card:   #ffffff;
@@ -29,10 +29,8 @@
   --heading-accent: #e8657a;
   --info-bg:    #eef6ff;
   --info-border: #3b82f6;
-  --info-icon:   #3b82f6;
   --success-bg:    #eefbf3;
   --success-border: #22c55e;
-  --success-icon:   #22c55e;
   --warning-bg:    #fffbeb;
   --warning-border: #f59e0b;
   --danger:     #b42318;
@@ -52,16 +50,83 @@
   --cat-marketing: #be185d;
   --cat-travel:    #c2410c;
   --cat-climbing:  #57534e;
-  --cat-surf:      #0891b2;
+  --cat-surf:      #0e7490; /* 原 #0891b2 白字只有 3.7:1 */
   --cat-film:      #292524;
   --cat-coffee:    #92400e;
   --cat-investing: #047857;
-  --cat-learning:  #0d9488;
+  --cat-learning:  #0f766e; /* 原 #0d9488 白字只有 3.7:1 */
   --cat-design:    #a21caf;
   --cat-policy:    #475569;
   --cat-anime:     #e11d48;
   --cat-career:    #0c4a6e;
   --cat-weather:   #2563eb;
+
+  /* ── 文章元件 token（PostLayout 內文、徽章、提示框；2026-11-19 §5 修正） ── */
+  /* 飽和色底（分類徽章、hero、daily 標籤）上的字色，兩種主題相同 */
+  --text-on-accent: #ffffff;
+  /* 類型徽章：字色＋同色邊框畫在頁面底上，對 --bg-page ≥ 4.5:1 */
+  --type-debug:     #b45309;
+  --type-deep-dive: #4f46e5;
+  --type-guide:     #0f766e;
+  --type-project:   #64748b;
+  /* <mark> 螢光標記 */
+  --mark-bg:   #fef08a;
+  --mark-text: #1a1a1a;
+
+  /* 圓角（不用 --radius-*：那是 Tailwind @theme 的命名空間，chat.css／globals.css 會在 :root 輸出同名變數）。
+     sm＝徽章、行內 code、kbd；md＝所有卡片類容器（程式碼、表格、提示框、details、TL;DR、圖片）；
+     lg＝大型嵌入（diagram、影片）；pill＝膠囊 */
+  --corner-sm:   3px;
+  --corner-md:   8px;
+  --corner-lg:   12px;
+  --corner-pill: 999px;
+
+  /* 字級（文章元件）：2xs 徽章；xs 圖說、次要 meta；sm 表格、程式碼、footer、膠囊；h1–h4 內文標題 */
+  --fs-2xs: 0.65rem;
+  --fs-xs:  0.75rem;
+  --fs-sm:  0.875rem;
+  --fs-md:  1rem;
+  --fs-h4:  1rem;
+  --fs-h3:  1.05rem;
+  --fs-h2:  1.3rem;
+  --fs-h1:  1.7rem;
+
+  /* 間距（4px 基準） */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* ── 媒體、聊天、投影片、圖表專用 ── */
+  /* 陰影（不用 Tailwind @theme 的 --shadow-sm/md/lg/xl 等名稱，避免被 chat.css 的 theme 輸出蓋掉） */
+  --shadow-hairline: 0 1px 3px rgba(0, 0, 0, 0.06);   /* Chat 問題建議按鈕 */
+  --shadow-raised:   0 6px 20px rgba(0, 0, 0, 0.12);  /* Chat 側欄觸發鈕 hover */
+  --shadow-panel:    -6px 0 32px rgba(0, 0, 0, 0.10); /* Chat 右側滑出面板 */
+  --shadow-control:  0 1px 4px rgb(0 0 0 / .15);      /* 影片輪播左右鈕 */
+  --shadow-modal:    0 16px 60px rgb(0 0 0 / .18);    /* 投影片對照面板 */
+  --scrim:           rgb(0 0 0 / .6);                 /* 對話框（dialog::backdrop）遮罩 */
+  /* 影片：播放器、縮圖上的疊層與字，兩種主題相同 */
+  --bg-video:         #000;
+  --on-video:         #fff;
+  --video-badge-bg:   rgb(0 0 0 / .78);   /* 片長膠囊 */
+  --video-scrim:      rgb(0 0 0 / .18);   /* 外部連結縮圖的變暗層 */
+  --video-scrim-soft: rgb(0 0 0 / .15);   /* 路線影片的播放鈕疊層 */
+  --video-text-shadow: 0 1px 4px #000;   /* 疊在畫面上的白字 */
+  /* 投影片：PDF 檢視器載入前的底色，兩種主題相同（PDF 本身不跟主題） */
+  --slide-backdrop: #e5e7eb;
+  /* 圖表（diagram.css 的 --dg-* 由這裡衍生） */
+  --diagram-warn:    var(--danger);
+  --diagram-s1:      #5e7a9b;
+  --diagram-s2:      #b8915a;
+  --diagram-s3:      #9c6b50;
+  --diagram-s4:      #6e6479;
+  --diagram-s5:      #7c8f6f;
+  --diagram-on-heat: #10261a; /* dg-heat-4/5 上的深綠字，兩種主題都 ≥ 4.2:1 */
 }
 
 [data-theme="dark"] {
@@ -82,14 +147,38 @@
   --heading-accent: #f472b6;
   --info-bg:    #151d26;
   --info-border: #3b82f6;
-  --info-icon:   #60a5fa;
-  --success-bg:    #151d26;
+  --success-bg:    #112419; /* 帶綠的深底，跟 --brand-50（note 底）分得出來 */
   --success-border: #22c55e;
-  --success-icon:   #4ade80;
   --warning-bg:    #1a1a0f;
   --warning-border: #f59e0b;
   --danger:     #f87171;
   --shine:      rgba(255, 255, 255, 0.08);
   --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.25);
   --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.4);
+
+  /* 分類徽章深色值：淺色值在 --bg-page 上低於 3:1 的才覆寫；白字仍 ≥ 4.5:1 */
+  --cat-tech:      #636a78;
+  --cat-ai:        #7c3aed;
+  --cat-climbing:  #6b6560;
+  --cat-film:      #7c6a5f;
+  --cat-coffee:    #a3540f;
+  --cat-design:    #b62ac0;
+  --cat-policy:    #5d6b7f;
+  --cat-career:    #1d6fa0;
+
+  --type-debug:     #f59e0b;
+  --type-deep-dive: #818cf8;
+  --type-guide:     #2dd4bf;
+  --type-project:   #94a3b8;
+  --mark-bg:   #713f12;
+  --mark-text: #fef3c7;
+
+  /* ── 媒體、聊天、投影片、圖表專用 ── */
+  /* 陰影、遮罩、影片、投影片與 --diagram-on-heat 刻意沿用淺色值（兩種主題相同），這裡只覆寫有深色值的 */
+  --diagram-warn: #f97066;
+  --diagram-s1:   #82a0c0;
+  --diagram-s2:   #d3ad7a;
+  --diagram-s3:   #b88670;
+  --diagram-s4:   #8d8298;
+  --diagram-s5:   #9caf8f;
 }

@@ -5,7 +5,7 @@
 .video-practice__workspace { padding: .5rem 1.25rem 1.25rem; }
 .video-practice .video-practice__question { margin: 0 0 .75rem; font-size: .95rem; }
 .video-practice .video-embed { margin: 0; }
-.video-practice .video-embed__frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: .5rem; overflow: hidden; }
+.video-practice .video-embed__frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--bg-video); border-radius: .5rem; overflow: hidden; }
 .video-practice .video-embed iframe { display: block; position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .video-practice .video-embed figcaption { font-size: .75rem; margin-top: .35rem; text-align: right; }
 .video-practice [data-practice-controls]:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin: .5rem 0 1rem; }

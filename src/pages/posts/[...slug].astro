@@ -442,59 +442,14 @@ const breadcrumbLD = {
 </PostLayout>
 
 <style>
-  /* ── 文章內文：覆蓋綠色文字為可讀色 ── */
-  article {
-    --text-secondary: #555;
-    --brand-700: #374151;
-  }
-  :global([data-theme="dark"]) article {
-    --text-secondary: #9ca3af;
-    --brand-700: #d1d5db;
-  }
-  /* 內文連結：深色文字 + 底線 */
-  article .content :global(a) {
-    color: var(--text-primary);
-    text-decoration: underline;
-    text-decoration-color: var(--border);
-    text-underline-offset: 3px;
-    transition: text-decoration-color 0.15s;
-  }
-  article .content :global(a:hover) {
-    text-decoration-color: var(--text-primary);
-  }
-  /* h2 底線裝飾移除 */
-  article .content :global(h2)::after {
-    display: none;
-  }
-  /* 段落分隔線（daily-brief 已統一到跟一般文章同樣排版；其他 daily digest 類型有自己的分隔樣式，排除） */
-  article:not([data-category="daily"]) .content :global(h2),
-  article[data-layout="daily-brief"] .content :global(h2) {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-  }
-  article:not([data-category="daily"]) .content :global(h2:first-child),
-  article[data-layout="daily-brief"] .content :global(h2:first-child) {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  /* 系列導覽連結 */
-  .series-prev, .series-next { color: var(--text-primary); }
-  .series-prev:hover, .series-next:hover { color: #1d4ed8; }
-  /* TOC 連結色 */
-  .toc ol { color: var(--text-primary); }
-  .toc a:hover { color: #1d4ed8; }
-  /* Glossary 術語：中性底線 */
-  :global(.glossary-term) {
-    border-bottom-color: var(--border);
-    background: var(--bg-subtle);
-  }
+  /* 內文連結與 h2 分隔線由 PostLayout 的 .content 規則統一提供，文章頁不再覆寫。 */
 
   /* ── Hero Section ── */
   .hero {
     position: relative;
-    background: linear-gradient(135deg, #1a2332 0%, #0f1419 50%, #1a2332 100%);
+    /* 淺色：品牌深綠面；深色：沿用卡片／頁面底。字兩種主題都是 --text-on-accent。 */
+    background: linear-gradient(135deg, var(--brand-700) 0%, var(--brand-900) 50%, var(--brand-700) 100%);
+    color: var(--text-on-accent);
     margin: -1rem -1.5rem 0;
     padding: 3rem 1.5rem 4rem;
     text-align: center;
@@ -506,8 +461,8 @@ const breadcrumbLD = {
   @media (max-width: 400px) {
     .hero { margin-left: -0.75rem; margin-right: -0.75rem; padding-left: 0.75rem; padding-right: 0.75rem; }
   }
-  :global(:root:not([data-theme="dark"])) .hero {
-    background: linear-gradient(135deg, #2d4a2d 0%, #1a2e1a 50%, #2d4a2d 100%);
+  :global([data-theme="dark"]) .hero {
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-page) 50%, var(--bg-card) 100%);
   }
   .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
   .hero h1 {
@@ -516,7 +471,7 @@ const breadcrumbLD = {
     letter-spacing: -0.5px;
     line-height: 1.25;
     margin: 0 0 1rem;
-    color: #ffffff;
+    color: inherit;
   }
   .hero-meta {
     display: flex;
@@ -524,7 +479,7 @@ const breadcrumbLD = {
     justify-content: center;
     gap: 1.5rem;
     font-size: 0.82rem;
-    color: rgba(255,255,255,0.6);
+    color: color-mix(in srgb, currentColor 60%, transparent);
   }
   .hero-meta-item {
     display: flex;
@@ -574,7 +529,7 @@ const breadcrumbLD = {
     background: var(--bg-subtle);
     border: 1px solid var(--border);
     padding: 0.75rem 1rem;
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     margin-bottom: 1rem;
     font-size: 0.88rem;
     line-height: 1.6;
@@ -596,7 +551,7 @@ const breadcrumbLD = {
   /* ── TOC (collapsible via details/summary) ── */
   .toc {
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     padding: 1rem;
     background: var(--bg-subtle);
     margin-bottom: 1.5rem;
@@ -629,7 +584,8 @@ const breadcrumbLD = {
   .toc ol { padding-left: 1.2rem; margin: 0; font-size: 0.83rem; line-height: 1.9; color: var(--brand-700); }
   .toc ol ol { font-size: 0.78rem; color: var(--text-secondary); }
   .toc a { color: inherit; text-decoration: none; }
-  .toc a:hover { color: var(--brand-500); }
+  /* 跟本文連結同一套規則：字色不變，hover 出現 --brand-500 底線。 */
+  .toc a:hover { text-decoration: underline; text-decoration-color: var(--brand-500); text-underline-offset: 3px; }
 
   /* ── Two-column grid: TOC/video sidebar beside the main content ── */
   .post-grid {
@@ -666,7 +622,7 @@ const breadcrumbLD = {
   /* ── Related video card ── */
   .video-card {
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     overflow: hidden;
     background: var(--bg-subtle);
     margin-bottom: 1.5rem;
@@ -679,13 +635,13 @@ const breadcrumbLD = {
 
   /* ── Inline AI ask ── */
   /* ── Series box ── */
-  .series-box { border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; background: var(--bg-subtle); margin-bottom: 1.5rem; }
+  .series-box { border: 1px solid var(--border); border-radius: var(--corner-md); padding: 0.85rem 1rem; background: var(--bg-subtle); margin-bottom: 1.5rem; }
   .series-header { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem; }
   .series-link { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
   .series-link:hover { border-bottom-color: currentColor; }
   .series-nav { display: flex; justify-content: space-between; font-size: 0.8rem; }
-  .series-prev, .series-next { display: flex; align-items: center; gap: 0.25rem; color: var(--brand-500); text-decoration: none; }
-  .series-prev:hover, .series-next:hover { color: var(--brand-900); }
+  .series-prev, .series-next { display: flex; align-items: center; gap: 0.25rem; color: var(--brand-700); text-decoration: none; }
+  .series-prev:hover, .series-next:hover { text-decoration: underline; text-decoration-color: var(--brand-500); text-underline-offset: 3px; }
 
   /* ── Post nav ── */
   .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
@@ -694,7 +650,7 @@ const breadcrumbLD = {
     .post-nav-next { text-align: left; }
     .post-nav-next .post-nav-label { justify-content: flex-start; }
   }
-  .post-nav-prev, .post-nav-next { border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s, background 0.15s; }
+  .post-nav-prev, .post-nav-next { border: 1px solid var(--border); border-radius: var(--corner-md); padding: 0.75rem; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s, background 0.15s; }
   .post-nav-prev:hover, .post-nav-next:hover { border-color: var(--brand-500); background: var(--bg-subtle); }
   .post-nav-next { text-align: right; }
   .post-nav-label { display: flex; align-items: center; gap: 0.25rem; font-size: 0.68rem; color: var(--text-muted); margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -704,15 +660,15 @@ const breadcrumbLD = {
   /* ── FAQ ── */
   .faq { margin: 2.5rem 0 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
   .faq h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.9rem; }
-  .faq-item { border: 1px solid var(--border); border-radius: 8px; padding: 0.7rem 0.9rem; margin-bottom: 0.6rem; }
+  .faq-item { border: 1px solid var(--border); border-radius: var(--corner-md); padding: 0.7rem 0.9rem; margin-bottom: 0.6rem; }
   .faq-item summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; line-height: 1.5; }
-  .faq-item p { margin: 0.6rem 0 0; font-size: 0.92rem; line-height: 1.75; color: var(--text-secondary); }
+  .faq-item p { margin: 0.6rem 0 0; font-size: 0.92rem; line-height: 1.75; color: var(--text-primary); }
 
   /* ── Related digests ── */
   .related-digests { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
   .related-digests h3 { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.85rem; }
   .related-digests-list { display: flex; flex-direction: column; gap: 0.5rem; }
-  .related-digest-item { display: flex; flex-direction: column; padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
+  .related-digest-item { display: flex; flex-direction: column; padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: var(--corner-md); text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
   .related-digest-item:hover { border-color: var(--brand-500); }
   .rd-title { font-size: 0.85rem; font-weight: 500; text-transform: capitalize; }
   .rd-reason { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
@@ -720,7 +676,7 @@ const breadcrumbLD = {
   /* ── Related posts ── */
   .related h3 { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.85rem; }
   .related :global(.related-list) { display: flex; flex-direction: column; gap: 0.5rem; }
-  .related :global(.related-item) { display: flex; justify-content: space-between; align-items: baseline; padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
+  .related :global(.related-item) { display: flex; justify-content: space-between; align-items: baseline; padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: var(--corner-md); text-decoration: none; color: var(--text-primary); transition: border-color 0.15s; }
   .related :global(.related-item:hover) { border-color: var(--brand-500); }
   .related :global(.related-title) { font-size: 0.88rem; font-weight: 600; line-height: 1.3; }
   .related :global(.related-time) { display: flex; align-items: center; gap: 0.2rem; font-size: 0.72rem; color: var(--text-muted); flex-shrink: 0; margin-left: 0.75rem; }
@@ -732,7 +688,7 @@ const breadcrumbLD = {
     background: color-mix(in srgb, var(--brand-100) 55%, transparent);
     color: var(--text-primary);
     padding: 0 0.08em;
-    border-radius: 3px;
+    border-radius: var(--corner-sm);
     font: inherit;
     cursor: help;
   }
@@ -747,7 +703,7 @@ const breadcrumbLD = {
   article[data-layout="daily-brief"] .toc {
     margin: 0 0 2.75rem;
     padding: 1.15rem 1.25rem 1.25rem;
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     background: var(--bg-page);
   }
   article[data-layout="daily-brief"] .toc-header {
@@ -779,48 +735,12 @@ const breadcrumbLD = {
      Daily Digest 專用樣式
      ════════════════════════════════════════ */
 
-  /* 全局排版：加大行高與段距（daily-brief 已跟一般文章排版統一，排除在外） */
-  article[data-category="daily"]:not([data-layout="daily-brief"]) .content {
-    line-height: 2;
-    font-size: 0.95rem;
-  }
-  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(p) {
-    margin-bottom: 1.35rem;
-  }
-  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(h3) {
-    margin-top: 2.2rem;
-    margin-bottom: 0.6rem;
-    font-size: 1.1rem;
-  }
-  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(ul),
-  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(ol) {
-    margin-bottom: 1.35rem;
-  }
-  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(li) {
-    margin-bottom: 0.5rem;
-    line-height: 1.9;
-  }
-
-  /* 論文區塊分隔 */
-  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(h2) {
-    margin-top: 3.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    font-size: 1.3rem;
-  }
-  article[data-category="daily"]:not([data-layout="daily-brief"]) .content :global(h2:first-child) {
-    border-top: none;
-    margin-top: 0;
-    padding-top: 0;
-  }
+  /* 字級、行高、段距、h2／h3 與一般文章同一套（PostLayout .content 與上方 h2 分隔線），daily 不另開。 */
 
   /* 論文標題 */
   article[data-category="daily"] .content :global(h2[id^="論文"]) {
     font-size: 1.2rem;
     line-height: 1.4;
-  }
-  article[data-category="daily"] .content :global(h2[id^="論文"])::after {
-    display: none;
   }
 
   /* 論文 metadata（作者/連結） */
@@ -830,7 +750,7 @@ const breadcrumbLD = {
     line-height: 1.9;
     background: var(--bg-subtle);
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     padding: 0.6rem 0.85rem;
     margin-bottom: 1.25rem;
   }
@@ -839,7 +759,6 @@ const breadcrumbLD = {
   }
   article[data-category="daily"] .content :global(h2[id^="論文"] + p a) {
     font-weight: 600;
-    color: var(--text-primary);
   }
 
   /* hr 在 daily 中隱藏（論文卡片已提供分隔） */
@@ -854,8 +773,8 @@ const breadcrumbLD = {
   article[data-category="daily"] .content :global(h3[id*="tl-dr"]),
   article[data-category="daily"] .content :global(h3[id*="tldr"]) {
     display: inline-block;
-    background: #065f46;
-    color: #fff;
+    background: var(--cat-investing);
+    color: var(--text-on-accent);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     font-size: 0.68rem;
@@ -870,7 +789,7 @@ const breadcrumbLD = {
     background: var(--bg-subtle);
     border: 1px solid var(--border);
     padding: 0.75rem 1rem;
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     margin-bottom: 1.25rem;
     font-weight: 500;
     line-height: 1.7;
@@ -880,8 +799,8 @@ const breadcrumbLD = {
   article[data-category="daily"] .content :global(h3[id="read-priority"]),
   article[data-category="daily"] .content :global(h3[id*="read-priority"]) {
     display: inline-block;
-    background: #312e81;
-    color: #fff;
+    background: var(--cat-ai);
+    color: var(--text-on-accent);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     font-size: 0.68rem;
@@ -889,17 +808,12 @@ const breadcrumbLD = {
     letter-spacing: 0.04em;
     margin-bottom: 0.3rem;
   }
-  :global([data-theme="dark"]) article[data-category="daily"] .content :global(h3[id="read-priority"]),
-  :global([data-theme="dark"]) article[data-category="daily"] .content :global(h3[id*="read-priority"]) {
-    background: #1e1b4b;
-    color: #a5b4fc;
-  }
   article[data-category="daily"] .content :global(h3[id="read-priority"] + p),
   article[data-category="daily"] .content :global(h3[id*="read-priority"] + p) {
     background: var(--bg-subtle);
     border: 1px solid var(--border);
     padding: 0.75rem 1rem;
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     margin-bottom: 1.25rem;
     font-size: 0.9rem;
     line-height: 1.6;
@@ -908,8 +822,8 @@ const breadcrumbLD = {
   /* Reviewer 引用 */
   article[data-category="daily"] .content :global(h3[id*="reviewer"]) {
     display: inline-block;
-    background: #4b5563;
-    color: #fff;
+    background: var(--cat-policy);
+    color: var(--text-on-accent);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     font-size: 0.68rem;
@@ -923,7 +837,7 @@ const breadcrumbLD = {
     background: var(--bg-subtle);
     border: 1px solid var(--border);
     padding: 0.75rem 1rem;
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     color: var(--text-primary);
     font-style: normal;
     font-size: 0.9rem;
@@ -934,8 +848,8 @@ const breadcrumbLD = {
   /* take-away 行動建議 */
   article[data-category="daily"] .content :global(h3[id*="take-away"]) {
     display: inline-block;
-    background: #065f46;
-    color: #fff;
+    background: var(--cat-investing);
+    color: var(--text-on-accent);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     font-size: 0.68rem;
@@ -947,7 +861,7 @@ const breadcrumbLD = {
   article[data-category="daily"] .content :global(h3[id*="take-away"] + ul) {
     background: var(--bg-subtle);
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     padding: 0.75rem 1rem 0.75rem 2rem;
     margin-bottom: 1.5rem;
   }
@@ -967,7 +881,7 @@ const breadcrumbLD = {
   article[data-category="daily"] .content :global(h3[id*="深入"] + ul) {
     font-size: 0.88rem;
     line-height: 1.75;
-    color: var(--text-secondary);
+    color: var(--text-primary);
   }
 
   /* 詞彙表 */
@@ -994,50 +908,39 @@ const breadcrumbLD = {
     void (async () => {
       const { default: mermaid } = await import('mermaid');
 
-      // Mermaid's themeVariables only accept literal hex, not var(...), so these mirror
-      // the --brand/--info/--warning/--text tokens in PostLayout.astro by hand — keep in sync.
-      const lightThemeVariables = {
-        background: '#ffffff',
-        primaryColor: '#e8f5e8',
-        primaryTextColor: '#1a1a1a',
-        primaryBorderColor: '#4a9e6a',
-        secondaryColor: '#eef6ff',
-        secondaryBorderColor: '#3b82f6',
-        secondaryTextColor: '#1a1a1a',
-        tertiaryColor: '#fffbeb',
-        tertiaryBorderColor: '#f59e0b',
-        tertiaryTextColor: '#1a1a1a',
-        lineColor: '#767676',
-        textColor: '#1a1a1a',
-        noteBkgColor: '#fffbeb',
-        noteBorderColor: '#f59e0b',
-        noteTextColor: '#1a1a1a',
-        edgeLabelBackground: '#ffffff',
-        clusterBkg: '#f5f7f5',
-        clusterBorder: '#d1e8d1',
-        fontFamily: "'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif",
-      };
-      const darkThemeVariables = {
-        darkMode: true,
-        background: '#0f1419',
-        primaryColor: '#1c2833',
-        primaryTextColor: '#d1d5db',
-        primaryBorderColor: '#5cb87a',
-        secondaryColor: '#151d26',
-        secondaryBorderColor: '#3b82f6',
-        secondaryTextColor: '#d1d5db',
-        tertiaryColor: '#1a1a0f',
-        tertiaryBorderColor: '#f59e0b',
-        tertiaryTextColor: '#d1d5db',
-        lineColor: '#6b7280',
-        textColor: '#d1d5db',
-        noteBkgColor: '#1a1a0f',
-        noteBorderColor: '#f59e0b',
-        noteTextColor: '#d1d5db',
-        edgeLabelBackground: '#0f1419',
-        clusterBkg: '#151d26',
-        clusterBorder: '#2a3545',
-        fontFamily: "'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif",
+      // Mermaid's themeVariables only accept literal colors, not var(...), so read the
+      // resolved token values from src/styles/tokens.css at render time. renderAll() runs
+      // again on every data-theme change, so light/dark both come from the same tokens.
+      const themeTokenMap = {
+        background: '--bg-page',
+        primaryColor: '--brand-100',
+        primaryTextColor: '--text-primary',
+        primaryBorderColor: '--brand-500',
+        secondaryColor: '--info-bg',
+        secondaryBorderColor: '--info-border',
+        secondaryTextColor: '--text-primary',
+        tertiaryColor: '--warning-bg',
+        tertiaryBorderColor: '--warning-border',
+        tertiaryTextColor: '--text-primary',
+        lineColor: '--text-muted',
+        textColor: '--text-primary',
+        noteBkgColor: '--warning-bg',
+        noteBorderColor: '--warning-border',
+        noteTextColor: '--text-primary',
+        edgeLabelBackground: '--bg-page',
+        clusterBkg: '--bg-subtle',
+        clusterBorder: '--border',
+      } as const;
+      const fontFamily = "'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif";
+      const readThemeVariables = (isDark: boolean) => {
+        const styles = getComputedStyle(document.documentElement);
+        const vars: Record<string, string | boolean> = { darkMode: isDark, fontFamily };
+        for (const [key, token] of Object.entries(themeTokenMap)) {
+          const value = styles.getPropertyValue(token).trim();
+          if (value) vars[key] = value;
+          else console.warn(`[mermaid] token ${token} is empty; mermaid default used for ${key}`);
+        }
+        return vars;
       };
 
       const narrowQuery = window.matchMedia('(max-width: 640px)');
@@ -1047,7 +950,7 @@ const breadcrumbLD = {
         mermaid.initialize({
           startOnLoad: false,
           theme: 'base',
-          themeVariables: isDark ? darkThemeVariables : lightThemeVariables,
+          themeVariables: readThemeVariables(isDark),
           securityLevel: 'strict',
         });
         const containers = document.querySelectorAll<HTMLElement>('.mermaid-diagram');
@@ -1383,7 +1286,7 @@ const breadcrumbLD = {
     z-index: 80;
     width: min(360px, calc(100vw - 2rem));
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     background: var(--bg-card);
     color: var(--text-primary);
     box-shadow: var(--shadow-floating);
@@ -1393,7 +1296,8 @@ const breadcrumbLD = {
   }
   .glossary-save-actions { display: flex; gap: .7rem; align-items: center; margin-top: .7rem; }
   .glossary-save-actions button { font: inherit; padding: .45rem .6rem; border: 1px solid var(--border); border-radius: 5px; background: var(--bg-subtle); color: var(--text-primary); cursor: pointer; }
-  .glossary-save-actions a { color: var(--brand-500); }
+  .glossary-save-actions a { color: var(--brand-700); text-decoration-color: var(--brand-300); text-underline-offset: 3px; }
+  .glossary-save-actions a:hover { text-decoration-color: var(--brand-500); }
   .glossary-save-actions :focus-visible { outline: 2px solid var(--brand-500); outline-offset: 3px; }
   #glossary-save-status { margin: .4rem 0 0; }
   .glossary-popover-head {
@@ -1454,14 +1358,13 @@ const breadcrumbLD = {
   .glossary-reading a {
     border: 1px solid var(--border);
     border-radius: 4px;
-    color: var(--brand-500);
+    color: var(--brand-700);
     padding: 0.15rem 0.45rem;
     text-decoration: none;
     font-size: 0.74rem;
   }
   .glossary-reading a:hover {
     border-color: var(--brand-500);
-    color: var(--brand-900);
   }
   @media (max-width: 520px) {
     .glossary-popover {
@@ -1477,7 +1380,8 @@ const breadcrumbLD = {
     top: 0.45rem;
     right: 0.75rem;
     background: transparent;
-    color: rgba(255,255,255,0.4);
+    /* 程式碼標題列兩種主題都是深底（--bg-code），按鈕用淡化的 on-accent 白 */
+    color: color-mix(in srgb, var(--text-on-accent) 40%, transparent);
     border: none;
     border-radius: 4px;
     padding: 0.25rem;
@@ -1487,14 +1391,14 @@ const breadcrumbLD = {
     transition: color 0.15s;
     z-index: 1;
   }
-  .copy-btn:hover { color: rgba(255,255,255,0.8); }
+  .copy-btn:hover { color: color-mix(in srgb, var(--text-on-accent) 80%, transparent); }
 
   /* Rendered Mermaid diagrams */
   .mermaid-diagram {
     margin: 1.5rem 0;
     padding: 1rem;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     background: var(--bg-subtle);
     overflow-x: auto;
     text-align: center;
@@ -1516,9 +1420,10 @@ const breadcrumbLD = {
     position: relative;
     aspect-ratio: 16 / 9;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     overflow: hidden;
-    background: var(--bg-subtle);
+    /* 載入前的播放器底色；跟 videoPractice.css 一致用 --bg-video（之前這條權重較高，蓋掉了練習播放器的黑底）。 */
+    background: var(--bg-video);
   }
   article .content .video-embed__frame iframe {
     position: absolute;
@@ -1564,7 +1469,7 @@ const breadcrumbLD = {
   .video-return {
     padding: 0.4rem 0.9rem;
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: var(--corner-pill);
     background: var(--bg-page);
     color: var(--text-primary);
     font: inherit;
@@ -1580,7 +1485,7 @@ const breadcrumbLD = {
     bottom: 1.25rem;
     transform: translateX(-50%);
     z-index: 60;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+    box-shadow: var(--shadow-floating);
   }
   article .content .video-embed figcaption {
     margin-top: 0.5rem;

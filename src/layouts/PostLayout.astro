@@ -381,34 +381,34 @@ const pageTitle =
 
   /* ── Footer ── */
   footer {
-    margin-top: 3rem;
-    padding-top: 1rem;
+    margin-top: var(--space-12);
+    padding-top: var(--space-4);
     border-top: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.82rem;
+    font-size: var(--fs-sm);
     color: var(--text-muted);
   }
   .rss-link {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: var(--space-2);
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
   }
   .rss-link:hover { color: var(--brand-500); }
 
   /* ── Category badges (global, used in PostCard + slug page) ── */
   .cat-badge {
-    font-size: 0.62rem;
+    font-size: var(--fs-2xs);
     font-weight: 700;
     padding: 0.12rem 0.45rem;
-    border-radius: 2px;
+    border-radius: var(--corner-sm);
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: #fff;
+    color: var(--text-on-accent);
     text-decoration: none;
   }
   .cat-tech      { background: var(--cat-tech); }
@@ -432,20 +432,20 @@ const pageTitle =
 
   /* ── Type badges ── */
   .type-badge {
-    font-size: 0.62rem;
+    font-size: var(--fs-2xs);
     font-weight: 700;
     padding: 0.1rem 0.4rem;
-    border-radius: 2px;
+    border-radius: var(--corner-sm);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     border: 1px solid currentColor;
     text-decoration: none;
   }
   .type-badge:hover { opacity: 0.75; }
-  .type-debug     { color: #d97706; }
-  .type-deep-dive { color: #4f46e5; }
-  .type-guide     { color: #0d9488; }
-  .type-project   { color: #64748b; }
+  .type-debug     { color: var(--type-debug); }
+  .type-deep-dive { color: var(--type-deep-dive); }
+  .type-guide     { color: var(--type-guide); }
+  .type-project   { color: var(--type-project); }
 
   /* ── Type filter tabs ── */
   .type-filter {
@@ -457,9 +457,9 @@ const pageTitle =
   .filter-btn {
     background: none;
     border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 0.25rem 0.65rem;
-    font-size: 0.72rem;
+    border-radius: var(--corner-sm);
+    padding: var(--space-1) 0.65rem;
+    font-size: var(--fs-xs);
     font-weight: 700;
     cursor: pointer;
     color: var(--text-secondary);
@@ -474,44 +474,36 @@ const pageTitle =
   /* ── Tags ── */
   .tag-pill {
     background: var(--brand-100);
-    font-size: 0.72rem;
+    font-size: var(--fs-xs);
     padding: 0.08rem 0.45rem;
-    border-radius: 3px;
+    border-radius: var(--corner-sm);
     color: var(--brand-700);
     text-decoration: none;
   }
   .tag-pill:hover { background: var(--brand-300); }
 
   /* ── Prose: all MDX/markdown rendered content ── */
-  .content { line-height: 1.8; margin-bottom: 3rem; }
+  .content { line-height: 1.8; margin-bottom: var(--space-12); }
 
-  /* Headings — with colored underline accent (like DJ MYG) */
-  .content h1 { font-size: 1.7rem; font-weight: 900; margin: 2.5rem 0 1rem; color: var(--brand-900); }
+  /* Headings：h2 用上方分隔線切段落（第一個 h2 不畫線）。 */
+  .content h1 { font-size: var(--fs-h1); font-weight: 900; margin: var(--space-10) 0 var(--space-4); color: var(--brand-900); }
   .content h2 {
-    font-size: 1.3rem;
+    font-size: var(--fs-h2);
     font-weight: 800;
-    margin: 2.5rem 0 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: none;
+    margin: var(--space-12) 0 var(--space-3);
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-2);
+    border-top: 1px solid var(--border);
     color: var(--brand-900);
     position: relative;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
   }
-  .content h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 3rem;
-    height: 3px;
-    background: var(--heading-accent);
-    border-radius: 2px;
-  }
-  .content h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: var(--brand-900); }
-  .content h4 { font-size: 0.95rem; font-weight: 700; margin: 1.25rem 0 0.4rem; color: var(--brand-900); }
-  .content h5, .content h6 { font-size: 0.9rem; font-weight: 600; margin: 1rem 0 0.35rem; color: var(--text-secondary); }
+  .content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .content h3 { font-size: var(--fs-h3); font-weight: 700; margin: var(--space-6) 0 var(--space-2); color: var(--brand-900); }
+  .content h4 { font-size: var(--fs-h4); font-weight: 700; margin: var(--space-5) 0 var(--space-2); color: var(--brand-900); }
+  .content h5, .content h6 { font-size: var(--fs-sm); font-weight: 600; margin: var(--space-4) 0 var(--space-2); color: var(--text-secondary); }
 
   /* Heading anchor links */
   .content h2 .heading-anchor,
@@ -522,40 +514,43 @@ const pageTitle =
     font-size: 0.85em;
     opacity: 0;
     transition: opacity 0.15s;
-    margin-left: 0.5rem;
+    margin-left: var(--space-2);
   }
   .content h2:hover .heading-anchor,
   .content h3:hover .heading-anchor { opacity: 1; }
 
-  /* Paragraph & inline */
-  .content p { margin-bottom: 1rem; }
+  /* Paragraph & inline（行內元素用 em，跟著所在段落或標題的字級縮放） */
+  .content p { margin-bottom: var(--space-4); }
   .content strong { font-weight: 700; color: var(--text-primary); }
   .content em { font-style: italic; }
   .content del { text-decoration: line-through; color: var(--text-muted); }
-  .content mark { background: #fef08a; color: #1a1a1a; padding: 0.05em 0.2em; border-radius: 2px; }
+  .content mark { background: var(--mark-bg); color: var(--mark-text); padding: 0.05em 0.2em; border-radius: var(--corner-sm); }
 
-  /* Links */
-  .content a { color: var(--brand-500); text-decoration: underline; text-decoration-color: var(--brand-300); text-underline-offset: 2px; }
-  .content a:hover { color: var(--brand-900); text-decoration-color: var(--brand-500); }
+  /* Links：深色字＋淡綠底線，hover 底線轉品牌綠 */
+  .content a { color: var(--brand-700); text-decoration: underline; text-decoration-color: var(--brand-300); text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
+  .content a:hover { text-decoration-color: var(--brand-500); }
+  /* 深色下連結字（--brand-700 #c0c0c0）跟內文只差 1.23:1，--brand-300 底線對頁面底也只有 1.88:1，平時就用品牌綠底線 */
+  [data-theme="dark"] .content a { text-decoration-color: var(--brand-500); }
+  [data-theme="dark"] .content a:hover { color: var(--brand-900); }
 
   /* 比欄寬長的獨立公式在自己的區塊內橫向捲動，不撐破版面（手機上很常見）。 */
-  .content .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
+  .content .katex-display { overflow-x: auto; overflow-y: hidden; padding: var(--space-1) 0; }
 
-  /* ── macOS-style Code Blocks (like DJ MYG) ── */
+  /* ── macOS-style Code Blocks ── */
   .content pre {
     position: relative;
     background: var(--bg-code);
     color: #d4d4d4;
     padding: 0;
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     overflow: hidden;
-    margin-bottom: 1.25rem;
+    margin-bottom: var(--space-5);
     border: 1px solid var(--border);
   }
   .content pre::before {
     content: '';
     display: block;
-    padding: 0.6rem 1rem;
+    padding: 0.6rem var(--space-4);
     background: rgba(0,0,0,0.15);
     background-image: radial-gradient(circle at 16px 50%, var(--code-dot-red) 5px, transparent 5px),
                       radial-gradient(circle at 36px 50%, var(--code-dot-yellow) 5px, transparent 5px),
@@ -565,38 +560,51 @@ const pageTitle =
   }
   .content pre code {
     display: block;
-    padding: 1rem 1.5rem;
+    padding: var(--space-4) var(--space-6);
     overflow-x: auto;
-    font-size: 0.88rem;
+    font-size: var(--fs-sm);
     line-height: 1.6;
     counter-reset: line;
   }
 
-  .content :not(pre) > code { background: var(--brand-100); color: var(--brand-700); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
-  .content kbd { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 3px; padding: 0.1em 0.4em; font-size: 0.85em; font-family: monospace; }
+  .content :not(pre) > code { background: var(--brand-100); color: var(--brand-700); padding: 0.1em 0.35em; border-radius: var(--corner-sm); font-size: 0.9em; }
+  .content kbd { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--corner-sm); padding: 0.1em 0.4em; font-size: 0.9em; font-family: monospace; }
 
-  /* ── Callout / Blockquote boxes (like DJ MYG info/success/warning) ── */
+  /* ── Callouts ──
+     預設 blockquote＝品牌 note。src/plugins/remarkCallout.ts 依 `> [!WARNING]`／`> [!TIP]` 或
+     開頭粗體（**注意**、**Warning**、**提示**、**Tip**…）加上 callout-warning／callout-tip。 */
   .content blockquote {
-    background: var(--info-bg);
-    border-left: 4px solid var(--info-border);
-    border-radius: 0 8px 8px 0;
-    padding: 1rem 1.25rem;
+    background: var(--brand-50);
+    border-left: 4px solid var(--brand-500);
+    border-radius: 0 var(--corner-md) var(--corner-md) 0;
+    padding: var(--space-4) var(--space-5);
     color: var(--text-primary);
-    margin: 1.25rem 0;
+    margin: var(--space-5) 0;
     font-style: normal;
   }
-  .content blockquote p { margin-bottom: 0.35rem; }
+  /* margin-top 要歸零：瀏覽器預設 p 上方 1em，在有 padding 的框裡不會摺疊，框頂會比框底多出一行空白 */
+  .content blockquote p { margin: 0 0 var(--space-2); }
   .content blockquote p:last-child { margin-bottom: 0; }
+  .content blockquote.callout-warning {
+    background: var(--warning-bg);
+    border-left-color: var(--warning-border);
+  }
+  .content blockquote.callout-tip {
+    background: var(--success-bg);
+    border-left-color: var(--success-border);
+  }
+  .content blockquote .callout-title { margin-bottom: var(--space-1); }
 
-  /* 文章開頭的語言切換（> 🌏 [English version](…)）：只有一個連結，不該套提示框的大藍框，改成小膠囊。
-     外層 blockquote 維持一般區塊（寬版版面靠 margin-inline: auto 對齊內文欄），膠囊畫在裡面那段上。 */
+  /* 文章開頭的語言切換（> 🌏 [English version](…)）：只有一個連結，不該套提示框，改成小膠囊。
+     外層 blockquote 維持一般區塊（寬版版面靠 margin-inline: auto 對齊內文欄），膠囊畫在裡面那段上。
+     選擇器特異性高於上面的 callout 規則，必須維持。 */
   .content > blockquote:first-child:has(> p:only-child > a:only-child) {
     background: none;
     border: none;
     border-radius: 0;
     padding: 0;
     margin-top: 0;
-    margin-bottom: 1.25rem;
+    margin-bottom: var(--space-5);
   }
   .content > blockquote:first-child:has(> p:only-child > a:only-child) > p {
     /* inline-block 而不是 inline-flex：flex 會吃掉 🌏 與連結之間的空白。 */
@@ -605,8 +613,8 @@ const pageTitle =
     padding: 0.3rem 0.9rem;
     background: var(--brand-50);
     border: 1px solid var(--brand-300);
-    border-radius: 999px;
-    font-size: 0.85rem;
+    border-radius: var(--corner-pill);
+    font-size: var(--fs-sm);
     line-height: 1.5;
     color: var(--brand-700);
   }
@@ -618,32 +626,46 @@ const pageTitle =
   }
   .content > blockquote:first-child:has(> p:only-child > a:only-child) a:hover { text-decoration: underline; }
 
-  /* Tip callout (blockquote starting with [!TIP] or > **tip**) */
-  .content blockquote.callout-success,
-  .content blockquote:has(> p:first-child > strong:first-child:is([data-type="success"])) {
-    background: var(--success-bg);
-    border-left-color: var(--success-border);
+  /* ── 摺疊區塊 details／summary ── */
+  .content details {
+    border: 1px solid var(--border);
+    border-radius: var(--corner-md);
+    background: var(--bg-card);
+    padding: 0 var(--space-4);
+    margin: var(--space-5) 0;
   }
+  .content details > summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: var(--space-3) 0;
+    color: var(--brand-900);
+  }
+  .content details > summary::marker { color: var(--brand-500); }
+  .content details[open] > summary {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--space-3);
+  }
+  .content details[open] { padding-bottom: var(--space-1); }
 
   /* Lists */
-  .content ul, .content ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+  .content ul, .content ol { padding-left: var(--space-6); margin-bottom: var(--space-4); }
   .content ul { list-style-type: disc; }
   .content ol { list-style-type: decimal; }
-  .content li { margin-bottom: 0.35rem; }
-  .content li > ul, .content li > ol { margin-top: 0.25rem; margin-bottom: 0.25rem; }
-  .content input[type="checkbox"] { margin-right: 0.4rem; accent-color: var(--brand-500); }
+  .content li { margin-bottom: var(--space-2); }
+  .content li > ul, .content li > ol { margin-top: var(--space-1); margin-bottom: var(--space-1); }
+  .content input[type="checkbox"] { margin-right: var(--space-2); accent-color: var(--brand-500); }
 
-  /* Horizontal rule — dashed style (like DJ MYG) */
+  /* Horizontal rule — dashed style */
   .content hr {
     border: none;
     border-top: 2px dashed var(--border);
-    margin: 2.5rem 0;
+    margin: var(--space-10) 0;
   }
 
   /* Images */
-  .content img { max-width: 100%; height: auto; border-radius: 8px; margin: 1rem 0; display: block; }
-  .content figure { margin: 1.5rem 0; }
-  .content figcaption { font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 0.4rem; }
+  .content img { max-width: 100%; height: auto; border-radius: var(--corner-md); margin: var(--space-4) 0; display: block; }
+  .content figure { margin: var(--space-6) 0; }
+  .content figcaption { font-size: var(--fs-xs); color: var(--text-muted); text-align: center; margin-top: var(--space-2); }
 
   /* ── Responsive: mobile ── */
   @media (max-width: 640px) {
@@ -692,13 +714,13 @@ const pageTitle =
     }
   }
 
-  /* ── Dark styled Tables (like DJ MYG) ── */
+  /* ── Tables ── */
   .content .table-scroll {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     border: 1px solid var(--border);
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
+    border-radius: var(--corner-md);
+    margin-bottom: var(--space-6);
   }
   /* 寬度用 100% 讓儲存格換行：之前用 max-content（儲存格不換行），一格字長就整張表超寬，連桌機都要左右滑
      （2026-11-19 日報「關鍵數字」三欄表）。真的放不下的表（欄位多、長串不能斷）仍由 .table-scroll 接手橫向捲動，
@@ -707,19 +729,19 @@ const pageTitle =
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    font-size: 0.9rem;
-    border-radius: 8px;
+    font-size: var(--fs-sm);
+    border-radius: var(--corner-md);
   }
   .content th {
     background: var(--bg-subtle);
     font-weight: 700;
     text-align: left;
-    padding: 0.7rem 1rem;
+    padding: var(--space-3) var(--space-4);
     border-bottom: 2px solid var(--border);
     color: var(--text-primary);
   }
   .content td {
-    padding: 0.65rem 1rem;
+    padding: var(--space-3) var(--space-4);
     border-bottom: 1px solid var(--border);
     color: var(--text-primary);
   }
@@ -844,14 +866,15 @@ const pageTitle =
     font-weight: 400 !important;
     color: var(--brand-900) !important;
     margin: 2.5rem 0 1rem !important;
+    padding-top: 0 !important;
     padding-bottom: 0.35rem !important;
+    border-top: none !important;
     border-bottom: 1px solid var(--border) !important;
     line-height: 1.2 !important;
     display: block !important;
     justify-content: unset !important;
   }
 
-  .about-section-h2::after { display: none !important; }
 
   .about-intro-lede {
     font-size: 1.02rem;

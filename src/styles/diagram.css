@@ -11,7 +11,7 @@
   --dg-accent-tint: color-mix(in srgb, var(--brand-500) 12%, transparent);
   --dg-link: var(--info-border);
   --dg-link-tint: color-mix(in srgb, var(--info-border) 10%, transparent);
-  --dg-warn: var(--danger);
+  --dg-warn: var(--diagram-warn);
   --dg-warn-tint: color-mix(in srgb, var(--danger) 10%, transparent);
   --dg-active: var(--brand-500);
   --flow-active: var(--dg-active);
@@ -21,7 +21,6 @@
   border-radius: .75rem;
   background: var(--bg-card);
 }
-[data-theme="dark"] .dg { --dg-warn: #f97066; }
 .content .dg__title { margin: 0 0 .5rem; font-size: .95rem; font-weight: 700; color: var(--text-primary); text-align: left; }
 .content .dg__caption { margin: .5rem 0 0; font-size: .8rem; color: var(--text-muted); }
 .dg__scroll { overflow-x: auto; overscroll-behavior-x: contain; }
@@ -111,8 +110,7 @@
 
 /* Data charts. A mark takes its colour from --dg-c: set it with one colour class (dg-c-accent, dg-c-s1…s5, …).
  * Series colours are muted on purpose — accent stays the single focal series. Palette from diagram-design (MIT). */
-.dg { --dg-s1: #5e7a9b; --dg-s2: #b8915a; --dg-s3: #9c6b50; --dg-s4: #6e6479; --dg-s5: #7c8f6f; }
-[data-theme="dark"] .dg { --dg-s1: #82a0c0; --dg-s2: #d3ad7a; --dg-s3: #b88670; --dg-s4: #8d8298; --dg-s5: #9caf8f; }
+.dg { --dg-s1: var(--diagram-s1); --dg-s2: var(--diagram-s2); --dg-s3: var(--diagram-s3); --dg-s4: var(--diagram-s4); --dg-s5: var(--diagram-s5); }
 .dg-c-accent { --dg-c: var(--dg-accent); }
 .dg-c-warn { --dg-c: var(--dg-warn); }
 .dg-c-link { --dg-c: var(--dg-link); }
@@ -158,5 +156,4 @@
 .dg-outline--accent { fill: none; stroke: var(--dg-accent); stroke-width: 2.2; }
 .dg-bubble { fill: color-mix(in srgb, var(--dg-c, var(--dg-muted)) 24%, var(--dg-paper)); stroke: var(--dg-c, var(--dg-muted)); stroke-width: 1.4; }
 .dg-text--ink { fill: var(--dg-ink); }
-/* Dark green text reads on dg-heat-4/5 in both themes (≥4.2:1). */
-.dg-text--on-heat { fill: #10261a; font-weight: 600; }
+.dg-text--on-heat { fill: var(--diagram-on-heat); font-weight: 600; }
