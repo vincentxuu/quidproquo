@@ -99,9 +99,12 @@ A minimal tool set (navigate, screenshot, click, fill, select, hover, evaluate),
 
 This question went from "pick one of three abstraction levels" to "pick one of two purposes". @playwright/mcp makes the agent get page operations right; chrome-devtools-mcp lets the agent explain why a page is slow or leaking. And server-puppeteer demonstrates a third thing: **MCP servers have shorter lifespans than you'd assume** — putting "is anyone still maintaining this" on the evaluation sheet is more useful than counting tools.
 
+If you use a coding agent with a shell, like Claude Code or Codex, there's a third route: skip MCP and use a CLI plus a skill. Playwright MCP's own README recommends it. What that route saves and which security settings to turn on are in the next post, [agent-browser and the CLI + skill route](/posts/ai/2026-11-19-agent-browser-cli-en).
+
 ## Changelog
 
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Browser Automation and MCP" series.
+- 2026-11-19: Added a link to the CLI + skill route at the end.
 
 ## References
 

@@ -50,8 +50,8 @@ order 0 是新寫的總覽：五層地圖、每層代表工具與站上對應篇
 | 2 | 既有（原 1） | 2026-06-20-playwright-mcp | @playwright/mcp | 官方 MCP 怎麼用 accessibility snapshot 操作頁面？ |
 | 3 | 既有（原 2） | 2026-06-20-puppeteer-mcp | Puppeteer MCP | 參考實作的 MCP server 有什麼侷限？ |
 | 4 | 既有（原 3） | 2026-06-20-chrome-devtools-mcp | Chrome DevTools MCP | 直連 CDP 的 MCP 適合除錯什麼？ |
-| 5 | 既有（原 4） | 2026-06-20-browser-mcp-comparison | Browser MCP 三選一 | 三個 MCP 怎麼選？（待 post-update：連到 6） |
-| 6 | 新寫 | agent-browser-cli | agent-browser 與 CLI＋skill 路線 | 為什麼 coding agent 改用 CLI 而不是 MCP，agent-browser 和 Playwright CLI 怎麼選？ |
+| 5 | 既有（原 4） | 2026-06-20-browser-mcp-comparison | Browser MCP 三選一 | 三個 MCP 怎麼選？（2026-11-19 已補連到 6） |
+| 6 | 已上線 | 2026-11-19-agent-browser-cli | agent-browser 與 CLI＋skill 路線 | 為什麼 coding agent 改用 CLI 而不是 MCP，agent-browser 和 Playwright CLI 怎麼選？ |
 | 7 | 既有（原 6） | 2026-05-23-browse-sh-browser-skills | browse.sh | 把學過的網站操作存成技能 |
 | **B 寫程式用的 AI SDK** | | | | |
 | 8 | 已上線 | 2026-11-18-stagehand-v4 | Stagehand v4：act／observe／extract | 什麼時候在一個步驟花一次推論，怎麼讓它下次不用再花？ |
@@ -65,7 +65,7 @@ order 0 是新寫的總覽：五層地圖、每層代表工具與站上對應篇
 | 15 | 新寫 | browser-agent-loop-to-code-mode | agent loop 退場 | 為什麼大家都把「每步推論」換成「AI 寫碼或外部 agent 驅動」？ |
 | **D driver 與協定** | | | | |
 | 16 | 已上線 | 2026-11-18-cdp-vs-playwright-driver | Driver：自己打 CDP 或用 Playwright | 為什麼有人拆掉 Playwright、代價是什麼？ |
-| 17 | 新寫 | cdp-webdriver-bidi | 協定：CDP 與 WebDriver BiDi | 兩個協定差在哪，「只綁 Chromium」的代價是什麼？ |
+| 17 | 已上線 | 2026-11-19-cdp-webdriver-bidi | 協定：CDP 與 WebDriver BiDi | 兩個協定差在哪，「只綁 Chromium」的代價是什麼？ |
 | **E 瀏覽器：引擎與執行位置** | | | | |
 | 18 | 新寫 | browser-engines-beyond-chromium | 引擎：Chromium 以外的選擇 | Lightpanda、Kitesurf 這類非 Chromium 引擎換到什麼、犧牲什麼？ |
 | 19 | 新寫 | hosted-browser-comparison | 託管對照 | Browserbase、Browser Run、Steel、Hyperbrowser、Browser Use Cloud 各適合什麼，什麼時候自架？ |

@@ -67,7 +67,7 @@ caption: 簡化示意：一個產品可以同時橫跨好幾層，例如 Browser
 
 | 類型 | 誰決定下一步 | 代表 |
 |---|---|---|
-| 給 coding agent 的工具 | 外部 agent 的模型（Claude Code、Codex） | [Playwright MCP](/posts/tech/2026-06-20-playwright-mcp)、[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp)、[agent-browser](https://github.com/vercel-labs/agent-browser)、[browse CLI](/posts/ai/2026-05-23-browse-sh-browser-skills) |
+| 給 coding agent 的工具 | 外部 agent 的模型（Claude Code、Codex） | [Playwright MCP](/posts/tech/2026-06-20-playwright-mcp)、[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp)、[agent-browser](/posts/ai/2026-11-19-agent-browser-cli)、[browse CLI](/posts/ai/2026-05-23-browse-sh-browser-skills) |
 | 混合式 SDK | 你寫的程式，個別步驟交給模型 | [Stagehand](/posts/ai/2026-11-18-stagehand-v4)、[Midscene](/posts/ai/2026-05-23-midscene-vision-ui-automation)、[AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction)、[Skyvern](https://github.com/Skyvern-AI/skyvern) 的 SDK |
 | 自主 agent | 模型，每一步都自己判斷 | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide)、Skyvern 的 agent |
 
@@ -75,7 +75,7 @@ caption: 簡化示意：一個產品可以同時橫跨好幾層，例如 Browser
 
 **Driver** 把「點這個按鈕」翻成瀏覽器聽得懂的指令。一邊是現成的函式庫：[Playwright](https://playwright.dev/)、[Puppeteer](https://pptr.dev/)、[Selenium](https://www.selenium.dev/)，以及修掉自動化特徵的 fork [Patchright](https://github.com/Kaliiiiiiiiii-Vinyzu/patchright)。另一邊是自己寫的：[Stagehand 從 v3 起](https://developers.cloudflare.com/browser-run/stagehand/)、[Browser Use 從 2025 年 8 月起](https://browser-use.com/posts/playwright-to-cdp)，以及用 Rust 寫的 agent-browser，都拿掉了 Playwright，直接對瀏覽器下指令。
 
-**協定**是 driver 和瀏覽器之間的語言。Chromium 系瀏覽器講 CDP（Chrome DevTools Protocol）；W3C 的 WebDriver BiDi 是跨瀏覽器的新標準。Firefox 從 141 版起[完全移除了 CDP](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/141)，只剩 BiDi 一條路。
+**協定**是 driver 和瀏覽器之間的語言。Chromium 系瀏覽器講 CDP（Chrome DevTools Protocol）；W3C 的 WebDriver BiDi 是跨瀏覽器的新標準。Firefox 從 141 版起[完全移除了 CDP](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/141)，只剩 BiDi 一條路。兩個協定的差別見[協定篇](/posts/ai/2026-11-19-cdp-webdriver-bidi)。
 
 **瀏覽器**這層有兩個問題。一是用哪個引擎：幾乎都是 Chromium，也有 [Lightpanda](https://github.com/lightpanda-io/browser) 和 [Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure) 這類非 Chromium 引擎。二是跑在哪：你的筆電，或 [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure)、[Steel](/posts/ai/2026-08-22-steel-browser-infrastructure)、[Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure)、Cloudflare Browser Run 這些託管雲。
 
@@ -161,13 +161,13 @@ curl -X POST 'https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-
 
 | 段落 | 已上線 |
 |---|---|
-| 給 coding agent 的工具 | [三家 AI 進 Chrome](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini)、[@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp)、[Puppeteer MCP](/posts/tech/2026-06-20-puppeteer-mcp)、[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp)、[Browser MCP 三選一](/posts/tech/2026-06-20-browser-mcp-comparison)、[browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills) |
+| 給 coding agent 的工具 | [三家 AI 進 Chrome](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini)、[@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp)、[Puppeteer MCP](/posts/tech/2026-06-20-puppeteer-mcp)、[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp)、[Browser MCP 三選一](/posts/tech/2026-06-20-browser-mcp-comparison)、[agent-browser 與 CLI 路線](/posts/ai/2026-11-19-agent-browser-cli)、[browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills) |
 | 寫程式用的 AI SDK | [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4)、[Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright)、[Midscene.js](/posts/ai/2026-05-23-midscene-vision-ui-automation)、[AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction) |
 | 模型自己決定 | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide) |
-| Driver 與協定 | [自己打 CDP 還是用 Playwright](/posts/ai/2026-11-18-cdp-vs-playwright-driver) |
+| Driver 與協定 | [自己打 CDP 還是用 Playwright](/posts/ai/2026-11-18-cdp-vs-playwright-driver)、[CDP 與 WebDriver BiDi](/posts/ai/2026-11-19-cdp-webdriver-bidi) |
 | 瀏覽器與執行位置 | [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure)、[Steel](/posts/ai/2026-08-22-steel-browser-infrastructure)、[Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure)、[Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure) |
 
-接下來會補上幾段的空缺。SDK 段：Skyvern、同層 SDK 比較。工具段：agent-browser。其餘是 agent 迴圈為什麼正在退場、協定篇、非 Chromium 引擎、託管對照與 Cloudflare Browser Run。
+接下來會補上幾段的空缺。SDK 段：Skyvern、同層 SDK 比較。其餘是 agent 迴圈為什麼正在退場、非 Chromium 引擎、託管對照與 Cloudflare Browser Run。
 
 這個系列不處理兩件事：只想找現成爬蟲服務的讀者，請看[搜尋與爬取實戰](/series/search-and-scraping)系列；繞過反爬機制的做法不教，遇到時只寫合規與限制。
 

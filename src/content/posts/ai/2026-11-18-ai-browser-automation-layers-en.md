@@ -67,7 +67,7 @@ caption: Simplified: one product can span several layers. Browser Use, for examp
 
 | Kind | Who decides the next step | Examples |
 |---|---|---|
-| Tools for coding agents | The model of an outside agent (Claude Code, Codex) | [Playwright MCP](/posts/tech/2026-06-20-playwright-mcp-en), [Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp-en), [agent-browser](https://github.com/vercel-labs/agent-browser), [browse CLI](/posts/ai/2026-05-23-browse-sh-browser-skills-en) |
+| Tools for coding agents | The model of an outside agent (Claude Code, Codex) | [Playwright MCP](/posts/tech/2026-06-20-playwright-mcp-en), [Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp-en), [agent-browser](/posts/ai/2026-11-19-agent-browser-cli-en), [browse CLI](/posts/ai/2026-05-23-browse-sh-browser-skills-en) |
 | Hybrid SDKs | Your code, handing individual steps to a model | [Stagehand](/posts/ai/2026-11-18-stagehand-v4-en), [Midscene](/posts/ai/2026-05-23-midscene-vision-ui-automation-en), [AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en), the [Skyvern](https://github.com/Skyvern-AI/skyvern) SDK |
 | Autonomous agents | The model, at every step | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide-en), the Skyvern agent |
 
@@ -75,7 +75,7 @@ The tools contain no model at all, so the quality of their decisions depends mai
 
 **The driver** turns "click this button" into commands the browser understands. On one side are off-the-shelf libraries: [Playwright](https://playwright.dev/), [Puppeteer](https://pptr.dev/), [Selenium](https://www.selenium.dev/), and [Patchright](https://github.com/Kaliiiiiiiiii-Vinyzu/patchright), a Playwright fork that removes automation fingerprints. On the other are drivers written in-house: [Stagehand since v3](https://developers.cloudflare.com/browser-run/stagehand/), [Browser Use since August 2025](https://browser-use.com/posts/playwright-to-cdp) and the Rust-based agent-browser all dropped Playwright and talk to the browser directly.
 
-**The protocol** is the language between driver and browser. Chromium-based browsers speak CDP (Chrome DevTools Protocol); W3C WebDriver BiDi is the new cross-browser standard. Firefox [removed CDP entirely](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/141) as of version 141, leaving BiDi as the only route.
+**The protocol** is the language between driver and browser. Chromium-based browsers speak CDP (Chrome DevTools Protocol); W3C WebDriver BiDi is the new cross-browser standard. Firefox [removed CDP entirely](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/141) as of version 141, leaving BiDi as the only route. The [protocol post](/posts/ai/2026-11-19-cdp-webdriver-bidi-en) covers how the two differ.
 
 **The browser** layer holds two questions. First, which engine: almost always Chromium, though non-Chromium engines exist, such as [Lightpanda](https://github.com/lightpanda-io/browser) and [Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure-en). Second, where it runs: your laptop, or a hosted cloud such as [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure-en), [Steel](/posts/ai/2026-08-22-steel-browser-infrastructure-en), [Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure-en) or Cloudflare Browser Run.
 
@@ -161,13 +161,13 @@ The series runs down the five layers from the top, one post per choice within a 
 
 | Section | Published |
 |---|---|
-| Tools for coding agents | [Claude, Codex and Gemini in Chrome](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini-en), [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en), [Puppeteer MCP](/posts/tech/2026-06-20-puppeteer-mcp-en), [Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp-en), [Choosing a browser MCP](/posts/tech/2026-06-20-browser-mcp-comparison-en), [browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills-en) |
+| Tools for coding agents | [Claude, Codex and Gemini in Chrome](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini-en), [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en), [Puppeteer MCP](/posts/tech/2026-06-20-puppeteer-mcp-en), [Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp-en), [Choosing a browser MCP](/posts/tech/2026-06-20-browser-mcp-comparison-en), [agent-browser and the CLI route](/posts/ai/2026-11-19-agent-browser-cli-en), [browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills-en) |
 | AI SDKs you script against | [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4-en), [Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright-en), [Midscene.js](/posts/ai/2026-05-23-midscene-vision-ui-automation-en), [AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en) |
 | Letting the model decide | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide-en) |
-| Drivers and protocols | [Raw CDP or Playwright](/posts/ai/2026-11-18-cdp-vs-playwright-driver-en) |
+| Drivers and protocols | [Raw CDP or Playwright](/posts/ai/2026-11-18-cdp-vs-playwright-driver-en), [CDP and WebDriver BiDi](/posts/ai/2026-11-19-cdp-webdriver-bidi-en) |
 | Browsers and where they run | [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure-en), [Steel](/posts/ai/2026-08-22-steel-browser-infrastructure-en), [Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure-en), [Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure-en) |
 
-The gaps get filled next. In the SDK section: Skyvern and a comparison of the hybrid SDKs. In the tools section: agent-browser. The rest: why the agent loop is being retired, a post on protocols, non-Chromium engines, a hosting comparison, and Cloudflare Browser Run.
+The gaps get filled next. In the SDK section: Skyvern and a comparison of the hybrid SDKs. The rest: why the agent loop is being retired, non-Chromium engines, a hosting comparison, and Cloudflare Browser Run.
 
 The series leaves two things out. If you just want a ready-made scraping service, see the [Search and Scraping in Practice](/en/series/search-and-scraping) series. Techniques for getting around anti-bot systems are not covered; where they come up, the posts stick to compliance and limits.
 

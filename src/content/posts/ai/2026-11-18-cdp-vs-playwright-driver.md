@@ -112,6 +112,7 @@ v4 再往前一步，理由跟遠端瀏覽器有關。給你 `page` 物件的框
 - **只剩 Chromium。** CDP 是 Chromium 的協定。Firefox 在 141 版[移除了實驗性的 CDP 實作](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/141)，自動化改走 WebDriver，主推 WebDriver BiDi。自己打 CDP 的工具幾乎註定只能用 Chromium。
 - **等待、strict mode、網路攔截要自己做。** 這些都是 driver 層的功能。Stagehand v4 沒有自動等待，selector 對到多個元素時直接點第一個，也沒有 `page.route()`。逐項對照在 [Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright) 那篇。
 - **當機與邊緣情況要自己扛。** Playwright 原本替你處理掉的當機情況，現在全部要自己處理。
+- **沒有官方支援。** CDP 從不保證向後相容；2026 年 9 月起，CDP 官方文件更明寫第三方直接使用「unsupported」，建議改透過 Puppeteer、ChromeDriver 這類 Google 自己的產品。細節在[協定篇](/posts/ai/2026-11-19-cdp-webdriver-bidi)。
 
 ## 常見誤會：直接打 CDP 比較不會被偵測
 
@@ -144,7 +145,7 @@ v4 再往前一步，理由跟遠端瀏覽器有關。給你 `page` 物件的框
 
 ## 想深入
 
-driver 底下是協定。CDP 只屬於 Chromium，Firefox 的自動化已經轉向 WebDriver BiDi；這兩個協定差在哪、「只綁 Chromium」長期會不會卡住你的工具鏈，是系列下一篇的題目。
+driver 底下是協定。CDP 只屬於 Chromium，Firefox 的自動化已經轉向 WebDriver BiDi；這兩個協定差在哪、「只綁 Chromium」長期會不會卡住你的工具鏈，見下一篇 [CDP 與 WebDriver BiDi](/posts/ai/2026-11-19-cdp-webdriver-bidi)。
 
 ## 參考資料
 

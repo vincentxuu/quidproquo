@@ -99,9 +99,12 @@ Playwright 本身的 auto-wait 邏輯（等元素 interactable 才操作）讓 a
 
 這題從「三種抽象層級選一個」變成「兩種目的選一個」。@playwright/mcp 負責讓 agent 把網頁操作對；chrome-devtools-mcp 負責讓 agent 說得出網頁為什麼慢、為什麼漏。server-puppeteer 則示範了另一件事：**MCP server 的生命週期比你以為的短**——選型時把「還有沒有人維護」放進評估表，比比較工具數量有用得多。
 
+如果你用的是 Claude Code、Codex 這類有 shell 的 coding agent，還有第三條路：不掛 MCP，改用 CLI＋skill。Playwright MCP 的 README 自己就這樣建議。這條路省在哪、該開哪些安全設定，見下一篇 [agent-browser 與 CLI＋skill 路線](/posts/ai/2026-11-19-agent-browser-cli)。
+
 ## 更新紀錄
 
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「瀏覽器自動化與 MCP」系列
+- 2026-11-19：結尾補上 CLI＋skill 路線的連結
 
 ## 參考資料
 

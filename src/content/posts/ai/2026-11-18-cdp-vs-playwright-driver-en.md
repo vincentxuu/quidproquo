@@ -112,6 +112,7 @@ Both teams' reasons hold, but under a specific premise: lots of calls, remote br
 - **Chromium only.** CDP is Chromium's protocol. In version 141, Firefox [removed its experimental CDP implementation](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/141); automation there goes through WebDriver, with WebDriver BiDi as the main path. A tool that speaks raw CDP is all but locked to Chromium.
 - **Waiting, strict mode, and network interception are yours to build.** These are driver-layer features. Stagehand v4 has no auto-waiting, clicks the first element when a selector matches several, and has no `page.route()`. The item-by-item comparison is in the [Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright-en) post.
 - **Crashes and edge cases are yours to handle.** Every crash case Playwright used to handle for you is now yours.
+- **No official support.** CDP has never guaranteed backward compatibility, and since September 2026 its official docs state that direct use by third parties is "unsupported", recommending Google's own products such as Puppeteer and ChromeDriver instead. Details are in the [protocol post](/posts/ai/2026-11-19-cdp-webdriver-bidi-en).
 
 ## A common misconception: raw CDP is harder to detect
 
@@ -144,7 +145,7 @@ It also supports Chromium only; SDKs such as [Notte](https://github.com/nottelab
 
 ## Going deeper
 
-Below the driver is the protocol. CDP belongs to Chromium alone, and Firefox automation has moved to WebDriver BiDi. How the two protocols differ, and whether "locked to Chromium" will box in your toolchain over time, is the topic of the next post in the series.
+Below the driver is the protocol. CDP belongs to Chromium alone, and Firefox automation has moved to WebDriver BiDi. How the two protocols differ, and whether "locked to Chromium" will box in your toolchain over time, is the topic of the next post, [CDP and WebDriver BiDi](/posts/ai/2026-11-19-cdp-webdriver-bidi-en).
 
 ## References
 
