@@ -16,13 +16,18 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included (Lecture 10, the Terminal-Bench guest lecture).** [Source details](#course-video-sources). Stanford Online has published the recording; the recording of this week's Lecture 11 (October 28) is not up yet.
 
 Week 6 is submission week. Monday (Oct 26) has the scheduled Terminal-Bench guest lecture with Ryan Marten and Alex Shaw, and [HW2](https://cs329z.stanford.edu/) drops the same day. Wednesday (Oct 28, Data for Agentic Systems) assigns [Shreya Shankar](https://www.sh-reya.com/)'s [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/) (2024). HW1 is due Friday (Oct 30). Then the recorded midpoint demo video is due Nov 4 at 11:59 p.m., and the midway report follows on Nov 6.
 
 The data flywheel is one sentence: every production output is training material for the next round. Each answer an agent gives leaves a trace — what the user asked, which steps the system took, where it went wrong. Save the traces, score them, put the good ones back into the prompt as demonstrations, and put the fixed bad ones back too. One full turn means better demonstrations and higher scores, and the next turn produces even better data.
 
 Shankar splits the loop into three stations: evaluation, monitoring, and continual improvement. Evaluation defines what success looks like; monitoring keeps the metrics honest against reality; improvement feeds what was learned back into the system. All three eat the same production data, for different purposes. The post ships no new model and no new algorithm. It is engineering discipline: how to squeeze every drop out of production data.
+
+```youtube
+url: https://www.youtube.com/watch?v=7GW-9ug2nvw
+title: Terminal-Bench: Evaluating AI Agents | Stanford CS329Z Guest Lecture with Alex Shaw & Ryan Marten
+```
 
 ## Trace backward from the final state: evidence for a data flywheel
 
@@ -246,6 +251,7 @@ The [official schedule](https://cs329z.stanford.edu/) assigns these materials; b
 
 ## Update log
 
+- 2026-11-19: Stanford Online published the Lecture 10 Terminal-Bench guest recording; embedded the video, switched the status to videos included, and rewrote the video sources section.
 - 2026-10-23: Rebuilt the guide around source status, mechanisms, a worked scenario, and answer criteria; separated detailed assigned readings from lecture preparation.
 
 - 2026-10-23: Added the announced Terminal-Bench guest readings, an original outcome-verification example, a bilingual diagram, and development/test separation. The guest session is upcoming; this is a reading guide, not a talk transcript.
@@ -257,14 +263,9 @@ The [official schedule](https://cs329z.stanford.edu/) assigns these materials; b
 
 ## Course video sources
 
-The [official recording policy](https://cs329z.stanford.edu/logistics.html) provides lecture recordings through the course Canvas site. Access requires sign-in. The new sections here use the public paper and readings, not a recording or transcript.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-10-23.
+- Recording: [Terminal-Bench: Evaluating AI Agents | Stanford CS329Z Guest Lecture with Alex Shaw & Ryan Marten](https://www.youtube.com/watch?v=7GW-9ug2nvw) (Stanford Online channel, uploaded 2026-11-18, about 73 minutes). For section timings, see the [Lecture 10 guide](/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench-en).
+- Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U); Lecture 11 is not up yet.
+- Checked: 2026-11-19. The earlier statement that recordings require the course Canvas login no longer applies.
 
 ## References
 

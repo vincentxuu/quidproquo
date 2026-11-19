@@ -16,11 +16,16 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 77 分鐘；本文依公開投影片與指定讀物整理，並已依錄影字幕核對各節起點。
 
 想像你請一個助理查資料：他要嘛坐在位子上憑記憶硬答，要嘛悶頭一直點連結卻從不說明在找什麼。前者答錯時你無從除錯，後者失控時你不知他要去哪。第 6 堂（10/12，Agent Design Patterns & Scaffolds）處理的正是這個兩難：什麼該寫成固定 workflow，什麼才交給 agent 自己決定下一步，以及長任務的 context 該怎麼管。
 
 指定讀物是 Yao 等人的 [ReAct](https://arxiv.org/abs/2210.03629)、Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) 與 LangChain 的 Context Engineering，延伸閱讀是 Reflexion 與 CodeAct。本文深讀前兩篇：ReAct 讓模型把想（Thought）和做（Action）交錯寫出來，每做一步都回頭看環境回了什麼；Anthropic 則提醒先想清楚什麼值得做成 agent。這時 HW1 正走到中段，迴圈長什麼樣，是 harness 往上長之前得先定案的事。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=JC_pLC5EX_w
+title: AI Agent Design Patterns: ReAct, CodeAct & More | Stanford CS329Z Lecture 6 with Michael Ryan
+```
 
 ## Lecture 06 投影片導讀
 
@@ -32,6 +37,8 @@ draft: false
 
 ### 第 1–12 頁：設計模式要依任務補完
 
+[錄影 00:00–06:41](https://www.youtube.com/watch?v=JC_pLC5EX_w)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=1" data-slide-page="1">投影片第 1–12 頁</a>
 
 課堂先提醒 design pattern 需要依環境補完，再以控制流程的位置區分 workflow 與 agent。固定分類、檢索、擬稿可以由程式控制；需要探索問題與依回饋決定下一步時，才把決策交給模型。實際系統常把兩者組合。
@@ -39,6 +46,8 @@ draft: false
 自測題是把客服流程的每個分支寫出來：哪條是業務規則，哪條需要模型判斷？如果全部都能事先列出，先做可重現的 workflow 就能建立比較基線。
 
 ### 第 13–30 頁：五種 workflow 如何組成完整系統
+
+[錄影 06:41–33:36](https://www.youtube.com/watch?v=JC_pLC5EX_w&t=401s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=13" data-slide-page="13">投影片第 13–30 頁</a>
 
@@ -48,6 +57,8 @@ draft: false
 
 ### 第 31–42 頁：ReAct 與 Reflexion：行動回饋如何改變下一步
 
+[錄影 33:36–45:29](https://www.youtube.com/watch?v=JC_pLC5EX_w&t=2016s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=31" data-slide-page="31">投影片第 31–42 頁</a>
 
 ReAct 交錯推理、行動與觀察；Reflexion 再把評估與失敗反思存成下次可讀的文字。課堂接著指出，自評如果缺乏外部依據，可能只是重複原來的錯誤；CRITIC 把工具接進 verifier，補上可以核對的訊號。這些研究圖表屬於各自實驗設定，不是任何模型加上反思都會提升的保證。
@@ -55,6 +66,8 @@ ReAct 交錯推理、行動與觀察；Reflexion 再把評估與失敗反思存�
 檢查軌跡時，把「知道工具失敗」與「根據失敗改變策略」分開。下方 ReAct 論文導讀再拆 HotpotQA 與互動環境實驗，避免把課堂總覽當成完整實驗結論。
 
 ### 第 43–54 頁：CodeAct、ReWOO 與 LLMCompiler
+
+[錄影 45:29–55:35](https://www.youtube.com/watch?v=JC_pLC5EX_w&t=2729s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=43" data-slide-page="43">投影片第 43–54 頁</a>
 
@@ -64,6 +77,8 @@ CodeAct 把行動改成可執行程式，課堂用跨國手機價格比較示範
 
 ### 第 55–75 頁：完整事件與當前 context 分開管理
 
+[錄影 55:35–72:07](https://www.youtube.com/watch?v=JC_pLC5EX_w&t=3335s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=55" data-slide-page="55">投影片第 55–75 頁</a>
 
 這段的兩個原則是聚焦與延續：context 只保留當下需要的資訊，同時不能丟掉目標、限制與進度。OpenHands 的 event log 保存原始事件，每次再建模型輸入；offloading 把內容移到外部，compaction 壓縮文字，observation masking 隱藏舊工具輸出，isolation 讓子任務只回傳所需結果。Progressive disclosure 則等需要時才讀工具或 skill 細節。
@@ -71,6 +86,8 @@ CodeAct 把行動改成可執行程式，課堂用跨國手機價格比較示範
 這些可以組合，不必選一個通吃。若刪掉長測試輸出，可保留指令、exit code、結論與原檔路徑；如果摘要後遺失「先別寄出」的限制，就算省了很多 token 仍算失敗。這個約束檢查銜接下一堂 memory。
 
 ### 第 76–86 頁：Pi 案例：簡單工具仍有 harness 決策
+
+[錄影 72:07–76:51](https://www.youtube.com/watch?v=JC_pLC5EX_w&t=4327s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=76" data-slide-page="76">投影片第 76–86 頁</a>
 
@@ -209,10 +226,15 @@ Anthropic 的框架觀很硬：框架只是把調模型、定義工具、串呼�
 
 ## 課程影片來源
 
-[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)寫明，課堂錄影須登入課程 Canvas 取得。本文依公開 PDF 與指定讀物帶讀，沒有把受限錄影當作已觀看材料。錄影取得方式於 2026-10-23 依官方頁面核對。
+- 錄影：[AI Agent Design Patterns: ReAct, CodeAct & More | Stanford CS329Z Lecture 6 with Michael Ryan](https://www.youtube.com/watch?v=JC_pLC5EX_w)（Stanford Online 頻道，2026-11-14 上架，全片約 77 分鐘）
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- 查核日期：2026-11-19。上架前「錄影需登入課程 Canvas」的說法已不再適用；本文依公開 PDF 與指定讀物帶讀，並已依錄影字幕核對各節起點。
+- 內容核對：已依字幕核對（2026-11-19）：以 YouTube 上傳字幕核對各節起點，投影片導讀各小節附錄影時間連結。
 
 ## 更新紀錄
 
+- 2026-11-19：Stanford Online 於 2026-11-14 公開上架本堂錄影，嵌入影片、狀態改為已附影片，改寫影片來源區。
+- 2026-11-19：以錄影字幕核對各節起點，投影片導讀各小節加上錄影時間連結。
 - 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 6（10/12 週一）的內容，原屬「第 4 週：先學會邊想邊做，再學會記住」導讀；以下保留拆分前的紀錄。
 - 2026-10-29：對照 Lecture 06／07 投影片重核各節頁碼；Pi 案例補上投影片列出的刻意缺席功能與權限說明（L06 第 78、82 頁）。
 - 2026-10-23：依兩堂官方 PDF 補成逐段投影片導讀，加入頁碼對照、機制與自測，保留並分開指定讀物解說。

@@ -16,11 +16,16 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 73 分鐘；本文依公開投影片與指定讀物整理，並已依錄影字幕核對各節起點。57:25 之後是問答。
 
 第 10 堂（10/26）是客座課，由 Terminal-Bench 共同作者 Ryan Marten 與 Alex Shaw（Laude Institute）主講：怎麼評估 agent 在終端機環境裡完成真實任務的能力。同一天 [HW2](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents) 發布，主題正是評估一個 agent；週五（10/30）HW1 截止。
 
 指定讀物是 Terminal-Bench 專案網站與 Merrill 等人的 [Terminal-Bench 論文](https://arxiv.org/abs/2601.11868)。本文深讀論文，重點在 agent 說完成之後，環境的終態是不是真的符合要求。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=7GW-9ug2nvw
+title: Terminal-Bench: Evaluating AI Agents | Stanford CS329Z Guest Lecture with Alex Shaw & Ryan Marten
+```
 
 ## Lecture 10 投影片導讀
 
@@ -34,6 +39,8 @@ draft: false
 
 ### 第 1–28 頁：規則不再是唯一的真相來源
 
+[錄影 00:00–17:18](https://www.youtube.com/watch?v=7GW-9ug2nvw)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=1" data-slide-page="1">投影片第 1–28 頁</a>
 
 講者先走一遍軟體史：從直接寫機器碼、組合語言到高階語言，人寫規則、程式把規則套到新輸入，這是演繹式的開發。機器學習把方向倒過來：人給輸入與輸出的範例，訓練推出規則。投影片接著主張所有數位技術都在變成歸納式：模型從資料學、agent 靠評估來開發、軟體則由 agent 產生。
@@ -43,6 +50,8 @@ draft: false
 **理解檢查**：為什麼講者說 agent 是「靠評估開發」？**答案判準**：agent 的行為沒有一份能逐行審查的規則，只能用一組任務與評分去觀察它做出什麼，再依結果改動；評估因此取代規格，成為判斷對錯的依據。
 
 ### 第 29–39 頁：一個 Terminal-Bench 任務長什麼樣
+
+[錄影 17:18–25:02](https://www.youtube.com/watch?v=7GW-9ug2nvw&t=1038s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=29" data-slide-page="29">投影片第 29–39 頁</a>
 
@@ -54,6 +63,8 @@ Terminal-Bench 的出發點是「bash 一個工具就能做大部分事」，所
 
 ### 第 40–55 頁：寫任務的三件事：指令、環境、驗證器
 
+[錄影 25:02–43:35](https://www.youtube.com/watch?v=7GW-9ug2nvw&t=1502s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=40" data-slide-page="40">投影片第 40–55 頁</a>
 
 [第 42 頁](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=42)沿用 Anthropic 的評估名詞：task 是一題、trial 是一次嘗試、verifier 打分數、trajectory 是完整紀錄；評估 harness 負責跑整套評估，agent harness 則讓模型能當 agent 行動，兩者別混為一談。[第 43 頁](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=43)是 Harbor 的任務目錄：`instruction.md`、`task.toml`、`environment/Dockerfile`、`solution/solve.sh`、`tests/test.sh`，與 agent 無關、可攜帶。
@@ -63,6 +74,8 @@ Terminal-Bench 的出發點是「bash 一個工具就能做大部分事」，所
 **理解檢查**：指令寫「輸出 summary.csv」，驗證器卻另外檢查欄位順序，會出什麼問題？**答案判準**：驗證器要求了指令沒寫的條件，正確完成的 agent 會被判失敗，屬於 false negative；修法是讓指令與驗證器一一對應，補寫需求或放寬檢查。
 
 ### 第 56–64 頁：評估基礎設施與任務版本
+
+[錄影 43:35–57:25](https://www.youtube.com/watch?v=7GW-9ug2nvw&t=2615s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture10.pdf#page=56" data-slide-page="56">投影片第 56–64 頁</a>
 
@@ -149,17 +162,15 @@ city,status
 
 ## 課程影片來源
 
-[官方錄影規則](https://cs329z.stanford.edu/logistics.html)說明講課錄影由課程 Canvas 提供，需登入取得。本文依公開投影片、論文與指定閱讀撰寫，未取得錄影或逐字稿。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-29。
+- 錄影：[Terminal-Bench: Evaluating AI Agents | Stanford CS329Z Guest Lecture with Alex Shaw & Ryan Marten](https://www.youtube.com/watch?v=7GW-9ug2nvw)（Stanford Online 頻道，2026-11-18 上架，全片約 73 分鐘）
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- 查核日期：2026-11-19。上架前「錄影需登入課程 Canvas」的說法已不再適用；本文依公開 PDF 與指定讀物帶讀，並已依錄影字幕核對各節起點。
+- 內容核對：已依字幕核對（2026-11-19）：以 YouTube 自動字幕核對各節起點，投影片導讀各小節附錄影時間連結。
 
 ## 更新紀錄
 
+- 2026-11-19：Stanford Online 於 2026-11-18 公開上架本堂錄影，嵌入影片、狀態改為已附影片，改寫影片來源區。
+- 2026-11-19：以錄影字幕核對各節起點，投影片導讀各小節加上錄影時間連結。
 - 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 10（10/26 週一）的內容，原屬「第 6 週：資料飛輪轉起來」導讀；以下保留拆分前的紀錄。
 - 2026-10-29：Lecture 10、11 投影片公開後，依實體頁碼補上兩堂的逐段導讀與各節理解檢查（寫任務與驗證器、任務版本、agent 資料的兩種形式與五種來源、資料意外教會的捷徑），並改寫開頭、課程材料對照與 Terminal-Bench 讀物中「尚未開講」的說法；修正 Shankar 的代名詞。
 - 2026-10-23：依第一堂模板重整材料狀態、機制、情境與理解檢查；將指定閱讀深讀與課堂預習分開。

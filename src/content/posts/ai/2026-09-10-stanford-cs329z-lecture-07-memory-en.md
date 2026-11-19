@@ -16,11 +16,16 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 79 minutes); this guide follows the public slides and readings and had each section start time checked against the recording's captions.
 
 Lecture 7 (Oct 14, Agent Memory Architectures) asks how an agent keeps the state that matters when context is finite and sessions reset. The slides sort memory into four types, compare four architecture patterns, and close with memory benchmarks and open problems in forgetting, privacy and over-personalization.
 
 The assigned readings are Sumers et al.'s CoALA, Packer et al.'s [MemGPT](https://arxiv.org/abs/2310.08560), and Park et al.'s [Generative Agents](https://arxiv.org/abs/2304.03442). This post digests MemGPT and Generative Agents, plus two implementations, Letta and Mem0. MemGPT brings an operating system's memory hierarchy into the LLM and pages between the finite window and external storage through function calls. The slide guide below follows the PDF page numbers, followed by digests of the assigned readings. Examples and self-checks are teaching exercises, not official homework answers; repeated animation frames, logistics and section dividers are grouped together.
+
+```youtube
+url: https://www.youtube.com/watch?v=qh5tP6PBZ6U
+title: How AI Agent Memory Works: MemGPT & Memory Types | Stanford CS329Z Lecture 7 with Michael Ryan
+```
 
 ## Lecture 07 slide guide
 
@@ -32,6 +37,8 @@ The assigned readings are Sumers et al.'s CoALA, Packer et al.'s [MemGPT](https:
 
 ### Pages 1–13: Memory preserves constraints, procedures, and progress
 
+[Recording 00:00–06:44](https://www.youtube.com/watch?v=qh5tP6PBZ6U)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=1" data-slide-page="1">Slides 1–13</a>
 
 The opening inbox example preserves the constraint “suggest, then wait before acting.” Without memory, long tasks lose procedures, user knowledge, or progress. Memory supports personalization, learning from experience, and continuation across sessions; remembering a name tests only a small part of that behavior.
@@ -39,6 +46,8 @@ The opening inbox example preserves the constraint “suggest, then wait before 
 Resume the email task in another session and check which messages were inspected, which actions remain unapproved, and whether the user requested advice or execution. The original quote example below develops this constraint-preservation problem.
 
 ### Pages 14–22: Memory type and storage location are separate dimensions
+
+[Recording 06:44–21:08](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=404s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=14" data-slide-page="14">Slides 14–22</a>
 
@@ -48,6 +57,8 @@ A language preference is semantic memory, a reusable quote-processing procedure 
 
 ### Pages 23–29: Decide what, when, and how
 
+[Recording 21:08–30:56](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=1268s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=23" data-slide-page="23">Slides 23–29</a>
 
 What covers facts, procedures, and progress; when covers on-demand tools, events, and background workers; how selects filesystems, databases, or knowledge graphs. Files provide hierarchy and shell search, databases support vector and metadata queries, and graphs represent relationships.
@@ -55,6 +66,8 @@ What covers facts, procedures, and progress; when covers on-demand tools, events
 For an original continuation-memory exercise, store provenance, time, unfinished work, and constraints before choosing retrieval. A bare conclusion makes later revision difficult when its evidence becomes stale.
 
 ### Pages 30–41: Turn experience into reusable procedures
+
+[Recording 30:56–44:08](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=1856s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=30" data-slide-page="30">Slides 30–41</a>
 
@@ -64,6 +77,8 @@ The lecture flags dynamic environments as a limitation. Change a tool name or pa
 
 ### Pages 42–49: Tiered memory manages a limited working context
 
+[Recording 44:08–54:27](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=2648s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=42" data-slide-page="42">Slides 42–49</a>
 
 MemGPT gives the model tools to write, replace, and search memory tiers. Working context is already visible; recall and archival storage require retrieval. MemoryOS illustrates short-, medium-, and long-term persona tiers. These systems manage visible information rather than physically enlarging a model’s context window without limit.
@@ -71,6 +86,8 @@ MemGPT gives the model tools to write, replace, and search memory tiers. Working
 Trace an updated preference through the diagram: where does the old value remain, when does the new value enter context, and what resolves the conflict? The MemGPT paper digest below retains its control-flow and experimental detail.
 
 ### Pages 50–66: Reflective consolidation and background maintenance
+
+[Recording 54:27–67:06](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=3267s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=50" data-slide-page="50">Slides 50–66</a>
 
@@ -80,6 +97,8 @@ In an original example, “prefer mornings” changes to “afternoons only this
 
 ### Pages 67–94: Evaluate recall and constrained task completion separately
 
+[Recording 67:06–74:40](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=4026s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=67" data-slide-page="67">Slides 67–94</a>
 
 The desiderata are realism, long context, challenge, and verifiability. LoCoMo emphasizes long conversations; PersonaMem includes evolving preferences; LongMemEval-v2 recalls agent-trajectory details; MemoryArena tests multi-stage task completion. Read each result alongside its data, question format, and base model. The slides explicitly note model differences in a filesystem-versus-retrieval comparison.
@@ -87,6 +106,8 @@ The desiderata are realism, long context, challenge, and verifiability. LoCoMo e
 Correct retrieval can still be misused, and task failures can arise from planning or tools. Score retrieval correctness separately from whether the final action respects constraints, including updated preferences.
 
 ### Pages 95–103: Forgetting, trust, and over-personalization remain open
+
+[Recording 74:40–78:54](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=4480s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=95" data-slide-page="95">Slides 95–103</a>
 
@@ -310,10 +331,15 @@ Lecture 7 adds the memory layer of the HW1 harness. The next week turns to divis
 
 ## Course video sources
 
-The [official Logistics page](https://cs329z.stanford.edu/logistics.html) states that lecture recordings are accessed by logging into the course Canvas site. This article uses publicly available PDFs and readings; it does not claim to have watched the restricted recordings. The recording-access statement was checked against the official page on 2026-10-23.
+- Recording: [How AI Agent Memory Works: MemGPT & Memory Types | Stanford CS329Z Lecture 7 with Michael Ryan](https://www.youtube.com/watch?v=qh5tP6PBZ6U) (Stanford Online channel, uploaded 2026-11-15, about 79 minutes)
+- Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- Checked: 2026-11-19. The earlier statement that recordings require the course Canvas login no longer applies; this guide follows the public PDFs and readings and had each section start time checked against the recording's captions.
+- Content check: verified against the video transcript (2026-11-19): section start times were checked against the YouTube auto-generated captions, and each slides subsection carries a recording time link.
 
 ## Update log
 
+- 2026-11-19: Stanford Online published this lecture's recording on 2026-11-15; embedded the video, switched the status to videos included, and rewrote the video sources section.
+- 2026-11-19: Checked section start times against the recording's captions and added recording time links to each slides subsection.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 7 (Wed Oct 14), previously part of the "Week 4: reason while acting, then remember" guide; earlier entries below predate the split.
 - 2026-10-29: Rechecked every section's page range against the Lecture 06/07 PDFs; the Pi case now lists the features the slides say it deliberately omits and its permission model (L06 pp. 78, 82).
 - 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.

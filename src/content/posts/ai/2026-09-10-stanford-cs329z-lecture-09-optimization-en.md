@@ -16,11 +16,16 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-09-optimization)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 81 minutes); this guide follows the public slides and readings and had each section start time checked against the recording's captions.
 
 Lecture 9 (Oct 21, Optimization) changes the question: solo or multi-agent, a system can improve in three places. Change the prompt (the instructions), change the weights (the brain), or add inference compute (think longer). The slides first ask when optimization is worth it, then compare context optimization, weight optimization, and approaches such as the Darwin Gödel Machine that make the agent its own optimizer.
 
 The assigned readings are Agrawal et al.'s [GEPA](https://arxiv.org/abs/2507.19457), Opsahl-Ong et al.'s MIPRO, and DeepSeekMath. This post digests GEPA and MIPRO, plus Snell et al.'s [test-time compute paper](https://arxiv.org/abs/2408.03314) and BetterTogether. The timing is practical: [HW1 is due Oct 30](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), and this post helps decide which axis gets the remaining effort. The slide guide below follows the PDF page numbers, followed by digests of the assigned readings. Examples and self-checks are teaching exercises, not official homework answers; repeated animation frames, logistics and section dividers are grouped together.
+
+```youtube
+url: https://www.youtube.com/watch?v=e_m99aR7_3Q
+title: Optimizing AI Agents: Prompts vs. Weights (GEPA, GRPO) | Stanford CS329Z Lecture 9 with Michael Ryan
+```
 
 ## Lecture 09 slide guide: optimize what the evidence identifies
 
@@ -32,11 +37,15 @@ The assigned readings are Agrawal et al.'s [GEPA](https://arxiv.org/abs/2507.194
 
 ### Pages 1–11 — Optimization needs three pillars
 
+[Recording 00:00–10:21](https://www.youtube.com/watch?v=e_m99aR7_3Q)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=1" data-slide-page="1">PDF pages 1–11</a>
 
 Data, an executable system, and evaluation must exist together. Turn reliability, domain requirements, or cost into a measurable objective before searching prompts. A style-only metric can reward fluent mistakes. Demonstrations and feedback matter when textual instructions alone do not specify behavior reliably.
 
 ### Pages 12–22 — Few-shot optimization selects examples and ordering
+
+[Recording 10:21–21:50](https://www.youtube.com/watch?v=e_m99aR7_3Q&t=621s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=12" data-slide-page="12">PDF pages 12–22</a>
 
@@ -44,11 +53,15 @@ The slides use ordering sensitivity to show that identical examples can produce 
 
 ### Pages 23–69 — Reflective search: MIPROv2 through GEPA
 
+[Recording 21:50–51:28](https://www.youtube.com/watch?v=e_m99aR7_3Q&t=1310s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=23" data-slide-page="23">PDF pages 23–69</a>
 
 MIPROv2 has three stages behind its long animation: bootstrap successful demonstrations, propose instructions grounded in the program and data, and search instruction/demo combinations. Minibatches provide cheaper feedback with periodic fuller evaluation. TextGrad propagates textual feedback; GEPA reflects on traces and retains complementary candidates. A result chart is not a universal guarantee for every workload.
 
 ### Pages 70–104 — Weights: distinguish trajectory generation from feedback
+
+[Recording 51:28–75:45](https://www.youtube.com/watch?v=e_m99aR7_3Q&t=3088s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=70" data-slide-page="70">PDF pages 70–104</a>
 
@@ -56,11 +69,15 @@ SFT trains on teacher-completed task trajectories. RL lets the student interact 
 
 ### Pages 105–116 — Agents can optimize harnesses, with trustworthy evaluation
 
+[Recording 75:45–78:56](https://www.youtube.com/watch?v=e_m99aR7_3Q&t=4545s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=105" data-slide-page="105">PDF pages 105–116</a>
 
 Darwin Gödel Machine, Meta-Harness, and auto-research connect modifications, experiments, and retention of useful versions. Changing system code is distinct from updating model weights. This guide recommends protecting acceptance conditions from the optimizer and preserving settings and failures so search does not merely select flattering scores.
 
 ### Pages 117–125 — Choose from constraints rather than slogans
+
+[Recording 78:56–80:34](https://www.youtube.com/watch?v=e_m99aR7_3Q&t=4736s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=117" data-slide-page="117">PDF pages 117–125</a>
 
@@ -255,17 +272,15 @@ Lecture 9 lets evidence choose the layer to optimize, and that evidence comes fr
 
 ## Course video sources
 
-The Lecture Recordings section of the official Logistics page (read live on 2026-11-09) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-11-09.
+- Recording: [Optimizing AI Agents: Prompts vs. Weights (GEPA, GRPO) | Stanford CS329Z Lecture 9 with Michael Ryan](https://www.youtube.com/watch?v=e_m99aR7_3Q) (Stanford Online channel, uploaded 2026-11-17, about 81 minutes)
+- Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- Checked: 2026-11-19. The earlier statement that recordings require the course Canvas login no longer applies; this guide follows the public PDFs and readings and had each section start time checked against the recording's captions.
+- Content check: verified against the video transcript (2026-11-19): section start times were checked against the YouTube auto-generated captions, and each slides subsection carries a recording time link.
 
 ## Update log
 
+- 2026-11-19: Stanford Online published this lecture's recording on 2026-11-17; embedded the video, switched the status to videos included, and rewrote the video sources section.
+- 2026-11-19: Checked section start times against the recording's captions and added recording time links to each slides subsection.
 - 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 9 (Wed Oct 21), previously part of the "Week 5: go solo or call a meeting" guide; earlier entries below predate the split.
 - 2026-10-23: Added Lecture 08–09 material on coordination, worktrees, weight optimization and evaluation-based choices; added an original worked example, diagram and answer criteria.
