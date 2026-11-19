@@ -588,6 +588,28 @@ const pageTitle =
   .content blockquote p { margin-bottom: 0.35rem; }
   .content blockquote p:last-child { margin-bottom: 0; }
 
+  /* 文章開頭的語言切換（> 🌏 [English version](…)）：只有一個連結，不該套提示框的大藍框，改成小膠囊。 */
+  .content > blockquote:first-child:has(> p:only-child > a:only-child) {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 1.25rem;
+    padding: 0.3rem 0.9rem;
+    background: var(--brand-50);
+    border: 1px solid var(--brand-300);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+  .content > blockquote:first-child:has(> p:only-child > a:only-child) p { margin: 0; }
+  .content > blockquote:first-child:has(> p:only-child > a:only-child) a {
+    color: var(--brand-700);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: none;
+  }
+  .content > blockquote:first-child:has(> p:only-child > a:only-child) a:hover { text-decoration: underline; }
+
   /* Tip callout (blockquote starting with [!TIP] or > **tip**) */
   .content blockquote.callout-success,
   .content blockquote:has(> p:first-child > strong:first-child:is([data-type="success"])) {
@@ -670,9 +692,11 @@ const pageTitle =
     border-radius: 8px;
     margin-bottom: 1.5rem;
   }
+  /* 寬度用 100% 讓儲存格換行：之前用 max-content（儲存格不換行），一格字長就整張表超寬，連桌機都要左右滑
+     （2026-11-19 日報「關鍵數字」三欄表）。真的放不下的表（欄位多、長串不能斷）仍由 .table-scroll 接手橫向捲動，
+     頁面本身由 html { overflow-x: hidden } 防撐破。 */
   .content table {
-    width: max-content;
-    min-width: 100%;
+    width: 100%;
     border-collapse: separate;
     border-spacing: 0;
     font-size: 0.9rem;
