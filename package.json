@@ -23,6 +23,7 @@
     "check:tw": "node scripts/check-tw-terms.mjs",
     "check:chat-style": "node scripts/check-chat-style.mjs",
     "check:diagram-geometry": "node scripts/check-diagram-geometry.mjs",
+    "check:diagram-text": "tsx scripts/check-diagram-text.mjs",
     "check:series-order": "node scripts/check-series-order.mjs",
     "check:lang-parity": "node scripts/check-lang-parity.mjs",
     "check:course-videos": "node scripts/check-course-videos.mjs",
