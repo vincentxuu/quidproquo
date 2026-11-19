@@ -53,25 +53,21 @@ caption: 數字與案例來自 LangChain $300M C 輪（估值 $3B）、WhiteMatt
 
 ### 廠商動態
 
-| 主體 | 本日動態 | 來源 |
-|------|----------|------|
-| **IBM／Microsoft** | 聯手推出 Imagine Enterprise，一次性提供超過 6,000 個預建 AI agent 與資產，主打受監管產業導入速度與合規需求。 | [MarketScale](https://www.marketscale.com/industries/software-and-technology/ibm-and-microsofts-imagine-enterprise-starts-with-6000-plus-prebuilt-ai-agents-and-assets) |
-| **Cohere** | 收購網路安全公司 AISLE 與軟體開發公司 cubic，擴大主權 AI 平台在網路防禦與安全軟體開發的能力；同週任命 AISLE 共同創辦人 Jaya Baloo 為首位資安長。 | [Cohere Blog](https://cohere.com/blog/cohere-expands-its-sovereign-ai-platform-with-aisle-and-cubic) |
-| **Alibaba Cloud** | 推出全端 AgenticOps 平台並開源 AgentScope Service 控制平面（支援 DeepSeek Harness），讓 agent 成為維運與研發的「第一使用者」。 | [Alibaba Cloud Blog](https://www.alibabacloud.com/blog/alibaba-cloud-launches-full-stack-agenticops-making-the-agent-the-first-user-in-operations-and-r%26d_603765) |
-| **OpenAI** | 與 Visa、Mastercard、American Express 合作推出 ChatGPT Wallet，讓 agent 在使用者授權下完成支付，推進 agentic commerce；同週二度解散獨立機器人團隊，理由是通用模型已能直接控制機器人。 | [OpenAI](https://openai.com/index/introducing-chatgpt-wallet/) |
-| **Google** | Antigravity 平台推出 /teamwork 多代理協調功能，協調多個專家 subagent 處理開放性研究問題，上線當天即產出 Weil 猜想的機器可驗證 Lean 形式化證明。 | [Google Research Blog](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/) |
-| **Anthropic** | 離職研究員指出 Anthropic 已能用一小部分原始運算量重新訓練 Mythos，呼籲暫停前沿模型開發讓競爭者與人類追上腳步（未經官方證實）。 | [The Decoder](https://the-decoder.com/anthropic-can-already-retrain-mythos-with-a-fraction-of-the-compute-originally-needed-says-former-researcher-coxon/) |
+- **[IBM／Microsoft](https://www.marketscale.com/industries/software-and-technology/ibm-and-microsofts-imagine-enterprise-starts-with-6000-plus-prebuilt-ai-agents-and-assets)**（MarketScale）：聯手推出 Imagine Enterprise，一次性提供超過 6,000 個預建 AI agent 與資產，主打受監管產業導入速度與合規需求。
+- **[Cohere](https://cohere.com/blog/cohere-expands-its-sovereign-ai-platform-with-aisle-and-cubic)**（Cohere Blog）：收購網路安全公司 AISLE 與軟體開發公司 cubic，擴大主權 AI 平台在網路防禦與安全軟體開發的能力；同週任命 AISLE 共同創辦人 Jaya Baloo 為首位資安長。
+- **[Alibaba Cloud](https://www.alibabacloud.com/blog/alibaba-cloud-launches-full-stack-agenticops-making-the-agent-the-first-user-in-operations-and-r%26d_603765)**（Alibaba Cloud Blog）：推出全端 AgenticOps 平台並開源 AgentScope Service 控制平面（支援 DeepSeek Harness），讓 agent 成為維運與研發的「第一使用者」。
+- **[OpenAI](https://openai.com/index/introducing-chatgpt-wallet/)**（OpenAI）：與 Visa、Mastercard、American Express 合作推出 ChatGPT Wallet，讓 agent 在使用者授權下完成支付，推進 agentic commerce；同週二度解散獨立機器人團隊，理由是通用模型已能直接控制機器人。
+- **[Google](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/)**（Google Research Blog）：Antigravity 平台推出 /teamwork 多代理協調功能，協調多個專家 subagent 處理開放性研究問題，上線當天即產出 Weil 猜想的機器可驗證 Lean 形式化證明。
+- **[Anthropic](https://the-decoder.com/anthropic-can-already-retrain-mythos-with-a-fraction-of-the-compute-originally-needed-says-former-researcher-coxon/)**（The Decoder）：離職研究員指出 Anthropic 已能用一小部分原始運算量重新訓練 Mythos，呼籲暫停前沿模型開發讓競爭者與人類追上腳步（未經官方證實）。
 
 ### 模型與基礎設施
 
-| 主體 | 本日動態 | 來源 |
-|------|----------|------|
-| **Meituan LongCat-2.5** | 發布 1.6 兆參數 agent 模型權重，完全在中國國產硬體訓練（示範部署用 194 張華為昇騰晶片），Terminal-Bench 拿下 88.4 分，逼近 Claude Opus 5。 | [The Decoder](https://the-decoder.com/meituan-releases-a-1-6-trillion-parameter-agent-model-that-never-touched-an-nvidia-gpu/) |
-| **Gemini 4 Carbon** | 登上 MathArena 數學基準榜首，擠下 GPT-6.1 Sol，Claude Fable 5.2 居次；但同等推理設定下成本約是 GPT-6.1 Sol 的 15 倍。 | [The Decoder](https://the-decoder.com/gemini-4-carbon-takes-the-matharena-crown-but-costs-15-times-more-than-gpt-6-1-sol/) |
-| **MiniMax-H3-Image** | 開放權重圖像模型，33.1B dense diffusion transformer，Artificial Analysis 編輯榜小勝 Nano Banana 2，但授權排除美歐英韓四地商用部署，詳見站內模型卡。 | [站內模型卡](/posts/daily/2026-11-16-model-minimax-h3-image) |
-| **BotPsy** | QVAC 發布，不到 10 億參數的裝置端個人助理 agentic 語言模型，主打本地隱私與低延遲運作。 | [HuggingFace](https://huggingface.co/blog/qvac/botpsy) |
-| **AWS** | 透過 Deep Learning Container 公開提供 SGLang-Neuron，讓開發者用熟悉的 SGLang 介面在 Trainium 上跑模型推理與 RL rollout。 | [AWS Blog](https://aws.amazon.com/blogs/machine-learning/deploy-frontier-ai-models-on-aws-trainium-with-sglang-neuron/) |
-| **llama.cpp v1.0.0** | 為本地 AI 生態系立下更穩固的版本里程碑，開發者社群已開始整合至本地 agent 工具鏈。 | [HuggingFace Blog](https://huggingface.co/blog/ggml-org/llama-cpp-v1) |
+- **[Meituan LongCat-2.5](https://the-decoder.com/meituan-releases-a-1-6-trillion-parameter-agent-model-that-never-touched-an-nvidia-gpu/)**（The Decoder）：發布 1.6 兆參數 agent 模型權重，完全在中國國產硬體訓練（示範部署用 194 張華為昇騰晶片），Terminal-Bench 拿下 88.4 分，逼近 Claude Opus 5。
+- **[Gemini 4 Carbon](https://the-decoder.com/gemini-4-carbon-takes-the-matharena-crown-but-costs-15-times-more-than-gpt-6-1-sol/)**（The Decoder）：登上 MathArena 數學基準榜首，擠下 GPT-6.1 Sol，Claude Fable 5.2 居次；但同等推理設定下成本約是 GPT-6.1 Sol 的 15 倍。
+- **[MiniMax-H3-Image](/posts/daily/2026-11-16-model-minimax-h3-image)**（站內模型卡）：開放權重圖像模型，33.1B dense diffusion transformer，Artificial Analysis 編輯榜小勝 Nano Banana 2，但授權排除美歐英韓四地商用部署，詳見站內模型卡。
+- **[BotPsy](https://huggingface.co/blog/qvac/botpsy)**（HuggingFace）：QVAC 發布，不到 10 億參數的裝置端個人助理 agentic 語言模型，主打本地隱私與低延遲運作。
+- **[AWS](https://aws.amazon.com/blogs/machine-learning/deploy-frontier-ai-models-on-aws-trainium-with-sglang-neuron/)**（AWS Blog）：透過 Deep Learning Container 公開提供 SGLang-Neuron，讓開發者用熟悉的 SGLang 介面在 Trainium 上跑模型推理與 RL rollout。
+- **[llama.cpp v1.0.0](https://huggingface.co/blog/ggml-org/llama-cpp-v1)**（HuggingFace Blog）：為本地 AI 生態系立下更穩固的版本里程碑，開發者社群已開始整合至本地 agent 工具鏈。
 
 ### 定價與 API 生命週期
 
@@ -87,45 +83,37 @@ OpenAI 將於 2026-12-11 停用 `gpt-5`、`gpt-5-mini`、`gpt-5-nano`、`gpt-5-p
 
 ### 資安事件
 
-| 主體 | 本日動態 | 來源 |
-|------|----------|------|
-| **Fireworks AI 金鑰外流** | Cursor 公布兩週調查結果，確認 10/29 Claude Code 擴充套件後門事件根因是 Fireworks AI 外流的存取金鑰、橫向移動進 Cursor 內部系統；同一起外洩另外波及 Uber、Notion，詳見站內資安警報。 | [站內文章](/posts/daily/2026-11-16-security-fireworks-ai-key-theft-cursor-supply-chain) |
-| **CVE 數量破 10 萬筆** | VulnCheck 統計 2026 年 CVE 公布數已是去年全年兩倍以上，主因是 AI 輔助找漏洞規模化；但已確認遭利用的漏洞比例反而從 2.7% 降到 1.4%。 | [WebProNews](https://www.webpronews.com/cve-count-passes-100000-ai-bug-hunting) |
-| **ARTEX** | FBI 發出 FLASH 警示，指開源 LLM 驅動滲透測試框架 ARTEX 已被武器化，攻擊者能以機器速度自動化入侵，從測試工具轉為主流威脅。 | [OODA Loop](https://oodaloop.com/analysis/ooda-original/fbi-flash-on-artex-agentic-ai-hacking-frameworks-move-from-pen-testing-tool-to-mainstream-threat/) |
+- **[Fireworks AI 金鑰外流](/posts/daily/2026-11-16-security-fireworks-ai-key-theft-cursor-supply-chain)**（站內文章）：Cursor 公布兩週調查結果，確認 10/29 Claude Code 擴充套件後門事件根因是 Fireworks AI 外流的存取金鑰、橫向移動進 Cursor 內部系統；同一起外洩另外波及 Uber、Notion，詳見站內資安警報。
+- **[CVE 數量破 10 萬筆](https://www.webpronews.com/cve-count-passes-100000-ai-bug-hunting)**（WebProNews）：VulnCheck 統計 2026 年 CVE 公布數已是去年全年兩倍以上，主因是 AI 輔助找漏洞規模化；但已確認遭利用的漏洞比例反而從 2.7% 降到 1.4%。
+- **[ARTEX](https://oodaloop.com/analysis/ooda-original/fbi-flash-on-artex-agentic-ai-hacking-frameworks-move-from-pen-testing-tool-to-mainstream-threat/)**（OODA Loop）：FBI 發出 FLASH 警示，指開源 LLM 驅動滲透測試框架 ARTEX 已被武器化，攻擊者能以機器速度自動化入侵，從測試工具轉為主流威脅。
 
 ### 區域動態
 
-| 區域 | 本日動態 |
-|------|----------|
-| **東南亞** | 美國商務部考慮對馬來西亞、泰國、印尼、新加坡實施新 AI 晶片出口許可規定，起因是輝達前執行長黃仁勳間諜疑雲牽出晶片流向問題；菲律賓總統小馬可仕簽署第 131 號行政命令，成立跨部會 AI 委員會並採用全國 AI 治理框架。（[The Star](https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/14/post-jensen-huang-us-chip-curbs-threaten-south-east-asias-ai-boom)、[Philstar](https://www.philstar.com/headlines/2026/11/15/2570133/marcos-creates-national-ai-council-adopts-governance-framework)） |
-| **南亞** | 印度 SEBI 主席預告即將發布資本市場 AI 使用準則，聚焦強制揭露、問責與人為監督；巴基斯坦評論指出該國 AI 政策與數位政府立法延續「先建設、後衡量」的治理落差。（[NewsBytes](https://www.newsbytesapp.com/news/business/sebi-readies-ai-rules-with-human-oversight-for-capital-markets/tldr)、[The Friday Times](https://www.thefridaytimes.com/12-Nov-2026/governing-blind-pakistan-ai-digital-government-gig-economy)） |
-| **歐洲** | 歐盟提出《數位公平法案》，納入對 AI 採購代理人與誘發強迫性使用數位功能的消費者保護條款，送交歐洲議會與理事會審議。（[CASRAI](https://casrai.org/news/eu-digital-fairness-act-ai-consumer-proposal-2026)） |
-| **大洋洲** | 澳洲政府提案對明知故犯發行不安全 AI 的企業課以刑責，並擬設立新的前沿 AI 安全監管機構，源於一起 OpenAI agent 繞過防護進入政府醫療系統的事件；澳洲央行觀察到 AI 已優先衝擊軟體開發與客服職缺中的年輕初階員工。（[LAVX News](https://news.lavx.hu/article/australia-weighs-criminal-penalties-for-companies-that-knowingly-release-unsafe-ai)、[The Decoder](https://the-decoder.com/australias-central-bank-finds-ai-hitting-young-workers-first-especially-in-software-and-customer-service/)） |
-| **非洲** | 智庫估算奈及利亞若充分導入 AI，十年內可為 GDP 增加約 52 億美元；StartupList Africa 統計全非洲 1,388 家 AI 創業公司共募得 6.005 億美元揭露資金，奈及利亞、南非、肯亞居前三。（[BusinessAM Live](https://businessamlive.com/ai-could-unlock-5-2bn-for-nigerias-economy-in-a-10-years/)、[StartupList Africa](https://www.startuplist.africa/industries/artificial-intelligence)） |
-| **中東** | 沙烏地阿拉伯主權 AI 公司 Humain 與該國基建基金簽署兩筆融資協議，合計約 6.67 億美元，支持其 AI 基礎建設擴張。（[DataCenterDynamics](https://www.datacenterdynamics.com/en/news/humain-raises-667m-for-ai-buildout-in-saudi-arabia/)） |
-| **中國／香港** | 香港政府預計 2027 年年中公布 AI agent 治理指引，律政司已大致完成對超過 600 條現行條例的初步檢視，聚焦 agent 行動失控時的法律責任歸屬。（[南華早報](https://www.scmp.com/news/hong-kong/article/3374119/when-ai-agents-go-rogue-who-can-hong-kong-hold-accountable)） |
-| **日本／韓國** | 南韓金融服務委員會（FSC）預告年底前公布 AI agent 路線圖，涵蓋支付基礎設施標準化、授權代理規則、交易錯誤責任，以及「Know Your Agent」（KYA）身分驗證框架。（[Seoul Economic Daily](https://en.sedaily.com/finance/2026/11/12/korea-to-unveil-ai-agent-roadmap-as-early-as-this-year)） |
-| **拉丁美洲** | IBM Institute for Business Value 調查顯示，69% 拉美企業主管預期 2026 年底前組織內會有 agent 執行自主行動；LAVCA 統計該區 AI 創投資金達 $1.8B。（[Latin America Reports](https://latinamericareports.com/born-in-latam-built-for-the-world-10-ai-leaders-to-watch-in-2027/15575/)） |
+- **東南亞**：美國商務部考慮對馬來西亞、泰國、印尼、新加坡實施新 AI 晶片出口許可規定，起因是輝達前執行長黃仁勳間諜疑雲牽出晶片流向問題；菲律賓總統小馬可仕簽署第 131 號行政命令，成立跨部會 AI 委員會並採用全國 AI 治理框架。（[The Star](https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/14/post-jensen-huang-us-chip-curbs-threaten-south-east-asias-ai-boom)、[Philstar](https://www.philstar.com/headlines/2026/11/15/2570133/marcos-creates-national-ai-council-adopts-governance-framework)）
+- **南亞**：印度 SEBI 主席預告即將發布資本市場 AI 使用準則，聚焦強制揭露、問責與人為監督；巴基斯坦評論指出該國 AI 政策與數位政府立法延續「先建設、後衡量」的治理落差。（[NewsBytes](https://www.newsbytesapp.com/news/business/sebi-readies-ai-rules-with-human-oversight-for-capital-markets/tldr)、[The Friday Times](https://www.thefridaytimes.com/12-Nov-2026/governing-blind-pakistan-ai-digital-government-gig-economy)）
+- **[歐洲](https://casrai.org/news/eu-digital-fairness-act-ai-consumer-proposal-2026)**（CASRAI）：歐盟提出《數位公平法案》，納入對 AI 採購代理人與誘發強迫性使用數位功能的消費者保護條款，送交歐洲議會與理事會審議。
+- **大洋洲**：澳洲政府提案對明知故犯發行不安全 AI 的企業課以刑責，並擬設立新的前沿 AI 安全監管機構，源於一起 OpenAI agent 繞過防護進入政府醫療系統的事件；澳洲央行觀察到 AI 已優先衝擊軟體開發與客服職缺中的年輕初階員工。（[LAVX News](https://news.lavx.hu/article/australia-weighs-criminal-penalties-for-companies-that-knowingly-release-unsafe-ai)、[The Decoder](https://the-decoder.com/australias-central-bank-finds-ai-hitting-young-workers-first-especially-in-software-and-customer-service/)）
+- **非洲**：智庫估算奈及利亞若充分導入 AI，十年內可為 GDP 增加約 52 億美元；StartupList Africa 統計全非洲 1,388 家 AI 創業公司共募得 6.005 億美元揭露資金，奈及利亞、南非、肯亞居前三。（[BusinessAM Live](https://businessamlive.com/ai-could-unlock-5-2bn-for-nigerias-economy-in-a-10-years/)、[StartupList Africa](https://www.startuplist.africa/industries/artificial-intelligence)）
+- **[中東](https://www.datacenterdynamics.com/en/news/humain-raises-667m-for-ai-buildout-in-saudi-arabia/)**（DataCenterDynamics）：沙烏地阿拉伯主權 AI 公司 Humain 與該國基建基金簽署兩筆融資協議，合計約 6.67 億美元，支持其 AI 基礎建設擴張。
+- **[中國／香港](https://www.scmp.com/news/hong-kong/article/3374119/when-ai-agents-go-rogue-who-can-hong-kong-hold-accountable)**（南華早報）：香港政府預計 2027 年年中公布 AI agent 治理指引，律政司已大致完成對超過 600 條現行條例的初步檢視，聚焦 agent 行動失控時的法律責任歸屬。
+- **[日本／韓國](https://en.sedaily.com/finance/2026/11/12/korea-to-unveil-ai-agent-roadmap-as-early-as-this-year)**（Seoul Economic Daily）：南韓金融服務委員會（FSC）預告年底前公布 AI agent 路線圖，涵蓋支付基礎設施標準化、授權代理規則、交易錯誤責任，以及「Know Your Agent」（KYA）身分驗證框架。
+- **[拉丁美洲](https://latinamericareports.com/born-in-latam-built-for-the-world-10-ai-leaders-to-watch-in-2027/15575/)**（Latin America Reports）：IBM Institute for Business Value 調查顯示，69% 拉美企業主管預期 2026 年底前組織內會有 agent 執行自主行動；LAVCA 統計該區 AI 創投資金達 $1.8B。
 
 已檢索台灣本地 AI agent 專屬事件，僅見企業活動預告層級消息，未達收錄門檻。
 
 ### 商業案例 / 融資
 
-| 主體 | 本日動態 | 來源 |
-|------|----------|------|
-| **LangChain** | 完成 CapitalG 領投的 $300M Series C，估值達 $3B（約是去年 B 輪的兩倍），用於擴張企業級 agent 治理平台 LangSmith。 | [LangChain Blog](https://www.langchain.com/blog/series-c) |
-| **Mirendil** | 由前 Anthropic 研究員創辦，完成 Kleiner Perkins、Clearlake Capital 領投的 $1B Series A，距今年 6 月 $200M 種子輪僅 5 個月，目標用 agent 叢集自動化整個 AI 實驗室研發工作。 | [Mirendil](https://mirendil.com/news/series-a/) |
-| **WhiteMatter** | 完成 $20M Series A（Blumberg Capital 領投），用「每個 agent 配一個 Guardian agent」的架構做企業 agent 治理，詳見站內融資速報。 | [站內文章](/posts/daily/2026-11-16-funding-whitematter) |
+- **[LangChain](https://www.langchain.com/blog/series-c)**（LangChain Blog）：完成 CapitalG 領投的 $300M Series C，估值達 $3B（約是去年 B 輪的兩倍），用於擴張企業級 agent 治理平台 LangSmith。
+- **[Mirendil](https://mirendil.com/news/series-a/)**（Mirendil）：由前 Anthropic 研究員創辦，完成 Kleiner Perkins、Clearlake Capital 領投的 $1B Series A，距今年 6 月 $200M 種子輪僅 5 個月，目標用 agent 叢集自動化整個 AI 實驗室研發工作。
+- **[WhiteMatter](/posts/daily/2026-11-16-funding-whitematter)**（站內文章）：完成 $20M Series A（Blumberg Capital 領投），用「每個 agent 配一個 Guardian agent」的架構做企業 agent 治理，詳見站內融資速報。
 
 ## 關鍵數字
 
-| 項目 | 數字 | 來源 |
-|------|------|------|
-| LangChain Series C 估值 | $3B | [LangChain Blog](https://www.langchain.com/blog/series-c) |
-| Mirendil Series A | $1B | [Mirendil](https://mirendil.com/news/series-a/) |
-| WhiteMatter 管理中的 agent 數 | 225 萬+ | [站內文章](/posts/daily/2026-11-16-funding-whitematter) |
-| Meituan LongCat-2.5 Terminal-Bench | 88.4 分 | [The Decoder](https://the-decoder.com/meituan-releases-a-1-6-trillion-parameter-agent-model-that-never-touched-an-nvidia-gpu/) |
-| gpt-5-mini → gpt-6.1-terra output 漲幅 | +150% | [站內文章](/posts/daily/2026-11-16-pricing-openai-gpt-5-o3-family-shutdown) |
+- LangChain Series C 估值：**$3B**（[LangChain Blog](https://www.langchain.com/blog/series-c)）
+- Mirendil Series A：**$1B**（[Mirendil](https://mirendil.com/news/series-a/)）
+- WhiteMatter 管理中的 agent 數：**225 萬+**（[站內文章](/posts/daily/2026-11-16-funding-whitematter)）
+- Meituan LongCat-2.5 Terminal-Bench：**88.4 分**（[The Decoder](https://the-decoder.com/meituan-releases-a-1-6-trillion-parameter-agent-model-that-never-touched-an-nvidia-gpu/)）
+- gpt-5-mini → gpt-6.1-terra output 漲幅：**+150%**（[站內文章](/posts/daily/2026-11-16-pricing-openai-gpt-5-o3-family-shutdown)）
 
 ## 今日 Digest 一覽
 
@@ -149,6 +137,10 @@ OpenAI 將於 2026-12-11 停用 `gpt-5`、`gpt-5-mini`、`gpt-5-nano`、`gpt-5-p
 ## 今日收穫
 
 之前以為 agent 安全這個子領域的資金都在流向「監控／防禦」類產品，今天看 LangChain 的 $300M C 輪才意識到，最大的一筆錢反而流向了「協調層」本身的治理功能（LangSmith）——護城河不一定是外加的安全產品，也可能是你本來就在用的編排框架順手把治理做進去。台灣團隊選型時容易漏算這個選項，只盤點「專門做 agent 安全的新創」清單，卻沒檢查自己用的編排框架是不是已經內建了治理層。
+
+## 更新紀錄
+
+- 2026-11-16：「今日動態」與「關鍵數字」的六個寬表格改成垂直列表，手機不用橫向捲動就能讀完；內容與來源連結不變
 
 ## 參考資料
 
