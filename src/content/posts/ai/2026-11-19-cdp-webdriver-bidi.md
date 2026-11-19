@@ -178,7 +178,7 @@ BiDi 規格在序列化節點時會帶出 shadow root，並標明 `mode: "closed
 
 ## 想深入
 
-協定決定了能控制哪些引擎。下一篇換到最底層：Chromium 以外還有哪些引擎可以給 agent 用，Lightpanda 這類自己實作 CDP 的新引擎換到什麼、犧牲什麼。
+協定決定了能控制哪些引擎。[下一篇](/posts/ai/2026-11-19-browser-engines-beyond-chromium)換到最底層：Chromium 以外還有哪些引擎可以給 agent 用，Lightpanda 這類自己實作 CDP 的新引擎換到什麼、犧牲什麼。
 
 ## 參考資料
 

@@ -163,11 +163,11 @@ curl -X POST 'https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-
 |---|---|
 | 給 coding agent 的工具 | [三家 AI 進 Chrome](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini)、[@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp)、[Puppeteer MCP](/posts/tech/2026-06-20-puppeteer-mcp)、[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp)、[Browser MCP 三選一](/posts/tech/2026-06-20-browser-mcp-comparison)、[agent-browser 與 CLI 路線](/posts/ai/2026-11-19-agent-browser-cli)、[browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills) |
 | 寫程式用的 AI SDK | [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4)、[Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright)、[Midscene.js](/posts/ai/2026-05-23-midscene-vision-ui-automation)、[AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction)、[Skyvern](/posts/ai/2026-11-19-skyvern)、[混合式 SDK 比較](/posts/ai/2026-11-19-ai-browser-sdk-comparison) |
-| 模型自己決定 | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide) |
+| 模型自己決定 | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide)、[agent 迴圈怎麼了](/posts/ai/2026-11-19-browser-agent-loop-to-code-mode) |
 | Driver 與協定 | [自己打 CDP 還是用 Playwright](/posts/ai/2026-11-18-cdp-vs-playwright-driver)、[CDP 與 WebDriver BiDi](/posts/ai/2026-11-19-cdp-webdriver-bidi) |
-| 瀏覽器與執行位置 | [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure)、[Steel](/posts/ai/2026-08-22-steel-browser-infrastructure)、[Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure)、[Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure) |
+| 瀏覽器與執行位置 | [Chromium 以外的引擎](/posts/ai/2026-11-19-browser-engines-beyond-chromium)、[Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure)、[Steel](/posts/ai/2026-08-22-steel-browser-infrastructure)、[Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure)、[Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure) |
 
-接下來會補上幾段的空缺：agent 迴圈為什麼正在退場、非 Chromium 引擎、託管對照與 Cloudflare Browser Run。
+接下來會補上最後兩篇：託管對照與 Cloudflare Browser Run。
 
 這個系列不處理兩件事：只想找現成爬蟲服務的讀者，請看[搜尋與爬取實戰](/series/search-and-scraping)系列；繞過反爬機制的做法不教，遇到時只寫合規與限制。
 

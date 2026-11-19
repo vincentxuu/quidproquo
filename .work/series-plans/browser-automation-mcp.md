@@ -61,13 +61,13 @@ order 0 是新寫的總覽：五層地圖、每層代表工具與站上對應篇
 | 12 | 已上線 | 2026-11-19-skyvern | Skyvern：視覺型的 SDK＋agent＋no-code | 跨很多陌生網站跑同一流程時，視覺 LLM 換到什麼？AGPL 對你有什麼影響？ |
 | 13 | 已上線 | 2026-11-19-ai-browser-sdk-comparison | 混合式 SDK 比較＋評測怎麼讀 | 同層 SDK 怎麼分、廠商成功率能不能拿來比？ |
 | **C 模型自己決定** | | | | |
-| 14 | 既有（單篇） | 2026-08-21-browser-use-complete-guide | Browser Use | 自主 agent 迴圈（待 post-update：1.0 改為 REPL＋raw CDP） |
-| 15 | 新寫 | browser-agent-loop-to-code-mode | agent loop 退場 | 為什麼大家都把「每步推論」換成「AI 寫碼或外部 agent 驅動」？ |
+| 14 | 既有（單篇） | 2026-08-21-browser-use-complete-guide | Browser Use | 自主 agent 迴圈（2026-11-19 已改寫成 1.0） |
+| 15 | 已上線 | 2026-11-19-browser-agent-loop-to-code-mode | agent loop 退場 | 為什麼大家都把「每步推論」換成「AI 寫碼或外部 agent 驅動」？ |
 | **D driver 與協定** | | | | |
 | 16 | 已上線 | 2026-11-18-cdp-vs-playwright-driver | Driver：自己打 CDP 或用 Playwright | 為什麼有人拆掉 Playwright、代價是什麼？ |
 | 17 | 已上線 | 2026-11-19-cdp-webdriver-bidi | 協定：CDP 與 WebDriver BiDi | 兩個協定差在哪，「只綁 Chromium」的代價是什麼？ |
 | **E 瀏覽器：引擎與執行位置** | | | | |
-| 18 | 新寫 | browser-engines-beyond-chromium | 引擎：Chromium 以外的選擇 | Lightpanda、Kitesurf 這類非 Chromium 引擎換到什麼、犧牲什麼？ |
+| 18 | 已上線 | 2026-11-19-browser-engines-beyond-chromium | 引擎：Chromium 以外的選擇 | Lightpanda、Kitesurf 這類非 Chromium 引擎換到什麼、犧牲什麼？ |
 | 19 | 新寫 | hosted-browser-comparison | 託管對照 | Browserbase、Browser Run、Steel、Hyperbrowser、Browser Use Cloud 各適合什麼，什麼時候自架？ |
 | 20 | 既有（單篇） | 2026-08-22-browserbase-browser-infrastructure | Browserbase | |
 | 21 | 既有（單篇） | 2026-08-22-steel-browser-infrastructure | Steel | |

@@ -163,11 +163,11 @@ The series runs down the five layers from the top, one post per choice within a 
 |---|---|
 | Tools for coding agents | [Claude, Codex and Gemini in Chrome](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini-en), [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en), [Puppeteer MCP](/posts/tech/2026-06-20-puppeteer-mcp-en), [Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp-en), [Choosing a browser MCP](/posts/tech/2026-06-20-browser-mcp-comparison-en), [agent-browser and the CLI route](/posts/ai/2026-11-19-agent-browser-cli-en), [browse.sh](/posts/ai/2026-05-23-browse-sh-browser-skills-en) |
 | AI SDKs you script against | [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4-en), [Stagehand vs Playwright](/posts/ai/2026-11-18-stagehand-vs-playwright-en), [Midscene.js](/posts/ai/2026-05-23-midscene-vision-ui-automation-en), [AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en), [Skyvern](/posts/ai/2026-11-19-skyvern-en), [Comparing hybrid SDKs](/posts/ai/2026-11-19-ai-browser-sdk-comparison-en) |
-| Letting the model decide | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide-en) |
+| Letting the model decide | [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide-en), [What happened to the agent loop](/posts/ai/2026-11-19-browser-agent-loop-to-code-mode-en) |
 | Drivers and protocols | [Raw CDP or Playwright](/posts/ai/2026-11-18-cdp-vs-playwright-driver-en), [CDP and WebDriver BiDi](/posts/ai/2026-11-19-cdp-webdriver-bidi-en) |
-| Browsers and where they run | [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure-en), [Steel](/posts/ai/2026-08-22-steel-browser-infrastructure-en), [Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure-en), [Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure-en) |
+| Browsers and where they run | [Engines beyond Chromium](/posts/ai/2026-11-19-browser-engines-beyond-chromium-en), [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure-en), [Steel](/posts/ai/2026-08-22-steel-browser-infrastructure-en), [Hyperbrowser](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure-en), [Cloudflare Kitesurf](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure-en) |
 
-The gaps get filled next: why the agent loop is being retired, non-Chromium engines, a hosting comparison, and Cloudflare Browser Run.
+The last two posts come next: a hosting comparison and Cloudflare Browser Run.
 
 The series leaves two things out. If you just want a ready-made scraping service, see the [Search and Scraping in Practice](/en/series/search-and-scraping) series. Techniques for getting around anti-bot systems are not covered; where they come up, the posts stick to compliance and limits.
 

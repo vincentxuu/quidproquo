@@ -178,7 +178,7 @@ BiDi's costs run the other way: the spec is still a draft, Chrome adds a transla
 
 ## Going deeper
 
-The protocol decides which engines you can control. The next post moves to the bottom layer: which engines besides Chromium an agent can use, and what new engines like Lightpanda, which implement CDP themselves, gain and give up.
+The protocol decides which engines you can control. The [next post](/posts/ai/2026-11-19-browser-engines-beyond-chromium-en) moves to the bottom layer: which engines besides Chromium an agent can use, and what new engines like Lightpanda, which implement CDP themselves, gain and give up.
 
 ## References
 

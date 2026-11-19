@@ -5,8 +5,8 @@ category: ai
 type: guide
 tags: [browser-use, browser-automation, ai-agent, playwright, python]
 lang: en
-tldr: "Browser Use combines browser state, model decisions, and actions such as click, type, and extract into a repeatable loop. The open-source package favors custom tools and execution control; Cloud manages browsers, profiles, proxies, and concurrent work."
-description: "Learn the Browser Use agent loop, Python setup, structured output, authentication state, custom tools, security boundaries, open-source versus Cloud deployment, costs, and failure handling."
+tldr: "Browser Use is a Python library where the model decides every step and drives a real browser. Version 1.0 (2026-11-10) replaced the engine: instead of picking click or type from a DOM list, the model writes code in a persistent Python REPL and talks raw CDP. The default model and browser are now Browser Use's cloud services, so a local browser needs Browser('chromium'); per-step actions in the run history, storage_state, and recorded replay are gone, and at runtime, remember that the model's Python runs as your user."
+description: "A guide to Browser Use 1.0: the agent loop where the model writes Python each step, installation and version pinning, local versus cloud browsers, run results and the judge, structured output, logins and secrets, custom tools, the security boundary, Cloud costs, and failure diagnosis; plus the changes that most often bite when upgrading from 0.x."
 draft: false
 series:
   name: "AI Browser Automation"
@@ -15,47 +15,51 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-21-browser-use-complete-guide)
 
-[Browser Use](https://github.com/browser-use/browser-use) is a Python framework that lets a language model operate a browser. A developer supplies a task; the agent repeatedly reads page state, chooses an action, executes it, and checks the result until it finishes or reaches a stop condition.
+> **Updated 2026-11-19:** this post was originally written for 0.x. Browser Use 1.0 (2026-11-10) replaced the engine, and the examples and explanations now use 1.0.6; for what changed from 0.x to 1.0, see "What to watch when upgrading from 0.x" near the end. If you still need 0.x, pin `browser-use<1` when installing.
 
-It is not another CSS-selector library, nor is it merely Playwright wrapped in one natural-language call. Browser Use owns the decision about what to do next. Selectors, CDP, browser processes, and the website remain execution constraints underneath it. This article uses the official repository, open-source documentation, and Cloud API V4 documentation available on August 21, 2026. It did not sign into paid Cloud or submit forms against real accounts.
+[Browser Use](https://github.com/browser-use/browser-use) is a Python library that lets a language model drive a browser. You give it a task, and the agent decides each step, checks the result, and keeps going until it finishes or hits a stop condition.
 
-## The core is observe, decide, act, and verify
+It isn't another CSS selector library, and it isn't Playwright wrapped in a natural-language sentence. Browser Use is responsible for "what to do next"; the web page, the browser process, and the network remain the underlying conditions. This post is based on the official repository's README and [MIGRATING.md](https://github.com/browser-use/browser-use/blob/main/MIGRATING.md) (1.0.6); it didn't log into paid Cloud or submit forms on real accounts.
 
-A Browser Use task can be reduced to this loop:
+## The core: the model writes code, runs it, and looks at the result
+
+A 1.0 task boils down to this loop:
 
 ```text
 task
-  → read page state and available elements
-  → LLM selects click / type / scroll / extract / done
-  → browser executes the action
-  → new state, tool result, or error returns to context
-  → continue until completion or a limit is reached
+  → the model writes code in a persistent Python REPL (it can talk CDP directly and take screenshots when it needs them)
+  → it runs; output or errors go back into context
+  → repeat until the model calls finish(result), or the step or time limit is hit
 ```
 
-This differs from [AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en). AgentQL lets a developer describe the element or data shape to find; Browser Use lets a model choose the next action in a multi-step flow. When the path is fixed, selectors are stable, and every step can be specified in advance, direct Playwright code is usually cheaper and more predictable.
+In the project's words: "The model, a REPL and CDP. That's the whole agent." In 0.x, the framework first assembled the clickable elements on the page and the model picked one of click, type, or scroll each step; in 1.0 the model decides what to look at and how to act. For why it changed, see [What happened to the agent loop](/posts/ai/2026-11-19-browser-agent-loop-to-code-mode-en).
+
+This is a different job from [AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en). AgentQL lets you specify the elements or data shape to find; Browser Use lets the model decide the next step in a multi-step flow. If the flow is fixed, selectors are stable, and every step can be written down, plain Playwright is usually cheaper and more predictable.
 
 ## Install and run the first local Agent
 
-The current official README requires Python 3.11 or newer and installs with `uv add browser-use` or `pip install browser-use`. The example below uses Browser Use's hosted model gateway. The [official model list](https://github.com/browser-use/browser-use/blob/main/browser_use/llm/README.md) also documents providers including OpenAI, Anthropic, Google, Groq, and Ollama.
+It requires Python 3.11 or newer, and you should **pin the exact version** (the README says "never `>=`", because releases move fast and can break APIs):
 
 ```bash
-uv init browser-use-demo
+uv init --python 3.12 browser-use-demo
 cd browser-use-demo
-uv add browser-use python-dotenv
+uv add 'browser-use==1.0.6'
 ```
 
-```bash
-export BROWSER_USE_API_KEY="your-key"
-```
+Two 1.0 defaults to know first:
+
+- **Without `llm`, it uses the `bu-4.0` model on the Browser Use gateway**, which needs `BROWSER_USE_API_KEY` (or log in with `browser-use login`). You can switch to the built-in `ChatOpenAI`, `ChatAnthropic`, or `ChatGoogle`, or a Pydantic AI model string (for example `'groq:<model>'`). LangChain chat models are no longer supported.
+- **`Browser()` is a Browser Use Cloud browser.** For a local one, write `Browser('chromium')`; a cloud browser can't reach localhost or private addresses.
 
 ```python
 import asyncio
 
-from browser_use import Agent, Browser, ChatBrowserUse
+from browser_use import Agent, Browser, ChatOpenAI
 
 
 async def main() -> None:
     browser = Browser(
+        "chromium",
         headless=True,
         allowed_domains=["docs.browser-use.com"],
     )
@@ -64,41 +68,39 @@ async def main() -> None:
             "Open the Browser Use documentation and return the titles "
             "of the Agent and Browser quick-start pages. Do not leave the domain."
         ),
-        llm=ChatBrowserUse(model="bu-2-0-mini-preview"),
+        llm=ChatOpenAI("gpt-6-luna"),  # needs OPENAI_API_KEY; omit llm to use bu-4.0
         browser=browser,
     )
 
-    history = await agent.run(max_steps=12)
-    print(history.final_result())
-    print(history.urls())
-    print(history.errors())
+    result = await agent.run(max_steps=12)
+    print(result.status, result.final_result())
+    print(result.cost_usd)
 
 
 if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-`max_steps` is the first boundary on cost and runaway behavior. `allowed_domains` restricts browser navigation. For the first run, set `headless=False` and watch what the model actually clicks; switch back to headless mode after the flow is understood.
+`max_steps` is the first cap on cost and runaway behavior. In 1.0 a step is one model request, one piece of Python, and the default cap dropped from 0.x's 500 to 100, with a default `timeout` of 1,700 seconds as well. `allowed_domains` limits where the browser can navigate. On a first run, set `headless` to `False` to watch what the model actually does.
 
-This is a minimal example assembled from the documented API shape. It was not executed against an external model for this article. The package changes quickly, so pin a version and rerun the task against your own target site before deployment.
+This is a minimal example assembled from the official API and wasn't run against an external model here. Rerun it against your own target sites before going live.
 
-## Do not keep only the final sentence
+## Don't keep only the final sentence: save the run result
 
-`agent.run()` returns an `AgentHistoryList`. In addition to `final_result()`, the official [output documentation](https://docs.browser-use.com/open-source/customize/agent/output-format) exposes visited URLs, action names, errors, screenshots, model outputs, completion status, and duration.
+The result object `agent.run()` returns changed a lot in 1.0. 0.x per-step methods like `urls()`, `action_names()`, and `screenshots()` are gone, because 1.0 has no "one action per step". What to look at now:
 
-A production workflow should retain at least:
+- `result.status`: `completed`, `max_steps`, `timeout`, or `error`. Configuration errors raise before the browser starts; failures after that return `status='error'` instead of raising.
+- `result.final_result()`, `result.success`: note that `is_successful()` is "the agent's own claim".
+- `result.judgement`: by default, 1.0 sends one more request after each run so the same model judges it, including whether it detected a prompt injection or was blocked by a bot check. Its tokens count toward cost; turn it off with `judge=False` if you don't need it.
+- `result.messages`, `result.usage`, `result.cost_usd`, and the `agent.workspace` folder. The workspace defaults to a temp directory that is kept after the run and holds page text, screenshots, and every cell's output, so delete it when you're done.
 
-- The task, model, and package version.
-- The final result and `is_successful()` value.
-- A summary of visited URLs, actions, and errors.
-- Step count, total duration, and external tool cost.
-- Browser and profile settings that affect the result.
+A production flow should save at least: the task, model and package versions, `status` and the final result, the judge's verdict, step count and total time, cost, and any browser settings that affect the result.
 
-An agent saying that it is done is not proof of business success. Check for a confirmation ID after a form submission, verify a downloaded file, and validate a schema before storing extracted data.
+"The agent says it's done" isn't business success. After submitting a form, check the confirmation ID; after a download, verify the file exists; after extraction, validate against a schema.
 
 ## Constrain structured output with Pydantic
 
-Free-form text is convenient for people and awkward for databases. The open-source Agent accepts a Pydantic model through `output_model_schema`:
+Free text is fine for people and bad for writing straight into a database. `output_model_schema` is kept in 1.0:
 
 ```python
 from pydantic import BaseModel, HttpUrl
@@ -115,31 +117,37 @@ class DocResult(BaseModel):
 
 agent = Agent(
     task="Return the Agent and Browser quick-start documentation pages.",
-    llm=ChatBrowserUse(model="bu-2-0-mini-preview"),
     browser=browser,
     output_model_schema=DocResult,
 )
 
-history = await agent.run(max_steps=12)
-result = history.structured_output
+result = await agent.run(max_steps=12)
+pages = result.structured_output
 ```
 
-Schema validation proves the response shape, not the truth of page content. Validate URLs, prices, dates, and identifiers against their sources. Preserve source URLs and retrieval time when they matter.
+Schema validation only guarantees the shape of the output, not that the page content is right. URLs, prices, dates, and identifiers still need checking against the source; keep the page URL and capture time where it matters.
 
-## Treat authentication state as a secret
+## Treat login state as a secret
 
-Browser Use can connect to system Chrome, load Playwright-format storage state, or use a persistent Cloud profile. The official [authentication guide](https://docs.browser-use.com/open-source/customize/browser/authentication) also recommends restricting navigation with `allowed_domains` and disabling vision on sensitive pages so screenshots are not sent to the model.
+1.0 removed `storage_state`. Login state is kept in one of these ways instead:
+
+| Code | Which browser it uses |
+|---|---|
+| `Browser('chrome')` | The Chrome you have open, with your logins (enable `chrome://inspect/#remote-debugging` once) |
+| `Browser('chrome', profile='Work')` | A new Chrome on a temporary copy of your `Work` profile; nothing is written back |
+| `Browser('chromium', user_data_dir=...)` | A dedicated profile folder kept between runs |
+| `Browser(cloud_profile_id=...)` | A persistent profile on Browser Use Cloud |
 
 ```python
 browser = Browser(
-    storage_state="session.json",
+    "chromium",
+    user_data_dir="./profiles/portal",
     allowed_domains=["portal.example.com", "*.okta.com"],
 )
 
 agent = Agent(
     task="Open the account page and report whether the subscription is active.",
     browser=browser,
-    llm=ChatBrowserUse(model="bu-2-0-mini-preview"),
     use_vision=False,
     sensitive_data={
         "https://portal.example.com": {
@@ -149,11 +157,13 @@ agent = Agent(
 )
 ```
 
-`session.json` may contain cookies and local-storage tokens; never commit it. Put an external policy around high-impact actions as well. Stop before payment, deletion, application submission, or public posting and ask a person to confirm the exact operation.
+`use_vision=False` means no screenshots reach the model. Values in `sensitive_data` are typed by the model calling `type_secret('account_password')`; domain-scoped values are typed only on matching pages; all values are masked as `<secret:account_password>` in cell output, checkpoints, tool results, and the final result. But the README is clear: "Not a sandbox: model-written Python can read the value", and screenshots and page JavaScript can reveal it too.
+
+The `user_data_dir` folder holds cookies and tokens; don't commit it. The debugging port that `Browser('chromium')` and `Browser('chrome', profile=...)` open has no authentication, so on a shared machine other users can attach and take its logins; use a container or Cloud there. High-risk actions also need a policy outside the agent: before paying, deleting, submitting an application, or posting publicly, stop and have a person confirm the specifics.
 
 ## Custom tools own actions outside the browser
 
-Browser Use `Tools` can connect a task to a database, internal API, or human approval. Keep tools narrow. Do not give an agent a universal entry point for arbitrary shell commands or SQL.
+In 1.0 the model performs browser actions by writing code itself, so `Tools` is for things outside the browser: databases, internal APIs, human confirmation. Keep tools small and explicit; don't hand the agent a catch-all entry that runs arbitrary shell or SQL.
 
 ```python
 from browser_use import Tools
@@ -161,7 +171,7 @@ from browser_use import Tools
 tools = Tools()
 
 
-@tools.action(description="Save a reviewed documentation URL")
+@tools.action("Save a reviewed documentation URL")
 def save_doc_url(title: str, url: str) -> str:
     if not url.startswith("https://docs.browser-use.com/"):
         return "Rejected: URL is outside the documentation domain"
@@ -169,13 +179,17 @@ def save_doc_url(title: str, url: str) -> str:
     return f"Queued for review: {title} {url}"
 ```
 
-Tool results enter subsequent model context. Return only the necessary summary for large payloads; otherwise every step can resend the full content, increasing both tokens and latency.
+Connect the tools with `Agent(task=..., tools=tools)`. The parameters 0.x injected into tools (`browser_session`, `page_url`, and so on) are gone; a tool gets only what the model passes in. Tool return values enter later context, so return only the summary you need from large content.
+
+## The security boundary: the model's code runs as you
+
+This is the 1.0 change that needs the most attention. The REPL runs model-written Python as your user, and [MIGRATING.md](https://github.com/browser-use/browser-use/blob/main/MIGRATING.md) says plainly "This is not a sandbox": the model can read and upload any file your user can read. `allowed_domains` is likewise only "a guard for an aligned model, not a sandbox"; requests that an allowed page makes to other hosts aren't filtered. The project recommends running untrusted tasks in a container or VM.
 
 ## Open-source Agent and Cloud are deployment choices
 
-The open-source package uses the [MIT license](https://github.com/browser-use/browser-use/blob/main/LICENSE). You operate the browser, model, proxy, monitoring, and concurrency. The package sends anonymous telemetry by default; the [official telemetry guide](https://docs.browser-use.com/development/monitoring/telemetry) documents `ANONYMIZED_TELEMETRY=false` for opting out.
+The open-source package is [MIT licensed](https://github.com/browser-use/browser-use/blob/main/LICENSE); you maintain the browsers, models, proxies, monitoring, and concurrency yourself. The package sends anonymous telemetry by default; set `ANONYMIZED_TELEMETRY=false` to turn it off.
 
-Cloud API V4 puts each run in a session and creates a workspace for persistent files. Its minimum call looks like this:
+Browser Use now has three paths: the fully hosted Cloud agent, a CLI for Claude Code or Codex (installed as a skill with `browser-use skill install`), and the Python library covered here. Cloud API V4 needs the separate `browser-use-sdk` package; a minimal call:
 
 ```python
 from browser_use_sdk.v4 import BrowserUse
@@ -188,35 +202,48 @@ run = client.runs.wait_for_completion(run.id)
 print(run.result)
 ```
 
-Cloud also offers persistent profiles, proxies, live views, and recordings. On the current [public pricing page](https://browser-use.com/pricing), Pay As You Go has no monthly subscription. It lists browser sessions at $0.06 per hour and proxy data at $10 per GB; credits are purchased separately. Plans and prices can change, so recheck Billing before deployment.
+Per the README, a Cloud browser costs $0.06 per hour. `result.cost_usd` covers only model, judge, and web search charges; the cloud browser and proxy are billed separately. Plans and prices change, so check [pricing](https://browser-use.com/pricing) and Billing again before going live.
 
-Model tokens, agent or skill calls, browser time, proxy traffic, and failed reruns are separate cost lines. Do not estimate from one average “task price.” Measure success rate, steps, browser time, and human takeover rate on representative tasks.
+Model tokens, judge requests, browser time, proxy traffic, and failed retries are separate cost lines. Don't estimate with "how much per task" alone; first record success rate, step count, browser time, and human handoff rate on representative tasks.
 
 ## Identify the failing layer first
 
-| Symptom | Check first | Direction |
+| Symptom | Check first | What to do |
 |---|---|---|
-| Button not found | DOM, iframe, page readiness | Add an explicit wait or use a more stable state |
-| Same action repeats | Stop condition and tool result clarity | Lower the step limit and define completion |
-| Login keeps failing | Storage state, profile, SSO domains | Rebuild auth state and scope credentials by domain |
-| CAPTCHA or challenge | IP, fingerprint, action frequency | Slow down or use a legitimate source; do not promise bypass |
-| Correct shape, wrong content | Schema only validates shape | Preserve sources and apply business validation |
-| Cost spikes | Steps, model, browser time, retries | Set budgets, timeouts, and task-level monitoring |
+| `status='error'` | `result.error`: keys, model name, browser start failure | Usually configuration; fix what the message says |
+| `status='max_steps'` or `timeout` | Whether the task has a stop condition; whether `result.partial` has intermediate results | Add completion criteria; to get intermediate results, ask the model in the task to save them with `checkpoint(..., partial=True)` |
+| Can't reach localhost or the intranet | Whether you're on the default cloud browser | Switch to `Browser('chromium')` |
+| Logins keep expiring | Profile, SSO domains | Rebuild the login state and restrict credential domains |
+| CAPTCHA / challenge | Whether `result.judgement` flags a bot block; IP, request rate | Slow down or use a legitimate data source; don't claim it can always get through |
+| Right format, wrong content | The schema only checks shape | Keep the source and validate the business result |
+| Costs suddenly rise | Steps, model, judge, browser time | Set a budget, timeout, and per-task monitoring |
 
-For main-content extraction from a known URL, start with Crawl4AI or a normal HTTP fetch. For UI tests with stable selectors, start with Playwright. Browser Use is most valuable when page paths branch, decisions span multiple pages, and the next action is difficult to encode in advance.
+If the job is just extracting text from known URLs, start with Crawl4AI or a plain HTTP fetch; for UI tests with fixed selectors, start with Playwright. Browser Use is most valuable when the page path branches, decisions span pages, and the steps are hard to write down in advance. 1.0 removed 0.x's recorded replay (`rerun_history()`, `save_as_playwright_script()`), so if you need a flow that's identical every time, write it as a script yourself.
+
+## What to watch when upgrading from 0.x
+
+[MIGRATING.md](https://github.com/browser-use/browser-use/blob/main/MIGRATING.md) is thorough; the items people hit most:
+
+- `Agent`, `Browser`, `Tools`, `run()`, and `final_result()` still exist; most settings 1.0 can't honor raise an error before the browser starts, while a few 0.x tuning knobs (such as `flash_mode`) log one warning and are ignored.
+- `Browser()` changed from local Chromium to a cloud browser; local-only options like `Browser(headless=True)` raise `ValueError` on a cloud browser.
+- The 0.x gateway models `bu-2-0`, `bu-2-0-mini-preview`, `bu-1-0`, and `bu-latest` are rejected.
+- `storage_state`, the per-step result methods, recorded replay, step callbacks, and the planner and loop-detection settings were removed.
+- The old `browser-use --mcp` tools (`browser_click` and friends) retired with the old engine, replaced by `--cli-mcp`'s `browser_exec` and `browser_screenshot`.
 
 ## The overall trade-off
 
-Browser Use turns “let a model inspect a page and choose the next action” into a programmable agent loop. The trade-off is that outcomes depend on the model, page state, authentication, network, and tool descriptions together. A successful demo is not a production SLA.
+Browser Use turns "let a model look at a page and take the next step" into a programmable agent loop, and 1.0 goes further by handing the model how it observes and acts too. The price is that results depend on the model, the page, logins, and the network together, so one successful demo isn't a production SLA; and the model's code runs directly on your machine.
 
-A reliable starting point is to restrict domains and steps, validate output with a schema, retain full history, and put high-impact side effects behind human approval. Use the open-source Agent when you need control; evaluate Cloud when you do not want to operate browser processes, proxies, and large numbers of sessions.
+A reliable starting point: pin the version, limit domains and steps, constrain output with a schema, save `status` and the judge's verdict, put high-risk side effects behind human confirmation, and run untrusted tasks in a container. Use the open-source Agent when you need custom control; consider Cloud when you don't want to maintain browser processes, proxies, and many sessions.
+
+## Changelog
+
+- 2026-11-19: Rewritten for Browser Use 1.0.6: the loop is now the model writing Python, examples use `Browser('chromium')` and the 1.0 result object, logins use profiles, and sections on the security boundary and upgrading from 0.x were added; outdated model-list and documentation links were removed.
 
 ## References
 
 - [Browser Use GitHub repository](https://github.com/browser-use/browser-use)
-- [Browser Use Agent output format](https://docs.browser-use.com/open-source/customize/agent/output-format)
-- [Browser Use authentication](https://docs.browser-use.com/open-source/customize/browser/authentication)
+- [Browser Use: MIGRATING.md (0.x → 1.0)](https://github.com/browser-use/browser-use/blob/main/MIGRATING.md)
 - [Browser Use Cloud API V4 quick start](https://docs.browser-use.com/cloud/agent/quickstart)
-- [Browser Use Cloud profiles](https://docs.browser-use.com/cloud/guides/authentication)
 - [Browser Use pricing](https://browser-use.com/pricing)
-- [Browser Use telemetry](https://docs.browser-use.com/development/monitoring/telemetry)
+- [Browser Use: The Bitter Lesson of Browser Agents](https://browser-use.com/posts/bitter-lesson-browser-agents)
