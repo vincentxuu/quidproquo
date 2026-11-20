@@ -171,7 +171,7 @@ On the conflict test, Muse explained afterwards: "My mistake was treating your c
 
 It isn't available in Taiwan; it's live in the US, Canada, Japan and Singapore.
 
-Most of what Muse does happens inside its VM, and you have to go look to see what it's doing in the browser. Next up, Hark Pro takes the opposite approach and puts the agent's screen in front of you.
+Most of what Muse does happens inside its VM, and you have to go look to see what it's doing in the browser. Next up, [Hark Pro](/posts/ai/2026-11-20-hark-pro-en) takes the opposite approach and puts the agent's screen in front of you.
 
 ## References
 

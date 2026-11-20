@@ -129,6 +129,7 @@ This table only says yes, no or conditional. Plans, prices and how to sign up li
 | OpenAI Dots | Conditional | ChatGPT Pro, or some Plus accounts as the rollout continues; excludes the EEA, Switzerland and the UK |
 | Grok Bot | Conditional | Premium or higher on The X Subscription; the official docs list no regional restriction |
 | Meta Muse | No | Live in the US, Canada, [Japan](https://k-tai.watch.impress.co.jp/docs/news/2150682.html) (in Japanese) and [Singapore](https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/); not yet in Taiwan |
+| Hark Pro | Conditional | [Listed on the Taiwan App Store](https://apps.apple.com/tw/app/hark-pro/id6772362941) with NT$ plans; official demos are almost all US sites, and no supported-country list is published |
 | Claude Duet | No | The research preview is US-only, via a waitlist |
 | OpenClaw, Hermes Agent | Yes | Open source, install it yourself; you pay for the model |
 | LINE | Not yet | [LINE Taiwan](https://www.lycorp.co.jp/en/story/20261113/converge_2026.html) plans an AI agent platform for Official Accounts in Q1 2027, with shopping and gift agents also in 2027 |
@@ -152,7 +153,7 @@ The security post already published, *[Choosing a personal AI assistant: hosted 
 
 ## Update log
 
-- 2026-11-20: Corrected Muse availability (US, Canada, Japan, Singapore; previously said US-only).
+- 2026-11-20: Corrected Muse availability (US, Canada, Japan, Singapore; previously said US-only); added Hark Pro to the Taiwan availability table.
 
 ## References
 
