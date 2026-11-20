@@ -142,7 +142,7 @@ What each provider actually does:
 
 One easy misunderstanding: enabling long retention implicitly via the environment (`OPENCLAW_CACHE_RETENTION=long` with no explicit `cacheRetention`) **only upgrades to the 1-hour TTL on `api.anthropic.com` or Vertex AI hosts**; other hosts stay on the 5-minute cache.
 
-Two settings pair with it: `contextPruning.mode: "cache-ttl"` prunes old tool-result context after the TTL window so a post-idle request does not re-cache oversized history, and `heartbeat` can keep caches warm for long-lived agents (with a one-hour TTL, `every: "55m"`) — but only enable it for agents that genuinely benefit.
+Two settings pair with it: `contextPruning.mode: "cache-ttl"` prunes old tool-result context after the TTL window so a post-idle request does not re-cache oversized history. Separately, if an automation already does useful checks in the same persistent session, `openclaw automations edit <job-id> --every 55m` keeps its cadence inside a one-hour TTL and warms the cache along the way. An isolated job does not warm another conversation's history; quiet hours and busy deferrals can delay a check, and every turn costs tokens, so compare total usage before assuming it pays off.
 
 ## The big picture
 
@@ -154,6 +154,7 @@ The seconds will rot. That dividing line will not.
 
 ## Changelog
 
+- 2026-11-20: Replaced the `heartbeat` cache-warming advice with the current approach: set `--every 55m` on an automation that runs in the same persistent session, noting that isolated jobs don't warm other conversations and every check costs tokens.
 - 2026-08-18: Substantially revised against the current official docs. **Two wrong numbers corrected**: regular cooldowns are 30 seconds → 1 minute → 5 minutes (cap), not the "1 min → 5 min → 25 min → 1 hr" the original claimed; billing failures are not a "5 hr → 24 hr" escalating cooldown but a profile marked disabled with a longer backoff. **One wrong path corrected**: auth profiles now live in the per-agent `openclaw-agent.sqlite`, and the `auth-profiles.json` the original cited is legacy, with the runtime failing closed for unmigrated agents. Added: fallback is turn-local, selection source determines strictness (a manually selected model reports failure instead of substituting another), which errors do not advance fallback (format errors, context overflow), the full-turn overload retry and its 30-second notice, the 60-second cap on SDK `Retry-After` waits, the static-token tier in rotation order, and the `auth.order` pattern for a Codex subscription with an API-key backup. Prompt caching updated to `cacheRetention` (with `cacheControlTtl` as legacy), plus the actual behavior for Google `cachedContents` and OpenAI-compatible endpoints.
 
 ## References
