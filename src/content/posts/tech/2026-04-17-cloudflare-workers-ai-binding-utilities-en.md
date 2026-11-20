@@ -17,7 +17,7 @@ additionalSeries:
     order: 26
 ---
 
-🌏 [中文版](/posts/tech/2026-04-17-cloudflare-workers-ai-binding-utilities)
+:globe: [中文版](/posts/tech/2026-04-17-cloudflare-workers-ai-binding-utilities)
 
 I recently came across [markdown.new](https://markdown.new) — drop in any file (PDF, DOCX, XLSX, images, web pages) and get back LLM-friendly Markdown, for free, no sign-up required. When I looked under the hood, the core turned out to be a single call to `env.AI.toMarkdown()`.
 

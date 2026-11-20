@@ -26,7 +26,7 @@ glossary:
     context: "A3 Q4 用預訓練 CLIP 實作 `clip_zero_shot_classifier`。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-a3-transformer-ssl-ddpm-clip-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-a3-transformer-ssl-ddpm-clip-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

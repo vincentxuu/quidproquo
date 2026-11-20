@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-harness-engineering-evolution)
+> :globe: [中文版](/posts/ai/2026-03-28-harness-engineering-evolution)
 
 In March 2026, Epsilla published [The Third Evolution: Why Harness Engineering Replaced Prompting in 2026](https://www.epsilla.com/blogs/harness-engineering-evolution-prompt-context-autonomous-agents), organizing the past four years of AI engineering evolution into three clear phases. If you've been following AI engineering developments but feel things are getting increasingly fragmented, this article helps you connect the dots.
 

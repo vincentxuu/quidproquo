@@ -12,7 +12,7 @@ series:
   order: 121
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-03-funding-clark-en)
+> :globe: [English version](/posts/daily/2026-11-03-funding-clark-en)
 
 ## 融資資訊
 

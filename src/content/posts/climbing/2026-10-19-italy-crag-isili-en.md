@@ -13,7 +13,7 @@ description: "A guide to climbing at Isili: the style of its steep limestone and
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-isili)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-isili)
 
 Isili is a small town in central Sardinia, north of the island's capital Cagliari. Italy's official tourism site, [italia.it](https://www.italia.it/en/sardinia/things-to-do/free-climbing-sardinia), lists it alongside [Cala Gonone](/posts/climbing/2026-10-18-italy-crag-cala-gonone-en), [Jerzu](/posts/climbing/2026-10-19-italy-crag-ulassai-en), the Supramonte and the [Iglesiente](/posts/climbing/2026-10-19-italy-crag-domusnovas-en) as places in Sardinia not to miss, and says its crags "attract the best climbers in Europe".
 

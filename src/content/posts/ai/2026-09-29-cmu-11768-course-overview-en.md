@@ -13,7 +13,7 @@ description: "Series guide to CMU 11-768 AI Agents (Fall 2026): what the course 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-course-overview)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

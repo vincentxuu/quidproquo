@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-agentql-semantic-web-extraction)
+> :globe: [中文版](/posts/ai/2026-08-21-agentql-semantic-web-extraction)
 
 [AgentQL](https://github.com/tinyfish-io/agentql) is a toolkit for web extraction and browser automation. You describe a target with semantic fields such as `product_name` or `add_to_cart_btn`, then use the result through its Python or JavaScript SDK, REST API, or Playwright. You still own the workflow, error handling, and data validation. AgentQL handles the narrower question: which data or element on this page matches the description?
 

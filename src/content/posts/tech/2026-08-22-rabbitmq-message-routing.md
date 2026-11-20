@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-rabbitmq-message-routing-en)
+> :globe: [English version](/posts/tech/2026-08-22-rabbitmq-message-routing-en)
 
 [RabbitMQ](https://www.rabbitmq.com/docs) 的主角不是 queue 名稱，而是 producer 先把訊息送到 exchange，再由 binding 規則路由到一個或多個 queue。direct、topic、fanout 與 headers exchange 能把工作分派、廣播、pattern routing 和 dead-letter flow 留在 broker topology，而不是散落在每個 producer 裡。
 

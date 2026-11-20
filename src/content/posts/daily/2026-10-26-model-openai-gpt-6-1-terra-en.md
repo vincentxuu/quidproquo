@@ -15,7 +15,7 @@ glossary:
     def: "OpenAI's large language model family; Terra is the mid tier built for computer use and visual reasoning, emphasizing cost-efficiency"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-26-model-openai-gpt-6-1-terra)
+> :globe: [中文版](/posts/daily/2026-10-26-model-openai-gpt-6-1-terra)
 
 ## Model Details
 
@@ -49,7 +49,7 @@ glossary:
 | Internal factual-error rate (max effort, lower is better) | 4.3% | 22.3% (back-calculated from OpenAI's stated "18-point drop") | Close to GPT-6 Astra and GPT-6.1 Sol |
 | Terminal-Bench-Science 0.1 (max effort) | Beats GPT-6.1 Sol at lower cost; within 5 points of Claude Opus 5.5 | Not provided in this announcement | Trails Claude Opus 5.5 by ~5 points, at under 1/5 the cost |
 
-⚠️ All figures are OpenAI's own benchmarking under vendor-chosen reasoning-effort settings, pending independent reproduction. Most rows are the relative gaps OpenAI published rather than both models' absolute scores — exact numbers for GPT-5.6 Terra and competitors weren't fully disclosed in this announcement.
+:warning: All figures are OpenAI's own benchmarking under vendor-chosen reasoning-effort settings, pending independent reproduction. Most rows are the relative gaps OpenAI published rather than both models' absolute scores — exact numbers for GPT-5.6 Terra and competitors weren't fully disclosed in this announcement.
 
 ```diagram
 title: GPT-6.1 Terra internal factual-error rate: predecessor vs. current

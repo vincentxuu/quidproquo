@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-18-weekly-review-en)
+> :globe: [English version](/posts/daily/2026-09-18-weekly-review-en)
 
 ## 本週最重要的 5 件事
 
@@ -59,13 +59,13 @@ Salesforce 發佈 Agentforce 360，把七個具名 agent 跟「AI Control Plane�
 
 ## Watchlist 更新建議
 
-### 🆕 建議加入
+### 建議加入
 
-✅ 本週 signals 中出現的公司均已在 watchlist 內，無新增候選（以「本週 signals 中不在 watchlist 且出現 ≥3 次」為門檻檢核；本週各家新創的融資訊號多來自獨立的融資速報文章，未達 signals 內重複曝光的門檻，已在下方「本週新創雷達」中列出）
+✓ 本週 signals 中出現的公司均已在 watchlist 內，無新增候選（以「本週 signals 中不在 watchlist 且出現 ≥3 次」為門檻檢核；本週各家新創的融資訊號多來自獨立的融資速報文章，未達 signals 內重複曝光的門檻，已在下方「本週新創雷達」中列出）
 
-### ⚠️ 考慮移除
+### :warning: 考慮移除
 
-✅ 本週無符合移除條件的公司
+✓ 本週無符合移除條件的公司
 
 ## 本週新創雷達
 

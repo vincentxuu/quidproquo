@@ -13,7 +13,7 @@ description: "A guide to Cala Gonone: rock and sector sizes, the autumn-to-sprin
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crag-cala-gonone)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crag-cala-gonone)
 
 Cala Gonone is a seaside village in the municipality of [Dorgali](https://sardegnaturismo.it/en/places/est/cala-gonone) on Sardinia's east coast, facing the Gulf of Orosei. [theCrag](https://www.thecrag.com/en/climbing/italy/sardinia/cala-gonone) lists 1,001 routes here; the local climbing association [Climbing Sardinia](https://climbingitaly.com/area/cala-gonone) opens its free online crag guide with "Cala Gonone is Sardinia's climbing paradise", with over fifty sectors of sport and multi-pitch routes.
 

@@ -15,7 +15,7 @@ glossary:
     def: "Google DeepMind's large language model family; Neon is the Gemini 4.x branch positioned between Hydrogen and Carbon"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-20-model-google-gemini-4-neon)
+> :globe: [中文版](/posts/daily/2026-11-20-model-google-gemini-4-neon)
 
 ## Model Info
 
@@ -49,7 +49,7 @@ glossary:
 | KingBench 4 (third-party six-project coding benchmark, out of 60) | 37.9 (63.2%) | Google states it beats Argon/Carbon but gives no specific score | Claude Fable 5.2 — 42 (1st); Claude Opus 5.5 — 34.7 |
 | AA-Omniscience v1.1 hallucination rate (lower is better) | 13.9–14.4% | Carbon 11.4% / Hydrogen 8.5% / Argon 4.3% | Claude Opus 5.5 — 50.3% / GPT-6.2 Sol — 55.4% |
 
-⚠️ The AA Intelligence Index, Vals Index, and AA-Omniscience figures are independently measured by Artificial Analysis / Vals AI; AutomationBench is independently measured by Zapier; KingBench 4 is a third-party benchmark built by MindStudio, not an official Google number. Google's own comparison table picks Claude Opus 5.5 and GPT-6.2 Sol as rivals — not the highest-scoring models on the market.
+:warning: The AA Intelligence Index, Vals Index, and AA-Omniscience figures are independently measured by Artificial Analysis / Vals AI; AutomationBench is independently measured by Zapier; KingBench 4 is a third-party benchmark built by MindStudio, not an official Google number. Google's own comparison table picks Claude Opus 5.5 and GPT-6.2 Sol as rivals — not the highest-scoring models on the market.
 
 ## Comparison with Predecessor/Competitors
 

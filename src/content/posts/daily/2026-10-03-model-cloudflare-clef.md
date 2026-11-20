@@ -15,7 +15,7 @@ glossary:
     def: "Cloudflare 自研的開源決策模型家族，以 Qwen 為骨幹後訓練、非自回歸架構，一次前向傳遞就能對多個型別化問題輸出機率分佈"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-03-model-cloudflare-clef-en)
+> :globe: [English version](/posts/daily/2026-10-03-model-cloudflare-clef-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | ToolRet（nDCG@10） | **69.2** | 66.4 | 65.3 |
 | Median latency（ms，越低越好） | 209.3 | **38.8** | 524.1 |
 
-⚠️ 以上均為 Cloudflare 官方跑的內部 Decision Index 0.2.1 測試集，尚無獨立第三方覆現；其中 GPQA Diamond、MMLU-Pro、BBH 等需要深度推理的測試上 Clef 反而明顯落後 Jev（例如 BBH：Clef 73.7% vs Jev 92.9%），顯示 Clef 犧牲了部分通用推理能力去換取分類任務的速度與精準度。
+:warning: 以上均為 Cloudflare 官方跑的內部 Decision Index 0.2.1 測試集，尚無獨立第三方覆現；其中 GPQA Diamond、MMLU-Pro、BBH 等需要深度推理的測試上 Clef 反而明顯落後 Jev（例如 BBH：Clef 73.7% vs Jev 92.9%），顯示 Clef 犧牲了部分通用推理能力去換取分類任務的速度與精準度。
 
 ## 與前代/競品比較
 

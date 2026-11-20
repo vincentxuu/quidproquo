@@ -12,7 +12,7 @@ series:
   order: 78
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-01-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-01-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -148,11 +148,11 @@ Andela 共同創辦人 Aboyeji 創立的 Talent Nation 完成未公開金額的 
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-01](/posts/daily/2026-11-01-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-01](/posts/daily/2026-11-01-ai-agent-github-digest)
-- 📄 [框架更新｜Pydantic AI v2.64.0](/posts/daily/2026-11-01-framework-pydantic-ai-v2.64.0)
-- 📄 [資安警報｜MoLing MCP Server SSE Session Hijack](/posts/daily/2026-11-01-security-moling-mcp-sse-session-hijack)
-- 📄 [工具推薦｜mcp4mail](/posts/daily/2026-11-01-tool-mcp4mail)
+- :file: [AI Agent Arxiv Digest — 2026-11-01](/posts/daily/2026-11-01-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-01](/posts/daily/2026-11-01-ai-agent-github-digest)
+- :file: [框架更新｜Pydantic AI v2.64.0](/posts/daily/2026-11-01-framework-pydantic-ai-v2.64.0)
+- :file: [資安警報｜MoLing MCP Server SSE Session Hijack](/posts/daily/2026-11-01-security-moling-mcp-sse-session-hijack)
+- :file: [工具推薦｜mcp4mail](/posts/daily/2026-11-01-tool-mcp4mail)
 
 ## 明日關注
 

@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-07-marker-document-parsing)
+> :globe: [中文版](/posts/tech/2026-09-07-marker-document-parsing)
 
 There's no single path to making complex documents readable for LLMs. This series has covered the conversion layer ([anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown), [MarkItDown](/posts/ai/2026-04-18-markitdown-intro)), the extraction layer ([PyMuPDF / pdfplumber / Tika group](/posts/ai/2026-08-06-pdf-text-extraction-libraries)), the parsing-layer framework ([three-layer model](/posts/ai/2026-08-06-document-parsing-three-layers)), the tool comparison ([layout/OCR parsing](/posts/ai/2026-08-06-document-parsing-layout-ocr)), scanned-document benchmarks ([10 tools tested](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)), [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents), and two deep-dives into specific parsing-layer tools: [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing) (structured Markdown with dedicated XML exports, custom license with commercial thresholds) and [Docling](/posts/tech/2026-09-06-docling-document-parsing) (structured JSON core, dedicated XML exports like `DocLang`/`USPTO`/`JATS`/`XBRL`/`DocTags`, pure `MIT`). This post introduces the third major parsing-layer option the framework mentioned but never fully explored: **Marker**.
 

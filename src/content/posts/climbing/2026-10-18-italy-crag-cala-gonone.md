@@ -13,7 +13,7 @@ description: "卡拉戈諾內（Cala Gonone）岩場介紹：岩質與各子區�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crag-cala-gonone-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crag-cala-gonone-en)
 
 卡拉戈諾內（Cala Gonone）是薩丁尼亞島東岸、[多爾加利（Dorgali）](https://sardegnaturismo.it/en/places/est/cala-gonone)鎮轄下面對奧羅塞灣（Golfo di Orosei）的海邊小村。[theCrag](https://www.thecrag.com/en/climbing/italy/sardinia/cala-gonone) 在這裡登錄 1,001 條路線。在地攀岩協會 [Climbing Sardinia](https://climbingitaly.com/area/cala-gonone) 的線上岩場指南開頭寫「Cala Gonone is Sardinia's climbing paradise」，五十多個子區都有運攀與多段路線。
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 68
 ---
-> 🌏 [中文版](/posts/daily/2026-07-31-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-31-ai-agent-arxiv-digest)
 
 ## Today's Overview
 

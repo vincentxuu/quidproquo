@@ -26,7 +26,7 @@ glossary:
     context: "The Assignment 7 page lists the HybridFlow paper and the VERL docs as essential reading."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-hw7-rlhf-systems)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-hw7-rlhf-systems)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

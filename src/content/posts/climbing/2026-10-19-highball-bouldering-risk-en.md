@@ -26,7 +26,7 @@ glossary:
     context: "This site's Top-Rope Anchor Setup covers rigging on two bolts at the top of an outdoor route."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-highball-bouldering-risk)
+> :globe: [中文版](/posts/climbing/2026-10-19-highball-bouldering-risk)
 
 The [Mountain Project page for Li-Yang bouldering](https://www.mountainproject.com/area/200287087/li-yang-bouldering) in Taiwan says two things. The riverbed landings are mostly good and the area suits beginners, with problems mostly V0 to V5. The same area also has an 8 to 9 metre highball whose main line is still a V8/9 project.
 

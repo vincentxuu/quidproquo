@@ -14,7 +14,7 @@ description: "A page-linked guide to the CS329Z Lecture 10 Terminal-Bench and Ha
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench)
 
 **Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 73 minutes); this guide follows the public slides and readings and had each section start time checked against the recording's captions. From 57:25 the recording is Q&A.
 

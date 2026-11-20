@@ -25,7 +25,7 @@ glossary:
     context: "Lab 1 Part 4 enables it through torch.compile's max-autotune mode."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-f26-lab1-gpu-basics)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-f26-lab1-gpu-basics)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

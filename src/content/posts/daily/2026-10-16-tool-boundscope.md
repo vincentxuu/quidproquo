@@ -12,7 +12,7 @@ series:
   order: 56
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-16-tool-boundscope-en)
+> :globe: [English version](/posts/daily/2026-10-16-tool-boundscope-en)
 
 ## 工具資訊
 
@@ -90,11 +90,11 @@ target/debug/boundscope --config examples/targets.json --store local/reports \
 
 | | Boundscope | 手動跑 `clang -fsanitize=address` | Valgrind |
 |---|---|---|---|
-| Agent 可直接呼叫（MCP） | ✅ | ❌ | ❌ |
-| 修復前後自動對照（retest 連結原報告） | ✅ | 需自己手動留存 | 需自己手動留存 |
-| 保存可重跑的輸入與原始碼快照 | ✅ | ❌ | ❌ |
+| Agent 可直接呼叫（MCP） | ✓ | ✗ | ✗ |
+| 修復前後自動對照（retest 連結原報告） | ✓ | 需自己手動留存 | 需自己手動留存 |
+| 保存可重跑的輸入與原始碼快照 | ✓ | ✗ | ✗ |
 | 需要重新編譯目標程式 | 是（sanitizer 要編譯期插入） | 是 | 否（直接跑二進位） |
-| 偵測未定義行為（非僅記憶體） | ✅（UBSan） | 要自己加 flag | ❌ |
+| 偵測未定義行為（非僅記憶體） | ✓（UBSan） | 要自己加 flag | ✗ |
 
 ## 注意事項
 

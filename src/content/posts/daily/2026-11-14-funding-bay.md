@@ -12,7 +12,7 @@ series:
   order: 133
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-14-funding-bay-en)
+> :globe: [English version](/posts/daily/2026-11-14-funding-bay-en)
 
 
 ## 融資資訊

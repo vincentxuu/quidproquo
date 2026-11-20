@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-team-wiki-maintenance-ownership-en)
+> :globe: [English version](/posts/learning/2026-10-22-team-wiki-maintenance-ownership-en)
 
 一個兩百人的開發團隊有一個很活躍的 wiki，幾百個頁面、幾十個人在寫。受訪的每個人卻都抱怨同一件事：wiki「開始長滿雜草」。原本有一位主要貢獻者會定期整理格式、修正文字，他離開團隊後，專案經理被指派接手，不久又被調去做別的事。之後 wiki 還是很多人用，但沒有「園丁」，越來越亂；主管看到雜亂的內容，乾脆把維護的人力撤掉了（[Grudin & Poole 2010](https://doi.org/10.1145/1832772.1832780)）。
 

@@ -12,7 +12,7 @@ series:
   order: 97
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-20-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-20-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -133,19 +133,19 @@ We checked for direct Taiwan AI agent news today and found no qualifying standal
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-20](/posts/daily/2026-11-20-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-20](/posts/daily/2026-11-20-ai-agent-github-digest-en)
-- 📄 [Model Card｜Gemini 4 Neon](/posts/daily/2026-11-20-model-google-gemini-4-neon-en)
-- 📄 [Benchmark Shift｜Gemini 4 Neon's Debut](/posts/daily/2026-11-20-benchmark-gemini-4-neon-en)
-- 📄 [Framework Changelog｜Pydantic AI v2.71.0](/posts/daily/2026-11-20-framework-pydantic-ai-v2.71.0-en)
-- 📄 [Pricing Watch｜GPT-6.2 Astra Cuts Price 20%](/posts/daily/2026-11-20-pricing-openai-gpt-6-2-astra-sol-cut-en)
-- 📄 [Security Alert｜SGLang RCE Breaches NEAR AI's Confidential Inference](/posts/daily/2026-11-20-security-sglang-rce-near-ai-confidential-inference-breach-en)
-- 📄 [Tool of the Day｜android-agent](/posts/daily/2026-11-20-tool-android-agent-en)
-- 📄 [Funding Flash｜Boltz Series A $110M](/posts/daily/2026-11-20-funding-boltz-en)
-- 📄 [Funding Flash｜Linq's New Round $90M](/posts/daily/2026-11-20-funding-linq-en)
-- 📄 [Funding Flash｜Pulley's Combined A+B $64M](/posts/daily/2026-11-20-funding-pulley-en)
-- 📄 [AI Engineer Interview Prep — 2026-11-20](/posts/daily/2026-11-20-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-11-20](/posts/daily/2026-11-20-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-20](/posts/daily/2026-11-20-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-20](/posts/daily/2026-11-20-ai-agent-github-digest-en)
+- :file: [Model Card｜Gemini 4 Neon](/posts/daily/2026-11-20-model-google-gemini-4-neon-en)
+- :file: [Benchmark Shift｜Gemini 4 Neon's Debut](/posts/daily/2026-11-20-benchmark-gemini-4-neon-en)
+- :file: [Framework Changelog｜Pydantic AI v2.71.0](/posts/daily/2026-11-20-framework-pydantic-ai-v2.71.0-en)
+- :file: [Pricing Watch｜GPT-6.2 Astra Cuts Price 20%](/posts/daily/2026-11-20-pricing-openai-gpt-6-2-astra-sol-cut-en)
+- :file: [Security Alert｜SGLang RCE Breaches NEAR AI's Confidential Inference](/posts/daily/2026-11-20-security-sglang-rce-near-ai-confidential-inference-breach-en)
+- :file: [Tool of the Day｜android-agent](/posts/daily/2026-11-20-tool-android-agent-en)
+- :file: [Funding Flash｜Boltz Series A $110M](/posts/daily/2026-11-20-funding-boltz-en)
+- :file: [Funding Flash｜Linq's New Round $90M](/posts/daily/2026-11-20-funding-linq-en)
+- :file: [Funding Flash｜Pulley's Combined A+B $64M](/posts/daily/2026-11-20-funding-pulley-en)
+- :file: [AI Engineer Interview Prep — 2026-11-20](/posts/daily/2026-11-20-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-11-20](/posts/daily/2026-11-20-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

@@ -16,7 +16,7 @@ draft: false
 
 ---
 
-## 1. OpenClaw — ~343k ⭐
+## 1. OpenClaw — ~343k ★
 
 **Repo:** [openclaw/openclaw](https://github.com/openclaw/openclaw)｜**語言:** TypeScript｜**授權:** MIT
 
@@ -35,7 +35,7 @@ draft: false
 
 ---
 
-## 2. n8n — ~182k ⭐
+## 2. n8n — ~182k ★
 
 **Repo:** [n8n-io/n8n](https://github.com/n8n-io/n8n)｜**語言:** TypeScript｜**授權:** Fair-code (Sustainable Use License)
 
@@ -54,7 +54,7 @@ draft: false
 
 ---
 
-## 3. Dify — ~134k ⭐
+## 3. Dify — ~134k ★
 
 **Repo:** [langgenius/dify](https://github.com/langgenius/dify)｜**語言:** Python / TypeScript｜**授權:** Apache 2.0
 
@@ -71,7 +71,7 @@ draft: false
 
 ---
 
-## 4. LangChain — ~126k ⭐
+## 4. LangChain — ~126k ★
 
 **Repo:** [langchain-ai/langchain](https://github.com/langchain-ai/langchain)｜**語言:** Python / JavaScript｜**授權:** MIT
 
@@ -90,7 +90,7 @@ LLM 應用開發的瑞士刀。最老牌、生態最完整的框架，支援 cha
 
 ---
 
-## 5. LlamaIndex — ~48k ⭐
+## 5. LlamaIndex — ~48k ★
 
 **Repo:** [run-llama/llama_index](https://github.com/run-llama/llama_index)｜**語言:** Python / TypeScript｜**授權:** MIT
 
@@ -107,7 +107,7 @@ LLM 應用開發的瑞士刀。最老牌、生態最完整的框架，支援 cha
 
 ---
 
-## 6. CrewAI — ~44.6k ⭐
+## 6. CrewAI — ~44.6k ★
 
 **Repo:** [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI)｜**語言:** Python｜**授權:** MIT｜**PyPI 月下載:** 12M+
 
@@ -126,7 +126,7 @@ LLM 應用開發的瑞士刀。最老牌、生態最完整的框架，支援 cha
 
 ---
 
-## 7. MetaGPT — ~44k ⭐
+## 7. MetaGPT — ~44k ★
 
 **Repo:** [FoundationAgents/MetaGPT](https://github.com/FoundationAgents/MetaGPT)｜**語言:** Python｜**授權:** MIT
 
@@ -144,7 +144,7 @@ LLM 應用開發的瑞士刀。最老牌、生態最完整的框架，支援 cha
 
 ---
 
-## 8. SmolAgents — ~26k ⭐
+## 8. SmolAgents — ~26k ★
 
 **Repo:** [huggingface/smolagents](https://github.com/huggingface/smolagents)｜**語言:** Python｜**授權:** Apache 2.0
 
@@ -163,7 +163,7 @@ Hugging Face 出品的極簡 agent 框架。核心程式碼只有約 1,000 行�
 
 ---
 
-## 9. LangGraph — ~24.6k ⭐
+## 9. LangGraph — ~24.6k ★
 
 **Repo:** [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph)｜**語言:** Python / JavaScript｜**授權:** MIT｜**PyPI 月下載:** 38M+
 
@@ -182,7 +182,7 @@ LangChain 團隊的 agent 編排引擎。2025 年底達到 v1.0，成為 LangCha
 
 ---
 
-## 10. Mastra — ~22.3k ⭐
+## 10. Mastra — ~22.3k ★
 
 **Repo:** [mastra-ai/mastra](https://github.com/mastra-ai/mastra)｜**語言:** TypeScript｜**授權:** MIT｜**npm 週下載:** 300k+
 
@@ -199,7 +199,7 @@ TypeScript 原生的 agent 框架，由 Gatsby 團隊打造。2026 年 1 月從 
 
 ---
 
-## 11. OpenAI Agents SDK — ~20.5k ⭐
+## 11. OpenAI Agents SDK — ~20.5k ★
 
 **Repo:** [openai/openai-agents-python](https://github.com/openai/openai-agents-python)｜**語言:** Python / JavaScript｜**授權:** MIT｜**PyPI 月下載:** 14.7M+
 
@@ -218,7 +218,7 @@ OpenAI 官方 agent 框架，2025 年 3 月發布，Swarm SDK 的正式繼承者
 
 ---
 
-## 12. Google ADK — ~18.6k ⭐
+## 12. Google ADK — ~18.6k ★
 
 **Repo:** [google/adk-python](https://github.com/google/adk-python)｜**語言:** Python / TypeScript / Go / Java｜**授權:** Apache 2.0
 
@@ -235,7 +235,7 @@ Google 官方 agent 開發工具包，2025 年 Cloud Next 大會發布。最大�
 
 ---
 
-## 13. Agno — ~18.5k ⭐
+## 13. Agno — ~18.5k ★
 
 **Repo:** [agno-agi/agno](https://github.com/agno-agi/agno)｜**語言:** Python｜**授權:** Apache 2.0
 
@@ -252,7 +252,7 @@ Google 官方 agent 開發工具包，2025 年 Cloud Next 大會發布。最大�
 
 ---
 
-## 14. Pydantic AI — ~16k ⭐
+## 14. Pydantic AI — ~16k ★
 
 **Repo:** [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai)｜**語言:** Python｜**授權:** MIT
 
@@ -269,7 +269,7 @@ Pydantic 團隊打造，目標是把 FastAPI 的開發體驗帶到 agent 開發�
 
 ---
 
-## 15. Claude Agent SDK — 快速成長中 ⭐
+## 15. Claude Agent SDK — 快速成長中 ★
 
 **Repo:** [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python)（Python）/ [anthropics/claude-agent-sdk](https://github.com/anthropics/claude-agent-sdk)（TypeScript）｜**授權:** MIT
 

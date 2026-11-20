@@ -17,7 +17,7 @@ glossary:
     def: "NVIDIA 旗下探索新語言模型架構的子品牌，Dory 1.0 與 Sigma 系列等多個實驗模型都以這個名義釋出，目前尚未列入官方 Nemotron 產品頁"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-19-model-nvidia-nemotron-dory-1-0-en)
+> :globe: [English version](/posts/daily/2026-10-19-model-nvidia-nemotron-dory-1-0-en)
 
 ## 模型資訊
 
@@ -53,7 +53,7 @@ glossary:
 | IFBench | 74.29 | 77.94 | 79 | 53.83 | 59 |
 | AA-LCR（長 context） | 63 | 71 | 73 | 64.7 | 68.4 |
 
-⚠️ 以上為 NVIDIA 在自家一致評測框架（NeMo Gym／NeMo Evaluator SDK）下自測，尚無第三方獨立複現。官方表另列 Gemma 4 26B A4B 與 Qwen3.6-35B-A3B 作對照，其中 Qwen3.6-35B-A3B 的 SWE-bench Verified 73.4 標「†」為引用分數。
+:warning: 以上為 NVIDIA 在自家一致評測框架（NeMo Gym／NeMo Evaluator SDK）下自測，尚無第三方獨立複現。官方表另列 Gemma 4 26B A4B 與 Qwen3.6-35B-A3B 作對照，其中 Qwen3.6-35B-A3B 的 SWE-bench Verified 73.4 標「†」為引用分數。
 
 ## 與前代/競品比較
 

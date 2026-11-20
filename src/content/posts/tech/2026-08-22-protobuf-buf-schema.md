@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-protobuf-buf-schema-en)
+> :globe: [English version](/posts/tech/2026-08-22-protobuf-buf-schema-en)
 
 [Protocol Buffers](https://protobuf.dev/programming-guides/proto3/) 是 schema 與 binary serialization format；[Buf](https://buf.build/docs/) 則把 `.proto` workspace、lint、dependency、code generation、registry 與 breaking-change detection 組成可重跑的工程流程。兩者不是替代品：Protobuf 定義 wire contract，Buf 管理 contract 的生命週期。
 

@@ -13,7 +13,7 @@ description: "Prepare for AWS AIP-C01 with five-domain coverage, a four-step stu
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-aws-aip-c01-prep-guide)
+> :globe: [中文版](/posts/ai/2026-08-18-aws-aip-c01-prep-guide)
 >
 
 This guide draws on official sources and named candidates' accounts. It is not a firsthand exam report; I have not taken this exam. The [official exam guide](https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.html) defines the scope. The study sequence, hands-on checkpoints, and schedule are my suggestions. Verified 2026-09-12.

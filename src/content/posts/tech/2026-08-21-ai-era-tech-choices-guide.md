@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-21-ai-era-tech-choices-guide-en)
+:globe: [English version](/posts/tech/2026-08-21-ai-era-tech-choices-guide-en)
 
 先講一個具體的難題，這個系列是從它長出來的。
 

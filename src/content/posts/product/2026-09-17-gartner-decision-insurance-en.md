@@ -14,7 +14,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-gartner-decision-insurance)
+> :globe: [中文版](/posts/product/2026-09-17-gartner-decision-insurance)
 
 Imagine that a company is about to buy software that every department must use for five years. IT cares about integration. Security worries about data exposure. Finance asks about price. The people doing the work mostly want to know whether the new system will make their jobs harder. Everyone has a defensible concern, but they do not share a map.
 

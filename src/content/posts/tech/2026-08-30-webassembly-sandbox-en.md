@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-webassembly-sandbox)
+> :globe: [中文版](/posts/tech/2026-08-30-webassembly-sandbox)
 
 ## Why a Fourth Isolation Layer
 

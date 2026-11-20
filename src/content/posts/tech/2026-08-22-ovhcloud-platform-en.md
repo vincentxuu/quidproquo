@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-ovhcloud-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-ovhcloud-platform)
 
 [OVHcloud](https://docs.ovhcloud.com/en/) spans VPS, Dedicated Servers, Public Cloud, Managed Kubernetes, databases, object/block/file storage, and hosted private cloud such as VMware and Nutanix. Public Cloud uses extensive OpenStack APIs and fits teams combining standard IaaS with public, dedicated, and private resources.
 

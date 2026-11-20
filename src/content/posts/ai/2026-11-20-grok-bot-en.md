@@ -13,14 +13,14 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-20-grok-bot)
+> :globe: [中文版](/posts/ai/2026-11-20-grok-bot)
 
 | Four tests | Grok Bot |
 |---|---|
-| Keeps running while you're away | ✅ Runs on a cloud computer; closing the app, laptop or phone doesn't stop it |
-| Decides what to do when it wakes | ✅ L3: the primary bot checks in on its own; since 1.0, bots spot work that needs doing and offer to take it |
-| Remembers your goals across conversations | ✅ Each bot has its own memory; a few facts like your name and time zone are shared by all |
-| Acts for you | ✅ Sends email, pays, messages, works on websites; Auto Review decides what needs your OK |
+| Keeps running while you're away | ✓ Runs on a cloud computer; closing the app, laptop or phone doesn't stop it |
+| Decides what to do when it wakes | ✓ L3: the primary bot checks in on its own; since 1.0, bots spot work that needs doing and offer to take it |
+| Remembers your goals across conversations | ✓ Each bot has its own memory; a few facts like your name and time zone are shared by all |
+| Acts for you | ✓ Sends email, pays, messages, works on websites; Auto Review decides what needs your OK |
 
 In SpaceXSI's [design write-up](https://x.ai/news/designing-grok-bot), the sidebar in the demo isn't a list of chats. It's a roster of named bots with avatars, each reporting on its own work:
 

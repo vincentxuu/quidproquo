@@ -14,7 +14,7 @@ series:
   order: 2
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-hono-web-framework-en)
+:globe: [English version](/posts/tech/2026-03-27-hono-web-framework-en)
 
 Express 在 Node.js 上統治了超過十年，但在 Cloudflare Workers 上跑 Express 從一開始就是錯的。Workers 執行在 V8 Isolate 裡，不是 Node.js 環境，Express 的大量 Node.js API 依賴根本跑不動。Hono 就是為了解決這個問題而生的。
 

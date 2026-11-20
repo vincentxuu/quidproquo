@@ -12,7 +12,7 @@ series:
   order: 76
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-08-funding-melius-en)
+> :globe: [English version](/posts/daily/2026-10-08-funding-melius-en)
 
 ## 融資資訊
 

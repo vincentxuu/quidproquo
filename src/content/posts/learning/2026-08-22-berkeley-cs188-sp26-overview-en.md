@@ -14,7 +14,7 @@ description: "A complete self-study overview of Berkeley CS188 Spring 2026: publ
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

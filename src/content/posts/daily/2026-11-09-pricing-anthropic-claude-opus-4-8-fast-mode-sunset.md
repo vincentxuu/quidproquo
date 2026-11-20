@@ -12,7 +12,7 @@ series:
   order: 33
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-09-pricing-anthropic-claude-opus-4-8-fast-mode-sunset-en)
+> :globe: [English version](/posts/daily/2026-11-09-pricing-anthropic-claude-opus-4-8-fast-mode-sunset-en)
 
 ## 變更摘要
 
@@ -70,7 +70,7 @@ OpenAI 把原本的 Priority processing 直接改名成 Fast mode（2026-07-30�
 
 ## 時效提醒（如有促銷/sunset）
 
-⚠️ **停用日期**：2026-11-30。Claude Opus 4.8 的 fast mode 將於此日移除，`speed: "fast"` 請求之後會回傳錯誤。遷移指南：[Migrating to Claude Opus 5.5 from Claude Opus 4.8](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide#migrating-from-claude-opus-4-8)。
+:warning: **停用日期**：2026-11-30。Claude Opus 4.8 的 fast mode 將於此日移除，`speed: "fast"` 請求之後會回傳錯誤。遷移指南：[Migrating to Claude Opus 5.5 from Claude Opus 4.8](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide#migrating-from-claude-opus-4-8)。
 
 ## 今日收穫
 

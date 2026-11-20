@@ -12,7 +12,7 @@ series:
   order: 64
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-22-product-builder-interview-daily-en)
+> :globe: [English version](/posts/daily/2026-10-22-product-builder-interview-daily-en)
 
 ## 今日主題
 

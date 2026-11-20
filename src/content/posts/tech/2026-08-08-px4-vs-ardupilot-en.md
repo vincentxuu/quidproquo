@@ -13,7 +13,7 @@ series:
   order: 30
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-08-px4-vs-ardupilot)
+> :globe: [中文版](/posts/tech/2026-08-08-px4-vs-ardupilot)
 
 Twenty-three posts into this series, PX4 shows up in six of them and ArduPilot in three — the [industry map](/posts/tech/2026-08-06-drone-industry-map-en), the [job map](/posts/career/2026-08-06-drone-industry-job-map-en), the [software-to-drone transition piece](/posts/career/2026-08-06-software-to-drone-transition-en), the [education paths](/posts/education/2026-08-06-taiwan-drone-education-paths-en), the [crash anatomy](/posts/tech/2026-08-07-drone-crash-anatomy-en), and the [search-and-rescue piece](/posts/product/2026-08-07-drone-sar-value-en) (the three ArduPilot mentions sit inside those same six). **Six posts, and not one of them explains how the two differ or which to choose.**
 

@@ -11,7 +11,7 @@ series:
   order: 67
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-30-security-panos-php2shell-ai-assisted-breach)
+> :globe: [中文版](/posts/daily/2026-10-30-security-panos-php2shell-ai-assisted-breach)
 
 ## What happened
 

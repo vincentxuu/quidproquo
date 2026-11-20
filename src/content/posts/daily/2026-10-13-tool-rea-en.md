@@ -12,7 +12,7 @@ series:
   order: 53
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-13-tool-rea)
+> :globe: [中文版](/posts/daily/2026-10-13-tool-rea)
 
 ## Tool Info
 
@@ -76,11 +76,11 @@ Native-binary analysis needs an existing Hopper, Ghidra, or IDA installation as 
 
 | | REA | Manually opening Ghidra/IDA | Pasting disassembly straight into an LLM |
 |---|---|---|---|
-| Native agent integration (MCP) | ✅ | ❌ | Manual copy-paste each time |
-| Format coverage (binary / JS / .NET / APK / WASM...) | ✅ one interface for a dozen+ formats | Depends on the engine; switch tools between formats | Format-agnostic, but quality depends entirely on what you paste in |
-| Returns evidence (matching code, call chain) | ✅ | You assemble it yourself | ❌ prone to plausible-sounding but fabricated explanations |
-| Reverse-engineering experience required | Lowered, but you still need to understand the output | ✅ required | Almost none, but also the easiest way to get burned |
-| Runs locally, target file never leaves your machine | ✅ | ✅ | Fragments go to the LLM provider |
+| Native agent integration (MCP) | ✓ | ✗ | Manual copy-paste each time |
+| Format coverage (binary / JS / .NET / APK / WASM...) | ✓ one interface for a dozen+ formats | Depends on the engine; switch tools between formats | Format-agnostic, but quality depends entirely on what you paste in |
+| Returns evidence (matching code, call chain) | ✓ | You assemble it yourself | ✗ prone to plausible-sounding but fabricated explanations |
+| Reverse-engineering experience required | Lowered, but you still need to understand the output | ✓ required | Almost none, but also the easiest way to get burned |
+| Runs locally, target file never leaves your machine | ✓ | ✓ | Fragments go to the LLM provider |
 
 ## Things to watch out for
 

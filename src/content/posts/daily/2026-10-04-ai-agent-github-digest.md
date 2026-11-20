@@ -11,7 +11,7 @@ series:
   order: 50
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-04-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-04-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### AIHOT ⭐ 5,360
+### AIHOT ★ 5,360
 
 [GitHub](https://github.com/KKKKhazix/AIHOT)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### coucou ⭐ 3,180
+### coucou ★ 3,180
 
 [GitHub](https://github.com/Louis-CFM/coucou)　·　Swift　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### dots ⭐ 2,572
+### dots ★ 2,572
 
 [GitHub](https://github.com/feder-cr/dots)　·　Python　·　MIT
 

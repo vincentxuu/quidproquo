@@ -72,7 +72,7 @@ Mingyu Zhang, Zi-Xu Li, Zhi-Heng Fu et al.（論文未列出作者機構）　·
 
 - LoCoMo/MemGallery 跨四個基線（A-MEM、Mem0、LightMem、SimpleMem）：macro-F1 提升 2.23-3.14 分
 - LLM-Judge 分數：Qwen3.5-9B 上比 SimpleMem 高 4.07 分、DeepSeek-V4-Flash 上高 4.31 分
-- Context token 用量比 SimpleMem 少 12.8%（Qwen3.5-9B）/ 5.1%（DeepSeek-V4-Flash） ⚠️（作者自測，未外部複現）
+- Context token 用量比 SimpleMem 少 12.8%（Qwen3.5-9B）/ 5.1%（DeepSeek-V4-Flash） :warning:（作者自測，未外部複現）
 - 消融：調整 thread 擴展深度 H（1-3），H=2 在時間與分數間提供折衷
 - 落地門檻：需要建構「事件串」的額外索引結構，對現有 RAG pipeline 是額外一層抽象
 - 與主流框架關聯：可作為 LangChain/LangGraph 記憶層的替代檢索策略插入
@@ -133,7 +133,7 @@ Multi-agent 系統常用「記住過去成功/失敗經驗」來改善表現，�
 
 - AutoGen/CAMEL/MacNet 三系統平均分數領先現有最強基線 0.51-4.32 分
 - CAMEL 上 PDDL 符號規劃分數 37.71 vs. 基線 28.48
-- 使用單一 Qwen3-4B-Instruct-2507 backbone，training-free（不需要調模型參數） ⚠️（作者自測，未外部複現）
+- 使用單一 Qwen3-4B-Instruct-2507 backbone，training-free（不需要調模型參數） :warning:（作者自測，未外部複現）
 - 程式碼已公開：github.com/ECNU-ICALK/DiscernMem
 - 落地門檻：需要能重跑（replay）任務的環境，人類評分或不可逆動作的場景無法直接套用
 - 與主流框架關聯：直接在 AutoGen、CAMEL、MacNet 三個現成多 agent 框架上驗證，遷移成本低
@@ -193,7 +193,7 @@ Kaiwen Liu, Rose Yu, Kristina Klinkner（Amazon + UC San Diego）　·　arxiv: 
 ### 深入要點
 
 - KramaBench/AppWorld/BBEH 三個 benchmark、5 個 backbone（跨兩個模型家族）、20 組 benchmark-backbone 組合中 17 組拿下最佳表現
-- 對比 ACE/GEPA/EvoMAS/ADAS 四個基線，最高領先 32.5% ⚠️（作者自測，未外部複現）
+- 對比 ACE/GEPA/EvoMAS/ADAS 四個基線，最高領先 32.5% :warning:（作者自測，未外部複現）
 - 訓練所需的執行次數比效率最高的基線少 17-38%
 - 落地門檻：需要明確定義「誰負責哪個範圍的記憶」，對現有 ad hoc 的 agent 配置管理是一次重構
 - 與主流框架關聯：直接對比目前常被引用的四個 agent 自我演化框架（ACE/GEPA/EvoMAS/ADAS）

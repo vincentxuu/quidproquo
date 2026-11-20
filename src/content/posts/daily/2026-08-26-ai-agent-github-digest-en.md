@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-26-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-26-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Today's projects land on two ends of the spectrum. On one side, ambitious newcom
 
 ## Trending Repos
 
-### tinyhumansai/openhuman ⭐ 37.7k
+### tinyhumansai/openhuman ★ 37.7k
 
 [GitHub](https://github.com/tinyhumansai/openhuman)　·　Rust + TypeScript　·　GPL-3.0
 
@@ -31,7 +31,7 @@ Today's projects land on two ends of the spectrum. On one side, ambitious newcom
 
 ---
 
-### vercel-labs/fx ⭐ 2.4k
+### vercel-labs/fx ★ 2.4k
 
 [GitHub](https://github.com/vercel-labs/fx)　·　Zig　·　Apache-2.0
 
@@ -42,7 +42,7 @@ Today's projects land on two ends of the spectrum. On one side, ambitious newcom
 
 ---
 
-### nvidia-nemo/labs-oo-agents ⭐ 1.9k
+### nvidia-nemo/labs-oo-agents ★ 1.9k
 
 [GitHub](https://github.com/nvidia-nemo/labs-oo-agents)　·　Python　·　Apache-2.0
 
@@ -53,7 +53,7 @@ Today's projects land on two ends of the spectrum. On one side, ambitious newcom
 
 ---
 
-### CopilotKit/OpenBot ⭐ 2.8k
+### CopilotKit/OpenBot ★ 2.8k
 
 [GitHub](https://github.com/CopilotKit/OpenBot)　·　TypeScript　·　MIT
 

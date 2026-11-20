@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-browser-use-complete-guide)
+> :globe: [中文版](/posts/ai/2026-08-21-browser-use-complete-guide)
 
 > **Updated 2026-11-19:** this post was originally written for 0.x. Browser Use 1.0 (2026-11-10) replaced the engine, and the examples and explanations now use 1.0.6; for what changed from 0.x to 1.0, see "What to watch when upgrading from 0.x" near the end. If you still need 0.x, pin `browser-use<1` when installing.
 

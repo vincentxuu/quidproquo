@@ -13,7 +13,7 @@ description: "三ツ峠攀岩指南：季節、交通、管理規範、公開路
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-mitsutoge-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-mitsutoge-en)
 
 三ツ峠屏風岩是山頂附近的多段攀登練習場，走到岩壁與完成下降同樣是行程的一部分。 這篇幫你判斷適不適合同行者、選哪個季節，以及交通與接近路要先確認什麼。
 

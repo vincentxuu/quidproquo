@@ -12,7 +12,7 @@ series:
   order: 21
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-05-tool-kru)
+> :globe: [中文版](/posts/daily/2026-09-05-tool-kru)
 
 ## Tool Info
 
@@ -94,11 +94,11 @@ kru config stdio-toml
 
 | | KRU | Pasting the password into chat | System/browser password manager (e.g. 1Password CLI) | Environment variables / .env |
 |---|---|---|---|---|
-| Plaintext never enters model context | ✅ | ❌ | Partial (`op run` still injects the value into process env) | ✅ |
-| Agent decides which credential to use, autonomously | ✅ (matched by item name and action) | ✅ | ❌ (you inject it manually first) | ❌ (you inject it manually first) |
-| Supports SSH / SFTP / HTTP auth as distinct actions | ✅ | — | Partial | ❌ |
-| Requires a cloud account or subscription | ❌ | — | Depends on plan | ❌ |
-| Per-field (not per-item) visibility control | ✅ | ❌ | ❌ | ❌ |
+| Plaintext never enters model context | ✓ | ✗ | Partial (`op run` still injects the value into process env) | ✓ |
+| Agent decides which credential to use, autonomously | ✓ (matched by item name and action) | ✓ | ✗ (you inject it manually first) | ✗ (you inject it manually first) |
+| Supports SSH / SFTP / HTTP auth as distinct actions | ✓ | — | Partial | ✗ |
+| Requires a cloud account or subscription | ✗ | — | Depends on plan | ✗ |
+| Per-field (not per-item) visibility control | ✓ | ✗ | ✗ | ✗ |
 
 ## Things to Watch Out For
 

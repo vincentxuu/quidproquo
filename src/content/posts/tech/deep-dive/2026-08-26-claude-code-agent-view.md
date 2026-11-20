@@ -13,7 +13,7 @@ series:
   order: 26
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-agent-view-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-agent-view-en)
 
 系列寫到這裡，[多代理的全景](/posts/tech/deep-dive/2026-08-26-claude-code-multi-agent-overview)你已經看過了：subagents 分擔單一 session 內的工作，[agent teams](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide) 讓多個 teammate 協作。但兩者都沒解決一個更日常的問題——**你同時開了五個 Claude Code session，五個終端機分頁各自在跑，根本顧不過來**。哪一個在等你？哪一個早就跑完了？得逐一分頁翻紀錄才知道。
 

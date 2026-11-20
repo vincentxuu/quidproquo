@@ -35,7 +35,7 @@ glossary:
     context: "Used here to show how fragile the assumption of transfer really is."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-04-learning-how-to-learn)
+> :globe: [中文版](/posts/learning/2026-08-04-learning-how-to-learn)
 >
 > This is part 1 of "Learning How to Learn", covering the evidence on learning science itself. [Part 2 covers the AI era](/posts/learning/2026-08-04-generative-ai-and-learning-en): what generative AI does to learning, and why the most-cited piece of evidence in the field was retracted.
 
@@ -68,13 +68,13 @@ Hence the field's core proposition: **the subjective fluency of learning is inve
 
 | Component | Verdict | In one line |
 |---|---|---|
-| Self-testing | ✅ Do it | One of the two best-rated of ten techniques |
-| Spacing | ✅ Do it | The other one; coming back in a few days beats reviewing twice today |
-| Interleaving | ⚠️ Depends | Math problem types and visual materials yes; expository text and vocabulary no |
-| Chunking | 🔶 Concept holds | But the "7±2" attached to it is outdated; modern consensus is 4±1 |
-| Focused/diffuse mode | 🔶 Metaphor | Keep the behaviour; the neural story doesn't match |
-| Pomodoro | 🔶 Metaphor | Improves the experience and efficiency, not the amount learned |
-| That learning skills transfer | ❌ Doesn't hold | You get better at what you practised, and not much else |
+| Self-testing | ✓ Do it | One of the two best-rated of ten techniques |
+| Spacing | ✓ Do it | The other one; coming back in a few days beats reviewing twice today |
+| Interleaving | :warning: Depends | Math problem types and visual materials yes; expository text and vocabulary no |
+| Chunking | △ Concept holds | But the "7±2" attached to it is outdated; modern consensus is 4±1 |
+| Focused/diffuse mode | △ Metaphor | Keep the behaviour; the neural story doesn't match |
+| Pomodoro | △ Metaphor | Improves the experience and efficiency, not the amount learned |
+| That learning skills transfer | ✗ Doesn't hold | You get better at what you practised, and not much else |
 
 Some effect sizes appear below (numbers like 0.3, 0.5). Two things up front: **0.2 is not small in education research** (by [Kraft's benchmarks](https://doi.org/10.3102/0013189X20912798)), and **the same study can be both 0.51 and 0.93** — the only difference is whether the control group reread or did nothing. Secondary write-ups pick the bigger one and don't tell you. Full reconciliation in the appendix.
 
@@ -90,7 +90,7 @@ In 2013, [Dunlosky and four co-authors](https://journals.sagepub.com/doi/abs/10.
 
 Only two made the top tier, on the grounds that they help learners of all ages and abilities and hold up in real classrooms. Taking them one at a time.
 
-## Self-testing ✅
+## Self-testing ✓
 
 **What the course teaches**: the assignments are literally named "Retrieval Practice".
 
@@ -104,7 +104,7 @@ Only two made the top tier, on the grounds that they help learners of all ages a
 - **A gap of one to six days between practice and the real test clearly beats same-day.**
 - **Multiple-choice practice outperformed short-answer** — which cuts against this field's usual advice that free recall beats recognition. Treat it as **an unreconciled disagreement**, not a settled finding.
 
-## Spacing ✅
+## Spacing ✓
 
 **What the course teaches**: spaced repetition; don't cram.
 
@@ -112,7 +112,7 @@ Only two made the top tier, on the grounds that they help learners of all ages a
 
 **The evidence**: the other high-utility entry, and the only one validated against real-world data at scale — [Kim et al. reproduced it outside the lab](https://www.yorku.ca/ncepeda/publications/KWWR2019.pdf).
 
-## Interleaving ⚠️
+## Interleaving :warning:
 
 **What the course teaches**: don't do twenty of the same problem type in a row; mix them.
 
@@ -120,7 +120,7 @@ Only two made the top tier, on the grounds that they help learners of all ages a
 
 **The evidence**: rated moderate. [Brunmair and Richter's review](https://doi.org/10.1037/bul0000209) says it in the title — *Similarity matters*: it helps for visual materials like paintings and for mathematical problem types, shows no advantage for expository text, and may actively hurt when learning words across conceptual categories. Treating "interleave everything" as general advice misreads the paper.
 
-## Chunking 🔶
+## Chunking △
 
 **What the course teaches**: compress scattered steps into one callable unit — usually paired with "working memory holds 7±2 items".
 
@@ -128,7 +128,7 @@ Only two made the top tier, on the grounds that they help learners of all ages a
 
 **The evidence**: the concept is fine, the number is outdated. Miller's 1956 seven-plus-or-minus-two measured capacity *after* chunking was possible; [Cowan's 4±1](https://nschwartz.yourweb.csuchico.edu/4.%20Magical%20mystery%204%20cowan.pdf) measures the number of chunks themselves, and modern consensus favours the latter ([the two reconcile](https://journalofcognition.org/articles/10.5334/joc.387) once you notice they depend on whether the task lets you chunk).
 
-## Focused/diffuse mode 🔶
+## Focused/diffuse mode △
 
 **What the course teaches**: the brain alternates between two modes, so a problem you cannot crack should be left alone for the diffuse mode to work on in the background. Sites like [Farnam Street](https://fs.blog/focused-diffuse-thinking) have spread it widely, usually prefaced with "neuroscience shows".
 
@@ -142,7 +142,7 @@ Oakley appears to have addressed this tension herself. The passage below circula
 
 Strip the quote out entirely and the conclusion survives on the DMN literature alone.
 
-## Pomodoro 🔶
+## Pomodoro △
 
 **What the course teaches**: 25 minutes of focus, 5 minutes off — and focus on the process, not the product, because product anxiety is what drives procrastination.
 
@@ -174,7 +174,7 @@ And the failure runs both ways: practising with higher-order questions didn't he
 
 The same pattern shows up one level up. [Donker et al. reviewed 95 interventions](https://daneshyari.com/article/preview/355102.pdf) that taught students how to study. The effects were solid (largest for writing, smallest for reading comprehension), but the conclusion was the same sentence: **instruction aimed at near transfer works better than instruction aimed at far transfer.**
 
-**So what**: every technique marked ✅ above is bound to what you practised far more tightly than you'd like. If you want transfer, you have to deliberately shape the practice to resemble the thing you actually want to do — which incidentally explains why "grinding LeetCode" and "designing systems" are two different skills.
+**So what**: every technique marked ✓ above is bound to what you practised far more tightly than you'd like. If you want transfer, you have to deliberately shape the practice to resemble the thing you actually want to do — which incidentally explains why "grinding LeetCode" and "designing systems" are two different skills.
 
 ## B. The effect sizes are being revised downward
 

@@ -14,7 +14,7 @@ series:
   order: 13
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
+> :globe: [繁體中文版](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)
 
 After web bugs, memory, virtual machines and TEEs, the headline payouts become easier to read. This map compares representative categories from five programs. The useful question is what outcome a payment requires, and whether you can produce that evidence. The figures below are in US dollars, from official rules available on October 15, 2026.
 

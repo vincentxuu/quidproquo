@@ -12,7 +12,7 @@ series:
   order: 137
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-15-funding-mercor-en)
+> :globe: [English version](/posts/daily/2026-11-15-funding-mercor-en)
 
 ## 融資資訊
 

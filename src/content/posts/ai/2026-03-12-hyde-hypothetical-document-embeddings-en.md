@@ -14,7 +14,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings)
+> :globe: [中文版](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings)
 
 Vector search has a fundamental asymmetry problem: **the language patterns of a user's query and the documents in your database are very different**.
 

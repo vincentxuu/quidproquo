@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 56
 ---
-> 🌏 [English version](/posts/daily/2026-07-19-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-19-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -77,7 +77,7 @@ MyAG 把 agent 系統拆成三層獨立的圖：
 - 遞迴 System Node 讓 agent 系統像積木一樣嵌套，支援大型多 agent 架構
 - 提供視覺化監控工具，可即時查看 agent 的執行狀態和決策路徑
 - 實驗涵蓋數個代表性 agent 應用，驗證「靈活設計 + 效能分析 tradeoff」的可行性
-- 與 LangGraph 對比：LangGraph 的 StateGraph 也是圖結構，但沒有明確分離 component/workflow/search 三層 **⚠️**（本文未做定量對比）
+- 與 LangGraph 對比：LangGraph 的 StateGraph 也是圖結構，但沒有明確分離 component/workflow/search 三層 **:warning:**（本文未做定量對比）
 - 開源程式碼：[github.com/zzsfornlp/MyAG，成熟度待社群驗證](http://github.com/zzsfornlp/MyAG，成熟度待社群驗證)
 - 限制：實驗規模較小，缺乏與主流框架的大規模基準量化對比；目前更像設計提案
 
@@ -137,7 +137,7 @@ Agent 平台的下一個競爭焦點很可能是「部署後能持續改進」�
 - 「自誘（self-induced）」強調更新訊號來自 agent 自身執行，而非外部人工標注——這是與傳統 RLHF 的關鍵區別
 - 涵蓋應用場景：coding agents、research agents、embodied agents、multi-agent 系統的自我改進
 - 評估難點：目前大多數論文只用任務成功率評估，忽略了「改進速度」和「改進穩定性」——benchmark 嚴重缺乏
-- 安全風險：自誘更新若被惡意輸入操控，可能產生對齊漂移（alignment drift） **⚠️**（討論較概念性，具體 mitigation 方法有限）
+- 安全風險：自誘更新若被惡意輸入操控，可能產生對齊漂移（alignment drift） **:warning:**（討論較概念性，具體 mitigation 方法有限）
 - 含 Schmidhuber 早期 Gödelian agents 遞迴自我改進理論梳理，歷史脈絡完整
 - 限制：綜述型論文不提供新方法；工程師想落地需要自己深追各子方法的原始論文，這篇更適合當「地圖」而非「食譜」
 
@@ -198,7 +198,7 @@ L3 類型的攻擊尤其危險：攻擊時間和觸發時間不同，中間沒�
 
 - L3（情境觸發休眠攻擊）最隱蔽：攻擊者植入 trigger-payload 對，只有特定情境出現（例如使用者詢問特定產品）才觸發；攻擊後完全靜默，極難被即時監控偵測
 - 攻擊技術細節：使用語意關聯橋接（semantic relational bridge）、實體偽裝（entity masquerading）、聯合 embedding 優化，讓惡意記憶在選擇性提取和 rewriting 中存活
-- 跨 10 個模型評估揭示：不同模型對記憶污染的抵抗力差異顯著 **⚠️**（具體攻擊成功率需讀全文確認）
+- 跨 10 個模型評估揭示：不同模型對記憶污染的抵抗力差異顯著 **:warning:**（具體攻擊成功率需讀全文確認）
 - 防禦的根本困難：write-time 過濾可能誤殺正常記憶；retrieval-time 審查增加延遲；provenance binding 需要架構改動——三種方向都有效用與成本 tradeoff
 - 與 MCP（Model Context Protocol）架構的關聯：MCP 的 tool 回傳結果也是潛在注入管道，本文的 3 種注入管道分析可直接對應到 MCP 場景
 - 相關前作（SMSR、Plant-Persist-Trigger 等）多聚焦單一攻擊類型，本文是首個涵蓋多攻擊類型跨記憶基底的大規模 benchmark

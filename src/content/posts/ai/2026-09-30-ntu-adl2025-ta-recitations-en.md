@@ -25,7 +25,7 @@ glossary:
     context: "Pages 12–15 of the Inference & Eval slides, marked 'Data Dependent'; the same deck also covers GPTQ."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

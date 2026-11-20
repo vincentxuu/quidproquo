@@ -11,7 +11,7 @@ series:
   order: 96
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-19-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-19-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Today's thread is security catching up with how fast these frameworks keep growi
 
 ## Trending Repos
 
-### elementalsouls/Claude-BugHunter ⭐ 11,028 (+1,005)
+### elementalsouls/Claude-BugHunter ★ 11,028 (+1,005)
 
 [GitHub](https://github.com/elementalsouls/Claude-BugHunter)　·　Python　·　MIT
 
@@ -30,7 +30,7 @@ Today's thread is security catching up with how fast these frameworks keep growi
 
 ---
 
-### google-labs-code/stitch-skills ⭐ 10,350
+### google-labs-code/stitch-skills ★ 10,350
 
 [GitHub](https://github.com/google-labs-code/stitch-skills)　·　TypeScript　·　Apache-2.0
 
@@ -41,7 +41,7 @@ Today's thread is security catching up with how fast these frameworks keep growi
 
 ---
 
-### ysunyang4/Nexus ⭐ 405
+### ysunyang4/Nexus ★ 405
 
 [GitHub](https://github.com/ysunyang4/Nexus)　·　TypeScript　·　AGPL-3.0
 
@@ -52,7 +52,7 @@ Today's thread is security catching up with how fast these frameworks keep growi
 
 ---
 
-### mastra-ai/softwarefactory-template ⭐ 64 (launched today)
+### mastra-ai/softwarefactory-template ★ 64 (launched today)
 
 [GitHub](https://github.com/mastra-ai/softwarefactory-template)　·　TypeScript　·　unlicensed
 

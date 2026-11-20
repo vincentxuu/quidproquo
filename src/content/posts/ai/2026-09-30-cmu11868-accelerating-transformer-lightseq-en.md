@@ -29,7 +29,7 @@ glossary:
     context: "L10's second technique rewrites formulas so LayerNorm and Softmax need one fewer synchronization."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-accelerating-transformer-lightseq)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-accelerating-transformer-lightseq)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

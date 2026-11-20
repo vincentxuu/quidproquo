@@ -16,7 +16,7 @@ description: "A full walkthrough of Stanford CS103: Mathematical Foundations of 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs103-math-foundations)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs103-math-foundations)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

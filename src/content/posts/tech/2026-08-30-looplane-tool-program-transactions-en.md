@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-tool-program-transactions)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-tool-program-transactions)
 
 A tool call passing path, permission, and [OS sandbox checks](/posts/tech/2026-08-30-looplane-local-os-sandbox-en) does not imply that multiple calls can run concurrently. Looplane separates eligible read batching, bounded read-only programs, and file-backed transactions.
 

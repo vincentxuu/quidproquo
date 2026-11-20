@@ -14,7 +14,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-vector-database-comparison)
+> :globe: [中文版](/posts/ai/2026-03-12-vector-database-comparison)
 
 A vector database is the core infrastructure of a RAG system. When making a selection, most people start by looking at benchmarks (ANN search speed, recall@K), but what actually determines the choice is usually: **deployment platform, scale requirements, and existing tech stack**.
 

@@ -12,7 +12,7 @@ series:
   order: 72
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-03-tool-anythingmcp)
+> :globe: [中文版](/posts/daily/2026-11-03-tool-anythingmcp)
 
 ## Tool info
 
@@ -116,9 +116,9 @@ Code Mode is off by default; an admin has to enable it at the workspace level (`
 | | AnythingMCP | Composio | n8n |
 |---|---|---|---|
 | License | Open source, AGPL-3.0 (`ee/` separate) | SDK is MIT, but the platform itself is closed and runs on the vendor's cloud | Source-available "fair-code" (Sustainable Use License, not OSI open source) |
-| Full feature set when self-hosted | ✅ `docker compose up` is the full version | ❌ Self-hosting is an Enterprise-only arrangement through sales; self-serve plans store credentials on Composio's cloud | ✅ (but you manage credentials and ops yourself) |
-| Auto-generates MCP tools from existing REST/SOAP/OData/SQL specs | ✅ import a spec and tools appear, 694 ready adapters | Leans on an auto-generated SaaS toolkit; SOAP/OData/self-hosted databases aren't the focus | ❌ a workflow automation platform — MCP is just one node/trigger, you wire the integration logic yourself |
-| Built-in role permissions, field filtering, and audit logging | ✅ set directly in the visual editor | configured separately | you build it yourself with workflows |
+| Full feature set when self-hosted | ✓ `docker compose up` is the full version | ✗ Self-hosting is an Enterprise-only arrangement through sales; self-serve plans store credentials on Composio's cloud | ✓ (but you manage credentials and ops yourself) |
+| Auto-generates MCP tools from existing REST/SOAP/OData/SQL specs | ✓ import a spec and tools appear, 694 ready adapters | Leans on an auto-generated SaaS toolkit; SOAP/OData/self-hosted databases aren't the focus | ✗ a workflow automation platform — MCP is just one node/trigger, you wire the integration logic yourself |
+| Built-in role permissions, field filtering, and audit logging | ✓ set directly in the visual editor | configured separately | you build it yourself with workflows |
 
 ## Things to watch
 

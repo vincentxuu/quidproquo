@@ -13,7 +13,7 @@ tldr: "生態系都把 /v1/chat/completions 當共通語，但你手上的 provi
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-gateway-pattern-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-gateway-pattern-en)
 
 ## 設計問題
 

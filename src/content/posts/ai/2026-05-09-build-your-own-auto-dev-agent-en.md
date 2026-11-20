@@ -20,7 +20,7 @@ description: "Breaking the daodao auto-dev agent into a reproducible 12-step tut
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-09-build-your-own-auto-dev-agent)
+> :globe: [中文版](/posts/ai/2026-05-09-build-your-own-auto-dev-agent)
 
 ## TL;DR
 

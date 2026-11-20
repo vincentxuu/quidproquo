@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-graphrag-lightrag-hipporag-en)
+> :globe: [English version](/posts/ai/2026-08-25-graphrag-lightrag-hipporag-en)
 
 向量搜尋找得到「像」的文件，但碰到「誰跟誰有關係」「整批文件在講什麼趨勢」這類問題，就會漏掉關鍵連結。圖譜 RAG 就是補這一塊：先把文件抽成實體與關係，再在圖上檢索。問題是，圖譜怎麼做才划算——這篇把三個主流路線攤開來比，讓你直接對照成本、更新頻率與問題類型做選擇。
 

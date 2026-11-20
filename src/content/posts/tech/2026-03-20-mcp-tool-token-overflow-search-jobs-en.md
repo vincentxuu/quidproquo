@@ -10,7 +10,7 @@ description: "A debugging story about an MCP search tool blowing past the token 
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-20-mcp-tool-token-overflow-search-jobs)
+:globe: [中文版](/posts/tech/2026-03-20-mcp-tool-token-overflow-search-jobs)
 
 ## TL;DR
 

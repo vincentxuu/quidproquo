@@ -17,7 +17,7 @@ glossary:
     def: "The research team behind the Ornith model family, which first open-sourced Ornith-1.0 in June 2026"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-21-model-ornith-ai-ornith-1-5-122b)
+> :globe: [中文版](/posts/daily/2026-10-21-model-ornith-ai-ornith-1-5-122b)
 
 ## Model Info
 
@@ -52,7 +52,7 @@ glossary:
 | BrowseComp | 78.5 | No comparable score at this scale | Beam-1.0 (501B): 80.2 (ahead) |
 | HLE (with tools) | 48.0 | No comparable score at this scale | Beam-1.0 (501B): 51.1 (ahead) |
 
-⚠️ All figures are from the official model card's own evaluations (SWE-bench scores use the OpenHands harness, Terminal-Bench uses the Claude Code harness, HLE uses Claude 4.6 Opus as the judge model), and none have been independently reproduced yet. Ornith-1.0 never shipped a 122B size, so there is no same-scale predecessor score to compare against.
+:warning: All figures are from the official model card's own evaluations (SWE-bench scores use the OpenHands harness, Terminal-Bench uses the Claude Code harness, HLE uses Claude 4.6 Opus as the judge model), and none have been independently reproduced yet. Ornith-1.0 never shipped a 122B size, so there is no same-scale predecessor score to compare against.
 
 ## Comparison with Predecessor and Competitors
 

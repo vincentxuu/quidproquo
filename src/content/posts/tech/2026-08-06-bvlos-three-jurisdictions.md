@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)
+> :globe: [English version](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en)
 
 [產業地圖](/posts/tech/2026-08-06-drone-industry-map)裡把 BVLOS 法規列為無人機規模化的兩個天花板之一。這篇把三個法域攤開比較，結論比我原本以為的更懸殊：**歐盟已經能飛、美國還在等最後一哩、台灣連框架都還沒建。**
 

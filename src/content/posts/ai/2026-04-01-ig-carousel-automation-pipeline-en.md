@@ -10,7 +10,7 @@ draft: false
 type: guide
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-01-ig-carousel-automation-pipeline)
+> :globe: [中文版](/posts/ai/2026-04-01-ig-carousel-automation-pipeline)
 
 Making an IG carousel used to go something like this: brainstorm a topic, write copy, open Canva, lay out the design, tweak fonts and colors, export images, open the IG app, upload, write a caption, add hashtags. The whole process easily took 2-3 hours.
 

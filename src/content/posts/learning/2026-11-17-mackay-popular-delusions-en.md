@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-11-17-mackay-popular-delusions)
+> :globe: [中文版](/posts/learning/2026-11-17-mackay-popular-delusions)
 
 Whenever a market soars and crashes, someone brings up tulipmania: seventeenth-century Dutchmen ruined themselves over a single bulb, even chimney sweeps piled in, and then overnight it all collapsed and took the national economy with it. After the global stock crash of October 1987, *The Economist* wrote that the event had supplied a new chapter for Charles Mackay's 1841 book.
 

@@ -14,7 +14,7 @@ series:
   order: 42
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rag-cost-optimization)
+> :globe: [中文版](/posts/ai/2026-03-12-rag-cost-optimization)
 
 The cost sources in a production RAG system are quite concrete. Understanding where costs come from at each stage is the prerequisite for targeted optimization.
 

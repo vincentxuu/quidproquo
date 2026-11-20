@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 43
 ---
-> 🌏 [中文版](/posts/daily/2026-07-06-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-06-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -119,7 +119,7 @@ This paper's contribution goes beyond the search system itself — it demonstrat
 - **6 search operators**: keyword search, citation expansion, filtering, scoring, reranking, evidence extraction — composable DAG nodes
 - **Training data generation**: Applies "controlled workflow corruptions" to correct workflows to generate negative samples for preference optimization — more targeted than random negative sampling
 - **Base model**: Qwen3.5-9B; PaperPilot-9B outperforms the same model's toolset agent baseline in multi-turn interaction
-- **Evaluation results (⚠️ internal baselines only, no third-party reproduction)**: Hit@5 58.0→77.0 (+19 pts), MRR 47.5→59.4, nDCG@10 26.8→32.5, workflow execution error rate 9.5%→0%
+- **Evaluation results (:warning: internal baselines only, no third-party reproduction)**: Hit@5 58.0→77.0 (+19 pts), MRR 47.5→59.4, nDCG@10 26.8→32.5, workflow execution error rate 9.5%→0%
 - **Multi-turn interaction design**: The system tracks which results the user accepted/rejected as signals for the next round of DAG modification — modifying the entire operator topology, not just the query string
 - **Limitation**: Benchmark covers only academic literature search; the DAG operator set is predefined with no support for open-domain operator generation; requires human-authored correct workflow demonstrations as training data, with underestimated collection costs
 - **Relation to mainstream frameworks**: DAG workflows map to LangGraph's Graph concept; the preference optimization approach can draw from DPO
@@ -146,7 +146,7 @@ SEA: Lets agents self-improve while running, but every improvement must pass an 
 
 ### Read Priority
 
-📖 Skim.
+:book: Skim.
 Interesting concept with theoretical grounding, suitable for readers interested in "self-evolving agents" or "agent safety." Single-author paper lacking large-scale experiments — recommended to read Abstract + SEA architecture section + Conclusion rather than the full paper.
 
 ### Domain Background
@@ -174,7 +174,7 @@ For teams wanting to deploy "self-updating agents" in production, SEA provides a
 - **Statistical meaning of anytime-valid**: Uses e-values or sequential testing methods, allowing rejection of the null hypothesis at any time point at a set significance level α, without pre-determined sample sizes
 - **Auditable certificate contents**: Update version number, verifier set used, error budget consumption — storable in logs as compliance records
 - **Limitation**: Single author, no large-scale benchmark; steering adapter capacity selection lacks ablation experiments; relationship to common adapter techniques like LoRA and prefix tuning is not discussed
-- **⚠️ Note**: Single-author paper primarily presenting a concept/architecture proposal; lacks comparative experiments. The framework design is worth referencing, but discount the numbers
+- **:warning: Note**: Single-author paper primarily presenting a concept/architecture proposal; lacks comparative experiments. The framework design is worth referencing, but discount the numbers
 - **Relation to mainstream frameworks**: The harness concept overlaps with SWE-agent's harness engineering; the anytime-valid concept draws from the sequential testing literature in statistics
 
 ### Reviewer's One-Liner

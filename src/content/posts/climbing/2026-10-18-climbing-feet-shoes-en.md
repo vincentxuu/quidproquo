@@ -26,7 +26,7 @@ glossary:
     context: "Auer 2021's bouldering study listed heavily downturned shoes as a risk factor."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-feet-shoes)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-feet-shoes)
 
 You try on a new pair in the gym shop. Your toes curl right up and it hurts just to stand. The staff member says: "Climbing shoes are supposed to be this tight. They'll stretch." You buy them. Three months later your big toenail has gone black, and your heel still aches after the shoes come off.
 

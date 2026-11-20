@@ -17,7 +17,7 @@ glossary:
     def: "評測模型在真實終端機環境中自主執行多步驟指令、除錯、完成任務能力的 benchmark，被視為 agentic coding 的重要指標"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)
+> :globe: [English version](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)
 
 ## 模型資訊
 
@@ -53,7 +53,7 @@ glossary:
 | Terminal-Bench-Science 0.1 | 58.7% | 29.0% | GPT-6 Astra 64.6%（全場最高） |
 | AutomationBench（Zapier 執行） | 40.0% | 26.9% | GPT-6 Astra 41.4%（全場最高） |
 
-⚠️ 以上除 GDPval-AA v2.1 由 Artificial Analysis 獨立評測外，均為 Anthropic／各廠商自測，採各自最高 effort 設定；Anthropic 亦自陳 Terminal-Bench 4.0、Terminal-Bench-Science 0.1 的官方複測與公開排行榜數字落在誤差範圍內（標準誤 ±1.6–5pt）。AutomationBench 與 Terminal-Bench-Science 上 GPT-6 Astra 仍領先，並非全面獲勝。
+:warning: 以上除 GDPval-AA v2.1 由 Artificial Analysis 獨立評測外，均為 Anthropic／各廠商自測，採各自最高 effort 設定；Anthropic 亦自陳 Terminal-Bench 4.0、Terminal-Bench-Science 0.1 的官方複測與公開排行榜數字落在誤差範圍內（標準誤 ±1.6–5pt）。AutomationBench 與 Terminal-Bench-Science 上 GPT-6 Astra 仍領先，並非全面獲勝。
 
 ## 與前代/競品比較
 

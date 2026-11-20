@@ -14,7 +14,7 @@ description: "Stage 1 recap for CMU 07-380 Fall 2026: using the module split on 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-stage-1-certainty-optimization)
+> :globe: [中文版](/posts/learning/2026-09-29-cmu-07380-stage-1-certainty-optimization)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

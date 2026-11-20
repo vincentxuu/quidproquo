@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-jina-reader-guide)
+> :globe: [中文版](/posts/ai/2026-08-22-jina-reader-guide)
 
 [Jina Reader](https://jina.ai/reader/) is an API that turns a web URL into LLM-friendly text. At its simplest, append the original URL to `https://r.jina.ai/`; the service fetches the page, identifies readable content, and returns Markdown. It handles one specific step in a retrieval pipeline: once you have a URL, how do you prepare its content for a model?
 

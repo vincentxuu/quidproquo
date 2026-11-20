@@ -12,7 +12,7 @@ series:
   order: 32
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-16-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-16-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -136,13 +136,13 @@ Australia unveiled an AI Action Plan that avoids a single dedicated AI law, inst
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-16](/posts/daily/2026-09-16-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-16](/posts/daily/2026-09-16-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-16: ML System Design](/posts/daily/2026-09-16-ai-interview-daily-en)
-- 📄 [Funding Brief｜AlphaPai Series B $50M](/posts/daily/2026-09-16-funding-alphapai-en)
-- 📄 [Funding Brief｜Jack & Jill Series A $40M](/posts/daily/2026-09-16-funding-jack-and-jill-en)
-- 📄 [Product Builder Interview Prep — 2026-09-16: Strategy & Execution](/posts/daily/2026-09-16-product-builder-interview-daily-en)
-- 📄 [Tool Recommendation｜edgar-mcp](/posts/daily/2026-09-16-tool-edgar-mcp-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-16](/posts/daily/2026-09-16-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-16](/posts/daily/2026-09-16-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Prep — 2026-09-16: ML System Design](/posts/daily/2026-09-16-ai-interview-daily-en)
+- :file: [Funding Brief｜AlphaPai Series B $50M](/posts/daily/2026-09-16-funding-alphapai-en)
+- :file: [Funding Brief｜Jack & Jill Series A $40M](/posts/daily/2026-09-16-funding-jack-and-jill-en)
+- :file: [Product Builder Interview Prep — 2026-09-16: Strategy & Execution](/posts/daily/2026-09-16-product-builder-interview-daily-en)
+- :file: [Tool Recommendation｜edgar-mcp](/posts/daily/2026-09-16-tool-edgar-mcp-en)
 
 ## Tomorrow's Watch
 

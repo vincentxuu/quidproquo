@@ -13,7 +13,7 @@ description: "Tachiokayama climbing guide: seasons, access, management rules, pu
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-tachiookayama)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-tachiookayama)
 
 Tachiokayama combines powerful sport climbing at Koyama Rock with a multipitch left ridge, requiring different equipment and skills. This guide helps you decide whether it suits your team, when to visit and what to confirm about transport and the approach.
 

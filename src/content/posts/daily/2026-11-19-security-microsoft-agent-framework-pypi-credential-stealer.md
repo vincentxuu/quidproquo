@@ -11,7 +11,7 @@ series:
   order: 82
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-19-security-microsoft-agent-framework-pypi-credential-stealer-en)
+> :globe: [English version](/posts/daily/2026-11-19-security-microsoft-agent-framework-pypi-credential-stealer-en)
 
 ## 事件概述
 

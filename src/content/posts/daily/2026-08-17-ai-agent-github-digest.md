@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-17-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-08-17-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### forge (antoinezambelli) ⭐ 2,213
+### forge (antoinezambelli) ★ 2,213
 
 [GitHub](https://github.com/antoinezambelli/forge)　·　Python　·　MIT
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### repo-context-mcp (nduc99911) ⭐ 104
+### repo-context-mcp (nduc99911) ★ 104
 
 [GitHub](https://github.com/nduc99911/repo-context-mcp)　·　TypeScript　·　MIT
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### Deepseek Harness EAC (zouyuxuan122) ⭐ 540
+### Deepseek Harness EAC (zouyuxuan122) ★ 540
 
 [GitHub](https://github.com/zouyuxuan122/Deepseek-Harness-EAC)　·　JavaScript (Electron)　·　MIT
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### Webwright (microsoft) ⭐ 5,916
+### Webwright (microsoft) ★ 5,916
 
 [GitHub](https://github.com/microsoft/Webwright)　·　Python　·　MIT
 

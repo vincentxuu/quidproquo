@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-19-browser-agent-loop-to-code-mode)
+> :globe: [中文版](/posts/ai/2026-11-19-browser-agent-loop-to-code-mode)
 
 The [previous post on Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide-en) covered the classic agent loop: read the page state, have the model pick an action (click, type, scroll), run it, read again. That post was written in the 0.x era. Browser Use 1.0, released November 10, 2026, replaced that engine entirely. Within four months, Stagehand v4 removed `agent()` and Notte 1.10 removed its whole agent loop.
 

@@ -15,7 +15,7 @@ glossary:
     def: "讓解碼器裡同一組權重重複執行多次，在不增加儲存參數量的前提下加深模型有效運算深度的架構設計"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-31-model-sensetime-sensenova-loop-9b-preview-en)
+> :globe: [English version](/posts/daily/2026-10-31-model-sensetime-sensenova-loop-9b-preview-en)
 
 ## 模型資訊
 
@@ -89,7 +89,7 @@ caption: 數字取自 SenseTime 官方發布圖表，經第三方 X 帳號 TeksE
 | GPQA Diamond（加入 mHC 的消融增益） | +4.42 分 | 無 mHC 的對照版本 | — |
 | TeamBench（加入 mHC 的消融增益） | +13.34 分 | 無 mHC 的對照版本 | — |
 
-⚠️ 以上三項任務分數均為 SenseTime 官方發布圖表數字，經第三方 X 帳號 TeksEdge 核實截圖後轉錄，非官方逐字稿，也尚無獨立第三方復現。官方圖表另外列出 BIRD-Dev、AIDABench、Terminal Bench 2.1、T³-Banking 四項，其中 Terminal Bench 2.1 與 T³-Banking 官方圖表顯示 Loop-9B 落後 Qwen3.5-27B，但原始分數未見逐字稿公開，故不列入本表。
+:warning: 以上三項任務分數均為 SenseTime 官方發布圖表數字，經第三方 X 帳號 TeksEdge 核實截圖後轉錄，非官方逐字稿，也尚無獨立第三方復現。官方圖表另外列出 BIRD-Dev、AIDABench、Terminal Bench 2.1、T³-Banking 四項，其中 Terminal Bench 2.1 與 T³-Banking 官方圖表顯示 Loop-9B 落後 Qwen3.5-27B，但原始分數未見逐字稿公開，故不列入本表。
 
 ## 與前代/競品比較
 

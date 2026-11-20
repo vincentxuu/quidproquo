@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-10-ai-model-family-liquid-ai-en)
+> :globe: [English version](/posts/tech/2026-10-10-ai-model-family-liquid-ai-en)
 
 Liquid AI 的 LFM 是以高效部署為主軸的模型家族。小模型的價值是把範圍明確的任務放進容易掌控的部署環境：手機、筆電、邊緣裝置，或便宜的雲端 API。這篇寫給要在本地或低成本環境跑 agent 的開發者：LFM3 與 LFM2.5 怎麼選、它能做什麼不能做什麼、授權在哪裡設了門檻。
 

@@ -13,7 +13,7 @@ description: "AI model fundamentals: what tokens are, why context windows have l
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-understanding-ai-models-basics)
+> :globe: [中文版](/posts/ai/2026-08-26-understanding-ai-models-basics)
 
 You open ChatGPT, type "write me a sick leave email," and a reply appears in seconds. What actually happened in between?
 

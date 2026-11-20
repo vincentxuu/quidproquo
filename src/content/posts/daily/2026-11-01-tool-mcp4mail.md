@@ -12,7 +12,7 @@ series:
   order: 70
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-01-tool-mcp4mail-en)
+> :globe: [English version](/posts/daily/2026-11-01-tool-mcp4mail-en)
 
 ## 工具資訊
 
@@ -154,12 +154,12 @@ docker compose run --rm --no-deps app bin/rails db:encryption:init
 
 | | mcp4mail | 自己寫 Gmail API 整合 | 把 IMAP 密碼／匯出信箱直接交給 agent |
 |---|---|---|---|
-| 支援任何標準 IMAP（非 Gmail/Outlook 也行） | ✅ | ❌ 只認 Gmail | ✅ 但沒有任何權限控制 |
-| 寫入動作預設全關，逐項授權 | ✅ | 需自行實作 | ❌ 一開始就是全權限 |
-| 密碼可以完全留在自己機器 | ✅（自架） | 視你怎麼存 token | 看似可以，但沒有加密／稽核機制 |
-| 寄信一定要人核准才真的送出 | ✅ | 需自行實作 | ❌ |
-| 內建呼叫稽核紀錄（誰、什麼工具、幾筆） | ✅ | 需自行實作 | ❌ |
-| 多個 AI client（Claude、ChatGPT、Cursor、VS Code）直接可用 | ✅ 標準 MCP + OAuth 2.1 | 需各自接 | — |
+| 支援任何標準 IMAP（非 Gmail/Outlook 也行） | ✓ | ✗ 只認 Gmail | ✓ 但沒有任何權限控制 |
+| 寫入動作預設全關，逐項授權 | ✓ | 需自行實作 | ✗ 一開始就是全權限 |
+| 密碼可以完全留在自己機器 | ✓（自架） | 視你怎麼存 token | 看似可以，但沒有加密／稽核機制 |
+| 寄信一定要人核准才真的送出 | ✓ | 需自行實作 | ✗ |
+| 內建呼叫稽核紀錄（誰、什麼工具、幾筆） | ✓ | 需自行實作 | ✗ |
+| 多個 AI client（Claude、ChatGPT、Cursor、VS Code）直接可用 | ✓ 標準 MCP + OAuth 2.1 | 需各自接 | — |
 
 ## 注意事項
 

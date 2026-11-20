@@ -12,7 +12,7 @@ series:
   order: 41
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-01-tool-mcp-lint)
+> :globe: [中文版](/posts/daily/2026-10-01-tool-mcp-lint)
 
 ## Tool Info
 

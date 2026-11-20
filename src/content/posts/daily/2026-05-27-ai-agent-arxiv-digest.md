@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 3
 ---
-> 🌏 [English version](/posts/daily/2026-05-27-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-05-27-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -71,7 +71,7 @@ SafeFix 的設計思維對 agent 平台 UX 有直接意義——不只拒絕，�
 ### 深入要點
 
 - **評測資料集**：300 個精心設計的情境（6 種風險類別）+ 630 個獨立生成的對抗情境（安全開發流程、中風險 DevOps 操作、危險攻擊、混淆繞過四類）
-- **核心數據**：production 規則集在內部 benchmark 達 **95.0% 裁決準確率**、73.7% 風險等級準確率，端到端延遲維持毫秒級 ⚠️（內部 benchmark，非公開測試集，需保留空間）
+- **核心數據**：production 規則集在內部 benchmark 達 **95.0% 裁決準確率**、73.7% 風險等級準確率，端到端延遲維持毫秒級 :warning:（內部 benchmark，非公開測試集，需保留空間）
 - **Shell deobfuscation 的廣度**是亮點：ANSI-C quoting（`$'\x41\x42'`）和相鄰引號拼接（`'ca''t'`）這類技巧在真實 obfuscation 中常見，很少被防禦系統覆蓋
 - **Limitation**：單一作者論文，缺乏同儕交叉驗證；630 個對抗情境為獨立生成，與真實生產流量的分布差距未知；無法對比其他防禦工具（如 eBPF 沙盒）的效能
 - **與主流框架關聯**：AgentTrust 定位為中介層，可接在 LangGraph / AutoGen 的 tool dispatcher 前；MCP server 端也可加掛類似機制作為 pre-execution hook
@@ -131,7 +131,7 @@ MCP 讓 agent 可以呼叫任意 REST API，理論上很美好。問題是，現
 ### 深入要點
 
 - **工業驗證規模**：16 個生產 API、約 600 個 endpoint，是微服務架構下的真實系統，非合成資料
-- **核心發現**：共偵測到 2,450 個 smell，每個 endpoint 平均 4.08 個，**每一個 endpoint 都至少有一個 smell** ⚠️（100% 命中率讓人懷疑 false positive 率；Hermes 自身的精確率/召回率數字未提供）
+- **核心發現**：共偵測到 2,450 個 smell，每個 endpoint 平均 4.08 個，**每一個 endpoint 都至少有一個 smell** :warning:（100% 命中率讓人懷疑 false positive 率；Hermes 自身的精確率/召回率數字未提供）
 - **Smell 分類學可操作性強**：FRAGMENTED smell 的修法就是「把資訊集中」；LAZY smell 的修法就是「把描述具體化」——不需要重寫 API 架構，只需改文件
 - **與 MCP 直接連結**：失敗案例明確指向 MCP agent 在 tool selection 和 payload construction 的兩個核心流程
 - **Limitation**：16 個 API 來自單一公司，泛化能力待驗證；「每個 endpoint 都有 smell」可能也反映分類標準過嚴；Hermes 本身未提供 precision/recall 等評估指標
@@ -160,7 +160,7 @@ MCP 讓 agent 可以呼叫任意 REST API，理論上很美好。問題是，現
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 架構複雜且目前缺乏可查的公開評測數字，對個人化 agent 方向有興趣的 PM 和研究型工程師快速掃一遍了解問題框架即可。
 
 ### 領域背景
@@ -187,7 +187,7 @@ Agentic RL（用強化學習訓練 agent 完成任務）在數學解題、程式
 
 ### 深入要點
 
-- **公開評測數字缺失** ⚠️：目前透過搜尋找不到具體實驗結果數字，讀者需自行查閱論文的 experiment section 再做判斷
+- **公開評測數字缺失** :warning:：目前透過搜尋找不到具體實驗結果數字，讀者需自行查閱論文的 experiment section 再做判斷
 - **三組件高度耦合**：PARPO 需要 PSGM 提供個人化技能，reward model 為 PARPO 提供訓練訊號——整個系統難以只部署單一組件，工程成本相對高
 - **從眾效應解糾纏**是真實工程問題：人類 annotation 和使用者回饋都有這個 bias，兩階段分離的做法有學術創意，但效果有待驗證
 - **PSGM 的圖記憶**設計與 RAG（Retrieval-Augmented Generation，以外部知識增強生成）概念接近，但以異質圖取代向量搜尋，更適合表達使用者、技能、工具等多類型實體間的複雜關係

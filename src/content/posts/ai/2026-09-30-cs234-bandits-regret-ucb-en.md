@@ -26,7 +26,7 @@ glossary:
     context: "The principle behind UCB; L12 carries it over to MDPs (MBIE-EB)."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-bandits-regret-ucb)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-bandits-regret-ucb)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

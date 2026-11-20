@@ -13,7 +13,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-linkup-search-api-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-linkup-search-api-guide-en)
 
 [Linkup](https://docs.linkup.so/pages/documentation/get-started/introduction) 是給 AI 應用程式用的網路搜尋 API。它不只回傳網址，也能交付可供模型閱讀的搜尋內容、附來源的答案，或符合 JSON Schema 的物件。這篇把認識工具與實際串接放在一起：先選搜尋深度，再選輸出，最後才處理全文、重試與費用。
 

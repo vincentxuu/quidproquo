@@ -13,7 +13,7 @@ description: "依 Stanford CS103 First-Order Logic Part II 官方投影片，整
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-06-first-order-logic-2-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-06-first-order-logic-2-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

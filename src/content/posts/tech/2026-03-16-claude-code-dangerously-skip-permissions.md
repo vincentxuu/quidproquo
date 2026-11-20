@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-🌏 [English version](/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions-en)
+:globe: [English version](/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions-en)
 
 > 正規的分級做法（各種權限模式與 auto mode 設定）看 [Permissions 與 auto mode](/posts/tech/deep-dive/2026-08-26-claude-code-permissions-auto-mode) 那篇；這篇講的是你還是決定繞過時的代價。
 

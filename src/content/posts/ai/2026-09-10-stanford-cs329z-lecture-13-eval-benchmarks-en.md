@@ -14,7 +14,7 @@ description: "A preview of Stanford CS329Z Lecture 13, Evaluation Fundamentals &
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-13-eval-benchmarks)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-13-eval-benchmarks)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

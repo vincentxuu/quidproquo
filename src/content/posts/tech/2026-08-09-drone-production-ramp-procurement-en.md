@@ -13,7 +13,7 @@ series:
   order: 37
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-09-drone-production-ramp-procurement)
+> :globe: [中文版](/posts/tech/2026-08-09-drone-production-ramp-procurement)
 
 Two cells remained in this series' technical block, and "[manufacturing and production ramp](/posts/tech/2026-08-06-drone-industry-map-en)" was the one I had flagged from the beginning as **probably needing factory access** — the last topic in the whole series still carrying a "needs non-public material" label.
 

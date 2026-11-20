@@ -12,7 +12,7 @@ series:
   order: 30
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-02-pricing-openai-cursor-api-access-cutoff-en)
+> :globe: [English version](/posts/daily/2026-11-02-pricing-openai-cursor-api-access-cutoff-en)
 
 ## 變更摘要
 
@@ -63,7 +63,7 @@ Cursor 本身可能是這次事件裡敘事上最受益的一方——強迫走�
 
 ## 時效提醒
 
-⚠️ **停用日期**：2026-11-12（OpenAI 提議的停用日，約 10 天後；OpenAI 聲明這是合約允許的最長通知期，實際日期仍可能因雙方協商變動）。之後 Cursor 不再提供 OpenAI 模型的直接整合，請在此之前設定好 BYOK，或評估改用其他模型。
+:warning: **停用日期**：2026-11-12（OpenAI 提議的停用日，約 10 天後；OpenAI 聲明這是合約允許的最長通知期，實際日期仍可能因雙方協商變動）。之後 Cursor 不再提供 OpenAI 模型的直接整合，請在此之前設定好 BYOK，或評估改用其他模型。
 
 ## 今日收穫
 

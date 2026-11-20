@@ -12,7 +12,7 @@ series:
   order: 97
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-20-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-20-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -133,19 +133,19 @@ caption: 案例與數字來自今日 Arxiv Digest、Artificial Analysis、Micros
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-20](/posts/daily/2026-11-20-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-20](/posts/daily/2026-11-20-ai-agent-github-digest)
-- 📄 [模型卡｜Gemini 4 Neon](/posts/daily/2026-11-20-model-google-gemini-4-neon)
-- 📄 [Benchmark 異動｜Gemini 4 Neon 首秀](/posts/daily/2026-11-20-benchmark-gemini-4-neon)
-- 📄 [框架更新｜Pydantic AI v2.71.0](/posts/daily/2026-11-20-framework-pydantic-ai-v2.71.0)
-- 📄 [定價追蹤｜GPT-6.2 Astra 降價 20%](/posts/daily/2026-11-20-pricing-openai-gpt-6-2-astra-sol-cut)
-- 📄 [資安警報｜SGLang RCE 攻破 NEAR AI 機密推理環境](/posts/daily/2026-11-20-security-sglang-rce-near-ai-confidential-inference-breach)
-- 📄 [工具推薦｜android-agent](/posts/daily/2026-11-20-tool-android-agent)
-- 📄 [融資速報｜Boltz Series A $110M](/posts/daily/2026-11-20-funding-boltz)
-- 📄 [融資速報｜Linq 新一輪 $90M](/posts/daily/2026-11-20-funding-linq)
-- 📄 [融資速報｜Pulley A＋B 輪合計 $64M](/posts/daily/2026-11-20-funding-pulley)
-- 📄 [AI Engineer 面試日練 — 2026-11-20](/posts/daily/2026-11-20-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-11-20](/posts/daily/2026-11-20-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-20](/posts/daily/2026-11-20-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-20](/posts/daily/2026-11-20-ai-agent-github-digest)
+- :file: [模型卡｜Gemini 4 Neon](/posts/daily/2026-11-20-model-google-gemini-4-neon)
+- :file: [Benchmark 異動｜Gemini 4 Neon 首秀](/posts/daily/2026-11-20-benchmark-gemini-4-neon)
+- :file: [框架更新｜Pydantic AI v2.71.0](/posts/daily/2026-11-20-framework-pydantic-ai-v2.71.0)
+- :file: [定價追蹤｜GPT-6.2 Astra 降價 20%](/posts/daily/2026-11-20-pricing-openai-gpt-6-2-astra-sol-cut)
+- :file: [資安警報｜SGLang RCE 攻破 NEAR AI 機密推理環境](/posts/daily/2026-11-20-security-sglang-rce-near-ai-confidential-inference-breach)
+- :file: [工具推薦｜android-agent](/posts/daily/2026-11-20-tool-android-agent)
+- :file: [融資速報｜Boltz Series A $110M](/posts/daily/2026-11-20-funding-boltz)
+- :file: [融資速報｜Linq 新一輪 $90M](/posts/daily/2026-11-20-funding-linq)
+- :file: [融資速報｜Pulley A＋B 輪合計 $64M](/posts/daily/2026-11-20-funding-pulley)
+- :file: [AI Engineer 面試日練 — 2026-11-20](/posts/daily/2026-11-20-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-11-20](/posts/daily/2026-11-20-product-builder-interview-daily)
 
 ## 明日關注
 

@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-21-openai-harness-engineering-codex-agent-first)
+> :globe: [中文版](/posts/ai/2026-04-21-openai-harness-engineering-codex-agent-first)
 
 OpenAI engineer Ryan Lopopolo published a firsthand report in early 2026 describing how their internal team built a complete product using Codex: a 3-person team, 5 months, 0 lines of hand-written code, approximately 1 million lines of code produced, averaging 3.5 PRs merged per person per day. This wasn't a proof of concept — it was a real product that shipped. This article distills their core understanding of the agent-first development model from that experience.
 

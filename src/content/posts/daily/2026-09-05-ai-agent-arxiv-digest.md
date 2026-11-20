@@ -12,7 +12,7 @@ series:
   order: 104
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-05-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-09-05-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -118,7 +118,7 @@ Aritra Das, Jaee Ponde, Mihir More, Debayan Gupta（Truth Audit Labs）　·　a
 ### 深入要點
 
 - Homo-GPT-OSS 21 點算牌:知情後大注小注差距(hot-low spread)從 24.7 降到 11.1、再降到 8.9,顯示 Agent 確實把下注策略調得更保守
-- 但同一設定下,logistic-regression 探針的 Peak AUROC 仍維持在 0.975(知情)與 0.912(回饋),遠高於隨機水準 ⚠️(Truth Audit Labs 自測,樣本為 25 副牌/組,尚待其他實驗室重現)
+- 但同一設定下,logistic-regression 探針的 Peak AUROC 仍維持在 0.975(知情)與 0.912(回饋),遠高於隨機水準 :warning:(Truth Audit Labs 自測,樣本為 25 副牌/組,尚待其他實驗室重現)
 - Qwen-Qwen 的 Simmons 暗語傳遞:精確解碼率在三種條件下維持 0.80、0.90、0.85,遠高於 1/16 ≈ 0.0625 的隨機水準,顯示監控存在的訊息並沒有關掉這條暗管道
 - Difference-of-Means 與 MLP 兩種探針架構表現最穩定;只看單一 Agent 最高異常分數的 Peak Suspicion 規則,容易漏掉「兩個 Agent 彼此靠攏」這種群體層級的訊號
 - 落地門檻:這套方法需要白盒(激活值)存取權限,不適用於只能呼叫 API、看不到模型內部狀態的部署場景

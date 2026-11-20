@@ -15,7 +15,7 @@ glossary:
     def: "Bria AI 開發的結構化 JSON 提示詞（VGL）圖像生成模型家族，2025 年首發"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-24-model-bria-fibo-2-0-dev-en)
+> :globe: [English version](/posts/daily/2026-10-24-model-bria-fibo-2-0-dev-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | 文字轉圖－人體解剖準確度 | 第 18 名 | - | - |
 | 文字轉圖－文字渲染／版面排布 | 第 19–21 名區間 | 官方稱「本代最大進步項目之一」 | 領先模型（如 Gemini 2.5 Flash Image 系列）仍明顯領先 |
 
-⚠️ 上述 Elo 與排名皆引用自 Bria 官方模型卡所附的 Artificial Analysis（第三方獨立評測站）榜單結果，非 Bria 自測。但第三方媒體 ArtRealmAI 在發佈當下查核公開榜單，發現 Fibo 2.0 尚未正式上榜，榜首 Qwen-Image-2.1 當時仍顯示 1083±13 Elo——Bria 宣稱的領先幅度僅約 4 Elo，落在信賴區間內，說明「第 1／第 2」是官方引用尚待榜單正式更新前的自報排名，需待外部複現確認。
+:warning: 上述 Elo 與排名皆引用自 Bria 官方模型卡所附的 Artificial Analysis（第三方獨立評測站）榜單結果，非 Bria 自測。但第三方媒體 ArtRealmAI 在發佈當下查核公開榜單，發現 Fibo 2.0 尚未正式上榜，榜首 Qwen-Image-2.1 當時仍顯示 1083±13 Elo——Bria 宣稱的領先幅度僅約 4 Elo，落在信賴區間內，說明「第 1／第 2」是官方引用尚待榜單正式更新前的自報排名，需待外部複現確認。
 
 ## 與前代/競品比較
 

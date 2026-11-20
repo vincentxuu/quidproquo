@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 38
 ---
-> 🌏 [中文版](/posts/daily/2026-07-01-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-01-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -72,7 +72,7 @@ This is the first serious validation of "replacing real API calls with simulatio
 
 - **Seven domains covered**: MCP tool calling, Search, Terminal, SWE (software engineering), Android, Web navigation, OS — one model covers all, an industry first
 - **AgentWorldBench evaluation**: New benchmark built from real interaction trajectories of 5 frontier models across 9 established benchmarks, evaluating five dimensions: format, authenticity, consistency, fidelity, quality
-- **Core numbers**: 397B-A17B scores **58.71**, surpassing GPT-5.4 (58.25) **⚠️** and Claude Opus 4.8 (56.59) **⚠️** — internal benchmarks with no third-party replication yet
+- **Core numbers**: 397B-A17B scores **58.71**, surpassing GPT-5.4 (58.25) **:warning:** and Claude Opus 4.8 (56.59) **:warning:** — internal benchmarks with no third-party replication yet
 - **Domain variance is significant**: MCP tool simulation scores 68.24; SWE reaches 68.49; Search is notably weaker (37.82), indicating open-ended search environments are hardest to simulate
 - **Zero-shot generalization**: Can simulate out-of-distribution environments not seen during training; the paper claims support for "controlled perturbation" testing — injecting anomalous environment states to test agent robustness
 - **35B small model viability**: The 35B-A3B version performs well on MCP and SWE, but degrades notably on Search — domains requiring broad knowledge still need the flagship
@@ -134,7 +134,7 @@ This is not a toy system but a multi-agent R&D engine validated in Kuaishou's pr
 - **Scale numbers**: 3 AgentX Workers processed **374 ideas** over three weeks, equivalent to each Worker running 12 experiments simultaneously (vs 1-3 for humans), an **8x** parallelism increase
 - **Self-evolution trend**: Idea pass rate rose from **15%** in week one to **45%** in week three — a 3x improvement showing the system genuinely learns from failures
 - **Efficiency metric**: Each Worker produces 1.1 "deployable results" per week, **13.8x** the human baseline
-- **Business results**: User app consumption time increased **0.561%**, annualized at over **100 million RMB** **⚠️** (internal company metric, not independently verifiable)
+- **Business results**: User app consumption time increased **0.561%**, annualized at over **100 million RMB** **:warning:** (internal company metric, not independently verifiable)
 - **Knowledge base closed loop is the core differentiator**: Unlike AutoGen/LangGraph, AgentX features an "Experience Store" — experiment results automatically feed back into the next generation cycle, creating compounding advantage; mainstream frameworks don't natively support this self-evolution pattern
 - **Task fit**: AgentX performs best on tasks with "clear A/B metrics for evaluation"; not applicable to open-ended tasks without quantifiable assessment
 - **Limitations**: The paper is heavily concentrated on Kuaishou's own scenarios with no generalization evaluation; the 60+ author roster reflects a large-scale engineering project rather than an academic experiment, lacking ablation studies
@@ -189,7 +189,7 @@ Quantifies "which usage patterns most drive agentic workflow deepening," with di
 - **Growth rate**: Active users grew over **5x** in H1 2026, with the fastest growth among non-engineer user groups
 - **Concurrent agent usage**: **10%+** of users run 3 or more agents simultaneously at least once per week — demonstrating orchestration capability is a real need, not an edge case
 - **Skills adoption rate**: **26.6%** of users use skills (custom workflow instructions), the strongest product stickiness indicator
-- **Task scale expansion**: The share of users submitting tasks "estimated at 8+ hours" grew nearly **10x** since the start of the year **⚠️** (duration estimated by model; methodology not fully disclosed)
+- **Task scale expansion**: The share of users submitting tasks "estimated at 8+ hours" grew nearly **10x** since the start of the year **:warning:** (duration estimated by model; methodology not fully disclosed)
 - **Striking job-function differences**: June 2026 vs November 2025, OpenAI internal legal staff monthly output tokens grew **13x**; researchers grew over **50x** — non-technical roles see even greater agentic dividends than engineers
 - **Organization vs individual**: Organization accounts show deeper agentic usage patterns than individual accounts, but external organization penetration remains far below OpenAI internal levels, suggesting massive remaining enterprise adoption opportunity
 - **Limitations**: Study is limited to a single tool (Codex); OpenAI researching its own tool creates an obvious conflict of interest; "output token volume" growth does not equal "work efficiency" improvement — the two must be carefully distinguished

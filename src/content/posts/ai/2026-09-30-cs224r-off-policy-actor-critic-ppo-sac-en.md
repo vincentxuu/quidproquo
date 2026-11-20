@@ -21,7 +21,7 @@ glossary:
     context: "A shared component of off-policy methods such as SAC and DQN."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

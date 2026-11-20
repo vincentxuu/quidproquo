@@ -13,14 +13,14 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-20-claude-duet)
+> :globe: [中文版](/posts/ai/2026-11-20-claude-duet)
 
 | Four tests | Claude Duet |
 |---|---|
-| Keeps running while you're away | ✅ Has its own cloud VM and browser; your phone or laptop needn't be on |
-| Decides what to do when it wakes | ✅ L3: a morning brief, then checks every few hours, deciding what to tell you |
-| Remembers your goals across conversations | ✅ Carries your Claude memory, skills and connectors; can search past chats |
-| Acts for you | ✅ Sends email, pays, signs documents, each one shown to you for approval first |
+| Keeps running while you're away | ✓ Has its own cloud VM and browser; your phone or laptop needn't be on |
+| Decides what to do when it wakes | ✓ L3: a morning brief, then checks every few hours, deciding what to tell you |
+| Remembers your goals across conversations | ✓ Carries your Claude memory, skills and connectors; can search past chats |
+| Acts for you | ✓ Sends email, pays, signs documents, each one shown to you for approval first |
 
 The Verge's Allison Johnson [tested Duet for a week](https://www.theverge.com/ai-artificial-intelligence/1032518/claude-duet-ai-agent-hands-on). One day she emailed someone she'd interviewed that the story was "likely" to go up on Tuesday and she'd send a link when it did. She filed the draft to her editors late Monday night.
 

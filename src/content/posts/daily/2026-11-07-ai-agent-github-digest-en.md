@@ -11,7 +11,7 @@ series:
   order: 84
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-07-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-07-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Past digests have tracked agents learning to operate a computer — [11/2](/post
 
 ## Trending Repos
 
-### NVIDIA/auto-ontology ⭐ ~5.5k (+2k on launch day)
+### NVIDIA/auto-ontology ★ ~5.5k (+2k on launch day)
 
 [GitHub](https://github.com/NVIDIA/auto-ontology)　·　Python　·　Apache-2.0
 
@@ -30,7 +30,7 @@ Past digests have tracked agents learning to operate a computer — [11/2](/post
 
 ---
 
-### vercel-labs/agent-browser ⭐ ~42k (+487 this week)
+### vercel-labs/agent-browser ★ ~42k (+487 this week)
 
 [GitHub](https://github.com/vercel-labs/agent-browser)　·　Rust　·　Apache-2.0
 
@@ -41,7 +41,7 @@ Past digests have tracked agents learning to operate a computer — [11/2](/post
 
 ---
 
-### JosssphZhou/poki ⭐ 257+ (launch day)
+### JosssphZhou/poki ★ 257+ (launch day)
 
 [GitHub](https://github.com/JosssphZhou/poki)　·　Rust + TypeScript　·　AGPL-3.0
 

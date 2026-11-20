@@ -13,7 +13,7 @@ description: "Aider's design philosophy, repo map, architect/editor mode, watch 
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-19-aider-terminal-pair-programming)
+:globe: [中文版](/posts/tech/2026-08-19-aider-terminal-pair-programming)
 
 In this series, Aider is the one tool that doesn't want to be an agent.
 

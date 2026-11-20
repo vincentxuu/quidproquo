@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-firebase-backend-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-firebase-backend-platform-en)
 
 [Firebase](https://firebase.google.com/docs) 不是單一 database，而是 Google 的 app backend 組合：Authentication、Cloud Firestore、Realtime Database、Cloud Storage、Cloud Functions、Hosting、Cloud Messaging、App Check、Analytics 與 Remote Config。它讓 mobile/web client 很快取得 realtime data 與 identity，但同時把架構綁在多個產品合約上。
 

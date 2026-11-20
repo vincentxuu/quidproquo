@@ -14,7 +14,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs288-overview)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs288-overview)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

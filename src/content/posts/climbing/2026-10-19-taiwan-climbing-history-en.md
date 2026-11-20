@@ -22,7 +22,7 @@ glossary:
     context: "Usually used to compare the Lanzhou Street gym, which closed in 2012, with the gyms that opened after 2015."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-taiwan-climbing-history)
+> :globe: [中文版](/posts/climbing/2026-10-19-taiwan-climbing-history)
 
 Who opened the route you climbed at Long Dong? Which generation of Taiwanese gyms does your local bouldering gym belong to? Where was Taiwan's first climbing competition held?
 

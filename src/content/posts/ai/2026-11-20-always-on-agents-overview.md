@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-20-always-on-agents-overview-en)
+> :globe: [English version](/posts/ai/2026-11-20-always-on-agents-overview-en)
 
 週一早上七點，你還沒起床。聊天機器人什麼都沒做，因為沒人問它。另一種 agent 已經讀過你的信箱和行事曆，發現十點的會議和一封「改到十點半」的信衝突，草擬好一封回信，等你醒來按下送出。
 

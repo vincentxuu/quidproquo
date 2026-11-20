@@ -13,7 +13,7 @@ series:
   order: 26
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-10-ai-model-family-apodex-en)
+> :globe: [English version](/posts/tech/2026-10-10-ai-model-family-apodex-en)
 
 [Apodex](https://apodex.ai/) 是由 **Apodex** 團隊開發的 reasoning-first 模型家族。官方模型卡將它定位為適合 **長程研究、預測與可驗證推理**——官方以可驗證產出定位其研究代理服務；能否重現結果，仍取決於工具、資料與執行紀錄。
 
@@ -51,7 +51,7 @@ series:
 | **輸入模態** | 文字（含程式碼與轉成文字的資料；core API 不接受檔案內容部件） |
 | **輸出模態** | 文字、推理內容、工具呼叫請求；附件由執行環境產生 |
 
-> ⚠️ 模型與官方代理服務是不同層次。AgentOS 與 Agent Team 提供執行流程；直接使用模型 API 時，仍需提供工具定義與執行工具的主程式。Mini 也可以在本地部署。
+> :warning: 模型與官方代理服務是不同層次。AgentOS 與 Agent Team 提供執行流程；直接使用模型 API 時，仍需提供工具定義與執行工具的主程式。Mini 也可以在本地部署。
 
 ## 評測與競品比較
 

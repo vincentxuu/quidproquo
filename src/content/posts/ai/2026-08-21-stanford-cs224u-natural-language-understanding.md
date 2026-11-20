@@ -16,7 +16,7 @@ description: "Stanford CS224U: Natural Language Understanding 完整導讀，從
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
+> :globe: [English version](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

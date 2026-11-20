@@ -23,7 +23,7 @@ glossary:
     context: "Mentioned in the first note on sampling-based planning in CS224R L11."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-model-based-rl)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-model-based-rl)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ description: "Comparing how codex, claude-code, opencode, pi, and omp handle sta
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-startup-performance-discipline)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-startup-performance-discipline)
 
 The [previous post](/posts/ai/2026-08-25-coding-agent-runtime-capability-handshake-en) covered runtime abstraction and capability handshakes. This one is about an unglamorous cost you pay every single day: startup.
 

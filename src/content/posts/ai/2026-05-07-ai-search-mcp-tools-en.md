@@ -13,7 +13,7 @@ description: "Comparing search MCP servers for AI agents: Tavily, Firecrawl, Exa
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-07-ai-search-mcp-tools)
+> :globe: [中文版](/posts/ai/2026-05-07-ai-search-mcp-tools)
 
 When running agent tasks in Claude Code, Claude Desktop, or Cursor, the built-in WebFetch / WebSearch tools frequently hit walls: Cloudflare blocks bots, geo-restrictions (WebSearch is only available in the US), authenticated pages are inaccessible, rate limits kick in, and the returned format is not LLM-friendly. The most direct solution is to connect a search MCP server and delegate the search layer to a specialized service. This post organizes the options available in 2026 by use case, with MCP support status and recommended scenarios noted for each.
 

@@ -13,7 +13,7 @@ description: "依 Stanford CS103 Mathematical Proofs 投影片重建 even／odd 
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-02-mathematical-proofs-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-02-mathematical-proofs-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

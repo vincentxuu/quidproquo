@@ -13,7 +13,7 @@ description: "A preparation guide for NVIDIA NCP-AAI (Agentic AI Professional), 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide)
+> :globe: [中文版](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide)
 >
 > This is a preparation path built from official material, not an exam-day account — I have not sat this exam, and at present nobody can. Every "what it tests" points back to the [official certification page](https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/) and the official Exam Study Guide. No leaked questions. Verified 2026-08-18; registration status, specs, and weights re-confirmed 2026-10-12.
 

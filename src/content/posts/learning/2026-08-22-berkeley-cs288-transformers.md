@@ -12,7 +12,7 @@ draft: false
 series: { name: "Berkeley CS288 導讀", order: 2 }
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs288-transformers-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs288-transformers-en)
 
 [05–07 組教材](https://cal-cs288.github.io/sp26/)的主線是資訊怎麼跨位置流動。sequence model 逐步更新狀態；seq2seq 把輸入與輸出拆成 encoder／decoder；attention 讓 decoder 直接選取來源位置；Transformer 再把 recurrent path 換成 parallel attention blocks。
 

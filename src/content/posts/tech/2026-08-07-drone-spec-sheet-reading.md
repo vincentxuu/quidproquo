@@ -13,7 +13,7 @@ series:
   order: 23
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
+> :globe: [English version](/posts/tech/2026-08-07-drone-spec-sheet-reading-en)
 
 **先講邊界：我沒有飛過任何一台無人機，這篇不推薦機型。**
 

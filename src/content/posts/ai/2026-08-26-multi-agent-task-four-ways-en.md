@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-multi-agent-task-four-ways)
+> :globe: [中文版](/posts/ai/2026-08-26-multi-agent-task-four-ways)
 
 The previous post placed [Omnigent](https://github.com/omnigent-ai/omnigent) ([omnigent.ai](https://omnigent.ai/)), [Zed ACP](https://agentclientprotocol.com/), [Vercel HarnessAgent](https://vercel.com/changelog/use-acp-compatible-harnesses-with-the-ai-sdk-harness-layer) and [Cloudflare Flue](https://blog.cloudflare.com/agents-platform-flue-sdk/) into a four-layer model. This post gets concrete: one task, four implementations.
 

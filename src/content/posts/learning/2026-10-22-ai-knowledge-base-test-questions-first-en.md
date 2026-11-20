@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-ai-knowledge-base-test-questions-first)
+> :globe: [中文版](/posts/learning/2026-10-22-ai-knowledge-base-test-questions-first)
 
 A team connects its wiki to an AI assistant. Someone asks: "Who approves leave of more than three days?" The "Leave and time-off policy" page says it plainly: the department head. The AI answers "your direct manager can approve it." The page isn't wrong, and a person reading it wouldn't get this wrong; the problem is that the AI didn't read the page, it read one chunk of it after the page was cut up.
 

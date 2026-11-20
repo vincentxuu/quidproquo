@@ -25,7 +25,7 @@ glossary:
     definition: "本文用語，指一場比賽在國際體系裡的位置：奧運、世錦賽、世界系列賽、洲際賽、國內賽。等級決定誰能報名、算不算世界排名積分、能不能拿奧運門票。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-competitions-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-competitions-overview-en)
 
 2024 年巴黎奧運，很多人第一次在電視上看完一整場攀岩：選手在牆上一次次掉下來，比分板上的數字卻一直在跳。看完會冒出一串問題：這是誰辦的比賽？除了奧運還有什麼比賽？下一場什麼時候、去哪裡看？
 

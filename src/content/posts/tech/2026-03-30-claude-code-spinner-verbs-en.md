@@ -13,7 +13,7 @@ series:
   order: 28
 ---
 
-🌏 [中文版](/posts/tech/2026-03-30-claude-code-spinner-verbs)
+:globe: [中文版](/posts/tech/2026-03-30-claude-code-spinner-verbs)
 
 When you type a command in Claude Code, a spinning `✻` appears in the terminal next to a verb — sometimes the sensible `Thinking...`, sometimes the baffling `Flibbertigibbeting...`. How many of these verbs are there? How are they chosen? Can you change them? The fastest way to find out is to read the source code directly.
 

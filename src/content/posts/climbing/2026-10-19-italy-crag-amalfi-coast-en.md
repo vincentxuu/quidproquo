@@ -13,7 +13,7 @@ description: "A guide to climbing on the Amalfi Coast (Positano / Montepertuso):
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-amalfi-coast)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-amalfi-coast)
 
 The Amalfi Coast (Costiera Amalfitana) is the string of seaside towns along the southern side of the Sorrento peninsula, in the province of Salerno in Campania. Its climbing is concentrated around Positano: [Climbing Spot Factory](https://climbingspotfactory.com/en/climbadvisor/positano/info_about) says the crags are "all accessible on foot from a parking spot in the middle of the small town of Montepertuso". Montepertuso is a hamlet on the hillside above Positano, and the walls sit behind it around Monte Gambera; Planetmountain notes that from the Paretone you look down on Positano's tiers of houses and lanes.
 

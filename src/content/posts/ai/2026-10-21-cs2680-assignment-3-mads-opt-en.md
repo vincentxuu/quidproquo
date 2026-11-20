@@ -22,7 +22,7 @@ glossary:
     context: "One of Assignment 3's three metrics; time per solved task is divided by tasks solved the same way."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-21-cs2680-assignment-3-mads-opt)
+> :globe: [中文版](/posts/ai/2026-10-21-cs2680-assignment-3-mads-opt)
 
 **Video status: The course is not recorded.** This post is based on the public assignment page, the assignment slides, and the starter files; the worked examples are this site's additions, not an official solution. [Source notes](#course-video-sources)
 

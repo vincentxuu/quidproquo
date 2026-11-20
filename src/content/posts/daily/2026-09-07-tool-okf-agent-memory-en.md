@@ -12,7 +12,7 @@ series:
   order: 23
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-07-tool-okf-agent-memory)
+> :globe: [中文版](/posts/daily/2026-09-07-tool-okf-agent-memory)
 
 ## Tool Info
 

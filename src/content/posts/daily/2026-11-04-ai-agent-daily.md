@@ -12,7 +12,7 @@ series:
   order: 81
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-04-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-04-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -136,13 +136,13 @@ caption: 模型層的一分之差幾乎可忽略；安全層的轉換成本在�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent GitHub Digest — 2026-11-04](/posts/daily/2026-11-04-ai-agent-github-digest)
-- 📄 [框架更新｜Pydantic AI v2.65.0](/posts/daily/2026-11-04-framework-pydantic-ai-v2.65.0)
-- 📄 [融資速報｜Tutor Intelligence Series B $75M](/posts/daily/2026-11-04-funding-tutor-intelligence)
-- 📄 [定價追蹤｜Gemini 2.5 Pro／Flash 補上 Developer API 停用日](/posts/daily/2026-11-04-pricing-google-gemini-2-5-pro-flash-developer-api-sunset)
-- 📄 [工具推薦｜Verdict](/posts/daily/2026-11-04-tool-verdict)
-- 📄 [AI Engineer 面試日練 — 2026-11-04](/posts/daily/2026-11-04-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-11-04](/posts/daily/2026-11-04-product-builder-interview-daily)
+- :file: [AI Agent GitHub Digest — 2026-11-04](/posts/daily/2026-11-04-ai-agent-github-digest)
+- :file: [框架更新｜Pydantic AI v2.65.0](/posts/daily/2026-11-04-framework-pydantic-ai-v2.65.0)
+- :file: [融資速報｜Tutor Intelligence Series B $75M](/posts/daily/2026-11-04-funding-tutor-intelligence)
+- :file: [定價追蹤｜Gemini 2.5 Pro／Flash 補上 Developer API 停用日](/posts/daily/2026-11-04-pricing-google-gemini-2-5-pro-flash-developer-api-sunset)
+- :file: [工具推薦｜Verdict](/posts/daily/2026-11-04-tool-verdict)
+- :file: [AI Engineer 面試日練 — 2026-11-04](/posts/daily/2026-11-04-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-11-04](/posts/daily/2026-11-04-product-builder-interview-daily)
 
 ## 明日關注
 

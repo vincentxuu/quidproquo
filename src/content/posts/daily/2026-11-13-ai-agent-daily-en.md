@@ -12,7 +12,7 @@ series:
   order: 90
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-13-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-13-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -169,19 +169,19 @@ Today's search also covered Taiwan, Japan/Korea (Japan is covered under Regulati
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-13](/posts/daily/2026-11-13-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-13](/posts/daily/2026-11-13-ai-agent-github-digest-en)
-- 📄 [Framework Update: Agno v3.2.0](/posts/daily/2026-11-13-framework-agno-v3.2.0-en)
-- 📄 [Funding Brief: LangChain Series C $300M](/posts/daily/2026-11-13-funding-langchain-en)
-- 📄 [Funding Brief: Mirendil Series A $1B](/posts/daily/2026-11-13-funding-mirendil-en)
-- 📄 [Funding Brief: Rox Series B $100M](/posts/daily/2026-11-13-funding-rox-en)
-- 📄 [Model Card: Gemini Decision 1](/posts/daily/2026-11-13-model-google-gemini-decision-1-en)
-- 📄 [Pricing Tracker: Claude Fable 5.2 Replaces 5.1, API Prices Cut 20%](/posts/daily/2026-11-13-pricing-anthropic-claude-fable-5-2-price-cut-en)
-- 📄 [Security Alert: AntiFox Pentest Agent Used in Real Intrusions](/posts/daily/2026-11-13-security-antifox-pentest-aws-secret-theft-en)
-- 📄 [Tool Pick: 0 — Open-Source AI Security Harness](/posts/daily/2026-11-13-tool-0security-en)
-- 📄 [Benchmark Shift: Arena Agent and CursorBench Reshuffle the Same Week](/posts/daily/2026-11-13-benchmark-arena-cursorbench-fable-5-2-en)
-- 📄 [AI Engineer Interview Daily — 2026-11-13: Coding](/posts/daily/2026-11-13-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-11-13: Growth & Experimentation](/posts/daily/2026-11-13-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-13](/posts/daily/2026-11-13-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-13](/posts/daily/2026-11-13-ai-agent-github-digest-en)
+- :file: [Framework Update: Agno v3.2.0](/posts/daily/2026-11-13-framework-agno-v3.2.0-en)
+- :file: [Funding Brief: LangChain Series C $300M](/posts/daily/2026-11-13-funding-langchain-en)
+- :file: [Funding Brief: Mirendil Series A $1B](/posts/daily/2026-11-13-funding-mirendil-en)
+- :file: [Funding Brief: Rox Series B $100M](/posts/daily/2026-11-13-funding-rox-en)
+- :file: [Model Card: Gemini Decision 1](/posts/daily/2026-11-13-model-google-gemini-decision-1-en)
+- :file: [Pricing Tracker: Claude Fable 5.2 Replaces 5.1, API Prices Cut 20%](/posts/daily/2026-11-13-pricing-anthropic-claude-fable-5-2-price-cut-en)
+- :file: [Security Alert: AntiFox Pentest Agent Used in Real Intrusions](/posts/daily/2026-11-13-security-antifox-pentest-aws-secret-theft-en)
+- :file: [Tool Pick: 0 — Open-Source AI Security Harness](/posts/daily/2026-11-13-tool-0security-en)
+- :file: [Benchmark Shift: Arena Agent and CursorBench Reshuffle the Same Week](/posts/daily/2026-11-13-benchmark-arena-cursorbench-fable-5-2-en)
+- :file: [AI Engineer Interview Daily — 2026-11-13: Coding](/posts/daily/2026-11-13-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-11-13: Growth & Experimentation](/posts/daily/2026-11-13-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

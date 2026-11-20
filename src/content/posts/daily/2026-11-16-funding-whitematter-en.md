@@ -12,7 +12,7 @@ series:
   order: 138
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-16-funding-whitematter)
+> :globe: [中文版](/posts/daily/2026-11-16-funding-whitematter)
 
 ## Funding details
 

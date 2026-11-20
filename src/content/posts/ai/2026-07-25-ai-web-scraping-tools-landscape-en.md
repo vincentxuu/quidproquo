@@ -22,7 +22,7 @@ glossary:
     context: "curl_cffi and CloakBrowser bypass anti-bot detection by spoofing TLS fingerprints."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-07-25-ai-web-scraping-tools-landscape)
+> :globe: [中文版](/posts/ai/2026-07-25-ai-web-scraping-tools-landscape)
 
 "Scraping data for AI" has spawned an entire tool ecosystem. From [MarkItDown](https://github.com/microsoft/markitdown) at 175k stars to various niche tools in the low thousands, at least 34 active projects on GitHub address this problem. This article categorizes them along five axes — whole-site crawling, AI browser agents, document conversion, smart extraction, and anti-detection infrastructure — to help you pick the right tool for your scenario instead of building a scraper from scratch.
 

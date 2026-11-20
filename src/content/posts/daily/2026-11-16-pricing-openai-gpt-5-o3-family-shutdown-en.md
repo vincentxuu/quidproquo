@@ -12,7 +12,7 @@ series:
   order: 37
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-16-pricing-openai-gpt-5-o3-family-shutdown)
+> :globe: [中文版](/posts/daily/2026-11-16-pricing-openai-gpt-5-o3-family-shutdown)
 
 ## What changed
 
@@ -76,7 +76,7 @@ After the increase, `gpt-6.1-terra` ($1.00/$5.00) costs more than three times `g
 
 ## Time-sensitive note
 
-⚠️ **Shutdown date**: December 11, 2026. `gpt-5`, `gpt-5-mini`, `gpt-5-nano`, `gpt-5-pro`, `o3`, `o3-pro`, and every snapshot and fine-tune built on them will stop accepting requests. Migration guide: [GPT-6 migration guide](https://developers.openai.com/api/docs/guides/latest-model#gpt-6-astra-migration-quickstart).
+:warning: **Shutdown date**: December 11, 2026. `gpt-5`, `gpt-5-mini`, `gpt-5-nano`, `gpt-5-pro`, `o3`, `o3-pro`, and every snapshot and fine-tune built on them will stop accepting requests. Migration guide: [GPT-6 migration guide](https://developers.openai.com/api/docs/guides/latest-model#gpt-6-astra-migration-quickstart).
 
 ## Today's takeaway
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-elysia-web-framework)
+> :globe: [中文版](/posts/tech/2026-08-22-elysia-web-framework)
 
 [Elysia](https://elysiajs.com/) is a TypeScript web framework designed primarily around Bun while providing runtime adapters for Node.js and other targets. Its important property is not one benchmark result, but a contract pipeline connecting routing, runtime validation, type inference, OpenAPI, and typed clients.
 

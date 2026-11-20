@@ -11,7 +11,7 @@ series:
   order: 93
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-16-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-16-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### backnotprop/plannotator ⭐ 11,728 (+860/24h)
+### backnotprop/plannotator ★ 11,728 (+860/24h)
 
 [GitHub](https://github.com/backnotprop/plannotator)　·　TypeScript　·　Apache-2.0
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### callstack/agent-device ⭐ 5,403
+### callstack/agent-device ★ 5,403
 
 [GitHub](https://github.com/callstack/agent-device)　·　TypeScript　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### kody-hq/kody ⭐ 961
+### kody-hq/kody ★ 961
 
 [GitHub](https://github.com/kody-hq/kody)　·　TypeScript　·　授權：Other（GitHub 判定為 NOASSERTION，非標準開源授權）
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 45
 ---
-> 🌏 [English version](/posts/daily/2026-07-08-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-08-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -128,7 +128,7 @@ AgentGym2 給 agent 一個「基礎工具箱」，涵蓋 5 大類別（網頁瀏
 - Ant Group 背景意味論文設計考慮了高並發、合規（軌跡脫敏）等企業現實需求，比純學術系統更接地氣
 - 與現有工具的關聯：LangSmith / Langfuse 可視為 data proxy 的早期形態；AutoGen 的 conversation logging 可延伸為 trajectory 資料協定的基礎
 - 此為 v2（2026-07-02），顯示社群回饋已促成修訂，值得持續追蹤後續版本
-- Limitation：目前偏向「系統設計論文」，缺乏大規模端到端實驗數字；5 種更新路徑的互動與衝突處理尚未充分描述 **⚠️**
+- Limitation：目前偏向「系統設計論文」，缺乏大規模端到端實驗數字；5 種更新路徑的互動與衝突處理尚未充分描述 **:warning:**
 
 ### Reviewer 一句話評
 
@@ -153,7 +153,7 @@ AgentGym2 給 agent 一個「基礎工具箱」，涵蓋 5 大類別（網頁瀏
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 對 agent 平台技能管理機制感興趣，或你在做特定領域的 agentic workflow，這篇提供一個具體可行的落地設計範例。若關注點是通用 agent，先讀摘要即可。
 
 ### 領域背景
@@ -178,12 +178,12 @@ ComfyClaw 設計了「漸進揭露技能庫（progressively disclosed skill libr
 ### 深入要點
 
 - 技能蒸餾三個輸入：軌跡（trajectories）、執行錯誤（execution errors）、verifier 回饋——三者同時考慮讓技能更健壯
-- 在 4 個 benchmark splits、3 個 agent 模型、2 個圖像 backbone 下，ComfyClaw 在全部 6 種 agent 配置中均達到最佳平均評測分 **⚠️**（內部評測，尚無外部獨立驗證）
+- 在 4 個 benchmark splits、3 個 agent 模型、2 個圖像 backbone 下，ComfyClaw 在全部 6 種 agent 配置中均達到最佳平均評測分 **:warning:**（內部評測，尚無外部獨立驗證）
 - 人工標注實驗顯示標注者偏好 ComfyClaw 勝過無技能進化版本，與自動指標方向一致
 - 「漸進揭露」的關鍵：並非一次把所有技能塞給 agent，而是依任務情境動態選取相關技能，避免 context 爆炸
 - 與 LangGraph 的關聯：LangGraph 的 subgraph/node 概念可視為 skill harness 的基礎單元，ComfyClaw 的 skill library 可理解為動態管理這些節點的元層
 - Limitation：目前僅驗證於圖像生成這一領域，能否泛化到程式碼生成、資料分析等場景尚未驗證；verifier 設計依賴視覺評估，文字任務需重新設計
-- 技能庫的「冷啟動問題」（沒有歷史記錄時的 bootstrapping 策略）論文著墨不多 **⚠️**
+- 技能庫的「冷啟動問題」（沒有歷史記錄時的 bootstrapping 策略）論文著墨不多 **:warning:**
 
 ### Reviewer 一句話評
 

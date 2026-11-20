@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 58
 ---
-> 🌏 [English version](/posts/daily/2026-07-21-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-21-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -74,7 +74,7 @@ SearchOS 提出 SOCM（Search-Oriented Context Management，搜尋導向上下�
 - Hierarchical skill system（階層式技能系統）讓搜尋子任務可封裝成可重用技能，降低 prompt engineering 重複工作
 - 評估 benchmark：WideSearch 和 GISA 兩個開放域資訊搜尋基準
 - 結果：WideSearch F1 提升 4.3 分，端到端搜尋時間縮短 24.3%，在所有 single- 和 multi-agent baseline 中表現最佳
-- ⚠️ WideSearch 是 Ant Group 相關機構的資料集，存在自家測試集偏差風險；GISA 為外部 benchmark，結果較具參考性
+- :warning: WideSearch 是 Ant Group 相關機構的資料集，存在自家測試集偏差風險；GISA 為外部 benchmark，結果較具參考性
 - Limitation：系統需要預先定義 schema 結構，對完全開放式任務的 schema 自動生成尚未深入討論
 
 ### Reviewer 一句話評
@@ -100,7 +100,7 @@ SearchOS 提出 SOCM（Search-Oriented Context Management，搜尋導向上下�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 做 AI for science、文獻分析自動化、或想了解「如何把複雜領域任務拆成 agent pipeline」的讀者值得一看。純 agent 平台工程師可選讀。
 
 ### 領域背景
@@ -137,9 +137,9 @@ AutoSynthesis 把流程拆成 8 個 agent 階段，逐步處理：
 - 產出的 Hedges' g 效果量與人工進行的同主題 meta-analysis 結果接近，顯示系統統計步驟正確性
 - 系統支援異質性分析（Heterogeneity analysis）：自動探索哪些因素讓效果量在不同研究間產生差異
 - 並支援 risk-of-bias 評估（研究偏誤風險評分），接近完整的 PRISMA 規範輸出
-- ⚠️ 論文只提供一個案例研究（最終納入 N=8 篇論文），缺乏大規模 benchmark，系統泛化性尚待驗證
+- :warning: 論文只提供一個案例研究（最終納入 N=8 篇論文），缺乏大規模 benchmark，系統泛化性尚待驗證
 - 與現有框架的關係：pipeline 架構類似 LangGraph 的 sequential graph，但領域知識（PRISMA 規則、Hedges' g 計算）hardcoded 到 prompt，遷移到其他領域需重新設計
-- ⚠️ 對非英文文獻的支援，以及無法取得全文 PDF 的情況，論文未明確說明處理方式
+- :warning: 對非英文文獻的支援，以及無法取得全文 PDF 的情況，論文未明確說明處理方式
 
 ### Reviewer 一句話評
 
@@ -165,7 +165,7 @@ RLHF 訓練讓 LLM 太「溫和」，無法扮演立場鮮明的政黨談判者�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 對 agent persona 工程、DPO 微調應用、或 multi-agent 協商系統有興趣的讀者值得一看。「如何讓 agent 在壓力下不偏離預設人設」是許多產品都會遇到的問題。
 
 ### 領域背景
@@ -196,10 +196,10 @@ RLHF 訓練讓 LLM 太「溫和」，無法扮演立場鮮明的政黨談判者�
 - DPO 在這裡的作用不是讓 LLM「更好用」，而是讓它「更頑固」——這是 DPO 被用於 agent persona 工程的少見案例，提供了一個反向應用思路
 - Per-party RAG 確保每個 agent 的立場有事實依據（官方黨綱），而非 LLM 的推斷或 hallucination，這是 RAG-grounded persona 的示範
 - Hub-and-spoke 架構讓所有協商溝通都經過 formateur agent，方便完整記錄談判軌跡，是可審計（auditable）的 multi-agent 設計
-- ⚠️ 只有一個 case study（2019 年法蘭德斯選舉），SFT/DPO 訓練資料的來源與規模在論文中描述較簡略
+- :warning: 只有一個 case study（2019 年法蘭德斯選舉），SFT/DPO 訓練資料的來源與規模在論文中描述較簡略
 - 與現有框架的關聯：DPO persona 工程可套用在任何「需要 agent 角色堅守立場」的場景；RAG-grounded persona 是對抗 LLM 立場漂移的低成本手段
 - 落地門檻：需要有品質的 DPO 訓練配對資料（正例 vs 負例），資料準備是最大難題；RAG 部分相對門檻較低
-- ⚠️ 論文缺乏量化對照實驗（例如 DPO 前後的立場維持率比較），主要是定性分析，結論請謹慎外推
+- :warning: 論文缺乏量化對照實驗（例如 DPO 前後的立場維持率比較），主要是定性分析，結論請謹慎外推
 
 ### Reviewer 一句話評
 

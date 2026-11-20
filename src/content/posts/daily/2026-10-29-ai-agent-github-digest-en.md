@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-skills, multi-agent, security]
 lang: en
 description: "GitHub trending today is dominated by skills that teach coding agents not to look AI-made, while crewAI quietly patched three security holes"
-tldr: "**obra/superpowers** (⭐ 307,258, +1,096 today) and **Nutlope/hallmark** (⭐ 40,442, +2,109 today) both hit GitHub trending the same day, each teaching a coding agent not to produce output that reads as obviously AI-made; **nightly-labs/openbot** (⭐ 3,097) manages a fleet of agents from one desktop app, and **expo/skills** is an official framework team shipping its own skill pack. On the release side, pydantic-ai v2.63.0 ships a batch of compatibility changes, and crewAI v1.15.31 patches deserialization, SQL injection, and path traversal vulnerabilities."
+tldr: "**obra/superpowers** (★ 307,258, +1,096 today) and **Nutlope/hallmark** (★ 40,442, +2,109 today) both hit GitHub trending the same day, each teaching a coding agent not to produce output that reads as obviously AI-made; **nightly-labs/openbot** (★ 3,097) manages a fleet of agents from one desktop app, and **expo/skills** is an official framework team shipping its own skill pack. On the release side, pydantic-ai v2.63.0 ships a batch of compatibility changes, and crewAI v1.15.31 patches deserialization, SQL injection, and path traversal vulnerabilities."
 series:
   name: "AI Agent GitHub Digest"
   order: 75
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-29-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-29-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Today's GitHub trending list is dominated by skills that teach agents taste — 
 
 ## Trending Repos
 
-### obra/superpowers ⭐ 307,258 (+1,096)
+### obra/superpowers ★ 307,258 (+1,096)
 
 [GitHub](https://github.com/obra/superpowers) · Shell · MIT
 
@@ -30,18 +30,18 @@ Today's GitHub trending list is dominated by skills that teach agents taste — 
 
 ---
 
-### Nutlope/hallmark ⭐ 40,442 (+2,109)
+### Nutlope/hallmark ★ 40,442 (+2,109)
 
 [GitHub](https://github.com/Nutlope/hallmark) · CSS · MIT
 
 - **What it is**: A design skill for Claude Code, Codex, Cursor, and OpenCode built specifically to catch the tells that make a page read as AI-generated — the eyebrow line above a heading, tracked-capital labels on every title, exactly one colored word in a headline, a hero section with nothing but a photo. It renders the page in a real browser across 50 theme "materials," lints it against those tells, then hands the result to a fresh-context reviewer agent for a final pass.
-- **Why it matters**: Compare it with pbakaus/impeccable (⭐ 92,240, +1,471 today), which hit trending the same day going the "design vocabulary plus review language" route — hallmark picks a more concrete approach: 50 theme materials each tied to real screenshots, 755 licensed photos, and a three-tier gate system (Floor hard-blocks, Reflex blocks by default but can be overridden on the record with a reason, Finish is detail notes that never block). Built by Together AI, it gained 2,109 stars in a day, a sign that "giving an agent's taste a floor" is becoming table stakes rather than a nice-to-have.
+- **Why it matters**: Compare it with pbakaus/impeccable (★ 92,240, +1,471 today), which hit trending the same day going the "design vocabulary plus review language" route — hallmark picks a more concrete approach: 50 theme materials each tied to real screenshots, 755 licensed photos, and a three-tier gate system (Floor hard-blocks, Reflex blocks by default but can be overridden on the record with a reason, Finish is detail notes that never block). Built by Together AI, it gained 2,109 stars in a day, a sign that "giving an agent's taste a floor" is becoming table stakes rather than a nice-to-have.
 - **Tech stack**: A Claude/Codex/Cursor skill (SKILL.md plus reference files) + Node.js scripts (`theme.mjs`, `sloplint.mjs`) for theme selection and browser-rendering checks
 - **Getting started**: Easy — once installed, run `/hallmark` to build a page; `/hallmark audit <path>` runs an audit only, without making changes
 
 ---
 
-### nightly-labs/openbot ⭐ 3,097 (+1,053)
+### nightly-labs/openbot ★ 3,097 (+1,053)
 
 [GitHub](https://github.com/nightly-labs/openbot) · TypeScript · PolyForm Noncommercial 1.0.0
 
@@ -52,7 +52,7 @@ Today's GitHub trending list is dominated by skills that teach agents taste — 
 
 ---
 
-### expo/skills ⭐ 3,482 (+212)
+### expo/skills ★ 3,482 (+212)
 
 [GitHub](https://github.com/expo/skills) · Shell · MIT
 

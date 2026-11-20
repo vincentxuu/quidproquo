@@ -17,7 +17,7 @@ glossary:
     def: "蚂蚁集團聯合中金公司開發的金融評測基準，50+ 金融專業人士參與設計，從結果、過程與證據三層面評估答案準確性與可追溯性"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-19-model-ant-group-ling-3-0-flash-fin-en)
+> :globe: [English version](/posts/daily/2026-09-19-model-ant-group-ling-3-0-flash-fin-en)
 
 ## 模型資訊
 
@@ -59,7 +59,7 @@ Ling-3.0-flash-Fin 在以下金融智慧體基準上進行了測試（官方未�
 | **SpreadsheetBench** | 試算表操作與估值建模 |
 | **τ³-Banking** | 銀行業務應用 |
 
-⚠️ 官方僅定性描述「在多項金融基準上展現較强競爭力」，未公佈完整量化分數表。FinFIRST 將於近期開源，為金融搜索領域提供透明基準。模型在 AA Intelligence Index v4.1.1 的 41 分為目前唯一公開的量化指標。
+:warning: 官方僅定性描述「在多項金融基準上展現較强競爭力」，未公佈完整量化分數表。FinFIRST 將於近期開源，為金融搜索領域提供透明基準。模型在 AA Intelligence Index v4.1.1 的 41 分為目前唯一公開的量化指標。
 
 ## 與 Ling 3.0 系列比較
 

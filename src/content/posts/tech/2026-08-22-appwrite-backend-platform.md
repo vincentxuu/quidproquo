@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-appwrite-backend-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-appwrite-backend-platform-en)
 
 [Appwrite](https://appwrite.io/docs) 是開源 BaaS，提供 Auth、Databases/TablesDB、Storage、Functions、Realtime、Messaging 與 Sites，並以 client/server SDK、REST、GraphQL 和 WebSocket 暴露能力。可使用 Appwrite Cloud，也能部署同一產品線到自有基礎設施。
 

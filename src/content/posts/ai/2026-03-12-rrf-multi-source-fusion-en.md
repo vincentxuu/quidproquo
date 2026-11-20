@@ -14,7 +14,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rrf-multi-source-fusion)
+> :globe: [中文版](/posts/ai/2026-03-12-rrf-multi-source-fusion)
 
 RAG systems are growing increasingly complex, and so are the sources of search results:
 

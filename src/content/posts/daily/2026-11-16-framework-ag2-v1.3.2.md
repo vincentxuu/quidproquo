@@ -12,7 +12,7 @@ series:
   order: 67
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-16-framework-ag2-v1.3.2-en)
+> :globe: [English version](/posts/daily/2026-11-16-framework-ag2-v1.3.2-en)
 
 ## 版本資訊
 

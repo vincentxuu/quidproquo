@@ -24,7 +24,7 @@ glossary:
     context: "GenAI02 slide 52 uses it to explain why neural networks are a \"nearly all-powerful black-box function learner.\""
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-02-neural-networks)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-02-neural-networks)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

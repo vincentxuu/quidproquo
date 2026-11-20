@@ -16,7 +16,7 @@ description: "Stanford CS224W: Machine Learning with Graphs 完整導讀——�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs-en)
+> :globe: [English version](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

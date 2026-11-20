@@ -11,7 +11,7 @@ series:
   order: 64
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-27-security-inc-gentlemen-phantom-mcp-ransomware)
+> :globe: [中文版](/posts/daily/2026-10-27-security-inc-gentlemen-phantom-mcp-ransomware)
 
 ## Incident Overview
 

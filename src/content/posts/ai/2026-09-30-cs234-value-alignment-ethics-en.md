@@ -26,7 +26,7 @@ glossary:
     context: "The bottom-up extension in Part II of the CS234 ethics guest lecture."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-value-alignment-ethics)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-value-alignment-ethics)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ description: "A Chiang Dao climbing guide: routes and grades at the Pha Daeng ma
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-thailand-crag-chiang-dao)
+> :globe: [中文版](/posts/climbing/2026-10-21-thailand-crag-chiang-dao)
 
 Chiang Dao is a limestone mountain almost 2,000 metres high, directly north of Chiang Mai, with the town of the same name at its foot. The climbing sits on a band of walls on the mountain's southeast flank. theCrag logged 61 routes there on 21 October 2026, graded 5b to 8a+, and 30 of them on the main wall, Padaeng.
 

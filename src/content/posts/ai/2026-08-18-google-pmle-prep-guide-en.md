@@ -13,7 +13,7 @@ description: "A preparation guide for the Google Professional Machine Learning E
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-google-pmle-prep-guide)
+> :globe: [中文版](/posts/ai/2026-08-18-google-pmle-prep-guide)
 >
 > This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the [official exam guide](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf), and every "how to prepare" points to an official learning path or Google Cloud documentation. No leaked questions. Verified 2026-08-18.
 

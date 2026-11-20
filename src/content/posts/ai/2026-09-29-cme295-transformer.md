@@ -30,7 +30,7 @@ glossary:
     context: "原始 Transformer 論文用它提高翻譯的 BLEU 分數。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-transformer-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-transformer-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

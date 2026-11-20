@@ -30,7 +30,7 @@ glossary:
     context: "L2 uses Intel Hyper-threading (2 threads per core) as the example."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

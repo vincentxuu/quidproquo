@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-13-benchmark-arena-cursorbench-fable-5-2-en)
+> :globe: [English version](/posts/daily/2026-11-13-benchmark-arena-cursorbench-fable-5-2-en)
 
 ## 異動摘要
 
@@ -24,9 +24,9 @@ series:
 
 | 排名 | 模型 | 分數 | 95% CI | 11-04 分數（名次） | 變化 |
 |---|---|---|---|---|---|
-| 🥇 | Claude Fable 5.2（Max） | 30.35% | [26.42%, 34.28%] | 新上榜 | 🆕 |
-| 🥈 | Claude Opus 5.5（Max） | 19.52% | [17.49%, 21.54%] | 20.14%（1） | ↓1 |
-| 🥉 | Gemini 4 Carbon（High） | 16.98% | [16.29%, 17.66%] | 16.72%（2） | ↓1 |
+| 1 | Claude Fable 5.2（Max） | 30.35% | [26.42%, 34.28%] | 新上榜 | NEW|
+| 2 | Claude Opus 5.5（Max） | 19.52% | [17.49%, 21.54%] | 20.14%（1） | ↓1 |
+| 3 | Gemini 4 Carbon（High） | 16.98% | [16.29%, 17.66%] | 16.72%（2） | ↓1 |
 | 4 | Claude Sonnet 5.5（Max） | 15.95% | [13.13%, 18.77%] | 15.42%（3） | ↓1 |
 | 5 | Claude Fable 5.1（Max） | 14.82% | [12.76%, 16.88%] | 13.86%（5） | — |
 | 6 | GPT-6 Astra（Max） | 14.54% | [12.52%, 16.55%] | 14.70%（4） | ↓2 |
@@ -37,10 +37,10 @@ series:
 
 | 排名 | 模型 | 分數 | 單次任務成本 | 輸出 token 中位數 | 11-08 分數（名次） | 變化 |
 |---|---|---|---|---|---|---|
-| 🥇 | Gemini 4 Carbon（High） | 60.4% | $9.22 | 39,960 | 新上榜 | 🆕 |
-| 🥈 | Gemini 4 Carbon（Medium） | 60.1% | $8.49 | 37,067 | 新上榜 | 🆕 |
-| 🥉 | Claude Fable 5.2（Max） | 60.0% | $32.79 | 352,794 | 新上榜 | 🆕 |
-| 4 | Gemini 4 Carbon（Low） | 58.6% | $11.89 | 42,663 | 新上榜 | 🆕 |
+| 1 | Gemini 4 Carbon（High） | 60.4% | $9.22 | 39,960 | 新上榜 | NEW|
+| 2 | Gemini 4 Carbon（Medium） | 60.1% | $8.49 | 37,067 | 新上榜 | NEW|
+| 3 | Claude Fable 5.2（Max） | 60.0% | $32.79 | 352,794 | 新上榜 | NEW|
+| 4 | Gemini 4 Carbon（Low） | 58.6% | $11.89 | 42,663 | 新上榜 | NEW|
 | 5 | Claude Opus 5.5（Max） | 57.8% | $13.43 | 218,363 | 57.8%（1） | ↓4 |
 
 來源：[CursorBench](https://cursor.com/cursorbench) · 抓取日期：2026-11-13 · 11-08 數字取自前次內部快照記錄（當時前五名皆為 Opus 5.5／Sonnet 5.5 各效力等級，Changelog 最後一筆仍是 10-07 定價調整）
@@ -55,7 +55,7 @@ SWE-bench Verified 前五名分數與名次跟上次完全相同（79.2／79.2�
 
 ### 方法論面
 
-Arena Agent 這次的分數可信度值得特別記錄：Fable 5.2 的樣本量（session_count 4,731）其實是目前前六名裡最小的（Opus 5.5 有 14,549、Carbon 有 60,568、Sonnet 5.5 有 8,750），信賴區間也因此是六者裡最寬的（[26.42%, 34.28%]，寬 7.86 個百分點）。但即使區間最寬，它的下界（26.42%）仍遠高於第二名 Opus 5.5 的區間上界（21.54%），兩者完全不重疊——這跟本系列之前好幾篇「第一到第五名信賴區間互相疊在一起、名次分不出來」的情況不一樣，這次的第一名變動統計上是站得住的。⚠️ CursorBench 則是另一個故事：這是 Cursor 自家跑的評測（雖然評的是各家模型，不只是自己的產品），官方沒有公布信賴區間或重跑變異量，第一名（60.4%）跟第三名（60.0%）只差 0.4 個百分點，每個模型的任務樣本量也只有 67 到 218 筆——業界報導（如 [AlphaSignal](https://alphasignal.ai/news/google-s-gemini-4-carbon-tops-cursor-s-coding-benchmark-at-half-the-price)）也點出「這個 0.4 分差距不足以確立決定性的準確度優勢」。換句話說，CursorBench 上的「冠軍」比 Arena Agent 上的「冠軍」弱得多。
+Arena Agent 這次的分數可信度值得特別記錄：Fable 5.2 的樣本量（session_count 4,731）其實是目前前六名裡最小的（Opus 5.5 有 14,549、Carbon 有 60,568、Sonnet 5.5 有 8,750），信賴區間也因此是六者裡最寬的（[26.42%, 34.28%]，寬 7.86 個百分點）。但即使區間最寬，它的下界（26.42%）仍遠高於第二名 Opus 5.5 的區間上界（21.54%），兩者完全不重疊——這跟本系列之前好幾篇「第一到第五名信賴區間互相疊在一起、名次分不出來」的情況不一樣，這次的第一名變動統計上是站得住的。:warning: CursorBench 則是另一個故事：這是 Cursor 自家跑的評測（雖然評的是各家模型，不只是自己的產品），官方沒有公布信賴區間或重跑變異量，第一名（60.4%）跟第三名（60.0%）只差 0.4 個百分點，每個模型的任務樣本量也只有 67 到 218 筆——業界報導（如 [AlphaSignal](https://alphasignal.ai/news/google-s-gemini-4-carbon-tops-cursor-s-coding-benchmark-at-half-the-price)）也點出「這個 0.4 分差距不足以確立決定性的準確度優勢」。換句話說，CursorBench 上的「冠軍」比 Arena Agent 上的「冠軍」弱得多。
 
 ### 產業面
 

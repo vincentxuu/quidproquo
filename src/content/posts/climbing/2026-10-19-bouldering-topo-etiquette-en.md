@@ -34,7 +34,7 @@ glossary:
     context: "It maps roughly to US V grades; Mountain Project's chart puts V3 at 6A."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-bouldering-topo-etiquette)
+> :globe: [中文版](/posts/climbing/2026-10-19-bouldering-topo-etiquette)
 
 Gym problems are colour-coded: holds of one colour make a problem, the start holds are taped, and the last hold says TOP. Outside, the rock has none of that. You stand in front of a three-metre boulder with a photo on your phone showing a few lines and "V3 (sds)", and you still don't know which hold to start on.
 

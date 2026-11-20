@@ -12,7 +12,7 @@ series:
   order: 95
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-18-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-18-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -145,18 +145,18 @@ caption: 案例與數字來自 OpenAI、Microsoft Azure Blog、今日 Arxiv Dige
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-18](/posts/daily/2026-11-18-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-18](/posts/daily/2026-11-18-ai-agent-github-digest)
-- 📄 [模型卡｜Qwen4-Max](/posts/daily/2026-11-18-model-qwen-qwen4-max)
-- 📄 [框架更新｜Agno v3.2.1](/posts/daily/2026-11-18-framework-agno-v3.2.1)
-- 📄 [框架更新｜Pydantic AI v2.69.0](/posts/daily/2026-11-18-framework-pydantic-ai-v2.69.0)
-- 📄 [融資速報｜LanceDB Series B $57.5M](/posts/daily/2026-11-18-funding-lancedb)
-- 📄 [融資速報｜Model ML Series B $250M](/posts/daily/2026-11-18-funding-model-ml)
-- 📄 [融資速報｜Remanence 種子輪 $30M](/posts/daily/2026-11-18-funding-remanence)
-- 📄 [資安警報｜Cairn 開源滲透框架接上 GLM／DeepSeek](/posts/daily/2026-11-18-security-cairn-china-nexus-ai-pentest-breach)
-- 📄 [工具推薦｜pulsar](/posts/daily/2026-11-18-tool-pulsar)
-- 📄 [AI Engineer 面試日練 — 2026-11-18](/posts/daily/2026-11-18-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-11-18](/posts/daily/2026-11-18-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-18](/posts/daily/2026-11-18-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-18](/posts/daily/2026-11-18-ai-agent-github-digest)
+- :file: [模型卡｜Qwen4-Max](/posts/daily/2026-11-18-model-qwen-qwen4-max)
+- :file: [框架更新｜Agno v3.2.1](/posts/daily/2026-11-18-framework-agno-v3.2.1)
+- :file: [框架更新｜Pydantic AI v2.69.0](/posts/daily/2026-11-18-framework-pydantic-ai-v2.69.0)
+- :file: [融資速報｜LanceDB Series B $57.5M](/posts/daily/2026-11-18-funding-lancedb)
+- :file: [融資速報｜Model ML Series B $250M](/posts/daily/2026-11-18-funding-model-ml)
+- :file: [融資速報｜Remanence 種子輪 $30M](/posts/daily/2026-11-18-funding-remanence)
+- :file: [資安警報｜Cairn 開源滲透框架接上 GLM／DeepSeek](/posts/daily/2026-11-18-security-cairn-china-nexus-ai-pentest-breach)
+- :file: [工具推薦｜pulsar](/posts/daily/2026-11-18-tool-pulsar)
+- :file: [AI Engineer 面試日練 — 2026-11-18](/posts/daily/2026-11-18-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-11-18](/posts/daily/2026-11-18-product-builder-interview-daily)
 
 ## 明日關注
 

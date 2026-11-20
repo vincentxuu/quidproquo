@@ -20,7 +20,7 @@ glossary:
     def: "DeepSeek's speculative decoding module, built into V4 to accelerate inference."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-ai-model-family-deepseek)
+> :globe: [中文版](/posts/tech/2026-08-24-ai-model-family-deepseek)
 
 In August 2026, DeepSeek V4 Flash led OpenRouter usage with 11.6T processed tokens. DeepSeek-R1 had Hugging Face's highest text-generation like count at 13,585. Every model uses the MIT license. In two and a half years, this Chinese team moved from copying Llama-2 to a distinct technical path: not the largest scale, but the smartest architecture. This article traces V1 through V4, the R1 reasoning branch, the core architectural innovations, and version selection.
 

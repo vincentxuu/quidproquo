@@ -11,7 +11,7 @@ description: "A guide to Stanford CS124 Winter 2026 Week 6: how a neural unit co
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs124-week6-neural-networks-llms)
+> :globe: [中文版](/posts/ai/2026-08-22-cs124-week6-neural-networks-llms)
 
 This is Week 6 of [Reading Stanford CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en). The parts from the first five weeks come together here: stack Week 3's logistic regression into layers, feed it Week 5's word vectors, train it on Week 2's objective of predicting the next word, and the result is a neural language model.
 

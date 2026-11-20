@@ -10,7 +10,7 @@ description: "A deep dive into notebooklm-py's technical internals: how it rever
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-05-notebooklm-py-unofficial-api)
+> :globe: [中文版](/posts/ai/2026-04-05-notebooklm-py-unofficial-api)
 
 notebooklm-py is currently the most complete unofficial Python API for Google NotebookLM. It's not just a simple scraper or Selenium wrapper — it directly reverse-engineers Google's internal RPC protocol, enabling programmatic access to all of NotebookLM's features, including capabilities that the web UI doesn't even expose.
 

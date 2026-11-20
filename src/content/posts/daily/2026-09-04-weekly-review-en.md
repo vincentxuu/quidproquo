@@ -14,7 +14,7 @@ series:
 
 <!-- [skip-harness] markdown prose, not code -->
 
-> 🌏 [中文版](/posts/daily/2026-09-04-weekly-review)
+> :globe: [中文版](/posts/daily/2026-09-04-weekly-review)
 
 ## Top 5 Things This Week
 

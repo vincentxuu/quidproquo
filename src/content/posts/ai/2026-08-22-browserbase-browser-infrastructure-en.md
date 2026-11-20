@@ -13,7 +13,7 @@ series:
   order: 20
 ---
 
-🌏 [中文版](/posts/ai/2026-08-22-browserbase-browser-infrastructure)
+:globe: [中文版](/posts/ai/2026-08-22-browserbase-browser-infrastructure)
 
 [Browserbase](https://docs.browserbase.com/platform/browser/getting-started/create-browser-session) is managed browser infrastructure. An application creates an isolated cloud Chromium instance through an API, then connects with Playwright, Puppeteer, Selenium, or the Chrome DevTools Protocol (CDP). Browserbase is not another agent that sees a page and plans what to do. It takes over the operational layer that teams routinely underestimate: browser provisioning and cleanup, login-state persistence, network identity, and replayable execution records.
 

@@ -26,7 +26,7 @@ glossary:
     context: "CS149 L12 的表格把它對應到 expert parallelism。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

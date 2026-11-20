@@ -13,7 +13,7 @@ description: "A guide to the Civetta north-west face: size and style, season, th
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-civetta)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-civetta)
 
 Civetta rises between Alleghe and Val di Zoldo in the province of Belluno, Veneto, with a main summit of 3,220 m. Its north-west face, facing Alleghe, runs from Cima Su Alto to Torre Coldai; [Le Dolomiti](https://ledolomiti.it/en/mountain-groups/civetta) says it is up to about 1,200 m high and that climbers call it "the wall of walls". [Planetmountain](https://www.planetmountain.com/en/routes/solleder-lettenbauer-civetta-dolomites.html) calls the 1925 route by Solleder and Lettenbauer "one of the legendary and most coveted routes in the entire Alpine arc".
 

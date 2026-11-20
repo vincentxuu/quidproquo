@@ -22,7 +22,7 @@ glossary:
     context: "PA1 Program 3 Part 2 要你決定要開幾個 task。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

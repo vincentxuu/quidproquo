@@ -12,7 +12,7 @@ series:
   order: 42
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-26-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-26-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -149,16 +149,16 @@ Google Cloud 與 IDC 調查顯示，巴西有 59% 員工每天使用 AI agent �
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-26](/posts/daily/2026-09-26-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-26](/posts/daily/2026-09-26-ai-agent-github-digest)
-- 📄 [框架更新｜Mastra @mastra/core@1.71.0](/posts/daily/2026-09-26-framework-mastra-1.71.0)
-- 📄 [融資速報｜Cyera Series G 再加碼 $400M](/posts/daily/2026-09-26-funding-cyera)
-- 📄 [融資速報｜Island Series F $400M](/posts/daily/2026-09-26-funding-island)
-- 📄 [融資速報｜Snorkel AI Series E $350M](/posts/daily/2026-09-26-funding-snorkel-ai)
-- 📄 [資安警報｜SalesBleed — Salesforce Agentforce 三個漏洞](/posts/daily/2026-09-26-security-salesforce-agentforce-salesbleed)
-- 📄 [工具推薦｜terminal-mcp](/posts/daily/2026-09-26-tool-terminal-mcp)
-- 📄 [AI Engineer 面試準備 — 2026-09-26](/posts/daily/2026-09-26-ai-interview-daily)
-- 📄 [Product Builder 面試準備 — 2026-09-26](/posts/daily/2026-09-26-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-26](/posts/daily/2026-09-26-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-26](/posts/daily/2026-09-26-ai-agent-github-digest)
+- :file: [框架更新｜Mastra @mastra/core@1.71.0](/posts/daily/2026-09-26-framework-mastra-1.71.0)
+- :file: [融資速報｜Cyera Series G 再加碼 $400M](/posts/daily/2026-09-26-funding-cyera)
+- :file: [融資速報｜Island Series F $400M](/posts/daily/2026-09-26-funding-island)
+- :file: [融資速報｜Snorkel AI Series E $350M](/posts/daily/2026-09-26-funding-snorkel-ai)
+- :file: [資安警報｜SalesBleed — Salesforce Agentforce 三個漏洞](/posts/daily/2026-09-26-security-salesforce-agentforce-salesbleed)
+- :file: [工具推薦｜terminal-mcp](/posts/daily/2026-09-26-tool-terminal-mcp)
+- :file: [AI Engineer 面試準備 — 2026-09-26](/posts/daily/2026-09-26-ai-interview-daily)
+- :file: [Product Builder 面試準備 — 2026-09-26](/posts/daily/2026-09-26-product-builder-interview-daily)
 
 ## 明日關注
 

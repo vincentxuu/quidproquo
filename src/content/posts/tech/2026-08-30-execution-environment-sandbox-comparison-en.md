@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-execution-environment-sandbox-comparison)
+> :globe: [中文版](/posts/tech/2026-08-30-execution-environment-sandbox-comparison)
 
 Before letting a model run code for you, answer a more important question than model quality: where does the code run, what can it see, and whom can it touch. This post turns a long Q&A on sandboxes into a comparable spectrum, enriched with how major execution environments actually work today.
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-reader-signals-vs-learning)
+> :globe: [中文版](/posts/learning/2026-10-14-reader-signals-vs-learning)
 
 This is Part 25 of the "Writing Articles That Teach" series and the first part of its sixth section, "how to know it works, and how to make it". [Part 15](/posts/learning/2026-10-14-metacomprehension-in-teaching-articles-en) looked at this from the reader's side: readers are poor at telling which articles they understood and which they didn't. Without any intervention, the within-person correlation between their judgments and their scores averages only about 0.18; answering questions before judging, or writing keywords after reading everything, makes the judgments somewhat more accurate. This part moves to the author's side. If readers' judgments are inaccurate, how much can the things readers tell the author, and the behavioral traces they leave, tell the author?
 

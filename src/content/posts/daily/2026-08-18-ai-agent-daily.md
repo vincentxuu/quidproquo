@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-18-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-18-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -108,12 +108,12 @@ Stripe 以逾 $7B 收購 OpenRouter，邏輯也相通，只是換了個切入點
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-18](/posts/daily/2026-08-18-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-08-18](/posts/daily/2026-08-18-ai-agent-github-digest)
-- 📄 [融資速報｜Higgsfield Series B $400M](/posts/daily/2026-08-18-funding-higgsfield)
-- 📄 [融資速報｜Wispr Series B $280M](/posts/daily/2026-08-18-funding-wispr)
-- 📄 [資安警報｜Flowise Custom MCP 節點命令注入](/posts/daily/2026-08-18-security-flowise-custom-mcp-command-injection)
-- 📄 [工具推薦｜Phinq](/posts/daily/2026-08-18-tool-phinq)
+- :file: [AI Agent Arxiv Digest — 2026-08-18](/posts/daily/2026-08-18-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-08-18](/posts/daily/2026-08-18-ai-agent-github-digest)
+- :file: [融資速報｜Higgsfield Series B $400M](/posts/daily/2026-08-18-funding-higgsfield)
+- :file: [融資速報｜Wispr Series B $280M](/posts/daily/2026-08-18-funding-wispr)
+- :file: [資安警報｜Flowise Custom MCP 節點命令注入](/posts/daily/2026-08-18-security-flowise-custom-mcp-command-injection)
+- :file: [工具推薦｜Phinq](/posts/daily/2026-08-18-tool-phinq)
 
 ## 明日關注
 

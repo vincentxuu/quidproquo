@@ -13,7 +13,7 @@ description: "導讀 MIT 6.7960 Deep Learning 的兩個官方版本：Fall 2025 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en)
+> :globe: [English version](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

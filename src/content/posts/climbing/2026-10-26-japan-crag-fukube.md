@@ -13,7 +13,7 @@ description: "フクベ抱石指南：春秋季節、美濃 IC 交通、地方�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-fukube-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-fukube-en)
 
 フクベ不是只有一塊招牌岩：片知溪谷沿線與山坡上分布許多問題，從停車場附近到需要再找接近路的岩塊都有。這篇幫你按程度挑一組當日目標，安排交通與墊子，不為了追一張路線清單在山裡來回搬裝備。
 

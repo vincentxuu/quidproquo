@@ -12,7 +12,7 @@ series:
   order: 94
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-17-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-17-ai-agent-daily)
 
 ## Today's Take
 
@@ -138,14 +138,14 @@ North America and Oceania events (Australia's AI governance reform) already appe
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-17](/posts/daily/2026-11-17-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-17](/posts/daily/2026-11-17-ai-agent-github-digest-en)
-- 📄 [Funding Brief｜Corma Series A $125M](/posts/daily/2026-11-17-funding-corma-en)
-- 📄 [Funding Brief｜Numa Series C $45M](/posts/daily/2026-11-17-funding-numa-en)
-- 📄 [Security Alert｜ARTEX Key-Theft Loop Scans LiteLLM, Dify](/posts/daily/2026-11-17-security-artex-ai-agent-key-theft-litellm-dify-en)
-- 📄 [Tool of the Day｜verify-mcp](/posts/daily/2026-11-17-tool-verify-mcp-en)
-- 📄 [AI Engineer Interview Practice — 2026-11-17](/posts/daily/2026-11-17-ai-interview-daily-en)
-- 📄 [Product Builder Interview Practice — 2026-11-17](/posts/daily/2026-11-17-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-17](/posts/daily/2026-11-17-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-17](/posts/daily/2026-11-17-ai-agent-github-digest-en)
+- :file: [Funding Brief｜Corma Series A $125M](/posts/daily/2026-11-17-funding-corma-en)
+- :file: [Funding Brief｜Numa Series C $45M](/posts/daily/2026-11-17-funding-numa-en)
+- :file: [Security Alert｜ARTEX Key-Theft Loop Scans LiteLLM, Dify](/posts/daily/2026-11-17-security-artex-ai-agent-key-theft-litellm-dify-en)
+- :file: [Tool of the Day｜verify-mcp](/posts/daily/2026-11-17-tool-verify-mcp-en)
+- :file: [AI Engineer Interview Practice — 2026-11-17](/posts/daily/2026-11-17-ai-interview-daily-en)
+- :file: [Product Builder Interview Practice — 2026-11-17](/posts/daily/2026-11-17-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

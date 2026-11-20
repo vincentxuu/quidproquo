@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, mcp, computer-use, reverse-engineering]
 lang: en
 description: "REA's reverse-engineering tool hit 430k stars in three weeks just as Anthropic started restricting reverse-engineering requests; agent-desktop doubled its stars in three days; Scrapling bolted an MCP server onto an established scraping framework — all three are building the capability first, then wiring up the agent layer"
-tldr: "morluto/rea (⭐430k) wraps engines like Ghidra and Hopper into MCP tools for agents, hitting a new high in three weeks just as reports surfaced that Anthropic has started blocking some reverse-engineering requests in Claude — and even sent a takedown notice to a developer reverse-engineering Claude Code itself; vercel-labs/agent-desktop (⭐14.6k) reads the OS's native accessibility tree instead of screenshots, letting agents operate a computer, and doubled its stars in three days; D4Vinci/Scrapling (⭐96k), a year-old scraping framework, just added a native MCP server so agents can scrape without fighting anti-bot defenses themselves. No major framework release today."
+tldr: "morluto/rea (★430k) wraps engines like Ghidra and Hopper into MCP tools for agents, hitting a new high in three weeks just as reports surfaced that Anthropic has started blocking some reverse-engineering requests in Claude — and even sent a takedown notice to a developer reverse-engineering Claude Code itself; vercel-labs/agent-desktop (★14.6k) reads the OS's native accessibility tree instead of screenshots, letting agents operate a computer, and doubled its stars in three days; D4Vinci/Scrapling (★96k), a year-old scraping framework, just added a native MCP server so agents can scrape without fighting anti-bot defenses themselves. No major framework release today."
 series:
   name: "AI Agent GitHub Digest"
   order: 82
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-05-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-05-ai-agent-github-digest)
 
 
 ## Today's Highlight
@@ -20,7 +20,7 @@ Today's three repos each take a different angle on the same playbook: build the 
 
 ## Trending Repos
 
-### morluto/rea ⭐ 430k
+### morluto/rea ★ 430k
 
 [GitHub](https://github.com/morluto/rea)　·　TypeScript　·　MIT
 
@@ -31,7 +31,7 @@ Today's three repos each take a different angle on the same playbook: build the 
 
 ---
 
-### vercel-labs/agent-desktop ⭐ 14.6k
+### vercel-labs/agent-desktop ★ 14.6k
 
 [GitHub](https://github.com/vercel-labs/agent-desktop)　·　Rust　·　Apache-2.0
 
@@ -42,7 +42,7 @@ Today's three repos each take a different angle on the same playbook: build the 
 
 ---
 
-### D4Vinci/Scrapling ⭐ 96k
+### D4Vinci/Scrapling ★ 96k
 
 [GitHub](https://github.com/D4Vinci/Scrapling)　·　Python　·　BSD-3-Clause
 

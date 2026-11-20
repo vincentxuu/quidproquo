@@ -30,7 +30,7 @@ glossary:
     context: "本篇把它當成「高效 kernel」這個課表主題的核心概念。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-llm-systems-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-llm-systems-en)
 
 **影片狀態：原講次錄影已上架，本文尚未依錄影更新；目前僅附相關補充影片。** [影片來源與說明](#課程影片來源)
 

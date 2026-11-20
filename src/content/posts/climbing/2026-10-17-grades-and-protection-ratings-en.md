@@ -29,7 +29,7 @@ glossary:
     context: "Harder sport routes are usually graded for a redpoint ascent."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-grades-and-protection-ratings)
+> :globe: [中文版](/posts/climbing/2026-10-17-grades-and-protection-ratings)
 
 In the Long Dong route database you find a line marked "5.10? R". A British guidebook lists "E1 5b". A Spanish crag says "6a+", and a German friend tells you he climbs "VII". Are these numbers describing the same thing?
 

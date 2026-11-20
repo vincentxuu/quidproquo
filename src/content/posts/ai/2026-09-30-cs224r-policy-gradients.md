@@ -22,7 +22,7 @@ glossary:
     context: "L3 在 causality 一段引入，L4 再用價值函數估計它。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-policy-gradients-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-policy-gradients-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

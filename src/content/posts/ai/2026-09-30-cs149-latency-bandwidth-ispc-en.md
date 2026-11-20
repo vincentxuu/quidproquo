@@ -26,7 +26,7 @@ glossary:
     context: "Used throughout CS149 L3 and PA1 Program 3."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

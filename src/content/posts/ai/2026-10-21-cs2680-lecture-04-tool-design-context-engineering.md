@@ -21,7 +21,7 @@ glossary:
     context: "第 4 堂把它跟 prompt engineering、harness engineering 放在同一條用語演進上。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering-en)
+> :globe: [English version](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering-en)
 
 **影片狀態：課程不錄影。** 本文依公開投影片整理，程式與數值例子為本站補充。[來源說明](#課程影片來源)
 

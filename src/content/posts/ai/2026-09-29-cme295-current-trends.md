@@ -30,7 +30,7 @@ glossary:
     context: "本講用它說明 diffusion 怎麼從影像搬到文字。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-current-trends-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-current-trends-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

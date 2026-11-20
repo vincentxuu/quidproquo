@@ -11,7 +11,7 @@ series:
   order: 62
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-24-security-storm-0940-artex-connectwise-supply-chain-en)
+> :globe: [English version](/posts/daily/2026-10-24-security-storm-0940-artex-connectwise-supply-chain-en)
 
 ## 事件概述
 

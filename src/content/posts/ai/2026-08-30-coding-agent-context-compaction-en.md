@@ -13,7 +13,7 @@ description: "Comparing compaction across five coding agents, then documenting L
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-context-compaction)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-context-compaction)
 
 Part two begins with capabilities mature agents need, then tracks how far looplane has implemented them. First up, the most critical one — context management.
 

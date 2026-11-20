@@ -13,7 +13,7 @@ description: "A guide to Tenno-iwa in the Akikawa area of Akiruno, Tokyo: rock t
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-tennoiwa)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-tennoiwa)
 
 Tenno-iwa (天王岩, てんのういわ; listed on Mountain Project as Tennoiwa/ Emperor Rock) sits in Yozawa, Akiruno, in western Tokyo. CLIMBING-net files it under the Akikawa area, and the wall stands right by the road. The rock is chert (チャート), the climbing is bolted sport, and most routes fall in the 5.10s and 5.11s. A short approach makes it a popular crag for beginner-to-intermediate climbers near Tokyo.
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-nestjs-application-framework)
+> :globe: [中文版](/posts/tech/2026-08-22-nestjs-application-framework)
 
 [NestJS](https://docs.nestjs.com/) is a TypeScript-first Node.js application framework. HTTP runs on Express by default or a Fastify adapter. Controllers, Providers, Modules, dependency injection, and decorators organize the application, with similar concepts for GraphQL, WebSockets, and message transports.
 

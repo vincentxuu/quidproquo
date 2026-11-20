@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-🌏 [中文版](/posts/product/2026-03-12-nobodyclimb-product)
+:globe: [中文版](/posts/product/2026-03-12-nobodyclimb-product)
 
 "On the climbing journey, we're all nobodies."
 

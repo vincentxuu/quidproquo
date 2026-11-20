@@ -14,7 +14,7 @@ series:
   order: 30
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-rag-guardrails-en)
+> :globe: [English version](/posts/ai/2026-03-12-rag-guardrails-en)
 
 把 LLM 放到生產環境裡，就要面對各種不預期的輸入。有些是使用者的誤操作，有些是惡意的。攀岩社群的 AI 助理雖然不像金融或醫療系統那樣高風險，但幾個問題還是需要認真處理。
 

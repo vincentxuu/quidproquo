@@ -13,7 +13,7 @@ description: "跨證照的 AI 治理考點整理：先用官方 exam guide 比�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-18-ai-governance-frameworks-exam-domains-en)
+> :globe: [English version](/posts/ai/2026-08-18-ai-governance-frameworks-exam-domains-en)
 >
 > 本文是從官方資料建出來的備考材料，不是應考實錄 —— 作者沒有報考這些考試。所有「考什麼」都指回各家官方 exam guide 或 study guide，所有框架事實都指回歐盟執委會、NIST 或 ISO 的官方頁面，來源逐條列在文末。查證日期：2026-08-18。
 

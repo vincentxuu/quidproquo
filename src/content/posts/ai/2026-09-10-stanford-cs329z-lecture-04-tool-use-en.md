@@ -14,7 +14,7 @@ description: "A page-linked guide to the 68 slides of CS329Z Lecture 04, Tool Us
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use)
 
 **Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 79 minutes); this guide follows the public slides and readings and had each section start time checked against the recording via a machine-generated transcript.
 

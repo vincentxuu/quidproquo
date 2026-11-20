@@ -10,7 +10,7 @@ description: "沿文件生命週期介紹 RAGFlow 的 dataset、解析模板、c
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-ragflow-document-rag-platform-en)
+> :globe: [English version](/posts/ai/2026-08-22-ragflow-document-rag-platform-en)
 
 [RAGFlow](https://github.com/infiniflow/ragflow) 是開放原始碼的全端 RAG 平台。它的重點不只是向量搜尋，而是讓文件從上傳、解析、切塊、人工檢查、檢索測試，到回答與引用都留在同一個操作介面。對版面複雜的 PDF、表格與掃描文件，這個可視性常比「多一個 retriever class」更有價值。
 

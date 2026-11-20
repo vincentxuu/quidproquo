@@ -29,7 +29,7 @@ glossary:
     definition: "The K3 series' 401M-parameter vision encoder, not initialized from a contrastively pretrained model such as SigLIP"
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-08-24-ai-model-family-kimi)
+> :globe: [繁體中文版](/posts/tech/2026-08-24-ai-model-family-kimi)
 
 Kimi is Moonshot AI's model family. In 2023 it didn't rush to build a "Chinese ChatGPT" — it bet on ultra-long context instead, and by 2026 that path had led to a 2.8T-parameter open-weight flagship. This post is for agent developers choosing within Kimi: K3.1 Pro versus Highspeed, whether to self-host, which commercial uses the license restricts, and when anyone still on the K2 series has to migrate.
 

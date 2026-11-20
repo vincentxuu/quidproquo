@@ -21,7 +21,7 @@ glossary:
     definition: "權限能力清單，角色能進行哪些操作明確定義。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-8-execution-contracts-en)
+> :globe: [English version](/posts/tech/2026-08-23-stock-agent-8-execution-contracts-en)
 
 > **台股研究 Agent 實戰系列（篇 8 / 9）**：[上一篇：Copilot loop：計畫合約、可驗證來源與人類審查](https://quidproquo.cc/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop) ｜ [下一篇：部署邊界：Docker 到 Cloudflare Containers 的公開 API](https://quidproquo.cc/posts/tech/2026-08-23-stock-agent-9-cloudflare-deployment) ｜ [完整目錄在篇 1](https://quidproquo.cc/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 

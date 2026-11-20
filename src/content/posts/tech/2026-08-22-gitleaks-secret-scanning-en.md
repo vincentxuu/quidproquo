@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-gitleaks-secret-scanning)
+> :globe: [中文版](/posts/tech/2026-08-22-gitleaks-secret-scanning)
 
 [gitleaks](https://github.com/gitleaks/gitleaks) is an open-source secret scanner. `gitleaks git` reads commit patches through `git log -p`, `dir` scans current files, and `stdin` accepts pipeline content. Default rules combine token prefixes, regexes, keywords, and entropy; `.gitleaks.toml` can model internal credentials.
 

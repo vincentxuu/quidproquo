@@ -23,7 +23,7 @@ glossary:
     context: "Google introduced ViT at the end of 2020, and Transformer-based vision models immediately proliferated across computer vision conferences in 2021."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2021-topics)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2021-topics)
 
 The leading AI conferences of 2021 occupied a distinctive moment. GPT-3 had appeared the year before, but ChatGPT did not exist. Stable Diffusion did not exist either, and RLHF was a niche topic studied by only a few researchers. Yet the award winners and accepted-paper keywords from 2021 contain clear signals of every direction that would explode from 2022 through 2024: diffusion models, multimodality, and large-language-model alignment. Instead of organizing the year conference by conference, this article asks what research topics nine leading AI conferences were publishing.
 

@@ -23,7 +23,7 @@ glossary:
     context: "CMU 11-868 L09 的主題。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-tokenization-decoding-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-tokenization-decoding-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

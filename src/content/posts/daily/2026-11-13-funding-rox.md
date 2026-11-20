@@ -12,7 +12,7 @@ series:
   order: 132
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-13-funding-rox-en)
+> :globe: [English version](/posts/daily/2026-11-13-funding-rox-en)
 
 ## 融資資訊
 

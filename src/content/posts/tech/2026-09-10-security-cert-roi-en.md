@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-10-security-cert-roi)
+> :globe: [中文版](/posts/tech/2026-09-10-security-cert-roi)
 
 Certifications are investments, not collectibles. This post lays out the real numbers for three classic security certifications: what they cost, how long to prepare, what maintenance looks like, and how much salary uplift to expect.
 
@@ -168,9 +168,9 @@ Combining exam cost, study time, maintenance cost, salary premium, and market re
 
 | Rank | Certification | Rationale |
 |---|---|---|
-| 🥇 | **AWS Security Specialty** | Lowest holding cost ($150–$300), highest ROI multiple (40–67x), directly aligned with AI platform developer work |
-| 🥈 | **Security+** | Lowest entry barrier, fastest to earn (2–3 months), counts toward CISSP experience, recognized by Taiwan financial sector |
-| 🥉 | **CISSP** | Highest absolute salary premium (+$25K–$35K), highest Taiwan recognition, but highest barrier and maintenance cost |
+| 1 | **AWS Security Specialty** | Lowest holding cost ($150–$300), highest ROI multiple (40–67x), directly aligned with AI platform developer work |
+| 2 | **Security+** | Lowest entry barrier, fastest to earn (2–3 months), counts toward CISSP experience, recognized by Taiwan financial sector |
+| 3 | **CISSP** | Highest absolute salary premium (+$25K–$35K), highest Taiwan recognition, but highest barrier and maintenance cost |
 
 **Optimal stacking strategy**: Security+ (build foundation, bank 1 year CISSP credit) → AWS Security (align with work, lowest cost) → CISSP (long-term credential). All three over five years costs approximately **$2,343–$2,493**, getting you full coverage from entry to senior level.
 

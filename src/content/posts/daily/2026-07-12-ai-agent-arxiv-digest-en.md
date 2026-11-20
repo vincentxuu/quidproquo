@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 49
 ---
-> 🌏 [中文版](/posts/daily/2026-07-12-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-12-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -71,7 +71,7 @@ This paper replaces the previous "convince the LLM to be careful via prompts" so
 - **Significance of formal confinement guarantees**: Even if the LLM misclassifies low-trust content as a high-trust instruction, the policy enforcement layer still blocks high-privilege operations based on the label — providing stronger security guarantees than a system prompt
 - **No developer annotation required**: Unlike approaches requiring schemas or domain allowlists, Prismata automatically handles any website, solving the long-tail coverage problem
 - **Relevance to MCP**: MCP's current tool registry lacks per-call content trust context; Prismata's label architecture could inspire MCP resource-level access control design
-- **Limitation**: The public abstract does not report precise attack interception rates on standard web agent task sets like WebArena, and performance overhead is not quantified **⚠️**
+- **Limitation**: The public abstract does not report precise attack interception rates on standard web agent task sets like WebArena, and performance overhead is not quantified **:warning:**
 
 ### Reviewer's One-Liner
 
@@ -120,10 +120,10 @@ The paper evaluated 15 contemporary LLMs across 8 real attack scenarios, with re
 
 ### Deep Dive
 
-- **15 models × 8 attack scenarios**: Attack scenarios are drawn from a public corpus of real agent incidents; the 38%–100% refusal rate distribution reveals significant security variance across models **⚠️ The original corpus name is not explicitly cited in the public abstract**
+- **15 models × 8 attack scenarios**: Attack scenarios are drawn from a public corpus of real agent incidents; the 38%–100% refusal rate distribution reveals significant security variance across models **:warning: The original corpus name is not explicitly cited in the public abstract**
 - **Why off-host matters**: If authorization logic runs within the agent process, polluted context can influence the authorization decision itself; moving it to an external independent process physically isolates the attack surface
 - **Nonce + timestamp anti-replay**: Ensures each signature can only be used once and automatically expires outside the time window, preventing replay of captured old authorizations
-- **QR receipt verification rate**: 94% average verification success across 8 transport channels; 25 forged-key attempts with zero successful forgeries **⚠️ Sample size is small, larger-scale validation needed**
+- **QR receipt verification rate**: 94% average verification success across 8 transport channels; 25 forged-key attempts with zero successful forgeries **:warning: Sample size is small, larger-scale validation needed**
 - **Relevance to MCP**: MCP's tool registration currently lacks caller-side cryptographic identity verification; aiAuthZ's gateway pattern could serve as a proxy security layer in front of MCP servers
 - **Limitation**: Single-author paper with limited peer review depth; performance impact of nonce management under high-concurrency agent scenarios is not discussed
 
@@ -175,7 +175,7 @@ This capability-driven taxonomy lets platform engineers use benchmarks as a **re
 ### Deep Dive
 
 - **400 bilingual tasks**: Covering both Chinese and English reflects the HKU + Meituan collaboration's focus on Asian market multilingual scenarios
-- **Three-framework cross-evaluation**: OpenClaw, EDICT, and Nanobot represent different runtime design philosophies; the performance gap of the same model across different frameworks is a variable worth watching **⚠️ Specific numbers require reading the full paper**
+- **Three-framework cross-evaluation**: OpenClaw, EDICT, and Nanobot represent different runtime design philosophies; the performance gap of the same model across different frameworks is a variable worth watching **:warning: Specific numbers require reading the full paper**
 - **Cross-Platform Coordination is a new dimension**: Most existing benchmarks only test single-app operations; cross-app coordination was previously unmeasured systematically, yet it's often the most common bottleneck in real user tasks
 - **Proactive Agent definition**: Not just passively answering questions, but proactively sensing environment state and anticipating next-step needs — the benchmark task design reflects daily assistant usage scenarios
 - **Comparison with existing frameworks**: The three major limitations of existing benchmarks — "sandbox + single-turn + scenario-based classification" — are explicitly identified and addressed, providing one of the more complete comparative analyses in this space

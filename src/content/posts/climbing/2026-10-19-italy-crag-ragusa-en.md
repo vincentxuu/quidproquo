@@ -13,7 +13,7 @@ description: "A guide to climbing around Ragusa and Modica: size, aspect and sea
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-ragusa)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-ragusa)
 
 The province of Ragusa lies in the south-east corner of Sicily, on the same Monti Iblei plateau as [Siracusa](/posts/climbing/2026-10-19-italy-crag-siracusa-en). The limestone plateau is cut by many "cave" (canyons), and local climbers have bolted crag after crag inside them. The best known is the long Cava d'Ispica between Modica and Ispica, whose walls still carry ancient cave dwellings and tombs.
 

@@ -13,7 +13,7 @@ series:
   order: 53
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-09-pplx-embed-v2-late-multimodal-late-interaction-en)
+> :globe: [English version](/posts/ai/2026-10-09-pplx-embed-v2-late-multimodal-late-interaction-en)
 
 如果你的知識庫有一堆帶表格和圖表的 PDF，現在多了一個可以自己架的選項：不跑 OCR，直接把整頁當圖片建索引。Perplexity 在 2026 年 10 月 7 日發表 [`pplx-embed-v2-late`](https://www.perplexity.ai/hub/blog/multimodal-embeddings-beyond-a-single-vector)，兩個模型（0.6B、9B）權重都放在 Hugging Face，授權是 MIT。這篇回答兩個問題：它到底改了什麼、值不值得為它動現有的 RAG 管線。
 
@@ -85,13 +85,13 @@ flowchart LR
 
 | 貼文說法 | 查證結果 |
 |---|---|
-| MIT 協議開源 | ✅ 兩個模型皆為 MIT |
-| 每 token 128 維、MaxSim | ✅ 模型卡原文 |
-| MADQA 92.4% | ✅ 但是 9B＋Gemini 3.5 Flash agent 的自家測試，且不是榜首（Mixedbread Agentic Search 93.4%） |
-| 9B 建庫＋0.6B 查詢 | ✅ 官方明列的部署方式 |
-| 340M 激活參數 | ⚠️ 僅圖片輸入；文字約 240M |
-| 專有名詞不再漏檢 | ❌ 來源沒有這個主張，這是貼文自己的推論 |
-| 不用寫文字提取管線 | ⚠️ 對頁面圖片成立，但仍要有渲染、向量儲存與 MaxSim 檢索的基礎建設 |
+| MIT 協議開源 | ✓ 兩個模型皆為 MIT |
+| 每 token 128 維、MaxSim | ✓ 模型卡原文 |
+| MADQA 92.4% | ✓ 但是 9B＋Gemini 3.5 Flash agent 的自家測試，且不是榜首（Mixedbread Agentic Search 93.4%） |
+| 9B 建庫＋0.6B 查詢 | ✓ 官方明列的部署方式 |
+| 340M 激活參數 | :warning: 僅圖片輸入；文字約 240M |
+| 專有名詞不再漏檢 | ✗ 來源沒有這個主張，這是貼文自己的推論 |
+| 不用寫文字提取管線 | :warning: 對頁面圖片成立，但仍要有渲染、向量儲存與 MaxSim 檢索的基礎建設 |
 
 ## 限制：重構前先算這三筆帳
 

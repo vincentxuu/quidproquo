@@ -11,7 +11,7 @@ series:
   order: 109
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-10-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-10-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -75,7 +75,7 @@ Multi-agent LLM pipelines are moving from single-vendor demos to deployments spa
 - The primary pre-registered hypothesis (collective-responsibility framing degrades escalation as chains lengthen) is honestly reported as null: GPT chain +0.0087 [-0.0387, +0.0562], Claude chain -0.0183 [-0.0480, +0.0114], both intervals crossing zero
 - On the subset where no link proposed the true origin, the auditor recovers it from reports in only 4.1% (GPT chain) and 8.7% (Claude chain) of cases, but reaches 60.3% and 69.4% from the raw documentation of the same episodes — the same auditor model, just with one conclusion clause removed, does over 50 points better
 - After deleting the "stated conclusion" clause, GPT-chain accuracy rises from 26.0% to 35.5%, recovering 41.2 points (95% CI +35.3 to +46.9) where the upstream conclusion was wrong — but costing 14.7 points where it was right, a genuine two-way trade-off, not a simple improvement
-- ⚠️ (the authors' own experiments, not yet externally replicated) The effect replicates on a second auditor, on two frontier auditors in all four conditions tested (+8.5 to +39.0 points), and in a second, semantically unrelated domain (a multi-vendor software delivery toolchain), where the harm still replicates (+8.5 to +61.1 points) — though the cost side nearly disappears there
+- :warning: (the authors' own experiments, not yet externally replicated) The effect replicates on a second auditor, on two frontier auditors in all four conditions tested (+8.5 to +39.0 points), and in a second, semantically unrelated domain (a multi-vendor software delivery toolchain), where the harm still replicates (+8.5 to +61.1 points) — though the cost side nearly disappears there
 - Deployment threshold: the paper's recommended fix isn't simply deleting the conclusion field — it's splitting observation from conclusion into separate fields, estimating upstream reliability offline, and deciding whether to suppress the conclusion at audit time, which is more deployable than blanket deletion
 - Limitation: both test environments are synthetic role-play pipelines; the authors themselves list "not validated on deployed production systems" as an open limitation
 

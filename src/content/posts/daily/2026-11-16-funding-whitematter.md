@@ -12,7 +12,7 @@ series:
   order: 138
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-16-funding-whitematter-en)
+> :globe: [English version](/posts/daily/2026-11-16-funding-whitematter-en)
 
 ## 融資資訊
 

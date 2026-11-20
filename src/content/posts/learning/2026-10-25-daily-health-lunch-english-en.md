@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-daily-health-lunch-english)
+> :globe: [中文版](/posts/learning/2026-10-25-daily-health-lunch-english)
 
 You meet a colleague in the morning. They notice your voice sounds different and ask what is wrong. You want to explain that your throat hurts and you are struggling to speak, but the only word that comes to mind is cold. At lunch, you want to ask what they are eating and whether they brought it from home.
 

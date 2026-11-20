@@ -13,7 +13,7 @@ description: "A guide to the Champorcher bouldering area: rock (sources say serp
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-champorcher)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-champorcher)
 
 Champorcher is a side valley that branches south off the lower Aosta Valley, with its mouth at Hône, close to the fort of Bard. The boulders are on the road up towards Champorcher village, in Val de la Legne, scattered along a stream and through fir woods. When Niccolò Ceria made the first ascent of The Ghost Ship (8B+) here in 2013, he wrote on [Planetmountain](https://www.planetmountain.com/en/news/climbing/niccolo-ceria-drifts-up-the-ghost-ship-at-champorcher.html) that this "might be the best bouldering area in the entire Valle d'Aosta"; the most famous boulder is by the road and you can park right underneath it.
 

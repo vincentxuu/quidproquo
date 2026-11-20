@@ -10,7 +10,7 @@ description: "從 Milvus 的 Segment 與儲存運算分離架構出發，說明 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-milvus-vector-database-en)
+> :globe: [English version](/posts/ai/2026-08-22-milvus-vector-database-en)
 
 [Milvus](https://milvus.io/docs/architecture_overview.md) 是為向量相似度搜尋設計的開放原始碼資料庫。它把文字、圖片或其他內容的 embedding，連同主鍵與結構化 metadata 存成 collection，提供近似最近鄰搜尋、條件過濾與混合搜尋。它不是 embedding model，也不會替應用決定文件怎麼切段或使用者能看哪些資料。
 

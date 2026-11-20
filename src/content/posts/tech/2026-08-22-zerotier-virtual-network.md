@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-zerotier-virtual-network-en)
+> :globe: [English version](/posts/tech/2026-08-22-zerotier-virtual-network-en)
 
 [ZeroTier](https://docs.zerotier.com/) 建立軟體定義的 virtual Ethernet network。每個 node 有 cryptographic identity；加入 network 後，controller 決定 membership、分配 managed IP、routes 與 capabilities，data plane 優先直接 peer-to-peer，必要時經 root infrastructure relay。
 

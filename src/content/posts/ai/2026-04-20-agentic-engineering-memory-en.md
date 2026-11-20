@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-20-agentic-engineering-memory)
+> :globe: [中文版](/posts/ai/2026-04-20-agentic-engineering-memory)
 
 Cisco engineers published a post on the LangChain blog this April describing how they used a multi-agent collaboration system to reduce debug workflow time-to-root-cause by 93%, saving over 200 person-hours per month. Their tech stack: LangGraph + LangSmith + LangMem.
 

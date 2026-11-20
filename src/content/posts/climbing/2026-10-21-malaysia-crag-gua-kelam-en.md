@@ -13,7 +13,7 @@ description: "Gua Kelam climbing guide: the limestone and the size of the five s
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-gua-kelam)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-gua-kelam)
 
 Gua Kelam (Kelam Cave), about 33 km north of Kangar in [Perlis](https://www.thecrag.com/en/climbing/malaysia/area/422129439), is one of the few places in Malaysia where the cave itself is the crag. 36 routes, pure limestone, and a grade range densest from 5c to 6b; the trade-off is that it is a public park, so you buy your way in, and weekends and public holidays get busy.
 

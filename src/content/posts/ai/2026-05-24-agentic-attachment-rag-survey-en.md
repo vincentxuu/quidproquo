@@ -10,7 +10,7 @@ description: "A survey of 30 papers mapping the relationships between Adaptive R
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-24-agentic-attachment-rag-survey)
+> :globe: [中文版](/posts/ai/2026-05-24-agentic-attachment-rag-survey)
 
 A user uploads a file to a chat interface. What should the system do?
 

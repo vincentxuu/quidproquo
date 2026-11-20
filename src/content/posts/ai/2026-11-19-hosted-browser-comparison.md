@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-19-hosted-browser-comparison-en)
+> :globe: [English version](/posts/ai/2026-11-19-hosted-browser-comparison-en)
 
 [引擎篇](/posts/ai/2026-11-19-browser-engines-beyond-chromium)講的是用什麼瀏覽器，這篇講瀏覽器放在哪裡跑。本機開一個 Chrome 很容易，同時開兩百個、讓它們帶著登入狀態、遇到 CAPTCHA 有人處理、出事能回放畫面，就是託管服務在賣的東西。
 

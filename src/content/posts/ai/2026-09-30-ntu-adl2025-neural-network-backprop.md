@@ -13,7 +13,7 @@ description: "台大陳縕儂《深度學習之應用》Fall 2025 第 2 堂導�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

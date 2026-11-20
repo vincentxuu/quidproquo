@@ -17,7 +17,7 @@ description: "Stanford CS329Z Engineering AI Agents 自學路線：從 RAG、工
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+> :globe: [English version](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 
 **影片狀態：已附影片（第 1 場代表影片）。** [影片來源與說明](#課程影片來源)。各堂錄影由 Stanford Online 在 YouTube 公開上架，第 1–10 堂已上架；各堂導讀嵌入對應錄影，第 1 堂全片約 70 分鐘。
 

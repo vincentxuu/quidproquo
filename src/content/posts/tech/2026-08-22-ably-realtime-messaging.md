@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-ably-realtime-messaging-en)
+> :globe: [English version](/posts/tech/2026-08-22-ably-realtime-messaging-en)
 
 [Ably](https://ably.com/docs) 是 managed realtime messaging platform。Client 維持 Realtime connection，對 channel publish/subscribe，平台處理全球 routing、connection recovery、presence 與 history。它省掉 WebSocket fleet 和跨區 fan-out，不會替 application 定義哪一筆事件是 business truth。
 

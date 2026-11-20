@@ -12,7 +12,7 @@ series:
   order: 67
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-21-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-21-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -129,16 +129,16 @@ Microsoft 測試把 agent 評測環境的 GitHub 換成本機 git remote，發�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-21](/posts/daily/2026-10-21-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-21](/posts/daily/2026-10-21-ai-agent-github-digest)
-- 📄 [框架更新｜Pydantic AI v2.58.0](/posts/daily/2026-10-21-framework-pydantic-ai-v2.58.0)
-- 📄 [融資速報｜Arda Series A $160M](/posts/daily/2026-10-21-funding-arda)
-- 📄 [融資速報｜Daytona Series B $60M](/posts/daily/2026-10-21-funding-daytona)
-- 📄 [定價追蹤｜OpenAI 一次關閉 o1、GPT-4、GPT-3.5-turbo 等 12 個舊模型](/posts/daily/2026-10-21-pricing-openai-o1-gpt4-legacy-sunset)
-- 📄 [資安警報｜OpenCode 的 Console 遭入侵](/posts/daily/2026-10-21-security-opencode-console-api-key-breach)
-- 📄 [工具推薦｜AnythingMCP](/posts/daily/2026-10-21-tool-anythingmcp)
-- 📄 [AI Engineer 面試日練 — 2026-10-21：ML System Design](/posts/daily/2026-10-21-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-21：Strategy & Execution](/posts/daily/2026-10-21-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-21](/posts/daily/2026-10-21-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-21](/posts/daily/2026-10-21-ai-agent-github-digest)
+- :file: [框架更新｜Pydantic AI v2.58.0](/posts/daily/2026-10-21-framework-pydantic-ai-v2.58.0)
+- :file: [融資速報｜Arda Series A $160M](/posts/daily/2026-10-21-funding-arda)
+- :file: [融資速報｜Daytona Series B $60M](/posts/daily/2026-10-21-funding-daytona)
+- :file: [定價追蹤｜OpenAI 一次關閉 o1、GPT-4、GPT-3.5-turbo 等 12 個舊模型](/posts/daily/2026-10-21-pricing-openai-o1-gpt4-legacy-sunset)
+- :file: [資安警報｜OpenCode 的 Console 遭入侵](/posts/daily/2026-10-21-security-opencode-console-api-key-breach)
+- :file: [工具推薦｜AnythingMCP](/posts/daily/2026-10-21-tool-anythingmcp)
+- :file: [AI Engineer 面試日練 — 2026-10-21：ML System Design](/posts/daily/2026-10-21-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-21：Strategy & Execution](/posts/daily/2026-10-21-product-builder-interview-daily)
 
 ## 明日關注
 

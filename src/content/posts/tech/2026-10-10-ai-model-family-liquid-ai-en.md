@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-10-ai-model-family-liquid-ai)
+> :globe: [繁體中文版](/posts/tech/2026-10-10-ai-model-family-liquid-ai)
 
 Liquid AI's LFM is a model family built around efficient deployment. The value of a small model is putting a well-scoped task into an environment you can control: phones, laptops, edge devices, or a cheap cloud API. This post is for developers running agents locally or on a budget: how to choose between LFM3 and LFM2.5, what they can and can't do, and where the license draws its line.
 

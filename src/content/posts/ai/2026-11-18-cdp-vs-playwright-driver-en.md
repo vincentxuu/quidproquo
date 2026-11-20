@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-18-cdp-vs-playwright-driver)
+> :globe: [中文版](/posts/ai/2026-11-18-cdp-vs-playwright-driver)
 
 The [previous post](/posts/ai/2026-11-19-browser-agent-loop-to-code-mode-en) noted that Browser Use 1.0 lets the model talk CDP directly, partly because Playwright's locators can't see closed shadow roots. That isn't the first time: the same sentence has come up in several earlier posts, that since v3 Stagehand hasn't been built on Playwright, and that Browser Use dropped Playwright back in August 2025. Playwright is widely seen as mature. Why would teams building AI browser tools rewrite a layer themselves?
 

@@ -18,7 +18,7 @@ glossary:
     context: "This article uses it as the fastest method to determine whether an agent architecture is dangerous."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries)
+> :globe: [中文版](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries)
 
 Discussions of agent security are often split into three separate topics: prompt injection in tool outputs, where to draw trust boundaries, and malicious agents in multi-agent systems. But these three are really **the same fundamental flaw manifesting at different scales**:
 

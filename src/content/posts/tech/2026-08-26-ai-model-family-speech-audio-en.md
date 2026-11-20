@@ -26,7 +26,7 @@ glossary:
     definition: "Synthesizing a speaker after only seconds of reference audio, without retraining. XTTS v2 needs about six seconds and Chatterbox about five."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-26-ai-model-family-speech-audio)
+> :globe: [中文版](/posts/tech/2026-08-26-ai-model-family-speech-audio)
 
 In September 2022, OpenAI released [Whisper](https://github.com/openai/whisper) on GitHub under MIT: an encoder-decoder trained with weak supervision on 680K hours of web audio, up to 1.55B parameters. Commercial ASR was expensive per hour; Whisper made near-SOTA transcription runnable on a laptop and rewrote the market. On the other branch, ElevenLabs was founded in 2022 and four years later became the de facto voice API leader after a [$500M Series D at an $11B valuation](https://elevenlabs.io/blog/series-d) and more than $500M ARR. This fourteenth family article separates speech into ASR and TTS.
 

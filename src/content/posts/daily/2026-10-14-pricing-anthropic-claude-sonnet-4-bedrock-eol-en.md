@@ -12,7 +12,7 @@ series:
   order: 22
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-14-pricing-anthropic-claude-sonnet-4-bedrock-eol)
+> :globe: [中文版](/posts/daily/2026-10-14-pricing-anthropic-claude-sonnet-4-bedrock-eol)
 
 ## Summary
 
@@ -71,7 +71,7 @@ If your team is weighing "call Claude API directly" against "call Claude through
 
 ## Time-Sensitive Notice
 
-⚠️ **Sunset date**: 2026-10-14 (today). Claude Sonnet 4 (`anthropic.claude-sonnet-4-20250514-v1:0`) is removed from every AWS region; all requests now fail. Migration guide: [Model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations).
+:warning: **Sunset date**: 2026-10-14 (today). Claude Sonnet 4 (`anthropic.claude-sonnet-4-20250514-v1:0`) is removed from every AWS region; all requests now fail. Migration guide: [Model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations).
 
 ## Today's Takeaway
 

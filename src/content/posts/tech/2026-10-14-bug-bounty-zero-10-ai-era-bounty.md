@@ -18,7 +18,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty-en)
+> :globe: [English version](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty-en)
 
 [上一篇](/posts/tech/2026-10-14-bug-bounty-zero-09-tee-and-confidential-computing)講了可信執行環境，這一篇回到更常見的場景：目標是一個 LLM 產品或 AI agent，bug bounty 怎麼算？讀完你應該能做到一件事：拿到任何 AI 產品的獎金頁，判斷哪類問題收、哪類不收，以及大概落在哪個價位。
 

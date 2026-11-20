@@ -11,7 +11,7 @@ series:
   order: 94
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-17-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-17-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ No single breakout story today, but three different projects are converging on t
 
 ## Trending Repos
 
-### CopilotKit/OpenBot ⭐ 12,552
+### CopilotKit/OpenBot ★ 12,552
 
 [GitHub](https://github.com/CopilotKit/OpenBot)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ No single breakout story today, but three different projects are converging on t
 
 ---
 
-### iflytek/astron-rpa ⭐ 5,258
+### iflytek/astron-rpa ★ 5,258
 
 [GitHub](https://github.com/iflytek/astron-rpa)　·　Python　·　Apache-2.0
 
@@ -41,7 +41,7 @@ No single breakout story today, but three different projects are converging on t
 
 ---
 
-### modelcontextprotocol/registry ⭐ 7,470
+### modelcontextprotocol/registry ★ 7,470
 
 [GitHub](https://github.com/modelcontextprotocol/registry)　·　Go　·　NOASSERTION (maintained by the official org)
 

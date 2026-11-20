@@ -12,7 +12,7 @@ series:
   order: 84
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-07-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-07-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -157,15 +157,15 @@ Today's GitHub Digest shows agent computer control stretching in two directions 
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-07](/posts/daily/2026-11-07-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-07](/posts/daily/2026-11-07-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Daily — 2026-11-07: Paper Reading](/posts/daily/2026-11-07-ai-interview-daily-en)
-- 📄 [Framework Update｜AG2 v1.3.0](/posts/daily/2026-11-07-framework-ag2-v1.3.0-en)
-- 📄 [Funding Brief｜firmly Series A $15M](/posts/daily/2026-11-07-funding-firmly-en)
-- 📄 [Funding Brief｜Sand.ai Series A+ $200M](/posts/daily/2026-11-07-funding-sand-ai-en)
-- 📄 [Product Builder Interview Daily — 2026-11-07: Technical PM](/posts/daily/2026-11-07-product-builder-interview-daily-en)
-- 📄 [Security Alert｜Official MCP Inspector Client Vulnerabilities](/posts/daily/2026-11-07-security-mcp-inspector-client-vulnerabilities-en)
-- 📄 [Tool Pick｜web-forager](/posts/daily/2026-11-07-tool-web-forager-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-07](/posts/daily/2026-11-07-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-07](/posts/daily/2026-11-07-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Daily — 2026-11-07: Paper Reading](/posts/daily/2026-11-07-ai-interview-daily-en)
+- :file: [Framework Update｜AG2 v1.3.0](/posts/daily/2026-11-07-framework-ag2-v1.3.0-en)
+- :file: [Funding Brief｜firmly Series A $15M](/posts/daily/2026-11-07-funding-firmly-en)
+- :file: [Funding Brief｜Sand.ai Series A+ $200M](/posts/daily/2026-11-07-funding-sand-ai-en)
+- :file: [Product Builder Interview Daily — 2026-11-07: Technical PM](/posts/daily/2026-11-07-product-builder-interview-daily-en)
+- :file: [Security Alert｜Official MCP Inspector Client Vulnerabilities](/posts/daily/2026-11-07-security-mcp-inspector-client-vulnerabilities-en)
+- :file: [Tool Pick｜web-forager](/posts/daily/2026-11-07-tool-web-forager-en)
 
 ## Watch Tomorrow
 

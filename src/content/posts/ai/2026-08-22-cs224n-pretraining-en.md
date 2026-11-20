@@ -13,7 +13,7 @@ description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 7: BPE,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224n-pretraining)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224n-pretraining)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

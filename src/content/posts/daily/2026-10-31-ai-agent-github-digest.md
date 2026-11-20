@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-governance, rust, agent-platform]
 lang: zh-TW
 description: "Claude Code 把寫入範圍的邊界做進每一種權限模式的同一天，CopilotKit/OpenBot 用沙箱電腦加審批閘門重新定義『可信任的 agent』，HKUDS/nanobot 跟 0xPlaygrounds/rig 則示範另一條把核心做小的路線"
-tldr: "**CopilotKit/OpenBot**（⭐ 8,639）把每個 AI 同事配一台自己的沙箱電腦，瀏覽器／檔案／MCP 操作都先過 CEL 政策閘門、寫進稽核紀錄才執行，還能透過 AG-UI 協定直接接 LangGraph、Mastra、CrewAI 等現成 agent；**HKUDS/nanobot**（⭐ 49,682）把個人 agent 做成讀得完的極簡核心，內建長期記憶跟十幾個聊天管道整合；**0xPlaygrounds/rig**（⭐ 9,027）把 Rust LLM library 跟一套可外接 Zed 等編輯器的 coding agent harness 做進同一個 crate。release 這邊 **Claude Code v2.1.314** 新增 `permissions.blockWritesOutsideWorkingDirectories`，讓寫入範圍的邊界在每種權限模式下都強制生效，外加閒置對話自動壓縮等多項修正。"
+tldr: "**CopilotKit/OpenBot**（★ 8,639）把每個 AI 同事配一台自己的沙箱電腦，瀏覽器／檔案／MCP 操作都先過 CEL 政策閘門、寫進稽核紀錄才執行，還能透過 AG-UI 協定直接接 LangGraph、Mastra、CrewAI 等現成 agent；**HKUDS/nanobot**（★ 49,682）把個人 agent 做成讀得完的極簡核心，內建長期記憶跟十幾個聊天管道整合；**0xPlaygrounds/rig**（★ 9,027）把 Rust LLM library 跟一套可外接 Zed 等編輯器的 coding agent harness 做進同一個 crate。release 這邊 **Claude Code v2.1.314** 新增 `permissions.blockWritesOutsideWorkingDirectories`，讓寫入範圍的邊界在每種權限模式下都強制生效，外加閒置對話自動壓縮等多項修正。"
 series:
   name: "AI Agent GitHub Digest"
   order: 77
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-31-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-31-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ Claude Code v2.1.314 新增 `permissions.blockWritesOutsideWorkingDirectories`�
 
 ## Trending Repos
 
-### CopilotKit/OpenBot ⭐ 8,639
+### CopilotKit/OpenBot ★ 8,639
 
 [GitHub](https://github.com/CopilotKit/OpenBot)　·　TypeScript　·　MIT
 
@@ -77,7 +77,7 @@ caption: 簡化示意：只畫出「允許並執行」這條路徑；政策判�
 
 ---
 
-### HKUDS/nanobot ⭐ 49,682
+### HKUDS/nanobot ★ 49,682
 
 [GitHub](https://github.com/HKUDS/nanobot)　·　Python　·　MIT
 
@@ -88,7 +88,7 @@ caption: 簡化示意：只畫出「允許並執行」這條路徑；政策判�
 
 ---
 
-### 0xPlaygrounds/rig ⭐ 9,027
+### 0xPlaygrounds/rig ★ 9,027
 
 [GitHub](https://github.com/0xPlaygrounds/rig)　·　Rust　·　MIT
 

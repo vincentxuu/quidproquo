@@ -14,7 +14,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-multi-query-expansion)
+> :globe: [中文版](/posts/ai/2026-03-12-multi-query-expansion)
 
 Vector search results are constrained by how a query is phrased. The same underlying need expressed with different wording can produce embeddings that are far apart in vector space, causing relevant documents to be missed.
 

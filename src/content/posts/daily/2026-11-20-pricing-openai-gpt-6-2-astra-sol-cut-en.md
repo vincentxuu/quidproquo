@@ -12,7 +12,7 @@ series:
   order: 38
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-20-pricing-openai-gpt-6-2-astra-sol-cut)
+> :globe: [中文版](/posts/daily/2026-11-20-pricing-openai-gpt-6-2-astra-sol-cut)
 
 ## What changed
 

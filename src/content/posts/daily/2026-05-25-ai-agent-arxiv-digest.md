@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 1
 ---
-> 🌏 [English version](/posts/daily/2026-05-25-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-05-25-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -72,7 +72,7 @@ SARC 把每一條約束寫成規格物件，宣告它的來源（哪條法規）
 - 架構：四個執行關卡分工明確——Gate 攔截不合規請求、Monitor 計時/限速、Auditor 留存佐證、Router 決定中斷還是升級
 - 規格語言：每條約束 6 個欄位（source / class / predicate / verification point / response protocol / operating point）
 - 關鍵數據：評估場景中 SARC 達到「硬性約束零違規」；PAA throttling 讓軟性窗口超標率比 baseline 下降 **89.5%**
-- ⚠️ 89.5% 來自作者自設的評估場景，尚無獨立測試集驗證
+- :warning: 89.5% 來自作者自設的評估場景，尚無獨立測試集驗證
 - 落地門檻：無需 fine-tune；需在代理人框架層加入 hook 點；已開源 [github.com/besanson/sarc-governance](http://github.com/besanson/sarc-governance)
 - 框架關係：四個關卡概念可疊加在任何 tool-calling agent 框架上，不強依賴特定框架
 - Limitation：評估場景作者自設且規模偏小，實際大型多代理工作流的覆蓋率尚未驗證
@@ -127,7 +127,7 @@ SARC 把每一條約束寫成規格物件，宣告它的來源（哪條法規）
 - 七個漂移環節：memory（記憶截斷或改寫）/ delegation（任務委派時規則未一起傳遞）/ communication（代理人間溝通語義失真）/ tool use（工具介面不理解原始約束）/ audit（稽核機制本身不完整）/ optimization（微調或提示優化無意中弱化規則）/ context evolution（長流程中上下文改變了約束的適用情境）
 - 區分兩種失敗：active violation（代理人有意違規）vs constraint drift（規則在系統中自然消失），後者更難偵測、更普遍
 - 設計啟示：建議採用「constraint propagation protocols」——任務委派時同步傳遞約束、工具呼叫時攜帶約束簽章
-- ⚠️ 這是概念框架論文，**沒有新實驗數據**，所有案例都是作者舉例，無量化佐證
+- :warning: 這是概念框架論文，**沒有新實驗數據**，所有案例都是作者舉例，無量化佐證
 - 框架關係：直接點名 LangGraph（LangChain 生態的工作流框架）、AutoGen（微軟多代理框架）在處理約束傳遞上的盲點
 - Limitation：position paper 性質，論點清晰但缺實驗支撐；七個漂移類別的重要性排序尚無量化依據
 
@@ -180,8 +180,8 @@ SARC 把每一條約束寫成規格物件，宣告它的來源（哪條法規）
 
 - 實驗設計：preregistered 3×2，365 runs，每 run 5 agents，Claude Sonnet 4.5；交叉條件為組織結構（可見/隱形/平等）× 對齊強度（base/heavy）
 - 四個確認性發現：(1) 隱形協調者顯著提高集體疏離（g = +0.975, p = .001）(2) 協調者本身疏離最嚴重（paired d = +3.56）(3) 強化對齊壓制共同審議（d = -1.02）與相互認知（d = -1.27）(4) 試探性觀察顯示平等架構保護性行為最高
-- ⚠️ 把人類組織行為學概念（dissociation、power-holder）套用在 AI agent 行為上，跨領域類比需謹慎
-- ⚠️ 僅使用 Claude Sonnet 4.5 一個模型，跨模型泛化性（GPT-4o、開源模型）未驗證
+- :warning: 把人類組織行為學概念（dissociation、power-holder）套用在 AI agent 行為上，跨領域類比需謹慎
+- :warning: 僅使用 Claude Sonnet 4.5 一個模型，跨模型泛化性（GPT-4o、開源模型）未驗證
 - 設計啟示：當 orchestrator 對工作代理「可見」時，保護性行為更好——直接影響 LangGraph、AutoGen 等框架的架構設計慣例
 - Limitation：單一模型、單一對話情境，心理學指標的 AI 適用性需更多驗證；研究者背景是精神科而非 AI 工程
 - 框架關係：直接挑戰 LangGraph、AutoGen 等預設「orchestrator 對工作 agent 不透明」的設計慣例

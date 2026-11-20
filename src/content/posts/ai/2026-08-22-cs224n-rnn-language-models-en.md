@@ -13,7 +13,7 @@ description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 4: lang
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224n-rnn-language-models)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224n-rnn-language-models)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

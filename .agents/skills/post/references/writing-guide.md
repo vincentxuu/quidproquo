@@ -287,6 +287,7 @@ flowchart TB
 
 ### 其他慣例
 
+- 原始稿不放 emoji（`pnpm check:no-emoji` 擋 commit）。要圖示就寫 shortcode：`:globe:`、`:warning:`、`:question:`、`:red-circle:` 等，完整清單在 `src/plugins/rehypeNoEmoji.ts` 的 `SHORTCODES`；是／否寫 `✓`／`✗`，星等寫 `★`／`☆`，網站會畫成同一套 koboyo 圖示。寫完不確定就跑 `pnpm emoji:fix <檔案>` 自動換。code 區塊裡的 emoji 不算
 - 金額用「4,000 萬美元」，不要「$4,000 萬」——幣別跟在單位後面
 - 法條、報告名稱第一次出現給原文，不要自創中譯後就再也不附原文
 

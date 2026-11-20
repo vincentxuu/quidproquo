@@ -12,7 +12,7 @@ series:
   order: 73
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-04-tool-verdict-en)
+> :globe: [English version](/posts/daily/2026-11-04-tool-verdict-en)
 
 ## 工具資訊
 
@@ -150,8 +150,8 @@ pytest -q
 |---|---|---|---|
 | 推論成本 | 197 KB、CPU、中位數 0.54ms，零 API 呼叫 | 幾乎零成本，但資訊量只有一個 bit | 每次判斷都要多打一次 LLM API，有延遲也有費用 |
 | 準確率（48 個訓練時沒見過的 CLI 家族） | 93.2% | 47.9% | 沒有在同一個 benchmark 上比較過，依所用模型與 prompt 而定 |
-| 離線、零遙測 | ✅ 不打網路 | ✅ | ❌ 依賴外部 API |
-| 訓練語料與腳本可重現 | ✅ 公開（CC0），`python training/train.py` 重跑一遍 | — | 多數為黑箱，無法自行重現 |
+| 離線、零遙測 | ✓ 不打網路 | ✓ | ✗ 依賴外部 API |
+| 訓練語料與腳本可重現 | ✓ 公開（CC0），`python training/train.py` 重跑一遍 | — | 多數為黑箱，無法自行重現 |
 | 輸出標籤 | 4 類：success／failure／blocked／unknown，附機率 | 2 類：0／非 0 | 依 prompt 自訂，沒有標準化的輸出契約 |
 
 ## 注意事項

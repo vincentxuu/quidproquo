@@ -15,7 +15,7 @@ glossary:
     def: "A specialized model that scores a fixed set of options with calibrated probabilities instead of generating text, used for yes/no checks, classification/routing, and rubric scoring"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-13-model-google-gemini-decision-1)
+> :globe: [中文版](/posts/daily/2026-11-13-model-google-gemini-decision-1)
 
 ## Model Info
 
@@ -107,7 +107,7 @@ caption: Simplified: the three question types (yes/no, choice, score) and per-qu
 | Top-1 ECE, 7 shared evals (lower is better) | **0.0250** | 0.0494 | 0.0721 | 0.2104 |
 | Total price, 7 shared evals (USD) | 0.88 | **0.68** | 0.93 | 4.14 |
 
-⚠️ The numbers above are Google's own self-reported figures from its launch post. Independent lab Artificial Analysis, using its own Decision Index (v2.1, covering 18 decision models, overlapping with Google's launch suite on only one benchmark — When2Call), scores Gemini Decision 1 at 66 — 9th of 18, right in the middle of the pack, just ahead of GPT-6 Luna's 60 but well behind the leaders in the low 70s. On cost, Artificial Analysis measures $345 per 1M tasks, the 4th most expensive of the 18 models (median: $143). Calibration holds up well on both sides (a low Brier score), but raw accuracy comes out merely average under independent testing — a meaningful gap from Google's "leads across the suite" framing.
+:warning: The numbers above are Google's own self-reported figures from its launch post. Independent lab Artificial Analysis, using its own Decision Index (v2.1, covering 18 decision models, overlapping with Google's launch suite on only one benchmark — When2Call), scores Gemini Decision 1 at 66 — 9th of 18, right in the middle of the pack, just ahead of GPT-6 Luna's 60 but well behind the leaders in the low 70s. On cost, Artificial Analysis measures $345 per 1M tasks, the 4th most expensive of the 18 models (median: $143). Calibration holds up well on both sides (a low Brier score), but raw accuracy comes out merely average under independent testing — a meaningful gap from Google's "leads across the suite" framing.
 
 ## Comparison with Competitors
 

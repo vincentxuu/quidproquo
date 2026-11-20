@@ -13,14 +13,14 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-20-openai-dots)
+> :globe: [中文版](/posts/ai/2026-11-20-openai-dots)
 
 | Four tests | OpenAI Dots |
 |---|---|
-| Keeps running while you're away | ✅ Has its own cloud computer and browser, working toward your goals around the clock |
-| Decides what to do when it wakes | ✅ L3: when you aren't talking to it, it runs read-only proactive research looking for ways to help |
-| Remembers your goals across conversations | ✅ Uses ChatGPT memory and forms its own memories from connected apps |
-| Acts for you | ✅ Sends email and messages, pays, works on websites; your rules and auto-review decide when it asks first |
+| Keeps running while you're away | ✓ Has its own cloud computer and browser, working toward your goals around the clock |
+| Decides what to do when it wakes | ✓ L3: when you aren't talking to it, it runs read-only proactive research looking for ways to help |
+| Remembers your goals across conversations | ✓ Uses ChatGPT memory and forms its own memories from connected apps |
+| Acts for you | ✓ Sends email and messages, pays, works on websites; your rules and auto-review decide when it asks first |
 
 David Gérouville-Farrell, an AI consultant in the UK, has two cats, Bowie and Apollonia. [According to his blog](https://thingsithinkithink.blog/posts/2026/11-09-trying-out-personal-agents/), he had transferred Bowie's microchip registration and paid for it; Apollonia's transfer he'd started but never paid for, and the invoice sat in limbo for six months. He asked Dots to find out whether it was still active or whether he'd need to start again.
 

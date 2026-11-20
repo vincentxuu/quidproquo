@@ -22,7 +22,7 @@ glossary:
     context: "PyMuPDF 採 AGPL-3.0，這讓「效能最好」的選項在商業 SaaS 場景反而最貴。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-06-pdf-text-extraction-libraries-en)
+> :globe: [English version](/posts/ai/2026-08-06-pdf-text-extraction-libraries-en)
 
 [三層階梯](/posts/ai/2026-08-06-document-parsing-three-layers)裡最常被跳過的就是這一層。使用者看到 PDF 就想到 OCR，看到 OCR 就去找 VLM——但數位原生 PDF 的文字本來就讀得到，缺的只是結構，而結構可以用規則推。
 
@@ -105,7 +105,7 @@ with pdfplumber.open("report.pdf") as pdf:
 | [pypdf](https://github.com/py-pdf/pypdf) | 10,145 | BSD-3 系 | Python | 純 Python、零編譯；操作而非抽取 |
 | [Apache Tika](https://github.com/apache/tika) | 3,948 | Apache-2.0 | Java | 1,000+ 格式覆蓋；要扛 JVM |
 | [Xberg](https://github.com/xberg-io/xberg)（原 Xberg） | 9.1k | MIT | Rust | 多語綁定 + CLI + MCP server |
-| [extractous](https://github.com/yobix-ai/extractous) | 1,769 | Apache-2.0 | Rust | ⚠️ 2024-12 起無更新 |
+| [extractous](https://github.com/yobix-ai/extractous) | 1,769 | Apache-2.0 | Rust | :warning: 2024-12 起無更新 |
 
 決策順序我會這樣走：
 

@@ -11,7 +11,7 @@ series:
   order: 122
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-23-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-23-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -74,7 +74,7 @@ Much recent progress in agent products has come from harness engineering rather 
 
 - Evaluated across eight benchmarks spanning three domains — coding, agentic workspace, and engineering design — including SWE-bench Verified, JobBench, GDPval, APEX-Agents, and Frontier-Eng
 - RRSI gains up to 14.1 points on the evolve split and up to 4.7 points across five out-of-distribution held-out benchmarks, while the resulting harness runs on 30% fewer policy tokens than unregularized evolution
-- The strongest baseline on the evolve split (TTHE) posts the highest evolve-set score but its out-of-distribution average actually finishes 1.7 points below the unmodified starting harness (H0) ⚠️ (the authors' own experiment, not yet externally replicated); another baseline (Meta-Harness) gains only 0.9 points out of distribution
+- The strongest baseline on the evolve split (TTHE) posts the highest evolve-set score but its out-of-distribution average actually finishes 1.7 points below the unmodified starting harness (H0) :warning: (the authors' own experiment, not yet externally replicated); another baseline (Meta-Harness) gains only 0.9 points out of distribution
 - RRSI itself posts the smallest evolve-set gain of any evaluated method, yet is the only one whose out-of-distribution average clears the starting point by more than a point: 43.6 versus 39.7
 - Deployment threshold: requires an existing pipeline capable of proposing and executing harness edits (meta-harness-style tooling); RRSI adds regularization rules on top rather than being a from-scratch system
 - Limitation (self-reported): only addresses harness-layer optimization with a frozen backbone; broader validation is still needed across substantially different agent architectures, tool ecosystems, and longer-running self-improvement processes

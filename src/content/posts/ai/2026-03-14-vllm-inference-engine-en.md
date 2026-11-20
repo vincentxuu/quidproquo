@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-14-vllm-inference-engine)
+> :globe: [中文版](/posts/ai/2026-03-14-vllm-inference-engine)
 
 vLLM is currently the most widely adopted open-source LLM inference engine. The core problem it solves is clear: **prevent GPUs from wasting memory and compute when serving LLMs**. This post covers its key technologies, comparisons with other solutions, how to use it, and the latest developments in 2026.
 

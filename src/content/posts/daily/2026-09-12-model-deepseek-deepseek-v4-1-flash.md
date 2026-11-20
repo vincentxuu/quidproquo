@@ -15,7 +15,7 @@ glossary:
     def: "DeepSeek 於 2026 年 9 月推出的新一代模型架構家族，首發的 Flash 版把前代 MoE decoder 換成 Causal Encoder-Decoder，主打更低的 KV cache 與 agentic 任務效能"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash-en)
+> :globe: [English version](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | GPQA Diamond（base model，未輔助推理） | 90.9 | 未公開 | GPT-5.6 Sol 94.1 |
 | SimpleQA-Verified（base model，事實回憶） | 42.3 | 未公開 | 自家旗艦 V4-Pro 55.2 |
 
-⚠️ 以上均為 DeepSeek 官方在最強 agent scaffold（mini-SWE）下的自測結果，尚未見獨立第三方覆現。GPQA Diamond 與 SimpleQA-Verified 為 base model（非 instruct/agent 版）分數，V4-Flash-0731 無對應公開數字故標「未公開」。
+:warning: 以上均為 DeepSeek 官方在最強 agent scaffold（mini-SWE）下的自測結果，尚未見獨立第三方覆現。GPQA Diamond 與 SimpleQA-Verified 為 base model（非 instruct/agent 版）分數，V4-Flash-0731 無對應公開數字故標「未公開」。
 
 ## 與前代/競品比較
 

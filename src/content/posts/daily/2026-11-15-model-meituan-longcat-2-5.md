@@ -15,7 +15,7 @@ glossary:
     def: "美團（Meituan）開發的開放權重 agentic 模型家族，以動態 MoE 與長上下文為特色"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-15-model-meituan-longcat-2-5-en)
+> :globe: [English version](/posts/daily/2026-11-15-model-meituan-longcat-2-5-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | HLE（含工具） | 63.1 | 37.5 | Claude-Opus-5 64.7 |
 | BrowseComp | 91.9 | 79.9 | DeepSeek-V4.1-Flash 91.5（LongCat-2.5 為全場最高） |
 
-⚠️ LongCat-2.5／LongCat-2.0 的分數為官方自測；競品分數依官方揭露，部分取自公開技術報告或官方排行榜（標 `*`），部分為官方自行跑測、僅供參考（未標註來源的競品分數）。外部獨立複現尚未出現。
+:warning: LongCat-2.5／LongCat-2.0 的分數為官方自測；競品分數依官方揭露，部分取自公開技術報告或官方排行榜（標 `*`），部分為官方自行跑測、僅供參考（未標註來源的競品分數）。外部獨立複現尚未出現。
 
 ## 與前代/競品比較
 

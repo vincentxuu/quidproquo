@@ -20,7 +20,7 @@ glossary:
     context: "Several EMNLP 2024 papers studied the biases and limits of LLM-as-Judge."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2024-nlp)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2024-nlp)
 
 NLP's top conferences faced an unprecedented identity problem in 2024: if large language models can handle almost every traditional NLP task, what remains of NLP as an independent research field? Each conference offered a different answer. ACL chose open science as its annual theme, EMNLP dug into multilinguality and interpretability, and NAACL found new ground in visual grounding and low-resource languages.
 

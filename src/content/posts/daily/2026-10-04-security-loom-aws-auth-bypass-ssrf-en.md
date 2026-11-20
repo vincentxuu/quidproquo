@@ -11,7 +11,7 @@ series:
   order: 45
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-04-security-loom-aws-auth-bypass-ssrf)
+> :globe: [中文版](/posts/daily/2026-10-04-security-loom-aws-auth-bypass-ssrf)
 
 ## What Happened
 

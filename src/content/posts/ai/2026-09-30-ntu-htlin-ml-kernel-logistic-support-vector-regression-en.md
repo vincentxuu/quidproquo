@@ -30,7 +30,7 @@ glossary:
     context: "The Kernel Logistic Regression section of Techniques Lecture 5; the coefficients βₙ are usually all nonzero."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)
 
 **Video status: Videos included.** This article is written from the official MOOC handout [205_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/205_handout.pdf) and transcripts of the four official videos, with formulas following the handout. The transcripts are machine transcripts made for this article (Whisper), not official captions, and no human has proofread them. The videos are taught in Mandarin; the slides are in English. Each section opens with its official video and the approximate time ranges. Page numbers refer to the number at the lower right of each slide (0/20 to 20/20), and wherever the text says "in the lecture" it is paraphrasing what is said in the video.
 

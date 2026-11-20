@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-12-system-design-interview-english-en)
+> :globe: [English version](/posts/learning/2026-10-12-system-design-interview-english-en)
 
 這是面試口說的第三塊。[寫程式面試](/posts/learning/2026-10-12-coding-interview-english)和[被追問時怎麼接](/posts/learning/2026-10-12-interview-thinking-time-english)之後，剩下系統設計面試。
 

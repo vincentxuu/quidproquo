@@ -13,7 +13,7 @@ description: "逐段讀 CS224N Winter 2026 Lecture 5：attention、self-attentio
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224n-transformers-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224n-transformers-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

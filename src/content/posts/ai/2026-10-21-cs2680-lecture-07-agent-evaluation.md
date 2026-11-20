@@ -25,7 +25,7 @@ glossary:
     context: "第 7 堂把它分成訓練、執行時、環境、benchmark 過擬合四層。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-21-cs2680-lecture-07-agent-evaluation-en)
+> :globe: [English version](/posts/ai/2026-10-21-cs2680-lecture-07-agent-evaluation-en)
 
 **影片狀態：課程不錄影。** 本文依公開投影片與課程筆記整理，數值例子為本站補充。[來源說明](#課程影片來源)
 

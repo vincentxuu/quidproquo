@@ -113,7 +113,7 @@ Podcast 採「原音＋逐字稿練習」：提供官方音訊入口、經核對
 | 路徑 | `YYYY-MM-DD-<slug>.md` | `YYYY-MM-DD-<slug>-en.md` |
 | `lang` | `zh-TW` | `en` |
 | `title` / `tldr` / `description` | 中文 | 自然英文（不是機翻） |
-| 跨語言連結 | `> 🌏 [English version](/posts/<category>/YYYY-MM-DD-<slug>-en)` | `> 🌏 [中文版](/posts/<category>/YYYY-MM-DD-<slug>)` |
+| 跨語言連結 | `> :globe: [English version](/posts/<category>/YYYY-MM-DD-<slug>-en)` | `> :globe: [中文版](/posts/<category>/YYYY-MM-DD-<slug>)` |
 | 其餘 frontmatter | 相同 | 相同；系列顯示名稱依已登錄的語言名，模型家族按專用規格 |
 | `tldr` 注意 | 前端不會把 frontmatter 當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等語法；建議 1–2 句話，只講最核心的一個重點 | 同上 |
 

@@ -13,7 +13,7 @@ description: "依 Stanford CS221 Autumn 2025 Lecture 9 的 policy_gradient.py，
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-09-policy-gradient-en)
+> :globe: [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-09-policy-gradient-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

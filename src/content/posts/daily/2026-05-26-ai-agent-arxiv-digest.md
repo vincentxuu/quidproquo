@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 2
 ---
-> 🌏 [English version](/posts/daily/2026-05-26-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-05-26-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -122,7 +122,7 @@ LLM Agent 的主流架構受 ReAct（Reasoning + Acting，2022）影響深遠：
 
 ### 深入要點
 
-- **KQA Pro 省 token 最多**：27 個工具的 complex schema 下，FH 比 SH 省 2.7–4.7x input token，準確率持平 ⚠️（論文只描述為 parity，未給出具體準確率絕對數字）
+- **KQA Pro 省 token 最多**：27 個工具的 complex schema 下，FH 比 SH 省 2.7–4.7x input token，準確率持平 :warning:（論文只描述為 parity，未給出具體準確率絕對數字）
 - **HotpotQA 效果較溫和**：2 個工具簡單場景，token 節省 1.4–1.9x
 - **工具越多，FH 越值**：工具 schema 在 SH 每步都要重讀，FH 只讀一次，工具數量是省 token 的放大器
 - **Lazy Replanning 是關鍵配套**：純 FH 不帶 replanning 容易在工具失敗時直接掛掉；Lazy Replanning 讓 FH 有容錯能力
@@ -153,7 +153,7 @@ LLM Agent 的主流架構受 ReAct（Reasoning + Acting，2022）影響深遠：
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 理論框架新穎，但實驗規模偏小（單一 7B 模型、單一任務類型），工程師先了解核心概念，等後續更大規模驗證再深入。
 
 ### 領域背景
@@ -178,9 +178,9 @@ LLM Agent 的主流架構受 ReAct（Reasoning + Acting，2022）影響深遠：
 ### 深入要點
 
 - **三種失敗模式對應**：ρ(M) 高 → drift（訊息被放大漂移）；Δ(M) 小 → 難收斂共識；κ(M) 高 → 對 noise 或 prompt injection 攻擊脆弱
-- **拓撲性質預測**：Mesh 的 κ(M) 最高（最脆弱）；Chain 的 Δ(M) 最小（共識最慢）；Star 在多數指標最穩定，但 Star 的瓶頸是中央節點品質 ⚠️（此為理論推導，僅部分實驗驗證）
+- **拓撲性質預測**：Mesh 的 κ(M) 最高（最脆弱）；Chain 的 Δ(M) 最小（共識最慢）；Star 在多數指標最穩定，但 Star 的瓶頸是中央節點品質 :warning:（此為理論推導，僅部分實驗驗證）
 - **封閉式公式是強項**：Chain/Star/Mesh 的 M 矩陣有解析解，不需 simulation，計算成本極低，未來可做成即時診斷工具
-- **實驗規模偏小**：只用 Qwen2.5-7B-Instruct（7B 參數）、一種 state-tracking 任務、100 trials；是否推廣到更大模型和多樣任務仍是未知 ⚠️
+- **實驗規模偏小**：只用 Qwen2.5-7B-Instruct（7B 參數）、一種 state-tracking 任務、100 trials；是否推廣到更大模型和多樣任務仍是未知 :warning:
 - **兩位作者、理論偏重**：這是早期理論探索而非成熟工程方案，需謹慎看待結論的推廣性
 - **與 AutoGen/CrewAI 的潛在整合**：這個診斷框架理論上可嵌入 orchestration 平台作 pre-deployment 工具，但目前尚無任何實作
 

@@ -22,7 +22,7 @@ faq:
     a: "把 AI 放在提示的位置，不要放在答案的位置——先自己卡一次，再問。這條規則有兩個實驗支撐：Bastani 的 GPT Tutor 組只給教師設計的提示，就把傷害消掉了；MIT 的研究第四場也顯示同方向的順序效應——先自己寫、之後才用 LLM 的那組，記憶回想與神經再參與都優於一路用 LLM 的組別（但作者強調這不代表「用 AI 讓大腦變好」，且該場只有 18 人完成）。判斷訊號很簡單：如果過程變順了，那通常就是你沒在學的時候。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-04-generative-ai-and-learning-en)
+> :globe: [English version](/posts/learning/2026-08-04-generative-ai-and-learning-en)
 >
 > 本文是「Learning How to Learn」下篇。[上篇拆解了學習科學本身的證據](/posts/learning/2026-08-04-learning-how-to-learn)——哪些技術站得住、哪些只是比喻、哪些已被推翻。這篇只處理一個問題：**LLM 進來之後，那些原則怎麼變。**
 

@@ -14,7 +14,7 @@ description: "AI 資安實戰最後一篇：附可直接執行的 HTTP 教學服
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-integrated-exercise-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-integrated-exercise-en)
 
 你已經找到一條可疑的工單讀取路徑，也寫了修補。接下來要把三件事對起來：攻擊報告說的資料真的有交出來嗎？稽核事件記的是同一筆請求嗎？換成修補版後，正常功能還在嗎？
 

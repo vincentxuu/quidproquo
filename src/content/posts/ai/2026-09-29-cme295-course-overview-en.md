@@ -16,7 +16,7 @@ description: "An introduction to the series on Stanford CME295: Transformers & L
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-course-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

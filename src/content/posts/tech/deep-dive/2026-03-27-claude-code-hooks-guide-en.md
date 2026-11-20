@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide)
+:globe: [中文版](/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide)
 
 Claude Code's Hook system is an event-driven architecture. At every critical point in the AI's operation lifecycle, events are emitted — and you can attach automated actions to those points: block dangerous commands, inject additional context, log operations, or even auto-approve safe actions.
 

@@ -12,7 +12,7 @@ series:
   order: 112
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-29-funding-casap-en)
+> :globe: [English version](/posts/daily/2026-10-29-funding-casap-en)
 
 ## 融資資訊
 

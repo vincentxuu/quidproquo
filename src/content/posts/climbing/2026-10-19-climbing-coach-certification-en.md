@@ -26,7 +26,7 @@ glossary:
     context: "In the US, guiding clients at outdoor crags commonly calls for SPI or higher."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-coach-certification)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-coach-certification)
 
 In a Taiwanese gym class, the coach's vest or name tag often says "Level C coach". What did they have to pass to get that? How is it different from the belay card in your own wallet? And if you've climbed for a few years and want to start taking friends out, or teach a few classes at a gym, which certificate comes first?
 

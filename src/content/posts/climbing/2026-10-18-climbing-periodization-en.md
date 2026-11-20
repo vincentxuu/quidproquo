@@ -26,7 +26,7 @@ glossary:
     context: "Bechtel's image: one burner on full boil, three on a simmer."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-periodization)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-periodization)
 
 After the last few posts you have a pile of tools: [the hangboard](/posts/climbing/2026-10-18-hangboard-training-en), [pull-ups and the campus board](/posts/climbing/2026-10-18-climbing-strength-power-en), [ARC and 4×4s](/posts/climbing/2026-10-18-climbing-endurance-training-en). The problem is you only go to the gym three times a week, two hours each time. Train everything and nothing gets done properly; train one thing and you worry the rest will slip.
 

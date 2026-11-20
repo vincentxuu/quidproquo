@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 51
 ---
-> 🌏 [中文版](/posts/daily/2026-07-14-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-14-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -70,7 +70,7 @@ This has direct product implications for agent platform vendors: **security moni
 - AcMAS runs a lightweight detector per agent, monitoring intermediate-layer activations during LLM inference — a white-box monitoring architecture
 - Evaluated on both synchronous and asynchronous MAS topologies; the latter is closer to real production environments
 - Synchronous setting: F1 **0.94 vs graph method 0.72** (+0.22)
-- Asynchronous setting: F1 **0.93 vs graph method 0.38** (+0.55, massive gap) ⚠️ Graph methods nearly completely fail in async
+- Asynchronous setting: F1 **0.93 vs graph method 0.38** (+0.55, massive gap) :warning: Graph methods nearly completely fail in async
 - Detection accuracy >97% across multiple open-source LLM backbones, with low variance — strong generalization
 - Tested against "semantically stealthy attacks" where malicious instructions are disguised as normal text — AcMAS still detects them
 - **Limitation**: Requires access to LLM activations (white-box); cannot be directly applied when using closed API services (e.g., GPT-4o API); the detector itself requires pre-training on malicious samples
@@ -128,7 +128,7 @@ The core insight is directly applicable to any coding agent product: **the riche
 ### Deep Dive
 
 - Benchmark: REPOCOD — real GitHub repo function implementation tasks focusing on cross-file dependencies, significantly harder than HumanEval
-- 41.14% Pass@1 (beats all retrieval-based baselines; ⚠️ paper does not fully disclose specific baseline numbers — recommend checking the original)
+- 41.14% Pass@1 (beats all retrieval-based baselines; :warning: paper does not fully disclose specific baseline numbers — recommend checking the original)
 - Step decomposition is performed by the LLM, so quality depends on target function comprehension; complex functions may be decomposed inaccurately
 - Feedback loop uses a "conservative" strategy: iterates only on explicit compiler/lint errors to avoid infinite loops
 - Gap with GitHub Copilot / Cursor: current IDE agent retrieval still primarily uses cosine similarity; procedural similarity has not yet appeared in commercial products
@@ -137,7 +137,7 @@ The core insight is directly applicable to any coding agent product: **the riche
 
 ### Reviewer's One-Liner
 
-The concept is clear, and procedural similarity is genuinely a retrieval blind spot. But the 41.14% Pass@1 context deserves scrutiny — REPOCOD's baseline difficulty and function complexity distribution aren't detailed ⚠️. An ablation study (procedural retrieval alone vs semantic alone vs combined) quantifying each component's contribution would be far more convincing. The results are promising but not yet rock-solid.
+The concept is clear, and procedural similarity is genuinely a retrieval blind spot. But the 41.14% Pass@1 context deserves scrutiny — REPOCOD's baseline difficulty and function complexity distribution aren't detailed :warning:. An ablation study (procedural retrieval alone vs semantic alone vs combined) quantifying each component's contribution would be far more convincing. The results are promising but not yet rock-solid.
 
 ### Your Take-Away
 
@@ -190,7 +190,7 @@ Two direct implications for agent platforms: (1) **Benchmark comparability probl
 - Direct challenge to benchmark design: the paper calls for explicitly disclosing harness configuration when publishing agent experiments (echoing the view in 2605.23950)
 - Does not provide a prescription for "how to design harnesses that minimize belief divergence" — positioned as a diagnostic tool
 - Relevance to LangGraph / AutoGen: these frameworks' retry policies, tool visibility, and error propagation designs are all belief-affecting factors
-- **Limitation**: Experiment scale (number of tasks, harness comparisons) not detailed in the paper ⚠️; belief-rollout itself introduces additional LLM call costs
+- **Limitation**: Experiment scale (number of tasks, harness comparisons) not detailed in the paper :warning:; belief-rollout itself introduces additional LLM call costs
 
 ### Reviewer's One-Liner
 

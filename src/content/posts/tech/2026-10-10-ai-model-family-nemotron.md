@@ -13,7 +13,7 @@ series:
   order: 31
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-10-ai-model-family-nemotron-en)
+> :globe: [English version](/posts/tech/2026-10-10-ai-model-family-nemotron-en)
 
 **NVIDIA Nemotron** 不是單一模型，而是一組依部署位置分層的開放權重模型：資料中心用 Ultra、Super，常駐 agent 用 Lightning，子代理用 Nano，筆電與裝置用 Bolt；另有語音、檢索、內容安全，以及實驗新架構的 Nemotron Labs。這篇寫給要在 Nemotron 裡挑模型的開發者：每一層解決什麼問題、3.5 世代換了什麼、授權與端點要注意哪些差異。
 

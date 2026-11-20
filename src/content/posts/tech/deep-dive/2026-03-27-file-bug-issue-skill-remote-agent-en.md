@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent)
+:globe: [中文版](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent)
 
 CI was red again. PostgreSQL crashed while processing the 20th schema file, with the error `FATAL: the database system is shutting down`.
 

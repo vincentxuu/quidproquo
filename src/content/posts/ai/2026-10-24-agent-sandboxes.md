@@ -13,7 +13,7 @@ description: "說明 agent 沙箱的四種隔離層級，比較 Claude Code 與 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-agent-sandboxes-en)
+> :globe: [English version](/posts/ai/2026-10-24-agent-sandboxes-en)
 
 上一篇的掃描器管的是「裝進來之前」。有些風險掃不到：agent 讀到網頁裡的惡意指令，被說服去執行一條指令。沙箱的出發點是承認這件事會發生，只問一個問題：agent 被騙之後，最遠能碰到什麼？
 

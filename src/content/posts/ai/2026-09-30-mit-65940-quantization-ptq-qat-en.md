@@ -26,7 +26,7 @@ glossary:
     context: "The trick that makes QAT work."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
   order: 23
 ---
 
-🌏 [中文版](/posts/tech/2026-05-09-claude-code-loop-scheduling)
+:globe: [中文版](/posts/tech/2026-05-09-claude-code-loop-scheduling)
 
 > This is the `/loop` implementation post, focused on command syntax and hands-on usage. For the scheduling landscape (how Routines / Desktop scheduled tasks / `/loop` divide the work) and goal mode, see the main post: [Claude Code Routines: Complete Guide](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide-en).
 

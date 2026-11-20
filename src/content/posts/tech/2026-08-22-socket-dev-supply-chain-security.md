@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-socket-dev-supply-chain-security-en)
+> :globe: [English version](/posts/tech/2026-08-22-socket-dev-supply-chain-security-en)
 
 [Socket.dev](https://docs.socket.dev/) 聚焦 open-source dependency supply chain。傳統 SCA 常問「這個版本有沒有已知 CVE」；Socket 也觀察 package 是否新增 install script、obfuscated code、native binary、network/filesystem/shell/environment access、可疑 ownership change、typosquat 或 non-immutable Git dependency。這能在惡意套件還沒有 CVE 前提供訊號。
 

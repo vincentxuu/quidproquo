@@ -13,7 +13,7 @@ description: "A guide to climbing around Siracusa: size, aspect and season of th
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-siracusa)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-siracusa)
 
 Siracusa sits in the south-east corner of Sicily. Climbers come for two things. One is the canyon country around Canicattini Bagni, inland on the Monti Iblei plateau, where rivers have cut deep gorges into the limestone and almost everything is single-pitch sport climbing. The other is deep water solo (DWS: climbing ropeless above the sea and falling into it) on the city's coast.
 

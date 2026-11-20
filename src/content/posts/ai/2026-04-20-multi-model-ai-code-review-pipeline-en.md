@@ -10,7 +10,7 @@ description: "Why does AI code review need multiple models? This post introduces
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-20-multi-model-ai-code-review-pipeline)
+> :globe: [中文版](/posts/ai/2026-04-20-multi-model-ai-code-review-pipeline)
 
 Earlier this year, Codex CLI launched publicly and Gemini CLI went open source. The AI coding tool landscape shifted from "one IDE plugin" to "multiple CLI tools collaborating with each other." An interesting pattern emerged in the community: instead of having AI write more code, people started having different AIs review each other's output.
 

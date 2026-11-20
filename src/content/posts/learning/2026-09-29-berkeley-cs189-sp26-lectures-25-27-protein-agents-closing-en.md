@@ -23,7 +23,7 @@ glossary:
     context: "Lec 27 lists it alongside SFT and RL as the three ways to improve an agent with environments, and notes it works for closed-weight models."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

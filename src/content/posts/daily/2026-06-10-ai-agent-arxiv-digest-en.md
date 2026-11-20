@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 17
 ---
-> 🌏 [中文版](/posts/daily/2026-06-10-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-10-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -72,8 +72,8 @@ This is a rare architecture paper validated in production that explicitly articu
 - Runbooks serve as structured knowledge sources, reducing uncertainty that agents would otherwise have to "hallucinate" through
 - Progressive autonomy: start with high supervision → confirm repeatedly → full auto; suitable for high-risk operations
 - Closed-loop verification: actively validates remediation outcomes, escalates only on failure, preventing silent failures
-- Production deployment achieves 90%+ autonomous resolution (self-reported by authors, no third-party verification, baseline not clearly defined) **⚠️**
-- The author's institution is described as a "major cloud provider" but not disclosed, limiting verifiability **⚠️**
+- Production deployment achieves 90%+ autonomous resolution (self-reported by authors, no third-party verification, baseline not clearly defined) **:warning:**
+- The author's institution is described as a "major cloud provider" but not disclosed, limiting verifiability **:warning:**
 - The paper leans toward an architecture report — lacking rigorous experimental controls, it reads more like an engineering white paper than an academic paper
 
 ### Reviewer's One-Liner
@@ -125,8 +125,8 @@ No fine-tuning required means it can be added on top of any LLM (GPT-4o, Claude,
 
 ### Deep Dive
 
-- Improvements across three benchmarks (vs. strong baseline): WorkBench +29%, NESTFUL +80%, PEToolBench +17% **⚠️ baseline definitions not detailed**
-- The NESTFUL +80% figure is notably high and may be related to baseline setup — requires careful scrutiny **⚠️**
+- Improvements across three benchmarks (vs. strong baseline): WorkBench +29%, NESTFUL +80%, PEToolBench +17% **:warning: baseline definitions not detailed**
+- The NESTFUL +80% figure is notably high and may be related to baseline setup — requires careful scrutiny **:warning:**
 - Memory entry structure includes: environment feedback (API error codes, tool outputs) + user feedback (direct corrections, preference expressions)
 - Retrieval latency and precision degradation as the memory store scales are not deeply explored — a practical deployment concern
 - Unlike general memory frameworks (Mem0, LangMem), this specifically targets "tool-call behavior" rather than conversation summaries
@@ -187,8 +187,8 @@ It provides a reusable "AI development framework evaluation rubric" — even if 
 - BMAD Method is closest to traditional Agile, suitable for teams with existing sprint processes
 - GSD focuses on context engineering (keeping AI supplied with sufficient context) rather than spec documents
 - Spec Kitty emphasizes worktree isolation and code review, leaning toward engineering rigor
-- Research methodology is qualitative (subjective scoring) — no RCT or objective code quality benchmarks **⚠️**
-- Sample of only six frameworks, selected via a one-time search with limited coverage — important options may be missing **⚠️**
+- Research methodology is qualitative (subjective scoring) — no RCT or objective code quality benchmarks **:warning:**
+- Sample of only six frameworks, selected via a one-time search with limited coverage — important options may be missing **:warning:**
 - None of these six frameworks are runtimes like LangGraph/AutoGen/CrewAI — make sure you know which layer your problem lives at
 - Single first-author from a small research institute; treat as "thought-provoking" rather than "decision-making evidence"
 

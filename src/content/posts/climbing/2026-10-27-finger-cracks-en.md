@@ -26,7 +26,7 @@ glossary:
     context: "A pocket noticeably wider than the rest of the crack, often a place to rest, is called a pod."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-27-finger-cracks)
+> :globe: [中文版](/posts/climbing/2026-10-27-finger-cracks)
 
 Follow a hand crack up and it often narrows until only your fingers fit. That is where many people first find crack climbing frightening: you push the thinnest parts of your body into the rock, twist them, and hang your whole weight off them.
 

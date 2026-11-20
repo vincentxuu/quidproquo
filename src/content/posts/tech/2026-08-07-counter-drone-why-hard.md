@@ -13,7 +13,7 @@ series:
   order: 21
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-07-counter-drone-why-hard-en)
+> :globe: [English version](/posts/tech/2026-08-07-counter-drone-why-hard-en)
 
 這個系列碰過反制三次：[產業地圖](/posts/tech/2026-08-06-drone-industry-map)算過它的市場規模、[四條件框架那篇](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)拆過陸軍那件全額解約的標案、[入場機制那篇](/posts/career/2026-08-06-drone-market-entry-mechanics)拆過警政署的分級發包。**碰了三次，卻沒有一篇專講它。**
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-12-coding-interview-english)
+> :globe: [中文版](/posts/learning/2026-10-12-coding-interview-english)
 
 My three earlier interview posts ([general patterns](/posts/learning/2026-10-07-interview-experience-english-en), [my own stories](/posts/learning/2026-10-07-interview-agent-stories-english-en), and [what the teaching materials cover](/posts/learning/2026-10-08-interview-english-from-teaching-materials-en)) all dealt with behavioral interviews: introducing myself, describing projects, asking questions. A large part of an engineering interview is writing code on the spot, and I had not practiced a single sentence for that part.
 

@@ -12,7 +12,7 @@ series:
   order: 57
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-30-funding-reco-en)
+> :globe: [English version](/posts/daily/2026-09-30-funding-reco-en)
 
 ## 融資資訊
 

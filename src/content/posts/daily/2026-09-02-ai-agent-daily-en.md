@@ -13,7 +13,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-02-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-02-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -117,7 +117,7 @@ South African security firm NEWORDER partnered with Israel's Lasso Security to b
 
 **Oceania**
 
-Australia's defense minister called AI the biggest sovereignty inflection point since WWII while pushing, in Washington, a roughly $21B buildout that would make Australia Anthropic's second frontier-model base — copyright and data-access details are still being negotiated. ⚠️ This is currently single-sourced and not cross-validated. ([source](https://aspicts.substack.com/p/early-edition-australia-makes-its)) At the same time, as Australia's central bank reviews payment-system rules, Commonwealth Bank, Westpac, and ANZ are pushing for immediate regulation of agentic AI payments, while NAB, Visa, Amex, and Apple argue it's too early to regulate — the two camps clashed directly in their submissions. ([source](https://www.capitalbrief.com/article/battlelines-drawn-as-big-banks-and-big-tech-square-off-over-agentic-ai-regulation-be11f1f9-20a3-4a7c-b8b0-706e965b8aad))
+Australia's defense minister called AI the biggest sovereignty inflection point since WWII while pushing, in Washington, a roughly $21B buildout that would make Australia Anthropic's second frontier-model base — copyright and data-access details are still being negotiated. :warning: This is currently single-sourced and not cross-validated. ([source](https://aspicts.substack.com/p/early-edition-australia-makes-its)) At the same time, as Australia's central bank reviews payment-system rules, Commonwealth Bank, Westpac, and ANZ are pushing for immediate regulation of agentic AI payments, while NAB, Visa, Amex, and Apple argue it's too early to regulate — the two camps clashed directly in their submissions. ([source](https://www.capitalbrief.com/article/battlelines-drawn-as-big-banks-and-big-tech-square-off-over-agentic-ai-regulation-be11f1f9-20a3-4a7c-b8b0-706e965b8aad))
 
 ### Deals / Funding
 
@@ -137,16 +137,16 @@ Australia's defense minister called AI the biggest sovereignty inflection point 
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-02](/posts/daily/2026-09-02-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-02](/posts/daily/2026-09-02-ai-agent-github-digest-en)
-- 📄 [Benchmark Shift: CursorBench](/posts/daily/2026-09-02-benchmark-cursorbench-en)
-- 📄 [Framework Update: Agno 3.0.5](/posts/daily/2026-09-02-framework-agno-3.0.5-en)
-- 📄 [Funding Brief: AIR Security](/posts/daily/2026-09-02-funding-air-security-en)
-- 📄 [Funding Brief: Tripo AI](/posts/daily/2026-09-02-funding-tripo-ai-en)
-- 📄 [Model Card: Gemini Omni 1.1 Flash](/posts/daily/2026-09-02-model-google-gemini-omni-1-1-flash-en)
-- 📄 [Product Builder Interview Prep — 2026-09-02](/posts/daily/2026-09-02-product-builder-interview-daily-en)
-- 📄 [Security Alert: METR API Key Theft](/posts/daily/2026-09-02-security-metr-api-key-theft-en)
-- 📄 [Tool Pick: mcp-spend-guard](/posts/daily/2026-09-02-tool-mcp-spend-guard-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-02](/posts/daily/2026-09-02-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-02](/posts/daily/2026-09-02-ai-agent-github-digest-en)
+- :file: [Benchmark Shift: CursorBench](/posts/daily/2026-09-02-benchmark-cursorbench-en)
+- :file: [Framework Update: Agno 3.0.5](/posts/daily/2026-09-02-framework-agno-3.0.5-en)
+- :file: [Funding Brief: AIR Security](/posts/daily/2026-09-02-funding-air-security-en)
+- :file: [Funding Brief: Tripo AI](/posts/daily/2026-09-02-funding-tripo-ai-en)
+- :file: [Model Card: Gemini Omni 1.1 Flash](/posts/daily/2026-09-02-model-google-gemini-omni-1-1-flash-en)
+- :file: [Product Builder Interview Prep — 2026-09-02](/posts/daily/2026-09-02-product-builder-interview-daily-en)
+- :file: [Security Alert: METR API Key Theft](/posts/daily/2026-09-02-security-metr-api-key-theft-en)
+- :file: [Tool Pick: mcp-spend-guard](/posts/daily/2026-09-02-tool-mcp-spend-guard-en)
 
 ## Tomorrow's Watch
 

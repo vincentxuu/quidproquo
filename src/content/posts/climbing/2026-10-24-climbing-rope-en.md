@@ -34,7 +34,7 @@ glossary:
     context: "The Beal Booster III has it."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-climbing-rope)
+> :globe: [中文版](/posts/climbing/2026-10-24-climbing-rope)
 
 You've been climbing in the gym for a while, borrowing a friend's rope or using the gym's. Now you want your own. A retailer's site shows one brand in several diameters and several lengths, some labelled dry and some not, and prices that can differ by a factor of two.
 

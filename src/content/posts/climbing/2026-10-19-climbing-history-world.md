@@ -26,7 +26,7 @@ glossary:
     context: "德國攀岩者 Kurt Albert 1975 年開始在法蘭肯侏羅（Frankenjura）自由攀完的路線上畫紅點做記號，名稱由此而來。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-history-world-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-history-world-en)
 
 你下次走進岩館，可以先看一圈：櫃檯旁邊賣的粉袋、腳上那雙彎彎的岩鞋、牆上貼著 V3 或 5.10b 的路線卡、自動確保器旁邊貼的比賽海報。這些東西看起來理所當然，但每一樣都有人在某一年第一次做出來。
 

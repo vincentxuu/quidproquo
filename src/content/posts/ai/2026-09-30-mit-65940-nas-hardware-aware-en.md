@@ -27,7 +27,7 @@ glossary:
     context: "L8 slides 26–29, from ProxylessNAS."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -11,7 +11,7 @@ series:
   order: 65
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-27-security-agents-md-downloads-hijack-en)
+> :globe: [English version](/posts/daily/2026-10-27-security-agents-md-downloads-hijack-en)
 
 ## 事件概述
 

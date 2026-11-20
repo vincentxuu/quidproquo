@@ -13,7 +13,7 @@ description: "An introduction to tokenization and BPE: why models split text int
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-understanding-ai-models-tokenization)
+> :globe: [中文版](/posts/ai/2026-08-26-understanding-ai-models-tokenization)
 
 The previous post covered tokens as the basic units models use to process text. But how does a model decide which characters form a token? That process is called tokenization, and it directly affects how much you pay to use an API.
 

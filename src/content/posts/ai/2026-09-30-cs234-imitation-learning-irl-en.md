@@ -30,7 +30,7 @@ glossary:
     context: "L7 pp.51–59; Ziebart et al., AAAI 2008."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-imitation-learning-irl)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-imitation-learning-irl)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

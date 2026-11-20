@@ -10,7 +10,7 @@ description: "A review of 11 LLM writing pipelines including Karpathy's LLM-wiki
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-10-llm-writing-pipeline-learnings)
+> :globe: [中文版](/posts/ai/2026-05-10-llm-writing-pipeline-learnings)
 
 Turning "research a new tool and write a guide" into a pipeline is nothing new, but implementation varies wildly. This time I studied 11 public LLM writing pipelines -- from Karpathy's personal wiki, Paul Iusztin's Nova, Dheeraj Sharma's technical verifier, to rzlt.io's 8-step commercial workflow. Three dominant design patterns emerge clearly, each backed by quantitative evidence.
 
@@ -109,22 +109,22 @@ Cross-referencing these findings, quidproquo's existing skill system (post / pos
 
 **Adopted (already implemented or being reinforced)**:
 
-- ✅ **Multi-agent pipeline**: RAG chat side already implemented (planner -> research -> writer -> critic); writing side maintains manual review-at-each-step
-- ✅ **Never fabricate / never auto-fix**: Explicitly hardcoded in post-review and post-verify SKILL.md files
-- ✅ **GEO rules**: Written into `writing-guide.md`; post-review skill checks for compliance
-- ✅ **Technical verifier**: post-verify skill performs fact-layer cross-checks on versions / APIs / pricing
+- ✓ **Multi-agent pipeline**: RAG chat side already implemented (planner -> research -> writer -> critic); writing side maintains manual review-at-each-step
+- ✓ **Never fabricate / never auto-fix**: Explicitly hardcoded in post-review and post-verify SKILL.md files
+- ✓ **GEO rules**: Written into `writing-guide.md`; post-review skill checks for compliance
+- ✓ **Technical verifier**: post-verify skill performs fact-layer cross-checks on versions / APIs / pricing
 
 **Not adopting for now**:
 
-- ❌ **Fully automated publish pipeline** (Khaled Zaky's Lambda -> GitHub commit -> deploy) -- quidproquo uses Cloudflare Workers + Astro SSR + personal writing; the existing `git commit + pnpm deploy` workflow is already lightweight, adding another layer is unnecessary
-- ❌ **Monthly SEO audit + auto-refresh** (rzlt.io's GSC MCP feed -> refresh every 3 months) -- not enough scale, manual post-update is sufficient
-- ❌ **Full LLM-wiki applied to `.research/`** -- potentially over-engineering for a solo writer, will observe for 12-24 months first
+- ✗ **Fully automated publish pipeline** (Khaled Zaky's Lambda -> GitHub commit -> deploy) -- quidproquo uses Cloudflare Workers + Astro SSR + personal writing; the existing `git commit + pnpm deploy` workflow is already lightweight, adding another layer is unnecessary
+- ✗ **Monthly SEO audit + auto-refresh** (rzlt.io's GSC MCP feed -> refresh every 3 months) -- not enough scale, manual post-update is sufficient
+- ✗ **Full LLM-wiki applied to `.research/`** -- potentially over-engineering for a solo writer, will observe for 12-24 months first
 
 **Selectively adopting (will decide based on usage)**:
 
-- 🟡 **Brief gate (rzlt.io / Max Mitcham pattern)**: Valuable for deep-dive guides, but burdensome for quick notes. Will observe deep-research skill usage first; when enough material naturally accumulates, it becomes a `post-brief` skill
-- 🟡 **Voice profile extraction**: Khaled Zaky extracts a voice profile from 20 posts; quidproquo already has 100+ posts available. Worth doing but doesn't need to run on every post -- a one-time `pnpm voice:extract` script is more appropriate
-- 🟡 **Research distill pattern**: Scan `## References` before publishing and trim sources not actually cited -- can be folded into `post-review`, doesn't need a separate skill
+- :yellow-circle: **Brief gate (rzlt.io / Max Mitcham pattern)**: Valuable for deep-dive guides, but burdensome for quick notes. Will observe deep-research skill usage first; when enough material naturally accumulates, it becomes a `post-brief` skill
+- :yellow-circle: **Voice profile extraction**: Khaled Zaky extracts a voice profile from 20 posts; quidproquo already has 100+ posts available. Worth doing but doesn't need to run on every post -- a one-time `pnpm voice:extract` script is more appropriate
+- :yellow-circle: **Research distill pattern**: Scan `## References` before publishing and trim sources not actually cited -- can be folded into `post-review`, doesn't need a separate skill
 
 ## The Big Picture
 

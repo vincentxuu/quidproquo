@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-06-drone-industry-cycle-history-en)
+> :globe: [English version](/posts/tech/2026-08-06-drone-industry-cycle-history-en)
 
 每一輪產業熱潮都會遇到同一個問題：**這次是真的，還是又一次泡沫？**
 

@@ -12,7 +12,7 @@ series:
   order: 34
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-19-tool-trustdex)
+> :globe: [中文版](/posts/daily/2026-09-19-tool-trustdex)
 
 ## Tool Info
 
@@ -86,9 +86,9 @@ TrustDex looks like it solves the same problem as [mcp-guardrail](/posts/daily/2
 |---|---|---|---|
 | When it decides | Before the agent sees the tool | At the moment the agent calls the tool | Whenever someone adds a new entry (manually) |
 | What it decides on | Source, version drift, signatures, explicit trust-store evidence | Call-level rules defined in `policy.yaml` | Personal memory and judgment |
-| Detects config drift over time | ✅ (snapshot + diff + signed recheck) | Requires a separate comparison | ❌ |
+| Detects config drift over time | ✓ (snapshot + diff + signed recheck) | Requires a separate comparison | ✗ |
 | Coverage | MCP servers + Agent Skills + plugin manifests + Codex `config.toml` | Currently focused on MCP stdio proxying | Unlimited scope, but no automation |
-| Needs a persistent proxy process | ❌ (one-shot CLI / CI step) | ✅ | ❌ |
+| Needs a persistent proxy process | ✗ (one-shot CLI / CI step) | ✓ | ✗ |
 
 ## Caveats
 

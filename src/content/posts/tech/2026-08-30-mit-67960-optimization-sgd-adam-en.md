@@ -13,7 +13,7 @@ description: "MIT 6.7960 Fall 2024 OCW topic guide (related material is spread o
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-optimization-sgd-adam)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-optimization-sgd-adam)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

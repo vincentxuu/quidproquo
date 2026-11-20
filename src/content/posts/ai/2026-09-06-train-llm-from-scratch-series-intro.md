@@ -13,7 +13,7 @@ description: "「從零訓練一個 LLM」系列導讀：從 MiniMind 的 $0.4 �
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en)
+> :globe: [English version](/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en)
 
 用 API 接 LLM 跟從零把一個 LLM 訓出來，是同一張地圖上的兩端。前者人人都試過；後者在幾年前還是「大廠限定」的活動——動輒上億美元預算、上千張 GPU。[MiniMind](https://github.com/jingyaogong/minimind) 把這條線拉到了約 $0.4（租一張 RTX 3090 兩小時的成本），另一端由 [LLM360 K2](https://github.com/LLM360/k2-train) 用 65B 參數、1.4T tokens 展示了「完全復現」的工業標準。這篇是「從零訓練一個 LLM」系列（11 篇）的導讀：先定義我們選了什麼專案、為什麼，再擺出成本光譜、覆蓋矩陣與偏誤標註，最後是整條學習路徑。
 
@@ -52,17 +52,17 @@ draft: false
 
 | 維度 | 母群代表 | 系列覆蓋 |
 |---|---|---|
-| 極低成本教學（<$10） | MiniMind、baby-llama2-chinese | ✅ order 1、3 |
-| 極簡工程（$100–1,000） | nanochat、llm.c | ✅ order 2 |
-| 中文資料優先 | baby-llama2-chinese、ChatLM-mini-Chinese、Steel-LLM | ✅ order 3 |
-| 資料效率研究 | YuLan-Mini | ✅ order 4 |
-| 工業級完全開放 | OLMo 3、LLM360 K2 | ✅ order 5 |
-| 開放配方但規模較小 | SmolLM3、MiniCPM 等 | ⚠️ 部分提及 |
-| 研究用途退場 | Pythia、TinyLlama | ⚠️ 下面說明 |
-| 國家級／多語主權 | Apertus（瑞士）、LLM-jp（日本） | ✅ order 7 |
-| 效率／邊緣／多模態 | OpenELM（Apple）、MiniCPM（OpenBMB） | ✅ order 8 |
-| 從零訓練框架 | LitGPT（Lightning AI） | ✅ order 9 |
-| 非 Transformer 架構 | RWKV、Mamba 系 | ⚠️ order 7 對照段 |
+| 極低成本教學（<$10） | MiniMind、baby-llama2-chinese | ✓ order 1、3 |
+| 極簡工程（$100–1,000） | nanochat、llm.c | ✓ order 2 |
+| 中文資料優先 | baby-llama2-chinese、ChatLM-mini-Chinese、Steel-LLM | ✓ order 3 |
+| 資料效率研究 | YuLan-Mini | ✓ order 4 |
+| 工業級完全開放 | OLMo 3、LLM360 K2 | ✓ order 5 |
+| 開放配方但規模較小 | SmolLM3、MiniCPM 等 | :warning: 部分提及 |
+| 研究用途退場 | Pythia、TinyLlama | :warning: 下面說明 |
+| 國家級／多語主權 | Apertus（瑞士）、LLM-jp（日本） | ✓ order 7 |
+| 效率／邊緣／多模態 | OpenELM（Apple）、MiniCPM（OpenBMB） | ✓ order 8 |
+| 從零訓練框架 | LitGPT（Lightning AI） | ✓ order 9 |
+| 非 Transformer 架構 | RWKV、Mamba 系 | :warning: order 7 對照段 |
 
 **退場案例**：本系列提到 [Pythia](https://github.com/EleutherAI/pythia)（EleutherAI 留下的 154 checkpoints 研究套組）與 [TinyLlama](https://github.com/jzhang38/TinyLlama)（1.1B、3T tokens），重點在於它們把任務做完後功成身退——Pythia 的價值在留給研究使用的中間權重，TinyLlama 則證明「小模型也能吃到 tokens 飽和」。它們是「過去式還在用的工具」，本系列只用來對照，不單獨成篇。
 

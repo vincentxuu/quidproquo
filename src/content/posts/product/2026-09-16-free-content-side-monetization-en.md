@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-16-free-content-side-monetization)
+> :globe: [中文版](/posts/product/2026-09-16-free-content-side-monetization)
 
 Imagine a night-market vendor offering a free cup of soup. The sample is not costless: ingredients, labor, and the stall all cost money. The vendor gives it away because some visitors will buy a full bowl or add side dishes. If everyone takes the sample and leaves, a long line is still not a good business.
 

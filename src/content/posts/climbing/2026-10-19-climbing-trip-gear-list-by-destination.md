@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en)
 
 訂好機票之後，第一個問題通常是：我那條 60 m 的繩，到泰國夠不夠用？要帶 12 支快扣還是 20 支？抱石墊扛得上飛機嗎？
 

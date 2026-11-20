@@ -12,7 +12,7 @@ series:
   order: 72
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-26-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-26-ai-agent-daily)
 
 ## Today's Call
 
@@ -111,7 +111,7 @@ What this means for practitioners: if your multi-agent system gets worse as it s
 
 ### Coding Agent Race
 
-**Cursor**: Launched Computer Use, letting its coding agent control any desktop app with mouse and keyboard, not just browsers — the demo showed an agent building an iOS feature, opening the Simulator, clicking to verify, then fixing its own code. ([source](https://aiweekly.co/ai-news-today)) Today's GitHub Digest's PrimeIntellect-ai/prime-agent (⭐ 22,325) takes a different path: treating subagents as function calls and self-improvement as a rollback-safe harness — see today's [GitHub Digest](/posts/daily/2026-10-26-ai-agent-github-digest-en) for details.
+**Cursor**: Launched Computer Use, letting its coding agent control any desktop app with mouse and keyboard, not just browsers — the demo showed an agent building an iOS feature, opening the Simulator, clicking to verify, then fixing its own code. ([source](https://aiweekly.co/ai-news-today)) Today's GitHub Digest's PrimeIntellect-ai/prime-agent (★ 22,325) takes a different path: treating subagents as function calls and self-improvement as a rollback-safe harness — see today's [GitHub Digest](/posts/daily/2026-10-26-ai-agent-github-digest-en) for details.
 
 ### Tools and Ecosystem
 
@@ -201,13 +201,13 @@ A dedicated post today also covers [Azoma's $11.2M Series A](/posts/daily/2026-1
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-26](/posts/daily/2026-10-26-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-26](/posts/daily/2026-10-26-ai-agent-github-digest-en)
-- 📄 [Funding Alert | Azoma closes $11.2M Series A — 2026-10-26](/posts/daily/2026-10-26-funding-azoma-en)
-- 📄 [Security Alert | LiteLLM supply-chain attack root-cause update — 2026-10-26](/posts/daily/2026-10-26-security-litellm-master-key-root-cause-en)
-- 📄 [Tool Spotlight | dbmole-mcp — 2026-10-26](/posts/daily/2026-10-26-tool-dbmole-mcp-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-26: ML Fundamentals](/posts/daily/2026-10-26-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-26: Product Sense](/posts/daily/2026-10-26-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-26](/posts/daily/2026-10-26-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-26](/posts/daily/2026-10-26-ai-agent-github-digest-en)
+- :file: [Funding Alert | Azoma closes $11.2M Series A — 2026-10-26](/posts/daily/2026-10-26-funding-azoma-en)
+- :file: [Security Alert | LiteLLM supply-chain attack root-cause update — 2026-10-26](/posts/daily/2026-10-26-security-litellm-master-key-root-cause-en)
+- :file: [Tool Spotlight | dbmole-mcp — 2026-10-26](/posts/daily/2026-10-26-tool-dbmole-mcp-en)
+- :file: [AI Engineer Interview Prep — 2026-10-26: ML Fundamentals](/posts/daily/2026-10-26-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-26: Product Sense](/posts/daily/2026-10-26-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

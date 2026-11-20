@@ -13,7 +13,7 @@ description: "依官方總結投影片整理 Spring 2026 當期公告、四條�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-28-wrap-up-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-28-wrap-up-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

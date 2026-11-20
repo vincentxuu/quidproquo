@@ -12,7 +12,7 @@ series:
   order: 93
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-20-product-builder-interview-daily-en)
+> :globe: [English version](/posts/daily/2026-11-20-product-builder-interview-daily-en)
 
 ## 今日主題
 

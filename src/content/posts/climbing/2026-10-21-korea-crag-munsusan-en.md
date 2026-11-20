@@ -13,7 +13,7 @@ description: "Munsusan guide: winter sunshine, upper and lower crags, observator
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-korea-crag-munsusan)
+> :globe: [中文版](/posts/climbing/2026-10-21-korea-crag-munsusan)
 
 Korean winter climbing is not confined to gyms. Munsusan combines sunny sport routes with an Ulsan city base, although a winter reputation does not make every cold day pleasant. This guide helps you select a sector, compare lengths and arrange the final uphill leg.
 

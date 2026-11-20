@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-17-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-17-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ The most notable trend today isn't a new framework — it's the "reinforce what 
 
 ## Trending Repos
 
-### forge (antoinezambelli) ⭐ 2,213
+### forge (antoinezambelli) ★ 2,213
 
 [GitHub](https://github.com/antoinezambelli/forge)　·　Python　·　MIT
 
@@ -31,7 +31,7 @@ The most notable trend today isn't a new framework — it's the "reinforce what 
 
 ---
 
-### repo-context-mcp (nduc99911) ⭐ 104
+### repo-context-mcp (nduc99911) ★ 104
 
 [GitHub](https://github.com/nduc99911/repo-context-mcp)　·　TypeScript　·　MIT
 
@@ -42,7 +42,7 @@ The most notable trend today isn't a new framework — it's the "reinforce what 
 
 ---
 
-### Deepseek Harness EAC (zouyuxuan122) ⭐ 540
+### Deepseek Harness EAC (zouyuxuan122) ★ 540
 
 [GitHub](https://github.com/zouyuxuan122/Deepseek-Harness-EAC)　·　JavaScript (Electron)　·　MIT
 
@@ -53,7 +53,7 @@ The most notable trend today isn't a new framework — it's the "reinforce what 
 
 ---
 
-### Webwright (microsoft) ⭐ 5,916
+### Webwright (microsoft) ★ 5,916
 
 [GitHub](https://github.com/microsoft/Webwright)　·　Python　·　MIT
 

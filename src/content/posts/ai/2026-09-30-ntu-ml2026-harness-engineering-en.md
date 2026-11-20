@@ -22,7 +22,7 @@ glossary:
     context: "The slides cite Geoffrey Huntley's posts and also draw a variant that restarts the context every round and carries over only a summary."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

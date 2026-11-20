@@ -12,7 +12,7 @@ series:
   order: 83
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-15-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-15-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -58,7 +58,7 @@ Qianxi Yan, Chunrong Chen, Jiuzhou Zhao et al.（Tencent Cloud Andon / Zhejiang 
 ### 深入要點
 
 - 在 6 類雲端服務、9 個生產技能、98 份技能參考檔上測試
-- 比自我反思基線高 23.0 分，比單輪 QA 進化高 15.4 分 ⚠️（Tencent 自測，需等外部複現）
+- 比自我反思基線高 23.0 分，比單輪 QA 進化高 15.4 分 :warning:（Tencent 自測，需等外部複現）
 - 進化梯度的核心洞察：單輪回饋的資訊量在第一輪後急遽衰減，多輪追問則持續供應新訊號
 - 治理層主動修復兩類問題：事實退化（進化過程中引入錯誤資訊）和結構膨脹（技能越改越長越冗餘）
 - 落地門檻：需要建立多輪使用者模擬的管道，小型團隊可以從現有的對話日誌中挖掘追問模式
@@ -148,7 +148,7 @@ Kaichao Liang, Yuqi Cui, Hao Kong et al.（Noah's Ark Lab, Huawei Technologies�
 ### 深入要點
 
 - LOCOMO 對話記憶準確率 94.03%，PersonaMem 人設記憶 70.63%
-- MindSkillEvolve 在 SpreadsheetBench 上比初始技能基線提升 9.2 個百分點 ⚠️（Huawei 自測，需等外部複現）
+- MindSkillEvolve 在 SpreadsheetBench 上比初始技能基線提升 9.2 個百分點 :warning:（Huawei 自測，需等外部複現）
 - 統一記憶結構：實體（entity）-屬性（property）-時間（time），覆蓋事件、偏好、事實、經驗四類記憶
 - 「做夢」機制：離線時掃描所有記憶，找出冗餘記錄合併、發現衝突記錄標記，類似人類睡眠時的記憶整合
 - 隱式修正回饋：當使用者糾正 Agent 時，系統自動回溯並修正對應的記憶條目

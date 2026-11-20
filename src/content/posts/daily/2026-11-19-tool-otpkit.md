@@ -12,7 +12,7 @@ series:
   order: 83
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-19-tool-otpkit-en)
+> :globe: [English version](/posts/daily/2026-11-19-tool-otpkit-en)
 
 ## 工具資訊
 
@@ -162,10 +162,10 @@ Agent 依序呼叫：
 
 | | otpkit | 手動開臨時信箱網站 | 自建 IMAP 測試信箱 | 單獨接簡訊驗證 API |
 |---|---|---|---|---|
-| 免 API key 可用 | ✅ | ✅ | 視 mail server 設定 | ❌ |
-| agent 直接呼叫，不用開瀏覽器 | ✅ | ❌ | 部分（需自寫 polling） | 部分（需自寫 client） |
-| 自動擷取 OTP／驗證連結 | ✅（regex） | ❌ 要自己找 | ❌ 要自己寫 | 視供應商格式 |
-| 多信箱／多簡訊來源可切換 | ✅ 4 信箱 + 3 簡訊來源 | 單一網站 | 單一信箱 | 單一供應商 |
+| 免 API key 可用 | ✓ | ✓ | 視 mail server 設定 | ✗ |
+| agent 直接呼叫，不用開瀏覽器 | ✓ | ✗ | 部分（需自寫 polling） | 部分（需自寫 client） |
+| 自動擷取 OTP／驗證連結 | ✓（regex） | ✗ 要自己找 | ✗ 要自己寫 | 視供應商格式 |
+| 多信箱／多簡訊來源可切換 | ✓ 4 信箱 + 3 簡訊來源 | 單一網站 | 單一信箱 | 單一供應商 |
 | 需要付費才有私人門號 | 選用（5sim／smspool） | — | — | 必須 |
 
 ## 注意事項

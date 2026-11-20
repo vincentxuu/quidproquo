@@ -12,7 +12,7 @@ series:
   order: 77
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-31-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-31-ai-agent-daily)
 
 ## Today's Call
 
@@ -156,16 +156,16 @@ AWS shared a case study on logistics company Worldwide Express: a multi-agent sy
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-31](/posts/daily/2026-10-31-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-31](/posts/daily/2026-10-31-ai-agent-github-digest-en)
-- 📄 [Security Alert｜Cursor Marketplace Claude Code Extension SSH Backdoor](/posts/daily/2026-10-31-security-claude-code-cursor-extension-ssh-backdoor-en)
-- 📄 [Pricing Tracker｜Microsoft Foundry Model Retirement Mismatch](/posts/daily/2026-10-31-pricing-azure-foundry-claude-haiku-mistral-retirement-mismatch-en)
-- 📄 [Tool Pick｜git-ai (gitai)](/posts/daily/2026-10-31-tool-git-ai-en)
-- 📄 [Funding Brief｜Bites Series A $40M](/posts/daily/2026-10-31-funding-bites-en)
-- 📄 [Funding Brief｜Broccoli AI Series B $30M](/posts/daily/2026-10-31-funding-broccoli-ai-en)
-- 📄 [Funding Brief｜Phonic Series A $27.5M](/posts/daily/2026-10-31-funding-phonic-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-31](/posts/daily/2026-10-31-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-31](/posts/daily/2026-10-31-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-31](/posts/daily/2026-10-31-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-31](/posts/daily/2026-10-31-ai-agent-github-digest-en)
+- :file: [Security Alert｜Cursor Marketplace Claude Code Extension SSH Backdoor](/posts/daily/2026-10-31-security-claude-code-cursor-extension-ssh-backdoor-en)
+- :file: [Pricing Tracker｜Microsoft Foundry Model Retirement Mismatch](/posts/daily/2026-10-31-pricing-azure-foundry-claude-haiku-mistral-retirement-mismatch-en)
+- :file: [Tool Pick｜git-ai (gitai)](/posts/daily/2026-10-31-tool-git-ai-en)
+- :file: [Funding Brief｜Bites Series A $40M](/posts/daily/2026-10-31-funding-bites-en)
+- :file: [Funding Brief｜Broccoli AI Series B $30M](/posts/daily/2026-10-31-funding-broccoli-ai-en)
+- :file: [Funding Brief｜Phonic Series A $27.5M](/posts/daily/2026-10-31-funding-phonic-en)
+- :file: [AI Engineer Interview Prep — 2026-10-31](/posts/daily/2026-10-31-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-31](/posts/daily/2026-10-31-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

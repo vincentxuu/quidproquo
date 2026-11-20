@@ -10,7 +10,7 @@ description: "A reading guide to Fayssal El Mofatiche's Ticketing Is Dead articl
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-30-ticketing-dead-review-new-planning)
+> :globe: [中文版](/posts/ai/2026-03-30-ticketing-dead-review-new-planning)
 
 Fayssal El Mofatiche published [Ticketing Is Dead. Review Might Be the New Planning.](https://fayssalelmofatiche.substack.com/p/ticketing-is-dead-review-might-be) in March 2026. The thesis is straightforward: for the past two decades, software engineering has been built on an implicit assumption — **the hard part comes before writing code**. AI coding agents are invalidating that assumption.
 

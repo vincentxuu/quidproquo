@@ -10,7 +10,7 @@ draft: false
 type: guide
 ---
 
-🌏 [中文版](/posts/tech/guide/2026-03-12-tools-behind-this-blog)
+:globe: [中文版](/posts/tech/guide/2026-03-12-tools-behind-this-blog)
 
 This blog runs on Astro + Cloudflare Workers, backed by D1, R2, KV, Vectorize, and Workers AI. The core reasoning behind this combination: a content site doesn't need a complex server, but it does need infrastructure flexible enough to do the right thing at the right time.
 

@@ -13,7 +13,7 @@ tldr: "直接包 SDK 三個月就會後悔：每家的 usage 欄位、tool call 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-model-provider-abstraction-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-model-provider-abstraction-en)
 
 ## 設計問題
 

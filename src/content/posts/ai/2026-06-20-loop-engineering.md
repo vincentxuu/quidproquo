@@ -22,7 +22,7 @@ glossary:
     definition: "將執行者（寫 code 的 agent）與驗證者（review code 的 agent）分離的設計模式。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-06-20-loop-engineering-en)
+> :globe: [English version](/posts/ai/2026-06-20-loop-engineering-en)
 
 2026 年 6 月，三則看似獨立的發言在開發者社群引爆了一場認知震盪。[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) 負責人 Boris Cherny 在 [Acquired Unplugged 訪談](https://workos.com/blog/boris-cherny-claude-code-acquired-interview-takeaways)中說：「I don't prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops.」[OpenClaw](https://github.com/nicepkg/openclaw) 創辦人 Peter Steinberger 發推：「You shouldn't be prompting coding agents anymore. You should be designing loops that prompt your agents.」Google Chrome 工程負責人 [Addy Osmani](https://addyosmani.com/) 隨即發表文章，正式為這個模式命名——[Loop Engineering](https://addyosmani.com/blog/loop-engineering/)。
 

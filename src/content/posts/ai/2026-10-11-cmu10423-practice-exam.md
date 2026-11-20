@@ -13,7 +13,7 @@ tldr: "用公開練習卷區分機率、資料流與評估錯誤，走完序列�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-cmu10423-practice-exam-en)
+> :globe: [English version](/posts/ai/2026-10-11-cmu10423-practice-exam-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

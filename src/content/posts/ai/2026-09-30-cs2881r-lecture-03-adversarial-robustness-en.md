@@ -22,7 +22,7 @@ glossary:
     context: "A framework from the L3 guest talk on frontier-lab security engineering (per the LessWrong summary)."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

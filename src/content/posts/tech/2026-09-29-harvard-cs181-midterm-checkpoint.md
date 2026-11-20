@@ -13,11 +13,11 @@ description: "Harvard CS1810 Spring 2026 期中考自學檢核：midterm checkli
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint-en)
+> :globe: [English version](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本與存取**：考試日期與配分來自 [2026 官方 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 與 [2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)。課站 `static/` 目錄下的考試資源版本不一：**midterm practice 與 midterm review 標頭是 2025**，notation glossary 標 2025 年 3 月 2 日，midterm checklist 與 concept checks **沒有標年份**。這些 PDF 可以直接用網址開，但課站導覽頁沒有連結。2026 期中考題與解答沒有公開。
+> :warning: **版本與存取**：考試日期與配分來自 [2026 官方 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 與 [2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)。課站 `static/` 目錄下的考試資源版本不一：**midterm practice 與 midterm review 標頭是 2025**，notation glossary 標 2025 年 3 月 2 日，midterm checklist 與 concept checks **沒有標年份**。這些 PDF 可以直接用網址開，但課站導覽頁沒有連結。2026 期中考題與解答沒有公開。
 
 [Harvard CS181](https://harvard-ml-courses.github.io/cs181-web/) 的期中考排在第 7 週週二，2026 年 3 月 10 日，在課堂上考。依 syllabus，期中考佔總成績 15%，考試閉卷，但可以帶一張 8.5×11 吋、正反面都能寫的筆記。
 

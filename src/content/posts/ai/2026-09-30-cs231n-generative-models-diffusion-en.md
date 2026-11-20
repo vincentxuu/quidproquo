@@ -22,7 +22,7 @@ glossary:
     context: "The slides call it used everywhere in practice."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-generative-models-diffusion)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-generative-models-diffusion)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

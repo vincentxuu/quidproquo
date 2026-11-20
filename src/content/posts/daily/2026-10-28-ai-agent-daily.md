@@ -12,7 +12,7 @@ series:
   order: 74
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-28-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-28-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -152,14 +152,14 @@ Scale AI 在 Dubai AI Festival 正式成立阿聯酋法人,強調已在卡達培
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-28](/posts/daily/2026-10-28-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-28](/posts/daily/2026-10-28-ai-agent-github-digest)
-- 📄 [框架更新｜Pydantic AI v2.62.0](/posts/daily/2026-10-28-framework-pydantic-ai-v2.62.0)
-- 📄 [融資速報｜Hyphenate Series A $45M](/posts/daily/2026-10-28-funding-hyphenate)
-- 📄 [融資速報｜Infisical Series B $40M](/posts/daily/2026-10-28-funding-infisical)
-- 📄 [工具推薦｜noteful-mcp](/posts/daily/2026-10-28-tool-noteful-mcp)
-- 📄 [AI Engineer 面試日練 — 2026-10-28](/posts/daily/2026-10-28-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-28](/posts/daily/2026-10-28-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-28](/posts/daily/2026-10-28-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-28](/posts/daily/2026-10-28-ai-agent-github-digest)
+- :file: [框架更新｜Pydantic AI v2.62.0](/posts/daily/2026-10-28-framework-pydantic-ai-v2.62.0)
+- :file: [融資速報｜Hyphenate Series A $45M](/posts/daily/2026-10-28-funding-hyphenate)
+- :file: [融資速報｜Infisical Series B $40M](/posts/daily/2026-10-28-funding-infisical)
+- :file: [工具推薦｜noteful-mcp](/posts/daily/2026-10-28-tool-noteful-mcp)
+- :file: [AI Engineer 面試日練 — 2026-10-28](/posts/daily/2026-10-28-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-28](/posts/daily/2026-10-28-product-builder-interview-daily)
 
 ## 明日關注
 

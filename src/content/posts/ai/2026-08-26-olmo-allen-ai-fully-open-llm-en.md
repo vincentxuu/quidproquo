@@ -10,7 +10,7 @@ description: "A deep dive into Allen AI's OLMo model family: from the Dolma data
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm)
+> :globe: [中文版](/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm)
 
 Llama open-sources weights. Mistral open-sources weights and some architecture details. But their training data remains a black box. OLMo opens that last piece — you can not only use the model, but see how it was trained, what data went in, and what every intermediate checkpoint looked like.
 
@@ -26,13 +26,13 @@ The difference between OLMo and other "open-source" models is clearest in a tabl
 
 | Open Artifact | Llama 3 | Mistral | Qwen 2.5 | OLMo 3 |
 |---|---|---|---|---|
-| Model weights | ✅ | ✅ | ✅ | ✅ |
-| Training code | ❌ | ❌ | Partial | ✅ (OLMo-core) |
-| Pretraining data | ❌ | ❌ | ❌ | ✅ (Dolma 3, 9.3T tokens) |
-| Post-training data (SFT/DPO/RL) | ❌ | ❌ | ❌ | ✅ (Dolci) |
-| Intermediate checkpoints | ❌ | ❌ | ❌ | ✅ |
-| Data processing tools | ❌ | ❌ | ❌ | ✅ |
-| Output → training data tracing | ❌ | ❌ | ❌ | ✅ (OlmoTrace) |
+| Model weights | ✓ | ✓ | ✓ | ✓ |
+| Training code | ✗ | ✗ | Partial | ✓ (OLMo-core) |
+| Pretraining data | ✗ | ✗ | ✗ | ✓ (Dolma 3, 9.3T tokens) |
+| Post-training data (SFT/DPO/RL) | ✗ | ✗ | ✗ | ✓ (Dolci) |
+| Intermediate checkpoints | ✗ | ✗ | ✗ | ✓ |
+| Data processing tools | ✗ | ✗ | ✗ | ✓ |
+| Output → training data tracing | ✗ | ✗ | ✗ | ✓ (OlmoTrace) |
 
 This isn't a difference of degree — it's a difference in **kind**. Open weights alone let you use the model but not understand it. Open training data and intermediate checkpoints let you study how the model learned a capability, where a bias came from, and at which training step emergent behaviors appeared.
 

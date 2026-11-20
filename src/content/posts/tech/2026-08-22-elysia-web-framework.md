@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-elysia-web-framework-en)
+> :globe: [English version](/posts/tech/2026-08-22-elysia-web-framework-en)
 
 [Elysia](https://elysiajs.com/) 是以 Bun 為主要體驗、同時提供 Node.js 等 runtime adapter 的 TypeScript web framework。它最值得看的不是單一 benchmark，而是把路由、runtime validation、型別推論、OpenAPI 與 typed client 放在同一條 contract pipeline。
 

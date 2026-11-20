@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-firebase-backend-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-firebase-backend-platform)
 
 [Firebase](https://firebase.google.com/docs) is not one database. Google's app-backend suite includes Authentication, Cloud Firestore, Realtime Database, Cloud Storage, Cloud Functions, Hosting, Cloud Messaging, App Check, Analytics, and Remote Config. It gives mobile and web clients rapid identity and realtime data while coupling architecture to several product contracts.
 

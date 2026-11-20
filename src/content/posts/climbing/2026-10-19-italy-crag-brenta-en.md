@@ -13,7 +13,7 @@ description: "A guide to climbing the Brenta and Campanile Basso: the tower's hi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-brenta)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-brenta)
 
 The Brenta group (Dolomiti di Brenta) lies in western Trentino between Madonna di Campiglio and Molveno, the westernmost of the Dolomite groups. Its Campanile Basso is, according to [SummitPost](https://www.summitpost.org/campanile-basso-di-brenta/151122), "The most famous pinnacle of the "dolomites"", and the last of the great Dolomite peaks to be climbed.
 

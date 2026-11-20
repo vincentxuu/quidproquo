@@ -15,7 +15,7 @@ glossary:
     def: "Open-source large language model family developed by Zhipu AI (Z.ai)"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-25-model-zhipu-glm-5-3)
+> :globe: [中文版](/posts/daily/2026-08-25-model-zhipu-glm-5-3)
 
 ## Model Information
 
@@ -50,7 +50,7 @@ glossary:
 | ExploitBench (exploitation) | 54.4% | 24.4% | Claude Fable 5 78.0% |
 | DeepSWE v1.1 | 66.9% | 46.2% | GPT-5.6 Sol 72.7% |
 
-⚠️ All results above are self-reported by Z.ai; independent third-party reproductions are not yet available.
+:warning: All results above are self-reported by Z.ai; independent third-party reproductions are not yet available.
 
 ## Comparison with Predecessor and Competitors
 

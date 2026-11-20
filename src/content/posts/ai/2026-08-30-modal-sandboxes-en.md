@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-modal-sandboxes)
+> :globe: [中文版](/posts/ai/2026-08-30-modal-sandboxes)
 
 ## What This Post Is
 
@@ -123,11 +123,11 @@ Compared to E2B/Daytona wall-clock billing, Modal's no-idle-charge is advantageo
 
 | Provider | GPU Support | Isolation Tech | Cold Start | Pricing Model | Best For |
 |----------|-------------|----------------|------------|---------------|----------|
-| Modal | ✅ (A100/H100) | gVisor / microVM | sub-second | wall-clock (no idle) | GPU workloads, high concurrency |
-| E2B | ❌ | Firecracker microVM | ~150 ms | wall-clock | Coding agent, long tasks |
-| Daytona | ❌ | Docker / Kata | ~90 ms | wall-clock | Parallel evaluation, snapshot fork |
-| Vercel | ❌ | Firecracker microVM | ~1.8 s | active-CPU | Vercel ecosystem integration |
-| Cloudflare | ❌ | Container in VM | ~2–3 s | active-CPU (10ms) | Cloudflare ecosystem |
+| Modal | ✓ (A100/H100) | gVisor / microVM | sub-second | wall-clock (no idle) | GPU workloads, high concurrency |
+| E2B | ✗ | Firecracker microVM | ~150 ms | wall-clock | Coding agent, long tasks |
+| Daytona | ✗ | Docker / Kata | ~90 ms | wall-clock | Parallel evaluation, snapshot fork |
+| Vercel | ✗ | Firecracker microVM | ~1.8 s | active-CPU | Vercel ecosystem integration |
+| Cloudflare | ✗ | Container in VM | ~2–3 s | active-CPU (10ms) | Cloudflare ecosystem |
 
 **Choose Modal when**: Need GPU, need high concurrency, need no-idle billing, already on Modal platform.
 

@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/policy/2026-08-07-drone-privacy-taiwan)
+> :globe: [中文版](/posts/policy/2026-08-07-drone-privacy-taiwan)
 
 **Twenty-two pieces into this series, all of them share one vantage point.**
 

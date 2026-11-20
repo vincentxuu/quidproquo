@@ -13,14 +13,14 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-20-instinct)
+> :globe: [中文版](/posts/ai/2026-11-20-instinct)
 
 | Four tests | Instinct |
 |---|---|
-| Keeps running while you're away | ✅ Keeps working on its own cloud computer between your messages |
-| Decides what to do when it wakes | ✅ L3: reads your mail and messages you about things before you've asked for anything |
-| Remembers your goals across conversations | ✅ Everything lives in one continuous thread |
-| Acts for you | ✅ Sends email, shops, signs into sites, makes calls, joins group chats |
+| Keeps running while you're away | ✓ Keeps working on its own cloud computer between your messages |
+| Decides what to do when it wakes | ✓ L3: reads your mail and messages you about things before you've asked for anything |
+| Remembers your goals across conversations | ✓ Everything lives in one continuous thread |
+| Acts for you | ✓ Sends email, shops, signs into sites, makes calls, joins group chats |
 
 In November 2026, David Gérouville-Farrell, an AI consultant in the UK, tried Instinct. [According to his blog](https://thingsithinkithink.blog/posts/2026/11-09-trying-out-personal-agents/), before he'd given it any task, Instinct read his email and spotted that a train he'd taken was delayed and eligible for a refund, and that it was the last day to claim. He replied: "If you can find all the details and do it autonomously go ahead".
 

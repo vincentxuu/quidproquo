@@ -24,7 +24,7 @@ glossary:
     context: "Boaz uses it to separate capability-based from impact-based definitions of AGI."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

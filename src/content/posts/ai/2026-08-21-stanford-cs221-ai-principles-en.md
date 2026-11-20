@@ -16,7 +16,7 @@ description: "A full walkthrough of Stanford CS221: Artificial Intelligence: Pri
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs221-ai-principles)
+> :globe: [中文版](/posts/ai/2026-08-21-stanford-cs221-ai-principles)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

@@ -19,7 +19,7 @@ description: "Stanford CS146S Fall 2026 Week 9, 'Building an AI-Native Team': MC
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-cs146s-ai-native-team)
+> :globe: [中文版](/posts/ai/2026-08-16-cs146s-ai-native-team)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

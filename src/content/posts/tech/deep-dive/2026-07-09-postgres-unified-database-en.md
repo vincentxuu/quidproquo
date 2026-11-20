@@ -10,7 +10,7 @@ description: "A practical assessment of the 'Just Use Postgres' movement: analyz
 draft: false
 ---
 
-🌏 [中文版本](/posts/tech/deep-dive/2026-07-09-postgres-unified-database)
+:globe: [中文版本](/posts/tech/deep-dive/2026-07-09-postgres-unified-database)
 
 "Just Use Postgres" has become a rallying cry in tech circles. The argument: you don't need Redis for caching, RabbitMQ for queues, Elasticsearch for search, or Pinecone for vectors — PostgreSQL handles all of it.
 

@@ -11,7 +11,7 @@ series:
   order: 54
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-08-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-08-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Today's interesting news isn't about the models themselves — it's three skills
 
 ## Trending Repos
 
-### yomiyasu ⭐ 1,697 (shipped 7 days ago)
+### yomiyasu ★ 1,697 (shipped 7 days ago)
 
 [GitHub](https://github.com/nanaism/yomiyasu) · Python · MIT
 
@@ -30,7 +30,7 @@ Today's interesting news isn't about the models themselves — it's three skills
 
 ---
 
-### showtime ⭐ 172 (shipped 9 days ago)
+### showtime ★ 172 (shipped 9 days ago)
 
 [GitHub](https://github.com/FavioVazquez/showtime) · Python · MIT
 
@@ -41,7 +41,7 @@ Today's interesting news isn't about the models themselves — it's three skills
 
 ---
 
-### leviathan ⭐ 659 (shipped 2 days ago)
+### leviathan ★ 659 (shipped 2 days ago)
 
 [GitHub](https://github.com/elstongun/leviathan) · Rust · Apache-2.0
 

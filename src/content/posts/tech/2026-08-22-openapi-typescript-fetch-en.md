@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-openapi-typescript-fetch)
+> :globe: [中文版](/posts/tech/2026-08-22-openapi-typescript-fetch)
 
 [openapi-typescript](https://openapi-ts.dev/introduction) converts OpenAPI 3.0 and 3.1 paths, components, requests, and responses into `.d.ts`. The output contains types only—no runtime classes, HTTP client, or dependency. The same project provides [openapi-fetch](https://openapi-ts.dev/openapi-fetch/) when requests are needed.
 

@@ -13,7 +13,7 @@ description: "Bukit Keteri climbing guide: the two databases' conflicting accoun
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-bukit-keteri)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-bukit-keteri)
 
 Bukit Keteri, in [Perlis](https://www.thecrag.com/en/climbing/malaysia/area/422129439), is the easiest Malaysian crag to organise: the commuter rail station is a few hundred metres from the wall, 77 sport routes run from 4a to 8c+, and entry needs neither a permit nor a ticket. The same place concentrates the risk too — most of the bolts are the batch air-freighted from Europe in 2007, and neither their material nor their replacement history has been published; the South sector's Kasih Wall is restricted after an ancient mural was discovered.
 

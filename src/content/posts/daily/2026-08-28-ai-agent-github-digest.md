@@ -12,7 +12,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-28-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-08-28-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### thedotmack/claude-mem ⭐ 92,171
+### thedotmack/claude-mem ★ 92,171
 
 [GitHub](https://github.com/thedotmack/claude-mem)　·　TypeScript　·　Apache-2.0
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### volcengine/OpenViking ⭐ 33,902（本週 +3,078）
+### volcengine/OpenViking ★ 33,902（本週 +3,078）
 
 [GitHub](https://github.com/volcengine/OpenViking)　·　Go + Rust + TypeScript　·　AGPL-3.0
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### apache/maka ⭐ 2,552（Apache Incubator 收編後穩定成長）
+### apache/maka ★ 2,552（Apache Incubator 收編後穩定成長）
 
 [GitHub](https://github.com/apache/maka)　·　TypeScript + Rust　·　Apache-2.0
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### K-Dense-AI/scientific-agent-skills ⭐ 34,790（今日 +498）
+### K-Dense-AI/scientific-agent-skills ★ 34,790（今日 +498）
 
 [GitHub](https://github.com/K-Dense-AI/scientific-agent-skills)　·　Python　·　MIT
 

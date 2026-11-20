@@ -10,7 +10,7 @@ description: "A comprehensive survey of the 2026 Q1 open-source model ecosystem:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-31-open-source-llm-landscape)
+> :globe: [中文版](/posts/ai/2026-03-31-open-source-llm-landscape)
 
 The pace of open-source LLM progress in Q1 2026 is too fast for any single article to cover completely. In Q1 alone, over 15 major models were released -- frontier-tier MoE models broke through 1T parameters, mid-tier efficiency improved dramatically (Qwen3.5-35B achieves better performance than the previous-gen 235B flagship with only 3B active parameters), and mobile small models were compressed down to 140M for on-device inference.
 

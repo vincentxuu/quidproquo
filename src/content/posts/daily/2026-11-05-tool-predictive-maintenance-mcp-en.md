@@ -12,7 +12,7 @@ series:
   order: 74
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp)
+> :globe: [中文版](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp)
 
 ## Tool info
 
@@ -126,10 +126,10 @@ It also installs as a Claude Code plugin, adding 8 auto-triggered diagnostic ski
 
 | | Predictive Maintenance MCP | Commercial vibration analysis software | General LLM asked directly |
 |---|---|---|---|
-| Agent / conversational use | ✅ MCP-native, works with Claude or any MCP client | ❌ Mostly standalone GUIs | ✅ but no tool-enforced constraints |
-| Data stays local | ✅ Raw signals never leave the machine, only results go to the LLM | Depends on the vendor's deployment | ❌ The whole signal has to go to the cloud model |
-| Verdicts backed by spectral evidence | ✅ Refuses filename guesses, requires a matched fault frequency | ✅ Most commercial tools do this too | ❌ Prone to inventing a fault that follows the prompt |
-| Open source, reproducible benchmark | ✅ MIT, blind results on the CWRU dataset are rerunnable | ❌ Algorithms are mostly black boxes | — |
+| Agent / conversational use | ✓ MCP-native, works with Claude or any MCP client | ✗ Mostly standalone GUIs | ✓ but no tool-enforced constraints |
+| Data stays local | ✓ Raw signals never leave the machine, only results go to the LLM | Depends on the vendor's deployment | ✗ The whole signal has to go to the cloud model |
+| Verdicts backed by spectral evidence | ✓ Refuses filename guesses, requires a matched fault frequency | ✓ Most commercial tools do this too | ✗ Prone to inventing a fault that follows the prompt |
+| Open source, reproducible benchmark | ✓ MIT, blind results on the CWRU dataset are rerunnable | ✗ Algorithms are mostly black boxes | — |
 | Licensing cost | Free (MIT) | Often billed per machine per year, can reach tens of thousands of dollars | Billed by API usage |
 
 ## Things to watch out for

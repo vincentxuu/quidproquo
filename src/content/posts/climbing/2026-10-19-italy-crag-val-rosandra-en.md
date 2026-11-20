@@ -13,7 +13,7 @@ description: "A guide to Val Rosandra: karst limestone and its scattered sectors
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-val-rosandra)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-val-rosandra)
 
 Val Rosandra (Slovene: Dolina Glinščice) is on the south-eastern edge of Trieste, in the municipality of San Dorligo della Valle – Dolina: a karst canyon cut by the Rosandra stream, which rises just over the border in Slovenia. [Trieste's official tourism site](https://discover-trieste.it/live/natural-wonders/rosandra-valley-reserve) calls it "one of the most valued rock climbing areas in Europe" and the place where Emilio Comici "first learnt his craft".
 

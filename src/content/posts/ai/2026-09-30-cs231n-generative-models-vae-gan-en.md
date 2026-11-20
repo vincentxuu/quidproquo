@@ -21,7 +21,7 @@ glossary:
     context: "Needed when a VAE samples z from the encoder's output distribution during training."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

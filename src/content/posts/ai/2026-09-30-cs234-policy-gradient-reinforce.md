@@ -30,7 +30,7 @@ glossary:
     context: "把 baseline 設成 V 之後，策略梯度可以寫成 ∇log π 乘上 advantage。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

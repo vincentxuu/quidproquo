@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 第 6 堂錄影的英文字幕寫成，公式記號對照 2026 主講義第 8 章與第 9 章；字幕看不到板書與投影片畫面，公式的寫法是依講者口述與講義還原的。
 

@@ -15,7 +15,7 @@ glossary:
     def: "An architecture that re-runs the same set of decoder weights multiple times, deepening the model's effective compute path without adding stored parameters"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-31-model-sensetime-sensenova-loop-9b-preview)
+> :globe: [中文版](/posts/daily/2026-10-31-model-sensetime-sensenova-loop-9b-preview)
 
 ## Model Info
 
@@ -89,7 +89,7 @@ caption: Figures from SenseTime's official launch chart, verified via screenshot
 | GPQA Diamond (mHC ablation gain) | +4.42 pts | A variant without mHC | — |
 | TeamBench (mHC ablation gain) | +13.34 pts | A variant without mHC | — |
 
-⚠️ The three task scores above come from SenseTime's official launch chart, transcribed after verification by third-party X account TeksEdge — not an official transcript, and not yet independently reproduced. The official chart also lists BIRD-Dev, AIDABench, Terminal Bench 2.1, and T³-Banking; on the latter two, the chart shows Loop-9B trailing Qwen3.5-27B, but the exact scores have no published transcript, so they're excluded from the table.
+:warning: The three task scores above come from SenseTime's official launch chart, transcribed after verification by third-party X account TeksEdge — not an official transcript, and not yet independently reproduced. The official chart also lists BIRD-Dev, AIDABench, Terminal Bench 2.1, and T³-Banking; on the latter two, the chart shows Loop-9B trailing Qwen3.5-27B, but the exact scores have no published transcript, so they're excluded from the table.
 
 ## vs. Predecessor and Competitors
 

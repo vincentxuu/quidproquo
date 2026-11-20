@@ -14,7 +14,7 @@ glossary:
   - term: "ssrf"
     definition: "Server-Side Request Forgery；Groundlane 將 URL、重導向、DNS 與瀏覽器子資源視為不可信輸入，以降低此風險。"
 ---
-> 🌏 [English version](/posts/tech/2026-08-23-groundlane-series-1-en)
+> :globe: [English version](/posts/tech/2026-08-23-groundlane-series-1-en)
 
 ## 什麼是 Groundlane（依據 repo 自述，而非推論）
 

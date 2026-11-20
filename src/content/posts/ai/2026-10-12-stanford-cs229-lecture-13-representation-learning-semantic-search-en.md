@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-13-representation-learning-semantic-search)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-13-representation-learning-semantic-search)
 
 **Video status: Videos included.** This article is written from the English captions of the Spring 2026 Lecture 13 recording published by Stanford Online, with notation checked against Chapter 16 (Representation Learning) of the 2026 main lecture notes. I did not see the board, so the formulas written on it are reconstructed from what the lecturer said and from the notes.
 

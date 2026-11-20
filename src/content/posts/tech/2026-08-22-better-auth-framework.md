@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-better-auth-framework-en)
+> :globe: [English version](/posts/tech/2026-08-22-better-auth-framework-en)
 
 [Better Auth](https://better-auth.com/docs/introduction) 是 TypeScript 認證框架，提供 email/password、social provider、session、database adapter 與 plugin 系統。它適合不想把登入完全外包給 SaaS、又不想自行拼湊 cookie、OAuth callback 與帳號連結的團隊。
 

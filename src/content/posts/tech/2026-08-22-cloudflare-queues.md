@@ -16,7 +16,7 @@ additionalSeries:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-cloudflare-queues-en)
+> :globe: [English version](/posts/tech/2026-08-22-cloudflare-queues-en)
 
 你把網站搬到 [Cloudflare Workers](https://developers.cloudflare.com/workers/) 後，最先撞到的通常已經不是 request 能不能回。真正麻煩的是 request 裡開始塞太多事：寫 log、寄信、產生縮圖、同步第三方 API、把事件寫進資料庫、替 AI app 存對話紀錄或產生 embedding。
 

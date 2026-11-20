@@ -13,7 +13,7 @@ description: "Bukit Keplu 攀岩指南：Kodiang 的兩條接近路線、Siputeh
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-bukit-keplu-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-bukit-keplu-en)
 
 Bukit Keplu 是吉打州（Kedah）[Kodiang](https://www.thecrag.com/en/climbing/malaysia/area/12321894648) 一個石灰岩小丘，稻田在上面、洞在裡面，28 條運攀線集中在 5c 到 7b+。它是一個上午岩場：太陽大約下午 3 點就讓人受不了，下雨時多數路線又有遮蔽。這篇幫你判斷半天行程排不排得下、兩條接近路線該選哪一條、停車會不會擋到農民，以及頭盔為什麼不能省。
 

@@ -13,7 +13,7 @@ series:
   order: 22
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure)
+> :globe: [中文版](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure)
 
 [Hyperbrowser](https://www.hyperbrowser.ai/docs) is Browser-as-a-Service for AI agents and automation. Applications create isolated sessions through an API, then connect Playwright, Puppeteer, or Selenium to remote browsers instead of launching, monitoring, and cleaning up a Chrome fleet. Proxies, stealth, CAPTCHA handling, profiles, live view, and recordings bring work previously split across Kubernetes, browser drivers, and proxy vendors into one control plane.
 

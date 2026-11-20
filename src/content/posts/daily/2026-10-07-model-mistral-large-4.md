@@ -15,7 +15,7 @@ glossary:
     def: "法國 AI 公司 Mistral AI 開發的大型語言模型家族，主打開放權重與歐洲自建運算基礎設施"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-07-model-mistral-large-4-en)
+> :globe: [English version](/posts/daily/2026-10-07-model-mistral-large-4-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | DeepSWE v1.1（官方自測） | 61.7% | 未列 | 約 74%（GPT-6 Astra／Gemini 3.8 Flash／Claude Opus 5，依即時排行榜） |
 | AutomationBench（官方自測） | 59.9% | 未列 | Kimi K3、MiMo-V2.6-Pro、DeepSeek V4 Pro（皆低於 59.9%，官方數字） |
 
-⚠️ 除 Artificial Analysis Intelligence Index 外，以上均為 Mistral 自測結果，尚無第三方獨立複現；DeepSWE v1.1 是官方自報跟自家挑的對照組比較，但科技媒體 VentureBeat 事後核對 DeepSWE 即時排行榜（取每個模型目前公開最佳 agent 設定）發現 GLM-5.3／Kimi K3 約 69%、GPT-6 Astra／Gemini 3.8 Flash／Claude Opus 5 約 74%，也就是官方公告挑的比較對象（DeepSeek V4 Pro、Qwen3.8 Max）讓 61.7% 看起來有競爭力，但換成即時排行榜前段班，其實還落後 10 幾分。
+:warning: 除 Artificial Analysis Intelligence Index 外，以上均為 Mistral 自測結果，尚無第三方獨立複現；DeepSWE v1.1 是官方自報跟自家挑的對照組比較，但科技媒體 VentureBeat 事後核對 DeepSWE 即時排行榜（取每個模型目前公開最佳 agent 設定）發現 GLM-5.3／Kimi K3 約 69%、GPT-6 Astra／Gemini 3.8 Flash／Claude Opus 5 約 74%，也就是官方公告挑的比較對象（DeepSeek V4 Pro、Qwen3.8 Max）讓 61.7% 看起來有競爭力，但換成即時排行榜前段班，其實還落後 10 幾分。
 
 ## 與前代/競品比較
 

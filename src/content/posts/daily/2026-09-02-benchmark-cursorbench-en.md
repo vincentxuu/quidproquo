@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-02-benchmark-cursorbench)
+> :globe: [中文版](/posts/daily/2026-09-02-benchmark-cursorbench)
 
 ## Summary
 
@@ -24,11 +24,11 @@ CursorBench — Cursor's own agentic-coding evaluation board — just had its bi
 
 | Rank | Model/Config | Score | Previous | Change |
 |---|---|---|---|---|
-| 🥇 | Fable 5.1 Max | 73.4% | New entry | 🆕 |
-| 🥈 | Fable 5.1 Extra High | 72.8% | New entry | 🆕 |
-| 🥉 | Grok 4.6 Extra High | 70.8% | 70.8% (🥇) | ↓2 |
-| 4 | Fable 5 Max | 70.5% | 70.5% (🥈) | ↓2 |
-| 5 | Opus 5 Max | 70.0% | 70.0% (🥉) | ↓2 |
+| 1 | Fable 5.1 Max | 73.4% | New entry | NEW|
+| 2 | Fable 5.1 Extra High | 72.8% | New entry | NEW|
+| 3 | Grok 4.6 Extra High | 70.8% | 70.8% (1) | ↓2 |
+| 4 | Fable 5 Max | 70.5% | 70.5% (2) | ↓2 |
+| 5 | Opus 5 Max | 70.0% | 70.0% (3) | ↓2 |
 
 Source: [cursor.com/cursorbench](https://cursor.com/cursorbench) · Snapshot date: 2026-09-02
 
@@ -42,7 +42,7 @@ The interesting part isn't how much Fable 5.1 won by — it's what it cost to wi
 
 ### Methodology
 
-⚠️ One caveat is worth flagging clearly: as of this writing, neither Anthropic's own site ([anthropic.com/claude/fable](https://www.anthropic.com/claude/fable)) nor its model docs ([platform.claude.com](https://platform.claude.com/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5)) list anything beyond `claude-fable-5` — there's no model card, pricing page, or official release announcement for Fable 5.1. The name comes entirely from community observation so far: a new model identifier spotted on Amazon Bedrock, early-access testing under the internal codenames "Melon" and "Marshmallow," and several tracker articles placing the release window between August 31 and early September. CursorBench is a third-party evaluation built and run by Cursor rather than the model vendor, which makes it more credible than a vendor self-report — but it's still currently the only public leaderboard showing this new version's score, with no second independent source cross-verifying it yet, and it can't be ruled out that this reflects an unfinalized early build.
+:warning: One caveat is worth flagging clearly: as of this writing, neither Anthropic's own site ([anthropic.com/claude/fable](https://www.anthropic.com/claude/fable)) nor its model docs ([platform.claude.com](https://platform.claude.com/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5)) list anything beyond `claude-fable-5` — there's no model card, pricing page, or official release announcement for Fable 5.1. The name comes entirely from community observation so far: a new model identifier spotted on Amazon Bedrock, early-access testing under the internal codenames "Melon" and "Marshmallow," and several tracker articles placing the release window between August 31 and early September. CursorBench is a third-party evaluation built and run by Cursor rather than the model vendor, which makes it more credible than a vendor self-report — but it's still currently the only public leaderboard showing this new version's score, with no second independent source cross-verifying it yet, and it can't be ruled out that this reflects an unfinalized early build.
 
 ### Industry
 

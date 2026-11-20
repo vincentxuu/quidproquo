@@ -20,7 +20,7 @@ glossary:
     context: "The third architectural change in the LLaMA section of CMU 11-868 L07."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-transformer-pretrained-llms)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-transformer-pretrained-llms)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
   order: 24
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure)
+> :globe: [中文版](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure)
 
 [Kitesurf](https://developers.cloudflare.com/browser-run/kitesurf/) is an agent-specific browser engine announced by Cloudflare on 2026-08-06. It is neither a Chromium wrapper nor a desktop browser for people. It implements the DOM, JavaScript, extraction, and rendering capabilities agents commonly need with Rust, WebAssembly, and Cloudflare Workers isolates.
 

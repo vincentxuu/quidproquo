@@ -29,7 +29,7 @@ glossary:
     context: "投影片列出的 IR 指標之一，MS MARCO 常用 MRR@10。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-information-retrieval-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-information-retrieval-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

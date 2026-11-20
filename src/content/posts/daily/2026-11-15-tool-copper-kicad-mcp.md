@@ -12,7 +12,7 @@ series:
   order: 79
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-15-tool-copper-kicad-mcp-en)
+> :globe: [English version](/posts/daily/2026-11-15-tool-copper-kicad-mcp-en)
 
 ## 工具資訊
 
@@ -139,12 +139,12 @@ npx -y copper-kicad doctor
 
 | | Copper | KiCAD-MCP-Server（社群其他方案） | tscircuit |
 |---|---|---|---|
-| 原生操作 KiCad 專案 | ✅ | ✅（讀寫為主，無自動排線/零件匯入） | ❌（電路用程式碼定義，非 KiCad 原生） |
-| 自動搜零件＋匯入現貨零件 | ✅（LCSC/JLCPCB 即時庫存） | ❌ | 部分（需另查零件） |
-| 自動排線（長度匹配/差分線/覆銅） | ✅ | ❌ | 需另外處理 |
-| 每次改動自動跑 ERC/DRC | ✅ | 視實作而定 | — |
-| 直接產出工廠生產檔（Gerber/BOM） | ✅ | 部分 | ✅（匯出 Circuit JSON/Gerber） |
-| 綁定特定 AI 模型 | ❌（用你 AI app 原本接的模型） | 視實作而定 | ❌ |
+| 原生操作 KiCad 專案 | ✓ | ✓（讀寫為主，無自動排線/零件匯入） | ✗（電路用程式碼定義，非 KiCad 原生） |
+| 自動搜零件＋匯入現貨零件 | ✓（LCSC/JLCPCB 即時庫存） | ✗ | 部分（需另查零件） |
+| 自動排線（長度匹配/差分線/覆銅） | ✓ | ✗ | 需另外處理 |
+| 每次改動自動跑 ERC/DRC | ✓ | 視實作而定 | — |
+| 直接產出工廠生產檔（Gerber/BOM） | ✓ | 部分 | ✓（匯出 Circuit JSON/Gerber） |
+| 綁定特定 AI 模型 | ✗（用你 AI app 原本接的模型） | 視實作而定 | ✗ |
 
 ## 注意事項
 

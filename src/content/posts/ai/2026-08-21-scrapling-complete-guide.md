@@ -10,7 +10,7 @@ description: "從安裝、Fetcher 選型、CSS/XPath 與 adaptive selector，到
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-scrapling-complete-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-scrapling-complete-guide-en)
 
 [Scrapling](https://github.com/D4Vinci/Scrapling) 是 Python 網頁擷取框架：同一套 API 裡有純 HTTP fetcher、以 Playwright 驅動的瀏覽器、CSS/XPath parser，以及可排程多個 request 的 Spider。它最特別的能力是 adaptive selector：先保存元素特徵，網站改版後再依相似度尋找原本的元素。
 

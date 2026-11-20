@@ -22,7 +22,7 @@ glossary:
     context: "第 5 堂拿它和 MCP 對照：MCP 是 agent 接工具，A2A 是 agent 接 agent。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture-en)
+> :globe: [English version](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture-en)
 
 **影片狀態：課程不錄影。** 本文依公開投影片整理，數值例子為本站補充。[來源說明](#課程影片來源)
 

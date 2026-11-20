@@ -17,7 +17,7 @@ glossary:
     def: "An agent architecture with two action channels — screenshot-based GUI control and terminal/code execution — where the model itself decides which channel to use at each step"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-02-model-microsoft-mage-vl-cowork)
+> :globe: [中文版](/posts/daily/2026-11-02-model-microsoft-mage-vl-cowork)
 
 ## Model Overview
 
@@ -94,7 +94,7 @@ caption: Source: the Stage-Wise Progression table on the Mage-VL-Cowork HuggingF
 | ScreenSpot-v2 (grounding) | 87.2% | Debut | Qwen3-VL-4B: 85.3% (same scale) |
 | WebVoyager-Static (browser, deterministic offline) | 58.6% | Debut | Fara1.5-4B (browser specialist): 68.0% |
 
-⚠️ All figures above come from Microsoft's own technical report and HuggingFace model card; none have been independently reproduced yet. The headline 66.0% on OSWorld-Verified is the average of two full runs (65.33% and 66.75%) over 361 tasks, excluding Google Drive–dependent tasks.
+:warning: All figures above come from Microsoft's own technical report and HuggingFace model card; none have been independently reproduced yet. The headline 66.0% on OSWorld-Verified is the average of two full runs (65.33% and 66.75%) over 361 tasks, excluding Google Drive–dependent tasks.
 
 ## Versus Predecessor / Competitors
 

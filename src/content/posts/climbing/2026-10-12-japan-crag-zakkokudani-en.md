@@ -13,7 +13,7 @@ description: "A guide to Zakkokudani, a tributary of the Shomyo River in Tateyam
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-zakkokudani)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-zakkokudani)
 
 Zakkokudani (雑穀谷, ざっこくだに; reading per [ROCKTOPO](https://www.rocktopo.net/areas/117)) is a side valley of the Shomyo River in Tateyama Town, Toyama Prefecture, and the crag sits right off the prefectural road to Shomyo Falls. The rock is granite, mostly bolted sport routes with a handful of cracks. [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E9%9B%91%E7%A9%80%E8%B0%B7/) calls it "富山県では数少ないフリークライミング中心の岩場" (one of the few free-climbing-focused crags in Toyama).
 

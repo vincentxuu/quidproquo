@@ -10,7 +10,7 @@ description: "Redis 不只是快取。這篇介紹 Redis 的核心用法：API �
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-redis-cache-queue-overview-en)
+:globe: [English version](/posts/tech/2026-03-27-redis-cache-queue-overview-en)
 
 Redis 是 in-memory 的 key-value 資料庫，預設所有資料都在記憶體裡，讀寫速度是磁碟資料庫的 10-100 倍。它不是要取代 PostgreSQL，而是用來擋住那些「不需要每次都去打資料庫」的查詢。
 

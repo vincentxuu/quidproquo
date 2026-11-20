@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-hetzner-cloud)
+> :globe: [中文版](/posts/tech/2026-08-22-hetzner-cloud)
 
 [Hetzner Cloud](https://docs.hetzner.com/cloud/) is lean IaaS: cloud servers, private networks, volumes, load balancers, firewalls, primary IPs, snapshots and backups, plus APIs and Terraform. It suits Linux-capable teams wanting transparent building blocks and cost control, but it does not operate an application platform for them.
 

@@ -32,7 +32,7 @@ glossary:
     context: "CS234 L12 calls it one of the key ideas behind MBIE-EB being PAC."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

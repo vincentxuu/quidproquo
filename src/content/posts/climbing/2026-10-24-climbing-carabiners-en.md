@@ -26,7 +26,7 @@ glossary:
     context: "The DMM Rhino, BD GridLock, Mammut Smart HMS and Petzl Attache with BAR all belong to this group, and each pairs well with different belay devices."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-climbing-carabiners)
+> :globe: [中文版](/posts/climbing/2026-10-24-climbing-carabiners)
 
 Your belay device doesn't clip straight to your harness; a locking carabiner sits in between. In the whole belay system, that carabiner has no backup: if it opens or breaks, the belay device comes off you. So you buy it together with the belay device, and it's the last place to cut corners.
 

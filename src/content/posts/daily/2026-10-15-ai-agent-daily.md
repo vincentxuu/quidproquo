@@ -12,7 +12,7 @@ series:
   order: 61
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-15-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-15-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -164,18 +164,18 @@ Workato 與澳洲企業 Gulanga 合作，替澳洲政府與企業提供以澳洲
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-15](/posts/daily/2026-10-15-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-15](/posts/daily/2026-10-15-ai-agent-github-digest)
-- 📄 [資安警報｜Visual Studio 與 SSMS 的 Copilot 多一個點就能改自己設定](/posts/daily/2026-10-15-security-visual-studio-copilot-trailing-dot-rce)
-- 📄 [Benchmark 異動｜Arena Agent：Claude Fable 5.1 回到第三](/posts/daily/2026-10-15-benchmark-arena-agent-fable-5-1)
-- 📄 [框架更新｜Mastra @mastra/core@1.77.0](/posts/daily/2026-10-15-framework-mastra-1.77.0)
-- 📄 [框架更新｜Pydantic AI v2.56.0](/posts/daily/2026-10-15-framework-pydantic-ai-v2.56.0)
-- 📄 [融資速報｜Modal Series D $750M](/posts/daily/2026-10-15-funding-modal)
-- 📄 [融資速報｜Fragment Series A $12M](/posts/daily/2026-10-15-funding-fragment)
-- 📄 [融資速報｜Zenzap Series A $33M](/posts/daily/2026-10-15-funding-zenzap)
-- 📄 [工具推薦｜AgentConfig Doctor](/posts/daily/2026-10-15-tool-agentconfig-doctor)
-- 📄 [AI Engineer 面試日練 — 2026-10-15](/posts/daily/2026-10-15-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-15](/posts/daily/2026-10-15-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-15](/posts/daily/2026-10-15-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-15](/posts/daily/2026-10-15-ai-agent-github-digest)
+- :file: [資安警報｜Visual Studio 與 SSMS 的 Copilot 多一個點就能改自己設定](/posts/daily/2026-10-15-security-visual-studio-copilot-trailing-dot-rce)
+- :file: [Benchmark 異動｜Arena Agent：Claude Fable 5.1 回到第三](/posts/daily/2026-10-15-benchmark-arena-agent-fable-5-1)
+- :file: [框架更新｜Mastra @mastra/core@1.77.0](/posts/daily/2026-10-15-framework-mastra-1.77.0)
+- :file: [框架更新｜Pydantic AI v2.56.0](/posts/daily/2026-10-15-framework-pydantic-ai-v2.56.0)
+- :file: [融資速報｜Modal Series D $750M](/posts/daily/2026-10-15-funding-modal)
+- :file: [融資速報｜Fragment Series A $12M](/posts/daily/2026-10-15-funding-fragment)
+- :file: [融資速報｜Zenzap Series A $33M](/posts/daily/2026-10-15-funding-zenzap)
+- :file: [工具推薦｜AgentConfig Doctor](/posts/daily/2026-10-15-tool-agentconfig-doctor)
+- :file: [AI Engineer 面試日練 — 2026-10-15](/posts/daily/2026-10-15-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-15](/posts/daily/2026-10-15-product-builder-interview-daily)
 
 ## 明日關注
 

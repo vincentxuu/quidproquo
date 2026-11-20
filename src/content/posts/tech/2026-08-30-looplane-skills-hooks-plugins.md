@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-skills-hooks-plugins-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-skills-hooks-plugins-en)
 
 [上一篇](/posts/tech/2026-08-30-looplane-native-mcp-authorization)讓外部 MCP capability 進入 ToolExecutor。Repository-local 擴充還有另一組名詞：skill、hook、plugin。它們會一起被載入，卻不共享同一種權限。
 

@@ -13,7 +13,7 @@ description: "Shiobara climbing guide: seasons, public transport, parking, local
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-shiobara)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-shiobara)
 
 Shiobara’s Hoki River boulders are known for caves, steep climbing and very hard problems, alongside easier starts. Tuff holds and river landings require inspection; famous ascent videos are not live water-level reports.
 

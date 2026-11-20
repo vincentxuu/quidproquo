@@ -21,7 +21,7 @@ glossary:
     context: "Azure 和 Google 的 prebuilt 覆蓋 20+ 種文件類型，是它們跟純解析 API 的主要區隔。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-16-commercial-document-parsing-api-comparison-en)
+> :globe: [English version](/posts/ai/2026-09-16-commercial-document-parsing-api-comparison-en)
 
 這個系列的前七篇全部在講開源方案：從[三層階梯](/posts/ai/2026-08-06-document-parsing-three-layers)的選型框架，到 [MarkItDown](/posts/ai/2026-04-18-markitdown-intro)、[anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown) 的轉換層，[PyMuPDF / pdfplumber](/posts/ai/2026-08-06-pdf-text-extraction-libraries) 的抽取層，[MinerU / Marker / Docling](/posts/ai/2026-08-06-document-parsing-layout-ocr) 的解析層，到 [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents) 讓 agent 動態調度。結論都是同一句：**先選對層，再選工具**。
 
@@ -139,13 +139,13 @@ ParseBench 的圖表維度裡，14 種專用 parser 中只有 4 家超過 50%，
 
 | 場景 | 用通用 VLM | 用專用 Parser |
 |---|---|---|
-| 圖表密集（技術手冊、研究報告） | ✅ 唯一能理解圖表的路線 | ❌ 圖表維度幾乎全軍覆沒 |
-| 量少+異質性高（每月 < 1 萬頁） | ✅ 不值得串 pipeline | ❌ 過度工程 |
-| 需要「理解」而非「轉錄」 | ✅ 可以問「這份合約的風險在哪」 | ❌ 只會轉成文字 |
-| 大量同質文件（10 萬頁發票） | ❌ 成本 $900+/月（Claude Sonnet 5） | ✅ 成本 $150-1,500/月 |
-| 需要結構化 JSON | ❌ 格式不穩定 | ✅ schema 固定 |
-| 不能容忍幻覺 | ❌ 幻覺率 0.04-0.26（依模型） | ✅ 留空或標低信心 |
-| 表格結構精度 | ❌ Dr.DocBench TEDS ~49-51 | ✅ MinerU 55.85、Reducto 90.2% |
+| 圖表密集（技術手冊、研究報告） | ✓ 唯一能理解圖表的路線 | ✗ 圖表維度幾乎全軍覆沒 |
+| 量少+異質性高（每月 < 1 萬頁） | ✓ 不值得串 pipeline | ✗ 過度工程 |
+| 需要「理解」而非「轉錄」 | ✓ 可以問「這份合約的風險在哪」 | ✗ 只會轉成文字 |
+| 大量同質文件（10 萬頁發票） | ✗ 成本 $900+/月（Claude Sonnet 5） | ✓ 成本 $150-1,500/月 |
+| 需要結構化 JSON | ✗ 格式不穩定 | ✓ schema 固定 |
+| 不能容忍幻覺 | ✗ 幻覺率 0.04-0.26（依模型） | ✓ 留空或標低信心 |
+| 表格結構精度 | ✗ Dr.DocBench TEDS ~49-51 | ✓ MinerU 55.85、Reducto 90.2% |
 
 ### 務實做法：多模型路由
 
@@ -199,14 +199,14 @@ Cohere、LlamaParse 不做 KV 抽取——它們把文件轉成 Markdown，你�
 
 | 方案 | 有信心分數 |
 |---|---|
-| Azure DI | ✅（每個欄位） |
-| Google Document AI | ✅（每個欄位） |
-| AWS Textract | ✅（每個欄位） |
-| Mistral OCR | ✅（每個欄位 + bounding box） |
-| Reducto | ✅（citation grounding） |
-| LlamaParse | ❌ |
-| Cohere Parse | ❌ |
-| 通用 VLM | ❌ |
+| Azure DI | ✓（每個欄位） |
+| Google Document AI | ✓（每個欄位） |
+| AWS Textract | ✓（每個欄位） |
+| Mistral OCR | ✓（每個欄位 + bounding box） |
+| Reducto | ✓（citation grounding） |
+| LlamaParse | ✗ |
+| Cohere Parse | ✗ |
+| 通用 VLM | ✗ |
 
 信心分數是企業場景的硬需求。沒有它，你不知道哪些頁需要人工覆核——要嘛全部人工看（成本爆炸），要嘛全部信任機器（品質失控）。Cohere 的技術文件明確沒有提供信心分數，這在高價值文件場景（合約、法律文書）是個顯著限制。
 

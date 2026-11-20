@@ -13,7 +13,7 @@ description: "Lubuk Pedati 攀岩指南：從 Gua Jepun 進場的完整走法、
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-lubuk-pedati-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-lubuk-pedati-en)
 
 Lubuk Pedati 是吉打州（Kedah）[Baling](https://www.thecrag.com/en/climbing/malaysia/area/7739183217) 深處、Gunung Baling 長山脈上的一處岩場：35 條運攀線，四個用動物命名的子區，最熱門的一區就有 20 條。代價是路——它需要自駕，最後一段是窄泥路，兩側的植物會刮車。這篇幫你判斷這個偏遠度值不值得一趟專程、怎麼把最後一段路走對，以及線上資料還缺什麼。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-websocket-protocol)
+> :globe: [中文版](/posts/tech/2026-08-22-websocket-protocol)
 
 [WebSocket](https://datatracker.ietf.org/doc/html/rfc6455) upgrades an HTTP connection into a persistent full-duplex message channel carrying text, binary, ping/pong, and close frames. The browser API is intentionally small, leaving message envelopes, versions, errors, acknowledgements, authorization, reconnects, and replay to applications.
 

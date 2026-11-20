@@ -10,7 +10,7 @@ description: "Compare credential incidents and vulnerability research involving 
 draft: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-01-llm-api-key-leaks)
+> :globe: [中文版](/posts/ai/2026-11-01-llm-api-key-leaks)
 
 An organization asks your AI product to use its own model API key. Your platform stores the credential, makes requests on its behalf, and the provider bills usage to the organization's account. This arrangement is often called bring your own key, or BYOK. Here, that means a model access credential, rather than a customer-managed data encryption key.
 

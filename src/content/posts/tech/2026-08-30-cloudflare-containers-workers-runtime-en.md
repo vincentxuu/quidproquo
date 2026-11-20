@@ -13,7 +13,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-containers-workers-runtime)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-containers-workers-runtime)
 
 Workers are a strong fit for HTTP APIs, edge rendering, webhooks, lightweight background jobs, and glue code around data bindings. They are not a universal runtime. Once a workload needs a full filesystem, a specific binary, more memory or disk, parallel CPU cores, or an existing container image, plain Workers begin to feel constrained.
 

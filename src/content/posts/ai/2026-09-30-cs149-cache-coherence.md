@@ -26,7 +26,7 @@ glossary:
     context: "L14 用它和 data-value invariant 說明 MSI 為什麼能維持 coherence。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-cache-coherence-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-cache-coherence-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-20-always-on-agent-anatomy-en)
+> :globe: [English version](/posts/ai/2026-11-20-always-on-agent-anatomy-en)
 
 假設你想要一件事：「信用卡帳單有怪東西就告訴我。」交給三種 agent，會得到三種完全不同的行為。
 

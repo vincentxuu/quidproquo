@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-17-pricing-openai-gpt-5-5-retirement-en)
+> :globe: [English version](/posts/daily/2026-09-17-pricing-openai-gpt-5-5-retirement-en)
 
 ## 變更摘要
 
@@ -58,7 +58,7 @@ OpenAI 官方 API 文件寫得很明確：GA 模型的淘汰至少要提前 6 �
 
 ## 時效提醒
 
-⚠️ **停用日期**：2026-10-14。GPT-5.5 將從 ChatGPT、ChatGPT Work、Codex（consumer／Business／Enterprise／Edu 全部方案）下架，直接呼叫 OpenAI API 的 `gpt-5.5` 不受影響。Codex（ChatGPT 帳號登入）遷移指南：[GPT-5.5 retirement | ChatGPT Learn](https://learn.chatgpt.com/codex/models#gpt-55-retirement)。
+:warning: **停用日期**：2026-10-14。GPT-5.5 將從 ChatGPT、ChatGPT Work、Codex（consumer／Business／Enterprise／Edu 全部方案）下架，直接呼叫 OpenAI API 的 `gpt-5.5` 不受影響。Codex（ChatGPT 帳號登入）遷移指南：[GPT-5.5 retirement | ChatGPT Learn](https://learn.chatgpt.com/codex/models#gpt-55-retirement)。
 
 ## 今日收穫
 

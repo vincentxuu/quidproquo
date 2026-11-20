@@ -13,7 +13,7 @@ description: "A walkthrough of LearningCircuit/local-deep-research: positioning,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-08-local-deep-research-walkthrough)
+> :globe: [中文版](/posts/ai/2026-05-08-local-deep-research-walkthrough)
 
 I was recently building a RAG system and wanted an open-source reference that was more complete than GPT-Researcher without requiring data to be sent to OpenAI. `LearningCircuit/local-deep-research` (hereafter LDR) is one of the few projects that simultaneously achieves "fully local," "multi-source verification," and "a rich enough strategy pool." This post covers its positioning, architecture, and the parts most worth borrowing.
 

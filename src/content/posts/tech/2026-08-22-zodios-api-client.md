@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-zodios-api-client-en)
+> :globe: [English version](/posts/tech/2026-08-22-zodios-api-client-en)
 
 [Zodios](https://www.zodios.org/docs/intro) 是一套以 Zod 與 Axios 為核心的 REST toolbox。中央 API definition 描述 method、path、parameters、response、errors 與 alias；同一份定義可驅動 typed client，也可搭配 Express adapter 與 OpenAPI generator。
 

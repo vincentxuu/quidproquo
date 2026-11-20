@@ -20,7 +20,7 @@ Today's theme is the agent memory layer. Volcengine's OpenViking landed at the t
 
 ## Trending Repos
 
-### OpenViking (volcengine) ⭐ 28,800+
+### OpenViking (volcengine) ★ 28,800+
 
 [GitHub](https://github.com/volcengine/OpenViking) · Rust + Python · AGPLv3 (CLI and examples under Apache 2.0)
 
@@ -31,7 +31,7 @@ Today's theme is the agent memory layer. Volcengine's OpenViking landed at the t
 
 ---
 
-### munder-difflin (chaitanyagiri) ⭐ 2,400+
+### munder-difflin (chaitanyagiri) ★ 2,400+
 
 [GitHub](https://github.com/chaitanyagiri/munder-difflin) · TypeScript · MIT
 
@@ -42,7 +42,7 @@ Today's theme is the agent memory layer. Volcengine's OpenViking landed at the t
 
 ---
 
-### ai-memory (akitaonrails) ⭐ 2,900+
+### ai-memory (akitaonrails) ★ 2,900+
 
 [GitHub](https://github.com/akitaonrails/ai-memory) · Rust · MIT
 
@@ -53,7 +53,7 @@ Today's theme is the agent memory layer. Volcengine's OpenViking landed at the t
 
 ---
 
-### Anthropic-Cybersecurity-Skills (mukul975) ⭐ 27,700+ (+700 today)
+### Anthropic-Cybersecurity-Skills (mukul975) ★ 27,700+ (+700 today)
 
 [GitHub](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) · PowerShell + Python · Apache-2.0
 

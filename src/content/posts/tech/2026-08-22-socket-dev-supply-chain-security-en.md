@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-socket-dev-supply-chain-security)
+> :globe: [中文版](/posts/tech/2026-08-22-socket-dev-supply-chain-security)
 
 [Socket.dev](https://docs.socket.dev/) focuses on open-source dependency supply chains. Conventional SCA often asks whether a version has a known CVE. Socket also observes new install scripts, obfuscation, native code, network, filesystem, shell, and environment access, publisher changes, typosquats, and mutable Git dependencies. Those signals can precede a CVE for malicious packages.
 

@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-governance, rust, agent-platform]
 lang: en
 description: "The same day Claude Code hard-codes write-path boundaries into every permission mode, CopilotKit/OpenBot redefines what a 'trustworthy agent' looks like with sandboxed computers and approval gates, while HKUDS/nanobot and 0xPlaygrounds/rig show the opposite move: shrinking the core instead"
-tldr: "**CopilotKit/OpenBot** (⭐ 8,639) gives each AI coworker its own sandboxed computer — every browser, file, or MCP action has to clear a CEL policy gate and get logged to an audit trail before it runs, and any AG-UI agent (LangGraph, Mastra, CrewAI, and more) can plug straight in. **HKUDS/nanobot** (⭐ 49,682) packs a personal agent into a core small enough to actually read end to end, with built-in long-term memory and a dozen chat-channel integrations. **0xPlaygrounds/rig** (⭐ 9,027) bundles a Rust LLM library and a full coding-agent harness that plugs into editors like Zed into the same crate. On the release side, **Claude Code v2.1.314** adds `permissions.blockWritesOutsideWorkingDirectories`, enforcing write-path boundaries across every permission mode, plus idle conversation compaction and a batch of fixes."
+tldr: "**CopilotKit/OpenBot** (★ 8,639) gives each AI coworker its own sandboxed computer — every browser, file, or MCP action has to clear a CEL policy gate and get logged to an audit trail before it runs, and any AG-UI agent (LangGraph, Mastra, CrewAI, and more) can plug straight in. **HKUDS/nanobot** (★ 49,682) packs a personal agent into a core small enough to actually read end to end, with built-in long-term memory and a dozen chat-channel integrations. **0xPlaygrounds/rig** (★ 9,027) bundles a Rust LLM library and a full coding-agent harness that plugs into editors like Zed into the same crate. On the release side, **Claude Code v2.1.314** adds `permissions.blockWritesOutsideWorkingDirectories`, enforcing write-path boundaries across every permission mode, plus idle conversation compaction and a batch of fixes."
 series:
   name: "AI Agent GitHub Digest"
   order: 77
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-31-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-31-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Claude Code v2.1.314 adds `permissions.blockWritesOutsideWorkingDirectories`, tu
 
 ## Trending Repos
 
-### CopilotKit/OpenBot ⭐ 8,639
+### CopilotKit/OpenBot ★ 8,639
 
 [GitHub](https://github.com/CopilotKit/OpenBot)　·　TypeScript　·　MIT
 
@@ -77,7 +77,7 @@ caption: Simplified: only the "allowed and executed" path is drawn. When the pol
 
 ---
 
-### HKUDS/nanobot ⭐ 49,682
+### HKUDS/nanobot ★ 49,682
 
 [GitHub](https://github.com/HKUDS/nanobot)　·　Python　·　MIT
 
@@ -88,7 +88,7 @@ caption: Simplified: only the "allowed and executed" path is drawn. When the pol
 
 ---
 
-### 0xPlaygrounds/rig ⭐ 9,027
+### 0xPlaygrounds/rig ★ 9,027
 
 [GitHub](https://github.com/0xPlaygrounds/rig)　·　Rust　·　MIT
 

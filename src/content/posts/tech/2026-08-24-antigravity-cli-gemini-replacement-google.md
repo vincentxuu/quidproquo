@@ -13,7 +13,7 @@ description: "Antigravity CLI 取代 Gemini CLI 的技術架構分析：Go 重�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-antigravity-cli-gemini-replacement-google-en)
+> :globe: [English version](/posts/tech/2026-08-24-antigravity-cli-gemini-replacement-google-en)
 
 Gemini CLI 是 Google 在 2025 年推出的開源 coding agent，Apache 2.0 授權，累積超過 100,000 顆星和 6,000+ 條合併的社群 PR。2026 年 5 月 19 日，Google I/O 宣布它的替代品：[Antigravity CLI](https://antigravity.google)（binary 名稱 `agy`），一顆閉源的 Go binary。
 

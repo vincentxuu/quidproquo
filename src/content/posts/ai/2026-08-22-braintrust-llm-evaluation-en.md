@@ -10,7 +10,7 @@ description: "A component-by-component guide to Braintrust datasets, experiments
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-08-22-braintrust-llm-evaluation)
+:globe: [中文版](/posts/ai/2026-08-22-braintrust-llm-evaluation)
 
 [Braintrust](https://www.braintrust.dev/docs/evaluate) is an LLM evaluation and observability platform. It does more than answer, “What was this prompt version's average score?” It productizes a workflow that is difficult to maintain: find failures in production traces, put them into a versioned dataset, run an immutable experiment, compare candidates with scorers, and deploy the better candidate back to production for continued observation.
 

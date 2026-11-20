@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-14-forums-comments-community-learning-en)
+> :globe: [English version](/posts/learning/2026-10-14-forums-comments-community-learning-en)
 
 這是「教學文章怎麼寫」系列的第 21 篇，第五部分「跟誰學，誰讀不到」的第二篇。[前面一篇](/posts/learning/2026-10-14-learning-alone-vs-together)談一起學比較好的證據與條件，以及一個人讀文章少掉哪一塊。這篇往後退一步，看最常被拿來補那一塊的東西：留言區、討論論壇、讀書會、Discord 這類社群。要回答的問題只有一個：**參與社群的人學得比較好，是社群讓他們學得好，還是本來就會學好的人才去參與？**
 

@@ -12,7 +12,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-28-tool-vercel-run-sdk-en)
+> :globe: [English version](/posts/daily/2026-08-28-tool-vercel-run-sdk-en)
 
 ## 工具資訊
 
@@ -101,10 +101,10 @@ if (result.status === 'interrupted') {
 | | Run SDK | vm2 / Node `vm` | isolated-vm | Vercel Sandbox |
 |---|---|---|---|---|
 | 隔離邊界 | QuickJS worker thread | 包在 `node:vm` 之上做 contextify | V8 isolate | 完整虛擬機/容器 |
-| 官方定位為安全沙盒 | ✅ | ❌（Node 官方文件明講 `vm` 不是安全機制） | 部分（isolate 邊界仍需自行把關） | ✅（OS 層隔離） |
-| 中斷等核可、續跑不重跑已完成呼叫 | ✅ | ❌ | ❌ | ❌ |
+| 官方定位為安全沙盒 | ✓ | ✗（Node 官方文件明講 `vm` 不是安全機制） | 部分（isolate 邊界仍需自行把關） | ✓（OS 層隔離） |
+| 中斷等核可、續跑不重跑已完成呼叫 | ✓ | ✗ | ✗ | ✗ |
 | 啟動開銷 | 低（worker thread） | 低 | 低 | 高（開整台機器/容器） |
-| 可裝套件 / 跑作業系統指令 | ❌ | ❌ | ❌ | ✅ |
+| 可裝套件 / 跑作業系統指令 | ✗ | ✗ | ✗ | ✓ |
 
 ## 注意事項
 

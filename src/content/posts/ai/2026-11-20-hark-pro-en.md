@@ -13,14 +13,14 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-20-hark-pro)
+> :globe: [中文版](/posts/ai/2026-11-20-hark-pro)
 
 | Four tests | Hark Pro |
 |---|---|
-| Keeps running while you're away | ✅ Each task gets a cloud virtual computer with a browser, file system and terminal |
-| Decides what to do when it wakes | ✅ L3: lays out Action Buttons from what it knows about you; scheduled tasks too |
-| Remembers your goals across conversations | ✅ Persistent memory you can tell to forget; not offered in the EEA, UK or Switzerland |
-| Acts for you | ✅ Logs into sites, orders, fills forms, sends email; asks before spending or messaging others unless you've told it not to |
+| Keeps running while you're away | ✓ Each task gets a cloud virtual computer with a browser, file system and terminal |
+| Decides what to do when it wakes | ✓ L3: lays out Action Buttons from what it knows about you; scheduled tasks too |
+| Remembers your goals across conversations | ✓ Persistent memory you can tell to forget; not offered in the EEA, UK or Switzerland |
+| Acts for you | ✓ Logs into sites, orders, fills forms, sends email; asks before spending or messaging others unless you've told it not to |
 
 On October 16, 2026, Hark announced it would give away $1 million worth of pizza. You downloaded Hark Pro and typed "order a free pizza" into the chat. It would claim a DoorDash gift card worth about $30, then log in, order and check out. The promotion ended in under nine hours, and [Hark says it delivered nearly 20,000 pizzas](https://foodondemand.com/11042026/harks-1m-agentic-pizza-promo-delivers-growing-pains/).
 

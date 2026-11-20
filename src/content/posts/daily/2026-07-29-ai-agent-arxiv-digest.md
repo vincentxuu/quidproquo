@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 66
 ---
-> 🌏 [English version](/posts/daily/2026-07-29-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-29-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -72,7 +72,7 @@ MCP 管「模型接工具」，A2A 管「Agent 跟 Agent 講話」，兩者不�
 - 兩者互補邏輯：Agent 透過 MCP 拿工具能力（垂直整合），透過 A2A 組成協作網路（水平擴展）
 - 論文指出目前最大空白是「跨廠商身份驗證與授權」：MCP 有 OAuth 支援，A2A 尚在演進，跨廠商 Agent 生態的權限模型尚未成熟
 - 實際落地摩擦點：同一個系統需要同時維護 MCP server 和 A2A endpoint，運維負擔翻倍
-- 與主流框架關聯：LangGraph 已有 MCP 整合，AutoGen 在做 A2A 支援，CrewAI 兩者都列在路線圖上 **⚠️（路線圖資訊未獨立核實）**
+- 與主流框架關聯：LangGraph 已有 MCP 整合，AutoGen 在做 A2A 支援，CrewAI 兩者都列在路線圖上 **:warning:（路線圖資訊未獨立核實）**
 - 局限：原型規模偏小（PoC 等級），尚未做大型 Agent 群組的效能壓力測試或錯誤重試場景
 
 ### Reviewer 一句話評
@@ -128,7 +128,7 @@ MCP 管「模型接工具」，A2A 管「Agent 跟 Agent 講話」，兩者不�
 - 最傷的突變類型是「參數重命名」和「新增必填參數」，模型傾向依賴記憶中的舊工具描述而非重新解讀當下的 schema
 - 論文觀察：多步任務中，第一步呼叫失敗就會連帶拖垮後續整條鏈，錯誤會累積放大
 - 架構啟示：需要在 runtime 加入「工具 schema diff 偵測 + 自動提示更新」機制，而不只是靠模型自己去適應
-- 局限：11 種突變算子是研究者人工設計，不一定完整覆蓋所有真實升版模式；123 個 server 以開源社群為主，企業內部私有 server 的行為可能不同 **⚠️**
+- 局限：11 種突變算子是研究者人工設計，不一定完整覆蓋所有真實升版模式；123 個 server 以開源社群為主，企業內部私有 server 的行為可能不同 **:warning:**
 
 ### Reviewer 一句話評
 
@@ -179,7 +179,7 @@ Prompt Injection（提示注入）讓 Agent 讀到帶有惡意指令的文件後
 
 - 評測規模：2,100 條攻擊路徑，8 種攻擊家族（tool poisoning、memory poisoning、indirect injection 等），5 種防禦方案，3 個 model backend
 - 關鍵發現：Azure GPT-5 backend 上「完全安全」的 pipeline，60 次工具/記憶體毒化攻擊中有 54 次是被 Azure 伺服器端過濾器擋住的，非模型本身能力
-- 換成沒有伺服器端過濾器的 backend 後，攻擊成功率從接近 0% 大幅上升 **⚠️（具體數字待論文正式版核實）**
+- 換成沒有伺服器端過濾器的 backend 後，攻擊成功率從接近 0% 大幅上升 **:warning:（具體數字待論文正式版核實）**
 - ChannelGuard 在 planner→worker、worker→verifier、verifier→synthesizer 等每條通道各放一個 IB-Gate
 - IB-Gate 使用 cosine similarity（餘弦相似度）比對惡意詞彙庫，不需訓練資料，每次決策不需呼叫 LLM，僅加入向量計算開銷
 - 與 LangGraph 的關聯：IB-Gate 概念可以作為 LangGraph edge 上的 middleware 實作，理論上不需要改動 Agent 本身

@@ -10,7 +10,7 @@ description: "介紹 FlexJobs、Wellfound、We Work Remotely、Remote OK、Remot
 draft: false
 ---
 
-> 🌏 [English version](/posts/career/2026-08-22-remote-work-platforms-beyond-upwork-en)
+> :globe: [English version](/posts/career/2026-08-22-remote-work-platforms-beyond-upwork-en)
 
 想找海外遠端工作，多數人第一站是 [Upwork](https://www.upwork.com/) 或 [Fiverr](https://www.fiverr.com/)。這兩個平台的問題不是不好，而是太擠——全球數百萬接案者搶同一批案子，價格被壓到底，新人沒有評價就拿不到案子，拿不到案子就沒有評價。
 

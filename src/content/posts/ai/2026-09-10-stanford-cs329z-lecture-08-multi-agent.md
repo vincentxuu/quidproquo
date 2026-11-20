@@ -14,7 +14,7 @@ description: "依實體頁碼帶讀 CS329Z Lecture 08 Multi-Agent Systems 投影
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 79 分鐘；本文依公開投影片與指定讀物整理，並已依錄影字幕核對各節起點。第 83–92 頁的工程案例課堂時間不夠沒有講，只在結尾帶過。
 

@@ -22,7 +22,7 @@ glossary:
     def: "OpenAI 首次開源的權重語言模型（2025/08），包含 120B 和 20B 兩個尺寸，Apache 2.0 授權"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-family-gpt-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-family-gpt-en)
 
 2022 年 11 月 30 日，ChatGPT 上線，5 天內達到 100 萬使用者，兩個月內突破 1 億——人類歷史上成長最快的消費產品。四年後的 2026 年，OpenAI 在半年內換了兩代：7 月 GPT-5.6 Sol／Terra／Luna 三層上線，9 月 GPT-6 Astra 開出新世代，11 月 17 日 GPT-6.2 Astra／Sol 又把旗艦價壓低 20%。這是「AI 模型家族」系列的第三篇家族深度介紹，追蹤 GPT 從 GPT-1 到 GPT-6.2 的完整演化。
 

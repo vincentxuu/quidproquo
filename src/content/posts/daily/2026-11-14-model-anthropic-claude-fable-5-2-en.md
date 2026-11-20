@@ -15,7 +15,7 @@ glossary:
     def: "Anthropic's large language model family; Fable/Mythos is its newest flagship tier above Opus"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-14-model-anthropic-claude-fable-5-2)
+> :globe: [中文版](/posts/daily/2026-11-14-model-anthropic-claude-fable-5-2)
 
 ## Model Information
 
@@ -49,7 +49,7 @@ glossary:
 | Humanity's Last Exam (with tools) | 74.2% | 65.6% | Opus 5.5: 67.7% |
 | RoboDojo Sim (robot control, internal eval) | 64.9% | 27.6% | Opus 5.5: 39.4% |
 
-⚠️ All figures come from Anthropic's own hand-picked benchmark suite in its official announcement. The "best competitor" scores for GPT-6 Astra and Opus 5.5 were also run by Anthropic itself and may use a different methodology from OpenAI's or Google's own self-reported numbers — treat them as reference points only.
+:warning: All figures come from Anthropic's own hand-picked benchmark suite in its official announcement. The "best competitor" scores for GPT-6 Astra and Opus 5.5 were also run by Anthropic itself and may use a different methodology from OpenAI's or Google's own self-reported numbers — treat them as reference points only.
 
 ## Comparison with Predecessor/Competitors
 

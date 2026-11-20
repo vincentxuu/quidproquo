@@ -13,7 +13,7 @@ description: "The Hermes Agent multi-platform gateway and cron scheduler: the pl
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-gateway-cron)
+> :globe: [中文版](/posts/ai/2026-08-18-hermes-agent-gateway-cron)
 
 Post 8 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 

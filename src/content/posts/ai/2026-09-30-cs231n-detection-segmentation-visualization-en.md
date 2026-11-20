@@ -28,7 +28,7 @@ glossary:
     context: "CS231N Lecture 9 uses it to lift CAM's restriction to the last convolutional layer."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

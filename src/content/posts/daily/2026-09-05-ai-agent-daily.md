@@ -13,7 +13,7 @@ series:
   order: 21
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-05-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-05-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -135,16 +135,16 @@ LangChain 整理歐洲與中東企業（Schneider Electric、Vodafone、monday.c
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-05](/posts/daily/2026-09-05-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-05](/posts/daily/2026-09-05-ai-agent-github-digest)
-- 📄 [框架更新｜Agno 3.0.6](/posts/daily/2026-09-05-framework-agno-3.0.6)
-- 📄 [框架更新｜Mastra @mastra/core@1.64.0](/posts/daily/2026-09-05-framework-mastra-1.64.0)
-- 📄 [融資速報｜Gimlet Labs Series B $300M](/posts/daily/2026-09-05-funding-gimlet-labs)
-- 📄 [模型卡｜K2 Horizon 375B-A23B](/posts/daily/2026-09-05-model-ifm-k2-horizon-375b-a23b)
-- 📄 [資安警報｜Grafana 官方 MCP Server 認證繞過鏈上 SSRF](/posts/daily/2026-09-05-security-grafana-mcp-ssrf-session-spoofing)
-- 📄 [工具推薦｜KRU](/posts/daily/2026-09-05-tool-kru)
-- 📄 [AI Engineer 面試日練 — 2026-09-05：Paper Reading](/posts/daily/2026-09-05-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-05：Technical PM](/posts/daily/2026-09-05-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-05](/posts/daily/2026-09-05-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-05](/posts/daily/2026-09-05-ai-agent-github-digest)
+- :file: [框架更新｜Agno 3.0.6](/posts/daily/2026-09-05-framework-agno-3.0.6)
+- :file: [框架更新｜Mastra @mastra/core@1.64.0](/posts/daily/2026-09-05-framework-mastra-1.64.0)
+- :file: [融資速報｜Gimlet Labs Series B $300M](/posts/daily/2026-09-05-funding-gimlet-labs)
+- :file: [模型卡｜K2 Horizon 375B-A23B](/posts/daily/2026-09-05-model-ifm-k2-horizon-375b-a23b)
+- :file: [資安警報｜Grafana 官方 MCP Server 認證繞過鏈上 SSRF](/posts/daily/2026-09-05-security-grafana-mcp-ssrf-session-spoofing)
+- :file: [工具推薦｜KRU](/posts/daily/2026-09-05-tool-kru)
+- :file: [AI Engineer 面試日練 — 2026-09-05：Paper Reading](/posts/daily/2026-09-05-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-05：Technical PM](/posts/daily/2026-09-05-product-builder-interview-daily)
 
 ## 明日關注
 

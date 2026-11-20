@@ -13,7 +13,7 @@ description: "Sassolungo／Langkofel 山群攀登介紹：岩質、規模與適�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-sassolungo-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-sassolungo-en)
 
 Sassolungo（德文 Langkofel，拉汀語 Saslonch，意思都是「長石頭」）是 Val Gardena 的地標，從 Passo Sella 看過去是一整排白雲岩塔。[Val Gardena 觀光局](https://www.valgardena.it/en/summer-holidays-dolomites/events-highlights/150-years-from-the-first-ascent-of-sassolungo/detail/the-valleys-symbol-val-gardenas-mountain/)寫山群夾在 Val Gardena 和 Val di Fassa 上游之間，東邊是 Sella 山塊，西邊是 Alpe di Siusi；主峰 3,181 公尺，1869 年 8 月 13 日由 Paul Grohmann 首登。
 

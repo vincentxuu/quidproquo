@@ -13,7 +13,7 @@ description: "A deck-aligned guide to CS103 Mathematical Proofs: even and odd de
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-02-mathematical-proofs)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-02-mathematical-proofs)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

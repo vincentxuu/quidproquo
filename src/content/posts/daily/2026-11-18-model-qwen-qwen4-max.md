@@ -15,7 +15,7 @@ glossary:
     def: "阿里巴巴通義千問團隊 2026 年 11 月發布的新一代模型架構世代，首款產品為 Qwen4-Max，核心變化是 QSA 稀疏注意力＋Gated Residual＋N-gram Embedding"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-18-model-qwen-qwen4-max-en)
+> :globe: [English version](/posts/daily/2026-11-18-model-qwen-qwen4-max-en)
 
 ## 模型資訊
 
@@ -49,7 +49,7 @@ glossary:
 | ProgramBench（原生程式能力） | 31.5 | 28.0 | Claude Opus 5.5 65.0 |
 | HLAB-Vals-1.1（法律 agent） | 21.3 | 15.4 | Kimi K3.1 11.7 |
 
-⚠️ 以上 16 項對照全部出自 Alibaba 官方發布的 Qwen4-Max benchmark 圖表，截至發文未見第三方獨立複現；圖表中 Kimi K3.1 Pro 的 Terminal-Bench 4.0 分數為 67.2，但 Moonshot 官方自己公布的同一項分數是 65.7，兩者不一致，顯示跨廠商引用他牌分數時版本可能不同步。
+:warning: 以上 16 項對照全部出自 Alibaba 官方發布的 Qwen4-Max benchmark 圖表，截至發文未見第三方獨立複現；圖表中 Kimi K3.1 Pro 的 Terminal-Bench 4.0 分數為 67.2，但 Moonshot 官方自己公布的同一項分數是 65.7，兩者不一致，顯示跨廠商引用他牌分數時版本可能不同步。
 
 ## 與前代/競品比較
 

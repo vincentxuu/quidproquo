@@ -13,7 +13,7 @@ description: "A guide to climbing on Tavolara: size and season of its 38 sea-cli
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-tavolara)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-tavolara)
 
 Tavolara sits at the mouth of the Gulf of Olbia in north-east Sardinia, a long mountain island rising straight out of the water to about 565 m at Punta Cannone, its highest point. If you arrive in Olbia by ferry from mainland Italy, it's the first thing you see.
 

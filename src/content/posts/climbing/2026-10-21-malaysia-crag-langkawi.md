@@ -13,7 +13,7 @@ description: "蘭卡威攀岩指南：Pulau Tuba 20 條路線與 Gua Batu Beach 
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-langkawi-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-langkawi-en)
 
 蘭卡威（Langkawi）是多數人的渡假目的地，但西岸外海確實有能爬的岩：離碼頭幾十分鐘船程的 Pulau Tuba 有 20 條石灰岩運攀線，隔壁的 Pulau Jong 則是深水抱石。兩處都是**私有地**——這是這篇文章最想先講清楚的一件事：不是「免費的野外岩場」，而是要先打電話取得許可的私人場地。
 

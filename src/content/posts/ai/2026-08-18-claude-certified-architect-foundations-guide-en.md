@@ -13,7 +13,7 @@ description: "A comprehensive guide to the Claude Certified Architect — Founda
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide)
+> :globe: [中文版](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide)
 
 The Claude Certified Architect — Foundations (CCAR-F) exam tests your practical design ability for agentic systems. Questions are organized around scenarios, requiring you to make the right architectural decisions in concrete production contexts. This article covers all key exam domains, common pitfalls, and the most effective preparation approaches.
 

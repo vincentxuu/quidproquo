@@ -38,7 +38,7 @@ glossary:
     context: "A backup knot is the last line, not a substitute for a second device."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-rope-solo-how-to)
+> :globe: [中文版](/posts/climbing/2026-10-24-rope-solo-how-to)
 
 In March 2026, TAKEMOVIE posted a video of himself climbing *Star Trek* (スター☆トレック), a five-pitch 5.8 at Jōyama on Japan's Izu Peninsula, alone. He explains that because he is using a solo system, after the first pitch he has to go back down to the ground for his pack and then climb back up the rope ([video from 5:43](https://www.youtube.com/watch?v=l68_-amCZl4&t=343s)).
 

@@ -33,7 +33,7 @@ glossary:
     context: "CS234 L12 說它是 MBIE-EB 之所以是 PAC 的關鍵想法之一。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

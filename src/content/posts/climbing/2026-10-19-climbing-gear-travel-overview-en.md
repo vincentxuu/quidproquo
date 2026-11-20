@@ -12,7 +12,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-gear-travel-overview)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-gear-travel-overview)
 
 Going to your local crag or gym, you throw the gear in the car and go. Taking it abroad is different. The rope length depends on the local routes, whether your quickdraws get into the cabin depends on the security officer, checked bags have weight limits, and at the crag you need a different pack again.
 

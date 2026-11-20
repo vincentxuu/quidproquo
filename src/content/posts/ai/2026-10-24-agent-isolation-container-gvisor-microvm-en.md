@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-agent-isolation-container-gvisor-microvm)
+> :globe: [中文版](/posts/ai/2026-10-24-agent-isolation-container-gvisor-microvm)
 
 Agent sandboxes usually take one of three forms: a plain container, [gVisor](https://gvisor.dev/), or a microVM (Kata Containers, Firecracker, and the like). All of them are called "isolation," but they separate things at different points. This post answers two questions: how many kernel boundaries does an agent's code have to cross to reach the host, and what do all three still share after it does?
 

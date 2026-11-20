@@ -21,7 +21,7 @@ glossary:
     context: "Assignment 2's 10 tasks and its hidden tasks all come from this benchmark."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-21-cs2680-assignment-2-mads-loop)
+> :globe: [中文版](/posts/ai/2026-10-21-cs2680-assignment-2-mads-loop)
 
 **Video status: The course is not recorded.** This post is based on the public assignment page and starter files; the code snippets are this site's additions, not an official solution. [Source notes](#course-video-sources)
 

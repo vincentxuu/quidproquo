@@ -13,7 +13,7 @@ description: "A guide to Stanford CS336 Spring 2026 Lecture 2: PyTorch tensors, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs336-resource-accounting)
+> :globe: [中文版](/posts/ai/2026-08-22-cs336-resource-accounting)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

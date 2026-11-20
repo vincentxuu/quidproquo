@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-13-weekly-review-en)
+> :globe: [English version](/posts/daily/2026-11-13-weekly-review-en)
 
 ## 本週最重要的 5 件事
 
@@ -105,13 +105,13 @@ caption: 日期為各篇報導的發表或回應日期，詳見下方參考資�
 
 ## Watchlist 更新建議
 
-### 🆕 建議加入
+### 建議加入
 
-✅ 本週出現頻率最高的公司（Microsoft、OpenAI、Anthropic、Google、Amazon、Nvidia、Meta、Alibaba-Qwen、LangChain、IBM）皆已在 watchlist 中，無新增候選。
+✓ 本週出現頻率最高的公司（Microsoft、OpenAI、Anthropic、Google、Amazon、Nvidia、Meta、Alibaba-Qwen、LangChain、IBM）皆已在 watchlist 中，無新增候選。
 
-### ⚠️ 考慮移除
+### :warning: 考慮移除
 
-✅ 本週無符合移除條件的公司
+✓ 本週無符合移除條件的公司
 
 ## 本週新創雷達
 

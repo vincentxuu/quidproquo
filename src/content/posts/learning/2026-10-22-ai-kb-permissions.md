@@ -12,7 +12,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-ai-kb-permissions-en)
+> :globe: [English version](/posts/learning/2026-10-22-ai-kb-permissions-en)
 
 業務部的同事問 AI 助理：「今年的調薪幅度是多少？」AI 答出了人資內部會議紀錄裡的數字。這份紀錄放在一個共用資料夾，三年前有人把資料夾分享給「公司所有人」，之後就沒人記得。AI 沒有破解任何權限，它只是照規則，讀了這位同事本來就打得開的檔案。
 

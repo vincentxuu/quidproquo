@@ -14,7 +14,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-chunking-strategies-en)
+> :globe: [English version](/posts/ai/2026-03-12-chunking-strategies-en)
 
 RAG 系統的問題，很多時候不是搜尋演算法不好，而是一開始的切塊策略就錯了。
 

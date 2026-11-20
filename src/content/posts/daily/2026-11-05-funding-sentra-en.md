@@ -12,7 +12,7 @@ series:
   order: 124
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-05-funding-sentra)
+> :globe: [中文版](/posts/daily/2026-11-05-funding-sentra)
 
 ## Funding Snapshot
 

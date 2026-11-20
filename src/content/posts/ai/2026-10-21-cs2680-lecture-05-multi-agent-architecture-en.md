@@ -22,7 +22,7 @@ glossary:
     context: "Lecture 5 contrasts it with MCP: MCP connects an agent to tools, A2A connects an agent to other agents."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture)
+> :globe: [中文版](/posts/ai/2026-10-21-cs2680-lecture-05-multi-agent-architecture)
 
 **Video status: The course is not recorded.** This post is based on the public slides; the numerical examples are this site's additions. [Source notes](#course-video-sources)
 

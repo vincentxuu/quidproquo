@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/learning/2026-10-25-travel-delays-lost-baggage-english/)
+> :globe: [繁體中文版](/posts/learning/2026-10-25-travel-delays-lost-baggage-english/)
 
 Your flight should have left, but the time on the departure board keeps moving. You understand delayed, yet at the counter you cannot find a way to ask when the plane is now expected to leave. Another stressful moment comes after landing: everyone is heading for the exit when you realise your cabin bag may still be on the plane.
 

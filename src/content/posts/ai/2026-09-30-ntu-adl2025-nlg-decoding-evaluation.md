@@ -26,7 +26,7 @@ glossary:
     context: "NLG Evaluation 講義第 9 頁強調它評的是生成模型本身，不是某一句輸出。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-nlg-decoding-evaluation-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-nlg-decoding-evaluation-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

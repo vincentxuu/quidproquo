@@ -15,7 +15,7 @@ glossary:
     def: "Meituan's open-weight agentic model family, known for dynamic MoE routing and long-context support"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-15-model-meituan-longcat-2-5)
+> :globe: [中文版](/posts/daily/2026-11-15-model-meituan-longcat-2-5)
 
 ## Model Information
 
@@ -50,7 +50,7 @@ glossary:
 | HLE (with tools) | 63.1 | 37.5 | Claude-Opus-5: 64.7 |
 | BrowseComp | 91.9 | 79.9 | DeepSeek-V4.1-Flash: 91.5 (LongCat-2.5 is the highest overall) |
 
-⚠️ LongCat-2.5/LongCat-2.0 scores are self-reported by Meituan. Competitor scores come from the official release: some are cited from public technical reports or official leaderboards (marked `*` in the source), others are run in-house by the LongCat team and are indicative only (unmarked in the source). No independent external reproduction has appeared yet.
+:warning: LongCat-2.5/LongCat-2.0 scores are self-reported by Meituan. Competitor scores come from the official release: some are cited from public technical reports or official leaderboards (marked `*` in the source), others are run in-house by the LongCat team and are indicative only (unmarked in the source). No independent external reproduction has appeared yet.
 
 ## Comparison with Predecessor/Competitors
 

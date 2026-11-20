@@ -27,7 +27,7 @@ glossary:
         url: "https://ifmga.net/member-associations/member-associations"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-ifmga-mountain-guide-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-17-ifmga-mountain-guide-overview-en)
 
 在阿爾卑斯山的山屋、紐西蘭的嚮導公司網站，常會看到「IFMGA Mountain Guide」或「UIAGM」這幾個字，旁邊一個圓形徽章。這篇回答三件事：這些嚮導會做什麼、發證的是誰，以及它和台灣的「山域嚮導」證照是不是同一回事。
 

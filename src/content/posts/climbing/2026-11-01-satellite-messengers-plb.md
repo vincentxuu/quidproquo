@@ -30,7 +30,7 @@ glossary:
     context: "inReach Mini 3 用舊的 SBD 短訊息平台，Mini 3 Plus 和 Messenger Plus 改用較新的 IMT，訊息較長、可傳照片和語音。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-11-01-satellite-messengers-plb-en)
+> :globe: [English version](/posts/climbing/2026-11-01-satellite-messengers-plb-en)
 
 在龍洞，手機多半有訊號。到了中級山的斷崖下、溪谷裡，或多洛米蒂的北壁，手機可能一格都沒有。衛星通訊器和個人定位無線電示標（PLB）就是給這種時候用的：不靠基地台，直接把求救訊號和座標送上衛星，再轉到救援單位。雙向的衛星通訊器還能跟救援中心來回傳文字，告訴他們誰受傷、傷得多重、你們有沒有保暖裝備。
 

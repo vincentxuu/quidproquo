@@ -14,7 +14,7 @@ series:
   order: 23
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-corrective-rag-crag-en)
+> :globe: [English version](/posts/ai/2026-03-12-corrective-rag-crag-en)
 
 RAG 系統的一個靜默失敗模式：**過濾條件過嚴，沒有候選文件通過，但 pipeline 繼續跑，LLM 只能用通用知識回答**。
 

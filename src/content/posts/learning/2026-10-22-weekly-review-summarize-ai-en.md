@@ -12,7 +12,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-weekly-review-summarize-ai)
+> :globe: [中文版](/posts/learning/2026-10-22-weekly-review-summarize-ai)
 
 The first month of organizing your notes usually goes well: the inbox gets cleared every week, things go into folders under the new scheme, links come with reasons. Three months later the inbox holds two hundred items again, and you can't remember when you last opened an MOC. The most common fate of a note system isn't breaking; it's being forgotten.
 

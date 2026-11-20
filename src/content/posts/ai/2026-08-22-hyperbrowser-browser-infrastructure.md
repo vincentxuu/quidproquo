@@ -13,7 +13,7 @@ series:
   order: 22
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure-en)
+> :globe: [English version](/posts/ai/2026-08-22-hyperbrowser-browser-infrastructure-en)
 
 [Hyperbrowser](https://www.hyperbrowser.ai/docs) 是給 AI Agent 與自動化程式使用的 Browser-as-a-Service。應用程式不必自己啟動、監控與清除 Chrome fleet，而是透過 API 建立隔離 session，再用 Playwright、Puppeteer 或 Selenium 連上遠端瀏覽器。它同時提供 proxy、stealth、CAPTCHA 處理、profile、live view 與錄影，把原本散落在 Kubernetes、browser driver 和 proxy 供應商之間的工作收進同一個控制面。
 

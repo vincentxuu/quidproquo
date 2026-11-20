@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-biggo-finance-ai-content-funnel)
+> :globe: [中文版](/posts/product/2026-09-17-biggo-finance-ai-content-funnel)
 
 Imagine a shop that turns long English-language finance podcasts into free Chinese study sheets. A passerby can quickly see which companies, risks, and market shifts an episode covered without buying a ticket first.
 

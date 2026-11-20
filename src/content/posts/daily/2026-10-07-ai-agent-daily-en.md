@@ -12,7 +12,7 @@ series:
   order: 53
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-07-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-07-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -106,17 +106,17 @@ Three vertical AI agent funding rounds also landed the same day: Dutch pentestin
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Inngest v1.46.0](/posts/daily/2026-10-07-framework-inngest-1.46.0-en)
-- 📄 [Security Alert｜Protocol Pivoting Cross-Protocol Attack](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf-en)
-- 📄 [Funding Brief｜Hadrian Series B $40M](/posts/daily/2026-10-07-funding-hadrian-en)
-- 📄 [Funding Brief｜Siena Series A $17M](/posts/daily/2026-10-07-funding-siena-en)
-- 📄 [Funding Brief｜Vinci Series B $250M](/posts/daily/2026-10-07-funding-vinci-en)
-- 📄 [Pricing Watch｜Anthropic Expands Startup Program](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion-en)
-- 📄 [Tool Pick｜SpecStory CLI](/posts/daily/2026-10-07-tool-specstory-cli)
-- 📄 [AI Engineer Interview Prep — 2026-10-07](/posts/daily/2026-10-07-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-07](/posts/daily/2026-10-07-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-github-digest-en)
+- :file: [Framework Update｜Inngest v1.46.0](/posts/daily/2026-10-07-framework-inngest-1.46.0-en)
+- :file: [Security Alert｜Protocol Pivoting Cross-Protocol Attack](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf-en)
+- :file: [Funding Brief｜Hadrian Series B $40M](/posts/daily/2026-10-07-funding-hadrian-en)
+- :file: [Funding Brief｜Siena Series A $17M](/posts/daily/2026-10-07-funding-siena-en)
+- :file: [Funding Brief｜Vinci Series B $250M](/posts/daily/2026-10-07-funding-vinci-en)
+- :file: [Pricing Watch｜Anthropic Expands Startup Program](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion-en)
+- :file: [Tool Pick｜SpecStory CLI](/posts/daily/2026-10-07-tool-specstory-cli)
+- :file: [AI Engineer Interview Prep — 2026-10-07](/posts/daily/2026-10-07-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-07](/posts/daily/2026-10-07-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

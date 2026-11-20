@@ -12,7 +12,7 @@ tldr: "CHURRO 以 HDML 表示整頁文字、版面與 metadata，整合跨世紀
 description: "CS224V NLP Building Blocks：歷史文件 OCR 缺口、HDML、CHURRO-DS、CHURRO VLM、benchmark 與 HistoryGenie 應用。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-churro-historical-documents-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-churro-historical-documents-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

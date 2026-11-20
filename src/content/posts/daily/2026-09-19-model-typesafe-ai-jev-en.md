@@ -17,7 +17,7 @@ glossary:
     def: "Reinforcement Learning for Calibrated Decisions — TypeSafe AI's proprietary training method. It optimizes for whether a model's stated probability honestly reflects its actual accuracy, rather than RLHF's human preference or RLVR's verifiable rewards."
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-19-model-typesafe-ai-jev)
+> :globe: [中文版](/posts/daily/2026-09-19-model-typesafe-ai-jev)
 
 ## Model Info
 
@@ -52,7 +52,7 @@ Jev isn't measured against conventional benchmarks like MMLU or SWE-bench. TypeS
 | Homepage demo workflow | Completed in 0.114s | LLM workflow: 8.566s (193.6x slower, 444.6x more expensive) |
 | Type/format error rate | 0% (structurally guaranteed) | LLM structured output (per OpenRouter data): nonzero |
 
-⚠️ All figures above are TypeSafe AI's own tests, self-designed and self-published; no independent third party has replicated them. TypeSafe itself discloses in the announcement that the reference answer (average of GPT-6 Astra and Fable 5.1) skews toward OpenAI/Anthropic response style and likely underestimates Jev's performance relative to DeepSeek's models; the workflow content was designed by TypeSafe's own "model capabilities team," and the company acknowledges possible selection bias.
+:warning: All figures above are TypeSafe AI's own tests, self-designed and self-published; no independent third party has replicated them. TypeSafe itself discloses in the announcement that the reference answer (average of GPT-6 Astra and Fable 5.1) skews toward OpenAI/Anthropic response style and likely underestimates Jev's performance relative to DeepSeek's models; the workflow content was designed by TypeSafe's own "model capabilities team," and the company acknowledges possible selection bias.
 
 ## Comparison to Prior Generation / Competitors
 

@@ -16,7 +16,7 @@ additionalSeries:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cloudflare-sandboxes-en)
+> :globe: [English version](/posts/ai/2026-08-22-cloudflare-sandboxes-en)
 
 [Cloudflare Sandboxes](https://developers.cloudflare.com/sandbox/) 是讓 Worker 操作隔離 Linux 環境的 SDK。它不是把 shell 塞進 Worker isolate，也不是另一套脫離 Cloudflare 的虛擬機 API。Worker 接請求，Durable Object 用穩定 ID 管理狀態與路由，真正不受信任的程式則在獨立 VM 裡的 Container 執行。
 

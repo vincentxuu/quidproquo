@@ -21,7 +21,7 @@ series:
   order: 25
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-13-mit-67960-l20-scaling-laws)
+> :globe: [中文版](/posts/tech/2026-10-13-mit-67960-l20-scaling-laws)
 
 **Video status: Videos included.** [Video source and notes](#lecture-video-source)
 

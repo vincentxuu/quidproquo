@@ -17,7 +17,7 @@ glossary:
     def: "A sparse architecture where the model holds multiple expert sub-networks but activates only a small subset per inference, letting total parameter count far exceed actual compute"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-09-model-baidu-ernie-5-5-flash-base)
+> :globe: [中文版](/posts/daily/2026-11-09-model-baidu-ernie-5-5-flash-base)
 
 ## Model Info
 
@@ -52,7 +52,7 @@ glossary:
 | LongBench-v2 (EM) | **48.7** | 44.5 | 39.8 | 44.6 |
 | HELMET-Rerank (NDCG@10) | 56.2 | **60.0** | 55.7 | 56.6 |
 
-⚠️ These numbers — four wins for ERNIE 5.5 Flash Base and one loss — all come from Baidu's own unified evaluation pipeline (same prompts, same few-shot settings, same judge model), so they're self-reported. MarkTechPost notes Baidu's measured competitor scores differ slightly from each vendor's own published numbers (e.g., DeepSeek self-reports MMLU-Pro at 68.3, while Baidu measured 69.2), so independent reproduction is still pending. Baidu claims a lead on 24 of 30 benchmarks, but trails DeepSeek-V4-Flash-Base on three: the long-context HELMET-Rerank and InfiniteBench, and the Chinese-knowledge ChineseSimpleQA.
+:warning: These numbers — four wins for ERNIE 5.5 Flash Base and one loss — all come from Baidu's own unified evaluation pipeline (same prompts, same few-shot settings, same judge model), so they're self-reported. MarkTechPost notes Baidu's measured competitor scores differ slightly from each vendor's own published numbers (e.g., DeepSeek self-reports MMLU-Pro at 68.3, while Baidu measured 69.2), so independent reproduction is still pending. Baidu claims a lead on 24 of 30 benchmarks, but trails DeepSeek-V4-Flash-Base on three: the long-context HELMET-Rerank and InfiniteBench, and the Chinese-knowledge ChineseSimpleQA.
 
 ## Comparison with Prior/Competing Models
 

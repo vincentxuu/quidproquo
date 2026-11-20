@@ -13,7 +13,7 @@ description: "葫蘆洞攀岩指南：季節、大眾運輸、停車、在地出
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-hyotan-cave-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-hyotan-cave-en)
 
 岩泉的葫蘆洞以石灰岩洞穴和陡攀聞名，但モダン、若葉等子區也有較低級數。隊伍程度混合時，先查大家各自要去的岩面，別把「洞穴」理解成所有人都只能爬屋簷。
 

@@ -15,7 +15,7 @@ glossary:
     def: "Baidu's open-source long-document OCR model family, aiming to parse documents of any length — from a few pages to hundreds — in one pass, without chunking and stitching"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-27-model-baidu-unlimited-ocr-2)
+> :globe: [中文版](/posts/daily/2026-10-27-model-baidu-unlimited-ocr-2)
 
 ## Model Info
 
@@ -50,7 +50,7 @@ glossary:
 | Tables (MarathonDocBench sub-score) | 74.8 | Sub-score not disclosed | Not disclosed |
 | Heading hierarchy (MarathonDocBench sub-score, the model's weakest category) | 48.2 | Sub-score not disclosed | Not disclosed |
 
-⚠️ All figures are Baidu's own self-reported results, published only as a leaderboard chart image on the model card (transcribed here by third-party coverage, not a data table). MarathonDocBench is a benchmark Baidu built itself; the dataset isn't publicly released, and no other team has independently reproduced these numbers yet.
+:warning: All figures are Baidu's own self-reported results, published only as a leaderboard chart image on the model card (transcribed here by third-party coverage, not a data table). MarathonDocBench is a benchmark Baidu built itself; the dataset isn't publicly released, and no other team has independently reproduced these numbers yet.
 
 ```diagram
 title: Unlimited OCR 2 shrinks the score gap on long-document benchmarks

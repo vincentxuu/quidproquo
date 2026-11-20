@@ -13,7 +13,7 @@ description: "The first essay in the Taste Practice series: why taste matters mo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-20-taste-as-amplifier)
+> :globe: [中文版](/posts/learning/2026-08-20-taste-as-amplifier)
 
 Once tools drive execution costs extremely low, differences do not shrink. They expand.
 

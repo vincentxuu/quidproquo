@@ -32,7 +32,7 @@ glossary:
     context: "L3 投影片舉的例子是在前約 5,000 次迭代線性增加。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-regularization-optimization-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-regularization-optimization-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

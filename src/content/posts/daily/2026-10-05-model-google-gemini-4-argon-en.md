@@ -15,7 +15,7 @@ glossary:
     def: "Google DeepMind's large language model family; Argon is its newest flagship branch"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-05-model-google-gemini-4-argon)
+> :globe: [中文版](/posts/daily/2026-10-05-model-google-gemini-4-argon)
 
 ## Model Details
 
@@ -51,7 +51,7 @@ glossary:
 | LVBench (long-video understanding) | 91.7% (SOTA) | Runner-up score not published |
 | Artificial Analysis Intelligence Index | 53 | GPT-6.1 Sol 54, Claude Opus 5.5 58 |
 
-⚠️ Except for Artificial Analysis, all figures are Google's own self-reported benchmarks with no independent third-party reproduction yet. DeepSWE v1.1 and CWE-bench scores come from charts in the official blog post; the FrontierSWE v2 figure comes from third-party aggregation (AIFire). Argon doesn't lead everywhere — it trails on both FrontierSWE v2 and the Artificial Analysis Intelligence Index, which suggests targeted strength in specific areas rather than a clean sweep.
+:warning: Except for Artificial Analysis, all figures are Google's own self-reported benchmarks with no independent third-party reproduction yet. DeepSWE v1.1 and CWE-bench scores come from charts in the official blog post; the FrontierSWE v2 figure comes from third-party aggregation (AIFire). Argon doesn't lead everywhere — it trails on both FrontierSWE v2 and the Artificial Analysis Intelligence Index, which suggests targeted strength in specific areas rather than a clean sweep.
 
 ## Versus Predecessor / Competitors
 

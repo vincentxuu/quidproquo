@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-vercel-sandbox)
+> :globe: [中文版](/posts/ai/2026-08-22-vercel-sandbox)
 
 [Vercel Sandbox](https://vercel.com/docs/sandbox) is an on-demand Linux execution environment controlled through an SDK or CLI. It runs AI-agent-generated code, uploaded scripts, and test workloads. This is not a permission prompt layered onto a Vercel Function. Untrusted work moves into a separate Firecracker microVM: the agent loop can remain in a Function while shell commands, package installation, and preview servers run in Sandbox.
 

@@ -10,7 +10,7 @@ description: "A breakdown of the Mini Yuanta Taiwan 50 ETF Futures (SRF): contra
 draft: false
 ---
 
-> 🌏 [中文版](/posts/investing/2026-07-01-srf-0050-etf-futures)
+> :globe: [中文版](/posts/investing/2026-07-01-srf-0050-etf-futures)
 
 Someone posted a Threads screenshot of an order ticket: product code SRF1, labeled "小台灣50 期07," trading at 109.85, with a margin requirement of just NT$7,900. The caption read, "Looks like a lot of people don't recognize this one."
 

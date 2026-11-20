@@ -20,7 +20,7 @@ glossary:
     context: "The GPT-2 notebook sets padding labels to −100 by hand; for T5, DataCollatorForSeq2Seq does it."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-gpt2-t5-summarization)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-gpt2-t5-summarization)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

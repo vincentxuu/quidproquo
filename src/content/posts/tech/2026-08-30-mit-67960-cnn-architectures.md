@@ -13,7 +13,7 @@ description: "MIT 6.7960 Fall 2024 OCW 第 4 講：Architectures: Grids。深入
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-mit-67960-cnn-architectures-en)
+> :globe: [English version](/posts/tech/2026-08-30-mit-67960-cnn-architectures-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

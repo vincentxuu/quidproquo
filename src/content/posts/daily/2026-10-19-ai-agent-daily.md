@@ -12,7 +12,7 @@ series:
   order: 65
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-19-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-19-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -89,12 +89,12 @@ IBM 調查顯示，75% 阿聯酋高階主管過去 12 個月曾有 AI 相關事�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent GitHub Digest — 2026-10-19](/posts/daily/2026-10-19-ai-agent-github-digest)
-- 📄 [模型卡｜NVIDIA Nemotron Labs Dory 1.0](/posts/daily/2026-10-19-model-nvidia-nemotron-dory-1-0)
-- 📄 [融資速報｜Duvo Series A $32M](/posts/daily/2026-10-19-funding-duvo)
-- 📄 [工具推薦｜GenOffice](/posts/daily/2026-10-19-tool-genoffice)
-- 📄 [AI Engineer 面試日練 — 2026-10-19](/posts/daily/2026-10-19-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-19](/posts/daily/2026-10-19-product-builder-interview-daily)
+- :file: [AI Agent GitHub Digest — 2026-10-19](/posts/daily/2026-10-19-ai-agent-github-digest)
+- :file: [模型卡｜NVIDIA Nemotron Labs Dory 1.0](/posts/daily/2026-10-19-model-nvidia-nemotron-dory-1-0)
+- :file: [融資速報｜Duvo Series A $32M](/posts/daily/2026-10-19-funding-duvo)
+- :file: [工具推薦｜GenOffice](/posts/daily/2026-10-19-tool-genoffice)
+- :file: [AI Engineer 面試日練 — 2026-10-19](/posts/daily/2026-10-19-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-19](/posts/daily/2026-10-19-product-builder-interview-daily)
 
 ## 明日關注
 

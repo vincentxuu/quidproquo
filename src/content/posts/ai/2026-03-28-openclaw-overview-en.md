@@ -13,7 +13,7 @@ description: "A complete reading guide to the OpenClaw open-source AI gateway do
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-overview)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-overview)
 
 OpenClaw is an open-source, self-hosted AI gateway — a single Gateway program that connects WhatsApp, Telegram, Discord, iMessage, and 24+ other chat platforms to an AI agent. Its documentation spans **16 directories and 335 files**, covering everything from installation to threat modeling. This article is the starting point for the entire series: get the big picture first, then decide where to dive in.
 

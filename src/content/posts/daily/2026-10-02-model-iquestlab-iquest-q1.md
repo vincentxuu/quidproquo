@@ -15,7 +15,7 @@ glossary:
     def: "新進 AI 實驗室「至知創新研究院」，首作為 agentic coding 用 MoE 模型 IQuest-Q1"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-02-model-iquestlab-iquest-q1-en)
+> :globe: [English version](/posts/daily/2026-10-02-model-iquestlab-iquest-q1-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | NL2Repo（整庫級程式碼生成） | 63.0% | 首作，無前代 | Claude Opus 5 75.3% |
 | JobBench（辦公場景任務） | 55.7% | 首作，無前代 | Claude Opus 5 65.7% |
 
-⚠️ 以上均為 IQuest 官方自測（harness：DeepSWE v1.1 用 mini-SWE-agent，其餘用 Claude Code `2.1.140`／Codex `0.142`；CyberGym 設 6 小時上限、Terminal-Bench 2.1 設 8 小時上限），尚無第三方獨立複現。
+:warning: 以上均為 IQuest 官方自測（harness：DeepSWE v1.1 用 mini-SWE-agent，其餘用 Claude Code `2.1.140`／Codex `0.142`；CyberGym 設 6 小時上限、Terminal-Bench 2.1 設 8 小時上限），尚無第三方獨立複現。
 
 ## 與前代/競品比較
 

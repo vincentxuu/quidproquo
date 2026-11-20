@@ -17,7 +17,7 @@ glossary:
     def: "同時混用短卷積層、滑動窗注意力層與全域注意力層的模型架構，目的是用更少記憶體換取接近全注意力的能力"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-28-model-liquid-ai-lfm3-1-7b-en)
+> :globe: [English version](/posts/daily/2026-10-28-model-liquid-ai-lfm3-1-7b-en)
 
 ## 模型資訊
 
@@ -52,7 +52,7 @@ glossary:
 | IFEval（指令遵循） | 96.66 | 95.39 | 92.08 |
 | AA-LCR（長文本理解） | 52.83 | 6.00 | **62.00** |
 
-⚠️ 以上皆為 Liquid AI 官方自測（vLLM BF16，完整 context 長度跑分），截至發佈時尚無第三方獨立複現；多家媒體（VentureBeat、TechTimes）亦指出此為廠商自評數字。
+:warning: 以上皆為 Liquid AI 官方自測（vLLM BF16，完整 context 長度跑分），截至發佈時尚無第三方獨立複現；多家媒體（VentureBeat、TechTimes）亦指出此為廠商自評數字。
 
 ## 與前代/競品比較
 

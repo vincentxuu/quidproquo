@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-🌏 [中文版](/posts/ai/2026-10-20-vllm-colab-quickstart)
+:globe: [中文版](/posts/ai/2026-10-20-vllm-colab-quickstart)
 
 vLLM is the most common inference engine for self-hosted LLM serving, but it is built mainly for NVIDIA GPUs, so most laptops — Macs especially — can't give you a real feel for it. This post uses the T4 GPU that Google Colab lends out for free and goes from `pip install` to firing 8 concurrent requests in about fifteen minutes, so you can see two things with your own eyes: vLLM turning a model into an API, and vLLM serving many users at once.
 

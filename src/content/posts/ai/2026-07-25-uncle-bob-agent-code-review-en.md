@@ -23,7 +23,7 @@ glossary:
     definition: "A tool that scans the JSON IR for repeated, near-duplicate, and possible-synonym Gherkin step text so agents can normalize the spec and prune redundancy."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-07-25-uncle-bob-agent-code-review)
+> :globe: [中文版](/posts/ai/2026-07-25-uncle-bob-agent-code-review)
 
 At 11:44 UTC on 23 July 2026, Robert C. Martin (Uncle Bob) posted a 533-character reply that has since drawn 4.18 million views, 16.6k likes, 11.4k bookmarks, and 530 replies. The author of *Clean Code* says he no longer reads code.
 

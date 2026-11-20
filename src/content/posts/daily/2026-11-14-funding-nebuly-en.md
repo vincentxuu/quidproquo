@@ -12,7 +12,7 @@ series:
   order: 135
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-14-funding-nebuly)
+> :globe: [中文版](/posts/daily/2026-11-14-funding-nebuly)
 
 ## Funding Details
 

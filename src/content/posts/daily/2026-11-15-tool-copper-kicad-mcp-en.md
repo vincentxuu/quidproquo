@@ -12,7 +12,7 @@ series:
   order: 79
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-15-tool-copper-kicad-mcp)
+> :globe: [中文版](/posts/daily/2026-11-15-tool-copper-kicad-mcp)
 
 ## Tool Info
 
@@ -139,12 +139,12 @@ npx -y copper-kicad doctor
 
 | | Copper | KiCAD-MCP-Server (another community option) | tscircuit |
 |---|---|---|---|
-| Works natively on KiCad projects | ✅ | ✅ (mostly read/write, no auto-routing or part import) | ❌ (circuits defined as code, not native KiCad) |
-| Auto-search + import in-stock parts | ✅ (live LCSC/JLCPCB stock) | ❌ | Partial (parts looked up separately) |
-| Auto-routing (length match/diff pairs/pours) | ✅ | ❌ | Handled separately |
-| Reruns ERC/DRC on every change | ✅ | Depends on the implementation | — |
-| Exports factory-ready fab files (Gerber/BOM) | ✅ | Partial | ✅ (exports Circuit JSON/Gerber) |
-| Locked to a specific AI model | ❌ (uses whatever model your AI app already connects to) | Depends on the implementation | ❌ |
+| Works natively on KiCad projects | ✓ | ✓ (mostly read/write, no auto-routing or part import) | ✗ (circuits defined as code, not native KiCad) |
+| Auto-search + import in-stock parts | ✓ (live LCSC/JLCPCB stock) | ✗ | Partial (parts looked up separately) |
+| Auto-routing (length match/diff pairs/pours) | ✓ | ✗ | Handled separately |
+| Reruns ERC/DRC on every change | ✓ | Depends on the implementation | — |
+| Exports factory-ready fab files (Gerber/BOM) | ✓ | Partial | ✓ (exports Circuit JSON/Gerber) |
+| Locked to a specific AI model | ✗ (uses whatever model your AI app already connects to) | Depends on the implementation | ✗ |
 
 ## Caveats
 

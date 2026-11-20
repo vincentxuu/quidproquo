@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-edge-platform-production-checklist)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-edge-platform-production-checklist)
 
 The most common Cloudflare production issues are not always code bugs. They often come from routing, DNS, plan limits, maintenance pages, same-zone Worker calls, native modules, or log retention. A successful `wrangler deploy` means the Worker was uploaded. It does not prove the full production path is ready.
 

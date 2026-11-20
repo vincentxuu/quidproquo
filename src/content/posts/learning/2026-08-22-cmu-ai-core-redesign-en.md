@@ -10,7 +10,7 @@ description: "A source-based guide to the schedule, content split, prerequisites
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-cmu-ai-core-redesign)
+> :globe: [中文版](/posts/learning/2026-08-22-cmu-ai-core-redesign)
 
 CMU changed the structure of its undergraduate AI core in 2026. The old path separated **15-281 Artificial Intelligence** from **10-315 Introduction to Machine Learning for SCS**. The new path is **07-280 Artificial Intelligence and Machine Learning I → 07-380 Artificial Intelligence and Machine Learning II**. The official FAQ says that the two older courses will be retired. This is not a one-to-one renaming.
 

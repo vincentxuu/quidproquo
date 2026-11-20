@@ -13,7 +13,7 @@ description: "Comparing long-term memory designs across Claude Code, Codex, Anti
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-coding-agent-memory-comparison)
+> :globe: [中文版](/posts/ai/2026-09-19-coding-agent-memory-comparison)
 
 [The previous post](/posts/ai/2026-08-21-context-full-seven-answers-en) covered working memory — what to do when the context window fills up. Compaction, pruning, hand-off: all of it is about surviving *this* session. But what about the next one?
 

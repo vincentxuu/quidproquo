@@ -25,7 +25,7 @@ glossary:
     context: "講義第 38–47 頁用它串起對話規劃與 web agent 的 model-based planning。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

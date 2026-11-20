@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-daytona-agent-sandbox)
+> :globe: [中文版](/posts/ai/2026-08-22-daytona-agent-sandbox)
 
 [Daytona](https://www.daytona.io/) does not wrap a Python snippet in a disposable function. It gives an agent a computer where it can install packages, retain files, run services, pause, clone a branch, and continue. That distinction defines its best workloads: coding agents, long-running research, reinforcement-learning rollouts, and evaluations that need thousands of identical starting points.
 

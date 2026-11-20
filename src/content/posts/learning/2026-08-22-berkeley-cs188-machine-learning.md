@@ -14,7 +14,7 @@ description: "Berkeley CS188 Spring 2026 後段的理性決策、機器學習、
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-machine-learning-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs188-machine-learning-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

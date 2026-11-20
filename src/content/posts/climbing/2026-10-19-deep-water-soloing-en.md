@@ -29,7 +29,7 @@ glossary:
     context: "Only for short falls into shallow water, under about 10 feet."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-deep-water-soloing)
+> :globe: [中文版](/posts/climbing/2026-10-19-deep-water-soloing)
 
 Deep water soloing (DWS) is the outdoor discipline closest to the gym: a pair of shoes, a chalk bag, a wall above the sea. When you can't hold on any longer, you let go and drop into the water.
 

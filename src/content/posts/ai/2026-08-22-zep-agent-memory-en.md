@@ -10,7 +10,7 @@ description: "A guide to Zep, Graphiti, bi-temporal graphs, episode ingestion, h
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-zep-agent-memory)
+> :globe: [中文版](/posts/ai/2026-08-22-zep-agent-memory)
 
 [Zep](https://help.getzep.com/graphiti/getting-started/overview) is an agent-memory service centered on temporal knowledge graphs. It cares not only that “Kendra likes Adidas,” but when the fact became valid, when later evidence invalidated it, and which interaction produced it.
 

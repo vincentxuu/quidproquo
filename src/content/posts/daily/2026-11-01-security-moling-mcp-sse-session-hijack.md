@@ -11,7 +11,7 @@ series:
   order: 69
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-01-security-moling-mcp-sse-session-hijack-en)
+> :globe: [English version](/posts/daily/2026-11-01-security-moling-mcp-sse-session-hijack-en)
 
 ## 事件概述
 

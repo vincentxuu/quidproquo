@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-06-drone-industry-map)
+> :globe: [中文版](/posts/tech/2026-08-06-drone-industry-map)
 
 The most counterintuitive thing about the drone industry is that it looks like consumer electronics but behaves like semiconductors — highly concentrated, with a handful of countries controlling the critical links, and geopolitics deciding who can buy which parts. Since September 2024, when China restricted exports of flight controllers, carbon frames, motors, and radio modules to both Ukraine and Russia, that has stopped being an analyst's framing and become a procurement manager's daily problem.
 

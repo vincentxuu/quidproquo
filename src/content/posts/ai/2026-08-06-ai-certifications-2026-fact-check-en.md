@@ -25,7 +25,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)
+> :globe: [中文版](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)
 
 All three major cloud vendors overhauled their AI certification tracks in the first half of 2026, so what you can actually register for looks quite different from a year ago. This piece lists every exam an engineer can sit right now, with prices, validity, and registration gates taken from official announcements.
 

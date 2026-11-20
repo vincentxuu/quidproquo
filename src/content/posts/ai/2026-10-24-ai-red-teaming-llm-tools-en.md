@@ -13,7 +13,7 @@ description: "A comparison of the positioning, data flow and authorization limit
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-ai-red-teaming-llm-tools)
+> :globe: [中文版](/posts/ai/2026-10-24-ai-red-teaming-llm-tools)
 
 The last post audited source code: you hand code to an AI to read. This one switches to sending requests to a running system.
 

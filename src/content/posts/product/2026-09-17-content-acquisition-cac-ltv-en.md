@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-content-acquisition-cac-ltv)
+> :globe: [中文版](/posts/product/2026-09-17-content-acquisition-cac-ltv)
 
 Imagine filling a bucket with holes. Content pours visitors in. Some are the wrong audience and escape through the first hole. Some leave an email address but never complete the first key action. Some pay and cancel weeks later. The faucet can look enormous while little water remains at the bottom.
 

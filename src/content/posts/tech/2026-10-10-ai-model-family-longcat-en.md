@@ -13,7 +13,7 @@ series:
   order: 30
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-10-ai-model-family-longcat)
+> :globe: [繁體中文版](/posts/tech/2026-10-10-ai-model-family-longcat)
 
 Meituan's **LongCat** is an open-weight language model family. The Flash generation uses a dynamic MoE to allocate compute per token; 2.0 pushed toward long context and coding agents; 2.5 folds vision into the same token stream and adds agentic coding through large-scale long-horizon reinforcement learning. This post is for agent developers evaluating LongCat: which version to use today, which tasks it is strong at, and what self-hosting requires.
 

@@ -12,7 +12,7 @@ series:
   order: 80
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-03-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-03-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -159,15 +159,15 @@ caption: 證據來自今日 Arxiv Digest 三篇論文（人工核准繞過 OTP�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-03](/posts/daily/2026-11-03-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-03](/posts/daily/2026-11-03-ai-agent-github-digest)
-- 📄 [框架更新｜Composio CLI 0.6.0](/posts/daily/2026-11-03-framework-composio-cli-0.6.0)
-- 📄 [融資速報｜Clark Seed $11M](/posts/daily/2026-11-03-funding-clark)
-- 📄 [融資速報｜Larridin Series A $30M](/posts/daily/2026-11-03-funding-larridin)
-- 📄 [定價追蹤｜Mistral Large 4 促銷到期變永久價](/posts/daily/2026-11-03-pricing-mistral-large-4-permanent-price)
-- 📄 [工具推薦｜AnythingMCP](/posts/daily/2026-11-03-tool-anythingmcp)
-- 📄 [AI Engineer 面試日練 — 2026-11-03](/posts/daily/2026-11-03-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-11-03](/posts/daily/2026-11-03-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-03](/posts/daily/2026-11-03-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-03](/posts/daily/2026-11-03-ai-agent-github-digest)
+- :file: [框架更新｜Composio CLI 0.6.0](/posts/daily/2026-11-03-framework-composio-cli-0.6.0)
+- :file: [融資速報｜Clark Seed $11M](/posts/daily/2026-11-03-funding-clark)
+- :file: [融資速報｜Larridin Series A $30M](/posts/daily/2026-11-03-funding-larridin)
+- :file: [定價追蹤｜Mistral Large 4 促銷到期變永久價](/posts/daily/2026-11-03-pricing-mistral-large-4-permanent-price)
+- :file: [工具推薦｜AnythingMCP](/posts/daily/2026-11-03-tool-anythingmcp)
+- :file: [AI Engineer 面試日練 — 2026-11-03](/posts/daily/2026-11-03-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-11-03](/posts/daily/2026-11-03-product-builder-interview-daily)
 
 ## 明日關注
 

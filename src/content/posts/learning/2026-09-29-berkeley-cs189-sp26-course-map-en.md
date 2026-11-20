@@ -14,7 +14,7 @@ description: "A version map for Berkeley CS189: why Spring 2026 is the base seme
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

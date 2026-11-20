@@ -33,7 +33,7 @@ glossary:
     context: "L10 explains it with Plasticine (ISCA 2017); L11 shows how to program it with the SambaNova SN40L."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-hardware-specialization)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-hardware-specialization)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
@@ -149,7 +149,7 @@ Slide 45 gives part of the answer. B100 Tensor Cores are limited by register ban
 
 ### How close GPUs are to ideal
 
-Slide 47 puts GPUs back into the ideal-features table: tiled tensors ✅; asynchronous compute ✅ (`mma_async`); asynchronous memory access ✅ (TMA + TMEM); compute-unit-to-compute-unit communication ❓, only partly covered by thread block clusters.
+Slide 47 puts GPUs back into the ideal-features table: tiled tensors ✓; asynchronous compute ✓ (`mma_async`); asynchronous memory access ✓ (TMA + TMEM); compute-unit-to-compute-unit communication :question:, only partly covered by thread block clusters.
 
 ## Google's TPU and the systolic array
 

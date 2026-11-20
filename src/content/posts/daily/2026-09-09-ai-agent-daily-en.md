@@ -110,12 +110,12 @@ China is covered above in Regulation & Governance (MIIT); Europe is covered belo
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-09](/posts/daily/2026-09-09-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-09](/posts/daily/2026-09-09-ai-agent-github-digest-en)
-- 📄 [Funding Brief | Cognition Series E $2B+](/posts/daily/2026-09-09-funding-cognition-en)
-- 📄 [Tool Recommendation | BankMCP](/posts/daily/2026-09-09-tool-bankmcp-en)
-- 📄 [AI Engineer Interview Daily — 2026-09-09: ML System Design](/posts/daily/2026-09-09-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-09-09: Strategy & Execution](/posts/daily/2026-09-09-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-09](/posts/daily/2026-09-09-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-09](/posts/daily/2026-09-09-ai-agent-github-digest-en)
+- :file: [Funding Brief | Cognition Series E $2B+](/posts/daily/2026-09-09-funding-cognition-en)
+- :file: [Tool Recommendation | BankMCP](/posts/daily/2026-09-09-tool-bankmcp-en)
+- :file: [AI Engineer Interview Daily — 2026-09-09: ML System Design](/posts/daily/2026-09-09-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-09-09: Strategy & Execution](/posts/daily/2026-09-09-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

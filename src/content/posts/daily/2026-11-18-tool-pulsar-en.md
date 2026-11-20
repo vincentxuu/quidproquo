@@ -12,7 +12,7 @@ series:
   order: 82
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-18-tool-pulsar)
+> :globe: [中文版](/posts/daily/2026-11-18-tool-pulsar)
 
 ## Tool Info
 
@@ -129,12 +129,12 @@ Each agent can also set its own `inbound` policy (accept, hold, or refuse messag
 
 | | pulsar | Claude Code's built-in `SendMessage` | Manually switching windows |
 |---|---|---|---|
-| Cross-harness (Codex, OpenCode, Cursor…) | ✅ | ❌ (Claude only) | ✅ (but manual) |
-| Find a group by tag/selector | ✅ | ❌ | ❌ |
-| Broadcast to everyone (`*`) | ✅ | ❌ | ❌ |
-| Push to wake idle agents | ✅ | ✅ | ❌ |
-| Wait for a reply (`ask`/`wait`) | ✅ | ❌ | ❌ |
-| Cross-machine | ❌ (v1 is single-machine; README previews Tailscale support) | ✅ (Remote Control) | — |
+| Cross-harness (Codex, OpenCode, Cursor…) | ✓ | ✗ (Claude only) | ✓ (but manual) |
+| Find a group by tag/selector | ✓ | ✗ | ✗ |
+| Broadcast to everyone (`*`) | ✓ | ✗ | ✗ |
+| Push to wake idle agents | ✓ | ✓ | ✗ |
+| Wait for a reply (`ask`/`wait`) | ✓ | ✗ | ✗ |
+| Cross-machine | ✗ (v1 is single-machine; README previews Tailscale support) | ✓ (Remote Control) | — |
 
 ## Caveats
 

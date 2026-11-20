@@ -43,7 +43,7 @@ glossary:
         url: "https://arxiv.org/abs/2402.07867"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-03-ai-interview-rag-variants)
+> :globe: [中文版](/posts/ai/2026-10-03-ai-interview-rag-variants)
 
 RAG (Retrieval-Augmented Generation) comes up often in AI Engineer interviews, and it is rarely a one-line question. The usual follow-ups are four: how it works and why it helps, the most representative use case and its challenges, which RAG techniques exist, and what RAG cannot solve.
 

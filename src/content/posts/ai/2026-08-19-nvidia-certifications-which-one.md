@@ -13,7 +13,7 @@ description: "NVIDIA 四張生成式 AI 證照（NCA-GENL、NCA-GENM、NCP-GENL�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-19-nvidia-certifications-which-one-en)
+> :globe: [English version](/posts/ai/2026-08-19-nvidia-certifications-which-one-en)
 >
 > 本文是從官方資料建出來的選擇指南，不是應考實錄 —— 作者沒有報考這些考試。所有「考什麼」都指回 [NVIDIA 官方認證頁](https://www.nvidia.com/en-us/learn/certification/)與各張的官方 Exam Study Guide，不含考古題。查證日期：2026-08-19。
 

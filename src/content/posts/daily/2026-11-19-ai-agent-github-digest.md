@@ -11,7 +11,7 @@ series:
   order: 96
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-19-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-19-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### elementalsouls/Claude-BugHunter ⭐ 11,028 (+1,005)
+### elementalsouls/Claude-BugHunter ★ 11,028 (+1,005)
 
 [GitHub](https://github.com/elementalsouls/Claude-BugHunter)　·　Python　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### google-labs-code/stitch-skills ⭐ 10,350
+### google-labs-code/stitch-skills ★ 10,350
 
 [GitHub](https://github.com/google-labs-code/stitch-skills)　·　TypeScript　·　Apache-2.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### ysunyang4/Nexus ⭐ 405
+### ysunyang4/Nexus ★ 405
 
 [GitHub](https://github.com/ysunyang4/Nexus)　·　TypeScript　·　AGPL-3.0
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### mastra-ai/softwarefactory-template ⭐ 64（今日上線）
+### mastra-ai/softwarefactory-template ★ 64（今日上線）
 
 [GitHub](https://github.com/mastra-ai/softwarefactory-template)　·　TypeScript　·　未標授權
 

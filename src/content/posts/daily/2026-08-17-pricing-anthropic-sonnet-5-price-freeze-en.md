@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-17-pricing-anthropic-sonnet-5-price-freeze)
+> :globe: [中文版](/posts/daily/2026-08-17-pricing-anthropic-sonnet-5-price-freeze)
 
 ## What Changed
 

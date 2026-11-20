@@ -18,7 +18,7 @@ series:
   order: 10
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)
+> :globe: [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)
 
 [Post 13 of this series](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en) found that the [Microsoft Hyper-V bounty table](https://www.microsoft.com/en-us/msrc/bounty-hyper-v) pays up to $250,000 for an L1 guest escape. [The previous post](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en) covered the wall between a virtual machine and its hypervisor. This post takes one real, patched bug with public technical analysis and looks at what a hole in that wall actually looks like: [CVE-2021-28476](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-28476).
 

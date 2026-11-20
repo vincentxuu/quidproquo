@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-prompt-caching-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-prompt-caching-en)
 
 用 [Claude Code](https://code.claude.com/docs/en/prompt-caching) 用一陣子，你大概遇過這幾件事：session 越到後面回應越快、帳單卻沒有等比變貴；某天 `/model` 切個模型，那一輪突然卡很久；中途改了 CLAUDE.md，Claude 卻像沒看到一樣。這些現象的答案都是同一個——prompt caching。這篇依官方文件把機制和日常困惑逐一對起來。
 

@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-19-skyvern)
+> :globe: [中文版](/posts/ai/2026-11-19-skyvern)
 
 [AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en) lets you describe the data you want as a query, and relies on the DOM. [Midscene](/posts/ai/2026-05-23-midscene-vision-ui-automation-en) goes to the other extreme and looks only at screenshots. Skyvern sits in between: at each step it looks at both the screenshot and the page's interactive elements. It's also one of the few tools in this layer that gives you three ways in: an SDK for code, one-sentence tasks, and a workflow editor non-engineers can drag blocks around in.
 

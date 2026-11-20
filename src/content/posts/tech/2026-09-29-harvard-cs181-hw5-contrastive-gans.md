@@ -22,11 +22,11 @@ glossary:
     context: "HW5 Problem 2 要證明判別器最佳時，GAN 目標等於常數加上 JS divergence 項。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans-en)
+> :globe: [English version](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW5](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw5)（`hw5_release.tex/.pdf/.ipynb`）、[官方 schedule](https://harvard-ml-courses.github.io/cs181-web/schedule) 第 10 週、[Section 8](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08.pdf)（標頭 Spring 2026）為準。第 10 週的講題（SSL、Contrastive、GAN、EBM）是 2026 新排的，**2024 scribe notes 沒有對應講義**，官方課表未列這些講次的公開錄影，所以本篇的講課側資訊只來自 Section 8 與作業本身。作業解答未公開，Section 8 有 [soln](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08_soln.pdf)。存取分級 **A3**，同[系列總覽](/posts/tech/2026-08-27-harvard-cs181-overview)。
+> :warning: **版本與存取**：以 [CS1810 Spring 2026 HW5](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw5)（`hw5_release.tex/.pdf/.ipynb`）、[官方 schedule](https://harvard-ml-courses.github.io/cs181-web/schedule) 第 10 週、[Section 8](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08.pdf)（標頭 Spring 2026）為準。第 10 週的講題（SSL、Contrastive、GAN、EBM）是 2026 新排的，**2024 scribe notes 沒有對應講義**，官方課表未列這些講次的公開錄影，所以本篇的講課側資訊只來自 Section 8 與作業本身。作業解答未公開，Section 8 有 [soln](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08_soln.pdf)。存取分級 **A3**，同[系列總覽](/posts/tech/2026-08-27-harvard-cs181-overview)。
 
 本篇是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 10 篇。上一篇是 [HW5（上）：K-means、HAC 與 PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca)，下一篇是 [HW6（一）：自迴歸模型的解碼、KV Cache 與 Speculative Decoding](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding)。
 

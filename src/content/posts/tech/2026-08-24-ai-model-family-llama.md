@@ -23,7 +23,7 @@ glossary:
     definition: "最流行的本地推論框架之一，由社群維護，讓 Llama 權重能在筆電、手機甚至樹莓派上運行，是 Llama 生態的核心"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-family-llama-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-family-llama-en)
 
 2023 年 2 月，Meta 發布了 Llama 1——一個 7B/13B/33B/65B 的開源 LLM 家族。這個決定改變了整個 AI 產業：開源模型從「學術玩具」變成「企業基礎設施」。到 2026 年 4 月，Llama 4 Scout 以 10M context window 和 Maverick 以 128 專家的 MoE 架構成為開源多模態的標竿。但同年，Meta 推出了閉源的 Muse Spark，Llama 4 很可能是最後一個主要的開源 Llama。這是「AI 模型家族」系列的第五篇家族深度介紹，追蹤 Llama 從 Llama 1 到 Llama 4 的完整演化，以及它在 2026 年的定位變化。
 

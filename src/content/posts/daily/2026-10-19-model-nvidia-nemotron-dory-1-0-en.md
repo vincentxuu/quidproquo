@@ -17,7 +17,7 @@ glossary:
     def: "An NVIDIA sub-brand exploring new language model architectures; Dory 1.0 and several other experimental models such as the Sigma series are released under this name, and it is not yet listed on NVIDIA's official Nemotron product page"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-19-model-nvidia-nemotron-dory-1-0)
+> :globe: [中文版](/posts/daily/2026-10-19-model-nvidia-nemotron-dory-1-0)
 
 ## Model Info
 
@@ -53,7 +53,7 @@ glossary:
 | IFBench | 74.29 | 77.94 | 79 | 53.83 | 59 |
 | AA-LCR (long context) | 63 | 71 | 73 | 64.7 | 68.4 |
 
-⚠️ All numbers above are NVIDIA's own measurements under a consistent harness (NeMo Gym / NeMo Evaluator SDK); none have been independently replicated yet. The official table also lists Gemma 4 26B A4B and Qwen3.6-35B-A3B for comparison; Qwen3.6-35B-A3B's 73.4 on SWE-bench Verified is marked "†" as a reported score.
+:warning: All numbers above are NVIDIA's own measurements under a consistent harness (NeMo Gym / NeMo Evaluator SDK); none have been independently replicated yet. The official table also lists Gemma 4 26B A4B and Qwen3.6-35B-A3B for comparison; Qwen3.6-35B-A3B's 73.4 on SWE-bench Verified is marked "†" as a reported score.
 
 ## Versus Prior Generation / Competitors
 

@@ -10,7 +10,7 @@ description: "Maintaining both personal and work GitHub accounts? Use Git Condit
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-13-git-conditional-includes)
+:globe: [中文版](/posts/tech/2026-03-13-git-conditional-includes)
 
 When juggling personal and work GitHub accounts, the most common pain points are committing with the wrong email or pushing from the wrong account. Manually running `git config` every time is tedious, and forgetting to do so leaves commits with incorrect author information. Git's `includeIf` directive combined with SSH Host aliases can fully automate this.
 

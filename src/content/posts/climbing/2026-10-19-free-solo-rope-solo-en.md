@@ -30,7 +30,7 @@ glossary:
     context: "Where highballing ends and free soloing begins is still debated."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-free-solo-rope-solo)
+> :globe: [中文版](/posts/climbing/2026-10-19-free-solo-rope-solo)
 
 At 9 a.m. on 25 January 2026, Alex Honnold started climbing Taipei 101 without a rope. An hour and 31 minutes later he stood on the spire. Netflix streamed it live worldwide on a 10-second delay, so that if he fell, the feed could be cut before viewers saw it ([Wikipedia: Skyscraper Live](https://en.wikipedia.org/wiki/Skyscraper_Live_(2026))).
 

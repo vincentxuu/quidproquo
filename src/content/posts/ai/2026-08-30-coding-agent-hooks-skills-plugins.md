@@ -13,7 +13,7 @@ description: "拆解五家 coding agent 的 hooks、skills、plugins，並核對
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins-en)
 
 ## 能力問題：行為改不掉的 agent 是玩具
 

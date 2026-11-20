@@ -12,7 +12,7 @@ series:
   order: 133
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-14-funding-bay)
+> :globe: [中文版](/posts/daily/2026-11-14-funding-bay)
 
 ## Funding Details
 

@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-14-llm-next-token-attention)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-14-llm-next-token-attention)
 
 **Video status: Videos included.** This article is written from the English transcript of the Spring 2026 Lecture 14 recording published by Stanford Online, with notation checked against the first half of Chapter 17 (Large language models) of the 2026 main notes. I did not see the board, so the formulas on it are reconstructed from what the transcript says aloud and from the notes.
 

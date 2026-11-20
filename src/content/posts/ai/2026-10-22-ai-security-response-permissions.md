@@ -14,7 +14,7 @@ series:
   order: 21
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-response-permissions-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-response-permissions-en)
 
 助手讀完 E-002，建議停用 Alice。這可能是合理的處置方向，但若調查工具拿著管理員憑證，任何被摘要的惡意日誌都有機會把「建議」推成真實停權。
 

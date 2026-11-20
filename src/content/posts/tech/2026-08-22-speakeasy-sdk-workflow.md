@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-speakeasy-sdk-workflow-en)
+> :globe: [English version](/posts/tech/2026-08-22-speakeasy-sdk-workflow-en)
 
 [Speakeasy](https://www.speakeasy.com/docs/sdks/create-client-sdks) 是以 OpenAPI 為 source 的 SDK generation 平台。它能產生 TypeScript、Python、Go、Java、C# 等 client，也能輸出 MCP、文件、CLI 與 Terraform provider。核心單位是 repository 裡的 generation workflow，而不是按一次「Generate」後把結果忘掉。
 

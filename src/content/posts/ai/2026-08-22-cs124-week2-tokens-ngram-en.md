@@ -11,7 +11,7 @@ description: "A guide to Stanford CS124 Winter 2026 Week 2: words versus tokens,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs124-week2-tokens-ngram)
+> :globe: [中文版](/posts/ai/2026-08-22-cs124-week2-tokens-ngram)
 
 This is Week 2 of [Reading Stanford CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en), and the first week with technical content. It answers three questions:
 

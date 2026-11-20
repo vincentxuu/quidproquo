@@ -13,7 +13,7 @@ description: "Pale di San Martino 攀岩介紹：大岩壁經典與山腳單段�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-pale-di-san-martino-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-pale-di-san-martino-en)
 
 Pale di San Martino 在特倫托自治省東緣的 Primiero 山谷上方，[San Martino di Castrozza 觀光局](https://www.sanmartino.com/en/territory/the-italian-alps-spectacles-in-nature/the-dolomites/pale-di-san-martino)說它是「the largest mountain group in the Dolomites」。一圈高峰圍著約 50 平方公里、海拔約 2,700 公尺的石灰岩高原。同一頁把 Sass Maor 的 Solleder、Velo 與 Sass d'Ortiga 的稜線、Cima Canali 的 Buhl 列為阿爾卑斯最有名的經典。
 

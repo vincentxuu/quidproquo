@@ -22,7 +22,7 @@ glossary:
     context: "quidproquo's search API uses this strategy to avoid calling Vectorize for every query."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)
+> :globe: [中文版](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)
 
 The [previous post](/posts/ai/2026-08-06-document-parsing-layout-ocr-en) discussed how to choose tools for the [parsing layer](/posts/ai/2026-08-06-document-parsing-three-layers-en): check licensing first, then corpus type, and benchmark scores last. Those were other people's benchmarks. This time I ran the tools myself on material I already had—scanned NTU graduate entrance exams.
 

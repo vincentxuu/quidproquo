@@ -13,11 +13,11 @@ description: "Harvard CS50 AI 第 6 週 Language 導讀：依片名標示 2023 �
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-harvard-cs50ai-w06-language-en)
+> :globe: [English version](/posts/tech/2026-08-30-harvard-cs50ai-w06-language-en)
 
 **影片狀態：已附影片。** 全片 1:05:21。本文的「講課導讀」依這支錄影的英文字幕逐段寫成，每一節開頭有時間連結，點了頁面上的播放器會跳到那一段。講課沒有介紹本週專案，專案部分依課程官網寫成。[跳到播放器](#課程影片與時間軸)｜[影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本提醒**：本週講課錄影的片名標示 **2023**（本系列第 0 到第 5 週的錄影片名標示 2020）；官方筆記註明新版第 6 週講課於 2023-08-14 釋出，內容已經講到 attention 與 Transformer。專案規格、distribution code、check50 slug 以 2026 年課程官網為準（`ai50/projects/2024/x/...`），官網第 6 週的專案是 Parser 與 Attention。2020 年版的 Questions 專案（TF-IDF 問答）現行官網已經不列，這支錄影也沒有教 TF-IDF，本文不收錄。
+> :warning: **版本提醒**：本週講課錄影的片名標示 **2023**（本系列第 0 到第 5 週的錄影片名標示 2020）；官方筆記註明新版第 6 週講課於 2023-08-14 釋出，內容已經講到 attention 與 Transformer。專案規格、distribution code、check50 slug 以 2026 年課程官網為準（`ai50/projects/2024/x/...`），官網第 6 週的專案是 Parser 與 Attention。2020 年版的 Questions 專案（TF-IDF 問答）現行官網已經不列，這支錄影也沒有教 TF-IDF，本文不收錄。
 
 ## TL;DR
 
@@ -676,7 +676,7 @@ style50 parser.py
 <details>
 <summary>完整參考實作（先自己寫完並繳交，再打開）</summary>
 
-> ⚠️ 如果你正在修這門課、或打算申請 CS50 的證書：課程的[學術誠信政策](https://cs50.harvard.edu/ai/honesty/)規定，繳交自己的作業之前不能看別人的解答。請先完成並繳交，再用這一段對照。這份實作只在本站列出的環境實跑過，沒有經過 check50。
+> :warning: 如果你正在修這門課、或打算申請 CS50 的證書：課程的[學術誠信政策](https://cs50.harvard.edu/ai/honesty/)規定，繳交自己的作業之前不能看別人的解答。請先完成並繳交，再用這一段對照。這份實作只在本站列出的環境實跑過，沒有經過 check50。
 
 這是一種寫法，不是官方解答。文法的取捨是：限定詞只能出現一次，形容詞可以連續好幾個。
 
@@ -966,7 +966,7 @@ style50 mask.py
 <details>
 <summary>完整參考實作（先自己寫完並繳交，再打開）</summary>
 
-> ⚠️ 如果你正在修這門課、或打算申請 CS50 的證書：課程的[學術誠信政策](https://cs50.harvard.edu/ai/honesty/)規定，繳交自己的作業之前不能看別人的解答。請先完成並繳交，再用這一段對照。這份實作只在本站列出的環境實跑過，沒有經過 check50。下面的 head 觀察等同 `analysis.md` 的答案，同樣請先寫完自己的。
+> :warning: 如果你正在修這門課、或打算申請 CS50 的證書：課程的[學術誠信政策](https://cs50.harvard.edu/ai/honesty/)規定，繳交自己的作業之前不能看別人的解答。請先完成並繳交，再用這一段對照。這份實作只在本站列出的環境實跑過，沒有經過 check50。下面的 head 觀察等同 `analysis.md` 的答案，同樣請先寫完自己的。
 
 這是一種寫法，不是官方解答。
 

@@ -13,7 +13,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-18-ngram-sampling)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-18-ngram-sampling)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

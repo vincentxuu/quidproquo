@@ -13,7 +13,7 @@ series:
   order: 46
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-agentic-reasoning-rag-en)
+> :globe: [English version](/posts/ai/2026-08-25-agentic-reasoning-rag-en)
 
 2025 年前的 RAG 是單次管線：query 進來，檢索一次，生成一次，結束。2025 年後的新集群把這個假設推翻了：模型在**推理的過程中自主決定何時搜、搜什麼、怎麼用結果**，並用強化學習訓練出這套決策。這篇文章把這次範式遷移拆開——它為什麼發生、技術起點是什麼、產品與協議層如何落地、以及它跟你手上的十代 RAG 怎麼取捨。
 

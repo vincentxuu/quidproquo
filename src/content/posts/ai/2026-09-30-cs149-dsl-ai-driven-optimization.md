@@ -26,7 +26,7 @@ glossary:
     context: "CS149 L13 的兩段式模糊濾波與 Written 3 都在練這件事。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

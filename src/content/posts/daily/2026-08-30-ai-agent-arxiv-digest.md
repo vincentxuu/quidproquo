@@ -12,7 +12,7 @@ series:
   order: 98
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-30-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-30-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -69,7 +69,7 @@ Pranav Aggarwal　·　arxiv: 2608.27167
 - 真實豐富面板 37.6%、完全捏造面板 36.8%，差 -0.83 個百分點；90% case-clustered 信賴區間為 -4.51 到 +2.66，落在預註冊的正負 5 個百分點等效界線內
 - 作者把主要效應明確限縮：集中在同一家開發商的三個模型，不能把 pooled rate 外推成「所有 frontier model 都會如此」
 - 在 540 個合成案例上微調 3B 模型，可讓原始案例的行動承諾降到 0；但一旦改成壓縮推理的僵硬格式，回答正確率可從 88.9%–98.6% 掉到 50.9%–73.8%，其中一個 ablation seed 對 48 個不可知案例全部承諾行動
-- ⚠️ 作者自測，尚未外部複現；天氣只是弱工具變數，且 hosted model 的 serving 設定無法完全控制
+- :warning: 作者自測，尚未外部複現；天氣只是弱工具變數，且 hosted model 的 serving 設定無法完全控制
 
 ### Reviewer 一句話評
 
@@ -120,8 +120,8 @@ SARA 把「外部內容誘發模型提出動作」與「runtime 授權執行」�
 - GPT-4o-mini 的 ASR 在兩組 benchmark 分別由 15.79% 降至 0.06%、16.07% 降至 0.17%；Gemini 2.5 Flash Lite 則由 33.28% 降至 0.62%、30.91% 降至 0.63%
 - SARA 不是每個設定的最低 ASR：CaMeL 在三個設定更低，但 SARA 保留的 benign utility 較高；這讓比較不只剩單一安全數字
 - 額外四個 backbone 的八組測試多數把 ASR 壓到 0.3% 以下，但 Llama 3.1 8B 仍有 1.64% 與 1.75% 的殘餘攻擊成功率
-- ⚠️ 這不是形式保證，範圍限於 tool-based IPI，並假設使用者、tool schema、runtime 與 executor 可信；純資料相依、直接越權與無條件外部委派不在保護範圍
-- ⚠️ 作者自測，尚未外部複現；跨 framework、真實企業工具鏈與長時間運行下的結果仍待驗證
+- :warning: 這不是形式保證，範圍限於 tool-based IPI，並假設使用者、tool schema、runtime 與 executor 可信；純資料相依、直接越權與無條件外部委派不在保護範圍
+- :warning: 作者自測，尚未外部複現；跨 framework、真實企業工具鏈與長時間運行下的結果仍待驗證
 
 ### Reviewer 一句話評
 
@@ -172,7 +172,7 @@ LoopHarness 用不會自然衰減的 latch 保存跨迴圈風險；作者在每�
 - 在 retention 測試中，關閉狀態的版本 ASR 為 95.5%–97.5%；幾何衰減在等待距離 1 時是 0%，距離 2 已回到 97%；非衰減 latch 在所有等待距離維持 0%
 - 消融移除不同元件時，失敗模式會依設計預期重新出現，讓「是哪個控制閘門生效」比單一總分更可追蹤
 - 系統承認 availability 代價：若 latch 沒有可靠解除或人工 escalation，安全機制本身可能讓服務永久不可用
-- ⚠️ 有條件通過、作者自測，尚未外部複現：固定由 deepseek-chat、GPT-4o 系列與 Claude Sonnet 4.6 分任角色，只測一個 frozen cohort 與一個 execution seed，也沒有跨模型角色與多 seed 複驗
+- :warning: 有條件通過、作者自測，尚未外部複現：固定由 deepseek-chat、GPT-4o 系列與 Claude Sonnet 4.6 分任角色，只測一個 frozen cohort 與一個 execution seed，也沒有跨模型角色與多 seed 複驗
 
 ### Reviewer 一句話評
 

@@ -12,7 +12,7 @@ series:
   order: 75
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-29-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-29-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -162,15 +162,15 @@ IDC 調查顯示截至 7 月已有 95.4% 受訪企業將 AI agent 導入生產�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-29](/posts/daily/2026-10-29-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-29](/posts/daily/2026-10-29-ai-agent-github-digest)
-- 📄 [框架更新｜Agno v3.1.11](/posts/daily/2026-10-29-framework-agno-v3.1.11)
-- 📄 [框架更新｜Pydantic AI v2.63.0](/posts/daily/2026-10-29-framework-pydantic-ai-v2.63.0)
-- 📄 [融資速報｜Casap Series B $56M](/posts/daily/2026-10-29-funding-casap)
-- 📄 [融資速報｜Plato Series A $16M](/posts/daily/2026-10-29-funding-plato)
-- 📄 [工具推薦｜agent-tree](/posts/daily/2026-10-29-tool-agent-tree)
-- 📄 [AI Engineer 面試日練 — 2026-10-29](/posts/daily/2026-10-29-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-29](/posts/daily/2026-10-29-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-29](/posts/daily/2026-10-29-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-29](/posts/daily/2026-10-29-ai-agent-github-digest)
+- :file: [框架更新｜Agno v3.1.11](/posts/daily/2026-10-29-framework-agno-v3.1.11)
+- :file: [框架更新｜Pydantic AI v2.63.0](/posts/daily/2026-10-29-framework-pydantic-ai-v2.63.0)
+- :file: [融資速報｜Casap Series B $56M](/posts/daily/2026-10-29-funding-casap)
+- :file: [融資速報｜Plato Series A $16M](/posts/daily/2026-10-29-funding-plato)
+- :file: [工具推薦｜agent-tree](/posts/daily/2026-10-29-tool-agent-tree)
+- :file: [AI Engineer 面試日練 — 2026-10-29](/posts/daily/2026-10-29-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-29](/posts/daily/2026-10-29-product-builder-interview-daily)
 
 ## 明日關注
 

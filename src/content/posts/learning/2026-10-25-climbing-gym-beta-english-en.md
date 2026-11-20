@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/learning/2026-10-25-climbing-gym-beta-english/)
+> :globe: [繁體中文版](/posts/learning/2026-10-25-climbing-gym-beta-english/)
 
 A friend has just completed the move you keep getting stuck on. You want to ask how they did it, but end up pointing and saying *this, this*. Break the exchange into three steps: ask about the move, ask about foot placement, and request a demonstration if the explanation is still unclear.
 

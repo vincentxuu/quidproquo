@@ -13,7 +13,7 @@ description: "Overview of the Italy Climbing Crags series: a season, rock type, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crags-overview)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crags-overview)
 
 Each guide in this series covers one Italian crag: rock type and style, the best seasons and why, how to get there by public transport or by car, and the local rules to know before you go. It does not cover itineraries, flights, or accommodation prices, because that goes out of date fast. A crag's seasons and rules change much more slowly.
 

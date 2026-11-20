@@ -13,7 +13,7 @@ description: "依 Stanford CS103 Spring 2026 Lecture 4 投影片，整理一階�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-05-first-order-logic-1-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-05-first-order-logic-1-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

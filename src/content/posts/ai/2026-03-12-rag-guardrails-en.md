@@ -14,7 +14,7 @@ series:
   order: 30
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rag-guardrails)
+> :globe: [中文版](/posts/ai/2026-03-12-rag-guardrails)
 
 Once you put an LLM into production, you have to face all kinds of unexpected inputs. Some come from user mistakes, others are malicious. While a climbing community's AI assistant isn't as high-risk as financial or medical systems, several issues still need to be taken seriously.
 

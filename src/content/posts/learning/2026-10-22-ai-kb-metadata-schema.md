@@ -12,7 +12,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-ai-kb-metadata-schema-en)
+> :globe: [English version](/posts/learning/2026-10-22-ai-kb-metadata-schema-en)
 
 公司在台北和新加坡各有一份〈請假規定〉，內容大同小異，只有特休天數不同。台北的同事問 AI「到職滿一年有幾天特休」，AI 引了新加坡那份。兩份文件都沒錯，切出來的段落也長得幾乎一樣，檢索沒有理由偏好哪一份。缺的是一個欄位：這份規定適用哪個地區。
 

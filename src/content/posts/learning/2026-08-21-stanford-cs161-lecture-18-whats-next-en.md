@@ -13,7 +13,7 @@ description: "Stanford CS161 Winter 2026 Lecture 18's recap and roadmap; this le
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-18-whats-next)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-18-whats-next)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

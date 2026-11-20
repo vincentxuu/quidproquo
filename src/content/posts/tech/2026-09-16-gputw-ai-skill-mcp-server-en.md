@@ -10,7 +10,7 @@ description: "An overview of GPUtw AI Skill V1.1.0-beta.1: its architecture, MCP
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-16-gputw-ai-skill-mcp-server)
+> :globe: [中文版](/posts/tech/2026-09-16-gputw-ai-skill-mcp-server)
 
 [GPUtw AI Skill](https://github.com/GPUtw-ai/GPUtw-Skill) is an official AI coding assistant skill pack from [GPUtw.ai](https://gputw.ai/en). It does one straightforward thing: packages GPUtw's REST API documentation and operational logic into an Agent Skill so that Claude Code, OpenAI Codex CLI, Google Gemini CLI, Cursor, and GitHub Copilot can understand GPUtw's GPU catalog, deploy instances, monitor status, and move data — without users having to read API docs and write curl commands themselves.
 

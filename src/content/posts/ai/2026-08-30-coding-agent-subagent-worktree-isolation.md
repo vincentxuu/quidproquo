@@ -13,7 +13,7 @@ description: "對照成熟 coding agent 的 subagent 編排與隔離，並核對
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-subagent-worktree-isolation-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-subagent-worktree-isolation-en)
 
 系列第二部第 7 篇。先交代取證範圍：pi（badlogic/pi-mono）、omp（can1357/oh-my-pi）、opencode（sst/opencode）、codex（openai/codex Rust workspace）、claude-code（社群反編譯 v2.1.88，symbol 名稱可能與原版有出入）。所有引用都是我在本地 clone 實際 grep 過的。worktree 本身在系列第 3 篇〈workspace 隔離〉已經講過 EnterWorktreeTool，這篇聚焦的是**subagent 編排**——worktree 只是它的一個隔離選項。
 

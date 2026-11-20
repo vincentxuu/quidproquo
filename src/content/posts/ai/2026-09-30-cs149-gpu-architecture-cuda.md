@@ -25,7 +25,7 @@ glossary:
     context: "L7 用 block 的資源需求（thread 數、shared memory）解釋 GPU 的 block 排程器。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda-en)
 
 **影片狀態：補充錄影禁止站內嵌入，請使用 YouTube 原始連結；原站播放尚未確認。** [影片來源與說明](#課程影片來源)
 

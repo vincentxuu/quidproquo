@@ -11,7 +11,7 @@ series:
   order: 78
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-15-security-mcp-git-server-gitconfig-rce-en)
+> :globe: [English version](/posts/daily/2026-11-15-security-mcp-git-server-gitconfig-rce-en)
 
 ## 事件概述
 

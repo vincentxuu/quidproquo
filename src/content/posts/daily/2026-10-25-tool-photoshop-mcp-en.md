@@ -12,7 +12,7 @@ series:
   order: 64
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-25-tool-photoshop-mcp)
+> :globe: [中文版](/posts/daily/2026-10-25-tool-photoshop-mcp)
 
 ## Tool Info
 
@@ -153,8 +153,8 @@ Photoshop MCP integrations aren't a new idea — the community already has more 
 |---|---|---|
 | Platform | macOS only | Windows + macOS |
 | Tool count | ~20 (covers common editing operations) | 128 (includes one-shot "recipes") |
-| Auto checkpoint before edits | ✅ (history snapshot + layered disk backup) | Relies on Photoshop's native undo |
-| Document pinning (prevents wrong-file edits) | ✅ | Not documented |
+| Auto checkpoint before edits | ✓ (history snapshot + layered disk backup) | Relies on Photoshop's native undo |
+| Document pinning (prevents wrong-file edits) | ✓ | Not documented |
 | Telemetry/analytics by default | None | Anonymous usage analytics on by default (can be disabled) |
 | Built-in chat UI | None — needs an MCP client | Yes (`npx ... ui`) |
 | Community adoption | Just released, 0 stars | Listed on the MCP Registry, multilingual docs and contributors |

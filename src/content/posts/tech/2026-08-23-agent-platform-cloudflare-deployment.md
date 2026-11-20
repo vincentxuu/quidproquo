@@ -9,7 +9,7 @@ description: "Agent Platform Cloudflare 部署深度解析：Cloudflare-first �
 tldr: "Agent Platform 採 Cloudflare-first 架構：本機 `npm run dev` 跑 Node 模擬，生產映射到 Workers + Workers Assets + D1 + KV + R2 + Vectorize + Queues + Workflows + Durable Objects + Workers AI。Runtime 介面相同（InMemory → Cloudflare 實作），上層零感知遷移。部署只需 `wrangler login` → 建資源 → 填 ID → `wrangler secret put` → `wrangler deploy`。CI/CD 監聽 main 分支，跑 typecheck + build + dry-run + migration + deploy。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-23-agent-platform-cloudflare-deployment-en)
+> :globe: [English version](/posts/tech/2026-08-23-agent-platform-cloudflare-deployment-en)
 
 ## TL;DR
 

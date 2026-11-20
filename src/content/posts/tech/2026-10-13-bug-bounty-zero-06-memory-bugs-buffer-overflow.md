@@ -18,7 +18,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow-en)
+> :globe: [English version](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow-en)
 
 [上一篇](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory)講了程式怎麼使用記憶體：變數放在哪、stack 和 heap 差在哪、函式結束後要回到哪裡。這一篇接著問一個很具體的問題：為什麼「多寫了幾個字元」，就可能讓別人控制一支程式？讀完你應該能看一段簡單的 C 程式，指出哪一行可能溢位、為什麼，並改成限制長度的寫法。
 

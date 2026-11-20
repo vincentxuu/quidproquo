@@ -17,7 +17,7 @@ Today's trending runs on two parallel tracks: on one side, agents are pushing in
 
 ## Trending Repos
 
-### JustVugg/colibri ⭐ 29,375 (+960)
+### JustVugg/colibri ★ 29,375 (+960)
 
 [GitHub](https://github.com/JustVugg/colibri)　·　C　·　Apache-2.0
 
@@ -28,7 +28,7 @@ Today's trending runs on two parallel tracks: on one side, agents are pushing in
 
 ---
 
-### tech-leads-club/agent-skills ⭐ 5,538 (+215)
+### tech-leads-club/agent-skills ★ 5,538 (+215)
 
 [GitHub](https://github.com/tech-leads-club/agent-skills)　·　TypeScript　·　Custom license
 
@@ -39,7 +39,7 @@ Today's trending runs on two parallel tracks: on one side, agents are pushing in
 
 ---
 
-### alphaXiv/OpenResearch ⭐ 1,939 (+304)
+### alphaXiv/OpenResearch ★ 1,939 (+304)
 
 [GitHub](https://github.com/alphaXiv/OpenResearch)　·　Rust　·　MIT
 
@@ -50,7 +50,7 @@ Today's trending runs on two parallel tracks: on one side, agents are pushing in
 
 ---
 
-### calesthio/OpenMontage ⭐ 58,268 (+383)
+### calesthio/OpenMontage ★ 58,268 (+383)
 
 [GitHub](https://github.com/calesthio/OpenMontage)　·　Python　·　AGPL-3.0
 
@@ -61,7 +61,7 @@ Today's trending runs on two parallel tracks: on one side, agents are pushing in
 
 ---
 
-### alibaba/open-code-review ⭐ 23,168 (+438)
+### alibaba/open-code-review ★ 23,168 (+438)
 
 [GitHub](https://github.com/alibaba/open-code-review)　·　Go　·　Apache-2.0
 

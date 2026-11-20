@@ -22,7 +22,7 @@ glossary:
     context: "Most of the grade-prediction studies cited here are cross-sectional."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-training-diagnosis)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-training-diagnosis)
 
 You have been climbing for about a year, two or three gym sessions a week, and you have been stuck at 5.10 or V3–V4 for months. The people next to you have started hanging on hangboards and doing weighted pull-ups, and you are wondering whether it is time to start "training."
 

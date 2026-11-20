@@ -26,7 +26,7 @@ glossary:
     context: "Assignment 1 lists tree-based reduction and tiled matmul as Optional optimizations; both rely on shared memory."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

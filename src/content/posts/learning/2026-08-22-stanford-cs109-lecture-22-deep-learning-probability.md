@@ -13,7 +13,7 @@ description: "逐題導讀 Stanford CS109 Summer 2026 Lecture 22：softmax、for
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs109-lecture-22-deep-learning-probability-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs109-lecture-22-deep-learning-probability-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

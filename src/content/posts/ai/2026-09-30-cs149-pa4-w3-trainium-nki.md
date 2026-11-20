@@ -30,7 +30,7 @@ glossary:
     context: "CS149 PA4 全部用 NKI 撰寫。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

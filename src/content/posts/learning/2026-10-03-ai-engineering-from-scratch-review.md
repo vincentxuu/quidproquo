@@ -23,7 +23,7 @@ glossary:
     context: "本文用它說明審閱這套課時，最嚴重的錯誤指控是怎麼被複查的。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-03-ai-engineering-from-scratch-review-en)
+> :globe: [English version](/posts/learning/2026-10-03-ai-engineering-from-scratch-review-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

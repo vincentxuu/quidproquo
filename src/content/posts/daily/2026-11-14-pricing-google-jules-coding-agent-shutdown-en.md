@@ -12,7 +12,7 @@ series:
   order: 35
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-14-pricing-google-jules-coding-agent-shutdown)
+> :globe: [中文版](/posts/daily/2026-11-14-pricing-google-jules-coding-agent-shutdown)
 
 ## Summary
 
@@ -71,8 +71,8 @@ With Jules gone, the $10-$20 price band (Copilot Pro, ChatGPT Plus/Codex) become
 
 ## Timeline Alert
 
-⚠️ **Read-only in effect**: 2026-11-11 (already active). No new tasks can be created or run; existing sessions remain viewable.
-⚠️ **Shutdown date**: 2026-12-31. Jules shuts down completely. Code, branches, and PRs already on GitHub are unaffected, but account settings, environment variables, scheduled tasks, memories, and session history must be exported via [Jules Tools](https://jules.google/docs/usage-limits/) before then.
+:warning: **Read-only in effect**: 2026-11-11 (already active). No new tasks can be created or run; existing sessions remain viewable.
+:warning: **Shutdown date**: 2026-12-31. Jules shuts down completely. Code, branches, and PRs already on GitHub are unaffected, but account settings, environment variables, scheduled tasks, memories, and session history must be exported via [Jules Tools](https://jules.google/docs/usage-limits/) before then.
 
 ## Today's Takeaway
 

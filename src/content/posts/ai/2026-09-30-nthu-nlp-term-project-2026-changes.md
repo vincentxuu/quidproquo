@@ -13,7 +13,7 @@ description: "清大高宏宇《自然語言處理》系列收尾：Fall 2025 �
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-term-project-2026-changes-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-term-project-2026-changes-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

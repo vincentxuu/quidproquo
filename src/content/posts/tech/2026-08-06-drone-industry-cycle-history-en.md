@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-06-drone-industry-cycle-history)
+> :globe: [中文版](/posts/tech/2026-08-06-drone-industry-cycle-history)
 
 Every industry boom runs into the same question: **is this real, or another bubble?**
 

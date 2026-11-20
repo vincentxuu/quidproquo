@@ -10,7 +10,7 @@ description: "Breaking down arXiv's endorsement and moderation mechanisms, organ
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-28-arxiv-paper-quality-guide)
+> :globe: [中文版](/posts/ai/2026-05-28-arxiv-paper-quality-guide)
 
 Over 1,000 papers are uploaded to arXiv every day. Everyone has heard that "arXiv is not peer review," but what exactly do its endorsement and moderation processes filter out -- and let through? This post covers arXiv's own quality mechanisms, how to interpret external signals, tools still usable in 2026, and a checklist to run through after reading a paper.
 

@@ -12,7 +12,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-04-pricing-google-gemini-4-argon-intro-pricing)
+> :globe: [中文版](/posts/daily/2026-10-04-pricing-google-gemini-4-argon-intro-pricing)
 
 ## What changed
 
@@ -73,7 +73,7 @@ The table's real story: Argon's introductory price sits exactly in the Sol/Sonne
 
 ## Timing alert
 
-⏰ **Promo end date**: not announced. Google's footnote only states that the price changes "after the introductory period expires," with no time range given. Multiple independent write-ups (DataCamp, NeuralTrust, Artificial Analysis) checked the announcement in the days after launch and confirmed no end date appears anywhere in it. Anyone planning costs around Argon right now should budget for both the introductory and standard price, not just the one that's currently in effect.
+:clock: **Promo end date**: not announced. Google's footnote only states that the price changes "after the introductory period expires," with no time range given. Multiple independent write-ups (DataCamp, NeuralTrust, Artificial Analysis) checked the announcement in the days after launch and confirmed no end date appears anywhere in it. Anyone planning costs around Argon right now should budget for both the introductory and standard price, not just the one that's currently in effect.
 
 ## Today's takeaway
 

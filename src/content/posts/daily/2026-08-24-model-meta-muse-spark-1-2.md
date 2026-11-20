@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-24-model-meta-muse-spark-1-2-en)
+> :globe: [English version](/posts/daily/2026-08-24-model-meta-muse-spark-1-2-en)
 
 ## 模型資訊
 
@@ -44,7 +44,7 @@ series:
 | Terminal-Bench v2.1 | 80% | 78% | 未提供精確可比數字 |
 | τ³-Banking | 27% | 25% | 未提供精確可比數字 |
 
-⚠️ AA Intelligence Index、GDPval-AA v2 分數來自第三方 Artificial Analysis 的獨立測試（Meta 於正式發布前提供存取），Terminal-Bench v2.1、τ³-Banking 分數則出自 Meta 官方公告，尚待第三方複現確認。
+:warning: AA Intelligence Index、GDPval-AA v2 分數來自第三方 Artificial Analysis 的獨立測試（Meta 於正式發布前提供存取），Terminal-Bench v2.1、τ³-Banking 分數則出自 Meta 官方公告，尚待第三方複現確認。
 
 ## 與前代/競品比較
 

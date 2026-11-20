@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-vultr-cloud-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-vultr-cloud-platform)
 
 [Vultr](https://docs.vultr.com/products) spans Cloud Compute, optimized instances, bare metal, GPUs, Vultr Kubernetes Engine (VKE), Managed Databases, block/file/object storage, load balancers, VPCs, firewalls, Direct Connect, CDN, and serverless inference.
 

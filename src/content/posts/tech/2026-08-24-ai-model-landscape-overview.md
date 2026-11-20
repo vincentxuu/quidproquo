@@ -20,7 +20,7 @@ glossary:
     def: "HuggingFace 的任務分類標籤，用來歸類模型的用途（如 text-generation、text-to-image）"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-landscape-overview-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-landscape-overview-en)
 
 這篇是「AI 模型家族」系列的導讀。HuggingFace 上有 47 種任務分類、超過 300 萬個模型，加上各家閉源 API，整個生態圈已經大到沒人能全部追完。這篇把它們按用途橫切成七大類、20 多個子用途，每個用途附上主要模型和選型建議——讓你從「我要做什麼」快速找到「該用哪個模型」。文字、推理、程式碼、視覺與 Agent 各節是 2026-11-20 的資料；影像、影片、語音、檢索等其他各節仍是 2026-08 的資料，引用時請帶日期。
 

@@ -13,7 +13,7 @@ series:
   order: 23
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-19-cloudflare-browser-run-en)
+> :globe: [English version](/posts/ai/2026-11-19-cloudflare-browser-run-en)
 
 [託管對照](/posts/ai/2026-11-19-hosted-browser-comparison)把 Browser Run 歸在「已經在 Workers 上，或只需要一次性輸出」那一格。這篇把它拆開來看。它在 2026 年 4 月從 Browser Rendering [改名](https://blog.cloudflare.com/browser-run-for-ai-agents/)，同時加上 CDP 端點、即時畫面（Live View）、人工接手、錄影，併發上限也從 30 提高到 120（現在 Paid 方案是 200）。
 

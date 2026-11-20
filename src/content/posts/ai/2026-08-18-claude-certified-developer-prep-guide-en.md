@@ -13,7 +13,7 @@ description: "A preparation guide for Claude Certified Developer – Foundations
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-claude-certified-developer-prep-guide)
+> :globe: [中文版](/posts/ai/2026-08-18-claude-certified-developer-prep-guide)
 >
 > This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the official **Claude Certified Developer – Foundations Exam Guide**. No leaked questions. Verified 2026-08-18.
 

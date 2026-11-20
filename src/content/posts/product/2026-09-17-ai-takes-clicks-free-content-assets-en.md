@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-ai-takes-clicks-free-content-assets)
+> :globe: [中文版](/posts/product/2026-09-17-ai-takes-clicks-free-content-assets)
 
 Think of a search engine as a library catalog clerk. You ask a question, it points you to a book and perhaps a page, and you walk over to read it yourself.
 

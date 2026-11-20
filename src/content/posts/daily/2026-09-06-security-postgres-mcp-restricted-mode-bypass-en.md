@@ -12,7 +12,7 @@ series:
   order: 24
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-06-security-postgres-mcp-restricted-mode-bypass)
+> :globe: [中文版](/posts/daily/2026-09-06-security-postgres-mcp-restricted-mode-bypass)
 
 ## Incident Overview
 
@@ -54,7 +54,7 @@ The thing to do right now is to push the defense boundary back down to database 
 
 ## Impact
 
-The timeline here is itself a warning sign: the researcher publicly reported this via a GitHub issue on June 6 (the vendor's security email `info@crystaldba.ai` had long since stopped delivering, and GitHub Security Advisories were never enabled, leaving public disclosure as the only option), yet the CVE wasn't formally numbered and published until September 4 — nearly three months during which the technical details sat fully public on GitHub with no formal CVE tracking or patch pressure behind them. As of this writing, the `crystaldba/postgres-mcp` repository still has no patched release. According to an [industry report cited by cryptorank.io](https://cryptorank.io/news/feed/4624f-postgres-mcp-pro-restricted-mode-bypass-exposes-the-gap-in-ai-database-security) (⚠️ single source, scale figures unverified elsewhere), the broader MCP ecosystem now has more than 10,000 publicly reachable servers and close to a hundred million monthly SDK downloads — this incident is one concrete instance of the broader pattern where AI-database middleware security models are lagging adoption speed.
+The timeline here is itself a warning sign: the researcher publicly reported this via a GitHub issue on June 6 (the vendor's security email `info@crystaldba.ai` had long since stopped delivering, and GitHub Security Advisories were never enabled, leaving public disclosure as the only option), yet the CVE wasn't formally numbered and published until September 4 — nearly three months during which the technical details sat fully public on GitHub with no formal CVE tracking or patch pressure behind them. As of this writing, the `crystaldba/postgres-mcp` repository still has no patched release. According to an [industry report cited by cryptorank.io](https://cryptorank.io/news/feed/4624f-postgres-mcp-pro-restricted-mode-bypass-exposes-the-gap-in-ai-database-security) (:warning: single source, scale figures unverified elsewhere), the broader MCP ecosystem now has more than 10,000 publicly reachable servers and close to a hundred million monthly SDK downloads — this incident is one concrete instance of the broader pattern where AI-database middleware security models are lagging adoption speed.
 
 If your agent system connects `postgres-mcp` to a production database and the connecting role's privileges haven't been trimmed to the minimum necessary, this incident means the protection restricted mode was supposed to provide is currently nonexistent. Because the vulnerability details and a fully reproducible technical writeup have been public for over three months, anyone aware of the weakness can apply it directly without further research.
 

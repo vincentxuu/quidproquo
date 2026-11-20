@@ -13,7 +13,7 @@ description: "Shirotaebashi climbing guide: seasons, access, management rules, p
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-shiromyo-bashi)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-shiromyo-bashi)
 
 Shirotaebashi is a limestone sport crag beside the Nippara River in Okutama: a short approach does not imply easy climbing, and older access notices require fresh confirmation. This guide helps you decide whether it suits your team, when to visit and what to confirm about transport and the approach.
 

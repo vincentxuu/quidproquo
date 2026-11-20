@@ -27,7 +27,7 @@ glossary:
     definition: "Mixing text, images, and video into pretraining from the start, rather than bolting a vision adapter onto a finished text model. The source of native multimodal capability"
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-08-24-ai-model-family-qwen)
+> :globe: [繁體中文版](/posts/tech/2026-08-24-ai-model-family-qwen)
 
 Qwen (Tongyi Qianwen) is the most-downloaded model family on HuggingFace (see the [series overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en)), with sizes from a 0.8B phone model to 2.4T. This post is for agent developers choosing within Qwen: whether to use Qwen4-Max or generation 3.8 for an API flagship, which weights to download for self-hosting, and what each of the three open-weight licenses rules out.
 

@@ -22,7 +22,7 @@ glossary:
     context: "CS231N L5 的直覺說法是：影像特徵不取決於它出現在圖上的哪個位置。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

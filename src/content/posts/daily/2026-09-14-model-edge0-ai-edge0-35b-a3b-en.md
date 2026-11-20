@@ -15,7 +15,7 @@ glossary:
     def: "An open-source streaming MoE inference framework that combines SSD expert offload, prerouter predictive routing, and Recover-LoRA distillation to run large MoE models on memory-constrained devices (like a Mac mini) with a tiny memory footprint"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-14-model-edge0-ai-edge0-35b-a3b)
+> :globe: [中文版](/posts/daily/2026-09-14-model-edge0-ai-edge0-35b-a3b)
 
 ## Model Information
 
@@ -51,7 +51,7 @@ glossary:
 | IFBench | 57.9 | 61.7 | -3.8 |
 | **Average** | **79.2** | **83.2** | **-3.9** |
 
-⚠️ All figures are self-reported by Edge0-AI using OpenCompass (not independently reproduced). The comparison point is the fp16 base model score under the same team's own test setup, not an official Qwen-reported score, so results may differ from other sources due to evaluation-setup differences.
+:warning: All figures are self-reported by Edge0-AI using OpenCompass (not independently reproduced). The comparison point is the fp16 base model score under the same team's own test setup, not an official Qwen-reported score, so results may differ from other sources due to evaluation-setup differences.
 
 ## Comparison with Predecessor/Competitors
 

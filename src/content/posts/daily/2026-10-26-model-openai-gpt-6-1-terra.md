@@ -15,7 +15,7 @@ glossary:
     def: "OpenAI 開發的大型語言模型家族，Terra 是鎖定電腦操作與視覺推理、強調性價比的中階分支"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-26-model-openai-gpt-6-1-terra-en)
+> :globe: [English version](/posts/daily/2026-10-26-model-openai-gpt-6-1-terra-en)
 
 ## 模型資訊
 
@@ -49,7 +49,7 @@ glossary:
 | 內部事實錯誤率（max effort，越低越好） | 4.3% | 22.3%（官方稱「降 18 個百分點」反推） | 與 GPT-6 Astra、GPT-6.1 Sol 相近 |
 | Terminal-Bench-Science 0.1（max effort） | 優於 GPT-6.1 Sol，成本更低；距 Claude Opus 5.5 僅差 5 分 | 未在本次公告提供 | 落後 Claude Opus 5.5 約 5 分，但成本不到其 1/5 |
 
-⚠️ 以上均為 OpenAI 官方自測與自選比較基準（各自設定的 reasoning effort），尚待第三方獨立複現；多數為官方公佈的「相對差距」而非雙方絕對分數，GPT-5.6 Terra 與競品的部分具體數字官方未在本次公告完整列出。
+:warning: 以上均為 OpenAI 官方自測與自選比較基準（各自設定的 reasoning effort），尚待第三方獨立複現；多數為官方公佈的「相對差距」而非雙方絕對分數，GPT-5.6 Terra 與競品的部分具體數字官方未在本次公告完整列出。
 
 ```diagram
 title: GPT-6.1 Terra 內部事實錯誤率：前後代對照

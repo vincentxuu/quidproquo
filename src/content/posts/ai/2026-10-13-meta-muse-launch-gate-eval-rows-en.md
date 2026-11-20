@@ -10,7 +10,7 @@ description: "Notes on Alexandr Wang's Founders podcast interview: how Muse went
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-13-meta-muse-launch-gate-eval-rows)
+> :globe: [中文版](/posts/ai/2026-10-13-meta-muse-launch-gate-eval-rows)
 
 On September 8, 2026, Meta [launched Muse, a personal AI agent](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/). Within two weeks it reached the top of the US App Store free chart, [ahead of ChatGPT](https://www.foxbusiness.com/technology/metas-muse-becomes-app-stores-hottest-download). Muse can send emails, book travel and connect to apps such as email and calendar; it runs on a dedicated cloud VM per user and asks for approval before sending an email or making a purchase (per [Meta's announcement](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)). Meta's chief AI officer Alexandr Wang covered a lot of ground on David Senra's [Founders podcast](https://www.davidsenra.com/episode/alexandr-wang). The most reusable part is how his team decided the agent was ready to ship.
 

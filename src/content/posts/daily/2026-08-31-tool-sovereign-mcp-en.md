@@ -12,7 +12,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-31-tool-sovereign-mcp)
+> :globe: [中文版](/posts/daily/2026-08-31-tool-sovereign-mcp)
 
 ## Tool Info
 
@@ -80,10 +80,10 @@ Org rules are maintained as YAML in a dashboard, and findings from them are tagg
 
 | | Sovereign MCP | Checkov CLI (standalone) | CI-stage scanning (tfsec / Checkov in CI) |
 |---|---|---|---|
-| Intervenes at the moment the agent generates code | ✅ | ❌ | ❌ |
-| Rules can take effect before code is written (`org_requirements`) | ✅ | ❌ | ❌ |
-| Provides mechanical auto-fixes (`apply_fixes`) | ✅ (single-attribute, verified-safe fixes only) | Requires custom integration | Usually reports only, doesn't fix |
-| Compliance framework mappings (SOC 2 / ISO 27001 / PCI-DSS…) | ✅ | Depends on plugins | Depends on plugins |
+| Intervenes at the moment the agent generates code | ✓ | ✗ | ✗ |
+| Rules can take effect before code is written (`org_requirements`) | ✓ | ✗ | ✗ |
+| Provides mechanical auto-fixes (`apply_fixes`) | ✓ (single-attribute, verified-safe fixes only) | Requires custom integration | Usually reports only, doesn't fix |
+| Compliance framework mappings (SOC 2 / ISO 27001 / PCI-DSS…) | ✓ | Depends on plugins | Depends on plugins |
 | Feedback loop | In-editor, immediate | On manual run | After PR / merge |
 
 ## Caveats

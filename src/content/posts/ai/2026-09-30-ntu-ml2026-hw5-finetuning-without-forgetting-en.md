@@ -13,7 +13,7 @@ description: "A guide to HW5 \"Finetuning without Forgetting\" from NTU Hung-yi 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

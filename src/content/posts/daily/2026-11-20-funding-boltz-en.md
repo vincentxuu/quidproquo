@@ -12,7 +12,7 @@ series:
   order: 146
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-20-funding-boltz)
+> :globe: [中文版](/posts/daily/2026-11-20-funding-boltz)
 
 ## Funding details
 

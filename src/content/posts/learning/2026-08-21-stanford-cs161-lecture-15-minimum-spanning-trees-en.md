@@ -13,7 +13,7 @@ description: "A complete guide to Stanford CS161 Winter 2026 Lecture 15: MSTs, t
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-15-minimum-spanning-trees)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-15-minimum-spanning-trees)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

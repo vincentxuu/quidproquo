@@ -12,7 +12,7 @@ series:
   order: 44
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-28-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-28-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -135,14 +135,14 @@ We searched for directly AI-relevant news in Taiwan and Japan/Korea today and fo
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-28](/posts/daily/2026-09-28-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-28](/posts/daily/2026-09-28-ai-agent-github-digest-en)
-- 📄 [Model Card: AliceAI-Foundation-80B-A3B-Base](/posts/daily/2026-09-28-model-yandex-aliceai-foundation-80b-en)
-- 📄 [Security Alert: SiYuan MCP Path-Traversal Vulnerabilities](/posts/daily/2026-09-28-security-siyuan-mcp-path-traversal-en)
-- 📄 [Funding Brief: Go.AI Series A $85M](/posts/daily/2026-09-28-funding-go-ai-en)
-- 📄 [Pricing Watch: OpenAI Cuts GPT-6 Sol/Luna Pricing by 50%](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)
-- 📄 [AI Engineer Interview Daily — 2026-09-28: ML Fundamentals](/posts/daily/2026-09-28-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-09-28: Product Sense](/posts/daily/2026-09-28-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-28](/posts/daily/2026-09-28-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-28](/posts/daily/2026-09-28-ai-agent-github-digest-en)
+- :file: [Model Card: AliceAI-Foundation-80B-A3B-Base](/posts/daily/2026-09-28-model-yandex-aliceai-foundation-80b-en)
+- :file: [Security Alert: SiYuan MCP Path-Traversal Vulnerabilities](/posts/daily/2026-09-28-security-siyuan-mcp-path-traversal-en)
+- :file: [Funding Brief: Go.AI Series A $85M](/posts/daily/2026-09-28-funding-go-ai-en)
+- :file: [Pricing Watch: OpenAI Cuts GPT-6 Sol/Luna Pricing by 50%](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)
+- :file: [AI Engineer Interview Daily — 2026-09-28: ML Fundamentals](/posts/daily/2026-09-28-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-09-28: Product Sense](/posts/daily/2026-09-28-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

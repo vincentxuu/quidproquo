@@ -107,22 +107,22 @@ Paul Iusztin 在 [LLM Knowledge Base I Built on My Second Brain](https://www.dec
 
 **採納（已落實或將補強）**：
 
-- ✅ **多 agent pipeline**：RAG chat 端已實作（planner → research → writer → critic）；寫作端維持手動 review-at-each-step
-- ✅ **never fabricate / never auto-fix**：post-review、post-verify 的 SKILL.md 都明文寫死
-- ✅ **GEO 規則**：已寫進 `writing-guide.md`，post-review skill 會檢查
-- ✅ **technical verifier**：post-verify skill 對版本 / API / 價格做 fact-layer cross-check
+- ✓ **多 agent pipeline**：RAG chat 端已實作（planner → research → writer → critic）；寫作端維持手動 review-at-each-step
+- ✓ **never fabricate / never auto-fix**：post-review、post-verify 的 SKILL.md 都明文寫死
+- ✓ **GEO 規則**：已寫進 `writing-guide.md`，post-review skill 會檢查
+- ✓ **technical verifier**：post-verify skill 對版本 / API / 價格做 fact-layer cross-check
 
 **先不採納**：
 
-- ❌ **全自動 publish pipeline**（Khaled Zaky 的 Lambda → GitHub commit → deploy）——quidproquo 是 Cloudflare Workers + Astro SSR + 個人寫作，現有 `git commit + pnpm deploy` 流程已輕，多寫一層沒必要
-- ❌ **月度 SEO audit + auto-refresh**（rzlt.io 的 GSC MCP feed → 3 個月翻新）——規模不到，手動 post-update 夠用
-- ❌ **完整 LLM-wiki 套到 `.research/`**——一人寫作可能 over-engineering，先觀察 12-24 個月
+- ✗ **全自動 publish pipeline**（Khaled Zaky 的 Lambda → GitHub commit → deploy）——quidproquo 是 Cloudflare Workers + Astro SSR + 個人寫作，現有 `git commit + pnpm deploy` 流程已輕，多寫一層沒必要
+- ✗ **月度 SEO audit + auto-refresh**（rzlt.io 的 GSC MCP feed → 3 個月翻新）——規模不到，手動 post-update 夠用
+- ✗ **完整 LLM-wiki 套到 `.research/`**——一人寫作可能 over-engineering，先觀察 12-24 個月
 
 **選擇性採納（看用幾次自然決定）**：
 
-- 🟡 **Brief 閘門（rzlt.io / Max Mitcham 模式）**：對深度導讀有價值，但對隨手筆記是負擔。先觀察 deep-research skill 用幾次，自然累積夠多素材時再做成 `post-brief` skill
-- 🟡 **Voice profile 抽取**：Khaled Zaky 從 20 篇抽 voice profile，quidproquo 已有 100+ 篇可用。值得做但不必每次寫文都跑——一次性 `pnpm voice:extract` 腳本更合適
-- 🟡 **Research distill 模式**：發文前掃 `## 參考資料` 剃掉沒真正引用的——可以併入 `post-review`，不必獨立 skill
+- :yellow-circle: **Brief 閘門（rzlt.io / Max Mitcham 模式）**：對深度導讀有價值，但對隨手筆記是負擔。先觀察 deep-research skill 用幾次，自然累積夠多素材時再做成 `post-brief` skill
+- :yellow-circle: **Voice profile 抽取**：Khaled Zaky 從 20 篇抽 voice profile，quidproquo 已有 100+ 篇可用。值得做但不必每次寫文都跑——一次性 `pnpm voice:extract` 腳本更合適
+- :yellow-circle: **Research distill 模式**：發文前掃 `## 參考資料` 剃掉沒真正引用的——可以併入 `post-review`，不必獨立 skill
 
 ## 整體來說
 

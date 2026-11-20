@@ -12,7 +12,7 @@ series:
   order: 140
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-17-funding-corma)
+> :globe: [中文版](/posts/daily/2026-11-17-funding-corma)
 
 ## Funding details
 

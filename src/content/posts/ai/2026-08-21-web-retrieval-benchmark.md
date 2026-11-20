@@ -13,7 +13,7 @@ description: "用 30-case corpus 建立 Web Retrieval Benchmark：ground truth�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-web-retrieval-benchmark-en)
+> :globe: [English version](/posts/ai/2026-08-21-web-retrieval-benchmark-en)
 
 > **已發布的 benchmark 規格。** 30 個固定案例與 harness 已定義，但目前環境沒有三條 live channel 所需的 endpoint／credential，因此本文沒有成功率、延遲、成本或供應商排名。第一份結果要等 raw results 跑完並保存後再補。
 

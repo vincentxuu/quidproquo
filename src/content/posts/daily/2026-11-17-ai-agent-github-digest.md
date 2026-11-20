@@ -11,7 +11,7 @@ series:
   order: 94
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-17-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-17-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### CopilotKit/OpenBot ⭐ 12,552
+### CopilotKit/OpenBot ★ 12,552
 
 [GitHub](https://github.com/CopilotKit/OpenBot)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### iflytek/astron-rpa ⭐ 5,258
+### iflytek/astron-rpa ★ 5,258
 
 [GitHub](https://github.com/iflytek/astron-rpa)　·　Python　·　Apache-2.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### modelcontextprotocol/registry ⭐ 7,470
+### modelcontextprotocol/registry ★ 7,470
 
 [GitHub](https://github.com/modelcontextprotocol/registry)　·　Go　·　NOASSERTION（官方組織維護）
 

@@ -14,7 +14,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-11785-05-backpropagation)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-11785-05-backpropagation)
 
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 

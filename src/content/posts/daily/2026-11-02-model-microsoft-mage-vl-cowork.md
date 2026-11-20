@@ -17,7 +17,7 @@ glossary:
     def: "同時具備螢幕截圖 GUI 操作與終端機/程式碼執行雙通道、由模型自己判斷何時用哪個通道的 agent 架構"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-02-model-microsoft-mage-vl-cowork-en)
+> :globe: [English version](/posts/daily/2026-11-02-model-microsoft-mage-vl-cowork-en)
 
 ## 模型資訊
 
@@ -94,7 +94,7 @@ caption: 資料來源：Mage-VL-Cowork HuggingFace 模型卡 Stage-Wise Progress
 | ScreenSpot-v2（視覺定位） | 87.2% | 首發 | Qwen3-VL-4B：85.3%（同量級） |
 | WebVoyager-Static（瀏覽器，離線可重現） | 58.6% | 首發 | Fara1.5-4B（瀏覽器專精模型）：68.0% |
 
-⚠️ 以上均為 Microsoft 官方技術報告／HuggingFace 模型卡自測結果，尚無外部單位獨立複現。OSWorld-Verified 的 66.0% 是扣除 Google Drive 相關任務的 361 個任務、兩次完整跑分的平均（65.33% 與 66.75%）。
+:warning: 以上均為 Microsoft 官方技術報告／HuggingFace 模型卡自測結果，尚無外部單位獨立複現。OSWorld-Verified 的 66.0% 是扣除 Google Drive 相關任務的 361 個任務、兩次完整跑分的平均（65.33% 與 66.75%）。
 
 ## 與前代/競品比較
 

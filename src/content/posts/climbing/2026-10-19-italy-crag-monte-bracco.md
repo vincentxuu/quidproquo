@@ -13,7 +13,7 @@ description: "布拉科山（Monte Bracco／Mombracco）岩場介紹：片麻岩
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-monte-bracco-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-monte-bracco-en)
 
 布拉科山（Monte Bracco，當地也叫 Mombracco）是皮埃蒙特（Piemonte）大區庫內奧省的一座山，位在 Valle Po 谷口，從 Saluzzo 沿河谷上去 18 公里就是山腳的 Sanfront 鎮。山的南坡與東坡布滿片麻岩岩壁，上方林子裡還散落著抱石。
 

@@ -12,7 +12,7 @@ series:
   order: 90
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-17-ai-interview-daily-en)
+> :globe: [English version](/posts/daily/2026-11-17-ai-interview-daily-en)
 
 ## 今日主題
 

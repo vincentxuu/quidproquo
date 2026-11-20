@@ -200,6 +200,9 @@ const FULL_STEPS = [
   // 文字版面的靜態檢查：雲端排程沒有瀏覽器時 diagram-preview 會跳過，這支是那時唯一擋得住字疊字的檢查。
   ['diagram text regression tests', 'node scripts/check-diagram-text.mjs --self-test'],
   ['check:diagram-text', 'pnpm check:diagram-text'],
+  // 原始稿不放 emoji（網站用 koboyo 圖示；寫 :globe: 這類 shortcode 或 ✓ ✗ ★）。code 區塊裡的不算。修法：pnpm emoji:fix <檔案>。
+  ['no-emoji regression tests', 'pnpm exec tsx scripts/check-no-emoji.ts --self-test'],
+  ['check:no-emoji', 'pnpm check:no-emoji'],
   ['check:course-videos', 'pnpm check:course-videos'],
   ['check:seo-smoke', 'pnpm check:seo-smoke'],
   // 截圖比對不擋部署，但每個 compareScreenshot() 至少要有 -linux 基線，否則那組比對永遠紅、等於沒在審。
@@ -267,6 +270,7 @@ function stagedPlan() {
     // 這些看的是文章之間的關係（系列編號、中英成對、課程標題與版面），本來就要全站看；實測每項 2 秒內。
     steps.push(...pick('check:chat-style', 'check:series-order', 'course title gate', 'course source layout gate',
       'check:lang-parity', 'check:grades', 'check:seo-smoke', 'check:diagram-geometry', 'check:diagram-text'), courseVideosStep);
+    steps.push(['check:no-emoji (staged)', `pnpm exec tsx scripts/check-no-emoji.ts ${quote(posts)}`]);
   }
   if (entries.some((e) => /^(\.agents|\.claude)\/skills\//.test(e.path))) {
     steps.push(...pick('skills-sync (.agents ↔ .claude)', 'skill-anchors (章節連結)'));

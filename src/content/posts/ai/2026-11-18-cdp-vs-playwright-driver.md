@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-18-cdp-vs-playwright-driver-en)
+> :globe: [English version](/posts/ai/2026-11-18-cdp-vs-playwright-driver-en)
 
 [上一篇](/posts/ai/2026-11-19-browser-agent-loop-to-code-mode)講到 Browser Use 1.0 讓模型直接打 CDP，理由之一是 Playwright 的 locator 看不到 closed shadow root。這不是第一次：前面幾篇一直出現同一句話，Stagehand 從 v3 起不建在 Playwright 上，Browser Use 在 2025 年 8 月就拆掉了 Playwright。Playwright 是公認成熟的工具，為什麼做 AI 瀏覽器工具的團隊要自己重寫一層？
 

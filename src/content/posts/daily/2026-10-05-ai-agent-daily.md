@@ -12,7 +12,7 @@ series:
   order: 51
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-05-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-05-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -116,17 +116,17 @@ Anthropic 的 Claude 濫用報告（見資安事件）點名中非共和國、�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-05](/posts/daily/2026-10-05-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-05](/posts/daily/2026-10-05-ai-agent-github-digest)
-- 📄 [模型卡｜Gemini 4 Argon](/posts/daily/2026-10-05-model-google-gemini-4-argon)
-- 📄 [定價追蹤｜Google 免費版 Gemini App 10/9 起只剩 Flash-Lite](/posts/daily/2026-10-05-pricing-google-gemini-free-tier-flash-lite-only)
-- 📄 [資安警報｜DIVD 遭自主 AI Agent 入侵](/posts/daily/2026-10-05-security-divd-zammad-agentic-zero-day-breach)
-- 📄 [融資速報｜GMI Cloud $668M](/posts/daily/2026-10-05-funding-gmi-cloud)
-- 📄 [融資速報｜General Intuition $220M](/posts/daily/2026-10-05-funding-general-intuition)
-- 📄 [融資速報｜Metaview Series C $60M](/posts/daily/2026-10-05-funding-metaview)
-- 📄 [工具推薦｜mcpspan](/posts/daily/2026-10-05-tool-mcpspan)
-- 📄 [AI Engineer 面試日練 — 2026-10-05：ML Fundamentals](/posts/daily/2026-10-05-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-05：Product Sense](/posts/daily/2026-10-05-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-05](/posts/daily/2026-10-05-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-05](/posts/daily/2026-10-05-ai-agent-github-digest)
+- :file: [模型卡｜Gemini 4 Argon](/posts/daily/2026-10-05-model-google-gemini-4-argon)
+- :file: [定價追蹤｜Google 免費版 Gemini App 10/9 起只剩 Flash-Lite](/posts/daily/2026-10-05-pricing-google-gemini-free-tier-flash-lite-only)
+- :file: [資安警報｜DIVD 遭自主 AI Agent 入侵](/posts/daily/2026-10-05-security-divd-zammad-agentic-zero-day-breach)
+- :file: [融資速報｜GMI Cloud $668M](/posts/daily/2026-10-05-funding-gmi-cloud)
+- :file: [融資速報｜General Intuition $220M](/posts/daily/2026-10-05-funding-general-intuition)
+- :file: [融資速報｜Metaview Series C $60M](/posts/daily/2026-10-05-funding-metaview)
+- :file: [工具推薦｜mcpspan](/posts/daily/2026-10-05-tool-mcpspan)
+- :file: [AI Engineer 面試日練 — 2026-10-05：ML Fundamentals](/posts/daily/2026-10-05-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-05：Product Sense](/posts/daily/2026-10-05-product-builder-interview-daily)
 
 ## 明日關注
 

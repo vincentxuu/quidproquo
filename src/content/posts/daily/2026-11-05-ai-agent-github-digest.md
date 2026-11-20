@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, mcp, computer-use, reverse-engineering]
 lang: zh-TW
 description: "REA 逆向工程工具三週衝上 43 萬星，同時撞上 Anthropic 對逆向工程請求的限制；agent-desktop 三天內星數翻倍；Scrapling 替老牌爬蟲框架補上 MCP server——三個都走「先做紮實底層，再接 agent 工具層」的路線"
-tldr: "morluto/rea(⭐430k)把 Ghidra、Hopper 等逆向工程引擎包成 MCP 工具給 agent 用，三週衝上新高的同時，傳出 Anthropic 開始限制 Claude 做部分逆向工程任務、甚至對逆向 Claude Code 本身的開發者發出移除通知；vercel-labs/agent-desktop(⭐14.6k)靠 OS 原生 accessibility tree 取代截圖讓 agent 操作電腦，三天內星數翻倍；D4Vinci/Scrapling(⭐96k)是做了一年多的爬蟲框架，最近補上原生 MCP server，讓 agent 不用自己想辦法繞反爬就能直接下指令。今天沒有重要框架 release。"
+tldr: "morluto/rea(★430k)把 Ghidra、Hopper 等逆向工程引擎包成 MCP 工具給 agent 用，三週衝上新高的同時，傳出 Anthropic 開始限制 Claude 做部分逆向工程任務、甚至對逆向 Claude Code 本身的開發者發出移除通知；vercel-labs/agent-desktop(★14.6k)靠 OS 原生 accessibility tree 取代截圖讓 agent 操作電腦，三天內星數翻倍；D4Vinci/Scrapling(★96k)是做了一年多的爬蟲框架，最近補上原生 MCP server，讓 agent 不用自己想辦法繞反爬就能直接下指令。今天沒有重要框架 release。"
 series:
   name: "AI Agent GitHub Digest"
   order: 82
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-05-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-05-ai-agent-github-digest-en)
 
 
 ## 今日亮點
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### morluto/rea ⭐ 430k
+### morluto/rea ★ 430k
 
 [GitHub](https://github.com/morluto/rea)　·　TypeScript　·　MIT
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### vercel-labs/agent-desktop ⭐ 14.6k
+### vercel-labs/agent-desktop ★ 14.6k
 
 [GitHub](https://github.com/vercel-labs/agent-desktop)　·　Rust　·　Apache-2.0
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### D4Vinci/Scrapling ⭐ 96k
+### D4Vinci/Scrapling ★ 96k
 
 [GitHub](https://github.com/D4Vinci/Scrapling)　·　Python　·　BSD-3-Clause
 

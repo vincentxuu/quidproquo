@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-04-weekly-review-en)
+> :globe: [English version](/posts/daily/2026-09-04-weekly-review-en)
 
 ## 本週最重要的 5 件事
 
@@ -61,13 +61,13 @@ CursorBench 3.2 榜單上，Claude Fable 5.1 Max 以 73.4% 首次上榜即包辦
 
 ## Watchlist 更新建議
 
-### 🆕 建議加入
+### 建議加入
 
-✅ 本週信號中出現的公司均已在 watchlist 內,無新增候選(以「本週 signals 中不在 watchlist 且出現 ≥3 次」為門檻檢核)
+✓ 本週信號中出現的公司均已在 watchlist 內,無新增候選(以「本週 signals 中不在 watchlist 且出現 ≥3 次」為門檻檢核)
 
-### ⚠️ 考慮移除
+### :warning: 考慮移除
 
-✅ 本週無符合移除條件的公司
+✓ 本週無符合移除條件的公司
 
 ## 本週新創雷達
 

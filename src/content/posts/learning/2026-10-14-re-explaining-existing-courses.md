@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-14-re-explaining-existing-courses-en)
+> :globe: [English version](/posts/learning/2026-10-14-re-explaining-existing-courses-en)
 
 這是「教學文章怎麼寫」系列的第 27 篇，屬於最後一部分「怎麼知道有效，怎麼做出來」。前面的篇談作者手上的訊號量到什麼、大規模實驗與評量表能告訴我們什麼；這篇往回退一步，問一個更根本的問題：這種文章該不該寫。
 

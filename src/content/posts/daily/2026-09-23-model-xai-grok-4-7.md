@@ -17,7 +17,7 @@ glossary:
     def: "評測模型在真實終端機環境中自主執行多步驟指令、除錯、完成任務能力的 benchmark，被視為 agentic coding 的重要指標"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-23-model-xai-grok-4-7-en)
+> :globe: [English version](/posts/daily/2026-09-23-model-xai-grok-4-7-en)
 
 ## 模型資訊
 
@@ -52,7 +52,7 @@ glossary:
 | Artificial Analysis Intelligence Index（第三方獨立評測） | 46 | 無可比直接前代分數 | Claude Fable 5.1／GPT-6 並列 53 |
 | Terminal-Bench 4.0（Artificial Analysis 獨立複測，標準化條件） | 26% | — | GPT-6 Astra 60%、Claude Fable 5.1 55% |
 
-⚠️ 上表除 Artificial Analysis 兩列為第三方獨立評測外，其餘均為 xAI／各廠商自測，採各自最高 reasoning effort（high／max）設定，非同一標準下的直接比較，尚待更多第三方覆現。
+:warning: 上表除 Artificial Analysis 兩列為第三方獨立評測外，其餘均為 xAI／各廠商自測，採各自最高 reasoning effort（high／max）設定，非同一標準下的直接比較，尚待更多第三方覆現。
 
 ## 與前代/競品比較
 

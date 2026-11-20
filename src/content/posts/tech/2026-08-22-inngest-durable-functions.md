@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-inngest-durable-functions-en)
+> :globe: [English version](/posts/tech/2026-08-22-inngest-durable-functions-en)
 
 [Inngest](https://www.inngest.com/docs/learn/how-functions-are-executed) 是事件驅動的 durable execution 平台。你仍然用 TypeScript、Python 或 Go 寫一般 function，把資料庫、API 與模型呼叫放進 `step.run()`；Inngest 在每個 step 後保存結果，處理重試、sleep、事件等待與 flow control。
 

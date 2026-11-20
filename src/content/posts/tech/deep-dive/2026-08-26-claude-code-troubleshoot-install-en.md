@@ -13,7 +13,7 @@ series:
   order: 33
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshoot-install)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshoot-install)
 
 This is the first troubleshooting article in the Claude Code Deep Dives series. When installation or login fails, the error message usually tells you *that* it failed but not *which layer* failed: the shell can't find the binary, the network is blocked, the install command was copied into the wrong shell, or a credential source is overriding the login you expected to use. This article follows the diagnostic order of the official [troubleshoot-install](https://code.claude.com/docs/en/troubleshoot-install) docs and lists the check command, expected output, and fix for each layer. If Claude Code already runs but misbehaves at runtime, see [the next article on runtime issues](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshooting-runtime).
 

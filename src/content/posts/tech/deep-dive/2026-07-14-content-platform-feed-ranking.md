@@ -22,7 +22,7 @@ glossary:
     context: "它的三個概念至今仍活在 ML 模型的直覺裡，是理解「互動排序」思路的最好起點。"
 ---
 
-🌏 [English version](/posts/tech/deep-dive/2026-07-14-content-platform-feed-ranking-en)
+:globe: [English version](/posts/tech/deep-dive/2026-07-14-content-platform-feed-ranking-en)
 
 每個 feed 都在拉扯兩股力量：一股是**時間**，最新的內容該被看到；另一股是**互動**，最多人喜歡、留言、看完的內容該被看到。純用時間，好內容會被洗掉；純用互動，剛發出、還沒人反應的新內容永遠沉底。所有排序演算法，本質上都是在調這兩股力量的配比。
 

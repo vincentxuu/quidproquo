@@ -14,7 +14,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/tech/2026-06-20-playwright-mcp-en)
+> :globe: [English version](/posts/tech/2026-06-20-playwright-mcp-en)
 
 [@playwright/mcp](https://github.com/microsoft/playwright-mcp) 是微軟官方維護的 Playwright MCP server，讓 AI agent 能透過 [Model Context Protocol](https://modelcontextprotocol.io/) 控制瀏覽器。它最大的設計特點是：**預設不用截圖**，改用 ARIA accessibility tree 來回傳頁面狀態，大幅降低 token 消耗。
 

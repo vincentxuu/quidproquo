@@ -12,7 +12,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-20-weekly-review-en)
+> :globe: [English version](/posts/daily/2026-11-20-weekly-review-en)
 
 ## 本週最重要的 5 件事
 
@@ -100,13 +100,13 @@ OpenAI 官方 deprecations 頁面列出 gpt-5、gpt-5-mini、gpt-5-nano、gpt-5-
 
 ## Watchlist 更新建議
 
-### 🆕 建議加入
+### 建議加入
 
-✅ 本週出現頻率最高的公司（OpenAI、Google、Microsoft、Nvidia、Alibaba-Qwen、Meta、Anthropic、Amazon、Sourcegraph、Cohere）皆已在 watchlist 中，無新增候選。
+✓ 本週出現頻率最高的公司（OpenAI、Google、Microsoft、Nvidia、Alibaba-Qwen、Meta、Anthropic、Amazon、Sourcegraph、Cohere）皆已在 watchlist 中，無新增候選。
 
-### ⚠️ 考慮移除
+### :warning: 考慮移除
 
-✅ 本週無符合移除條件的公司
+✓ 本週無符合移除條件的公司
 
 ## 本週新創雷達
 

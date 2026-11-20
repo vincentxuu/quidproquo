@@ -13,7 +13,7 @@ series:
   order: 23
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-19-cloudflare-browser-run)
+> :globe: [中文版](/posts/ai/2026-11-19-cloudflare-browser-run)
 
 The [hosting comparison](/posts/ai/2026-11-19-hosted-browser-comparison-en) put Browser Run in the "already on Workers, or only need one-shot output" box. This post takes it apart. In April 2026 it was [renamed](https://blog.cloudflare.com/browser-run-for-ai-agents/) from Browser Rendering and gained a CDP endpoint, Live View, human handoff, and recordings, with the concurrency limit raised from 30 to 120 (200 on the Paid plan today).
 

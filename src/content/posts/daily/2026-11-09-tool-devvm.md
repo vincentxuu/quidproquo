@@ -12,7 +12,7 @@ series:
   order: 76
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-09-tool-devvm-en)
+> :globe: [English version](/posts/daily/2026-11-09-tool-devvm-en)
 
 ## 工具資訊
 
@@ -123,9 +123,9 @@ devvm network log --blocked
 | | devvm | Docker container 沙箱 | 直接在主機上跑 |
 |---|---|---|---|
 | 隔離層級 | VM（獨立 kernel） | container（共用主機 kernel） | 無 |
-| 密鑰是否進沙箱 | ❌ 只拿佔位字串，真值留在主機 proxy | 通常整組環境變數／mount 都進去 | — |
+| 密鑰是否進沙箱 | ✗ 只拿佔位字串，真值留在主機 proxy | 通常整組環境變數／mount 都進去 | — |
 | 預設網路 | allowlist，只能連你放行的主機 | 看 docker 設定，常跟主機同網段 | 跟主機完全一樣 |
-| 多個 coding agent 設定互相隔離 | ✅ 每台 VM 自己一份 | 需自己管理 volume | ❌ 全部疊在一起 |
+| 多個 coding agent 設定互相隔離 | ✓ 每台 VM 自己一份 | 需自己管理 volume | ✗ 全部疊在一起 |
 | 安裝門檻 | 一行安裝 script，`devvm doctor` 健檢 | 需熟悉 Dockerfile／volume／network 設定 | 無 |
 
 ## 注意事項

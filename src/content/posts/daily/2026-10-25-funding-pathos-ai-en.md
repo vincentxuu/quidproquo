@@ -12,7 +12,7 @@ series:
   order: 107
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-25-funding-pathos-ai)
+> :globe: [中文版](/posts/daily/2026-10-25-funding-pathos-ai)
 
 ## Funding Details
 

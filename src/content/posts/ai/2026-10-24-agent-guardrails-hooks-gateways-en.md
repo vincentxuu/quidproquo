@@ -13,7 +13,7 @@ description: "The default failure behavior of Claude Code hooks, where Agent Gov
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-agent-guardrails-hooks-gateways)
+> :globe: [中文版](/posts/ai/2026-10-24-agent-guardrails-hooks-gateways)
 
 A sandbox assumes the agent has already been fooled and limits what it can touch. A guardrail tries to act earlier: stop an action before it happens. When the agent is about to run a shell command or call an MCP tool, the guardrail takes a look first and decides whether to allow or refuse. Claude Code already asks you before most actions, according to its permission rules; what a guardrail tool adds is replacing "ask you" with "decide automatically by rule".
 

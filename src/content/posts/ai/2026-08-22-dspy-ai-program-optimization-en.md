@@ -10,7 +10,7 @@ description: "An introduction to DSPy Signatures, Modules, metrics, optimizers, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-dspy-ai-program-optimization)
+> :globe: [中文版](/posts/ai/2026-08-22-dspy-ai-program-optimization)
 
 [DSPy](https://dspy.ai/) is a Python framework for building and optimizing AI systems. It can implement ReAct agents, tools, and RAG, but its central question is not “which agent acts next?” It asks whether data and metrics can improve an AI program systematically instead of relying on manual prompt edits.
 

@@ -14,7 +14,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-tool-authorization)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-tool-authorization)
 
 The assistant has an `export_ticket` tool. Alice approved one call, but the model changes the destination or substitutes Bob's N-2 for N-1. The tool name looks unchanged; the action is different.
 

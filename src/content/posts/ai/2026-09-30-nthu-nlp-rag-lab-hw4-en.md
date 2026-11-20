@@ -21,7 +21,7 @@ glossary:
     context: "The HW4 handout evaluates generation with exact matching, while the starter notebook's comment says a response counts as correct if the answer appears in it, which is much looser."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

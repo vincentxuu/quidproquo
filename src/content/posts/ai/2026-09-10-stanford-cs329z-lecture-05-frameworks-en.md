@@ -14,7 +14,7 @@ description: "A page-linked guide to the CS329Z Lecture 05 Frameworks & Orchestr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks)
 
 **Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 77 minutes); this guide follows the public slides and readings and had each section start time checked against the recording's captions.
 

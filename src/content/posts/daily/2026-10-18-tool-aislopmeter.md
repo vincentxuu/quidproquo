@@ -12,7 +12,7 @@ series:
   order: 58
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-18-tool-aislopmeter-en)
+> :globe: [English version](/posts/daily/2026-10-18-tool-aislopmeter-en)
 
 ## 工具資訊
 
@@ -88,11 +88,11 @@ MCP 模式下，對你的 AI 說一句話即可：
 
 | | AI Slop Meter | Lighthouse / PageSpeed | 人工 QA checklist |
 |---|---|---|---|
-| 針對「AI 建站感」評分 | ✅ | ❌（只看效能／SEO 技術指標） | 看人的經驗 |
-| 給出可直接貼給 AI 的修復 prompt | ✅ | ❌ | ❌ |
-| 可掃 localhost／專案資料夾 | ✅ | 部分支援 | ✅ 但要手動 |
-| 不需要 API key、本機執行 | ✅ | ✅ | — |
-| 可接進 CI 擋 PR | ✅（GitHub Action） | ✅ | 需自行規範 |
+| 針對「AI 建站感」評分 | ✓ | ✗（只看效能／SEO 技術指標） | 看人的經驗 |
+| 給出可直接貼給 AI 的修復 prompt | ✓ | ✗ | ✗ |
+| 可掃 localhost／專案資料夾 | ✓ | 部分支援 | ✓ 但要手動 |
+| 不需要 API key、本機執行 | ✓ | ✓ | — |
+| 可接進 CI 擋 PR | ✓（GitHub Action） | ✓ | 需自行規範 |
 
 ## 注意事項
 

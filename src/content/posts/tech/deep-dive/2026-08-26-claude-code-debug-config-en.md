@@ -13,7 +13,7 @@ series:
   order: 35
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-debug-config)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-debug-config)
 
 "I put that rule in CLAUDE.md and it keeps ignoring it." "My hook is defined but nothing fires." "I added an MCP server and the tool list is empty." This family of "configured it but it's not taking effect" problems is among the most reported in Claude Code. The official diagnostics guide narrows the cause down to three possibilities: **the file never loaded, it loaded from a different location than you expected, or another file overrode it**. This post is about telling those three apart: first inspect what actually loaded with the diagnostic commands, then bisect with safe mode, then match your symptom against a table of high-frequency errors. Installation and login problems are out of scope here — see the series' [installation troubleshooting post](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshoot-install-en).
 

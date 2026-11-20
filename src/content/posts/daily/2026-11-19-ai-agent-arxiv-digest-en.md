@@ -71,7 +71,7 @@ Agent memory systems have sprouted a lot of seemingly sophisticated designs over
 ### Deep-dive Points
 
 - EverMemBench: BRIDGE beats the strongest baseline MemOS by 5.7-6.3 points, using only 5-7K tokens — 17 to 154x fewer than full-context baselines
-- LongMemEval-S, BEAM 100K: BRIDGE ties with industry baselines, with overlapping 95% confidence intervals ⚠️ (authors' own testing, pending external replication)
+- LongMemEval-S, BEAM 100K: BRIDGE ties with industry baselines, with overlapping 95% confidence intervals :warning: (authors' own testing, pending external replication)
 - Adversarial probes (20 scenarios each): LangMem scores 80% on "rule application" vs. BRIDGE's 35%; BRIDGE scores 88% on "pattern continuation" vs. LangMem's 55%
 - Controlled experiment: moving the rule into a labeled block at the top of the prompt raised BRIDGE's rule-application score from 52.6% to 94.7%, proving the gap is about presentation, not retrieval
 - Deployment threshold: building an adversarial-probe evaluation requires designing your own scenarios and grading criteria — it's not as plug-and-play as running a standard benchmark suite

@@ -12,7 +12,7 @@ series:
   order: 18
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-02-tool-mcp-spend-guard-en)
+> :globe: [English version](/posts/daily/2026-09-02-tool-mcp-spend-guard-en)
 
 ## 工具資訊
 
@@ -103,10 +103,10 @@ rm STOP
 
 | | mcp-spend-guard | 自己在應用層寫節流 | LLM provider 的用量上限（OpenAI/Anthropic 帳號層級） | mcp-guardrail（tool 層級准駁） |
 |---|---|---|---|---|
-| 針對「單一 MCP tool」設花費上限 | ✅ | 需自行實作 | ❌（只管模型 token，不管下游 MCP tool） | ❌（管的是能不能叫，不是叫多貴） |
-| 計數跨重啟／重連不歸零 | ✅（SQLite） | 需自行實作 | ✅（provider 端） | 視實作而定 |
-| 一個檔案就能緊急煞車 | ✅（kill switch file） | 需自行實作 | ❌（通常要進後台改設定） | ❌ |
-| 換掉哪個 MCP server 都能套用 | ✅（proxy 層，與 server 無關） | — | — | ✅（同樣是 proxy 層） |
+| 針對「單一 MCP tool」設花費上限 | ✓ | 需自行實作 | ✗（只管模型 token，不管下游 MCP tool） | ✗（管的是能不能叫，不是叫多貴） |
+| 計數跨重啟／重連不歸零 | ✓（SQLite） | 需自行實作 | ✓（provider 端） | 視實作而定 |
+| 一個檔案就能緊急煞車 | ✓（kill switch file） | 需自行實作 | ✗（通常要進後台改設定） | ✗ |
+| 換掉哪個 MCP server 都能套用 | ✓（proxy 層，與 server 無關） | — | — | ✓（同樣是 proxy 層） |
 | 解決「哪些 tool 能叫」vs.「叫太多次」 | 只管花費/次數 | — | — | 只管准駁，互補而非取代 |
 
 ## 注意事項

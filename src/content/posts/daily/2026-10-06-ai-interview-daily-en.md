@@ -12,7 +12,7 @@ series:
   order: 48
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-06-ai-interview-daily)
+> :globe: [中文版](/posts/daily/2026-10-06-ai-interview-daily)
 
 ## Today's Topic
 

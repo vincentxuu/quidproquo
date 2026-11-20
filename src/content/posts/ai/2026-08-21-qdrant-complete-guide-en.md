@@ -10,7 +10,7 @@ description: "A practical Qdrant guide covering installation, collection and pay
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-qdrant-complete-guide)
+> :globe: [中文版](/posts/ai/2026-08-21-qdrant-complete-guide)
 
 If you have not decided between Qdrant, Pinecone, Weaviate, and pgvector, start with the [vector database comparison](/posts/ai/2026-03-12-vector-database-comparison-en). This guide assumes you chose Qdrant and now need to turn “it stores embeddings” into an operable retrieval service.
 

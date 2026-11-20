@@ -25,7 +25,7 @@ glossary:
     context: "Often mixed with free climbing on big wall routes."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-disciplines-overview)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-disciplines-overview)
 
 After a while in the gym, or a few trips to sport routes at Long Dong, you have probably seen these clips: someone dropping off a sea arch into the water, someone sleeping in a portaledge halfway up El Capitan, someone swinging two ice tools up a frozen waterfall, someone climbing Taipei 101 without a rope in January 2026.
 

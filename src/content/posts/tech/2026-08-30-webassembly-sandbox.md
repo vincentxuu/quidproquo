@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-webassembly-sandbox-en)
+> :globe: [English version](/posts/tech/2026-08-30-webassembly-sandbox-en)
 
 ## 為什麼需要第四層隔離
 

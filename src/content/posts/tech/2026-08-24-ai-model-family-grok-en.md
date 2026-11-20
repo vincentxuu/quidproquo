@@ -23,7 +23,7 @@ glossary:
     definition: "xAI's image/video generation model line, billed per image/per second via the xAI API."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-ai-model-family-grok)
+> :globe: [中文版](/posts/tech/2026-08-24-ai-model-family-grok)
 
 On March 17, 2024, xAI dropped 314B-parameter [Grok-1](https://github.com/xai-org/grok-1) on GitHub under Apache 2.0 — while the industry debated whether to open-source at all, xAI open-sourced its largest MoE. That was Grok's starting point and, to date, its only open weight. Two and a half years later the same family spans four lines: the reasoning [Grok 4.6](https://docs.x.ai/docs/models/grok-4.6) (500K, $2/$6), the radically cheaper [Grok 4 Fast](https://x.ai/news/grok-4-fast) (2M), [Imagine](https://docs.x.ai/docs/models/grok-imagine-image-2.0) for image/video, and [Grok Build](https://github.com/xai-org/grok-build) living in the terminal. This post traces Grok from open-source bet to full product suite.
 

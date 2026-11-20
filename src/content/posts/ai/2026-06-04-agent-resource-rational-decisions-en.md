@@ -10,7 +10,7 @@ description: "From metareasoning and compute-optimal scaling to budget-aware pla
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-04-agent-resource-rational-decisions)
+> :globe: [中文版](/posts/ai/2026-06-04-agent-resource-rational-decisions)
 
 Every step an agent takes spends three kinds of resources: thinking burns tokens, fetching information burns tool calls, and sequential loops burn wall-clock time. "Optimal decision-making" sounds abstract, but it really comes down to asking at each step: **Is the expected quality improvement from spending a little more -- thinking one more step, making one more tool call, switching to a pricier model -- worth its marginal cost?** This is not a new problem. It is the revival of the classic AI concept of **bounded rationality (resource rationality)** in the context of LLM agents. This post walks through both the theoretical foundations and engineering implementations, converging on a single Pareto diagram at the end.
 

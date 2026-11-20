@@ -16,7 +16,7 @@ additionalSeries:
     order: 21
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-cloudflare-vectorize-rag-control)
+> :globe: [中文版](/posts/ai/2026-08-30-cloudflare-vectorize-rag-control)
 
 [Cloudflare AI Search](/posts/tech/2026-08-29-cloudflare-ai-search-guide-en) gives you a managed RAG pipeline: data sources, Markdown conversion, chunking, embeddings, Vectorize, BM25, reranking, and a Workers binding. So why use [Cloudflare Vectorize](https://developers.cloudflare.com/vectorize/) directly?
 

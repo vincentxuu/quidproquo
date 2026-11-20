@@ -12,7 +12,7 @@ series:
   order: 118
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-31-funding-phonic)
+> :globe: [中文版](/posts/daily/2026-10-31-funding-phonic)
 
 ## Funding Details
 

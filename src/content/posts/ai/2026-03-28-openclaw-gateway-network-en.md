@@ -13,7 +13,7 @@ description: "The network side of the OpenClaw Gateway: bind modes and port prec
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-gateway-network)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-gateway-network)
 
 One Gateway owns sessions, auth profiles, channels, and state; **everything else is a client** — including the macOS app's "node mode," which is just a node client over the Gateway WebSocket.
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 65
 ---
-> 🌏 [English version](/posts/daily/2026-07-28-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-28-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -68,9 +68,9 @@ AgentCompass 把評測流程抽象成三個獨立元件：**Benchmark**（定義
 ### 深入要點
 
 - 三層解耦設計讓社群貢獻更容易：加一個新 benchmark 不需要修改 harness，換一個新 LLM backend 也不需要改 benchmark
-- 非同步 runtime 允許並發執行多個 agent rollout，加速大規模評測（具體加速倍數未公開 **⚠️**）
+- 非同步 runtime 允許並發執行多個 agent rollout，加速大規模評測（具體加速倍數未公開 **:warning:**）
 - **Trajectory analysis 是亮點**：可以自動標記 reward hacking 行為，例如 agent 只修改測試檔而不是真正修好程式碼
-- 5 個能力維度涵蓋 planning、tool use、coding、web browsing 等主流 agent 任務（具體維度名稱需讀全文確認 **⚠️**）
+- 5 個能力維度涵蓋 planning、tool use、coding、web browsing 等主流 agent 任務（具體維度名稱需讀全文確認 **:warning:**）
 - 已支援 20+ 主流 benchmarks，可直接替代手工架設評測環境
 - 限制：重點在評測基礎設施，不提供 agent 訓練或部署功能；對已有成熟評測管線的大型團隊，改造遷移成本可能不低
 - 與 LangGraph／AutoGen 的關係：AgentCompass 位於評測層，可以把 LangGraph／AutoGen 建的 agent「插進去」評測，兩者不衝突
@@ -126,7 +126,7 @@ Agent 系統在研究環境表現優秀，但真正落地時會遇到截然不�
 - 金融系統案例：合規需求迫使在 agent pipeline 中插入明確的人工確認節點，這與「讓 agent 完全自主」的研究目標有本質張力
 - **開放挑戰**：長鏈任務中的錯誤傳播（error propagation）目前沒有通用解法；multi-agent 系統的 observability（可觀測性）工具還非常不成熟
 - 與 LangGraph 的關係：LangGraph 的 interrupt／checkpoint 機制正是論文所說 human-in-the-loop 設計的工程實踐，兩者互相呼應
-- 限制：tutorial／position 論文性質，深度分析依賴案例，缺乏大規模量化數據；部分結論是「常識」的系統化整理 **⚠️**
+- 限制：tutorial／position 論文性質，深度分析依賴案例，缺乏大規模量化數據；部分結論是「常識」的系統化整理 **:warning:**
 - 對 MCP 的啟示：論文強調「工具失敗要有 fallback」，這對 MCP server 設計者有直接意義——每個 tool 應聲明自己的失敗模式和 retry 語意
 
 ### Reviewer 一句話評
@@ -176,17 +176,17 @@ SWE-Bench Verified 63.6 分（vs. Qwen3.5-9B 53.1、Gemma4-12B 44.2）是有意�
 
 ### 深入要點
 
-- **SWE-Bench Verified**：63.6（Nanbeige4.2-3B）vs 53.1（Qwen3.5-9B）vs 44.2（Gemma4-12B）——數字來自論文自報 **⚠️**，第三方獨立評測尚待驗證
+- **SWE-Bench Verified**：63.6（Nanbeige4.2-3B）vs 53.1（Qwen3.5-9B）vs 44.2（Gemma4-12B）——數字來自論文自報 **:warning:**，第三方獨立評測尚待驗證
 - Looped Transformer 的核心 trade-off：不增加記憶體，但每個 token 的計算 FLOPs 增加，延遲影響需在目標場景實測
 - RL 訓練的 agentic RL 部分同時使用 outcome reward（任務最終結果）和 process reward（中間步驟品質），是近期穩定長鏈 agent 訓練的主流做法
 - 已在 HuggingFace 開源（Nanbeige/Nanbeige4.2-3B），可直接下載試用
 - 與 LangGraph／AutoGen 的關係：可直接作為 backbone 插入任何支援 OpenAI-compatible API 的 agent 框架
-- 限制：benchmarks 主要集中在 coding agent（SWE-Bench 類），web browsing 與 general knowledge agent 的表現尚不清楚 **⚠️**；Looped Transformer 的額外計算延遲在論文中未充分量化 **⚠️**
+- 限制：benchmarks 主要集中在 coding agent（SWE-Bench 類），web browsing 與 general knowledge agent 的表現尚不清楚 **:warning:**；Looped Transformer 的額外計算延遲在論文中未充分量化 **:warning:**
 - BOSS 直聘的產品場景（求職履歷分析、崗位匹配）可能使訓練數據偏向特定任務分佈，遷移到其他領域時需留意 generalization 問題
 
 ### Reviewer 一句話評
 
-benchmark 數字吸睛，但均為自報數據且測試集集中在 coding，有「選對手」之嫌 **⚠️**；Looped Transformer 的優勢究竟來自架構本身還是訓練資料的多樣性，論文缺乏清楚的消融實驗（ablation）拆分。整體算穩健的工程論文，但還不是技術突破。
+benchmark 數字吸睛，但均為自報數據且測試集集中在 coding，有「選對手」之嫌 **:warning:**；Looped Transformer 的優勢究竟來自架構本身還是訓練資料的多樣性，論文缺乏清楚的消融實驗（ablation）拆分。整體算穩健的工程論文，但還不是技術突破。
 
 ### 給你的 take-away
 

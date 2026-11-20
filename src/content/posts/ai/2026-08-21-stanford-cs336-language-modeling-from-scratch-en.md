@@ -16,7 +16,7 @@ description: "A deep read of Stanford CS336: Language Modeling from Scratch, bas
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)
+> :globe: [中文版](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

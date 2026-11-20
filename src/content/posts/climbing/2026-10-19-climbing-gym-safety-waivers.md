@@ -26,7 +26,7 @@ glossary:
     context: "標準要求岩壁標示製造商、標準編號、安裝日期和下次主要檢查日期。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-gym-safety-waivers-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-gym-safety-waivers-en)
 
 第一次去岩館，櫃台會先請你在平板或紙上簽一份文件。多數人看都沒看就簽了。那份文件寫了什麼？如果你在館內受傷，它會讓你拿不到賠償嗎？岩館說「我們有保險」，那個保險保的是你嗎？
 

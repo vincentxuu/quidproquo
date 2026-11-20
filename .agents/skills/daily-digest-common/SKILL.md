@@ -81,12 +81,14 @@ pnpm check:lang-parity
 pnpm check:tw            # A 級用語（用戶→使用者、技術棧→tech stack、對標、賦能、品類…）擋 commit，每次必跑
 pnpm check:series-order  # series order 撞號擋 commit
 pnpm check:diagram-text  # 圖裡的字疊字、壓框線、線穿字、超出 viewBox；純 Node，沒有瀏覽器也照樣擋
+pnpm emoji:fix src/content/posts/daily/${TODAY}-*.md  # 原始稿不放 emoji：🌏 → :globe:、✅ → ✓、⚠️ → :warning:，先自動換掉
+pnpm check:no-emoji      # 還有 emoji 就擋 commit（code 區塊裡的不算）
 # 有 diagram／flow-diagram 區塊的新檔，中英各跑一次（沒有區塊的檔案不要跑，腳本會回 exit 2）
 grep -lE '^```(diagram|flow-diagram)$' src/content/posts/daily/${TODAY}-*.md | while read f; do
   pnpm exec tsx scripts/diagram-preview.ts "$f" --out "/tmp/diagram-preview/$(basename "$f" .md)" --skip-if-no-browser
 done```
 
-五項加 diagram-preview 都必須 0 error／0 blocking 才繼續（`check:diagram-text` 或 diagram-preview 有 ✗ 就修圖：最常見的是標題和右對齊的小字擠在同一列，把小字移到標題下一行、左對齊。環境沒有瀏覽器而 diagram-preview 被 skip 時，`check:diagram-text` 仍然必須 0 error，並在 daily-log 註明「diagram-preview 未跑：無瀏覽器，check:diagram-text 已過」）。有 error 就修，不准 `--no-verify` 繞過。`check:tw` 的 `[WARN]` 是 B 級看語境，`[ERROR]` 才擋。
+六項加 diagram-preview 都必須 0 error／0 blocking 才繼續（`check:diagram-text` 或 diagram-preview 有 ✗ 就修圖：最常見的是標題和右對齊的小字擠在同一列，把小字移到標題下一行、左對齊。環境沒有瀏覽器而 diagram-preview 被 skip 時，`check:diagram-text` 仍然必須 0 error，並在 daily-log 註明「diagram-preview 未跑：無瀏覽器，check:diagram-text 已過」）。有 error 就修，不准 `--no-verify` 繞過。`check:tw` 的 `[WARN]` 是 B 級看語境，`[ERROR]` 才擋。
 
 ### E5：commit + push
 

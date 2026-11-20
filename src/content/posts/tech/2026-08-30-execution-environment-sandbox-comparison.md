@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-execution-environment-sandbox-comparison-en)
+> :globe: [English version](/posts/tech/2026-08-30-execution-environment-sandbox-comparison-en)
 
 讓模型幫你跑程式碼之前，先回答一個比模型能力更重要的問題：程式碼在哪裡跑、能看到什麼、能碰到誰。這篇把近一年各家執行環境的實際設計，整理成一條可對照的隔離光譜。
 

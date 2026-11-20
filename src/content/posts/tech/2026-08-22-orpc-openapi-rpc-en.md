@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-orpc-openapi-rpc)
+> :globe: [中文版](/posts/tech/2026-08-22-orpc-openapi-rpc)
 
 [oRPC](https://orpc.dev/) addresses a common TypeScript API choice. Internal development wants function-like end-to-end types, while external consumers need conventional HTTP paths, OpenAPI documentation, and language-neutral clients. The same procedures can run through an RPCHandler or an OpenAPIHandler.
 

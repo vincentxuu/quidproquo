@@ -13,7 +13,7 @@ description: "A preparation guide for AWS Certified Machine Learning Engineer �
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-08-aws-mla-c02-prep-guide)
+> :globe: [中文版](/posts/ai/2026-10-08-aws-mla-c02-prep-guide)
 >
 > This is a preparation path built from official material, not an exam-day account. I have not sat this exam. Every "what it tests" points back to the [official AWS exam guide](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-02/machine-learning-engineer-associate-02.html). No leaked questions. Verified 2026-10-08.
 

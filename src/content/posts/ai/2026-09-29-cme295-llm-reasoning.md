@@ -30,7 +30,7 @@ glossary:
     context: "推理類 benchmark 的主要指標；k=1 就是只看單次生成。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-llm-reasoning-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-llm-reasoning-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

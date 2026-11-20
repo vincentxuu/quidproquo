@@ -11,7 +11,7 @@ series:
   order: 44
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-28-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-09-28-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ None of today's three rising repos is a new agent framework at its core. All thr
 
 ## Trending Repos
 
-### BuilderIO/agent-native ⭐ 6,860
+### BuilderIO/agent-native ★ 6,860
 
 [GitHub](https://github.com/BuilderIO/agent-native)　·　TypeScript　·　No LICENSE file
 
@@ -30,7 +30,7 @@ None of today's three rising repos is a new agent framework at its core. All thr
 
 ---
 
-### yynxxxxx/Codex-X ⭐ 3,959
+### yynxxxxx/Codex-X ★ 3,959
 
 [GitHub](https://github.com/yynxxxxx/Codex-X)　·　Rust　·　MIT
 
@@ -41,7 +41,7 @@ None of today's three rising repos is a new agent framework at its core. All thr
 
 ---
 
-### career-ops-hq/career-ops ⭐ 72,920
+### career-ops-hq/career-ops ★ 72,920
 
 [GitHub](https://github.com/career-ops-hq/career-ops)　·　JavaScript　·　MIT
 

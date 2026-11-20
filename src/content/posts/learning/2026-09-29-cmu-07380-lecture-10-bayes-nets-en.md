@@ -14,7 +14,7 @@ description: "Pre-reading guide to CMU 07-380 Fall 2026 Lecture 10, Bayes Nets: 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-10-bayes-nets)
+> :globe: [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-10-bayes-nets)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ description: "Deep dive into pi-mono Remote Session System: pi-protocol Defines 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-remote-session)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-remote-session)
 
 ## TL;DR
 

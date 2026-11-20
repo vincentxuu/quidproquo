@@ -12,7 +12,7 @@ series:
   order: 113
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-29-funding-plato)
+> :globe: [中文版](/posts/daily/2026-10-29-funding-plato)
 
 ## Funding Details
 

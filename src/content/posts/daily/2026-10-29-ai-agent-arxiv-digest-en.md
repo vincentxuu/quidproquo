@@ -75,7 +75,7 @@ Memory system design has proliferated over the past two years — summarization,
 - LongMemEval is relatively retrieval-friendly; PersonaMem-v2 and MINT-Eval involve more complex aggregation and multi-interference reasoning, where memory systems' gaps widen further
 - Deployment threshold: before adopting a memory system, run the same benchmark suite against RAG(1rd)/(2rd) baselines first — otherwise it's hard to tell whether the new system is genuinely helpful or just looks sophisticated
 - Framework relevance: evaluated systems like A-Mem, MemOS, HippoRAG2, and MemoryOS are widely used open-source memory solutions, so these results directly inform current tech-stack decisions
-- Limitation: benchmarks skew static, offline, English-only; PersonaMem-v2 and MINT-Eval evaluated on 10–20% subsets due to compute/API cost, no frontier model stronger than GPT-5.6 Luna tested ⚠️ (author-acknowledged limitation, awaiting larger-scale replication)
+- Limitation: benchmarks skew static, offline, English-only; PersonaMem-v2 and MINT-Eval evaluated on 10–20% subsets due to compute/API cost, no frontier model stronger than GPT-5.6 Luna tested :warning: (author-acknowledged limitation, awaiting larger-scale replication)
 
 ### Reviewer's one-liner
 
@@ -135,7 +135,7 @@ Memory-agent benchmarks typically collapse retrieval and answer generation into 
 - A 32K-history replication points the same direction: BM25-64 (69%) outperforms BM25-512 (58%)
 - Deployment threshold: memory systems need an active mechanism to distinguish "still valid" from "superseded" facts, rather than relying on semantic-similarity ranking to surface both together
 - Framework relevance: most vector-retrieval-based memory (RAG, HippoRAG-style systems) has no built-in version/validity tagging — this is a direct warning for that design pattern
-- Limitation: tested on only 2 open-weight Qwen models, deterministic decoding, 1 synthetic benchmark, single-hop chains of at most two statements, and does not rule out the confound that stale values may align better with the model's world-knowledge priors ⚠️ (authors explicitly avoid a mechanistic causal claim)
+- Limitation: tested on only 2 open-weight Qwen models, deterministic decoding, 1 synthetic benchmark, single-hop chains of at most two statements, and does not rule out the confound that stale values may align better with the model's world-knowledge priors :warning: (authors explicitly avoid a mechanistic causal claim)
 
 ### Reviewer's one-liner
 
@@ -191,7 +191,7 @@ Social psychology has long documented that hidden-profile-style group decisions 
 ### Deeper points
 
 - A perfect relevance filter still loses 23 to 31 percentage points to rarest-first selection in the classic hidden-profile configuration, because decoys are on-topic by design
-- Removing attribution tags, or randomly reassigning them while keeping statement order fixed, raises accuracy by 13 to 24 percentage points in the classic configuration ⚠️ (based on the authors' own synthetic CrossProfile benchmark, external replication pending)
+- Removing attribution tags, or randomly reassigning them while keeping statement order fixed, raises accuracy by 13 to 24 percentage points in the classic configuration :warning: (based on the authors' own synthetic CrossProfile benchmark, external replication pending)
 - Under natural discussion conditions (real multi-round message exchange rather than scripted statements), the complete transcript yields lower accuracy than no notes at all — evidence is lost or distorted before memory ever acts on it
 - A prompt change (asking agents to state evidence before recommending) helps only Llama, raising its REF accuracy by 25.1–30.8 percentage points, with no detected change for Qwen — showing the fix's effect is model-dependent
 - Deployment threshold: multi-agent debate or deliberation systems should check whether their decision model treats "corroborated by multiple sources" as a proxy for independent evidence, rather than analyzing the actual evidence balance, before designing memory-curation rules

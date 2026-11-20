@@ -13,7 +13,7 @@ series:
   order: 30
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-10-ai-model-family-longcat-en)
+> :globe: [English version](/posts/tech/2026-10-10-ai-model-family-longcat-en)
 
 美團的 **LongCat** 是開放權重語言模型家族。Flash 世代用動態 MoE 分配每個 token 的計算量；2.0 把重點推向長上下文與程式碼 agent；2.5 再把視覺折進同一個 token 流，並用大規模長任務強化學習補上 agentic coding。這篇寫給要評估 LongCat 的 Agent 開發者：現在該用哪個版本、它強在哪些任務、自架要什麼條件。
 

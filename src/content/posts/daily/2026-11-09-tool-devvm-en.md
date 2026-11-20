@@ -12,7 +12,7 @@ series:
   order: 76
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-09-tool-devvm)
+> :globe: [中文版](/posts/daily/2026-11-09-tool-devvm)
 
 ## Tool info
 
@@ -123,9 +123,9 @@ devvm network log --blocked
 | | devvm | Docker container sandbox | Running directly on the host |
 |---|---|---|---|
 | Isolation layer | VM (its own kernel) | Container (shares the host kernel) | None |
-| Secrets enter the sandbox | ❌ only a placeholder; the real value stays in the host proxy | Usually the whole env / mounted in | — |
+| Secrets enter the sandbox | ✗ only a placeholder; the real value stays in the host proxy | Usually the whole env / mounted in | — |
 | Default network | Allowlist — only hosts you permit | Depends on your Docker setup, often shares the host's network | Same as the host |
-| Isolates multiple agent configs | ✅ one set per VM | You manage the volumes yourself | ❌ everything stacked on one machine |
+| Isolates multiple agent configs | ✓ one set per VM | You manage the volumes yourself | ✗ everything stacked on one machine |
 | Install effort | One install command, `devvm doctor` for a health check | Need to know Dockerfiles, volumes, networking | None |
 
 ## Watch out for

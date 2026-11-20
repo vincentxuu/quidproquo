@@ -28,7 +28,7 @@ glossary:
     context: "Assignment 1 Q4 replaces raw pixels with HOG plus an HSV color histogram and looks at how accuracy changes."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

@@ -12,7 +12,7 @@ series:
   order: 91
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-14-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-14-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -156,18 +156,18 @@ Mastra @mastra/core v1.83.0 讓每個 Agent 都能發可重連的 resumable stre
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-14](/posts/daily/2026-11-14-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-14](/posts/daily/2026-11-14-ai-agent-github-digest)
-- 📄 [模型卡｜Claude Fable 5.2](/posts/daily/2026-11-14-model-anthropic-claude-fable-5-2)
-- 📄 [資安警報｜prompt injection 串聯 GitHub Actions 漏洞](/posts/daily/2026-11-14-security-codex-npm-supply-chain-prompt-injection)
-- 📄 [框架更新｜Mastra @mastra/core v1.83.0](/posts/daily/2026-11-14-framework-mastra-core-v1.83.0)
-- 📄 [融資速報｜Bay Series A $37M](/posts/daily/2026-11-14-funding-bay)
-- 📄 [融資速報｜Kindo $30M 成長輪](/posts/daily/2026-11-14-funding-kindo)
-- 📄 [融資速報｜Nebuly Series A $21M](/posts/daily/2026-11-14-funding-nebuly)
-- 📄 [定價追蹤｜Google 收掉 Jules 編碼 Agent](/posts/daily/2026-11-14-pricing-google-jules-coding-agent-shutdown)
-- 📄 [工具推薦｜ha-mcp](/posts/daily/2026-11-14-tool-ha-mcp)
-- 📄 [AI Engineer 面試準備日報](/posts/daily/2026-11-14-ai-interview-daily)
-- 📄 [Product Builder 面試準備日報](/posts/daily/2026-11-14-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-14](/posts/daily/2026-11-14-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-14](/posts/daily/2026-11-14-ai-agent-github-digest)
+- :file: [模型卡｜Claude Fable 5.2](/posts/daily/2026-11-14-model-anthropic-claude-fable-5-2)
+- :file: [資安警報｜prompt injection 串聯 GitHub Actions 漏洞](/posts/daily/2026-11-14-security-codex-npm-supply-chain-prompt-injection)
+- :file: [框架更新｜Mastra @mastra/core v1.83.0](/posts/daily/2026-11-14-framework-mastra-core-v1.83.0)
+- :file: [融資速報｜Bay Series A $37M](/posts/daily/2026-11-14-funding-bay)
+- :file: [融資速報｜Kindo $30M 成長輪](/posts/daily/2026-11-14-funding-kindo)
+- :file: [融資速報｜Nebuly Series A $21M](/posts/daily/2026-11-14-funding-nebuly)
+- :file: [定價追蹤｜Google 收掉 Jules 編碼 Agent](/posts/daily/2026-11-14-pricing-google-jules-coding-agent-shutdown)
+- :file: [工具推薦｜ha-mcp](/posts/daily/2026-11-14-tool-ha-mcp)
+- :file: [AI Engineer 面試準備日報](/posts/daily/2026-11-14-ai-interview-daily)
+- :file: [Product Builder 面試準備日報](/posts/daily/2026-11-14-product-builder-interview-daily)
 
 ## 明日關注
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-sglang-inference-server-en)
+> :globe: [English version](/posts/tech/2026-08-22-sglang-inference-server-en)
 
 [SGLang](https://docs.sglang.io/) 是為大型語言模型與多模態生成模型設計的推論框架。它把模型執行引擎、OpenAI 相容 HTTP API、平行化與快取策略包在一起，讓應用程式可以把原本呼叫雲端模型的 client，改接到自己的 GPU endpoint。
 

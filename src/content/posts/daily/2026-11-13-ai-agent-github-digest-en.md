@@ -11,7 +11,7 @@ series:
   order: 90
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-13-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-13-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -47,7 +47,7 @@ caption: Illustrative grouping for this digest, not an industry-standard taxonom
 
 ## Trending Repos
 
-### DIYgod/pinky ⭐ 1,992 (1 week old)
+### DIYgod/pinky ★ 1,992 (1 week old)
 
 [GitHub](https://github.com/DIYgod/pinky) · Go · Apache-2.0
 
@@ -58,7 +58,7 @@ caption: Illustrative grouping for this digest, not an industry-standard taxonom
 
 ---
 
-### RapidSailorFreeze/studsmith ⭐ 95 (5 days old)
+### RapidSailorFreeze/studsmith ★ 95 (5 days old)
 
 [GitHub](https://github.com/RapidSailorFreeze/studsmith) · Windows app · Free
 
@@ -69,7 +69,7 @@ caption: Illustrative grouping for this digest, not an industry-standard taxonom
 
 ---
 
-### nengong/download-anything ⭐ 221 (9 days old)
+### nengong/download-anything ★ 221 (9 days old)
 
 [GitHub](https://github.com/nengong/download-anything) · Python · README states MIT
 

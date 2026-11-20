@@ -21,7 +21,7 @@ glossary:
     context: "PA2 Part A Step 2 起的實作基礎，用來消除每次 run() 都建立 thread 的成本。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

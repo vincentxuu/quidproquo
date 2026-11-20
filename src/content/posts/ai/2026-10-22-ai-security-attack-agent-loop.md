@@ -14,7 +14,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-attack-agent-loop-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-attack-agent-loop-en)
 
 把模型接上 HTTP 工具後，它可以自己選下一步，但也可能一直重試同一個失敗請求、換到另一個網域，或在輸出裡宣布已經成功。真正需要設計的是：一次觀察如何改變下一個動作，以及誰有權讓它停下來。
 

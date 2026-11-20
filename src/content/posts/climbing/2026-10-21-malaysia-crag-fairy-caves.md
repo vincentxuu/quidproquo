@@ -13,7 +13,7 @@ description: "砂拉越 Fairy Caves 攀岩指南：從古晉搭公車與計程�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-fairy-caves-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-fairy-caves-en)
 
 馬來西亞東馬的攀岩只有幾個點，Fairy Caves 是其中資料最齊的一個：九個子區、88 條路線、每條都有名字、固定點規格一致，而且離古晉不到一小時車程。代價是這裡的規則多半寫在社群之間——封閉沒有公告、收費兩個版本、起攀要靠人帶。
 

@@ -23,7 +23,7 @@ glossary:
     context: "The simulator in section 2.4 uses it to show why decode at batch size 1 always sits on the bandwidth side."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-learn-inference-interactive-guide)
+> :globe: [中文版](/posts/ai/2026-09-29-learn-inference-interactive-guide)
 
 "Training teaches a model what it knows. Inference is everything that happens afterward, every time somebody uses it, and it is where the bill actually lands." That is the opening line of [Learn Inference](https://learn-inference.com/).
 

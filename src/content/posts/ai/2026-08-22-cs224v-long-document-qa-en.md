@@ -12,7 +12,7 @@ tldr: "SLIDERS induces a question-specific schema, applies semantic chunking and
 description: "CS224V Long-Document QA: training versus chunking, SLIDERS schematization, semantic chunking, contextualized extraction, reconciliation, and preliminary evaluation."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-long-document-qa)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-long-document-qa)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

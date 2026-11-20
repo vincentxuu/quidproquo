@@ -11,7 +11,7 @@ series:
   order: 67
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-30-security-panos-php2shell-ai-assisted-breach-en)
+> :globe: [English version](/posts/daily/2026-10-30-security-panos-php2shell-ai-assisted-breach-en)
 
 ## 事件概述
 

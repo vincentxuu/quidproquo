@@ -34,7 +34,7 @@
 7. **顏色、字級、間距、圓角都從 token 來。** 元件 CSS 用 `var(--token)`；token 只能在 tokens.css 宣告，別處重宣告會讓 `pnpm verify` 失敗（scripts/check-chat-style.mjs:31–35、77–84）。圖表 SVG 禁止寫字面色，建置時直接報錯（`src/plugins/remarkDiagram.ts:32`）。
 8. **淺色、深色都要成立。** 有深色值的 token 寫在 `[data-theme="dark"]`（tokens.css:140–186）；刻意兩種主題共用的（媒體疊層、陰影、`--text-on-accent`、程式碼區塊等）在 tokens.css:46、73、179 註明。深色模式由 `[data-theme="dark"]` 切換（Layout:102–109）。
 9. **元件由 Markdown 語法決定，不在文章裡寫樣式。** 文章裡沒有任何 `style="`；圖表 fence 也禁止 `style` 屬性與 `<style>`（remarkDiagram.ts:28–29）。需要新樣式就新增元件，不在文章裡臨時拼。
-10. **介面與渲染後的文章不出現 emoji，一律用 koboyo 圖示。** 介面元件用 `Icons.astro`；文章 Markdown 裡的 emoji 由 `rehypeNoEmoji` 在建置時換成同一套 koboyo SVG、或換成文字、或移除（§4.24），原始 Markdown 不改。frontmatter 文字（標題、描述、TL;DR）用 `stripEmojiText` 轉成單色文字符號（src/plugins/rehypeNoEmoji.ts:515–533）。新增介面需要圖示時從 `src/components/icons/koboyo.ts` 挑，缺的就補一個 koboyo 圖示，不要貼 emoji。
+10. **介面與渲染後的文章不出現 emoji，一律用 koboyo 圖示。** 介面元件用 `Icons.astro`；文章原始 Markdown 不放 emoji（`pnpm check:no-emoji` 擋 commit），要圖示就寫 shortcode（`:globe:`、`:warning:`）或文字記號（✓ ✗ ★），由 `rehypeNoEmoji` 在建置時換成同一套 koboyo SVG（§4.24）。frontmatter 文字（標題、描述、TL;DR）用 `stripEmojiText` 轉成單色文字符號（src/plugins/rehypeNoEmoji.ts:515–533）。新增介面需要圖示時從 `src/components/icons/koboyo.ts` 挑，缺的就補一個 koboyo 圖示，不要貼 emoji。
 
 ---
 
@@ -482,11 +482,12 @@ tokens.css 提供圖表的原始色，`diagram.css` 再衍生成作者用的 `--
 
 ### 4.24 emoji 與 koboyo 圖示
 
-站上不顯示 emoji（原則 10）。文章 Markdown 照寫，建置時由 `src/plugins/rehypeNoEmoji.ts` 改寫；它是 `rehypePlugins` 的最後一個（astro.config.mjs:450–451），因為 Astro 在使用者 rehype 外掛之後才收集標題，TOC 與標題 id 才會用改寫後的文字（rehypeNoEmoji.ts:26–27 註解）。`pre`、`code`、`kbd`、`samp`、`svg`、`math` 等裡面的文字不動（rehypeNoEmoji.ts:44）。
+站上不顯示 emoji，文章原始稿也不放（原則 10）。原始稿寫 shortcode 或文字記號，建置時由 `src/plugins/rehypeNoEmoji.ts` 改寫；外掛仍認得 emoji 本身，所以舊資料（例如 video-gallery 的影片標題）照樣會被換掉。它是 `rehypePlugins` 的最後一個（astro.config.mjs:450–451），因為 Astro 在使用者 rehype 外掛之後才收集標題，TOC 與標題 id 才會用改寫後的文字（rehypeNoEmoji.ts:26–27 註解）。`pre`、`code`、`kbd`、`samp`、`svg`、`math` 等裡面的文字不動（rehypeNoEmoji.ts:44）。
 
 - **圖示的長相**：與介面同一套 koboyo SVG，加粗算法共用（`fattenStroke`，render.ts:39；把填色外框再描 0.9px 邊，`FATTEN_PX`，render.ts:15，小尺寸才不會像細線）。`Icons.astro` 用 `renderIconSvg`（render.ts:47）輸出完整的 SVG。
 - **文章裡用 sprite**：每個圖示只輸出 `<svg class="inline-icon" width="1em" height="1em"><use href="#ki-<name>"/></svg>`（renderIconUse，render.ts:71）。外掛把這篇用到的圖示名稱寫進 `remarkPluginFrontmatter.inlineIcons`（rehypeNoEmoji.ts:514），文章頁在 `<Content />` 後面輸出一個隱藏的 sprite，每個 `<symbol id="ki-<name>">` 只出現一次（renderIconSprite，render.ts:80；Post:337）。sprite 是 `width="0" height="0" style="position:absolute"`，不用 `display:none`（有些瀏覽器會因此畫不出 `<use>`），也是 `.content` 的最後一個子元素，不影響 `:first-child` 類選擇器。sprite 不放進 Markdown 渲染結果，是因為那份 HTML 會存進 Astro 的 content store：每篇都有的地球圖示路徑約 2 KB，六千多篇就是 14 MB，曾讓 CI 的 dev server 記憶體用完。改成 sprite 後，content store 裡的圖示相關字串從約 17.4 MB 降到約 2 MB。**限制**：只有文章頁會輸出 sprite；把渲染後的文章 HTML 拿到別處用的地方（目前沒有：RSS 與 llms.txt 只用 frontmatter，D1 同步與 Ask AI 用原始 Markdown，Pagefind 讀的是完整頁面）要自己補 sprite，否則圖示會是空的。內文裡的圖示帶 `class="inline-icon"`，寬高 1em、`vertical-align: -0.125em`、顏色跟著文字（Layout:632–633），所以在標題、表格、連結裡都跟字一樣大、一樣色。
-- **對照表**（EMOJI_ICONS，rehypeNoEmoji.ts:64–121）：
+- **原始稿怎麼寫**：shortcode 先展開成對應的 emoji，再走同一套規則，所以 `:globe:` 與 🌏 的輸出完全相同（SHORTCODES、expandShortcodes，rehypeNoEmoji.ts）。是／否寫 `✓`／`✗`，與 ✅／❌ 畫成同一個 `check`／`x` 圖示、同樣有「是」「否」報讀；星等與數量寫 `★`／`☆`。shortcode 一覽：`globe` `file` `pencil` `book` `warning` `question` `target` `pin` `clock` `hourglass` `compass` `film` `bulb` `lock` `construction` `search` `refresh` `coin` `receipt` `puzzle` `shield` `wrench` `settings` `link` `checklist` `home`，色點 `red-circle` `orange-circle` `yellow-circle` `green-circle` `blue-circle` `purple-circle` `brown-circle` `black-circle` `white-circle`，色塊把 `-circle` 換成 `-square`。code 區塊與 inline code 裡的 emoji 照原樣顯示，檢查也不擋。舊稿或貼進來的內容含 emoji 時，`pnpm emoji:fix <檔案>`（scripts/convert-emoji-to-source.ts）換成渲染結果相同的寫法；2026-11-20 全站 6,741 篇就是用它轉換的，轉換前後經同一條 Markdown → HTML 管線比對，只有 6 篇差在不可見的行尾空白；另 79 篇本來就有其他逐篇檢查的問題（process-leak、diagram-preview），暫列 `scripts/config/no-emoji-baseline.json`，全站檢查不擋，改到時 `--staged` 會要求一起轉換。
+- **對照表**（EMOJI_ICONS，rehypeNoEmoji.ts）：
 
   | emoji | koboyo 圖示 | 螢幕報讀 |
   |---|---|---|
@@ -494,8 +495,8 @@ tokens.css 提供圖表的原始色，`diagram.css` 再衍生成作者用的 `--
   | 📄 📃 | `file-text` | 裝飾 |
   | 📝 ✏️ | `pencil` | 裝飾 |
   | 📖 📚 | `book-open` | 裝飾 |
-  | ✅ ✔️ ☑️ | `check` | 「是」／Yes |
-  | ❌ ❎ ✖️ ⛔ | `x` | 「否」／No |
+  | ✅ ✔️ ☑️ ✓ | `check` | 「是」／Yes |
+  | ❌ ❎ ✖️ ⛔ ✗ | `x` | 「否」／No |
   | ⚠️ 🚨 | `alert-triangle` | 「注意」／Caution |
   | ❓ ❔ | `help-circle` | 「待確認」／Unclear |
   | ⭐ 🌟 | 先當成 `★`，照下面「星號」的規則處理 | 依用法 |
@@ -528,11 +529,11 @@ tokens.css 提供圖表的原始色，`diagram.css` 再衍生成作者用的 `--
   - **數量**：★ 緊貼數字（`23.2k★`、`★ 1.2k`、`MP 2.5★`），或表頭只有一顆 ★（GitHub 星數欄），輸出一顆帶 `role="img"`、`aria-label`「星」／`stars` 的實心星。
   - **記號**：其他單獨的 ★（`★ 人類看得懂嗎`）與單獨的 ☆（`スター☆トレック` 這種名字裡的）是裝飾，`aria-hidden`。
   - remark 外掛輸出成原始 HTML 的內容（例如 video-gallery 的路線表）在 rehype-raw 之前還是字串，外掛會對標籤之間的文字做同樣的改寫，`code`、`pre` 等裡面照樣不動（rewriteRawHtml，rehypeNoEmoji.ts:394）。
-- **保留原樣**：本來就是單色文字的符號 `© ® ™`、箭頭 `←`…`⇿`、`✓ ✗ ☐ ☒`，只去掉後面的 VS16（KEEP_TEXT_RE，rehypeNoEmoji.ts:170）。frontmatter 裡的 ★ ☆ 經 `stripEmojiText` 仍是文字。
+- **保留原樣**：本來就是單色文字的符號 `© ® ™`、箭頭 `←`…`⇿`、`☐ ☒`，只去掉後面的 VS16（`✓ ✗` 從 2026-11-20 起改畫成圖示，見對照表）（KEEP_TEXT_RE，rehypeNoEmoji.ts:170）。frontmatter 裡的 ★ ☆ 經 `stripEmojiText` 仍是文字。
 - **移除**：以上都沒有對應的 emoji（例如 🚀、🔥、👉、表情臉、旗幟、ZWJ 組合）連同後面那個空格一起刪掉。刪掉後若整個元素變空（例如表格儲存格），補一個 `•`；🆕 單獨出現時補 `NEW`；`（🚀）` 這類只剩括號的會連括號一起刪（rehypeNoEmoji.ts:166–167、239–256）。
 - **frontmatter 文字**：標題、描述、TL;DR 不經過 Markdown 樹，顯示時用 `stripEmojiText` 轉成純文字：狀態標記變成單色符號（`✅` → `✓`、`❌` → `✗`、`⚠️` → `⚠︎`、`❓` → `?`、`⭐` → `★`），色點變 `●`／`■`（空心 `○`／`□`），其餘刪掉（rehypeNoEmoji.ts:515–533）。目前用在 TL;DR 方塊（Post:217）、文章卡片摘要（src/components/PostCard.astro:26）、video-gallery 的影片標題與頻道名（src/plugins/remarkVideoGallery.ts:69–70）。
-- **何時用**：寫文章時照常可以打 emoji，外掛會處理；但要表達狀態（是／否／注意）時，用上表有報讀文字的那幾個，意思才不會丟。介面元件一律直接用 `Icons.astro`，不要放 emoji。
-- **何時不用**：不要為了裝飾在標題前加 emoji，多半會被刪掉；需要新的圖示對應時，先在 `koboyo.ts` 補圖示、再加進 EMOJI_ICONS。
+- **何時用**：要表達狀態時用有報讀文字的那幾個（`✓`、`✗`、`:warning:`、`:question:`），意思才不會丟；其他圖示用 shortcode。介面元件一律直接用 `Icons.astro`，不要放 emoji。
+- **何時不用**：不要為了裝飾在標題前加 emoji，多半會被刪掉；需要新的圖示對應時，先在 `koboyo.ts` 補圖示、再加進 EMOJI_ICONS 與 SHORTCODES。
 - **CSS**：Layout:632–633；外掛 `src/plugins/rehypeNoEmoji.ts`；渲染 `src/components/icons/render.ts`。
 
 ---

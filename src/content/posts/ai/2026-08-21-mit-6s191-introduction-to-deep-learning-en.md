@@ -13,7 +13,7 @@ description: "A practical guide to MIT 6.S191 Introduction to Deep Learning 2026
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)
+> :globe: [中文版](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

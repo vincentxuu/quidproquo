@@ -13,7 +13,7 @@ description: "A guide to the Hyugami crag in Yame City, Fukuoka: andesite rock, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-hyugami)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-hyugami)
 
 Hyugami (日向神, ひゅうがみ; reading per [ROCKTOPO](https://www.rocktopo.net/areas/168)) is in the Hyugami gorge (日向神峡) in Yabe, Yame City, at the southern tip of Fukuoka Prefecture, around Hyugami Dam. [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E6%97%A5%E5%90%91%E7%A5%9E/) puts it this way: "安山岩の大きな一枚岩が谷をはさんで連立している姿は圧巻である" (huge single slabs of andesite line both sides of the valley — an overwhelming sight). Those walls once carried many long, mostly aid routes; today the main game is single-pitch bolted sport climbing along their bases.
 

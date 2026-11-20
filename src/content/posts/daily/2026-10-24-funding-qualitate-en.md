@@ -12,7 +12,7 @@ series:
   order: 105
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-24-funding-qualitate)
+> :globe: [中文版](/posts/daily/2026-10-24-funding-qualitate)
 
 ## Funding Details
 

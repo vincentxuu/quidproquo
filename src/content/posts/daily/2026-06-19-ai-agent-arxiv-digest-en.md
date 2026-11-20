@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 26
 ---
-> 🌏 [中文版](/posts/daily/2026-06-19-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-19-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -124,7 +124,7 @@ If MAS's advantage mainly comes from "task decomposition," CoT-SC can achieve th
 
 - Core thesis: The traditional comparison target for MAS is "single agent without CoT," which is too weak a baseline; switching to compute-equivalent CoT-SC, MAS advantages shrink dramatically or vanish
 - Evaluation datasets: BrowseComp-Plus (interactive multi-step web search) + traditional reasoning datasets (logic reasoning, knowledge QA, multiple domains)
-- Key numbers: Auto-MAS compute costs up to **10x** that of CoT-SC, yet performance is equal to or lower than CoT-SC ⚠️ (detailed breakdowns not fully available in public search results — check the original paper)
+- Key numbers: Auto-MAS compute costs up to **10x** that of CoT-SC, yet performance is equal to or lower than CoT-SC :warning: (detailed breakdowns not fully available in public search results — check the original paper)
 - Cites MASBench (Ke et al., 2026) as a more controlled MAS evaluation framework
 - Key distinction: This paper only tests "auto-generated MAS"; hand-designed MAS may still have advantages in specific scenarios
 - Limitation: Does not cover hand-designed MAS (e.g., OpenAI Swarm best practices); BrowseComp-Plus is a specific web task, not representative of all agent applications
@@ -133,7 +133,7 @@ If MAS's advantage mainly comes from "task decomposition," CoT-SC can achieve th
 
 ### Reviewer's Take
 
-Extremely important research question that breaks a widely held but unexamined industry assumption; however, the "auto-generated MAS" setup has a bit of a straw-man quality — AutoGen's best practice is human-designed agent roles, so the conclusions lose some persuasive power for those scenarios ⚠️. Worth reading, but don't directly conclude "MAS is useless."
+Extremely important research question that breaks a widely held but unexamined industry assumption; however, the "auto-generated MAS" setup has a bit of a straw-man quality — AutoGen's best practice is human-designed agent roles, so the conclusions lose some persuasive power for those scenarios :warning:. Worth reading, but don't directly conclude "MAS is useless."
 
 ### Your Takeaways
 
@@ -154,7 +154,7 @@ In newly created GitHub projects, AI coding agent adoption rates are more than d
 
 ### Read Priority
 
-📖 Skim.
+:book: Skim.
 If you're building a coding agent product or evaluating market timing for agent tooling, this is rare "real GitHub behavioral data" worth using as a market signal; the methodology leans toward software engineering empirical research — PM and product-direction readers benefit more than engineers.
 
 ### Background
@@ -180,7 +180,7 @@ This is empirical evidence of AI coding agents moving from "trial use" to "core 
 
 - Detection method: Static analysis of config files (`.cursor/`, `AGENTS.md`, GitHub Copilot-related configs) + AI-assisted markers in commit messages
 - Prior work baseline (2601.18341): 128,018 projects, 12.08% with file-level adoption traces; 11.51% with additional agent indicators; overall estimate 15.85%–22.60%
-- Key finding: New sample adoption rate **more than double** the prior work ⚠️ (exact percentage not found in publicly searchable sources — check the original paper), with significantly higher AI-assisted commit proportions
+- Key finding: New sample adoption rate **more than double** the prior work :warning: (exact percentage not found in publicly searchable sources — check the original paper), with significantly higher AI-assisted commit proportions
 - Limitation 1: Uses "detectable traces in config files and commit messages" as proxy metrics; actual adoption may be underestimated (not all tools leave detectable traces)
 - Limitation 2: The "newly created GitHub project" sample inherently skews toward early adopters, not representative of the average across all GitHub projects
 - [AGENTS.md](http://AGENTS.md) emerging as a key detection indicator, showing developers actively configuring agent work instructions — this aligns with the growth of LangGraph, AutoGen ecosystems
@@ -189,7 +189,7 @@ This is empirical evidence of AI coding agents moving from "trial use" to "core 
 
 ### Reviewer's Take
 
-Solid, credible empirical methodology — looking directly at GitHub artifacts is more objective than surveys; but the "newly created projects" sample inherently has adoption bias, and the specific 2x figure lacks exact percentages in public sources ⚠️. Readers should interpret as "trend direction" rather than "precise numbers." Helpful for market timing judgment, but don't over-extrapolate to all GitHub projects.
+Solid, credible empirical methodology — looking directly at GitHub artifacts is more objective than surveys; but the "newly created projects" sample inherently has adoption bias, and the specific 2x figure lacks exact percentages in public sources :warning:. Readers should interpret as "trend direction" rather than "precise numbers." Helpful for market timing judgment, but don't over-extrapolate to all GitHub projects.
 
 ### Your Takeaways
 

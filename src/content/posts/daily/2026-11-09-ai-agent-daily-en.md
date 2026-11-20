@@ -12,7 +12,7 @@ series:
   order: 86
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-09-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-11-09-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -157,16 +157,16 @@ Claude Opus 4.8's fast mode is being removed on 11/30, with Anthropic pointing u
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-09](/posts/daily/2026-11-09-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-09](/posts/daily/2026-11-09-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Microsoft Agent Framework python-1.25.0](/posts/daily/2026-11-09-framework-microsoft-agent-framework-python-1.25.0-en)
-- 📄 [Funding Brief｜OpenAI's New $11B Tranche](/posts/daily/2026-11-09-funding-openai-en)
-- 📄 [Model Card｜ERNIE 5.5 Flash Base](/posts/daily/2026-11-09-model-baidu-ernie-5-5-flash-base-en)
-- 📄 [Pricing Tracker｜Claude Opus 4.8 Fast Mode Sunset](/posts/daily/2026-11-09-pricing-anthropic-claude-opus-4-8-fast-mode-sunset-en)
-- 📄 [Security Alert｜Claude Code "Don't Ask Again" Secrets Leak](/posts/daily/2026-11-09-security-claude-code-dont-ask-again-secrets-leak-en)
-- 📄 [Tool Pick｜devvm](/posts/daily/2026-11-09-tool-devvm-en)
-- 📄 [AI Engineer Interview Prep — 2026-11-09: ML Fundamentals](/posts/daily/2026-11-09-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-11-09: Human Delta Framework](/posts/daily/2026-11-09-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-09](/posts/daily/2026-11-09-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-09](/posts/daily/2026-11-09-ai-agent-github-digest-en)
+- :file: [Framework Update｜Microsoft Agent Framework python-1.25.0](/posts/daily/2026-11-09-framework-microsoft-agent-framework-python-1.25.0-en)
+- :file: [Funding Brief｜OpenAI's New $11B Tranche](/posts/daily/2026-11-09-funding-openai-en)
+- :file: [Model Card｜ERNIE 5.5 Flash Base](/posts/daily/2026-11-09-model-baidu-ernie-5-5-flash-base-en)
+- :file: [Pricing Tracker｜Claude Opus 4.8 Fast Mode Sunset](/posts/daily/2026-11-09-pricing-anthropic-claude-opus-4-8-fast-mode-sunset-en)
+- :file: [Security Alert｜Claude Code "Don't Ask Again" Secrets Leak](/posts/daily/2026-11-09-security-claude-code-dont-ask-again-secrets-leak-en)
+- :file: [Tool Pick｜devvm](/posts/daily/2026-11-09-tool-devvm-en)
+- :file: [AI Engineer Interview Prep — 2026-11-09: ML Fundamentals](/posts/daily/2026-11-09-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-11-09: Human Delta Framework](/posts/daily/2026-11-09-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

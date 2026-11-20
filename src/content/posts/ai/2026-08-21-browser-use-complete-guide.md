@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-browser-use-complete-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-browser-use-complete-guide-en)
 
 > **2026-11-19 更新：** 本文原本依 0.x 撰寫。Browser Use 1.0（2026-11-10）換掉了引擎，範例與說明已全部改成 1.0.6 的寫法；0.x 到 1.0 改了什麼，見文末「從 0.x 升級要注意什麼」。還要用 0.x 的話，安裝時釘 `browser-use<1`。
 

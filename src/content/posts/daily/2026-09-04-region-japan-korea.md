@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-04-region-japan-korea-en)
+> :globe: [English version](/posts/daily/2026-09-04-region-japan-korea-en)
 
 ## 區域：日韓
 

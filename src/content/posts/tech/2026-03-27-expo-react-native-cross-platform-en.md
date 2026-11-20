@@ -10,7 +10,7 @@ description: "An introduction to cross-platform development with Expo + React Na
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-expo-react-native-cross-platform)
+:globe: [中文版](/posts/tech/2026-03-27-expo-react-native-cross-platform)
 
 The idea behind React Native has always been compelling: one JavaScript codebase, compiled into native components on both iOS and Android — not a WebView wrapper, but real native UI. The problem has historically been the setup. Xcode, Android SDK, simulators, bridge layer version dependencies — just getting a hello world running could eat an entire afternoon.
 

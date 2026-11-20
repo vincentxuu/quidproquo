@@ -13,7 +13,7 @@ description: "Salesforce、Stripe、Microsoft、Grab、Meta、OpenAI 六家企�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-10-enterprise-agent-case-studies-en)
+> :globe: [English version](/posts/ai/2026-08-10-enterprise-agent-case-studies-en)
 
 前三篇談的是原則。這一篇看真的把 agent 推到生產環境的人怎麼做——[Salesforce](https://blog.bytebytego.com/p/what-salesforce-learned-from-20000)（兩萬個企業部署）、[Stripe](https://blog.bytebytego.com/p/how-stripes-minions-ship-1300-prs)、[Microsoft](https://blog.bytebytego.com/p/how-microsoft-ships-ai-agents-at)、[Grab](https://blog.bytebytego.com/p/how-grab-is-using-ai-agents-to-boost)、[Meta](https://blog.bytebytego.com/p/how-meta-uses-ai-agents-for-data)、[OpenAI 資料平台](https://blog.bytebytego.com/p/how-openai-built-its-data-agent)。
 

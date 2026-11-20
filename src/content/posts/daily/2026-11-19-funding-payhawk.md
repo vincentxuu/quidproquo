@@ -12,7 +12,7 @@ series:
   order: 144
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-19-funding-payhawk-en)
+> :globe: [English version](/posts/daily/2026-11-19-funding-payhawk-en)
 
 ## 融資資訊
 

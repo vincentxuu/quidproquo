@@ -12,7 +12,7 @@ series:
   order: 80
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-16-tool-turbo-browser-mcp-en)
+> :globe: [English version](/posts/daily/2026-11-16-tool-turbo-browser-mcp-en)
 
 ## 工具資訊
 
@@ -164,11 +164,11 @@ Agent 實際會呼叫的工具：
 | | turbo-browser-mcp | `@playwright/mcp` | `chrome-devtools-mcp` |
 |---|---|---|---|
 | 工具數量 | 10（批次） | 25（細粒度） | 33（細粒度） |
-| 差異快照（只回傳變動部分） | ✅ | ❌（每次全量 ARIA tree） | ❌ |
-| 一輪填完整張表單（含 React/Shadow DOM/iframe） | ✅ | ❌（要拆成多輪） | 僅基本 `fill_form` |
-| 檔案上傳免 Base64（直傳磁碟路徑） | ✅ | 需另開一輪 `browser_file_upload` | 需另開一輪 `upload_file` |
-| 預設人在迴圈的送出防呆 | ✅ | ❌ | ❌ |
-| Lighthouse／效能追蹤／heap snapshot | ❌ | ❌ | ✅ |
+| 差異快照（只回傳變動部分） | ✓ | ✗（每次全量 ARIA tree） | ✗ |
+| 一輪填完整張表單（含 React/Shadow DOM/iframe） | ✓ | ✗（要拆成多輪） | 僅基本 `fill_form` |
+| 檔案上傳免 Base64（直傳磁碟路徑） | ✓ | 需另開一輪 `browser_file_upload` | 需另開一輪 `upload_file` |
+| 預設人在迴圈的送出防呆 | ✓ | ✗ | ✗ |
+| Lighthouse／效能追蹤／heap snapshot | ✗ | ✗ | ✓ |
 
 ## 注意事項
 

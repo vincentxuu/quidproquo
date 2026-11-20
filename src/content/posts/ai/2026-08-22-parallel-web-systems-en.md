@@ -10,7 +10,7 @@ description: "A technical guide to Parallel Web Systems Search, Extract, and Tas
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-parallel-web-systems)
+> :globe: [中文版](/posts/ai/2026-08-22-parallel-web-systems)
 
 [Parallel Web Systems](https://parallel.ai/) is not merely a wrapper that lets an LLM “Google something.” It is a web-access layer for agents, built on its own crawler and index. The platform separates search, page extraction, multi-step research, and continuous monitoring into different APIs. That separation matters: an agent should not launch expensive deep research every time it needs an official version number.
 

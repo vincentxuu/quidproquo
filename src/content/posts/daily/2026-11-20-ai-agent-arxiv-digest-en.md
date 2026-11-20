@@ -73,7 +73,7 @@ Agent evolution methods -- GEPA rewriting prompts, ReasoningBank storing memorie
 - On Terminal-Bench, a single reported run picks the true best of 4 text-artifact methods only 33% of the time (random guessing gets 25%)
 - Execution-score selectors pick the better candidate 49.7% of the time; LLM-as-judge selectors do 48.6% -- both statistically indistinguishable from chance
 - Regressions make up only 30.5% of the candidate pool but 62.1% of what gets accepted into the next round
-- The largest gains commonly reported in the literature (median 17.6 percentage points) fall to a median of 0.8 points after repairing evaluation shortcuts such as grading only one answer format ⚠️ (the authors' own audit; independent replication still pending)
+- The largest gains commonly reported in the literature (median 17.6 percentage points) fall to a median of 0.8 points after repairing evaluation shortcuts such as grading only one answer format :warning: (the authors' own audit; independent replication still pending)
 - In-loop validation scores climbed 6.9 to 9.0 percentage points over the course of evolution, but independently re-evaluating the same artifacts left gains between only +0.4 and -3.2 points
 - Practical threshold: teams who want to use self-evolution / RSI systems in real projects should first measure their own evaluation's sigma and tau, or risk keeping edits that are pure noise
 
@@ -192,7 +192,7 @@ Benchmarks like MLAgentBench and MLE-bench ask "did the agent push the task scor
 
 - Matched counterfactual: of 50 attempts, the ungoverned ledger loses 43 (all of the failures), the governed ledger loses 0, with a 95% bootstrap confidence interval (10,000 resamples) clearly showing ungoverned completeness below 1.00
 - Across six nodes and 1,445 trials, provenance completeness was 100% everywhere, including one 120-trial arm where every single trial failed
-- Secondary memory-effect analysis: across a large-scale 225-trial rerun (5 seeds x 3 memory modes), mean best accuracy with memory was 0.939-0.941 versus 0.899 without ⚠️ (the author explicitly labels this a diagnostic, descriptive comparison, not a formal significance test)
+- Secondary memory-effect analysis: across a large-scale 225-trial rerun (5 seeds x 3 memory modes), mean best accuracy with memory was 0.939-0.941 versus 0.899 without :warning: (the author explicitly labels this a diagnostic, descriptive comparison, not a formal significance test)
 - One small-scale replicate was self-disqualified by the author after discovering that a later rerun arm had actually continued from the final state of a previous arm rather than starting fresh -- actively discarding one's own imperfect data is unusually disciplined for a single-author paper
 - Practical threshold: adopting this governance model requires rewriting the agent harness's execution loop to explicitly hand the "keep or discard" authority from the LLM manager to an independent control plane
 - Limitation: validated only on research-scale tasks across six nodes so far, with no real enterprise production case study yet

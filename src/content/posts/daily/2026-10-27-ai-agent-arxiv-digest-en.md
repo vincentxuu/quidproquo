@@ -11,7 +11,7 @@ series:
   order: 156
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-27-ai-agent-arxiv-digest)
+> :globe: [繁體中文版](/posts/daily/2026-10-27-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -129,7 +129,7 @@ Most agent evaluation checks "is the model's answer correct," rarely the reverse
 - Scope defect: a tool searches only the first 1,000,000 characters of a document, flagging the limit when it finds a match beyond it but silently saying "searched the FULL text" when it misses one that lies beyond the cap
 - Completeness defect: 4,772 documents actually matched a given year, but the tool fetched only the first 20 and reported "found 20 document(s)" — true in every word, yet read as the complete set
 - Agent overclaim rate under warped wording: 100% (scope), 62% (completeness), 100% (uncertainty), 94% (provenance); under clear wording: 8%, 0%, 20%, 94% — provenance is the one family wording alone could not fix, needing type-level or validation enforcement instead
-- In the fixed-answer measure, all three verifiers accepted 30/30 of the same false answers under warped wording and rejected 30/30 under clear wording, for 90/90 flips across the three families ⚠️ (this causal contrast measures the effect of wording itself, not how often agents actually produce such errors)
+- In the fixed-answer measure, all three verifiers accepted 30/30 of the same false answers under warped wording and rejected 30/30 under clear wording, for 90/90 flips across the three families :warning: (this causal contrast measures the effect of wording itself, not how often agents actually produce such errors)
 - The authors ran the same audit prompt through Codex and Claude Code against their own system's source: it rediscovered defects still live and surfaced 12 additional uncatalogued instances; pointed at the open-source systems OpenClaw and Hermes, it found one real warped formatter in each, and the OpenClaw fix PR has already been merged by a maintainer (openclaw/openclaw#131702)
 - Adoption threshold: no need to rebuild your verification pipeline — just reread each tool output's wording and check whether it states how much was searched, the true total, whether a value is an estimate or confirmed, and which namespace an identifier belongs to; the paper's appendix gives the exact audit prompt to run directly
 

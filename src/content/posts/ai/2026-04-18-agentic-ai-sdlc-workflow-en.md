@@ -10,7 +10,7 @@ description: "From requirements and design to operations and monitoring, this gu
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-18-agentic-ai-sdlc-workflow)
+> :globe: [中文版](/posts/ai/2026-04-18-agentic-ai-sdlc-workflow)
 
 Starting in late 2025, one term has been showing up more and more in engineering conversations: **Agentic AI**.
 

@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en)
+> :globe: [English version](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en)
 
 MinerU 的重點不是把 PDF 轉成一段純文字，而是保留文件可供後續處理的結構：表格、公式、圖文關聯和閱讀順序。它能處理 PDF、圖像、DOCX、PPTX 與 XLSX，並輸出 Markdown、JSON 與 HTML 等形式。
 

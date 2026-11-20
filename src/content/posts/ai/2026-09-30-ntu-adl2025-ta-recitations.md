@@ -25,7 +25,7 @@ glossary:
     context: "Inference & Eval 助教講義第 12–15 頁，標為 Data Dependent；同講義也講 GPTQ。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

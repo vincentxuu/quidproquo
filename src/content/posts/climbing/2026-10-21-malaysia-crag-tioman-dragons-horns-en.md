@@ -13,7 +13,7 @@ description: "Dragon's Horns climbing guide: original grades and lengths of the 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-tioman-dragons-horns)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-tioman-dragons-horns)
 
 Most Malaysian crags are limestone walls a few dozen metres high where you can put up ten routes in an afternoon. Dragon's Horns is something else entirely: granite, whole routes of two or three hundred metres, no shortcuts, no shuttle, and nobody arranging the jungle approach for you.
 

@@ -21,7 +21,7 @@ glossary:
     context: "The slides recommend adapting Hugging Face's multiple-choice example."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

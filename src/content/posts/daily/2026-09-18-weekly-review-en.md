@@ -14,7 +14,7 @@ series:
 
 <!-- [skip-harness] markdown prose, not code -->
 
-> 🌏 [中文版](/posts/daily/2026-09-18-weekly-review)
+> :globe: [中文版](/posts/daily/2026-09-18-weekly-review)
 
 ## Top 5 Things This Week
 
@@ -61,13 +61,13 @@ For Taiwan's financial sector and other regulated industries, the lesson is to f
 
 ## Watchlist Update Recommendations
 
-### 🆕 Candidates to Add
+### Candidates to Add
 
-✅ Every company that appeared in this week's signals is already on the watchlist — no new candidates (threshold: appears ≥3 times in signals and is not already tracked). This week's startup funding signals mostly came from standalone funding briefs rather than repeated signal exposure, so they're listed under "Startup Radar" below instead.
+✓ Every company that appeared in this week's signals is already on the watchlist — no new candidates (threshold: appears ≥3 times in signals and is not already tracked). This week's startup funding signals mostly came from standalone funding briefs rather than repeated signal exposure, so they're listed under "Startup Radar" below instead.
 
-### ⚠️ Candidates to Remove
+### :warning: Candidates to Remove
 
-✅ No company met the removal criteria this week.
+✓ No company met the removal criteria this week.
 
 ## This Week's Startup Radar
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-08-21-microsoft-agent-framework)
+:globe: [中文版](/posts/ai/2026-08-21-microsoft-agent-framework)
 
 Start with a practical problem: **if you run `pip install autogen` today, you do not get anything of Microsoft's.**
 

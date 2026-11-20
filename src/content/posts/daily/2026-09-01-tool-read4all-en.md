@@ -12,7 +12,7 @@ series:
   order: 17
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-01-tool-read4all)
+> :globe: [中文版](/posts/daily/2026-09-01-tool-read4all)
 
 ## Tool Info
 
@@ -96,11 +96,11 @@ Without a VLM configured, MinerU's OCR text for document-style images (screensho
 
 | | read4all | Hand-rolled pymupdf/pdfplumber script | MarkItDown (standalone) | Cloud OCR SaaS (e.g. Textract) |
 |---|---|---|---|---|
-| Native MCP, agent calls directly | ✅ | ❌ | ❌ | Needs wrapping |
-| Works without a key (local fallback) | ✅ | ✅ (but you write it) | ✅ | ❌ |
-| High-precision formula/table/layout (with key) | ✅ (MinerU) | ❌ | ❌ | Partial |
-| Content-hash caching, instant repeats | ✅ | Build it yourself | ❌ | Vendor-dependent |
-| Single entry point for all formats (PDF/Office/image/web) | ✅ | Needs integration | ✅ (no deep extraction) | Vendor-dependent |
+| Native MCP, agent calls directly | ✓ | ✗ | ✗ | Needs wrapping |
+| Works without a key (local fallback) | ✓ | ✓ (but you write it) | ✓ | ✗ |
+| High-precision formula/table/layout (with key) | ✓ (MinerU) | ✗ | ✗ | Partial |
+| Content-hash caching, instant repeats | ✓ | Build it yourself | ✗ | Vendor-dependent |
+| Single entry point for all formats (PDF/Office/image/web) | ✓ | Needs integration | ✓ (no deep extraction) | Vendor-dependent |
 
 ## Things to Watch
 

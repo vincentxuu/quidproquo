@@ -13,7 +13,7 @@ description: "Pitch-by-pitch notes for 20 Insubong routes: the Great Slab, Oasis
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes)
+> :globe: [繁體中文版](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes)
 
 The [Insubong crag guide](/posts/climbing/2026-10-21-korea-crag-insubong-en) helps you pick a route for your team. At the foot of the wall in Bukhansan, Seoul, you need more: where does this route start, how long is each pitch, which pitch is the crux, and how do you get down afterwards? This page fills that gap, for the multipitch routes of Insubong. It is an appendix to the guide: use the guide to decide which route to climb, then come back here for the start and the pitches; every route in the guide's tables that has notes links to its section here.
 

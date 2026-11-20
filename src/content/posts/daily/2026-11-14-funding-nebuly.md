@@ -12,7 +12,7 @@ series:
   order: 135
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-14-funding-nebuly-en)
+> :globe: [English version](/posts/daily/2026-11-14-funding-nebuly-en)
 
 ## 融資資訊
 

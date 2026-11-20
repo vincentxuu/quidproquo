@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-07-neural-network-architecture)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-07-neural-network-architecture)
 
 **Video status: Videos included.** This post is written from the English transcript of the Spring 2026 Lecture 7 recording published by Stanford Online, with formulas and notation checked against Sections 7.1 to 7.3 of Chapter 7 (Deep learning) in the 2026 main lecture notes. I did not see the whiteboard. Where the transcript has the lecturer pointing at the board, I reconstructed the content from the surrounding context and the notes.
 

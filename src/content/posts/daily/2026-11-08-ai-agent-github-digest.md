@@ -11,7 +11,7 @@ series:
   order: 85
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-08-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-08-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -52,7 +52,7 @@ caption: 示意：這是本文用來說明三個 repo 定位的簡化分層，�
 
 ## Trending Repos
 
-### paperclipai/paperclip ⭐ 約 11.2 萬
+### paperclipai/paperclip ★ 約 11.2 萬
 
 [GitHub](https://github.com/paperclipai/paperclip)　·　TypeScript　·　MIT
 
@@ -63,7 +63,7 @@ caption: 示意：這是本文用來說明三個 repo 定位的簡化分層，�
 
 ---
 
-### D4Vinci/Scrapling ⭐ 約 9.9 萬（11/6 單日 +1,655）
+### D4Vinci/Scrapling ★ 約 9.9 萬（11/6 單日 +1,655）
 
 [GitHub](https://github.com/D4Vinci/Scrapling)　·　Python　·　BSD-3-Clause
 
@@ -74,7 +74,7 @@ caption: 示意：這是本文用來說明三個 repo 定位的簡化分層，�
 
 ---
 
-### NousResearch/hermes-agent ⭐ 約 26.1 萬
+### NousResearch/hermes-agent ★ 約 26.1 萬
 
 [GitHub](https://github.com/NousResearch/hermes-agent)　·　Python　·　MIT
 

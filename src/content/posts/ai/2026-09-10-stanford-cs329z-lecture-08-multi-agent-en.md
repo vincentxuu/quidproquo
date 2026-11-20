@@ -14,7 +14,7 @@ description: "A page-linked guide to the CS329Z Lecture 08 Multi-Agent Systems s
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent)
 
 **Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 79 minutes); this guide follows the public slides and readings and had each section start time checked against the recording's captions. The pages 83–92 case study was skipped for time and only mentioned at the end.
 

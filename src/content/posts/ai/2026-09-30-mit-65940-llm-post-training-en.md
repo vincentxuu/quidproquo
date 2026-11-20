@@ -27,7 +27,7 @@ glossary:
     context: "Lecture 14, page 47, illustrated with 27 visual tokens and 5 queries."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-llm-post-training)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-llm-post-training)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

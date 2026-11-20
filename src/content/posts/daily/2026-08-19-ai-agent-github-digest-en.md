@@ -20,7 +20,7 @@ The undisputed star today is DeepSeek's open-source agent harness "dsh" — it c
 
 ## Trending Repos
 
-### deepseek-harness (deepseek-ai) ⭐ 158,000+
+### deepseek-harness (deepseek-ai) ★ 158,000+
 
 [GitHub](https://github.com/deepseek-ai/deepseek-harness)　·　TypeScript　·　MIT
 
@@ -31,7 +31,7 @@ The undisputed star today is DeepSeek's open-source agent harness "dsh" — it c
 
 ---
 
-### openfang (RightNow-AI) ⭐ 18,113
+### openfang (RightNow-AI) ★ 18,113
 
 [GitHub](https://github.com/rightnow-ai/openfang)　·　Rust　·　Apache-2.0
 
@@ -42,7 +42,7 @@ The undisputed star today is DeepSeek's open-source agent harness "dsh" — it c
 
 ---
 
-### LobsterAI (netease-youdao) ⭐ 5,906
+### LobsterAI (netease-youdao) ★ 5,906
 
 [GitHub](https://github.com/netease-youdao/LobsterAI)　·　—　·　MIT
 
@@ -53,7 +53,7 @@ The undisputed star today is DeepSeek's open-source agent harness "dsh" — it c
 
 ---
 
-### prime-agent (PrimeIntellect-ai) ⭐ 17,097
+### prime-agent (PrimeIntellect-ai) ★ 17,097
 
 [GitHub](https://github.com/PrimeIntellect-ai/prime-agent)　·　—　·　MIT
 

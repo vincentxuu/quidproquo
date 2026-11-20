@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-do-readers-answer-embedded-questions)
+> :globe: [中文版](/posts/learning/2026-10-14-do-readers-answer-embedded-questions)
 
 This is part 10 of the series "Writing Articles That Teach," in its second section, "what to ask readers to do." [Part 8](/posts/learning/2026-10-14-active-learning-evidence-en) looked at what the evidence for learning by doing measures, and [part 9](/posts/learning/2026-10-13-teaching-text-questions-feedback-en) covered how to write the questions in an article and how to give the answers. Both rest on an unstated assumption: that readers answer. This post goes back and checks that assumption.
 

@@ -10,7 +10,7 @@ description: "從 config、test cases、assertions、red team 到 CI，拆解 Pr
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-promptfoo-llm-evaluation-en)
+> :globe: [English version](/posts/ai/2026-08-22-promptfoo-llm-evaluation-en)
 
 [Promptfoo](https://www.promptfoo.dev/docs/getting-started/) 是一套 MIT 授權的 LLM eval 與 red-team CLI／library。它把 prompt、model provider、測試資料與評分條件寫進 `promptfooconfig.yaml`，在開發者電腦產生測試矩陣，跑完可從 terminal 或本機 UI 比較結果，再把相同命令搬進 CI。這個設計比先建一套雲端 observability 平台更接近一般軟體測試：設定檔與測試案例可以跟程式碼一起 review。
 

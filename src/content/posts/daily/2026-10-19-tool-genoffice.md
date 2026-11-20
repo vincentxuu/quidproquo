@@ -12,7 +12,7 @@ series:
   order: 59
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-19-tool-genoffice-en)
+> :globe: [English version](/posts/daily/2026-10-19-tool-genoffice-en)
 
 ## 工具資訊
 
@@ -76,11 +76,11 @@ genoffice slides render deck/solar-system.pptx --out shots/   # 每頁存一張 
 
 | | GenOffice MCP | LLM 直接吐 Markdown 再轉檔 | python-docx／openpyxl 手刻腳本 |
 |---|---|---|---|
-| 保留原始檔案未改動部分的格式 | ✅（窄範圍 patch） | ❌（轉檔常跑掉樣式） | 需自行處理 |
-| Excel 公式維持即時運算 | ✅ | ❌（通常變成死數字） | ✅ 但要自己寫 |
-| Agent 直接呼叫，不用寫程式 | ✅（MCP 工具／CLI） | 部分 | ❌ 需要寫 Python |
-| 內建逐頁排版檢查 | ✅（`slides_audit`） | ❌ | 需自行實作 |
-| 本機執行，檔案不外流 | ✅（只有 AI 呼叫本身出機器） | 視工具而定 | ✅ |
+| 保留原始檔案未改動部分的格式 | ✓（窄範圍 patch） | ✗（轉檔常跑掉樣式） | 需自行處理 |
+| Excel 公式維持即時運算 | ✓ | ✗（通常變成死數字） | ✓ 但要自己寫 |
+| Agent 直接呼叫，不用寫程式 | ✓（MCP 工具／CLI） | 部分 | ✗ 需要寫 Python |
+| 內建逐頁排版檢查 | ✓（`slides_audit`） | ✗ | 需自行實作 |
+| 本機執行，檔案不外流 | ✓（只有 AI 呼叫本身出機器） | 視工具而定 | ✓ |
 
 ## 注意事項
 

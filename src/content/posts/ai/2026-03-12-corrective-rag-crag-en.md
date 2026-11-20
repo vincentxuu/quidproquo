@@ -14,7 +14,7 @@ series:
   order: 23
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-corrective-rag-crag)
+> :globe: [中文版](/posts/ai/2026-03-12-corrective-rag-crag)
 
 RAG systems have a silent failure mode: **filters are too strict, no candidate documents pass, but the pipeline keeps running and the LLM falls back to general knowledge**.
 

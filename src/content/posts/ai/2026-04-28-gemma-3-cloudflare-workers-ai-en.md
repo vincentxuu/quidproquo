@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)
+> :globe: [中文版](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)
 
 Choosing an LLM isn't about picking "the most powerful one" -- it's about picking "the one that works within your constraints." nobodyclimb runs on Cloudflare Workers, and AI inference stays within the Cloudflare ecosystem. Under that constraint, the Gemma family has consistently been the smoothest option for Traditional Chinese.
 

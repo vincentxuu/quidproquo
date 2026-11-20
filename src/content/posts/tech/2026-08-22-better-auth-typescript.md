@@ -10,7 +10,7 @@ tldr: "Better Auth 用程式庫與自有資料庫換來身分資料、流程和�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-better-auth-typescript-en)
+> :globe: [English version](/posts/tech/2026-08-22-better-auth-typescript-en)
 
 Better Auth 不是另一個把使用者資料送進廠商控制台的登入 API。它是嵌入 TypeScript 應用程式的 authentication / authorization framework：路由跑在你的服務裡，核心資料表放在你的資料庫，進階能力再由 plugin 疊上去。官方也把它定位為 framework-agnostic 的 TypeScript 框架，而不是託管身分服務（[Better Auth Introduction](https://better-auth.com/docs/introduction)）。
 

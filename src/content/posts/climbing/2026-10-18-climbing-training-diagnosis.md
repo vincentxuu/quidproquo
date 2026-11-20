@@ -22,7 +22,7 @@ glossary:
     context: "本文引用的等級預測研究多半是橫斷研究。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-training-diagnosis-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-training-diagnosis-en)
 
 你爬了一年左右，一週去岩館兩三次，卡在 5.10 或 V3–V4 好幾個月。隔壁的人開始吊指力板、做負重引體向上，你也在想：是不是該開始「訓練」了？
 

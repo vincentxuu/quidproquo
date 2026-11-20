@@ -12,7 +12,7 @@ series:
   order: 75
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-29-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-29-ai-agent-daily)
 
 ## Today's Call
 
@@ -162,15 +162,15 @@ Today's two funding briefs: [Casap Series B $56M](/posts/daily/2026-10-29-fundin
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-29](/posts/daily/2026-10-29-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-29](/posts/daily/2026-10-29-ai-agent-github-digest-en)
-- 📄 [Framework Update: Agno v3.1.11](/posts/daily/2026-10-29-framework-agno-v3.1.11-en)
-- 📄 [Framework Update: Pydantic AI v2.63.0](/posts/daily/2026-10-29-framework-pydantic-ai-v2.63.0-en)
-- 📄 [Funding Brief: Casap Series B $56M](/posts/daily/2026-10-29-funding-casap-en)
-- 📄 [Funding Brief: Plato Series A $16M](/posts/daily/2026-10-29-funding-plato-en)
-- 📄 [Tool Pick: agent-tree](/posts/daily/2026-10-29-tool-agent-tree-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-29](/posts/daily/2026-10-29-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-29](/posts/daily/2026-10-29-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-29](/posts/daily/2026-10-29-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-29](/posts/daily/2026-10-29-ai-agent-github-digest-en)
+- :file: [Framework Update: Agno v3.1.11](/posts/daily/2026-10-29-framework-agno-v3.1.11-en)
+- :file: [Framework Update: Pydantic AI v2.63.0](/posts/daily/2026-10-29-framework-pydantic-ai-v2.63.0-en)
+- :file: [Funding Brief: Casap Series B $56M](/posts/daily/2026-10-29-funding-casap-en)
+- :file: [Funding Brief: Plato Series A $16M](/posts/daily/2026-10-29-funding-plato-en)
+- :file: [Tool Pick: agent-tree](/posts/daily/2026-10-29-tool-agent-tree-en)
+- :file: [AI Engineer Interview Prep — 2026-10-29](/posts/daily/2026-10-29-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-29](/posts/daily/2026-10-29-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

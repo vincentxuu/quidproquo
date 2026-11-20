@@ -10,7 +10,7 @@ description: "An introduction to nginx as a reverse proxy, and a practical guide
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-15-nginx-confd-multi-service)
+:globe: [中文版](/posts/tech/2026-03-15-nginx-confd-multi-service)
 
 When deploying multiple services, nginx is almost always the go-to entry layer. But as services multiply, a single `nginx.conf` quickly balloons into hundreds of lines that are hard to review or maintain. This post introduces nginx's `include` mechanism and how Daodao uses a `conf.d/` structure to manage routing for over a dozen subdomains.
 

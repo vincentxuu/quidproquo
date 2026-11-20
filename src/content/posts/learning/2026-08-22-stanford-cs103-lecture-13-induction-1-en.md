@@ -13,7 +13,7 @@ description: "A deck-aligned guide to Stanford CS103 Lecture 12 covering inducti
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-13-induction-1)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-13-induction-1)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

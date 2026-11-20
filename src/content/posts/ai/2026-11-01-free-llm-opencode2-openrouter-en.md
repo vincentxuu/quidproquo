@@ -10,7 +10,7 @@ description: "Start with OpenCode 2's built-in free models without connecting Op
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-01-free-llm-opencode2-openrouter)
+> :globe: [中文版](/posts/ai/2026-11-01-free-llm-opencode2-openrouter)
 
 If you want AI to help plan dinner, organize tasks, or rewrite a message before subscribing to a paid plan, **install OpenCode 2 and select one of its free models directly**. You do not need to register with OpenRouter or prepare another provider's API key first.
 

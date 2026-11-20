@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-learning-by-teaching-without-audience)
+> :globe: [中文版](/posts/learning/2026-10-14-learning-by-teaching-without-audience)
 
 This is Part 22 of the series "Writing Articles That Teach," in its fifth section, "who you learn with, and who can't read you." The earlier posts in this section covered [what a solitary reader misses](/posts/learning/2026-10-14-learning-alone-vs-together-en) (Part 20) and comment sections and communities. This one turns to the other end: the writer.
 

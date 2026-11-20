@@ -28,7 +28,7 @@ glossary:
         url: "https://arxiv.org/abs/2402.15391"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-audio-video-world-models)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-audio-video-world-models)
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 

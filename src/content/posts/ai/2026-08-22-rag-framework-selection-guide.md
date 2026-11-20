@@ -10,7 +10,7 @@ description: "用共同決策主脊比較 LlamaIndex、Haystack、RAGFlow、Dify
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-rag-framework-selection-guide-en)
+> :globe: [English version](/posts/ai/2026-08-22-rag-framework-selection-guide-en)
 
 把 [LlamaIndex](https://developers.llamaindex.ai/python/framework/)、[Haystack](https://docs.haystack.deepset.ai/)、[RAGFlow](https://github.com/infiniflow/ragflow)、[Dify](https://github.com/langgenius/dify) 與 [R2R](https://github.com/SciPhi-AI/R2R) 放進同一張「RAG 框架排行榜」，第一步就比錯了。它們處理的問題有交集，交付的產品層卻不同：前兩套主要交付 Python 抽象，RAGFlow 與 Dify 交付可操作的平台，R2R 交付一套可自行架設的檢索 API。
 

@@ -12,7 +12,7 @@ series:
   order: 114
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-30-funding-serval-en)
+> :globe: [English version](/posts/daily/2026-10-30-funding-serval-en)
 
 ## 融資資訊
 

@@ -12,7 +12,7 @@ series:
   order: 95
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-18-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-18-ai-agent-daily)
 
 ## Today's Take
 
@@ -145,18 +145,18 @@ North American events (GPT-6.2, Microsoft Ignite, Meta Muse) are already covered
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-18](/posts/daily/2026-11-18-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-18](/posts/daily/2026-11-18-ai-agent-github-digest-en)
-- 📄 [Model Card｜Qwen4-Max](/posts/daily/2026-11-18-model-qwen-qwen4-max-en)
-- 📄 [Framework Update｜Agno v3.2.1](/posts/daily/2026-11-18-framework-agno-v3.2.1-en)
-- 📄 [Framework Update｜Pydantic AI v2.69.0](/posts/daily/2026-11-18-framework-pydantic-ai-v2.69.0-en)
-- 📄 [Funding Alert｜LanceDB Series B $57.5M](/posts/daily/2026-11-18-funding-lancedb-en)
-- 📄 [Funding Alert｜Model ML Series B $250M](/posts/daily/2026-11-18-funding-model-ml-en)
-- 📄 [Funding Alert｜Remanence Seed $30M](/posts/daily/2026-11-18-funding-remanence-en)
-- 📄 [Security Alert｜Cairn Pentest Framework Wired to GLM/DeepSeek](/posts/daily/2026-11-18-security-cairn-china-nexus-ai-pentest-breach-en)
-- 📄 [Tool Pick｜pulsar](/posts/daily/2026-11-18-tool-pulsar-en)
-- 📄 [AI Engineer Interview Prep — 2026-11-18](/posts/daily/2026-11-18-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-11-18](/posts/daily/2026-11-18-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-18](/posts/daily/2026-11-18-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-18](/posts/daily/2026-11-18-ai-agent-github-digest-en)
+- :file: [Model Card｜Qwen4-Max](/posts/daily/2026-11-18-model-qwen-qwen4-max-en)
+- :file: [Framework Update｜Agno v3.2.1](/posts/daily/2026-11-18-framework-agno-v3.2.1-en)
+- :file: [Framework Update｜Pydantic AI v2.69.0](/posts/daily/2026-11-18-framework-pydantic-ai-v2.69.0-en)
+- :file: [Funding Alert｜LanceDB Series B $57.5M](/posts/daily/2026-11-18-funding-lancedb-en)
+- :file: [Funding Alert｜Model ML Series B $250M](/posts/daily/2026-11-18-funding-model-ml-en)
+- :file: [Funding Alert｜Remanence Seed $30M](/posts/daily/2026-11-18-funding-remanence-en)
+- :file: [Security Alert｜Cairn Pentest Framework Wired to GLM/DeepSeek](/posts/daily/2026-11-18-security-cairn-china-nexus-ai-pentest-breach-en)
+- :file: [Tool Pick｜pulsar](/posts/daily/2026-11-18-tool-pulsar-en)
+- :file: [AI Engineer Interview Prep — 2026-11-18](/posts/daily/2026-11-18-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-11-18](/posts/daily/2026-11-18-product-builder-interview-daily-en)
 
 ## Watch Tomorrow
 

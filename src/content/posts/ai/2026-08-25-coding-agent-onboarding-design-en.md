@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-🌏 [中文版](/posts/ai/2026-08-25-coding-agent-onboarding-design)
+:globe: [中文版](/posts/ai/2026-08-25-coding-agent-onboarding-design)
 
 ## TL;DR
 

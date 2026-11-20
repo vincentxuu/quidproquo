@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-19-hosted-browser-comparison)
+> :globe: [中文版](/posts/ai/2026-11-19-hosted-browser-comparison)
 
 The [engines post](/posts/ai/2026-11-19-browser-engines-beyond-chromium-en) covered which browser to use; this one covers where it runs. Opening one Chrome locally is easy. Opening two hundred at once, keeping their logins, having someone handle CAPTCHAs, and replaying what happened when something goes wrong is what hosted services sell.
 

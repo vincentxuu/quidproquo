@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en)
+> :globe: [English version](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en)
 
 [AgentQL](https://github.com/tinyfish-io/agentql) 是一套網頁擷取與瀏覽器自動化工具。它讓你用 `product_name`、`add_to_cart_btn` 這類帶有語意的欄位描述目標，再把結果交給 Python／JavaScript SDK、REST API 或 Playwright。你仍然負責流程、錯誤處理與資料驗證；AgentQL 處理的是「這一頁上的哪個資料或元素符合描述」。
 

@@ -13,7 +13,7 @@ description: "A map of MIT's AI and ML curriculum based on Course 6-4 requiremen
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-mit-ai-ml-course-map)
+> :globe: [中文版](/posts/learning/2026-08-21-mit-ai-ml-course-map)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

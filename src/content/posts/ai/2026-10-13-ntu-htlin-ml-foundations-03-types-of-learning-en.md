@@ -27,7 +27,7 @@ glossary:
     context: "Foundations Lecture 3 uses the KDDCup 2011 rating prediction problem as the example."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-03-types-of-learning)
+> :globe: [中文版](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-03-types-of-learning)
 
 **Video status: Videos included.** This article is written from the official MOOC handout [03_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/03_handout.pdf) and transcripts of this lecture's four official videos, with terms and notation following the handout. The transcripts are machine transcripts made for this article (Whisper), not official captions, and no human has proofread them. The videos are taught in Mandarin; the slides are in English. Each section opens with its official video and the approximate time ranges. Page numbers refer to the number at the lower right of each slide (0/29 to 29/29), and wherever the text says "in the lecture" it is paraphrasing what is said in the video.
 

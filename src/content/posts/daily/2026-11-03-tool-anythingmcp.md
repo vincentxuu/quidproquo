@@ -12,7 +12,7 @@ series:
   order: 72
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-03-tool-anythingmcp-en)
+> :globe: [English version](/posts/daily/2026-11-03-tool-anythingmcp-en)
 
 ## 工具資訊
 
@@ -116,9 +116,9 @@ Code Mode 預設關閉，要先由管理者在工作區層級打開（`codeMode`
 | | AnythingMCP | Composio | n8n |
 |---|---|---|---|
 | 授權 | 開源 AGPL-3.0（`ee/` 另計） | SDK 是 MIT，但平台本身封閉、跑在官方雲端 | Source-available「fair-code」（Sustainable Use License，非 OSI 開源） |
-| 自架可用完整功能 | ✅ `docker compose up` 就是完整版 | ❌ 自架是 Enterprise 專案，要走 sales，自助方案一律把憑證存在 Composio 雲端 | ✅（但憑證與維運要自己管理） |
-| 把既有 REST/SOAP/OData/SQL 規格自動轉成 MCP tool | ✅ 匯入規格即產生，694 個現成 adapter | 以自動產生的 SaaS 工具目錄為主，SOAP／OData／自架資料庫不是強調重點 | ❌ 工作流程平台，MCP 只是其中一個 node／trigger，要自己拼整合邏輯 |
-| 內建角色權限、欄位過濾、稽核 | ✅ 視覺化編輯器直接設 | 另外設定 | 要自己用 workflow 拼 |
+| 自架可用完整功能 | ✓ `docker compose up` 就是完整版 | ✗ 自架是 Enterprise 專案，要走 sales，自助方案一律把憑證存在 Composio 雲端 | ✓（但憑證與維運要自己管理） |
+| 把既有 REST/SOAP/OData/SQL 規格自動轉成 MCP tool | ✓ 匯入規格即產生，694 個現成 adapter | 以自動產生的 SaaS 工具目錄為主，SOAP／OData／自架資料庫不是強調重點 | ✗ 工作流程平台，MCP 只是其中一個 node／trigger，要自己拼整合邏輯 |
+| 內建角色權限、欄位過濾、稽核 | ✓ 視覺化編輯器直接設 | 另外設定 | 要自己用 workflow 拼 |
 
 ## 注意事項
 

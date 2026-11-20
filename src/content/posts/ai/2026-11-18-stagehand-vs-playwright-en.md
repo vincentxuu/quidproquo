@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-18-stagehand-vs-playwright)
+> :globe: [中文版](/posts/ai/2026-11-18-stagehand-vs-playwright)
 
 The previous post covered the three methods in [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4-en). This one tackles the next question: **you already have Playwright scripts. Should you switch them to Stagehand, and what would you give up?**
 

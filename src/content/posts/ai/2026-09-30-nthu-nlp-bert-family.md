@@ -22,7 +22,7 @@ glossary:
     context: "T5 的預設設定是遮 15% 的 token、平均片段長度 3。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-bert-family-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-bert-family-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

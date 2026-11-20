@@ -12,7 +12,7 @@ series:
   order: 145
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-20-funding-linq)
+> :globe: [中文版](/posts/daily/2026-11-20-funding-linq)
 
 ## Funding details
 
@@ -23,7 +23,7 @@ series:
 | Amount | $90M |
 | Lead | Andreessen Horowitz |
 | Participants | TQ Ventures, Mucker Capital, Abstract, Anthos, Left Lane Capital |
-| Valuation | Reported near $1B by Dealroom (⚠️ unconfirmed by the company) |
+| Valuation | Reported near $1B by Dealroom (:warning: unconfirmed by the company) |
 | Total raised | Not officially disclosed; Series A was $20M (Feb 2026, led by TQ Ventures) plus this $90M round — media estimates put the total above $120M |
 | Founded | Undisclosed (founded by former Shipt executives) |
 | Headcount | Undisclosed |

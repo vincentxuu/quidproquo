@@ -10,7 +10,7 @@ description: "A deep dive into Claude Managed Agents' core concepts, how it diff
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-12-claude-managed-agents-intro)
+> :globe: [中文版](/posts/ai/2026-04-12-claude-managed-agents-intro)
 
 Anthropic launched Claude Managed Agents on 2026/04/08, currently in beta. In one sentence: previously you could only use the Messages API to hand-roll your own agent loop, run your own sandbox, and wire up your own tools. Now Anthropic bundles the entire harness and cloud container for you -- you just define the agent, send a prompt, and consume SSE events. This article covers the architecture, the trade-offs versus the Messages API, SDK usage, and what kinds of projects should consider switching over.
 

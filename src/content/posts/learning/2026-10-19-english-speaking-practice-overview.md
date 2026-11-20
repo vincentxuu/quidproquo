@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-english-speaking-practice-overview-en)
+> :globe: [English version](/posts/learning/2026-10-19-english-speaking-practice-overview-en)
 
 要把英文說得更順，可以先從一件熟悉的事開始：報告工作進度、在旅途中求助，或回答面試官的追問。選好想完成的任務，再看該怎麼練、需要什麼教材與回饋。
 

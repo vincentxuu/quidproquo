@@ -10,7 +10,7 @@ description: "拆解 Bright Data 的 Proxy Networks、Web Unlocker、Browser API
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-bright-data-web-scraping-en)
+> :globe: [English version](/posts/tech/2026-08-22-bright-data-web-scraping-en)
 
 [Bright Data](https://docs.brightdata.com/introduction) 不是一套「更強的爬蟲框架」，而是一組把網路出口、反爬處理、瀏覽器執行與資料解析逐層代管的服務。選它的關鍵不是網站難不難爬，而是團隊想保留多少控制權、願意把多少維運責任交出去。
 

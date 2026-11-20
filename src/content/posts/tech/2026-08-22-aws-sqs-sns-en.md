@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-aws-sqs-sns)
+> :globe: [中文版](/posts/tech/2026-08-22-aws-sqs-sns)
 
 [Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html) and [Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) often appear together but own different responsibilities. SQS stores messages for consumers to pull, process, and delete. SNS receives a publication and pushes it to HTTP, Lambda, email, SQS, and other subscriptions. When multiple services must reliably process one event, the standard topology fans one SNS topic out to multiple SQS queues.
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-21-shadcn-registry-mcp-en)
+:globe: [English version](/posts/tech/2026-08-21-shadcn-registry-mcp-en)
 
 [shadcn/ui 那篇](/posts/tech/2026-03-27-shadcn-ui-component-library)講過它的核心主張：元件不該是黑盒依賴，該是複製進你 repo 的原始碼。但很多人停在「shadcn = 一套好看的元件」的理解，錯過了更重要的東西——**它把這個分發模型做成了開放基礎設施**。registry 是一個任何人都能實作的協定，而 2025 年加入的 MCP server 讓這條分發管道直接對 AI agent 開放。這篇講清楚這層。
 

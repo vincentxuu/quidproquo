@@ -12,7 +12,7 @@ series:
   order: 74
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp-en)
+> :globe: [English version](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp-en)
 
 ## 工具資訊
 
@@ -123,10 +123,10 @@ assess_asset_change         # 把最新量測對照基準，依宣告的規則�
 
 | | Predictive Maintenance MCP | 商用振動分析軟體 | 通用 LLM 直接問診 |
 |---|---|---|---|
-| Agent／對話式操作 | ✅ MCP 原生，Claude／任何 MCP client | ❌ 多為獨立 GUI | ✅ 但沒有工具約束 |
-| 資料留在本機 | ✅ 原始訊號不出機器，只有運算結果給 LLM | 視廠商部署方式而定 | ❌ 訊號得整段餵進雲端模型 |
-| 判斷有頻譜證據支撐 | ✅ 拒絕檔名／猜測，強制比對故障頻率 | ✅ 多數商用工具也有 | ❌ 容易順著提示掰出故障 |
-| 開源、可重現 benchmark | ✅ MIT，CWRU 資料集上的盲測結果可重跑 | ❌ 演算法多為黑箱 | — |
+| Agent／對話式操作 | ✓ MCP 原生，Claude／任何 MCP client | ✗ 多為獨立 GUI | ✓ 但沒有工具約束 |
+| 資料留在本機 | ✓ 原始訊號不出機器，只有運算結果給 LLM | 視廠商部署方式而定 | ✗ 訊號得整段餵進雲端模型 |
+| 判斷有頻譜證據支撐 | ✓ 拒絕檔名／猜測，強制比對故障頻率 | ✓ 多數商用工具也有 | ✗ 容易順著提示掰出故障 |
+| 開源、可重現 benchmark | ✓ MIT，CWRU 資料集上的盲測結果可重跑 | ✗ 演算法多為黑箱 | — |
 | 授權成本 | 免費（MIT） | 常按機台數／年計費，可達數萬美元 | 依 API 用量計費 |
 
 ## 注意事項

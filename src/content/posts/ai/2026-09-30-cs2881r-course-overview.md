@@ -22,7 +22,7 @@ glossary:
         url: "https://arxiv.org/abs/2506.11613"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 
 **影片狀態：已附影片。** 導言附第 1 講錄影（2 小時 26 分），各講錄影在各講導讀。[影片來源與說明](#課程影片來源)
 

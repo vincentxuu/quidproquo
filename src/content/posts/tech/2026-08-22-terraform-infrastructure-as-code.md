@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-terraform-infrastructure-as-code-en)
+> :globe: [English version](/posts/tech/2026-08-22-terraform-infrastructure-as-code-en)
 
 [Terraform](https://developer.hashicorp.com/terraform/intro) 是 declarative infrastructure as code 工具。HCL configuration 描述 resources 與 dependencies，providers 把它翻成 AWS、Google Cloud、Cloudflare、GitHub 等 API 操作；Terraform 再用 state 將 resource address 對應到真實物件。
 

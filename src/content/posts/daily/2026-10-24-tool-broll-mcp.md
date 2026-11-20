@@ -12,7 +12,7 @@ series:
   order: 63
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-24-tool-broll-mcp-en)
+> :globe: [English version](/posts/daily/2026-10-24-tool-broll-mcp-en)
 
 ## 工具資訊
 
@@ -146,11 +146,11 @@ npx @modelcontextprotocol/inspector --cli uv run broll-mcp \
 
 | | broll-mcp | 手動用 ffmpeg 剪 archive.org | 商業 stock footage API |
 |---|---|---|---|
-| Agent 看關鍵幀再決定要哪段 | ✅ | ❌ | 依供應商而定 |
-| 剪輯長度自動驗證（±0.1 秒） | ✅ | 需自己寫 ffprobe 檢查 | 不適用（通常整支下載） |
-| 每支 clip 附可稽核的授權來源記錄 | ✅ | 需自己手動留存 | 部分（商業授權條款，非公共領域考證） |
-| 免費、不需要 API key | ✅ | ✅ | ❌（需訂閱或 API key） |
-| 重複查詢不重打上游 | ✅（SQLite 快取） | ❌ | 不適用 |
+| Agent 看關鍵幀再決定要哪段 | ✓ | ✗ | 依供應商而定 |
+| 剪輯長度自動驗證（±0.1 秒） | ✓ | 需自己寫 ffprobe 檢查 | 不適用（通常整支下載） |
+| 每支 clip 附可稽核的授權來源記錄 | ✓ | 需自己手動留存 | 部分（商業授權條款，非公共領域考證） |
+| 免費、不需要 API key | ✓ | ✓ | ✗（需訂閱或 API key） |
+| 重複查詢不重打上游 | ✓（SQLite 快取） | ✗ | 不適用 |
 
 ## 注意事項
 

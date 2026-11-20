@@ -15,7 +15,7 @@ glossary:
     def: "Nex AGI's open agentic model family, offered in mini, Pro, and Max sizes and designed for long-running computer and browser tasks with visual-feedback correction."
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini)
+> :globe: [中文版](/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini)
 
 ## Model information
 

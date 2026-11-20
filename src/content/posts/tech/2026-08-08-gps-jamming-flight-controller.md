@@ -13,7 +13,7 @@ series:
   order: 29
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-08-gps-jamming-flight-controller-en)
+> :globe: [English version](/posts/tech/2026-08-08-gps-jamming-flight-controller-en)
 
 《遙控無人機資安檢測規範》定義產品系列時點名三個模組：**飛控、通訊及衛星定位晶片之模組**。[飛控那篇](/posts/tech/2026-08-08-px4-vs-ardupilot)和[通訊那篇](/posts/tech/2026-08-08-drone-radio-link)拆完了前兩個。這篇是第三個。
 

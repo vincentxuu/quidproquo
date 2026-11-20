@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-19-ai-browser-sdk-comparison)
+> :globe: [中文版](/posts/ai/2026-11-19-ai-browser-sdk-comparison)
 
 Posts 8 through 12 covered four hybrid SDKs: [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4-en), [Midscene](/posts/ai/2026-05-23-midscene-vision-ui-automation-en), [AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en), and [Skyvern](/posts/ai/2026-11-19-skyvern-en). What they share: your code controls the flow, and only individual steps go to a model. The same layer also holds Magnitude, HyperAgent, and Notte, and every README comes with an impressive success rate.
 

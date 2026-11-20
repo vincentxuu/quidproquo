@@ -97,7 +97,7 @@ Agents operating across many turns or sessions are usually encouraged to accumul
 
 ### Deep dive
 
-- Across all 6 tested models, agents with stale experience underperformed novices every time ⚠️ (author-built synthetic environments, not real production MCP services)
+- Across all 6 tested models, agents with stale experience underperformed novices every time :warning: (author-built synthetic environments, not real production MCP services)
 - The failure mechanism decomposes: lower doc-lookup rates, less re-checking behavior — "too lazy to re-verify," not "remembered the wrong thing"
 - Remediation like prompting agents to re-check docs or revise notes had limited effect
 - Failing agents frequently misjudge themselves as having completed the task — a double risk (wrong, and unaware of it)
@@ -157,7 +157,7 @@ Letting an agent modify and evolve its own strategy — "recursive self-improvem
 
 ### Deep dive
 
-- SWE-bench Pro: ELITE 85.6%, vs. baselines DGM 86.7% and HGM 88.3% — scoring slightly below both baselines ⚠️ (author-reproduced baselines, not numbers taken directly from the original papers)
+- SWE-bench Pro: ELITE 85.6%, vs. baselines DGM 86.7% and HGM 88.3% — scoring slightly below both baselines :warning: (author-reproduced baselines, not numbers taken directly from the original papers)
 - Efficiency comparison: ELITE needs 0 downstream candidate evaluations vs. baselines' 810/800, yielding 8.8x/3.2x speedups
 - Removing the deterministic gate collapses performance to 52.0%, proving the gate is core mechanism, not decoration
 - Portability tested across multiple model backbones

@@ -13,7 +13,7 @@ description: "Damai Wall climbing guide: permits, toilets and the helmet rule at
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-batu-caves-damai)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-batu-caves-damai)
 
 Batu Caves has ten subareas, and they are not interchangeable. Damai Wall is the only one run as a park with a permit, toilets and lighting; the price is the most rules you will meet anywhere in the area: a helmet, a rope length and a draw count, all stated on the wall. This guide helps you decide whether the entrance fee buys you enough climbing, what time of day works, whether 70 m of rope and 16 quickdraws are genuinely required, and what the expansion bolts bolted in the 1990s look like now.
 

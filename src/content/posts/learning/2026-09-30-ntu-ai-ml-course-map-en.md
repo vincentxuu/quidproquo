@@ -13,7 +13,7 @@ description: "An audit of NTU's Hung-yi Lee ML 2026 and GenAI courses, Hsuan-Tie
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-30-ntu-ai-ml-course-map)
+> :globe: [中文版](/posts/learning/2026-09-30-ntu-ai-ml-course-map)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

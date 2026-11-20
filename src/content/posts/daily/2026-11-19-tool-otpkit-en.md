@@ -12,7 +12,7 @@ series:
   order: 83
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-19-tool-otpkit)
+> :globe: [中文版](/posts/daily/2026-11-19-tool-otpkit)
 
 ## Tool info
 
@@ -162,10 +162,10 @@ A paid number just swaps the `provider` argument away from the default free sour
 
 | | otpkit | manual temp-mail site | self-hosted IMAP test inbox | wiring up an SMS API directly |
 |---|---|---|---|---|
-| Works without an API key | ✅ | ✅ | depends on the mail server | ❌ |
-| Agent calls it directly, no browser | ✅ | ❌ | partial (you write the polling) | partial (you write the client) |
-| Auto-extracts OTP/verification link | ✅ (regex) | ❌ you hunt for it | ❌ you write it | depends on the provider's format |
-| Multiple email/SMS sources to switch between | ✅ 4 email + 3 SMS | one site | one inbox | one provider |
+| Works without an API key | ✓ | ✓ | depends on the mail server | ✗ |
+| Agent calls it directly, no browser | ✓ | ✗ | partial (you write the polling) | partial (you write the client) |
+| Auto-extracts OTP/verification link | ✓ (regex) | ✗ you hunt for it | ✗ you write it | depends on the provider's format |
+| Multiple email/SMS sources to switch between | ✓ 4 email + 3 SMS | one site | one inbox | one provider |
 | Paid plan required for a private number | optional (5sim/smspool) | — | — | required |
 
 ## Things to watch for

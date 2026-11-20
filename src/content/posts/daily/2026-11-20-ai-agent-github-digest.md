@@ -11,7 +11,7 @@ series:
   order: 97
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-20-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-20-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### obra/superpowers ⭐ 321,913 (+2,029)
+### obra/superpowers ★ 321,913 (+2,029)
 
 [GitHub](https://github.com/obra/superpowers)　·　Shell　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### cursor/plugins ⭐ 17,489 (+383)
+### cursor/plugins ★ 17,489 (+383)
 
 [GitHub](https://github.com/cursor/plugins)　·　TypeScript　·　MIT（各外掛各自授權）
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### HKUDS/CLI-Anything ⭐ 60,393 (+899)
+### HKUDS/CLI-Anything ★ 60,393 (+899)
 
 [GitHub](https://github.com/HKUDS/CLI-Anything)　·　Python　·　Apache-2.0
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### mvanhorn/last30days-skill ⭐ 70,670 (+952)
+### mvanhorn/last30days-skill ★ 70,670 (+952)
 
 [GitHub](https://github.com/mvanhorn/last30days-skill)　·　Python　·　MIT
 

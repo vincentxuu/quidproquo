@@ -22,7 +22,7 @@ glossary:
     context: "Hooper's Beta 的每週課表三個循環都從肩外旋或肩胛後收開始。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-antagonist-core-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-antagonist-core-en)
 
 爬了一年，你的背和前臂練出來了，引體向上也多了好幾下。但最近抱完石，肩膀前面有點緊，手肘內側偶爾痠。岩友說：「你只練拉，沒練推，失衡了啦。」
 

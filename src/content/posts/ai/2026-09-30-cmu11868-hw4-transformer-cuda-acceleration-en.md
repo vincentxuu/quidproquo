@@ -22,7 +22,7 @@ glossary:
     context: "Both the HW4 softmax backward kernel and the LayerNorm gamma/beta gradient kernel use it."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

@@ -30,7 +30,7 @@ glossary:
     context: "This post treats it as the core idea behind the syllabus topic \"efficient kernels.\""
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-llm-systems)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-llm-systems)
 
 **Video status: The original lecture recording is now available, but this article has not yet been updated against it; only related supplementary videos are included for now.** [Source details](#course-video-sources)
 

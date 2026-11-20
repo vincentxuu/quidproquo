@@ -13,7 +13,7 @@ series:
   order: 34
 ---
 
-> 🌏 [中文版](/posts/policy/2026-08-09-who-may-down-a-drone)
+> :globe: [中文版](/posts/policy/2026-08-09-who-may-down-a-drone)
 
 [The counter-drone post](/posts/tech/2026-08-07-counter-drone-why-hard-en) ended on a line: "the legal basis is actually sufficient; what is fractured is execution."
 

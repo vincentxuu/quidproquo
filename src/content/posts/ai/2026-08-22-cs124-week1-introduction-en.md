@@ -13,7 +13,7 @@ description: "A guide to Stanford CS124 Winter 2026 Week 1: how the introduction
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs124-week1-introduction)
+> :globe: [中文版](/posts/ai/2026-08-22-cs124-week1-introduction)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

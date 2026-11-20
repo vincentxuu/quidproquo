@@ -30,7 +30,7 @@ glossary:
     context: "The last piece of the harness layer here, and what Assignment 1 Part 2 asks you to implement."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

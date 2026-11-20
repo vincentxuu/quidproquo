@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-06-bvlos-three-jurisdictions)
+> :globe: [中文版](/posts/tech/2026-08-06-bvlos-three-jurisdictions)
 
 [The industry map](/posts/tech/2026-08-06-drone-industry-map-en) listed BVLOS regulation as one of two ceilings on drone scaling. This piece lays three jurisdictions side by side, and the spread is wider than I expected: **the EU can already fly, the US is waiting on a last mile, and Taiwan hasn't built the framework.**
 

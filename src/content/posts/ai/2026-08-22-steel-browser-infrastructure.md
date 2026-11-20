@@ -13,7 +13,7 @@ series:
   order: 21
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-steel-browser-infrastructure-en)
+> :globe: [English version](/posts/ai/2026-08-22-steel-browser-infrastructure-en)
 
 [Steel](https://steel.dev/) 做的不是 browser agent，而是讓 agent 可以使用瀏覽器的基礎設施。模型負責判斷下一步要點哪裡，Playwright 或 Puppeteer 負責送出動作，Steel 負責建立 Chromium、保留 session、接 proxy、處理生命週期，並留下失敗時能看的畫面與紀錄。
 

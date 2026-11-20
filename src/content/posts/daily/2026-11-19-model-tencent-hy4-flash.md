@@ -15,7 +15,7 @@ glossary:
     def: "Hy4 flash 新增的 N-gram 查表式嵌入模組，用雜湊查表取出 bigram／trigram 表徵，不佔用 attention 運算但吃掉大量儲存參數"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-19-model-tencent-hy4-flash-en)
+> :globe: [English version](/posts/daily/2026-11-19-model-tencent-hy4-flash-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | 使用者盲測滿意度（4 分制） | 2.79 | — | Claude Haiku 5.5　2.81 |
 | 每任務成本（WorkIndex，相對值） | 1× | 旗艦 Hy4　20× | DeepSeek-V4.1-Flash-1017（Max tier）　8× |
 
-⚠️ 以上除使用者盲測外均為 Tencent 官方自測；DeepSWE／Terminal-Bench 4.0 數字取自官方附錄圖表，經第三方聚合站（LLMLearner、DataLearnerAI）交叉核對一致，尚未見獨立團隊重現。
+:warning: 以上除使用者盲測外均為 Tencent 官方自測；DeepSWE／Terminal-Bench 4.0 數字取自官方附錄圖表，經第三方聚合站（LLMLearner、DataLearnerAI）交叉核對一致，尚未見獨立團隊重現。
 
 ## 與前代/競品比較
 

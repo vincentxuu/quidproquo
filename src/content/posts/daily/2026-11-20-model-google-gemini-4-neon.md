@@ -15,7 +15,7 @@ glossary:
     def: "Google DeepMind 開發的大型語言模型家族，Neon 是 Gemini 4.x 分支裡定位在 Hydrogen 與 Carbon 之間的平衡款模型"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-20-model-google-gemini-4-neon-en)
+> :globe: [English version](/posts/daily/2026-11-20-model-google-gemini-4-neon-en)
 
 ## 模型資訊
 
@@ -49,7 +49,7 @@ glossary:
 | KingBench 4（第三方六專案程式碼評測，滿分 60） | 37.9（63.2%） | 官方僅稱勝出 Argon／Carbon，未給具體分數 | Claude Fable 5.2　42（第一）；Claude Opus 5.5　34.7 |
 | AA-Omniscience v1.1 幻覺率（分數越低越好） | 13.9–14.4% | Carbon 11.4%／Hydrogen 8.5%／Argon 4.3% | Claude Opus 5.5　50.3%／GPT-6.2 Sol　55.4% |
 
-⚠️ AA Intelligence Index、Vals Index、AA-Omniscience 由 Artificial Analysis／Vals AI 獨立測得；AutomationBench 由 Zapier 獨立測得；KingBench 4 是第三方站 MindStudio 自建評測，非 Google 官方數字。Google 官方比較表自己選的對手是 Claude Opus 5.5 與 GPT-6.2 Sol，不是市場上分數最高的模型。
+:warning: AA Intelligence Index、Vals Index、AA-Omniscience 由 Artificial Analysis／Vals AI 獨立測得；AutomationBench 由 Zapier 獨立測得；KingBench 4 是第三方站 MindStudio 自建評測，非 Google 官方數字。Google 官方比較表自己選的對手是 Claude Opus 5.5 與 GPT-6.2 Sol，不是市場上分數最高的模型。
 
 ## 與前代/競品比較
 

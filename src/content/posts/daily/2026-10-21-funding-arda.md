@@ -12,7 +12,7 @@ series:
   order: 98
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-21-funding-arda-en)
+> :globe: [English version](/posts/daily/2026-10-21-funding-arda-en)
 
 ## 融資資訊
 

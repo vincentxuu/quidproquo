@@ -13,7 +13,7 @@ description: "吉婆島攀岩指南：Butterfly Valley、Fisher Valley、Hidden 
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-vietnam-crag-cat-ba-en)
+> :globe: [English version](/posts/climbing/2026-10-21-vietnam-crag-cat-ba-en)
 
 吉婆島是越南攀岩最像「海島假期」的地方：石灰岩崖頂上蓋著叢林，崖下是沙灘與碼頭。但這裡的每一件事都跟其他岩場不一樣——**攀岩在島上是「被容忍而非被允許」**，要買通行證、要付地主錢、每個區的岩栓狀況不同，連「能不能爬」這個問題都曾經被政府動過。
 

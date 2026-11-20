@@ -21,7 +21,7 @@ glossary:
     context: "The second half of 6.5940 Lab 1 compares it with fine-grained pruning on model size, MACs, and latency."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-lab1-pruning)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-lab1-pruning)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

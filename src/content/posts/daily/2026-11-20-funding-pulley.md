@@ -12,7 +12,7 @@ series:
   order: 147
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-20-funding-pulley-en)
+> :globe: [English version](/posts/daily/2026-11-20-funding-pulley-en)
 
 ## 融資資訊
 

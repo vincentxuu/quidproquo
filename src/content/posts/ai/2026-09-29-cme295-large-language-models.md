@@ -30,7 +30,7 @@ glossary:
     context: "本講用 zero-shot 與 few-shot 的對照介紹它。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-large-language-models-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-large-language-models-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

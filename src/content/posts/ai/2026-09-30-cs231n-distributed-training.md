@@ -26,7 +26,7 @@ glossary:
     context: "每 √N 層存一個檢查點時，記憶體 O(√N)、計算 O(N√N)。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-distributed-training-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-distributed-training-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-ask-ai-retrieval-evaluation)
+> :globe: [中文版](/posts/ai/2026-08-30-ask-ai-retrieval-evaluation)
 
 > **Optional companion reading:** Beginners can read this article directly. For extra context, see [RAG Evaluation Frameworks and Tool Selection](/posts/ai/2026-03-12-rag-evaluation-frameworks-en) and [RAG A/B Testing](/posts/ai/2026-03-12-rag-ab-testing-en).
 

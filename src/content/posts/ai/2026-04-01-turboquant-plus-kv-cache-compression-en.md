@@ -10,7 +10,7 @@ description: "An introduction to TurboQuant+'s core quantization principles (Pol
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-01-turboquant-plus-kv-cache-compression)
+> :globe: [中文版](/posts/ai/2026-04-01-turboquant-plus-kv-cache-compression)
 
 The memory bottleneck of LLM inference isn't just the model itself — when contexts get longer, **KV cache is the real memory killer**. A 70B model at 128K context can easily consume over 40GB just for the KV cache. TurboQuant+ directly compresses this memory, achieving 3.8-6.4x compression through two-stage quantization with virtually no quality loss.
 

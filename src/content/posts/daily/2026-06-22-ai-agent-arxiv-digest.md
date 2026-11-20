@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 29
 ---
-> 🌏 [English version](/posts/daily/2026-06-22-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-22-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -73,12 +73,12 @@ LedgerAgent 在 agent 迴圈中加入一個「帳本（ledger）」：每次工�
 - 最大收益場景：多試驗嚴格一致性指標（stricter multi-trial consistency）——代表 LedgerAgent 讓 agent 更穩定、不只是偶爾對
 - 兩類主要錯誤被減少：(1) 以陳舊/錯誤事實做決策；(2) 語法合法但違反政策條件的工具呼叫
 - LangGraph 關聯：這套帳本機制等同於在 LangGraph state 裡加入 schema-validated typed dict，並強制每個工具節點回傳後更新 state——目前 LangGraph 讓工程師自訂 state，但沒有強制 schema 和 canonical path 的內建機制
-- 論文狀態：標注為「Work in Progress」 ⚠️——完整量化數字可能在後續版本補充
+- 論文狀態：標注為「Work in Progress」 :warning:——完整量化數字可能在後續版本補充
 - 落地門檻低：inference-time plugin，無需微調；需要額外設計 tool output → ledger schema 的 parsing 邏輯
 
 ### Reviewer 一句話評
 
-問題定義精確、解法設計簡潔，「把狀態從 prompt 分離」這個洞見很紮實；但「Work in Progress」狀態意味著完整量化結果尚未公開 ⚠️，目前只知道「有提升」，具體幅度待後續版本確認；另外，schema 設計品質決定帳本的有效性——如果 schema 設計不良，型別字典只是另一種錯誤傳播管道。
+問題定義精確、解法設計簡潔，「把狀態從 prompt 分離」這個洞見很紮實；但「Work in Progress」狀態意味著完整量化結果尚未公開 :warning:，目前只知道「有提升」，具體幅度待後續版本確認；另外，schema 設計品質決定帳本的有效性——如果 schema 設計不良，型別字典只是另一種錯誤傳播管道。
 
 ### 給你的 take-away
 
@@ -129,14 +129,14 @@ CoD 框架的核心設計是兩種交替出現的 RL episode：
 - RL 基礎設施要求：需要支持「超長 rollout」的訓練環境，因為 solve-task + update-context 交替序列比單一任務 episode 長很多；這是大多數現有 RL 訓練框架沒有原生支持的
 - 跨領域泛化：訓練領域 A 學到的「如何快速認識新環境」的能力，應能遷移到 B、C 領域——是 meta-learning（元學習）概念在 agent 長期部署上的具體應用
 - 與現有記憶架構的差異：RAG / memory store 讓 agent「查找」過去資料；CoD 訓練 agent「主動重組」環境認識——前者是 retrieval，後者是 learning signal，需要不同的訓練設計
-- 作者群來自 Alibaba Group ⚠️：工業界大廠主導，落地動機強，但也可能在 benchmark 設計上選對自家系統有利的環境
-- 論文狀態：標注為「Work in Progress」 ⚠️，計劃持續更新 arXiv 版本和 codebase——目前公開數字應謹慎解讀
+- 作者群來自 Alibaba Group :warning:：工業界大廠主導，落地動機強，但也可能在 benchmark 設計上選對自家系統有利的環境
+- 論文狀態：標注為「Work in Progress」 :warning:，計劃持續更新 arXiv 版本和 codebase——目前公開數字應謹慎解讀
 - 落地前提：需要 agent 在生產中的完整執行記錄（trace logging），以及可機器評估任務成功/失敗的環境——closed-loop 場景比開放式任務更容易套用
 - 與 LangGraph / AutoGen 的關聯：目前這些框架都缺少「從任務執行結果更新 system-level context」的原生機制；CoD 的 update-context episode 在框架層面需要在 agent 迴圈結束後加一個「環境認識更新」節點
 
 ### Reviewer 一句話評
 
-問題設定重要且真實，CoD 雙 episode 設計思路清晰；但「Work in Progress」加 Alibaba 自研評測環境是兩個警示 ⚠️——還不知道這個方法在真實場景的量化數字，也不確定評測環境是否中立設計。方向紮實，但要等完整版本再決定要不要跟進。
+問題設定重要且真實，CoD 雙 episode 設計思路清晰；但「Work in Progress」加 Alibaba 自研評測環境是兩個警示 :warning:——還不知道這個方法在真實場景的量化數字，也不確定評測環境是否中立設計。方向紮實，但要等完整版本再決定要不要跟進。
 
 ### 給你的 take-away
 
@@ -157,7 +157,7 @@ CoD 框架的核心設計是兩種交替出現的 RL episode：
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 對需要在企業內部部署有實際執行能力的 agent（能操作雲端資源、生產系統）的架構師或安全工程師值得讀；如果你現在只是在做 demo 或研究層級的 agent，可以先跳過。
 
 ### 領域背景
@@ -191,16 +191,16 @@ SEB 的執行流程分六步：
 - 核心設計原理：proposal → admission → execution 強制分離，消除「批准的動作 ≠ 實際執行的動作」的模糊地帶
 - SAB vs SEB：SAB 負責「審核並發出憑證」；SEB 是「執行前的最後驗證關卡」——SEB 不作策略判斷，只做執行時驗證
 - Live-state drift detection：審批時的環境狀態可能在等待執行期間改變；SEB 在執行前重新檢查環境狀態是否仍符合憑證假設
-- 撤銷傳播（revocation propagation）：若一張憑證被撤銷，SEB 能在執行前攔截；在 AWS 和 Kubernetes 集群測試傳播延遲 ⚠️（完整數字待 Work in Progress 版本補充）
+- 撤銷傳播（revocation propagation）：若一張憑證被撤銷，SEB 能在執行前攔截；在 AWS 和 Kubernetes 集群測試傳播延遲 :warning:（完整數字待 Work in Progress 版本補充）
 - Scoped execution identity：每次執行產生短生命週期身份，只有最小權限，執行後即失效——降低憑證洩漏的爆炸半徑
 - Signed audit records：每次執行的 decision 和 outcome 都有密碼學簽名，可事後驗證
-- 評測環境：AWS + Kubernetes prototype；測項包含 latency overhead、revocation propagation、drift detection 準確率、fault injection 下的安全性 ⚠️（Work in Progress，完整數字尚未公開）
-- 作者（Jun He、Deying Yu）機構背景不明 ⚠️，提案性質較強，尚未經過嚴格 peer review
+- 評測環境：AWS + Kubernetes prototype；測項包含 latency overhead、revocation propagation、drift detection 準確率、fault injection 下的安全性 :warning:（Work in Progress，完整數字尚未公開）
+- 作者（Jun He、Deying Yu）機構背景不明 :warning:，提案性質較強，尚未經過嚴格 peer review
 - 與 MCP（Model Context Protocol）的關聯：MCP 定義 agent 工具的 schema 和 API 格式，但不做執行時的憑證驗證；SEB 可視為 MCP 呼叫到真實基礎設施之間需要插入的執行層安全組件
 
 ### Reviewer 一句話評
 
-問題定義精準（execution gap 是真實存在的安全缺口），SEB 的六步驟設計有工程落地感；但兩位作者、機構背景不明、Work in Progress、數字未完整公開 ⚠️——這篇更像一個有說服力的架構提案，而非成熟研究；值得追蹤，但企業採用前要等更完整的實作和安全審計。
+問題定義精準（execution gap 是真實存在的安全缺口），SEB 的六步驟設計有工程落地感；但兩位作者、機構背景不明、Work in Progress、數字未完整公開 :warning:——這篇更像一個有說服力的架構提案，而非成熟研究；值得追蹤，但企業採用前要等更完整的實作和安全審計。
 
 ### 給你的 take-away
 

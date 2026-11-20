@@ -11,7 +11,7 @@ series:
   order: 72
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-05-security-docker-sandboxes-symlink-escape)
+> :globe: [中文版](/posts/daily/2026-11-05-security-docker-sandboxes-symlink-escape)
 
 ## What Happened
 

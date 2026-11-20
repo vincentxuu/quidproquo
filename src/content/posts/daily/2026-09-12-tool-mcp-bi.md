@@ -12,7 +12,7 @@ series:
   order: 28
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-12-tool-mcp-bi-en)
+> :globe: [English version](/posts/daily/2026-09-12-tool-mcp-bi-en)
 
 ## 工具資訊
 
@@ -87,11 +87,11 @@ python3 scripts/verify-superset.py ./target/release/mcp-bi
 
 | | mcp-bi | 只丟 dashboard 截圖給 Agent | 單平台官方/社群 BI MCP（如僅支援 Metabase） |
 |---|---|---|---|
-| 換 BI 平台不用改 Agent 端程式碼 | ✅（統一 12 個工具） | — | ❌（換平台要換 MCP） |
-| 圖表回傳附帶背後統計數字 | ✅ `bi_render_chart` 同時回 PNG 與數字 | ❌ 全靠模型看圖猜 | 依實作而定 |
-| 免帳密先試工具介面 | ✅ 預設 `memory` fixture | — | 通常要先接真帳號 |
+| 換 BI 平台不用改 Agent 端程式碼 | ✓（統一 12 個工具） | — | ✗（換平台要換 MCP） |
+| 圖表回傳附帶背後統計數字 | ✓ `bi_render_chart` 同時回 PNG 與數字 | ✗ 全靠模型看圖猜 | 依實作而定 |
+| 免帳密先試工具介面 | ✓ 預設 `memory` fixture | — | 通常要先接真帳號 |
 | 多平台商用 API 都做過真實串接驗證 | 部分：Superset 對過真實實例，其餘 5 家僅依文件實作、未對真租戶測過 | — | 通常只做自家那一個平台，驗證較集中 |
-| 唯讀，無寫入/改動 dashboard 能力 | ✅（`writes_allowed = "none"`） | — | 依實作而定 |
+| 唯讀，無寫入/改動 dashboard 能力 | ✓（`writes_allowed = "none"`） | — | 依實作而定 |
 
 ## 注意事項
 

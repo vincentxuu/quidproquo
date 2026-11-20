@@ -13,7 +13,7 @@ description: "A guide to Val d'Ossola and Cadarese: where to go for granite crac
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-ossola)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-ossola)
 
 Val d'Ossola sits at the northern tip of Piedmont, a wedge between the Swiss Valais and Ticino that stretches from Lago Maggiore to the Simplon Pass, with Domodossola as its main town. Swiss climbing magazine [lacrux](https://www.lacrux.com/en/klettern/climbing-in-north-south-ossola-in-italy-climbing-guide/) counts hundreds of developed routes, sport, trad and alpine, and says "the spectacular crack climbs should be mentioned here in particular".
 

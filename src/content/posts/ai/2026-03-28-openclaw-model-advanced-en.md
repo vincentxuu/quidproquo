@@ -13,7 +13,7 @@ description: "OpenClaw's model failover: the two stages, how selection source de
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-model-advanced)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-model-advanced)
 
 The previous article covered choosing models and providers. This one covers **what happens when they break**, and how to make them cheaper.
 

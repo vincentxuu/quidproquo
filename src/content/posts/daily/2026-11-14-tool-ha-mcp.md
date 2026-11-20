@@ -12,7 +12,7 @@ series:
   order: 78
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-14-tool-ha-mcp-en)
+> :globe: [English version](/posts/daily/2026-11-14-tool-ha-mcp-en)
 
 ## 工具資訊
 
@@ -118,7 +118,7 @@ docker run -d --name ha-mcp -p 9584:9584 \
 | 連接方式 | 另接 REST／WebSocket API | 走 Assist pipeline | 另接 REST／WebSocket API |
 | 可控範圍 | automation／script／helper／dashboard／area／calendar／備份／HACS／裝置與 entity registry，YAML 編輯是 beta | 只能讀寫曝露給 Assist 的 entity，跑 Assist 支援的 intent | entity 狀態／控制、automation 清單與控制、dashboard 讀寫 |
 | 工具數 | 87 | 依曝露設定浮動，不是固定工具集 | 官方未列總數，涵蓋面明顯較窄 |
-| 寫 automation／script | ✅ | ❌ | ❌（只能列出與控制既有的） |
+| 寫 automation／script | ✓ | ✗ | ✗（只能列出與控制既有的） |
 | 安全機制 | Read Only Mode、單一工具開關、核可政策、自動備份 | 跟著 Assist 曝光設定走 | 官方文件未特別列出 |
 | 最後更新 | 2026-11-13 仍有 push | 跟著 Home Assistant 核心走 | 2026-11-02 |
 

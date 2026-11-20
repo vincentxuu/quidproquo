@@ -13,7 +13,7 @@ series:
   order: 31
 ---
 
-> 🌏 [中文版](/posts/policy/2026-08-09-airport-drone-incursions-taiwan)
+> :globe: [中文版](/posts/policy/2026-08-09-airport-drone-incursions-taiwan)
 
 [The previous post](/posts/policy/2026-08-09-who-may-down-a-drone-en) read every Taiwanese provision that might authorise counter-drone action and concluded that the law authorises an outcome and no means — and that **the airport is the cell squeezed from three sides**: the weakest verb, soft kill named as the prohibited thing, hard kill meaning gunfire beside a runway.
 

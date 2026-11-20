@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/education/2026-08-06-taiwan-drone-education-paths)
+> :globe: [中文版](/posts/education/2026-08-06-taiwan-drone-education-paths)
 
 [The job map](/posts/career/2026-08-06-drone-industry-job-map-en) listed eleven roles but skipped an earlier question: **where do you actually learn any of it?**
 

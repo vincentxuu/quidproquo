@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-typescript-7-native)
+> :globe: [中文版](/posts/tech/2026-08-22-typescript-7-native)
 
 [TypeScript 7](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/) is not a native addon for a few hot paths. The compiler, project system, and language service have been reimplemented in Go. The TypeScript team reports improvements around an order of magnitude; Slack's published example reduced CI type checking from roughly 7.5 minutes to 1.25 minutes. Those numbers cannot be copied to every repository, but they show that this release addresses an architectural bottleneck rather than a minor optimization.
 

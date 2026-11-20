@@ -11,7 +11,7 @@ series:
   order: 75
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-09-security-claude-code-dont-ask-again-secrets-leak-en)
+> :globe: [English version](/posts/daily/2026-11-09-security-claude-code-dont-ask-again-secrets-leak-en)
 
 ## 事件概述
 

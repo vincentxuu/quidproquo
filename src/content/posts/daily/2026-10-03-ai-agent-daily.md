@@ -12,7 +12,7 @@ series:
   order: 49
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-03-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-03-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -108,16 +108,16 @@ GitHub Trending 今天被「幫 agent 少吃資源」的工具佔滿——cavema
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-03](/posts/daily/2026-10-03-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-03](/posts/daily/2026-10-03-ai-agent-github-digest)
-- 📄 [框架更新｜Pydantic AI v2.53.0](/posts/daily/2026-10-03-framework-pydantic-ai-2.53.0)
-- 📄 [融資速報｜Supabase 加碼 $150M 收購 Turso](/posts/daily/2026-10-03-funding-supabase)
-- 📄 [模型卡｜Clef（Cloudflare）](/posts/daily/2026-10-03-model-cloudflare-clef)
-- 📄 [定價追蹤｜xAI 停用 grok-imagine-image-quality](/posts/daily/2026-10-03-pricing-xai-grok-imagine-image-quality-sunset)
-- 📄 [資安警報｜一封信接管 Manus AI Agent](/posts/daily/2026-10-03-security-manus-email-jsfuck-rce)
-- 📄 [工具推薦｜HarnessRouter](/posts/daily/2026-10-03-tool-harnessrouter)
-- 📄 [AI Engineer 面試日練 — 2026-10-03：Paper Reading](/posts/daily/2026-10-03-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-03：Technical PM](/posts/daily/2026-10-03-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-03](/posts/daily/2026-10-03-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-03](/posts/daily/2026-10-03-ai-agent-github-digest)
+- :file: [框架更新｜Pydantic AI v2.53.0](/posts/daily/2026-10-03-framework-pydantic-ai-2.53.0)
+- :file: [融資速報｜Supabase 加碼 $150M 收購 Turso](/posts/daily/2026-10-03-funding-supabase)
+- :file: [模型卡｜Clef（Cloudflare）](/posts/daily/2026-10-03-model-cloudflare-clef)
+- :file: [定價追蹤｜xAI 停用 grok-imagine-image-quality](/posts/daily/2026-10-03-pricing-xai-grok-imagine-image-quality-sunset)
+- :file: [資安警報｜一封信接管 Manus AI Agent](/posts/daily/2026-10-03-security-manus-email-jsfuck-rce)
+- :file: [工具推薦｜HarnessRouter](/posts/daily/2026-10-03-tool-harnessrouter)
+- :file: [AI Engineer 面試日練 — 2026-10-03：Paper Reading](/posts/daily/2026-10-03-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-03：Technical PM](/posts/daily/2026-10-03-product-builder-interview-daily)
 
 ## 明日關注
 

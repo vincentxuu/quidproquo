@@ -14,7 +14,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-output-handling-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-output-handling-en)
 
 Alice 的工單摘要包含一段圖片語法，畫面一載入就向外部網址送出請求；另一個流程把模型給的「產生報表指令」直接交給 shell。兩個入口都是模型文字，危險卻發生在後面接手的程式。
 

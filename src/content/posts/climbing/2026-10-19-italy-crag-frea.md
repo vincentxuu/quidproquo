@@ -13,7 +13,7 @@ description: "Frea 岩場介紹：岩質與分層結構、各來源的路線數�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-frea-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-frea-en)
 
 Frea 在南提洛 Val Gardena 的最上方，Passo Gardena 往 Selva 下山的路邊，是 Sella 山塊邊緣的一片岩壁（Val Gardena 觀光局）。[UKC](https://ukclimbing.com/logbook/crags/frea-10802) 稱它「one of the most renowned sports crags in the Dolomites」；[Planetmountain](https://www.planetmountain.com/en/crags/frea.html) 寫從 Val Gardena 開上山口時，右手邊那片「particularly compact dolomite」就是 Frea。
 

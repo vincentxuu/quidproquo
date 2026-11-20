@@ -23,7 +23,7 @@ glossary:
     context: "Cell 5f in HW4.2, compared side by side with training from scratch (5e) and unfreezing everything (5g)."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

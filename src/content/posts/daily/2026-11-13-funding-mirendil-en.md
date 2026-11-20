@@ -12,7 +12,7 @@ series:
   order: 130
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-13-funding-mirendil)
+> :globe: [中文版](/posts/daily/2026-11-13-funding-mirendil)
 
 ## Funding Details
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 43
 ---
-> 🌏 [English version](/posts/daily/2026-07-06-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-06-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -125,7 +125,7 @@ PaperPilot 把搜尋任務化成「**工作流程歸納（Workflow Induction）*
 - **6 種搜尋算子**：keyword search、citation expansion（引用展開）、filtering、scoring、reranking、evidence extraction，組成可編排的 DAG 節點
 - **訓練資料生成**：對正確工作流程施加「受控破壞（controlled workflow corruptions）」生成負樣本，做 preference optimization——比隨機生成負樣本更針對性
 - **Base model**：Qwen3.5-9B；PaperPilot-9B 在多輪互動下優於同模型的 toolset agent baseline
-- **評測結果（⚠️ 為論文內部 baseline，未見第三方重現）**：Hit@5 58.0→77.0（+19 pts），MRR 47.5→59.4，nDCG@10 26.8→32.5，工作流程執行錯誤率 9.5%→0%
+- **評測結果（:warning: 為論文內部 baseline，未見第三方重現）**：Hit@5 58.0→77.0（+19 pts），MRR 47.5→59.4，nDCG@10 26.8→32.5，工作流程執行錯誤率 9.5%→0%
 - **多輪互動設計**：系統追蹤使用者哪些結果被接受/拒絕，作為下一輪 DAG 修改的訊號，不只修改 query 字串，而是修改整個算子拓撲
 - **Limitation**：benchmark 僅在學術文獻搜尋場景；DAG 算子集合目前是預定義的，不支援開放域新算子生成；需要人工正確工作流程示範作為訓練資料，收集成本較高
 - **與主流 framework 的關係**：DAG 工作流程可對應到 LangGraph 的 Graph 概念；preference optimization 方式可借鑒 DPO
@@ -153,7 +153,7 @@ SEA：讓 Agent 在邊跑邊自我改良的同時，每次改良都需通過「�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 概念有趣且有理論依據，適合對「自我演化 Agent」或「Agent 安全性」有興趣的讀者。單一作者論文、缺乏大規模實驗，建議先讀 Abstract + SEA 架構段 + Conclusion，不必全讀。
 
 ### 領域背景
@@ -182,7 +182,7 @@ SEA 架構三件套：（1）**凍結的 base model + 小型 steering adapter**�
 - **Anytime-valid 的統計含義**：使用 e-value 或 sequential testing 類方法，允許在任意時間點以設定的顯著水準 α 拒絕零假設，不需要提前決定樣本數
 - **Auditable certificate 內容**：更新版本號、使用的 verifier 集合、error budget 消耗量——可存入 log 作為合規記錄
 - **Limitation**：單一作者、無大規模 benchmark；steering adapter 的容量選擇缺乏消融實驗；與 LoRA、prefix tuning 等常見 adapter 技術的關係未說明
-- **⚠️ 注意**：論文為單一作者且主要是概念/架構提案，缺乏對比實驗，框架設計值得參考但數字要打折
+- **:warning: 注意**：論文為單一作者且主要是概念/架構提案，缺乏對比實驗，框架設計值得參考但數字要打折
 - **與主流 framework 的關係**：harness 概念與 SWE-agent 的 harness engineering 有概念重疊；anytime-valid 概念借鑒自統計學 sequential testing 文獻
 
 ### Reviewer 一句話評

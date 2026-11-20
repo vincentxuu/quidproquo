@@ -13,7 +13,7 @@ description: "介紹埼玉秩父的二子山岩場：岩質、規模與難度、
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-futagoyama-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-futagoyama-en)
 
 二子山（ふたごやま，Futagoyama）在埼玉縣秩父郡小鹿野町，是東岳、西岳兩座石灰岩峰組成的雙峰，岩場散在兩座峰的岩壁上。[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E4%BA%8C%E5%AD%90%E5%B1%B1/) 記的傾斜是「90~135度」，路線集中在 5.11、5.12 台；5.9 以下只有 8 條。[Mountain Project](https://www.mountainproject.com/area/108546606/futagoyama) 的開頭一句是「One of Japan's premiere limestone crags」。
 

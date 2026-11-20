@@ -26,7 +26,7 @@ glossary:
     context: "The CS224R default project uses it as the single task, so SFT, preference optimization, and online RL can be compared on the same problem."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-default-project-llm-rl)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-default-project-llm-rl)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

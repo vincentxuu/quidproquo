@@ -13,7 +13,7 @@ series:
   order: 21
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-07-counter-drone-why-hard)
+> :globe: [中文版](/posts/tech/2026-08-07-counter-drone-why-hard)
 
 This series has brushed against counter-drone three times: [the industry map](/posts/tech/2026-08-06-drone-industry-map-en) sized the market, [the four-criteria piece](/posts/investing/2026-08-06-drone-supply-chain-four-criteria-en) dissected the Army contract that was terminated in full, and [the market entry piece](/posts/career/2026-08-06-drone-market-entry-mechanics-en) dissected the National Police Agency's graded award. **Three times, and never a dedicated piece.**
 

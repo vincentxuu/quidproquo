@@ -16,7 +16,7 @@ description: "Stanford CME295: Transformers & Large Language Models 系列導讀
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-course-overview-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

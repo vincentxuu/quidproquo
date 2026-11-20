@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini)
+> :globe: [中文版](/posts/ai/2026-05-09-ai-browser-agents-claude-codex-gemini)
 
 In early 2026, all three major AI vendors brought agents into the browser, each by a completely different route: Anthropic built a Chrome extension, OpenAI built its own browser (Atlas), and Google welded Gemini into Chrome itself.
 

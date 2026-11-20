@@ -25,7 +25,7 @@ glossary:
     context: "L4's second off-policy actor-critic relies on it to reuse old data."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-actor-critic)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-actor-critic)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

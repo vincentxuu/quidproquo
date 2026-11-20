@@ -22,7 +22,7 @@ glossary:
     definition: "OpenAI's first open-weight language models (2025/08), 120B and 20B sizes, Apache 2.0 licensed"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-ai-model-family-gpt)
+> :globe: [中文版](/posts/tech/2026-08-24-ai-model-family-gpt)
 
 On November 30, 2022, ChatGPT went live—1 million users in five days, 100 million in two months, the fastest-growing consumer product in history. Four years later, in 2026, OpenAI went through two generations in half a year: the GPT-5.6 Sol/Terra/Luna tiers launched in July, GPT-6 Astra opened a new generation in September, and on November 17 GPT-6.2 Astra/Sol cut the flagship price by another 20%. This is the third family deep-dive in the "AI Model Families" series, tracing GPT's full evolution from GPT-1 to GPT-6.2.
 

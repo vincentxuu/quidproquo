@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-20-always-on-agents-overview)
+> :globe: [中文版](/posts/ai/2026-11-20-always-on-agents-overview)
 
 It's 7 a.m. on a Monday and you're still asleep. Your chatbot hasn't done anything, because nobody asked it. A different kind of agent has already read your inbox and calendar, noticed that your 10 a.m. meeting clashes with an email that says "can we move to 10:30?", and drafted a reply for you to send when you wake up.
 

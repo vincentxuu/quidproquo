@@ -49,11 +49,18 @@ const SKIP_TAGS = new Set(['code', 'pre', 'kbd', 'samp', 'script', 'style', 'svg
 /**
  * One emoji "unit": a keycap, a flag, or a pictograph with its modifiers, variation selectors and
  * ZWJ-joined parts. Text-default characters (`⚠`, `↔`, `™`) only count when a VS16 asks for color,
- * except the few listed bare (⚠ ✔ ✖ ‼ ⁉ ☑) because some platforms (iOS) still draw them as emoji. The
- * plain text marks `✓ ✗` are not emoji and stay text.
+ * except the few listed bare (⚠ ✔ ✖ ‼ ⁉ ☑) because some platforms (iOS) still draw them as emoji.
  */
-const EMOJI_RE =
-  /[#*0-9]\uFE0F?\u20E3|\p{Regional_Indicator}{2}|(?:\p{Emoji_Presentation}|\p{Extended_Pictographic}\uFE0F|[\u26A0\u2714\u2716\u203C\u2049\u2611])(?:\p{Emoji_Modifier}|\uFE0F|\uFE0E|[\u{E0020}-\u{E007F}])*(?:\u200D(?:\p{Emoji_Presentation}|\p{Extended_Pictographic})(?:\p{Emoji_Modifier}|\uFE0F)*)*/gu;
+const EMOJI_BODY =
+  '[#*0-9]\\uFE0F?\\u20E3|\\p{Regional_Indicator}{2}|(?:\\p{Emoji_Presentation}|\\p{Extended_Pictographic}\\uFE0F|[\\u26A0\\u2714\\u2716\\u203C\\u2049\\u2611%EXTRA%])(?:\\p{Emoji_Modifier}|\\uFE0F|\\uFE0E|[\\u{E0020}-\\u{E007F}])*(?:\\u200D(?:\\p{Emoji_Presentation}|\\p{Extended_Pictographic})(?:\\p{Emoji_Modifier}|\\uFE0F)*)*';
+/** What the site rewrites: emoji, plus the text check marks ✓ ✗, which are drawn as the same icons as ✅ ❌. */
+const EMOJI_RE = new RegExp(EMOJI_BODY.replace('%EXTRA%', '\\u2713\\u2717'), 'gu');
+/**
+ * Emoji as the source check sees them: ✓ ✗ ★ ☆ are text symbols and may stay in Markdown; everything this
+ * matches has to be written as a shortcode (`:warning:`) or plain text instead. Used by
+ * scripts/check-no-emoji.mjs and scripts/convert-emoji-to-source.ts.
+ */
+export const SOURCE_EMOJI_RE = new RegExp(EMOJI_BODY.replace('%EXTRA%', ''), 'gu');
 
 const LABELS = {
   yes: { zh: '是', en: 'Yes' },
@@ -76,9 +83,11 @@ export const EMOJI_ICONS: Record<string, { icon: IconName; label?: keyof typeof 
   '📖': { icon: 'book-open' },
   '📚': { icon: 'book-open' },
   '✅': { icon: 'check', label: 'yes' },
+  '✓': { icon: 'check', label: 'yes' },
   '✔': { icon: 'check', label: 'yes' },
   '☑': { icon: 'check', label: 'yes' },
   '❌': { icon: 'x', label: 'no' },
+  '✗': { icon: 'x', label: 'no' },
   '❎': { icon: 'x', label: 'no' },
   '✖': { icon: 'x', label: 'no' },
   '⛔': { icon: 'x', label: 'no' },
@@ -165,12 +174,81 @@ const SWATCHES: Record<string, { shape: Shape; color?: string; hollow?: boolean 
   '⬜': { shape: 'square', hollow: true },
 };
 
+/**
+ * Shortcodes for the Markdown sources, which hold no emoji (scripts/check-no-emoji.mjs). Each one stands
+ * for the emoji it is expanded to before rendering, so `:globe:` and `🌏` produce the same icon. ✅ ❌ are
+ * written as the text marks ✓ ✗ and ⭐ as ★, which render as the same icons; those have no shortcode.
+ */
+export const SHORTCODES: Record<string, string> = {
+  globe: '🌏',
+  file: '📄',
+  pencil: '📝',
+  book: '📖',
+  warning: '⚠',
+  question: '❓',
+  target: '🎯',
+  pin: '📌',
+  clock: '⏰',
+  hourglass: '⏳',
+  compass: '🧭',
+  film: '🎬',
+  bulb: '💡',
+  lock: '🔒',
+  construction: '🚧',
+  search: '🔍',
+  refresh: '🔄',
+  coin: '💰',
+  receipt: '🧾',
+  puzzle: '🧩',
+  shield: '🛡\uFE0F',
+  wrench: '🔧',
+  settings: '⚙\uFE0F',
+  link: '🔗',
+  checklist: '📋',
+  home: '🏠',
+  'red-circle': '🔴',
+  'orange-circle': '🟠',
+  'yellow-circle': '🟡',
+  'green-circle': '🟢',
+  'blue-circle': '🔵',
+  'purple-circle': '🟣',
+  'brown-circle': '🟤',
+  'black-circle': '⚫',
+  'white-circle': '⚪',
+  'red-square': '🟥',
+  'orange-square': '🟧',
+  'yellow-square': '🟨',
+  'green-square': '🟩',
+  'blue-square': '🟦',
+  'purple-square': '🟪',
+  'brown-square': '🟫',
+  'black-square': '⬛',
+  'white-square': '⬜',
+};
+
+const SHORTCODE_RE = new RegExp(`:(${Object.keys(SHORTCODES).join('|')}):`, 'g');
+
+/** `:globe:` → `🌏`, so shortcodes go through exactly the same rules as the emoji they name. */
+export function expandShortcodes(input: string): string {
+  return input.includes(':') ? input.replace(SHORTCODE_RE, (_, name: string) => SHORTCODES[name]) : input;
+}
+
+/** Icon or swatch → its shortcode name, for the converter. Several emoji share one (🌍 🌐 → globe). */
+function shortcodeFor(piece: { type: 'icon'; icon: IconName } | { type: 'swatch'; shape: Shape; color?: string; hollow?: boolean; base: string }): string | undefined {
+  for (const [name, emoji] of Object.entries(SHORTCODES)) {
+    const base = String.fromCodePoint(emoji.codePointAt(0)!);
+    if (piece.type === 'icon' && EMOJI_ICONS[base]?.icon === piece.icon) return name;
+    if (piece.type === 'swatch' && base === piece.base) return name;
+  }
+  return undefined;
+}
+
 /** Decorative emoji with no icon that sometimes stand alone (a table cell, `（🆕）`). */
 const STANDALONE_FALLBACK: Record<string, string> = { '🆕': 'NEW' };
 const GENERIC_FALLBACK = '•';
 
 /** Already-text symbols: a VS16 on them is dropped, the symbol stays. */
-const KEEP_TEXT_RE = /^[\u00A9\u00AE\u2122\u2190-\u21FF\u2934\u2935\u2605\u2606\u2610\u2612\u2713\u2717\u3030\u303D]$/u;
+const KEEP_TEXT_RE = /^[\u00A9\u00AE\u2122\u2190-\u21FF\u2934\u2935\u2605\u2606\u2610\u2612\u3030\u303D]$/u;
 
 const OPEN_PAREN = new Set(['(', '（', '[', '【']);
 const CLOSE_PAREN = new Set([')', '）', ']', '】']);
@@ -198,7 +276,8 @@ function baseOf(seq: string): string {
  * Splits one string into text, icon and swatch pieces. Reports whether anything changed and which
  * fallback to use if decorative removals leave the containing element empty.
  */
-function rewrite(input: string): { pieces: Piece[]; changed: boolean; fallback?: string } {
+function rewrite(raw: string, opts: { source?: boolean } = {}): { pieces: Piece[]; changed: boolean; fallback?: string } {
+  const input = expandShortcodes(raw);
   const pieces: Piece[] = [];
   let buf = '';
   let last = 0;
@@ -220,6 +299,11 @@ function rewrite(input: string): { pieces: Piece[]; changed: boolean; fallback?:
     const base = baseOf(seq);
     const isZwj = seq.includes('\u200D');
 
+    // The converter keeps the text marks ✓ ✗ as they are: they are allowed in the sources.
+    if (opts.source && (base === '✓' || base === '✗')) {
+      buf += seq;
+      continue;
+    }
     if (/^[#*0-9]/.test(seq)) {
       buf += base;
       continue;
@@ -345,7 +429,7 @@ type StarContext = { cell?: 'td' | 'th' };
 /** Splits stars out of a text node, then runs the emoji rewrite on the text in between. */
 function rewriteWithStars(raw: string, lang: Lang, ctx: StarContext): ReturnType<typeof rewrite> {
   // ⭐ / 🌟 are the emoji spelling of ★ (`⭐ 104,523`, `⭐⭐⭐`): same three meanings, same handling.
-  const input = raw.replace(/[⭐🌟][\uFE0E\uFE0F]?/gu, '★');
+  const input = expandShortcodes(raw).replace(/[⭐🌟][\uFE0E\uFE0F]?/gu, '★');
   if (!/[★☆]/.test(input)) return rewrite(raw);
   const normalized = input !== raw;
   const pieces: Piece[] = [];
@@ -399,7 +483,7 @@ function rewriteWithStars(raw: string, lang: Lang, ctx: StarContext): ReturnType
  * text between tags. Text inside code / pre / script / style / svg / textarea is left alone.
  */
 const HTML_TOKEN_RE = /<!--[\s\S]*?-->|<\/?[a-zA-Z][^>"']*(?:(?:"[^"]*"|'[^']*')[^>"']*)*>/g;
-const NEEDS_REWRITE_RE = /[★☆⭐🌟]|[#*0-9]\uFE0F?\u20E3|\p{Emoji_Presentation}|\p{Extended_Pictographic}\uFE0F|[⚠✔✖‼⁉☑]/u;
+const NEEDS_REWRITE_RE = /[★☆⭐🌟✓✗]|:[a-z-]+:|[#*0-9]\uFE0F?\u20E3|\p{Emoji_Presentation}|\p{Extended_Pictographic}\uFE0F|[⚠✔✖‼⁉☑]/u;
 
 function rewriteRawHtml(html: string, lang: Lang): string {
   if (!NEEDS_REWRITE_RE.test(html)) return html;
@@ -554,4 +638,30 @@ export function stripEmojiText(input: string): string {
   if (!/^\s/.test(input)) out = out.trimStart();
   if (!/\s$/.test(input)) out = out.trimEnd();
   return out;
+}
+
+/**
+ * Source-side rewrite used by scripts/convert-emoji-to-source.ts: the Markdown text with every emoji
+ * replaced by what renders the same way without one. Icons become shortcodes (`🌏` → `:globe:`), the yes /
+ * no marks become ✓ ✗, ⭐ becomes ★, text-by-nature marks become their text (`🥇` → `1`), and decorative
+ * emoji are dropped with the same spacing rules as the renderer. `fallback` is set when the text held
+ * something visible before and only decorative emoji, now removed.
+ */
+export function emojiToSource(raw: string): { text: string; changed: boolean; fallback?: string } {
+  const input = raw.replace(/[⭐🌟][\uFE0E\uFE0F]?/gu, '★');
+  const { pieces, changed, fallback } = rewrite(input, { source: true });
+  if (!changed) return { text: input, changed: input !== raw };
+  let out = '';
+  for (const p of pieces) {
+    if (p.type === 'text') out += p.value;
+    else if (p.type === 'icon' && p.icon === 'check') out += '✓';
+    else if (p.type === 'icon' && p.icon === 'x') out += '✗';
+    else if (p.type === 'icon' || p.type === 'swatch') {
+      const name = shortcodeFor(p);
+      if (!name) throw new Error(`no shortcode for ${p.base}`);
+      out += `:${name}:`;
+    }
+  }
+  const emptied = /\S/.test(raw) && !/\S/.test(out);
+  return { text: out, changed: true, fallback: emptied ? fallback : undefined };
 }

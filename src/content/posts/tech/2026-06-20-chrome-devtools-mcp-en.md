@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/tech/2026-06-20-chrome-devtools-mcp)
+> :globe: [中文版](/posts/tech/2026-06-20-chrome-devtools-mcp)
 
 **The premise of this post changed after 2025: Chrome DevTools MCP now has an official package.** [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) (`chrome-devtools-mcp` on npm) is maintained by the Chrome team and packages DevTools capability as an MCP server so an AI agent can control and inspect a live Chrome. Its current official name is "Chrome DevTools for agents".
 

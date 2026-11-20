@@ -20,7 +20,7 @@ glossary:
     context: "L14 用它展示 cross-attention 權重的用途。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

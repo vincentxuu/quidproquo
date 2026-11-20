@@ -11,7 +11,7 @@ series:
   order: 45
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-29-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-09-29-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ None of today's five rising repos reinvent the agent framework itself — all fi
 
 ## Trending Repos
 
-### ZCode ⭐ 7,031 (launched 8 days ago)
+### ZCode ★ 7,031 (launched 8 days ago)
 
 [GitHub](https://github.com/zai-org/ZCode)　·　TypeScript　·　Apache-2.0
 
@@ -30,7 +30,7 @@ None of today's five rising repos reinvent the agent framework itself — all fi
 
 ---
 
-### magpie ⭐ 1,571 (launched 5 days ago)
+### magpie ★ 1,571 (launched 5 days ago)
 
 [GitHub](https://github.com/yetone/magpie)　·　Go　·　MIT
 
@@ -41,7 +41,7 @@ None of today's five rising repos reinvent the agent framework itself — all fi
 
 ---
 
-### jevgrep ⭐ 1,284 (launched 3 days ago)
+### jevgrep ★ 1,284 (launched 3 days ago)
 
 [GitHub](https://github.com/dzhng/jevgrep)　·　TypeScript　·　MIT
 
@@ -52,7 +52,7 @@ None of today's five rising repos reinvent the agent framework itself — all fi
 
 ---
 
-### golive-skill ⭐ 1,042 (launched 5 days ago)
+### golive-skill ★ 1,042 (launched 5 days ago)
 
 [GitHub](https://github.com/mikehasa/golive-skill)　·　TypeScript　·　MIT
 
@@ -63,7 +63,7 @@ None of today's five rising repos reinvent the agent framework itself — all fi
 
 ---
 
-### agent-console ⭐ 624 (launched 8 days ago)
+### agent-console ★ 624 (launched 8 days ago)
 
 [GitHub](https://github.com/LockedinLabs-AI/agent-console)　·　JavaScript　·　MIT
 

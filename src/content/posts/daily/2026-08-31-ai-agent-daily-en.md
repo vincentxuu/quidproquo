@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-31-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-31-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -143,13 +143,13 @@ GitHub's trending list today clusters around the Agent Skills ecosystem: `can135
 
 ## Today's Digests
 
-- 📄 [AI Agent GitHub Digest — 2026-08-31](/posts/daily/2026-08-31-ai-agent-github-digest)
-- 📄 [Framework Update｜Agno 3.0.2](/posts/daily/2026-08-31-framework-agno-3.0.2-en)
-- 📄 [Funding Watch｜Owner Series D $240M](/posts/daily/2026-08-31-funding-owner-en)
-- 📄 [Security Alert｜LiteLLM MCP Test-Endpoint Command Injection Chains to Unauthenticated RCE](/posts/daily/2026-08-31-security-litellm-mcp-rce-honeypot-en)
-- 📄 [Tool of the Day｜Sovereign MCP](/posts/daily/2026-08-31-tool-sovereign-mcp-en)
-- 📄 [AI Engineer Interview Daily — 2026-08-31: ML Fundamentals](/posts/daily/2026-08-31-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-08-31: Product Sense](/posts/daily/2026-08-31-product-builder-interview-daily-en)
+- :file: [AI Agent GitHub Digest — 2026-08-31](/posts/daily/2026-08-31-ai-agent-github-digest)
+- :file: [Framework Update｜Agno 3.0.2](/posts/daily/2026-08-31-framework-agno-3.0.2-en)
+- :file: [Funding Watch｜Owner Series D $240M](/posts/daily/2026-08-31-funding-owner-en)
+- :file: [Security Alert｜LiteLLM MCP Test-Endpoint Command Injection Chains to Unauthenticated RCE](/posts/daily/2026-08-31-security-litellm-mcp-rce-honeypot-en)
+- :file: [Tool of the Day｜Sovereign MCP](/posts/daily/2026-08-31-tool-sovereign-mcp-en)
+- :file: [AI Engineer Interview Daily — 2026-08-31: ML Fundamentals](/posts/daily/2026-08-31-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-08-31: Product Sense](/posts/daily/2026-08-31-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

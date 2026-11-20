@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-beehiiv-newsletter-operating-system)
+> :globe: [中文版](/posts/product/2026-09-17-beehiiv-newsletter-operating-system)
 
 A conventional newsletter service resembles a printing press: you prepare the issue, and it sends it. [Beehiiv](https://www.beehiiv.com/) wants to provide the entire newsroom control room. A publisher can write, see where readers came from, reward referrals, trade recommendations with other publications, acquire subscribers, sell ads, and convert part of a free audience to paid membership without leaving the same workspace.
 

@@ -13,7 +13,7 @@ description: "A deep dive into the public @oh-my-pi/pi-agent streaming contract:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-omp-streaming-internals)
+> :globe: [中文版](/posts/tech/2026-08-31-omp-streaming-internals)
 
 Post 16 in the [OMP Internals Deep Dive](/posts/tech/2026-08-31-omp-agent-loop-double-while-en) series. Earlier posts covered the loop, context, TUI, and tool boundaries; this one looks at an interface often reduced to “the model prints text”: the stream.
 

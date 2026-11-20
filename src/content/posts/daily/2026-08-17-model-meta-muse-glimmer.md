@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-17-model-meta-muse-glimmer-en)
+> :globe: [English version](/posts/daily/2026-08-17-model-meta-muse-glimmer-en)
 
 ## 模型資訊
 
@@ -47,7 +47,7 @@ series:
 | OSWorld-Verified（電腦操作） | 65.9 | 58.5 | **75.6** |
 | TerminalBench 2.1（終端操作） | 51.7 | 43.4 | **60.7** |
 
-⚠️ 以上為 Meta 官方公佈的內部評測結果（含跨廠商模型比較），非各廠商自行公佈的第三方複現數據；OSWorld-Verified、TerminalBench 2.1、GDPVal-AA v2（953 分，Qwen3.6-27B 為 1141 分）等項目 Qwen3.6-27B 領先。
+:warning: 以上為 Meta 官方公佈的內部評測結果（含跨廠商模型比較），非各廠商自行公佈的第三方複現數據；OSWorld-Verified、TerminalBench 2.1、GDPVal-AA v2（953 分，Qwen3.6-27B 為 1141 分）等項目 Qwen3.6-27B 領先。
 
 ## 與前代/競品比較
 

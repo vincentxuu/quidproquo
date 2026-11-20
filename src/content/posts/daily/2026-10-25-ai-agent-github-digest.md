@@ -11,7 +11,7 @@ series:
   order: 71
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-25-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-25-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### NVIDIA/OpenShell ⭐ 19,332 (+893)
+### NVIDIA/OpenShell ★ 19,332 (+893)
 
 [GitHub](https://github.com/NVIDIA/OpenShell)　·　Rust　·　Apache-2.0
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### feder-cr/git-ai ⭐ 988
+### feder-cr/git-ai ★ 988
 
 [GitHub](https://github.com/feder-cr/git-ai)　·　Go　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### makecindy/cindy ⭐ 3,971 (+471)
+### makecindy/cindy ★ 3,971 (+471)
 
 [GitHub](https://github.com/makecindy/cindy)　·　TypeScript　·　Apache-2.0
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### aws/agent-toolkit-for-aws ⭐ 3,055
+### aws/agent-toolkit-for-aws ★ 3,055
 
 [GitHub](https://github.com/aws/agent-toolkit-for-aws)　·　Python　·　Apache-2.0
 
@@ -68,7 +68,7 @@ series:
 [Release Notes](https://github.com/pydantic/pydantic-ai/releases/tag/v2.61.0)
 
 - **重要變更**：provider 專屬的 thinking 設定若從更外層範圍覆蓋掉你設的 `thinking`，現在會發出警告；對不支援關閉 thinking 的模型，`thinking=False` 改成送出該模型能接受的最低 thinking 量，而不是直接丟掉設定；`CohereModel` 工具回傳裡的檔案如果不支援，現在丟 `NotImplementedError` 而不是悄悄略過。
-- **Breaking Changes**：以上三項都列在官方「⚠️ Compatibility Notes」底下——用 `CohereModel` 工具回傳檔案、沒檢查型別支援的程式碼升級後會直接噴錯，而不是像之前一樣默默漏資料。
+- **Breaking Changes**：以上三項都列在官方「:warning: Compatibility Notes」底下——用 `CohereModel` 工具回傳檔案、沒檢查型別支援的程式碼升級後會直接噴錯，而不是像之前一樣默默漏資料。
 - **對你的影響**：如果你在多個範圍（provider／model／call）疊著設 thinking 參數，先確認目前靠的是哪一層生效；升級後外層覆蓋會被記錄出來，方便抓到之前沒注意到的疊加關係。
 
 ---

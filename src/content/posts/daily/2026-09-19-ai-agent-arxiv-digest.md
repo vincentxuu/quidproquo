@@ -11,7 +11,7 @@ series:
   order: 118
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-19-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-09-19-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -133,7 +133,7 @@ Haozhe Liu, Tian Ye, Sensen Gao et al.（NVIDIA / Nanyang Technological Universi
 ### 深入要點
 
 - 在 51 個公開任務的 EdgeBench 評測中,SoL-Pi 在 GPT-5.6 Sol 與 Opus 5 兩種後端都達到跟原生 Pi 相當的效能,同時把記錄下來的 token 流量降低 44.7%–49.0%,API 成本降低約三分之一
-- 換算成時薪:相對原生 Codex 與 Claude Code 式鷹架每小時省下約 8.75–13.50 美元,相對 Pi 每小時省下約 4.36–5.71 美元 ⚠️(作者自測,EdgeBench 目前僅公開 51/134 題,尚待外部複現)
+- 換算成時薪:相對原生 Codex 與 Claude Code 式鷹架每小時省下約 8.75–13.50 美元,相對 Pi 每小時省下約 4.36–5.71 美元 :warning:(作者自測,EdgeBench 目前僅公開 51/134 題,尚待外部複現)
 - 除了 EdgeBench,團隊也在 Terminal-Bench 4 與 IMO 2026(Lean 4 形式化驗證題)做跨場景測試,以及一個協同 agent swarm 的場景,確認四個機制不是只在單一評測裡湊巧有效
 - Limitation(作者自述):目前的機制主要由單一 LLM 後端產生的軌跡訓練得出,在另一個評測後端上觸發頻率與強度都較低,「多後端訓練」被列為未來方向;「遞迴自我改進」(用更省錢的鷹架去降低下一輪自動化研究的成本)也是作者明講的長期願景,而非本文已展示的複合效果
 - 落地門檻:需要能跑大量、多樣的自動化研究環境(repository-derived + verifier-driven),對沒有內部評測基礎設施的小型團隊,直接複製整套流程的門檻不低,但四個機制本身是可以單獨參考、移植的設計

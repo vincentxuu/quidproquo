@@ -13,14 +13,14 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-20-gemini-tasks)
+> :globe: [中文版](/posts/ai/2026-11-20-gemini-tasks)
 
 | Four tests | Tasks in Gemini |
 |---|---|
-| Keeps running while you're away | ✅ Runs on an isolated VM in Google's cloud; keeps going with your device off |
-| Decides what to do when it wakes | 🟡 L2: triggered by time or a condition; you write what it does |
-| Remembers your goals across conversations | ✅ Uses Personal Intelligence, skills and connected apps |
-| Acts for you | ✅ Sends, pays, calls, fills forms, stopping first to confirm |
+| Keeps running while you're away | ✓ Runs on an isolated VM in Google's cloud; keeps going with your device off |
+| Decides what to do when it wakes | :yellow-circle: L2: triggered by time or a condition; you write what it does |
+| Remembers your goals across conversations | ✓ Uses Personal Intelligence, skills and connected apps |
+| Acts for you | ✓ Sends, pays, calls, fills forms, stopping first to confirm |
 
 In a [November 17, 2026 post](https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/), Josh Woodward, the Google VP who runs the Gemini app, gave an example. The check-engine light on his family's minivan came on, so he told Gemini to call the two nearest dealerships and get an early Friday appointment sometime next month. Gemini already knew he drives a 2019 Honda Odyssey and where he lives. It found two dealerships on Google Maps, called both at once, sat through the hold music, picked the one that takes appointments, and fitted it into a free slot on his calendar — in under five minutes.
 

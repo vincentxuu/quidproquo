@@ -26,7 +26,7 @@ glossary:
     context: "Lattice 把它列為有氧系統的連續攀爬訓練。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-energy-systems-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-energy-systems-en)
 
 每次去岩館的最後二十分鐘，你可能會這樣收尾：挑一條中等難度的線，一趟接一趟爬，爬到前臂硬得握不住才下來。你覺得這是在「練耐力」。
 

@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-27-pricing-perplexity-sonar-api-sunset)
+> :globe: [中文版](/posts/daily/2026-09-27-pricing-perplexity-sonar-api-sunset)
 
 ## Summary of Changes
 
@@ -68,7 +68,7 @@ Sonar API's design had you pick a depth tier, and Perplexity bundled the model a
 
 ## Expiration Notice
 
-⚠️ **Retirement date**: 2026-09-27 (today). Sonar Chat Completions' `messages`/`choices` format stops being supported entirely, in favor of the Agent API's `input`/`output` format. Migration guide: [Migrate from Sonar to the Agent API](https://docs.perplexity.ai/docs/agent-api/migrate-from-sonar/overview).
+:warning: **Retirement date**: 2026-09-27 (today). Sonar Chat Completions' `messages`/`choices` format stops being supported entirely, in favor of the Agent API's `input`/`output` format. Migration guide: [Migrate from Sonar to the Agent API](https://docs.perplexity.ai/docs/agent-api/migrate-from-sonar/overview).
 
 ## Takeaway
 

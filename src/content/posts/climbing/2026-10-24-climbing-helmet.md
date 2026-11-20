@@ -26,7 +26,7 @@ glossary:
     context: "Black Diamond 說它的目的是降低可能造成腦震盪的旋轉力；這是原廠說法。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-climbing-helmet-en)
+> :globe: [English version](/posts/climbing/2026-10-24-climbing-helmet-en)
 
 在岩館，沒有人戴頭盔。第一次跟朋友去龍洞，你才發現每個人頭上都有一頂，連站在底下確保的人也戴著。你問要買哪一頂，有人說 Petzl 的白色那頂，有人說輕的比較好，店裡的價格從八百多到五千多都有。
 

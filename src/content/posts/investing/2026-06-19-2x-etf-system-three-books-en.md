@@ -9,7 +9,7 @@ description: "A Threads post by @jj.investnote laid out a 2x leveraged ETF syste
 tldr: "A 2x leveraged ETF system traces its philosophy to three books: A Random Walk Down Wall Street answers 'what to hold' (index funds), Lifecycle Investing answers 'how to accelerate' (leverage to diversify time risk), and The Four Pillars of Investing answers 'how to survive' (rebalancing discipline). Combined: 60% 2x ETF + 40% cash, Beta=1.2, ±10% rebalancing trigger."
 ---
 
-> 🌏 [中文版](/posts/investing/2026-06-19-2x-etf-system-three-books)
+> :globe: [中文版](/posts/investing/2026-06-19-2x-etf-system-three-books)
 
 I came across a post by [@jj.investnote](https://www.threads.com/@jj.investnote) on Threads describing a long-term leveraged ETF system.
 

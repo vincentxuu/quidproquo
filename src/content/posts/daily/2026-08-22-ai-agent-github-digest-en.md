@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-22-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-22-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Today's two fastest-growing trending repos pull in opposite directions — gensp
 
 ## Trending Repos
 
-### HKUDS/nanobot ⭐ 47,258
+### HKUDS/nanobot ★ 47,258
 
 [GitHub](https://github.com/HKUDS/nanobot)　·　Python　·　MIT
 
@@ -31,7 +31,7 @@ Today's two fastest-growing trending repos pull in opposite directions — gensp
 
 ---
 
-### genspark-ai/genoffice ⭐ 3,455
+### genspark-ai/genoffice ★ 3,455
 
 [GitHub](https://github.com/genspark-ai/genoffice)　·　TypeScript　·　Apache-2.0
 
@@ -42,7 +42,7 @@ Today's two fastest-growing trending repos pull in opposite directions — gensp
 
 ---
 
-### NVIDIA-NeMo/labs-OO-Agents ⭐ 1,842
+### NVIDIA-NeMo/labs-OO-Agents ★ 1,842
 
 [GitHub](https://github.com/NVIDIA-NeMo/labs-OO-Agents)　·　Python　·　Other (NVIDIA license)
 
@@ -53,7 +53,7 @@ Today's two fastest-growing trending repos pull in opposite directions — gensp
 
 ---
 
-### nduc99911/repo-context-mcp ⭐ 101
+### nduc99911/repo-context-mcp ★ 101
 
 [GitHub](https://github.com/nduc99911/repo-context-mcp)　·　TypeScript　·　MIT
 

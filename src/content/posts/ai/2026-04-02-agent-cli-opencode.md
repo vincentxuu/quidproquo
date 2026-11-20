@@ -21,7 +21,7 @@ draft: false
 
 [OpenCode](https://github.com/anomalyco/opencode) 是用 **TypeScript** 打造的開源 coding agent，**MIT** 授權，目前在 [anomalyco](https://github.com/anomalyco) 這個 org 下維護。
 
-> **⚠️ 這裡有個常見的張冠李戴**：早期有一個叫 `opencode-ai/opencode` 的專案是用 Go + [Bubble Tea](https://github.com/charmbracelet/bubbletea) 寫的，跟現在這個 OpenCode 不是同一份程式碼。網路上（包括本文舊版）不少「OpenCode 是 Go 寫的、Apache-2.0 授權」的說法都源自這個混淆。以現在的 repo 為準：TypeScript、MIT。
+> **:warning: 這裡有個常見的張冠李戴**：早期有一個叫 `opencode-ai/opencode` 的專案是用 Go + [Bubble Tea](https://github.com/charmbracelet/bubbletea) 寫的，跟現在這個 OpenCode 不是同一份程式碼。網路上（包括本文舊版）不少「OpenCode 是 Go 寫的、Apache-2.0 授權」的說法都源自這個混淆。以現在的 repo 為準：TypeScript、MIT。
 
 終端介面不是簡陋的純文字——OpenCode 有完整的 TUI，具備面板切換、語法高亮、互動式操作等功能。跑在終端機裡，但體驗接近 GUI。除了 TUI 之外，現在還有**桌面應用程式**（依平台提供安裝版本）與 IDE 擴充。
 

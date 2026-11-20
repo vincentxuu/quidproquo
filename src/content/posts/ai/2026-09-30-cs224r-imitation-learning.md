@@ -30,7 +30,7 @@ glossary:
     context: "出自 ALOHA/ACT 與 Diffusion Policy；HW1 的 policy 一次預測 20 步、執行前 10 步。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-imitation-learning-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-imitation-learning-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

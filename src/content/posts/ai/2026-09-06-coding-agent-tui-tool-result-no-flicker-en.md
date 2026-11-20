@@ -18,7 +18,7 @@ glossary:
     definition: "A tag in looplane (read, search, command, diff, plain) that determines whether a tool is grouped or rendered standalone."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-06-coding-agent-tui-tool-result-no-flicker)
+> :globe: [中文版](/posts/ai/2026-09-06-coding-agent-tui-tool-result-no-flicker)
 
 Tool result rendering is where coding agent TUIs break most often. A user reported that looplane's screen would "flash once then disappear," but only provided a static screenshot taken after the flash settled. This post starts by reproducing the issue frame by frame, confirms two independent flicker mechanisms, then compares the approaches of [Claude Code](https://github.com/anthropics/claude-code), [Codex CLI](https://github.com/openai/codex), [OpenCode](https://github.com/sst/opencode), [Pi](https://github.com/badlogic/pi-mono) / [OMP](https://github.com/can1357/oh-my-pi), and extracts two shared rules for flicker-free rendering.
 

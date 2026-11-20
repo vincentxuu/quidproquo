@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-permissions-auto-mode)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-permissions-auto-mode)
 
 The [series entry point](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en) described checkpoints and permission modes as Claude Code's two safety rails. This post expands the second one. It resolves a dilemma: ask about every action and long tasks drown you in prompts; ask about nothing and you have handed over your filesystem and terminal wholesale. Permission modes are the scale between those two extremes.
 

@@ -12,7 +12,7 @@ series:
   order: 26
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-10-tool-toolhive)
+> :globe: [中文版](/posts/daily/2026-09-10-tool-toolhive)
 
 ## Tool Info
 
@@ -87,11 +87,11 @@ thv run toolhive-doc-mcp-remote
 
 | | ToolHive | Manually running `npx`/`pip` | Hand-rolled Docker Compose |
 |---|---|---|---|
-| Container isolation + minimal permission profile (no local credentials) | ✅ | ❌ | Partial (you design it yourself) |
-| Built-in curated registry with signing/provenance verification | ✅ | ❌ | ❌ |
-| Auto-configures clients (VS Code/Cursor/Claude Code) | ✅ | ❌ | ❌ |
-| Kubernetes Operator for enterprise-scale deployment | ✅ | ❌ | You build it yourself |
-| Identity/access policy (OIDC/OAuth) + audit logs | ✅ (requires an IdP) | ❌ | You build it yourself |
+| Container isolation + minimal permission profile (no local credentials) | ✓ | ✗ | Partial (you design it yourself) |
+| Built-in curated registry with signing/provenance verification | ✓ | ✗ | ✗ |
+| Auto-configures clients (VS Code/Cursor/Claude Code) | ✓ | ✗ | ✗ |
+| Kubernetes Operator for enterprise-scale deployment | ✓ | ✗ | You build it yourself |
+| Identity/access policy (OIDC/OAuth) + audit logs | ✓ (requires an IdP) | ✗ | You build it yourself |
 
 ## Things to Watch Out For
 

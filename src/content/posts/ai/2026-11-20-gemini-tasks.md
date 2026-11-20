@@ -13,14 +13,14 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-20-gemini-tasks-en)
+> :globe: [English version](/posts/ai/2026-11-20-gemini-tasks-en)
 
 | 四個條件 | Tasks in Gemini |
 |---|---|
-| 你不在時繼續跑 | ✅ 在 Google 雲端的隔離 VM 上跑，關掉裝置也繼續 |
-| 醒來後自己決定做什麼 | 🟡 L2：時間或條件觸發，做什麼由你寫 |
-| 跨對話記得你的目標 | ✅ 用 Personal Intelligence、技能與連接的 app |
-| 能代你對外做事 | ✅ 寄信、付款、打電話、填表單，前面會停下來確認 |
+| 你不在時繼續跑 | ✓ 在 Google 雲端的隔離 VM 上跑，關掉裝置也繼續 |
+| 醒來後自己決定做什麼 | :yellow-circle: L2：時間或條件觸發，做什麼由你寫 |
+| 跨對話記得你的目標 | ✓ 用 Personal Intelligence、技能與連接的 app |
+| 能代你對外做事 | ✓ 寄信、付款、打電話、填表單，前面會停下來確認 |
 
 Google 負責 Gemini app 的副總裁 Josh Woodward，在 [2026 年 11 月 17 日的文章](https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/)裡舉了一個例子。家裡的休旅車引擎燈亮了，他跟 Gemini 說「打給最近的兩家車廠，約下個月某個週五一早保養」。Gemini 已經知道他開哪台車、住在哪裡，在 Google 地圖上找到兩家車廠，同時撥了兩通電話。它聽完等候音樂，挑了一家接受預約的，再對著行事曆找空檔排進去，前後不到五分鐘。
 

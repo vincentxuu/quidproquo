@@ -10,7 +10,7 @@ description: "A practical tour of Selenium WebDriver architecture, locators and 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-selenium-browser-automation)
+> :globe: [中文版](/posts/tech/2026-08-22-selenium-browser-automation)
 
 [Selenium](https://www.selenium.dev/documentation/webdriver/) is a browser automation tool, not a crawling framework or an anti-detection package. A program uses WebDriver to start a real browser, navigate pages, operate forms, and read the DOM. That makes it useful when content appears only after JavaScript execution or interaction. The cost is that every job carries the CPU, memory, and session-management overhead of a browser.
 

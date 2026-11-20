@@ -12,7 +12,7 @@ series:
   order: 123
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-05-funding-traversal-en)
+> :globe: [English version](/posts/daily/2026-11-05-funding-traversal-en)
 
 ## 融資資訊
 

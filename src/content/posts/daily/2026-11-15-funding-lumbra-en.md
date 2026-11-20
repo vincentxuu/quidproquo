@@ -12,7 +12,7 @@ series:
   order: 136
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-15-funding-lumbra)
+> :globe: [中文版](/posts/daily/2026-11-15-funding-lumbra)
 
 ## Funding Details
 

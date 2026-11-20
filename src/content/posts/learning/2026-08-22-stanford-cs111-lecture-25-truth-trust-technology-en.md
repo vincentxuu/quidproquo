@@ -13,7 +13,7 @@ description: "A page-by-page guide to Stanford CS111 Spring 2026 Lecture 25, cov
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-25-truth-trust-technology)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-25-truth-trust-technology)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

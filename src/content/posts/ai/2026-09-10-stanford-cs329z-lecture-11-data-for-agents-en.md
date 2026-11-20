@@ -14,7 +14,7 @@ description: "A page-linked guide to the CS329Z Lecture 11 Data for Agentic Syst
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

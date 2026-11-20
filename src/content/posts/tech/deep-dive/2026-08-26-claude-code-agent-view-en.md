@@ -13,7 +13,7 @@ series:
   order: 26
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-agent-view)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-agent-view)
 
 By this point in the series you've seen the [multi-agent overview](/posts/tech/deep-dive/2026-08-26-claude-code-multi-agent-overview): subagents share the work inside a single session, and [agent teams](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide) let multiple teammates collaborate within one team. But neither solves a more everyday problem — **you have five Claude Code sessions open across five terminal tabs, all running at once, and there is no way to keep up**. Which one is waiting on your answer? Which finished ages ago? You'd have to switch through every tab and scroll the transcripts to find out.
 

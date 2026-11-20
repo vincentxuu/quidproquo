@@ -13,7 +13,7 @@ description: "逐步導讀 Stanford CS161 Winter 2026 第一講：課程三個�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-01-why-algorithm-analysis-en)
+> :globe: [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-01-why-algorithm-analysis-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

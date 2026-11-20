@@ -15,7 +15,7 @@ glossary:
     def: "A large language model family developed by Alibaba's Tongyi Qianwen (Qwen) team"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-26-model-qwen-qwen3-8-flash-next)
+> :globe: [中文版](/posts/daily/2026-08-26-model-qwen-qwen3-8-flash-next)
 
 ## Model Information
 
@@ -50,7 +50,7 @@ glossary:
 | Real-world tool use (Toolathlon Verified Pass@1) | 73.5 | 67.1 | 50.6 | DeepSeek-V4-Flash-0731 70.3 |
 | Frontier agentic tasks (Agents' Last Exam Pass@1) | 24.3 | 20.4 | 13.2 | DeepSeek-V4-Flash-0731 25.2 |
 
-⚠️ All figures above are from Qwen's own official model card (some evaluated via third-party harnesses like Claude Code / mini-SWE-agent, but run and compiled by the Qwen team). No independent third-party reproduction or standardized leaderboard listing exists as of publication.
+:warning: All figures above are from Qwen's own official model card (some evaluated via third-party harnesses like Claude Code / mini-SWE-agent, but run and compiled by the Qwen team). No independent third-party reproduction or standardized leaderboard listing exists as of publication.
 
 ## Comparison with Predecessors and Competitors
 

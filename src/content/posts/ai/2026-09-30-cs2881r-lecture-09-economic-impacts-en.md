@@ -20,7 +20,7 @@ glossary:
     context: "Chandar used it in the Q&A to guess where employment might move after AI; Boaz's blog post uses it to explain why computers never lifted the GDP growth rate."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

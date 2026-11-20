@@ -13,7 +13,7 @@ description: "What the Gemini CLI shutdown actually covered, which paying paths 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-02-agent-cli-gemini-cli)
+> :globe: [中文版](/posts/ai/2026-04-02-agent-cli-gemini-cli)
 
 If you're choosing a terminal agent on Google's side, almost everything published in the first half of 2026 is now void. This post does one thing: **lay out the paying paths that still work.**
 
@@ -50,12 +50,12 @@ Google's position here is now awkward, and worth seeing side by side:
 
 | | Free entry | Individual paid | Rides an existing subscription |
 |---|---|---|---|
-| **Google (Antigravity CLI)** | ❌ Ended | Per Google AI plan | Google account ecosystem |
-| Claude Code | ❌ | $20 / $100 / $200 | — |
+| **Google (Antigravity CLI)** | ✗ Ended | Per Google AI plan | Google account ecosystem |
+| Claude Code | ✗ | $20 / $100 / $200 | — |
 | Codex | Limited | $8 / $20 / $100 / $200 | ChatGPT subscription |
-| Copilot CLI | ✅ Included in Free | $10 / $39 / $100 | GitHub Copilot license |
-| OpenCode | ✅ Open source, bring your key | Per model usage | Copilot / ChatGPT account |
-| Amp | ❌ Closed to new signups | $20 / $200 | ChatGPT, X Premium+ |
+| Copilot CLI | ✓ Included in Free | $10 / $39 / $100 | GitHub Copilot license |
+| OpenCode | ✓ Open source, bring your key | Per model usage | Copilot / ChatGPT account |
+| Amp | ✗ Closed to new signups | $20 / $200 | ChatGPT, X Premium+ |
 
 Google used to be the one strong entry in the free column. That cell is now empty. For a zero-cost start the answer has shifted to open source, bring-your-own-key routes like OpenCode, or Copilot CLI's Free plan.
 

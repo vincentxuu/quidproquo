@@ -15,7 +15,7 @@ glossary:
     def: "KRAFTON AI 推出的開源語言／語音模型家族，Raon-1 mini 是其首款從零訓練的通用 LLM"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-23-model-krafton-raon-1-mini-en)
+> :globe: [English version](/posts/daily/2026-10-23-model-krafton-raon-1-mini-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | MMLU Pro | 76.5 | —（首款模型） | Qwen3.6-35B-A3B 85.9（Raon-1 mini 在通用知識基準明顯落後） |
 | BFCL v4 Overall（工具呼叫） | 59.8 | —（首款模型） | Qwen3.6-35B-A3B 64.7（參考：dense Qwen3.8-27B 72.4） |
 
-⚠️ 以上均為 KRAFTON 自測（評審模型 gpt-5.6-luna），尚待外部複現；Chatbot Korean 是未公開發布的內部基準，無法由第三方直接驗證。官方也註明這是 preview 版本，正式版規格與分數可能調整。
+:warning: 以上均為 KRAFTON 自測（評審模型 gpt-5.6-luna），尚待外部複現；Chatbot Korean 是未公開發布的內部基準，無法由第三方直接驗證。官方也註明這是 preview 版本，正式版規格與分數可能調整。
 
 ```diagram
 title: Raon-1 mini 與 Qwen3.6-35B-A3B 四項基準比較

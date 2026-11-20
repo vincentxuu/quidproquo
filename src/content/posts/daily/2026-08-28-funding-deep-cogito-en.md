@@ -12,7 +12,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-28-funding-deep-cogito)
+> :globe: [中文版](/posts/daily/2026-08-28-funding-deep-cogito)
 
 ## Funding Details
 

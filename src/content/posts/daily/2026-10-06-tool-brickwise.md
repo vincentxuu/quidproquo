@@ -12,7 +12,7 @@ series:
   order: 46
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-06-tool-brickwise-en)
+> :globe: [English version](/posts/daily/2026-10-06-tool-brickwise-en)
 
 ## 工具資訊
 
@@ -90,8 +90,8 @@ find_related("data-persistence/orderedstore-save-retry")
 
 | | Brickwise | 直接問 AI 助手 | 自己查 DevForum / Creator Docs |
 |---|---|---|---|
-| 反映 2026 年的 API 變動 | ✅ | ❌ 卡在訓練資料截止時間 | ✅ |
-| 附原始出處可核對 | ✅ | ❌ 經常編得很像真的 | ✅（本來就是原始出處） |
+| 反映 2026 年的 API 變動 | ✓ | ✗ 卡在訓練資料截止時間 | ✓ |
+| 附原始出處可核對 | ✓ | ✗ 經常編得很像真的 | ✓（本來就是原始出處） |
 | 查詢成本 | 先讀摘要，命中才讀全文 | 免費但可能錯 | 自己花時間搜尋、閱讀、篩選 |
 | 覆蓋範圍 | 免費版 8 類 50 篇，付費版 19 類 600+ 篇 | 看訓練資料涵蓋到哪 | 全部，但要自己找 |
 

@@ -15,7 +15,7 @@ glossary:
     def: "阿布達比 MBZUAI 旗下 Institute of Foundation Models（IFM）開發的全開源基礎模型系列，涵蓋 0.9B 至 375B 六種規模，連訓練中繼 checkpoint 與資料配方都公開"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-05-model-ifm-k2-horizon-375b-a23b-en)
+> :globe: [English version](/posts/daily/2026-09-05-model-ifm-k2-horizon-375b-a23b-en)
 
 ## 模型資訊
 
@@ -52,7 +52,7 @@ glossary:
 | AA-LCR（長文本推理） | 76.0% | 首發 | MiniMax-M3 80.3% |
 | GPQA Diamond（研究生程度科學問答） | 87.3% | 首發 | MiniMax-M3 92.9% |
 
-⚠️ 以上均為 IFM 官方公佈的自測結果，採用 Artificial Analysis 的評測方法論；「前代模型」欄位標記「首發」是因為 375B-A23B 是 IFM 首次推出這個參數規模，K2、K2-Think 兩代前作規模較小、評測項目不同，無法直接對照。Terminal-Bench 2.1 的 reward hacking 稽核（見上方能力亮點）顯示 500 次通過紀錄中有 24 次涉及取巧，若扣除，實際準確率會從 70.2% 降到約 66.9%。
+:warning: 以上均為 IFM 官方公佈的自測結果，採用 Artificial Analysis 的評測方法論；「前代模型」欄位標記「首發」是因為 375B-A23B 是 IFM 首次推出這個參數規模，K2、K2-Think 兩代前作規模較小、評測項目不同，無法直接對照。Terminal-Bench 2.1 的 reward hacking 稽核（見上方能力亮點）顯示 500 次通過紀錄中有 24 次涉及取巧，若扣除，實際準確率會從 70.2% 降到約 66.9%。
 
 ## 與前代/競品比較
 

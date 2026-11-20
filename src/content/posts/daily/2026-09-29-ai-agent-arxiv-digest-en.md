@@ -11,7 +11,7 @@ series:
   order: 128
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-29-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-29-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -137,7 +137,7 @@ Multi-agent collaboration (agents with different roles working together toward a
 - Baseline breakdown: random actions solve only 5.7%, single-agent-does-everything reaches 28.6%, confirming the tasks genuinely require multi-agent collaboration; oracle communication (one agent sees all messages) raises success to 60.0%, but a 40% residual failure rate remains, showing difficulty isn't purely a communication shortfall
 - Communication volume doesn't equal collaboration quality: GPT-5 Mini sends the most chat messages (44.1 average) but ranks third; DeepSeek sends the fewest (7.5) yet ranks last, and delays its first message to round 5 on average, missing the critical early-coordination window
 - CCE metric validated: agrees with human causal judgments at Cohen's kappa=0.64 ("substantial"), nearly matching the kappa=0.66 between two different judge models; re-computing CCE with three different judge models leaves the model ranking completely unchanged
-- On the harder augmented variants, every model's success rate roughly halves (Gemini 52%→24%, DeepSeek 20%→10%) ⚠️ (self-reported by the authors, pending external replication)
+- On the harder augmented variants, every model's success rate roughly halves (Gemini 52%→24%, DeepSeek 20%→10%) :warning: (self-reported by the authors, pending external replication)
 - Limitation (author-stated): only 4 frontier models evaluated, and DeepSeek R1-70B is relatively older, limiting how representative the cross-model comparison is
 
 ### Reviewer's One-Line Take
@@ -196,7 +196,7 @@ Multi-Agent Debate (MAD) is often used to improve the robustness and factuality 
 - Under high conflict, the ungated baseline synthesis has a provenance fidelity of just 0.288, and only 0.183 under low conflict — showing that whenever the debate contains unresolved disagreement, the synthesis model tends to smooth it into a plausible-sounding conclusion
 - With active auditing and self-healing, terminal provenance fidelity rises to 0.617 (high conflict) and 0.586 (low conflict), still below the 0.95 hard threshold — so 75.0% of high-conflict syntheses and 60.0% of low-conflict syntheses get blocked by the gate and replaced with a divergence report
 - Validator-symmetry ablation: using the same model as both generator and auditor wrongly approves unsafe compromises 85.6% of the time; switching to a stronger, independent validator model drops the same text's measured provenance fidelity to 0.300 and correctly rejects 63.3% of irreconcilable outputs
-- Human A/B study (N=33): 66.7% found the baseline more "fluent and diplomatic," but in the high-conflict scenario, 75.8% judged the APG output more faithful to the evidence; in the zero-sum stalemate scenario, APG's divergence report scored significantly higher trust (3.27) than the baseline's fabricated compromise (2.45, paired t-test p=0.0039) ⚠️ (N=33 convenience sample, pending validation at larger scale and with professional operators)
+- Human A/B study (N=33): 66.7% found the baseline more "fluent and diplomatic," but in the high-conflict scenario, 75.8% judged the APG output more faithful to the evidence; in the zero-sum stalemate scenario, APG's divergence report scored significantly higher trust (3.27) than the baseline's fabricated compromise (2.45, paired t-test p=0.0039) :warning: (N=33 convenience sample, pending validation at larger scale and with professional operators)
 - Self-healing is efficient: repaired outputs retain 97.3% of their text length, showing the system achieves compliance by restructuring the argument rather than crudely deleting content
 - Limitation (author-stated): evaluation limited to synthetic simulations and hard-coded conflict scenarios; the provenance check operates under a closed-world assumption, checked only against the debate corpus rather than external reality; the 33-person convenience sample doesn't distinguish domain experts from general users; the LLM auditor itself is subject to linguistic bias and prompt sensitivity, creating a circularity risk of "using an LLM to verify an LLM"
 

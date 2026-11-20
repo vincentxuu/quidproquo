@@ -13,7 +13,7 @@ description: "Ulsanbawi climbing guide: compare route grades and versions, plan 
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/climbing/2026-10-21-korea-crag-ulsanbawi)
+> :globe: [繁體中文版](/posts/climbing/2026-10-21-korea-crag-ulsanbawi)
 
 Ulsanbawi (울산바위) is Seoraksan’s granite wall of peaks. Tourists take stairs to an observation platform, climbers follow cracks up individual walls, and ridge parties traverse the chain of summits. The same place name can therefore describe very different days.
 

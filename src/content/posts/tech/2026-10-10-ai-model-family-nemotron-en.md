@@ -13,7 +13,7 @@ series:
   order: 31
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-10-ai-model-family-nemotron)
+> :globe: [繁體中文版](/posts/tech/2026-10-10-ai-model-family-nemotron)
 
 **NVIDIA Nemotron** isn't one model but a set of open-weight models tiered by where they run: Ultra and Super for the datacenter, Lightning for always-on agents, Nano for sub-agents, and Bolt for laptops and devices — plus speech, retrieval, content safety, and Nemotron Labs for experimental architectures. This post is for developers choosing within Nemotron: what each tier solves, what changed in the 3.5 generation, and which license and endpoint differences matter.
 

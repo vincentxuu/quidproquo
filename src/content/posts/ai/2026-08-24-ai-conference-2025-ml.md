@@ -23,7 +23,7 @@ glossary:
     context: "Gated Attention 的 sigmoid 門控可以消除此現象。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2025-ml-en)
+> :globe: [English version](/posts/ai/2026-08-24-ai-conference-2025-ml-en)
 
 > 本文是「[AI 頂會導讀](/posts/ai/2026-08-23-what-is-ai-top-conference)」系列的 2025 年機器學習篇，涵蓋 NeurIPS、ICML、ICLR 三大會議以及 AAAI、IJCAI。
 

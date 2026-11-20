@@ -10,7 +10,7 @@ description: "DaoDao is a community platform that accompanies self-directed lear
 draft: false
 ---
 
-> 🌏 [中文版](/posts/education/2026-03-12-daodao-for-learners)
+> :globe: [中文版](/posts/education/2026-03-12-daodao-for-learners)
 
 Have you ever had this experience: one day you see an ad for a course, a fire ignites inside you, you swipe your card on the spot — and then it just sits quietly in your course list, and three months later you can't even remember your password?
 

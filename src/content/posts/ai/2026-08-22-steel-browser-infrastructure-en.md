@@ -13,7 +13,7 @@ series:
   order: 21
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-steel-browser-infrastructure)
+> :globe: [中文版](/posts/ai/2026-08-22-steel-browser-infrastructure)
 
 [Steel](https://steel.dev/) is not a browser agent. It is infrastructure that lets an agent use a browser. A model decides what to click, Playwright or Puppeteer sends the action, and Steel creates Chromium, retains the session, attaches a proxy, manages lifecycle, and leaves evidence when a run fails.
 

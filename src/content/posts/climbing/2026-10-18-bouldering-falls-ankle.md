@@ -26,7 +26,7 @@ glossary:
     context: "腳踝扭傷的臨床指引建議先用這套規則排除骨折。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-bouldering-falls-ankle-en)
+> :globe: [English version](/posts/climbing/2026-10-18-bouldering-falls-ankle-en)
 
 抱石區的墊子又厚又軟，從頂端放手跳下來好像沒什麼。可是如果你去急診室問抱石受傷的人傷在哪裡，答案多半是腳踝。
 

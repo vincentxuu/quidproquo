@@ -13,7 +13,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-19-cdp-webdriver-bidi-en)
+> :globe: [English version](/posts/ai/2026-11-19-cdp-webdriver-bidi-en)
 
 [driver 篇](/posts/ai/2026-11-18-cdp-vs-playwright-driver)的結尾留了一個代價：Browser Use、Stagehand 拆掉 Playwright、自己打 CDP 之後，就只能用 Chromium。Firefox 在 141 版移除了 CDP，自動化改走 WebDriver BiDi。
 

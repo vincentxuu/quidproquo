@@ -11,7 +11,7 @@ series:
   order: 63
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-26-security-litellm-master-key-root-cause)
+> :globe: [中文版](/posts/daily/2026-10-26-security-litellm-master-key-root-cause)
 
 ## Summary
 

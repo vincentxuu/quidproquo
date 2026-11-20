@@ -10,7 +10,7 @@ description: "拆解 Selenium WebDriver 架構、定位與等待、session、Gri
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-selenium-browser-automation-en)
+> :globe: [English version](/posts/tech/2026-08-22-selenium-browser-automation-en)
 
 [Selenium](https://www.selenium.dev/documentation/webdriver/) 是瀏覽器自動化工具，不是爬蟲框架，也不是反偵測套件。程式透過 WebDriver 啟動真實瀏覽器、導覽頁面、操作表單並讀取 DOM。這讓它能處理必須執行 JavaScript 或完成互動後才出現的內容；代價是每個工作都要負擔瀏覽器的 CPU、記憶體與 session 管理。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-vite-8-rolldown)
+> :globe: [中文版](/posts/tech/2026-08-22-vite-8-rolldown)
 
 [Vite 8](https://vite.dev/blog/announcing-vite8) is Vite's largest internal change since 2.0. Dependency optimization, TypeScript/JSX transforms, and production builds no longer split their work between esbuild and Rollup. They converge on the Rust-based [Rolldown](https://rolldown.rs/) and the Oxc toolchain. Vite reports up to a 10–30x advantage over Rollup in its benchmarks, but the architectural win matters more than one benchmark: development and production no longer stitch together two bundler semantics.
 

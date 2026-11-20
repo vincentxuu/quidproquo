@@ -12,7 +12,7 @@ series:
   order: 65
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-26-tool-dbmole-mcp)
+> :globe: [中文版](/posts/daily/2026-10-26-tool-dbmole-mcp)
 
 ## Tool Info
 
@@ -165,13 +165,13 @@ ssh-keyscan -p 22 bastion.example.com 2>/dev/null | ssh-keygen -lf -
 
 | | dbmole-mcp | DBHub | Postgres MCP Pro | mcp-server-mysql | MCP Toolbox |
 |---|---|---|---|---|---|
-| PostgreSQL | ✅ | ✅ | ✅ | ❌ | ✅ |
-| MySQL | ✅ | ✅ | ❌ | ✅ | ✅ |
-| Other databases | ❌ | ✅ | ❌ | ❌ | ✅ |
-| Built-in SSH tunnel | ✅ | ✅ | — | ✅ | ❌ |
-| Agent adds/edits connections via tools | ✅ | ❌ (maintainer has said it's not planned) | ❌ | ❌ | ❌ |
-| Index tuning | ❌ | — | ✅ | — | — |
-| Health checks | ❌ | ✅ | ✅ | — | ✅ (prebuilt PostgreSQL tools) |
+| PostgreSQL | ✓ | ✓ | ✓ | ✗ | ✓ |
+| MySQL | ✓ | ✓ | ✗ | ✓ | ✓ |
+| Other databases | ✗ | ✓ | ✗ | ✗ | ✓ |
+| Built-in SSH tunnel | ✓ | ✓ | — | ✓ | ✗ |
+| Agent adds/edits connections via tools | ✓ | ✗ (maintainer has said it's not planned) | ✗ | ✗ | ✗ |
+| Index tuning | ✗ | — | ✓ | — | — |
+| Health checks | ✗ | ✓ | ✓ | — | ✓ (prebuilt PostgreSQL tools) |
 
 (Table adapted from dbmole-mcp's own README comparison, checked October 2026; other projects may have shipped updates since — check their own docs.)
 

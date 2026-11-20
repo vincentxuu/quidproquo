@@ -19,7 +19,7 @@ glossary:
     definition: "Rejecting by default when validation does not pass, rather than allowing by default."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations)
+> :globe: [中文版](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations)
 
 > **Building a Taiwan Stock Research Agent (Part 6 of 9)**: [Previous: Walk-Forward Evaluation, Run Cards, and an Honest 50% Baseline](/posts/tech/2026-08-23-stock-agent-5-walkforward-eval-en) ｜ [Next: The Copilot Loop—Plan Contracts, Verifiable Sources, and Human Review](/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop-en) ｜ [Full table of contents in Part 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan-en)
 

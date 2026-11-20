@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-21-shadcn-registry-mcp)
+:globe: [中文版](/posts/tech/2026-08-21-shadcn-registry-mcp)
 
 The [shadcn/ui post](/posts/tech/2026-03-27-shadcn-ui-component-library-en) covered its core claim: components shouldn't be black-box dependencies; they should be source code copied into your repo. But many people stop at "shadcn = a set of nice components" and miss the bigger thing — **it turned that distribution model into open infrastructure**. The registry is a protocol anyone can implement, and the MCP server added in 2025 opens that distribution channel directly to AI agents. This post covers that layer.
 

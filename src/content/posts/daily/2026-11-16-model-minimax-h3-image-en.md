@@ -15,7 +15,7 @@ glossary:
     def: "An open-weight omni-modal video model MiniMax released on 2026-07-31 that understands and generates across text, image, video and audio. H3-Image is derived from it by removing the audio layers and attaching an image-generation head"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-16-model-minimax-h3-image)
+> :globe: [中文版](/posts/daily/2026-11-16-model-minimax-h3-image)
 
 ## Model Info
 
@@ -36,7 +36,7 @@ glossary:
 ## Capability Highlights
 
 - Native 16-megapixel output spanning every aspect ratio from 4096×4096 (1:1) to 6272×2688 (21:9), with no upscaler, and an API ceiling of 20,000,000 pixels
-- 6-step distilled sampling (6 NFEs) with no classifier-free guidance; MiniMax claims sub-10-second 4K generation, up to 5x faster than mainstream alternatives ⚠️ third-party testing found only the Highspeed tier approaches 10 seconds at 4K — no independent timing has confirmed "under 10 seconds" for the Standard tier
+- 6-step distilled sampling (6 NFEs) with no classifier-free guidance; MiniMax claims sub-10-second 4K generation, up to 5x faster than mainstream alternatives :warning: third-party testing found only the Highspeed tier approaches 10 seconds at 4K — no independent timing has confirmed "under 10 seconds" for the Standard tier
 - Up to 16 untyped reference images, addressed positionally as `<Picture 1>` through `<Picture 16>` in upload order, with one checkpoint covering both text-to-image and image editing
 - On Artificial Analysis's independent leaderboards (published 2026-11-13): ranks #13/84 on image editing at Elo 1138, narrowly ahead of Nano Banana 2's 1126 (a 12-point lead, with overlapping confidence intervals); ranks #25/114 on text-to-image at Elo 1066, trailing Nano Banana 2's 1143 by 77 points (non-overlapping intervals)
 
@@ -49,7 +49,7 @@ glossary:
 | Highspeed variant Image Editing Elo | 1134 (#14/84) | None | Same as above |
 | Highspeed variant Text-to-Image Elo | 1072 (#24/114) | None | Same as above |
 
-⚠️ All of the above are third-party scores from Artificial Analysis's independent leaderboards, not vendor self-reported figures — neither MiniMax's blog post nor its HuggingFace model card publishes any quantitative evaluation table (no GenEval, no DPG-Bench, no human-preference numbers). In the week after launch (through 2026-11-12), the only "evidence" available was the showcase gallery; it wasn't until Artificial Analysis added it to both leaderboards on 2026-11-13 that a credible quantitative comparison existed.
+:warning: All of the above are third-party scores from Artificial Analysis's independent leaderboards, not vendor self-reported figures — neither MiniMax's blog post nor its HuggingFace model card publishes any quantitative evaluation table (no GenEval, no DPG-Bench, no human-preference numbers). In the week after launch (through 2026-11-12), the only "evidence" available was the showcase gallery; it wasn't until Artificial Analysis added it to both leaderboards on 2026-11-13 that a credible quantitative comparison existed.
 
 ## Comparison with Previous Generation / Competitors
 

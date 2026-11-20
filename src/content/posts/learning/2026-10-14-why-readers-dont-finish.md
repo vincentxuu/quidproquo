@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-14-why-readers-dont-finish-en)
+> :globe: [English version](/posts/learning/2026-10-14-why-readers-dont-finish-en)
 
 這是「教學文章怎麼寫」系列的第 19 篇，第四部分「隔一段時間之後」的最後一篇。前面三篇談了[間隔複習在真實課程裡剩多少效果](/posts/learning/2026-10-14-spaced-practice-in-real-courses)、[把複習做進文章的作品](/posts/learning/2026-10-14-spaced-review-in-teaching-articles)，以及[系列的順序](/posts/learning/2026-10-14-series-order-in-teaching-articles)。那幾篇都假設讀者還在。這篇處理那個假設：線上自學的人什麼時候離開、離開之後會不會回來、作者能改變多少。
 

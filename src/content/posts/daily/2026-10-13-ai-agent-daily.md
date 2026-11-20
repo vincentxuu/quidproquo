@@ -12,7 +12,7 @@ series:
   order: 59
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-13-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-13-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -142,15 +142,15 @@ Alibaba Cloud 發佈 AgentCore 企業級 AI Agent 治理平台與 EventHouse 即
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-13](/posts/daily/2026-10-13-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-13](/posts/daily/2026-10-13-ai-agent-github-digest)
-- 📄 [AI Engineer 面試日練 — 2026-10-13](/posts/daily/2026-10-13-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-13](/posts/daily/2026-10-13-product-builder-interview-daily)
-- 📄 [資安警報｜Obsidian MCP 伺服器三連漏洞](/posts/daily/2026-10-13-security-obsidian-tc-mcp-vault-auth-bypass)
-- 📄 [工具推薦｜REA](/posts/daily/2026-10-13-tool-rea)
-- 📄 [融資速報｜Catalyst](/posts/daily/2026-10-13-funding-catalyst)
-- 📄 [融資速報｜Mistlabs](/posts/daily/2026-10-13-funding-mistlabs)
-- 📄 [融資速報｜Vesta](/posts/daily/2026-10-13-funding-vesta)
+- :file: [AI Agent Arxiv Digest — 2026-10-13](/posts/daily/2026-10-13-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-13](/posts/daily/2026-10-13-ai-agent-github-digest)
+- :file: [AI Engineer 面試日練 — 2026-10-13](/posts/daily/2026-10-13-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-13](/posts/daily/2026-10-13-product-builder-interview-daily)
+- :file: [資安警報｜Obsidian MCP 伺服器三連漏洞](/posts/daily/2026-10-13-security-obsidian-tc-mcp-vault-auth-bypass)
+- :file: [工具推薦｜REA](/posts/daily/2026-10-13-tool-rea)
+- :file: [融資速報｜Catalyst](/posts/daily/2026-10-13-funding-catalyst)
+- :file: [融資速報｜Mistlabs](/posts/daily/2026-10-13-funding-mistlabs)
+- :file: [融資速報｜Vesta](/posts/daily/2026-10-13-funding-vesta)
 
 ## 明日關注
 

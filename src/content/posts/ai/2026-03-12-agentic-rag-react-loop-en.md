@@ -14,7 +14,7 @@ series:
   order: 21
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-agentic-rag-react-loop)
+> :globe: [中文版](/posts/ai/2026-03-12-agentic-rag-react-loop)
 
 Standard RAG is a single-pass pipeline: query → retrieve → generate. That works fine for most questions, but falls apart when a query requires multi-hop reasoning. Recent systematic surveys ([Singh et al. 2025](https://arxiv.org/abs/2501.09136), [Liang et al. 2025](https://arxiv.org/abs/2506.10408), [Mishra et al. 2026](https://arxiv.org/abs/2603.07379)) have codified this class of approaches — where the LLM drives retrieval decisions — as **Agentic RAG**: an architectural paradigm that moves from single-shot retrieval to multi-turn reasoning-driven search.
 

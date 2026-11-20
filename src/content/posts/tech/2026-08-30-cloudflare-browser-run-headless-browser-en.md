@@ -16,7 +16,7 @@ additionalSeries:
     order: 9
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-browser-run-headless-browser)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-browser-run-headless-browser)
 
 Most Workers code only needs `fetch()`. Calling APIs, reading JSON, fetching HTML, and handling webhooks do not require a real browser. Some tasks become awkward with HTTP alone: screenshots, PDFs, client-side rendered pages, JavaScript-heavy sites, interactive flow testing, or agents that need to operate a web page.
 

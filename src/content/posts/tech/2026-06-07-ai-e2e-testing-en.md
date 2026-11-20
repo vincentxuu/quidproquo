@@ -10,7 +10,7 @@ description: "A design comparison of canary, Stagehand, Shortest, Magnitude, and
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-06-07-ai-e2e-testing)
+:globe: [中文版](/posts/tech/2026-06-07-ai-e2e-testing)
 
 E2E testing has long been stuck between two extremes: let an AI agent run tests and every result is non-deterministic, every run burns tokens, and failures leave you with no clear trace; write Playwright scripts by hand and selectors rot alongside every UI change, making maintenance costlier than shipping features. A wave of tools emerged in 2024-2025 to break this binary — each with a fundamentally different approach.
 
@@ -109,11 +109,11 @@ The three agents can be used independently or chained into a plan → generate �
 
 | Tool | Stars | Design Philosophy | Outputs a Script | Best Fit |
 |---|---|---|---|---|
-| [canary](https://github.com/wizenheimer/canary) | Emerging | AI runs QA, then produces a replayable script | ✅ Playwright script | Claude Code integration, full trace recording |
-| [Stagehand](https://github.com/browserbase/stagehand) | 22k+ | Playwright + AI language layer, auto self-healing | ❌ (automation SDK, not a test framework) | Production browser automation |
-| [Shortest](https://github.com/antiwork/shortest) | 5.6k+ | One natural-language sentence = one test | ❌ | Quick acceptance tests, low-frequency runs |
-| [Magnitude](https://github.com/magnitudedev/browser-agent) | Emerging | Pure-visual VLM with Planner + Executor split | ❌ (plans are saveable, but not code) | Complex UIs, dynamic class name environments |
-| [Playwright Agents](https://playwright.dev/) | Official | Framework-level integration, plan/generate/heal | ✅ (Generator Agent) | Teams already using Playwright |
+| [canary](https://github.com/wizenheimer/canary) | Emerging | AI runs QA, then produces a replayable script | ✓ Playwright script | Claude Code integration, full trace recording |
+| [Stagehand](https://github.com/browserbase/stagehand) | 22k+ | Playwright + AI language layer, auto self-healing | ✗ (automation SDK, not a test framework) | Production browser automation |
+| [Shortest](https://github.com/antiwork/shortest) | 5.6k+ | One natural-language sentence = one test | ✗ | Quick acceptance tests, low-frequency runs |
+| [Magnitude](https://github.com/magnitudedev/browser-agent) | Emerging | Pure-visual VLM with Planner + Executor split | ✗ (plans are saveable, but not code) | Complex UIs, dynamic class name environments |
+| [Playwright Agents](https://playwright.dev/) | Official | Framework-level integration, plan/generate/heal | ✓ (Generator Agent) | Teams already using Playwright |
 
 ## The Bottom Line
 

@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### OpenViking (volcengine) ⭐ 28,800+
+### OpenViking (volcengine) ★ 28,800+
 
 [GitHub](https://github.com/volcengine/OpenViking)　·　Rust + Python　·　AGPLv3（CLI 與範例另用 Apache 2.0）
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### munder-difflin (chaitanyagiri) ⭐ 2,400+
+### munder-difflin (chaitanyagiri) ★ 2,400+
 
 [GitHub](https://github.com/chaitanyagiri/munder-difflin)　·　TypeScript　·　MIT
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### ai-memory (akitaonrails) ⭐ 2,900+
+### ai-memory (akitaonrails) ★ 2,900+
 
 [GitHub](https://github.com/akitaonrails/ai-memory)　·　Rust　·　MIT
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### Anthropic-Cybersecurity-Skills (mukul975) ⭐ 27,700+ (+700 今日)
+### Anthropic-Cybersecurity-Skills (mukul975) ★ 27,700+ (+700 今日)
 
 [GitHub](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)　·　PowerShell + Python　·　Apache-2.0
 

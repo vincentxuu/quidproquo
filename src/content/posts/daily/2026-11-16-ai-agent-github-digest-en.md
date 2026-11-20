@@ -11,7 +11,7 @@ series:
   order: 93
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-16-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-16-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ None of today's three breakout repos are about getting an agent to think better.
 
 ## Trending Repos
 
-### backnotprop/plannotator ⭐ 11,728 (+860/24h)
+### backnotprop/plannotator ★ 11,728 (+860/24h)
 
 [GitHub](https://github.com/backnotprop/plannotator)　·　TypeScript　·　Apache-2.0
 
@@ -30,7 +30,7 @@ None of today's three breakout repos are about getting an agent to think better.
 
 ---
 
-### callstack/agent-device ⭐ 5,403
+### callstack/agent-device ★ 5,403
 
 [GitHub](https://github.com/callstack/agent-device)　·　TypeScript　·　MIT
 
@@ -41,7 +41,7 @@ None of today's three breakout repos are about getting an agent to think better.
 
 ---
 
-### kody-hq/kody ⭐ 961
+### kody-hq/kody ★ 961
 
 [GitHub](https://github.com/kody-hq/kody)　·　TypeScript　·　License: Other (GitHub classifies it as NOASSERTION — not a standard open-source license)
 

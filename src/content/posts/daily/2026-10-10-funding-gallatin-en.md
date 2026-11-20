@@ -12,7 +12,7 @@ series:
   order: 81
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-10-funding-gallatin)
+> :globe: [中文版](/posts/daily/2026-10-10-funding-gallatin)
 
 ## Funding Details
 

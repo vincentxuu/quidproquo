@@ -11,7 +11,7 @@ description: "Stanford CS124 Winter 2026 第 10 週導讀：anchor text 為什�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs124-week10-pagerank-networks-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs124-week10-pagerank-networks-en)
 
 這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的最後一週。前面處理的是文字、聲音和評分；這一週的資料是**連結**：哪個網頁連到哪個網頁，誰認識誰。
 

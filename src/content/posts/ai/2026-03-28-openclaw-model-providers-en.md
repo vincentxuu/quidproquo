@@ -13,7 +13,7 @@ description: "OpenClaw's layered model architecture (provider / model / agent ru
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-model-providers)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-model-providers)
 
 OpenClaw is a model-agnostic gateway, but "connect a model" involves one more layer than you would expect. This article covers **the layering you need to understand before choosing a model**, plus a few settings that will actually block you.
 

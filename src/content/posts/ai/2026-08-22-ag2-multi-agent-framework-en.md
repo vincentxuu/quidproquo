@@ -10,7 +10,7 @@ description: "An introduction to AG2's ConversableAgent, tools, GroupChat, multi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-ag2-multi-agent-framework)
+> :globe: [中文版](/posts/ai/2026-08-22-ag2-multi-agent-framework)
 
 [AG2](https://docs.ag2.ai/latest/) is an open-source Python framework for agents and multi-agent workflows. Its central abstraction is not a graph node or fixed task but a conversable agent: each role can receive messages, call a model, run tools, answer another agent, or wait for human input.
 

@@ -21,7 +21,7 @@ glossary:
     definition: "An explicit list of the operations a role is authorized to perform."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-23-stock-agent-8-execution-contracts)
+> :globe: [中文版](/posts/tech/2026-08-23-stock-agent-8-execution-contracts)
 
 > **Building a Taiwan Stock Research Agent (Part 8 of 9)**: [Previous: The Copilot Loop—Plan Contracts, Verifiable Sources, and Human Review](/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop-en) ｜ [Next: The Deployment Boundary—A Public API from Docker to Cloudflare Containers](/posts/tech/2026-08-23-stock-agent-9-cloudflare-deployment-en) ｜ [Full table of contents in Part 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan-en)
 

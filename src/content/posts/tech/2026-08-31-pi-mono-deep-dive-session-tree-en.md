@@ -13,7 +13,7 @@ description: "Deep dive into pi-coding-agent SessionManager: tree-structured ses
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-session-tree)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-session-tree)
 
 ## TL;DR
 
@@ -30,11 +30,11 @@ draft: false
 
 | Need | Traditional Linear History | Append-only Tree |
 |---|---|---|
-| Replay & Edit | ❌ Only truncate tail | ✅ Jump to any node, continue |
-| Experimental Attempts | ❌ Pollutes mainline | ✅ `/branch` creates parallel timeline |
-| Compaction | ❌ Loses detail | ✅ Keeps summary + key segments |
-| Fork to New Project | ❌ Copy entire file | ✅ Copy only needed path |
-| Bookmarks/Labels | ❌ External | ✅ `label` entry built-in |
+| Replay & Edit | ✗ Only truncate tail | ✓ Jump to any node, continue |
+| Experimental Attempts | ✗ Pollutes mainline | ✓ `/branch` creates parallel timeline |
+| Compaction | ✗ Loses detail | ✓ Keeps summary + key segments |
+| Fork to New Project | ✗ Copy entire file | ✓ Copy only needed path |
+| Bookmarks/Labels | ✗ External | ✓ `label` entry built-in |
 
 ---
 

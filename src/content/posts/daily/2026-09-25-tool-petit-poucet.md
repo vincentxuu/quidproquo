@@ -12,7 +12,7 @@ series:
   order: 36
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-25-tool-petit-poucet-en)
+> :globe: [English version](/posts/daily/2026-09-25-tool-petit-poucet-en)
 
 ## 工具資訊
 
@@ -85,12 +85,12 @@ petit-poucet migrate            # 把手寫的舊版記憶庫升級成新格式
 
 | | petit-poucet | okf-agent-memory | 向量記憶（Mem0 / Letta 類） |
 |---|---|---|---|
-| 跨 Agent 工具共用同一份記憶 | ✅（Claude Code + Copilot CLI） | 需自行接 MCP，無官方雙工具整合 | 視框架而定 |
+| 跨 Agent 工具共用同一份記憶 | ✓（Claude Code + Copilot CLI） | 需自行接 MCP，無官方雙工具整合 | 視框架而定 |
 | 儲存位置 | 獨立 git 倉庫（`~/agent-memory`） | 專案內的 `knowledge/` 資料夾 | 外部向量資料庫 / 服務 |
-| 每次修改都留 commit | ✅ | 依賴專案自身的 git 習慣 | 不行（embedding 是黑盒） |
-| 使用者聲明的規則需確認才能改 | ✅（`feedback` 類型強制詢問） | 沒有對應機制 | 通常沒有 |
+| 每次修改都留 commit | ✓ | 依賴專案自身的 git 習慣 | 不行（embedding 是黑盒） |
+| 使用者聲明的規則需確認才能改 | ✓（`feedback` 類型強制詢問） | 沒有對應機制 | 通常沒有 |
 | 需要外部服務或 API key | 不需要 | 不需要 | 需要 |
-| 可用 Obsidian 直接瀏覽 | ✅ | 可以（純 Markdown） | 不行 |
+| 可用 Obsidian 直接瀏覽 | ✓ | 可以（純 Markdown） | 不行 |
 
 ## 注意事項
 

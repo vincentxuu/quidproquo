@@ -15,7 +15,7 @@ glossary:
     def: "The open-model team under Kanzhun Limited, parent company of the Chinese job-search app BOSS直聘; previously focused on 3B-class models, with Nanbeige4.3-33B as its first 30B-class flagship"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-25-model-nanbeige-nanbeige4-3-33b)
+> :globe: [中文版](/posts/daily/2026-10-25-model-nanbeige-nanbeige4-3-33b)
 
 ## Model Info
 
@@ -95,7 +95,7 @@ caption: Source: Nanbeige's official self-reported scores on its Hugging Face mo
 </svg>
 ```
 
-⚠️ All scores above are Nanbeige's own self-reported results. The model card's footnotes note that some benchmarks used GPT-6 Sol or Claude Code as judge/harness; none have been independently reproduced yet.
+:warning: All scores above are Nanbeige's own self-reported results. The model card's footnotes note that some benchmarks used GPT-6 Sol or Claude Code as judge/harness; none have been independently reproduced yet.
 
 ## Comparison with Prior Gen / Competitors
 

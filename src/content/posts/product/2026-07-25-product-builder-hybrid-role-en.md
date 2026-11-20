@@ -78,7 +78,7 @@ faq:
 draft: false
 ---
 
-🌏 [中文版](/posts/product/2026-07-25-product-builder-hybrid-role)
+:globe: [中文版](/posts/product/2026-07-25-product-builder-hybrid-role)
 
 Anthropic's Boris Cherny, the creator of Claude Code, said something worth sitting with:
 

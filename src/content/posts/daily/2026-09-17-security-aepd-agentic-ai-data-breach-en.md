@@ -12,7 +12,7 @@ series:
   order: 31
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-17-security-aepd-agentic-ai-data-breach)
+> :globe: [中文版](/posts/daily/2026-09-17-security-aepd-agentic-ai-data-breach)
 
 ## Incident Overview
 

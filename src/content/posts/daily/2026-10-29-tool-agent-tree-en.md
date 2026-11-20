@@ -12,7 +12,7 @@ series:
   order: 67
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-29-tool-agent-tree)
+> :globe: [中文版](/posts/daily/2026-10-29-tool-agent-tree)
 
 ## Tool Info
 

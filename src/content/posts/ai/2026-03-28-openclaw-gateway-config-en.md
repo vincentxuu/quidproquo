@@ -13,7 +13,7 @@ description: "A guide to OpenClaw Gateway configuration: JSON5 and strict valida
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-gateway-config)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-gateway-config)
 
 The Gateway reads an **optional JSON5 config** from `~/.openclaw/openclaw.json`, falling back to safe defaults when the file is missing.
 

@@ -12,7 +12,7 @@ series:
   order: 28
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-24-pricing-cursor-x-subscription-pro-retirement-en)
+> :globe: [English version](/posts/daily/2026-10-24-pricing-cursor-x-subscription-pro-retirement-en)
 
 
 ## 變更摘要
@@ -69,7 +69,7 @@ Cursor 的 Super（$100）和 Ultra（$200）剛好卡進 Claude Max 的兩個�
 
 ## 時效提醒
 
-⚠️ **方案異動**：新使用者自 2026-10-12 起只能選「The X Subscription」五個級別，舊的 Hobby/Pro/Pro+/Teams 方案僅對既有訂閱者保留，Cursor 官方沒有公告保留期限，建議假設隨時可能被收回。
+:warning: **方案異動**：新使用者自 2026-10-12 起只能選「The X Subscription」五個級別，舊的 Hobby/Pro/Pro+/Teams 方案僅對既有訂閱者保留，Cursor 官方沒有公告保留期限，建議假設隨時可能被收回。
 
 ## 今日收穫
 

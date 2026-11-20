@@ -10,7 +10,7 @@ description: "從產品需求到架構設計到實作踩坑，完整記錄如何
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-24-action-maker-ai-integration-en)
+:globe: [English version](/posts/tech/2026-03-24-action-maker-ai-integration-en)
 
 ## TL;DR
 

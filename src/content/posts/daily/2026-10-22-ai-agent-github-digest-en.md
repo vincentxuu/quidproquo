@@ -11,7 +11,7 @@ series:
   order: 68
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-22-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-22-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ The wildest number today comes from a tool that spent half a year in obscurity �
 
 ## Trending Repos
 
-### morluto/rea ⭐ 356,198
+### morluto/rea ★ 356,198
 
 [GitHub](https://github.com/morluto/rea)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ The wildest number today comes from a tool that spent half a year in obscurity �
 
 ---
 
-### microsoft/agent-governance-toolkit ⭐ 6,452
+### microsoft/agent-governance-toolkit ★ 6,452
 
 [GitHub](https://github.com/microsoft/agent-governance-toolkit)　·　Python　·　MIT
 
@@ -41,7 +41,7 @@ The wildest number today comes from a tool that spent half a year in obscurity �
 
 ---
 
-### cloudflare/security-audit-skill ⭐ 35,563
+### cloudflare/security-audit-skill ★ 35,563
 
 [GitHub](https://github.com/cloudflare/security-audit-skill)　·　JavaScript　·　MIT
 
@@ -52,7 +52,7 @@ The wildest number today comes from a tool that spent half a year in obscurity �
 
 ---
 
-### headroomlabs-ai/headroom ⭐ 77,145
+### headroomlabs-ai/headroom ★ 77,145
 
 [GitHub](https://github.com/headroomlabs-ai/headroom)　·　Python　·　Apache-2.0
 

@@ -12,7 +12,7 @@ tldr: "The final lecture is not a complete LLM-training tutorial. It studies dat
 description: "CS224V Training LLMs and Data-Efficient Language Modeling: data bottlenecks, finite-data pretraining, ensembles, self-training, synthetic continued pretraining, and limits."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-data-efficient-language-modeling)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-data-efficient-language-modeling)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

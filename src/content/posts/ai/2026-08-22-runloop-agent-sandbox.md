@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-runloop-agent-sandbox-en)
+> :globe: [English version](/posts/ai/2026-08-22-runloop-agent-sandbox-en)
 
 [Runloop](https://docs.runloop.ai/docs/overview/what-is-runloop) 是給程式開發 Agent 使用的託管執行層。它不是另一個 Agent 框架，也不替你選模型；它處理的是模型開始動手之後的麻煩：取得程式碼、安裝相依套件、執行測試、保存工作狀態、限制網路，以及讓上千個隔離環境同時運作。
 

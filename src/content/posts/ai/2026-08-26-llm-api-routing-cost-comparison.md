@@ -16,7 +16,7 @@ glossary:
     def: "百萬 token（Million Tokens），LLM API 計價的標準單位"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-26-llm-api-routing-cost-comparison-en)
+> :globe: [English version](/posts/ai/2026-08-26-llm-api-routing-cost-comparison-en)
 
 你想用 Claude Sonnet 5 寫程式。直接打 Anthropic API 是 $2/$10 per MTok。但同一個模型在 [OpenRouter](https://openrouter.ai) 上可能更便宜，在 [AWS Bedrock](https://aws.amazon.com/bedrock/) 上有量折扣，在某些第三方可能有快取優惠。這篇整理 2026 年 8 月的實際價差，幫你選最適合的管道。
 
@@ -74,9 +74,9 @@ Bedrock 的定價跟直連幾乎相同（Claude Sonnet 5 同為 $2/$10），但�
 | Claude Opus 5 | $5 / $25 | $5 / $25 | $5 / $25 | — |
 | GPT-5.6 Sol | $2.50 / $15 | $2.50 / $15 | 有上架 | — |
 | GPT-5.6 Luna | $0.20 / $1.20 | $0.20 / $1.20 | — | — |
-| DeepSeek V4 Pro | 直連約 $0.50 / $2.00 | 多家供應商競價 | 有上架 | ✅ 有上架 |
-| Llama 4 Maverick | 免權重費 | $0.20 / $0.50 | 有上架 | ✅ 有上架 |
-| Kimi K3 | $3 / $15 | 有上架 | — | ✅ 有上架 |
+| DeepSeek V4 Pro | 直連約 $0.50 / $2.00 | 多家供應商競價 | 有上架 | ✓ 有上架 |
+| Llama 4 Maverick | 免權重費 | $0.20 / $0.50 | 有上架 | ✓ 有上架 |
+| Kimi K3 | $3 / $15 | 有上架 | — | ✓ 有上架 |
 
 **關鍵觀察**：
 

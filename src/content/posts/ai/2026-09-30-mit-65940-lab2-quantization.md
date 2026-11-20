@@ -22,7 +22,7 @@ glossary:
     context: "Lab 2 Q9 在量化整個模型前先做這一步。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-lab2-quantization-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-lab2-quantization-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

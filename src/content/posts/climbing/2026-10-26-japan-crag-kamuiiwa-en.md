@@ -13,7 +13,7 @@ description: "Kamuiiwa climbing guide: seasons, public transport, parking, local
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-kamuiiwa)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-kamuiiwa)
 
 Kamuiiwa is a roped cliff beside the Ishikari River, separate from the Kamuikotan boulders. Its history includes major hard routes, but today’s itinerary must account for the east-face collapse.
 

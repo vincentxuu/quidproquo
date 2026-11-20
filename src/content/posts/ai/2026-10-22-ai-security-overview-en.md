@@ -14,7 +14,7 @@ description: "A roadmap for AI Security in Practice: shared foundations in data 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-overview)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-overview)
 
 You build a support assistant that answers questions in Chinese. It reads a knowledge base, retrieves tickets, and drafts replies. Then someone asks: “If I change the ticket ID, will it hand me another customer's information?”
 

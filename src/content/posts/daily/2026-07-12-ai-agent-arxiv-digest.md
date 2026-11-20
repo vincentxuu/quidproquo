@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 49
 ---
-> 🌏 [English version](/posts/daily/2026-07-12-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-12-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -72,7 +72,7 @@ Prismata 的核心是**動態信任推導**（Dynamic Trust Derivation）：它�
 - **形式化封閉保證的意義**：即使 LLM 把低信任內容誤判為高信任指令，policy enforcement layer 仍以標籤為準阻擋高權限操作——比系統提示（system prompt）提供更強的安全保證
 - **無需開發者標注**：與需要 schema 或域名白名單的方案不同，Prismata 可自動處理任意網站，解決長尾覆蓋問題
 - **與 MCP 的關聯**：MCP 目前的 tool registry 沒有 per-call content trust context，Prismata 的 label 架構可為 MCP resource-level access control 設計提供靈感
-- **Limitation**：公開摘要未報告在 WebArena 等標準 web agent 任務集上的精確攻擊攔截率數字，效能開銷亦未量化 **⚠️**
+- **Limitation**：公開摘要未報告在 WebArena 等標準 web agent 任務集上的精確攻擊攔截率數字，效能開銷亦未量化 **:warning:**
 
 ### Reviewer 一句話評
 
@@ -121,10 +121,10 @@ aiAuthZ 在 agent 主機**之外**建立一個獨立授權閘道（authorization
 
 ### 深入要點
 
-- **15 個模型 × 8 種攻擊情境**：攻擊場景來自公開的真實 agent 事故語料庫；拒絕率 38%–100% 的分佈揭示不同模型的安全性差異顯著 **⚠️ 原始語料庫名稱在公開摘要中未明確標注**
+- **15 個模型 × 8 種攻擊情境**：攻擊場景來自公開的真實 agent 事故語料庫；拒絕率 38%–100% 的分佈揭示不同模型的安全性差異顯著 **:warning: 原始語料庫名稱在公開摘要中未明確標注**
 - **off-host 的關鍵性**：授權邏輯若在 agent 進程內，被污染的上下文可能影響授權決策本身；搬到外部獨立進程後，攻擊面被物理隔離
 - **nonce + 時間戳防重放**：確保每個簽章只能使用一次，並在時間窗口外自動失效，防止截獲後重播舊授權
-- **QR receipt 驗證率**：94% 的平均驗證成功率跨 8 種傳輸通道；25 次錯誤金鑰嘗試零偽造通過 **⚠️ 樣本數偏小，需更大規模驗證**
+- **QR receipt 驗證率**：94% 的平均驗證成功率跨 8 種傳輸通道；25 次錯誤金鑰嘗試零偽造通過 **:warning: 樣本數偏小，需更大規模驗證**
 - **與 MCP 的關聯**：MCP 的 tool registration 目前沒有呼叫端加密身份驗證，aiAuthZ 的 gateway 模式可作為 MCP server 前的 proxy 安全層
 - **Limitation**：單一作者論文，學術同儕審查深度有限；nonce 管理在高並發 agent 場景的效能影響未討論
 
@@ -176,7 +176,7 @@ UniClawBench 把評測重心從「情境」移到**五種基礎能力維度**：
 ### 深入要點
 
 - **400 道雙語任務**：同時涵蓋中英文，反映 HKU + Meituan 合作背景對亞洲市場多語系情境的重視
-- **三框架交叉評估**：OpenClaw、EDICT、Nanobot 代表不同 runtime 設計哲學，同一模型在不同框架下的表現差距是值得關注的變數 **⚠️ 具體數字需讀全文**
+- **三框架交叉評估**：OpenClaw、EDICT、Nanobot 代表不同 runtime 設計哲學，同一模型在不同框架下的表現差距是值得關注的變數 **:warning: 具體數字需讀全文**
 - **Cross-Platform Coordination 是新維度**：大多數現有 benchmark 僅測單一 app 內操作，跨 app 協調能力此前缺乏系統化測量，而這往往是真實使用者任務最常觸及的瓶頸
 - **Proactive Agent 的定義**：不只被動回答問題，而是能主動感知環境狀態、預判下一步需求的 agent——benchmark 任務設計反映了 daily assistant 使用情境
 - **與現有框架的比較**：現有 benchmark 的「沙箱 + 單回合 + 情境分類」三大限制都被明確指出並改進，是同類工作中較完整的對比說明

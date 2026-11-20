@@ -13,7 +13,7 @@ description: "Why prompt injection is unsolvable at the model layer — instruct
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-10-agent-security-harness-layer)
+> :globe: [中文版](/posts/ai/2026-08-10-agent-security-harness-layer)
 
 If the first four parts still leave room for "a stronger model would fix this," this one closes it.
 

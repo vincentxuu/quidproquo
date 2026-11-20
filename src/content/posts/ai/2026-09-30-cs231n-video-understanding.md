@@ -24,7 +24,7 @@ glossary:
     context: "TimeSformer 的做法，每個 token 的計算量從 O(NT) 降到 O(N+T)。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-video-understanding-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-video-understanding-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

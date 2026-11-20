@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-18-stagehand-vs-playwright-en)
+> :globe: [English version](/posts/ai/2026-11-18-stagehand-vs-playwright-en)
 
 上一篇介紹了 [Stagehand v4](/posts/ai/2026-11-18-stagehand-v4) 的三個方法。這篇回答接下來的問題：**手上已經有 Playwright 腳本，該不該換成 Stagehand，換了會失去什麼？**
 

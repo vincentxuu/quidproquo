@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-18-stagehand-v4-en)
+> :globe: [English version](/posts/ai/2026-11-18-stagehand-v4-en)
 
 [Stagehand](https://github.com/browserbase/stagehand) 是瀏覽器託管公司 [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure) 開源的瀏覽器自動化 SDK，MIT 授權，同時有 TypeScript、Python、Go 三種語言版本。它跟 Playwright 一樣讓你寫程式開頁面、點按鈕，差別是多了三個呼叫模型的方法：`act()` 用一句話執行一個動作，`extract()` 把頁面內容抽成有型別的資料，`observe()` 找出頁面上能做的動作。
 

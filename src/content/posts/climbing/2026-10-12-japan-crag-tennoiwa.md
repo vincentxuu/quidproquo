@@ -13,7 +13,7 @@ description: "介紹東京あきる野市秋川區域的天王岩：岩質、路
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-tennoiwa-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-tennoiwa-en)
 
 天王岩（てんのういわ，Tenno-iwa；Mountain Project 寫作 Tennoiwa/ Emperor Rock）位在東京都あきる野市養沢，CLIMBING-net 歸在「秋川」區域，岩壁就在車道旁。岩質是燧石（チャート），以 bolt 運動攀登為主，5.10、5.11 台的路線最多，接近步道短，是東京近郊初中級者常去的岩場。
 

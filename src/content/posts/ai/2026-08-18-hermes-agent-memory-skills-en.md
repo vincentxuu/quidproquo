@@ -13,7 +13,7 @@ description: "How memory and skills work in Hermes Agent: character caps and the
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-memory-skills)
+> :globe: [中文版](/posts/ai/2026-08-18-hermes-agent-memory-skills)
 
 Post 6 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 

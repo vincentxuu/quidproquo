@@ -14,7 +14,7 @@ series:
   order: 31
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-rag-streaming-sse-en)
+> :globe: [English version](/posts/ai/2026-03-12-rag-streaming-sse-en)
 
 標準的 RAG 請求流程是：查詢 → pipeline 執行 → LLM 生成完畢 → 回傳完整回答。使用者要盯著空白等 5-8 秒，才看到第一個字。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-rabbitmq-message-routing)
+> :globe: [中文版](/posts/tech/2026-08-22-rabbitmq-message-routing)
 
 In [RabbitMQ](https://www.rabbitmq.com/docs), producers publish to an exchange before binding rules route messages into one or more queues. Direct, topic, fanout, and headers exchanges keep work distribution, broadcast, pattern routing, and dead-letter flows in broker topology instead of scattering that logic across producers.
 

@@ -15,7 +15,7 @@ glossary:
     context: "猛健樂這類減重藥是模擬並加強它的作用；本文談的食物只能讓身體自己分泌的量小幅增加。"
 ---
 
-> 🌏 [English version](/posts/life/2026-11-09-natural-mounjaro-food-trend-en)
+> :globe: [English version](/posts/life/2026-11-09-natural-mounjaro-food-trend-en)
 
 「天然猛健樂」是 2026 年 10 月在 Threads 上流行的暱稱，指一道用水煮鮪魚、水煮蛋、小黃瓜、無糖優格拌勻，再用海苔包起來吃的低熱量餐。網友把它跟處方減重藥猛健樂（Mounjaro，成分 tirzepatide）連在一起，因為吃完很飽、不太想吃零食。如果你被朋友轉了這份食譜，正在猶豫要不要跟風，先看結論：食譜本身不差，「猛健樂」三個字則沒有藥理依據，只是一個好記的名字。
 

@@ -26,7 +26,7 @@ glossary:
     context: "L3 的第三種 model-free 設定下的評估法；L4 指出 batch TD(0) 收斂到的正是它的答案。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-model-free-policy-evaluation-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-model-free-policy-evaluation-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

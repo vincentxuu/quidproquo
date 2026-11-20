@@ -13,7 +13,7 @@ description: "Two named V5 problems at The School Crag, with landings, top-outs,
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/climbing/2026-10-21-korea-crag-jeju-bouldering)
+> :globe: [繁體中文版](/posts/climbing/2026-10-21-korea-crag-jeju-bouldering)
 
 For Jeju bouldering, the first decision is which stream sector to visit, how many pads you can bring, and whether each landing and descent can be managed. Volcanic rock is appealing, but a generic Jeju bouldering pin is not a day's plan.
 

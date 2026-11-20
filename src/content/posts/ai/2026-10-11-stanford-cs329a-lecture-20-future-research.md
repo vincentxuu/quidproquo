@@ -13,7 +13,7 @@ tldr: "多樣性、驗證、資料選擇與效率是不同瓶頸；研究計畫�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-stanford-cs329a-lecture-20-future-research-en)
+> :globe: [English version](/posts/ai/2026-10-11-stanford-cs329a-lecture-20-future-research-en)
 
 **影片狀態：已附影片。** 官方錄影文字轉錄已取得；字幕類型、原音回聽與跟讀播放器尚待核對。
 

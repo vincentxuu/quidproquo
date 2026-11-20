@@ -13,7 +13,7 @@ description: "仙雲山攀岩指南：Soksal、Tugu、Mun 的風格與日照、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-seonunsan-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-seonunsan-en)
 
 想爬韓國的陡壁運攀，仙雲山值得放進清單。這裡不只有高難度仰角：轉到另一面牆，指洞發力會變成垂直壁上的腳步。這篇幫你選對子區、安排高敞交通，也分清哪些舊書路線不該直接當成可進入的目標。
 

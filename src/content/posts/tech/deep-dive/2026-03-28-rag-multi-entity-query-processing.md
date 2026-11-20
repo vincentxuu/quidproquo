@@ -14,7 +14,7 @@ series:
   order: 35
 ---
 
-🌏 [English version](/posts/tech/deep-dive/2026-03-28-rag-multi-entity-query-processing-en)
+:globe: [English version](/posts/tech/deep-dive/2026-03-28-rag-multi-entity-query-processing-en)
 
 使用者說：「我最近完攀了白虎 5.11d、閃電 5.12a、看起來我可以 5.11c、泡泡龍 5.11b、新竹客家人 5.10d，推薦 3 條我沒爬過的路線。」系統看到白虎，就 return 了。後面四條？不存在。
 

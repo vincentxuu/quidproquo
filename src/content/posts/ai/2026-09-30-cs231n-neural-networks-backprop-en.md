@@ -24,7 +24,7 @@ glossary:
     context: "L4 points out that for one matrix multiply with N=64 and D=M=4096, the Jacobian takes about 256 GB, so implementations never build it."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-neural-networks-backprop)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-neural-networks-backprop)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

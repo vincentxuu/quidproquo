@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-disposable-clone-run-bundle)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-disposable-clone-run-bundle)
 
 After a user submits a task, Looplane does not place the agent inside the repository currently open on their machine. `AgentRunner.run()` resolves a base commit and asks `LocalGitWorkspace.prepare()` to create a disposable workspace. This article follows two questions: where code is changed, and which files remain for inspection after the run.
 

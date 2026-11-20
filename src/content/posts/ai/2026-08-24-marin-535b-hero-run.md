@@ -10,7 +10,7 @@ description: "按訓練流程拆解 Marin 535B-A23B hero run：為何先做 Scal
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-24-marin-535b-hero-run-en)
+> :globe: [English version](/posts/ai/2026-08-24-marin-535b-hero-run-en)
 
 這篇介紹 Stanford Marin 正在進行的 **535B-A23B hero run**。
 

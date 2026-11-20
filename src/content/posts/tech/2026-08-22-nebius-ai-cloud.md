@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-nebius-ai-cloud-en)
+> :globe: [English version](/posts/tech/2026-08-22-nebius-ai-cloud-en)
 
 [Nebius AI Cloud](https://docs.nebius.com/) 是以 AI workload 為中心的完整雲平台。底層有 GPU VM、InfiniBand GPU cluster、disk/file/object storage 與 VPC。編排有 Managed Kubernetes 和以 Slurm 為核心的 Soperator。上層再提供 Serverless AI endpoints/jobs、MLflow 與預組應用。
 

@@ -28,13 +28,13 @@ NVIDIA also named Atlassian and Heidi as examples of local Australian companies 
 
 New Zealand's largest opposition party, Labour, released an AI Action Plan as part of its 2026 election platform, proposing to: establish an Office of AI to coordinate AI policy across government; create an online safety regulator within the Department of Internal Affairs; build a copyright framework giving creators control over and payment for training data use; and set clear rules for data centers. Law firm MinterEllisonRuddWatts noted the plan draws heavily on the Albanese government's AI governance framework announced on July 15, likewise centered on an Office of AI. Labour leader Chris Hipkins made no apologies for the similarity, saying alignment with Australia would create more certainty for creative and business communities operating across the Tasman. ([MinterEllisonRuddWatts](https://minterellison.co.nz/insights/labour-unveils-ai-action-plan-what-an-incoming-labour-government-would-do-on-ai) · [Labour official policy page](https://www.labour.org.nz/election-policy-pages/ai-in-new-zealand-s-interests/))
 
-⚠️ This is an opposition party's election platform, not current government policy — whether it's implemented depends on the outcome of New Zealand's 2026 general election.
+:warning: This is an opposition party's election platform, not current government policy — whether it's implemented depends on the outcome of New Zealand's 2026 general election.
 
 ### Adelaide Startup Metacognition AI Raises AU$10 Million Seed Round
 
 Metacognition (Metacognition Pty Ltd) announced on September 10 it had closed a $10 million (reported variously as USD or roughly A$15 million; currency labeling is inconsistent across sources, so figures here are given in USD) pre-seed round led by Main Sequence Ventures, to build a robotics operating system. Founders Anton van den Hengel, Stephen Gould, and Paul Dalby all come from academic backgrounds in Australia. ([Seedtable](https://seedtable.com/companies/metacognition/funding-rounds/pre-seed-2026-09) · [Tech Startups](https://techstartups.com/2026/09/10/startup-funding-news-today-september-10-2026-metacognition-ai-dyu-sinapisai-wyre-ai-more))
 
-⚠️ Two reports use inconsistent currency labeling for the round (Datapile lists "$10.0M" with no currency specified, while Tech Startups lists "A$10 million"). The actual amount and currency need further confirmation from an official announcement.
+:warning: Two reports use inconsistent currency labeling for the round (Datapile lists "$10.0M" with no currency specified, while Tech Startups lists "A$10 million"). The actual amount and currency need further confirmation from an official announcement.
 
 ## Deep Dive
 

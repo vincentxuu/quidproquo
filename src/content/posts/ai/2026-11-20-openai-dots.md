@@ -13,14 +13,14 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-20-openai-dots-en)
+> :globe: [English version](/posts/ai/2026-11-20-openai-dots-en)
 
 | 四個條件 | OpenAI Dots |
 |---|---|
-| 你不在時繼續跑 | ✅ 有自己的雲端電腦和瀏覽器，24 小時往你的目標推進 |
-| 醒來後自己決定做什麼 | ✅ L3：你沒在跟它說話時，會在背景做唯讀的主動研究，找事情幫你 |
-| 跨對話記得你的目標 | ✅ 沿用 ChatGPT 記憶，也會從連接的 app 自己形成記憶 |
-| 能代你對外做事 | ✅ 寄信、發訊息、付款、在網站上操作；照你的規則與 auto-review 決定要不要先問 |
+| 你不在時繼續跑 | ✓ 有自己的雲端電腦和瀏覽器，24 小時往你的目標推進 |
+| 醒來後自己決定做什麼 | ✓ L3：你沒在跟它說話時，會在背景做唯讀的主動研究，找事情幫你 |
+| 跨對話記得你的目標 | ✓ 沿用 ChatGPT 記憶，也會從連接的 app 自己形成記憶 |
+| 能代你對外做事 | ✓ 寄信、發訊息、付款、在網站上操作；照你的規則與 auto-review 決定要不要先問 |
 
 英國的 AI 顧問 David Gérouville-Farrell 養了兩隻貓，Bowie 和 Apollonia。[據他的部落格](https://thingsithinkithink.blog/posts/2026/11-09-trying-out-personal-agents/)，Bowie 的晶片登記轉移他付過錢了；Apollonia 的轉移開了頭卻沒付款，發票在那裡擱了半年。他請 Dots 查一下：那張發票還有效嗎，還是要重新申請？
 

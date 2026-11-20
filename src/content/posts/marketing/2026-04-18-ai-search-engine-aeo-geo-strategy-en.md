@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-🌏 [中文版](/posts/marketing/2026-04-18-ai-search-engine-aeo-geo-strategy)
+:globe: [中文版](/posts/marketing/2026-04-18-ai-search-engine-aeo-geo-strategy)
 
 People working on AEO/GEO often treat "AI search optimization" as an extension of traditional SEO: add JSON-LD, throw in FAQ schema, write a solid meta description, then wait for AI systems to cite you. But if you've looked at how AI search engines actually process web pages under the hood, you'll find the reality is far more complicated — some engines simply cannot read anything you put in `<head>`.
 
@@ -107,9 +107,9 @@ Since Google's indexing crawler reads the full HTML (including `<head>`), **trad
 | | Claude (WebFetch) | ChatGPT | Perplexity | Gemini |
 |---|---|---|---|---|
 | Fetching method | Local Axios | Server-side (`OAI-SearchBot`) | Pre-crawled index (`PerplexityBot`) | Existing Google index (Googlebot) |
-| Reads `<head>`? | ❌ | ⚠️ Indirect | ✅ | ✅ |
-| JSON-LD/schema effective? | ❌ | ⚠️ Limited | ✅ | ⚠️ Read, but Google says it isn't required |
-| Supports JS rendering? | ❌ | ✅ | ✅ | ✅ |
+| Reads `<head>`? | ✗ | :warning: Indirect | ✓ | ✓ |
+| JSON-LD/schema effective? | ✗ | :warning: Limited | ✓ | :warning: Read, but Google says it isn't required |
+| Supports JS rendering? | ✗ | ✓ | ✓ | ✓ |
 | Citation density | Low | Medium | High | Medium |
 
 The Claude column covers the WebFetch path only. Anthropic separately runs `Claude-SearchBot` for its search index; its parsing details are unpublished, so that path's values are currently **unverified**.

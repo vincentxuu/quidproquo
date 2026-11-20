@@ -13,7 +13,7 @@ description: "包內伊（Baunei）海岸與蘇普拉蒙特（Supramonte）大�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-baunei-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-baunei-en)
 
 包內伊（Baunei）是薩丁尼亞島東岸奧利亞斯特拉（Ogliastra）的山城，鎮後面是石灰岩的 Golgo 高原，往北一路是沒有公路的奧羅塞灣（Golfo di Orosei）海崖。在地攀岩協會 Climbing Sardinia 的 [Baunei 區頁](https://climbingitaly.com/area/baunei/)這樣形容：「Vertiginous crags overlooking the sea and solid limestone routes」，又說北邊的[卡拉戈諾內](/posts/climbing/2026-10-18-italy-crag-cala-gonone)是被馴化過的，「Baunei is WILD!」。
 

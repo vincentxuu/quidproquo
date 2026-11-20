@@ -21,7 +21,7 @@ glossary:
     context: "CS231N L6 advice: with fewer than about a million images, pretrain on a similar large dataset and transfer."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-training-cnns-architectures)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-training-cnns-architectures)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-12-interview-thinking-time-english)
+> :globe: [中文版](/posts/learning/2026-10-12-interview-thinking-time-english)
 
 The [previous post](/posts/learning/2026-10-12-coding-interview-english-en) practiced what I say on my own initiative in a coding interview. This one deals with a different situation: the interviewer keeps following my answer further down, into places I did not prepare for.
 

@@ -22,7 +22,7 @@ glossary:
     context: "HW6 Problem 2 lists it with dp_size, batch size, and others as parameters worth exploring for speed."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

@@ -18,7 +18,7 @@ description: "What is an auto-dev agent? An introductory guide for PMs, designer
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-09-auto-dev-agent-explained)
+> :globe: [中文版](/posts/ai/2026-05-09-auto-dev-agent-explained)
 
 ## TL;DR
 
@@ -102,7 +102,7 @@ This safeguard is hardcoded in the source code (it can't be changed via configur
 - **Pause everything**: Place an `.automation-paused` file in the project root — all routines stop immediately
 - **Pause a single repo**: Place `.automation-paused-<repo>` to pause only that repo
 - **Pause a single issue**: Add the `automation:hold` label to the issue
-- **Permanent handoff**: Add the `human-driving` label to the issue — the system automatically steps back, removes its own labels, and leaves an audit comment: "🤝 Handed off to human"
+- **Permanent handoff**: Add the `human-driving` label to the issue — the system automatically steps back, removes its own labels, and leaves an audit comment: " Handed off to human"
 
 PMs, engineers, or anyone with GitHub write access can hit the brakes. You don't need to be an engineer to slam on the emergency stop.
 

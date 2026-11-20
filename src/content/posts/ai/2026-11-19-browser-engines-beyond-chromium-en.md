@@ -13,7 +13,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-19-browser-engines-beyond-chromium)
+> :globe: [中文版](/posts/ai/2026-11-19-browser-engines-beyond-chromium)
 
 The [protocol post](/posts/ai/2026-11-19-cdp-webdriver-bidi-en) noted that tools speaking raw CDP are really tied to CDP, not strictly to Chromium: any engine that implements CDP itself can plug in. In 2026 there are several more of these: Lightpanda shipped 1.0, Cloudflare open-sourced Kitesurf, and Obscura added its own layout and painting. All of them pitch "built for agents, lighter than Chrome".
 

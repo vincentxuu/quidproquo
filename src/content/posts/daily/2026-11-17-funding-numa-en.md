@@ -12,7 +12,7 @@ series:
   order: 139
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-17-funding-numa)
+> :globe: [中文版](/posts/daily/2026-11-17-funding-numa)
 
 ## Funding details
 

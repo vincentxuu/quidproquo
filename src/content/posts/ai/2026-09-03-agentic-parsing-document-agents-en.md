@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-03-agentic-parsing-document-agents)
+> :globe: [中文版](/posts/ai/2026-09-03-agentic-parsing-document-agents)
 
 Earlier posts in this series covered the [three-layer model](/posts/ai/2026-08-06-document-parsing-three-layers-en), [text extraction](/posts/ai/2026-08-06-pdf-text-extraction-libraries-en), and [model-based layout analysis](/posts/ai/2026-08-06-document-parsing-layout-ocr-en). They all point to the same conclusion: no single fixed pipeline handles every document well. Agentic Parsing hands the "which path to take" decision to an agent.
 
@@ -89,7 +89,7 @@ The two approaches complement rather than compete:
 | Dimension | ColPali / Visual RAG | Agentic Parsing |
 |---|---|---|
 | Table preservation | 100% (image = original layout) | Depends on parser quality |
-| Text searchability | ❌ (BM25 unavailable) | ✅ |
+| Text searchability | ✗ (BM25 unavailable) | ✓ |
 | Storage cost | ~100× | Normal |
 | GPU required | Yes | Some methods don't need one |
 | Best for | Table-dense, complex layouts | Mixed documents, text semantics |

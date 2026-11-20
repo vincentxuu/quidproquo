@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-email-service-workers)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-email-service-workers)
 
 Once a product has signups, login, payments, notifications, and support, email becomes part of the backend. You can use SendGrid, Postmark, SES, or your own SMTP setup. If your app already runs on Workers, [Cloudflare Email Service](https://developers.cloudflare.com/email-service/) removes one external piece of infrastructure: the HTTP request reaches a Worker, state goes to D1/R2/Queues, transactional email is sent directly from the Worker, and incoming mail to `support@` or `orders@` can be routed into Worker code.
 

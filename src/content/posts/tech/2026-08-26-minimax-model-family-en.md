@@ -20,7 +20,7 @@ glossary:
     def: "Software Engineering Benchmark — a standard test set that measures how well models resolve real GitHub issues"
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-08-26-minimax-model-family)
+> :globe: [繁體中文版](/posts/tech/2026-08-26-minimax-model-family)
 
 MiniMax didn't start as a model company. It built a character-chat app ([Talkie](https://www.talkie-ai.com/)) and video generation ([Hailuo AI](https://hailuoai.video/)). In February 2026, M2.5 scored 80.2% on SWE-bench Verified at a fraction of closed flagships' prices, and MiniMax became a low-cost option for coding agents.
 

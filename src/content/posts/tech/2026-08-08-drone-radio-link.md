@@ -13,7 +13,7 @@ series:
   order: 27
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-08-drone-radio-link-en)
+> :globe: [English version](/posts/tech/2026-08-08-drone-radio-link-en)
 
 [規格表那篇](/posts/tech/2026-08-07-drone-spec-sheet-reading)拆過《遙控無人機資安檢測規範》怎麼定義「系列產品」——**飛控、通訊及衛星定位晶片之模組均為相同者**。三個模組裡，飛控在[上一篇](/posts/tech/2026-08-08-px4-vs-ardupilot)拆完了。這篇拆第二個：通訊。
 

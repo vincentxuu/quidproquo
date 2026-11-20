@@ -13,7 +13,7 @@ series:
   order: 17
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-19-cdp-webdriver-bidi)
+> :globe: [中文版](/posts/ai/2026-11-19-cdp-webdriver-bidi)
 
 The [driver post](/posts/ai/2026-11-18-cdp-vs-playwright-driver-en) ended on a cost: once Browser Use and Stagehand dropped Playwright and spoke CDP themselves, they could only use Chromium. Firefox removed CDP in version 141, and its automation now goes through WebDriver BiDi.
 

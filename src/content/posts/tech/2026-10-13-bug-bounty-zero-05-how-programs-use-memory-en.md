@@ -18,7 +18,7 @@ series:
   order: 7
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory)
+> :globe: [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory)
 
 The [RCE chapter](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en) covered RCE, and the scene was still a website: user input glued into a shell command, or untrusted data turned back into an object. The next stage goes one level lower, to bugs in how a program uses memory. This is the biggest cliff in the series. Up to now a browser and a little Python were enough; from here on, the bugs depend on where in memory something sits.
 

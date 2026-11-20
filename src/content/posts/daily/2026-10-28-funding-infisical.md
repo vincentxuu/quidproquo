@@ -12,7 +12,7 @@ series:
   order: 110
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-28-funding-infisical-en)
+> :globe: [English version](/posts/daily/2026-10-28-funding-infisical-en)
 
 ## 融資資訊
 

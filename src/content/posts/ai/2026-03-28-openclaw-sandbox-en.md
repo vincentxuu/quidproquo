@@ -16,7 +16,7 @@ description: "A complete guide to OpenClaw sandboxing: the mode/scope/backend se
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-sandbox)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-sandbox)
 
 OpenClaw can run tool execution inside a sandbox to reduce blast radius. The docs are refreshingly honest about what that means:
 

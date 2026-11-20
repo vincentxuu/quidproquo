@@ -19,7 +19,7 @@ glossary:
     context: "Used here to explain why side-effecting actions like sending email or charging a card need external de-duplication before they can be replayed."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-05-pi-durable-long-running-agents)
+> :globe: [中文版](/posts/ai/2026-10-05-pi-durable-long-running-agents)
 
 If you are building an agent that runs for a long time, such as analyzing 100 files in one go or answering questions in a Slack channel around the clock, the first question to settle is: when the process dies, where does the agent's state live? This article covers [Pi 1.0](https://earendil.com/posts/pi-1-0/) and [Pi Durable](https://earendil.com/posts/pi-durable/), released by Earendil in early October 2026: what it stores that ordinary session persistence does not, and what limits apply when you run it on Cloudflare.
 

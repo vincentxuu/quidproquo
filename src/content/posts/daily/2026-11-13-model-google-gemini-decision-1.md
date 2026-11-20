@@ -15,7 +15,7 @@ glossary:
     def: "一種只對固定選項打機率分數、不逐字生成文字的專用模型，用於是非判斷、分類路由、評分等「有限選項」任務"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-13-model-google-gemini-decision-1-en)
+> :globe: [English version](/posts/daily/2026-11-13-model-google-gemini-decision-1-en)
 
 ## 模型資訊
 
@@ -107,7 +107,7 @@ caption: 簡化示意：是非／選擇／評分三種題型與單題計算細�
 | Top-1 ECE，7 項共用評測（越低越好） | **0.0250** | 0.0494 | 0.0721 | 0.2104 |
 | 7 項共用評測總價（USD） | 0.88 | **0.68** | 0.93 | 4.14 |
 
-⚠️ 以上為 Google 官方公告自測數字。獨立機構 Artificial Analysis 用自己的 Decision Index（v2.1，涵蓋 18 個決策模型，與 Google 公告評測集只有 When2Call 一項重疊）評出 Gemini Decision 1 為 66 分，在 18 個模型中排第 9（中位），略高於 GPT-6 Luna 的 60 分，但落後排名前段的低 70 分區；在成本面，Artificial Analysis 量得每百萬任務 $345，是 18 個模型中第 4 貴（中位數 $143）。校準表現在兩邊都算強（Brier score 偏低），但準確率在獨立評測下只算中等，跟官方「全面領先」的說法有落差。
+:warning: 以上為 Google 官方公告自測數字。獨立機構 Artificial Analysis 用自己的 Decision Index（v2.1，涵蓋 18 個決策模型，與 Google 公告評測集只有 When2Call 一項重疊）評出 Gemini Decision 1 為 66 分，在 18 個模型中排第 9（中位），略高於 GPT-6 Luna 的 60 分，但落後排名前段的低 70 分區；在成本面，Artificial Analysis 量得每百萬任務 $345，是 18 個模型中第 4 貴（中位數 $143）。校準表現在兩邊都算強（Brier score 偏低），但準確率在獨立評測下只算中等，跟官方「全面領先」的說法有落差。
 
 ## 與前代/競品比較
 

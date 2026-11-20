@@ -10,7 +10,7 @@ description: "拆解「手機偷聽」都市傳說：Panoptispy 研究、FTC 對
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-06-phone-listening-ad-targeting-en)
+> :globe: [English version](/posts/tech/2026-08-06-phone-listening-ad-targeting-en)
 
 你從沒搜尋過攀岩，只是跟朋友面對面聊到，手機放在旁邊。幾小時後 Instagram 開始推攀岩內容。
 

@@ -10,7 +10,7 @@ description: "NVIDIA DGX Spark 是一台搭載 Grace Blackwell 超級晶片的�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-04-02-nvidia-dgx-spark-intro-en)
+:globe: [English version](/posts/tech/2026-04-02-nvidia-dgx-spark-intro-en)
 
 ## DGX Spark 是什麼
 

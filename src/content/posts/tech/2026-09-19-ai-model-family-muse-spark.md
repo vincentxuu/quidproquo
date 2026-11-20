@@ -26,7 +26,7 @@ glossary:
     definition: "Meta 從 Muse Spark 蒸餾出的 30B 開放權重多模態模型，採 Apache 2.0；它不是 Muse Spark API 的同名替代品。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-19-ai-model-family-muse-spark-en)
+> :globe: [English version](/posts/tech/2026-09-19-ai-model-family-muse-spark-en)
 
 Muse 是 Meta Superintelligence Labs（MSL）的模型家族。它不是 Llama 5，也不是 Llama 的 API 改名：Llama 仍是 Meta 的開放權重生態，Muse 則是另一條以 Meta Model API 為入口、以 agent 工作流為中心的產品線。這篇寫給要在 Muse 裡挑模型的 Agent 開發者：Wonder、Spark、Ember 三層怎麼分工，Contributor 折扣換掉什麼，兩條開放權重線各有什麼授權條件。
 

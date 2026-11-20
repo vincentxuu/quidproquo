@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-25-tensorrt-llm-inference-en)
+> :globe: [English version](/posts/tech/2026-08-25-tensorrt-llm-inference-en)
 
 [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) 是 NVIDIA 為大型語言模型推論設計的開源庫。和 vLLM、SGLang 的最大差異在於它有一個明確的「編譯」步驟：先把模型權重和計算圖離線轉換成 TensorRT engine，runtime 再用這個 engine 做推論。
 

@@ -10,7 +10,7 @@ description: "An introduction to Mastra agents, tools, workflows, memory, Studio
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-mastra-typescript-agent-framework)
+> :globe: [中文版](/posts/ai/2026-08-22-mastra-typescript-agent-framework)
 
 [Mastra](https://mastra.ai/docs) is an open-source agent framework for TypeScript and Node.js teams. It combines agents, tools, MCP, workflows, memory, tracing, scorers, and a local Studio rather than merely wrapping a model SDK.
 

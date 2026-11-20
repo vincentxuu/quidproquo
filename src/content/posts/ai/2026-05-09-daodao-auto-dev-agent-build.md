@@ -20,7 +20,7 @@ description: "從 Notion 任務板到 GitHub PR 自動化：daodao 內部 auto-d
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-05-09-daodao-auto-dev-agent-build-en)
+:globe: [English version](/posts/ai/2026-05-09-daodao-auto-dev-agent-build-en)
 
 ## TL;DR
 
@@ -142,7 +142,7 @@ worker-1 在訊息裡兩次把 #6 算成自己做的（實際是 worker-5 做的
 
 ### Test pollution
 
-verifier 跑驗證時發現 `daodao-storage` PR #42 有 2 條測試 comment：「🛡️ Auto-PR refused (high-risk repo defense-in-depth).」。worker-1 跑 #13 fixture 時對 prod repo 真打了 GitHub API（exit 6 + post comment），verifier 跑 acceptance 時又貼了一次。
+verifier 跑驗證時發現 `daodao-storage` PR #42 有 2 條測試 comment：「:shield: Auto-PR refused (high-risk repo defense-in-depth).」。worker-1 跑 #13 fixture 時對 prod repo 真打了 GitHub API（exit 6 + post comment），verifier 跑 acceptance 時又貼了一次。
 
 不是嚴重的 tampering（沒 push code、沒開 PR），但 production repo issue 上有兩條 bot 留言看起來像測試遺留。經 user 確認後用 `gh api -X DELETE` 清掉。
 
@@ -152,7 +152,7 @@ verifier 跑驗證時發現 `daodao-storage` PR #42 有 2 條測試 comment：�
 
 3 個 fix task 平行派出去，5 分鐘修完。
 
-verifier round 2 標 APPROVE：5 fix 全 ✅、262/264 tests pass（2 fail 是 daodao-f2e showcase pre-existing）、所有 shell 過 shellcheck。critic round 2 也標 APPROVE：邏輯一致、defense-in-depth 兩層守門（state.ts 規則 0 + handler 開頭 guard）、enforce.sh metachar reject 不破壞 happy path。
+verifier round 2 標 APPROVE：5 fix 全 ✓、262/264 tests pass（2 fail 是 daodao-f2e showcase pre-existing）、所有 shell 過 shellcheck。critic round 2 也標 APPROVE：邏輯一致、defense-in-depth 兩層守門（state.ts 規則 0 + handler 開頭 guard）、enforce.sh metachar reject 不破壞 happy path。
 
 shutdown 全部 10 個 teammate（5 worker + 3 reviewer + 2 round-2 reviewer），TeamDelete clean exit。
 
@@ -162,17 +162,17 @@ shutdown 全部 10 個 teammate（5 worker + 3 reviewer + 2 round-2 reviewer）�
 
 從 routine edit 頁要點到 env var 的隱藏路徑：
 
-1. 點 ✏️ 鉛筆進 Edit
+1. 點 :pencil: 鉛筆進 Edit
 2. Instructions 框下方有個小列寫 `☁️ Default`
 3. 點 Default 展開選擇器
 4. **Hover 在 Default 那一行**（不點，先停留 1 秒）
-5. 右邊浮出 ⚙️ 設定 icon
-6. 點 ⚙️ → 「Update cloud environment」對話框
+5. 右邊浮出 :settings: 設定 icon
+6. 點 :settings: → 「Update cloud environment」對話框
 7. Environment variables 區塊用 `.env` 格式填
 
 UI 還貼心（？）地警告「These are visible to anyone using this environment — don't add secrets or credentials」。但 Stripe Minions / Spotify Honk 等 production 系統其實也是這樣放 secret——這警告針對的是 team 共用 env 的場景。個人帳號用沒問題。
 
-**Lesson**：routine 要正常跑，UI 隱藏設計（hover-only ⚙️ icon）比預期更困難。建議下次 plan 階段把「環境變數注入路徑」當成一個獨立 risk 寫進去，不要假設 Console 提供明顯的 UI。
+**Lesson**：routine 要正常跑，UI 隱藏設計（hover-only :settings: icon）比預期更困難。建議下次 plan 階段把「環境變數注入路徑」當成一個獨立 risk 寫進去，不要假設 Console 提供明顯的 UI。
 
 ## 整體來說
 

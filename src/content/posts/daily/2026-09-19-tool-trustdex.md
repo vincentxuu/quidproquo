@@ -12,7 +12,7 @@ series:
   order: 34
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-19-tool-trustdex-en)
+> :globe: [English version](/posts/daily/2026-09-19-tool-trustdex-en)
 
 ## 工具資訊
 
@@ -85,9 +85,9 @@ TrustDex 解的問題和之前介紹過的 [mcp-guardrail](/posts/daily/2026-08-
 |---|---|---|---|
 | 判斷時機 | Agent 看到工具「之前」 | Agent 呼叫工具「當下」 | 加新工具當下（人工） |
 | 判斷依據 | 來源、版本浮動、簽章、trust store 裡的顯式證據 | `policy.yaml` 定義的呼叫層級規則 | 個人經驗與記憶 |
-| 設定日後漂移偵測 | ✅（snapshot + diff + 簽章 recheck） | 需自行另外比對 | ❌ |
+| 設定日後漂移偵測 | ✓（snapshot + diff + 簽章 recheck） | 需自行另外比對 | ✗ |
 | 涵蓋範圍 | MCP server + Agent Skill + plugin manifest + Codex `config.toml` | 目前聚焦 MCP stdio proxy | 不限，但沒有自動化 |
-| 需要常駐 proxy 進程 | ❌（一次性 CLI／CI step） | ✅ | ❌ |
+| 需要常駐 proxy 進程 | ✗（一次性 CLI／CI step） | ✓ | ✗ |
 
 ## 注意事項
 

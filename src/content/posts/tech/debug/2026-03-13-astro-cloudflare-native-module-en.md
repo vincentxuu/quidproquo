@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/tech/debug/2026-03-13-astro-cloudflare-native-module)
+> :globe: [中文版](/posts/tech/debug/2026-03-13-astro-cloudflare-native-module)
 
 ## TL;DR
 

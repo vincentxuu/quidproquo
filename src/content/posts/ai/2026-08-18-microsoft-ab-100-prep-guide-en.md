@@ -13,7 +13,7 @@ description: "A preparation guide for Microsoft AB-100 (Agentic AI Business Solu
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)
+> :globe: [中文版](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)
 >
 > This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the [official study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-100). No leaked questions. Verified 2026-10-08. The current study guide reads "Skills measured as of **October 14, 2026**"; its change log marks three minor changes, and the three weights are the same as in the July version.
 

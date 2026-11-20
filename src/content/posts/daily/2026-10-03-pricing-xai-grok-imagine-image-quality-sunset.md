@@ -12,7 +12,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-03-pricing-xai-grok-imagine-image-quality-sunset-en)
+> :globe: [English version](/posts/daily/2026-10-03-pricing-xai-grok-imagine-image-quality-sunset-en)
 
 ## 變更摘要
 
@@ -58,7 +58,7 @@ xAI 在 9/2 發出 60 天預告，2026-11-02 起正式停用 `grok-imagine-image
 
 ## 時效提醒
 
-⚠️ **停用日期**：2026-11-02。`grok-imagine-image-quality` 之後仍可呼叫但會被靜默轉址到 `grok-imagine-image-2.0`（quality: low）。遷移指南：[grok-imagine-image-quality Retirement on November 2, 2026](https://docs.x.ai/developers/migration/imagine-image-quality-nov-2)。
+:warning: **停用日期**：2026-11-02。`grok-imagine-image-quality` 之後仍可呼叫但會被靜默轉址到 `grok-imagine-image-2.0`（quality: low）。遷移指南：[grok-imagine-image-quality Retirement on November 2, 2026](https://docs.x.ai/developers/migration/imagine-image-quality-nov-2)。
 
 ## 今日收穫
 

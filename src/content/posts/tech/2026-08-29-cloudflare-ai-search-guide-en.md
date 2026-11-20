@@ -15,7 +15,7 @@ additionalSeries:
     order: 23
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-29-cloudflare-ai-search-guide)
+> :globe: [中文版](/posts/tech/2026-08-29-cloudflare-ai-search-guide)
 
 If every agent needs search, do you build the vector index, the chunking and sync pipeline, and the BM25 fusion yourself — or reach for a primitive? [Cloudflare AI Search](https://developers.cloudflare.com/ai-search/) is the latter: formerly [AutoRAG](https://blog.cloudflare.com/introducing-autorag-on-cloudflare/), now positioned as a managed search primitive. Create an instance, give it data, query it with natural language; the [R2](https://developers.cloudflare.com/r2/), [Vectorize](https://developers.cloudflare.com/vectorize/), and [Workers AI](https://developers.cloudflare.com/workers-ai/) plumbing is handled for you. This post covers how data gets in, how indexing runs, how to tune retrieval, and how to wire it from a Worker — so you can decide when to use the managed path and when to assemble your own.
 

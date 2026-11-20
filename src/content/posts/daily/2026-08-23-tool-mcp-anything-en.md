@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-23-tool-mcp-anything)
+> :globe: [中文版](/posts/daily/2026-08-23-tool-mcp-anything)
 
 ## Tool Info
 

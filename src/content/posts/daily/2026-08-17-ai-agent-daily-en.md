@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-17-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-17-ai-agent-daily)
 
 ## One-Line Verdict
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 48
 ---
-> 🌏 [English version](/posts/daily/2026-07-11-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-11-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -69,7 +69,7 @@ STRACE 的框架可以作為 Agent 監控平台的後處理層，把「記錄很
 
 ### 深入要點
 
-- **主要結果**：VeruSAGE-Bench（以 Rust 形式驗證為核心的任務集）上，成功率 42.5% → 58.5%，相對提升 1.4× ⚠️（單一 domain benchmark，泛化能力待驗證）
+- **主要結果**：VeruSAGE-Bench（以 Rust 形式驗證為核心的任務集）上，成功率 42.5% → 58.5%，相對提升 1.4× :warning:（單一 domain benchmark，泛化能力待驗證）
 - **文字依賴圖的構成**：每個 tool call 的輸出若被後續步驟的輸入引用，則兩節點之間連有向邊；失敗的最終輸出反向追溯能精確定位「哪個節點切斷了正確的因果鏈」
 - **與 DSPy 的關聯**：DSPy 的 compile 階段需要 demonstration examples，STRACE 的輸出（高訊噪比的代表性失敗 + 根因定位）可以直接作為 DSPy 的 negative example 輸入，強化優化訊號
 - **Limitation**：形式驗證任務有明確的通過/失敗邊界，根因相對容易機器識別；遷移到開放式任務（問答、寫作）的「根因」定義本身就更模糊，STRACE 的效果待驗證
@@ -156,7 +156,7 @@ Agent 安全評測現在只報告「攻擊有沒有成功」（0 或 1），但 
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 對需要設計 Agent 安全 SLA、或在做 Agent red-teaming 評測的工程師有直接參考價值；若你現在主要關注功能開發，可以先存檔，等安全評測需求出現時再回來看。
 
 ### 領域背景
@@ -189,7 +189,7 @@ L0-L6 評分讓安全團隊可以問更精準的問題：「防禦策略 X 對 L
 - **測試範圍**：AgentDojo workspace suite（涵蓋 email、行事曆、銀行等 workspace 任務）；4 個 victim models + 2 種防禦策略
 - **三個維度的來源**：可逆性借鑒了 IT 災難恢復（RTO/RPO）概念；越界性對應資訊安全的 least-privilege 原則；越權性對應 attack kill chain 的 privilege escalation
 - **與 CVSS 的類比**：L0-L6 類似軟體漏洞的 CVSS severity score（None/Low/Medium/High/Critical），但是針對 LLM agent tool-call 行為量身設計
-- **LLM Judge Panel vs Oracle 的一致性**：論文宣稱兩者高度一致，具體 agreement 指標（如 Cohen's kappa）未見於公開摘要 ⚠️
+- **LLM Judge Panel vs Oracle 的一致性**：論文宣稱兩者高度一致，具體 agreement 指標（如 Cohen's kappa）未見於公開摘要 :warning:
 - **Limitation**：單一作者論文（8 頁），尚未通過正式 peer review；七段邊界在複雜情境下的模糊性未深入討論；目前只在 AgentDojo 一個 benchmark 驗證，泛化性未知
 - **與 STRACE 的共同依賴**：兩篇論文都需要完整的 tool-call trajectory 記錄——做好 trace logging 是兩個方法論都能落地的前提條件
 - **落地啟示**：可以用這三個維度（可逆性、越界性、越權性）設計 Agent tool 的「風險標籤」，在 tool 定義階段就把安全分類內建進去

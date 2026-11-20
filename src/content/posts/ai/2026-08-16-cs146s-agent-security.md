@@ -19,7 +19,7 @@ description: "拆解 Stanford CS146S Fall 2026 第七週「Security」：SAST/SC
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-16-cs146s-agent-security-en)
+> :globe: [English version](/posts/ai/2026-08-16-cs146s-agent-security-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

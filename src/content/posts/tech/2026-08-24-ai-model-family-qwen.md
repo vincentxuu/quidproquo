@@ -27,7 +27,7 @@ glossary:
     definition: "從預訓練階段就把文字、圖片、影片混在一起訓練，而不是訓練完文字模型再外掛視覺 adapter。原生多模態能力的來源"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-family-qwen-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-family-qwen-en)
 
 Qwen（通義千問）是 HuggingFace 下載量最高的模型家族（見[系列導讀](/posts/tech/2026-08-24-ai-model-landscape-overview)），尺寸從手機端的 0.8B 一路到 2.4T。這篇寫給要在 Qwen 裡挑模型的 Agent 開發者：API 旗艦選 Qwen4-Max 還是 3.8 世代、要自架該下載哪一個、三種開放權重授權各擋住什麼用途。
 

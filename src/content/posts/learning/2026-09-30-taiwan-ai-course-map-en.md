@@ -26,7 +26,7 @@ glossary:
     context: "Chih-Yuan Yang's Generative AI page at Chang Gung University is the satellite-class page for Yen-Lung Tsai's NCCU flagship course."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-30-taiwan-ai-course-map)
+> :globe: [中文版](/posts/learning/2026-09-30-taiwan-ai-course-map)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

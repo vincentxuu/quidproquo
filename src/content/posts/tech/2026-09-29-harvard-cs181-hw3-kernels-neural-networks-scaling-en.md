@@ -24,11 +24,11 @@ glossary:
     context: "Problem 3 has you measure α and β yourself at small scale."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling)
+> :globe: [中文版](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Version and access**: This post follows [hw3 in the CS181 s26 homeworks repo](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw3) and the [official 2026 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ). Sections 4 and 5 are **Spring 2026** handouts. The NN and SVM scribe notes on the course site come from the **2024 term** (lec10 is dated `2/22/24`). The 2026 Neural Networks II/III, CNN, and scaling-law lectures have no public notes, and this post does not guess at their content. The course rates **A3**: homework and section solutions are public, with no public recording links listed for the corresponding lectures and no homework solutions.
+> :warning: **Version and access**: This post follows [hw3 in the CS181 s26 homeworks repo](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw3) and the [official 2026 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ). Sections 4 and 5 are **Spring 2026** handouts. The NN and SVM scribe notes on the course site come from the **2024 term** (lec10 is dated `2/22/24`). The 2026 Neural Networks II/III, CNN, and scaling-law lectures have no public notes, and this post does not guess at their content. The course rates **A3**: homework and section solutions are public, with no public recording links listed for the corresponding lectures and no homework solutions.
 
 [Harvard CS181](https://harvard-ml-courses.github.io/cs181-web/) titles HW3 **Neural Networks and Kernels**. Per `hw3_release.tex`, it is due March 23, 2026 at 11:59 PM. The three problems are worth 30, 20, and 50 points. Half the grade goes to the third problem: **measuring a scaling law yourself**.
 

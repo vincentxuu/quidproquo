@@ -14,7 +14,7 @@ description: "A page-linked guide to all 71 CS329Z opening slides, from agent hi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems)
+> :globe: [中文版](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems)
 
 **Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 70 minutes); this guide follows the public slides and readings and had each section start time checked against the recording via a machine-generated transcript.
 

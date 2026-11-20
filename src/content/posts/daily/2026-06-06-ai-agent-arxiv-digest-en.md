@@ -12,7 +12,7 @@ series:
   order: 13
 ---
 <!-- [skip-harness] -->
-> 🌏 [中文版](/posts/daily/2026-06-06-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-06-ai-agent-arxiv-digest)
 
 ## Today's Overview
 

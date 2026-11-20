@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-yjs-crdt-collaboration-en)
+> :globe: [English version](/posts/tech/2026-08-22-yjs-crdt-collaboration-en)
 
 [Yjs](https://docs.yjs.dev/) 是 network-agnostic CRDT implementation。Application 在 `Y.Doc` 內操作 `Y.Text`、`Y.Map`、`Y.Array` 等 shared types；每次 transaction 產生 compressed binary update。Updates 具 commutative、associative、idempotent 性質：順序不同或重複套用仍能收斂，只要最終收到相同更新集合。
 

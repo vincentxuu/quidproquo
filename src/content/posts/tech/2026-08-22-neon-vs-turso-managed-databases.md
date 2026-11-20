@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-neon-vs-turso-managed-databases-en)
+> :globe: [English version](/posts/tech/2026-08-22-neon-vs-turso-managed-databases-en)
 
 「託管 Postgres（Neon／Turso）」這個分類在 2026 年 8 月仍不精確。[Neon](https://neon.com/docs/introduction) 提供與 PostgreSQL 相容的 serverless platform；[Turso Cloud](https://docs.turso.tech/cloud) 目前運行 production-ready libSQL，也正導入從頭重寫、SQLite 相容的 Turso Database。Turso 已宣布開發 PostgreSQL-compatible frontend，但官方明說現階段是 foundation，不是完成的 production Postgres product。
 

@@ -13,7 +13,7 @@ description: "A bilingual implementation guide for MIT 6.S191 2026 Lab 2: execut
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-mit-6s191-lab2-debiasing)
+> :globe: [中文版](/posts/ai/2026-08-22-mit-6s191-lab2-debiasing)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

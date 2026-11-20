@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-tui-to-transcript-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-tui-to-transcript-en)
 
 ## 設計問題：agent 對話在終端機該長什麼樣
 

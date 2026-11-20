@@ -13,7 +13,7 @@ description: "用一張地圖看 skill、MCP 與 coding agent 周邊的資安工
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-ai-agent-security-tooling-map-en)
+> :globe: [English version](/posts/ai/2026-10-24-ai-agent-security-tooling-map-en)
 
 你的電腦上大概已經有一個放著別人寫的 skill 的目錄，設定檔裡也接了幾個 MCP server。這些東西每一個都能讀你的檔案、跑指令、連網路，而 agent 會照著它們的說明做。
 

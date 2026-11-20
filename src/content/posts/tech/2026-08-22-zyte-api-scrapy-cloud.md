@@ -10,7 +10,7 @@ description: "沿著 Scrapy 專案生命週期拆解 Zyte API、Automatic Extrac
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-zyte-api-scrapy-cloud-en)
+> :globe: [English version](/posts/tech/2026-08-22-zyte-api-scrapy-cloud-en)
 
 [Scrapy](https://docs.scrapy.org/en/latest/) 是開放原始碼的 Python 爬蟲框架；[Zyte API](https://docs.zyte.com/zyte-api/usage/) 與 [Scrapy Cloud](https://docs.zyte.com/scrapy-cloud/) 則是 Zyte 的商業服務。最容易搞混的地方，是把這三者當成同一套產品。其實 Scrapy 可以完全自架，Zyte API 也能由其他 HTTP client 呼叫，而 Scrapy Cloud 解決的是執行與營運，不會替你決定爬哪些頁面。
 

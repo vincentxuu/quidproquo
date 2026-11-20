@@ -22,7 +22,7 @@ glossary:
     context: "Fall 2024 HW7 Q10–12 的實作題，對應技法第 8 堂（題目寫作 Lecture 208）。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

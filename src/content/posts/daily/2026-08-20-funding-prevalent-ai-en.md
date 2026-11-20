@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-20-funding-prevalent-ai)
+> :globe: [中文版](/posts/daily/2026-08-20-funding-prevalent-ai)
 
 ## Funding Details
 

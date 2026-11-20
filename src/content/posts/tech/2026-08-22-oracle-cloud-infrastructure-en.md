@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-oracle-cloud-infrastructure)
+> :globe: [中文版](/posts/tech/2026-08-22-oracle-cloud-infrastructure)
 
 [Oracle Cloud Infrastructure (OCI)](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/concepts-core.htm) is a full public cloud spanning VM, bare-metal, and GPU Compute, Oracle Kubernetes Engine (OKE), Functions, networking, object/block/file storage, and Autonomous, Base, and Exadata database services.
 

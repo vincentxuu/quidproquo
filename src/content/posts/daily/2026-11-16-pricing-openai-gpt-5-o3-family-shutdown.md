@@ -12,7 +12,7 @@ series:
   order: 37
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-16-pricing-openai-gpt-5-o3-family-shutdown-en)
+> :globe: [English version](/posts/daily/2026-11-16-pricing-openai-gpt-5-o3-family-shutdown-en)
 
 ## 變更摘要
 
@@ -76,7 +76,7 @@ Pro 層的降幅是牌價比較，不是帳單保證——`reasoning.mode: pro` 
 
 ## 時效提醒（如有促銷/sunset）
 
-⚠️ **停用日期**：2026-12-11。`gpt-5`、`gpt-5-mini`、`gpt-5-nano`、`gpt-5-pro`、`o3`、`o3-pro` 及其所有快照版本（含用這些模型微調的版本）將全數停止接受請求。遷移指南：[GPT-6 migration guide](https://developers.openai.com/api/docs/guides/latest-model#gpt-6-astra-migration-quickstart)。
+:warning: **停用日期**：2026-12-11。`gpt-5`、`gpt-5-mini`、`gpt-5-nano`、`gpt-5-pro`、`o3`、`o3-pro` 及其所有快照版本（含用這些模型微調的版本）將全數停止接受請求。遷移指南：[GPT-6 migration guide](https://developers.openai.com/api/docs/guides/latest-model#gpt-6-astra-migration-quickstart)。
 
 ## 今日收穫
 

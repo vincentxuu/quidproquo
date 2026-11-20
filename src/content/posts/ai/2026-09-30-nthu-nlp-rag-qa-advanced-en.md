@@ -25,7 +25,7 @@ glossary:
     context: "The slides note these token settings can be tuned at inference to trade precision against fluency."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

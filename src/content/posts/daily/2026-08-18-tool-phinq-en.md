@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-18-tool-phinq)
+> :globe: [中文版](/posts/daily/2026-08-18-tool-phinq)
 
 ## Tool Info
 
@@ -102,11 +102,11 @@ if (allowed) await runTool();
 
 | | Phinq | Relying on prompt instructions | Manual code review |
 |---|---|---|---|
-| Runtime enforcement (agent can't see denied calls) | ✅ | ❌ (agent may ignore instructions) | ❌ (only visible after the fact) |
-| Tamper-proof audit log (hash chain) | ✅ | ❌ | Requires custom build |
-| No need for real-time human monitoring | ✅ (Telegram/Slack notifications) | ❌ | ❌ |
-| Wraps any MCP server with zero changes | ✅ (`phinq-mcp` gateway) | — | — |
-| Free and open source | ✅ MIT | — | — |
+| Runtime enforcement (agent can't see denied calls) | ✓ | ✗ (agent may ignore instructions) | ✗ (only visible after the fact) |
+| Tamper-proof audit log (hash chain) | ✓ | ✗ | Requires custom build |
+| No need for real-time human monitoring | ✓ (Telegram/Slack notifications) | ✗ | ✗ |
+| Wraps any MCP server with zero changes | ✓ (`phinq-mcp` gateway) | — | — |
+| Free and open source | ✓ MIT | — | — |
 
 ## Caveats
 

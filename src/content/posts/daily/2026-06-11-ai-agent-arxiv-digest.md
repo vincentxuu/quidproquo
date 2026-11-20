@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 18
 ---
-> 🌏 [English version](/posts/daily/2026-06-11-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-11-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -69,7 +69,7 @@ Agent 在執行任務時會大量呼叫外部 API（工具）。API 驗證錯誤
 
 - 實驗設計：N=30 per cell，3 個 LLM（含 Anthropic 模型與 gpt-4o-mini），10 道對抗性任務，並設計了「答案洩漏稽核（leak audit）」機制確保基準不被污染
 - 核心數據：結構化建議在 Anthropic 模型上比純文字診斷提升任務完成率 **+36.7–40.0 個百分點**（Fisher's exact p ≤ 0.0022），per-success token 效率高出 **1.8–2.2×**
-- **⚠️ 重要例外**：在 gpt-4o-mini 上提升不顯著（p=0.435）——不同模型對結構化錯誤的反應差異不可忽略
+- **:warning: 重要例外**：在 gpt-4o-mini 上提升不顯著（p=0.435）——不同模型對結構化錯誤的反應差異不可忽略
 - 在 billing API 上進行了第二輪跨領域複製實驗，確認效果不是偶然
 - Limitation：實驗規模偏小（N=30），主要針對驗證錯誤場景，其他類型的 API 失敗（timeout、業務邏輯錯誤）尚未涵蓋
 - 與 MCP 的關聯：MCP tool call 的錯誤回應格式目前由工具提供者自定，這篇提供了一個標準化 error schema 的設計思路
@@ -185,7 +185,7 @@ AgentServeSim 用三個核心模組解決這個問題：
 
 - 核心創新：把 agent 執行建模為「有狀態程式執行」而非「無狀態請求處理」，這個抽象轉換是整篇最關鍵的設計決策
 - 模擬器採用 composable module 架構，各模組可替換，適合研究不同排程策略
-- **⚠️** 具體的實驗結果數字尚未能從摘要層級取得，建議讀原文 Evaluation 章節做驗證
+- **:warning:** 具體的實驗結果數字尚未能從摘要層級取得，建議讀原文 Evaluation 章節做驗證
 - 與同期工作形成完整工具鏈：Tangram（2606.06302，KV cache non-uniform management）和 Continuum（multi-turn KV cache TTL）提供策略，AgentServeSim 提供量化驗證平台
 - Limitation：模擬器精度依賴工具延遲和 KV cache 行為模型的假設是否符合 real-world，真實工具延遲分佈可能與模擬假設有落差
 - 落地方式：可作為 agent serving 平台（如 vLLM、SGLang）開發新調度策略前的離線評估工具，降低 GPU 試錯成本

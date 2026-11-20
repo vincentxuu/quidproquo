@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-hatchet-durable-workflows)
+> :globe: [中文版](/posts/tech/2026-08-22-hatchet-durable-workflows)
 
 [Hatchet](https://github.com/hatchet-dev/hatchet) is more than a durable workflow SDK. It puts a durable task queue, static DAGs, dynamic workflows, schedules, rate limits, stored results, observability, and a dashboard in one Postgres-backed platform. Workers execute application code in Python, TypeScript, or Go.
 

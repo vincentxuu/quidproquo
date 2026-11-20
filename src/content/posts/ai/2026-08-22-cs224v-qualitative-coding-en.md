@@ -12,7 +12,7 @@ tldr: "Automated qualitative coding defines event types and arguments in a codeb
 description: "CS224V Document Set Analysis: qualitative coding, ACLED codebooks, abstractive event detection, Python and JSON schemas, entity linking, and end-to-end limits."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-qualitative-coding)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-qualitative-coding)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

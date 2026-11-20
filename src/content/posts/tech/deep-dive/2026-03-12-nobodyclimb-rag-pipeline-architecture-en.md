@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
+:globe: [中文版](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)
 
 NobodyClimb is a Taiwanese rock climbing community platform. Before we integrated AI Q&A, if a user wanted to find "which 5.10 routes are at Longdong," they had to manually browse through posts. Now they can ask the AI directly and get an answer with source links.
 

@@ -12,7 +12,7 @@ series:
   order: 96
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-20-funding-town-en)
+> :globe: [English version](/posts/daily/2026-10-20-funding-town-en)
 
 ## 融資資訊
 

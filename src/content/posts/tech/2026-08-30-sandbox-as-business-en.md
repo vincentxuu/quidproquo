@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-sandbox-as-business)
+> :globe: [中文版](/posts/tech/2026-08-30-sandbox-as-business)
 
 ## What This Post Is
 

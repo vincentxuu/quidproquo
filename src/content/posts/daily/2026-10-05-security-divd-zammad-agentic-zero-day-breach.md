@@ -11,7 +11,7 @@ series:
   order: 46
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-05-security-divd-zammad-agentic-zero-day-breach-en)
+> :globe: [English version](/posts/daily/2026-10-05-security-divd-zammad-agentic-zero-day-breach-en)
 
 ## 事件概述
 

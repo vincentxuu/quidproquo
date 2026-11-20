@@ -40,7 +40,7 @@ glossary:
     definition: "A knot tied in the rope below your ascenders every so often and clipped to your harness, so that if both ascenders come off you only fall to that knot."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-aid-climbing-gear)
+> :globe: [中文版](/posts/climbing/2026-10-24-aid-climbing-gear)
 
 Aid climbing means moving up by standing on gear you place yourself. [Big wall and aid climbing](/posts/climbing/2026-10-19-big-wall-aid-climbing-en) covered what it is, how to read A and C grades, and how a team splits the work. This post is about the gear in your hands: aiders, daisies, fifi hooks, ascenders, pulleys and progress-capture pulleys. For each one: what it is, how to use it, where it most often goes wrong, and which models are on sale now.
 

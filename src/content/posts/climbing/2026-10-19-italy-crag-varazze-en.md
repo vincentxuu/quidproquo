@@ -13,7 +13,7 @@ description: "A guide to bouldering at Varazze: rock type, the size of each area
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-varazze)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-varazze)
 
 Varazze is a small seaside town on the western Ligurian coast, between Genova and Finale Ligure. The bouldering is not by the sea but on the hillsides behind town, up the Teiro valley towards Alpicella and Faie, 15–20 minutes by car. One boulder here is famous well beyond Italy: Gioia in the Potala area, first climbed by Christian Core in 2008 and later upgraded to 8C+.
 

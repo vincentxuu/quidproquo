@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-21-microsoft-agent-framework-en)
+:globe: [English version](/posts/ai/2026-08-21-microsoft-agent-framework-en)
 
 先解決一個實際問題：**你現在打 `pip install autogen`，裝到的不是微軟的東西。**
 

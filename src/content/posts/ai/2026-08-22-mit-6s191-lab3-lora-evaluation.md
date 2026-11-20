@@ -13,7 +13,7 @@ description: "MIT 6.S191 2026 Lab 3 雙語實作指南：執行順序、完成�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-mit-6s191-lab3-lora-evaluation-en)
+> :globe: [English version](/posts/ai/2026-08-22-mit-6s191-lab3-lora-evaluation-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

@@ -13,7 +13,7 @@ description: "比對五家 coding agent 的危險指令 escalation，並核對 L
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-dangerous-command-interception-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-dangerous-command-interception-en)
 
 系列第二部第三篇原本把危險指令分級列成缺口；Looplane 現在已有 deterministic allow / ask / deny classifier、deny-first rule layering、critical command floor 與 approval-visible reason。取證範圍仍是 pi、omp、opencode、codex 與 claude-code；正文保留五家比較，再用它們檢查 Looplane baseline 仍缺的自由 shell 解析深度、持久規則 UX 與跨平台 sandbox parity。
 

@@ -28,7 +28,7 @@ glossary:
     context: "作業一 Q4 用 HOG 加上 HSV 色彩直方圖取代原始像素，觀察準確率怎麼變。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

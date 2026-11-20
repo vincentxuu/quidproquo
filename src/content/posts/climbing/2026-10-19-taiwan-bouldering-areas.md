@@ -26,7 +26,7 @@ glossary:
     context: "北投中和禪寺的刀疤岩兩面都是 slab。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-taiwan-bouldering-areas-en)
+> :globe: [English version](/posts/climbing/2026-10-19-taiwan-bouldering-areas-en)
 
 在台灣想找一個戶外抱石的地方，常見的第一步是去 Instagram 搜尋，看到別人在一顆大石頭下鋪墊子，然後開始問：這是哪裡？怎麼去？要帶幾張墊子？
 

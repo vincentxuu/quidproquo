@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-26-funding-stability-ai-en)
+> :globe: [English version](/posts/daily/2026-08-26-funding-stability-ai-en)
 
 ## 融資資訊
 

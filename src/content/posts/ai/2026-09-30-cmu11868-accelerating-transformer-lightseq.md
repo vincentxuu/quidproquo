@@ -29,7 +29,7 @@ glossary:
     context: "L10 的第二招就是改寫公式，讓 LayerNorm 與 Softmax 少一次同步。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-accelerating-transformer-lightseq-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-accelerating-transformer-lightseq-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

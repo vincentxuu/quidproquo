@@ -40,7 +40,7 @@ glossary:
     definition: "爬繩時每隔一段，在上升器下方的繩上打一個結、扣回吊帶，萬一兩個上升器都脫繩，最多只會掉到這個結。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-aid-climbing-gear-en)
+> :globe: [English version](/posts/climbing/2026-10-24-aid-climbing-gear-en)
 
 人工攀登（aid climbing）是踩在自己放的裝備上往上爬。〈[大岩壁與人工攀登](/posts/climbing/2026-10-19-big-wall-aid-climbing)〉講了它是什麼、A／C 等級怎麼讀、一個繩隊怎麼分工。這篇接著講手上的東西：繩梯、daisy、fifi hook、上升器、滑輪與帶齒滑輪，每一件是什麼、怎麼操作、最常在哪裡出事，以及現在買得到哪些型號。
 

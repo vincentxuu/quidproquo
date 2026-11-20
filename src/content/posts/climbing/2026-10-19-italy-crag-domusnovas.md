@@ -13,7 +13,7 @@ description: "多穆斯諾瓦斯（Domusnovas）與 Masua 海崖攀岩介紹：G
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-domusnovas-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-domusnovas-en)
 
 多穆斯諾瓦斯（Domusnovas）是薩丁尼亞西南伊格雷西恩特（Iglesiente）地區的小鎮，離伊格雷西亞斯（Iglesias）搭 ARST 巴士約 15 分鐘。在地攀岩協會 Climbing Sardinia 的 [Domusnovas 區頁](https://climbingitaly.com/area/domusnovas/)說，這是全島最大的攀岩區之一，從高速公路上看到的高大石灰岩壁「be sure they are all bolted」。[italia.it](https://www.italia.it/en/sardinia/things-to-do/free-climbing-sardinia) 寫從 Domusnovas 和 Iglesias 到海邊的岩壁「only 30 minutes or less」，指的就是馬蘇阿（Masua）：那裡有單段的 Castello dell'Iride，也有面對 Pan di Zucchero 海柱的海崖多段。
 

@@ -13,11 +13,11 @@ description: "Guide to Harvard CS50 AI Week 4 Learning, written section by secti
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-harvard-cs50ai-w04-learning)
+> :globe: [中文版](/posts/tech/2026-08-30-harvard-cs50ai-w04-learning)
 
 **Video status: Videos included.** The lecture runs 1:45:48. The "Lecture walkthrough" below is written section by section from the recording's English captions, and each section opens with a time link that moves the player on this page to that point. The lecture uses Nim to demonstrate Q-learning but does not introduce this week's two project assignments; the project sections follow the course website and the official distribution code. [Jump to the player](#lecture-video--timestamps) | [Source details](#course-video-sources)
 
-> ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 course website (i.e., `ai50/projects/2024/x/...`).
+> :warning: **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 course website (i.e., `ai50/projects/2024/x/...`).
 
 ## TL;DR
 
@@ -631,7 +631,7 @@ style50 shopping.py
 <details>
 <summary>Full reference implementation (open only after you have written and submitted your own)</summary>
 
-> ⚠️ If you are taking this course, or plan to apply for a CS50 certificate: the course's [academic honesty policy](https://cs50.harvard.edu/ai/honesty/) says you may not look at someone else's solution before submitting your own work. Finish and submit first, then use this section to compare. This implementation was run only in the environments listed on this site and has not been through check50.
+> :warning: If you are taking this course, or plan to apply for a CS50 certificate: the course's [academic honesty policy](https://cs50.harvard.edu/ai/honesty/) says you may not look at someone else's solution before submitting your own work. Finish and submit first, then use this section to compare. This implementation was run only in the environments listed on this site and has not been through check50.
 
 ```python
 def load_data(filename):
@@ -887,7 +887,7 @@ style50 nim.py
 <details>
 <summary>Full reference implementation (open only after you have written and submitted your own)</summary>
 
-> ⚠️ If you are taking this course, or plan to apply for a CS50 certificate: the course's [academic honesty policy](https://cs50.harvard.edu/ai/honesty/) says you may not look at someone else's solution before submitting your own work. Finish and submit first, then use this section to compare. This implementation was run only in the environments listed on this site and has not been through check50.
+> :warning: If you are taking this course, or plan to apply for a CS50 certificate: the course's [academic honesty policy](https://cs50.harvard.edu/ai/honesty/) says you may not look at someone else's solution before submitting your own work. Finish and submit first, then use this section to compare. This implementation was run only in the environments listed on this site and has not been through check50.
 
 ```python
     def get_q_value(self, state, action):

@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-team-docs-templates-adr)
+> :globe: [中文版](/posts/learning/2026-10-22-team-docs-templates-adr)
 
 Three people on a team each wrote a deployment document. One is twelve steps that never say what to install first; one is a single long paragraph that mixes why the team deploys this way with how to deploy; one is well written, but the process changed three months ago and nobody updated it. A new hire follows the first one and gets stuck at step five.
 

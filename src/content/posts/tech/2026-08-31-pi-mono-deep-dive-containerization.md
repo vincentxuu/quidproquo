@@ -13,7 +13,7 @@ description: "深入 pi-mono 安全架構：Permission Model 設計哲學（不�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-containerization-en)
+> :globe: [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-containerization-en)
 
 ## TL;DR
 
@@ -494,10 +494,10 @@ class OpenShellSandboxExecutor implements SandboxExecutor {
 
 | 攻擊向量 | Gondolin | Docker | OpenShell | 原生 Pi |
 |---|---|---|---|---|
-| 惡意檔案寫入 | ✅ VM 隔離 | ✅ Volume 權限 | ✅ Policy Deny | ❌ 無防護 |
-| 惡意指令執行 | ✅ VM 隔離 | ✅ Capability Drop | ✅ Seccomp/Seccomp | ❌ 無防護 |
-| 網路洩漏 | ✅ VM 網路隔離 | ✅ Network Namespace | ✅ Policy Control | ❌ 無防護 |
-| 憑證竊取 | ✅ Auth 留 Host | ⚠️ 需 Volume 掛載 | ⚠️ 需 Policy 保護 | ❌ 無防護 |
+| 惡意檔案寫入 | ✓ VM 隔離 | ✓ Volume 權限 | ✓ Policy Deny | ✗ 無防護 |
+| 惡意指令執行 | ✓ VM 隔離 | ✓ Capability Drop | ✓ Seccomp/Seccomp | ✗ 無防護 |
+| 網路洩漏 | ✓ VM 網路隔離 | ✓ Network Namespace | ✓ Policy Control | ✗ 無防護 |
+| 憑證竊取 | ✓ Auth 留 Host | :warning: 需 Volume 掛載 | :warning: 需 Policy 保護 | ✗ 無防護 |
 | 逃逸風險 | 低 | 中 | 低 | 高 |
 
 ---

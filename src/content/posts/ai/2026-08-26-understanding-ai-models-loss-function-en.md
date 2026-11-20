@@ -18,7 +18,7 @@ glossary:
     def: "The exponential of cross-entropy loss — a perplexity of k means the model is, on average, as uncertain as picking randomly from k choices"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-understanding-ai-models-loss-function)
+> :globe: [中文版](/posts/ai/2026-08-26-understanding-ai-models-loss-function)
 
 You tell ChatGPT "The capital of Taiwan is" and it replies "Taipei." Obvious, right? But how does the model know "Taipei" is correct and "Kaohsiung" is wrong? More fundamentally: during training, how does the model know it made a mistake — and how bad that mistake was?
 

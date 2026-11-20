@@ -13,7 +13,7 @@ description: "A guide to the Cape Hedo / Usa Beach crag at the northern tip of O
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-hedo-usahama)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-hedo-usahama)
 
 Cape Hedo / Usa Beach (辺戸岬・宇佐浜; Cape Hedo is read Hedo-misaki) sits in Kunigami village, Okinawa Prefecture, at the northernmost point of Okinawa's main island. The walls line Usa Beach: from the parking lot you drop onto the sand and walk the shore for 10–15 minutes. Everything is bolted sport climbing. [ROCKTOPO](https://www.rocktopo.net/areas/185) lists 42 routes from 5.7 to 5.13d, with the 5.11 range the largest group.
 

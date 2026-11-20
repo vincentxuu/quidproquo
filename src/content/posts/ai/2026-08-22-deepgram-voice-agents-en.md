@@ -10,7 +10,7 @@ description: "A technical guide to Deepgram Voice Agent API streaming STT, turn 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-deepgram-voice-agents)
+> :globe: [中文版](/posts/ai/2026-08-22-deepgram-voice-agents)
 
 [Deepgram](https://developers.deepgram.com/reference/deepgram-api-overview) began as speech-recognition infrastructure. Its current product surface spans streaming STT, TTS, Audio Intelligence, and a Voice Agent API that packages the complete conversational loop. The backbone remains a cascaded architecture: speech becomes text, an LLM produces a response, and speech synthesis speaks it. The difference is that STT, orchestration, and TTS can coordinate inside one bidirectional WebSocket runtime.
 

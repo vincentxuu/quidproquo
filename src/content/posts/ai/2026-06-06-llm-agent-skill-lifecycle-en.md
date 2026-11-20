@@ -9,7 +9,7 @@ tldr: "MUSE-Autoskill (2026) introduces a five-stage skill lifecycle framework. 
 description: "A synthesis of six papers — MUSE-Autoskill, Voyager, EvoSkill, SkillOS, Skill1, and SkillRet — tracing how LLM agent skills are evolving from one-shot outputs into full lifecycle management, with an analysis of their design tradeoffs."
 ---
 
-🌏 [中文版](/posts/ai/2026-06-06-llm-agent-skill-lifecycle)
+:globe: [中文版](/posts/ai/2026-06-06-llm-agent-skill-lifecycle)
 
 LLM agents rely on "skills" to tackle complex tasks — reusable workflows, code, or prompt compositions. The problem is that most systems treat skills as disposable artifacts: generated once, then frozen in place, with no validation, no refinement, and no cross-task memory. In May 2026, ByteDance's ByteBrain team published [MUSE-Autoskill](https://arxiv.org/abs/2605.27366) (arXiv:2605.27366), explicitly framing this gap as the "Skill Lifecycle" problem and proposing a comprehensive five-stage framework. Around the same time, four to five other papers attacked the same territory from different angles — making this one of the most concentrated bursts of research activity this field has seen.
 

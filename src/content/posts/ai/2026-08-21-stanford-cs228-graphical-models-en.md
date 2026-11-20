@@ -16,7 +16,7 @@ description: "A walkthrough of Stanford CS228: Probabilistic Graphical Models, w
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs228-graphical-models)
+> :globe: [中文版](/posts/ai/2026-08-21-stanford-cs228-graphical-models)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

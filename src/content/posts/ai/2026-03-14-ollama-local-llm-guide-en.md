@@ -10,7 +10,7 @@ description: "A complete Ollama introduction: installation and setup, CLI comman
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-14-ollama-local-llm-guide)
+> :globe: [中文版](/posts/ai/2026-03-14-ollama-local-llm-guide)
 
 When running LLMs locally, the most common hurdles are: converting model formats, manually allocating GPU memory, and picking quantization parameters yourself. Ollama wraps all of this up, letting you download and launch a model with a single command. This post is a comprehensive look at Ollama's design, usage, and real-world limitations.
 

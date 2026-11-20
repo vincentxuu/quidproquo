@@ -20,7 +20,7 @@ glossary:
     context: "L1 時間軸上 CNN 的前身。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-intro-vision-history-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-intro-vision-history-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

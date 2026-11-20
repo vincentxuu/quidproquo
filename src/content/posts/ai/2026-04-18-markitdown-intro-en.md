@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-18-markitdown-intro)
+> :globe: [中文版](/posts/ai/2026-04-18-markitdown-intro)
 
 Before feeding documents in various formats to an LLM, you always face the same problem: PDFs have layout noise, Word files have hidden styles, images contain no text, and Excel files are in binary format. MarkItDown is a Microsoft open-source Python tool that does exactly one thing — converts all these formats into unified Markdown so LLMs can read them directly.
 

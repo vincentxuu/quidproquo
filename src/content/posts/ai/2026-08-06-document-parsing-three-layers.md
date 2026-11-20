@@ -22,7 +22,7 @@ glossary:
     context: "這是解析層跟前兩層的根本差異——前兩層讀既有結構，解析層推斷不存在的結構。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-06-document-parsing-three-layers-en)
+> :globe: [English version](/posts/ai/2026-08-06-document-parsing-three-layers-en)
 
 「把文件轉成 LLM 讀得懂的東西」看起來是一個問題，實際上是三個。我看過太多人在選型時直接比較 MarkItDown 跟 MinerU 的星數，然後挑星數高的——這就像比較螺絲起子跟電鑽哪個好。
 

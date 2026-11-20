@@ -30,7 +30,7 @@ glossary:
     context: "The slides list three precautions: canary strings, tool blocklists, and newer test versions."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-llm-evaluation)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-llm-evaluation)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

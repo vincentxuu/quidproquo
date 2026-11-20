@@ -12,7 +12,7 @@ series:
   order: 88
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-15-ai-interview-daily-en)
+> :globe: [English version](/posts/daily/2026-11-15-ai-interview-daily-en)
 
 ## 本週行為面試練習
 

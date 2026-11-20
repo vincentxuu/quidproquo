@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-smart-shield-origin-protection)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-smart-shield-origin-protection)
 
 [Cache Rules](/posts/tech/2026-08-30-cloudflare-cache-rules-edge-cache-policy-en) answer which content can be cached, how long it should stay cached, and how cache keys are built. [Cloudflare Smart Shield](https://developers.cloudflare.com/smart-shield/) answers a different question: when cache misses, traffic spikes, global visitors, and origin connections pile up, how do you make the origin do less work?
 

@@ -13,7 +13,7 @@ description: "A complete guide to Stanford CS161 Winter 2026 Lecture 16: flows, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-16-max-flow-ford-fulkerson)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-16-max-flow-ford-fulkerson)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

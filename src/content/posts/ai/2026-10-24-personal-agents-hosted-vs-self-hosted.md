@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-personal-agents-hosted-vs-self-hosted-en)
+> :globe: [English version](/posts/ai/2026-10-24-personal-agents-hosted-vs-self-hosted-en)
 
 這篇是〈常駐型 AI agent〉系列的安全篇：前面幾篇講 agent 自己會在哪裡停下來，這篇看有人故意讓它做錯時，誰擋得住。系列從[總覽](/posts/ai/2026-11-20-always-on-agents-overview)開始讀。
 

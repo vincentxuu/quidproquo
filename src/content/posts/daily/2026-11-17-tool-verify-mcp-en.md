@@ -12,7 +12,7 @@ series:
   order: 81
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-17-tool-verify-mcp)
+> :globe: [中文版](/posts/daily/2026-11-17-tool-verify-mcp)
 
 ## Tool Info
 
@@ -100,11 +100,11 @@ calls, no separate sun-angle calculator needed.
 
 | | verify-mcp | Manual tab-switching | General-purpose web-search MCP | OSINT people-search tools |
 |---|---|---|---|---|
-| No API key required | ✅ | — | Depends on plan | Depends on plan |
-| Local sun position / shadow math | ✅ | Needs a separate calculator | ❌ | ❌ |
-| Built to refuse people lookups | ✅ | — | — | ❌ (that's their core feature) |
-| Every result states what it can't tell you | ✅ | You have to know the limits yourself | ❌ | Depends on the tool |
-| Agent queries multiple angles and synthesizes | ✅ | Manual synthesis | Partial | Partial |
+| No API key required | ✓ | — | Depends on plan | Depends on plan |
+| Local sun position / shadow math | ✓ | Needs a separate calculator | ✗ | ✗ |
+| Built to refuse people lookups | ✓ | — | — | ✗ (that's their core feature) |
+| Every result states what it can't tell you | ✓ | You have to know the limits yourself | ✗ | Depends on the tool |
+| Agent queries multiple angles and synthesizes | ✓ | Manual synthesis | Partial | Partial |
 
 ## Caveats
 

@@ -13,7 +13,7 @@ series:
   order: 32
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-costs-usage-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-costs-usage-en)
 
 訂閱方案的使用者常有一個誤解：以為用量跟著「我打多少字」走。實際上 Claude Code 按 API token 消耗計費（[官方文件](https://code.claude.com/docs/en/costs)的說法），而 token 消耗的主要變數是 **context 大小**——每次請求都會帶上完整對話歷史，所以一個開了一整天的 session，就算你最後只問一句話，計量的仍是整段對話。這篇是系列的成本篇，接續 [context window 管理](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management)和 [prompt caching](/posts/tech/deep-dive/2026-08-26-claude-code-prompt-caching)兩篇，把它們落成錢和限額的問題。
 

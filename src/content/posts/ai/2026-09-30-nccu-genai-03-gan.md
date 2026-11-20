@@ -22,7 +22,7 @@ glossary:
     context: "L03 附錄用它說明為什麼學 soft target（例如知識蒸餾）時，KL 比 cross entropy 更能看出差距。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-03-gan-en)
+> :globe: [English version](/posts/ai/2026-09-30-nccu-genai-03-gan-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-21-funding-callosum-en)
+> :globe: [English version](/posts/daily/2026-08-21-funding-callosum-en)
 
 ## 融資資訊
 
@@ -50,7 +50,7 @@ Atomico CEO Niklas Zennström 的說法是：當 AI 從訓練走向推論，問�
 
 ### 值得觀察的數字
 
-- 官方公布的 agentic 成效：在金融服務的複雜 agentic workload 上，透過與 Cerebras 的合作，Callosum 平台比「單一前沿模型跑在傳統基礎設施上」快 4 倍、運算成本降 70%、任務成功率提升 10%。⚠️ 需注意 Tech Funding News 引述的版本是「準確度 2 倍、速度 7 倍、成本 4 倍便宜」，兩組數字對不上，且公司未公開完整 benchmark 方法。
+- 官方公布的 agentic 成效：在金融服務的複雜 agentic workload 上，透過與 Cerebras 的合作，Callosum 平台比「單一前沿模型跑在傳統基礎設施上」快 4 倍、運算成本降 70%、任務成功率提升 10%。:warning: 需注意 Tech Funding News 引述的版本是「準確度 2 倍、速度 7 倍、成本 4 倍便宜」，兩組數字對不上，且公司未公開完整 benchmark 方法。
 - 公司自家技術部落格的對照更具體：在 OOLONG 資料集上，Cerebras Llama-70B 作為 recursive language model 能在同等準確度下比 GPT-5 快 5.5 倍、成本低 4.8 倍；SambaNova Llama-70B 則是成本低 8.8 倍。這些是單點配置數字，不是端到端產品指標。
 - 估值倍數無法計算：公司未揭露估值也未公布營收，$100M 種子輪目前只能靠「pre-seed 到 seed 六個月內從 $10.25M 跳到 $100M、將近 10 倍」這個募資規模跳幅來推測市場熱度。
 - 18 人團隊拿 $100M，人均超過 $5.5M，即使在 2026 年的 AI 融資環境裡也偏極端。

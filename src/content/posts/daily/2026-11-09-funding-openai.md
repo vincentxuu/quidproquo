@@ -12,7 +12,7 @@ series:
   order: 129
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-09-funding-openai-en)
+> :globe: [English version](/posts/daily/2026-11-09-funding-openai-en)
 
 ## 融資資訊
 

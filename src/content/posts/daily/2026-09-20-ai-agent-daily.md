@@ -12,7 +12,7 @@ series:
   order: 36
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-20-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-20-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -138,14 +138,14 @@ Salesforce 則指出，在人力成本相對低廉的東南亞與南亞市場，
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-20](/posts/daily/2026-09-20-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-20](/posts/daily/2026-09-20-ai-agent-github-digest)
-- 📄 [框架更新｜Microsoft Agent Framework python-1.19.0](/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0)
-- 📄 [模型卡｜Qwen-Image-2.1](/posts/daily/2026-09-20-model-qwen-image-2-1)
-- 📄 [資安警報｜Plugin4Shell](/posts/daily/2026-09-20-security-plugin4shell-ai-coding-agent-rce)
-- 📄 [融資速報｜Comp AI Series A $34M](/posts/daily/2026-09-20-funding-comp-ai)
-- 📄 [融資速報｜Kastle Series A $24M](/posts/daily/2026-09-20-funding-kastle)
-- 📄 [融資速報｜Raindrop Series A $35M](/posts/daily/2026-09-20-funding-raindrop)
+- :file: [AI Agent Arxiv Digest — 2026-09-20](/posts/daily/2026-09-20-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-20](/posts/daily/2026-09-20-ai-agent-github-digest)
+- :file: [框架更新｜Microsoft Agent Framework python-1.19.0](/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0)
+- :file: [模型卡｜Qwen-Image-2.1](/posts/daily/2026-09-20-model-qwen-image-2-1)
+- :file: [資安警報｜Plugin4Shell](/posts/daily/2026-09-20-security-plugin4shell-ai-coding-agent-rce)
+- :file: [融資速報｜Comp AI Series A $34M](/posts/daily/2026-09-20-funding-comp-ai)
+- :file: [融資速報｜Kastle Series A $24M](/posts/daily/2026-09-20-funding-kastle)
+- :file: [融資速報｜Raindrop Series A $35M](/posts/daily/2026-09-20-funding-raindrop)
 
 ## 明日關注
 

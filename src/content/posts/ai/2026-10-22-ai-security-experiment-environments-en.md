@@ -14,7 +14,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-experiment-environments)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-experiment-environments)
 
 You have tested ticket access on your own computer. Before asking AI to help find vulnerabilities, should you move to the cloud, choose a CTF challenge, or test a system your organization has authorized?
 

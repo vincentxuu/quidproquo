@@ -11,7 +11,7 @@ series:
   order: 134
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-05-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-10-05-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -72,7 +72,7 @@ Most agent benchmarks test well-defined short tasks (coding puzzles, web navigat
 ### Deep-dive Points
 
 - Claude Opus 5.5 (adaptive/max) passes 24.7% (healthcare) / 23.9% (finance) under strict grading; the median of 30 configurations is only 0.6% / 2.5%
-- At a relaxed 90%-of-rubric threshold, pass rates jump to 62.4% / 58.3%, showing most failures are near-misses, not total failures ⚠️ (graded by the authors' own agentic judge, not yet checked against human expert grading)
+- At a relaxed 90%-of-rubric threshold, pass rates jump to 62.4% / 58.3%, showing most failures are near-misses, not total failures :warning: (graded by the authors' own agentic judge, not yet checked against human expert grading)
 - Of the 30 configurations, 10 score exactly zero on every healthcare task, and 7 score zero on every finance task
 - The most expensive configuration costs $7.10–$11.47 per attempt, consuming 9.8–17.8 million tokens (94–95% cached)
 - Deployment threshold: for real healthcare/finance workflows, no configuration reliably clears a passing bar today — human review remains necessary
@@ -133,7 +133,7 @@ Agent leaderboards (like HAL and Harbor Index) are often used as the basis for m
 
 - Across the 9 HAL benchmarks, model-ranking reliability ranges from 0.148 to 0.841, while fixed-harness comparison reliability ranges from 0.935 to 0.994
 - Even with infinitely many similarly-constructed tasks, OnlineMind2Web's model-ranking reliability rises at most from 0.148 to 0.153 (the body rounds this to "at most 0.10," while the abstract states 0.097 — a minor inconsistency between the two)
-- Pooling evaluation across the nine-benchmark battery raises projected model-ranking reliability from about 0.44 on a single benchmark to 0.75, at an estimated 83% lower cost (from roughly $47,000 for the full HAL battery down to about $19,000) ⚠️ (a cost projection from fitted variance components, not a freshly re-run independent replication)
+- Pooling evaluation across the nine-benchmark battery raises projected model-ranking reliability from about 0.44 on a single benchmark to 0.75, at an estimated 83% lower cost (from roughly $47,000 for the full HAL battery down to about $19,000) :warning: (a cost projection from fitted variance components, not a freshly re-run independent replication)
 - The 13 Harbor-Index benchmarks were filtered down from an original 29 by requiring at least 3 items each; the authors themselves flag that this filtering threshold affects the reliability estimate
 - Deployment threshold: serious model comparisons should spread budget across at least 3–5 structurally different benchmarks rather than pouring the whole budget into adding more tasks to one benchmark
 - Limitation: high reliability doesn't mean a benchmark measures the right thing (reliability ≠ validity); today's low model-ranking reliability may partly stem from current frontier models simply being too close to each other, not purely from benchmark design flaws
@@ -193,7 +193,7 @@ Operating cybersecurity tools (like the thousands available on Kali Linux) requi
 
 - Among the 24 open-weight configurations, the strongest (GLM-5.2, 753B) reaches only 41.3% exact-command accuracy in unrestricted mode — no model exceeds 42%
 - The SFT+RLVR-trained 8B model (RedSage-K) reaches an aggregate average score of 79.2%, versus 80.2% for the 685B/37B-active MoE model DeepSeek-V3.2 — a gap of just one percentage point
-- But on exact-command accuracy in Hinted mode (with tool documentation provided), RedSage-K still trails DeepSeek-V3.2 by 15 percentage points (69.4% vs. 84.5%) ⚠️ (the authors' own trained small model, pending third-party replication)
+- But on exact-command accuracy in Hinted mode (with tool documentation provided), RedSage-K still trails DeepSeek-V3.2 by 15 percentage points (69.4% vs. 84.5%) :warning: (the authors' own trained small model, pending third-party replication)
 - Providing tool documentation (Hinted mode) is the single most effective intervention: Optional-Arg F1 jumps from 45.1% to 87.8%, and exact-command accuracy jumps from 22.3% to 73.1%
 - Commercial systems (GPT-5.6-Sol at 61.68%, Codex at 51.68%, Claude Opus 5 at 44.02%) outperform all open-weight models on the full dataset, though Claude Opus 5's total score is dragged down by refusing 26.5% of queries
 - Limitation: there is tool-level overlap between training and test data (962 of the 1,642 tools appear in both), even though the specific instruction-command pairs don't overlap — a caveat the paper doesn't explicitly flag

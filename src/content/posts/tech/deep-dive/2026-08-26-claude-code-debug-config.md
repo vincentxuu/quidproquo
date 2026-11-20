@@ -13,7 +13,7 @@ series:
   order: 35
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-debug-config-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-debug-config-en)
 
 「我在 CLAUDE.md 寫了規則，它就是不遵守」「hook 定義好了，完全沒反應」「MCP server 加了，工具列表是空的」——這類「設定了但沒生效」的問題，是 Claude Code 使用者回報最多的其中一類。官方診斷文件把原因歸納成三種：**檔案根本沒載入、載入的位置跟你預期不同、或被另一份檔案覆蓋**。這篇講的就是怎麼分辨這三種情況：先靠診斷指令看「實際載入了什麼」，再用 safe mode 二分法縮小範圍，最後附一張高頻錯誤訊息對照表。安裝與登入問題不在此篇範圍，請看[系列的安裝疑難排解篇](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshoot-install)。
 

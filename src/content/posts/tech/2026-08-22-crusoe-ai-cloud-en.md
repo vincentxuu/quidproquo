@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-crusoe-ai-cloud)
+> :globe: [中文版](/posts/tech/2026-08-22-crusoe-ai-cloud)
 
 [Crusoe Cloud](https://docs.crusoecloud.com/) divides its platform into Infrastructure Cloud and Managed AI. Infrastructure provides GPU VMs, Crusoe Managed Kubernetes (CMK), Slurm, networks, and storage for self-managed training and serving. Managed AI provides higher-level serverless inference, dedicated deployments, and fine-tuning.
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-coreweave-ai-cloud-en)
+> :globe: [English version](/posts/tech/2026-08-22-coreweave-ai-cloud-en)
 
 [CoreWeave](https://docs.coreweave.com/) 是聚焦 AI/HPC 的雲端基礎設施。它不只有一張「每小時 GPU」價目表。產品包含 CoreWeave Kubernetes Service（CKS）、Slurm-on-Kubernetes、object/file/block storage、VPC，以及 serverless 與 dedicated inference。
 

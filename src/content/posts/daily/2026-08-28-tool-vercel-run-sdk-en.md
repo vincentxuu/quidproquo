@@ -12,7 +12,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-28-tool-vercel-run-sdk)
+> :globe: [中文版](/posts/daily/2026-08-28-tool-vercel-run-sdk)
 
 ## Tool Info
 
@@ -101,10 +101,10 @@ Once the external decision comes back, the host reads the same continuation toke
 | | Run SDK | vm2 / Node `vm` | isolated-vm | Vercel Sandbox |
 |---|---|---|---|---|
 | Isolation boundary | QuickJS worker thread | Contextified wrapper over `node:vm` | V8 isolate | Full virtual machine / container |
-| Officially positioned as a security sandbox | ✅ | ❌ (Node's own docs say `vm` is not a security mechanism) | Partial (isolate boundary still needs your own hardening) | ✅ (OS-level isolation) |
-| Pause for approval, resume without replaying completed calls | ✅ | ❌ | ❌ | ❌ |
+| Officially positioned as a security sandbox | ✓ | ✗ (Node's own docs say `vm` is not a security mechanism) | Partial (isolate boundary still needs your own hardening) | ✓ (OS-level isolation) |
+| Pause for approval, resume without replaying completed calls | ✓ | ✗ | ✗ | ✗ |
 | Startup overhead | Low (worker thread) | Low | Low | High (spins up a whole machine/container) |
-| Can install packages / run OS commands | ❌ | ❌ | ❌ | ✅ |
+| Can install packages / run OS commands | ✗ | ✗ | ✗ | ✓ |
 
 ## Caveats
 

@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-team-wiki-information-architecture)
+> :globe: [中文版](/posts/learning/2026-10-22-team-wiki-information-architecture)
 
 A new hire wants to know how to apply for a business trip. They open the company wiki and the top level reads "HR", "Finance", "Admin", "Engineering". Which one handles business trips? The application form is under Finance, the policy under HR, and the flight-booking process under Admin. Each department has written up its own part well, yet the new hire has to open three places to piece together the answer.
 

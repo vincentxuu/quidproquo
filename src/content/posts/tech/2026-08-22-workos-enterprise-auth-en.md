@@ -10,7 +10,7 @@ tldr: "WorkOS lets a B2B SaaS add SAML/OIDC, SCIM, and audit exports around one 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-workos-enterprise-auth)
+> :globe: [中文版](/posts/tech/2026-08-22-workos-enterprise-auth)
 
 Many B2B SaaS products begin with email login. The first enterprise deal then arrives with SAML, SCIM, enforced MFA, rapid offboarding, and audit-log requirements all at once. If each requirement gets a separate component, the hardest problem is not any protocol. It is keeping one person consistent across a user, SSO profile, directory user, and organization membership.
 

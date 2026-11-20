@@ -13,7 +13,7 @@ description: "Catinaccio／Rosengarten 與 Vajolet 塔群介紹：塔群配置�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-catinaccio-vajolet-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-catinaccio-vajolet-en)
 
 Catinaccio（德文 Rosengarten，玫瑰園）是 Val di Fassa 和南提洛 Val di Tires 之間的白雲岩山群。山群中央的 Vajolet 塔群，[UKC](https://www.ukclimbing.com/logbook/crags/vajolet_towers-21057) 形容是「one of the most famous rock formations in the Dolomites」，電影《巔峰戰士》（Cliffhanger）的開場就在這裡拍。
 

@@ -12,7 +12,7 @@ series:
   order: 85
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-08-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-08-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -155,12 +155,12 @@ A community-maintained Generative UI ecosystem digest also logged new integratio
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-08](/posts/daily/2026-11-08-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-08](/posts/daily/2026-11-08-ai-agent-github-digest-en)
-- 📄 [Funding Brief: Kalepa Series B $75M — 2026-11-08](/posts/daily/2026-11-08-funding-kalepa-en)
-- 📄 [Security Alert: WorkOS Internal System Breach — 2026-11-08](/posts/daily/2026-11-08-security-workos-artex-sandbox-escape-en)
-- 📄 [AI Engineer Interview Daily — 2026-11-08: Behavioral (Weekly Review)](/posts/daily/2026-11-08-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-11-08: Behavioral & Weekly Review](/posts/daily/2026-11-08-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-08](/posts/daily/2026-11-08-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-08](/posts/daily/2026-11-08-ai-agent-github-digest-en)
+- :file: [Funding Brief: Kalepa Series B $75M — 2026-11-08](/posts/daily/2026-11-08-funding-kalepa-en)
+- :file: [Security Alert: WorkOS Internal System Breach — 2026-11-08](/posts/daily/2026-11-08-security-workos-artex-sandbox-escape-en)
+- :file: [AI Engineer Interview Daily — 2026-11-08: Behavioral (Weekly Review)](/posts/daily/2026-11-08-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-11-08: Behavioral & Weekly Review](/posts/daily/2026-11-08-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

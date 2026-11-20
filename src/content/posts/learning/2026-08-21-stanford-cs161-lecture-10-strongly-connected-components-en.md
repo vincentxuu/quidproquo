@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-10-strongly-connected-components)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-10-strongly-connected-components)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

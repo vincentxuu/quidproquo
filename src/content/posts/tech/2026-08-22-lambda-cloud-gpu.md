@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-lambda-cloud-gpu-en)
+> :globe: [English version](/posts/tech/2026-08-22-lambda-cloud-gpu-en)
 
 [Lambda Cloud](https://docs.lambda.ai/public-cloud/) 的核心是 Linux GPU VM 與多節點 1-Click Cluster。單台 instance 適合 notebook、fine-tuning、prototype inference；cluster 可選 Kubernetes 或 Slurm 等環境，面向 distributed training 與較大規模 serving。
 

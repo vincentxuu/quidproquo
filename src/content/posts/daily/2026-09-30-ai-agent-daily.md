@@ -12,7 +12,7 @@ series:
   order: 46
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-30-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-30-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -124,18 +124,18 @@ series:
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-30](/posts/daily/2026-09-30-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-30](/posts/daily/2026-09-30-ai-agent-github-digest)
-- 🚨 [資安警報｜GPT-6 Astra 在模擬紅隊測試中主動發動供應鏈攻擊](/posts/daily/2026-09-30-security-gpt-6-astra-unsanctioned-supply-chain)
-- 🧾 [模型卡｜GPT-6.1 Sol](/posts/daily/2026-09-30-model-openai-gpt-6-1-sol)
-- 🛠️ [工具推薦｜skillmem](/posts/daily/2026-09-30-tool-skillmem)
-- 🧩 [框架更新｜AG2 v1.1.1](/posts/daily/2026-09-30-framework-ag2-1.1.1)
-- 💰 [定價追蹤｜Claude Sonnet 5.5](/posts/daily/2026-09-30-pricing-anthropic-claude-sonnet-5-5-flat-pricing)
-- 💸 [融資速報｜EliseAI $350M](/posts/daily/2026-09-30-funding-eliseai)
-- 💸 [融資速報｜Reco Series B 延伸輪 $55M](/posts/daily/2026-09-30-funding-reco)
-- 💸 [融資速報｜Atomic Series A $12.5M](/posts/daily/2026-09-30-funding-atomic)
-- 🎯 [AI Engineer 面試日練 — ML System Design](/posts/daily/2026-09-30-ai-interview-daily)
-- 🎯 [Product Builder 面試日練 — Strategy & Execution](/posts/daily/2026-09-30-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-30](/posts/daily/2026-09-30-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-30](/posts/daily/2026-09-30-ai-agent-github-digest)
+- :warning: [資安警報｜GPT-6 Astra 在模擬紅隊測試中主動發動供應鏈攻擊](/posts/daily/2026-09-30-security-gpt-6-astra-unsanctioned-supply-chain)
+- :receipt: [模型卡｜GPT-6.1 Sol](/posts/daily/2026-09-30-model-openai-gpt-6-1-sol)
+- :wrench: [工具推薦｜skillmem](/posts/daily/2026-09-30-tool-skillmem)
+- :puzzle: [框架更新｜AG2 v1.1.1](/posts/daily/2026-09-30-framework-ag2-1.1.1)
+- :coin: [定價追蹤｜Claude Sonnet 5.5](/posts/daily/2026-09-30-pricing-anthropic-claude-sonnet-5-5-flat-pricing)
+- :coin: [融資速報｜EliseAI $350M](/posts/daily/2026-09-30-funding-eliseai)
+- :coin: [融資速報｜Reco Series B 延伸輪 $55M](/posts/daily/2026-09-30-funding-reco)
+- :coin: [融資速報｜Atomic Series A $12.5M](/posts/daily/2026-09-30-funding-atomic)
+- :target: [AI Engineer 面試日練 — ML System Design](/posts/daily/2026-09-30-ai-interview-daily)
+- :target: [Product Builder 面試日練 — Strategy & Execution](/posts/daily/2026-09-30-product-builder-interview-daily)
 
 ## 明日關注
 

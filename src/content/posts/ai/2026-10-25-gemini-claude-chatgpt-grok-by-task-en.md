@@ -10,7 +10,7 @@ description: "A task-by-task comparison of Gemini, Claude, ChatGPT, and Grok: lo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-25-gemini-claude-chatgpt-grok-by-task)
+> :globe: [中文版](/posts/ai/2026-10-25-gemini-claude-chatgpt-grok-by-task)
 
 Gemini, Claude, ChatGPT, and Grok are the four assistants most often compared side by side. The usual story gives each one territory the others can't touch: Gemini for long video, Claude for code, Grok for X, ChatGPT for everything. Most of those claims have official documentation behind them, but "can't touch" is too strong in a few places.
 

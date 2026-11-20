@@ -22,7 +22,7 @@ glossary:
     context: "Magnitude prune, DARE, TIES, and SCE all take a density; linear and slerp don't."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

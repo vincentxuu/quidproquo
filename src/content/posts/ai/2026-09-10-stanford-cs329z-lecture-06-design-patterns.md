@@ -14,7 +14,7 @@ description: "依實體頁碼帶讀 CS329Z Lecture 06 Agent Design Patterns & Sc
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 77 分鐘；本文依公開投影片與指定讀物整理，並已依錄影字幕核對各節起點。
 

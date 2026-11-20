@@ -33,7 +33,7 @@ glossary:
     definition: "A bearing connector between the haul line and the bag that lets the bag spin without twisting the line."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-multipitch-hauling)
+> :globe: [中文版](/posts/climbing/2026-10-24-multipitch-hauling)
 
 Hauling is a small multi-pitch skill that gets overlooked: the leader trails an extra thin line from the back of the harness, and at the anchor uses it to pull the pack up, so the second climbs without one.
 

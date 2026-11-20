@@ -13,7 +13,7 @@ description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 9: And
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-16-cs230-career-advice-in-ai)
+> :globe: [中文版](/posts/career/2026-08-16-cs230-career-advice-in-ai)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -201,9 +201,9 @@ The framing shift: "responsible AI went from a very loose definition, 'make AI w
 
 | Input | Result |
 |---|---|
-| Asian, Indian, Black, Latino | ✅ All generated normally |
-| **Caucasian** | ❌ Refused: **"this could lead to harmful stereotypes and bias"** |
-| **white** | ❌ And **it said "I don't currently generate images of people" — having just generated a pile of images of people** |
+| Asian, Indian, Black, Latino | ✓ All generated normally |
+| **Caucasian** | ✗ Refused: **"this could lead to harmful stereotypes and bias"** |
+| **white** | ✗ And **it said "I don't currently generate images of people" — having just generated a pile of images of people** |
 
 **His workaround**: type "**Irish woman**" → generates fine. **But every image had red hair.**
 
@@ -282,7 +282,7 @@ The goal becomes "make sales 20% more effective," **and only then does AI enter 
 
 He cites a number along the way: **a McKinsey report showing about 85% of enterprise AI projects fail**, with poorly defined scope among the main causes.
 
-> **⚠️ I can't find a report matching this citation.** I couldn't find any McKinsey figure of "85% of AI projects fail."
+> **:warning: I can't find a report matching this citation.** I couldn't find any McKinsey figure of "85% of AI projects fail."
 > The widely cited failure rate around that time is **MIT NANDA's *The GenAI Divide: State of AI in Business 2025*:
 > roughly 95% of enterprise GenAI pilots produced no measurable P&L impact** — that's MIT, not McKinsey, and 95%, not 85%.
 > McKinsey's own *The state of AI in 2025* says something different: **enterprise-level EBIT impact "continues to be rare,"
@@ -337,7 +337,7 @@ His deliberate word choice: "**I hate the term open source.** Let me call them *
 
 He cites a data point: "I recently read an article about Y Combinator — **80% of companies at YC are using small models, especially Chinese models.**"
 
-> **⚠️ Neither the source nor the number checks out.** That 80% doesn't come from a Y Combinator article.
+> **:warning: Neither the source nor the number checks out.** That 80% doesn't come from a Y Combinator article.
 > The original is **The Economist quoting a16z partner Martin Casado** on startups pitching a16z:
 > **"I'd say there's an 80% chance they're using a Chinese open-source model"** — that's a16z's deal flow, not YC's portfolio.
 > And **Casado publicly corrected the version that had spread**:
@@ -366,7 +366,7 @@ He worked in Hollywood and sold a film to a studio.
 
 The same logic applies to **law firms and healthcare providers** — anywhere privacy matters.
 
-### ⚠️ This directly contradicts the previous post
+### :warning: This directly contradicts the previous post
 
 > "I see the skill developers on this side will need most over the next two or three years being **fine-tuning** — take an open source model and tune it for a specific downstream task."
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-bedrock-agentcore-opensandbox-en)
+> :globe: [English version](/posts/ai/2026-08-30-bedrock-agentcore-opensandbox-en)
 
 ## 本文定位
 
@@ -127,7 +127,7 @@ OpenSandbox 支援 BYOC（Bring Your Own Cloud），讓企業在自有雲端（A
 | 隔離技術 | Firecracker microVM | gVisor | Firecracker microVM | Docker / Kata | gVisor / microVM |
 | 多語言 SDK | Python/Node.js/Java | Python/Go/Java/Rust | Python/TypeScript | 多語言 | Python/TypeScript/Go |
 | BYOC | 否 | 是 | 是（AWS/GCP/Azure） | 否 | 否 |
-| GPU 支援 | 有限 | 有限 | 否 | 有限 | ✅ (A100/H100) |
+| GPU 支援 | 有限 | 有限 | 否 | 有限 | ✓ (A100/H100) |
 | 狀態保留 | session 狀態 | 程序/檔案/網路 API | pause/resume | snapshot/fork | snapshot/pause/resume |
 
 ### 選雲端原生沙箱的條件

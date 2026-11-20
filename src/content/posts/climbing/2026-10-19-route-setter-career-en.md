@@ -26,7 +26,7 @@ glossary:
     context: "It comes from the bouldering circuits of Fontainebleau in France; hold colours can be mixed."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-route-setter-career)
+> :globe: [中文版](/posts/climbing/2026-10-19-route-setter-career)
 
 You've been stuck on one of these: everything flows until one move in the middle, and however many times you try, you're just short. Resting, you wonder: is that move deliberate? Who decided it?
 

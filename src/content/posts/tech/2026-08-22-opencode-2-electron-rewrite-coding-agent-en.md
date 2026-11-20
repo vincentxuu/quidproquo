@@ -13,7 +13,7 @@ description: "Opencode 2's technical reasons for migrating from Bun/Tauri to Nod
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-opencode-2-electron-rewrite-coding-agent)
+> :globe: [中文版](/posts/tech/2026-08-22-opencode-2-electron-rewrite-coding-agent)
 
 The [March article](/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent-en) concluded that opencode was a full-featured coding agent built in TypeScript — dual agent mode (Build / Plan), 75+ model support, MIT license.
 

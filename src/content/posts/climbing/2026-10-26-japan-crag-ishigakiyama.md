@@ -13,7 +13,7 @@ description: "石垣山攀岩指南：季節、大眾運輸、停車、在地出
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-ishigakiyama-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-ishigakiyama-en)
 
 愛別町的石垣山有柱狀節理，也有裂隙與岩面路線。這是北海道的石垣山；搜尋時加上「愛別」，避開其他縣的同名山。想練裂隙的人，先核對路線保護方式，別只照運攀裝備打包。
 

@@ -14,7 +14,7 @@ description: "Read the Terminal-Bench task formulation alongside Shankar’s dat
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel)
 
 **Video status: Videos included (Lecture 10, the Terminal-Bench guest lecture).** [Source details](#course-video-sources). Stanford Online has published the recording; the recording of this week's Lecture 11 (October 28) is not up yet.
 

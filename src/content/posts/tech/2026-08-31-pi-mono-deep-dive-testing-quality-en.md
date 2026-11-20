@@ -13,7 +13,7 @@ description: "Deep dive into pi-mono quality system: Faux Provider simulating LL
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-testing-quality)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-testing-quality)
 
 ## TL;DR
 

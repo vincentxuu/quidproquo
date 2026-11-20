@@ -26,7 +26,7 @@ glossary:
     context: "投影片以 BERT、GPT 為例，並用「蘋果公司」與「蘋果派」說明。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

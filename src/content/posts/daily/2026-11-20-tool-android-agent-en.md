@@ -12,7 +12,7 @@ series:
   order: 84
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-20-tool-android-agent)
+> :globe: [中文版](/posts/daily/2026-11-20-tool-android-agent)
 
 ## Tool info
 
@@ -147,9 +147,9 @@ Before anything that sends a message, pays, deletes, installs an app, or changes
 |---|---|---|---|
 | How the screen reaches the model | accessibility tree → text list | screenshot → image tokens | UI element tree (not LLM-oriented) |
 | Token cost per screen read | low (~150 tokens, per the project's own benchmark) | high (~1,500 tokens, per the same benchmark) | not applicable |
-| Native MCP support | ✅ | depends on the project | ❌ needs a bridge you build |
-| Runs standalone on the phone (no PC) | ✅ via Termux | usually needs a computer | ❌ needs an Appium server |
-| Re-checks the screen right before tapping | ✅ built in | depends on the project | left to your own test script |
+| Native MCP support | ✓ | depends on the project | ✗ needs a bridge you build |
+| Runs standalone on the phone (no PC) | ✓ via Termux | usually needs a computer | ✗ needs an Appium server |
+| Re-checks the screen right before tapping | ✓ built in | depends on the project | left to your own test script |
 | Built for | AI agents driving a phone | AI agents driving a phone | QA test automation |
 
 ## Things to watch for

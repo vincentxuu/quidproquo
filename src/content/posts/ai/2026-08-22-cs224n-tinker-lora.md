@@ -13,7 +13,7 @@ description: "CS224N 第 18 堂課前預習：以 LoRA 原論文與自編矩陣�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224n-tinker-lora-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224n-tinker-lora-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

@@ -12,7 +12,7 @@ series:
   order: 32
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-04-pricing-google-gemini-2-5-pro-flash-developer-api-sunset-en)
+> :globe: [English version](/posts/daily/2026-11-04-pricing-google-gemini-2-5-pro-flash-developer-api-sunset-en)
 
 ## 變更摘要
 
@@ -83,7 +83,7 @@ series:
 
 ## 時效提醒（如有促銷/sunset）
 
-⚠️ **停用日期**：2026-12-01。`gemini-2.5-pro` 與 `gemini-2.5-flash` 的 API 請求將在此日起自動轉導至 `gemini-3.8-flash` 與 `gemini-3.5-flash-lite` 並改按新費率計費。遷移指南：[Gemini 3.8 Flash 遷移指南](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8#migrate-to-gemini-3-8-flash)。
+:warning: **停用日期**：2026-12-01。`gemini-2.5-pro` 與 `gemini-2.5-flash` 的 API 請求將在此日起自動轉導至 `gemini-3.8-flash` 與 `gemini-3.5-flash-lite` 並改按新費率計費。遷移指南：[Gemini 3.8 Flash 遷移指南](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8#migrate-to-gemini-3-8-flash)。
 
 ## 今日收穫
 

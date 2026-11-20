@@ -11,7 +11,7 @@ description: "Stanford CS124 Winter 2026 第 6 週導讀：神經元的計算與
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs124-week6-neural-networks-llms-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs124-week6-neural-networks-llms-en)
 
 這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 6 週。前面五週的零件在這一週組起來：第 3 週的邏輯迴歸疊成多層，輸入換成第 5 週的詞向量，訓練目標用第 2 週的「預測下一個詞」，得到的就是神經語言模型。
 

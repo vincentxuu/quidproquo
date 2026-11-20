@@ -11,7 +11,7 @@ series:
   order: 95
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-18-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-18-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### ag-ui-protocol/ag-ui ⭐ 19,530 (+791)
+### ag-ui-protocol/ag-ui ★ 19,530 (+791)
 
 [GitHub](https://github.com/ag-ui-protocol/ag-ui)　·　TypeScript（也有 Python、.NET SDK）　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### ChromeDevTools/chrome-devtools-mcp ⭐ 57,850 (+841)
+### ChromeDevTools/chrome-devtools-mcp ★ 57,850 (+841)
 
 [GitHub](https://github.com/ChromeDevTools/chrome-devtools-mcp)　·　TypeScript　·　Apache-2.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### Tencent/LoopForge ⭐ 2,533 (+1,020)
+### Tencent/LoopForge ★ 2,533 (+1,020)
 
 [GitHub](https://github.com/Tencent/LoopForge)　·　Go／TypeScript　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### google-research/paper-orchestra ⭐ 1,889 (+313)
+### google-research/paper-orchestra ★ 1,889 (+313)
 
 [GitHub](https://github.com/google-research/paper-orchestra)　·　Python　·　Apache-2.0
 

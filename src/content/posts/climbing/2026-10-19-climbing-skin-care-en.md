@@ -26,7 +26,7 @@ glossary:
     context: "Because it works by releasing formaldehyde, people allergic to formaldehyde must not use it."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-skin-care)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-skin-care)
 
 Saturday at Long Dong, Taiwan's sea-cliff crag, third go on your project. You pull on the small edge before the crux and feel a sting in your right index finger: a callus has torn clean off, and there is pink new skin underneath. Your forearms still have power and you remember every move, but the day is over.
 

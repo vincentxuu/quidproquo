@@ -26,7 +26,7 @@ glossary:
     context: "作業一把 reduce 的 tree-based 歸約與 matmul 的 tiling 列為 Optional 優化，兩者都靠 shared memory。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

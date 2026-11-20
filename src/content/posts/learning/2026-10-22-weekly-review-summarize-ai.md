@@ -12,7 +12,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-weekly-review-summarize-ai-en)
+> :globe: [English version](/posts/learning/2026-10-22-weekly-review-summarize-ai-en)
 
 剛開始整理筆記的第一個月，通常很順：收件匣每週清、資料夾照新規則放、連結也寫了理由。三個月後，收件匣又堆了兩百則，你已經想不起上次打開 MOC 是什麼時候。筆記系統最常見的結局不是壞掉，是被忘記。
 

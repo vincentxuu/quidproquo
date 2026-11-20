@@ -10,7 +10,7 @@ description: "從 datasets、experiments、scorers、traces 與 production feedb
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-22-braintrust-llm-evaluation-en)
+:globe: [English version](/posts/ai/2026-08-22-braintrust-llm-evaluation-en)
 
 [Braintrust](https://www.braintrust.dev/docs/evaluate) 是 LLM evaluation 與 observability 平台。它不只回答「這版 prompt 平均幾分」，而是把一個較難維持的流程做成產品。從 production trace 找到失敗案例，放進有版本的 dataset，跑成不可變的 experiment，再用 scorer 比較新舊版本。最後把新版本送回 production 繼續觀察。
 

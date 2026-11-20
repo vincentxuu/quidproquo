@@ -20,7 +20,7 @@ glossary:
     def: "Hugging Face's task classification tag, used to group models by use case, such as text-generation or text-to-image."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-ai-model-landscape-overview)
+> :globe: [中文版](/posts/tech/2026-08-24-ai-model-landscape-overview)
 
 This is the map for the “AI Model Families” series. Hugging Face has 47 task categories and more than three million models; add closed APIs and the ecosystem is too large for anyone to follow completely. This guide cuts across it by use case: seven categories and more than 20 subcategories, each with major models and selection advice, so you can move from “what do I need to do?” to “which model should I use?” The text, reasoning, coding, vision, and agent sections use data from 2026-11-20; the image, video, speech, retrieval, and other sections still use August 2026 data, so cite them with dates.
 

@@ -14,7 +14,7 @@ series:
   order: 41
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-semantic-caching)
+> :globe: [中文版](/posts/ai/2026-03-12-semantic-caching)
 
 Traditional caching matches exact strings: "How many routes are at Longdong" and "How many routes does Longdong have" are treated as two different queries, each triggering a full RAG pipeline execution.
 

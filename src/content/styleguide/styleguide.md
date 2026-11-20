@@ -20,7 +20,7 @@ faq:
     a: 改了文章內文的 CSS、remark/rehype plugin 或 PostLayout 之後，送出前看一次淺色、深色與手機寬度。
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-13-ai-is-the-new-baseline-en)
+> :globe: [English version](/posts/ai/2026-11-13-ai-is-the-new-baseline-en)
 
 這頁第一個區塊是語言切換膠囊（上面那個），它必須是內文的第一個區塊，CSS 才會把它畫成小膠囊而不是提示框。
 

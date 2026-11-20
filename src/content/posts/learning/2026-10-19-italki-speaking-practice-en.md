@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/learning/2026-10-19-italki-speaking-practice)
+> :globe: [繁體中文版](/posts/learning/2026-10-19-italki-speaking-practice)
 
 You may have written a project introduction for an English interview without knowing whether a stranger can follow it—or what happens when they ask a question you have not rehearsed. [italki](https://www.italki.com/) lets you find a teacher and bring that problem into a one-to-one lesson.
 

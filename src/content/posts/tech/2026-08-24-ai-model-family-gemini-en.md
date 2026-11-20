@@ -22,7 +22,7 @@ glossary:
     definition: "Google's trusted cybersecurity partner program; Gemini 4 Argon and Carbon were opened to cyber defenders through it before reaching the general API"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-ai-model-family-gemini)
+> :globe: [中文版](/posts/tech/2026-08-24-ai-model-family-gemini)
 
 In December 2023, Google DeepMind released Gemini 1.0—the first "native multimodal" model that integrated text, images, video, and speech from pre-training. By 2026, Gemini 3.x had pushed the Flash line to frontier-level agentic coding; on September 30 Gemini 4 Argon was announced, followed within two months by Carbon, Hydrogen, and Neon, and the naming switched from Pro/Flash to element names. This is the fourth family deep-dive in the "AI Model Families" series, tracing Gemini's full evolution from 1.0 to Gemini 4.
 

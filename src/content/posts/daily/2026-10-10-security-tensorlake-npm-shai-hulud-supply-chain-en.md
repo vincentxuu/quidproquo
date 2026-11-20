@@ -11,7 +11,7 @@ series:
   order: 50
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-10-security-tensorlake-npm-shai-hulud-supply-chain)
+> :globe: [中文版](/posts/daily/2026-10-10-security-tensorlake-npm-shai-hulud-supply-chain)
 
 ## What happened
 

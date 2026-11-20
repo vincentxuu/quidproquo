@@ -23,7 +23,7 @@ glossary:
     definition: "每個國家在一場國際比賽可以派出的選手人數上限。World Climbing 依前一年的世界排名分配。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-why-japan-climbing-strong-en)
+> :globe: [English version](/posts/climbing/2026-10-19-why-japan-climbing-strong-en)
 
 看攀岩比賽久了，會發現一件事：抱石和先鋒的決賽名單上，常常有好幾個日本名字。2026 年名古屋亞運，日本拿下 2 金 3 銀 1 銅，居攀岩獎牌榜第一。台灣國家隊教練楊東偉也說，台灣的訓練模式「比較偏向日本系統」（[OUTSiDERS](https://www.outsiders.com.tw/post/47417)）。日本到底為什麼強？
 

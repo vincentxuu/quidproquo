@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-architecture-map)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-architecture-map)
 
 [Looplane](https://github.com/vincentxuu/looplane) is a Python-first coding-agent harness. Connecting a model to a shell is only the starting point. Looplane turns what the model may see, what it may do, and what survives a failure into inspectable program boundaries. This series follows the code path of one task: from TUI input through workspaces, prompts, runtimes, and tools, then out to local integrations and Cloudflare remote execution.
 

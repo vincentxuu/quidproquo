@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-pitchbook-private-market-data)
+> :globe: [中文版](/posts/product/2026-09-17-pitchbook-private-market-data)
 
 Imagine a teacher trying to build a seating chart for an entire school with only event photos, scattered attendance sheets, and forms completed by students. A computer can guess whether the Amy in a photo is the same Amy on a class list, but someone still has to check. Once her identity is confirmed, the chart also needs to show her class, clubs, and transfers over time.
 

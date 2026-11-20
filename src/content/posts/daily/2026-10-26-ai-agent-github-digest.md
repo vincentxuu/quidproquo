@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, multi-agent, mcp, coding-agent]
 lang: zh-TW
 description: "PrimeIntellect 把可編程子代理和可控自我改進做進一個 coding harness，微軟研究院反過來證明不靠中央協調也能把 agent 規模推到上千個——今天的 GitHub trending 在吵『agent 一多怎麼不失控』"
-tldr: "**PrimeIntellect-ai/prime-agent**（⭐ 22,325）用「Recursive Language Model」把上下文當變數、子代理當函式呼叫，外加可回滾的自我改進 harness；**microsoft/Agensh**（⭐ 238）開源微軟研究院的去中心化多代理人系統，無中央協調者就把規模推到 1,024 個 agent，Pandoc 任務測試通過率因此多出四到五成；**finereli/whatsapp-mcp**（⭐ 375）把 WhatsApp 讀取包成唯讀 MCP server，老實講清楚誰能看到你的訊息。Release：Claude Code v2.1.310 新增 Monitor 工具與多平台外掛監控。"
+tldr: "**PrimeIntellect-ai/prime-agent**（★ 22,325）用「Recursive Language Model」把上下文當變數、子代理當函式呼叫，外加可回滾的自我改進 harness；**microsoft/Agensh**（★ 238）開源微軟研究院的去中心化多代理人系統，無中央協調者就把規模推到 1,024 個 agent，Pandoc 任務測試通過率因此多出四到五成；**finereli/whatsapp-mcp**（★ 375）把 WhatsApp 讀取包成唯讀 MCP server，老實講清楚誰能看到你的訊息。Release：Claude Code v2.1.310 新增 Monitor 工具與多平台外掛監控。"
 series:
   name: "AI Agent GitHub Digest"
   order: 72
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-26-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-26-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### PrimeIntellect-ai/prime-agent ⭐ 22,325
+### PrimeIntellect-ai/prime-agent ★ 22,325
 
 [GitHub](https://github.com/PrimeIntellect-ai/prime-agent)　·　Rust　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### microsoft/Agensh ⭐ 238
+### microsoft/Agensh ★ 238
 
 [GitHub](https://github.com/microsoft/Agensh)　·　Python　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### finereli/whatsapp-mcp ⭐ 375
+### finereli/whatsapp-mcp ★ 375
 
 [GitHub](https://github.com/finereli/whatsapp-mcp)　·　TypeScript　·　MIT
 

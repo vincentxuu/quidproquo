@@ -12,7 +12,7 @@ series:
   order: 64
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-25-tool-photoshop-mcp-en)
+> :globe: [English version](/posts/daily/2026-10-25-tool-photoshop-mcp-en)
 
 ## 工具資訊
 
@@ -153,8 +153,8 @@ Photoshop 的 MCP 整合不是新點子，社群裡已經有 [alisaitteke/photos
 |---|---|---|
 | 平台 | 僅 macOS | Windows + macOS |
 | 工具數量 | ~20 個（涵蓋常見編輯操作） | 128 個（含一步到位的「食譜」） |
-| 編輯前自動 checkpoint | ✅（歷史快照＋分層磁碟備份） | 依賴 Photoshop 原生 undo |
-| 文件釘選（防止切錯檔案） | ✅ | 未見於文件 |
+| 編輯前自動 checkpoint | ✓（歷史快照＋分層磁碟備份） | 依賴 Photoshop 原生 undo |
+| 文件釘選（防止切錯檔案） | ✓ | 未見於文件 |
 | 預設遙測／分析 | 無 | 預設開啟匿名使用分析（可關閉） |
 | 內建聊天 UI | 無，需接 MCP client | 有（`npx ... ui`） |
 | 社群採用程度 | 剛發布，0 star | 已上架 MCP Registry，有多語系文件與貢獻者 |

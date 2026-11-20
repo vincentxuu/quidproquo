@@ -11,7 +11,7 @@ series:
   order: 79
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-16-security-fireworks-ai-key-theft-cursor-supply-chain)
+> :globe: [中文版](/posts/daily/2026-11-16-security-fireworks-ai-key-theft-cursor-supply-chain)
 
 ## What happened
 

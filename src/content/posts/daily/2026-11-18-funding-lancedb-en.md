@@ -12,7 +12,7 @@ series:
   order: 141
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-18-funding-lancedb)
+> :globe: [中文版](/posts/daily/2026-11-18-funding-lancedb)
 
 ## Funding details
 

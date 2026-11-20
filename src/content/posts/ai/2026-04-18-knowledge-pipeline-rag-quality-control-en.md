@@ -10,7 +10,7 @@ description: "An introduction to knowledge-pipeline: six-layer processing archit
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-18-knowledge-pipeline-rag-quality-control)
+> :globe: [中文版](/posts/ai/2026-04-18-knowledge-pipeline-rag-quality-control)
 
 The output quality of a RAG system largely depends on input quality. Yet most people spend enormous effort tuning prompts, swapping embedding models, and experimenting with different chunking strategies while ignoring a far more fundamental problem: **the data being fed in is garbage to begin with**. knowledge-pipeline is designed to address exactly this -- it applies a six-layer pipeline for quality control before data ever enters the vector database.
 

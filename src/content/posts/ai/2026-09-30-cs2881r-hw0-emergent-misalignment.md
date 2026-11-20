@@ -28,7 +28,7 @@ glossary:
     context: "HW0 的 judge.py 用 gpt-4o-mini 打對齊與連貫度兩個 0–100 分數。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

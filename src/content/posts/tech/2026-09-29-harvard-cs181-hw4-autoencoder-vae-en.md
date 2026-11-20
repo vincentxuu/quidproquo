@@ -25,11 +25,11 @@ glossary:
     context: "The VAE loss uses it to pull the encoder's output distribution toward N(0, I)."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae)
+> :globe: [中文版](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) (`hw4_release.tex/ipynb`) and the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), opened on 2026-09-29. The course is **A3** overall, but has no public recording links listed for the corresponding lectures and no homework solutions. The autoencoder part of Section 6 stops at sparse and denoising autoencoders and **does not cover VAEs**. I did not get the Week 6 Representation Learning / Autoencoders lecture slides, so the VAE material here rests only on the homework handout itself.
+> :warning: **Version and access**: Based on [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) (`hw4_release.tex/ipynb`) and the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), opened on 2026-09-29. The course is **A3** overall, but has no public recording links listed for the corresponding lectures and no homework solutions. The autoencoder part of Section 6 stops at sparse and denoising autoencoders and **does not cover VAEs**. I did not get the Week 6 Representation Learning / Autoencoders lecture slides, so the VAE material here rests only on the homework handout itself.
 
 This is post 7 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en), following [HW4 (Part 1) on Transformers](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en).
 

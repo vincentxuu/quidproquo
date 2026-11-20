@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-02-benchmark-cursorbench-en)
+> :globe: [English version](/posts/daily/2026-09-02-benchmark-cursorbench-en)
 
 ## 異動摘要
 
@@ -24,11 +24,11 @@ CursorBench（Cursor 官方的 agentic coding 評測榜）今天出現本榜自 
 
 | 排名 | 模型/設定 | 分數 | 前次分數 | 變化 |
 |---|---|---|---|---|
-| 🥇 | Fable 5.1 Max | 73.4% | 新上榜 | 🆕 |
-| 🥈 | Fable 5.1 Extra High | 72.8% | 新上榜 | 🆕 |
-| 🥉 | Grok 4.6 Extra High | 70.8% | 70.8%（🥇） | ↓2 |
-| 4 | Fable 5 Max | 70.5% | 70.5%（🥈） | ↓2 |
-| 5 | Opus 5 Max | 70.0% | 70.0%（🥉） | ↓2 |
+| 1 | Fable 5.1 Max | 73.4% | 新上榜 | NEW|
+| 2 | Fable 5.1 Extra High | 72.8% | 新上榜 | NEW|
+| 3 | Grok 4.6 Extra High | 70.8% | 70.8%（1） | ↓2 |
+| 4 | Fable 5 Max | 70.5% | 70.5%（2） | ↓2 |
+| 5 | Opus 5 Max | 70.0% | 70.0%（3） | ↓2 |
 
 來源：[cursor.com/cursorbench](https://cursor.com/cursorbench) · 快照日期：2026-09-02
 
@@ -42,7 +42,7 @@ CursorBench（Cursor 官方的 agentic coding 評測榜）今天出現本榜自 
 
 ### 方法論面
 
-⚠️ 需要謹慎解讀的地方：Anthropic 官方網站（[anthropic.com/claude/fable](https://www.anthropic.com/claude/fable)）與模型文件（[platform.claude.com](https://platform.claude.com/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5)）截至撰文時都只列出 `claude-fable-5`，沒有 Fable 5.1 的模型卡、定價頁或正式發布公告。「Fable 5.1」這個名字目前完全來自社群觀察——Amazon Bedrock 上出現新的模型代號、內部代稱「Melon」「Marshmallow」的早期存取（EAP）測試痕跡，多篇追蹤文章推測發布窗口落在 8 月 31 日到 9 月上旬之間。CursorBench 是 Cursor 自建、非模型廠商自測的第三方評測，可信度比廠商自報高，但目前仍是唯一觀察到這個新版本分數的公開榜單，還沒有第二個獨立來源交叉驗證，也不排除這是尚未定案的早期測試版分數。
+:warning: 需要謹慎解讀的地方：Anthropic 官方網站（[anthropic.com/claude/fable](https://www.anthropic.com/claude/fable)）與模型文件（[platform.claude.com](https://platform.claude.com/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5)）截至撰文時都只列出 `claude-fable-5`，沒有 Fable 5.1 的模型卡、定價頁或正式發布公告。「Fable 5.1」這個名字目前完全來自社群觀察——Amazon Bedrock 上出現新的模型代號、內部代稱「Melon」「Marshmallow」的早期存取（EAP）測試痕跡，多篇追蹤文章推測發布窗口落在 8 月 31 日到 9 月上旬之間。CursorBench 是 Cursor 自建、非模型廠商自測的第三方評測，可信度比廠商自報高，但目前仍是唯一觀察到這個新版本分數的公開榜單，還沒有第二個獨立來源交叉驗證，也不排除這是尚未定案的早期測試版分數。
 
 ### 產業面
 

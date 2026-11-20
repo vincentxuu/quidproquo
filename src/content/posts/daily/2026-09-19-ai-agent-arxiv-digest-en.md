@@ -11,7 +11,7 @@ series:
   order: 118
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-19-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-19-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -133,7 +133,7 @@ Harness optimization has historically been manual trial-and-error — engineers 
 ### Key Findings
 
 - On the 51-task public subset of EdgeBench, SoL-Pi matches native Pi's performance across both GPT-5.6 Sol and Opus 5 backends while cutting recorded token traffic by 44.7-49.0% and API cost by about a third
-- In hourly terms: an estimated $8.75-$13.50 saved per hour relative to native Codex and Claude Code-style harnesses, and $4.36-$5.71 relative to Pi ⚠️ (the authors' own measurement; EdgeBench currently releases only 51 of its 134 tasks publicly, and external replication is still pending)
+- In hourly terms: an estimated $8.75-$13.50 saved per hour relative to native Codex and Claude Code-style harnesses, and $4.36-$5.71 relative to Pi :warning: (the authors' own measurement; EdgeBench currently releases only 51 of its 134 tasks publicly, and external replication is still pending)
 - Beyond EdgeBench, the team also validates on Terminal-Bench 4 and IMO 2026 (Lean 4-verified problems), plus a coordinated agent-swarm setting, to confirm the four mechanisms aren't a coincidence of one benchmark
 - Limitation (self-reported): the mechanisms were mainly trained on trajectories from a single LLM backend and trigger less often and less intensely on the second evaluated backend; "multi-backend training" is listed as future work, and "recursive efficient improvement" (using a cheaper harness to lower the cost of the next round of auto-research) is explicitly named as a long-term vision rather than a compounding effect demonstrated in this paper
 - Adoption barrier: running full auto-research loops requires substantial automated-evaluation infrastructure (repository-derived and verifier-driven environments); teams without that infrastructure face a real barrier to reproducing the full pipeline, though the four mechanisms themselves are individually portable design references

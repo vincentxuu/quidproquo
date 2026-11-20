@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-railway-application-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-railway-application-platform-en)
 
 [Railway](https://docs.railway.com/overview/the-basics) 是以 application project 為中心的 PaaS。Project 裡放 API、worker、database 等 Services，再以 Environments 隔離 production、staging 與 PR。它減少的不是所有維運，而是 build image、安排 container、service discovery、domain、TLS 與設定接線的工作。
 

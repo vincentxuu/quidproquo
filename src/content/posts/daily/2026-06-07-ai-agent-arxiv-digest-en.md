@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 14
 ---
-> 🌏 [中文版](/posts/daily/2026-06-07-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-07-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -63,13 +63,13 @@ For the first time, framework selection has quantitative backing: the gaps in ta
 
 ### Key Details
 
-- The best framework achieves **80% task completion** on a single benchmark, but the median framework only reaches **32%**—a gap exceeding 2.5x, far larger than most engineers expect ⚠️ (which framework tops which benchmark requires checking the paper)
-- **Developer model matters more than backbone model**: agents written by Opus solve roughly 2x the tasks of those written by GPT, under the same framework and execution model ⚠️
+- The best framework achieves **80% task completion** on a single benchmark, but the median framework only reaches **32%**—a gap exceeding 2.5x, far larger than most engineers expect :warning: (which framework tops which benchmark requires checking the paper)
+- **Developer model matters more than backbone model**: agents written by Opus solve roughly 2x the tasks of those written by GPT, under the same framework and execution model :warning:
 - **API complexity directly reflects cost**: per-agent development costs range from **$0.6 to $3.4**, with the main difference driven by API design quality; LangGraph and OpenAI Agents SDK are among the easiest (lowest-cost) to use
-- **Framework profiles**: LangGraph — lowest cost (~$0.08/task), lowest latency; CrewAI — fastest time-to-production; AutoGen — strongest on open-ended reasoning tasks, but costs 5–6x more than LangGraph ⚠️ (figures from the paper's result summary; rankings may differ across benchmarks)
+- **Framework profiles**: LangGraph — lowest cost (~$0.08/task), lowest latency; CrewAI — fastest time-to-production; AutoGen — strongest on open-ended reasoning tasks, but costs 5–6x more than LangGraph :warning: (figures from the paper's result summary; rankings may differ across benchmarks)
 - **MCP-Atlas is today's most noteworthy benchmark**: it directly tests ADK integration with the MCP ecosystem, reflecting the real-world challenges of agent tool integration in 2026 and providing an objective comparison of each framework's MCP support maturity
 - The best ADK agents even outperform general-purpose frontier coding agents (e.g., Claude solving tasks directly) on some tasks at lower cost—suggesting "framework agents optimized for specific tasks" can be the most cost-effective approach
-- **Limitation 1**: Framework versions tested are as of the June 2026 submission date; rapidly iterating frameworks may have changed since ⚠️
+- **Limitation 1**: Framework versions tested are as of the June 2026 submission date; rapidly iterating frameworks may have changed since :warning:
 - **Limitation 2**: LLM-generated agent code quality may still fall short of framework "best practices," so results measure "API usability + performance" combined, not each framework's capability ceiling
 
 ### Reviewer's Take
@@ -118,12 +118,12 @@ This paper reframes agent memory from "can the LLM remember" to "how does the sy
 ### Key Details
 
 - **The 4-axis taxonomy** is the paper's core contribution: Construction / Storage / Retrieval / Mutability—usable as a universal evaluation framework for any memory solution, not just the 10 systems tested
-- System characteristics differ dramatically across four memory design categories: **flat retrieval** (vector DB) has low latency but scalability degrades with corpus size; **LLM-mediated extraction** has high latency but strong compression and precise query capability; **consolidating fact stores** suit high-frequency reads with low-frequency updates; **agentic control flows** (agent self-manages memory) offer maximum flexibility but highest overhead ⚠️ (specific latency figures require checking the paper)
+- System characteristics differ dramatically across four memory design categories: **flat retrieval** (vector DB) has low latency but scalability degrades with corpus size; **LLM-mediated extraction** has high latency but strong compression and precise query capability; **consolidating fact stores** suit high-frequency reads with low-frequency updates; **agentic control flows** (agent self-manages memory) offer maximum flexibility but highest overhead :warning: (specific latency figures require checking the paper)
 - **Mutability is the most underrated axis**: updatable memory systems are more reliable for long-horizon tasks (because real-world facts change), but infrastructure complexity increases significantly, requiring version control and conflict resolution mechanisms
-- The "first systematic agent memory characterization" positioning carries first-mover advantage but also means measurement methods and workload designs are still early-stage explorations requiring community validation ⚠️
+- The "first systematic agent memory characterization" positioning carries first-mover advantage but also means measurement methods and workload designs are still early-stage explorations requiring community validation :warning:
 - Connection to LangGraph/AutoGen: the 4 axes map directly to existing frameworks' memory module choices—LangGraph's Store API, AutoGen's memory component, third-party solutions like Mem0 can all be evaluated using this taxonomy
 - Alex Pentland (MIT) + Tsachy Weissman (Stanford) + Marian Verhelst (KU Leuven)—this cross-institutional systems research lineup makes findings more grounded in engineering reality than pure NLP memory research
-- **Limitation 1**: Workloads are researcher-designed scenarios; the gap with real production workloads is not quantified ⚠️
+- **Limitation 1**: Workloads are researcher-designed scenarios; the gap with real production workloads is not quantified :warning:
 - **Limitation 2**: Selection criteria for the 10 systems are not fully explained, and may not cover the latest commercial memory solutions (e.g., Zep, Letta)
 
 ### Reviewer's Take
@@ -148,7 +148,7 @@ Deep research agents search the web during evaluation, and benchmark answers are
 
 ### Read Priority
 
-📖 Skim
+:book: Skim
 An important warning for teams running deep research agent evaluations; if you don't build deep research agents, knowing the problem exists is sufficient—no need to deep-read the methodology.
 
 ### Domain Context
@@ -171,14 +171,14 @@ STC can inflate scores by up to 4%, and in today's tight competition among top a
 
 ### Key Details
 
-- **3 STC types (increasing severity)**: Benchmark Metadata Leakage → Question-Context Leakage → Explicit Answer Leakage; occurrence rates vary across benchmarks ⚠️ (specific proportions require checking the paper)
-- Testing modern deep research agents across 6 public benchmarks shows STC is widespread, with performance inflation up to **4%**—seems small, but top models typically differ by only 1–3%, making 4% decisive ⚠️ (which specific benchmarks and agents are most affected requires checking the original)
+- **3 STC types (increasing severity)**: Benchmark Metadata Leakage → Question-Context Leakage → Explicit Answer Leakage; occurrence rates vary across benchmarks :warning: (specific proportions require checking the paper)
+- Testing modern deep research agents across 6 public benchmarks shows STC is widespread, with performance inflation up to **4%**—seems small, but top models typically differ by only 1–3%, making 4% decisive :warning: (which specific benchmarks and agents are most affected requires checking the original)
 - Detection method analyzes the agent's **search traces**: contamination warnings trigger when search keywords include benchmark names, question IDs, or near-matches to ground truth
 - The root cause of STC is that benchmarks get indexed by search engines after publication. Solutions: periodically rotate questions (expensive) or use fully private benchmarks not on the web (limited scale)
 - **Impact on agent platform decisions**: when using public benchmarks to decide which deep research agent version to deploy, STC may cause you to overestimate true reasoning improvements; pair with a private evaluation set or held-out benchmark for double verification
 - Connection to DeepResearch Bench and similar evaluation frameworks: future deep research agent evaluation tools should include built-in STC detection as a basic quality metric for evaluation credibility
 - The Alibaba team has real-world deep research agent deployment experience (Tongyi Lab), grounding the problem formulation in production needs
-- **Limitation 1**: The 4% upper bound comes from specific benchmark-agent combinations; actual impact under different settings may be smaller ⚠️
+- **Limitation 1**: The 4% upper bound comes from specific benchmark-agent combinations; actual impact under different settings may be smaller :warning:
 - **Limitation 2**: Detection algorithms rely on keyword matching, potentially underestimating subtler contamination (agent reads related pages without explicitly searching benchmark names)
 
 ### Reviewer's Take

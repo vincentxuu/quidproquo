@@ -22,7 +22,7 @@ glossary:
     context: "All three circuits in Hooper's Beta's weekly routine start with external rotation or scapular retraction."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-antagonist-core)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-antagonist-core)
 
 After a year of climbing, your back and forearms have filled out and you can do a few more pull-ups. But lately, after bouldering, the front of your shoulder feels tight and the inside of your elbow aches now and then. A friend says: "You only pull, you never push. You're imbalanced."
 

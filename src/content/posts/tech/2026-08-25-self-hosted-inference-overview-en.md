@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-25-self-hosted-inference-overview)
+> :globe: [中文版](/posts/tech/2026-08-25-self-hosted-inference-overview)
 
 This series covers seven self-hosted inference tools. But before picking a tool, answer a more fundamental question: **do you actually need to run models yourself?**
 

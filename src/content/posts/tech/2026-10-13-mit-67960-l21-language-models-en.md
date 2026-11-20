@@ -22,7 +22,7 @@ series:
   order: 26
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-13-mit-67960-l21-language-models)
+> :globe: [中文版](/posts/tech/2026-10-13-mit-67960-l21-language-models)
 
 **Video status: Videos included.** [Video source and notes](#lecture-video-source)
 

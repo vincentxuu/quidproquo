@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-vitest-testing-framework)
+> :globe: [中文版](/posts/tech/2026-08-22-vitest-testing-framework)
 
 [Vitest](https://vitest.dev/guide/) is a JavaScript and TypeScript test framework built on Vite. It offers familiar `describe`, `test`, `expect`, and mocking APIs, but resembling Jest is not the core value. Tests read `vite.config.*` by default and reuse aliases, transforms, and framework plugins. The test runner interprets source code much like the application does, removing a parallel configuration surface.
 

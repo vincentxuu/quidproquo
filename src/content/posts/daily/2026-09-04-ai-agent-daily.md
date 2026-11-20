@@ -13,7 +13,7 @@ series:
   order: 20
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-04-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-04-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -94,17 +94,17 @@ Nvidia 於 8 月 31 日宣布以 35 億美元認購聯發科海外可轉換公�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent GitHub Digest — 2026-09-04](/posts/daily/2026-09-04-ai-agent-github-digest)
-- 📄 [模型卡｜Gemini 3.8 Flash](/posts/daily/2026-09-04-model-google-gemini-3-8-flash)
-- 📄 [資安警報｜Unit 42 揭露 AI Agent 全程操刀的企業入侵](/posts/daily/2026-09-04-security-unit42-ai-agent-orchestrated-intrusion)
-- 📄 [框架更新｜Pydantic AI 2.38.0](/posts/daily/2026-09-04-framework-pydantic-ai-2.38.0)
-- 📄 [工具推薦｜reverify](/posts/daily/2026-09-04-tool-reverify)
-- 📄 [融資速報｜Conveo Series A $50M](/posts/daily/2026-09-04-funding-conveo)
-- 📄 [融資速報｜HiddenLayer Series B $100M](/posts/daily/2026-09-04-funding-hiddenlayer)
-- 📄 [定價追蹤｜多廠商定價變動](/posts/daily/2026-09-04-pricing-multi-vendor-pricing-changes)
-- 📄 [區域焦點｜歐洲](/posts/daily/2026-09-04-region-europe)
-- 📄 [區域焦點｜中東](/posts/daily/2026-09-04-region-middle-east)
-- 📄 [區域焦點｜日韓](/posts/daily/2026-09-04-region-japan-korea)
+- :file: [AI Agent GitHub Digest — 2026-09-04](/posts/daily/2026-09-04-ai-agent-github-digest)
+- :file: [模型卡｜Gemini 3.8 Flash](/posts/daily/2026-09-04-model-google-gemini-3-8-flash)
+- :file: [資安警報｜Unit 42 揭露 AI Agent 全程操刀的企業入侵](/posts/daily/2026-09-04-security-unit42-ai-agent-orchestrated-intrusion)
+- :file: [框架更新｜Pydantic AI 2.38.0](/posts/daily/2026-09-04-framework-pydantic-ai-2.38.0)
+- :file: [工具推薦｜reverify](/posts/daily/2026-09-04-tool-reverify)
+- :file: [融資速報｜Conveo Series A $50M](/posts/daily/2026-09-04-funding-conveo)
+- :file: [融資速報｜HiddenLayer Series B $100M](/posts/daily/2026-09-04-funding-hiddenlayer)
+- :file: [定價追蹤｜多廠商定價變動](/posts/daily/2026-09-04-pricing-multi-vendor-pricing-changes)
+- :file: [區域焦點｜歐洲](/posts/daily/2026-09-04-region-europe)
+- :file: [區域焦點｜中東](/posts/daily/2026-09-04-region-middle-east)
+- :file: [區域焦點｜日韓](/posts/daily/2026-09-04-region-japan-korea)
 
 ## 明日關注
 

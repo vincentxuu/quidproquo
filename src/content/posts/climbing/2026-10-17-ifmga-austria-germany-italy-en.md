@@ -29,7 +29,7 @@ glossary:
     definition: "The regional register of guides in Italy. Only people listed on an albo may guide clients for pay."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-austria-germany-italy)
+> :globe: [中文版](/posts/climbing/2026-10-17-ifmga-austria-germany-italy)
 
 Austria, Germany and Italy share a post because none of them regulates guiding through a single national law. Austria's 9 states each have their own guiding act. In Germany only Bavaria regulates paid guiding. Italy has a national law but leaves training and exams to the regions. Before you apply, work out which state or region you are aiming for.
 

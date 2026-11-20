@@ -26,7 +26,7 @@ glossary:
     context: "用來解決「查詢和相關文件用了不同的字，餘弦相似度就很低」的問題。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

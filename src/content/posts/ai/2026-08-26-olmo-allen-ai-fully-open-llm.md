@@ -10,7 +10,7 @@ description: "Allen AI OLMo 模型家族深入介紹：從 Dolma 資料集到 OL
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en)
+> :globe: [English version](/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en)
 
 Llama 開源了權重，Mistral 開源了權重和部分架構細節，但它們的訓練資料都是黑箱。OLMo 把這最後一塊也打開了——你不只能用這個模型，還能看到它是怎麼被訓練出來的，用了哪些資料，每一個中間 checkpoint 長什麼樣子。
 
@@ -26,13 +26,13 @@ OLMo 跟其他「開源」模型的差異，用一張表最清楚：
 
 | 開放項目 | Llama 3 | Mistral | Qwen 2.5 | OLMo 3 |
 |---|---|---|---|---|
-| 模型權重 | ✅ | ✅ | ✅ | ✅ |
-| 訓練程式碼 | ❌ | ❌ | 部分 | ✅（OLMo-core） |
-| 預訓練資料 | ❌ | ❌ | ❌ | ✅（Dolma 3，9.3T tokens） |
-| 後訓練資料（SFT/DPO/RL） | ❌ | ❌ | ❌ | ✅（Dolci） |
-| 中間 checkpoint | ❌ | ❌ | ❌ | ✅ |
-| 資料處理工具 | ❌ | ❌ | ❌ | ✅ |
-| 輸出→訓練資料溯源 | ❌ | ❌ | ❌ | ✅（OlmoTrace） |
+| 模型權重 | ✓ | ✓ | ✓ | ✓ |
+| 訓練程式碼 | ✗ | ✗ | 部分 | ✓（OLMo-core） |
+| 預訓練資料 | ✗ | ✗ | ✗ | ✓（Dolma 3，9.3T tokens） |
+| 後訓練資料（SFT/DPO/RL） | ✗ | ✗ | ✗ | ✓（Dolci） |
+| 中間 checkpoint | ✗ | ✗ | ✗ | ✓ |
+| 資料處理工具 | ✗ | ✗ | ✗ | ✓ |
+| 輸出→訓練資料溯源 | ✗ | ✗ | ✗ | ✓（OlmoTrace） |
 
 這不是程度的差別，是**性質的差別**。只開放權重，你能用模型但不能理解模型；開放訓練資料和中間 checkpoint，你能研究模型是怎麼學會某個能力的、某個偏誤是從哪段資料來的、訓練到第幾步開始出現湧現行為。
 

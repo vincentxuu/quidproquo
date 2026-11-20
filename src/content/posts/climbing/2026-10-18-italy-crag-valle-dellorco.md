@@ -13,7 +13,7 @@ description: "奧爾科谷（Valle dell'Orco）岩場介紹：片麻岩還是花
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crag-valle-dellorco-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crag-valle-dellorco-en)
 
 奧爾科谷（Valle dell'Orco，常簡稱 Valle Orco）在義大利西北的皮埃蒙特大區（Piemonte，英文 Piedmont），位於[大帕拉迪索國家公園](https://pngp.it/en/visit-park/how-reach-us)（Parco Nazionale Gran Paradiso）南側，杜林北邊。[theCrag](https://www.thecrag.com/en/climbing/italy/area/389911830) 說這座山谷以片麻岩裂隙出名，「said to be the best in the Western European Alps」。Planetmountain 的訪談寫它「has long been regarded as the birthplace of modern free climbing in Europe」（[Planetmountain](http://www.planetmountain.com/en/news/interviews/free-itaca-nel-sole-valle-dellorco.html)）。
 

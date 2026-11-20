@@ -11,7 +11,7 @@ series:
   order: 91
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-14-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-14-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -72,7 +72,7 @@ caption: 簡化示意：context 視窗大小、計價方式的差異這裡先不
 
 ## Trending Repos
 
-### vercel/eve ⭐ 5,884
+### vercel/eve ★ 5,884
 
 [GitHub](https://github.com/vercel/eve)　·　TypeScript　·　Apache-2.0
 
@@ -83,7 +83,7 @@ caption: 簡化示意：context 視窗大小、計價方式的差異這裡先不
 
 ---
 
-### universal-tool-calling-protocol/code-mode ⭐ 1,667
+### universal-tool-calling-protocol/code-mode ★ 1,667
 
 [GitHub](https://github.com/universal-tool-calling-protocol/code-mode)　·　TypeScript　·　MPL-2.0
 
@@ -94,7 +94,7 @@ caption: 簡化示意：context 視窗大小、計價方式的差異這裡先不
 
 ---
 
-### nkarasiak/qgis-mcp ⭐ 436
+### nkarasiak/qgis-mcp ★ 436
 
 [GitHub](https://github.com/nkarasiak/qgis-mcp)　·　Python　·　GPL-2.0
 
@@ -105,7 +105,7 @@ caption: 簡化示意：context 視窗大小、計價方式的差異這裡先不
 
 ---
 
-### JuliusBrussee/caveman ⭐ 119,655
+### JuliusBrussee/caveman ★ 119,655
 
 [GitHub](https://github.com/JuliusBrussee/caveman)　·　Go　·　Apache-2.0
 

@@ -16,7 +16,7 @@ additionalSeries:
     order: 20
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-cloudflare-ai-gateway-model-control)
+> :globe: [中文版](/posts/ai/2026-08-30-cloudflare-ai-gateway-model-control)
 
 After the first [Workers AI](https://developers.cloudflare.com/workers-ai/) demo works, the next problem is usually not "can the model answer?" It is "how do I debug LLM calls, stop runaway traffic, understand cost, and switch providers without rewriting the app?" [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) sits there: a control layer for model calls across logs, analytics, cache, rate limits, retry/fallback, provider keys, and billing.
 

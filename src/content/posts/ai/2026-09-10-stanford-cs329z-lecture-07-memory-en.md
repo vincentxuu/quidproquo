@@ -14,7 +14,7 @@ description: "A page-linked guide to the CS329Z Lecture 07 Agent Memory Architec
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory)
 
 **Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 79 minutes); this guide follows the public slides and readings and had each section start time checked against the recording's captions.
 

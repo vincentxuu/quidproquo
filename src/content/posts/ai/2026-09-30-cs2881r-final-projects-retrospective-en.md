@@ -17,7 +17,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-final-projects-retrospective)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-final-projects-retrospective)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

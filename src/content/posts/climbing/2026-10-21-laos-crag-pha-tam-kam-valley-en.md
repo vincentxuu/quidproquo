@@ -13,7 +13,7 @@ description: "A guide to the Pha Tam Kam valley walls: the style, walk times, sh
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-laos-crag-pha-tam-kam-valley)
+> :globe: [中文版](/posts/climbing/2026-10-21-laos-crag-pha-tam-kam-valley)
 
 If the walls around camp are the "two routes before breakfast" routine, the far side of the valley is the "take half a day, enough draws and water" plan. This guide covers Hangover, Partymeile, Open All Hours, Burnout, Worldtrip, The Canyon and Communist Wall. There is no strict geographic line between them, but they share longer walks, longer routes, or a concentration of harder grades.
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 29
 ---
-> 🌏 [中文版](/posts/daily/2026-06-22-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-22-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -73,12 +73,12 @@ For agent platform engineers: this solves a systemic flaw in tool-calling agents
 - Biggest gains on: stricter multi-trial consistency metrics — meaning LedgerAgent makes agents more stable, not just occasionally correct
 - Two main error types reduced: (1) decisions based on stale/incorrect facts; (2) tool calls that are syntactically valid but violate policy conditions
 - LangGraph connection: this ledger mechanism is equivalent to adding a schema-validated typed dict to LangGraph state and requiring every tool node to update state after returning — LangGraph currently lets engineers customize state but has no built-in mechanism for enforced schemas and canonical paths
-- Paper status: marked "Work in Progress" ⚠️ — full quantitative results may come in later versions
+- Paper status: marked "Work in Progress" :warning: — full quantitative results may come in later versions
 - Low barrier to adoption: inference-time plugin, no fine-tuning needed; requires additional design of tool output → ledger schema parsing logic
 
 ### Reviewer's One-Line Take
 
-Problem definition is precise, solution design is clean, and the insight of "separating state from prompt" is solid. However, the "Work in Progress" status means full quantitative results aren't yet public ⚠️ — we only know "there's improvement" but the exact magnitude awaits confirmation. Also, schema design quality determines ledger effectiveness — a poorly designed schema just becomes another error propagation channel.
+Problem definition is precise, solution design is clean, and the insight of "separating state from prompt" is solid. However, the "Work in Progress" status means full quantitative results aren't yet public :warning: — we only know "there's improvement" but the exact magnitude awaits confirmation. Also, schema design quality determines ledger effectiveness — a poorly designed schema just becomes another error propagation channel.
 
 ### Your Take-Away
 
@@ -129,14 +129,14 @@ For agent platform architects: this paper redefines "agent memory" as not just r
 - RL infrastructure requirements: needs training environments that support "ultra-long rollouts," since solve-task + update-context alternating sequences are much longer than single-task episodes; this is not natively supported by most existing RL training frameworks
 - Cross-domain generalization: the "how to quickly understand new environments" capability learned in domain A should transfer to domains B and C — a concrete application of meta-learning to agent long-term deployment
 - Difference from existing memory architectures: RAG / memory stores let agents "look up" past data; CoD trains agents to "actively reorganize" environmental understanding — the former is retrieval, the latter requires a learning signal, demanding different training designs
-- Author group from Alibaba Group ⚠️: industry-led with strong production motivation, but may also choose benchmark environments favorable to their systems
-- Paper status: marked "Work in Progress" ⚠️, planning continuous updates to arXiv version and codebase — current published numbers should be interpreted cautiously
+- Author group from Alibaba Group :warning:: industry-led with strong production motivation, but may also choose benchmark environments favorable to their systems
+- Paper status: marked "Work in Progress" :warning:, planning continuous updates to arXiv version and codebase — current published numbers should be interpreted cautiously
 - Prerequisites for production use: requires complete execution logs (trace logging) from the agent in production, and environments where task success/failure can be machine-evaluated — closed-loop scenarios are easier to apply than open-ended tasks
 - LangGraph / AutoGen connection: both frameworks currently lack a native mechanism for "updating system-level context from task execution results"; CoD's update-context episode requires adding an "environmental awareness update" node after the agent loop ends at the framework level
 
 ### Reviewer's One-Line Take
 
-Important and realistic problem setting, CoD's dual-episode design is clear in its logic. But "Work in Progress" plus Alibaba's proprietary evaluation environment are two warning signs ⚠️ — we don't yet know the quantitative results in real scenarios, nor whether the evaluation environment is neutrally designed. Direction is solid, but wait for the full version before deciding whether to follow up.
+Important and realistic problem setting, CoD's dual-episode design is clear in its logic. But "Work in Progress" plus Alibaba's proprietary evaluation environment are two warning signs :warning: — we don't yet know the quantitative results in real scenarios, nor whether the evaluation environment is neutrally designed. Direction is solid, but wait for the full version before deciding whether to follow up.
 
 ### Your Take-Away
 
@@ -157,7 +157,7 @@ When enterprises deploy agents, there's a security gap between "approving an act
 
 ### Read Priority
 
-📖 Skim.
+:book: Skim.
 Worth reading for architects or security engineers building agents with real execution capabilities on production systems (kubectl, IAM policy changes, deploy triggers). If you're only building demos or research-level agents, safe to skip for now.
 
 ### Domain Background
@@ -192,16 +192,16 @@ For enterprise agent architects: this paper fills the last gap in "agent securit
 - Core design principle: proposal → admission → execution enforced separation, eliminating the gray area where "approved action ≠ actually executed action"
 - SAB vs SEB: SAB is responsible for "reviewing and issuing credentials"; SEB is "the final verification gate before execution" — SEB doesn't make policy decisions, only performs execution-time verification
 - Live-state drift detection: environment state at approval time may change during the wait before execution; SEB re-checks whether environment state still matches the credential's assumptions before executing
-- Revocation propagation: if a credential is revoked, SEB can intercept before execution; propagation latency tested on AWS and Kubernetes clusters ⚠️ (full numbers pending in Work in Progress version)
+- Revocation propagation: if a credential is revoked, SEB can intercept before execution; propagation latency tested on AWS and Kubernetes clusters :warning: (full numbers pending in Work in Progress version)
 - Scoped execution identity: each execution generates a short-lived identity with minimal privileges, expiring after execution — reducing the blast radius of credential leaks
 - Signed audit records: every execution's decision and outcome are cryptographically signed, verifiable after the fact
-- Evaluation environment: AWS + Kubernetes prototype; test items include latency overhead, revocation propagation, drift detection accuracy, security under fault injection ⚠️ (Work in Progress, full numbers not yet public)
-- Authors (Jun He, Deying Yu) have unclear institutional affiliation ⚠️; the work is more proposal-oriented and has not undergone rigorous peer review
+- Evaluation environment: AWS + Kubernetes prototype; test items include latency overhead, revocation propagation, drift detection accuracy, security under fault injection :warning: (Work in Progress, full numbers not yet public)
+- Authors (Jun He, Deying Yu) have unclear institutional affiliation :warning:; the work is more proposal-oriented and has not undergone rigorous peer review
 - MCP (Model Context Protocol) connection: MCP defines agent tool schemas and API formats but doesn't perform execution-time credential verification; SEB can be viewed as the execution-layer security component that needs to be inserted between MCP calls and real infrastructure
 
 ### Reviewer's One-Line Take
 
-Problem definition is precise (the execution gap is a real security vulnerability), and SEB's six-step design has engineering viability. However, two authors, unclear institutional affiliation, Work in Progress, incomplete published numbers ⚠️ — this reads more like a convincing architecture proposal than mature research. Worth tracking, but enterprises should wait for more complete implementation and security audits before adopting.
+Problem definition is precise (the execution gap is a real security vulnerability), and SEB's six-step design has engineering viability. However, two authors, unclear institutional affiliation, Work in Progress, incomplete published numbers :warning: — this reads more like a convincing architecture proposal than mature research. Worth tracking, but enterprises should wait for more complete implementation and security audits before adopting.
 
 ### Your Take-Away
 

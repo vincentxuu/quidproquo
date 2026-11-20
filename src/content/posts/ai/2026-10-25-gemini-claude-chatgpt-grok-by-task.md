@@ -10,7 +10,7 @@ description: "依任務比較 Gemini、Claude、ChatGPT、Grok：長影音理解
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-25-gemini-claude-chatgpt-grok-by-task-en)
+> :globe: [English version](/posts/ai/2026-10-25-gemini-claude-chatgpt-grok-by-task-en)
 
 Gemini、Claude、ChatGPT、Grok 是現在最常被放在一起比的四個 AI 助理。常見的講法是各家有一塊別人碰不到的地盤：Gemini 看長影片，Claude 寫程式，Grok 盯 X，ChatGPT 什麼都有。這些講法大多有官方文件撐腰，但「別人碰不到」說得太滿，有幾處要修正。
 

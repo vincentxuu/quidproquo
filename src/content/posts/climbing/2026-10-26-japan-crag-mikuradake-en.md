@@ -13,7 +13,7 @@ description: "Mikuradake climbing guide: seasons, transport, local access rules,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-mikuradake)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-mikuradake)
 
 Japan’s granite crack destinations extend beyond Ogawayama and Mizugaki. At Mikuradake, cracks, friction slabs and multipitch routes share a mountain; choosing the wall matters as much as choosing the grade.
 

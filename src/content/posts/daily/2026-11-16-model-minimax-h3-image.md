@@ -15,7 +15,7 @@ glossary:
     def: "MiniMax 於 2026-07-31 發布的開放權重 omni-modal 影片模型，可理解文字／圖像／影片／音訊並生成影片；H3-Image 拿掉其 audio 層、改接圖像生成頭衍生而來"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-16-model-minimax-h3-image-en)
+> :globe: [English version](/posts/daily/2026-11-16-model-minimax-h3-image-en)
 
 ## 模型資訊
 
@@ -36,7 +36,7 @@ glossary:
 ## 能力亮點
 
 - 16 百萬像素原生輸出，涵蓋 4096×4096（1:1）到 6272×2688（21:9）全比例，不需 upscaler，API 上限 20,000,000 像素
-- 6 步蒸餾採樣（6 NFEs）、無 classifier-free guidance，官方宣稱 4K 生成在 10 秒內、比主流方案快達 5 倍 ⚠️ 第三方實測 4K 僅 Highspeed 檔位接近 10 秒，Standard 檔位未見獨立測速數據佐證「under 10 seconds」
+- 6 步蒸餾採樣（6 NFEs）、無 classifier-free guidance，官方宣稱 4K 生成在 10 秒內、比主流方案快達 5 倍 :warning: 第三方實測 4K 僅 Highspeed 檔位接近 10 秒，Standard 檔位未見獨立測速數據佐證「under 10 seconds」
 - 最多 16 張未分類參考圖，依上傳順序以 `<Picture 1>` 至 `<Picture 16>` 定位，同一張卡覆蓋文生圖與圖像編輯兩種任務
 - Artificial Analysis 獨立榜（2026-11-13 公布）：image editing 排第 13／84，Elo 1138，小勝 Nano Banana 2 的 1126（領先 12 分，信賴區間略重疊）；text-to-image 排第 25／114，Elo 1066，落後 Nano Banana 2 的 1143 達 77 分（信賴區間不重疊）
 
@@ -49,7 +49,7 @@ glossary:
 | Highspeed 版 Image Editing Elo | 1134（#14/84） | 無 | 同上 |
 | Highspeed 版 Text-to-Image Elo | 1072（#24/114） | 無 | 同上 |
 
-⚠️ 以上均為 Artificial Analysis 第三方獨立排行榜分數，非官方自測——MiniMax 官方部落格與 HuggingFace 模型卡本身都沒有公布 GenEval、DPG-Bench 或任何量化評測表，發布當週（截至 2026-11-12）唯一的「證據」是展示圖集，直到 Artificial Analysis 於 2026-11-13 把它納入兩個獨立榜單才第一次有可信的量化分數。
+:warning: 以上均為 Artificial Analysis 第三方獨立排行榜分數，非官方自測——MiniMax 官方部落格與 HuggingFace 模型卡本身都沒有公布 GenEval、DPG-Bench 或任何量化評測表，發布當週（截至 2026-11-12）唯一的「證據」是展示圖集，直到 Artificial Analysis 於 2026-11-13 把它納入兩個獨立榜單才第一次有可信的量化分數。
 
 ## 與前代/競品比較
 

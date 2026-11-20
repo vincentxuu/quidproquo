@@ -11,9 +11,9 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 5
 ---
-> 🌏 [中文版](/posts/daily/2026-05-29-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-05-29-ai-agent-arxiv-digest)
 
-[!callout icon="📌" color="blue_background"]
+[!callout icon=":pin:" color="blue_background"]
 ## Today's Overview
 
 Three papers tackle "how to make agentic AI work better" from three angles: the first (UIUC × Intel) profiles real agent workloads and finds the bottleneck is KV-cache management, not long prompts; the second (PwC) runs controlled experiments challenging the RAG-first default, showing grep often beats vector search in agent loops; the third (Microsoft Research) open-sources a complete agent training framework that lets the community train same-tier SOTA agents without relying on closed-source APIs.
@@ -37,18 +37,18 @@ Three papers tackle "how to make agentic AI work better" from three angles: the 
 
 **Authors**: Yichao Yuan, Nishil Talati (UIUC), Ankita Nayak (Gimlet Labs), Souvik Kundu (Intel)　·　**arxiv**: 2605.26297
 **Links**: [arxiv](https://arxiv.org/abs/2605.26297) · [alphaxiv](https://www.alphaxiv.org/abs/2605.26297)
-[!callout icon="🎯" color="yellow_background"]
+[!callout icon=":target:" color="yellow_background"]
 
 ### TL;DR
 
 You thought the agent performance bottleneck was "prompts are too long" — wrong. The real bottleneck is token generation speed and KV-cache management; serving systems need to be redesigned accordingly.
-[!callout icon="⭐" color="green_background"]
+[!callout icon="★" color="green_background"]
 
 ### Read Priority
 
 Must-read
 Any engineer working on LLM serving or agent runtimes should read this: it's the first quantitative characterization report for agentic workloads, with conclusions that directly impact infrastructure choices.
-[!callout icon="🧭" color="gray_background"]
+[!callout icon=":compass:" color="gray_background"]
 
 ### Domain Background
 
@@ -73,18 +73,18 @@ The authors used end-to-end tracing infrastructure to record the token compositi
 
 ### Deep Dive
 
-- Tested on 5 agentic benchmarks across reasoning/non-reasoning models (Gemma, Qwen); the paper does not fully list all benchmark names and task counts ⚠️
-- The "decode-dominated" conclusion assumes effective context caching is in place; without KV-cache reuse in the serving stack, prefill can still be expensive ⚠️
+- Tested on 5 agentic benchmarks across reasoning/non-reasoning models (Gemma, Qwen); the paper does not fully list all benchmark names and task counts :warning:
+- The "decode-dominated" conclusion assumes effective context caching is in place; without KV-cache reuse in the serving stack, prefill can still be expensive :warning:
 - The "read-early, write-late" temporal pattern of tool calls has direct implications for cache eviction policy design (don't evict KV built during early task phases)
 - Framework connection: LangGraph / AutoGen message history accumulation is the real-world source of long-lived KV-cache; vLLM prefix caching and SGLang RadixAttention are the corresponding technical solutions
 - Adoption barrier: the paper gives directional conclusions but no open-source tracer — engineers need to validate on their own serving stack
 - Related work this week: 2605.26289 (Stateful Inference for Low-Latency Multi-Agent Tool Calling) is worth reading alongside
-[!callout icon="🧐" color="purple_background"]
+[!callout icon="" color="purple_background"]
 
 ### Reviewer's One-Liner
 
 The right question asked, a valuable direction, but the current results are high-level and lack details for direct reproduction or quantitative comparison — more of a signpost than a complete systems paper; directional conclusions are strong, but specific numbers should be interpreted cautiously.
-[!callout icon="🎬" color="orange_background"]
+[!callout icon=":film:" color="orange_background"]
 
 ### Your Take-Away
 
@@ -98,18 +98,18 @@ The right question asked, a valuable direction, but the current results are high
 
 **Authors**: Sahil Sen, Akhil Kasturi, Elias Lumer, Anmol Gulati, Vamse Kumar Subbiah (PricewaterhouseCoopers US)　·　**arxiv**: 2605.15184
 **Links**: [arxiv](https://arxiv.org/abs/2605.15184) · [alphaxiv](https://www.alphaxiv.org/abs/2605.15184)
-[!callout icon="🎯" color="yellow_background"]
+[!callout icon=":target:" color="yellow_background"]
 
 ### TL;DR
 
 When searching for information inside an agent loop, plain grep (string matching) often outperforms vector search (semantic search) — but what really determines the outcome is which harness you use, not just the search method.
-[!callout icon="⭐" color="green_background"]
+[!callout icon="★" color="green_background"]
 
 ### Read Priority
 
 Must-read
 For any engineer adding RAG to an agent, this is a direct challenge: your vector database may not be the best solution, and this paper has quantitative evidence.
-[!callout icon="🧭" color="gray_background"]
+[!callout icon=":compass:" color="gray_background"]
 
 ### Domain Background
 
@@ -134,19 +134,19 @@ The authors took 116 questions from LongMemEval (a benchmark testing agent memor
 
 ### Deep Dive
 
-- Experiment sample: 116 questions from a LongMemEval subset — a small sample size, so conclusions should be interpreted cautiously ⚠️
-- Codex experiment data is incomplete; the paper acknowledges "scaling-related conclusions are conditional" ⚠️
-- The four harnesses each use different LLMs, making model effects and harness effects hard to fully disentangle ⚠️
+- Experiment sample: 116 questions from a LongMemEval subset — a small sample size, so conclusions should be interpreted cautiously :warning:
+- Codex experiment data is incomplete; the paper acknowledges "scaling-related conclusions are conditional" :warning:
+- The four harnesses each use different LLMs, making model effects and harness effects hard to fully disentangle :warning:
 - Why grep wins: LongMemEval is dominated by factual questions (exact numbers, names), which is lexical search's sweet spot; semantically complex questions might yield different conclusions
 - Inline vs. file-based presentation matters significantly: how tool output is "shown to the LLM" is itself a critical design decision
 - Challenge to the LangChain / LangGraph ecosystem: the current default is a vector store, and this paper provides a systematic counterexample
 - The Chronos harness is described in the paper; Claude Code, Codex CLI, and Gemini CLI are third-party tools
-[!callout icon="🧐" color="purple_background"]
+[!callout icon="" color="purple_background"]
 
 ### Reviewer's One-Liner
 
 An interesting question that challenges industry defaults, but the 116-question sample is too small, Codex data is missing, and models aren't uniformly controlled — the generalizability of conclusions remains in question. A valuable negative result worth paying attention to, but not grounds to "stop using vector search."
-[!callout icon="🎬" color="orange_background"]
+[!callout icon=":film:" color="orange_background"]
 
 ### Your Take-Away
 
@@ -160,18 +160,18 @@ An interesting question that challenges industry defaults, but the 116-question 
 
 **Authors**: Microsoft Research (multiple authors)　·　**arxiv**: 2605.15040
 **Links**: [arxiv](https://arxiv.org/abs/2605.15040) · [alphaxiv](https://www.alphaxiv.org/abs/2605.15040)
-[!callout icon="🎯" color="yellow_background"]
+[!callout icon=":target:" color="yellow_background"]
 
 ### TL;DR
 
 Microsoft open-sources a complete agent model training framework that enables small models to reach same-tier open-source SOTA on SWE / GUI / assistant tasks through data distillation + custom RL, without depending on GPT-4o API.
-[!callout icon="⭐" color="green_background"]
+[!callout icon="★" color="green_background"]
 
 ### Read Priority
 
 Must-read
 One of the most complete open-source agent training solutions the community can use today — solid benchmark numbers and framework design worth referencing directly.
-[!callout icon="🧭" color="gray_background"]
+[!callout icon=":compass:" color="gray_background"]
 
 ### Domain Background
 
@@ -198,19 +198,19 @@ All three recipes use small models (30B, 4B) with limited distilled data to prod
 ### Deep Dive
 
 - **Orchard-SWE** (software engineering agent): Qwen3-30B-A3B-Thinking, SWE-bench Verified SFT 64.3% → SFT+RL 67.5%, same-tier open-source SOTA
-- **Orchard-GUI** (browser GUI agent): 4B VLM, 0.4K distilled trajectories, WebVoyager 74.1% / Online-Mind2Web 67.0% / DeepShop 64.0% ⚠️ (very few trajectories — overfitting risk)
+- **Orchard-GUI** (browser GUI agent): 4B VLM, 0.4K distilled trajectories, WebVoyager 74.1% / Online-Mind2Web 67.0% / DeepShop 64.0% :warning: (very few trajectories — overfitting risk)
 - **Orchard-Claw** (personal assistant agent): 0.2K synthetic tasks, Claw-Eval pass@3 59.6%; with ZeroClaw harness rises to 73.9% pass@3
-- Distillation source models (MiniMax-M2.5, Qwen3.5-397B) are not open-source, making the data distillation stage hard to fully reproduce ⚠️
+- Distillation source models (MiniMax-M2.5, Qwen3.5-397B) are not open-source, making the data distillation stage hard to fully reproduce :warning:
 - Credit-assignment SFT is the most technically significant contribution: it solves the "partial credit" training problem in long-horizon tasks, distinct from the traditional filter-then-SFT approach
-- The 0.4K / 0.2K ultra-small data numbers are impressive, but these are results from fine-tuning on specific benchmarks — generalization ability remains to be validated ⚠️
+- The 0.4K / 0.2K ultra-small data numbers are impressive, but these are results from fine-tuning on specific benchmarks — generalization ability remains to be validated :warning:
 - Orchard Env's sandbox lifecycle primitives design offers direct architectural reference for teams building their own agent training infrastructure
 - Open-source repository: [github.com/microsoft/Orchard](http://github.com/microsoft/Orchard)
-[!callout icon="🧐" color="purple_background"]
+[!callout icon="" color="purple_background"]
 
 ### Reviewer's One-Liner
 
 A solid engineering contribution: benchmark numbers are convincing, credit-assignment SFT is a genuinely novel idea, and the framework design is pragmatic. The closed distillation source models dock points on "fully reproducible" — but in a landscape where open-source agent training frameworks are scarce, this is still the most bookmark-worthy paper of the week.
-[!callout icon="🎬" color="orange_background"]
+[!callout icon=":film:" color="orange_background"]
 
 ### Your Take-Away
 

@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-01-introduction-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-01-introduction-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 第 1 堂錄影的英文字幕寫成；這堂沒有專屬的講義章節，記號對照 2026 主講義第一部開頭的導言（第 6–8 頁）與目錄。寫的時候只有字幕，沒看到投影片畫面；各節標的時間取自字幕的段落時間戳，是近似值。
 

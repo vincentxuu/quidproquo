@@ -23,7 +23,7 @@ glossary:
     context: "Slides 38–47 use it to connect dialogue planning with model-based planning for web agents."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-language-agents)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-language-agents)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

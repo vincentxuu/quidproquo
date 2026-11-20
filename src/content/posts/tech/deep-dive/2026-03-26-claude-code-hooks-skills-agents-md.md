@@ -13,7 +13,7 @@ series:
   order: 17
 ---
 
-🌏 [English version](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en)
+:globe: [English version](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md-en)
 
 CI 跑在 GitHub Actions，push 之後才知道 lint 沒過、type 報錯。來回修一次要五到十分鐘，改一個 typo 又要再跑一輪。問題不在 CI 設計不好，而是檢查發生得太晚。
 

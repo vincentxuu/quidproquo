@@ -23,7 +23,7 @@ glossary:
     context: "It requires registering with a SUNet ID, so readers outside Stanford cannot use the course queue."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

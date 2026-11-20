@@ -12,7 +12,7 @@ series:
   order: 81
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-04-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-04-ai-agent-daily)
 
 ## Take of the Day
 
@@ -136,13 +136,13 @@ caption: The one-point gap at the model layer is nearly ignorable; the switching
 
 ## Today's Digests
 
-- 📄 [AI Agent GitHub Digest — 2026-11-04](/posts/daily/2026-11-04-ai-agent-github-digest-en)
-- 📄 [Framework Update: Pydantic AI v2.65.0](/posts/daily/2026-11-04-framework-pydantic-ai-v2.65.0-en)
-- 📄 [Funding Brief: Tutor Intelligence Series B $75M](/posts/daily/2026-11-04-funding-tutor-intelligence-en)
-- 📄 [Pricing Watch: Gemini 2.5 Pro/Flash Developer API Sunset Date Filled In](/posts/daily/2026-11-04-pricing-google-gemini-2-5-pro-flash-developer-api-sunset-en)
-- 📄 [Tool Pick: Verdict](/posts/daily/2026-11-04-tool-verdict-en)
-- 📄 [AI Engineer Interview Daily — 2026-11-04](/posts/daily/2026-11-04-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-11-04](/posts/daily/2026-11-04-product-builder-interview-daily-en)
+- :file: [AI Agent GitHub Digest — 2026-11-04](/posts/daily/2026-11-04-ai-agent-github-digest-en)
+- :file: [Framework Update: Pydantic AI v2.65.0](/posts/daily/2026-11-04-framework-pydantic-ai-v2.65.0-en)
+- :file: [Funding Brief: Tutor Intelligence Series B $75M](/posts/daily/2026-11-04-funding-tutor-intelligence-en)
+- :file: [Pricing Watch: Gemini 2.5 Pro/Flash Developer API Sunset Date Filled In](/posts/daily/2026-11-04-pricing-google-gemini-2-5-pro-flash-developer-api-sunset-en)
+- :file: [Tool Pick: Verdict](/posts/daily/2026-11-04-tool-verdict-en)
+- :file: [AI Engineer Interview Daily — 2026-11-04](/posts/daily/2026-11-04-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-11-04](/posts/daily/2026-11-04-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

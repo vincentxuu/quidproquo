@@ -12,7 +12,7 @@ series:
   order: 93
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-16-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-16-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -117,16 +117,16 @@ OpenAI 將於 2026-12-11 停用 `gpt-5`、`gpt-5-mini`、`gpt-5-nano`、`gpt-5-p
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-16](/posts/daily/2026-11-16-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-16](/posts/daily/2026-11-16-ai-agent-github-digest)
-- 📄 [框架更新｜AG2 v1.3.2](/posts/daily/2026-11-16-framework-ag2-v1.3.2)
-- 📄 [融資速報｜WhiteMatter Series A $20M](/posts/daily/2026-11-16-funding-whitematter)
-- 📄 [模型卡｜MiniMax-H3-Image](/posts/daily/2026-11-16-model-minimax-h3-image)
-- 📄 [定價追蹤｜OpenAI 12/11 停用 GPT-5／o3 全系列](/posts/daily/2026-11-16-pricing-openai-gpt-5-o3-family-shutdown)
-- 📄 [資安警報｜Cursor 揭露：Fireworks AI 金鑰外流是擴充套件後門事件根因](/posts/daily/2026-11-16-security-fireworks-ai-key-theft-cursor-supply-chain)
-- 📄 [工具推薦｜turbo-browser-mcp](/posts/daily/2026-11-16-tool-turbo-browser-mcp)
-- 📄 [AI Engineer 面試日練 — 2026-11-16](/posts/daily/2026-11-16-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-11-16](/posts/daily/2026-11-16-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-16](/posts/daily/2026-11-16-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-16](/posts/daily/2026-11-16-ai-agent-github-digest)
+- :file: [框架更新｜AG2 v1.3.2](/posts/daily/2026-11-16-framework-ag2-v1.3.2)
+- :file: [融資速報｜WhiteMatter Series A $20M](/posts/daily/2026-11-16-funding-whitematter)
+- :file: [模型卡｜MiniMax-H3-Image](/posts/daily/2026-11-16-model-minimax-h3-image)
+- :file: [定價追蹤｜OpenAI 12/11 停用 GPT-5／o3 全系列](/posts/daily/2026-11-16-pricing-openai-gpt-5-o3-family-shutdown)
+- :file: [資安警報｜Cursor 揭露：Fireworks AI 金鑰外流是擴充套件後門事件根因](/posts/daily/2026-11-16-security-fireworks-ai-key-theft-cursor-supply-chain)
+- :file: [工具推薦｜turbo-browser-mcp](/posts/daily/2026-11-16-tool-turbo-browser-mcp)
+- :file: [AI Engineer 面試日練 — 2026-11-16](/posts/daily/2026-11-16-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-11-16](/posts/daily/2026-11-16-product-builder-interview-daily)
 
 ## 明日關注
 

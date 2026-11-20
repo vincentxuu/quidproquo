@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-20-always-on-agent-anatomy)
+> :globe: [中文版](/posts/ai/2026-11-20-always-on-agent-anatomy)
 
 Say you want one thing: "Tell me if anything odd shows up on my credit card statement." Hand that to three kinds of agent and you get three very different behaviours.
 

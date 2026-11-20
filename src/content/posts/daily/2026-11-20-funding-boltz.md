@@ -12,7 +12,7 @@ series:
   order: 146
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-20-funding-boltz-en)
+> :globe: [English version](/posts/daily/2026-11-20-funding-boltz-en)
 
 ## 融資資訊
 

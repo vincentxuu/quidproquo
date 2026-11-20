@@ -11,7 +11,7 @@ series:
   order: 107
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-08-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-09-08-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -73,7 +73,7 @@ Coding agent 已經被廣泛用來做軟體工程任務（SWE-bench 系列）,�
 ### 深入要點
 
 - 53 個公開任務橫跨四個領域（airline、retail、telecom、banking）,另外保留 53 個私有任務不公開
-- 最強配置 Claude Opus 5 + Claude Code 通過 23.9% 的模擬測試,專家撰寫的參考實作拿到 82.2% ⚠️（Sierra 內部評測,未見外部複現）
+- 最強配置 Claude Opus 5 + Claude Code 通過 23.9% 的模擬測試,專家撰寫的參考實作拿到 82.2% :warning:（Sierra 內部評測,未見外部複現）
 - 失敗模式與人類新手工程師相似:用關鍵字搜尋取代深讀記錄、幾乎不主動詢問客戶、預算掌握失準（兩端都有）、只交出第一個能跑的架構不再嘗試別的設計、用自己寫的測試驗證自己（這些測試會複製開發者自己的盲點）
 - 落地門檻:每個任務的建構環境是隔離沙箱、無網路連線,且評測用的模擬對照組完全保密——分數反映的是端到端建構能力,而非套模板
 - 與主流框架的關聯:這是 τ-bench 家族（τ-bench、τ²-bench）的延伸,把「服務模擬使用者」的評測邏輯反過來套用到「造出服務者本身」
@@ -134,7 +134,7 @@ AutoGen、MetaGPT 這類「orchestrator 拆任務、worker 執行、大家一起
 
 - Overcooked 三種廚房佈局:錨定 SRMA 比純文字自我把關分別高出 14.3%、27.3%、30.0% 的得分
 - Resource Contest:加入 execution memory 後平均多拿 2.6 分獎勵,平均後悔值從 4.33 降到 1.70（降 60.8%）
-- SWE-bench 500 題:Kimi K2.5 完整系統（bilevel SRMA）解出 72.2%,對比 free-form 未把關的多 Agent 反思只有 58.4%;受控的 DeepSeek 版本同方向但差距較小,71.4% vs 68.2% ⚠️（72.2% 對比的是外部公開 leaderboard 的 70.8%,不是同預算受控組）
+- SWE-bench 500 題:Kimi K2.5 完整系統（bilevel SRMA）解出 72.2%,對比 free-form 未把關的多 Agent 反思只有 58.4%;受控的 DeepSeek 版本同方向但差距較小,71.4% vs 68.2% :warning:（72.2% 對比的是外部公開 leaderboard 的 70.8%,不是同預算受控組）
 - 一次性隨機驗證誤放 28.4% 的變壞提案,固定驗 5 次降到 6.8% 但要多花 225 次驗證呼叫,自適應版本用 82 次呼叫就做到差不多的 7.1%（省下 63.6% 呼叫）
 - Limitation:理論保證的前提（耦合有界、動作空間有限、裁判已校準）在開放式任務裡未必成立
 
@@ -194,7 +194,7 @@ Timothy Marsden, Matthew Collecutt, James Marsden　·　arxiv: 2609.03192
 - 修好一項證據來源規則,誤判（false attribution）從 107 件裡的 44 件降到 4 件;預先登記的核心預測被推翻兩次、方向還相反
 - 認知端四種介入中,一次錯誤的可信證詞讓相信它的那一組平均多做約 900 次白費的動作,不相信的那組完全沒受影響
 - 五項預先聲明的可靠性保證（唯一被接受的現實、無效嘗試會被標明原因拒絕、職責不因流程結束而消失、同一份工作不會被完成兩次、沒有一次假完成被接受）在所有測試軌跡裡都沒被打破,包含 2,581 筆用替換面板送出的宣告裡沒有一筆假完成
-- 完整重跑用的實驗 harness 刻意延後公開,目前只釋出 sealed artifacts 的 SHA-256 清單與驗證回條 ⚠️（作者自陳邊界,尚無法獨立重跑）
+- 完整重跑用的實驗 harness 刻意延後公開,目前只釋出 sealed artifacts 的 SHA-256 清單與驗證回條 :warning:（作者自陳邊界,尚無法獨立重跑）
 - Limitation:所有結果都只在一個設計出來的世界裡測、只有兩個固定情境,認知替換比較組只有一個模型、n=3 cells,作者明確聲明「不對機構母體做出估計」
 
 ### Reviewer 一句話評

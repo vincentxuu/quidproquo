@@ -14,7 +14,7 @@ series:
   order: 10
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-multimodal-rag-en)
+> :globe: [English version](/posts/ai/2026-03-12-multimodal-rag-en)
 
 攀岩社群裡有大量視覺資訊：路線圖（topo）、岩壁照片、動作示範影片截圖。這些圖片包含了文字描述很難完整傳達的資訊——岩壁的形態、路線的走向、關鍵動作的身體位置。
 

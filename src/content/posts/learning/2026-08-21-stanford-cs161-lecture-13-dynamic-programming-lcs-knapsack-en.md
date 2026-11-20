@@ -13,7 +13,7 @@ description: "A complete reading of Stanford CS161 Winter 2026 Lecture 13: the t
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-13-dynamic-programming-lcs-knapsack)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-13-dynamic-programming-lcs-knapsack)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

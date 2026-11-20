@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-30-benchmark-arena-agent-gemini-carbon)
+> :globe: [中文版](/posts/daily/2026-10-30-benchmark-arena-agent-gemini-carbon)
 
 ## Summary
 
@@ -24,9 +24,9 @@ The Arena Agent leaderboard's official publish date moved from 2026-10-23 to 202
 
 | Rank | Model | Score | 95% CI | 10-23 score (rank) | Change |
 |---|---|---|---|---|---|
-| 🥇 | Claude Opus 5.5 (Max) | 20.94% | [18.79%, 23.09%] | 20.77% (1) | — |
-| 🥈 | Gemini 4 Carbon (High) | 16.04% | [15.04%, 17.04%] | New entry | 🆕 |
-| 🥉 | Claude Sonnet 5.5 (Max) | 13.84% | [11.19%, 16.49%] | 13.99% (2) | ↓1 |
+| 1 | Claude Opus 5.5 (Max) | 20.94% | [18.79%, 23.09%] | 20.77% (1) | — |
+| 2 | Gemini 4 Carbon (High) | 16.04% | [15.04%, 17.04%] | New entry | NEW|
+| 3 | Claude Sonnet 5.5 (Max) | 13.84% | [11.19%, 16.49%] | 13.99% (2) | ↓1 |
 | 4 | Claude Fable 5.1 (Max) | 13.35% | [11.46%, 15.25%] | 13.94% (4) | — |
 | 5 | GPT-6 Astra (Max) | 12.96% | [10.94%, 14.98%] | 13.96% (3) | ↓2 |
 | 6 | GPT-6.1 Sol (Max) | 12.47% | [11.39%, 13.54%] | 13.64% (5) | ↓1 |
@@ -44,7 +44,7 @@ Gemini 4 Carbon is a next-generation frontier model Google DeepMind [officially 
 
 ### Methodology angle
 
-⚠️ These scores come from Arena's own IPS (inverse propensity score) blind-voting results, not a vendor self-test, which makes them more credible than a self-reported benchmark. But Carbon [isn't publicly available yet](https://arstechnica.com/ai/2026/10/google-announces-gemini-4-carbon-its-latest-frontier-ai-model-that-you-cant-use/) — it's limited to a small group of testers in Google's "Fairwind Program" for cyber defenders; developers, businesses, and ordinary consumers don't have access. That means the 26,511 sessions behind this score come from a tester population, not the general public, and the sample composition may not match how the model gets used once it's actually released. On confidence intervals: Carbon's 95% CI lower bound (15.04%) still sits above Sonnet 5.5's point estimate (13.84%) — Carbon's rank gap is one of the few in this batch that holds up statistically, even though the intervals technically overlap. By contrast, Sonnet 5.5, Fable 5.1, and Astra have CIs that overlap almost entirely; the true ordering of ranks 3 through 5 can't be statistically distinguished.
+:warning: These scores come from Arena's own IPS (inverse propensity score) blind-voting results, not a vendor self-test, which makes them more credible than a self-reported benchmark. But Carbon [isn't publicly available yet](https://arstechnica.com/ai/2026/10/google-announces-gemini-4-carbon-its-latest-frontier-ai-model-that-you-cant-use/) — it's limited to a small group of testers in Google's "Fairwind Program" for cyber defenders; developers, businesses, and ordinary consumers don't have access. That means the 26,511 sessions behind this score come from a tester population, not the general public, and the sample composition may not match how the model gets used once it's actually released. On confidence intervals: Carbon's 95% CI lower bound (15.04%) still sits above Sonnet 5.5's point estimate (13.84%) — Carbon's rank gap is one of the few in this batch that holds up statistically, even though the intervals technically overlap. By contrast, Sonnet 5.5, Fable 5.1, and Astra have CIs that overlap almost entirely; the true ordering of ranks 3 through 5 can't be statistically distinguished.
 
 ### Industry angle
 

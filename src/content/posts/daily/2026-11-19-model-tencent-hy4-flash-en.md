@@ -15,7 +15,7 @@ glossary:
     def: "A lookup-table embedding module in Hy4 flash that retrieves bigram/trigram representations via hashing — it adds no attention compute but accounts for a large share of stored parameters"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-19-model-tencent-hy4-flash)
+> :globe: [中文版](/posts/daily/2026-11-19-model-tencent-hy4-flash)
 
 ## Model Info
 
@@ -50,7 +50,7 @@ glossary:
 | Blind-test user satisfaction (4-point scale) | 2.79 | — | Claude Haiku 5.5 — 2.81 |
 | Per-task cost on WorkIndex (relative) | 1× | flagship Hy4 — 20× | DeepSeek-V4.1-Flash-1017 (Max tier) — 8× |
 
-⚠️ All figures except the blind test are Tencent's own benchmarks; the DeepSWE and Terminal-Bench 4.0 numbers come from the official appendix charts and were cross-checked against two independent aggregator sites (LLMLearner, DataLearnerAI), but have not been independently reproduced.
+:warning: All figures except the blind test are Tencent's own benchmarks; the DeepSWE and Terminal-Bench 4.0 numbers come from the official appendix charts and were cross-checked against two independent aggregator sites (LLMLearner, DataLearnerAI), but have not been independently reproduced.
 
 ## Comparison with Predecessor/Competitors
 

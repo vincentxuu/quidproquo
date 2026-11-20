@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-19-ai-browser-sdk-comparison-en)
+> :globe: [English version](/posts/ai/2026-11-19-ai-browser-sdk-comparison-en)
 
 系列第 8 到 12 篇介紹了四個混合式 SDK：[Stagehand v4](/posts/ai/2026-11-18-stagehand-v4)、[Midscene](/posts/ai/2026-05-23-midscene-vision-ui-automation)、[AgentQL](/posts/ai/2026-08-21-agentql-semantic-web-extraction)、[Skyvern](/posts/ai/2026-11-19-skyvern)。它們的共同點是：流程由你的程式控制，只有個別步驟交給模型。同一層還有 Magnitude、HyperAgent、Notte，每家的 README 都附著一個漂亮的成功率。
 

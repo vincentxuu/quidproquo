@@ -30,7 +30,7 @@ glossary:
     context: "只用於淺水（約 3 公尺以內）的短墜落。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-deep-water-soloing-en)
+> :globe: [English version](/posts/climbing/2026-10-19-deep-water-soloing-en)
 
 深水獨攀（deep water soloing，DWS）是離岩館最近的一種戶外攀登：一雙攀岩鞋、一個粉袋，在海面上方的岩壁往上爬，爬不動就放手，掉進水裡。
 

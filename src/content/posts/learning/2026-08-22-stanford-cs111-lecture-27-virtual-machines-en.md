@@ -13,7 +13,7 @@ description: "A reading of Stanford CS111 Spring 2026 Lecture 27: VM abstraction
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-27-virtual-machines)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-27-virtual-machines)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

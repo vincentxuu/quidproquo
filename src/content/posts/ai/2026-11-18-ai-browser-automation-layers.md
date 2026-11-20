@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-18-ai-browser-automation-layers-en)
+> :globe: [English version](/posts/ai/2026-11-18-ai-browser-automation-layers-en)
 
 想讓 AI 幫你操作網頁：抓一張價格表、填一份表單、跑一遍註冊流程。搜一圈會同時看到 [Playwright MCP](https://github.com/microsoft/playwright-mcp)、[Stagehand](https://github.com/browserbase/stagehand)、[Browser Use](https://github.com/browser-use/browser-use)、[Browserbase](https://www.browserbase.com/)、[Cloudflare Browser Run](https://developers.cloudflare.com/browser-run/)，比較文常把它們排成同一張表，但它們不是同一種東西。前三個都在決定「下一步做什麼」，差在握控制權的是誰：Claude Code 這類 coding agent、你寫的程式，還是 agent 自己。後兩個只提供一台遠端的 Chrome。
 

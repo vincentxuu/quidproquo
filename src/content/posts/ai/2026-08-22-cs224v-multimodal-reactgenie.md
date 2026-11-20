@@ -12,7 +12,7 @@ tldr: "ReactGenie 以 React 元件加 annotations 暴露資料、動作與視圖
 description: "CS224V Multimodal Applications：組合命令、API 暴露、同步輸入輸出、ReactGenie architecture、runtime 與評估。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-multimodal-reactgenie-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-multimodal-reactgenie-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

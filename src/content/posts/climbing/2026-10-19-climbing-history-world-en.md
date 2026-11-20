@@ -26,7 +26,7 @@ glossary:
     context: "German climber Kurt Albert began marking routes he had free-climbed in the Frankenjura with a red dot in 1975; the name comes from that dot."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-history-world)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-history-world)
 
 Next time you walk into a climbing gym, take a look around: the chalk bags for sale by the front desk, the downturned shoes on your feet, route tags reading V3 or 5.10b, the competition poster by the auto-belay. It all looks like it has always been there, but every one of these things was made for the first time by somebody, in some particular year.
 

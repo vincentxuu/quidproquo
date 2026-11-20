@@ -30,7 +30,7 @@ glossary:
     context: "Physical therapists list it as one risk factor for secondary impingement."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-shoulder)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-shoulder)
 
 You've been climbing on the overhang lately, with more and more cross-throughs and big spans. One day, reaching overhead for a hold, you feel a sharp pain on the outside of your shoulder; at night, lying on that side wakes you up. A friend says: "You've pinched your shoulder. Train your scapulae."
 

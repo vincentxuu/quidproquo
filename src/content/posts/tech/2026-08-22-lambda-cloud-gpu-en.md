@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-lambda-cloud-gpu)
+> :globe: [中文版](/posts/tech/2026-08-22-lambda-cloud-gpu)
 
 [Lambda Cloud](https://docs.lambda.ai/public-cloud/) centers on Linux GPU VMs and multi-node 1-Click Clusters. One instance fits notebooks, fine-tuning, and prototype inference. Clusters can use Kubernetes or Slurm for distributed training and larger serving systems.
 

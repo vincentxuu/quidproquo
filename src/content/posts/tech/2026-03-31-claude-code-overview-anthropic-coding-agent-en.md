@@ -13,7 +13,7 @@ description: "How to install Claude Code, its core capabilities, the six-layer e
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent)
+:globe: [中文版](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent)
 
 Claude Code is Anthropic's agentic coding tool. It understands your codebase, executes everyday tasks through natural language instructions, explains complex code, and handles git workflows — all from your terminal, IDE (VS Code / JetBrains), Slack, GitHub, or the web.
 
@@ -139,8 +139,8 @@ Model names and prices move; the [official pricing page](https://claude.com/pric
 |---|---|---|---|---|---|
 | Vendor | Anthropic | OpenAI | Google | anomalyco (open source) | earendil-works (open source) |
 | Extension layers | 6 layers | Skills + MCP | MCP | Dual Agent | Extension |
-| Open source | ❌ | ✅ | ✅ (Apache 2.0) | ✅ | ✅ |
-| Free tier | ❌ (subscription required) | Partially free | ❌ (individual free tier ended 2026/6) | Completely free | Completely free |
+| Open source | ✗ | ✓ | ✓ (Apache 2.0) | ✓ | ✓ |
+| Free tier | ✗ (subscription required) | Partially free | ✗ (individual free tier ended 2026/6) | Completely free | Completely free |
 | Core strength | Most complete extension ecosystem | OpenAI model integration | Antigravity platform integration | 75+ model flexibility | Minimal + low token usage |
 | IDE integration | VS Code + JetBrains | VS Code | VS Code | TUI | TUI |
 

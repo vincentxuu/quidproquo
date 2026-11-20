@@ -13,7 +13,7 @@ series:
   order: 37
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-remote-control-guide-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-remote-control-guide-en)
 
 ## 人離開了電腦，任務還在跑
 

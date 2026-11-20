@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-promptfoo-ai-red-teaming-en)
+> :globe: [English version](/posts/tech/2026-08-22-promptfoo-ai-red-teaming-en)
 
 [Promptfoo red teaming](https://www.promptfoo.dev/docs/red-team/quickstart/) 把生成式 AI 攻擊測試拆成四塊：plugin 定義要測的 weakness，strategy 決定如何包裝/迭代 payload，target 是模型或完整 application endpoint，grader 判斷是否突破 policy。這篇聚焦 security workflow；站上既有 Promptfoo 一般 evaluation 文章處理的是較廣的 prompt/model 比較。
 

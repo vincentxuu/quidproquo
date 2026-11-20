@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-cloudflare-deployment-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-cloudflare-deployment-en)
 
 [上一篇 IDE/LSP bridge](/posts/tech/2026-08-30-looplane-ide-lsp-vscode-bridge)完成 orders 0–18 的本機路徑。這篇 capstone 接著問：同一份 AgentRunner 搬進 Cloudflare Sandbox 後，哪些本機保證能跨過 Worker / container 邊界？又有哪些責任必須交給遠端 control plane？
 

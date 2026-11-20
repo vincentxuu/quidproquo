@@ -12,7 +12,7 @@ series:
   order: 44
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-28-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-28-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -135,14 +135,14 @@ Google 在印度測試 Gemini／AI Mode 直接向 Flipkart 下單購物，已於
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-28](/posts/daily/2026-09-28-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-28](/posts/daily/2026-09-28-ai-agent-github-digest)
-- 📄 [模型卡｜AliceAI-Foundation-80B-A3B-Base](/posts/daily/2026-09-28-model-yandex-aliceai-foundation-80b)
-- 📄 [資安警報｜SiYuan MCP 檔案工具路徑穿越漏洞群](/posts/daily/2026-09-28-security-siyuan-mcp-path-traversal)
-- 📄 [融資速報｜Go.AI Series A $85M](/posts/daily/2026-09-28-funding-go-ai)
-- 📄 [定價追蹤｜OpenAI GPT-6 Sol／Luna 降價 50%](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut)
-- 📄 [AI Engineer 面試日練 — 2026-09-28：ML Fundamentals](/posts/daily/2026-09-28-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-28：Product Sense](/posts/daily/2026-09-28-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-28](/posts/daily/2026-09-28-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-28](/posts/daily/2026-09-28-ai-agent-github-digest)
+- :file: [模型卡｜AliceAI-Foundation-80B-A3B-Base](/posts/daily/2026-09-28-model-yandex-aliceai-foundation-80b)
+- :file: [資安警報｜SiYuan MCP 檔案工具路徑穿越漏洞群](/posts/daily/2026-09-28-security-siyuan-mcp-path-traversal)
+- :file: [融資速報｜Go.AI Series A $85M](/posts/daily/2026-09-28-funding-go-ai)
+- :file: [定價追蹤｜OpenAI GPT-6 Sol／Luna 降價 50%](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut)
+- :file: [AI Engineer 面試日練 — 2026-09-28：ML Fundamentals](/posts/daily/2026-09-28-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-28：Product Sense](/posts/daily/2026-09-28-product-builder-interview-daily)
 
 ## 明日關注
 

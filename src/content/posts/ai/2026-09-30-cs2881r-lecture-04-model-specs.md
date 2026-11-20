@@ -25,7 +25,7 @@ glossary:
     context: "L4 裡 Barak 實測發現，即使 spec 允許，模型實際上仍拒絕翻譯這類內容。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

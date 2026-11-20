@@ -12,7 +12,7 @@ series:
   order: 73
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-05-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-05-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -58,7 +58,7 @@ Xiuhui You, Jiayi Luo, Zichao Shen et al.　·　arxiv: 2608.03468
 ### 深入要點
 
 - ID 基準（HuggingFace / Multimedia）：比最強 baseline 高 1.37–1.50 百分點（Llama-3.1-8B）
-- OOD 基準（DailyLifeAPIs / Seal-Tools / ToolAlpaca）：比最強 baseline 高 3.22–4.90 百分點 ⚠️（作者自測，需等外部複現）
+- OOD 基準（DailyLifeAPIs / Seal-Tools / ToolAlpaca）：比最強 baseline 高 3.22–4.90 百分點 :warning:（作者自測，需等外部複現）
 - 對「罕見工具」（訓練時出現次數最少的 20%）提升最大，FWG 讓經驗跨工具共享
 - 使用 Qwen2.5-7B 和 Llama-3.1-8B 兩個骨幹模型驗證
 - 落地門檻：需要歷史工具呼叫軌跡來建構 FWG，冷啟動場景需要先累積資料
@@ -104,7 +104,7 @@ Zian Zhai, Xingyu Tan, Gaowang Zou et al.　·　arxiv: 2608.02650
 ### 深入要點
 
 - GPT-4o 骨幹：Test-N TGC 63.1%（ReAct 48.8%），Test-C TGC 35.7%（ReAct 30.2%）
-- 與 RL 訓練方法對比：NFT 方法中最高，接近 LOOP(token) 的 71.3% ⚠️（LOOP 用了 Qwen-2.5-32B 微調，不可直接比較）
+- 與 RL 訓練方法對比：NFT 方法中最高，接近 LOOP(token) 的 71.3% :warning:（LOOP 用了 Qwen-2.5-32B 微調，不可直接比較）
 - 工具上下文圖 recall：同預算（20 個工具）下，gold tool 召回率顯著高於語義 top-K 和 In-N-Out
 - token 消耗和 API 呼叫次數均低於 ReAct
 - 落地門檻：需要工具集的 schema 標註（In-N-Out 資料集提供了模板，新工具集需重新標註）
@@ -150,7 +150,7 @@ Vikas Pahuja, Jonathan Brokman, Omer Hofman et al.（Fujitsu Research of Europe 
 ### 深入要點
 
 - GAIA-MAPS（11 種語言 × 165 題）：GPT-5-mini + OWL + TART 平均提升 5.6 百分點
-- MULTITAT（10 種語言）：平均提升 1.9 百分點 ⚠️（Fujitsu / Cohere 自測）
+- MULTITAT（10 種語言）：平均提升 1.9 百分點 :warning:（Fujitsu / Cohere 自測）
 - 低資源語言（伊博語、約魯巴語）的規劃接地失敗佔所有失敗的比例最高
 - 三個 LLM 骨幹（GPT-5-mini、Mistral-Large-3、Qwen3-VL-235B）一致有效
 - 落地門檻：TART 只需要一步 LLM 呼叫做語義解析，額外延遲和成本很低

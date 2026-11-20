@@ -15,7 +15,7 @@ glossary:
     def: "DeepSeek（深度求索）開發的旗艦大型語言模型家族，分 Flash（輕量）與 Pro（旗艦）兩線，2026 年起加入多模態與更激進的 KV cache 壓縮技術"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash-en)
+> :globe: [English version](/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | CyberGym (Pass@1) | 88.1 | 76.7 | GPT-5.6 Sol／GLM-5.3：84.5 |
 | GPQA Diamond (Pass@1) | 90.9 | 89.9 | GPT-5.6 Sol：94.1 |
 
-⚠️ 以上皆為 DeepSeek 官方以 DeepSeek Harness（Minimal 模式，`temperature=1.0`、`top_p=0.95`，最大推理強度）或各 benchmark 官方 scaffold 自測，發布當日數據，尚無獨立第三方複現。
+:warning: 以上皆為 DeepSeek 官方以 DeepSeek Harness（Minimal 模式，`temperature=1.0`、`top_p=0.95`，最大推理強度）或各 benchmark 官方 scaffold 自測，發布當日數據，尚無獨立第三方複現。
 
 ## 與前代/競品比較
 

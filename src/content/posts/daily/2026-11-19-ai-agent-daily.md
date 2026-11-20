@@ -12,7 +12,7 @@ series:
   order: 96
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-19-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-19-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -138,15 +138,15 @@ caption: 案例與數字來自 Google GTIG、FBI／dev.to、HYPR、Oleria、CNBC
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-19](/posts/daily/2026-11-19-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-19](/posts/daily/2026-11-19-ai-agent-github-digest)
-- 📄 [框架更新｜Pydantic AI v2.70.0](/posts/daily/2026-11-19-framework-pydantic-ai-v2.70.0)
-- 📄 [模型卡｜Tencent Hy4 flash](/posts/daily/2026-11-19-model-tencent-hy4-flash)
-- 📄 [融資速報｜Payhawk Series C $280M](/posts/daily/2026-11-19-funding-payhawk)
-- 📄 [資安警報｜Microsoft Agent Framework PyPI 套件遭植入憑證竊取程式](/posts/daily/2026-11-19-security-microsoft-agent-framework-pypi-credential-stealer)
-- 📄 [工具推薦｜otpkit](/posts/daily/2026-11-19-tool-otpkit)
-- 📄 [AI Engineer 面試日練 — 2026-11-19](/posts/daily/2026-11-19-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-11-19](/posts/daily/2026-11-19-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-19](/posts/daily/2026-11-19-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-19](/posts/daily/2026-11-19-ai-agent-github-digest)
+- :file: [框架更新｜Pydantic AI v2.70.0](/posts/daily/2026-11-19-framework-pydantic-ai-v2.70.0)
+- :file: [模型卡｜Tencent Hy4 flash](/posts/daily/2026-11-19-model-tencent-hy4-flash)
+- :file: [融資速報｜Payhawk Series C $280M](/posts/daily/2026-11-19-funding-payhawk)
+- :file: [資安警報｜Microsoft Agent Framework PyPI 套件遭植入憑證竊取程式](/posts/daily/2026-11-19-security-microsoft-agent-framework-pypi-credential-stealer)
+- :file: [工具推薦｜otpkit](/posts/daily/2026-11-19-tool-otpkit)
+- :file: [AI Engineer 面試日練 — 2026-11-19](/posts/daily/2026-11-19-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-11-19](/posts/daily/2026-11-19-product-builder-interview-daily)
 
 ## 明日關注
 

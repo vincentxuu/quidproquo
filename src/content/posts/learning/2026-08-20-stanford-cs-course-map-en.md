@@ -22,7 +22,7 @@ description: "A prerequisite-ordered ladder through Stanford CS from CS106A to C
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-20-stanford-cs-course-map)
+> :globe: [中文版](/posts/learning/2026-08-20-stanford-cs-course-map)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

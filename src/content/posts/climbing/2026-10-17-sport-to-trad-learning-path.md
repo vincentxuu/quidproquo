@@ -30,7 +30,7 @@ glossary:
     context: "台灣帶人去戶外岩場攀岩的國家級證照。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-sport-to-trad-learning-path-en)
+> :globe: [English version](/posts/climbing/2026-10-17-sport-to-trad-learning-path-en)
 
 讀完[總覽](/posts/climbing/2026-10-17-sport-vs-trad-overview)，你大概知道自己在 L1 到 L5 的哪一級。這篇幫你把接下來一年排出來：每一級要練什麼、在台灣去哪裡學、要不要考證，以及別人最常在哪一步出事。
 

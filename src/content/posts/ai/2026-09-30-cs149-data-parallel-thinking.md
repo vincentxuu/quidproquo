@@ -24,7 +24,7 @@ glossary:
     context: "L8 指出在 32-wide SIMD 的 warp 內，work-efficient 版反而指令更多，因為 SIMD 利用率低。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-data-parallel-thinking-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-data-parallel-thinking-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

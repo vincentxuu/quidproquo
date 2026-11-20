@@ -28,7 +28,7 @@ glossary:
         url: "https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/policy.pdf"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

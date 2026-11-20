@@ -13,7 +13,7 @@ description: "AWS 三張 AI 證照（AIF-C01 / MLA-C02 / AIP-C01）的選擇指�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-19-aws-certifications-which-one-en)
+> :globe: [English version](/posts/ai/2026-08-19-aws-certifications-which-one-en)
 >
 > 本文是從官方資料建出來的選擇指南，不是應考實錄 —— 作者沒有報考這些考試。所有「考什麼」都指回官方 exam guide，所有規格都指回官方認證頁，不含考古題。最近查證：2026-09-12。
 

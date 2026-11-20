@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-🌏 [English version](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en)
+:globe: [English version](/posts/tech/deep-dive/2026-03-27-file-bug-issue-skill-remote-agent-en)
 
 CI 又紅了。PostgreSQL 在跑到第 20 個 schema 檔時 crash，錯誤訊息是 `FATAL: the database system is shutting down`。
 

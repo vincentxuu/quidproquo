@@ -11,7 +11,7 @@ series:
   order: 80
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-17-security-artex-ai-agent-key-theft-litellm-dify-en)
+> :globe: [English version](/posts/daily/2026-11-17-security-artex-ai-agent-key-theft-litellm-dify-en)
 
 ## 事件概述
 

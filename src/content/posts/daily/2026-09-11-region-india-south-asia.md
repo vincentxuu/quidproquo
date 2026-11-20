@@ -24,7 +24,7 @@ series:
 
 核心設計思路是加一層「代理註冊、驗證、授權」機制：今天 UPI 信任的是「一個人加上他的手機」，AI 代理兩者都不是，所以需要一個新的信任層。根據報導，NPCI 這層機制只驗證請求是否為使用者本人授權的真實請求，並不會看到代理實際購買的內容——這是刻意做的隱私邊界設計。NPCI 今年 2 月已與 NVIDIA 合作打造「支付原生的 AI 底座」，Pine Labs、Cashfree 等金融科技公司也已經在做代理支付工具，顯示這不是憑空冒出的計畫，而是印度支付生態系醞釀半年以上的方向。（[startupfeed.in](https://startupfeed.in/npci-unified-agent-protocol-ai-payments-upi)）
 
-⚠️ 目前協議細節仍未正式公佈，NPCI 對此不予置評，本篇引用的規格描述來自 Reuters 消息來源轉述，待正式發表後需要再次核實。
+:warning: 目前協議細節仍未正式公佈，NPCI 對此不予置評，本篇引用的規格描述來自 Reuters 消息來源轉述，待正式發表後需要再次核實。
 
 ### Gnani AI 把主權 AI 棧 Artha 推進 BFSI 企業
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-coolify-self-hosted-paas-en)
+> :globe: [English version](/posts/tech/2026-08-22-coolify-self-hosted-paas-en)
 
 [Coolify](https://next.coolify.io/docs/core/what-is-coolify) 是開源、可自架的 PaaS control plane。它透過 SSH 操作團隊提供的 servers，在上面 build 或 pull image、建立 Docker container/network/volume，並設定 reverse proxy、domain、TLS、health check 與 deployment。
 

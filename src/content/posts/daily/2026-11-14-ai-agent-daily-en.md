@@ -12,7 +12,7 @@ series:
   order: 91
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-14-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-14-ai-agent-daily)
 
 ## Today's Take
 
@@ -156,18 +156,18 @@ Other open-source signals: AI2 and Hugging Face co-released XYBench, an 8,115-qu
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-14](/posts/daily/2026-11-14-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-14](/posts/daily/2026-11-14-ai-agent-github-digest-en)
-- 📄 [Model Card: Claude Fable 5.2](/posts/daily/2026-11-14-model-anthropic-claude-fable-5-2-en)
-- 📄 [Security Alert: Codex npm supply-chain prompt injection](/posts/daily/2026-11-14-security-codex-npm-supply-chain-prompt-injection-en)
-- 📄 [Framework Update: Mastra @mastra/core v1.83.0](/posts/daily/2026-11-14-framework-mastra-core-v1.83.0-en)
-- 📄 [Funding: Bay Series A $37M](/posts/daily/2026-11-14-funding-bay-en)
-- 📄 [Funding: Kindo $30M growth round](/posts/daily/2026-11-14-funding-kindo-en)
-- 📄 [Funding: Nebuly Series A $21M](/posts/daily/2026-11-14-funding-nebuly-en)
-- 📄 [Pricing Watch: Google shuts down Jules](/posts/daily/2026-11-14-pricing-google-jules-coding-agent-shutdown-en)
-- 📄 [Tool of the Day: ha-mcp](/posts/daily/2026-11-14-tool-ha-mcp-en)
-- 📄 [AI Engineer Interview Prep](/posts/daily/2026-11-14-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep](/posts/daily/2026-11-14-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-14](/posts/daily/2026-11-14-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-14](/posts/daily/2026-11-14-ai-agent-github-digest-en)
+- :file: [Model Card: Claude Fable 5.2](/posts/daily/2026-11-14-model-anthropic-claude-fable-5-2-en)
+- :file: [Security Alert: Codex npm supply-chain prompt injection](/posts/daily/2026-11-14-security-codex-npm-supply-chain-prompt-injection-en)
+- :file: [Framework Update: Mastra @mastra/core v1.83.0](/posts/daily/2026-11-14-framework-mastra-core-v1.83.0-en)
+- :file: [Funding: Bay Series A $37M](/posts/daily/2026-11-14-funding-bay-en)
+- :file: [Funding: Kindo $30M growth round](/posts/daily/2026-11-14-funding-kindo-en)
+- :file: [Funding: Nebuly Series A $21M](/posts/daily/2026-11-14-funding-nebuly-en)
+- :file: [Pricing Watch: Google shuts down Jules](/posts/daily/2026-11-14-pricing-google-jules-coding-agent-shutdown-en)
+- :file: [Tool of the Day: ha-mcp](/posts/daily/2026-11-14-tool-ha-mcp-en)
+- :file: [AI Engineer Interview Prep](/posts/daily/2026-11-14-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep](/posts/daily/2026-11-14-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

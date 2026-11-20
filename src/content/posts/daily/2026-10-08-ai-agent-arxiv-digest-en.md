@@ -11,7 +11,7 @@ series:
   order: 137
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-08-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-10-08-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -74,7 +74,7 @@ Existing long-term-memory benchmarks mostly measure recall (did it retrieve the 
 
 - Top-20 anchor recall rises from 0.432 to 0.533, 80% recall feasibility from 0.237 to 0.311, and exact similarity evaluations drop by 98.3%
 - Across 1,523 paired benchmark-native cases, namespace routing is associated with judged-accuracy gains of 0.053-0.068 across three readers — but the authors explicitly flag this as observational, since recall changes too
-- Across 16 controlled exposure scenarios, only one confidence interval excludes zero for relevant-but-inadmissible literal disclosure (+0.156, 95% CI [0.031, 0.312]) ⚠️ (self-reported, pending external replication)
+- Across 16 controlled exposure scenarios, only one confidence interval excludes zero for relevant-but-inadmissible literal disclosure (+0.156, 95% CI [0.031, 0.312]) :warning: (self-reported, pending external replication)
 - In the frozen 72-case development diagnostic, only a reference method with released metadata preserves required evidence; neither text-only verifier catches violations under the 1% required-anchor false-denial limit
 - Deployment threshold: requires trustworthy namespace/principal labels to begin with — the authors explicitly note the framework assumes namespaces are trustworthy and does not handle namespace poisoning
 - Limitation: covers only two public sources and 7 RHELM groups; does not establish safety certification or model ranking, and does not cover graph-structured memory selectors where unauthenticated structural writes could change which authenticated records get selected
@@ -136,7 +136,7 @@ Existing scrutiny of agent evaluation runs along three largely separate lines: v
 - 18-46% of tasks don't stay in the same score band after five reruns (the D4 reliability check)
 - Only 22.6% of recorded passes clear all four checks together (95% CI 15.0-32.6, n=84)
 - Each configuration has only 13-20 recorded passes, with overlapping confidence intervals — the authors explicitly state this establishes that "most passes fail at least one check," not a ranking of which agent is stronger
-- The D2 ablation shows that even with no LLM judge at all, deterministic rules alone catch a substantial share of reward-hacking cases, suggesting most of the verification layer's value comes from deterministic rules rather than model judgment ⚠️ (self-reported; code withheld until acceptance)
+- The D2 ablation shows that even with no LLM judge at all, deterministic rules alone catch a substantial share of reward-hacking cases, suggesting most of the verification layer's value comes from deterministic rules rather than model judgment :warning: (self-reported; code withheld until acceptance)
 - Limitation: validated on only one benchmark (ALE) so far; D2 cannot catch fabrication laundered through genuine-but-improper execution; D3's "lie" verdict only means the report contradicts the outcome, not that the agent knowingly lied
 
 ### Reviewer's One-Line Take
@@ -196,7 +196,7 @@ Runtime protection for agent tool calls commonly stacks multiple layers: a hard-
 - The rule layer plus one judge composes to 1.86-2.09 layers (phi median only +0.014, 0 of 4 pairs significant), suggesting the rule layer's errors are more independent from the judges' — while judges tend to miss together more than expected
 - Solo accuracy of a single layer doesn't predict what stacking buys: a cloud rule pack lowers the rule layer's own solo miss rate by 20%, but adds zero new joint coverage once stacked
 - The share of judge coupling attributable to task difficulty itself ranges from 31.8% to 61.8% depending on the probe and miss definition — not precisely identifiable
-- One judge tier was accidentally served an unrequested model version in 50 of 112 batches, concentrated on the external corpus; this incident overturned a pre-declared analysis rule and reversed five conclusions ⚠️ (the author reports both versions honestly rather than keeping only the favorable one)
+- One judge tier was accidentally served an unrequested model version in 50 of 112 batches, concentrated on the external corpus; this incident overturned a pre-declared analysis rule and reversed five conclusions :warning: (the author reports both versions honestly rather than keeping only the favorable one)
 - Limitation: no test included an adaptive adversary specifically targeting the judges; the internal corpus was not re-collected because it can't distinguish between stack configurations
 
 ### Reviewer's One-Line Take

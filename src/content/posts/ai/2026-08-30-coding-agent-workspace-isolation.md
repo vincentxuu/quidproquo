@@ -13,7 +13,7 @@ tldr: "Looplane 的 disposable clone 與 SafePathPolicy 保護來源 repo；現�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-workspace-isolation-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-workspace-isolation-en)
 
 ## 設計問題
 

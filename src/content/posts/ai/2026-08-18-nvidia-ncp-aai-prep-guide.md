@@ -13,7 +13,7 @@ description: "NVIDIA NCP-AAI（Agentic AI Professional）備考指南，逐項�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide-en)
+> :globe: [English version](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide-en)
 >
 > 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試（現階段也無法報考，見下）。所有「考什麼」都指回 [NVIDIA 官方認證頁](https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/)與官方 Exam Study Guide，不含考古題。查證日期：2026-08-18；報名狀態、規格與權重於 2026-10-12 再確認。
 

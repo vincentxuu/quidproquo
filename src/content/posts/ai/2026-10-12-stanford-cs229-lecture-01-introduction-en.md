@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-01-introduction)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-01-introduction)
 
 **Video status: Videos included.** This post is written from the English transcript of the Spring 2026 Lecture 1 recording published by Stanford Online. The lecture has no dedicated chapter in the lecture notes; the notation follows the introduction at the start of Part I of the 2026 main notes (pages 6–8) and the table of contents. I had only the transcript while writing and did not see the slides. The times given for each section come from the transcript's segment timestamps and are approximate.
 

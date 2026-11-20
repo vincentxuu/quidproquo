@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-25-benchmark-arena-agent-sonnet-top3)
+> :globe: [中文版](/posts/daily/2026-10-25-benchmark-arena-agent-sonnet-top3)
 
 ## Shift Summary
 
@@ -24,9 +24,9 @@ The Arena Agent leaderboard's official publish date moved from 2026-10-20 to 202
 
 | Rank | Model | Score | 95% CI | 10-20 score (rank) | Change |
 |---|---|---|---|---|---|
-| 🥇 | Claude Opus 5.5 (Max) | 20.77% | [18.39%, 23.15%] | 20.92% (1) | — |
-| 🥈 | Claude Sonnet 5.5 (Max) | 13.99% | [10.95%, 17.02%] | 12.67% (5) | ↑3 |
-| 🥉 | GPT-6 Astra (Max) | 13.96% | [11.88%, 16.04%] | 14.70% (2) | ↓1 |
+| 1 | Claude Opus 5.5 (Max) | 20.77% | [18.39%, 23.15%] | 20.92% (1) | — |
+| 2 | Claude Sonnet 5.5 (Max) | 13.99% | [10.95%, 17.02%] | 12.67% (5) | ↑3 |
+| 3 | GPT-6 Astra (Max) | 13.96% | [11.88%, 16.04%] | 14.70% (2) | ↓1 |
 | 4 | Claude Fable 5.1 (Max) | 13.94% | [12.01%, 15.88%] | 14.17% (3) | ↓1 |
 | 5 | GPT-6.1 Sol (Max) | 13.64% | [12.01%, 15.27%] | 13.55% (4) | ↓1 |
 | 6 | Gemini 4 Argon (High) | 11.75% | [10.84%, 12.66%] | — | — |
@@ -43,7 +43,7 @@ Sonnet 5.5 (Max) didn't climb gradually from a neighboring rank this time — it
 
 ### Methodological
 
-⚠️ Arena's score is an IPS (inverse propensity score), not Elo — rank and magnitude between batches are meaningful, but subtracting scores to read "how much it improved" isn't recommended. Second through fifth place now have fully overlapping 95% confidence intervals: Sonnet 5.5's [10.95%, 17.02%] almost completely overlaps GPT-6.1 Sol's [12.01%, 15.27%], so the true order among these four ranks can't be statistically determined. Worth noting: Sonnet 5.5's CI width (6.07pp) is noticeably wider than the other three in this batch (roughly 3.3–3.9pp), suggesting its sample size or scoring variance is larger — which is also why a single-batch rank jump this large is more likely to show up on it specifically. No explanation from Anthropic or Arena has surfaced for this shift.
+:warning: Arena's score is an IPS (inverse propensity score), not Elo — rank and magnitude between batches are meaningful, but subtracting scores to read "how much it improved" isn't recommended. Second through fifth place now have fully overlapping 95% confidence intervals: Sonnet 5.5's [10.95%, 17.02%] almost completely overlaps GPT-6.1 Sol's [12.01%, 15.27%], so the true order among these four ranks can't be statistically determined. Worth noting: Sonnet 5.5's CI width (6.07pp) is noticeably wider than the other three in this batch (roughly 3.3–3.9pp), suggesting its sample size or scoring variance is larger — which is also why a single-batch rank jump this large is more likely to show up on it specifically. No explanation from Anthropic or Arena has surfaced for this shift.
 
 ### Industry
 

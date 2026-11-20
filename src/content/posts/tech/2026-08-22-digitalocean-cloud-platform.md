@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-digitalocean-cloud-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-digitalocean-cloud-platform-en)
 
 [DigitalOcean](https://docs.digitalocean.com/products/) 的賣點是把常見 cloud building blocks 做得較容易理解。產品包含 Droplet VM、App Platform、DigitalOcean Kubernetes（DOKS）、Managed Databases、Spaces object storage、Volumes、Load Balancer、VPC 與 DNS。
 

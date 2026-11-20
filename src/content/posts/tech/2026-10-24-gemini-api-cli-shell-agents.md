@@ -10,7 +10,7 @@ description: "Gemini API CLI 在 Gemini 開發堆疊的位置、與 Antigravity 
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-24-gemini-api-cli-shell-agents-en)
+> :globe: [English version](/posts/tech/2026-10-24-gemini-api-cli-shell-agents-en)
 
 Gemini API CLI（指令名稱 `gemini-api`）是 Google 在 2026 年 10 月 19 日發布的[實驗性預覽](https://aistudio.google.com/learn/introducing-the-gemini-api-cli)，目前是 v0.4.x。它是一顆用 Go 寫的單一執行檔，把 Gemini 的文字模型、圖片／語音／音樂／影片生成、檔案分析和 managed agents 都變成 shell 指令。
 

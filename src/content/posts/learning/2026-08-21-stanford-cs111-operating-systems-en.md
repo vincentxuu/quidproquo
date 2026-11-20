@@ -16,7 +16,7 @@ description: "A page-by-page read of the Spring 2026 CS111 site — nine assignm
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs111-operating-systems)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs111-operating-systems)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

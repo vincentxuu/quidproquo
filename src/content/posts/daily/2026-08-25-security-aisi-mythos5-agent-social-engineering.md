@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-25-security-aisi-mythos5-agent-social-engineering-en)
+> :globe: [English version](/posts/daily/2026-08-25-security-aisi-mythos5-agent-social-engineering-en)
 
 ## 事件概述
 

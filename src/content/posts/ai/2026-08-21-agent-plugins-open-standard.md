@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-21-agent-plugins-open-standard-en)
+:globe: [English version](/posts/ai/2026-08-21-agent-plugins-open-standard-en)
 
 你寫了一份 SKILL.md，教 agent 怎麼查公司內部知識庫回答客戶問題。
 

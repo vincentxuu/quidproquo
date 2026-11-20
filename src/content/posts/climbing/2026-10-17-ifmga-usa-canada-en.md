@@ -26,7 +26,7 @@ glossary:
         url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/iec/eligibility.html"
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-usa-canada)
+> :globe: [中文版](/posts/climbing/2026-10-17-ifmga-usa-canada)
 
 The USA and Canada share a post because their systems look alike, and both differ from the Alps. In France, Switzerland and Italy, guiding clients for pay without a licence is an offence, and the licence comes from the state or a regional government (see [France and Switzerland](/posts/climbing/2026-10-17-ifmga-france-switzerland-en) and [Austria, Germany and Italy](/posts/climbing/2026-10-17-ifmga-austria-germany-italy-en)). The American [AMGA](https://www.amga.com/programs/mountain-guide-programs) and the Canadian [ACMG](https://acmg.ca/the-acmg-training-and-assessment-program-tap/) are associations, and the certificates are theirs.
 

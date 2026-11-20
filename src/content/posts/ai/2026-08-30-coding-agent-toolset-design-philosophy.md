@@ -13,7 +13,7 @@ description: "對照五個成熟 coding agent 的 tool surface，拆解 Looplane
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-toolset-design-philosophy-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-toolset-design-philosophy-en)
 
 上一篇談了[session 持久化](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery)，這篇回到更上游的問題：你到底該給模型幾個工具？
 

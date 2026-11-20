@@ -22,7 +22,7 @@ glossary:
     context: "L2 用 kNN 示範四種選超參數的做法，只有用驗證集或交叉驗證是對的。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-image-classification-linear-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-image-classification-linear-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

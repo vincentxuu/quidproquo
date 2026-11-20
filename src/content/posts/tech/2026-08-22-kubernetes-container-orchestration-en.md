@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-kubernetes-container-orchestration)
+> :globe: [中文版](/posts/tech/2026-08-22-kubernetes-container-orchestration)
 
 [Kubernetes](https://kubernetes.io/docs/concepts/) is a declarative control plane for containerized workloads. Teams submit API objects describing desired state, while controllers continuously reconcile actual state. Its value is common scheduling, discovery, rollout, self-healing, and extension—not turning all operations into YAML.
 

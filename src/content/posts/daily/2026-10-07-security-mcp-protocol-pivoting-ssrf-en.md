@@ -11,7 +11,7 @@ series:
   order: 48
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf)
+> :globe: [中文版](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf)
 
 ## What happened
 

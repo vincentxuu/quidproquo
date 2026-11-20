@@ -26,7 +26,7 @@ glossary:
         url: "https://vercel.com/changelog/use-acp-compatible-harnesses-with-the-ai-sdk-harness-layer"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-26-meta-harness-layers-en)
+> :globe: [English version](/posts/ai/2026-08-26-meta-harness-layers-en)
 
 上一篇談 [Omnigent 的 meta-harness、Policy 與跨裝置 Session](/posts/ai/2026-08-26-omnigent-meta-harness) 時，多次提到「harness 之上的治理層」。但同一週，Stanford 也有一篇論文叫 [Meta-Harness](https://arxiv.org/abs/2603.28052)，講的卻是「用外層迴圈去改 harness 程式碼」。加上 [Zed ACP](https://agentclientprotocol.com/)、[Vercel HarnessAgent](https://vercel.com/changelog/use-acp-compatible-harnesses-with-the-ai-sdk-harness-layer) 與 [Cloudflare Flue](https://blog.cloudflare.com/agents-platform-flue-sdk/) 同時出現，很容易把四個東西當成同一個戰場。
 

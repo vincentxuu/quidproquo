@@ -12,7 +12,7 @@ series:
   order: 17
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-01-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-09-01-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Today's thread is "long-running personal agents" moving from demo projects to so
 
 ## Trending Repos
 
-### HKUDS/nanobot ⭐ 47,574
+### HKUDS/nanobot ★ 47,574
 
 [GitHub](https://github.com/HKUDS/nanobot) · Python · MIT
 
@@ -31,7 +31,7 @@ Today's thread is "long-running personal agents" moving from demo projects to so
 
 ---
 
-### conductor-oss/conductor ⭐ 32,152
+### conductor-oss/conductor ★ 32,152
 
 [GitHub](https://github.com/conductor-oss/conductor) · Java · Apache-2.0
 
@@ -42,7 +42,7 @@ Today's thread is "long-running personal agents" moving from demo projects to so
 
 ---
 
-### mksglu/context-mode ⭐ 20,281
+### mksglu/context-mode ★ 20,281
 
 [GitHub](https://github.com/mksglu/context-mode) · TypeScript · ELv2
 
@@ -53,7 +53,7 @@ Today's thread is "long-running personal agents" moving from demo projects to so
 
 ---
 
-### zhayujie/CowAgent ⭐ 46,740
+### zhayujie/CowAgent ★ 46,740
 
 [GitHub](https://github.com/zhayujie/CowAgent) · Python · MIT
 

@@ -28,7 +28,7 @@ glossary:
         url: "https://aclanthology.org/2021.acl-long.186/"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-hw1-multidomain-sentiment)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-hw1-multidomain-sentiment)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

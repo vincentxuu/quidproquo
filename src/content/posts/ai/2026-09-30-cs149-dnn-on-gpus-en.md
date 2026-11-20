@@ -29,7 +29,7 @@ glossary:
     context: "L9 demonstrates it with conv + scale/bias + max pool, row-wise softmax, and attention."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-dnn-on-gpus)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-dnn-on-gpus)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

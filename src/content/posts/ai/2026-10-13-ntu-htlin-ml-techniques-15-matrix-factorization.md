@@ -37,7 +37,7 @@ glossary:
     context: "技法第三部分的總稱；第 15 堂把 boosting、神經網路、RBF 網路、矩陣分解、k 近鄰都放進這張地圖。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-15-matrix-factorization-en)
+> :globe: [English version](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-15-matrix-factorization-en)
 
 **影片狀態：已附影片。** 這篇依官方 MOOC 講義 [215_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/215_handout.pdf) 與四支官方影片的機器轉錄逐字稿寫成，公式以講義為準；逐字稿未經人工校對。每一節開頭附該節的官方影片與大致的時間區段。文中的頁碼指投影片右下角的編號（0/22 到 22/22），寫「課堂上」的地方是轉述影片裡的說法。
 

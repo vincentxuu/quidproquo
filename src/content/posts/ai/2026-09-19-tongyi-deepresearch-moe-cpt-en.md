@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-tongyi-deepresearch-moe-cpt)
+> :globe: [中文版](/posts/ai/2026-09-19-tongyi-deepresearch-moe-cpt)
 
 Previous articles covered individual pieces of the puzzle: the landscape (order 0), training from scratch (order 2), long-horizon memory (order 3), and planning optimization (order 4).
 

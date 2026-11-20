@@ -14,7 +14,7 @@ series:
   order: 26
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-15-longrag-long-context-retrieval-en)
+> :globe: [English version](/posts/ai/2026-03-15-longrag-long-context-retrieval-en)
 
 傳統 RAG 的核心假設是：LLM 的 context window 有限，所以我們必須把文件切得很小，只送最相關的片段進去。
 

@@ -31,7 +31,7 @@ glossary:
     context: "ADL LLM Adaptation 講義第 9–11 頁。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

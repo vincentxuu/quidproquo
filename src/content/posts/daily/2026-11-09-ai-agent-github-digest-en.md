@@ -11,7 +11,7 @@ series:
   order: 86
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-09-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-09-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -47,7 +47,7 @@ caption: Illustrative: a simplified grouping used to frame these four repos, not
 
 ## Trending Repos
 
-### anthropics/skills ⭐ ~189k (+793 today, 11/9)
+### anthropics/skills ★ ~189k (+793 today, 11/9)
 
 [GitHub](https://github.com/anthropics/skills)　·　Python　·　mostly Apache-2.0
 
@@ -58,7 +58,7 @@ caption: Illustrative: a simplified grouping used to frame these four repos, not
 
 ---
 
-### ranxianglei/billion-context ⭐ ~5,027 (+460 today, 11/9)
+### ranxianglei/billion-context ★ ~5,027 (+460 today, 11/9)
 
 [GitHub](https://github.com/ranxianglei/billion-context)　·　TypeScript　·　MIT
 
@@ -69,7 +69,7 @@ caption: Illustrative: a simplified grouping used to frame these four repos, not
 
 ---
 
-### milind-soni/OpenMausBot ⭐ ~18k (+1,437 today, 11/9)
+### milind-soni/OpenMausBot ★ ~18k (+1,437 today, 11/9)
 
 [GitHub](https://github.com/milind-soni/OpenMausBot)　·　TypeScript　·　Apache-2.0
 
@@ -80,7 +80,7 @@ caption: Illustrative: a simplified grouping used to frame these four repos, not
 
 ---
 
-### shanselman/sandbox-mcp ⭐ 322 (3 days old)
+### shanselman/sandbox-mcp ★ 322 (3 days old)
 
 [GitHub](https://github.com/shanselman/sandbox-mcp)　·　JavaScript　·　MIT
 

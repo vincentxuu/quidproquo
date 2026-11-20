@@ -27,7 +27,7 @@ glossary:
     context: "第 8 講學生實驗的主要觀測對象。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

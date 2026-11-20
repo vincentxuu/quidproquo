@@ -10,7 +10,7 @@ description: "介紹 Next.js 15 App Router 的核心概念：Server Components�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-nextjs-15-app-router-overview-en)
+:globe: [English version](/posts/tech/2026-03-27-nextjs-15-app-router-overview-en)
 
 Next.js 15 + App Router 不是 Next.js 的微調版本，它是一次架構方向的轉移：從「客戶端先渲染」到「伺服器先渲染，客戶端只負責互動」。這個轉移帶來的不只是效能差異，而是整個思考資料流的方式。
 

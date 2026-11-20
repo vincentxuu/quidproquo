@@ -22,7 +22,7 @@ glossary:
     context: "HW2 的 TODO6 用它評估驗證集，且規定要用生成函式產生完整答案再比對。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

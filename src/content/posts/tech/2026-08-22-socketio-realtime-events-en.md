@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-socketio-realtime-events)
+> :globe: [中文版](/posts/tech/2026-08-22-socketio-realtime-events)
 
 [Socket.IO](https://socket.io/docs/v4/) provides named events, automatic reconnection, acknowledgements, rooms, namespaces, and adapters above Engine.IO transports. It commonly uses WebSocket and can upgrade from HTTP long-polling. A Socket.IO client cannot connect directly to a plain WebSocket server because the wire protocols differ.
 

@@ -27,7 +27,7 @@ glossary:
     context: "Techniques Lecture 8 uses it as the weak base algorithm for AdaBoost; the combination is called AdaBoost-Stump."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting)
+> :globe: [中文版](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting)
 
 **Video status: Videos included.** This article is written from the official MOOC handout [208_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/208_handout.pdf) and transcripts of the four official videos for this lecture, with formulas following the handout. The transcripts are machine transcripts made for this article (Whisper), not official captions, and no human has proofread them. The videos are taught in Mandarin; the slides are in English. Each section opens with its official video and the approximate time ranges. Page numbers refer to the number at the lower right of each slide (0/25 to 25/25), and wherever the text says "in the lecture" it is paraphrasing what is said in the video.
 

@@ -10,7 +10,7 @@ tldr: "The final written assignment combines ensembles, clustering, representati
 description: "Four-topic integration and course-completion assessment for CMU 10-301/601 Spring 2026 HW9 Learning Paradigms."
 series: { name: "Reading CMU 10-301 Machine Learning", order: 9 }
 ---
-> 🌏 [中文版](/posts/learning/2026-08-22-cmu-10301-hw9-learning-paradigms)
+> :globe: [中文版](/posts/learning/2026-08-22-cmu-10301-hw9-learning-paradigms)
 
 The [official handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw9.zip) is titled **Homework 9: Learning Paradigms** and is the final, entirely written assignment. Its four main sections are PCA, k-Means, Ensemble Methods, and Recommender Systems. The ZIP supplies the PDF, LaTeX template, figures, and a few plotting data files, but no starter code, full dataset, or reference answers.
 

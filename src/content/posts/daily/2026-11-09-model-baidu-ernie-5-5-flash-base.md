@@ -17,7 +17,7 @@ glossary:
     def: "稀疏混合專家架構：模型內含多個「專家」子網路，每次推論只啟用一小部分，讓總參數量遠大於實際運算量"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-09-model-baidu-ernie-5-5-flash-base-en)
+> :globe: [English version](/posts/daily/2026-11-09-model-baidu-ernie-5-5-flash-base-en)
 
 
 ## 模型資訊
@@ -53,7 +53,7 @@ glossary:
 | LongBench-v2 (EM) | **48.7** | 44.5 | 39.8 | 44.6 |
 | HELMET-Rerank (NDCG@10) | 56.2 | **60.0** | 55.7 | 56.6 |
 
-⚠️ 以上四組「ERNIE 5.5 Flash Base 領先」與一組「落後」的數字，皆出自百度官方統一評測管線（相同 prompt、相同 few-shot 設定、相同裁判模型），屬於自測結果；第三方 MarkTechPost 指出百度測得的競品分數與各家自己公布的分數略有差異（如 DeepSeek 官方自報 MMLU-Pro 為 68.3，百度測得 69.2），需等外部獨立複現。百度自報在 30 個基準中的 24 個領先，但長上下文的 HELMET-Rerank、InfiniteBench 與中文知識 ChineseSimpleQA 三項落後 DeepSeek-V4-Flash-Base。
+:warning: 以上四組「ERNIE 5.5 Flash Base 領先」與一組「落後」的數字，皆出自百度官方統一評測管線（相同 prompt、相同 few-shot 設定、相同裁判模型），屬於自測結果；第三方 MarkTechPost 指出百度測得的競品分數與各家自己公布的分數略有差異（如 DeepSeek 官方自報 MMLU-Pro 為 68.3，百度測得 69.2），需等外部獨立複現。百度自報在 30 個基準中的 24 個領先，但長上下文的 HELMET-Rerank、InfiniteBench 與中文知識 ChineseSimpleQA 三項落後 DeepSeek-V4-Flash-Base。
 
 ## 與前代/競品比較
 

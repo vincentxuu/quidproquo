@@ -30,7 +30,7 @@ glossary:
     context: "The DAV recommends this type of device, but it does not change the rule that the brake hand stays on the rope."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-gym-top-rope-belay)
+> :globe: [中文版](/posts/climbing/2026-10-17-gym-top-rope-belay)
 
 You did a top-rope intro session, the instructor belayed you, and you loved it. Next time you want to bring a friend, and the front desk asks first: "Do you have a belay card?"
 

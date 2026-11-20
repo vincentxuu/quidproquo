@@ -12,7 +12,7 @@ series:
   order: 78
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-10-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-10-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -58,7 +58,7 @@ Agent performance increasingly depends on the harness rather than the model itse
 ### Key Details
 
 - GPT-5.6 Sol overall 46.3 (+16.6), Claude Opus 4.8 close behind at 45.8 (+16.1)
-- Human-tuned Artificial Harness scores 47.5 — top models are close but haven't surpassed it yet ⚠️ (author-tested, external replication pending)
+- Human-tuned Artificial Harness scores 47.5 — top models are close but haven't surpassed it yet :warning: (author-tested, external replication pending)
 - Search task gains are massive (+32.8), General tasks moderate (+11.0), Office tasks barely move (+3.2)
 - Open-source Qwen3.6-27b ranks sixth overall at 39.4 (+9.7), proving top-tier closed-source models aren't strictly required
 - "Early saturation" phenomenon: most models stop improving after 3-5 rounds
@@ -105,7 +105,7 @@ Existing agent optimization methods have three disconnects: they optimize but do
 
 - Wisdom Graph uses PCR triplets for knowledge representation, adding "bridging reasoning" capability beyond pure vector retrieval
 - Layer 3's attribution mechanism uses controlled experiments to eliminate data variance, preventing "thinking change A caused improvement when it was actually B"
-- 29-page technical report with clear architecture but no published benchmark data ⚠️ (not yet compared against DSPy/AFlow/TextGrad)
+- 29-page technical report with clear architecture but no published benchmark data :warning: (not yet compared against DSPy/AFlow/TextGrad)
 - For agent platforms, the core innovation is "meta-level self-evolution" — not just the agent getting better, but the method of making the agent better also improving
 - Limitation: entirely theoretical architecture and internal experiments, lacking open-source implementation and community replication
 
@@ -147,7 +147,7 @@ Existing agent safety mechanisms are mostly static — write a set of rules and 
 
 ### Key Details
 
-- On Agent-SafetyBench, ASR drops from ~23% (seed) to ~7% (evolved), a 3.1x reduction ⚠️ (author-tested)
+- On Agent-SafetyBench, ASR drops from ~23% (seed) to ~7% (evolved), a 3.1x reduction :warning: (author-tested)
 - Benign utility improves simultaneously — safety isn't achieved through over-refusal
 - Transfer to AgentHarm benchmark (held-out, not used in evolution): ASR drops from 37.4% to 9.8% (-10.0 percentage points vs seed)
 - Cross-model testing: GPT-5.5, DeepSeek-V3.2, GLM-5.2 all benefit from the same evolved harness

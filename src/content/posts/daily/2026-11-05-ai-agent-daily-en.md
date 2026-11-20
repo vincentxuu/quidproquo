@@ -12,7 +12,7 @@ series:
   order: 82
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-05-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-05-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -141,16 +141,16 @@ Today's three trending open-source repos all demonstrate the same pattern: build
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-05](/posts/daily/2026-11-05-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-05](/posts/daily/2026-11-05-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Prep — 2026-11-05](/posts/daily/2026-11-05-ai-interview-daily-en)
-- 📄 [Framework Update｜Pydantic AI v2.66.0](/posts/daily/2026-11-05-framework-pydantic-ai-v2.66.0-en)
-- 📄 [Funding Brief｜fal Series E&F $1.3B](/posts/daily/2026-11-05-funding-fal-en)
-- 📄 [Funding Brief｜Sentra Series C $150M](/posts/daily/2026-11-05-funding-sentra-en)
-- 📄 [Funding Brief｜Traversal Series B $120M](/posts/daily/2026-11-05-funding-traversal-en)
-- 📄 [Product Builder Interview Prep — 2026-11-05](/posts/daily/2026-11-05-product-builder-interview-daily-en)
-- 📄 [Security Alert｜Docker Sandboxes Symlink Escape](/posts/daily/2026-11-05-security-docker-sandboxes-symlink-escape-en)
-- 📄 [Tool Spotlight｜Predictive Maintenance MCP](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-05](/posts/daily/2026-11-05-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-05](/posts/daily/2026-11-05-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Prep — 2026-11-05](/posts/daily/2026-11-05-ai-interview-daily-en)
+- :file: [Framework Update｜Pydantic AI v2.66.0](/posts/daily/2026-11-05-framework-pydantic-ai-v2.66.0-en)
+- :file: [Funding Brief｜fal Series E&F $1.3B](/posts/daily/2026-11-05-funding-fal-en)
+- :file: [Funding Brief｜Sentra Series C $150M](/posts/daily/2026-11-05-funding-sentra-en)
+- :file: [Funding Brief｜Traversal Series B $120M](/posts/daily/2026-11-05-funding-traversal-en)
+- :file: [Product Builder Interview Prep — 2026-11-05](/posts/daily/2026-11-05-product-builder-interview-daily-en)
+- :file: [Security Alert｜Docker Sandboxes Symlink Escape](/posts/daily/2026-11-05-security-docker-sandboxes-symlink-escape-en)
+- :file: [Tool Spotlight｜Predictive Maintenance MCP](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp-en)
 
 ## Tomorrow's Watch
 

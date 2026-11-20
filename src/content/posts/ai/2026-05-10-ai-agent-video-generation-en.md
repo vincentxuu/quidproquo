@@ -10,7 +10,7 @@ description: "Learn how to use AI coding agents like Claude Code, Cursor, and Co
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-10-ai-agent-video-generation)
+> :globe: [中文版](/posts/ai/2026-05-10-ai-agent-video-generation)
 
 AI video tools reached a critical turning point from late 2025 to early 2026: the shift from "you go use the tool" to "the tool gets called by an agent."
 
@@ -157,10 +157,10 @@ Return the video URL when done
 
 | | Claude Code | Claude.ai | Cursor | Codex |
 |---|---|---|---|---|
-| **HyperFrames** | ✅ Skill | ❌ | ✅ Skill | ✅ Skill |
-| **HeyGen** | ✅ Skill + MCP | ✅ Connector | ✅ MCP | ✅ Skill |
-| **Runway** | ✅ Skill / API | 🔶 API | ✅ API | ✅ API |
-| **Synthesia** | 🔶 API | 🔶 API | 🔶 API | 🔶 API |
+| **HyperFrames** | ✓ Skill | ✗ | ✓ Skill | ✓ Skill |
+| **HeyGen** | ✓ Skill + MCP | ✓ Connector | ✓ MCP | ✓ Skill |
+| **Runway** | ✓ Skill / API | △ API | ✓ API | ✓ API |
+| **Synthesia** | △ API | △ API | △ API | △ API |
 
 ## How to Choose
 

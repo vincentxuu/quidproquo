@@ -13,7 +13,7 @@ description: "A guide to Corma di Machaby / Arnad: rock, scale and aspect of the
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-machaby-arnad)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-machaby-arnad)
 
 Driving the A5 from Turin towards Aosta, past Pont-Saint-Martin and the fort of Bard, you see a big pinkish wall at the foot of the mountains on the north side: Corma di Machaby, next to the village of Arnad. [UKC Logbook](https://ukclimbing.com/logbook/crags/corma_di_machaby-12447) says that in the 1970s Turin climbers went looking for low valley walls other than old crags like Rocca Sbarua, where they could train all year without snow or ice, and Machaby became known then. The Aosta Valley tourist board says the neighbouring Gruviera is "probabilmente la prima chiodata in Valle d'Aosta", probably the first bolted crag in the valley ([lovevda: Gruviera](https://www.lovevda.it/it/banca-dati/7/arrampicata/arnad/palestra-di-arrampicata-la-gruviera/2644)).
 

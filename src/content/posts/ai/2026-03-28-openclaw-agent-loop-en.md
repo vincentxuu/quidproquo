@@ -13,7 +13,7 @@ description: "The full lifecycle of the OpenClaw agent loop: the five-step run s
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-agent-loop)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-agent-loop)
 
 The agent loop is a **serialized, per-session run** that turns a message into actions and a reply: intake, context assembly, model inference, tool execution, streaming, persistence.
 

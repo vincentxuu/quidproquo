@@ -24,7 +24,7 @@ India's National Payments Corporation (NPCI, which operates UPI) is building a U
 
 The core design idea is to add a layer for registering, verifying, and authorizing agents. Today UPI trusts "a person plus their phone" — an AI agent is neither, so a new trust layer is needed. According to the reporting, NPCI's layer would only verify that a request is genuinely authorized by the user, without seeing what is actually being purchased — a deliberate privacy boundary. NPCI has already been laying groundwork: in February it announced work with NVIDIA on a "payments-native AI base" for India, and fintech firms like Pine Labs and Cashfree have been building agent payment tools of their own — signaling this isn't emerging out of nowhere, but the product of more than half a year of momentum in India's payments ecosystem. ([startupfeed.in](https://startupfeed.in/npci-unified-agent-protocol-ai-payments-upi))
 
-⚠️ Protocol details haven't been formally published yet, and NPCI declined to comment. The specification described here is based on sourcing relayed by Reuters and should be re-verified once officially announced.
+:warning: Protocol details haven't been formally published yet, and NPCI declined to comment. The specification described here is based on sourcing relayed by Reuters and should be re-verified once officially announced.
 
 ### Gnani AI Pushes Sovereign AI Stack Artha Into BFSI
 

@@ -11,9 +11,9 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 64
 ---
-> 🌏 [English version](/posts/daily/2026-07-27-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-27-ai-agent-arxiv-digest-en)
 
-[!info] 📌 **今日總覽**
+[!info] :pin: **今日總覽**
 今天三篇的核心主軸是「Agent 的可靠性危機」——從記憶架構、安全攻擊到技能生命週期，分別揭露了目前 Agent 系統在長期記憶設計、資料注入漏洞和可重用技能管控上的根本性痛點。NapMem（Alibaba/Qwen）把記憶從「被動查詢」升級為「主動導航行動空間」，為個人化 Agent 提供新設計範式；ADI 攻擊論文現場示範如何繞過 Claude Code、Codex 的既有防禦，直接 RCE；SkillSec-Eval 則系統化地點名 MCP-like 技能生態的全鏈路安全漏洞，327 個真實技能中多個階段都有弱點。三篇合看，Agent 平台在往下挖功能的同時，安全與記憶基礎設施已到不得不認真對待的時間點。
 
 ## 讀這篇前該知道的詞
@@ -35,16 +35,16 @@ series:
 
 **作者**: Yue Xu, Yutao Sun, Yihao Liu, Mengyu Zhou 等 · Alibaba Qwen Team / ShanghaiTech / Zhejiang University / Peking University / NUS　·　**arxiv**: 2607.05794
 **連結**: [arxiv](https://arxiv.org/abs/2607.05794) · [alphaxiv](https://www.alphaxiv.org/abs/2607.05794)
-[!tip] 🎯 
+[!tip] :target: 
 ### TL;DR
 
 讓 Agent 把記憶當工具「主動去找」，而不是被動接受系統塞進來的片段；Alibaba Qwen 團隊用 RL 訓練出來的 9B 模型打贏所有 memory baseline。
-[!success] ⭐ 
+[!success] ★ 
 ### Read Priority
 
 必讀
 如果你的產品有長期記憶或個人化功能，這篇直接提供了可落地的架構藍圖；benchmark 結果在三個主流 memory 測試集上均最優。
-[!quote] 🧭 
+[!quote] :compass: 
 ### 領域背景
 
 大多數 Agent 記憶系統都用「被動檢索」（passive retrieval）：系統根據 query 選出幾段記憶塞進 context，Agent 照單全收。這個設計的問題是 Agent 沒有能力「要求看更多細節」或「跳到更高層摘要」，查到不精準的片段時只能將錯就錯。如何讓 Agent 自己決定「該查哪個粒度的記憶」一直是痛點。
@@ -69,15 +69,15 @@ NapMem 把記憶組織成四層金字塔：**原始對話** → **結構化記�
 - **四層金字塔**: raw conversations → typed memory records → topic tracks → user profile，每層透過 provenance link 相連，Agent 可以從任何層進入再跨層跳
 - **Memory Tools 設計**: 每個粒度有對應的查詢工具，Agent 透過 tool call 決定要在哪個層搜索，類似 file system 的 `ls` / `cat` / 往上看 `README`
 - **RL 訓練**: 完全用 RL 讓 Agent 學習何時呼叫哪個工具，不需要人工標注「正確的記憶路徑」，減少了 reward hacking 問題
-- **Benchmark 結果**: NapMem-9B 在 PersonaMem-v2 + LongMemEval + LoCoMo 三個測試集平均 **62.74**，高於 NapMem-397B 的 59.85（⚠️ 大模型反而輸給小模型，可能說明 RL 訓練對 navigation 能力影響更大，但也需注意 benchmark 的代表性）
+- **Benchmark 結果**: NapMem-9B 在 PersonaMem-v2 + LongMemEval + LoCoMo 三個測試集平均 **62.74**，高於 NapMem-397B 的 59.85（:warning: 大模型反而輸給小模型，可能說明 RL 訓練對 navigation 能力影響更大，但也需注意 benchmark 的代表性）
 - **Baselines**: 對比了 Mem0、Zep、MemOS、MemoryOS、AgeMem 五個方案，全部輸給 NapMem-9B
 - **不降通用能力**: 在非記憶型任務上測試，RL 訓練後的 policy 大致保留了原模型的 reasoning 和 tool use 能力
 - **Limitation**: 目前只在文字對話類任務測試，對 multimodal 或 structured database 記憶的延伸未驗證；RL training data 的 coverage 可能影響 generalization
-[!bug] 🧐 
+[!bug] 
 ### Reviewer 一句話評
 
 方向紮實，四層金字塔的設計有說服力，RL for memory navigation 也是合理的訓練策略；但 9B 打贏 397B 的結果需要讀者自行確認 baseline 設置是否公平，且三個 benchmark 都偏向 conversational memory，對 tool-heavy 或 coding agent 場景的泛化性尚未證明。
-[!warning] 🎬 
+[!warning] :film: 
 ### 給你的 take-away
 
 - 如果你正在設計 Agent 記憶模組：把記憶分層（raw / structured / topic / profile）是值得直接借用的架構，比單一向量庫更能應對「需要不同粒度」的查詢
@@ -90,16 +90,16 @@ NapMem 把記憶組織成四層金字塔：**原始對話** → **結構化記�
 
 **作者**: 多位研究者 · Seoul National University / University of Illinois Urbana-Champaign / Largosoft　·　**arxiv**: 2607.05120
 **連結**: [arxiv](https://arxiv.org/abs/2607.05120) · [alphaxiv](https://www.alphaxiv.org/abs/2607.05120)
-[!tip] 🎯 
+[!tip] :target: 
 ### TL;DR
 
 一種新的攻擊方式：不用偽裝成「指令」，只要偽裝成「可信資料格式」就能讓 Agent 做壞事——Claude Code、Codex、Gemini CLI 和三個 web agent 全部中招，可以被遠端執行任意程式。
-[!success] ⭐ 
+[!success] ★ 
 ### Read Priority
 
 必讀
 直接點名 Claude Code / Codex / Gemini CLI 有漏洞，且提出了新攻擊分類，做 Agent 安全或部署 coding agent 的工程師必看；Hacker News 等媒體已廣泛轉載，有公開披露壓力。
-[!quote] 🧭 
+[!quote] :compass: 
 ### 領域背景
 
 過去 Indirect Prompt Injection（IPI）研究主要聚焦在「指令注入」：把假指令藏在 Agent 讀到的文件裡，希望 Agent 誤認為是使用者的指令。現有防禦（如 input sanitization、instruction filtering）主要針對這個模式。但研究者發現：如果攻擊者不偽裝成指令，而是偽裝成 Agent 應該信任的「資料格式本身」（如 JSON key、tool response schema、resource ID），防禦幾乎無效。
@@ -127,16 +127,16 @@ NapMem 把記憶組織成四層金字塔：**原始對話** → **結構化記�
 - **ADI vs. 指令注入**: 指令注入藏「做 X」的文字；ADI 藏「看起來像系統回傳的結果，告訴 Agent X 已完成／X 是合法的」，繞過了認識到「這是外來指令」的防禦邏輯
 - **Web Agent 攻擊**: 對 Claude in Chrome、Antigravity、Nanobrowser 發動 fake UI element 攻擊，讓 agent 點擊攻擊者指定的元素
 - **Coding Agent 攻擊**: 攻擊者在 GitHub issue comment 中貼偽裝成 maintainer 批准的 JSON payload，觸發 Claude Code / Codex / Gemini CLI 執行惡意命令（**RCE**）
-- **攻擊成功率**: JSON delimiter injection 成功率 **31.3%–43.3%**；web data 格式 **33.3%–100.0%**；⚠️ 對部分 agent 高達 100% 成功率需注意可能是 cherry-picked 場景
+- **攻擊成功率**: JSON delimiter injection 成功率 **31.3%–43.3%**；web data 格式 **33.3%–100.0%**；:warning: 對部分 agent 高達 100% 成功率需注意可能是 cherry-picked 場景
 - **繞防禦**: 對現有 purpose-built IPI 防禦，ADI 成功率仍達 **50%**；而傳統 order-smuggling 攻擊在這些防禦下幾乎全被擋掉
 - **Supply-chain 維度**: 若攻擊者能操控 npm/PyPI package 的 README 或 changelog，可以透過 coding agent 的 package 讀取行為觸發 RCE——這個 supply chain 場景尤其危險
 - **Limitation**: 實驗在特定 agent 版本上進行，廠商更新後可能部分緩解；文中未討論 LangGraph / AutoGen 等 framework 層的防禦可能性
 - **對應策略**: 需要在 data parsing 層對 structural format 進行 sandboxing，以及在 tool response 層做來源簽名驗證
-[!bug] 🧐 
+[!bug] 
 ### Reviewer 一句話評
 
 問題提得好且有實際危害，直接在主流 coding agent 上跑通 RCE 有說服力；但 33.3%–100% 的成功率範圍太寬，缺乏統一的評測協定（如 AgentDojo），讓跨論文比較困難，偏向漏洞報告而非系統性研究。
-[!warning] 🎬 
+[!warning] :film: 
 ### 給你的 take-away
 
 - 如果你的 Agent 會讀外部資料（網頁、GitHub、API）：現在就審視 tool response parsing 路徑，確保 structural delimiters（JSON key、XML tag）不能被外部資料覆蓋
@@ -149,16 +149,16 @@ NapMem 把記憶組織成四層金字塔：**原始對話** → **結構化記�
 
 **作者**: Sanket Badhe, Priyanka Tiwari　·　（機構未明確披露）　·　**arxiv**: 2607.13987
 **連結**: [arxiv](https://arxiv.org/abs/2607.13987) · [alphaxiv](https://www.alphaxiv.org/abs/2607.13987)
-[!tip] 🎯 
+[!tip] :target: 
 ### TL;DR
 
 MCP tool / Agent Skill 從「發布到 repository」到「被執行」再到「版本更新」的每個環節都有安全漏洞；用 327 個真實技能跑測，每個生命週期階段都找到可被利用的弱點。
-[!success] 📖 
+[!success] :book: 
 ### Read Priority
 
 略讀
 如果你在用或維護 MCP servers / Claude Skill 生態，這篇的威脅分類法值得收藏作為安全設計 checklist；但論文作者機構不詳，數據驗證程度有限，不宜直接引用具體數字。
-[!quote] 🧭 
+[!quote] :compass: 
 ### 領域背景
 
 可重用的 Agent 技能（skill / tool / MCP server）讓 Agent 能力可以像 npm 套件一樣被打包、分享、組合。這個生態正在快速成長——OpenAI Plugin、Claude Skill、LangChain Hub、MCP Registry 都在走這條路。但研究對「skill 的安全」幾乎都聚焦在執行期（runtime），忽略了 skill 在被選中之前的搜尋、審核、以及被更新後的演化階段是否可被攻擊。
@@ -193,12 +193,12 @@ MCP tool / Agent Skill 從「發布到 repository」到「被執行」再到「�
 - **Multi-step 組合攻擊**: 在複雜 workflow 中，惡意 skill 可能利用「前一個 skill 的輸出」觸發惡意行為，難以在單一 skill 審查時發現
 - **版本更新後門**: skill 的 semantic similarity 在版本間維持穩定（讓搜尋仍命中），但執行邏輯悄悄變化
 - **LangGraph / AutoGen / MCP 關聯**: 論文描述的生命週期威脅直接對應 MCP Registry 的架構，且 AutoGen 的 skill hub 也有類似曝險面
-- **⚠️ 侷限**: 作者機構未披露，部分防禦建議（如「admission-time static analysis」）較籠統，缺乏具體實作；benchmark 設計由作者自建，未用第三方測試集驗證
-[!bug] 🧐 
+- **:warning: 侷限**: 作者機構未披露，部分防禦建議（如「admission-time static analysis」）較籠統，缺乏具體實作；benchmark 設計由作者自建，未用第三方測試集驗證
+[!bug] 
 ### Reviewer 一句話評
 
 威脅分類有系統性、切中 MCP 生態的真實痛點，框架設計值得被業界採納；但作者機構不透明、防禦側偏概念層、數據缺乏 external validation，整體偏向業界白皮書而非頂會研究水準。
-[!warning] 🎬 
+[!warning] :film: 
 ### 給你的 take-away
 
 - 如果你在維護 MCP server 或 Agent skill 生態：把 SkillSec-Eval 的五階段威脅清單當作安全 review checklist，在每個 skill 上架和版本更新時都過一遍

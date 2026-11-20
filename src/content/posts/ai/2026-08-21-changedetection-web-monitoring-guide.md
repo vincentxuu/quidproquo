@@ -10,7 +10,7 @@ description: "從 Docker 自架開始，實作 changedetection.io 的 watch、CS
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-changedetection-web-monitoring-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-changedetection-web-monitoring-guide-en)
 
 [changedetection.io](https://github.com/dgtlmoon/changedetection.io) 是可自架（self-hosted）的網頁監控工具，會定期取得指定 URL、保存快照、比較前後版本，並在內容改變時送出通知。它最適合回答「這個已知頁面有沒有變」，不是「網路上有哪些相關頁面」，也不是「把整個網站爬下來」。
 

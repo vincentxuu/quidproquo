@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { renderIconUse } from '../components/icons/render';
-import { rehypeNoEmoji, stripEmojiText } from './rehypeNoEmoji';
+import { emojiToSource, rehypeNoEmoji, stripEmojiText } from './rehypeNoEmoji';
 
 type Node = { type: string; tagName?: string; value?: string; properties?: Record<string, unknown>; children?: Node[] };
 
@@ -64,10 +64,23 @@ describe('rehypeNoEmoji', () => {
     expect(en[1]).toContain('aria-label="No"');
   });
 
+  it('draws the text marks ✓ ✗ as the same check / x icons as ✅ ❌', () => {
+    const zh = raws(run([el('td', [text('✓')]), el('td', [text('✗')])]));
+    expect(zh[0]).toContain('aria-label="是"');
+    expect(zh[1]).toContain('aria-label="否"');
+  });
+
   it('keeps text symbols that are not emoji', () => {
-    const tree = run([el('p', [text('✓ ✗ ☐ ↔ ™\uFE0F')])]);
+    const tree = run([el('p', [text('☐ ↔ ™\uFE0F')])]);
     expect(raws(tree)).toEqual([]);
-    expect(textOf(tree)).toBe('✓ ✗ ☐ ↔ ™');
+    expect(textOf(tree)).toBe('☐ ↔ ™');
+  });
+
+  it('renders shortcodes exactly like the emoji they name', () => {
+    const fromEmoji = raws(run([el('p', [text('🌏 ⚠\uFE0F 🔴')])]));
+    const fromCode = raws(run([el('p', [text(':globe: :warning: :red-circle:')])]));
+    expect(fromCode).toEqual(fromEmoji);
+    expect(textOf(run([el('p', [text(':not-a-code: 12:30:00')])]))).toBe(':not-a-code: 12:30:00');
   });
 });
 
@@ -157,5 +170,14 @@ describe('stripEmojiText', () => {
     expect(stripEmojiText('⚠\uFE0F 版本提醒')).toBe('⚠\uFE0E 版本提醒');
     expect(stripEmojiText('SHUN 🇯🇵')).toBe('SHUN');
     expect(stripEmojiText('📄 Digest')).toBe('Digest');
+  });
+});
+
+describe('emojiToSource', () => {
+  it('writes each emoji as what renders the same without one', () => {
+    expect(emojiToSource('> 🌏 [English version](/x)').text).toBe('> :globe: [English version](/x)');
+    expect(emojiToSource('✅ 支援 ❌ 不支援 ✓').text).toBe('✓ 支援 ✗ 不支援 ✓');
+    expect(emojiToSource('⭐⭐⭐ 🥇 1️⃣ 🔴').text).toBe('★★★ 1 1 :red-circle:');
+    expect(emojiToSource('🚀 發布（🆕）').text).toBe('發布（NEW）');
   });
 });

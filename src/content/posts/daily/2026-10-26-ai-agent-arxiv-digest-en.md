@@ -11,7 +11,7 @@ series:
   order: 155
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-26-ai-agent-arxiv-digest)
+> :globe: [繁體中文版](/posts/daily/2026-10-26-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -126,7 +126,7 @@ Recent agent long-term memory research has mostly pushed toward making memory "s
 
 - Raw-RAG leads LoCoMo by 0.65–0.95 points, LongMemEval by 0.13 points, GPT-4o-mini MEME by 2.24 points, and MemoryAgentBench by 4.48–5.53 points; its only loss is DeepSeek-V4-Flash MEME, where MemMachine leads by 1.52 points
 - Adding any of three memory-management operations lowers MemoryAgentBench's total score: atomic-fact extraction -19.62 points, summary augmentation -5.81 points, graph expansion -5.78 points; fact extraction specifically drops test-time-learning accuracy from 47.68% to 15.37%
-- The efficiency gap is large: on a MEME subset, Raw-RAG finishes add+search in 305.91 seconds — 5.1× faster than the next system and 30.4× faster than EverMemOS; on a near-million-token streaming test (BEAM-1M), Raw-RAG's cumulative ingestion time is 0.33 hours versus 3.25 hours for the next-fastest (MemOS) and 26.95 hours for Memora ⚠️ (these efficiency numbers are self-reported by the authors and await external replication)
+- The efficiency gap is large: on a MEME subset, Raw-RAG finishes add+search in 305.91 seconds — 5.1× faster than the next system and 30.4× faster than EverMemOS; on a near-million-token streaming test (BEAM-1M), Raw-RAG's cumulative ingestion time is 0.33 hours versus 3.25 hours for the next-fastest (MemOS) and 26.95 hours for Memora :warning: (these efficiency numbers are self-reported by the authors and await external replication)
 - On MEME tracking/cascade questions, Raw-RAG's conditional "path coverage" (retrieving the dependency chain needed to derive an answer, not just the value) reaches 62.34%, the highest among compared systems; MemU reaches only 9.62%
 - Adoption threshold: quantify a dense-retrieval-plus-rerank baseline's real gain before investing in complex memory management — don't assume complexity automatically helps
 - Limitation: evidence is limited to offline conversation tasks; the paper does not test interactive or multimodal settings, nor behavior under privacy/deletion constraints
@@ -185,7 +185,7 @@ Using an LLM as the main planner for long-horizon tasks is prone to hallucinated
 ### Deep-dive points
 
 - ALFWorld (134 episodes): MemPlan takes fewer interaction steps and uses fewer online tokens than GPT-5.1 ReAct and both PDDLEGO+ variants; LLM-DP still has the lowest online token cost
-- TextWorld memory-agent comparison (7 task instances): MemPlan gets the highest normalized score among six memory-agent baselines — Full History, Summary, RAG, Reflexion, Simulacra, AriGraph ⚠️ (only 7 task instances; the authors explicitly flag this as evidence for this setting, not a broad claim)
+- TextWorld memory-agent comparison (7 task instances): MemPlan gets the highest normalized score among six memory-agent baselines — Full History, Summary, RAG, Reflexion, Simulacra, AriGraph :warning: (only 7 task instances; the authors explicitly flag this as evidence for this setting, not a broad claim)
 - Robotouille sync/async tasks: MemPlan's lead over ReAct and LLM-DP is more pronounced in the asynchronous setting (delayed action effects), consistent with the intuition that memory-encoded exclusion constraints matter more when observations go stale faster
 - TextWorld's PDDL domain was drafted offline by GPT-5.1; 5 of 7 (71.4%) were valid on the first attempt, with the remaining 2 fixed after one offline repair round — domain generation never touched the test instances' maps, object placements, or gold answers
 - Adoption threshold: you need a (or the ability to offline-generate a) complete PDDL domain description, and negative memory's hard exclusion can misfire on ambiguous or mis-parsed feedback, requiring extra robustness design
@@ -246,7 +246,7 @@ Multi-agent debate is a common reasoning-boosting technique: multiple agents eac
 
 - Across four models (gemma-4-E4B-it, gemma-4-31B-it, Qwen3.8-27B, Qwen3.5-4B) on four benchmarks (Chess Move Validity, MMLU-Pro, GPQA-Diamond, OlymMATH) — 20 settings total — Muffin gets the best accuracy in 17 and second-best in 3
 - On OlymMATH-Easy, Muffin beats the strongest multi-agent debate baseline by 19.2 accuracy points while using 77.4% fewer tokens; the summarizer step alone lifts final accuracy from 44.9% to 59.2%
-- Agent-count ablation: going from 2 to 3 agents raises accuracy from 50.6% to 59.3%, but 4 or 5 agents only reach 59.7%/58.7% while token usage keeps climbing ⚠️ (a diminishing-returns signal, not linear scaling — don't just keep adding agents)
+- Agent-count ablation: going from 2 to 3 agents raises accuracy from 50.6% to 59.3%, but 4 or 5 agents only reach 59.7%/58.7% while token usage keeps climbing :warning: (a diminishing-returns signal, not linear scaling — don't just keep adding agents)
 - Versus full-trace sharing: at the final step, full-trace sharing pushes accuracy from 85.0% to 87.3%, but needs 73.9% more tokens (160.6K vs. 41.9K) — most of the sharing benefit is recoverable with compact notes alone
 - The number of shared findings isn't "more is better": for the smaller model (gemma-4-E4B-it), k=10 beats k=5 by 5.0 points, but more than that hurts accuracy; the larger model (gemma-4-31B-it) is far less sensitive to this budget (±2.0 points)
 - Adoption threshold: first confirm your task actually needs multi-step collaboration (the orchestrator's routing step can filter out simple queries that don't), then decide agent count and shared-note budget — don't assume "more agents, more sharing" is automatically better

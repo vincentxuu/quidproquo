@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-dokku-self-hosted-paas-en)
+> :globe: [English version](/posts/tech/2026-08-22-dokku-self-hosted-paas-en)
 
 [Dokku](https://dokku.com/docs/deployment/application-deployment/) 是把 Linux/Docker server 做成 Heroku-like PaaS 的工具。建立 app 後可用 `git push` 觸發 build 與 release，也支援 Dockerfile 和既有 image；process、config、domain、proxy 與 linked services 都由 `dokku` CLI 管理。
 

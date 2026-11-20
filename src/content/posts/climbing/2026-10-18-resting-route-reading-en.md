@@ -31,7 +31,7 @@ glossary:
     definition: "The hardest part of a route or problem. It can be one long move or a run of small holds."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-resting-route-reading)
+> :globe: [中文版](/posts/climbing/2026-10-18-resting-route-reading)
 
 The previous post, [Bouldering Problem Solving](/posts/climbing/2026-10-18-bouldering-problem-solving-en), was about short problems: climb it in one go, fall, start again. On a long roped route the problem changes. The first half goes fine, then halfway up your forearms swell and your hands won't open, and you're hanging off a big hold wondering whether to stop and shake out or race for the top.
 

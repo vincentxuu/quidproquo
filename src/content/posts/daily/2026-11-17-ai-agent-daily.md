@@ -12,7 +12,7 @@ series:
   order: 94
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-17-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-17-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -133,14 +133,14 @@ caption: 案例與數字來自 Google Cloud 威脅情報部落格、Amazon AWS S
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-17](/posts/daily/2026-11-17-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-17](/posts/daily/2026-11-17-ai-agent-github-digest)
-- 📄 [融資速報｜Corma Series A $125M](/posts/daily/2026-11-17-funding-corma)
-- 📄 [融資速報｜Numa Series C $45M](/posts/daily/2026-11-17-funding-numa)
-- 📄 [資安警報｜ARTEX 金鑰竊取迴圈掃描 LiteLLM、Dify](/posts/daily/2026-11-17-security-artex-ai-agent-key-theft-litellm-dify)
-- 📄 [工具推薦｜verify-mcp](/posts/daily/2026-11-17-tool-verify-mcp)
-- 📄 [AI Engineer 面試日練 — 2026-11-17](/posts/daily/2026-11-17-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-11-17](/posts/daily/2026-11-17-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-17](/posts/daily/2026-11-17-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-17](/posts/daily/2026-11-17-ai-agent-github-digest)
+- :file: [融資速報｜Corma Series A $125M](/posts/daily/2026-11-17-funding-corma)
+- :file: [融資速報｜Numa Series C $45M](/posts/daily/2026-11-17-funding-numa)
+- :file: [資安警報｜ARTEX 金鑰竊取迴圈掃描 LiteLLM、Dify](/posts/daily/2026-11-17-security-artex-ai-agent-key-theft-litellm-dify)
+- :file: [工具推薦｜verify-mcp](/posts/daily/2026-11-17-tool-verify-mcp)
+- :file: [AI Engineer 面試日練 — 2026-11-17](/posts/daily/2026-11-17-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-11-17](/posts/daily/2026-11-17-product-builder-interview-daily)
 
 ## 明日關注
 

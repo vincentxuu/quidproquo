@@ -12,7 +12,7 @@ series:
   order: 93
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-17-funding-rapidcanvas-en)
+> :globe: [English version](/posts/daily/2026-10-17-funding-rapidcanvas-en)
 
 ## 融資資訊
 

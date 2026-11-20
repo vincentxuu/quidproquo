@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-06-drone-market-entry-mechanics)
+> :globe: [中文版](/posts/career/2026-08-06-drone-market-entry-mechanics)
 
 **A boundary statement first.**
 

@@ -17,7 +17,7 @@ description: "A self-study route through Stanford CS329Z: RAG, tools, context, m
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
+> :globe: [中文版](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 
 **Video status: Videos included (representative Lecture 1 video).** [Source details](#course-video-sources). Stanford Online is publishing the recordings publicly on YouTube — Lectures 1–10 are up; each lecture guide embeds its recording, and Lecture 1 runs about 70 minutes.
 

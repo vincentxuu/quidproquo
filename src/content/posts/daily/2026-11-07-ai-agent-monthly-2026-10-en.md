@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-07-ai-agent-monthly-2026-10)
+> :globe: [中文版](/posts/daily/2026-11-07-ai-agent-monthly-2026-10)
 
 ## The Bottom Line
 

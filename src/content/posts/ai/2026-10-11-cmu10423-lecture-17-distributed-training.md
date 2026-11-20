@@ -12,7 +12,7 @@ draft: false
 description: "以完整數值例子與變式答案理解分散式訓練：梯度、模型與狀態各如何切分。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training-en)
+> :globe: [English version](/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training-en)
 
 **影片狀態：錄影需登入或課程授權。** [來源說明](#課程影片來源)
 

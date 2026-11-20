@@ -13,7 +13,7 @@ description: "Yoshitsune Iwa climbing guide: seasons, public transport, parking,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-yoshitsune-iwa)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-yoshitsune-iwa)
 
 Yoshitsune Iwa near Lake Toya offers a compact collection of tuff routes. Access history matters: a 2025 voluntary restraint was followed by an explicit release, so the dates of notices are essential.
 

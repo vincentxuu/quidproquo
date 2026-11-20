@@ -21,7 +21,7 @@ glossary:
     context: "Lab 1 uses it to build Langevin dynamics; notes §4 develops it formally."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

@@ -17,7 +17,7 @@ glossary:
     def: "Meta's name for Muse Wonder's capability to retain and retrieve information relevant to a user across multi-turn conversations and long-term use"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-12-model-meta-muse-wonder)
+> :globe: [中文版](/posts/daily/2026-10-12-model-meta-muse-wonder)
 
 ## Model Information
 
@@ -52,7 +52,7 @@ glossary:
 | AA Intelligence Index (Meta's own table) | 56 | 59.0 | 58 | Claude Fable 5.1 54 |
 | AA Intelligence Index (Artificial Analysis, independent) | 52 (9th of 219) | 56 (4th of 699) | 58 (1st) | — |
 
-⚠️ The first four rows are Meta's own model-card results (some benchmarks were run by third parties like Artificial Analysis, Datacurve, or Abundant AI, but the figures are still vendor-commissioned or vendor-reported, not independently reproduced). The last row is Artificial Analysis's own published leaderboard number for the same index — about 3 points below what Meta's table reports for the same models. That gap, on the same metric, is itself worth noting.
+:warning: The first four rows are Meta's own model-card results (some benchmarks were run by third parties like Artificial Analysis, Datacurve, or Abundant AI, but the figures are still vendor-commissioned or vendor-reported, not independently reproduced). The last row is Artificial Analysis's own published leaderboard number for the same index — about 3 points below what Meta's table reports for the same models. That gap, on the same metric, is itself worth noting.
 
 ## Versus Predecessors and Competitors
 

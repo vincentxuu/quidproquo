@@ -13,7 +13,7 @@ description: "An OpenClaw cloud deployment guide: the architecture shared by VPS
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-install-cloud)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-install-cloud)
 
 The previous article covered local installation. This one does not walk through each cloud platform — the official [Linux server](https://docs.openclaw.ai/vps) page has the full provider picker (DigitalOcean, Hetzner, Hostinger, Fly.io, GCP, Azure, Railway, Northflank, Oracle Cloud, Raspberry Pi, with AWS EC2/Lightsail working fine too), and pricing and instance types move constantly.
 

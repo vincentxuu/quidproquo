@@ -10,7 +10,7 @@ description: "OpenAI 公開 Codex 在內部的安全部署實踐，從沙箱模�
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-05-10-openai-codex-secure-deployment-en)
+:globe: [English version](/posts/ai/2026-05-10-openai-codex-secure-deployment-en)
 
 OpenAI 在 2026 年 5 月 8 日發表 [Running Codex safely at OpenAI](https://openai.com/index/running-codex-safely/)，公開內部如何部署 Codex 這套 AI 編程代理。重點不在「Codex 多會寫程式」，而在於：當代理可以自主讀檔、執行指令、操作開發工具時，企業要怎麼控制邊界、留下軌跡、在生產力與安全之間取捨。文章可視為 AI Agent 進入企業環境的一份參考治理框架。
 

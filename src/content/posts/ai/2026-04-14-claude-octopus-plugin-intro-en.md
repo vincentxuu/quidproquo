@@ -10,7 +10,7 @@ description: "A deep dive into the claude-octopus plugin for Claude Code: multi-
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-14-claude-octopus-plugin-intro)
+> :globe: [中文版](/posts/ai/2026-04-14-claude-octopus-plugin-intro)
 
 Every single model has blind spots — anyone who has used agentic coding agrees. Claude Octopus is a Claude Code plugin by `nyldn`, and the core idea is straightforward: **hook up to 8 models on the same task simultaneously, have them cross-review each other, and block anything they disagree on**. This article covers its architecture, commands, persona system, and how it differs from other Claude Code enhancement layers (such as oh-my-claudecode).
 

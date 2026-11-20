@@ -10,7 +10,7 @@ description: "以 Crawl4AI v0.9.x 示範 Markdown、CSS 與 LLM 結構化抽取�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-crawl4ai-complete-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-crawl4ai-complete-guide-en)
 
 [Crawl4AI](https://github.com/unclecode/crawl4ai) 是給 AI 工作流使用的非同步 crawler 與 scraper。它接收一個已知 URL，啟動瀏覽器、取得頁面，再輸出 Markdown、連結、metadata 或結構化 JSON。它不負責全網搜尋；還不知道 URL 時，先用搜尋服務或 SearXNG。
 

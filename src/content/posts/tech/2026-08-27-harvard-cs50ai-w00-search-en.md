@@ -13,11 +13,11 @@ description: "Guide to Harvard CS50 AI Week 0 Search, written section by section
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-27-harvard-cs50ai-w00-search)
+> :globe: [中文版](/posts/tech/2026-08-27-harvard-cs50ai-w00-search)
 
 **Video status: Videos included.** The lecture runs 1:49:29. The "Lecture walkthrough" below is written section by section from the recording's English captions, and each section opens with a time link that moves the player on this page to that point. The lecture does not cover this week's projects; those sections follow the course website. [Jump to the player](#lecture-video--timestamps) | [Source details](#course-video-sources)
 
-> ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 course website (i.e., `ai50/projects/2024/x/...`).
+> :warning: **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 course website (i.e., `ai50/projects/2024/x/...`).
 
 ## TL;DR
 
@@ -659,7 +659,7 @@ style50 degrees.py
 <details>
 <summary>Full reference implementation (open only after you have written and submitted your own)</summary>
 
-> ⚠️ If you are taking this course, or plan to apply for a CS50 certificate: the course's [academic honesty policy](https://cs50.harvard.edu/ai/honesty/) says you may not look at someone else's solution before submitting your own work. Finish and submit first, then use this part to compare. This implementation has been run only in the setup described on this site and has not been through check50.
+> :warning: If you are taking this course, or plan to apply for a CS50 certificate: the course's [academic honesty policy](https://cs50.harvard.edu/ai/honesty/) says you may not look at someone else's solution before submitting your own work. Finish and submit first, then use this part to compare. This implementation has been run only in the setup described on this site and has not been through check50.
 
 ```python
 # degrees.py snippet
@@ -907,7 +907,7 @@ style50 tictactoe.py
 <details>
 <summary>Full reference implementation (open only after you have written and submitted your own)</summary>
 
-> ⚠️ If you are taking this course, or plan to apply for a CS50 certificate: the course's [academic honesty policy](https://cs50.harvard.edu/ai/honesty/) says you may not look at someone else's solution before submitting your own work. Finish and submit first, then use this part to compare. This implementation has been run only in the setup described on this site and has not been through check50.
+> :warning: If you are taking this course, or plan to apply for a CS50 certificate: the course's [academic honesty policy](https://cs50.harvard.edu/ai/honesty/) says you may not look at someone else's solution before submitting your own work. Finish and submit first, then use this part to compare. This implementation has been run only in the setup described on this site and has not been through check50.
 
 It goes after `initial_state` in the provided `tictactoe.py`, replacing the seven functions that only `raise NotImplementedError`; `import copy` can be moved to the top of the file. `max_value` and `min_value` are added helper functions and include the optional alpha-beta pruning.
 

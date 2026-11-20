@@ -12,7 +12,7 @@ series:
   order: 143
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-18-funding-remanence-en)
+> :globe: [English version](/posts/daily/2026-11-18-funding-remanence-en)
 
 ## 融資資訊
 

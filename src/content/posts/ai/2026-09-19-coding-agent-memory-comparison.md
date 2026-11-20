@@ -13,7 +13,7 @@ description: "比較 Claude Code、Codex、Antigravity CLI、Cursor、GitHub Cop
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-19-coding-agent-memory-comparison-en)
+> :globe: [English version](/posts/ai/2026-09-19-coding-agent-memory-comparison-en)
 
 [上一篇](/posts/ai/2026-08-21-context-full-seven-answers)講的是 working memory——context 滿了怎麼麼辦。壓縮、剪枝、換手，全是在顧「這一次 session」。但下一次打開呢？
 

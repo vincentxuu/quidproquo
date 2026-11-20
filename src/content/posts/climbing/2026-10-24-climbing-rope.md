@@ -34,7 +34,7 @@ glossary:
     context: "Beal Booster III 有這項處理。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-climbing-rope-en)
+> :globe: [English version](/posts/climbing/2026-10-24-climbing-rope-en)
 
 在岩館爬了一陣子，你一直借朋友的繩、或用岩館的公用繩。現在想買一條自己的，打開器材行網頁，同一個品牌就有好幾種粗細、好幾種長度，有的寫 dry、有的沒有，價差可以到一倍。
 

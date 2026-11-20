@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-personal-agents-hosted-vs-self-hosted)
+> :globe: [中文版](/posts/ai/2026-10-24-personal-agents-hosted-vs-self-hosted)
 
 This is the security post in the *Always-On AI Agents* series: earlier posts cover where an agent stops on its own; this one asks who stops it when someone deliberately tries to make it do the wrong thing. Start the series from the [overview](/posts/ai/2026-11-20-always-on-agents-overview-en).
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-aws-app-runner-en)
+> :globe: [English version](/posts/tech/2026-08-22-aws-app-runner-en)
 
 [AWS App Runner](https://docs.aws.amazon.com/apprunner/latest/dg/architecture.html) 把 repository 或 ECR image 變成 HTTPS Web service，代管 build/deploy、instance、load balancing 與 auto scaling。它比 ECS/Fargate 少很多組裝，定位更接近 AWS 原生 PaaS。
 

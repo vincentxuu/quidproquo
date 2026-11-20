@@ -22,7 +22,7 @@ glossary:
     context: "It challenges the ice and prolonged rest in RICE/PRICE, but it is expert opinion, not a clinical guideline."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-injury-overview)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-injury-overview)
 
 Halfway up a boulder problem, a finger pops on a small crimp. Or you jump from four metres and your ankle lands on the seam between two mats. You sit on the mat with three questions: how bad is it, do I need a hospital right now, and which doctor do I see?
 

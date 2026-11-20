@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-19-agent-browser-cli-en)
+> :globe: [English version](/posts/ai/2026-11-19-agent-browser-cli-en)
 
 上一篇比較了三個瀏覽器 MCP server。但 [Playwright MCP 自己的 README](https://github.com/microsoft/playwright-mcp) 開頭寫的是另一件事：
 

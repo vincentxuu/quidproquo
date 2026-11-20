@@ -21,7 +21,7 @@ glossary:
     context: "Marker 的程式碼是 Apache-2.0，模型權重卻走改過的 OpenRAIL-M，兩者授權不同是最容易踩到的坑。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-06-document-parsing-layout-ocr-en)
+> :globe: [English version](/posts/ai/2026-08-06-document-parsing-layout-ocr-en)
 
 [三層階梯](/posts/ai/2026-08-06-document-parsing-three-layers)走到最後一層：檔案裡沒有可用的結構，甚至沒有文字。掃描的合約、拍照的發票、雙欄加公式的論文、巢狀儲存格的財報——這些只能靠模型從視覺訊號推斷。
 

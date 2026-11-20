@@ -12,7 +12,7 @@ tldr: "結構化資料 agent 的可靠路線是把自然語言轉成可執行查
 description: "拆解 CS224V Structured and Hybrid Data：NL-to-SQL、schema、列舉值、執行式評估，以及文字、表格與知識圖譜的混合檢索。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-structured-hybrid-data-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-structured-hybrid-data-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

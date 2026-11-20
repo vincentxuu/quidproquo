@@ -10,7 +10,7 @@ description: "Redis is more than just a cache. This guide covers Redis's core us
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-redis-cache-queue-overview)
+:globe: [中文版](/posts/tech/2026-03-27-redis-cache-queue-overview)
 
 Redis is an in-memory key-value database where all data lives in RAM by default, making reads and writes 10–100x faster than disk-based databases. It's not a replacement for PostgreSQL — it's designed to intercept queries that don't need to hit the database every single time.
 

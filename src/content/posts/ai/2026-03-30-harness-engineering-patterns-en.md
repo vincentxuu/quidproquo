@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-30-harness-engineering-patterns)
+> :globe: [中文版](/posts/ai/2026-03-30-harness-engineering-patterns)
 
 In previous articles, we examined Harness Engineering from different angles: [Three Evolutions](/posts/ai/2026-03-28-harness-engineering-evolution-en) traced the timeline from Prompt to Context to Harness, [Anthropic's Hands-On Approach](/posts/ai/2026-03-28-anthropic-harness-design-en) demonstrated dual-Agent architecture and cross-session state management, and [Phil Schmid's Perspective](/posts/ai/2026-03-28-phil-schmid-agent-harness-en) positioned the Harness as the operating system for AI systems.
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 37
 ---
-> 🌏 [中文版](/posts/daily/2026-06-30-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-30-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -43,7 +43,7 @@ Most coding agent benchmarks only check whether the bug was ultimately fixed, bu
 
 ### Read Priority
 
-📖 Skim
+:book: Skim
 Unless you're building a coding agent or code retrieval system, the abstract is sufficient; if you are, the methodology is worth a close read.
 
 ### Domain Background
@@ -98,7 +98,7 @@ Same AI backbone, different adapter design — Pass@1 jumps from 19% to 73%. Thi
 
 ### Read Priority
 
-⭐ Must-read
+★ Must-read
 For those evaluating or selecting coding agent frameworks — this paper changes how you read benchmark numbers.
 
 ### Domain Background
@@ -154,7 +154,7 @@ AI agents keep getting stronger, but evaluation systems remain static — this p
 
 ### Read Priority
 
-⭐ Must-read
+★ Must-read
 For agent platform architects, eval infrastructure engineers, or those interested in AI self-improvement systems — conceptually one of the few genuinely fresh ideas in recent agent research, worth a deep read.
 
 ### Domain Background

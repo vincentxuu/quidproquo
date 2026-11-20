@@ -13,7 +13,7 @@ description: "A lecture-by-lecture reading of Stanford CS111 Spring 2026 Lecture
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

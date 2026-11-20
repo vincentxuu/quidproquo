@@ -13,7 +13,7 @@ series:
   order: 37
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-09-drone-production-ramp-procurement-en)
+> :globe: [English version](/posts/tech/2026-08-09-drone-production-ramp-procurement-en)
 
 B 群（技術）還剩最後兩格，其中「[製造與量產爬坡](/posts/tech/2026-08-06-drone-industry-map)」是我從一開始就標成**可能需要進工廠**的那一格——也是整個系列裡我最後一個還掛著「需要非公開材料」標籤的題目。
 

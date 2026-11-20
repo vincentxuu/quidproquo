@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-trpc-typesafe-api)
+> :globe: [中文版](/posts/tech/2026-08-22-trpc-typesafe-api)
 
 [tRPC](https://trpc.io/docs/) has a simple core: the server exports an `AppRouter` type, and the client uses it to infer procedure paths, inputs, outputs, and errors. There is no separate IDL or required code-generation step. TypeScript inference connects both sides.
 

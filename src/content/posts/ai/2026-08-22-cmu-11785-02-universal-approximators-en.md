@@ -14,7 +14,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-11785-02-universal-approximators)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-11785-02-universal-approximators)
 
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 

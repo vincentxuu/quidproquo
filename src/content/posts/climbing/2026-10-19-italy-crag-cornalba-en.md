@@ -13,7 +13,7 @@ description: "A guide to Cornalba: rock, scale and the level you need on Corna B
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-cornalba)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-cornalba)
 
 Cornalba is a small village in Val Serina, a side valley north of Bergamo, and the white limestone wall above it is called Corna Bianca. From the 1980s it was one of the centres of hard Italian sport climbing, and in 2010 Adam Ondra made the first ascent of a 9a+ here. Fewer people come now, for reasons that have to do with the style of climbing.
 

@@ -12,7 +12,7 @@ series:
   order: 33
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-17-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-17-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -150,17 +150,17 @@ Tenable's co-CEO said Australian enterprises broadly don't know how many AI agen
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-17](/posts/daily/2026-09-17-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-17](/posts/daily/2026-09-17-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-17](/posts/daily/2026-09-17-ai-interview-daily-en)
-- 📄 [Framework Update｜Agno v3.0.10](/posts/daily/2026-09-17-framework-agno-3.0.10-en)
-- 📄 [Framework Update｜Mastra @mastra/core@1.67.0](/posts/daily/2026-09-17-framework-mastra-1.67.0-en)
-- 📄 [Funding Brief｜Factory $200M, $5B Valuation](/posts/daily/2026-09-17-funding-factory-en)
-- 📄 [Funding Brief｜Profound Series D $180M](/posts/daily/2026-09-17-funding-profound-en)
-- 📄 [Pricing Watch｜OpenAI GPT-5.5 Retirement](/posts/daily/2026-09-17-pricing-openai-gpt-5-5-retirement-en)
-- 📄 [Product Builder Interview Prep — 2026-09-17](/posts/daily/2026-09-17-product-builder-interview-daily-en)
-- 📄 [Security Alert｜BragJack Browser AI Agent Hijack](/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack-en)
-- 📄 [Tool Recommendation｜symfony/ai-mcp-tool](/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-17](/posts/daily/2026-09-17-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-17](/posts/daily/2026-09-17-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Prep — 2026-09-17](/posts/daily/2026-09-17-ai-interview-daily-en)
+- :file: [Framework Update｜Agno v3.0.10](/posts/daily/2026-09-17-framework-agno-3.0.10-en)
+- :file: [Framework Update｜Mastra @mastra/core@1.67.0](/posts/daily/2026-09-17-framework-mastra-1.67.0-en)
+- :file: [Funding Brief｜Factory $200M, $5B Valuation](/posts/daily/2026-09-17-funding-factory-en)
+- :file: [Funding Brief｜Profound Series D $180M](/posts/daily/2026-09-17-funding-profound-en)
+- :file: [Pricing Watch｜OpenAI GPT-5.5 Retirement](/posts/daily/2026-09-17-pricing-openai-gpt-5-5-retirement-en)
+- :file: [Product Builder Interview Prep — 2026-09-17](/posts/daily/2026-09-17-product-builder-interview-daily-en)
+- :file: [Security Alert｜BragJack Browser AI Agent Hijack](/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack-en)
+- :file: [Tool Recommendation｜symfony/ai-mcp-tool](/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool-en)
 
 ## Tomorrow's Watch
 

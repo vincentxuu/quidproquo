@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-21-weekly-review-en)
+> :globe: [English version](/posts/daily/2026-08-21-weekly-review-en)
 
 ## 本週最重要的 5 件事
 
@@ -59,13 +59,13 @@ DeepSeek 開源 MIT 授權的 agent harness「dsh」，發布一小時內衝破 
 
 ## Watchlist 更新建議
 
-### 🆕 建議加入
+### 建議加入
 
 本週所有訊號中出現的公司全部已在 watchlist 內，沒有任何 watchlist 外公司達到「本週出現 ≥ 3 次」的加入門檻。本週的新面孔集中在融資事件（各出現 1 次），已列入下方新創雷達觀察，暫不建議直接加入 watchlist。
 
-### ⚠️ 考慮移除
+### :warning: 考慮移除
 
-✅ 本週無符合移除條件的公司（無任何公司確認關閉或明確宣佈轉離 Agent 領域）
+✓ 本週無符合移除條件的公司（無任何公司確認關閉或明確宣佈轉離 Agent 領域）
 
 ## 本週新創雷達
 

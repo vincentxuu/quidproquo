@@ -12,7 +12,7 @@ series:
   order: 82
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-14-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-14-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -59,7 +59,7 @@ Existing instruction-following benchmarks stuff all rules into the user turn, bu
 
 - Compliance rates across 12 frontier models: 72.1-85.9%, but AP-Acc drops to 66.1-78.6%
 - Inflation magnitude varies by model (3.6-7.4 pp), meaning model rankings could shift
-- Instruction priority does not follow prompt depth: system prompt, project files, and user instructions outrank tool and skill descriptions ⚠️ (authors' own evaluation, 9-build pilot)
+- Instruction priority does not follow prompt depth: system prompt, project files, and user instructions outrank tool and skill descriptions :warning: (authors' own evaluation, 9-build pilot)
 - Adoption barrier: requires building a "remove-and-rerun" probe for each rule — not cheap
 - Directly relevant to Claude Code's CLAUDE.md architecture: project files rank higher than tool descriptions
 - Limitation: the 642-rule library is currently limited to coding scenarios; generalization to other agent types is unverified
@@ -104,7 +104,7 @@ Existing Agent safety mechanisms treat the harness as a static deployment artifa
 
 - Baseline: Agent-SafetyBench (6 attack conditions), ASR drops from 17.1% to 5.5% (vs. static SafeHarness)
 - Correctness (UA) simultaneously rises from 31.6% to 47.6% — safety and utility are not zero-sum
-- Held-out AgentHarm: Harm Score drops from 19.8% to 9.8%, refusal rate rises from 78.4% to 86.4% ⚠️ (SHE team's own evaluation)
+- Held-out AgentHarm: Harm Score drops from 19.8% to 9.8%, refusal rate rises from 78.4% to 86.4% :warning: (SHE team's own evaluation)
 - Evolution model is swappable: GPT-5.5 (best at R17), DeepSeek-V3.2 (best at R03), GLM-5.2 (best at R05) each have different safety-utility tradeoffs
 - Adoption barrier: requires a replayable trajectory environment and structured scoring; 20 rounds × 90 rollouts is not cheap
 - Integrates with MCP / LangGraph architectures: four components map to existing harness system prompt, middleware, memory, and tool permissions
@@ -150,7 +150,7 @@ Agent self-improvement has two paths: one is Gödel Machine-style recursive self
 
 - Travel: Composite 84 vs. HGM-C 83, Budget 733 vs. 4,000 (5.5x more efficient)
 - Shopping: Match 94 vs. HGM-C 91, Case Accuracy 79 vs. 70 (+9), Budget 989 vs. 4,000 (4x more efficient)
-- 86% of performance gains come from verifiers with F1 ≥ 0.80 — poorly learned verifiers are worse than none ⚠️ (authors' own evaluation, averaged over 2 runs)
+- 86% of performance gains come from verifiers with F1 ≥ 0.80 — poorly learned verifiers are worse than none :warning: (authors' own evaluation, averaged over 2 runs)
 - Verifiers and repair strategies transfer across models: strategies learned on GPT-5.4-mini give +9.9 improvement when applied directly to Mistral
 - Shopping task repair strategies barely call the LLM, instead using code to directly modify the cart — the optimizer discovered this shortcut on its own
 - The optimizer also found a flaw in the Shopping scoring metric: adding items is never penalized (pure recall), so the strategy learned to only add, never remove

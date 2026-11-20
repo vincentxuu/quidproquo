@@ -14,7 +14,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/tech/2026-06-20-browser-mcp-comparison)
+> :globe: [中文版](/posts/tech/2026-06-20-browser-mcp-comparison)
 
 The three routes usually compared for giving an AI agent a browser are [Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp-en), Microsoft's [@playwright/mcp](https://github.com/microsoft/playwright-mcp), and the MCP repo's [@modelcontextprotocol/server-puppeteer](/posts/tech/2026-06-20-puppeteer-mcp-en).
 
@@ -41,17 +41,17 @@ What actually separates them now is **purpose**:
 | Maintenance | Chrome team, active | Microsoft, active | **Archived (nothing since 2025.5.12)** |
 | Primary purpose | Diagnosis, debugging, performance | General web automation, E2E testing | — |
 | Built on | Puppeteer | Playwright | Puppeteer |
-| Auto-wait | ✅ | ✅ | ❌ |
+| Auto-wait | ✓ | ✓ | ✗ |
 | Page state delivery | Snapshot (`take_snapshot`) or screenshot | Accessibility tree (default) or screenshot | Screenshot (base64) |
 | Browser support | Chrome / Chrome for Testing | Chromium / Firefox / WebKit | Chromium only |
-| Attach to running browser | ✅ `--browser-url` / `--ws-endpoint` / `--auto-connect` | ✅ `--cdp-endpoint` / `--extension` | Limited |
-| Performance trace / Lighthouse | ✅ | ❌ | ❌ |
-| Heap snapshots | ✅ (`--memoryDebugging`) | ❌ | ❌ |
-| Extension / PWA management | ✅ | ❌ | ❌ |
-| Request interception | ❌ read-only inspection + throttling / URL blocking | ✅ (`--caps=network`, `browser_route`) | Roll your own via evaluate |
-| Assertions / locator generation | ❌ | ✅ (`--caps=testing`) | ❌ |
+| Attach to running browser | ✓ `--browser-url` / `--ws-endpoint` / `--auto-connect` | ✓ `--cdp-endpoint` / `--extension` | Limited |
+| Performance trace / Lighthouse | ✓ | ✗ | ✗ |
+| Heap snapshots | ✓ (`--memoryDebugging`) | ✗ | ✗ |
+| Extension / PWA management | ✓ | ✗ | ✗ |
+| Request interception | ✗ read-only inspection + throttling / URL blocking | ✓ (`--caps=network`, `browser_route`) | Roll your own via evaluate |
+| Assertions / locator generation | ✗ | ✓ (`--caps=testing`) | ✗ |
 | Context-size control | `--slim` | Per-group `--caps` | Only 7 tools to begin with |
-| Usage statistics by default | ✅ (disable with `--no-usage-statistics`) | ❌ | ❌ |
+| Usage statistics by default | ✓ (disable with `--no-usage-statistics`) | ✗ | ✗ |
 
 ## Untangling the Word "CDP"
 

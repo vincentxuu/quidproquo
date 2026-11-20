@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-active-learning-evidence)
+> :globe: [中文版](/posts/learning/2026-10-14-active-learning-evidence)
 
 This is part 8 of the series "Writing Articles That Teach," and the first post in its second section, "what to ask readers to do." The first section covered what goes on the page: [text](/posts/learning/2026-10-13-teaching-text-evidence-en), [diagrams](/posts/learning/2026-10-13-diagrams-in-teaching-articles-en), [video](/posts/learning/2026-10-13-instructional-video-in-articles-en), and [laying out video and text](/posts/learning/2026-10-13-video-beside-text-layout-en). How to write the questions in an article and how to give the answers is covered in [the post on questions and feedback](/posts/learning/2026-10-13-teaching-text-questions-feedback-en). This post steps one level upstream and asks: what did the research behind "active learning is better" and "learning by doing" actually measure, and can it justify asking readers to do something in an article?
 

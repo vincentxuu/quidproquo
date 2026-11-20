@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 24
 ---
-> 🌏 [English version](/posts/daily/2026-06-17-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-17-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -73,7 +73,7 @@ Evoflux 把工具使用重新定義為「repair problem（修復問題）」：�
 ### 深入要點
 
 - **Typed workflow graph**：每個節點是一個 MCP 工具呼叫，邊代表資料依賴；強型別讓錯誤更容易定位
-- **關鍵數據（MCP-Bench，250 tools，live MCP servers）**：執行可行性（execution feasibility）從 **3% → 17–24%**，平均提升 5–8 倍；zero-shot CoT / in-context learning / distillation fine-tuning 均在 3–5% ⚠️（3% baseline 意味著現有小模型幾乎無法完成真實 MCP 任務）
+- **關鍵數據（MCP-Bench，250 tools，live MCP servers）**：執行可行性（execution feasibility）從 **3% → 17–24%**，平均提升 5–8 倍；zero-shot CoT / in-context learning / distillation fine-tuning 均在 3–5% :warning:（3% baseline 意味著現有小模型幾乎無法完成真實 MCP 任務）
 - **Inference-only 方法**：不需要 fine-tuning，可插進任何支援 MCP 的 agent runtime（如 LangGraph、AutoGen）
 - **成本 trade-off**：演化搜尋需要多次執行工具，推論延遲明顯上升；高 precision 需求場景划算，高吞吐量場景需謹慎評估
 - **限制一**：工具目錄頻繁更動時，演化搜尋是否仍穩健尚未驗證
@@ -103,7 +103,7 @@ Agent workflow 不必每次重新生成（貴），也不必只有一個萬用�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 架構思維有啟發，但假設你已有 workflow 優化的基礎設施；沒有的話前置投入高，快速掌握「precompute-and-reuse」概念即可。
 
 ### 領域背景
@@ -130,17 +130,17 @@ FlowBank 的三階段框架：
 
 ### 深入要點
 
-- **5 個 benchmark 最高平均分**：比最強自動化 baseline 高 **4.26%**，比最強手工設計高 **14.92%**（具體 benchmark 名稱未在摘要完整披露 ⚠️，建議讀 full paper 確認）
+- **5 個 benchmark 最高平均分**：比最強自動化 baseline 高 **4.26%**，比最強手工設計高 **14.92%**（具體 benchmark 名稱未在摘要完整披露 :warning:，建議讀 full paper 確認）
 - **DiverseFlow 的 diversity 引導機制**：主動偵測 under-covered queries，在搜尋時偏向這些方向——這解決了傳統隨機搜尋容易陷入局部最優的問題
 - **Matching 比 Generation 便宜**：路由（選哪個 workflow）的計算量遠低於生成（重新寫 workflow），是成本節省的核心來源
 - **Offline compute trade-off**：三階段需要線下預計算投入，適合查詢模式相對穩定的場景；對頻繁出現全新查詢類型的場景，portfolio 需定期更新
-- **Portfolio 大小 scaling**：幾個 workflow 最好？這個問題在摘要中未明確回答 ⚠️
+- **Portfolio 大小 scaling**：幾個 workflow 最好？這個問題在摘要中未明確回答 :warning:
 - **與 LangGraph 關聯**：FlowBank 可以作為 workflow 優化的上游層，選出最好的 workflow 再交由 LangGraph 執行，兩者互補
 - **Limitation**：需要 workflow 搜尋基礎設施（如 Monte Carlo Tree Search 或 LLM-based search）；對 long-tail queries 的表現（未被預計算涵蓋的新類型）未充分討論
 
 ### Reviewer 一句話評
 
-「不同 queries 需要不同 workflows」這個洞見清晰，14.92% over handcrafted 有說服力；三階段設計邏輯嚴謹。弱點是 5 個 benchmark 細節和 DiverseFlow 的 diversity 機制需要讀 full paper 才能完整評估，目前資訊基礎偏薄 ⚠️。方向對，但不要只看數字就拍板採用。
+「不同 queries 需要不同 workflows」這個洞見清晰，14.92% over handcrafted 有說服力；三階段設計邏輯嚴謹。弱點是 5 個 benchmark 細節和 DiverseFlow 的 diversity 機制需要讀 full paper 才能完整評估，目前資訊基礎偏薄 :warning:。方向對，但不要只看數字就拍板採用。
 
 ### 給你的 take-away
 

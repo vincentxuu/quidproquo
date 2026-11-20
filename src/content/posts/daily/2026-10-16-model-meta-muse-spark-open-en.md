@@ -17,7 +17,7 @@ glossary:
     def: "A composite intelligence score computed by third-party evaluator Artificial Analysis across many benchmarks; the question set and model pool are continuously recalibrated, so scores from different time periods are not directly comparable"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-16-model-meta-muse-spark-open)
+> :globe: [中文版](/posts/daily/2026-10-16-model-meta-muse-spark-open)
 
 ## Model Info
 
@@ -46,13 +46,13 @@ glossary:
 
 | Benchmark | Muse Spark Open | Predecessor / Reference | Strongest Competitor (Meta's table) |
 |---|---|---|---|
-| AA Intelligence Index | 39 | Closed Muse Spark 1.2: 57 (⚠️ see caveat below — not directly comparable) | GLM 5.3: 45 |
+| AA Intelligence Index | 39 | Closed Muse Spark 1.2: 57 (:warning: see caveat below — not directly comparable) | GLM 5.3: 45 |
 | JobBench (agentic) | **61.8** | Not tested | Kimi K3: 54.3 (Muse Spark Open's own highest) |
 | MCP-Atlas (agentic) | **89.2** | Not tested | Kimi K3: 82.3 (Muse Spark Open's own highest) |
 | Terminal-Bench 2.1 | 76.4 | Closed Muse Spark 1.2's Terminal-Bench v2.1: 80% (different agent harness, reference only) | Kimi K3: 85.0 |
 | StrongREJECT v2 (jailbreak test, lower is safer) | **0.5** | Not tested | Kimi K3: 66.6 |
 
-⚠️ The AA Intelligence Index is continuously recalibrated by Artificial Analysis as its question set and model pool grow. Muse Spark 1.2's score of 57 (August 2026) and Muse Spark Open's 39 (October 2026) are separated by nearly two months and different question-set versions, so this is not a straightforward "18-point regression." All figures above are either Meta's own or Artificial Analysis's existing published scores; independent reproduction specific to Muse Spark Open is still pending.
+:warning: The AA Intelligence Index is continuously recalibrated by Artificial Analysis as its question set and model pool grow. Muse Spark 1.2's score of 57 (August 2026) and Muse Spark Open's 39 (October 2026) are separated by nearly two months and different question-set versions, so this is not a straightforward "18-point regression." All figures above are either Meta's own or Artificial Analysis's existing published scores; independent reproduction specific to Muse Spark Open is still pending.
 
 ## Compared to the Predecessor / Competitors
 

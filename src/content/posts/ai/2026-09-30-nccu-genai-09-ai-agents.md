@@ -24,7 +24,7 @@ glossary:
         url: "https://github.com/andrewyng/aisuite"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-09-ai-agents-en)
+> :globe: [English version](/posts/ai/2026-09-30-nccu-genai-09-ai-agents-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

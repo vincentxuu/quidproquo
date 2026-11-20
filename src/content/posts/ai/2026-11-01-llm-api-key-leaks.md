@@ -10,7 +10,7 @@ description: "比較 OpenCode Console、LiteLLM、DeepSeek、Hugging Face 等憑
 draft: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-01-llm-api-key-leaks-en)
+> :globe: [English version](/posts/ai/2026-11-01-llm-api-key-leaks-en)
 
 替組織做 AI 產品，常會遇到這個需求：客戶提供自己的模型 API key，平台代為保存、呼叫，費用由客戶的模型帳戶支付。這種方式通常叫作自帶金鑰（BYOK）。在這篇文章裡，它指的是模型服務的存取憑證，不是客戶自管資料加密金鑰。
 

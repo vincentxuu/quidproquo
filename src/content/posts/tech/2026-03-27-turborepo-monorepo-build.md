@@ -10,7 +10,7 @@ description: "介紹 Turborepo 和 pnpm workspaces 的核心概念：pipeline �
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-03-27-turborepo-monorepo-build-en)
+> :globe: [English version](/posts/tech/2026-03-27-turborepo-monorepo-build-en)
 
 Monorepo 的問題不是「多個專案放在一起」，而是「多個專案放在一起之後，build 變慢、依賴混亂」。Turborepo 解決 build 效率，pnpm workspaces 解決依賴管理，兩者搭配是目前 JS/TS monorepo 的標準答案。
 

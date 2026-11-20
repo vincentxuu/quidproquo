@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-06-docling-document-parsing)
+> :globe: [中文版](/posts/tech/2026-09-06-docling-document-parsing)
 
 Making complex documents readable for LLMs isn't a single-path problem. In this series we've covered the conversion layer ([anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown), [MarkItDown](/posts/ai/2026-04-18-markitdown-intro)), the extraction layer ([PyMuPDF / pdfplumber / Tika group](/posts/ai/2026-08-06-pdf-text-extraction-libraries)), the three-way comparison of parsing-layer tools ([MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en), Marker, Docling), scanned-document benchmarks ([10 tools tested against historical exam papers](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)), and finally [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents) to explain why fixed pipelines aren't enough. This post focuses on one parsing-layer tool that's easy to overlook: **Docling**.
 

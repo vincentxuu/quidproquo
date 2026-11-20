@@ -14,7 +14,7 @@ series:
 
 <!-- [skip-harness] markdown content file -->
 
-> 🌏 [中文版](/posts/daily/2026-08-20-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-20-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -62,7 +62,7 @@ The multi-stage nature of memory pipelines (ingestion, retrieval, filtering, gen
 
 - Three public benchmark scores: LoCoMo 93.59%, LongMemEval 90.93%, PersonaMem-V2 57.20%
 - Five paired ablation experiments show that supplementary ingestion, session memory retrieval, and Forget Guard each yield statistically significant gains (+1.9 to +3.7 percentage points, p ≤ .003)
-- Control: BM25/RRF changes appeared effective on aggregate metrics but were retained as a "monitored feature flag" rather than directly promoted — a nuance completely invisible in overall-score-only evaluations ⚠️ (author self-evaluation; awaiting external replication)
+- Control: BM25/RRF changes appeared effective on aggregate metrics but were retained as a "monitored feature flag" rather than directly promoted — a nuance completely invisible in overall-score-only evaluations :warning: (author self-evaluation; awaiting external replication)
 - Diagnostic artifacts bring DCR@3 to 98–100%, a massive improvement from 0% with results-only logs
 - Adoption threshold: requires building stage-level tracing infrastructure first, which is additional engineering work for existing memory systems, though the team has instantiated the protocol in MemStack, a diagnosable memory core
 - Limitation: validation is limited to three public benchmarks; production memory pipeline designs may differ from MemStack, and migration costs remain to be assessed
@@ -149,7 +149,7 @@ LLM-powered agents have begun autonomously interacting and forming communities o
 
 ### Deep Dive
 
-- Targeting just 10% of agents raises opinion polarization variance from 0.098 to 0.146 and Esteban-Ray polarization index from 0.130 to 0.213 (tested across three memory systems) ⚠️ (author self-evaluation on a simulation platform reconstructed from real MoltBook interactions; awaiting external replication)
+- Targeting just 10% of agents raises opinion polarization variance from 0.098 to 0.146 and Esteban-Ray polarization index from 0.130 to 0.213 (tested across three memory systems) :warning: (author self-evaluation on a simulation platform reconstructed from real MoltBook interactions; awaiting external replication)
 - After "axiom-oriented triple selection" optimization, the proportion of argument wording retained in memory increases from 0.382 to 0.847, significantly improving attack reliability
 - The attack requires no access to agent system prompts or echo chamber construction — only standard user-level posting and replying privileges
 - Adoption threshold: this is red-team attack research without a corresponding defense proposal; teams deploying agent communities need to independently evaluate memory write-source trustworthiness and anomaly detection mechanisms

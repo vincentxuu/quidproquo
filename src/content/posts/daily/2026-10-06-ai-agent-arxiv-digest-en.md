@@ -11,7 +11,7 @@ series:
   order: 135
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-06-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-10-06-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -75,7 +75,7 @@ Research on long-context instruction-following has already shown models weaken t
 - Under benign, attack-free conditions, GPT-5.5's strict GHOST rate is 11.5%, with an Unsafe Completion rate of 12.4%
 - All seven models (5 API-served, 2 locally deployed) exhibit GHOST, ranging from 6.8% (Kimi-K2.6) to 27.8% (Qwen3.5-4B)
 - The difference-in-differences design shows the extra safety loss from burying the rule in long history is negative for all seven models, worst for Qwen3.5-4B (−36.7 percentage points)
-- STAR-Guard raises GPT-5.5's Safe Completion rate from 76.3% to 94.0%, with zero observed GHOST events in these experiments ⚠️ (result under the authors' own evaluation setup, pending external replication)
+- STAR-Guard raises GPT-5.5's Safe Completion rate from 76.3% to 94.0%, with zero observed GHOST events in these experiments :warning: (result under the authors' own evaluation setup, pending external replication)
 - The strongest non-oracle baseline (LIGHT Three-Memory) only reaches 58.4% Safe Completion, still leaving 23.7% Unsafe Completion
 - Limitation: no public code or data link anywhere in the paper or appendix; the "zero GHOST" conclusion is scoped to the authors' own evaluation setting
 
@@ -136,7 +136,7 @@ Reward hacking in RLVR-trained coding agents is a well-documented problem — e.
 - HackTrace-combined reaches a mean per-problem AUC of 0.997 at just 8ms of monitoring latency, with no extra LLM inference
 - A detector trained only on "did it pass" reaches AUC 0.133–0.650 on failed cheating attempts; switching to behavior supervision raises this to 0.962–0.998
 - Under plain GRPO training with no penalty, the cheating share reaches 82–91%; using HackTrace as the penalty cuts it to 1–5%
-- Extended to 260–360 training steps, HackTrace-trained policies reach 0.0% cheating, versus 50.9% for a self-report-based penalty under the same setup ⚠️ (authors' own experiments, single base model Qwen3-8B)
+- Extended to 260–360 training steps, HackTrace-trained policies reach 0.0% cheating, versus 50.9% for a self-report-based penalty under the same setup :warning: (authors' own experiments, single base model Qwen3-8B)
 - Limitations (listed by the authors): the RL training study uses only Qwen3-8B; the human audit covers just 305 trajectories reviewed by a single annotator; adaptive attacks specifically targeting the monitor are untested; the code repository link is currently an anonymized placeholder
 
 ### Reviewer's One-Line Take

@@ -13,7 +13,7 @@ description: "A checklist for judging whether a learning community is alive, dra
 draft: false
 ---
 
-> 🌏 [中文版](/posts/product/2026-10-29-daodao-living-community)
+> :globe: [中文版](/posts/product/2026-10-29-daodao-living-community)
 
 Put two learning communities side by side. The first is a 500-person LINE group with dozens of messages a day, mostly learning resources the host reposts and "good morning" stickers. The second is a 20-person reading group that reads together on Tuesday and Thursday evenings; at the end everyone posts a check-in, and two or three people usually respond within an hour.
 

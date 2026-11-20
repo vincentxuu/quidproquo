@@ -14,7 +14,7 @@ series:
   order: 24
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-self-reflection-llm-as-judge)
+> :globe: [中文版](/posts/ai/2026-03-12-self-reflection-llm-as-judge)
 
 After a RAG system generates an answer, how do you know whether it's making things up?
 

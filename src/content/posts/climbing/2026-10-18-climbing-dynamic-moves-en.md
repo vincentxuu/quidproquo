@@ -22,7 +22,7 @@ glossary:
     context: "Many climbers call every dynamic move a dyno; this series uses the word only for moves where all four limbs leave the wall."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-dynamic-moves)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-dynamic-moves)
 
 You're stuck on one move. The next hold is ten centimetres beyond your straight arm. You stand up slowly, lock off, reach, and by the time your fingertips touch the hold, your arm is done. The person next to you walks over, sinks their knees, pops, and they're on it.
 

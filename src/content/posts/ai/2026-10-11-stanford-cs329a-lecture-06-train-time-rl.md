@@ -13,7 +13,7 @@ tldr: "組內回饋必須能區分好壞；正解篩選、相對優勢與取樣�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-stanford-cs329a-lecture-06-train-time-rl-en)
+> :globe: [English version](/posts/ai/2026-10-11-stanford-cs329a-lecture-06-train-time-rl-en)
 
 **影片狀態：已附影片。** 官方錄影文字轉錄已取得；字幕類型、原音回聽與跟讀播放器尚待核對。
 

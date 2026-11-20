@@ -13,7 +13,7 @@ description: "MIT 6.S191 2026 Lecture 5 雙語學習筆記：核心概念、觀�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-mit-6s191-l05-reinforcement-learning-en)
+> :globe: [English version](/posts/ai/2026-08-22-mit-6s191-l05-reinforcement-learning-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

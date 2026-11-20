@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide-en)
 
 每次啟動 Claude Code，都是一個全新的 context window——上一個 session 教過它的事，預設全忘。[系列入口篇](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)提過它的存取範圍裡有 CLAUDE.md 和 auto memory，[目錄導覽](/posts/tech/deep-dive/2026-08-26-claude-code-claude-directory)則逐檔講過這些東西放在哪。這篇聚焦一個更核心的問題：**記憶體系本身是怎麼設計的**——什麼該記、誰負責記、載入時怎麼疊。
 

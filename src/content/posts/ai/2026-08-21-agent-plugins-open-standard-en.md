@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-08-21-agent-plugins-open-standard)
+:globe: [中文版](/posts/ai/2026-08-21-agent-plugins-open-standard)
 
 You wrote a SKILL.md that teaches agents how to query your company's internal knowledge base and answer customer questions.
 

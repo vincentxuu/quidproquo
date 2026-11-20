@@ -13,7 +13,7 @@ description: "What the Nous Tool Gateway actually covers, the three ways to enab
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-tool-gateway)
+> :globe: [中文版](/posts/ai/2026-08-18-hermes-agent-tool-gateway)
 
 Post 4 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 

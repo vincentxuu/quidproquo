@@ -16,7 +16,7 @@ description: "A full walkthrough of Stanford CS224N: Natural Language Processing
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)
+> :globe: [中文版](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

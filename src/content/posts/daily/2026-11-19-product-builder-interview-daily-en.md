@@ -12,7 +12,7 @@ series:
   order: 92
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-19-product-builder-interview-daily)
+> :globe: [中文版](/posts/daily/2026-11-19-product-builder-interview-daily)
 
 ## Today's Focus
 

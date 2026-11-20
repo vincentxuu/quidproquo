@@ -12,7 +12,7 @@ series:
   order: 96
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-19-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-19-ai-agent-daily)
 
 ## Today's Take
 
@@ -138,15 +138,15 @@ We checked for AI agent news specific to Taiwan today and found no qualifying ev
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-19](/posts/daily/2026-11-19-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-19](/posts/daily/2026-11-19-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Pydantic AI v2.70.0](/posts/daily/2026-11-19-framework-pydantic-ai-v2.70.0-en)
-- 📄 [Model Card｜Tencent Hy4 flash](/posts/daily/2026-11-19-model-tencent-hy4-flash-en)
-- 📄 [Funding Flash｜Payhawk Series C $280M](/posts/daily/2026-11-19-funding-payhawk-en)
-- 📄 [Security Alert｜Microsoft Agent Framework PyPI package compromised with credential stealer](/posts/daily/2026-11-19-security-microsoft-agent-framework-pypi-credential-stealer-en)
-- 📄 [Tool Pick｜otpkit](/posts/daily/2026-11-19-tool-otpkit-en)
-- 📄 [AI Engineer Interview Drill — 2026-11-19](/posts/daily/2026-11-19-ai-interview-daily-en)
-- 📄 [Product Builder Interview Drill — 2026-11-19](/posts/daily/2026-11-19-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-19](/posts/daily/2026-11-19-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-19](/posts/daily/2026-11-19-ai-agent-github-digest-en)
+- :file: [Framework Update｜Pydantic AI v2.70.0](/posts/daily/2026-11-19-framework-pydantic-ai-v2.70.0-en)
+- :file: [Model Card｜Tencent Hy4 flash](/posts/daily/2026-11-19-model-tencent-hy4-flash-en)
+- :file: [Funding Flash｜Payhawk Series C $280M](/posts/daily/2026-11-19-funding-payhawk-en)
+- :file: [Security Alert｜Microsoft Agent Framework PyPI package compromised with credential stealer](/posts/daily/2026-11-19-security-microsoft-agent-framework-pypi-credential-stealer-en)
+- :file: [Tool Pick｜otpkit](/posts/daily/2026-11-19-tool-otpkit-en)
+- :file: [AI Engineer Interview Drill — 2026-11-19](/posts/daily/2026-11-19-ai-interview-daily-en)
+- :file: [Product Builder Interview Drill — 2026-11-19](/posts/daily/2026-11-19-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

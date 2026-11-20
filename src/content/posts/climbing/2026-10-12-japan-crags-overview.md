@@ -13,7 +13,7 @@ description: "日本岩場系列的總覽：57 個已介紹岩場的季節、岩
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crags-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crags-overview-en)
 
 這個系列一次介紹一個日本岩場：岩質與攀登風格、適合的季節和原因、搭電車和開車怎麼去、去之前要知道的在地規範。不寫行程、機票或連假怎麼排，因為那些很快就過時；岩場的季節和規矩相對穩定。
 

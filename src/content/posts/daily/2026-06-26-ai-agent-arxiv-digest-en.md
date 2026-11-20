@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 33
 ---
-> 🌏 [中文版](/posts/daily/2026-06-26-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-26-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -71,8 +71,8 @@ For agent platform developers, this framework provides observable engineering di
 - RigorBench is the first benchmark to formalize coding agent "engineering process quality" into measurable metrics
 - The five dimension scores can be examined independently or composed into an overall process discipline score, enabling multi-dimensional cross-agent comparison
 - Evaluation is based on trajectory analysis, providing direct feedback for agent scaffolding design (how tools are invoked, how steps are organized)
-- The authors are two Georgia Tech researchers (the Madiraju brothers), a relatively small research team **⚠️**
-- No concrete cross-agent comparison scores are shown (e.g. Claude Code vs GPT-4o process scores); the paper leans toward framework proposal **⚠️**
+- The authors are two Georgia Tech researchers (the Madiraju brothers), a relatively small research team **:warning:**
+- No concrete cross-agent comparison scores are shown (e.g. Claude Code vs GPT-4o process scores); the paper leans toward framework proposal **:warning:**
 - Relation to LangGraph / AutoGen: these frameworks record execution logs; RigorBench can serve as an evaluator plugged into a CI pipeline
 - Adoption barrier: requires access to full trajectory logs; limited help for black-box API-only scenarios
 
@@ -124,11 +124,11 @@ The significance of this framework: enterprises don't need to rely long-term on 
 ### Key Details
 
 - Stage 1's customization pipeline (CPT → SFT → preference optimization) follows a well-established LLM fine-tuning path; the highlight is explicitly showing this pipeline preserves agentic capabilities (tool use, multi-turn reasoning)
-- Stage 2's Speculative Decoding + FP8 is the standard inference acceleration combo in recent years; the 4.48x throughput gain is benchmarked on an internal enterprise workload **⚠️** — the specific baselines are not named, so cite with caution
+- Stage 2's Speculative Decoding + FP8 is the standard inference acceleration combo in recent years; the 4.48x throughput gain is benchmarked on an internal enterprise workload **:warning:** — the specific baselines are not named, so cite with caution
 - The author group has enterprise AI deployment experience (IBM Research and similar institutions); the paper leans toward production guidelines rather than pure academic research
 - Relation to LangGraph / AutoGen / CrewAI: this paper focuses on model-layer optimization; framework-layer orchestration is out of scope — the two are complementary
 - Adoption barrier: Stage 1 requires domain data and GPU compute; Stage 2 requires an inference engine that supports FP8 and speculative decoding (e.g. vLLM)
-- Post-customization performance on public agentic benchmarks is not detailed; the degree of capability degradation is unknown **⚠️**
+- Post-customization performance on public agentic benchmarks is not detailed; the degree of capability degradation is unknown **:warning:**
 
 ### Reviewer's One-Liner
 

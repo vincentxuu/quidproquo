@@ -17,7 +17,7 @@ glossary:
     def: "第三方評測機構 Artificial Analysis 綜合多項 benchmark 算出的模型智能綜合分數；題庫與模型池會隨時間持續校正，不同時間點的分數不能直接跨期比較"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-16-model-meta-muse-spark-open-en)
+> :globe: [English version](/posts/daily/2026-10-16-model-meta-muse-spark-open-en)
 
 ## 模型資訊
 
@@ -46,13 +46,13 @@ glossary:
 
 | Benchmark | Muse Spark Open | 前代／對照 | 競品最強（Meta 官方表格） |
 |---|---|---|---|
-| AA Intelligence Index | 39 | 閉源 Muse Spark 1.2：57（⚠️ 見下方說明，不可直接比較） | GLM 5.3 45 |
+| AA Intelligence Index | 39 | 閉源 Muse Spark 1.2：57（:warning: 見下方說明，不可直接比較） | GLM 5.3 45 |
 | JobBench（agentic） | **61.8** | 未測 | Kimi K3 54.3（Muse Spark Open 自己最高） |
 | MCP-Atlas（agentic） | **89.2** | 未測 | Kimi K3 82.3（Muse Spark Open 自己最高） |
 | Terminal-Bench 2.1 | 76.4 | 閉源 Muse Spark 1.2 的 Terminal-Bench v2.1：80%（不同 agent harness，僅供參考） | Kimi K3 85.0 |
 | StrongREJECT v2（越獄測試，分數越低越安全） | **0.5** | 未測 | Kimi K3 66.6 |
 
-⚠️ AA Intelligence Index 由 Artificial Analysis 持續校正題庫與模型池，Muse Spark 1.2 的 57 分（2026-08）與 Muse Spark Open 的 39 分（2026-10）相隔近兩個月、題庫版本不同，不能直接解讀為「退步 18 分」。以上均為 Meta 自測或 Artificial Analysis 既有公開分數，尚待第三方針對 Muse Spark Open 本身重新複現。
+:warning: AA Intelligence Index 由 Artificial Analysis 持續校正題庫與模型池，Muse Spark 1.2 的 57 分（2026-08）與 Muse Spark Open 的 39 分（2026-10）相隔近兩個月、題庫版本不同，不能直接解讀為「退步 18 分」。以上均為 Meta 自測或 Artificial Analysis 既有公開分數，尚待第三方針對 Muse Spark Open 本身重新複現。
 
 ## 與前代/競品比較
 

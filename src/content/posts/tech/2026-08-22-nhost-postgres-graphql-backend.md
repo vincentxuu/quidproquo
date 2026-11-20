@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-nhost-postgres-graphql-backend-en)
+> :globe: [English version](/posts/tech/2026-08-22-nhost-postgres-graphql-backend-en)
 
 [Nhost](https://docs.nhost.io/) 是 PostgreSQL-centered BaaS：Hasura 由 database schema 產生 GraphQL API，Nhost Auth 簽發帶 Hasura claims 的 token，Storage、Serverless Functions 與 local CLI 補齊應用後端。它和 Supabase 都以 Postgres 為核心，但 API 與 authorization 心智模型不同。
 

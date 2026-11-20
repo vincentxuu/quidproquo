@@ -30,7 +30,7 @@ glossary:
     context: "較難的運攀路線，評等通常以紅點的難度來定。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-grades-and-protection-ratings-en)
+> :globe: [English version](/posts/climbing/2026-10-17-grades-and-protection-ratings-en)
 
 你在龍洞的路線資料庫裡看到一條「5.10? R」，在英國的指南書裡看到「E1 5b」，西班牙的岩場寫「6a+」，德國朋友說他在爬「VII」。這些數字說的是同一件事嗎？
 

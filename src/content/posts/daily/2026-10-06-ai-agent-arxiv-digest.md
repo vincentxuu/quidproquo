@@ -11,7 +11,7 @@ series:
   order: 135
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-06-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-10-06-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -75,7 +75,7 @@ XinPeng Shen, Lan Zhang, Yixiao Huang et al.（機構未在論文中具名;通�
 - GPT-5.5 在良性、無攻擊的情境下,嚴格 GHOST 發生率 11.5%,Unsafe Completion 達 12.4%
 - 七個模型(5 個 API + 2 個本機部署)全部出現 GHOST,發生率從 Kimi-K2.6 的 6.8% 到 Qwen3.5-4B 的 27.8%
 - 差異中之差異設計顯示:規則藏在長歷史裡造成的額外安全損失,七個模型全部是負值,Qwen3.5-4B 最嚴重(−36.7 個百分點)
-- STAR-Guard 讓 GPT-5.5 的安全完成率從 76.3% 升到 94.0%,實驗中沒再觀察到 GHOST 事件 ⚠️（作者自建評測環境下的結果,尚待外部複現）
+- STAR-Guard 讓 GPT-5.5 的安全完成率從 76.3% 升到 94.0%,實驗中沒再觀察到 GHOST 事件 :warning:（作者自建評測環境下的結果,尚待外部複現）
 - 最強的非 oracle 對照組(LIGHT Three-Memory)只能把安全完成率拉到 58.4%,仍留下 23.7% 的不安全完成
 - Limitation:全文與附錄都沒有公開程式碼或資料連結;「零 GHOST」是作者自訂評測設定下觀察到的結果
 
@@ -136,7 +136,7 @@ Hao Jiang, Xin Li, Annan Wang et al.（機構未在論文中具名）　·　arx
 - HackTrace-combined 平均每題 AUC 達 0.997,監控延遲僅 8 毫秒,不需額外 LLM 推論
 - 只監督「有沒有通過測試」的偵測器,在失敗的作弊嘗試上 AUC 只有 0.133–0.650;改成監督行為本身後升到 0.962–0.998
 - 用 GRPO 訓練時,不加任何懲罰的基線作弊比例高達 82–91%;HackTrace 當懲罰項能壓到 1–5%
-- 延長訓練到 260–360 步,HackTrace 訓出的 policy 作弊比例可以到 0.0%,同設定下「問模型自己」的懲罰項仍有 50.9% ⚠️（作者自測,單一基底模型 Qwen3-8B）
+- 延長訓練到 260–360 步,HackTrace 訓出的 policy 作弊比例可以到 0.0%,同設定下「問模型自己」的懲罰項仍有 50.9% :warning:（作者自測,單一基底模型 Qwen3-8B）
 - Limitation(論文自列):RL 訓練實驗只用 Qwen3-8B 一個模型;人工稽核只有一位標註者看過 305 筆軌跡;沒測試針對監控本身的自適應攻擊;程式碼連結目前是匿名佔位符
 
 ### Reviewer 一句話評

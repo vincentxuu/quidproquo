@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-coreweave-ai-cloud)
+> :globe: [中文版](/posts/tech/2026-08-22-coreweave-ai-cloud)
 
 [CoreWeave](https://docs.coreweave.com/) is cloud infrastructure focused on AI and HPC. It is more than hourly GPUs: the platform includes CoreWeave Kubernetes Service (CKS), Slurm on Kubernetes, object/file/block storage, VPCs, and serverless or dedicated inference.
 

@@ -10,7 +10,7 @@ description: "Start with a Tavily Search call, then learn search depth, topics, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-tavily-search-api-guide)
+> :globe: [中文版](/posts/ai/2026-08-21-tavily-search-api-guide)
 
 [Tavily](https://docs.tavily.com/documentation/about) is a managed web-access service for AI agents. `Search` discovers sources and returns relevant snippets, `Extract` reads known URLs, `Map` discovers URLs within a site, and `Crawl` traverses a site while extracting content. The combination of these four endpoints is its main distinction from a conventional SERP API.
 

@@ -26,7 +26,7 @@ glossary:
     context: "L4 指出一層 N=64、D=M=4096 的矩陣乘法，Jacobian 約要 256 GB，所以實作上不會真的建出來。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-neural-networks-backprop-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-neural-networks-backprop-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

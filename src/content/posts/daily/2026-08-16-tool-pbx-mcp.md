@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-16-tool-pbx-mcp-en)
+> :globe: [English version](/posts/daily/2026-08-16-tool-pbx-mcp-en)
 
 ## 工具資訊
 
@@ -91,11 +91,11 @@ export PBX_MCP_ALLOW_WRITE=true
 
 | | pbx-mcp | 直接開 Asterisk/FreeSWITCH CLI | 自寫 Agent 腳本呼叫 AMI/ESL |
 |---|---|---|---|
-| 統一 Asterisk + FreeSWITCH 介面 | ✅ | ❌（各自指令集） | 需自行實作兩套 |
-| MCP 原生、免改 Agent 程式碼 | ✅ | ❌ | ❌ |
-| 寫入工具預設不存在（非僅擋執行） | ✅ | — | 需自行實作 |
-| 指令 allowlist + shell metacharacter 過濾 | ✅ | — | 需自行實作 |
-| 免安裝額外協定 client | ✅（內建 AMI/ESL client） | — | 需另裝套件 |
+| 統一 Asterisk + FreeSWITCH 介面 | ✓ | ✗（各自指令集） | 需自行實作兩套 |
+| MCP 原生、免改 Agent 程式碼 | ✓ | ✗ | ✗ |
+| 寫入工具預設不存在（非僅擋執行） | ✓ | — | 需自行實作 |
+| 指令 allowlist + shell metacharacter 過濾 | ✓ | — | 需自行實作 |
+| 免安裝額外協定 client | ✓（內建 AMI/ESL client） | — | 需另裝套件 |
 
 ## 注意事項
 

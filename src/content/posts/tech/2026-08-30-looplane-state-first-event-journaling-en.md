@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-state-first-event-journaling)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-state-first-event-journaling)
 
 [Order 11](/posts/tech/2026-08-30-looplane-tool-program-transactions-en) composes tool calls into bounded programs and rollback-capable transactions. This article follows the state lifecycle from completion or crash through resume, replay, and fork. Its core remains two files with different semantics: append-only `events.jsonl` and atomically replaced `session.json`.
 

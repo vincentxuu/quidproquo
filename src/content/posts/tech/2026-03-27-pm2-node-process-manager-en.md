@@ -10,7 +10,7 @@ description: "A practical guide to PM2's core features: daemon mode, cluster mod
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-03-27-pm2-node-process-manager)
+> :globe: [中文版](/posts/tech/2026-03-27-pm2-node-process-manager)
 
 When running Node.js on a server, you can't just do `node index.js` and close the terminal — the process dies with it. PM2 is a process manager that keeps your Node.js app running as a daemon, auto-restarts it on crash, enables cluster mode for multi-core CPUs, and centralizes log management.
 

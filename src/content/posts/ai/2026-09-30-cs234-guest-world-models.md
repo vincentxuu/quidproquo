@@ -33,7 +33,7 @@ glossary:
     context: "Shane Gu 投影片 p.14 用它的變分下界來定義三個層次的預測。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-guest-world-models-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-guest-world-models-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

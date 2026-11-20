@@ -11,7 +11,7 @@ series:
   order: 83
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-20-security-sglang-rce-near-ai-confidential-inference-breach-en)
+> :globe: [English version](/posts/daily/2026-11-20-security-sglang-rce-near-ai-confidential-inference-breach-en)
 
 ## 事件概述
 

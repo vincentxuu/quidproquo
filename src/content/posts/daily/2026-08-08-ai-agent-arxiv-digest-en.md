@@ -12,7 +12,7 @@ series:
   order: 76
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-08-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-08-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -58,7 +58,7 @@ An increasing number of agent frameworks (Voyager, MemGPT, Reflexion) have agent
 ### Key Details
 
 - BIRD text-to-SQL benchmark: LUCID reaches 56.9%, self-evaluated memory agent 54.0%, memoryless agent 52.4%
-- Inflation occurs under similarity-based retrieval too (not just score-based ranking) ⚠️ (author-reported, awaiting external replication)
+- Inflation occurs under similarity-based retrieval too (not just score-based ranking) :warning: (author-reported, awaiting external replication)
 - Echo Gap persists across model families — not a model-specific issue
 - Low barrier to adoption: LUCID is a post-processing algorithm that can be layered onto existing memory systems
 - Directly relevant to LangGraph / MemGPT memory modules — any memory-augmented agent should check for this
@@ -105,7 +105,7 @@ The mainstream approach for agent memory systems: store one trajectory per inter
 - ALFWorld + LifelongAgentBench: highest overall average score
 - Cold-Q ratio drops 80% (drastically fewer memories that were never effectively updated)
 - Feedback density increases ~6.0x
-- Maintained memory size reduced by 84.4% ⚠️ (author-reported, awaiting external replication)
+- Maintained memory size reduced by 84.4% :warning: (author-reported, awaiting external replication)
 - LLM calls reduced by 21.1% — leaner memory means more efficient retrieval
 - Medium barrier to adoption: requires defining semantic coordinate dimensions and update rules
 - Compatible with Reflexion and MemGPT memory modules
@@ -150,7 +150,7 @@ Existing tool planning methods (e.g., ToolBench, AnyTool) build dependency graph
 ### Key Details
 
 - Two ID benchmarks + three OOD benchmarks: consistently outperforms SOTA
-- OOD transfer is the core selling point — can plan with tool sets never seen during training ⚠️ (author-reported, awaiting external replication)
+- OOD transfer is the core selling point — can plan with tool sets never seen during training :warning: (author-reported, awaiting external replication)
 - Clean architecture with decoupled function abstraction + tool selection, easily reproducible
 - Medium barrier to adoption: requires defining a function category taxonomy; trajectory→function lifting currently relies on LLM
 - Compatible with LangGraph / CrewAI tool orchestration layers — can be inserted as a planning module

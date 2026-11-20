@@ -13,7 +13,7 @@ description: "A preparation guide for Microsoft AI-200 (Azure AI Cloud Developer
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-08-microsoft-ai-200-prep-guide)
+> :globe: [中文版](/posts/ai/2026-10-08-microsoft-ai-200-prep-guide)
 >
 > This is a preparation path built from official material, not an exam-day account. I have not sat this exam. Every "what it tests" points back to the [official study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-200), and every "how to prepare" points to official Microsoft training. No leaked questions. Verified 2026-10-08.
 

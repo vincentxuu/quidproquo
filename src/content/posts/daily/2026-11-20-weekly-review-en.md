@@ -12,7 +12,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-20-weekly-review)
+> :globe: [中文版](/posts/daily/2026-11-20-weekly-review)
 
 ## The 5 Biggest Things This Week
 
@@ -100,13 +100,13 @@ The implication for enterprise adoption in Taiwan: if your product runs high-vol
 
 ## Watchlist Update Suggestions
 
-### 🆕 Candidates to add
+### Candidates to add
 
-✅ Every company that appeared most frequently this week (OpenAI, Google, Microsoft, Nvidia, Alibaba-Qwen, Meta, Anthropic, Amazon, Sourcegraph, Cohere) is already on the watchlist — no new candidates this week.
+✓ Every company that appeared most frequently this week (OpenAI, Google, Microsoft, Nvidia, Alibaba-Qwen, Meta, Anthropic, Amazon, Sourcegraph, Cohere) is already on the watchlist — no new candidates this week.
 
-### ⚠️ Candidates to remove
+### :warning: Candidates to remove
 
-✅ No companies met the removal criteria this week.
+✓ No companies met the removal criteria this week.
 
 ## This Week's Startup Radar
 

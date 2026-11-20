@@ -13,7 +13,7 @@ description: "導讀 CMU 07-280 Spring 2026 Lecture 10：特徵轉換、多項�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cmu-07280-lecture-10-feature-engineering-regularization-en)
+> :globe: [English version](/posts/ai/2026-08-22-cmu-07280-lecture-10-feature-engineering-regularization-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

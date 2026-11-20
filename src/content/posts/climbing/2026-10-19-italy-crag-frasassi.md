@@ -13,7 +13,7 @@ description: "Gola della Rossa 與 Frasassi 峽谷岩場介紹：Sulfuria、Falc
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-frasassi-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-frasassi-en)
 
 Gola della Rossa 和 Gola di Frasassi 是馬爾凱（Marche）安科納（Ancona）省內陸的兩條石灰岩峽谷，同屬 [Gola della Rossa e di Frasassi 區域自然公園](https://www.parcogolarossa.it/)。公園裡最有名的是 Frasassi 洞穴；對攀岩者來說，這裡是馬爾凱最大的岩場群之一。
 

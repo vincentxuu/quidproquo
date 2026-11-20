@@ -12,7 +12,7 @@ series:
   order: 116
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-30-funding-wabi)
+> :globe: [中文版](/posts/daily/2026-10-30-funding-wabi)
 
 ## Funding Details
 

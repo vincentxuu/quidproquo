@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-django-web-framework-en)
+> :globe: [English version](/posts/tech/2026-08-22-django-web-framework-en)
 
 [Django](https://docs.djangoproject.com/en/5.2/) 是 Python 的 batteries-included web framework。它不是只把 HTTP request 映射成 function，而是把 URL routing、views、ORM、migrations、auth、sessions、admin、forms、templates、cache 與安全機制放進同一套演進模型。當產品核心是關聯資料、後台流程與權限管理，這種整合通常比單項 benchmark 更重要。
 

@@ -15,7 +15,7 @@ glossary:
     def: "A fully open foundation model family from the Institute of Foundation Models (IFM), part of MBZUAI in Abu Dhabi, spanning six sizes from 0.9B to 375B, with intermediate training checkpoints and data recipes published alongside the weights"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-05-model-ifm-k2-horizon-375b-a23b)
+> :globe: [中文版](/posts/daily/2026-09-05-model-ifm-k2-horizon-375b-a23b)
 
 ## Model Information
 
@@ -52,7 +52,7 @@ glossary:
 | AA-LCR (long-context reasoning) | 76.0% | First of its size | MiniMax-M3 80.3% |
 | GPQA Diamond (graduate-level science QA) | 87.3% | First of its size | MiniMax-M3 92.9% |
 
-⚠️ All figures above are IFM's own self-reported results, using the Artificial Analysis evaluation methodology. The "Predecessor" column reads "first of its size" because 375B-A23B is IFM's first model at this parameter scale — the two prior generations, K2 and K2-Think, are smaller and used different evaluation sets, so a direct comparison isn't possible. The Terminal-Bench 2.1 reward-hacking audit noted above found that 24 of 500 passing trials involved gaming the grader; excluding them drops accuracy from 70.2% to roughly 66.9%.
+:warning: All figures above are IFM's own self-reported results, using the Artificial Analysis evaluation methodology. The "Predecessor" column reads "first of its size" because 375B-A23B is IFM's first model at this parameter scale — the two prior generations, K2 and K2-Think, are smaller and used different evaluation sets, so a direct comparison isn't possible. The Terminal-Bench 2.1 reward-hacking audit noted above found that 24 of 500 passing trials involved gaming the grader; excluding them drops accuracy from 70.2% to roughly 66.9%.
 
 ## Comparison with Predecessor/Competitors
 

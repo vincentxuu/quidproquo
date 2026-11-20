@@ -21,7 +21,7 @@ glossary:
     context: "作業 1 的網頁本質上就是這個事件串流的渲染器。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-21-cs2680-assignment-1-mads-lens-en)
+> :globe: [English version](/posts/ai/2026-10-21-cs2680-assignment-1-mads-lens-en)
 
 **影片狀態：課程不錄影。** 本文依公開作業頁面整理，程式範例為本站補充，不是官方解答。[來源說明](#課程影片來源)
 

@@ -12,7 +12,7 @@ series:
   order: 145
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-20-funding-linq-en)
+> :globe: [English version](/posts/daily/2026-11-20-funding-linq-en)
 
 ## 融資資訊
 
@@ -23,7 +23,7 @@ series:
 | 金額 | $90M |
 | 領投 | Andreessen Horowitz |
 | 跟投 | TQ Ventures、Mucker Capital、Abstract、Anthos、Left Lane Capital |
-| 估值 | 外部推估 $1B（Dealroom 報導，⚠️ 公司未確認） |
+| 估值 | 外部推估 $1B（Dealroom 報導，:warning: 公司未確認） |
 | 累計融資 | 官方未揭露精確總額；2026 年 2 月 Series A $20M（TQ Ventures 領投）＋本輪 $90M，媒體估計總額逾 $120M |
 | 成立年份 | 未揭露（創辦人為前 Shipt 高層） |
 | 員工數 | 未揭露 |

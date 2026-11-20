@@ -12,7 +12,7 @@ series:
   order: 129
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-09-funding-openai)
+> :globe: [中文版](/posts/daily/2026-11-09-funding-openai)
 
 ## Funding Details
 

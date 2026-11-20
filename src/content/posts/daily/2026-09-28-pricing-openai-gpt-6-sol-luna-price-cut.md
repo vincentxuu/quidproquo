@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)
+> :globe: [English version](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)
 
 ## 變更摘要
 
@@ -74,7 +74,7 @@ Luna 的 output 降幅（58%）比官方公告寫的「50% cheaper」更大，�
 
 ## 時效提醒
 
-⏰ **促銷價到期提醒**：GPT-5.6 Sol 的促銷定價官方僅保證至少維持到 **2026-11-21**，之後可能恢復原價或調整。若你的服務還在用 gpt-5.6-sol 且尚未評估遷移，建議在這個日期前完成 GPT-6 Sol 的相容性測試。
+:clock: **促銷價到期提醒**：GPT-5.6 Sol 的促銷定價官方僅保證至少維持到 **2026-11-21**，之後可能恢復原價或調整。若你的服務還在用 gpt-5.6-sol 且尚未評估遷移，建議在這個日期前完成 GPT-6 Sol 的相容性測試。
 
 ## 今日收穫
 

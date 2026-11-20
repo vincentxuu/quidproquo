@@ -12,7 +12,7 @@ series:
   order: 58
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-12-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-12-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -134,13 +134,13 @@ Egyptian agritech startup SmartCrop closed a $25M Series A led by Middle Eastern
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-12](/posts/daily/2026-10-12-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-12](/posts/daily/2026-10-12-ai-agent-github-digest-en)
-- 📄 [Model Card｜Iris-3B](/posts/daily/2026-10-12-model-speridlabs-iris-3b-en)
-- 📄 [Security Alert｜AWS Bedrock AgentCore "AgentCorruption"](/posts/daily/2026-10-12-security-aws-bedrock-agentcore-imds-credential-theft-en)
-- 📄 [Tool of the Day｜decisionkit](/posts/daily/2026-10-12-tool-decisionkit-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-12](/posts/daily/2026-10-12-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-12](/posts/daily/2026-10-12-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-12](/posts/daily/2026-10-12-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-12](/posts/daily/2026-10-12-ai-agent-github-digest-en)
+- :file: [Model Card｜Iris-3B](/posts/daily/2026-10-12-model-speridlabs-iris-3b-en)
+- :file: [Security Alert｜AWS Bedrock AgentCore "AgentCorruption"](/posts/daily/2026-10-12-security-aws-bedrock-agentcore-imds-credential-theft-en)
+- :file: [Tool of the Day｜decisionkit](/posts/daily/2026-10-12-tool-decisionkit-en)
+- :file: [AI Engineer Interview Prep — 2026-10-12](/posts/daily/2026-10-12-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-12](/posts/daily/2026-10-12-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

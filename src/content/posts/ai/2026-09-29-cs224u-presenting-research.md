@@ -13,7 +13,7 @@ description: "Stanford CS224U（Spring 2023）Presenting your research 導讀：
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-presenting-research-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-presenting-research-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

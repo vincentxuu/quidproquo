@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-25-weekly-review)
+> :globe: [中文版](/posts/daily/2026-09-25-weekly-review)
 
 ## The 5 things that mattered most this week
 
@@ -59,13 +59,13 @@ For smaller service providers everywhere: if your revenue comes from this kind o
 
 ## Watchlist update suggestions
 
-### 🆕 Suggested additions
+### Suggested additions
 
-✅ Every company that appeared in this week's signals is already on the watchlist — no additions meet the bar (the threshold is "not on the watchlist and appearing ≥ 3 times in this week's signals"; most of this week's startup funding signals came from standalone funding briefs rather than repeated signal exposure, so they didn't clear that bar and are listed below under "Startups to watch" instead)
+✓ Every company that appeared in this week's signals is already on the watchlist — no additions meet the bar (the threshold is "not on the watchlist and appearing ≥ 3 times in this week's signals"; most of this week's startup funding signals came from standalone funding briefs rather than repeated signal exposure, so they didn't clear that bar and are listed below under "Startups to watch" instead)
 
-### ⚠️ Considered for removal
+### :warning: Considered for removal
 
-✅ No company met the removal criteria this week
+✓ No company met the removal criteria this week
 
 ## Startups to watch this week
 

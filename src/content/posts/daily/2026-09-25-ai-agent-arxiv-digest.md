@@ -11,7 +11,7 @@ series:
   order: 124
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-25-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-09-25-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -135,7 +135,7 @@ Coding agent 常需要處理跨越數百萬 token 的上下文,超出模型的 c
 - SWE-bench Verified 上,CliffCompaction 讓 GLM-5.1 與 Kimi K2.6 在僅 32K 與 16K token 的上下文門檻下,仍維持全上下文的成功率
 - Terminal-Bench 2.0 上,成功率提升的同時成本降低 50%
 - 平行測試時算力擴展下,CliffCompaction 讓 Kimi K2.6 追平 Opus 4.7 的表現,並以更低成本超過 Opus 4.6 與 GPT-5.3 Codex;在 Terminal-Bench 上,用不到兩次全上下文執行的成本換來超過 10 個百分點的成功率提升
-- KernelBench 上支援跨越百萬 token 的連續學習:200 步後 CUDA 核心加速達 2.23 倍,400 步後達 3.58 倍,超過專門設計的搜尋演算法與訓練過的專用 agent ⚠️(作者自測,尚未外部複現)
+- KernelBench 上支援跨越百萬 token 的連續學習:200 步後 CUDA 核心加速達 2.23 倍,400 步後達 3.58 倍,超過專門設計的搜尋演算法與訓練過的專用 agent :warning:(作者自測,尚未外部複現)
 - 落地門檻:作者已開源與 scaffold 無關的 API-proxy 實作,可直接接上 Claude Code、Codex 等現有 harness,不需重寫 Agent 邏輯
 - Limitation(作者自述):效益隨 scaffold 與任務複雜度而變,不同 scaffold 需要的最低上下文門檻不同,效益僅在中長程任務上顯著;比較侷限於在推論時直接操作對話歷史的方法,未涵蓋訓練模型自行管理上下文或維護外部記憶庫的方法
 
@@ -195,7 +195,7 @@ Taste-Bench 從真實 agent 執行紀錄中挖出 502 個決策分岔點,測試 
 - 502 題分岔點,來自 SWE-bench Pro 的 2,677 筆評分過的工程軌跡(517 個任務、11 個 repository)與 METR MALT 公開釋出的 1,132 筆研究型軌跡(RE-Bench 與 HCAST 子集)
 - 目前最強的前沿模型只答對 59.7% 的題目
 - 分岔點的關鍵證據若出現在軌跡較後段,所有受測模型的正確率都明顯更低
-- 加大模型的推理算力(reasoning budget)並不會提升正確率 ⚠️(作者自測,尚未外部複現)
+- 加大模型的推理算力(reasoning budget)並不會提升正確率 :warning:(作者自測,尚未外部複現)
 - 把「看過結果的教師模型」的判斷蒸餾給學生模型後,學生在未見過任務上的判斷力進步,把這個判斷力當建議注入 Agent 後,連帶提升了在保留的 SWE-bench Pro 任務上的端到端成功率
 - 落地門檻:benchmark 與評測程式碼、所有受測模型的結果已完整釋出,但分岔點的建構高度依賴作者自己收集的 agent 執行池,換到別的任務類型或 scaffold 需要重新挖掘
 - Limitation:論文沒有獨立的「Limitations」章節;所有分岔點都來自作者自己收集的兩個軌跡池(SWE-bench Pro 子集與 METR MALT),訓練與測試資料某種程度上同源

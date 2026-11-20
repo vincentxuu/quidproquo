@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 60
 ---
-> 🌏 [English version](/posts/daily/2026-07-23-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-23-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -70,7 +70,7 @@ agent 平台在評估第三方模型、向客戶展示測試結果、或設計 C
 - 496 道任務人工核對，共發現 92 處評測器與人類不一致，**整體誤判率 18.5%**（來源：論文 Table 1）
 - **確定性評測器（deterministic evaluator）失敗模式**：brittle state matching（只比對字串不比語意）、trajectory lock-in（只接受唯一解題路徑，其他正確走法算錯）、incorrect ground truth（答案本身就標錯了）、substring-based communication failures、reward-basis misalignment
 - **LLM-judge 評測器失敗模式**：rubric drift（評分標準在不同題目間漂移）、hallucinated completion（LLM 幻覺任務已完成）、answer-only scoring（只看結果忽略過程）、substantial run-to-run variance（同題重複跑分數不同）
-- **LiveMCPBench 穩定性極差**：同一組 setup 重複執行 23 次，得分從 57.9% 跑到 76.8%，**相差 18.9 個百分點** ⚠️——這個波動幅度已足以翻轉排行榜名次，讓你選出完全不同的模型
+- **LiveMCPBench 穩定性極差**：同一組 setup 重複執行 23 次，得分從 57.9% 跑到 76.8%，**相差 18.9 個百分點** :warning:——這個波動幅度已足以翻轉排行榜名次，讓你選出完全不同的模型
 - 四個 benchmark 分為 rule-based（BFCL v4、MCP-Atlas）和 LLM-judge（τ2-Bench、LiveMCPBench）兩類，兩類都有系統性問題但失敗模式不同
 - Limitation：抽樣審計 496 題，非全集；未涵蓋所有現有 benchmark
 - 與 LangGraph / AutoGen 等 framework 的關聯：若用上述 benchmark 做 CI regression test，同樣面臨分數不穩定問題，建議加入人工抽查或多次重跑取均值
@@ -122,7 +122,7 @@ agent 平台在評估第三方模型、向客戶展示測試結果、或設計 C
 
 ### 深入要點
 
-- 主要結論（strict 0pp threshold，5pp budget grid）：**AppWorld 跑 15% 就夠**；**tau-bench 跑 25% 就夠**；**SWE-bench Verified 需要跑到 90%**；**SWE-bench Lite 在 95% 前都未達標** ⚠️（來源：論文主要結果表）
+- 主要結論（strict 0pp threshold，5pp budget grid）：**AppWorld 跑 15% 就夠**；**tau-bench 跑 25% 就夠**；**SWE-bench Verified 需要跑到 90%**；**SWE-bench Lite 在 95% 前都未達標** :warning:（來源：論文主要結果表）
 - AppWorld 和 tau-bench 提早收斂的原因：任務間分數分布均勻，agent 間差異足夠大，pairwise 結論很快就穩定
 - SWE-bench 難以提早收斂：任務難度分布極不均勻（少數超難題幾乎所有模型都錯），拿掉這些題目後 pairwise 排名容易翻轉
 - 「跑 15% 就夠」≠「隨機取 15%」——必須確保覆蓋所有任務分組，否則偏取容易題或難題都會讓結論失真
@@ -176,7 +176,7 @@ agent 平台若要提供「邊做邊教」或「自動生成 SOP 文件」功能
 
 ### 深入要點
 
-- 即使當前最強 frontier 模型，任務完成率也**低於 40%** ⚠️（來源：論文主要結果；未具體指明模型名稱），顯示 benchmark 還有大量提升空間，但也讓人質疑難度設計是否略為極端
+- 即使當前最強 frontier 模型，任務完成率也**低於 40%** :warning:（來源：論文主要結果；未具體指明模型名稱），顯示 benchmark 還有大量提升空間，但也讓人質疑難度設計是否略為極端
 - GRPO + expert trajectories 訓練：讓 **9B 參數小模型從 6.9% 提升到 13.2%**，幾乎翻倍；動作準確率和教學品質兩個指標同步改善（來源：論文訓練實驗部分）
 - 兩種定位方案各有取捨：Set-of-Mark 直觀（模型只需選號碼）但需要額外前處理步驟；pixel coordinates 更通用但對模型空間感知要求更高
 - 評測涵蓋 live 瀏覽器環境（非靜態截圖重播），評估更貼近真實部署但也讓大規模重現更困難

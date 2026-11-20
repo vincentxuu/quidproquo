@@ -13,7 +13,7 @@ description: "A climbing guide to the south face of Tofana di Rozes: how the pil
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-tofana)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-tofana)
 
 Tofana di Rozes is the southernmost peak of the Tofane group west of Cortina d'Ampezzo, at 3,225 m ([SummitPost](https://www.summitpost.org/tofana-di-rozes/151405)). Drive from Cortina toward Passo Falzarego and the huge red-and-yellow wall on your right is its south face; SummitPost describes it as almost 1,000 m high and made of "eight distinct pillars". [Cinque Torri](/posts/climbing/2026-10-18-italy-crag-cinque-torri-en), on the same road, is short multi-pitch; here a route takes the whole day.
 

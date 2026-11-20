@@ -12,7 +12,7 @@ series:
   order: 75
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-07-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-07-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -58,7 +58,7 @@ LLM Agent 用工具時，現有方法多從歷史軌跡中建立「工具層圖�
 ### 深入要點
 
 - 在 2 個 ID 和 3 個 OOD 基準上持續超越 SOTA 基線
-- OOD 泛化是核心賣點：Agent 面對從未見過的工具集仍能正確規劃 ⚠️（作者自測，需等外部複現）
+- OOD 泛化是核心賣點：Agent 面對從未見過的工具集仍能正確規劃 :warning:（作者自測，需等外部複現）
 - 解耦設計：工作流規劃用 FWG 的全局結構引導，工具選擇用局部匹配
 - RL 獎勵設計引入 source-gated 和 skill-specific 兩種訊號，防止工具間傳錯資料
 - 落地門檻：需要一批已有的工具使用軌跡作為種子資料
@@ -104,7 +104,7 @@ Zhi Han, Chenxi Zeng, Liuhaichen Yang et al.　·　arxiv: 2608.05573
 ### 深入要點
 
 - 681 個案例，50 個任務，11 個領域，全部是真實 Agent 軌跡（不是合成的）
-- JudgeSkill 演化後準確率 +14.8pp ⚠️（作者自測，需等外部複現）
+- JudgeSkill 演化後準確率 +14.8pp :warning:（作者自測，需等外部複現）
 - 離線 rollout-pool 選擇：1 個 rollout 成功率 22.9%，10 個 rollout 搭配 JudgeSkill 達 45.5%
 - Agent-as-a-Judge 的「主動檢查」能力是關鍵——它可以翻檔案、跑命令、查環境
 - 落地門檻：需要為每個任務領域編寫或演化 JudgeSkill，前期投入不小

@@ -12,7 +12,7 @@ series:
   order: 127
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-07-funding-sand-ai)
+> :globe: [中文版](/posts/daily/2026-11-07-funding-sand-ai)
 
 ## Funding Details
 

@@ -14,7 +14,7 @@ description: "A guided reading of Stanford CS329Z Week 9: SWE-agent's ACI design
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week9-coding-agents)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week9-coding-agents)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

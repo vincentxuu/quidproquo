@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 62
 ---
-> 🌏 [English version](/posts/daily/2026-07-25-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-25-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -79,8 +79,8 @@ NVIDIA Object-Oriented Agents（NOOA）讓你只寫一個 Python class：
 - `**...**`** 方法是核心創新**：Python 的 Ellipsis literal 作為「交給 LLM 執行」的語義標記，既直覺又不破壞現有 Python 語法
 - **可組合性**：OO Agent 可以把另一個 OO Agent 當作欄位使用，讓 multi-agent 層次結構自然映射到 Python 的物件組合
 - **可測試性優先**：因為 Agent 本身是標準 Python 物件，mock 掉 LLM 後可以直接跑單元測試，這在現有框架中很難做到
-- **與 MCP 的關係**：OO Agents 定義的 tool interface 和 MCP tool schema 理論上可橋接，但本文未明確處理；落地時需自行處理 MCP 協定層 **⚠️**
-- **Benchmark 數據**：論文目前以架構描述為主，公開的定量比較（對比 LangGraph/DSPy/AutoGen 的系統評測）有限 **⚠️**
+- **與 MCP 的關係**：OO Agents 定義的 tool interface 和 MCP tool schema 理論上可橋接，但本文未明確處理；落地時需自行處理 MCP 協定層 **:warning:**
+- **Benchmark 數據**：論文目前以架構描述為主，公開的定量比較（對比 LangGraph/DSPy/AutoGen 的系統評測）有限 **:warning:**
 - **GitHub 釋出**：NVIDIA Labs 有對應 open-source repo，可直接上手
 
 ### Reviewer 一句話評
@@ -137,10 +137,10 @@ AREX 在 BrowseComp、WideSearch、DeepSearchQA、Humanity's Last Exam（HLE）�
 - **四個 benchmark 覆蓋廣度**：BrowseComp（網路搜尋難題）、WideSearch（廣域知識）、DeepSearchQA（深度 QA）、HLE（跨領域困難題）——四個角度驗證泛化性
 - **Context compression 是關鍵工程點**：不只是 summarization，而是「只保留已驗證資訊」的結構化壓縮；這個工具本身也是被訓練出來的，非 rule-based
 - **與 LangGraph 的對應**：外層迴圈邏輯可在 LangGraph 上實現為 conditional edge + state update，但 context compression 工具需要額外訓練成本
-- **具體性能數字**：論文聲稱「substantially outperforms comparable-scale baselines」，但未見具體倍數；需讀完整論文確認條件 **⚠️**
+- **具體性能數字**：論文聲稱「substantially outperforms comparable-scale baselines」，但未見具體倍數；需讀完整論文確認條件 **:warning:**
 - **Limitation**：AREX 是特定訓練的模型版本，不是 plug-in 工具；重現需要相當的訓練資源
-- **多約束衝突情境**：當約束彼此矛盾時 AREX 的行為未詳細描述 **⚠️**
-- **訓練細節有限**：data curation、reward design 的披露較少，可復現性存疑 **⚠️**
+- **多約束衝突情境**：當約束彼此矛盾時 AREX 的行為未詳細描述 **:warning:**
+- **訓練細節有限**：data curation、reward design 的披露較少，可復現性存疑 **:warning:**
 
 ### Reviewer 一句話評
 
@@ -198,7 +198,7 @@ AI 領域有一堆聽起來很像但意思不同的詞：self-refine、self-rewa
 - **Open-ended RSI（無界遞迴自我提升）**：目前受 grounding 問題（改良自己的目標函數本身）和 collapse dynamics（越改越差）雙重限制
 - **術語對照表**：self-refine = 部署期有界改良；self-evolve = 跨迭代策略改良；self-reward = 自訓評估器；這個映射本身就有很高的實用參考價值
 - **與今天論文二（AREX）的對應**：AREX 屬於這個分類中「inference-time + 高自動化但有 grounding 的 outer loop verification」，屬於偏 bounded 那一側，落地可行性較高
-- **截止時間限制**：本綜述到 2026 年 5 月，近兩個月的進展（包括今天的 AREX、OO Agents）都未被涵蓋 **⚠️**
+- **截止時間限制**：本綜述到 2026 年 5 月，近兩個月的進展（包括今天的 AREX、OO Agents）都未被涵蓋 **:warning:**
 - **落地門檻**：低——讀這篇不需要跑任何實驗，它是分類工具，直接改變你閱讀其他論文的視角
 
 ### Reviewer 一句話評

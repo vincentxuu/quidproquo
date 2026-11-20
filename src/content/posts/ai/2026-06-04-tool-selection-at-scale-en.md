@@ -10,7 +10,7 @@ description: "A compilation of empirical data and engineering solutions for scal
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-04-tool-selection-at-scale)
+> :globe: [中文版](/posts/ai/2026-06-04-tool-selection-at-scale)
 
 After MCP became widespread, hooking up 5 servers and exposing 150 tools to an agent is the norm. The real-world ecosystem is even more extreme — MCPVerse (arXiv:2508.16260) catalogs 6,565 MCP servers exposing over 550,000 tools. The problem: **as the number of tools grows, model selection accuracy doesn't degrade gracefully — it collapses**. This post compiles the empirical numbers behind that collapse, the two underlying mechanisms, the real leverage of description quality, and engineering solutions ranging from retrieval to progressive disclosure.
 

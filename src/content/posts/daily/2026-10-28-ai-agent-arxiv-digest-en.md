@@ -11,7 +11,7 @@ series:
   order: 157
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-28-ai-agent-arxiv-digest)
+> :globe: [繁體中文版](/posts/daily/2026-10-28-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -117,7 +117,7 @@ Mainstream agent benchmarks from AgentBench and WebArena through OSWorld and Wor
 - Overall: goal rate 89.2%, CD rate 15.2%, goal-and-CD rate 11.4%, ambiguity-violation rate on AB tasks 38.8%, externally visible CD rate 7.6%
 - CD rate varies 4.7× across 11 frontier models: lowest for Gemini 3.1 Pro (5.5%) to highest for Qwen 3.5 Plus (25.9%), while goal rates stay close across models
 - CD is roughly 2× higher under dependent (linked email threads, parent-child tickets) and cross-tool state than under independent state (22.1%/21.0% vs. 9.4%/11.0%)
-- Adding a "confirm before executing" prompt policy cut CD by 52–71% for three models, at a cost of 13–17 goal points ⚠️ (a prompt-level mitigation study, not production deployment data) — there is no free lunch
+- Adding a "confirm before executing" prompt policy cut CD by 52–71% for three models, at a cost of 13–17 goal points :warning: (a prompt-level mitigation study, not production deployment data) — there is no free lunch
 - Practical threshold: you don't need to rebuild your whole evaluation stack — start by writing "exactly which entities and fields the user authorized" as a mechanically checkable boundary, instead of only specifying what the final result should look like
 - Limitation: currently validated only on office-style email/calendar/ticket workflows; the authors are upfront that an "always ask" policy could drive CD to zero in theory, but that sacrifices autonomy and isn't a real solution
 
@@ -176,7 +176,7 @@ Existing enterprise agent benchmarks such as τ-bench, CRMArena, and CRMArena-Pr
 
 - Across 16 systems, strict success spans from 64.32% (Nemotron 3.5 Lightning 30B tied with GPT-4.1 Nano, lowest) to 83.60% (Gemini 3.8 Flash, highest); the top 8 systems are packed into a 2.88-point band, with Claude Sonnet 5, GPT-5.5, and GPT-5.6 Sol tied exactly at 81.26%
 - Customer support is the hardest domain by far: the across-model mean strict success is 56.35%, 20.80 points below the next-hardest domain (travel, 77.15%), and every model scores lower here than on its own overall average
-- Cost varies 89.3×: GPT-4.1 Nano costs $2.14 per task (yet ties for lowest accuracy), while Claude Opus 5 costs $191.00 (only 2nd on accuracy); Gemini 3.8 Flash wins on accuracy at just $16.12, the sole Pareto-optimal point ⚠️ (recomputed from published list pricing and observed token usage, excluding the user-simulator and judge's own usage)
+- Cost varies 89.3×: GPT-4.1 Nano costs $2.14 per task (yet ties for lowest accuracy), while Claude Opus 5 costs $191.00 (only 2nd on accuracy); Gemini 3.8 Flash wins on accuracy at just $16.12, the sole Pareto-optimal point :warning: (recomputed from published list pricing and observed token usage, excluding the user-simulator and judge's own usage)
 - Three-round reliability: Gemini 3.8 Flash ranks first in every round, but its three-round mean is 85.53% (SD 1.66 points); only 78.20% of tasks succeed in all three rounds — 7 points below its own 85.53% mean — showing a single-round leaderboard carries real noise
 - Practical threshold: don't pick a vendor by one strict-success leaderboard alone — separately check "did it do this specific task correctly" and "did it accidentally touch a forbidden field," since the latter is the real business risk
 - Limitation: built and evaluated by Salesforce itself, a CRM vendor, though it does cover the whole market of models rather than only its own; independent third-party replication is still pending, and the three-round reliability check only covers part of the system set
@@ -235,7 +235,7 @@ Mainstream computer-use agent benchmarks like OSWorld and AndroidWorld almost al
 ### Deep Dive
 
 - Best model Claude Opus 5: 91.6% action completion, but only 69.4% personalization score and 47.7% task success; personalization on "ask-only" information (51.3%) trails "inferable" information (76.3%) by 25 points
-- Adding an explicit pre-execution clarification phase pushed Claude Sonnet 5's task success from 39.2% to 53.8% and recall from 25.7% to 85.0%, but precision dropped from 60.4% to 42.5% ⚠️ (an author-run ablation, not independently replicated) — asking enough comes at the cost of asking too much; there's no free lunch on both axes at once
+- Adding an explicit pre-execution clarification phase pushed Claude Sonnet 5's task success from 39.2% to 53.8% and recall from 25.7% to 85.0%, but precision dropped from 60.4% to 42.5% :warning: (an author-run ablation, not independently replicated) — asking enough comes at the cost of asking too much; there's no free lunch on both axes at once
 - Feeding in more history makes agents ask fewer questions and raises precision, but recall on "ask-only" information actually drops (Qwen3.8-27B falls from 33.6% to 21.2%) — more history makes agents bolder guessers, not better at judging whether a question is actually answerable from history at all
 - Of four named failure modes, the most common are "Silent Guess" (the agent recognizes information is missing but quietly picks a value anyway) and "Silent Default" (the agent never even recognizes the gap as a user-dependent decision, letting the app's default pass through unchanged)
 - Practical threshold: get your agent to tell apart "this has an answer in the history" from "only the user knows this," rather than applying one blanket reaction — guess or ask — to every gap it notices

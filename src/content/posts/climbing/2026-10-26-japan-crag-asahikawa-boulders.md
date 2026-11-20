@@ -13,7 +13,7 @@ description: "旭川抱石群攀岩指南：季節、大眾運輸、停車、在
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-asahikawa-boulders-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-asahikawa-boulders-en)
 
 旭川抱石群是一組以神居古潭為核心、向雨紛與春志內等地延伸的抱石目的地。ケンジコモロ與梁山泊是辨識這個區域的名字；它與神居岩繩攀岩壁採不同路線表，別把兩篇的數量相加當成同一個岩場。
 

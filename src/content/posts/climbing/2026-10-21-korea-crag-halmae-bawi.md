@@ -13,7 +13,7 @@ description: "高敞 Halmae-bawi 攀岩指南：和仙雲山的差異、交通�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-halmae-bawi-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-halmae-bawi-en)
 
 如果仙雲山的陡壁讓整趟旅行看起來只剩高難線，高敞附近的 Halmae-bawi 提供另一種選擇：更直的壁面、指洞和短路線。你可以在同一個住宿基地比較兩種運攀。這篇幫你選暖身與目標線、安排沒有開車的最後一段，也避免走錯同名岩場或農地入口。
 

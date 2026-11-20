@@ -13,7 +13,7 @@ description: "比較 garak、promptfoo、PyRIT、HackAgent 四種 LLM 紅隊工�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-ai-red-teaming-llm-tools-en)
+> :globe: [English version](/posts/ai/2026-10-24-ai-red-teaming-llm-tools-en)
 
 上一篇審計的是原始碼：把程式碼交給 AI 讀。這一篇換成對運行中的系統發請求。
 

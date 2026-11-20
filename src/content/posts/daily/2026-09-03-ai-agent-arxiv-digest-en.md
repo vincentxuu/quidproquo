@@ -12,7 +12,7 @@ series:
   order: 102
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-03-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-03-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -65,7 +65,7 @@ LLM agents that call APIs repeatedly tend to cache the last fix that worked, to 
 ### Deeper Findings
 
 - Row-level invalidation raises compliance on 5 of 7 models: +66.7pp on gpt-5-mini, +63.0pp on claude-sonnet-4-6, +55.6pp on claude-haiku-4-5, +48.2pp on gemini-3.5-flash, and only +11.1pp on claude-sonnet-5
-- ⚠️ (author's own evaluation, 7 models x 2 synthetic domains) Claude Sonnet 5 shows "input-schema conservatism": compliance on add-a-field-style fixes is only 10%, while the same model complies with rewrite-existing-value fixes 55-60% of the time — it's not a blanket refusal of cache fixes, but a selective distrust of one specific fix shape
+- :warning: (author's own evaluation, 7 models x 2 synthetic domains) Claude Sonnet 5 shows "input-schema conservatism": compliance on add-a-field-style fixes is only 10%, while the same model complies with rewrite-existing-value fixes 55-60% of the time — it's not a blanket refusal of cache fixes, but a selective distrust of one specific fix shape
 - Counter-case: table-level invalidation — clearing an entire table on any version bump — actively harms outcomes by evicting entries that never actually went stale; post-drift first-try success rates on 5 of 7 models drop to 0%
 - Token economics: naive memory (caching with no invalidation at all) already saves 5-28% of tokens; row-level invalidation adds another 10.2-15.7 percentage points on top, but the size of that gain tracks the model's compliance, not the protocol alone
 - Self-disclosed security angle: the authors explicitly point out the attack surface this mechanism creates — the very protocol levels that make the model "apply fixes verbatim without questioning them" are also a parameter-injection channel; an honest but stale cache entry and a maliciously injected fake fix look identical at the protocol layer
@@ -120,7 +120,7 @@ Agent systems have moved from "a single assistant calling a tool once" to "multi
 - On a 30-case dynamic-policy suite: after new rules are installed live, 27/30 cases match expected behavior, without changing any agent, model, or execution path
 - On 98 traceable cases from a real Android emulator suite: 90.8% raw accuracy, and 92.9% trace-adjusted pass rate once the agent's actually-attempted behavior is factored in
 - Low latency overhead: the deterministic common-path check runs under 1ms at P99
-- ⚠️ (author's own evaluation, validated on Android only) current provenance is "enforcement-observed" evidence rather than cryptographically or OS-attested information flow — if an attacker can bypass the observation point itself, the provenance chain can be corrupted
+- :warning: (author's own evaluation, validated on Android only) current provenance is "enforcement-observed" evidence rather than cryptographically or OS-attested information flow — if an attacker can bypass the observation point itself, the provenance chain can be corrupted
 - Deployment threshold: production rollout still needs to handle cases where a user explicitly wants an exception (e.g., deliberately sharing a piece of sensitive data); the paper recommends pairing action-commit enforcement with confirmation flows, task-specific exceptions, and administrative overrides rather than blocking unconditionally
 
 ### Reviewer's One-Line Take
@@ -172,7 +172,7 @@ Operating systems have long accounted for, allocated, charged, and arbitrated ov
 - Scale effect: as the fleet grows from 10 to 1,000 agents, local-gate overdraw worsens steadily from safe to 48x tolerance, while the budget mechanism stays near 0.48x at every scale
 - Fragmentation-attack test: an attacker splits a $1.5M transfer into many sub-cap orders to evade local caps, which get fully bypassed (overdrawing to 3.9x tolerance) — but the budget mechanism admits only $459k of that exposure, because it prices by exposure value, not by call count
 - Safety-liveness trade-off: a budget set at half the tolerance limit still admits 93% of routine traffic; doubling the budget to 2x tolerance admits more burst traffic but reintroduces overdraw in 33% of runs — a real, tunable, but not free knob
-- ⚠️ (controlled simulation + real-trace validation, not yet validated in a deployed agent OS) the authors additionally analyzed 38,452 real trajectories from the public tau-bench and AgentDojo benchmarks, confirming that the simulation's core assumption — a shared trigger causes multiple agents to make correlated irreversible effects — holds in real data: a single planted instruction propagates the same external effect across 84% of a heterogeneous fleet on average
+- :warning: (controlled simulation + real-trace validation, not yet validated in a deployed agent OS) the authors additionally analyzed 38,452 real trajectories from the public tau-bench and AgentDojo benchmarks, confirming that the simulation's core assumption — a shared trigger causes multiple agents to make correlated irreversible effects — holds in real data: a single planted instruction propagates the same external effect across 84% of a heterogeneous fleet on average
 - Pricing itself remains an open problem: when effect types are misdeclared, or a shared trigger correlates losses the ledger assumed were independent, realized loss can still exceed what the ledger believed was safe; the authors release the full simulator, seeds, parameters, and trace-analysis code (GitHub: mpi-dsg/irreversibility-budget)
 
 ### Reviewer's One-Line Take

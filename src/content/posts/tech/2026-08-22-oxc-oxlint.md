@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-oxc-oxlint-en)
+> :globe: [English version](/posts/tech/2026-08-22-oxc-oxlint-en)
 
 [Oxc](https://oxc.rs/) 不是單一 linter，而是一組以 Rust 實作的 JavaScript／TypeScript compiler primitives：parser、AST、resolver、transformer、minifier 與語意分析。[Oxlint](https://oxc.rs/docs/guide/usage/linter.html) 是建立在這組底層上的 linter。官方基準是 ESLint 的 50–100 倍速度區間。真正的選型問題不是「Rust 有多快」，而是它能不能承接你目前用 ESLint 表達的規則契約。
 

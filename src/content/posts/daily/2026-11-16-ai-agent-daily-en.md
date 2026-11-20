@@ -12,7 +12,7 @@ series:
   order: 93
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-16-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-16-ai-agent-daily)
 
 ## Today's Take
 
@@ -117,16 +117,16 @@ We checked for Taiwan-specific AI-agent news today; only event-announcement-leve
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-16](/posts/daily/2026-11-16-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-16](/posts/daily/2026-11-16-ai-agent-github-digest-en)
-- 📄 [Framework Update｜AG2 v1.3.2](/posts/daily/2026-11-16-framework-ag2-v1.3.2-en)
-- 📄 [Funding Brief｜WhiteMatter Series A $20M](/posts/daily/2026-11-16-funding-whitematter-en)
-- 📄 [Model Card｜MiniMax-H3-Image](/posts/daily/2026-11-16-model-minimax-h3-image-en)
-- 📄 [Pricing Watch｜OpenAI Retires the Entire GPT-5/o3 Family on Dec 11](/posts/daily/2026-11-16-pricing-openai-gpt-5-o3-family-shutdown-en)
-- 📄 [Security Alert｜Cursor Discloses: Leaked Fireworks AI Key Caused the Extension Backdoor](/posts/daily/2026-11-16-security-fireworks-ai-key-theft-cursor-supply-chain-en)
-- 📄 [Tool of the Day｜turbo-browser-mcp](/posts/daily/2026-11-16-tool-turbo-browser-mcp-en)
-- 📄 [AI Engineer Interview Practice — 2026-11-16](/posts/daily/2026-11-16-ai-interview-daily-en)
-- 📄 [Product Builder Interview Practice — 2026-11-16](/posts/daily/2026-11-16-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-16](/posts/daily/2026-11-16-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-16](/posts/daily/2026-11-16-ai-agent-github-digest-en)
+- :file: [Framework Update｜AG2 v1.3.2](/posts/daily/2026-11-16-framework-ag2-v1.3.2-en)
+- :file: [Funding Brief｜WhiteMatter Series A $20M](/posts/daily/2026-11-16-funding-whitematter-en)
+- :file: [Model Card｜MiniMax-H3-Image](/posts/daily/2026-11-16-model-minimax-h3-image-en)
+- :file: [Pricing Watch｜OpenAI Retires the Entire GPT-5/o3 Family on Dec 11](/posts/daily/2026-11-16-pricing-openai-gpt-5-o3-family-shutdown-en)
+- :file: [Security Alert｜Cursor Discloses: Leaked Fireworks AI Key Caused the Extension Backdoor](/posts/daily/2026-11-16-security-fireworks-ai-key-theft-cursor-supply-chain-en)
+- :file: [Tool of the Day｜turbo-browser-mcp](/posts/daily/2026-11-16-tool-turbo-browser-mcp-en)
+- :file: [AI Engineer Interview Practice — 2026-11-16](/posts/daily/2026-11-16-ai-interview-daily-en)
+- :file: [Product Builder Interview Practice — 2026-11-16](/posts/daily/2026-11-16-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

@@ -13,7 +13,7 @@ description: "A guide to HW6 \"Model Editing\" from NTU Hung-yi Lee's Machine Le
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

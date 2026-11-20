@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-amazingtalker-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-amazingtalker-speaking-practice)
 
 If you want to practise spoken English without first buying a large fixed course, [AmazingTalker](https://tw.amazingtalker.com/tutors/english) offers one-to-one online tutoring with individually selected teachers and lessons or packages. You can look for everyday conversation, travel, interviews or business English, then agree on your level and materials.
 

@@ -12,7 +12,7 @@ series:
   order: 33
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-18-tool-codebase-memory-mcp)
+> :globe: [中文版](/posts/daily/2026-09-18-tool-codebase-memory-mcp)
 
 ## Tool Info
 
@@ -88,11 +88,11 @@ codebase-memory-mcp config set auto_index true
 
 | | codebase-memory-mcp | Manual grep/read exploration | Single-language LSP integration (an agent calling tsserver/pyright directly) |
 |---|---|---|---|
-| One query interface across languages | ✅ (158 languages, one set of MCP tools) | ✅ (but you design the search strategy yourself) | ❌ (a different LSP per language) |
-| Cross-service call chains (HTTP/gRPC/pub-sub) | ✅ | ❌ | ❌ |
+| One query interface across languages | ✓ (158 languages, one set of MCP tools) | ✓ (but you design the search strategy yourself) | ✗ (a different LSP per language) |
+| Cross-service call chains (HTTP/gRPC/pub-sub) | ✓ | ✗ | ✗ |
 | Token cost | Low (project benchmark: 99.2% reduction) | High, scales with repo size | Medium — still needs multiple tool calls to assemble an answer |
-| Index can be committed and shared by a team | ✅ | N/A | ❌ |
-| No API key, fully local | ✅ | ✅ | Depends on the LSP implementation |
+| Index can be committed and shared by a team | ✓ | N/A | ✗ |
+| No API key, fully local | ✓ | ✓ | Depends on the LSP implementation |
 | Setup/operational complexity | Requires understanding the shared daemon | None (zero build step) | Per-language LSP server configuration |
 
 ## Caveats

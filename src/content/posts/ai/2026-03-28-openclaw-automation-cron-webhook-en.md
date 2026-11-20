@@ -13,7 +13,7 @@ description: "A selection guide for OpenClaw's automation mechanisms: how Automa
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-automation-cron-webhook)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-automation-cron-webhook)
 
 OpenClaw consolidated its background-work mechanisms in the second half of 2026. This article helps you pick the right one, then covers how periodic checks work now that they are ordinary scheduled jobs, and finally what the scheduler actually does.
 

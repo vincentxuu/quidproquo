@@ -12,7 +12,7 @@ series:
   order: 90
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-13-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-13-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -169,19 +169,19 @@ Cursor 推出即時語音通話功能，讓使用者可在 agent 執行任務時
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-13](/posts/daily/2026-11-13-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-13](/posts/daily/2026-11-13-ai-agent-github-digest)
-- 📄 [框架更新｜Agno v3.2.0](/posts/daily/2026-11-13-framework-agno-v3.2.0)
-- 📄 [融資速報｜LangChain Series C $300M](/posts/daily/2026-11-13-funding-langchain)
-- 📄 [融資速報｜Mirendil Series A $1B](/posts/daily/2026-11-13-funding-mirendil)
-- 📄 [融資速報｜Rox Series B $100M](/posts/daily/2026-11-13-funding-rox)
-- 📄 [模型卡｜Gemini Decision 1](/posts/daily/2026-11-13-model-google-gemini-decision-1)
-- 📄 [定價追蹤｜Claude Fable 5.2 取代 5.1，API 價格砍兩成](/posts/daily/2026-11-13-pricing-anthropic-claude-fable-5-2-price-cut)
-- 📄 [資安警報｜AntiFox 滲透測試 agent 被用於真實入侵](/posts/daily/2026-11-13-security-antifox-pentest-aws-secret-theft)
-- 📄 [工具推薦｜0 — 開源 AI 資安 harness](/posts/daily/2026-11-13-tool-0security)
-- 📄 [Benchmark 異動｜Arena Agent 與 CursorBench 同週洗牌](/posts/daily/2026-11-13-benchmark-arena-cursorbench-fable-5-2)
-- 📄 [AI Engineer 面試日練 — 2026-11-13：Coding](/posts/daily/2026-11-13-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-11-13：Growth & Experimentation](/posts/daily/2026-11-13-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-13](/posts/daily/2026-11-13-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-13](/posts/daily/2026-11-13-ai-agent-github-digest)
+- :file: [框架更新｜Agno v3.2.0](/posts/daily/2026-11-13-framework-agno-v3.2.0)
+- :file: [融資速報｜LangChain Series C $300M](/posts/daily/2026-11-13-funding-langchain)
+- :file: [融資速報｜Mirendil Series A $1B](/posts/daily/2026-11-13-funding-mirendil)
+- :file: [融資速報｜Rox Series B $100M](/posts/daily/2026-11-13-funding-rox)
+- :file: [模型卡｜Gemini Decision 1](/posts/daily/2026-11-13-model-google-gemini-decision-1)
+- :file: [定價追蹤｜Claude Fable 5.2 取代 5.1，API 價格砍兩成](/posts/daily/2026-11-13-pricing-anthropic-claude-fable-5-2-price-cut)
+- :file: [資安警報｜AntiFox 滲透測試 agent 被用於真實入侵](/posts/daily/2026-11-13-security-antifox-pentest-aws-secret-theft)
+- :file: [工具推薦｜0 — 開源 AI 資安 harness](/posts/daily/2026-11-13-tool-0security)
+- :file: [Benchmark 異動｜Arena Agent 與 CursorBench 同週洗牌](/posts/daily/2026-11-13-benchmark-arena-cursorbench-fable-5-2)
+- :file: [AI Engineer 面試日練 — 2026-11-13：Coding](/posts/daily/2026-11-13-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-11-13：Growth & Experimentation](/posts/daily/2026-11-13-product-builder-interview-daily)
 
 ## 明日關注
 

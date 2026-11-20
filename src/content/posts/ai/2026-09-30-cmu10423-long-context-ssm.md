@@ -28,7 +28,7 @@ glossary:
         url: "https://arxiv.org/abs/2312.00752"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu10423-long-context-ssm-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu10423-long-context-ssm-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

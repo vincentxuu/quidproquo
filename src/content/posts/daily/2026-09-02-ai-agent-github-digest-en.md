@@ -12,7 +12,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-02-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-09-02-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Two sides of the same coin showed up on GitHub Trending today: personal-agent ad
 
 ## Trending Repos
 
-### openclaw/openclaw ⭐ 388,497
+### openclaw/openclaw ★ 388,497
 
 [GitHub](https://github.com/openclaw/openclaw) · TypeScript · MIT (with some exceptions)
 
@@ -31,7 +31,7 @@ Two sides of the same coin showed up on GitHub Trending today: personal-agent ad
 
 ---
 
-### NVIDIA/SkillSpector ⭐ 15,531
+### NVIDIA/SkillSpector ★ 15,531
 
 [GitHub](https://github.com/NVIDIA/SkillSpector) · Python · Apache-2.0
 
@@ -42,7 +42,7 @@ Two sides of the same coin showed up on GitHub Trending today: personal-agent ad
 
 ---
 
-### stablyai/orca ⭐ 59,083
+### stablyai/orca ★ 59,083
 
 [GitHub](https://github.com/stablyai/orca) · TypeScript · MIT
 
@@ -53,7 +53,7 @@ Two sides of the same coin showed up on GitHub Trending today: personal-agent ad
 
 ---
 
-### VectifyAI/PageIndex ⭐ 35,476
+### VectifyAI/PageIndex ★ 35,476
 
 [GitHub](https://github.com/VectifyAI/PageIndex) · Python · MIT
 

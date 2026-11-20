@@ -10,7 +10,7 @@ description: "Where the Gemini API CLI sits in the Gemini developer stack, how i
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-24-gemini-api-cli-shell-agents)
+> :globe: [中文版](/posts/tech/2026-10-24-gemini-api-cli-shell-agents)
 
 The Gemini API CLI (command name `gemini-api`) is an [experimental preview](https://aistudio.google.com/learn/introducing-the-gemini-api-cli) Google released on October 19, 2026, currently at v0.4.x. It is a single binary written in Go that exposes Gemini's text models, image/speech/music/video generation, file analysis, and managed agents as shell commands.
 

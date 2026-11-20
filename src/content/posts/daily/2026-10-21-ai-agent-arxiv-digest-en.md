@@ -11,7 +11,7 @@ series:
   order: 150
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-21-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-10-21-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -75,7 +75,7 @@ When agents run multi-turn tasks, the harness has to decide how to handle a grow
 - Core experiment: truncating context costs ≈ 0 for "re-queryable facts"; it drops a fact to chance level for "non-re-observable facts" — a 92.5 percentage-point difference (90% CI [89.5, 95.5])
 - A second model from a different provider replicated the same contrast
 - Once a fact was lost, the model chose "no answer" rather than guessing — itself a notable behavior pattern
-- ARC-AGI-3's 63-point gap between Standard and Provider Adapter harnesses: summarizing + note-taking prompt recovers 86%; without the prompt only 43%; adding reasoning replay recovers the remaining 57% ⚠️ (single counted run per configuration, not an average of repeated runs)
+- ARC-AGI-3's 63-point gap between Standard and Provider Adapter harnesses: summarizing + note-taking prompt recovers 86%; without the prompt only 43%; adding reasoning replay recovers the remaining 57% :warning: (single counted run per configuration, not an average of repeated runs)
 - Deployment threshold: any agent framework that manages context by summarizing old turns can directly check whether it kept the "invite the model to take notes" step
 - Relevance to mainstream frameworks: the context truncation/summarization strategies common in LangGraph, AutoGen, etc. can be re-examined with this same decomposition method
 - Limitation: the author explicitly flags that the ARC-AGI-3 component decomposition only ran once, not averaged over multiple runs
@@ -136,7 +136,7 @@ Evaluating an agent's planning ability has always been hard: open-domain tasks c
 - Benchmark scale: 6,885 wikiHow procedures, 81 open-domain categories, 12 models × 14 configurations
 - Best model's step-ordering accuracy: 63.0%; drops to 33.1% for procedures with 9+ steps
 - "Wrong-step detection" performance predicts a model's overall plan generation quality, which the authors suggest could serve as a cheaper proxy than full human evaluation
-- The STEPBENCH-Val subset reruns the test on 214 procedures published only in 2026; scores and rankings stayed stable, suggesting the results are unlikely to be driven by training-data memorization ⚠️ (authors' own test, awaiting external replication)
+- The STEPBENCH-Val subset reruns the test on 214 procedures published only in 2026; scores and rankings stayed stable, suggesting the results are unlikely to be driven by training-data memorization :warning: (authors' own test, awaiting external replication)
 - Deployment threshold: reproducing this decomposed evaluation requires building an equally large, verified procedure dataset; smaller teams can start with the published diagnostic task types (missing/wrong step/misordered) to build their own smaller-scale test
 - Relevance to mainstream frameworks: frameworks like LangGraph and AutoGen that typically evaluate "generate a complete plan" can borrow this decomposition logic to add ordering- and missing-step-detection tests
 - Limitation: the procedures are drawn from everyday wikiHow tasks; the paper doesn't verify whether enterprise or engineering workflows are equally fragile for long-horizon planning
@@ -197,7 +197,7 @@ Most existing AI safety monitoring assumes that "reading one agent's complete tr
 - MiniLab environment: 5 interconnected services, 249 benign tasks, 8 attack objectives, 16 human-optimized attacks (weight exfiltration, unmonitored rogue deployment, permission elevation, etc.)
 - Detection rate comparison: a single agent carrying out the same attack in full gets caught 87% of the time; split across multiple agents, only 7%
 - Distributed attacks can be chained into longer attack sequences that accumulate toward a system-level loss-of-control outcome, without any single agent ever being flagged
-- Model-planned distributed attacks, even with execution and monitor feedback, succeed covertly against a single-trajectory monitor at most 25% of the time — versus 80% for human-crafted plans ⚠️ (authors' own test; the authors note this gap may narrow as model capability improves)
+- Model-planned distributed attacks, even with execution and monitor feedback, succeed covertly against a single-trajectory monitor at most 25% of the time — versus 80% for human-crafted plans :warning: (authors' own test; the authors note this gap may narrow as model capability improves)
 - Deployment threshold: reproducing this kind of red-teaming requires first building a cross-service synthetic deployment environment — a substantial engineering investment for smaller teams; the paper positions MiniLab as reusable red-team infrastructure
 - Relevance to mainstream frameworks: any team deploying multi-agent collaboration via LangGraph, AutoGen, etc. should check whether their current monitoring only looks at single-agent trajectories
 - Limitation: MiniLab is a synthetic test environment; the paper doesn't verify whether attacks can evade monitoring at the same efficiency in more complex, real production deployments

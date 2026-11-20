@@ -13,7 +13,7 @@ description: "Jeokbyeok climbing guide: compare route grades and versions, plan 
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/climbing/2026-10-21-korea-crag-jeokbyeok)
+> :globe: [繁體中文版](/posts/climbing/2026-10-21-korea-crag-jeokbyeok)
 
 Jeokbyeok (적벽, also spelled Juk-byuk or Red Wall) stands beside Biseondae in Seoraksan, next to Janggunbong. The easiest mistake when reading the old guide is to notice 5.8 or 5.9 and overlook the A1 or A4 that follows.
 

@@ -18,7 +18,7 @@ glossary:
     context: "CMU 11-868 L01 把它列為 LLM 系統的核心主張，標題寫「LLM needs Model-Algorithm-System Co-design」。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

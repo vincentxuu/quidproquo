@@ -13,11 +13,11 @@ description: "逐週導讀 Harvard CS1810 Spring 2026 HW0（2026-02-02 due）：
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review-en)
+> :globe: [English version](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本**：本文以 [CS1810 Spring 2026 HW0](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw0)（`hw0.tex` due 2026-02-02）為主，`Spring 2025` 同題（`cs181-s25-homeworks/hw0`）作對照。`syllabus` 先修與計分見 [CS181 2026 課程站](https://harvard-ml-courses.github.io/cs181-web/) 與 [CS181 2025 課程站](https://harvard-ml-courses.github.io/cs181-web-2025/)。
+> :warning: **版本**：本文以 [CS1810 Spring 2026 HW0](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw0)（`hw0.tex` due 2026-02-02）為主，`Spring 2025` 同題（`cs181-s25-homeworks/hw0`）作對照。`syllabus` 先修與計分見 [CS181 2026 課程站](https://harvard-ml-courses.github.io/cs181-web/) 與 [CS181 2025 課程站](https://harvard-ml-courses.github.io/cs181-web-2025/)。
 
 ## TL;DR
 

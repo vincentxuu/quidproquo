@@ -13,7 +13,7 @@ series:
   order: 20
 ---
 
-🌏 [English version](/posts/ai/2026-08-22-browserbase-browser-infrastructure-en)
+:globe: [English version](/posts/ai/2026-08-22-browserbase-browser-infrastructure-en)
 
 [Browserbase](https://docs.browserbase.com/platform/browser/getting-started/create-browser-session) 是託管瀏覽器基礎設施。程式透過 API 開一個隔離的雲端 Chromium，再用 Playwright、Puppeteer、Selenium 或 Chrome DevTools Protocol（CDP）連上去。它不是另一個會看畫面、規劃步驟的 agent。它接走真正麻煩、又很容易被低估的那一層：啟動與回收瀏覽器、保存登入狀態、管理網路身分，以及留下可重播的執行紀錄。
 

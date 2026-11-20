@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-graphrag-lightrag-hipporag)
+> :globe: [中文版](/posts/ai/2026-08-25-graphrag-lightrag-hipporag)
 
 Vector search finds similar passages but misses connections — "who is related to whom" and "what does the whole corpus say" require links between documents. Graph RAG fills that gap by extracting entities and relations into a graph and retrieving over it. The question is how to pay for the graph — this guide puts three mainstream approaches side by side so you can choose by cost, update frequency, and question type.
 

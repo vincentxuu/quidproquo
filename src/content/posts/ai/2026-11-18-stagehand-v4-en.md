@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-18-stagehand-v4)
+> :globe: [中文版](/posts/ai/2026-11-18-stagehand-v4)
 
 [Stagehand](https://github.com/browserbase/stagehand) is an open-source browser automation SDK from [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure-en), the hosted-browser company. It is MIT-licensed and ships in TypeScript, Python and Go. Like Playwright, it lets you write code that opens pages and clicks buttons; unlike Playwright, it adds three methods that call a model: `act()` performs one action from a sentence, `extract()` turns page content into typed data, and `observe()` finds the actions available on a page.
 

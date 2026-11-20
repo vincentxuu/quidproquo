@@ -12,7 +12,7 @@ series:
   order: 31
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-16-tool-edgar-mcp-en)
+> :globe: [English version](/posts/daily/2026-09-16-tool-edgar-mcp-en)
 
 ## 工具資訊
 
@@ -91,10 +91,10 @@ python3 evals/run_eval.py
 
 | | edgar-mcp | 直接呼叫 EDGAR 官方 API | 泛用網頁爬蟲讀 filing HTML |
 |---|---|---|---|
-| 回傳單一章節而非整份文件 | ✅ | ❌（回傳整份 JSON／文件） | ❌（需自己切章節） |
-| 免 API key | ✅（只需 User-Agent） | ✅ | ✅ |
-| XBRL 財務概念跨標籤合併 | ✅（14 種概念自動對應多個 tag） | ❌（要自己知道每個 tag 名稱） | ❌ |
-| 附 eval 套件驗證正確率 | ✅ | — | — |
+| 回傳單一章節而非整份文件 | ✓ | ✗（回傳整份 JSON／文件） | ✗（需自己切章節） |
+| 免 API key | ✓（只需 User-Agent） | ✓ | ✓ |
+| XBRL 財務概念跨標籤合併 | ✓（14 種概念自動對應多個 tag） | ✗（要自己知道每個 tag 名稱） | ✗ |
+| 附 eval 套件驗證正確率 | ✓ | — | — |
 | 章節擷取準確度 | 依賴文字長度啟發式，非 100% | 不適用（不切章節） | 依網站結構而定，格式一變就壞 |
 
 ## 注意事項

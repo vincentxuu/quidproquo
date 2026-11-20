@@ -22,7 +22,7 @@ glossary:
     context: "The topic of Written 2's first problem, 'To Fuse or Not to Fuse'."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-pa3-w2-cuda-renderer)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-pa3-w2-cuda-renderer)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

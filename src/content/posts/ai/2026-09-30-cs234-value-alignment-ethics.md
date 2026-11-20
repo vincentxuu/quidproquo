@@ -30,7 +30,7 @@ glossary:
     context: "CS234 倫理客座 Part II 的 bottom-up 延伸。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-value-alignment-ethics-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-value-alignment-ethics-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

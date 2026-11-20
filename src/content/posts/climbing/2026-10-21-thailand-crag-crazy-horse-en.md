@@ -13,7 +13,7 @@ description: "A Crazy Horse (หน้าผาม้าพยศ) climbing guid
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-thailand-crag-crazy-horse)
+> :globe: [中文版](/posts/climbing/2026-10-21-thailand-crag-crazy-horse)
 
 From the car park the first thing you see is a block of limestone above the main area shaped like a horse's head, and that is where Crazy Horse gets its name. With dense bolting, maintained trails and most sectors a few minutes' walk away, it is easy to assume this is a mature crag you can visit any time. **The thing to check first is whether it is actually open.**
 

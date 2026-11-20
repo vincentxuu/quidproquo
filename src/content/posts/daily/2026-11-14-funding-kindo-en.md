@@ -12,7 +12,7 @@ series:
   order: 134
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-14-funding-kindo)
+> :globe: [中文版](/posts/daily/2026-11-14-funding-kindo)
 
 ## Funding Details
 

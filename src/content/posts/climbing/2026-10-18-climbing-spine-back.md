@@ -26,7 +26,7 @@ glossary:
     context: "Förster 2009 發現高階男性攀岩者站立時的胸椎後凸角度，比休閒攀岩者大。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-spine-back-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-spine-back-en)
 
 背和脖子在攀岩裡會遇到三種完全不同的問題。第一種最少見、也最嚴重：繩攀時沒被接住，直接摔到地面，傷到脊椎。第二種很常見、多半輕微：下背痠痛。第三種每個確保者都經歷過：仰頭看了一整個下午，脖子僵硬。
 

@@ -12,7 +12,7 @@ draft: false
 series: { name: "Reading Berkeley CS288", order: 1 }
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs288-foundations)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs288-foundations)
 
 The first four sets of [official slides](https://cal-cs288.github.io/sp26/) ask one question: how does text become a computational object and then a learnable prediction problem? The sequence is Introduction, n-gram Language Models, Word Representation, and Text Classification.
 

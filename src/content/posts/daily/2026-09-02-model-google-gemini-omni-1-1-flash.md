@@ -15,7 +15,7 @@ glossary:
     def: "Google DeepMind 的原生多模態影片生成／編輯模型家族，可同時處理文字、圖片、音訊、影片輸入輸出"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-02-model-google-gemini-omni-1-1-flash-en)
+> :globe: [English version](/posts/daily/2026-09-02-model-google-gemini-omni-1-1-flash-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | 單次累積延伸長度 | 最長 40 秒（10 秒 ×4） | 官方文件未列累積上限，僅讀取最後 1 秒作延伸依據 | Wan3.0 單次 30 秒（無多輪延伸串接機制） |
 | 最高輸出解析度 | 4K（upscale） | 僅 720p，無 1080p／4K 選項 | Veo 3.1 Fast 4K，同為 $0.30／秒 |
 
-⚠️ Arena Elo 為 Artificial Analysis 盲測排行榜即時分數（擷取於 2026 年 8 月底），每週會因新一輪投票變動，非廠商自測數字；scene extension、解析度與計費規格為 Google 官方公告與文件所載。
+:warning: Arena Elo 為 Artificial Analysis 盲測排行榜即時分數（擷取於 2026 年 8 月底），每週會因新一輪投票變動，非廠商自測數字；scene extension、解析度與計費規格為 Google 官方公告與文件所載。
 
 ## 與前代/競品比較
 

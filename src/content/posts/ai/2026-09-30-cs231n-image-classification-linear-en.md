@@ -20,7 +20,7 @@ glossary:
     context: "L2 walks through four ways to pick kNN hyperparameters; only the validation set and cross-validation are sound."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-image-classification-linear)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-image-classification-linear)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

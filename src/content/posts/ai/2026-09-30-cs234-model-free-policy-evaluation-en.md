@@ -26,7 +26,7 @@ glossary:
     context: "The third evaluation method in L3; L4 shows batch TD(0) converges to exactly its answer."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-model-free-policy-evaluation)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-model-free-policy-evaluation)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

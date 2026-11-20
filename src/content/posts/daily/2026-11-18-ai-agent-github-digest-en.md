@@ -11,7 +11,7 @@ series:
   order: 95
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-18-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-18-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Today's trending list isn't about more frameworks — it's about filling in the 
 
 ## Trending Repos
 
-### ag-ui-protocol/ag-ui ⭐ 19,530 (+791)
+### ag-ui-protocol/ag-ui ★ 19,530 (+791)
 
 [GitHub](https://github.com/ag-ui-protocol/ag-ui)　·　TypeScript (also Python, .NET SDKs)　·　MIT
 
@@ -30,7 +30,7 @@ Today's trending list isn't about more frameworks — it's about filling in the 
 
 ---
 
-### ChromeDevTools/chrome-devtools-mcp ⭐ 57,850 (+841)
+### ChromeDevTools/chrome-devtools-mcp ★ 57,850 (+841)
 
 [GitHub](https://github.com/ChromeDevTools/chrome-devtools-mcp)　·　TypeScript　·　Apache-2.0
 
@@ -41,7 +41,7 @@ Today's trending list isn't about more frameworks — it's about filling in the 
 
 ---
 
-### Tencent/LoopForge ⭐ 2,533 (+1,020)
+### Tencent/LoopForge ★ 2,533 (+1,020)
 
 [GitHub](https://github.com/Tencent/LoopForge)　·　Go / TypeScript　·　MIT
 
@@ -52,7 +52,7 @@ Today's trending list isn't about more frameworks — it's about filling in the 
 
 ---
 
-### google-research/paper-orchestra ⭐ 1,889 (+313)
+### google-research/paper-orchestra ★ 1,889 (+313)
 
 [GitHub](https://github.com/google-research/paper-orchestra)　·　Python　·　Apache-2.0
 

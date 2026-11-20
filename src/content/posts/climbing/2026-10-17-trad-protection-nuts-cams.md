@@ -30,7 +30,7 @@ glossary:
     context: "繩子走直線、用延伸扁帶，是減少走位的主要做法。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en)
+> :globe: [English version](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en)
 
 打開 nobodyclimb 上的[德芙蘭岩場](https://nobodyclimb.cc/crag/defulan)，有一條 5.11b 的路線叫[〈咪嚕咕〉](https://nobodyclimb.cc/crag/defulan/route/DF-FL-010)，保護欄只寫了五個字：「需小號cam, nut」。路線上沒有 bolt，只有頂端有固定點。
 

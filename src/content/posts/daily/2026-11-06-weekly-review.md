@@ -12,7 +12,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-06-weekly-review-en)
+> :globe: [English version](/posts/daily/2026-11-06-weekly-review-en)
 
 ## 本週最重要的 5 件事
 
@@ -59,7 +59,7 @@ Anthropic Q3 營收年增 12 倍逼近 170 億美元，卻同時出現 233 億�
 
 ## Watchlist 更新建議
 
-### 🆕 建議加入
+### 建議加入
 
 本週 signals 中,所有被追蹤到的公司都已在既有 watchlist 內,沒有「不在 watchlist、出現 ≥ 3 次」的候選。以下新創本週首次以獨立融資新聞出現，尚未達到 3 次門檻，先列入新創雷達觀察，待出現頻率提升再評估正式加入：
 
@@ -69,9 +69,9 @@ Anthropic Q3 營收年增 12 倍逼近 170 億美元，卻同時出現 233 億�
 | Traversal | AI SRE，因果推論找生產事故根因 | 1 | [Traversal 官方](https://www.traversal.com/blog/traversal-series-b-120-million-ai-sre) | B6（Agent 可觀測性／評估） |
 | Larridin | 企業 AI 支出稽核 | 1 | [Business Insider](https://www.businessinsider.com/larridin-ai-spending-measurement-series-a-30-million-2026-11) | B6（Agent 可觀測性／評估） |
 
-### ⚠️ 考慮移除
+### :warning: 考慮移除
 
-✅ 本週無符合移除條件的公司（未見任何公司確認關閉或明確宣佈轉離 Agent 領域的來源）。
+✓ 本週無符合移除條件的公司（未見任何公司確認關閉或明確宣佈轉離 Agent 領域的來源）。
 
 ## 本週新創雷達
 

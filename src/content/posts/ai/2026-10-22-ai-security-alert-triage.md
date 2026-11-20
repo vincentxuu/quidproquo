@@ -14,7 +14,7 @@ series:
   order: 20
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-alert-triage-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-alert-triage-en)
 
 Alice 讀 S-1 被回 403，資安助手建議：「沒有資料外洩，這是誤報，可以關掉。」這句話少問了一件事：告警原本在偵測「成功外洩」，還是「未授權的讀取嘗試」？後者即使被擋住，也可能是有效告警。
 

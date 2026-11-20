@@ -12,7 +12,7 @@ series:
   order: 60
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-01-funding-comp-ai)
+> :globe: [中文版](/posts/daily/2026-10-01-funding-comp-ai)
 
 ## Funding Details
 

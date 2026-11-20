@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-ai-overviews-change-traffic-path)
+> :globe: [中文版](/posts/product/2026-09-17-ai-overviews-change-traffic-path)
 
 Traditional search resembles a library catalog clerk: it tells you where a book is, and you walk over to read it. An AI summary resembles a reader at the desk: it consults several books, assembles an answer, and then chooses which sources to list.
 

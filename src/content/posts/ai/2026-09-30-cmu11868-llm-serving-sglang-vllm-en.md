@@ -30,7 +30,7 @@ glossary:
     context: "vLLM splits the graph with torch.compile; Lecture 24 compares its latency against a full CUDA graph."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

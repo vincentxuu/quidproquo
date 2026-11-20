@@ -10,7 +10,7 @@ description: "記錄一次 Vision API PDF 解析從效能瓶頸到併發優化�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-19-vision-pdf-parse-too-fast-for-aws-en)
+> :globe: [English version](/posts/ai/2026-09-19-vision-pdf-parse-too-fast-for-aws-en)
 
 ## TL;DR
 
@@ -95,9 +95,9 @@ Sonnet 上，10 頁一批約 1.5 倍速——不到 2 倍是因為模型處理�
 
 | 方案 | 優缺 | 結論 |
 |------|------|------|
-| Celery fan-out | 每批一個 task，天然並行 | ❌ 同一份文件的批次要在同一個 task 內歸位、共用 token 累計與快取寫入 |
-| asyncio | 原生 async | ❌ 現有 Celery task 是 sync，改造範圍太大 |
-| ThreadPoolExecutor | 有界執行緒池 | ✅ boto3 client 是 thread-safe，可共用；結果依頁碼寫回固定位置，完成順序不影響文件 |
+| Celery fan-out | 每批一個 task，天然並行 | ✗ 同一份文件的批次要在同一個 task 內歸位、共用 token 累計與快取寫入 |
+| asyncio | 原生 async | ✗ 現有 Celery task 是 sync，改造範圍太大 |
+| ThreadPoolExecutor | 有界執行緒池 | ✓ boto3 client 是 thread-safe，可共用；結果依頁碼寫回固定位置，完成順序不影響文件 |
 
 最終用 `concurrent.futures.ThreadPoolExecutor`，`max_workers` 來自後台設定（預設 5，上限 10）：
 

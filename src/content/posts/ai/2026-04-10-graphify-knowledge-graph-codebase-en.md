@@ -10,7 +10,7 @@ description: "Graphify's design philosophy, dual-stage processing architecture, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-10-graphify-knowledge-graph-codebase)
+> :globe: [中文版](/posts/ai/2026-04-10-graphify-knowledge-graph-codebase)
 
 AI coding assistants keep getting more powerful, but one fundamental problem remains: once a project gets large enough, the context window runs out. Feeding the entire codebase in is impractical, but cherry-picking a few files risks missing critical relationships.
 

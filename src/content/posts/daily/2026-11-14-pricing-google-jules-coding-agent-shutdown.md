@@ -12,7 +12,7 @@ series:
   order: 35
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-14-pricing-google-jules-coding-agent-shutdown-en)
+> :globe: [English version](/posts/daily/2026-11-14-pricing-google-jules-coding-agent-shutdown-en)
 
 ## 變更摘要
 
@@ -71,8 +71,8 @@ Jules 消失後，$10～$20 這個價位帶（Copilot Pro、ChatGPT Plus/Codex�
 
 ## 時效提醒
 
-⚠️ **唯讀生效**：2026-11-11（已生效）。無法建立或執行新任務，僅能查看既有 session。
-⚠️ **停用日期**：2026-12-31。Jules 服務全面關閉，GitHub 上已存在的程式碼／分支／PR 不受影響，但帳號設定、環境變數、排程任務、記憶與 session 歷史需在此之前用 [Jules Tools](https://jules.google/docs/usage-limits/) 自行匯出。
+:warning: **唯讀生效**：2026-11-11（已生效）。無法建立或執行新任務，僅能查看既有 session。
+:warning: **停用日期**：2026-12-31。Jules 服務全面關閉，GitHub 上已存在的程式碼／分支／PR 不受影響，但帳號設定、環境變數、排程任務、記憶與 session 歷史需在此之前用 [Jules Tools](https://jules.google/docs/usage-limits/) 自行匯出。
 
 ## 今日收穫
 

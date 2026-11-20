@@ -12,7 +12,7 @@ series:
   order: 131
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-13-funding-langchain-en)
+> :globe: [English version](/posts/daily/2026-11-13-funding-langchain-en)
 
 ## 融資資訊
 

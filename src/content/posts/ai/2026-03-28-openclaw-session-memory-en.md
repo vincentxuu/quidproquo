@@ -13,7 +13,7 @@ description: "OpenClaw's session routing and memory layers: how the main session
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-session-memory)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-session-memory)
 
 This layer answers two questions: **which conversation does an inbound message belong to**, and **what survives after the conversation ends**.
 

@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-18-ai-browser-automation-layers)
+> :globe: [中文版](/posts/ai/2026-11-18-ai-browser-automation-layers)
 
 Say you want an AI to work a web page for you: grab a pricing table, fill in a form, run through a sign-up flow. Search around, and you will meet [Playwright MCP](https://github.com/microsoft/playwright-mcp), [Stagehand](https://github.com/browserbase/stagehand), [Browser Use](https://github.com/browser-use/browser-use), [Browserbase](https://www.browserbase.com/) and [Cloudflare Browser Run](https://developers.cloudflare.com/browser-run/) all at once, often lined up in the same comparison table, but they are not the same kind of thing. The first three all decide what to do next and differ in who holds control: a coding agent like Claude Code, your own code, or the agent itself. The last two only provide a remote Chrome.
 

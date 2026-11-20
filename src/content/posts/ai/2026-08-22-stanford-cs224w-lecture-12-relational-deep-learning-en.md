@@ -13,7 +13,7 @@ description: "The complete agenda and self-study notes for Stanford CS224W Fall 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs224w-lecture-12-relational-deep-learning)
+> :globe: [中文版](/posts/ai/2026-08-22-stanford-cs224w-lecture-12-relational-deep-learning)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

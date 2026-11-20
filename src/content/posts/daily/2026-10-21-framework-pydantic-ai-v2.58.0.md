@@ -12,7 +12,7 @@ series:
   order: 47
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-21-framework-pydantic-ai-v2.58.0-en)
+> :globe: [English version](/posts/daily/2026-10-21-framework-pydantic-ai-v2.58.0-en)
 
 ## 版本資訊
 
@@ -42,7 +42,7 @@ series:
 
 ## Breaking Changes
 
-Release notes 把兩項列在「⚠️ Compatibility Notes」，另外兩個安全修補也等同強制行為變更：
+Release notes 把兩項列在「:warning: Compatibility Notes」，另外兩個安全修補也等同強制行為變更：
 
 - DBOS workflow 搭配 `Planning` 與 `event_stream_handler`：既有在跑的 workflow 升級後可能無法正確恢復
   - 影響範圍：用 DBOS 跑長流程 Agent 且搭配 `event_stream_handler` 的專案，建議讓現有 in-flight workflow 先跑完，或部署新的 DBOS 應用版本再切換

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-aws-lambda-compute)
+> :globe: [中文版](/posts/tech/2026-08-22-aws-lambda-compute)
 
 [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html) is event-driven function compute. You deploy code and configuration; AWS creates execution environments as requests arrive. The team stops managing hosts but must design invocation, concurrency, and failure semantics.
 

@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-09-weekly-review)
+> :globe: [中文版](/posts/daily/2026-10-09-weekly-review)
 
 ## The 5 things that mattered most this week
 
@@ -59,13 +59,13 @@ The implication for Taiwan: Valon's vertical-integration path is far harder to r
 
 ## Watchlist update recommendations
 
-### 🆕 Suggested additions
+### Suggested additions
 
-✅ No company met the threshold (independently appearing ≥3 times across signals) this week. The 13 newly funded companies this week each appeared only 1–2 times in signals and coverage (mostly their own funding writeup plus a mention in that day's digest) — not yet a repeated signal across independent events, so they're listed below under "Startup radar" instead.
+✓ No company met the threshold (independently appearing ≥3 times across signals) this week. The 13 newly funded companies this week each appeared only 1–2 times in signals and coverage (mostly their own funding writeup plus a mention in that day's digest) — not yet a repeated signal across independent events, so they're listed below under "Startup radar" instead.
 
-### ⚠️ Considered for removal
+### :warning: Considered for removal
 
-✅ No companies met the removal criteria this week.
+✓ No companies met the removal criteria this week.
 
 ## This week's startup radar
 

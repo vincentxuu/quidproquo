@@ -30,7 +30,7 @@ glossary:
     context: "The KL penalty in the PPO objective is there to keep this in check."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-preference-tuning)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-preference-tuning)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

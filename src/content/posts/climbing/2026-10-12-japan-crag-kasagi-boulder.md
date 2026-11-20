@@ -13,7 +13,7 @@ description: "介紹京都府笠置町的笠置ボルダー：花崗岩抱石的
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-kasagi-boulder-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-kasagi-boulder-en)
 
 笠置ボルダー（かさぎボルダー，Kasagi Boulders）在京都府相楽郡笠置町，是木津川河原上一群花崗岩大石。[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E7%AC%A0%E7%BD%AE%E3%83%9C%E3%83%AB%E3%83%80%E3%83%BC/) 開頭就寫它「電車による利用が可能な数少ない岩場のひとつ」：從 JR 笠置駅走過去只要幾分鐘，不必開車。
 

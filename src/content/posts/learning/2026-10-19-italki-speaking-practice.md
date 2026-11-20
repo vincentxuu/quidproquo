@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-italki-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-italki-speaking-practice-en)
 
 準備英文面試時，你可能已經寫好專案介紹，卻不知道陌生人聽不聽得懂、追問時會卡在哪裡。[italki](https://www.italki.com/) 提供的選擇，是自己找一位老師，把這些問題帶進一對一課程。
 

@@ -14,7 +14,7 @@ description: "A guided reading of Stanford CS329Z Week 8: three grader types, pa
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

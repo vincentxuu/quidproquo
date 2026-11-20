@@ -13,7 +13,7 @@ description: "比較 Uber ADR、Perplexity numbat、Adrian、Cisco DefenseClaw �
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-agent-detection-audit-en)
+> :globe: [English version](/posts/ai/2026-10-24-agent-detection-audit-en)
 
 前面三類工具都在動作發生之前或當下出手。第四類回答另一個問題：事情已經發生了，怎麼知道 agent 究竟做過什麼？
 

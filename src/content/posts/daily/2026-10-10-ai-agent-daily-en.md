@@ -12,7 +12,7 @@ series:
   order: 56
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-10-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-10-10-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -144,15 +144,15 @@ Due to the 4-query cap on this round's global gap-fill search, Oceania wasn't co
 
 ## Today's Digests
 
-- 📄 [Benchmark Shift｜Arena Agent Leaderboard: Claude Opus 5.5 Takes the Top Spot](/posts/daily/2026-10-10-benchmark-arena-agent-opus-5-5-en)
-- 📄 [Framework Update｜Agno v3.1.2](/posts/daily/2026-10-10-framework-agno-3.1.2-en)
-- 📄 [Funding Alert｜Arena Series B $200M](/posts/daily/2026-10-10-funding-arena-en)
-- 📄 [Funding Alert｜Gallatin AI Series A $50M](/posts/daily/2026-10-10-funding-gallatin-en)
-- 📄 [Pricing Watch｜Mistral Large 4 Launches at 50% Off](/posts/daily/2026-10-10-pricing-mistral-large-4-launch-sale-en)
-- 📄 [Security Alert｜Tensorlake npm Supply-Chain Attack](/posts/daily/2026-10-10-security-tensorlake-npm-shai-hulud-supply-chain-en)
-- 📄 [Tool Pick｜AI Agent Gateway](/posts/daily/2026-10-10-tool-ai-agent-gateway-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-10: Paper Reading](/posts/daily/2026-10-10-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-10: Technical PM](/posts/daily/2026-10-10-product-builder-interview-daily-en)
+- :file: [Benchmark Shift｜Arena Agent Leaderboard: Claude Opus 5.5 Takes the Top Spot](/posts/daily/2026-10-10-benchmark-arena-agent-opus-5-5-en)
+- :file: [Framework Update｜Agno v3.1.2](/posts/daily/2026-10-10-framework-agno-3.1.2-en)
+- :file: [Funding Alert｜Arena Series B $200M](/posts/daily/2026-10-10-funding-arena-en)
+- :file: [Funding Alert｜Gallatin AI Series A $50M](/posts/daily/2026-10-10-funding-gallatin-en)
+- :file: [Pricing Watch｜Mistral Large 4 Launches at 50% Off](/posts/daily/2026-10-10-pricing-mistral-large-4-launch-sale-en)
+- :file: [Security Alert｜Tensorlake npm Supply-Chain Attack](/posts/daily/2026-10-10-security-tensorlake-npm-shai-hulud-supply-chain-en)
+- :file: [Tool Pick｜AI Agent Gateway](/posts/daily/2026-10-10-tool-ai-agent-gateway-en)
+- :file: [AI Engineer Interview Prep — 2026-10-10: Paper Reading](/posts/daily/2026-10-10-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-10: Technical PM](/posts/daily/2026-10-10-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

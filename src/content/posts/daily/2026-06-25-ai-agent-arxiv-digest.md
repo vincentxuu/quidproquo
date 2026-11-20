@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 32
 ---
-> 🌏 [English version](/posts/daily/2026-06-25-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-25-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -70,12 +70,12 @@ Fugu Ultra 在 SWE-Bench Pro 達到 73.7%，同時在 Terminal Bench、LiveCodeB
 - TRINITY 協調器只有約 0.6B 參數，遠小於所指揮的 worker 模型（通常百億至千億參數）
 - 訓練：TRINITY 用 CMA-ES（進化策略，不需梯度），Conductor 用強化學習——組合了兩種非傳統訓練方式
 - 建構在 ICLR 2026 兩篇論文之上：「Trinity: An Evolved LLM Coordinator」和「Learning to Orchestrate Agents」
-- SWE-Bench Pro 73.7% 為 Sakana 官方自報數字，尚無第三方獨立複測 **⚠️**
-- 完全閉源，只能透過 Sakana API 使用，無法自部署 **⚠️**
-- 有使用者回報複雜任務需 30 分鐘以上，延遲問題未解決 **⚠️**
+- SWE-Bench Pro 73.7% 為 Sakana 官方自報數字，尚無第三方獨立複測 **:warning:**
+- 完全閉源，只能透過 Sakana API 使用，無法自部署 **:warning:**
+- 有使用者回報複雜任務需 30 分鐘以上，延遲問題未解決 **:warning:**
 - 與 LangGraph/AutoGen 的關係：Fugu 是「學習如何 orchestrate」，前兩者是「被程式設計 orchestrate」，是更高層次的抽象
 - 和 MCP 的關聯：Fugu 可作為上層協調者，由它決定哪個 worker 呼叫哪些 MCP 工具
-Learned orchestration 是真正的新方向，但 SWE-Bench Pro 73.7% 只是 Sakana 自報數字、完全閉源、延遲問題仍在，現在宣稱「超越所有公開模型」要打折扣——等第三方獨立複測再下結論。**⚠️**
+Learned orchestration 是真正的新方向，但 SWE-Bench Pro 73.7% 只是 Sakana 自報數字、完全閉源、延遲問題仍在，現在宣稱「超越所有公開模型」要打折扣——等第三方獨立複測再下結論。**:warning:**
 
 ### 給你的 take-away
 
@@ -123,10 +123,10 @@ NatureGym 是一個自動化 pipeline：從 Nature 系列期刊篩選論文 → 
 - 90 個任務，跨 6 個科學領域，Python 97.1% codebase，Docker 容器化確保跨機器可重現
 - 每個任務包含：任務描述 + 資料集 + 隱藏測試集 + 自動評測器，設計完整
 - 支援 agent backend：Claude Code、Codex、Gemini CLI（3 種主流工具都有）
-- 六個科學領域表現不均勻，部分領域顯著低於 17.8%（具體分項數字未公開）**⚠️**
+- 六個科學領域表現不均勻，部分領域顯著低於 17.8%（具體分項數字未公開）**:warning:**
 - 已公開：benchmark 資料、NatureGym pipeline 程式碼、公開 leaderboard（含官方重現）
-- 限制：90 個任務規模偏小，Nature 期刊偏英語與已開放資料集的領域 **⚠️**
-- 「Methodological Translation」目前是定性分析，缺乏嚴格量化驗證 **⚠️**
+- 限制：90 個任務規模偏小，Nature 期刊偏英語與已開放資料集的領域 **:warning:**
+- 「Methodological Translation」目前是定性分析，缺乏嚴格量化驗證 **:warning:**
 - 和 SWE-Bench 比較：SWE-Bench 測「改現有 bug」，NatureBench 測「發明更好的方法」，難度和性質差距很大
 NatureGym pipeline 的工程設計和 Information Firewall 是最大亮點，17.8% 的結果令人清醒；但 90 個任務偏少、領域覆蓋有限，「Methodological Translation」的定性結論沒有量化支撐——整體算是紮實但規模和分析深度都待擴充。
 
@@ -149,7 +149,7 @@ NatureGym pipeline 的工程設計和 Information Firewall 是最大亮點，17.
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 這是 position paper（觀點整理），沒有實驗數據。對做企業安全 copilot 或 SOC automation 的 PM/工程師值得掃一遍；純做 Agent 框架基礎建設的人可跳過。
 
 ### 領域背景
@@ -176,9 +176,9 @@ NatureGym pipeline 的工程設計和 Information Firewall 是最大亮點，17.
 - 5 挑戰（C1-C5）+ 5 能力（A1-A5）+ 16 個案例研究，結構清楚，適合當 product roadmap 的參考框架
 - 供應鏈分析是案例之一，也是目前 agentic AI 在安全領域最成熟的應用方向
 - Position paper：沒有自己跑實驗，引用現有文獻，無新的實驗數據
-- 16 個案例研究深度不均，部分只有幾行描述，未深入分析 **⚠️**
-- 對 agent 在安全場景的 failure mode（被 prompt injection 攻擊、誤判造成大規模封鎖）討論不足 **⚠️**
-- C1-C5/A1-A5 mapping 過於整齊，有事後拼湊框架之嫌 **⚠️**
+- 16 個案例研究深度不均，部分只有幾行描述，未深入分析 **:warning:**
+- 對 agent 在安全場景的 failure mode（被 prompt injection 攻擊、誤判造成大規模封鎖）討論不足 **:warning:**
+- C1-C5/A1-A5 mapping 過於整齊，有事後拼湊框架之嫌 **:warning:**
 - 和 LangGraph/AutoGen 的關聯：論文描述的安全場景（log 分析、漏洞稽核）目前都可用現有框架的 tool use + RAG 實作
 作者背景強、框架整理清楚，但缺實驗驗證；最嚴重的缺失是對「agent 被攻擊」（prompt injection、adversarial input）和「agent 誤判造成大規模封鎖」的討論幾乎沒有——這些才是安全場景部署最大的障礙。
 

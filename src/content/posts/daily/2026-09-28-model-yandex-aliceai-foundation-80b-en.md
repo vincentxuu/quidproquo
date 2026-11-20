@@ -15,7 +15,7 @@ glossary:
     def: "Yandex's AI assistant product; AliceAI-Foundation is the experimental base model behind its planned unified reasoning model"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-28-model-yandex-aliceai-foundation-80b)
+> :globe: [中文版](/posts/daily/2026-09-28-model-yandex-aliceai-foundation-80b)
 
 ## Model Info
 
@@ -50,7 +50,7 @@ glossary:
 | LiveCodeBench v5-6 CoT 1-shot pass@1 | 50.5 | N/A | Qwen3.5-35B-A3B-Base 50.4 |
 | CodeForces C++ pass@8 | 68.9 | N/A | Qwen3.5-35B-A3B-Base 73.7 (highest overall) |
 
-⚠️ All figures above are Yandex's own measurements on an internal evaluation setup (vLLM, t=0 or t=1) and await independent reproduction. WikiWebFacts, HardMultiQA, CultCat, and the EduBench series are Yandex's own Russian-language benchmarks, released publicly with full evaluation protocols so others can reproduce them.
+:warning: All figures above are Yandex's own measurements on an internal evaluation setup (vLLM, t=0 or t=1) and await independent reproduction. WikiWebFacts, HardMultiQA, CultCat, and the EduBench series are Yandex's own Russian-language benchmarks, released publicly with full evaluation protocols so others can reproduce them.
 
 ## Comparison with Previous Gen and Competitors
 

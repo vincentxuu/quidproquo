@@ -12,7 +12,7 @@ series:
   order: 69
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-23-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-23-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -134,16 +134,16 @@ AgenticAdvertising.org 成立澳洲分會，推動自主 AI agent 在媒體採�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-23](/posts/daily/2026-10-23-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-23](/posts/daily/2026-10-23-ai-agent-github-digest)
-- 📄 [框架更新｜Mastra @mastra/core@1.79.0](/posts/daily/2026-10-23-framework-mastra-1.79.0)
-- 📄 [融資速報｜DeepSeek 完成 $15B 融資](/posts/daily/2026-10-23-funding-deepseek)
-- 📄 [融資速報｜Flapping Airplanes Series A $1B](/posts/daily/2026-10-23-funding-flapping-airplanes)
-- 📄 [融資速報｜Mave 完成 $34M 融資](/posts/daily/2026-10-23-funding-mave)
-- 📄 [定價追蹤｜Claude Sonnet 4.5 將於 11/30 退役](/posts/daily/2026-10-23-pricing-anthropic-claude-sonnet-4-5-retirement)
-- 📄 [工具推薦｜landmine](/posts/daily/2026-10-23-tool-landmine)
-- 📄 [AI Engineer 面試日練 — 2026-10-23：Coding](/posts/daily/2026-10-23-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-23：Growth & Experimentation](/posts/daily/2026-10-23-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-23](/posts/daily/2026-10-23-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-23](/posts/daily/2026-10-23-ai-agent-github-digest)
+- :file: [框架更新｜Mastra @mastra/core@1.79.0](/posts/daily/2026-10-23-framework-mastra-1.79.0)
+- :file: [融資速報｜DeepSeek 完成 $15B 融資](/posts/daily/2026-10-23-funding-deepseek)
+- :file: [融資速報｜Flapping Airplanes Series A $1B](/posts/daily/2026-10-23-funding-flapping-airplanes)
+- :file: [融資速報｜Mave 完成 $34M 融資](/posts/daily/2026-10-23-funding-mave)
+- :file: [定價追蹤｜Claude Sonnet 4.5 將於 11/30 退役](/posts/daily/2026-10-23-pricing-anthropic-claude-sonnet-4-5-retirement)
+- :file: [工具推薦｜landmine](/posts/daily/2026-10-23-tool-landmine)
+- :file: [AI Engineer 面試日練 — 2026-10-23：Coding](/posts/daily/2026-10-23-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-23：Growth & Experimentation](/posts/daily/2026-10-23-product-builder-interview-daily)
 
 ## 明日關注
 

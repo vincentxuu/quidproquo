@@ -13,7 +13,7 @@ description: "The full path from function calling to MCP and what it cost, MCP's
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer)
+> :globe: [中文版](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer)
 
 [Part 1](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries-en) placed MCP as "the standard interface for how an LLM uses tools" without elaborating. This part covers the protocol layer — what it solved, what it cost, and why Skills are not a competitor to MCP.
 

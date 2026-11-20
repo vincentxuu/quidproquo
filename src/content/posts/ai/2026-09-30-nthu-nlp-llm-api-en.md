@@ -18,7 +18,7 @@ glossary:
     context: "The lab uses it to pin NLI results to a format like {\"result\": \"NEUTRAL\"}."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-llm-api)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-llm-api)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

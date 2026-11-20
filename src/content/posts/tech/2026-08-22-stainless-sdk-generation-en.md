@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-stainless-sdk-generation)
+> :globe: [中文版](/posts/tech/2026-08-22-stainless-sdk-generation)
 
 [Stainless](https://www.stainless.com/docs/) generates TypeScript, Python, Go, Java, and other SDKs from OpenAPI, with extensions for reference docs, CLIs, Terraform providers, and MCP servers. It addresses how every API change becomes tested, previewed, published, and upgraded packages—not merely how a schema becomes interfaces.
 

@@ -13,7 +13,7 @@ description: "蘭夏灣攀岩指南：Tiger Beach、Moody's Beach、The Face 等
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-vietnam-crag-lan-ha-en)
+> :globe: [English version](/posts/climbing/2026-10-21-vietnam-crag-lan-ha-en)
 
 蘭夏灣是這趟越南行最不像攀岩的攀岩場：你先坐船，再從沙灘上走進去。**一部分路線在海灘後面的石灰岩壁上，一部分直接從水裡長出來**——後者是深水抱石（Deep Water Solo, DWS），沒有繩、沒有固定點，掉下去就是掉進水裡。
 

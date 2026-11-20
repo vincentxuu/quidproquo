@@ -14,7 +14,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-security-regression-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-security-regression-en)
 
 團隊替助理加上防護後，模型開始說「我不能提供別人的工單」。這是好現象，但如果後端仍回傳 S-1，或工具已把資料送出，拒答文字不能結案。
 

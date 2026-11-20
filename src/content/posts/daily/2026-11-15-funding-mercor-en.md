@@ -12,7 +12,7 @@ series:
   order: 137
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-15-funding-mercor)
+> :globe: [中文版](/posts/daily/2026-11-15-funding-mercor)
 
 ## Funding Details
 

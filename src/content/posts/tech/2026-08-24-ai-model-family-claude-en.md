@@ -24,7 +24,7 @@ glossary:
     definition: "CLI coding agent launched with Claude 3.7 Sonnet (Feb 2025), deeply integrating file I/O, Git operations, and multi-file editing workflows"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-ai-model-family-claude)
+> :globe: [中文版](/posts/tech/2026-08-24-ai-model-family-claude)
 
 In March 2023, the same week OpenAI launched GPT-4, Anthropic quietly released Claude—a language model built around "safety" as its core design philosophy. Three and a half years later, in 2026, Claude went through two generations in half a year: Fable 5, Sonnet 5 and Opus 5 launched in June and July; from September, Opus 5.5, Sonnet 5.5 and Haiku 5.5 formed the Claude 5.5 series; and on November 9 Fable 5.2 took over the top tier. This is the seventh deep-dive in the "AI Model Families" series, tracing Claude's full evolution from Claude 1 to Fable 5.2.
 

@@ -12,7 +12,7 @@ series:
   order: 58
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-12-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-12-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -134,13 +134,13 @@ Mistral Large 4 公測版細節曝光，1 兆參數、520 億啟用參數的 MoE
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-12](/posts/daily/2026-10-12-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-12](/posts/daily/2026-10-12-ai-agent-github-digest)
-- 📄 [模型卡｜Iris-3B](/posts/daily/2026-10-12-model-speridlabs-iris-3b)
-- 📄 [資安警報｜AWS Bedrock AgentCore「AgentCorruption」](/posts/daily/2026-10-12-security-aws-bedrock-agentcore-imds-credential-theft)
-- 📄 [工具推薦｜decisionkit](/posts/daily/2026-10-12-tool-decisionkit)
-- 📄 [AI Engineer 面試日練 — 2026-10-12](/posts/daily/2026-10-12-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-12](/posts/daily/2026-10-12-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-12](/posts/daily/2026-10-12-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-12](/posts/daily/2026-10-12-ai-agent-github-digest)
+- :file: [模型卡｜Iris-3B](/posts/daily/2026-10-12-model-speridlabs-iris-3b)
+- :file: [資安警報｜AWS Bedrock AgentCore「AgentCorruption」](/posts/daily/2026-10-12-security-aws-bedrock-agentcore-imds-credential-theft)
+- :file: [工具推薦｜decisionkit](/posts/daily/2026-10-12-tool-decisionkit)
+- :file: [AI Engineer 面試日練 — 2026-10-12](/posts/daily/2026-10-12-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-12](/posts/daily/2026-10-12-product-builder-interview-daily)
 
 ## 明日關注
 

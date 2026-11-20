@@ -21,7 +21,7 @@ series:
   order: 22
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-l17-out-of-distribution)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-l17-out-of-distribution)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

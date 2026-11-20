@@ -18,7 +18,7 @@ additionalSeries:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-cloudflare-durable-objects)
+> :globe: [中文版](/posts/tech/2026-08-22-cloudflare-durable-objects)
 
 [Cloudflare Workers](https://developers.cloudflare.com/workers/) are excellent for stateless requests: auth, routing, rendering, API handlers, and small transformations. The next layer is harder: a chat room needs broadcast coordination, a collaborative document needs ordered patches, a booking flow cannot sell the same seat twice, and an agent run cannot let concurrent steps spend the same budget twice. These cases need a place where operations for the same key are decided serially. [Cloudflare Durable Objects](https://developers.cloudflare.com/durable-objects/) are that state and coordination primitive for Cloudflare's serverless runtime.
 

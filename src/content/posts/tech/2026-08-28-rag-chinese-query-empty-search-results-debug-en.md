@@ -14,7 +14,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-28-rag-chinese-query-empty-search-results-debug)
+> :globe: [中文版](/posts/tech/2026-08-28-rag-chinese-query-empty-search-results-debug)
 
 > **Optional companion reading:** Beginners can read this article directly. For extra context, see [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en) and [RAG Common Failure Modes](/posts/ai/2026-03-12-rag-failure-modes-en).
 

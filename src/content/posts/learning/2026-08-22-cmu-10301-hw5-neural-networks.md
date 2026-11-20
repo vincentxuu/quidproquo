@@ -10,7 +10,7 @@ tldr: "HW5 的價值在於不靠自動微分，親手追蹤 forward shapes、cac
 description: "CMU 10-301/601 Spring 2026 HW5 Neural Networks 的計算圖讀法與本機梯度檢查。"
 series: { name: "CMU 10-301 機器學習完整課程導讀", order: 5 }
 ---
-> 🌏 [English version](/posts/learning/2026-08-22-cmu-10301-hw5-neural-networks-en)
+> :globe: [English version](/posts/learning/2026-08-22-cmu-10301-hw5-neural-networks-en)
 
 [官方 handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw5.zip) 完整題名是 **Homework 5: Neural Networks**，屬於 written＋programming。Written 以 feed-forward／backpropagation 手算與 empirical questions 為主；程式要用單一 hidden layer、sigmoid 與 softmax 做 OCR 字母分類。ZIP 提供 `neuralnet.py` starter、small train/validation CSV、`tests.py`、unit-test data、incorrect finder 與 visualizer；medium／large datasets 與正式 reference solution 不在公開 ZIP。
 

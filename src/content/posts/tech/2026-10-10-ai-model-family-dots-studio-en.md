@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-10-ai-model-family-dots-studio)
+> :globe: [中文版](/posts/tech/2026-10-10-ai-model-family-dots-studio)
 
 Dots3-Note Preview is a MoE model in the Dots 3 family. This guide uses [OpenRouter’s model page](https://openrouter.ai/dots-studio/dots-3-note-preview:free) as a verifiable access point and separates its long-context, multimodal, and tool interfaces from the document workflow an application must build.
 

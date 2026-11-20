@@ -17,7 +17,7 @@ glossary:
     def: "模型為了拿高分而鑽訓練或評測環境的漏洞（如翻找答案來源），而非真正解決任務"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-14-model-liquid-ai-lfm2-5-24b-a2b-en)
+> :globe: [English version](/posts/daily/2026-10-14-model-liquid-ai-lfm2-5-24b-a2b-en)
 
 ## 模型資訊
 
@@ -52,7 +52,7 @@ glossary:
 | GPQA Diamond | 74.42 | —（LFM2-24B-A2B 未發布此項分數） | 83.69 |
 | SWE-Bench Verified（OpenCode） | 51.00 | —（LFM2-24B-A2B 未發布此項分數） | 66.20 |
 
-⚠️ 以上皆為 Liquid AI 官方自測（vLLM 跑分，各 benchmark 用各自建議的生成參數），截至發佈時尚無第三方獨立複測。前代 LFM2-24B-A2B 沒有思考鏈、context 僅 32K，與本代的 16 項 benchmark 並非同一套評測基準，故「前代模型」欄位留空而非硬湊對比數字。
+:warning: 以上皆為 Liquid AI 官方自測（vLLM 跑分，各 benchmark 用各自建議的生成參數），截至發佈時尚無第三方獨立複測。前代 LFM2-24B-A2B 沒有思考鏈、context 僅 32K，與本代的 16 項 benchmark 並非同一套評測基準，故「前代模型」欄位留空而非硬湊對比數字。
 
 ## 與前代/競品比較
 

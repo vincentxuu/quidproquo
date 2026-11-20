@@ -19,7 +19,7 @@ glossary:
     context: "Uber's AutoCrawler reads APIs from an IDL registry and turns them into MCP tools."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-06-uber-mcp-gateway)
+> :globe: [中文版](/posts/ai/2026-10-06-uber-mcp-gateway)
 
 If dozens of teams at your company each build their own [MCP](/posts/ai/2026-03-22-mcp-model-context-protocol-en) server, each handling auth, permissions and logging on its own, this post is one answer from Uber. Uber's engineering blog post "[Designing MCP Gateway](https://www.uber.com/us/en/blog/designing-mcp-gateway/)" describes how they route all MCP traffic through one gateway that now hosts 800+ MCP servers and 5,000+ tools. After reading you should be able to decide whether you need a gateway and which of its design choices are worth borrowing.
 

@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-13-weekly-review)
+> :globe: [中文版](/posts/daily/2026-11-13-weekly-review)
 
 ## The 5 Biggest Things This Week
 
@@ -105,13 +105,13 @@ The implication for enterprise adoption in Taiwan: regulated industries like ban
 
 ## Watchlist Update Suggestions
 
-### 🆕 Candidates to add
+### Candidates to add
 
-✅ Every company that appeared most frequently this week (Microsoft, OpenAI, Anthropic, Google, Amazon, Nvidia, Meta, Alibaba-Qwen, LangChain, IBM) is already on the watchlist — no new candidates this week.
+✓ Every company that appeared most frequently this week (Microsoft, OpenAI, Anthropic, Google, Amazon, Nvidia, Meta, Alibaba-Qwen, LangChain, IBM) is already on the watchlist — no new candidates this week.
 
-### ⚠️ Candidates to remove
+### :warning: Candidates to remove
 
-✅ No companies met the removal criteria this week.
+✓ No companies met the removal criteria this week.
 
 ## This Week's Startup Radar
 

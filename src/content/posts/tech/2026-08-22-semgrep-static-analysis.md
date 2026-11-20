@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-semgrep-static-analysis-en)
+> :globe: [English version](/posts/tech/2026-08-22-semgrep-static-analysis-en)
 
 [Semgrep](https://semgrep.dev/docs/) 的核心優勢是讓 static analysis rules 看起來接近目標語言 source code。簡單 pattern 可封鎖危險 API、缺少參數或組織禁止用法；metavariable 與 semantic matching 跨越變數名稱和部分語法差異；taint mode 則描述 untrusted source 經 propagator 流向 dangerous sink、是否通過 sanitizer。
 

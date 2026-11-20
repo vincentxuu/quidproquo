@@ -22,7 +22,7 @@ glossary:
     context: "The slide covers and video titles cited in this series use this name."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-course-overview)
 
 **Video status: Videos included.** The intro embeds the Lecture 1 recording (1 h 6 min); each lecture's recording is in its own post. [Source details](#course-video-sources)
 

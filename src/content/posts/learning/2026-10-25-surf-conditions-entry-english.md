@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-surf-conditions-entry-english-en/)
+> :globe: [English version](/posts/learning/2026-10-25-surf-conditions-entry-english-en/)
 
 第一次到一個浪點，想問的其實不只「浪好不好」。你可能想先知道浪況、確認對方熟不熟這裡，再問從哪裡划出去，以及有哪些地方需要留意。把問題拆開，比一句話塞進所有意思容易開口。
 

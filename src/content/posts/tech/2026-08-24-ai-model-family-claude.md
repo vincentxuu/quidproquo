@@ -24,7 +24,7 @@ glossary:
     definition: "2025 年 2 月隨 Claude 3.7 Sonnet 推出的 CLI 編碼 Agent，深度整合檔案讀寫、Git 操作與多檔案編輯工作流"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-family-claude-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-family-claude-en)
 
 2023 年 3 月，當 OpenAI 的 GPT-4 剛上線時，Anthropic 在同一週悄悄發佈了 Claude——一個以「安全」為核心設計哲學的語言模型。三年半後的 2026 年，Claude 在半年內換了兩代：6、7 月 Fable 5、Sonnet 5、Opus 5 上線，9 月起 Opus 5.5、Sonnet 5.5、Haiku 5.5 組成 Claude 5.5 系列，11 月 9 日 Fable 5.2 接手最高層。這是「AI 模型家族」系列的第七篇深度介紹，追蹤 Claude 從 Claude 1 到 Fable 5.2 的完整演化。
 

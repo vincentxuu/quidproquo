@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-20-benchmark-gemini-4-neon-en)
+> :globe: [English version](/posts/daily/2026-11-20-benchmark-gemini-4-neon-en)
 
 ## 異動摘要
 
@@ -24,9 +24,9 @@ Google 11-18 發布的 Gemini 4 Neon，首次上榜就擠進 Arena Agent 排行�
 
 | 排名 | 模型 | 分數 | 95% CI | 11-15 分數（名次） | 變化 |
 |---|---|---|---|---|---|
-| 🥇 | Claude Fable 5.2（Max） | 27.42% | [24.46%, 30.38%] | 28.61%（1） | — |
-| 🥈 | Claude Opus 5.5（Max） | 18.63% | [16.60%, 20.65%] | 18.19%（2） | — |
-| 🥉 | Gemini 4 Neon（High） | 18.41% | [15.90%, 20.93%] | 新上榜 | 🆕 |
+| 1 | Claude Fable 5.2（Max） | 27.42% | [24.46%, 30.38%] | 28.61%（1） | — |
+| 2 | Claude Opus 5.5（Max） | 18.63% | [16.60%, 20.65%] | 18.19%（2） | — |
+| 3 | Gemini 4 Neon（High） | 18.41% | [15.90%, 20.93%] | 新上榜 | NEW|
 | 4 | Gemini 4 Carbon（High） | 16.10% | [15.41%, 16.79%] | 16.45%（3） | ↓1 |
 | 5 | Claude Sonnet 5.5（Max） | 15.56% | [12.66%, 18.46%] | 15.29%（4） | ↓1 |
 
@@ -36,11 +36,11 @@ Google 11-18 發布的 Gemini 4 Neon，首次上榜就擠進 Arena Agent 排行�
 
 | 榜單 | Neon 名次 | Neon 分數 | 冠軍 | 冠軍分數 | 資料性質 |
 |---|---|---|---|---|---|
-| Arena Agent Index | 🥉 第三（與第二統計打平） | 18.41% | Claude Fable 5.2（Max） | 27.42% | 官方第三方（Arena 自家盲測投票） |
-| Vals Index | 🥈 第二 | 70.87% | Claude Fable 5.2 | 71.31% | 官方第三方（私有測試集） |
-| Artificial Analysis Coding Agent Index | 🥇 第一 | 59 分 | （Neon 本身） | 59 分 | 官方第三方，但本站本次未能直接擷取原始頁面，數字轉引自 [officechai.com](https://officechai.com/ai/gemini-4-neon-places-second-on-vals-index-and-arena-agent-index-ahead-of-opus-5-5-tops-cursor-bench-outright/) |
+| Arena Agent Index | 3 第三（與第二統計打平） | 18.41% | Claude Fable 5.2（Max） | 27.42% | 官方第三方（Arena 自家盲測投票） |
+| Vals Index | 2 第二 | 70.87% | Claude Fable 5.2 | 71.31% | 官方第三方（私有測試集） |
+| Artificial Analysis Coding Agent Index | 1 第一 | 59 分 | （Neon 本身） | 59 分 | 官方第三方，但本站本次未能直接擷取原始頁面，數字轉引自 [officechai.com](https://officechai.com/ai/gemini-4-neon-places-second-on-vals-index-and-arena-agent-index-ahead-of-opus-5-5-tops-cursor-bench-outright/) |
 | CursorBench（官方追蹤 4.0 版） | 未上榜 | — | Gemini 4 Carbon（High） | 60.4% | 官方第三方，Neon 尚未被 BenchLM 納入 |
-| CursorBench 4.1（Google 自稱） | 🥇 第一（自稱） | 65.4% | — | — | ⚠️ 廠商自測，CursorBench 官方版本（4.0）尚未獨立驗證此數字 |
+| CursorBench 4.1（Google 自稱） | 1 第一（自稱） | 65.4% | — | — | :warning: 廠商自測，CursorBench 官方版本（4.0）尚未獨立驗證此數字 |
 
 SWE-bench Verified 前五名分數與名次跟上次完全相同（79.2／79.2／78.8／77.4／76.8，前二名並列、第五名三方並列），未異動。CursorBench 4.0（[BenchLM 彙整](https://benchlm.ai/benchmarks/cursorbench)，資料日期 2026-11-19）前三名與上次相同（Gemini 4 Carbon 60.4%／Claude Fable 5.2 60.0%／Claude Opus 5.5 57.8%），Gemini 4 Neon 尚未出現在這份 21 模型的榜單裡。Artificial Analysis 的 `/agents/coding-agents` 頁面本次用 `render=always` 重新嘗試，仍只回圖表區塊標題、沒有可擷取的數值表格（JS 渲染圖表非表格），維持既有已知阻塞。
 
@@ -52,7 +52,7 @@ Gemini 4 Neon 是 Google 的「快速推理」模型，定位介於 Gemini 4 Car
 
 ### 方法論面
 
-⚠️ 必須分層看待這次的數字：Arena Agent 和 Vals Index 都是 Arena／Vals 自己的獨立盲測，可信度較高；但 Neon 的樣本量（session_count 5,696）明顯小於第二名 Opus 5.5（14,920），信賴區間也因此是前五名裡最寬的（[15.90%, 20.93%]，寬 5.03 個百分點），完全涵蓋住 Opus 5.5 的區間——兩者的名次差統計上分不出來，跟官方報導用「第二／第三」描述的印象不同，實際上是三方（Opus、Neon）統計打平，只是點估計上 Opus 小贏 0.22 個百分點。Artificial Analysis Coding Agent Index 的 59 分 vs. 58 分同樣屬於極小差距，而且本站這次仍無法直接擷取 AA 官網的原始數值表格（JS 圖表阻塞依舊存在），只能轉引第三方報導，可信度要打折扣。最該提防的是 CursorBench 4.1 的 65.4%：這是 **Google 自己的 benchmark 表格**，不是 Cursor 官方或 BenchLM 的獨立測試結果；BenchLM 目前追蹤的仍是 CursorBench 4.0，Neon 根本還沒被納入,所以這個 65.4% 目前只是廠商自測、尚未經過外部覆核。
+:warning: 必須分層看待這次的數字：Arena Agent 和 Vals Index 都是 Arena／Vals 自己的獨立盲測，可信度較高；但 Neon 的樣本量（session_count 5,696）明顯小於第二名 Opus 5.5（14,920），信賴區間也因此是前五名裡最寬的（[15.90%, 20.93%]，寬 5.03 個百分點），完全涵蓋住 Opus 5.5 的區間——兩者的名次差統計上分不出來，跟官方報導用「第二／第三」描述的印象不同，實際上是三方（Opus、Neon）統計打平，只是點估計上 Opus 小贏 0.22 個百分點。Artificial Analysis Coding Agent Index 的 59 分 vs. 58 分同樣屬於極小差距，而且本站這次仍無法直接擷取 AA 官網的原始數值表格（JS 圖表阻塞依舊存在），只能轉引第三方報導，可信度要打折扣。最該提防的是 CursorBench 4.1 的 65.4%：這是 **Google 自己的 benchmark 表格**，不是 Cursor 官方或 BenchLM 的獨立測試結果；BenchLM 目前追蹤的仍是 CursorBench 4.0，Neon 根本還沒被納入,所以這個 65.4% 目前只是廠商自測、尚未經過外部覆核。
 
 ### 產業面
 

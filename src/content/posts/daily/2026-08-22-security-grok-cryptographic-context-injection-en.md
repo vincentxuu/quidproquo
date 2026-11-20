@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-22-security-grok-cryptographic-context-injection)
+> :globe: [中文版](/posts/daily/2026-08-22-security-grok-cryptographic-context-injection)
 
 ## Incident Overview
 

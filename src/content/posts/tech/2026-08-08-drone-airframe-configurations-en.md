@@ -13,7 +13,7 @@ series:
   order: 25
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-08-drone-airframe-configurations)
+> :globe: [中文版](/posts/tech/2026-08-08-drone-airframe-configurations)
 
 The [previous post](/posts/tech/2026-08-08-drone-endurance-physics-en) computed multirotor hover endurance and closed with a debt:
 

@@ -14,7 +14,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-patch-verification)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-patch-verification)
 
 An AI suggestion adds a tenant check for F-17. The cross-company test is blocked, so the fix appears complete. Alice can still read Bob’s N-2. Another suggestion returns 403 for every request. Exploitation stops, and so does the support team’s work.
 

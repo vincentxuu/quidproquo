@@ -10,7 +10,7 @@ description: "An introduction to the design philosophy behind shadcn/ui: the cop
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-shadcn-ui-component-library)
+:globe: [中文版](/posts/tech/2026-03-27-shadcn-ui-component-library)
 
 The typical UI library model works like this: install an npm package, import components, customize through props, and work around anything the package doesn't support — or wait for the maintainer to add it. Your flexibility ceiling is defined by the package's API.
 

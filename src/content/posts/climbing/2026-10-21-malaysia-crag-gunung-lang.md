@@ -13,7 +13,7 @@ description: "Gunung Lang 攀岩指南：怡保舊城到岩場的交通、兩份
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-gunung-lang-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-gunung-lang-en)
 
 如果你的行程在怡保（[Ipoh](https://www.thecrag.com/en/climbing/malaysia/area/1968666222)），想用半天爬幾條短線又不想開長途，Gunung Lang 是最像「市區岩場」的一個：從舊城 Grab 過來 3 公里，進門就是一面 20 公尺的石灰岩。代價是起攀處到處都是大水窪，土地屬私人但可自由進入，固定點的狀況也要自己看。這篇幫你判斷它值不值得排進行程、怎麼從舊城過去、下午的行程要怎麼排。
 

@@ -10,7 +10,7 @@ description: "BullMQ 讓 Node.js 應用把耗時工作丟進背景佇列，支�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-bullmq-job-queue-nodejs-en)
+:globe: [English version](/posts/tech/2026-03-27-bullmq-job-queue-nodejs-en)
 
 Web API 的 response time 應該在 100ms 以內，但發 Email、推播通知、呼叫外部 AI 服務可能要幾秒甚至幾十秒。解法很簡單：不要在 request/response 週期裡做這些事，丟進背景佇列，讓 worker 非同步處理。
 

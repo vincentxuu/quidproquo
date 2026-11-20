@@ -23,7 +23,7 @@ glossary:
     context: "HW4.2 的 5f，和從零訓練（5e）、全部解凍（5g）並排比較。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en)
+> :globe: [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

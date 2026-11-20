@@ -12,7 +12,7 @@ series:
   order: 75
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-07-tool-web-forager-en)
+> :globe: [English version](/posts/daily/2026-11-07-tool-web-forager-en)
 
 ## 工具資訊
 
@@ -84,12 +84,12 @@ python run.py --action surf --url "https://www.zhihu.com/" \
 
 | | web-forager | 搜尋 API（Exa／Tavily 等） | 自寫 requests + BeautifulSoup |
 |---|---|---|---|
-| 給連結還是給內容 | ✅ 連結＋統一 Markdown／metadata | 多半只給連結和摘要 | 要自己寫解析 |
-| robots.txt 合規內建 | ✅ 每個請求都查，讀不到視為拒絕 | 視供應商而定,使用者看不到 | ❌ 要自己補 |
-| 多格式支援（PDF／Office／RSS／sitemap） | ✅ 原生支援 | ❌ 通常只處理網頁 | 要自己接每個格式的 library |
-| 中文社群平台（Bilibili／知乎／小紅書等） | ✅ 專門適配器 | 看供應商索引範圍 | 要自己處理版面與反爬 |
-| 需要 API key／付費 | ❌ 不需要 | 通常要 | ❌ 不需要 |
-| 離線測試覆蓋 | ✅ 115 個測試,全部跑在本機假 HTTP server | — | 通常沒有 |
+| 給連結還是給內容 | ✓ 連結＋統一 Markdown／metadata | 多半只給連結和摘要 | 要自己寫解析 |
+| robots.txt 合規內建 | ✓ 每個請求都查，讀不到視為拒絕 | 視供應商而定,使用者看不到 | ✗ 要自己補 |
+| 多格式支援（PDF／Office／RSS／sitemap） | ✓ 原生支援 | ✗ 通常只處理網頁 | 要自己接每個格式的 library |
+| 中文社群平台（Bilibili／知乎／小紅書等） | ✓ 專門適配器 | 看供應商索引範圍 | 要自己處理版面與反爬 |
+| 需要 API key／付費 | ✗ 不需要 | 通常要 | ✗ 不需要 |
+| 離線測試覆蓋 | ✓ 115 個測試,全部跑在本機假 HTTP server | — | 通常沒有 |
 
 ## 注意事項
 

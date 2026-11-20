@@ -11,7 +11,7 @@ series:
   order: 61
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-23-security-litellm-supply-chain-llmjacking)
+> :globe: [中文版](/posts/daily/2026-10-23-security-litellm-supply-chain-llmjacking)
 
 ## Summary
 

@@ -12,7 +12,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-travel-luggage)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-travel-luggage)
 
 The [previous post](/posts/climbing/2026-10-19-climbing-travel-packing-examples-en) collected 30 packing setups from climbers. The most common split was rope and quickdraws in the hold, shoes, harness and helmet in the cabin. This post answers the next question: what do you pack it all in? Should the checked bag be a gear duffel, a large-capacity pack or a travel pack? And can your crag pack double as the carry-on?
 

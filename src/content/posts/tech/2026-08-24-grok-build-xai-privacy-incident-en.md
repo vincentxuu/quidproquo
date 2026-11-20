@@ -13,7 +13,7 @@ description: "xAI Grok Build's Rust architecture, Arena Mode, 8 parallel sub-age
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-grok-build-xai-privacy-incident)
+> :globe: [中文版](/posts/tech/2026-08-24-grok-build-xai-privacy-incident)
 
 On May 14, 2026, xAI (SpaceXAI) released [Grok Build](https://github.com/xai-org/grok-build) in beta, limited to SuperGrok Heavy subscribers ($299/mo). On May 25, it expanded to all SuperGrok and X Premium+ users.
 

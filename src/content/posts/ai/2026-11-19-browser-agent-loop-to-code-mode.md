@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-19-browser-agent-loop-to-code-mode-en)
+> :globe: [English version](/posts/ai/2026-11-19-browser-agent-loop-to-code-mode-en)
 
 [上一篇 Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide) 介紹的是典型的 agent 迴圈：讀頁面狀態、模型挑一個動作（click、type、scroll）、執行、再讀一次。那篇寫於 0.x 時代。2026 年 11 月 10 日發布的 Browser Use 1.0 把這個引擎整個換掉了。前後四個月內，Stagehand v4 移除了 `agent()`，Notte 1.10 移除了整個 agent 迴圈。
 

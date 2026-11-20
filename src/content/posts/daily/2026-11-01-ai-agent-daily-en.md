@@ -12,7 +12,7 @@ series:
   order: 78
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-01-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-01-ai-agent-daily)
 
 ## Today's Take
 
@@ -148,11 +148,11 @@ Research firm Infor's survey found Australian enterprises are the most mature AI
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-01](/posts/daily/2026-11-01-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-01](/posts/daily/2026-11-01-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Pydantic AI v2.64.0](/posts/daily/2026-11-01-framework-pydantic-ai-v2.64.0-en)
-- 📄 [Security Alert｜MoLing MCP Server SSE Session Hijack](/posts/daily/2026-11-01-security-moling-mcp-sse-session-hijack-en)
-- 📄 [Tool Pick｜mcp4mail](/posts/daily/2026-11-01-tool-mcp4mail-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-01](/posts/daily/2026-11-01-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-01](/posts/daily/2026-11-01-ai-agent-github-digest-en)
+- :file: [Framework Update｜Pydantic AI v2.64.0](/posts/daily/2026-11-01-framework-pydantic-ai-v2.64.0-en)
+- :file: [Security Alert｜MoLing MCP Server SSE Session Hijack](/posts/daily/2026-11-01-security-moling-mcp-sse-session-hijack-en)
+- :file: [Tool Pick｜mcp4mail](/posts/daily/2026-11-01-tool-mcp4mail-en)
 
 ## Watching Tomorrow
 

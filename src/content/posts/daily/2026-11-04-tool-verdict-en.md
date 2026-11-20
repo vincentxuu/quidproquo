@@ -12,7 +12,7 @@ series:
   order: 73
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-04-tool-verdict)
+> :globe: [中文版](/posts/daily/2026-11-04-tool-verdict)
 
 ## Tool info
 
@@ -150,8 +150,8 @@ pytest -q
 |---|---|---|---|
 | Inference cost | 197 KB, CPU, median 0.54ms, zero API calls | Nearly free, but only one bit of signal | Every judgment needs another LLM API call — latency and cost |
 | Accuracy (48 CLI families unseen in training) | 93.2% | 47.9% | Not benchmarked head-to-head here; depends on the model and prompt used |
-| Offline, zero telemetry | ✅ No network calls | ✅ | ❌ Depends on an external API |
-| Reproducible training corpus and scripts | ✅ Public (CC0), `python training/train.py` reruns it | — | Mostly a black box, not reproducible |
+| Offline, zero telemetry | ✓ No network calls | ✓ | ✗ Depends on an external API |
+| Reproducible training corpus and scripts | ✓ Public (CC0), `python training/train.py` reruns it | — | Mostly a black box, not reproducible |
 | Output labels | 4 classes: success/failure/blocked/unknown, with probabilities | 2 classes: zero/non-zero | Custom per prompt, no standardized output contract |
 
 ## Things to watch out for

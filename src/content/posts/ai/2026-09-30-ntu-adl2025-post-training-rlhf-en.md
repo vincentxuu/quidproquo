@@ -31,7 +31,7 @@ glossary:
     context: "ADL LLM Adaptation deck, slides 9–11."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
   order: 18
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-19-browser-engines-beyond-chromium-en)
+> :globe: [English version](/posts/ai/2026-11-19-browser-engines-beyond-chromium-en)
 
 [協定篇](/posts/ai/2026-11-19-cdp-webdriver-bidi)說過，直接打 CDP 的工具綁的其實是 CDP，不完全是 Chromium：任何自己實作 CDP 的引擎都接得上。2026 年這類引擎多了好幾個：Lightpanda 出了 1.0，Cloudflare 把 Kitesurf 開源，Obscura 加上了自己的排版和繪製。它們都主打「給 agent 用、比 Chrome 輕」。
 

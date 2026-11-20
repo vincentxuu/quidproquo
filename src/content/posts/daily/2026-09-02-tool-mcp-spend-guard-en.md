@@ -12,7 +12,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-02-tool-mcp-spend-guard)
+> :globe: [中文版](/posts/daily/2026-09-02-tool-mcp-spend-guard)
 
 ## Tool Info
 
@@ -103,10 +103,10 @@ Whichever cap trips first returns a clean JSON-RPC error immediately — the age
 
 | | mcp-spend-guard | Hand-rolled throttling in your app layer | LLM provider usage caps (OpenAI/Anthropic account-level) | mcp-guardrail (tool-level allow/deny) |
 |---|---|---|---|---|
-| Spend cap scoped to a single MCP tool | ✅ | Requires custom code | ❌ (governs model tokens, not downstream MCP tools) | ❌ (governs whether a tool can be called, not how expensive it is) |
-| Counters survive restarts/reconnects | ✅ (SQLite) | Requires custom code | ✅ (provider-side) | Depends on implementation |
-| One-file emergency stop | ✅ (kill switch file) | Requires custom code | ❌ (usually requires a dashboard change) | ❌ |
-| Works with any MCP server you swap in | ✅ (proxy layer, server-agnostic) | — | — | ✅ (also a proxy layer) |
+| Spend cap scoped to a single MCP tool | ✓ | Requires custom code | ✗ (governs model tokens, not downstream MCP tools) | ✗ (governs whether a tool can be called, not how expensive it is) |
+| Counters survive restarts/reconnects | ✓ (SQLite) | Requires custom code | ✓ (provider-side) | Depends on implementation |
+| One-file emergency stop | ✓ (kill switch file) | Requires custom code | ✗ (usually requires a dashboard change) | ✗ |
+| Works with any MCP server you swap in | ✓ (proxy layer, server-agnostic) | — | — | ✓ (also a proxy layer) |
 | Solves "which tools can be called" vs. "called too much/too expensive" | Governs spend/call count only | — | — | Governs permissions only — complementary, not a substitute |
 
 ## Caveats

@@ -13,7 +13,7 @@ description: "導讀 Stanford CS107 Winter 2026 Lecture 24：Callgrind 指令計
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-compiler-optimization-profiling-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs107-compiler-optimization-profiling-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

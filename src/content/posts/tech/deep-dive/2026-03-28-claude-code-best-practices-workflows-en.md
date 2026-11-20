@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-best-practices-workflows)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-best-practices-workflows)
 
 This is part 5 of the "Claude Code Deep Dives" series. The [series entry](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) broke down the agentic loop's mechanics, and the [.claude directory tour](/posts/tech/deep-dive/2026-08-26-claude-code-claude-directory) covered where the config lives; this one is about how you **operate** that loop. The material comes from three official docs pages — best practices, common workflows, and the prompt library — rearranged into one full working cycle: explore, plan, implement, verify, wrap up. To see this cycle running on a real project, pair it with [my earlier write-up of an OpenSpec-to-deploy workflow](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy).
 

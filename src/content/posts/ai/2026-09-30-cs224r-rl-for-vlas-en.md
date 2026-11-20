@@ -20,7 +20,7 @@ glossary:
     context: "Version A of key theme #2 in CS224R L17."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-rl-for-vlas)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-rl-for-vlas)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

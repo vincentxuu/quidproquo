@@ -29,7 +29,7 @@ glossary:
     definition: "K3 系列的視覺編碼器，401M 參數，不從 SigLIP 等對比式預訓練模型初始化"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-family-kimi-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-family-kimi-en)
 
 Kimi 是月之暗面（Moonshot AI）的模型家族。2023 年它沒有急著做「中國版 ChatGPT」，而是押注超長 context；到 2026 年，這條路走到 2.8T 參數的開放權重旗艦。這篇寫給要在 Kimi 裡挑模型的 Agent 開發者：K3.1 Pro 和 Highspeed 怎麼選、要不要自架、授權擋住哪些商用情境，以及還在用 K2 系列的人什麼時候必須遷移。
 

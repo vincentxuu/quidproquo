@@ -11,7 +11,7 @@ series:
   order: 91
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-14-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-14-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -72,7 +72,7 @@ caption: Simplified for illustration — context-window size and pricing differ 
 
 ## Trending Repos
 
-### vercel/eve ⭐ 5,884
+### vercel/eve ★ 5,884
 
 [GitHub](https://github.com/vercel/eve) · TypeScript · Apache-2.0
 
@@ -83,7 +83,7 @@ caption: Simplified for illustration — context-window size and pricing differ 
 
 ---
 
-### universal-tool-calling-protocol/code-mode ⭐ 1,667
+### universal-tool-calling-protocol/code-mode ★ 1,667
 
 [GitHub](https://github.com/universal-tool-calling-protocol/code-mode) · TypeScript · MPL-2.0
 
@@ -94,7 +94,7 @@ caption: Simplified for illustration — context-window size and pricing differ 
 
 ---
 
-### nkarasiak/qgis-mcp ⭐ 436
+### nkarasiak/qgis-mcp ★ 436
 
 [GitHub](https://github.com/nkarasiak/qgis-mcp) · Python · GPL-2.0
 
@@ -105,7 +105,7 @@ caption: Simplified for illustration — context-window size and pricing differ 
 
 ---
 
-### JuliusBrussee/caveman ⭐ 119,655
+### JuliusBrussee/caveman ★ 119,655
 
 [GitHub](https://github.com/JuliusBrussee/caveman) · Go · Apache-2.0
 

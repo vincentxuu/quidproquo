@@ -12,7 +12,7 @@ series:
   order: 70
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-06-funding-onebyzero)
+> :globe: [中文版](/posts/daily/2026-10-06-funding-onebyzero)
 
 ## Deal Terms
 

@@ -26,7 +26,7 @@ glossary:
     definition: "A 30B open-weight multimodal model distilled by Meta from Muse Spark under Apache 2.0; it is not a same-name substitute for the Muse Spark API."
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-09-19-ai-model-family-muse-spark)
+> :globe: [繁體中文版](/posts/tech/2026-09-19-ai-model-family-muse-spark)
 
 Muse is the model family from Meta Superintelligence Labs (MSL). It isn't Llama 5, and it isn't Llama renamed for an API: Llama remains Meta's open-weight ecosystem, while Muse is a separate product line built around Meta Model API and agent workflows. This post is for agent developers choosing within Muse: how the Wonder, Spark, and Ember tiers divide the work, what the Contributor discount trades away, and what license conditions the two open-weight lines carry.
 

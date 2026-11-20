@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-amazingtalker-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-amazingtalker-speaking-practice-en)
 
 想練英文口說，卻不想先買一大筆固定課程，[AmazingTalker](https://tw.amazingtalker.com/tutors/english) 提供的是自己挑老師、按堂或買課程包的一對一線上家教。你可以找生活會話、旅遊、面試或商務英文老師，再協調程度與教材。
 

@@ -12,7 +12,7 @@ series:
   order: 123
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-05-funding-traversal)
+> :globe: [中文版](/posts/daily/2026-11-05-funding-traversal)
 
 ## Funding Snapshot
 

@@ -12,7 +12,7 @@ series:
   order: 85
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-08-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-08-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -155,12 +155,12 @@ caption: 來源：WorkOS 11/6 更新公告、Check Point／GBHackers 報導、�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-08](/posts/daily/2026-11-08-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-08](/posts/daily/2026-11-08-ai-agent-github-digest)
-- 📄 [融資速報｜Kalepa Series B $75M — 2026-11-08](/posts/daily/2026-11-08-funding-kalepa)
-- 📄 [資安警報｜WorkOS 內部系統遭入侵 — 2026-11-08](/posts/daily/2026-11-08-security-workos-artex-sandbox-escape)
-- 📄 [AI Engineer 面試日練 — 2026-11-08：Behavioral（本週回顧）](/posts/daily/2026-11-08-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-11-08：Behavioral & Weekly Review](/posts/daily/2026-11-08-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-08](/posts/daily/2026-11-08-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-08](/posts/daily/2026-11-08-ai-agent-github-digest)
+- :file: [融資速報｜Kalepa Series B $75M — 2026-11-08](/posts/daily/2026-11-08-funding-kalepa)
+- :file: [資安警報｜WorkOS 內部系統遭入侵 — 2026-11-08](/posts/daily/2026-11-08-security-workos-artex-sandbox-escape)
+- :file: [AI Engineer 面試日練 — 2026-11-08：Behavioral（本週回顧）](/posts/daily/2026-11-08-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-11-08：Behavioral & Weekly Review](/posts/daily/2026-11-08-product-builder-interview-daily)
 
 ## 明日關注
 

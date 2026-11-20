@@ -18,7 +18,7 @@ glossary:
     context: "CS2680 把它比作 agent 這台新型電腦的作業系統。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-21-cs2680-course-overview-en)
+> :globe: [English version](/posts/ai/2026-10-21-cs2680-course-overview-en)
 
 **影片狀態：課程不錄影。** 本文依公開投影片與課程網站整理。[來源說明](#課程影片來源)
 

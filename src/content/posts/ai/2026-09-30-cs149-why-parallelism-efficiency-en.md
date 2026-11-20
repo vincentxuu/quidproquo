@@ -27,7 +27,7 @@ glossary:
     context: "L1 explains memory access is a major source of stalls, and caches exist to shorten them."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

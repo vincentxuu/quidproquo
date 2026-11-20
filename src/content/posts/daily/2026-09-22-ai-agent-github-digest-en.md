@@ -17,7 +17,7 @@ Nothing on today's candidate list is a new framework. All five trending projects
 
 ## Trending Repos
 
-### microsoft/agent-governance-toolkit ⭐ 6,303
+### microsoft/agent-governance-toolkit ★ 6,303
 
 [GitHub](https://github.com/microsoft/agent-governance-toolkit)　·　Python (with TypeScript/.NET/Rust/Go SDKs)　·　MIT
 
@@ -28,7 +28,7 @@ Nothing on today's candidate list is a new framework. All five trending projects
 
 ---
 
-### akitaonrails/ai-memory ⭐ 7,575
+### akitaonrails/ai-memory ★ 7,575
 
 [GitHub](https://github.com/akitaonrails/ai-memory)　·　Rust　·　MIT
 
@@ -39,7 +39,7 @@ Nothing on today's candidate list is a new framework. All five trending projects
 
 ---
 
-### anthropics/financial-services ⭐ 35,728
+### anthropics/financial-services ★ 35,728
 
 [GitHub](https://github.com/anthropics/financial-services)　·　Python　·　Apache-2.0
 
@@ -50,7 +50,7 @@ Nothing on today's candidate list is a new framework. All five trending projects
 
 ---
 
-### modelcontextprotocol/inspector ⭐ 10,916
+### modelcontextprotocol/inspector ★ 10,916
 
 [GitHub](https://github.com/modelcontextprotocol/inspector)　·　TypeScript　·　MIT
 
@@ -61,7 +61,7 @@ Nothing on today's candidate list is a new framework. All five trending projects
 
 ---
 
-### coder/coder ⭐ 16,345
+### coder/coder ★ 16,345
 
 [GitHub](https://github.com/coder/coder)　·　Go　·　AGPL-3.0
 

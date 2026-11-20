@@ -13,7 +13,7 @@ description: "以官方 Stanford Online 影片整理 CS221 Lecture 20 的三段 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-20-fireside-conclusion-en)
+> :globe: [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-20-fireside-conclusion-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

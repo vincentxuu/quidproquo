@@ -12,7 +12,7 @@ series:
   order: 130
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-13-funding-mirendil-en)
+> :globe: [English version](/posts/daily/2026-11-13-funding-mirendil-en)
 
 ## 融資資訊
 

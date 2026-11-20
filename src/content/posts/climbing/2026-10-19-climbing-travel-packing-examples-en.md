@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-travel-packing-examples)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-travel-packing-examples)
 
 This post collects 45 packing setups that climbers shared publicly for fly-in climbing trips, dated September 2021 to October 2026. The sources are Mountain Project, the UKClimbing forums, Reddit, personal blogs (including Japanese climbers' trips to Long Dong in Taiwan), the Taiwan Outdoor Climbing Club (TOCC) and YouTube. Pick the one closest to your trip and adapt it into your own checked and carry-on lists.
 

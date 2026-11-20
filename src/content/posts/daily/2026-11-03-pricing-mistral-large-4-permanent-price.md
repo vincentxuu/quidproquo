@@ -12,7 +12,7 @@ series:
   order: 31
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-03-pricing-mistral-large-4-permanent-price-en)
+> :globe: [English version](/posts/daily/2026-11-03-pricing-mistral-large-4-permanent-price-en)
 
 ## 變更摘要
 

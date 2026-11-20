@@ -22,7 +22,7 @@ glossary:
     context: "投影片提到 Winoground、CREPE、ARO 等評測。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-vision-language-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-vision-language-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

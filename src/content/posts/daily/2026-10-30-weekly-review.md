@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-30-weekly-review-en)
+> :globe: [English version](/posts/daily/2026-10-30-weekly-review-en)
 
 ## 本週最重要的 5 件事
 
@@ -98,13 +98,13 @@ Casap 完成 $56M Series B，做信用卡爭議這種規則明確、後果可審
 
 ## Watchlist 更新建議
 
-### 🆕 建議加入
+### 建議加入
 
 本週 signals 中出現頻率最高的公司皆已在 watchlist 內（OpenAI／Google／NVIDIA／Oracle／Cohere）。本週新出現的公司（Azoma、Nous、Hyphenate、Infisical、Casap、Plato、Wabi、Serval 等，詳見下方新創雷達）各自只對應一則本週的融資新聞，沒有不在 watchlist 中的公司本週出現達 3 次以上，故本週無新增候選。
 
-### ⚠️ 考慮移除
+### :warning: 考慮移除
 
-✅ 本週無符合移除條件的公司
+✓ 本週無符合移除條件的公司
 
 ## 本週新創雷達
 

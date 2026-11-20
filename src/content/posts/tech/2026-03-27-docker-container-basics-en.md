@@ -10,7 +10,7 @@ description: "A practical look at Docker's core concepts, multi-stage Dockerfile
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-docker-container-basics)
+:globe: [中文版](/posts/tech/2026-03-27-docker-container-basics)
 
 Docker solves a fundamental problem: applications depend on too many environmental factors — Node.js versions, OS libraries, environment variables — and Docker packages all of them into a single image so every environment runs the exact same thing.
 

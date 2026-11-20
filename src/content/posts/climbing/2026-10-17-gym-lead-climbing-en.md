@@ -30,7 +30,7 @@ glossary:
     context: "The opposite is a hard catch: near the ground or a ledge, stop the climber as fast as possible."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-gym-lead-climbing)
+> :globe: [中文版](/posts/climbing/2026-10-17-gym-lead-climbing)
 
 Once top-roping feels routine, you notice the climber next to you trailing a rope from their harness and clipping it into quickdraws on the way up. That is lead climbing. When you want to try it, the front desk asks a familiar question: "Do you have a lead belay card?"
 

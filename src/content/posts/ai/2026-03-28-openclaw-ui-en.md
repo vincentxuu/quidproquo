@@ -13,7 +13,7 @@ description: "The current state of OpenClaw's Control UI: the session rail and c
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-ui)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-ui)
 
 The Control UI is a small **Vite + Lit** single-page app served by the Gateway at `http://<host>:18789/` by default, speaking **directly to the Gateway WebSocket on the same port**.
 

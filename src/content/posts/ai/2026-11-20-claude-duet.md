@@ -13,14 +13,14 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-20-claude-duet-en)
+> :globe: [English version](/posts/ai/2026-11-20-claude-duet-en)
 
 | 四個條件 | Claude Duet |
 |---|---|
-| 你不在時繼續跑 | ✅ 有自己的雲端虛擬機和瀏覽器，不需要你的手機或筆電開著 |
-| 醒來後自己決定做什麼 | ✅ L3：每天晨報，之後每幾小時巡檢，自己判斷哪些事要告訴你 |
-| 跨對話記得你的目標 | ✅ 沿用 Claude 帳號的記憶、技能和連接器，可以搜尋過去的對話 |
-| 能代你對外做事 | ✅ 寄信、付款、簽署文件；每一項都先給你看、等你核准 |
+| 你不在時繼續跑 | ✓ 有自己的雲端虛擬機和瀏覽器，不需要你的手機或筆電開著 |
+| 醒來後自己決定做什麼 | ✓ L3：每天晨報，之後每幾小時巡檢，自己判斷哪些事要告訴你 |
+| 跨對話記得你的目標 | ✓ 沿用 Claude 帳號的記憶、技能和連接器，可以搜尋過去的對話 |
+| 能代你對外做事 | ✓ 寄信、付款、簽署文件；每一項都先給你看、等你核准 |
 
 The Verge 記者 Allison Johnson [試用 Duet 一週](https://www.theverge.com/ai-artificial-intelligence/1032518/claude-duet-ai-agent-hands-on)。某天她寫信告訴一位受訪者，報導「應該」週二上線，上線會寄連結給對方。週一深夜她把稿子交給編輯。
 

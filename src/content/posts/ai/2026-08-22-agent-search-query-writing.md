@@ -13,7 +13,7 @@ description: "一套可重跑的 Agent 搜尋 query 方法：從查詢分類、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-agent-search-query-writing-en)
+> :globe: [English version](/posts/ai/2026-08-22-agent-search-query-writing-en)
 
 搜尋品質不只取決於搜尋引擎。Agent 把「幫我查一下」原封不動送出去，等於把使用者的對話句當成檢索語言；偶爾能中，多半不可控。
 

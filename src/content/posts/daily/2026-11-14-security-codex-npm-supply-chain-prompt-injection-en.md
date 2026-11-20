@@ -11,7 +11,7 @@ series:
   order: 77
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-14-security-codex-npm-supply-chain-prompt-injection)
+> :globe: [中文版](/posts/daily/2026-11-14-security-codex-npm-supply-chain-prompt-injection)
 
 ## What happened
 

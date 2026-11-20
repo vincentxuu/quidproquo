@@ -30,7 +30,7 @@ glossary:
     context: "top out 之後還要找路下來，這是戶外才有的一段。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-outdoor-bouldering-pads-spotting-en)
+> :globe: [English version](/posts/climbing/2026-10-19-outdoor-bouldering-pads-spotting-en)
 
 在岩館抱石，你幾乎不用想落地的事。牆下是一整片連在一起、又厚又平的地墊，想掉出墊子外都很難。[Gripped 雜誌的戶外落地指南](https://gripped.com/indoor-climbing/bouldering-outside-5-tips-for-a-safer-landing)開頭就點出差別：到了戶外，墊子只有你背來的那一兩張，地上還有樹根、石頭和斜坡。
 

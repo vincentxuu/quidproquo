@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, multi-agent, computer-use, agent-skills]
 lang: zh-TW
 description: "本地優先的桌面 agent 團隊、靠 accessibility tree 操作電腦的 computer-use 工具、把品質判斷丟給確定性工具的 Uncle Bob 技能,今天各補了 agent 自主性的一塊缺口"
-tldr: "**Orkas**(⭐7.2k)是本地優先的桌面 AI 團隊 app,一個 Commander 把目標拆成待辦,調度 16 個內建專家 agent,還能把 Claude Code／Codex 等外部 CLI agent 當本地 session 一起指揮；**vercel-labs/agent-desktop**(⭐6.5k)用 Rust 讀 OS accessibility tree 讓 agent 操作電腦,回傳帶穩定 ref 的 JSON 快照取代截圖猜像素,剛補上 Linux 支援；**unclebob/ub-mode**(⭐6.2k)是 Uncle Bob Martin 寫的 agent skill,把「寫得好不好」丟給 crapper／dryer／mutator 等確定性工具評分,不靠 agent 自己說了算。今天沒有重要框架 release。"
+tldr: "**Orkas**(★7.2k)是本地優先的桌面 AI 團隊 app,一個 Commander 把目標拆成待辦,調度 16 個內建專家 agent,還能把 Claude Code／Codex 等外部 CLI agent 當本地 session 一起指揮；**vercel-labs/agent-desktop**(★6.5k)用 Rust 讀 OS accessibility tree 讓 agent 操作電腦,回傳帶穩定 ref 的 JSON 快照取代截圖猜像素,剛補上 Linux 支援；**unclebob/ub-mode**(★6.2k)是 Uncle Bob Martin 寫的 agent skill,把「寫得好不好」丟給 crapper／dryer／mutator 等確定性工具評分,不靠 agent 自己說了算。今天沒有重要框架 release。"
 series:
   name: "AI Agent GitHub Digest"
   order: 79
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-02-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-02-ai-agent-github-digest-en)
 
 
 ## 今日亮點
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### Orkas-AI/Orkas ⭐ 7.2k
+### Orkas-AI/Orkas ★ 7.2k
 
 [GitHub](https://github.com/Orkas-AI/Orkas)　·　JavaScript + TypeScript　·　MIT
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### vercel-labs/agent-desktop ⭐ 6.5k
+### vercel-labs/agent-desktop ★ 6.5k
 
 [GitHub](https://github.com/vercel-labs/agent-desktop)　·　Rust　·　Apache-2.0
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### unclebob/ub-mode ⭐ 6.2k
+### unclebob/ub-mode ★ 6.2k
 
 [GitHub](https://github.com/unclebob/ub-mode)　·　Markdown(skill 檔)　·　未標示 license
 

@@ -25,7 +25,7 @@ glossary:
         url: "https://ai-2027.com/"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

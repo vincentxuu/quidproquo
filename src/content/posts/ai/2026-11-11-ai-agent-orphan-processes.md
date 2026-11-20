@@ -10,7 +10,7 @@ description: "AI coding agent 平行開發時留下孤兒程序的成因（程�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-11-ai-agent-orphan-processes-en)
+> :globe: [English version](/posts/ai/2026-11-11-ai-agent-orphan-processes-en)
 
 ## TL;DR
 

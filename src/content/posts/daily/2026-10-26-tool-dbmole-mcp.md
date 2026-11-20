@@ -12,7 +12,7 @@ series:
   order: 65
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-26-tool-dbmole-mcp-en)
+> :globe: [English version](/posts/daily/2026-10-26-tool-dbmole-mcp-en)
 
 ## 工具資訊
 
@@ -164,13 +164,13 @@ ssh-keyscan -p 22 bastion.example.com 2>/dev/null | ssh-keygen -lf -
 
 | | dbmole-mcp | DBHub | Postgres MCP Pro | mcp-server-mysql | MCP Toolbox |
 |---|---|---|---|---|---|
-| PostgreSQL | ✅ | ✅ | ✅ | ❌ | ✅ |
-| MySQL | ✅ | ✅ | ❌ | ✅ | ✅ |
-| 其他資料庫 | ❌ | ✅ | ❌ | ❌ | ✅ |
-| 內建 SSH tunnel | ✅ | ✅ | — | ✅ | ❌ |
-| agent 可透過工具自己新增／編輯連線 | ✅ | ❌（作者在 issue 裡標明不打算做） | ❌ | ❌ | ❌ |
-| Index 調校 | ❌ | — | ✅ | — | — |
-| 健康檢查 | ❌ | ✅ | ✅ | — | ✅（內建 PostgreSQL 工具） |
+| PostgreSQL | ✓ | ✓ | ✓ | ✗ | ✓ |
+| MySQL | ✓ | ✓ | ✗ | ✓ | ✓ |
+| 其他資料庫 | ✗ | ✓ | ✗ | ✗ | ✓ |
+| 內建 SSH tunnel | ✓ | ✓ | — | ✓ | ✗ |
+| agent 可透過工具自己新增／編輯連線 | ✓ | ✗（作者在 issue 裡標明不打算做） | ✗ | ✗ | ✗ |
+| Index 調校 | ✗ | — | ✓ | — | — |
+| 健康檢查 | ✗ | ✓ | ✓ | — | ✓（內建 PostgreSQL 工具） |
 
 （資料來自 dbmole-mcp README 的對照表，標註檢查時間 2026 年 10 月；其他工具若有更新，實際功能請以各自文件為準。）
 

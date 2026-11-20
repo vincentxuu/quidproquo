@@ -20,7 +20,7 @@ glossary:
     def: "DeepMind's 2022 paper proving most models were too large and undertrained — smaller models trained on more data perform better"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-understanding-ai-models-scaling-laws)
+> :globe: [中文版](/posts/ai/2026-08-26-understanding-ai-models-scaling-laws)
 
 GPT-4 reportedly has over a trillion parameters. Llama 3.1 comes in 8B, 70B, and 405B sizes. Why so many sizes? Why not just build the biggest one?
 

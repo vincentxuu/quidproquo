@@ -24,7 +24,7 @@ glossary:
     context: "校外讀者可以在自己的多核 CPU 上做 PA1，但數字不能直接和官方參考值比。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-course-overview-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

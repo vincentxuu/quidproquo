@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-21-exa-neural-search-for-agents-en)
+:globe: [English version](/posts/ai/2026-08-21-exa-neural-search-for-agents-en)
 
 這個系列前十一篇挑的都是「別人在用、我沒在用」的東西。這篇反過來：本站的 `CLAUDE.md` 有一條規則明文寫著網頁抓取的優先順序是 `stealth_fetch` → `mcp__claude_ai_Exa__*` → Tavily / linkup / jina → 最後才用內建 `WebFetch`。38 支 skill 裡有 16 支在指令中直接引用它，站上既有的中文文章裡只有四篇順帶提過 Exa——而專文是零篇。連這篇文章的所有一手資料，都是在 Firecrawl 額度用完後改用 Exa 的 `web_fetch_exa` 抓下來的。天天用、從沒寫過，那就先寫這個。
 

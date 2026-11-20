@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-🌏 [English version](/posts/product/2026-03-12-nobodyclimb-ai-why-and-what-en)
+:globe: [English version](/posts/product/2026-03-12-nobodyclimb-ai-why-and-what-en)
 
 NobodyClimb 是一個台灣攀岩社群平台，幾個月前加了一個 AI 問答功能。這篇想聊的不是技術，而是：這個功能為什麼存在、怎麼做決定、做出來之後怎樣。
 

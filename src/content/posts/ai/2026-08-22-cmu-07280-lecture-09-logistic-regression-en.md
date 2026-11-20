@@ -13,7 +13,7 @@ description: "A detailed reading of CMU 07-280 Spring 2026 Lecture 9: probabilis
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-09-logistic-regression)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-09-logistic-regression)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

@@ -12,7 +12,7 @@ series:
   order: 34
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-18-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-18-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -158,14 +158,14 @@ Independent Australian lawmakers including Kate Chaney are pushing the governmen
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-18](/posts/daily/2026-09-18-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-18](/posts/daily/2026-09-18-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-18](/posts/daily/2026-09-18-ai-interview-daily-en)
-- 📄 [Framework Update｜CrewAI 1.15.22](/posts/daily/2026-09-18-framework-crewai-1.15.22-en)
-- 📄 [Framework Update｜Pydantic AI v2.44.0](/posts/daily/2026-09-18-framework-pydantic-ai-2.44.0-en)
-- 📄 [Funding Brief｜AIUC Series A $40M](/posts/daily/2026-09-18-funding-aiuc-en)
-- 📄 [Product Builder Interview Prep — 2026-09-18](/posts/daily/2026-09-18-product-builder-interview-daily-en)
-- 📄 [Tool Pick｜codebase-memory-mcp](/posts/daily/2026-09-18-tool-codebase-memory-mcp-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-18](/posts/daily/2026-09-18-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-18](/posts/daily/2026-09-18-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Prep — 2026-09-18](/posts/daily/2026-09-18-ai-interview-daily-en)
+- :file: [Framework Update｜CrewAI 1.15.22](/posts/daily/2026-09-18-framework-crewai-1.15.22-en)
+- :file: [Framework Update｜Pydantic AI v2.44.0](/posts/daily/2026-09-18-framework-pydantic-ai-2.44.0-en)
+- :file: [Funding Brief｜AIUC Series A $40M](/posts/daily/2026-09-18-funding-aiuc-en)
+- :file: [Product Builder Interview Prep — 2026-09-18](/posts/daily/2026-09-18-product-builder-interview-daily-en)
+- :file: [Tool Pick｜codebase-memory-mcp](/posts/daily/2026-09-18-tool-codebase-memory-mcp-en)
 
 ## Tomorrow's Watch
 

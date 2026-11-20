@@ -12,7 +12,7 @@ series:
   order: 70
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-24-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-24-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -185,17 +185,17 @@ Cognizant 宣布收購澳洲 AI 導向 SAP 顧問公司 DyFlex Solutions，強�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-24](/posts/daily/2026-10-24-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-24](/posts/daily/2026-10-24-ai-agent-github-digest)
-- 📄 [框架更新｜CrewAI 1.15.29](/posts/daily/2026-10-24-framework-crewai-1.15.29)
-- 📄 [框架更新｜Inngest v1.49.0](/posts/daily/2026-10-24-framework-inngest-v1.49.0)
-- 📄 [融資速報｜AuxoAI 完成 $20.7M Series A](/posts/daily/2026-10-24-funding-auxoai)
-- 📄 [融資速報｜Blacksmith 完成 $66M Series C](/posts/daily/2026-10-24-funding-blacksmith)
-- 📄 [融資速報｜Qualitate 完成 $25M Series A](/posts/daily/2026-10-24-funding-qualitate)
-- 📄 [定價追蹤｜Cursor 併入 The X Subscription](/posts/daily/2026-10-24-pricing-cursor-x-subscription-pro-retirement)
-- 📄 [工具推薦｜broll-mcp](/posts/daily/2026-10-24-tool-broll-mcp)
-- 📄 [AI Engineer 面試準備](/posts/daily/2026-10-24-ai-interview-daily)
-- 📄 [Product Builder 面試準備](/posts/daily/2026-10-24-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-24](/posts/daily/2026-10-24-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-24](/posts/daily/2026-10-24-ai-agent-github-digest)
+- :file: [框架更新｜CrewAI 1.15.29](/posts/daily/2026-10-24-framework-crewai-1.15.29)
+- :file: [框架更新｜Inngest v1.49.0](/posts/daily/2026-10-24-framework-inngest-v1.49.0)
+- :file: [融資速報｜AuxoAI 完成 $20.7M Series A](/posts/daily/2026-10-24-funding-auxoai)
+- :file: [融資速報｜Blacksmith 完成 $66M Series C](/posts/daily/2026-10-24-funding-blacksmith)
+- :file: [融資速報｜Qualitate 完成 $25M Series A](/posts/daily/2026-10-24-funding-qualitate)
+- :file: [定價追蹤｜Cursor 併入 The X Subscription](/posts/daily/2026-10-24-pricing-cursor-x-subscription-pro-retirement)
+- :file: [工具推薦｜broll-mcp](/posts/daily/2026-10-24-tool-broll-mcp)
+- :file: [AI Engineer 面試準備](/posts/daily/2026-10-24-ai-interview-daily)
+- :file: [Product Builder 面試準備](/posts/daily/2026-10-24-product-builder-interview-daily)
 
 ## 明日關注
 

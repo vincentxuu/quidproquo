@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-14-rag-patterns-complete-guide)
+> :globe: [中文版](/posts/ai/2026-03-14-rag-patterns-complete-guide)
 
 Search for "RAG" and you'll find hundreds of articles, each talking about something different.
 

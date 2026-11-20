@@ -12,7 +12,7 @@ series:
   order: 48
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-22-framework-pydantic-ai-v2.59.0)
+> :globe: [中文版](/posts/daily/2026-10-22-framework-pydantic-ai-v2.59.0)
 
 ## Release Info
 

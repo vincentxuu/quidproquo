@@ -17,7 +17,7 @@ glossary:
     def: "A benchmark that measures an AI agent's ability to operate a real computer across multi-step tasks (opening apps, clicking, filling forms); commonly used to gauge computer-use capability"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-09-model-anthropic-claude-haiku-5-5)
+> :globe: [中文版](/posts/daily/2026-10-09-model-anthropic-claude-haiku-5-5)
 
 ## Model Details
 
@@ -51,7 +51,7 @@ glossary:
 | Humanity's Last Exam (no tools) | 45.9% | 10.2% | Not reported | 56.9% |
 | Chartography (visual reasoning, no tools) | 46.4% | 6.4% | 29.1% | 61.6% |
 
-⚠️ All figures above are Anthropic's own self-reported results (see the [Haiku 5.5 System Card](https://www.anthropic.com/claude-haiku-5-5-system-card)); no independent reproduction is available yet. Anthropic's two internal knowledge-work metrics, GDPval-AA v2.1 and AA-Briefcase v1.1, also jumped sharply (1620 and 1578, versus 735 and 614 for Haiku 4.5), but since they aren't standardized external benchmarks they're left out of the table above.
+:warning: All figures above are Anthropic's own self-reported results (see the [Haiku 5.5 System Card](https://www.anthropic.com/claude-haiku-5-5-system-card)); no independent reproduction is available yet. Anthropic's two internal knowledge-work metrics, GDPval-AA v2.1 and AA-Briefcase v1.1, also jumped sharply (1620 and 1578, versus 735 and 614 for Haiku 4.5), but since they aren't standardized external benchmarks they're left out of the table above.
 
 ## Comparison with Prior Generation and Competitors
 

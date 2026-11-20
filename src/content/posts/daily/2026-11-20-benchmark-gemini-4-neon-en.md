@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-20-benchmark-gemini-4-neon)
+> :globe: [中文版](/posts/daily/2026-11-20-benchmark-gemini-4-neon)
 
 ## Summary
 
@@ -24,9 +24,9 @@ Google released Gemini 4 Neon on 11-18, and it debuted straight into the top thr
 
 | Rank | Model | Score | 95% CI | 11-15 Score (Rank) | Change |
 |---|---|---|---|---|---|
-| 🥇 | Claude Fable 5.2 (Max) | 27.42% | [24.46%, 30.38%] | 28.61% (1) | — |
-| 🥈 | Claude Opus 5.5 (Max) | 18.63% | [16.60%, 20.65%] | 18.19% (2) | — |
-| 🥉 | Gemini 4 Neon (High) | 18.41% | [15.90%, 20.93%] | New entry | 🆕 |
+| 1 | Claude Fable 5.2 (Max) | 27.42% | [24.46%, 30.38%] | 28.61% (1) | — |
+| 2 | Claude Opus 5.5 (Max) | 18.63% | [16.60%, 20.65%] | 18.19% (2) | — |
+| 3 | Gemini 4 Neon (High) | 18.41% | [15.90%, 20.93%] | New entry | NEW|
 | 4 | Gemini 4 Carbon (High) | 16.10% | [15.41%, 16.79%] | 16.45% (3) | ↓1 |
 | 5 | Claude Sonnet 5.5 (Max) | 15.56% | [12.66%, 18.46%] | 15.29% (4) | ↓1 |
 
@@ -36,11 +36,11 @@ Source: [Arena Leaderboard Dataset](https://huggingface.co/datasets/lmarena-ai/l
 
 | Leaderboard | Neon's Rank | Neon's Score | Current Leader | Leader's Score | Data Provenance |
 |---|---|---|---|---|---|
-| Arena Agent Index | 🥉 Third (statistically tied with #2) | 18.41% | Claude Fable 5.2 (Max) | 27.42% | Independent third party (Arena's own blind voting) |
-| Vals Index | 🥈 Second | 70.87% | Claude Fable 5.2 | 71.31% | Independent third party (private test set) |
-| Artificial Analysis Coding Agent Index | 🥇 First | 59 points | (Neon itself) | 59 points | Independent third party, but this site couldn't scrape the original page this time — figures relayed via [officechai.com](https://officechai.com/ai/gemini-4-neon-places-second-on-vals-index-and-arena-agent-index-ahead-of-opus-5-5-tops-cursor-bench-outright/) |
+| Arena Agent Index | 3 Third (statistically tied with #2) | 18.41% | Claude Fable 5.2 (Max) | 27.42% | Independent third party (Arena's own blind voting) |
+| Vals Index | 2 Second | 70.87% | Claude Fable 5.2 | 71.31% | Independent third party (private test set) |
+| Artificial Analysis Coding Agent Index | 1 First | 59 points | (Neon itself) | 59 points | Independent third party, but this site couldn't scrape the original page this time — figures relayed via [officechai.com](https://officechai.com/ai/gemini-4-neon-places-second-on-vals-index-and-arena-agent-index-ahead-of-opus-5-5-tops-cursor-bench-outright/) |
 | CursorBench (officially tracked 4.0) | Not listed | — | Gemini 4 Carbon (High) | 60.4% | Independent third party; BenchLM hasn't added Neon yet |
-| CursorBench 4.1 (Google's own claim) | 🥇 First (self-reported) | 65.4% | — | — | ⚠️ Vendor self-test; the official CursorBench version (4.0) hasn't independently verified this figure |
+| CursorBench 4.1 (Google's own claim) | 1 First (self-reported) | 65.4% | — | — | :warning: Vendor self-test; the official CursorBench version (4.0) hasn't independently verified this figure |
 
 SWE-bench Verified's top five scores and ranks are identical to last time (79.2 / 79.2 / 78.8 / 77.4 / 76.8, with the top two tied and a three-way tie for fifth) — no change. CursorBench 4.0 ([via BenchLM](https://benchlm.ai/benchmarks/cursorbench), dated 2026-11-19) has the same top three as last time (Gemini 4 Carbon 60.4% / Claude Fable 5.2 60.0% / Claude Opus 5.5 57.8%); Gemini 4 Neon hasn't appeared yet on this 21-model board. Artificial Analysis's `/agents/coding-agents` page was re-tried with `render=always` this time, but still returned only chart headings with no scrapable data table (a JS-rendered chart, not a table) — the same known blocker as before.
 
@@ -52,7 +52,7 @@ Gemini 4 Neon is Google's "fast reasoning" model, positioned between Gemini 4 Ca
 
 ### The methodology angle
 
-⚠️ These numbers need to be read in layers. Arena Agent and the Vals Index are both independent blind evaluations run by Arena and Vals themselves, so they carry more weight. But Neon's sample size (session_count 5,696) is noticeably smaller than #2 Opus 5.5's (14,920), which gives it the widest confidence interval among the top five ([15.90%, 20.93%], a 5.03-point span) — one that fully contains Opus 5.5's interval. The rank gap between them is statistically indistinguishable, even though coverage describing them as "#2" and "#3" makes it sound settled; in reality it's a tie, with Opus 5.5 ahead by only 0.22 points on point estimates. The Artificial Analysis Coding Agent Index's 59-vs-58 is an equally razor-thin margin, and this site still couldn't pull the raw numbers directly from Artificial Analysis's own site (the JS chart blocker persists) — relying on a third-party relay for those figures, which discounts their reliability further. The number to be most wary of is CursorBench 4.1's 65.4%: that's **Google's own benchmark table**, not an independent test from Cursor or BenchLM. BenchLM is still tracking CursorBench 4.0, where Neon hasn't even been added yet — so that 65.4% is currently nothing more than a vendor's self-reported number, unverified by anyone outside Google.
+:warning: These numbers need to be read in layers. Arena Agent and the Vals Index are both independent blind evaluations run by Arena and Vals themselves, so they carry more weight. But Neon's sample size (session_count 5,696) is noticeably smaller than #2 Opus 5.5's (14,920), which gives it the widest confidence interval among the top five ([15.90%, 20.93%], a 5.03-point span) — one that fully contains Opus 5.5's interval. The rank gap between them is statistically indistinguishable, even though coverage describing them as "#2" and "#3" makes it sound settled; in reality it's a tie, with Opus 5.5 ahead by only 0.22 points on point estimates. The Artificial Analysis Coding Agent Index's 59-vs-58 is an equally razor-thin margin, and this site still couldn't pull the raw numbers directly from Artificial Analysis's own site (the JS chart blocker persists) — relying on a third-party relay for those figures, which discounts their reliability further. The number to be most wary of is CursorBench 4.1's 65.4%: that's **Google's own benchmark table**, not an independent test from Cursor or BenchLM. BenchLM is still tracking CursorBench 4.0, where Neon hasn't even been added yet — so that 65.4% is currently nothing more than a vendor's self-reported number, unverified by anyone outside Google.
 
 ### The industry angle
 

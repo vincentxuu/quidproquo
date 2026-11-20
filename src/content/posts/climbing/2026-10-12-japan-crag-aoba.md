@@ -13,7 +13,7 @@ description: "介紹福島縣いわき市的青葉岩場：砂岩岩質與路線
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-aoba-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-aoba-en)
 
 青葉（あおば，Aoba；當地觀光頁寫作「青葉の岩場」）位在福島縣（Fukushima）いわき市常磐湯本町日渡，[いわき市観光サイト](https://kankou-iwaki.or.jp/spot/52122)說它在「JR湯本駅と内郷駅の間にあるときわ台生活環境保全林の一角」。岩質是砂岩，以 bolt 運動攀登為主，另有一小區抱石。
 

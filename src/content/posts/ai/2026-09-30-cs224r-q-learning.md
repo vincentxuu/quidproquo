@@ -22,7 +22,7 @@ glossary:
     context: "DQN 的核心穩定化技巧，HW2 的 off-policy actor-critic 也用了。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-q-learning-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-q-learning-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

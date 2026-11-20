@@ -24,7 +24,7 @@ glossary:
     definition: "This post's term for where an event sits in the international system: Olympics, World Championships, World Climbing Series, continental events, national events. The level decides who can enter, whether it counts for world ranking points, and whether it can earn an Olympic place."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-competitions-overview)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-competitions-overview)
 
 At the Paris 2024 Olympics, a lot of people watched a full climbing event on TV for the first time. Athletes fell off the wall again and again, yet the numbers on the scoreboard kept jumping. Afterwards the questions pile up: who runs this? What competitions are there besides the Olympics? When is the next one, and where can I watch it?
 

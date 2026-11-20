@@ -16,7 +16,7 @@ tldr: "An OS sandbox is the kernel boundary beyond path policy. looplane now shi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-os-level-sandboxing)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-os-level-sandboxing)
 
 ## The Capability Gap
 

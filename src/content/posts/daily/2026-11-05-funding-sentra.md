@@ -12,7 +12,7 @@ series:
   order: 124
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-05-funding-sentra-en)
+> :globe: [English version](/posts/daily/2026-11-05-funding-sentra-en)
 
 ## 融資資訊
 

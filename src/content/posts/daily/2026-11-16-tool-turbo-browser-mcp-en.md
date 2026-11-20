@@ -12,7 +12,7 @@ series:
   order: 80
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-16-tool-turbo-browser-mcp)
+> :globe: [中文版](/posts/daily/2026-11-16-tool-turbo-browser-mcp)
 
 ## Tool Info
 
@@ -169,11 +169,11 @@ What the agent actually calls:
 | | turbo-browser-mcp | `@playwright/mcp` | `chrome-devtools-mcp` |
 |---|---|---|---|
 | Tool count | 10 (batched) | 25 (fine-grained) | 33 (fine-grained) |
-| Delta snapshots (only changed elements) | ✅ | ❌ (full ARIA tree every time) | ❌ |
-| Fill an entire form in one call (React/Shadow DOM/iframe) | ✅ | ❌ (needs multiple calls) | Basic `fill_form` only |
-| File upload without Base64 (direct disk path) | ✅ | Needs a separate `browser_file_upload` call | Needs a separate `upload_file` call |
-| Default human-in-the-loop submit guard | ✅ | ❌ | ❌ |
-| Lighthouse / performance tracing / heap snapshots | ❌ | ❌ | ✅ |
+| Delta snapshots (only changed elements) | ✓ | ✗ (full ARIA tree every time) | ✗ |
+| Fill an entire form in one call (React/Shadow DOM/iframe) | ✓ | ✗ (needs multiple calls) | Basic `fill_form` only |
+| File upload without Base64 (direct disk path) | ✓ | Needs a separate `browser_file_upload` call | Needs a separate `upload_file` call |
+| Default human-in-the-loop submit guard | ✓ | ✗ | ✗ |
+| Lighthouse / performance tracing / heap snapshots | ✗ | ✗ | ✓ |
 
 ## Caveats
 

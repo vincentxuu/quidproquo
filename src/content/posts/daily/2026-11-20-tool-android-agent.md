@@ -12,7 +12,7 @@ series:
   order: 84
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-20-tool-android-agent-en)
+> :globe: [English version](/posts/daily/2026-11-20-tool-android-agent-en)
 
 ## 工具資訊
 
@@ -147,9 +147,9 @@ python agent.py "打開藍牙，告訴我目前配對了哪些裝置"
 |---|---|---|---|
 | 畫面怎麼餵給模型 | 無障礙樹轉文字清單 | 截圖轉圖片 token | UI 元素樹（非 LLM 導向） |
 | 每次讀畫面的 token 成本 | 低（實測約 150 tokens/次） | 高（實測約 1,500 tokens/次） | 不適用 |
-| MCP 原生支援 | ✅ | 視專案而定 | ❌ 需自己接 bridge |
-| 手機單機可跑（免 PC） | ✅ Termux | 通常需要電腦 | ❌ 需起 Appium server |
-| 點擊前重新確認（blind-tap guard） | ✅ 內建 | 視專案而定 | 由測試腳本自己處理 |
+| MCP 原生支援 | ✓ | 視專案而定 | ✗ 需自己接 bridge |
+| 手機單機可跑（免 PC） | ✓ Termux | 通常需要電腦 | ✗ 需起 Appium server |
+| 點擊前重新確認（blind-tap guard） | ✓ 內建 | 視專案而定 | 由測試腳本自己處理 |
 | 設計目的 | 給 AI agent 操作手機 | 給 AI agent 操作手機 | QA 自動化測試 |
 
 ## 注意事項

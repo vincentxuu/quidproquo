@@ -27,7 +27,7 @@ glossary:
         url: "https://www.anthropic.com/engineering/harness-design-long-running-apps"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-01-digital-employee-reality-check-en)
+> :globe: [English version](/posts/ai/2026-08-01-digital-employee-reality-check-en)
 
 2026 年「數位員工」已經是企業軟體的正式類別：[OpenAI 在 2 月 5 日發表 Frontier](https://techcrunch.com/2026/02/05/openai-launches-a-way-for-enterprises-to-build-and-manage-ai-agents)，明說要「像管理人類員工一樣管理 agent」；[Forrester 2026 預測](https://www.forrester.com/blogs/predictions-2026-ai-agents-changing-business-models-and-workplace-culture-impact-enterprise-software)前五大 HCM 平台會長出「數位員工管理」功能。同一時間，[Gartner 估計數千家自稱 agentic 的廠商中只約 130 家是真的](https://www.reuters.com/business/over-40-agentic-ai-projects-will-be-scrapped-by-2027-gartner-says-2025-06-25)。
 

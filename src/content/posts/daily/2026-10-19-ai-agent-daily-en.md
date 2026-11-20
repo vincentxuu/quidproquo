@@ -12,7 +12,7 @@ series:
   order: 65
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-19-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-10-19-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -89,12 +89,12 @@ Today's tool pick, [GenOffice](/posts/daily/2026-10-19-tool-genoffice-en), is an
 
 ## Today's Digests
 
-- 📄 [AI Agent GitHub Digest — 2026-10-19](/posts/daily/2026-10-19-ai-agent-github-digest-en)
-- 📄 [Model Card: NVIDIA Nemotron Labs Dory 1.0](/posts/daily/2026-10-19-model-nvidia-nemotron-dory-1-0-en)
-- 📄 [Funding Alert: Duvo Series A $32M](/posts/daily/2026-10-19-funding-duvo-en)
-- 📄 [Tool Pick: GenOffice](/posts/daily/2026-10-19-tool-genoffice-en)
-- 📄 [AI Engineer Interview Daily — 2026-10-19](/posts/daily/2026-10-19-ai-interview-daily-en)
-- 📄 [Product Builder Interview Drill — 2026-10-19](/posts/daily/2026-10-19-product-builder-interview-daily-en)
+- :file: [AI Agent GitHub Digest — 2026-10-19](/posts/daily/2026-10-19-ai-agent-github-digest-en)
+- :file: [Model Card: NVIDIA Nemotron Labs Dory 1.0](/posts/daily/2026-10-19-model-nvidia-nemotron-dory-1-0-en)
+- :file: [Funding Alert: Duvo Series A $32M](/posts/daily/2026-10-19-funding-duvo-en)
+- :file: [Tool Pick: GenOffice](/posts/daily/2026-10-19-tool-genoffice-en)
+- :file: [AI Engineer Interview Daily — 2026-10-19](/posts/daily/2026-10-19-ai-interview-daily-en)
+- :file: [Product Builder Interview Drill — 2026-10-19](/posts/daily/2026-10-19-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

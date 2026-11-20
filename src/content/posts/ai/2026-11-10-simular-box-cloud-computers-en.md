@@ -10,7 +10,7 @@ description: "Compares Simular box with Orgo, Runloop, E2B, Windows 365 for Agen
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-10-simular-box-cloud-computers)
+> :globe: [中文版](/posts/ai/2026-11-10-simular-box-cloud-computers)
 
 [Simular box](https://box.simular.ai/) is a cloud Ubuntu desktop with Chrome and a shell. Add it as a remote MCP server to Claude, ChatGPT, Claude Code, Codex or Cursor and your AI can open a browser, click, type, read the screen and run commands, without your own computer staying on. The official pricing line is "the box itself is free; its model calls use your account's daily credits."
 

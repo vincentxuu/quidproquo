@@ -13,7 +13,7 @@ description: "A deck-aligned guide to constants, predicates, functions, equality
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-05-first-order-logic-1)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-05-first-order-logic-1)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

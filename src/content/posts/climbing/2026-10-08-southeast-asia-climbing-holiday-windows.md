@@ -27,7 +27,7 @@ glossary:
     context: "228 連假不建議去清邁與寮國北部，就是因為撞上燒山季。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-08-southeast-asia-climbing-holiday-windows-en)
+> :globe: [English version](/posts/climbing/2026-10-08-southeast-asia-climbing-holiday-windows-en)
 
 2026 年底到 2027 年 3 月初有三個連假可以排出國攀岩：行憲紀念日接元旦、春節、228。東南亞的石灰岩岩場這段時間多半在乾季，但五個國家的乾濕、票價和當地假期差很多，同一個岩場換一個連假去，機票可以差到兩倍。這篇整理的是「每個連假去哪一國」，比較了泰國、越南、馬來西亞、寮國、菲律賓的季節、機票、入境規定和岩栓狀況。
 

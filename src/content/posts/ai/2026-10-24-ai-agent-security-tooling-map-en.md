@@ -13,7 +13,7 @@ description: "One map of the security tools around skills, MCP and coding agents
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-ai-agent-security-tooling-map)
+> :globe: [中文版](/posts/ai/2026-10-24-ai-agent-security-tooling-map)
 
 There is probably a directory on your machine full of skills somebody else wrote, and a few MCP servers in your config. Every one of them can read your files, run commands and reach the network, and your agent will do what their descriptions tell it to.
 

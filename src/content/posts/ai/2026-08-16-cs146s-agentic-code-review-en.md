@@ -19,7 +19,7 @@ description: "Stanford CS146S Fall 2026 Week 6, 'Agentic Code Review': what Goog
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-cs146s-agentic-code-review)
+> :globe: [中文版](/posts/ai/2026-08-16-cs146s-agentic-code-review)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

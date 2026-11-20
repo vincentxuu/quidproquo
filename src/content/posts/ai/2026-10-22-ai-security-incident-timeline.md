@@ -14,7 +14,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-incident-timeline-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-incident-timeline-en)
 
 客服助理說：「我已匯出所有客戶工單。」API 紀錄卻只有 Alice 讀到一張 S-1。AI 幫你把它寫成「全面外洩」時，流暢的摘要反而把事件範圍放大了。
 

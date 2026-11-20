@@ -13,7 +13,7 @@ description: "Meta Muse Code 的技術架構：Muse Spark 1.2 模型、persisten
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-muse-code-meta-coding-agent-en)
+> :globe: [English version](/posts/tech/2026-08-24-muse-code-meta-coding-agent-en)
 
 2026 年 8 月 5 日，Meta Superintelligence Labs 發布 [Muse Code](https://musecodes.io) early beta——Meta 的第一個終端原生 coding agent。領導這個團隊的是 Alexandr Wang（Meta 的 Chief AI Officer，前 Scale AI 創辦人）。
 

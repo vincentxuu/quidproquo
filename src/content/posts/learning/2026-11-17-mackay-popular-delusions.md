@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-11-17-mackay-popular-delusions-en)
+> :globe: [English version](/posts/learning/2026-11-17-mackay-popular-delusions-en)
 
 每次市場大漲大跌，總有人搬出「鬱金香狂熱」：十七世紀的荷蘭人為了一顆球莖傾家蕩產，連掃煙囪的都跳進去炒，最後一夕崩盤、全國經濟受創。1987 年 10 月全球股災後，《經濟學人》就寫道，這場崩盤替 Charles Mackay 1841 年那本書添了新的一章。
 

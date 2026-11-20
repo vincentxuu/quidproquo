@@ -13,7 +13,7 @@ description: "A guide to Valle dell'Orco: gneiss or granite, route counts by sub
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crag-valle-dellorco)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crag-valle-dellorco)
 
 Valle dell'Orco (often shortened to Valle Orco) is in Piedmont (Piemonte) in north-west Italy, on the southern side of [Gran Paradiso National Park](https://pngp.it/en/visit-park/how-reach-us), north of Turin. [theCrag](https://www.thecrag.com/en/climbing/italy/area/389911830) says the valley is famous for its gneiss crack climbing, "which is said to be the best in the Western European Alps". A Planetmountain interview puts it more boldly: the Orco valley "has long been regarded as the birthplace of modern free climbing in Europe" ([Planetmountain](http://www.planetmountain.com/en/news/interviews/free-itaca-nel-sole-valle-dellorco.html)).
 

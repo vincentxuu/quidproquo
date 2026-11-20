@@ -10,7 +10,7 @@ description: "An in-depth teardown of 5 Claude Code multi-agent project architec
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-04-chemistry-times-analysis)
+> :globe: [中文版](/posts/ai/2026-04-04-chemistry-times-analysis)
 
 There are currently over 6,400 `.claude/agents/*.md` files on GitHub. The Claude Code multi-agent ecosystem is growing rapidly, but most people are still stuck at the "install a bunch of subagents and use them haphazardly" stage.
 

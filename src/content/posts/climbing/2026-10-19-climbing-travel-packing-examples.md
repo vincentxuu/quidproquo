@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-travel-packing-examples-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-travel-packing-examples-en)
 
 本文收錄 45 個攀岩者公開分享的搭機攀岩打包實例，時間從 2021 年 9 月到 2026 年 10 月。來源是 Mountain Project、UKClimbing 論壇、Reddit、個人部落格（包括日本攀岩者來台灣爬龍洞的紀錄）、臺灣戶外攀岩協會和 YouTube。讀完，你可以挑一個最像自己行程的配置，照著改成自己的托運和登機清單。
 

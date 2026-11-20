@@ -22,7 +22,7 @@ glossary:
     def: "Google 的受信任資安夥伴計畫；Gemini 4 Argon 與 Carbon 先透過它開放給資安防禦者，之後才進入一般 API"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-family-gemini-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-family-gemini-en)
 
 2023 年 12 月，Google DeepMind 發佈 Gemini 1.0——第一個從預訓練就整合文字、圖片、影片、語音的「原生多模態」模型。到 2026 年，Gemini 3.x 已經把 Flash 線做到 agentic coding 追平前沿；9 月 30 日 Gemini 4 Argon 發表，接著兩個月內 Carbon、Hydrogen、Neon 相繼上線，型號名稱也從 Pro／Flash 改成元素名。這是「AI 模型家族」系列的第四篇家族深度介紹，追蹤 Gemini 從 1.0 到 Gemini 4 的完整演化。
 

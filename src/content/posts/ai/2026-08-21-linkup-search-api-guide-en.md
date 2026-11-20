@@ -13,7 +13,7 @@ series:
   order: 17
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-linkup-search-api-guide)
+> :globe: [中文版](/posts/ai/2026-08-21-linkup-search-api-guide)
 
 [Linkup](https://docs.linkup.so/pages/documentation/get-started/introduction) is a web search API built for AI applications. It can return more than URLs: an application can receive search context for a model, an answer with sources, or an object that follows a JSON Schema. This guide combines orientation with implementation: select the search depth, select the output, then handle full-page content, retries, and cost.
 

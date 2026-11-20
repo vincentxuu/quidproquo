@@ -13,7 +13,7 @@ description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 10: st
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-cs230-inside-the-model)
+> :globe: [中文版](/posts/ai/2026-08-16-cs230-inside-the-model)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -287,7 +287,7 @@ A student asks about the future of synthetic data, and his answer is balanced:
 
 He cites Epoch AI's research, saying low-quality text data, audio-visual data and high-quality data will be exhausted in that order over the coming years (he says himself that he forgets the exact numbers).
 
-> **⚠️ The classroom's staging doesn't match the paper.** Epoch AI's [*Will we run out of data?*](https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data) (Villalobos et al., 2024) gives a **single estimate**, not three per-modality dates: **the stock of public human text, adjusted for quality and duplication, is around 300 trillion tokens, and will be fully used between 2026 and 2032 on current trends** — sooner with overtraining (the paper mentions 5x overtraining exhausting it in 2027, 100x in 2025). The "2025 / 2027 / 2030" set of numbers from class **has no counterpart in this paper.**
+> **:warning: The classroom's staging doesn't match the paper.** Epoch AI's [*Will we run out of data?*](https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data) (Villalobos et al., 2024) gives a **single estimate**, not three per-modality dates: **the stock of public human text, adjusted for quality and duplication, is around 300 trillion tokens, and will be fully used between 2026 and 2032 on current trends** — sooner with overtraining (the paper mentions 5x overtraining exhausting it in 2027, 100x in 2025). The "2025 / 2027 / 2030" set of numbers from class **has no counterpart in this paper.**
 
 **Why "we generate more data than we consume" isn't a rebuttal** — this argument is good:
 

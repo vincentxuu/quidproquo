@@ -13,7 +13,7 @@ description: "CS224N Winter 2026 Lecture 17 的材料缺口與官方閱讀導圖
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224n-multimodality-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224n-multimodality-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

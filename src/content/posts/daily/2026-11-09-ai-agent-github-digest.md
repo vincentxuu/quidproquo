@@ -11,7 +11,7 @@ series:
   order: 86
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-09-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-09-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -47,7 +47,7 @@ caption: 示意：本文用來說明四個 repo 定位的簡化分類，不是�
 
 ## Trending Repos
 
-### anthropics/skills ⭐ 約 18.9 萬（11/9 單日 +793）
+### anthropics/skills ★ 約 18.9 萬（11/9 單日 +793）
 
 [GitHub](https://github.com/anthropics/skills)　·　Python　·　多數子目錄 Apache-2.0
 
@@ -58,7 +58,7 @@ caption: 示意：本文用來說明四個 repo 定位的簡化分類，不是�
 
 ---
 
-### ranxianglei/billion-context ⭐ 約 5,027（11/9 單日 +460）
+### ranxianglei/billion-context ★ 約 5,027（11/9 單日 +460）
 
 [GitHub](https://github.com/ranxianglei/billion-context)　·　TypeScript　·　MIT
 
@@ -69,7 +69,7 @@ caption: 示意：本文用來說明四個 repo 定位的簡化分類，不是�
 
 ---
 
-### milind-soni/OpenMausBot ⭐ 約 1.8 萬（11/9 單日 +1,437）
+### milind-soni/OpenMausBot ★ 約 1.8 萬（11/9 單日 +1,437）
 
 [GitHub](https://github.com/milind-soni/OpenMausBot)　·　TypeScript　·　Apache-2.0
 
@@ -80,7 +80,7 @@ caption: 示意：本文用來說明四個 repo 定位的簡化分類，不是�
 
 ---
 
-### shanselman/sandbox-mcp ⭐ 322（上線 3 天）
+### shanselman/sandbox-mcp ★ 322（上線 3 天）
 
 [GitHub](https://github.com/shanselman/sandbox-mcp)　·　JavaScript　·　MIT
 

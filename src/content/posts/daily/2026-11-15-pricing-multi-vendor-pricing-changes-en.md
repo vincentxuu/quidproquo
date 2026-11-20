@@ -12,7 +12,7 @@ series:
   order: 36
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-15-pricing-multi-vendor-pricing-changes)
+> :globe: [中文版](/posts/daily/2026-11-15-pricing-multi-vendor-pricing-changes)
 
 ## What changed
 
@@ -72,9 +72,9 @@ After December 1, Carbon and Argon's list prices land exactly on Claude Opus 5.5
 
 ## Deadlines to watch
 
-⏰ **Promo expiry (Gemini 4 Carbon/Argon)**: 2026-12-01. Input and output both jump from $2.00/$10.00 to $4.00/$20.00 — the new rate is already published on the official pricing page and changelog, with no grace period.
+:clock: **Promo expiry (Gemini 4 Carbon/Argon)**: 2026-12-01. Input and output both jump from $2.00/$10.00 to $4.00/$20.00 — the new rate is already published on the official pricing page and changelog, with no grace period.
 
-⏰ **Promo expiry (GPT-5.6 Sol)**: 2026-11-30. Price after that date is unconfirmed — OpenAI only updated the expiry wording (from "at least through 11/21" to "until 11/30") and hasn't published what comes next.
+:clock: **Promo expiry (GPT-5.6 Sol)**: 2026-11-30. Price after that date is unconfirmed — OpenAI only updated the expiry wording (from "at least through 11/21" to "until 11/30") and hasn't published what comes next.
 
 ## Today's takeaway
 

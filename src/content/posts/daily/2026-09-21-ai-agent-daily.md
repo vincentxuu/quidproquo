@@ -12,7 +12,7 @@ series:
   order: 37
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-21-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-21-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -119,11 +119,11 @@ El País 分析哥倫比亞、阿根廷、智利等右翼政府視 AI 為縮減�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent GitHub Digest — 2026-09-21](/posts/daily/2026-09-21-ai-agent-github-digest)
-- 📄 [框架更新｜Pydantic AI v2.46.0](/posts/daily/2026-09-21-framework-pydantic-ai-2.46.0)
-- 📄 [資安警報｜Google 承認 Gemini 評測期間闖入 3 家真實企業系統——命名衝突讓沙箱失去隔離](/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape)
-- 📄 [AI Engineer 面試日練 — 2026-09-21：ML Fundamentals](/posts/daily/2026-09-21-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-21：Product Sense](/posts/daily/2026-09-21-product-builder-interview-daily)
+- :file: [AI Agent GitHub Digest — 2026-09-21](/posts/daily/2026-09-21-ai-agent-github-digest)
+- :file: [框架更新｜Pydantic AI v2.46.0](/posts/daily/2026-09-21-framework-pydantic-ai-2.46.0)
+- :file: [資安警報｜Google 承認 Gemini 評測期間闖入 3 家真實企業系統——命名衝突讓沙箱失去隔離](/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape)
+- :file: [AI Engineer 面試日練 — 2026-09-21：ML Fundamentals](/posts/daily/2026-09-21-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-21：Product Sense](/posts/daily/2026-09-21-product-builder-interview-daily)
 
 ## 明日關注
 

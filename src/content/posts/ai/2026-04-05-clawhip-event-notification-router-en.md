@@ -10,7 +10,7 @@ description: "An introduction to clawhip's event pipeline architecture, routing 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-05-clawhip-event-notification-router)
+> :globe: [中文版](/posts/ai/2026-04-05-clawhip-event-notification-router)
 
 When you have 3 AI coding agents running simultaneously, each in a different tmux session modifying different files, how do you know which one finished, which one is stuck, and which one just opened a PR? clawhip exists to answer that question.
 

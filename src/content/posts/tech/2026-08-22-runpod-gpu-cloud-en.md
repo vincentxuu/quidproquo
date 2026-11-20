@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-runpod-gpu-cloud)
+> :globe: [中文版](/posts/tech/2026-08-22-runpod-gpu-cloud)
 
 [RunPod](https://docs.runpod.io/api-reference/overview) exposes two main abstractions. A Pod is an SSH-accessible persistent GPU instance; a Serverless endpoint starts and stops container workers around requests. Choose Pods for notebooks, training, or self-managed daemons and Serverless for inference with a clear request or job contract.
 

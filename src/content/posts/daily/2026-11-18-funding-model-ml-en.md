@@ -12,7 +12,7 @@ series:
   order: 142
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-18-funding-model-ml)
+> :globe: [中文版](/posts/daily/2026-11-18-funding-model-ml)
 
 ## Funding details
 

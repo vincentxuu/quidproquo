@@ -27,7 +27,7 @@ glossary:
     context: "In lead climbing, the climber clips the rope into quickdraws on the way up."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-08-climbing-beginner-guide)
+> :globe: [中文版](/posts/climbing/2026-10-08-climbing-beginner-guide)
 
 People walking into a climbing gym for the first time tend to get stuck at the same spot. The walls are covered in colored holds, some climbers are tied to ropes and some are not, the tags say V2 or 5.9, and it is unclear which wall is meant for you. This post breaks climbing into the choices you will face right away: which styles exist, how to read difficulty, what a first visit costs, and how likely you are to get hurt.
 

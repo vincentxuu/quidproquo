@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-25-tensorrt-llm-inference)
+> :globe: [中文版](/posts/tech/2026-08-25-tensorrt-llm-inference)
 
 [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) is NVIDIA's open-source library for LLM inference. The key difference from vLLM and SGLang is an explicit "compilation" step: model weights and compute graphs are offline-converted into a TensorRT engine, and the runtime uses that engine for inference.
 

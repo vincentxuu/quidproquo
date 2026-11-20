@@ -16,7 +16,7 @@ additionalSeries:
     order: 5
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-devcontainer-sandboxing-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-devcontainer-sandboxing-en)
 
 這是「[Claude Code 深入介紹](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)」系列的安全專篇。上一篇講 [permissions 與 auto mode](/posts/tech/deep-dive/2026-08-26-claude-code-permissions-auto-mode)，解決的是「哪些動作要問你」；這篇解決的是另一個問題：**動作已經在跑了，它碰得到什麼**。
 

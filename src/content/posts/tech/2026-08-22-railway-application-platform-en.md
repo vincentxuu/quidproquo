@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-railway-application-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-railway-application-platform)
 
 [Railway](https://docs.railway.com/overview/the-basics) is an application-project-centered PaaS. A Project holds API, worker, and database Services, while Environments isolate production, staging, and pull requests. It removes image builds, container placement, discovery, domains, TLS, and configuration wiring—not every operational responsibility.
 

@@ -32,7 +32,7 @@ glossary:
         url: "https://omnigent.ai/docs/policies/os-sandbox"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-omnigent-meta-harness)
+> :globe: [中文版](/posts/ai/2026-08-26-omnigent-meta-harness)
 
 Running 4 or 5 agents at once is now normal: [Claude Code](https://code.claude.com/) editing code, [Codex](https://developers.openai.com/codex) running tests, [Cursor](https://cursor.com/) completing in the editor, plus a custom data-analysis agent. The pain is not whether the model is smart enough, but that every harness is an island — its own sessions, permissions and history. Switching tools means re-explaining context, resetting guardrails and copy-pasting again.
 
@@ -113,9 +113,9 @@ Three takeaways:
 
 ### The three shipped examples — copy the third
 
-- **🐙 Polly**: multi-agent coding orchestrator that writes no code itself — it plans, delegates to Claude Code/Codex/Pi sub-agents in parallel git worktrees, then routes diffs to a reviewer from a different vendor than the author.
-- **🟠🔵 Debby**: two-headed debate — same question to Claude and GPT side by side, with `/debate` for cross-critique.
-- **🔎 Deep Research**: single agent + one MCP search server; plans sub-queries, fetches full pages and cross-checks claims. **Simplest to copy.**
+- **Polly**: multi-agent coding orchestrator that writes no code itself — it plans, delegates to Claude Code/Codex/Pi sub-agents in parallel git worktrees, then routes diffs to a reviewer from a different vendor than the author.
+- **:orange-circle::blue-circle: Debby**: two-headed debate — same question to Claude and GPT side by side, with `/debate` for cross-critique.
+- **:search: Deep Research**: single agent + one MCP search server; plans sub-queries, fetches full pages and cross-checks claims. **Simplest to copy.**
 
 ### Models and hosts
 

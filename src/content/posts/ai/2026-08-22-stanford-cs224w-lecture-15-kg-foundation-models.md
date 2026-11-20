@@ -13,7 +13,7 @@ description: "Stanford CS224W Fall 2025 第 15 講完整 agenda 與自學筆記�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-stanford-cs224w-lecture-15-kg-foundation-models-en)
+> :globe: [English version](/posts/ai/2026-08-22-stanford-cs224w-lecture-15-kg-foundation-models-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

@@ -16,7 +16,7 @@ additionalSeries:
     order: 22
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-cloudflare-agents-runtime)
+> :globe: [中文版](/posts/ai/2026-08-30-cloudflare-agents-runtime)
 
 Many "agent apps" are really an HTTP endpoint plus a loop: receive a message, call a model, choose a tool, return a response. That makes a fast demo, but production brings a familiar set of problems: what happens when the user disconnects, how do you route back to the same user session, how does a half-finished tool call recover, and how do WebSocket, email, Slack, and webhook events reach the same state?
 

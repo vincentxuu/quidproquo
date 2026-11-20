@@ -22,7 +22,7 @@ glossary:
     context: "ADL Transformer 講義第 45–52 頁列出四個設計條件，逐一淘汰三種直覺做法後介紹 sinusoidal 版本。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

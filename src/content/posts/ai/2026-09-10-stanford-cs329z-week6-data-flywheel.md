@@ -14,7 +14,7 @@ description: "帶讀 CS329Z 第 6 週 Terminal-Bench 任務定義與 Shankar 資
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel-en)
 
 **影片狀態：已附影片（第 10 堂 Terminal-Bench 客座）。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架；本週第 11 堂（10/28）的錄影尚未上架。
 

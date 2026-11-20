@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-17-tool-mcp-memory-en)
+> :globe: [English version](/posts/daily/2026-08-17-tool-mcp-memory-en)
 
 ## 工具資訊
 
@@ -93,11 +93,11 @@ export MCP_MEMORY_DB_PATH=.mcp_memory/memories.db  # SQLite 索引位置
 
 | | mcp-memory | Mem0 | 手動維護 CLAUDE.md |
 |---|---|---|---|
-| 本機執行、免 API key | ✅ | ❌（需雲端帳號） | ✅ |
-| 標準化格式（可跨 Agent 通用） | ✅（OKF v0.2） | ❌（自有 schema） | ❌（純文字，無 schema） |
-| 全文搜尋 | ✅ SQLite FTS5 | ✅ 向量搜尋 | ❌ 靠 Agent 自己讀全檔 |
-| 人眼可讀、可 Git diff | ✅（Markdown） | ❌（存在向量資料庫） | ✅ |
-| Session checkpoint（記錄「做到哪了」） | ✅ | 需自行設計 | 需自行維護 |
+| 本機執行、免 API key | ✓ | ✗（需雲端帳號） | ✓ |
+| 標準化格式（可跨 Agent 通用） | ✓（OKF v0.2） | ✗（自有 schema） | ✗（純文字，無 schema） |
+| 全文搜尋 | ✓ SQLite FTS5 | ✓ 向量搜尋 | ✗ 靠 Agent 自己讀全檔 |
+| 人眼可讀、可 Git diff | ✓（Markdown） | ✗（存在向量資料庫） | ✓ |
+| Session checkpoint（記錄「做到哪了」） | ✓ | 需自行設計 | 需自行維護 |
 | 費用 | 免費 | $19–249/mo | 免費 |
 
 ## 注意事項

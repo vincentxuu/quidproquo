@@ -13,7 +13,7 @@ description: "Series introduction for 'Training an LLM from Scratch': 11 article
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-06-train-llm-from-scratch-series-intro)
+> :globe: [中文版](/posts/ai/2026-09-06-train-llm-from-scratch-series-intro)
 
 Calling an LLM through an API and training one from scratch are the two ends of the same map. Everyone has tried the former; a few years ago the latter was a "big-lab-only" activity — billion-dollar budgets and thousands of GPUs. [MiniMind](https://github.com/jingyaogong/minimind) pulled that line down to about $0.4 (the cost of renting one RTX 3090 for two hours), while at the other end [LLM360 K2](https://github.com/LLM360/k2-train) shows what "fully reproducible" looks like at industrial scale: 65B parameters, 1.4T tokens. This is the introduction to the "Training an LLM from Scratch" series (11 articles): first we define what we selected and why, then lay out the cost spectrum, the coverage matrix, and the bias annotations, and finally the learning path.
 
@@ -52,17 +52,17 @@ Framed as a matrix, you can see which dimensions this series has a dedicated par
 
 | Dimension | Population representatives | Series coverage |
 |---|---|---|
-| Extremely cheap teaching (<$10) | MiniMind, baby-llama2-chinese | ✅ parts 1, 3 |
-| Minimal engineering ($100–1,000) | nanochat, llm.c | ✅ part 2 |
-| Chinese-data-first | baby-llama2-chinese, ChatLM-mini-Chinese, Steel-LLM | ✅ part 3 |
-| Data-efficiency research | YuLan-Mini | ✅ part 4 |
-| Industrial full openness | OLMo 3, LLM360 K2 | ✅ part 5 |
-| Open recipe but smaller scale | SmolLM3, MiniCPM, etc. | ⚠️ partially covered |
-| Retired research tools | Pythia, TinyLlama | ⚠️ discussed below |
-| National / multilingual sovereignty | Apertus (Switzerland), LLM-jp (Japan) | ✅ part 7 |
-| Efficiency / edge / multimodal | OpenELM (Apple), MiniCPM (OpenBMB) | ✅ part 8 |
-| From-scratch training framework | LitGPT (Lightning AI) | ✅ part 9 |
-| Non-Transformer architectures | RWKV, Mamba family | ⚠️ contrast section in part 7 |
+| Extremely cheap teaching (<$10) | MiniMind, baby-llama2-chinese | ✓ parts 1, 3 |
+| Minimal engineering ($100–1,000) | nanochat, llm.c | ✓ part 2 |
+| Chinese-data-first | baby-llama2-chinese, ChatLM-mini-Chinese, Steel-LLM | ✓ part 3 |
+| Data-efficiency research | YuLan-Mini | ✓ part 4 |
+| Industrial full openness | OLMo 3, LLM360 K2 | ✓ part 5 |
+| Open recipe but smaller scale | SmolLM3, MiniCPM, etc. | :warning: partially covered |
+| Retired research tools | Pythia, TinyLlama | :warning: discussed below |
+| National / multilingual sovereignty | Apertus (Switzerland), LLM-jp (Japan) | ✓ part 7 |
+| Efficiency / edge / multimodal | OpenELM (Apple), MiniCPM (OpenBMB) | ✓ part 8 |
+| From-scratch training framework | LitGPT (Lightning AI) | ✓ part 9 |
+| Non-Transformer architectures | RWKV, Mamba family | :warning: contrast section in part 7 |
 
 **Retired cases**: we mention [Pythia](https://github.com/EleutherAI/pythia) (EleutherAI's 154-checkpoint research suite) and [TinyLlama](https://github.com/jzhang38/TinyLlama) (1.1B, 3T tokens), not because they broke, but because they finished their job and retired gracefully — Pythia's value lies in the intermediate checkpoints it left for research; TinyLlama proved "small models can also eat tokens to saturation." They are "past-tense tools still in use," used here only as reference points.
 

@@ -12,7 +12,7 @@ series:
   order: 77
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-13-tool-0security)
+> :globe: [中文版](/posts/daily/2026-11-13-tool-0security)
 
 ## Tool info
 
@@ -129,7 +129,7 @@ Local MCP requires explicitly selecting a host-local execution profile; the "Con
 | Language | TypeScript | Python | TypeScript | Python |
 | Interfaces | Web console / CLI / MCP | CLI / local web viewer / agent skills | CLI / CI actions | CLI / REPL, with MCP support |
 | Scope | Web / LLM / MCP / source / packages / binaries / kernel | Code / web apps / APIs | Web apps and APIs (source required) | General-purpose offense/defense automation |
-| Binary reverse engineering | ✅ 0verse (Ghidra / angr / AFL++) | Not documented | Not documented | Not documented |
+| Binary reverse engineering | ✓ 0verse (Ghidra / angr / AFL++) | Not documented | Not documented | Not documented |
 | Status | Research preview | Active | Active | Archived 2026-08-28 |
 
 Strix and Shannon both have far more stars than 0, but right now 0 is the only one of the four that publicly documents binary reverse engineering and kernel-level coverage — the clearest difference between it and the two more popular alternatives.

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-nebius-ai-cloud)
+> :globe: [中文版](/posts/tech/2026-08-22-nebius-ai-cloud)
 
 [Nebius AI Cloud](https://docs.nebius.com/) is a full cloud centered on AI workloads. Its infrastructure includes GPU VMs, InfiniBand GPU clusters, disk/file/object storage, and VPCs. Managed Kubernetes and Slurm-based Soperator provide orchestration; Serverless AI endpoints and jobs, MLflow, and packaged applications sit above them.
 

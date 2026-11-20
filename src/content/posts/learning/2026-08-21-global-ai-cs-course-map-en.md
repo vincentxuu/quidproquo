@@ -13,7 +13,7 @@ description: "A 2025–2026 guide to AI and CS course access at Stanford, CMU, M
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-global-ai-cs-course-map)
+> :globe: [中文版](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

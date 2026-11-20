@@ -24,7 +24,7 @@ glossary:
     context: "The Lecture 5 slides say about 8 is a good ratio in practice: too little makes balancing hard, too much raises the cost of managing fine-grained work."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-work-distribution-scheduling)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-work-distribution-scheduling)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

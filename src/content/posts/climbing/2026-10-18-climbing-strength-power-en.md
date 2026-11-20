@@ -22,7 +22,7 @@ glossary:
     context: "Boulderers show clearly higher RFD than lead climbers; it is what the campus board mainly trains."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-strength-power)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-strength-power)
 
 You have seen it at the gym: someone with their feet off the wall, hands slapping up a board of wooden rungs one at a time. It looks great and you want to try. Or your problem is the other kind: on steep walls you can still hold the holds, but your arms and back give out first.
 

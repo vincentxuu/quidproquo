@@ -10,7 +10,7 @@ description: "A walkthrough of Anthropic's official blog post 'The Claude Code G
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-claude-code-startup-guide)
+> :globe: [中文版](/posts/ai/2026-08-22-claude-code-startup-guide)
 
 Anthropic published [The Claude Code Guide For Startups](https://claude.com/blog/claude-code-guide-for-startups) on August 20, 2026 — a long-form piece based on interviews with fifteen fast-growing startups: ClickHouse, Clay, Omni, Artemis Security, Harvey, Cognition, Commure, Heidi, Crosby, Zingage, Emergent, Translucent, Higgsfield, Parahelp, and Cainex. The article distills how these companies use Claude Code to ship like organizations ten times their size.
 

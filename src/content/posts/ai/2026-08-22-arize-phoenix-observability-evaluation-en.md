@@ -10,7 +10,7 @@ description: "A tracing-to-evaluation guide to Arize Phoenix: OpenTelemetry, Ope
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-arize-phoenix-observability-evaluation)
+> :globe: [中文版](/posts/ai/2026-08-22-arize-phoenix-observability-evaluation)
 
 [Arize Phoenix](https://github.com/Arize-ai/phoenix) matters for more than its trace viewer. It connects four steps that often remain separate: find a production failure in a trace, collect it in a dataset, run an experiment against a candidate version, and use evaluators to decide whether the change actually improved anything.
 

@@ -22,7 +22,7 @@ glossary:
     context: "The L03 appendix uses it to show why KL exposes differences that cross entropy hides when learning soft targets, as in knowledge distillation."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-03-gan)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-03-gan)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-21-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-21-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -101,14 +101,14 @@ Stripe 收購 OpenRouter、Ramp 收購 router.com 詳見深度分析。另外：
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-21](/posts/daily/2026-08-21-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-08-21](/posts/daily/2026-08-21-ai-agent-github-digest)
-- 📄 [AI Engineer 面試日練 — 2026-08-21：Coding（ML 手刻實作）](/posts/daily/2026-08-21-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-08-21：Growth & Experimentation](/posts/daily/2026-08-21-product-builder-interview-daily)
-- 📄 [融資速報｜Callosum $100M 種子輪](/posts/daily/2026-08-21-funding-callosum)
-- 📄 [融資速報｜Twin1 AI $20M 種子輪](/posts/daily/2026-08-21-funding-twin1-ai)
-- 📄 [資安警報｜Splunk MCP Server RCE](/posts/daily/2026-08-21-security-splunk-mcp-server-toolkit-rce)
-- 📄 [工具推薦｜claude-scope](/posts/daily/2026-08-21-tool-claude-scope)
+- :file: [AI Agent Arxiv Digest — 2026-08-21](/posts/daily/2026-08-21-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-08-21](/posts/daily/2026-08-21-ai-agent-github-digest)
+- :file: [AI Engineer 面試日練 — 2026-08-21：Coding（ML 手刻實作）](/posts/daily/2026-08-21-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-08-21：Growth & Experimentation](/posts/daily/2026-08-21-product-builder-interview-daily)
+- :file: [融資速報｜Callosum $100M 種子輪](/posts/daily/2026-08-21-funding-callosum)
+- :file: [融資速報｜Twin1 AI $20M 種子輪](/posts/daily/2026-08-21-funding-twin1-ai)
+- :file: [資安警報｜Splunk MCP Server RCE](/posts/daily/2026-08-21-security-splunk-mcp-server-toolkit-rce)
+- :file: [工具推薦｜claude-scope](/posts/daily/2026-08-21-tool-claude-scope)
 
 ## 明日關注
 

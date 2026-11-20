@@ -27,7 +27,7 @@ glossary:
     context: "Mitake and Tennoiwa in western Tokyo are chert, and Mitake is often mislabeled as granite."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-08-seoul-tokyo-climbing-trip-april)
+> :globe: [中文版](/posts/climbing/2026-10-08-seoul-tokyo-climbing-trip-april)
 
 In 2027 Taiwan's Children's Day and Tomb Sweeping holiday runs four days, from Saturday 4/3 to Tuesday 4/6. Add a few days of leave on either side and it becomes a 14-day trip: the first half on the granite multi-pitch of Bukhansan in Seoul, the second half at the crags around Tokyo, then home from Tokyo. This post covers three things: how to buy the flights cheaply, which crags you can really get to in early April, and how to buy two trips together if you plan to go again in September.
 

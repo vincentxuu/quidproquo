@@ -13,7 +13,7 @@ description: "A guide to granite bouldering in Gallura: size and season at La Ce
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-gallura)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-gallura)
 
 Gallura is the north-east corner of Sardinia, and its main town, Olbia, has an airport and a ferry port. When Italian climbers think of Sardinia they usually think of limestone on the east coast, like [Cala Gonone](/posts/climbing/2026-10-18-italy-crag-cala-gonone-en). But as [Planetmountain](https://www.planetmountain.com/it/falesie/boulder-gallura-sardegna.html) points out, most of the island's rock is actually granite, and Gallura in particular is strewn with boulders.
 

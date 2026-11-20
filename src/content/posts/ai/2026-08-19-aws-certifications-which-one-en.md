@@ -13,7 +13,7 @@ description: "A guide to choosing among AWS's three AI certifications (AIF-C01 /
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-19-aws-certifications-which-one)
+> :globe: [中文版](/posts/ai/2026-08-19-aws-certifications-which-one)
 >
 > This is a selection guide built from official material, not an exam-day account — I have not sat these exams. Every "what it tests" points back to the official exam guides and every spec points back to the official certification pages. No leaked questions. Last checked 2026-09-12.
 

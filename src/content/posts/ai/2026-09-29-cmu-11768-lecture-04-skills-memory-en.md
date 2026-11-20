@@ -24,7 +24,7 @@ glossary:
     context: "Most memory methods in this post start from trajectories and then decide how much detail to keep."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -26,7 +26,7 @@ glossary:
     context: "CS224R Lecture 8 uses it to learn a reward from human trajectory preferences. LLM reward models use the same objective."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-reward-learning)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-reward-learning)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

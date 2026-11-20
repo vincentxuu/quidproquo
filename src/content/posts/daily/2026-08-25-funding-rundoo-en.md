@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-25-funding-rundoo)
+> :globe: [中文版](/posts/daily/2026-08-25-funding-rundoo)
 
 ## Funding Details
 

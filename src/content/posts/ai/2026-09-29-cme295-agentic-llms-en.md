@@ -30,7 +30,7 @@ glossary:
     context: "MCP connects LLMs to tools; A2A connects agents to agents. The lecture covers both."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-agentic-llms)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-agentic-llms)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

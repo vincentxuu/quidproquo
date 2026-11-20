@@ -11,7 +11,7 @@ series:
   order: 90
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-13-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-13-ai-agent-github-digest-en)
 
 
 ## 今日亮點
@@ -48,7 +48,7 @@ caption: 示意：本文用來分類今天四個項目的重點,不是正式的�
 
 ## Trending Repos
 
-### DIYgod/pinky ⭐ 1,992（上線 1 週）
+### DIYgod/pinky ★ 1,992（上線 1 週）
 
 [GitHub](https://github.com/DIYgod/pinky)　·　Go　·　Apache-2.0
 
@@ -59,7 +59,7 @@ caption: 示意：本文用來分類今天四個項目的重點,不是正式的�
 
 ---
 
-### RapidSailorFreeze/studsmith ⭐ 95（上線 5 天）
+### RapidSailorFreeze/studsmith ★ 95（上線 5 天）
 
 [GitHub](https://github.com/RapidSailorFreeze/studsmith)　·　Windows 應用程式　·　免費
 
@@ -70,7 +70,7 @@ caption: 示意：本文用來分類今天四個項目的重點,不是正式的�
 
 ---
 
-### nengong/download-anything ⭐ 221（上線 9 天)
+### nengong/download-anything ★ 221（上線 9 天)
 
 [GitHub](https://github.com/nengong/download-anything)　·　Python　·　README 標示 MIT
 

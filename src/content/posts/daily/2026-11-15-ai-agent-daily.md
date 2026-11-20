@@ -12,7 +12,7 @@ series:
   order: 92
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-15-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-15-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -161,16 +161,16 @@ GitHub 生態的訊號是 GitHub、Alibaba、OpenAI、DeepSeek 同週把自己�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-15](/posts/daily/2026-11-15-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-15](/posts/daily/2026-11-15-ai-agent-github-digest)
-- 📄 [模型卡｜LongCat-2.5](/posts/daily/2026-11-15-model-meituan-longcat-2-5)
-- 📄 [資安警報｜官方 MCP Git Server .git/config RCE](/posts/daily/2026-11-15-security-mcp-git-server-gitconfig-rce)
-- 📄 [融資速報｜Lumbra Series A $25M](/posts/daily/2026-11-15-funding-lumbra)
-- 📄 [融資速報｜Mercor Series D $750M](/posts/daily/2026-11-15-funding-mercor)
-- 📄 [定價追蹤｜Gemini 4／GPT-5.6 Sol 促銷到期](/posts/daily/2026-11-15-pricing-multi-vendor-pricing-changes)
-- 📄 [工具推薦｜Copper KiCad MCP](/posts/daily/2026-11-15-tool-copper-kicad-mcp)
-- 📄 [AI Engineer 面試準備日報](/posts/daily/2026-11-15-ai-interview-daily)
-- 📄 [Product Builder 面試準備日報](/posts/daily/2026-11-15-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-15](/posts/daily/2026-11-15-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-15](/posts/daily/2026-11-15-ai-agent-github-digest)
+- :file: [模型卡｜LongCat-2.5](/posts/daily/2026-11-15-model-meituan-longcat-2-5)
+- :file: [資安警報｜官方 MCP Git Server .git/config RCE](/posts/daily/2026-11-15-security-mcp-git-server-gitconfig-rce)
+- :file: [融資速報｜Lumbra Series A $25M](/posts/daily/2026-11-15-funding-lumbra)
+- :file: [融資速報｜Mercor Series D $750M](/posts/daily/2026-11-15-funding-mercor)
+- :file: [定價追蹤｜Gemini 4／GPT-5.6 Sol 促銷到期](/posts/daily/2026-11-15-pricing-multi-vendor-pricing-changes)
+- :file: [工具推薦｜Copper KiCad MCP](/posts/daily/2026-11-15-tool-copper-kicad-mcp)
+- :file: [AI Engineer 面試準備日報](/posts/daily/2026-11-15-ai-interview-daily)
+- :file: [Product Builder 面試準備日報](/posts/daily/2026-11-15-product-builder-interview-daily)
 
 ## 明日關注
 

@@ -30,7 +30,7 @@ glossary:
     context: "先鋒焦慮研究多半用 onsight 的方式測。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-mental-tactics-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-mental-tactics-overview-en)
 
 你在岩館拿到先鋒卡了。一條 5.10a 頂繩已經爬過好幾次，換成先鋒，爬到第三支快扣上方，手突然抓得很緊，腳開始抖，最後喊了 take。下來之後你很困惑：明明爬得過，怎麼會這樣？
 

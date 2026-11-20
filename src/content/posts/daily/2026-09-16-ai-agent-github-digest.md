@@ -17,7 +17,7 @@ series:
 
 ## Trending Repos
 
-### alibaba/open-code-review ⭐ 28,008（今日 GitHub Trending 第一名）
+### alibaba/open-code-review ★ 28,008（今日 GitHub Trending 第一名）
 
 [GitHub](https://github.com/alibaba/open-code-review)　·　Go　·　Apache-2.0
 
@@ -28,7 +28,7 @@ series:
 
 ---
 
-### pacifio/atlas ⭐ 4,545
+### pacifio/atlas ★ 4,545
 
 [GitHub](https://github.com/pacifio/atlas)　·　Rust　·　MIT
 
@@ -39,7 +39,7 @@ series:
 
 ---
 
-### alphaXiv/OpenResearch ⭐ 3,168
+### alphaXiv/OpenResearch ★ 3,168
 
 [GitHub](https://github.com/alphaXiv/OpenResearch)　·　Rust　·　MIT
 
@@ -50,7 +50,7 @@ series:
 
 ---
 
-### melgarafael/DeskcommCRM ⭐ 2,714
+### melgarafael/DeskcommCRM ★ 2,714
 
 [GitHub](https://github.com/melgarafael/DeskcommCRM)　·　TypeScript　·　MIT
 
@@ -61,7 +61,7 @@ series:
 
 ---
 
-### JustVugg/colibri ⭐ 33,463
+### JustVugg/colibri ★ 33,463
 
 [GitHub](https://github.com/JustVugg/colibri)　·　C　·　Apache-2.0
 

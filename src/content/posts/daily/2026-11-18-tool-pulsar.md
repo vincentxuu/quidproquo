@@ -12,7 +12,7 @@ series:
   order: 82
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-18-tool-pulsar-en)
+> :globe: [English version](/posts/daily/2026-11-18-tool-pulsar-en)
 
 ## 工具資訊
 
@@ -129,12 +129,12 @@ pulsar doctor
 
 | | pulsar | Claude Code 內建 `SendMessage` | 手動切視窗通知 |
 |---|---|---|---|
-| 跨 harness（Codex、OpenCode、Cursor…） | ✅ | ❌（限 Claude） | ✅（但要人工） |
-| 用 tag/selector 找一群 agent | ✅ | ❌ | ❌ |
-| 廣播給全部 agent（`*`） | ✅ | ❌ | ❌ |
-| push 叫醒閒置 agent | ✅ | ✅ | ❌ |
-| 等回覆（`ask`/`wait`） | ✅ | ❌ | ❌ |
-| 跨機器 | ❌（v1 僅限單機，README 預告 Tailscale 支援在路上） | ✅（Remote Control） | — |
+| 跨 harness（Codex、OpenCode、Cursor…） | ✓ | ✗（限 Claude） | ✓（但要人工） |
+| 用 tag/selector 找一群 agent | ✓ | ✗ | ✗ |
+| 廣播給全部 agent（`*`） | ✓ | ✗ | ✗ |
+| push 叫醒閒置 agent | ✓ | ✓ | ✗ |
+| 等回覆（`ask`/`wait`） | ✓ | ✗ | ✗ |
+| 跨機器 | ✗（v1 僅限單機，README 預告 Tailscale 支援在路上） | ✓（Remote Control） | — |
 
 ## 注意事項
 

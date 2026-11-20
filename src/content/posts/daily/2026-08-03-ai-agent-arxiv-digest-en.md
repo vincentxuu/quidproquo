@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 71
 ---
-> 🌏 [中文版](/posts/daily/2026-08-03-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-03-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -72,9 +72,9 @@ This decoupling lets you swap organizational structures while holding the algori
 
 - The three layers map to established management theories: Belbin roles (organization layer), Mintzberg coordination mechanisms (coordination layer), and algorithm research literature (collaboration layer)
 - All seven pluggable collaboration algorithms sit behind a single interface; in principle, you can add an eighth without touching the other layers
-- Adaptive Org Routing is a meta-protocol that dynamically selects the collaboration algorithm based on task characteristics **⚠️ The paper provides no standalone evaluation data for this module**
+- Adaptive Org Routing is a meta-protocol that dynamically selects the collaboration algorithm based on task characteristics **:warning: The paper provides no standalone evaluation data for this module**
 - LangGraph mapping: graph state ≈ coordination layer; agent node definition ≈ organization layer; reduce function ≈ collaboration algorithm layer
-- The paper includes no experiments at scale (>10 agents); all experiments run on small tasks **⚠️**
+- The paper includes no experiments at scale (>10 agents); all experiments run on small tasks **:warning:**
 - Adoption barrier: IMACS is a Python framework requiring integration into existing systems; the "three-departments" preset is experimental and its practical value remains unvalidated
 - For CrewAI users: CrewAI's crew definition mixes the organization and collaboration layers — IMACS's decoupling approach serves as a useful refactoring reference
 
@@ -128,7 +128,7 @@ APPA breaks the "security vs. usability" zero-sum relationship. Across 4 models,
 ### Deep Dive
 
 - Evaluation: multi-turn tool-chaining benchmark across 4 models (paper does not fully disclose model names)
-- Key numbers: exfiltration attack success rate 31%–50% → 0%–7%, near zero across all 4 models; branching substantially restored usability vs. pure taint tracking **⚠️ "substantially" is descriptive; see the paper's tables for exact ratios**
+- Key numbers: exfiltration attack success rate 31%–50% → 0%–7%, near zero across all 4 models; branching substantially restored usability vs. pure taint tracking **:warning: "substantially" is descriptive; see the paper's tables for exact ratios**
 - Archestra AI is a small AI safety company; this is their research output with no independent third-party validation yet
 - The "sanitizer" requires manual or rule-based definition — this is the biggest deployment barrier: you need sanitization logic for each data type
 - LangGraph integration path: context branching could be implemented at the node level, but LangGraph currently has no native IFC support
@@ -158,7 +158,7 @@ A survey of 21 academic proposals + 5 commercial agents reveals that nearly all 
 
 ### Read Priority
 
-📖 Skim
+:book: Skim
 Good reading for PMs/product designers: a map of existing agent authorization approaches that quickly shows where academia and industry stand, and what your product is missing.
 
 ### Background
@@ -187,10 +187,10 @@ This paper provides a "diagnostic tool": you can use the three-layer framework t
 - The 21 academic proposals span major agent security literature from 2022–2026
 - Three analysis dimensions: (1) UI Specification: can users choose "allow / deny / require confirmation" in the interface? (2) Policy Derivation: can the system automatically convert these choices into enforceable backend access-control rules? (3) Enforcement Mechanism: does the agent actually check these rules at runtime?
 - Key finding: academic proposals emphasize enforcement architecture design but have weak UI/UX layers; commercial systems show the opposite — settings interfaces look comprehensive, but backend enforcement is often insufficiently rigorous
-- The 5 commercial system analyses are black-box observations (external interface behavior), not necessarily reflecting internal enforcement mechanisms **⚠️**
+- The 5 commercial system analyses are black-box observations (external interface behavior), not necessarily reflecting internal enforcement mechanisms **:warning:**
 - The paper is a "survey + classification framework" type — no implementation or evaluation numbers of its own. This is a limitation, but also makes its conclusions more neutral
 - MCP relevance: MCP's tool permissions are currently configured client-side, a developer-level setting; the user-level authorization gap this paper identifies directly names the next challenge for the MCP ecosystem
-- Related reading: Janus (2607.01510) proposes a user authorization management playground implementation, serving as a practical counterpart to this survey **⚠️ (not selected for this digest — readers can follow up independently)**
+- Related reading: Janus (2607.01510) proposes a user authorization management playground implementation, serving as a practical counterpart to this survey **:warning: (not selected for this digest — readers can follow up independently)**
 
 ### Reviewer's Take
 

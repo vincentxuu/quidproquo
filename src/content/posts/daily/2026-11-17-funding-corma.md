@@ -12,7 +12,7 @@ series:
   order: 140
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-17-funding-corma-en)
+> :globe: [English version](/posts/daily/2026-11-17-funding-corma-en)
 
 ## 融資資訊
 

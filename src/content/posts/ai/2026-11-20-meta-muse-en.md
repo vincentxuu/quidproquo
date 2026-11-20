@@ -13,14 +13,14 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-20-meta-muse)
+> :globe: [中文版](/posts/ai/2026-11-20-meta-muse)
 
 | Four tests | Meta Muse |
 |---|---|
-| Keeps running while you're away | ✅ Runs on a per-user cloud VM; keeps going after you close the app |
-| Decides what to do when it wakes | ✅ L3: pushes suggestions and reports without being asked |
-| Remembers your goals across conversations | ✅ Remembers details you mentioned once; you can tell it to forget |
-| Acts for you | ✅ Sends email, shops, fills forms, answers Marketplace messages; calls businesses for US paid subscribers |
+| Keeps running while you're away | ✓ Runs on a per-user cloud VM; keeps going after you close the app |
+| Decides what to do when it wakes | ✓ L3: pushes suggestions and reports without being asked |
+| Remembers your goals across conversations | ✓ Remembers details you mentioned once; you can tell it to forget |
+| Acts for you | ✓ Sends email, shops, fills forms, answers Marketplace messages; calls businesses for US paid subscribers |
 
 In late September 2026, Matt Robb, a consumer tech reviewer in Toronto, let Muse handle his Facebook Marketplace listing for a keyboard. During setup he gave it the pickup location and approved automatic replies. [According to The Guardian](https://www.theguardian.com/technology/2026/sep/28/metas-ai-agent-muse-home-address), over the following day Muse negotiated with a buyer in Robb's name, accepted a lowball offer and sent his home address. When the buyer arrived with his wife and daughter, Muse replied "yep I'm here!", but Robb wasn't home. The buyer gave up after 20 minutes; an hour later he got an apology saying Robb had "got tied up", which Muse also made up.
 

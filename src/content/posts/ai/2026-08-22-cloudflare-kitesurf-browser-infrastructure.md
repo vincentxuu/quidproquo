@@ -13,7 +13,7 @@ series:
   order: 24
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure-en)
+> :globe: [English version](/posts/ai/2026-08-22-cloudflare-kitesurf-browser-infrastructure-en)
 
 [Kitesurf](https://developers.cloudflare.com/browser-run/kitesurf/) 是 Cloudflare 在 2026-08-06 公布的 agent 專用瀏覽器引擎。它不是 Chromium 包裝，也不是讓人日常上網的桌面瀏覽器。它用 Rust、WebAssembly 與 Cloudflare Workers isolates 實作 agent 常用的 DOM、JavaScript、擷取與繪圖能力。
 

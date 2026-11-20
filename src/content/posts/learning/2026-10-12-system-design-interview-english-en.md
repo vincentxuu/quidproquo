@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-12-system-design-interview-english)
+> :globe: [中文版](/posts/learning/2026-10-12-system-design-interview-english)
 
 This is the third piece of interview speaking. After [coding interviews](/posts/learning/2026-10-12-coding-interview-english-en) and [handling follow-up questions](/posts/learning/2026-10-12-interview-thinking-time-english-en), what remains is the system design interview.
 

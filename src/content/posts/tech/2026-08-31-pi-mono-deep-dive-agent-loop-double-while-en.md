@@ -13,7 +13,7 @@ description: "Deep dive into pi-agent-core Agent Loop core logic (~800 lines). D
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-agent-loop-double-while)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-agent-loop-double-while)
 
 ## TL;DR
 

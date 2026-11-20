@@ -15,7 +15,7 @@ glossary:
     def: "The new model architecture generation Alibaba's Qwen team introduced in November 2026, led by Qwen4-Max; its core changes are QSA sparse attention, Gated Residuals, and an N-gram Embedding layer"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-18-model-qwen-qwen4-max)
+> :globe: [中文版](/posts/daily/2026-11-18-model-qwen-qwen4-max)
 
 ## Model Info
 
@@ -49,7 +49,7 @@ glossary:
 | ProgramBench (raw coding) | 31.5 | 28.0 | Claude Opus 5.5: 65.0 |
 | HLAB-Vals-1.1 (legal agent) | 21.3 | 15.4 | Kimi K3.1: 11.7 |
 
-⚠️ All 16 comparison points come from Alibaba's own published Qwen4-Max benchmark chart; none have been independently reproduced as of this writing. Notably, the chart lists Kimi K3.1 Pro's Terminal-Bench 4.0 score as 67.2, while Moonshot's own published figure for the same benchmark is 65.7 — a mismatch that's a reminder that scores borrowed from a rival's launch material don't always come from the same test run.
+:warning: All 16 comparison points come from Alibaba's own published Qwen4-Max benchmark chart; none have been independently reproduced as of this writing. Notably, the chart lists Kimi K3.1 Pro's Terminal-Bench 4.0 score as 67.2, while Moonshot's own published figure for the same benchmark is 65.7 — a mismatch that's a reminder that scores borrowed from a rival's launch material don't always come from the same test run.
 
 ## Comparison with Previous Generation / Competitors
 

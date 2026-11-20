@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

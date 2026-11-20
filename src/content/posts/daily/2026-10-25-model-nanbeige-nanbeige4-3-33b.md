@@ -15,7 +15,7 @@ glossary:
     def: "中國招聘平台 BOSS直聘母公司 Kanzhun Limited 旗下的開源大型語言模型團隊，先前以 3B 級小模型為主，Nanbeige4.3-33B 是其首款 30B 級旗艦模型"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-25-model-nanbeige-nanbeige4-3-33b-en)
+> :globe: [English version](/posts/daily/2026-10-25-model-nanbeige-nanbeige4-3-33b-en)
 
 ## 模型資訊
 
@@ -95,7 +95,7 @@ caption: 資料來源：Nanbeige 官方 Hugging Face 模型卡自測，評審模
 </svg>
 ```
 
-⚠️ 以上均為 Nanbeige 官方自測，模型卡的腳註說明部分基準使用 GPT-6 Sol 或 Claude Code 作為評審／執行工具，尚待外部獨立複現。
+:warning: 以上均為 Nanbeige 官方自測，模型卡的腳註說明部分基準使用 GPT-6 Sol 或 Claude Code 作為評審／執行工具，尚待外部獨立複現。
 
 ## 與前代/競品比較
 

@@ -11,7 +11,7 @@ description: "A guide to Stanford CS124 Winter 2026 Week 3: features for text cl
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs124-week3-logistic-regression)
+> :globe: [中文版](/posts/ai/2026-08-22-cs124-week3-logistic-regression)
 
 This is Week 3 of [Reading Stanford CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en). Last week cut text into tokens and counted them. This week makes a judgment about a whole piece of text: is this review positive or negative? Is this email spam?
 

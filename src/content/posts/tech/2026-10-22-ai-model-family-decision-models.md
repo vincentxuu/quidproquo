@@ -22,7 +22,7 @@ glossary:
     definition: "Artificial Analysis Decision Index v2 的主指標：每題得分 50 ×（1 + c −（p − c）²），p 是模型給選中答案的機率，c 是答對與否。答對在 50 到 100 之間、答錯在 0 到 50 之間，越有把握的錯誤扣越多；整體等於 50 ×（1 + 準確率 − Brier score）。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-22-ai-model-family-decision-models-en)
+> :globe: [English version](/posts/tech/2026-10-22-ai-model-family-decision-models-en)
 
 決策模型（decision model）把一般 LLM 的「生成一段文字，你再自己寫 parser」換成「你先把選項列好，模型直接回每個選項的機率」。TypeSafe 在 2026 年 9 月 15 日提出 System One 之後，到 11 月 20 日，這個類別已經從一家變成二十家以上：[Jev 1.14](https://docs.typesafe.ai/models)、[Google Gemini Decision 1](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)、[OpenAI 的 Decisions API](https://developers.openai.com/api/docs/guides/decisions)、[Perplexity Decider v1.3](https://docs.perplexity.ai/docs/decisions/quickstart)、[Microsoft-Decision-1.1](https://commandline.microsoft.com/microsoft-decision-model-ga/)、[Liquid d1.2-ultra](https://www.liquid.ai/blog/d1-2)、[Nace.AI Drex](https://www.nace.ai/drex/decision-index)、[Subquadratic SubQ Snap](https://docs.subq.ai/using-the-api/models/)、[Base Labs 的 mammoth-1](https://huggingface.co/baselabs/mammoth-1)、[vLLM 的 d3](https://huggingface.co/vllm-sr/d3)、[StartLux-Decision](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant)、[Fastino GLiDE](https://fastino.ai/blog/introducing-glide-the-first-thinking-decision-model)、[Celeris-1.1 Decision](https://celeris.ai/pricing)、[Inception Mercury Decide](https://docs.inceptionlabs.ai/get-started/models)、[Cloudflare Clef](https://blog.cloudflare.com/clef-decision-models)。
 

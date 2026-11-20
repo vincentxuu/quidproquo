@@ -11,7 +11,7 @@ series:
   order: 49
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-03-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-03-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ The top of today's GitHub Trending daily chart is dominated by tools that help a
 
 ## Trending Repos
 
-### caveman ⭐ 108,980 (#2 on GitHub's daily trending chart)
+### caveman ★ 108,980 (#2 on GitHub's daily trending chart)
 
 [GitHub](https://github.com/JuliusBrussee/caveman)　·　Go　·　Apache-2.0
 
@@ -30,7 +30,7 @@ The top of today's GitHub Trending daily chart is dominated by tools that help a
 
 ---
 
-### context-mode ⭐ 24,974 (#10 on GitHub's daily trending chart)
+### context-mode ★ 24,974 (#10 on GitHub's daily trending chart)
 
 [GitHub](https://github.com/mksglu/context-mode)　·　TypeScript　·　License: Other (non-standard license — check the terms before use)
 
@@ -41,7 +41,7 @@ The top of today's GitHub Trending daily chart is dominated by tools that help a
 
 ---
 
-### codegraph ⭐ 72,902 (#13 on GitHub's daily trending chart)
+### codegraph ★ 72,902 (#13 on GitHub's daily trending chart)
 
 [GitHub](https://github.com/colbymchenry/codegraph)　·　Rust core (GitHub's language stats show C, likely a bundled runtime)　·　MIT
 
@@ -52,7 +52,7 @@ The top of today's GitHub Trending daily chart is dominated by tools that help a
 
 ---
 
-### openrig ⭐ 4,170 (#15 on GitHub's daily trending chart)
+### openrig ★ 4,170 (#15 on GitHub's daily trending chart)
 
 [GitHub](https://github.com/mvschwarz/openrig)　·　TypeScript　·　Apache-2.0
 
@@ -63,7 +63,7 @@ The top of today's GitHub Trending daily chart is dominated by tools that help a
 
 ---
 
-### drawio-mcp ⭐ 5,561
+### drawio-mcp ★ 5,561
 
 [GitHub](https://github.com/jgraph/drawio-mcp)　·　JavaScript　·　Apache-2.0
 
