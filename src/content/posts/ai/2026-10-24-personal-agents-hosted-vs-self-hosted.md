@@ -220,7 +220,7 @@ step: 你核准之後，Sentinel 才在網路出口換上真憑證
 其他三家的細節：
 
 - **Dots** 的自訂規則有四種：直接做、你說了才做、做之前先問、交回給你。路徑在 Settings > Personalization > Custom rules（[Control your dot](https://learn.chatgpt.com/docs/dots/controls)）。規則關不掉 Auto-review，也關不掉改密碼要交回給你這類核心要求。
-- **Grok Bot** 的核准有三個按鈕：Allow once、Always allow、Deny。不是你發起的工作（排程、觸發器、別的 Bot 傳來的訊息）要求核准時，大約 10 分鐘沒回應就失效，動作不執行（[Approvals](https://docs.x.ai/grok-bot/approvals-security-and-privacy)）。Auto Review 不審查記憶寫入。
+- **Grok Bot** 的核准有三個按鈕：Allow once、Always allow、Deny。不是你發起的工作（排程、觸發器、別的 Bot 傳來的訊息）要求核准時，30 分鐘沒回應就失效，動作不執行（[Approvals](https://docs.x.ai/grok-bot/approvals-security-and-privacy)）。Auto Review 不審查記憶寫入。
 - **Duet** 遇到你沒空核准時，會先做完其他部分，之後再把待核准的動作拿回來給你。
 
 自架型這一層要自己顧。OpenClaw 的[信任模型](https://docs.openclaw.ai/gateway/security/trust-model)寫明，預設的主機執行設定是 `security="full"`、`ask="off"`，也就是不跳任何核准。官方說這是給「受信任的單一操作者」的刻意設計，本身不算漏洞。陌生人傳私訊會拿到一組配對碼，你核准之前不處理。但文件也提醒：你自己轉進來的內容、它抓到的網頁和附件，都不會被驗證。換句話說，你叫它「整理一下信箱」時讀到那封釣魚信，配對機制擋不到。模型一旦被信件說服，接下來的指令就在主機上以你的權限執行。
@@ -356,7 +356,7 @@ Hermes 在 `config.yaml` 把 `terminal.backend` 設成 `docker`，不要設 `GAT
 
 ## 更新紀錄
 
-- 2026-11-20：收進〈常駐型 AI agent〉系列，開頭加系列說明與總覽連結；正文未改。
+- 2026-11-20：收進〈常駐型 AI agent〉系列，開頭加系列說明與總覽連結；Grok Bot 背景工作的核准失效時間依官方文件現況改為 30 分鐘（原寫約 10 分鐘）。
 - 2026-10-25：改用一封釣魚信貫穿全文；加入「五層由誰握著」分層圖、Muse 核准流程圖、Dots 系統卡數字圖，以及憑證、審批、資料、公開程度四張對照表；補上各家具體的隔離方式、設定路徑、OpenClaw 強化設定範例與 CVE 攻擊方式；修正 Dots 企業版設定的描述（本機存取需管理員另外開啟，自訂規則可由管理員關閉）。
 
 ## 參考資料

@@ -220,7 +220,7 @@ The key is step 5: the approval prompt doesn't go through the chat. Muse's docs 
 Details for the other three:
 
 - **Dots** custom rules have four options: Take action without asking, Take action when you say so, Ask before taking action, and Hand off to you. They live under Settings > Personalization > Custom rules ([Control your dot](https://learn.chatgpt.com/docs/dots/controls)). Rules can't turn off Auto-review, or core requirements like handing password changes back to you.
-- **Grok Bot** approvals have three buttons: Allow once, Always allow, Deny. When work you didn't start (a routine, a trigger, a message from another Bot) asks for approval, the request expires after about 10 minutes and the action doesn't run ([Approvals](https://docs.x.ai/grok-bot/approvals-security-and-privacy)). Auto Review doesn't check memory writes.
+- **Grok Bot** approvals have three buttons: Allow once, Always allow, Deny. When work you didn't start (a routine, a trigger, a message from another Bot) asks for approval, the request expires after 30 minutes and the action doesn't run ([Approvals](https://docs.x.ai/grok-bot/approvals-security-and-privacy)). Auto Review doesn't check memory writes.
 - **Duet**, when you can't approve right away, finishes the rest of the task and brings the pending approval back to you later.
 
 On the self-hosted side, this layer is yours. OpenClaw's [trust model](https://docs.openclaw.ai/gateway/security/trust-model) says the default host exec setting is `security="full"`, `ask="off"`: no approval prompts at all. The project calls this intentional design for a "trusted single operator," not a vulnerability by itself. A stranger who DMs the bot gets a pairing code and is ignored until you approve. But the docs also warn that content you forward, pages it fetches and attachments aren't authenticated. So if it reads the phishing email while you've asked it to "tidy up my inbox," pairing doesn't help. Once the model is persuaded, the next commands run on the host with your permissions.
@@ -356,7 +356,7 @@ Hosted agents give you that isolation and those approvals, and in exchange the v
 
 ## Update Log
 
-- 2026-11-20: Added to the *Always-On AI Agents* series, with a series note and overview link at the top; body unchanged.
+- 2026-11-20: Added to the *Always-On AI Agents* series, with a series note and overview link at the top; updated the Grok Bot background-approval expiry to 30 minutes per the current docs (previously about 10 minutes).
 - 2026-10-25: Reworked the post around one phishing email; added a "five layers" diagram, a Muse approval-flow diagram, a chart of Dots system card numbers, and comparison tables for credentials, approvals, data and published evidence; added each vendor's concrete isolation mechanisms, settings paths, an OpenClaw hardening example and how the CVE worked; corrected the Dots enterprise description (local computer access needs a separate admin opt-in, and admins can turn off custom rules).
 
 ## References

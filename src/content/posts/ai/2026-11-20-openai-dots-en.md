@@ -165,7 +165,7 @@ Two last things:
 
 In Taiwan it's conditionally available: ChatGPT Pro, or some Plus accounts as the rollout continues; texting isn't available there.
 
-Dots is one dot per person for now, with teams of dots promised later. Next, Grok Bot already does that: one person can run several bots sharing one computer.
+Dots is one dot per person for now, with teams of dots promised later. Next, [Grok Bot](/posts/ai/2026-11-20-grok-bot-en) already does that: one person can run several bots sharing one computer.
 
 ## References
 
