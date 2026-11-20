@@ -6,32 +6,32 @@ category: learning
 tags: [series, reading-guide, crowd-psychology, power, mass-delusion]
 lang: en
 tldr: "Canetti's Crowds and Power (1960) is not an academic work; it is theory written in images. People fear the touch of strangers, and only in a dense crowd does that fear reverse. Every command that is carried out leaves a sting in the person who obeyed it, and the sting comes out only when that person can pass the same command on to someone else; a crowd is one of the few places where many stings can be released at once. Later empirical work corrected two points: crowding feels good when people share an identity, not because they are in a crowd as such; and the 1923 hyperinflation shows no city-level link to later Nazi votes. On commands being passed downward, organizational psychology has found something close."
-description: "The Mass Irrationality Reading Map, order 5: a guide to Elias Canetti's 1960 Masse und Macht, covering the fear of being touched, open and closed crowds, the four attributes, command and sting, the reversal crowd and the survivor; set against Adorno's 1962 conversation, Sontag 1980, Honneth and Arnason 1996, Novelli et al. 2013 on crowding and identity, Galofré-Vilà 2023 on inflation and the Nazi vote, and the state of the Chinese translations."
+description: "A reading guide to Elias Canetti's 1960 Masse und Macht, covering the fear of being touched, open and closed crowds, the four attributes, command and sting, the reversal crowd and the survivor; set against Adorno's 1962 conversation, Sontag 1980, Honneth and Arnason 1996, Novelli et al. 2013 on crowding and identity, Galofré-Vilà 2023 on inflation and the Nazi vote, and the state of the Chinese translations."
 series:
   name: "The Mass Irrationality Reading Map"
   order: 5
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-11-18-canetti-crowds-and-power)
+> :globe: [中文版](/posts/learning/2026-11-18-canetti-crowds-and-power)
 
 On 15 July 1927, workers in Vienna took to the streets over a verdict: the men who had shot workers in Burgenland had been acquitted. The crowd had no leader. It marched to the Palace of Justice and set it on fire. The police opened fire, and more than eighty people died. Elias Canetti, a twenty-one-year-old chemistry student at the University of Vienna, was in the crowd. More than fifty years later he wrote in his autobiography: "I became a part of the crowd, I fully dissolved in it, I did not feel the slightest resistance to what the crowd was doing."
 
 He started thinking about the subject in the 1920s, worked on it on and off for thirty-five years, and published *Masse und Macht* (*Crowds and Power* in English) in 1960. Two years later, in a radio conversation, Adorno told him to his face that what struck him most about the book was "something of a scandal": the subjectivity of its approach. In 1981 Canetti won the Nobel Prize in Literature "for writings marked by a broad outlook, a wealth of ideas and artistic power".
 
-A philosopher called its method a scandal; a literature prize praised its artistic power. The question this post tries to answer: is this book theory or literature, and what can you take away from reading it?
+A philosopher called its method a scandal; a literature prize praised its artistic power. This post reads the book's two core parts: how crowds form and what their attributes are, and the chapter "The Command," which argues that every order leaves a sting in the person who carries it out; then it looks at which parts later research has tested and which remain images. You will come away with a way to tell an image from a claim, and with Canetti's answer to why people seek out crowds, an answer very different from the other classics.
 
-## What this book is
+## The book and its author
 
-*Masse und Macht* was published in Hamburg by Claassen in 1960; Carol Stewart's English translation came out from Gollancz in 1962. The book has eleven parts and an epilogue, about 470 pages of text in English. The first four parts deal with the crowd, the pack, the pack and religion, and the crowd in history; the remaining seven deal with aspects of power: seizing and incorporation, the survivor, the elements of power, the command, transformation, aspects of power, and rulers and paranoiacs (ending with Schreber's memoirs). The material comes almost entirely from anthropology, myth, the history of religion and history. There are no statistics or surveys.
+*Masse und Macht* was published in Hamburg by Claassen in 1960; Carol Stewart's English translation came out from Gollancz in 1962. The book has eleven parts and an epilogue, about 470 pages of text in English. The first four parts deal with the crowd, the pack (a small group gathered for a purpose such as hunting or war), the pack and religion, and the crowd in history; the remaining seven deal with aspects of power: seizing and incorporation, the survivor, the elements of power, the command, transformation, aspects of power, and rulers and paranoiacs (ending with the memoirs in which the German judge Daniel Paul Schreber recorded his own psychotic illness). The material comes almost entirely from anthropology, myth, the history of religion and history. There are no statistics or surveys.
 
-Canetti was a Sephardic Jew born in Bulgaria who wrote in German, left Vienna in 1938 and settled in Britain. He considered this book his life's work, and left more than a hundred boxes of notes and drafts connected to it; in 2026 a research team based in the UK was still working through them for a critical edition.
+Canetti was a Sephardic Jew born in Bulgaria who wrote in German, left Vienna in 1938 and settled in Britain. He considered this book his life's work.
 
-Two things to know before reading. First, the bibliography of two hundred-odd entries does not include Le Bon, and Freud appears only in a note on the Schreber case, where Canetti explains that he "made no use of his study". He knew the tradition: in the 1962 conversation with Adorno he criticized Freud for explaining the crowd according to Le Bon's description, called the concept of identification "too imprecise", and said "I try to do without identification." He chose to write outside that tradition. Second, the book is hard to get in Chinese. The only traditional-character edition is the 1982 Boxue (博學) translation by Huang Han-ching and Chen Wei-ping (638 pages), no longer listed by new-book retailers. What Taiwanese bookstores sell now are simplified-character editions: Central Compilation & Translation Press, 2003 (trans. Feng Wenguang, Liu Min and Zhang Yi), and Shanghai Joint Publishing, 2020 (trans. Feng Wenguang, 720 pages). Books.com.tw also sells a simplified-character "Classic Sociology" box set that bundles *Crowds and Power* with *The True Believer* (Hoffer), *The Crowd* (Le Bon) and other titles, so orders 3 to 5 of this series all come in one box.
+Two things to know before reading. First, the bibliography of two hundred-odd entries does not include Le Bon (the French writer whose 1895 *The Crowd* described crowds as if hypnotized), and Freud appears only in a note on the Schreber case, where Canetti explains that he "made no use of his study". He knew the tradition: in the 1962 conversation with Adorno he criticized Freud for explaining the crowd according to Le Bon's description, called the concept of identification "too imprecise", and said "I try to do without identification." He chose to write outside that tradition. Second, the book is hard to get in Chinese. The only traditional-character edition is the 1982 Boxue (博學) translation by Huang Han-ching and Chen Wei-ping (638 pages), no longer listed by new-book retailers. What Taiwanese bookstores sell now are simplified-character editions: Central Compilation & Translation Press, 2003 (trans. Feng Wenguang, Liu Min and Zhang Yi), and Shanghai Joint Publishing, 2020 (trans. Feng Wenguang, 720 pages).
 
-## What the text says
+## What Canetti says
 
-Quotations below are from Stewart's translation (page numbers from the Continuum/FSG edition). This post covers only what the scope card set: where crowds start and what they are, command and sting, how the two correspond, and the most-cited passage from the history chapters.
+Quotations below are from Stewart's translation (page numbers from the Continuum/FSG edition). This post covers where crowds start and what they are, command and sting, how the two correspond, and the most-cited passage from the history chapters.
 
 ### The starting point: the fear of being touched, reversed
 
@@ -104,9 +104,9 @@ The section includes a passage on Jews and money that describes how they "seemed
 
 ### He barely qualifies anything
 
-Hoffer says in his preface that his ideas are "all of them theories". Canetti has no sentence like that. He often writes as "we", his sentences are mostly assertions, and his categories are presented as universal. The few places that count as qualifications: he says density may one day be measured; in the 1962 conversation, when Adorno pressed him on whether images mattered more to him than real crowds, he answered that real crowds are "incomparably greater" in significance and that the dictatorships he had lived through "are made up entirely of crowds"; and he said a second volume would follow with more on transformation. Readers have to separate observation, analogy and claim themselves; the book will not do it for you.
+Some authors remind readers that their arguments are only theories; Canetti has no sentence like that. He often writes as "we", his sentences are mostly assertions, and his categories are presented as universal. The few places that count as qualifications: he says density may one day be measured; in the 1962 conversation, when Adorno pressed him on whether images mattered more to him than real crowds, he answered that real crowds are "incomparably greater" in significance and that the dictatorships he had lived through "are made up entirely of crowds"; and he said a second volume would follow with more on transformation. Readers have to separate observation, analogy and claim themselves; the book will not do it for you.
 
-## What later research corrected
+## How later research tested it
 
 ### Method: theory carried by images
 
@@ -126,7 +126,7 @@ This partly supports Canetti: people do seek out dense crowds and enjoy being in
 
 ### Did inflation produce the Nazis? Economic historians check
 
-"Hyperinflation drove the Germans to Hitler" is the core of Canetti's section and a very common story. In *Explorations in Economic History* (2023), Gregori Galofré-Vilà matched 1923 price data from over 280 cities against every election from 1924 to 1933: cities hit harder by inflation did not give the Nazis a higher vote share. Inflation predicted the vote for a different party, the Volksrechtspartei, founded for inflation victims, and lower turnout. In a separate study in the *Journal of Economic History* (2021), he and co-authors found that areas hit harder by the Brüning government's austerity in 1930–1932 voted more for the Nazis. And Haffert, Redeker and Rommel (2021) found in a survey that many Germans today remember the hyperinflation and the Great Depression as a single crisis.
+"Hyperinflation drove the Germans to Hitler" is the core of Canetti's section and a very common story. In *Explorations in Economic History* (2023), Gregori Galofré-Vilà matched 1923 price data from over 280 cities against every election from 1924 to 1933: cities hit harder by inflation did not give the Nazis a higher vote share. Inflation predicted the vote for a different party, the Volksrechtspartei, founded for inflation victims, and lower turnout. In a separate study in the *Journal of Economic History* (2021), he and co-authors found that areas hit harder by the Brüning government's austerity in 1930–1932 voted more for the Nazis. And
 
 So at the level of votes, Canetti's causal chain breaks, at least at the inflation link. But votes were not all he cared about: Galofré-Vilà's 2021 working paper also reports that where inflation was worse, mortality and anti-Semitism rose. The psychological mechanism, that devalued people look for something worth even less, is not directly refuted by these studies; it just can no longer explain who voted for the Nazis.
 
@@ -136,43 +136,40 @@ The sting itself (unchanging, released only when roles reverse) has not been dir
 
 That points in the direction Canetti predicted: people who have been ordered about and humiliated pass the same thing down. But the explanation is different. The researchers use social learning theory: supervisors imitate those above them, rather than pulling out their own stings. They also note that the data are cross-sectional and cannot rule out influence flowing upward.
 
-### What has not been cleared away
+### What survives
 
-- **Crowds without leaders.** There is no leader among the four attributes. That fits the leaderless riot he lived through in 1927, and it is closer than Le Bon's leader-and-suggestion model to the crowds later research found, where norms emerge on the spot rather than being poured in by one person.
+- **Crowds without leaders.** There is no leader among the four attributes. That fits the leaderless riot he lived through in 1927, and it is closer than Le Bon's leader-and-suggestion model to the crowds later research found: social identity studies show that a crowd's norms are mostly worked out together on the spot, not poured in by one person.
 - **Why people seek crowds.** Le Bon saw only how crowds make people worse; Canetti saw what crowds give people: equality, relief, freedom from the fear of being touched. Crowding research brought that idea back, with shared identity added as a condition.
 - **The cost of commands.** The observation that people who acted under orders do not feel guilty predates both Milgram and the Eichmann trial. "Every command has a cost, and the cost gets passed down" is still a useful lens for any hierarchy.
 - **Crowd symbols.** How nations imagine themselves (he writes that the Englishman likes to imagine himself at sea, while the German crowd symbol was the army, "the marching forest") struck even Adorno as a real contribution, and it is a question that can be checked against contemporary data.
 
-## Where this book sits in the chain of explanations
+## What the book adds
 
-Le Bon asked what happens inside a crowd; Hoffer asked what kind of person walks in. Canetti asks how crowds and power produce each other: power works through isolated commands that build up stings in each person; the crowd is where those stings are discharged all at once; and the ruler is the survivor who turns other people's deaths into his own strength. None of the three books at this layer answers with data, but Canetti is the most thorough about it: the book is almost entirely images, without a single number.
+[Le Bon](/posts/learning/2026-11-17-lebon-the-crowd-en) asked what happens inside a crowd; [Hoffer](/posts/learning/2026-11-18-hoffer-true-believer-en) asked what kind of person walks in. Canetti asks how crowds and power produce each other: power works through a series of isolated commands that build up stings in everyone who obeys; the crowd is where those stings are discharged all at once.
 
-The next post moves from the group back into the individual head: Kahneman used experiments to study how judgment goes wrong. That is the route of answering with data, and the problem it later ran into was the reliability of the experiments themselves.
+For this series, that is an answer quite unlike the other classics: **people do not lose their reason in a crowd; they seek crowds out, because a crowd gives them what they cannot get otherwise: equality, release, freedom from the fear of being touched, and a chance to shed the accumulated weight of long obedience.** On this view, an apparently uncontrolled outburst may sit on top of a whole power structure that only issues orders downward and allows no discussion. It is still an image, not a tested cause; but it is a reminder that when a crowd erupts, you should also ask who has been giving them orders.
 
-## One criterion to take away
+The next post moves from the group back into the individual head: [Kahneman](/posts/learning/2026-11-18-kahneman-thinking-fast-slow-en) used experiments to study how judgment goes wrong, the route of answering with data.
+
+## Three questions for reading a theory made of images
 
 When you read a sentence like Canetti's ("the crowd always wants to grow", "every command leaves a sting"), ask three questions: **Is this an observation, an analogy, or a causal claim? If it is a claim, what data would test it, and has anyone tested it? What is left once you take the examples away?** The three cases in this post happen to have three different outcomes: density and enjoyment has been measured and partly holds, with a condition attached; inflation leading to the Nazis has been measured and does not hold at the level of votes; the sting is an analogy, with research pointing the same way but the mechanism itself untested. An image can show you a question; it cannot answer it for you.
 
 **Something you can do tonight**: don't start at page one. Read the opening four sections (pp. 15–20 in the English edition) and the chapter "The Command" (pp. 303–333), about forty pages, and then decide whether to read the whole book. While reading "The Command", think of an order you carried out and still remember clearly, and ask yourself: did you later say the same words to someone else?
 
-## The Taiwan connection
+## Taiwan's new workplace bullying law, and the other half Canetti would ask about
 
-What does this mechanism look like in Taiwan in 2026? On 1 July this year, the workplace bullying chapter of Taiwan's Occupational Safety and Health Act took effect. Article 22-1 defines workplace bullying as conduct by people in the organization who, "利用職務或權勢等關係，逾越業務上必要且合理範圍，持續以冒犯、威脅、冷落、孤立、侮辱或其他不當之言詞或行為" (using their position or power, beyond what is necessary and reasonable for the work, persistently offend, threaten, ignore, isolate, insult or otherwise mistreat a worker), harming the worker's physical or mental health. Employers with ten or more workers must provide a complaint channel, and when the alleged bully is the head of the organization, the worker can complain directly to the local labor authority.
+On 1 July this year, the workplace bullying chapter of Taiwan's Occupational Safety and Health Act took effect. Article 22-1 defines workplace bullying as conduct by people in the organization who, "利用職務或權勢等關係，逾越業務上必要且合理範圍，持續以冒犯、威脅、冷落、孤立、侮辱或其他不當之言詞或行為" (using their position or power, beyond what is necessary and reasonable for the work, persistently offend, threaten, ignore, isolate, insult or otherwise mistreat a worker), harming the worker's physical or mental health. Employers with ten or more workers must provide a complaint channel, and when the alleged bully is the head of the organization, the worker can complain directly to the local labor authority.
 
-Read through Canetti, this law deals with the momentum of the command: specific, repeated acts that can be reported. He would ask about the other half: what stays in the people treated this way, and do they pass it down? Many people's intuition about nursing is exactly this version: senior nurses bully junior ones, and the juniors grow up to bully the next cohort.
+Read through Canetti, this law deals with the side giving the orders: specific, repeated acts that can be reported. Canetti would ask about the other half: what sting stays in the people treated this way, and do they pass it down? Many people's intuition about nursing is exactly this version: senior nurses bully junior ones, and the juniors grow up to bully the next cohort.
 
 The data are more complicated than the intuition. Ma Shu-ching's 2014 doctoral dissertation at Kaohsiung Medical University surveyed hospital nurses in Taiwan: 157 (19.4%) had themselves been bullied at work; the main perpetrators were physicians (29.6%), followed by peers (26.8%); and nurses over 34 were 1.74 times as likely to be bullied as those 34 and under. The highest risks came from organizational conditions: nurses whose supervisors leaned autocratic faced 3.63 times the risk of those with a mixed leadership style, and those in bureaucratic organizational cultures 3.72 times the risk of those in mixed cultures.
 
-That looks more like another thing Canetti said: the problem is less individual bad seniors than the system of commands itself; the more a place only issues orders downward without discussion, the more stings it produces. The study is a cross-sectional survey and cannot tell us whether people who were bullied go on to bully others, which is exactly the part of Canetti's claim that most needs data and has least of it.
+Read through Canetti's images, this points to the system of commands itself rather than individual bad seniors: the more a place only issues orders downward without discussion, the more trouble it has. That is this post's extension of his idea, not Canetti's own analysis. The study is a cross-sectional survey and cannot tell us whether people who were bullied go on to bully others, which is exactly the part of Canetti's claim that most needs data and has least of it.
 
-## Limitations
+## Changelog
 
-- I read Stewart's English translation (Continuum edition), not the German original. I read the first five sections of the crowd part and the four attributes; the main sections of "The Command" (origins and the sting, commands to many, the dissolution of the sting, commands and irresponsibility, and the opening of the reversal section); the opening of "The Survivor"; the relevant passages of "Germany and Versailles" and "Inflation and the Crowd"; the epilogue; the Schreber note; and the contents and bibliography. I did not read the parts on the pack, the pack and religion, transformation, aspects of power, or rulers and paranoiacs.
-- Honneth's and Arnason's 1996 essays are behind a paywall and were not read; their arguments are taken from Brighenti's 2011 summary and quotations.
-- Canetti's account of 1927 is quoted via Choudhary (2024), who cites the 1999 English translation of the autobiography; I did not read the autobiography itself.
-- I did not see a physical copy of the 1982 traditional-Chinese translation, so I cannot comment on its terminology or quality; the bibliographic details come from Anobii.
-- Novelli et al. (2013) are two small surveys (48 and 112 people), both correlational; Mawritz et al. (2012) is cross-sectional; Ma (2014) is more than a decade old, and no new survey yet exists to compare against since the 2026 law took effect.
-- I found no study that directly tests the sting mechanism itself.
+- 2026-11-20: Added the reading scope and takeaway to the opening, rewrote the ending to answer why people seek out crowds, retitled sections by content, corrected the Taiwan section's misuse of "momentum," and explained the pack, Schreber, and other background.
 
 ## References
 
@@ -184,13 +181,11 @@ That looks more like another thing Canetti said: the problem is less individual 
 - [Jóhann P. Árnason, Canetti's Counter-image of Society, Thesis Eleven 45, 1996](https://doi.org/10.1177/0725513696001045008)
 - [Andrea Mubi Brighenti, Elias Canetti and the counter-image of resistance, Thesis Eleven 106, 2011](https://www.capacitedaffect.net/wp-content/uploads/2011/08/Brighenti-2011-Elias-Canetti-and-the-Counter-Image-of-Resistance.pdf)
 - [Sunil Choudhary, Rabble, Masses or Humanity: Kraus and Canetti Responding to the July Revolt of 1927, Studien zur deutschen Sprache und Literatur 51, 2024](https://doi.org/10.26650/sdsl2023-1429579)
-- [Canetti Out of the Boxes (MHRA interview with the Canetti critical edition team), 2026](https://www.mhra.org.uk/news/2026/04/28/canetti-out-of-the-boxes.html)
 - [Novelli, Drury, Reicher & Stott, Crowdedness Mediates the Effect of Social Identification on Positive Emotion in a Crowd, PLOS ONE 8(11), 2013](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0078983)
 - [Stephen Reicher, Crowd Psychology (entry in An Encyclopedia of Human Behaviour)](http://www.bbcprisonstudy.org/includes/site/files/files/Encyclopedia%20Crowds.pdf)
 - [Gregori Galofré-Vilà, Spoils of War: The Political Legacy of the German Hyperinflation, Explorations in Economic History 88, 2023](https://ideas.repec.org/a/eee/exehis/v88y2023ics0014498322000572.html)
 - [Gregori Galofré-Vilà, The Costs of Hyperinflation: Germany 1923 (working paper, 2021)](https://www2.unavarra.es/gesadj/CyD5/depEconomia/documentos-trabajo/2021/WP2101.pdf)
 - [Galofré-Vilà, Meissner, McKee & Stuckler, Austerity and the Rise of the Nazi Party, Journal of Economic History 81(1), 2021](https://www.cambridge.org/core/journals/journal-of-economic-history/article/austerity-and-the-rise-of-the-nazi-party/7FB1BC0E727F47DC790A23D2A4B70961)
-- [Haffert, Redeker & Rommel, Misremembering Weimar: Hyperinflation, the Great Depression, and German collective economic memory, Economics & Politics, 2021](https://onlinelibrary.wiley.com/doi/10.1111/ecpo.12182)
 - [Mawritz, Mayer, Hoobler, Wayne & Marinova, A Trickle-Down Model of Abusive Supervision, Personnel Psychology 65(2), 2012](https://davemayer.me/wp-content/uploads/sites/11/2019/07/Mawritz-Mayer-Hoobler-Wayne-Marinova-PP-2012.pdf)
 - [Occupational Safety and Health Act, Article 22-1 (Laws & Regulations Database of the ROC, in Chinese)](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=N0060001&flno=22-1)
 - [Ministry of Labor press release: amended OSH Act and 11 regulations take effect on 1 July, 2026-07-01 (in Chinese)](https://www.mol.gov.tw/1607/1632/1633/93216/)

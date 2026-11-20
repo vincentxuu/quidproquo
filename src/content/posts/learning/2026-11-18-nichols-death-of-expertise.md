@@ -6,14 +6,14 @@ category: learning
 tags: [series, reading-guide, misinformation, philosophy-of-science, mass-delusion]
 lang: zh-TW
 tldr: "Nichols 2017 年的《The Death of Expertise》（繁中《專業之死》）說，死掉的不是專業能力本身，而是「專家的意見應該改變我們的想法」這個共識。他把原因歸給人性的偏誤、把學生當顧客的大學、網路和娛樂化的新聞，也用一整章分類專家自己怎麼犯錯。書的結尾預測，也許要一場災難才能讓大眾回頭。三年後疫情來了，對科學家的信任不升反降；他在 2024 年的二版承認自己「distinctly wrong」，並點名專家在疫情中犯的兩個錯。學界的主要批評是：這不是無知的危機，而是信任的危機，問題在「該信哪些專家」。後續的實驗支持其中一部分：科學期刊替總統候選人背書，會讓對立陣營對期刊的信任大幅下降。"
-description: "群體非理性閱讀地圖 order 11：Nichols 2017《The Death of Expertise》（Oxford University Press）與 2024 年二版導讀。對照 2017 年版原文、2014 年《The Federalist》原始文章、2024 年二版序言與《大西洋》改寫自疫情新章的文章，Volonté、Chu 的書評與 Eyal《The Crisis of Expertise》的對照，以及 Pew 2023、Zhang 2023、Koetke 等 2024、Camerer 等 2018 的後續研究；附台灣 2021 年國產疫苗緊急授權與疫苗品牌選擇的研究。"
+description: "Nichols 2017《The Death of Expertise》（Oxford University Press）與 2024 年二版導讀。對照 2017 年版原文、2014 年《The Federalist》原始文章、2024 年二版序言與《大西洋》改寫自疫情新章的文章，Volonté、Chu 的書評與 Eyal《The Crisis of Expertise》的對照，以及 Pew 2023、Zhang 2023、Koetke 等 2024、Camerer 等 2018 的後續研究；附台灣 2021 年國產疫苗緊急授權與疫苗品牌選擇的研究。"
 series:
   name: "群體非理性閱讀地圖"
   order: 11
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-11-18-nichols-death-of-expertise-en)
+> :globe: [English version](/posts/learning/2026-11-18-nichols-death-of-expertise-en)
 
 2014 年 1 月，美國海軍戰爭學院的國安教授 Tom Nichols 在保守派網站《The Federalist》發表了一篇文章，標題是〈The Death of Expertise〉。他抱怨，現在只要有人主張自己是專家，就會被罵成「訴諸權威」和「菁英主義」。文章最後列了五條跟專家打交道的原則，然後自問自答：「And how do I know all this? Just who do I think I am? Well, of course: I'm an expert.」我怎麼知道這些？我以為我是誰？當然是專家。
 
@@ -21,17 +21,17 @@ draft: false
 
 三年後疫情來了。2024 年二版的序言裡，他回顧自己寫第一版時、以及後來巡迴演講時都說過，一場戰爭、一次經濟衰退，甚至一場疫情，都可能讓大眾清醒過來，然後承認：「I was distinctly wrong on all three of these possibilities.」三個都錯了。諷刺的是，他自己在書的第六章，正好把「從解釋跨到預測」列為專家最常犯的錯之一。
 
-這篇要看三件事：這本書診斷的病是什麼，疫情怎麼檢驗了它，以及批評者為什麼說他把病名取錯了。
+這篇要看三件事：這本書診斷的病是什麼，疫情怎麼檢驗了它，以及批評者為什麼說他把病名取錯了。讀完你會有三個問題，下次發現自己不想相信某位專家時，可以分辨自己的理由正不正當。
 
-## 這本書是什麼
+## 書與作者
 
 《The Death of Expertise: The Campaign against Established Knowledge and Why It Matters》2017 年由牛津大學出版社出版，正文是引言、六章和結論：第一章談什麼是專家，第二到五章分別談對話為什麼變得累人、大學、網路和新聞業，第六章談專家自己怎麼犯錯，結論談專家與民主。2024 年的增訂二版新增一篇序言和第七章〈The Experts, the Public, and the Pandemic〉，專談疫情。二版出版時，Nichols 已經是《大西洋》月刊的撰稿人、海軍戰爭學院的榮譽教授；依二版序言，到 2023 年這本書已經譯成十四種語言。
 
-繁中譯本是《專業之死：為何反知識會成為社會主流，我們又該如何應對由此而生的危機？》，臉譜 2018 年出版，鄭煥昇譯；2024 年 5 月出了二版。不過從書店列出的目錄看，繁中二版仍是 2017 年版的六章加結論，沒有疫情那一章，作者介紹也還寫著「現任美國海軍戰爭學院教授」。想讀疫情反思的讀者，要找英文的 2024 年版。
+繁中譯本是《專業之死：為何反知識會成為社會主流，我們又該如何應對由此而生的危機？》，臉譜 2018 年出版，鄭煥昇譯；2024 年 5 月出了二版。不過繁中二版的目錄仍是 2017 年版的六章加結論，沒有疫情那一章，作者介紹也還寫著「現任美國海軍戰爭學院教授」。想讀疫情反思的讀者，要找英文的 2024 年版。
 
-這篇依據的是 2017 年版的全文、2024 年二版的序言、Nichols 2024 年 3 月在《大西洋》發表的改寫自第七章的文章，以及他同年接受 GQ 的訪談；第七章的全文沒有讀到，這點在限制裡會再說明。
+第七章的疫情反思，這篇根據二版序言、Nichols 2024 年 3 月在《大西洋》發表的改寫自該章的文章，以及他同年接受 GQ 的訪談。
 
-## 原文怎麼寫
+## Nichols 怎麼說
 
 ### 死掉的是什麼
 
@@ -75,7 +75,7 @@ Nichols 先澄清書名：他說的不是專業能力死了。醫生、律師、
 
 結論把專家和決策者分開：專家是「the knowers」，知道的人；民選官員是「the deciders」，做決定的人。「Experts can only propose; elected leaders dispose.」專家只能提案，做決定的是民選領袖。他寫：在民主制度裡，專家應該是「servants, not masters」，是公僕，不是主人；但如果公民不肯學習，專家就會因為沒人管而接手，民主就會滑向暴民政治或技術官僚。
 
-## 後來的研究修正了什麼
+## 疫情與後來的研究怎麼檢驗它
 
 這本書的批評來自兩個方向：一邊是學界說他把病名取錯了，一邊是疫情直接檢驗了他的預測。最先修正這本書的，是作者自己。
 
@@ -116,11 +116,11 @@ Nichols 先澄清書名：他說的不是專業能力死了。醫生、律師、
 
 ### 他倚重的心理學也在被修正
 
-Nichols 把 Dunning–Kruger 效應當成人性的一部分。McIntyre 那篇已經談過，Gignac 與 Zajenkowski 2020 年指出這個效應大部分是統計假象。
+Nichols 把 Dunning–Kruger 效應（能力越差的人越高估自己）當成人性的一部分。但 Gignac 與 Zajenkowski 2020 年指出，這個效應大部分是統計假象：多數人本來就覺得自己高於平均，加上極端的分數本來就容易往中間靠，光這兩件事就足以在資料裡畫出「最差的人最高估自己」的圖形。
 
-複製危機的走向也跟他的判斷不同。他引用 Gary King 的反駁，暗示心理學的問題被誇大了；但 2018 年 Camerer 等人在《Nature Human Behaviour》用預先註冊、樣本量約為原研究五倍的設計，重做了 2010 到 2015 年間發表在《Nature》和《Science》的 21 項社會科學實驗，只有 13 項（62%）重現，重做的效果量平均只有原研究的一半左右。Kahneman 那篇談過的促發效應重做失敗、錨定效應站住，也是這場清算的一部分。
+複製危機的走向也跟他的判斷不同。他引用 Gary King 的反駁，暗示心理學的問題被誇大了；但 2018 年 Camerer 等人在《Nature Human Behaviour》用預先註冊、樣本量約為原研究五倍的設計，重做了 2010 到 2015 年間發表在《Nature》和《Science》的 21 項社會科學實驗，只有 13 項（62%）重現，重做的效果量平均只有原研究的一半左右。心理學其他的大型重做也有類似結果：經典的促發效應（無意間看到的字詞會改變行為）多半重現不了，錨定效應（先看到的數字會拉住判斷）則站住了。
 
-這兩點其實是一體兩面。它們削弱了 Nichols 用來解釋大眾的心理學工具；但它們也正好是他自己說的「科學的正常失敗」：錯誤被同一群專家用更嚴格的方法找出來、公開修正。
+這些修正削弱了 Nichols 用來解釋大眾的心理學工具；但修正本身，正好是他自己說的「科學的正常失敗」：錯誤被同一群專家用更嚴格的方法找出來、公開修正。
 
 ### 謙遜還是插旗
 
@@ -137,53 +137,47 @@ Nichols 把 Dunning–Kruger 效應當成人性的一部分。McIntyre 那篇已
 - **技工式的依賴還在**。Eyal 的批評其實印證了這一點：大家仍然天天依賴醫師和工程師，爭議集中在政策層面。
 - **Russell 的三條原則**。專家一致、不一致、都說不知道，三種情況對應三種不同的態度，至今仍是外行人最實用的一套規則。
 
-## 這本書在解釋鏈上的位置
+## 這本書讓我們多懂了什麼
 
-這是系列的最後一篇，也把前面幾條線收在一起。
+Nichols 寫的是制度和公民之間的那段關係：每個人每天都得依賴自己無法檢查的知識。他把大眾不再聽專家的話，診斷成無知加上自戀；批評者和後來的資料則指向另一個病名：**這不是無知的危機，而是信任的危機。** 問題不在大家知道得太少，而在大家不再同意該相信誰、該相信哪一套產生知識的程序。
 
-Nichols 引言的第一句引文來自 Asimov：「There is a cult of ignorance in the United States」，美國有一種無知崇拜，反智的線條一直貫穿政治和文化生活。這幾乎就是 Hofstadter《美國的反智傳統》的論點；Hofstadter 說知識分子被怨恨是因為太被需要，Nichols 則從被怨恨的那一方，描述同一件事半個世紀後的樣子。McIntyre 談有組織的懷疑製造，Rauch 談被攻擊的制度，Nichols 談的是制度和公民之間的那段關係：每個人每天都得依賴自己無法檢查的知識。
+對「群體為什麼集體失去理性」，這是一個很實際的答案：當產生知識的程序跟政黨立場綁在一起，同一份結論就會被兩群人讀成兩件事，兩邊都覺得自己很理性。下面台灣的國產疫苗爭議正是這樣。
 
-總覽那篇問的是：為什麼知道歷史，還是會被騙？Nichols 本人是一個誠實的答案。他研究專家怎麼犯錯，寫下「預測是專家常犯的錯」，然後自己做了一個錯的預測，又在下一版公開承認。這個系列一路下來的結論大致相同：個人很難靠知道得更多來避免集體的錯誤，能依靠的是一套讓錯誤被找出來、被公開修正的程序，包括修正專家自己。
+Nichols 本人也示範了出路。他研究專家怎麼犯錯，寫下「預測是專家常犯的錯」，然後自己做了一個錯的預測，又在下一版公開承認。個人很難靠知道得更多來避免集體的錯誤，能依靠的是一套讓錯誤被找出來、被公開修正的程序，包括修正專家自己。想回頭看十一本書怎麼串成一個答案，見[系列總覽](/posts/learning/2026-11-17-mass-irrationality-overview)。
 
-## 讀完帶走的一個判準
+## 不想相信某位專家時先問的三個問題
 
 不信任專家可以有正當的理由。下次你發現自己不想相信某位專家時，先問三個問題，看看自己的理由屬於哪一種：
 
 1. **利益：他在替誰說話？** 他有沒有未揭露的利益衝突？他的立場是不是剛好在政治上方便的時候改變？Wakefield 沒有揭露財務利益衝突，抗議連署讓防疫標準看起來可以為了政治目標彎曲；Zhang 的實驗顯示，這類理由確實會、也應該影響信任。
-2. **往績：他在這個領域準不準？** 他說的是自己的專業，還是跨界？他過去在同類問題上的判斷，事後看準不準？Pauling 在化學上的權威，不能延伸到維生素；Bialer 對蘇聯的預測，可以拿來檢驗他下一次的預測。
+2. **過去紀錄：他在這個領域準不準？** 他說的是自己的專業，還是跨界？他過去在同類問題上的判斷，事後看準不準？Pauling 在化學上的權威，不能延伸到維生素；Bialer 對蘇聯的預測，可以拿來檢驗他下一次的預測。
 3. **制度：結論是怎麼產生的？** 判斷標準是事先定好的嗎？資料和討論過程公開嗎？別人能不能檢查？這是 Eyal 的重點：程序越透明，越不需要靠個人權威。
 
 這三種理由都可能正當，也都可以查證。站不住的是第四種：因為他是專家所以不信，或因為他跟我不同陣營所以不信。如果你的理由只剩這一種，Russell 的三條原則比你的直覺可靠。
 
 **今晚就能做**：讀 Nichols 2014 年在《The Federalist》的原始文章（免費公開，約十三分鐘），逐條看文末那五條原則，問自己同意哪幾條。再挑一位你常看的評論者或專家，找出他三年前做過的一個預測，看看後來的結果如何。
 
-## 台灣回扣
+## 台灣的對照：國產疫苗爭議
 
-這個機制在 2026 年的台灣長什麼樣？疫情期間台灣的國產疫苗爭議，是 Nichols 第七章的一個對照組：台灣人並沒有大規模拒絕疫苗，吵的是該相信哪一套專家程序。
+疫情期間台灣的國產疫苗爭議，是 Nichols 第七章的一個對照組：台灣人並沒有大規模拒絕疫苗，吵的是該相信哪一套專家程序。
 
 2021 年 6 月，食藥署公布國產新冠疫苗緊急使用授權的審查基準：用「免疫橋接」代替第三期臨床試驗的保護力數據，國產疫苗誘發的中和抗體必須證明不劣於國人接種 AZ 疫苗的結果。7 月 18 日，食藥署召開高端疫苗的專家審查會議，出席 21 人，主席不投票，18 人同意（其中 15 人是有條件通過）、1 人要求補件再議、1 人不同意；衛福部隔天核准專案製造，並要求廠商每月提供安全性監測報告、一年內提出保護效益報告。
 
 爭議集中在程序。會議沒有全程錄影；當時的指揮官陳時中說，另一家國產疫苗聯亞還在審查，為了公平，暫時不公布 AZ 對照組的抗體數據。病毒學者施信如當時對《報導者》說：「數值愈不公開，猜測就愈多。」食藥署後來在官網公開了會議紀錄，並在 2024 年的聲明中強調，審查基準是在各家試驗結果出來之前就定好的。
 
-接下來發生的事，可以用研究看見。Yun-Yeh Chiang 與 Jason Kuo 2025 年在《Japanese Journal of Political Science》發表的研究開頭就寫：跟其他工業國家不同，台灣的疫苗黨派之爭集中在選哪個品牌，而不是要不要打。他們 2022 年秋天調查 1,642 名成人，發現執政黨支持者、尤其是支持程度較弱的那一群，只要對政府信任度高，第一劑選高端的機率就明顯較高；但到了加強劑，政黨立場就沒有額外的影響，影響選擇的變成之前有沒有打過高端。Chun-Tung Kuo 與 Ruoh-Rong Yu 2024 年用 2,361 人、橫跨 2020 到 2023 年的追蹤資料也發現，國族認同和對政府的信任，跟選擇哪個品牌有關：信任政府的人比較偏好高端，不信任政府的人比較不想打高端和 AZ，比較願意打 BNT。
+接下來發生的事，可以用研究看見。Yun-Yeh Chiang 與 Jason Kuo 2025 年在《Japanese Journal of Political Science》發表的研究開頭就寫：跟其他工業國家不同，台灣的疫苗黨派之爭集中在選哪個品牌，而不是要不要打。他們 2022 年秋天調查 1,642 名成人，發現執政黨支持者、尤其是支持程度較弱的那一群，只要對政府信任度高，第一劑選高端的機率就明顯較高；但到了加強劑，政黨立場就沒有額外的影響，影響選擇的變成之前有沒有打過高端。Chun-Tung Kuo 與 Ruoh-Rong Yu 2024 年用 2,361 人、橫跨 2020 到 2023 年的追蹤資料也發現，國族認同和對政府的信任，跟選擇哪個品牌有關：信任政府的人比較偏好高端，不信任政府的人比較不想打高端和 AZ，比較願意打 BNT。兩項研究都是相關性研究，只能說明哪些人比較常選哪個品牌，不能證明原因。
 
 用這篇的框架看，這件事有三層：
 
 - **這更像信任的危機，不是無知的危機**。Volonté 說的「該承認誰的權威」，在台灣具體變成：該相信食藥署的審查程序，還是國際藥政機構的第三期試驗標準。兩邊都有專家背書，選哪一邊跟政黨立場高度重疊。
 - **程序透明決定了猜測的空間**。基準先定、投票結果公開，是好的程序設計；不錄影、對照數據暫不公布，則留下猜測的空間。Eyal 的處方在這裡很具體：程序越透明，越不需要靠「相信我們」。
-- **黨派影響在資訊不足時最強**。研究最有意思的發現，是政黨立場只影響資訊最少的第一劑，等到大家有了親身經驗和更多資料，它就消失了。這不太像 Nichols 說的自戀，比較像 Eyal 說的不確定：資訊不足的時候，人只能借用自己信任的陣營替自己判斷。
+- **黨派影響在資訊不足時最強**。研究最有意思的發現，是政黨立場只影響資訊最少的第一劑，等到大家有了親身經驗和更多資料，它就消失了。這不太像 Nichols 說的自戀，比較像資訊不足時的借用：自己判斷不了的時候，人只能借用自己信任的陣營替自己判斷。
 
 這裡不評價高端疫苗本身的保護力，那是醫學問題，不是這篇能回答的。可以確定的是，專家程序一旦跟政黨立場綁在一起，同一份審查結論，就會被兩群人讀成兩件事。
 
-另一個數字可以補充 Nichols 說的「看夠多 YouTube 影片就以為自己能做任何事」。路透新聞研究所 2025 年的數位新聞報告顯示，台灣民眾對新聞的整體信任只有 30%，在 48 個市場中並列第 39；用 YouTube 看新聞的比例則從 2021 年的 38% 升到 46%。這測的是對新聞的信任，不是對專家的信任，但它說明了一件事：越來越多人從演算法推薦的影片裡，自己拼湊對世界的判斷。
+## 更新紀錄
 
-## 限制
-
-- 2017 年版原書讀的是網路上流通的全文複本，細讀了引言、第六章與結論，第一到五章只讀相關段落。繁中譯本沒有逐句比對，引文的中文是我自己翻的。
-- 2024 年二版只讀了出版社公開試閱的序言、《大西洋》改寫自第七章的文章（透過網頁存檔讀取），以及 GQ 訪談；第七章全文和其他新增段落沒有讀到。繁中二版沒有疫情章，是根據書店列出的目錄與簡介判斷，沒有見到實書。
-- Eyal 的《The Crisis of Expertise》沒有讀原書，內容取自 Brandmayr 的書評。2024 年以後針對二版的系統性書評沒有找到，批評主要來自 2020、2021 年的書評。
-- Pew 的數字是美國資料；Zhang 2023 是單次實驗，重製研究對「外溢到整個科學界」的支持較弱。
-- 台灣的兩項研究都是相關性研究：Chiang 與 Kuo 的資料是線上自願樣本、單次橫斷面調查；Kuo 與 Yu 2024 只讀了摘要。
+- 2026-11-20：開頭補上讀完能做什麼，結尾改寫成回答這本書對系列問題多說了什麼，小節標題改寫成內容，並在本篇直接解釋 Dunning–Kruger、促發與錨定效應。
 
 ## 參考資料
 
@@ -200,7 +194,7 @@ Nichols 引言的第一句引文來自 Asimov：「There is a cult of ignorance 
 - [Brian Kennedy & Alec Tyson, Americans' Trust in Scientists, Positive Views of Science Continue to Decline, Pew Research Center, 2023-11-14](https://www.pewresearch.org/science/2023/11/14/americans-trust-in-scientists-positive-views-of-science-continue-to-decline/)
 - [Floyd Jiuyun Zhang, Political endorsement by Nature and trust in scientific expertise during COVID-19, Nature Human Behaviour 7, 2023](https://www.nature.com/articles/s41562-023-01537-5)
 - [Georgios Papadopoulos et al., A Reproduction of "Political Endorsement by Nature and Trust in Scientific Expertise During COVID-19" by Zhang (2023), 2024](https://ueaeprints.uea.ac.uk/id/eprint/98013)
-- [Jonah Koetke et al., The effect of seeing scientists as intellectually humble on trust in scientists and their research, Nature Human Behaviour 9, 2025](https://www.nature.com/articles/s41562-024-02060-x)
+- [Jonah Koetke et al., The effect of seeing scientists as intellectually humble on trust in scientists and their research, Nature Human Behaviour 9, 2025（2024-11 線上發表）](https://www.nature.com/articles/s41562-024-02060-x)
 - [Colin F. Camerer et al., Evaluating the replicability of social science experiments in Nature and Science between 2010 and 2015, Nature Human Behaviour 2, 2018](https://www.nature.com/articles/s41562-018-0399-z)
 - [Gilles E. Gignac & Marcin Zajenkowski, The Dunning–Kruger effect is (mostly) a statistical artefact, Intelligence 80, 2020](https://doi.org/10.1016/j.intell.2020.101449)
 - [衛生福利部，衛福部核准高端MVC-COV1901新冠肺炎疫苗專案製造，2021-07-19](https://www.mohw.gov.tw/cp-16-62288-1.html)
@@ -208,4 +202,3 @@ Nichols 引言的第一句引文來自 Asimov：「There is a cult of ignorance 
 - [衛生福利部，食藥署重申高端疫苗相關審查過程皆進行嚴謹把關，2024-01-11](https://www.mohw.gov.tw/fp-16-77188-1.html)
 - [Yun-Yeh Chiang & Jason Kuo, Beyond COVID-19 vaccine acceptance: survey evidence from Taiwan, Japanese Journal of Political Science 26(2), 2025](https://www.cambridge.org/core/journals/japanese-journal-of-political-science/article/beyond-covid19-vaccine-acceptance-survey-evidence-from-taiwan/7E6117296257DDF476F3F0429AE87F24)
 - [Chun-Tung Kuo & Ruoh-Rong Yu, Association of National Identity and Trust in Government with COVID-19 Vaccination and Brand Choice in Taiwan, Journal of Community Health, 2024](https://link.springer.com/article/10.1007/s10900-024-01347-4)
-- [Lihyun Lin, Taiwan, Reuters Institute Digital News Report 2025](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/taiwan)

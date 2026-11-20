@@ -6,32 +6,32 @@ category: learning
 tags: [series, reading-guide, crowd-psychology, power, mass-delusion]
 lang: zh-TW
 tldr: "Canetti 1960 年的《群眾與權力》不是學術著作，是用意象寫成的理論：人怕被陌生人碰觸，只有在密集的群眾裡這份恐懼才會反轉；每一道被執行的指令都在執行者身上留下一根螫刺，要等到能把同一道指令原樣轉給別人才拔得掉，而群眾是少數能一次拔掉很多螫刺的場合。後來的實證研究修正了兩處：擁擠讓人愉快的前提是共同身分，不是群眾本身；1923 年惡性通膨跟後來的納粹得票沒有城市層級的關聯。指令往下傳的那一面，組織心理學有接近的發現。"
-description: "群體非理性閱讀地圖 order 5：導讀 Elias Canetti 1960《Masse und Macht》的觸碰恐懼、開放與封閉群眾、四個屬性、指令與螫刺、逆轉群眾與倖存者；並列 Adorno 1962 對談、Sontag 1980、Honneth 與 Arnason 1996 的評價，Novelli 等 2013 的擁擠與身分研究、Galofré-Vilà 2023 的通膨與納粹得票研究，以及繁中譯本現況。"
+description: "導讀 Elias Canetti 1960《Masse und Macht》的觸碰恐懼、開放與封閉群眾、四個屬性、指令與螫刺、逆轉群眾與倖存者；並列 Adorno 1962 對談、Sontag 1980、Honneth 與 Arnason 1996 的評價，Novelli 等 2013 的擁擠與身分研究、Galofré-Vilà 2023 的通膨與納粹得票研究，以及繁中譯本現況。"
 series:
   name: "群體非理性閱讀地圖"
   order: 5
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-11-18-canetti-crowds-and-power-en)
+> :globe: [English version](/posts/learning/2026-11-18-canetti-crowds-and-power-en)
 
 1927 年 7 月 15 日，維也納的工人上街抗議一樁判決：在布爾根蘭槍殺工人的兇手被判無罪。群眾沒有領袖，一路走到司法宮，把它燒了。警察開槍，死了八十多人。二十一歲、在維也納大學念化學的 Elias Canetti 也在人群裡。五十多年後他在自傳裡寫：「I became a part of the crowd, I fully dissolved in it, I did not feel the slightest resistance to what the crowd was doing.」我成了群眾的一部分，完全溶解在裡面，對群眾在做的事沒有一絲抗拒。
 
 他從 1920 年代開始想這個題目，斷斷續續寫了三十五年，1960 年出版《Masse und Macht》（英譯《Crowds and Power》）。兩年後，Adorno 在廣播對談裡當面跟他說，這本書最讓人震驚的，是「something of a scandal」：方法的主觀性。1981 年他拿到諾貝爾文學獎，理由是「for writings marked by a broad outlook, a wealth of ideas and artistic power」，視野寬廣、思想豐富、具藝術力量。
 
-一個哲學家說它的方法是醜聞，一個文學獎說它有藝術力量。這篇要回答的問題是：這本書到底是理論還是文學，讀它能帶走什麼？
+一個哲學家說它的方法是醜聞，一個文學獎說它有藝術力量。這篇讀的是書裡最核心的兩部分：群眾怎麼形成、有哪些屬性，以及〈指令〉一章講的「每道命令都會在照做的人身上留下一根刺」；再看後來的研究檢驗了哪些、哪些還只是意象。讀完你會有一個分辨「意象」和「主張」的方法，也會知道 Canetti 對「人為什麼會主動投入群眾」給了一個跟其他經典很不一樣的答案。
 
-## 這本書是什麼
+## 書與作者
 
-《Masse und Macht》1960 年由漢堡的 Claassen 出版，Carol Stewart 的英譯 1962 年由 Gollancz 出版。全書十一部加一篇結語，英譯本正文約 470 頁：前四部談群眾、群（pack）、群與宗教、歷史上的群眾，後面七部談權力的各個面向：抓取與吞食、倖存者、權力的元素、指令、變形、權力的姿態、統治者與妄想症患者（以 Schreber 的回憶錄收尾）。材料幾乎全來自人類學、神話、宗教史與歷史，沒有任何統計或調查。
+《Masse und Macht》1960 年由漢堡的 Claassen 出版，Carol Stewart 的英譯 1962 年由 Gollancz 出版。全書十一部加一篇結語，英譯本正文約 470 頁：前四部談群眾、「群」（pack，比群眾小、為了狩獵或戰爭等目的聚在一起的小團體）、群與宗教、歷史上的群眾，後面七部談權力的各個面向：抓取與吞食、倖存者、權力的元素、指令、變形、權力的姿態、統治者與妄想症患者（以德國法官 Daniel Paul Schreber 記錄自己精神病發作的回憶錄收尾）。材料幾乎全來自人類學、神話、宗教史與歷史，沒有任何統計或調查。
 
-Canetti 是在保加利亞出生的塞法迪猶太人，用德文寫作，1938 年離開維也納，之後定居英國。他把這本書當成一生最重要的作品，身後留下上百箱與它有關的筆記和草稿，2026 年英國的研究團隊還在整理，準備出校訂版。
+Canetti 是在保加利亞出生的塞法迪猶太人，用德文寫作，1938 年離開維也納，之後定居英國。他把這本書當成一生最重要的作品。
 
-讀之前先知道兩件事。第一，書末兩百多條參考書目裡沒有 Le Bon，Freud 只出現在 Schreber 案的一條註裡，而且是為了說明他「made no use of his study」，刻意不用 Freud 的分析。他不是不知道這個傳統：1962 年跟 Adorno 對談時，他直接批評 Freud 照 Le Bon 的描述解釋群眾，說「identification」（認同）這個概念「too imprecise」，「I try to do without identification」。他是選擇在這個傳統之外寫。第二，這本書不容易買到中文版。繁中版只有 1982 年博學出版社的《群眾與權力》（黃漢青、陳衛平譯，638 頁），新書通路已經查不到；台灣書店現在買得到的是簡體版：中央編譯出版社 2003 年版（馮文光、劉敏、張毅譯）與上海三聯書店 2020 年版（馮文光譯，720 頁）。博客來還有一套簡體「經典社會學系列」，把《群眾與權力》跟《狂熱分子》（Hoffer）、《烏合之眾》（Le Bon）等書綁在一起賣，這個系列的 order 3 到 5 剛好都在裡面。
+讀之前先知道兩件事。第一，書末兩百多條參考書目裡沒有 Le Bon（1895 年寫《烏合之眾》、把群眾描寫成被催眠的法國作家），Freud 只出現在 Schreber 案的一條註裡，而且是 Canetti 說明自己「made no use of his study」，刻意不用 Freud 的分析。他不是不知道這個傳統：1962 年跟 Adorno 對談時，他直接批評 Freud 照 Le Bon 的描述解釋群眾，說「identification」（認同）這個概念「too imprecise」，「I try to do without identification」。他是選擇在這個傳統之外寫。第二，這本書不容易買到中文版。繁中版只有 1982 年博學出版社的《群眾與權力》（黃漢青、陳衛平譯，638 頁），新書通路已經查不到；台灣書店現在買得到的是簡體版：中央編譯出版社 2003 年版（馮文光、劉敏、張毅譯）與上海三聯書店 2020 年版（馮文光譯，720 頁）。
 
-## 原文怎麼寫
+## Canetti 怎麼說
 
-以下引文出自 Stewart 英譯本（Continuum／FSG 版頁碼）。這篇只講範圍卡定下的部分：群眾的起點與屬性、指令與螫刺、兩者怎麼互相對應，加上歷史章裡最常被引用的一段。
+以下引文出自 Stewart 英譯本（Continuum／FSG 版頁碼）。這篇讀的是群眾的起點與屬性、指令與螫刺、兩者怎麼互相對應，加上歷史章裡最常被引用的一段。
 
 ### 起點：觸碰恐懼的反轉
 
@@ -66,7 +66,7 @@ Canetti 是在保加利亞出生的塞法迪猶太人，用德文寫作，1938 �
 
 ### 指令與螫刺
 
-這是全書最常被引用、也最能單獨帶走的概念，在〈指令〉一章（英譯本第 303–333 頁）。
+這是全書最常被引用、也最值得記住的概念，在〈指令〉一章（英譯本第 303–333 頁）。
 
 他從動物講起：「Commands are older than speech.」指令比語言古老，狗聽不懂話也懂指令。最原始的指令是獅子的吼聲，它叫獵物逃。「The oldest command—and it is far older than man—is a death sentence」，最古老的指令是死刑判決。人類的指令早就不要人命了，但「Beneath all commands glints the harshness of the death sentence」，每道指令底下都閃著死刑的寒光。
 
@@ -104,9 +104,9 @@ Canetti 是在保加利亞出生的塞法迪猶太人，用德文寫作，1938 �
 
 ### 他幾乎不加限定語
 
-Hoffer 在序言裡說「它們全都是理論」，Canetti 沒有這種句子。他常用「我們」寫，句子多半是斷言，類別號稱普遍適用。少數能算限定的地方是：他說密度總有一天可以測量；1962 年對談時 Adorno 追問他是不是把意象看得比真實的群眾更重要，他回答真實群眾的重要性「incomparably greater」，又說他經歷過的獨裁「are made up entirely of crowds」；他也說這本書還會有第二卷，要多談變形。讀者要自己把觀察、類比和主張分開，書不會替你分。
+有些作者會提醒讀者，書裡的論點只是理論；Canetti 沒有這種句子。他常用「我們」寫，句子多半是斷言，類別號稱普遍適用。少數能算限定的地方是：他說密度總有一天可以測量；1962 年對談時 Adorno 追問他是不是把意象看得比真實的群眾更重要，他回答真實群眾的重要性「incomparably greater」，又說他經歷過的獨裁「are made up entirely of crowds」；他也說這本書還會有第二卷，要多談變形。讀者要自己把觀察、類比和主張分開，書不會替你分。
 
-## 後來的研究修正了什麼
+## 後來的研究怎麼檢驗它
 
 ### 方法：意象負載的理論
 
@@ -126,7 +126,7 @@ Novelli、Drury、Reicher、Stott 2013 年在《PLOS ONE》發表兩個調查。
 
 ### 通膨推出納粹？經濟史的檢驗
 
-「惡性通膨讓德國人走向希特勒」是 Canetti 那一節的核心，也是很普遍的說法。Gregori Galofré-Vilà 2023 年在《Explorations in Economic History》用 280 多個城市的 1923 年物價資料，對照 1924 到 1933 年的各次選舉：通膨打得越重的城市，納粹得票並沒有比較高。通膨預測的是另一個政黨，專為通膨受害者成立的 Volksrechtspartei（人民權利黨），以及投票率下降。他和合作者 2021 年在《Journal of Economic History》的另一篇研究則發現，1930 到 1932 年 Brüning 政府撙節越嚴重的地區，納粹得票越高。另外，Haffert、Redeker、Rommel 2021 年的調查發現，很多德國人今天把惡性通膨和大蕭條記成同一場危機。
+「惡性通膨讓德國人走向希特勒」是 Canetti 那一節的核心，也是很普遍的說法。Gregori Galofré-Vilà 2023 年在《Explorations in Economic History》用 280 多個城市的 1923 年物價資料，對照 1924 到 1933 年的各次選舉：通膨打得越重的城市，納粹得票並沒有比較高。通膨預測的是另一個政黨，專為通膨受害者成立的 Volksrechtspartei（人民權利黨），以及投票率下降。他和合作者 2021 年在《Journal of Economic History》的另一篇研究則發現，1930 到 1932 年 Brüning 政府撙節越嚴重的地區，納粹得票越高。
 
 所以在選票層級，Canetti 的因果鏈接不起來，至少接不到通膨那一環。但他關心的不只是投票：Galofré-Vilà 2021 年的工作論文另外報告，通膨越嚴重的地方，死亡率和反猶情緒也跟著升高。「被貶值的人會去找更沒價值的對象」這一段心理機制，沒有被這些研究直接否定，只是不能再拿來解釋誰把票投給了納粹。
 
@@ -138,41 +138,38 @@ Novelli、Drury、Reicher、Stott 2013 年在《PLOS ONE》發表兩個調查。
 
 ### 沒被清掉的部分
 
-- **沒有領袖的群眾**。四個屬性裡沒有領袖，這跟 1927 年他親歷的那場無人領導的暴動一致，也比 Le Bon「群眾需要領袖暗示」更接近後來研究看到的群眾：規範在現場浮現，不是由一個人灌進去。
+- **沒有領袖的群眾**。四個屬性裡沒有領袖，這跟 1927 年他親歷的那場無人領導的暴動一致，也比 Le Bon「群眾需要領袖暗示」更接近後來研究看到的群眾：社會認同研究發現，群眾的行為準則多半是大家在現場共同形成的，不是由一個人灌進去。
 - **人為什麼主動找群眾**。Le Bon 只看到群眾讓人變差，Canetti 看到群眾給人的東西：平等、解脫、不再害怕被碰。這個方向被擁擠研究接了回來，只是要加上共同身分這個條件。
 - **指令的代價**。「照命令做的人不覺得有罪」這個觀察，比 Milgram 和 Eichmann 審判都早；「每道指令都有代價，而且會往下傳」，至今仍是看任何層級組織的好用鏡頭。
 - **群眾象徵**。國族用什麼意象想像自己（他寫英國人想像自己在海上，德國人的群眾象徵是軍隊，也就是「行進的森林」），連 Adorno 都認為是真正的貢獻，也是可以拿當代資料去對照的題目。
 
-## 這本書在解釋鏈上的位置
+## 這本書讓我們多懂了什麼
 
-Le Bon 問群眾裡發生了什麼，Hoffer 問什麼樣的人會走進去。Canetti 問的是群眾和權力怎麼互相生產：權力靠孤立的指令運作，在每個人身上累積螫刺；群眾是把螫刺一次釋放出來的地方，而統治者是把別人的死亡變成自己力量的倖存者。三本書在這一層都沒有用資料回答，但 Canetti 是最徹底的：全書幾乎都是意象，沒有一個數字。
+[Le Bon](/posts/learning/2026-11-17-lebon-the-crowd) 問群眾裡發生了什麼，[Hoffer](/posts/learning/2026-11-18-hoffer-true-believer) 問什麼樣的人會走進去。Canetti 問的是群眾和權力怎麼互相生產：權力靠一道道孤立的指令運作，在每個照做的人身上累積螫刺；群眾是把這些螫刺一次釋放出來的地方。
 
-下一篇從群體回到個人的腦袋：Kahneman 用實驗研究判斷是怎麼出錯的。那是用資料回答的路線，而它後來碰到的問題，正好是實驗本身的可靠性。
+對系列的問題，這是一個跟其他經典很不一樣的答案：**人不是在群眾裡失去理性，而是主動去找群眾，因為群眾給了平常得不到的東西：平等、解脫、不再害怕被碰，以及一次卸下長期服從的累積。** 照這個看法，一場看似失控的群眾爆發，背後可能是一整套只往下發令、不容商量的權力結構。這仍是意象，不是被驗證的因果；但它提醒我們，看到群眾爆發時，也要問平常是誰在對他們下命令。
 
-## 讀完帶走的一個判準
+下一篇從群體回到個人的腦袋：[Kahneman](/posts/learning/2026-11-18-kahneman-thinking-fast-slow) 用實驗研究判斷是怎麼出錯的，那是用資料回答的路線。
+
+## 讀意象式理論的三個問題
 
 讀到像 Canetti 這樣的句子（「群眾總想成長」「每道指令都留下螫刺」），問三個問題：**這是觀察、類比，還是因果主張？如果是主張，要用什麼資料才能檢驗，有人檢驗過嗎？把例子拿掉之後還剩什麼？** 這篇裡的三個例子剛好是三種結果：密度與愉快被量過，部分成立，但要加條件；通膨推出納粹被量過，在選票層級不成立；螫刺是類比，有方向相近的研究，機制本身沒被測過。意象可以帶你看到問題，不能替你回答問題。
 
 **今晚就能做**：不要從第一頁讀起。先讀開頭四節（英譯本第 15–20 頁）和〈指令〉一章（第 303–333 頁），大約四十頁，再決定要不要讀完全書。讀〈指令〉時想一道你照做了、到現在還記得很清楚的命令，問自己：後來有沒有用同一句話對別人說過？
 
-## 台灣回扣
+## 台灣的職場霸凌新法，和 Canetti 會追問的另一半
 
-這個機制在 2026 年的台灣長什麼樣？今年 7 月 1 日，《職業安全衛生法》的職場霸凌防治專章上路。第 22-1 條的定義是：事業單位人員「利用職務或權勢等關係，逾越業務上必要且合理範圍，持續以冒犯、威脅、冷落、孤立、侮辱或其他不當之言詞或行為」，致勞工身心健康受害。十人以上的事業單位要有申訴管道，霸凌者是最高負責人時可以直接向地方主管機關申訴。
+今年 7 月 1 日，《職業安全衛生法》的職場霸凌防治專章上路。第 22-1 條的定義是：事業單位人員「利用職務或權勢等關係，逾越業務上必要且合理範圍，持續以冒犯、威脅、冷落、孤立、侮辱或其他不當之言詞或行為」，致勞工身心健康受害。十人以上的事業單位要有申訴管道，霸凌者是最高負責人時可以直接向地方主管機關申訴。
 
-用 Canetti 的框架讀，這條法處理的是指令的推力：一次次具體的、可以申訴的行為。他會追問的是另一半：被這樣對待的人，身上留下了什麼，會不會往下傳？很多人對護理職場的直覺就是這個版本，「學姊欺負學妹，學妹熬成學姊再欺負下一屆」。
+用 Canetti 的框架讀，這條法處理的是發令者那一端：一次次具體的、可以申訴的行為。Canetti 會追問的是另一半：被這樣對待的人，身上留下了什麼螫刺，會不會往下傳？很多人對護理職場的直覺就是這個版本，「學姊欺負學妹，學妹熬成學姊再欺負下一屆」。
 
 資料比直覺複雜。馬淑清 2014 年在高雄醫學大學的博士論文調查台灣醫院護理人員：157 人（19.4%）自己遭遇過職場霸凌，施予霸凌的主要來源是醫師（29.6%），其次才是同儕（26.8%）；34 歲以上的護理人員遭遇霸凌的風險反而是 34 歲以下的 1.74 倍。風險最高的是組織條件：主管領導型態傾向專制的，風險是混合型的 3.63 倍；組織文化傾向官僚的，是混合型的 3.72 倍。
 
-這比較像 Canetti 說的另一件事：問題不在個別的壞學姊，而在指令系統本身，越是只往下發令、不容商量的地方，螫刺越多。這份研究是橫斷面調查，回答不了「被霸凌的人後來會不會霸凌別人」，那正是 Canetti 的主張裡最需要資料、也最缺資料的一段。
+如果借 Canetti 的意象來讀，這指向的是指令系統本身，而不是個別的壞學姊：越是只往下發令、不容商量的地方，問題越多。這是本文的延伸讀法，不是 Canetti 自己的分析。這份研究是橫斷面調查，回答不了「被霸凌的人後來會不會霸凌別人」，那正是 Canetti 的主張裡最需要資料、也最缺資料的一段。
 
-## 限制
+## 更新紀錄
 
-- 原書讀的是 Stewart 英譯本（Continuum 版），不是德文原文。讀了群眾部分的前五節與四個屬性、〈指令〉一章的主要小節（指令的起源與螫刺、對多數人的指令、螫刺的消解、指令與不負責任，以及逆轉一節的開頭）、倖存者一節開頭、〈德國與凡爾賽〉與〈通貨膨脹與群眾〉的相關段落、結語、Schreber 註，以及目錄與參考書目。群、群與宗教、變形、權力的姿態、統治者與妄想症患者各部未讀。
-- Honneth 與 Arnason 1996 年的原文在付費牆內未讀，他們的論點取自 Brighenti 2011 的轉述與引文。
-- Canetti 1927 年的自述引自 Choudhary 2024 對自傳英譯本（1999）的引用，自傳本身未讀。
-- 1982 年博學版繁中譯本沒有看到實體書，無法評論譯名與譯文品質，書目資料取自 Anobii。
-- Novelli 等 2013 的兩個調查樣本小（48 人、112 人），都是相關設計；Mawritz 等 2012 是橫斷面資料；馬淑清 2014 是十多年前的資料，2026 年新法上路後還沒有新的調查可對照。
-- 「螫刺」這個機制本身沒有找到直接檢驗它的研究。
+- 2026-11-20：開頭補上閱讀範圍與讀完能做什麼，結尾改寫成回答「人為什麼主動投入群眾」，小節標題改寫成內容，修正台灣段對「推力」的誤用，並補充群、Schreber 等背景說明。
 
 ## 參考資料
 
@@ -184,13 +181,11 @@ Le Bon 問群眾裡發生了什麼，Hoffer 問什麼樣的人會走進去。Can
 - [Jóhann P. Árnason, Canetti's Counter-image of Society, Thesis Eleven 45, 1996](https://doi.org/10.1177/0725513696001045008)
 - [Andrea Mubi Brighenti, Elias Canetti and the counter-image of resistance, Thesis Eleven 106, 2011](https://www.capacitedaffect.net/wp-content/uploads/2011/08/Brighenti-2011-Elias-Canetti-and-the-Counter-Image-of-Resistance.pdf)
 - [Sunil Choudhary, Rabble, Masses or Humanity: Kraus and Canetti Responding to the July Revolt of 1927, Studien zur deutschen Sprache und Literatur 51, 2024](https://doi.org/10.26650/sdsl2023-1429579)
-- [Canetti Out of the Boxes（MHRA 對 Canetti 全集校訂團隊的訪談），2026](https://www.mhra.org.uk/news/2026/04/28/canetti-out-of-the-boxes.html)
 - [Novelli, Drury, Reicher & Stott, Crowdedness Mediates the Effect of Social Identification on Positive Emotion in a Crowd, PLOS ONE 8(11), 2013](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0078983)
 - [Stephen Reicher, Crowd Psychology（An Encyclopedia of Human Behaviour 條目）](http://www.bbcprisonstudy.org/includes/site/files/files/Encyclopedia%20Crowds.pdf)
 - [Gregori Galofré-Vilà, Spoils of War: The Political Legacy of the German Hyperinflation, Explorations in Economic History 88, 2023](https://ideas.repec.org/a/eee/exehis/v88y2023ics0014498322000572.html)
 - [Gregori Galofré-Vilà, The Costs of Hyperinflation: Germany 1923（工作論文，2021）](https://www2.unavarra.es/gesadj/CyD5/depEconomia/documentos-trabajo/2021/WP2101.pdf)
 - [Galofré-Vilà, Meissner, McKee & Stuckler, Austerity and the Rise of the Nazi Party, Journal of Economic History 81(1), 2021](https://www.cambridge.org/core/journals/journal-of-economic-history/article/austerity-and-the-rise-of-the-nazi-party/7FB1BC0E727F47DC790A23D2A4B70961)
-- [Haffert, Redeker & Rommel, Misremembering Weimar: Hyperinflation, the Great Depression, and German collective economic memory, Economics & Politics, 2021](https://onlinelibrary.wiley.com/doi/10.1111/ecpo.12182)
 - [Mawritz, Mayer, Hoobler, Wayne & Marinova, A Trickle-Down Model of Abusive Supervision, Personnel Psychology 65(2), 2012](https://davemayer.me/wp-content/uploads/sites/11/2019/07/Mawritz-Mayer-Hoobler-Wayne-Marinova-PP-2012.pdf)
 - [職業安全衛生法第 22-1 條（全國法規資料庫）](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=N0060001&flno=22-1)
 - [勞動部新聞稿：職安法新修條文與 11 部子法 7 月 1 日同步上路，2026-07-01](https://www.mol.gov.tw/1607/1632/1633/93216/)

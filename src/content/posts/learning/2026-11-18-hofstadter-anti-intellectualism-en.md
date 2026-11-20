@@ -6,14 +6,14 @@ category: learning
 tags: [series, reading-guide, political-psychology, history, mass-delusion]
 lang: en
 tldr: "In 1963 Hofstadter defined anti-intellectualism as \"a resentment and suspicion of the life of the mind and of those who are considered to represent it,\" and traced its sources through religion, politics, business, and education. His most counterintuitive claim is that intellectuals are resented not because they are useless but because they are needed too much. Sixty years on, historians have largely dismantled his psychologizing reading of populist movements, and social scientists have narrowed \"anti-intellectualism\" to a measurable \"generalized distrust of experts.\" What still stands is his distinction between intelligence and intellect, between the expert and the intellectual, and his point that anti-intellectualism usually rides on defensible causes. The book's most useful lesson is how to tell anti-intellectualism apart from distrust that has reasons."
-description: "The Mass Irrationality Reading Map, order 7: a guide to Hofstadter's 1963 Anti-Intellectualism in American Life. Checked against the original text of chapters 1, 2, 3, 6, 8, 13, and 15; the critiques in DeMott 1963, Lasch 1973, Rigney 1991, Postel 2019, and McKenzie-McHarg 2022; and the measurement studies of Merkley 2020, Merkley and Loewen 2021, Motta 2024, and Pew 2026. With Yu Ying-shih's 1975 essay on anti-intellectualism in the Chinese political tradition and Taiwan data from the 68-country TISP survey."
+description: "A reading guide to Hofstadter's 1963 Anti-Intellectualism in American Life. Checked against the original text of chapters 1, 2, 3, 6, 8, 13, and 15; the critiques in DeMott 1963, Lasch 1973, Rigney 1991, Postel 2019, and McKenzie-McHarg 2022; and the measurement studies of Merkley 2020, Merkley and Loewen 2021, Motta 2024, and Pew 2026. With Yu Ying-shih's 1975 essay on anti-intellectualism in the Chinese political tradition and Taiwan data from the 68-country TISP survey."
 series:
   name: "The Mass Irrationality Reading Map"
   order: 7
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-11-18-hofstadter-anti-intellectualism)
+> :globe: [中文版](/posts/learning/2026-11-18-hofstadter-anti-intellectualism)
 
 In September 1954, at a Republican breakfast in Los Angeles, President Eisenhower said he had heard a very interesting definition of an intellectual: "a man who takes more words than are necessary to tell more than he knows."
 
@@ -23,7 +23,7 @@ Nine years later, the Columbia University historian Richard Hofstadter put these
 
 "Anti-intellectual" (反智) is also a common insult in Taiwan. Hofstadter warned in the same chapter that one reason the term is hard to define is that "its very vagueness makes it more serviceable in controversy as an epithet." This post tries to turn the epithet back into a concept: what Hofstadter actually said, which parts sixty years of work have overturned, which parts social science has picked up and turned into something measurable, and how readers can tell "anti-intellectualism" apart from distrust that has reasons.
 
-## What this book is
+## The book and its background
 
 *Anti-Intellectualism in American Life* was published by Knopf in 1963 and won the 1964 Pulitzer Prize for General Nonfiction. It was Hofstadter's second Pulitzer; the first was the 1956 History prize for *The Age of Reform*. He was born in 1916, died in 1970, and taught American history at Columbia.
 
@@ -35,9 +35,9 @@ The Traditional Chinese edition, 《美國的反智傳統》, was translated by 
 
 The 2025 revised edition's marketing copy says that "the anti-intellectual undercurrent represented by Trump has always been carved into Americans' bones." That sentence sits some distance from what the author himself said; as the next section shows, Hofstadter spent a good number of pages trying to stop readers from reading his book that way.
 
-This post is not a chapter-by-chapter guide, and it does not cover Hofstadter's essay of the following year, "The Paranoid Style in American Politics," which is the next post. It looks at three things only: how he defined anti-intellectualism, where he thought it came from, and how much of that account survives sixty years later.
+This post is not a chapter-by-chapter guide, and it does not cover Hofstadter's essay of the following year, "The Paranoid Style in American Politics" (see [the paranoid style post](/posts/learning/2026-11-18-hofstadter-paranoid-style-en)). It looks at three things only: how he defined anti-intellectualism, where he thought it came from, and how much of that account survives sixty years later.
 
-## What the original says
+## What Hofstadter says
 
 Quotations below are from the 1963 Knopf first edition, cited by chapter.
 
@@ -106,19 +106,19 @@ The last chapter turns to intellectuals themselves. In the 1950s they were begin
 
 What worries him is a split of the intellectual community into two camps: technicians concerned only with power and implicitly accepting its terms, and willfully alienated intellectuals more concerned with their own purity than with making their ideas effective. The book's final paragraph says that apocalyptic predictions of liberal culture's collapse may be right or wrong, but they are more likely to breed self-pity and despair than the will to resist.
 
-## What later research revised
+## Sixty years on: what was overturned, and what was taken up
 
 People questioned the book in 1963, and later criticism runs along three lines: the author's position, his method and reading of populism, and the concept itself. In the last decade a new line has appeared: social science has turned "anti-intellectualism" into a measurable variable.
 
 ### Doubts from the start: he skipped the hardest stretch
 
-Benjamin DeMott's 1963 review in *The New York Review of Books* was broadly favorable but pointed to a gap: Hofstadter built his argument that anti-intellectualism attaches to humane and democratic sentiments on nineteenth-century examples, and did not deal directly with the episodes closest to him and most damaging to intellectual culture, the Hiss case and the McCarthy years. Drawing on his own time as a soldier, DeMott suggested that the disdain of "educated" officers for everyone else during the war may have been part of the resentment that McCarthy later drew on; at moments when ordinary people feel their way up is blocked, anti-intellectualism becomes "impure," an outlet for decent aspiration as well as for vicious envy.
+Benjamin DeMott's 1963 review in *The New York Review of Books* was broadly favorable but pointed to a gap: Hofstadter built his argument that anti-intellectualism attaches to humane and democratic sentiments on nineteenth-century examples, and did not deal directly with the episodes closest to him and most damaging to intellectual culture, the Hiss case (the 1948 accusation that former State Department official Alger Hiss had spied for the Soviet Union, ending in a perjury conviction and becoming a landmark of the anti-communist mood) and the McCarthy years. Drawing on his own time as a soldier, DeMott suggested that the disdain of "educated" officers for everyone else during the war may have been part of the resentment that McCarthy later drew on; at moments when ordinary people feel their way up is blocked, anti-intellectualism becomes "impure," an outlet for decent aspiration as well as for vicious envy.
 
 ### The author's position: confusing intellect with intellectuals' interests
 
-Hofstadter's student, the historian Christopher Lasch, wrote a retrospective essay on his teacher in *The New York Review of Books* in 1973 and was blunt about this book: "The defense of the intellectuals' tradition against popular anti-intellectualism ignores the anti-intellectualism of the intellectuals themselves and confuses intellect with the interests of intellectuals as a class." Lasch traced one of the book's roots to William Phillips's 1941 *Partisan Review* essay "The Intellectuals' Tradition," which treated intellectuals as a group with a culture of its own.
+Hofstadter's student, the historian Christopher Lasch, wrote a retrospective essay on his teacher in *The New York Review of Books* in 1973 and was blunt about this book: "The defense of the intellectuals' tradition against popular anti-intellectualism ignores the anti-intellectualism of the intellectuals themselves and confuses intellect with the interests of intellectuals as a class."
 
-In 2020, reviewing the Library of America collection of Hofstadter's work in *The New Republic*, Chris Lehmann extended this critique to Cold War liberalism: farmers and workers appear in the book as a fixed anti-intellectual force always ready to be mobilized, while the readiness of Hofstadter's generation of Cold War liberals to embrace state power carried its own risks, with the Kennedy administration's Vietnam war, a project of "the best and brightest," as the example.
+In 2020, reviewing the Library of America collection of Hofstadter's work in *The New Republic*, Chris Lehmann extended this critique to Cold War liberalism: farmers and workers appear in the book as a fixed anti-intellectual force always ready to be mobilized, while the readiness of Hofstadter's generation of Cold War liberals to embrace state power carried its own risks, with the Kennedy administration's Vietnam war, a project of "the best and the brightest" (the title of David Halberstam's book mocking Kennedy's elite advisers), as the example.
 
 This line of criticism does not say Hofstadter was wrong; it says his position kept him from seeing certain things. He admitted something similar himself in chapter 1: intellectuals apply a double standard to criticism from inside and outside their circle, and the same criticism coming from outside gets labeled anti-intellectual.
 
@@ -126,7 +126,7 @@ This line of criticism does not say Hofstadter was wrong; it says his position k
 
 Hofstadter's reading of American populism is laid out mainly in *The Age of Reform* (1955): the farmers of the late-nineteenth-century People's Party appear as anxious, nostalgic, and given to nativism and anti-Semitism, and their movement later "soured" into 1950s McCarthyism. Traces of this argument show up in the political and religious chapters of *Anti-Intellectualism* too, for example in Bryan as a fusion of evangelical faith and populistic democracy.
 
-The historian Charles Postel's 2019 article summarizes half a century of archival research: Woodward, Nugent, Pollack, and Rogin argued in the 1950s and 1960s that the thesis was ahistorical, exaggerated, and unfounded, and the work of later decades, varied as its methods and interpretations are, points the same way: "Essentially none of this archival research has sustained the Hofstadter thesis. Quite the contrary, it has left it in ruins." Postel's target is *The Age of Reform*, not this book; but both books use the same method, describing mass movements in the language of social psychology and reading participants' political demands as symptoms of anxiety and disorder.
+The historian Charles Postel's 2019 article summarizes half a century of archival research: historians of populism (Woodward, Nugent, Pollack, and Rogin) argued in the 1950s and 1960s that the thesis was ahistorical, exaggerated, and unfounded, and the work of later decades, varied as its methods and interpretations are, points the same way: "Essentially none of this archival research has sustained the Hofstadter thesis. Quite the contrary, it has left it in ruins." Postel's target is *The Age of Reform*, not this book; but both books use the same method, describing mass movements in the language of social psychology and reading participants' political demands as symptoms of anxiety and disorder.
 
 In a 2022 article in the *Journal of the History of Ideas*, Andrew McKenzie-McHarg named the risk of this method the pitfalls of "psychologizing history." In an interview he put it more concretely: first observing something in the present and then searching the past for earlier versions of it is risky for a historian, and Hofstadter's interpretations were "by no means fully immune" to that risk. *Anti-Intellectualism* says at the outset that it was written in response to the 1950s, which is exactly this structure.
 
@@ -149,7 +149,7 @@ Over the past decade, political science and communication research have turned H
 Results under this definition are quite consistent:
 
 - Merkley (2020), using the General Social Survey and an online sample of about 3,600 Americans, found that higher anti-intellectualism goes with stronger opposition to expert consensus positions on climate change, nuclear power, GMOs, and water fluoridation, more strongly among the politically interested. In an experiment, telling respondents that experts agree made highly anti-intellectual respondents more opposed. Randomly exposing respondents to populist rhetoric, even rhetoric unrelated to experts, made anti-intellectual predispositions weigh more heavily in how they processed expert cues.
-- Merkley and Loewen (2021), in *Nature Human Behaviour*, followed 27,615 Canadians from March to July 2020. Among those lowest in anti-intellectualism, mask use rose from 21% in wave 3 to 81% in wave 11; among those at the 95th percentile it rose only to 46%, and at the extreme it barely rose at all. The authors state the limits: anti-intellectualism cannot be randomly assigned, and the data come only from Canada.
+- Merkley and Loewen (2021), in *Nature Human Behaviour*, followed 27,615 Canadians from March to July 2020. Among those lowest in anti-intellectualism, mask use rose from 21% in the third survey round to 81% in the eleventh; among those at the 95th percentile it rose only to 46%, and at the extreme it barely rose at all. The authors state the limits: anti-intellectualism cannot be randomly assigned, and the data come only from Canada.
 - Matthew Motta's *Anti-Scientific Americans* (Oxford University Press, 2024) defines anti-intellectualism as the dislike and distrust of scientists, academics, and other experts. Using hundreds of polls going back to the 1940s and six decades of individual-level surveys, he estimates that about a third of Americans hold anti-intellectual attitudes at any given time; the share has been broadly stable over the long run, with peaks that line up with the rise of right-wing populists such as George Wallace and Donald Trump, and it became markedly politicized among Republicans after the Tea Party. He also finds that in periods of high public anti-intellectualism, Congress invites public health, climate, and economic experts to testify much less often.
 
 A Pew Research Center survey released in January 2026 (5,111 adults interviewed in October 2025) adds another angle: 77% of U.S. adults have a great deal or fair amount of confidence in scientists to act in the public's best interests, about the same as the year before but still below the 87% of April 2020; 90% of Democrats and leaners versus 65% of Republicans and leaners, a gap that has been broadly unchanged since 2021.
@@ -161,20 +161,20 @@ These studies make Hofstadter's concept testable, but they also change it. Hofst
 - **The intelligence/intellect distinction.** Americans prize intelligence and suspect intellect; this is still the best first cut for analyzing "anti-intellectualism." What gets suspected is usually not competence but the kind of mind that questions and thinks too much.
 - **The expert/intellectual distinction.** He said in 1963 that twentieth-century resentment was mainly of "the intellectual in his capacity as expert," and partly justified. Later measurement work effectively continued along this line, only treating it as the whole story.
 - **Anti-intellectualism fluctuates; it does not simply decline.** He said American regard for intellectuals "is subject to cyclical fluctuations." Motta's picture from polling data, a baseline of about a third with peaks that move with political figures, fits this.
-- **Resentment rises with importance.** In Pew's data, Americans' confidence in scientists fell during the pandemic, when experts were most needed and most often in the news. This is consistent with "resented for being needed too much," but these data cannot show that this mechanism caused it.
+- **Resentment rises with importance.** In Pew's data, Americans' confidence in scientists peaked at 87% early in the pandemic, then fell through the years when experts were in the news every day and pandemic policy became a political fight. This is consistent with "resented for being needed too much," but these data cannot show that this mechanism caused it.
 - **Anti-intellectualism rides on defensible causes.** Evangelical egalitarianism, political hostility to privilege, educational egalitarianism: these are his own examples. Merkley's finding that populist rhetoric alone can activate anti-intellectual predispositions says the same thing, that anti-intellectualism hitches a ride on another appeal.
 
-## Where this book sits in the explanatory chain
+## What the book adds
 
-The three L2 books are about crowds, and Kahneman at L3 narrows the problem to one person's judgment. Hofstadter brings the scale back up to society, but not back to crowds: he looks at a society's long-run attitude toward slow thinking, and at how religious, political, economic, and educational institutions reproduce that attitude from one generation to the next. It is the first book in this series about culture and institutions.
+Books about crowds look at what a group does in a moment; Hofstadter looks at a society's long-run attitude toward slow thinking, and how religion, politics, business, and education pass that attitude down the generations. On why groups lose their reason, he offers two answers that still hold.
 
-The previous post ended with Kahneman saying that organizations are more reliable than individuals because they think slowly and follow procedures. The objects of resentment Hofstadter lists in chapter 2 are exactly such organizations: the brain trust, the intelligence agencies, the Rand Corporation, the Council of Economic Advisers. The more a society relies on these institutions, the more likely resentment of them is to rise. That is the tension most worth noticing when the two books are read together.
+First, **the more a society depends on experts, the stronger the resentment of experts may become.** The targets of resentment he lists in Chapter 2 are exactly the slow, procedure-bound institutions: think tanks, intelligence agencies, the RAND Corporation, the Council of Economic Advisers. [The Kahneman post](/posts/learning/2026-11-18-kahneman-thinking-fast-slow-en) says organizations do better than individuals; Hofstadter points to the other side: the more a society hands decisions to such institutions, the more those left out may see intellect as power rather than a tool.
 
-It connects to L2 as well. Hoffer says the first phase of a movement is launched by "men of words," discontented intellectuals and writers; Hofstadter says the leaders of anti-intellectualism are marginal, embittered intellectuals. From different directions, both saw the same kind of person: those best at mobilizing with words are often those with the most strained relationship to the intellectual elite.
+Second, **anti-intellectualism rarely appears alone; it usually rides on defensible causes**: equality, opposition to privilege, distrust of elites. Calling a group "anti-intellectual" therefore often misses what they are actually protesting. The Taiwan survey data below point the same way: Taiwanese respondents hardly doubt scientists' competence; they doubt their motives.
 
-The next post is Hofstadter's essay of the following year, "The Paranoid Style in American Politics." One way to remember the division of labor: anti-intellectualism is an attitude; the paranoid style is a form of discourse. The first answers "why distrust people who think too much"; the second answers "how the distrustful tell their story."
+The next post is Hofstadter's ["The Paranoid Style in American Politics"](/posts/learning/2026-11-18-hofstadter-paranoid-style-en) from the following year. One way to remember the division: anti-intellectualism is an attitude; the paranoid style is a way of talking. The first answers "why distrust people who think too much," the second "how distrustful people tell their stories."
 
-## One test to take away
+## Four questions before you call someone anti-intellectual
 
 The next time someone is called "anti-intellectual," or you want to call someone that, ask four questions first:
 
@@ -185,15 +185,15 @@ The next time someone is called "anti-intellectual," or you want to call someone
 
 **Something to do tonight**: read the first four pages of chapter 2 (from "Before attempting to estimate" through Weber's "lives off ideas, not for them"), then the two pages on experts in the same chapter (from "In the practical world of affairs" through "the expert by quickening the public's resentment"). Then find a recent comment or politician's remark that was called "anti-intellectual," and use the four questions above to decide which kind it is. In the Traditional Chinese edition, chapter 2 is titled 〈智識不受歡迎〉.
 
-## Back to Taiwan
+## Two threads in Taiwan: Yü Ying-shih, and a survey of trust in scientists
 
-What does this mechanism look like in Taiwan in 2026? Two threads are worth following.
+The idea of anti-intellectualism in Taiwan has two threads worth following.
 
 The first is how the concept reached Taiwan. In the recommendation he wrote for the Traditional Chinese edition, Yu Ying-shih recalled reading the book in the late 1960s and writing a long essay in 1975, "Anti-intellectualism and the Chinese Political Tradition." While the essay was being serialized in the *United Daily News*, he wrote, it "touched, intentionally or not, the political nerve of Taiwan's academic and cultural circles, and drew a wide and sustained strong reaction." That, he said, is how some of Hofstadter's arguments reached Taiwan indirectly.
 
 Read side by side, the two essays are more interesting for their differences than their similarities. Yu says at the outset that he does not regard anti-intellectualism as the main feature of the Chinese political tradition; judged by the civil service examinations, traditional Chinese government was, at least in form, relatively respectful of intellect. His subject is something else: how rulers control intellectuals. He traces it from the *Laozi*'s line that those who practice the Way do not enlighten the people but keep them ignorant, through Han Feizi's "take officials as teachers," to Li Si's order to burn the books. That is anti-intellectualism from above, from power. Hofstadter writes about anti-intellectualism from below, from evangelical egalitarianism, Jacksonian democracy, and the practicality of businessmen. Yu's essay is an analysis in the history of political thought, not an empirical study of anti-intellectual attitudes; but the word 反智 in Taiwanese readers' hands carries both uses: sometimes it means the public distrusting experts, sometimes it means power suppressing criticism.
 
-The second thread is data. The TISP survey, published in *Nature Human Behaviour* in 2025, interviewed 71,922 people in 68 countries; the Taiwan sample was 1,204 people interviewed online with quota sampling in March 2023. The team published the raw data, and the figures below are my own calculations from the public data using each country's weights; the same method gives a global mean of 3.62, matching the published figure.
+The second thread is data. The TISP survey, published in *Nature Human Behaviour* in 2025, interviewed 71,922 people in 68 countries; the Taiwan sample was 1,204 people interviewed online with quota sampling in March 2023. The paper does not publish country breakdowns; the Taiwan figures below are calculated from the team's public raw data using each country's weights, and "agree" means choosing 4 or 5 on a five-point scale.
 
 - **Overall trust**: Taiwanese respondents' mean trust in domestic scientists is 3.37 (on a 1–5 scale), 61st of 68 countries and below the global mean of 3.62; Japan is also at 3.37.
 - **But the low score is not about competence.** The trust scale has four dimensions. Taiwan versus the global mean: competence 3.93 vs 4.02, almost no gap; integrity 3.25 vs 3.58, benevolence (concern for people's well-being) 3.26 vs 3.55, and openness to others' views 3.04 vs 3.33, gaps of about 0.3 points each. Agreement that "scientific research methods are the best way to find out if something is true or false" is 74% in Taiwan and 75% globally.
@@ -204,16 +204,9 @@ In Hofstadter's terms, Taiwan in this data looks less like a society suspicious 
 
 There are three caveats on reading these data. The research team notes in its supplement that the Chinese word for "science" (科學) covers technology and engineering but not the humanities, which may affect Taiwan's results; cross-country comparisons of the scale achieve only the most basic level of measurement invariance, so differences between countries should be read conservatively; and online quota samples do not fully represent the whole population.
 
-## Limitations
+## Changelog
 
-- The book was read from the OCR text of the 1963 first edition on archive.org. I read closely the prefatory note, chapters 1 and 2, the opening of chapter 3, the section of chapter 6 on the 1828 election, the opening of chapter 8, the section of chapter 13 on the Prosser resolution, and the opening and end of chapter 15; the other chapters were not compared paragraph by paragraph.
-- The Traditional Chinese translation was not checked line by line; the Chinese renderings of the quotations in the Chinese version of this post are my own and may differ from the published translation's wording.
-- I did not read Motta's book itself; the "one third" figure and the congressional hearings finding come from Oxford University Press's abstract, the author's *Scientific American* essay, and a Boston University interview.
-- Postel 2019 criticizes *The Age of Reform*; applying it to this book is my extension. For McKenzie-McHarg 2022 I read only the abstract and the author's interview. Rigney 1991 was read from a full-text copy circulating online.
-- Lehmann 2020 is a book review and an opinion piece; DeMott 1963 was read from excerpts on *The New York Review of Books* website.
-- Yu Ying-shih's essay is an analysis in the history of political thought, not an empirical study; "touched the political nerve of Taiwan's academic and cultural circles" is his own recollection, and this post did not separately check the reaction at the time.
-- The TISP figures for Taiwan are my calculations from the public data; the paper itself does not publish country-level breakdowns. "Agree" means choosing 4 or 5 on the five-point scale.
-- The measurement studies draw mainly on U.S. and Canadian data, and Merkley and Loewen themselves caution against generalizing their results to other countries.
+- 2026-11-20: Rewrote the ending to answer what the book adds to the series question, retitled sections by content, and added background on the Hiss case and "the best and the brightest."
 
 ## References
 

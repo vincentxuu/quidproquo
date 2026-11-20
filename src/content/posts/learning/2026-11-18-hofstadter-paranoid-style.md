@@ -6,34 +6,34 @@ category: learning
 tags: [series, reading-guide, political-psychology, misinformation, mass-delusion]
 lang: zh-TW
 tldr: "Hofstadter 1964 年把一種政治說話方式叫做「偏執狂風格」：誇大、多疑、陰謀幻想，而且他明說不是臨床診斷、不限右派、說的是「大致正常的人」。文章裡最常被忽略、也最有用的一點是：這種風格不缺證據，反而拼命堆證據，問題在於證據是拿來保護信念，而不是拿來說服人或修正自己。六十年後，歷史學界批評這個概念把對手病理化；實證研究則發現陰謀信念沒有越來越多、跟左右派的關係因國家和時期而異，並且跟「被排除在權力之外」有關，這兩點都跟他當年的推測相符。"
-description: "群體非理性閱讀地圖 order 8：Hofstadter 1964 年 Harper's〈The Paranoid Style in American Politics〉導讀。對照原文全文、1965 年書版本的轉引段落與 1959 年 BBC 講稿的文本史，Ribuffo 2017、Olmsted 2018、Guilhot 2023 的批評，以及 Uscinski 與 Parent 2014、Enders 等 2022、Imhoff 等 2022、Enders 等 2024、Bowes 等 2023、Biddlestone 等 2025 的實證研究；附 IORG 的「疑美論」研究與中研院「美國肖像」民調。"
+description: "Hofstadter 1964 年 Harper's〈The Paranoid Style in American Politics〉導讀。對照原文全文、1965 年書版本的段落與 1959 年 BBC 講稿的文本史，Ribuffo 2017、Olmsted 2018、Guilhot 2023 的批評，以及 Uscinski 與 Parent 2014、Enders 等 2022、Imhoff 等 2022、Enders 等 2024、Bowes 等 2023、Biddlestone 等 2025 的實證研究；附 IORG 的「疑美論」研究與中研院「美國肖像」民調。"
 series:
   name: "群體非理性閱讀地圖"
   order: 8
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-11-18-hofstadter-paranoid-style-en)
+> :globe: [English version](/posts/learning/2026-11-18-hofstadter-paranoid-style-en)
 
 糖果公司退休老闆、約翰．伯奇協會創辦人 Robert Welch 曾經寫道，艾森豪總統是「a dedicated, conscious agent of the Communist conspiracy」，一個忠誠、自覺的共產陰謀代理人。他特別補充，這個結論「based on an accumulation of detailed evidence so extensive and so palpable that it seems to put this conviction beyond any reasonable doubt」，建立在大量、具體、明確到似乎排除了任何合理懷疑的證據上。
 
-麥卡錫參議員的小冊子《McCarthyism》只有 96 頁，卻有不少於 313 個註腳。Welch 攻擊艾森豪的書《The Politician》，光是書目和註釋就有一百頁。
+1950 年代初，參議員 Joseph McCarthy 指控美國政府和軍方被共產黨滲透，掀起一波調查、黑名單與整肅，後來被稱為麥卡錫主義。他的小冊子《McCarthyism》只有 96 頁，卻有不少於 313 個註腳。Welch 攻擊艾森豪的書《The Politician》，光是書目和註釋就有一百頁。
 
-我們通常以為陰謀論的問題是不講證據。Richard Hofstadter 1964 年發表在《Harper's》的〈The Paranoid Style in American Politics〉指出相反的事：這種政治說話方式對事實有「almost touching concern」，幾乎令人感動的執著，它的問題不在證據太少，而在於證據的用途。這篇文章後來變成美國政治評論最常被引用的一句話，也被歷史學界批評了半個世紀。這篇要做的事是：回到原文看他到底說了什麼、哪些部分被批評得有道理、哪些部分後來被數據支持，以及怎麼把它當成檢查工具，而不是罵人的標籤。
+我們通常以為陰謀論的問題是不講證據。Richard Hofstadter 1964 年發表在《Harper's》的〈The Paranoid Style in American Politics〉指出相反的事：這種政治說話方式對事實有「almost touching concern」，幾乎令人感動的執著，它的問題不在證據太少，而在於證據的用途。「偏執狂風格」這個詞後來成了美國政治評論最常被引用的說法之一，也被歷史學界批評了半個世紀。這篇要做的事是：回到原文看他到底說了什麼、哪些部分被批評得有道理、哪些部分後來被數據支持，以及怎麼把它當成檢查工具，而不是罵人的標籤。
 
-## 這篇文章是什麼
+## 文章與寫作背景
 
-〈The Paranoid Style in American Politics〉刊在《Harper's》1964 年 11 月號，正值高華德（Barry Goldwater）代表共和黨競選總統。文末註明，它改寫自 Hofstadter 1963 年 11 月在牛津大學的 Herbert Spencer 講座。1965 年，Knopf 把它和其他幾篇文章合成同名文集出版，書裡的版本比雜誌版長。
+〈The Paranoid Style in American Politics〉刊在《Harper's》1964 年 11 月號，正值共和黨保守派的高華德（Barry Goldwater）競選總統，文章最後一部分談的就是支持他的右派運動。文末註明，它改寫自 Hofstadter 1963 年 11 月在牛津大學的 Herbert Spencer 講座。1965 年，Knopf 把它和其他幾篇文章合成同名文集出版，書裡的版本比雜誌版長。
 
 這個概念有更早的版本。歷史學家 Andrew McKenzie-McHarg 在英國廣播公司（BBC）的書面檔案中心找到 Hofstadter 1959 年一場廣播講座的講稿，這是他第一次提出「偏執狂風格」。McKenzie-McHarg 指出，1959 年的講稿只談麥卡錫和麥卡錫之後的極右派；四年後的牛津講座，才加進大量更早的美國歷史例子。這份講稿後來收進 Library of America 出版、Sean Wilentz 編的 Hofstadter 文集。
 
-這篇文章跟上一篇《美國的反智傳統》同一個作者、只差一年。兩者的分工可以這樣記：反智是一種態度，回答「為什麼不信任想太多的人」；偏執狂風格是一種話語形式，回答「不信任的人會怎麼說故事」。
+Hofstadter 前一年出版了《美國的反智傳統》（見[反智傳統篇](/posts/learning/2026-11-18-hofstadter-anti-intellectualism)）。兩者的分工可以這樣記：反智是一種態度，偏執狂風格是一種說話方式。
 
 中文版方面，簡體版《美国政治中的偏执狂风格》2025 年 7 月由上海三聯書店出版，陶小路譯，收的是 1965 年的文集。繁中目前沒有譯本；八旗版《美國的反智傳統》的作者簡介把它譯作《美國政治中的妄想偏執風格》，但只列了英文書名。
 
-這篇以《Harper's》雜誌版全文為主，引文都出自雜誌版；少數只在 1965 年書版本出現的句子，會另外標明，那些是透過其他學者的轉引讀到的。文集裡其他談高華德、麥卡錫主義的文章不在範圍內。
+這篇以《Harper's》雜誌版全文為主，引文都出自雜誌版；少數只在 1965 年書版本出現的句子，會另外標明。讀完你會有四個檢查陰謀說法的問題，用的是它的形式，而不是它的立場。
 
-## 原文怎麼寫
+## Hofstadter 怎麼說
 
 ### 定義：不是臨床診斷，而是「大致正常的人」的說話方式
 
@@ -82,7 +82,7 @@ draft: false
 
 偏執文學最令人印象深刻的，是幻想出來的結論和它對事實幾乎令人感動的執著之間的反差，它用英雄式的努力蒐集證據，證明那件不可置信的事是唯一可以相信的事。他接著說，偏執的人似乎不太期望說服一個敵意的世界，「but he can accumulate evidence in order to protect his cherished convictions from it」，但可以累積證據，保護自己珍視的信念不受那個世界侵擾。而且「the paranoid mind is far more coherent than the real world」，偏執的心智比真實世界還要一致。
 
-1965 年書版本把這一點說得更直接。根據歷史學家 Kathryn Olmsted 的轉引，書中說這種風格的說服力來自「the careful preparation for the big leap from the undeniable to the unbelievable」，為了從不可否認的事實跳到不可置信的結論，做了細心的準備；他還說偏執的發言人「is not a receiver, he is a transmitter」，不接收，只發送。
+1965 年書版本把這一點說得更直接，書中說這種風格的說服力來自「the careful preparation for the big leap from the undeniable to the unbelievable」，為了從不可否認的事實跳到不可置信的結論，做了細心的準備；他還說偏執的發言人「is not a receiver, he is a transmitter」，不接收，只發送。
 
 他也沒有說這些人的出發點全錯。「Paranoid writing begins with certain broad defensible judgments.」偏執寫作通常從一些站得住的判斷開始：秘密結社確實可能威脅公民秩序；當時政府的安全審查確實鬆懈，讓一些共產黨員進了政府；二戰與冷戰的很多決策確實可以批評。
 
@@ -96,13 +96,13 @@ draft: false
 
 全文最後一句是：「We are all sufferers from history, but the paranoid is a double sufferer, since he is afflicted not only by the real world, with the rest of us, but by his fantasies as well.」我們都受歷史之苦，但偏執的人受雙重的苦，他和我們一起受真實世界折磨，還要受自己幻想的折磨。
 
-## 後來的研究修正了什麼
+## 六十年後：批評與實證
 
 批評大致有兩條線：歷史學家批評這個概念把對手病理化、而且定義不清；社會科學則把他的幾個推測拿去測量。結果兩條線給出的判斷方向不同：概念作為分析工具受到很大質疑，但他對「誰會相信、什麼時候相信」的推測，有不少得到了支持。
 
 ### 病理化：把對手放上診療椅
 
-歷史學家 Kathryn Olmsted 2018 年在《The Baffler》整理了這個概念的接受史。她指出，Hofstadter 那一代紐約知識分子面對麥卡錫，問的問題是「so many Americans on the right had lost their minds」，怎麼會有這麼多右派美國人失去理智；他們用社會心理學的「地位焦慮」解釋右派的崛起，等於把政治對手當成心理問題處理。
+歷史學家 Kathryn Olmsted 2018 年在《The Baffler》整理了這個概念的接受史。她指出，Hofstadter 那一代紐約知識分子面對麥卡錫，問的問題是「so many Americans on the right had lost their minds」，怎麼會有這麼多右派美國人失去理智；他們用社會心理學的「地位焦慮」解釋右派的崛起：社會地位正在下滑或不穩的人，會把焦慮轉成對想像中敵人的憤怒。Hofstadter 還把麥卡錫的支持者，連到 19 世紀末反對銀行與鐵路的平民黨農民。這等於把政治對手當成心理問題處理。
 
 學界的反應來得很快。1960 年代的新左派史學家先推翻了他對平民黨的解讀：Michael Rogin 1967 年的研究指出，麥卡錫的支持者來自保守的共和黨地區，不是當年支持平民黨的農民和工人。1990 年代以後研究保守主義的史學家則反對他把基層保守派「放上診療椅」，Lisa McGirr 說這種「excessively psychological interpretation」，過度心理學的詮釋，扭曲了我們對美國保守主義的理解。Olmsted 也提醒，Hofstadter 的研究大多不做檔案，而是根據二手資料寫出有挑戰性的綜合論述。
 
@@ -112,9 +112,9 @@ Olmsted 認為這個概念在 1960 年代低估了一件事：Hofstadter 當年�
 
 ### 變成標籤：應該釘進棺材的口號
 
-歷史學家 Leo Ribuffo 2017 年在 H-Diplo 的文章一開頭就說：「Richard Hofstadter's famous catch phrase, the 'paranoid style in American politics,' should be buried with a stake in its heart.」這個有名的口號應該被打進木樁埋掉。他的理由有幾個：這個詞從一開始就主要是口號，它讓極右派看起來比實際上更怪異、更孤立，掩蓋了極右派和比較溫和的保守派之間的連續性；如果不是臨床意義，為什麼要用這個詞？他還指出，1960 年代以後一些原本用這個詞分析右派的自由派學者，轉向用同樣的心理化框架分析左派學生。
+歷史學家 Leo Ribuffo 2017 年在 H-Diplo 的文章一開頭就說：「Richard Hofstadter's famous catch phrase, the 'paranoid style in American politics,' should be buried with a stake in its heart.」這個有名的口號應該徹底埋葬，永不翻身。他的理由有幾個：這個詞從一開始就主要是口號，它讓極右派看起來比實際上更怪異、更孤立，掩蓋了極右派和比較溫和的保守派之間的連續性；如果不是臨床意義，為什麼要用這個詞？他還指出，1960 年代以後一些原本用這個詞分析右派的自由派學者，轉向用同樣的心理化框架分析左派學生。
 
-Ribuffo 用 Hofstadter 自己的標準檢查川普：川普相信很多陰謀，但不符合 Hofstadter 的核心判準，也就是「history is a conspiracy」，相信歷史本身就是一場陰謀（這句出自 1965 年書版本，經 Ribuffo 轉引）。這是一個有趣的反轉：最常拿這個詞罵人的評論者，往往沒有照原文的標準檢查。早在 2006 年，歷史學家 David Greenberg 就因為記者太常隨手引用，呼籲暫停使用「paranoid style」這個說法。
+Ribuffo 用 Hofstadter 自己的標準檢查川普：川普相信很多陰謀，但不符合 Hofstadter 的核心判準，也就是 1965 年書版本說的「history is a conspiracy」，相信歷史本身就是一場陰謀：川普會說某些事件是有人在背後操弄，但不會把整部歷史讀成一個陰謀的展開。這是一個有趣的反轉：最常拿這個詞罵人的評論者，往往沒有照原文的標準檢查。早在 2006 年，歷史學家 David Greenberg 就因為記者太常隨手引用，呼籲暫停使用「paranoid style」這個說法。
 
 ### 概念本身不確定
 
@@ -143,27 +143,27 @@ Hofstadter 說這種風格「not necessarily right-wing」，又說被排除在�
 
 ### 心理動機：小而一致的相關
 
-最後是「誰比較容易相信」。Shauna Bowes 等人 2023 年在《Psychological Bulletin》的統合分析涵蓋 170 項研究、158,473 人，發現跟陰謀思維最相關的是三類：感到危險與威脅、依賴直覺與有奇特的信念和經驗、對人有敵意且自認優越。Mikey Biddlestone 等人 2025 年同一期刊的統合分析涵蓋 279 項研究、137,406 人，發現知識需求、存在需求、社會需求受挫，都跟陰謀信念有關，相關係數在 0.14 到 0.16 之間。
+最後是「誰比較容易相信」。Shauna Bowes 等人 2023 年在《Psychological Bulletin》的統合分析涵蓋 170 項研究、158,473 人，發現跟陰謀思維最相關的是三類：感到危險與威脅、依賴直覺與有奇特的信念和經驗、對人有敵意且自認優越。Mikey Biddlestone 等人 2025 年同一期刊的統合分析涵蓋 279 項研究、137,406 人，發現三種需求受挫都跟陰謀信念有關：想弄懂發生什麼（知識需求）、想覺得安全有掌控（存在需求）、想對自己和自己的群體感覺良好（社會需求），相關係數在 0.14 到 0.16 之間。
 
 這些相關都不大，而且大多是相關研究、不能證明因果。但方向跟 Hofstadter 寫的「被剝奪感」與「雙重受苦者」相容：陰謀論常常是被威脅、被排除、被忽視時的一種解釋方式。
 
 ### 沒被清掉的部分
 
 - **風格和內容分開判斷**。他說健全的主張也可以用偏執狂風格宣傳，風格關乎信念怎麼被持有，而不是真假。這個區分讓這篇文章可以當工具用：判斷一段話的形式，不必先決定它的立場。
-- **堆證據不是反指標**。陰謀論常常有大量引用和細節；判斷的重點不是有沒有證據，而是證據是拿來說服人和修正自己，還是拿來保護信念。這是本系列下一層談「後真相」時要接著用的觀察。
+- **堆證據不是反指標**。陰謀論常常有大量引用和細節；判斷的重點不是有沒有證據，而是證據是拿來說服人和修正自己，還是拿來保護信念。
 - **穩定的少數，加上放大的條件**。他標明只是推測的那段，被 Uscinski 等人的長期資料大致支持：陰謀思維沒有普遍上升，高峰對應特定的威脅與權力變化。
 - **跟權力位置的關係**。在野黨支持者陰謀心態較高、陰謀指控跟著執政黨輪替，這些發現跟他「被排除在政治過程之外」的說法相符。
 - **真實的陰謀存在**。他自己說過共濟會的指控也許有幾分真實、偏執寫作常從站得住的判斷開始。這一點後來被 Olmsted 這樣的批評者反過來用來提醒讀者：不要把所有懷疑都叫做偏執。
 
-## 這篇文章在解釋鏈上的位置
+## 這篇文章讓我們多懂了什麼
 
-這是 L4 文化制度層的第二篇。上一篇《美國的反智傳統》談一個社會長期對「想太多的人」抱持什麼態度；這一篇談那種不信任在政治裡會用什麼形式說出來。兩篇之間有一句接得很緊的話：偏執狂風格的敵人「may be the cosmopolitan intellectual」，可能是世故的知識分子，「but the paranoid will outdo him in the apparatus of scholarship, even of pedantry」，但偏執的人會在學術的配備上、甚至在賣弄學問上勝過他。反智和偽學術在這裡是同一枚硬幣的兩面：不信任專家的人，常常用專家的形式說話。
+對「群體為什麼集體失去理性」，這篇給了一個反直覺的答案：**一群人失去判斷的時候，不一定缺證據，而是把證據拿來保護信念。** 偏執狂風格的人會蒐集大量資料、寫滿註腳，問題不在資料多寡，而在資料只用來證明已經相信的事，從不用來修正自己。
 
-往回看，它也接上 L2。Le Bon 說群眾容易被斷言和重複說服，Hoffer 說運動需要一個魔鬼；Hofstadter 補上的是那個魔鬼長什麼樣子：全能、有意志、製造歷史，而且常常是自己的鏡像。
+後來的實證也補上了它的另一半：陰謀思維跟左派或右派沒有固定關係，比較穩定的線索是「被排除在權力之外」。覺得自己被擋在決策之外的群體，最容易把權力運作的結果讀成一場預謀。所以要理解一群人為什麼相信陰謀，除了問他們的心理，也要問他們在權力結構裡站在哪裡。
 
-往下看，「堆證據」這個特徵直接接到下一層。McIntyre 的《後真相》追溯從菸草業到氣候否定論的科學否定論系譜，那些操作同樣不缺研究報告和引用。Hofstadter 1964 年描述的，是一種在網路出現以前就存在的資訊環境問題。
+文章裡還有一句話把反智和偽學術連在一起：偏執狂風格的敵人「may be the cosmopolitan intellectual」，可能是世故的知識分子，「but the paranoid will outdo him in the apparatus of scholarship, even of pedantry」，但偏執的人會在學術的配備上、甚至在賣弄學問上勝過他。不信任專家的人，常常用專家的形式說話。這也是下一篇 [McIntyre《後真相》](/posts/learning/2026-11-18-mcintyre-post-truth) 的起點：菸草業與氣候否定論同樣不缺研究報告和引用。
 
-## 讀完帶走的一個判準
+## 檢查一則陰謀說法的四個問題
 
 下次看到一則陰謀說法，不管它來自哪一邊，用 Hofstadter 自己的四個特徵檢查它的形式，而不是先判斷它的立場：
 
@@ -176,9 +176,9 @@ Hofstadter 說這種風格「not necessarily right-wing」，又說被排除在�
 
 **今晚就能做**：讀《Harper's》網站上的原文最後兩節〈Renegades and Pedants〉與〈The Double Sufferer〉（大約十分鐘）。然後找一則你最近看到、而且你自己傾向相信的陰謀說法，標出它從可以查證的事實跳到結論的那一句。
 
-## 台灣回扣
+## 台灣的練習題：疑美論
 
-這個機制在 2026 年的台灣長什麼樣？「疑美論」是最好的練習題，因為它同時包含合理的懷疑和 Hofstadter 說的那種風格，而台灣已經有研究把兩者分開處理。
+「疑美論」是最好的練習題，因為它同時包含合理的懷疑和 Hofstadter 說的那種風格，而台灣已經有研究把兩者分開處理。
 
 先看民意。中研院「美國肖像」計畫的電話調查顯示，同意「美國是講信用的國家」的台灣民眾，2021 年約 45%，2024 年 41.2%，2025 年 33.4%，2026 年 1 月是 34.3%；而且黨派差異極大，民進黨支持者約 60% 同意，國民黨支持者不到 10%。台灣民意基金會 2025 年 4 月的調查則顯示，在美國宣布對台灣課徵 32% 對等關稅後，57% 的人認為川普主政下的美國不值得台灣依靠；同時仍有約 49% 同意「在任何情況下，美國都比中國值得信賴」，不同意的是 43%。
 
@@ -190,20 +190,15 @@ Hofstadter 說這種風格「not necessarily right-wing」，又說被排除在�
 - **共謀論**：「美國和台灣菁英共謀，剝削台灣人民」，來自高層的背叛。
 - **傀儡論**：「美國企圖控制盟國政府」，把重大事件解讀成某個人的意志，台灣自己沒有能動性。
 
-IORG 也發現，後期最多的是「亂源論」（美國是世界戰亂的根源，33 則），共謀論的比例從前期的 22.6% 降到 6.9%；145 則裡由台灣行為者發起的有 67 則、中共發起的 62 則，中共參與放大的有 108 則。也就是說，這些論述多半不是從外面整套搬進來的，而是在本地的懷疑上被加工、被放大。
+IORG 也發現，後期最多的是「亂源論」（美國是世界戰亂的根源，33 則），共謀論的比例從前期的 22.6% 降到 6.9%；145 則裡由台灣行為者發起的有 67 則、中共發起的 62 則，中共參與放大的有 108 則。也就是說，發起者台灣和中共大約各半，但中共參與放大的比例很高：這些論述不全是從外面搬進來的，常是在本地的懷疑上被加工、被放大。
 
 把這兩組資料放在一起，就是這篇文章最有用的讀法：民調裡對美國可信度的下降，和網路上「美國要毀滅台灣」的敘事，是兩件不同的事。前者可以用關稅、外交和軍事資料來爭論；後者的問題不在它懷疑美國，而在它的形式：末日、全能的敵人、把每件事都讀成計畫的一部分。黨派差距這麼大，也跟 Uscinski 和 Imhoff 的發現相容：對某個權力的懷疑，常常跟著自己的陣營在權力結構裡的位置走。但這只是相容，現有資料不能證明台灣的情況就是這個機制。
 
 所以下次在台灣聽到「這是疑美論」或「這是陰謀論」，可以先問：被批評的是一個可以用證據爭論的判斷，還是一種把所有事情都讀成陰謀的說法？把前者也叫做疑美論，正是 Ribuffo 批評的那種用法：把一個分析概念變成貼在對手身上的標籤。
 
-## 限制
+## 更新紀錄
 
-- 《Harper's》雜誌版全文讀過；1965 年書版本沒有讀，「big leap」「not a receiver, he is a transmitter」「history is a conspiracy」等句子是透過 Olmsted、Ribuffo 的轉引，以及簡體譯本書評中引用的譯文確認的。
-- 1959 年 BBC 講稿沒有讀到原文，內容取自 McKenzie-McHarg 的訪談；牛津講座的精確日期，《Harper's》只寫 1963 年 11 月。
-- Guilhot 2023 只讀了摘要；McKenzie-McHarg 2022 只讀了摘要與訪談。
-- Uscinski 與 Parent 2014 的書沒有讀全文，《紐約時報》投書的研究設計與結果取自該章摘要、作者的 SSRN 工作論文摘要，以及 Alfred Moore 2015 年在《Political Studies Review》的書評。
-- 統合分析的效果都很小，而且大多是相關研究。Imhoff 2022 的 26 國與 Enders 2024 的 27 國都沒有包含台灣。
-- IORG 的「疑美論」分類是該機構自己的判斷，「不合理或帶操弄性」的認定方式見其報告；這篇只引用它的分類與計數。中研院「美國肖像」的數字取自中央社報導，沒有讀到原始報告。
+- 2026-11-20：補上麥卡錫主義、地位焦慮與高華德的背景，結尾改寫成回答這篇對系列問題多說了什麼，小節標題改寫成內容，並解釋陰謀信念的三種需求。
 
 ## 參考資料
 

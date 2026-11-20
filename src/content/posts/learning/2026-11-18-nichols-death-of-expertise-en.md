@@ -6,14 +6,14 @@ category: learning
 tags: [series, reading-guide, misinformation, philosophy-of-science, mass-delusion]
 lang: en
 tldr: "Nichols's 2017 The Death of Expertise argues that what has died is not expert ability itself but the shared understanding that experts' views should change our minds. He blames human bias, universities that treat students as customers, the internet, and news as entertainment, and devotes a whole chapter to classifying how experts themselves fail. The book ends by predicting that it might take a disaster to bring the public back. Three years later the pandemic came, and trust in scientists fell rather than rose; in the 2024 second edition he admits he was \"distinctly wrong\" and names two mistakes experts made during the pandemic. The main scholarly critique is that this is not a crisis of ignorance but a crisis of trust: the question is which experts to trust. Later experiments support part of that: a science journal's endorsement of a presidential candidate sharply lowered trust in the journal among the other camp."
-description: "The Mass Irrationality Reading Map, order 11: a guide to Nichols's 2017 The Death of Expertise (Oxford University Press) and its 2024 second edition. Checked against the 2017 text, the original 2014 essay in The Federalist, the 2024 preface and the Atlantic essay adapted from the new pandemic chapter; reviews by Volonté and Chu and a comparison with Eyal's The Crisis of Expertise; and later research by Pew 2023, Zhang 2023, Koetke et al. 2024, and Camerer et al. 2018. With Taiwan's 2021 emergency authorization of a domestic COVID-19 vaccine and research on vaccine brand choice."
+description: "A reading guide to Nichols's 2017 The Death of Expertise (Oxford University Press) and its 2024 second edition. Checked against the 2017 text, the original 2014 essay in The Federalist, the 2024 preface and the Atlantic essay adapted from the new pandemic chapter; reviews by Volonté and Chu and a comparison with Eyal's The Crisis of Expertise; and later research by Pew 2023, Zhang 2023, Koetke et al. 2024, and Camerer et al. 2018. With Taiwan's 2021 emergency authorization of a domestic COVID-19 vaccine and research on vaccine brand choice."
 series:
   name: "The Mass Irrationality Reading Map"
   order: 11
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-11-18-nichols-death-of-expertise)
+> :globe: [中文版](/posts/learning/2026-11-18-nichols-death-of-expertise)
 
 In January 2014, Tom Nichols, a professor of national security affairs at the U.S. Naval War College, published an essay on the conservative site *The Federalist* titled "The Death of Expertise." He complained that any claim to expertise now drew charges of "appeals to authority" and "elitism." The essay ended with five rules for dealing with experts, followed by a question and its answer: "And how do I know all this? Just who do I think I am? Well, of course: I'm an expert."
 
@@ -21,17 +21,17 @@ The essay grew into a book of the same name from Oxford University Press in 2017
 
 Three years later the pandemic came. In the preface to the 2024 second edition, he recalls saying, both when he wrote the first edition and later on the road discussing it, that a war, an economic downturn, or even a pandemic might be the moment that snaps the public back to its senses, and then concedes: "I was distinctly wrong on all three of these possibilities." The irony is that in chapter 6 of his own book, he lists the move from explanation to prediction as one of the most common ways experts go wrong.
 
-This post looks at three things: what illness the book diagnoses, how the pandemic tested it, and why critics say he gave the illness the wrong name.
+This post looks at three things: what illness the book diagnoses, how the pandemic tested it, and why critics say he gave the illness the wrong name. You will come away with three questions for judging, the next time you find yourself unwilling to believe an expert, whether your reasons hold up.
 
-## What this book is
+## The book and its author
 
 *The Death of Expertise: The Campaign against Established Knowledge and Why It Matters* was published by Oxford University Press in 2017, with an introduction, six chapters, and a conclusion: chapter 1 asks what an expert is; chapters 2 through 5 deal in turn with why conversation became exhausting, universities, the internet, and journalism; chapter 6 covers how experts themselves go wrong; and the conclusion covers experts and democracy. The updated and expanded second edition of 2024 adds a new preface and a seventh chapter, "The Experts, the Public, and the Pandemic." By the time the second edition came out, Nichols was a staff writer at *The Atlantic* and a professor emeritus at the Naval War College; according to the second edition's preface, the book had been translated into fourteen languages as of 2023.
 
-The Traditional Chinese translation is 《專業之死：為何反知識會成為社會主流，我們又該如何應對由此而生的危機？》, published by 臉譜 in 2018 and translated by 鄭煥昇; a second edition came out in May 2024. But judging from the table of contents listed by the bookstore, the Chinese second edition still contains the 2017 edition's six chapters and conclusion, with no pandemic chapter, and the author bio still describes him as a current professor at the Naval War College. Readers who want his pandemic reflections need the 2024 English edition.
+The Traditional Chinese translation is 《專業之死：為何反知識會成為社會主流，我們又該如何應對由此而生的危機？》, published by 臉譜 in 2018 and translated by 鄭煥昇; a second edition came out in May 2024. But the Chinese second edition's table of contents still contains the 2017 edition's six chapters and conclusion, with no pandemic chapter, and the author bio still describes him as a current professor at the Naval War College. Readers who want his pandemic reflections need the 2024 English edition.
 
-This post is based on the full text of the 2017 edition, the preface to the 2024 second edition, the essay Nichols published in *The Atlantic* in March 2024 adapted from chapter 7, and an interview he gave GQ the same year; I did not get to read the full text of chapter 7, which is discussed again under limitations.
+For chapter 7's reflections on the pandemic, this post relies on the second edition's preface, the essay Nichols published in *The Atlantic* in March 2024 adapted from that chapter, and an interview he gave GQ the same year.
 
-## What the original says
+## What Nichols says
 
 ### What has died
 
@@ -75,7 +75,7 @@ When experts agree, the opposite view cannot be held as certain; when they disag
 
 The conclusion separates experts from decision-makers: experts are "the knowers," elected officials are "the deciders." "Experts can only propose; elected leaders dispose." In a democracy, he writes, experts should be "servants, not masters"; but if citizens will not learn, experts will take over by default, and democracy will slide toward mob rule or technocracy.
 
-## What later research revised
+## How the pandemic and later research tested it
 
 Critiques of this book come from two directions: scholars who say he gave the illness the wrong name, and the pandemic, which tested his prediction directly. The first to revise the book was its author.
 
@@ -116,11 +116,11 @@ Justin Chu's 2020 review in the bioethics journal *Ethics & Medicine* is milder 
 
 ### The psychology he leaned on is being revised too
 
-Nichols treats the Dunning–Kruger effect as part of human nature. As the post on McIntyre discussed, Gignac and Zajenkowski showed in 2020 that the effect is mostly a statistical artifact.
+Nichols treats the Dunning–Kruger effect (the least competent overestimate themselves most) as part of human nature. But Gignac and Zajenkowski showed in 2020 that the effect is mostly a statistical artifact: most people already think they are above average, and extreme scores tend to drift toward the middle; those two facts alone are enough to draw a "worst performers overrate themselves most" pattern in the data.
 
-The replication crisis has also gone differently from what he suggested. He cited Gary King's rebuttal, implying psychology's problems were overstated; but in 2018 Camerer and colleagues, in *Nature Human Behaviour*, used preregistered designs with samples about five times the original size to repeat 21 social science experiments published in *Nature* and *Science* between 2010 and 2015. Only 13 (62%) replicated, and the replications' effect sizes averaged about half the originals. The failed replication of priming and the survival of anchoring, discussed in the post on Kahneman, are part of the same reckoning.
+The replication crisis has also gone differently from what he suggested. He cited Gary King's rebuttal, implying psychology's problems were overstated; but in 2018 Camerer and colleagues, in *Nature Human Behaviour*, used preregistered designs with samples about five times the original size to repeat 21 social science experiments published in *Nature* and *Science* between 2010 and 2015. Only 13 (62%) replicated, and the replications' effect sizes averaged about half the originals. Other large psychology replications found something similar: the classic priming effects (words you glimpse without noticing change your behavior) mostly failed to reproduce, while anchoring (the first number you see pulls your judgment) held up.
 
-These two points cut both ways. They weaken the psychological tools Nichols uses to explain the public; but they are also exactly what he called the ordinary failures of science: errors found by the same community of experts using stricter methods, and corrected in public.
+These corrections weaken the psychological tools Nichols uses to explain the public; but the corrections themselves are exactly what he called the ordinary failures of science: errors found by the same community of experts using stricter methods, and corrected in public.
 
 ### Humility or planting flags
 
@@ -137,15 +137,15 @@ So each side is half right: arrogance costs trust, which counts against planting
 - **Reliance on technicians persists.** Eyal's critique actually confirms this: people still rely on doctors and engineers every day, and the disputes concentrate at the policy level.
 - **Russell's three rules.** Experts agreeing, disagreeing, or all saying they don't know call for three different attitudes; this remains the most practical set of rules a layperson has.
 
-## Where this book sits in the explanatory chain
+## What the book adds
 
-This is the last post in the series, and it ties together several threads from earlier ones.
+Nichols writes about the relationship between institutions and citizens: everyone depends every day on knowledge they cannot check. He diagnoses the public's turn away from experts as ignorance plus narcissism; critics and later data point to another name for the illness: **this is not a crisis of ignorance but a crisis of trust.** The problem is not that people know too little but that they no longer agree on whom to believe, or which procedures for producing knowledge to believe.
 
-The first epigraph of Nichols's introduction comes from Asimov: "There is a cult of ignorance in the United States," a strain of anti-intellectualism running through political and cultural life. That is nearly the thesis of Hofstadter's *Anti-Intellectualism in American Life*; Hofstadter argued that intellectuals are resented because they are so needed, and Nichols, from the side of the resented, describes the same thing half a century later. McIntyre covered the organized manufacture of doubt, Rauch the institutions under attack; Nichols covers the relationship between those institutions and citizens: everyone depends every day on knowledge they cannot check for themselves.
+On why groups lose their reason, that is a very practical answer: once the procedures that produce knowledge get tied to party lines, the same conclusion is read as two different things by two groups, each feeling perfectly rational. Taiwan's domestic vaccine dispute, below, is exactly that.
 
-The overview post asked why knowing history still does not keep us from being fooled. Nichols himself is an honest answer. He studied how experts go wrong, wrote that prediction is a common expert error, then made a wrong prediction of his own and admitted it publicly in the next edition. The conclusion this series keeps arriving at is roughly the same: individuals can rarely avoid collective errors just by knowing more; what we can rely on is a set of procedures that lets errors be found and publicly corrected, including the errors of experts.
+Nichols himself also shows the way out. He studied how experts err, wrote that prediction is a common expert mistake, then made a wrong prediction himself and publicly admitted it in the next edition. Individuals can rarely avoid collective mistakes by knowing more; what they can rely on is a set of procedures that lets errors be found and publicly corrected, including the experts' own. To see how the eleven books fit together into one answer, see [the series overview](/posts/learning/2026-11-17-mass-irrationality-overview-en).
 
-## One test to take away
+## Three questions when you don't want to believe an expert
 
 There can be legitimate reasons to distrust experts. The next time you notice you don't want to believe one, ask three questions to see which kind of reason yours is:
 
@@ -157,33 +157,27 @@ All three reasons can be legitimate, and all three can be checked. What does not
 
 **Something to do tonight**: read Nichols's original 2014 essay in *The Federalist* (free, about thirteen minutes) and go through the five rules at the end, asking yourself which ones you agree with. Then pick a commentator or expert you follow regularly, find a prediction they made three years ago, and see how it turned out.
 
-## Back to Taiwan
+## A comparison from Taiwan: the domestic vaccine dispute
 
-What does this mechanism look like in Taiwan in 2026? The dispute over Taiwan's domestic COVID-19 vaccine is a point of comparison for Nichols's chapter 7: Taiwanese did not refuse vaccines on a large scale; the fight was over which set of expert procedures to trust.
+The dispute over Taiwan's domestic COVID-19 vaccine is a point of comparison for Nichols's chapter 7: Taiwanese did not refuse vaccines on a large scale; the fight was over which set of expert procedures to trust.
 
 In June 2021, Taiwan's Food and Drug Administration published its criteria for emergency use authorization of domestic COVID-19 vaccines: instead of phase 3 efficacy data, they would use "immunobridging," requiring a domestic vaccine's neutralizing antibodies to be shown non-inferior to those of Taiwanese who received the AstraZeneca vaccine. On July 18, the agency convened an expert review meeting on the Medigen vaccine: 21 attended and the chair did not vote; 18 approved (15 of them conditionally), 1 asked for more data, and 1 voted against. The health ministry approved production the next day, requiring the company to submit monthly safety monitoring reports and an effectiveness report within one year.
 
 The dispute centered on process. The meeting was not fully recorded; Chen Shih-chung (陳時中), then health minister and head of the epidemic command center, said that because another domestic vaccine, from 聯亞, was still under review, the AstraZeneca comparison data would be withheld for the time being for fairness. The virologist 施信如 told *The Reporter* at the time: "The less the numbers are made public, the more speculation there is." The agency later published the meeting minutes on its website, and in a 2024 statement stressed that the review criteria had been set before any of the trial results came in.
 
-What followed can be seen in research. A 2025 study by Yun-Yeh Chiang and Jason Kuo in the *Japanese Journal of Political Science* opens by noting that, unlike in other industrial societies, Taiwan's partisan fight over COVID-19 vaccination centered on brand choice rather than acceptance. Surveying 1,642 adults in fall 2022, they found that supporters of the ruling party, especially weak supporters, were markedly more likely to choose Medigen for their first shot if they trusted the government; but for the booster, party affiliation had no additional effect, and what mattered was whether someone had received Medigen before. A 2024 study by Chun-Tung Kuo and Ruoh-Rong Yu, using panel data from 2,361 people spanning 2020 to 2023, likewise found that national identity and trust in government were associated with brand choice: those who trusted the government were more likely to prefer Medigen, while those who did not were less likely to want Medigen or AstraZeneca and more willing to take Pfizer-BioNTech.
+What followed can be seen in research. A 2025 study by Yun-Yeh Chiang and Jason Kuo in the *Japanese Journal of Political Science* opens by noting that, unlike in other industrial societies, Taiwan's partisan fight over COVID-19 vaccination centered on brand choice rather than acceptance. Surveying 1,642 adults in fall 2022, they found that supporters of the ruling party, especially weak supporters, were markedly more likely to choose Medigen for their first shot if they trusted the government; but for the booster, party affiliation had no additional effect, and what mattered was whether someone had received Medigen before. A 2024 study by Chun-Tung Kuo and Ruoh-Rong Yu, using panel data from 2,361 people spanning 2020 to 2023, likewise found that national identity and trust in government were associated with brand choice: those who trusted the government were more likely to prefer Medigen, while those who did not were less likely to want Medigen or AstraZeneca and more willing to take Pfizer-BioNTech. Both studies are correlational: they show who tended to choose which brand, not why.
 
 Through this post's framework, the episode has three layers:
 
 - **It looks more like a crisis of trust than of ignorance.** Volonté's question of whose authority to recognize became, in Taiwan, concrete: trust the FDA's review procedure, or the phase 3 standards of international regulators? Both sides had expert backing, and which one people chose overlapped heavily with party.
 - **Transparency of procedure determined the room for speculation.** Setting the criteria in advance and publishing the vote were good procedural design; not recording the meeting and withholding the comparison data left room for speculation. Eyal's prescription is concrete here: the more transparent the procedure, the less it has to rest on "trust us."
-- **Partisan influence was strongest when information was scarce.** The study's most interesting finding is that party affiliation only shaped the first shot, when information was scarcest; once people had firsthand experience and more data, the effect disappeared. That looks less like Nichols's narcissism and more like Eyal's uncertainty: when information is lacking, people borrow the judgment of the camp they trust.
+- **Partisan influence was strongest when information was scarce.** The study's most interesting finding is that party affiliation only shaped the first shot, when information was scarcest; once people had firsthand experience and more data, the effect disappeared. That looks less like Nichols's narcissism and more like borrowing under uncertainty: when people cannot judge for themselves, they borrow the judgment of the camp they trust.
 
 This post does not assess the Medigen vaccine's efficacy; that is a medical question this post cannot answer. What is clear is that once an expert procedure gets tied to party positions, the same review conclusion is read as two different things by two groups of people.
 
-One more figure adds to Nichols's line about people thinking they can do anything once they have watched enough YouTube videos. The Reuters Institute's 2025 Digital News Report shows overall trust in news in Taiwan at just 30%, tied for 39th of 48 markets, while the share using YouTube for news rose from 38% in 2021 to 46%. This measures trust in news, not in experts, but it points to one thing: more and more people are assembling their own picture of the world from algorithmically recommended videos.
+## Changelog
 
-## Limitations
-
-- For the 2017 edition I read a full-text copy circulating online, reading the introduction, chapter 6, and the conclusion closely and only the relevant passages of chapters 1 through 5. I did not compare the Chinese translation line by line; the Chinese renderings of quotations in the Chinese version of this post are my own.
-- Of the 2024 second edition I read only the preface in the publisher's public preview, the *Atlantic* essay adapted from chapter 7 (read via a web archive), and the GQ interview; I did not read the full text of chapter 7 or other new passages. The conclusion that the Chinese second edition lacks the pandemic chapter is based on the table of contents and description listed by a bookstore; I did not see a physical copy.
-- I did not read Eyal's *The Crisis of Expertise* itself; its content comes from Brandmayr's review. I found no systematic reviews of the second edition from 2024 onward; the critiques come mainly from reviews published in 2020 and 2021.
-- Pew's figures are U.S. data; Zhang 2023 is a one-shot experiment, and the reproduction gives weaker support for spillover to the scientific community as a whole.
-- Both Taiwan studies are correlational: Chiang and Kuo's data come from an opt-in online sample in a single cross-sectional survey; for Kuo and Yu 2024 I read only the abstract.
+- 2026-11-20: Added the takeaway to the opening, rewrote the ending to answer what the book adds to the series question, retitled sections by content, and explained Dunning–Kruger, priming, and anchoring within this post.
 
 ## References
 
@@ -200,7 +194,7 @@ One more figure adds to Nichols's line about people thinking they can do anythin
 - [Brian Kennedy & Alec Tyson, Americans' Trust in Scientists, Positive Views of Science Continue to Decline, Pew Research Center, 2023-11-14](https://www.pewresearch.org/science/2023/11/14/americans-trust-in-scientists-positive-views-of-science-continue-to-decline/)
 - [Floyd Jiuyun Zhang, Political endorsement by Nature and trust in scientific expertise during COVID-19, Nature Human Behaviour 7, 2023](https://www.nature.com/articles/s41562-023-01537-5)
 - [Georgios Papadopoulos et al., A Reproduction of "Political Endorsement by Nature and Trust in Scientific Expertise During COVID-19" by Zhang (2023), 2024](https://ueaeprints.uea.ac.uk/id/eprint/98013)
-- [Jonah Koetke et al., The effect of seeing scientists as intellectually humble on trust in scientists and their research, Nature Human Behaviour 9, 2025](https://www.nature.com/articles/s41562-024-02060-x)
+- [Jonah Koetke et al., The effect of seeing scientists as intellectually humble on trust in scientists and their research, Nature Human Behaviour 9, 2025 (published online November 2024)](https://www.nature.com/articles/s41562-024-02060-x)
 - [Colin F. Camerer et al., Evaluating the replicability of social science experiments in Nature and Science between 2010 and 2015, Nature Human Behaviour 2, 2018](https://www.nature.com/articles/s41562-018-0399-z)
 - [Gilles E. Gignac & Marcin Zajenkowski, The Dunning–Kruger effect is (mostly) a statistical artefact, Intelligence 80, 2020](https://doi.org/10.1016/j.intell.2020.101449)
 - [Ministry of Health and Welfare (Taiwan), 衛福部核准高端MVC-COV1901新冠肺炎疫苗專案製造 (approval of Medigen MVC-COV1901 for production), 2021-07-19](https://www.mohw.gov.tw/cp-16-62288-1.html)
@@ -208,4 +202,3 @@ One more figure adds to Nichols's line about people thinking they can do anythin
 - [Ministry of Health and Welfare (Taiwan), 食藥署重申高端疫苗相關審查過程皆進行嚴謹把關 (FDA statement on the Medigen review process), 2024-01-11](https://www.mohw.gov.tw/fp-16-77188-1.html)
 - [Yun-Yeh Chiang & Jason Kuo, Beyond COVID-19 vaccine acceptance: survey evidence from Taiwan, Japanese Journal of Political Science 26(2), 2025](https://www.cambridge.org/core/journals/japanese-journal-of-political-science/article/beyond-covid19-vaccine-acceptance-survey-evidence-from-taiwan/7E6117296257DDF476F3F0429AE87F24)
 - [Chun-Tung Kuo & Ruoh-Rong Yu, Association of National Identity and Trust in Government with COVID-19 Vaccination and Brand Choice in Taiwan, Journal of Community Health, 2024](https://link.springer.com/article/10.1007/s10900-024-01347-4)
-- [Lihyun Lin, Taiwan, Reuters Institute Digital News Report 2025](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/taiwan)

@@ -6,34 +6,34 @@ category: learning
 tags: [series, reading-guide, political-psychology, misinformation, mass-delusion]
 lang: en
 tldr: "In 1964 Hofstadter gave a name to a way of talking about politics, the \"paranoid style\": exaggeration, suspicion, and conspiratorial fantasy. He said plainly that it was not a clinical diagnosis, not limited to the right, and a matter of \"more or less normal people.\" The most overlooked and most useful point in the essay is that this style does not lack evidence; it piles evidence up, and the problem is that the evidence is used to protect a belief rather than to persuade anyone or to correct oneself. Sixty years on, historians criticize the concept for pathologizing opponents; empirical research finds that conspiracy beliefs are not on the rise, that their relationship to left and right varies by country and period, and that they are tied to being shut out of power, two findings that fit his own conjectures."
-description: "The Mass Irrationality Reading Map, order 8: a guide to Hofstadter's 1964 Harper's essay \"The Paranoid Style in American Politics.\" Checked against the full original text, passages from the 1965 book version as quoted by others, and the textual history from the 1959 BBC lecture; the critiques of Ribuffo 2017, Olmsted 2018, and Guilhot 2023; and the empirical work of Uscinski and Parent 2014, Enders et al. 2022, Imhoff et al. 2022, Enders et al. 2024, Bowes et al. 2023, and Biddlestone et al. 2025. With IORG's research on \"US skepticism\" narratives in Taiwan and Academia Sinica's American Portrait survey."
+description: "A reading guide to Hofstadter's 1964 Harper's essay \"The Paranoid Style in American Politics.\" Checked against the full original text, passages from the 1965 book version as quoted by others, and the textual history from the 1959 BBC lecture; the critiques of Ribuffo 2017, Olmsted 2018, and Guilhot 2023; and the empirical work of Uscinski and Parent 2014, Enders et al. 2022, Imhoff et al. 2022, Enders et al. 2024, Bowes et al. 2023, and Biddlestone et al. 2025. With IORG's research on \"US skepticism\" narratives in Taiwan and Academia Sinica's American Portrait survey."
 series:
   name: "The Mass Irrationality Reading Map"
   order: 8
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-11-18-hofstadter-paranoid-style)
+> :globe: [中文版](/posts/learning/2026-11-18-hofstadter-paranoid-style)
 
 Robert Welch, a retired candy manufacturer and the founder of the John Birch Society, once wrote that President Eisenhower was "a dedicated, conscious agent of the Communist conspiracy." He added that this conclusion was "based on an accumulation of detailed evidence so extensive and so palpable that it seems to put this conviction beyond any reasonable doubt."
 
-Senator McCarthy's pamphlet *McCarthyism* runs only 96 pages but carries no fewer than 313 footnote references. Welch's book attacking Eisenhower, *The Politician*, has a hundred pages of bibliography and notes.
+In the early 1950s Senator Joseph McCarthy claimed that the US government and army had been infiltrated by communists, setting off a wave of investigations, blacklists, and purges later called McCarthyism. His pamphlet *McCarthyism* runs only 96 pages but carries no fewer than 313 footnote references. Welch's book attacking Eisenhower, *The Politician*, has a hundred pages of bibliography and notes.
 
 We usually assume the trouble with conspiracy theories is that they ignore evidence. Richard Hofstadter's essay "The Paranoid Style in American Politics," published in *Harper's* in 1964, points to the opposite: this way of talking about politics shows an "almost touching concern" with factuality, and its problem is not too little evidence but what the evidence is used for. The essay went on to supply one of the most quoted phrases in American political commentary, and historians have been criticizing it for half a century. This post goes back to the original to see what he actually said, which criticisms land, which parts were later supported by data, and how to use it as a checking tool rather than an insult.
 
-## What this essay is
+## The essay and its background
 
-"The Paranoid Style in American Politics" appeared in the November 1964 issue of *Harper's*, during Barry Goldwater's Republican presidential campaign. A note at the end says it was adapted from the Herbert Spencer Lecture Hofstadter gave at Oxford University in November 1963. In 1965 Knopf collected it with several other essays in a book of the same name, and the book version is longer than the magazine version.
+"The Paranoid Style in American Politics" appeared in the November 1964 issue of *Harper's*, during the presidential campaign of the Republican conservative Barry Goldwater; the essay's last part deals with the right-wing movement behind him. A note at the end says it was adapted from the Herbert Spencer Lecture Hofstadter gave at Oxford University in November 1963. In 1965 Knopf collected it with several other essays in a book of the same name, and the book version is longer than the magazine version.
 
 The idea has an earlier version. The historian Andrew McKenzie-McHarg found, at the BBC Written Archives Centre, the transcript of a 1959 radio lecture by Hofstadter, the first time he set out the "paranoid style." McKenzie-McHarg notes that the 1959 lecture dealt only with McCarthy and the post-McCarthy far right; only four years later, in the Oxford lecture, did Hofstadter add a large set of examples from earlier American history. The transcript was later included in the Library of America collection of Hofstadter's writings edited by Sean Wilentz.
 
-This essay has the same author as the previous post, *Anti-Intellectualism in American Life*, and came out a year later. One way to remember the division of labor: anti-intellectualism is an attitude, answering "why distrust people who think too much"; the paranoid style is a form of discourse, answering "how the distrustful tell their story."
+Hofstadter had published *Anti-Intellectualism in American Life* the year before (see [the anti-intellectualism post](/posts/learning/2026-11-18-hofstadter-anti-intellectualism-en)). One way to remember the division: anti-intellectualism is an attitude; the paranoid style is a way of talking.
 
 As for Chinese editions, a Simplified Chinese translation of the 1965 collection, 《美国政治中的偏执狂风格》, translated by Tao Xiaolu, was published by Shanghai Joint Publishing in July 2025. There is no Traditional Chinese translation yet; the author bio in the Traditional Chinese edition of *Anti-Intellectualism* renders the title as 《美國政治中的妄想偏執風格》 but lists only the English book.
 
-This post is based on the full text of the *Harper's* magazine version, and quotations come from it; the few sentences that appear only in the 1965 book version are marked as such, and I read them through other scholars' quotations. The other essays in the collection, on Goldwater and McCarthyism, are out of scope.
+This post is based on the full text of the *Harper's* magazine version, and quotations come from it; the few sentences that appear only in the 1965 book version are marked as such. You will come away with four questions for checking a conspiracy claim by its form rather than its politics.
 
-## What the original says
+## What Hofstadter says
 
 ### Definition: not a clinical diagnosis, but how "more or less normal people" talk
 
@@ -82,7 +82,7 @@ The second half of the essay lays out the style's features, which can be grouped
 
 He goes on: the paranoid seems to have little expectation of convincing a hostile world, "but he can accumulate evidence in order to protect his cherished convictions from it." And "the paranoid mind is far more coherent than the real world."
 
-The 1965 book version puts this more directly. As quoted by the historian Kathryn Olmsted, the book says the style's plausibility lies in "the careful preparation for the big leap from the undeniable to the unbelievable," and that the paranoid spokesman "is not a receiver, he is a transmitter."
+The 1965 book version puts this more directly, saying the style's plausibility lies in "the careful preparation for the big leap from the undeniable to the unbelievable," and that the paranoid spokesman "is not a receiver, he is a transmitter."
 
 Nor does he say these people start from entirely wrong premises. "Paranoid writing begins with certain broad defensible judgments." A secret society of influential men could conceivably threaten the civil order; an actual laxity in security did let some Communists into government; many decisions of World War II and the Cold War could be faulted.
 
@@ -96,13 +96,13 @@ The final section, "The Double Sufferer," widens the frame beyond America. Citin
 
 The essay's last sentence: "We are all sufferers from history, but the paranoid is a double sufferer, since he is afflicted not only by the real world, with the rest of us, but by his fantasies as well."
 
-## What later research revised
+## Sixty years on: criticism and evidence
 
 Criticism runs along two lines: historians argue that the concept pathologizes opponents and is ill-defined; social scientists have measured several of his conjectures. The two lines point in different directions: the concept as an analytical tool has been heavily questioned, but a good deal of his conjecture about who believes and when has been supported.
 
 ### Pathologizing: putting opponents on the couch
 
-In a 2018 essay in *The Baffler*, the historian Kathryn Olmsted traces the concept's reception. She notes that Hofstadter's generation of New York intellectuals, facing McCarthy, asked how "so many Americans on the right had lost their minds," and explained the right's rise through the social psychology of "status anxiety," in effect treating political opponents as a psychological problem.
+In a 2018 essay in *The Baffler*, the historian Kathryn Olmsted traces the concept's reception. She notes that Hofstadter's generation of New York intellectuals, facing McCarthy, asked how "so many Americans on the right had lost their minds," and explained the right's rise through the social psychology of "status anxiety": people whose social standing is slipping or insecure turn that anxiety into anger at imagined enemies. Hofstadter also linked McCarthy's supporters to the late-nineteenth-century Populist farmers who fought the banks and railroads. In effect this treated political opponents as a psychological problem.
 
 The scholarly reaction came quickly. New Left historians of the 1960s first overturned his reading of the Populists: Michael Rogin's 1967 study showed that McCarthy's support came from conservative Republican areas, not from the farmers and workers who had backed the Populists. From the 1990s on, historians of conservatism objected to his putting grassroots conservatives "on the couch"; Lisa McGirr wrote that this "excessively psychological interpretation" distorted our understanding of American conservatism. Olmsted also notes that Hofstadter did little archival research, writing provocative syntheses mostly from secondary sources.
 
@@ -114,7 +114,7 @@ But she also reminds readers that Hofstadter himself said real conspiracies exis
 
 The historian Leo Ribuffo opened his 2017 essay for H-Diplo with: "Richard Hofstadter's famous catch phrase, the 'paranoid style in American politics,' should be buried with a stake in its heart." His reasons include: the term was mainly a catchphrase from the start; it made far-right extremists look more peculiar and isolated than they were, hiding the continuity between them and less volatile conservatives; and if it was not meant in a clinical sense, why use the word at all? He also notes that after the 1960s some of the liberal scholars who had used it to analyze the right turned the same psychologizing frame on left-wing students.
 
-Ribuffo checks Trump against Hofstadter's own standard: Trump believes in plenty of conspiracies but does not fit Hofstadter's core criterion, the conviction that "history is a conspiracy" (a line from the 1965 book version, quoted by Ribuffo). It is an interesting reversal: the commentators who use the term most as an insult often do not check against the original's own criteria. As early as 2006, the historian David Greenberg, annoyed by journalists' casual invocations, called for a moratorium on the phrase.
+Ribuffo checks Trump against Hofstadter's own standard: Trump believes in plenty of conspiracies but does not fit Hofstadter's core criterion, the conviction that "history is a conspiracy" (from the 1965 book version): Trump says particular events were rigged by someone, but does not read all of history as one unfolding plot. It is an interesting reversal: the commentators who use the term most as an insult often do not check against the original's own criteria. As early as 2006, the historian David Greenberg, annoyed by journalists' casual invocations, called for a moratorium on the phrase.
 
 ### The concept itself is indeterminate
 
@@ -143,27 +143,27 @@ These results broadly fit Hofstadter's conjecture: the conspiratorial style does
 
 ### Psychological motives: small but consistent correlations
 
-Finally, who is more likely to believe. A 2023 meta-analysis by Shauna Bowes and colleagues in *Psychological Bulletin*, covering 170 studies and 158,473 people, found the strongest correlates of conspiratorial ideation to be perceiving danger and threat, relying on intuition and having odd beliefs and experiences, and being antagonistic and feeling superior. A 2025 meta-analysis by Mikey Biddlestone and colleagues in the same journal, covering 279 studies and 137,406 people, found that frustrated epistemic, existential, and social needs were all associated with conspiracy beliefs, with correlations of 0.14 to 0.16.
+Finally, who is more likely to believe. A 2023 meta-analysis by Shauna Bowes and colleagues in *Psychological Bulletin*, covering 170 studies and 158,473 people, found the strongest correlates of conspiratorial ideation to be perceiving danger and threat, relying on intuition and having odd beliefs and experiences, and being antagonistic and feeling superior. A 2025 meta-analysis by Mikey Biddlestone and colleagues in the same journal, covering 279 studies and 137,406 people, found that three kinds of frustrated needs were all associated with conspiracy beliefs: wanting to understand what is going on (epistemic), wanting to feel safe and in control (existential), and wanting to feel good about oneself and one's group (social), with correlations of 0.14 to 0.16.
 
 These correlations are small and mostly from correlational designs, so they cannot establish causation. But their direction fits what Hofstadter wrote about "dispossession" and the "double sufferer": conspiracy theories are often a way of explaining the world when people feel threatened, excluded, or ignored.
 
 ### What has not been cleared away
 
 - **Judging style separately from content.** He said a sound program can be advocated in the paranoid style, and that style concerns how beliefs are held, not their truth. That distinction makes the essay usable as a tool: you can judge the form of a statement without first deciding its position.
-- **Piling up evidence is not a counter-indicator.** Conspiracy theories often come with lots of citations and detail; the question is not whether there is evidence but whether it is used to persuade and to self-correct, or to protect a belief. This is the observation the next layer of the series, on "post-truth," picks up.
+- **Piling up evidence is not a counter-indicator.** Conspiracy theories often come with lots of citations and detail; the question is not whether there is evidence but whether it is used to persuade and to self-correct, or to protect a belief.
 - **A stable minority, plus amplifying conditions.** The passage he labeled as mere conjecture is broadly supported by Uscinski and colleagues' long-run data: conspiracy thinking has not generally risen, and its peaks correspond to particular threats and shifts in power.
 - **The link to position in power.** Higher conspiracy mentality among opposition supporters, and conspiracy accusations that flip with the party in power, fit his claim about being shut out of the political process.
 - **Real conspiracies exist.** He himself said the charges against Masonry may have had elements of truth and that paranoid writing often begins from defensible judgments. Critics like Olmsted turn this back on readers as a reminder: do not call every suspicion paranoid.
 
-## Where this essay sits in the explanatory chain
+## What the essay adds
 
-This is the second post in L4, the layer on culture and institutions. The previous post looked at a society's long-run attitude toward "people who think too much"; this one looks at the form that distrust takes when spoken in politics. A sentence ties the two closely: the paranoid's enemy "may be the cosmopolitan intellectual, but the paranoid will outdo him in the apparatus of scholarship, even of pedantry." Anti-intellectualism and pseudo-scholarship are two sides of the same coin here: people who distrust experts often speak in the form of experts.
+On why groups lose their reason, the essay gives a counterintuitive answer: **when a group loses its judgment, it does not necessarily lack evidence; it uses evidence to protect a belief.** People in the paranoid style gather mountains of material and footnotes; the problem is not the amount of material but that it only ever proves what they already believe and is never used to correct them.
 
-Looking back, it also connects to L2. Le Bon said crowds are persuaded by affirmation and repetition; Hoffer said a movement needs a devil. What Hofstadter adds is what that devil looks like: all-powerful, willful, the maker of history, and often a mirror image of oneself.
+Later empirical work supplied the other half: conspiratorial thinking has no fixed link to left or right, and the more stable clue is being shut out of power. Groups that feel locked out of decisions are the most likely to read the results of power as a plan. So to understand why a group believes a conspiracy, ask not only about their psychology but about where they stand in the structure of power.
 
-Looking ahead, the "piling up evidence" feature leads straight into the next layer. McIntyre's *Post-Truth* traces the genealogy of science denial from the tobacco industry to climate denial, operations that never lacked research reports and citations. What Hofstadter described in 1964 is a problem of the information environment that existed before the internet.
+The essay also has a line tying anti-intellectualism to pseudo-scholarship: the paranoid style's enemy "may be the cosmopolitan intellectual, but the paranoid will outdo him in the apparatus of scholarship, even of pedantry." People who distrust experts often speak in the form of experts. That is where the next post, on [McIntyre's *Post-Truth*](/posts/learning/2026-11-18-mcintyre-post-truth-en), begins: the tobacco industry and climate denial never lacked research reports and citations.
 
-## One test to take away
+## Four questions for checking a conspiracy claim
 
 The next time you see a conspiracy claim, from whichever side, check its form against Hofstadter's own four features instead of first judging its position:
 
@@ -176,9 +176,9 @@ These four questions are easy to apply to opponents and only useful when applied
 
 **Something to do tonight**: read the last two sections of the original on the *Harper's* website, "Renegades and Pedants" and "The Double Sufferer" (about ten minutes). Then pick a conspiracy claim you've seen recently and are inclined to believe, and mark the sentence where it leaps from checkable facts to its conclusion.
 
-## Back to Taiwan
+## An exercise from Taiwan: "US skepticism"
 
-What does this mechanism look like in Taiwan in 2026? "US skepticism" (疑美論) is the best exercise, because it contains both reasonable doubt and the style Hofstadter described, and Taiwanese researchers have already separated the two.
+"US skepticism" (疑美論) is the best exercise, because it contains both reasonable doubt and the style Hofstadter described, and Taiwanese researchers have already separated the two.
 
 Start with opinion. Telephone surveys by Academia Sinica's American Portrait project show that the share of Taiwanese agreeing that "the United States is a country that keeps its word" was about 45% in 2021, 41.2% in 2024, 33.4% in 2025, and 34.3% in January 2026, with a huge partisan gap: about 60% of DPP supporters agree, against fewer than 10% of KMT supporters. A Taiwanese Public Opinion Foundation survey in April 2025, after the U.S. announced a 32% "reciprocal" tariff on Taiwan, found 57% saying America under Trump is not worth relying on; at the same time about 49% still agreed that "under any circumstances, the United States is more trustworthy than China," against 43% who disagreed.
 
@@ -190,20 +190,15 @@ Now look at the narratives. A 2023 report by the Taiwan Information Environment 
 - **Collusion**: "the U.S. colludes with Taiwanese elites and exploits Taiwanese people," betrayal from on high.
 - **Puppet**: "the U.S. seeks to control allied governments," reading major events as someone's will and leaving Taiwan with no agency of its own.
 
-IORG also found that in the later period the most common type was "Chaos" (the U.S. as the source of the world's wars, 33 narratives), while the share of "Collusion" fell from 22.6% to 6.9%; of the 145, 67 were initiated by Taiwanese actors and 62 by PRC actors, and PRC actors helped amplify 108. In other words, these narratives were mostly not imported whole from outside; they were worked up and amplified on top of local doubts.
+IORG also found that in the later period the most common type was "Chaos" (the U.S. as the source of the world's wars, 33 narratives), while the share of "Collusion" fell from 22.6% to 6.9%; of the 145, 67 were initiated by Taiwanese actors and 62 by PRC actors, and PRC actors helped amplify 108. In other words, Taiwanese and CCP originators were roughly even, but CCP amplification was very common: these narratives were not simply imported from outside; they were often worked up and amplified on top of local doubts.
 
 Putting the two sets of data together gives the most useful reading of this essay: the decline in survey trust in the United States and the online narrative that "America wants to destroy Taiwan" are two different things. The first can be argued with data on tariffs, diplomacy, and the military; the problem with the second is not that it doubts America but its form: apocalypse, an all-powerful enemy, every event read as part of a plan. The size of the partisan gap is also consistent with Uscinski's and Imhoff's findings that suspicion of a power often follows one's own camp's position in the power structure. But consistent is all it is; the available data cannot show that this mechanism is what is happening in Taiwan.
 
 So the next time you hear "that's US skepticism" or "that's a conspiracy theory" in Taiwan, ask first: is the target a judgment that can be argued with evidence, or a way of talking that reads everything as a plot? Calling the former US skepticism too is exactly the usage Ribuffo criticized: turning an analytical concept into a label stuck on opponents.
 
-## Limitations
+## Changelog
 
-- I read the full text of the *Harper's* magazine version; I did not read the 1965 book version. Sentences such as "big leap," "not a receiver, he is a transmitter," and "history is a conspiracy" were confirmed through Olmsted's and Ribuffo's quotations and through the translation quoted in reviews of the Simplified Chinese edition.
-- I did not read the 1959 BBC transcript itself; its content comes from McKenzie-McHarg's interview. *Harper's* gives the date of the Oxford lecture only as November 1963.
-- For Guilhot 2023 I read only the abstract; for McKenzie-McHarg 2022, only the abstract and the interview.
-- I did not read Uscinski and Parent's 2014 book in full; the design and findings of the *New York Times* letters study come from the chapter abstract, the authors' SSRN working paper abstract, and Alfred Moore's 2015 review in *Political Studies Review*.
-- The meta-analytic effects are all small and mostly correlational. Neither Imhoff 2022's 26 countries nor Enders 2024's 27 countries include Taiwan.
-- IORG's classification of US skepticism is the organization's own judgment; how it decides "unreasonable or manipulative" is described in its reports, and this post cites only its categories and counts. The Academia Sinica American Portrait figures come from Central News Agency reporting; I did not read the original report.
+- 2026-11-20: Added background on McCarthyism, status anxiety, and Goldwater, rewrote the ending to answer what the essay adds to the series question, retitled sections by content, and explained the three needs linked to conspiracy belief.
 
 ## References
 
