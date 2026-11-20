@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-11-17-mass-irrationality-overview-en)
+> :globe: [English version](/posts/learning/2026-11-17-mass-irrationality-overview-en)
 
 2021 年，金融理論家 William Bernstein 出了一本《The Delusions of Crowds》。他在訪談裡說，1990 年代初讀 Charles Mackay 1841 年的《Extraordinary Popular Delusions and the Madness of Crowds》時，覺得「跟當時相當安分的資本市場毫無關係」，沒幾年網路泡沫就來了：「I had read the script and I knew how the movie ended.」我讀過劇本，知道電影怎麼結局。在同一場訪談的結尾，他又說：Mackay 180 年前就寫了一本很像的書，看起來沒什麼幫助，未來還會有更多金融與宗教狂熱，「I just don't see any way out of it.」
 
@@ -111,7 +111,7 @@ McIntyre 說，後真相不是不承認事實，而是讓事實服從立場，�
 | Le Bon（1895） | 人進了群眾會變成什麼？ | [群眾心理學的原典，後來被修正了什麼](/posts/learning/2026-11-17-lebon-the-crowd) |
 | Hoffer（1951） | 什麼樣的人會成為狂熱信徒？ | [狂熱信徒多半是被熟人帶進去的](/posts/learning/2026-11-18-hoffer-true-believer) |
 | Canetti（1960） | 人為什麼想融入人群、服從指令？ | [指令留下的螫刺](/posts/learning/2026-11-18-canetti-crowds-and-power) |
-| Kahneman（2011） | 個人的大腦哪裡容易被帶走？ | [促發效應那章塌了之後，這本書還剩下什麼](/posts/learning/2026-11-18-kahneman-thinking-fast-slow) |
+| Kahneman（2011） | 個人的大腦哪裡容易被帶走？ | [個人的偏誤有多少站得住，又怎麼變成整個群體的錯](/posts/learning/2026-11-18-kahneman-thinking-fast-slow) |
 | Hofstadter（1963） | 為什麼社會會怨恨知識分子？ | [知識分子被怨恨，是因為太被需要](/posts/learning/2026-11-18-hofstadter-anti-intellectualism) |
 | Hofstadter（1964） | 陰謀論的思考方式長什麼樣？ | [有 313 個註腳的陰謀論](/posts/learning/2026-11-18-hofstadter-paranoid-style) |
 | McIntyre（2018） | 「後真相」是什麼？從哪裡來？ | [菸商備忘錄寫著「懷疑是我們的產品」](/posts/learning/2026-11-18-mcintyre-post-truth) |

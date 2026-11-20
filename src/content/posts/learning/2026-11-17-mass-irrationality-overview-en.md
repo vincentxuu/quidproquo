@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-11-17-mass-irrationality-overview)
+> :globe: [中文版](/posts/learning/2026-11-17-mass-irrationality-overview)
 
 In 2021 the financial theorist William Bernstein published *The Delusions of Crowds*. In an interview he said that when he read Charles Mackay's 1841 *Extraordinary Popular Delusions and the Madness of Crowds* in the early 1990s, it seemed to have nothing to do with the fairly well-behaved capital markets of the time; within a few years the dot-com bubble arrived: "I had read the script and I knew how the movie ended." At the end of the same interview he added that Mackay had written a very similar book 180 years earlier and it did not seem to help much, and that more financial and religious manias are coming: "I just don't see any way out of it."
 
@@ -111,7 +111,7 @@ If, after those four, you still need "everyone went mad," that is the part left 
 | Le Bon (1895) | What do people become in a crowd? | [The founding text of crowd psychology, and what was later revised](/posts/learning/2026-11-17-lebon-the-crowd-en) |
 | Hoffer (1951) | Who becomes a fanatic? | [True believers are mostly brought in by people they know](/posts/learning/2026-11-18-hoffer-true-believer-en) |
 | Canetti (1960) | Why do people want to merge into crowds and obey commands? | [The sting a command leaves behind](/posts/learning/2026-11-18-canetti-crowds-and-power-en) |
-| Kahneman (2011) | Where is the individual mind easy to lead astray? | [What is left after the priming chapter collapsed](/posts/learning/2026-11-18-kahneman-thinking-fast-slow-en) |
+| Kahneman (2011) | Where is the individual mind easy to lead astray? | [How much of individual bias holds up, and how it becomes a group's mistake](/posts/learning/2026-11-18-kahneman-thinking-fast-slow-en) |
 | Hofstadter (1963) | Why do societies resent intellectuals? | [Resented for being needed](/posts/learning/2026-11-18-hofstadter-anti-intellectualism-en) |
 | Hofstadter (1964) | What does conspiratorial thinking look like? | [A conspiracy theory with 313 footnotes](/posts/learning/2026-11-18-hofstadter-paranoid-style-en) |
 | McIntyre (2018) | What is "post-truth," and where did it come from? | [A tobacco memo that said "Doubt is our product"](/posts/learning/2026-11-18-mcintyre-post-truth-en) |
