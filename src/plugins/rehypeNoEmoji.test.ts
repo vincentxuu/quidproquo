@@ -1,14 +1,17 @@
 import { describe, expect, it } from 'vitest';
-import { renderIconSvg } from '../components/icons/render';
+import { renderIconUse } from '../components/icons/render';
 import { rehypeNoEmoji, stripEmojiText } from './rehypeNoEmoji';
 
 type Node = { type: string; tagName?: string; value?: string; properties?: Record<string, unknown>; children?: Node[] };
 
 const text = (value: string): Node => ({ type: 'text', value });
 const el = (tagName: string, children: Node[], properties: Record<string, unknown> = {}): Node => ({ type: 'element', tagName, properties, children });
+type File = { data: { astro: { frontmatter: Record<string, unknown> } } };
+let lastFile: File;
 const run = (children: Node[], lang?: string) => {
   const tree: Node = { type: 'root', children };
-  rehypeNoEmoji()(tree, { data: { astro: { frontmatter: lang ? { lang } : {} } } });
+  lastFile = { data: { astro: { frontmatter: lang ? { lang } : {} } } };
+  rehypeNoEmoji()(tree, lastFile);
   return tree;
 };
 const textOf = (node: Node): string =>
@@ -35,9 +38,20 @@ describe('rehypeNoEmoji', () => {
     expect(tree.children![0].children![1]).toEqual(text(' '));
   });
 
-  it('renders the same markup as Icons.astro (shared renderer)', () => {
+  it('lists each used icon once in remarkPluginFrontmatter and adds no sprite to the tree', () => {
+    const tree = run([el('p', [text('✅ ✅ ❌')]), el('td', [text('★★☆')])]);
+    expect(lastFile.data.astro.frontmatter.inlineIcons).toEqual(['check', 'star', 'star-solid', 'x']);
+    expect(tree.children).toHaveLength(2);
+  });
+
+  it('leaves the frontmatter alone on a page without icons', () => {
+    run([el('p', [text('no icons here')])]);
+    expect(lastFile.data.astro.frontmatter.inlineIcons).toBeUndefined();
+  });
+
+  it('emits tiny <use> references to the shared sprite', () => {
     const tree = run([el('li', [text('📄 '), el('a', [text('Digest')])])]);
-    expect(raws(tree)[0]).toBe(renderIconSvg('file-text', { size: 16, cssSize: '1em', class: 'inline-icon', hidden: true }));
+    expect(raws(tree)[0]).toBe(renderIconUse('file-text', { class: 'inline-icon', hidden: true }));
   });
 
   it('labels status marks for screen readers in the page language', () => {
@@ -58,8 +72,8 @@ describe('rehypeNoEmoji', () => {
 });
 
 describe('rehypeNoEmoji stars', () => {
-  const solid = renderIconSvg('star-solid', { size: 16, cssSize: '1em', class: 'inline-icon', hidden: true });
-  const outline = renderIconSvg('star', { size: 16, cssSize: '1em', class: 'inline-icon', hidden: true });
+  const solid = renderIconUse('star-solid', { class: 'inline-icon', hidden: true });
+  const outline = renderIconUse('star', { class: 'inline-icon', hidden: true });
 
   it('turns a rating run into one labelled group of hidden star icons', () => {
     const [html] = raws(run([el('td', [text('★★☆')])]));
@@ -81,7 +95,7 @@ describe('rehypeNoEmoji stars', () => {
   });
 
   it('labels stars used as a count', () => {
-    const label = renderIconSvg('star-solid', { size: 16, cssSize: '1em', class: 'inline-icon', label: '星' });
+    const label = renderIconUse('star-solid', { class: 'inline-icon', label: '星' });
     expect(raws(run([el('p', [text('23.2k★')])]))[0]).toBe(label);
     expect(raws(run([el('p', [text('⭐ 104,523')])]))[0]).toBe(label);
     expect(raws(run([el('th', [text('★')])]))[0]).toBe(label);

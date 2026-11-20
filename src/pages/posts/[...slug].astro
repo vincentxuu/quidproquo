@@ -18,7 +18,9 @@ import VocabularyCapture from '../../components/VocabularyCapture.astro';
 import EnglishPostNav from '../../components/EnglishPostNav.astro';
 
 import { getYouTubeEmbedId } from '../../utils/youtube';
-import { stripEmojiText } from '../../plugins/rehypeNoEmoji';
+import { stripEmojiText, INLINE_ICONS_KEY, INLINE_ICON_SPRITE_PX } from '../../plugins/rehypeNoEmoji';
+import { renderIconSprite } from '../../components/icons/render';
+import type { IconName } from '../../components/icons/koboyo';
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedPosts();
@@ -32,7 +34,10 @@ const { post, allPosts } = Astro.props;
 // Only src/pages/styleguide.astro passes `noindex`, when it reuses this template for its fixture.
 // Props are inferred from getStaticPaths, so the extra prop is read untyped.
 const noindex = (Astro.props as { noindex?: boolean }).noindex === true;
-const { Content, headings } = await render(post);
+const { Content, headings, remarkPluginFrontmatter } = await render(post);
+// rehypeNoEmoji turns emoji into `<use href="#ki-…">` references and lists the icons here; the symbols
+// are rendered once below, after <Content />, so the path data stays out of the content store.
+const inlineIcons = (remarkPluginFrontmatter?.[INLINE_ICONS_KEY] ?? []) as IconName[];
 const lang = post.data.lang as Lang;
 const t = useTranslations(lang);
 
@@ -329,6 +334,7 @@ const breadcrumbLD = {
     <!-- Content -->
     <div class="content">
       <Content />
+      {inlineIcons.length > 0 && <Fragment set:html={renderIconSprite(inlineIcons, { size: INLINE_ICON_SPRITE_PX })} />}
     </div>
 
     {faq.length > 0 && (

@@ -3,8 +3,11 @@
  *
  * Runs last in the rehype chain and rewrites text nodes outside code (`pre`, `code`, `kbd`, ...):
  *
- * - Emoji with a koboyo counterpart become an inline SVG from `renderIconSvg` (the same markup
- *   Icons.astro produces), sized to the text with the `inline-icon` class: `🌏` → globe, `📄` → file-text,
+ * - Emoji with a koboyo counterpart become a tiny `<svg class="inline-icon"><use href="#ki-<name>"/></svg>`
+ *   sized to the text. The geometry is written once per page: the icon names the document uses go out as
+ *   `remarkPluginFrontmatter.inlineIcons`, and the post page renders one hidden sprite of `<symbol>`s after
+ *   `<Content />` (render.ts renderIconSprite, same fattening as Icons.astro). Keeping the sprite out of the
+ *   rendered Markdown keeps the path data out of Astro's content store. `🌏` → globe, `📄` → file-text,
  *   `✅` → check, `❌` → x, `⚠\uFE0F` → alert-triangle, `⭐` → star, `🎯` → target, and so on
  *   (EMOJI_ICONS below). Status marks keep their meaning for screen readers through `role="img"` and a
  *   zh-TW / en label picked from the page's frontmatter `lang`; the rest are `aria-hidden`.
@@ -28,7 +31,7 @@
  */
 
 import type { IconName } from '../components/icons/koboyo';
-import { renderIconSvg } from '../components/icons/render';
+import { renderIconUse } from '../components/icons/render';
 
 type HastNode = {
   type: string;
@@ -38,7 +41,7 @@ type HastNode = {
   children?: HastNode[];
 };
 
-type FileLike = { data?: { astro?: { frontmatter?: { lang?: string } } } };
+type FileLike = { data?: { astro?: { frontmatter?: { lang?: string; [key: string]: unknown } } } };
 type Lang = 'zh' | 'en';
 
 const SKIP_TAGS = new Set(['code', 'pre', 'kbd', 'samp', 'script', 'style', 'svg', 'math', 'textarea']);
@@ -175,6 +178,10 @@ const CLOSE_PAREN = new Set([')', '）', ']', '】']);
 /** Inline icons are drawn at 1em; the fattening stroke is computed for this nominal size. */
 const INLINE_NOMINAL_PX = 16;
 export const INLINE_ICON_CLASS = 'inline-icon';
+/** remarkPluginFrontmatter key listing the koboyo icons a post uses (for the page sprite). */
+export const INLINE_ICONS_KEY = 'inlineIcons';
+/** Size the sprite's fattening stroke is computed for; pass it to renderIconSprite. */
+export const INLINE_ICON_SPRITE_PX = INLINE_NOMINAL_PX;
 
 type Piece =
   | { type: 'text'; value: string }
@@ -272,10 +279,19 @@ function pieceToNode(p: Piece, lang: Lang): HastNode {
   if (p.type === 'html') return { type: 'raw', value: p.html };
   if (p.type === 'swatch') return { type: 'raw', value: swatchSvg(p.shape, p.color, p.hollow) };
   const label = p.label ? LABELS[p.label][lang] : undefined;
-  return {
-    type: 'raw',
-    value: renderIconSvg(p.icon, { size: INLINE_NOMINAL_PX, cssSize: '1em', class: INLINE_ICON_CLASS, label, hidden: !label }),
-  };
+  return { type: 'raw', value: iconRef(p.icon, label) };
+}
+
+/**
+ * Icons used by the document being processed. Each inline icon is a `<use href="#ki-…">` reference;
+ * rehypeNoEmoji appends one hidden sprite with these symbols at the end of the tree. The transform is
+ * synchronous, so a module-level set scoped to one call is safe.
+ */
+let usedIcons: Set<IconName> | undefined;
+
+function iconRef(name: IconName, label?: string): string {
+  usedIcons?.add(name);
+  return renderIconUse(name, { cssSize: '1em', class: INLINE_ICON_CLASS, label, hidden: !label });
 }
 
 function hasContent(node: HastNode, except: Set<HastNode>): boolean {
@@ -302,13 +318,7 @@ function hasContent(node: HastNode, except: Set<HastNode>): boolean {
 const STAR_RUN_RE = /[★☆][\uFE0E\uFE0F]?(?:[★☆][\uFE0E\uFE0F]?)*(?:½|⯨)?/gu;
 
 function starIcon(filled: boolean, label?: string): string {
-  return renderIconSvg(filled ? 'star-solid' : 'star', {
-    size: INLINE_NOMINAL_PX,
-    cssSize: '1em',
-    class: INLINE_ICON_CLASS,
-    label,
-    hidden: !label,
-  });
+  return iconRef(filled ? 'star-solid' : 'star', label);
 }
 
 const escapeAttr = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
@@ -492,7 +502,20 @@ function moveLeadingIconIntoLink(p: HastNode) {
 export function rehypeNoEmoji() {
   return (tree: HastNode, file?: FileLike) => {
     const lang: Lang = file?.data?.astro?.frontmatter?.lang === 'en' ? 'en' : 'zh';
-    processChildren(tree, lang);
+    usedIcons = new Set();
+    try {
+      processChildren(tree, lang);
+      // The sprite itself is NOT added to the tree: the rendered HTML lands in Astro's content store,
+      // and the globe alone (~2 KB of path data) on ~6,800 pages would put ~14 MB back in it. Only the
+      // icon names go out, as remarkPluginFrontmatter; the post page renders the sprite after <Content />.
+      if (usedIcons.size > 0 && file?.data) {
+        file.data.astro ??= {};
+        file.data.astro.frontmatter ??= {};
+        file.data.astro.frontmatter[INLINE_ICONS_KEY] = [...usedIcons].sort();
+      }
+    } finally {
+      usedIcons = undefined;
+    }
   };
 }
 

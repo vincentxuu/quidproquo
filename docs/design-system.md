@@ -484,7 +484,8 @@ tokens.css 提供圖表的原始色，`diagram.css` 再衍生成作者用的 `--
 
 站上不顯示 emoji（原則 10）。文章 Markdown 照寫，建置時由 `src/plugins/rehypeNoEmoji.ts` 改寫；它是 `rehypePlugins` 的最後一個（astro.config.mjs:450–451），因為 Astro 在使用者 rehype 外掛之後才收集標題，TOC 與標題 id 才會用改寫後的文字（rehypeNoEmoji.ts:26–27 註解）。`pre`、`code`、`kbd`、`samp`、`svg`、`math` 等裡面的文字不動（rehypeNoEmoji.ts:44）。
 
-- **圖示的長相**：與介面同一套 koboyo SVG。`src/components/icons/render.ts` 的 `renderIconSvg` 同時給 `Icons.astro` 與這個外掛用（render.ts:1–3、33–45），把填色外框再描 0.9px 邊加粗（`FATTEN_PX`，render.ts:15），小尺寸才不會像細線。內文裡的圖示帶 `class="inline-icon"`，寬高 1em、`vertical-align: -0.125em`、顏色跟著文字（Layout:632–633），所以在標題、表格、連結裡都跟字一樣大、一樣色。
+- **圖示的長相**：與介面同一套 koboyo SVG，加粗算法共用（`fattenStroke`，render.ts:39；把填色外框再描 0.9px 邊，`FATTEN_PX`，render.ts:15，小尺寸才不會像細線）。`Icons.astro` 用 `renderIconSvg`（render.ts:47）輸出完整的 SVG。
+- **文章裡用 sprite**：每個圖示只輸出 `<svg class="inline-icon" width="1em" height="1em"><use href="#ki-<name>"/></svg>`（renderIconUse，render.ts:71）。外掛把這篇用到的圖示名稱寫進 `remarkPluginFrontmatter.inlineIcons`（rehypeNoEmoji.ts:514），文章頁在 `<Content />` 後面輸出一個隱藏的 sprite，每個 `<symbol id="ki-<name>">` 只出現一次（renderIconSprite，render.ts:80；Post:337）。sprite 是 `width="0" height="0" style="position:absolute"`，不用 `display:none`（有些瀏覽器會因此畫不出 `<use>`），也是 `.content` 的最後一個子元素，不影響 `:first-child` 類選擇器。sprite 不放進 Markdown 渲染結果，是因為那份 HTML 會存進 Astro 的 content store：每篇都有的地球圖示路徑約 2 KB，六千多篇就是 14 MB，曾讓 CI 的 dev server 記憶體用完。改成 sprite 後，content store 裡的圖示相關字串從約 17.4 MB 降到約 2 MB。**限制**：只有文章頁會輸出 sprite；把渲染後的文章 HTML 拿到別處用的地方（目前沒有：RSS 與 llms.txt 只用 frontmatter，D1 同步與 Ask AI 用原始 Markdown，Pagefind 讀的是完整頁面）要自己補 sprite，否則圖示會是空的。內文裡的圖示帶 `class="inline-icon"`，寬高 1em、`vertical-align: -0.125em`、顏色跟著文字（Layout:632–633），所以在標題、表格、連結裡都跟字一樣大、一樣色。
 - **對照表**（EMOJI_ICONS，rehypeNoEmoji.ts:64–121）：
 
   | emoji | koboyo 圖示 | 螢幕報讀 |
