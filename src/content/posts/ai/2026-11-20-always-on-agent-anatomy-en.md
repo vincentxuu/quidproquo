@@ -150,7 +150,7 @@ Whichever product you use, the first time you open its settings, look for these 
 
 Self-check: while doing proactive research in the background, Dots finds an email that needs a reply. Can it reply? No. Proactive research only uses read-only tools. Replying has to be work you assigned or an action your custom rules allow, and it still passes the automatic review.
 
-The next post starts route 1 with its boundary case: why Tasks in Gemini stops at L2, and why that may be exactly enough for you.
+The next post starts route 1 with its boundary case: why [Tasks in Gemini](/posts/ai/2026-11-20-gemini-tasks-en) stops at L2, and why that may be exactly enough for you.
 
 ## References
 
