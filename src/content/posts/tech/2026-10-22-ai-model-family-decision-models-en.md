@@ -1,30 +1,34 @@
 ---
-title: "Choosing a Decision Model: Jev, Decider, d1-ultra, mammoth-1, and a Dozen More"
+title: "Choosing a Decision Model: Gemini Decision 1, d1.2-ultra, Drex, Decider, and Twenty-Odd Others"
 date: 2026-10-22
 category: tech
 type: deep-dive
 tags: [decision-model, model-selection, agent-evaluation, open-weights]
 lang: en
-tldr: "Decision models replace an LLM's \"generate some text and you write the parser\" with \"you list the options up front and the model returns a probability for each.\" After TypeSafe proposed System One on 2026-09-15, this category went from one vendor to more than a dozen: Jev 1.14, the OpenAI Decisions API, Perplexity Decider v1.2, Microsoft-Decision-1, Liquid d1-ultra, Base Labs mammoth-1, vLLM d3, StartLux, Fastino GLiDE, Celeris-1 Decision, Inception Mercury Decide, and Cloudflare Clef. The two leaderboards disagree almost completely — the community Jev Decision Index 0.4.1 crown goes to GLiDE V1.2 (71.5), while the independent Artificial Analysis Decision Index crown goes to d1-ultra (65.2) with Jev 1.14 at only 57.1. Decision models win on classification and tool selection, lose on knowledge and reasoning, and are broadly overconfident."
-description: "A decision model selection guide: the matrix of a dozen-odd models, what the Jev Decision Index and the Artificial Analysis Decision Index each measure, cost and latency, licensing and self-hosting thresholds, and the three places that actually break once a decision model is wired into an agent — including prompt injection and overconfident thresholds."
+tldr: "Decision models replace an LLM's \"generate some text and you parse it\" with \"you list the options and the model returns a probability for each.\" Within two months of TypeSafe proposing System One on 2026-09-15, the category grew to more than twenty vendors, and Google launched Gemini Decision 1 on 11-11. In November Artificial Analysis rebuilt its leaderboard as v2, scoring with a Decision Score that weighs both correctness and confidence. On the v2.1 board as of 2026-11-20, the top decision model is Liquid d1.2-ultra (74.8) and Gemini Decision 1 scores 66.0 — but once language models also return probabilities, Claude Haiku 5.5 (Max) scores 76.5, above every decision model, at 47× the cost per million tasks and about 150× the latency. Decision models win on speed, cost, and tool selection, and lose on knowledge and reasoning."
+description: "A decision model selection guide: a version matrix for twenty-odd models, how the Artificial Analysis Decision Index v2.1 and the community Jev Decision Index differ, cost and latency, licensing and self-hosting, and the three places things break once you wire one into an agent — including prompt injection and setting thresholds on overconfident models."
 draft: false
 series:
   name: "AI Model Families"
   order: 33
 glossary:
   - term: "Decision model"
-    definition: "Takes a state plus a set of typed questions and returns a probability for every allowed option instead of generating text. TypeSafe named the category System One in September 2026; within a month it was a category of its own."
+    definition: "Takes a state and a set of typed questions and returns a probability for every legal option instead of generating text. TypeSafe named it the System One model class in September 2026, and within two months it became a category of its own."
   - term: "System One API"
-    definition: "The de facto request format for decision models: POST /v1/systemone, with a state plus questions in the body, each question tagged choice, noul, or score. The answer carries a probability per option; vendors also ship their own confidence field, and those definitions do not agree."
+    definition: "The de facto request format for decision models: POST /v1/systemone, with a body of state plus questions, each with a type of choice, noul, or score, and answers as probabilities per option. Each vendor also has its own confidence field, and the definitions don't match."
   - term: "Calibration"
-    definition: "Whether the probabilities a model reports match the rate at which it is actually right. Decision models are used to set auto-approve thresholds, so calibration matters more than average accuracy; the usual metrics are ECE (expected calibration error) and Brier score."
+    definition: "Whether the probabilities a model gives match how often it is actually right. Decision models are used to set auto-approve thresholds, so calibration matters more than average accuracy; common metrics are ECE (expected calibration error) and the Brier score."
+  - term: "Decision Score"
+    definition: "The headline metric of the Artificial Analysis Decision Index v2: each question scores 50 × (1 + c − (p − c)²), where p is the probability the model gives its chosen answer and c is whether it is right. Right answers land between 50 and 100 and wrong ones between 0 and 50, with confident mistakes penalized more; overall it equals 50 × (1 + accuracy − Brier score)."
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-22-ai-model-family-decision-models)
 
-Decision models replace an LLM's "generate some text and you write the parser" with "you list the options up front and the model returns a probability for each." After TypeSafe proposed System One on 2026-09-15, this category went from one vendor to more than a dozen by 2026-10-21: [Jev 1.14](https://docs.typesafe.ai/models), the [OpenAI Decisions API](https://developers.openai.com/api/docs/guides/decisions), [Perplexity Decider v1.2](https://huggingface.co/perplexity-ai/pplx-decider-v1.2), [Microsoft-Decision-1](https://commandline.microsoft.com/microsoft-decision-1-model-foundry/), [Liquid d1-ultra](https://www.liquid.ai/blog/d1-ultra), [Base Labs' mammoth-1](https://huggingface.co/baselabs/mammoth-1), [vLLM's d3](https://huggingface.co/vllm-sr/d3), [StartLux-Decision](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant), [Fastino GLiDE](https://fastino.ai/blog/introducing-glide-the-first-thinking-decision-model), [Celeris-1 Decision](https://celeris.ai/pricing), [Inception Mercury Decide](https://docs.inceptionlabs.ai/get-started/models), and [Cloudflare Clef](https://blog.cloudflare.com/clef-decision-models).
+Decision models replace an LLM's "generate some text and you write the parser" with "you list the options up front and the model returns a probability for each." After TypeSafe proposed System One on 2026-09-15, this category went from one vendor to more than twenty by 2026-11-20: [Jev 1.14](https://docs.typesafe.ai/models), [Google Gemini Decision 1](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/), the [OpenAI Decisions API](https://developers.openai.com/api/docs/guides/decisions), [Perplexity Decider v1.3](https://docs.perplexity.ai/docs/decisions/quickstart), [Microsoft-Decision-1.1](https://commandline.microsoft.com/microsoft-decision-model-ga/), [Liquid d1.2-ultra](https://www.liquid.ai/blog/d1-2), [Nace.AI Drex](https://www.nace.ai/drex/decision-index), [Subquadratic SubQ Snap](https://docs.subq.ai/using-the-api/models/), [Base Labs' mammoth-1](https://huggingface.co/baselabs/mammoth-1), [vLLM's d3](https://huggingface.co/vllm-sr/d3), [StartLux-Decision](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant), [Fastino GLiDE](https://fastino.ai/blog/introducing-glide-the-first-thinking-decision-model), [Celeris-1.1 Decision](https://celeris.ai/pricing), [Inception Mercury Decide](https://docs.inceptionlabs.ai/get-started/models), and [Cloudflare Clef](https://blog.cloudflare.com/clef-decision-models).
 
 If what you build is a judgement over a finite set of options — which team gets this ticket, is this text spam, may this tool call run — this batch is worth a look. If you need knowledge or reasoning, the leaderboard numbers will tell you not to bother. What this piece gives you is the version matrix, what the two leaderboards that cannot be mixed actually measure, and the three places where things genuinely break once you wire one in.
+
+This piece was first written on 10-22; the 11-20 revision replaces the version matrix, leaderboards, and costs with November data. The old October numbers, and why they were replaced, are in the update history at the end.
 
 ## What a decision model is: swapping "generate text" for "return probabilities"
 
@@ -73,153 +77,178 @@ So the practical conclusion is one line: **threshold on `probabilities[choice]`,
 
 Why now? [Microsoft's framing is the most direct](https://commandline.microsoft.com/microsoft-decision-1-model-foundry/): a pipeline with twenty sequential decisions spends an extra two seconds for every extra 100 ms per decision. These "small decisions" used to require a frontier LLM, which meant paying to generate a paragraph of prose in exchange for a yes-or-no answer. Decision models cut that cost, and the price is that they only choose among a fixed set of options — they do not write reasons and they do not reason on their own.
 
-## The dozen-odd models, and what each one is
 
-Two lists are more useful than one big table: **the ones with weights you can host yourself**, and **the hosted-API-only ones**. The latter cost a fixed service fee; the former cost GPU.
+## Twenty-odd decision models, and what each one is
+
+Two buckets are more useful than one big table: **models whose weights you can host yourself**, and **models you can only reach through a hosted API**. The latter cost a fixed service fee; the former cost GPUs. Many vendors do both — open weights plus a hosted API — so the tables below split by whether you can self-host. Prices are list prices per million input tokens read from each vendor's official page on 2026-11-20; output is never billed.
 
 **Open weights, self-hostable**
 
-| Model | Base and parameters | Modalities | License | Input price | Key differences |
+| Model | Base and size | Modality | License | Hosted input price | Key difference |
 |---|---|---|---|---|---|
-| [Decider v1.2 (27B)](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) | Qwen3.8-27B | Text + images (≤1.6MP) | Apache-2.0 | $0.02/1M | Supports joint requests: one sequence answers every question, each read out at a marker token; the model card discloses training on the official benchmark's training split (decontaminated against the test set) |
-| [Decider Flash v1.2 (4B)](https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.2) | Qwen3.5-4B | Text + images | Apache-2.0 | $0.01/1M | Distilled from the 27B, learning full probability distributions; the cheapest input price in the category |
-| [d3 (Decision 3.0)](https://huggingface.co/vllm-sr/d3) | Qwen3.8-27B, including a 0.46B vision encoder | Text / JSON + images + video | Apache-2.0 | Self-hosted | Reads video (2 fps, at most 32 frames per clip, each ≤0.2MP); vLLM v0.32.0 (2026-10-18) ships `POST /v1/systemone` enabled by default and names clef-omni, d1-3B, and DiffusionGemma as runnable; d3's own merge (2026-10-14) is not on the v0.32.0 line, so running d3 still needs a nightly build |
-| [StartLux-Decision v1.1](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant) | 0.8B–27B, in Instant and AutoThink variants | Text (images optional) | **CC BY-NC 4.0** (commercial use needs a separate deal) | Self-hosted | AutoThink writes a short thought first when it is unsure, then re-scores; one read covers at most 26 options |
-| [mammoth-1 (27B)](https://huggingface.co/baselabs/mammoth-1) | Qwen3.5-27B full fine-tune | Text | Model card says MIT (but the repo ships no LICENSE file) | One free week of Baseten hosting | The training objective includes a Brier calibration term, and the model genuinely learns to answer "I don't know"; training data undisclosed |
-| [elephant-1 (9B)](https://huggingface.co/baselabs/elephant-1) | Qwen3.5-9B full fine-tune | Text | Model card says MIT (again, no LICENSE file) | One free week of Baseten hosting | The 9B tier; the author states it trained on the Decision Index train split |
-| [d1-3B](https://huggingface.co/LiquidAI/d1-3B) | LFM2.5-VL-3B | Text + images | LFM Open License | Self-hosted | 16 ms for a single question at the edge (Jetson AGX Thor), 8 ms on a GPU (RTX 4090); the model card lists 16 languages including Chinese |
-| [Strands Decider 2B](https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v21) | Qwen3.5-2B + LoRA + readout head | Text (vision is an optional extra) | Apache-2.0 | Self-hosted | Training recipe, data inventory, and evaluations are all public on GitHub, which makes it a good starting point for fine-tuning; about 115 ms locally |
-| [Clef family](https://blog.cloudflare.com/clef-decision-models) | 27B / 9B / 30B-A3B | Text / JSON + images + video + audio | Apache-2.0 | $0.24 / $0.038 / $0.15 | Hosted on Workers AI and open at the same time; details in the [companion piece](/posts/tech/2026-10-22-ai-model-family-cloudflare) |
+| [Decider v1.3 (27B)](https://docs.perplexity.ai/docs/decisions/quickstart) | Qwen3.8-27B | Text + images | Apache-2.0 | $0.02/1M | Released 11-09; adds a `locate` question type (find the spans of `state` matching a description); 256K context; `pplx-decider-latest` now points to 1.3 |
+| [Decider Flash v1.3 (4B)](https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.3) | 4B | Text + images | Apache-2.0 | $0.01/1M | The lowest input price among decision models; for v1.2 Perplexity said one question per request was more accurate, while 1.3 can group questions |
+| [d3 (Decision 3.0)](https://huggingface.co/vllm-sr/d3) | Qwen3.8-27B with a 0.46B vision tower | Text/JSON + images + video | Apache-2.0 | Self-host | Reads video (2 fps, up to 32 frames per clip, ≤0.2MP per frame); vLLM v0.32.0 ships a built-in `/v1/systemone` endpoint; the family also has d3-ultra, turbo, flash, mini, and other sizes |
+| [GLiDE 27B](https://huggingface.co/fastino/GLiDE-27B) | Full fine-tune of a Qwen base | Text + JSON | fastino-community (custom) | Fastino API | A thinking decision model that spends extra compute only when unsure; its weights weren't out in October and have been on HuggingFace since 10-19 |
+| [Drex v2.0](https://huggingface.co/nace-ai/drex-v2.0) | Qwen3.6-35B-A3B | Text | Nace.AI Open RAIL-M (custom, with use restrictions) | $0.03/1M | Nace also has a Drex Max v1 weights repo; the current Drex Max v1.1 is hosted, see below |
+| [StartLux-Decision v1.1](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant) | 0.8B–27B, Instant and AutoThink | Text (images optional) | **CC BY-NC 4.0** (commercial use needs a separate deal) | Self-host | AutoThink writes a thought first and rescores when unsure; at most 26 options per read |
+| [mammoth-1 (27B)](https://huggingface.co/baselabs/mammoth-1) | Full fine-tune of Qwen3.5-27B | Text | Model card says MIT (but no LICENSE file in the repo) | Hosted on Baseten | Training objective includes a Brier calibration term and actually teaches the model to answer "I don't know"; training data undisclosed |
+| [elephant-1 (9B)](https://huggingface.co/baselabs/elephant-1) | Full fine-tune of Qwen3.5-9B | Text | Model card says MIT (no LICENSE file either) | Hosted on Baseten | 9B class; the authors say training used the Decision Index train split |
+| [d1-2B / d1-Omni-2B](https://huggingface.co/LiquidAI/d1-2B) | LFM3-1.7B backbone | Text + images (Omni adds audio) | LFM Open License (commercial use above US$10M annual revenue needs a separate deal) | Self-host | Released 10-24 with LFM3, replacing the earlier d1-3B; see the [Liquid AI family post](/posts/tech/2026-10-10-ai-model-family-liquid-ai-en) |
+| [Strands Decider 2B](https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v21) | Qwen3.5-2B + LoRA + readout head | Text (vision is an optional add-on) | Apache-2.0 | Self-host | Training recipe, data list, and evals are all on GitHub, a good starting point for modifying a model; about 115 ms locally |
+| [Clef family](https://blog.cloudflare.com/clef-decision-models) | 27B / 9B / 30B-A3B | Text/JSON + images + video + audio | Apache-2.0 | $0.24 / $0.038 / $0.15 | Hosted on Workers AI and also open-sourced; see [the other post](/posts/tech/2026-10-22-ai-model-family-cloudflare-en) |
 
 **Hosted API only**
 
-| Model | Vendor | Modalities | Input price | Key differences |
+| Model | Vendor | Modality | Input price | Key difference |
 |---|---|---|---|---|
-| [Jev 1.14](https://docs.typesafe.ai/models) | TypeSafe | Text | $0.042/1M | 64k per request, 32k per question; the long-context header lifts both to 262k, but the docs say it is slower and less accurate; English is the primary training language, and CJK works but not equally well |
-| [gpt-6-luna (Decisions API)](https://developers.openai.com/api/docs/guides/decisions) | OpenAI | Text + images | $0.10/1M | Public beta from 2026-10-06, with this one model only; no output or cache charges; supports ZDR and HIPAA, with data residency in the United States and Europe (EEA and Switzerland) |
-| [Microsoft-Decision-1](https://commandline.microsoft.com/microsoft-decision-1-model-foundry/) | Microsoft | Text | $0.042/1M | Post-trained from Qwen3.5-9B; on OpenRouter the id is `microsoft/microsoft-decision-1`, served through the alpha decisions endpoint rather than the normal chat API; Microsoft self-reports the highest score across 36 benchmarks and nearly 150,000 blind questions and the fastest measured, and says the model will later be rebased onto MAI and OpenAI models |
-| [d1-ultra](https://www.liquid.ai/blog/d1-ultra) | Liquid | Text + images | $0.042/1M | Built on a larger open-weight base with customizations; each question is billed separately (images at 1.5 tokens per 32×32 patch, so a 1024×1024 image costs 1536 tokens); API only |
-| [GLiDE](https://fastino.ai/blog/introducing-glide-the-first-thinking-decision-model) | Fastino | Text + JSON | $0.15/1M | A thinking decision model: it computes more only when it is unsure; 40k context, and over-long requests are refused rather than truncated; base model undisclosed and weights not yet released |
-| [Celeris-1 Decision](https://celeris.ai/pricing) | Celeris | Text + structured + images | $0.04/1M | Says outright that it can attach a one-sentence explanation (only if you ask for one) |
-| [Mercury Decide](https://docs.inceptionlabs.ai/get-started/models) | Inception | Text / JSON / images | $0.02/1M (list $0.04) | The endpoint is Inception's own `POST /v1/decisions` with model `mercury-decide`, and it adds an `extract` question type that System One does not have (pulling exact spans out of the input); OpenRouter's page says "up to 14 decisions per second", released 2026-09-30, 66K context |
+| [Gemini Decision 1](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/) | Google | Text + images + audio + video + PDF | $0.10/1M | Launched 11-11; up to 1,000 questions per request, shared input billed once, 256K input limit; free tier in AI Studio; the request field is `input`, not `state` |
+| [d1.2-ultra / d1.2](https://docs.liquid.ai/lfm/models/d1) | Liquid | Text + images + audio | $0.042 / $0.02 | Launched 11-16 with five new question types (read a value, find passages, locate objects, estimate a number, multi-select); d1-ultra, d1.1, and d1 are deprecated |
+| [Drex Max v1.1](https://www.nace.ai/drex/decision-index) | Nace.AI | Text | $0.03/1M | Artificial Analysis notes its cost reflects a temporary launch price that roughly doubles at the standard price |
+| [SubQ Snap 1.2](https://docs.subq.ai/using-the-api/models/) | Subquadratic | Text + images | $0.04/1M | 384K context, pitched at long-context decisions; version 1.1 shut down on 11-11 |
+| [Microsoft-Decision-1.1](https://commandline.microsoft.com/microsoft-decision-model-ga/) | Microsoft | Text + images | $0.042/1M (Global) | GA on 11-17, more than twice as fast as 1.0 and now accepts images; US/EU/APAC data zones cost more; also on OpenRouter and Vercel |
+| [Jev 1.14](https://docs.typesafe.ai/models) | TypeSafe | Text + images | $0.042/1M | 64k per request, 32k per question; the long-context header raises both to 262k but is slower and less accurate; 1.14 adds a `box` question type; English is the main training language |
+| [gpt-6-luna (Decisions API)](https://developers.openai.com/api/docs/guides/decisions) | OpenAI | Text + images | $0.10/1M | Public beta since 10-06; no output or cache charges; supports ZDR and HIPAA, with data residency in the US and Europe |
+| [Celeris-1.1 Decision](https://docs.celeris.ai/pricing) | Celeris | Text + structured + images | $0.004/1M | The lowest list price among hosted decision models; can attach a one-sentence explanation for free |
+| [Mercury Decide](https://docs.inceptionlabs.ai/get-started/models) | Inception | Text / JSON / images | $0.02/1M (list $0.04) | Uses Inception's own `POST /v1/decisions` endpoint, with an extra `extract` question type beyond System One |
+| [GLiDE (hosted)](https://docs.fastino.ai/concepts/glide) | Fastino | Text + JSON | $0.15/1M | 40k context; over-long requests are rejected, not truncated |
 
-Prices are per million input tokens and output is not billed, which is the pricing structure the whole category shares: **you are buying input tokens, not the words the model writes.** The [Perplexity model card](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) also contains a sentence worth keeping in your selection notes: they trained on the official benchmark's training split (decontaminated against the test set) because "a model that did not would be compared unfairly." The vendor wrote it, and you should know what the comparison is actually measuring.
+Prices are per million input tokens with output unbilled — the pricing structure the whole category shares: **you're buying input tokens, not the words the model writes**. But list price isn't cost per question: how questions are grouped, how images are counted, and whether there's a long-context premium all differ by vendor, so the cost section below compares Artificial Analysis's cost per million tasks.
 
-## Two leaderboards, nearly opposite answers
+[Perplexity's model card](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) also contains a line worth noting in any selection table: they trained on the official benchmarks' training split (decontaminated against the test set), on the grounds that "models that don't would be unfairly disadvantaged on the leaderboard." That's the vendor's own disclosure; you should know what it's competing on.
 
-Two different things are now called a decision model leaderboard. They measure different things and produce nearly opposite rankings. **Their scores cannot be swapped, summed, or used to say who is stronger.**
+## Two leaderboards that measure different things
 
-**The community Jev Decision Index 0.4.1** — a [community-maintained Space on Hugging Face](https://huggingface.co/spaces/multimodalart/jev-decision-index) tracking "what open reproductions of TypeSafe's Jev turn into." The 2026-10-22 05:40 UTC data snapshot holds 226 model rows (224 of them third-party reproductions; Jev 1.13 and 1.14 are the vendor's own reference rows), 42 benchmarks (37 of which make up the public panel), five areas, 110,201 requests (109,759 of them scoreable), all on a single RTX PRO 6000. The headline Full score is 60% private same-skill tests plus 40% private new-domain tasks, mapped back onto the public scale; public benchmarks are run but not scored, and the private tests are never published. This is a community-maintained Space — **it is not official, and not Jev's own leaderboard.**
+Two things are both called "the decision model leaderboard," and they measure different things and don't agree on rankings. **Their scores can't be swapped, added, or used to say who is "stronger."**
 
-Ranks use a 0.9-point tie band, so tied models share a rank (the site renders it as `=3`, `=10`):
+**Artificial Analysis Decision Index v2.1** — an [independent third party](https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index) that runs every model itself. v1.0, launched 10-13, had only four evaluations; [v2 on 11-08](https://artificialanalysis.ai/articles/decision-index-v2) rebuilt it, raising the share of private datasets from 25% to 45% to guard against benchmark gaming:
 
-| Board rank | Model | Full score | Public subset |
+| Evaluation | What it measures | Weight |
+|---|---|---|
+| AA-Paperclip (private) | 1,500 resumes, receipts and invoices, and papers, each with 5 decisions + 10 extractions; a document counts only if all 15 answers are right | 30% |
+| EvalSafe-O*NET-AA | Judgements about workplace documents | 15% |
+| When2Call | Whether to call a tool | 10% |
+| AA-Omniscience-Decision v1.1 (private) | Knowledge and hallucination, with "I don't know" worded ten ways | 15% |
+| HLE-MultiChoice v1.1 | Reasoning, with an option to decline | 15% |
+| AA-Symmetry v1.1 | Whether answers and probabilities hold when options are reordered or reworded, or the question is negated | 15% |
+
+The headline metric changed too: v2 uses the **Decision Score**, 50 × (1 + c − (p − c)²) per question, so right answers land between 50 and 100, wrong answers between 0 and 50, and confident mistakes lose the most. It folds accuracy and calibration into one number that maps directly onto how decision models are used — act when confidence clears a threshold, route to a person otherwise. v2 also dropped the saturated WildGuardTest and has language models return a probability for every option, so the two kinds of model can be compared on the same score for the first time.
+
+The 18 current decision models and 4 language-model references read from the leaderboard page on 2026-11-20 (sub-scores are Decision Scores; AA-Symmetry is the Symmetry Score):
+
+| Model | Vendor | DI | Paperclip | O*NET | When2Call | Knowledge | Reasoning | Symmetry |
+|---|---|---|---|---|---|---|---|---|
+| d1.2-ultra | Liquid | **74.8** | **75.8** | 89.5 | **96.5** | 60.8 | 46.4 | 86.3 |
+| Drex Max v1.1 | Nace.AI | 72.6 | 72.8 | 88.3 | 95.3 | 60.3 | 46.6 | 79.8 |
+| SubQ Snap 1.2 | Subquadratic | 72.6 | 71.6 | 88.6 | 96.1 | 61.0 | 45.6 | 81.4 |
+| GLiDE v1.2 | Fastino | 72.5 | 71.4 | 89.7 | 95.1 | 60.9 | 44.6 | 82.1 |
+| Mammoth 27B | Base Labs | 71.4 | 64.2 | 88.8 | 95.8 | 58.9 | 47.4 | **88.2** |
+| Decider v1.3 | Perplexity | 70.4 | 68.7 | 89.1 | 94.6 | 58.9 | 42.9 | 77.9 |
+| d1.2 | Liquid | 68.7 | 62.6 | 86.6 | 96.1 | 60.9 | 44.7 | 76.5 |
+| Microsoft-Decision-1.1 | Microsoft | 67.8 | 58.7 | 88.8 | 95.1 | 60.5 | 46.1 | 75.7 |
+| Elephant 9B | Base Labs | 66.4 | 52.4 | 87.4 | 95.5 | 56.0 | 45.8 | 84.9 |
+| Jev 1.14 | TypeSafe | 66.2 | 57.5 | **91.1** | 84.4 | 60.1 | 44.5 | 74.5 |
+| Gemini Decision 1 | Google | 66.0 | 56.8 | 87.1 | 80.5 | **66.3** | **48.7** | 70.5 |
+| Decider Flash v1.3 | Perplexity | 64.1 | 53.2 | 84.1 | 90.1 | 55.4 | 40.7 | 80.4 |
+| Mercury Decide | Inception | 62.1 | 56.9 | 86.6 | 81.4 | 56.7 | 34.8 | 67.6 |
+| Celeris-1.1 Decision | Celeris | 62.0 | 54.5 | 84.6 | 88.7 | 57.6 | 40.3 | 62.5 |
+| Drex 2.0 | Nace.AI | 61.6 | 51.9 | 81.9 | 88.7 | 60.5 | 47.1 | 58.1 |
+| Clef | Cloudflare | 60.3 | 54.4 | 85.7 | 77.2 | 57.1 | 42.6 | 56.6 |
+| gpt-6-luna (Decisions) | OpenAI | 60.2 | 52.9 | 85.2 | 79.5 | 60.2 | 42.6 | 54.9 |
+| Clef-Omni | Cloudflare | 57.8 | 50.6 | 81.0 | 70.7 | 56.8 | 42.4 | 56.4 |
+| Claude Haiku 5.5 (Max) | Anthropic | 76.5 | 82.7 | — | 84.3 | 74.4 | 54.9 | 68.5 |
+| GPT-6 Luna (Max) | OpenAI | 75.7 | 86.9 | — | 82.5 | 66.4 | 44.7 | 72.3 |
+| GPT-6 Luna (Low) | OpenAI | 68.8 | 72.9 | — | 81.2 | 67.9 | 34.5 | 69.5 |
+| Claude Haiku 5.5 (Low) | Anthropic | 67.2 | 68.7 | — | 76.6 | 68.3 | 46.7 | 63.7 |
+
+(This post didn't read O*NET numbers for the language models, shown as "—". The leaderboard moves; Drex Max v1.1 and SubQ Snap 1.2 both round to 72.6, with Drex slightly ahead before rounding.)
+
+Three takeaways from this table:
+
+- **Language models now rank first in v2.** Once Claude Haiku 5.5 and GPT-6 Luna also return probabilities, both at maximum reasoning effort score above every decision model, winning mainly on the Paperclip document task (82.7 and 86.9 versus d1.2-ultra's 75.8) and on knowledge. Decision models' selling point isn't being more accurate; it's the speed and cost in the next section.
+- **Google's new model isn't near the top.** Gemini Decision 1 has the highest knowledge (66.3) and reasoning (48.7) scores among decision models, but tool selection (80.5) and Symmetry (70.5) pull its total down to 11th. Google's blog says it "leads across the suite with the lowest calibration error" on Google's own benchmark selection, which doesn't match the independent board.
+- **A high Symmetry score may just mean saying "I don't know" a lot.** [Artificial Analysis itself notes](https://artificialanalysis.ai/articles/decision-index-v2) that Base Labs' two models lead on Symmetry largely because they often answer "I don't know" with high confidence, and keep answering "I don't know" when questions are reworded, which is naturally consistent.
+
+**Community Jev Decision Index 0.4.1** — a [community-maintained Space on Hugging Face](https://huggingface.co/spaces/multimodalart/jev-decision-index) that tracks "what open reproductions of TypeSafe's Jev can do." **It's not TypeSafe's, and not an official Jev leaderboard.** The headline Full score is 60% private same-skill tests plus 40% private new-domain tasks; public benchmarks are run but don't count, and everything runs on a single RTX PRO 6000. The 2026-11-19 data snapshot has 326 scoreable models, 70 of which score above Jev 1.14's 60.24; the top is karpo-decision-31B (73.86), with GLiDE 27B (73.37) close behind.
+
+| Model | Full score | Public subset |
+|---|---|---|
+| karpo-decision-31B | 73.86 | 75.05 |
+| GLiDE 27B | 73.37 | 72.49 |
+| vLLM-SR d3-ultra (27B) | 70.18 | 71.57 |
+| baselabs mammoth-1 (27B) | 68.44 | 75.34 |
+| Perplexity Decider v1.2 (27B) | 67.98 | 67.74 |
+| StartLux-Decision v1.1 27B | 67.92 | 72.88 |
+| Perplexity Decider v1.3 (27B) | 67.67 | 69.72 |
+| baselabs elephant-1 (9B) | 60.26 | 72.24 |
+| Jev 1.14 (reference row) | 60.24 | 60.70 |
+| Cloudflare clef | 54.92 | 61.71 |
+| Strands Decider 2B | 20.72 | 25.41 |
+
+Two observations: this board only includes models whose weights can be obtained or reproduced, so hosted models such as Gemini, d1.2-ultra, and Drex Max aren't on it; and here Decider v1.3's Full score is slightly below v1.2's, the opposite of Artificial Analysis, where v1.3 beats v1.2. **The same model gets a different rank on a different evaluation, so the one conclusion to take away is that the evaluation you pick decides what you see.** Leaderboard scores quoted in vendor announcements also go stale fastest; check the board's own date and version before citing them.
+
+## Where the capability boundary sits: tool selection wins, documents and knowledge lose, and confident mistakes remain
+
+**Tool selection: decision models win.** On When2Call Decision Scores, the leading decision models sit between 94 and 96.5, while the language-model references range from 76.6 to 84.3. This is decision models' most reliable strength.
+
+**Documents, knowledge, and reasoning: the best language models still win.** Paperclip requires all 15 answers per document to be right, and [Artificial Analysis's write-up](https://artificialanalysis.ai/articles/decision-index-v2) notes that Drex Max v1.1 gets 97% of individual answers right, close to Claude Haiku 5.5 (Max)'s 99%, yet passes only 63% of documents against Haiku's 92%; decision models mostly lose on the decisions rather than the extractions. On knowledge Decision Scores, the best decision model is Gemini Decision 1 at 66.3, while Claude Haiku 5.5 (Max) scores 74.4. **If you need knowledge or fully correct answers over long documents, use an LLM or put retrieval in front of the decision model.**
+
+**"I don't know" is the most important variable in this category, but first understand what that column means.** Artificial Analysis defines the non-hallucination rate as: of the questions a model got wrong, the share where it answered "I don't know" rather than giving a wrong answer. Combining it with knowledge accuracy gives three buckets in absolute terms: right, "I don't know," and **confidently wrong** — this is this post's own calculation; the leaderboard doesn't publish that column:
+
+| Model | Knowledge right | "I don't know" | Confidently wrong |
 |---|---|---|---|
-| 1 | Fastino GLiDE V1.2 | 71.52 | 71.99 |
-| 2 | Jeffan-31b-1710 | 69.75 | 73.13 |
-| =3 | baselabs mammoth-1 (27B) | 68.44 | 75.34 |
-| =3 | Perplexity Decider v1.2 (27B) | 67.98 | 67.74 |
-| =3 | AutoTrust-JEV-27B v1.1 | 67.95 | 67.32 |
-| =3 | StartLux-Decision v1.1 27B | 67.92 | 72.88 |
-| =4 | vLLM-SR d3-turbo v1.1 (27B) | 67.31 | 71.62 |
-| =4 | vLLM-SR d3 (27B) | 67.15 | 65.45 |
-| =10 | baselabs elephant-1 (9B) | 60.26 | 72.24 |
-| =10 | Jev 1.14 (board reference) | 60.24 | 60.70 |
-| =15 | Cloudflare clef | 54.92 | 61.71 |
-| =43 | Strands Decider 2B | 20.72 | 25.41 |
+| Gemini Decision 1 | 44.8 | 27.4 | 27.8 |
+| Decider v1.3 | 40.6 | 4.0 | 55.4 |
+| Microsoft-Decision-1.1 | 33.2 | 33.0 | 33.8 |
+| Jev 1.14 | 31.6 | 32.6 | 35.8 |
+| d1.2-ultra | 23.6 | 64.0 | 12.4 |
+| SubQ Snap 1.2 | 20.6 | 71.0 | 8.4 |
+| Mammoth 27B | 15.4 | 81.4 | 3.2 |
+| Elephant 9B | 13.2 | 74.6 | 12.2 |
+| Clef-Omni | 37.0 | 1.2 | 61.8 |
+| Claude Haiku 5.5 (Max) | 57.2 | 27.4 | 15.4 |
+| GPT-6 Luna (Max) | 41.2 | 50.2 | 8.6 |
 
-Two things to take from this table. First, **open reproductions as a whole now beat the original Jev** — 40 of the 226 rows score higher than Jev 1.14, and the model at the top of the board, GLiDE V1.2, is a 27.8B full fine-tune whose base model is undisclosed and whose weights are not yet public (the model repository is private; the lab ran the weights the author shared). Second, **the public subset and the Full score rank almost differently**: mammoth-1's public subset of 75.34 is the highest on the board, while its Full score drops to =3. The "Decision Index 0.3 public subset 72.83 / 68.09" figures printed on vendor model cards are simply not the same thing as a 0.4.1 Full score — [d3's card](https://huggingface.co/vllm-sr/d3), for instance, claims "66.3, first on the official text board" on version 0.3.2, which was a 2026-10-12 snapshot and means nothing once the board version moves.
+Several conclusions follow directly. **Mammoth 27B and Elephant 9B are rarely confidently wrong because they give up on 70–80% of knowledge questions**, with accuracy of only 15.4 and 13.2. **Decider v1.3 and Clef-Omni almost never say they don't know**, so more than half of their knowledge answers are confidently wrong. The leader, d1.2-ultra, sits in between: its accuracy isn't high, but when it's wrong it usually admits it.
 
-**The Artificial Analysis Decision Index v1.0** — an [independent third party](https://artificialanalysis.ai/articles/artificial-analysis-decision-index), launched 2026-10-13, with four evaluations at 25% each: knowledge and hallucination (AA-Omniscience-Decision, half accuracy and half non-hallucination rate), reasoning (HLE-MultiChoice), tool selection (When2Call), and safety classification (WildGuardTest). Its population differs from the community board: it lists hosted-only models (gpt-6-luna, d1-ultra, Microsoft-Decision-1, Mercury Decide, Celeris-1 Decision) and Baseten-hosted Elephant 9B, but no StartLux, no d3, and no mammoth-1.
+**And most decision models are still overconfident.** That was Artificial Analysis's conclusion at the v1.0 launch: the probabilities models give are generally higher than their actual accuracy, concentrated in knowledge and reasoning. The v2.1 calibration data shows it too — for example, on Gemini Decision 1's overall calibration curve, every confidence bin from 0.4 to 0.8 has actual accuracy 1 to 9 points below the probability it gave. Vendors know this: [Perplexity's model card](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) says they calibrated with temperature scaling and got ECE 0.014 on the dev set, but about 0.05 on unseen decision data — "the same for every model we measured." [StartLux's card](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant) is blunter: confidence used for picking or routing overstates accuracy, so set thresholds on the answers your own policy returns.
 
-| Model | DI | Knowledge | Non-hallucination | Reasoning | Tools | Classification |
-|---|---|---|---|---|---|---|
-| d1-ultra | 65.2 | 31.6 | 84.5 | 15.0 | 92.6 | 95.4 |
-| Elephant 9B | 64.7 | 11.6 | 93.2 | 18.3 | 94.8 | 93.3 |
-| Jev 1.13 | 57.5 | 34.6 | 35.2 | 20.9 | 80.7 | 93.6 |
-| Jev 1.14 | 57.1 | 33.8 | 37.2 | 18.9 | 80.8 | 93.1 |
-| Decider v1.2 | 56.2 | 39.4 | 16.5 | 14.6 | 87.7 | 94.4 |
-| Decider v1.1 27B | 53.1 | 39.8 | 13.3 | 15.4 | 76.5 | 93.8 |
-| GLiDE | 53.9 | 36.4 | 16.4 | 10.5 | 83.7 | 95.1 |
-| Microsoft-Decision-1 | 53.8 | 28.2 | 39.8 | 10.9 | 81.9 | 88.2 |
-| Mercury Decide | 52.7 | 35.0 | 32.0 | 10.1 | 79.3 | 88.0 |
-| Celeris-1 Decision | 52.3 | 37.8 | 0.0 | 13.3 | 83.7 | 93.3 |
-| d1 | 50.3 | 41.0 | 1.7 | 11.5 | 77.4 | 90.9 |
-| Decider Flash v1.2 | 50.2 | 35.2 | 6.5 | 12.1 | 74.4 | 93.3 |
-| Clef | 48.6 | 39.0 | 4.3 | 11.1 | 71.0 | 90.7 |
-| gpt-6-luna (Decisions) | 48.5 | 40.6 | 10.1 | 11.7 | 74.1 | 82.8 |
-| Clef-Flash | 45.8 | 32.6 | 2.7 | 10.3 | 64.4 | 90.9 |
-| Clef-Omni | 44.3 | 36.0 | 1.6 | 9.0 | 62.1 | 87.2 |
-| Claude Opus 5.5 (Max) | 79.0 | 93.4 | 30.3 | 70.2 | 90.5 | 93.5 |
-| Claude Haiku 5.5 (Low) | 60.6 | 52.4 | 54.6 | 23.6 | 72.6 | 92.6 |
-| GPT-6 Luna (Low) | 55.2 | 66.0 | 0.0 | 22.2 | 77.0 | 88.5 |
-
-(Knowledge and non-hallucination are percentages; the rest are accuracies or F1. 16 decision models and 15 language models; scores from the 2026-10-22 board page, and boards move.)
-
-The gap between the two boards comes down to the questions they ask: the community board asks "how well can you reproduce a model like Jev?"; Artificial Analysis asks "what is each model actually like at classification, tool selection, knowledge QA, and safety judgement?" The third number is the vendor's own report, and it is the one that ages fastest: in [Base Labs' 2026-10-21 post](https://www.baseten.co/blog/the-best-decision-models-in-the-world-mammoth-1-and-elephant-1/) they say mammoth-1 takes first place among 208 decision models on Jev Decision Index 0.4 (71.24), and scores 65.9 on the Artificial Analysis Decision Index with elephant-1 at 65.2 and tied for first with d1-ultra. Neither board agrees on 2026-10-22: the community board now has 226 rows with GLiDE V1.2 on top and mammoth-1 down at =3, and Artificial Analysis has no mammoth-1 row at all — Elephant 9B reads 64.69 and d1-ultra 65.25, not tied. **The same model changes rank when you change the evaluation, so the only conclusion that travels is this: which evaluation you pick decides what you see.**
-
-## Where the capability boundary sits: classification wins, knowledge loses, and everyone is overconfident
-
-Split Artificial Analysis' four sub-evaluations apart and the shape is clear.
-
-**Classification and tool selection: decision models win.** On safety classification (WildGuardTest), d1-ultra scores 95.4, GLiDE 95.1, Decider v1.2 94.4 — all above Claude Haiku 5.5 (Low) at 92.6 and GPT-6 Luna (Low) at 88.5. The gap on tool selection (When2Call) is larger: Elephant 9B 94.8, d1-ultra 92.6, Decider v1.2 87.7, against 72.6 for Haiku (Low) and 77.0 for Luna (Low). These two things are exactly what decision models were designed for.
-
-**Knowledge and reasoning: decision models lose.** On the knowledge questions (AA-Omniscience-Decision) the decision models land between 11.6 and 41.0, against 52.4 for Claude Haiku 5.5 (Low), 66.0 for GPT-6 Luna (Low), and 93.4 for Claude Opus 5.5 (Max). On reasoning (HLE-MultiChoice) the best decision model is Jev 1.13 at 20.9, against 23.6 for Haiku (Low), 22.2 for Luna (Low), and 70.2 for Opus (Max). **If you need knowledge or reasoning, use an LLM.**
-
-**And they are broadly overconfident.** This is [Artificial Analysis' own conclusion](https://artificialanalysis.ai/articles/artificial-analysis-decision-index): almost every decision model reports probabilities higher than its actual accuracy, concentrated in the knowledge and reasoning columns; tool selection and safety classification are comparatively well calibrated. The vendors know it too. [Perplexity's model card](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) says they calibrated with a temperature of 1.382 on held-out data, reaching ECE 0.014 and Brier 0.134 on their dev set, but an ECE of roughly 0.05 on decision data they had not seen — "the same for every model we measured." [StartLux's card](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant) is blunter: a confidence value used to pick or route answers overstates its accuracy, so set thresholds on the answers your own policy returns, not on the model's confidence.
-
-**"I don't know" is the most important development in this category right now, but you have to read the column correctly first.** AA defines it as: "the hallucination rate is the share of questions not answered correctly that were answered wrongly rather than with 'I don't know'," which means the non-hallucination rate measures **how often, among the questions a model got wrong, it admitted ignorance instead of guessing**. Convert that column and the knowledge column into absolute shares and you get three buckets — answered correctly, answered "I don't know," and **confidently wrong**. The following is this article's arithmetic, not a column AA publishes:
-
-| Model | Answered correctly | Answered "I don't know" | Confidently wrong |
-|---|---|---|---|
-| d1-ultra | 31.6 | 57.8 | 10.6 |
-| Elephant 9B | 11.6 | 82.4 | 6.0 |
-| Jev 1.14 | 33.8 | 24.6 | 41.6 |
-| Decider v1.2 | 39.4 | 10.0 | 50.6 |
-| Celeris-1 Decision | 37.8 | 0.0 | 62.2 |
-| d1 (Liquid) | 41.0 | 1.0 | 58.0 |
-| Claude Haiku 5.5 (Low) | 52.4 | 26.0 | 21.6 |
-| GPT-6 Luna (Low) | 66.0 | 0.0 | 34.0 |
-
-Several conclusions fall straight out of that table. **Elephant 9B's high non-hallucination rate is not a skill; it is a model that gives up on 82.4% of knowledge questions** — its accuracy is 11.6, the lowest on the board. **Celeris-1 Decision's 0.0 means it never answers "I don't know" when it is wrong**, which is the same as saying 62.2% of its knowledge questions are confidently wrong; d1 is the same story, 58%. **And language models hedge too**: Claude Haiku 5.5 (Low) says "I don't know" on 26% of questions while scoring 52.4 correct, while GPT-6 Luna (Low) never hedges and scores 66.
-
-On launch day, the board read: "Microsoft-Decision-1 leads decision models at 40%, followed by Jev 1.13 at 35% and Mercury Decide at 32%. No other decision model reaches 17%." After Jev 1.14 (37.2) landed on 10-14, d1-ultra (84.5) on 10-15, and Elephant 9B (93.2) on 10-21, that sentence stopped being true. The real reason: **some models started putting "I don't know" into the training objective.** [Base Labs' recipe](https://huggingface.co/baselabs/mammoth-1) is explicit about it: "I don't know" answers are part of the training objective, with a Brier calibration term on top of cross-entropy.
-
-For you this is a hard selection constraint: **if you set auto-approve thresholds off a confidence value, a model that admits ignorance is an order of magnitude safer than one that answers everything.** But pick the model that admits ignorance *and* is still right — not the one that gives up on everything.
+For you this is a hard selection criterion: **if you'll use confidence to set an auto-approve threshold, pick a model that admits when it doesn't know and still gets answers right — not one that answers everything, and not one that says "I don't know" to everything.**
 
 ## Cost and latency: what you actually save
 
-Artificial Analysis converts "the average cost of running its own evaluation suite per task" into dollars per million tasks. That is not the cost of your workflow, but comparing models against each other inside the same table is valid.
+Artificial Analysis converts "average cost per question across the Decision Index" into dollars per million tasks and lists median latency per task. That isn't your workflow's cost, but comparisons within the same table are valid. v2 changed the questions (it now includes whole documents), so cost per task can't be compared with the v1.0 numbers.
 
-| Model | Per 1M tasks | Median time per task |
-|---|---|---|
-| Decider Flash v1.2 | $8 | 110 ms |
-| Elephant 9B | $8 | 165 ms |
-| Decider v1.2 | $15 | 206 ms |
-| d1 | $15 | 299 ms |
-| Mercury Decide | $15 | 500 ms |
-| Decider v1.1 27B | $17 | 170 ms |
-| Microsoft-Decision-1 | $31 | 207 ms |
-| Celeris-1 Decision | $32 | 63 ms |
-| d1-ultra | $32 | 93 ms |
-| Clef-Flash | $32 | 298 ms |
-| Jev 1.13 | $42 | 127 ms |
-| Jev 1.14 | $42 | 78 ms |
-| gpt-6-luna (Decisions) | $79 | 168 ms |
-| GLiDE | $119 | 217 ms |
-| Clef-Omni | $123 | 172 ms |
-| Clef | $199 | 309 ms |
-| GPT-6 Luna (Non-reasoning) | $88 | 1136 ms |
-| GPT-6 Luna (Low) | $131 | 1500 ms |
-| Claude Haiku 5.5 (Low) | $184 | 1434 ms |
-| Gemma 4 31B (Reasoning) | $624 | 14388 ms |
-| Claude Opus 5.5 (Max) | $51,295 | 3571 ms |
+| Model | DI | Per million tasks | Median time per task |
+|---|---|---|---|
+| Celeris-1.1 Decision | 62.0 | $14 | 61 ms |
+| Decider Flash v1.3 | 64.1 | $34 | 178 ms |
+| d1.2 | 68.7 | $63 | 150 ms |
+| Decider v1.3 | 70.4 | $68 | 289 ms |
+| Mercury Decide | 62.1 | $70 | 245 ms |
+| Elephant 9B | 66.4 | $92 | 79 ms |
+| Drex Max v1.1 | 72.6 | $103 (temporary launch price) | 283 ms |
+| d1.2-ultra | 74.8 | $133 | 218 ms |
+| SubQ Snap 1.2 | 72.6 | $137 | 162 ms |
+| Microsoft-Decision-1.1 | 67.8 | $140 | 123 ms |
+| Jev 1.14 | 66.2 | $156 | 92 ms |
+| Drex 2.0 | 61.6 | $200 | 255 ms |
+| Mammoth 27B | 71.4 | $264 | 106 ms |
+| gpt-6-luna (Decisions) | 60.2 | $339 | 206 ms |
+| Gemini Decision 1 | 66.0 | $345 | 211 ms |
+| Clef-Omni | 57.8 | $529 | 192 ms |
+| GLiDE v1.2 | 72.5 | $780 | 284 ms |
+| Clef | 60.3 | $863 | 354 ms |
+| GPT-6 Luna (Low) | 68.8 | $485 | 4,445 ms |
+| Claude Haiku 5.5 (Low) | 67.2 | $861 | 3,013 ms |
+| GPT-6 Luna (Max) | 75.7 | $1,548 | 11,360 ms |
+| Claude Haiku 5.5 (Max) | 76.5 | $6,218 | 32,323 ms |
 
-Three conclusions you can use directly. **First, the order of magnitude:** the cheapest decision models (Decider Flash v1.2 and Elephant 9B, $8 each) are 11× cheaper than the cheapest language-model comparator (GPT-6 Luna Non-reasoning, $88) and more than six thousand times cheaper than Opus (Max). **Second, "decision models are always cheaper" is false:** the most expensive decision model, Clef, costs $199 per million tasks — more than Claude Haiku 5.5 (Low) at $184 and more than GPT-6 Luna (Low) at $131 — and the reason is list price: Clef's $0.24/1M input is the priciest input rate on the board, while Decider Flash's $0.01/1M puts it at the bottom. **Third, latency is a clean sweep:** decision models run 63–500 ms, language models 1,136–14,388 ms.
+Three conclusions you can use directly. **First, the order-of-magnitude gap**: the top decision model, d1.2-ultra (74.8), is only 1.7 points behind the top language model, Claude Haiku 5.5 (Max) (76.5), but 47× cheaper per million tasks and about 150× faster per task. If you can accept those 1.7 points, a decision model is the right choice. **Second, list price isn't cost per task**: Gemini Decision 1 and gpt-6-luna's $0.10 input price is five times Decider's, and so is their cost per million tasks; GLiDE and Clef have high list prices to begin with ($0.15, $0.24) and cost more per million tasks than the language model GPT-6 Luna (Low). **Third, latency is a clean sweep**: decision models take 61–354 ms, language models 3,013–32,323 ms.
 
-But those two columns are not the same yardstick, and AA says so: "Decision models are billed for input tokens only, and language models for input and output tokens." The language-model rows include the cost of generating the prose, so they look more expensive than "the same decision" would.
+The two groups aren't billed on exactly the same basis, as Artificial Analysis notes: decision models are billed for input tokens only, and language models' cost includes output tokens. Also, Drex Max v1.1's $103 is marked as a temporary launch price; a third-party analysis estimates about $206 at the standard price, so don't pin a budget to today's number.
 
-Self-hosting costs show up elsewhere. [d3's card](https://huggingface.co/vllm-sr/d3) reports 65.4 GiB of memory per replica on an MI325X. [StartLux](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant) needs one H200 for 27B BF16, but a 4-bit MLX build fits in 64 GB on an M5 Pro — at the cost of a 1,024-token prompt going from 98 ms on H200 (vLLM BF16) to 3,308 ms on the M5 Pro (MLX 4-bit), roughly 34×, and MLX's BF16 does not fit in 64 GB at all. [d1-3B](https://huggingface.co/LiquidAI/d1-3B) answers a single question in 16 ms on a Jetson AGX Thor and three questions in 20 ms, or 8 ms for one question on an RTX 4090. If your volume is "a few hundred calls a minute," a hosted API is usually still cheaper than one GPU; if it is "a few hundred a second" or the data cannot leave the machine, self-hosting wins.
+Self-hosting costs show up elsewhere. [d3's card](https://huggingface.co/vllm-sr/d3) says a single replica uses 65.4 GiB of VRAM on an MI325X; [StartLux](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant)'s 27B in BF16 needs an H200, and the 4-bit MLX version runs on a 64 GB M5 Pro, but for the same 1,024-token prompt, vLLM BF16 on an H200 takes 98 ms while MLX 4-bit on the M5 Pro takes 3,308 ms (about 34×). If your volume is "a few hundred per minute," a hosted API bill is usually still cheaper than a GPU; at "a few hundred per second," or when data can't leave the machine, self-hosting pays off.
 
 ## Wiring it into an agent: three implementation points
 
@@ -289,7 +318,7 @@ step: Both paths leave an auditable record of the decision
 </svg>
 ```
 
-**One: ask every question in a single call, but do not put competing options in the same request — and that is the 27B's specialty, not a general rule.** [Perplexity's joint request](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) on the 27B is the most valuable engineering idea in this batch: all questions share one sequence, each is read out at a marker token, so asking three questions costs about as much as asking one, and the questions can see each other. The official docs give you the criterion for when to group: different facets of the same decision should be merged (officially measured SATA-Bench +11.3, ACOS +7.8, PhishNChips +5.1), while competing candidates should be sent separately (BFCL −1.1, BRIGHT −2.9, ToolRet −4.8). Put "how much should this order be refunded" and "should this order be refunded at all" in the same request and the model will contaminate one with the other. **But the 4B Flash is the other way round:** the docs say it is "more accurate with one question per request" on most multi-question tasks, its public scores agree (60.05 one-question-per-request against 58.88 joint), and multiple questions make Flash re-bill the state (three questions against a 10,000-token state cost roughly 30,000 input tokens). Send Flash one question at a time.
+**One: ask every question in a single call, but do not put competing options in the same request — and that is the 27B's specialty, not a general rule.** [Perplexity's joint request](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) on the 27B is the most valuable engineering idea in this batch: all questions share one sequence, each is read out at a marker token, so asking three questions costs about as much as asking one, and the questions can see each other. The official docs give you the criterion for when to group: different facets of the same decision should be merged (officially measured SATA-Bench +11.3, ACOS +7.8, PhishNChips +5.1), while competing candidates should be sent separately (BFCL −1.1, BRIGHT −2.9, ToolRet −4.8). Put "how much should this order be refunded" and "should this order be refunded at all" in the same request and the model will contaminate one with the other. **But the 4B Flash v1.2 is the other way round:** the docs say it is "more accurate with one question per request" on most multi-question tasks, its public scores agree (60.05 one-question-per-request against 58.88 joint), and multiple questions make Flash v1.2 re-bill the state (three questions against a 10,000-token state cost roughly 30,000 input tokens). [Perplexity's Decisions API docs](https://docs.perplexity.ai/docs/decisions/quickstart) mark "answers each question on its own" as Flash v1.2 behavior, and Flash v1.3 can group questions; if you're still on Flash v1.2, send one question at a time. Google's Gemini Decision 1 goes the other direction: up to 1,000 questions per request, shared input billed once, each question scored independently without seeing the others' answers.
 
 **Two: the threshold and the human review are your policy, not the model's.** The model only produces scores; "what counts as good enough to auto-approve" is an application decision. [Baseten's docs](https://docs.baseten.co/inference/model-apis/decision-models) give the pattern directly: option probability ≥ 0.9 means dispatch, otherwise hand it to a human.
 
@@ -311,9 +340,9 @@ Note that jq keys off `probabilities[.choice]` and not `confidence` — that is 
 
 This snippet is a rewrite of Baseten's documentation (I swapped in an English ticket and the hosted endpoint); this site has not actually deployed that request.
 
-There is also a versioning trap: [Jev's `jev-latest` currently resolves to 1.13.0, and `jev-preview` is the one on 1.14.0](https://docs.typesafe.ai/models), and the docs warn that "an alias moves when a new release ships, so its answers can change without any change to your code" — if you tuned a threshold against a particular version, send that version's ID rather than the alias.
+There is also a versioning trap: aliases move with new releases. [Jev's `jev-latest` pointed to 1.13.0 in October and now points to 1.14.0](https://docs.typesafe.ai/models); Perplexity's `pplx-decider-latest` has also moved from 1.2 to 1.3, and [its docs](https://docs.perplexity.ai/docs/decisions/quickstart) warn that a newer model can return different probabilities for the same request. If you tuned a threshold against a particular version, send that version's ID rather than the alias.
 
-**Three: switching vendors is cheap, except for OpenAI.** Most vendors take the System One schema (`state` plus `questions`, with `type` set to `choice` / `noul` / `score`), so swapping models usually means changing the `model` field. OpenAI is the exception: it calls the type `predicate`, the endpoint is `/v1/decisions`, `questions` is an array where every entry needs a `name`, the state field is `input`, options are a `choices` array of `{value, description}` rather than a `criteria` map, and there is a `refusal` response type. If you want several vendors in one codebase, an adapter layer is the cheapest path.
+**Three: switching vendors is cheap, except for OpenAI, Google, and Inception.** Most vendors take the System One schema (`state` plus `questions`, with `type` set to `choice` / `noul` / `score`), so swapping models usually means changing the `model` field. There are three exceptions: OpenAI calls the type `predicate`, the endpoint is `/v1/decisions`, `questions` is an array where every entry needs a `name`, the state field is `input`, options are a `choices` array of `{value, description}` rather than a `criteria` map, and there is a `refusal` response type; [Google's Decisions API](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/) uses question types and `criteria` close to System One, but the state field is `input` and content uses Gemini's `Content` block format; Inception uses its own `/v1/decisions` with an extra `extract` question type. The question types vendors have added also don't carry across: Jev 1.14's `box`, Decider v1.3's `locate`, and d1.2's value reading and object boxes. If you want several vendors in one codebase, an adapter layer is the least effort.
 
 Three capacity limits worth remembering: StartLux covers at most 26 options per read and groups beyond that; Perplexity allows 255; [Jev allows 64k per request and 32k per question](https://docs.typesafe.ai/models); and [Perplexity's position limit is 262,144](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) but it was only trained to about 32k — requests over the limit get split into groups with the state re-billed per group (a single question that does not fit returns a 400), so the docs ask you to validate longer inputs yourself.
 
@@ -332,7 +361,7 @@ So the production recipe is this: **filter the input first, never let a decision
 ## When not to use a decision model
 
 - **Judgements that need knowledge or reasoning.** The leaderboards favour LLMs on both, by a margin to fifteen points.
-- **When you need a written reason.** Decision models do not produce prose ([Celeris-1 Decision](https://celeris.ai/pricing) says outright that it can attach a one-sentence explanation, but that is one vendor). To leave "why did it decide that" on an audit trail, you have to store the question, the options, the threshold, and the answer yourself.
+- **When you need a written reason.** Decision models do not produce prose ([Celeris-1.1 Decision](https://celeris.ai/pricing) can attach a one-sentence explanation for free, but that's rare). To leave "why did it decide that" on an audit trail, you have to store the question, the options, the threshold, and the answer yourself.
 - **Chinese content.** [Jev's own docs](https://docs.typesafe.ai/models) are clear: English is the primary training language, CJK works but not equally well, and you should test on your own content. The model cards for StartLux and mammoth-1 list only `en`; d1-3B's card lists 16 languages including Chinese, but that card describes the base model's language support, not a measurement of decision quality. English traffic and Chinese traffic are not the same problem.
 - **High-risk actions executed automatically.** The Check Point and HiddenLayer results are right there; wiring a decision model's output straight into "charge the card," "approve the loan," or "delete the record" puts a model that can be persuaded on the critical path.
 - **When the option count explodes.** Past 26 options StartLux's read starts grouping; past 255 Perplexity's API refuses outright.
@@ -341,18 +370,39 @@ So the production recipe is this: **filter the input first, never let a decision
 
 | Your situation | Start with |
 |---|---|
-| High volume, cheapest possible, self-hosting is fine | Decider Flash v1.2 ($0.01/1M, $8 per million tasks), d1-3B (16 ms at the edge) |
-| Ship today, no GPU to babysit | gpt-6-luna Decisions, Jev 1.14, Microsoft-Decision-1, Celeris-1 Decision ($0.04), Decider v1.2 ($0.02) |
-| Your input has images or video | d3 (images + video), Decider v1.2 and d1-ultra (images), clef-omni (images + video + audio) |
-| The judgement itself is hard and needs compute first | GLiDE (thinks, and $119 is the second-most-expensive in the category), StartLux AutoThink, mammoth-1 (Base Labs says it leans toward knowledge, elephant toward fast inference) |
-| You set auto-approve thresholds off a confidence value | Read the "confidently wrong" column: Celeris-1 Decision at 62.2% and d1 at 58.0% never say "I don't know"; d1-ultra at 10.6% and Elephant 9B at 6.0% do — but Elephant's knowledge accuracy is only 11.6 |
-| You need Apache or MIT for commercial use | d3, Decider v1.2 / Flash, Strands Decider 2B; **StartLux is CC BY-NC, so commercial use needs a separate deal**; mammoth-1 / elephant-1 say MIT on the model card but ship no LICENSE file, so confirm the license with the vendor |
-| You already run someone's System One | Changing the `model` field switches vendors; OpenAI names things differently so wrap it in an adapter; with Jev an alias can be replaced by a new release, so pin the version ID |
+| High volume, cheapest possible | Celeris-1.1 Decision ($0.004/1M, $14 per million tasks), Decider Flash v1.3 ($0.01/1M, $34), d1.2 ($0.02/1M, $63) |
+| Highest score while staying cheap and fast | d1.2-ultra (DI 74.8, $133 per million tasks), Drex Max v1.1 (72.6, watch the launch price), SubQ Snap 1.2 (72.6, 384K long context) |
+| Ship today without running GPUs | The above plus Gemini Decision 1, gpt-6-luna Decisions, Microsoft-Decision-1.1, Jev 1.14 |
+| Input includes images, video, or audio | Gemini Decision 1 (text / images / audio / video / PDF), the d1.2 family (images + audio), d3 (images + video), clef-omni (images + video + audio) |
+| The judgement itself is hard or needs knowledge | Gemini Decision 1 has the highest knowledge and reasoning scores among decision models, but still below Claude Haiku 5.5 (Max); if you really need knowledge, add retrieval or use an LLM |
+| You'll set auto-approve thresholds on confidence | Check the "confidently wrong" column first: Decider v1.3 at 55.4% and Clef-Omni at 61.8% almost never say they don't know; d1.2-ultra at 12.4% and SubQ Snap 1.2 at 8.4% do, but with lower accuracy |
+| Commercial license must be Apache or MIT | Decider v1.3 / Flash v1.3, d3, Strands Decider 2B, Clef; **StartLux is CC BY-NC**; GLiDE's and Drex's open weights use custom licenses; mammoth-1 / elephant-1 model cards say MIT but the repos have no LICENSE file; the d1-2B family uses the LFM Open License |
+| Already on one vendor's System One | Switching is a change to `model`; OpenAI, Google, and Inception name fields differently, so wrap an adapter; aliases move with new versions, so pin version IDs |
 
-Three things to do before you ship: **measure ECE and the non-hallucination rate on your own data** (leaderboard scores are somebody else's traffic); **set thresholds from the curve you measured, not from the generic 0.9**, and key them off `probabilities[choice]` rather than `confidence`; and **keep a human in the loop for high-risk paths**, because what you are holding is a model that can be talked into things.
+Three things to do before going live: **measure calibration and the non-hallucination rate on your own data** (leaderboard scores reflect someone else's traffic); **set thresholds from the curve you measure, not a generic 0.9**, and hang them on `probabilities[choice]`, not `confidence`; and **keep human review on high-risk paths**, because what you have is a model that can be talked into things.
+
+## Update history
+
+- **2026-11-20**: The version matrix, leaderboards, capability boundary, cost, and selection now use November data (each vendor's official pricing and model pages, Google's Gemini Decisions API announcement, the Artificial Analysis Decision Index v2 announcement and v2.1 leaderboard page data, and the community Jev Decision Index 11-19 data snapshot, read 2026-11-20). Added Gemini Decision 1, Liquid d1.2 / d1.2-ultra, Nace.AI Drex, Subquadratic SubQ Snap, Perplexity Decider v1.3, Microsoft-Decision-1.1, Celeris-1.1 Decision, and the Liquid d1-2B family; Liquid d1-ultra, d1.1, and d1 are deprecated, and d1-3B is succeeded by the d1-2B family. The Artificial Analysis board moved from v1.0 (four evaluations, scored on accuracy) to v2.1 (six evaluations, scored on the Decision Score); the v1.0 score table, cost table, and "three buckets" calculation were removed and recalculated with v2.1 numbers, since v1.0 figures such as d1-ultra's leading 65.2 and Jev 1.14's 57.1 no longer map onto v2. Corrections: Jev 1.14 was described as text-only, but its docs now list text and images; `jev-latest` was said to point to 1.13 and now points to 1.14; GLiDE's weights were said to be unreleased but have been on HuggingFace since 10-19; the "one question per request" advice for Decider Flash applies only to v1.2.
+- 2026-10-22: First version.
 
 ## References
 
+- [Google: Gemini Decisions API (2026-11-11)](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)
+- [Artificial Analysis: Introducing the Decision Index v2 (2026-11-08)](https://artificialanalysis.ai/articles/decision-index-v2)
+- [Perplexity Docs: Decisions API (Decider v1.3, pricing, locate questions)](https://docs.perplexity.ai/docs/decisions/quickstart)
+- [Liquid AI: d1.2 (2026-11-16)](https://www.liquid.ai/blog/d1-2)
+- [Liquid AI Docs: d1.2](https://docs.liquid.ai/lfm/models/d1)
+- [Microsoft: Microsoft-Decision-1.1 GA (2026-11-17)](https://commandline.microsoft.com/microsoft-decision-model-ga/)
+- [Nace.AI: Drex Max on the Decision Index](https://www.nace.ai/drex/decision-index)
+- [Hugging Face: nace-ai/drex-v2.0](https://huggingface.co/nace-ai/drex-v2.0)
+- [Subquadratic Docs: Models (SubQ Snap 1.2)](https://docs.subq.ai/using-the-api/models/)
+- [Celeris Docs: Pricing (Celeris-1.1 Decision)](https://docs.celeris.ai/pricing)
+- [Hugging Face: fastino/GLiDE-27B](https://huggingface.co/fastino/GLiDE-27B)
+- [Hugging Face: LiquidAI/d1-2B](https://huggingface.co/LiquidAI/d1-2B)
+- [Hugging Face: pplx-decider-flash-v1.3](https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.3)
+- This site: [Model card: Gemini Decision 1](/posts/daily/2026-11-13-model-google-gemini-decision-1-en)
+- This site: [Liquid AI model family](/posts/tech/2026-10-10-ai-model-family-liquid-ai-en)
 - [TypeSafe: Introducing System One Models & Jev (2026-09-15)](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
 - [TypeSafe Docs: Models (Jev 1.14, context, the long-context header, aliases, language support)](https://docs.typesafe.ai/models)
 - [TypeSafe Docs: Confidence (how each question type defines confidence)](https://docs.typesafe.ai/confidence)
