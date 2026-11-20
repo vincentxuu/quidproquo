@@ -29,7 +29,7 @@ glossary:
 | Context Window | 1,048,576 tokens |
 | Input Pricing (USD/1M tokens) | $1.25 (cached input $0.15) |
 | Output Pricing (USD/1M tokens) | $4.25 |
-| Open Source | Yes (Muse Model License — a custom license requiring a separate agreement with Meta only for Model-as-a-Service businesses with aggregate annual revenue above $20M; everything else, including commercial use, is free) |
+| Open Source | Yes (Muse Model License — a custom license: every product using it or its derivatives must display "Built with Muse Spark Open"; providers that offer models to third parties via API with group gross revenue above $20M over 12 months must notify Meta and sign a separate agreement; other uses, including commercial use, are free) |
 | Release Date | 2026-10-15 |
 | Official Announcement | [Meta AI Research: Introducing Muse Spark Open](https://research.meta.ai/blog/muse-spark-open) |
 | Hugging Face | [meta-models/Muse-Spark-Open-816B-A42B](https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B) |
@@ -64,7 +64,7 @@ On pricing, third-party platforms like Together AI and OpenRouter list it at $1.
 
 ## What This Means for Agent Development
 
-If you're building agents that need self-hosted or on-premises deployment (data privacy, regulatory constraints): Muse Spark Open is currently the open-weight model with the highest agentic benchmark scores (topping JobBench and MCP-Atlas on Meta's own table), and the Muse Model License's commercial terms (a separate agreement is needed only above $20M in annual revenue) impose essentially no licensing burden on small-to-mid-size deployments.
+If you're building agents that need self-hosted or on-premises deployment (data privacy, regulatory constraints): Muse Spark Open is currently the open-weight model with the highest agentic benchmark scores (topping JobBench and MCP-Atlas on Meta's own table), and the Muse Model License's commercial terms (a separate agreement is needed only for API providers above $20M in revenue) impose little licensing burden on small-to-mid-size deployments — though every product, regardless of size, must display "Built with Muse Spark Open."
 
 If you're building long-horizon, multi-step coding agents: scores of 76.4 on Terminal-Bench 2.1 and 60 on DeepSWE 1.1 aren't the highest among open-weight models (Kimi K3 scores higher), but the model natively supports mainstream inference frameworks — SGLang, vLLM, TensorRT-LLM, llama.cpp — plus Meta's own Helion GPU kernel optimizations (1.03–3.95x speedups on NVIDIA/AMD), which lowers the bar for actually deploying it.
 
@@ -75,6 +75,10 @@ Not a fit: consumer hardware. Even the NVFP4-quantized version needs 700GB of VR
 ## Today's Takeaway
 
 An open-weight model's claim to being "the strongest" often only holds along a specific axis. Muse Spark Open tops Meta's own agentic benchmark table (JobBench/MCP-Atlas), yet its raw intelligence score (AA Intelligence Index 39) trails both GLM 5.3 and Kimi K3. When you see a claim like "the strongest open-weight model," check which dimension that claim is actually about before assuming it leads across the board.
+
+## Update History
+
+- 2026-11-20: Added the license's attribution requirement. The original said "everything else, including commercial use, is free," missing Section 2 of the license: every product using Muse Spark Open or its derivatives must display "Built with Muse Spark Open" in its UI, documentation, website, or settings menu, with no revenue threshold.
 
 ## References
 
