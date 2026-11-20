@@ -107,7 +107,7 @@ If, after those four, you still need "everyone went mad," that is the part left 
 | Book | The question it answers | Post |
 |---|---|---|
 | Mackay (1841) | Have crowds in history really gone mad? | [Did crowds go mad over tulips, or did we all believe a story?](/posts/learning/2026-11-17-mackay-popular-delusions-en) |
-| Bernstein (2021) | Why do the same manias keep recurring? | [The mania 180 years later, and why its author is still a pessimist](/posts/learning/2026-11-17-bernstein-delusions-of-crowds-en) |
+| Bernstein (2021) | Why do the same manias keep recurring? | [Four signs of a mania, and why its author is still a pessimist](/posts/learning/2026-11-17-bernstein-delusions-of-crowds-en) |
 | Le Bon (1895) | What do people become in a crowd? | [The founding text of crowd psychology, and what was later revised](/posts/learning/2026-11-17-lebon-the-crowd-en) |
 | Hoffer (1951) | Who becomes a fanatic? | [True believers are mostly brought in by people they know](/posts/learning/2026-11-18-hoffer-true-believer-en) |
 | Canetti (1960) | Why do people want to merge into crowds and obey commands? | [The sting a command leaves behind](/posts/learning/2026-11-18-canetti-crowds-and-power-en) |

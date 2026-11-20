@@ -6,30 +6,32 @@ category: learning
 tags: [series, reading-guide, mass-movements, fanaticism, social-movements, mass-delusion]
 lang: en
 tldr: "Hoffer's 1951 answer: mass movements attract not people who want to build up a self, but people who want to be rid of one; the frustrated, the new poor and the bored join most readily, and a doctrine draws its power from certitude rather than content. Later social movement research filled in the half he missed: most people are brought in by someone they already know inside, not as isolated frustrated individuals finding the movement on their own. Part of his account of motive has been picked up again by research on the quest for significance, but the book's evidence is hand-picked examples, and some of its most famous Hitler quotations come from a book historians no longer treat as reliable."
-description: "Order 4 of the Mass Irrationality Reading Map: the four-part structure of Eric Hoffer's 1951 The True Believer, his list of potential converts, the roles of doctrine and hatred, and the three stages from men of words to men of action, with his own qualifications; read against the network recruitment research of Snow (1980) and McAdam (1986), Kruglanski's 2014 significance quest model, the dispute over Rauschning's Hitler quotations, and Bethell's 2012 research on Hoffer's own biography."
+description: "A reading guide to the four-part structure of Eric Hoffer's 1951 The True Believer, his list of potential converts, the roles of doctrine and hatred, and the three stages from men of words to men of action, with his own qualifications; read against the network recruitment research of Snow (1980) and McAdam (1986), Kruglanski's 2014 significance quest model, the dispute over Rauschning's Hitler quotations, and Bethell's 2012 research on Hoffer's own biography."
 series:
   name: "The Mass Irrationality Reading Map"
   order: 4
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-11-18-hoffer-true-believer)
+> :globe: [中文版](/posts/learning/2026-11-18-hoffer-true-believer)
 
 In his second chapter, Hoffer writes that a mass movement appeals "not to those intent on bolstering and advancing a cherished self, but to those who crave to be rid of an unwanted self."
 
 A little over twenty years later, the sociologist David Snow studied how Nichiren Shoshu Buddhism spread in the United States. Of 330 people who joined between 1966 and 1974, only 18% had been recruited by strangers. Most came in through family and existing social circles: they knew someone inside before they joined.
 
-Both answers address the same question: who becomes a believer? Hoffer looks at what a person lacks. Snow looks at whom a person knows. This post reads the two side by side.
+Both answers address the same question: who becomes a believer? Hoffer looks at what a person lacks. Snow looks at whom a person knows. Hoffer, a self-taught writer who worked on the San Francisco docks, wrote the book in 1951, early in the Cold War, to explain why Nazism, communism, and religious movements could pull people into fanatical devotion, and he argued that these movements were interchangeable.
 
-## What this book is
+This post first walks through the book's four parts: what a movement offers, who the potential converts are, how a movement holds people together, and who starts and ends one. Then it turns to what later social movement research added and what went wrong with the Hitler quotations he relied on. You will come away with three questions for judging, the next time you hear that a movement's supporters are all frustrated losers, which half of the story that claim is missing.
+
+## The book and its author
 
 Eric Hoffer's *The True Believer: Thoughts on the Nature of Mass Movements* was published by Harper & Brothers in 1951. It has four parts and eighteen chapters, broken into 125 numbered sections, many only a sentence or two long, so it reads like a book of aphorisms. There is no data and no statistics. The argument runs entirely on historical examples: early Christianity, the Reformation, the French Revolution, the Bolsheviks, the Nazis, Zionism.
 
-The author is part of the book's legend. By his own account he was born in the Bronx in 1902, went blind at seven, regained his sight at fifteen and never went to school. He drifted for years through Los Angeles skid row and California farms, and from 1943 worked as a longshoreman on the San Francisco docks until he retired. Eisenhower read the book and gave copies to friends, and in 1956 *Look* magazine called Hoffer "Ike's Favorite Author."
+The author is part of the book's legend. By his own account he was born in the Bronx in 1902, went blind at seven, regained his sight at fifteen and never went to school. He drifted for years through Los Angeles skid row and California farms, and from 1943 worked as a longshoreman on the San Francisco docks until he retired (a biographer later questioned this life story; see below). Eisenhower read the book and gave copies to friends, and in 1956 *Look* magazine called Hoffer "Ike's Favorite Author."
 
-The Traditional Chinese edition is 立緒文化's 《群眾運動聖經》, translated by 梁永安; the edition in print is the November 2018 one (304 pages).
+The Traditional Chinese edition is 立緒文化's 《群眾運動聖經》, translated by 梁永安; the edition in print is the November 2018 one (304 pages). It renders "the frustrated" as 失意者, and the Preface keeps both "they are all theories" and the Montaigne line intact; it is worth reading the Preface before the rest.
 
-## What the text says
+## What Hoffer argues: the four parts
 
 ### A working hypothesis (the Preface)
 
@@ -77,7 +79,7 @@ A movement's life cycle has three roles. First come the "men of words," intellec
 
 ### His own qualifications (often left out)
 
-Like Le Bon, Hoffer left qualifications in the book that quoters usually skip:
+Hoffer left qualifications in the book that quoters usually skip:
 
 - The Preface ends by saying the book "passes no judgments, and expresses no preferences," and that its explanations are "all of them theories," suggestions and arguments "even when they are stated in what seems a categorical tone." Then he quotes Montaigne: "All I say is by way of discourse, and nothing by way of advice."
 - "Family likeness" is meant taxonomically: the tomato and the nightshade belong to the same family, one nutritious, the other poisonous. Saying all movements share traits does not mean they are equally good or bad.
@@ -85,7 +87,7 @@ Like Le Bon, Hoffer left qualifications in the book that quoters usually skip:
 
 In other words, the book is a set of hypotheses. The form in which it is usually quoted, "all fanatics are the same" or "the supporters of that movement are all frustrated," is much stronger than anything the author was willing to stand behind.
 
-## What later research corrected
+## What later research added, and what it overturned
 
 ### Evidence: hand-picked examples and an unverifiable starting point
 
@@ -97,7 +99,7 @@ Snow's study of Nichiren Shoshu points to a deeper methodological problem. Motiv
 
 From the 1970s, social movement researchers began actually counting who joined and how, and the picture they got looks very different from Hoffer's.
 
-- **Snow, Zurcher and Ekland-Olson (1980)**, *American Sociological Review*. This paper lists *The True Believer* in its bibliography. Comparing recruitment data across several movements, they concluded that the network attributes of movement organizations and their members are important structural determinants of who gets recruited, and that these microstructural variables are "of equal, and perhaps greater, importance than dispositional susceptibilities." The 18% figure at the top of this post comes from Snow's Nichiren Shoshu study.
+- **Snow, Zurcher and Ekland-Olson (1980)**, *American Sociological Review*. This paper lists *The True Believer* in its bibliography. Comparing recruitment data across several movements, they concluded that the network attributes of movement organizations and their members are important structural determinants of who gets recruited, and that these microstructural variables are "of equal, and perhaps greater, importance than dispositional susceptibilities." The 18% at the top of this post comes from a separate book by Snow on the American branch of Nichiren Shoshu, a Buddhist group that arrived from Japan in the 1960s and grew through street and personal proselytizing.
 - **McAdam (1986)**, *American Journal of Sociology*. Using applications to the 1964 Mississippi Freedom Summer civil rights project, he compared the 720 people who went with 241 who applied and then did not show up. What separated them was mainly that participants had more organizational affiliations, more prior civil rights activity, and stronger and more extensive ties to other participants. The people who went to risk their lives were not the most isolated; they were the most embedded.
 - **Polletta and Jasper (2001)**, *Annual Review of Sociology*, put it most directly: "Activists are not the isolated, atomistic individuals sociologists once took them for." From the Paris Commune and the Russian Revolution to Nichiren Shoshu and Freedom Summer, recruitment ran mainly through preexisting ties.
 
@@ -107,25 +109,23 @@ This hits Hoffer's "the ideal potential convert is the individual who stands alo
 
 Hoffer's other claim is about motive: the wish to escape a spoiled self. This half has a counterpart in radicalization research. In 2014 Kruglanski and colleagues proposed in *Political Psychology* a "significance quest" model, in which the quest for personal significance is a major force pushing individuals toward violent extremism. That is close to "the frustrated recover their worth in a holy cause."
 
-Two cautions. First, the model has three components: motive, an ideology that justifies violence, and networks and group dynamics. The networks are built in, which supplies exactly the half Hoffer lacked. Second, this post read only the abstract, which reports "empirical evidence consistent with our model's assumptions"; that is the authors' own assessment, not independent replication.
+Two cautions. First, the model has three components: motive, an ideology that justifies violence, and networks and group dynamics. The networks are built in, which supplies exactly the half Hoffer lacked. Second, the authors themselves report "empirical evidence consistent with our model's assumptions"; that is not yet independent replication.
 
 ### Sources: some of the most famous Hitler lines come from a doubtful book
 
 The notes cite Hermann Rauschning's *Hitler Speaks* (1939/1940) five times, including the Hitler quotation after the "devil" passage in Part 3 (if the Jew did not exist, "We should have then to invent him") and the line in Part 1 that the Communist "always will" make a National Socialist.
 
-That book's standing among historians has reversed. A 1985 *Der Spiegel* report laid out the dispute: Eberhard Jäckel had urged colleagues as early as 1969 to stop treating it as a primary source, and even its defender Theodor Schieder counted at most about 13 meetings between Rauschning and Hitler, only two of them documented. In 1984 Wolfgang Hänel argued that most of it was invented, though his research was first presented at a historical revisionist institute, and some historians (Redles, for example) hold that it can still be used as a subjective memoir. A survey in the *Journal of the British Academy* sums up the current state: recent Hitler biographies either reject it (Kershaw, 2001) or ignore it entirely (Longerich, 2019).
+That book's standing among historians has reversed. A 1985 *Der Spiegel* report laid out the dispute: Eberhard Jäckel had urged colleagues as early as 1969 to stop treating it as a primary source, and even its defender Theodor Schieder counted at most about 13 meetings between Rauschning and Hitler, only two of them documented. In 1984 Wolfgang Hänel argued that most of it was invented, though his research was first presented at a Holocaust-denying "historical revisionist" institute, which weakens its credibility, and some historians (Redles, for example) hold that it can still be used as a subjective memoir. A survey in the *Journal of the British Academy* sums up the current state: recent Hitler biographies either reject it (Kershaw, 2001) or ignore it entirely (Longerich, 2019).
 
 This does not sink Hoffer's argument itself, since "a movement needs a tangible enemy" can be supported with other examples. It does affect how far readers can trust the book's "Hitler said": those lines should not be passed on as Hitler's own words.
 
 ### Value judgments and stance
 
-Hoffer said he passed no judgments, but some contemporaries did not accept that. According to secondhand accounts, the conservative critic Frank Meyer attacked him in *National Review* in 1956 for "cheap cynicism" and "indiscriminate sniping at all belief, all strongly held principle, all moral doctrine" (this post did not reach the original article). Putting Gandhi's movement and the Nazis in the same "family," even with the tomato-and-nightshade caveat, leaves many readers with the attitude that all passion is suspect.
+Hoffer said he passed no judgments, but some contemporaries did not accept that. The conservative critic Frank Meyer attacked him in *National Review* in 1956 for "cheap cynicism" and "indiscriminate sniping at all belief, all strongly held principle, all moral doctrine". Putting Gandhi's movement and the Nazis in the same "family," even with the tomato-and-nightshade caveat, leaves many readers with the attitude that all passion is suspect.
 
 ### The author's biography is also self-reported
 
-Tom Bethell went through Hoffer's papers at the Hoover Institution and published a biography in 2012. He found that the first thirty-five years of Hoffer's life have a single source, Hoffer himself: no birth certificate has been found, he was more likely born in 1898 than 1902, his German accent sounded Bavarian rather than the Alsatian he claimed, and the versions of his blindness and recovery contradict each other, with an eye specialist questioning whether it was medically plausible. Bethell suspects he may have been born in Germany and may never have been a legal resident, but he also calls his own argument "almost entirely a negative case."
-
-This has nothing to do with the book's thesis, but it is a useful reminder: a book about how believers rewrite their own pasts was written by a man whose own story has never been verified. The publisher's blurb for the Chinese edition still says he "went blind at seven and recovered at fifteen."
+After going through Hoffer's papers, the biographer Tom Bethell found in 2012 that the first thirty-five years of Hoffer's life rest on a single source, Hoffer himself, and that his birth year, birthplace, and story of going blind and recovering do not add up. A book dissecting the psychology of believers was written by a man whose own story has never been verified; the Chinese edition's blurb still says he "went blind at seven and recovered at fifteen."
 
 ### What was not cleared away
 
@@ -133,29 +133,27 @@ This has nothing to do with the book's thesis, but it is a useful reminder: a bo
 - **The direction of the motive.** A lost sense of significance pushing people toward collective belonging is a direction later research connects to (see Kruglanski above).
 - **A set of testable hypotheses.** The new poor are more restless than the abjectly poor; a doctrine's certitude matters more than its content; fanatics switch sides more easily than they moderate. These are propositions one could design studies to test. Their value is as good questions, not as established findings.
 
-## Where this book sits in the chain of explanation
+## What the book adds
 
-Le Bon asked what happens inside a crowd, and most of his answer has been overturned. Hoffer changes the angle: what kind of person walks in? His answer is motive (escaping the self); network research adds the route (who brought them). Together the two come closer to how a person actually ends up in a movement. The next post, on Canetti, changes the angle again: not the individual, but the images of crowds and power themselves, in the hardest book of the series.
+[The Le Bon post](/posts/learning/2026-11-17-lebon-the-crowd-en) asked what happens to people in a crowd; Hoffer changes the angle: what kind of person walks in? His answer is motive (escaping the self); network research adds the route (who brought them in). Together the two come closer to how a person actually ends up in a movement.
 
-## One test to take away
+For this series, the answer is: **fanaticism is mostly not one person losing their reason alone; it spreads along relationships.** Isolated people do sometimes seek movements out, but that is only one route. The "frustrated" psychology most often used to explain fanaticism only explains why some people are easy to move; what decides who actually walks in is often whom they already know. It also means that mocking the other camp as "all losers" is not only inaccurate but misses what most needs looking at: who brought those people in, and through which relationships.
 
-When you hear "that movement's supporters are all frustrated / losers / brainwashed," ask three questions: **Did anyone count, or were a few examples picked? How did those people come into contact with the movement, and through whom? Would the person saying this describe the movement they support in the same terms?** An explanation that can answer "what do they lack" but not "whom do they know" is half of Hoffer.
+The next post, on [Canetti](/posts/learning/2026-11-18-canetti-crowds-and-power-en), changes the angle again: not the individual, but why people want to merge into crowds and why they obey commands.
+
+## Three questions when you hear "their supporters are all losers"
+
+1. **Did anyone count, or were a few examples picked?**
+2. **How did those people come into contact with the movement, and through whom?**
+3. **Would the person saying this describe the movement they support in the same terms?**
+
+An explanation that can answer "what do they lack" but not "whom do they know" is half of Hoffer. Election-season political talk in Taiwan easily produces such sentences: the other camp's supporters are "frustrated people," "people who were fooled," "people without a life of their own." They read as insightful because they explain why others believe what we find absurd; read them with these three questions and you can see which half is missing.
 
 **Something you can do tonight**: open the notes at the back of the book, search for "Rauschning," find which Hitler quotations come from *Hitler Speaks*, and mark those lines in the text. Before you quote the book's "Hitler said," check whether it is one of them.
 
-## Taiwan tie-in
+## Changelog
 
-What does this mechanism look like in Taiwan in 2026? Election-season political talk easily produces Hoffer-style sentences: the other camp's supporters are "frustrated people," "people who were fooled," "people without a life of their own." Such claims read as insightful because they explain why others believe what we find absurd. Read them with the test above: did anyone count? Did anyone ask who brought those people in? Would the speaker describe their own side this way?
-
-In the Traditional Chinese translation, 梁永安 renders "the frustrated" as 失意者, and the Preface keeps both "they are all theories" and the Montaigne line intact. It is worth reading the Preface before the rest.
-
-## Limitations
-
-- Of the original, I read the Preface, Parts 1 and 2 in full, the opening of Part 3 (Section 43), the sections on doctrine and the fanatic (56–62) and the start of the chapter on hatred, and only Section 104 ("Men of Words") from Part 4. Chapters XVI–XVIII (the fanatics, the practical men of action, good and bad mass movements) were not read.
-- The full text of Snow et al. (1980) was not read. Its claims are taken from the abstract of the authors' 1983 reply (which quotes the 1980 paper, p. 798), the Polletta and Jasper (2001) review, and a review of Snow's book on Nichiren Shoshu (the source of the 18% figure). Only the abstracts of McAdam (1986) and Kruglanski (2014) were read.
-- Frank Meyer's "cheap cynicism" comes only via Wikipedia; the original was not reached.
-- No systematic critique of Hoffer from social movement theory was found. Network research contradicts his claims through its findings rather than answering him point by point.
-- For the 立緒 edition, only the 2018 bibliographic data was checked; no comparison of translation quality was found.
+- 2026-11-20: Added the author's background and reading scope to the opening, rewrote the ending to answer how fanaticism spreads, retitled sections by content, and added background on Nichiren Shoshu and Hänel's research.
 
 ## References
 

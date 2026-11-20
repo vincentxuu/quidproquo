@@ -107,7 +107,7 @@ McIntyre 說，後真相不是不承認事實，而是讓事實服從立場，�
 | 書 | 它回答的問題 | 對應篇章 |
 |---|---|---|
 | Mackay（1841） | 歷史上的群眾真的發瘋過嗎？ | [鬱金香狂熱是群眾發瘋，還是我們成群相信了一個故事](/posts/learning/2026-11-17-mackay-popular-delusions) |
-| Bernstein（2021） | 為什麼同樣的狂熱一再重演？ | [180 年後的狂熱，作者為什麼仍然悲觀](/posts/learning/2026-11-17-bernstein-delusions-of-crowds) |
+| Bernstein（2021） | 為什麼同樣的狂熱一再重演？ | [辨認狂熱的四個訊號，以及作者為什麼仍然悲觀](/posts/learning/2026-11-17-bernstein-delusions-of-crowds) |
 | Le Bon（1895） | 人進了群眾會變成什麼？ | [群眾心理學的原典，後來被修正了什麼](/posts/learning/2026-11-17-lebon-the-crowd) |
 | Hoffer（1951） | 什麼樣的人會成為狂熱信徒？ | [狂熱信徒多半是被熟人帶進去的](/posts/learning/2026-11-18-hoffer-true-believer) |
 | Canetti（1960） | 人為什麼想融入人群、服從指令？ | [指令留下的螫刺](/posts/learning/2026-11-18-canetti-crowds-and-power) |
