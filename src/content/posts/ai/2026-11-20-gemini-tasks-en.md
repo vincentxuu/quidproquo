@@ -128,7 +128,7 @@ One reporter, one run: far too small a sample to rank anything. But the contrast
 - **Week one**: on gemini.google.com, switch the home screen to Task and set one read-only time-based schedule, for example "every day at 8 a.m., list the emails I need to answer; don't reply". Check that it appears under Active on the Scheduled page.
 - **Three settings to check first**: Task settings in Settings (the task-mode switch), Browser (delete remote browser data), and Gemini in Chrome in Chrome's settings (turn off local auto browse).
 
-Next on route 1 is Meta Muse: an L3 agent and the most widely used always-on agent so far, though not yet available in Taiwan.
+Next on route 1 is [Meta Muse](/posts/ai/2026-11-20-meta-muse-en): an L3 agent and the most widely used always-on agent so far, though not yet available in Taiwan.
 
 ## References
 

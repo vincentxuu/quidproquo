@@ -128,7 +128,7 @@ WIRED 那次實測（一位記者、24 小時、五個測試，各 1–5 分）�
 - **第一週**：在 gemini.google.com 首頁切到 Task，先設一個只讀不寫的時間排程，例如「每天早上 8 點看信箱，列出需要我回的信，不要回」；打開 Scheduled 頁面確認它出現在「進行中」。
 - **先確認三個設定**：Settings 裡的 Task settings（任務模式開關）、Browser（清除遠端瀏覽器資料）、Chrome 的 Gemini in Chrome（關閉本機自動瀏覽）。
 
-下一篇是路線一的 Meta Muse：它是 L3，也是目前最多人用的常駐型 agent，但台灣還用不到。
+下一篇是路線一的 [Meta Muse](/posts/ai/2026-11-20-meta-muse)：它是 L3，也是目前最多人用的常駐型 agent，但台灣還用不到。
 
 ## 參考資料
 

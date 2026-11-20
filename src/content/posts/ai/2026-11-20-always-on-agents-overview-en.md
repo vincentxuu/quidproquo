@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [ai-agent, personal-agent, always-on-agent, proactive-agent]
 lang: en
-tldr: "An always-on agent does four things at once: it keeps running while you're away, decides for itself what to do when it wakes, remembers your goals across conversations, and can act for you (send, pay, change). In Taiwan today you can use Tasks in Gemini (with AI Pro), OpenAI Dots (Pro and some Plus accounts), Grok Bot (X Subscription), and self-hosted OpenClaw or Hermes; Muse and Claude Duet are still US-only."
+tldr: "An always-on agent does four things at once: it keeps running while you're away, decides for itself what to do when it wakes, remembers your goals across conversations, and can act for you (send, pay, change). In Taiwan today you can use Tasks in Gemini (with AI Pro), OpenAI Dots (Pro and some Plus accounts), Grok Bot (X Subscription), and self-hosted OpenClaw or Hermes; Claude Duet is still US-only, and Muse is live in the US, Canada, Japan and Singapore but not Taiwan."
 description: "The wave of always-on AI agents that shipped between May and November 2026: how to tell whether a product counts, the four routes defined by whose computer it runs on, representative products on each route, and which ones readers in Taiwan can use now."
 series:
   name: "Always-On AI Agents"
@@ -128,7 +128,7 @@ This table only says yes, no or conditional. Plans, prices and how to sign up li
 | Tasks in Gemini | Conditional | Requires Google AI Pro or Ultra; the [help page](https://support.google.com/gemini/answer/17094710?hl=en) excludes only the EEA, Nigeria, Switzerland and the UK, and Taiwan isn't one of the six free countries |
 | OpenAI Dots | Conditional | ChatGPT Pro, or some Plus accounts as the rollout continues; excludes the EEA, Switzerland and the UK |
 | Grok Bot | Conditional | Premium or higher on The X Subscription; the official docs list no regional restriction |
-| Meta Muse | No | Launched in the US first; [CNA reported in late September](https://www.cna.com.tw/news/ait/202609270039.aspx) (in Chinese) that it hadn't launched in Taiwan |
+| Meta Muse | No | Live in the US, Canada, [Japan](https://k-tai.watch.impress.co.jp/docs/news/2150682.html) (in Japanese) and [Singapore](https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/); not yet in Taiwan |
 | Claude Duet | No | The research preview is US-only, via a waitlist |
 | OpenClaw, Hermes Agent | Yes | Open source, install it yourself; you pay for the model |
 | LINE | Not yet | [LINE Taiwan](https://www.lycorp.co.jp/en/story/20261113/converge_2026.html) plans an AI agent platform for Official Accounts in Q1 2027, with shopping and gift agents also in 2027 |
@@ -149,6 +149,10 @@ Team and enterprise products (Devin Bots, Autopilot and so on) depend on your co
 - **One product only**: every product post opens with a small table showing which of the four tests it passes.
 
 The security post already published, *[Choosing a personal AI assistant: hosted Duet, Muse, Dots and Grok Bot versus self-hosted OpenClaw and Hermes](/posts/ai/2026-10-24-personal-agents-hosted-vs-self-hosted-en)*, joins the series in the shared-problems section. It follows one phishing email through five layers — computer, credentials, approval, data, model — and shows who stops it at each.
+
+## Update log
+
+- 2026-11-20: Corrected Muse availability (US, Canada, Japan, Singapore; previously said US-only).
 
 ## References
 

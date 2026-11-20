@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [ai-agent, personal-agent, always-on-agent, proactive-agent]
 lang: zh-TW
-tldr: "常駐型 agent 要同時做到四件事：你不在時繼續跑、醒來後自己決定做什麼、跨對話記得你的目標、能代你寄信付款。台灣現在用得到的是 Tasks in Gemini（要 AI Pro）、OpenAI Dots（Pro 與逐步開放的部分 Plus）、Grok Bot（X Subscription）與自架的 OpenClaw、Hermes；Muse 與 Claude Duet 還只在美國。"
+tldr: "常駐型 agent 要同時做到四件事：你不在時繼續跑、醒來後自己決定做什麼、跨對話記得你的目標、能代你寄信付款。台灣現在用得到的是 Tasks in Gemini（要 AI Pro）、OpenAI Dots（Pro 與逐步開放的部分 Plus）、Grok Bot（X Subscription）與自架的 OpenClaw、Hermes；Claude Duet 還只在美國，Muse 開放美、加、日、新加坡，還沒到台灣。"
 description: "2026 年 5 到 11 月出現的一批常駐型 AI agent：怎麼判斷一個產品算不算、依「它在哪台電腦上跑」分成哪四條路線、各有哪些代表產品，以及台灣讀者現在能用哪些。"
 series:
   name: "常駐型 AI agent"
@@ -128,7 +128,7 @@ caption: 只標出系列有專篇的主要個人與企業產品；開源的 Open
 | Tasks in Gemini | 有條件 | 要 Google AI Pro 或 Ultra；[說明頁](https://support.google.com/gemini/answer/17094710?hl=en)只排除歐洲經濟區、奈及利亞、瑞士、英國，免費開放的六國不含台灣 |
 | OpenAI Dots | 有條件 | ChatGPT Pro，或逐步開放中的部分 Plus 帳號；排除歐洲經濟區、瑞士、英國 |
 | Grok Bot | 有條件 | X Subscription 的 Premium 以上；官方文件沒有列地區限制 |
-| Meta Muse | 不能 | 先在美國推出；[中央社 9 月底報導](https://www.cna.com.tw/news/ait/202609270039.aspx)還沒在台灣上線 |
+| Meta Muse | 不能 | 開放美國、加拿大、[日本](https://k-tai.watch.impress.co.jp/docs/news/2150682.html)、[新加坡](https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/)，台灣還沒有 |
 | Claude Duet | 不能 | 研究預覽只開放美國帳號，採候補名單 |
 | OpenClaw、Hermes Agent | 能 | 開源，自己裝；模型費用自付 |
 | LINE | 還沒有 | [LINE 台灣](https://www.lycorp.co.jp/en/story/20261113/converge_2026.html)預告 2027 年第一季推出官方帳號 AI 代理平台，購物與送禮助手也在 2027 年 |
@@ -149,6 +149,10 @@ caption: 只標出系列有專篇的主要個人與企業產品；開源的 Open
 - **只查一個產品**：每篇產品文開頭都有一張小表，標出它符合四個條件裡的哪幾條。
 
 已經寫好的安全專文〈[個人 AI 助理怎麼選：代管的 Duet、Muse、Dots、Grok Bot，對上自架的 OpenClaw、Hermes](/posts/ai/2026-10-24-personal-agents-hosted-vs-self-hosted)〉會收進系列，放在共通問題那一段：用一封釣魚信，看它在電腦、憑證、審批、資料、模型五層各會被誰擋下。
+
+## 更新紀錄
+
+- 2026-11-20：修正 Muse 的開放地區（美、加、日、新加坡，原寫只在美國）。
 
 ## 參考資料
 
