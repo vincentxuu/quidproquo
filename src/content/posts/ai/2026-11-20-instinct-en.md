@@ -153,7 +153,7 @@ Two account-level measures help too:
 
 Instinct is free and invite-only, with no published list of regions. Its terms include an India addendum and UK users are on it, but there's no official word on whether you can sign up from Taiwan.
 
-Next, Claude Duet moves from errands to work. It doesn't wait to be asked; it checks your mail and calendar on a schedule, so the question becomes how it decides what's worth interrupting you for.
+Next, [Claude Duet](/posts/ai/2026-11-20-claude-duet-en) moves from errands to work. It doesn't wait to be asked; it checks your mail and calendar on a schedule, so the question becomes how it decides what's worth interrupting you for.
 
 ## References
 
