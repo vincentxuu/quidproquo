@@ -170,7 +170,7 @@ Anthropic 說你可以告訴 Duet「what you want to hear about and how often」
 
 台灣目前不能用：研究預覽只開放美國帳號。
 
-Duet 用固定巡檢加上一份「一定停下來」的清單，替你決定什麼時候打擾你。下一篇的 OpenAI Dots 把這個決定權更多交給你，用四級自訂規則設定它能做到哪裡。
+Duet 用固定巡檢加上一份「一定停下來」的清單，替你決定什麼時候打擾你。下一篇的 [OpenAI Dots](/posts/ai/2026-11-20-openai-dots) 把這個決定權更多交給你，用四級自訂規則設定它能做到哪裡。
 
 ## 參考資料
 

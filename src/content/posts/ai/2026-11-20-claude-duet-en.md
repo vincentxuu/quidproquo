@@ -171,7 +171,7 @@ After a week, look back: which nudges felt intrusive, which things did it miss? 
 
 It isn't available in Taiwan: the research preview is US-only.
 
-Duet decides when to interrupt you with fixed checks and a list of actions that always stop. Next, OpenAI Dots hands more of that decision to you, with four levels of custom rules for how far it may go.
+Duet decides when to interrupt you with fixed checks and a list of actions that always stop. Next, [OpenAI Dots](/posts/ai/2026-11-20-openai-dots-en) hands more of that decision to you, with four levels of custom rules for how far it may go.
 
 ## References
 
