@@ -7,10 +7,15 @@ tags: [ai-agent, personal-agent, openclaw, hermes-agent, security, self-hosted]
 lang: zh-TW
 tldr: "Duet、Muse、Dots、Grok Bot 和 OpenClaw、Hermes 都能在背景替你處理信件與帳號，差別在電腦、憑證、審批、資料和模型這五層由誰掌握。代管型在寄信、付款前有審查模型和你的核准把關；OpenClaw 和 Hermes 預設把工具直接跑在主機上，OpenClaw 連核准都不跳，要照官方強化設定自己開沙盒。"
 description: "用一封要求改匯款的釣魚信，走過四個代管型個人 AI 助理與兩個開源自架方案：每一家在哪一關擋、憑證放哪、資料去哪、要花多少錢，以及今晚該改的設定。"
+series:
+  name: "常駐型 AI agent"
+  order: 18
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-10-24-personal-agents-hosted-vs-self-hosted-en)
+
+這篇是〈常駐型 AI agent〉系列的安全篇：前面幾篇講 agent 自己會在哪裡停下來，這篇看有人故意讓它做錯時，誰擋得住。系列從[總覽](/posts/ai/2026-11-20-always-on-agents-overview)開始讀。
 
 2026 年 8 月到 10 月，xAI、Meta、OpenAI、Anthropic 先後推出一種新產品：不等你開口、會在背景自己做事的個人 AI 助理。它們有自己的雲端電腦，碰得到你的信箱和行事曆，你關掉 app 之後還繼續跑。開源這邊的 OpenClaw 和 Hermes Agent 早就在做同一件事。
 
@@ -351,6 +356,7 @@ Hermes 在 `config.yaml` 把 `terminal.backend` 設成 `docker`，不要設 `GAT
 
 ## 更新紀錄
 
+- 2026-11-20：收進〈常駐型 AI agent〉系列，開頭加系列說明與總覽連結；正文未改。
 - 2026-10-25：改用一封釣魚信貫穿全文；加入「五層由誰握著」分層圖、Muse 核准流程圖、Dots 系統卡數字圖，以及憑證、審批、資料、公開程度四張對照表；補上各家具體的隔離方式、設定路徑、OpenClaw 強化設定範例與 CVE 攻擊方式；修正 Dots 企業版設定的描述（本機存取需管理員另外開啟，自訂規則可由管理員關閉）。
 
 ## 參考資料

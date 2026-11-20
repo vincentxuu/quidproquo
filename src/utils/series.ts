@@ -275,6 +275,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'always-on-agents',
+    category: 'ai-agents',
+    names: { 'zh-TW': '常駐型 AI agent', en: 'Always-On AI Agents' },
+    descriptions: {
+      'zh-TW': '關掉 app 還會自己決定做什麼的 agent。先拆它們的零件與「會自己醒來」的三個等級，再依「它在哪台電腦上跑」分四條路線看各家的設計取捨，最後談它們怎麼出錯、值不值得、出事誰負責、怎麼從唯讀開始用。',
+      en: 'Agents that keep deciding what to do after you close the app. The series takes apart their components and the three levels at which they wake, follows four routes defined by whose computer they run on, then covers how they go wrong, whether they are worth it, who is liable, and how to start read-only.',
+    },
+  },
+  {
     slug: 'ai-agent-systems',
     category: 'ai-agents',
     names: { 'zh-TW': 'AI Agent 實戰', en: 'AI Agent Systems in Practice' },
