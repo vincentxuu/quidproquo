@@ -17,6 +17,7 @@ import { remarkDiagram } from './src/plugins/remarkDiagram.ts';
 import { remarkMathOptIn } from './src/plugins/remarkMathOptIn.ts';
 import { remarkCallout } from './src/plugins/remarkCallout.ts';
 import { rehypeFootnoteLabel } from './src/plugins/rehypeFootnoteLabel.ts';
+import { rehypeNoEmoji } from './src/plugins/rehypeNoEmoji.ts';
 import rehypeKatex from 'rehype-katex';
 
 // Rehype plugin: external links open in new tab
@@ -446,7 +447,8 @@ export default defineConfig({
       smartypants: false,
       // remarkMathOptIn 必須排第一：它替 frontmatter 有 math: true 的文章重新解析，後面的 plugin 才看得到數學節點。
       remarkPlugins: [remarkMathOptIn, remarkReadingTime, remarkYoutubeEmbed, remarkVideoPractice, remarkVideoGallery, remarkFlowDiagram, remarkDiagram, remarkCallout],
-      rehypePlugins: [rehypeKatex, rehypeExternalLinks, rehypeLazyImages, rehypeFootnoteLabel],
+      // rehypeNoEmoji 必須排最後：站上不顯示 emoji，標題 id 與目錄也要用清掉後的文字產生。
+      rehypePlugins: [rehypeKatex, rehypeExternalLinks, rehypeLazyImages, rehypeFootnoteLabel, rehypeNoEmoji],
     }),
   },
   experimental: {

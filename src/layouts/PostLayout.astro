@@ -254,7 +254,7 @@ const pageTitle =
     font-size: 1.05rem;
     letter-spacing: -0.5px;
     text-decoration: none;
-    color: var(--brand-900);
+    color: var(--brand-700);
   }
   .nav-link {
     font-size: 0.8rem;
@@ -262,7 +262,7 @@ const pageTitle =
     text-decoration: none;
     color: var(--text-secondary);
   }
-  .nav-link:hover { color: var(--brand-900); }
+  .nav-link:hover { color: var(--brand-700); }
   .nav-right {
     margin-left: auto;
     display: flex;
@@ -358,7 +358,7 @@ const pageTitle =
     border: 1px solid var(--border);
     border-radius: var(--corner-md);
     padding: var(--space-2) 0.35rem;
-    color: var(--heading-accent);
+    color: var(--text-muted);
     cursor: pointer;
     opacity: 0;
     transform: translateY(10px);
@@ -473,20 +473,22 @@ const pageTitle =
 
   /* ── Tags ── */
   .tag-pill {
-    background: var(--brand-100);
+    background: var(--bg-subtle);
     font-size: var(--fs-xs);
     padding: 0.08rem 0.45rem;
     border-radius: var(--corner-sm);
-    color: var(--brand-700);
+    color: var(--text-secondary);
     text-decoration: none;
+    transition: background 0.15s, color 0.15s;
   }
-  .tag-pill:hover { background: var(--brand-300); }
+  /* 中性灰平時、hover 才轉強調色 */
+  .tag-pill:hover { background: var(--brand-100); color: var(--brand-700); }
 
   /* ── Prose: all MDX/markdown rendered content ── */
   .content { line-height: 1.8; margin-bottom: var(--space-12); }
 
   /* Headings：h2 用上方分隔線切段落（第一個 h2 不畫線）。 */
-  .content h1 { font-size: var(--fs-h1); font-weight: 900; margin: var(--space-10) 0 var(--space-4); color: var(--brand-900); }
+  .content h1 { font-size: var(--fs-h1); font-weight: 900; margin: var(--space-10) 0 var(--space-4); color: var(--text-primary); }
   .content h2 {
     font-size: var(--fs-h2);
     font-weight: 800;
@@ -494,15 +496,15 @@ const pageTitle =
     padding-top: var(--space-6);
     padding-bottom: var(--space-2);
     border-top: 1px solid var(--border);
-    color: var(--brand-900);
+    color: var(--text-primary);
     position: relative;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
   }
   .content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-  .content h3 { font-size: var(--fs-h3); font-weight: 700; margin: var(--space-6) 0 var(--space-2); color: var(--brand-900); }
-  .content h4 { font-size: var(--fs-h4); font-weight: 700; margin: var(--space-5) 0 var(--space-2); color: var(--brand-900); }
+  .content h3 { font-size: var(--fs-h3); font-weight: 700; margin: var(--space-6) 0 var(--space-2); color: var(--text-primary); }
+  .content h4 { font-size: var(--fs-h4); font-weight: 700; margin: var(--space-5) 0 var(--space-2); color: var(--text-primary); }
   .content h5, .content h6 { font-size: var(--fs-sm); font-weight: 600; margin: var(--space-4) 0 var(--space-2); color: var(--text-secondary); }
 
   /* Heading anchor links */
@@ -529,7 +531,7 @@ const pageTitle =
   /* Links：深色字＋淡綠底線，hover 底線轉品牌綠 */
   .content a { color: var(--brand-700); text-decoration: underline; text-decoration-color: var(--brand-300); text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
   .content a:hover { text-decoration-color: var(--brand-500); }
-  /* 深色下連結字（--brand-700 #c0c0c0）跟內文只差 1.23:1，--brand-300 底線對頁面底也只有 1.88:1，平時就用品牌綠底線 */
+  /* 深色下 --brand-300 底線對頁面底太暗，平時就用 --brand-500 底線，hover 字轉 --brand-900 */
   [data-theme="dark"] .content a { text-decoration-color: var(--brand-500); }
   [data-theme="dark"] .content a:hover { color: var(--brand-900); }
 
@@ -567,14 +569,14 @@ const pageTitle =
     counter-reset: line;
   }
 
-  .content :not(pre) > code { background: var(--brand-100); color: var(--brand-700); padding: 0.1em 0.35em; border-radius: var(--corner-sm); font-size: 0.9em; }
+  .content :not(pre) > code { background: var(--bg-subtle); box-shadow: inset 0 0 0 1px var(--border); color: var(--text-primary); padding: 0.1em 0.35em; border-radius: var(--corner-sm); font-size: 0.9em; }
   .content kbd { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--corner-sm); padding: 0.1em 0.4em; font-size: 0.9em; font-family: monospace; }
 
   /* ── Callouts ──
      預設 blockquote＝品牌 note。src/plugins/remarkCallout.ts 依 `> [!WARNING]`／`> [!TIP]` 或
      開頭粗體（**注意**、**Warning**、**提示**、**Tip**…）加上 callout-warning／callout-tip。 */
   .content blockquote {
-    background: var(--brand-50);
+    background: var(--bg-subtle);
     border-left: 4px solid var(--brand-500);
     border-radius: 0 var(--corner-md) var(--corner-md) 0;
     padding: var(--space-4) var(--space-5);
@@ -596,6 +598,7 @@ const pageTitle =
   .content blockquote .callout-title { margin-bottom: var(--space-1); }
 
   /* 文章開頭的語言切換（> 🌏 [English version](…)）：只有一個連結，不該套提示框，改成小膠囊。
+     🌏 由 rehypeNoEmoji 換成 koboyo 地球圖示並放進連結裡當第一個子元素，所以段落裡仍然只有那個連結。
      外層 blockquote 維持一般區塊（寬版版面靠 margin-inline: auto 對齊內文欄），膠囊畫在裡面那段上。
      選擇器特異性高於上面的 callout 規則，必須維持。 */
   .content > blockquote:first-child:has(> p:only-child > a:only-child) {
@@ -611,12 +614,12 @@ const pageTitle =
     display: inline-block;
     margin: 0;
     padding: 0.3rem 0.9rem;
-    background: var(--brand-50);
-    border: 1px solid var(--brand-300);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
     border-radius: var(--corner-pill);
     font-size: var(--fs-sm);
     line-height: 1.5;
-    color: var(--brand-700);
+    color: var(--text-secondary);
   }
   .content > blockquote:first-child:has(> p:only-child > a:only-child) a {
     color: var(--brand-700);
@@ -625,6 +628,12 @@ const pageTitle =
     border-bottom: none;
   }
   .content > blockquote:first-child:has(> p:only-child > a:only-child) a:hover { text-decoration: underline; }
+
+  /* 文章裡的 emoji 由 rehypeNoEmoji 換成 koboyo 圖示（svg.inline-icon，寬高 1em），跟著文字大小與顏色走。 */
+  .content .inline-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; color: inherit; flex-shrink: 0; }
+  /* ★★☆ 評分：一組星星是一個 role="img"（aria-label 如「2 / 3」），裡面每顆星 aria-hidden；不換行。 */
+  .content .star-rating { display: inline-flex; gap: 0.05em; vertical-align: -0.125em; white-space: nowrap; }
+  .content .star-rating .inline-icon { vertical-align: 0; }
 
   /* ── 摺疊區塊 details／summary ── */
   .content details {
@@ -638,7 +647,7 @@ const pageTitle =
     cursor: pointer;
     font-weight: 600;
     padding: var(--space-3) 0;
-    color: var(--brand-900);
+    color: var(--text-primary);
   }
   .content details > summary::marker { color: var(--brand-500); }
   .content details[open] > summary {
@@ -776,7 +785,7 @@ const pageTitle =
     font-style: italic;
     font-size: 2rem;
     line-height: 1.05;
-    color: var(--brand-900);
+    color: var(--text-primary);
     margin: 0 0 0.4rem;
     letter-spacing: -0.01em;
   }
@@ -855,7 +864,7 @@ const pageTitle =
     font-size: 2.4rem;
     font-weight: 400;
     letter-spacing: -0.02em;
-    color: var(--brand-900);
+    color: var(--text-primary);
     margin: 0 0 1.4rem;
     line-height: 1.1;
   }
@@ -864,7 +873,7 @@ const pageTitle =
     font-family: 'DM Serif Display', Georgia, serif !important;
     font-size: 1.4rem !important;
     font-weight: 400 !important;
-    color: var(--brand-900) !important;
+    color: var(--text-primary) !important;
     margin: var(--space-10) 0 var(--space-4) !important;
     padding-top: 0 !important;
     padding-bottom: 0.35rem !important;
@@ -910,13 +919,13 @@ const pageTitle =
   }
 
   .about-principles strong {
-    color: var(--brand-500);
+    color: var(--text-primary);
     font-weight: 800;
   }
 
   .about-principles em {
     font-style: italic;
-    color: var(--brand-500);
+    color: var(--text-primary);
   }
 
   .about-offwork {
@@ -967,7 +976,7 @@ const pageTitle =
     top: 0.35rem;
     bottom: 0.35rem;
     width: 1px;
-    background: linear-gradient(180deg, var(--brand-300) 0%, var(--border) 100%);
+    background: var(--border);
   }
 
   .about-timeline-item {
@@ -992,7 +1001,7 @@ const pageTitle =
     border-radius: var(--corner-pill);
     background: var(--brand-500);
     border: 3px solid var(--bg-card);
-    box-shadow: 0 0 0 1px var(--brand-300);
+    box-shadow: 0 0 0 1px var(--border);
   }
 
   .about-timeline-year {
@@ -1017,7 +1026,7 @@ const pageTitle =
     margin: 0 0 0.3rem;
     font-size: 0.98rem;
     font-weight: 800;
-    color: var(--brand-900);
+    color: var(--text-primary);
     line-height: 1.35;
   }
 
@@ -1078,13 +1087,13 @@ const pageTitle =
     padding: var(--space-4) 1.15rem;
     background: var(--bg-subtle);
     border: 1px solid var(--border);
-    border-left: 3px solid var(--brand-500);
+    border-left: 3px solid var(--border);
     border-radius: 0 var(--corner-md) var(--corner-md) 0;
     transition: border-left-color 0.15s, box-shadow 0.15s, transform 0.15s;
   }
 
   .about-page .project-card:hover {
-    border-left-color: var(--heading-accent);
+    border-left-color: var(--brand-500);
     box-shadow: var(--shadow-card-hover);
     transform: translateX(3px);
   }
@@ -1099,7 +1108,7 @@ const pageTitle =
   .about-page .project-name {
     font-size: 0.96rem;
     font-weight: 800;
-    color: var(--brand-900);
+    color: var(--text-primary);
   }
 
   .about-page .project-badge {
@@ -1141,8 +1150,8 @@ const pageTitle =
   .about-page .ptag {
     font-size: 0.62rem;
     font-weight: 600;
-    background: var(--brand-100);
-    color: var(--brand-700);
+    background: var(--bg-card);
+    color: var(--text-secondary);
     padding: 0.1rem 0.42rem;
     border-radius: var(--corner-sm);
   }
@@ -1215,7 +1224,7 @@ const pageTitle =
       margin-bottom: 0;
       display: block !important;
       width: 100%;
-      background: var(--brand-50);
+      background: var(--bg-subtle);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 1.1rem var(--space-5) var(--space-4);

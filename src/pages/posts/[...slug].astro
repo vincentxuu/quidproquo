@@ -18,6 +18,7 @@ import VocabularyCapture from '../../components/VocabularyCapture.astro';
 import EnglishPostNav from '../../components/EnglishPostNav.astro';
 
 import { getYouTubeEmbedId } from '../../utils/youtube';
+import { stripEmojiText } from '../../plugins/rehypeNoEmoji';
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedPosts();
@@ -213,7 +214,7 @@ const breadcrumbLD = {
     {post.data.tldr && (
       <div class="tldr">
         <span class="tldr-label">TL;DR</span>
-        {post.data.tldr}
+        {stripEmojiText(post.data.tldr)}
       </div>
     )}
 
@@ -517,7 +518,7 @@ const breadcrumbLD = {
     text-decoration: none;
     font-weight: 600;
   }
-  .breadcrumb-cat:hover { color: var(--brand-900); }
+  .breadcrumb-cat:hover { color: var(--brand-700); }
 
   /* ── TL;DR ── */
   .tldr {
@@ -576,11 +577,11 @@ const breadcrumbLD = {
   }
   .toc:not([open]) > .toc-header { margin-bottom: 0; }
   .toc:not([open]) > .toc-header::after { content: '▸'; }
-  .toc ol { padding-left: 1.2rem; margin: 0; font-size: 0.83rem; line-height: 1.9; color: var(--brand-700); }
+  .toc ol { padding-left: 1.2rem; margin: 0; font-size: 0.83rem; line-height: 1.9; color: var(--text-secondary); }
   .toc ol ol { font-size: var(--fs-xs); color: var(--text-secondary); }
   .toc a { color: inherit; text-decoration: none; }
-  /* 跟本文連結同一套規則：字色不變，hover 出現 --brand-500 底線。 */
-  .toc a:hover { text-decoration: underline; text-decoration-color: var(--brand-500); text-underline-offset: 3px; }
+  /* 平時中性灰；hover 轉強調色並出現 --brand-500 底線。 */
+  .toc a:hover { color: var(--brand-700); text-decoration: underline; text-decoration-color: var(--brand-500); text-underline-offset: 3px; }
 
   /* ── Two-column grid: TOC/video sidebar beside the main content ── */
   .post-grid {
@@ -635,8 +636,8 @@ const breadcrumbLD = {
   .series-link { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
   .series-link:hover { border-bottom-color: currentColor; }
   .series-nav { display: flex; justify-content: space-between; font-size: 0.8rem; }
-  .series-prev, .series-next { display: flex; align-items: center; gap: var(--space-1); color: var(--brand-700); text-decoration: none; }
-  .series-prev:hover, .series-next:hover { text-decoration: underline; text-decoration-color: var(--brand-500); text-underline-offset: 3px; }
+  .series-prev, .series-next { display: flex; align-items: center; gap: var(--space-1); color: var(--text-secondary); text-decoration: none; }
+  .series-prev:hover, .series-next:hover { color: var(--brand-700); text-decoration: underline; text-decoration-color: var(--brand-500); text-underline-offset: 3px; }
 
   /* ── Post nav ── */
   .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-bottom: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--border); }
@@ -680,7 +681,7 @@ const breadcrumbLD = {
   :global(.glossary-term) {
     border: 0;
     border-bottom: 1px dotted var(--brand-500);
-    background: color-mix(in srgb, var(--brand-100) 55%, transparent);
+    background: transparent;
     color: var(--text-primary);
     padding: 0 0.08em;
     border-radius: var(--corner-sm);
@@ -690,7 +691,7 @@ const breadcrumbLD = {
   :global(.glossary-term:hover),
   :global(.glossary-term:focus-visible) {
     background: var(--brand-100);
-    color: var(--brand-900);
+    color: var(--text-primary);
   }
 
   article[data-layout="daily-brief"] .breadcrumb { margin-top: 1rem; }
@@ -865,7 +866,7 @@ const breadcrumbLD = {
   article[data-category="daily"] .content :global(h4) {
     font-size: 0.92rem;
     font-weight: 700;
-    color: var(--brand-900);
+    color: var(--text-primary);
     margin: 1.25rem 0 0.4rem;
     padding-bottom: 0.2rem;
     border-bottom: 1px dashed var(--border);
@@ -1313,7 +1314,7 @@ const breadcrumbLD = {
   .glossary-title {
     font-size: 0.98rem;
     font-weight: 800;
-    color: var(--brand-900);
+    color: var(--text-primary);
     overflow-wrap: anywhere;
   }
   .glossary-level {
@@ -1353,12 +1354,13 @@ const breadcrumbLD = {
   .glossary-reading a {
     border: 1px solid var(--border);
     border-radius: var(--corner-sm);
-    color: var(--brand-700);
+    color: var(--text-secondary);
     padding: 0.15rem 0.45rem;
     text-decoration: none;
     font-size: 0.74rem;
   }
   .glossary-reading a:hover {
+    color: var(--brand-700);
     border-color: var(--brand-500);
   }
   @media (max-width: 520px) {

@@ -229,7 +229,7 @@ ${paperSections}
 4. ## 今日收穫（認知差：之前以為 X → 現在知道 Y）
 5. ## 參考資料（每個事實主張附連結）
 
-注意：用繁體中文（台灣用語），不要用「技術棧」「數據」等中國用語。未複現結果標 ⚠️。`
+注意：用繁體中文（台灣用語），不要用「技術棧」「數據」等中國用語。未複現的結果標注「未複現」。不要用 emoji。`
 }
 
 export const arxivDigestAgent = defineAgent<ArxivDigestInput, ArxivDigestOutput>({

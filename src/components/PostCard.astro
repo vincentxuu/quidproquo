@@ -3,6 +3,7 @@
 import type { Lang } from '../i18n/utils';
 import Icons from './Icons.astro';
 import { getSeriesTitle } from '../utils/series';
+import { stripEmojiText } from '../plugins/rehypeNoEmoji';
 
 
 interface Props {
@@ -21,7 +22,8 @@ interface Props {
   seriesHref?: string;
 }
 const { slug, title, date, category, tags, description, tldr, readingTime, lang = 'zh-TW', type, pinned, seriesName, seriesHref } = Astro.props;
-const excerpt = tldr || description || '';
+// tldr 是 frontmatter 字串，不經過 rehypeNoEmoji；站上不顯示 emoji，這裡一併清掉。
+const excerpt = stripEmojiText(tldr || description || '');
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
 const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { year: 'numeric', month: 'short', day: 'numeric' });
@@ -86,9 +88,9 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
     gap: 0.3rem;
     font-size: 0.7rem;
     font-weight: 700;
-    color: var(--brand-500);
-    background: var(--brand-100);
-    border: 1px solid var(--brand-300);
+    color: var(--text-secondary);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
     padding: 0.15rem 0.55rem;
     border-radius: 3px;
     margin-bottom: 0.6rem;
@@ -107,16 +109,16 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
     align-items: center;
     padding: 0.14rem 0.45rem;
     border-radius: 999px;
-    background: var(--brand-50);
-    color: var(--brand-700);
-    border: 1px solid var(--brand-300);
+    background: var(--bg-subtle);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
     font-size: 0.68rem;
     font-weight: 700;
     text-decoration: none;
     line-height: 1.2;
   }
   .series-badge:hover {
-    color: var(--brand-900);
+    color: var(--brand-700);
     border-color: var(--brand-500);
   }
   time {
@@ -141,7 +143,7 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
     text-decoration: none;
     color: var(--text-primary);
   }
-  h2 a:hover { color: var(--brand-500); }
+  h2 a:hover { color: var(--brand-700); }
   h2 a::after {
     content: '';
     position: absolute;
@@ -177,7 +179,7 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
     color: #fff;
     text-decoration: none;
   }
-  .cat-daily     { background: var(--cat-daily, #059669); }
+  .cat-daily     { background: var(--cat-neutral); }
   .cat-tech      { background: var(--cat-tech, #1a1a1a); }
   .cat-ai        { background: var(--cat-ai, #6d28d9); }
   .cat-product   { background: var(--cat-product, #0369a1); }
@@ -201,8 +203,8 @@ const dateStr = date.toLocaleDateString(lang === 'en' ? 'en-US' : 'zh-TW', { yea
     border-radius: 2px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--brand-500);
-    border: 1px solid var(--brand-300);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
     background: transparent;
     text-decoration: none;
   }

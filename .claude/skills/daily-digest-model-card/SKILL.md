@@ -286,7 +286,7 @@ glossary:
 |---|---|---|---|
 | {benchmark 名} | {分數} | {前代分數} | {競品名 + 分數} |
 
-{列出 3-5 個最重要的 benchmark。⚠️ 標注自測結果。}
+{列出 3-5 個最重要的 benchmark，標注哪些是自測結果。}
 
 ## 與前代/競品比較
 
@@ -360,7 +360,7 @@ glossary:
 | HumanEval | 96.8% | 92.1% | GPT-5 95.3% |
 | tau-bench (airline) | 68.5% | 55.2% | GPT-5 62.1% |
 
-⚠️ 以上均為 Anthropic 自測，需等外部複現。SWE-bench Verified 分數已由 OpenAI 獨立團隊確認。
+以上均為 Anthropic 自測，需等外部複現。SWE-bench Verified 分數已由 OpenAI 獨立團隊確認。
 
 ## 與前代/競品比較
 
@@ -389,7 +389,7 @@ MCP server-side execution 是這次最大的架構變化。之前 Claude 只能�
 - [ ] 定價精確到小數，不寫「約」
 - [ ] Context Window 寫具體數字
 - [ ] Benchmark 表列出至少 3 個，含前代和競品比較
-- [ ] 自測結果標注 ⚠️
+- [ ] 自測結果已標注
 - [ ] 「對 Agent 開發的意義」有具體的「如果你在做 X：」建議
 - [ ] 官方公告有完整 URL
 - [ ] 「今日收穫」是認知差，不是摘要

@@ -360,7 +360,7 @@ import PostLayout from '../layouts/PostLayout.astro';
     font-style: italic;
     font-size: 2rem;
     line-height: 1.05;
-    color: var(--brand-900);
+    color: var(--text-primary);
     margin: 0 0 0.4rem;
     letter-spacing: -0.01em;
   }
@@ -409,7 +409,7 @@ import PostLayout from '../layouts/PostLayout.astro';
     font-size: 2.4rem;
     font-weight: 400;
     letter-spacing: -0.02em;
-    color: var(--brand-900);
+    color: var(--text-primary);
     margin: 0 0 1.4rem;
     line-height: 1.1;
   }
@@ -419,7 +419,7 @@ import PostLayout from '../layouts/PostLayout.astro';
     font-family: 'DM Serif Display', Georgia, serif !important;
     font-size: 1.4rem !important;
     font-weight: 400 !important;
-    color: var(--brand-900) !important;
+    color: var(--text-primary) !important;
     margin: var(--space-10) 0 var(--space-4) !important;
     padding-bottom: 0.35rem !important;
     border-bottom: 1px solid var(--border) !important;
@@ -456,7 +456,7 @@ import PostLayout from '../layouts/PostLayout.astro';
 
   .about-pullquote em {
     font-style: italic;
-    color: var(--brand-500);
+    color: var(--text-primary);
     font-weight: 600;
   }
 
@@ -530,13 +530,13 @@ import PostLayout from '../layouts/PostLayout.astro';
     padding: var(--space-4) 1.15rem;
     background: var(--bg-subtle);
     border: 1px solid var(--border);
-    border-left: 3px solid var(--brand-500);
+    border-left: 3px solid var(--border);
     border-radius: 0 var(--corner-md) var(--corner-md) 0;
     transition: border-left-color 0.15s, box-shadow 0.15s, transform 0.15s;
   }
 
   .about-page .project-card:hover {
-    border-left-color: var(--heading-accent);
+    border-left-color: var(--brand-500);
     box-shadow: var(--shadow-card-hover);
     transform: translateX(3px);
   }
@@ -551,7 +551,7 @@ import PostLayout from '../layouts/PostLayout.astro';
   .about-page .project-name {
     font-size: 0.96rem;
     font-weight: 800;
-    color: var(--brand-900);
+    color: var(--text-primary);
   }
 
   .about-page .project-badge {
@@ -610,14 +610,14 @@ import PostLayout from '../layouts/PostLayout.astro';
   .about-page .project-detail-hint {
     font-size: 0.77rem;
     font-weight: 600;
-    color: var(--brand-500);
+    color: var(--text-muted);
   }
 
   .about-page .ptag {
     font-size: 0.62rem;
     font-weight: 600;
-    background: var(--brand-100);
-    color: var(--brand-700);
+    background: var(--bg-card);
+    color: var(--text-secondary);
     padding: 0.1rem 0.42rem;
     border-radius: var(--corner-sm);
   }

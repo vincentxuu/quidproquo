@@ -166,7 +166,7 @@ textarea[data-slot="input-group-control"]::placeholder {
 
 /* ===== Ask AI 活動列（工具使用顯示）=====
    比照 claude.ai：一行字 + chevron，展開一層是有邊框清單，再展開是 Request／Response。
-   配色沿用站內步驟色：文字 brand-700、hover 底 brand-50、meta 用 text-muted。
+   配色：平時文字 text-secondary、hover 轉強調色（brand-500）、展開底 bg-subtle、meta 用 text-muted。
    公開頁沒載 Tailwind preflight，這裡的 <button> 全部自己 reset。 */
 .chat-activity {
   margin: 0 0 0.65rem;
@@ -181,7 +181,7 @@ textarea[data-slot="input-group-control"]::placeholder {
   padding: 0;
   margin: 0;
   font: inherit;
-  color: var(--brand-700);
+  color: var(--text-secondary);
   font-weight: 600;
   cursor: pointer;
   text-align: left;
@@ -239,7 +239,7 @@ textarea[data-slot="input-group-control"]::placeholder {
   padding: 0.55rem 0.75rem;
 }
 .chat-activity-row-head:hover:not(:disabled) {
-  background: var(--brand-50);
+  background: var(--bg-subtle);
 }
 .chat-activity-row-label {
   min-width: 0;
@@ -261,7 +261,7 @@ textarea[data-slot="input-group-control"]::placeholder {
 /* 展開二層：Request／Response 原始 JSON，或 reasoning 全文 */
 .chat-activity-detail {
   padding: 0.15rem 0.75rem 0.75rem;
-  background: color-mix(in srgb, var(--brand-50) 45%, var(--bg-card));
+  background: var(--bg-subtle);
 }
 .chat-activity-detail-label {
   margin: 0.55rem 0 0.25rem;
@@ -306,7 +306,7 @@ textarea[data-slot="input-group-control"]::placeholder {
   min-height: 2rem;
   padding: 0.45rem 0.65rem;
   border-radius: 8px;
-  background: color-mix(in srgb, var(--brand-50) 74%, var(--bg-card));
+  background: var(--bg-subtle);
   color: var(--text-secondary);
   overflow: hidden;
 }

@@ -134,8 +134,8 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
   .day-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; }
   .day-date {
     font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace);
-    font-size: 0.8rem; font-weight: 600; color: var(--brand-700);
-    background: var(--brand-50, var(--surface-raised));
+    font-size: 0.8rem; font-weight: 600; color: var(--text-secondary);
+    background: var(--bg-subtle);
     padding: 0.15rem 0.55rem; border-radius: 4px;
     font-variant-numeric: tabular-nums; white-space: nowrap;
   }
@@ -146,7 +146,7 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
   .rss-badge {
     font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em;
     padding: 0.15rem 0.45rem; border-radius: 4px; vertical-align: middle;
-    background: var(--brand-500); color: #fff; text-decoration: none;
+    background: var(--bg-subtle); color: var(--text-secondary); border: 1px solid var(--border); text-decoration: none;
     margin-left: 0.3rem; transition: opacity 0.15s;
   }
   .rss-badge:hover { opacity: 0.8; }

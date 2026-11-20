@@ -109,7 +109,7 @@ format: "markdown"
 - 來源 1：新聞報導（TechCrunch / VentureBeat / Bloomberg 等）
 - 來源 2：官方新聞稿（businesswire / prnewswire）或公司官方公告
 
-只有 1 個來源的融資消息 → 降級為「未確認」，在文章中標註 ⚠️。
+只有 1 個來源的融資消息 → 降級為「未確認」，在文章中標註「單一來源，未確認」。
 
 ### Step 4e：取得融資詳情
 
