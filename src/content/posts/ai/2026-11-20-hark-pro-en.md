@@ -122,7 +122,7 @@ A first week might look like this:
 4. **Don't grant standing "no confirmation" permission for paying or messaging others.**
 5. **Export your data after a while**: see what it remembers about you, and tell it to forget what you don't want kept.
 
-Muse and Hark both have their own apps. Next up, Instinct has none: it works only through texts and phone calls. The more an interface feels like messaging a person, the easier it is for a casual grant of permission to be read too broadly.
+Muse and Hark both have their own apps. Next up, [Instinct](/posts/ai/2026-11-20-instinct-en) has none: it works only through texts and phone calls. The more an interface feels like messaging a person, the easier it is for a casual grant of permission to be read too broadly.
 
 ## References
 
