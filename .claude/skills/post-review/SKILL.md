@@ -28,6 +28,10 @@ node .agents/skills/post/scripts/check-course-titles.mjs src/content/posts/<cate
 
 報告須分開列「機械檢查」「事實查證」「教學品質」。未跑事實查證就標未查，找不到教學證據就列缺口；任何一層通過都不能推定另兩層通過。
 
+## 書籍導讀審查（必讀）
+
+審查書籍導讀時，先讀 `../post/references/book-guide-contract.md`。審稿的人讀過研究筆記，自己判「讀者問題第一段就出來」不算數：照規格做只給正文的冷讀，答不出事件或論點是什麼就是 🔴 必修。另查規劃用語與固定標籤 H2 是否進了正文、description 或 tldr。
+
 ## 模型家族文章審查（必讀）
 
 審查「AI 模型家族」／「AI Model Families」系列時，先讀 `../post/references/model-family-contract.md`，依文章角色檢查；每日模型卡不套家族長文模板。執行 `node .agents/skills/post/scripts/check-model-family-format.mjs <中英檔案...>`；這是本 skill 的專項檢查，不取代 pnpm verify，也不改寫文章。

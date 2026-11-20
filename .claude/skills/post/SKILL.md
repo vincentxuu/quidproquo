@@ -70,6 +70,8 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 課程總覽、單堂／跨堂、作業、週次文章，動筆前直接讀 `references/course-guide-contract.md`，把範圍卡存到 `.work/`。按文章角色對齊學習目標、正文例子與自我檢查；中文完整標題採「主題｜課程 第 N 堂」，英文用 Lecture N，不從 series.order 推原課堂次。教學重寫完成前依規格列正文證據，無例子／無判準則修正文，不靠 verify 綠宣稱教學完成。
 
+書籍導讀（導讀一本書或書中一章，含閱讀地圖類系列）動筆前讀 `references/book-guide-contract.md`：每篇先把事件或論點本身講完，再談作者寫法與後來的修正；規劃用語（L1、order、回扣）、抽象標籤與固定標籤 H2 不進正文；交稿前做只給正文的冷讀。
+
 岩場／岩區導覽（〈日本岩場〉〈義大利岩場〉這類單篇與總覽）動筆前讀 `references/crag-guide-contract.md`，單篇用 `templates/crag-guide.md`、英文版用 `templates/crag-guide-en.md`（以仁壽峰中英兩篇為範本）：固定 H2、依程度分級路線表、`scripts/climbing-grade-convert.mjs --check` 換算、封閉類事實的一手來源要求。
 
 攀岩器材與保護系統文章（繩子、確保器、鉤環、吊帶、頭盔、岩楔／cam、固定點、bolt、確保、檢查汰換）預設補實測影片：先找 HowNOT2 與 Hard Is Easy，每篇 3–5 支嵌在對應段落、文末加頻道介紹。研究前先定日期門檻（評測、影片、價格預設只收 2024 年以後）、先用 `scripts/yt-candidates.mjs` 掃頻道清單再用關鍵字補漏；挑片、查證、雜訊排除、限制寫法與標準稿見 `references/climbing-gear-videos.md`。
