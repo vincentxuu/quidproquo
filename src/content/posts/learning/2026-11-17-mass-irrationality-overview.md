@@ -1,12 +1,12 @@
 ---
-title: "群體非理性閱讀地圖：從 1841 年的狂熱敘事到 2024 年的錯誤資訊辯論"
+title: "群體非理性閱讀地圖：十一本書告訴我們，人群為什麼會一起失去判斷"
 date: 2026-11-17
 type: guide
 category: learning
 tags: [series, reading-guide, crowd-psychology, mass-delusion, misinformation]
 lang: zh-TW
-tldr: "人類為何會集體陷入幻覺？這個系列用十一本書搭一條解釋鏈：歷史現象、群眾心理、認知底層、文化制度、當代技術放大，每篇導讀一本書，並列後來研究修正了什麼。"
-description: "群體非理性閱讀地圖系列總覽：五層結構、十一本書、三條閱讀路徑，以及三個誠實警告——書單偏英語圈經典、多本書的繁中譯本有爭議或絕版、第五層的效應大小本身仍在爭論。"
+tldr: "這個系列沿著五個問題讀十一本書：歷史上真的發生過什麼、人進了人群會變成什麼、個人大腦哪裡容易被帶走、文化與制度怎麼放大或擋住、今天的資訊環境改變了什麼。經典的答案是「人進了人群就像得了病」；從鬱金香、梨泰院、社群媒體上擴散的類妥瑞症狀，到台股散戶與台灣的新聞信任，後來的研究一再改寫這個答案：多半不是每個人都瘋了，而是人在特定的身分、人際關係、制度規則和資訊環境裡，做出對自己說得通的選擇。"
+description: "群體非理性閱讀地圖系列總覽：用五個問題串起十一本書，從 1637 年鬱金香、2022 年梨泰院、社群媒體上擴散的集體症狀、台股處分效應、陰謀論與疑美論，到 Meta 停止美國事實查核與台灣新聞信任 30%，看經典怎麼解釋群眾發瘋、後來的研究怎麼改寫，最後收成一份四題問題清單與三條讀法。"
 series:
   name: "群體非理性閱讀地圖"
   order: 0
@@ -15,104 +15,135 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-11-17-mass-irrationality-overview-en)
 
-2021 年，金融理論家 William Bernstein 出了一本《The Delusions of Crowds》。他在訪談裡說，1990 年代初讀 Charles Mackay 1841 年的《Extraordinary Popular Delusions and the Madness of Crowds》時覺得「跟當時相當安分的資本市場毫無關係」，沒幾年科技泡沫爆開：「I had read the script and I knew how the movie ended.」——我讀過劇本，知道電影怎麼結局。
+2021 年，金融理論家 William Bernstein 出了一本《The Delusions of Crowds》。他在訪談裡說，1990 年代初讀 Charles Mackay 1841 年的《Extraordinary Popular Delusions and the Madness of Crowds》時，覺得「跟當時相當安分的資本市場毫無關係」，沒幾年網路泡沫就來了：「I had read the script and I knew how the movie ended.」我讀過劇本，知道電影怎麼結局。在同一場訪談的結尾，他又說：Mackay 180 年前就寫了一本很像的書，看起來沒什麼幫助，未來還會有更多金融與宗教狂熱，「I just don't see any way out of it.」
 
-但同一本書的結尾他自己寫得更冷靜：Mackay 寫了同樣的書一百八十年，並沒什麼幫助；「we are who we are」，他預測未來幾個世紀還會看到更多金融與宗教狂熱，「I just don't see any way out of it」。
+這個系列要問的就是這件事：**人群為什麼會一起失去判斷？為什麼讀過歷史，下一次還是擋不住？** 系列讀十一本書，一本書一篇，每篇先講清楚書本身主張什麼，再對照後來的研究修正了哪些部分。十一本書照五個問題排列，由外往內、再往外：先看歷史上發生過什麼，再看人進了人群會怎樣、個人大腦怎麼運作，接著看文化與制度，最後回到今天的資訊環境。每一段都在回答前一段留下的問題。
 
-這個系列要問的就是這個問題：**知道劇本為什麼沒有用？** 不是「那些人好蠢」的道德故事，而是一條從歷史案例到大腦機制、到文化制度、到平台演算法的解釋鏈——以及當代研究到底修正了經典的哪些部分。
+這篇總覽沿著這五個問題，用金融、群眾事故、健康、政治與網路上的真實案例，說明經典怎麼回答、後來的研究怎麼改寫。讀完你會有一份問題清單：下次聽到「這群人瘋了」，先問哪四件事，最後才輪到「瘋了」。
 
-## 五層地圖
+## 一、歷史上真的發生過什麼？
 
-```diagram
-title: 群體非理性的五層解釋鏈
-desc: 每疊一層，問題從「發生過什麼」走向「為什麼人會這樣」，再到「現在為什麼更難糾正」。
-caption: 書名為該層代表；Canetti 篇縮小範圍，兩個概念＋譯本現況。
----
-<svg viewBox="0 0 340 400">
-  <path class="dg-line" d="M170 76V92" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M170 152V168" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M170 228V244" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M170 304V320" marker-end="url(#arrow)"/>
+讀的書：Mackay《異常流行幻象與群眾瘋狂》（1841）、Bernstein《群眾的幻覺》（2021）
 
-  <g>
-    <rect class="dg-box dg-box--accent" x="20" y="20" width="300" height="56" rx="6"/>
-    <text class="dg-label" x="170" y="39" text-anchor="middle" dominant-baseline="central">L1 歷史現象</text>
-    <text class="dg-sub" x="170" y="59" text-anchor="middle" dominant-baseline="central">Mackay 1841 → Bernstein 2021（order 1–2）</text>
-  </g>
-  <g>
-    <rect class="dg-box" x="20" y="96" width="300" height="56" rx="6"/>
-    <text class="dg-label" x="170" y="115" text-anchor="middle" dominant-baseline="central">L2 群眾心理機制</text>
-    <text class="dg-sub" x="170" y="135" text-anchor="middle" dominant-baseline="central">Le Bon → Hoffer → Canetti（order 3–5）</text>
-  </g>
-  <g>
-    <rect class="dg-box" x="20" y="172" width="300" height="56" rx="6"/>
-    <text class="dg-label" x="170" y="191" text-anchor="middle" dominant-baseline="central">L3 認知與行為基礎</text>
-    <text class="dg-sub" x="170" y="211" text-anchor="middle" dominant-baseline="central">Kahneman 2011（order 6）</text>
-  </g>
-  <g>
-    <rect class="dg-box" x="20" y="248" width="300" height="56" rx="6"/>
-    <text class="dg-label" x="170" y="267" text-anchor="middle" dominant-baseline="central">L4 文化與制度</text>
-    <text class="dg-sub" x="170" y="287" text-anchor="middle" dominant-baseline="central">Hofstadter 1963＋1964（order 7–8）</text>
-  </g>
-  <g>
-    <rect class="dg-box dg-box--accent" x="20" y="324" width="300" height="56" rx="6"/>
-    <text class="dg-label" x="170" y="343" text-anchor="middle" dominant-baseline="central">L5 當代技術放大</text>
-    <text class="dg-sub" x="170" y="363" text-anchor="middle" dominant-baseline="central">McIntyre → Rauch → Nichols（order 9–11）</text>
-  </g>
-</svg>
-```
+Mackay 的命題是：「人成群思考，也成群發瘋，清醒卻只能一個一個慢慢來。」他的證據是一長串歷史案例：十字軍、獵巫、鍊金術，以及三場金錢狂熱：法國的密西西比泡沫、英國的南海泡沫和 1637 年的荷蘭鬱金香。Bernstein 180 年後把同一個題目更新到網路泡沫與宗教末日運動，整理出辨認狂熱的四個行為訊號：大家日常都在聊、有人辭職專職投機、懷疑的人會被罵、預測越來越極端。
 
-| 層 | 代表書 | 回答的問題 | 讀完能判斷 |
-|---|---|---|---|
-| L1 歷史現象 | Mackay、Bernstein | 集體幻覺發生過什麼？ | 一個「歷史上的瘋狂」故事是史料還是敘事模板 |
-| L2 群眾心理 | Le Bon、Hoffer、Canetti | 人進了群體為什麼變了那樣？ | 「感染」「暗示」這些詞現在還站不站得住 |
-| L3 認知底層 | Kahneman | 個人大腦哪裡容易被帶走？ | 一個偏誤主張複製了嗎、效應量多大 |
-| L4 文化制度 | Hofstadter ×2 | 為什麼某些社會特別容易反智？ | 反智態度、陰謀思維與結構條件的差別 |
-| L5 當代放大 | McIntyre、Rauch、Nichols | 平台機制改了什麼？ | 「後真相」話術與制度解方的邊界 |
+後來的研究先問了一個更基本的問題：這些事真的像故事講的那樣發生過嗎？當時的交易多半是在酒館裡簽「明年夏天交貨」的合約，雙方只賭價差；崩盤後法院沒有強制執行任何一張合約，所以錢大多沒有真的換手，檔案裡也找不到破產潮。稀有品種本來就貴，真正暴漲暴跌的是原本便宜的普通品種，而且只有 1637 年 1 月那一個月。我們熟悉的「全民瘋狂、經濟崩潰」版本，來自一份道德宣傳小冊兩百年的轉抄。反倒是這個故事本身，被學者、記者、投資書成群相信了兩百年，沒人回頭查證。
 
-## 三個誠實警告
+**這一段留下的問題**：如果很多「瘋狂」被誇大了，那人在人群裡到底發生了什麼？
 
-**這個書單偏英語圈經典。** 十一本裡兩本原著非英語（Le Bon 法語、Canetti 德語），全靠英譯傳播；作者與案例圈以歐美為絕對多數，六本寫於 1964 年以前。當代醫學的集體心因性疾病案例反而集中在南亞、東南亞與非洲，這個系列沒有納入——這是缺口，不是結論。
+## 二、人進了人群會變成什麼？
 
-**繁中譯本狀況比你想的複雜。** 《烏合之眾》繁中有四家、簡體三十多版，市場上有逐段比較譯品的文章；《快思慢想》洪蘭譯本有 2013 年退書與逐句挑錯爭議；《群眾與權力》繁中絕版、《偏執狂風格》無繁中、《知識的憲法》無中譯。每篇都會寫譯本狀態，該讀原文就直接給入口。
+讀的書：Le Bon《烏合之眾》（1895）、Hoffer《群眾運動聖經》（1951）、Canetti《群眾與權力》（1960）
 
-**第五層的效應大小本身在爭論。** 2024 年 6 月 5 日《Nature》同一天刊出兩篇對打：<Budak 等人>認為平均暴露量低、集中在邊緣少數人；<Ecker 等人>反駁這是「選擇性讀證據」，修正只有部分效果、威脅被低估。寫作時兩側並列，且標明證據等級差異（一邊是正式綜述、一邊是立場宣言＋利益申報）。
+經典的回答都把人群寫成一種病。Le Bon 說人在群眾裡變得匿名、不必負責，情緒像傳染病一樣散開，領袖的話像催眠暗示一樣被接受。Hoffer 說投入群眾運動的是想擺脫自我的人，失意者、新窮人、無聊者最容易成為狂熱信徒。Canetti 說人平常怕被陌生人碰觸，只有在密集的人群裡，這份恐懼才會反轉成解放。
 
-## 每篇怎麼寫
+後來的研究從兩個方向修正。一是「失去自我」：社會認同學派認為，人在群眾裡是改用「我們」的身分和規範行動，不是理性消失；Canetti 說的那種擠在一起的解放感，研究發現前提也是彼此有共同身分，不是人多本身。二是「誰會加入」：社會運動研究發現，多數人是被已經在裡面的熟人帶進去的，不是孤立的失意者自己找上門。
 
-每本書一篇，固定四段：**原文句**（英文原文＋中譯，沒有中譯的書標明）、**在解釋鏈上的位置**、**後來的研究修正了什麼**（批評並列，不選邊）、**一個可帶走的判準**。每篇結尾固定回扣同一個問題：「這個機制在 2026 年的台灣長什麼樣？」——用譯本、查核生態與信任數據回答，不喊口號。
+兩個當代案例可以對照：
+
+- **2022 年首爾梨泰院萬聖節人潮事故。** 研究者用手機定位資料和流體力學模型重建現場：事發前幾小時，該區人數已遠高於平常，兩股人流迎面對撞，平均密度達每平方公尺 7.57 人。他們的結論是，主因是人數過多與雙向人流對撞，恐慌是在擠壓中逐漸升高的。這類事故今天被當成人流與管理問題處理，而不是「群眾突然發瘋」。
+- **2021 年德國，社群媒體上擴散的類妥瑞症狀。** 漢諾威的醫師報告，一批青少年出現類似妥瑞症的動作和叫聲，但並不是真的妥瑞症；共同的源頭是一位極受歡迎的 YouTube 創作者，症狀透過社群媒體擴散，英國、美國等地也有類似案例。行為確實會「傳染」，但傳的路徑是年輕人認同、追隨的那個人，不是任意的陌生人群。
+
+**這一段留下的問題**：就算人群的影響有限，個人的大腦本來是不是就有容易被帶走的弱點？
+
+## 三、個人的大腦哪裡容易被帶走？
+
+讀的書：Kahneman《快思慢想》（2011）
+
+Kahneman 把人的思考分成快的直覺與慢的推理，並整理出一長串偏誤：錨定效應（先看到的數字會拉住後面的判斷）、損失趨避（損失帶來的痛比同樣大小的收穫帶來的快樂更強），以及「促發」，也就是無意間看到的字詞會改變行為。這些偏誤若成立，群體的失誤就可以從個人層面解釋。
+
+後來的研究提醒，偏誤要逐個看證據。錨定效應和損失趨避經得起重複驗證；社會促發（例如讀到跟老人有關的字，走路就變慢）、自我耗損（用過意志力之後，自制力會變差）在多個實驗室重做之後，多半重現不了原本的結果。Kahneman 自己在 2017 年承認，他「太相信檢定力不足的研究」。
+
+站得住的偏誤，加總起來可以是整個市場的結果。研究者用台灣證交所 1995 到 1999 年的全部交易紀錄（超過十億筆）發現，台灣投資人賣出賺錢股票的機率，約是賣出賠錢股票的兩倍，也就是普遍不願意認賠；個人投資人整體每年因為交易少賺 3.8 個百分點，損失總額相當於台灣 GDP 的 2.2%。這不是幾個散戶的個人毛病，而是一個市場的集體傾向（細節見 [Kahneman 篇](/posts/learning/2026-11-18-kahneman-thinking-fast-slow)）。
+
+**這一段留下的問題**：偏誤人人都有，為什麼某些社會、某些時期特別容易出事？
+
+## 四、文化與制度怎麼放大，或擋住？
+
+讀的書：Hofstadter《美國的反智傳統》（1963）、Hofstadter〈美國政治中的偏執狂風格〉（1964）
+
+Hofstadter 從宗教、政治、商業、教育追溯美國的反智傳統，最反直覺的論點是：知識分子被怨恨，不是因為沒用，而是因為太被需要。社會越依賴專家，專家手上就越有決定別人生活的權力，智性於是被當成一種權力和特權來怨恨。他的另一篇文章描述陰謀論式的政治說話方式：不是缺證據，而是拼命堆證據，證據是拿來保護信念，而不是拿來修正自己。
+
+後來的研究修正了兩處。歷史學界批評他把民粹運動和政治對手「病理化」。實證研究則發現陰謀信念並沒有越來越多：Uscinski、Enders 等人重新詢問 37 個在 1966 到 2020 年間問過的陰謀論，只有 6 個顯著上升，15 個反而下降；陰謀思維跟左右派的關係也因國家和時期而異，比較穩定的線索是「被排除在權力之外」的處境。很多被叫做反智的態度，其實是對特定專家有理由的不信任。
+
+台灣也看得到信任怎麼沿著身分分裂。中研院「美國肖像」調查中，同意「美國是講信用的國家」的民眾，從 2021 年約 45% 降到 2025 年的 33.4%；民進黨支持者約六成同意，國民黨支持者不到一成。同一個國家、同一組事實，信任的落差主要跟著政治立場走（細節見[偏執狂風格篇](/posts/learning/2026-11-18-hofstadter-paranoid-style)）。
+
+反智也不只是美國的事。史學家余英時受 Hofstadter 啟發，1975 年寫了〈反智論與中國政治傳統〉，說「中國的政治傳統中一向瀰漫著一層反智的氣氛」，但這份反智跟儒家關係最少，來自統治權力與政治思想；同一個詞在不同社會有不同的來源。
+
+**這一段留下的問題**：到了網路與平台的時代，這些機制有什麼不一樣？
+
+## 五、今天的資訊環境改變了什麼？
+
+讀的書：McIntyre《後真相》（2018）、Rauch《知識的憲法》（2021）、Nichols《專業之死》（2017）。排列照「後真相從哪裡來 → 社會靠什麼分辨真假 → 為什麼不再聽專家」的順序，不照出版年。
+
+McIntyre 說，後真相不是不承認事實，而是讓事實服從立場，它的操作手冊早在菸草業寫好了：菸商的內部備忘錄寫著「懷疑是我們的產品」。Rauch 說，一個社會靠期刊、新聞編輯台、法院、統計機構這些制度，加上「沒有人有最後決定權、沒有人憑身分算數」兩條規則，來決定什麼是真的。Nichols 說，死掉的不是專業本身，而是「專家的意見應該改變我們的想法」這個共識。
+
+後來的研究與事件讓這一段變得更具體：
+
+- **更正有用，但要夠快。** 被廣泛引用的「逆火效應」（更正反而讓人更相信錯誤）幾乎沒有重現。2025 年 PNAS 的研究發現，X 的社群註記（Community Notes）一旦附上，該貼文的轉發減少 46.1%；但研究者也指出，註記通常來得太晚，附得更快效果會大得多。
+- **查證的制度正在改變。** 2025 年 1 月，Meta 宣布在美國停止第三方事實查核，改用類似 X 的社群註記。這正是 Rauch 擔心的那種制度變動：判斷真假的工作，從專業查核者轉到使用者群體手上，效果要看註記能不能來得夠快。
+- **大家信任的對象在改變。** 根據 Reuters Institute 2025 年的調查，台灣民眾對新聞的整體信任是 30%，比前一年降了 3 個百分點；同時有 46% 的人用 YouTube 看新聞，42% 用 LINE。人們沒有停止接收新聞，而是把注意力移到編輯台以外的地方。
+- **影響有多大，學界還在吵。** 2024 年《Nature》同一天刊出兩篇對立文章，一篇說多數人接觸到的假訊息其實不多、集中在少數人身上，一篇說這低估了威脅。
+
+**這一段把前面串起來**：今天的問題不只是假訊息多，而是社會用來分辨真假的制度與信任正在重新洗牌，而信任又沿著身分分裂，正好接回第二、四段。
+
+## 五段合起來：系列的總答案
+
+把五段串起來看，經典的答案是「人進了人群就像得了病」；後來的研究一再把它改寫成：**集體看起來失去理性的時候，多半不是每個人都瘋了，而是人在特定的身分、人際關係、制度規則和資訊環境裡，做出對自己說得通的選擇。** 「他們瘋了」這個講法最省力，也最不需要證據，所以應該最後才用。
+
+這也回答了 Bernstein 的問題。他的答案是失憶：每一代人都要自己再經歷一次。系列讀下來還有另一個答案：我們讀的劇本本身就寫錯了。以為泡沫的成因是別人發瘋，就只會去找別人的瘋狂，而不會去看規則讓誰可以不付代價、自己屬於哪個「我們」、自己信任哪些來源。
+
+所以下次聽到「這群人瘋了」，依序問：
+
+1. **真的發生了嗎？** 規模、日期、出處、經濟資料。
+2. **規則讓人可以不承擔後果嗎？** 沒有保證金的合約、沒人查核的平台、沒人追究的謊言。
+3. **他們以什麼身分行動？誰把他們帶進來？** 不是「失去自我」，而是「換了哪個自我」。
+4. **他們信任誰、不信任誰，有沒有理由？**
+
+四題都問過了，還需要「大家都瘋了」來解釋，那才是個人非理性的部分，而那個偏誤有沒有被重複驗證過，也要先查。
+
+## 十一本書與各篇入口
+
+| 書 | 它回答的問題 | 對應篇章 |
+|---|---|---|
+| Mackay（1841） | 歷史上的群眾真的發瘋過嗎？ | [鬱金香狂熱是群眾發瘋，還是我們成群相信了一個故事](/posts/learning/2026-11-17-mackay-popular-delusions) |
+| Bernstein（2021） | 為什麼同樣的狂熱一再重演？ | [180 年後的狂熱，作者為什麼仍然悲觀](/posts/learning/2026-11-17-bernstein-delusions-of-crowds) |
+| Le Bon（1895） | 人進了群眾會變成什麼？ | [群眾心理學的原典，後來被修正了什麼](/posts/learning/2026-11-17-lebon-the-crowd) |
+| Hoffer（1951） | 什麼樣的人會成為狂熱信徒？ | [狂熱信徒多半是被熟人帶進去的](/posts/learning/2026-11-18-hoffer-true-believer) |
+| Canetti（1960） | 人為什麼想融入人群、服從指令？ | [指令留下的螫刺](/posts/learning/2026-11-18-canetti-crowds-and-power) |
+| Kahneman（2011） | 個人的大腦哪裡容易被帶走？ | [促發效應那章塌了之後，這本書還剩下什麼](/posts/learning/2026-11-18-kahneman-thinking-fast-slow) |
+| Hofstadter（1963） | 為什麼社會會怨恨知識分子？ | [知識分子被怨恨，是因為太被需要](/posts/learning/2026-11-18-hofstadter-anti-intellectualism) |
+| Hofstadter（1964） | 陰謀論的思考方式長什麼樣？ | [有 313 個註腳的陰謀論](/posts/learning/2026-11-18-hofstadter-paranoid-style) |
+| McIntyre（2018） | 「後真相」是什麼？從哪裡來？ | [菸商備忘錄寫著「懷疑是我們的產品」](/posts/learning/2026-11-18-mcintyre-post-truth) |
+| Rauch（2021） | 社會怎麼決定什麼是真的？ | [沒有人有最後決定權，也沒有人憑身分算數](/posts/learning/2026-11-18-rauch-constitution-of-knowledge) |
+| Nichols（2017） | 人為什麼不再聽專家的話？ | [他預測一場災難會讓人重新聽專家的話，然後疫情來了](/posts/learning/2026-11-18-nichols-death-of-expertise) |
 
 ## 三條讀法
 
-- **全徑**：order 0 到 11，五層走完。
-- **金融泡沫徑**：order 1（Mackay）→ 2（Bernstein）→ 6（Kahneman）。
-- **反智與後真相徑**：order 7–8（Hofstadter 兩本）→ 9–11（McIntyre、Rauch、Nichols）。
+- **全部照順序讀**：照上面五段的順序，每一段回答前一段留下的問題。
+- **只關心金融泡沫**：Mackay → Bernstein → Kahneman。
+- **只關心反智、陰謀論與假訊息**：Hofstadter 兩篇 → McIntyre → Rauch → Nichols。
 
-系列不是「一本接一本照順序讀」的嚴格課程，是主題式閱讀地圖；你只走一條徑也讀得通。
+每篇都能單獨讀，不需要先讀前一篇。
 
-## 篇目
+## 這份書單沒涵蓋的
 
-| order | 書 | 層 |
-|---|---|---|
-| 0 | 本篇（總覽） | — |
-| 1 | Mackay《異常流行幻象與群眾瘋狂》(1841) | L1 |
-| 2 | Bernstein《群眾的幻覺》(2021) | L1 |
-| 3 | Le Bon《烏合之眾》(1895) | L2 |
-| 4 | Hoffer《群眾運動聖經》(1951) | L2 |
-| 5 | Canetti《群眾與權力》(1960) | L2 |
-| 6 | Kahneman《思考，快與慢》(2011) | L3 |
-| 7 | Hofstadter《美國的反智傳統》(1963) | L4 |
-| 8 | Hofstadter《偏執狂風格》(1964) | L4 |
-| 9 | McIntyre《後真相》(2018) | L5 |
-| 10 | Rauch《知識的憲法》(2021) | L5 |
-| 11 | Nichols《專業之死》(2017) | L5 |
+- **偏英語圈經典。** 十一本裡只有兩本原著不是英語（Le Bon 法語、Canetti 德語），作者與案例以歐美為主，六本寫於 1964 年以前。這篇總覽補了梨泰院、余英時與台灣的例子，但各篇仍以原書為主。當代醫學上的集體心因性疾病案例多在南亞、東南亞與非洲，系列沒有納入。
+- **繁中譯本參差。** 有的書譯本很多、品質不一，有的絕版或沒有中譯。每篇會寫譯本狀況，該讀原文就直接給入口。
 
-讀完這系列，你會得到四個東西：分辨「人性不變的弱點」與「被技術放大的新現象」的能力；對金融泡沫、政治狂熱、陰謀論、反智浪潮共用的分析框架；看到「這些人好蠢」之前的停頓；以及對當代資訊環境更清醒、而不是更恐慌的認識。
+## 更新紀錄
+
+- 2026-11-20：重寫。
 
 ## 參考資料
 
 - [Charles Mackay, Memoirs of Extraordinary Popular Delusions（全文，Project Gutenberg #636）](https://www.gutenberg.org/ebooks/636)
 - [William J. Bernstein, The Delusions of Crowds（New Bazaar 訪談逐字稿，2021-09）](https://eig.org/newbazaar/bad-bubble-behavior)
+- [Liang, Lee, Sun & Wong, Unraveling the causes of the Seoul Halloween crowd-crush disaster（PLOS ONE 19(7), 2024）](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0306764)
+- [Müller-Vahl et al., Stop that! It's not Tourette's but a new type of mass sociogenic illness（Brain 145(2), 2022）](https://academic.oup.com/brain/article/145/2/476/6356504)
+- [余英時〈反智論與中國政治傳統〉（聯經思想空間）](https://www.linking.vision/archives/2236)
+- [Slaughter, Peytavin, Ugander & Saveski, Community notes reduce engagement with and diffusion of false information online（PNAS 122(38), 2025）](https://www.pnas.org/doi/10.1073/pnas.2503413122)
+- [Reuters, Meta shelves fact-checking in policy reversal ahead of Trump administration（2025-01-07）](https://www.reuters.com/technology/meta-ends-third-party-fact-checking-program-adopts-x-like-community-notes-model-2025-01-07/)
+- [Reuters Institute, Digital News Report 2025：Taiwan](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/taiwan)
 - [Budak, Nyhan, Rothschild, Thorson & Watts, Misunderstanding the harms of online misinformation（Nature 630, 2024）](https://www.nature.com/articles/s41586-024-07417-w)
 - [Ecker et al., Misinformation poses a bigger threat to democracy than you might think（Nature 630, 2024）](https://www.nature.com/articles/d41586-024-01587-3)
-- [Reuters Institute, Digital News Report 2025：Taiwan](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/taiwan)
