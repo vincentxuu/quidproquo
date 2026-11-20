@@ -5,7 +5,7 @@ category: tech
 tags: [ai-agent, llm, model-selection, open-source, multimodal, embedding]
 lang: zh-TW
 type: guide
-tldr: "2026 年 AI 模型按用途分成七大類、20+ 個子用途。這篇是「AI 模型家族」系列的導讀地圖——從用途找模型、從模型找家族，附每個用途的選型建議和最新排名。"
+tldr: "2026 年 AI 模型按用途分成七大類、20+ 個子用途。這篇是「AI 模型家族」系列的導讀地圖——從用途找模型、從模型找家族，附每個用途的選型建議。2026-11 版：閉源前沿換成 Claude Fable 5.2、GPT-6.2、Gemini 4，開放權重最強是 Kimi K3.1 Pro，coding 改用 Artificial Analysis 的 Terminal-Bench 4.0 與 FrontierCode 2.0 比較，並新增決策模型一類。"
 description: "AI 模型用途總覽：文字生成、推理、程式碼、影像、影片、語音、音樂、Embedding、Rerank、OCR、3D、翻譯、Agent 等 20+ 用途的 2026 年模型選型指南"
 series:
   name: "AI 模型家族"
@@ -22,83 +22,92 @@ glossary:
 
 > 🌏 [English version](/posts/tech/2026-08-24-ai-model-landscape-overview-en)
 
-這篇是「AI 模型家族」系列的導讀。HuggingFace 上有 47 種任務分類、超過 300 萬個模型，加上各家閉源 API，整個生態圈已經大到沒人能全部追完。這篇把它們按用途橫切成七大類、20 多個子用途，每個用途附上主要模型和選型建議——讓你從「我要做什麼」快速找到「該用哪個模型」。
+這篇是「AI 模型家族」系列的導讀。HuggingFace 上有 47 種任務分類、超過 300 萬個模型，加上各家閉源 API，整個生態圈已經大到沒人能全部追完。這篇把它們按用途橫切成七大類、20 多個子用途，每個用途附上主要模型和選型建議——讓你從「我要做什麼」快速找到「該用哪個模型」。文字、推理、程式碼、視覺與 Agent 各節是 2026-11-20 的資料；影像、影片、語音、檢索等其他各節仍是 2026-08 的資料，引用時請帶日期。
 
 每個主要家族（Qwen、DeepSeek、Claude、GPT 等）會有獨立的深度介紹文，從演化脈絡到版本選擇指南。怎麼解讀各用途的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。
+
 
 ## 1. 核心文字能力
 
 ### 文字生成 / Chat
 
-2026 年 8 月，文字生成模型的競爭格局是「閉源最強但開源追上來了」。OpenRouter 上 DeepSeek V4 Flash 以 11.6T tokens 處理量排名第一，但最強品質仍屬閉源的 Claude Opus 5 和 GPT-5.6。
+2026 年 11 月的格局是：閉源前沿換了一整代，開源權重最強的是 Kimi。[Artificial Analysis Intelligence Index v5.0.1](https://artificialanalysis.ai/leaderboards/models)（2026-11-20）的前幾名是 Claude Fable 5.2（64.6）、GPT-6.2 Astra（62.1）、Gemini 4 Neon（61.4）、Gemini 4 Carbon（60.0）、Claude Opus 5.5（59.1）；開放權重第一是 Kimi K3.1 Pro（46.5），之後是 DeepSeek V4.1 Flash（32.6）與 GLM-5.3（31.7），差距仍然明顯。
 
-| 家族 | 類型 | 最新版本 | 定位 |
+| 家族 | 類型 | 目前主力 | 定位 |
 |---|---|---|---|
-| Claude (Anthropic) | 閉源 | Opus 5, Sonnet 5, Fable 5 | Agent/coding 最強，MCP 原生 |
-| GPT (OpenAI) | 閉源+開源 | GPT-5.6 Sol/Luna, GPT-OSS 20b/120b | 最大生態系，首次開源 (Apache-2.0) |
-| Gemini (Google) | 閉源 | Gemini 3.7 Flash, Gemini 3 Pro | 最大 context，多模態最全 |
-| DeepSeek | 開源 | V4 Pro, V4 Flash | [OpenRouter](https://openrouter.ai/rankings) #1 用量，MIT 授權 |
-| Qwen (阿里) | 開源 | Qwen3.8-27B, Qwen3.8-2.4T-A95B | HF 下載量王者，0.6B→2.4T 全尺寸 |
-| Kimi (Moonshot) | 開源 | K3 (2.8T) | HF 第三高 likes (10.9K)，MoE |
-| GLM (Z.AI) | 開源 | GLM 5.3 | Coding/terminal 驚人，迭代最快 |
-| Llama (Meta) | 開源 | Llama 4 Scout/Maverick | 企業部署最大，生態最成熟 |
-| Mistral | 開源 | Medium 3.5, Small 3.1 | 歐洲旗艦，多語言，授權最清晰 |
-| Grok (xAI) | 閉源 | Grok 4.5 | 快速迭代 |
-| Ornith | 開源 | Ornith 1.5-35B-A3B | 2026 夏季黑馬，MIT |
-| Phi (Microsoft) | 開源 | Phi-4 | 小模型專家 |
-| Cohere | 閉源+開源 | Command R+, North | RAG 原生，Embed+Rerank+Aya 多語言 |
+| [Claude](/posts/tech/2026-08-24-ai-model-family-claude)（Anthropic） | 閉源 | Fable 5.2、Opus 5.5、Sonnet 5.5、Haiku 5.5 | Agent／coding 主力，綜合指數第一 |
+| [GPT](/posts/tech/2026-08-24-ai-model-family-gpt)（OpenAI） | 閉源＋開源 | GPT-6.2 Astra／Sol、6.1 Terra、6 Luna；gpt-oss | 最大生態系，四層價格覆蓋最廣 |
+| [Gemini](/posts/tech/2026-08-24-ai-model-family-gemini)（Google） | 閉源 | Gemini 4 Carbon／Neon／Argon／Hydrogen | 多模態最全，1M context |
+| [Qwen](/posts/tech/2026-08-24-ai-model-family-qwen)（阿里） | 閉源旗艦＋開源 | Qwen4-Max（API）；Qwen3.8 27B／Flash-Next（權重） | 尺寸最全，旗艦回到閉源 |
+| [Kimi](/posts/tech/2026-08-24-ai-model-family-kimi)（Moonshot） | 開源 | K3.1 Pro（2.8T／104B 啟用） | 開放權重綜合最強，自訂授權 |
+| [DeepSeek](/posts/tech/2026-08-24-ai-model-family-deepseek) | 開源 | V4.1 Flash、V4 Pro | 低價、MIT 授權 |
+| [GLM](/posts/tech/2026-08-24-ai-model-family-glm)（Z.AI） | 開源 | GLM-5.3、5.3-Flash | MIT 授權，coding 與 terminal 強 |
+| [Muse](/posts/tech/2026-09-19-ai-model-family-muse-spark)（Meta） | 閉源＋開源 | Muse Wonder／Spark 1.3／Ember；Spark Open | 三層 API，另有開放權重旗艦 |
+| [MiniMax](/posts/tech/2026-08-26-minimax-model-family) | 開源 | M3.1 Flash | 單價最低的一檔，企業自動化強 |
+| [LongCat](/posts/tech/2026-10-10-ai-model-family-longcat)（美團） | 開源 | LongCat-2.5 | MIT 授權的 1.6T 開放權重 |
+| [Nemotron](/posts/tech/2026-10-10-ai-model-family-nemotron)（NVIDIA） | 開源 | 3.5 Super VL、Bolt、Lightning | 開放訓練資料，依部署位置分層 |
+| [Llama](/posts/tech/2026-08-24-ai-model-family-llama)（Meta） | 開源 | Llama 4 Scout／Maverick | 生態最成熟，但已無新版本 |
+| [Mistral](/posts/tech/2026-08-24-ai-model-family-mistral) | 開源 | Mistral Large 4、Medium 3.5 | 歐洲合規定位 |
+| [Grok](/posts/tech/2026-08-24-ai-model-family-grok)（xAI） | 閉源 | Grok 4.7 | 分發通路是護城河 |
+| [Cohere](/posts/tech/2026-08-24-ai-model-family-cohere) | 閉源＋開源 | Command A、North | RAG 原生，Embed＋Rerank＋Aya |
 
-**選型建議**：如果你在做 Agent 開發：Claude Opus 5 或 GPT-5 是目前 tool-use 最穩定的選擇。如果你在做高吞吐量批次處理：DeepSeek V4 Flash 的價效比無人能及。如果你要本地部署：Qwen3.8-27B（Apache-2.0）或 Gemma 4-12B（16GB VRAM 即可跑）。
+（DeepSeek、GLM、Llama、Mistral、Grok、Cohere 的家族文還停在 2026-10 的版本；表中「目前主力」依 Artificial Analysis 2026-11-20 的模型列表，細節以家族文更新後為準。）
 
-**市場數據**（OpenRouter 8/23）：DeepSeek V4 Flash 0731 (11.6T tokens) > Ox Alpha (11.6T) > MiMo-V2.5 (9.94T) > Hy3 (8.21T) > DeepSeek V4 Flash 0423 (5.46T)。
+**選型建議**：做 Agent 開發，先比 Claude Opus 5.5 與 GPT-6.2 Sol 這兩個中價位主力；最難的任務再上 Fable 5.2 或 GPT-6.2 Astra。要高吞吐量批次，看 MiniMax M3.1 Flash（$0.15／$0.60）、DeepSeek V4.1 Flash（$0.30／$1.20）或 Claude Haiku 5.5 與 GPT-6 Luna（都是 $0.10／$0.50）。要自架開放權重，前沿級只有 Kimi K3.1 Pro（多節點）；單卡或筆電看 Qwen3.8-27B（Apache-2.0）、Nemotron 3.5 Bolt 24GB 或 LFM3-1.7B。
+
+**市場數據**：OpenRouter 用量排名本文最後一次記錄是 2026-08-23（DeepSeek V4 Flash 0731 以 11.6T tokens 第一），之後沒有更新，引用前請到 [OpenRouter Rankings](https://openrouter.ai/rankings) 看當下數字。
 
 ### 推理
 
-推理模型是 2025-2026 年的新類別——它們在回答前會進行長鏈思考，擅長數學、邏輯、科學問題。
+2025 年推理模型還是獨立類別（o-series、DeepSeek-R1、QwQ）；到 2026 年 11 月，主要家族都把推理併回主線模型，改用一個推理強度參數控制：GPT 的 `reasoning_effort`、Claude 的 effort、Gemini 4 的 thinking level、Muse 的 minimal 到 max、Kimi K3.1 Pro 一律思考但可調強度。選型問題從「用哪一顆推理模型」變成「同一顆模型開到哪一檔」。
 
-| 家族 | 類型 | 最新版本 | 定位 |
-|---|---|---|---|
-| o-series (OpenAI) | 閉源 | o3, o4-mini, o3-pro | 推理最強，成本最高 |
-| DeepSeek-R1 | 開源 | R1-0528 | MIT 授權，開源推理之王 (HF 13.5K likes) |
-| QwQ (Qwen) | 開源 | QwQ-32B | Apache-2.0，32B 參數即可本地跑 |
-| Kimi-Thinking | 開源 | K2-Thinking | 推理+通用混合 |
+Artificial Analysis 的榜單直接把同一模型的不同推理強度分開列：Claude Fable 5.2 從 Low 的 53.9 到 Max 的 64.6，GPT-6.2 Sol 從 Low 的 40.6 到 Max 的 57.3。同一顆模型高低檔差 10 到 17 分，成本與延遲也跟著放大。
 
-**選型建議**：如果你在做數學或科學推理：o3 (high) 或 o4-mini 品質最高。如果你要開源推理：DeepSeek-R1 是唯一的 frontier-class 開源選擇。如果你要本地跑推理模型：QwQ-32B 在消費級硬體上表現最好。
+**選型建議**：先用中檔（medium 或 high）測自己的任務，正確率不夠再往上加；簡單分類與路由直接用低檔或改用[決策模型](/posts/tech/2026-10-22-ai-model-family-decision-models)。要開源推理，Kimi K3.1 Pro、DeepSeek V4.1 Flash、GLM-5.3 都內建思考模式；本地跑看 Qwen3.8-27B。
 
 ### 程式碼生成
 
-coding 能力是 Agent 開發者最關心的維度。[Aider Polyglot](https://aider.chat/docs/leaderboards/) 是目前最實用的 coding benchmark，因為它同時測效果和成本。
+coding 能力是 Agent 開發者最關心的維度。舊版本文用的 Aider Polyglot 分數停在 2025 年的模型，已經不具參考價值；這裡改用 Artificial Analysis 自己跑的兩個 coding 評測，條件一致、可以橫向比：Terminal-Bench 4.0（終端機長任務）與 FrontierCode 2.0（Cognition 的私有評測，132 個真實開源 repo 任務，看維護者會不會合併）。
 
-| 家族 | Aider 分數 | 成本 ($/次) | 定位 |
-|---|---|---|---|
-| GPT-5 (high) | 88.0% | $29.08 | 品質最高 |
-| Gemini 2.5 Pro | 83.1% | $49.88 | 32K thinking |
-| o3 (high) | 81.3% | $21.23 | 推理型 coding |
-| Grok 4 (high) | 79.6% | $59.62 | — |
-| DeepSeek V3.2 Exp (Reasoner) | 74.2% | $1.30 | 超高價效比 |
-| Claude Opus 4 (32K thinking) | 72.0% | $65.75 | — |
-| DeepSeek V3.2 Exp (Chat) | 70.2% | $0.88 | 成本最低 |
-| Kimi K2 | 59.1% | $1.24 | — |
-| Qwen3 235B A22B | 59.6% | — | 開源大模型 |
+| 模型 | 類型 | Terminal-Bench 4.0 | FrontierCode 2.0 | 價格（每 1M tokens） |
+|---|---|---|---|---|
+| Kimi K3.1 Pro | 開源 | **67.2** | 25.5 | $2／$10 |
+| Gemini 4 Carbon (High) | 閉源 | 65.2 | 40.6 | $4／$20 |
+| GPT-6.2 Astra (Max) | 閉源 | 64.1 | 45.4 | $8／$40 |
+| Claude Sonnet 5.5 (Max) | 閉源 | 63.6 | 41.7 | $2／$10 |
+| GPT-6.2 Sol (Max) | 閉源 | 60.1 | 44.4 | $2／$10 |
+| Claude Fable 5.2 (Max) | 閉源 | 59.6 | **48.8** | $8／$40 |
+| Claude Opus 5.5 (Max) | 閉源 | 59.6 | 46.4 | $4／$20 |
+| Qwen4-Max | 閉源 | 48.5 | 26.5 | $1.50／$4.50 |
+| GLM-5.3 (Max) | 開源 | 41.9 | 21.6 | $1.40／$4.40 |
+| DeepSeek V4.1 Flash (Max) | 開源 | 33.8 | 28.5 | $0.30／$1.20 |
+| MiniMax M3.1 Flash | 開源 | 25.8 | 20.8 | $0.15／$0.60 |
 
-**選型建議**：如果你追求品質不計成本：GPT-5 (high) 88%，是目前 Aider 最高分。如果你要 10 倍省錢還能用：DeepSeek V3.2 Exp Chat 70.2% 只要 $0.88，是 GPT-5 成本的 1/33。
+（Artificial Analysis 2026-11-20 的資料，各模型取它表上綜合指數最高的推理強度。）
+
+兩個評測給的答案不一樣：Kimi K3.1 Pro 的終端長任務最高，但 FrontierCode 只有 25.5，代表它很會跑完一連串指令，修改結果卻不一定合乎維護者的標準；Claude Fable 5.2 與 Opus 5.5 則是 FrontierCode 領先。
+
+**選型建議**：要 PR 品質，先看 Claude Opus 5.5 或 Fable 5.2；要長時間在終端機自己跑完任務，Kimi K3.1 Pro 價格只有一半；預算有限的大量 coding 子任務，DeepSeek V4.1 Flash 或 MiniMax M3.1 Flash 的單價低一個數量級，但兩個評測都明顯落後。
 
 ## 2. 視覺理解
 
 ### 視覺語言模型 (VLM)
 
-VLM 能同時看圖和理解文字。2026 年的趨勢是開源 VLM 在特定領域（文件理解、數學推理）已超越閉源。
+2026 年的主線模型幾乎都是原生多模態，獨立的 VLM 線（Qwen-VL、Kimi-VL）已經併回主線。以 Artificial Analysis 2026-11-20 的 MMMU-Pro（多學科圖文推理）來看：
 
-| 家族 | 類型 | MMMU-Pro | DocVQA | MathVista | 定位 |
-|---|---|---|---|---|---|
-| Gemini 3.1 Pro | 閉源 | 82% | 92% | 75% | 廣泛學科最強 |
-| GPT-5.4 | 閉源 | 81% | 95% | 78.4% | 文件處理最強閉源 |
-| Qwen3-VL-235B | 開源 | 69.3% | 96.5% | 85.8% | 開源王者，數學視覺超越閉源 |
-| InternVL3-78B | 開源 | — | 95.4% | 79.0% | 開源第二 |
-| Llama 4 Maverick | 開源 | — | 94.4% | 73.7% | Meta 開源多模態 |
-| Kimi-VL | 開源 | — | — | — | 輕量視覺語言 |
+| 模型 | 類型 | MMMU-Pro | 定位 |
+|---|---|---|---|
+| GPT-6.2 Astra (Max) | 閉源 | 89.5 | 最高分 |
+| Gemini 4 Carbon | 閉源 | 89.2 | 多模態輸入最全（含影片、音訊） |
+| Claude Opus 5.5 (Max) | 閉源 | 87.7 | — |
+| Kimi K3.1 Pro | 開源 | 83.9 | 開放權重最高 |
+| Muse Spark Open | 開源 | 80.9 | 816B 開放權重，原生多模態 |
+| DeepSeek V4.1 Flash (Max) | 開源 | 80.6 | — |
+| MiniMax M3.1 Flash | 開源 | 79.1 | 低價 |
 
-**選型建議**：如果你在做文件處理 pipeline：Qwen3-VL（DocVQA 96.5%）在自建場景比 GPT-5.4 還強，而且能自己部署。如果你需要廣泛的學科推理：Gemini 3.1 Pro（MMMU-Pro 82%）仍然領先。如果你在做視覺數學推理：Qwen3-VL（MathVista 85.8%）超越所有閉源模型。
+文件專項（DocVQA 等）的舊數據來自 2026-08 的 Qwen3-VL-235B（96.5%）與 GPT-5.4（95%），之後沒有再整理；要做文件處理，看 [Qwen 家族文](/posts/tech/2026-08-24-ai-model-family-qwen)的 Qwen3.8-27B 與 Nemotron 3.5 Super VL 這類原生視覺開放權重，並用自己的文件測。
+
+**選型建議**：要最高的圖文推理，GPT-6.2 Astra 或 Gemini 4 Carbon；要開放權重，Kimi K3.1 Pro（需多節點）或單卡可跑的 Qwen3.8-27B；要影片與音訊一起看，Gemini 4 系列。
 
 ### OCR / 文件理解
 
@@ -266,6 +275,10 @@ HuggingFace 上有 121K 個文字分類模型，是模型數量最多的任務�
 
 HuggingFace 上 30K 模型。spaCy + transformer 是 2026 年的標準 NER pipeline。對大部分語言，通用 LLM 的 NER 能力已經非常好；專用模型在特定領域（醫療、法律、金融實體辨識）仍有優勢。
 
+### 決策模型（有限選項的判斷）
+
+2026 年 9 月起出現的新類別：不生成文字，直接回傳每個選項的機率，只收 input token 費。工單分派、內容審核、工具呼叫放行這類「從固定選項挑一個」的工作，可以用它取代 LLM zero-shot。Artificial Analysis Decision Index v2.1 上，最高分的 d1.2-ultra 與 Claude Haiku 5.5 (Max) 只差 1.7 分，但每百萬題便宜 47 倍、快約 150 倍。代價是知識與推理較弱，而且常會有把握地答錯。版本矩陣、兩張榜單與門檻設定見[決策模型選型](/posts/tech/2026-10-22-ai-model-family-decision-models)。
+
 ### 翻譯
 
 | 模型 | 類型 | 語言數 | 定位 |
@@ -282,11 +295,11 @@ HuggingFace 上 30K 模型。spaCy + transformer 是 2026 年的標準 NER pipel
 
 ### Function Calling / Tool Use
 
-Function calling 不是一個獨立的模型類別，而是各大 LLM 的能力維度。Claude、GPT、Gemini 三家的原生 tool-use 支援最成熟——有標準化的 API 格式、支援平行工具呼叫、有錯誤恢復機制。
+Function calling 不是一個獨立的模型類別，而是各大 LLM 的能力維度。Claude、GPT、Gemini 三家的原生 tool-use 支援最成熟——有標準化的 API 格式、支援平行工具呼叫、有錯誤恢復機制；Muse 與 Qwen 的 API 也同時相容 OpenAI 與 Anthropic 格式。
 
-[tau-bench](https://github.com/sierra-research/tau-bench) 是主要的多輪工具呼叫評測。開源模型裡 Qwen3.8 和 GLM 5.3 在 tool-use 場景進步最快。
+[tau-bench](https://github.com/sierra-research/tau-bench) 系列是主要的多輪工具呼叫評測。開放權重裡，Kimi K3.1 Pro 的長任務 coding 分數已接近閉源前沿，MiniMax M3.1 Flash 與 LongCat-2.5 在企業自動化、網頁搜尋類任務的官方分數表現突出；只做「該不該呼叫、呼叫哪個」的判斷，[決策模型](/posts/tech/2026-10-22-ai-model-family-decision-models)的 When2Call 分數高過語言模型。
 
-**選型建議**：如果你在做 production Agent：Claude 或 GPT 的 tool-use 可靠度最高。如果你要開源 Agent：Qwen3.8 + function calling 是目前最好的開源選擇。
+**選型建議**：做 production Agent，Claude 或 GPT 的 tool-use 可靠度仍最高；主迴圈用大模型、重複的子任務交給便宜的小模型（Muse Ember、Claude Haiku 5.5、GPT-6 Luna）是 2026 年常見的分工。要開源 Agent，先比 Kimi K3.1 Pro 與 GLM-5.3，注意兩者授權不同。
 
 ### 多步驟規劃與編排
 
@@ -294,13 +307,18 @@ Function calling 不是一個獨立的模型類別，而是各大 LLM 的能力�
 
 ## 整體來說
 
-2026 年的模型生態已經按用途高度分化——沒有一個模型在所有用途都最強。DeepSeek V4 Flash 是 OpenRouter 上用量最大的模型，但 GPT-5 在 coding 拿最高分；Qwen-VL 在文件理解超越所有閉源模型，但在廣泛學科推理上落後 Gemini 十幾個百分點。
+2026 年的模型生態已經按用途高度分化——沒有一個模型在所有用途都最強。Claude Fable 5.2 在綜合指數與 FrontierCode 第一，Kimi K3.1 Pro 在 Terminal-Bench 4.0 第一，GPT-6.2 Astra 在圖文推理第一；決策模型在工具選擇與成本上全面勝過語言模型，但知識題輸一截。
 
-開源在多數用途已經追上或超越閉源。文件理解（Qwen-VL 96.5%）、數學推理（Qwen-VL 85.8%）、影片生成（MiniMax H3）、embedding（BGE-M3）、TTS（Kokoro、OmniVoice）——這些領域的開源選項已經是最佳或接近最佳。閉源仍然領先的主要是 Agent 任務、影像生成、和最強推理模型。
+開源與閉源的距離，在 2026 年下半年反而拉開了。開放權重最強的 Kimi K3.1 Pro 綜合指數 46.5，閉源前沿是 60 到 65；而且旗艦開放權重的授權越來越多附帶條件（Kimi、Qwen、MiniMax、Muse Spark Open 都是自訂授權），Qwen4-Max 更是旗艦直接回到閉源。開源的優勢集中在可自架、低價與特定任務（終端長任務、文件、embedding、TTS），閉源仍領先綜合推理、PR 品質與影像生成。
 
 這篇是地圖。每個家族的演化故事、架構細節、版本選擇指南，在各自的家族篇裡。
 
 ---
+
+## 更新紀錄
+
+- **2026-11-20**：同步 11 月的家族更新。「文字生成」表改為各家目前主力，加入 Muse、MiniMax、LongCat、Nemotron；「推理」改寫為推理已併回主線、用強度參數控制；「程式碼生成」的 Aider Polyglot 表（停在 2025 年的 GPT-5、Gemini 2.5 Pro 等模型）換成 Artificial Analysis 2026-11-20 的 Terminal-Bench 4.0 與 FrontierCode 2.0；「VLM」改用 Artificial Analysis 的 MMMU-Pro；新增「決策模型」小節；「Agent」與「整體來說」依新數據改寫，原本「開源在多數用途已追上或超越閉源」的結論改為距離在下半年拉開。影像、影片、3D、語音、音樂、Embedding、Rerank、OCR、翻譯各節仍是 2026-08 的資料，這次沒有重新查證。
+- 2026-08-24：初版。
 
 ## 參考資料
 
@@ -308,7 +326,9 @@ Function calling 不是一個獨立的模型類別，而是各大 LLM 的能力�
 - [OpenRouter Rankings](https://openrouter.ai/rankings) — AI model API 實際用量排名（截至 2026-08-23）
 - [Artificial Analysis](https://artificialanalysis.ai) — 品質、價格、速度綜合比較（文字 / 影像 / 影片 / 語音）
 - [LMArena](https://lmarena.ai) — 文字和影像模型的人類偏好 ELO 排名
-- [Aider LLM Leaderboards](https://aider.chat/docs/leaderboards/) — 跨語言 coding benchmark，附成本
+- [Artificial Analysis Models Leaderboard](https://artificialanalysis.ai/leaderboards/models) — Intelligence Index v5.0.1、Terminal-Bench 4.0、FrontierCode 2.0、MMMU-Pro（2026-11-20）
+- [Aider LLM Leaderboards](https://aider.chat/docs/leaderboards/) — 跨語言 coding benchmark，附成本（舊版本文的 coding 表來源）
+- [決策模型選型](/posts/tech/2026-10-22-ai-model-family-decision-models) — 本站
 - [HuggingFace Models](https://huggingface.co/models) — 開源模型下載量、likes、trending
 - [VBench](https://vchitect.github.io/VBench-project/) — 影片生成 16+18 維度學術評測
 - [MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) — Embedding 模型標準排名
