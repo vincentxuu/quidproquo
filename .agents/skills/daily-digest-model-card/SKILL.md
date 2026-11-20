@@ -216,6 +216,8 @@ query: "{model_name} benchmark results MMLU SWE-bench"
 max_results: 5
 ```
 
+**多欄 benchmark 表要對準欄位**：官方表頭常有合併儲存格（例如一個模型名底下分 1／2／4 loop、low／high effort 三欄，後面才接對照模型）。轉成 markdown 或抓摘要時欄位會錯開，把對照模型的分數讀成本模型的分數。遇到合併表頭或「欄數和表頭名數對不上」時，抓 README 原始碼（`https://huggingface.co/<org>/<model>/raw/main/README.md`）或 HTML，逐列數 `<td>` 對應哪個模型；寫進卡片前，確認每個分數的欄位名稱來自同一列表頭。（Nemotron Labs Dory 1.0 曾因此把 Qwen3.6-35B 的分數寫成 Dory 4-loop。）
+
 ---
 
 ## 輸出格式
