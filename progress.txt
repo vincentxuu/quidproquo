@@ -46,3 +46,4 @@ Recently completed
 Notes
 - Claude Code 系列寫作聖經在 docs/claude-code-series-guide.md。
 - agent-* projects: code complete, pending production observation windows. Details in docs/progress-archive.md; pending decisions in escalation-queue.md.
+- **通用分類研究追蹤 2026-11-15（research/watch-pool 接續並合併 main；Draft PR）**：自動 3 主題（climbing technique／crags／gear）18 個計畫請求全執行（Groundlane 為主；Petzl TW 頁 Groundlane 兩次逾時改 Exa fetch 並註記；YouTube 頁僅標題／描述、未看片，naruto kintoki 頻道清單未取得）；5 新來源／12 已知、18 筆搜尋寫回 pool，皆 metadata／片段級。archive：`.research/pool/runs/2026-11-15-091615-research-watch.json`。AI／tech 等類別 pool 尚無來源，未建任務。
